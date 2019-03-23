@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 03/21/2019
 ms.author: juliako
-ms.openlocfilehash: 247d72396d1737d568a89656c544bbe699f11e30
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 8f8af438d4034fc945a717fee0b720e3fe13cf56
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342397"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352009"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video ve ses dosyalarını analiz etme
 
@@ -25,7 +25,7 @@ Azure Media Services v3 Video Indexer AMS v3 Çözümleyicisi hazır (Bu makaled
 İçeriğinizi Media Services v3 hazır kullanarak çözümlemek için oluşturduğunuz bir **dönüştürme** ve gönderme bir **iş** bu hazır birini kullanır: [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) veya **AudioAnalyzerPreset**. Aşağıdaki makalede nasıl yapılacağı açıklanır **VideoAnalyzerPreset**: [Öğretici: Azure Media Services ile videoları analiz etme](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
-> Video veya Ses Çözümleyicisi önayarlarını kullanırken, hesabınızı 10 S3 Medya Ayrılmış Birimine sahip olacak şekilde ayarlamak için Azure portalı kullanın. Daha fazla bilgi için bkz. [Medya işlemeyi ölçeklendirme](../previous/media-services-scale-media-processing-overview.md).
+> Video veya Ses Çözümleyicisi önayarlarını kullanırken, hesabınızı 10 S3 Medya Ayrılmış Birimine sahip olacak şekilde ayarlamak için Azure portalı kullanın. Daha fazla bilgi için bkz. [Medya işlemeyi ölçeklendirme](media-reserved-units-cli-how-to.md).
 
 ## <a name="built-in-presets"></a>Yerleşik hazır
 

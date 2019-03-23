@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 402a2d6afc7b58d4dfc1c9fa67e354b4d157bd4c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310243"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370199"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory akıllı kilitleme
 
@@ -40,8 +40,8 @@ Akıllı kilitleme, saldırganlar tarafından kilitli şirket içi Active Direct
 
 Kullanırken [geçişli kimlik doğrulaması](../hybrid/how-to-connect-pta.md), emin olmanız gerekir:
 
-   * Azure AD kilitleme eşiği **daha az** Active Directory hesap kilitleme eşik değerinden. Böylece Active Directory hesap kilitleme eşiği en az iki veya üç kez Azure AD kilitleme eşik değerinden daha uzun değerleri ayarlayın. 
-   * Azure AD kilitleme süresi **saniye** olduğu **uzun** Active Directory süreden sonra hesap kilitleme sayacını sıfırla daha **dakika**.
+* Azure AD kilitleme eşiği **daha az** Active Directory hesap kilitleme eşik değerinden. Böylece Active Directory hesap kilitleme eşiği en az iki veya üç kez Azure AD kilitleme eşik değerinden daha uzun değerleri ayarlayın. 
+* Azure AD kilitleme süresi **saniye** olduğu **uzun** Active Directory süreden sonra hesap kilitleme sayacını sıfırla daha **dakika**.
 
 > [!IMPORTANT]
 > Şu anda bunlar akıllı kilitleme özelliğini tarafından kilitlenmiş, bir yönetici kullanıcıların bulut hesapları kilidi açılamıyor. Yönetici, kilitleme süresi dolmak üzere beklemeniz gerekir.
@@ -55,7 +55,7 @@ Kullanırken [geçişli kimlik doğrulaması](../hybrid/how-to-connect-pta.md), 
 3. Gözat **Bilgisayar Yapılandırması** > **ilkeleri** > **Windows ayarları** > **güvenlik ayarları**   >  **Hesap ilkeleri** > **hesap kilitleme ilkesi**.
 4. Doğrulayın, **hesap kilitleme eşiği** ve **sonra hesap kilitleme sayacını sıfırla** değerleri.
 
-![Bir Grup İlkesi nesnesi kullanarak şirket içi Active Directory hesap kilitleme ilkesi](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![Şirket içi Active Directory hesap kilitleme ilkesi](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Azure AD akıllı kilitleme değerleri yönetme
 
@@ -78,9 +78,7 @@ Akıllı kilitleme eşiği tetiklendiğinde, hesap kilitliyken şu iletiyi alır
 
 **Hesabınız yetkisiz kullanımı önlemek için geçici olarak kilitlendi. Daha sonra yeniden deneyin ve sorun devam ederse yöneticinizle iletişime geçin**
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure AD kullanarak kuruluşunuzdaki yanlış parolalar yasaklamak öğrenin.](howto-password-ban-bad.md)
-
-[Self Servis parola sıfırlamayı kullanıcılara kendi hesaplarının kilidini açmak izin verecek şekilde yapılandırın.](quickstart-sspr.md)
+* [Azure AD kullanarak kuruluşunuzdaki yanlış parolalar yasaklamak öğrenin.](howto-password-ban-bad.md)
+* [Self Servis parola sıfırlamayı kullanıcılara kendi hesaplarının kilidini açmak izin verecek şekilde yapılandırın.](quickstart-sspr.md)

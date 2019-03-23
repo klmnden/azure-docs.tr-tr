@@ -1,5 +1,5 @@
 ---
-title: Azure Log Analytics VM uzantısını sorunlarını giderme | Microsoft Docs
+title: Azure Log Analytics VM uzantısını Azure İzleyicisi'nde sorun giderme | Microsoft Docs
 description: Belirtiler, nedenleri ve Log Analytics VM uzantısı ile çözüm en sık karşılaşılan sorunlara yönelik Windows ve Linux Azure Vm'leri için açıklar.
 services: log-analytics
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.openlocfilehash: f2f50144e188a297468ac8ea8fc8891d2e4ec145
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 17a52cf17c62c930dc3922ded48d659f56016688
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106503"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370508"
 ---
-# <a name="troubleshooting-the-log-analytics-vm-extension"></a>Log Analytics VM uzantısı sorunlarını giderme
+# <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Log Analytics VM uzantısını Azure İzleyicisi'nde sorun giderme
 Bu makalede, Windows ve Linux'ta Microsoft Azure üzerinde çalışan sanal makineler için Log Analytics VM uzantısı ile karşılaşabilirsiniz ve bunların çözülmesine yönelik olası çözümler önerir hatalarını giderme hakkında Yardım sağlar.
 
 Uzantı durumu doğrulamak için Azure portalında aşağıdaki adımları gerçekleştirin.

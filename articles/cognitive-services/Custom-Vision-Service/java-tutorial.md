@@ -8,31 +8,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 10/31/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: f6695e1c141d329b3f3d4defe9f01d3a05355908
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 89683b0fe5d401a92dc8575fd1ddc81d74d594b6
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880317"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351159"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Hızlı Başlangıç: Java için özel görüntü işleme SDK'sı ile bir görüntü sınıflandırma projesi oluşturma
 
 Bu makalede, Özel Görüntü İşleme Java SDK'sını kullanarak görüntü sınıflandırma modeli oluşturmaya başlarken size yardımcı olacak bilgiler ve örnek kod sağlanır. Oluşturulduktan sonra etiketler ekleyebilir, görüntüleri karşıya yükleyebilir, projeyi eğitebilir, projenin varsayılan tahmin uç nokta URL’sini alabilir ve bir görüntüyü programlama yoluyla test etmek için uç noktayı kullanabilirsiniz. Kendi Java uygulamanızı oluştururken bu örneği şablon olarak kullanın. Kod _içermeyen_ bir sınıflandırma modeli oluşturma ve kullama işlemi yapmak istiyorsanız, [tarayıcı tabanlı kılavuz](getting-started-build-a-classifier.md) konusuna bakın.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 - Kendi seçtiğiniz bir Java IDE
 - [JDK 7 veya 8](https://aka.ms/azure-jdks) yüklenmiş olmalıdır.
 - Maven yüklenmiş olmalıdır
 
-
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Özel Görüntü İşleme SDK’sını ve örnek kodu alma
+
 Özel Görüntü İşleme kullanan bir Java uygulaması yazmak için Özel Görüntü İşleme maven paketlerine ihtiyacınız olacaktır. Bunlar indireceğiniz örnek projeye dahil edilmiştir, ama burada bunlara tek tek erişebilirsiniz.
 
 Maven merkezi deposundan Özel Görüntü İşleme SDK’sını yükleyebilirsiniz:
-* [Eğitim SDK’sı](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
-* [Tahmin SDK’sı](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
+
+- [Eğitim SDK’sı](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
+- [Tahmin SDK’sı](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
 [Bilişsel Hizmetler Java SDK'sı Örnekleri](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master) projesini kopyalayın veya indirin. **Vision/CustomVision/** klasörüne gidin.
 
@@ -49,7 +51,7 @@ $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 
 ## <a name="understand-the-code"></a>Kodu anlama
 
-Java IDE'nize `Vision/CustomVision` projesini yükleyin ve _CustomVisionSamples.java_ dosyasını açın. **runSample** yöntemini bulun ve **ObjectDetection_Sample** yöntem çağrısını açıklama haline getirin; bu yöntem, bu kılavuzun kapsamına girmeyen nesne algılama senaryosunu çalıştırır. **ImageClassification_Sample** yöntemi bu örneğin birincil işlevini gerçekleştirir; yöntemin tanımına gidin ve kodu inceleyin. 
+Java IDE'nize `Vision/CustomVision` projesini yükleyin ve _CustomVisionSamples.java_ dosyasını açın. **runSample** yöntemini bulun ve **ObjectDetection_Sample** yöntem çağrısını açıklama haline getirin; bu yöntem, bu kılavuzun kapsamına girmeyen nesne algılama senaryosunu çalıştırır. **ImageClassification_Sample** yöntemi bu örneğin birincil işlevini gerçekleştirir; yöntemin tanımına gidin ve kodu inceleyin.
 
 ### <a name="create-a-custom-vision-service-project"></a>Özel Görüntü İşleme Hizmeti projesi oluşturma
 
@@ -93,7 +95,7 @@ mvn compile exec:java
 
 Uygulamanın konsol çıkışı aşağıdaki metne benzer olmalıdır:
 
-```
+```console
 Creating project...
 Adding images...
 Adding image: hemlock_1.jpg

@@ -16,12 +16,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: aff9dade7fe0238c0ea8ccc3ae5bba57437c6f89
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339576"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349714"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure stack'teki kota türleri
 
@@ -40,7 +40,10 @@ ms.locfileid: "58339576"
 | Standart yönetilen disk maksimum kapasite (GB cinsinden) | 2048 | Bu konumda oluşturulabilen standart yönetilen diskler hizmetin maksimum kapasitesi. |
 | Premium yönetilen disk maksimum kapasite (GB cinsinden) | 2048 | Premium kapasite üst sınırı bu konumda oluşturulan disklerini yönetilen. |
 
-## <a name="storage-quota-types"></a>Depolama kota türleri
+> [!NOTE]  
+> Yönetilmeyen disk (sayfa blobları) parolalarınızdan kapasitesini yönetilen disk kota ayrı, depolama kota ayarlanması gerekir.
+
+## <a name="storage-quota-types"></a>Depolama kota türleri 
 
 | **Öğesi** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
@@ -48,7 +51,7 @@ ms.locfileid: "58339576"
 | Toplam depolama hesabı sayısı |20 |Bu konumda bir abonelik oluşturduğunuz depolama hesabı sayısı. |
 
 > [!NOTE]  
-> Uygulamanın, iki depolama kotası uygulanmadan önce saate kadar sürebilir.
+> Uygulamanın, iki depolama kotası uygulanmadan önce saate kadar sürebilir. Yönetilen disk kapasitesini en toplam depolama alanı kotadan ayrı olduğundan, işlem kota ayarlanması gerekir.
 
 ## <a name="network-quota-types"></a>Ağ kota türleri
 

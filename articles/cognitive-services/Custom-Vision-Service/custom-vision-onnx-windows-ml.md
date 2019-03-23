@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 03/21/2019
 ms.author: larryfr
-ms.openlocfilehash: 7f123187ea869931b0701fd9d68372deb0b272e1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: af1b96b4ab47053a6737893832b484372ed37e99
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879080"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351873"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Öğretici: Bir özel görüntü işleme ONNX modelden Windows ML (Önizleme) ile kullanma
 
@@ -51,7 +51,7 @@ Uygulama, genel bir Windows UWP uygulamasıdır. Bilgisayarınızdan bir görün
 
 1. Visual Studio’dan uygulamayı başlatmak için `F5` tuşunu kullanın. Geliştirici modunu etkinleştirmeniz istenebilir. Daha fazla bilgi için [Geliştirme için cihazınızı etkinleştirme](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) belgesine bakın.
 
-2. Uygulama başlatıldığında düğmeyi kullanarak puanlanacak bir görüntü seçin.
+1. Uygulama başlatıldığında düğmeyi kullanarak puanlanacak bir görüntü seçin.
 
 ## <a name="use-your-own-model"></a>Kendi modelinizi kullanma
 
@@ -65,8 +65,8 @@ Kendi modelinizi kullanmak için aşağıdaki adımları uygulayın:
 
 1. Çözüm Gezgini'nde Varlıklar klasörüne sağ tıklayın ve __Var Olan Öğe Ekle__'yi seçin. ONNX dosyasını seçin.
 
-1. Çözüm Gezgini'nde Varlıklar klasöründen ONNX dosyasını seçin. Dosya için aşağıdaki özellikleri değiştirin: 
-    
+1. Çözüm Gezgini'nde Varlıklar klasöründen ONNX dosyasını seçin. Dosya için aşağıdaki özellikleri değiştirin:
+
     * __Derleme Eylemi__ -> __İçerik__
     * __Çıkış Dizinine Kopyala__ -> __Daha yeniyse kopyala__
 

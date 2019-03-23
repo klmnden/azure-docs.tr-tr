@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 22b070e6d70208057c85ad6a2322cc440d12a0fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ce01301455c7abcd26006e622fcfbb8127e1c511
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008216"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372497"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Azure Data Lake depolama Gen2 Güvenlik Kılavuzu
 
@@ -134,7 +134,7 @@ Veri düzlemi güvenliği Azure Depolama'da depolanan veri nesnelerini güvenli 
 Azure depolama, veri nesnelerine erişimi yetkilendirmek için üç seçeneğiniz de dahil olmak üzere:
 
 - Dosya sistemleri ve kuyruklara erişim yetkisi vermek için Azure AD kullanarak. Azure AD yetkilendirme, kodunuzda gizli dizileri depolamak için gereken kaldırmayı da için diğer yaklaşımlar avantaj sağlar. Daha fazla bilgi için [erişim için Azure depolama, Azure Active Directory'yi kullanarak kimlik doğrulaması](storage-auth-aad.md). 
-- Paylaşılan anahtar aracılığıyla erişim yetkisi vermek için depolama hesabı anahtarlarını kullanma. Microsoft, Azure AD, bunun yerine, mümkün olduğunda kullanarak önerir. Bu nedenle, depolama hesabı anahtarları, uygulamanızda depolama paylaşılan anahtar ile yetkilendirme gerektirir. Üretim uygulamaları için ya da Azure tabloları ve dosyalarına erişimi yetkilendirmek için Azure AD tümleştirmesi Önizleme aşamasındayken paylaşılan anahtar'ı kullanmaya devam edin.
+- Paylaşılan anahtar aracılığıyla erişim yetkisi vermek için depolama hesabı anahtarlarını kullanma. Microsoft, Azure AD, bunun yerine, mümkün olduğunda kullanarak önerir. Bu nedenle, depolama hesabı anahtarları, uygulamanızda depolama paylaşılan anahtar ile yetkilendirme gerektirir.
 - Belirli bir süre için belirli veri nesnelerini denetimli izinler vermek için paylaşılan erişim imzaları kullanma.
 
 Yetkilendirme aracılığıyla erişim sınırlama yanı sıra, ayrıca kullanabileceğiniz [güvenlik duvarları ve sanal ağlar](storage-network-security.md) ağ kurallara göre depolama hesabı erişimini sınırlamak için.  Yalnızca belirli Azure sanal ağları ya da genel internet erişimi vermek için ve genel internet trafiği engellemek bu yaklaşım etkinleştirir erişim IP adresi aralıkları.

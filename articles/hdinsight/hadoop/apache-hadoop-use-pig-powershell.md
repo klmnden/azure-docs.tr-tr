@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 69a45a0c2c21ffafde8a4b366e1f3e90b7c8f59a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bb00f6ccd22be75a235d9cd6fc174741207a76e0
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012607"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359169"
 ---
 # <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>HDInsight ile Apache Pig işleri çalıştırmak için Azure PowerShell'i kullanma
 
@@ -26,6 +26,8 @@ Bu belgede, HDInsight kümesinde bir Apache Hadoop için Apache Pig işleri gön
 > Bu belgede ayrıntılı açıklamasını örneklerde kullanılan Pig Latin açıklamaları neler sağlamaz. Bu örnekte kullanılan Pig Latin hakkında daha fazla bilgi için bkz. [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](hdinsight-use-pig.md).
 
 ## <a id="prereq"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * **Bir Azure HDInsight kümesi**
 
@@ -40,11 +42,11 @@ Azure PowerShell sağlar *cmdlet'leri* uzaktan üzerinde HDInsight Pig işleri �
 
 Pig işleri çalıştıran bir uzak HDInsight kümesinde aşağıdaki cmdlet'ler kullanılır:
 
-* **Connect-AzureRmAccount**: Azure PowerShell, Azure aboneliğiniz için kimlik doğrulaması yapar.
-* **Yeni AzureRmHDInsightPigJobDefinition**: Oluşturur bir *iş tanımı* belirtilen Pig Latin açıklamaları kullanarak.
-* **Başlangıç AzureRmHDInsightJob**: HDInsight için iş tanımını gönderir ve bir iş başlatılır. A *iş* nesne döndürülür.
-* **Bekleme AzureRmHDInsightJob**: İş nesnesi, iş durumunu denetlemek için kullanır. İşi tamamlandı ya da bekleme zamanı aşıldı kadar bekler.
-* **Get-AzureRmHDInsightJobOutput**: İşin çıktısını almak için kullanılır.
+* **Connect AzAccount**: Azure PowerShell, Azure aboneliğiniz için kimlik doğrulaması yapar.
+* **Yeni AzHDInsightPigJobDefinition**: Oluşturur bir *iş tanımı* belirtilen Pig Latin açıklamaları kullanarak.
+* **Başlangıç AzHDInsightJob**: HDInsight için iş tanımını gönderir ve bir iş başlatılır. A *iş* nesne döndürülür.
+* **Bekleme AzHDInsightJob**: İş nesnesi, iş durumunu denetlemek için kullanır. İşi tamamlandı ya da bekleme zamanı aşıldı kadar bekler.
+* **Get-AzHDInsightJobOutput**: İşin çıktısını almak için kullanılır.
 
 Aşağıdaki adımlarda, HDInsight kümesinde bir işi çalıştırmak için bu cmdlet'leri kullanmaya nasıl ekleyebileceğiniz gösterilmektedir.
 
@@ -76,7 +78,7 @@ Aşağıdaki adımlarda, HDInsight kümesinde bir işi çalıştırmak için bu 
 
     # Print the output of the Pig job.
     Write-Host "Display the standard error output ..." -ForegroundColor Green
-    Get-AzureRmHDInsightJobOutput `
+    Get-AzHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $pigJob.JobId `
             -HttpCredential $creds `

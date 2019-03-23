@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43c21fb3c3e7c00ecdbadb1e730ba5ce303dc869
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 36172850c345fc190c3326413f2883dc2b070e98
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312198"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58367907"
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu
 
@@ -29,9 +29,10 @@ Uygulamalara yönelik Windows kimlik doğrulamasını etkinleştirmek ve yapıla
 > [!NOTE]
 > Bu özellik, Windows Server 2012 R2’de Terminal Hizmetleri’ni güvenli hale getirmek için desteklenmemektedir.
 
-## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Bir uygulamayı Windows Kimlik Doğrulaması ile güvenli hale getirmek için aşağıdaki yordamı kullanın.
+## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Bir uygulamayı Windows kimlik doğrulaması ile güvenli hale getirmek için aşağıdaki yordamı kullanın.
+
 1. Azure Multi-Factor Authentication Sunucusu’nda Windows Kimlik Doğrulaması simgesine tıklayın.
-   ![Windows Kimlik Doğrulaması](./media/howto-mfaserver-windows/windowsauth.png)
+   ![MFA Sunucusu'nda Windows kimlik doğrulaması](./media/howto-mfaserver-windows/windowsauth.png)
 2. **Windows Kimlik Doğrulamasını Etkinleştir** onay kutusunu işaretleyin. Varsayılan olarak, bu kutu işaretlenmemiştir.
 3. Uygulamalar sekmesi yöneticinin Windows Kimlik Doğrulaması için bir veya daha fazla uygulamayı yapılandırmasını sağlar.
 4. Bir sunucu veya uygulama seçin – sunucusu/uygulama etkin olup olmadığını belirtin. **Tamam** düğmesine tıklayın.

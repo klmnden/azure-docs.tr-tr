@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 297d32311b6b697b0141488878d170b3f2f4c359
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 81519a9452bf578c2640b547b2102b8e162e2878
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315496"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369794"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Self Servis parola sıfırlama sorunlarını giderme
 
@@ -35,7 +35,6 @@ Azure Active Directory (Azure AD) Self Servis parola sıfırlama (SSPR) ile ilgi
 | UserNotProperlyConfigured 14 = | Gerekli bilgileri hesabınızdan eksik olduğundan şu anda parolanızı sıfırlayamazsınız. özür dileriz. Bu durumu çözmek için gerçekleştirebileceğiniz başka bir eylem yoktur. Lütfen yöneticisine başvurun ve parolanız sizin için sıfırlamasını isteyin. Hesabınıza yeniden erişiminiz sonra gerekli bilgileri kaydetmek gerekir. Bilgileri kaydetmek için adımları izleyin. [Self Servis parola sıfırlama için kaydolmasını](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-reset-register) makalesi. | SSPR_0014: Ek güvenlik bilgileri, parolanızı sıfırlamak için gereklidir. Devam etmek için yöneticinize başvurun ve parolanızı sıfırlamasını isteyin. Hesabınıza erişimi oluşturduktan sonra ek güvenlik bilgileri kaydedebilirsiniz https://aka.ms/ssprsetup. Yöneticiniz ek güvenlik bilgileri hesabınıza içindeki adımları izleyerek ekleyebilirsiniz [ayarlama ve parola sıfırlama için okunan kimlik doğrulama verilerini](howto-sspr-authenticationdata.md). |
 | OnPremisesAdminActionRequired 29 = | Biz parolanızı şu anda kuruluşunuzun parola sıfırlama yapılandırmasında bir sorun nedeniyle sıfırlayamazsınız özür dileriz. Bu durumu çözmek için gerçekleştirebileceğiniz başka bir eylem yoktur. Lütfen yöneticinize başvurarak durumu araştırmasını isteyin. Olası sorun hakkında daha fazla bilgi için bkz: [parola geri yazma sorunlarını gidermek](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback). | SSPR_0029: Şirket içi yapılandırmanızdaki bir hata nedeniyle, parolanızı sıfırlayamıyoruz belirleyemiyoruz. Lütfen yöneticinize başvurarak durumu araştırmasını isteyin. |
 | OnPremisesConnectivityError = 30 | Biz parolanızı şu anda kuruluşunuzun bağlantı sorunları nedeniyle sıfırlayamazsınız özür dileriz. Şu anda herhangi bir eylem yoktur, ancak daha sonra yeniden denediğinizde sorun çözülmüş olabilir. Sorun devam ederse lütfen yöneticinize başvurun ve durumu araştırmasını isteyin. Bağlantı sorunları hakkında daha fazla bilgi için bkz: [parola geri yazma bağlantısı sorunlarını giderme](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity). | SSPR_0030: Biz şirket içi ortamınızla kurulan bağlantı kötü olduğundan, parolanızı sıfırlayamazsınız. Yöneticinize başvurarak durumu araştırmasını isteyin.|
-
 
 ## <a name="troubleshoot-the-password-reset-configuration-in-the-azure-portal"></a>Azure portalında parola sıfırlama yapılandırma sorunlarını giderme
 
@@ -168,8 +167,8 @@ En yaygın hata noktasını, güvenlik duvarının ve veya proxy bağlantı nokt
 
 Azure AD Connect sürümü 1.1.443.0 ve üstü, giden HTTPS aşağıdakilere erişim:
 
-   - passwordreset.microsoftonline.com
-   - servicebus.Windows.NET
+* passwordreset.microsoftonline.com
+* servicebus.Windows.NET
 
 Daha fazla ayrıntı için güncelleştirilmiş listesini başvuru [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653) sonraki Pazartesi yürürlüğe koymak ve her Çarşamba günü güncelleştirildi.
 
@@ -184,7 +183,7 @@ Bağlantı sorunları veya hizmeti ile geçici diğer sorunları gidermek için 
 1. Aranacak **Microsoft Azure AD eşitleme** girişi.
 1. Servis girişine sağ tıklayın, **yeniden**ve işlemin tamamlanmasını bekleyin.
 
-   ![Azure AD eşitleme hizmetini yeniden başlatın][Service restart]
+   ![GUI kullanarak Azure AD eşitleme hizmetini yeniden başlatın][Service restart]
 
 Bu adımlar, bulut hizmeti, bağlantıyı yeniden kurun ve herhangi bir kesinti yaşıyor olabilir çözümleyin. ADSync hizmeti yeniden başlatmayı sorununuzu çözmezse, devre dışı bırakın ve ardından parola geri yazma özelliğini yeniden etkinleştirmek aşağıdakileri öneririz.
 
@@ -215,7 +214,6 @@ Yalnızca, daha önce açıklanan ilk iki adımını denemeden sonra bu adımı 
 
 > [!WARNING]
 > Kullanıma hazır eşitleme kurallarını özelleştirdiyseniz *yükseltme işlemine devam etmeden önce yedeklemek ve işiniz bittiğinde sonra sonra el ile bunları yeniden dağıtın.*
->
 
 1. Azure AD Connect'ten en son sürümünü indirin [Microsoft Download Center](https://go.microsoft.com/fwlink/?LinkId=615771).
 1. Azure AD Connect'in yüklü olduğundan, Azure AD Connect yüklemenizin en son sürüme güncelleştirmek için bir yerinde yükseltme gerçekleştirmek için gerekir.
@@ -231,33 +229,27 @@ Azure AD Connect'in, Active Directory gerektirir **parolayı Sıfırla** parola 
 
 1. Azure AD Connect sunucusu için oturum açın ve başlangıç **Eşitleme Hizmeti Yöneticisi** seçerek **Başlat** > **eşitleme hizmeti**.
 1. Altında **Bağlayıcılar** sekmesinde, şirket içi seçin **Active Directory Domain Services** bağlayıcı tıklayın ve ardından **özellikleri**.  
-   ![Etkili izne - 2. adım](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+   ![Eşitleme Hizmeti Yöneticisi özelliklerini düzenlemek nasıl gösteriliyor](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
 1. Açılır pencerede seçin **Active Directory ormanına Bağlan** ve Not **kullanıcı adı** özelliği. Bu özellik, dizin eşitlemeyi gerçekleştirmek için Azure AD Connect tarafından kullanılan AD DS hesabı olur. Parola geri yazma gerçekleştirmek Azure AD Connect için AD DS hesap parolasını izni sıfırlamanız gerekir.  
-   
-   ![Etkili izne - 3. adım](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
+
+   ![Eşitleme hizmeti Active Directory kullanıcı hesabı bulma](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
 1. Bir şirket içi etki alanı denetleyicisine oturum açın ve başlangıç **Active Directory Kullanıcıları ve Bilgisayarları** uygulama.
 1. Seçin **görünümü** emin **Gelişmiş Özellikler** seçeneği etkinleştirilir.  
-   
-   ![Etkili izne - 5. adım](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
+
+   ![Active Directory Kullanıcıları ve bilgisayarları Gelişmiş özellikleri göster](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
 1. Doğrulamak istediğiniz Active Directory kullanıcı hesabı için bakın. Hesap adına sağ tıklayıp **özellikleri**.  
-   
-   ![Etkili izne - 6. adım](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
-
 1. Açılır pencerede Git **güvenlik** sekmenize **Gelişmiş**.  
-   
-   ![Etkili izne - 7. adım](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
-   
 1. İçinde **yönetici için Gelişmiş güvenlik ayarları** açılır pencere, Git **etkili erişim** sekmesi.
 1. Seçin **bir kullanıcı seçin**, Azure AD tarafından kullanılan AD DS hesabı seçin (bkz. 3. adım) bağlanın ve ardından **etkili erişimi görüntüle**.
 
-   ![Etkili izne - 9. adım](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
+   ![Eşitleme hesabı gösteren etkili erişim sekmesi](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
 1. Ekranı aşağı kaydırın ve Ara **parolayı Sıfırla**. Giriş bir onay işareti varsa, AD DS hesabı seçili Active Directory kullanıcı hesabının parolasını sıfırlama izni vardır.  
-   
-   ![Etkili izne - 10. adım](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
+
+   ![Eşitleme hesabı parola sıfırlama izni olduğunu doğrulama](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
 ## <a name="azure-ad-forums"></a>Azure AD forumları
 
@@ -272,17 +264,17 @@ Düzgün bir şekilde yardımcı olması için bir servis talebi açılırken m�
 * **Genel hata açıklamasını**: Hata nedir? Bildirildi davranışı neydi? Nasıl şu hatayı yeniden oluşturabilirsiniz? Mümkün olduğu kadar ayrıntı verin.
 * **Sayfa**: Hangi sayfa were, hatanın ne zaman fark Şunları kullanıyorsanız URL ve sayfasının ekran görüntüsü içerir.
 * **Destek kodu**: Kullanıcı hatası gördünüz zaman oluşturan destek kodunu neydi?
-  * Bu kodu bulmak için hatayı yeniden oluşturmaya ve ardından **destek kod** bağlantı ekranın alt kısmında ve sonuçları GUID destek mühendisine göndermek.
+   * Bu kodu bulmak için hatayı yeniden oluşturmaya ve ardından **destek kod** bağlantı ekranın alt kısmında ve sonuçları GUID destek mühendisine göndermek.
 
-    ![Ekranın alt kısmındaki destek kod bulma][Support code]
+   ![Ekranın alt kısmındaki destek kod bulma][Support code]
 
   * En altta bir destek kodu olmadan bir sayfa üzerinde kullanıyorsanız, F12 ve SID ve CID ara seçin ve bu iki sonucu destek mühendisine göndermek.
 * **Tarih, saat ve saat dilimi**: Kesin tarih ve saat içeren *saat dilimi ile* , bir hata oluştu.
 * **Kullanıcı Kimliği**: Kimin hata gördüğünüz kullanıcı neydi? Bir örnek *kullanıcı\@contoso.com*.
-    * Bu, bir Federasyon kullanıcısı mı?
-    * Bu, geçişli kimlik doğrulaması kullanıcı mı?
-    * Bu, bir parola karması eşitlenmiş kullanıcı mı?
-    * Bu, bir yalnızca bulut kullanıcı mı?
+   * Bu, bir Federasyon kullanıcısı mı?
+   * Bu, geçişli kimlik doğrulaması kullanıcı mı?
+   * Bu, bir parola karması eşitlenmiş kullanıcı mı?
+   * Bu, bir yalnızca bulut kullanıcı mı?
 * **Lisanslama**: Kullanıcıya atanmış bir Azure AD Premium veya Azure AD temel lisansı var mı?
 * **Uygulama olay günlüğüne**: Parola geri yazma özelliğini kullanıyorsanız ve şirket içi altyapınızı hatası ise, uygulama olay günlüğü Azure AD Connect sunucusundan sıkıştırılmış bir kopyasını içerir.
 

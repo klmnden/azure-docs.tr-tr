@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1e55552e238e16f2221b138b6e12afa5635d2ab2
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d248db787db1e3945fb632c6770d45e4bf9a8f02
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202682"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361005"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>HDInsight ile verilere erişimi kısıtlamak için Azure depolama paylaşılan erişim imzaları kullanma
 
@@ -27,6 +27,8 @@ HDInsight kümesi ile ilişkili Azure depolama hesaplarında veri tam erişimi v
 > HDInsight, küme için varsayılan depolama alanı için tam erişimi olmalıdır.
 
 ## <a name="requirements"></a>Gereksinimler
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * Bir Azure aboneliği
 * C# veya Python. C# kod örneği, bir Visual Studio çözümü olarak sağlanır.
@@ -160,12 +162,12 @@ SAS'ı kullanan bir HDInsight kümesi oluşturmanın bir örneği yer aldığı 
 1. İsteminde, Azure aboneliğinize kimliğini doğrulamak için aşağıdaki komutu kullanın:
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
     İstendiğinde, Hesapla Azure aboneliğiniz için oturum açın.
 
-    Hesabınız birden çok Azure aboneliği ile ilişkili ise, kullanmanız gerekebilir `Select-AzureRmSubscription` kullanmak istediğiniz aboneliği seçmek için.
+    Hesabınız birden çok Azure aboneliği ile ilişkili ise, kullanmanız gerekebilir `Select-AzSubscription` kullanmak istediğiniz aboneliği seçmek için.
 
 4. İsteminde dizinleri `CreateCluster` HDInsightSAS.ps1 dosyasını içeren dizin. Ardından betiği çalıştırmak için aşağıdaki komutu kullanın
 
@@ -273,11 +275,11 @@ Kümeye bağlandıktan sonra SAS depolama hesabına yalnızca okuma ve liste ö�
 
 **Belirtiler**: PowerShell betiğini kullanarak bir kümeyi oluştururken, aşağıdaki hata iletisini alabilirsiniz:
 
-    New-AzureRmHDInsightCluster : A task was canceled.
+    New-AzHDInsightCluster : A task was canceled.
     At C:\Users\larryfr\Documents\GitHub\hdinsight-azure-storage-sas\CreateCluster\HDInsightSAS.ps1:62 char:5
-    +     New-AzureRmHDInsightCluster `
+    +     New-AzHDInsightCluster `
     +     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        + CategoryInfo          : NotSpecified: (:) [New-AzureRmHDInsightCluster], CloudException
+        + CategoryInfo          : NotSpecified: (:) [New-AzHDInsightCluster], CloudException
         + FullyQualifiedErrorId : Hyak.Common.CloudException,Microsoft.Azure.Commands.HDInsight.NewAzureHDInsightClusterCommand
 
 **Neden**: Bir parola (için Linux tabanlı kümeler) veya küme için yönetici/HTTP kullanıcısı için SSH kullanıcısı kullanıyorsanız bu hata oluşabilir.

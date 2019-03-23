@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f36ce51a9f385933cbc21e27280828b0ff0e43e2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58016693"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395688"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure'da hangi disk türleri mevcuttur?
 
@@ -27,9 +27,9 @@ Aşağıdaki tabloda, kullanacağınız seçeneğe karar vermenize yardımcı ol
 |---------|---------|---------|---------|---------|
 |Disk türü   |SSD   |SSD   |SSD   |HDD   |
 |Senaryo   |SAP HANA, en çok katmanı veritabanları (örneğin, SQL, Oracle gibi) ve diğer işlem yoğunluklu iş yükleri gibi g/ç yoğunluklu iş yükleri.   |Üretim ve performansa duyarlı iş yükleri   |Web sunucuları, az kullanılan kurumsal uygulamalar ve geliştirme/test   |Yedekleme, kritik olmayan, seyrek erişim   |
-|Disk boyutu   |65.536 gibibayt (GiB) (Önizleme)   |4.095 giB (GA), 32.767 GiB (Önizleme)    |4.095 (GA) GiB 32.767 GiB (Önizleme)   |4.095 giB (GA), 32.767 GiB (Önizleme)   |
-|En fazla aktarım hızı   |2. 000'mib / sn (Önizleme)   |250 (GA) MiB/sn, 750 MiB/sn (Önizleme)   |60 MiB/sn (GA), 500 MiB/sn (Önizleme)   |60 Mib/sn (GA), 500 MiB/sn (Önizleme)   |
-|Maks. IOPS   |160,000 (Önizleme)   |7500 (GA) 20.000 (Önizleme)   |500 (GA), 2.000 (Önizleme)   |500 (GA), 2.000 (Önizleme)   |
+|Disk boyutu   |65.536 gibibayt (GiB) (Önizleme)   |32.767 giB    |32.767 giB   |32.767 giB   |
+|En fazla aktarım hızı   |2. 000'mib / sn (Önizleme)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
+|Maks. IOPS   |160,000 (Önizleme)   |20.000   |6,000   |2,000   |
 
 ## <a name="ultra-ssd-preview"></a>Ultra yüksek SSD (Önizleme)
 

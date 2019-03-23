@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f3d4bfa7d8ffda1ab2789927d03a777fab0ed89c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 365264d40554f45533e2ddf0aeb9d85f3e8f8d2d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281590"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370627"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Azure Container ınstances'da bir Azure dosya paylaşımını bağlama
 
@@ -70,7 +70,7 @@ Bir kapsayıcıdaki bir birimi olarak Azure dosya paylaşımını bağlayabilmen
 az container create \
     --resource-group $ACI_PERS_RESOURCE_GROUP \
     --name hellofiles \
-    --image microsoft/aci-hellofiles \
+    --image mcr.microsoft.com/azuredocs/aci-hellofiles \
     --dns-name-label aci-demo \
     --ports 80 \
     --azure-file-volume-account-name $ACI_PERS_STORAGE_ACCOUNT_NAME \
@@ -83,7 +83,7 @@ az container create \
 
 ## <a name="manage-files-in-mounted-volume"></a>Takılan birimin dosyalarını yönetme
 
-Kapsayıcı başlatıldığında sonra aracılığıyla dağıtılan basit web uygulaması kullanabilirsiniz [Acı/microsoft-hellofiles] [ aci-hellofiles] küçük metin dosyaları, belirtilen bağlama yolu Azure dosya paylaşımını oluşturmak için görüntü. Web uygulaması'nın tam etki alanı adı (FQDN) ile elde [az container show] [ az-container-show] komutu:
+Kapsayıcı başlatıldığında sonra Microsoft dağıtılan basit web uygulaması kullanabilirsiniz [Acı hellofiles] [ aci-hellofiles] küçük metin dosyaları, belirtilen bağlama yolu Azure dosya paylaşımını oluşturmak için görüntü. Web uygulaması'nın tam etki alanı adı (FQDN) ile elde [az container show] [ az-container-show] komutu:
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn
@@ -140,7 +140,7 @@ Azure Container ınstances'da diğer birim türleri bağlama işlemleri gerçekl
 * [Azure Container ınstances'da bir gizli birimi](container-instances-volume-secret.md)
 
 <!-- LINKS - External -->
-[aci-hellofiles]: https://hub.docker.com/r/microsoft/aci-hellofiles/
+[aci-hellofiles]: https://hub.docker.com/_/microsoft-azuredocs-aci-hellofiles 
 [portal]: https://portal.azure.com
 [storage-explorer]: https://storageexplorer.com
 

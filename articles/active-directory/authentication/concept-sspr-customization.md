@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a77c6ce205c40b5814f9b26f9099d868d434d3ce
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316465"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369233"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Azure AD Self Servis parola sıfırlama işlevselliği özelleştirme
 
@@ -26,12 +26,12 @@ Self Servis parola sıfırlama (SSPR) dağıtmak için Azure Active directory (A
 
 SSPR etkin değilse, kullanıcılar sıfırlama portalı parola bir "Yöneticinize başvurun" bağlantısını çözümlenmedi. Bir kullanıcı bu bağlantıyı seçerse, ya da:
 
-   * Yöneticiler e-posta gönderir ve kullanıcının parolasını değiştirme konusunda yardım almak için ister.
-   * Kullanıcılarınızı, Yardım için belirttiğiniz URL gönderir.
+* Yöneticiler e-posta gönderir ve kullanıcının parolasını değiştirme konusunda yardım almak için ister.
+* Kullanıcılarınızı, Yardım için belirttiğiniz URL gönderir.
 
 Bu kişi için kullanıcılarınızın destek soruları için zaten kullandığı bir e-posta adresi veya Web sitesine ayarlamanızı öneririz.
 
-![lgili kişi][Contact]
+![Yöneticisine gönderilen e-posta sıfırlamak için örnek istek][Contact]
 
 Aşağıdaki sırayla şu alıcılara iletişim e-posta gönderilir:
 
@@ -68,8 +68,8 @@ Seçtiğiniz grafikler aşağıdaki durumlarda gösterilir:
 
 * Bir kullanıcı, kullanıcı adlarını girdikten sonra
 * Kullanıcı özelleştirilmiş URL'ye erişirse:
-    * Geçirerek `whr` parametre parola sıfırlama sayfasına, gibi `https://login.microsoftonline.com/?whr=contoso.com`
-    * Geçirerek `username` parametre parola sıfırlama sayfasına, gibi `https://login.microsoftonline.com/?username=admin@contoso.com`
+   * Geçirerek `whr` parametre parola sıfırlama sayfasına, gibi `https://login.microsoftonline.com/?whr=contoso.com`
+   * Geçirerek `username` parametre parola sıfırlama sayfasına, gibi `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Şirket markası makalesinde yapılandırma konusunda bilgi [şirket Azure AD'de oturum açma sayfanız için markası ekleme](../fundamentals/customize-branding.md).
 

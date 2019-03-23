@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 3d187851fda9054bbfbae245ef34440b66ad017e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: bd760fca20a602127e7d33913547dcb2c6bc95f6
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309324"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351576"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Log analytics'e Azure tanılama günlükleri
 
@@ -100,6 +100,39 @@ Tanılama günlüğüne olarak geçirilen JSON dizisi sözlükleri ekleyerek ek 
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>Log analytics'te verileri nasıl sorgu?
 
 Portalında veya Gelişmiş analiz deneyimi Log analytics'in bir parçası olarak günlük arama dikey penceresinde, günlük yönetimi çözümü AzureDiagnostics tablonun altında bir parçası olarak tanılama günlükleri sorgulayabilir. Ayrıca [Azure kaynakları için çeşitli çözümler](../../azure-monitor/insights/solutions.md) günlük verileri anında Öngörüler Log Analytics'e gönderme, alma için yükleyebilirsiniz.
+
+### <a name="known-limitation-column-limit-in-azurediagnostics"></a>Sınırlama bilinen: AzureDiagnostics sütun sınırı
+Veri türleri gönderilen tüm aynı tabloya birçok kaynağa göndermek için (_AzureDiagnostics_), bu tablonun şeması şemaları toplanmakta olan tüm farklı veri türleri Süper kümesidir. Örneğin, aşağıdaki veri türleri koleksiyonu için tanılama ayarları oluşturduysanız, tümü aynı çalışma alanına gönderilen:
+- Denetim günlükleri, kaynak (A, B ve C sütunlardan oluşan bir şemaya sahip) 1  
+- Kaynak (D, E ve F sütunlardan oluşan bir şemaya sahip) 2 hata günlükleri  
+- Veri akış günlüklerini kaynak 3 (sütunları G, H ve ben oluşan bir şemaya sahip)  
+ 
+AzureDiagnostics tabloda bazı örnek verilerle şu şekilde görünür:  
+ 
+| ResourceProvider | Kategori | A | B | C | D | E | F | G | H | I |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| Microsoft.Resource1 | AuditLogs | x1 | Y1 | z1 |
+| Microsoft.Resource2 | Günlüklerini | | | | q1 | W1 | e1 |
+| Microsoft.Resource3 | DataFlowLogs | | | | | | | J1 | K1 | L1|
+| Microsoft.Resource2 | Günlüklerini | | | | q2 | w2 | E2 |
+| Microsoft.Resource3 | DataFlowLogs | | | | | | | J3 | K3 | L3|
+| Microsoft.Resource1 | AuditLogs | x5 | Y5 | z5 |
+| ... |
+ 
+500'den fazla sütun olmaması herhangi belirli Azure günlüğü tablosu açık bir sınırı yoktur. Bu sınıra ulaşıldıktan sonra ilk 500 dışında herhangi bir sütun ile verileri içeren herhangi bir satır alma zamanında bırakılır. AzureDiagnostics belirli açık olması için bu sınır etkilenen tablodur. Bu genellikle ya da çok çeşitli veri kaynaklarından gönderilir çünkü aynı çalışma alanına veya birkaç çok ayrıntılı veri kaynakları aynı çalışma alanına gönderilen olur. 
+ 
+#### <a name="azure-data-factory"></a>Azure Data Factory  
+Azure Data Factory, çok ayrıntılı günlükleri, birtakım nedeniyle bu sınırı tarafından etkilenmiş özellikle bilinen bir kaynaktır. Özellikle:  
+- *Herhangi bir etkinlik, işlem hattındaki karşı tanımlanan kullanıcı parametreleri*: etkinliklere karşı her benzersiz olarak adlandırılmış kullanıcı parametresi için oluşturulan yeni bir sütun olur. 
+- *Etkinlik giriş ve çıkışları*: Bu etkinliğin etkinlik değişir ve ayrıntılı doğasını nedeniyle, büyük bir miktarını oluşturur. 
+ 
+Olarak daha geniş geçici çözüm teklifleri ile aşağıdaki, bu günlükler, çalışma alanlarında toplanmakta olan diğer günlük türlerini etkileyen olasılığını en aza indirmek için kendi çalışma alanına ADF günlükleri yalıtmak için önerilir. Mid-Nisan 2019 tarafından Azure Data Factory için kullanılabilir günlükleri seçkin isteriz.
+ 
+#### <a name="workarounds"></a>Geçici Çözümler
+500-sütun sınırını tanımlandı kadar kısa vadede, ayrıntılı veri türleri limitini aştıktan olasılığını azaltmak için ayrı çalışma alanları halinde ayırmak önerilir.
+ 
+Uzun vadeli, Azure tanılama uzağa birleşik, seyrek bir şema her veri türü başına tek tek tablolar taşınmasını; dinamik türler için destek ile eşlendiğinde, bu Azure tanılama mekanizma aracılığıyla Azure günlüklerine gelen veri kullanılabilirliğini önemli ölçüde artırır. Zaten bu seçim Azure kaynak türlerini, örneğin gördüğünüz [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) veya [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) günlükleri. Lütfen Azure üzerinde bu seçkin günlükleri destekleyen yeni kaynak türleri hakkında daha fazla haber arayın [Azure güncelleştirmeleri](https://azure.microsoft.com/updates/) blogu!
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

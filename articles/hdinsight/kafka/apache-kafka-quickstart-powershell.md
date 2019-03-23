@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 5e636617a61de3c2f8e3dd891b205c17caaaf454
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 42384d3ef025640e302ef8173a25965580784319
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090381"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361209"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Hızlı Başlangıç: HDInsight kümesi üzerinde Apache Kafka oluşturma
 
@@ -31,9 +31,11 @@ Bu hızlı başlangıçta, Azure PowerShell kullanarak [Apache Kafka](https://ka
 
 ## <a name="prerequisites"></a>Önkoşullar
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-* Azure PowerShell. Daha fazla bilgi için [Azure PowerShell’i Yükleme ve Yapılandırma](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) belgesine bakın.
+* Azure PowerShell. Daha fazla bilgi için [Azure PowerShell’i Yükleme ve Yapılandırma](https://docs.microsoft.com/powershell/azure/install-az-ps) belgesine bakın.
 
 * Bir SSH istemcisi. Bu belgede yer alan adımlarda, kümeye bağlanmak için SSH kullanılır.
 
@@ -50,54 +52,54 @@ Bu hızlı başlangıçta, Azure PowerShell kullanarak [Apache Kafka](https://ka
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-`Login-AzureRmAccount` cmdlet’i ile Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
+`Login-AzAccount` cmdlet’i ile Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
 
 ```powershell
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
-[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) ile yeni bir Azure kaynak grubu oluşturun. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnekte, adınız ve konumunuz istenir, daha sonra yeni bir kaynak grubu oluşturulur:
+Bir Azure kaynak grubu oluşturun [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnekte, adınız ve konumunuz istenir, daha sonra yeni bir kaynak grubu oluşturulur:
 
 ```powershell
 $resourceGroup = Read-Input -Prompt "Enter the resource group name"
 $location = Read-Input -Prompt "Enter the Azure region to use"
 
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-HDInsight üzerinde Kafka, Kafka verilerini depolamak için Azure Yönetilen Diskler’i kullanırken, küme de günlükler gibi bilgileri depolamak için Azure Depolama’yı kullanır. Yeni bir depolama hesabı oluşturmak için [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) komutunu kullanın.
+HDInsight üzerinde Kafka, Kafka verilerini depolamak için Azure Yönetilen Diskler’i kullanırken, küme de günlükler gibi bilgileri depolamak için Azure Depolama’yı kullanır. Kullanım [yeni AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) yeni bir depolama hesabı oluşturmak için.
 
 ```powershell
 $storageName = Read-Host -Prompt "Enter the storage account name"
 
-New-AzureRmStorageAccount `
+New-AzStorageAccount `
         -ResourceGroupName $resourceGroup `
         -Name $storageName `
         -Type Standard_LRS `
         -Location $location
 ```
 
-HDInsight, depolama hesabındaki verileri bir blob kapsayıcısında depolar. Yeni bir kapsayıcı oluşturmak için [New-AzureStorageContainer](/powershell/module/Azure.Storage/New-AzureStorageContainer) komutunu kullanın.
+HDInsight, depolama hesabındaki verileri bir blob kapsayıcısında depolar. Kullanım [yeni AzStorageContainer](/powershell/module/Azure.Storage/New-AzStorageContainer) yeni bir kapsayıcı oluşturmak için.
 
 ```powershell
 $containerName = Read-Host -Prompt "Enter the container name"
 
-$storageKey = (Get-AzureRmStorageAccountKey `
+$storageKey = (Get-AzStorageAccountKey `
                 -ResourceGroupName $resourceGroup `
                 -Name $storageName)[0].Value
-$storageContext = New-AzureStorageContext `
+$storageContext = New-AzStorageContext `
                     -StorageAccountName $storageName `
                     -StorageAccountKey $storageKey
-New-AzureStorageContainer -Name $containerName -Context $storageContext 
+New-AzStorageContainer -Name $containerName -Context $storageContext 
 ```
 
 ## <a name="create-an-apache-kafka-cluster"></a>Apache Kafka kümesi oluşturma
 
-Apache Kafka ile HDInsight kümesi oluşturmak [New-Azurermhdınsightcluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
+Apache Kafka ile HDInsight kümesi oluşturmak [yeni AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster).
 
 ```powershell
 # Create a Kafka 1.0 cluster
@@ -115,7 +117,7 @@ $disksPerNode=2
 $kafkaConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
 $kafkaConfig.Add("kafka", "1.0")
 
-New-AzureRmHDInsightCluster `
+New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroup `
         -ClusterName $clusterName `
         -Location $location `
@@ -138,7 +140,7 @@ New-AzureRmHDInsightCluster `
 > [!TIP]  
 > `-DisksPerWorkerNode` parametresi, HDInsight üzerinde Kafka’nın ölçeklenebilirliğini yapılandırır. HDInsight üzerinde Kafka, verileri depolamak için kümedeki sanal makinelerin yerel diskini kullanır. Kafka, G/Ç açısından yoğun olduğundan, yüksek aktarım hızı ve düğüm başına daha fazla depolama alanı sağlamak için [Azure Yönetilen Diskler](../../virtual-machines/windows/managed-disks-overview.md) kullanılır. 
 >
-> Yönetilen diskin türü __Standart__ (HDD) veya __Premium__ (SSD) olabilir. Disk türü, çalışan düğümleri (Kafka aracıları) tarafından kullanılan sanal makine boyutuna bağlıdır. Premium diskler otomatik olarak DS ve GS serisi sanal makinelerle kullanılır. Diğer tüm VM türleri standart disk kullanır. `-WorkerNodeSize` parametresini kullanarak sanal makine türünü ayarlayabilirsiniz. Parametreler hakkında daha fazla bilgi için [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster) belgelerine bakın.
+> Yönetilen diskin türü __Standart__ (HDD) veya __Premium__ (SSD) olabilir. Disk türü, çalışan düğümleri (Kafka aracıları) tarafından kullanılan sanal makine boyutuna bağlıdır. Premium diskler otomatik olarak DS ve GS serisi sanal makinelerle kullanılır. Diğer tüm VM türleri standart disk kullanır. `-WorkerNodeSize` parametresini kullanarak sanal makine türünü ayarlayabilirsiniz. Parametreler hakkında daha fazla bilgi için bkz. [yeni AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) belgeleri.
 
 
 > [!IMPORTANT]  
@@ -333,10 +335,10 @@ Ayrıca programlı olarak üretici ve tüketici de oluşturabilirsiniz. Bu API k
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli değilse [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) komutunu kullanarak kaynak grubunu, HDInsight’ı ve tüm ilgili kaynakları kaldırabilirsiniz.
+Artık gerekli değilse [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) HDInsight, kaynak grubunu kaldırmak için komutu ve tüm ilgili kaynakları.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 > [!WARNING]  

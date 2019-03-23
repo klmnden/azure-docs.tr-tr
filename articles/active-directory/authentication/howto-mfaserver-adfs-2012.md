@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213a55cb02c718628a4a2d64bdee98ab66af5ce3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 970e570d9ad27da2690cd38fe480823128322db0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317060"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370712"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Azure Multi-Factor Authentication Sunucusunu Windows Server’da AD FS ile çalışacak şekilde yapılandırma
 
@@ -45,30 +45,22 @@ Başlamadan önce, aşağıdaki bilgileri unutmayın:
 2. Azure Multi-Factor Authentication Sunucusu yönetim konsolunda **AD FS** simgesine tıklayın. **Kullanıcı kaydına izin ver** ve **Kullanıcıların yöntemi seçmesine izin ver** seçeneklerini belirleyin.
 3. Kuruluşunuz için belirtmek istediğiniz ek seçenekleri belirleyin.
 4. **AD FS Bağdaştırıcısı’nı Yükle**'ye tıklayın.
-   
-   <center>
-   
-   ![Bulut](./media/howto-mfaserver-adfs-2012/server.png)</center>
+
+   ![ADFS bağdaştırıcısını MFA Server konsolundan yükleme](./media/howto-mfaserver-adfs-2012/server.png)
 
 5. Active Directory penceresinin açılması iki anlama gelir. Bilgisayarınız bir etki alanına katıldıysa ve AD FS Bağdaştırıcısı ile Multi-Factor Authentication hizmeti arasındaki hizmeti güvenli hale getirmek üzere Active Directory yapılandırması tamamlanmamıştır. Bu yapılandırmayı otomatik olarak tamamlamak için **İleri** düğmesine tıklayın ya da **Otomatik Active Directory yapılandırmasını atla ve ayarları el ile yapılandır** onay kutusunu işaretleyin. **İleri**’ye tıklayın.
 6. Yerel Grup pencerelerinin açılması iki anlama gelir. Bilgisayarınız bir etki alanına katılmadıysa ve AD FS bağdaştırıcısı ile Multi-Factor Authentication hizmeti arasındaki hizmeti güvenli hale getirmek üzere yerel grup yapılandırması tamamlanmamıştır. Bu yapılandırmayı otomatik olarak tamamlamak için **İleri** düğmesine tıklayın ya da **Otomatik Yerel Grup yapılandırmasını atla ve ayarları el ile yapılandır** onay kutusunu işaretleyin. **İleri**’ye tıklayın.
 7. Yükleme sihirbazında **İleri**’ye tıklayın. Azure Multi-Factor Authentication Sunucusu PhoneFactor Admins grubunu oluşturur ve AD FS hizmeti hesabını PhoneFactor Admins grubuna ekler.
-   <center>
-   
-   ![Bulut](./media/howto-mfaserver-adfs-2012/adapter.png)</center>
 8. **Yükleyiciyi Başlat** sayfasında **İleri**’ye tıklayın.
 9. Multi-Factor Authentication AD FS bağdaştırıcısı yükleyicisinde **İleri**’ye tıklayın.
 10. Yükleme tamamlandığında **Kapat**'a tıklayın.
-11. Bağdaştırıcı yüklendiğinde AD FS’ye kaydetmeniz gerekir. Windows PowerShell’i açın ve aşağıdaki komutu çalıştırın:<br>
+11. Bağdaştırıcı yüklendiğinde AD FS’ye kaydetmeniz gerekir. Windows PowerShell’i açın ve aşağıdaki komutu çalıştırın:
+
     `C:\Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1`
-    <center>
-    
-    ![Bulut](./media/howto-mfaserver-adfs-2012/pshell.png)</center>
+
 12. Yeni kaydettiğiniz bağdaştırıcıyı kullanmak için AD FS’deki genel kimlik doğrulama ilkesini düzenleyin. AD FS yönetim konsolunda **Kimlik Doğrulama İlkeleri** düğümüne gidin. **Multi-factor Authentication** bölümünde **Genel Ayarlar** bölümünün yanındaki **Düzenle** bağlantısına tıklayın. **Genel Kimlik Doğrulama İlkesini Düzenle** penceresinde, ek kimlik doğrulama yöntemi olarak **Multi-Factor Authentication**’ı seçin ve ardından **Tamam**'a tıklayın. Bağdaştırıcı WindowsAzureMultiFactorAuthentication olarak kaydedilir. Kaydın etkili olması için AD FS hizmetini yeniden başlatın.
 
-<center>
-
-![Bulut](./media/howto-mfaserver-adfs-2012/global.png)</center>
+![Genel kimlik doğrulama ilkesini Düzenle](./media/howto-mfaserver-adfs-2012/global.png)
 
 Bu noktada Multi-Factor Authentication Sunucusu, AD FS ile birlikte kullanım amacıyla ek kimlik doğrulama sağlayıcısı olmak üzere kurulur.
 
@@ -85,6 +77,7 @@ Bu noktada Multi-Factor Authentication Sunucusu, AD FS ile birlikte kullanım am
 5. Yükleme tamamlandığında **Kapat**'a tıklayın.
 
 ## <a name="edit-the-multifactorauthenticationadfsadapterconfig-file"></a>MultiFactorAuthenticationAdfsAdapter.config dosyasını düzenleme
+
 MultiFactorAuthenticationAdfsAdapter.config dosyasını düzenlemek için aşağıdaki adımları izleyin:
 
 1. **UseWebServiceSdk** düğümünü **true** olarak ayarlayın.  
@@ -138,20 +131,22 @@ Bulut kaynağınızın güvenliğini sağlamak için, kullanıcı iki adımlı d
 2. Solda, **Bağlı Olan Taraf Güvenleri**’ni seçin.
 3. **Microsoft Office 365 Kimlik Platformu**’na sağ tıklayın ve **Talep Kurallarını Düzenle…** seçeneğini belirleyin
 
-   ![Bulut](./media/howto-mfaserver-adfs-2012/trustedip1.png)
+   ![Konsolunda ADFS talep kurallarını Düzenle](./media/howto-mfaserver-adfs-2012/trustedip1.png)
 
 4. Verme Dönüştürme Kuralları’nda **Kural Ekle**’ye tıklayın.
 
-   ![Bulut](./media/howto-mfaserver-adfs-2012/trustedip2.png)
+   ![ADFS konsolunda dönüştürme kuralları Düzenle](./media/howto-mfaserver-adfs-2012/trustedip2.png)
 
 5. Dönüştürme Kuralı Ekleme Sihirbazı’nda, açılır menüde **Gelen Talep için Geçiş ya da Filtre**’yi seçin ve **İleri**’ye tıklayın.
 
-   ![Bulut](./media/howto-mfaserver-adfs-2012/trustedip3.png)
+   ![Dönüşüm talebi Kuralı Ekle Sihirbazı](./media/howto-mfaserver-adfs-2012/trustedip3.png)
 
 6. Kuralınıza bir ad verin.
 7. Gelen talep türü olarak **Kimlik Doğrulama Yöntemleri Başvuruları**’nı seçin.
 8. **Tüm talep değerlerini geçir**’i seçin.
-    ![Dönüşüm Talep Kuralı Ekleme Sihirbazı](./media/howto-mfaserver-adfs-2012/configurewizard.png)
+
+    ![Dönüşüm talebi Kuralı Ekle Sihirbazı](./media/howto-mfaserver-adfs-2012/configurewizard.png)
+
 9. **Son**'a tıklayın. AD FS Yönetim Konsolu'nu kapatın.
 
 ## <a name="troubleshooting-logs"></a>Sorun giderme günlükleri

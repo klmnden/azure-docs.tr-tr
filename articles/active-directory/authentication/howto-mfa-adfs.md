@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f508475166346c56b3bd0c8607c27beb7aba66c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0abf2eca52616638f0c4dce89691c0d4f7875106
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316482"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371537"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication ve AD FS ile bulut kaynaklarını güvenli hale getirme
 
@@ -30,15 +30,15 @@ Bulut kaynağınızın güvenliğini sağlamak için, kullanıcı iki adımlı d
 2. Solda, **Bağlı Olan Taraf Güvenleri**’ni seçin.
 3. **Microsoft Office 365 Kimlik Platformu**'na sağ tıklayın ve **Talep Kurallarını Düzenle**'yi seçin.
 
-   ![Bulut](./media/howto-mfa-adfs/trustedip1.png)
+   ![AD FS konsol - bağlı olan taraf güvenleri](./media/howto-mfa-adfs/trustedip1.png)
 
 4. Verme Dönüştürme Kuralları’nda **Kural Ekle**’ye tıklayın.
 
-   ![Bulut](./media/howto-mfa-adfs/trustedip2.png)
+   ![Verme dönüştürme kuralları düzenleme](./media/howto-mfa-adfs/trustedip2.png)
 
 5. Dönüştürme Kuralı Ekleme Sihirbazı’nda, açılır menüde **Gelen Talep için Geçiş ya da Filtre**’yi seçin ve **İleri**’ye tıklayın.
 
-   ![Bulut](./media/howto-mfa-adfs/trustedip3.png)
+   ![Dönüşüm talebi Kuralı Ekle Sihirbazı](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Kuralınıza bir ad verin. 
 7. Gelen talep türü olarak **Kimlik Doğrulama Yöntemleri Başvuruları**’nı seçin.
@@ -58,15 +58,15 @@ Yapmamız gereken ilk şey, AD FS taleplerini yapılandırmaktır. Biri Kurumsal
 
 1. AD FS Yönetimi'ni açın.
 2. Solda, **Bağlı Olan Taraf Güvenleri**’ni seçin.
-3. **Microsoft Office 365 Kimlik Platformu**’na sağ tıklayın ve **Talep Kurallarını Düzenle…** seçeneğini belirleyin.
-   ![Bulut](./media/howto-mfa-adfs/trustedip1.png)
-4. Verme Dönüştürme Kuralları’nda **Kural Ekle**’ye tıklayın.
-   ![Bulut](./media/howto-mfa-adfs/trustedip2.png)
+3. Sağ **Microsoft Office 365 kimlik platformu** seçip **talep kurallarını Düzenle... ** 
+    ![ADFS Konsolu - talep kurallarını Düzenle](./media/howto-mfa-adfs/trustedip1.png)
+4. Verme dönüştürme kuralları'nda tıklatın **kuralı ekleyin.** 
+    ![Bir talep kuralı ekleme](./media/howto-mfa-adfs/trustedip2.png)
 5. Dönüştürme Kuralı Ekleme Sihirbazı’nda, açılır menüde **Gelen Talep için Geçiş ya da Filtre**’yi seçin ve **İleri**’ye tıklayın.
-   ![Bulut](./media/howto-mfa-adfs/trustedip3.png)
+   ![Dönüşüm Talep Kuralı Ekleme Sihirbazı](./media/howto-mfa-adfs/trustedip3.png)
 6. Talep kuralı adının yanındaki kutuda kuralınıza bir ad verin. Örneğin: InsideCorpNet.
 7. Gelen talep türü’nün yanındaki açılır menüde, **Kurumsal Ağ İçinde** seçeneğini belirleyin.
-   ![Bulut](./media/howto-mfa-adfs/trustedip4.png)
+   ![Kurumsal ağ içinde ekleme talep](./media/howto-mfa-adfs/trustedip4.png)
 8. **Son**'a tıklayın.
 9. Verme Dönüştürme Kuralları’nda **Kural Ekle**’ye tıklayın.
 10. Dönüştürme Kuralı Ekleme Sihirbazı’nda, açılır menüden **Talepleri Özel Bir Kural Kullanarak Gönder**’i seçin ve **İleri**’ye tıklayın.
@@ -75,8 +75,8 @@ Yapmamız gereken ilk şey, AD FS taleplerini yapılandırmaktır. Biri Kurumsal
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![Bulut](./media/howto-mfa-adfs/trustedip5.png)
-13. **Finish (Son)** düğmesine tıklayın.
+    ![Açan kullanıcılar tutmak özel talep oluşturma](./media/howto-mfa-adfs/trustedip5.png)
+13. **Son**'a tıklayın.
 14. **Uygula**'ya tıklayın.
 15. **Tamam**’a tıklayın.
 16. AD FS Yönetimi'ni kapatın.

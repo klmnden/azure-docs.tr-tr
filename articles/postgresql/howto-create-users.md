@@ -1,17 +1,17 @@
 ---
 title: Kullanıcılar, PostgreSQL sunucusu için Azure veritabanı'nda oluşturma
 description: Bu makalede, PostgreSQL sunucusu için Azure veritabanı ile etkileşim kurmak için yeni kullanıcı hesaplarını nasıl oluşturacağınızı açıklar.
-author: jasonwhowell
-ms.author: jasonh
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2018
-ms.openlocfilehash: 8b1bf6f1eccefb9235751c9e113c90566dfdff79
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 33c107c46b314136fa3d43f8e7881e096afa374c
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540834"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351091"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Kullanıcılar, PostgreSQL sunucusu için Azure veritabanı'nda oluşturma 
 Bu makalede, PostgreSQL sunucusu için Azure veritabanı kullanıcıları nasıl oluşturabileceğiniz açıklanır.
@@ -26,7 +26,7 @@ PostgreSQL sunucusu için Azure veritabanı, tanımlanan 3 varsayılan rolleri i
 
 Server yönetici kullanıcı, azure_pg_admin rolünün üyesidir. Ancak, sunucu yöneticisi hesabı azure_superuser rolünün bir parçası değil. Bu hizmet yönetilen bir PaaS hizmeti olduğundan Microsoft yalnızca süper kullanıcı rolü bir parçasıdır. 
 
-PostgreSQL altyapısı ayrıcalıkları veritabanı nesnelerine erişimi denetlemek için açıklandığı gibi kullanır [PostgreSQL ürün belgelerine](https://www.postgresql.org/docs/current/static/sql-createrole.html). PostgreSQL için Azure veritabanı'nda sunucu yönetici kullanıcısı bu ayrıcalıklar verilir: OTURUM AÇMA, NOSUPERUSER, DEVRALMA, CREATEDB, CREATEROLE NOREPLICATION
+PostgreSQL altyapısı ayrıcalıkları veritabanı nesnelerine erişimi denetlemek için açıklandığı gibi kullanır [PostgreSQL ürün belgelerine](https://www.postgresql.org/docs/current/static/sql-createrole.html). PostgreSQL için Azure veritabanı'nda sunucu yönetici kullanıcısı bu ayrıcalıklar verilir: LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, NOREPLICATION
 
 Sunucu Yöneticisi kullanıcı hesabı, ek kullanıcılar oluşturma ve bu kullanıcılara azure_pg_admin rolünde vermek için kullanılabilir. Ayrıca, sunucu yöneticisi hesabı daha az ayrıcalıklı kullanıcıların ve tek veritabanları ve şemaları erişiminiz rolleri oluşturmak için kullanılabilir.
 

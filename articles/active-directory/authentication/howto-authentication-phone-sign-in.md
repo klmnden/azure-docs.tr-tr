@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26dd1bd6717fe0216545d6b3aa729ac2cb19dc9d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 47e8541b82a1cd38f07684508a96b9789df20e92
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313337"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370398"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Parola olmadan telefonla oturum açma ile Microsoft Authenticator uygulamasını (genel Önizleme)
 
 Microsoft Authenticator uygulamasını herhangi bir Azure AD hesabı için parola kullanmadan oturum açmak için kullanılabilir. Teknolojinin benzer [Windows iş için Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator, bir cihaza bağlanır ve bir biyometrik veya PIN kodu kullanan bir kullanıcı kimlik bilgisi etkinleştirmek için anahtar tabanlı kimlik doğrulaması kullanır.
 
-![Bir tarayıcı, Microsoft Authenticator uygulamasındaki oturum açma denemesi onaylanacak kullanıcı sorarak oturum örneği](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
+![Bir tarayıcı isteyen kullanıcının oturum açmayı onaylamak için oturum örneği](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
 
 Telefonla oturum açma, Microsoft Authenticator uygulamasını etkinleştirilmiş bir kişiyi, bir kullanıcı adı girildikten sonra kullanıcıdan bir parola görmenin yerine, kendi uygulamasında bir sayıya dokunun bildiren bir ileti görürsünüz. Uygulamada, kullanıcı sayısıyla gerekir, onaylama seçin sonra PIN'ini sağlamak veya biyometrik, ardından kimlik doğrulama tamamlanır.
 
@@ -40,17 +40,20 @@ Bir yönetici, genel Önizleme için önce bu kiracıda kimlik bilgileri kullan�
 ### <a name="steps-to-enable"></a>Etkinleştirme adımları
 
 1. Azure Active Directory V2 PowerShell modülü genel önizleme sürümünü en son sürümüne sahip olun. Aşağıdaki komutları çalıştırarak bunu doğrulamak için kaldırıp yükleyin isteyebilirsiniz:
+
     ```powershell
     Uninstall-Module -Name AzureADPreview
     Install-Module -Name AzureADPreview
     ```
 
 2. Azure AD V2 PowerShell modülünü kullanmak için Azure AD Kiracı kimlik doğrulaması. Kullanılan hesap ya da bir güvenlik yöneticisi veya genel yönetici olması gerekir.
+
     ```powershell
     Connect-AzureAD
     ```
 
 3. Doğrulayıcı oturum ilkesi oluşturun:
+
     ```powershell
     New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
     ```

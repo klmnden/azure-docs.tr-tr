@@ -1,23 +1,25 @@
 ---
-title: Örneğin, otomatik tamamlama, arama kutusuna - Azure Search ekleme
-description: Azure Search otomatik tamamlama ve öneriler API'lerini kullanarak veri odaklı uygulamalarınızın son kullanıcı deneyimini nasıl örnekleri.
+title: Otomatik Tamamlama örneği - Azure Search arama kutusuna typeahead eklemek için
+description: Azure Search'te sorgu Eylemler typeahead öneri araçları oluşturarak ve tamamlanan koşulları ya da tümcelere bir arama kutusu doldurun istekleri formulating etkinleştirin.
 manager: pablocas
 author: mrcarter8
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 03/22/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: b754f00e9bed34717734c4aec81e5489d2c12b63
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: b78fdf0c493e4631e4cdd7e26b154570b6226d1f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200285"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369590"
 ---
-# <a name="example-add-autocomplete-to-your-search-box-using-azure-search"></a>Örnek: Azure arama'yı kullanarak, arama kutusu otomatik tamamlama Ekle
+# <a name="example-add-autocomplete-to-partial-term-inputs-in-azure-search"></a>Örnek: Azure Search'te kısmi terimi girişleri otomatik tamamlama ekleyin
+
+Bu önizleme özelliğini "kısmi terimi giriş tamamlanmış bir Azure Search dizini belgelerde terimden sağlanarak biter". Bu özelliği ticari arama motorları fark etmiş olabilirsiniz. Bu özellik şu anda genel önizlemede olan bir sorgu girişi basitleştirmek için bir Azure arama çözümü artık ekleyebilirsiniz.
 
 Bu örnekte, nasıl kullanılacağını öğreneceksiniz [önerileri](https://docs.microsoft.com/rest/api/searchservice/suggestions), [otomatik tamamlama](https://docs.microsoft.com/rest/api/searchservice/autocomplete) ve [modelleri](search-faceted-navigation.md) içinde [Azure Search REST API'sine](https://docs.microsoft.com/rest/api/searchservice/) ve [.NET SDK'sı](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) derleme güçlü bir arama kutusu için. 
 

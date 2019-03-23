@@ -3,7 +3,7 @@ title: AWS’de bir Service Fabric kümesi için altyapı oluşturma öğreticis
 description: Bu öğreticide bir Service Fabric kümesi çalıştırmak için AWS altyapısını nasıl ayarlayacağınızı öğreneceksiniz.
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 6b7d2223d33abb429ab5f59b14c80d43c70598dc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 9a0c56ecb20857b8fe2f5e55851e5d0d98ed3038
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209659"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369130"
 ---
-# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Öğretici: Bir Service Fabric kümesini barındıracak AWS altyapısı oluşturma
+# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Öğretici: Bir Service Fabric kümesini barındırmak için AWS altyapı oluşturun
 
 Service Fabric tek başına kümeleri, kendi ortamınızı seçme ve Service Fabric’in benimsediği "her işletim sistemi, her bulut" yaklaşımının bir parçası olarak bir küme oluşturma seçeneği sunar. Bu öğretici serisinde, AWS üzerinde barındırılan bir tek başına küme oluşturacak ve içine bir uygulama yükleyeceksiniz.
 
@@ -36,7 +36,7 @@ Serinin birinci bölümünde şunları öğrenirsiniz:
 > * Örneklerden birinde oturum açma
 > * Service Fabric örneğini hazırlama
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için bir AWS hesabınızın olması gerekir.  Henüz bir hesabınız yoksa, bir tane oluşturmak için [AWS konsoluna](https://aws.amazon.com/) gidin.
 
@@ -50,7 +50,7 @@ AWS Konsolunda oturum açın > arama kutusuna **EC2** yazın > **Bulutta EC2 San
 
 ![EC2 örneği seçimi][aws-ec2instance]
 
-**t2.medium** öğesini ve ardından **İleri: Örnek Ayrıntılarını Yapılandırma**’yı seçin, sonraki ekranda örnek sayısını `3` olarak değiştirin, ardından **Gelişmiş Ayrıntılar**’ı seçerek bu seçimi genişletin.
+Seçin **t2.medium**, ardından **sonraki: Örnek Ayrıntıları yapılandırma**, sonraki ekranda değiştirmek için örnek sayısını `3`, ardından **Gelişmiş Ayrıntılar** bu bölümü genişletin.
 
 Service Fabric’te sanal makinelerinizi birbirine bağlamak için, altyapınızı barındıran VM’lerin aynı kimlik bilgilerine sahip olması gerekir.  Tutarlı kimlik bilgileri elde etmenin iki yaygın yolu vardır: tümünü aynı etki alanına eklemek veya her sanal makinede aynı yönetici parolasını ayarlamak.  Bu öğreticide, EC2 örneklerinin tümünü aynı parolaya ayarlamak için bir kullanıcı verileri betiği kullanacaksınız.  Bir üretim ortamında, ana bilgisayarların bir Windows etki alanına eklenmesi daha güvenlidir.
 
@@ -110,7 +110,7 @@ Tüm IP adreslerini elde ettikten sonra bağlanacak bir örnek seçin, örneğe 
 
 Örneğinize başarıyla bağlandıktan sonra örnekler arasında bağlantı kurabilir ve ayrıca dosya paylaşabilirsiniz.  Tüm örneklerin IP adreslerini toplayın ve şu anda bağlı olmadığınız bir adresi seçin. **Başlat**’a gidin, `cmd` girip **Komut İstemi**’ni seçin.
 
-Bu örneklerde RDP bağlantısı şu IP adresiyle kurulmuştur: 172.31.21.141. Bu durumda tüm bağlantı testleri diğer IP adresinde gerçekleştirilir: 172.31.20.163.
+Bu örneklerde, aşağıdaki IP adresi için RDP bağlantısı kuruldu: 172.31.21.141. Tüm bağlantı test edin, ardından bir IP adresi için oluşur: 172.31.20.163.
 
 Temel bağlantının çalıştığını doğrulamak için ping komutunu kullanın.
 

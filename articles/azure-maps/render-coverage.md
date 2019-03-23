@@ -3,17 +3,17 @@ title: İşleme kapsamı içinde Azure haritalar | Microsoft Docs
 description: İşleme kapsamı içinde Azure haritalar hakkında bilgi edinin
 author: jingjing-z
 ms.author: jinzh
-ms.date: 03/07/2018
+ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6e4ebd5bfd7225537046d34dd885d04e8a94878f
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 536a74046f46c7f83907833846e9ec99e8d8a289
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42059652"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370287"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure haritalar işleme kapsamı
 
@@ -32,7 +32,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 ## <a name="africa"></a>Afrika 
 
 
-| Bölge | Birleşik ızgara kutucukları | Vektör bölmelerini birleşik |
+| Ülke/Bölge | Birleşik ızgara kutucukları | Vektör bölmelerini birleşik |
 | ------ | :------------------: | :------------------: |
 | Cezayir                          | ✓ | ✓ |
 | Angola                           | ✓ | ✓ |
@@ -40,29 +40,29 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Botsvana                         | ✓ | ✓ |
 | Burkina Faso                     | ✓ | ✓ |
 | Burundi                          | ✓ | ✓ |
-| Cabo Verde                       |   | ✓ |
+| Cabo Verde                       | ✓ | ✓ |
 | Kamerun                         | ✓ | ✓ |
-| Orta Afrika Cumhuriyeti         |   | Ø |
-| Çad                             |   | Ø |
-| Komorolar                          |   | Ø |
+| Orta Afrika Cumhuriyeti         | ✓ | Ø |
+| Çad                             | ✓ | Ø |
+| Komorolar                          | ✓ | Ø |
 | Kongo Cumhuriyeti                            | ✓ | ✓ |
 | Kongo Demokratik Cumhuriyeti | ✓ | ✓ |
-| Fildişi Sahili (Côte d’Ivoire)                    |   | Ø |
-| Cibuti                         |   | Ø |
+| Fildişi Sahili (Côte d’Ivoire)                    | ✓ | Ø |
+| Cibuti                         | ✓ | Ø |
 | Mısır                            | ✓ | ✓ |
-| Ekvator Ginesi                |   | Ø |
-| Eritre                          |   | Ø |
-| Etiyopya                         |   | Ø |
+| Ekvator Ginesi                | ✓ | Ø |
+| Eritre                          | ✓ | Ø |
+| Etiyopya                         | ✓ | Ø |
 | Gabon                            | ✓ | ✓ |
-| Gambiya                           |   | Ø |
+| Zambia                           | ✓ | Ø |
 | Gana                            | ✓ | ✓ |
-| Gine                           |   | Ø |
-| Gine-Bissau                    |   | Ø |
+| Gine                           | ✓ | Ø |
+| Gine Bissau                    | ✓ | Ø |
 | Kenya                            | ✓ | ✓ |
-| Lesotho                          | ✓ | ✓ |
-| Liberya                          |   | Ø |
-| Libya                            |   | Ø |
-| Madagaskar                       |   | Ø |
+| Lesoto                          | ✓ | ✓ |
+| Liberya                          | ✓ | Ø |
+| Libya                            | ✓ | Ø |
+| Madagaskar                       | ✓ | Ø |
 | Malavi                           | ✓ | ✓ |
 | Mali                             | ✓ | ✓ |
 | Moritanya                       | ✓ | ✓ |
@@ -74,15 +74,15 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Nijer                            | ✓ | ✓ |
 | Nijerya                          | ✓ | ✓ |
 | Réunion                          | ✓ | ✓ |
-| Ruanda                           | ✓ | ✓ |
-| Saint Helena, Ascension ve Tristan da Cunha |   | Ø |
-| Sao Tome ve Principe            |   | Ø |
+| Rwanda                           | ✓ | ✓ |
+| Saint Helena, Ascension ve Tristan da Cunha | ✓ | Ø |
+| Sao Tome ve Principe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
-| Sierra Leone                     |   | Ø |
-| Somali                          |   | Ø |
+| Sierra Leone                     | ✓ | ✓ |
+| Somali                          | ✓ | ✓ |
 | Güney Afrika                     | ✓ | ✓ |
-| Güney Sudan                      |   | Ø |
-| Sudan                            |   | Ø |
+| Güney Sudan                      | ✓ | ✓ |
+| Sudan                            | ✓ | ✓ |
 | Svaziland                        | ✓ | ✓ |
 | Tanzanya Birleşik Cumhuriyeti      | ✓ | ✓ |
 | Togo                             | ✓ | ✓ |
@@ -93,7 +93,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 
 ## <a name="americas"></a>Kuzey ve Güney Amerika
 
-| Bölge | Birleşik ızgara kutucukları | Vektör bölmelerini birleşik |
+| Ülke/Bölge | Birleşik ızgara kutucukları | Vektör bölmelerini birleşik |
 | ------ | :------------------: | :------------------: |
 | Anguilla                  | ✓ | ✓ |
 | Antigua ve Barbuda       | ✓ | ✓ |
@@ -101,28 +101,28 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Aruba                     | ✓ | ✓ |
 | Bahamalar                   | ✓ | ✓ |
 | Barbados                  | ✓ | ✓ |
-| Belize                    | ✓ | ✓ |
-| Bermuda                   |   | ✓ |
-| ' In Devleti durumu Bolivya |   | ✓ |
-| Bonaire, Sint Eustatius ve Saba |   | ✓ |
+| Beliz                    | ✓ | ✓ |
+| Bermuda                   | ✓ | ✓ |
+| Çokuluslu Bolivya Devleti | ✓ | ✓ |
+| Bonaire, Sint Eustatius ve Saba | ✓ | ✓ |
 | Brezilya                    | ✓ | ✓ |
 | Kanada                    | ✓ | ✓ |
-| Cayman Adaları            | ✓ | ✓ |
+| Kayman Adaları            | ✓ | ✓ |
 | Şili                     | ✓ | ✓ |
-| $Clipperton Adası         |   | ✓ |
+| $Clipperton Adası         | ✓ | ✓ |
 | Kolombiya                  | ✓ | ✓ |
-| Kosta Rika                |   | ✓ |
+| Kosta Rika                | ✓ | ✓ |
 | Küba                      | ✓ | ✓ |
 | Curaçao                   | ✓ | ✓ |
 | Dominika                  | ✓ | ✓ |
 | Dominik Cumhuriyeti        | ✓ | ✓ |
-| Ekvador                   |   | ✓ |
-| Falkland Adaları (Malvinas) |   | ✓ |
-| Fransız Guyanası             | ✓ | ✓ |
-| Grönland                 |   | Ø |
+| Ekvador                   | ✓ | ✓ |
+| Falkland Adaları (Malvinas) | ✓ | ✓ |
+| Fransız Ginesi             | ✓ | ✓ |
+| Grönland                 | ✓ | Ø |
 | Grenada                   | ✓ | ✓ |
 | Guadalupe                | ✓ | ✓ |
-| Guatemala                 |   | ✓ |
+| Guatemala                 | ✓ | ✓ |
 | Guyana                    | ✓ | ✓ |
 | Haiti                     | ✓ | ✓ |
 | Honduras                  | ✓ | ✓ |
@@ -131,32 +131,32 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Meksika                    | ✓ | ✓ |
 | Montserrat                | ✓ | ✓ |
 | Nikaragua                 | ✓ | ✓ |
-| Kuzey Mariana Adaları  |   | ✓ |
+| Kuzey Mariana Adaları  | ✓ | ✓ |
 | Panama                    | ✓ | ✓ | 
-| Paraguay                  |   | ✓ |
+| Paraguay                  | ✓ | ✓ |
 | Peru                      | ✓ | ✓ |
 | Porto Riko               | ✓ | ✓ |
-| Quebec (Kanada)           |   | ✓ |
+| Quebec (Kanada)           | ✓ | ✓ |
 | Saint Barthélemy          | ✓ | ✓ |
 | Saint Kitts ve Nevis     | ✓ | ✓ |
 | Saint Lucia               | ✓ | ✓ |
 | Saint Martin (Fransız)     | ✓ | ✓ |
-| Saint Pierre ve Miquelon |   | ✓ |
+| Saint Pierre ve Miquelon | ✓ | ✓ |
 | Saint Vincent ve Grenadinler | ✓ | ✓ |
 | Sint Maarten (Hollanda dili)      | ✓ | ✓ |
-| Güney Georgia ve Güney Sandwich Adaları |   | ✓ |
-| Surinam                  |   | ✓ |
+| Güney Georgia ve Güney Sandwich Adaları | ✓ | ✓ |
+| Surinam                  | ✓ | ✓ |
 | Trinidad ve Tobago       | ✓ | ✓ |
 | Turks ve Caicos Adaları  | ✓ | ✓ |
 | Amerika Birleşik Devletleri             | ✓ | ✓ |
 | Uruguay                   | ✓ | ✓ |
 | Venezuela                 | ✓ | ✓ |
 | Virgin Adaları, İngiliz   | ✓ | ✓ |
-| ABD Virgin Adaları      | ✓ | ✓ |
+| Virgin Adaları, ABD      | ✓ | ✓ |
 
 ## <a name="asia"></a>Asya 
 
-| Bölge | Birleşik ızgara kutucukları | Vektör bölmelerini birleşik |
+| Ülke/Bölge | Birleşik ızgara kutucukları | Vektör bölmelerini birleşik |
 | ------ | :------------------: | :------------------: |
 | Afganistan               |   | Ø |
 | Bahreyn                   | ✓ | ✓ |
@@ -170,6 +170,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Kore Demokratik Halk Cumhuriyeti |   | Ø |
 | Dokdo ve Takeshima       |   | Ø |
 | Hong Kong                 | ✓ | ✓ |
+| Hindistan                     | Ø | ✓ | 
 | Endonezya                 | ✓ | ✓ |
 | İran                      |   | Ø |
 | Irak                      | ✓ | ✓ |
@@ -186,7 +187,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Maldivler                  |   | Ø |
 | Moğolistan                  |   | Ø |
 | Myanmar                   |   | Ø |
-| Napal                     |   | Ø |
+| Nepal                     |   | Ø |
 | Umman                      | ✓ | ✓ |
 | Pakistan                  |   | Ø |
 | Filipinler               | ✓ | ✓ |
@@ -210,7 +211,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 
 ## <a name="oceania"></a>Okyanusya
 
-| Bölge | Birleşik ızgara kutucukları | Vektör bölmelerini birleşik |
+| Ülke/Bölge | Birleşik ızgara kutucukları | Vektör bölmelerini birleşik |
 | ------ | :------------------: | :------------------: |
 | Amerikan Samoası            |   | ✓ |
 | Avustralya                 | ✓ | ✓ |
@@ -240,13 +241,13 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 
 ## <a name="europe"></a>Avrupa
 
-| Bölge | Birleşik ızgara kutucukları | Vektör bölmelerini birleşik |
+| Ülke/Bölge | Birleşik ızgara kutucukları | Vektör bölmelerini birleşik |
 | ------ | :------------------: | :------------------: |
 | Arnavutluk                   | ✓ | ✓ |
 | Andorra                   | ✓ | ✓ |
-| Ermenistan                   |   | Ø |
+| Ermenistan                   | ✓ | Ø |
 | Avusturya                   | ✓ | ✓ |
-| Azerbaycan                |   | Ø |
+| Azerbaycan                | ✓ | Ø |
 | Belarus                   | Ø | ✓ |
 | Belçika                   | ✓ | ✓ |
 | Bosna-Hersek        | ✓ | ✓ |
@@ -256,24 +257,24 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Çek Cumhuriyeti            | ✓ | ✓ |
 | Danimarka                   | ✓ | ✓ |
 | Estonya                   | ✓ | ✓ |
-| Faroe Adaları             |   | Ø |
+| Faroe Adaları             | ✓ | Ø |
 | Finlandiya                   | ✓ | ✓ |
 | Fransa                    | ✓ | ✓ |
-| Gürcistan                   |   | Ø |
-| Almanya                   | ✓ |✓ |
-| Cebelitarık                 | ✓ |   |
+| Gürcistan                   | ✓ | Ø |
+| Almanya                   | ✓ | ✓ |
+| Cebelitarık                 | ✓ | ✓ |
 | Yunanistan                    | ✓ | ✓ |
-| Guernsey                  |   | ✓ |
+| Guernsay                  | ✓ | ✓ |
 | Macaristan                   | ✓ | ✓ |
 | İzlanda                   | ✓ | ✓ |
-| İrlanda (Cumhuriyeti)     | ✓ | ✓ |
-| Man Adası               |   | ✓ |
+| İrlanda                   | ✓ | ✓ |
+| Man Adası               | ✓ | ✓ |
 | İtalya                     | ✓ | ✓ |
-| Jan Mayen                 |   | ✓ |
-| Jersey                    |   | ✓ |
+| Jan Mayen                 | ✓ | ✓ |
+| Jersey                    | ✓ | ✓ |
 | Letonya                    | ✓ | ✓ |
-| Liechtenstein             | ✓ | ✓ |
-| Lituanya                 | ✓ | ✓ |
+| Lihtenştayn             | ✓ | ✓ |
+| Litvanya                 | ✓ | ✓ |
 | Lüksemburg                | ✓ | ✓ |
 | Makedonya                 | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
@@ -290,10 +291,10 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Sırbistan                    | ✓ | ✓ |
 | Slovakya                  | ✓ | ✓ |
 | Slovenya                  | ✓ | ✓ |
-| Güney Kurils           |   | ✓ |
+| Güney Kurils           | ✓ | ✓ |
 | İspanya                     | ✓ | ✓ |
-| Svalbard                  |   | ✓ |
-| İsveç                    | ✓ |   |
+| Svalbard                  | ✓ | ✓ |
+| İsveç                    | ✓ | ✓ |
 | İsviçre               | ✓ | ✓ |
 | Türkiye                    | ✓ | ✓ |
 | Ukrayna                   | ✓ | ✓ |

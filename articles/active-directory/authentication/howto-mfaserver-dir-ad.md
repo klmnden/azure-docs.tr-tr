@@ -12,21 +12,22 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0422cc3376caa6c2f99a0838684d84047a5937ed
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: f97b4ee364ecadde7738b8fe077f21d5732365f6
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313575"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371834"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA Sunucusu ile Active Directory arasında dizin tümleştirme
 
 Active Directory veya başka bir LDAP dizini ile tümleştirmek için Azure MFA Sunucusu’nun Dizin Tümleştirme bölümünü kullanın. Öznitelikleri dizin şeması ile eşleşecek şekilde yapılandırabilir ve kullanıcıların otomatik eşitlemesini ayarlayabilirsiniz.
 
 ## <a name="settings"></a>Ayarlar
+
 Varsayılan olarak, Azure Multi-Factor Authentication (MFA) Sunucusu kullanıcıları Active Directory'den içeri aktaracak ya da eşitleyecek şekilde yapılandırılır.  Dizin Tümleştirme sekmesi, varsayılan davranışın üzerine yazmanızı ve farklı bir LDAP dizini, ADAM dizini ya da belirli bir Active Directory etki alanı denetçisine bağlamanızı sağlar.  Ayrıca, LDAP Kimlik Doğrulaması için kullanmak üzere RADIUS hedefi olarak LDAP ya da LDAP Bağlama sunma, IIS Kimlik Doğrulaması için önceden kimlik doğrulaması ya da Kullanıcı Portalı için birincil kimlik doğrulaması sağlar.  Aşağıdaki tabloda tek tek ayarlar açıklanır.
 
-![Ayarlar](./media/howto-mfaserver-dir-ad/dirint.png)
+![MFA Sunucusu'nda LDAP yapılandırmasını düzenle](./media/howto-mfaserver-dir-ad/dirint.png)
 
 | Özellik | Açıklama |
 | --- | --- |
@@ -50,9 +51,10 @@ LDAP yapılandırması ayarları aşağıdaki tabloda açıklanmaktadır.
 | Test düğmesi |LDAP sunucusuna bağlamayı test etmek için **Test et** düğmesine tıklayın.  <br><br>Bağlamayı test etmek için **LDAP kullan** seçeneğini belirlemeniz gerekmez. Bu, LDAP yapılandırması kullanılmadan önce bağlamanın test edilmesini sağlar. |
 
 ## <a name="filters"></a>Filtreler
+
 Filtreler, dizin araması yaparken kayıtları nitelemek üzere ölçüt belirlemenizi sağlar.  Filtreyi ayarlayarak eşitlemek istediğiniz nesnelerin kapsamını belirleyebilirsiniz.  
 
-![Filtreler](./media/howto-mfaserver-dir-ad/dirint2.png)
+![MFA sunucusunda dizin filtrelemeyi yapılandırma](./media/howto-mfaserver-dir-ad/dirint2.png)
 
 Azure Multi-Factor Authentication aşağıdaki üç filtreleme seçeneğine sahiptir:
 
@@ -61,11 +63,12 @@ Azure Multi-Factor Authentication aşağıdaki üç filtreleme seçeneğine sahi
 * **Kullanıcı filtresi** - Dizin araması yaparken kullanıcı kayıtlarını nitelemek için kullanılan filtre ölçütlerini belirtin.  Active Directory ve ADAM için yaygın olarak (&(objectClass=user)(objectCategory=person)) kullanılır.  Diğer LDAP dizinleri için, dizin şemasına bağlı olarak (objectClass=inetOrgPerson) ya da benzerini kullanın. <br>Not:  Boş bırakılırsa, (& (objectCategory=person)(objectClass=user)) varsayılan olarak kullanılır.
 
 ## <a name="attributes"></a>Öznitelikler
+
 Belirli bir dizinin özniteliklerini gerektiği şekilde özelleştirebilirsiniz.  Bu, özel öznitelikler eklemenizi ve eşitlemeyi yalnızca size gereken öznitelikleri kapsayacak şekilde ayarlamanızı sağlar. Her öznitelik alanının değeri dizin şemasında tanımlanan öznitelik adını kullanın. Aşağıdaki tabloda her özellikle ilgili ek bilgiler sağlanmıştır.
 
 Öznitelikler el ile girilebilir ve öznitelik listesindeki bir öznitelikle eşleşmesi gerekmez.
 
-![Öznitelikler](./media/howto-mfaserver-dir-ad/dirint3.png)
+![MFA sunucusunda dizin tümleştirme öznitelikleri özelleştirme](./media/howto-mfaserver-dir-ad/dirint3.png)
 
 | Özellik | Açıklama |
 | --- | --- |
@@ -96,9 +99,10 @@ Belirli bir dizinin özniteliklerini gerektiği şekilde özelleştirebilirsini
 
 Öznitelikleri düzenlemek için Öznitelikler sekmesinden **Düzenle**’ye tıklayın.  Bunu yaptığınızda öznitelikleri düzenleyebileceğiniz bir pencere açılır. Herhangi bir özniteliğin yanındaki **...** simgesini seçerek hangi özelliklerin görüntüleneceğini seçebileceğiniz pencereyi açın.
 
-![Öznitelikleri Düzenleme](./media/howto-mfaserver-dir-ad/dirint4.png)
+![MFA sunucusunda dizin öznitelik eşlemesini düzenle](./media/howto-mfaserver-dir-ad/dirint4.png)
 
 ## <a name="synchronization"></a>Eşitleme
+
 Eşitleme, Azure MFA kullanıcı veritabanını Active Directory ya da başka bir Basit Dizin Erişimi Protokolü (LDAP) dizinindeki kullanıcılarla eşitlenmiş halde tutar. İşlem kullanıcıları el ile Active Directory'den içeri aktarmaya benzer, ancak işlemek üzere Active Directory kullanıcısı ve güvenlik grubu değişikliklerini düzenli aralıklarla yoklar.  Ayrıca, bir kapsayıcıdan, güvenlik grubundan ya da Active Directory’den kaldırılan kullanıcıları devre dışı bırakır veya kaldırır.
 
 Multi-Factor Auth ADSync hizmeti, Active Directory’nin düzenli yoklamasını gerçekleştiren bir Windows hizmetidir.  Bu, Azure AD Sync ya da Azure AD Connect ile karıştırılmamalıdır.  Multi-Factor Auth ADSync, aynı kod tabanıyla oluşturulmakla birlikte, Azure Multi-Factor Authentication Sunucusu’na özeldir.  Bu, Durduruldu durumunda iken yüklenir ve çalışmak üzere yapılandırıldığında Multi-Factor Auth Sunucusu hizmeti tarafından başlatılır.  Çok sunuculu Multi-Factor Auth Sunucusu yapılandırmanız varsa, Multi-Factor Auth ADSync yalnızca tek bir sunucuda çalışabilir.
@@ -107,7 +111,7 @@ Multi-Factor Auth ADSync hizmeti, değişiklikleri verimli şekilde yoklamak üz
 
 LDAP dizini DirSync’i destekliyorsa ve DirSync kullanacak şekilde yapılandırılmışsa, kullanıcı ve güvenlik grubu değişiklikleri için yoklama işlemi Active Directory’dekiyle aynı şekilde işler.  LDAP dizini DirSync denetimini desteklemiyorsa, her döngü sırasında tam eşitleme gerçekleştirilir.
 
-![Eşitleme](./media/howto-mfaserver-dir-ad/dirint5.png)
+![MFA sunucusu dizin nesnelerin eşitleme](./media/howto-mfaserver-dir-ad/dirint5.png)
 
 Aşağıdaki tablo, Eşitleme sekmesi ayarlarının her biriyle ilgili daha fazla bilgi içerir.
 
@@ -133,7 +137,8 @@ Yukarı Taşı ve Aşağı Taşı düğmeleri yöneticinin eşitleme öğelerini
 > [!TIP]
 > Eşitleme öğeleri kaldırıldıktan sonra bir tam eşitleme gerçekleştirilmelidir.  Eşitleme öğeleri sıralandıktan sonra bir tam eşitleme gerçekleştirilmelidir.  Tam eşitleme gerçekleştirmek için **Şimdi Eşitle**’ye tıklayın.
 
-## <a name="multi-factor-auth-servers"></a>Multi-Factor Auth Sunucuları
-Yedek RADIUS proxy, LDAP proxy olarak hizmet etmesi ya da IIS Kimlik Doğrulaması için ek Multi-Factor Auth Sunucuları kurulabilir. Eşitleme yapılandırması tüm aracılar arasında paylaşılır. Ancak, bu aracılardan yalnızca birinde Multi-Factor Auth Sunucusu hizmeti çalışıyor olabilir. Bu sekme, eşitleme için etkinleştirilmesi gereken Multi-Factor Auth Sunucusu’nu seçmenizi sağlar.
+## <a name="multi-factor-authentication-servers"></a>Multi-Factor Authentication sunucusu
 
-![Multi-Factor Auth Sunucuları](./media/howto-mfaserver-dir-ad/dirint6.png)
+IIS kimlik doğrulaması veya yedek RADIUS proxy, LDAP proxy olarak hizmet vermek için ek multi-Factor Authentication sunucuları ayarlanmış olması. Eşitleme yapılandırması tüm aracılar arasında paylaşılır. Ancak, bu aracıları yalnızca bir multi-Factor Authentication Sunucusu hizmeti çalışıyor olabilir. Bu sekme eşitleme için etkinleştirilmesi gereken multi-Factor Authentication Sunucusu'nu seçmenizi sağlar.
+
+![Multi-Factor Authentication sunucuları ilgili](./media/howto-mfaserver-dir-ad/dirint6.png)

@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 41313a8b140886247b830db7ca9b34a22257de96
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: f4d232d4d6043ede3979db67e5cd35130d931bef
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729152"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369454"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak azure'da bir kapsayıcı örneği dağıtma
 
@@ -38,12 +38,12 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][azure-free-acc
 **Kapsayıcı adı**, **Kapsayıcı görüntüsü** ve **Kaynak grubu** metin kutularına aşağıdaki değerleri girin. Diğer değerleri varsayılan değerlerinde bırakın ve **Tamam**’ı seçin.
 
 * Kapsayıcı adı: `mycontainer`
-* Kapsayıcı görüntüsü: `microsoft/aci-helloworld`
+* Kapsayıcı görüntüsü: `mcr.microsoft.com/azuredocs/aci-helloworld`
 * Kaynak grubu: **Yeni Oluştur** > `myResourceGroup`
 
 ![Azure portalında yeni bir kapsayıcı örneği için temel ayarları yapılandırma][aci-portal-03]
 
-Bu hızlı başlangıçta, varsayılan ayarını bırakın **genel** genel dağıtmak için `microsoft/aci-helloworld` görüntü. Bu görüntü, statik bir HTML sayfası görevi görür node.js'de yazılmış küçük bir web uygulamasını paketler.
+Bu hızlı başlangıçta, varsayılan ayarını bırakın **genel** genel Microsoft dağıtmak için `aci-helloworld` görüntü. Bu görüntü, statik bir HTML sayfası görevi görür node.js'de yazılmış küçük bir web uygulamasını paketler.
 
 **Yapılandırma** altında, kapsayıcınız için bir **DNS ad etiketi** belirtin. Ad, kapsayıcı örneğini oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır. Kapsayıcınız `<dns-name-label>.<region>.azurecontainer.io` konumunda genel kullanıma sunulacaktır. "DNS ad etiketi kullanılamıyor" hata iletisiyle karşılaşırsanız farklı bir DNS ad etiketi deneyin.
 
@@ -89,7 +89,7 @@ Onay iletişim kutusu görüntülendiğinde **Evet**’i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, genel bir Docker Hub deposundaki bir görüntüden bir Azure kapsayıcı örneği oluşturdunuz. Kapsayıcı görüntüsünü oluşturup özel bir Azure kapsayıcı kayıt defterinden dağıtmak istiyorsanız Azure Container Instances öğreticisine geçin.
+Bu hızlı başlangıçta, genel bir Microsoft görüntüden bir Azure container örneği oluşturdu. Kapsayıcı görüntüsünü oluşturup özel bir Azure kapsayıcı kayıt defterinden dağıtmak istiyorsanız Azure Container Instances öğreticisine geçin.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances öğreticisi](./container-instances-tutorial-prepare-app.md)

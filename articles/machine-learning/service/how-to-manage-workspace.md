@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: c7dd2fba852881680b43ceabafec2ac6b2751df4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e65f739a9641181381205c7255d0472325e8055c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839602"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359929"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Oluşturma ve Azure Machine Learning hizmeti çalışma alanlarını yönetme
 
@@ -28,24 +28,19 @@ Bir çalışma alanı oluşturmak için bir Azure aboneliğinizin olması gereki
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="view-a-workspace"></a>Bir çalışma alanını görüntüle
+## <a name="view"></a>Bir çalışma alanını görüntüle
 
 1. Sol üst köşede Portalı'nın, seçin **tüm hizmetleri**. 
 
-1. İçinde **tüm hizmetleri** filtre alanda, türü **Machine Learning hizmeti çalışma alanında**.  
+1. İçinde **tüm hizmetleri** filtre alanda, türü **machine learning hizmeti**.  
 
-   ![Azure Machine Learning hizmeti çalışma alanında Ara](media/how-to-manage-workspace/allservices-search1.png)
+1. Seçin **Machine Learning hizmeti çalışma alanları**.
 
-1. Filtre sonuçları'nda **Machine Learning hizmeti çalışma alanında** çalışma alanlarınızın listesini görüntüleyin. 
-
-   ![Azure Machine Learning hizmeti çalışma alanları listeleyin](media/how-to-manage-workspace/allservices-search.PNG)
+   ![Azure Machine Learning hizmeti çalışma alanında Ara](media/how-to-manage-workspace/all-services.png)
 
 1. Çalışma alanı bulunamadı listesinde arayın. Bağlı aboneliği, kaynak grupları ve konumlarını filtreleyebilirsiniz.  
 
-   ![Görünüm çalışma alanları](media/how-to-manage-workspace/allservices_view_workspace.PNG)
-
-1. Özelliklerini görüntülemek için oluşturduğunuz çalışma alanını seçin.
-
+1. Özelliklerini görüntülemek istediğiniz çalışma alanını seçin.
    ![Çalışma alanı özellikleri](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>Çalışma alanını silme

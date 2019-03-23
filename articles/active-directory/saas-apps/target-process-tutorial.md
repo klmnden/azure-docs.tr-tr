@@ -4,23 +4,23 @@ description: Azure Active Directory ve TargetProcess arasında çoklu oturum aç
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 7cb91628-e758-480d-a233-7a3caaaff50d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 03/07/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed1c7cd88bb5abf27066658f175d2447d334ce6b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e76e2b9b4778229fc70e90f1ff3af5f19251d424
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872231"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360921"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Öğretici: TargetProcess ile Azure Active Directory Tümleştirme
 
@@ -78,10 +78,11 @@ Tek iş için oturum açma için bir Azure AD kullanıcısının TargetProcess i
 Yapılandırma ve Azure AD çoklu oturum açma TargetProcess ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[TargetProcess test kullanıcısı oluşturma](#create-targetprocess-test-user)**  - kullanıcı Azure AD gösterimini bağlı TargetProcess Britta simon'un bir karşılığı vardır.
+2. **[TargetProcess çoklu oturum açmayı yapılandırma](#configure-targetprocess-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+5. **[TargetProcess test kullanıcısı oluşturma](#create-targetprocess-test-user)**  - kullanıcı Azure AD gösterimini bağlı TargetProcess Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -105,12 +106,12 @@ Azure AD çoklu oturum açma ile TargetProcess yapılandırmak için aşağıdak
 
     ![TargetProcess etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<subdomain>.tpondemand.com/`
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<subdomain>.tpondemand.com/`
 
-    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<subdomain>.tpondemand.com/`
+    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<subdomain>.tpondemand.com/`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin.  İlgili kişi [TargetProcess istemci Destek ekibine](mailto:support@targetprocess.com) bu değerleri almak için.
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [TargetProcess istemci Destek ekibine](mailto:support@targetprocess.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
 5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
@@ -122,48 +123,47 @@ Azure AD çoklu oturum açma ile TargetProcess yapılandırmak için aşağıdak
 
     a. Oturum Açma URL'si:
 
-    b. Azure Ad tanımlayıcısı
+    b. Azure AD Tanımlayıcısı
 
     c. Oturum Kapatma URL'si
 
-7. İçinde yapılandırmasını otomatik hale getirmenizi **TargetProcess**, yüklemeniz gerekir **My Apps güvenli oturum açma tarayıcı uzantısı** tıklayarak **uzantıyı yükleme**.
+### <a name="configure-targetprocess-single-sign-on"></a>TargetProcess tek oturum açmayı yapılandırın
+
+1. İçinde yapılandırmasını otomatik hale getirmenizi **TargetProcess**, yüklemeniz gerekir **My Apps güvenli oturum açma tarayıcı uzantısı** tıklayarak **uzantıyı yükleme**.
 
     ![image](./media/target-process-tutorial/install_extension.png)
 
-8. Uzantı tarayıcıya ekledikten sonra tıklayarak **TargetProcess Kurulum** TargetProcess uygulamaya yönlendirir. Burada, TargetProcess oturum açmak için yönetici kimlik bilgilerini sağlayın. Tarayıcı uzantısı otomatik olarak sizin için uygulamayı yapılandırma ve 9-13 arasındaki adımları otomatik hale getirin.
+2. Uzantı tarayıcıya ekledikten sonra tıklayarak **TargetProcess Kurulum** TargetProcess uygulamaya yönlendirir. Burada, TargetProcess oturum açmak için yönetici kimlik bilgilerini sağlayın. Tarayıcı uzantısı otomatik olarak sizin için uygulamayı yapılandırma ve 3-7 arası adımlar otomatik hale getirin.
 
     **Uygulamayı el ile yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin:**
 
-9. TargetProcess uygulamanıza yönetici olarak oturum.
+3. TargetProcess uygulamanıza yönetici olarak oturum.
 
-10. Üstteki menüden **Kurulum**.
+4. Üstteki menüden **Kurulum**.
 
     ![Kurulum](./media/target-process-tutorial/tutorial_target_process_05.png)
 
-11. Tıklayın **ayarları**.
+5. Tıklayın **ayarları** sekmesi.
 
     ![Ayarlar](./media/target-process-tutorial/tutorial_target_process_06.png)
 
-12. Tıklayın **çoklu oturum açma**.
+6. Tıklayın **çoklu oturum açma** sekmesi.
 
     ![Çoklu oturum açma tıklayın](./media/target-process-tutorial/tutorial_target_process_07.png)
 
-13. Çoklu oturum açma ayarları iletişim kutusunda aşağıdaki adımları gerçekleştirin:
+7. Çoklu oturum açma ayarları iletişim kutusunda aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/target-process-tutorial/tutorial_target_process_08.png)
 
     a. Tıklayın **çoklu oturum açmayı etkinleştirme**.
 
-    b. İçinde **oturum açma URL'si** metin değerini yapıştırın **SAML çoklu oturum açma hizmeti URL'si** , Azure Portalı'ndan kopyaladığınız.
+    b. İçinde **oturum açma URL'si** metin değerini yapıştırın **oturum açma URL'si** , Azure Portalı'ndan kopyaladığınız.
 
     c. İndirilen sertifikanızı Not Defteri'nde açın, içeriği kopyalayın ve ardından yapıştırın **sertifika** metin.
 
     d. tıklayın **etkinleştirme JIT sağlama**.
 
     e. **Kaydet**’e tıklayın.
-
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -198,7 +198,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için TargetProcess erişim ve
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-2. Uygulamalar listesinde yazın ve **TargetProcess**.
+2. Uygulamalar listesinde **TargetProcess**.
 
     ![Uygulamalar listesinde TargetProcess bağlantı](common/all-applications.png)
 
@@ -218,7 +218,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için TargetProcess erişim ve
 
 ### <a name="create-targetprocess-test-user"></a>TargetProcess test kullanıcısı oluşturma
 
-Bu bölümün amacı TargetProcess Britta Simon adlı bir kullanıcı oluşturmaktır. TargetProcess tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa TargetProcess erişme denemesi sırasında oluşturulur.
+Bu bölümde, Britta Simon adlı bir kullanıcı TargetProcess oluşturulur. TargetProcess just-ın-time kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Bir kullanıcı TargetProcess içinde zaten mevcut değilse yeni bir kimlik doğrulamasından sonra oluşturulur.
 
 > [!Note]
 > Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [TargetProcess Destek ekibine](mailto:support@targetprocess.com).
@@ -231,8 +231,8 @@ Erişim paneli TargetProcess kutucuğa tıkladığınızda, size otomatik olarak
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

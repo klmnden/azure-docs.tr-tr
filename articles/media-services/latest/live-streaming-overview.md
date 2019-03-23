@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 67876532496aa0a295bf32692534b16d38599492
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a31cd950ae241eb55c840c716f4679c5a67b1379
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839517"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350022"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Canlı akış ile Azure Media Services v3
 
@@ -28,23 +28,46 @@ Azure Media Services Canlı etkinlikler müşterilerinizin Azure bulutunda dağ�
 - Media Services gönderilir akış bir katkı sinyalleri bir kamera (veya başka bir cihaz, bir dizüstü bilgisayar gibi) dönüştürür canlı bir video Kodlayıcısı. Sinyaller SCTE-35 işaretçileri gibi bir reklam ilgili katkı akışı içerebilir.<br/>Önerilen canlı akış Kodlayıcıları listesi için bkz. [Canlı Kodlayıcıları akış](recommended-on-premises-live-encoders.md). Ayrıca, bu bloguna göz atın: [Üretim OBS ile canlı akış](https://link.medium.com/ttuwHpaJeT).
 - Alabilmek için etkinleştirmek, Media Services bileşenleri Önizleme, paket, kayıt, şifrelemek ve müşterilerinize veya başkalarına dağıtım için bir CDN için Canlı etkinlik yayını.
 
-Media Services ile avantajlarından yararlanabilirsiniz **dinamik paketleme**, Önizleme ve yayın Canlı akışlarınız olanak tanıyan [MPEG DASH, HLS ve kesintisiz akış biçimlerinde](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) gelen akış katkı hizmete gönderin. İzleyicilerinize herhangi HLS, DASH veya kesintisiz akış uyumlu yürütücüler ile canlı akış oynatabilirsiniz. Kullanabileceğiniz [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) web veya mobil uygulamalar, akışınız şu protokollerin birinde sunmak için.
+Bu makalede, bir genel bakış ve Media Services ve ilgili diğer makalelere bağlantılar ile canlı akış rehberlik sağlar.
 
-Media Services dinamik olarak şifrelenmiş içerik teslim etmenizi sağlar (**dinamik şifreleme**) Gelişmiş Şifreleme Standardı (AES-128) veya herhangi bir üç ana dijital hak yönetimi (DRM) sistemi: Microsoft PlayReady, Google Widevine ve FairPlay Apple. Media Services, yetkili istemcilere AES anahtarları ve DRM lisanslarını teslim etmek üzere bir hizmet de sağlar. İçeriğinizi Media Services ile şifreleme hakkında daha fazla bilgi için bkz: [içerik genel koruma](content-protection-overview.md)
+> [!NOTE]
+> Şu anda Azure portalında v3 kaynakları yönetmek için kullanamazsınız. Kullanım [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), veya desteklenen biri [SDK'ları](developers-guide.md).
 
-Parçaları, biçimleri ve bit hızlarına dönüştürme sayısını denetlemek için kullanılabilen, dinamik filtreleme ve oyunculara gönderilen sunu zaman pencereleri de uygulayabilirsiniz. Daha fazla bilgi için [filtreleri ve dinamik bildirimlere](filters-dynamic-manifest-overview.md).
+## <a name="dynamic-packaging"></a>Dinamik paketleme
 
-Bu makalede, bir genel bakış ve Media Services ile canlı akış rehberlik sağlar.
+Media Services sayesinde, Önizleme ve yayın Canlı akışlarınız olanak tanıyan dinamik Packaging](dynamic-packaging-overview.md) yararlanabilirsiniz [MPEG DASH, HLS ve kesintisiz akış biçimlerinde](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) katkı gelen akış hizmetine gönderir. İzleyicilerinize herhangi HLS, DASH veya kesintisiz akış uyumlu yürütücüler ile canlı akış oynatabilirsiniz. Kullanabileceğiniz [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) web veya mobil uygulamalar, akışınız şu protokollerin birinde sunmak için.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="dynamic-encryption"></a>Dinamik şifreleme
 
-Media Services v3 canlı akış iş akışı anlamak için gözden geçirin ve aşağıdaki kavramları anlamanız gerekir: 
+Dinamik şifreleme, Canlı veya isteğe bağlı içeriğinizi AES-128 veya üç ana dijital hak yönetimi (DRM) sistemlerinden ile dinamik olarak şifreleme sağlar: Microsoft PlayReady, Google Widevine ve FairPlay Apple. Media Services de AES anahtarları ve DRM sunmaya yönelik bir hizmet sağlar (PlayReady, Widevine ve FairPlay) lisansları yetkili istemcilere. Daha fazla bilgi için [dinamik şifreleme](content-protection-overview.md).
+
+## <a name="dynamic-manifest"></a>Dinamik bildirimi
+
+Dinamik filtreleme izler, biçimleri, bit hızlarına dönüştürme ve oyunculara gönderilen sunu zaman pencereleri sayısını denetlemek için kullanılır. Daha fazla bilgi için [filtreleri ve dinamik bildirimlere](filters-dynamic-manifest-overview.md).
+
+## <a name="live-event-types"></a>Canlı olay türleri
+
+Canlı bir olay iki türden biri olabilir: doğrudan ve canlı kodlama. Media Services v3 sürümünde canlı akış hakkında daha fazla ayrıntı için bkz [Canlı olayları ve canlı çıkışları](live-events-outputs-concept.md).
+
+### <a name="pass-through"></a>Geçiş
+
+![geçiş](./media/live-streaming/pass-through.svg)
+
+Doğrudan kullanırken **canlı olay**, Çoklu bit hızı video akışı oluşturmak ve katkı Canlı (RTMP ya da parçalı MP4 protokolü kullanılarak) olay için akışı göndermek için şirket içi Canlı Kodlayıcı dayanır. Canlı olay ardından gelen video akışları herhangi başka bir işlemeye olmadan taşır. Bu tür bir doğrudan canlı olay uzun süre çalışan Canlı etkinlikler için optimize edilmiştir veya 24 x 365 doğrusal canlı akış. 
+
+### <a name="live-encoding"></a>Live encoding  
+
+![live Encoding](./media/live-streaming/live-encoding.svg)
+
+Media Services ile Live encoding kullanıldığında, tek bit hızlı Canlı (RTMP veya parçalanmış Mp4 protokolünü kullanarak) olay için akışı katkı olarak video göndermek için şirket içi Canlı Kodlayıcı yapılandırırsınız. Bu gelen tek bit hızlı canlı olay kodlar için akış bir [birden çok hızlı video akışına](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), MPEG-DASH, HLS ve kesintisiz akış gibi protokolleri aracılığıyla cihazları kayıttan yürütmek teslim için kullanılabilir hale getirir. 
+
+## <a name="live-streaming-workflow"></a>Canlı akış iş akışı
+
+Media Services v3 canlı akış iş akışı anlamak için ilk gözden geçirme için sahip ve aşağıdaki kavramları anlama: 
 
 - [Akış uç noktaları](streaming-endpoint-concept.md)
 - [Canlı etkinlikler ve canlı çıkışları](live-events-outputs-concept.md)
 - [Akış bulucuları](streaming-locators-concept.md)
-
-## <a name="live-streaming-workflow"></a>Canlı akış iş akışı
 
 Canlı akış iş akışı için adımlar şunlardır:
 

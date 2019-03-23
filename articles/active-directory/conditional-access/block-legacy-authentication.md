@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/11/2019
+ms.date: 03/22/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97e5976603ee1574e8410702069b97a9f0ef6198
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: be66ead6521bdb21626caaecd582fac4da6f664b
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768767"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351278"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Nasıl yapılır: Azure ad koşullu erişim bloğu eski kimlik doğrulaması   
 
@@ -54,6 +54,8 @@ Azure AD birkaç eski bir kimlik doğrulama dahil olmak üzere en yaygın olarak
 Tek faktörlü kimlik doğrulaması (örneğin, kullanıcı adı ve parola) yeterli bugünlerde değildir. Tahmin kolaydır ve size (insanlar) en iyi parolalar seçme hatalı parola hatalı. Parolalar, saldırıları ilaç kimlik avı ve parola gibi çeşitli de etkilenir. Parola tehditlere karşı koruma için yapabileceğiniz kolay şeylerden biri MFA uygulamaktır. Bir saldırganın bir kullanıcının parolasını elinde alır bile MFA ile parola tek başına başarıyla kimlik doğrulaması ve verilere erişmek yeterli değil.
 
 Nasıl kiracınızın kaynaklara erişimini eski kimlik doğrulaması kullanan uygulamalar engelleyebilir miyim? Koşullu erişim ilkesi ile engellemek için önerilir. Gerekirse, yalnızca belirli kullanıcı ve belirli ağ konumlarını eski kimlik doğrulaması tabanlı uygulamaları kullanmasını sağlar.
+
+Koşullu erişim ilkeleri, ilk-faktörlü kimlik doğrulaması tamamlandıktan sonra uygulanır. Bu nedenle, koşullu erişim, hizmet reddi (DoS) saldırıları gibi senaryolar için ilk satırı savunma olarak tasarlanmamıştır, ancak bu olaylar (örneğin oturum açma risk düzeyini, konum isteği ve benzeri) gelen sinyalleri erişimini belirlemek için kullanabilir.
 
 
 

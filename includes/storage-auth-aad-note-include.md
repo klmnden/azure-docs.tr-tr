@@ -5,25 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/09/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 5d0e919159569e7512b6e7dc0458a4a3e397943b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 50217829be7aff3bcdbf417f19fff9f1fd7c6901
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57251974"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372683"
 ---
 > [!NOTE]
-> - Azure AD kimlik doğrulamasını BLOB'lar ve Kuyruklar önizlemesi yalnızca üretim dışı kullanması için tasarlanmıştır. Üretim hizmet düzeyi sözleşmeleri (SLA'lar) şu anda kullanılamıyor. Azure AD kimlik doğrulaması senaryonuz için henüz desteklenmiyor, uygulamalarınızda paylaşılan anahtar yetkilendirme veya SAS belirteçlerini kullanmaya devam.
+> - RBAC rolü atamalarını yaymak için iki dakika sürebilir.
 >
-> - Önizleme sırasında RBAC rolü atamalarını yayılması için beş dakika sürebilir.
+> Bir OAuth belirteci ile BLOB ve kuyruk işlemlerini yetkilendirmek için HTTPS kullanmalıdır.
 >
-> - Bir OAuth belirteci ile BLOB ve kuyruk işlemlerini yetkilendirmek için HTTPS kullanmalıdır.
->
-> - Azure portalı, artık Azure AD kimlik bilgilerini kullanarak okuma ve yazma blob destekler ve sıra veri önizlemesinin bir parçası bırakın. Azure portalında BLOB ve kuyruk verilerine erişmek için blob veya kuyruk erişim için uygun Önizleme rol ek olarak Azure Resource Manager okuyucu RBAC rolü bir kullanıcı atanmalıdır. Daha fazla bilgi için [Azure kapsayıcıları ve RBAC ile kuyrukları (Önizleme) Azure portalında erişim ver](../articles/storage/common/storage-auth-aad-rbac.md). 
+> - Azure portalı, artık Azure AD kimlik bilgilerini kullanarak okuma ve yazma blob destekler ve sıra veri önizlemesinin bir parçası bırakın. Azure portalında BLOB ve kuyruk verilere erişmek için Azure Resource Manager bir kullanıcı atanmalıdır **okuyucu** rol, blob veya kuyruk erişim için uygun rolü yanı sıra. Daha fazla bilgi için [Azure kapsayıcıları ve Azure portalında RBAC ile kuyruk için erişim verin](../articles/storage/common/storage-auth-aad-rbac.md). 
 > 
-> - [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) şu anda depolama hesabı anahtarınızı blob ve kuyruk verilerine erişmek için kullanır. OAuth erişim, BLOB'ları için desteklenir.
+> - [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) şu anda depolama hesabı anahtarınızı blob ve kuyruk verilerine erişmek için kullanır. Anahtar mevcut değilse, Azure AD yetkilendirme bloblara erişim için kullanılır. Azure AD yetkilendirme kuyruklar için şu anda desteklenmiyor. 
 >
 > - Azure dosyaları SMB üzerinden Azure AD ile kimlik doğrulaması etki alanına katılmış sanal makineleri için yalnızca (Önizleme) destekler. Azure dosyaları için SMB üzerinden Azure AD kullanma hakkında bilgi edinmek için [genel bakış, Azure Active Directory kimlik doğrulaması SMB üzerinden Azure dosyaları (Önizleme)](../articles/storage/files/storage-files-active-directory-overview.md).

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: ea808609add942c5cac36e7f0306e4a27ac3bb3a
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 02f698d531555aa9b5498060918a2a361b28817e
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743655"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361260"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Windows tabanlı HDInsight kümesinden bir Linux tabanlı bir kümeye geçirme
 
@@ -24,6 +24,8 @@ Windows tabanlı HDInsight bulutta Apache Hadoop kullanmak için kolay bir yol s
 
 > [!NOTE]  
 > HDInsight kümeleri kümedeki düğümler için işletim sistemi olarak Ubuntu uzun süreli destek (LTS) kullanın. Sürümü ile HDInsight, Ubuntu, yanı sıra diğer bileşen sürümü oluşturma bilgiler hakkında daha fazla bilgi için bkz: [HDInsight bileşen sürümü](hdinsight-component-versioning.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="migration-tasks"></a>Geçiş görevleri
 
@@ -63,7 +65,7 @@ Verileri üretim kümeden test kümeye kopyalamak için aşağıdaki adımları 
 
     ```powershell
     $clusterName="Your existing HDInsight cluster name"
-    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    $clusterInfo = Get-AzHDInsightCluster -ClusterName $clusterName
     write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
     write-host "Default container: $clusterInfo.DefaultStorageContainer"
     ```
@@ -93,7 +95,7 @@ Verileri üretim kümeden test kümeye kopyalamak için aşağıdaki adımları 
 
 #### <a name="direct-copy-between-blobs-in-azure-storage"></a>Azure Depolama'daki blobları arasında doğrudan kopyalama
 
-Alternatif olarak kullanmak isteyebilirsiniz `Start-AzureStorageBlobCopy` HDInsight dışında depolama hesapları arasında BLOB'ları kopyalamak için Azure PowerShell cmdlet'i. Nasıl daha fazla bilgi için bkz. Azure depolama ile Azure PowerShell kullanarak Azure BLOB'ları bölümünü yönetmek için.
+Alternatif olarak kullanmak isteyebilirsiniz `Start-AzStorageBlobCopy` HDInsight dışında depolama hesapları arasında BLOB'ları kopyalamak için Azure PowerShell cmdlet'i. Nasıl daha fazla bilgi için bkz. Azure depolama ile Azure PowerShell kullanarak Azure BLOB'ları bölümünü yönetmek için.
 
 ## <a name="client-side-technologies"></a>İstemci tarafı teknolojileri
 
@@ -148,9 +150,9 @@ Birçok web kullanıcı arabirimleri, iş geçmişi ya da Yarn UI gibi Windows t
 Ambari ile çalışma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
 * [Apache Ambari Web](hdinsight-hadoop-manage-ambari.md)
-* [Apache Ambari REST API'si](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
 
-### <a name="ambari-alerts"></a>Ambari uyarıları
+### <a name="ambari-alerts"></a>Ambari Uyarıları
 
 Ambari, küme olası sorunları size söyleyebilir bir uyarı sistemine sahiptir. Ayrıca bunları REST API aracılığıyla alabilir ancak uyarılar Ambari Web kullanıcı arabiriminde, kırmızı veya sarı girişleri olarak görünür.
 
@@ -167,7 +169,7 @@ Linux küme dosya sistemi Windows tabanlı HDInsight kümeleri farklı yerleşti
 | --- | --- |
 | Yapılandırma |`/etc`. Örneğin, `/etc/hadoop/conf/core-site.xml` |
 | Günlük dosyaları |`/var/logs` |
-| Hortonworks veri Platformu (HDP) |`/usr/hdp`. İki dizin bulunan Burada, geçerli HDP sürümü vardır ve `current`. `current` Dizini dosyalara ve dizinlere sürüm numarası dizininde simgesel bağlantılar içerir. `current` Dizindir sağlanan sürüm HDP dosyaları sonraki sürüm numarası değişiklikler HDP erişmenin kolay bir yol olarak güncelleştirilir. |
+| Hortonworks Data Platform (HDP) |`/usr/hdp`. İki dizin bulunan Burada, geçerli HDP sürümü vardır ve `current`. `current` Dizini dosyalara ve dizinlere sürüm numarası dizininde simgesel bağlantılar içerir. `current` Dizindir sağlanan sürüm HDP dosyaları sonraki sürüm numarası değişiklikler HDP erişmenin kolay bir yol olarak güncelleştirilir. |
 | hadoop streaming.jar |`/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar` |
 
 Genel olarak, dosya adını biliyorsanız, dosya yolunu bulmak için bir SSH oturumunda aşağıdaki komutu kullanabilirsiniz:

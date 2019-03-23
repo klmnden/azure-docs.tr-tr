@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 54302f97913fd01dc8f8e4a8d987a407c8bdf9a7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569034"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369182"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Veri akışı kaynak dönüştürme eşlemesi
 
@@ -74,7 +74,7 @@ Bir sütun bölüm için kaynak tablosundan seçin. Maksimum bağlantı sayısı
 ## <a name="source-file-management"></a>Kaynak dosya yönetimi
 ![Yeni kaynak ayarları](media/data-flow/source2.png "yeni ayarlar")
 
-* Bir desenle eşleşen dosyaları kaynak klasöründen bir dizi seçmek için joker karakteri ifadenin yolu. Bu, veri kümesi tanımında, ayarladığınız herhangi bir dosyayı geçersiz kılar.
+* Bir desenle eşleşen dosyaları kaynak klasöründen bir dizi seçmek için joker karakter yolu. Bu, veri kümesi tanımında, ayarladığınız herhangi bir dosyayı geçersiz kılar.
 * Dosyaların listesi. Bir dosya kümesi ile aynıdır. İşlemek için göreli yol dosyaların listesini ile oluşturduğunuz bir metin dosyasına işaret.
 * Dosya adı depolamak için sütun verilerinizi sütununda kaynak dosyasının adını depolar. Dosya adı dizesi depolamak için yeni bir ad girin.
 * Tamamlandıktan sonra (veri akışı yürütüldükten sonra kaynak dosya ile hiçbir şey yapma, kaynak dosyaları silin veya kaynak dosyalarını taşımak için seçebilirsiniz. Taşıma için göreli yolların yollardır.
@@ -83,7 +83,7 @@ Bir sütun bölüm için kaynak tablosundan seçin. Maksimum bağlantı sayısı
 
 Azure SQL DB veya Azure SQL DW, kaynağı olarak kullanırken, ek seçenekler gerekir.
 
-* Sorgu: Kaynağınız için bir SQL sorgusunu girin. Bir sorgu ayarlama kümesinde seçtiğiniz herhangi bir tabloda geçersiz kılar. Order By yan tümcesi burada desteklenmediğini unutmayın.
+* Sorgu: Kaynağınız için bir SQL sorgusunu girin. Bir sorgu ayarlama kümesinde seçtiğiniz herhangi bir tabloda geçersiz kılar. Order By yan tümcesi burada desteklenmediğini unutmayın. Ancak, tam bir SELECT FROM deyimi Burada ayarlanan olabilir.
 
 * Toplu iş boyutu: Toplu iş boyutu okur ile büyük verileri öbek için bir toplu iş boyutu girin.
 

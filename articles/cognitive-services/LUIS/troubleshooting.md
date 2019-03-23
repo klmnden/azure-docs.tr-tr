@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: f1bc19833e0e0cc2026ae22977d9a3b371924fe2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: aed7d4fedd4781eac8c127744e5fe93fb054b99d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337139"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369726"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding'i sık sorulan sorular (SSS)
 
@@ -64,7 +64,12 @@ Cortana önceden oluşturulmuş uygulamalar, 2017'de kullanım dışı bırakıl
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Bir LUIS uygulaması sahipliğini nasıl aktarabilir?
 Bir LUIS uygulaması için farklı bir Azure aboneliği aktarmayı LUIS uygulaması dışarı aktarma ve yeni bir hesap kullanarak içe aktarın. Çağıran istemci uygulamasındaki LUIS uygulama kodunu güncelleştirin. Yeni uygulamayı biraz daha farklı LUIS özgün uygulamadan puanları döndürebilir.
 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Önceden oluşturulmuş bir varlık, bir örnek utterance my özel bir varlık yerine etiketlenir. Bunu nasıl düzeltirim? 
+
+Bkz: [önceden oluşturulmuş varlıklarla ilgili sorunları giderme](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
+
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Bir uygulama veya sürüm dosyasını içeri aktarma çalıştı, ancak ne olduğunu, bir hata aldım? 
+
 Daha fazla bilgi edinin [sürümü alma hataları](luis-how-to-manage-versions.md#import-errors) ve [uygulama alma hataları](luis-how-to-start-new-app.md#import-errors).
 
 <a name="luis-collaborating"></a>

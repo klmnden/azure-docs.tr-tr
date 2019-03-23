@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34cfd37caf45d709fdc0b3639a218e2e587e8164
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0c1a05cc25be7a5763a8891b92e870a92792191d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314357"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372191"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>RADIUS kimlik doğrulamasını ve Azure Multi-Factor Authentication Sunucusuyla tümleştirme
 
@@ -27,7 +27,7 @@ RADIUS, kimlik doğrulama isteklerini kabul etmek ve bu istekleri işlemek için
 >
 > Bu yapılandırmada, MFA Sunucusu alternatif protokolleri kullanarak başarılı bir RADIUS Sınama yanıtı başlatamadığından, tek yönlü SMS ve OATH belirteçleri çalışmaz.
 
-![Radius Kimlik Doğrulaması](./media/howto-mfaserver-dir-radius/radius.png)
+![MFA sunucusu, RADIUS kimlik doğrulaması](./media/howto-mfaserver-dir-radius/radius.png)
 
 ## <a name="add-a-radius-client"></a>RADIUS istemcisi ekleme
 
@@ -66,9 +66,10 @@ RADIUS kimlik doğrulamasını yapılandırmak için, bir Windows sunucusuna Azu
 
 Başka RADIUS sunucuları eklemek için bu adımları yineleyin. **Yukarı Taşı** ve **Aşağı Taşı** düğmeleriyle Azure MFA Sunucusu’nun bunları çağıracağı sırayı yapılandırabilirsiniz.
 
-Azure Multi-Factor Authentication Sunucusu’nu başarıyla yapılandırdınız. Sunucu artık yapılandırılan istemcilerden gelen RADIUS erişim istekleri için yapılandırılan bağlantı noktalarını dinler.   
+Azure Multi-Factor Authentication Sunucusu’nu başarıyla yapılandırdınız. Sunucu artık yapılandırılan istemcilerden gelen RADIUS erişim istekleri için yapılandırılan bağlantı noktalarını dinler.
 
 ## <a name="radius-client-configuration"></a>RADIUS İstemcisi yapılandırması
+
 RADIUS istemcisini yapılandırmak için yönergeleri kullanın:
 
 * Gerecinizi/sunucunuzu, RADIUS sunucusu olarak görev yapan Azure Multi-Factor Authentication Sunucusu’nun IP adresi için RADIUS aracılığıyla kimlik doğrulaması yapacak şekilde yapılandırın.

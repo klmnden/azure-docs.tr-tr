@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b433d8556377206ea53ece2764e251dcb266eb95
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192362"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369148"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>İş cihazınızın, kuruluşunuzun ağa katılmasını sağlayın.
 Potansiyel olarak kısıtlanmış kaynaklara erişebilmesi için iş ait Windows 10 Cihazınızı kuruluşunuzun ağa katılmasını sağlayın.
@@ -26,7 +26,7 @@ Potansiyel olarak kısıtlanmış kaynaklara erişebilmesi için iş ait Windows
 ## <a name="what-happens-when-you-join-your-device"></a>Cihazınızı ekleme ne olur
 Windows 10 cihazınızın, kuruluşunuzun ağına birleştirdiğimiz olsa da, aşağıdaki eylemler gerçekleşir:
 
-- Windows kayıtları cihazınıza izin vererek, kuruluşunuzun ağ kaynaklarınızı kişisel hesabınızla erişebilirsiniz. Cihazınız kaydedildikten sonra oturum açmak ve kısıtlanmış kaynaklara erişmek için kuruluşunuzun kullanıcı adı ve parola kullanabilmeniz için Windows Cihazınızı ardından ağa katılır.
+- Windows cihazınız, kuruluşunuzun ağına, kişisel hesabınızı kullanarak kaynaklarınıza erişmenize izin vererek kaydeder. Cihazınız kaydedildikten sonra oturum açmak ve kısıtlanmış kaynaklara erişmek için kuruluşunuzun kullanıcı adı ve parola kullanabilmeniz için Windows Cihazınızı ardından ağa katılır.
 
 - İsteğe bağlı olarak, kuruluşunuzun seçimlerine bağlı olarak, iki aşamalı doğrulama ya da aracılığıyla ayarlamak için istenebilir [multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) veya [güvenlik bilgisi](user-help-security-info-overview.md).
 

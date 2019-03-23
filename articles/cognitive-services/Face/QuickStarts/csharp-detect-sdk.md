@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: eaaeda1460ecffc2b1a53bb46901aedc2e9563c4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e9f613b6cd02bd1e85b75db7a3b2c2b4adccce3f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313322"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372140"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Hızlı Başlangıç: Yüz tanıma .NET SDK'sı ile bir resimdeki yüz algılama
 
@@ -32,8 +32,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 1. Visual Studio'da yeni bir oluşturma **konsol uygulaması (.NET Framework)** adlandırın ve proje **FaceDetection**. 
 1. Çözümünüzde başka projeler de varsa, tek başlangıç projesi olarak bunu seçin.
-1. Gereken NuGet paketlerini alın. Çözüm Gezgini'nde projenize sağ tıklayıp **NuGet paketlerini Yönet**. Tıklayın **Gözat** sekmenize **ön sürümü dahil et**; ardından bulun ve aşağıdaki paketi yükleyin:
+1. Gereken NuGet paketlerini alın. Çözüm Gezgini'nde projenize sağ tıklayıp **NuGet paketlerini Yönet**. Tıklayın **Gözat** sekmenize **ön sürümü dahil et**; ardından bulun ve aşağıdaki paketleri yükleyin:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
+    - Microsoft.Rest.ClientRuntime
+    - Microsoft.Rest.ClientRuntime.Azure
+    - Newtonsoft.Json
 
 ## <a name="add-face-detection-code"></a>Yüz algılama kodu ekleyin
 

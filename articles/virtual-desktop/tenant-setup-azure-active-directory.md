@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 2dafb58a805a2da89852c84ebad08f1c495adb83
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 26bcae12ee5e053289dd18c9f378eff43a0b0e04
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318123"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368179"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Öğretici: Windows sanal masaüstü (Önizleme) bir kiracısı oluşturma
 
@@ -53,16 +53,16 @@ Hizmet izinleri vermek için:
 
 ## <a name="assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant"></a>Bir kullanıcı Azure Active Directory kiracınızdaki TenantCreator uygulama rolü atayın
 
-Bir Azure Active Directory kullanıcı atama TenantCreator uygulama rolü Azure Active Directory ile ilişkili bir Windows sanal masaüstü kiracısı oluşturmak bu kullanıcı sağlar. Genel yönetici hesabınızın TenantCreator rol atamak gerekir.
+Bir Azure Active Directory kullanıcı atama TenantCreator uygulama rolü Azure Active Directory ile ilişkili bir Windows sanal masaüstü kiracısı oluşturmak bu kullanıcı sağlar. TenantCreator rol atamak için genel yönetici hesabı kullanmanız gerekir.
 
-Genel yönetici hesabınızın TenantCreator uygulama rolü atamak için:
+Genel Yönetici hesabınızla TenantCreator uygulama rolü atamak için:
 
 1. Bir tarayıcı açın ve bağlanma [Azure Active Directory portalında](https://aad.portal.azure.com) genel Yönetici hesabınızla.
    - Birden çok Azure AD kiracıları ile çalışıyorsanız, bu URL'leri adrese yapıştırın ve bir özel tarayıcı oturumu açıp kopyalama en iyi uygulamadır.
-2. Seçin **kurumsal uygulamalar**, arama **Windows Sanal Masaüstü** ve uygulamayı seçin.
+2. Seçin **kurumsal uygulamalar**, arama **Windows Sanal Masaüstü**. Önceki bölümdeki onay için sağlanan iki uygulama görürsünüz. Bu iki uygulamaları seçin **Windows Sanal Masaüstü**.
 3. Seçin **kullanıcılar ve gruplar**, ardından **Kullanıcı Ekle**.
 4. Kullanıcıları ve grupları seçin **atama Ekle** dikey penceresi
-5. Windows sanal masaüstü kiracınız oluşturan bir kullanıcı hesabı için arama yapın. 
+5. Windows sanal masaüstü kiracınız oluşturan bir kullanıcı hesabı için arama yapın.
    - Kolaylık olması için bu genel yönetici hesabını olabilir.
 6. Kullanıcı hesabı seçin, **seçin** düğmesini ve ardından **atama**.
 

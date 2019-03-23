@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: 83c286be6429376d4d0b4009b18c5f751a4b158f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: cd0369f45529082ac929b1d87608204033cd78f6
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226700"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370525"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights’ta örnekleme
 
@@ -517,7 +517,14 @@ Sabit fiyat örnekleme sunucu tarafı SDK'sı ile birlikte, istemci-tarafı (Jav
 
 *Her zaman görmek istiyorum nadir belirli olaylar vardır. Nasıl bunları örnekleme modülü alabilir miyim?*
 
-* TelemetryClient ile yeni bir TelemetryConfiguration (varsayılan etkin) ayrı bir örneğini başlatır. Bu, nadir olayları göndermek için kullanın.
+* Bunu yapmanın en iyi yolu, bir özel yazmaktır [TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering), hangi kümeleri `SamplingPercentage` telemetri öğesine 100 aşağıda gösterildiği gibi tutulan, istiyor. Bu, tüm örnekleme teknikleri bu öğeden herhangi örnekleme dikkat edilecek noktalar göz ardı eder sağlar.
+
+```csharp
+    if(somecondition)
+    {
+        ((ISupportSampling)item).SamplingPercentage = 100;
+    }
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

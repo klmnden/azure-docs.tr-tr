@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 1978f4a2afa2e22eb4182c01d3005f9e5daf5e57
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f56595abf354d1124a40729ce93f97ab2acdeeeb
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103018"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361566"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-powershell"></a>Hızlı Başlangıç: PowerShell kullanarak HDInsight Apache Spark kümesi oluşturma
 Oluşturmayı [Apache Spark](https://spark.apache.org/) karşı Spark SQL sorgularının nasıl çalıştırılacağını ve Azure HDInsight kümesinde [Apache Hive](https://hive.apache.org/) tablolar. Apache Spark, bellek içi işleme kullanarak hızlı veri analizi ve küme hesaplama sağlar. HDInsight üzerinde Spark hakkında daha fazla bilgi için bkz: [genel bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md).
@@ -25,6 +25,8 @@ Bu hızlı başlangıçta, HDInsight Spark kümesi oluşturmak için Azure Power
 > İster kullanın, ister kullanmayın, HDInsight kümeleri faturalaması dakika başına eşit olarak dağıtılmıştır. Kullanmayı bitirdikten sonra kümenizi sildiğinizden emin olun. Daha fazla bilgi için bu makalenin [Kaynakları temizleme](#clean-up-resources) bölümüne bakın.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="create-an-hdinsight-spark-cluster"></a>HDInsight Spark kümesi oluşturma
 
@@ -56,20 +58,20 @@ Kaynakları oluşturmak için bir PowerShell betiği kullanırsınız.  Betiği 
     # Create the resource group
     $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
     $location = Read-Host -Prompt "Enter the Azure region to create resources in, such as 'Central US'"
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
     
     $defaultStorageAccountName = Read-Host -Prompt "Enter the default storage account name"
     
     # Create an Azure storae account and container
-    New-AzureRmStorageAccount `
+    New-AzStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $defaultStorageAccountName `
         -Type Standard_LRS `
         -Location $location
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
+    $defaultStorageAccountKey = (Get-AzStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
                                     -Name $defaultStorageAccountName)[0].Value
-    $defaultStorageContext = New-AzureStorageContext `
+    $defaultStorageContext = New-AzStorageContext `
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $defaultStorageAccountKey
     
@@ -90,14 +92,14 @@ Kaynakları oluşturmak için bir PowerShell betiği kullanırsınız.  Betiği 
     $defaultBlobContainerName = $clusterName
     
     # Create a blob container. This holds the default data store for the cluster.
-    New-AzureStorageContainer `
+    New-AzStorageContainer `
         -Name $clusterName -Context $defaultStorageContext 
     
     $sparkConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
     $sparkConfig.Add("spark", "2.3")
     
     # Create the HDInsight cluster
-    New-AzureRmHDInsightCluster `
+    New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroupName `
         -ClusterName $clusterName `
         -Location $location `
@@ -112,7 +114,7 @@ Kaynakları oluşturmak için bir PowerShell betiği kullanırsınız.  Betiği 
         -DefaultStorageContainer $clusterName `
         -SshCredential $sshCredentials 
     
-    Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+    Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
     ```
    Kümenin oluşturulması yaklaşık 20 dakika sürer. Sonraki oturumuna devam etmeden önce küme oluşturulması gerekir.
 

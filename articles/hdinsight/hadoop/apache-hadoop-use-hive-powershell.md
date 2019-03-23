@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8bd754533758d2c736e3951e5c7a10f63bb72bd8
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 77d2d0b5b9f994668abdd02640a9c6d5f463e137
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410185"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360767"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>PowerShell kullanarak Apache Hive sorguları çalıştırma
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -25,6 +25,8 @@ Bu belgede, HDInsight kümesinde bir Apache Hadoop Hive sorguları çalıştırm
 > Bu belgede ayrıntılı açıklamasını örneklerde kullanılan HiveQL ifadelerini ne sağlamaz. Bu örnekte kullanılan HiveQL hakkında daha fazla bilgi için bkz: [HDInsight üzerinde Apache Hadoop ile Hive kullanma Apache](hdinsight-use-hive.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Bir Linux tabanlı Apache Hadoop üzerine HDInsight kümesi sürüm 3.4.
 
@@ -41,13 +43,13 @@ Azure PowerShell sağlar *cmdlet'leri* uzaktan üzerinde HDInsight Hive sorgular
 
 Bir uzak HDInsight kümesinde Hive sorgularının çalıştırılması aşağıdaki cmdlet'ler kullanılır:
 
-* `Connect-AzureRmAccount`: Azure PowerShell, Azure aboneliğinize kimliğini doğrular.
-* `New-AzureRmHDInsightHiveJobDefinition`: Oluşturur bir *iş tanımı* belirtilen HiveQL ifadelerini kullanarak.
-* `Start-AzureRmHDInsightJob`: HDInsight için iş tanımını gönderir ve bir iş başlatılır. A *iş* nesne döndürülür.
-* `Wait-AzureRmHDInsightJob`: İş nesnesi, iş durumunu denetlemek için kullanır. Bekleme süresi aşılırsa veya iş tamamlanana kadar bekler.
-* `Get-AzureRmHDInsightJobOutput`: İşin çıktısını almak için kullanılır.
-* `Invoke-AzureRmHDInsightHiveJob`: HiveQL ifadelerini çalıştırmak için kullanılır. Bu cmdlet blokları sorgu tamamlandıktan sonra sonuçları döndürür.
-* `Use-AzureRmHDInsightCluster`: Geçerli Küme için kullanılacak ayarlar `Invoke-AzureRmHDInsightHiveJob` komutu.
+* `Connect-AzAccount`: Azure PowerShell, Azure aboneliğinize kimliğini doğrular.
+* `New-AzHDInsightHiveJobDefinition`: Oluşturur bir *iş tanımı* belirtilen HiveQL ifadelerini kullanarak.
+* `Start-AzHDInsightJob`: HDInsight için iş tanımını gönderir ve bir iş başlatılır. A *iş* nesne döndürülür.
+* `Wait-AzHDInsightJob`: İş nesnesi, iş durumunu denetlemek için kullanır. Bekleme süresi aşılırsa veya iş tamamlanana kadar bekler.
+* `Get-AzHDInsightJobOutput`: İşin çıktısını almak için kullanılır.
+* `Invoke-AzHDInsightHiveJob`: HiveQL ifadelerini çalıştırmak için kullanılır. Bu cmdlet blokları sorgu tamamlandıktan sonra sonuçları döndürür.
+* `Use-AzHDInsightCluster`: Geçerli Küme için kullanılacak ayarlar `Invoke-AzHDInsightHiveJob` komutu.
 
 Aşağıdaki adımlarda, HDInsight kümenizin bir işi çalıştırmak için bu cmdlet'leri kullanma gösterilmektedir:
 
@@ -81,7 +83,7 @@ Aşağıdaki adımlarda, HDInsight kümenizin bir işi çalıştırmak için bu 
    > [!NOTE]  
    > Uzun HiveQL sorgular için Azure PowerShell kullanabilirsiniz **burada dizeler** cmdlet veya HiveQL komut dosyaları. Aşağıdaki kod parçacığını nasıl kullanılacağını gösterir `Invoke-Hive` cmdlet'ini HiveQL komut dosyasını çalıştırın. Wasb için HiveQL komut dosyası karşıya yüklenmelidir: / /.
    >
-   > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
+   > `Invoke-AzHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
    > Hakkında daha fazla bilgi için **burada dizeler**, bkz: <a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">kullanarak Windows PowerShell burada-dizeleri</a>.
 
@@ -91,7 +93,7 @@ Aşağıdaki adımlarda, HDInsight kümenizin bir işi çalıştırmak için bu 
 
 ```powershell
 # Print the output of the Hive job.
-Get-AzureRmHDInsightJobOutput `
+Get-AzHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $job.JobId `
         -HttpCredential $creds `
