@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 5382c565e5afc42d65a3198d797b51d1b1a9dde6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c6c82ee26fdbd824bdf42720ed7fc08135a872da
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550779"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372421"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure sanal ağına Container Instances'ı dağıtma
 
@@ -114,13 +114,13 @@ Aşağıdaki bölümlerde, sanal ağ Azure CLI ile kapsayıcı grupları dağıt
 
 İlk olarak, bir kapsayıcı grubuna dağıtın ve yeni sanal ağ ve alt ağ için parametreleri belirtin. Bu parametreleri belirttiğinizde, Azure sanal ağı ve alt ağ oluşturur, alt ağ ile Azure Container Instances temsilcilerini ve ayrıca bir ağ profili oluşturur. Bu kaynaklar oluşturulduktan sonra kapsayıcı grubunuzun alt ağa dağıtılır.
 
-Aşağıdaki komutu çalıştırın [az kapsayıcı oluşturma] [ az-container-create] yeni sanal ağ ve alt ağ ayarlarını belirten komutu. Bir bölgede oluşturulan bir kaynak grubu adı sağlamanız gereken, [destekler](#preview-limitations) kapsayıcı grupları bir sanal ağ içinde. Bu komut dağıtır [microsoft/aci-helloworld] [ aci-helloworld] statik bir web sayfasına hizmet veren küçük bir Node.js Web sunucusu çalıştıran bir kapsayıcı. Sonraki bölümde, aynı alt ağa ikinci bir kapsayıcı grubu dağıtın ve iki kapsayıcı örnekleri arasında iletişimi test etme.
+Aşağıdaki komutu çalıştırın [az kapsayıcı oluşturma] [ az-container-create] yeni sanal ağ ve alt ağ ayarlarını belirten komutu. Bir bölgede oluşturulan bir kaynak grubu adı sağlamanız gereken, [destekler](#preview-limitations) kapsayıcı grupları bir sanal ağ içinde. Bu komutu, genel Microsoft dağıtır [aci-helloworld] [ aci-helloworld] statik bir web sayfasına hizmet veren küçük bir Node.js Web sunucusu çalıştıran bir kapsayıcı. Sonraki bölümde, aynı alt ağa ikinci bir kapsayıcı grubu dağıtın ve iki kapsayıcı örnekleri arasında iletişimi test etme.
 
 ```azurecli
 az container create \
     --name appcontainer \
     --resource-group myResourceGroup \
-    --image microsoft/aci-helloworld \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --vnet aci-vnet \
     --vnet-address-prefix 10.0.0.0/16 \
     --subnet aci-subnet \
@@ -210,7 +210,7 @@ properties:
   containers:
   - name: appcontaineryaml
     properties:
-      image: microsoft/aci-helloworld
+      image: mcr.microsoft.com/azuredocs/aci-helloworld
       ports:
       - port: 80
         protocol: TCP
@@ -241,9 +241,9 @@ Dağıtım tamamlandıktan sonra Çalıştır [az container show] [ az-container
 
 ```console
 $ az container show --resource-group myResourceGroup --name appcontaineryaml --output table
-Name              ResourceGroup    Status    Image                     IP:ports     Network    CPU/Memory       OsType    Location
-----------------  ---------------  --------  ------------------------  -----------  ---------  ---------------  --------  ----------
-appcontaineryaml  myResourceGroup  Running   microsoft/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
+Name              ResourceGroup    Status    Image                                       IP:ports     Network    CPU/Memory       OsType    Location
+----------------  ---------------  --------  ------------------------------------------  -----------  ---------  ---------------  --------  ----------
+appcontaineryaml  myResourceGroup  Running   mcr.microsoft.com/azuredocs/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
 ```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
@@ -310,7 +310,7 @@ Birden çok sanal ağ kaynakları ve özellikler bu makalede, ancak kısaca ele 
 [aci-vnet-01]: ./media/container-instances-vnet/aci-vnet-01.png
 
 <!-- LINKS - External -->
-[aci-helloworld]: https://hub.docker.com/r/microsoft/aci-helloworld/
+[aci-helloworld]: https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->

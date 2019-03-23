@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 00f5f8e045a2ec78751d115db3d9d75ec76189e8
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 8c50a3069ea8b1303e45c571425a6f4c9b4c0d5b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732293"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368197"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell kullanarak azure'da bir kapsayıcı örneği dağıtma
 
@@ -43,14 +43,14 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 
-Artık bir kaynak grubuna sahip olduğunuza göre Azure'da kapsayıcı çalıştırabilirsiniz. Azure PowerShell ile bir kapsayıcı örneği oluşturmak için bir kaynak grubu adı, kapsayıcı örneği adı ve Docker kapsayıcı görüntüsüne sağlamanız [yeni AzContainerGroup] [ New-AzContainerGroup] cmdlet'i. Bu hızlı başlangıçta, kullandığınız `microsoft/iis:nanoserver` Windows görüntü genel Docker Hub kayıt defterinden. Bu görüntü, Nano Sunucu'da çalıştırmak için Internet Information Services (IIS) paketleri.
+Artık bir kaynak grubuna sahip olduğunuza göre Azure'da kapsayıcı çalıştırabilirsiniz. Azure PowerShell ile bir kapsayıcı örneği oluşturmak için bir kaynak grubu adı, kapsayıcı örneği adı ve Docker kapsayıcı görüntüsüne sağlamanız [yeni AzContainerGroup] [ New-AzContainerGroup] cmdlet'i. Bu hızlı başlangıçta, genel kullandığınız `mcr.microsoft.com/windows/servercore/iis:nanoserver` görüntü. Bu görüntü, Nano Sunucu'da çalıştırmak için Microsoft Internet Information Services (IIS) paketleri.
 
 Açılacak bir veya daha fazla bağlantı noktası, DNS ad etiketi ya da ikisini birden belirterek kapsayıcılarınızı internete açabilirsiniz. Bu hızlı başlangıçta, böylece IIS genel olarak erişilebilir olduğundan bir DNS ad etiketi içeren bir kapsayıcıya dağıtın.
 
 Bir kapsayıcı örneği başlatmak için aşağıdaki komutu yürütün. Ayarlanmış bir `-DnsNameLabel` örneği oluşturduğunuz Azure bölgesi içinde benzersiz olan değer. "DNS ad etiketi kullanılamıyor" hata iletisiyle karşılaşırsanız farklı bir DNS ad etiketi deneyin.
 
  ```azurepowershell-interactive
-New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
+New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image mcr.microsoft.com/windows/servercore/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
 Birkaç saniye içinde Azure’dan bir yanıt almanız gerekir. Kapsayıcının `ProvisioningState` değeri başlangıçta **Oluşturuluyor** şeklindedir ancak birkaç dakika içinde **Başarılı** olarak değişmesi gerekir. Dağıtım durumunu denetleyin [Get-AzContainerGroup] [ Get-AzContainerGroup] cmdlet:

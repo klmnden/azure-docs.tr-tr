@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0daa25cce434b2e97995963918e52df974e2ef9c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 31d08c0dac63662568bf55a021e85ec414c61e52
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336557"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360376"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Şirket içi makineleri Azure’a geçirme
 
@@ -38,7 +38,7 @@ Bu, serideki üçüncü öğreticidir. Bu öğreticide, önceki öğreticilerdek
 Başlamadan önce olağanüstü durum kurtarma için [VMware](vmware-azure-architecture.md) veya [Hyper-V](hyper-v-azure-architecture.md) mimarilerini gözden geçirmeniz yararlı olabilir.
 
 > [!TIP]
-> VMware Vm'lerini Azure'a geçirmek aracısız bir şekilde mi arıyorsunuz? [Buraya tıklayın](https://aka.ms/migrateVMs-signup)
+> Yeni aracısız deneyimimizi azure'a geçirme VMware Vm'leri için katılmak istiyorsunuz? [Daha fazla bilgi edinin](https://aka.ms/migrateVMs-signup).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -129,7 +129,7 @@ Bazı senaryolarda yük devretme için sekiz ila on dakikada tamamlanan ek işle
 
 Makineler Azure’a geçirildikten sonra, tamamlamanız gereken birkaç adım vardır.
 
-Bazı adımlar, [kurtarma planlarındaki]( https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation) yerleşik otomasyon betikleri kullanılarak geçiş işleminin parçası olarak otomatikleştirilebilir.   
+Bazı adımlar, [kurtarma planlarındaki](site-recovery-runbook-automation.md) yerleşik otomasyon betikleri kullanılarak geçiş işleminin parçası olarak otomatikleştirilebilir.   
 
 
 ### <a name="post-migration-steps-in-azure"></a>Azure’da geçiş sonrası adımlar
@@ -140,7 +140,7 @@ Bazı adımlar, [kurtarma planlarındaki]( https://docs.microsoft.com/azure/site
     - VMware makinelerini ve fiziksel sunucuları geçiriyorsanız Mobility Hizmeti yükleyicisi, Windows makinelere kullanılabilir Azure sanal makine aracısını yükler. Linux sanal makineleri üzerinde, yük devretmeden sonra aracıyı yüklemeniz önerilir.
     - Azure sanal makinelerini ikincil bölgeye geçiriyorsanız Azure sanal makine aracısı, geçişten önce sanal makinede sağlanmalıdır.
     - Hyper-V sanal makinelerini Azure’a geçiriyorsanız, geçişten sonra Azure sanal makinesine Azure sanal makine aracısını yükleyin.
-- Sanal makineden Site Recovery sağlayıcısını/aracısını kendiniz kaldırın. VMware sanal makinelerini veya fiziksel sunucularını geçiriyorsanız, Azure sanal makinesinden [Mobility Service’i kaldırın][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer].
+- Sanal makineden Site Recovery sağlayıcısını/aracısını kendiniz kaldırın. VMware Vm'lerini veya fiziksel sunucuları geçirirseniz, Mobility hizmetini sanal makineden kaldırın.
 - Daha fazla esneklik için:
     - Azure Backup hizmetini kullanarak Azure sanal makinelerini yedekleyip verileri güvende tutun. [Daha fazla bilgi edinin]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
     - Site Recovery ile Azure sanal makinelerini ikincil bölgeye çoğaltarak iş yüklerinin çalışmaya devam etmesini ve sürekli kullanılabilir olmasını sağlayın. [Daha fazla bilgi edinin](azure-to-azure-quickstart.md).

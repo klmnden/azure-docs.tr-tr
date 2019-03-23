@@ -1,17 +1,17 @@
 ---
 title: Kullanıcılar, MySQL sunucusu için Azure veritabanı'nda oluşturma
 description: Bu makalede, MySQL için Azure veritabanı ile etkileşim kurmak için yeni kullanıcı hesaplarını nasıl oluşturabileceğiniz açıklanır.
-author: jasonwhowell
-ms.author: jasonh
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: e8714777b1f9f08de4d02fcb44c25197cdc48899
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 4cd2305ed3d7f88f6c3825d8f7cdb5d81f9a0f6b
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546020"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351261"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Kullanıcılar, MySQL sunucusu için Azure veritabanı'nda oluşturma 
 Bu makalede, bir MySQL sunucusu için Azure veritabanı'nda kullanıcılara nasıl oluşturabileceğiniz açıklanır.

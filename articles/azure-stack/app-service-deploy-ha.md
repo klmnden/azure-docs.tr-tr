@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: ''
-ms.date: 03/13/2019
+ms.date: 03/23/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
-ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: db95be94028fcf16871a9dcfee5f0d87eb5d2cdc
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: 1c105548f19994c4ca0ce161eedcfe11736864c7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285675"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370032"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>App Service'ı yüksek oranda kullanılabilir bir yapılandırmada dağıtın
 
@@ -54,8 +54,7 @@ Bu şablonu kullanmadan önce aşağıdakilerden emin [Azure Stack Market öğes
 ### <a name="deploy-the-app-service-infrastructure"></a>App Service altyapısını dağıtma
 Kullanarak bir özel dağıtım oluşturmak için bu bölümdeki adımları kullanın **appservice-dosya paylaşımı-sqlserver-ha** Azure Stack Hızlı Başlangıç şablonu.
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Seçin **\+** **kaynak Oluştur** > **özel**, ardından **şablon dağıtımı**.
 
@@ -94,8 +93,7 @@ Bu çıkış değerlerin her birini kayıt emin olun:
 
 Şablon çıkış değerleri bulmak için aşağıdaki adımları izleyin:
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Yönetim portalında **kaynak grupları** ve ardından kaynak grubunun adı için özel dağıtım oluşturduğunuz (**app-service-ha** Bu örnekte). 
 
@@ -168,9 +166,20 @@ App Service kaynak sağlayıcısı dağıtmak için aşağıdaki adımları izle
 
     ![Dosya Paylaşımı çıkış bilgileri](media/app-service-deploy-ha/07.png)
 
-9. App Service yüklemek için kullanılan makine App Service dosya paylaşımı barındırmak için kullanılan dosya sunucusu olarak aynı VNet üzerinde bulunmadığından adını çözümlemek mümkün olmayacaktır. Bu beklenen bir davranıştır.<br><br>Dosya Paylaşımı için UNC yolu ve hesap bilgilerini girdiğiniz bilgilerin doğru olduğundan emin olun ve basın **Evet** App Service yüklemeye devam etmek için uyarı iletişim kutusunda.
+9. App Service yüklemek için kullanılan makine App Service dosya paylaşımı barındırmak için kullanılan dosya sunucusu olarak aynı VNet üzerinde bulunmadığından adını çözümlemek mümkün olmayacaktır. **Bu beklenen bir davranıştır**.<br><br>Dosya Paylaşımı için UNC yolu ve hesap bilgilerini girdiğiniz bilgilerin doğru olduğundan emin olun ve basın **Evet** App Service yüklemeye devam etmek için uyarı iletişim kutusunda.
 
     ![Beklenen hata iletişim kutusu](media/app-service-deploy-ha/08.png)
+
+    Mevcut bir sanal ağ ve dosya sunucunuza bağlanmak için bir dahili IP adresine dağıtmayı seçerseniz, çalışan alt ağ ve dosya sunucusu arasında SMB trafiği etkinleştirme bir giden güvenlik kuralı eklemeniz gerekir. Yönetim Portalı'nda WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
+    - Kaynak: Herhangi biri
+    - Kaynak bağlantı noktası aralığı: *
+    - Hedef: IP Adresleri
+    - Hedef IP adresi aralığı: Dosya sunucusu için IP aralığı
+    - Hedef bağlantı noktası aralığı: 445
+    - Protokol: TCP
+    - Eylem: İzin Ver
+    - Önceliği: 700
+    - Ad: Outbound_Allow_SMB445
 
 10. Identity Application kimliği ve yolunu ve kimlik sertifikası için parola sağlayın ve tıklayın **sonraki**:
     - Uygulama Kimliği sertifikası (biçimi **sso.appservice.local.azurestack.external.pfx**)
@@ -189,7 +198,7 @@ App Service kaynak sağlayıcısı dağıtmak için aşağıdaki adımları izle
 
     ![SQL Server bağlantı bilgileri](media/app-service-deploy-ha/10.png)
 
-12. App Service yüklemek için kullanılan makine aynı sanal ağa App Service veritabanlarını barındırmak için kullanılan SQL sunucusu üzerinde bulunmadığından adını çözümlemek mümkün olmayacaktır.  Bu beklenen bir davranıştır.<br><br>SQL Server adı ve hesap bilgilerini için girilen bilgilerin doğru olduğundan emin olun ve basın **Evet** App Service yüklemeye devam etmek için. **İleri**’ye tıklayın.
+12. App Service yüklemek için kullanılan makine aynı sanal ağa App Service veritabanlarını barındırmak için kullanılan SQL sunucusu üzerinde bulunmadığından adını çözümlemek mümkün olmayacaktır.  **Bu beklenen bir davranıştır**.<br><br>SQL Server adı ve hesap bilgilerini için girilen bilgilerin doğru olduğundan emin olun ve basın **Evet** App Service yüklemeye devam etmek için. **İleri**’ye tıklayın.
 
     ![SQL Server bağlantı bilgileri](media/app-service-deploy-ha/11.png)
 
@@ -231,3 +240,5 @@ App Service kaynak sağlayıcısı dağıtmak için aşağıdaki adımları izle
 [App Service ölçeğinizi](azure-stack-app-service-add-worker-roles.md). Ortamınızda beklenen talebi karşılamak için ek App Service altyapısını rol çalışanları eklemeniz gerekebilir. Varsayılan olarak, Azure Stack üzerinde App Service ücretsiz ve paylaşılan çalışan katmanları destekler. Diğer çalışan katmanları eklemek için daha fazla çalışan rolü eklemeniz gerekir.
 
 [Dağıtım kaynaklarını yapılandırma](azure-stack-app-service-configure-deployment-sources.md). Ek yapılandırma, GitHub, BitBucket, OneDrive ve DropBox gibi birden çok kaynak denetim sağlayıcılarından isteğe bağlı dağıtım desteklemek için gereklidir.
+
+[App Service yedekleme](app-service-back-up.md). Başarılı bir şekilde dağıtma ve App Service'ı yapılandırdıktan sonra veri kaybını önlemeye ve kurtarma işlemleri sırasında gereksiz hizmet kapalı kalma süresini önlemek için olağanüstü durum kurtarma için gerekli tüm bileşenleri yedeklenir emin olmalısınız.

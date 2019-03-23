@@ -13,39 +13,39 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: a497662ac7a885b53e69bb8c86a646045bd2eef7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 47b589d32accc4a699e7260b9e4b2de4cca58f2b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314679"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369624"
 ---
-# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway"></a>İnternet erişimi olmayan bilgisayarları Log Analytics ağ geçidini kullanarak bağlan
+# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>İnternet erişimi olmayan bilgisayarları Azure İzleyici'de Log Analytics ağ geçidini kullanarak bağlan
 
 >[!NOTE]
 >Microsoft Operations Management Suite (OMS) için Microsoft Azure İzleyici geçişleri gibi terminolojisi değişiyor. Bu makalede, Azure Log Analytics ağ geçidi olarak OMS ağ geçidi için ifade eder. 
 >
 
-Bu makalede iletişim Azure otomasyon ve Log Analytics ile doğrudan bağlı veya Operations Manager tarafından izlenen bilgisayarların internet erişimi varsa, Log Analytics ağ geçidi kullanarak nasıl yapılandırılacağını açıklar. 
+Bu makalede iletişim Azure Otomasyonu ve Azure İzleyici ile doğrudan bağlı veya Operations Manager tarafından izlenen bilgisayarların internet erişimi varsa, Log Analytics ağ geçidi kullanarak nasıl yapılandırılacağını açıklar. 
 
-Log Analytics, HTTP HTTP CONNECT komutunu kullanarak tüneli destekleyen bir HTTP iletim proxy'si geçididir. Bu ağ geçidi, veri toplamak ve internet'e bağlı olmayan bilgisayarlar adına Azure otomasyon ve Log Analytics'e göndermek.  
+Log Analytics, HTTP HTTP CONNECT komutunu kullanarak tüneli destekleyen bir HTTP iletim proxy'si geçididir. Bu ağ geçidi, veri toplamak ve Azure Otomasyonu ve Azure İzleyici'de Log Analytics çalışma alanı adına internet'e bağlı olmayan bilgisayarlar için Gönder.  
 
 Log Analytics gateway destekler:
 
 * Aynı dört Log Analytics kadar arkasında olan ve Azure Otomasyon karma Runbook çalışanlarıyla birlikte yapılandırılmış çalışma alanı aracılar raporlama.  
-* Windows bilgisayarlar üzerinde Microsoft Monitoring Agent doğrudan Log Analytics çalışma alanına bağlı.
-* Linux bilgisayarlar üzerinde bir Linux için Log Analytics aracısını Log Analytics çalışma alanınıza doğrudan bağlıdır.  
+* Windows bilgisayarlar üzerinde Microsoft Monitoring Agent doğrudan Azure İzleyici'de bir Log Analytics çalışma alanına bağlı.
+* Linux bilgisayarlar üzerinde bir Linux için Log Analytics aracısını doğrudan Azure İzleyici'de bir Log Analytics çalışma alanına bağlı.  
 * Log Analytics ile tümleşik system Center Operations Manager 2012 SP1 UR7, Operations Manager 2012 R2 UR3 veya Operations Manager 2016 veya sonraki bir yönetim grubu ile.  
 
-Bazı BT güvenlik ilkeleri, internet bağlantısı ağ bilgisayarlar için izin verme. Bağlantısız bu bilgisayarların noktası satışı (POS) cihazları veya örneğin BT Hizmetleri destekleyen sunucular olabilir. Azure Otomasyonu veya yönetebileceğiniz için Log Analytics ve İzleyici bu cihazlar bağlanmak için yapılandırma bunları doğrudan Log Analytics ağ geçidi ile iletişim kurmak için. Log Analytics ağ geçidi yapılandırma bilgilerini ve gerçekleştirilemeyeceğine ilişkin verileri alabilir. Bilgisayarları doğrudan Log Analytics çalışma alanına bağlamak için Log Analytics aracısını ile yapılandırılmışsa, bilgisayarları bunun yerine Log Analytics ağ geçidi ile iletişim kurar.  
+Bazı BT güvenlik ilkeleri, internet bağlantısı ağ bilgisayarlar için izin verme. Bağlantısız bu bilgisayarların noktası satışı (POS) cihazları veya örneğin BT Hizmetleri destekleyen sunucular olabilir. Azure Otomasyonu veya yönetebileceğiniz için bir Log Analytics çalışma alanı ve İzleyici bu cihazlar bağlanmak için yapılandırma bunları doğrudan Log Analytics ağ geçidi ile iletişim kurmak için. Log Analytics ağ geçidi yapılandırma bilgilerini ve gerçekleştirilemeyeceğine ilişkin verileri alabilir. Bilgisayarları doğrudan Log Analytics çalışma alanına bağlamak için Log Analytics aracısını ile yapılandırılmışsa, bilgisayarları bunun yerine Log Analytics ağ geçidi ile iletişim kurar.  
 
 Log Analytics gateway verileri aracılardan hizmete doğrudan aktarır. Aktarımdaki verileri analiz etmez.
 
 Yapılandırma bilgilerini almak ve etkinleştirdiğiniz çözümüne bağlı olarak, toplanan verileri göndermek için Log Analytics ağ geçidine bağlanmak için bir Operations Manager yönetim grubunu Log Analytics ile tümleştirildiğinde, yönetim sunucuları yapılandırılabilir .  Operations Manager aracıları bazı verilerini yönetim sunucusuna gönderir. Örneğin, aracıları Operations Manager uyarıları, yapılandırma değerlendirmesi verileri, örnek alanı verileri ve kapasite veri gönderebilir. Internet Information Services (IIS) günlükleri, performans verilerini ve güvenlik olaylarını gibi diğer yüksek hacimli verileri doğrudan Log Analytics ağ geçidine gönderilir. 
 
-Güvenilmeyen sistemlerini bir çevre ağında veya yalıtılmış ağ izlemek için bir veya daha fazla Operations Manager ağ geçidi sunucusu dağıtılırsa, bu sunucular bir Log Analytics ağ geçidi ile iletişim kuramıyor.  Operations Manager Ağ Geçidi sunucuları, yalnızca bir yönetim sunucusuna rapor edebilirsiniz.  Bir Operations Manager yönetim grubunu Log Analytics ağ geçidi ile iletişim kurmak için yapılandırıldığında proxy yapılandırma bilgileri için Log Analytics, hatta veri toplamak üzere yapılandırılmış tüm aracıyla yönetilen bilgisayara otomatik olarak dağıtılır ayarı boş ise.    
+Güvenilmeyen sistemlerini bir çevre ağında veya yalıtılmış ağ izlemek için bir veya daha fazla Operations Manager ağ geçidi sunucusu dağıtılırsa, bu sunucular bir Log Analytics ağ geçidi ile iletişim kuramıyor.  Operations Manager Ağ Geçidi sunucuları, yalnızca bir yönetim sunucusuna rapor edebilirsiniz.  Bir Operations Manager yönetim grubunu Log Analytics ağ geçidi ile iletişim kurmak için yapılandırıldığında proxy yapılandırma bilgileri için Azure İzleyici günlük verilerini toplamak için yapılandırılmış her aracıyla yönetilen bilgisayar otomatik olarak dağıtılır, olsa bile boş bir ayardır.    
 
-Yüksek kullanılabilirlik için doğrudan sağlamak için bağlı veya ağ geçidi üzerinden Log Analytics ile iletişim kuran Operations Yönetim grupları Ağ Yükü Dengeleme birden fazla ağ geçidi sunucusu arasında yönlendirme ve trafik dağıtmak için (NLB) kullanabilirsiniz. Bu şekilde, bir ağ geçidi sunucusu kalırsa, trafiği kullanılabilir başka bir düğüme yönlendirilir.  
+Doğrudan için yüksek kullanılabilirlik sağlamak için bağlı veya bir ağ geçidi üzerinden Log Analytics çalışma alanıyla iletişim Operations Yönetim grupları, Ağ Yükü Dengeleme birden fazla ağ geçidi sunucusu arasında yönlendirme ve trafik dağıtmak için (NLB) kullanabilirsiniz. Bu şekilde, bir ağ geçidi sunucusu kalırsa, trafiği kullanılabilir başka bir düğüme yönlendirilir.  
 
 Log Analytics ağ geçidi'ni çalıştıran bilgisayar, ağ geçidi ile iletişim kurması gereken hizmet uç noktalarını tanımlamak Log Analytics Windows Aracısı gerekir. Aracıyı da aynı çalışma alanına raporlama yapacak ağ geçidi doğrudan gerekir, aracılar veya Operations Manager yönetim grubu, ağ geçidinin arkasındaki ile yapılandırılır. Bu yapılandırma, ağ geçidi ve bunların atanmış bir çalışma alanıyla iletişim kurabilmesi için sağlar.
 

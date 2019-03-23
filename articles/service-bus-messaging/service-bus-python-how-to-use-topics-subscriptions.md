@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/20/2018
 ms.author: aschhab
-ms.openlocfilehash: 476c51d1835a1be0178faf28e6dd8a3c95371929
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: a12288de2f9a7682fb433dd0d5c7905cc76c12b9
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240975"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351675"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Service Bus konuları ve abonelikleri ile Python kullanma
 
@@ -167,7 +167,7 @@ Service Bus, uygulamanızda gerçekleşen hataları veya ileti işlenirken oluş
 
 Ayrıca abonelikte kilitlenen iletiye ilişkin bir zaman aşımı yoktur ve uygulamanın iletiyi işleyemezse (örneğin, uygulama çökerse) önce kilit zaman aşımı süresi dolduktan sonra Service Bus ileti otomatik olarak kilidini açar ve kullanılabilir tekrar alınabilir hale getirir.
 
-Uygulama iletiyi ancak önce çökmesi durumunda, `delete` yöntemi çağrılır, ardından yeniden başlatıldığında ileti uygulamaya yeniden teslim edilebilir. Bu davranış, genellikle olarak adlandırılır. En az bir kez işleme *; diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim edilebilir. Senaryo yinelenen işlemeyi kabul etmiyorsa yinelenen ileti teslimine izin vermek için uygulama geliştiricilerin uygulamaya ilave bir mantık eklemesi gerekir. Bunu yapmak için kullanabileceğiniz **MessageID** özelliğini iletinin teslim denemeleri arasında sabit kalır.
+Uygulama iletiyi ancak önce çökmesi durumunda, `delete` yöntemi çağrılır, ardından yeniden başlatıldığında ileti uygulamaya yeniden teslim edilebilir. Bu davranış, genellikle olarak adlandırılır. En az bir kez işlenmesini\*; diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim edilebilir. Senaryo yinelenen işlemeyi kabul etmiyorsa yinelenen ileti teslimine izin vermek için uygulama geliştiricilerin uygulamaya ilave bir mantık eklemesi gerekir. Bunu yapmak için kullanabileceğiniz **MessageID** özelliğini iletinin teslim denemeleri arasında sabit kalır.
 
 ## <a name="delete-topics-and-subscriptions"></a>Konu başlıklarını ve abonelikleri silme
 

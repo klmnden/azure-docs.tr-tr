@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 1be51c4f5aede58a975dc9441b3bec7a83f7becd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 90fa56bb0e2044d24533c35a051d3f4b644e05b5
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900922"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349646"
 ---
 # <a name="speech-service-supported-regions"></a>Konuşma hizmeti desteklenen bölgeler
 
@@ -41,6 +41,7 @@ Bu bölgeler için Speech SDK'sı kullanılabilir **konuşma tanıma** ve **çev
  Orta ABD | 'centralus' | https://centralus.cris.ai
  Orta Kuzey ABD | 'northcentralus' | https://northcentralus.cris.ai
  Orta Güney ABD | 'southcentralus' | https://southcentralus.cris.ai
+ Orta Hindistan | 'centralindia' | https://centralindia.cris.ai
  Doğu Asya | `eastasia` | https://eastasia.cris.ai
  Güneydoğu Asya | `southeastasia` | https://southeastasia.cris.ai
  Japonya Doğu | `japaneast` | https://japaneast.cris.ai

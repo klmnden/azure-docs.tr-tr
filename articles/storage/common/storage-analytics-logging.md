@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: ab235c67e3a0e60999a0348d03a6e938944f7030
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: a350576742a9bcb899405aae19c032cc9b966975
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260204"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351341"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure depolama analizi günlük kaydı
 
@@ -144,15 +144,13 @@ Günlüğe kaydetmek istediğiniz depolama hizmetleri ve günlüğe kaydedilen v
  Günlüğünü okuma için aşağıdaki komutu geçer, yazma ve saklama süresi beş gün olarak ayarlanmış varsayılan depolama hesabınızdaki kuyruk hizmeti isteklerinde Sil:  
 
 ```  
-Set-AzureStorageServiceLoggingProperty -ServiceType Queue   
--LoggingOperations read,write,delete -RetentionDays 5  
+Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
  Aşağıdaki komut, tablo hizmeti, varsayılan depolama hesabı için günlük kaydını devre dışı geçer:  
 
 ```  
-Set-AzureStorageServiceLoggingProperty -ServiceType Table   
--LoggingOperations none  
+Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
  Azure PowerShell cmdlet'lerini, Azure aboneliğiniz ile çalışmak için yapılandırma ve kullanılacak varsayılan depolama hesabı seçme hakkında daha fazla bilgi için bkz: [Azure PowerShell'i yükleme ve yapılandırma işlemini](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  

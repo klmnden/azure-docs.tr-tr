@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6a51e57cfac326663d41b545c9f2883a446467d3
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1d4144a2a6cf41d594ee096d8802ccc5b29009a5
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340771"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361804"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
@@ -40,7 +40,7 @@ Python 3 ortam zaten var veya yalnızca SDK'yı yüklemek için temel adımlar i
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Bir Azure Machine Learning hizmeti çalışma alanı. Çalışma alanı oluşturmak için bkz: [Azure Machine Learning hizmeti ile çalışmaya başlama](quickstart-get-started.md).
+- Bir Azure Machine Learning hizmeti çalışma alanı. Çalışma alanı oluşturmak için bkz: [bir Azure Machine Learning hizmeti çalışma alanı oluşturma](setup-create-workspace.md).
 
 - Her iki [Anaconda](https://www.anaconda.com/download/) veya [Miniconda](https://conda.io/miniconda.html) Paket Yöneticisi.
 
@@ -61,7 +61,7 @@ Python 3 ortam zaten var veya yalnızca SDK'yı yüklemek için temel adımlar i
 * Azure Machine Learning SDK'sı zaten yüklüdür.
 * Azure portalında bir Azure Machine Learning hizmeti çalışma alanı oluşturduktan sonra otomatik olarak Azure not defteri ortamınızı çalışma alanı ile çalışacak şekilde yapılandırmak için bir düğmesine tıklayabilirsiniz.
 
-Azure not defterleri ile geliştirmeye başlamak için bkz: [Azure Machine Learning hizmeti ile çalışmaya başlama](quickstart-get-started.md).
+Azure not defterleri ile geliştirmeye başlamak için bkz: [Azure Machine Learning hizmeti ile çalışmaya başlama](quickstart-run-cloud-notebook.md).
 
 Varsayılan olarak, Azure not defterleri veri 1 GB ile 4 GB bellek ile sınırlı olan ücretsiz hizmet katmanı kullanır. Ancak, bu limitleri Azure not defterleri projeye bir veri bilimi sanal makinesi örneği ekleyerek kaldırabilirsiniz. Daha fazla bilgi için [yönetme ve Azure not defterleri projeleri - bilgi işlem katmanı yapılandırma](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
@@ -350,7 +350,7 @@ Bu dosyadan kodunuzu kullanmak için `ws=Workspace.from_config()`. Bu kod, bilgi
 
 Yapılandırma dosyası üç şekilde oluşturabilirsiniz:
 
-* **İzleyin [Azure Machine Learning hızlı](quickstart-get-started.md)**: A *config.json* Azure not defterleri kitaplığınızda dosyası oluşturulur. Dosyanın çalışma alanınız için yapılandırma bilgilerini içerir. İndirin veya kopyalayın *config.json* diğer geliştirme ortamlarıyla.
+* **Bağlantısındaki [bir Azure Machine Learning hizmeti çalışma alanı oluşturma](setup-create-workspace.md#sdk)**: A *config.json* Azure not defterleri kitaplığınızda dosyası oluşturulur. Dosyanın çalışma alanınız için yapılandırma bilgilerini içerir. İndirin veya kopyalayın *config.json* diğer geliştirme ortamlarıyla.
 
 * **Dosyayı el ile oluşturmak**: Bu yöntemle, bir metin düzenleyicisi kullanın. Çalışma alanınızda ziyaret ederek yapılandırma dosyasına gidin değerleri bulabilirsiniz [Azure portalında](https://portal.azure.com). Çalışma alanı adı, kaynak grubu ve abonelik kimliği değerleri kopyalayın ve bunları yapılandırma dosyasında kullanın.
 

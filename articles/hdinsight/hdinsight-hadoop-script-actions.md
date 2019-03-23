@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 93313557781c6b3788d8b4d43d6676fc17625709
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d8f7808401b2e11a38b239a353e3b7af2ffcffb3
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201322"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361311"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Betik eylemi betikleri HDInsight Windows tabanlı kümeler için geliştirme
 HDInsight için betik eylemi betikleri yazmayı öğrenin. Betik eylemi betikleri kullanma hakkında daha fazla bilgi için bkz. [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md). Linux tabanlı HDInsight kümeleri için yazılmış aynı makalesi için bkz [HDInsight için betik eylemi geliştirme betikleri](hdinsight-hadoop-script-actions-linux.md).
@@ -32,6 +32,8 @@ Betik eylemi, bir Apache Hadoop kümesinde çalışan ek yazılımlar yüklemek 
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage: ' % S'terim 'HDIFile Kaydet' cmdlet'i, işlev, komut dosyası veya çalıştırılabilir program adı olarak tanınmıyor. Adının yazımını denetleyin veya bir yol varsa, yolun doğru olduğundan emin olun ve yeniden deneyin.
 > 
 > Yardımcı yöntemler eklemediğiniz olmasıdır.  Bkz: [özel komut dosyaları için yardımcı yöntemler](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="sample-scripts"></a>Örnek komut dosyaları
 Betik eylemi, Windows işletim sisteminde HDInsight kümeleri oluşturmak için Azure PowerShell Betiği verilmiştir. Aşağıdaki komut dosyasını site yapılandırma dosyalarını yapılandırmaya ilişkin bir örnek verilmiştir:
@@ -191,8 +193,8 @@ Bir küme özelleştirmek için kullanılan betikleri ya da kümenin varsayılan
 
 Bu örnekte, kapsayıcı emin olmanız gerekir `somecontainer` depolama hesabındaki `somestorageaccount` genel olarak erişilebilir. Aksi takdirde, betik 'Bulunamadı' özel durum oluşturur ve başarısız.
 
-### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Add-AzureRmHDInsightScriptAction cmdlet parametreleri
-Birden çok parametre Ekle-AzureRmHDInsightScriptAction cmdlet'e geçirmek için komut dosyası için tüm parametreleri içeren dize değerini biçimlendirmek gerekir. Örneğin:
+### <a name="pass-parameters-to-the-add-azhdinsightscriptaction-cmdlet"></a>Add-AzHDInsightScriptAction cmdlet parametreleri
+Birden çok parametre Ekle-AzHDInsightScriptAction cmdlet'e geçirmek için komut dosyası için tüm parametreleri içeren dize değerini biçimlendirmek gerekir. Örneğin:
 
     "-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
 

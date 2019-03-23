@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112628"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369709"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uygulamanızı bir Azure sanal ağı ile tümleştirme
 Bu belge, Azure App Service sanal ağ tümleştirme özelliğini açıklar ve uygulamalar ile ayarlama işlemi gösterilmektedir [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure sanal ağları] [ VNETOverview] (Vnet'ler) birçok Azure kaynaklarınızın bir internet olmayan routeable ağında yerleştirin izin verir. Bu ağlar VPN'si teknolojileri kullanarak, şirket içi ağlara bağlanabilirsiniz. 
@@ -247,7 +247,7 @@ Barındırılan bir sanal ağ kaynaklarına erişimi etkinleştirme üç özelli
 
 Karma bağlantılar, karma bağlantı Manager(HCM) ağınızdaki adlı bir geçiş aracısı yüklemek gerektirir. HCM, Azure ve uygulamanızı bağlanabilmesi gerekir. Karma bağlantılar, bir gelen internet erişilebilen bir uç nokta gerektirmez, uzak ağ için olduğu gibi bir VPN bağlantısı için gerekli. HCM, yalnızca Windows üzerinde çalışır ve yüksek kullanılabilirlik sağlamak için çalışan en fazla beş örnek olabilir. Karma bağlantılar yalnızca destekler TCP olsa ve her HC uç noktası için bir özel konak: bağlantı noktası bileşimi ile eşleştirmek. 
 
-App Service ortamı Özelliği Azure App Service tek Kiracı örneğini ağınızda çalıştırmanıza olanak sağlar. Ardından uygulamalarınızı App Service Ortamı'nda, uygulamalarınızı herhangi bir ekstra adım olmadan sanal ağınızdaki kaynaklara erişebilir. İle ve App Service ortamı, uygulamalarınızı daha güçlü çalışanları çalıştırın ve en fazla 100 ASP örneklerinin ölçeklendirebilirsiniz. App Service ortamları tüm ExpressRoute ve hizmet uç noktaları da dahil olmak üzere ağ özellikleri ile çalışır.  
+App Service ortamı Özelliği Azure App Service tek Kiracı örneğini ağınızda çalıştırmanıza olanak sağlar. Ardından uygulamalarınızı App Service Ortamı'nda, uygulamalarınızı herhangi bir ekstra adım olmadan sanal ağınızdaki kaynaklara erişebilir. App Service ortamı ile uygulamalarınızı daha güçlü çalışanları çalıştırın ve en fazla 100 ASP örneklerinin ölçeklendirme yapabilirsiniz. App Service ortamları tüm ExpressRoute ve hizmet uç noktaları da dahil olmak üzere ağ özellikleri ile çalışır.  
 
 Olsa bazı büyük/küçük harf çakışma kullanır, bu özelliklerin hiçbiri diğerlerinden değiştirebilirsiniz. Bilerek hangi özelliği kullanacağınıza gereksinimlerinize bağlıdır. Örneğin:
 

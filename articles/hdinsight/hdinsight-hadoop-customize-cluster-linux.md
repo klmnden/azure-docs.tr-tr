@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: ccb408a427680cffc339797bd3421ed9f53af640
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 80c2d25fa24acff92a462f0289259792f217fbfd
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200693"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361702"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>Betik eylemlerini kullanarak Linux tabanlı HDInsight kümeleri özelleştirme
 
@@ -26,6 +26,8 @@ Azure HDInsight sağlar adlı bir yapılandırma yöntemi **betik eylemlerini** 
 > Linux üzerinde HDInsight sürüm 3.4 veya üzeri kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight Windows emeklilik](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 Betik eylemleri, bir HDInsight uygulaması olarak Azure Marketi'nde ayrıca yayımlanabilir. HDInsight uygulamaları hakkında daha fazla bilgi için bkz. [HDInsight uygulama Azure Marketi'nde yayımlama](hdinsight-apps-publish-applications.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="permissions"></a>İzinler
 
@@ -131,7 +133,7 @@ Zaten çalışan bir küme üzerinde çalışacak bir betik içinde bir hata oto
 >
 > Betik eylemleri, kök ayrıcalıklarıyla çalıştırın. Bir betik yaptığı anladığınızdan emin olun, kümenize uygulamadan önce.
 
-Bir betiği bir kümeye uygulama küme durumunun döndürdüğünüzde **çalıştıran** için **kabul edilen**. Sonra da değişir **HDInsight yapılandırma** ve son olarak, yeniden **çalıştıran** başarılı bir komut dosyası için. Betik durumunu betik eylemi geçmişinde günlüğe kaydedilir. Bu bilgileri, komut başarılı veya başarısız olduğunu bildirir. Örneğin, `Get-AzureRmHDInsightScriptActionHistory` PowerShell cmdlet'i bir betik durumunu gösterir. Bilgileri aşağıdaki metne benzer döndürür:
+Bir betiği bir kümeye uygulama küme durumunun döndürdüğünüzde **çalıştıran** için **kabul edilen**. Sonra da değişir **HDInsight yapılandırma** ve son olarak, yeniden **çalıştıran** başarılı bir komut dosyası için. Betik durumunu betik eylemi geçmişinde günlüğe kaydedilir. Bu bilgileri, komut başarılı veya başarısız olduğunu bildirir. Örneğin, `Get-AzHDInsightScriptActionHistory` PowerShell cmdlet'i bir betik durumunu gösterir. Bilgileri aşağıdaki metne benzer döndürür:
 
     ScriptExecutionId : 635918532516474303
     StartTime         : 8/14/2017 7:40:55 PM
@@ -223,7 +225,7 @@ Bu örnekte, aşağıdaki kodu kullanarak betik eylemi eklenir:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Azure PowerShell üzerinden küme oluşturma sırasında bir betik eylemi kullanın
 
-Bu bölümde, kullandığınız [Ekle AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet'ini küme özelleştirme betikleri çağırma. Başlamadan önce yükleme ve Azure PowerShell yapılandırma emin olun. HDInsight PowerShell cmdlet'lerini çalıştırmak için bir iş istasyonu yapılandırma hakkında daha fazla bilgi için bkz: [genel bakış, Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+Bu bölümde, kullandığınız [Ekle AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet'ini küme özelleştirme betikleri çağırma. Başlamadan önce yükleme ve Azure PowerShell yapılandırma emin olun. HDInsight PowerShell cmdlet'lerini çalıştırmak için bir iş istasyonu yapılandırma hakkında daha fazla bilgi için bkz: [genel bakış, Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
 
 Aşağıdaki betik, PowerShell kullanarak bir küme oluştururken bir betik eylemi uygulanacak gösterilmektedir:
 
@@ -368,13 +370,13 @@ Bir kümeye betikleri uygulamak için .NET SDK'sını kullanarak bir örnek içi
 
 | Cmdlet'i | İşlev |
 | --- | --- |
-| `Get-AzureRmHDInsightPersistedScriptAction` |Kalıcı betik eylemleri hakkında bilgi alın. |
-| `Get-AzureRmHDInsightScriptActionHistory` |Betik eylemleri küme veya belirli bir komut dosyası ayrıntılarını uygulanan geçmişini alır. |
-| `Set-AzureRmHDInsightPersistedScriptAction` |Kalıcı betik eylemi için bir geçici betik eylemi tanıtın. |
-| `Remove-AzureRmHDInsightPersistedScriptAction` |Kalıcı betik eylemi geçici bir eyleme düşürür. |
+| `Get-AzHDInsightPersistedScriptAction` |Kalıcı betik eylemleri hakkında bilgi alın. |
+| `Get-AzHDInsightScriptActionHistory` |Betik eylemleri küme veya belirli bir komut dosyası ayrıntılarını uygulanan geçmişini alır. |
+| `Set-AzHDInsightPersistedScriptAction` |Kalıcı betik eylemi için bir geçici betik eylemi tanıtın. |
+| `Remove-AzHDInsightPersistedScriptAction` |Kalıcı betik eylemi geçici bir eyleme düşürür. |
 
 > [!IMPORTANT]  
-> `Remove-AzureRmHDInsightPersistedScriptAction` bir komut dosyası tarafından gerçekleştirilen eylemler geri değil. Bu cmdlet yalnızca, kalıcı bayrağını kaldırır.
+> `Remove-AzHDInsightPersistedScriptAction` bir komut dosyası tarafından gerçekleştirilen eylemler geri değil. Bu cmdlet yalnızca, kalıcı bayrağını kaldırır.
 
 Aşağıdaki örnek betik, ve ardından bir komut dosyası düzeyini düşür cmdlet'leri kullanmayı gösterir.
 

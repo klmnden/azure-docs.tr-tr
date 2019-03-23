@@ -16,12 +16,12 @@ ms.workload: billing
 ms.date: 5/10/2018
 ms.author: erikre
 ms.custom: seodec18
-ms.openlocfilehash: 944623943fc49f4f6856c3a62f30ea61f901c16d
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cd1688cd9d3d19242800b04e7e29c8875879cffc
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579422"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351584"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Azure faturalandırma API'lerini program aracılığıyla Azure kullanımınızı öngörü almak için kullanın
 Azure faturalandırma API'lerini kullanımı ve kaynak veri çekmek üzere, tercih edilen veri analizi araçları kullanın. Azure Kaynak Kullanımı ve RateCard API'leri maliyetlerinizi doğru tahmin etmenize ve yönetmenize yardımcı olabilir. API'ler, bir kaynak sağlayıcısı ve Azure Resource Manager tarafından kullanıma sunulan API'ler ailesinin bir parçası olarak uygulanır.  
@@ -30,7 +30,7 @@ Azure faturalandırma API'lerini kullanımı ve kaynak veri çekmek üzere, terc
 Bir kez [katılımı tam](billing-manage-access.md#opt-in), önizleme sürümünü kullanarak indirme faturalar [fatura API](/rest/api/billing). Özellikler şunlardır:
 
 * **Azure rol tabanlı erişim denetimi** -yapılandırma erişim ilkeleri [Azure portalında](https://portal.azure.com) aracılığıyla veya [Azure PowerShell cmdlet'lerini](/powershell/azure/overview) hangi kullanıcılar ve uygulamalar erişebilir belirtmek için Aboneliğin kullanım verileri. Çağıranlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Arayanın belirli bir Azure aboneliği için kullanım verilerine erişim elde etmek için faturalandırma okuyucusu, okuyucu, sahibi veya katkıda bulunan rolüne ekleyin.
-* **Tarih filtreleme** -kullanım `$filter` tüm faturalara ters sırasına göre fatura dönemi bitiş tarihi almak için parametre. 
+* **Tarih filtreleme** -kullanım `$filter` tüm faturalara ters sırasına göre fatura dönemi bitiş tarihi almak için parametre.
 
 > [!NOTE]
 > Bu özellik, ilk önizleme sürümünde olan ve geriye dönük uyumsuz değişiklikler tabi olabilir. Şu anda, kullanılabilir belirli abonelik teklif (Kurumsal Anlaşma, CSP, desteklenmeyen AIO) ve Azure Almanya değildir.
@@ -48,7 +48,7 @@ Azure kullanan [kaynak kullanım API'si](https://msdn.microsoft.com/library/azur
 Kullanım [Azure kaynak RateCard API'si](https://msdn.microsoft.com/library/azure/mt219005) kullanılabilir Azure kaynaklarını ve tahmini fiyatlandırma bilgileri için her bir listesini almak için. API içerir:
 
 * **Azure rol tabanlı erişim denetimi** -erişim ilkelerinizi yapılandırın [Azure portalında](https://portal.azure.com) aracılığıyla veya [Azure PowerShell cmdlet'lerini](/powershell/azure/overview) hangi kullanıcılar ve uygulamalar erişebilir belirtmek için RateCard verileri. Çağıranlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Arayanın belirli bir Azure aboneliği için kullanım verilerine erişim elde etmek için okuyucu, sahibi veya katkıda bulunan rolüne ekleyin.
-* **Kullandıkça Öde, MSDN, parasal taahhüt ve parasal kredi teklifleri için destek (EA ve [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) desteklenmiyor)** -bu API, Azure teklifi düzeyinde fiyat bilgileri sağlar.  Bu API'yi çağıran kaynak ayrıntıları ve fiyatları almak için teklif bilgilerini geçmesi gerekir. EA teklifler kayıt tarifelerine özelleştirdiğiniz çünkü EA fiyatlandırması sağlamak şu anda kaydedemiyoruz. 
+* **Kullandıkça Öde, MSDN, parasal taahhüt ve parasal kredi teklifleri için destek (EA ve [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) desteklenmiyor)** -bu API, Azure teklifi düzeyinde fiyat bilgileri sağlar.  Bu API'yi çağıran kaynak ayrıntıları ve fiyatları almak için teklif bilgilerini geçmesi gerekir. EA teklifler kayıt tarifelerine özelleştirdiğiniz çünkü EA fiyatlandırması sağlamak şu anda kaydedemiyoruz.
 
 ## <a name="scenarios"></a>Senaryolar
 Kullanım ve RateCard API'leri ile birlikte olası yapılan senaryolardan bazıları şunlardır:
@@ -58,12 +58,10 @@ Kullanım ve RateCard API'leri ile birlikte olası yapılan senaryolardan bazıl
 * **Fatura tahmin** – Get tahmini tüketim ve bulut harcamalarını ve fatura bir faturalama döneminin sonunda ne olacağını tahmin etmek için makine öğrenimi algoritmaları uygulayın.
 * **Maliyet analizi ön tüketim** – RateCard API'si iş yüklerinizi Azure'a taşıyarak ne kadar faturanız için beklenen kullanım olacaktır tahmin etmek için kullanın. Ayrıca, diğer bulut ya da özel Bulutlar mevcut iş yüklerini varsa, Azure ile kullanım eşleyebilirsiniz ücretler Azure daha iyi bir tahminini almak için harcadığınız. Bu tahmin, teklif, karşılaştırma ve parasal taahhüt ve para kredisi gibi Kullandıkça Öde, ötesinde farklı bir teklif türleri arasındaki kontrastı Özet olanağı sağlar. API, bölgeye göre maliyet farklılıkları görme olanağı sunar ve dağıtım kararları vermenize yardımcı olmak için bir durum maliyet analizi yapmanıza izin verir.
 * **Benzetim analizi** -
-  
+
   * Başka bir bölgede veya başka bir Azure kaynak yapılandırması iş yüklerini çalıştırmak için daha uygun maliyetli olup olmadığını belirleyebilirsiniz. Azure kaynak maliyetleri kullanmakta olduğunuz Azure bölgesine göre değişebilir.
   * Başka bir Azure Teklif türü bir Azure kaynağında daha iyi bir fiyat sağlar, ayrıca belirleyebilirsiniz.
-  
-## <a name="partner-solutions"></a>İş ortağı çözümleri
-[Cloud Cruiser ve Microsoft Azure Faturalama API'si Tümleştirmesi](billing-usage-rate-card-partner-solution-cloudcruiser.md) altında, [Cloud Cruiser'dan Express for Azure Pack](http://www.cloudcruiser.com/partners/microsoft/)'in doğrudan Windows Azure Paketi (WAP) portalının altından nasıl çalıştığı açıklanır. Tek bir kullanıcı arabiriminden Microsoft Azure'un özel veya barındırılan genel bulutunun işletim ve finans yönlerini sorunsuzca yönetebilirsiniz.   
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Github'daki kod örneklerine bakın:
@@ -73,7 +71,4 @@ Kullanım ve RateCard API'leri ile birlikte olası yapılan senaryolardan bazıl
 
   * [RateCard API’si kod örneği](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
-* Azure Resource Manager hakkında daha fazla bilgi için bkz. [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md). 
-
-
-
+* Azure Resource Manager hakkında daha fazla bilgi için bkz. [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).

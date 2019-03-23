@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6f1620c9977f997b4037fbf3f823c429e43b4f6a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 015728a43e091e36dcf02b5cc17f0135a64428ca
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436271"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361957"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>MapReduce işleri PowerShell kullanarak HDInsight üzerinde Apache Hadoop ile çalıştırın.
 
@@ -23,6 +23,8 @@ ms.locfileid: "53436271"
 Bu belgede bir MapReduce işi içinde bir Hadoop HDInsight kümesinde çalıştırmak için Azure PowerShell kullanarak bir örnek sağlar.
 
 ## <a id="prereq"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * **Bir Azure HDInsight (Hadoop HDInsight üzerinde) kümesi**
 
@@ -37,15 +39,15 @@ Azure PowerShell sağlar *cmdlet'leri* uzaktan üzerinde HDInsight MapReduce iş
 
 MapReduce işleri çalıştıran bir uzak HDInsight kümesinde aşağıdaki cmdlet'ler kullanılır.
 
-* **Connect-AzureRmAccount**: Azure PowerShell, Azure aboneliğinize kimliğini doğrular.
+* **Connect AzAccount**: Azure PowerShell, Azure aboneliğinize kimliğini doğrular.
 
-* **Yeni AzureRmHDInsightMapReduceJobDefinition**: Yeni bir oluşturur *iş tanımı* belirtilen MapReduce bilgileri kullanarak.
+* **Yeni AzHDInsightMapReduceJobDefinition**: Yeni bir oluşturur *iş tanımı* belirtilen MapReduce bilgileri kullanarak.
 
-* **Başlangıç AzureRmHDInsightJob**: HDInsight için iş tanımını gönderir ve bir iş başlatılır. A *iş* nesne döndürülür.
+* **Başlangıç AzHDInsightJob**: HDInsight için iş tanımını gönderir ve bir iş başlatılır. A *iş* nesne döndürülür.
 
-* **Bekleme AzureRmHDInsightJob**: İş nesnesi, iş durumunu denetlemek için kullanır. Bekleme süresi aşılırsa veya iş tamamlanana kadar bekler.
+* **Bekleme AzHDInsightJob**: İş nesnesi, iş durumunu denetlemek için kullanır. Bekleme süresi aşılırsa veya iş tamamlanana kadar bekler.
 
-* **Get-AzureRmHDInsightJobOutput**: İşin çıktısını almak için kullanılır.
+* **Get-AzHDInsightJobOutput**: İşin çıktısını almak için kullanılır.
 
 Aşağıdaki adımlarda HDInsight kümenizdeki bir işi çalıştırmak için bu cmdlet'leri kullanma gösterilmektedir.
 
@@ -92,7 +94,7 @@ Sözcükleri ve sayıları iş tarafından üretilen görmek için **çýktý.tx
 ```powershell
 # Print the output of the WordCount job.
 Write-Host "Display the standard output ..." -ForegroundColor Green
-Get-AzureRmHDInsightJobOutput `
+Get-AzHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $wordCountJob.JobId `
         -HttpCredential $creds `

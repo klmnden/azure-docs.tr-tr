@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 82f54e31b76b2b2f7dbf0afb59fa706e916fe2d0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 264b4737974010baffd82b38275a8fe56163e1f2
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438533"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361447"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Linux tabanlı kümeler Azure PowerShell kullanarak HDInsight oluşturma
 
@@ -26,15 +26,18 @@ Azure PowerShell, denetlemek ve dağıtım ve Microsoft azure'da iş yükleriniz
 > Azure PowerShell, Windows istemcilerinde yalnızca kullanılabilir. Linux, Unix ya da Mac OS X istemci kullanıyorsanız bkz [Klasik Azure CLI kullanarak Linux tabanlı HDInsight kümesi oluşturma](hdinsight-hadoop-create-linux-clusters-azure-cli.md) bir küme oluşturmak için Klasik CLI kullanma hakkında bilgi.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Bu yordamı başlatmadan önce aşağıdakilerin olması gerekir:
 
 * Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)
+* [Azure PowerShell](/powershell/azure/install-Az-ps)
 
     > [!IMPORTANT]  
     > Azure Service Manager kullanılarak HDInsight kaynaklarının yönetilmesi için Azure PowerShell desteği **kullanım dışı bırakılmış** ve 1 Ocak 2017 tarihinde kaldırılmıştır. Bu belgede yer alan adımlar, Azure Resource Manager ile çalışan yeni HDInsight cmdlet'lerini kullanır.
     >
-    > Lütfen adımları [Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) Azure PowerShell'in en son sürümünü yüklemek için. Azure Resource Manager’la çalışan yeni cmdlet’lerle kullanmak için değiştirilmesi gereken komut dosyalarınız varsa, daha fazla bilgi için bkz. [HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçme](hdinsight-hadoop-development-using-azure-resource-manager.md).
+    > Lütfen adımları [Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/install-Az-ps) Azure PowerShell'in en son sürümünü yüklemek için. Azure Resource Manager’la çalışan yeni cmdlet’lerle kullanmak için değiştirilmesi gereken komut dosyalarınız varsa, daha fazla bilgi için bkz. [HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçme](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 ## <a name="create-cluster"></a>Küme oluşturma
 
@@ -64,7 +67,7 @@ Uygulamanın bir küme oluşturmak için en fazla 20 dakika sürebilir.
 
 ## <a name="create-cluster-configuration-object"></a>Küme Oluştur: Yapılandırma nesnesi
 
-Bir HDInsight yapılandırma nesnesi kullanarak da oluşturabilirsiniz `New-AzureRmHDInsightClusterConfig` cmdlet'i. Kümenizin ek yapılandırma seçenekleri etkinleştirmek için bu yapılandırma nesnesi daha sonra değiştirebilirsiniz. Son olarak, `-Config` parametresinin `New-AzureRmHDInsightCluster` yapılandırmasını kullanmak için cmdlet.
+Bir HDInsight yapılandırma nesnesi kullanarak da oluşturabilirsiniz `New-AzHDInsightClusterConfig` cmdlet'i. Kümenizin ek yapılandırma seçenekleri etkinleştirmek için bu yapılandırma nesnesi daha sonra değiştirebilirsiniz. Son olarak, `-Config` parametresinin `New-AzHDInsightCluster` yapılandırmasını kullanmak için cmdlet.
 
 Aşağıdaki betiği HDInsight küme türü üzerinde bir R Server'ı yapılandırmak için bir yapılandırma nesnesi oluşturur. Kenar düğümünde RStudio ve ek bir depolama hesabı yapılandırmasını sağlar.
 

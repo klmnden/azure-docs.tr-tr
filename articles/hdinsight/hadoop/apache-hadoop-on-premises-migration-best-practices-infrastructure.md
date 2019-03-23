@@ -9,16 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1a8c0ec8a7926d443963075fec576b9e2168d41f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6c57b62d63be55abc51b85327957afffa5dd3a42
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052641"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360206"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Azure HDInsight - altyapı en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
 Bu makalede, Azure HDInsight kümelerinin altyapının yönetilmesi için öneriler sunar. Geçirme şirket içi Apache Hadoop sistemler ile Azure HDInsight için yardımcı olması için en iyi yöntemler sağlayan bir dizi gereksinimlerimizim bir parçasıdır.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="plan-for-hdinsight-cluster-capacity"></a>HDInsight küme kapasitesi planlama
 
@@ -50,7 +52,7 @@ Uygulamaları veya bileşenleri, şirket içi kümeleri kullanılabilir ancak HD
 |Arcadia|IaaS 
 |Atlas|Hiçbiri (yalnızca HDP)
 |Datameer|HDInsight kenar düğümüne
-|Datastax (Cassandra)|Iaas (CosmosDB alternatif azure'da)
+|Datastax (Cassandra)|Iaas (CosmosDB alternatif azure'da)
 |DataTorrent|IaaS 
 |Drill|IaaS 
 |Ignite|IaaS
@@ -109,14 +111,14 @@ Yapılandırma dosyalarında yapılandırmaları gibi değişikliklerini `core-s
 # hive-site.xml configuration
 $hiveConfigValues = @{"hive.metastore.client.socket.timeout"="90"}
 
-$config = New—AzureRmHDInsightClusterConfig '
-    | Set—AzureRmHDInsightDefaultStorage
+$config = New—AzHDInsightClusterConfig '
+    | Set—AzHDInsightDefaultStorage
     —StorageAccountName "$defaultStorageAccountName.blob. core.windows.net" `
     —StorageAccountKey "defaultStorageAccountKey " `
-    | Add—AzureRmHDInsightConfigValues `
+    | Add—AzHDInsightConfigValues `
         —HiveSite $hiveConfigValues
 
-New—AzureRmHDInsightCluster `
+New—AzHDInsightCluster `
     —ResourceGroupName $existingResourceGroupName `
     —Cluster-Name $clusterName `
     —Location $location `
@@ -153,7 +155,7 @@ Küme ölçeklendirme, aşağıdaki yöntemleri kullanarak otomatikleştirilebil
 ### <a name="powershell-cmdlet"></a>PowerShell cmdlet'i
 
 ```powershell
-Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+Set-AzHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 ```
 
 ### <a name="azure-cli"></a>Azure CLI

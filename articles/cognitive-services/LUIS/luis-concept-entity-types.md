@@ -1,7 +1,7 @@
 ---
 title: Varlık türleri
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Language Understanding Intelligent Service (LUIS) uygulamalarında varlıklar (anahtar, uygulamanızın etki alanı veri) ekleyin.
+description: 'Varlıkları utterance verileri ayıklayın. Varlık türleri veri öngörülebilir ayıklama verin. Varlık iki tür vardır: makine hakkında bilgi edindiniz ve makine öğrendiniz. Konuşma üzerinde çalıştığınız varlık türünü bilmeniz önemlidir.'
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: c8d2ccc197eb8818cfe3fc54449ee982bbe0c087
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d12ea20f9f510b0e2d3d3512d8d8c71a3fb96eec
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57844597"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372531"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Varlık türleri ve bunların amacıyla LUIS
 
-Sözcükleri veya tümcecikleri anahtar verileri, uygulamanızın etki alanındaki konuşma varlıklardır.
+Varlıkları utterance verileri ayıklayın. Varlık türleri veri öngörülebilir ayıklama verin. Varlık iki tür vardır: makine hakkında bilgi edindiniz ve makine öğrendiniz. Konuşma üzerinde çalıştığınız varlık türünü bilmeniz önemlidir. 
 
 ## <a name="entity-compared-to-intent"></a>Intent'e karşılaştırıldığında varlık
 
@@ -190,7 +190,7 @@ Aşağıdaki tabloda, her satır utterance iki sürümü vardır. Üst utterance
 
 * Verileri önceden oluşturulmuş varlıklar için dil, kültür tarafından desteklenen yaygın bir kullanım örneği ile eşleşir. 
 
-Önceden oluşturulmuş varlıklarla eklenir ve herhangi bir zamanda kaldırıldı. Önceden oluşturulmuş bir varlık içinde bir örnek utterance algılandığında bulursanız, özel varlığınızın işaretleme imkansızdır önceden oluşturulmuş varlık uygulamadan kaldırabilir, varlık işaretlemek, ardından önceden oluşturulmuş varlık geri ekleyin. 
+Önceden oluşturulmuş varlıklarla eklenir ve herhangi bir zamanda kaldırıldı.
 
 ![Sayı önceden oluşturulmuş varlık](./media/luis-concept-entities/number-entity.png)
 
@@ -198,6 +198,29 @@ Aşağıdaki tabloda, her satır utterance iki sürümü vardır. Üst utterance
 [Varlık için örnek JSON yanıtı](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 Bazı önceden oluşturulmuş bu varlıkların açık kaynaklı tanımlanan [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text) proje. Belirli bir kültürün veya varlık şu anda desteklenmemektedir, projeye katkıda bulunur. 
+
+### <a name="troubleshooting-prebuilt-entities"></a>Önceden oluşturulmuş varlıklarla ilgili sorunları giderme
+
+Önceden oluşturulmuş bir varlık özel varlığınıza yerine etiketlenmiş olması durumunda LUIS Portalı'nda, bu sorunu gidermek nasıl birkaç seçeneğiniz vardır.
+
+Uygulamaya eklenen önceden oluşturulmuş varlıklarla olacak _her zaman_ döndürülmesi, bile utterance özel varlıklar için aynı metni ayıkla. 
+
+#### <a name="change-tagged-entity-in-example-utterance"></a>Örnek utterance etiketli varlığı değiştirme
+
+Önceden oluşturulmuş varlık özel bir varlık olarak aynı metni veya belirteçleri ise, metni seçin örneğin utterance ve etiketli utterance değiştirin. 
+
+Önceden oluşturulmuş varlık daha fazla metin veya özel varlığınıza daha belirteçleri ile etiketlenmiş olması durumunda, birkaç bu sorunu gidermek nasıl seçeneğiniz vardır:
+
+* [Örnek utterance Kaldır](#remove-example-utterance-to-fix-tagging) yöntemi
+* [Önceden oluşturulmuş varlık kaldırmak](#remove-prebuilt-entity-to-fix-tagging) yöntemi
+
+#### <a name="remove-example-utterance-to-fix-tagging"></a>Etiketleme düzeltmek için örnek utterance Kaldır 
+
+İlk seçtiğiniz örnek utterance silin ve uygulamayı yeniden eğitme sağlamaktır. Word yeniden ekleyin veya varlık örneği utterance olarak tümceciği, ardından eğitme ve varlık işaretleyin. Şimdi önceden oluşturulmuş varlık ve özgün örnek utterance geri ekleyin. Özel varlık, önceden oluşturulmuş bir varlık yerine işaretlenmesini devam etmelidir. 
+
+#### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Etiketleme düzeltmek için önceden oluşturulmuş varlık Kaldır
+
+İkinci seçiminiz uygulamadan, önceden oluşturulmuş varlık kaldırmaktır ardından örnek utterance içinde özel varlık etiketi, ardından önceden oluşturulmuş varlık uygulamaya geri ekleyin. Bu düzeltme, önceden oluşturulmuş varlık bileşik bir varlık parçası olmayan varsayar. 
 
 ## <a name="regular-expression-entity"></a>Normal ifade varlığı 
 

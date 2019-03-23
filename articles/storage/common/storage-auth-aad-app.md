@@ -1,27 +1,27 @@
 ---
-title: Azure Active Directory ile blob ve kuyruk verilere erişmek için uygulamalarınızdan (Önizleme) kimlik doğrulaması | Microsoft Docs
-description: Bir uygulama içinde kimlik doğrulaması ve ardından BLOB'ları ve kuyrukları (Önizleme) istekleri yetkilendirmek için Azure Active Directory kullanın.
+title: Azure Active Directory ile uygulamalarınızı blob ve kuyruk verilere erişmek için kimlik doğrulaması | Microsoft Docs
+description: Bir uygulama içinde kimlik doğrulaması ve ardından BLOB'lar ve Kuyruklar isteklerine yetkilendirmek için Azure Active Directory kullanın.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6d283840116a5e1f996602fd792456d3b8e8d9a0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a313061f89d33ee2bf5379dbd37495db06b64440
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456100"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369522"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>BLOB'lar ve Kuyruklar (Önizleme) için erişim için bir uygulamadan Azure Active Directory kimlik doğrulaması
+# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>BLOB'lar ve Kuyruklar için erişim için bir uygulamadan Azure Active Directory kimlik doğrulaması
 
 Azure depolama ile Azure Active Directory (Azure AD) kullanarak önemli bir avantajı, kimlik bilgilerinizi artık kodunuzda depolanması gerektiğini ' dir. Bunun yerine, Azure AD'den bir OAuth 2.0 erişim belirteci isteğinde bulunabilirsiniz. Azure AD güvenlik sorumlusunu (kullanıcı, Grup veya hizmet sorumlusu) kimlik doğrulamasını işleyen çalışan uygulama. Doğrulama başarılı olursa, Azure AD erişim belirteci uygulamaya döndürür ve uygulama daha sonra Azure Depolama'ya yönelik isteklerin yetkilendirmek için erişim belirteci kullanabilirsiniz.
 
 Bu makalede, Azure AD ile kimlik doğrulaması için uygulamanızı yapılandırma gösterilmektedir. Kod örneği özellikleri .NET, ancak diğer diller benzer bir yaklaşım kullanın.
 
-Azure Storage uygulamanızı bir güvenlik sorumlusunun kimlik doğrulama gerçekleştirmeden önce güvenlik sorumlusunu için rol tabanlı erişim denetimi (RBAC) ayarlarını yapılandırın. Azure depolama kapsayıcıları ve Kuyruklar için izinleri kapsayacak RBAC rolleri tanımlar. Bu güvenlik sorumlusu, RBAC rolü için bir güvenlik sorumlusu atandığında, bu kaynağa erişim izni verilir. Daha fazla bilgi için [Yönet RBAC (Önizleme) ile depolama verilere erişim hakları](storage-auth-aad-rbac.md).
+Azure Storage uygulamanızı bir güvenlik sorumlusunun kimlik doğrulama gerçekleştirmeden önce güvenlik sorumlusunu için rol tabanlı erişim denetimi (RBAC) ayarlarını yapılandırın. Azure depolama kapsayıcıları ve Kuyruklar için izinleri kapsayacak RBAC rolleri tanımlar. Bu güvenlik sorumlusu, RBAC rolü için bir güvenlik sorumlusu atandığında, bu kaynağa erişim izni verilir. Daha fazla bilgi için [RBAC ile depolama verilere erişim haklarını yönetme](storage-auth-aad-rbac.md).
 
 OAuth 2.0 kodu verme akışı genel bakış için bkz: [Authorize OAuth 2.0 kod kullanarak Azure Active Directory web uygulamalarına erişim akışı](../../active-directory/develop/v1-protocols-oauth-code.md).
 
@@ -29,7 +29,7 @@ OAuth 2.0 kodu verme akışı genel bakış için bkz: [Authorize OAuth 2.0 kod 
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Bir Azure AD güvenlik sorumlusu için bir RBAC rolü atayın
 
-Azure depolama uygulamanızdan bir güvenlik sorumlusunun kimliğini doğrulamak için önce bu güvenlik sorumlusu için rol tabanlı erişim denetimi (RBAC) ayarlarını yapılandırın. Azure depolama kapsayıcıları ve Kuyruklar için izinleri kapsayacak RBAC rolleri tanımlar. Bu güvenlik sorumlusu, RBAC rolü için bir güvenlik sorumlusu atandığında, bu kaynağa erişim izni verilir. Daha fazla bilgi için [RBAC (Önizleme) ile Azure Blob ve kuyruk verilere erişim haklarını yönetme](storage-auth-aad-rbac.md).
+Azure depolama uygulamanızdan bir güvenlik sorumlusunun kimliğini doğrulamak için önce bu güvenlik sorumlusu için rol tabanlı erişim denetimi (RBAC) ayarlarını yapılandırın. Azure depolama kapsayıcıları ve Kuyruklar için izinleri kapsayacak RBAC rolleri tanımlar. Bu güvenlik sorumlusu, RBAC rolü için bir güvenlik sorumlusu atandığında, bu kaynağa erişim izni verilir. Daha fazla bilgi için [RBAC ile Azure Blob ve kuyruk verilere erişim haklarını yönetme](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Azure AD kiracısı ile uygulamanızı kaydetme
 
@@ -73,7 +73,7 @@ Ardından, Azure depolama API'leri çağırmak için uygulama izinleri vermeniz 
 > [!NOTE]
 > Bir Azure depolama hesabınızın sahibi olarak, otomatik olarak veri erişim izni atanmaz. Siz açıkça kendiniz bir RBAC rolü için Azure depolama atamanız gerekir. Abonelik, kaynak grubu, depolama hesabı veya kapsayıcı veya kuyruk düzeyinde atayabilirsiniz. 
 >
-> Örneğin, bir depolama hesabı sahibi olduğunuz ve kendi kullanıcı kimliği altında örnek kodu çalıştırmak için RBAC rolü için Blob verileri katkıda bulunan kendinize atamanız gerekir. Aksi takdirde, blob oluşturmak için çağrı 403 (Yasak) HTTP durum kodu ile başarısız olur. Daha fazla bilgi için [Yönet RBAC (Önizleme) ile depolama verilere erişim hakları](storage-auth-aad-rbac.md).
+> Örneğin, bir depolama hesabı sahibi olduğunuz ve kendi kullanıcı kimliği altında örnek kodu çalıştırmak için RBAC rolü için Blob verileri katkıda bulunan kendinize atamanız gerekir. Aksi takdirde, blob oluşturmak için çağrı 403 (Yasak) HTTP durum kodu ile başarısız olur. Daha fazla bilgi için [RBAC ile depolama verilere erişim haklarını yönetme](storage-auth-aad-rbac.md).
 
 ### <a name="well-known-values-for-authentication-with-azure-ad"></a>Azure AD ile kimlik doğrulaması için iyi bilinen değerler
 
@@ -105,7 +105,7 @@ Kiracı Kimliğini almak için şu adımları izleyin:
 
 ### <a name="add-references-and-using-statements"></a>Başvurular ekleyin ve using deyimleri  
 
-Visual Studio'da Azure depolama istemci kitaplığı önizleme sürümünü yükleyin. Gelen **Araçları** menüsünde **Nuget Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Konsoldaki için .NET İstemci Kitaplığı'nın en son sürümünü yüklemek için aşağıdaki komutu yazın:
+Visual Studio'dan Azure depolama istemci Kitaplığı yükleyin. Gelen **Araçları** menüsünde **Nuget Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Konsoldaki için .NET İstemci Kitaplığı'nın en son sürümünü yüklemek için aşağıdaki komutu yazın:
 
 ```
 Install-Package WindowsAzure.Storage
@@ -187,14 +187,10 @@ x-ms-version: 2017-11-09
 Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 ```
 
-Azure depolama REST işlemlerini yetkilendirme hakkında daha fazla bilgi için bkz. [Azure Active Directory (Önizleme) ile kimlik doğrulama](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory).
+Azure depolama REST işlemlerini yetkilendirme hakkında daha fazla bilgi için bkz. [Azure Active Directory ile kimlik doğrulama](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- RBAC rolleri için Azure depolama hakkında daha fazla bilgi için bkz: [Yönet RBAC (Önizleme) ile depolama verilere erişim hakları](storage-auth-aad-rbac.md).
-- Azure depolama ile Azure kaynakları için yönetilen kimlikleri kullanma hakkında bilgi edinmek için [BLOB'lar ve Kuyruklar Azure ile kimlik doğrulama erişim kimlikleri (Önizleme) Azure kaynakları için yönetilen](storage-auth-aad-msi.md).
-- Azure CLI ve PowerShell ile bir Azure AD kimlikleriyle oturum öğrenmek için bkz. [CLI veya PowerShell (Önizleme) ile Azure depolamaya erişmek için bir Azure AD kimlik kullanmak](storage-auth-aad-script.md).
-- Azure AD tümleştirmesi için Azure BLOB'ları ve kuyrukları hakkında ek bilgi için bkz: gönderin, Azure depolama ekibi blogu [Önizleme, Azure AD kimlik doğrulaması için Azure depolama ile tanışın](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
-
-
-
+- RBAC rolleri için Azure depolama hakkında daha fazla bilgi için bkz: [RBAC ile depolama verilere erişim haklarını yönetme](storage-auth-aad-rbac.md).
+- Azure depolama ile Azure kaynakları için yönetilen kimlikleri kullanma hakkında bilgi edinmek için [BLOB'lar ve Kuyruklar Azure ile kimlik doğrulama erişim kimliklerini Azure kaynakları için yönetilen](storage-auth-aad-msi.md).
+- Azure CLI ve PowerShell için bir Azure AD kimlikleriyle oturum açma bilgi edinmek için [CLI veya PowerShell ile Azure depolamaya erişmek için bir Azure AD kimlik kullanmak](storage-auth-aad-script.md).

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ac30888c9f54c5dc88cb72aeec0f3db81d5a99dc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f88a560d4fa819a055534530ddc0862e4aa330fe
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004939"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351890"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure depolama ölçümlerini ve günlüğe kaydetme, AzCopy ve ileti Çözümleyicisi kullanarak uçtan uca sorun giderme
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -29,12 +29,12 @@ Bu öğretici, bir uçtan uca sorun giderme senaryo uygulamalı incelenmesi sağ
 Microsoft Azure depolama kullanan istemci uygulamalar gidermek için ne zaman bir sorun oluştu ve bu sorunun nedeni ne olabilir belirlemek için birkaç aracı birden kullanabilirsiniz. Bu araçlar şunları içerir:
 
 * **Azure depolama analizi**. [Azure depolama analizi](/rest/api/storageservices/Storage-Analytics) Ölçümler ve günlüğe kaydetme için Azure depolama sağlar.
-  
+
   * **Depolama ölçümleri** işlem ölçümleri ve depolama hesabınız için kapasite ölçümlerini izler. Ölçümleri kullanarak, uygulamanızın farklı ölçü çeşitli göre nasıl performans gösterdiğini belirleyebilirsiniz. Bkz: [Storage Analytics Ölçüm tablosu şeması](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) depolama Analytics tarafından izlenen ölçümler türleri hakkında daha fazla bilgi için.
   * **Depolama günlüğü** her isteğin Azure Depolama Hizmetleri sunucu tarafı günlüğe kaydeder. Günlük gerçekleştirilen işlem dahil olmak üzere her bir istek, durumunu işlemi ve gecikme bilgileri için ayrıntılı verileri izler. Bkz: [depolama analizi günlük biçimi](/rest/api/storageservices/Storage-Analytics-Log-Format) depolama analizi tarafından günlüklere yazılır istek ve yanıt verilerini hakkında daha fazla bilgi.
 
 * **Azure portalında**. Depolama hesabınız için Ölçümler ve günlüğe kaydetme yapılandırabilirsiniz [Azure portalında](https://portal.azure.com). Ayrıca, grafikler ve uygulamanızın zaman içinde nasıl performans gösterdiğini gösteren grafikler görüntüleyin ve uygulamanız için belirtilen bir ölçüm beklenenden farklı gerçekleştirdiğinde bunu size bildirecek uyarılar yapılandırın.
-  
+
     Bkz: [Azure portalında depolama hesabı izleme](storage-monitor-storage-account.md) Azure portalında izlemeyi yapılandırma hakkında bilgi için.
 * **AzCopy**. Azure depolama için sunucu günlüklerine, günlük bloblarını Microsoft ileti Çözümleyicisi'ni kullanarak analiz için yerel bir dizine kopyalamak için AzCopy kullanabilirsiniz blobları olarak depolanır. Bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md) AzCopy hakkında daha fazla bilgi.
 * **Microsoft Message Analyzer**. İleti Çözümleyicisi günlük dosyalarını kullanır ve filtre, arama ve Grup günlük verileri için hataları ve performans sorunlarını analiz etmek için kullanabileceğiniz yararlı kümeleri halinde kolaylaştırır görsel bir biçimde günlük verileri görüntüleyen bir araçtır. Bkz: [Microsoft ileti Çözümleyicisi işletim kılavuzu](https://technet.microsoft.com/library/jj649776.aspx) ileti Çözümleyicisi hakkında daha fazla bilgi.
@@ -79,51 +79,7 @@ Bunlardan herhangi biriyle çalışmaya seçebilirsiniz ancak bu öğreticide, M
 * **HTTP ağ izleme günlüğü**, HTTP/HTTPS istek ve yanıt verilerini Azure Storage'a karşı işlemleri de dahil olmak üzere, veri toplar. Bu öğreticide, başlığında aracılığıyla ileti Çözümleyicisi kullanarak ağ izlemesini oluşturacağız.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Sunucu tarafı günlük kaydını ve ölçümleri yapılandırma
-Böylece verileri analiz etmek için istemci uygulamadan alınan aldık ilk olarak, size Azure Storage günlüğe kaydetme ve ölçümler, yapılandırmanız gerekir. Aracılığıyla günlüğe kaydetme ve çeşitli şekillerde - ölçümlerde yapılandırabilirsiniz [Azure portalında](https://portal.azure.com), PowerShell kullanarak veya programlama yoluyla. Bkz: [depolama ölçümlerini etkinleştirme ve ölçüm verilerini görüntüleme](https://msdn.microsoft.com/library/azure/dn782843.aspx) ve [depolama günlüğünü etkinleştirme ve erişim günlüğü verilerini](https://msdn.microsoft.com/library/azure/dn782840.aspx) günlüğe kaydetme ve ölçümler yapılandırma hakkında ayrıntılı bilgi için MSDN'de.
-
-**Azure portalı üzerinden**
-
-Yapılandırmak için günlüğe kaydetme ve depolama için ölçümleri kullanarak hesap [Azure portalında](https://portal.azure.com), konumundaki yönergeleri [Azure portalında depolama hesabı izleme](storage-monitor-storage-account.md).
-
-> [!NOTE]
-> Azure portalını kullanarak dakika ölçümlerini ayarlamak mümkün değildir. Ancak, bunları bu öğreticinin amaçları ve uygulamanız ile performans sorunlarını araştırma ayarlamanızı öneririz. Aşağıda gösterildiği gibi PowerShell'i kullanarak veya depolama istemci kitaplığı kullanarak program aracılığıyla dakika ölçümlerini ayarlayabilirsiniz.
-> 
-> Azure portalında dakika ölçümlerini, yalnızca saatlik ölçümlerini görüntüleyemez.
-> 
-> 
-
-**PowerShell**
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Azure PowerShell ile çalışmaya başlamak için bkz. [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
-
-1. Kullanım [Ekle AzAccount](/powershell/module/servicemanagement/azure/add-azureaccount) cmdlet'i PowerShell penceresine Azure kullanıcı hesabınızı eklemek için:
-   
-    ```powershell
-    Add-AzAccount
-    ```
-
-2. İçinde **Microsoft Azure'da oturum aç** penceresinde e-posta adresi ve hesabınızla ilişkili parolayı yazın. Azure, kimlik bilgilerini doğrulayıp kaydeder ve pencereyi kapatır.
-3. PowerShell penceresinde aşağıdaki komutları yürüterek, Öğretici için kullandığınız depolama hesabı için varsayılan depolama hesabını ayarlayın:
-   
-    ```powershell
-    $SubscriptionName = 'Your subscription name'
-    $StorageAccountName = 'yourstorageaccount'
-    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-    ```
-
-4. Blob hizmeti için depolama günlük kaydını etkinleştir:
-   
-    ```powershell
-    Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
-    ```
-
-5. Ayarlanacak sağlamaktan Blob hizmetinin, depolama ölçümlerini etkinleştirme **- MetricsType** için `Minute`:
-   
-    ```powershell
-    Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
-    ```
+Böylece verileri analiz etmek için hizmet tarafı sahibiz ilk olarak, size Azure Storage günlüğe kaydetme ve ölçümler, yapılandırmanız gerekir. Aracılığıyla günlüğe kaydetme ve çeşitli şekillerde - ölçümlerde yapılandırabilirsiniz [Azure portalında](https://portal.azure.com), PowerShell kullanarak veya programlama yoluyla. Bkz [ölçümleri etkinleştirme](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) ve [günlüğe kaydetmeyi etkinleştirme](storage-analytics-logging.md#enable-storage-logging) günlüğe kaydetme ve ölçümler yapılandırma hakkında daha fazla ayrıntı için.
 
 ### <a name="configure-net-client-side-logging"></a>.NET istemci tarafı günlük kaydını yapılandırma
 Bir .NET uygulaması için istemci tarafı günlük kaydını yapılandırmak için uygulamanın yapılandırma dosyasında (web.config veya app.config) .NET tanılamayı etkinleştirin. Bkz: [istemci-tarafı .NET depolama istemci kitaplığı ile günlüğe kaydetme](https://msdn.microsoft.com/library/azure/dn782839.aspx) ve [istemci-tarafı Java için Microsoft Azure depolama SDK'sı ile günlüğe kaydetme](https://msdn.microsoft.com/library/azure/dn782844.aspx) ayrıntılı bilgi için MSDN'de.
@@ -159,8 +115,8 @@ Depolama istemcisi kitaplığı, uygulamanın yapılandırma dosyasında (web.co
 
 > [!NOTE]
 > Ağ izleme toplama tamamladıktan sonra HTTPS trafiği şifresini çözme Fiddler'da değiştirmiş olabilir ayarları geri kesinlikle öneririz. Fiddler Seçenekleri iletişim kutusunda seçimini **yakalama HTTPS bağlanır** ve **HTTPS trafiği şifresini** onay kutularını.
-> 
-> 
+>
+>
 
 Bkz: [ağ izleme özelliklerini kullanmaya](https://technet.microsoft.com/library/jj674819.aspx) daha fazla bilgi için TechNet'teki.
 
@@ -175,8 +131,8 @@ Ekleme ve ölçüm grafikleri özelleştirme hakkında daha fazla bilgi için bk
 
 > [!NOTE]
 > Bu ölçümler verilerinizin depolama ölçümleri etkinleştirdikten sonra Azure Portalı'nda görünmesi biraz zaman alabilir. Geçerli saat sona ermeden önceki bir saat saatlik ölçümlerini Azure portalında görüntülenmez olmasıdır. Ayrıca, dakika ölçümlerini şu anda Azure portalında görüntülenmez. Bu nedenle bağlı olarak ölçümleri etkinleştirdiğinizde, ölçüm verilerini görmek için iki saat sürebilir.
-> 
-> 
+>
+>
 
 ## <a name="use-azcopy-to-copy-server-logs-to-a-local-directory"></a>Sunucu günlükleri, yerel bir dizine kopyalamak için AzCopy kullanma
 Ölçümleri tablolara yazılır azure depolama BLOB'ları için sunucu günlüğü verileri yazar. İyi bilinen kullanılabilir günlük bloblarını `$logs` depolama hesabınız için kapsayıcı. Araştırmak istediğiniz zaman aralığını kolayca bulabilir, günlük bloblarını yıl, ay, gün ve saat tarafından hiyerarşik olarak adlandırılır. Örneğin, `storagesample` hesap, 01/02/2015 için gelen 8-9'da, günlük bloblarını için kapsayıcı `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. İle başlayarak, bu kapsayıcıdaki bloblara ardışık olarak adlandırılır `000000.log`.
@@ -211,8 +167,8 @@ Microsoft Message Analyzer, yakalama, görüntüleme ve trafik, olayları ve di�
 
 > [!NOTE]
 > Tüm bu öğreticinin amaçları doğrultusunda gösterilen Azure depolama varlıkları yükleyin.
-> 
-> 
+>
+>
 
 ### <a name="import-your-log-files-into-message-analyzer"></a>Günlük dosyalarınızın ileti Çözümleyicisi alma
 Tüm kayıtlı günlük dosyalarını (sunucu tarafı, istemci tarafı ve ağ), tek bir oturumda Microsoft ileti Çözümleyicisi çözümleme içine aktarabilirsiniz.
@@ -255,8 +211,8 @@ Gösterir aşağıdaki resimde bu düzeni görünümünde görüntülenen sütun
 
 > [!NOTE]
 > Farklı günlük dosyaları sahip farklı sütunlar için birden çok günlük dosyası verilerini analiz kılavuz görüntülendiğinde, belirli bir satır için herhangi bir veri bazı sütunlar içeremez. Örneğin, yukarıdaki resimde, istemci günlük satırları için herhangi bir veri gösterme **zaman damgası**, **TimeElapsed**, **kaynak**, ve **hedef**sütunları, çünkü bu sütun istemci günlüğünde yok, ancak ağ izlemeye, mevcut. Benzer şekilde, **zaman damgası** sütunu zaman damgası sunucusu günlük verileri görüntüler, ancak hiçbir verinin gösterilmemesi için **TimeElapsed**, **kaynak**, ve  **Hedef** sunucu günlüğü parçası olmayan sütunlar.
-> 
-> 
+>
+>
 
 Azure depolama görünüm düzenleri kullanmanın yanı sıra, ayrıca tanımlama ve kendi görünüm düzenleri kaydedin. Verileri gruplandırma için istenen diğer alanları seçebilir ve gruplandırmayı özel düzen de bir parçası olarak kaydedin.
 
@@ -289,12 +245,12 @@ Bu filtre uygulandıktan sonra göreceğiniz istemci günlüğü tablosundan sat
 
 > [!NOTE]
 > Filtreleyebilirsiniz **StatusCode** sütun hala görünen verileri ve durum kodunu olduğu null günlük girişlerini içeren filtreye bir ifade eklerseniz istemci günlüğü dahil olmak üzere, tüm üç günlükleri. Bu filtre ifadesi oluşturmak için kullanın:
-> 
+>
 > <code>&#42;StatusCode >= 400 or !&#42;StatusCode</code>
-> 
+>
 > Bu filtre tüm satırları istemciden günlük ve yalnızca satır sunucu günlük ve HTTP günlüğü, durum kodu 400 ' büyük olduğu döndürür. İstemci istek kimliği ve modül tarafından gruplandırılmış görünümü Düzen uygulamanız durumunda, arama kaydırın veya üç tüm günlükler burada gösterilir olanları bulmak için günlüğü girdileri.   
-> 
-> 
+>
+>
 
 ### <a name="filter-log-data-to-find-404-errors"></a>404 hataları bulmak için günlük verileri filtreleme
 Hataları veya aradığınız eğilimleri bulmak için günlük verileri daraltmak için kullanabileceğiniz önceden tanımlanmış filtreler depolama varlıkları içerir. Ardından, biz önceden tanımlanmış iki filtre uygulayacağınız: sunucu ve ağ izleme günlükleri 404 hataları filtreleyen ve belirtilen zaman aralığı verilerini filtreleyen bir.

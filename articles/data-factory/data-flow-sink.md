@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 3829fb3c045b149552d3f022e31f30f9cfae8182
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a56f391aa76bd1216fd51d516adb836a2093bcba
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852449"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371148"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Veri akışı havuz dönüştürme eşlemesi
 
@@ -57,7 +57,7 @@ Sütunları eşlemelerinizi sıfırlamak istiyorsanız, eşlemeleri sıfırlamak
 ## <a name="file-name-options"></a>Dosya adı seçenekleri
 
    * Varsayılan: Spark bölümü varsayılanlara dayanan adı dosyalara izin ver
-   * Desen: Çıkış dosyaları için bir ad girin
+   * Desen: Bir desen çıktı dosyalarınızı girin. Örneğin, "KREDİLERİ [n]" oluşturacak loans1.csv, loans2.csv,...
    * Bölüm başına: Bölüm başına bir dosya adı girin
    * Sütundaki verilerin: Çıkış dosyası bir sütunun değerine ayarlayın.
 
@@ -66,11 +66,16 @@ Sütunları eşlemelerinizi sıfırlamak istiyorsanız, eşlemeleri sıfırlamak
 
 ## <a name="database-options"></a>Veritabanı seçenekleri
 
-* INSERT, update, delete, upsert eder izin verir. Eklemeleri izin vermek için varsayılandır. Güncelleştirme, upsert veya INSERT satırları istiyorsanız, etiketi satırlara bu belirli eylemler için öncelikle bir alter satır dönüştürme eklemeniz gerekir.
+* INSERT, update, delete, upsert eder izin verir. Eklemeleri izin vermek için varsayılandır. Güncelleştirme, upsert veya silmek istiyorsanız, etiketi satırlara bu belirli eylemler için öncelikle bir alter satır dönüştürme eklemeniz gerekir. "İzin Ekle" ADF kaynağınızdan yeni satır ekleyerek gelen durdurur.
 * Truncate tablo (tüm satırları hedef tablonuzdan veri akışı tamamlamadan önce kaldırır)
 * (Açılan/oluşturma, hedef tablo veri akışı tamamlamadan önce gerçekleştirir) tabloyu yeniden oluşturun
 * Büyük veri için toplu iş boyutu yükler. Öbeklere demet yazma işlemleri için bir sayı girin
 * Hazırlamayı etkinleştir: Bu ADF Polybase, Azure veri ambarı, havuz veri kümesi olarak yüklerken kullanılacak yenilemelerini ister
+
+> [!NOTE]
+> Veri akışı havuz dönüşümü yeni bir tablo adı olan bir veri kümesi ayarlayarak, hedef veritabanında yeni bir tablo tanımı oluşturmak için ADF sorabilirsiniz. SQL veri kümesini tablo adının altında "Düzenle"'ye tıklayın ve yeni bir tablo adı girin. Ardından, havuz dönüşümünde "İzin ver şema değişikliklerini zamanlı şekilde" açın. Seth "Şemayı içeri aktar" ayarı yok.
+
+![Kaynak dönüştürme şema](media/data-flow/dataset2.png "SQL şeması")
 
 ![SQL havuz seçenekleri](media/data-flow/alter-row2.png "SQL seçenekleri")
 

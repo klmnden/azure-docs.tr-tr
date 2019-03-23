@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65c64e420bd22498fa2d778095def96cce218055
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313966"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370015"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Nasıl çalışır? Azure AD Self Servis parola sıfırlama
 
@@ -76,7 +76,7 @@ Bunlar yönetici etkinleştirilmiş kimlik doğrulama yöntemleri mevcut veriler
 > [!WARNING]
 > Azure yönetici rolleri atanan hesaplar bölümünde tanımlanan yöntemleri kullanmak için gerekli olacak [yönetici sıfırlama İlkesi farklar](concept-sspr-policy.md#administrator-reset-policy-differences).
 
-![Kimlik doğrulaması][Authentication]
+![Azure Portalı'nda kimlik doğrulama yöntemleri seçimi][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Gerekli kimlik doğrulama yöntemleri sayısı
 
@@ -160,7 +160,7 @@ Bu seçenek ayarlanırsa **Evet**, ardından *tüm yöneticilerin* Azure AD'de d
 
 Yükleme, yapılandırma ve Azure AD Connect etkinleştirmek, şirket içi tümleştirmeler aşağıdaki ek seçenekleri sunulmaktadır. Bu seçenekler gri, daha sonra geri yazma düzgün şekilde yapılandırılmadı. Daha fazla bilgi için [parola geri yazmayı yapılandırmayla](howto-sspr-writeback.md).
 
-![Geri yazma][Writeback]
+![Parola geri yazma doğrulama etkinleştirildi ve çalışma][Writeback]
 
 Bu sayfayı hızlı bir şirket içi geri yazma istemci durumunu sağlar, geçerli yapılandırmanız temelinde şu iletilerden biri görüntülenir:
 
@@ -180,7 +180,7 @@ Bu denetim, bu dizin için parola geri yazma özelliğinin etkin olup olmadığ�
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Kullanıcıların parolalarını sıfırlamadan hesapların kilidini açmak için
 
-Bu denetim seçeneği kullanıcının parolasını sıfırlamak zorunda kalmadan, şirket içi Active Directory hesaplarını kilidini açmak için parola sıfırlama portalını ziyaret eden kullanıcılara verilmesi gerektiğini olup olmadığını belirler. Parola sıfırlama gerçekleştirdiğinde, varsayılan olarak, Azure AD hesaplarının kilidini açar. Bu iki işlemi birbirinden ayırmak için bu ayarı kullanın. 
+Bu denetim seçeneği kullanıcının parolasını sıfırlamak zorunda kalmadan, şirket içi Active Directory hesaplarını kilidini açmak için parola sıfırlama portalını ziyaret eden kullanıcılara verilmesi gerektiğini olup olmadığını belirler. Parola sıfırlama gerçekleştirdiğinde, varsayılan olarak, Azure AD hesaplarının kilidini açar. Bu iki işlemi birbirinden ayırmak için bu ayarı kullanın.
 
 * Varsa kümesine **Evet**, sonra da kullanıcıların parolalarını sıfırlama ve hesabın kilidini açma veya parolayı sıfırlamak zorunda kalmadan hesaplarının kilidini seçeneği sunulur.
 * Varsa kümesine **Hayır**, ardından kullanıcıları olan yalnızca bir birleşik bir parola sıfırlama gerçekleştirebilir ve hesap kilidini açma işlemi.
@@ -193,9 +193,9 @@ Azure AD Self Servis parola sıfırlama, bir yönetici tarafından başlatılan 
 
 Parola sıfırlama ve değiştirme, tüm işletmeler arası (B2B) yapılandırmaları üzerinde tam olarak desteklenir. B2B kullanıcı parola sıfırlama, aşağıdaki üç durumda desteklenir:
 
-   * **Mevcut bir Azure AD kiracısı ile bir iş ortağı kuruluştan kullanıcılar**: Mevcut bir Azure AD kiracısı ile işbirliği kuruluş varsa, biz *her parola sıfırlama ilkeleri, Kiracı üzerinde etkin saygı*. Çalışmak için parola sıfırlama için iş ortağı kuruluşun yalnızca Azure AD SSPR etkin olduğundan emin olmak gerekir. Office 365 müşterileri için ek ücret yoktur ve adımları izleyerek etkinleştirilebilir bizim [parola yönetimini kullanmaya başlama](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) Kılavuzu.
-   * **Aracılığıyla kaydolun kullanıcılar** Self Servis kayıt: Kuruluş ile işbirliği yapıyoruz kullanılıyorsa [Self Servis kayıt](../users-groups-roles/directory-self-service-signup.md) biz kayıtlı e-posta ile parola sıfırlama bildirmek, bir kiracıda oturum alınacağı özellik.
-   * **B2B kullanıcıları**: Yeni kullanılarak oluşturulan tüm yeni B2B kullanıcıları [Azure AD B2B özellikleri](../active-directory-b2b-what-is-azure-ad-b2b.md) davet etme işlemi sırasında kayıtlı e-posta ile kullanıcıların parolalarını sıfırlamalarına mümkün olacaktır.
+* **Mevcut bir Azure AD kiracısı ile bir iş ortağı kuruluştan kullanıcılar**: Mevcut bir Azure AD kiracısı ile işbirliği kuruluş varsa, biz *her parola sıfırlama ilkeleri, Kiracı üzerinde etkin saygı*. Çalışmak için parola sıfırlama için iş ortağı kuruluşun yalnızca Azure AD SSPR etkin olduğundan emin olmak gerekir. Office 365 müşterileri için ek ücret yoktur ve adımları izleyerek etkinleştirilebilir bizim [parola yönetimini kullanmaya başlama](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) Kılavuzu.
+* **Aracılığıyla kaydolun kullanıcılar** Self Servis kayıt: Kuruluş ile işbirliği yapıyoruz kullanılıyorsa [Self Servis kayıt](../users-groups-roles/directory-self-service-signup.md) biz kayıtlı e-posta ile parola sıfırlama bildirmek, bir kiracıda oturum alınacağı özellik.
+* **B2B kullanıcıları**: Yeni kullanılarak oluşturulan tüm yeni B2B kullanıcıları [Azure AD B2B özellikleri](../active-directory-b2b-what-is-azure-ad-b2b.md) davet etme işlemi sırasında kayıtlı e-posta ile kullanıcıların parolalarını sıfırlamalarına mümkün olacaktır.
 
 Bu senaryoyu test etmek için şuraya gidin: https://passwordreset.microsoftonline.com biri olan bu iş ortağı kullanıcılar. Bir alternatif e-posta veya tanımlanan kimlik doğrulama e-posta oluşturulduysa parola beklendiği gibi çalıştığını sıfırlayın.
 

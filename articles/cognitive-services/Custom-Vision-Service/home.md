@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 6cbc6e351147ed5b4c31463b5cf319417f34da34
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 50935aca20af931eec63717921ef7a73267d2373
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456784"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350479"
 ---
 # <a name="what-is-azure-custom-vision"></a>Azure Özel Görüntü İşleme nedir?
 
@@ -25,17 +25,18 @@ Azure özel görüntü işleme oluşturmanızı, dağıtmanızı ve kendi resim 
 
 Özel görüntü işleme hizmeti, görüntüleri etiketleri uygulamak için bir makine öğrenimi algoritması kullanır. Geliştirici olarak size, özellik ve söz konusu özellikleri eksik görüntü gruplarını göndermeniz gerekir. Görüntüleri kendiniz gönderme zamanında etiketleyin. Ardından algoritması için bu verileri eğitir ve kendisini aynı görüntülerin test ederek kendi doğruluğu hesaplar. Algoritma eğitildi sonra test, yeniden eğitme ve sonunda yeni görüntüleri, uygulamanızın ihtiyaçlarına göre sınıflandırmak için kullanın. İsterseniz modeli çevrimdışı kullanmak üzere dışarı aktarabilirsiniz.
 
-## <a name="classification-and-object-detection"></a>Sınıflandırma ve nesne algılama
+### <a name="classification-and-object-detection"></a>Sınıflandırma ve nesne algılama
 
 Özel Görüntü İşleme hizmeti iki bölüme ayrılabilir. **Görüntü sınıflandırma** yansımaya bir veya daha fazla etiket uygular. **Nesne algılama** benzer, ancak aynı zamanda koordinatları görüntüde uygulanmış etiketi bulunduğu döndürür.
 
-## <a name="optimization"></a>İyileştirme
+### <a name="optimization"></a>İyileştirme
 
 Özel görüntü işleme hizmeti, görüntüleri arasındaki başlıca farklar hızlı bir şekilde tanımak için optimize edilmiştir. Bu, prototip oluşturma başlamak için az miktarda veriniz modelinizi sağlar. 50 etikete göre genellikle iyi bir başlangıç görüntüleridir. Ancak bu durumda hizmet, görüntülerdeki küçük farklılıkları algılamak (kalite denetimi senaryolarında küçük çatlakların veya eziklerin algılanması gibi) için en uygun durumda olmayacaktır.
 
 Ayrıca, özel görüntü işleme algoritması belirli malzemeyi görüntülerle için optimize edilmiş çeşitli çeşitleri aralarından seçim yapabileceğiniz&mdash;yer işareti veya perakende öğeleri. Bu konuda daha fazla bilgi için [Sınıflandırıcı oluşturma](getting-started-build-a-classifier.md) belgesine bakın.
 
 ## <a name="what-it-includes"></a>Neleri içerir
+
 Özel Görüntü İşleme Hizmeti, yerel SDK'lara ek olarak [Özel Görüntü İşleme giriş sayfası](https://customvision.ai/) üzerinden web tabanlı arabirim aracılığıyla da sunulmaktadır. Oluşturun, test edin ve her iki arabirim üzerinden bir model eğitip veya her ikisini de birlikte kullanın.
 
 ![Chrome tarayıcı penceresinde Özel Görüntü İşleme giriş sayfası](media/browser-home.png)

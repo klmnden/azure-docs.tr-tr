@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 03/05/2019
 ms.author: tamram
-ms.openlocfilehash: d3f6009c77618bc043586771a6f67442533b2a0d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444064"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370406"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Azure portalında depolama hesabı ayarlarını yönetme
 
@@ -20,9 +20,9 @@ ms.locfileid: "57444064"
 
 ## <a name="access-control"></a>Erişim denetimi
 
-Azure depolama, Blob Depolama ve kuyruk depolama (Önizleme) ile rol tabanlı erişim denetimi (RBAC) için Azure Active Directory ile kimlik doğrulaması destekler. Azure AD ile kimlik doğrulaması hakkında daha fazla bilgi için bkz. [kimlik doğrulama erişim Azure blobları ve Azure Active Directory (Önizleme) kullanarak sıralar](storage-auth-aad.md).
+Azure depolama, Blob Depolama ve kuyruk depolama ile rol tabanlı erişim denetimi (RBAC) için Azure Active Directory ile kimlik doğrulaması destekler. Azure AD ile kimlik doğrulaması hakkında daha fazla bilgi için bkz. [kimlik doğrulama erişim Azure blobları ve Azure Active Directory'yi kullanarak sıralar](storage-auth-aad.md).
 
-**Erişim denetimi** ayarları Azure portalında kullanıcıları, grupları, hizmet sorumluları ve yönetilen kimlikleri için RBAC rolleri atamak için basit bir yol sunar. RBAC rollerini atama hakkında daha fazla bilgi için bkz. [RBAC (Önizleme) ile blob ve kuyruk verilere erişim haklarını yönetme](storage-auth-aad-rbac.md).
+**Erişim denetimi** ayarları Azure portalında kullanıcıları, grupları, hizmet sorumluları ve yönetilen kimlikleri için RBAC rolleri atamak için basit bir yol sunar. RBAC rollerini atama hakkında daha fazla bilgi için bkz. [RBAC ile blob ve kuyruk verilere erişim haklarını yönetme](storage-auth-aad-rbac.md).
 
 > [!NOTE]
 > Kullanıcılar veya uygulamalar Azure AD kimlik bilgilerini kullanarak kimlik doğrulaması yetkilendirme başka bir yolla üstün güvenlik ve kullanım kolaylığı sağlar. Paylaşılan anahtar yetkilendirme uygulamalarınızı kullanmaya devam ederken, Azure AD kullanarak kodunuzu ile hesap erişim anahtarını depolamak için gereken bozar. Depolama hesabınızdaki kaynaklara ayrıntılı erişim vermek için paylaşılan erişim imzaları (SAS) kullanmaya devam edebilirsiniz, ancak Azure AD'ye SAS belirteçlerini yönetin veya güvenliği aşılmış bir SAS iptal etme hakkında endişelenmenize gerek kalmadan benzer özellikleri sunar. 

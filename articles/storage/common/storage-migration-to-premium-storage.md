@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: fd72e2a75c00c30fdc5497e0d88e9c83dc5fcad8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fdca10c54c798bd47a34eb0f8af091908bcc2711
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317366"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372327"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>(Yönetilmeyen diskler) Azure Premium depolamaya geçiş
 
@@ -69,10 +69,10 @@ Premium depolama hesaplarına sahip ek olarak aşağıdaki ölçeklenebilirlik h
 |:--- |:--- |
 | Disk kapasitesi: 35TB<br />Anlık görüntü kapasitesi: 10 TB |En çok 50 Gigabit / saniye için gelen ve giden |
 
-Premium depolama özellikleri hakkında daha fazla bilgi için kullanıma [Azure depolama ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md#premium-storage-account-scale-limits).
+Premium depolama özellikleri hakkında daha fazla bilgi için kullanıma [Azure depolama ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md#premium-performance-storage-account-scale-limits).
 
 #### <a name="disk-caching-policy"></a>Diski önbelleğe alma İlkesi
-Varsayılan olarak, önbelleğe alma İlkesi disktir *salt okunur* tüm Premium veri disklerinde, ve *okuma-yazma* Premium işletim sistemi diski, VM'ye bağlı. Bu yapılandırma ayarının, uygulamanızın IOs için en iyi performans elde etmek için önerilir. (Örneğin, SQL Server günlük dosyası) yazma yoğunluklu veya salt yazılır veri diskleri için daha iyi uygulama performansı elde etmek için disk önbelleğe almayı devre dışı bırakın. Mevcut veri diskleri için önbellek ayarları kullanılarak güncelleştirilebilir [Azure portalı](https://portal.azure.com) veya *- HostCaching* parametresinin *kümesi AzureDataDisk* cmdlet'i.
+Varsayılan olarak, önbelleğe alma İlkesi disktir *salt okunur* tüm Premium veri disklerinde, ve *okuma-yazma* Premium işletim sistemi diski, VM'ye bağlı. Bu yapılandırma ayarının, uygulamanızın IOs için en iyi performans elde etmek için önerilir. (Örneğin, SQL Server günlük dosyası) yazma yoğunluklu veya salt yazılır veri diskleri için daha iyi uygulama performansı elde etmek için disk önbelleğe almayı devre dışı bırakın. Mevcut veri diskleri için önbellek ayarlarını kullanarak güncelleştirilebilir [Azure portalında](https://portal.azure.com) veya *- HostCaching* parametresinin *kümesi AzureDataDisk* cmdlet'i.
 
 #### <a name="location"></a>Konum
 Azure Premium depolama kullanılabilir olduğu bir konum seçin. Bkz: [bölgeye göre Azure Hizmetleri](https://azure.microsoft.com/regions/#services) kullanılabilir konumların hakkında güncel bilgi için. Depoları diskleri VM için ayrı bölge içinde olup olmadıklarını daha çok daha iyi performans sağlayabilir, depolama hesabıyla aynı bölgede yer alan VM'ler.

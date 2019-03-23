@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/03/2018
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 080a4691869c4deaf86f0e27961e80b60d439f05
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 405b6ebd06091536749751a94362d8c4a6495dbc
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857262"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351312"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>Modelinizi kullanılmak ile mobil cihazları dışarı aktarma
 
-Özel görüntü işleme hizmeti sınıflandırıcılar çevrimdışı çalışmasını dışarı aktarılmasına izin verir. Dışarı aktarılan sınıflandırıcınızı bir uygulamaya ekleme ve yerel olarak çalıştırma gerçek zamanlı sınıflandırma için bir cihaz. 
+Özel görüntü işleme hizmeti sınıflandırıcılar çevrimdışı çalışmasını dışarı aktarılmasına izin verir. Dışarı aktarılan sınıflandırıcınızı bir uygulamaya ekleme ve yerel olarak çalıştırma gerçek zamanlı sınıflandırma için bir cihaz.
 
 Özel görüntü işleme hizmeti, aşağıdaki dışarı aktarmaları destekler:
 
@@ -37,7 +37,7 @@ ms.locfileid: "55857262"
 
 > [!NOTE]
 > Bu bölümdeki adımlar, yalnızca etki alanı sıkıştırmak için ayarlanmadı var olan bir sınıflandırıcı varsa geçerlidir.
- 
+
 Etki alanı mevcut bir sınıflandırıcı dönüştürmek için aşağıdaki adımları kullanın:
 
 1. Gelen [özel görüntü işleme sayfasını](https://customvision.ai)seçin __giriş__ projelerinizi listesini görüntülemek için simge. Ayrıca [ https://customvision.ai/projects ](https://customvision.ai/projects) projelerinizi görmek için.

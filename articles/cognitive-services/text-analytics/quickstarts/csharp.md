@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: bc4553df239dbb8b62a31414539b10998cd74f02
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: e960f662fda4272bbc9763eb04fdb739c4776af8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189657"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371341"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Hızlı Başlangıç: Kullanarak C# metin analizi Bilişsel hizmetini çağırmak için
 <a name="HOLTop"></a>
@@ -35,7 +35,7 @@ Ayrıca kayıt sırasında oluşturulan [uç nokta ve erişim anahtarı](../How-
 1. Çözüme sağ tıklayın ve ardından **Çözüm için NuGet Paketlerini Yönet**'e tıklayın.
 1. **Ön sürümü dahil et** onay kutusunu işaretleyin.
 1. **Gözat** sekmesini seçin ve **Microsoft.Azure.CognitiveServices.Language.TextAnalytics** aratın.
-1. NuGet paketini seçin ve yükleyin. (3-18-2019) v3.0.0 için yazılım hatada kadar olarak sabit artık v2.8.0 için gerekebilir.
+1. NuGet paketini seçin ve yükleyin. Örnek kod ile v3.0.0 güncelleştirilene kadar v2.8.0 için (3-18-2019 gibi), şu an için düşürme gerekebilir.
 
 > [!Tip]
 >  [HTTP uç noktalarını](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) doğrudan C# ile de çağırabilirsiniz ancak Microsoft.Azure.CognitiveServices.Language SDK'sı hizmeti çağırmayı çok daha kolay hale getirir ve JSON yanıtını seri duruma getirme ve seri durumdan çıkarma konusunda endişelenmenize gerek kalmaz.

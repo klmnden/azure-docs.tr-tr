@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 07d233ba50f4253b4ea3097748b9c58142e08a91
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 9d38e3caf3d835eaf73df90282157eed76c5ea25
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549437"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350649"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure Web Apps'te dağıtım hakkında SSS
 
@@ -90,7 +90,7 @@ Koşullar altında bir uygulama dağıtımının neden olabilir bir yeniden baş
 
 Azure DevOps ile sürekli dağıtımı kullanmak için iki seçeneğiniz vardır:
 
-*   Git proje kullanırsınız. App Service ile bu depo için dağıtım seçeneklerini kullanarak bağlanın.
+*   Git proje kullanırsınız. App Service ile dağıtım merkezi kullanarak bağlanın.
 *   Team Foundation sürüm denetimi (TFVC) projesini kullanın. App Service için yapı aracısını kullanarak dağıtın.
 
 Kod sürekli dağıtım için bu seçeneklerin mevcut Geliştirici iş akışları ve iade etme yordamları bağlıdır. Daha fazla bilgi için şu makalelere bakın: 

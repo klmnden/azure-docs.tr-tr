@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 251a2a3fed57e957de11a20189b6b6d553d98a78
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 88113fee64251344bd84085caedc9dfccfa10933
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310277"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351465"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3 nedir?
 
@@ -77,24 +77,11 @@ Bunun örnekleri:
 
 Bkz: [içerik anahtarı ilkesi - .NET edinme](get-content-key-policy-dotnet-howto.md) örnek.
 
-## <a name="how-can-i-get-started-with-v3"></a>v3’ü kullanmaya nasıl başlayabilirim?
-
-Çeşitli araçlar ve SDK'lar kullanarak Media Services v3 API'si ile geliştirmeye başlamak hakkında daha fazla bilgi için bkz: [geliştirmeye başlayın](developers-guide.md).
-
-## <a name="v3-content-map"></a>V3 içerik haritası
-
-Media Services v3 içerik (İçindekiler tablosunda da yansıtılan) aşağıdaki yapıya göre düzenlenmiştir:
-
-|Bölümler| Açıklama|
-|---|---|
-| Genel Bakış | Medya Hizmetleri ve hizmet ile neler yapabileceğinizi işlevselliğini açıklar.|
-| Hızlı Başlangıçlar | Media Services'ı hızlı şekilde denemenize yönelik yeni müşteriler için temel gün-1 yönergeleri göster.|
-| Öğreticiler | Senaryo tabanlı yordamlar üst Media Services görevlerden bazılarını gösterir.|
-| Örnekler | Kod örneklerine bağlar. |
-| Kavramlar | Ayrıntılı açıklamasını içeren [Media Services v3 kavramlarda ve işlevlerde](concepts-overview.md). Bu konularda açıklandığı gibi temel kavramları, geliştirme başlatılmadan önce incelenmelidir.<br/><br/>* Bulut karşıya yükleme ve depolama alanı<br/>* Kodlama<br/>* Medya analizi<br/>* Paket teslimini koruma<br/>* Canlı akış<br/>* İzleme<br/>* Player istemciler<br/><br/>ve daha fazlası. |
-| Nasıl yapılır kılavuzları | Bir görevin nasıl tamamlanacağını göstermektedir.|
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Video dosyalarını kodlamaya ve akışa almaya başlamanın ne kadar kolay olduğunu görmek için [Dosyaları akışa alma](stream-files-dotnet-quickstart.md) bölümüne göz atın. 
+v3’ü kullanmaya nasıl başlayabilirim? 
+
+> [!div class="nextstepaction"]
+> [Temel kavramlar hakkında bilgi edinin](concepts-overview.md)<br/>
+> [SDK'larını kullanarak Media Services v3 API ile geliştirme](developers-guide.md) 
 

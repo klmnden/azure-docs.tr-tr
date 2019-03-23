@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36959582a3866426f8dc0e9969210e29e751ea60
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 4d9055ef11bc5c117efc6d4de87d4ca8ec73a661
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311909"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360512"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Parola ilkeleri ve Azure Active Directory'de kısıtlamaları
 
@@ -93,7 +93,7 @@ Aşağıdaki tabloda, oluşturulan ve Azure AD'de yönetilen kullanıcı hesapla
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Parola, Azure AD'de süre sonu ilkelerini ayarlama
 
-Bir Microsoft bulut hizmeti için genel yönetici, kullanıcı parolalarını dolmayacak şekilde ayarlamak için Windows PowerShell için Microsoft Azure AD modülünü kullanabilirsiniz. Kaldırmak için Windows PowerShell cmdlet'lerini kullanabilirsiniz-yapılandırma süresi asla veya kullanıcı görmek için parolaları süresiz olarak ayarlanır. 
+Bir genel yönetici veya Kullanıcı Yöneticisi bir Microsoft bulut hizmeti için Windows PowerShell için Microsoft Azure AD modülü kullanıcı parolalarını dolmayacak şekilde ayarlamak için kullanabilirsiniz. Kaldırmak için Windows PowerShell cmdlet'lerini kullanabilirsiniz-yapılandırma süresi asla veya kullanıcı görmek için parolaları süresiz olarak ayarlanır. 
 
 Bu kılavuz, ayrıca Azure AD için kimlik ve dizin hizmetleri kullanan Intune ve Office 365 gibi diğer sağlayıcılar için geçerlidir. Parola kullanım süresi değiştirilebilir ilke yalnızca parçasıdır.
 
@@ -107,7 +107,7 @@ Başlamak için yapmanız [Azure AD PowerShell modülünü indirip](https://docs
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Onay için bir parola süre sonu ilkesi
 
-1. Windows PowerShell için şirket Yöneticisi kimlik bilgilerinizi kullanarak bağlanın.
+1. Windows PowerShell için kullanıcı yönetici veya şirket Yöneticisi kimlik bilgilerini kullanarak bağlanın.
 1. Aşağıdaki komutlardan birini yürütün:
 
    * Tek bir kullanıcının parolasını ermeyecek şekilde ayarlanmış olup olmadığını görmek için UPN kullanarak aşağıdaki cmdlet'i çalıştırın (örneğin, *aprilr\@contoso.onmicrosoft.com*) ya da kontrol etmek istediğiniz kullanıcının kullanıcı kimliği: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
@@ -115,7 +115,7 @@ Başlamak için yapmanız [Azure AD PowerShell modülünü indirip](https://docs
 
 ### <a name="set-a-password-to-expire"></a>Parola süresi dolacak şekilde ayarlayın
 
-1. Windows PowerShell için şirket Yöneticisi kimlik bilgilerinizi kullanarak bağlanın.
+1. Windows PowerShell için kullanıcı yönetici veya şirket Yöneticisi kimlik bilgilerini kullanarak bağlanın.
 1. Aşağıdaki komutlardan birini yürütün:
 
    * Parolanın süresi dolarsa, bir kullanıcının parolasını ayarlamak için UPN veya kullanıcının kullanıcı Kimliğini kullanarak aşağıdaki cmdlet'i çalıştırın: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
@@ -123,7 +123,7 @@ Başlamak için yapmanız [Azure AD PowerShell modülünü indirip](https://docs
 
 ### <a name="set-a-password-to-never-expire"></a>Parola süresi dolmayacak şekilde ayarlayın
 
-1. Windows PowerShell için şirket Yöneticisi kimlik bilgilerinizi kullanarak bağlanın.
+1. Windows PowerShell için kullanıcı yönetici veya şirket Yöneticisi kimlik bilgilerini kullanarak bağlanın.
 1. Aşağıdaki komutlardan birini yürütün:
 
    * Süresiz olarak bir kullanıcı parolasını ayarlamak için UPN veya kullanıcının kullanıcı Kimliğini kullanarak aşağıdaki cmdlet'i çalıştırın: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`

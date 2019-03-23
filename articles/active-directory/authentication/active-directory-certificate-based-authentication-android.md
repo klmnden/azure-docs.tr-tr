@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0f4a648227e62642bb071a76cbd1f3a50bf78ae
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b55b439f61c76d6d0524c1f01ba5fef745187d04
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314511"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368298"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Azure Active Directory Sertifika tabanlı kimlik doğrulaması Android
 
@@ -35,16 +35,16 @@ Bu özellik, Office 365 ABD kamu savunma ve Federal planlarında önizlemede kul
 
 | Uygulamalar | Destek |
 | --- | --- |
-| Azure Information Protection uygulaması |![İşaretli][1] |
-| Intune Şirket portalı |![İşaretli][1] |
-| Microsoft Teams |![İşaretli][1] |
-| OneNote |![İşaretli][1] |
-| OneDrive |![İşaretli][1] |
-| Outlook |![İşaretli][1] |
-| Power BI |![İşaretli][1] |
-| Skype Kurumsal |![İşaretli][1] |
-| Word / Excel / PowerPoint |![İşaretli][1] |
-| Yammer |![İşaretli][1] |
+| Azure Information Protection uygulaması |![Bu uygulama için destek gösteren onay işareti][1] |
+| Intune Şirket portalı |![Bu uygulama için destek gösteren onay işareti][1] |
+| Microsoft Teams |![Bu uygulama için destek gösteren onay işareti][1] |
+| OneNote |![Bu uygulama için destek gösteren onay işareti][1] |
+| OneDrive |![Bu uygulama için destek gösteren onay işareti][1] |
+| Outlook |![Bu uygulama için destek gösteren onay işareti][1] |
+| Power BI |![Bu uygulama için destek gösteren onay işareti][1] |
+| Skype Kurumsal |![Bu uygulama için destek gösteren onay işareti][1] |
+| Word / Excel / PowerPoint |![Bu uygulama için destek gösteren onay işareti][1] |
+| Yammer |![Bu uygulama için destek gösteren onay işareti][1] |
 
 ### <a name="implementation-requirements"></a>Uygulama gereksinimleri
 

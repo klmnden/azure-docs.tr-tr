@@ -3,16 +3,17 @@ author: PatrickFarley
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: include
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 44e38d2ea7c45b75cd1f59761a214c52f64497f8
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 4d4c37a31a279fab9af0f3d84575641d10ff09ce
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56323418"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352213"
 ---
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
+
 Kendi görüntü sınıflandırma projenizi gerçekleştirmek (veya bunun yerine [nesne algılama](../csharp-tutorial-od.md) projesini denemek) istiyorsanız, bu örnekten ağaç tanımlama projesini silmek isteyebilirsiniz. Ücretsiz deneme iki Özel Görüntü İşleme projesi sağlar.
 
 [Özel Görüntü İşleme web sitesinde](https://customvision.ai) **Projeler**’e gidin ve Yeni Projem’in altından çöp kutusunu secin.

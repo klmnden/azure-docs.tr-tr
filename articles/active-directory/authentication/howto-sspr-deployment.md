@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 338032b19d22432c34891de68c6a5ba71de60555
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170695"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370695"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Self servis parola sıfırlamayı başarıyla kullanıma sunma
 
@@ -49,7 +49,7 @@ Birçok müşteri için kullanıcıların SSPR kullanmasının en kolay yolu, ku
 * **SSPR tablo tents**: Tablo kartları öğle odada Konferans salonu veya kullanıcılarınızın kaydınızı tamamlamak için teşvik etmek için masalarını yerleştirebilirsiniz.
 * **SSPR Çıkartmalar**: Etiket şablonları özelleştirme ve dizüstü bilgisayarlar, monitör, klavye veya cep telefonları SSPR'ye erişmek nasıl hatırlamak yerleştirmek için yazdırma.
 
-![SSPR e-posta örnekleri][Email]
+![SSPR kullanıcılara piyasaya çıkma için e-posta örnekleri][Email]
 
 ## <a name="create-your-own-password-portal"></a>Kendi parola portalınızı oluşturma
 

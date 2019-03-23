@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: e6185a7b62e3c599a7c3588824e3a9c4ac60cb53
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7edce5175a1dda66abf3316cb8f0eb33e9f64ef7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467637"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371478"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Otomatik olarak bir Resource Manager şablonu kullanarak kaynak oluşturma sırasında tanılama ayarlarını etkinleştirme
-Bu makalede size nasıl kullanabileceğinizi gösterir. bir [Azure Resource Manager şablonu](../../azure-resource-manager/resource-group-authoring-templates.md) oluşturulduğunda kaynak tanılama ayarlarını yapılandırmak için. Bu, otomatik olarak tanılama günlükleri ve ölçümleri Event Hubs, bunları bir depolama hesabında arşivlemek veya bir kaynak oluşturulduğunda bunları Log Analytics'e göndermek için akış başlatmanıza olanak sağlar.
+Bu makalede size nasıl kullanabileceğinizi gösterir. bir [Azure Resource Manager şablonu](../../azure-resource-manager/resource-group-authoring-templates.md) oluşturulduğunda kaynak tanılama ayarlarını yapılandırmak için. Bu, otomatik olarak tanılama günlükleri ve ölçümleri Event hubs'a akış, bunları bir depolama hesabına arşivleme veya bir kaynak oluşturulduğunda bir Log Analytics çalışma alanına göndererek başlatmanıza olanak sağlar.
 
 > [!WARNING]
 > Depolama hesabındaki günlük verilerinin biçimi, 1 Kasım 2018 tarihinde JSON Satırları olarak değişecektir. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -40,7 +40,7 @@ Aşağıda bir örnek işlem olmayan ve işlem kaynakları için oluşturmak ist
 ## <a name="non-compute-resource-template"></a>Kaynak dışı işlem şablonu
 İşlem olmayan kaynaklar için iki işlem gerçekleştirmesi gerekir:
 
-1. Parametre blob depolama hesabı adı, olay hub'ı yetkilendirme kuralı kimliği ve/veya Log Analytics çalışma alanı kimliği (tanılama günlüklerini arşivleme günlüklerinin Event Hubs'a akışını ve/veya günlükleri Log Analytics'e gönderirken bir depolama hesabında etkinleştirme) için parametreleri ekleyin.
+1. Parametre blob depolama hesabı adı, olay hub'ı yetkilendirme kuralı kimliği ve/veya Log Analytics çalışma alanı kimliği (tanılama günlüklerini arşivleme günlüklerinin Event Hubs'a akışını ve/veya günlükleri göndermek için Azure İzleyici bir depolama hesabında etkinleştirme) için parametreleri ekleyin.
    
     ```json
     "settingName": {

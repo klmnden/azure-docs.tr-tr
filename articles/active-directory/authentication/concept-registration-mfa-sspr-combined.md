@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2865c19e747ca1c5b0a6cda84b8be18bfaeb9335
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 536d26abf563f18ed7cec6668fcd1d4223f5a135
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317672"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370168"
 ---
 # <a name="combined-security-information-registration-preview"></a>Birleştirilmiş güvenlik bilgileri kayıt (Önizleme)
 
 Birleşik kayıt önce kullanıcıların Azure multi-Factor Authentication (MFA) ve iki farklı deneyimler aracılığıyla Self Servis parola sıfırlama (SSPR) için kimlik doğrulama yöntemleri kayıtlı. Kişilerin, Azure MFA ve SSPR için benzer yöntemler kullanıldı, ancak her bir özellik için ayrı olarak kaydetmek sahip oldukları karıştırılır. Şimdi, birleşik kayıt ile kullanıcılar bir kez kaydedebilir ve Azure mfa'yı hem SSPR avantajlarından yararlanın.
 
-![Güvenlik bilgileri - Profilim dizininde bir örnek kullanıcı için Microsoft Authenticator ve telefon gibi bir kullanıcı için kayıtlı güvenlik bilgilerini gösteren birleştirilmiş.](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![Bir kullanıcı için güvenlik bilgisi My profili gösteren kayıtlı](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
 Yeni deneyimi etkinleştirmeden önce bu yönetici odaklı belgeleri ve işlevleri ve bu özellik etkisini anladığınızdan emin olmak için kullanıcı odaklı belgeleri gözden geçirin. Kullanıcı belgeleri, kullanıcıların yeni deneyimi hazırlamak ve başarılı bir sunum emin olmaya yardım etmek için eğitim temel alır.
 
@@ -36,7 +36,7 @@ Yeni deneyimi etkinleştirmeden önce bu yönetici odaklı belgeleri ve işlevle
 
 Profilim'i sayfaları geçerli dil ayarları sayfasına erişme makineye göre yerelleştirilir. Microsoft, tarayıcı önbelleğine sonraki denemeler erişmek için kullanılan son dil işleme devam edecek şekilde kullanılan en son dil depolar. Önbelleği temizleme, yeniden oluşturulacak sayfaların neden olur. Ekleme belirli dil zorlamak istiyorsanız bir `?lng=de-DE` URL'nin sonuna burada `de-DE` ayarlanır uygun dili için kod sayfaları o dilde işlemek için zorlar.
 
-![Güvenlik bilgileri ve kullanıcının SSPR veya diğer ek güvenlik doğrulama yöntemlerini Kurulumu özelliği gösteren my profili arabirimi.](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
+![SSPR veya diğer ek güvenlik doğrulama yöntemlerini Kurulumu](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
 ## <a name="methods-available-in-converged-registration"></a>Yakınsanmış kaydında kullanılabilir yöntemleri
 
@@ -99,7 +99,7 @@ Kayıt uygulandığında, kullanıcılara az güvenliğini sağlamak için yönt
 
 Aşağıdaki akış çizelgesi, hangi yöntemlerin kesintiye, bir kullanıcı oturum açma sırasında kaydetmek için gösterilen açıklanmaktadır:
 
-![Daha fazla bilgi gerekli olduğunda oturum açarken gereken yöntemlerin sayısı açıklayan güvenlik bilgisi akış çizelgesi birleştirilmiş. Mfa'yı ya da yalnızca SSPR gereklidir, yalnızca bu ayarı değiştirebilirsiniz](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
+![Birleştirilmiş güvenlik bilgisi akış çizelgesi](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
 MFA hem de etkin SSPR varsa, MFA kaydı zorunlu kılmanız önerilir.
 

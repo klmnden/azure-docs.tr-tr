@@ -1,6 +1,6 @@
 ---
-title: PowerShell ve REST API - Azure Search kullanarak kod içinde bir dizin oluşturun
-description: HTTP isteklerini ve Azure Search REST API'sini kullanarak kod içinde tam metin arama yapılabilir bir dizin oluşturun.
+title: PowerShell ve REST API - Azure Search kullanarak dizin sorgulama oluşturma ve yükleme
+description: Oluşturma, yüklemek ve PowerShell, Invoke-RestMethod ve Azure Search REST API'sini kullanarak dizin sorgulama.
 ms.date: 03/15/2019
 author: heidisteen
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 87da5cdd31abb41a774a46d3891006eb58ac5e4d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 9e1b6fc0dc4e6a6c2c191960fa061c810e3a2e79
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285146"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372123"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Hızlı Başlangıç: PowerShell ve REST API kullanarak Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Bu makalede size bir Azure Search sorgulama oluşturma ve yükleme işleminde si
 
 [PowerShell 5.1 veya üstü](https://github.com/PowerShell/PowerShell)kullanarak [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) sıralı ve etkileşimli adımlar.
 
-Bir URL uç noktasını ve yönetici, arama hizmetinizin api anahtarı. İkisini de içeren bir arama hizmeti oluşturulur. Bu nedenle aboneliğinize Azure Search hizmetini eklediyseniz gerekli bilgileri almak için aşağıdaki adımları izleyin:
+Yönetici ve URL uç noktasını alın, arama hizmetinizin api anahtarı. İkisini de içeren bir arama hizmeti oluşturulur. Bu nedenle aboneliğinize Azure Search hizmetini eklediyseniz gerekli bilgileri almak için aşağıdaki adımları izleyin:
 
 1. Azure portalında arama hizmetinizin **genel bakış** sayfa olduğunda URL'yi alın. Örnek uç nokta https gibi görünebilir:\//my-service-name.search.windows.net.
 
@@ -371,11 +371,7 @@ Fransız açıklamaları dizine eklemeyi deneyin. Aşağıdaki örnek, Fransızc
         {
             "@search.action": "merge",
             "hotelId": "2",
-            "description_fr": "Hôtel le moins cher en ville",
-        },
-        {
-            "@search.action": "delete",
-            "hotelId": "6"
+            "description_fr": "Hôtel le moins cher en ville"
         }
     ]
 }

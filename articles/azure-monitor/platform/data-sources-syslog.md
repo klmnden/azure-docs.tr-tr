@@ -11,17 +11,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: fa94bffc05879be9d6bbaaa7cd884c36ffe7e0b8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451298"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372310"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Azure İzleyici'de Syslog veri kaynakları
-Syslog Linux için ortak olan olay günlüğü protokolüdür.  Uygulamaları, yerel makinede depolanan veya bir Syslog Toplayıcıya teslim olabilir iletileri gönderir.  Linux için Log Analytics aracısını yüklendiğinde, aracıya ileti iletmek için yerel Syslog daemon'u yapılandırır.  Aracı, ardından ilgili kaydın oluşturulduğu Azure İzleyici için ileti gönderir.  
+Syslog Linux için ortak olan olay günlüğü protokolüdür. Uygulamaları, yerel makinede depolanan veya bir Syslog Toplayıcıya teslim olabilir iletileri gönderir. Linux için Log Analytics aracısını yüklendiğinde, aracıya ileti iletmek için yerel Syslog daemon'u yapılandırır. Aracı, ardından ilgili kaydın oluşturulduğu Azure İzleyici için ileti gönderir.  
 
 > [!NOTE]
 > Azure İzleyici, koleksiyon rsyslog varsayılan arka plan programı olduğu rsyslog veya syslog-ng tarafından gönderilen iletilerin destekler. Red Hat Enterprise Linux, CentOS ve Oracle Linux sürümü (sysklog) 5 sürümünde varsayılan syslog daemon'u syslog olay toplaması için desteklenmiyor. Bu dağıtımları sürümünden Syslog verilerini toplamak için [rsyslog daemon](http://rsyslog.com) yüklenmeli ve sysklog değiştirmek için yapılandırılmış.
@@ -30,20 +30,38 @@ Syslog Linux için ortak olan olay günlüğü protokolüdür.  Uygulamaları, y
 
 ![Syslog koleksiyonu](media/data-sources-syslog/overview.png)
 
+Aşağıdaki Syslog Toplayıcı ile desteklenir:
+
+* karakter aralığı
+* kullanıcı
+* posta
+* Arka plan programı
+* kimlik doğrulama
+* syslog
+* LPR
+* Haberler
+* UUCP
+* cron
+* authpriv
+* FTP
+* local0 local7
+
+Diğer herhangi bir özellik için [özel günlükleri veri kaynağını yapılandırma](data-sources-custom-logs.md) Azure İzleyici'de.
+ 
 ## <a name="configuring-syslog"></a>Syslog yapılandırma
-Linux için Log Analytics aracısını yalnızca yapılandırmasında belirtilen önem dereceleri ve olanakları ile olayları toplar.  Azure portalı üzerinden ya da Linux aracıları yapılandırma dosyalarını yönetme, Syslog yapılandırabilirsiniz.
+Linux için Log Analytics aracısını yalnızca yapılandırmasında belirtilen önem dereceleri ve olanakları ile olayları toplar. Azure portalı üzerinden ya da Linux aracıları yapılandırma dosyalarını yönetme, Syslog yapılandırabilirsiniz.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Azure portalında Syslog yapılandırma
-Syslog gelen yapılandırma [Gelişmiş ayarlar veri menüde](agent-data-sources.md#configuring-data-sources).  Bu yapılandırma her bir Linux aracı yapılandırma dosyasını teslim edilir.
+Syslog gelen yapılandırma [Gelişmiş ayarlar veri menüde](agent-data-sources.md#configuring-data-sources). Bu yapılandırma her bir Linux aracı yapılandırma dosyasını teslim edilir.
 
-Yeni bir özellik adını yazarak ve tıklayarak ekleyebilirsiniz **+**.  Her özellik için yalnızca seçilen önem dereceleri iletilerle toplanacak.  Toplamak istediğiniz belirli bir özellik için önem derecelerini işaretleyin.  İletilerine filtre uygulamak için herhangi bir ek ölçüt sağlayamaz.
+Yeni bir özellik adını yazarak ve tıklayarak ekleyebilirsiniz **+**. Her özellik için yalnızca seçilen önem dereceleri iletilerle toplanacak.  Toplamak istediğiniz belirli bir özellik için önem derecelerini işaretleyin. İletilerine filtre uygulamak için herhangi bir ek ölçüt sağlayamaz.
 
 ![Syslog yapılandırma](media/data-sources-syslog/configure.png)
 
-Varsayılan olarak, tüm yapılandırma değişiklikleri tüm aracılara otomatik olarak gönderilir.  Syslog her Linux aracısını el ile yapılandırmak istiyorsanız, kutunun işaretini kaldırın *aşağıdaki yapılandırmayı Linux makinelerime Uygula*.
+Varsayılan olarak, tüm yapılandırma değişiklikleri tüm aracılara otomatik olarak gönderilir. Syslog her Linux aracısını el ile yapılandırmak istiyorsanız, kutunun işaretini kaldırın *aşağıdaki yapılandırmayı Linux makinelerime Uygula*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Syslog Linux Aracısı'nı yapılandırma
-Zaman [Log Analytics aracısını bir Linux istemcide yüklü](../../azure-monitor/learn/quick-collect-linux-computer.md), tesis ve önem derecesi toplanan tüm iletileri tanımlayan bir varsayılan syslog yapılandırma dosyası yükler.  Yapılandırmasını değiştirmek için bu dosyayı değiştirebilirsiniz.  Yapılandırma dosyası, istemcinin yüklediği Syslog daemon'u bağlı olarak farklılık gösterir.
+Zaman [Log Analytics aracısını bir Linux istemcide yüklü](../../azure-monitor/learn/quick-collect-linux-computer.md), tesis ve önem derecesi toplanan tüm iletileri tanımlayan bir varsayılan syslog yapılandırma dosyası yükler. Yapılandırmasını değiştirmek için bu dosyayı değiştirebilirsiniz. Yapılandırma dosyası, istemcinin yüklediği Syslog daemon'u bağlı olarak farklılık gösterir.
 
 > [!NOTE]
 > Syslog yapılandırmasını düzenlerseniz, değişikliklerin etkili olması syslog daemon'u başlatmak gerekir.
@@ -51,7 +69,7 @@ Zaman [Log Analytics aracısını bir Linux istemcide yüklü](../../azure-monit
 >
 
 #### <a name="rsyslog"></a>rsyslog
-Rsyslog için yapılandırma dosyası şu konumdadır **/etc/rsyslog.d/95-omsagent.conf**.  Varsayılan içeriğini aşağıda gösterilmektedir.  Bu, uyarı ya da daha yüksek bir düzeyinde tüm özellikleri için yerel aracı gönderilen syslog iletileri toplar.
+Rsyslog için yapılandırma dosyası şu konumdadır **/etc/rsyslog.d/95-omsagent.conf**. Varsayılan içeriğini aşağıda gösterilmektedir. Bu, uyarı ya da daha yüksek bir düzeyinde tüm özellikleri için yerel aracı gönderilen syslog iletileri toplar.
 
     kern.warning       @127.0.0.1:25224
     user.warning       @127.0.0.1:25224
@@ -71,13 +89,13 @@ Rsyslog için yapılandırma dosyası şu konumdadır **/etc/rsyslog.d/95-omsage
     local6.warning     @127.0.0.1:25224
     local7.warning     @127.0.0.1:25224
 
-Kendi yapılandırma dosyası bölümünü kaldırarak bir özelliğini kaldırabilirsiniz.  Bu özelliği'nın girdisini değiştirerek belirli bir özellik için toplanan önem dereceleri sınırlayabilirsiniz.  Örneğin, iletileri kullanıcı tesis veya üzeri hata önem derecesi ile sınırlamak için şu yapılandırma dosyasının bu satırı değiştirin:
+Kendi yapılandırma dosyası bölümünü kaldırarak bir özelliğini kaldırabilirsiniz. Bu özelliği'nın girdisini değiştirerek belirli bir özellik için toplanan önem dereceleri sınırlayabilirsiniz. Örneğin, iletileri kullanıcı tesis veya üzeri hata önem derecesi ile sınırlamak için şu yapılandırma dosyasının bu satırı değiştirin:
 
     user.error    @127.0.0.1:25224
 
 
 #### <a name="syslog-ng"></a>Syslog-ng
-Syslog-ng yapılandırma dosyası konumdadır **/etc/syslog-ng/syslog-ng.conf**.  Varsayılan içeriğini aşağıda gösterilmektedir.  Bu, tüm özellikleri ve tüm önem dereceleri için yerel aracı gönderilen syslog iletileri toplar.   
+Syslog-ng yapılandırma dosyası konumdadır **/etc/syslog-ng/syslog-ng.conf**.  Varsayılan içeriğini aşağıda gösterilmektedir. Bu, tüm özellikleri ve tüm önem dereceleri için yerel aracı gönderilen syslog iletileri toplar.   
 
     #
     # Warnings (except iptables) in one file:
@@ -128,7 +146,7 @@ Syslog-ng yapılandırma dosyası konumdadır **/etc/syslog-ng/syslog-ng.conf**.
     filter f_user_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(user); };
     log { source(src); filter(f_user_oms); destination(d_oms); };
 
-Kendi yapılandırma dosyası bölümünü kaldırarak bir özelliğini kaldırabilirsiniz.  Belirli bir özellik için listesinden kaldırarak toplanır önem dereceleri sınırlayabilirsiniz.  Örneğin, yalnızca uyarı ve kritik iletileri için kullanıcı tesis sınırlamak için bu bölümü şu yapılandırma dosyasının değiştirin:
+Kendi yapılandırma dosyası bölümünü kaldırarak bir özelliğini kaldırabilirsiniz. Belirli bir özellik için listesinden kaldırarak toplanır önem dereceleri sınırlayabilirsiniz.  Örneğin, yalnızca uyarı ve kritik iletileri için kullanıcı tesis sınırlamak için bu bölümü şu yapılandırma dosyasının değiştirin:
 
     #OMS_facility = user
     filter f_user_oms { level(alert,crit) and facility(user); };
@@ -168,7 +186,7 @@ Log Analytics aracısını Syslog iletileri yerel istemcide 25224 numaralı bağ
         daemon.warning            @127.0.0.1:%SYSLOG_PORT%
         auth.warning              @127.0.0.1:%SYSLOG_PORT%
 
-* Aşağıda gösterilen örnek yapılandırma kopyalayarak syslog-ng yapılandırmanın değiştirilmesi gerektiğini ve özel değiştirilen ayarlar syslog ng.conf yapılandırma dosyasının sonuna ekleme bulunan `/etc/syslog-ng/`.  Yapmak **değil** varsayılan etiket **% WORKSPACE_ID % _oms** veya **% WORKSPACE_ID_OMS**, değişikliklerinizi ayırt edilmesine yardımcı olmak için özel bir etiket tanımlayın.  
+* Aşağıda gösterilen örnek yapılandırma kopyalayarak syslog-ng yapılandırmanın değiştirilmesi gerektiğini ve özel değiştirilen ayarlar syslog ng.conf yapılandırma dosyasının sonuna ekleme bulunan `/etc/syslog-ng/`. Yapmak **değil** varsayılan etiket **% WORKSPACE_ID % _oms** veya **% WORKSPACE_ID_OMS**, değişikliklerinizi ayırt edilmesine yardımcı olmak için özel bir etiket tanımlayın.  
 
     > [!NOTE]
     > Yapılandırma dosyasındaki varsayılan değerleri değiştirirseniz, varsayılan yapılandırma aracı geçerli olduğu durumlarda bunların üzerine yazılacak.

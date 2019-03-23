@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 34076b790a91b1c0e9d8bee224423aab0db7c8f3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6f878e05255be8f65868d8d1dcdbacb3ccfa2729
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891816"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369947"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Azure Logic apps'te güvenli erişim
 
@@ -34,7 +34,7 @@ Mantıksal uygulamanızı nerede erişim güvenliğini sağlayabilirsiniz öğel
 Mantıksal uygulamanızı kullandığında talep tabanlı bir HTTP tetikleyicisi gibi [isteği](../connectors/connectors-native-reqres.md) veya [Web kancası](../connectors/connectors-native-webhook.md) tetikleyici kısıtlayabileceğiniz erişimi yalnızca yetkili istemcilerin mantıksal uygulamanızı başlatabilmeniz. Bir mantıksal uygulama tarafından alınan tüm istekler şifrelenir ve Güvenli Yuva Katmanı (SSL) protokolü ile güvenli hale getirilmiş. Bu tetikleyici türü için erişim güvenliğini sağlayabilirsiniz farklı yolu vardır:
 
 * [Paylaşılan erişim imzaları oluşturma](#sas)
-* [Gelen IP adreslerini kısıtlamak](#restrict-incoming-IP)
+* [Gelen IP adreslerini kısıtlamak](#restrict-incoming-ip-addresses)
 * [Azure Active Directory, OAuth veya diğer güvenlik ekleme](#add-authentication)
 
 <a name="sas"></a>

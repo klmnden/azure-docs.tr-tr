@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: qianw211
-ms.openlocfilehash: 1efe65feaac6e71437958451e8c1a44027495fce
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: c3294aaa2b6c88e08028c8958d2ab3a7297aea74
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620022"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351822"
 ---
 # <a name="private-offers"></a>Özel teklifler
 
@@ -55,6 +55,9 @@ Teklif sertifikalı ve yayımlanan sonra müşteriler güncelleştirildi veya e�
 ![[Özel teklifler]](./media/marketplace-publishers-guide/private-offer.png)
 
 Özel teklifler de arama sonuçlarında görünecek. Yalnızca "Özel" rozet için dikkat edin.
+
+> [!Note]
+> Bir bulut çözümü sağlayıcısı programı (CSP) satıcınız aracılığıyla kurulan abonelikleriyle özel teklifleri desteklenmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

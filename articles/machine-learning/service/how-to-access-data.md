@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6e1b304b90b37c93bed22bcb720a646680ee083
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: c171e35c6542febffc666ad5abfab50e093bb698
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223623"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359288"
 ---
 # <a name="access-data-from-your-datastores"></a>Verilere erişmek, veri depoları
 
@@ -32,7 +32,7 @@ Bu nasıl yapılır örnekler için aşağıdaki görevleri gösterir:
 
 Veri depoları kullanmak için gereken bir [çalışma](concept-azure-machine-learning-architecture.md#workspace) ilk. 
 
-Başlangıç ya da tarafından [yeni bir çalışma alanı oluşturma](quickstart-create-workspace-with-python.md) veya mevcut bir alınıyor:
+Başlangıç ya da tarafından [yeni bir çalışma alanı oluşturma](setup-create-workspace.md#sdk) veya mevcut bir alınıyor:
 
 ```Python
 import azureml.core
@@ -40,8 +40,6 @@ from azureml.core import Workspace, Datastore
 
 ws = Workspace.from_config()
 ```
-
-Veya, [bu Python hızlı başlangıcı takip](quickstart-create-workspace-with-python.md) çalışma alanınızı oluşturmak ve başlamak için SDK kullanabilecek.
 
 <a name="access"></a>
 

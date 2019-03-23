@@ -14,19 +14,21 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 7b4ee33d3e231dc59ce1d7b4ae6337efb11e96bc
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: f26597022b89bcd113ee250db75a842c634273eb
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355854"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371392"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Azure Market ve AppSource teklifler veya SKU'ları silme
 
 Çeşitli nedenlerden dolayı teklifinizi iki biçimde olabilir, Microsoft Market'ten geri karar verebilir:
 
 - *Teklif kaldırma* yeni müşteriler artık satın alabilir veya teklifiniz, dağıtma, sağlar ancak kim lisans sözleşmenizi ve ilgili yasalara göre desteklemelidir mevcut müşteriler hiçbir etkisi yoktur. 
-- *Teklif sonlandırma* hizmet sonlandırma ve/veya lisans sözleşmesi mevcut müşterileriniz arasındaki işlemidir. Yönergeler ve teklif kaldırma ve sonlandırmayla ilgili ilkeleri tarafından yönetilir [Microsoft Market yayımcı anlaşması](https://go.microsoft.com/fwlink/?LinkID=699560) (Bölüm 7) ve [katılım ilkeleri](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (Bölüm 6.2). 
+- *Teklif sonlandırma* hizmet sonlandırma ve/veya lisans sözleşmesi mevcut müşterileriniz arasındaki işlemidir. 
+
+Yönergeler ve teklif kaldırma ve sonlandırmayla ilgili ilkeleri tarafından yönetilir [Microsoft Market yayımcı anlaşması](https://go.microsoft.com/fwlink/?LinkID=699560) (Bölüm 7) ve [katılım ilkeleri](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (bölüm [ Askıya alma ve temizleme sunan](https://docs.microsoft.com/en-us/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
 
 Bu makalede Bahsediyor farklı desteklenen silme senaryoları ve her gerçekleştirmek için gerekli adımlar.  
 

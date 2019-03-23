@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d433a480165424e47d4d84e67e7fd02648ebe2d1
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: f9df65d143fbb0eaf6276a0f38971e19c0741786
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223436"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370967"
 ---
-# <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows bilgisayarları Azure Log Analytics hizmetine bağlayın
+# <a name="connect-windows-computers-to-azure-monitor"></a>Azure İzleyici Windows bilgisayarları bağlama
 
-İzleyin ve sanal makine ya da yerel veri merkezinizde veya diğer bulut ortamında Log Analytics ile fiziksel bilgisayarları yönetmek için (Microsoft Monitoring Agent (MMA) olarak da bilinir) Log Analytics aracısını dağıtmayı ve şekilde yapılandırmanız gerekir bir veya daha fazla Log Analytics çalışma alanına raporlama. Aracı, karma Runbook çalışanı rolü için Azure Otomasyonu da destekler.  
+İzleyin ve sanal makine ya da yerel veri merkezinizde veya diğer bulut ortamında Azure İzleyici ile fiziksel bilgisayarları yönetmek için (Microsoft Monitoring Agent (MMA) olarak da bilinir) Log Analytics aracısını dağıtmayı ve şekilde yapılandırmanız gerekir bir veya daha fazla Log Analytics çalışma alanına raporlama. Aracı, karma Runbook çalışanı rolü için Azure Otomasyonu da destekler.  
 
-İzlenen bir Windows bilgisayarda, aracıyı Microsoft Monitoring Agent hizmeti olarak listelenir. Microsoft Monitoring Agent hizmeti, günlük dosyaları ve Windows olay günlüğü, performans verilerini ve diğer telemetriyi olayları toplar. Aracının rapor Log Analytics hizmetiyle iletişim kuramadı olsa bile, aracı çalışmaya devam eder ve toplanan verileri izlenen bilgisayarın diskinde sıralar. Bağlantı geri geldiğinde, Microsoft Monitoring Agent hizmeti toplanan verileri hizmetine gönderir.
+İzlenen bir Windows bilgisayarda, aracıyı Microsoft Monitoring Agent hizmeti olarak listelenir. Microsoft Monitoring Agent hizmeti, günlük dosyaları ve Windows olay günlüğü, performans verilerini ve diğer telemetriyi olayları toplar. Aracının rapor Azure İzleyici ile iletişim kurmada başarısız olsa bile, aracı çalışmaya devam eder ve toplanan verileri izlenen bilgisayarın diskinde sıralar. Bağlantı geri geldiğinde, Microsoft Monitoring Agent hizmeti toplanan verileri hizmetine gönderir.
 
 Aracı, aşağıdaki yöntemlerden birini kullanarak yüklenebilir. Çoğu yüklemeleri, farklı bilgisayar gruplarını uygun şekilde yüklemek için bu yöntemlerin bir bileşimi kullanın.  Her yöntemi kullanma hakkında ayrıntılar, makalenin sonraki bölümlerinde verilmiştir.
 
@@ -40,7 +40,7 @@ Aracı, aşağıdaki yöntemlerden birini kullanarak yüklenebilir. Çoğu yükl
 Desteklenen yapılandırmayı anlamak için [desteklenen Windows işletim sistemlerini](log-analytics-agent.md#supported-windows-operating-systems) ve [ağ güvenlik duvarı yapılandırmasını](log-analytics-agent.md#network-firewall-requirements) inceleyin.
 
 ## <a name="obtain-workspace-id-and-key"></a>Çalışma alanı kimliği ve anahtarını alma
-Windows için Log Analytics aracısını yüklemeden önce çalışma alanı kimliği ve anahtarına ihtiyacınız olacak Log Analytics çalışma alanınız için.  Bu bilgiler, her bir yükleme yöntemi, aracıyı düzgün bir şekilde yapılandırıp başarıyla Log Analytics'te Azure ticari ve ABD kamu Bulutu ile iletişim kurabildiğinden olun kurulumu sırasında gereklidir.  
+Windows için Log Analytics aracısını yüklemeden önce çalışma alanı kimliği ve anahtarına ihtiyacınız olacak Log Analytics çalışma alanınız için.  Bu bilgiler, her bir yükleme yöntemi, düzgün bir şekilde yapılandırın ve başarılı bir şekilde Azure İzleyici'de Azure ticari ve ABD kamu Bulutu ile iletişim kurabildiğinden olun kurulumu sırasında gereklidir.  
 
 1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
 2. Log Analytics çalışma alanlarınızın listesinde aracının yapılandırılmasında üzerinde rapor istediğiniz çalışma alanını seçin.
@@ -68,7 +68,7 @@ Kullanımını yapılandırmak için [TLS 1.2](https://docs.microsoft.com/window
 5. Ayarların etkili olması sistemi yeniden başlatın. 
 
 ## <a name="install-the-agent-using-setup-wizard"></a>Kurulum sihirbazını kullanarak aracı yükleme
-Aşağıdaki adımlar, yükleme ve bilgisayarınızda Aracısı Kurulum Sihirbazı'nı kullanarak Azure'da ve Azure kamu bulutunda Log Analytics'in aracısını yapılandırın. Ayrıca raporlayacağı bir System Center Operations Manager yönetim grubu için yapılandırma hakkında bilgi edinmek isterseniz [Operations Manager aracısını Aracı Kurulum sihirbazıyla dağıtma](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
+Aşağıdaki adımlar, yükleme ve bilgisayarınızda Aracısı Kurulum Sihirbazı'nı kullanarak Azure'da ve Azure kamu bulutunda Log Analytics aracısını yapılandırın. Ayrıca raporlayacağı bir System Center Operations Manager yönetim grubu için yapılandırma hakkında bilgi edinmek isterseniz [Operations Manager aracısını Aracı Kurulum sihirbazıyla dağıtma](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
 
 1. Log Analytics çalışma alanınızda gelen **Windows sunucuları** çıkıldığında daha önce uygun seçmek için sayfayı **Windows Agent'ı indir** İşlemci mimarisi bağlı olarak indirmek için sürümü Windows işletim sistemi.   
 2. Aracıyı bilgisayarınıza yüklemek için Kurulum'u çalıştırın.
@@ -184,15 +184,14 @@ Aracı yüklemesi tamamlandıktan sonra bu doğrulama başarıyla bağlandı ve 
 
 Bilgisayar **Denetim Masası**, öğeyi bulur **Microsoft Monitoring Agent**.  Seçin ve **Azure Log Analytics** sekmesine Aracısı belirten bir ileti görüntülenmelidir: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı.**<br><br> ![MMA'nın Log Analytics'e bağlantı durumu](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
-Ayrıca, Azure portalında basit bir günlük araması gerçekleştirebilirsiniz.  
+Ayrıca, Azure portalında basit günlük sorgusu gerçekleştirebilirsiniz.  
 
-1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.  
-2. Log Analytics çalışma sayfasında, hedef çalışma alanını seçin ve ardından **günlük araması** Döşe. 
-2. Günlük araması bölmesinde, sorgu alan türü:  
+1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde yazın **Azure İzleyici**. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Seçin **Azure İzleyici**.  
+2. Seçin **günlükleri** menüsünde. 
+2. Günlükleri bölmesinde, sorgu alan türü:  
 
     ```
-    search * 
-    | where Type == "Heartbeat" 
+    Heartbeat 
     | where Category == "Direct Agent" 
     | where TimeGenerated > ago(30m)  
     ```

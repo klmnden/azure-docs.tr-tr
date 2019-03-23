@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbee5316b78838bedc62454e8c1954eb5f9205ff
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 66a75ee7746d0ab04b505544f91f2905fa392902
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317138"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370372"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu için kullanıcı portalını kullanma
 
@@ -28,7 +28,7 @@ Kullanıcı portalı Yöneticileri yeni kullanıcı eklemek ve mevcut kullanıc�
 
 Ortamınıza bağlı olarak, kullanıcı portalını Azure Multi-Factor Authentication sunucusu ile aynı sunucuya veya İnternet'e yönelik başka bir sunucuya dağıtmak isteyebilirsiniz.
 
-![MFA Kullanıcı Portalı](./media/howto-mfaserver-deploy-userportal/portal.png)
+![MFA sunucusu kullanıcı portalı oturum açma sayfasında](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
 > Kullanıcı portalı yalnızca Multi-Factor Authentication Sunucusu ile kullanılabilir. Multi-Factor Authentication’ı bulutta kullanıyorsanız, kullanıcılarınızı [İki aşamalı doğrulama için hesabınızı ayarlama](../user-help/multi-factor-authentication-end-user-first-time.md) veya [İki adımlı doğrulama ayarlarınızı yönetme](../user-help/multi-factor-authentication-end-user-manage-settings.md) bölümlerine yönlendirin.
@@ -118,6 +118,7 @@ Artık kullanıcı portalı yüklendiğine göre, portal ile çalışmak için A
 3. Kimlerin yönetici olacağını **Yöneticiler** sekmesinde belirleyin. Ekle/Düzenle kutularında onay kutularını ve açılan menüleri kullanarak ayrıntılı yönetim izinlerini oluşturabilirsiniz.
 
 İsteğe bağlı yapılandırma:
+
 - **Güvenlik Soruları** -Ortamınız için güvenlik sorularını ve bu soruların hangi dilde olacağını belirleyin.
 - **Geçmiş Oturumlar** -MFA kullanarak bir form tabanlı web sitesi ile kullanıcı portalı tümleştirmesini yapılandırın.
 - **Güvenilen IP'ler** -Kullanıcıların güvenilen IP'ler veya aralıklar listesinden kimlik doğrulaması yapıldığı sırada MFA’yı atlamasına olanak verir.
@@ -141,9 +142,12 @@ Azure Multi-Factor Authentication Sunucusu kullanıcı portalı için çeşitli 
 | Geri dönüş için OATH belirtecini kullan | İki aşamalı doğrulamanın başarısız olması halinde OATH belirtecinin kullanılmasını sağlar. Dakika cinsinden oturum zaman aşımı süresini de belirtebilirsiniz. |
 | Günlü kaydını etkinleştir | Kullanıcı portalında günlük kaydını etkinleştirir. Günlük dosyaları şu adreste bulunabilir: C:\Program Files\Multi-Factor Authentication Server\Logs. |
 
+> [!IMPORTANT]
+> Telefon araması seçenekleri 2019'ın Mart başlangıç MFA sunucusu kullanıcıları Azure AD ücretsiz/deneme kiracılar için kullanılabilir olmayacak. SMS iletileri, bu değişiklikten etkilenmez. Telefon Araması'nda kullanıcılara kullanılabilir Ücretli Azure AD kiracılarıyla devam eder. Bu değişiklik, yalnızca Azure AD ücretsiz/deneme kiracıları etkiler.
+
 Bu ayarlar, etkinleştirildiklerinde ve kullanıcı, kullanıcı portalında oturum açtığında portalda görünür.
 
-![Kullanıcı portalı ayarları](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
+![Kullanıcı Portalı'nı kullanarak MFA sunucusu hesabınızı yönetin](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
 
 ### <a name="self-service-user-enrollment"></a>Self servis kullanıcı kaydı
 
@@ -159,7 +163,7 @@ Kimlik doğrulaması sırasında kullanıcının PIN kullanması gerekiyorsa, sa
 
 Kullanıcı Kısa Mesaj doğrulama yöntemini seçerse ya da bu yöntemi kullanmak üzere önceden yapılandırıldıysa, sayfa kullanıcıdan birincil telefonu numarasını ister. Kimlik doğrulaması sırasında kullanıcının PIN kullanması gerekiyorsa, sayfa kullanıcıdan PIN oluşturmasını da ister.  Kendi telefon numarasını ve PIN’ini (varsa) girdikten sonra, kullanıcı **Kimlik Doğrulaması için şimdi Bana SMS gönder** düğmesine tıklar. Azure Multi-Factor Authentication kullanıcısının mobil uygulamasına bir SMS kimlik doğrulaması yapar. Kullanıcı bir kerelik geçiş kodu (OTP) içeren kısa mesaj alır ve bu mesajı OTP artı PIN kodu (varsa) ile yanıtlar.
 
-![Kullanıcı portalı SMS](./media/howto-mfaserver-deploy-userportal/text.png)
+![SMS kullanarak kullanıcı portalı doğrulama](./media/howto-mfaserver-deploy-userportal/text.png)
 
 Kullanıcı, Mobil Uygulama ile doğrulama yöntemini seçerse sayfa, kullanıcıdan cihazına Microsoft Authenticator uygulamasını yüklemesini ve bir etkinleştirme kodu oluşturmasını ister. Kullanıcı uygulamayı yükledikten sonra Etkinleştirme Kodu Oluştur düğmesine tıklar.
 

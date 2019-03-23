@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba8a1976fa9fc2a02f7f3e8419de10ebba7df950
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 71b7784d054f279dfccdb3a2424fd427789ca658
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316312"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370083"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Azure multi-Factor Authentication sunucusu için yüksek kullanılabilirliği yapılandırma
 
@@ -26,7 +26,7 @@ Azure sunucusu MFA dağıtımınız ile yüksek kullanılabilirlik elde etmek i�
 
 Azure MFA sunucusu hizmet mimarisi, aşağıdaki diyagramda gösterildiği gibi birçok bileşenden oluşur:
 
- ![MFA sunucusu mimarisi](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
+ ![MFA sunucusu mimari bileşenler](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
 
 MFA sunucusu yüklü olan Azure multi-Factor Authentication yazılım bir Windows Server ' dir. MFA sunucusu örneğinin çalışması için Azure MFA hizmeti tarafından etkinleştirilmelidir. Birden fazla MFA sunucusu şirket yüklü olabilir.
 

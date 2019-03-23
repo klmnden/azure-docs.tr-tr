@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a7752fac54f9dfb2f8fb0aecd3b6249c52c3bcf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316363"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370457"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Nasıl yapılır: Parola sıfırlama Windows 7, 8 ve 8.1 etkinleştir
 
@@ -46,7 +46,7 @@ Aksine, Windows 10 makineler, Windows 7, 8 ve 8.1 makineler bir Azure AD etki al
 1. Yeniden başlatma işleminden sonra oturum açma ekranında bir kullanıcı seçin ve "parolanızı mı unuttunuz?" tıklayın Parola başlatmak için iş akışı sıfırlayın.
 1. İş akışı parolanızı sıfırlamak için ekran aşağıdaki adımları tamamlayın.
 
-![Örneğin Windows 7, "parolanızı mı unuttunuz?" tıklandı Akış Self Servis parola sıfırlama](media/howto-sspr-windows-7-8/windows-7-sspr.png)
+![Örneğin Windows 7, "parolanızı mı unuttunuz?" tıklandı SSPR akışı](media/howto-sspr-windows-7-8/windows-7-sspr.png)
 
 ### <a name="silent-installation"></a>Sessiz yükleme
 
@@ -67,13 +67,11 @@ Makinede ve Azure AD'de olayları günlüğe kaydedilir.
 
 Azure AD olayları IP adresi ve parola sıfırlama oluştuğu ClientType hakkında bilgiler içerir.
 
-![Örneğin Windows 7 oturum açma ekranında parola sıfırlama Azure AD denetim günlüğünde](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
+![Örneğin Windows 7'yi parola sıfırlama Azure AD denetim günlüğünde](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
 
 Ek günlükler gerekiyorsa, ayrıntılı günlük kaydını etkinleştirmek için bir kayıt defteri anahtarı makinede değiştirilebilir. Yalnız sorun gidermek amacıyla ayrıntılı günlüğe yazmayı etkinleştirin.
 
-```
-HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}
-```
+`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
 * Ayrıntılı günlük kaydını etkinleştirmek için bir REG_DWORD oluşturun: "EnableLogging" ve 1 olarak ayarlayın.
 * Ayrıntılı günlük kaydını devre dışı bırakmak için ' % s ' REG_DWORD "EnableLogging" 0 olarak değiştirin.
@@ -82,4 +80,4 @@ Windows 7, 8 ve 8.1 makinelerinizi bir proxy sunucusu veya güvenlik duvarı ise
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Windows 10 oturum açma ekranında parolalarını sıfırlama olanağı verir](tutorial-sspr-windows.md)
+* [Windows 10 oturum açma ekranında parolalarını sıfırlama olanağı verir](tutorial-sspr-windows.md)

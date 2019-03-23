@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: danlep
-ms.openlocfilehash: cdf457eefc88edcc22f1fbaab4859fbcf3b69bca
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: ebbfaba158e7ddb669111f097eb1adde2373aa6c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56653719"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361294"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bir Azure container registry'den kapsayıcı görüntüsü Kilitle
 
@@ -35,6 +35,24 @@ Ancak, bir kapsayıcı görüntüsü üretime dağıtırken ihtiyacınız olabil
 Örnekler için aşağıdaki bölümlere bakın.
 
 ## <a name="lock-an-image-or-repository"></a>Bir resim veya depo Kilitle 
+
+### <a name="show-the-current-repository-attributes"></a>Geçerli depo öznitelikleri göster
+Geçerli bir depo özniteliklerini görmek için aşağıdaki komutu çalıştırın. [az acr depo show] [ az-acr-repository-show] komutu:
+
+```azurecli
+az acr repository show \
+    --name myregistry --repository myrepo
+    --output jsonc
+```
+
+### <a name="show-the-current-image-attributes"></a>Geçerli görüntü öznitelikleri göster
+Bir etiketin geçerli öznitelikleri görmek için aşağıdaki komutu çalıştırın. [az acr depo show] [ az-acr-repository-show] komutu:
+
+```azurecli
+az acr repository show \
+    --name myregistry --image image:tag \
+    --output jsonc
+```
 
 ### <a name="lock-an-image-by-tag"></a>Etikete göre bir görüntü Kilitle
 

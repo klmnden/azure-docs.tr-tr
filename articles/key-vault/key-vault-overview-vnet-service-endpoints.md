@@ -10,12 +10,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 9848ed6baab240556e9eda59fbc3815c0767e899
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bb5770f4e09c0ed764d17998936c0fe97bdaebfb
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108592"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370644"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Sanal ağ hizmet uç noktaları Azure Key Vault için
 
@@ -55,7 +55,7 @@ Daha fazla bilgi için [Azure anahtar Kasası'nı yapılandırma güvenlik duvar
 > Aşağıdaki yapılandırma sınırlamaları unutmayın:
 > * En fazla 127 sanal ağ kuralları ve 127 IPv4 kuralları izin verilir. 
 > * Küçük adres aralıkları kullanan "/ 31" veya "/ 32" öneki boyutları desteklenmez. Bunun yerine, tek tek IP adresi kurallarını kullanarak bu aralığı yapılandırın.
-> * IP ağ kuralları yalnızca genel IP adresleri için izin verilir. IP adresi aralıkları için özel ağlar (RFC 1918 ' tanımlandığı şekilde) ayrılmış IP kurallarında izin verilmez. Özel ağlar ile başlayan bir adres dahil **10.**, **172.16.**, ve **192.168.**. 
+> * IP ağ kuralları yalnızca genel IP adresleri için izin verilir. IP adresi aralıkları için özel ağlar (RFC 1918 ' tanımlandığı şekilde) ayrılmış IP kurallarında izin verilmez. Özel ağlar ile başlayan bir adres dahil **10.**, **172.16-31**, ve **192.168.**. 
 > * Şu anda yalnızca IPv4 adresleri desteklenir.
 
 ## <a name="trusted-services"></a>Güvenilir hizmetler

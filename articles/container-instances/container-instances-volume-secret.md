@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: danlep
-ms.openlocfilehash: 9aa80cf3cb02237cea11e370151eda8c67c7b10e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 3c1c83bb0c3e46a7eaab519050d9c556e2cc1a7a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856760"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372293"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Azure Container ınstances'da bir gizli birimi
 
@@ -31,7 +31,7 @@ Azure CLI kullanarak bir veya daha fazla gizli bir kapsayıcıyı dağıtmak iç
 az container create \
     --resource-group myResourceGroup \
     --name secret-volume-demo \
-    --image microsoft/aci-helloworld \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --secrets mysecret1="My first secret FOO" mysecret2="My second secret BAR" \
     --secrets-mount-path /mnt/secrets
 ```
@@ -68,7 +68,7 @@ properties:
   - name: aci-tutorial-app
     properties:
       environmentVariables: []
-      image: microsoft/aci-helloworld:latest
+      image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
       ports: []
       resources:
         requests:
@@ -105,7 +105,8 @@ CLI ve YAML dağıtım yanı sıra Azure kullanarak kapsayıcı grubunu dağıta
 
 Aşağıdaki Resource Manager şablonu bağlar bir kapsayıcısını bir kapsayıcı grubu tanımlayan bir *gizli* birim `/mnt/secrets`. İki gizli dizileri, "mysecret1" ve "mysecret2." gizli birimi içeriyor
 
-<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json --> [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
+[!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
 Resource Manager şablonu ile dağıtmak için önceki JSON adlı bir dosyaya Kaydet `deploy-aci.json`, ardından yürütme [az grubu dağıtımı oluşturmak] [ az-group-deployment-create] komutunu `--template-file` parametresi:
 

@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: b254adb050aa9826170c0849c3811380db6d9b38
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: ef34985e7897aa751275231a28c6031d6c9747b0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321042"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369985"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Yeniden başlatma ilkeleri ile kapsayıcılı görevleri çalıştırma
 
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Tamamlama örneği çalıştırma
 
-Yeniden başlatma ilkesi iş başında görmek için bir kapsayıcı örneği oluşturma [Acı/microsoft-wordcount] [ aci-wordcount-image] görüntü ve belirtin `OnFailure` yeniden başlatma ilkesi. Bu örnek kapsayıcı varsayılan olarak, Shakespeare'nın metni inceler, bir Python betiği çalıştıran [Hamlet](http://shakespeare.mit.edu/hamlet/full.html)en yaygın 10 sözcükleri STDOUT yazar ve kapanır.
+Yeniden başlatma ilkesi iş başında görmek için Microsoft'tan bir kapsayıcı örneği oluşturma [Acı wordcount] [ aci-wordcount-image] görüntü ve belirtin `OnFailure` yeniden başlatma ilkesi. Bu örnek kapsayıcı varsayılan olarak, Shakespeare'nın metni inceler, bir Python betiği çalıştıran [Hamlet](http://shakespeare.mit.edu/hamlet/full.html)en yaygın 10 sözcükleri STDOUT yazar ve kapanır.
 
 Örnek kapsayıcı ile aşağıdaki komutu çalıştırın [az kapsayıcı oluşturma] [ az-container-create] komutu:
 
@@ -54,7 +54,7 @@ Yeniden başlatma ilkesi iş başında görmek için bir kapsayıcı örneği ol
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure
 ```
 
@@ -129,7 +129,7 @@ Uygulama veya betik çalıştırma kapsayıcı tarafından dinamik olarak yapıl
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer2 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=5 MinLength=8
 ```
@@ -164,7 +164,7 @@ Metin dışında analizi örnek kapsayıcı örneği için sahip *Hamlet* farkl�
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer3 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=3 MinLength=5 \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
@@ -189,7 +189,7 @@ az container logs --resource-group myResourceGroup --name mycontainer3
 Tamamlanmak üzere çalıştırılmasını kapsayıcılarınızı çıktısını kalıcı hale getirmek hakkında ayrıntılı bilgi için bkz. [Azure Container Instances ile Azure dosya paylaşımını bağlama](container-instances-mounting-azure-files-volume.md).
 
 <!-- LINKS - External -->
-[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+[aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create

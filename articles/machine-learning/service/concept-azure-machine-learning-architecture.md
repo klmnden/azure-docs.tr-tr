@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1640b1cdb9410f33f6556667f36aafcfe575a082
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec35e383a182cf783c253b9242e6abb73e39385d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080331"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361107"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
 
@@ -70,7 +70,7 @@ Yeni bir çalışma alanı oluşturduğunuzda, çalışma alanı tarafından kul
 
 Bir deney, belirtilen betiği çok sayıda çalıştırmalardan gruplandırmasıdır. Her zaman, bir çalışma alanına aittir. Bir farklı çalıştır gönderdiğinizde bir deney adı sağlayın. Çalıştırma için bilgileri, bu deneme altında depolanır. Bir farklı çalıştır gönderin ve mevcut olmayan bir deney adı belirtin, bu yeni belirtilen ada sahip yeni bir deneme otomatik olarak oluşturulur.
 
-Bir deney kullanma örneği için bkz. [hızlı başlangıç: Azure Machine Learning hizmeti ile çalışmaya başlama](quickstart-get-started.md).
+Bir deney kullanma örneği için bkz. [hızlı başlangıç: Azure Machine Learning hizmeti ile çalışmaya başlama](quickstart-run-cloud-notebook.md).
 
 ## <a name="model"></a>Model
 
@@ -80,7 +80,7 @@ Bir model, Azure Machine learning'de bir çalıştırma tarafından oluşturulur
 
 Azure Machine Learning framework bağımsız bir hizmettir. Bir modeli oluşturduğunuzda, Scikit-öğrenme, XGBoost, PyTorch, TensorFlow, Chainer ve Microsoft Cognitive Toolkit (önceki adıyla CNTK da bilinir) gibi tüm popüler makine öğrenmesi çerçeveleri kullanabilirsiniz.
 
-Modeli ilişkin bir örnek için bkz [hızlı başlangıç: Machine Learning hizmeti çalışma alanı oluşturma](quickstart-get-started.md).
+Modeli ilişkin bir örnek için bkz [Öğreticisi: Bir Azure Machine Learning hizmeti ile görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md).
 
 ### <a name="model-registry"></a>Model kayıt defteri
 
@@ -143,7 +143,7 @@ Dağıtım için bir işlem hedef seçme hakkında daha fazla bilgi için bkz: [
 
 Bir modeli eğitmek için eğitim betiğini ve ilişkili dosyaları içeren dizini belirtin. Siz de eğitim sırasında toplanan bilgileri depolamak için kullanılan bir deney adı belirtin. Eğitimi sırasında tüm dizinde eğitim ortama (işlem hedefi) kopyalanır ve çalışma yapılandırması tarafından belirtilen kodun başlatılır. Dizinin bir anlık görüntü, ayrıca çalışma alanında denemeyi altında depolanır.
 
-Bir örnek için bkz. [Python ile bir çalışma alanı oluşturma](quickstart-get-started.md).
+Bir örnek için bkz [Öğreticisi: Bir Azure Machine Learning hizmeti ile görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md).
 
 ## <a name="run"></a>Çalıştırın
 
@@ -156,7 +156,7 @@ Aşağıdaki bilgileri içeren bir kaydı bir çalıştırmadır:
 
 Bir modeli eğitmek için bir betik gönderdiğinizde çalıştırma üretir. Bir çalıştırma, sıfır veya daha fazla alt çalıştırma olabilir. Örneğin, üst düzey çalışma, her biri kendi alt çalıştırma olabilir, iki alt çalıştırma olabilir.
 
-Bir model eğitip geleceği üretilen çalıştırmalarını görüntüleme ilişkin bir örnek için bkz [hızlı başlangıç: Azure Machine Learning hizmeti ile çalışmaya başlama](quickstart-get-started.md).
+Bir model eğitip geleceği üretilen çalıştırmalarını görüntüleme ilişkin bir örnek için bkz [hızlı başlangıç: Azure Machine Learning hizmeti ile çalışmaya başlama](quickstart-run-cloud-notebook.md).
 
 ## <a name="snapshot"></a>Anlık Görüntü
 
@@ -227,6 +227,6 @@ Machine learning işlem hatlarını bu hizmeti hakkında daha fazla bilgi için 
 Azure Machine Learning hizmeti ile çalışmaya başlamak için bkz:
 
 * [Azure Machine Learning hizmeti nedir?](overview-what-is-azure-ml.md)
-* [Hızlı Başlangıç: Python ile bir çalışma alanı oluşturma](quickstart-get-started.md)
+* [Bir Azure Machine Learning hizmeti çalışma alanı oluşturma](setup-create-workspace.md)
 * [Öğretici: Bir model eğitip](tutorial-train-models-with-aml.md)
-* [Bir resource manager şablonu ile bir çalışma alanı oluşturma](how-to-create-workspace-template.md)
+* [Resource Manager şablonu ile bir çalışma alanı oluşturma](how-to-create-workspace-template.md)

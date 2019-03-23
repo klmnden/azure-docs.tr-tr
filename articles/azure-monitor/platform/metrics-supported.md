@@ -8,14 +8,15 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: f7bfb4f403104bb91fb1a9ba4b70cb164e0738b4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e9b562cb04bb8916245d9df7b9b6d526bd443a24
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113308"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352145"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyici ile desteklenen ölçümler
+
 Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini veya bunları sorgulama gibi ölçümleri ile etkileşim kurmak için çeşitli yollar sağlar PowerShell veya CLI kullanarak. Aşağıda tüm ölçümler tam listesi ile Azure İzleyicisi'nin ölçüm ardışık düzen şu anda kullanılabilir. Diğer ölçümleri portalı veya eski API'leri kullanarak mevcut olabilir. Bu listede yalnızca birleştirilmiş Azure İzleyici ölçüm ardışık düzeni'ni kullanarak mevcut olan ölçümler içerir. Sorgulamak ve erişmek için bu ölçümleri lütfen [2018-01-01 API sürümü](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
 > [!NOTE]
@@ -660,7 +661,6 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 | MetadataRequests |    Meta veri isteği   |Sayı| Sayı   | Meta veri isteği sayısı. Azure Cosmos DB koleksiyonları, veritabanları vb. listeleme olanak tanır, her hesap için sistem meta veri koleksiyonu tutar ve bunların yapılandırmalarının ücretsiz.    | DatabaseName, CollectionName, bölge, StatusCode| Tümü|  |Meta veri isteği nedeniyle kısıtlamalar izlemek için kullanılır.|
 | MongoRequests |   Mongo istekleri| Sayı | Sayı|  Mongo istekleri sayısı   | DatabaseName CollectionName, bölgesi CommandName, hata kodu| Tümü |Mongo sorgusu istek hızı, Mongo güncelleştirme isteği oranı oranı, Mongo silmek, Mongo istek hızı Ekle istek Mongo sayısı istek oranı|   Mongo istek hataları izlemek için kullanılan komut başına kullanımları yazın. |
 
-
 ### <a name="request-unit-metrics"></a>İstek birimi ölçümleri
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar| Zaman ayrıntı düzeyi| Eski ölçüm eşleme | Kullanım |
@@ -673,7 +673,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar| Zaman ayrıntı düzeyi| Eski ölçüm eşleme | Kullanım |
 |---|---|---|---|---|---| ---| ---| ---|
-| AvailableStorage| Kullanılabilir depolama alanı   |Bayt| Toplam|  Bölge başına 5 dakikalık ayrıntı düzeyi, raporlanan toplam kullanılabilir depolama alanı|   DatabaseName, CollectionName, bölge|   5 DK| Kullanılabilir depolama alanı|   Kullanılabilir depolama alanı izlemek için kullanılan kapasite (yalnızca sabit depolama koleksiyonlar için geçerlidir) en az ayrıntı düzeyi 5 dakika olmalıdır.| 
+| AvailableStorage| Kullanılabilir depolama alanı   |Bayt| Toplam|  Bölge başına 5 dakikalık ayrıntı düzeyi, raporlanan toplam kullanılabilir depolama alanı|   DatabaseName, CollectionName, bölge|   5 DK| Kullanılabilir depolama alanı|   Kullanılabilir depolama alanı izlemek için kullanılan kapasite (yalnızca sabit depolama koleksiyonlar için geçerlidir) en az ayrıntı düzeyi 5 dakika olmalıdır.|
 | DataUsage |Veri Kullanımı |Bayt| Toplam   |Bölge başına 5 dakikalık ayrıntı düzeyi, rapor edilen toplam veri kullanımı|    DatabaseName, CollectionName, bölge|   5 DK  |Veri boyutu  | En düşük ayrıntı düzeyi, koleksiyon ve bölge toplam veri kullanımı izlemek için kullanılan, 5 dakika olmalıdır.|
 | IndexUsage|   Dizin kullanımı|    Bayt|  Toplam   |Bölge başına 5 dakikalık ayrıntı düzeyi, toplam dizin kullanım raporlama|    DatabaseName, CollectionName, bölge|   5 DK| Dizin Boyutu| En düşük ayrıntı düzeyi, koleksiyon ve bölge toplam veri kullanımı izlemek için kullanılan, 5 dakika olmalıdır. |
 | DocumentQuota|    Belge kota| Bayt|  Toplam|  Bölge başına 5 dakikalık ayrıntı düzeyi, toplam depolama kotası bildirdi. Sabit depolama koleksiyonlar için geçerlidir| DatabaseName, CollectionName, bölge|   5 DK  |Depolama Kapasitesi|  En düşük ayrıntı düzeyi, koleksiyon ve bölge toplam kota izlemek için kullanılan, 5 dakika olmalıdır.|
@@ -805,6 +805,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |ScaleActionsInitiated|Başlatılan Ölçeklendirme Eylemleri|Sayı|Toplam|Ölçeklendirme işleminin yönü.|ScaleDirection|
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
+
 (Genel Önizleme)
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
@@ -1072,7 +1073,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|RequestCount|İstek sayısı|Sayı|Toplam|HTTP/S proxy tarafından sunulan istemci isteklerinin sayısı|Httpstatus'a, HttpStatusGroup, ClientRegion, ClientCountry|
+|RequestCount|İstek Sayısı|Sayı|Toplam|HTTP/S proxy tarafından sunulan istemci isteklerinin sayısı|Httpstatus'a, HttpStatusGroup, ClientRegion, ClientCountry|
 |RequestSize|İstek boyutu|Bayt|Toplam|İstekleri olarak istemcilerden HTTP/S Ara sunucuya gönderilen bayt sayısı|Httpstatus'a, HttpStatusGroup, ClientRegion, ClientCountry|
 |ResponseSize|Yanıt boyutu|Bayt|Toplam|Yanıt HTTP/S proxy sunucudan istemcilere gönderilen bayt sayısı|Httpstatus'a, HttpStatusGroup, ClientRegion, ClientCountry|
 |BackendRequestCount|Arka uç istek sayısı|Sayı|Toplam|İçin arka uçlar HTTP/S Ara sunucuya gönderilen istek sayısı|Httpstatus'a, HttpStatusGroup, arka uç|
@@ -1176,7 +1177,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |Average_Used bellek MBayt'ı|Kullanılan bellek MBayt|Sayı|Ortalama|Average_Used bellek MBayt'ı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
 |İletilen Average_Total bayt|Aktarılan toplam bayt|Sayı|Ortalama|İletilen Average_Total bayt|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
 |Alınan Average_Total bayt sayısı|Alınan toplam bayt sayısı|Sayı|Ortalama|Alınan Average_Total bayt sayısı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-|Average_Total bayt|Toplam bayt sayısı|Sayı|Ortalama|Average_Total bayt|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Total bayt|Toplam Bayt|Sayı|Ortalama|Average_Total bayt|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
 |İletilen Average_Total paket sayısı|Aktarılan toplam paket sayısı|Sayı|Ortalama|İletilen Average_Total paket sayısı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
 |Alınan Average_Total paketleri|Alınan toplam paket sayısı|Sayı|Ortalama|Alınan Average_Total paketleri|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
 |Average_Total Rx hataları|Toplam Rx hataları|Sayı|Ortalama|Average_Total Rx hataları|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
@@ -1203,7 +1204,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |Average_Free sanal bellek|Boş sanal bellek|Sayı|Ortalama|Average_Free sanal bellek|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
 |Average_Processes|İşlemler|Sayı|Ortalama|Average_Processes|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
 |Disk belleği dosyalarında depolanan Average_Size|Disk belleği dosyalarında depolanan boyut|Sayı|Ortalama|Disk belleği dosyalarında depolanan Average_Size|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-|Average_Uptime|Çalışma süresi|Sayı|Ortalama|Average_Uptime|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Uptime|Çalışma Süresi|Sayı|Ortalama|Average_Uptime|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
 |Average_Users|Kullanıcılar|Sayı|Ortalama|Average_Users|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
 |Average_Avg. Disk sn/Okuma|Ort. Disk sn/Okuma|Sayı|Ortalama|Average_Avg. Disk sn/Okuma|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
 |Average_Avg. Disk sn/yazma|Ort. Disk sn/yazma|Sayı|Ortalama|Average_Avg. Disk sn/yazma|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
@@ -1224,7 +1225,6 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |Güncelleştirme|Güncelleştirme|Sayı|Ortalama|Güncelleştirme|Bilgisayar, ürün, Sınıflandırma, isteğe bağlı, onaylanan UpdateState|
 |Olay|Olay|Sayı|Ortalama|Olay|Kaynak, EventLog, bilgisayar, EventCategory, EventLevel, EventLevelName, EventID|
 
-
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
@@ -1232,7 +1232,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |QueryDuration|Sorgu süresi|Milisaniye|Ortalama|Son aralığı DAX sorgusunun süresi|Boyut yok|
 |QueryPoolJobQueueLength|İş parçacıkları: Sorgu havuzu iş kuyruğu uzunluğu|Sayı|Ortalama|Sorgu iş parçacığı havuzu kuyruğundaki iş sayısı.|Boyut yok|
 |qpu_high_utilization_metric|QPU yüksek kullanımı|Sayı|Toplam|Son dakika, 1 yüksek QPU kullanımı, aksi durumda 0 QPU yüksek kullanımı|Boyut yok|
-|memory_metric|Bellek|Baytlar|Ortalama|Bellek. A1, 0-5 Aralık 0-3 GB için A2 GB, 0-10 GB için A3, A4 için 0-25 GB, A5 için 0-50 GB ve 0-100 GB için A6|Boyut yok|
+|memory_metric|Bellek|Bayt|Ortalama|Bellek. A1, 0-5 Aralık 0-3 GB için A2 GB, 0-10 GB için A3, A4 için 0-25 GB, A5 için 0-50 GB ve 0-100 GB için A6|Boyut yok|
 |memory_thrashing_metric|Bellek çok yavaş|Yüzde|Ortalama|Ortalama bellek temizleme.|Boyut yok|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
@@ -1273,7 +1273,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |IncomingMessages|Gelen iletiler (Önizleme)|Sayı|Toplam|Microsoft.ServiceBus için Gelen İletiler. (Önizleme)|EntityName|
 |OutgoingMessages|Giden iletiler (Önizleme)|Sayı|Toplam|Microsoft.ServiceBus için Giden İletiler. (Önizleme)|EntityName|
 |ActiveConnections|ActiveConnections (Önizleme)|Sayı|Toplam|Microsoft.ServiceBus için Toplam Etkin Bağlantılar. (Önizleme)|Boyut yok|
-|Boyut|Boyut (Önizleme)|Baytlar|Ortalama|Sıranın/Konunun Bayt cinsinden boyutu. (Önizleme)|EntityName|
+|Boyut|Boyut (Önizleme)|Bayt|Ortalama|Sıranın/Konunun Bayt cinsinden boyutu. (Önizleme)|EntityName|
 |İletiler|Bir Sıradaki/Konudaki iletilerin sayısı. (Önizleme)|Sayı|Ortalama|Bir Sıradaki/Konudaki iletilerin sayısı. (Önizleme)|EntityName|
 |ActiveMessages|Bir Sıradaki/Konudaki etkin iletilerin sayısı. (Önizleme)|Sayı|Ortalama|Bir Sıradaki/Konudaki etkin iletilerin sayısı. (Önizleme)|EntityName|
 |CPUXNS|Ad alanı başına CPU kullanımı|Yüzde|Maksimum|Service Bus premium ad alanı CPU kullanım ölçümü|Boyut yok|
@@ -1285,8 +1285,8 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |---|---|---|---|---|---|
 |ConnectionCount|Bağlantı sayısı|Sayı|Maksimum|Kullanıcı bağlantı miktarı.|Uç Nokta|
 |MessageCount|İleti Sayısı|Sayı|Toplam|İletilerin toplam tutar.|Boyut yok|
-|InboundTraffic|Gelen trafik|Baytlar|Toplam|Gelen trafik hizmeti|Boyut yok|
-|OutboundTraffic|Giden trafik|Baytlar|Toplam|Giden trafik hizmeti|Boyut yok|
+|InboundTraffic|Gelen trafik|Bayt|Toplam|Gelen trafik hizmeti|Boyut yok|
+|OutboundTraffic|Giden trafik|Bayt|Toplam|Giden trafik hizmeti|Boyut yok|
 |UserErrors|Kullanıcı hataları|Yüzde|Maksimum|Kullanıcı hatalarının yüzdesi|Boyut yok|
 |SystemErrors|Sistem hataları|Yüzde|Maksimum|Sistem hatalarının yüzdesi|Boyut yok|
 
@@ -1298,7 +1298,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |physical_data_read_percent|Veri G/Ç yüzdesi|Yüzde|Ortalama|Veri G/Ç yüzdesi|Boyut yok|
 |log_write_percent|Günlük G/Ç yüzdesi|Yüzde|Ortalama|Günlük G/Ç yüzdesi|Boyut yok|
 |dtu_consumption_percent|DTU yüzdesi|Yüzde|Ortalama|DTU yüzdesi|Boyut yok|
-|depolama|Toplam veritabanı boyutu|Baytlar|Maksimum|Toplam veritabanı boyutu|Boyut yok|
+|depolama|Toplam veritabanı boyutu|Bayt|Maksimum|Toplam veritabanı boyutu|Boyut yok|
 |connection_successful|Başarılı bağlantılar|Sayı|Toplam|Başarılı bağlantılar|Boyut yok|
 |connection_failed|Başarısız Bağlantılar|Sayı|Toplam|Başarısız Bağlantılar|Boyut yok|
 |blocked_by_firewall|Güvenlik Duvarı tarafından engellendi|Sayı|Toplam|Güvenlik Duvarı tarafından engellendi|Boyut yok|
@@ -1327,9 +1327,9 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |workers_percent|Çalışan yüzdesi|Yüzde|Ortalama|Çalışan yüzdesi|Boyut yok|
 |sessions_percent|Oturumları yüzdesi|Yüzde|Ortalama|Oturumları yüzdesi|Boyut yok|
 |eDTU_limit|eDTU sınırı|Sayı|Ortalama|eDTU sınırı|Boyut yok|
-|storage_limit|Depolama sınırı|Baytlar|Ortalama|Depolama sınırı|Boyut yok|
+|storage_limit|Depolama sınırı|Bayt|Ortalama|Depolama sınırı|Boyut yok|
 |eDTU_used|kullanılan eDTU|Sayı|Ortalama|kullanılan eDTU|Boyut yok|
-|storage_used|Kullanılan depolama|Baytlar|Ortalama|Kullanılan depolama|Boyut yok|
+|storage_used|Kullanılan depolama|Bayt|Ortalama|Kullanılan depolama|Boyut yok|
 |xtp_storage_percent|Bellek içi OLTP depolama yüzdesi|Yüzde|Ortalama|Bellek içi OLTP depolama yüzdesi|Boyut yok|
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
@@ -1608,7 +1608,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |MemoryPercentage|Bellek Yüzdesi|Yüzde|Ortalama|Bellek Yüzdesi|Örnek|
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * [Azure İzleyici'de ölçümleri hakkında bilgi edinin](../../azure-monitor/platform/data-collection.md)
 * [Ölçümler üzerinde uyarı oluşturma](../../azure-monitor/platform/alerts-overview.md)
 * [Depolama, olay hub'ı veya Log Analytics ölçümleri dışarı aktarma](../../azure-monitor/platform/diagnostic-logs-overview.md)
-

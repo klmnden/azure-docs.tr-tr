@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/12/2019
+ms.date: 03/22/2019
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b475eae337b7e6a7e26b3e5a7518be0e461c9fa4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6a303319a3f87f684b72bcddd8d30cd4a2c60642
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170624"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351533"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -144,20 +144,25 @@ Koşullu erişim ilkenizi seçtiğiniz **tarayıcılar** istemci uygulaması ola
 Bu ayar tüm tarayıcılarla çalışır. Ancak, bir cihaz uyumlu gereksinim gibi bir cihaz ilkeyi karşılamak için aşağıdaki işletim sistemleri ve tarayıcılar desteklenir:
 
 
-| İşletim Sistemi                     | Tarayıcılar                            | Destek     |
-| :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     | ![İşaretli][1] |
-| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![İşaretli][1] |
-| Windows 7              | Internet Explorer, Chrome           | ![İşaretli][1] |
-| iOS                    | Safari, Intune yönetilen tarayıcı      | ![İşaretli][1] |
-| Android                | Chrome, Intune yönetilen tarayıcı      | ![İşaretli][1] |
-| Windows Phone          | Microsoft Edge, Internet Explorer             | ![İşaretli][1] |
-| Windows Server 2016    | Microsoft Edge, Internet Explorer             | ![İşaretli][1] |
-| Windows Server 2016    | Chrome                              | Çok yakında |
-| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![İşaretli][1] |
-| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![İşaretli][1] |
-| macOS                  | Chrome, Safari                      | ![İşaretli][1] |
+| İşletim Sistemi                     | Tarayıcılar                                      |
+| :--                    | :--                                           |
+| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
+| Windows 8 / 8.1        | Internet Explorer, Chrome                     |
+| Windows 7              | Internet Explorer, Chrome                     |
+| iOS                    | Safari, Intune yönetilen tarayıcı                |
+| Android                | Chrome, Intune yönetilen tarayıcı                |
+| Windows Phone          | Microsoft Edge, Internet Explorer             |
+| Windows Server 2016    | Microsoft Edge, Internet Explorer             |
+| Windows Server 2016    | Chrome                                        |
+| Windows Server 2012 R2 | Internet Explorer, Chrome                     |
+| Windows Server 2008 R2 | Internet Explorer, Chrome                     |
+| macOS                  | Chrome, Safari                                |
+ 
 
+
+#### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Tarayıcıda iste sertifika neden görüyorum
+
+Windows 7, iOS, Android ve macOS cihaz Azure AD'ye kaydedildiğinde, sağlanan bir istemci sertifikası kullanarak cihazı Azure AD'ye tanımlar.  Bir kullanıcı ilk kez bir tarayıcıdan oturum açtığında kullanıcıya sertifikayı seçmek için istenir. Kullanıcının Tarayıcıyı kullanmadan önce bu sertifikayı seçmesi gerekir.
 
 
 #### <a name="chrome-support"></a>Chrome desteği

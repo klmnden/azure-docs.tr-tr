@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e81d5513f43882093883256cf9eab4a22e9ca01
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875283"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361379"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Yönetim görevi Azure Active Directory'de yönetici rolleri
 
@@ -235,13 +235,13 @@ Tüm yapılandırması okuma | Genel Yönetici |
 
 Görev | En az ayrıcalıklı rol | Ek roller
 ---- | --------------------- | ----------------
-Kimlik doğrulama yöntemlerini yapılandırın | Genel Yönetici | 
-Özelleştirmeyi Yapılandır | Genel Yönetici | 
-Bildirimi yapılandırma | Genel Yönetici | 
-Şirket içi tümleştirmeyi Yapılandır | Genel Yönetici | 
-Parola sıfırlama özellikleri yapılandırma | Genel Yönetici | 
-Kaydı yapılandır | Genel Yönetici | 
-Tüm yapılandırması okuma | Güvenlik Yöneticisi Kullanıcı Yöneticisi | 
+Kimlik doğrulama yöntemlerini yapılandırın | Genel Yönetici |
+Özelleştirmeyi Yapılandır | Genel Yönetici |
+Bildirimi yapılandırma | Genel Yönetici |
+Şirket içi tümleştirmeyi Yapılandır | Genel Yönetici |
+Parola sıfırlama özellikleri yapılandırma | Kullanıcı Yöneticisi | Genel Yönetici
+Kaydı yapılandır | Genel Yönetici |
+Tüm yapılandırması okuma | Güvenlik Yöneticisi | Kullanıcı Yöneticisi |
 
 ## <a name="privileged-identity-management"></a>Ayrıcalıklı kimlik yönetimi
 

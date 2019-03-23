@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: c1a0e77f98d269185bc065c86a367c3ed6519fb5
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 28210048cd007fc10dcd4cf5e92577cbd121e2a3
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961984"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368281"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack yönetilen diskler: farklılıklar ve dikkat edilmesi gerekenler
 
@@ -134,13 +134,27 @@ Azure Stack destekler *yönetilen görüntüleri*, hangi etkinleştir, yalnızca
 - Yönetilmeyen VM genelleştirilmiş ve bundan sonra yönetilen diskleri kullanmak istiyorsanız.
 - Genelleştirilmiş bir yönetilen VM sahip ve birden çok oluşturmak istersiniz, benzer Vm'leri yönetilen.
 
-### <a name="migrate-unmanaged-vms-to-managed-disks"></a>Yönetilmeyen Vm'leri yönetilen disklere geçirme
+### <a name="step-1-generalize-the-vm"></a>1. Adım: VM'yi Genelleştirme
+Windows için "Windows VM Generalize Sysprep kullanma" bölümüne buradan izleyin: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep Linux için 1. adım burada izleyin: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm 
+
+Not: Sanal makinenizin genelleştirmek unutmayın. Düzgün genelleştirilmemiş bir görüntüden VM oluşturma VMProvisioningTimeout hataya yol açacaktır.
+
+### <a name="step-2-create-the-managed-image"></a>2. Adım: Yönetilen bir görüntü oluşturma
+Bunu yapmak için portal, powershell veya CLI'yı kullanabilir. Azure'nın belge izleyin: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource
+
+### <a name="step-3-choose-the-use-case"></a>3. Adım: Kullanım örneği seçin:
+#### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>1. durum: Yönetilmeyen Vm'leri yönetilen disklere geçirme
+Bu adımı uygulamadan önce sanal Makinenizin doğru genelleştirmek unutmayın. POST Genelleştirme, bu VM, kullanılan yapılacaktır olamaz. Düzgün genelleştirilmemiş bir görüntüden VM oluşturma VMProvisioningTimeout hataya yol açacaktır. 
 
 Yönergeleri izleyerek [burada](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) bir depolama hesabında genelleştirilmiş bir VHD'den yönetilen bir görüntü oluşturmak için. Bu görüntü, ileride yönetilen sanal makineler oluşturmak için kullanılabilir.
 
-### <a name="create-managed-image-from-vm"></a>VM'den yönetilen görüntüsünü oluşturma
+#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>2. durum: Powershell kullanarak Managed görüntüden yönetilen VM oluşturma
 
 Bir görüntü mevcut bir yönetilen oluşturduktan sonra komut dosyasını kullanarak VM disk [burada](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell) , aşağıdaki örnek betik, mevcut bir görüntü nesneden benzer bir Linux VM oluşturur:
+
+Azure Stack powershell modülü 1.7.0 veya üstü: Yönergeleri izleyerek [burada](../../virtual-machines/windows/create-vm-generalized-managed.md) 
+
+Azure Stack powershell modülü 1.6.0 veya aşağıdaki:
 
 ```powershell
 # Variables for common values
@@ -191,7 +205,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-Daha fazla bilgi için bkz. Azure yönetilen görüntü makaleleri [Azure'da bir genelleştirilmiş VM'nin yönetilen görüntüsünü oluşturma](../../virtual-machines/windows/capture-image-resource.md) ve [yönetilen bir görüntüden VM oluşturma](../../virtual-machines/windows/create-vm-generalized-managed.md).
+Portal, yönetilen bir görüntüden VM oluşturma için de kullanabilirsiniz. Daha fazla bilgi için bkz. Azure yönetilen görüntü makaleleri [Azure'da bir genelleştirilmiş VM'nin yönetilen görüntüsünü oluşturma](../../virtual-machines/windows/capture-image-resource.md) ve [yönetilen bir görüntüden VM oluşturma](../../virtual-machines/windows/create-vm-generalized-managed.md).
 
 ## <a name="configuration"></a>Yapılandırma
 

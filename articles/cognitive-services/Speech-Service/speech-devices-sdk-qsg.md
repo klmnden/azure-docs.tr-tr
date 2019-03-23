@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 114e0b951b2bfe83e8b989646bd07a5fd75b3ee6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d520a9dc8d60a386d25694d441931fbc3ed38e4
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894419"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352077"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Konuşma cihaz SDK'sı ile çalışmaya başlama
 
@@ -64,7 +64,7 @@ Konuşma cihaz SDK'sı ile geliştirmeye başlamadan önce ihtiyacınız olan ya
 
     ![Doğrusal dev Seti yönü](media/speech-devices-sdk/qsg-2.png)
 
-1. Sertifikaları ve Uyandırma sözcüğünü (anahtar) tablo dosyası yükleyin ve ses cihazı izinlerini ayarlayın. Bir komut istemi penceresinde aşağıdaki komutları yazın:
+1. Sertifikaları yükleme ve ses cihazı izinlerini ayarlayın. Bir komut istemi penceresinde aşağıdaki komutları yazın:
 
    ```
    adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/

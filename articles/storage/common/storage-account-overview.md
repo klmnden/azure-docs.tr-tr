@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce9635c108a948b4773c7d27cb254f01d06896f8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ca71fdc8074e56adc8595ee905d5b1db3b60cef1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544248"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371823"
 ---
 # <a name="azure-storage-account-overview"></a>Azure depolama hesabına genel bakış
 
@@ -84,20 +84,14 @@ Azure depolama, kullanım düzenlerini esas alarak blok blob verilerine erişmek
 
 Kullanılabilir erişim katmanları şunlardır:
 
-> [!NOTE]
-> [Premium erişim katmanı (Önizleme)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), yüksek aktarım hızı ve işlem hızına gecikme süresi düşük ve tutarlı performans duyarlı uygulamalar için optimize edilmiştir sağlar. Premium erişim katmanı, yalnızca blok Blob Depolama hesapları ile (Önizleme) kullanılabilir. Daha fazla bilgi için [Azure Premium Blob Depolama genel Önizleme](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
-
 * **Etkin** erişim katmanı, sık sık depolama hesabındaki nesnelere erişimi için optimize edilmiştir. Sık erişimli katmanı veri erişimi maliyetlerini biraz daha yüksek olsa en uygun maliyetli. Yeni depolama hesaplarında sık erişimli oluşturulan varsayılan olarak katman.
 * **Seyrek erişimli** erişim katmanı, büyük miktarlarda az sıklıkta erişilen ve en az 30 gün saklanan verileri depolamak için optimize edilmiştir. Veri depolama seyrek erişim katmanında daha uygun maliyetlidir, ancak bu verilere erişme biraz daha sık erişimli katmanı veri erişimi daha pahalı olabilir.
 * **Arşiv** katmanı, yalnızca tek bir blok bloblar için kullanılabilir. Arşiv katmanı, birkaç saatlik alma gecikmesinden etkilenmeyecek ve Arşiv katmanında en az 180 gün boyunca kalacak veriler için optimize edilmiştir. Arşiv katmanı verilerini depolamak için en uygun maliyetli bir seçenektir, ancak bu verilere erişmek sık erişimli veya seyrek erişimli katmanları veri erişimi değerinden daha pahalıdır. 
 
-
-Verilerinizin kullanım düzeninde bir değişiklik olursa herhangi bir zamanda bu erişim katmanları arasında geçiş yapabilirsiniz. Erişim katmanları hakkında daha fazla bilgi için bkz. [Azure Blob Depolama: Premium (Önizleme), sık erişimli, seyrek erişimli ve Arşiv depolama katmanları](../blobs/storage-blob-storage-tiers.md).
+Verilerinizin kullanım düzeninde bir değişiklik olursa herhangi bir zamanda bu erişim katmanları arasında geçiş yapabilirsiniz. Erişim katmanları hakkında daha fazla bilgi için bkz. [Azure Blob Depolama: sık erişimli, seyrek erişimli ve Arşiv erişim katmanları](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
 > Mevcut bir depolama hesabı veya blob için erişim katmanının değiştirilmesi ek ücretlere neden olabilir. Daha fazla bilgi için [depolama hesabı bölümünde faturalama](#storage-account-billing).
-
-
 
 ## <a name="replication"></a>Çoğaltma
 
@@ -135,7 +129,7 @@ Depolama hesabınıza karşı yapılan her isteği yetkili olması gerekir. Hizm
 
 Aşağıdaki yaklaşımlardan birini kullanarak depolama hesabınızdaki verilere erişim izni verebilirsiniz:
 
-- **Azure Active Directory:** Bir kullanıcı, Grup veya diğer kimlik blob ve kuyruk verilere (Önizleme) erişim için kimlik doğrulaması için Azure Active Directory (Azure AD) kimlik bilgilerini kullanın. Bir kimlik, kimlik doğrulaması başarılı olursa, Azure AD Azure Blob Depolama veya kuyruk depolama isteğine yetki verme içinde kullanmak için bir belirteç döndürür. Daha fazla bilgi için [erişim Azure Active Directory (Önizleme) kullanarak Azure depolama için kimlik doğrulaması](storage-auth-aad.md).
+- **Azure Active Directory:** Bir kullanıcı, Grup veya diğer kimlik blob ve kuyruk verilere erişim için kimlik doğrulaması için Azure Active Directory (Azure AD) kimlik bilgilerini kullanın. Bir kimlik, kimlik doğrulaması başarılı olursa, Azure AD Azure Blob Depolama veya kuyruk depolama isteğine yetki verme içinde kullanmak için bir belirteç döndürür. Daha fazla bilgi için [erişim için Azure depolama, Azure Active Directory'yi kullanarak kimlik doğrulaması](storage-auth-aad.md).
 - **Paylaşılan anahtar yetkilendirme:** Depolama hesabı erişim anahtarınız, uygulamanızın kullandığı çalışma zamanında Azure depolamaya erişmek için bir bağlantı dizesi oluşturmak için kullanın. Bağlantı dizesinde değerleri oluşturmak için kullanılan *yetkilendirme* Azure depolama alanına geçirilen başlığı. Daha fazla bilgi için [yapılandırma Azure Storage bağlantı dizelerini](storage-configure-connection-string.md).
 - **Paylaşılan erişim imzası:** Azure AD kimlik doğrulamasını kullanmıyorsanız, depolama hesabınızdaki kaynaklara temsilci erişimi için paylaşılan erişim imzası'nı kullanın. Paylaşılan erişim imzası tüm URL noktasında Azure Depolama'ya yönelik bir isteği yetkilendirmek için gereken bilgileri yalıtan bir belirteçtir. Depolama kaynağı, verilen izinleri ve üzerinde izinleri geçerli aralık belirtebilirsiniz paylaşılan erişim imzasının bir parçası olarak. Daha fazla bilgi için [paylaşılan erişim imzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md).
 

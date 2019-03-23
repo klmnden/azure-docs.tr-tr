@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: f96b4bb75a22e51586820a2e7be08c09cf7b26dd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 13c0346324ae8e3cf3485985a9014f9999230630
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104429"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351448"
 ---
 # <a name="how-to-improve-your-classifier"></a>Nasıl sınıflandırıcınızı geliştirme
 
@@ -29,7 +29,7 @@ Daha doğru bir sınıflandırıcı oluşturmanıza yardımcı olmak için bir g
 1. Tahmin test etmek için yeni yansımaları kullanın
 1. Mevcut eğitim verileri tahmin sonuçlarını göre Değiştir
 
-## <a name="overfitting"></a>Overfitting
+## <a name="prevent-overfitting"></a>Overfitting engelle
 
 Bazı durumlarda, bir sınıflandırıcı görüntülerinizi ortak olan rastgele özelliklerine göre tahminlerde bulunmayı öğreneceksiniz. Örneğin, bir sınıflandırıcı elma citrus karşılaştırması için oluşturduğunuz ve uygulamalı olarak elma ve Limonlu görüntüleri üzerinde beyaz kalıplarını kullandınız, elma citrus karşılaştırması yerine kalıplarını ve uygulamalı aşırı önem sınıflandırıcı verebilir.
 

@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 0972df18c65ee6b61db4113eaebc1f2912cd6064
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 88ec8b93e2429fd394eb3a8d10460a2a80d9e56f
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892889"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349493"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>PowerShell kullanarak tek bir SQL veritabanını izleme ve ölçeklendirme
 
@@ -34,7 +34,10 @@ PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz Bu öğretici A
 [!code-powershell-interactive[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=15-16 "Monitor and scale single database")]
 
 > [!TIP]
-> Kullanma [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) veritabanı işlemlerinin durumunu almak ve kullanmak için [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity) için bir veritabanı güncelleştirme işlemini iptal eder.
+> Ölçümleri tam bir listesi için bkz. [desteklenen ölçümler](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases).
+
+> [!TIP]
+> Kullanma [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) veritabanı işlemlerinin durumunu almak ve kullanmak için [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity) veritabanı güncelleştirme işlemini iptal etmek için.
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
@@ -48,7 +51,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
-| Komut | Notes |
+| Komut | Notlar |
 |---|---|
  [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Tek veritabanı veya elastik havuz barındıran bir SQL veritabanı sunucusu oluşturur. |

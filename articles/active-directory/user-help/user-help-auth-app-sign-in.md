@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f5f190eee473d5eb483f901ada80cb67b4ffedd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bc136cdc88c67e3b26aefc4982f49a2547e456db
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110520"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370100"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Hesaplarınız için Microsoft Authenticator uygulamasını kullanarak oturum açın
 Microsoft Authenticator uygulamasını hesaplarınıza iki aşamalı doğrulama kullanırsanız oturum yardımcı olur. İki Faktörlü doğrulama özellikle hassas bilgileri görüntülerken hesaplarınızı daha güvenli bir şekilde erişmenize yardımcı olur. Parolaları bu nedenle Unutulan, çalınması veya ele geçirilen, iki Faktörlü doğrulama kesmek diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır.
@@ -111,7 +111,7 @@ Standart iki Faktörlü doğrulama yöntemi açtıktan yapıyorsanız ve ilişki
 |**Telefonla oturum açma iki aşamalı doğrulama yerini mi aldı? Ben bunu kapatmanız gerekir?**|Telefonla oturum açma iki aşamalı doğrulamayı burada mobil cihazda iki adımı her iki durum türüdür. İki aşamalı doğrulamayı hesabınız için ek güvenlik sağlamak için açık tutmanız gerekir.|
 |**Ben iki aşamalı doğrulama hesabım için açık tutarsanız, iki bildirim onaylamanız gerekir mi?**| Hayır. Bu yüzden ayrıca telefonunuzu kullanarak Microsoft hesabınızda oturum açarken iki aşamalı doğrulama, ikinci onay gerekli sayar.|
 |**Ne telefonumu kaybeder veya yok benimle? Hesabımı nasıl erişim sağlanır?**| Her zaman parola bağlamaya parolanızı kullanmaya geçmek için oturum açma sayfasında kullanımı da seçebilirsiniz. İki aşamalı doğrulama kullanıyorsanız ancak yine de kimliğinizi doğrulamak için ikinci bir yöntem kullanmak yapmanız gerekir.<br><br>**Önemli**<br>Birden fazla güncel hesabınızla ilişkilendirilen bir doğrulama yöntemi olduğundan emin olmak için önemle öneririz.<br><br>Kişisel hesapları için doğrulama yöntemlerinizi yönetebilir, [güvenlik ayarları](https://account.live.com/proofs/manage) sayfası. İş veya Okul hesapları için kuruluşunuzun gidebilirsiniz [ek güvenlik doğrulaması](https://aka.ms/MFASetup) sayfası veya **hesabınızı güvenli tutmak** yöneticinize güvenlik bilgilerini etkinleştirdiyseniz sayfa. Güvenlik bilgileri hakkında daha fazla bilgi için bkz: [güvenlik bilgisi (Önizleme) genel bakış](user-help-security-info-overview.md).<br><br>Doğrulama yöntemlerinizi yönetme yapamıyorsanız, yöneticinize başvurmanız gerekir.|
-|**Nasıl bu özelliği kullanmayı bırakmak ve parolamı kullanmaya geri dönün?**|Kişisel hesapları için seçin **bir parolasını kullanmanız** oturum açma sırasında bağlantı. En son seçiminiz, yeniden oturum açtığınızda varsayılan olarak sunulan ve anımsanacak. Şimdiye kadar telefonla oturum açma, select kullanmaya geri dönmek istiyorsanız **uygulama kullanmanız** oturum açma sırasında bağlantı.<br><br>İş veya Okul hesapları için ek güvenlik doğrulama sayfasına gerekir (gibi https://aka.ms/MFASetup) ve Microsoft Authenticator uygulamasını kaldırın.|
+|**Nasıl bu özelliği kullanmayı bırakmak ve parolamı kullanmaya geri dönün?**|Kişisel hesapları için seçin **bir parolasını kullanmanız** oturum açma sırasında bağlantı. En son seçiminiz, yeniden oturum açtığınızda varsayılan olarak sunulan ve anımsanacak. Şimdiye kadar telefonla oturum açma, select kullanmaya geri dönmek istiyorsanız **uygulama kullanmanız** oturum açma sırasında bağlantı.<br><br>İş veya Okul hesapları ya da cihazın kaydını gerekir **ayarları** Microsoft Authenticator uygulamasının sayfası veya CİHAZDAN devre dışı bırakma **cihazlar ve etkinlik** profilinizin alan. Profilinizi cihazınızın devre dışı bırakma hakkında daha fazla bilgi için bkz. [uygulamalarım portalında profili ve hesabı bilgilerinizi güncelleştirmeniz](my-apps-portal-end-user-update-profile.md#view-your-organization-related-profile-information).|
 |**Telefonla oturum açma için birden fazla iş veya Okul hesabı neden kullanamıyorum?**| Tek bir iş veya Okul hesabı için bir telefon kayıtlı olması gerekir. Telefonla oturum açma için farklı bir iş veya Okul hesabı etkinleştirmek istiyorsanız, eski bir cihaz üzerinden ilk kaydını silmeniz gerekir **ayarları** sayfası.|
 |**Bilgisayarıma telefonumu kullanarak oturum?**| Bilgisayarınız için Windows Hello Windows 10'da kullanarak imzalama öneririz. Windows Hello, oturum açmak için yüz tanıma, parmak izi veya PIN kullanmanızı sağlar.|
 

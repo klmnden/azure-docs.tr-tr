@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32d218e057fa040eded07f0adc813485ddaa52fd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3f8c9c6be51a30fd4e30fedc85f8d17d16324391
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080108"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359904"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Uygulama proxy'si sorunlarını ve hata iletileri sorunlarını giderme
 Yayımlanan bir uygulamaya erişen veya yayımlama uygulamalarda hata oluşursa, Microsoft Azure AD uygulama ara sunucusu doğru şekilde çalışıp çalışmadığını görmek için aşağıdaki seçeneklerden denetleyin:
@@ -78,9 +78,10 @@ Bu liste, uygulamaya erişmek ve başarısız çalıştıklarında son kullanıc
 | ----- | ----------------- |
 | Web sitesi, sayfa görüntülenemiyor. | Kullanıcı, uygulama bir IWA uygulamasıysa, yayımladığınız uygulamayı erişmeye çalışırken bu hatayı alabilirsiniz. Bu uygulama için tanımlanmış SPN yanlış olabilir. IWA uygulamalar için bu uygulama için yapılandırılan SPN doğru olduğundan emin olun. |
 | Web sitesi, sayfa görüntülenemiyor. | Kullanıcı, uygulama bir OWA uygulama ise, yayımladığınız uygulamayı erişmeye çalışırken bu hatayı alabilirsiniz. Bunun nedeni aşağıdakilerden biri olabilir:<br><li>Bu uygulama için tanımlanmış SPN doğru değil. Bu uygulama için yapılandırılan SPN doğru olduğundan emin olun.</li><li>Uygulamaya erişmeyi denedi kullanıcının oturum açmak için kullanıyor uygun şirket hesabı yerine bir Microsoft hesabı veya Konuk kullanıcı kullanıcıdır. Yayımlanan uygulama etki alanını eşleşen kullanıcıların Kurumsal hesap kullanarak oturum açtığında emin olun. Microsoft Account kullanıcıları ve Konuk IWA uygulamaları erişemez.</li><li>Uygulamaya erişmeye kullanıcı, şirket içi tarafında bu uygulama için doğru tanımlanmadı. Bu kullanıcının şirket içi makinede bu arka uç uygulaması için tanımlandığı gibi uygun izinlere sahip olduğundan emin olun. |
-| Bu Kurumsal uygulama erişilemez. Bu uygulamaya erişmek için yetkiniz yok. Yetkilendirme başarısız oldu. Bu uygulamaya erişimi olan kullanıcı atadığınızdan emin olun. | Kullanıcılarınızın, Microsoft hesapları yerine şirket hesabındaki oturum açmak için kullandıkları, yayımlanan uygulamaya erişmeye çalışırken bu hatayı alabilirsiniz. Konuk kullanıcılar da bu hatayı alabilirsiniz. Microsoft Account kullanıcılar ve konuklar IWA uygulamaları erişemez. Yayımlanan uygulama etki alanını eşleşen kullanıcıların Kurumsal hesap kullanarak oturum açtığında emin olun.<br><br>Bu uygulama için kullanıcı atanmamış. Git **uygulama** sekmesinde altında **kullanıcılar ve gruplar**, bu uygulama için bu kullanıcı veya kullanıcı grubuna atayın. |
-| Şirket bu uygulama şu anda erişilemiyor. Lütfen daha sonra yeniden deneyin... Bağlayıcı zaman aşımına uğradı. | Kullanıcılarınızı, bunların düzgün bir şekilde şirket içi tarafında bu uygulama için tanımlanmazsa, yayımladığınız uygulamayı erişmeye çalışırken bu hatayı alabilirsiniz. Kullanıcılarınız şirket içi makinede bu arka uç uygulaması için tanımlandığı gibi uygun izinlere sahip olduğunuzdan emin olun. |
-| Bu Kurumsal uygulama erişilemez. Bu uygulamaya erişmek için yetkiniz yok. Yetkilendirme başarısız oldu. Kullanıcı Azure Active Directory Premium veya Basic için bir lisans olduğundan emin olun. | Kullanıcılarınızın, bunlar açıkça Premium/temel lisansı ile abonenin yönetici tarafından atanır, yayımlanan uygulamaya erişmeye çalışırken bu hatayı alabilirsiniz. Abonenin Active Directory Git **lisansları** sekmesini ve bu kullanıcı veya kullanıcı grubunun bir Premium veya Basic lisansı atandığından emin olun. |
+| Bu Kurumsal uygulama erişilemez. Bu uygulamaya erişmek için yetkiniz yok. Yetkilendirme başarısız oldu. Bu uygulamaya erişimi olan kullanıcı atadığınızdan emin olun. | Kullanıcı, Microsoft hesapları yerine şirket hesabındaki oturum açmak için kullandıkları, yayımlanan uygulamaya erişmeye çalışırken bu hatayı alabilirsiniz. Konuk kullanıcılar da bu hatayı alabilirsiniz. Microsoft Account kullanıcılar ve konuklar IWA uygulamaları erişemez. Yayımlanan uygulama etki alanını eşleşen kullanıcıların Kurumsal hesap kullanarak oturum açtığında emin olun.<br><br>Bu uygulama için kullanıcı atanmamış. Git **uygulama** sekmesinde altında **kullanıcılar ve gruplar**, bu uygulama için bu kullanıcı veya kullanıcı grubuna atayın. |
+| Şirket bu uygulama şu anda erişilemiyor. Lütfen daha sonra yeniden deneyin... Bağlayıcı zaman aşımına uğradı. | Kullanıcı, bunların düzgün bir şekilde şirket içi tarafında bu uygulama için tanımlanmazsa, yayımladığınız uygulamayı erişmeye çalışırken bu hatayı alabilirsiniz. Kullanıcılarınız şirket içi makinede bu arka uç uygulaması için tanımlandığı gibi uygun izinlere sahip olduğunuzdan emin olun. |
+| Bu Kurumsal uygulama erişilemez. Bu uygulamaya erişmek için yetkiniz yok. Yetkilendirme başarısız oldu. Kullanıcı Azure Active Directory Premium veya Basic için bir lisans olduğundan emin olun. | Kullanıcı, bunlar açıkça Premium/temel lisansı ile abonenin yönetici tarafından atanır, yayımlanan uygulamaya erişmeye çalışırken bu hatayı alabilirsiniz. Abonenin Active Directory Git **lisansları** sekmesini ve bu kullanıcı veya kullanıcı grubunun bir Premium veya Basic lisansı atandığından emin olun. |
+| Belirtilen konak adı ile bir sunucu bulunamadı. | Kullanıcı, özel etki alanı uygulamanın doğru şekilde yapılandırılmamışsa, yayımladığınız uygulamayı erişmeye çalışırken bu hatayı alabilirsiniz. Etki alanı için bir sertifika karşıya yüklendi ve adımları izleyerek DNS kaydı doğru yapılandırıldığından emin olun [Azure AD uygulama proxy'sinde özel etki alanları ile çalışma](application-proxy-configure-custom-domain.md) |
 
 ## <a name="my-error-wasnt-listed-here"></a>My hata burada listelenen değildi
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: cc5aae0e46e181e8063a4e01a832e68eab0eae0e
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 32f96a28e027bfd0e65d934bb47bb98400af459d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226626"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360733"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Otomatik-zaman serisi tahmin modeli eğitme
 
@@ -27,7 +27,7 @@ Bu makalede, otomatik machine learning Azure Machine Learning hizmeti kullanarak
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir Azure Machine Learning hizmeti çalışma alanı. Çalışma alanı oluşturmak için bkz: [Azure Machine Learning hizmeti ile çalışmaya başlama](quickstart-get-started.md).
+* Bir Azure Machine Learning hizmeti çalışma alanı. Çalışma alanı oluşturmak için bkz: [bir Azure Machine Learning hizmeti çalışma alanı oluşturma](setup-create-workspace.md).
 * Bu makalede, bir otomatik makine öğrenimi denemesi ayarı ile temel alışkın olduğunuz varsayılır. İzleyin [öğretici](tutorial-auto-train-models.md) veya [yapılır](how-to-configure-auto-train.md) temel otomatik makine öğrenme deneme tasarım desenleri görmek için.
 
 ## <a name="preparing-data"></a>Verileri hazırlama

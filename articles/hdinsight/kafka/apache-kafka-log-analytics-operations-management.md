@@ -9,18 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 281b4b8d20957cbbbf0f4ff52166e8c3a78b3e7d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5154058bb1562b670e24f8813e979588a536f086
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108146"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359866"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka için günlüklerini çözümleme
 
 HDInsight üzerinde Apache Kafka tarafından oluşturulan günlükleri analiz etmek için Azure İzleyici günlüklerine kullanmayı öğrenin.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Azure İzleyici günlüklerine için Apache kafka'yı etkinleştir
 
@@ -33,7 +35,7 @@ HDInsight için Azure İzleyici günlüklerine etkinleştirme adımları tüm HD
 3. Kafka kümesi, Azure İzleyici günlüklerine kullanmak için yapılandırın. Daha fazla bilgi için [kullanımı Azure İzleyici günlükleri HDInsight izlemek için](../hdinsight-hadoop-oms-log-analytics-tutorial.md) belge.
 
     > [!NOTE]  
-    > Azure İzleyici günlüklerine kullanarak kümeye de yapılandırabilirsiniz `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet'i. Bu cmdlet, aşağıdaki bilgileri gerektirir:
+    > Azure İzleyici günlüklerine kullanarak kümeye de yapılandırabilirsiniz `Enable-AzHDInsightOperationsManagementSuite` cmdlet'i. Bu cmdlet, aşağıdaki bilgileri gerektirir:
     >
     > * HDInsight kümesi adı.
     > * Azure İzleyici günlüklerine çalışma alanı kimliği. Çalışma alanı kimliği, Log Analytics çalışma alanında bulabilirsiniz.

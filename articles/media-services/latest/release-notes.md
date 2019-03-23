@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/21/2019
 ms.author: juliako
-ms.openlocfilehash: 236e4e7079da792d055a8de148d03852ca1012ab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a6746fa193331aff66b8726da1cb3afe49fdc9bf
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877369"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351573"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 sürüm notları
 
@@ -34,9 +34,13 @@ ms.locfileid: "57877369"
 
 Daha fazla bilgi için [Media Services v2'den v3 taşımak için geçiş kılavuzunu](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="march-2019"></a>Mart 2019
+
+Dinamik paketleme artık Dolby Atmos. destekler Daha fazla bilgi için [dinamik paketleme tarafından desteklenen ses codec bileşenleri](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+
 ## <a name="february-2019"></a>Şubat 2019
 
-Media Services v3, Ulusal Azure bulutlarında upported sunulmuştur. Tüm özellikler tüm bulutlara henüz kullanılabilir. Ayrıntılar için bkz [Bulutlar ve hangi Azure Media Services v3 mevcut bölgeleri](azure-clouds-regions.md).
+Media Services v3 Ulusal Azure bulutlarında artık desteklenmektedir. Tüm özellikler tüm bulutlara henüz kullanılabilir. Ayrıntılar için bkz [Bulutlar ve hangi Azure Media Services v3 mevcut bölgeleri](azure-clouds-regions.md).
 
 [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) olay, medya Hizmetleri için Azure Event Grid şemaları için eklendi.
 

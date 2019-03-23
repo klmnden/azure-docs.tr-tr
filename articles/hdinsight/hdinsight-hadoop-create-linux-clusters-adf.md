@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: hrasheed
-ms.openlocfilehash: 40bfa8317effd25cf3d9aa28b8f63e292213a83b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8b65cb05643ffca3cbf25a207dce683d2d60fd64
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425991"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361583"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Öğretici: İsteğe bağlı Apache Hadoop kümeleri Azure Data Factory kullanarak HDInsight oluşturma
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -37,7 +37,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Azure PowerShell. Yönergeler için [yüklemek ve Azure PowerShell yapılandırma](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+- Azure PowerShell. Yönergeler için [yüklemek ve Azure PowerShell yapılandırma](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 - Azure Active Directory Hizmet sorumlusu. Hizmet sorumlusu oluşturulduktan sonra almak mutlaka **uygulama kimliği** ve **kimlik doğrulama anahtarı** bağlantılı makaledeki yönergeleri kullanarak. Bu öğreticinin ilerleyen bölümlerinde bu değerlere ihtiyacınız olur. Ayrıca, hizmet sorumlusu üyesi olduğundan emin olun *katkıda bulunan* rolü abonelikte ya da kümenin oluşturulduğu kaynak grubu. Gereken değerleri almak ve doğru rollere atamak yönergeler için bkz: [Azure Active Directory Hizmet sorumlusu oluşturma](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -75,7 +77,7 @@ $destContainerName = "adfgetstarted" # don't change this value.
 ####################################
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-Login-AzureRmAccount
+Login-AzAccount
 #endregion
 
 ####################################
@@ -85,25 +87,25 @@ Login-AzureRmAccount
 #region - create Azure resources
 Write-Host "`nCreating resource group, storage account and blob container ..." -ForegroundColor Green
 
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-New-AzureRmStorageAccount `
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $destStorageAccountName `
     -type Standard_LRS `
     -Location $location
 
-$destStorageAccountKey = (Get-AzureRmStorageAccountKey `
+$destStorageAccountKey = (Get-AzStorageAccountKey `
     -ResourceGroupName $resourceGroupName `
     -Name $destStorageAccountName)[0].Value
 
-$sourceContext = New-AzureStorageContext `
+$sourceContext = New-AzStorageContext `
     -StorageAccountName $sourceStorageAccountName `
     -Anonymous
-$destContext = New-AzureStorageContext `
+$destContext = New-AzStorageContext `
     -StorageAccountName $destStorageAccountName `
     -StorageAccountKey $destStorageAccountKey
 
-New-AzureStorageContainer -Name $destContainerName -Context $destContext
+New-AzStorageContainer -Name $destContainerName -Context $destContext
 #endregion
 
 ####################################
@@ -112,16 +114,16 @@ New-AzureStorageContainer -Name $destContainerName -Context $destContext
 #region - copy files
 Write-Host "`nCopying files ..." -ForegroundColor Green
 
-$blobs = Get-AzureStorageBlob `
+$blobs = Get-AzStorageBlob `
     -Context $sourceContext `
     -Container $sourceContainerName
 
-$blobs|Start-AzureStorageBlobCopy `
+$blobs|Start-AzStorageBlobCopy `
     -DestContext $destContext `
     -DestContainer $destContainerName
 
 Write-Host "`nCopied files ..." -ForegroundColor Green
-Get-AzureStorageBlob -Context $destContext -Container $destContainerName
+Get-AzStorageBlob -Context $destContext -Container $destContainerName
 #endregion
 
 Write-host "`nYou will use the following values:" -ForegroundColor Green
@@ -240,7 +242,7 @@ Bu bölümde iki bağlı hizmet içinde veri fabrikanızı oluşturacaksınız.
     | Özellik | Açıklama |
     | --- | --- |
     | Ad | HDInsight bağlı hizmeti için bir ad girin |
-    | Tür | Seçin **isteğe bağlı HDInsight** |
+    | Type | Seçin **isteğe bağlı HDInsight** |
     | Azure Storage Bağlı Hizmeti | Daha önce oluşturduğunuz depolama bağlı hizmeti seçin. |
     | Küme türü | Seçin **hadoop** |
     | Yaşam süresi | HDInsight küme otomatik olarak silinmeden önce kullanılabilir olmasını istediğiniz süreyi belirtin.|

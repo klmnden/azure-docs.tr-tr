@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: b12809627bc7a3ab3f17f4c3b11bc3a899fd0485
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 98ffe145103b4be04014627ed04d04dcf7542015
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849933"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368970"
 ---
 # <a name="azure-backup-architecture"></a>Azure Backup mimarisi
 
@@ -179,7 +179,7 @@ Sanal makineler için disk depolama alanı ve kullanılabilir disk türleri hakk
 Azure Backup ile premium Depolama'yı kullanarak Azure sanal makinelerini yedekleyebilirsiniz:
 
 - Premium depolama ile Vm'leri yedekleme işlemi sırasında Backup hizmeti adlı geçici bir hazırlama konumu oluşturur. *AzureBackup -*, depolama hesabındaki. Hazırlama konumunun boyutu, kurtarma noktası anlık görüntüsünü boyutuna eşittir.
-- Premium depolama hesabında geçici hazırlama konumu barındırmak için yeterli boş alan olduğundan emin olun. [Daha fazla bilgi edinin](../storage/common/storage-scalability-targets.md#premium-storage-account-scale-limits). Hazırlama konumunu değiştirmeyin.
+- Premium depolama hesabında geçici hazırlama konumu barındırmak için yeterli boş alan olduğundan emin olun. [Daha fazla bilgi edinin](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). Hazırlama konumunu değiştirmeyin.
 - Yedekleme işi tamamlandıktan sonra hazırlama konumu silinir.
 - Hazırlama konumu için kullanılan depolama alanının fiyatı tutarlıdır [premium depolama fiyatlandırması](../virtual-machines/windows/disks-types.md#billing).
 

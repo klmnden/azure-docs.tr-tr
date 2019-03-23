@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: fe195ba485e6653cee4a45f4a33067bf536334ad
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b567f5e74737c6020a3dd08484354383d45ecb7d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338623"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361898"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Data Lake depolama Gen1 Azure HDInsight kümeleri ile kullanma
 
@@ -28,6 +28,7 @@ Bu makalede, Data Lake depolama Gen1 HDInsight kümeleri ile nasıl çalıştı�
 > [!NOTE]  
 > Bu yüzden Data Lake depolama Gen1 güvenli bir kanal üzerinden her zaman erişilebilir hiçbir `adls` dosya sistemi Düzen adı. Her zaman `adl` kullanırsınız.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="availability-for-hdinsight-clusters"></a>HDInsight kümeleri için kullanılabilirlik
 
@@ -94,7 +95,7 @@ $identityCertificate = [System.Convert]::ToBase64String($certBytes)
 Kullanabileceğiniz sonra `$identityCertificate` aşağıdaki kod parçacığını olduğu gibi yeni bir kümeye dağıtmak için:
 
 ```powershell
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile $pathToArmTemplate `
     -identityCertificate $identityCertificate `
@@ -211,21 +212,21 @@ elseif($certSource -eq 2)
     $certString =[System.Convert]::ToBase64String($certBytes)
 }
 
-Login-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId $subscriptionId
+Login-AzAccount
+Select-AzSubscription -SubscriptionId $subscriptionId
 
 if($addNewCertKeyCredential)
 {
     Write-Host "Creating new KeyCredential for the app"
     $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
-    New-AzureRmADAppCredential -ApplicationId $appId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
+    New-AzADAppCredential -ApplicationId $appId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
     Write-Host "Waiting for 30 seconds for the permissions to get propagated"
     Start-Sleep -s 30
 }
 
 Write-Host "Updating the certificate on HDInsight cluster..."
 
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
     -ResourceGroupName $resourceGroupName `
     -ResourceType 'Microsoft.HDInsight/clusters' `
     -ResourceName $clusterName `

@@ -7,26 +7,26 @@ author: anrothMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: sample
-ms.date: 05/03/2018
+ms.topic: article
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: a285bc4c6eecf1a8cdda758af9df1a697c374b5a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e50933ea0231b4be22c2d0f82d33fd02dd0918f5
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533978"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351618"
 ---
-# <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Özel Görüntü İşleme Hizmeti sınıflandırıcısı ile programlama yoluyla görüntüleri test etmek için tahmin uç noktasını kullanma
+# <a name="use-the-prediction-endpoint-to-test-images-programmatically"></a>Görüntüleri programlı olarak test etmek için tahmin uç noktası kullan
 
-Modelinizi eğittikten sonra görüntüleri Tahmin API’sine göndererek programlama yoluyla test edebilirsiniz. 
+Modelinizi eğittikten sonra görüntüleri Tahmin API’sine göndererek programlama yoluyla test edebilirsiniz.
 
 > [!NOTE]
 > Bu belgede, Tahmin API’sine görüntü göndermek için C# kullanımı gösterilmektedir. Daha fazla bilgi ve API kullanma örnekleri için bkz. [Tahmin API’si başvurusu](https://go.microsoft.com/fwlink/?linkid=865445).
 
 ## <a name="get-the-url-and-prediction-key"></a>URL ve tahmin anahtarını alma
 
-[Özel Görüntü İşleme web sayfasından](https://customvision.ai) projenizi ve __Performans__ sekmesini seçin. __Tahmin anahtarı__ da dahil olmak üzere Tahmin API’sini kullanma hakkında bilgileri görüntülemek için __Tahmin URL__‘sini seçin. Bir Azure Kaynağına eklenen projeler için __Tahmin anahtarınıza__, __Anahtarlar__ bölümünde ilişkili Azure Kaynağı için [Azure Portalı](https://portal.azure.com) sayfasından da erişilebilir. Aşağıdaki bilgileri uygulamada kullanmak üzere kopyalayın:
+[Özel Görüntü İşleme web sayfasından](https://customvision.ai) projenizi ve __Performans__ sekmesini seçin. __Tahmin anahtarı__ da dahil olmak üzere Tahmin API’sini kullanma hakkında bilgileri görüntülemek için __Tahmin URL__‘sini seçin. Bir Azure kaynağına bağlı projeleri için __tahmin anahtar__ içinde bulunabilir [Azure portalında](https://portal.azure.com) altında ilişkili Azure kaynak sayfası __anahtarları__. Aşağıdaki bilgileri uygulamada kullanmak üzere kopyalayın:
 
 * __Görüntü dosyası__ kullanmak için __URL__.
 * __Tahmin anahtarı__ değeri.
@@ -40,7 +40,7 @@ Modelinizi eğittikten sonra görüntüleri Tahmin API’sine göndererek progra
 
 1. Visual Studio’dan yeni bir C# konsol uygulaması oluşturun.
 
-2. __Program.cs__ dosyasının gövdesi olarak aşağıdaki kodu kullanın.
+1. __Program.cs__ dosyasının gövdesi olarak aşağıdaki kodu kullanın.
 
     > [!IMPORTANT]
     > Aşağıdaki bilgileri değiştirin:

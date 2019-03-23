@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: cc0631052fa915ae946e791c907e405d70713ad2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e7617aec2739daa4f84bcecab060ae0f8e28fabe
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860576"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361600"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Öğretici: Bir Azure Machine Learning hizmeti ile görüntü sınıflandırma modeli eğitme
 
@@ -65,9 +65,11 @@ Aşağıdaki adımları tamamladıktan sonra Çalıştır **öğreticiler/img-s�
 
 ### <a name="server"></a>Kendi Jupyter notebook sunucusu kullanma
 
-Bilgisayarınızda yerel bir Jupyter not defteri sunucusu oluşturmak için aşağıdaki adımları kullanın.  Adımları tamamladıktan sonra Çalıştır **öğreticiler/img-sınıflandırma-bölüm 1-training.ipynb** dizüstü bilgisayar.
+Bilgisayarınızda yerel bir Jupyter not defteri sunucusu oluşturmak için aşağıdaki adımları kullanın. 
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+ Adımları tamamladıktan sonra Çalıştır **öğreticiler/img-sınıflandırma-bölüm 1-training.ipynb** dizüstü bilgisayar.
 
 ## <a name="start"></a>Geliştirme ortamınızı ayarlama
 

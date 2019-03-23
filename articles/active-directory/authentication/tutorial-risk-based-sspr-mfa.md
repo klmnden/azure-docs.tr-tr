@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e71247c9a6527bc7372af1a902028aae72bf4a73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 35039dc05103ac6528f668fd76e1372ed7cc0708
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162705"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370568"
 ---
 # <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Öğretici: Tetikleyici çok faktörlü kimlik doğrulaması ve parola değişiklikleri için risk olayları kullanın
 
@@ -61,7 +61,7 @@ Azure AD kimlik koruması, kullanıcılarınızın çok faktörlü kimlik doğru
    1. Bu ilkeyi ayarladığınızda tüm kullanıcılarınızın Multi-Factor Authentication kullanmaya hazırlanmak için gerekli yöntemleri kaydetmeleri gerekir.
 1. **Kaydet**’e tıklayın.
 
-   ![Azure AD Kimlik Koruması ile kullanıcıların oturum açma sırasında MFA kaydı yapmasını isteme](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
+   ![MFA için oturum açma işleminde kaydolmalarını iste](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
 
 ### <a name="enable-risk-based-password-changes"></a>Risk tabanlı parola değişikliğini etkinleştirme
 

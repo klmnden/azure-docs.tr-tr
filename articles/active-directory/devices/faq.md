@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 03/22/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaaad0d7351c398c9b2cc013f40d62461a2dd3f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f41e18b0ab546da87ea7a4a6d53bad370fefe670
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845539"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351754"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi hakkında SSS
 
-**S: Ben kısa bir süre önce cihazın kayıtlı. Azure portalındaki kullanıcı Bilgilerim altında cihazın neden göremiyorum? Ya da cihaz sahibinin katılmış cihazların hibrit Azure Active Directory (Azure AD) için yok olarak neden işaretlenmiş?**
+###<a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>S: Ben kısa bir süre önce cihazın kayıtlı. Azure portalındaki kullanıcı Bilgilerim altında cihazın neden göremiyorum? Ya da cihaz sahibinin katılmış cihazların hibrit Azure Active Directory (Azure AD) için yok olarak neden işaretlenmiş?
 
 **C:** Hibrit Azure AD'ye katılmış olan Windows 10 cihazları görünmüyor altında **kullanıcı cihazları**.
 Kullanım **tüm cihazlar** Azure portalında görünümü. Bir PowerShell de kullanabilirsiniz [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet'i.
@@ -38,7 +38,7 @@ Yalnızca aşağıdaki cihazlar altında listelenen **kullanıcı cihazları**:
 
 ---
 
-**S: İstemci cihaz kayıt durumu nedir olduğunu nasıl öğrenebilirim?**
+### <a name="q-how-do-i-know-what-the-device-registration-state-of-the-client-is"></a>S: İstemci cihaz kayıt durumu nedir olduğunu nasıl öğrenebilirim?
 
 **C:** Azure portalında Git **tüm cihazlar**. Cihaz için cihaz kimliğini kullanarak arama yapın. Birleştirme türü sütunu altındaki değerini denetleyin. Bazı durumlarda, cihaz sıfırlama görüntüsü yeniden oluşturulabildiği veya. Bu nedenle de cihazın aygıt kayıt durumunu denetlemek için önemlidir:
 
@@ -47,13 +47,13 @@ Yalnızca aşağıdaki cihazlar altında listelenen **kullanıcı cihazları**:
 
 ---
 
-**S: Azure portalındaki kullanıcı bilgileri altında cihaz kaydı görüyorum. Ve durum kayıtlı bir cihazda bakın. Doğru koşullu erişim kullanmanın ayarladığım?**
+### <a name="q-i-see-the-device-record-under-the-user-info-in-the-azure-portal-and-i-see-the-state-as-registered-on-the-device-am-i-set-up-correctly-to-use-conditional-access"></a>S: Azure portalındaki kullanıcı bilgileri altında cihaz kaydı görüyorum. Ve durum kayıtlı bir cihazda bakın. Doğru koşullu erişim kullanmanın ayarladığım?
 
 **C:** Tarafından gösterilen cihaz birleşim durumu **DeviceID**gerekir Azure AD'de durumuyla eşleşen ve koşullu erişim için herhangi bir değerlendirme ölçütleri karşılayan. Daha fazla bilgi için [gerektiren yönetilen cihazlar için koşullu erişim ile bulut uygulaması erişimi](../conditional-access/require-managed-devices.md).
 
 ---
 
-**S: Ben Azure portalında veya Windows PowerShell'i kullanarak Cihazınızı silindi. Ancak hala kayıtlı cihazdaki yerel durumu belirtiyor.**
+### <a name="q-i-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered"></a>S: Ben Azure portalında veya Windows PowerShell'i kullanarak Cihazınızı silindi. Ancak hala kayıtlı cihazdaki yerel durumu belirtiyor.
 
 **C:** Bu işlem, tasarım gereğidir. Cihaz, bulutta kaynaklara erişimi yok. 
 
@@ -75,7 +75,7 @@ Windows 10 ve Windows Server 2016'de, şirket içi Active Directory etki alanın
 
 ---
 
-**S: Yinelenen cihaz girişlerini Azure portalında neden görüyorum?**
+### <a name="q-why-do-i-see-duplicate-device-entries-in-the-azure-portal"></a>S: Yinelenen cihaz girişlerini Azure portalında neden görüyorum?
 
 **C:**
 
@@ -89,7 +89,7 @@ Windows 10 ve Windows Server 2016'de, şirket içi Active Directory etki alanın
 
 ---
 
-**S: Windows 10 cihaz kaydı, Azure AD'de TPM'ler FIPS modunda destekliyor mu?**
+### <a name="q-does-windows-10-device-registration-in-azure-ad-support-tpms-in-fips-mode"></a>S: Windows 10 cihaz kaydı, Azure AD'de TPM'ler FIPS modunda destekliyor mu?
 
 **C:** Hayır, şu anda Windows 10 cihaz kaydı için tüm cihaz durumları - hibrit Azure AD'ye katılma, Azure AD'ye katılmasını sağlamaya ve Azure AD kayıtlı - TPM'ler FIPS modunda desteklemez. Başarıyla katılın veya Azure AD'ye kaydettirmek için FIPS modundayken bu cihazlarda TPM'ler için kapatılması gerekir
 
@@ -106,7 +106,7 @@ Windows 10 ve Windows Server 2016'de, şirket içi Active Directory etki alanın
 
 ## <a name="azure-ad-join-faq"></a>Azure AD katılımı ile ilgili SSS
 
-**S: Nasıl ben bir Azure AD'ye katılmış yerel olarak cihazda ayrılma?**
+### <a name="q-how-do-i-unjoin-an-azure-ad-joined-device-locally-on-the-device"></a>S: Nasıl ben bir Azure AD'ye katılmış yerel olarak cihazda ayrılma?
 
 **C:** 
 - İçin hibrit Azure AD'ye katılan cihazlar otomatik kaydı Kapat emin olun. Ardından zamanlanmış görev cihazı yeniden kaydedin değil. Ardından, bir yönetici olarak bir komut istemi açın ve girin `dsregcmd.exe /debug /leave`. Veya toplu olarak ayrılma için birkaç cihaz arasında bir komut dosyası olarak şu komutu çalıştırın.
@@ -115,7 +115,7 @@ Windows 10 ve Windows Server 2016'de, şirket içi Active Directory etki alanın
 
 ---
 
-**S: Kullanıcılar Azure AD'de devre dışı veya silinmiş bir Azure AD'ye katılmış cihazların oturum açarak?**
+### <a name="q-can-my-users-sign-in-to-azure-ad-joined-devices-that-are-deleted-or-disabled-in-azure-ad"></a>S: Kullanıcılar Azure AD'de devre dışı veya silinmiş bir Azure AD'ye katılmış cihazların oturum açarak?
 
 **C:** Evet. Windows, önbelleğe alınan kullanıcı adı ve hatta ağ bağlantısı hızlıca erişmenizi önceden açmış kullanıcılar izin veren parola özelliği vardır. 
 
@@ -125,7 +125,7 @@ Daha önce oturum istemediğiniz Kullanıcılar Cihaz erişemez. Önbelleğe al�
 
 ---
 
-**S: Devre dışı bırakılan veya silinen kullanıcılar Azure AD'ye katılmış cihazlar için oturum açabilir?**
+### <a name="q-can-disabled-or-deleted-users-sign-in-to-azure-ad-joined-devices"></a>S: Devre dışı bırakılan veya silinen kullanıcılar Azure AD'ye katılmış cihazlar için oturum açabilir?
 
 **C:** Evet, ancak yalnızca sınırlı bir süreliğine. Bir kullanıcı silindi veya Azure AD'de devre dışı olduğunda Windows cihaza hemen bilinir. Bu nedenle önceden açmış kullanıcılar, Masaüstü önbelleğe alınan kullanıcı adı ve parola ile erişebilirsiniz. 
 
@@ -135,31 +135,31 @@ Daha önce oturum yaramadı silinmiş veya devre dışı bırakılmış kullanı
 
 ---
 
-**S: Neden kullanıcılarımın UPN değiştirdikten sonra sorunları Azure AD'ye katılmış cihazlarda gerekiyor?**
+### <a name="q-why-do-my-users-have-issues-on-azure-ad-joined-devices-after-changing-their-upn"></a>S: Neden kullanıcılarımın UPN değiştirdikten sonra sorunları Azure AD'ye katılmış cihazlarda gerekiyor?
 
 **C:** Şu anda, UPN değişiklikler Azure AD'ye katılmış cihazlarda tam olarak desteklenmemektedir. Bu nedenle Azure AD ile kimlik doğrulamasını UPN değişikliklerini sonra başarısız olur. Sonuç olarak, kullanıcılar SSO ve kullanıcıların cihazlarında koşullu erişim verir. Şu anda, kullanıcıların bu sorunu çözmek için yeni UPN kullanarak "Kullanıcı diğer" kutucuğunda Windows için oturum açmanız gerekir. Şu anda bu sorunu gidermeye çalışıyoruz. Ancak, kullanıcıların oturum Windows iş için Hello imzalama bu sorunla karşılaşmaya değil. 
 
 ---
 
-**S: Kullanıcılar cihazları Azure AD'ye katılmış yazıcıları arama yapamazsınız. Bu cihazlardan yazdırma nasıl etkinleştirebilirim?**
+### <a name="q-my-users-cant-search-printers-from-azure-ad-joined-devices-how-can-i-enable-printing-from-those-devices"></a>S: Kullanıcılar cihazları Azure AD'ye katılmış yazıcıları arama yapamazsınız. Bu cihazlardan yazdırma nasıl etkinleştirebilirim?
 
 **C:** Katılmış cihazların Azure AD'ye yazıcılar dağıtmak için bkz: [ön kimlik doğrulaması ile Windows Server karma bulut yazdırma dağıtma](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Hibrit bulut yazdırma dağıtmak için bir şirket içi Windows Server ihtiyacınız vardır. Bulut tabanlı yazdırma hizmeti şu anda kullanılamıyor. 
 
 ---
 
-**S: Nasıl bir uzak Azure AD'ye bağlanabilirim katılmış?**
+### <a name="q-how-do-i-connect-to-a-remote-azure-ad-joined-device"></a>S: Nasıl bir uzak Azure AD'ye bağlanabilirim katılmış?
 
 **C:** Bkz: [Azure Active Directory'ye katılmış uzak bir Bilgisayara Bağlan](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc).
 
 ---
 
-**S: Kullanıcılarım neden görüyorum *oraya buradan ulaşamazsınız*?**
+### <a name="q-why-do-my-users-see-you-cant-get-there-from-here"></a>S: Kullanıcılarım neden görüyorum *oraya buradan ulaşamazsınız*?
 
 **C:** Belirli cihaz durumu gerektirecek şekilde belirli bir koşullu erişim kuralları yapılandırabilir? Cihaz ölçütleri karşılamıyorsa, kullanıcıların engellenir ve bu iletiyi görürler. Koşullu erişim ilkesi kurallarını değerlendirin. Cihaz oluşmaması için ölçütleri karşıladığından emin olun.
 
 ---
 
-**S: Neden bazı kullanıcılarımın Azure çok faktörlü kimlik doğrulama istemleri Azure AD'ye katılmış cihazlarda elde etmezsiniz?**
+### <a name="q-why-dont-some-of-my-users-get-azure-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>S: Neden bazı kullanıcılarımın Azure çok faktörlü kimlik doğrulama istemleri Azure AD'ye katılmış cihazlarda elde etmezsiniz?
 
 **C:** Bir kullanıcı katılın veya multi-Factor Authentication'ı kullanarak bir cihazı Azure AD'ye kaydetme. Daha sonra cihaz söz konusu kullanıcı için güvenilir bir ikinci faktör olur. Aynı kullanıcı oturum açtığında cihaza ve uygulamaya erişen her Azure AD cihaz ikinci bir faktör olarak dikkate alır. Bu ek çok faktörlü kimlik doğrulama istemleri olmadan uygulamalara sorunsuz bir şekilde erişmek bu kullanıcı sağlar. 
 
@@ -171,7 +171,7 @@ Bu davranışı:
 
 ---
 
-**S: Neden bir *kullanıcı adı veya parola yanlış* miyim şimdi katıldı Azure AD'ye ileti bir cihaz için?**
+### <a name="q-why-do-i-get-a-username-or-password-is-incorrect-message-for-a-device-i-just-joined-to-azure-ad"></a>S: Neden bir *kullanıcı adı veya parola yanlış* miyim şimdi katıldı Azure AD'ye ileti bir cihaz için?
 
 **C:** Bu senaryo için yaygın nedenler aşağıda belirtilmiştir:
 
@@ -185,25 +185,25 @@ Bu davranışı:
 
 ---
 
-**S: Neden görüyorum *hata... bir hata oluştu!* Azure AD'ye denediğimde iletişim katılın Bilgisayarımda?**
+### <a name="q-why-do-i-see-the-oops-an-error-occurred-dialog-when-i-try-to-azure-ad-join-my-pc"></a>S: Neden görüyorum *hata... bir hata oluştu!* Azure AD'ye denediğimde iletişim Bilgisayarımda katılacak mısınız?
 
 **C:** Intune ile Azure Active Directory kayıt ayarladığınızda bu hata oluşur. Azure AD'ye katılmasını sağlamaya çalışan kullanıcının doğru Intune lisansı atanmış olduğundan emin olun. Daha fazla bilgi için [Windows cihazları için kaydı ayarlama](https://docs.microsoft.com/intune/windows-enroll).  
 
 ---
 
-**S: Neden hata bilgileri almadım olsa da Azure AD'ye my girişimi bir bilgisayar başarısız katılmak?**
+### <a name="q-why-did-my-attempt-to-azure-ad-join-a-pc-fail-although-i-didnt-get-any-error-information"></a>S: Neden hata bilgileri almadım olsa da Azure AD'ye my girişimi bir bilgisayar başarısız katılmak?
 
 **C:** Olası bir nedeni, cihaza yerleşik yerel yönetici hesabını kullanarak oturum açtığını ' dir. Kurulumu tamamlamak için Azure Active Directory join kullanmadan önce farklı bir yerel hesap oluşturun. 
 
 ---
 
-**Soru: bizim Windows 10 cihazlarda mevcut kuruluş P2P erişim MS sertifikalar nelerdir?**
+### <a name="qwhat-are-the-ms-organization-p2p-access-certificates-present-on-our-windows-10-devices"></a>Soru: bizim Windows 10 cihazlarda mevcut kuruluş P2P erişim MS sertifikalar nelerdir?
 
 **C:** Kuruluş P2P erişim MS sertifikalarının her ikisi de Azure AD, Azure AD'ye katılmış ve hibrit Azure AD'ye katılmış cihazlar. Bu sertifikalar, Uzak Masaüstü senaryoları için aynı kiracıda cihazları arasında güven etkinleştirmek için kullanılır. Cihaza bir sertifikanın verildiği ve başka bir kullanıcıya verilir. Cihaz sertifika varsa `Local Computer\Personal\Certificates` ve bir gün boyunca geçerlidir. (Yeni bir sertifika vererek) bu sertifikanın yenilenmesi cihaz Azure AD'ye hala etkin değilse. Kullanıcı sertifikası varsa `Current User\Personal\Certificates` ve bu sertifika aynı zamanda bir gün boyunca geçerlidir, ancak bir kullanıcı başka bir Azure AD alanına katılmış cihaz bir Uzak Masaüstü oturumu çalıştığında üzerine verilir. Bitiş tarihinde yenilenmez. Hem bu sertifikaların mevcut MS Kuruluş P2P erişim sertifikası kullanarak verilen `Local Computer\AAD Token Issuer\Certificates`. Bu sertifika, cihaz kaydı sırasında Azure AD tarafından verilir. 
 
 ---
 
-**Q:Why bizim Windows 10 cihazlarda MS-Kuruluş-P2P-erişim tarafından verilen birden fazla süresi dolmuş sertifikaları görüyor musunuz? Bunları nasıl silebilir miyim?**
+### <a name="qwhy-do-i-see-multiple-expired-certificates-issued-by-ms-organization-p2p-access-on-our-windows-10-devices-how-can-i-delete-them"></a>Q:Why bizim Windows 10 cihazlarda MS-Kuruluş-P2P-erişim tarafından verilen birden fazla süresi dolmuş sertifikaları görüyor musunuz? Bunları nasıl silebilir miyim?
 
 **C:** Windows 10 sürüm 1709 ve daha düşük burada MS Kuruluş P2P erişim süresi dolmuş sertifikaları mevcut bilgisayar deposunda şifreleme sorunları nedeniyle devam tanımlanan bir sorun oluştu. Süresi dolmuş sertifikaları çok sayıda işleyemiyor tüm VPN istemcileri (örneğin Cisco AnyConnect) kullanıyorsanız, kullanıcılarınızın ağ bağlantısına sahip bir sorunla karşılaşırsanız. Bu tür süresi dolmuş kuruluş P2P erişim MS sertifikaları otomatik olarak silmek için Windows 10, 1803 sürümde bu sorunu düzeltildi. Windows 10, 1803 cihazlarınızı güncelleştirerek bu sorunu çözebilir. Güncelleştirilecek bulamıyorsanız, olumsuz bir etkisi olmadan bu sertifikaları silebilirsiniz.  
 
@@ -212,7 +212,7 @@ Bu davranışı:
 
 ## <a name="hybrid-azure-ad-join-faq"></a>Hibrit Azure AD katılımı ile ilgili SSS
 
-**S: Sorun giderme nereden bulabilirim hibrit Azure AD'ye katılma hatalarını tanılamak için bilgi?**
+### <a name="q-where-can-i-find-troubleshooting-information-to-diagnose-hybrid-azure-ad-join-failures"></a>S: Sorun giderme nereden bulabilirim hibrit Azure AD'ye katılma hatalarını tanılamak için bilgi?
 
 **C:** Sorun giderme bilgileri için şu makalelere bakın:
 
@@ -220,7 +220,7 @@ Bu davranışı:
 
 - [Alt düzey cihazları katılmış karma Azure Active Directory sorun giderme](troubleshoot-hybrid-join-windows-legacy.md)
  
-**S: Yinelenen bir Azure AD neden görüyorum my Windows 10 hibrit Azure AD'ye kayıtlı kaydı alanına katılmış cihaz Azure AD'ye cihaz listesinde?**
+### <a name="q-why-do-i-see-a-duplicate-azure-ad-registered-record-for-my-windows-10-hybrid-azure-ad-joined-device-in-the-azure-ad-devices-list"></a>S: Yinelenen bir Azure AD neden görüyorum my Windows 10 hibrit Azure AD'ye kayıtlı kaydı alanına katılmış cihaz Azure AD'ye cihaz listesinde?
 
 **C:** Kullanıcılarınızın etki alanına katılmış bir cihazda uygulamalar için kendi hesapları eklediğinizde, bunlar ile istenebilir **hesabı eklemek için Windows?** Olacaklardır **Evet** satırına cihazı Azure AD'ye kaydeder. Güven türü kayıtlı Azure AD işaretlenir. Hibrit Azure AD'ye katılma kuruluşunuzda etkinleştirdikten sonra cihazın Azure AD'ye katılmış karma de alır. Aynı cihaz için bundan sonra iki cihaz durumu gösterilir. 
 
@@ -229,19 +229,19 @@ Hibrit Azure AD'ye katılma Azure AD'ye kayıtlı durumu daha önceliklidir. Bu 
 
 ---
 
-**S: Neden kullanıcılarımın UPN değiştirdikten sonra sorunları Windows 10 hibrit Azure AD'ye katılmış cihazlarda gerekiyor?**
+### <a name="q-why-do-my-users-have-issues-on-windows-10-hybrid-azure-ad-joined-devices-after-changing-their-upn"></a>S: Neden kullanıcılarımın UPN değiştirdikten sonra sorunları Windows 10 hibrit Azure AD'ye katılmış cihazlarda gerekiyor?
 
 **C:** Şu anda UPN değişiklikler ile hibrit Azure AD'ye katılmış cihazları tam olarak desteklenmemektedir. Kullanıcıların cihazda oturum açın ve kullanıcıların şirket içi uygulamalara karşın, bir UPN değiştirdikten sonra Azure AD ile kimlik doğrulaması başarısız olur. Sonuç olarak, kullanıcılar SSO ve kullanıcıların cihazlarında koşullu erişim verir. Şu anda, cihaz ("dsregcmd /leave" yükseltilmiş ayrıcalıklarla çalıştır) Azure AD'den ayrılma gerekir ve yeniden katılabilir (otomatik olarak gerçekleşir) sorunu gidermek için. Şu anda bu sorunu gidermeye çalışıyoruz. Ancak, kullanıcıların oturum Windows iş için Hello imzalama bu sorunla karşılaşmaya değil. 
 
 ---
 
-**S: Windows 10 hibrit Azure AD'ye katılmış cihazları görebilmesi için bulut kaynaklarına erişim elde etmek için etki alanı denetleyicisi gerektiriyor mu?**
+### <a name="q-do-windows-10-hybrid-azure-ad-joined-devices-require-line-of-sight-to-the-domain-controller-to-get-access-to-cloud-resources"></a>S: Windows 10 hibrit Azure AD'ye katılmış cihazları görebilmesi için bulut kaynaklarına erişim elde etmek için etki alanı denetleyicisi gerektiriyor mu?
 
 **C:** Kullanıcının parolasını değiştirildiğinde dışında genellikle Hayır. Onra Windows 10 hibrit Azure AD'ye katılımı tamamlandıktan ve kullanıcı en az bir kez oturum açtıktan, cihaz görebilmesi için bulut kaynaklarına erişmek için etki alanı denetleyicisi gerektirmez. Windows 10 alabilirsiniz çoklu oturum açma Azure AD uygulamalarına her yerden bir parola değiştirildiğinde dışında bir internet bağlantısı ile. Bir parolayı değiştirdikten sonra bile, bunlar görebilmesi için kendi etki alanı denetleyicisi olmasa bile tek almak için oturum açın. Windows iş için Hello devam eden kullanıcıların Azure AD uygulamaları için oturum. 
 
 ---
 
-**S: Bir kullanıcı parolasını değiştirene ve Windows 10 hibrit Azure AD'ye için oturum açma girişiminde ne olur, kurumsal ağ dışından cihaz alanına?**
+### <a name="q-what-happens-if-a-user-changes-their-password-and-tries-to-login-to-their-windows-10-hybrid-azure-ad-joined-device-outside-the-corporate-network"></a>S: Bir kullanıcı parolasını değiştirene ve Windows 10 hibrit Azure AD'ye için oturum açma girişiminde ne olur, kurumsal ağ dışından cihaz alanına?
 
 **C:** Bir parola kurumsal ağ dışından (örneğin, Azure AD SSPR kullanarak) olarak değiştirilirse, yeni parola ile kullanıcı oturum açma başarısız olur. Hibrit Azure AD'ye katılmış cihazlar için şirket içi Active Directory birincil yetkilisidir. Bir cihaz görebilmesi için etki alanı denetleyicisine sahip olmadığı durumlarda, yeni parolayı doğrulayamadı. Bu nedenle, etki alanı denetleyicisi (ya da VPN ya da şirket ağında olan aracılığıyla) ile bağlantı kurmak kullanıcı gereken yeni parola cihazla oturum açabilir gelmeden önce. Aksi takdirde, bunlar, eski parolayla nedeniyle Windows önbelleğe alınmış oturum açma özelliği yalnızca kaydolabilirsiniz. Ancak, eski parolayı belirteç isteği sırasında Azure AD tarafından geçersiz kılındı ve bu nedenle, üzerinde çoklu oturum açma engeller ve tüm cihaz tabanlı koşullu erişim ilkeleri başarısız olur. Windows Hello için iş kullanırsanız, bu sorun oluşmaz. 
 
@@ -250,11 +250,11 @@ Hibrit Azure AD'ye katılma Azure AD'ye kayıtlı durumu daha önceliklidir. Bu 
 
 ## <a name="azure-ad-register-faq"></a>Azure AD kaydı SSS
 
-**S: Android veya iOS KCG cihazları kaydedebilir miyim?**
+### <a name="q-can-i-register-android-or-ios-byod-devices"></a>S: Android veya iOS KCG cihazları kaydedebilir miyim?
 
 **C:** Evet, ancak yalnızca Azure cihaz Kayıt Hizmeti'ni ve karma müşteriler için. Şirket cihaz kaydı hizmeti Active Directory Federasyon Hizmetleri'nde (AD FS) ile desteklenmiyor.
 
-**S: Bir macOS cihazı nasıl kaydedebilir miyim?**
+### <a name="q-how-can-i-register-a-macos-device"></a>S: Bir macOS cihazı nasıl kaydedebilir miyim?
 
 **C:** Aşağıdaki adımları uygulayın:
 

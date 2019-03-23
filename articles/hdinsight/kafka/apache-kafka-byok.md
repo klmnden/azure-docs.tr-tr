@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 26e4b921b4050efa5217e3b599b9dc942a003090
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 61a4be19000265910493963db9f29df143a7e21c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173932"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360359"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>(Önizleme) Azure HDInsight üzerinde Apache Kafka için kendi anahtarını Getir
 
@@ -26,6 +26,8 @@ BYOK şifreleme, ek ücret ödemeden küme oluşturma sırasında işlenen tek a
 Kafka kümesinin (Kafka tarafından saklanan çoğaltmaları dahil) için tüm iletiler bir simetrik veri şifreleme anahtarı (DEK ile) şifrelenir. DEK, anahtar Kasası'ndaki anahtar şifreleme anahtarı (KEK) kullanarak korunur. Şifreleme ve şifre çözme işlemleri tamamen Azure HDInsight tarafından işlenir. 
 
 Anahtarları key vault'ta güvenli bir şekilde döndürmek için Azure portal veya Azure CLI'yı kullanabilirsiniz. Bir anahtar döndürdüğünde, dakikalar içinde yeni bir anahtar kullanarak HDInsight Kafka kümesinin başlatır. Fidye yazılımı senaryoları ve yanlışlıkla silme durumlarına karşı korumak "Temizleme değil" ve "Geçici silme" anahtar koruma özelliklerini etkinleştirin. Anahtarları olmadan bu koruma özellikleri desteklenmez.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="get-started-with-byok"></a>BYOK ile çalışmaya başlama
 
@@ -99,7 +101,7 @@ Anahtarları key vault'ta güvenli bir şekilde döndürmek için Azure portal v
 
 **Anahtarları silinirse nasıl küme kurtarma gerçekleştirebilir miyim?**
 
-   Yalnızca "Yumuşak etkin Sil" anahtarları desteklendiğinden, anahtar kasasındaki anahtarlar geri yüklediyseniz, küme anahtarları erişebilmesi. Bir Azure Key Vault anahtarını geri yüklemek için bkz: [geri yükleme-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey).
+   Yalnızca "Yumuşak etkin Sil" anahtarları desteklendiğinden, anahtar kasasındaki anahtarlar geri yüklediyseniz, küme anahtarları erişebilmesi. Bir Azure Key Vault anahtarını geri yüklemek için bkz: [geri yükleme-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey).
 
 **Üretici/tüketici uygulamaları BYOK küme ve BYOK küme ile aynı anda çalışma sahip olabilir miyim?**
 

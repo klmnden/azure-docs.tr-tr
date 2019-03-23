@@ -1,7 +1,7 @@
 ---
-title: Kullanıcı amaçları
+title: Hedefler
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Kullanıcı eylem gerçekleştirmek istediği ya da bir amacı bir görevi gösterir. Bir amaç veya hedef kullanıcının utterance ifade edilen olduğundan.
+description: Tek bir hedefi temsil eden bir görev veya eylemi kullanıcı gerçekleştirmek istiyor. Bir amaç veya hedef kullanıcının utterance ifade edilen olduğundan. Kullanıcıların uygulamanızda almak istediğiniz eylemlerine karşılık gelen bir ıntents kümesi tanımlar.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ae1dd16e3296c11d6bce6ea623f590deaee8f65d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e635a11cb99d11befc40703d9f5d2abec8559632
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871362"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371120"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>LUIS uygulamanızda hedefleri hakkında kavramları
 
@@ -31,7 +31,7 @@ Uygulama amaçları seyahat   |   Örnek konuşmalar   |
  CheckWeather | "Gibi de Boston hava nedir?" <br/> "Bu hafta için hava durumu tahminini Göster" |
  None         | "Bana bir tanımlama bilgisi tarif Al"<br>"Lakers win?" |
 
-Tüm uygulamalar önceden tanımlanmış bir hedefle gelir "[hiçbiri](#none-intent-is-fallback-for-app)" geri dönüş hedefi olduğu. 
+Tüm uygulamalar önceden tanımlanmış bir hedefle gelir "[hiçbiri](#none-intent-is-fallback-for-app)", geri dönüş hedefi olduğu. 
 
 ## <a name="prebuilt-domains-provide-intents"></a>Önceden oluşturulmuş etki alanları hedefleri belirtin
 Tanımladığınız ıntents ek olarak, önceden oluşturulmuş hedefleri önceden oluşturulmuş etki alanlarından birini kullanabilirsiniz. Daha fazla bilgi için [LUIS uygulamalarında önceden oluşturulmuş etki alanlarını](luis-how-to-use-prebuilt-domains.md) ıntents uygulamanızda kullanmak için önceden oluşturulmuş bir etki alanından özelleştirme hakkında bilgi edinmek için.
@@ -57,7 +57,11 @@ Benzer şekilde niyetli [konuşma](luis-concept-utterance.md) için tek bir hede
 
 [Önceden oluşturulmuş etki alanları](luis-how-to-use-prebuilt-domains.md) konuşma amaçlarıyla sahip.  
 
-## <a name="none-intent-is-fallback-for-app"></a>Hedefi hiçbir uygulama için geri dönüş
+## <a name="none-intent"></a>Amaç yok
+
+**Hiçbiri** hedefi, her uygulama için önemlidir ve sıfır konuşma olmamalıdır.
+
+### <a name="none-intent-is-fallback-for-app"></a>Hedefi hiçbir uygulama için geri dönüş
 **Hiçbiri** amacı olan bir genel ya da geri dönüş hedefi. LUIS uygulama etki alanında (konu alanı), önemli değildir. Konuşma öğretmek için kullanılır. **Hiçbiri** amacı, uygulamadaki toplam konuşma yüzde 20'si ile 10 arasındaki olmalıdır. Hiçbiri boş bırakmayın. 
 
 ### <a name="none-intent-helps-conversation-direction"></a>Hedefi yok konuşma yönü de yardımcı olur.
@@ -76,6 +80,12 @@ Ne tür bir konuşma bırakılır kullanmışsanız hedefi? Belirli bir şey ile
 
 ## <a name="negative-intentions"></a>Negatif amaçları 
 Negatif ve pozitif amaçları gibi belirlemek istiyorsanız "miyim **istediğiniz** bir araba" ve "ı **yoksa** bir araba istediğiniz", iki hedefleri (bir pozitif ve negatif bir) oluşturma ve için uygun Konuşma ekleme Her. Tek bir hedefi oluşturma ve iki farklı pozitif ve negatif koşulları bir varlık olarak işaretleyin.  
+
+## <a name="intents-and-patterns"></a>Hedefleri ve desenleri
+
+Kısmen veya tamamen normal bir ifade olarak tanımlanan örnek konuşma varsa kullanmayı [normal ifade varlık](luis-concept-entity-types.md#regular-expression-entity) ile eşleştirilmiş bir [deseni](luis-concept-patterns.md). 
+
+Böylece desenle eşleşen bir normal ifade varlık kullanarak verileri ayıklama garanti eder. Desen eşleştirme, tam bir hedefi döndürülen garanti eder. 
 
 ## <a name="intent-balance"></a>Intent bakiyesi
 Uygulama etki alanı hedefleri konuşma dengesi her hedefi arasında olmalıdır. 10 Konuşma ile bir hedefi ve 500 Konuşma ile başka bir amacı yoktur. Bu dengeli değil. Bu durum varsa, birçok hedefleri halinde yeniden, görmek için 500 konuşma amacıyla gözden geçirin. bir [deseni](luis-concept-patterns.md). 
@@ -96,6 +106,8 @@ LUIS ve soru-cevap Oluşturucu uygulamalarla birleştirme hakkında daha fazla b
 
 ### <a name="request-help-for-apps-with-significant-number-of-intents"></a>Önemli sayıda hedefleri olan uygulamalar için yardım iste
 Intents sayısını azaltmayı ya da birden çok uygulamalarda, hedefleri bölme sizin için işe yaramazsa, desteğe başvurun. Destek Hizmetleri Azure aboneliğinize dahildir, başvurun [Azure teknik desteğine](https://azure.microsoft.com/support/options/). 
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

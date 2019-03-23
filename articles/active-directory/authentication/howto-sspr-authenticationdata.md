@@ -11,18 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 580c9080bb2b019e120ea57e5fe4444a71c24e76
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5a0d7edb6c7faafcad55e827c2d9e3d2eeea40f5
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314799"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371375"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Son kullanıcı kaydı istemeden parola sıfırlamayı dağıtma
 
 Azure Active Directory (Azure AD) Self Servis parola sıfırlama (SSPR) dağıtmak için kimlik doğrulama verilerini mevcut olması gerekir. Bazı kuruluşların kullanıcıları kendi kimlik doğrulama verilerini girin vardır. Ancak birçok kuruluşun Active Directory'de zaten var. veri ile eşitlemek tercih edin. Azure AD'ye eşitlenmiş veriler kullanılabilir hale gelir ve SSPR, kullanıcı etkileşimi gerektirmeden:
-   * Şirket içi dizininizdeki verileri düzgün bir şekilde biçimlendirin.
-   * Yapılandırma [hızlı ayarları kullanarak Azure AD Connect](../hybrid/how-to-connect-install-express.md).
+
+* Şirket içi dizininizdeki verileri düzgün bir şekilde biçimlendirin.
+* Yapılandırma [hızlı ayarları kullanarak Azure AD Connect](../hybrid/how-to-connect-install-express.md).
 
 Düzgün çalışması için telefon numaraları biçiminde olmalıdır *+ CountryCode PhoneNumber*, örneğin, + 1 4255551234.
 
@@ -46,7 +47,7 @@ Bir kullanıcı kullanıcıdan birincil telefonu numarasını doğruladıktan so
 
 Genel yönetici, aşağıdaki ekran görüntüsünde gösterilen şekilde bir kullanıcı için kimlik doğrulaması iletişim bilgileri el ile ayarlayabilirsiniz.
 
-![lgili kişi][Contact]
+![Kimlik doğrulaması, Azure AD'de bir kullanıcı hakkında bilgiler başvurun][Contact]
 
 Telefon alan doldurulur ve cep telefonu SSPR ilkesinde etkin kullanıcı parola sıfırlama kayıt sayfasında ve sırasında parola sıfırlama iş akışı görürsünüz.
 
@@ -84,7 +85,7 @@ Başlamak için yapmanız [Azure AD PowerShell modülünü indirip](https://msdn
 
 #### <a name="set-the-authentication-data-with-powershell-version-1"></a>PowerShell sürüm 1 ile kimlik doğrulama verilerini ayarlama
 
-```
+```PowerShell
 Connect-MsolService
 
 Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
@@ -96,7 +97,7 @@ Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("emai
 
 #### <a name="read-the-authentication-data-with-powershell-version-1"></a>PowerShell sürüm 1 ile kimlik doğrulama verilerini okuyun
 
-```
+```PowerShell
 Connect-MsolService
 
 Get-MsolUser -UserPrincipalName user@domain.com | select AlternateEmailAddresses
@@ -110,7 +111,7 @@ Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,Mobi
 
 Okunacak **kimlik doğrulama telefonu** ve **kimlik doğrulama e-posta** PowerShell sürüm 1'i kullandığınızda, aşağıdaki komutları kullanın:
 
-```
+```PowerShell
 Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select PhoneNumber
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
@@ -122,7 +123,7 @@ Başlamak için yapmanız [Azure AD sürüm 2 PowerShell modülünü indirip](ht
 
 Install-Module destekleyen yeni sürümlerinden PowerShell hızlı bir şekilde yüklemek için aşağıdaki komutları çalıştırın. (İlk satır modül zaten yüklü olup olmadığını denetler.)
 
-```
+```PowerShell
 Get-Module AzureADPreview
 Install-Module AzureADPreview
 Connect-AzureAD
@@ -130,7 +131,7 @@ Connect-AzureAD
 
 #### <a name="set-the-authentication-data-with-powershell-version-2"></a>PowerShell sürüm 2 ile kimlik doğrulama verilerini ayarlama
 
-```
+```PowerShell
 Connect-AzureAD
 
 Set-AzureADUser -ObjectId user@domain.com -OtherMails @("email@domain.com")
@@ -142,7 +143,7 @@ Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mo
 
 #### <a name="read-the-authentication-data-with-powershell-version-2"></a>PowerShell sürüm 2 ile kimlik doğrulama verilerini okuyun
 
-```
+```PowerShell
 Connect-AzureAD
 
 Get-AzureADUser -ObjectID user@domain.com | select otherMails

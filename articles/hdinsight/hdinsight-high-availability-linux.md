@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 84251b16d91ca74e11298c7aa54c9a7a8b7fd6d6
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: ca6b072ba81f55802bc01d61ed44b06680cedbb2
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576727"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58362008"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Kullanılabilirliği ve güvenilirliği HDInsight Apache Hadoop kümelerini
 
@@ -248,6 +248,8 @@ Ambari Web kullanıcı arabirimini (örneğin, YARN için) günlüklerini görü
 
 ## <a name="how-to-configure-the-node-size"></a>Düğüm boyutunu yapılandırma
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Bir düğümün boyutu yalnızca küme oluşturma sırasında seçilir. HDInsight üzerinde farklı VM boyutlarının listesini bulabilirsiniz [HDInsight fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 Bir küme oluştururken, düğümlerin boyutunu belirtebilirsiniz. Aşağıdaki bilgileri boyutu kullanarak belirleme konusunda rehberlik sağlar [Azure portalında][preview-portal], [Azure PowerShell][azure-powershell]ve [Azure Klasik CLI][azure-cli]:
@@ -258,7 +260,7 @@ Bir küme oluştururken, düğümlerin boyutunu belirtebilirsiniz. Aşağıdaki 
 
 * **Azure Klasik CLI**: Kullanırken `azure hdinsight cluster create` komutunu kullanarak baş, çalışan ve ZooKeeper düğümleri boyutu ayarlayabileceğiniz `--headNodeSize`, `--workerNodeSize`, ve `--zookeeperNodeSize` parametreleri.
 
-* **Azure PowerShell**: Kullanırken `New-AzureRmHDInsightCluster` cmdlet'ini kullanarak baş, çalışan ve ZooKeeper düğümleri boyutunu ayarlayabilirsiniz `-HeadNodeVMSize`, `-WorkerNodeSize`, ve `-ZookeeperNodeSize` parametreleri.
+* **Azure PowerShell**: Kullanırken `New-AzHDInsightCluster` cmdlet'ini kullanarak baş, çalışan ve ZooKeeper düğümleri boyutunu ayarlayabilirsiniz `-HeadNodeVMSize`, `-WorkerNodeSize`, ve `-ZookeeperNodeSize` parametreleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

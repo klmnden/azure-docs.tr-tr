@@ -1,6 +1,6 @@
 ---
-title: .NET API - Azure Search kullanarak kod içinde bir dizin oluşturun
-description: Azure Search .NET SDK'sını kullanarak bir tam metin arama yapılabilir bir dizin oluşturmayı öğrenin ve C# örnek kodu.
+title: Listedeki bir dizin oluşturma C# -Azure Search
+description: Tam metin arama yapılabilir bir dizin içinde oluşturmayı öğrenin C# Azure Search .NET SDK'sını kullanarak.
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -9,13 +9,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/20/2019
-ms.openlocfilehash: dbaac1478fdbf1b42fc6b597c3a5c541e007e413
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/22/2019
+ms.openlocfilehash: a5861faaf26962d34d1c356e29dce1be40f8716b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287154"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370593"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Hızlı Başlangıç: 1 - Azure Search dizini oluşturmaC#
 
@@ -23,7 +23,7 @@ Bu makalede oluşturma işleminde size kılavuzluk eder [Azure Search dizini](se
 
 > [!div class="checklist"]
 > * Oluşturma bir [ `SearchServiceClient` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) bir arama hizmetine bağlanmak için nesne.
-> * Oluşturma bir [ `Index` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) nesnesini parametre olarak geçmesine `Indexes.Create`.
+> * Oluşturma bir [ `Index` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) nesnesi bir parametre olarak geçmesine `Indexes.Create`.
 > * Çağrı `Indexes.Create` metodunda `SearchServiceClient` göndermek için `Index` bir hizmet.
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -32,7 +32,7 @@ Bu makalede oluşturma işleminde size kılavuzluk eder [Azure Search dizini](se
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), herhangi bir sürümü. Örnek kodu ve yönergeleri ücretsiz Community edition üzerinde test edilmiştir.
 
-Bir URL uç noktasını ve yönetici, arama hizmetinizin api anahtarı. İkisini de içeren bir arama hizmeti oluşturulur. Bu nedenle aboneliğinize Azure Search hizmetini eklediyseniz gerekli bilgileri almak için aşağıdaki adımları izleyin:
+Yönetici ve URL uç noktasını alın, arama hizmetinizin api anahtarı. İkisini de içeren bir arama hizmeti oluşturulur. Bu nedenle aboneliğinize Azure Search hizmetini eklediyseniz gerekli bilgileri almak için aşağıdaki adımları izleyin:
 
   1. Azure portalında arama hizmetinizin **genel bakış** sayfa olduğunda URL'yi alın. Örnek uç nokta `https://mydemo.search.windows.net` şeklinde görünebilir.
 
@@ -200,7 +200,9 @@ serviceClient.Indexes.Delete("hotels");
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu hızlı başlangıçta, alan veri türleri ve davranışları tanımlar bir şemasını temel alan boş bir Azure Search dizini oluşturuldu. Bu serideki sonraki hızlı dizini ile aranabilir içeriği yüklemek nasıl etkinleştireceğinizi de açıklar.
+Bu hızlı başlangıçta, alan veri türleri ve davranışları tanımlar bir şemasını temel alan boş bir Azure Search dizini oluşturuldu. Dizin, bir ad ve öznitelikli alanlar koleksiyonu oluşan bir "tam kemikler" dizindir. Daha gerçekçi bir dizini gibi diğer öğeleri içerir [Puanlama profilleri](index-add-scoring-profiles.md), [öneri Araçları](index-add-suggesters.md) typeahead desteği [eş anlamlılar](search-synonyms.md)ve büyük olasılıkla [ Özel çözümleyiciler](index-add-custom-analyzers.md). Temel iş akışı anladıktan sonra bu özellikleri yeniden ziyaret öneririz.
+
+Bu serideki sonraki hızlı dizini ile aranabilir içeriği yüklemek nasıl etkinleştireceğinizi de açıklar.
 
 > [!div class="nextstepaction"]
 > [Kullanarak bir Azure Search dizini için veri yüklemeC#](search-import-data-dotnet.md)

@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: ca49cb65331373832b00b8489d731d51e8a8e004
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0ee49299dbbe8095ef98be51dc8619c28891abc5
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182923"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361396"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Öğretici: Regresyon model için verileri hazırlama
 
@@ -58,7 +58,7 @@ Aşağıdaki adımları tamamladıktan sonra Çalıştır **öğreticiler/regres
 
 Bilgisayarınızda yerel bir Jupyter not defteri sunucusu oluşturmak için aşağıdaki adımları kullanın.  Adımları tamamladıktan sonra Çalıştır **öğreticiler/regresyon-bölüm 1-verileri-prep.ipynb** dizüstü bilgisayar.
 
-1. Tamamlamak [Azure Machine Learning Python hızlı](quickstart-create-workspace-with-python.md) Miniconda ortamı oluşturmak için.  Atlayabilirsiniz **çalışma alanı oluşturma** istediğiniz, ancak bunun için ihtiyacınız olacak bölümünde [2. bölüm](tutorial-auto-train-models.md) Bu öğretici serisinin.
+1. Tam yükleme adımları [ [Azure Machine Learning Python hızlı](quickstart-run-local-notebook.md) ](setup-create-workspace.md#python) Miniconda ortamı oluşturmak için.  Atlayabilirsiniz **çalışma alanı oluşturma** istediğiniz, ancak bunun için ihtiyacınız olacak bölümünde [2. bölüm](tutorial-auto-train-models.md) Bu öğretici serisinin.
 1. Veri hazırlığı SDK'yı kullanarak ortamınıza yükleyin `pip install azureml-dataprep`.
 1. [GitHub deposunu](https://aka.ms/aml-notebooks) kopyalayın.
 
@@ -70,17 +70,18 @@ Bilgisayarınızda yerel bir Jupyter not defteri sunucusu oluşturmak için aşa
 
     ```shell
     jupyter notebook
+    ```
 
-## <a name="start"></a>Set up your development environment
+## <a name="start"></a>Geliştirme ortamınızı ayarlama
 
-All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+Geliştirme çalışmanızdaki tüm kurulum bir Python not defterinde gerçekleştirilebilir. Kurulumu, aşağıdaki eylemleri içerir:
 
-* Install the SDK
-* Import Python packages
+* SDK yükle
+* Python paketlerini içeri aktarma
 
-### Install and import packages
+### <a name="install-and-import-packages"></a>Yükleme ve paketleri içeri aktarma
 
-Use the following to install necessary packages if you don't already have them.
+Bunları henüz yoksa, gerekli paketleri yüklemek için aşağıdakileri kullanın.
 
 ```shell
 pip install azureml-dataprep

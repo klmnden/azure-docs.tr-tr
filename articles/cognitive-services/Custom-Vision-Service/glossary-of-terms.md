@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/08/2017
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: e659367ae13026dbe48ed681d0a68058d686e3ec
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3530dbfe15f6dbdf481df70de6d03979750aa38e
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884360"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352111"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Özel görüntü işleme hizmeti için terimler sözlüğü
 
-Özel görüntü işleme hizmeti ve bunların anlamları kullanılan bazı terimleri aşağıda verilmiştir.
+Özel görüntü işleme hizmeti yaygın olarak kullanılan bazı terimleri şunlardır:
 
 ## <a name="classifier"></a>Sınıflandırıcısı
 
@@ -37,33 +37,21 @@ Bir proje oluşturduğunuzda, bu proje için "etki alanı" seçin. Etki alanı b
 
 Tarafından üretilen modellerini **compact etki alanları** ile yineleme dışarı aktarma işlevi dışarı aktarılabilir. Mobil cihazlarda gerçek zamanlı sınıflandırma kısıtlamaları için iyileştirilmiştir. Sıkıştırılmış bir etki alanı ile oluşturulan sınıflandırıcılar biraz daha az doğru eğitim verilerini aynı miktarda sahip standart bir etki alanı. Artırabilen bunlar gerçek zamanlı yerel olarak çalıştırılacak küçük olmasıdır. 
 
-## <a name="training-image"></a>Eğitim resmi
+## <a name="evaluation"></a>Değerlendirme
 
-Yüksek duyarlılık sınıflandırıcı oluşturmak için çeşitli eğitim resmi Custom Vision Service'e gerekir. Eğitim sınıflandırmak için Custom Vision Service'e istediğiniz görüntüyü hello'nun görüntüsüdür. Örneğin, portakallar sınıflandırmak için birkaç görüntülerini portakallar hizmetinin portakallar tanıyabileceğiniz bir sınıflandırıcı oluşturmasına izin vermek için özel görüntü işleme hizmeti için karşıya yükleme gerekecektir. Etiket başına en az 30 görüntüleri öneririz.
+Sınıflandırıcınızı eğitim almış sonra herhangi bir görüntü değerlendirme için otomatik olarak oluşturulan bir https uç noktasını kullanarak gönderebilirsiniz. Sınıflandırıcınızı güvenle sırasına göre tahmin edilen etiketler, bir dizi döndürür.
 
 ## <a name="iteration"></a>Yineleme
 
 Her Train zaman veya sınıflandırıcınızı yeniden eğitme, modelinizin yeni bir yineleme oluşturun. İlerleme durumunuzu zamanla karşılaştırmak olanak tanımak için birçok geçmiş yinelemeler saklarız. Artık yararlı bulduğunuz herhangi bir yinelemesini silebilirsiniz. Yineleme silinmesi kalıcı bir işlemdir ve tüm görüntüler veya bu yineleme için benzersiz değişiklikler de silmeniz gerektiğini unutmayın. 
 
-## <a name="workspace"></a>Çalışma alanı
+## <a name="precision"></a>Duyarlık
 
-Çalışma alanınızdaki tüm eğitim görüntüleri içerir ve kaldırıldı veya görüntüleri eklenen gibi en son yineleme tüm değişiklikleri yansıtır. Sınıflandırıcınızı eğittiğinizde, çalışma alanınızda mevcut görüntüleri kullanarak, sınıflandırıcı yeni bir yineleme oluşturun.
-
-## <a name="tags"></a>Etiketler
-
-Eğitim görüntülerinizi nesneleri etiketlemek için etiketler kullanın. Köpek ve ponies tanımlamak için bir sınıflandırıcı oluşturuyorsanız görüntülerindeki köpekler, "pony" etiket "köpek"'hem ve ponies, içeren görüntülerindeki ve hem bir köpek hem de bir pony içeren görüntülerindeki "pony" etiket içeren bir "köpek" etiketi koyabilirsiniz.
-
-## <a name="evaluation"></a>Değerlendirme
-
-Sınıflandırıcınızı eğitim almış sonra herhangi bir görüntü değerlendirme için otomatik olarak oluşturulan bir https uç noktasını kullanarak gönderebilirsiniz. Sınıflandırıcınızı güvenle sırasına göre tahmin edilen etiketler, bir dizi döndürür.
+Ne zaman, nasıl büyük olasılıkla bir görüntü sınıflandırma sınıflandırıcınızı görüntünün doğru şekilde sınıflandırmak için mi? Sınıflandırıcı (köpek ve ponies) eğitmek için kullanılan tüm görüntüleri dışında ne kadarlık bir model doğru mu? 100 görüntüleri 99 doğru etiketler % 99 duyarlığını sağlar.
 
 ## <a name="predictions"></a>Tahminler
 
 Sınıflandırıcınızı sınıflandırmak için yeni görüntüleri kabul gibi sizin için görüntülerini depolar. Bu görüntüler, doğru yanlış tahmin edilen görüntüleri etiketleyerek sınıflandırıcınızı duyarlılığını artırmak için kullanabilirsiniz. Ardından bu yeni görüntülere sınıflandırıcınızı yeniden eğitmek için de kullanabilirsiniz.
-
-## <a name="precision"></a>Duyarlık
-
-Ne zaman, nasıl büyük olasılıkla bir görüntü sınıflandırma sınıflandırıcınızı görüntünün doğru şekilde sınıflandırmak için mi? Sınıflandırıcı (köpek ve ponies) eğitmek için kullanılan tüm görüntüleri dışında ne kadarlık bir model doğru mu? 100 görüntüleri 99 doğru etiketler % 99 duyarlığını sağlar.
 
 ## <a name="recall"></a>Geri çekme
 
@@ -73,7 +61,7 @@ Doğru sınıflandırılmış tüm görüntüleri dışında kaç sınıflandır
 
 Ayarları, proje düzeyi ayarları ve kullanıcı düzeyi ayarları iki türü vardır.
 
-- Proje düzeyi ayarları: 
+- Proje düzeyi ayarları:
   
   Proje düzeyi ayarları bir proje veya sınıflandırıcı geçerlidir. Bunlara aşağıdakiler dahildir:
 
@@ -90,3 +78,15 @@ Ayarları, proje düzeyi ayarları ve kullanıcı düzeyi ayarları iki türü v
    - Kullanım:
       - Oluşturulan proje sayısı
       - Yapılan değerlendirme/tahmin API çağrılarının sayısı.
+
+## <a name="tags"></a>Etiketler
+
+Eğitim görüntülerinizi nesneleri etiketlemek için etiketler kullanın. Köpek ve ponies tanımlamak için bir sınıflandırıcı oluşturuyorsanız görüntülerindeki köpekler, "pony" etiket "köpek"'hem ve ponies, içeren görüntülerindeki ve hem bir köpek hem de bir pony içeren görüntülerindeki "pony" etiket içeren bir "köpek" etiketi koyabilirsiniz.
+
+## <a name="training-image"></a>Eğitim resmi
+
+Yüksek duyarlılık sınıflandırıcı oluşturmak için çeşitli eğitim resmi Custom Vision Service'e gerekir. Eğitim sınıflandırmak için Custom Vision Service'e istediğiniz görüntüyü hello'nun görüntüsüdür. Örneğin, portakallar sınıflandırmak için birkaç görüntülerini portakallar hizmetinin portakallar tanıyabileceğiniz bir sınıflandırıcı oluşturmasına izin vermek için özel görüntü işleme hizmeti için karşıya yükleme gerekecektir. Etiket başına en az 30 görüntüleri öneririz.
+
+## <a name="workspace"></a>Çalışma alanı
+
+Çalışma alanınızdaki tüm eğitim görüntüleri içerir ve kaldırıldı veya görüntüleri eklenen gibi en son yineleme tüm değişiklikleri yansıtır. Sınıflandırıcınızı eğittiğinizde, çalışma alanınızda mevcut görüntüleri kullanarak, sınıflandırıcı yeni bir yineleme oluşturun.

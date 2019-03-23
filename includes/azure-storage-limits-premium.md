@@ -5,24 +5,30 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 01/22/2019
+ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3d100ec08b7b6d70366e605daf9c67edc6ab3bf3
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: e3d2466f05028a963256dbcc052c46650857836d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331077"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372722"
 ---
-Premium depolama hesapları aşağıdaki ölçeklenebilirlik hedefleri vardır:
+### <a name="premium-performance-block-blob-storage"></a>Premium performans blok blob depolama
 
-| Toplam hesabı kapasitesi | Yerel olarak yedekli depolama hesabı için toplam bant genişliği |
-| --- | --- | 
+Premium performans blok blob depolama hesabı, daha küçük, kilobayt aralığı, nesneleri kullanan uygulamalar için optimize edilmiştir. Çok yüksek işlem hızları ya da tutarlı düşük gecikme süreli depolama gerektiren uygulamalar için idealdir. Premium performans blok blobu depolama ile uygulamalarınızı ölçeklendirmek için tasarlanmıştır. Yüz binlerce saniye başına istek sayısı veya depolama kapasitesi petabaytlarca gerektiren uygulamaları dağıtmayı planlıyorsanız, Lütfen bir destek isteği göndererek bizimle [Azure portalında](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+### <a name="premium-performance-page-blob-storage"></a>Premium performans sayfa blob depolama
+
+Premium performans için aşağıdaki ölçeklenebilirlik hedefleri genel amaçlı v1 veya v2 depolama hesabı vardır:
+
+| Toplam hesabı kapasitesi                            | Yerel olarak yedekli depolama hesabı için toplam bant genişliği                     |
+| ------------------------------------------------- | --------------------------------------------------------------------------- |
 | Disk kapasitesi: 35 TB <br>Anlık görüntü kapasitesi: 10 TB | 50 Gigabit / saniye için yukarı gelen<sup>1</sup> + giden<sup>2</sup> |
 
 <sup>1</sup> bir depolama hesabına gönderilen tüm verileri (istekler)
 
 <sup>2</sup> bir depolama hesabından alınan tüm verileri (yanıtlar)
 
-Yönetilmeyen diskler için premium depolama hesapları kullandığınız ve uygulamanızı bir tek bir depolama hesabı ölçeklenebilirlik hedefleri aşarsa, yönetilen disklere geçirmek isteyebilirsiniz. Yönetilen disklere geçirmek istemiyorsanız, birden çok depolama hesaplarını kullanmak için uygulamanızı oluşturun. Ardından, bu depolama hesabı arasında veri bölümleme. Örneğin, birden çok VM arasında 51 TB disk eklemek istiyorsanız, bunları iki depolama hesabı arasında yayılabilir. Tek bir premium depolama hesabı için belirlenen sınırı 35 TB'dir. Tek bir premium depolama hesabı hiçbir zaman sağlanan diskleri 35 TB'den fazla olduğundan emin olun.
+Yönetilmeyen diskler için premium performans depolama hesapları kullandığınız ve uygulamanızı bir tek bir depolama hesabı ölçeklenebilirlik hedefleri aşarsa, yönetilen disklere geçirmek isteyebilirsiniz. Yönetilen disklere geçirmek istemiyorsanız, birden çok depolama hesaplarını kullanmak için uygulamanızı oluşturun. Ardından, bu depolama hesabı arasında veri bölümleme. Örneğin, birden çok VM arasında 51 TB disk eklemek istiyorsanız, bunları iki depolama hesabı arasında yayılabilir. Tek bir premium depolama hesabı için belirlenen sınırı 35 TB'dir. Tek premium performans depolama hesabı hiçbir zaman sağlanan diskleri 35 TB'den fazla olduğundan emin olun.

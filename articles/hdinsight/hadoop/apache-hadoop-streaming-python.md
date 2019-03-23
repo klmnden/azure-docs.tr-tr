@@ -10,18 +10,20 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4c1d7357dc78ca6c9387fc594f3d49f043008631
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 95a78fafcd83e6f56f26ef6670beaa179085de62
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120587"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359589"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Python için HDInsight akış MapReduce programları geliştirme
 
 Python MapReduce operations akışında kullanmayı öğrenin. Apache Hadoop, harita yazma ve Java dışındaki dillerde işlevleri azaltmak sağlayan bir MapReduce için bir akış API'sini sağlar. Bu belgedeki adımlarda, harita uygulamak ve python'da altına düşürün.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Bir HDInsight kümesinde Linux tabanlı Apache Hadoop
 
@@ -33,7 +35,7 @@ Python MapReduce operations akışında kullanmayı öğrenin. Apache Hadoop, ha
   > [!IMPORTANT]
   > Metin düzenleyici, satır sonu olarak LF kullanmanız gerekir. CRLF satır sonu kullanarak Linux tabanlı HDInsight kümelerinde MapReduce işi çalıştırılırken hataya neden.
 
-* `ssh` Ve `scp` komutları veya [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-3.8.0)
+* `ssh` Ve `scp` komutları veya [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 
 ## <a name="word-count"></a>Sözcük Sayımı
 

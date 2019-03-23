@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 906b1dde3d145268df4fb1ff5c243c7daa8396ec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a102216a6a2a7dec471678e14f7050cb4ef41d77
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992439"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370117"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2'ye erişim denetimi
 
@@ -257,7 +257,7 @@ ACL'ler atanan sorumlu olarak her zaman Azure AD güvenlik grupları kullanın. 
 
 - Çağıranın 'süper kullanıcı' izinlerine sahip,
 
-veya
+Veya
 
 - Üst dizine yazma + yürütme izinleri gerekir.
 - Silinecek dizin ve her bir dizininde okuma + yazma + yürütme izinleri gerektirir.
@@ -279,7 +279,18 @@ Sahip olan kullanıcı kendisine gerekli olan her türlü RWX iznini vermek içi
 
 ### <a name="why-do-i-sometimes-see-guids-in-acls"></a>Neden bazen ACL'lerinde GUID'leri görüyorum?
 
-Giriş bir kullanıcıyı temsil eder ve bu kullanıcı artık Azure AD'de mevcut değilse bir GUID gösterilir. Bu genellikle, kullanıcı şirketten ayrıldığında veya Azure AD’de kullanıcının hesabı silindiğinde gerçekleşir. Ayrıca, hizmet sorumluları ve güvenlik grupları bir kullanıcı asıl adı (bunları tanımlamak için UPN) sahip değildir ve bu nedenle bunlar OID özniteliği (GUID) tarafından temsil edilir. 
+Giriş bir kullanıcıyı temsil eder ve bu kullanıcı artık Azure AD'de mevcut değilse bir GUID gösterilir. Bu genellikle, kullanıcı şirketten ayrıldığında veya Azure AD’de kullanıcının hesabı silindiğinde gerçekleşir. Ayrıca, hizmet sorumluları ve güvenlik grupları bir kullanıcı asıl adı (bunları tanımlamak için UPN) sahip değildir ve bu nedenle bunlar OID özniteliği (GUID) tarafından temsil edilir.
+
+### <a name="how-do-i-set-acls-correctly-for-a-service-principal"></a>Nasıl ACL'leri doğru için bir hizmet sorumlusu ayarlayabilirim?
+
+Hizmet sorumluları için ACL'leri tanımladığınızda, nesne kimliği (OID) kullanın önemli olduğu *hizmet sorumlusu* oluşturduğunuz uygulama kaydı için. Kayıtlı uygulama içinde belirli bir ayrı bir hizmet sorumlusu olduğunu unutmamak önemlidir Azure AD kiracısı. Kayıtlı uygulamalar Azure portalda bir OID sahiptir ancak *hizmet sorumlusu* başka bir (farklı) OID sahiptir.
+
+OID, corresonds bir uygulama kaydı için hizmet sorumlusu almak için kullanabileceğiniz `az ad sp show` komutu. Uygulama kimliği, parametre olarak belirtin. İşte bir örnek uygulama kimliği ile bir uygulama kaydı karşılık gelen hizmet sorumlusu için OID edinme 18218b12-1895-43e9-ad80-6e8fc1ea88ce =. Azure CLI içinde aşağıdaki komutu çalıştırın:
+
+`az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
+<<OID will be displayed>>`
+
+Hizmet sorumlusu için doğru OID varsa, depolama Gezgini'ne gidin **erişimini yönetme** sayfasına OID ekleyin ve OID için uygun izinleri atayın. Seçtiğinizden emin olun **Kaydet**.
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake depolama Gen2 ACL'lerin devralınmasını destekler mi?
 

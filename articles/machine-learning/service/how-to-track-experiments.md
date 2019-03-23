@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 835d1f41ffe940422554a8ca59d0a91ac8e98607
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 50cd5969ce02ee5eea0637c950069d684d67b5d3
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336605"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361464"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Azure Machine Learning'de eğitim sırasında günlük ölçümleri çalıştırır
 
@@ -32,7 +32,7 @@ Aşağıdaki ölçümler, bir denemeyi eğitim sırasında çalıştırılacak e
 |Listeler|İşlev:<br>`run.log_list(name, value, description='')`<br><br>Örnek:<br>Run.log_list ("doğruluk" [0,6, 0,7, 0.87]) | Belirtilen ada sahip farklı çalıştır değerlerin bir listesini oturum.|
 |Satır|İşlev:<br>`run.log_row(name, description=None, **kwargs)`<br>Örnek:<br>Run.log_row ("Y" X üzerinden x = 1, y 0.4 =) | Kullanarak *log_row* kwargs içinde anlatıldığı gibi birden çok sütun içeren bir ölçü oluşturur. Her adlandırılmış parametre ile belirtilen değer bir sütun oluşturur.  *log_row* rasgele bir tanımlama grubu ya da birden çok kez bir döngüde tam bir tablo oluşturmak için oturum volat pouze jednou.|
 |Tablo|İşlev:<br>`run.log_table(name, value, description='')`<br><br>Örnek:<br>Run.log_table ("Y" X üzerinden {"x": [1, 2, 3], "y": [0,6, 0,7, 0.89]}) | Sözlük nesnesi, verilen ada sahip farklı çalıştır oturum açın. |
-|Görüntüler|İşlev:<br>`run.log_image(name, path=None, plot=None)`<br><br>Örnek:<br>Run.log_image ("ROC",. sys) | Görüntü çalıştırma kaydı için oturum açın. Bir görüntü dosyası veya bir matplotlib oturum log_image kullanın çizim farklı çalıştır.  Bu görüntüler, görünür ve çalışma kaydındaki benzer olacaktır.|
+|Görüntüler|İşlev:<br>`run.log_image(name, path=None, plot=None)`<br><br>Örnek:<br>`run.log_image("ROC", plt)` | Görüntü çalıştırma kaydı için oturum açın. Bir görüntü dosyası veya bir matplotlib oturum log_image kullanın çizim farklı çalıştır.  Bu görüntüler, görünür ve çalışma kaydındaki benzer olacaktır.|
 |Bir etiketi|İşlev:<br>`run.tag(key, value=None)`<br><br>Örnek:<br>run.tag (","Evet"seçeneği") | Bir dize anahtarı ve isteğe bağlı dize değeri olan çalıştırma etiketleyin.|
 |Dosya veya dizin karşıya yükleme|İşlev:<br>`run.upload_file(name, path_or_stream)`<br> <br> Örnek:<br>Run.upload_file ("best_model.pkl", ". / model.pkl") | Çalıştırma kaydı için bir dosya yükleyin. Çalıştırmaları otomatik olarak varsayılan olarak belirtilen çıkış dizini dosyasında yakala ". / çıkışlar" türleri çoğu çalıştırın.  Yalnızca ek dosyalar yüklenmek üzere gerektiğinde kullanım upload_file veya bir çıktı dizini belirtilmedi. Eklemeyi önerin `outputs` BT'nin çıkış dizinine karşıya, böylece adı. Tüm ilişkili olan dosyaları listeleyebilirsiniz bu çalıştırma kaydı tarafından çağırılır `run.get_file_names()`|
 
@@ -48,7 +48,7 @@ Aşağıdaki ölçümler, bir denemeyi eğitim sırasında çalıştırılacak e
 ## <a name="set-up-the-workspace"></a>Çalışma alanını ayarlama
 Günlüğe kaydetme ve deneme gönderme eklemeden önce çalışma alanını ayarlamanız gerekir.
 
-1. Çalışma alanı yükleyin. Çalışma alanı yapılandırması ayarlama hakkında daha fazla bilgi edinmek için izleyin [hızlı](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started).
+1. Çalışma alanı yükleyin. Çalışma alanı yapılandırması ayarlama hakkında daha fazla bilgi bağlantısındaki [bir Azure Machine Learning hizmeti çalışma alanı oluşturma](setup-create-workspace.md#sdk).
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -218,7 +218,9 @@ Bu örnek, yukarıda temel sklearn Ridge modeli genişletir. Alfa değerleri öl
    ```
 
 ## <a name="cancel-a-run"></a>Bir çalıştırmayı iptal et
-Bir farklı çalıştır gönderildikten sonra deneme adını biliyorsanız ve çalıştırma kimliği sürece nesne başvurusu kaybetmiş olsanız bile iptal edebilirsiniz. 
+
+Deney adı bildiğiniz ve çalıştırma kimliği sürece nesne başvurusu kaybetmiş olsanız bile Alter çalıştırma gönderildikten iptal edebilirsiniz 
+
 
 ```python
 from azureml.core import Experiment
@@ -239,7 +241,7 @@ print(type(r), r.get_status())
 if r.get_status() not in ['Complete', 'Failed']:
     r.cancel()
 ```
-Lütfen şu anda yalnızca ScriptRun ve PipelineRun türleri İptal işlemi desteklemediğini unutmayın.
+Şu anda yalnızca ScriptRun ve PipelineRun türleri iptal işlemini destekler.
 
 Ayrıca, aşağıdaki komutu kullanarak CLI ile bir çalıştırma iptal edebilirsiniz:
 ```shell
@@ -261,7 +263,7 @@ Kullanırken **ScriptRunConfig** göndermek için gereken yöntemini çalıştı
 
    ![Ekran görüntüsü, Jupyter not defteri pencere öğesi](./media/how-to-track-experiments/widgets.PNG)
 
-2. **[Çalıştırmalarını otomatik makine öğrenme]**  Grafikleri önceki bir çalıştırma işleminden erişmek için. Lütfen değiştirin `<<experiment_name>>` uygun deney adı ile:
+2. **[Çalıştırmalarını otomatik makine öğrenme]**  Grafikleri önceki bir çalıştırma işleminden erişmek için. Değiştirin `<<experiment_name>>` uygun deney adı ile:
 
    ``` 
    from azureml.widgets import RunDetails

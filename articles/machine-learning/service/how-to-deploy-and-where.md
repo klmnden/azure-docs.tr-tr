@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: f2d2ded849af5054935b6bec8f74e021078b7641
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b9dbd644aff3a41bcf38b982ebd46396ad30edca
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860439"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361974"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -27,7 +27,7 @@ Modelleri için aşağıdaki işlem hedeflerine dağıtabilirsiniz:
 | Hedef işlem | Dağıtım türü | Açıklama |
 | ----- | ----- | ----- |
 | [Azure Kubernetes Service'i (AKS)](#aks) | Gerçek zamanlı çıkarımı | Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
-| [Azure ML işlemi](#azuremlcompute) | Batch çıkarımı | Batch tahmin, sunucusuz bir işlem üzerinde çalıştırın. Normal veya düşük öncelikli sanal makineleri destekler. |
+| [Azure Machine Learning işlem (amlcompute)](#azuremlcompute) | Batch çıkarımı | Batch tahmin, sunucusuz bir işlem üzerinde çalıştırın. Normal veya düşük öncelikli sanal makineleri destekler. |
 | [Azure Container Instances (ACI)](#aci) | Test Etme | Geliştirme veya test için iyidir. **Üretim iş yükleri için uygun değildir.** |
 | [Azure IoT Edge](#iotedge) | (Önizleme) IOT Modülü | IOT cihazlarında modelleri dağıtın. Çıkarım cihazda'olmuyor. |
 | [Alanda programlanabilir kapı dizileri (FPGA)](#fpga) | (Önizleme) Web hizmeti | Gerçek zamanlı çıkarım için son derece düşük gecikme süresi. |
@@ -50,13 +50,13 @@ Dağıtım iş akışı içinde ilgili kavramları hakkında daha fazla bilgi i�
 
 - Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree) bugün.
 
-- Bir Azure Machine Learning hizmeti çalışma alanında ve yüklü Python için Azure Machine Learning SDK'sı. Kullanarak şu önkoşul olarak gerekenleri edinin öğrenin [Azure Machine Learning Hızlı Başlangıç ile çalışmaya başlama](quickstart-get-started.md).
+- Bir Azure Machine Learning hizmeti çalışma alanında ve yüklü Python için Azure Machine Learning SDK'sı. Kullanarak şu önkoşul olarak gerekenleri edinin öğrenin [bir Azure Machine Learning hizmeti çalışma alanı oluşturma](setup-create-workspace.md).
 
 - Eğitilen bir modeli. Eğitilen bir modelin yoksa içindeki adımları kullanın [eğitme modelleri](tutorial-train-models-with-aml.md) eğitmek ve bir Azure Machine Learning hizmeti ile kaydetme öğretici.
 
     > [!NOTE]
     > Azure Machine Learning hizmeti ile Python 3'te yüklenebilen herhangi bir genel model çalışabilir ancak bu belgedeki örnekler Python pickle biçiminde depolanan bir modeli kullanarak gösterir.
-    > 
+    >
     > ONNX modelleri kullanma hakkında daha fazla bilgi için bkz. [ONNX ve Azure Machine Learning](how-to-build-deploy-onnx.md) belge.
 
 ## <a id="registermodel"></a> Eğitilen bir modeli kaydedin
@@ -83,7 +83,7 @@ Daha fazla bilgi için başvuru belgeleri için bkz. [Model sınıfı](https://d
 
 Dağıtılan modellerinde bir görüntü olarak paketlenir. Görüntü modeli çalıştırmak için gerekli olan bağımlılıklar içerir.
 
-İçin **Azure Container Instance**, **Azure Kubernetes hizmeti**, ve **Azure IOT Edge** dağıtımları [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) sınıfı, bir görüntü yapılandırması oluşturmak için kullanılır. Görüntü yapılandırma, ardından yeni bir Docker görüntüsü oluşturmak için kullanılır. 
+İçin **Azure Container Instance**, **Azure Kubernetes hizmeti**, ve **Azure IOT Edge** dağıtımları [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) sınıfı, bir görüntü yapılandırması oluşturmak için kullanılır. Görüntü yapılandırma, ardından yeni bir Docker görüntüsü oluşturmak için kullanılır.
 
 Aşağıdaki kod, yeni bir görüntü yapılandırmasının nasıl oluşturulacağını gösterir:
 
@@ -126,14 +126,13 @@ Betik, yükleme ve çalıştırmayı iki işlev içerir:
 Aşağıdaki örnek betik, kabul eder ve JSON verilerini döndürür. `run` İşlevi JSON verileri model bekler ve ardından döndürmeden önce JSON yanıtı dönüştürür bir biçime dönüştürür:
 
 ```python
-# import things required by this script
+%%writefile score.py
 import json
 import numpy as np
 import os
 import pickle
 from sklearn.externals import joblib
 from sklearn.linear_model import LogisticRegression
-
 from azureml.core.model import Model
 
 # load the model
@@ -185,7 +184,7 @@ def run(request):
 > [!IMPORTANT]
 > `azureml.contrib` Ad değişiklikleri sık olarak hizmeti geliştirmek için çalışıyoruz. Bu nedenle, bu ad alanındaki herhangi bir şey önizleme olarak kabul ve tamamen Microsoft tarafından desteklenmiyor.
 >
-> Bu, yerel geliştirme ortamınıza test etmeniz, bileşenleri yükleyebilirsiniz `contrib` aşağıdaki komutu kullanarak ad alanı: 
+> Bu, yerel geliştirme ortamınıza test etmeniz, bileşenleri yükleyebilirsiniz `contrib` aşağıdaki komutu kullanarak ad alanı:
 > ```shell
 > pip install azureml-contrib-services
 > ```
@@ -196,7 +195,7 @@ Görüntü yapılandırması oluşturulduktan sonra görüntünün kaydetmek iç
 
 ```python
 # Register the image from the image configuration
-image = ContainerImage.create(name = "myimage", 
+image = ContainerImage.create(name = "myimage",
                               models = [model], #this is the model object
                               image_config = image_config,
                               workspace = ws
@@ -209,7 +208,7 @@ Aynı ada sahip birden fazla görüntü kayıt yaptırdığınızda görüntüle
 
 Daha fazla bilgi için başvuru belgeleri için bkz. [ContainerImage sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
 
-## <a id="deploy"></a> Görüntüyü dağıtmak
+## <a id="deploy"></a> Bir web hizmeti olarak dağıtma
 
 Dağıtıma aldığınızda, dağıttığınız işlem hedef bağlı olarak biraz farklı bir işlemdir. Bilgileri dağıtma hakkında bilgi edinmek için aşağıdaki bölümlerdeki kullanın:
 
@@ -251,7 +250,7 @@ Daha fazla bilgi için başvuru belgeleri için bkz. [AciWebservice](https://doc
 
 Modelinizi ölçekli üretim web hizmeti olarak dağıtmak için Azure Kubernetes Service (AKS) kullanın. Mevcut bir AKS kümesi kullanmak veya Azure Machine Learning SDK'sı, CLI veya Azure portalını kullanarak yeni bir tane oluşturun.
 
-Olan bir AKS kümesi oluşturma işlemi için çalışma süresi. Bu kümeye birden çok dağıtımlar için yeniden kullanabilirsiniz. 
+Olan bir AKS kümesi oluşturma işlemi için çalışma süresi. Bu kümeye birden çok dağıtımlar için yeniden kullanabilirsiniz.
 
 > [!IMPORTANT]
 > Kümeyi silmeniz halinde, sonraki açışınızda dağıtmanız gerekir. yeni bir küme oluşturmanız gerekir.
@@ -270,7 +269,7 @@ Azure Kubernetes hizmeti, aşağıdaki özellikleri sağlar:
 Otomatik ölçeklendirme ayarı denetlenebilir `autoscale_target_utilization`, `autoscale_min_replicas`, ve `autoscale_max_replicas` AKS için web hizmeti. Aşağıdaki örnek, otomatik ölçeklendirmeyi etkinleştirmek üzere gösterilmektedir:
 
 ```python
-aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
+aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True,
                                                 autoscale_target_utilization=30,
                                                 autoscale_min_replicas=1,
                                                 autoscale_max_replicas=4)
@@ -315,10 +314,10 @@ from azureml.core.compute import AksCompute, ComputeTarget
 # Use the default configuration (you can also provide parameters to customize this)
 prov_config = AksCompute.provisioning_configuration()
 
-aks_name = 'aml-aks-1' 
+aks_name = 'aml-aks-1'
 # Create the cluster
-aks_target = ComputeTarget.create(workspace = ws, 
-                                    name = aks_name, 
+aks_target = ComputeTarget.create(workspace = ws,
+                                    name = aks_name,
                                     provisioning_configuration = prov_config)
 
 # Wait for the create process to complete
@@ -366,7 +365,7 @@ from azureml.core.webservice import Webservice, AksWebservice
 aks_config = AksWebservice.deploy_configuration()
 aks_service_name ='aks-service-1'
 # Deploy from image
-service = Webservice.deploy_from_image(workspace = ws, 
+service = Webservice.deploy_from_image(workspace = ws,
                                             name = aks_service_name,
                                             image = image,
                                             deployment_config = aks_config,
@@ -393,87 +392,91 @@ Project Brainwave gerçek zamanlı çıkarım istekleri için çok düşük geci
 
 Project Brainwave kullanarak bir model dağıtımına ilişkin bir kılavuz için bkz [bir FPGA Dağıt](how-to-deploy-fpga-web-service.md) belge.
 
-### <a id="iotedge"></a> Azure IOT Edge için dağıtma
+## <a name="define-schema"></a>Şema tanımlayın
 
-Azure IOT Edge cihazı, bir Linux veya Azure IOT Edge çalışma zamanı çalışan Windows tabanlı bir cihaz örneğidir. Azure IOT hub'ı kullanarak, makine öğrenimi modelleri IOT Edge modülleri bu cihazlara dağıtabilirsiniz. IOT Edge cihazına bir model dağıtımına model bulut işleme için veri göndermek zorunda yerine doğrudan kullanmak cihazın verir. Daha hızlı yanıt süreleri ve daha az veri aktarımı olursunuz.
+Özel dekoratörler için kullanılabilir [Openapı](https://swagger.io/docs/specification/about/) belirtimi oluşturma ve giriş web hizmetini dağıtırken, işleme yazın. İçinde `score.py` dosyası, giriş ve/veya oluşturucuda çıktı örneği tanımlanan bir tür nesnelerden biri sağlayın ve türü ve örneği şema otomatik olarak oluşturmak için kullanılır. Aşağıdaki türleri şu anda desteklenir:
 
-Azure IOT Edge modülleri, bir kapsayıcı kayıt defterinden cihazınıza dağıtılır. Görüntü modelinizden oluşturduğunuzda, çalışma alanınız için kapsayıcı kayıt defterinde depolanır.
+* `pandas`
+* `numpy`
+* `pyspark`
+* Standart Python
 
-> [!IMPORTANT]
-> Bu bölümdeki bilgiler, zaten Azure IOT Hub ve Azure IOT Edge modülleri ile ilgili bilgi sahibi olduğunuzu varsayar. Bu bölümdeki bilgiler, bazıları, ancak Azure Machine Learning hizmetine özel işlem çoğunu edge cihazına dağıtmak için Azure IOT hizmeti'olmuyor.
->
-> Azure Iot'yi kullanmaya alışkın değilseniz bkz [Azure IOT temel konuları](https://docs.microsoft.com/azure/iot-fundamentals/) ve [Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/) temel bilgi. Sonra belirli işlemleri hakkında daha fazla bilgi için bu bölümdeki diğer bağlantıları kullanın.
+Gerekli bağımlılıkları için öncelikle olun `inference-schema` paket dahil edilir, `env.yml` conda ortam dosyası. Bu örnekte `numpy` tür parametresi için şema, bu nedenle ek pip `[numpy-support]` de yüklenir.
 
-#### <a name="set-up-your-environment"></a>Ortamınızı ayarlama
+```python
+%%writefile myenv.yml
+name: project_environment
+dependencies:
+  - python=3.6.2
+  - pip:
+    - azureml-defaults
+    - scikit-learn
+    - inference-schema[numpy-support]
+```
 
-* Bir geliştirme ortamı. Daha fazla bilgi için [bir geliştirme ortamı yapılandırma](how-to-configure-environment.md) belge.
+Ardından, değişiklik `score.py` içeri aktarmak için dosya `inference-schema` paketleri. Giriş tanımlayın ve örnek biçimlerde çıkış `input_sample` ve `output_sample` değişkenleri, web hizmeti için istek ve yanıt formatları temsil eder. Girdide bu örnekleri kullanın ve işlev dekoratörler üzerinde çıkışını `run()` işlevi.
 
-* Bir [Azure IOT hub'ı](../../iot-hub/iot-hub-create-through-portal.md) Azure aboneliğinizdeki. 
+```python
+%%writefile score.py
+import json
+import numpy as np
+import os
+import pickle
+from sklearn.externals import joblib
+from sklearn.linear_model import LogisticRegression
+from azureml.core.model import Model
 
-* Eğitilen bir modeli. Bir model eğitip ilişkin bir örnek için bkz: [bir Azure Machine Learning ile görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md) belge. Üzerinde önceden eğitilen bir modelin kullanılabilir [Azure IOT Edge GitHub deposunda için AI Toolkit](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
+from inference_schema.schema_decorators import input_schema, output_schema
+from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 
-#### <a id="getcontainer"></a> Kapsayıcı kayıt defteri kimlik bilgilerini alma
 
-Cihazınız için IOT Edge modülü dağıtmak için Azure IOT kapsayıcı kayıt defterine docker görüntüleri depolayan Azure Machine Learning hizmeti için kimlik bilgileri gerekir.
+def init():
+    global model
+    model_path = Model.get_model_path('sklearn_mnist')
+    model = joblib.load(model_path)
 
-Kimlik bilgilerini iki yolla alabilirsiniz:
 
-+ **Azure portalında**:
+input_sample = np.array([[1.8]])
+output_sample = np.array([43638.88])
 
-  1. [Azure Portal](https://portal.azure.com/signin/index) oturum açın.
+@input_schema('data', NumpyParameterType(input_sample))
+@output_schema(NumpyParameterType(output_sample))
+def run(raw_data):
+    data = np.array(json.loads(raw_data)['data'])
+    y_hat = model.predict(data)
+    return json.dumps(y_hat.tolist())
+```
 
-  1. Azure Machine Learning hizmeti çalışma alanınıza gidin ve seçin __genel bakış__. Kapsayıcı kayıt defteri ayarları'na gidin, seçin __kayıt defteri__ bağlantı.
+Normal bir görüntü kayıt ve web hizmeti dağıtım işlemi ile güncelleştirilmiş aşağıdaki sonra `score.py` dosya, Swagger URI hizmetten alınamıyor. Bu URI isteyen döndürecektir `swagger.json` dosya.
 
-     ![Bir kapsayıcı kayıt defteri girdisinin görüntüsü](./media/how-to-deploy-and-where/findregisteredcontainer.png)
+```python
+service.wait_for_deployment(show_output=True)
+print(service.swagger_uri)
+```
 
-  1. Kapsayıcı kayıt defterinde seçmek **erişim anahtarlarını** ve yönetici kullanıcıyı etkinleştirin.
- 
-     ![Erişim anahtarları ekran görüntüsü](./media/how-to-deploy-and-where/findaccesskey.png)
 
-  1. İçin değerleri kaydedin **oturum açma sunucusu**, **kullanıcıadı**, ve **parola**. 
 
-+ **Bir Python betiği ile**:
+Yeni bir görüntü oluşturduğunuzda, yeni görüntüyü kullanmak istediğiniz her hizmeti el ile güncelleştirmeniz gerekir. Web hizmetini güncelleştirmek için `update` yöntemi. Aşağıdaki kod, yeni görüntüyü kullanarak web hizmetini güncelleştirmek gösterilmektedir:
 
-  1. Bir kapsayıcı oluşturmak için yukarıda çalıştırılan koddan sonra aşağıdaki Python betiği kullanın:
+```python
+from azureml.core.webservice import Webservice
+from azureml.core.image import Image
 
-     ```python
-     # Getting your container details
-     container_reg = ws.get_details()["containerRegistry"]
-     reg_name=container_reg.split("/")[-1]
-     container_url = "\"" + image.image_location + "\","
-     subscription_id = ws.subscription_id
-     from azure.mgmt.containerregistry import ContainerRegistryManagementClient
-     from azure.mgmt import containerregistry
-     client = ContainerRegistryManagementClient(ws._auth,subscription_id)
-     result= client.registries.list_credentials(resource_group_name, reg_name, custom_headers=None, raw=False)
-     username = result.username
-     password = result.passwords[0].value
-     print('ContainerURL{}'.format(image.image_location))
-     print('Servername: {}'.format(reg_name))
-     print('Username: {}'.format(username))
-     print('Password: {}'.format(password))
-     ```
-  1. ContainerURL, servername, kullanıcı adı ve parola için değerleri kaydedin. 
+service_name = 'aci-mnist-3'
+# Retrieve existing service
+service = Webservice(name = service_name, workspace = ws)
 
-     IOT Edge cihaz özel kapsayıcı kayıt defterinizde görüntülerine erişim sağlamak bu kimlik bilgileri gereklidir.
+# point to a different image
+new_image = Image(workspace = ws, id="myimage2:1")
 
-#### <a name="prepare-the-iot-device"></a>IOT cihazı hazırlama
+# Update the image used by the service
+service.update(image = new_image)
+print(service.state)
+```
 
-Cihazınızı Azure IOT Hub'ınızla kaydolmak ve ardından cihaza IOT Edge çalışma zamanı yükleyin. Bu işlemle ilgili bilgi sahibi değilseniz bkz [hızlı başlangıç: Bir Linux x64 cihaza, ilk IOT Edge modülü dağıtmak](../../iot-edge/quickstart-linux.md).
+Daha fazla bilgi için başvuru belgeleri için bkz. [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) sınıfı.
 
-Bir cihaz kaydetme, diğer yöntemler şunlardır:
-
-* [Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
-* [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
-* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
-
-#### <a name="deploy-the-model-to-the-device"></a>Cihaz için model dağıtma
-
-Model aygıta dağıtmak için topladığınız kayıt defteri bilgileri kullanın. [kapsayıcı kayıt defteri kimlik bilgilerini alma](#getcontainer) bölümü modülü dağıtımı ile IOT Edge modülleri için adımlar. Örneğin, [dağıtma Azure IOT Edge modülleri Azure portalından](../../iot-edge/how-to-deploy-modules-portal.md), yapılandırmanız gereken __kayıt defteri ayarları__ cihaz için. Kullanım __oturum açma sunucusu__, __kullanıcıadı__, ve __parola__ çalışma kapsayıcı kayıt defteriniz için.
-
-Kullanarak da dağıtabilirsiniz [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) ve [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode).
-
-## <a name="testing-web-service-deployments"></a>Web hizmeti dağıtımları test etme
+## <a name="test-web-service-deployments"></a>Test web hizmeti dağıtımları
 
 Bir web hizmeti dağıtımı test etmek için kullanabileceğiniz `run` Webservice nesnesinin yöntemi. Aşağıdaki örnekte, bir JSON belgesi bir web hizmeti olarak ayarlandıysa ve sonucu görüntülenir. Gönderilen verilerin ne model eşleşmelidir. Bu örnekte, veri biçimi ailelere modeli tarafından beklenen giriş eşleşir.
 
@@ -481,7 +484,7 @@ Bir web hizmeti dağıtımı test etmek için kullanabileceğiniz `run` Webservi
 import json
 
 test_sample = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10], 
+    [1,2,3,4,5,6,7,8,9,10],
     [10,9,8,7,6,5,4,3,2,1]
 ]})
 test_sample = bytes(test_sample,encoding = 'utf8')
@@ -514,6 +517,86 @@ print(service.state)
 
 Daha fazla bilgi için başvuru belgeleri için bkz. [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) sınıfı.
 
+## <a id="iotedge"></a> Azure IOT Edge için dağıtma
+
+Azure IOT Edge cihazı, bir Linux veya Azure IOT Edge çalışma zamanı çalışan Windows tabanlı bir cihaz örneğidir. Azure IOT hub'ı kullanarak, makine öğrenimi modelleri IOT Edge modülleri bu cihazlara dağıtabilirsiniz. IOT Edge cihazına bir model dağıtımına model bulut işleme için veri göndermek zorunda yerine doğrudan kullanmak cihazın verir. Daha hızlı yanıt süreleri ve daha az veri aktarımı olursunuz.
+
+Azure IOT Edge modülleri, bir kapsayıcı kayıt defterinden cihazınıza dağıtılır. Görüntü modelinizden oluşturduğunuzda, çalışma alanınız için kapsayıcı kayıt defterinde depolanır.
+
+> [!IMPORTANT]
+> Bu bölümdeki bilgiler, zaten Azure IOT Hub ve Azure IOT Edge modülleri ile ilgili bilgi sahibi olduğunuzu varsayar. Bu bölümdeki bilgiler, bazıları, ancak Azure Machine Learning hizmetine özel işlem çoğunu edge cihazına dağıtmak için Azure IOT hizmeti'olmuyor.
+>
+> Azure Iot'yi kullanmaya alışkın değilseniz bkz [Azure IOT temel konuları](https://docs.microsoft.com/azure/iot-fundamentals/) ve [Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/) temel bilgi. Sonra belirli işlemleri hakkında daha fazla bilgi için bu bölümdeki diğer bağlantıları kullanın.
+
+### <a name="set-up-your-environment"></a>Ortamınızı ayarlama
+
+* Bir geliştirme ortamı. Daha fazla bilgi için [bir geliştirme ortamı yapılandırma](how-to-configure-environment.md) belge.
+
+* Bir [Azure IOT hub'ı](../../iot-hub/iot-hub-create-through-portal.md) Azure aboneliğinizdeki.
+
+* Eğitilen bir modeli. Bir model eğitip ilişkin bir örnek için bkz: [bir Azure Machine Learning ile görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md) belge. Üzerinde önceden eğitilen bir modelin kullanılabilir [Azure IOT Edge GitHub deposunda için AI Toolkit](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
+
+### <a id="getcontainer"></a> Kapsayıcı kayıt defteri kimlik bilgilerini alma
+
+Cihazınız için IOT Edge modülü dağıtmak için Azure IOT kapsayıcı kayıt defterine docker görüntüleri depolayan Azure Machine Learning hizmeti için kimlik bilgileri gerekir.
+
+Kimlik bilgilerini iki yolla alabilirsiniz:
+
++ **Azure portalında**:
+
+  1. [Azure Portal](https://portal.azure.com/signin/index) oturum açın.
+
+  1. Azure Machine Learning hizmeti çalışma alanınıza gidin ve seçin __genel bakış__. Kapsayıcı kayıt defteri ayarları'na gidin, seçin __kayıt defteri__ bağlantı.
+
+     ![Bir kapsayıcı kayıt defteri girdisinin görüntüsü](./media/how-to-deploy-and-where/findregisteredcontainer.png)
+
+  1. Kapsayıcı kayıt defterinde seçmek **erişim anahtarlarını** ve yönetici kullanıcıyı etkinleştirin.
+
+     ![Erişim anahtarları ekran görüntüsü](./media/how-to-deploy-and-where/findaccesskey.png)
+
+  1. İçin değerleri kaydedin **oturum açma sunucusu**, **kullanıcıadı**, ve **parola**.
+
++ **Bir Python betiği ile**:
+
+  1. Bir kapsayıcı oluşturmak için yukarıda çalıştırılan koddan sonra aşağıdaki Python betiği kullanın:
+
+     ```python
+     # Getting your container details
+     container_reg = ws.get_details()["containerRegistry"]
+     reg_name=container_reg.split("/")[-1]
+     container_url = "\"" + image.image_location + "\","
+     subscription_id = ws.subscription_id
+     from azure.mgmt.containerregistry import ContainerRegistryManagementClient
+     from azure.mgmt import containerregistry
+     client = ContainerRegistryManagementClient(ws._auth,subscription_id)
+     result= client.registries.list_credentials(resource_group_name, reg_name, custom_headers=None, raw=False)
+     username = result.username
+     password = result.passwords[0].value
+     print('ContainerURL{}'.format(image.image_location))
+     print('Servername: {}'.format(reg_name))
+     print('Username: {}'.format(username))
+     print('Password: {}'.format(password))
+     ```
+  1. ContainerURL, servername, kullanıcı adı ve parola için değerleri kaydedin.
+
+     IOT Edge cihaz özel kapsayıcı kayıt defterinizde görüntülerine erişim sağlamak bu kimlik bilgileri gereklidir.
+
+### <a name="prepare-the-iot-device"></a>IOT cihazı hazırlama
+
+Cihazınızı Azure IOT Hub'ınızla kaydolmak ve ardından cihaza IOT Edge çalışma zamanı yükleyin. Bu işlemle ilgili bilgi sahibi değilseniz bkz [hızlı başlangıç: Bir Linux x64 cihaza, ilk IOT Edge modülü dağıtmak](../../iot-edge/quickstart-linux.md).
+
+Bir cihaz kaydetme, diğer yöntemler şunlardır:
+
+* [Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
+* [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
+* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
+
+### <a name="deploy-the-model-to-the-device"></a>Cihaz için model dağıtma
+
+Model aygıta dağıtmak için topladığınız kayıt defteri bilgileri kullanın. [kapsayıcı kayıt defteri kimlik bilgilerini alma](#getcontainer) bölümü modülü dağıtımı ile IOT Edge modülleri için adımlar. Örneğin, [dağıtma Azure IOT Edge modülleri Azure portalından](../../iot-edge/how-to-deploy-modules-portal.md), yapılandırmanız gereken __kayıt defteri ayarları__ cihaz için. Kullanım __oturum açma sunucusu__, __kullanıcıadı__, ve __parola__ çalışma kapsayıcı kayıt defteriniz için.
+
+Kullanarak da dağıtabilirsiniz [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) ve [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode).
+
 ## <a name="clean-up"></a>Temizleme
 
 Dağıtılmış bir web hizmetini silmek için kullanın `service.delete()`.
@@ -524,21 +607,9 @@ Kayıtlı bir model silmek için kullanın `model.delete()`.
 
 Daha fazla bilgi için başvuru belgeleri için bkz. [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), ve [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
-## <a name="troubleshooting"></a>Sorun giderme
-
-* __Dağıtım sırasında bir hata varsa__, kullanın `service.get_logs()` hizmet günlükleri görüntülemek için. Günlüğe kaydedilen bilgileri hatanın nedenini gösterir.
-
-* Günlükleri yönlendiren bir hata içeriyor olabilir __günlük düzeyi ayarlamak için hata ayıklama__. Günlük tutma düzeyini ayarlamaya Puanlama komut dosyası aşağıdaki satırları bir görüntü oluşturup ardından görüntüyü kullanarak bir hizmet oluşturma ekleyin:
-
-    ```python
-    import logging
-    logging.basicConfig(level=logging.DEBUG)
-    ```
-
-    Bu değişiklik, ek günlük kaydını etkinleştirir ve daha fazla bilgi neden hatanın oluştuğu döndürebilir.
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
+* [Dağıtım sorunlarını giderme](how-to-troubleshoot-deployment.md)
 * [Azure Machine Learning web hizmetleri SSL ile güvenli hale getirme](how-to-secure-web-service.md)
 * [Bir web hizmeti olarak ML modeli kullanma](how-to-consume-web-service.md)
 * [Batch Öngörüler çalıştırma](how-to-run-batch-predictions.md)

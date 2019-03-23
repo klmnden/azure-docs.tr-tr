@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/18/2019
+ms.date: 03/22/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 859f0d168dcf1cc999f79ef22b5ba6669da79593
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: e7ab09522184f5c2d1c5168b24b2948f58e5189e
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189573"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368978"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Satır grubu kaliteli columnstore için en üst düzeye çıkarma
 
@@ -67,7 +67,7 @@ from cte;
 ```
 
 Trim_reason_desc satır grubu kırpılmış olup olmadığını belirtir (trim_reason_desc = NO_TRIM hiçbir kesme oluştu ve satır grubu en iyi kalitesini anlamına gelir). Kırpma nedeniyle erken erişim satır grubu belirtin:
-- BULKLOAD: Gelen toplu iş yükü için satır 1 milyondan az satır başlattıklarında kırpma bu nedenle kullanılır. Altyapısı varsa (delta deposuna ekleme aksine) eklenen 100.000 satır büyük sıkıştırılmış satır grupları oluşturur ancak BULKLOAD için kesim nedeni ayarlar. Bu senaryoda, daha fazla satır accumulate için toplu yükleme pencerenizi artırmayı deneyin. Ayrıca, satır grupları bölüm sınırlarını yayılamaz, çok parçalı değil emin olmak için bölümleme düzeninizi yeniden değerlendir.
+- BULKLOAD: Gelen toplu iş yükü için satır 1 milyondan az satır başlattıklarında kırpma bu nedenle kullanılır. Altyapısı varsa (delta deposuna ekleme aksine) eklenen 100.000 satır büyük sıkıştırılmış satır grupları oluşturur ancak BULKLOAD için kesim nedeni ayarlar. Bu senaryoda, daha fazla satır eklemek için toplu yükleme artırmayı deneyin. Ayrıca, satır grupları bölüm sınırlarını yayılamaz, çok parçalı değil emin olmak için bölümleme düzeninizi yeniden değerlendir.
 - MEMORY_LIMITATION: 1 milyon satır satır grupları oluşturmak için belirli bir miktarda bellek çalışma altyapısı tarafından gereklidir. Kullanılabilir bellek yükleme oturumu gerekli çalışma belleğinden daha az olduğunda, satır grupları erken kırpılmış. Aşağıdaki bölümlerde, gerekli bellek tahmin edin ve daha fazla bellek açıklanmaktadır.
 - DICTIONARY_SIZE: Bu kesim nedeni, geniş ve/veya yüksek bir kardinalite dizeleri içeren en az bir dize sütunu olduğundan satır kesme oluştuğunu gösterir. Sözlük boyutu bellekte 16 MB ile sınırlıdır ve satır grubu bu sınıra ulaştığınızda sıkıştırılır. Bu durumla karşılaşırsanız, ayrı bir tabloya sorunlu sütuna yalıtarak göz önünde bulundurun.
 

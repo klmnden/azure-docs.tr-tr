@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 11/5/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 48bd10a19254540d970a1cb5ebd19b63a1975df0
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 152194a44c549329e94d57fd3253a667ec95d480
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727034"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351839"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Hızlı Başlangıç: Özel görüntü işleme Python SDK ile bir nesne algılama projesi oluşturma
 
@@ -131,6 +131,7 @@ scissors_image_regions = {
     "scissors_20": [ 0.158088237, 0.04047389, 0.6691176, 0.843137264 ]
 }
 ```
+
 Ardından her örnek görüntüyü bölge koordinatlarıyla karşıya yüklemek için bu ilişki haritasını kullanın. Aşağıdaki kodu ekleyin.
 
 ```Python

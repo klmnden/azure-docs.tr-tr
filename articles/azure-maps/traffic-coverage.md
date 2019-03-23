@@ -1,99 +1,133 @@
 ---
 title: Trafik kapsamı içinde Azure haritalar | Microsoft Docs
 description: Trafik kapsamı içinde Azure haritalar hakkında bilgi edinin
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/12/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 09/22/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3ef9cce659e1173e419e1ea24cf0a414202013b5
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: ad7d4dceefcaa06effa6b2974b0a8a03ad641372
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575686"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372280"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure haritalar trafik kapsamı
 
-Azure haritalar zengin trafiği bilgi trafiği biçiminde sağlar **akış** ve **olayları**. Bu veriler eşlemeleri görselleştirilmiş veya faktörü daha akıllıca yollarını koşullar sürüş gerçek içinde oluşturmak için kullanılan. 
+Azure haritalar zengin trafiği bilgi trafiği biçiminde sağlar **akış** ve **olayları**. Bu veriler eşlemeleri görselleştirilmiş veya faktörü daha akıllıca yollarını koşullar sürüş gerçek içinde oluşturmak için kullanılan.
 
 Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağıdaki tabloda, her bölgede ne tür bir akış bilgileri isteyebilir hakkında bilgi sağlar: 
 
-|Bölge  |Olaylar  |Akış  |
+## <a name="americas"></a>Kuzey ve Güney Amerika
+
+|Ülke/Bölge  |Olaylar  |Akış  |
 |---------|:---------:|:---------:|
-|Arjantin      |         |✓         |
-|Avustralya     |✓         |✓        |
-|Avusturya     |✓         |✓         |
-|Bahreyn     |         |✓         |
-|Belçika     |✓         |✓         |
+|Arjantin      |✓         |✓         |
 |Brezilya     |✓         |✓         |
-|Bulgaristan     |✓         |✓         |
 |Kanada     |✓         |✓         |
 |Şili     |✓         |✓         |
-|Kolombiya      |         |✓         |
-|Hırvatistan     |         |✓         |
+|Kolombiya      |✓         |✓         |
+|Meksika     |✓         |✓         |
+|Peru       |✓         |✓         | 
+|Amerika Birleşik Devletleri     |✓         |✓        |
+|+Puerto Rico     |✓         |✓         |
+|Uruguay |✓         |✓         |
+
+
+## <a name="asia-pacific"></a>Asya Pasifik
+
+|Ülke/Bölge   |Olaylar  |Akış  |
+|---------|:---------:|:---------:|
+|Avustralya     |✓         |✓        |
+|Brunei   |✓         |✓        |
+|Hong Kong Çin ÖİB     |✓         |✓         |
+|Hindistan   |✓         |✓         |
+|Endonezya     |✓         |✓         |
+|Makao ÖİB     |✓         |✓         |
+|Malezya     |✓         |✓         |
+|Yeni Zelanda     |✓         |✓         |
+|Filipinler  |✓         |✓         |
+|Singapur     |✓         |✓         |
+|Tayvan     |✓         |✓        |
+|Tayland     |✓         |✓        |
+|Vietnam   |✓         |✓         |
+
+
+## <a name="europe"></a>Avrupa
+
+|Ülke/Bölge   |Olaylar  |Akış  |
+|---------|:---------:|:---------:|
+|Andorra   |✓         |✓         |
+|Avusturya     |✓         |✓         |
+|Belçika     |✓         |✓         |
+|Bulgaristan     |✓         |✓         |
+|Hırvatistan     |✓         |✓         |
 |Çek Cumhuriyeti     |✓         |✓         |
 |Danimarka     |✓         |✓         |
-|Mısır     |         |✓         |
 |Estonya     |         | ✓        |
 |Finlandiya     |✓         |✓         |
 |+ Aland Adaları      |✓         |✓         |
 |Fransa     |✓         |✓         |
-|+ Monako     |✓         |✓         |
+|Monako     |✓         |✓         |
 |Almanya     |✓         |✓         |
 |Yunanistan     |✓         |✓         |
-|Hong Kong ÖYB     |✓         |✓         |
 |Macaristan     |✓         |✓         |
-|İzlanda     |         |✓         |
-|Endonezya     |✓         |✓         |
-|İrlanda (Cumhuriyeti)     |✓         |✓         |
-|İsrail     |         |✓         |
+|İzlanda     |✓         |✓         |
+|İrlanda     |✓         |✓         |
 |İtalya     |✓         |✓        |
-|+ San Marino     |✓         |✓         |
-|Kuveyt     |✓         |✓         |
-|Letonya     |         |✓         |
-|Lesotho     |✓         |✓         |
-|Lituanya     |         |✓         |
+|Letonya     |✓         |✓         |
+|Lesoto     |✓         |✓         |
+|Lihtenştayn      |✓         |✓         |
+|Litvanya     |✓         |✓         |
 |Lüksemburg     |✓         |✓         |
-|Makao ÖİB     |         |✓         |
-|Malezya     |✓         |✓         |
 |Malta     |✓         |✓         |
-|Meksika     |✓         |✓         |
-|Fas     |         |✓         |
+|Monako   |✓         |✓         |
 |Hollanda     |✓         |✓         |
-|Yeni Zelanda     |✓         |✓         |
 |Norveç     |✓         |✓         |
-|Umman     |         |✓         |
 |Polonya     |✓         |✓         |
 |Portekiz     |✓         |✓         |
-|+ Azor Adaları ve Madeira     |         |✓         |
-|Katar     |         |✓         |
-|Romanya     |         |✓         |
+|+ Azor Adaları ve Madeira     |✓         |✓         |
+|Romanya     |✓         |✓         |
 |Rusya Federasyonu     |✓         |✓         |
-|Suudi Arabistan     |✓         |✓         |
-|Singapur     |✓         |✓         |
+|San Marino    |✓         |✓         |
 |Slovakya     |✓         |✓         |
 |Slovenya     |✓         |✓         |
-|Güney Afrika     |✓         |✓         |
 |İspanya     |✓         |✓         |
-|+ Andora     |✓         |✓         |
+|+Andorra     |✓         |✓         |
 |+ Balearic Adaları     |✓         |✓         |
 |+ Kanarya Adaları     |✓         |✓         |
-|+ Cebelitarık     |✓         |✓         |
 |İsveç     |✓         |✓         |
 |İsviçre     |✓         |✓        |
-|+ Liechtenstein      |✓         |✓         |
-|Tayvan     |✓         |✓        |
-|Tayland     |✓         |✓        |
 |Türkiye     |✓         |✓         |
 |Ukrayna     |✓         |✓         |
-|Birleşik Arap Emirlikleri     |✓         |✓         |
 |Birleşik Krallık     |✓         |✓         |
-|(Bölgesi & Jersey)     |✓         |✓         |
-|Man Adası     |✓         |✓         |
-|Amerika Birleşik Devletleri     |✓         |✓        |
-|+ Porto Riko     |✓         |✓         |
+|+ Cebelitarık     |✓         |✓         |
+|+Guernsey & Jersey     |✓         |✓         |
+|+ Man Adası     |✓         |✓         |
+|Vatikan Şehri   |✓         |✓         |
+
+
+## <a name="middle-east-and-africa"></a>Orta Doğu ve Afrika
+
+|Ülke/Bölge |Olaylar  |Akış  |
+|---------|:---------:|:---------:|
+|Bahreyn     |✓         |✓         |
+|Mısır     |✓         |✓         |
+|İsrail     |✓         |✓         |
+|Kenya     |✓         |✓         |
+|Kuveyt     |✓         |✓         |
+|Fas     |✓         |✓         |
+|Mozambik  |✓         |✓         |
+|Nijerya   |✓        |✓        |
+|Umman     |✓         |✓         |
+|Katar     |✓         |✓         |
+|Suudi Arabistan     |✓         |✓         |
+|Güney Afrika     |✓         |✓         |
+|Birleşik Arap Emirlikleri  |✓         |✓         |
+
+## <a name="next-steps"></a>Sonraki adımlar
 
 Azure haritalar trafik verileri hakkında daha fazla bilgi için bkz: [trafiği](https://docs.microsoft.com/rest/api/maps/traffic) başvuru sayfalarına.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 03e10497b033fc3d97fde4cd524b358c05fdc943
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 94893a5b5716c9bd207ad2a8bc8ca457974dddd4
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57457948"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395647"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas VM diskleri ve yönetilen ve yönetilmeyen premium diskleri hakkında sık sorulan sorular
 
@@ -105,7 +105,7 @@ Evet, yönetilmeyen ve yönetilen diskleri desteklenir. Yeni iş yükleri için 
 
 Hayır.
 
-**128 GB disk oluşturun ve ardından 130 GiB boyutunu artırın, sonraki disk boyutu (256 GiB) ücretlendirilirim?**
+**128 GB disk oluşturun ve ardından 130 gibibayt (GiB) boyutunu artırın, sonraki disk boyutu (256 GiB) ücretlendirilirim?**
 
 Evet.
 
@@ -115,7 +115,7 @@ Azure yönetilen diskler, şu anda yalnızca yerel olarak yedekli depolama yöne
 
 **Küçültme veya miyim yönetilen disklerim downsize?**
 
-Hayır. Bu özellik şu anda desteklenmiyor. 
+Hayır. Bu özellik şu anda desteklenmiyor.
 
 **My disk üzerinde bir kira sonu?**
 
@@ -179,7 +179,7 @@ Evet, uygulayabilirsiniz. Başvurmak [dönüştürme Azure yönetilen diskler de
 -AccountType StandardSSD_LRS
 
 **Standart SSD diskleri HDD yerine kullanmanın avantajı nedir?**
-Standart SSD disk daha iyi gecikme süresi, tutarlılık, kullanılabilirlik ve güvenilirlik HDD disklere karşılaştırma sunun. Uygulama iş yükleri üzerinde standart SSD nedeniyle, çok daha sorunsuz bir şekilde çalıştırın. Premium SSD diskleri yoğun g/ç üretim iş yüklerinin çoğu için önerilen çözüm olduğunu unutmayın. 
+Standart SSD disk daha iyi gecikme süresi, tutarlılık, kullanılabilirlik ve güvenilirlik HDD disklere karşılaştırma sunun. Uygulama iş yükleri üzerinde standart SSD nedeniyle, çok daha sorunsuz bir şekilde çalıştırın. Premium SSD diskleri yoğun g/ç üretim iş yüklerinin çoğu için önerilen çözüm olduğunu unutmayın.
 
 **Standart SSD yönetilmeyen diskler kullanabilir miyim?**
 Standart SSD disk Hayır, yalnızca yönetilen diskler olarak kullanılabilir.
@@ -191,7 +191,7 @@ Hayır, standart SSD'ler Tek Örnekli sanal makine SLA'sı yoktur. Premium SSD d
 
 **Yönetilen diskler performans üzerindeki geçişin herhangi bir etkisi var mı?**
 
-Geçişi, bir depolama konumundan diske taşımayı içerir. Bu, arka plan kopyasını disklerde veri miktarına bağlı olarak 24 saat değerinden, genellikle tamamlanması birkaç saat sürebilir verileri aracılığıyla yönetilir. Bu sırada bazı okuma konumuna yönlendirildi ve tamamlanması uzun sürebilir, uygulamanızın normal okuma gecikme süresi daha yüksek oluşabilir. Bu süre boyunca yazma gecikmesi üzerinde hiçbir etkisi yoktur.  
+Geçişi, bir depolama konumundan diske taşımayı içerir. Bu, tamamlanması 24 saatten az genellikle birkaç saat sürebilir, veri arka plan kopyalama düzenlenen disklerde veri miktarına bağlı olarak saat. Bu sırada bazı okuma konumuna yönlendirildi ve tamamlanması uzun sürebilir, uygulamanızın normal okuma gecikme süresi daha yüksek oluşabilir. Bu süre boyunca yazma gecikmesi üzerinde hiçbir etkisi yoktur.  
 
 **Hangi değişiklikleri bir önceden var olan Azure Backup hizmeti yapılandırma önceki/sonraki yönetilen Diskler'e geçiş gerekli midir?**
 
@@ -205,7 +205,7 @@ Evet, yedeklemeler sorunsuz çalışır.
 
 Değişiklik, gerekmez.
 
-**Otomatik geçişi mevcut bir sanal makine ölçek kümeleri yönetilmeyen disklerden yönetilen disklere desteklenir mi?**
+**Mevcut bir sanal makine ölçek otomatik geçişini yönetilmeyen disklerden yönetilen disklere desteklenen ayarlanır?**
 
 Hayır. Yeni bir ölçek kümesi yönetilen diskler ile yönetilmeyen diskler eski ölçek kümenizi görüntüyü kullanarak oluşturabilirsiniz.
 
@@ -333,25 +333,29 @@ Var olan küçük premium P10 fiyatlandırma katmanına göre faturalandırılma
 
 Küçük disklerinizi anlık görüntüsünü alın ve ardından otomatik olarak fiyatlandırma katmanını P4 veya P6 sağlanan boyutuna göre geçiş yapmak için bir disk oluşturun.
 
-**Mevcut yönetilen diskler boyutlarından 32 TiB kadar yeni yeni kullanıma sunulan disk boyutları için 4'ten az TiB boyutlandırabilirsiniz?**
+**Mevcut yönetilen diskler boyutları en az 4 tebibytes (TiB) 32 TiB kadar yeni yeni kullanıma sunulan disk boyutları için yeniden?**
 
 8 TiB TiB 16 ve 32 TiB yeni yönetilen Disk boyutları şu anda Önizleme aşamasındadır. Henüz mevcut disk boyutları yeni disk boyutları için yeniden boyutlandırma desteklemiyoruz.
 
-**Azure Backup ve Azure Site Recovery hizmeti tarafından desteklenen en büyük disk boyutları nedir?**
+**Azure Backup ve Azure Site Recovery hizmeti tarafından desteklenen en büyük disk boyutları nelerdir?**
 
 Azure Backup ve Azure Site Recovery hizmeti tarafından desteklenen en büyük disk boyutu 4 TiB ' dir.
 
-**Nelerdir önerilen VM boyutları için büyük disk boyutları (> 4TiB) IOPS ve bant genişliği elde etmek için standart bir SSD ve HDD standart diskler en iyi duruma getirilmiş için disk?**
+**Boyutu daha büyük disk boyutları için önerilen VM nelerdir (> 4 TiB) IOPS ve bant genişliği elde etmek için standart bir SSD ve HDD standart diskler en iyi duruma getirilmiş için disk?**
 
-Standart SSD ve HDD standart büyük disk boyutlarını disk aktarım hızı elde etmek için (> 4TB) 500 IOPS ve 60 MiB/sn dışında aşağıdaki VM boyutlarından birini, performansı iyileştirmek için kullanmanız gerekir: B serisi, DSv2 serisi, Dsv3 serisi, ESv3 serisi, Fs serisi, Fsv2 serisi, M serisi, GS serisi NCv2 serisi, NCv3 serisi veya Ls serisi VM'ler.
+Standart SSD ve HDD standart büyük disk boyutlarını disk aktarım hızı elde etmek için (> 4 TiB) 500 IOPS ve 60 MiB/sn dağıtmadan performansınızı en iyi duruma getirmek için yeni bir sanal makineden aşağıdaki VM boyutlarından birini öneririz: B serisi, DSv2 serisi, Dsv3 serisi, ESv3 serisi, Fs serisi, Fsv2 serisi, M serisi, GS serisi NCv2 serisi, NCv3 serisi veya Ls serisi VM'ler. Var olan sanal makineleri veya yukarıdaki önerilen boyut kullanmayan Vm'leri büyük diskler ekleme, daha düşük performans düşebilir.
 
-**Hangi bölgeler 4 TiB desteklenenden daha büyük bir yönetilen disk boyutları misiniz?**
+**Nasıl yükseltebilirim disklerim (> 4 TiB) dağıtıldığı büyük disk boyutları Önizleme sırasında daha yüksek IOPS ve bant genişliği GA almak için?**
 
-Yönetilen disk boyutları 4 TiB ötesinde önizlemesi, kamu, Çin ve Almanya hariç tüm Azure üretim bölgelerde desteklenir. 
+Ya da durdurabilir ve disk bağlı olduğu VM başlatmak veya ayırma ve yeniden diski. Daha büyük disk boyutları performans hedefleri, premium SSD hem standart SSD'ler ga'daki yükseltildi
 
-**Yeni disk boyutları ana bilgisayar önbelleğe almayı etkinleştirme destekliyor musunuz?**
+**Yönetilen disk boyutu 8 TiB, TiB 16 ve 32 TiB desteklenen bölgeleri nelerdir?**
 
-ReadOnly ana bilgisayar önbelleğe alma ve okuma/yazma 4TiB değerinden küçük disk boyutlarına destekliyoruz. Disk boyutları için 4'ten fazla TiB önbelleği seçeneğini hiçbiri dışında ayarlama desteklemiyoruz. Burada VM önbelleğe alınmış veri ile daha iyi performans artışının gözlemlemek için bekleyebilirsiniz, daha küçük disk boyutları için önbelleğe alma yararlanarak öneririz.
+8 TiB, TiB 16 ve 32 TiB disk SKU'ları tüm bölgelerde genel Azure altında desteklenir. Microsoft Azure kamu ve Azure Çin 21Vianet için destek henüz kullanılamıyor.
+
+**Ana bilgisayar önbelleğe almayı etkinleştirme tüm disk boyutları destekler mi?**
+
+ReadOnly ana bilgisayar önbelleğe alma ve okuma/yazma disk boyutları 4'ten az TiB destekliyoruz. Disk boyutları için 4'ten fazla TiB önbelleği seçeneğini hiçbiri dışında ayarlama desteklemiyoruz. Burada VM önbelleğe alınmış veri ile daha iyi performans artışının gözlemlemek için bekleyebilirsiniz, daha küçük disk boyutları için önbelleğe alma yararlanarak öneririz.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Peki sorumun cevabı burada bulamadığınız?
 

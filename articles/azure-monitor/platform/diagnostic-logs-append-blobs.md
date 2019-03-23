@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: f626ef4cfb385a62f68ab611b77dd0c307cd3820
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ab5fba6bbbf6ade83c7699edec937ba02b222939
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882388"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370066"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Azure İzleyici tanılama günlükleri bir depolama hesabına arşivlenmiş biçimi değişiklik için hazırlama
 
@@ -24,7 +24,7 @@ ms.locfileid: "54882388"
 
 ## <a name="what-is-changing"></a>Ne değişiyor
 
-Azure İzleyici kaynak tanılama verilerini ve etkinlik günlüğü verileri bir Azure depolama hesabı, Event Hubs ad alanı, veya Log Analytics göndermenize olanak sağlayan bir özellik sunar. Üzerinde bir sistem performans sorunu çözmek için **1 Kasım 2018'den 12:00 gece UTC** veri gönderme BLOB depolamaya günlük biçimini değiştirir. Diğer bir deyişle okuma verileri blob depolama dışına tooling varsa, yeni veri biçimi anlamak için araçlarınızı güncelleştirmeniz gerekiyor.
+Azure İzleyici kaynak tanılama verilerini ve etkinlik günlüğü verileri Event Hubs ad alanı, bir Azure depolama hesabına veya Azure İzleyici'de bir Log Analytics çalışma alanına göndermenize olanak sağlayan bir özellik sunar. Üzerinde bir sistem performans sorunu çözmek için **1 Kasım 2018'den 12:00 gece UTC** veri gönderme BLOB depolamaya günlük biçimini değiştirir. Diğer bir deyişle okuma verileri blob depolama dışına tooling varsa, yeni veri biçimi anlamak için araçlarınızı güncelleştirmeniz gerekiyor.
 
 * Perşembe 1 Kasım 2018'de UTC gece 12:00, blob biçimi olacak şekilde değiştirmek [JSON satırları](http://jsonlines.org/). Bu, her kayıt tarafından bir yeni satır dış kayıtları diziden ve JSON kayıtlar arasında hiçbir virgül ile ayrılmış anlamına gelir.
 * Tek seferde tüm Aboneliklerdeki tüm tanılama ayarları için blob biçimi değişiklikler. 1 Kasım için yayılan ilk PT1H.json dosyasına bu yeni biçim kullanır. Blob ve kapsayıcı adları aynı kalır.

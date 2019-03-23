@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 949bf52a586603fc6a82c0da553cf70877a8f4be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3b5da6c9046fc694bd5eb0f55cf031b82b6d0103
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085023"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370542"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Active Directory ortamınızı Azure İzleyici'de Active Directory sistem durumu denetimi çözümü ile en iyi duruma getirme
 
@@ -55,7 +55,7 @@ Değerlendirilecek etki alanının üyesi olan etki alanı denetleyicilerinizin 
 
 1. Yükleme [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) , etki alanı denetleyicisi zaten System Center 2016 - Operations Manager veya Operations Manager 2012 R2 tarafından izlenmiyor.
 2. System Center 2016 - Operations Manager veya Operations Manager 2012 R2 ile izlenir ve yönetim grubu, Azure İzleyici ile tümleşiktir değil, etki alanı denetleyicisi verileri toplamak ve hala Hizmeti'ne iletmek için Azure İzleyici ile birden çok girişli olabilir Operations Manager tarafından izlenecek.  
-3. Operations Manager yönetim grubunuzun hizmeti ile tümleşikse, aksi takdirde, etki alanı denetleyicileri için veri toplama altındaki adımları izleyerek hizmet eklemek ihtiyacınız [aracıyla yönetilen bilgisayarlar ekleme](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics) seçeneğini etkinleştirdikten sonra çalışma alanınızda çözümün.  
+3. Operations Manager yönetim grubunuzun hizmeti ile tümleşikse, aksi takdirde, etki alanı denetleyicileri için veri toplama altındaki adımları izleyerek hizmet eklemek ihtiyacınız [aracıyla yönetilen bilgisayarlar ekleme](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) seçeneğini etkinleştirdikten sonra çalışma alanınızda çözümün.  
 
 Etki alanı denetleyicinize bir Operations Manager yönetim grubu için hangi raporların verileri toplayan aracıda kendi atanan yönetim sunucusuna iletir ve doğrudan yönetim sunucusundan Azure İzleyicisi'ne gönderilir.  Operations Manager veritabanları için veriler yazılmaz.  
 

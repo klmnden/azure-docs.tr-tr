@@ -5,21 +5,21 @@ services: storage
 author: cbrooksmsft
 ms.service: storage
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c7f7768406ae64615b46abeb396b5469caf2f6e9
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: c34af90f946542608eaf20f4f21d4986f3c80e6b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750659"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369403"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure depolama güvenlik duvarlarını ve sanal ağları yapılandırma
 
 Azure depolama, katmanlı güvenlik modeli sağlar. Bu model, desteklenen ağları belirli bir kümesi, depolama hesaplarınıza güvenli olanak tanır. Ağ kuralları yapılandırıldığında, yalnızca belirtilen ağlar kümesini projelerimizin veri isteyen uygulamalar bir depolama hesabına erişebilir.
 
-Bir depolama hesabı ağ kuralları geçerli olduğunda erişen bir uygulama istek üzerine uygun yetkilendirme gerektirir. Yetkilendirme, Azure Active Directory (AD) kimlik bilgilerini (BLOB'lar ve Kuyruklar) ile desteklenir (Önizleme), geçerli hesap erişim anahtarı veya SAS belirteci.
+Bir depolama hesabı ağ kuralları geçerli olduğunda erişen bir uygulama istek üzerine uygun yetkilendirme gerektirir. Yetkilendirme, BLOB'lar ve Kuyruklar için Azure Active Directory (Azure AD) kimlik bilgilerini, geçerli hesap erişim anahtarı ile veya bir SAS belirteci ile desteklenir.
 
 > [!IMPORTANT]
 > Bir Azure sanal ağı (VNet) içinde çalışan bir hizmet isteği gelen sürece depolama hesabınız için güvenlik duvarı kurallarını etkinleştirmek varsayılan olarak, veri gelen istekleri engeller. Engellenen istekleri, Azure portalından, günlük ve ölçüm hizmetlerden, diğer Azure hizmetlerinden gelen içerir ve benzeri.

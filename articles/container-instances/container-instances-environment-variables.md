@@ -5,20 +5,20 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: 0c43c81528c2de656e1d788f6af6ba337d7aacb8
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 3e7e292f36296ce09af89f03e8b154b57e18b55c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403031"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370007"
 ---
 # <a name="set-environment-variables"></a>Ortam değişkenlerini belirleme
 
 Kapsayıcı örneklerinizin ortam değişkenlerini ayarlama, uygulama veya betik çalıştırma kapsayıcı tarafından dinamik yapılandırma sağlamanıza olanak verir. Bir kapsayıcıda ortam değişkenlerini ayarlamak için bir kapsayıcı örneği oluşturduğunuzda bunları belirtin. Bir kapsayıcı ile başlattığınızda ortam değişkenlerini ayarlayabilirsiniz [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)ve [Azure portalında](#azure-portal-example).
 
-Örneğin, çalıştırdığınız [Acı/microsoft-wordcount] [ aci-wordcount] kapsayıcı görüntüsü, aşağıdaki ortam değişkenlerini belirterek davranışını değiştirebilirsiniz:
+Örneğin, Microsoft çalıştırırsanız [Acı wordcount] [ aci-wordcount] kapsayıcı görüntüsü, aşağıdaki ortam değişkenlerini belirterek davranışını değiştirebilirsiniz:
 
 *NumWords*: STDOUT gönderilen sözcük sayısı.
 
@@ -28,13 +28,13 @@ Gizli ortam değişkenleri olarak geçirmek gerekiyorsa, Azure Container Instanc
 
 ## <a name="azure-cli-example"></a>Azure CLI örneği
 
-Varsayılan çıktısını görmek için [Acı/microsoft-wordcount] [ aci-wordcount] çalıştırabilmesi önce bu kapsayıcı, [az kapsayıcı oluşturma] [ az-container-create] komut (Hayır ortam değişkenlerini) belirtilen:
+Varsayılan çıktısını görmek için [Acı wordcount] [ aci-wordcount] çalıştırabilmesi önce bu kapsayıcı, [az kapsayıcı oluşturma] [ az-container-create] komut (Hayır ortam değişkenlerini) belirtilen:
 
 ```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer1 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure
 ```
 
@@ -44,7 +44,7 @@ az container create \
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer2 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
@@ -83,13 +83,13 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
 
 PowerShell'de ortam değişkenlerini ayarlamak için CLI'yı benzer, ancak kullandığı `-EnvironmentVariable` komut satırı bağımsız değişkeni.
 
-İlk olarak, başlatma [Acı/microsoft-wordcount] [ aci-wordcount] kapsayıcı bu, varsayılan yapılandırmasında [yeni AzContainerGroup] [ new-Azcontainergroup] komut:
+İlk olarak, başlatma [Acı wordcount] [ aci-wordcount] kapsayıcı bu, varsayılan yapılandırmasında [yeni AzContainerGroup] [ new-Azcontainergroup] komutu:
 
 ```azurepowershell-interactive
 New-AzContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer1 `
-    -Image microsoft/aci-wordcount:latest
+    -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
 Şimdi aşağıdakini çalıştırarak [yeni AzContainerGroup] [ new-Azcontainergroup] komutu. Bu bir belirtir *NumWords* ve *MinLength* ortam değişkenleri, bir dizi değişkenini doldurma sonra `envVars`:
@@ -99,7 +99,7 @@ $envVars = @{'NumWords'='5';'MinLength'='8'}
 New-AzContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer2 `
-    -Image microsoft/aci-wordcount:latest `
+    -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest `
     -RestartPolicy OnFailure `
     -EnvironmentVariable $envVars
 ```
@@ -143,7 +143,7 @@ Azure portalında bir kapsayıcı başlatma, ortam değişkenlerini ayarlamak i�
 
 Portal ile dağıttığınızda, üç değişkenler şu anda sınırlı ve şu biçimde girmeniz gerekir: `"variableName":"value"`
 
-Bir örnek için başlangıç [Acı/microsoft-wordcount] [ aci-wordcount] ile kapsayıcı *NumWords* ve *MinLength* değişkenleri.
+Bir örnek için başlangıç [Acı wordcount] [ aci-wordcount] ile kapsayıcı *NumWords* ve *MinLength* değişkenleri.
 
 1. İçinde **yapılandırma**ayarlayın **yeniden ilke** için *başarısız*
 2. Girin `"NumWords":"5"` birinci değişken için olan seçin **Evet** altında **ek ortam değişkenlerini ekleyin**girin `"MinLength":"8"` ikinci değişken için. Seçin **Tamam** doğrulayın ve ardından kapsayıcıya dağıtın.
@@ -246,7 +246,7 @@ Toplu işleme çeşitli kapsayıcıları ile büyük bir veri kümesini gibi gö
 [portal-env-vars-02]: ./media/container-instances-environment-variables/portal-env-vars-02.png
 
 <!-- LINKS - External -->
-[aci-wordcount]: https://hub.docker.com/r/microsoft/aci-wordcount/
+[aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

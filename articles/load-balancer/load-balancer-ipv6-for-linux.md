@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2019
 ms.author: kumud
-ms.openlocfilehash: ea1ef845f55fbdadeea1992e167ef6568572abc9
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 66777ec314e95d81a4be57082f06ef16dc170186
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141722"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369641"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Linux Vm'leri için DHCPv6'ı yapılandırma
 
@@ -54,7 +54,18 @@ Bu belge, Linux sanal makinenizi bir IPv6 adresi alır, böylece DHCPv6 etkinle�
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
+Ubuntu 17.10 ile başlayarak, varsayılan ağ yapılandırma mekanizmadır [NETPLAN]( https://netplan.io).  Ağ yapılandırması NETPLAN yükleme/örnek oluşturma zamanında YAML bu konumdaki yapılandırma dosyalarını okur: / {lib,etc,run}/netplan/*.yaml.
 
+Lütfen bir *dhcp6:true* yapılandırmanızda her ethernet arabirimi için bildirimi.  Örneğin:
+  
+        network:
+          version: 2
+          ethernets:
+            eno1:
+              dhcp6: true
+
+Erken önyükleme sırasında "Oluşturucu ağ" yapılandırması için yazar/el belirtilen ağ cini NETPLAN hakkında başvuru bilgileri için cihaz denetimi kapalı çalıştırın netplan bkz https://netplan.io/reference.
+ 
 ## <a name="debian"></a>Debian
 
 1. Düzen */etc/dhcp/dhclient6.conf* dosyasını bulun ve aşağıdaki satırı ekleyin:

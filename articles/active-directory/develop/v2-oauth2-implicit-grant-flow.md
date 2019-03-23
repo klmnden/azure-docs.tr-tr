@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd0ce02a92c0a2e803866b6f070dba113c566f5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9ce388c53a28d6b04bf7685da397eade4b1fd94
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112220"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371783"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokolleri - örtük akışını kullanarak Spa'lar
 
@@ -55,7 +55,7 @@ Aşağıdaki diyagramda tüm örtük oturum açma akışı nasıl göründüğü
 İlk kullanıcı, uygulamada oturum açması için size gönderebilir bir [Openıd Connect](v2-protocols-oidc.md) yetkilendirme isteği ve get bir `id_token` v2.0 uç noktasından.
 
 > [!IMPORTANT]
-> Başarılı bir şekilde uygulama kaydında bir kimlik belirteci istemek için [kayıt portalı](https://apps.dev.microsoft.com) olmalıdır **izin örtük akış** Web istemcisi için etkin. Bunu etkin değilse, bir `unsupported_response` hata döndürülür: **'Response_type' giriş parametresi için sağlanan değer bu istemci için izin verilmiyor. 'Code' beklenen değerdir**
+> Başarılı bir şekilde uygulama kaydında bir kimlik belirteci istemek için [Azure Portalı - Uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) sayfa doğru seçerek etkinleştirilmiş örtük verme akışı olmalıdır **erişim belirteçlerini** ve **Kimlik belirteçlerini** altında **örtük vermeyi** bölümü. Bunu etkin değilse, bir `unsupported_response` hata döndürülür: **'Response_type' giriş parametresi için sağlanan değer bu istemci için izin verilmiyor. 'Code' beklenen değerdir**
 
 ```
 // Line breaks for legibility only
@@ -77,7 +77,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parametre |  | Açıklama |
 | --- | --- | --- |
 | `tenant` | gerekli |`{tenant}` İstek yolunda değer, uygulamaya oturum denetimi için kullanılabilir. İzin verilen değerler `common`, `organizations`, `consumers`ve Kiracı tanımlayıcıları. Daha fazla ayrıntı için [protokolü temel](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | gerekli |Uygulama kimliği, kayıt portalı ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) uygulamanızı atanmış. |
+| `client_id` | gerekli |(İstemci) uygulama kimliği [Azure Portalı - Uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) uygulamanıza atanan sayfası. |
 | `response_type` | gerekli |İçermelidir `id_token` Openıd Connect oturum açma için. Response_type içerebilir `token`. Kullanarak `token` hemen bir erişim belirteci ikinci bir istek için Authorize son noktası yapmak zorunda kalmadan Authorize son noktası almak üzere uygulamanızı buraya izin verir. Kullanırsanız `token` response_type, `scope` parametresi için bir belirteç vermek üzere hangi kaynak belirten bir kapsam içermelidir. |
 | `redirect_uri` | Önerilen |Burada kimlik doğrulama yanıtlarının gönderilebilen veya uygulamanız tarafından alınan uygulamanızın redirect_uri. Bu url olarak kodlanmış olması dışında Portalı'nda kayıtlı redirect_uris biri tam olarak eşleşmesi gerekir. |
 | `scope` | gerekli |Boşlukla ayrılmış bir listesini [kapsamları](v2-permissions-and-consent.md). Openıd Connect için kapsamı içermesi gerekir `openid`, onay için UI "oturumunuzu açma" izni çevirir. İsteğe bağlı olarak ayrıca eklemek isteyebileceğiniz `email` veya `profile` ek kullanıcı verilerine erişim kazanmak için kapsamları. Bu isteği çeşitli kaynaklara onay isteme diğer kapsamları da içerebilir. |

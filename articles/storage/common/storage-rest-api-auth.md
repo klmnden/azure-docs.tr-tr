@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 647d40db87f76a9e1a13a108c5f55fac40524017
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9f6698eebf184d1df80920b7779512e2fda83a0c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012784"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369097"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Azure Depolama REST API’sini kullanma
 
@@ -266,7 +266,7 @@ Ayrıştırma sonuçlarını isteği oluştur ve hizmeti çağırmak nasıl anla
 ## <a name="creating-the-authorization-header"></a>Yetkilendirme üst bilgisi oluşturuluyor
 
 > [!TIP]
-> Azure depolama, Blob ve kuyruk hizmetlerine (Önizleme) için Azure Active Directory (Azure AD) Tümleştirmesi artık destekliyor. Azure AD, Azure Depolama'ya bir talep yetkilendirmek için bir çok daha basit deneyim sunar. REST işlemlerini yetkilendirmek için Azure AD kullanarak daha fazla bilgi için bkz: [Azure Active Directory (Önizleme) ile kimlik doğrulama](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Azure depolama ile Azure AD tümleştirme genel bakış için bkz. [erişim Azure Active Directory (Önizleme) kullanarak Azure depolama için kimlik doğrulaması](storage-auth-aad.md).
+> Azure depolama BLOB'ları ve Kuyruklar için artık Azure Active Directory (Azure AD) tümleştirmeyi destekler. Azure AD, Azure Depolama'ya bir talep yetkilendirmek için bir çok daha basit deneyim sunar. REST işlemlerini yetkilendirmek için Azure AD kullanarak daha fazla bilgi için bkz: [Azure Active Directory ile kimlik doğrulama](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Azure depolama ile Azure AD tümleştirme genel bakış için bkz. [erişim için Azure depolama, Azure Active Directory'yi kullanarak kimlik doğrulaması](storage-auth-aad.md).
 
 Kavramsal olarak açıklayan bir makale yok (kod) nasıl gerçekleştirileceğini [kimlik doğrulaması için Azure Storage Hizmetleri](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services).
 Şimdi aşağı ilgili makaleye tam olarak biçimlendirebilir gereklidir ve kodu gösterir.

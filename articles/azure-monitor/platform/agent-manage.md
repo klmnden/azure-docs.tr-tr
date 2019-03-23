@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 7701ef463124fafd4c750fbb9f23aa03d6bc25ab
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 963fd1bfd67a20033f0712d3b447091abda40d11
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262498"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369914"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows ve Linux için Log Analytics aracısını korumak ve yönetme
 
-Log Analytics için Windows veya Linux Aracısı'nın ilk dağıtımdan sonra aracıyı yeniden yapılandırın veya yaşam döngüsü emeklilik aşamasında ulaştıysa bilgisayardan kaldırmanız gerekebilir. Bu bakım görevleri el ile veya işlem hatası hem giderlerini azaltan ve Otomasyon aracılığıyla kolayca yönetebilirsiniz.
+Log Analytics Windows veya Linux Aracısı Azure İzleyici'de, ilk dağıtımdan sonra aracıyı yeniden yapılandırın veya bilgisayarın yaşam döngüsü emeklilik aşamasında ulaştıysa kaldırmanız gerekebilir. Bu bakım görevleri el ile veya işlem hatası hem giderlerini azaltan ve Otomasyon aracılığıyla kolayca yönetebilirsiniz.
 
 ## <a name="adding-or-removing-a-workspace"></a>Ekleyerek veya kaldırarak bir çalışma alanı
 
@@ -115,7 +115,7 @@ Hizmet bir ara sunucu üzerinden iletişim kurmak için aracıyı yapılandırma
 
 #### <a name="update-settings-using-powershell"></a>PowerShell kullanarak ayarlarını güncelleştirme
 
-Aşağıdaki örnek PowerShell kodu kopyalayın, ortamınıza özgü bilgilerle güncelleştirin ve bir PS1 dosya adı uzantısıyla kaydedin. Doğrudan Log Analytics hizmetine bağlanan her bilgisayarda betiği çalıştırın.
+Aşağıdaki örnek PowerShell kodu kopyalayın, ortamınıza özgü bilgilerle güncelleştirin ve bir PS1 dosya adı uzantısıyla kaydedin. Log Analytics çalışma alanını Azure İzleyici'de doğrudan bağlanan her bilgisayarda betiği çalıştırın.
 
 ```PowerShell
 param($ProxyDomainName="https://proxy.contoso.com:30443", $cred=(Get-Credential))

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 6e4a83eb8b3488c4ce2816151ca31b4a594dd742
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ce66d44c0ddb84ed8c2908d02b8062195d6b461d
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338641"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351025"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure konuk işletim sistemi desteklenebilirliği ve kullanımdan kaldırma İlkesi
 Azure konuk işletim sistemi için bu sayfadaki bilgileri ilgili ([konuk işletim sistemi](cloud-services-guestos-update-matrix.md)) bulut Hizmetleri worker ve web rolleri (PaaS). Sanal makineler (Iaas) için geçerli değildir.
@@ -57,7 +57,7 @@ Kullanım ömrü içinde 60 günde bir sürümüdür "*devre dışı*". "Devre d
 
 "Devre dışı olma", süre sonra konuk işletim sistemi sürümü "expires" ve yine de bu süresi dolmuş sürümü çalıştıran tüm yüklemeleri için güvenlik ve güvenlik açığı sorunları sunulur. Genellikle, sona erme disablement dönemden sonu değişebilir şekilde toplu olarak gerçekleştirilir.
 
-Konuk işletim sistemi el ile güncelleştirmek için kendi hizmetlerini yapılandıran müşteriler, olun dağıtımlarını desteklenen konuk işletim sistemi üzerinde çalıştığından emin. Bir hizmet, konuk işletim Sisteminin otomatik olarak güncelleştirmek için yapılandırılmışsa, temel platform uyumluluğu sağlayacak ve en son konuk işletim sistemi için yükseltir.
+Konuk işletim sistemi el ile güncelleştirmek için kendi hizmetlerini yapılandıran müşteriler olun hizmetlerini bir desteklenen konuk işletim sisteminde çalıştırıyorsanız. Bir hizmet, konuk işletim Sisteminin otomatik olarak güncelleştirmek için yapılandırılmışsa, temel platform uyumluluğu sağlayacak ve en son konuk işletim sistemi için yükseltir.
 
 Bu nokta müşteri geçişi kolaylaştırmak için Microsoft'un kararımıza uzun yapılabilir. Üzerinde herhangi bir değişiklik duyurulacaktır [Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi](cloud-services-guestos-update-matrix.md).
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5411770e6f9d660557ab9360f026efe4c28a9256
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 2d5a196af8ee6a7d41833185136a76255be4082a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314391"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371764"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Bir kullanıcı için iki aşamalı doğrulama gerektirme
 
@@ -66,10 +66,10 @@ Burada görüntüleyebilir ve kullanıcı durumlarını Yönetme sayfasına eri�
 
 1. Azure multi-Factor Authentication'ı almak için önceki adımları kullanın **kullanıcılar** sayfası.
 2. Azure MFA için etkinleştirmek istediğiniz kullanıcıyı bulun. Üst kısımdaki görünümü değiştirmeniz gerekebilir.
-   ![Kullanıcı - ekran görüntüsü bulun](./media/howto-mfa-userstates/enable1.png)
+   ![Kullanıcılar sekmesinden durumunu değiştirmek için kullanıcı seçin](./media/howto-mfa-userstates/enable1.png)
 3. Adının yanındaki kutuyu işaretleyin.
 4. Sağ taraftaki altında **hızlı adımları**, seçin **etkinleştirme** veya **devre dışı**.
-   ![Seçilen kullanıcının - ekran görüntüsü](./media/howto-mfa-userstates/user1.png)
+   ![Seçili kullanıcı hızlı adımları menüsünde Etkinleştir'i tıklatarak etkinleştir](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
    > *Etkin* kullanıcılar otomatik olarak çalıştırmaz *zorlanan* Azure MFA için açtıklarında kaydolmayı zaman. Kullanıcı durumunun el ile yapın *zorlanan*.
@@ -90,45 +90,52 @@ Kullanıcıların doğrudan taşıma *zorlanan* durumu. Bunu yaparsanız, kullan
 
 Modül, ilk olarak kullanarak yükleyin:
 
-       Install-Module MSOnline
-       
+   ```PowerShell
+   Install-Module MSOnline
+   ```
+
 > [!TIP]
 > İlk kez bağlanırken unutmayın **Connect-MsolService**
 
+Bu örnek PowerShell Betiği, tek bir kullanıcı için mfa'yı sağlar:
 
- Bu örnek PowerShell Betiği, tek bir kullanıcı için mfa'yı sağlar:
-
-        Import-Module MSOnline
-        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
-        $st.State = "Enabled"
-        $sta = @($st)
-        Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
+   ```PowerShell
+   Import-Module MSOnline
+   $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+   $st.RelyingParty = "*"
+   $st.State = "Enabled"
+   $sta = @($st)
+   Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
+   ```
 
 PowerShell kullanarak toplu gerektiğinde iyi bir seçenek kullanıcılar gönderilir. Örneğin, aşağıdaki betiği, kullanıcıların bir listesi üzerinden döngüye girer ve mfa'yı kendi hesaplarında sağlar:
 
-    $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
-    foreach ($user in $users)
-    {
-        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
-        $st.State = "Enabled"
-        $sta = @($st)
-        Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
-    }
-    
+   ```PowerShell
+   $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
+   foreach ($user in $users)
+   {
+       $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+       $st.RelyingParty = "*"
+       $st.State = "Enabled"
+       $sta = @($st)
+       Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
+   }
+   ```
+
 Mfa'yı devre dışı bırakmak için bu betiği kullanın:
 
-    Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
-    
+   ```PowerShell
+   Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
+   ```
+
 Bu da için kısaltılması:
 
-    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
+   ```PowerShell
+   Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
+   ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Neden bir kullanıcı istemi veya MFA gerçekleştirmek için istenmedi? Bölümüne bakın [Azure AD oturum açma işlemleri raporu Azure multi-Factor Authentication belge raporlardaki](howto-mfa-reporting.md#azure-ad-sign-ins-report).
-
-Güvenilen IP'ler, özel sesli mesajları ve sahtekarlık uyarısı gibi diğer ayarları yapılandırmak için bu makaleye bakın [Azure multi-Factor Authentication'ı yapılandırma ayarları](howto-mfa-mfasettings.md)
-
-Azure multi-Factor Authentication makalesinde bulunabilir, kullanıcı ayarlarını yönetme hakkında bilgi [bulutta Azure multi Factor Authentication ile kullanıcı ayarlarını yönetme](howto-mfa-userdevicesettings.md)
+* Neden bir kullanıcı istemi veya MFA gerçekleştirmek için istenmedi? Bölümüne bakın [Azure AD oturum açma işlemleri raporu Azure multi-Factor Authentication belge raporlardaki](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+* Güvenilen IP'ler, özel sesli mesajları ve sahtekarlık uyarısı gibi diğer ayarları yapılandırmak için bu makaleye bakın [Azure multi-Factor Authentication'ı yapılandırma ayarları](howto-mfa-mfasettings.md)
+* Azure multi-Factor Authentication makalesinde bulunabilir, kullanıcı ayarlarını yönetme hakkında bilgi [bulutta Azure multi Factor Authentication ile kullanıcı ayarlarını yönetme](howto-mfa-userdevicesettings.md)

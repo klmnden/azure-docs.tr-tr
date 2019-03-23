@@ -1,18 +1,18 @@
 ---
 title: Azure veri fabrikası veri akış veri kümeleri eşlemesi
-description: Azure Data Factory eşleme veri akışı sepecific veri kümesi uyumluluk vardır
+description: Azure Data Factory eşleme veri akışı belirli bir veri kümesi uyumluluk vardır
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: ad6cfdad519ab3901c58979970ea07439b3106e9
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 4e36e96947e6a8595230023065eb9f44a5a1f3d2
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726932"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371324"
 ---
 # <a name="mapping-data-flow-datasets"></a>Veri akış veri kümeleri eşlemesi
 
@@ -42,6 +42,12 @@ Yeni bir veri kümesi oluştururken, "Veri akışı uyumlu" sağ üst kısımdak
 ## <a name="import-schemas"></a>Şemaları İçeri Aktar
 
 Veri akışı veri kümesi şemasını içeri aktarılırken bir şemayı İçeri Aktar düğmesi görürsünüz. Bu düğmeye tıklayarak, iki seçenek sunar: Kaynak sunucudan içeri aktarmak veya yerel bir dosyadan içeri aktarın. Çoğu durumda, şema doğrudan kaynaktan alınır. Var olan bir şema dosyası (Parquet dosya veya üst bilgi içeren CSV) varsa, ancak yerel dosya ve Data Factory, şema dosyasını temel alan bir şema tanımlayın gösterebilirsiniz.
+
+## <a name="create-new-table"></a>Yeni Tablo Oluştur
+
+Veri akışı havuz dönüşümü yeni bir tablo adı olan bir veri kümesi ayarlayarak, hedef veritabanında yeni bir tablo tanımı oluşturmak için ADF sorabilirsiniz. SQL veri kümesini tablo adının altında "Düzenle"'ye tıklayın ve yeni bir tablo adı girin. Ardından, havuz dönüşümünde "İzin ver şema değişikliklerini zamanlı şekilde" açın. Seth "Şemayı içeri aktar" ayarı yok.
+
+![Kaynak dönüştürme şema](media/data-flow/dataset2.png "SQL şeması")
 
 ## <a name="delimited-text-dataset"></a>Sınırlandırılmış metin veri kümesi
 
