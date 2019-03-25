@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 9008c98a086ed2d45b7339fa3f76b33240789db8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5fa553d63a33f06432d8ae3e5247d7eca0fde90a
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102460"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351907"
 ---
 # <a name="data-management-gateway"></a>Veri Yönetimi Ağ Geçidi
 > [!NOTE]
@@ -511,7 +511,7 @@ Bu bölümde, oluşturma ve Azure PowerShell cmdlet'lerini kullanarak bir ağ ge
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Azure PowerShell'de klasöre geçin: **C:\Program Files\Microsoft veri yönetimi Gateway\2.0\PowerShellScript\\**. Çalıştırma **RegisterGateway.ps1** yerel değişkeni ile ilişkili **$Key** aşağıdaki komutta gösterildiği gibi. Bu betik, daha önce oluşturduğunuz mantıksal ağ geçidi kurulu istemci Aracısı kaydeder.
+1. Azure PowerShell'de klasöre geçin: **C:\\Program Files\Microsoft veri yönetimi Gateway\2.0\PowerShellScript\\**. Çalıştırma **RegisterGateway.ps1** yerel değişkeni ile ilişkili **$Key** aşağıdaki komutta gösterildiği gibi. Bu betik, daha önce oluşturduğunuz mantıksal ağ geçidi kurulu istemci Aracısı kaydeder.
 
     ```PowerShell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f799b671e6216b402aa988aa66da4c2cfc44693
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d926f7312b62e788289939dfd81c236a33503b43
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317536"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370474"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Sorun giderme birleştirilmiş güvenlik bilgileri kayıt (Önizleme)
 
@@ -31,7 +31,7 @@ Bu makalede sağlanan bilgiler, son kullanıcılar tarafından bildirilen birle�
 
 Birleşik kayıt için kaydedilen olayları, Azure AD'de "Kimlik doğrulama yöntemleri" kategorisi altında olan denetim günlükleri.
 
-![Arabirimi bazı güvenlik bilgileri kayıt olayı için yeni bir kullanıcı dizinde gösteren Azure AD denetim günlükleri](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
+![Arabirim gösteren kayıt olaylarını Azure AD denetim günlükleri](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
 
 Birleşik kayıt tarafından oluşturulan tüm denetim olaylarını listeler:
 
@@ -162,4 +162,4 @@ Kullanıcılar artık Önizleme deneyimini kullanarak kaydolmanız istenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure multi-Factor Authentication ve Self Servis parola sıfırlama için birleşik kayıt genel önizleme hakkında daha fazla bilgi edinin](concept-registration-mfa-sspr-combined.md)
+* [Azure multi-Factor Authentication ve Self Servis parola sıfırlama için birleşik kayıt genel önizleme hakkında daha fazla bilgi edinin](concept-registration-mfa-sspr-combined.md)

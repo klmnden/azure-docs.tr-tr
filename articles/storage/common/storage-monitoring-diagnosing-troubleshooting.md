@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 51d8b9bad4bb4a3663b07a711f363b263f5d64db
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
+ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339695"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351924"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage izleme, tanılama ve sorun giderme
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -246,7 +246,7 @@ Depolama istemcisi kitaplığı, benzersiz istemci istek kimliği her istek içi
 >
 
 ### <a name="server-request-id"></a>Sunucu istek kimliği
-Depolama hizmeti, sunucu istek kimliğini otomatik olarak oluşturur.
+Depolama hizmeti, sunucu istek kimliği otomatik olarak oluşturur.
 
 * Sunucu tarafı depolama günlüğü, sunucu istek kimliği görünür **istek kimliği üst bilgisi** sütun.
 * Biri fiddler'ı tarafından yakalanan gibi bir ağ izleme sunucu istek kimliği yanıt iletilerini görünür **x-ms-request-id** HTTP üstbilgisi değeri.
@@ -814,9 +814,9 @@ Azure Storage analytics hakkında daha fazla bilgi için şu kaynaklara bakın:
 * [Azure portalında depolama hesabı izleme](storage-monitor-storage-account.md)
 * [Depolama analizi](storage-analytics.md)
 * [Storage analytics ölçümleri](storage-analytics-metrics.md)
-* [Storage analytics ölçüm tablosu şeması](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)
+* [Storage analytics ölçüm tablosu şeması](/rest/api/storageservices/storage-analytics-metrics-table-schema)
 * [Depolama analizi günlüklerinde](storage-analytics-logging.md)
-* [Depolama analizi günlük biçimi](/rest/api/storageservices/storage-analytics-log-format.md)
+* [Depolama analizi günlük biçimi](/rest/api/storageservices/storage-analytics-log-format)
 
 <!--Anchors-->
 [Giriş]: #introduction
