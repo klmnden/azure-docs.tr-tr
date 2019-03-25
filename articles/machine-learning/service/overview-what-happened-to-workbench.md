@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5ff065816e287e0d4e37cdea9a7770c9ff806520
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 22615d07e69d707c90e3ff9bda83bfa6f0852996
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890755"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360293"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench’te neler oldu?
 
@@ -40,7 +40,7 @@ Azure Machine Learning hizmetinin en son sürüm, aşağıdaki özellikleri içe
 + Yeni, daha kapsamlı bir Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>.
 + Yeni Genişletilmiş [Azure CLI uzantısı](reference-azure-machine-learning-cli.md) machine learning için.
 
-[Mimarisi](concept-azure-machine-learning-architecture.md) kullanım kolaylığı için tasarlanmıştır. Birden çok Azure kaynağı ve hesabı yerine, size gereken yalnızca bir [Azure Machine Learning hizmeti Çalışma Alanı](concept-azure-machine-learning-architecture.md#workspace)'dır. [Azure portalda](quickstart-get-started.md) hemen çalışma alanları oluşturabilirsiniz. Bir çalışma alanı kullanarak, birden çok kullanıcı eğitimi depolayabilir ve dağıtım işlem hedefleri, model denemeleri, Docker görüntülerini, dağıtılan modellerinde ve benzeri.
+[Mimarisi](concept-azure-machine-learning-architecture.md) kullanım kolaylığı için tasarlanmıştır. Birden çok Azure kaynağı ve hesabı yerine, size gereken yalnızca bir [Azure Machine Learning hizmeti Çalışma Alanı](concept-azure-machine-learning-architecture.md#workspace)'dır. [Azure portal]((setup-create-workspace.md#portal) içinde. hızlı bir şekilde çalışma alanları oluşturabilir Bir çalışma alanı kullanarak, birden çok kullanıcı eğitimi depolayabilir ve dağıtım işlem hedefleri, model denemeleri, Docker görüntülerini, dağıtılan modellerinde ve benzeri.
 
 Geçerli sürümde geliştirilmiş yeni CLI ve SDK'sı istemciler olsa da Masaüstü workbench uygulamasını kullanımdan kaldırılmıştır. Denemeleri yönetilebilir [Azure portalında çalışma alanı Pano](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Deneme geçmişinizi almak, çalışma alanınıza bağlı işlem hedeflerini yönetmek, modellerinizi ve Docker görüntülerinizi yönetmek, hatta web hizmetlerini dağıtmak için panoyu kullanın.
 
@@ -50,7 +50,7 @@ Geçerli sürümde geliştirilmiş yeni CLI ve SDK'sı istemciler olsa da Masaü
 
 Machine Learning Workbench, Azure Machine Learning denemesi ve Model Yönetimi hesapları için 9 Ocak 2019 üzerinde destekler ve bunların ilişkili SDK ve CLI sona erdi. 
 
-Bunu kullanarak en son özellikleri tüm kullanılabilir <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, [CLI](reference-azure-machine-learning-cli.md)ve [portalı](quickstart-get-started.md).
+Bunu kullanarak en son özellikleri tüm kullanılabilir <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, [CLI](reference-azure-machine-learning-cli.md)ve [portalı](setup-create-workspace.md#portal).
 
 ## <a name="what-about-run-histories"></a>Çalıştırma geçmişleri ne olacak?
 
@@ -81,7 +81,7 @@ Proje içeriğin yerel makinenizde zaten oluştu. Bu nedenle bu dizinde bir yap�
 run = exp.submit(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 ```
 
-Kullanmaya başlamak öğrenin [ana SDK'sı Python](quickstart-create-workspace-with-python.md) veya bu adı kullanıyor [Azure portalında](quickstart-get-started.md).
+[Çalışma alanı oluşturma](setup-create-workspace.md#portal) kullanmaya başlamak için.
 
 ## <a name="what-about-my-registered-models-and-images"></a>My kayıtlı modelleri ve görüntüleri hakkında neler diyeceksiniz?
 
@@ -121,6 +121,6 @@ Hakkında bilgi edinin [Azure Machine Learning hizmeti için en son mimarisi](co
 
 Hizmetine genel bakış için okuma [Azure Machine Learning hizmeti nedir?](overview-what-is-azure-ml.md)
 
-Çalışma alanı oluşturma, bir proje oluşturun, bir komut dosyasını çalıştırın ve betiğin çalıştırma geçmişini Azure Machine Learning hizmetinin en son sürümle keşfedin nasıl gösteren Hızlı Başlangıç için deneyin [AzureMachineLearninghizmetiileçalışmayabaşlama](quickstart-get-started.md).
+Bir betiği çalıştırmak ve betiğin çalıştırma geçmişini Azure Machine Learning hizmetinin en son sürümle keşfetmek nasıl gösteren Hızlı Başlangıç için deneyin [Azure Machine Learning hizmeti ile çalışmaya başlama](quickstart-run-cloud-notebook.md).
 
 Bu iş akışının daha ayrıntılı bir deneyim izleyin [eksiksiz öğreticide](tutorial-train-models-with-aml.md) eğitim ve modeller Azure Machine Learning hizmeti ile dağıtmak için ayrıntılı adımları içerir. 

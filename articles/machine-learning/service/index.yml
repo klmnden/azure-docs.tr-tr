@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b7765fc5506129cdf594ef3fd0424f8771de5ef4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: a97c11b49574d0014ea7fa97f42420b22f9568d7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651677"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371165"
 documentType: LandingData
 title: Azure Machine Learning Hizmeti Belgeleri
 metadata:
@@ -36,12 +36,12 @@ sections:
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: 'Bu hizmeti kullanmak için bir çalışma alanı ve ilgili kaynaklar gerekir.  Kullanmaya başlayın:'
+    text: 'Azure Machine Learning hizmeti için bir   <a href="setup-create-workspace">çalışma alanı oluşturduktan</a> sonra bu hızlı başlangıçları kullanarak çalışmaya başlayabilirsiniz:'
   - type: list
     style: unordered
     items:
-    - html: '<a href="quickstart-get-started">Azure portalı hızlı başlangıcı</a>: Çalışma alanı edinin ve herhangi bir şey yüklemeden bir deneme çalıştırın.'
-    - html: '<a href="quickstart-create-workspace-with-python">Python hızlı başlangıcı</a>: Ana SDK’yı yükleyin, bir çalışma alanı oluşturun ve yerel not defteri sunucusunda bir deneme çalıştırın.'
+    - html: <a href="quickstart-run-cloud-notebook">Bulutta bir deneme çalıştırma</a> (yükleme gerekmez).
+    - html: <a href="quickstart-run-local-notebook">Yerel not defteri sunucusu kullanarak bir deneme çalıştırma</a> (yerel SDK yüklemesi gerekir).
 - title: Adım Adım Öğreticiler
   items:
   - type: paragraph
