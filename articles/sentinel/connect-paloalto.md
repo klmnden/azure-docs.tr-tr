@@ -1,6 +1,6 @@
 ---
-title: Gözcü Azure önizlemesinde Palo Alto veri toplama | Microsoft Docs
-description: Azure Gözcü içinde Palo Alto verilerini nasıl toplayacağınızı öğrenin.
+title: Gözcü Azure önizlemesinde Palo Alto Networks tarafından sağlanan veri toplama | Microsoft Docs
+description: Azure Gözcü içinde Palo Alto Networks verilerini nasıl toplayacağınızı öğrenin.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 149b3b813091033bf5c1685e8b0793f955169808
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6145d77e6485a33ea3a9f9d66a4356587966bc5f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841217"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403570"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Palo Alto Networks gerecinize bağlanma
 
@@ -27,14 +27,14 @@ ms.locfileid: "57841217"
 > Azure Sentinel şu anda genel Önizleme aşamasındadır.
 > Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Gözcü herhangi bir Palo Alto Networks gereç Syslog CEF günlük dosyalarını kaydederek bağlanabilirsiniz. Gözcü Azure ile tümleştirme kolayca analiz ve sorguları Palo Alto arasında günlük dosyası verilerini çalıştırmanıza olanak sağlar. CEF verileri Azure Gözcü nasıl alan daha fazla bilgi için bkz: [bağlanma CEF Gereçleri](connect-common-event-format.md).
+Azure Gözcü herhangi bir Palo Alto Networks gereç Syslog CEF günlük dosyalarını kaydederek bağlanabilirsiniz. Gözcü Azure ile tümleştirme kolayca analiz ve sorguları Palo Alto Networks arasında günlük dosyası verilerini çalıştırmanıza olanak sağlar. CEF verileri Azure Gözcü nasıl alan daha fazla bilgi için bkz: [bağlanma CEF Gereçleri](connect-common-event-format.md).
 
 > [!NOTE]
-> - Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
+> Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
 
-## <a name="step-1-connect-your-palo-alto-appliance-using-an-agent"></a>1. Adım: Palo Alto gerecinize bir aracı kullanarak bağlanma
+## <a name="step-1-connect-your-palo-alto-networks-appliance-using-an-agent"></a>1. Adım: Palo Alto Networks gerecinize bir aracı kullanarak bağlanma
 
-Palo Alto gerecinize Azure Gözcü için bağlanmak için adanmış bir makinede bir aracı dağıtmak gerekir (VM veya şirket içi) Gereci ve Azure Gözcü arasındaki iletişimi desteklemek için. Aracı otomatik olarak veya el ile dağıtabilirsiniz. Otomatik dağıtım, yalnızca ayrılmış makineniz Azure'da oluşturduğunuz yeni bir VM ise kullanılabilir. 
+Palo Alto Networks gerecinize Azure Gözcü için bağlanmak için adanmış bir makinede bir aracı dağıtmak gerekir (VM veya şirket içi) Gereci ve Azure Gözcü arasındaki iletişimi desteklemek için. Aracı otomatik olarak veya el ile dağıtabilirsiniz. Otomatik dağıtım, yalnızca ayrılmış makineniz Azure'da oluşturduğunuz yeni bir VM ise kullanılabilir. 
 
 Alternatif olarak, aracı vm'sinde başka bir bulut, mevcut bir Azure sanal makinesinde el ile veya bir şirket içi makinede dağıtabilirsiniz.
 
@@ -46,7 +46,7 @@ Alternatif olarak, aracı vm'sinde başka bir bulut, mevcut bir Azure sanal maki
 1. Gözcü Azure portalında **veri toplama** ve gereç türünüzü seçin. 
 
 1. Altında **Linux Syslog aracı Yapılandırması**:
-   - Seçin **otomatik dağıtım** yukarıda açıklandığı gibi Azure Gözcü aracıyla birlikte önceden yüklenir ve tüm yapılandırma gerekli içeren yeni bir makine oluşturmak istiyorsanız. Seçin **otomatik dağıtım** tıklatıp **otomatik aracı dağıtımı**. Bu, satın alma sayfasına, otomatik olarak çalışma alanınıza bağlı olduğu adanmış bir VM için götürür. VM bir **standart D2s v3 (2 vcpu, 8 GB bellek)** ve genel bir IP adresi vardır.
+   - Seçin **otomatik dağıtım** yukarıda açıklandığı gibi Azure Gözcü aracıyla birlikte önceden yüklenir ve tüm yapılandırma gerekli içeren yeni bir makine oluşturmak istiyorsanız. Seçin **otomatik dağıtım** tıklatıp **otomatik aracı dağıtımı**. Bu, satın alma sayfasına, otomatik olarak çalışma alanınıza bağlı olduğu adanmış bir VM için götürür. VM bir **standart D2s v3 (2 Vcpu, 8 GB bellek)** ve genel bir IP adresi vardır.
       1. İçinde **özel dağıtım** sayfasında ayrıntılarınızı sağlamak ve bir kullanıcı adı ve parola seçin ve hüküm ve koşulları kabul ediyorsanız, VM satın alın.
       1. Bağlantı sayfada listelenen ayarları kullanarak günlükleri göndermek için gerecinizin yapılandırın. Genel Common Event Format bağlayıcısının bu ayarları kullanın:
          - Protokol UDP =
@@ -98,12 +98,12 @@ Azure kullanmıyorsanız, adanmış bir Linux sunucusu üzerinde çalıştırmak
       1. Bu komutu kullanarak Syslog aracıyı yeniden başlatın: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Hiçbir hata aracı günlüğünde şu komutu çalıştırarak onaylayın: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
-## <a name="step-2-forward-palo-alto-logs-to-the-syslog-agent"></a>2. Adım: Palo Alto günlükleri Syslog aracıya ilet
+## <a name="step-2-forward-palo-alto-networks-logs-to-the-syslog-agent"></a>2. Adım: Palo Alto Networks günlükleri Syslog aracıya ilet
 
 Palo Alto Networks, Syslog aracı üzerinden Azure çalışma alanınıza CEF biçiminde Syslog iletilerini iletecek şekilde yapılandırın:
-1.  Git [Common Event Format (CEF) yapılandırma kılavuzları](https://docs.paloaltonetworks.com/resources/cef) ve gereç türünüz için PDF dosyasını indirin. CEF olaylarını toplamak için Palo Alto gerecini ayarlamak için tüm Kılavuzu'ndaki yönergeleri izleyin. 
+1.  Git [Common Event Format (CEF) yapılandırma kılavuzları](https://docs.paloaltonetworks.com/resources/cef) ve gereç türünüz için PDF dosyasını indirin. CEF olaylarını toplamak için Palo Alto Networks gerecini ayarlamak için tüm Kılavuzu'ndaki yönergeleri izleyin. 
 
-1.  Git [yapılandırma Syslog izleme](https://aka.ms/asi-syslog-paloalto-forwarding) ve 2. ve 3 CEF Olay iletme Palo Alto gerecinize Azure Gözcü için yapılandırma adımlarını izleyin.
+1.  Git [yapılandırma Syslog izleme](https://aka.ms/asi-syslog-paloalto-forwarding) ve 2. ve 3 CEF Olay iletme Palo Alto Networks gerecinize Azure Gözcü için yapılandırma adımlarını izleyin.
 
     1. Ayarladığınızdan emin olun **Syslog sunucusu biçimi** için **BSD**.
     1. Ayarladığınızdan emin olun **tesis numarası** aynı değere Syslog aracıyı ayarlayın.
@@ -130,7 +130,7 @@ Palo Alto Networks, Syslog aracı üzerinden Azure çalışma alanınıza CEF bi
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu belgede, Azure Gözcü için Palo Alto cihazları bağlayın öğrendiniz. Azure Gözcü hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
+Bu belgede, Azure Gözcü için Palo Alto Networks cihazları bağlayın öğrendiniz. Azure Gözcü hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 - Bilgi nasıl [görünürlük almak, veri ve olası tehditleri](quickstart-get-visibility.md).
 - Başlama [Azure Gözcü kullanarak tehditleri algılama](tutorial-detect-threats.md).
 

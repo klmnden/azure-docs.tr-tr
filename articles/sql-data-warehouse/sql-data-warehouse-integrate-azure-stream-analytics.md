@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
-ms.date: 04/17/2018
+ms.date: 03/22/2019
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 605598d1470cbb535d626c15a5e8e4e08aa4d571
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3a260102e9964cfc248ed3dbabab487bd1c5dfc2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883823"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403774"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>SQL veri ambarı ile Azure Stream Analytics'i kullanma
 Azure Stream Analytics, akış verileri bulutta üzerinden düşük gecikme süreli, yüksek oranda kullanılabilir ve ölçeklenebilir karmaşık olay işleme sağlayan tam olarak yönetilen bir hizmettir. Okuyarak temellerini öğrenebilirsiniz [Azure Stream analytics'e giriş][Introduction to Azure Stream Analytics]. Stream Analytics ile izleyerek uçtan uca çözüm oluşturmaya nasıl ardından öğrenebilirsiniz [Azure Stream Analytics'i kullanmaya başlama] [ Get started using Azure Stream Analytics] öğretici.
@@ -34,12 +34,10 @@ Ardından, bir Azure SQL Data Warehouse veritabanı oluşturma
 
 ## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>İş çıktısı belirtin: Azure SQL veri ambarı veritabanı
 ### <a name="step-1"></a>1. Adım
-Stream Analytics işinizi tıklayın **çıkış** sayfasının ve ardından üst **Çıktı Ekle**.
+Stream Analytics işinizi tıklayın **çıkış** sayfasının ve ardından üst **ekleme**.
 
 ### <a name="step-2"></a>2. Adım
-SQL veritabanı'nı seçin ve İleri'ye tıklayın.
-
-![][add-output]
+SQL veritabanı'nı seçin.
 
 ### <a name="step-3"></a>3. Adım
 Sonraki sayfasında aşağıdaki değerleri girin:
@@ -62,9 +60,7 @@ Sonraki sayfasında aşağıdaki değerleri girin:
 ### <a name="step-4"></a>4. Adım
 Bu iş çıktısı eklemek ve Stream Analytics, veritabanına başarıyla bağlantı kurabildiğimizi doğrulamak için onay işaretine tıklayın.
 
-![][test-connection]
-
-Veritabanı bağlantısı başarılı olduğunda portalın alt kısmındaki bir bildirim görürsünüz. Veritabanı bağlantısını test etmek için alttaki Bağlantıyı Sına tıklayabilirsiniz.
+Veritabanı bağlantısı başarılı olduğunda, portalda bir bildirim görürsünüz. Veritabanı bağlantısını test etmek için Test tıklayabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Tümleştirme genel bakış için bkz. [SQL veri ambarı tümleştirmesine genel bakış][SQL Data Warehouse integration overview].

@@ -1,24 +1,24 @@
 ---
-title: Windows 7 ve Windows 10 (Önizleme) - Azure ile bağlama
-description: Windows sanal masaüstü HTML5 web istemcisi için bağlanma.
+title: Windows sanal masaüstü önizlemesi, Windows 7 ve Windows 10 - Azure ile bağlanma
+description: Windows sanal masaüstü Önizleme istemcisi Windows 7 veya Windows 10 ile bağlanma.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 925d762bb065567f6462fdb1614fc308e87b5247
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 644a1d650384f151d9c43b9efa5f47532c58ce14
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318247"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399737"
 ---
-# <a name="connect-with-windows-7-and-windows-10-preview"></a>Windows 7 ve Windows 10 (Önizleme) ile bağlama
+# <a name="connect-with-windows-7-and-windows-10"></a>Windows 7 ve Windows 10 ile bağlama
 
 > Şunlara uygulanır Windows 7 ve Windows 10.
 
-İndirilebilir bir istemci kullanılabilir sağlayan erişim kaynaklara Windows sanal masaüstü (Önizleme) Windows 7 ve Windows 10 çalıştıran cihazlardan.
+İndirilebilir bir istemci kullanılabilir sağlayan erişim için Windows sanal masaüstü Önizleme kaynakları Windows 7 ve Windows 10 çalıştıran cihazlardan.
 
 ## <a name="install-the-client"></a>İstemciyi yükleme
 

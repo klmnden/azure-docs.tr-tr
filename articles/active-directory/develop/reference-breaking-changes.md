@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f4a04f1598b3ab0efd9ff95a707d3837bb37503
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2fcc400f952cc89f5fb4bf6e8d6f0f331483868e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196034"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401309"
 ---
 # <a name="whats-new-for-authentication"></a>Kimlik doğrulaması için yenilikler nelerdir? 
 
@@ -42,6 +42,37 @@ Kimlik doğrulama sistemi değiştirir ve güvenlik ve uyumluluk standartları g
 ## <a name="upcoming-changes"></a>Yaklaşan değişiklikleri
 
 Hiçbiri şu anda zamanlanmış. 
+
+## <a name="march-2019"></a>Mart 2019
+
+### <a name="looping-clients-will-be-interrupted"></a>İstemciler döngü kesintiye uğrar
+
+**Geçerlilik tarihi**: 25 Mart 2019
+
+**Etkilenen uç noktaları**: V1.0 hem v2.0
+
+**Etkilenen Protokolü**: Tüm akışlar
+
+İstemci uygulamaları bazen işlemiyorsa kısa bir süre içinde aynı oturum açma isteği yüzlerce verme.  Bu istekler başarılı olmayabilir veya olabilir, ancak hepsi tüm kullanıcılar için gecikme süresini artırır ve kullanılabilirliği ıdp'nin azaltma IDP için kullanıcı deneyimi zayıf ve yüksek iş yüklerini katkıda bulunun.  Bu uygulamalar normal kullanım sınırları dışında çalışan ve doğru davranacak şekilde güncelleştirilmesi.  
+
+Birden çok kez yinelenen isteklerini yürütmek istemciler gönderilecek bir `invalid_grant` hata: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`. 
+
+Çoğu istemci, bu hatayı önlemek için davranışı değiştirmek gerekmez.  Yalnızca yapılandırılmış istemciler (belirteç önbelleğe olmayanlar veya bu komut istemi döngüler zaten sergileyen), bu hata tarafından etkilenir.  İstemciler, aşağıdaki etmenlere (tanımlama) yerel olarak bir örnek başına olarak takip edilir:
+
+* Kullanıcı ipucu, varsa
+
+* Kapsamları veya kaynak istenen
+
+* İstemci Kimliği
+
+* Yönlendirme URI'si
+
+* Yanıt türü ve modu
+
+Süre (5 dakika) kısa bir süre içinde birden çok istek (15 +) yaparak uygulamaları alacak bir `invalid_grant` döngü açıklayan bir hata oluştu.  Yeterince uzun süreli yaşam süreleri (10 dakika minimum, varsayılan olarak 60 dakika), bu nedenle tekrarlanan istekleri bu süre boyunca istenen belirteçleri gereksizdir.  
+
+Tüm uygulamalar işleyeceğini `invalid_grant` sessiz bir belirteç isteyen yerine etkileşimli bir istemi gösteriliyor.  Bu hatadan kaçınmak için istemciler doğru aldıkları belirteçleri önbelleğe emin olun.
+
 
 ## <a name="october-2018"></a>Ekim 2018
 

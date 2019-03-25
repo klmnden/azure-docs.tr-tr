@@ -1,22 +1,22 @@
 ---
-title: Windows sanal masaüstü ortamında (Önizleme) - Azure
-description: Bir Windows sanal masaüstü ortamında temel öğeleri.
+title: Windows sanal masaüstü Önizleme ortam - Azure
+description: Bir Windows sanal masaüstü Önizleme ortamı temel öğeleri.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: c503f665e3e2f99cd59f207c3fc4823b927eaac3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ceed6a8bb74206b7c6689ce542482148800e4ba9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318457"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403519"
 ---
-# <a name="windows-virtual-desktop-environment-preview"></a>Windows sanal masaüstü ortamında (Önizleme)
+# <a name="windows-virtual-desktop-preview-environment"></a>Windows sanal masaüstü Önizleme ortamı
 
-Windows sanal masaüstü (Önizleme), sanallaştırılmış Masaüstü ve RemoteApps kullanıcılar kolay ve güvenli erişim sağlayan bir hizmettir. Bu konu Windows Sanal Masaüstü ortamının genel yapısı hakkında daha fazla bit bildirir.
+Windows sanal masaüstü Önizleme kullanıcıların sanallaştırılmış Masaüstü ve RemoteApps için kolay ve güvenli erişim sağlayan bir hizmettir. Bu konu Windows Sanal Masaüstü ortamının genel yapısı hakkında daha fazla bit bildirir.
 
 ## <a name="tenants"></a>Kiracılar
 
@@ -57,11 +57,11 @@ Kullanıcılar kendi uygulama gruplarına atadıktan sonra Windows sanal masaüs
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Temsilci erişimi ve rolleri kullanıcılara atama hakkında daha fazla bilgi [Temsilcili erişim Windows Sanal Masaüstü](delegated-access-virtual-desktop.md).
+Temsilci erişimi ve rolleri kullanıcılara atama hakkında daha fazla bilgi [Temsilcili erişim Windows sanal masaüstü önizlemede](delegated-access-virtual-desktop.md).
 
-Windows sanal masaüstü kiracınızı ayarladığınızda öğrenmek için bkz. [Windows sanal masaüstü bir kiracı oluşturmanız](tenant-setup-azure-active-directory.md).
+Windows sanal masaüstü kiracınızı ayarladığınızda öğrenmek için bkz. [Windows sanal masaüstü Önizleme'de bir kiracı oluşturmanız](tenant-setup-azure-active-directory.md).
 
 Windows sanal masaüstüne bağlanma hakkında bilgi almak için aşağıdaki makalelerden birine bakın:
 
 - [Uzak Masaüstü İstemcisi Windows 7 ve Windows 10 bağlanma](connect-windows-7-and-10.md)
-- [Windows sanal masaüstü web istemcisi için Bağlan](connect-web.md)
+- [Windows sanal masaüstü Önizleme web istemcisi için Bağlan](connect-web.md)

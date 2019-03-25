@@ -10,14 +10,16 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5bc9e44cc1f1759231d405e64fab097d73d48486
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 51342a7544295b465d1f2dfc3e1b27d8285b3588
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160536"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403825"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Azure Active Directory B2C, Application Insights kullanarak kullanıcı davranışını izleme
+
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 Azure Active Directory (Azure AD) B2C Azure Application Insights ile birlikte kullandığınızda, ayrıntılı alın ve olay günlükleri, kullanıcı yolculuklarından için özelleştirilebilir. Bu makalede şunları öğreneceksiniz:
 
@@ -25,9 +27,6 @@ Azure Active Directory (Azure AD) B2C Azure Application Insights ile birlikte ku
 * Kendi ilkelerinizi geliştirme veya üretim sorunlarını giderin.
 * Performansı ölçme.
 * Bildirimleri uygulama anlayışları'ndan oluşturun.
-
-> [!NOTE]
-> Bu özellik önizlemede.
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 

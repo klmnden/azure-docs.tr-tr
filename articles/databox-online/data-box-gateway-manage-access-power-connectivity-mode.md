@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ad94799320e25d88f616117f1bfcf9f0513aadf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d46d74544181a6b9cbfd049b2f5461b20b928483
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873028"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401441"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>Azure veri kutusu Gateway'i (Önizleme) için erişim, güç ve bağlantı modunu yönetin
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Erişim, güç ve bağlantı modunu, Azure veri kutusu ağ geçidiniz için yönetme
 
 Bu makalede, Azure veri kutusu ağ geçidiniz için erişim, güç ve bağlantı modunu yönetmek açıklar. Bu işlemleri yerel web kullanıcı Arabirimi veya Azure Portalı aracılığıyla gerçekleştirilir.
 
@@ -26,16 +26,13 @@ Bu makalede şunları öğreneceksiniz:
 > * Bağlantı modunu yönetin
 > * Güç Yönetimi
 
-> [!IMPORTANT]
-> Data Box Gateway önizleme aşamasındadır. Sipariş vermeden ve bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin.
-
 ## <a name="manage-device-access"></a>Cihaz erişimini yönetme
 
-Veri kutusu ağ geçidi cihazınıza erişim bir cihaz Yöneticisi parolası kullanımı tarafından denetlenir. Yönetici parolası yerel web UI aracılığıyla değiştirebilirsiniz. Ayrıca, Azure portalında cihaz Yöneticisi parolasını sıfırlayabilirsiniz.
+Veri kutusu ağ geçidi cihazınıza erişim bir cihaz parolası kullanımı tarafından denetlenir. Parola yerel web UI aracılığıyla değiştirebilirsiniz. Ayrıca, Azure portalında cihaz parolasını sıfırlayabilirsiniz.
 
-### <a name="change-device-administrator-password"></a>Cihaz Yöneticisi parolasını değiştirme
+### <a name="change-device-password"></a>Cihaz parolasını değiştirme
 
-Cihaz Yöneticisi parolasını değiştirmek için yerel kullanıcı Arabirimi aşağıdaki adımları izleyin.
+Cihaz parolasını değiştirmek için yerel kullanıcı Arabirimi aşağıdaki adımları izleyin.
 
 1. Yerel web kullanıcı Arabirimi, Git **Bakım > parola değişikliği**.
 2. Geçerli parola ve yeni parolayı girin. Sağlanan parola 8 ile 16 karakter arasında olmalıdır. Parola şu karakterleri 3 olması gerekir: büyük harf, küçük harfler, sayısal ve özel karakter. Yeni parolayı onaylayın.
@@ -44,7 +41,7 @@ Cihaz Yöneticisi parolasını değiştirmek için yerel kullanıcı Arabirimi a
 
 3. Tıklayın **parolasını değiştirme**.
  
-### <a name="reset-device-administrator-password"></a>Cihaz Yöneticisi parolasını sıfırlama
+### <a name="reset-device-password"></a>Cihaz parolasını sıfırla
 
 Sıfırlama iş akışı, eski parolayı çağırmak kullanıcı gerektirmez ve parola kayıp olduğunda yararlıdır. Bu iş akışı, Azure portalında gerçekleştirilir.
 

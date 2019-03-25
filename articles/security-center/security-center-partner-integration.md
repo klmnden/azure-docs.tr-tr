@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/3/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5a25ba889ebde750937f88e447123263a82d5627
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e756a0a7af9ad89e3aad8b0dbe27a870a3f855c1
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896832"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400950"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki tümleşik güvenlik çözümleri
 Bu belge Azure Güvenlik Merkezi'ne bağlanmış olan güvenlik çözümlerini yönetmenize ve yenilerini eklemenize yardımcı olur.
@@ -45,7 +45,7 @@ Tümleşik güvenlik çözümleri şu anda aşağıdakileri içermektedir:
 ## <a name="how-security-solutions-are-integrated"></a>Güvenlik çözümlerinin tümleştirilme şekli
 Güvenlik Merkezinden dağıtılan Azure güvenlik çözümleri otomatik olarak bağlanır. Aşağıdakiler dahil olmak üzere diğer güvenlik verisi kaynaklarına da bağlanabilirsiniz:
 
-- Azure AD Identity Protection
+- Azure AD Kimlik Koruması
 - Şirket içinde veya diğer bulutlarda çalışan bilgisayarlar
 - Common Event Format (CEF) destekli güvenlik çözümü
 - Microsoft Advanced Threat Analytics
@@ -137,7 +137,7 @@ Ayrıca, Güvenlik Merkezi’ne zaten bağlı bir Syslog hizmeti ile birlikte bi
 3. Güvenlik Merkezi ana menüsünde **Güvenlik Çözümleri**’ni seçin.
 4. Güvenlik Çözümleri sayfasındaki **Veri kaynakları ekle (3)** altında, **Common Event Format** içindeki **Ekle**’ye tıklayın.
 
-    ![Veri kaynağı ekle](./media/quick-security-solutions/quick-security-solutions-fig2.png)
+    ![Veri kaynağı ekleme](./media/quick-security-solutions/quick-security-solutions-fig2.png)
 
 5. Common Event Format Günlükleri sayfasında ikinci adım olan **Gerekli günlükleri UDP bağlantı noktası 25226'daki aracıya göndermek için Syslog iletmeyi yapılandırın**’ı genişletin ve Linux bilgisayarınızda aşağıdaki yönergeleri izleyin:
 
@@ -229,8 +229,6 @@ Birkaç uyarı veri çekmek için kullanabileceğiniz Splunk sorgu aşağıda ve
 
 Bu makalede, Güvenlik Merkezi'nde iş ortağı çözümlerinin nasıl tümleştirileceğini öğrendiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-* [Microsoft Advanced Threat Analytics'i Azure Güvenlik Merkezi'ne bağlama](security-center-ata-integration.md)
-* [Azure Active Directory Kimlik Koruması'nı Azure Güvenlik Merkezi'ne bağlama](security-center-aadip-integration.md)
 * [Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md). Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Güvenlik Merkezi’yle iş ortağı çözümlerini izleme](security-center-partner-solutions.md). İş ortağı çözümlerinizin sistem durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi SSS](security-center-faq.md). Güvenlik Merkezi kullanımı ile ilgili sık sorulan soruların yanıtlarını alın.

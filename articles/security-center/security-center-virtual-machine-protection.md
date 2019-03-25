@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/25/2019
+ms.date: 3/20/2019
 ms.author: monhaber
-ms.openlocfilehash: dd7dad51f29b4b5034c72085cd789077747faa0b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa664952f3eb7d6f9e611fb87a9e484e97f388a2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106568"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403842"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Makineleri ve Azure Güvenlik Merkezi'nde uygulamalarınızı koruma
-Azure Güvenlik Merkezi, Azure kaynaklarınızın güvenlik durumunu analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur. Öneriler, Azure kaynak türleri için geçerlidir: sanal makineleri (VM'ler) ve bilgisayarlar, uygulamalar, ağ, SQL ve kimlik ve erişim.
+Azure Güvenlik Merkezi, Azure kaynakları, Azure dışı sunucuların ve sanal makinelerin güvenlik durumunu analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur. Öneriler, Azure kaynak türleri için geçerlidir: sanal makineleri (VM'ler) ve bilgisayarlar, uygulamalar, ağ, SQL ve kimlik ve erişim.
 
 Bu makalede makineleri ve uygulamaları için uygulama önerileri ele alır.
 
@@ -53,7 +53,7 @@ Devam etmek için seçin **işlem ve uygulamalar** altında **kaynak güvenlik s
 Her sekmede birden fazla bölüm olabilir ve her bölümde, sorunu çözmek üzere önerilen adımlarla ilgili daha fazla ayrıntı görmek için ayrı ayrı seçenekler belirleyebilirsiniz.
 
 ### İzlenmeyen VM'ler ve bilgisayarlar <a name="unmonitored-vms-and-computers"></a>
-Microsoft Monitoring Agent uzantısını makine çalışmıyorsa bir VM'yi veya bilgisayarı Güvenlik Merkezi tarafından izlenmez. Bir yerel aracı zaten yüklü bir makineye sahip olabilir, örneğin OMS aracısı veya SCOM Aracısı doğrudan. Bu aracıları makinelerle olarak tanımlandığında bu aracılar Güvenlik Merkezi'nde tam olarak desteklenmediğinden izlenmeyen. Güvenlik Merkezi’nin tüm özelliklerinden tam olarak faydalanmak için, Microsoft Monitoring Agent uzantısı gereklidir.
+Microsoft Monitoring Agent uzantısını makine çalışmıyorsa bir VM'yi veya bilgisayarı Güvenlik Merkezi tarafından izlenmez. Bir yerel aracı zaten yüklü bir makineye sahip olabilir, örneğin OMS aracısı veya System Center Operations Manager aracısının doğrudan. Bu aracıları makinelerle olarak tanımlandığında bu aracılar Güvenlik Merkezi'nde tam olarak desteklenmediğinden izlenmeyen. Güvenlik Merkezi’nin tüm özelliklerinden tam olarak faydalanmak için, Microsoft Monitoring Agent uzantısı gereklidir.
 
 İzlenmeyen VM'de veya bilgisayarda zaten yüklü olan yerel aracıya ek olarak, uzantı yükleyebilirsiniz. İki aracıyı da aynı çalışma alanına bağlayarak aynı şekilde yapılandırın. Bu, Güvenlik Merkezi’nin Microsoft Monitoring Agent uzantısıyla etkileşim kurup veri toplamasını sağlar. Microsoft Monitoring Agent uzantısını nasıl yükleyeceğiniz hakkında yönergeler için bkz. [VM uzantısını etkinleştir](../azure-monitor/learn/quick-collect-azurevm.md).
 
@@ -103,7 +103,7 @@ Simgeler bu listede gösterilen dört tür vardır:
 ![Azure Klasik VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) Azure Klasik VM.
 
 
-![Vm'leri çalışma alanından tanımlanır](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) VM'ler yalnızca görüntülenen abonelik parçası olan çalışma alanından tanımlanır. Buna diğer aboneliklere ait ancak bu çalışma alanına bildirimde bulunan sanal makineler, SCOM doğrudan aracısıyla yüklenen ve kaynak kimliği olmayan VM’ler dahildir.
+![Vm'leri çalışma alanından tanımlanır](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) VM'ler yalnızca görüntülenen abonelik parçası olan çalışma alanından tanımlanır. Bu söz konusu raporun diğer aboneliklere ait Vm'leri çalışma alanında, bu abonelik ve doğrudan Operations Manager Aracısı ile yüklenmiş olan Vm'leri içerir ve kaynak kimliği olmayan
 
 Her önerinin altında görüntülenen simge VM ile dikkat ve önerinin türünü gerektiren bilgisayar hızlıca tanımlamanıza yardımcı olur. Göre listesi aramak için filtreleri kullanabilirsiniz **kaynak türü** ve **önem derecesi**.
 
@@ -172,7 +172,7 @@ Microsoft Monitoring Agent'ı yüklemek için:
 
 Ayarlamak istiyorsanız Yeni ölçeği otomatik olarak Microsoft Monitoring Agent'ı yüklemek için ayarlar:
 1. Azure İlkesi'ne gidin ve tıklayın **tanımları**.
-2. İlke arama **Windows VM ölçek kümelerine dağıtma Log Analytics aracısını** ve tıklayın.
+2. İlke arama **dağıtma Log Analytics aracısını Windows sanal makine ölçek kümeleri için** ve tıklayın.
 3. **Ata**'ya tıklayın.
 4. Ayarlama **kapsam** ve **Log Analytics çalışma alanı** tıklatıp **atama**.
 

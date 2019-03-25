@@ -1,22 +1,22 @@
 ---
-title: Oturum konakları - Azure otomatik ölçeklendirme
-description: Windows (Önizleme) sanal masaüstü oturum ana bilgisayarları için otomatik ölçeklendirme komut dosyasını ayarlama işlemi açıklanmaktadır.
+title: Windows sanal masaüstü Önizleme oturumu konakları - Azure otomatik ölçeklendirme
+description: Windows sanal masaüstü Önizleme oturumu konakları için otomatik ölçeklendirme komut dosyasını ayarlama işlemi açıklanmaktadır.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: d800b45310ae476ec0c54460d9719c17e35dfe5a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: bee02549d68b1dbdba3f0e62477b28bbd475ea32
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318367"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402499"
 ---
 # <a name="automatically-scale-session-hosts"></a>Oturum konakları otomatik olarak ölçeklendirme
 
-Azure'da çok sayıda Windows sanal masaüstü dağıtımları için sanal makine maliyetleri önemli toplam Windows Sanal Masaüstü Dağıtım maliyetini bölümünü temsil eder. Maliyetleri azaltmak için kapatma ve yoğun olmayan saatlerde oturum konak sanal makineleri (VM'ler) serbest bırakın ve ardından bunları yeniden kullanımı yoğun zamanlarda en iyisidir.
+Azure'da çok sayıda Windows sanal masaüstü Önizleme dağıtımlar için sanal makine maliyetleri önemli toplam Windows Sanal Masaüstü Dağıtım maliyetini bölümünü temsil eder. Maliyetleri azaltmak için kapatma ve yoğun olmayan saatlerde oturum konak sanal makineleri (VM'ler) serbest bırakın ve ardından bunları yeniden kullanımı yoğun zamanlarda en iyisidir.
 
 Bu makalede bir basit ölçeklendirme betik oturumu konak sanal makineler, Windows sanal masaüstü ortamında otomatik ölçeklendirme için kullanır. Ölçeklendirme betik nasıl çalıştığı hakkında daha fazla bilgi için bkz. [ölçeklendirme kodun nasıl çalıştığını](#how-the-scaling-script-works) bölümü.
 

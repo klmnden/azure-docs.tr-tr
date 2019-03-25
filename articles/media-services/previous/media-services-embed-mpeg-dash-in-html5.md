@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ff14afc9e438c2b493219e9fa207b2e8793b3c87
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1390d68a93dd3d80b5977bab6665553ea3f8b398
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189215"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403083"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>MPEG-DASH Uyarlamalı Akış videosunu bir HTML5 uygulamasına DASH.js ile ekleme  
 
@@ -55,7 +55,7 @@ Standart bir HTML sayfası içeren oluşturmak için ilk adımıdır **video** �
 ```
 
 ## <a name="adding-the-dashjs-player"></a>DASH.js Player ekleme
-Dash.js başvuru uygulaması için uygulama eklemek için 1.0 sürümünü dash.js projesinin dash.all.js dosyasından almak gerekir. Bu uygulamanızın JavaScript klasöründe kaydedilmelidir. Bu dosya birlikte tek bir dosya halinde tüm gerekli dash.js kodu çeker kolaylık dosyasıdır. Dash.js depo bir görünüm varsa, tek tek dosyaları, kod ve daha fazlasını test, ancak yapmak istiyorsanız, tüm olan dash.js, ihtiyacınız olanları dash.all.js dosya ise.
+Dash.js başvuru uygulaması için uygulama eklemek için en son sürümünü dash.js proje dash.all.js dosyasından almak gerekir. Bu uygulamanızın JavaScript klasöründe kaydedilmelidir. Bu dosya birlikte tek bir dosya halinde tüm gerekli dash.js kodu çeker kolaylık dosyasıdır. Dash.js depo bir görünüm varsa, tek tek dosyaları, kod ve daha fazlasını test, ancak yapmak istiyorsanız, tüm olan dash.js, ihtiyacınız olanları dash.all.js dosya ise.
 
 Dash.js player uygulamalarınıza eklemek için bir komut dosyası etiketini basicPlayer.html baş bölümüne ekleyin:
 

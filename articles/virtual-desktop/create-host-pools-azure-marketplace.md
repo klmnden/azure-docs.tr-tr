@@ -1,22 +1,22 @@
 ---
-title: Azure Marketi ile (Önizleme) - Azure konak havuz oluşturma
-description: Azure Marketi ile Windows sanal masaüstü konak havuzu oluşturma
+title: Azure Marketi - Azure ile Windows sanal masaüstü Önizleme konak havuz oluşturma
+description: Azure Marketi ile Windows sanal masaüstü Önizleme konak havuzu oluşturma
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: a1d172f219580b390ba4855928d6f6a68c8269b9
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: cc404c84bf855ab6e49d13207f40b9faa32cdbb2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318116"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399880"
 ---
-# <a name="tutorial-create-a-host-pool-with-azure-marketplace-preview"></a>Öğretici: Azure Marketi (Önizleme) ile konak havuz oluşturma
+# <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Öğretici: Azure Marketi ile konak havuz oluşturma
 
-Ana bilgisayar havuzları, Windows sanal masaüstü (Önizleme) Kiracı ortamlar içinde bir veya daha fazla aynı sanal makinelerden oluşan bir koleksiyondur. Her konak havuzu, fiziksel masaüstünde yaptıkları gibi kullanıcı etkileşim kurabilir bir uygulama grubu içerebilir.
+Ana bilgisayar havuzları, Windows sanal masaüstü Önizleme Kiracı ortamlar içinde bir veya daha fazla aynı sanal makinelerden oluşan bir koleksiyondur. Her konak havuzu, fiziksel masaüstünde yaptıkları gibi kullanıcı etkileşim kurabilir bir uygulama grubu içerebilir.
 
 Bu makalede, Microsoft Azure Marketi teklifi kullanarak bir Windows sanal masaüstü Kiracı içinde bir ana bilgisayar havuzu oluşturmayı açıklar. Bu şekilde, Desktop'ta Windows sanal bir kaynak grubu ile Vm'leri bir Azure aboneliğinde oluşturuluyor. Bu Vm'lere Active Directory etki alanına katılma ve Windows sanal masaüstü ile Vm'leri kaydetme, konak havuzu oluşturmayı içerir.
 
@@ -64,7 +64,7 @@ Sanal makine ayarı dikey için:
 3. Active Directory sunucuya bağlanabildiğini ve ardından sanal makineleri barındırmak için bir alt ağ, sanal ağı seçin.
 4. **Tamam**’ı seçin.
 
-### <a name="windows-virtual-desktop-tenant-information"></a>Windows sanal masaüstü Kiracı bilgileri
+### <a name="windows-virtual-desktop-preview-tenant-information"></a>Windows sanal masaüstü Önizleme Kiracı bilgileri
 
 Windows sanal masaüstü Kiracı bilgileri dikey:
 

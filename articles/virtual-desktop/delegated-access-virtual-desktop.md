@@ -1,22 +1,22 @@
 ---
-title: Windows sanal masaüstü (Önizleme) - Azure Temsilcili erişim
-description: Örnekler de dahil olmak üzere bir Windows sanal masaüstü dağıtımdaki yönetici yetkileri nasıl.
+title: Windows sanal masaüstü Önizleme - Azure Temsilcili erişim
+description: Örnekler de dahil olmak üzere bir Windows sanal masaüstü Önizleme dağıtımdaki yönetici yetkileri nasıl.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 49645b697071abb8a2f8c85ebde1e6761a3536ab
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336108"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400000"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Temsilcili erişim Windows sanal masaüstü (Önizleme)
+# <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Windows sanal masaüstü önizlemede Temsilcili erişim
 
-Windows sanal masaüstü (Önizleme), belirli bir kullanıcıya bir rol atayarak için izin verilen erişim miktarını tanımlamanıza olanak sağlayan bir temsilci erişimi modeline sahiptir. Bir rol ataması üç bileşenden oluşur: güvenlik sorumlusu, rol tanımı ve kapsam. Azure RBAC modelinde Windows sanal masaüstü Temsilcili erişim modeli temel alır. Özel rol atamaları ve bileşenleri hakkında daha fazla bilgi için bkz: [Azure rol tabanlı erişim denetimine genel bakış](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
+Windows sanal masaüstü Önizleme, belirli bir kullanıcıya bir rol atayarak için izin verilen erişim miktarını tanımlamanıza olanak sağlayan bir temsilci erişimi modeline sahiptir. Bir rol ataması üç bileşenden oluşur: güvenlik sorumlusu, rol tanımı ve kapsam. Azure RBAC modelinde Windows sanal masaüstü Temsilcili erişim modeli temel alır. Özel rol atamaları ve bileşenleri hakkında daha fazla bilgi için bkz: [Azure rol tabanlı erişim denetimine genel bakış](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
 
 Windows Sanal Masaüstü yönetici temsilcisi erişimi destekleyen her öğenin bir rol ataması için aşağıdaki değerleri:
 
@@ -66,4 +66,4 @@ Aşağıdaki parametrelerle temel üç cmdlet değiştirebilirsiniz:
 
 Her rol kullanabileceğiniz PowerShell cmdlet'leri daha eksiksiz bir listesi için bkz. [PowerShell başvurusu](/powershell/windows-virtual-desktop/overview).
 
-Bir Windows sanal masaüstü ortamını ayarlama ilişkin yönergeler için bkz: [bir Windows sanal masaüstü ortamını ayarlama](environment-setup.md).
+Bir Windows sanal masaüstü ortamını ayarlama ilişkin yönergeler için bkz: [Windows sanal masaüstü Önizleme ortamı](environment-setup.md).

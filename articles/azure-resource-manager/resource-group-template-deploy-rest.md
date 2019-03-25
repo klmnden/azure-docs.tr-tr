@@ -1,6 +1,6 @@
 ---
 title: REST API ve şablon ile kaynak dağıtma | Microsoft Docs
-description: Bir kaynakları Azure'a dağıtmak için Azure Resource Manager ve Resource Manager REST API'si kullanın. Kaynaklar, bir Resource Manager şablonunda tanımlanır.
+description: Kaynakları Azure'a dağıtmak için Azure Resource Manager ve Resource Manager REST API'si kullanın. Kaynaklar, bir Resource Manager şablonunda tanımlanır.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,28 +10,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: bd574eb2d3537d3e5c0774f57e37283817cc7879
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3468f5b625911cd637b22e2c1d35a47fb7d7b0e4
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112033"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402839"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Kaynakları Resource Manager şablonları ve Resource Manager REST API’si ile dağıtma
 
 Bu makalede, Resource Manager REST API'si Resource Manager şablonları ile kaynaklarınızı Azure'a dağıtmak için kullanmayı açıklar.  
 
-> [!TIP]
-> Dağıtım sırasında bir hata ayıklama ile ilgili Yardım için bkz:
-> 
-> * [Dağıtım işlemlerini görüntüleme](resource-manager-deployment-operations.md) hata gidermenize yardımcı olacak bilgileri alma hakkında bilgi için
-> * [Azure Resource Manager ile Azure kaynakları dağıtılırken sık karşılaşılan sorunları giderme](resource-manager-common-deployment-errors.md) sık karşılaşılan dağıtım hatalarını çözme hakkında bilgi edinmek için
-> 
-> 
-
 İstek gövdesi veya bir dosyaya bağlantı şablonunuzu ya da içerebilir. Bir dosya kullanırken, yerel bir dosyaya veya bir URI kullanıma hazır bir dış dosya olabilir. Şablonunuzu bir depolama hesabında olduğunda, şablonu erişimini kısıtlamak ve dağıtım sırasında bir paylaşılan erişim imzası (SAS) belirteci sağlayın.
+
+## <a name="deployment-scope"></a>Dağıtım kapsamı
+
+Dağıtımınız için bir Azure aboneliğine veya abonelik içinde bir kaynak grubu hedefleyebilirsiniz. Çoğu durumda, bir kaynak grubuna dağıtım hedefi. İlkeleri ve rol atamalarını abonelik üzerinden uygulamak için abonelik dağıtımları'ı kullanın. Abonelik dağıtımları da bir kaynak grubu oluşturun ve kaynakları dağıtmak için kullanın. Dağıtım kapsamını bağlı olarak, farklı komutlarını kullanın.
+
+Dağıtmak için bir **kaynak grubu**, kullanın [- dağıtımlar oluşturmayı](/rest/api/resources/deployments/createorupdate).
+
+Dağıtmak için bir **abonelik**, kullanın [dağıtımları - oluşturma, abonelik kapsamında](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+
+Bu makaledeki örneklerde, kaynak grubu dağıtımı kullanın. Abonelik dağıtımları hakkında daha fazla bilgi için bkz. [oluşturma kaynak grubu ve kaynak abonelik düzeyinde](deploy-to-subscription.md).
 
 ## <a name="deploy-with-the-rest-api"></a>REST API ile dağıtma
 1. Ayarlama [ortak parametreleri ve üst bilgileri](/rest/api/azure/), kimlik doğrulama belirteçlerinizi de dahil olmak üzere.

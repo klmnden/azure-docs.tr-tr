@@ -1,6 +1,6 @@
 ---
-title: Azure NetApp Files birimi için dışarı aktarma ilkesi yapılandırma | Microsoft Docs
-description: Azure NetApp Files birimine erişimi denetlemek için dışarı aktarma ilkesi yapılandırma işlemi açıklanır
+title: Azure NetApp dosyalarını kullanarak bir NFS birimi için verme ilkesi yapılandırma | Microsoft Docs
+description: Azure NetApp dosyaları kullanarak bir NFS birimine erişimi denetlemek için verme ilkesi yapılandırılması açıklanmaktadır
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 03/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 1098c5c2f42b242b3ba2f68ec7480de90dd7c22e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8cda5921a1aec86d28beabbd9cea5b07a203a0e8
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766657"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401494"
 ---
-# <a name="configure-export-policy-for-a-volume"></a>Birim için dışarı aktarma ilkesini yapılandırma
+# <a name="configure-export-policy-for-an-nfs-volume"></a>NFS birimi için verme ilkesi yapılandırma
 
-İsteğe bağlı olarak Azure NetApp Files birimine erişimi denetlemek için dışarı aktarma ilkesi yapılandırabilirsiniz. 
+İsteğe bağlı olarak Azure NetApp Files birimine erişimi denetlemek için dışarı aktarma ilkesi yapılandırabilirsiniz. Dışarı aktarma, NFS birimleri desteği yalnızca ilkesidir. 
 
 ## <a name="steps"></a>Adımlar 
 
@@ -47,7 +47,7 @@ ms.locfileid: "57766657"
 
     * **Protokoller**   
         Dışarı aktarma ilkesinde kullanılacak protokolü belirtin.   
-        Şu anda Azure NetApp Files yalnızca NFSv3'ü desteklemektedir.
+        Şu anda Azure NetApp dosyaları dışarı aktarma ilkesi yalnızca NFSv3 destekler.
 
     ![İlkeyi dışarı aktarma](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 

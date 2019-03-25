@@ -7,18 +7,18 @@ ms.date: 03/23/2019
 author: twooley
 ms.author: twooley
 ms.subservice: blobs
-ms.openlocfilehash: 16ecade7a8d0049e098bb06bd14828b19934f5f5
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: f4d3e3ad923b6a603902bc007107cb41dae8cf6c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58373053"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400475"
 ---
 # <a name="create-a-block-blob-storage-account"></a>Blok blob depolama hesabı oluşturma
 
 Blok blob depolama hesabı türü, blok blobları ile premium performans özellikleri oluşturmanızı sağlar. Bu depolama hesabı türü, yüksek işlem hızları sahip iş yükleri için optimize edilmiştir veya çok hızlı erişim zamanları gerektirir. Bu makalede, Azure portalı, Azure CLI veya Azure PowerShell kullanarak bir blok blob depolama hesabı oluşturma işlemini gösterir.
 
-Blok blob depolama hesapları hakkında daha fazla bilgi için bkz: [Azure depolama hesabına genel bakış](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+Blok blob depolama hesapları hakkında daha fazla bilgi için bkz. [Azure depolama hesabına genel bakış](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
 ## <a name="create-account-in-the-azure-portal"></a>Azure portalında hesabı oluşturma
 
@@ -54,7 +54,7 @@ Azure portalında bir blok blob depolama hesabı oluşturmak için aşağıdaki 
 
 1. **Oluştur**’u seçin.
 
-### <a name="create-account-using-azure-powershell"></a>Azure PowerShell kullanarak hesabı oluşturma
+## <a name="create-account-using-azure-powershell"></a>Azure PowerShell kullanarak hesabı oluşturma
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

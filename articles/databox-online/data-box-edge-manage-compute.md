@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/13/2019
+ms.date: 03/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 8128afa7078c396156d2cbffb47effeb7de68a0b
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: de8ddd0d2886cd7798160e830094b295c62e17e9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58005062"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400691"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>İşlem, Azure veri kutusu edge'de yönetme
 
@@ -132,6 +132,23 @@ Cihazınız için erişim anahtarlarını eşitleme için Azure portalında aşa
      ![Evet, istendiğinde seçin](media/data-box-edge-manage-compute/refresh-configuration-2.png)
 
 3. Eşitleme tamamlandıktan sonra iletişim kutusunu kapatın.
+
+## <a name="enable-a-network-interface-for-compute"></a>İşlem için bir ağ arabirimi etkinleştir
+
+Veri kutusu Edge Cihazınızda çalışan bir modül erişim gerekebilir. Modül erişmek için harici olarak, Cihazınızda bir ağ arabirimi bir IP adresi atamak gerekir. Bunlar yönetebileceğiniz yerel web kullanıcı Arabirimi ayarlarını işlem.
+
+Yerel Web kullanıcı Arabirimi, işlem ayarlarını yapılandırmak için aşağıdaki adımları uygulayın.
+
+1. Yerel web kullanıcı Arabirimi, Git **yapılandırma > ayarları işlem**.  
+
+2. **Etkinleştirme** işlem modüller cihazda bağlanmak için kullanmak istediğiniz ağ arabirimi. 
+
+    - Statik IP adresleri kullanırken, ağ arabirimi için bir IP adresi girin.
+    - DHCP kullanıyorsanız, IP adreslerini otomatik olarak atanır.
+
+3. Seçin **Uygula** ayarları uygulamak için.
+
+    ![İşlem ayarlarını etkinleştirme](media/data-box-edge-manage-compute/compute-settings-1.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/11/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 79648e30e832a056016b8842fdc39e27e206c9ee
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: ec5fbffdf7df5ef3a952e21b79ab02f355fb8e29
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57896144"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403655"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Azure veri kutusu Ucunuzdaki paylaşımlarında yönetmek için Azure portalını kullanma
 
 Bu makalede, Azure veri kutusu Ucunuzdaki paylaşımlarında yönetmek açıklar. Azure veri kutusu Edge Azure portal aracılığıyla yönetmenize veya yerel web kullanıcı Arabirimi. Ekle, Sil, paylaşımlar veya eşitleme paylaşımıyla ilişkili depolama hesabı için depolama anahtarı yenileme için Azure portalını kullanın.
-
-> [!IMPORTANT]
-> Data Box Edge, önizleme aşamasındadır. Sipariş vermeden ve bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin.
-
 
 ## <a name="about-shares"></a>Paylaşımlar hakkında
 
@@ -67,8 +63,10 @@ Paylaşım oluşturmak için Azure portalda aşağıdaki adımları gerçekleşt
 
         ![NFS paylaşımı ekleme](media/data-box-edge-manage-shares/add-nfs-share.png)
 
-7. Paylaşımı oluşturmak için **Oluştur**'a tıklayın. Paylaşım oluşturma işleminin devam ettiği size bildirilir. Paylaşım belirtilen ayarlarla oluşturulduktan sonra, **Paylaşımlar** dikey penceresi yeni paylaşımı yansıtacak şekilde güncelleştirilir.
- 
+7. Kolayca Edge işlem modüllerden paylaşımlara erişmek için yerel bağlama noktası kullanın. Seçin **paylaşımı ile Edge işlem kullanmasını** otomatik olarak paylaşımıdır böylece bundan sonra oluşturulan bağlı. Bu seçenek belirlendiğinde, Edge modülü ile yerel bağlama noktası işlem de kullanabilirsiniz.
+
+8. Paylaşımı oluşturmak için **Oluştur**'a tıklayın. Paylaşım oluşturma işleminin devam ettiği size bildirilir. Paylaşım belirtilen ayarlarla oluşturulduktan sonra, **Paylaşımlar** dikey penceresi yeni paylaşımı yansıtacak şekilde güncelleştirilir.
+
 ## <a name="add-a-local-share"></a>Yerel bir paylaşım ekleyin
 
 1. Azure portalında veri kutusu Edge kaynağınıza gidin ve ardından Git **ağ geçidi > paylaşımları**. Seçin **+ Ekle paylaşımı** komut çubuğunda.
@@ -93,11 +91,32 @@ Paylaşım oluşturmak için Azure portalda aşağıdaki adımları gerçekleşt
 
     Paylaşımı oluşturma sürüyor bir bildirim görürsünüz. Paylaşım belirtilen ayarlarla oluşturulduktan sonra, **Paylaşımlar** dikey penceresi yeni paylaşımı yansıtacak şekilde güncelleştirilir.
 
-    ![Paylaşımları dikey güncelleştirmeleri görüntüle](media/data-box-edge-manage-shares/add-local-share-4.png)
+    ![Paylaşımları dikey güncelleştirmeleri görüntüle](media/data-box-edge-manage-shares/add-local-share-3.png)
     
     Bu paylaşım için Edge işlem modüller için yerel mountpoint görüntülemek için paylaşım seçin.
 
     ![Yerel paylaşım ayrıntılarını görüntüle](media/data-box-edge-manage-shares/add-local-share-4.png)
+
+
+## <a name="unmount-a-share"></a>Bir paylaşımı çıkarın
+
+Azure portalında bir paylaşımını ayırmak için aşağıdaki adımları uygulayın.
+
+1. Azure portalında veri kutusu Edge kaynağınıza gidin ve ardından Git **ağ geçidi > paylaşımları**.
+
+    ![Paylaşımı seçme](media/data-box-edge-manage-shares/select-share-unmount.png)
+
+2. Paylaşımları listesinden kaldırmak istediğiniz paylaşımı seçin. Çıkarma, paylaşımı modüllerin tarafından kullanılmadığından emin olmanız gerekir. Paylaşım modülü tarafından kullanılıyorsa, karşılık gelen modülü ile sorunları görürsünüz. Seçin **çıkarın**.
+
+    ![Select çıkarın](media/data-box-edge-manage-shares/select-unmount.png)
+
+3. Onayınız istendiğinde seçin **Evet**. Bu paylaşım çıkarmanız.
+
+    ![Onayla çıkarın](media/data-box-edge-manage-shares/confirm-unmount.png)
+
+4. Kaldırılan paylaşımıdır sonra paylaşımları listesine gidin. Göreceksiniz **işlem için kullanılan** sütun olarak paylaşım durumu gösterilir **devre dışı bırakılmış**.
+
+    ![Paylaşım çıkarılamadı](media/data-box-edge-manage-shares/share-unmounted.png)
 
 ## <a name="delete-a-share"></a>Paylaşımı silme
 

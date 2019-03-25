@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2c5a7dc08886e21ef8e287540d9139ec555b11a2
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bc8a644f99d9a84e1f2c177a87e2668ae9a57868
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242301"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400624"
 ---
 # <a name="collect-data-from-threat-intelligence-providers"></a>Tehdit bilgisi sağlayıcılarından veri topla 
 
@@ -31,6 +31,8 @@ Azure Gözcü veri akışı sonra bu akış tehdit zekası ile kuruluşunuzda ku
 Platformlar arası, uyarılar ve kuralları doğru tehdit zekası, belirli bir IP adresinden bir uyarı alırsanız, örneğin danışın sağlamak için tehdit zekası sağlayıcısı tümleştirmenizi kötü amaçlı olarak, bu IP adresi kısa bir süre önce bulunup bulunmadığını size bildirmek mümkün olacaktır , Azure Sentinel ile tümleştirme sağlayan [tehdit zekası sağlayıcıları](https://aka.ms/graphsecuritytips). 
 
 Tek bir tıklamayla Azure Gözcü tehdit zekası sağlayıcıları günlüklerinden düzenleyebilir. Bu bağlantı, gözlemlenenler IP adresi, etki alanı, URL gibi çeşitli türlerde içeren göstergeleri eklemenizi sağlar ve dosya karması arama ve özel oluşturmak için Azure Gözcü kurallarında uyarır.  
+> [!NOTE]
+> Size özelleştirilmiş tehlike göstergeleri Azure Gözcü kullanılmak üzere Uyarı kuralları, panolar ve avcılık senaryoları ile tümleştirerek girebilirsiniz [Microsoft Graph güvenlik tiIndicator](https://aka.ms/graphsecuritytiindicators) varlık kullanarak veya bir [Microsoft Tümleşik tehdit zekası platformu grafik güvenlik](https://aka.ms/graphsecuritytips).
 
 ## <a name="prerequisites"></a>Önkoşullar  
 

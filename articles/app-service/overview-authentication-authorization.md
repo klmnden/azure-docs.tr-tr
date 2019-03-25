@@ -15,14 +15,18 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b66b293e5d6e422c994e2b7cef13fd4100144cbf
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297013"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402754"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde kimlik doğrulaması ve yetkilendirme
+
+> [!NOTE]
+> Şu anda AAD V2 (MSAL dahil) desteklenmez Azure App Services ve Azure işlevleri için. Lütfen geri güncelleştirmeleri denetleyin.
+>
 
 Azure App Service, yerleşik kimlik doğrulama ve yetkilendirme destekler, böylece kullanıcılarının oturumunu ve en az yazma ya da web uygulaması, RESTful API ve mobil arka uç, kod erişim verileri sağlar ve ayrıca [Azure işlevleri](../azure-functions/functions-overview.md). Bu makalede, App Service'nın kimlik doğrulama ve uygulamanız için yetkilendirme basitleştirmek nasıl yardımcı olduğunu açıklar. 
 

@@ -1,24 +1,16 @@
+      ---
+Yazar: alkohli ms.service: Data Box  
+MS.topic: ms.date içerir: 03/21/2019 ms.author: alkohli
 ---
-author: alkohli
-ms.service: databox
-ms.topic: include
-ms.date: 02/11/2019
-ms.author: alkohli
-ms.openlocfilehash: 783ae29e9ca0c9a609d1d1d283525a952c2f7f33
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118714"
----
+
 | Bağlantı noktası yok.| Daraltma veya genişletme | Bağlantı noktası kapsamı| Gerekli|   Notlar |   |
 |--------|-----|-----|-----------|----------|-----------|
-| TCP 80 (HTTP)|Giden/içinde|WAN  |Hayır|Giden bağlantı noktası, güncelleştirmeleri almak için internet erişimi için kullanılır. <br>Kullanıcı tarafından yapılandırılabilir bir giden web Ara sunucudur. |
-| TCP 443 (HTTPS)|Giden/içinde|WAN|Evet|Giden bağlantı noktası, bulut veri erişimi için kullanılır.<br>Kullanıcı tarafından yapılandırılabilir bir giden web Ara sunucudur.|
-| UDP 123 (NTP)|Çıkan|WAN|Bazı durumlarda<br>Notlara bakın|Yalnızca Internet tabanlı bir NTP sunucusu kullanıyorsanız, bu bağlantı noktası gereklidir.  |   
-| UDP 53 (DNS)|Çıkan|LAN|Bazı durumlarda<br>Notlara bakın|Yalnızca Internet tabanlı bir DNS sunucusu kullanıyorsanız, bu bağlantı noktası gereklidir.<br>Yerel bir DNS sunucusunu kullanmanızı öneririz. |
+| TCP 80 (HTTP)|Çıkış|WAN |Hayır|Giden bağlantı noktası, güncelleştirmeleri almak için internet erişimi için kullanılır. <br>Kullanıcı tarafından yapılandırılabilir bir giden web Ara sunucudur. |
+| TCP 443 (HTTPS)|Çıkış|WAN|Evet|Giden bağlantı noktası, bulut veri erişimi için kullanılır.<br>Kullanıcı tarafından yapılandırılabilir bir giden web Ara sunucudur.|
+| UDP 123 (NTP)|Çıkış|WAN|Bazı durumlarda<br>Notlara bakın|Yalnızca Internet tabanlı bir NTP sunucusu kullanıyorsanız, bu bağlantı noktası gereklidir.  |   
+| UDP 53 (DNS)|Çıkış|WAN|Bazı durumlarda<br>Notlara bakın|Yalnızca Internet tabanlı bir DNS sunucusu kullanıyorsanız, bu bağlantı noktası gereklidir.<br>Yerel bir DNS sunucusunu kullanmanızı öneririz. |
 | TCP 5985 (WinRM)|Giden/içinde|LAN|Bazı durumlarda<br>Notlara bakın|Bu bağlantı noktası, HTTP üzerinden cihaz uzak PowerShell aracılığıyla bağlanmak için gereklidir.  |
-| UDP 67 (DHCP)|Çıkan|LAN|Bazı durumlarda<br>Notlara bakın|Yalnızca yerel bir DHCP sunucusu kullanıyorsanız bu bağlantı noktası gereklidir.  |
+| UDP 67 (DHCP)|Çıkış|LAN|Bazı durumlarda<br>Notlara bakın|Yalnızca yerel bir DHCP sunucusu kullanıyorsanız bu bağlantı noktası gereklidir.  |
 | TCP 80 (HTTP)|Giden/içinde|LAN|Evet|Bu bağlantı noktasını, yerel yönetim için cihazda yerel kullanıcı Arabirimi için gelen bağlantı noktasıdır. <br>HTTP üzerinden yerel UI erişme, HTTPS için otomatik olarak yönlendirir.  |
 | TCP 443 (HTTPS)|Giden/içinde|LAN|Evet|Bu bağlantı noktasını, yerel yönetim için cihazda yerel kullanıcı Arabirimi için gelen bağlantı noktasıdır. |
 | TCP 445 (SMB)|İçinde|LAN|Bazı durumlarda<br>Notlara bakın|Bu bağlantı noktası, yalnızca SMB bağlanılıyorsa gereklidir. |

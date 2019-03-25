@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 73e453385a6916b6999691afbacd1f102ce7270d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0b1a06d181fc4d2a44d389d47d1f9480c2fdcb40
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865752"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401099"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Application Insights ile canlı Azure Service Fabric uygulamaları profili
 
@@ -55,7 +55,7 @@ Ortamınızı ayarlamak için aşağıdaki eylemleri gerçekleştirin:
   Ayarlarınızı doğruysa, Application Insights Profiler yüklenir ve Azure tanılama uzantısı yüklü olduğunda etkinleştirilir. 
 
 1. Service Fabric uygulamanıza Application Insights ekleyin.  
-  Profilleri, istekleri için toplanacak Profiler için uygulama istek verilerini Application Insights'a gönderimini olması gerekir. Daha fazla bilgi için Git [Service Fabric projeleri için Application Insights SDK](https://github.com/Microsoft/ApplicationInsights-ServiceFabric) sayfası.
+  Profilleri, istekleri için toplanacak Profiler için uygulamanızı Application Insights ile işlemleri izleme gerekir. Durum bilgisi olmayan API'leri için yönergeler için başvurabilirsiniz [profil oluşturma için istekleri izleme](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json). Diğer tür uygulamaların özel işlemleri izleme hakkında daha fazla bilgi için [Application Insights .NET SDK ile özel işlemleri izleme](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json).
 
 1. Uygulamanızı yeniden dağıtın.
 

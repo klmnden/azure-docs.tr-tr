@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: be51e6c829c5f12d17c6302bb951039711f12075
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 73f97128dc7b71179c0b0ab41340af6c0f371da1
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113235"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402975"
 ---
-# <a name="azure-data-box-gateway-system-requirements-preview"></a>Azure veri kutusu ağ geçidi sistem gereksinimleri (Önizleme)
+# <a name="azure-data-box-gateway-system-requirements"></a>Azure veri kutusu ağ geçidi sistem gereksinimleri
 
 Bu makalede, Microsoft Azure veri kutusu ağ geçidi çözümünüz için ve Azure veri kutusu ağ geçidine bağlanma istemcileri için önemli sistem gereksinimlerini açıklar. Veri kutusu ağ geçidi dağıtın ve ardından geri gerekirse dağıtım ve sonraki işlemi sırasında başvurduğu önce bilgileri dikkatlice gözden öneririz.
 
@@ -24,8 +24,6 @@ Veri kutusu ağ geçidi sanal cihaz için sistem gereksinimleri şunlardır:
 - **Konaklar için yazılım gereksinimleri** -desteklenen platformlar, yerel yapılandırma kullanıcı Arabirimi için tarayıcılar, SMB istemcileri ve cihaz için bağlanan konaklar için tüm ek gereksinimleri açıklanmaktadır.
 - **Cihaz için ağ gereksinimleri** -sanal cihazın işlemi için herhangi bir ağ gereksinimleri hakkında bilgi sağlar.
 
-> [!IMPORTANT]
-> Data Box Gateway, Önizleme aşamasındadır. Bu çözümü dağıtmadan önce lütfen [Önizleme için kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin. 
 
 ## <a name="specifications-for-the-virtual-device"></a>Sanal cihaz özellikleri
 

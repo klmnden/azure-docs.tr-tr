@@ -1,6 +1,6 @@
 ---
 title: PowerShell ve şablon kaynakları dağıtma | Microsoft Docs
-description: Bir kaynakları Azure'a dağıtmak için Azure Resource Manager ve Azure PowerShell kullanın. Kaynaklar, bir Resource Manager şablonunda tanımlanır.
+description: Kaynakları Azure'a dağıtmak için Azure Resource Manager ve Azure PowerShell kullanın. Kaynaklar, bir Resource Manager şablonunda tanımlanır.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,38 +10,51 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: daeff897cf284df6e820afbcdd35ee54bf88db08
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 8005b187f300375b62c254516a61f4993675b0b9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405411"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403117"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma
 
 Azure PowerShell Resource Manager şablonları ile kaynaklarınızı Azure'a dağıtmak için kullanmayı öğrenin. Azure çözümlerinizi dağıtıp kavramları hakkında daha fazla bilgi için bkz. [Azure Resource Manager'a genel bakış](resource-group-overview.md).
 
-Bir şablonu dağıtmak için genellikle iki adım gerekir:
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Bir kaynak grubu oluşturun. Kaynak grubu, dağıtılan kaynaklar için kapsayıcı görevi görür. Kaynak grubu adı yalnızca alfasayısal karakterler, nokta, alt çizgi, kısa çizgi ve parantez içerebilir. Bu, en fazla 90 karakter olabilir. Bu nokta ile bitemez.
-2. Bir şablonu dağıtın. Şablon oluşturmak için kaynakları tanımlar.  Dağıtım kaynakları belirtilen kaynak grubu oluşturulmaktadır.
+## <a name="deployment-scope"></a>Dağıtım kapsamı
 
-Bu makalede kullanılan bu iki aşamalı dağıtım yöntemidir.  Diğer seçenek bir kaynak grubu ve kaynakları aynı anda dağıtmaktır.  Daha fazla bilgi için [kaynak grubu oluşturun ve kaynakları dağıtma](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+Dağıtımınız için bir Azure aboneliğine veya abonelik içinde bir kaynak grubu hedefleyebilirsiniz. Çoğu durumda, bir kaynak grubuna dağıtım hedefi. İlkeleri ve rol atamalarını abonelik üzerinden uygulamak için abonelik dağıtımları'ı kullanın. Abonelik dağıtımları da bir kaynak grubu oluşturun ve kaynakları dağıtmak için kullanın. Dağıtım kapsamını bağlı olarak, farklı komutlarını kullanın.
+
+Dağıtmak için bir **kaynak grubu**, kullanın [yeni AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
+
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+```
+
+Dağıtmak için bir **abonelik**, kullanın [yeni AzDeployment](/powershell/module/az.resources/new-azdeployment):
+
+```azurepowershell
+New-AzDeployment -Location <location> -TemplateFile <path-to-template>
+```
+
+Bu makaledeki örneklerde, kaynak grubu dağıtımı kullanın. Abonelik dağıtımları hakkında daha fazla bilgi için bkz. [oluşturma kaynak grubu ve kaynak abonelik düzeyinde](deploy-to-subscription.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
+Bir şablonu dağıtmak için ihtiyacınız vardır. Zaten yoksa, indirin ve kaydedin bir [örnek şablonu](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) Azure hızlı başlangıç şablonları deposundan. Bu makalede kullanılan yerel dosya adı **c:\MyTemplates\azuredeploy.json**.
+
 Kullanmadığınız sürece [Azure Cloud Shell'i](#deploy-templates-from-azure-cloud-shell) şablonlarını dağıtmak için Azure PowerShell'i yükleme ve Azure'a bağlanmak için ihtiyaç duyduğunuz:
+
 - **Azure PowerShell cmdlet'lerini yerel bilgisayarınıza yükleyin.** Daha fazla bilgi için bkz. [Azure PowerShell kullanmaya başlayın](/powershell/azure/get-started-azureps).
 - **Kullanarak Azure'a bağlanma [Connect AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Birden çok Azure aboneliğiniz varsa, aynı zamanda çalıştırmak ihtiyacınız olabilecek [kümesi AzContext](/powershell/module/Az.Accounts/Set-AzContext). Daha fazla bilgi için [birden çok Azure aboneliği kullanın](/powershell/azure/manage-subscriptions-azureps).
-- * İndirin ve kaydedin bir [Hızlı Başlangıç şablonu](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) . Bu makalede kullanılan yerel dosya adı **c:\MyTemplates\azuredeploy.json**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="deploy-local-template"></a>Yerel şablonu dağıtma
 
-## <a name="deploy-templates-stored-locally"></a>Yerel olarak depolanan şablonlarını dağıtma
-
-Aşağıdaki örnek, bir kaynak grubu oluşturur ve yerel makinenizden bir şablon dağıtır:
+Aşağıdaki örnek, bir kaynak grubu oluşturur ve yerel makinenizden bir şablon dağıtır. Kaynak grubu adı yalnızca alfasayısal karakterler, nokta, alt çizgi, kısa çizgi ve parantez içerebilir. Bu, en fazla 90 karakter olabilir. Bu nokta ile bitemez.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -52,11 +65,9 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateFile c:\MyTemplates\azuredeploy.json
 ```
 
-Not *c:\MyTemplates\azuredeploy.json* Hızlı Başlangıç şablonu.  [Ön koşullara](#prerequisites) bakın.
-
 Dağıtımın tamamlanması birkaç dakika sürebilir.
 
-## <a name="deploy-templates-stored-externally"></a>Harici olarak depolanan şablonlarını dağıtma
+## <a name="deploy-remote-template"></a>Uzak şablonu dağıtma
 
 Resource Manager şablonları, yerel makinenizde depolamak yerine dış bir konumda depolanması tercih edebilirsiniz. Şablonları bir kaynak denetim deposu (örneğin GitHub) depolayabilirsiniz. Veya, bunları paylaşılan erişim için bir Azure depolama hesabında kuruluşunuzda depolayabilirsiniz.
 
@@ -73,7 +84,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 Yukarıdaki örnekte genel olarak erişilebilen bir URI şablonu için çoğu senaryo için şablonunuzu hassas verileri eklememelisiniz çünkü düşünülerek gerektirir. Hassas verileri (örneğin, bir yönetici parolası) belirtmeniz gerekiyorsa, bu değeri güvenli bir parametre geçirin. Ancak, şablonunuzu genel olarak erişilebilir olmasını istemiyorsanız, bir özel depolama kapsayıcısında depolayarak koruyabilirsiniz. Paylaşılan erişim imzası (SAS) belirteci gerektiren şablonu dağıtma hakkında daha fazla bilgi için bkz: [SAS belirteci ile özel şablonu Dağıt](resource-manager-powershell-sas-token.md). Bir öğreticiyi incelemek için bkz: [Öğreticisi: Resource Manager şablon dağıtımı Azure anahtar kasası tümleştirme](./resource-manager-tutorial-use-key-vault.md).
 
-## <a name="deploy-templates-from-azure-cloud-shell"></a>Azure Cloud shell'den şablon dağıtma
+## <a name="deploy-from-azure-cloud-shell"></a>Azure Cloud shell'den dağıtma
 
 Kullanabileceğiniz [Azure Cloud Shell](https://shell.azure.com) şablonunuzu dağıtmak için. Dış bir şablonu dağıtmak için şablon URI'si belirtin. Yerel bir şablonu dağıtmak için Cloud Shell için depolama hesabına şablonunuzu yüklemelisiniz. Dosyaları shell'e yüklemeniz için seçin **dosyaları karşıya yükleme/indirme** Kabuk penceresinden menüsü simgesi.
 
@@ -89,10 +100,6 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 ```
 
 Kod shell'e yapıştırmak için kabuk içinde sağ tıklayın ve ardından **yapıştırın**.
-
-## <a name="deploy-to-multiple-resource-groups-or-subscriptions"></a>Birden çok kaynak grubuna veya aboneliğe dağıtma
-
-Genellikle, tüm kaynakları tek bir kaynak grubu için şablonunuzdaki dağıtın. Ancak, bir kaynak kümesini birlikte dağıtmak ancak farklı kaynak gruplarında ya da abonelik yerleştirmek istediğiniz senaryolar da vardır. Tek bir dağıtımda yalnızca beş kaynak gruplarına dağıtabilirsiniz. Daha fazla bilgi için [dağıtma Azure kaynaklarına birden çok kaynak gruplarında ve Aboneliklerde](resource-manager-cross-resource-group-deployment.md).
 
 ## <a name="redeploy-when-deployment-fails"></a>Dağıtım başarısız olduğunda yeniden dağıtma
 

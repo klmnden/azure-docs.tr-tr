@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 52d2061262fd04e68ed13aac8932c23b7074f83e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 125ad28f049662ae6d91c61bb5ee79c1c1428af5
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113779"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401768"
 ---
-# <a name="azure-data-box-edge-system-requirements-preview"></a>Azure veri kutusu Edge sistem gereksinimleri (Önizleme)
+# <a name="azure-data-box-edge-system-requirements"></a>Azure veri kutusu Edge sistem gereksinimleri
 
 Bu makalede, Microsoft Azure veri kutusu Edge çözümünüz için ve Azure veri kutusu kenarına bağlanan istemciler için önemli sistem gereksinimlerini açıklar. Veri kutusu Ucunuzdaki dağıtmadan önce bilgileri dikkatle gözden öneririz. Yeniden dağıtım ve sonraki işlemi sırasında gerektiğinde bu bilgilere başvurabilir.
 
@@ -23,9 +23,6 @@ Veri kutusu Edge için sistem gereksinimleri şunlardır:
 
 - **Konaklar için yazılım gereksinimleri** -desteklenen platformlar, yerel yapılandırma kullanıcı Arabirimi için tarayıcılar, SMB istemcileri ve cihaz erişen istemciler için tüm ek gereksinimleri açıklanmaktadır.
 - **Cihaz için ağ gereksinimleri** -fiziksel cihazın işlemi için herhangi bir ağ gereksinimleri hakkında bilgi sağlar.
-
-> [!IMPORTANT]
-> Data Box Edge, önizleme aşamasındadır. Bu çözümü dağıtmadan önce lütfen [Önizleme için kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin.
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>Cihaz için bağlanan istemciler için desteklenen işletim sistemi
 
@@ -63,10 +60,7 @@ Azure IOT Edge çalışma zamanı barındırma sunucuları için bağlantı nokt
 
 | Bağlantı noktası yok. | Daraltma veya genişletme | Bağlantı noktası kapsamı | Gerekli | Rehber |
 |----------|-----------|------------|----------|----------|
-| TCP 5671 (AMQP)| Çıkan       | WAN        | Evet      | IOT Edge için varsayılan iletişim protokolü. Azure IOT Edge, diğer Desteklenen protokoller için yapılandırılmadı veya AMQP istenen iletişim protokolü, açık olması gerekir. <br>AMQP için 5672, IOT Edge tarafından desteklenmiyor. <br>Azure IOT Edge kullanan farklı bir IOT Hub protokol desteklendiğinde, bu bağlantı noktası engelleyin. |
-| TCP 443 (HTTPS)| Çıkan       | WAN        | Evet      | IOT Edge sağlama için giden açın. Yöntem isteği gönderebilir yaprak cihazlar ile saydam bir ağ geçidi varsa. Bu durumda, bağlantı noktası 443 IOT hub'a bağlama ya da IOT Hub, Azure IOT Edge üzerinden hizmetleri sağlamak için dış ağlara açık olması gerekmez. Bu nedenle gelen kuralı yalnızca iç ağdan gelen açmak için kısıtlı olabilir. |
-| TCP 5671 (AMQP) | İçinde        |            | Hayır       | Gelen bağlantılar engellenir.|
-| TCP 443 (HTTPS) | İçinde        |            | Bazı durumlarda, yorumlara bakın. | Gelen bağlantılar yalnızca belirli senaryolar için açık olmalıdır. AMQP, MQTT yapılandırılamaz gibi HTTP olmayan protokolleri, bağlantı noktası 443 aracılığıyla iletileri WebSockets üzerinden gönderilebilir. |
+| TCP 443 (HTTPS)| Çıkış       | WAN        | Evet      | IOT Edge sağlama için giden açın. Bu yapılandırma, el ile komut dosyaları veya Azure IOT cihaz sağlama hizmeti (DPS) kullanılırken gereklidir.|
 
 Tam bilgi için [güvenlik duvarı ve bağlantı noktası IOT Edge dağıtımı için yapılandırma kuralları](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 

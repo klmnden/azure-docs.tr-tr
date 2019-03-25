@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/4/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1d54ac521fb8b81ed5fa135f68af420bda261661
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: a80c4db1b81dd2bc0b223a2781e28ccb1f5ba68e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246959"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402890"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel-preview"></a>Hızlı Başlangıç: Gözcü Azure Önizleme kullanmaya başlama
 
@@ -118,7 +118,22 @@ Birden çok kaynaktan alınan verileri içeren bir sorgu oluşturmak isteyebilir
 
 Veriler ve aradıklarını bakarak kişinin rolüne dayalı farklı Pano oluşturabilirsiniz. Örneğin, güvenlik duvarı verileri içeren ağ yöneticiniz için bir Pano oluşturabilirsiniz. Her gün gözden geçirmek istediğiniz şeyleri olup ne sıklıkta, onları, aramak istediğinize bağlı panolar oluşturabilirsiniz ve diğerleri için kullanmak istediğiniz öğeleri saatte bir denetle, örneğin, Azure AD oturum açma işlemlerinin her saat için anomali aramak için bakmak isteyebilirsiniz Es. 
 
+## <a name="create-new-detections"></a>Yeni algılamalar oluşturma
 
+Üzerinde algılamalar oluşturmak [Azure Gözcü için bağlı veri kaynakları](connect-data-sources.md) kuruluşunuzdaki tehditleri araştırmak için.
+
+Yeni bir algılama oluşturduğunuzda, bağlı veri kaynaklarına uyarlanmış Microsoft Güvenlik Araştırmacıları tarafından hazırlanmış yerleşik algılamalar yararlanın.
+
+1. [GitHub topluluğuna](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) Git **Algılamalar** klasör ve ilgili klasörleri seçin.
+   ![ilgili klasörleri](./media/qs-get-visibility/detection-folders.png)
+ 
+3.  Git **Analytics** sekmenize **ekleme**.
+   ![Log Analytics'te kuralı oluşturma](./media/qs-get-visibility/query-params.png)
+
+3.  Tüm parametreler kuralı kopyalamak ve tıklayın **Oluştur**.
+   ![Uyarı kuralı oluşturma](./media/qs-get-visibility/create-alert-rule.png)
+
+ 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu hızlı başlangıçta, Azure Gözcü kullanmaya başlama öğrendiniz. Öğreticiye devam [tehditleri algılamak nasıl](tutorial-detect-threats.md).
 > [!div class="nextstepaction"]

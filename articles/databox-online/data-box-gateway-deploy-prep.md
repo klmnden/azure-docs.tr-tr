@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 6f47606e91ec55bae624527bace81d947c5ea4f9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 78008357e3ea8fbfe707a7dbead19e3fce83b578
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55091555"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403706"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Öğretici: Azure veri kutusu ağ geçidi (Önizleme) dağıtmaya hazırlanma
+# <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Öğretici: Azure veri kutusu ağ geçidi dağıtmaya hazırlanma
 
 
 Bu, Azure Data Box Gateway'inizi tamamen dağıtmak için gereken dağıtım öğreticileri serisinin ilk öğreticisidir. Bu öğreticide Data Box Gateway kaynağını dağıtmak için Azure portalının nasıl hazırlanacağı açıklanır. 
@@ -29,13 +29,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Sanal cihaz görüntüsünü indirme
 > * Etkinleştirme anahtarı alma
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-
-
-> [!IMPORTANT]
-> - Data Box Gateway önizleme aşamasındadır. Sipariş vermeden ve bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin. 
-
-### <a name="get-started"></a>başlarken
+## <a name="get-started"></a>başlarken
 
 Data Box Gateway'inizi dağıtmak için, aşağıdaki öğreticileri belirtilen sırada izleyin.
 
@@ -56,97 +50,109 @@ Burada Data Box Gateway kaynağınız, Data Box Gateway cihazınız ve veri merk
 
 Başlamadan önce aşağıdakilerden emin olun:
 
-* Microsoft Azure aboneliğiniz Data Box Gateway kaynağı için etkinleştirilmiş olmalı.
-* Erişim kimlik bilgilerine sahip bir Microsoft Azure Storage hesabınız var.
+- Veri kutusu ağ geçidi kaynağı için Microsoft Azure aboneliğiniz desteklenmelidir. Kullandıkça Öde abonelikleri desteklenmez.
+- Erişim kimlik bilgilerine sahip bir Microsoft Azure Storage hesabınız var.
 
 ### <a name="for-the-data-box-gateway-device"></a>Data Box Gateway cihazı için
 
 Sanal cihazı dağıtmadan önce şunlardan emin olun:
 
-* Bir Windows Server 2012 R2 veya sonraki sürümlerde Hyper-V çalıştıran bir konak sistemi ya da olabilir (ESXi 6.0 veya 6.5 6.7) VMware erişiminiz bir sağlamak için kullanılan bir cihaz.
-* Konak sistemi, Data Box sanal cihazınızı sağlamak için aşağıdaki kaynakları ayırabilir:
+- Bir Windows Server 2012 R2 veya sonraki sürümlerde Hyper-V çalıştıran bir konak sistemi ya da olabilir (ESXi 6.0 veya 6.5 6.7) VMware erişiminiz bir sağlamak için kullanılan bir cihaz.
+- Konak sistemi, Data Box sanal cihazınızı sağlamak için aşağıdaki kaynakları ayırabilir:
   
-  * En az 4 çekirdek.
-  * En az 8 GB RAM. 
-  * Bir ağ arabirimi.
-  * 250 GB işletim sistemi diski.
-  * Sistem verileri için 2 TB sanal disk.
+  - En az 4 sanal işlemci.
+  - En az 8 GB RAM.
+  - Bir ağ arabirimi.
+  - 250 GB işletim sistemi diski.
+  - Sistem verileri için 2 TB sanal disk.
 
 ### <a name="for-the-datacenter-network"></a>Veri merkezi ağı için
 
 Başlamadan önce aşağıdakilerden emin olun:
 
-* Veri merkezinizdeki ağ, Data Box Gateway cihazınızın ağ gereksinimlerine uygun olarak yapılandırılmış. Daha fazla bilgi için bkz. [Data Box Gateway Sistem Gereksinimleri](data-box-gateway-system-requirements.md).
+- Veri merkezinizdeki ağ, Data Box Gateway cihazınızın ağ gereksinimlerine uygun olarak yapılandırılmış. Daha fazla bilgi için [veri kutusu ağ geçidi sistem gereksinimleri](data-box-gateway-system-requirements.md).
 
-* Data Box Gateway'inize her zaman ayrılmış 20 Mb/sn İnternet bant genişliği (veya daha fazlası) sağlanıyor. Bu bant genişliği başka hiçbir uygulamayla paylaşılmamalıdır. Bant genişliği azaltma kullanılıyorsa, azaltmanın çalışması için 32 Mb/sn veya daha fazla İnternet bant genişliği kullanmanızı öneririz.
+- Y: için normal çalışma koşullarına veri kutusu geçidinizin olmalıdır
+
+    - En az 10 MB / cihaz güncelleştirildiği emin olmak için bant genişliği indirin.
+    - En az 20 MB/sn'lik adanmış karşıya yükleyin ve dosya aktarımı için bant genişliği'ni indirin.
 
 ## <a name="create-a-new-resource"></a>Yeni kaynak oluşturma
 
-Aşağıdaki adımları izleyerek yeni bir Data Box Gateway kaynağı oluşturun. 
-
 Sanal cihazlarınızı yönetmek için bir Data Box Gateway kaynağınız varsa, bu adımı atlayın ve [Etkinleştirme anahtarını alma](#get-the-activation-key) bölümüne gidin.
 
-Azure portalında aşağıdaki adımları uygulayarak bir Data Box kaynağı oluşturun.
-1. Microsoft Azure kimlik bilgilerinizi kullanarak şu URL'de Azure önizleme portalında oturum açın: [https://aka.ms/databox-edge](https://aka.ms/databox-edge). 
+Bir veri kutusu ağ geçidi kaynağı oluşturmak için Azure portalında aşağıdaki adımları uygulayın.
 
-2. Data Box Edge önizlemesinde kullanmak istediğiniz aboneliği seçin. Data Box Edge kaynağını dağıtmak istediğiniz bölgeyi seçin. **Data Box Gateway** seçeneğinde **Oluştur**'a tıklayın.
+1. Oturum açmak için Microsoft Azure kimlik bilgilerinizi kullanın:
+
+    - Azure portalında şu URL: [ https://portal.azure.com ](http://portal.azure.com).
+    - Veya, Azure kamu portalında şu URL: [ https://portal.azure.us ](https://portal.azure.us). Daha fazla ayrıntı için [portalı kullanarak Azure kamu Bağlan](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+
+2. Sol bölmede seçin **+ kaynak Oluştur**. Arama **veri kutusu Edge / veri ağ geçidi kutusunda**. Veri kutusu kenar Seç / veri ağ geçidi kutusu. **Oluştur**’u seçin.
+3. Veri kutusu ağ geçidi cihazı için kullanmak istediğiniz aboneliği seçin. Veri kutusu ağ geçidi kaynak dağıtmak istediğiniz bölgeyi seçin. Bu sürümde, Doğu ABD, Güneydoğu Asya ve Batı Avrupa'da kullanılabilir. Cihazınızı dağıtmak istediğiniz coğrafi bölgeye yakın bir konum seçin. İçinde **veri kutusu ağ geçidi** seçeneği için **Oluştur**.
 
     ![Data Box Gateway hizmetini arama](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
 
-3. Yeni kaynak için aşağıdaki bilgileri girin veya seçin.
+4. Üzerinde **Temelleri** sekmesinde girin veya aşağıdaki seçin **proje ayrıntıları**.
     
-    |Ayar  |Value  |
+    |Ayar  |Değer  |
     |---------|---------|
-    |Kaynak adı   | Kaynağı tanımlamak için kolay bir ad.<br>Ad 2 ile 50 karakter arasında olmalı, harf, rakam ve kısa çizgilerden oluşmalıdır.<br> Ad bir harf veya rakamla başlar ve biter.        |
-    |Abonelik    |Abonelik fatura hesabınıza bağlıdır. |
+    |Abonelik    |Bu önceki seçimi temel alınarak otomatik olarak doldurulur. Abonelik fatura hesabınıza bağlıdır. |
     |Kaynak grubu  |Mevcut grubu seçin veya yeni bir grup oluşturun.<br>[Azure Kaynak Grupları](../azure-resource-manager/resource-group-overview.md) hakkında daha fazla bilgi edinin.     |
-    |Konum     |Bu sürümde Doğu ABD, Batı ABD 2, Güneydoğu Asya ve Batı Avrupa kullanılabilir. <br> Cihazınızı dağıtmak istediğiniz coğrafi bölgeye yakın bir konum seçin.|
+
+5. Aşağıdaki seçin veya girin **örnek ayrıntıları**.
+   | Ad | Kaynağı tanımlamak için bir kolay ad.<br>Ad 2 ile 50 karakter arasında olmalı, harf, rakam ve kısa çizgilerden oluşmalıdır.<br> Ad bir harf veya rakamla başlar ve biter.        |   
+    | Bölge | Bu sürümde, Doğu ABD, Güneydoğu Asya ve Batı Avrupa, kaynak dağıtmak kullanılabilir. Azure kamu, kamu bölgeleri listelenen [Azure bölgeleri](https://azure.microsoft.com/global-infrastructure/regions/) kullanılabilir. <br> Cihazınızı dağıtmak istediğiniz coğrafi bölgeye yakın bir konum seçin. |
     
     ![Data Box Gateway kaynağını oluşturma](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     
-4. **Tamam** düğmesine tıklayın.
+6. **İncele ve oluştur**’u seçin.
  
-Kaynağın oluşturulması birkaç dakika sürer. Kaynak başarıyla oluşturulduktan sonra, bu size uygun bir şekilde bildirilir.
+7. Üzerinde **gözden + Oluştur** sekmesinde, gözden **fiyatlandırma ayrıntıları**, **kullanım koşullarını**, kaynağınızın ayrıntıları. **Oluştur**’u seçin.
 
+    ![Veri kutusu ağ geçidi kaynak ayrıntıları gözden geçirin](media/data-box-gateway-deploy-prep/data-box-gateway-resource1.png)
+
+Kaynağın oluşturulması birkaç dakika sürer. Kaynak başarıyla oluşturulup dağıtıldığında sonra bildirim alırsınız. Seçin **kaynağa Git**.
+
+![Veri kutusu ağ geçidi kaynak ayrıntıları gözden geçirin](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
 
 ## <a name="download-the-virtual-device-image"></a>Sanal cihaz görüntüsünü indirme
 
-Data Box Gateway kaynağı oluşturulduktan sonra, konak sisteminizde sanal makineyi sağlamak için uygun sanal cihaz görüntüsünü indirin. Sanal cihaz görüntüleri işletim sistemine özgüdür ve Azure portalında kaynağınızın **Hızlı Başlangıç** dikey penceresinden indirilebilir.
+Data Box Gateway kaynağı oluşturulduktan sonra, konak sisteminizde sanal makineyi sağlamak için uygun sanal cihaz görüntüsünü indirin. Belirli bir işletim sistemi için sanal cihaz görüntüleridir.
 
 > [!IMPORTANT]
 > Data Box Gateway üzerinde çalıştırılan yazılım yalnızca Data Box Gateway kaynağıyla kullanılabilir.
 
+Aşağıdaki adımları izleyin [Azure portalında](https://portal.azure.com/) sanal cihaz görüntüsü indirilemedi.
 
-[Azure portalında](https://portal.azure.com/) aşağıdaki adımları izleyin.
-
-1. Oluşturduğunuz kaynağa tıklayın ve sonra da **Genel Bakış**'a tıklayın. Zaten bir Azure Data Box Gateway kaynağınız varsa, kaynağın üzerine tıklayın ve **Genel Bakış**'a gidin.
+1. Oluşturduğunuz ve ardından kaynak **genel bakış**. Mevcut bir Azure veri kutusu ağ geçidi kaynağı varsa, kaynağı seçin ve Git **genel bakış**. Seçin **cihaz Kurulumu**.
 
     ![Yeni Data Box Gateway kaynağı](media/data-box-gateway-deploy-prep/data-box-gateway-resource-created.png)
 
-4. Sağ bölmedeki hızlı başlangıçta, indirmek istediğiniz görüntüye karşılık gelen bağlantıya tıklayın. Görüntü dosyaları yaklaşık 4,8 GB'tır.
+2. Üzerinde **indirme görüntü** kutucuğunda, sanal makine sağlamak için kullanılan ana bilgisayar sunucusunda işletim sistemine karşılık gelen sanal cihaz görüntüsü seçin. Görüntü, yaklaşık 5.6 GB dosyalarıdır.
    
    * [Windows Server 2012 R2 ve sonraki sürümleri üzerinde Hyper-V için VHDX](https://aka.ms/dbe-vhdx-2012).
    * [VMWare ESXi 6.0 veya 6.5 6.7 için VMDK](https://aka.ms/dbe-vmdk).
+
+    ![Veri kutusu ağ geçidi sanal cihaz görüntüsünü indir](media/data-box-gateway-deploy-prep/data-box-gateway-download-image.png)
 
 5. Dosyayı yerel sürücüye indirin ve sıkıştırmasını açın. Sıkıştırması açılan dosyanın konumunu not alın.
 
 
 ## <a name="get-the-activation-key"></a>Etkinleştirme anahtarı alma
 
-Data Box Gateway kaynağı çalışır duruma geldikten sonra, etkinleştirme anahtarını almanız gerekecektir. Bu anahtar Data Box Gateway cihazınızı etkinleştirmek ve kaynağa bağlamak için kullanılır.
+Veri kutusu ağ geçidi kaynak çalışır duruma geldikten sonra etkinleştirme anahtarı almanız gerekir. Bu anahtar Data Box Gateway cihazınızı etkinleştirmek ve kaynağa bağlamak için kullanılır. Bu anahtarı şimdi, Azure portalındayken alabilirsiniz.
 
-Etkinleştirme anahtarı, Data Box Gateway kaynağınızla etkinleştirilmesi gereken tüm Data Box Gateway cihazlarınızı kaydetmek için kullanılır. Bu anahtarı şimdi, Azure portalındayken alabilirsiniz.
+1. Oluşturduğunuz ve ardından kaynak Seç **genel bakış**. İçinde **cihaz Kurulumu**gidin **yapılandırma ve etkinleştirme** Döşe.
 
-1. Oluşturduğunuz kaynağa tıklayın ve sonra da **Genel Bakış**'a tıklayın.
+    ![Yapılandırma ve kutucuğu etkinleştirin](media/data-box-gateway-deploy-prep/data-box-gateway-configure-activate.png)
 
-    ![Yeni Data Box Gateway kaynağı](media/data-box-gateway-deploy-prep/data-box-gateway-resource-created.png)
-
-2. Etkinleştirme anahtarını oluşturmak için **Anahtar oluştur**'a tıklayın. Kopyala simgesine tıklayarak anahtarı kopyalayın ve daha sonra kullanmak üzere kaydedin.
+2. Seçin **anahtar üret** etkinleştirme anahtarı oluşturmak için. Anahtarı kopyalayın ve daha sonra kullanmak üzere kaydetmek için Kopyala simgesini seçin.
 
     ![Etkinleştirme anahtarını alma](media/data-box-gateway-deploy-prep/get-activation-key.png)
 
 > [!IMPORTANT]
-> - Etkinleştirme anahtarının kullanım süresi, oluşturulduktan 3 gün sonra sona erer. 
+> - Etkinleştirme anahtarı, üç gün üretildikten sonra sona erer.
 > - Anahtarın süresi varsa, yeni bir anahtar oluşturun. Eski anahtar geçerli olmaz.
 
 ## <a name="next-steps"></a>Sonraki adımlar

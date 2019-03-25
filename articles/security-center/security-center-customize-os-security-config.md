@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2018
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 15707e9854e79b3aa05ff9024fc5b3c7a38fa8f2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c0c37724e61490c8c33b5e2d37879549bbc6d7ce
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106894"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402125"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>İşletim sistemi güvenlik yapılandırmaları (Önizleme) Azure Güvenlik Merkezi'nde özelleştirme
 
@@ -112,7 +112,7 @@ Her kategorinin kendi öznitelikleri kümesi vardır. Aşağıdaki öznitelikler
 
     - Örneğin, izin verilen kullanıcı grupları listesi: *Yöneticiler*, *Yedekleme İşletmenleri*
 
--   **Durum**: Dize seçenekleri içerebilir *devre dışı bırakılmış* veya *etkin*. Bu özel Önizleme sürümü için dize büyük/küçük harf duyarlıdır.
+-   **Durum**: Dize seçenekleri içerebilir *devre dışı bırakılmış* veya *etkin*. Bu sürüm için dize büyük/küçük harf duyarlıdır.
 
 Bunlar, yapılandırılabilir tek alanlardır. Dosya biçimini veya boyutunu ihlal değişikliği kaydetmek mümkün olmayacaktır. Geçerli bir JSON yapılandırma dosyasını karşıya yüklemek için gereken bildiren bir hata alırsınız.
 

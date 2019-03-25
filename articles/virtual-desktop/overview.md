@@ -1,22 +1,22 @@
 ---
-title: Windows sanal masaüstü nedir? (Önizleme) - Azure
-description: Windows sanal masaüstü genel bakış.
+title: Windows sanal masaüstü önizlemesi nedir?  - Azure
+description: Windows sanal masaüstü Önizleme genel bakış.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 679c7d3c84237747fd341f92c5dfcc0588d23be2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 4443d71d5c0b84ac7dbc18129338229c40323d2c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338556"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401047"
 ---
-# <a name="what-is-windows-virtual-desktop"></a>Windows sanal masaüstü nedir? 
+# <a name="what-is-windows-virtual-desktop-preview"></a>Windows sanal masaüstü önizlemesi nedir? 
 
-Artık genel önizlemede, Windows sanal masaüstü bulutta çalışan masaüstü ve uygulama sanallaştırma hizmet kullanılabilir.
+Artık genel önizlemede, Windows sanal masaüstü Önizleme bulutta çalışan masaüstü ve uygulama sanallaştırma hizmet kullanılabilir.
 
 Azure'da Windows sanal masaüstü çalıştırdığınızda neler yapabileceğinizi aşağıda verilmiştir:
 
@@ -97,4 +97,4 @@ Ziyaret [Windows sanal masaüstü teknoloji topluluğuna](https://techcommunity.
 Başlamak için bir kiracı oluşturmanız gerekir. Bir kiracı oluşturma hakkında daha fazla bilgi için Kiracı oluşturma öğreticiye devam edin.
 
 > [!div class="nextstepaction"]
-> [Windows sanal masaüstü bir kiracı oluşturma](tenant-setup-azure-active-directory.md)
+> [Windows sanal masaüstü önizlemesinde bir kiracı oluşturma](tenant-setup-azure-active-directory.md)

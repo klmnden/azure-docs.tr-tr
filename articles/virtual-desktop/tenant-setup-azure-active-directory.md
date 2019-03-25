@@ -1,22 +1,22 @@
 ---
-title: Windows sanal masaüstü (Önizleme) - Azure Kiracı oluşturma
-description: Windows sanal masaüstü kiracılar, Azure Active Directory'de ayarlama açıklanır.
+title: Windows sanal masaüstü önizlemede - Azure Kiracı oluşturma
+description: Windows sanal masaüstü Önizleme kiracılar, Azure Active Directory'de ayarlama açıklanır.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 26bcae12ee5e053289dd18c9f378eff43a0b0e04
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: b8b5c2cef1db5018ce0d61e1950f49a3bd215ac2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368179"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402907"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Öğretici: Windows sanal masaüstü (Önizleme) bir kiracısı oluşturma
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Öğretici: Windows sanal masaüstü önizlemesinde bir kiracı oluşturma
 
-Windows sanal masaüstü (Önizleme) bir kiracısı oluşturma, Masaüstü Sanallaştırma çözümünüzü oluşturmaya yönelik ilk adımdır. Bir kiracı, bir veya daha fazla konak havuzları grubudur. Birden çok oturumu konak azure'da sanal makineler olarak çalışan ve Windows sanal masaüstü hizmete kayıtlı her konak havuzu oluşur. Her konak havuzu kullanıcılara Uzak Masaüstü ve Uzaktan uygulama kaynakları yayımlamak için kullanılan bir veya daha fazla uygulama grupları da oluşur. Bir kiracı ile konak havuzları, uygulama grupları oluşturma, kullanıcıları atama ve hizmeti ile bağlantı kurun.
+Windows sanal masaüstü önizlemede Kiracı oluşturma, Masaüstü Sanallaştırma çözümünüzü oluşturmaya yönelik ilk adımdır. Bir kiracı, bir veya daha fazla konak havuzları grubudur. Birden çok oturumu konak azure'da sanal makineler olarak çalışan ve Windows sanal masaüstü hizmete kayıtlı her konak havuzu oluşur. Her konak havuzu kullanıcılara Uzak Masaüstü ve Uzaktan uygulama kaynakları yayımlamak için kullanılan bir veya daha fazla uygulama grupları da oluşur. Bir kiracı ile konak havuzları, uygulama grupları oluşturma, kullanıcıları atama ve hizmeti ile bağlantı kurun.
 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
@@ -32,7 +32,7 @@ Windows sanal masaüstü Kiracı ayarlamak için ihtiyacınız olanlar aşağıd
    * Bu bulut çözümü sağlayıcısı (CSP) kuruluşlar için müşterilere bir Windows sanal masaüstü Kiracı oluşturma için de geçerlidir. CSP kuruluşuysanız, müşterinin Azure Active Directory genel Yöneticisi olarak oturum açamıyor olması gerekir.
 * Azure abonelik kimliği
 
-## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-service"></a>Windows sanal masaüstü hizmetine izin Azure Active Directory izinleri
+## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Windows sanal masaüstü Önizleme hizmeti verme Azure Active Directory izinleri
 
 Zaten izinleri sanal Windows Masaüstü için bu Azure Active Directory verdiyseniz, bu bölümü atlayın.
 
@@ -66,7 +66,7 @@ Genel Yönetici hesabınızla TenantCreator uygulama rolü atamak için:
    - Kolaylık olması için bu genel yönetici hesabını olabilir.
 6. Kullanıcı hesabı seçin, **seçin** düğmesini ve ardından **atama**.
 
-## <a name="create-a-windows-virtual-desktop-tenant"></a>Bir Windows sanal masaüstü kiracısı oluşturma
+## <a name="create-a-windows-virtual-desktop-preview-tenant"></a>Bir Windows sanal masaüstü Önizleme kiracısı oluşturma
 
 Azure Active Directory sorgulamak için Windows sanal masaüstü hizmet izinleri verildi ve TenantCreator rolü atanmış bir kullanıcı hesabına göre bir Windows sanal masaüstü kiracısı oluşturabilirsiniz.
 

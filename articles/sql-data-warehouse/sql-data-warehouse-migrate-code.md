@@ -10,17 +10,19 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 14b3d62235cfcc8bbc8a929757a16cf99b860753
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: fae3ae16ee0100ad446c0b6c7851553a3376bb4f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815770"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400971"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>SQL veri ambarı'na SQL kodunuzu geçirme
+
 Bu makalede, büyük olasılıkla, kodunuzun başka bir veritabanından SQL veri ambarı'na geçiş yapmak için ihtiyacınız olacak kod değişiklikleri açıklar. Dağıtılmış bir şekilde çalışmak için tasarlandığı gibi bazı SQL veri ambarı özellikleri performansını önemli ölçüde artırabilir. Ancak, performansı ve ölçeği sürdürmek istiyorsanız, bazı özellikler de kullanılabilir değil.
 
 ## <a name="common-t-sql-limitations"></a>Ortak T-SQL sınırlamaları
+
 Aşağıdaki liste, SQL veri ambarı desteklemiyor en yaygın özellikler özetlenmiştir. Bağlantılar, desteklenmeyen özellikler için geçici çözümler ulaşmanızı sağlar:
 
 * [ANSI birleştirmeler güncelleştirmeleri][ANSI joins on updates]
@@ -45,12 +47,12 @@ Aşağıdaki liste, SQL veri ambarı desteklemiyor en yaygın özellikler özetl
 * [Gruplandırma ölçütü yan tümcesinde toplama / küp / gruplandırma kümeleri seçenekleri][group by clause with rollup / cube / grouping sets options]
 * [iç içe geçme düzeyi 8 ötesinde][nesting levels beyond 8]
 * [görünümlerini güncelleştirme][updating through views]
-* [değişken ataması için select kullanımı][use of select for variable assignment]
 * [dinamik SQL dizeleri için hiçbir en fazla veri türü][no MAX data type for dynamic SQL strings]
 
 Neyse ki bu sınırlamaların çoğunu etrafında çalışılabilmesi. Açıklamalar yukarıda anılan ilgili geliştirmesi makalelerine sağlanır.
 
 ## <a name="supported-cte-features"></a>Desteklenen CTE özellikleri
+
 Ortak tablo ifadeleri (Cte'lerin), SQL veri ambarı'nda kısmen desteklenir.  Aşağıdaki CTE özellikleri şu anda desteklenmektedir:
 
 * Bir SELECT deyiminde bir CTE belirtilebilir.
@@ -63,6 +65,7 @@ Ortak tablo ifadeleri (Cte'lerin), SQL veri ambarı'nda kısmen desteklenir.  A�
 * Birden çok CTE sorgu tanımı bir CTE içinde tanımlanabilir.
 
 ## <a name="cte-limitations"></a>CTE sınırlamaları
+
 Ortak tablo ifadelerinde SQL veri ambarı dahil olmak üzere, bazı sınırlamalar mevcuttur:
 
 * Bir CTE tek bir SELECT deyimi tarafından izlenmesi gerekir. INSERT, UPDATE, DELETE ve birleştirme deyimleri desteklenmiyor.
@@ -73,9 +76,11 @@ Ortak tablo ifadelerinde SQL veri ambarı dahil olmak üzere, bazı sınırlamal
 * Sp_prepare tarafından hazırlanmış deyimleri kullanıldığında, Cte'lerin PDW diğer SELECT deyimlerinde aynı şekilde davranır. Cte'lerin CETAS sp_prepare tarafından hazırlanmış bir parçası olarak kullanılır, ancak davranışı SQL Server ve diğer PDW deyimleri bağlama için sp_prepare uygulanma biçimi nedeniyle yayımlanmalarından sonra. SELECT, başvuruları içinde CTE yok yanlış bir sütun CTE kullanarak sp_prepare hata algılama olmadan geçer, ancak hata sırasında sp_execute yerine oluşturulur.
 
 ## <a name="recursive-ctes"></a>Özyinelemeli Cte'lerin
+
 Özyinelemeli Cte'lerin SQL veri ambarı'nda desteklenmez.  Özyinelemeli CTE geçişini biraz karmaşık olabilir ve birden çok adımı ayırmak için en iyi işlemidir. Genellikle döngü kullanma ve geçici bir tablo üzerinde yinelenen geçici sorgular yineleme gibi doldurun. Geçici tablo doldurulduktan sonra için verileri tek bir sonuç kümesi iade edebilirsiniz. Benzer bir yaklaşım çözmek için kullanılan `GROUP BY WITH CUBE` içinde [gruplandırma ölçütü yan tümcesinde toplama / küp / gruplandırma kümeleri seçenekleri] [ group by clause with rollup / cube / grouping sets options] makalesi.
 
 ## <a name="unsupported-system-functions"></a>Desteklenmeyen sistem işlevleri
+
 Desteklenmeyen bazı sistem işlevleri vardır. Veri ambarı ' kullanılan genellikle bulabileceğiniz yayılmakta bazıları şunlardır:
 
 * NEWSEQUENTIALID()
@@ -88,11 +93,12 @@ Desteklenmeyen bazı sistem işlevleri vardır. Veri ambarı ' kullanılan genel
 Bu sorunlardan bazıları geçici çalışılabilmesi.
 
 ## <a name="rowcount-workaround"></a>@@ROWCOUNT geçici çözüm
+
 Geçici çözüm desteğinin @@ROWCOUNT, sys.dm_pdw_request_steps son satır sayısı almak ve sonra yürütme bir saklı yordam oluşturma `EXEC LastRowCount` DML deyimi sonra.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS
-WITH LastRequest as 
+WITH LastRequest as
 (   SELECT TOP 1    request_id
     FROM            sys.dm_pdw_exec_requests
     WHERE           session_id = SESSION_ID()
@@ -111,6 +117,7 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Desteklenen tüm T-SQL deyimleri tam bir listesi için bkz. [Transact-SQL konuları][Transact-SQL topics].
 
 <!--Image references-->

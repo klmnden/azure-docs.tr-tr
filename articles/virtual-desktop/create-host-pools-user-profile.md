@@ -1,22 +1,22 @@
 ---
-title: Bir konak havuzu - Azure için bir kullanıcı profili paylaşımını ayarlama
-description: Bir Windows sanal masaüstü (Önizleme) konak havuz için bir FSLogix profili kapsayıcısı ayarlama yapma.
+title: Bir Windows sanal masaüstü Önizleme konak havuzu - Azure için bir kullanıcı profili paylaşımını ayarlama
+description: Bir Windows sanal masaüstü Önizleme konak havuz için bir FSLogix profili kapsayıcısı ayarlama yapma.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 9dfbda6e17cf954369fd6caa533ba9eef41fd451
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c9c2ca2cc27c5fa757b8ff6846e0a6a8f7087875
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336023"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403723"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Bir ana makine havuzu için bir kullanıcı profili paylaşımını ayarlama
 
-Windows sanal masaüstü hizmeti (Önizleme) FSLogix profili kapsayıcıları önerilen kullanıcı profili çözümü sunar. Kullanıcı profili diski (UPD) çözümü kullanımı önerilmemektedir ve Windows sanal masaüstü gelecek sürümlerde kaldırılacak.
+Windows sanal masaüstü Önizleme hizmeti önerilen kullanıcı profili çözümü FSLogix profili kapsayıcılar sunar. Kullanıcı profili diski (UPD) çözümü kullanımı önerilmemektedir ve Windows sanal masaüstü gelecek sürümlerde kaldırılacak.
 
 Bu bölümde bir ana makine havuzu için bir FSLogix profili kapsayıcı paylaşım kurma bildirir.
 

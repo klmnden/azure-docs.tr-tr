@@ -1,22 +1,22 @@
 ---
-title: Sorunları belirlemek tanılama özelliği (Önizleme) - Azure
-description: Windows sanal masaüstü Tanılama özelliğini ve nasıl kullanılacağını açıklar.
+title: Windows sanal masaüstü Önizleme tanılama özelliği ile - Azure sorunlarını belirleyin
+description: Windows sanal masaüstü Önizleme Tanılama özelliğini ve nasıl kullanılacağını açıklar.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f44f4d632fa1fc607f3933be8e15eb939e20a8ae
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318622"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402856"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature-preview"></a>Tanılama özelliği (Önizleme) ile sorunları tanımlayın
+# <a name="identify-issues-with-the-diagnostics-feature"></a>Tanılama özelliği ile sorunları tanımlayın
 
-Windows sanal masaüstü (Önizleme), tek bir arabirim üzerinden sorunlarını belirlemek yöneticinin bir tanılama özelliği (Önizleme) sunar. Bir kullanıcı sistemi ile etkileşime giren her Windows sanal masaüstü rolleri tanılama etkinlik oturum açın. Her günlük işlem, hata iletileri, Kiracı bilgileri ve kullanıcı bilgilerini katılan Windows sanal masaüstü rolleri gibi ilgili bilgileri içerir. Tanılama etkinlikleri, son kullanıcı ve yönetici eylemleri tarafından oluşturulur ve üç ana demetlerin içine kategorilere ayrılabilir:
+Windows sanal masaüstü Önizleme yöneticinin tek bir arabirim üzerinden sorunlarını belirlemek bir tanılama özelliği sunar. Bir kullanıcı sistemi ile etkileşime giren her Windows sanal masaüstü rolleri tanılama etkinlik oturum açın. Her günlük işlem, hata iletileri, Kiracı bilgileri ve kullanıcı bilgilerini katılan Windows sanal masaüstü rolleri gibi ilgili bilgileri içerir. Tanılama etkinlikleri, son kullanıcı ve yönetici eylemleri tarafından oluşturulur ve üç ana demetlerin içine kategorilere ayrılabilir:
 
 * Abonelik etkinlikleri akış: kendi akış uygulamaları Microsoft Uzak Masaüstü aracılığıyla bağlanmak istediğinizde, son kullanıcı bu etkinlikler tetikler.
 * Bağlantı etkinlikleri: Masaüstü veya RemoteApp için Microsoft Uzak Masaüstü uygulamalar aracılığıyla bağlanmaya çalıştıklarında her son kullanıcı bu etkinlikleri tetikler.
@@ -145,7 +145,7 @@ Aşağıdaki tabloda, yöneticilerinize karşılaşabileceğiniz genel hatalar l
 |8000|InvalidAuthorizationRoleScope|Girilen rol adı, tüm mevcut rol adları eşleşmiyor. Rol adı için yazım hataları gözden geçirip yeniden deneyin. |
 |8001|UserNotFound |Girdiğiniz kullanıcı adı, var olan tüm kullanıcı adları eşleşmiyor. Yazım hatası adını gözden geçirin ve yeniden deneyin.|
 |8005|UserNotFoundInAAD |Girdiğiniz kullanıcı adı, var olan tüm kullanıcı adları eşleşmiyor. Yazım hatası adını gözden geçirin ve yeniden deneyin.|
-|8008|TenantConsentRequired|Yönergeleri izleyerek [burada](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-service) kiracınız için rıza sağlamanın.|
+|8008|TenantConsentRequired|Yönergeleri izleyerek [burada](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service) kiracınız için rıza sağlamanın.|
 
 ### <a name="external-connection-error-codes"></a>Dış bağlantı hata kodları
 
@@ -164,6 +164,6 @@ Aşağıdaki tabloda, yöneticilerinize karşılaşabileceğiniz genel hatalar l
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Windows sanal masaüstü içinde rolleri hakkında daha fazla bilgi için bkz: [Windows sanal masaüstü ortamında](environment-setup.md).
+Windows sanal masaüstü içinde rolleri hakkında daha fazla bilgi için bkz: [Windows sanal masaüstü Önizleme ortamı](environment-setup.md).
 
 Windows sanal masaüstü için kullanılabilen PowerShell cmdlet'lerin bir listesi görmek için bkz [PowerShell başvurusu](/powershell/windows-virtual-desktop/overview).

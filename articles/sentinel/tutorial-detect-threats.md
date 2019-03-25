@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 03/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 08f84a3e037301837da984b0891d978027dc2e11
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a0a16fbda662ee1d3718dbafc4231de67aab277e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083173"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400664"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Öğretici: Azure Önizleme Gözcü ile tehditleri algılayın
 
@@ -27,18 +27,21 @@ ms.locfileid: "58083173"
 > Azure Sentinel şu anda genel Önizleme aşamasındadır.
 > Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Bu öğretici Azure Gözcü ile tehditleri algılamanıza yardımcı olur.
-
 Çalıştırdıktan sonra [veri kaynaklarınıza bağlı](quickstart-onboard.md) şüpheli bir şey olduğunda size bildirilmesini istiyorsanız Azure Gözcü için. Bunu sağlamak için oluşturduğunuz Azure Gözcü atayabileceğiniz çalışmaları üreten uyarı kuralları ve kullanım anomalileri ve ortamınızdaki tehditlere derin bir şekilde araştırmak için Gelişmiş sağlar. 
 
-
+Bu öğretici Azure Gözcü ile tehditleri algılamanıza yardımcı olur.
 > [!div class="checklist"]
 > * Algılama kuralları oluşturma
 > * Tehditlere yanıt verme
 
 ## <a name="create-detection-rules"></a>Algılama kuralları oluşturma
 
-Çalışmalarını araştırmak için öncelikle algılama kuralları oluşturmanız gerekir. Algılama kuralları bunlar ortaya, araştırılması düzeltilebilir ve sağlama türleri tehditleri ve ortamınızda hemen hakkında bilmek istediğiniz şüpheli olabilecek anormallikleri dayanır. 
+Çalışmalarını araştırmak için öncelikle algılama kuralları oluşturmanız gerekir. 
+
+> [!NOTE]
+> Aracılığıyla Azure Gözcü içinde oluşturulan uyarılar kullanılabilir [Microsoft Graph güvenlik](https://aka.ms/securitygraphdocs). Başvurmak [Microsoft Graph güvenlik uyarıları belgeleri](https://aka.ms/graphsecurityreferencebetadocs) daha ayrıntılı bilgi ve tümleştirme iş ortakları için.
+
+Algılama kuralları bunlar ortaya, araştırılması düzeltilebilir ve sağlama türleri tehditleri ve ortamınızda hemen hakkında bilmek istediğiniz şüpheli olabilecek anormallikleri dayanır. 
 
 1. Azure portalında Azure Gözcü altında seçin **Analytics**.
 
@@ -87,7 +90,9 @@ Azure Sentinel playbook'ları kullanarak tehditlerine yanıt verme için iki bir
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, Azure Gözcü kullanarak tehditleri algılama başlama öğrendiniz. Öğreticiye devam [otomatik playbook'ları kullanarak tehditleri nasıl](tutorial-respond-threats-playbook.md).
+Bu öğreticide, Azure Gözcü kullanarak tehditleri algılama başlama öğrendiniz. 
+
+Yanıtlarınız tehditlere otomatikleştirme hakkında bilgi edinmek için [otomatik playbook'ları kullanarak tehditleri nasıl](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
 > [Tehditleri](tutorial-respond-threats-playbook.md) tehditleri verdiğiniz yanıtları otomatik hale getirmek için.
 

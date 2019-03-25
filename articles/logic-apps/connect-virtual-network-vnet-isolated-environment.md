@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 9cb3abff10482ec7e58b4b049f051e99178cb742
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2f84c48092581a313ff7bead7a862221e0fe4eee
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371995"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400905"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Azure sanal ağlarına Azure Logic Apps'ten tümleştirme hizmeti ortamı (ISE) kullanarak bağlanma
 
@@ -49,9 +49,9 @@ Tümleştirme service ortamları hakkında daha fazla bilgi için bkz: [Azure Lo
   * Sanal ağınızı dört olmalıdır *boş* , ISE'de kaynakları oluşturma ve dağıtma için alt ağlar. Bu alt önceden oluşturabilirsiniz veya alt ağlar aynı anda oluşturabileceğiniz, işe oluşturana kadar bekleyebilirsiniz. Daha fazla bilgi edinin [alt ağ gereksinimleri](#create-subnet). 
   
     > [!NOTE]
-    > Kullanırsanız [ExpressRoute](../expressroute/expressroute-introduction.md), Microsoft bulut hizmetlerine özel bir bağlantı sağlar, şunları yapmalısınız [her alt ağa aşağıdaki yolu Ekle](../virtual-network/virtual-network-manage-subnet.md) , işe tarafından kullanılır. Alt ağa sahip bir yol tablosu kullanırsanız [yol tablonuz aşağıdaki yolu Ekle](../virtual-network/manage-route-table.md):
+    > Kullanırsanız [ExpressRoute](../expressroute/expressroute-introduction.md), Microsoft bulut hizmetlerine özel bir bağlantı sağlar, şunları yapmalısınız [yönlendirme tablosu oluşturma](../virtual-network/manage-route-table.md) aşağıdaki yönlendirmek ve bu tablo, işe tarafından kullanılan her alt ağ ile bağlantı vardır:
     > 
-    > **Ad**: D3655BASE yönlendirme<br>
+    > **Adı**: <*rota adı*><br>
     > **Adres ön eki**: 0.0.0.0/0<br>
     > **Sonraki atlama**: Internet
 
@@ -146,9 +146,9 @@ Sonuçlar listesinden **tümleştirme hizmeti ortamı (Önizleme)** ve ardından
 
      Adresleri hesaplama hakkında daha fazla bilgi için bkz. [IPv4 CIDR blokları](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
-   * Kullanırsanız [ExpressRoute](../expressroute/expressroute-introduction.md), unutmayın [her alt ağa aşağıdaki yolu Ekle](../virtual-network/virtual-network-manage-subnet.md) , işe tarafından kullanılır. Alt ağa sahip bir yol tablosu kullanırsanız [bu yol tablosuna aşağıdaki yolu Ekle](../virtual-network/manage-route-table.md):
+   * Kullanırsanız [ExpressRoute](../expressroute/expressroute-introduction.md), unutmayın [yönlendirme tablosu oluşturma](../virtual-network/manage-route-table.md) aşağıdaki yönlendirmek ve bu tablo, işe tarafından kullanılan her alt ağ ile bağlantı vardır:
 
-     **Ad**: D3655BASE yönlendirme<br>
+     **Adı**: <*rota adı*><br>
      **Adres ön eki**: 0.0.0.0/0<br>
      **Sonraki atlama**: Internet
 

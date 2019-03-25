@@ -1,22 +1,22 @@
 ---
-title: PowerShell ile (Önizleme) - Azure konak havuz oluşturma
-description: Konak havuzu sanal masaüstü Windows PowerShell cmdlet'leri ile oluşturma
+title: -Azure PowerShell ile Windows sanal masaüstü Önizleme konak havuz oluşturma
+description: Bir konak havuzu Windows sanal masaüstü Önizleme aşamasında PowerShell cmdlet'leri ile oluşturma
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 4b65d7614db94a9cc3fdca3f4b784c2c84ebaef8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 7b9b7ffbb034a7fb1256d9cc44048cfa55b02245
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318547"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402737"
 ---
-# <a name="create-a-host-pool-with-powershell-preview"></a>PowerShell (Önizleme) ile bir ana makine havuzu oluşturma
+# <a name="create-a-host-pool-with-powershell"></a>PowerShell ile bir ana makine havuzu oluşturma
 
-Ana bilgisayar havuzları, Windows sanal masaüstü (Önizleme) Kiracı ortamlar içinde bir veya daha fazla aynı sanal makinelerden oluşan bir koleksiyondur. Her konak havuzu, fiziksel masaüstünde yaptıkları gibi kullanıcı etkileşim kurabilir bir uygulama grubu içerebilir.
+Ana bilgisayar havuzları, Windows sanal masaüstü Önizleme Kiracı ortamlar içinde bir veya daha fazla aynı sanal makinelerden oluşan bir koleksiyondur. Her konak havuzu, fiziksel masaüstünde yaptıkları gibi kullanıcı etkileşim kurabilir bir uygulama grubu içerebilir.
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Bir konak havuzu oluşturmak için PowerShell istemcinizi kullanın
 
@@ -70,12 +70,12 @@ Birden çok yolla bir sanal makine oluşturabilirsiniz:
 - [Yönetilen bir görüntüden sanal makine oluşturma](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Yönetilmeyen bir görüntüden sanal makine oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Windows sanal masaüstü aracı yüklemeleri için sanal makineleri hazırlama
+## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-preview-agent-installations"></a>Windows sanal masaüstü Önizleme aracı yüklemeleri için sanal makineleri hazırlama
 
 Windows sanal masaüstü aracıları yüklemek ve Windows sanal masaüstü konak havuzunuz için sanal makineleri kaydetmek için önce sanal makinelerinizi hazırlamak için şunları yapmanız gerekir:
 
 - Etki alanına katılım makine gerekir. Bu gelen Windows sanal masaüstü kullanıcılar kendi Azure Active Directory hesabı, Active Directory hesabına eşlenmesi ve başarılı bir şekilde sanal makineye erişim izni sağlar.
-- Sanal makine Windows Server işletim sistemi olarak çalışıyorsa Uzak Masaüstü oturumu ana bilgisayarı (RDSH) rolü (Önizleme) yüklemeniz gerekir. RDSH rolü düzgün şekilde yüklemek Windows sanal masaüstü aracıları sağlar.
+- Bir Windows Server işletim sistemi sanal makine çalışıyorsa Uzak Masaüstü oturumu ana bilgisayarı (RDSH) rolünü yüklemeniz gerekir. RDSH rolü düzgün şekilde yüklemek Windows sanal masaüstü aracıları sağlar.
 
 Başarıyla etki alanına katılma için her sanal makinede aşağıdaki işlemleri yapın:
 
@@ -85,7 +85,7 @@ Başarıyla etki alanına katılma için her sanal makinede aşağıdaki işleml
 4. Seçin **etki alanı** ve ardından sanal ağ üzerinde Active Directory etki alanını girin.
 5. Makine etki alanına katılım ayrıcalıkları olan bir etki alanı hesabıyla kimlik doğrulaması.
 
-## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Windows sanal masaüstü ana havuzuna sanal makineleri kaydetmek
+## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Windows sanal masaüstü Önizleme ana havuzuna sanal makineleri kaydetmek
 
 Bir Windows sanal masaüstü ana havuzuna sanal makineleri kaydetme, sanal masaüstü Windows aracılarını yükleme olarak kadar kolaydır.
 
@@ -114,7 +114,7 @@ Sanal Masaüstü Windows aracılarını kaydetmek için her sanal makinede aşa�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir konak havuzu yaptığınız, RemoteApps (Önizleme) ile doldurmak için zaman var. Windows sanal masaüstü uygulamalarında yönetme hakkında daha fazla bilgi için Yönet uygulama grupları öğretici bakın.
+Bir konak havuzu yaptığınız, RemoteApps ile doldurabilirsiniz. Windows sanal masaüstü uygulamalarında yönetme hakkında daha fazla bilgi için Yönet uygulama grupları öğretici bakın.
 
 > [!div class="nextstepaction"]
 > [Uygulama grupları öğretici yönetme](./manage-app-groups.md)

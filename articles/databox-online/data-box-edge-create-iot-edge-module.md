@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 81407a298ccfe1b9884fc5d5b815ac8c18ffee6a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 522dddde4994bb019e6547fcd18465b201f048d8
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094686"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401723"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Veri kutusu Edge (Önizleme) dosyalarını taşımak için bir C# IOT Edge modülü geliştirme
+# <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Geliştirme bir C# IOT Edge modülü, veri kutusu edge'de dosyaları taşıma
 
 Bu makalede veri kutusu Edge Cihazınızı dağıtım için bir IOT Edge modülü oluşturma adımları. Azure Data Box Edge verileri işlemenizi ve ağ üzerinden Azure'a göndermenizi sağlayan bir depolama çözümüdür.
 
@@ -27,19 +27,13 @@ Bu makalede şunları öğreneceksiniz:
 > * Modüllerinizi (Docker görüntüleri) yönetmek için bir kapsayıcı kayıt defteri oluşturun.
 > * Veri kutusu Edge Cihazınızda dağıtmak için bir IOT Edge modülünü oluşturun.
 
-> [!IMPORTANT]
-> Data Box Edge, önizleme aşamasındadır. Sipariş vermeden ve bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin. 
 
 ## <a name="about-the-iot-edge-module"></a>IOT Edge modülü hakkında
 
 Veri kutusu Edge cihazınıza dağıtabilir ve IOT Edge modüllerini çalıştırın. Edge, temelde, belirli bir görevi gerçekleştirmek için gibi bir CİHAZDAN bir ileti alma, bir iletiyi dönüştürmek veya bir IOT Hub'ına ileti göndermek Docker kapsayıcıları modüllerdir. Bu makalede, bir bulut paylaşımına veri kutusu Edge Cihazınızda yerel bir paylaşımdan dosyaları kopyalayan bir modül oluşturur.
 
 1. Dosyalar, veri kutusu Edge Cihazınızda yerel paylaşıma yazılır.
-2. Dosya olay Oluşturucu yerel paylaşıma yazılan her dosya için bir dosya olayı oluşturur. Dosya olayları, sonra IOT Edge Hub'ına (IOT Edge çalışma zamanı) gönderilir.
-
-   > [!IMPORTANT]
-   > Yalnızca yeni oluşturulan dosyalar için dosya olayları üretilir. Varolan dosyaların değiştirilmesi, herhangi bir dosya olayı oluşturmaz.
-
+2. Dosya olay Oluşturucu yerel paylaşıma yazılan her dosya için bir dosya olayı oluşturur. Bir dosya değiştirildiğinde dosya olaylar da oluşturulur. Dosya olayları, sonra IOT Edge Hub'ına (IOT Edge çalışma zamanı) gönderilir.
 3. IOT Edge Özel Modül dosya için göreli bir yol da içeren bir dosya olay nesnesi oluşturmak için dosya olayını işler. Modül göreli dosya yolu kullanarak mutlak bir yol oluşturur ve dosyayı yerel paylaşımından bulut paylaşıma kopyalar. Modül, ardından dosyayı yerel paylaşımından siler.
 
 ![Veri kutusu Edge üzerinde Azure IOT Edge modülü nasıl çalışır?](./media/data-box-edge-create-iot-edge-module/how-module-works.png)
@@ -52,8 +46,9 @@ Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
 
 - Çalışan bir veri kutusu Edge cihazı.
 
-    - Cihaz Ayrıca, ilişkili bir IOT hub'ı kaynak vardır. Daha fazla bilgi için Git [bir IOT hub'ı kaynak oluşturma](data-box-edge-deploy-configure-compute.md#create-an-iot-hub-resource) veri kutusu Ucunuzdaki için.
-    - Cihaz bilgi işlem rolü yapılandırılmış bir sınır vardır. Daha fazla bilgi için Git [işlem rolünü kurmadan](data-box-edge-deploy-configure-compute.md#set-up-compute-role) veri kutusu edge'de.
+    - Cihaz Ayrıca, ilişkili bir IOT hub'ı kaynak vardır.
+    - Cihaz bilgi işlem rolü yapılandırılmış bir sınır vardır.
+    Daha fazla bilgi için Git [işlem yapılandırma](data-box-edge-deploy-configure-compute.md#configure-compute) veri kutusu Ucunuzdaki için.
 
 - Aşağıdaki geliştirme kaynaklarıdır:
 
@@ -128,7 +123,7 @@ Kendi yazacağınız kodla özelleştirebileceğiniz bir C# çözüm şablonu ol
 
 ### <a name="update-the-module-with-custom-code"></a>Modülü özel kodla güncelleştirme
 
-1. VS Code Gezgininde açın **modülleri > CSharpModule > Program.cs**.
+1. VS Code Gezgininde açın **modülleri > FileCopyModule > Program.cs**.
 2. Üst kısmındaki **FileCopyModule ad alanı**, aşağıdaki ekleyin, daha sonra kullanılan türler için using deyimleri. **Microsoft.Azure.Devices.Client.Transport.Mqtt** IOT Edge Hub'ına ileti göndermek için bir protokoldür.
 
     ```
@@ -141,12 +136,9 @@ Kendi yazacağınız kodla özelleştirebileceğiniz bir C# çözüm şablonu ol
     class Program
         {
             static int counter;
-            private const string InputFolderPath = "/home/LocalShare";
-            private const string OutputFolderPath = "/home/CloudShare";
+            private const string InputFolderPath = "/home/input";
+            private const string OutputFolderPath = "/home/output";
     ```
-
-    > [!IMPORTANT]
-    > Not `InputFolderPath` ve `OutputFolderPath`. Bu modül dağıttığınızda Bu yolları sağlamanız gerekir.
 
 4. Ekleme **MessageBody** Program sınıfına sınıfı. Bu sınıflar gelen iletilerin gövdesi için beklenen şemayı tanımlar.
 
@@ -189,7 +181,7 @@ Kendi yazacağınız kodla özelleştirebileceğiniz bir C# çözüm şablonu ol
 6. Ekleme kodunu **FileCopy**.
 
     ```
-            /// <summary>
+        /// <summary>
         /// This method is called whenever the module is sent a message from the IoT Edge Hub. 
         /// This method deserializes the file event, extracts the corresponding relative file path, and creates the absolute input file path using the relative file path and the InputFolderPath.
         /// This method also forms the absolute output file path using the relative file path and the OutputFolderPath. It then copies the input file to output file and deletes the input file after the copy is complete.
@@ -241,8 +233,6 @@ Kendi yazacağınız kodla özelleştirebileceğiniz bir C# çözüm şablonu ol
             Console.WriteLine($"Processed event.");
             return MessageResponse.Completed;
         }
-
-    }
     ```
 
 7. Bu dosyayı kaydedin.
@@ -251,7 +241,8 @@ Kendi yazacağınız kodla özelleştirebileceğiniz bir C# çözüm şablonu ol
 
 Önceki bölümde IOT Edge çözümünü oluşturan ve kod dosyalarını yerel paylaşımından bulut paylaşımı kopyalamak FileCopyModule eklenir. Şimdi çözümü kapsayıcı görüntüsü olarak derlemeniz ve kapsayıcı kayıt defterine göndermeniz gerekiyor.
 
-1. Visual Studio Code tümleşik terminaline aşağıdaki komutu girerek Docker’da oturum açın.
+1. VSCode içinde terminale gidin > Yeni yeni bir Visual Studio Code tümleşik Terminalini açmak için Terminal.
+2. Tümleşik terminalde aşağıdaki komutu girerek Docker'da oturum açın.
 
     `docker login <ACR login server> -u <ACR username>`
 
@@ -282,4 +273,4 @@ Kendi yazacağınız kodla özelleştirebileceğiniz bir C# çözüm şablonu ol
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Dağıtma ve bu modülü veri kutusu Edge üzerinde çalıştırmak için adımları görmek [Özel Modül Ekle](data-box-edge-deploy-configure-compute.md#add-a-custom-module).
+Dağıtma ve bu modülü veri kutusu Edge üzerinde çalıştırmak için adımları görmek [bir modül ekleyecek](data-box-edge-deploy-configure-compute.md#add-a-module).

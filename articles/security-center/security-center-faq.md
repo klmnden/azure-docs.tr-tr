@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 7e4a4572a53338dc0c7b5d7d11dca7130c8979be
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 276b2815b36f05aa49183681b6c9e622155938e9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226904"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401128"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, artırılmış görünürlük ve Microsoft Azure kaynaklarınızın güvenliğini denetim ile tehditleri önleyin, algılayın ve yardımcı olan bir hizmet hakkında sorular yanıtlanmaktadır.
@@ -291,11 +291,14 @@ Güvenlik Merkezi sürekli olarak müşterinin Azure ortamına izler ve analytic
 Azure Güvenlik Merkezi, aşağıdaki Azure kaynakları izler:
 
 * Sanal makineleri (VM'ler) (dahil olmak üzere [Cloud Services](../cloud-services/cloud-services-choose-me.md))
+* Sanal makine ölçek kümeleri (VMSSs)
 * Azure Sanal Ağları
 * Azure SQL Hizmeti
 * Azure Storage hesabı
 * Azure Web Apps (içinde [App Service ortamı](../app-service/environment/intro.md))
 * Web uygulaması güvenlik duvarı vm'lerde ve App Service ortamı gibi Azure aboneliğinizle tümleşik iş ortağı çözümleri
+
+Ayrıca, Azure dışı (şirket içi) dahil bilgisayar de Azure Güvenlik Merkezi tarafından izlenebilir (her ikisi de [Windows bilgisayarları](./quick-onboard-windows-computer.md) ve [Linux bilgisayarları](./quick-onboard-linux-computer.md) desteklenir)
 
 ## <a name="virtual-machines"></a>Virtual Machines
 ### <a name="what-types-of-virtual-machines-are-supported"></a>Sanal makinelerin hangi türleri desteklenir?

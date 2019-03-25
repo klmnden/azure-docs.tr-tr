@@ -1,22 +1,22 @@
 ---
-title: Web istemcisi ile (Önizleme) - Azure connect
-description: Windows sanal masaüstü HTML5 web istemcisi için bağlanma.
+title: Windows sanal masaüstü Önizleme web istemcisiyle - Azure connect
+description: Windows sanal masaüstü Önizleme HTML5 web istemcisi için bağlanma.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 23c830549ed2b63eb2330f3e1c0a78bfb236adc1
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 231dc2b777ce7fa37f445215863a55e93562e411
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339472"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403757"
 ---
-# <a name="connect-with-the-web-client-preview"></a>Web istemcisi (Önizleme) ile bağlanma
+# <a name="connect-with-the-web-client"></a>Web istemcisi ile bağlanma
 
-Web istemcisi uzun yükleme işlemi olmadan bir web tarayıcısından Windows sanal masaüstü (Önizleme) kaynaklarınıza erişmenize olanak tanır.
+Web istemcisi uzun yükleme işlemi olmadan bir web tarayıcısından Windows sanal masaüstü Önizleme kaynaklarınıza erişmenize olanak tanır.
 
 >[!NOTE]
 >Web istemcisi şu anda mobil işletim sistemi desteği yoktur.

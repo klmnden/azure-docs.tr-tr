@@ -1,37 +1,60 @@
 ---
-title: Azure VM yedeklemesi hakkında SSS
-description: Azure VM yedeklemesinin çalışması, sınırlamalar ve ilkede değişiklikler yapıldığında ne olacağı hakkındaki yaygın soruların yanıtları
+title: Azure sanal makinelerini Azure Backup ile yedekleme hakkında sık sorulan sorular
+description: Azure sanal makinelerini Azure Backup ile yedekleme hakkında sık sorulan sorulara yanıtlar.
 services: backup
 author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/16/2018
+ms.date: 03/22/2019
 ms.author: sogup
-ms.openlocfilehash: 10b49c5ebcd73010a52da1fada32ba55198b287a
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: ef46c37fec3e5438aeb4f9309201d45365a96fdc
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961542"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402074"
 ---
-# <a name="frequently-asked-questions-azure-backup"></a>Sık sorulan sorular Azure Backup
+# <a name="frequently-asked-questions-back-up-azure-vms"></a>Sık sorulan sorular-Azure Vm'leri yedekleme
 
-Bu makalede hakkında sık sorulan soruları yanıtlar [Azure Backup](backup-introduction-to-azure-backup.md) hizmeti.
-
-## <a name="general-questions"></a>Genel sorular
-
-### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Hangi Azure Vm'leri Azure Backup kullanarak yedekleyebilir?
-[Gözden geçirme](backup-azure-arm-vms-prepare.md#before-you-start) desteklenen işletim sistemleri ve sınırlamaları.
+Bu makalede, Azure sanal makinelerini yedekleme hakkında sık sorulan sorular yanıtlanmaktadır [Azure Backup](backup-introduction-to-azure-backup.md) hizmeti.
 
 
 ## <a name="backup"></a>Backup
 
+### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Bunları oluşturduğunuz hangi sanal makine görüntüleri için yedekleme etkin hale getirilebilir?
+Bir VM oluşturduğunuzda, çalışan sanal makineler için yedeklemeyi etkinleştirebilirsiniz [desteklenen işletim sistemleri](backup-support-matrix-iaas.md#supported-backup-actions)
+ 
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>VM maliyeti dahil yedekleme maliyet mevcut mu? 
+
+Hayır. Yedekleme maliyetleri ayrı bir sanal makinenin maliyetleri aşağıda sunulmuştur. Daha fazla bilgi edinin [Azure Backup fiyatlandırma](https://azure.microsoft.com/pricing/details/backup/).
+ 
+### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Bir VM için yedeklemeyi etkinleştirmek için hangi izinler gereklidir? 
+
+Bir VM katkıda bulunanı olduğunuz, sanal makine yedeklemeyi etkinleştirebilirsiniz. Özel bir rol kullanıyorsanız, sanal makine yedeklemeyi etkinleştirmek için aşağıdaki izinlere ihtiyacınız vardır: 
+
+- Microsoft.RecoveryServices/Vaults/write 
+- Microsoft.RecoveryServices/Vaults/read 
+- Microsoft.RecoveryServices/locations/* 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
+ 
+Farklı kaynak gruplarında VM ve kurtarma Hizmetleri kasası varsa, kaynak grubunda bir kurtarma Hizmetleri kasası için yazma izinlerine sahip olduğunuzdan emin olun.  
+
+
+### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Hangi Azure Vm'leri Azure Backup kullanarak yedekleyebilir?
+
+Gözden geçirme [destek matrisi](backup-support-matrix-iaas.md) destek ayrıntıları ve sınırlamalar için.
+
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>İsteğe bağlı yedekleme işi zamanlanmış yedeklemeler gibi aynı saklama zamanlaması kullanıyor mu?
-Hayır. İsteğe bağlı yedekleme işi için bekletme aralığı belirtmeniz gerekir. Varsayılan olarak 30 gün boyunca tutulur portaldan tetiklendiğinde.
+Hayır. İsteğe bağlı yedekleme işi için bekletme aralığı belirtin. Varsayılan olarak 30 gün boyunca tutulur portaldan tetiklendiğinde.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Kısa süre önce bazı sanal makinelerde Azure Disk Şifrelemesi'ni etkinleştirdim. Yedeklemelerim çalışmaya devam edecek mi?
-Azure Backup'ın anahtar kasasına erişmek gerekli izinleri sağlamanız gerekir. İzinler açıklandığı PowerShell'de belirtin **yedeklemeyi etkinleştir** konusundaki [Azure Backup PowerShell](backup-azure-vms-automation.md) belgeleri.
+Azure Backup'ın Key Vault'a erişmesi için izinler sağlayın. İzinler açıklandığı PowerShell'de belirtin **yedeklemeyi etkinleştir** konusundaki [Azure Backup PowerShell](backup-azure-vms-automation.md) belgeleri.
 
 ### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>Ben VM diskleri yönetilen disklere geçişi. Yedeklemelerim çalışmaya devam edecek mi?
 Evet, yedeklemeler sorunsuz çalışır. Her şeyi yeniden yapılandırmak için gerek yoktur.
@@ -65,17 +88,17 @@ Anlık görüntüleri WA özellikli diskte alınamaz. Ancak, Azure Backup hizmet
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Yazma Hızlandırıcı (WA) disklerle bir VM sahibim ve SAP HANA yüklenir. Nasıl yapılır? yedekleyin
 Azure yedekleme WA etkin disk yedekleyemezsiniz, ancak yedeklemeden hariç tutabilirsiniz. Ancak, WA özellikli diskteki bilgileri yedeklenmediğini nedeniyle yedekleme veritabanı tutarlılığını sağlamaz. İşletim sistemi diskini yedekleme ve WA etkin olmayan disk yedekleme istiyorsanız bu yapılandırmayı disklerle yedekleyebilirsiniz.
 
-15 dakikalık bir RPO ile bir SAP HANA yedekleme için özel bir önizleme sahibiz. SQL DB yedekleme benzer bir şekilde oluşturulmuştur ve üçüncü taraf çözümleri ile SAP HANA sertifikalı backInt arabirim kullanır. Özel olarak incelenmektedir ilgileniyorsanız adresinden bize e-posta ` AskAzureBackupTeam@microsoft.com ` konu ile **Azure vm'lerde SAP HANA yedeklemesi için özel Önizleme için kaydolun**.
+Biz, 15 dakikalık bir RPO ile bir SAP HANA yedeklemesi için özel Önizleme çalıştırıyorsunuz. SQL DB yedekleme benzer bir şekilde oluşturulmuştur ve üçüncü taraf çözümleri ile SAP HANA sertifikalı backInt arabirim kullanır. İlgileniyorsanız, adresinden bize e-posta ` AskAzureBackupTeam@microsoft.com ` konu ile **Azure vm'lerde SAP HANA yedeklemesi için özel Önizleme için kaydolun**.
 
 
 ## <a name="restore"></a>Geri Yükleme
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>Yalnızca diskleri geri yükle verilip verilmeyeceğini veya tam bir VM nasıl karar verebilirim?
-Bir VM geri yüklemesi için bir Azure VM hızlı oluşturma seçeneği olarak düşünün. Bu seçenek, disk adları, diskleri, genel IP adresleri ve ağ arabirimi adlarını tarafından kullanılan kapsayıcıları değiştirir. Bir VM oluşturulduğunda değişiklik benzersiz kaynakları tutar. Sanal Makineyi bir kullanılabilirlik kümesine eklenmez.
+Bir VM geri yüklemesi için bir Azure VM hızlı oluşturma seçeneği olarak düşünün. Bu seçenek, disk adları, diskler, genel IP adresleri ve ağ arabirimi adlarını tarafından kullanılan kapsayıcıları değiştirir. Bir VM oluşturulduğunda değişiklik benzersiz kaynakları tutar. Sanal Makineyi bir kullanılabilirlik kümesine eklenmez.
 
 İsterseniz geri yükleme disk seçeneği kullanabilirsiniz:
-  * Oluşturulan VM özelleştirin. Örnek boyutunu değiştirin.
-  * Yedekleme sırasında var olmayan yapılandırma ayarları Ekle
+  * Oluşturulan VM özelleştirin. Örneğin, boyutu değiştirin.
+  * Yedekleme sırasında var olmayan yapılandırma ayarları ekleyin.
   * Oluşturulan kaynakların adlandırma kuralını denetleme.
   * Sanal Makineyi bir kullanılabilirlik kümesine ekleyin.
   * PowerShell ya da bir şablon kullanılarak yapılandırılması gerekir her bir ayar ekleyin.
@@ -114,6 +137,6 @@ VM, değiştirilmiş veya yeni ilkenin zamanlama ve bekletme ayarları kullanıl
 
 1. Geçici olarak yedeklemeyi Durdur ve yedekleme verilerini koru.
 2. Sanal makine için hedef kaynak grubu taşıyın.
-3. Aynı ya da yeni kasaya yeniden iler hale yedekleme.
+3. Aynı ya da yeni kasa yedeklemeye tekrar etkinleştirilecektir.
 
 VM taşıma işleminden önce oluşturulan mevcut geri yükleme noktalarından geri yükleyebilirsiniz.

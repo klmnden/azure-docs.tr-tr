@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: e3a24117cfd01c1c0bd0f08e8eca5adddf5ee7b6
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58119794"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403400"
 ---
-# <a name="data-box-edge-security-and-data-protection-preview"></a>Veri kutusu kenar güvenlik ve veri koruma (Önizleme)
+# <a name="data-box-edge-security-and-data-protection"></a>Veri kutusu kenar güvenlik ve veri koruması
 
 Teknoloji gizli veya özel verilerle özellikle kullanılıyorsa, yeni bir Teknoloji benimseme zaman güvenlik önemli bir konudur. Microsoft Azure veri kutusu Edge çözümü, yalnızca yetkili varlıklar görüntüleme, değiştirme veya verilerinizi silme emin olun yardımcı olur.
 
@@ -27,9 +27,6 @@ Azure veri kutusu Edge çözüm birbiriyle etkileşim dört ana bileşenden olu�
 - **Veri kutusu Edge cihazı** – şirket içi verilerinizi Azure'a aktarmanız kadar size sevk aktarım cihazı.
 - **İstemciler/ana bilgisayarları bağlı cihaza** – veri kutusu Edge cihazına bağlanmak ve korunması gereken verileri içeren istemcilerin altyapınızdaki.
 - **Bulut depolama** – Azure bulutunda verilerin depolandığı konum. Bu konum normalde, oluşturduğunuz veri kutusu Edge kaynağa bağlı depolama hesabıdır.
-
-> [!IMPORTANT]
-> Data Box Edge, önizleme aşamasındadır. Sipariş ve bu çözümü dağıtın önce gözden [Azure Önizleme için hizmet koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 
 ## <a name="data-box-edgedata-box-gateway-service-protection"></a>Veri kutusu Edge/veri kutusu ağ geçidi hizmeti koruma
@@ -44,7 +41,7 @@ Veri kutusu Edge/veri kutusu ağ geçidi hizmeti, Microsoft Azure'da barındır�
 Veri kutusu sınır cihazı, yerel olarak işleme ve sonra bunu Azure'a göndererek verileri dönüştürme yardımcı olan bir şirket içi cihazdır. Cihazınız:
 
 - Veri kutusu Edge/veri kutusu ağ geçidi hizmetine erişmek için bir etkinleştirme anahtarı gerekir.
-- Her zaman bir cihaz Yöneticisi parolası tarafından korunur.
+- Her zaman bir cihaz parola korumalı.
 - Kilitli aygıttır. Cihaz BMC ve BIOS BIOS sınırlı kullanıcı erişimi ile parola korumalı.
 - Güvenli Önyükleme etkin.
 - Windows Defender'ı cihaz koruyucusu çalıştırır. Device Guard, yalnızca kod bütünlüğü ilkelerinizde tanımladığınız güvenilen uygulamaları çalıştıracak olanak tanır. 
@@ -68,14 +65,14 @@ Parolalar, verilerinizi yalnızca yetkili kullanıcılar için erişilebilir old
 Şunları yapabilirsiniz:
 
 - Yerel web kullanıcı Arabirimi cihazın bir tarayıcı aracılığıyla bağlanın ve ardından cihazda oturum için bir parola sağlayın.
-- Uzaktan HTTP üzerinden cihaz PowerShell arabirimine bağlanın. Uzaktan Yönetim varsayılan olarak etkinleştirilir. Ardından, cihaz yönetici parolası, cihazda oturum açmasına sağlayabilir. Daha fazla bilgi için Git [veri kutusu Edge cihazınıza uzaktan bağlanma](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Uzaktan HTTP üzerinden cihaz PowerShell arabirimine bağlanın. Uzaktan Yönetim varsayılan olarak etkinleştirilir. Sonra cihazda oturum açmasına cihaz parolasının sunabilir. Daha fazla bilgi için Git [veri kutusu Edge cihazınıza uzaktan bağlanma](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 Aşağıdaki en iyi uygulamaları göz önünde bulundurun:
 
 - Veri kutusu Edge hizmetinin var olan parolaların alınamıyor: Bu yalnızca bunları Azure portalı üzerinden sıfırlayabilirsiniz. Unutulursa, parola sıfırlama gerekmez, tüm parolaları güvenli bir yerde depolamanız önerilir. Parola sıfırlama, bunu sıfırlamadan önce tüm kullanıcılara bildirin emin olun.
 - Yerel web kullanıcı Arabirimine kullanım [parolayı değiştirmek](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Parolayı değiştirirseniz, böylece bir oturum açma hatası yaşamamasını tüm uzaktan erişim kullanıcıları bilgilendir emin olun.
 - Cihazınızın Windows PowerShell arabirimi HTTP uzaktan erişebilirsiniz. Güvenlik açısından en iyisi, yalnızca güvenilen ağlarda HTTP kullanmanız gerekir.
-- Cihaz Yöneticisi parolası güçlü ve iyi korumalı olduğundan emin olun. İzleyin [en iyi parola uygulamaları](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
+- Cihaz parolası güçlü ve iyi korumalı olduğundan emin olun. İzleyin [en iyi parola uygulamaları](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
 
 ## <a name="protect-the-data"></a>Verileri koruma
 

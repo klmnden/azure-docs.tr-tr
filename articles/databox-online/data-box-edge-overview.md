@@ -6,27 +6,22 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 11/13/2018
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 60186ee6aa614c83691c9ce4ab9d8124fd5925fd
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 696f4fee95926009ebda0be3c28672838d89edda
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685965"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400428"
 ---
-# <a name="what-is-azure-data-box-edge-preview"></a>Azure Data Box Edge (Önizleme) nedir? 
+# <a name="what-is-azure-data-box-edge"></a>Azure Data Box Edge nedir? 
 
 Azure Data Box Edge verileri işlemenizi ve ağ üzerinden Azure'a göndermenizi sağlayan bir depolama çözümüdür. Bu makalede Data Box Edge çözümüne, avantajlarına, önemli özelliklerine ve bu cihazı dağıtabileceğiniz senaryolara genel bir bakış sağlanır. 
 
 Data Box Edge güvenli veri aktarımını hızlandırmak için Microsoft tarafından sağlanan bir fiziksel cihaz kullanır. Fiziksel cihaz sizde durur ve NFS ile SMB protokollerini kullanarak buna verileri yazarsınız. 
 
 Data Box Edge'de Data Box Gateway'in tüm özellikleri bulunur. Bunlara ek olarak Data Box, verileri Azure blok blobuna, sayfa blobuna veya Azure Dosyalarına taşırken analiz etmeye, işlemeye veya filtrelemeye yardımcı olan AI özellikli uç bilgi işlem özellikleriyle donatılmıştır.  
-
-> [!IMPORTANT]
-> - Data Box Edge, Önizleme aşamasındadır. Bu hizmete [kaydolun](#sign-up)!
-> - Bu çözümü dağıtmadan önce [önizleme için kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin.
-
 
 ## <a name="use-cases"></a>Uygulama alanları
 
@@ -76,7 +71,7 @@ Data Box Edge fiziksel cihazı aşağıdaki özelliklere sahiptir:
 
 | Özellikler/belirtimler                                          | Açıklama              |
 |---------------------------------------------------------|--------------------------|
-| Boyutlar   | Genişlik: 17,25” Derinlik: 27,25” Yükseklik: 1,75”<br>(kulaklar ve PSU tutamaçları hariç)  |            
+| Boyutlar   | Genişlik: 17.25" derinliği: 27.25" height: 1.75”<br>(kulaklar ve PSU tutamaçları hariç)  |            
 | Raf alanı|Rafa yerleştirildiğinde 1U|
 | Kablolar| 2 X Güç kablosu<br>2 X 1 Gb/sn RJ45 kabloları<br>2 X 10 Gb/sn SFP+ bakır kabloları|
 | Bileşenler|2 yerleşik Güç Kaynağı Birimi (PSU)|

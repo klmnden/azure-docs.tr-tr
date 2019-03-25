@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 34aac9a589516ace080906095ef3c14b34469bbd
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e80b03f696a78887676e9f16750055a4dcfac230
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311197"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401584"
 ---
-# <a name="azure-data-box-gateway-limits-preview"></a>Azure veri kutusu ağ geçidi sınırları (Önizleme)
-
+# <a name="azure-data-box-gateway-limits"></a>Azure veri kutusu ağ geçidi sınırları
 
 Limitler, dağıtmanıza ve Microsoft Azure veri kutusu ağ geçidi çözümünüz olarak düşünün. 
-
-> [!IMPORTANT] 
-> Data Box Gateway, Önizleme aşamasındadır. Bu çözümü dağıtmadan önce [önizleme için kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin. 
 
 
 ## <a name="data-box-gateway-service-limits"></a>Veri kutusu Gateway hizmet limitleri

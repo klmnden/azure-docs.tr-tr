@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 9fde3befb147aeeab9419e08602552a970368cfe
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 32714b3e5a5ed859716faef2ca660f8b2c90b089
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57844993"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402517"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Öğretici: Azure Notification Hubs'ı kullanarak, belirli kullanıcılara bildirimler gönderme
 
@@ -53,13 +53,13 @@ Bu öğreticide oluşturduğunuz Visual Studio'nun proje ve bildirim hub'ı geli
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-## <a name="update-the-code-for-the-client-project"></a>İstemci projesi için kodu güncelleştirme
+## <a name="update-the-code-for-the-uwp-client"></a>UWP istemci kodunu güncelleştirmesi
 
 Bu bölümde, tamamladığınız için proje kodu güncelleştirme [Öğreticisi: Azure Notification Hubs'ı kullanarak, Evrensel Windows platformu uygulamaları için bildirimleri gönderecek](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) öğretici. Proje, Windows mağazası ile zaten ilişkilendirilmiş olmalıdır. Ayrıca, bildirim hub'ınızı kullanacak şekilde yapılandırılmış olmalıdır. Bu bölümde, yeni WebAPI arka ucunu çağırmak için kod ekleyecek ve bildirimlere kaydolup bildirim göndermek için kullanacaksınız.
 
 1. Visual Studio'da açmak için oluşturduğunuz çözüm [Öğreticisi: Azure Notification Hubs'ı kullanarak, Evrensel Windows platformu uygulamaları için bildirimleri gönderecek](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
-2. Çözüm Gezgini'nde, **WindowsApp** projesine sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın.
-3. Sol taraftaki **Çevrimiçi** öğesine tıklayın.
+2. Çözüm Gezgini'nde, Evrensel Windows Platformu (UWP) projesine sağ tıklayın ve ardından **NuGet paketlerini Yönet**.
+3. Sol taraftan **Gözat**.
 4. **Arama** kutusuna **Http İstemcisi** yazın.
 5. Sonuçlar listesinde **System.Net.Http** ve sonra **Yükle**’ye tıklayın. Yüklemeyi tamamlayın.
 6. NuGet **Arama** kutusuna **Json.net** yazın. **Newtonsoft.json** paketini yükleyin ve sonra NuGet Paket Yöneticisi penceresini kapatın.

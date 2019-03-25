@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 358ca13548f0215fabee949c5fa3dee64beb2d6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fbb8eabebd5728c3ff772f78f01b8ea93ff0a526
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996966"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400177"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET web siteniz için Application Insights'ı ayarlama
 
@@ -131,6 +131,10 @@ ApplicationInsights.config’de herhangi bir özelleştirme gerçekleştirdiysen
 
 * [Çalışma zamanında bir web uygulamasını izleme](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)
+
+## <a name="video"></a>Video
+
+* İlgili dış adım adım video [sıfırdan bir .NET uygulaması ile Application Insights'ı yapılandırma](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
 ### <a name="more-telemetry"></a>Daha fazla telemetri
 

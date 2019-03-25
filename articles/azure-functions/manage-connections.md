@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 965fa1e82be3fb87bf58a0114f97091bad212738
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 079fe74ec11570b26cbba93e4aba26d7359bef20
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450745"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402380"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Azure işlevleri'nde bağlantıları yönetme
 
@@ -57,7 +57,7 @@ public static async Task Run(string input)
 
 Karşılaşılan bir soru hakkında [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) "miyim dispose istemcim?",. NET'te olduğu Genel olarak, size uygulayan nesneleri atmak `IDisposable` bitirdiğinizde bunları kullanarak. Ancak bitti değildir çünkü statik istemcisini dispose yoksa işlev sona erdiğinde, kullanarak. Uygulamanızın süresi boyunca Canlı statik istemci kullanmanız gerekir.
 
-### <a name="http-agent-examples-nodejs"></a>HTTP Aracısı örnekleri (Node.js)
+### <a name="http-agent-examples-javascript"></a>HTTP Aracısı örnekleri (JavaScript)
 
 Yerel yönetim seçenekleri, daha iyi bağlantıyı sağladığından, kullanmanız gereken [ `http.agent` ](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) yerel olmayan yöntemler yerine gibi sınıf `node-fetch` modülü. Bağlantı parametrelerini yapılandırılır seçeneklerde `http.agent` sınıfı. Ayrıntılı seçenekleri için kullanılabilir HTTP aracısıyla bkz [yeni aracı (\[seçenekleri\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options).
 
@@ -105,6 +105,25 @@ public static async Task Run(string input)
     await documentClient.UpsertDocumentAsync(collectionUri, document);
     
     // Rest of function
+}
+```
+
+### <a name="cosmosclient-code-example-javascript"></a>CosmosClient kod örneği (JavaScript)
+[CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) Azure Cosmos DB örneğine bağlanır. Azure Cosmos DB belgeleri önerir, [tekil Azure Cosmos DB istemci uygulama ömrü boyunca kullanma](../cosmos-db/performance-tips.md#sdk-usage). Aşağıdaki örnek, bir işlevde yapmak için bir desen gösterir:
+
+```javascript
+const cosmos = require('@azure/cosmos');
+const endpoint = process.env.COSMOS_API_URL;
+const masterKey = process.env.COSMOS_API_KEY;
+const { CosmosClient } = cosmos;
+
+const client = new CosmosClient({ endpoint, auth: { masterKey } });
+// All function invocations also reference the same database and container.
+const container = client.database("MyDatabaseName").container("MyContainerName");
+
+module.exports = async function (context) {
+    const { result: itemArray } = await container.items.readAll().toArray();
+    context.log(itemArray);
 }
 ```
 

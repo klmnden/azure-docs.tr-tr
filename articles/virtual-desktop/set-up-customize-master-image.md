@@ -1,22 +1,22 @@
 ---
 title: Hazırlama ve ana bir VHD görüntüsü - Azure'ı özelleştirme
-description: Nasıl hazırlama, özelleştirme ve Azure'a bir Windows sanal masaüstü (Önizleme) ana görüntü yükleyin.
+description: Nasıl hazırlama, özelleştirme ve Azure'a bir Windows sanal masaüstü Önizleme ana görüntü yükleyin.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 53bf33aad6511cc282f53659bbe43873cacfc3ff
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318427"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400769"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Hazırlama ve bir ana VHD görüntüsünü özelleştirme
 
-Bu makalede yüklemek için Azure sanal makineler (VM) oluşturun ve yazılım yükleme ve bunlar üzerinde yapılandırma dahil olmak üzere, bir ana sanal sabit disk (VHD) görüntüsü hazırlama bildirir. Kuruluşunuzun mevcut işlemleri ile kullanılabilecek bir Windows Sanal Masaüstü özel (Önizleme) yapılandırma için bu yönergeleri yöneliktir.
+Bu makalede yüklemek için Azure sanal makineler (VM) oluşturun ve yazılım yükleme ve bunlar üzerinde yapılandırma dahil olmak üzere, bir ana sanal sabit disk (VHD) görüntüsü hazırlama bildirir. Kuruluşunuzun mevcut işlemleri ile kullanılabilecek bir Windows sanal masaüstü Önizleme özgü yapılandırma için bu yönergeleri yöneliktir.
 
 ## <a name="create-a-vm"></a>VM oluşturma
 
@@ -370,8 +370,8 @@ Azure depolama hesabınız, ana görüntü karşıya yükleme aşağıdaki yöne
 
 Bir görüntünüz olduğuna göre oluşturun veya ana bilgisayar havuzları güncelleştirin. Ana bilgisayar havuzları oluşturmak nasıl hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-- [Bir Azure Resource Manager şablonuyla (Önizleme) bir konak havuzu oluşturma](create-host-pools-arm-template.md)
-- [Öğretici: Azure Marketi (Önizleme) ile konak havuz oluşturma](create-host-pools-azure-marketplace.md)
-- [PowerShell (Önizleme) ile bir ana makine havuzu oluşturma](create-host-pools-powershell.md)
+- [Bir Azure Resource Manager şablonu ile bir ana makine havuzu oluşturma](create-host-pools-arm-template.md)
+- [Öğretici: Azure Marketi ile konak havuz oluşturma](create-host-pools-azure-marketplace.md)
+- [PowerShell ile bir ana makine havuzu oluşturma](create-host-pools-powershell.md)
 - [Bir ana makine havuzu için bir kullanıcı profili paylaşımını ayarlama](create-host-pools-user-profile.md)
 - [Windows sanal masaüstü yük dengeleme yöntemini yapılandırma](configure-host-pool-load-balancing.md)

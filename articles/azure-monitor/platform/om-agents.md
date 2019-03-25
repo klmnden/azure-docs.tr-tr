@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 3e11c4dc8aa082723223fb998e599aa514febd3b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: d2ecebf47c77baa81193939b64c27348541f7686
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369978"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403417"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Operations Manager'ı Azure İzleyicisi ile bağlantı
 
@@ -43,9 +43,10 @@ BT güvenlik ilkeleriniz bilgisayarları ağınızdaki Internet'e bağlanmasına
 ## <a name="prerequisites"></a>Önkoşullar 
 Başlamadan önce aşağıdaki gereksinimleri gözden geçirin.
 
-* Azure İzleyici yalnızca System Center Operations Manager 1807, Operations Manager 1801'e, Operations Manager 2016, Operations Manager 2012 SP1 UR6 destekler veya sonraki bir sürümü ve Operations Manager 2012 R2 UR2 veya üzeri. Operations Manager 2012 SP1 UR7 ve Operations Manager 2012 R2 UR3'e ara sunucu desteği eklenmiştir.
+* Azure İzleyici, yalnızca System Center Operations Manager 2016 veya sonraki bir sürümü, Operations Manager 2012 SP1 UR6 destekler veya sonraki bir sürümü ve Operations Manager 2012 R2 UR2 veya üzeri. Operations Manager 2012 SP1 UR7 ve Operations Manager 2012 R2 UR3'e ara sunucu desteği eklenmiştir.
+* System Center Operations Manager 2016 ABD kamu Bulutu ile tümleştirme, güncelleştirme paketi 2 veya daha sonra güncelleştirilmiş bir Advisor Yönetim Paketi gerektirir. System Center Operations Manager 2012 R2 güncelleştirme paketi 3 veya daha sonra güncelleştirilmiş bir Advisor Yönetim Paketi gerektirir.
 * Tüm Operations Manager aracılarının en düşük destek gereksinimlerini karşılaması gerekir. En düşük güncelleştirmeyi aracılardır Windows aracı iletişimi Aksi halde ve başarısız Operations Manager olay günlüğündeki hatalara neden emin olun.
-* Log Analytics çalışma alanı. Daha fazla bilgi için gözden [Log Analytics çalışma alanına genel bakış](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).
+* Log Analytics çalışma alanı. Daha fazla bilgi için gözden [Log Analytics çalışma alanına genel bakış](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).   
 * Azure'de bir üyesi olan bir hesapla kimlik doğrulamasını [Log Analytics katkıda bulunan rolü](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users).  
 
 >[!NOTE]

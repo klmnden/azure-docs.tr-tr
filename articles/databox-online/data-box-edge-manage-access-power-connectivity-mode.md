@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: e0aa3468bda9f904d62e9e20545ac5f990cef521
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: e0b8b35c654f0716fae1e6ab785f57dcf04e1a5a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57902149"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400896"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge-preview"></a>Erişim, güç ve bağlantı modunu, Azure veri kutusu Edge (Önizleme) için yönetme
 
@@ -31,31 +31,31 @@ Bu makalede şunları öğreneceksiniz:
 
 ## <a name="manage-device-access"></a>Cihaz erişimini yönetme
 
-Veri kutusu Edge cihazınıza erişim bir cihaz Yöneticisi parolası kullanımı tarafından denetlenir. Yönetici parolası yerel web UI aracılığıyla değiştirebilirsiniz. Ayrıca, Azure portalında cihaz Yöneticisi parolasını sıfırlayabilirsiniz.
+Veri kutusu Edge cihazınıza erişim bir cihaz parolası kullanımı tarafından denetlenir. Parola yerel web UI aracılığıyla değiştirebilirsiniz. Ayrıca, Azure portalında cihaz parolasını sıfırlayabilirsiniz.
 
-### <a name="change-device-administrator-password"></a>Cihaz Yöneticisi parolasını değiştirme
+### <a name="change-device-password"></a>Cihaz parolasını değiştirme
 
-Cihaz Yöneticisi parolasını değiştirmek için yerel kullanıcı Arabirimi aşağıdaki adımları izleyin.
+Cihaz parolasını değiştirmek için yerel kullanıcı Arabirimi aşağıdaki adımları izleyin.
 
 1. Yerel web kullanıcı Arabirimi, Git **Bakım > parola değişikliği**.
 2. Geçerli parola ve yeni parolayı girin. Sağlanan parola 8 ile 16 karakter arasında olmalıdır. Parola şu karakterleri 3 olması gerekir: büyük harf, küçük harfler, sayısal ve özel karakter. Yeni parolayı onaylayın.
 
-    ![Parola değiştir](media/data-box-edge-manage-access-power-connectivity-mode/change-password-1.png)
+    ![Parolayı değiştir](media/data-box-edge-manage-access-power-connectivity-mode/change-password-1.png)
 
 3. Seçin **parolasını değiştirme**.
  
-### <a name="reset-device-administrator-password"></a>Cihaz Yöneticisi parolasını sıfırlama
+### <a name="reset-device-password"></a>Cihaz parolasını sıfırla
 
 Sıfırlama iş akışı, eski parolayı çağırmak kullanıcı gerektirmez ve parola kayıp olduğunda yararlıdır. Bu iş akışı, Azure portalında gerçekleştirilir.
 
 1. Azure portalında Git **genel bakış > yönetici parolası sıfırlama**.
 
-    ![Parolayı sıfırla](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Parola sıfırlama](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. Yeni bir parola girin ve parolayı doğrulayın. Sağlanan parola 8 ile 16 karakter arasında olmalıdır. Parola şu karakterleri 3 olması gerekir: büyük harf, küçük harfler, sayısal ve özel karakter. Seçin **sıfırlama**.
 
-    ![Parolayı sıfırla](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Parola sıfırlama](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-connectivity-mode"></a>Bağlantı modunu yönetin
 
@@ -63,7 +63,7 @@ Varsayılan tam olarak bağlı mod dışında cihazınız bağlı kısmen veya t
 
 - **Tam olarak bağlı** -cihaz çalıştığı normal varsayılan mod budur. Bu modda bulut karşıya yükleme ve indirme verilerinin etkindir. Cihazı yönetmek için Azure portalı veya yerel web kullanıcı Arabirimi kullanabilirsiniz.
 
-- **Kısmen bağlı** – bu modda, herhangi bir cihaz yükleyemezsiniz veri paylaşımları ancak yönetilen Azure portalı üzerinden.
+- **Kısmen bağlı** – bu modda, cihazı karşıya yükleyemez veya veri ancak yönetilen Azure portalı üzerinden paylaşım indirin.
 
     Bu mod genellikle zaman ölçülen uydu ağ üzerinde kullanılır ve hedef ağ bant genişliği kullanımını en aza indirmektir. En az bir ağ kullanımını izleme işlemleri için cihaz yine de meydana gelebilir.
 

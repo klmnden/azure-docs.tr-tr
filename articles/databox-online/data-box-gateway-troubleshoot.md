@@ -6,23 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: c07293971c4cadd8b7bccc608f69faa3baa19ba7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 86cd4190647586ec47519ca481f78267f8999cef
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100862"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402210"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Azure Data Box Gateway sorunlarınızı giderme 
 
-Bu makalede Azure Data Box Gateway sorunlarını giderme adımları açıklanmaktadır. 
-
-> [!IMPORTANT]
-> - Data Box Gateway önizleme aşamasındadır. Sipariş vermeden ve bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin.
-
-Bu makalede şunları öğreneceksiniz:
+Bu makalede Azure Data Box Gateway sorunlarını giderme adımları açıklanmaktadır. Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Tanılama çalıştırma
@@ -53,7 +48,7 @@ Destek paketi toplamak için aşağıdaki adımları gerçekleştirin.
 
     ![Kullanıcı ekle'ye tıklayın](media/data-box-gateway-troubleshoot/collect-logs-1.png)
  
-2. Destek paketi oluşturulduktan sonra **Destek paketini indir**'e tıklayın. Seçtiğiniz yola .zip uzantılı bir paket indirilir. Paketi açıp sistem günlüğü dosyalarını görüntüleyebilirsiniz.
+2. Destek paketi oluşturulduktan sonra **Destek paketini indir**'e tıklayın. Seçtiğiniz yola .zip uzantılı bir paket indirilir. Paketin sıkıştırmasını açın.
 
     ![Kullanıcı ekle'ye tıklayın](media/data-box-gateway-troubleshoot/collect-logs-2.png)
 

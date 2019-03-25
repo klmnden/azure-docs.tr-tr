@@ -1,18 +1,18 @@
 ---
-title: Microsoft Azure veri kutusu ağ geçidi usecases | Microsoft Docs
-description: Azure veri kutusu ağ geçidi, verilerinizi Azure'a aktarmanıza imkan sağlayan bir sanal gereç depolama çözümünü usecases açıklar.
+title: Microsoft Azure veri kutusu ağ geçidi kullanım örnekleri | Microsoft Docs
+description: Azure veri kutusu ağ geçidi, verilerinizi Azure'a aktarmanıza imkan sağlayan bir sanal gereç depolama çözümü için kullanım durumlarından açıklar.
 services: databox
 author: alkohli
 ms.service: databox
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 03/2/2019
 ms.author: alkohli
-ms.openlocfilehash: d1367504182eb8d8335796dc37800c30e0a563b8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 37ec1d05d07f33343b9ff21380a277d00b242b7c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438601"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403808"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Azure veri kutusu ağ geçidi için kullanım örnekleri
 
@@ -26,8 +26,6 @@ Veri kutusu ağ geçidi aşağıdaki senaryolar için kullanın:
 
 Bu senaryoların her biri, sonraki bölümlerde ayrıntılı olarak açıklanmıştır.
 
-> [!IMPORTANT]
-> Data Box Gateway, Önizleme aşamasındadır. Bu çözümü dağıtmadan önce lütfen [Önizleme için kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin.
 
 ## <a name="continuous-data-ingestion"></a>Sürekli veri alımı
 

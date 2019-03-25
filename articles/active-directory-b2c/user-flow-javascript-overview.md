@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 997babef5860488232f0b530c90b44aba6608ac5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5102755c9e830f43fa92e8546e5125960e0a2f9a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008240"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401551"
 ---
 # <a name="about-using-javascript-and-page-contract-versions-in-a-user-flow"></a>Kullanıcı akışı JavaScript ve sayfa sözleşme sürümlerini kullanma hakkında
+
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 Azure AD B2C, paket içeriği için kullanıcı arabirimi öğeleri, kullanıcı Akışları'nda, HTML, CSS ve JavaScript içeren bir dizi sağlar. Etkinleştirmek istiyorsanız [JavaScript](javascript-samples.md) istemci tarafı kod, kullanıcı akışları, sizin alma, JavaScript üzerinde öğeleri sabittir emin olmak istersiniz. Aksi takdirde, herhangi bir değişiklik beklenmeyen davranışı, kullanıcı akışı sayfaları neden olabilir. Bu sorunları önlemek için bir kullanıcı akışı için bir sayfa sözleşme kullanımını zorunlu kılmak ve bir sayfa sözleşme sürümü belirtin. Bunun yapılması emin olmanızı Javascript'inizi bağlı içerik tanımlarını sabittir. JavaScript için bir kullanıcı akışı etkinleştirmek düşünmüyorsanız bile, kullanıcı akışı sayfalarınız için bir sayfa sözleşme sürümü belirtebilirsiniz.
 

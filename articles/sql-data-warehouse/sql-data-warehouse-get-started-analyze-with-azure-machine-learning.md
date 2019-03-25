@@ -2,20 +2,20 @@
 title: Azure Machine Learning ile veri çözümleme | Microsoft Belgeleri
 description: Azure SQL Data Warehouse’a depolanmış verilere göre tahmine dayalı bir machine learning modeli oluşturmak için Azure Machine Learning’i kullanın.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
-ms.date: 04/17/2018
-ms.author: kavithaj
+ms.date: 03/22/2019
+ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 8a33d733f4737bf19e7baad6d80d8fa72999268f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7f9500adc6871c4c9f81c32bf456bc36cf91db4b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477667"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402567"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Azure Machine Learning ile veri çözümleme
 > [!div class="op_single_selector"]
@@ -42,9 +42,9 @@ Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
 Veriler AdventureWorksDW veritabanında bulunan dbo.vTargetMail görünümündedir. Bu verileri okumak için:
 
 1. [Azure Machine Learning Studio][Azure Machine Learning studio]'da oturum açıp denemelerim seçeneğine tıklayın.
-2. **+NEW (+YENİ)** düğmesine tıklayıp **Blank Experiment (Boş Deneme)** öğesini seçin.
+2. Tıklayın **+ yeni** seçin ve ekranın altındaki sol taraftaki **boş deneme**.
 3. Denemeniz için bir ad girin: Hedeflenen pazarlama.
-4. Modüller bölmesindeki **Reader (Okuyucu)** modülünü tuvale sürükleyin.
+4. Sürükleme **verileri içeri aktarma** modülü altında **veri giriş ve çıkış** tuvale modüller bölmesindeki.
 5. Özellikler bölmesinde SQL Data Warehouse veritabanınıza ilişkin bilgileri belirtin.
 6. İstediğiniz verileri okumak için veritabanı **sorgusunu** belirtin.
 
@@ -77,7 +77,7 @@ Denemeyi çalıştırma işlemi başarıyla sonlandıktan sonra, Okuyucu modül�
 ## <a name="2-clean-the-data"></a>2. Verileri temizleyin
 Verileri temizlemek için modelle ilgili olmayan bazı sütunları kaldırın. Bunu yapmak için:
 
-1. **Project Columns (Proje Sütunları)** modülünü tuvale sürükleyin.
+1. Sürükleme **kümesindeki sütunları seçme** modülü altında **veri dönüştürme < işleme** tuvale. Bu modülüne bağlayın **verileri içeri aktarma** modülü.
 2. Hangi sütunları kaldırmak istediğinizi belirtmek için Properties (Özellikler) bölmesindeki **Launch column selector (Sütun seçiciyi başlat)** öğesine tıklayın.
    ![Proje Sütunları][4]
 3. İki sütunu dışlayın: CustomerAlternateKey ve GeographyKey.
@@ -87,21 +87,19 @@ Verileri temizlemek için modelle ilgili olmayan bazı sütunları kaldırın. B
 Biz verilerin 80-20 bölecek: Makine öğrenme modeli eğitmek için %80 ve % modeli test etmek için 20. Bu ikili sınıflandırma sorunu için "İki Sınıflı" algoritmalardan yararlanacağız.
 
 1. **Split (Bölme)** modülünü tuvale sürükleyin.
-2. Properties (Özellikler) bölmesindeki ilk çıkış veri kümesinde bulunan satırlar için kesir değerini 0,8 olarak girin.
+2. Özellikler bölmesinde ilk çıkış veri kümesinde satırlar için kesir değerini 0,8 girin.
    ![Verileri eğitim ve test kümesi olarak bölme][6]
 3. **Two-Class Boosted Decision Tree (İki Sınıflı Gelişmiş Karar Ağacı)** modülünü tuvale sürükleyin.
-4. **Train Model (Model Eğitme)** modülünü tuvale sürükleyip girişleri belirtin. Ardından Properties (Özellikler) bölmesindeki **Launch column selector (Sütun seçiciyi başlat)** öğesine tıklayın.
-   * İlk giriş: ML algoritması.
-   * İkinci giriş: Algoritmayı eğitmeye yönelik veriler.
+4. Sürükleme **modeli eğitme** modülünü tuvale ve kendisine bağlanarak girişleri belirtin **iki sınıflı artırılmış karar ağacı** (ML algoritması) ve **bölünmüş** (eğitmek için verilerin Modül algoritmasına). 
      ![Model Eğitme modülünü bağlama][7]
-5. Tahminde bulunulacak sütun olarak **BikeBuyer** sütununu seçin.
+5. Ardından Properties (Özellikler) bölmesindeki **Launch column selector (Sütun seçiciyi başlat)** öğesine tıklayın. Tahminde bulunulacak sütun olarak **BikeBuyer** sütununu seçin.
    ![Tahminde bulunulacak sütunu seçme][8]
 
 ## <a name="4-score-the-model"></a>4. Modeli puanlama
 Şimdi modelin test verileri üzerindeki işlevini test edeceğiz. Hangisinin daha iyi sonuç verdiğini görmek üzere kendi seçtiğimiz algoritmayla başka bir algoritmayı karşılaştıracağız.
 
-1. **Score Model (Model Puanlama)** modülünü tuvale sürükleyin.
-    İlk giriş: Eğitilmiş model ikinci giriş: Test verileri ![modeli Puanlama][9]
+1. Sürükleme **Score Model** modülünü tuvale ve buna bağlanmak **modeli eğitme** ve **verileri bölme** modüller.
+   ![Modeli Puanlama][9]
 2. **Two-Class Bayes Point Machine (İki Sınıflı Bayes Noktası Makinesi)** modülünü deneme tuvaline sürükleyin. Bu algoritma ile Two-Class Boosted Decision Tree'nin (İki Sınıflı Gelişmiş Karar Ağacı'nın) işlevlerini karşılaştıracağız.
 3. Train Model (Model Eğitme) ve Score Model (Model Puanlama) modüllerini kopyalayıp tuvale yapıştırın.
 4. İki algoritmayı karşılaştırmak için **Evaluate Model (Model Değerlendirme)** modülünü tuvale sürükleyin.
@@ -124,18 +122,18 @@ BikeBuyer (gerçek) sütununu Puanlanmış Etiketler (tahmin) ile karşılaştı
 Tahmine dayalı makine öğrenimi modellerinin oluşturulmasına ilişkin daha fazla bilgi edinmek için bkz. [Azure'da Machine Learning'e giriş][Introduction to Machine Learning on Azure].
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
-[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
-[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
-[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
-[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
-[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
-[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
-[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
-[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
-[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
-[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
-[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
+[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1-reader-new.png
+[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2-visualize-new.png
+[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3-readerdata-new.png
+[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4-projectcolumns-new.png
+[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5-columnselector-new.png
+[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6-split-new.png
+[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7-train-new.png
+[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8-traincolumnselector-new.png
+[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9-score-new.png
+[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10-evaluate-new.png
+[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11-evalresults-new.png
+[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12-scoreresults-new.png
 
 
 <!--Article references-->

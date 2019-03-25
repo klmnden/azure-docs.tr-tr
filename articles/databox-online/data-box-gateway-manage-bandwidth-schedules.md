@@ -1,28 +1,25 @@
 ---
-title: Azure Data Box Gateway kullanıcılarını yönetme | Microsoft Docs
+title: Azure veri kutusu ağ geçidi bant genişliği zamanlamalarda yönetme | Microsoft Docs
 description: Azure portalı kullanarak Azure Data Box Gateway bant genişliği zamanlamalarını yönetme adımları.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: aefbe4265cb97a003b908c5631e1f9ed4e0192cc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a50091ec8878cbc8c1167c03acddaf269d697f31
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102137"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400414"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Azure Data Box Gateway bant genişliği zamanlamalarını yönetmek için Azure portalı kullanma  
 
 Bu makalede Azure Data Box Gateway kullanıcılarını yönetme adımları açıklanmaktadır. Bant genişliği zamanlamaları, ağ bant genişliği kullanımını birden çok zamanlamaya göre yapılandırmanızı sağlar. Bu zamanlamalar, cihazınızla bulut arasında gerçekleştirilen yükleme ve indirme işlemlerine uygulanabilir. 
 
 Data Box Gateway cihazınız için bant genişliği zamanlaması ekleme, değiştirme veya silme işlemlerini Azure portaldan gerçekleştirebilirsiniz.
-
-> [!IMPORTANT]
-> - Data Box Gateway önizleme aşamasındadır. Sipariş vermeden ve bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin.
 
 Bu makalede şunları öğreneceksiniz:
 
@@ -47,7 +44,7 @@ Kullanıcı eklemek için Azure portalda aşağıdaki adımları gerçekleştiri
    2. Zamanlama gün boyu çalışıyorsa **Tüm gün** seçeneğini işaretleyebilirsiniz. 
    3. **Bant genişliği hızı**, cihazınızda gerçekleştirilen bulutla ilgili işlemler (yükleme ve indirme) için kullanılan bant genişliğidir ve saniye başına megabit (Mb/sn) cinsinden ölçülür. Bu alana 1 ile 1000 arasında bir sayı girin. 
    4. Veri yükleme ve indirme işlemlerini kısıtlamak istemiyorsanız **Sınırsız** bant genişliğini seçin. 
-   5. **Ekle**'yi tıklatın.
+   5. **Ekle**'ye tıklayın.
 
       ![Kullanıcı ekle'ye tıklayın](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 

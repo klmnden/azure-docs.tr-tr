@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 02e03868f5a48088b78d5d9b0221387212f248cf
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5e5a186be19c0ecc9730bc79bddff41fb6bbb571
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958720"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401651"
 ---
 # <a name="quickstart-get-intent-using-java"></a>Hızlı Başlangıç: Java kullanarak get hedefi
 
@@ -29,9 +29,8 @@ Bu hızlı başlangıçta, amaç ve varlıkları döndürmek için bir LUIS uç 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * [JDK SE](https://aka.ms/azure-jdks)  (Java Geliştirme Seti, Standart Sürüm)
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/) veya en sevdiğiniz IDE
 * Genel uygulama kimliği: df67dcdb-c37d-46af-88e1-8b97951ca1c2
-
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
@@ -43,9 +42,9 @@ Bu hızlı başlangıçta, amaç ve varlıkları döndürmek için bir LUIS uç 
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="get-intent-programmatically"></a>Amacı programlamayla alma 
+## <a name="get-intent-programmatically"></a>Amacı programlamayla alma
 
-Java kullanarak bir önceki adımda tarayıcı penceresinde gördüğünüz sonuçlara ulaşabilirsiniz. 
+Java kullanarak bir önceki adımda tarayıcı penceresinde gördüğünüz sonuçlara ulaşabilirsiniz. Apache kitaplıklarını projenize ekleyin emin olun.
 
 1. `LuisGetRequest.java` adlı bir dosyada bir sınıf oluşturmak için aşağıdaki kodu kopyalayın:
 
@@ -53,9 +52,9 @@ Java kullanarak bir önceki adımda tarayıcı penceresinde gördüğünüz sonu
 
 2. `YOUR-KEY` değişkeninin değerini LUIS anahtarınızla değiştirin.
 
-3. `javac -cp ":lib/*" LuisGetRequest.java` ile Java programını derleyin. 
+3. Yerine, dosya yolu ve java programın komut satırından derleme: `javac -cp .;<FILE_PATH>\* LuisGetRequest.java`.
 
-4. Uygulamayı `java -cp ":lib/*" LuisGetRequest.java` ile çalıştırın. Tarayıcı penceresinde daha önce gördüğünüz JSON kodunu görüntüler.
+4. Dosya yoluyla değiştirin ve uygulamayı bir komut satırından çalıştırın: `java -cp .;<FILE_PATH>\* LuisGetRequest.java`. Tarayıcı penceresinde daha önce gördüğünüz JSON kodunu görüntüler.
 
     ![Konsol penceresi, LUIS uygulamasından gelen JSON sonucunu görüntüler](./media/luis-get-started-java-get-intent/console-turn-on.png)
     
@@ -65,7 +64,7 @@ Java kullanarak bir önceki adımda tarayıcı penceresinde gördüğünüz sonu
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Java dosyasını silin. 
+Java dosya/proje klasörü silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]

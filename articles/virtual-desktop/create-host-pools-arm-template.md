@@ -1,22 +1,22 @@
 ---
-title: Bir Azure Resource Manager şablonu ile (Önizleme) - Azure konak havuzu oluşturma
-description: Bir konak havuzu bir Azure Resource Manager şablonu ile Windows sanal masaüstü oluşturma
+title: Bir Azure Resource Manager şablonu - Azure ile bir Windows sanal masaüstü Önizleme konak havuzu oluşturma
+description: Bir konak havuzu bir Azure Resource Manager şablonu ile Windows sanal masaüstü önizlemede oluşturmak nasıl.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7f4849c19d56bb385e7ad3ce0aa95e16d5c53c23
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 262ec35a8a177652dff12bccb3b5435cb5856d81
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318472"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401426"
 ---
-# <a name="create-a-host-pool-with-an-azure-resource-manager-template-preview"></a>Bir Azure Resource Manager şablonuyla (Önizleme) bir konak havuzu oluşturma
+# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu ile bir ana makine havuzu oluşturma
 
-Ana bilgisayar havuzları, Windows sanal masaüstü (Önizleme) Kiracı ortamlar içinde bir veya daha fazla aynı sanal makinelerden oluşan bir koleksiyondur. Her konak havuzu, fiziksel masaüstünde yaptıkları gibi kullanıcı etkileşim kurabilir bir uygulama grubu içerebilir.
+Ana bilgisayar havuzları, Windows sanal masaüstü Önizleme Kiracı ortamlar içinde bir veya daha fazla aynı sanal makinelerden oluşan bir koleksiyondur. Her konak havuzu, fiziksel masaüstünde yaptıkları gibi kullanıcı etkileşim kurabilir bir uygulama grubu içerebilir.
 
 Microsoft tarafından sağlanan bir Azure Resource Manager şablonu ile Windows sanal masaüstü Kiracı için bir konak havuzu oluşturmak için bu bölümün yönergeleri izleyin. Bu makalede, Windows sanal masaüstü konak havuz oluşturma, bir kaynak grubu ile Vm'leri bir Azure aboneliği oluşturun, bu sanal makineler için AD etki alanına ve Vm'leri ile Windows sanal masaüstü kaydetme hakkında size bildirir.
 

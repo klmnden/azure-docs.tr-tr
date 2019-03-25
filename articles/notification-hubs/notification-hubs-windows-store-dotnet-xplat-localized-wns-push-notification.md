@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: b4f308e7053e000115f22abd291d934d90c11a94
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f3880db813072ca0bcecf073a8db24b21c87189f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57837601"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402722"
 ---
 # <a name="tutorial-push-localized-notifications-to-windows-apps-by-using-azure-notification-hubs"></a>Öğretici: Azure Notification hubs'ı kullanarak Windows uygulamaları için yerelleştirilmiş anında iletme bildirimleri
 
@@ -116,7 +116,7 @@ Cihaz, doğru özelliğe başvuran bir şablonla kaydolur. Örneğin, İngilizce
     {
         ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
         ApplicationData.Current.LocalSettings.Values["locale"] = locale;
-        return await SubscribeToCategories(categories);
+        return await SubscribeToCategories(locale, categories);
     }
 
     public async Task<Registration> SubscribeToCategories(string locale, IEnumerable<string> categories = null)
@@ -190,7 +190,21 @@ Cihaz, doğru özelliğe başvuran bir şablonla kaydolur. Örneğin, İngilizce
     }
     ```
 
-## <a name="send-localized-notifications-from-your-back-end"></a>Arka ucunuzdan yerelleştirilmiş bildirimler gönderme
+
+
+## <a name="run-the-uwp-application"></a>UWP uygulama çalıştırma
+
+1. Evrensel Windows platformu uygulaması çalıştırın. **Kayıt başarılı** iletisini görene kadar bekleyin.
+
+    ![Mobil uygulama ve kayıt](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
+2. **Kategoriler** ve **yerel ayar**’ı seçip **Abone ol**’a tıklayın. Uygulama, seçilen kategorileri etiketlere dönüştürür ve bildirim hub’ından seçilen etiketler için yeni bir cihaz kaydı ister.
+
+    ![Mobil uygulama](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
+3. **Abonelikler** hakkında bir **onay** iletisi görürsünüz.
+
+    ![Abonelik iletisi](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
+
+## <a name="update-console-app-to-send-localized-notifications"></a>Yerelleştirilmiş bildirimler göndermek için güncelleştirme konsol uygulaması
 
 Şablon bildirimleri gönderirken yalnızca bir dizi özellik sağlamanız gerekir. Bu öğreticide, arka uç uygulaması geçerli haberin yerelleştirilmiş sürümünü içeren bir dizi özellik gönderir, örneğin:
 
@@ -243,20 +257,10 @@ private static async void SendTemplateNotificationAsync()
 
 Bu basit aramayı haberlerinden yerelleştirilmiş parçasını sunar **tüm** cihazlar, bildirim Hub'ınıza oluşturur ve tüm cihazlar, belirli bir etikete abone doğru yerel yük teslim platformu, belirtilmediğine.
 
-## <a name="test-the-app"></a>Uygulamayı test edin
+## <a name="run-console-app-to-send-localized-notification"></a>Yerelleştirilmiş bildirim göndermek için konsol uygulaması
+Çalıştırma **konsol uygulaması** her kategori için ve her bildirimleri göndermek için desteklenen dil. Yalnızca abone olduğunuz kategoriler için bildirim aldığınızı ve iletinin seçtiğiniz yerel ayara uygun olduğunu doğrulayın.
 
-1. Evrensel Windows Mağazası uygulamasını çalıştırın. **Kayıt başarılı** iletisini görene kadar bekleyin.
-
-    ![Mobil uygulama ve kayıt](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
-2. **Kategoriler** ve **yerel ayar**’ı seçip **Abone ol**’a tıklayın. Uygulama, seçilen kategorileri etiketlere dönüştürür ve bildirim hub’ından seçilen etiketler için yeni bir cihaz kaydı ister.
-
-    ![Mobil uygulama](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
-3. **Abonelikler** hakkında bir **onay** iletisi görürsünüz.
-
-    ![Abonelik iletisi](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
-4. Bir onay aldıktan sonra, her bir kategori için ve desteklenen her dilde bildirim göndermek üzere **konsol uygulamasını** çalıştırın. Yalnızca abone olduğunuz kategoriler için bildirim aldığınızı ve iletinin seçtiğiniz yerel ayara uygun olduğunu doğrulayın.
-
-    ![Bildirim iletileri](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
+![Bildirim iletileri](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

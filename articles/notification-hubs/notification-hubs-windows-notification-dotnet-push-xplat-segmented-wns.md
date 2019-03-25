@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 8e583ac1c8ac4b6f32c2fa9f8b7ed07c2e7033e8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9cfe5f490ef4063e02d9407f23130c1a216961ed
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890007"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402465"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>Öğretici: Evrensel Windows platformu uygulamaları çalıştıran belirli Windows cihazlara anında iletme bildirimleri gönderme
 
@@ -222,30 +222,28 @@ Bu bölümde, yerel depolama alanında depoladığınız kategorileri kullanarak
 
 Uygulamanız artık tamamlandı. Uygulama, kullanıcılar kategori seçimini değiştirdiğinde cihazın yerel depolama alanında bildirim hub’ını kaydetmek için kullanılan bir kategori kümesi depolayabilir. Sonraki bölümde, bu uygulamaya kategori bildirimleri gönderebilen bir arka uç tanımlayacaksınız.
 
-## <a name="send-tagged-notifications"></a>Etiketli bildirimler gönderme
-
-[!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
-
-## <a name="run-the-app-and-generate-notifications"></a>Uygulamayı çalıştırma ve bildirimler oluşturma
-
+## <a name="run-the-uwp-app"></a>UWP uygulama çalıştırma 
 1. Visual Studio’da **F5** tuşunu seçerek uygulamayı derleyin ve başlatın. Uygulama kullanıcı arabirimi, abone olunacak kategorileri seçmenize olanak sağlayan iki durumlu düğmeler sağlar.
 
-    ![Son Dakika Haberleri uygulaması][1]
+    ![Son Dakika Haberleri uygulaması](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png)
 
 2. Bir veya daha fazla kategori iki durumlu düğmesini etkinleştirin ve sonra **Abone ol**’a tıklayın.
 
     Uygulama, seçilen kategorileri etiketlere dönüştürür ve bildirim hub’ından seçilen etiketler için yeni bir cihaz kaydı ister. Kayıtlı kategoriler döndürülür ve bir iletişim kutusunda görüntülenir.
 
-    ![Kategori iki durumlu düğmeleri ve Abone ol düğmesi][19]
+    ![Kategori iki durumlu düğmeleri ve Abone ol düğmesi](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png)
 
-3. Aşağıdaki yöntemlerden birini kullanarak arka uçtan yeni bir bildirim gönderin:
+## <a name="create-a-console-app-to-send-tagged-notifications"></a>Etiketli bildirimleri göndermek için bir konsol uygulaması oluşturma
 
-   * **Konsol uygulaması**: Konsol uygulaması başlatın.
-   * **Java/PHP**: Uygulamanızı veya betiğinizi çalıştırın.
+[!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-     Seçili kategorilere ait bildirimler, bildirim olarak görünür.
+## <a name="run-the-console-app-to-send-tagged-notifications"></a>Etiketli bildirimleri göndermek için konsol uygulamasını çalıştırma
 
-     ![Bildirimler][14]
+1. Önceki bölümde oluşturduğunuz uygulamayı çalıştırın.
+2. Seçili kategorilere ait bildirimler, bildirim olarak görünür. Bildirim seçtiğiniz ilk UWP uygulaması penceresini görürsünüz. 
+
+     ![Bildirimler](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png)
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -260,11 +258,6 @@ Bu makalede, son dakika haberlerini kategoriye göre yayınlamayı öğrendiniz.
 [Send notifications from your back-end]: #send
 [Run the app and generate notifications]: #test-app
 [Next Steps]: #next-steps
-
-<!-- Images. -->
-[1]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
-[14]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png
-[19]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
 
 <!-- URLs.-->
 [get-started]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md

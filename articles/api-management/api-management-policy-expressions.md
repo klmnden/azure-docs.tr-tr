@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 8cfaacad4619bb06536d41e72b9da1eb9c160dc2
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 90b2dfdbec0d6dc81a05b845832fda92fe36d98c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163914"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403100"
 ---
 # <a name="api-management-policy-expressions"></a>API Management ilke ifadeleri
 İlke ifadeleri söz dizimi anlatılmaktadır C# 7. Her ifadesi örtük olarak sağlanan erişimi olan [bağlam](api-management-policy-expressions.md#ContextVariables) değişkeni ve izin verilen [alt](api-management-policy-expressions.md#CLRTypes) .NET Framework türleri.
@@ -32,15 +32,15 @@ Daha fazla bilgi için:
 - İfadelerle kullanma hakkında bilgi [önbellekten alma](api-management-caching-policies.md#GetFromCache) ve [önbelleğine Store](api-management-caching-policies.md#StoreToCache) API Management yanıt önbelleğe almayı yapılandırma ilkeleri. Yanıt belirtildiği gibi arka uç hizmeti tarafından yedeklenmiş hizmetin önbelleğe almayı eşleşen süre ayarlama `Cache-Control` yönergesi.
 - İçerik filtreleme işlemleri öğrenin. Arka uç kullanarak alınan yanıtı veri öğelerini kaldırma [denetim akışı](api-management-advanced-policies.md#choose) ve [ayarlamak gövdesi](api-management-transformation-policies.md#SetBody) ilkeleri.
 - İlke ifadeleri indirmek için bkz [İlkeleri Yönetimi API örnekleri](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub deposu.
-  
-  
+
+
 ## <a name="Syntax"></a> Söz dizimi
 Tek bir deyim ifadeleri içine alınmıştır `@(expression)`burada `expression` iyi biçimlendirilmemiş C# ifade deyimi.
-  
+
 Birden fazla deyim ifadeleri içine alınmıştır `@{expression}`. Birden fazla deyim ifadeleri içindeki tüm kod yolları ile bitmelidir bir `return` deyimi.
-  
+
 ## <a name="PolicyExpressionsExamples"></a> Örnekleri
-  
+
 ```
 @(true)
 
@@ -64,18 +64,20 @@ Birden fazla deyim ifadeleri içine alınmıştır `@{expression}`. Birden fazla
   }
 }
 ```
-  
+
 ## <a name="PolicyExpressionsUsage"></a>Kullanım
 İfadeler, öznitelik değerleri ya da herhangi bir API Management metin değerleri olarak kullanılabilir [ilkeleri](api-management-policies.md) (ilke başvurusu aksini belirtmedikçe).
-  
+
 > [!IMPORTANT]
 > İlke ifadeleri kullanma olduğunda yalnızca sınırlı doğrulama İlkesi ifadelerin ilke tanımlandığında. İfadeler, çalışma zamanında, bir çalışma zamanı hatası ilke ifadeleri sonucu tarafından oluşturulan özel durumların ağ geçidi tarafından yürütülür.
-  
+
 ## <a name="CLRTypes"></a> .NET framework türleri içinde ilke ifadelere izin veriliyor
 Aşağıdaki tablo, .NET Framework türlerini ve ilke ifadelerinde izin üyeleri listeler.
-  
-|CLR türü|Desteklenen üyeleri|
+
+|Type|Desteklenen üyeleri|
 |--------------|-----------------------|
+|Newtonsoft.Json.Formatting|Tümü|
+|Newtonsoft.Json.JsonConvert|SerializeObject, DeserializeObject|
 |Newtonsoft.Json.Linq.Extensions|Tümü|
 |Newtonsoft.Json.Linq.JArray|Tümü|
 |Newtonsoft.Json.Linq.JConstructor|Tümü|
@@ -86,42 +88,63 @@ Aşağıdaki tablo, .NET Framework türlerini ve ilke ifadelerinde izin üyeleri
 |Newtonsoft.Json.Linq.JToken|Tümü|
 |Newtonsoft.Json.Linq.JTokenType|Tümü|
 |Newtonsoft.Json.Linq.JValue|Tümü|
-|System.Collections.Generic.IReadOnlyCollection < T\>|Tümü|
+|System.Array|Tümü|
+|System.BitConverter|Tümü|
+|System.Boolean|Tümü|
+|System.Byte|Tümü|
+|System.Char|Tümü|
+|System.Collections.Generic.Dictionary < TKey, TValue >|Tümü|
+|System.Collections.Generic.HashSet<T>|Tümü|
+|System.Collections.Generic.ICollection<T>|Tümü|
+|System.Collections.Generic.IDictionary < TKey, TValue >|Tümü|
+|.IEnumerable örneği<T>|Tümü|
+|System.Collections.Generic.IEnumerator<T>|Tümü|
+|System.Collections.Generic.IList<T>|Tümü|
+|System.Collections.Generic.IReadOnlyCollection<T>|Tümü|
 |System.Collections.Generic.IReadOnlyDictionary < TKey, TValue >|Tümü|
-|System.Collections.Generic.ISet < TKey, TValue >|Tümü|
-|System.Collections.Generic.KeyValuePair < TKey, TValue >|Anahtar değeri|
-|System.Collections.Generic.List < TKey, TValue >|Tümü|
-|Sıra System.Collections.Generic.Queue < TKey, TValue >|Tümü|
-|System.Collections.Generic.Stack < TKey, TValue >|Tümü|
+|System.Collections.Generic.ISet<T>|Tümü|
+|System.Collections.Generic.KeyValuePair < TKey, TValue >|Tümü|
+|System.Collections.Generic.List<T>|Tümü|
+|Sıra System.Collections.Generic.Queue<T>|Tümü|
+|System.Collections.Generic.Stack<T>|Tümü|
 |System.Convert|Tümü|
-|System.DateTime|Tümü|
+|System.DateTime|(Oluşturucu), ekleme, AddDays, AddHours, AddMilliseconds, AddMinutes, AddMonths, saniyeEkle, AddTicks, AddYears, tarih, gün, DayOfWeek, DayOfYear, DaysInMonth, saat, IsDaylightSavingTime, IsLeapYear, MaxValue, milisaniye, dakika, MinValue, ay, artık , Ayrıştırma, ikinci olarak, çıkarma, saat tıklaması, TimeOfDay, bugün, ToString, UtcNow, yıl|
 |System.DateTimeKind|UTC|
 |System.DateTimeOffset|Tümü|
 |System.Decimal|Tümü|
 |System.Double|Tümü|
+|System.Exception|Tümü|
 |System.Guid|Tümü|
-|System.IEnumerable < T\>|Tümü|
-|System.IEnumerator < T\>|Tümü|
 |System.Int16|Tümü|
 |System.Int32|Tümü|
 |System.Int64|Tümü|
-|System.Linq.Enumerable < T\>|Tümü|
+|System.IO.StringReader|Tümü|
+|System.IO.StringWriter|Tümü|
+|System.Linq.Enumerable|Tümü|
 |System.Math|Tümü|
 |System.MidpointRounding|Tümü|
 |System.Net.WebUtility|Tümü|
-|System.Nullable < T\>|Tümü|
+|System.Nullable|Tümü|
 |System.Random|Tümü|
 |System.SByte|Tümü|
-|System.Security.Cryptography. HMACSHA384|Tümü|
-|System.Security.Cryptography. HMACSHA512|Tümü|
+|System.Security.Cryptography.AsymmetricAlgorithm|Tümü|
+|System.Security.Cryptography.CipherMode|Tümü|
 |System.Security.Cryptography.HashAlgorithm|Tümü|
+|System.Security.Cryptography.HashAlgorithmName|Tümü|
 |System.Security.Cryptography.HMAC|Tümü|
 |System.Security.Cryptography.HMACMD5|Tümü|
 |System.Security.Cryptography.HMACSHA1|Tümü|
 |System.Security.Cryptography.HMACSHA256|Tümü|
+|System.Security.Cryptography.HMACSHA384|Tümü|
+|System.Security.Cryptography.HMACSHA512|Tümü|
 |System.Security.Cryptography.KeyedHashAlgorithm|Tümü|
 |System.Security.Cryptography.MD5|Tümü|
+|System.Security.Cryptography.Oid|Tümü|
+|System.Security.Cryptography.PaddingMode|Tümü|
 |System.Security.Cryptography.RNGCryptoServiceProvider|Tümü|
+|System.Security.Cryptography.RSA|Tümü|
+|System.Security.Cryptography.RSAEncryptionPadding|Tümü|
+|System.Security.Cryptography.RSASignaturePadding|Tümü|
 |System.Security.Cryptography.SHA1|Tümü|
 |System.Security.Cryptography.SHA1Managed|Tümü|
 |System.Security.Cryptography.SHA256|Tümü|
@@ -130,8 +153,18 @@ Aşağıdaki tablo, .NET Framework türlerini ve ilke ifadelerinde izin üyeleri
 |System.Security.Cryptography.SHA384Managed|Tümü|
 |System.Security.Cryptography.SHA512|Tümü|
 |System.Security.Cryptography.SHA512Managed|Tümü|
+|System.Security.Cryptography.SymmetricAlgorithm|Tümü|
+|System.Security.Cryptography.X509Certificates.PublicKey|Tümü|
+|System.Security.Cryptography.X509Certificates.RSACertificateExtensions|Tümü|
+|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Ad|
+|System.Security.Cryptography.X509Certificates.X509Certificate|Tümü|
+|System.Security.Cryptography.X509Certificates.X509Certificate2|Tümü|
+|System.Security.Cryptography.X509Certificates.X509ContentType|Tümü|
+|System.Security.Cryptography.X509Certificates.X509NameType|Tümü|
 |System.Single|Tümü|
 |System.String|Tümü|
+|System.StringComparer|Tümü|
+|System.StringComparison|Tümü|
 |System.StringSplitOptions|Tümü|
 |System.Text.Encoding|Tümü|
 |System.Text.RegularExpressions.Capture|Dizin, uzunluk değeri|
@@ -139,21 +172,27 @@ Aşağıdaki tablo, .NET Framework türlerini ve ilke ifadelerinde izin üyeleri
 |System.Text.RegularExpressions.Group|Yakalamalar, başarılı|
 |System.Text.RegularExpressions.GroupCollection|Öğe sayısı|
 |System.Text.RegularExpressions.Match|Boş, gruplar, sonuç|
-|System.Text.RegularExpressions.Regex|(Oluşturucu) IsMatch, eşleşmenin bir eşleşme değiştirin|
-|System.Text.RegularExpressions.RegexOptions|Derlenmiş, IgnoreCase IgnorePatternWhitespace, çok satırlı, None, RightToLeft, Singleline|
+|System.Text.RegularExpressions.Regex|(Oluşturucu) IsMatch, eşleşmenin bir eşleşme değiştirin, Unescape, Böl|
+|System.Text.RegularExpressions.RegexOptions|Tümü|
+|System.Text.StringBuilder|Tümü|
 |System.TimeSpan|Tümü|
+|System.TimeZone|Tümü|
+|System.TimeZoneInfo.AdjustmentRule|Tümü|
+|System.TimeZoneInfo.TransitionTime|Tümü|
+|System.TimeZoneInfo|Tümü|
 |System.Tuple|Tümü|
 |System.UInt16|Tümü|
 |System.UInt32|Tümü|
 |System.UInt64|Tümü|
 |System.Uri|Tümü|
+|System.UriPartial|Tümü|
 |System.Xml.Linq.Extensions|Tümü|
 |System.Xml.Linq.XAttribute|Tümü|
 |System.Xml.Linq.XCData|Tümü|
 |System.Xml.Linq.XComment|Tümü|
 |System.Xml.Linq.XContainer|Tümü|
 |System.Xml.Linq.XDeclaration|Tümü|
-|System.Xml.Linq.XDocument|Tümü|
+|System.Xml.Linq.XDocument|All, except: Yükleme|
 |System.Xml.Linq.XDocumentType|Tümü|
 |System.Xml.Linq.XElement|Tümü|
 |System.Xml.Linq.XName|Tümü|
@@ -165,10 +204,10 @@ Aşağıdaki tablo, .NET Framework türlerini ve ilke ifadelerinde izin üyeleri
 |System.Xml.Linq.XProcessingInstruction|Tümü|
 |System.Xml.Linq.XText|Tümü|
 |System.Xml.XmlNodeType|Tümü|
-  
+
 ## <a name="ContextVariables"></a> Bağlam değişkeni
 Adlı bir değişken `context` her ilkede örtük olarak kullanılabilir [ifade](api-management-policy-expressions.md#Syntax). Üyeleri sağlamak için testlerinizle ilgili olabilecek bilgilere `\request`. Tüm `context` üyeleri salt okunurdur.
-  
+
 |Bağlam değişkeni|Yöntemler, özellikler ve parametre değerlerini izin|
 |----------------------|-------------------------------------------------------|
 |Bağlam|API: IApi<br /><br /> Dağıtım<br /><br /> Geçen: TimeSpan - zaman damgası değeri ve geçerli saat arasındaki zaman aralığı<br /><br /> LastError<br /><br /> İşlem<br /><br /> Ürün<br /><br /> İstek<br /><br /> RequestId: GUID - benzersiz istek tanımlayıcısı<br /><br /> Yanıt<br /><br /> Abonelik<br /><br /> Zaman damgası: DateTime - istek alındığında zaman içinde nokta<br /><br /> İzleme: bool - gösterir izleme açık veya kapalı olma <br /><br /> Kullanıcı<br /><br /> Değişkenleri: IReadOnlyDictionary < string, object ><br /><br /> void Trace(message: string)|
@@ -196,7 +235,7 @@ Adlı bir değişken `context` her ilkede örtük olarak kullanılabilir [ifade]
 |BasicAuthCredentials|Parola: dize<br /><br /> UserId: dize|
 |Jwt AsJwt(input: this string)|Giriş: dize<br /><br /> Giriş parametresi geçerli bir JWT belirteci değer içeriyorsa, yöntem türü bir nesne döndürür. `Jwt`; Aksi takdirde yöntem döndürür `null`.|
 |bool TryParseJwt (giriş: Bu dize, sonuç: Jwt çıkış)|Giriş: dize<br /><br /> Sonuç: Jwt çıkış<br /><br /> Yöntemi giriş parametresi geçerli bir JWT belirteci değeri içerip içermediğini döndürür `true` ve sonuç parametresinin türü değeri içeren `Jwt`; Aksi takdirde yöntem döndürür `false`.|
-|Jwt|Algoritma: dize<br /><br /> Hedef kitle: IEnumerable < string\><br /><br /> Talepleri: IReadOnlyDictionary < string, string [] ><br /><br /> ExpirationTime: DateTime?<br /><br /> ID: dize<br /><br /> Veren: dize<br /><br /> NotBefore: DateTime?<br /><br /> Konu: dize<br /><br /> Türü: dize|
+|Jwt|Algoritma: dize<br /><br /> Hedef kitle: IEnumerable < string\><br /><br /> Talepleri: IReadOnlyDictionary < string, string [] ><br /><br /> ExpirationTime: DateTime?<br /><br /> ID: dize<br /><br /> Veren: dize<br /><br /> IssuedAt: DateTime?<br /><br /> NotBefore: DateTime?<br /><br /> Konu: dize<br /><br /> Türü: dize|
 |Jwt.Claims.GetValueOrDefault dize (claimName: string, defaultValue: dize)|claimName: dize<br /><br /> defaultValue: dize<br /><br /> Talep değerlerini virgülle ayrılmış döndürür veya `defaultValue` üstbilgi bulunamaması durumunda.|
 |bayt [] şifrele (giriş: Bu bayt [], algoritma: dize, anahtar: byte [], iv:byte[])|Giriş - şifrelenmiş düz metin<br /><br />algoritma - bir simetrik şifreleme algoritması adı<br /><br />anahtarı - şifreleme anahtarı<br /><br />IV - başlatma vektörü<br /><br />Şifrelenmiş düz metin döndürür.|
 |bayt [] şifrele (giriş: Bu bayt [], algoritma: System.Security.Cryptography.SymmetricAlgorithm)|Giriş - şifrelenmiş düz metin<br /><br />algoritma - şifreleme algoritması<br /><br />Şifrelenmiş düz metin döndürür.|
@@ -213,4 +252,4 @@ Adlı bir değişken `context` her ilkede örtük olarak kullanılabilir [ifade]
 + [API Management ilkeleri](api-management-howto-policies.md)
 + [API'leri dönüştürme](transform-api.md)
 + [İlke başvurusu](api-management-policy-reference.md) ilke bildirimlerine ve ayarlarının tam listesi için
-+ [İlke örnekleri](policy-samples.md)   
++ [İlke örnekleri](policy-samples.md)

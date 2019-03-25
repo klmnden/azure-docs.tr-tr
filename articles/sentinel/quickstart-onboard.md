@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/12/2019
 ms.author: rkarlin
-ms.openlocfilehash: 30f6d08594bdf2e5d78bc8c7881a135d6e57f397
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6ea852c9a1bb8ea6eb51df310aab97e9b10d48e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852245"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399691"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Yerleşik Azure Sentinel Önizleme
 
@@ -55,7 +55,7 @@ Veri kaynaklarınızı bağlandıktan sonra verilerinizi temel alan ınsights y�
 1. Tıklayın **+ Ekle**.
 1. Kullanma veya yeni bir tane oluşturmak istediğiniz çalışma alanını seçin. Birden fazla çalışma alanına Azure Gözcü çalıştırabilirsiniz, ancak veriler, tek bir çalışma alanına yalıtılır.
 
-   ![search](./media/quickstart-onboard/choose-workspace.png)
+   ![ara](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - **Çalışma alanı konumu** akışını Azure Gözcü için tüm veriler, seçili çalışma alanının coğrafi konumda depolanır anlamak önemlidir.  
@@ -75,7 +75,6 @@ Azure Sentinel hizmetine ve olayları ve günlükleri Azure Gözcü için iletme
 Böylece, hemen ınsights verilerinizin ilgi çekici almak en altında Azure Gözcü panoları için sizin yüklemeniz gerekir önerileri her bir bağlayıcının sağlar. <br> Yükleme yönergelerini izleyin veya [ilgili bağlantıyı Kılavuzu'na bakın](connect-data-sources.md) daha fazla bilgi için. Veri bağlayıcılar hakkında daha fazla bilgi için bkz: [bağlanmak Microsoft Hizmetleri](connect-data-sources.md).
 
 Kaynaklarına bağlı verilerinizi sonra verilerinizi Azure Gözcü akış başlatır ve ile çalışmaya başlamak hazır. Günlükleri görüntüleyebilirsiniz [yerleşik panolar](quickstart-get-visibility.md) ve Log Analytics sorguları oluşturmaya başlayın [verileri araştırmak](tutorial-investigate-cases.md).
-
 
 
 

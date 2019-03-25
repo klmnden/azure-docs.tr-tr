@@ -1,22 +1,22 @@
 ---
-title: Konak havuzu Yük Dengeleme yöntemleriyle (Önizleme) - Azure
-description: Konak havuzu Yük Dengeleme yöntemlerinin bir Windows sanal masaüstü ortamında için.
+title: Windows sanal masaüstü Önizleme konak havuzu Yük Dengeleme yöntemleriyle - Azure
+description: Konak havuzu Yük Dengeleme yöntemlerinin bir Windows sanal masaüstü Önizleme ortamı için.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 0a07406c8bad4ad0bef2949103d1f2c78e7dd8af
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8b18224339654c067d8ab9b543fa49a9c7d55ddd
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318517"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400173"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Konak havuzu Yük Dengeleme yöntemi
 
-Windows sanal masaüstü (Önizleme), Yük Dengeleme iki yöntemi destekler. Her bir yöntemin hangi oturumu ana bilgisayarı bir konak havuzdaki bir kaynağa bağlanırken bir kullanıcının oturumunu barındıracak belirler.
+Windows sanal masaüstü Önizleme iki Yük Dengeleme yöntemi destekler. Her bir yöntemin hangi oturumu ana bilgisayarı bir konak havuzdaki bir kaynağa bağlanırken bir kullanıcının oturumunu barındıracak belirler.
 
 Windows sanal masaüstü aşağıdaki Yük Dengeleme yöntemleriyle kullanılabilir:
 
