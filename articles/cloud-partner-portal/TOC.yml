@@ -1,0 +1,76 @@
+items:
+- name: Genel Bakış
+  items:
+  - name: Bulut iş ortağı portalı hakkında
+    href: ./cloud-partner-portal-what-is-the-cloud-partner-portal.md
+- name: başlarken
+  items:
+  - name: Bulut iş ortağı portalını kullanmaya başlama
+    href: ./cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
+  - name: Desteklenen ürünler
+    href: ./Cloud-partner-portal-products-that-can-get-published-via-portal.md
+- name: Nasıl yapılır kılavuzları
+  items:
+  - name: Sanal Makineleri yönetme
+    items:
+    - name: Yazar sanal makine teklifi
+      href: ./cloud-partner-portal-publish-virtual-machine.md
+      items:
+      - name: Ön koşullar
+        href: ./cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm
+      - name: Microsoft geliştirici hesabı kaydı
+        href: ./cloud-partner-portal-dev-center-accounts-registration.md
+      - name: Yeni VM teklifi oluşturma
+        href: ./cloud-partner-portal-publish-virtual-machine.md#how-to-create-a-new-vm-offer
+      - name: Teklif ayarları formu
+        href: ./cloud-partner-portal-publish-virtual-machine.md#how-to-fill-out-the-offer-settings-form
+      - name: SKU formu
+        href: ./cloud-partner-portal-publish-virtual-machine.md#how-to-create-skus
+        items:
+        - name: Fiyatlandırma
+          href: ./cloud-partner-portal-publish-virtual-machine.md#pricing
+        - name: VM görüntüleri
+          href: cloud-partner-portal-publish-virtual-machine.md#vm-images
+      - name: Market formu
+        href: ./cloud-partner-portal-publish-virtual-machine.md#marketplace-form
+      - name: Destek formu
+        href: cloud-partner-portal-publish-virtual-machine.md#support-form
+    - name: VM teklifi yayımlama
+      href: ./Cloud-partner-portal-make-offer-live-on-Azure-Marketplace.md
+    - name: Mevcut teklifi güncelleştirme
+      href: ./cloud-partner-portal-update-existing-offer.md
+    - name: VM teklifini/SKU'yu silme
+      href: ./cloud-partner-portal-delete-an-offer.md
+    - name: Bulut iş ortağı portalına geçme
+      href: ./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md
+  - name: Azure Market satıcı kılavuzu
+    href: ./cloud-partner-portal-seller-guide.md
+  - name: Müşteri adayları alma
+    href: ./cloud-partner-portal-get-customer-leads.md
+    items:
+    - name: Azure tablosu
+      href: ./cloud-partner-portal-lead-management-instructions-azure-table.md
+    - name: Dynamics CRM Online
+      href: ./cloud-partner-portal-lead-management-instructions-dynamics.md
+    - name: Salesforce
+      href: ./cloud-partner-portal-lead-management-instructions-salesforce.md
+    - name: Marketo
+      href: ./cloud-partner-portal-lead-management-instructions-marketo.md
+  - name: Yayımcı profilini yönetme
+    href: ./cloud-partner-portal-manage-publisher-profile.md
+  - name: Kullanıcıları yönetme
+    href: ./cloud-partner-portal-manage-users.md
+  - name: Destek alın
+    href: ./cloud-partner-portal-support-for-cloud-partner-portal.md
+- name: Kaynaklar
+  items:
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/
+  - name: Fiyatlandırma hesaplayıcı
+    href: https://azure.microsoft.com/pricing/calculator/
+ms.openlocfilehash: 1edb304ce457eac6db66b31b126309c4427f2c9e
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340804"

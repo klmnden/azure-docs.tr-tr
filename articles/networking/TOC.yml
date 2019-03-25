@@ -1,0 +1,149 @@
+items:
+- name: Genel Bakış
+  items:
+  - name: Azure ağı hakkında
+    href: networking-overview.md
+  - name: Mimari
+    items:
+    - name: Sanal Veri Merkezleri
+      href: /azure/architecture/vdc/networking-virtual-datacenter
+    - name: Birden çok ağ yoluyla Asimetrik yönlendirme
+      href: ../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Ağ tasarımlarının güvenliğini sağlama
+      href: ../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Merkez-uç topolojisi
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+    - name: Ağ güvenliği için en iyi uygulamalar
+      href: ../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Yüksek oranda kullanılabilir ağ sanal gereçleri
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
+    - name: Yük dengeleme yöntemlerini birleştirme
+      href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Azure DNS ve Traffic Manager kullanarak olağanüstü durum kurtarma
+      href: disaster-recovery-dns-traffic-manager.md
+  - name: Planlama ve tasarım
+    items:
+    - name: Sanal ağlar
+      href: ../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Şirket içi ve dışı bağlantısı - VPN
+      href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Şirket içi ve dışı bağlantısı - adanmış özel
+      href: ../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Arka uç bağlantısı birlikte çalışabilirliği
+      items:
+      - name: Önsöz ve Test Kurulumu
+        href: connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json
+      - name: Test Kurulumu Yapılandırması
+        href: connectivty-interoperability-configuration.md?toc=%2fazure%2fnetworking%2ftoc.json
+      - name: Denetim Düzlemi Analizi
+        href: connectivty-interoperability-control-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
+      - name: Veri Düzlemi Analizi
+        href: connectivty-interoperability-data-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Kavramlar
+    items:
+    - name: Sanal ağlar
+      href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Ağ yük dengeleme
+      href: ../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Uygulama yük dengeleme
+      href: ../application-gateway/overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: DNS
+      href: ../dns/dns-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: DNS tabanlı trafik dağılımı
+      href: ../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Şirket içi bağlanma - VPN
+      href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Şirket içi bağlanma - adanmış
+      href: ../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json
+- name: başlarken
+  items:
+  - name: İlk sanal ağınızı oluşturma
+    href: ../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+- name: Nasıl yapılır
+  items:
+  - name: İnternet bağlantısı
+    items:
+    - name: Ağ yük dengelemesi ortak sunucuları
+      href: ../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Uygulama yük dengelemesi ortak sunucuları
+      href: ../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Web uygulamalarını koruma
+      href: ../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Konumlar arasında trafiği dağıtma
+      href: ../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: İç bağlantı
+    items:
+    - name: Ağ yük dengelemesi özel sunucuları
+      href: ../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Uygulama yük dengelemesi özel sunucuları
+      href: ../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Sanal ağları bağlama (aynı konumlar)
+      href: ../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Sanal ağları bağlama (farklı konumlar)
+      href: ../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Şirket içi ve dışı bağlantısı
+    items:
+    - name: S2S VPN bağlantısı oluşturma (IPsec/IKE)
+      href: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: P2S VPN bağlantısı oluşturma (sertifikalara sahip SSTP)
+      href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Adanmış özel bağlantı oluşturma (ExpressRoute)
+      href: ../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Yönetim
+    items:
+    - name: Ağ izlemeye genel bakış
+      href: network-monitoring-overview.md
+    - name: Azure sınırlarına göre kaynak kullanımını denetleme
+      href: check-usage-against-limits.md
+    - name: Ağ topolojisini görüntüleme
+      href: ../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Örnek komut dosyaları
+    items:
+    - name: Azure CLI
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+  - name: Öğreticiler
+    items:
+    - name: VM'lerde yük dengeleme
+      href: ../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Bilgisayarı sanal ağa bağlama
+      href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+- name: Başvuru
+  items:
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/network
+  - name: Azure PowerShell
+    href: https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0
+  - name: .NET
+    href: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: REST
+    href: https://msdn.microsoft.com/library/mt163658.aspx
+- name: Kaynaklar
+  items:
+  - name: Yazar şablonları
+    href: /azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Topluluk şablonları
+    href: https://azure.microsoft.com/resources/templates/
+  - name: Ağ blogu
+    href: https://azure.microsoft.com/blog/topics/networking
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing
+  - name: Fiyatlandırma hesaplayıcı
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Bölgesel kullanılabilirlik
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-virtual-network
+  - name: Videolar
+    href: https://azure.microsoft.com/resources/videos/index/?services=virtual-network
+ms.openlocfilehash: 2c6eff267e9f612afe9fdc7214a1dc387325d733
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341263"

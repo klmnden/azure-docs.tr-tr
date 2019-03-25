@@ -1,0 +1,129 @@
+items:
+- name: Genel Bakış
+  items:
+  - name: Windows SQL Server VM’leri hakkında
+    href: virtual-machines-windows-sql-server-iaas-overview.md
+  - name: Sürüm notları
+    href: virtual-machines-windows-sql-server-iaas-release-notes.md
+- name: Hızlı Başlangıçlar
+  items:
+  - name: SQL VM Oluşturma - Portal
+    href: quickstart-sql-vm-create-portal.md
+  - name: SQL VM Oluşturma - PowerShell
+    href: quickstart-sql-vm-create-powershell.md
+- name: Kavramlar
+  items:
+  - name: En iyi uygulamalar
+    items:
+    - name: Performans için en iyi yöntemler
+      href: virtual-machines-windows-sql-performance.md
+    - name: Güvenlikle ilgili dikkat edilmesi gerekenler
+      href: virtual-machines-windows-sql-security.md
+    - name: Uygulama desenleri
+      href: virtual-machines-windows-sql-server-app-patterns-dev-strategies.md
+  - name: İş Sürekliliği
+    items:
+    - name: Yüksek kullanılabilirlik seçenekleri
+      href: virtual-machines-windows-sql-high-availability-dr.md
+    - name: AlwaysOn kullanılabilirlik grubu
+      href: virtual-machines-windows-portal-sql-availability-group-overview.md
+    - name: Yedekleme ve geri yükleme
+      href: virtual-machines-windows-sql-backup-recovery.md
+    - name: SQL Server 2014 için otomatik yedekleme
+      href: virtual-machines-windows-sql-automated-backup.md
+    - name: SQL Server 2016+ için otomatik yedekleme
+      href: virtual-machines-windows-sql-automated-backup-v2.md
+  - name: Yönetim
+    items:
+    - name: Bir VM’ye bağlanma
+      href: virtual-machines-windows-sql-connect.md
+    - name: Depolama alanını yapılandırma
+      href: virtual-machines-windows-sql-server-storage-configuration.md
+    - name: Yönetim görevlerini otomatik hale getirme
+      items:
+      - name: SQL Server IaaS Aracısı Uzantısını kullanma
+        href: virtual-machines-windows-sql-server-agent-extension.md
+      - name: Otomatik Düzeltme Eki Uygulama
+        href: virtual-machines-windows-sql-automated-patching.md
+      - name: Azure Key Vault Tümleştirme Yapılandırması
+        href: virtual-machines-windows-ps-sql-keyvault.md
+- name: Nasıl yapılır kılavuzları
+  items:
+  - name: SQL VM oluşturma
+    items:
+    - name: Portalı kullanma
+      href: virtual-machines-windows-portal-sql-server-provision.md
+    - name: Azure PowerShell kullanma
+      href: virtual-machines-windows-ps-sql-create.md
+  - name: SQL VM için lisanslama modelini değiştirme
+    href: virtual-machines-windows-sql-ahb.md
+  - name: Geçiş
+    items:
+    - name: SQL Server veritabanını geçirme
+      href: virtual-machines-windows-migrate-sql.md
+  - name: Yüksek Kullanılabilirliği Yapılandırma
+    items:
+    - name: Yedekleme ve geri yükleme için Azure Depolama’yı Kullanma
+      href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
+    - name: AlwaysOn kullanılabilirlik grubu
+      items:
+      - name: Azure SQL VM CLI
+        href: virtual-machines-windows-sql-availability-group-cli.md
+      - name: Azure Portalı Şablonu
+        href: virtual-machines-windows-portal-sql-alwayson-availability-groups.md
+      - name: Azure Hızlı Başlangıç Şablonları
+        href: virtual-machines-windows-sql-availability-group-quickstart-template.md
+      - name: Birden çok bölge
+        href: virtual-machines-windows-portal-sql-availability-group-dr.md
+      - name: El ile yapılandırma
+        items:
+        - name: Ön koşullar
+          href: virtual-machines-windows-portal-sql-availability-group-prereq.md
+        - name: Öğretici
+          href: virtual-machines-windows-portal-sql-availability-group-tutorial.md
+        - name: Yük dengeleyici - Azure portalı
+          href: virtual-machines-windows-portal-sql-alwayson-int-listener.md
+        - name: Yük dengeleyici - Azure PowerShell
+          href: virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md
+    - name: Yük Devretme Kümesi Örneği
+      items:
+      - name: Yapılandırma
+        href: virtual-machines-windows-portal-sql-create-failover-cluster.md
+- name: Başvuru
+  items:
+  - name: Azure PowerShell
+    href: /powershell/azure/overview
+  - name: Azure CLI
+    href: /cli/azure/
+  - name: T-SQL
+    href: https://docs.microsoft.com/sql/t-sql/language-reference
+  - name: SQL Server Sürücüleri
+    href: https://docs.microsoft.com/sql/connect/sql-connection-libraries
+  - name: REST
+    href: /rest/api/
+- name: Kaynaklar
+  items:
+  - name: SSS
+    href: virtual-machines-windows-sql-server-iaas-faq.md
+  - name: Fiyatlandırma
+    href: virtual-machines-windows-sql-server-pricing-guidance.md
+  - name: PaaS mi yoksa IaaS mi?
+    href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json
+  - name: SQL Server Veri Araçları (SSDT)
+    href: https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt
+  - name: SQL Server Management Studio (SSMS)
+    href: https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms
+  - name: SQL Server Araçları
+    href: https://docs.microsoft.com/sql/tools/overview-sql-tools
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/?category=compute
+  - name: MSDN forumu
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
+ms.openlocfilehash: 4e3e565bd700bb4106028e98a2a7833707561376
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340634"

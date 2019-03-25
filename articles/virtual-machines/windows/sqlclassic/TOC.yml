@@ -1,0 +1,97 @@
+items:
+- name: Genel Bakış
+  items:
+  - name: Windows SQL Server VM’leri
+    href: ../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
+  - name: SSS
+    href: ../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+- name: Başlarken
+  items:
+  - name: Azure portalında VM sağlama
+    href: ../sql/virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+  - name: Azure PowerShell kullanarak VM sağlama
+    href: virtual-machines-windows-classic-ps-sql-create.md
+  - name: Bir VM’ye bağlanma
+    href: virtual-machines-windows-classic-sql-connect.md
+  - name: SQL Server veritabanını geçirme
+    href: ../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+- name: Nasıl yapılır
+  items:
+  - name: Yüksek Kullanılabilirliği Yapılandırma
+    items:
+    - name: Yüksek kullanılabilirlik seçenekleri
+      href: ../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+    - name: PowerShell ile Always On kullanılabilirlik grubu yapılandırma
+      href: virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
+    - name: Kullanılabilirlik grubu için iç dinleyici yapılandırma
+      href: virtual-machines-windows-classic-ps-sql-int-listener.md
+    - name: Kullanılabilirlik grubu için dış dinleyici yapılandırma
+      href: virtual-machines-windows-classic-ps-sql-ext-listener.md
+    - name: Şirket içi kullanılabilirlik grubunu Azure'a genişletme
+      href: virtual-machines-windows-classic-sql-onprem-availability.md
+  - name: Yönetme
+    items:
+    - name: SQL Server IaaS Aracısı Uzantısını kullanma
+      href: virtual-machines-windows-classic-sql-server-agent-extension.md
+    - name: Otomatik Düzeltme Eki Uygulama
+      href: virtual-machines-windows-classic-sql-automated-patching.md
+    - name: Azure Key Vault Tümleştirme Yapılandırması
+      href: virtual-machines-windows-classic-ps-sql-keyvault.md
+    - name: Premium Depolamayı kullanma
+      href: virtual-machines-windows-classic-sql-server-premium-storage.md
+    - name: Güvenlikle İlgili Dikkat Edilmesi Gerekenler
+      href: ../sql/virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+  - name: Yedekleme ve geri yükleme
+    items:
+    - name: Yedekleme ve Geri Yükleme
+      href: ../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+    - name: Otomatik Yedekleme
+      href: virtual-machines-windows-classic-sql-automated-backup.md
+    - name: Yedekleme ve Geri Yükleme için Azure Depolama’yı Kullanma
+      href: ../sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+  - name: İş Zekası
+    items:
+    - name: Azure Sanal Makineler’de SQL Server İş Zekası
+      href: virtual-machines-windows-classic-ps-sql-bi.md
+    - name: Azure'da barındırılan bir web sitesinde ReportViewer kullanma
+      href: virtual-machines-windows-classic-sql-server-reportviewer.md
+    - name: Rapor Sunucusu ile Azure VM oluşturmak için Azure PowerShell kullanma
+      href: virtual-machines-windows-classic-ps-sql-report.md
+  - name: Performans için en iyi yöntemler
+    href: ../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+  - name: Uygulama desenleri
+    href: ../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+- name: Başvuru
+  items:
+  - name: Azure PowerShell
+    href: /powershell/azure/overview?view=azuresmps-3.7.0
+  - name: Azure CLI
+    href: /cli/azure/
+  - name: T-SQL
+    href: https://docs.microsoft.com/sql/t-sql/language-reference
+  - name: SQL Server Sürücüleri
+    href: https://docs.microsoft.com/sql/connect/sql-server-drivers
+  - name: REST
+    href: /rest/api/
+- name: Kaynaklar
+  items:
+  - name: MSDN forumu
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server
+  - name: Fiyatlandırma hesaplayıcı
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: SQL Server Veri Araçları (SSDT)
+    href: https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt
+  - name: SQL Server Management Studio (SSMS)
+    href: https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms
+  - name: SQL Server Araçları
+    href: https://docs.microsoft.com/sql/tools/overview-sql-tools
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
+ms.openlocfilehash: 66cc42f9be1a2147597e81ec774b01aa7b59e383
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341178"

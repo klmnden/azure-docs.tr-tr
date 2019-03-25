@@ -134,8 +134,11 @@ Güvenlik bilgilerini ayarlayıp kullanma, iki aşamalı doğrulama, kendi parol
                     <div class="cardText">
                         <h3>Uygulamalarım portalı yardımı</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/active-directory-saas-access-panel-introduction">Uygulamalarım portalı nedir?</a><br/>
-                        <a href="/azure/active-directory/active-directory-saas-access-panel-user-help">Sorun giderme</a>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-access">Uygulamalarım portalına erişme ve portalı kullanma</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-update-profile">Profil ve hesap bilgilerinizi güncelleştirme</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-groups">Grupla ilgili bilgilerinizi güncelleştirme</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-access-reviews">Kendi erişim gözden geçirmelerinizi gerçekleştirme</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-troubleshoot">Sorun giderme</a>
                         </p>
                     </div>
                 </div>

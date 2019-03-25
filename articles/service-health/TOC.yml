@@ -1,0 +1,45 @@
+items:
+- name: Azure Hizmet Durumu
+  href: index.md
+- name: Genel Bakış
+  items:
+  - name: Azure durumu nedir?
+    href: azure-status-overview.md
+  - name: Hizmet Durumu nedir?
+    href: service-health-overview.md
+  - name: Kaynak Durumu nedir?
+    href: resource-health-overview.md
+- name: Nasıl yapılır
+  items:
+  - name: Hizmet durumu olayları için uyarıları yapılandırma
+    href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+    items:
+    - name: Azure portalını kullanarak hizmet durumu bildirimlerini görüntüleme
+      href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+  - name: Web kancası kullanarak hizmet durumu bildirimleri yapılandırma
+    href: service-health-alert-webhook-guide.md
+    items:
+    - name: ServiceNow ile yapılandırma
+      href: service-health-alert-webhook-servicenow.md
+    - name: PagerDuty ile yapılandırma
+      href: service-health-alert-webhook-pagerduty.md
+    - name: OpsGenie ile yapılandırma
+      href: service-health-alert-webhook-opsgenie.md
+    - name: REST ile sistem durumu olayları alma
+      href: service-health-rest.md
+  - name: Kaynak durumu olayları için uyarıları yapılandırma
+    href: resource-health-alert-arm-template-guide.md
+- name: Kaynaklar
+  items:
+  - name: Sık Sorulan Sorular
+    href: resource-health-faq.md
+  - name: Fiyatlandırma hesaplayıcı
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Azure Kaynak Durumu aracılığıyla kullanılabilen kaynak türleri ve durum denetimleri
+    href: resource-health-checks-resource-types.md
+ms.openlocfilehash: 421b633a68dfcbe5643d3b377615fdf3f8fd2c81
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340821"

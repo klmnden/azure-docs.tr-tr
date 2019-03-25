@@ -1,0 +1,69 @@
+items:
+- name: Scheduler Belgeleri
+  href: index.md
+- name: Genel Bakış
+  items:
+  - name: Azure Scheduler nedir?
+    href: scheduler-intro.md
+- name: başlarken
+  items:
+  - name: İş oluşturma ve yönetme - portal
+    href: scheduler-get-started-portal.md
+  - name: Scheduler'dan Logic Apps'e geçme
+    href: migrate-from-scheduler-to-logic-apps.md
+- name: Kavramlar
+  items:
+  - name: Kavramlar, terimler ve varlıklar
+    href: scheduler-concepts-terms.md
+- name: Nasıl yapılır kılavuzları
+  items:
+  - name: Planlama ve tasarım
+    items:
+    - name: Planlar ve faturalandırma
+      href: scheduler-plans-billing.md
+    - name: Limitler, kotalar ve varsayılan değerler
+      href: scheduler-limits-defaults-errors.md
+    - name: Yüksek kullanılabilirlik ve güvenilirlik
+      href: scheduler-high-availability-reliability.md
+  - name: Geliştirme
+    items:
+    - name: Karmaşık zamanlamalar ve gelişmiş yinelemeler oluşturma
+      href: scheduler-advanced-complexity.md
+    - name: Zamanlama oluşturma ve yönetme - Azure PowerShell
+      href: scheduler-powershell-reference.md
+  - name: Güvenlik
+    items:
+    - name: Giden çağrıların kimliğini doğrulama
+      href: scheduler-outbound-authentication.md
+- name: Başvuru
+  items:
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.scheduler
+  - name: REST API
+    href: /rest/api/scheduler
+  - name: Resource Manager şablonu
+    href: /azure/templates/microsoft.scheduler/allversions
+- name: Kaynaklar
+  items:
+  - name: Azure Scheduler yol haritası
+    href: https://azure.microsoft.com/updates/?product=scheduler
+  - name: Azure yol haritası
+    href: https://azure.microsoft.com/updates/
+  - name: MSDN forumu
+    href: https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-scheduler
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/scheduler/
+  - name: Fiyatlandırma hesaplayıcı
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Hizmet güncelleştirmeleri
+    href: https://azure.microsoft.com/updates/?product=scheduler
+  - name: Videolar
+    href: https://azure.microsoft.com/documentation/videos/index/?services=scheduler
+ms.openlocfilehash: fa4c53b0061f9ef23f8086cdcd6bcc73fc55986c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341484"

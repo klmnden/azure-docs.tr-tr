@@ -24,6 +24,12 @@ items:
       href: azure-to-azure-tutorial-failover-failback.md
     - name: Yük devretmeyi çalıştırma
       href: azure-to-azure-tutorial-failback.md
+  - name: Azure VM'lerini taşıma
+    items:
+    - name: Azure VM’lerini başka bir bölgeye taşıma
+      href: azure-to-azure-tutorial-migrate.md
+    - name: Azure VM'lerini Kullanılabilirlik Alanlarına taşıma
+      href: move-Azure-VMs-AVset-Azone.md
   - name: Azure'a VMware VM olağanüstü durum kurtarma
     items:
     - name: Azure’u hazırlama
@@ -60,19 +66,11 @@ items:
       href: migrate-tutorial-windows-server-2008.md
     - name: AWS örneklerini Azure’a geçirme
       href: migrate-tutorial-aws-azure.md
-  - name: Azure VM'lerini taşıma
-    items:
-    - name: Genel Bakış
-      href: azure-to-azure-move-overview.md
-    - name: Azure VM’lerini başka bir bölgeye taşıma
-      href: azure-to-azure-tutorial-migrate.md
-    - name: Azure VM'lerini Kullanılabilirlik Alanlarına taşıma
-      href: move-Azure-VMs-AVset-Azone.md
 - name: Kavramlar
   items:
   - name: Site Recovery hakkında sık sorulan sorular
     href: site-recovery-faq.md
-  - name: Azure'a Azure VM olağanüstü durum kurtarma hakkında
+  - name: Azure VM’leri için olağanüstü durum kurtarma hakkında
     items:
     - name: Azure-Azure arası mimari
       href: azure-to-azure-architecture.md
@@ -80,12 +78,14 @@ items:
       href: azure-to-azure-common-questions.md
     - name: Azure’dan Azure’a çoğaltma için destek matrisi
       href: azure-to-azure-support-matrix.md
+    - name: Azure Backup ile Site Recovery'yi kullanma
+      href: site-recovery-backup-interoperability.md
     - name: Azure VM’lerinde olağanüstü durum kurtarma ile hızlandırılmış ağ iletişimi
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: Azure VM olağanüstü durum kurtarma ile ExpressRoute
       href: azure-vm-disaster-recovery-with-expressroute.md
-    - name: Azure VM olağanüstü durum kurtarma ve Azure Backup Birlikte Çalışabilirliği
-      href: site-recovery-backup-interoperability.md
+  - name: Azure Sanal Makineleri taşıma hakkında
+    href: azure-to-azure-move-overview.md
   - name: Azure'a VMware VM olağanüstü durum kurtarma hakkında
     items:
     - name: VMware olağanüstü durum kurtarmaya genel bakış
@@ -468,9 +468,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Hizmet güncelleştirmeleri
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 5286e3479561e6effd279978e84f045207a0a7a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 66b14ba7100b8bd8e4bb3a100e8fd10d226f555e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835308"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317111"

@@ -1,0 +1,57 @@
+items:
+- name: Windows Sanal Masaüstü
+  href: index.yml
+- name: Genel Bakış
+  items:
+  - name: Windows Sanal Masaüstü nedir?
+    href: overview.md
+- name: Öğreticiler
+  items:
+  - name: 1. Windows Sanal Masaüstü'nde kiracı oluşturma
+    href: tenant-setup-azure-active-directory.md
+  - name: 2. Azure Market ile ana bilgisayar havuzu oluşturma
+    href: create-host-pools-azure-marketplace.md
+  - name: 3. Uygulama gruplarını yönetme
+    href: manage-app-groups.md
+  - name: 4. PowerShell ile hizmet sorumluları ve rol atamaları oluşturma
+    href: create-service-principal-role-powershell.md
+- name: Nasıl yapılır
+  items:
+  - name: Windows Sanal Masaüstü kaynaklarına bağlanma
+    items:
+    - name: Windows 7 ve Windows 10'la bağlanma
+      href: connect-windows-7-and-10.md
+    - name: Web istemcisiyle bağlanma
+      href: connect-web.md
+  - name: Azure Resource Manager şablonuyla ana bilgisayar havuzu oluşturma
+    href: create-host-pools-arm-template.md
+  - name: PowerShell ile ana bilgisayar havuzu oluşturma
+    href: create-host-pools-powershell.md
+  - name: Ana bilgisayar havuzu için kullanıcı profili paylaşımı ayarlama
+    href: create-host-pools-user-profile.md
+  - name: Windows Sanal Masaüstü yük dengeleme yöntemini yapılandırma
+    href: configure-host-pool-load-balancing.md
+  - name: Tanılama özelliğiyle sorunları belirleme
+    href: diagnostics-role-service.md
+  - name: Ana VHD görüntüsünü hazırlama ve özelleştirme
+    href: set-up-customize-master-image.md
+  - name: Oturum ana bilgisayarlarını otomatik olarak ölçeklendirme
+    href: set-up-scaling-script.md
+- name: Kavramlar
+  items:
+  - name: Windows Sanal Masaüstü ortamı
+    href: environment-setup.md
+  - name: Windows Sanal Masaüstü'ne temsilci erişimi
+    href: delegated-access-virtual-desktop.md
+  - name: Ana bilgisayar havuzu yük dengeleme yöntemleri
+    href: host-pool-load-balancing.md
+- name: Başvuru
+  items:
+  - name: PowerShell
+    href: /powershell/windows-virtual-desktop/overview
+ms.openlocfilehash: 2f321b25d6ba1ad8545bf161dd37e270890efcec
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318778"

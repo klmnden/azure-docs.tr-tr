@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: fdda67921db38b912679d27bf5a8c897775ad82b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d4e80fd18de40c7df806f0a72612cec7bb71e2d2
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137999"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339190"
 documentType: LandingData
 title: Azure Media Services v3 Belgeleri
 metadata:
@@ -18,11 +18,27 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10-15-2018
+  ms.date: 03/20/2019
   ms.author: juliako
 abstract:
   description: Media Services v3 ile talep üzerine video akışı yapma, canlı yayın gerçekleştirme ve videolarınızı analiz etme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, güvenli bir biçimde milyonlarca kullanıcıya ölçeklendirilebilen, isteğe bağlı ve canlı video veya ses akışları sağlama ile ilgili bilgiler içerir. <br/> SDK’lar <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI Belirtimlerine (Swagger)</a> dayanır.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - image:
+        src: 
+      html: <p>Media Services'in temel kavramlarını öğrenin.</p>
+      href: /azure/media-services/latest/concepts-overview/
+      title: Kavramları öğrenin
+    - image:
+        src: 
+      html: <p>Şu anda, Azure portalıyla v3 kaynaklarını yönetemezsiniz. REST API, CLI veya desteklenen SDK'lardan birini kullanın.</p>
+      href: /azure/media-services/latest/developers-guide/
+      title: v3 API ile geliştirme
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph

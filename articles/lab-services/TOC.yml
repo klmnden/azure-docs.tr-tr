@@ -77,7 +77,7 @@ items:
       href: classroom-labs/how-to-create-schedules.md
     - name: Bir şablon VM'sinin içinde birden çok VM ile ortam oluşturma
       href: classroom-labs/how-to-enable-multi-vm-environment.md
-  - name: DevTest laboratuvarları
+  - name: DevTest Labs
     items:
     - name: Laboratuvar sanal makineleri için kaynak grubunu belirtme
       href: resource-group-control.md
@@ -89,6 +89,8 @@ items:
       href: test-app-azure.md
     - name: Kişisel verileri dışarı aktarma veya silme
       href: personal-data-delete-export.md
+    - name: Başka bir laboratuvardan sanal makineleri içeri aktarma
+      href: import-virtual-machines-from-another-lab.md
     - name: Kuruluşunuzda DevTest Labs altyapısını ayarlama
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
@@ -250,9 +252,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Sık sorulan sorular
       href: devtest-lab-faq.md
-ms.openlocfilehash: 773faa503cb3fc29ef07b310b5ee2a7af5089d49
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: a0b21dfaa64b351e98b6f505568bdbc06c48dd1c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189013"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338386"

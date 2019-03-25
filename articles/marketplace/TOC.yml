@@ -1,0 +1,474 @@
+items:
+- name: Azure Market ve AppSource belgeleri
+  href: index.md
+  items:
+  - name: Azure Market ve AppSource yol haritası
+    href: ./marketplace-roadmap.md
+  - name: Azure Market ilkeleri ve koşulları
+    href: ./policies-terms.md
+  - name: Azure Market ve AppSource genel bakış bilgileri ve avantajları
+    href: ./marketplace-publishers-guide.md
+    items:
+    - name: Markette yayımcı olma
+      href: ./become-publisher.md
+      items:
+      - name: Microsoft hesabı oluşturma
+        href: ./guidelines.md
+      - name: Geliştirme Merkezi'ne Kaydolma
+        href: ./register-dev-center.md
+      - name: Azure iş ortağı müşteri kullanımı ilişkilendirmesi
+        href: ./azure-partner-customer-usage-attribution.md
+    - name: Bir market, iki vitrin
+      href: ./comparing-appsource-azure-marketplace.md
+    - name: Yayımlama seçenekleri ve dikkat edilmesi gerekenler
+      href: ./determine-your-listing-type.md
+      items:
+      - name: Müşteri adayı yönetimi
+        href: ./lead-management-for-cloud-marketplace.md
+      - name: Azure Market'te işlem yapma
+        href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
+      - name: Özel Teklifler
+        href: ./private-offers.md
+      - name: Standart Sözleşme
+        href: ./standard-contract.md
+    - name: Teklif türüne göre yayımlama kılavuzu
+      href: ./publisher-guide-by-offer-type.md
+      items:
+      - name: Virtual Machines
+        href: ./marketplace-virtual-machines.md
+      - name: 'Azure Uygulamaları: Çözüm şablonları'
+        href: ./marketplace-solution-templates.md
+      - name: 'Azure Uygulamaları: Yönetilen uygulamalar'
+        href: ./marketplace-managed-apps.md
+      - name: SaaS Uygulamaları
+        href: ./marketplace-saas-applications-technical-publishing-guide.md
+      - name: Kapsayıcılar
+        href: ./marketplace-containers.md
+      - name: IoT Edge modülleri
+        href: ./iot-edge-module.md
+      - name: Danışmanlık Hizmetleri
+        href: ./consulting-services.md
+      - name: Office 365, Dynamics 365 ve Power BI yayımlama kılavuzu
+        href: ./appsource-offer-publishing-guide.md
+      - name: Azure Active Directory kullanarak AppSource ve Market listesini etkinleştirme
+        href: ./enable-appsource-marketplace-using-azure-ad.md
+    - name: En iyi pazarlama deneyimleri
+      href: ./gtm-marketing-best-practices.md
+      items:
+      - name: En iyi teklif listeleme deneyimleri
+        href: ./gtm-offer-listing-best-practices.md
+      - name: Ürünü öne çıkarma
+        href: ./gtm-how-to-get-featured.md
+      - name: Market içerik doğrulaması
+        href: ./marketplace-criteria-content-validation.md
+      - name: Bulut Çözüm Sağlayıcıları
+        href: ./cloud-solution-providers.md
+    - name: Market avantajlarınız
+      href: ./gtm-your-marketplace-benefits.md
+      items:
+      - name: Microsoft ile işletmenizi tanıtma
+        href: ./gtm-promote-your-business.md
+      - name: Tercih edilen çözümler
+        href: ./preferred-solutions.md
+      - name: Tümleşik çözümler
+        href: ./integrated-solutions.md
+    - name: Azure Market ve AppSource desteği
+      href: ./support-azure-marketplace.md
+      items:
+      - name: Market hakkında SSS
+        href: ./marketplace-faq-publisher-guide.md
+      - name: Coğrafi kullanılabilirlik ve para birimleri
+        href: ./marketplace-geo-availability-currencies.md
+- name: Bulut İş Ortağı Portalı
+  href: ./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
+  items:
+  - name: Portal Turu
+    href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
+    items:
+    - name: Portal gezintisi
+      href: ./cloud-partner-portal/portal-tour/cpp-portal-navigation.md
+    - name: Yeni teklif menüsü
+      href: ./cloud-partner-portal/portal-tour/cpp-new-offer-menu.md
+    - name: Tüm teklifler sayfası
+      href: ./cloud-partner-portal/portal-tour/cpp-all-offers-page.md
+    - name: Onaylar sayfası
+      href: ./cloud-partner-portal/portal-tour/cpp-approvals-page.md
+    - name: Tüm yayımcılar sayfası
+      href: ./cloud-partner-portal/portal-tour/cpp-all-publishers-page.md
+    - name: Kullanıcılar sayfası
+      href: ./cloud-partner-portal/portal-tour/cpp-users-page.md
+    - name: Denetim geçmişi sayfası
+      href: ./cloud-partner-portal/portal-tour/cpp-history-page.md
+    - name: İçgörüler sayfası
+      href: ./cloud-partner-portal/portal-tour/cpp-insights-page.md
+  - name: Portal yönetimi
+    items:
+    - name: Geliştirme merkezi hesabı kaydı
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md
+    - name: Yayımcı profilini yönetme
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md
+    - name: Kullanıcıları yönetme
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md
+  - name: İş yönetimi
+    items:
+    - name: SEO kılavuzu
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md
+    - name: GDPR uyumluluğu
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md
+    - name: Özel SKU’lar
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md
+    - name: Fiyatlandırma konusunda dikkat edilmesi gerekenler
+      items:
+      - name: Basitleştirilmiş para birimi fiyatlandırması
+      - name: Vergi ve fiyat bilgileri
+      - name: Fiyatlandırmayı içeri ve dışarı aktarma
+    - name: Müşteri adaylarını yönetme
+      items:
+      - name: Müşteri adaylarını yapılandırma
+        href: ./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md
+      - name: Azure tablosu
+        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md
+      - name: Dynamics
+        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md
+      - name: HTTPS Uç Noktası
+        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md
+      - name: Marketo
+        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md
+      - name: Salesforce
+        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md
+    - name: Seller Insights
+      items:
+      - name: Başlarken
+        href: ./cloud-partner-portal-orig/si-getting-started.md
+      - name: Yenilikler
+        href: ./cloud-partner-portal-orig/si-changes.md
+      - name: Web analizi
+        href: ./cloud-partner-portal-orig/web-analytics.md
+      - name: Tanımlar
+        href: ./cloud-partner-portal-orig/si-insights-definitions-v4.md
+      - name: İçgörüler hakkında SSS
+        href: ./cloud-partner-portal-orig/si-faqs.md
+  - name: Market teklifleri
+    href: ./cloud-partner-portal/cpp-marketplace-offers.md
+    items:
+    - name: Teklifleri yönetme
+      href: ./cloud-partner-portal/manage-offers/cpp-manage-offers.md
+      items:
+      - name: Teklif oluşturma
+        href: ./cloud-partner-portal/manage-offers/cpp-create-offer.md
+      - name: Teklif yayımlama
+        href: ./cloud-partner-portal/manage-offers/cpp-publish-offer.md
+      - name: Teklif durumunu görüntüleme
+        href: ./cloud-partner-portal/manage-offers/cpp-view-status-offer.md
+      - name: Teklifi güncelleştirme
+        href: ./cloud-partner-portal/manage-offers/cpp-update-offer.md
+      - name: Teklifi silme
+        href: ./cloud-partner-portal/manage-offers/cpp-delete-offer.md
+    - name: Test Sürüşü
+      items:
+      - name: Test Sürüşü nedir?
+        href: ./cloud-partner-portal/test-drive/what-is-test-drive.md
+      - name: Azure Resource Manager Test Sürüşü
+        href: ./cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md
+      - name: Barındırılan Test Sürüşü
+        href: ./cloud-partner-portal/test-drive/hosted-test-drive.md
+      - name: Mantıksal uygulama Test Sürüşü
+        href: ./cloud-partner-portal/test-drive/logic-app-test-drive.md
+      - name: Test Sürüşü için örnekleri dönüştürme
+        href: ./cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md
+      - name: Pazarlama ve en iyi yöntemler
+        href: ./cloud-partner-portal/test-drive/marketing-and-best-practices.md
+    - name: Azure uygulama teklifi
+      href: ./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md
+      items:
+      - name: Ön koşullar
+        href: ./cloud-partner-portal/azure-applications/cpp-prerequisites.md
+      - name: Azure uygulama teklifi oluşturma
+        href: ./cloud-partner-portal/azure-applications/cpp-create-offer.md
+        items:
+        - name: Teklif Ayarları sekmesi
+          href: ./cloud-partner-portal/azure-applications/cpp-offer-settings-tab.md
+        - name: SKU'lar sekmesi
+          href: ./cloud-partner-portal/azure-applications/cpp-skus-tab.md
+        - name: Test Sürüşü sekmesi
+          href: ./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md
+        - name: Market sekmesi
+          href: ./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md
+        - name: Destek sekmesi
+          href: ./cloud-partner-portal/azure-applications/cpp-support-tab.md
+      - name: Teknik varlıklar oluşturma
+        href: ./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md
+      - name: Azure uygulama teklifini yayımlama
+        href: ./cloud-partner-portal/azure-applications/cpp-publish-offer.md
+      - name: Gözden geçirme geri bildirimini işleme
+        href: ./cloud-partner-portal/azure-applications/cpp-handling-review-feedback.md
+      - name: Mevcut teklifi güncelleştirme
+        href: ./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md
+    - name: Danışmanlık hizmetleri
+      href: ./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md
+      items:
+      - name: Ön koşullar
+        href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md
+      - name: Danışmanlık hizmeti teklifi oluşturma
+        href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md
+        items:
+        - name: Teklif ayarları sekmesi
+          href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-define-offer-settings.md
+        - name: Storefront ayrıntıları sekmesi
+          href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md
+      - name: Danışmanlık hizmeti teklifini yayımlama
+        href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md
+    - name: Kapsayıcılar teklifi
+      href: ./cloud-partner-portal/containers/cpp-containers-offer.md
+      items:
+      - name: Ön koşullar
+        href: ./cloud-partner-portal/containers/cpp-prerequisites.md
+      - name: Kapsayıcı teklifi oluşturma
+        href: ./cloud-partner-portal/containers/cpp-create-offer.md
+        items:
+        - name: Teklif ayarları sekmesi
+          href: ./cloud-partner-portal/containers/cpp-offer-settings-tab.md
+        - name: SKU'lar sekmesi
+          href: ./cloud-partner-portal/containers/cpp-skus-tab.md
+        - name: Market sekmesi
+          href: ./cloud-partner-portal/containers/cpp-marketplace-tab.md
+        - name: Destek sekmesi
+          href: ./cloud-partner-portal/containers/cpp-support-tab.md
+      - name: Kapsayıcı teknik varlıkları oluşturma
+        href: ./cloud-partner-portal/containers/cpp-create-technical-assets.md
+      - name: Kapsayıcı teklifini yayımlama
+        href: ./cloud-partner-portal/containers/cpp-publish-offer.md
+      - name: Mevcut teklifi güncelleştirme
+        href: ./cloud-partner-portal/containers/cpp-update-existing-offer.md
+    - name: Dynamics 365 for Business Central teklifi
+      href: ./cloud-partner-portal-orig/cpp-business-central-offer.md
+      items:
+      - name: Genel bakış yayımlama
+        href: ./cloud-partner-portal-orig/d365-finance-overview-publish-your-app.md
+      - name: Yeni teklif oluşturma
+        href: ./cloud-partner-portal-orig/d365-finance-create-new-offer.md
+      - name: Teklif ayarları
+        href: ./cloud-partner-portal-orig/d365-finance-create-offer-settings.md
+      - name: Teknik ayrıntılar
+        href: ./cloud-partner-portal-orig/d365-finance-create-offer-technical-details.md
+      - name: StoreFront ayrıntıları
+        href: ./cloud-partner-portal-orig/d365-finance-create-storefront-details.md
+      - name: Yayımlama işlemi
+        href: ./cloud-partner-portal-orig/d365-finance-app-publishing-process.md
+    - name: Dynamics 365 for Customer Engagement teklifi
+      href: ./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md
+      items:
+      - name: Ön koşullar
+        href: ./cloud-partner-portal/dyn365ce/cpp-prerequisites.md
+      - name: Customer Engagement teklifi oluşturma
+        href: ./cloud-partner-portal/dyn365ce/cpp-create-offer.md
+        items:
+        - name: Teklif Ayarları sekmesi
+          href: ./cloud-partner-portal/dyn365ce/cpp-offer-settings-tab.md
+        - name: Teknik Bilgiler sekmesi
+          href: ./cloud-partner-portal/dyn365ce/cpp-technical-info-tab.md
+        - name: Test Sürüşü sekmesi
+          href: ./cloud-partner-portal/dyn365ce/cpp-testdrive-tab.md
+        - name: StoreFront Ayrıntıları sekmesi
+          href: ./cloud-partner-portal/dyn365ce/cpp-storefront-details-tab.md
+        - name: Kişiler sekmesi
+          href: ./cloud-partner-portal/dyn365ce/cpp-contacts-tab.md
+      - name: Customer Engagement teknik varlıkları oluşturma
+        href: ./cloud-partner-portal/dyn365ce/cpp-create-technical-assets.md
+      - name: Customer Engagement teklifini yayımlama
+        href: ./cloud-partner-portal/dyn365ce/cpp-publish-offer.md
+    - name: Dynamics 365 for Operations teklifi
+      href: ./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md
+      items:
+      - name: Ön koşullar
+        href: ./cloud-partner-portal-orig/pre-requisites.md
+      - name: Yayımlama
+        href: ./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md
+      - name: LCS aboneliği
+        href: ./cloud-partner-portal-orig/lcs-subscription.md
+      - name: Kod yükseltme
+        href: ./cloud-partner-portal-orig/code-upgrade.md
+      - name: Veri varlıkları
+        href: ./cloud-partner-portal-orig/data-entities.md
+      - name: BPM ve yöntemler
+        href: ./cloud-partner-portal-orig/bpm-and-methodologies.md
+      - name: Yardım wiki'si
+        href: ./cloud-partner-portal-orig/help-wiki.md
+    - name: IoT Edge modülü teklifi
+      href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
+      items:
+      - name: Ön koşullar
+        href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
+      - name: IoT Edge modülü teklifi oluşturma
+        href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
+        items:
+        - name: Teklif Ayarları sekmesi
+          href: ./cloud-partner-portal/iot-edge-module/cpp-offer-settings-tab.md
+        - name: SKU'lar sekmesi
+          href: ./cloud-partner-portal/iot-edge-module/cpp-skus-tab.md
+        - name: Market sekmesi
+          href: ./cloud-partner-portal/iot-edge-module/cpp-marketplace-tab.md
+        - name: Destek sekmesi
+          href: ./cloud-partner-portal/iot-edge-module/cpp-support-tab.md
+      - name: IOT Edge modülü teknik varlıklarını oluşturma
+        href: ./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md
+      - name: IoT Edge modülü teklifini yayımlama
+        href: ./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md
+      - name: Mevcut teklifi güncelleştirme
+        href: ./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md
+    - name: Power BI Uygulaması teklifi
+      href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
+      items:
+      - name: Ön koşullar
+        href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
+      - name: Power BI Uygulaması teklifi oluşturma
+        href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
+        items:
+        - name: Teklif Ayarları sekmesi
+          href: ./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md
+        - name: Teknik Bilgiler sekmesi
+          href: ./cloud-partner-portal/power-bi/cpp-technical-info-tab.md
+        - name: StoreFront Ayrıntıları sekmesi
+          href: ./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md
+        - name: Kişiler sekmesi
+          href: ./cloud-partner-portal/power-bi/cpp-contacts-tab.md
+      - name: Power BI Uygulaması teknik varlıkları oluşturma
+        href: ./cloud-partner-portal/power-bi/cpp-create-technical-assets.md
+      - name: Power BI Uygulaması teklifini yayımlama
+        href: ./cloud-partner-portal/power-bi/cpp-publish-offer.md
+      - name: Mevcut teklifi güncelleştirme
+        href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
+    - name: SaaS uygulama teklifi
+      href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
+      items:
+      - name: Ön koşullar
+        href: ./cloud-partner-portal/saas-app/cpp-prerequisites.md
+      - name: SaaS uygulama teklifi oluşturma
+        href: ./cloud-partner-portal/saas-app/cpp-create-offer.md
+        items:
+        - name: Teklif Ayarları sekmesi
+          href: ./cloud-partner-portal/saas-app/cpp-offer-settings-tab.md
+        - name: Teknik Bilgiler sekmesi
+          href: ./cloud-partner-portal/saas-app/cpp-technical-info-tab.md
+        - name: Planlar sekmesi
+          href: ./cloud-partner-portal/saas-app/cpp-plans-tab.md
+        - name: Kanal Bilgileri sekmesi
+          href: ./cloud-partner-portal/saas-app/cpp-channel-info-tab.md
+        - name: Test Sürüşü sekmesi
+          href: ./cloud-partner-portal/saas-app/cpp-testdrive-tab.md
+        - name: StoreFront Ayrıntıları sekmesi
+          href: ./cloud-partner-portal/saas-app/cpp-storefront-tab.md
+        - name: Kişiler sekmesi
+          href: ./cloud-partner-portal/saas-app/cpp-contacts-tab.md
+      - name: Teklif yayımlama
+        href: ./cloud-partner-portal/saas-app/cpp-publish-offer.md
+      - name: Mevcut teklifi güncelleştirme
+        href: ./cloud-partner-portal/saas-app/cpp-update-existing-offer.md
+      - name: SaaS gerçekleştirme API'leri
+        href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md
+        items:
+        - name: SaaS V1 API
+          href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v1.md
+        - name: SaaS V2 API
+          href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md
+    - name: Sanal makine teklifi
+      href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
+      items:
+      - name: Ön koşullar
+        href: ./cloud-partner-portal/virtual-machine/cpp-prerequisites.md
+      - name: VM teklifi oluşturma
+        href: ./cloud-partner-portal/virtual-machine/cpp-create-offer.md
+        items:
+        - name: Teklif Ayarları sekmesi
+          href: ./cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md
+        - name: SKU'lar sekmesi
+          href: ./cloud-partner-portal/virtual-machine/cpp-skus-tab.md
+        - name: Test Sürüşü sekmesi
+          href: ./cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md
+        - name: Market sekmesi
+          href: ./cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md
+        - name: Destek sekmesi
+          href: ./cloud-partner-portal/virtual-machine/cpp-support-tab.md
+      - name: VM teknik varlıkları oluşturma
+        href: ./cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md
+        items:
+        - name: VHD oluşturma
+          href: ./cloud-partner-portal/virtual-machine/cpp-create-vhd.md
+        - name: Yaygın VHD oluşturma sorunları
+          href: ./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md
+        - name: VM’ye bağlanma
+          href: ./cloud-partner-portal/virtual-machine/cpp-connect-vm.md
+        - name: VM'yi yapılandırma
+          href: ./cloud-partner-portal/virtual-machine/cpp-configure-vm.md
+        - name: Windows Uzaktan Yönetimi
+          href: ./cloud-partner-portal/virtual-machine/cpp-winrm-over-https.md
+          items:
+          - name: VM'yi oluşturduktan sonra WinRM'yi yapılandırma
+            href: ./cloud-partner-portal/virtual-machine/cpp-configure-winrm-after-vm-creation.md
+        - name: VM'yi dağıtma
+          href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md
+          items:
+          - name: Kullanıcı VM görüntüsü oluşturma
+            href: ./cloud-partner-portal/virtual-machine/cpp-create-user-image.md
+          - name: Anahtar kasası sertifikası oluşturma
+            href: ./cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert.md
+            items:
+            - name: Anahtar kasası dağıtım şablonu
+              href: ./cloud-partner-portal/virtual-machine/cpp-key-vault-deploy-template.md
+        - name: Kullanıcı VHD'sinden VM dağıtma
+          href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image.md
+          items:
+          - name: VHD Dağıtım Şablonu
+            href: ./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md
+          - name: Market'ten VM dağıtma
+            href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md
+        - name: VM görüntüsünü sertifikalama
+          href: ./cloud-partner-portal/virtual-machine/cpp-certify-vm.md
+        - name: VM kendi kendine test istemcisi
+          href: ./cloud-partner-portal/virtual-machine/cpp-selftest-client.md
+        - name: SAS URI'si alma
+          href: ./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md
+        - name: Yaygın SAS URL sorunları
+          href: ./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md
+      - name: VM teklifini yayımlama
+        href: ./cloud-partner-portal/virtual-machine/cpp-publish-offer.md
+      - name: Mevcut teklifi güncelleştirme
+        href: ./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md
+  - name: API Başvurusu
+    items:
+    - name: Genel Bakış
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
+    - name: Ön koşullar
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
+    - name: Dikkat edilmesi gerekenler
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md
+    - name: Eşzamanlılık denetimi
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-concurrency-control.md
+    - name: Teklifleri alma
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
+    - name: Belirli bir teklifi alma
+      href: ./cloud-partner-portal-orig//cloud-partner-portal-api-retrieve-specific-offer.md
+    - name: Teklifi ekleme veya değiştirme
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
+    - name: Teklif durumunu alma
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offer-status.md
+    - name: Teklif yayımlama
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-publish-offer.md
+    - name: İşlemleri alma
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-operations.md
+    - name: İşlemleri iptal etme
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-cancel-operations.md
+    - name: Canlı yayına geçme
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
+    - name: Sanal makine tekliflerinin fiyatlandırması
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md
+    - name: Kimlik doğrulama hatalarını giderme
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
+  - name: Destek alma
+    href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
+ms.openlocfilehash: 90243803c7637e12cc1e72dc7b3e698fd3b9c273
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341195"

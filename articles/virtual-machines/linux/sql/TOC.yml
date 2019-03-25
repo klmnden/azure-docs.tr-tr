@@ -1,0 +1,45 @@
+items:
+- name: Genel Bakış
+  items:
+  - name: Linux SQL Server VM’leri hakkında
+    href: sql-server-linux-virtual-machines-overview.md
+- name: Hızlı Başlangıçlar
+  items:
+  - name: SQL VM Oluşturma - Portal
+    href: provision-sql-server-linux-virtual-machine.md
+- name: Başvuru
+  items:
+  - name: Azure CLI
+    href: /cli/azure/
+  - name: PowerShell
+    href: /powershell/azure/overview
+  - name: T-SQL
+    href: https://msdn.microsoft.com/library/azure/bb510741.aspx
+  - name: SQL Server Sürücüleri
+    href: https://msdn.microsoft.com/library/mt654049.aspx
+  - name: REST
+    href: /rest/api/
+- name: Kaynaklar
+  items:
+  - name: SSS
+    href: sql-server-linux-faq.md
+  - name: Linux üzerinde SQL Server belgeleri
+    href: https://docs.microsoft.com/sql/linux/sql-server-linux-overview
+  - name: Fiyatlandırma
+    href: ../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json
+  - name: PaaS mi yoksa IaaS mi?
+    href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json
+  - name: SQL Server Veri Araçları (SSDT)
+    href: https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt
+  - name: SQL Server Araçları
+    href: https://docs.microsoft.com/sql/tools/overview-sql-tools
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/?category=compute
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
+ms.openlocfilehash: 3e44ef418b474ddd88fa232362e1b38db791e0ba
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341433"
