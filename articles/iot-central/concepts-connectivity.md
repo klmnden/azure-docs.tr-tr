@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 0790b7d5280b3fdf26c34c3903a6257d21bc877c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28aef1c1b5091db75b4a1fb6786ee712b42a1ea2
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835841"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418780"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IOT Central, cihaz bağlantısı
 
@@ -33,9 +33,9 @@ DPS kullanarak sağlar:
 Bu nasıl yapılır makalesi aşağıdaki dört kullanım örneklerini açıklar:
 
 1. [SAS kullanarak tek bir cihazı hızlı bir şekilde bağlanın](#connect-a-single-device)
-1. Cihazları uygun ölçekte SAS kullanarak bağlanma
+1. [Cihazları uygun ölçekte SAS kullanarak bağlanma](#connect-devices-at-scale-using-sas)
 1. [Cihazları uygun ölçekte X.509 sertifikaları kullanarak bağlanma](#connect-devices-using-x509-certificates) bu üretim ortamları için önerilen yaklaşımdır.
-1. İlk kayıt cihazları bağlayın 
+1. [İlk kayıt cihazları bağlayın](#connect-without-registering-devices)
 
 ## <a name="connect-a-single-device"></a>Tek bir cihazı bağlayın
 
