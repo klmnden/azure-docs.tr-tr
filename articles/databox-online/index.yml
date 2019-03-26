@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 44c7f6d32737fe83e80a2f2df15f0ae078a5849e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 376f2bd792cb1b3190507f5571a8b7a33daf2542
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400277"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439133"
 documentType: LandingData
 title: Azure Data Box Belgeleri - Çevrimiçi Aktarım
 metadata:
@@ -16,10 +16,10 @@ metadata:
   ms.service: databox
   ms.subservice: edge
   ms.topic: landing-page
-  ms.date: 03/22/2019
+  ms.date: 03/25/2019
   ms.author: alkohli
 abstract:
-  description: Azure Data Box ailesi hızlı, ucuz ve güvenilir bir yolla yüzlerce terabayt boyutundaki veriyi Azure'a aktarmanıza olanak tanır. Ağ üzerinden yüksek performanslı veri aktarımı için Data Box cihazlarını kullanın.<p>Bulutta arşivleme, olağanüstü durum kurtarma veya bulut ölçeğinde işleme için verilerinizi buluta göndermek üzere Data Box Gateway<SUP>Önizleme</SUP> hizmetini seçin.  Azure'a taşınan verilerinizi filtrelemek, analiz etmek ve dönüştürmek için Data Box Edge<SUP>Önizleme</SUP> hizmetini kullanın.</p><p>Data Box Gateway ve Data Box Edge ile ağ tabanlı aktarım gerçekleştirmek için öğreticilerimizi inceleyin.</p>
+  description: Azure Data Box ailesi hızlı, ucuz ve güvenilir bir yolla yüzlerce terabayt boyutundaki veriyi Azure'a aktarmanıza olanak tanır. Ağ üzerinden yüksek performanslı veri aktarımı için Data Box cihazlarını kullanın.<p>Bulutta arşivleme, olağanüstü durum kurtarma veya bulut ölçeğinde işleme için verilerinizi buluta göndermek üzere Data Box Gateway hizmetini seçin.  Azure’a taşınan verilerinizi filtrelemek, analiz etmek ve dönüştürmek için Data Box Edge hizmetini kullanın.</p><p>Data Box Gateway ve Data Box Edge ile ağ tabanlı aktarım gerçekleştirmek için öğreticilerimizi inceleyin.</p>
 sections:
 - title: Öğreticiler
   items:

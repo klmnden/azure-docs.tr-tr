@@ -17,7 +17,7 @@ ms.author: alkohli
 <p>Farklı depolama kapasitelerine sahip ürünlerden oluşan Azure Data Box ailesi, terabaytlarca (TB) verinin Azure'a hızlı, uygun maliyetli ve güvenilir bir şekilde gönderilmesine yardımcı olur. Microsoft, çevrimdışı veya ağ üzerinden veri aktarımını mümkün kılan özel depolama cihazları göndererek güvenli veri aktarımını hızlandırır.</p>
 <h2>Çevrimdışı veri aktarımı</h2>
 <p>Sınırlı bant genişliği veya bağlantı bulunmayan durumlar için</p>
-<ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
+<ul class="cardsA panelContent singlePanelContent cols cols3">
     <li>
         <a href="/azure/databox/data-box-disk-overview">
             <div class="cardSize">
@@ -65,7 +65,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Heavy<SUP>Önizleme</SUP></b>, 500 TB üzerindeki veriler için. Microsoft, verilerinizi kopyalayıp geri göndermeniz için 1 petabayt (PB) boyutunda bir cihaz gönderir.</p>
+                            <p><b>Data Box Heavy</b>, 500 TB üzerindeki veriler için. Microsoft, verilerinizi kopyalayıp geri göndermeniz için 1 petabayt (PB) boyutunda bir cihaz gönderir.</p>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Gateway <SUP>Önizleme</SUP></b>, depolama alanına sahip sanal cihaz. Bu cihazı kullanarak verilerinizi ağ üzerinden Azure'a gönderebilirsiniz.</p>
+                            <p><b>Data Box Gateway</b>, depolama alanına sahip sanal cihaz. Bu cihazı kullanarak verilerinizi ağ üzerinden Azure'a gönderebilirsiniz.</p>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Edge <SUP>Önizleme</SUP></b>, depolama alanına ve işlemciye sahip fiziksel cihaz. Azure'a taşınan verilerinizi analiz etmek, dönüştürmek veya filtrelemek istiyorsanız bu cihazı kullanın.</p>
+                            <p><b>Data Box Edge</b>, depolama alanına ve işlemciye sahip fiziksel cihaz. Azure'a taşınan verilerinizi analiz etmek, dönüştürmek veya filtrelemek istiyorsanız bu cihazı kullanın.</p>
                         </div>
                     </div>
                 </div>
