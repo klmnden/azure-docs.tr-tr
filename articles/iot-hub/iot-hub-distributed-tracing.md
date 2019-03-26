@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: f685521adbbd8b9be9128ff77ab38b42860518b6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: fc6db4d02898ea0e8eed3cdf3d0b1a9788d943e9
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351057"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439305"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Azure IOT cihaz-bulut iletileri dağıtılmış izleme (Önizleme) ile izleme
 
@@ -174,7 +174,7 @@ Windows üzerinde örnek oluşturmak için bu yönergeleri verilmiştir. Diğer 
 
 Sahip **değil Önemsiz** C SDK'sını kullanarak dağıtılmış izleme özelliğini önizlemek için. Bu nedenle, bu yaklaşım önerilmez.
 
-İleti geliştirme Kılavuzu izleyerek tüm IOT Hub protokol temelleri ilk olarak, uygulamalıdır [oluşturun ve IOT Hub iletilerini okuma](iot-hub-devguide-messages-construct.md). Ardından, Protokolü özelliklerini Düzenle eklemek için MQTT/AMQP iletileri `tracestate` olarak **sistem özelliği**. Daha ayrıntılı belirtmek gerekirse:
+İleti geliştirme Kılavuzu izleyerek tüm IOT Hub protokol temelleri ilk olarak, uygulamalıdır [oluşturun ve IOT Hub iletilerini okuma](iot-hub-devguide-messages-construct.md). Ardından, eklemek için MQTT/AMQP iletileri Protokolü özelliklerini Düzenle `tracestate` olarak **sistem özelliği**. Daha ayrıntılı belirtmek gerekirse:
 
 * MQTT için ekleme `%24.tracestate=timestamp%3d1539243209` ileti konusuna burada `1539243209` unix zaman damgası biçimi iletisinde oluşturma saati ile değiştirilmelidir. Örnek olarak, uygulamaya başvurmak [C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
 * AMQP için ekleme `key("tracestate")` ve `value("timestamp=1539243209")` ek açıklama iletisi. Bir başvuru uygulaması için bkz: [burada](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).

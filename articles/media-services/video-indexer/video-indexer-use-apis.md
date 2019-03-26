@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 6a7d79d8a9328eaf0808c79ed359299e1ec37d1a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4c2c22d2d3d68080b1d4e05410121ea1d1be283d
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862735"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439197"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Öğretici: Video Indexer API'sini kullanma
 
@@ -73,19 +73,6 @@ Sunucudan sunucuya senaryoların çoğunda büyük bir olasılıkla aynı **hesa
 Erişim belirteçlerinin süresi 1 saatte dolar. İşlemler API'sini kullanmadan önce erişim belirtecinizin geçerli olduğundan emin olun. Belirtecin süresi dolarsa yeni bir erişim belirteci almak için Yetkilendirme API'sini tekrar çağırın.
  
 API ile tümleştirmeye hazırsınız. [Her bir Video Indexer REST API’nin ayrıntılı açıklamasına](https://api-portal.videoindexer.ai/) bakabilirsiniz.
-
-## <a name="location"></a>Konum
-
-Tüm işlem API’leri için bir Konum parametresi gerekir. Bu parametre, çağrının yönlendirileceği ve hesabın oluşturulduğu bölgeyi gösterir.
-
-Aşağıdaki tabloda açıklanan değerler geçerlidir. **Parametre değeri**, API’yi kullanırken geçirdiğiniz değerdir.
-
-|**Ad**|**Parametre değeri**|**Açıklama**|
-|---|---|---|
-|Deneme|İzleme|Deneme hesapları için kullanılır.|
-|Batı ABD|westus2|Azure Batı ABD 2 bölgesi için kullanılır.|
-|Kuzey Avrupa |northeurope|Azure Kuzey Avrupa bölgesi için kullanılır.|
-|Doğu Asya|eastasia|Azure Doğu Asya bölgesi için kullanılır.|
 
 ## <a name="account-id"></a>Hesap Kimliği 
 
@@ -224,6 +211,6 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[JSON çıktısının ayrıntılarını inceleyin](video-indexer-output-json-v2.md).
-
-[Video Indexer’a genel bakış](video-indexer-overview.md)
+- [JSON çıktısının ayrıntılarını inceleyin](video-indexer-output-json-v2.md).
+- [Video Indexer’a genel bakış](video-indexer-overview.md)
+- [Bölgeler](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

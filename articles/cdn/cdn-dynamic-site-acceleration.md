@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 03/25/2019
 ms.author: magattus
-ms.openlocfilehash: 4fa681e800197ea241ba1c6cf2180ba04b6e565b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 6bd1d24cdece91265a7355678ea2bc0b0f9e3910
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092601"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439167"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Azure CDN üzerinden dinamik site hızlandırma
 
@@ -27,7 +27,7 @@ Sosyal medya, elektronik ticaret ve kişiselleştirilmiş hyper web açılımı 
 
 Standart içerik teslim ağı (CDN) özelliği, statik dosyaların teslimini hızlandırın olanağı dosyaları önbelleğe almak için yakın son kullanıcılara içerir. Sunucu, kullanıcı davranışlarını yanıt içeriği oluşturur. ancak, dinamik web uygulamaları ile edge konumlarda o içeriği önbelleğe mümkün değildir. İçeriklerin teslimini hızlandırma daha geleneksel Uçlarda önbelleğe alma işleminde daha karmaşıktır ve teslimat yeni tüm veriler yol boyunca her öğe ince ayarlar bir uçtan uca çözüm gerektirir. Azure CDN dinamik site Hızlandırma (DSA) iyileştirmesi sayesinde, dinamik içerik web sayfalarına ait performansla yaşamları geliştirildi.
 
-**Akamai'den Azure CDN** ve **verizon'dan Azure CDN** DSA iyileştirme ile her ikisini de teklif **için en iyi duruma getirilmiş** uç noktası oluşturma işlemi sırasında menüsü.
+**Akamai'den Azure CDN** ve **verizon'dan Azure CDN** DSA iyileştirme ile her ikisini de teklif **için en iyi duruma getirilmiş** uç noktası oluşturma işlemi sırasında menüsü. Dinamik site hızlandırma Microsoft gelen aracılığıyla sunulanlar [Azure ön kapısı Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 > [!Important]
 > İçin **akamai'den Azure CDN** profilleri, oluşturulduktan sonra bir CDN uç noktası iyileştirmesi değiştirme izin verilir.
@@ -109,9 +109,9 @@ TCP *yavaş başlangıç* ağ üzerinden gönderilen veri miktarını sınırlan
 
 1. Sistem durumu ve bant genişliği izleme uç PoP sunucuları arasındaki bant genişliği ölçmek için kullanılır.
     
-2. Her sunucunun ağ koşulları ve sunucu sağlığı etrafında diğer POP farkında olmasını sağlayın ölçümleri uç PoP sunucular arasında paylaşılır.  
+2. Her sunucunun ağ koşulları ve sunucu sağlığı etrafında diğer POP farkında olmasını sağlayın ölçümleri uç PoP sunucular arasında paylaşılır.  
     
-3. CDN uç sunucularını, yakınlık diğer CDN uç sunucularıyla iletişim kurarken hangi en iyi pencere boyutunu olmalıdır gibi bazı iletim parametreleri hakkında varsayımlar. Bu adım, CDN uç sunucularını arasındaki bağlantının durumunu daha yüksek paket veri aktarımlarını özelliğine sahip olup olmadığını ilk sıkışma penceresi boyutu artırılabilir anlamına gelir.  
+3. CDN uç sunucularını, yakınlık diğer CDN uç sunucularıyla iletişim kurarken hangi en iyi pencere boyutunu olmalıdır gibi bazı iletim parametreleri hakkında varsayımlar. Bu adım, CDN uç sunucularını arasındaki bağlantının durumunu daha yüksek paket veri aktarımlarını özelliğine sahip olup olmadığını ilk sıkışma penceresi boyutu artırılabilir anlamına gelir.  
 
 #### <a name="leveraging-persistent-connections"></a>Yararlanarak kalıcı bağlantılar
 
@@ -157,7 +157,7 @@ Statik ve dinamik varlıklar karışımını içeren bir Web sitesi varsa, en iy
 
 Önbelleğe alma kuralları erişmek için:
 
-1. Gelen **CDN profili** sayfasında, ayarları, select **önbelleğe alma kuralları**.  
+1. Gelen **CDN profili** sayfasında, ayarları, select **önbelleğe alma kuralları**.  
     
     ![CDN Önbelleğe alma kuralları düğmesi](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
@@ -169,7 +169,7 @@ Statik ve dinamik varlıklar karışımını içeren bir Web sitesi varsa, en iy
 
 Kural altyapısı erişmek için:
     
-1. Gelen **CDN profili** sayfasında **Yönet**.  
+1. Gelen **CDN profili** sayfasında **Yönet**.  
     
     ![CDN profili Yönet düğmesi](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
@@ -183,7 +183,7 @@ Kural altyapısı erişmek için:
 
 Alternatif olarak, iki CDN uç noktası kullanabilirsiniz: bir uç nokta iyileştirilmiş dinamik varlıklar ve başka bir uç nokta gibi genel bir statik iyileştirme türü ile en iyi duruma getirilmiş sunmak için DSA ile teslim önbelleğe varlıklarına web teslimi. Kullanmayı planladığınız CDN uç noktasında varlık doğrudan bağlanmak için Web URL'leri değiştirin. 
 
-Örneğin: `mydynamic.azureedge.net/index.html` dinamik bir sayfa ve DSA uç noktasından yüklenir.  Html sayfasında JavaScript kitaplıkları veya statik CDN uç noktasından gibi yüklenen görüntü gibi birden çok statik varlıklar başvuran `mystatic.azureedge.net/banner.jpg` ve `mystatic.azureedge.net/scripts.js`. 
+Örneğin: `mydynamic.azureedge.net/index.html` dinamik bir sayfa ve DSA uç noktasından yüklenir.  Html sayfasında JavaScript kitaplıkları veya statik CDN uç noktasından gibi yüklenen görüntü gibi birden çok statik varlıklar başvuran `mystatic.azureedge.net/banner.jpg` ve `mystatic.azureedge.net/scripts.js`. 
 
 
 

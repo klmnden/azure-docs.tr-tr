@@ -6,19 +6,19 @@ documentationcenter: na
 author: ggailey777
 manager: cfowler
 keywords: Azure işlevleri, İşlevler, olay işleme, dinamik işlem, sunucusuz mimari, python
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 8fa093d629eb7c655ea277b1d57f35193394f722
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 28f2b395c7f9be1b194b500ef20456be8ff405b0
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730010"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438706"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure işlevleri Python Geliştirici Kılavuzu
 

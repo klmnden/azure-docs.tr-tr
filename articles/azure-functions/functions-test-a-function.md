@@ -9,14 +9,14 @@ keywords: Azure işlevleri, İşlevler, olay işleme, Web kancaları, dinamik i�
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 030/25/2019
 ms.author: cshoe
-ms.openlocfilehash: d3da5cc9e0eff27fde6bcd503c033db12f49371e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4b3cba7e7656ea13a6e7b36be4cb2fef99893867
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767711"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439337"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Kodunuzu Azure işlevleri'nde test stratejileri
 
@@ -44,7 +44,7 @@ Ortamınızı ayarlamak için bir işlev oluşturun ve uygulamayı test etme. A�
 2. [Bir HTTP işlev şablonu oluşturma](./functions-create-first-azure-function.md) ve adlandırın *HttpTrigger*.
 3. [Şablondan Zamanlayıcı bir işlev oluşturma](./functions-create-scheduled-function.md) ve adlandırın *TimerTrigger*.
 4. [XUnit Test uygulama oluşturma](https://xunit.github.io/docs/getting-started-dotnet-core) tıklayarak Visual Studio'da **Dosya > Yeni > Proje > Visual C# > .NET Core > xUnit Test projesi** ve adlandırın *Functions.Test*. 
-5. Test uygulaması için bir başvuru eklemek için Nuget kullanma [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/) ve [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+5. Test uygulamadan bir başvuru eklemek için Nuget kullanma [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Başvuru *işlevleri* uygulama](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) gelen *Functions.Test* uygulama.
 
 ### <a name="create-test-classes"></a>Test sınıfları oluşturma
@@ -55,11 +55,28 @@ Her işlev bir örneğini alır [ILogger](https://docs.microsoft.com/dotnet/api/
 
 `ListLogger` Sınıfı uygulamak için tasarlanmıştır `ILogger` arabirim ve iç değerlendirmesi sırasında bir test için ileti listesi de tutun.
 
-**Sağ** üzerinde *Functions.Test* seçin ve uygulama **Ekle > sınıfı**, adlandırın **ListLogger.cs** ve aşağıdaki kodu girin:
+**Sağ** üzerinde *Functions.Test* seçin ve uygulama **Ekle > sınıfı**, adlandırın **NullScope.cs** ve aşağıdaki kodu girin:
+
+```csharp
+using System;
+
+namespace Functions.Tests
+{
+    public class NullScope : IDisposable
+    {
+        public static NullScope Instance { get; } = new NullScope();
+
+        private NullScope() { }
+
+        public void Dispose() { }
+    }
+}
+```
+
+Ardından, **sağ** üzerinde *Functions.Test* seçin ve uygulama **Ekle > sınıfı**, adlandırın **ListLogger.cs** girin Aşağıdaki kodu:
 
 ```csharp
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions.Internal;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -94,7 +111,7 @@ namespace Functions.Tests
 
 `ListLogger` Sınıfın uyguladığı aşağıdaki üyeleri tarafından sözleşmeleri yapılır gibi `ILogger` arabirimi:
 
-- **BeginScope**: Kapsamları, günlüğe kaydetme için bağlam ekleyin. Bu durumda, test yalnızca statik örneğine noktaları [NullScope](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.abstractions.internal.nullscope) test işlevine izin veren sınıfı.
+- **BeginScope**: Kapsamları, günlüğe kaydetme için bağlam ekleyin. Bu durumda, test yalnızca statik örneğine noktaları `NullScope` test işlevine izin veren sınıfı.
 
 - **IsEnabled**: Varsayılan değer olarak `false` sağlanır.
 
