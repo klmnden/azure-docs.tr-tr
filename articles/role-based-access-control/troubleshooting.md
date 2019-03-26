@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 7b27c811214def7f5646f886b955d035a50c0725
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: d85c49cc8533b88382de81f8f12fde7116afb69a
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342482"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407598"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>RBAC, Azure kaynakları için sorun giderme
 
@@ -28,23 +28,31 @@ Azure portalı ve rolleri erişimi sorunlarını giderme kullanırken beklenmesi
 
 ## <a name="problems-with-rbac-role-assignments"></a>RBAC rol atamalarıyla ilgili sorunlar
 
-- Bir rol ataması çünkü ekleyemiyor **rol ataması Ekle** seçeneği devre dışı bırakıldı veya sahip bir rolü kullanarak bir izin hatasıyla aldığından denetleyin `Microsoft.Authorization/roleAssignments/*` çalıştığınız kapsam izni Rol atayın. Bu izne sahip değilseniz abonelik yöneticinize başvurun.
-- Kaynak oluşturmaya çalıştığınızda izinleri hata alırsanız, seçilen kapsamda kaynakları oluşturma izni olan bir rolü kullanarak denetleyin. Örneğin, bir katkıda bulunan olması gerekebilir. İznine sahip değilseniz, abonelik yöneticinize başvurun.
-- Oluşturulacak veya güncelleştirilecek bir destek bileti çalıştığınızda izinleri hata alırsanız, sahip bir rolü kullanarak kontrol `Microsoft.Support/*` izni gibi [destek isteği Katılımcısı](built-in-roles.md#support-request-contributor).
-- Bir rol atamayı denediğinizde rol atamaları sayısının aşıldığını belirten bir hata alırsanız, rolleri gruplara atayarak rol atamalarının sayısını azaltmaya çalışın. Azure kadar destekler **2000** abonelik başına rol atamaları.
+- Şirket Azure portalındaki bir rol ataması ekleyemiyor **erişim denetimi (IAM)** çünkü **Ekle** > **rol ataması Ekle** seçeneği devre dışı bırakıldı veya "nesne kimliğine sahip istemci eylemi gerçekleştirme yetkisi yok" izinleri hata aldığından, şu anda sahip rolü atanmış bir kullanıcı hesabıyla oturum açtığınız denetleyin `Microsoft.Authorization/roleAssignments/write` izni gibi [sahibi](built-in-roles.md#owner) veya [kullanıcı erişimi Yöneticisi](built-in-roles.md#user-access-administrator) rol atamak için çalıştığınız kapsamında.
+- Hata iletisi alırsanız "daha fazla rol ataması oluşturulabilir (kod: RoleAssignmentLimitExceeded) "rolleri yerine gruplarına atayarak rol atamaları sayısını azaltmak bir rol atamak çalıştığınızda deneyin. Azure kadar destekler **2000** abonelik başına rol atamaları.
 
 ## <a name="problems-with-custom-roles"></a>Özel rollerle ilgili sorunlar
 
-- Mevcut bir özel rolü güncelleştirme bulamıyorsanız, olup olmadığını denetlemek `Microsoft.Authorization/roleDefinition/write` izni.
-- Mevcut bir özel rolü güncelleştirme kiracıda bir veya daha fazla atanabilir kapsamlarla silinip silinmediğini denetleyin. `AssignableScopes` Özelliği bir özel rol denetimleri için [kimlerin oluşturma, silme, güncelleştirme veya özel rolü görüntülemek](custom-roles.md#who-can-create-delete-update-or-view-a-custom-role).
-- Yeni bir rol oluşturmak, olmayan herhangi bir özel rolü silme bağlanmayı rol tanımı sınırı aşan bir hata alırsanız kullanılabilir. Birleştirme ya da var olan herhangi bir özel rolü yeniden deneyebilirsiniz. Azure kadar destekler **2000** bir kiracıdaki özel roller.
-- Bir özel rolü silmeyi özel rol hala bir veya daha fazla rol ataması kullanıp kullanmadığınızı denetleyin.
+- Özel rol öğreticileri kullanarak özel bir rol oluşturmak için adımları gerekirse bkz [Azure PowerShell](tutorial-custom-role-powershell.md) veya [Azure CLI](tutorial-custom-role-cli.md).
+- Mevcut bir özel rolü güncelleştirme bulamıyorsanız, şu anda sahip rolü atanmış bir kullanıcı hesabıyla oturum açtığınız denetleyin `Microsoft.Authorization/roleDefinition/write` izni gibi [sahibi](built-in-roles.md#owner) veya [kullanıcı erişimi Yöneticisi](built-in-roles.md#user-access-administrator).
+- Bir özel rolü silmeyi ve hata iletisini almak erişemiyorsanız "rol atamaları rolüne başvuran mevcut olan (kod: RoleDefinitionHasAssignments) ", eğer hala özel rolü kullanarak rol atamaları. Bu rol atamalarını kaldırmak ve özel rolü silmeyi tekrar deneyin.
+- "Rol tanımı sınırı aşıldı. hata iletisi alırsanız Daha fazla hiçbir rol tanımları oluşturulabilir (kod: RoleDefinitionLimitExceeded) "yeni bir özel rol oluşturmaya çalıştığınızda, kullanılmayan herhangi bir özel rolü silme. Azure kadar destekler **2000** bir kiracıdaki özel roller.
+- "İstemci bağlı abonelik bulunamadı ancak kapsamında '/ subscriptions / {subscriptionıd}', 'Microsoft.Authorization/roleDefinitions/write' eylemini gerçekleştirme izni olan" benzer bir hata alırsanız bir özel rol güncelleştirmeye çalıştığınızda, denetleyin olup olmadığını bir veya daha fazla [atanabilir kapsamlarla](role-definitions.md#assignablescopes) kiracıda silinmiş. Ardından kapsam silinmişse, Self Servis çözümü şu anda kullanılabilir olduğu bir destek bileti oluşturun.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Abonelikler kiracılar arasında taşınırken RBAC koşullarını kurtarma
 
-- Bir aboneliği farklı bir kiracıya devretme adımlarını görmek istiyorsanız bkz. [Bir Azure aboneliğinin sahipliğini başka bir hesaba devretme](../billing/billing-subscription-transfer.md).
-- Farklı bir kiracıya bir aboneliği aktardığınızda, tüm rol atamalarını kaynak kiracıdan kalıcı olarak silinir ve hedef kiracıya geçirilmez. Rol atamalarınızı hedef kiracıya yeniden oluşturmanız gerekir.
-- Genel Yönetim ve erişim için bir abonelik kaybetmiş kullanın **Azure kaynakları için Access management** geçici geçiş [erişiminizi yükseltmesine](elevate-access-global-admin.md) tekrar erişim kazanmak için Abonelik.
+- Abonelik aktarımı adımlar ihtiyacınız varsa bkz farklı bir Azure AD kiracısına [bir Azure aboneliğinin sahipliğini başka bir hesaba](../billing/billing-subscription-transfer.md).
+- Farklı bir Azure AD kiracısına bir aboneliği transfer ederseniz, tüm rol atamalarını kaynak Azure AD kiracısından kalıcı olarak silinir ve hedef Azure AD kiracısına geçirilmez. Rol atamalarınızı hedef kiracıya yeniden oluşturmanız gerekir.
+- Azure AD'yi olduğunda kiracılar arasında taşındıktan sonra genel yönetici ve bir aboneliğe erişiminiz yoksa, kullanın **Azure kaynakları için Access management** geçici geçiş [erişiminiziYükselt](elevate-access-global-admin.md) aboneliğe erişim elde etmek için.
+
+## <a name="issues-with-service-admins-or-co-admins"></a>Hizmet yöneticileri veya ortak yöneticilerle ilgili sorunlar
+
+- Hizmet Yöneticisi veya ortak yönetici ile ilgili sorunlar yaşıyorsanız bkz [ekleme veya değiştirme Azure aboneliği yöneticileri](../billing/billing-add-change-azure-subscription-administrator.md) ve [Klasik Abonelik Yöneticisi rolleri, Azure RBAC rolleri ve Azure AD yönetici rolleri](rbac-and-directory-admin-roles.md).
+
+## <a name="access-denied-or-permission-errors"></a>Erişim engellendi veya izin hataları
+
+- İzin hatası alırsanız "nesne kimliğine sahip istemcinin kapsam üzerinde eylem gerçekleştirme yetkisi yok. (kod: AuthorizationFailed) "kaynak oluşturmayı denediğinizde, şu anda seçilen kapsamda kaynak yazma iznine sahip bir rolü atanmış bir kullanıcı oturum açtığınızı olduğunu kontrol edin. Örneğin, bir kaynak grubundaki sanal makineleri yönetmek için olmalıdır [sanal makine Katılımcısı](built-in-roles.md#virtual-machine-contributor) kaynak grubu (veya üst bir kapsama) rolünün. Yerleşik her rol için izinleri listesi için bkz. [Azure kaynakları için yerleşik roller](built-in-roles.md).
+- "Bir destek isteği oluşturmak için izniniz yok" izinleri hata alırsanız, oluşturulacak veya güncelleştirilecek bir destek bileti çalıştığınızda şu anda sahip rolü atanmış bir kullanıcı hesabıyla oturum açtığınız denetleyin `Microsoft.Support/supportTickets/write` gibiizni[Destek isteği Katılımcısı](built-in-roles.md#support-request-contributor).
 
 ## <a name="rbac-changes-are-not-being-detected"></a>RBAC değişikliklerin algılanmaz
 

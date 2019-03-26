@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 2daaa1275d9a97bec43f277e726518ead6eca9ff
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 92294700ac9a491bfdbfa3b3d3f781eb18d5339e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876373"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437110"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge için genel sorunlar ve çözümler
 
@@ -338,6 +338,39 @@ IOT Edge modülleri dağıtılır ve Azure IOT Edge çalışma zamanı güvenli�
 |AMQP|5671|ENGELLENEN (varsayılan)|Açık (varsayılan)|<ul> <li>IOT Edge için varsayılan iletişim protokolü. <li> Azure IOT Edge, diğer Desteklenen protokoller için yapılandırılmadı veya AMQP istenen iletişim protokolü açık olarak yapılandırılmış olmalıdır.<li>AMQP için 5672, IOT Edge tarafından desteklenmiyor.<li>Azure IOT Edge kullanan farklı bir IOT Hub protokol desteklendiğinde, bu bağlantı noktası engelleyin.<li>Gelen (gelen) bağlantıları engellenmesi gerekir.</ul></ul>|
 |HTTPS|443|ENGELLENEN (varsayılan)|Açık (varsayılan)|<ul> <li>Giden (giden) açık olmasını sağlama IOT Edge için 443 numaralı yapılandırın. Bu yapılandırma, el ile komut dosyaları veya Azure IOT cihaz sağlama hizmeti (DPS) kullanılırken gereklidir. <li>Gelen (gelen) bağlantının açık olmalıdır yalnızca belirli senaryoları için: <ul> <li>  Yöntem isteği gönderebilir yaprak cihazlar ile saydam bir ağ geçidi varsa. Bu durumda, bağlantı noktası 443'ü dış ağlara bağlanmak için IoTHub ya da Azure IOT Edge üzerinden IoTHub hizmetleri sağlamak için açık olması gerekmez. Bu nedenle gelen kuralı yalnızca iç ağdan gelen (gelen) açmak için kısıtlı olabilir. <li> Cihaz (C2D) senaryoları için daha fazla istemci için.</ul><li>HTTP için 80, IOT Edge tarafından desteklenmiyor.<li>HTTP olmayan protokolleri (örneğin, AMQP veya MQTT), Kurumsal yapılandırılamıyorsa; iletileri WebSockets üzerinden gönderilebilir. 443 numaralı bağlantı noktası için iletişim WebSocket durumlarda kullanılır.</ul>|
 
+## <a name="edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device"></a>Cihazda boş yapılandırma raporları 'file' ve hiçbir modül sürekli olarak Edge Aracısı modülü Başlat
+
+Cihaz dağıtımda tanımlı modülleri başlangıç sorun vardır. Yalnızca edgeAgent çalıştırıyor, ancak sürekli olarak '... boş yapılandırma dosyası' raporlama.
+
+### <a name="potential-root-cause"></a>Olası kök nedeni
+Varsayılan olarak, IOT Edge modülleri, kendi yalıtılmış kapsayıcıyı ağında başlatır. Cihaz bu özel ağda DNS ad çözümlemesi ile ilgili sorun yaşıyor olabilirsiniz.
+
+### <a name="resolution"></a>Çözüm
+DNS sunucusu, ortamınız için kapsayıcı altyapısı ayarları belirtin. Adlı bir dosya oluşturun `daemon.json` kullanmak için DNS sunucusu belirtme. Örneğin:
+
+```
+{
+    "dns": ["1.1.1.1"]
+}
+```
+
+Yukarıdaki örnekte, bir ortak olarak erişilebilen DNS hizmeti için DNS sunucusu ayarlar. Sınır cihazı, bu IP, ortamından erişemiyorsanız erişilebilen DNS sunucusu adresi ile değiştirin.
+
+Bir yerde `daemon.json` platformunuz için doğru konumda: 
+
+| Platform | Konum |
+| --------- | -------- |
+| Linux | `/etc/docker` |
+| Windows kapsayıcıları ile Windows konağı | `C:\ProgramData\iotedge-moby-data\config` |
+
+Konum zaten varsa `daemon.json` ekleyin **dns** için anahtar ve dosyayı kaydedin.
+
+*Güncelleştirmelerin etkili olabilmesi kapsayıcı altyapısını yeniden başlatma*
+
+| Platform | Komut |
+| --------- | -------- |
+| Linux | `sudo systemctl restart docker` |
+| Windows (yönetici Powershell) | `Restart-Service iotedge-moby -Force` |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 IoT Edge platformunda bir hata bulduğunuzu düşünüyor musunuz? [Sorun bildir](https://github.com/Azure/iotedge/issues) böylece biz geliştirmeye devam. 

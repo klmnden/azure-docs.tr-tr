@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8c432146d33db992a0ae612dfc56ace9460ade17
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: a1398d172a5c578ec3c0f16627eadd1da3fd1e45
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870868"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437633"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Çevrimiçi sağlama Yönetimi Dynamics CRM için yapılandırma
 
@@ -63,6 +63,7 @@ Azure Active Directory için Dynamics CRM yapılandırmak için aşağıdaki ad�
 1.  Oturum [Azure portalında](https://portal.azure.com/) ve Azure Active Directory hizmetini seçin.
 
 2.  Seçin **özellikleri** kopyalayın **dizin kimliği**. Bulut iş ortağı Portalı'nda ihtiyacınız Kiracı hesabı kimlik bilgileriniz budur.
+
     ![Dizin kimliği Al](./media/cloud-partner-portal-lead-management-instructions-dynamics/directoryid.png)
 
 3.  Seçin **uygulama kayıtları**ve ardından **yeni uygulama kaydı**.
@@ -77,6 +78,7 @@ Azure Active Directory için Dynamics CRM yapılandırmak için aşağıdaki ad�
 11. Anahtarları menüsünde **anahtar değerini kopyalayın.** Bulut iş ortağı portalı için gerekeceği için bu değer bir kopyasını kaydedin.
     
     ![Dynamics kayıtlı anahtarını Al](./media/cloud-partner-portal-lead-management-instructions-dynamics/registerkeys.png)
+    
 12. Seçin **gerekli izinler** seçip **Ekle**. 
 13. Seçin **Dynamics CRM Online** yeni API olarak ve izinlerini denetleyin *kuruluş kullanıcıları olarak erişim CRM Online*.
 
@@ -89,19 +91,22 @@ Azure Active Directory için Dynamics CRM yapılandırmak için aşağıdaki ad�
     ![Yeni Uygulama kullanıcısı ekleyin](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuser.PNG)
 
 16. İçinde **yeni kullanıcı**adı sağlayın ve bu bağlantı ile kullanmak istediğiniz e-posta. Yapıştırın **uygulama kimliği** Azure portalında oluşturduğunuz uygulama için.
+
      ![Yeni kullanıcı yapılandırma](./media/cloud-partner-portal-lead-management-instructions-dynamics/leadgencreateuser.PNG)
 
 17. Bu kullanıcı için bir bağlantı yapılandırmayı tamamlamak için bu makaledeki "Güvenlik ayarları" gidin.
 
 ### <a name="office-365"></a>Office 365
 
-Azure Active Directory kullanmak istemiyorsanız, Office 365 Yönetim portalında yeni bir kullanıcı kaydedebilir. Kullanıcı adı/parola, müşteri adaylarını almaya devam etmek için her 90 günde güncelleştirmek için gerekli olacaktır.
+Azure Active Directory kullanmak istemiyorsanız, üzerinde yeni bir kullanıcı kaydedebilirsiniz *Microsoft 365 Yönetim merkezini*. Kullanıcı adı/parola, müşteri adaylarını almaya devam etmek için her 90 günde güncelleştirmek için gerekli olacaktır.
 
 Office 365, Dynamics CRM için yapılandırmak için aşağıdaki adımları kullanın.
 
-1. Oturum [Microsoft Office 365 Yönetici portalı](https://go.microsoft.com/fwlink/?LinkId=225975).
+1. Oturum [Microsoft 365 Yönetim merkezini](https://admin.microsoft.com).
 
-2. Seçin **yönetici** döşeme ![Office çevrimiçi yönetim](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline3.png)
+2. Seçin **yönetici** Döşe.
+
+    ![Office Online Yönetim](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline3.png)
 
 3. Seçin **kullanıcı ekleme**.
 
@@ -112,6 +117,7 @@ Office 365, Dynamics CRM için yapılandırmak için aşağıdaki adımları kul
     -   Bir parola girin ve "Bu kullanıcı ilk kez oturum açarken parola değiştirmesi olun" seçeneğinin işaretini kaldırın.
     -   "Kullanıcı (yönetici erişimi yok)" kullanıcı için rolü seçin.
     -   Sonraki ekran görüntüsünde gösterilen ürün lisansını seçin. Seçtiğiniz lisans için ücret ödersiniz. Çözüm, Dynamics CRM Online Basic lisansı ile de çalışır.
+    
     ![Kullanıcı izinleri ve lisans yapılandırın](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline5.png)
 
 ## <a name="security-settings"></a>Güvenlik ayarları
@@ -124,12 +130,14 @@ Son adım, müşteri adaylarını yazmak için oluşturulan kullanıcı etkinle�
     ![Güvenlik ayarları](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline6.png)
 
 3.  Oluşturduğunuz kullanıcıyı seçin **kullanıcı izinleri**ve ardından **kullanıcı rollerini Yönet**. Denetleme **Microsoft Market neden yazıcı** rol atamak için.
+
     ![Kullanıcı rolü atama](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline7.png)\
 
     >[!NOTE]
     >Bu rol, içeri aktarılan ve yalnızca müşteri adaylarını yazmak ve uyumluluğu sağlamak için çözüm sürümünü izlemek için izinleri olan çözüm tarafından oluşturulur.
 
 4.  Güvenlik, seçin **güvenlik rolleri** ve müşteri adayı Microsoft Market yazıcı için rol bulur.
+    
     ![Güvenlik sağlama yazıcı yapılandırın](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline10.jpg)\
 
 5. Seçin **temel kayıtlar** sekmesi. Oluşturma/okuma/yazma kullanıcı varlığı için kullanıcı Arabirimi sağlar.
@@ -140,5 +148,5 @@ Son adım, müşteri adaylarını yazmak için oluşturulan kullanıcı etkinle�
 
 Dynamics CRM, bulut iş ortağı portalı için oluşturulmuş hesap bilgilerini ekleyerek sağlama yönetimi için yapılandırma tamamlayın. Örneğin:
 
--   **Azure Active Directory** - **uygulama kimliği** (örnek: *23456052-aaaa-bbbb-8662-1234df56788f*), **dizin kimliği** (örnek: *12345678-8af1-4asf-1234-12234d01db47*), ve **uygulama anahtarı** (örnek: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc =*).
+-   **Azure Active Directory** - **uygulama kimliği** (örnek: *23456052-AAAA-bbbb-8662-1234df56788f*), **dizin kimliği** (örnek: *12345678-8af1-4asf-1234-12234d01db47*), ve **uygulama anahtarı** (örnek: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*).
 -   **Office 365** - **Url** (örnek: *https://contoso.crm4.dynamics.com*), **kullanıcı adı** (örnek: *contoso\@ contoso.onmicrosoft.com*), ve **parola** (örnek: *P\@ssw0rd*).

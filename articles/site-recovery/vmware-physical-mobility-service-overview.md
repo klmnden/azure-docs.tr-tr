@@ -5,32 +5,175 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: d8b009d47a7fd0057c71ff3fc120a4443fc262d7
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 6b06ee7710dedbf2283fc4e365b767aa57547e7c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593667"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417828"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware Vm'lerini ve fiziksel sunucular için Mobility hizmeti hakkında
 
 Ayarladığınızda olağanüstü durum kurtarma için VMware Vm'lerini ve fiziksel sunucuları kullanarak [Azure Site Recovery](site-recovery-overview.md), fiziksel sunucu ve Site Recovery Mobility hizmeti her şirket içi VMware VM'ye yükleyin.  Mobility hizmeti yakalar makinede veri yazar ve onları Site Recovery işlem sunucusuna gönderir. Aşağıdaki yöntemleri kullanarak Mobility hizmetini dağıtabilirsiniz:
 
-[Göndererek](vmware-azure-install-mobility-service.md): Site Recovery, Mobility hizmetinin göndererek yükleme gerçekleştirmek için yapılandırın: Olağanüstü durum kurtarma işlemini ayarladığınız zaman bunu yapmak için de Site Recovery işlem sunucusu hizmetini yükleme amacıyla VM veya fiziksel sunucu erişmek için kullanabileceğiniz bir hesabı ayarlayın.
-[El ile yükleme](vmware-physical-mobility-service-install-manual.md): Kullanıcı Arabirimi veya komut istemi kullanarak her makinede Mobility hizmetini el ile yükleyebilirsiniz.
-[Otomatik dağıtım](vmware-azure-mobility-install-configuration-mgr.md): Yazılım dağıtım araçları gibi System Center Configuration Manager yüklemesiyle otomatik hale getirebilirsiniz.
+- [Göndererek](#push-installation): Azure Portalı aracılığıyla koruma etkinleştirildiğinde site Recovery, mobility Aracısı sunucusuna yükler.
+- El ile yükleyin: Mobility hizmetini el ile her bir makineye yükleyebilirsiniz [UI](#install-mobility-agent-through-ui) veya [komut istemi](#install-mobility-agent-through-command-prompt).
+- [Otomatik dağıtım](vmware-azure-mobility-install-configuration-mgr.md): Yazılım dağıtım araçları gibi System Center Configuration Manager yüklemesiyle otomatik hale getirebilirsiniz.
+
+## <a name="anti-virus-on-replicated-machines"></a>Çoğaltılan makinelerde virüsten koruma
+
+Çoğaltmak istediğiniz makineleri çalışan active virüsten koruma yazılımı varsa, virüsten koruma işlemlerini Mobility hizmeti yükleme klasör dışlama emin olun (*C:\ProgramData\ASR\agent*). Bu, çoğaltmanın beklendiği gibi çalıştığını sağlar.
+
+## <a name="push-installation"></a>Push yüklemesi
+
+Push yüklemesi bir parçası olan "[çoğaltmayı etkinleştirme](vmware-azure-enable-replication.md#enable-replication)" Proje Portalı'nda tetiklendi. Koruyun ve "Çoğaltmayı etkinleştir" tetiklemek istediğiniz sanal makineler kümesini seçerek sonra yapılandırma sunucusu mobility Aracısı sunucuları açın iter, yapılandırma sunucusu ile aracı kaydınızı tamamlamak ve aracıyı yükler. Bu işlemin başarıyla tamamlanması için
+
+- Tüm göndererek yükleme olun [önkoşulları](vmware-azure-install-mobility-service.md) karşılanır.
+- Tüm yapılandırmalar sunucuları altında kalan emin olmak [Azure DR senaryosu için destek matrisi VMware](vmware-physical-azure-support-matrix.md).
+
+Anında iletme yükleme iş akışının ayrıntılarını açıklanan aşağıdaki bölümlerde.
+
+### <a name="from-923-versionhttpssupportmicrosoftcomen-inhelp4494485update-rollup-35-for-azure-site-recovery-onwards"></a>Gelen [9.23 sürüm](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery) ve sonraki sürümler
+
+Mobility Aracısı göndererek yükleme sırasında aşağıdaki adımları gerçekleştirilir.
+
+1. Bildirim aracı kaynak makineyi açın. Kopyalama aracı kaynak makineyi açın, ortam birden çok hata nedeniyle başarısız olabilir. Ziyaret [kılavuzumuzu](vmware-azure-troubleshoot-push-install.md) anında yükleme hataları giderme.
+2. Aracı başarıyla oturum kopyalandıktan sonra sunucusu önkoşul denetimlerini sunucu üzerinde gerçekleştirilir. Yüklenmesi başarısız olursa, bir veya daha fazla [önkoşulları](vmware-physical-azure-support-matrix.md) karşılanmadı. Tüm Önkoşullar karşılanıyorsa, yükleme tetiklenir.
+3. Azure Site Recovery VSS sağlayıcısı sunucusunda Mobility Aracısı yüklemesinin bir parçası olarak yüklenir. Bu sağlayıcı uygulama tutarlı noktaları oluşturmak için kullanılır. VSS sağlayıcısı yüklemesi başarısız olursa, bu adımın atlanır ve aracı yüklemesi devam eder.
+4. Ardından iş durumu, aracı yüklemesi başarılı ancak VSS sağlayıcısı yüklemesi başarısız olursa, "Uyarı" olarak işaretlenir. Kilitlenme tutarlılığı noktaları üretimi etkilemez.
+    a. Uygulama tutarlı noktaları oluşturmak için başvurmak [kılavuzumuzu](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) Site Recovery VSS sağlayıcısı yüklemesi el ile tamamlamak için.
+    b.  Oluşturulacak, uygulama tutarlı noktaları istemiyorsanız [çoğaltma ilkesini değiştirmek](vmware-azure-set-up-replication.md#create-a-policy) uygulama tutarlı noktaları açmak için.
+
+### <a name="before-922-versions"></a>9.22 sürümlerinden önce
+
+1. Bildirim aracı kaynak makineyi açın. Kopyalama aracı kaynak makineyi açın, ortam birden çok hata nedeniyle başarısız olabilir. Ziyaret [kılavuzumuzu](vmware-azure-troubleshoot-push-install.md) anında yükleme hataları giderme.
+2. Aracı başarıyla oturum kopyalandıktan sonra sunucusu önkoşul denetimlerini sunucu üzerinde gerçekleştirilir. Yüklenmesi başarısız olursa, bir veya daha fazla [önkoşulları](vmware-physical-azure-support-matrix.md) karşılanmadı. Tüm Önkoşullar karşılanıyorsa, yükleme tetiklenir.
+3. Azure Site Recovery VSS sağlayıcısı sunucusunda Mobility Aracısı yüklemesinin bir parçası olarak yüklenir. Bu sağlayıcı uygulama tutarlı noktaları oluşturmak için kullanılır. VSS sağlayıcısı yüklemesi başarısız olursa, aracı yüklemesi başarısız olur. Mobility Aracısı yükleme hatasını önlemek için [9.23 sürüm](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery) veya üzeri kilitlenmeyle tutarlı noktaları oluşturmak ve VSS sağlayıcısını el ile yükleyin.
+
+## <a name="install-mobility-agent-through-ui"></a>Mobility Aracısı kullanıcı Arabirimi aracılığıyla yükleyin
+
+### <a name="prerequisite"></a>Önkoşul
+
+- Tüm yapılandırmalar sunucuları altında kalan emin olmak [Azure DR senaryosu için destek matrisi VMware](vmware-physical-azure-support-matrix.md).
+- [Yükleyici bulun](#locate-installer-files) sunucusunun işletim sistemini temel alan.
+
+>[!IMPORTANT]
+> Bu yöntem, Azure Iaas VM bir Azure bölgesinden diğerine çoğaltma yapıyorsanız, kullanmayın. Komut satırı tabanlı yükleme yöntemi kullanın.
+
+1. Makineye yükleme dosyasını kopyalayın ve çalıştırın.
+2. İçinde **yükleme seçeneği**seçin **mobility hizmetini yükleme**.
+3. Yükleme konumunu seçin > **yükleme**.
+
+    ![Mobility hizmeti yükleme seçeneği sayfası](./media/vmware-physical-mobility-service-install-manual/mobility1.png)
+
+4. Yükleme izleme **yükleme ilerleme durumu**. Yükleme tamamlandıktan sonra seçin **yapılandırmasına devam** hizmeti ile yapılandırma sunucusunu kaydetmek için.
+
+    ![Mobility hizmeti kayıt sayfası](./media/vmware-physical-mobility-service-install-manual/mobility3.png)
+
+5. içinde **yapılandırma sunucusu ayrıntıları**, yapılandırdığınız parolayı ve IP adresi belirtin.  
+
+    ![Mobility hizmeti kayıt sayfası](./media/vmware-physical-mobility-service-install-manual/mobility4.png)
+
+6. Seçin **kaydetme** kaydı tamamlamak amacıyla.
+
+    ![Mobility hizmeti kayıt son sayfa](./media/vmware-physical-mobility-service-install-manual/mobility5.png)
+
+## <a name="install-mobility-agent-through-command-prompt"></a>Mobility Aracısı komut istemi üzerinden yükleme
+
+### <a name="prerequisite"></a>Önkoşul
+
+- Tüm yapılandırmalar sunucuları altında kalan emin olmak [Azure DR senaryosu için destek matrisi VMware](vmware-physical-azure-support-matrix.md).
+- [Yükleyici bulun](#locate-installer-files) sunucusunun işletim sistemini temel alan.
+
+### <a name="on-a-windows-machine"></a>Bir Windows makinede
+
+- Yükleyiciyi, korumak istediğiniz sunucuda yerel bir klasöre (örneğin, C:\Temp) kopyalayın.
+
+    ```
+    cd C:\Temp
+    ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
+    MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
+    cd C:\Temp\Extracted
+    ```
+
+- Aşağıda gösterildiği gibi yükleyin:
+
+    ``` 
+    UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
+    ```
+
+- Aracı yapılandırma sunucusuna kaydedin.
+
+    ``` 
+    cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
+    UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+    ```
+
+#### <a name="installation-settings"></a>Yükleme ayarları
+**Ayar** | **Ayrıntılar**
+--- | ---
+Kullanım | UnifiedAgent.exe/role < MS|MT > /InstallLocation  <Install Location> /Platform "VmWare" / silent
+Kurulum günlükleri | % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log altında.
+/ Rol | Zorunlu yükleme parametresi. Mobility hizmetinin (MS) veya ana hedef (MT) yüklü olup olmadığını belirtir.
+/InstallLocation| İsteğe bağlı parametre. Mobility hizmeti yükleme konumuna (herhangi bir klasör) belirtir.
+/ Platform | Zorunlu. Mobility hizmetinin yüklendiği platformunu belirtir. **VMware** VMware Vm'lerini/fiziksel sunucuları için; **Azure** Azure sanal makineler için. 
+/ Silent| İsteğe bağlı. Yükleyici sessiz modda çalıştırılıp çalıştırılmayacağını belirtir.
+
+#### <a name="registration-settings"></a>Kayıt ayarları
+**Ayar** | **Ayrıntılar**
+--- | ---
+Kullanım | UnifiedAgentConfigurator.exe/csendpoint  <CSIP> /passphrasefilepath <PassphraseFilePath>
+Aracı yapılandırma günlükleri | % ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log altında.
+/CSEndPoint | Zorunlu parametre. Yapılandırma sunucusunun IP adresini belirtir. Herhangi bir geçerli IP adresi kullanın.
+/PassphraseFilePath |  Zorunlu. Parola dosyasının konumu. Herhangi bir geçerli UNC veya yerel dosya yolu kullanın.
+
+### <a name="on-a-linux-machine"></a>Bir Linux makinesinde
+
+1. Yükleyiciyi, korumak istediğiniz sunucuda yerel bir klasöre (örneğin, / tmp) kopyalayın. Bir terminal penceresinde aşağıdaki komutları çalıştırın:
+
+    ```
+    cd /tmp ;
+    tar -xvzf Microsoft-ASR_UA*release.tar.gz
+    ```
+
+2. Aşağıda gösterildiği gibi yükleyin:
+
+    ```
+    sudo ./install -d <Install Location> -r MS -v VmWare -q
+    ```
+
+3. Mobility hizmeti yüklemesi tamamlandıktan sonra yapılandırma sunucusuna kaydedilmesi gerekir. Mobility hizmeti ile yapılandırma sunucusunu kaydetmek için aşağıdaki komutu çalıştırın:
+
+    ```
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
+    ```
+
+#### <a name="installation-settings"></a>Yükleme ayarları
+**Ayar** | **Ayrıntılar**
+--- | ---
+Kullanım | . / install -d <Install Location> - r < MS|MT > - v, VmWare - q
+-r | Zorunlu yükleme parametresi. Mobility hizmetinin (MS) veya ana hedef (MT) yüklü olup olmadığını belirtir.
+-d | İsteğe bağlı parametre. Mobility hizmeti yükleme konumunu belirtir: /usr/local/ASR.
+-v | Zorunlu. Mobility hizmetinin yüklendiği platformunu belirtir. **VMware** VMware Vm'lerini/fiziksel sunucuları için; **Azure** Azure sanal makineler için. 
+-q | İsteğe bağlı. Yükleyici sessiz modda çalıştırılıp çalıştırılmayacağını belirtir.
+
+#### <a name="registration-settings"></a>Kayıt ayarları
+**Ayar** | **Ayrıntılar**
+--- | ---
+Kullanım | CD /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> - P <PassphraseFilePath>
+-i | Zorunlu parametre. Yapılandırma sunucusunun IP adresini belirtir. Herhangi bir geçerli IP adresi kullanın.
+-P |  Zorunlu. Parola kaydedildiği dosyasının tam dosya yolu. Herhangi bir geçerli klasörü kullanın.
 
 ## <a name="azure-virtual-machine-agent"></a>Azure sanal makine Aracısı
 
 - **Windows Vm'leri**: Mobility hizmetinin 9.7.0.0 sürümünden [Azure VM Aracısı](../virtual-machines/extensions/features-windows.md#azure-vm-agent) Mobility hizmeti yükleyicisinin tarafından yüklenir. Bu, üzerinden Azure'a makine başarısız olduğunda, Azure VM aracı yüklemesi için herhangi bir Vm uzantısı kullanarak önkoşul karşıladığını sağlar.
 - **Linux Vm'leri**: [WALinuxAgent](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) yük devretme sonrasında Azure VM'de el ile yüklenmelidir.
 
-## <a name="installer-files"></a>Yükleyici dosyaları
+## <a name="locate-installer-files"></a>Yükleyici dosyalarını bulun
 
-Tablo, her bir VMware VM ve fiziksel sunucu işletim sistemi için yükleyici dosyalarını özetler. Gözden geçirebilirsiniz [desteklenen işletim sistemleri](vmware-physical-azure-support-matrix.md#replicated-machines) başlamadan önce.
-
+Yapılandırma sunucusundaki %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository klasöre gidin. İşletim sistemi temelinde ihtiyacınız yükleyiciyi denetleyin. Aşağıdaki tabloda, her bir VMware VM ve fiziksel sunucu işletim sistemi için yükleyici dosyalarını özetlenmektedir. Gözden geçirebilirsiniz [desteklenen işletim sistemleri](vmware-physical-azure-support-matrix.md#replicated-machines) başlamadan önce.
 
 **Yükleyici dosyası** | **İşletim sistemi (yalnızca 64-bit)** 
 --- | ---
@@ -45,57 +188,6 @@ Microsoft ASR\_UA\*UBUNTU 14.04 64\*release.tar.gz | Ubuntu Linux 14.04
 Microsoft ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS server
 Microsoft ASR_UA\*DEBIAN7 64\*release.tar.gz | Debian 7 
 Microsoft ASR_UA\*DEBIAN8 64\*release.tar.gz | Debian 8
-
-## <a name="anti-virus-on-replicated-machines"></a>Çoğaltılan makinelerde virüsten koruma
-
-Çoğaltmak istediğiniz makineleri çalışan active virüsten koruma yazılımı varsa, virüsten koruma işlemlerini Mobility hizmeti yükleme klasör dışlama emin olun (*C:\ProgramData\ASR\agent*). Bu, çoğaltmanın beklendiği gibi çalıştığını sağlar.
-
-## <a name="update-mobility-service-from-azure-portal"></a>Azure portalından mobility hizmetini güncelleştirme
-
-1. Başlamadan önce Mobility hizmetinin korunan makinelere güncelleştirmeden önce yapılandırma sunucusunu, ölçeği genişletilmiş işlem sunucularını ve dağıtımınızın bir parçası olan herhangi bir ana hedef sunucuları güncelleştirildiğinden emin olun.
-2. Kasa portalda açın > **çoğaltılan öğeler**.
-3. Yapılandırma sunucusunu en son sürüm ise "Yeni Site recovery çoğaltma aracısı güncelleştirmesi kullanılabilir. okuyan bir bildirim görür Yüklemek için tıklayın."
-
-     ![Çoğaltılan öğeler penceresi](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
-
-4. Bildirime tıklayın ve **Aracısı güncelleştirmesi**, Mobility hizmetini yükseltmek istediğiniz makineleri seçin. Daha sonra, **Tamam**'a tıklayın.
-
-     ![Çoğaltılan öğeler VM listesi](./media/vmware-azure-install-mobility-service/update-okpng.png)
-
-5. Her seçili makineler için Mobility hizmetini güncelleştirme işlemi başlatır.
-
-## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Windows server powershell betiği ile Mobility hizmetini güncelleştirme
-
-Power shell cmdlet'i aracılığıyla bir sunucu üzerinde Mobility hizmetini yükseltme betiği aşağıdaki kullanın
-
-```azurepowershell
-Update-AzureRmRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
-```
-
-## <a name="update-the-account-used-for-push-installation-of-the-mobility-service"></a>Mobility hizmetinin gönderme yüklemesi için kullanılan hesabı güncelleştirin
-
-Mobility hizmetinin göndererek yüklenmesine ilişkin etkinleştirmek için Site Recovery dağıttığınızda makinelerine erişebilir ve makine için çoğaltma etkinleştirildiğinde, hizmeti yüklemek için Site Recovery işlem sunucusu kullanan bir hesap belirtilene. Bu hesabın kimlik bilgilerini güncelleştirmek istiyorsanız, izleyin [bu yönergeleri](vmware-azure-manage-configuration-server.md).
-
-## <a name="uninstall-the-mobility-service"></a>Mobility hizmetini kaldırın
-
-### <a name="on-a-windows-machine"></a>Bir Windows makinede
-
-Kullanıcı Arabirimi veya komut istemi'ni kaldırın.
-
-- **Kullanıcı arabiriminden**: Denetim Masası'nda makinenin seçin **programlar**. Seçin **Microsoft Azure Site Recovery Mobility hizmeti/ana hedef sunucusu** > **kaldırma**.
-- **Bir komut isteminden**: Makinede bir yönetici olarak bir komut istemi penceresi açın. Şu komutu çalıştırın: 
-    ```
-    MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
-    ```
-
-## <a name="on-a-linux-machine"></a>Bir Linux makinesinde
-1. Linux makinesinde oturum olarak bir **kök** kullanıcı.
-2. Bir terminal penceresinde /user/local/ASR için gidin.
-3. Şu komutu çalıştırın:
-
-    ```
-    uninstall.sh -Y
-    ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

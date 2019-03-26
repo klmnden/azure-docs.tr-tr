@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 3654168d5bd733c87c48d808ab4a668c5c03655e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: da06b8772cbf4f9f805952e19cff03791a86e4c7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370151"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437977"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Öğretici: Fon portalı ile Azure Active Directory Tümleştirme
 
@@ -194,7 +194,7 @@ Bu bölümde, Azure çoklu oturum açma fon portalına erişim vererek kullanmak
 
 2. Uygulamalar listesinde **fon portalı**.
 
-    ![Uygulamalar listesinde fon portalı bağlantı](common/all-applications.png)
+    ![Uygulamalar listesinde fon Portal bağlantısı](common/all-applications.png)
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
@@ -212,13 +212,13 @@ Bu bölümde, Azure çoklu oturum açma fon portalına erişim vererek kullanmak
 
 ### <a name="create-the-funding-portal-test-user"></a>Fon portalı test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon fon Portalı'nda adlı bir kullanıcı oluşturun. Çalışmak [fon Portal Destek ekibine](mailto:info@regenteducation.com) fon portalı platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon fon Portalı'nda adlı bir kullanıcı oluşturun. Çalışmak [fon Portal Destek ekibine](mailto:info@regenteducation.com) fon portalı platformunda kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde fon portalı kutucuğa tıkladığınızda, otomatik olarak fon SSO'yu ayarlama portalında oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Erişim paneli fon portalı kutucuğa tıkladığınızda, otomatik olarak fon SSO'yu ayarlama portalında oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 

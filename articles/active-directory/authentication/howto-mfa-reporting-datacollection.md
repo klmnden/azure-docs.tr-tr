@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0c22d4421aa984a9862f83b9be1095d548e5841
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: e2b8d68cc348ce8e157c7d58424eaebb06940335
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314494"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436677"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure multi-Factor Authentication kullanıcı veri toplama
 
@@ -138,7 +138,7 @@ MFA sunucusu 8.0 veya üzeri bir sürüm için Yöneticiler, kullanıcılar içi
 - MFA sunucunuz için oturum açın, gitmek **kullanıcılar** sekmesinde, söz konusu kullanıcıyı seçin ve tıklayın **Düzenle** düğmesi. Her sekme, kullanıcının geçerli MFA ayarlarını sağlamak için ekran görüntülerini (Alt-PrtScn) alın.
 - MFA sunucusu, komut satırından yüklemenizi göre yolu değiştirerek aşağıdaki komutu çalıştırın `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` bir JSON üretmek için biçimlendirilmiş dosyası.
 - Yöneticiler ayrıca Web hizmeti SDK'sı GetUserGdpr işlem, belirli bir kullanıcı için toplanan tüm MFA bulut hizmeti bilgilerini dışarı aktarmak için bir seçenek olarak kullanın veya daha büyük bir raporlama çözümü dahil edilip derecelendirilir.
-- Arama `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` ve tüm yedeklemeler için "<username>" (tırnak işaretleri aramaya dahil) tüm örneklerini kullanıcı kaydını eklenmesi veya değiştirilmesi bulunacak.
+- Arama `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` ve tüm yedeklemeler için "\<kullanıcı adı >" (tırnak işaretleri aramaya dahil) tüm örneklerini kullanıcı kaydını eklenmesi veya değiştirilmesi bulunacak.
    - Bu kayıtlar sınırlı (ancak değil ortadan) kaldırarak **"Oturum, kullanıcı değişiklikleri"** MFA sunucusu kullanıcı Deneyimini, günlüğe kaydetme bölümü, günlük dosyaları sekmesi içinde.
    - Syslog yapılandırdıysanız ve **"Oturum, kullanıcı değişiklikleri"** günlük girişlerini syslog yerine toplanabilir sonra MFA sunucusu UX ile günlüğe kaydetme bölümü, Syslog sekmesi, denetlenir.
 - Günlük dosyaları kimlik doğrulama girişimleri, işletimsel ve MultiFactorAuthGdpr.exe dışarı aktarma veya Web hizmeti SDK'sını kullanarak sağlanan bilgilere yinelenen olarak kabul edilir ilgili diğer örneklerini MultiFactorAuthSvc.log ve diğer MFA sunucusu kullanıcı adı GetUserGdpr.

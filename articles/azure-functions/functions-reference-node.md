@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: ed91425ca56278eccf21c10db6360b4f770b0660
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: d9de47ad83f37fa976c3816a0cb2e3e3beaa5472
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226547"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437586"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 
@@ -48,7 +48,6 @@ FunctionsProject
  | - host.json
  | - package.json
  | - extensions.csproj
- | - bin
 ```
 
 Proje kök dizininde yok paylaşılan [host.json](functions-host-json.md) işlev uygulamasını yapılandırmak için kullanılan dosya. Her işlev, kendi kod dosyası (.js) ve bağlama yapılandırma dosyası (function.json) ile bir klasörü vardır. Adını `function.json`ait üst dizinidir her zaman, işlevin adı.
@@ -616,6 +615,10 @@ App Service planını kullanan bir işlev uygulaması oluşturduğunuzda, bir pl
 ### <a name="cold-start"></a>Hazırlıksız başlatma
 
 Geliştirme Azure işlevleri'nde sunucusuz barındırma modeli, soğuk başladığında gerçeğe var. *Hazırlıksız başlatma* olgusu başvuruyor işlev uygulamanızı belirli bir süre sonra ilk kez başlatıldığında başlatılması uzun sürdüğünü. Büyük bağımlılık ağaçları ile JavaScript işlevleri için özellikle hazırlıksız başlatma önemli olabilir. Hazırlıksız başlatma sürecini hızlandırmak için [bir paket dosyası işlevlerinizin çalıştığı](run-functions-from-deployment-package.md) mümkün olduğunda. Paket modeli çalıştırmadan varsayılan olarak birçok dağıtım yöntemlerini kullanmanız, ancak bu değişiklik, büyük kaldırmanıza yaşıyorsanız ve bu şekilde çalışan, önemli bir iyileştirme sunabilir.
+
+### <a name="connection-limits"></a>Bağlantı sınırları
+
+Azure işlevleri uygulamada bir hizmete özgü istemcisini kullandığınızda, yeni bir istemci her işlev Çağırma ile oluşturmayın. Bunun yerine, tek bir statik istemci genel kapsamda oluşturun. Daha fazla bilgi için [Azure işlevleri'nde bağlantıları yönetme](manage-connections.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

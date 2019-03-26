@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 875f2d9dbbece4e9587462c6e8bdb2b2d8536c86
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c61e606bde4b50fa10c194c76c79a3d8a27a4b8e
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979896"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407700"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Uzak Masaüstü Hizmetleri veya bir Windows VM'de yönetici parolasını sıfırlama
 Bir Windows sanal makinesi (VM) bağlanamıyorsanız, yerel Yönetici parolanızı sıfırlayın ya da (Windows etki alanı denetleyicilerinde desteklenmez) Uzak Masaüstü Hizmetleri yapılandırmasını sıfırlayın. Parolayı sıfırlamak için Azure portalı veya Azure PowerShell'deki VM Erişimi uzantısını kullanın. VM'de oturum açtıktan sonra yerel yönetici parolasını sıfırlayın.  
@@ -39,18 +39,19 @@ Uzak Masaüstü Hizmetleri ve kimlik bilgileri aşağıdaki yollarla sıfırlaya
 
 1. Windows VM'nizi seçin ve ardından **parolayı Sıfırla** altında **destek + sorun giderme**. **Parolayı Sıfırla** penceresi görüntülenir.
 
-1. Seçin **parolayı Sıfırla**, bir kullanıcı adı ve parola girin ve ardından **güncelleştirme**. 
+2. Seçin **parolayı Sıfırla**, bir kullanıcı adı ve parola girin ve ardından **güncelleştirme**. 
 
-1. Sanal makinenizde tekrar bağlanmayı deneyin.
+3. Sanal makinenizde tekrar bağlanmayı deneyin.
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**Uzak Masaüstü Hizmetleri yapılandırmasını Sıfırla**
 
+Bu işlem sanal makinede Uzak Masaüstü hizmetini etkinleştirmek ve varsayılan RDP bağlantı noktası 3389 için bir güvenlik duvarı kuralı oluşturun.
+
 1. Windows VM'nizi seçin ve ardından **parolayı Sıfırla** altında **destek + sorun giderme**. **Parolayı Sıfırla** penceresi görüntülenir. 
 
-1. Seçin **yalnızca Yapılandırmayı Sıfırla** seçip **güncelleştirme**. 
+2. Seçin **yalnızca Yapılandırmayı Sıfırla** seçip **güncelleştirme**. 
 
-1. Sanal makinenizde tekrar bağlanmayı deneyin.
-
+3. Sanal makinenizde tekrar bağlanmayı deneyin.
 
 ## <a name="reset-by-using-the-vmaccess-extension-and-powershell"></a>VMAccess uzantısı ve PowerShell kullanarak sıfırlayın
 

@@ -5,22 +5,22 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 03/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 11eb849567079bfb1293c3c1e8ce97c43b66d493
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f32434e5ac0cd35cf620c1589aeb441476622442
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116857"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407462"
 ---
 # <a name="choose-the-right-consistency-level"></a>Doğru tutarlılık düzeyini seçme 
 
-Çoğaltma için yüksek kullanılabilirlik, düşük gecikme süresi veya her ikisi de bağlı olan dağıtılmış veritabanları kullanılabilirlik, gecikme süresi ve aktarım hızı ve okuma tutarlılığı temel etmekten olun. Çoğu ticari olarak satışta dağıtılmış veritabanları iki aşırı tutarlılık modeller arasında seçim geliştiricilerin isteyin: güçlü tutarlılık ve nihai tutarlılık. Azure Cosmos DB, geliştiricilerin beş iyi tanımlanmış tutarlılık modeli arasında seçin'ı izin verir: güçlü, sınırlanmış eskime, oturum, tutarlı ön ek ve nihai. Bu tutarlılık modellerinin her biri, iyi tanımlanmış, sezgisel ve belirli gerçek dünya senaryoları için kullanılabilir. Her beş tutarlılık modeli sağlayan [kullanılabilirliğini ve performansını ödünler](consistency-levels-tradeoffs.md) ve kapsamlı SLA'lar ile desteklenen. Aşağıdaki basit konuları birçok yaygın senaryoda doğru seçim yapmanıza yardımcı olur.
+Çoğaltma için yüksek kullanılabilirlik, düşük gecikme süresi veya her ikisi de bağlı olan dağıtılmış veritabanları kullanılabilirlik, gecikme süresi ve aktarım hızı ve okuma tutarlılığı temel etmekten olun. Çoğu ticari olarak satışta dağıtılmış veritabanları iki aşırı tutarlılık modeller arasında seçim geliştiricilerin isteyin: *güçlü* tutarlılık ve *nihai* tutarlılık. Azure Cosmos DB, geliştiricilerin beş iyi tanımlanmış tutarlılık modeli arasında seçin'ı izin verir: *güçlü*, *sınırlanmış eskime durumu*, *oturumu*, *tutarlı önek* ve *nihai*. Bu tutarlılık modellerinin her biri, iyi tanımlanmış, sezgisel ve belirli gerçek dünya senaryoları için kullanılabilir. Her beş tutarlılık modeli sağlayan kesin [kullanılabilirliğini ve performansını ödünler](consistency-levels-tradeoffs.md) ve kapsamlı SLA'lar ile desteklenen. Aşağıdaki basit konuları birçok yaygın senaryoda doğru seçim yapmanıza yardımcı olur.
 
 ## <a name="sql-api-and-table-api"></a>SQL API ve tablo API'si
 
-Cosmos DB SQL API veya tablo API'sini kullanarak uygulamanızı oluşturdunuz, aşağıdaki noktaları göz önünde bulundurun.
+SQL API veya tablo API'sini kullanarak uygulamanızı oluşturdunuz, aşağıdaki noktaları göz önünde bulundurun:
 
 - Pek çok gerçek dünya senaryoları için oturum tutarlılığı en iyi olduğunu ve önerilen seçenektir. Daha fazla bilgi için bkz: [nasıl yapılır yönetme, uygulamanız için oturum belirteci](how-to-manage-consistency.md#utilize-session-tokens).
 
@@ -32,11 +32,11 @@ Cosmos DB SQL API veya tablo API'sini kullanarak uygulamanızı oluşturdunuz, a
 
 - Oturum tutarlılığı tarafından sağlanan yapılandırılanlardan daha az katı tutarlılık garantisi gerekiyorsa, tutarlı ön ek tutarlılık düzeyi kullanmanız önerilir.
 
-- En düşük gecikme süresi ve yüksek kullanılabilirlik gerekiyorsa, nihai tutarlılık düzeyi'ni kullanın.
+- En yüksek kullanılabilirlik ve düşük gecikme süresi gerekiyorsa, nihai tutarlılık düzeyi'ni kullanın.
 
 - Daha yüksek veri dayanıklılık performanstan ödün vermeden ihtiyacınız varsa, bir özel tutarlılık düzeyi uygulama katmanında oluşturabilirsiniz. Daha fazla bilgi edinmek, [nasıl yapılır, uygulamalarınızda özel eşitlemesi uygulama](how-to-custom-synchronization.md).
 
-## <a name="cassandra-mongodb-and-gremlin-api"></a>Cassandra, MongoDB ve Gremlin API
+## <a name="cassandra-mongodb-and-gremlin-apis"></a>Cassandra, MongoDB ve Gremlin API'leri
 
 - Apache Cassandra ve Cosmos DB tutarlılık düzeyi "Okuma tutarlılık düzeyi" sunulan arasında eşleme ayrıntıları görmek için [tutarlılık düzeyleri ve Cosmos DB API'leri](consistency-levels-across-apis.md#cassandra-mapping).
 
@@ -44,7 +44,7 @@ Cosmos DB SQL API veya tablo API'sini kullanarak uygulamanızı oluşturdunuz, a
 
 ## <a name="consistency-guarantees-in-practice"></a>Uygulamada tutarlılık garantisi
 
-Uygulamada güçlü tutarlılık garantisi elde edebilirsiniz. Tutarlılık garantisi okuma işlemi için karşılık gelen, için yenilik ve sıralama istediğiniz veritabanının durumu. Okuma tutarlılığı, sıralama ve yazma/güncelleştirme işlemleri yayılma bağlıdır.  
+Uygulamada, genellikle daha güçlü tutarlılık garantisi elde edebilirsiniz. Tutarlılık garantisi okuma işlemi için karşılık gelen, için yenilik ve sıralama istediğiniz veritabanının durumu. Okuma tutarlılığı, sıralama ve yazma/güncelleştirme işlemleri yayılma bağlıdır.  
 
 * Tutarlılık düzeyi ayarlandığında **sınırlanmış eskime durumu**, Cosmos DB, istemcileri her zaman değeri, önceki yazma ile sınırlanmış eskime durumu pencere tarafından görüntülenmesine okumanızı garanti eder.
 
@@ -52,9 +52,9 @@ Uygulamada güçlü tutarlılık garantisi elde edebilirsiniz. Tutarlılık gara
 
 * Kalan üç tutarlılık düzeylerini eskime durumu penceresi, iş yüküne büyük ölçüde büyük/küçük harf bağlıdır. Örneğin, bir okuma işlemi ile veritabanında yazma işlemi varsa **nihai**, **oturumu**, veya **tutarlı ön ek** tutarlılık düzeyleri getirebilir güçlü tutarlılık düzeyi okuma işlemi olarak aynı sonuçları.
 
-Cosmos DB hesabınızı güçlü tutarlılık dışındaki bir tutarlılık düzeyi ile yapılandırılmışsa, istemcilerinize güçlü alma olasılığını ve iş yükleriniz için tutarlı okumaların olasılığa dayalı sınırlanmış eskime durumu (PBS konumunda) bakarak bulabilirsiniz Ölçüm. Bu ölçüm, Azure portalında sunulur, daha fazla bilgi için bkz. [İzleyici Probabilistically sınırlanmış eskime durumu (PBS) ölçüm](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
+Azure Cosmos hesabınızı güçlü tutarlılık dışındaki bir tutarlılık düzeyi ile yapılandırılmışsa, istemcilerinize güçlü alma olasılığını ve iş yükleriniz için tutarlı okumaların bakarak bulabilirsiniz *Probabilistically Sınırlanmış eskime durumu* (PBS) ölçümü. Bu ölçüm, Azure portalında sunulur, daha fazla bilgi için bkz. [İzleyici Probabilistically sınırlanmış eskime durumu (PBS) ölçüm](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
-Olasılığa dayalı sınırlanmış eskime durumu, nihai tutarlılık öğelerinizi nasıl nihai olduğunu gösterir. Bu ölçüm, Cosmos DB hesabınızda şu anda yapılandırılmış tutarlılık düzeyi daha güçlü tutarlılık elde edebilirsiniz ne sıklıkta Öngörüler sağlar. Diğer bir deyişle, yazma birleşimi için kesinlikle tutarlı okumaların alma olasılığı (milisaniye cinsinden ölçülür) görebilir ve okuma bölgeleri.
+Olasılığa dayalı sınırlanmış eskime durumu, nihai tutarlılık öğelerinizi nasıl nihai olduğunu gösterir. Bu ölçüm, Azure Cosmos hesabınızda şu anda yapılandırılmış tutarlılık düzeyi daha güçlü tutarlılık elde edebilirsiniz ne sıklıkta Öngörüler sağlar. Diğer bir deyişle, yazma birleşimi için kesinlikle tutarlı okumaların alma olasılığı (milisaniye cinsinden ölçülür) görebilir ve okuma bölgeleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

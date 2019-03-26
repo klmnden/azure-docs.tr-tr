@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 388a0419d5de87c3eb7faff9b556f888e52ac12e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e186effb63c1ca96ace33ec389c2487448e4d20d
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117379"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407106"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Makine bağımlılık eşlemesi kullanan Grup makineleri
 
@@ -60,7 +60,7 @@ Bir Windows makinede aracı yüklemek için:
 4. İçinde **Aracı Kurulum Seçenekleri**seçin **Azure Log Analytics** > **sonraki**.
 5. Tıklayın **Ekle** yeni bir Log Analytics çalışma alanı eklemek için. Çalışma alanı kimliği ve portaldan kopyaladığınız anahtarını yapıştırın. **İleri**’ye tıklayın.
 
-Komut satırı veya Microsoft Azure Stack veri merkezinizde dağıttıysanız, Azure Automation DSC, System Center Configuration Manager gibi veya bir Azure Resource Manager şablonu ile otomatikleştirilmiş bir yöntem kullanarak aracıyı yükleyebilirsiniz. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) MMA aracısını yüklemek için bu yöntemleri kullanma hakkında.
+Komut satırı veya otomatikleştirilmiş bir yöntem gibi System Center Configuration Manager'ı kullanarak aracıyı yükleyebilirsiniz. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) MMA aracısını yüklemek için bu yöntemleri kullanma hakkında.
 
 #### <a name="install-the-agent-on-a-linux-machine"></a>Bir Linux makine üzerinde aracı yükleme
 
@@ -89,7 +89,7 @@ Bağımlılık Aracısı desteği hakkında daha fazla bilgi [Windows](../azure-
 [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) bağımlılık Aracısı'nı yüklemek için komut dosyalarını nasıl kullanabileceğiniz hakkında.
 
 
-## <a name="create-a-group"></a>Grup oluştur
+## <a name="create-a-group"></a>Grup oluşturma
 
 1. Aracıları yükledikten sonra portal ve tıklayın Git **Yönet** > **makineler**.
 2. Aracıların yüklü olduğu makinenin arayın.

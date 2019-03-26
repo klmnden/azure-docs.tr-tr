@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 2/4/2019
+ms.date: 3/25/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 8fd8cd93015fdb5cdcf657ecbcbb9a7cc870525a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 5029fb29aecda1f1bef14dc95f6301b539c60441
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747756"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419113"
 ---
 ### <a name="what-is-azure-firewall"></a>Azure Güvenlik Duvarı nedir?
 
@@ -33,7 +33,7 @@ Azure Güvenlik Duvarı, Azure Sanal Ağ kaynaklarınızı koruyan yönetilen, b
 
 ### <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Azure Güvenlik Duvarı için tipik bir dağıtım modeli nedir?
 
-Azure güvenlik duvarı herhangi bir sanal ağda dağıtabilirsiniz, ancak müşteriler genellikle merkez sanal ağda dağıtmak ve diğer sanal ağlara ona hub-and-spoke modelini eş. Varsayılan yol, bu Merkezi güvenlik duvarı sanal ağa işaret edecek şekilde eşlenen sanal ağlardan sonra ayarlayabilirsiniz.
+Azure güvenlik duvarı herhangi bir sanal ağda dağıtabilirsiniz, ancak müşteriler genellikle merkez sanal ağda dağıtmak ve diğer sanal ağlara ona hub-and-spoke modelini eş. Varsayılan yol, bu Merkezi güvenlik duvarı sanal ağa işaret edecek şekilde eşlenen sanal ağlardan sonra ayarlayabilirsiniz. Küresel VNet eşlemesi desteklenir, ancak bu olası performans ve gecikme sorunlarını nedeniyle bölgeler arasında önerilmez. En iyi performans için her bölge bir güvenlik duvarı dağıtın.
 
 Bu modelin avantajı, merkezi olarak farklı abonelikler arasında birden çok uç sanal ağları denetimde uygulamak olanağıdır. Aynı zamanda her bir sanal ağ içindeki bir güvenlik duvarı ayrı ayrı dağıtmanız gerekmez olarak da maliyet tasarrufu vardır. Maliyet tasarruflarından ile müşteri trafik düzenlerini esas alarak ilişkilendirme eşleme maliyetin ölçülen.
 
@@ -122,7 +122,7 @@ Evet, hub sanal ağında iki uç sanal ağ arasında yönlendirme ve filtreleme 
 
 ### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Azure güvenlik duvarı İleri yapabilirsiniz ve aynı sanal ağdaki veya eşlenmiş sanal ağlardaki alt ağlar arasındaki ağ trafiğini filtreleme?
 
-Evet. Ancak, aynı alt ağ arasında trafiği yönlendirmek için UDR ait yapılandırma VNET ek ilgilenilmesi gerekiyor. Hedef öneki UDR için yeterli olduğundan sanal ağ adres aralığı kullanırken, bu da Azure güvenlik duvarı örneği ile aynı alt ağda başka bir makineye bir makineden tüm trafiği yönlendirir. Bunu önlemek için bir sonraki atlama türü ile UDR alt ağ için bir rota içerecek. **VNET**. Bu yolları yönetmek sıkıcı ve hataya açık olabilir. İç ağ kesimleme için önerilen yöntem, Udr gerektirmeyen ağ güvenlik grupları kullanmaktır.
+Evet. Ancak, aynı sanal ağda alt ağlar arasındaki trafiği yönlendirmek için Udr'leri yapılandırma, ek bir ilgi gerektirir. Hedef öneki UDR için yeterli olduğundan sanal ağ adres aralığı kullanırken, bu da Azure güvenlik duvarı örneği ile aynı alt ağda başka bir makineye bir makineden tüm trafiği yönlendirir. Bunu önlemek için bir sonraki atlama türü ile UDR alt ağ için bir rota içerecek. **VNET**. Bu yolları yönetmek sıkıcı ve hataya açık olabilir. İç ağ kesimleme için önerilen yöntem, Udr gerektirmeyen ağ güvenlik grupları kullanmaktır.
 
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>Kaynak grubu kısıtlaması herhangi bir güvenlik duvarı vardır?
 

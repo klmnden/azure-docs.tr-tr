@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: 99148332a8310428cb73287d861ef71c35d59a26
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1d7a18f3f46cec73d70389b82eed5a85e440d340
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233209"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418610"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Oluşturma ve Azure Cache için Redis Klasik Azure CLI kullanarak yönetme
 > [!div class="op_single_selector"]
@@ -57,9 +57,9 @@ Aşağıdaki özellikler, oluşturma ve Azure Cache, Redis örneği için günce
 | Parça sayısı |r-,--parça sayısı |Kümeleme ile Premium küme önbelleği oluşturmak için parça sayısı. |
 | Sanal Ağ |-v, --virtual-network |Azure Cache için dağıtmak için tam ARM kaynak kimliği sanal ağın belirtir bir VNET önbelleğinize barındırırken, Redis. Örnek Biçim: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Anahtar türü |t-,--anahtar türü |Yenilemek için anahtar türü. Geçerli değerler: [birincil, ikincil] |
-| StaticIP |-p,--statik IP < statik IP > |Bir vnet'teki önbelleğinizi barındırırken, benzersiz bir IP adresi alt ağ için önbellek belirtir. Sağlanmazsa, bir, alt ağdan seçilir. |
-| Alt ağ |t,--alt ağ <subnet> |Bir vnet'teki önbelleğinizi barındırırken, önbellek dağıtacağınız bir alt ağ adını belirtir. |
-| VirtualNetwork |-v, --virtual-network <virtual-network> |Azure Cache için dağıtmak için tam ARM kaynak kimliği sanal ağın belirtir bir VNET önbelleğinize barındırırken, Redis. Örnek Biçim: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| StaticIP |-p, --static-ip \<static-ip\> |Bir vnet'teki önbelleğinizi barındırırken, benzersiz bir IP adresi alt ağ için önbellek belirtir. Sağlanmazsa, bir, alt ağdan seçilir. |
+| Alt ağ |t,--alt \<alt ağ\> |Bir vnet'teki önbelleğinizi barındırırken, önbellek dağıtacağınız bir alt ağ adını belirtir. |
+| VirtualNetwork |v-,--sanal ağ \<sanal ağ\> |Azure Cache için dağıtmak için tam ARM kaynak kimliği sanal ağın belirtir bir VNET önbelleğinize barındırırken, Redis. Örnek Biçim: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Abonelik |s-,--abonelik |Abonelik tanımlayıcısı. |
 
 ## <a name="see-all-azure-cache-for-redis-commands"></a>Bkz: tüm Azure önbelleği için Redis komutları

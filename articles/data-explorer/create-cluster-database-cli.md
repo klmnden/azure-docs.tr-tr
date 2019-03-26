@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: CLI kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma'
+title: 'Hızlı Başlangıç: Azure CLI kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma'
 description: Azure CLI kullanarak bir Azure Veri Gezgini küme ve veritabanı oluşturmayı öğrenin
 services: data-explorer
 author: radennis
@@ -7,15 +7,15 @@ ms.author: radennis
 ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 2/4/2019
-ms.openlocfilehash: ca4ffce1ae966d2bb8fb187c9b04938330969641
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 3/25/2019
+ms.openlocfilehash: 2a77671ca405a69ec87e335004a84acb2e649c2c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286338"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418661"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-the-cli"></a>CLI kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma
+# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Azure CLI kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma
 
 > [!div class="op_single_selector"]
 > * [Portal](create-cluster-database-portal.md)
@@ -23,9 +23,9 @@ ms.locfileid: "58286338"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+>
 
-Bu hızlı başlangıçta, Azure CLI kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma işlemini açıklar.
+Azure Veri Gezgini uygulamalar, web siteleri, IoT cihazları ve daha fazlasından akışı yapılan büyük miktarda veri üzerinde gerçek zamanlı analiz yapmaya yönelik hızlı ve tam olarak yönetilen bir veri analizi hizmetidir. Azure veri gezginini kullanmak için ilk küme oluşturma ve bu kümede bir veya daha fazla veritabanı oluşturun. Ardından karşı sorgular çalıştırabileceği şekilde onlara bir veritabanına (yükle) veri alın. Bu hızlı başlangıçta, bir küme ve bir veritabanı Azure CLI kullanarak oluşturun.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -45,7 +45,7 @@ Komutları Azure Cloud Shell'de çalıştırıyorsanız, aşağıdaki adımları
     az login
     ```
 
-2. Abonelik oluşturulacak kümenizi istediğiniz ayarlayın. Değiştirin `MyAzureSub` kullanmak istediğiniz Azure aboneliği adı:
+1. Abonelik oluşturulacak kümenizi istediğiniz ayarlayın. Değiştirin `MyAzureSub` kullanmak istediğiniz Azure aboneliği adı:
 
     ```azurecli-interactive
     az account set --subscription MyAzureSub
@@ -67,7 +67,7 @@ Komutları Azure Cloud Shell'de çalıştırıyorsanız, aşağıdaki adımları
 
     Küme kapasitesi gibi kullanabileceğiniz ek isteğe bağlı parametre yok.
 
-2. Kümenizi başarıyla oluşturulup oluşturulmadığını kontrol etmek için aşağıdaki komutu çalıştırın:
+1. Kümenizi başarıyla oluşturulup oluşturulmadığını kontrol etmek için aşağıdaki komutu çalıştırın:
 
     ```azurecli-interactive
     az kusto cluster show --name azureclitest --resource-group testrg
@@ -91,7 +91,7 @@ Sonuç içeriyorsa `provisioningState` ile `Succeeded` değer sonra küme başar
    | Geçici silme süresi | *3650:00:00:00* | Verileri sorgulamak kullanılabilen tutulacak süre miktarı. |
    | Sık erişimli-cache-süresi | *3650:00:00:00* | Veriler önbellekte tutulacak süre miktarı. |
 
-2. Oluşturduğunuz veritabanını görmek için aşağıdaki komutu çalıştırın:
+1. Oluşturduğunuz veritabanını görmek için aşağıdaki komutu çalıştırın:
 
     ```azurecli-interactive
     az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest

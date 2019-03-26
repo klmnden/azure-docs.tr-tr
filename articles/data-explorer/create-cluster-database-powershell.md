@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: 650bdc5cdf99645bc2be6c8e85737dacd10a6b27
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: ec012f85c4b4e93e9be475781e9da79f686cbf9e
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287539"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417726"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>PowerShell kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma
 
@@ -25,20 +25,21 @@ ms.locfileid: "58287539"
 > * [Python](create-cluster-database-python.md)
 >  
 
-
-Bu hızlı başlangıçta PowerShell kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma işlemini açıklamaktadır.
-
-Windows, Linux üzerinde veya PowerShell cmdlet'leri ve betikleri çalıştırılabilir [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) oluşturmak ve yapılandırmak için [Azure Veri Gezgini](https://docs.microsoft.com/azure/kusto/ ).
-
-[ **Az.Kusto**](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto ). Azure PowerShell ile ve **Az.Kusto**, aşağıdaki görevleri gerçekleştirebilirsiniz:
+Azure Veri Gezgini uygulamalar, web siteleri, IoT cihazları ve daha fazlasından akışı yapılan büyük miktarda veri üzerinde gerçek zamanlı analiz yapmaya yönelik hızlı ve tam olarak yönetilen bir veri analizi hizmetidir. Azure veri gezginini kullanmak için ilk küme oluşturma ve bu kümede bir veya daha fazla veritabanı oluşturun. Ardından karşı sorgular çalıştırabileceği şekilde onlara bir veritabanına (yükle) veri alın. Bu hızlı başlangıçta, bir küme ve bir veritabanını Powershell kullanarak oluşturun. Windows, Linux üzerinde veya PowerShell cmdlet'leri ve betikleri çalıştırılabilir [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) ile birlikte [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) Azure Veri Gezgini kümeleri ve veritabanlarını oluşturma ve yapılandırma için.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak bir Azure aboneliğinizin olması gerekir. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Azure CLI'yı yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıçta Azure CLI 2.0.4 sürüm gerektirir veya üzeri. Sürümünüzü kontrol etmek için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="configure-parameters"></a>Parametreleri Yapılandır
 
-Komutları Azure Cloud Shell'de çalıştırıyorsanız, aşağıdaki adımları gerekli değildir. CLI'yi yerel olarak çalıştırıyorsanız, Azure'da oturum açın ve geçerli aboneliğinizi ayarlamak için aşağıdaki adımları izleyin:
+Komutları Azure Cloud Shell'de çalıştırıyorsanız, aşağıdaki adımları gerekli değildir. CLI'yi yerel olarak çalıştırıyorsanız, 1 ve 2 Azure'da oturum açın ve geçerli aboneliğinizi ayarlamak için adımları izleyin:
 
 1. Azure'da oturum açmak için aşağıdaki komutu çalıştırın:
 
@@ -46,12 +47,12 @@ Komutları Azure Cloud Shell'de çalıştırıyorsanız, aşağıdaki adımları
     Connect-AzAccount
     ```
 
-2. Abonelik oluşturulacak kümenizi istediğiniz ayarlayın.
+2. Abonelik oluşturulacak kümenizi istediğiniz ayarlayın:
 
     ```azurepowershell-interactive
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
-3. Cihazınızda Az.Kusto modülünü yükleyin:
+3. Azure CLI'yi yerel olarak veya Azure Cloud Shell'i çalıştırırken, Cihazınızda Az.Kusto modül yüklemeniz gerekir:
     
     ```azurepowershell-interactive
      Install-Module -Name Az.Kusto  
@@ -116,7 +117,5 @@ Artık bir küme ve bir veritabanı vardır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla Az.Kusto komutlarını bulabilirsiniz [ **burada**](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto )
-
-> [!div class="nextstepaction"]
-> [Hızlı Başlangıç: Azure Veri Gezgini .NET standart SDK'sı (Önizleme) kullanarak veri alma](net-standard-ingest-data.md)
+* [Ek Az.Kusto komutlar](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto)
+* [Hızlı Başlangıç: Azure Veri Gezgini .NET standart SDK'sı (Önizleme) kullanarak veri alma](net-standard-ingest-data.md)

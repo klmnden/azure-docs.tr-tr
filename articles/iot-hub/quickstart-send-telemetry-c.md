@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 634755f6fc144a5817774b16ccd1bf09ffcf6700
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 8b2336056223e3aa88054e6ee62283e6253ad635
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886987"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435816"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Hızlı Başlangıç: Bir IOT hub'ına bir CİHAZDAN telemetri gönderme ve arka uç uygulaması (C) okuyun
 
@@ -52,15 +52,16 @@ Aşağıdaki ortamlar için paketleri ve kitaplıkları yükleyerek SDK’yı ku
 
 Ancak bu bölümde, GitHub’dan [Azure IoT C SDK’sını](https://github.com/Azure/azure-iot-sdk-c) kopyalamak ve derlemek için kullanılan bir geliştirme ortamı hazırlayacaksınız. GitHub üzerindeki SDK, bu hızlı başlangıçta yer alan örnek kodu içerir. 
 
+1. İndirme [CMake derleme sistemini](https://cmake.org/download/). İndirdiğiniz sürümüne karşılık gelen şifreleme karması değerini kullanarak indirilen ikili doğrulayın. Şifreleme karma değerlerini de zaten sağlanan CMake karşıdan yükleme bağlantısını yer alır.
 
-1. ' % S'sürümü 3.13.4 olan [CMake derleme sistemini](https://cmake.org/download/). İlgili şifreleme karması değerini kullanarak indirilen ikili dağıtımı doğrulayın. Aşağıdaki örnekte, x64 MSI dağıtımı 3.11.4 sürümünün şifreleme karmasını doğrulamak için Windows PowerShell kullanılır:
+    Aşağıdaki örnek, şifreleme karması x64 3.13.4 sürümü için doğrulamak için Windows PowerShell kullanılan MSI dağıtım:
 
     ```PowerShell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
     PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
     ```
-    
+
     Aşağıdaki sürüm 3.13.4 karma değerlerini bu makalenin yazıldığı sırada CMake sitesinde listelenen:
 
     ```

@@ -14,22 +14,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: b-juche
-ms.openlocfilehash: 6c1a6bf4e7042c28239f57af6b39c0822b63b5e8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1cac267be026d0e472db9a7a321f5fff6ab3e917
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768085"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434781"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Azure NetApp Files için bir alt ağı temsilci olarak belirleme 
 
 Bir alt ağ Azure NetApp dosyaları devretmeniz gerekir.   Bir birim oluşturduğunuzda, temsilci alt ağ belirtmenize gerek.
 
-## <a name="about-this-task"></a>Bu görev hakkında
+## <a name="considerations"></a>Dikkat edilmesi gerekenler
 * Bir/24 varsayılan olarak yeni bir alt ağ oluşturmak için Sihirbazı için 251 kullanılabilir IP adreslerini sağlayan ağ maskesi. Bir/28'i kullanarak 16 kullanılabilir IP adreslerini sağlayan ağ maskesi hizmeti için yeterlidir.
-* Bir ağ güvenlik grubu atamak veya hizmet temsilcisi alt ağdaki uç noktası değiştirilemez. Bunun yapılması, alt ağ temsilci başarısız olmasına neden olur.
 * Her Azure sanal ağı (Vnet), yalnızca bir alt ağ, Azure için NetApp dosyaları atanabilir.
-* Eşlenen sanal ağdan bir birime erişimi şu anda desteklenmiyor.
+* Bir ağ güvenlik grubu atamak veya hizmet temsilcisi alt ağdaki uç noktası değiştirilemez. Bunun yapılması, alt ağ temsilci başarısız olmasına neden olur.
+* Genel olarak eşlenmiş sanal ağdan bir birime erişimi şu anda desteklenmiyor.
+* Oluşturma [kullanıcı tanımlı özel yollar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) adresine sahip VM alt ağları Azure için NetApp dosyaları temsilci bir alt ağ ön eki (hedef) desteklenmez ve VM bağlantısı etkiler.
 
 ## <a name="steps"></a>Adımlar 
 1.  Git **sanal ağlar** dikey penceresinden Azure portalı ve Azure NetApp dosyaları için kullanmak istediğiniz sanal ağı seçin.    

@@ -11,12 +11,12 @@ ms.date: 10/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52f8b70a4b098cc7266042499300235588e5303f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5b2471b28132b26c41844b620f6dcf49e3802a6e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164320"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436719"
 ---
 # <a name="what-is-the-adconnectivitytool-powershell-module"></a>ADConnectivityTool PowerShell Modülü nedir?
 
@@ -47,7 +47,7 @@ Bu sorunlardan biri bulunduğunda AADConnect Sihirbazı'nda ilgili hata iletisi 
 
 Arka planda gerçekten gerçekleşip olan Azure AD Connect aradığı `Start-NetworkConnectivityDiagnosisTools` işlevi.  Bir ağ bağlantısı sorunu nedeniyle kimlik doğrulama başarısız olduğunda bu işlev çağrılır.
 
-Son olarak, her aracın sihirbazından çağrıldığında ayrıntılı günlük dosyası oluşturulur. Günlük bulunan **C:\ProgramData\AADConnect\ADConnectivityTool-<date>-<time>.log**
+Son olarak, her aracın sihirbazından çağrıldığında ayrıntılı günlük dosyası oluşturulur. Günlük bulunan **C:\ProgramData\AADConnect\ADConnectivityTool-\<tarih >-\<zaman > .log**
 
 ## <a name="adconnectivitytools-post-installation"></a>ADConnectivityTools yükleme sonrası
 Azure AD Connect yüklendikten sonra herhangi bir ADConnectivityTools PowerShell modülündeki işlevleri kullanılabilir.  

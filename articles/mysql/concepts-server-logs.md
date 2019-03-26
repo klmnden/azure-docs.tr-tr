@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: b1b5dffed0a82e3e3c91efd4024bafdc64f0d3d2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c5087a038e31c4819ef1ef173bb32faa41e04c97
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119046"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417780"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda sunucu günlüklerini
 MySQL için Azure veritabanı'nda yavaş sorgu günlüğü kullanıcılar tarafından kullanılabilir. İşlem günlüğü erişimi desteklenmiyor. Yavaş sorgu günlüğü, sorun giderme için performans sorunlarını tanımlamak için kullanılabilir. 
@@ -53,31 +53,31 @@ Aşağıdaki tabloda, her oturum açma yenilikler açıklanır. Yer alan alanlar
 
 | **Özellik** | **Açıklama** |
 |---|---|
-| TenantId | Kiracı Kimliğiniz |
-| SourceSystem | `Azure` |
-| TimeGenerated [UTC] | Günlük UTC olarak kaydedildiği zaman damgası |
-| Type | Günlük türü. Her zaman `AzureDiagnostics` |
-| SubscriptionId | Sunucunun ait olduğu aboneliğin GUID |
-| ResourceGroup | Sunucunun ait olduğu kaynak grubu adı |
-| ResourceProvider | Kaynak sağlayıcı adı. Her zaman `MICROSOFT.DBFORMYSQL` |
-| ResourceType | `Servers` |
-| ResourceId | Kaynak URI'si |
-| Kaynak | Sunucusunun adı |
-| Kategori | `MySqlSlowLogs` |
-| OperationName | `LogEvent` |
-| Logical_server_name_s | Sunucusunun adı |
-| start_time_t [UTC] | Sorgu başladığı saat |
-| query_time_s | Sorguyu yürütmek için geçen toplam süre |
-| lock_time_s | Sorgu kilitli olan toplam süre |
-| user_host_s | Kullanıcı adı |
-| rows_sent_s | Gönderilen satır sayısı |
-| rows_examined_s | Denetlenen satır sayısı |
-| last_insert_id_s | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| insert_id_s | Kimliği Ekle |
-| sql_text_s | Tam sorgu |
-| server_id_s | Sunucunun kimliği |
-| thread_id_s | iş parçacığı kimliği |
-| \_ResourceId | Kaynak URI'si |
+| `TenantId` | Kiracı Kimliğiniz |
+| `SourceSystem` | `Azure` |
+| `TimeGenerated` [UTC] | Günlük UTC olarak kaydedildiği zaman damgası |
+| `Type` | Günlük türü. Her zaman `AzureDiagnostics` |
+| `SubscriptionId` | Sunucunun ait olduğu aboneliğin GUID |
+| `ResourceGroup` | Sunucunun ait olduğu kaynak grubu adı |
+| `ResourceProvider` | Kaynak sağlayıcı adı. Her zaman `MICROSOFT.DBFORMYSQL` |
+| `ResourceType` | `Servers` |
+| `ResourceId` | Kaynak URI'si |
+| `Resource` | Sunucusunun adı |
+| `Category` | `MySqlSlowLogs` |
+| `OperationName` | `LogEvent` |
+| `Logical_server_name_s` | Sunucusunun adı |
+| `start_time_t` [UTC] | Sorgu başladığı saat |
+| `query_time_s` | Sorguyu yürütmek için geçen toplam süre |
+| `lock_time_s` | Sorgu kilitli olan toplam süre |
+| `user_host_s` | Kullanıcı adı |
+| `rows_sent_s` | Gönderilen satır sayısı |
+| `rows_examined_s` | Denetlenen satır sayısı |
+| `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
+| `insert_id_s` | Kimliği Ekle |
+| `sql_text_s` | Tam sorgu |
+| `server_id_s` | Sunucunun kimliği |
+| `thread_id_s` | iş parçacığı kimliği |
+| `\_ResourceId` | Kaynak URI'si |
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 - [Yapılandırma ve Azure CLI'dan sunucu günlüklerine erişme](howto-configure-server-logs-in-cli.md).

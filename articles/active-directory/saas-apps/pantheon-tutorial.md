@@ -4,179 +4,191 @@ description: Azure Active Directory ve Pantheon arasında çoklu oturum açmayı
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d2c965d1-666f-44c2-b08f-b73163096374
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/30/2017
+ms.topic: tutorial
+ms.date: 03/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d30b03d9be8aad932c97695adbfd9360df27a4f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: da1ff2be9661de143bd36c8e17fd388d64f947a7
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180326"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407513"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pantheon"></a>Öğretici: Pantheon ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Pantheon tümleştirme konusunda bilgi edinin.
-
 Azure AD ile Pantheon tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Pantheon erişimi, Azure AD'de denetleyebilirsiniz
-- Otomatik olarak imzalanan için Pantheon (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
+* Pantheon erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) Pantheon için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile Pantheon yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Abonelik Pantheon çoklu oturum açma etkin
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik pantheon çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Pantheon ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* Pantheon destekler **IDP** tarafından başlatılan
 
 ## <a name="adding-pantheon-from-the-gallery"></a>Galeriden Pantheon ekleme
+
 Azure AD'de Pantheon tümleştirmesini yapılandırmak için Pantheon Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Pantheon eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Uygulamalar][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Uygulamalar][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **Pantheon**.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/pantheon-tutorial/tutorial_pantheon_search.png)
+4. Arama kutusuna **Pantheon**seçin **Pantheon** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-1. Sonuçlar panelinde seçin **Pantheon**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+     ![Sonuç listesinde pantheon](common/search-new-app.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/pantheon-tutorial/tutorial_pantheon_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
-Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Pantheon sınayın.
-
-Tek iş için oturum açma için Azure AD ne Pantheon karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Pantheon ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
-
-Pantheon içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Pantheon adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının Pantheon ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma Pantheon ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Pantheon test kullanıcısı oluşturma](#creating-a-pantheon-test-user)**  - kullanıcı Azure AD gösterimini bağlı Pantheon Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Pantheon çoklu oturum açmayı yapılandırma](#configure-pantheon-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Pantheon test kullanıcısı oluşturma](#create-pantheon-test-user)**  - kullanıcı Azure AD gösterimini bağlı Pantheon Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Pantheon uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma ile Pantheon yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma ile Pantheon yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **Pantheon** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Pantheon** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/pantheon-tutorial/tutorial_pantheon_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **Pantheon etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/pantheon-tutorial/tutorial_pantheon_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    a. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `urn:auth0:pantheon:<orgname>-SSO`
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://pantheon.auth0.com/login/callback?connection=<orgname>-SSO`
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında, aşağıdaki adımları gerçekleştirin:
 
-    > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Pantheon Destek ekibine](https://pantheon.io/docs/getting-support/) bu değerleri almak için.
+    ![Pantheon etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-intiated.png)
 
-1. Pantheon uygulama, kullanıcının e-posta adresiyle UserIdentifier öznitelik değeri ayarlamanızı gerektiren belirli biçiminde SAML onayı bekliyor. Varsayılan olarak, Azure AD UserPrincipalName UserIdentifier özniteliği için kullanır. Ancak başarılı tümleştirme için kullanıcının e-posta adresiyle eşleşecek şekilde bu değeri ayarlamanız gerekir. Tümleştirme yalnızca doğru eşleme yaptıktan sonra çalışır.
+    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `urn:auth0:pantheon:<orgname>-SSO`
 
-    ![Çoklu oturum açmayı yapılandırın](./media/pantheon-tutorial/tutorial_attribute.png)    
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://pantheon.auth0.com/login/callback?connection=<orgname>-SSO`
 
+    > [!NOTE]
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Pantheon istemci Destek ekibine](https://pantheon.io/docs/getting-support/) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+5. Pantheon uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Varsayılan öznitelikler listesinde aşağıdaki ekran görüntüsünde gösterilmektedir oysa **NameIdentifier** ile eşlenmiş **user.userprincipalname**. Pantheon uygulama bekliyor **NameIdentifier** ile eşlenecek **user.mail**tıklayarak özellik eşlemesi düzenlemeniz gerekir böylece **Düzenle** simgesi ve değişiklik öznitelik eşlemesi.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/pantheon-tutorial/tutorial_pantheon_certificate.png)
+    ![image](common/edit-attribute.png)
 
-1. Tıklayın **Kaydet** düğmesi.
+6. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/pantheon-tutorial/tutorial_general_400.png)
+    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-1. Üzerinde **Pantheon yapılandırma** bölümünde **yapılandırma Pantheon** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+7. Üzerinde **Pantheon kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/pantheon-tutorial/tutorial_pantheon_configure.png) 
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-1. Çoklu oturum açmayı yapılandırma **Pantheon** tarafı, indirilen göndermek için ihtiyacınız **sertifika** ve **SAML çoklu oturum açma hizmeti URL'si** için [Pantheon Destek](https://pantheon.io/docs/getting-support/).
+    a. Oturum Açma URL'si:
 
-     > [!Note]
-     > Ayrıca, bu bağlantıyı etkinleştirmek istediğinizde tarih saat ve e-posta etki alanı bilgileri vermeniz gerekir. Bununla ilgili daha fazla ayrıntı bulabilirsiniz [burada](https://pantheon.io/docs/sso-organizations/)
+    b. Azure AD Tanımlayıcısı
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
+    c. Oturum Kapatma URL'si
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="configure-pantheon-single-sign-on"></a>Pantheon çoklu oturum açmayı yapılandırın
+
+Çoklu oturum açmayı yapılandırma **Pantheon** tarafı, indirilen göndermek için ihtiyacınız **sertifika** ve uygun kopyalanan URL'lere [Pantheon Destek ekibine](https://pantheon.io/docs/getting-support/).
+
+> [!Note]
+> Ayrıca, bu bağlantıyı etkinleştirmek istediğinizde tarih saat ve e-posta etki alanı bilgileri vermeniz gerekir. Bununla ilgili daha fazla ayrıntı bulabilirsiniz [burada](https://pantheon.io/docs/sso-organizations/)
+
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
+
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD kullanıcısı oluşturun][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/pantheon-tutorial/create_aaduser_01.png) 
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/pantheon-tutorial/create_aaduser_02.png) 
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/pantheon-tutorial/create_aaduser_03.png) 
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/pantheon-tutorial/create_aaduser_04.png) 
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    a. İçinde **adı** metin kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
-
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
- 
-### <a name="creating-a-pantheon-test-user"></a>Pantheon test kullanıcısı oluşturma
+
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+
+Bu bölümde, Azure çoklu oturum açma kullanmak için Pantheon erişim vererek Britta Simon etkinleştirin.
+
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Pantheon**.
+
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
+2. Uygulamalar listesinde **Pantheon**.
+
+    ![Uygulamalar listesinde Pantheon bağlantı](common/all-applications.png)
+
+3. Soldaki menüde **kullanıcılar ve gruplar**.
+
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
+
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+
+### <a name="create-pantheon-test-user"></a>Pantheon test kullanıcısı oluşturma
 
 Bu bölümde, Britta Simon Pantheon içinde adlı bir kullanıcı oluşturun. Lütfen izleyin Pantheon içinde kullanıcı eklemek için aşağıdaki adımları. 
 
@@ -185,71 +197,29 @@ Bu bölümde, Britta Simon Pantheon içinde adlı bir kullanıcı oluşturun. L�
 
 1. Yönetici kimlik bilgileriyle oturum açma Pantheon için.
 
-1. Gidin **kuruluş** Pano sayfası.
+2. Gidin **kuruluş** Pano sayfası.
  
-1. Tıklayın **kişiler**.
+3. Tıklayın **kişiler**.
 
-1. **Kullanıcı ekle**'ye tıklayın.
+4. **Kullanıcı ekle**'ye tıklayın.
 
-1. Kullanıcının e-posta adresini girin.
+5. Kullanıcının e-posta adresini girin.
 
-1. Kullanıcı rolü seçin.
+6. Kullanıcı rolü seçin.
 
-1. **Kullanıcı ekle**'ye tıklayın.
+7. **Kullanıcı ekle**'ye tıklayın.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
-
-Bu bölümde, Azure çoklu oturum açma kullanmak için Pantheon erişim vererek Britta Simon etkinleştirin.
-
-![Kullanıcı Ata][200] 
-
-**Britta Simon Pantheon için atamak için aşağıdaki adımları gerçekleştirin:**
-
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
-
-    ![Kullanıcı Ata][201] 
-
-1. Uygulamalar listesinde **Pantheon**.
-
-    ![Çoklu oturum açmayı yapılandırın](./media/pantheon-tutorial/tutorial_pantheon_app.png) 
-
-1. Soldaki menüde **kullanıcılar ve gruplar**.
-
-    ![Kullanıcı Ata][202] 
-
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
-
-    ![Kullanıcı Ata][203]
-
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
-
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
-
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
-### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde Pantheon kutucuğa tıkladığınızda, otomatik olarak Pantheon uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli Pantheon kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Pantheon için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/pantheon-tutorial/tutorial_general_01.png
-[2]: ./media/pantheon-tutorial/tutorial_general_02.png
-[3]: ./media/pantheon-tutorial/tutorial_general_03.png
-[4]: ./media/pantheon-tutorial/tutorial_general_04.png
-
-[100]: ./media/pantheon-tutorial/tutorial_general_100.png
-
-[200]: ./media/pantheon-tutorial/tutorial_general_200.png
-[201]: ./media/pantheon-tutorial/tutorial_general_201.png
-[202]: ./media/pantheon-tutorial/tutorial_general_202.png
-[203]: ./media/pantheon-tutorial/tutorial_general_203.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

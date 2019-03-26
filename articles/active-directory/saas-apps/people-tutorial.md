@@ -4,237 +4,212 @@ description: Azure Active Directory ve kişiler arasında çoklu oturum açmayı
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 7c9b6202-11dd-4bb6-a679-8fb0a7a0ef4e
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/06/2017
+ms.topic: tutorial
+ms.date: 03/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cb01dde4ddfe26351c6e1147fcf3d1cbbd49ad5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9a22de254a2a0ddde3f6fe53a9adaed246e1754a
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193059"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407666"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-people"></a>Öğretici: Kişiler ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, kişilerin Azure Active Directory (Azure AD) ile tümleştirme konusunda bilgi edinin.
-
 Kişilerin, Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Kişiler erişimi, Azure AD'de denetleyebilirsiniz
-- Otomatik olarak imzalanan kişilere (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
+* Kişiler erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak kişilere (çoklu oturum açma) ile Azure AD hesaplarına oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirmesi kişilerle yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Bir kişi çoklu oturum açma abonelik etkin.
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Kişiler tek oturum açma etkin abonelik
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden kişi ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* Kişiler destekler **SP** tarafından başlatılan
 
 ## <a name="adding-people-from-the-gallery"></a>Galeriden kişi ekleme
+
 Azure AD'de kişilerin tümleştirmesini yapılandırmak için kişilerin Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden kişiler eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Uygulamalar][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Uygulamalar][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **kişiler**.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/people-tutorial/tutorial_people_search.png)
+4. Arama kutusuna **kişiler**seçin **kişiler** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-1. Sonuçlar panelinde seçin **kişiler**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+     ![Sonuç listesinde kişiler](common/search-new-app.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/people-tutorial/tutorial_people_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
-Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma kişilerle "Britta Simon" adlı bir test kullanıcısı üzerinde test edin.
-
-Tek iş için oturum açma için Azure AD kişiler karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmesi gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve ilgili kullanıcı kişiler arasında bağlantı ilişki kurulması gerekir.
-
-Değeri, kişilere atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açmayı test etme adlı bir test kullanıcı tabanlı kişilerle **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısı ve ilgili kullanıcı kişiler arasında bağlantı ilişki kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma kişilerle sınamak için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Bir kişi test kullanıcısı oluşturma](#creating-a-people-test-user)**  - kullanıcı Azure AD gösterimini bağlı olduğu kişi Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Kişiler çoklu oturum açmayı yapılandırma](#configure-people-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Kişiler test kullanıcısı oluşturma](#create-people-test-user)**  - kullanıcı Azure AD gösterimini bağlı olduğu kişi Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma insanların uygulamanızı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma kişilerle yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma kişilerle yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **kişiler** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **kişiler** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/people-tutorial/tutorial_people_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **kişiler etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/people-tutorial/tutorial_people_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak:  `https://<company name>.peoplehr.net`
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    b. İçinde **tanımlayıcı** metin kutusuna URL'yi yazın: `https://www.peoplehr.com`
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    c. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak:  `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
-    
+    ![Kişiler etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier-reply.png)
+
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<company name>.peoplehr.net`
+
+    b. İçinde **tanımlayıcı** kutusuna bir URL yazın: `https://www.peoplehr.com`
+
+    c. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
+
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [kişiler istemci Destek ekibine](mailto:customerservices@peoplehr.com) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve yanıt URL'si ile güncelleştirin. İlgili kişi [kişiler istemci Destek ekibine](mailto:customerservices@peoplehr.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/people-tutorial/tutorial_people_certificate.png) 
+    ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-1. Tıklayın **Kaydet** düğmesi.
+6. Üzerinde **temsilcilerini ayarlamak** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/people-tutorial/tutorial_general_400.png)
-    
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
+
+    a. Oturum Açma URL'si:
+
+    b. Azure AD Tanımlayıcısı
+
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-people-single-sign-on"></a>Kişiler çoklu oturum açmayı yapılandırın
+
 1. Uygulamanız için yapılandırılmış SSO elde etmek için kişi kiracınızın yönetici olarak oturum açma gerekir.
    
-1. İşlecin sol tarafındaki menüde **ayarları**.
+2. İşlecin sol tarafındaki menüde **ayarları**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/people-tutorial/tutorial_people_001.png)
 
-1. Tıklayın **şirket**.
+3. Tıklayın **şirket**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/people-tutorial/tutorial_people_002.png)
 
-1. Üzerinde **karşıya yükleme 'Single Sign tam On' SAML meta veri dosyası**, tıklayın **Gözat** indirilen meta veri dosyası karşıya yüklemek için.
+4. Üzerinde **karşıya yükleme 'Single Sign tam On' SAML meta veri dosyası**, tıklayın **Gözat** indirilen meta veri dosyası karşıya yüklemek için.
 
     ![Çoklu oturum açmayı yapılandırın](./media/people-tutorial/tutorial_people_003.png)
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD kullanıcısı oluşturun][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/people-tutorial/create_aaduser_01.png) 
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/people-tutorial/create_aaduser_02.png) 
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/people-tutorial/create_aaduser_03.png) 
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/people-tutorial/create_aaduser_04.png) 
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    a. İçinde **adı** metin kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
-
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
- 
-### <a name="creating-a-people-test-user"></a>Bir kişi test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon kişi adlı bir kullanıcı oluşturun. Çalışmak [kişiler istemci Destek ekibine](mailto:customerservices@peoplehr.com) kişiler platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, kişilere erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı Ata][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **kişiler**.
 
-**Britta Simon kişilere atamak için aşağıdaki adımları gerçekleştirin:**
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **kişiler**.
 
-    ![Kullanıcı Ata][201] 
+    ![Uygulamalar listesinde kişiler bağlantı](common/all-applications.png)
 
-1. Uygulamalar listesinde **kişiler**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/people-tutorial/tutorial_people_app.png) 
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    ![Kullanıcı Ata][202] 
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![Kullanıcı Ata][203]
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+### <a name="create-people-test-user"></a>Kişiler test kullanıcısı oluşturma
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
-### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
+Bu bölümde, Britta Simon kişi adlı bir kullanıcı oluşturun. Çalışmak [kişiler istemci Destek ekibine](mailto:customerservices@peoplehr.com) kişiler platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
-Bu bölümün amacı, erişim panelini kullanarak Azure AD SSO yapılandırmanızı sınamanızı sağlamaktır.
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
-Erişim panelinde kişi kutucuğa tıkladığınızda, otomatik olarak kişiler uygulamanıza açan.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-## <a name="additional-resources"></a>Ek kaynaklar
+Erişim paneli kişi kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama kişilere oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-<!--Image references-->
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-[1]: ./media/people-tutorial/tutorial_general_01.png
-[2]: ./media/people-tutorial/tutorial_general_02.png
-[3]: ./media/people-tutorial/tutorial_general_03.png
-[4]: ./media/people-tutorial/tutorial_general_04.png
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[100]: ./media/people-tutorial/tutorial_general_100.png
-
-[200]: ./media/people-tutorial/tutorial_general_200.png
-[201]: ./media/people-tutorial/tutorial_general_201.png
-[202]: ./media/people-tutorial/tutorial_general_202.png
-[203]: ./media/people-tutorial/tutorial_general_203.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

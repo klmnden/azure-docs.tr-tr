@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dfef0e27dd3e38e5a965f47a47619671a3127b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eefde6173156ea86f210ecc196c848fd97aaa0c8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117668"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435790"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Galeri dışı uygulamalar için çoklu oturum açma, Azure Active Directory'de yapılandırma
 
@@ -124,7 +124,7 @@ Daha fazla bilgi için [Federasyon çoklu oturum açma için Azure Active Direct
 
 ### <a name="set-up-target-application"></a>Hedef uygulama ayarlama
 
-Uygulama için çoklu oturum açmayı yapılandırmak için uygulamanın belgeleri bulun. Belgeleri bulmak için SAML tabanlı oturum açma yapılandırması sayfanın sonuna kaydırın ve ardından **yapılandırma <application name>** . 
+Uygulama için çoklu oturum açmayı yapılandırmak için uygulamanın belgeleri bulun. Belgeleri bulmak için SAML tabanlı oturum açma yapılandırması sayfanın sonuna kaydırın ve ardından **yapılandırma \<uygulama adı >**. 
 
 Gereken değerleri uygulamaya göre değişir. Ayrıntılar için uygulamanın SAML belgelerine bakın. Oturum açma ve oturum kapatma hizmeti URL'si hem de Azure AD Örneğiniz için SAML isteği işleme uç noktadır aynı uç çözümleyin. SAML varlık kimliği uygulamaya verilen SAML belirteci veren olarak görünen değerdir.
 

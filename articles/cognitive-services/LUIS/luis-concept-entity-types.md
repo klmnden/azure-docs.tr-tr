@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: d12ea20f9f510b0e2d3d3512d8d8c71a3fb96eec
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: efe50533a03551a673583265e107263d79cff90a
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372531"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418695"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Varlık türleri ve bunların amacıyla LUIS
 
@@ -216,11 +216,20 @@ Uygulamaya eklenen önceden oluşturulmuş varlıklarla olacak _her zaman_ dönd
 
 #### <a name="remove-example-utterance-to-fix-tagging"></a>Etiketleme düzeltmek için örnek utterance Kaldır 
 
-İlk seçtiğiniz örnek utterance silin ve uygulamayı yeniden eğitme sağlamaktır. Word yeniden ekleyin veya varlık örneği utterance olarak tümceciği, ardından eğitme ve varlık işaretleyin. Şimdi önceden oluşturulmuş varlık ve özgün örnek utterance geri ekleyin. Özel varlık, önceden oluşturulmuş bir varlık yerine işaretlenmesini devam etmelidir. 
+İlk seçtiğiniz örnek utterance kaldırmaktır. 
+
+1. Örnek utterance silin.
+1. Uygulamayı yeniden eğitme. 
+1. Word yeniden ekleyin veya tam bir örnek utterance olarak önceden oluşturulmuş bir varlık olarak işaretlenmiş varlık tümceciği. Bir sözcük veya tümcecik hala işaretlenmiş önceden oluşturulmuş varlık olacaktır. 
+1. Örnek utterance varlıkta seçin **hedefi** sayfasında, özel varlığınıza değiştirin ve yeniden eğitin. Bu tam metin işaretlenmesi metnin kullanan herhangi bir örnek konuşma önceden oluşturulmuş varlığı olarak bu LUIS engel olur. 
+1. Tüm özgün örnek utterance Intent'e ekleyin. Özel varlık, önceden oluşturulmuş bir varlık yerine işaretlenmesini devam etmelidir. Özel varlık işaretlenmemiş olması, konuşma metnin daha fazla örnek eklemeniz gerekir.
 
 #### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Etiketleme düzeltmek için önceden oluşturulmuş varlık Kaldır
 
-İkinci seçiminiz uygulamadan, önceden oluşturulmuş varlık kaldırmaktır ardından örnek utterance içinde özel varlık etiketi, ardından önceden oluşturulmuş varlık uygulamaya geri ekleyin. Bu düzeltme, önceden oluşturulmuş varlık bileşik bir varlık parçası olmayan varsayar. 
+1. Önceden oluşturulmuş varlık uygulamadan kaldırabilir. 
+1. Üzerinde **hedefi** sayfasında, özel varlıkta örnek utterance işaretleyin.
+1. Uygulamayı eğitin.
+1. Önceden oluşturulmuş varlık uygulamaya geri ekleyin ve uygulamayı eğitin. Bu düzeltme, önceden oluşturulmuş varlık bileşik bir varlık parçası olmayan varsayar.
 
 ## <a name="regular-expression-entity"></a>Normal ifade varlığı 
 

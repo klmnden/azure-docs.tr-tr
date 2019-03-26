@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 8fee19b4d7a1ae05ca9a38c5a9ba374c0674a867
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2045041a9ee4872e4510e5ee0deba258b0342557
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776266"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437297"
 ---
 # <a name="train-a-model"></a>Modeli eğitme
 
@@ -51,6 +51,9 @@ Bir modeli eğitmek için:
 6.  Özel Translator eğitim gönderin ve modelleri sekmede eğitim durumunu gösterir.
 
     ![Train model sayfası](media/how-to/how-to-train-model-3.png)
+
+>[!Note]
+>Özel Translator, zaman içinde herhangi bir noktada bir çalışma alanı 10 eşzamanlı eğitimleri destekler.
 
 
 ## <a name="edit-a-model"></a>Bir modeli Düzenle

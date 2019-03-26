@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0a3fd2cc66a066d2790d2e12822e3246dc3db382
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c22b82dcd3438a8175457aa0963d52e84d582abf
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898882"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438508"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışları anlama
 Bu makalede, Azure Stream Analytics işi için çıktıların farklı türde açıklanır. Çıkış, depolamak ve Stream Analytics işi sonuçlarını kaydetmek olanak tanır. Yapabileceğiniz çıktı verilerini kullanarak, İş analizi ve veri depolama verilerinizi daha fazla.
@@ -127,6 +127,7 @@ Olay hub'ı veri akışlarını çıkış olarak yapılandırmak için gereken b
 | Encoding | CSV ve JSON, UTF-8 şu anda desteklenen tek kodlama biçimi içindir. |
 | Sınırlayıcı | Yalnızca, CSV serileştirme için de geçerlidir. Akış Analizi, CSV biçiminde verilerin serileştirilmesi için yaygın olarak kullanılan bazı sınırlayıcıları destekler. Desteklenen değerler şunlardır: virgülle, noktalı virgül, boşluk, sekme ve dikey çubuk. |
 | Biçimlendir | Yalnızca, JSON seri hale getirme için de geçerlidir. Satırla ayrılmış yeni satırla ayrılmış her bir JSON nesnesi sağlayarak çıkış biçimlendirileceğini belirtir. Dizi çıkış bir JSON nesne dizisi biçimlendirileceğini belirtir. Yalnızca sonraki zaman penceresine işini durdurur veya Stream Analytics taşınmıştır, bu dizi kapatıldı. Genel olarak, tercih edilir satırını kullanmak için çıkış dosyası için hala yazıldığı sırada herhangi bir özel işlem gerektirmez beri JSON, ayrılmış. |
+| [İsteğe bağlı] özellik sütunları | Giden iletinin yükü yerine özellikleri kullanıcı olarak eklenmesi gereken sütunlar virgülle ayrılmış. "Çıktı için özel meta veri özelliklerini" bölümünde bu özellikle ilgili daha fazla bilgi |
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/) için bir Stream Analytics işi çıktı olarak analiz sonuçları için bir zengin görselleştirme deneyiminin sunulabilmesi için kullanılabilir. Bu özellik, işletimsel panolar, rapor oluşturma ve raporlama temelli ölçüm için kullanılabilir.
@@ -230,6 +231,7 @@ Bu sorunu çözmek için çalışan işini durdurma ve Power BI çıkışınız�
 | Encoding |CSV ve JSON için UTF-8 şu anda desteklenen tek kodlama biçimi yoktur. |
 | Sınırlayıcı |Yalnızca, CSV serileştirme için de geçerlidir. Akış Analizi, CSV biçiminde verilerin serileştirilmesi için yaygın olarak kullanılan bazı sınırlayıcıları destekler. Desteklenen değerler şunlardır: virgülle, noktalı virgül, boşluk, sekme ve dikey çubuk. |
 | Biçimlendir |Yalnızca, JSON türü için de geçerlidir. Satırla ayrılmış yeni satırla ayrılmış her bir JSON nesnesi sağlayarak çıkış biçimlendirileceğini belirtir. Dizi çıkış bir JSON nesne dizisi biçimlendirileceğini belirtir. |
+| [İsteğe bağlı] özellik sütunları | Giden iletinin yükü yerine özellikleri kullanıcı olarak eklenmesi gereken sütunlar virgülle ayrılmış. "Çıktı için özel meta veri özelliklerini" bölümünde bu özellikle ilgili daha fazla bilgi |
 
 Bölüm sayısı [Service Bus SKU ve boyutuna bağlı olarak](../service-bus-messaging/service-bus-partitioning.md). Bölüm anahtarı, her bölüm için benzersiz bir tamsayı değerdir.
 
@@ -248,6 +250,7 @@ Hizmet veri yolu kuyrukları gönderenden alıcıya, bire bir iletişim yöntemi
 | Olay serileştirme biçimi |Çıkış verileri seri hale getirme biçimi. JSON, CSV ve Avro desteklenir. |
 | Encoding |CSV veya JSON biçiminde kullanırken, bir kodlama belirtilmelidir. Şu anda desteklenen tek kodlama biçimi UTF-8 kodlamasıdır |
 | Sınırlayıcı |Yalnızca, CSV serileştirme için de geçerlidir. Akış Analizi, CSV biçiminde verilerin serileştirilmesi için yaygın olarak kullanılan bazı sınırlayıcıları destekler. Desteklenen değerler şunlardır: virgülle, noktalı virgül, boşluk, sekme ve dikey çubuk. |
+| [İsteğe bağlı] özellik sütunları | [İsteğe bağlı] Giden iletinin yükü yerine özellikleri kullanıcı olarak eklenmesi gereken sütunlar virgülle ayrılmış. "Çıktı için özel meta veri özelliklerini" bölümünde bu özellikle ilgili daha fazla bilgi |
 
 Bölüm sayısı [Service Bus SKU ve boyutuna bağlı olarak](../service-bus-messaging/service-bus-partitioning.md). Bölüm anahtarı, her bölüm için benzersiz bir tamsayı değerdir.
 
@@ -293,6 +296,25 @@ Azure Stream Analytics, Azure işlevden 413 (istek varlığı çok büyük http)
 
 Ayrıca, bir durumda bir zaman penceresinde'na gelen bir olay olduğunda, çıktı oluşturulur. Sonuç olarak, computeResult işlevi çağrılmaz. Bu davranış, yerleşik pencereli toplama işlevleri ile tutarlıdır.
 
+## <a name="custom-metadata-properties-for-output"></a>Çıkış için özel meta veri özelliklerini 
+
+Bu özellik, sorgu sütunlar kullanıcı özelliklerini giden iletilerinize ekleme sağlar. Bu sütunlar yüküne geçmemektedir. Bu özellikler, mevcut bir sözlük çıkış iletisi biçiminde olur. Anahtar sütun adı ve değer özellikleri sözlükteki sütun değeri. Kayıt ve dizi tüm Stream Analytics veri türleri desteklenir.  
+
+Desteklenen çıkışlar: 
+* Service Bus Kuyrukları 
+* Service Bus Konuları 
+* Olay Hub'ı 
+
+Örnek: Aşağıdaki örnekte, meta veriler için 2 alan cihaz kimliği ve DeviceStatus ekleyeceğiz. 
+* Query: `select *, DeviceId, DeviceStatus from iotHubInput` .
+* Çıkış yapılandırması: `DeviceId,DeviceStatus`.
+
+![Özellik sütunları](./media/stream-analytics-define-outputs/10-stream-analytics-property-columns.png)
+
+İleti özelliklerini kullanarak EventHub inceledi çıkış [hizmet veri yolu Gezgini](https://github.com/paolosalvatori/ServiceBusExplorer).
+
+   ![Özel olay özellikleri](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
+
 ## <a name="partitioning"></a>Bölümleme
 
 Bölüm destek ve çıkış yazarların her çıkış türü sayısı aşağıdaki tabloda özetlenmiştir:
@@ -302,7 +324,7 @@ Bölüm destek ve çıkış yazarların her çıkış türü sayısı aşağıda
 | Azure Data Lake Store | Evet | Kullanım: {date} ve {time} belirteçleri yol ön eki deseni. YYYY/MM/DD, GG/AA/YYYY-AA-GG-YYYY'gibi tarih biçimi seçin. SS saat biçimi için kullanılır. | Giriş bölümleme için aşağıdaki [tamamen paralelleştirilebilir sorguları](stream-analytics-scale-jobs.md). |
 | Azure SQL Database | Evet | Temel sorgu PARTITION BY yan tümcesi | Giriş bölümleme için aşağıdaki [tamamen paralelleştirilebilir sorguları](stream-analytics-scale-jobs.md). Elde hakkında daha fazla daha iyi yazma aktarım hızı performansı SQL Azure veritabanı'na veri yükleme zaman bilgi edinmek için [Azure SQL veritabanı için Azure Stream Analytics çıkış](stream-analytics-sql-output-perf.md). |
 | Azure Blob depolama | Evet | Kullanım {date} ve {time} belirteçleri, olay alanlarından yol deseni. YYYY/MM/DD, GG/AA/YYYY-AA-GG-YYYY'gibi tarih biçimi seçin. SS saat biçimi için kullanılır. BLOB çıkış bölümlenebilir tek bir özel olay özniteliğiyle {fieldname} veya {datetime:\<belirticisi >}. | Giriş bölümleme için aşağıdaki [tamamen paralelleştirilebilir sorguları](stream-analytics-scale-jobs.md). |
-| Azure Olay Hub'ı | Evet | Evet | Bölüm hizalama bağlı olarak değişir.<br /> Olay hub'ı bölümleri sayısı olay Hub'ı bölüm anahtarı (Yukarı Akış önceki) sorgu adımı, yazarların sayısı eşit hizalanır aynıdır çıkış çıkış. Her yazıcı EventHub'ın kullandığı [EventHubSender sınıfı](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) bölüme olayları göndermek için. <br /> Çıktı, olay hub'ı bölüm anahtarı (Yukarı Akış önceki) sorgu adımı, yazıcıları sayısını hizalı değil ise, önceki adımda bölüm sayısı ile aynı. Her yazıcı EventHubClient kullanan [SendBatchAsync sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) çıkış bölümlere tüm olayları göndermek için. |
+| Azure Olay Hub'ı | Evet | Evet | Bölüm hizalama bağlı olarak değişir.<br /> Olay hub'ı bölümleri sayısı olay Hub'ı bölüm anahtarı (Yukarı Akış önceki) sorgu adımı, yazarların sayısı eşit hizalanır aynıdır çıkış çıkış. Her yazıcı EventHub'ın kullandığı [EventHubSender sınıfı](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) bölüme olayları göndermek için. <br /> Çıktı, olay hub'ı bölüm anahtarı (Yukarı Akış önceki) sorgu adımı, yazıcıları sayısını hizalı değil ise, önceki adımda bölüm sayısı ile aynı. Her yazıcı EventHubClient kullanan [SendBatchAsync sınıfı](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) çıkış bölümlere tüm olayları göndermek için. |
 | Power BI | Hayır | None | Geçerli değildir. |
 | Azure Tablo depolama | Evet | Herhangi bir çıktı sütunu.  | Giriş bölümleme için aşağıdaki [tam olarak, sorguları paralel](stream-analytics-scale-jobs.md). |
 | Azure Service Bus konusu | Evet | Otomatik olarak seçilir. Bölüm sayısı dayanır [Service Bus SKU ve boyutu](../service-bus-messaging/service-bus-partitioning.md). Bölüm anahtarı, her bölüm için benzersiz bir tamsayı değerdir.| Çıkış konudaki bölüm sayısı ile aynıdır.  |

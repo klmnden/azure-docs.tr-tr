@@ -1,19 +1,19 @@
 ---
-title: Azure'a VMware Vm'lerini ve fiziksel sunucuları olağanüstü durum kurtarma için Mobility hizmetini yükleme | Microsoft Docs
-description: VMware Vm'lerini ve fiziksel sunucuları olağanüstü durum kurtarma için Mobility Hizmeti Aracısı Azure Site Recovery hizmetini kullanarak Azure'a yüklemeyi öğrenin.
+title: Kaynak makine, Mobility hizmeti göndererek yükleme VMware vm'lerinin olağanüstü durum kurtarma ve fiziksel sunucuları aracılığıyla Azure'a yüklemek için hazırlama | Microsoft Docs
+description: VMware vm'lerinin olağanüstü durum kurtarma için göndererek yükleme yoluyla Mobility aracısı yüklemek için sunucu ve fiziksel sunucuları Azure Site Recovery hizmetini kullanarak azure'a hazırlamayı öğrenin.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 30b177578464653499cdcde8cacf65defa5548ef
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846921"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418678"
 ---
-# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>VMware Vm'lerini ve fiziksel sunucuları olağanüstü durum kurtarma için Mobility hizmetini yükleme
+# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Kaynak makineye mobility Aracısı gönderme yüklemesi için hazırlama
 
 Ayarladığınızda olağanüstü durum kurtarma için VMware Vm'lerini ve fiziksel sunucuları kullanarak [Azure Site Recovery](site-recovery-overview.md), yüklediğiniz [Site Recovery Mobility hizmetini](vmware-physical-mobility-service-overview.md) her bir şirket içi VMware VM ve fiziksel sunucu.  Mobility hizmeti yakalar makinede veri yazar ve onları Site Recovery işlem sunucusuna gönderir.
 
@@ -26,7 +26,7 @@ Korumak istediğiniz her bir Windows makinede aşağıdakileri yapın:
 2. Bir etki alanı hesabı kullanmıyorsanız yerel bilgisayarda Uzak kullanıcı erişim denetimi gibi devre dışı bırakın:
     - Hkey_local_machıne\software\microsoft\windows\currentversion\policies\system kayıt defteri anahtarı altında yeni bir DWORD değeri ekleyin: **LocalAccountTokenFilterPolicy**. Değerine **1**.
     -  Bu komut isteminde aşağıdakini yapmak için aşağıdaki komutu çalıştırın:  
-   ' REG ADD hkey_local_machıne\software\microsoft\windows\currentversion\policies\system /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
+   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
 3. Korumak istediğiniz makinede Windows Güvenlik Duvarı'nda seçin **bir uygulama veya özelliğin güvenlik duvarı üzerinden izin**. Etkinleştirme **dosya ve Yazıcı Paylaşımı** ve **Windows Yönetim Araçları (WMI)**. Bir etki alanına ait bilgisayarlar için bir Grup İlkesi nesnesi (GPO) kullanarak güvenlik duvarı ayarlarını yapılandırabilirsiniz.
 
    ![Güvenlik duvarı ayarları](./media/vmware-azure-install-mobility-service/mobility1.png)
@@ -59,6 +59,10 @@ Korumak istediğiniz her Linux makinesinde, aşağıdakileri yapın:
 11. Üzerinde **hesaplarını yönetme** sekmesinde **hesabı Ekle**.
 12. Oluşturduğunuz hesabı ekleyin.
 13. Bir bilgisayar için çoğaltmayı etkinleştirdiğinizde kullandığınız kimlik bilgilerini girin.
+
+## <a name="anti-virus-on-replicated-machines"></a>Çoğaltılan makinelerde virüsten koruma
+
+Çoğaltmak istediğiniz makineleri çalışan active virüsten koruma yazılımı varsa, virüsten koruma işlemlerini Mobility hizmeti yükleme klasör dışlama emin olun (*C:\ProgramData\ASR\agent*). Bu, çoğaltmanın beklendiği gibi çalıştığını sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

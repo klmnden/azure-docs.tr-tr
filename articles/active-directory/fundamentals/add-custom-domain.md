@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9820fcae0dfb366c1722c50c95400c7de0fbeb12
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: fb29fb5ef2e755ff456ad177b66349792b2fa21c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285794"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418865"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Azure Active Directory portalı kullanarak özel etki alanı adınızı ekleme
 Her yeni Azure AD kiracısı bir ilk etki alanı adı ile gelir *domainname*. onmicrosoft.com. Değiştirme veya silme ilk etki alanı adı, ancak kuruluşunuzun adları listesine ekleyebilirsiniz. Özel etki alanı adları ekleme yardımcı olur, kullanıcılarınızın tanıdığı gibi kullanıcı adları oluşturmak için *alain\@contoso.com*.
@@ -84,6 +84,8 @@ Azure AD'ye özel etki alanı adınızı ekledikten sonra için etki alanı kay�
 4. Üzerinde **Contoso** sayfasında **doğrulama** özel etki alanınızı düzgün şekilde kaydedildiğinden ve Azure AD için geçerli olduğundan emin olun.
 
     ![DNS girişi bilgilerini ve Doğrula düğmesine contoso sayfası](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
+
+Özel etki alanı adınızı doğruladıktan sonra doğrulama TXT veya MX dosya silebilirsiniz.
 
 ## <a name="common-verification-issues"></a>Sık karşılaşılan doğrulama sorunları
 - Azure AD'ye özel etki alanı adını doğrulayamıyorsanız, aşağıdaki önerileri deneyin:

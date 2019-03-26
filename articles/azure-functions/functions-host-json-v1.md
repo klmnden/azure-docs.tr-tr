@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: 6f93bbceacff3731206e5f98ba9a252d6a046ac4
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 44bc5a245d1bcbc8ff53991af4193ef86f7cd704
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200084"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436328"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure işlevleri için Host.JSON başvurusu 1.x
 
@@ -244,7 +244,21 @@ Tarafından yazılan günlükler için filtreleme denetimlerini bir [ILogger nes
 
 Bir yapılandırma ayarı için [Service Bus Tetikleyicileri ve bağlamaları](functions-bindings-service-bus.md).
 
-[!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
+```json
+{
+    "serviceBus": {
+      "maxConcurrentCalls": 16,
+      "prefetchCount": 100,
+      "autoRenewTimeout": "00:05:00"
+    }
+}
+```
+
+|Özellik  |Varsayılan | Açıklama |
+|---------|---------|---------| 
+|maxConcurrentCalls|16|İleti pompası başlatmalıdır geri çağırma eş zamanlı çağrı sayısı. Varsayılan olarak, İşlevler çalışma zamanı aynı anda birden çok ileti işler. Bir kerede yalnızca tek bir kuyruk veya konuda ileti işleme için çalışma zamanının ayarlayın `maxConcurrentCalls` 1. | 
+|prefetchCount|yok|Varsayılan temel alınan MessageReceiver tarafından kullanılacak PrefetchCount.| 
+|autoRenewTimeout|00:05:00|En uzun süre içinde otomatik olarak ileti kilidi yenilenir.| 
 
 ## <a name="singleton"></a>singleton
 

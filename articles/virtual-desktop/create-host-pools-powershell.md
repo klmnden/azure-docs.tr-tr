@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7b9b7ffbb034a7fb1256d9cc44048cfa55b02245
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: bd46e5f7428bab58508521b2c7d4d7cca25d689b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402737"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439082"
 ---
-# <a name="create-a-host-pool-with-powershell"></a>PowerShell ile bir ana makine havuzu oluşturma
+# <a name="create-a-host-pool-with-powershell"></a>PowerShell ile ana bilgisayar havuzu oluşturma
 
 Ana bilgisayar havuzları, Windows sanal masaüstü Önizleme Kiracı ortamlar içinde bir veya daha fazla aynı sanal makinelerden oluşan bir koleksiyondur. Her konak havuzu, fiziksel masaüstünde yaptıkları gibi kullanıcı etkileşim kurabilir bir uygulama grubu içerebilir.
 
@@ -54,7 +54,7 @@ Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGr
 
 **Ekle RdsAppGroupUser** cmdlet'i güvenlik grupları eklemeyi desteklemez ve yalnızca bir kullanıcı aynı anda uygulama grubuna ekler. Uygulama grubu için birden çok kullanıcı eklemek istiyorsanız, uygun kullanıcı asıl adlarından cmdlet'ini yeniden çalıştırın.
 
-Daha sonra kullanacağınız bir değişken için kayıt belirteci vermek için aşağıdaki cmdlet'i çalıştırın [Windows sanal masaüstü ana havuzuna sanal makineleri kaydetmek](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+Daha sonra kullanacağınız bir değişken için kayıt belirteci vermek için aşağıdaki cmdlet'i çalıştırın [Windows sanal masaüstü ana havuzuna sanal makineleri kaydetmek](#register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool).
 
 ```powershell
 $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token

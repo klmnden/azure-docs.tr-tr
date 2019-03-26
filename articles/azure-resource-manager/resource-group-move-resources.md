@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 98236133a90cfddfe2ea476486556318b2c88b10
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081262"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418899"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -49,7 +49,7 @@ Bu makalede gösterilen Self-Servis işlemler çoğu kaynaklarında taşıyabili
 
 ## <a name="services-that-can-be-moved"></a>Taşınabilir Hizmetleri
 
-Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizmetlerinin genel bir özeti verilmiştir. Daha fazla ayrıntı için bkz. [taşıma işlemi Destek kaynakları için](move-support-resources.md).
+Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizmetlerinin genel bir özeti verilmiştir. Hangi kaynak türlerini destekleyen taşıma bir listesi için bkz [taşıma işlemi Destek kaynakları için](move-support-resources.md).
 
 * Analysis Services
 * API Management
@@ -143,7 +143,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmet
 * Dynamics LCS
 * ExpressRoute
 * Kubernetes Service
-* Lab Services'i - aynı Abonelikteki yeni kaynak grubuna taşıma etkin, ancak çapraz abonelik taşıma etkin değil.
+* Lab Services'i - sınıf Laboratuvarlarını bir yeni kaynak grubuna veya aboneliğe taşınamaz. DevTest Labs, yeni bir kaynak grubu ile aynı abonelikte ancak değil, abonelikler arasında taşınabilir.
 * Yönetilen Uygulamalar
 * Microsoft Genomiks
 * Azure’da SAP HANA

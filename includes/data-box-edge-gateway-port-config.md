@@ -1,8 +1,16 @@
-      ---
-Yazar: alkohli ms.service: Data Box  
-MS.topic: ms.date içerir: 03/21/2019 ms.author: alkohli
 ---
-
+author: alkohli
+ms.service: databox
+ms.topic: include
+ms.date: 03/25/2019
+ms.author: alkohli
+ms.openlocfilehash: 98f9e0377e560fa0bba2fd470ff01431b2ed21d9
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58431504"
+---
 | Bağlantı noktası yok.| Daraltma veya genişletme | Bağlantı noktası kapsamı| Gerekli|   Notlar |   |
 |--------|-----|-----|-----------|----------|-----------|
 | TCP 80 (HTTP)|Çıkış|WAN |Hayır|Giden bağlantı noktası, güncelleştirmeleri almak için internet erişimi için kullanılır. <br>Kullanıcı tarafından yapılandırılabilir bir giden web Ara sunucudur. |
@@ -15,4 +23,3 @@ MS.topic: ms.date içerir: 03/21/2019 ms.author: alkohli
 | TCP 443 (HTTPS)|Giden/içinde|LAN|Evet|Bu bağlantı noktasını, yerel yönetim için cihazda yerel kullanıcı Arabirimi için gelen bağlantı noktasıdır. |
 | TCP 445 (SMB)|İçinde|LAN|Bazı durumlarda<br>Notlara bakın|Bu bağlantı noktası, yalnızca SMB bağlanılıyorsa gereklidir. |
 | TCP 2049 (NFS)|İçinde|LAN|Bazı durumlarda<br>Notlara bakın|Bu bağlantı noktası, yalnızca NFS bağlanılıyorsa gereklidir. |
-

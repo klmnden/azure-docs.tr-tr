@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402856"
+ms.locfileid: "58418644"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature"></a>Tanılama özelliği ile sorunları tanımlayın
+# <a name="identify-issues-with-the-diagnostics-feature"></a>Tanılama özelliğiyle sorunları belirleme
 
 Windows sanal masaüstü Önizleme yöneticinin tek bir arabirim üzerinden sorunlarını belirlemek bir tanılama özelliği sunar. Bir kullanıcı sistemi ile etkileşime giren her Windows sanal masaüstü rolleri tanılama etkinlik oturum açın. Her günlük işlem, hata iletileri, Kiracı bilgileri ve kullanıcı bilgilerini katılan Windows sanal masaüstü rolleri gibi ilgili bilgileri içerir. Tanılama etkinlikleri, son kullanıcı ve yönetici eylemleri tarafından oluşturulur ve üç ana demetlerin içine kategorilere ayrılabilir:
 
@@ -32,20 +32,20 @@ Windows sanal masaüstü tanılama yalnızca bir PowerShell cmdlet'ini kullanır
 
 ### <a name="retrieve-diagnostic-activities-in-your-tenant"></a>Kiracınızdaki tanılama etkinlikleri alın
 
-Tanılama etkinlikleri girerek alabilirsiniz **Get-RdsDiagnosticsActivities** cmdlet'i. Aşağıdaki örnek cmdlet için en fazla sıralanmış tanılama etkinliklerin listesini en eski döndürür.
+Tanılama etkinlikleri girerek alabilirsiniz **Get-RdsDiagnosticActivities** cmdlet'i. Aşağıdaki örnek cmdlet için en fazla sıralanmış tanılama etkinliklerin listesini en eski döndürür.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName>
+Get-RdsDiagnosticActivities -TenantName <tenantName>
 ```
 
 Diğer Windows sanal masaüstü PowerShell cmdlet'leri gibi kullanmalısınız **- Kiracıadı** sorgunuz için kullanmak istediğiniz Kiracı adını belirtmek için parametre. Kiracı adı, neredeyse tüm tanılama etkinlik sorgular için geçerlidir.
 
 ### <a name="retrieve-detailed-diagnostic-activities"></a>Ayrıntılı tanılama etkinlikleri alın
 
-**-Ayrıntılı** parametresi, döndürülen her tanılama etkinlik için ek ayrıntılar sağlar. Biçimi her etkinlik için etkinlik türünü bağlı olarak değişir. **-Ayrıntılı** herhangi parametresi eklenebilir **Get-RdsDiagnosticsActivities** aşağıdaki örnekte gösterildiği gibi sorgu.
+**-Ayrıntılı** parametresi, döndürülen her tanılama etkinlik için ek ayrıntılar sağlar. Biçimi her etkinlik için etkinlik türünü bağlı olarak değişir. **-Ayrıntılı** herhangi parametresi eklenebilir **Get-RdsDiagnosticActivities** aşağıdaki örnekte gösterildiği gibi sorgu.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName> -Detailed
+Get-RdsDiagnosticActivities -TenantName <tenantName> -Detailed
 ```
 
 ### <a name="retrieve-a-specific-diagnostic-activity-by-activity-id"></a>Belirli bir tanılama etkinlik tarafından etkinlik kimliği alınamıyor

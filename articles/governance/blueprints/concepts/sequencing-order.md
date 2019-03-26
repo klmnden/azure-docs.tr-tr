@@ -1,24 +1,24 @@
 ---
 title: Dağıtım sırası sırası anlama
-description: Her aşamanın ayrıntılarını ve bir şema geçtiği yaşam döngüsü hakkında bilgi edinin.
+description: Her aşamanın ayrıntılarını ve şema tanımını geçtiği yaşam döngüsü hakkında bilgi edinin.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/12/2018
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b3adec799da582dc30ecd716a530ca6032f5c2e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8451b858717e1a3e66214f66db624ee41f6da375
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990577"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434815"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Azure şemaları, dağıtım sırası anlama
 
-Blueprint kullandığı bir **sıralama sipariş** blueprint ataması işlerken kaynak oluşturma sırasını belirlemek için. Bu makalede aşağıdaki kavramları açıklar:
+Blueprint kullandığı bir **sıralama sipariş** şema tanımını atama işleme sırasında kaynak oluşturma sırasını belirlemek için. Bu makalede aşağıdaki kavramları açıklar:
 
 - Kullanılan varsayılan sıralama düzeni
 - Sırasını özelleştirme
@@ -30,7 +30,7 @@ Kendi değerlerinizle değiştirmeniz gereken JSON örneklerde değişkenleri va
 
 ## <a name="default-sequencing-order"></a>Varsayılan sıralama düzeni
 
-Blueprint yapıtları dağıtmanız siparişi için hiçbir yönergesi içerir veya yönergesiyse null aşağıdaki sırayla kullanılır:
+Yönergesiyse null ya da hiçbir yönergesi yapıtları dağıtmanız sipariş için şema tanımını içeren aşağıdaki sırayla kullanılır:
 
 - Abonelik düzeyi **rol ataması** yapıtları yapıt adına göre sıralanmış
 - Abonelik düzeyi **ilke ataması** yapıtları yapıt adına göre sıralanmış
@@ -45,16 +45,14 @@ Her **kaynak grubu** yapıt dizisi sırayla yapıtlar için bu kaynak grubu içi
 
 ## <a name="customizing-the-sequencing-order"></a>Sıralama sırasını özelleştirme
 
-Büyük bir blueprint'i oluştururken, belirli bir sırayla oluşturulacak kaynakları için gerekli olabilir. Bu senaryoda en yaygın kullanım desenini, çeşitli Azure Resource Manager şablonları bir şema içerir andır. Blueprint tanımlanması için sıralama sırasını sağlayarak bu düzen işler.
+Büyük şema tanımları oluştururken, belirli bir sırayla oluşturulacak kaynakları için gerekli olabilir. Bu senaryoda en yaygın kullanım desenini, çeşitli Azure Resource Manager şablonları bir şema tanımını içeren andır. Blueprint tanımlanması için sıralama sırasını sağlayarak bu düzen işler.
 
-Sıralama tanımlayarak gerçekleştirilir bir `dependsOn` JSON özelliği. Bu özellik yalnızca şema (için kaynak grupları) ve yapıt nesneleri destekler. `dependsOn` bir dizeyi belirli yapıt oluşturulmadan önce oluşturulması gereken yapıt adları dizisidir.
+Sıralama tanımlayarak gerçekleştirilir bir `dependsOn` JSON özelliği. Şema tanımını kaynak grupları ve yapıt nesneleri için bu özelliği destekler. `dependsOn` bir dizeyi belirli yapıt oluşturulmadan önce oluşturulması gereken yapıt adları dizisidir.
 
-> [!NOTE]
-> **Kaynak grubu** yapıtları Destek `dependsOn` özelliği hedefi olamaz, ancak bir `dependsOn` herhangi bir yapı türü tarafından.
+### <a name="example---ordered-resource-group"></a>Örnek - kaynak grubuna sıralı
 
-### <a name="example---blueprint-with-ordered-resource-group"></a>Örnek - şema ile sıralanmış kaynak grubu
-
-Bu örnek şema sahip bir özel sıralama düzeni için bir değer bildirerek tanımladığı bir kaynak grubu `dependsOn`, birlikte standart bir kaynak grubu. Bu durumda, yapı adlı **assignPolicyTags** önce işlenen **sıralı-rg** kaynak grubu. **Standart-rg** varsayılan sıralama düzeni işlenir.
+Bu örnek şema tanımını bir özel sıralama düzeni için bir değer bildirerek tanımladığı bir kaynak grubuna sahip `dependsOn`, birlikte standart bir kaynak grubu. Bu durumda, yapı adlı **assignPolicyTags** önce işlenen **sıralı-rg** kaynak grubu.
+**Standart-rg** varsayılan sıralama düzeni işlenir.
 
 ```json
 {
@@ -101,6 +99,42 @@ Bu örnek, bir Azure Resource Manager şablonuna bağımlı bir ilke yapıtı i�
     "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/assignPolicyTags",
     "type": "Microsoft.Blueprint/artifacts",
     "name": "assignPolicyTags"
+}
+```
+
+### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>Örnek - abonelik düzeyinde şablonu yapıt bir kaynak grubu bağlı
+
+Bu örnek, bir kaynak grubu üzerinde bağımlı abonelik düzeyinde dağıtılan bir Resource Manager şablonu içindir. Varsayılan sıralama, abonelik düzeyinde yapıtları tüm kaynak grupları ve bu kaynak gruplarındaki alt yapıtları önce oluşturulması. Kaynak grubu, şema tanımını şöyle tanımlanır:
+
+```json
+"resourceGroups": {
+    "wait-for-me": {
+        "metadata": {
+            "description": "Resource Group that is deployed prior to the subscription level template artifact"
+        }
+    }
+}
+```
+
+Abonelik düzeyi şablon yapıt bağlı olarak **bekleme-için-bana** kaynak grubunu şu şekilde tanımlanır:
+
+```json
+{
+    "properties": {
+        "template": {
+            ...
+        },
+        "parameters": {
+            ...
+        },
+        "dependsOn": ["wait-for-me"],
+        "displayName": "SubLevelTemplate",
+        "description": ""
+    },
+    "kind": "template",
+    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/subtemplateWaitForRG",
+    "type": "Microsoft.Blueprint/blueprints/artifacts",
+    "name": "subtemplateWaitForRG"
 }
 ```
 

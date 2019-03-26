@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 82483d8d84349a929ef4892d5e9571ea65b9a88a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 081adc9421a97f7cafcf7fba946ce0b901a00a0c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104847"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439439"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Tek sayfalı uygulama OAuth 2.0 örtük akışını kullanarak oturum
 
@@ -27,7 +27,7 @@ Birçok modern uygulamanın, JavaScript'te öncelikli olarak yazılmış tek say
 
 Bu uygulamaları Azure Active Directory B2C'yi desteklemek için OAuth 2.0 örtük akışını (Azure AD B2C) kullanır. OAuth 2.0 yetkilendirme örtük verme akışı açıklanan [OAuth 2.0 belirtiminin 4.2 bölümünde](https://tools.ietf.org/html/rfc6749). Örtük akış, uygulama belirteçleri, doğrudan Azure Active Directory'den (Azure AD) alır, herhangi bir sunucudan sunucuya exchange olmadan son noktanın yetkilendirilmesi. Tüm kimlik doğrulama mantığı ve gerçekleştirilen işlemlerin işleme oturumu tamamen JavaScript istemcisi, ek sayfa yeniden yönlendirmeleri olmadan yerleştirin.
 
-Azure AD B2C, standart OAuth 2.0 örtük akışını birden çok basit kimlik doğrulaması ve yetkilendirme genişletir. Azure AD B2C'yi tanıtır [ilke parametresi](active-directory-b2c-reference-policies.md). İlke parametresi ile ilkeleri gibi uygulamanıza eklemek için OAuth 2.0 kullanabilirsiniz kaydolma, oturum açma ve profil Yönetimi kullanıcı akışları. Bu makalede, Azure AD ve örtük akış, her biri bu deneyimler, tek sayfalık uygulamalarınızda uygulamak için kullanma gösteriyoruz. Başlamanıza yardımcı olmak için göz atın. bizim [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) ve [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) örnekleri.
+Azure AD B2C, standart OAuth 2.0 örtük akışını birden çok basit kimlik doğrulaması ve yetkilendirme genişletir. Azure AD B2C'yi tanıtır [ilke parametresi](active-directory-b2c-reference-policies.md). İlke parametresi ile ilkeleri gibi uygulamanıza eklemek için OAuth 2.0 kullanabilirsiniz kaydolma, oturum açma ve profil Yönetimi kullanıcı akışları. Bu makalede, Azure AD ve örtük akış, her biri bu deneyimler, tek sayfalık uygulamalarınızda uygulamak için kullanma gösteriyoruz.
 
 Bizim örnek Azure AD B2C dizini kullandığımız bu makaledeki örnek HTTP isteklerinde **fabrikamb2c.onmicrosoft.com**. Kendi örnek uygulama ve kullanıcı akışları de kullanırız. Bu değerleri kullanarak kendiniz istekleri deneyebilir ya da kendi değerlerinizle değiştirin.
 Bilgi edinmek için nasıl [kendi Azure AD B2C dizini, uygulama ve kullanıcı Akışları Al](#use-your-own-azure-ad-b2c-tenant).
@@ -275,9 +275,4 @@ Bu istekler kendiniz denemek için aşağıdaki üç adımı tamamlayın. Bu mak
 1. [Bir Azure AD B2C kiracısı oluşturmayı](active-directory-b2c-get-started.md). Kiracınızın adını isteklerini kullanın.
 2. [Uygulama oluşturma](active-directory-b2c-app-registration.md) uygulama Kimliğini almak için ve bir `redirect_uri` değeri. Bir web uygulaması veya web API uygulamanıza dahil edin. İsteğe bağlı olarak, bir uygulama gizli dizisi oluşturabilirsiniz.
 3. [Kullanıcı akışlarınızı oluşturun](active-directory-b2c-reference-policies.md) akışı adları, kullanıcı elde edilir.
-
-## <a name="samples"></a>Örnekler
-
-* [Node.js kullanarak bir tek sayfalı uygulama oluşturma](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)
-* [.NET kullanarak tek sayfalı uygulama oluşturma](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 

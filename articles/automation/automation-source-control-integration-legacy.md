@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: edc38296374538fd708a74f575d5b0c77770c005
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da9b82b1e17a62aa9b3d606b0b16295acf04eb85
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901551"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418763"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Azure Otomasyonu - eski kaynak denetimi tümleştirmesi
 
@@ -65,17 +65,17 @@ Bir GitHub hesabı ve Azure Otomasyonu bağlamak istediğiniz bir depo zaten var
      
      | **Parametre** | **Değer** |
      |:--- |:--- |
-     | Ad |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Type |String |
-     | Değer |{"Dal":\<*dal adınızı*>, "RunbookFolderPath":\<*Runbook klasörünün yolu*>, "Sağlayıcı türü":\<*1'için ' e kadar bir değere sahip GitHub*>, "Depo":\<*deponuzun adını*>, "Username":\<*bilgisayarınızı GitHub kullanıcı adı*>} |
+     | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
+     | `Type`  |String |
+     | `Value` |{"Dal":\<*dal adınızı*>, "RunbookFolderPath":\<*Runbook klasörünün yolu*>, "Sağlayıcı türü":\<*1'için ' e kadar bir değere sahip GitHub*>, "Depo":\<*deponuzun adını*>, "Username":\<*bilgisayarınızı GitHub kullanıcı adı*>} |
 
      * Değişken **Microsoft.Azure.Automation.SourceControl.OAuthToken**, sizin OAuthToken güvenli şifreli değerini içerir.  
 
      |**Parametre**            |**Değer** |
      |:---|:---|
-     | Ad  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
-     | Type | Unknown(Encrypted) |
-     | Değer | <*Şifrelenmiş OAuthToken*> |  
+     | `Name`  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+     | `Type`  | Unknown(Encrypted) |
+     | `Value` | <*Şifrelenmiş OAuthToken*> |  
 
      ![Değişkenler](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 

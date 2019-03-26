@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/09/2019
+ms.date: 03/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f2de9274e1b6c996e75148d1a1f018d73a721bb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3f6ac8a693e09d0efbac080d7effc6ce21c6a094
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443462"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418988"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar. Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar. Bu makalede kullanım koşulları ile çalışmaya başlama işlemini açıklamaktadır.
@@ -190,11 +190,15 @@ Bir Kullanım Koşulları belgesi oluşturup uygulandığında kapsam dahilindek
 
 ![Kullanıcı web oturumu açma](./media/active-directory-tou/user-tou.png)
 
+Kullanıcıların kullanım koşullarını görüntüleyin ve gerekirse, yakınlaştırma düğmelerini.
+
+![Yakınlaştırma düğmeleri kullanım koşullarını görüntüle](./media/active-directory-tou/zoom-buttons.png)
+
 Aşağıdaki ekranda Kullanım Koşulları belgesinin mobil cihazlarda nasıl göründüğü gösterilmiştir.
 
 ![Kullanıcı mobil oturum açma](./media/active-directory-tou/mobile-tou.png)
 
-Kullanıcılar yalnızca kullanım koşulları bir kez kabul etmesi gerekir ve oturum açmalar yeniden üzerinde sonraki kullanım koşullarını görmezsiniz.
+Kullanıcılar yalnızca kullanım koşulları bir kez kabul etmesi gerekir ve bunların kullanım koşullarını sonraki oturum açma işlemleri üzerinde görmezsiniz.
 
 ### <a name="how-users-can-review-their-terms-of-use"></a>Kullanıcılar kendi Kullanım Koşullarını nasıl gözden geçirebilir?
 Kullanıcılar, kabul ettikleri kullanım koşullarını gözden geçirip incelemek için aşağıdaki yordamı kullanabilir.

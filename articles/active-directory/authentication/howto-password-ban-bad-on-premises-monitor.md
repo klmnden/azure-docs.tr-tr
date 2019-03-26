@@ -11,16 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b79e9e1a274002514561ef3f96c364bf9bc27071
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ae2d18541788e769e4f1b44319aa1be200921b88
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309614"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437569"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD parola izleme ve günlüğe kaydetme koruması
 
 Azure AD parola koruması dağıtıldıktan sonra izleme ve raporlama temel görevleridir. Bu makalede olduğu her hizmet bilgilerini kaydeder ve Azure AD parola koruması kullanımını bildirme dahil olmak üzere çeşitli izleme teknikleri anlamanıza yardımcı olmak üzere ayrıntıya gider.
+
+İzleme ve raporlama ya da olay günlüğü iletilerini veya PowerShell cmdlet'lerini çalıştırarak gerçekleştirilir. DC aracı ve proxy hizmetleri her iki olay günlüğü iletilerini günlüğe kaydet. Aşağıda açıklanan tüm PowerShell cmdlet'leri yalnızca ara sunucusunda kullanılabilir (AzureADPasswordProtection PowerShell modülüne bakın). Bir PowerShell modülü DC Aracısı yazılım yüklemez.
 
 ## <a name="dc-agent-event-logging"></a>DC agent olay günlüğü
 

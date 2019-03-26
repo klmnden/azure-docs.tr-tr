@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 164448f2e96b796d21419e90a3965390f22d7d38
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b20a119a69ac796bc9ea85083d335f0a7d2fdf2d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762985"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417964"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Bir Azure SQL veritabanı yönetilen örnek veritabanında çoğaltmayı yapılandırma
 
@@ -45,13 +45,13 @@ Bir yayımcı ya da bir dağıtıcı olarak çalışması için bir yönetilen �
 Desteklediği Özel Uygulamalar:
 
 - Şirket içi SQL Server ve Azure SQL veritabanı yönetilen örnekleri karışımını işlem ve anlık görüntü çoğaltma.
-- Aboneler, şirket içi SQL Server veritabanları, Azure SQL veritabanı'nda tek veritabanları veya havuza alınmış veritabanlarını Azure SQL veritabanı elastik havuzları olabilir.
+- Aboneler, şirket içi SQL Server veritabanları, Azure SQL veritabanı veya Azure SQL veritabanı elastik havuzları havuza alınmış veritabanlarını tek veritabanı/yönetilen örnekleri olabilir.
 - Tek yönlü veya çift yönlü çoğaltma.
 
 Aşağıdaki özellikler bir Azure SQL veritabanı yönetilen örneğinde desteklenmiyor:
 
 - Güncelleştirilebilir abonelikler.
-- Etkin coğrafi çoğaltma.
+- [Etkin coğrafi çoğaltma](sql-database-active-geo-replication.md) ve [otomatik yük devretme grupları](sql-database-auto-failover-group.md) işlemsel çoğaltma yapılandırılmışsa kullanılmamalıdır.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Yayımlama ve dağıtım örneği yapılandırma
 

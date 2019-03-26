@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: e0b8b35c654f0716fae1e6ab785f57dcf04e1a5a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 813563b500b9365289285a89536f2724fb87acad
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400896"
+ms.locfileid: "58417811"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge-preview"></a>Erişim, güç ve bağlantı modunu, Azure veri kutusu Edge (Önizleme) için yönetme
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Azure veri kutusu Edge için erişim, güç ve bağlantı modunu yönetin
 
 Bu makalede, Azure veri kutusu Edge için erişim, güç ve bağlantı modunu yönetmek açıklar. Bu işlemleri yerel web kullanıcı Arabirimi veya Azure Portalı aracılığıyla gerçekleştirilir.
 
@@ -26,8 +26,6 @@ Bu makalede şunları öğreneceksiniz:
 > * Bağlantı modunu yönetin
 > * Güç Yönetimi
 
-> [!IMPORTANT]
-> Data Box Edge, önizleme aşamasındadır. Sipariş vermeden ve bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin.
 
 ## <a name="manage-device-access"></a>Cihaz erişimini yönetme
 

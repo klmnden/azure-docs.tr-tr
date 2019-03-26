@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: 4f87c5996ea323c26c32c1680ba6f627bf8f95c2
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: db6064feb379bf7da4f2c2e6417583c3d8b8b0d3
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287540"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417896"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Python kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma
 
@@ -25,11 +25,11 @@ ms.locfileid: "58287540"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Bu hızlı başlangıçta Python kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma işlemini açıklar.
+Azure Veri Gezgini uygulamalar, web siteleri, IoT cihazları ve daha fazlasından akışı yapılan büyük miktarda veri üzerinde gerçek zamanlı analiz yapmaya yönelik hızlı ve tam olarak yönetilen bir veri analizi hizmetidir. Azure veri gezginini kullanmak için ilk küme oluşturma ve bu kümede bir veya daha fazla veritabanı oluşturun. Ardından karşı sorgular çalıştırabileceği şekilde onlara bir veritabanına (yükle) veri alın. Bu hızlı başlangıçta, bir küme ve bir veritabanı Python kullanarak oluşturun.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak bir Azure aboneliğinizin olması gerekir. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/) oluşturun.
 
 ## <a name="install-python-package"></a>Python paketini yükle
 
@@ -53,9 +53,9 @@ pip install azure-mgmt-kusto
 
     Küme kapasitesi gibi kullanabileceğiniz ek isteğe bağlı parametre yok.
     
-    'Kimlik' için kimlik bilgilerinizi ayarlayın (daha fazla bilgi için https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python )
+1. Ayarlama [ *kimlik bilgilerinizi*](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
 
-2. Kümenizi başarıyla oluşturulup oluşturulmadığını kontrol etmek için aşağıdaki komutu çalıştırın:
+1. Kümenizi başarıyla oluşturulup oluşturulmadığını kontrol etmek için aşağıdaki komutu çalıştırın:
 
     ```Python
     cluster_operations.get(resource_group_name = resource_group_name, cluster_name= clusterName, custom_headers=None, raw=False)
@@ -91,7 +91,7 @@ Sonuç içeriyorsa `provisioningState` ile `Succeeded` değer sonra küme başar
    | soft_delete_period | *3650 gün 0:00:00* | Verileri sorgulamak kullanılabilen tutulacak süre miktarı. |
    | hot_cache_period | *3650 gün 0:00:00* | Veriler önbellekte tutulacak süre miktarı. |
 
-2. Oluşturduğunuz veritabanını görmek için aşağıdaki komutu çalıştırın:
+1. Oluşturduğunuz veritabanını görmek için aşağıdaki komutu çalıştırın:
 
     ```Python
     database_operations.get(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName)

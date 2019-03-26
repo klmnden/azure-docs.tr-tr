@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 94893a5b5716c9bd207ad2a8bc8ca457974dddd4
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 233834bd040362e27ffadc3d0003a87827012352
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58395647"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407948"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas VM diskleri ve yönetilen ve yönetilmeyen premium diskleri hakkında sık sorulan sorular
 
@@ -300,7 +300,7 @@ TRIM Azure disklerde, premium veya standart diskler kullanımı için herhangi b
 
 **İşletim sistemi ve veri diskleri için desteklenen en büyük yönetilen disk boyutu nedir?**
 
-Azure destekleyen bir işletim sistemi diski için bölüm ana önyükleme kaydı (MBR) türüdür. 2 TiB kadar bir disk boyutu MBR biçimini destekler. Bir işletim sistemi diski için Azure'un desteklediği en büyük boyutu 2 TiB ' dir. Azure yönetilen diskleri için en fazla 32 TiB destekler. 4 TiB daha büyük yönetilen Disk boyutları Önizleme aşamasındadır. Bunlar üzerinde daha fazla bilgi için bkz. bizim [blog gönderisi](https://aka.ms/azure-large-disk-32TB-preview-blog).
+Azure destekleyen bir işletim sistemi diski için bölüm ana önyükleme kaydı (MBR) türüdür. 2 TiB kadar bir disk boyutu MBR biçimini destekler. Bir işletim sistemi diski için Azure'un desteklediği en büyük boyutu 2 TiB ' dir. Azure, genel azure'da Azure bağımsız bulutlarda 4 TiB yönetilen veri diskleri için 32 TiB kadar destekler.
 
 **İşletim sistemi ve veri diskleri için desteklenen en büyük yönetilmeyen Disk boyutu nedir?**
 
@@ -335,7 +335,7 @@ Küçük disklerinizi anlık görüntüsünü alın ve ardından otomatik olarak
 
 **Mevcut yönetilen diskler boyutları en az 4 tebibytes (TiB) 32 TiB kadar yeni yeni kullanıma sunulan disk boyutları için yeniden?**
 
-8 TiB TiB 16 ve 32 TiB yeni yönetilen Disk boyutları şu anda Önizleme aşamasındadır. Henüz mevcut disk boyutları yeni disk boyutları için yeniden boyutlandırma desteklemiyoruz.
+Evet.
 
 **Azure Backup ve Azure Site Recovery hizmeti tarafından desteklenen en büyük disk boyutları nelerdir?**
 

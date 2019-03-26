@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 82ae36eaaf4616dbd85760a0962f301a2b1a20f5
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: cdb8fe5deb71c014f7e0af01d070e5004d8c9994
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319389"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418803"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -57,12 +57,12 @@ Yönetilen diskler, depolama hesapları biraz farklı ücretlendirilir. Lütfen 
 
 * Standart depolama hesabı Vs. HDD standart yönetilen Disk
 
-    - **ASR tarafından sağlanan depolama diskini**: S10
+    - **Azure Site Recovery tarafından sağlanan depolama diskini**: S10
     - **Standart depolama hesabı üzerinde ücret kullanılan birim**: 5 ABD Doları / ay
     - **Standart yönetilen disk üzerinde sağlanan birimin ücret**: 5.89 başına aylık
 
 * Premium depolama hesabı Vs. Premium SSD yönetilen Disk 
-    - **ASR tarafından sağlanan depolama diskini**: P10
+    - **Azure Site Recovery tarafından sağlanan depolama diskini**: P10
     - **Premium depolama hesabı ücretlendirilir sağlanan birimde**: 17.92 başına aylık
     - **Premium yönetilen disk üzerinde sağlanan birimin ücret**: 17.92 başına aylık
 
@@ -203,7 +203,7 @@ Evet, bunlar için çoğaltmayı etkinleştirdiğinizde, mevcut bir çoğaltma g
 Azure'a VMware çoğaltma için disk boyutunu değiştirebilirsiniz. Yeni diskler eklemek istiyorsanız disk ekleyin ve VM için korumayı etkinleştirmeniz gerekir.
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Şirket içi makinede yeni bir Vcenter sürmekte olan çoğaltmayı etkilemeden geçişini sağlayabilir miyim?
-Hayır, Vcenter veya geçiş değişiklik sürmekte olan çoğaltmayı etkiler. ASR ile yeni Vcenter ayarlama ve makineler için çoğaltma etkinleştirmeniz gerekir.
+Hayır, Vcenter veya geçiş değişiklik sürmekte olan çoğaltmayı etkiler. Azure Site Recovery ile yeni Vcenter ayarlama ve makineler için çoğaltma etkinleştirmeniz gerekir.
 
 ### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>Yapılandırılmış bir Vnet'e (Azure depolama güvenlik duvarları) sahip bir önbellek/hedef depolama hesabına çoğaltabilir miyim?
 Hayır, Azure Site Recovery, Vnet üzerinde depolama çoğaltmayı desteklemez.
@@ -275,7 +275,7 @@ Evet, ancak bu fiziksel makine olması yalnızca olması başarısız bir VMware
 Yükleyicileri tutulur **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** yapılandırma sunucusundaki klasör.
 
 ## <a name="how-do-i-install-the-mobility-service"></a>Mobility hizmeti nasıl yüklerim?
-Çoğaltmak istediğiniz her sanal makinede kullanarak yüklediğiniz bir [gönderme yüklemesi](vmware-azure-install-mobility-service.md), veya [el ile yükleme](vmware-physical-mobility-service-install-manual.md) kullanıcı Arabirimi veya Powershell. Alternatif olarak, bir dağıtım aracı gibi kullanarak dağıtabileceğiniz [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
+Çoğaltmak istediğiniz her sanal makinede kullanarak yüklediğiniz bir [gönderme yüklemesi](vmware-physical-mobility-service-overview.md#push-installation), veya [el ile yükleme](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) kullanıcı Arabirimi veya Powershell. Alternatif olarak, bir dağıtım aracı gibi kullanarak dağıtabileceğiniz [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
 
 
 

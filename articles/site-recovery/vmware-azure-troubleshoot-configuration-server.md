@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 3676a1e4bf69f7d31bb347f99787c4e2f08721a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 287a4104104c12e33fa2c50c398f422f9e6ea8c5
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107602"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418712"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Yapılandırma sunucusu sorunlarını giderme
 
@@ -48,11 +48,10 @@ Mobility Aracısı yüklediğinizde, kaynak makinenin yapılandırma sunucusuna 
     3. Listelenen klasörler emin [Site Recovery klasör dışlamaları virüsten koruma programlarından](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) virüsten koruma yazılımından hariç tutulur.  
     4. Sorunu çözdükten sonra aşağıdaki yönergeleri tarafından kayıt yeniden [kaynak makinenin yapılandırma sunucusuna kaydedin](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-7. Linux üzerinde platform değerini < INSTALLATION_DIR\>/etc/drscout.conf bozuk, kayıt işlemi başarısız olur. Bu sorunu tanımlamak için /var/log/ua_install.log dosyasını açın. Arama dizesi için **VM_PLATFORM değeri null ya da olduğu gibi yapılandırma durduruluyor VmWare/Azure değil**. Platform ayarlanması **VmWare** veya **Azure**. Drscout.conf dosyası bozuk, öneririz, [mobility aracısını kaldırın](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) ve mobility Aracısı'nı yeniden yükleyin. Kaldırma başarısız olursa, aşağıdaki adımları tamamlayın:
-    1. Installation_Directory/uninstall.sh dosyasını açıp çağrı yorum **StopServices** işlevi.
-    2. Installation_Directory/Vx/bin/uninstall.sh dosyasını açıp çağrı yorum **stop_services** işlevi.
-    3. Fx hizmetini durdurmak için çalışan tüm bölüm yorum ve Installation_Directory/Fx/uninstall.sh dosyasını açın.
-    4. [Kaldırma](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) mobility Aracısı. Başarılı kaldırma sonra sistemi yeniden başlatın ve ardından mobility aracısını yeniden yüklemeyi deneyin.
+7. Linux üzerinde platform değerini < INSTALLATION_DIR\>/etc/drscout.conf bozuk, kayıt işlemi başarısız olur. Bu sorunu tanımlamak için /var/log/ua_install.log dosyasını açın. Arama dizesi için **VM_PLATFORM değeri null ya da olduğu gibi yapılandırma durduruluyor VmWare/Azure değil**. Platform ayarlanması **VmWare** veya **Azure**. Drscout.conf dosyası bozuk, öneririz, [mobility aracısını kaldırın](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) ve mobility Aracısı'nı yeniden yükleyin. Kaldırma başarısız olursa, aşağıdaki adımları tamamlayın: bir. Installation_Directory/uninstall.sh dosyasını açıp çağrı yorum **StopServices** işlevi.
+    b. Installation_Directory/Vx/bin/uninstall.sh dosyasını açıp çağrı yorum **stop_services** işlevi.
+    c. Fx hizmetini durdurmak için çalışan tüm bölüm yorum ve Installation_Directory/Fx/uninstall.sh dosyasını açın.
+    d. [Kaldırma](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) mobility Aracısı. Başarılı kaldırma sonra sistemi yeniden başlatın ve ardından mobility aracısını yeniden yüklemeyi deneyin.
 
 ## <a name="installation-failure-failed-to-load-accounts"></a>Yükleme hatası: Hesaplar yüklenemedi
 
@@ -80,9 +79,9 @@ Bu hatayı önlemek için bu, sistem saati 15 dakikadan fazla kaynağından yere
 
 Site Recovery kimlik doğrulaması için gereken sertifika oluşturulamıyor. Kurulum yerel bir yönetici olarak çalıştırıyorsanız emin olduktan sonra kurulumu yeniden çalıştırın.
 
-## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>Sunucu standart Windows lisans sunucusu standart değerlendirme etkinleştirme hatası
+## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>Windows Server Standard değerlendirme lisanstan Server standart etkinleştirmeyi başaramamak
 
-1. OVF ile Configuration server dağıtımının bir parçası olarak, 180 gün boyunca geçerli olduğu bir deneme lisansı kullanılır. Bu lisans bu süresi önce etkinleştirmeniz gerekir. Aksi takdirde, bu yapılandırma sunucusunun sık kapatma neden ve bu nedenle çoğaltma etkinliklere hinderance neden.
+1. OVF ile Configuration server dağıtımının bir parçası olarak, 180 gün boyunca geçerli olduğu bir deneme lisansı kullanılır. Bu lisans bu süresi önce etkinleştirmeniz gerekir. Aksi takdirde, bu yapılandırma sunucusunun sık kapatma neden ve bu nedenle çoğaltma etkinliklere performans sorunu neden.
 2. Windows Lisansı Etkinleştirme bulamıyorsanız, ulaşın [Windows Destek ekibine](https://aka.ms/Windows_Support) sorunu çözmek için.
 
 ## <a name="register-source-machine-with-configuration-server"></a>Kaynak makinenin yapılandırma sunucusuna kaydedin
@@ -146,7 +145,7 @@ Yapılandırma sunucusundaki eski korunan makinenin kaldırmak için aşağıdak
    
     `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
  
-    "VM01 OnPrem" 10.0.0.4 bir IP adresi ile bir kaynak sunucu girişi varsa ardından aşağıdaki komutu kullanın.
+    Bir IP-adresi, 10.0.0.4 "VM01 OnPrem" bir kaynak sunucu girişi varsa ardından aşağıdaki komutu kullanın.
  
     `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
  

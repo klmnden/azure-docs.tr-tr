@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: aedd81af8b5821b1f8032faad1896790804df2a0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 846f07051ee65a542b56624fa84a9bdc4ca0f4e6
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119301"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418015"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Uygulama ağ geçidi (genel Önizleme) ile yeniden yazma HTTP üstbilgileri
 
@@ -96,10 +96,12 @@ Bu özellik aşağıdaki sunucu değişkenleri yazmaksızın üstbilgileri deste
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | İstemci tarafından desteklenen şifreleme listesini döndürür          |
 | ciphers_used               | Yerleşik bir SSL bağlantısı için kullanılan şifrelemeleri dizesi döndürür |
+| client_ip                  | İstemcinin IP adresi; Müşteriler burada yalnızca IP adresi bağlantı noktası bilgileri olmadan başlık içeren Application Gateway tarafından X-iletilen-için üstbilginin yeniden planladığınız senaryolarda özellikle yararlıdır. |
 | client_port                | İstemci bağlantı noktası                                                  |
 | client_tcp_rtt             | TCP Bağlantısı İstemcisi hakkında bilgiler; TCP_INFO olarak yuva seçeneği destekleyen sistemleri üzerinde kullanılabilir |
 | client_user                | HTTP kimlik doğrulaması kullanılırken kullanıcı adı kimlik doğrulaması için sağlanan |
 | konak                       | Bu öncelik sırasına: İstek satırı veya ana bilgisayar adı "Ana" istek üstbilgisi alanından konak adı veya sunucu adı ile eşleşen bir istek |
+| cookie_*adı*              | *adı* tanımlama bilgisi |
 | http_method                | URL isteği yapmak için kullanılan yöntem. Örneğin GET, POST vs. |
 | http_status                | oturum durumu, örn: 200, 400, 403 vs.                       |
 | http_version               | İstek protokolü, genellikle "HTTP/1.0", "HTTP/1.1" veya "HTTP/2.0" |
@@ -120,10 +122,6 @@ Bu özellik aşağıdaki sunucu değişkenleri yazmaksızın üstbilgileri deste
 - HTTP üst bilgisi yeniden yazma desteği yalnızca yeni SKU üzerinde desteklenir [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). Bu özellik eski SKU üzerinde desteklenmez.
 
 - Yeniden bağlanma, yükseltme ve konak üstbilgileri henüz desteklenmiyor.
-
-- İki önemli sunucu değişkenleri, client_ip (isteği yapan istemcinin IP adresi) ve cookie_*adı* ( *adı* tanımlama bilgisi), henüz desteklenmemektedir. Client_ip sunucu değişkeni müşteriler burada üst bilgi istemci ve bağlantı noktası bilgileri değil yalnızca IP adresini içeren Application Gateway tarafından x-iletilen-için üstbilginin yeniden planladığınız senaryolarda özellikle yararlıdır.
-
-  Bu iki sunucu değişkenleri aktarılması yakında desteklenecek.
 
 - Http üstbilgileri koşullu olarak yeniden yazma özelliği yakında kullanıma sunulacak.
 

@@ -1,5 +1,5 @@
 ---
-title: Basit Sorgu örnekleri - Azure Search
+title: "\"Basit\" arama söz dizimi - Azure Search kullanarak sorgu örnekleri"
 description: Tam metin araması, filtre arama, coğrafi arama, çok yönlü arama ve bir Azure Search dizinini sorgulama için kullanılan diğer sorgu dizeleri için basit bir sorgu örnekleri.
 author: HeidiSteen
 manager: cgronlun
@@ -7,17 +7,17 @@ tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 03/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a975c95af75e9f3e09e5d0142716795ab4b90e28
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9b7147971bd320a11606a93ab4d988e924cf93b2
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136487"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439142"
 ---
-# <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Azure Search'te sorgular oluşturmaya yönelik basit sözdizimi sorgu örnekleri
+# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>"Basit" arama söz dizimi kullanarak Azure Search'te sorgu örnekleri
 
 [Basit Sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) Azure Search dizini tam metin arama sorguları yürütmek varsayılan sorgu ayrıştırıcı çağırır. Basit Sorgu Çözümleyicisi, hızlı ve Azure Search, tam metin araması, filtrelenmiş ve çok yönlü arama ve coğrafi arama gibi yaygın senaryoları ele alır. Bu makalede, basit söz dizimi kullanırken kullanılabilir sorgu işlemleri gösteren örnekler adım.
 
@@ -55,7 +55,9 @@ URL'si birleşimi aşağıdaki öğeleri içerir:
 
 ## <a name="send-your-first-query"></a>İlk sorgunuzu Gönder
 
-Bir doğrulama adımı aşağıdaki isteği GET yapıştırın ve tıklayın **Gönder**. Sonuçları ayrıntılı JSON belgeleri olarak döndürülür. Kopyalama bu URL'yi aşağıdaki ilk örnekte yapıştırma.
+Bir doğrulama adımı aşağıdaki isteği GET yapıştırın ve tıklayın **Gönder**. Sonuçları ayrıntılı JSON belgeleri olarak döndürülür. Tüm alanları ve tüm değerleri görmenize olanak sağlayan tüm belgeler döndürülür.
+
+Bu URL'yi bir doğrulama adımı olarak ve belge yapısı görüntülemek için bir REST istemcisi yapıştırın.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
@@ -74,6 +76,20 @@ Etkileşimli sorgular için herhangi bir şey belirtmeniz gerekmez: basit bir va
 Bu ilk örneği, ayrıştırıcı özgü değildir, ancak ilk sorgu temel kavramı tanıtmak için Biz bu ile neden: kapsama. Bu örnek, sorgu yürütme ve yalnızca birkaç belirli alanları yanıta kapsamlar. Postman veya arama Gezgini araç olduğunda, okunabilir bir JSON yanıtı nasıl haberdar olmak önemlidir. 
 
 Konuyu uzatmamak amacıyla, sorgu hedefleyen yalnızca *business_title* alan ve yalnızca iş başlıkları döndürülür belirtir. Söz dizimi **searchFields** business_title alan yalnızca, sorgu yürütme kısıtlamak için ve **seçin** yanıt olarak hangi alanların ekleneceğini belirlemek için.
+
+### <a name="partial-query-string"></a>Kısmi bir sorgu dizesi
+
+```http
+searchFields=business_title&$select=business_title&search=*
+```
+
+Virgülle ayrılmış bir liste içinde birden çok alan ile aynı sorgu aşağıdadır.
+
+```http
+search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
+```
+
+### <a name="full-url"></a>Tam URL
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*

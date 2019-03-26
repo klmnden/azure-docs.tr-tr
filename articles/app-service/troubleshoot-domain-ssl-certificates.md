@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: d007f688483366f2f714a78b5bf9b56a67c55490
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: b367251e6799031ed96058d21e606446e14636c7
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730107"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407615"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Etki alanı ve Azure App Service SSL sertifikası sorunlarını giderme
 
@@ -278,7 +278,7 @@ Azure portalından bir etki alanı satın aldığınızda, bu özel etki alanın
 
 **Bunun yerine bir Azure VM'ye işaret edecek şekilde Azure Portalı'nda satın alınan bir etki alanı kullanabilir miyim?**
 
-Evet, bir VM, depolama vb. etki alanını işaret edebilir. Daha fazla bilgi için [bir Windows VM için Azure portalını kullanarak özel bir FQDN oluşturma](../virtual-machines/windows/portal-create-fqdn.md).
+Evet, bir VM'ye etki alanını işaret edebilir. Daha fazla bilgi için bkz. [Bir Azure hizmeti için özel etki alanı ayarları sağlamak üzere Azure DNS'yi kullanma](../dns/dns-custom-domain.md).
 
 **Etki alanım GoDaddy veya Azure DNS tarafından barındırılıyor?**
 

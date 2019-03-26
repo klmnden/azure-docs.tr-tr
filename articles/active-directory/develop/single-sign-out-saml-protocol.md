@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a286b3578cc159b6771df3f91bcd3f2fd35a161
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0d4f9c69d6ddcbef96a88a0df10c3b0974cd5b74
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201691"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437093"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Çoklu oturum kapatma SAML Protokolü
 
@@ -72,7 +72,7 @@ Azure AD gönderen bir `LogoutResponse` yanıt olarak bir `LogoutRequest` öğes
 Azure AD kümeleri `ID`, `Version` ve `IssueInstant` değerler `LogoutResponse` öğesi. Ayrıca ayarlar `InResponseTo` değerini öğesine `ID` özniteliği `LogoutRequest` yanıt elicited.
 
 ### <a name="issuer"></a>Veren
-Azure AD bu değeri ayarlar `https://login.microsoftonline.com/<TenantIdGUID>/` burada <TenantIdGUID> Azure AD kiracısını Kiracı Kimliğini gösterir.
+Azure AD bu değeri ayarlar `https://login.microsoftonline.com/<TenantIdGUID>/` burada \<TenantIdGUID > Azure AD kiracısını Kiracı Kimliğini gösterir.
 
 Değerini değerlendirmek için `Issuer` öğesi, değerini kullanın **uygulama kimliği URI'si** uygulama kayıt sırasında sağlanan.
 

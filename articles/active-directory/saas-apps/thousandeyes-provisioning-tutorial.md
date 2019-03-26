@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74b9b39cfc6ac760c41b58c050cb1ebf39d3f93a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f008e981abb11a4927ec045c33342bbac9a05bd8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180938"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436813"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için ThousandEyes yapılandırın
 
@@ -33,11 +33,14 @@ Bu öğreticinin amacı ThousandEyes ve Azure AD sağlama ve sağlamasını Thou
 Bu öğreticide özetlenen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
 *   Bir Azure Active directory kiracısı
-*   ThousandEyes kiracıyla [standart plan](https://www.thousandeyes.com/pricing) ya da daha iyi etkin 
-*   ThousandEyes yönetici izinlerine sahip bir kullanıcı hesabı 
+*   Etkin bir [ThousandEyes hesabı](https://www.thousandeyes.com/pricing)
+*   Aşağıdaki 3 izinleri içeren bir Role atanmış olan ThousandEyes kullanıcı hesabı:
+    * tüm kullanıcıları görüntüle
+    * Kullanıcıyı Düzenle
+    * API erişim izinleri
 
 > [!NOTE]
-> Azure AD tümleştirmesi sağlama dayanan [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK), daha iyi veya standart plan ThousandEyes takımlar için kullanılabilir.
+> Azure AD tümleştirmesi sağlama dayanan [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK_ThousandEyes-support-for-SCIM). 
 
 ## <a name="assigning-users-to-thousandeyes"></a>ThousandEyes için kullanıcı atama
 
@@ -51,7 +54,19 @@ Yapılandırma ve sağlama hizmetini etkinleştirmeden önce hangi kullanıcıla
 
 *   Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmayı test etmek için ThousandEyes atanır. Ek kullanıcılar ve/veya grupları daha sonra atanabilir.
 
-*   Bir kullanıcı için ThousandEyes atarken ya da seçmelisiniz **kullanıcı** rol veya başka bir geçerli uygulamaya özgü rolü (varsa) atama iletişim. **Varsayılan erişim** rolü sağlama için çalışmaz ve bu kullanıcılar atlanır.
+*   Bir kullanıcı için ThousandEyes atarken ya da seçmelisiniz **kullanıcı** rol veya başka bir geçerli uygulamaya özgü rolünde (varsa) atama iletişim kutusu. **Varsayılan erişim** rolü sağlama için çalışmaz ve bu kullanıcılar atlanır.
+
+## <a name="configure-auto-provisioned-user-roles-in-thousandeyes"></a>ThousandEyes içinde otomatik olarak sağlanan kullanıcı rollerini yapılandırma
+
+Her hesap grubu için otomatik sağlama, kullanıcıları, yeni kullanıcı hesabı oluşturulduğunda uygulanacak roller kümesini yapılandırabilirsiniz. Varsayılan olarak, otomatik sağlama kullanıcıların atandığı _normal kullanıcı_ tüm hesap için rolü aksi şekilde yapılandırılmadıkça gruplandırır.
+
+1. Yeni bir otomatik olarak sağlanan kullanıcılar için roller kümesini belirtmek için günlük içine ThousandEyes ve SCIM ayarları bölümüne gidin **>, sağ üst köşede kullanıcı simgesini > Hesap Ayarları > Kuruluş > Güvenlik ve kimlik doğrulaması.** 
+
+   ![SCIM API ayarlarına gidin](https://monosnap.com/file/kqY8Il7eysGFAiCLCQWFizzM27PiBG)
+
+2. Her hesap grubu için bir giriş ekleyin, ardından bir rol kümesi atama *Kaydet* yaptığınız değişiklikleri.
+
+   ![SCIM API aracılığıyla oluşturulan kullanıcılar için varsayılan rollerin ve grupların hesabı ayarlayın](https://monosnap.com/file/16siam6U8xDQH1RTnaxnmIxvsZuNZG)
 
 
 ## <a name="configuring-user-provisioning-to-thousandeyes"></a>ThousandEyes için kullanıcı sağlamayı yapılandırma 
@@ -59,7 +74,7 @@ Yapılandırma ve sağlama hizmetini etkinleştirmeden önce hangi kullanıcıla
 Bu bölümde, Azure AD sağlama API'si ThousandEyes'ın kullanıcı hesabına bağlanma aracılığıyla size yol gösterir ve oluşturmak için sağlama hizmeti yapılandırma güncelleştirme ve Azure AD'de kullanıcı ve Grup atamasına dayalı ThousandEyes atanan kullanıcı hesaplarını devre dışı bırak .
 
 > [!TIP]
-> Ayrıca seçtiğiniz etkin SAML tabanlı çoklu oturum açma için ThousandEyes, yönergeleri izleyerek sağlanan [Azure portalında](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlama bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+> Etkin olarak SAML tabanlı çoklu oturum açma (SSO) aşağıdaki ThousandEyes için tercih edebilirsiniz [Azure Bilgi Bankası'ndaki sağlanan yönergeleri](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-tutorial) SSO tamamlanması. Bu iki özellik birbirini tamamlar ancak SSO otomatik sağlama bağımsız olarak yapılandırılabilir.
 
 
 ### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Otomatik kullanıcı hesabı için ThousandEyes Azure AD'de sağlamayı Yapılandır
@@ -75,7 +90,7 @@ Bu bölümde, Azure AD sağlama API'si ThousandEyes'ın kullanıcı hesabına ba
 
     ![ThousandEyes sağlama](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. Altında **yönetici kimlik bilgileri** giriş bölümünde **OAuth taşıyıcı belirteci** , ThousandEyes'ın hesap tarafından oluşturulan (bulabilir ve veya ThousandEyes hesabınız kapsamında bir belirteç oluşturun  **Profil** bölümü).
+5. Altında **yönetici kimlik bilgileri** giriş bölümünde **OAuth taşıyıcı belirteci** ThousandEyes hesap tarafından oluşturulan (bulabilir ve veya ThousandEyes hesabınız kapsamında bir belirteç oluşturun  **Profil** bölümü).
 
     ![ThousandEyes sağlama](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 7c8e2297426b098fa6e86a5cda81afc2d71b08f4
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: cdc3e7ec6ec55c3376aeb545e1f64079ad1f6323
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214648"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407411"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Günlük uyarıları için API anahtarı tercihi
 
@@ -37,13 +37,18 @@ Oluşturma ve yönetme kullanarak uyarıları çeşitli avantajları vardır [sc
 
 ## <a name="process-of-switching-from-legacy-log-alerts-api"></a>Eski günlük uyarıları API'SİNDEN geçiş işlemi
 
-Uyarı kurallarını taşıma işleminin [eski Log Analytics uyarı API](api-alerts.md) , uyarı tanımınızı, sorgunuzu veya yapılandırmanızı herhangi bir şekilde değiştirmeyi gerektirmez. Kullanıcılar ya da ücretsiz [eski Log Analytics uyarı API](api-alerts.md) veya yeni [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Uyarı kuralları olacaktır ya da API tarafından oluşturulan *yalnızca aynı API tarafından yönetilebilir* - gibi Azure portalından iyi. Varsayılan olarak, Azure İzleyici kullanmaya devam edecek [eski Log Analytics uyarı API](api-alerts.md) Azure portalından yeni bir uyarı kuralı oluşturmak için.
+Uyarı kurallarını taşıma işleminin [eski Log Analytics uyarı API](api-alerts.md) , uyarı tanımınızı, sorgunuzu veya yapılandırmanızı herhangi bir şekilde değiştirmeyi gerektirmez. Uyarı kurallarınızı ve Etkilenmeyen olan ve Uyarıları izleme değil durdurur veya durdurulması, sırasında veya sonrasında anahtarı.
+
+Kullanıcılar ya da ücretsiz [eski Log Analytics uyarı API](api-alerts.md) veya yeni [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Uyarı kuralları olacaktır ya da API tarafından oluşturulan *yalnızca aynı API tarafından yönetilebilir* - gibi Azure portalından iyi. Varsayılan olarak, Azure İzleyici kullanmaya devam edecek [eski Log Analytics uyarı API](api-alerts.md) Azure portalından yeni bir uyarı kuralı oluşturmak için.
 
 Tercihi scheduledQueryRules API anahtarı etkilerini aşağıda derlenir:
 
 - Günlük uyarıları programlama arabirimleri aracılığıyla yönetmek artık yapılmalıdır için yapılan tüm etkileşimleri kullanarak [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) yerine. Daha fazla bilgi için bkz: [örnek kullanımı aracılığıyla Azure kaynak şablonu](alerts-log.md#managing-log-alerts-using-azure-resource-template) ve [Azure CLI ve PowerShell aracılığıyla örnek kullanımı](alerts-log.md#managing-log-alerts-using-powershell-cli-or-api)
-- Azure portalında oluşturulan tüm yeni günlük uyarı kuralı kullanılarak oluşturulacak [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) yalnızca ve kullanıcıların kullanmasına izin [yeni API ek işlevler](#Benefits-of-switching-to-new-Azure-API) Azure portal aracılığıyla
+- Azure portalında oluşturulan tüm yeni günlük uyarı kuralı kullanılarak oluşturulacak [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) yalnızca ve kullanıcıların kullanmasına izin [yeni API ek işlevler](#benefits-of-switching-to-new-azure-api) Azure portal aracılığıyla
 - Önem derecesi günlük uyarı kuralları için gelen kayacak: *Kritik, uyarı ve bilgilendirici*, *önem derecesi değerlerini 0, 1 ve 2*. Oluşturma/güncelleştirme seçeneği ile birlikte, kural de 4 önem derecesine sahip uyarı.
+
+> [!CAUTION]
+> Yeni tercih geçiş yapmak için bir kullanıcı bölgedeyse sonra [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), kuralları geri iyileştirilmiş veya eski kullanımı için geri [eski Log Analytics uyarı API](api-alerts.md).
 
 Gönüllü olarak yeni geçmek isteyen müşteriler [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) engellemek kullanımdan [eski Log Analytics uyarı API](api-alerts.md); bir PUT çağrısı gerçekleştirerek yapabilirsiniz altındaki tüm uyarı geçiş yapmak için API belirli bir Log Analytics çalışma alanıyla ilişkili kurallar.
 

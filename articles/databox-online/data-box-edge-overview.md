@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 696f4fee95926009ebda0be3c28672838d89edda
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 31a50d1dab0d5b62ab4dd549127e9092148bd88c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400428"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438096"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Azure Data Box Edge nedir? 
 
@@ -65,22 +65,6 @@ Data Box Edge'in şöyle özellikleri vardır:
 |Dayanıklılık     | Yerleşik ağ dayanıklılığı.        |
 
 
-## <a name="features-and-specifications"></a>Özellikler ve belirtimler
-
-Data Box Edge fiziksel cihazı aşağıdaki özelliklere sahiptir:
-
-| Özellikler/belirtimler                                          | Açıklama              |
-|---------------------------------------------------------|--------------------------|
-| Boyutlar   | Genişlik: 17.25" derinliği: 27.25" height: 1.75”<br>(kulaklar ve PSU tutamaçları hariç)  |            
-| Raf alanı|Rafa yerleştirildiğinde 1U|
-| Kablolar| 2 X Güç kablosu<br>2 X 1 Gb/sn RJ45 kabloları<br>2 X 10 Gb/sn SFP+ bakır kabloları|
-| Bileşenler|2 yerleşik Güç Kaynağı Birimi (PSU)|
-| CPU|2 Intel Xeon işlemci, her birinde 10 çekirdek  |
-| Bellek| 64 GB RAM|
-| Diskler| 8 NVMe SSD, her disk 1,6 TB <br> Bir NVMe SSD başarısız olursa sistem başarısız olur. |
-| Yerel depolama kapasitesi| 12,8 TB toplam kapasite|
-| Ağ arabirimleri| 2 X 1 GbE arabirimleri – 1 yönetim için, kullanıcı tarafından yapılandırılamaz, ilk kurulumda kullanılır. Diğer arabirimi kullanıcı tarafından yapılandırılabilir, veri aktarımı için kullanılan ve DHCP varsayılan olarak açıktır. <br>2 X 25 GbE arabirimleri – Bunlar 10 GbE arabirimleri olarak da çalıştırılabilir. Bu veri arabirimleri kullanıcı tarafından DHCP (varsayılan) veya statik olarak yapılandırılabilir. <br> 2 X 25 GbE arabirimleri - Bu veri arabirimleri kullanıcı tarafından DHCP (varsayılan) veya statik olarak yapılandırılabilir.|
-
 ## <a name="components"></a>Bileşenler
 
 Data Box Edge çözümü Data Box Edge kaynağından, Data Box Edge fiziksel cihazından ve yerel bir web kullanıcı arabiriminden oluşur.
@@ -105,30 +89,16 @@ Data Box Edge çözümü Data Box Edge kaynağından, Data Box Edge fiziksel cih
 Data Box Edge fiziksel cihazı, Azure kaynağı ve verileri aktardığınız hedef depolama hesabının üçünün de aynı bölgede bulunması gerekmez.
 
 - **Kaynak kullanılabilirliği** - Bu sürümde, Data Box Edge kaynağı şu bölgelerde kullanılabilir:
-    - **Birleşik Devletler** -Batı ABD2 ve Doğu ABD
+    - **Amerika Birleşik Devletleri** -Doğu ABD
     - **Avrupa Birliği** - Batı Avrupa
     - **Asya Pasifik** - Güneydoğu Asya
-
+    
+    Veri kutusu ağ geçidi de Azure kamu bulutunda dağıtılabilir. Daha fazla bilgi için [Azure Government nedir?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+    
 - **Hedef Depolama hesapları**: Verilerin depolandığı depolama hesapları, tüm Azure bölgelerinde sağlanır. 
 
     En iyi performansı elde etmek için, depolama hesaplarının Data Box verilerini depoladığı bölgeler cihazın bulunduğu yere yakın konumlandırılmalıdır. Cihazdan uzağa konumlandırılan depolama hesabı uzun gecikme sürelerine ve daha yavaş bir performansa yol açar. 
 
-
-## <a name="sign-up"></a>Kaydolma
-
-Data Box Edge önizleme aşamasındadır ve kaydolmanız gerekir. Data Box Gateway'e kaydolmak için aşağıdaki adımları izleyin:
-
-1. Azure portalda oturum açın: [https://aka.ms/databox-edge](https://aka.ms/databox-edge).
-
-2. Data Box Edge önizlemesinde kullanmak istediğiniz aboneliği seçin. Data Box Edge kaynağını dağıtmak istediğiniz bölgeyi seçin. Data Box Edge seçeneğinde **Kaydol**'a tıklayın.
-
-    ![Data Box Edge kaydı 3](media/data-box-edge-overview/data-box-edge-sign-up3.png)
-
-3.  Verilerin bulunduğu ülke, zaman aralığı ve veri aktarımı için hedef Azure hizmeti, ağ bant genişliği ve veri aktarım sıklığı hakkındaki soruları yanıtlayın. **Gizlilik ve koşulları** gözden geçirdikten sonra, **Microsoft sizinle iletişim kurmak için e-posta adresinizi kullanabilir** onay kutusunu seçin.
-
-    ![Data Box Edge kaydı 4](media/data-box-edge-overview/data-box-edge-sign-up4.png)
-
-4. Kaydolduktan ve önizlemeyi etkinleştirdikten sonra Data Box Edge siparişi verebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

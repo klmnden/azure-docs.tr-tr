@@ -1,191 +1,213 @@
 ---
-title: Bulutta Kubernetes geliştirme alanı oluşturun
+title: Azure geliştirme alanları kullanarak Kubernetes üzerinde Node.js ile geliştirme
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
+ms.subservice: azds-kubernetes
 ms.author: zarhoads
-ms.date: 09/26/2018
+ms.date: 03/22/2019
 ms.topic: quickstart
-description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: 8da401b450438e1640901f26be88620ae8506860
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+description: Kapsayıcılar, mikro hizmetler ve azure'da Node.js ile hızlı Kubernetes geliştirme
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
+manager: jeconnoc
+ms.openlocfilehash: b95090cf59f0ee84e3a81bf87631df54826c050e
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903292"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418576"
 ---
-# <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Hızlı Başlangıç: Azure geliştirme alanları (Node.js) ile Kubernetes geliştirme alanı oluşturma
+# <a name="quickstart-develop-with-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Hızlı Başlangıç: Azure geliştirme alanları kullanarak Kubernetes üzerinde Node.js ile geliştirme
 
 Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 
 - Azure’da yönetilen bir Kubernetes ile Azure Dev Spaces’ı ayarlayın.
-- VS Code'u ve komut satırını kullanarak kapsayıcılarda yinelemeli kod geliştirin.
-- Bu kümede çalıştırılan kodda hata ayıklaması yapın.
-
-> [!Note]
-> Herhangi bir zamanda **kilitlenirseniz** [Sorun giderme](troubleshooting.md) bölümüne başvurun veya bu sayfada bir yorum paylaşın. Daha ayrıntılı bir [öğreticiyi](get-started-nodejs.md) de deneyebilirsiniz.
+- Yinelemeli olarak Visual Studio Code ve komut satırını kullanarak kapsayıcılardaki kod geliştirin.
+- Visual Studio Code geliştirme alanınızdan kodunda hata ayıklayın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Azure aboneliği. Azure aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/free) oluşturabilirsiniz.
-- [Visual Studio Code](https://code.visualstudio.com/download).
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) sürüm 2.0.43 veya üzeri.
-- Kubernetes 1.9.6 çalışan bir Kubernetes kümesi ya da daha sonra EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral veya CanadaEast bölge.
+- [Visual Studio Code'u](https://code.visualstudio.com/download).
+- [Azure geliştirme alanları](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) Visual Studio Code uzantısı.
+- [Yüklü Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-    ```cmd
-    az group create --name MyResourceGroup --location <region>
-    az aks create -g MyResourceGroup -n myAKS --location <region> --generate-ssh-keys
-    ```
+## <a name="create-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service kümesi oluşturma
 
-## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces'i ayarlama
+Bir AKS kümesinde oluşturmak gereken bir [bölge desteklenen](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). Aşağıdaki komutları adlı bir kaynak grubu oluşturacaksınız *MyResourceGroup* ve adlı bir AKS kümesi *MyAKS*.
 
-Azure CLI ve Azure Dev Spaces uzantısı Windows, Mac veya Linux makinelere yüklenip çalıştırılabilir. Linux için aşağıdaki dağıtımlar desteklenir: (18.04, 16.04 ve 14.04) ubuntu, Debian 8 ve 9, RHEL 7, Fedora 26 +, CentOS 7, openSUSE 42.2 ve SLES 12.
+```cmd
+az group create --name MyResourceGroup --location eastus
+az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --generate-ssh-keys
+```
 
-Azure Dev Spaces kurulumu için aşağıdaki adımları izleyin:
+## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Azure geliştirme alanları AKS kümenizde etkinleştirme
 
-1. AKS kümenizde Dev Spaces'i ayarlayın: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. VS Code için [Azure Dev Spaces uzantısını](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) indirin. Uzantının Market sayfasında ve yeniden VS Code’da Yükle’ye bir kez tıklayın.
+Kullanım `use-dev-spaces` komutunu kullanarak AKS kümenizde geliştirme alanları etkinleştirme ve yönergeleri izleyin. Geliştirme alanları aşağıdaki komutu etkinleştirir *MyAKS* içinde küme *MyResourceGroup* grup ve oluşturan bir *varsayılan* geliştirme alanı.
+
+```cmd
+$ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+
+'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
+
+Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
+
+Select a dev space or Kubernetes namespace to use as a dev space.
+ [1] default
+Type a number or a new name: 1
+
+Kubernetes namespace 'default' will be configured as a dev space. This will enable Azure Dev Spaces instrumentation for new workloads in the namespace. Continue? (Y/n): Y
+
+Configuring and selecting dev space 'default'...3s
+
+Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
+```
+
+## <a name="get-sample-application-code"></a>Örnek uygulama kodunu alma
+
+Bu makalede, kullandığınız [Azure geliştirme alanları örnek uygulama](https://github.com/Azure/dev-spaces) Azure geliştirme alanları göstermek için.
+
+Github'dan uygulama kopyalamak ve gidin *geliştirme-alanları/samples/nodejs/alma-çalışmaya/webfrontend* dizini:
+
+```cmd
+git clone https://github.com/Azure/dev-spaces
+cd dev-spaces/samples/nodejs/getting-started/webfrontend
+```
+
+## <a name="prepare-the-application"></a>Uygulama hazırlama
+
+Kubernetes kullanarak uygulamayı çalıştırmak için Docker ve Helm grafiği varlıkları oluşturmak `azds prep` komutu:
+
+```cmd
+azds prep --public
+```
+
+Çalıştırmalısınız `prep` komutunu *geliştirme-alanları/samples/nodejs/alma-çalışmaya/webfrontend* doğru Docker ve Helm grafiği varlıkları oluşturmak için dizin.
 
 ## <a name="build-and-run-code-in-kubernetes"></a>Kubernetes'de kodu oluşturma ve çalıştırma
 
-1. GitHub'dan örnek kodu indirin: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
-1. Dizini webfrontend klasörüne geçirin: `cd dev-spaces/samples/nodejs/getting-started/webfrontend`
-1. Docker ve Helm grafik varlıkları oluşturun: `azds prep --public`
-1. AKS’de kodunuzu derleyin ve çalıştırın. Terminal penceresinde, **webfrontend klasöründen** şu komutu çalıştırın: `azds up`
-1. `up` komutu tarafından oluşturulan URL hakkındaki bilgiler için konsol çıkışını tarayın. Şu biçimde olacaktır: 
+Derleme ve AKS kullanarak kodunuzu çalıştırmak `azds up` komutu:
 
-   ```output
-   (pending registration) Service 'webfrontend' port 'http' will be available at <url>
-   Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
-   ```
+```cmd
+$ azds up
+Using dev space 'default' with target 'MyAKS'
+Synchronizing files...2s
+Installing Helm chart...2s
+Waiting for container image build...2m 25s
+Building container image...
+Step 1/8 : FROM node
+Step 2/8 : ENV PORT 80
+Step 3/8 : EXPOSE 80
+Step 4/8 : WORKDIR /app
+Step 5/8 : COPY package.json .
+Step 6/8 : RUN npm install
+Step 7/8 : COPY . .
+Step 8/8 : CMD ["npm", "start"]
+Built container image in 6m 17s
+Waiting for container...13s
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 80 (http) is available at http://localhost:54256
+...
+```
 
-   Tarayıcı penceresinde bu URL'yi açın; web uygulaması yükünü görmelisiniz. Kapsayıcı yürütülürken, terminal penceresine `stdout` ve `stderr` çıkışının akışı yapılır.
-   
-   > [!Note]
-   > İlk çalıştırmada genel DNS hizmetinin hazır duruma gelmesi birkaç dakika sürebilir. Genel URL çözmezse alternatif kullanabileceğiniz `http://localhost:<portnumber>` konsol çıkışında görüntülenen URL. Localhost URL'sini kullanırsanız kapsayıcı yerel olarak çalışıyor gibi görünebilir, ancak gerçekte AKS'de çalışıyordur. Size rahatlık sağlamak ve yerel makinenizden hizmetle etkileşimi kolaylaştırmak için, Azure Dev Spaces Azure'da çalıştırılan kapsayıcıya geçici bir SSH tüneli oluşturur. DNS kaydı hazır olduğunda geri gelip genel URL'yi deneyebilirsiniz.
+Çıktıda gösterilen ortak URL'yi açarak çalışan hizmeti gördüğünüz `azds up` komutu. Bu örnekte genel URL: *http://webfrontend.1234567890abcdef1234.eus.azds.io/*.
 
-### <a name="update-a-content-file"></a>İçerik dosyası güncelleştirme
-Azure Dev Spaces yalnızca kodu Kubernetes’te çalıştırmaya yönelik değildir; aynı zamanda kod değişikliklerinizin buluttaki bir Kubernetes ortamında uygulandığını hızlıca ve yinelenerek görmenizi sağlar.
+Durdurursanız `azds up` komutunu kullanarak *Ctrl + c*, hizmet, AKS içinde çalışmaya devam eder ve genel URL sunulmaya devam edecektir.
 
-1. `./public/index.html` dosyasını bulun ve HTML dosyasında bir düzenleme yapın. Örneğin, sayfanın arka plan rengini mavinin bir tonu ile değiştirin:
+## <a name="update-code"></a>Kodu güncelleştirme
 
-    ```html
-    <body style="background-color: #95B9C7; margin-left:10px; margin-right:10px;">
-    ```
+Hizmetinizi güncelleştirilmiş bir sürümünü dağıtmak için projenizdeki herhangi bir dosyayı güncelleştirmek ve yeniden `azds up` komutu. Örneğin:
 
-1. Dosyayı kaydedin. Birkaç dakika sonra, Terminal penceresinde çalışan kapsayıcı içindeki bir dosyanın güncelleştirildiğini söyleyen bir ileti göreceksiniz.
-1. Tarayıcınıza gidip sayfayı yenileyin. Renk güncelleştirmenizi görürsünüz.
-
-Ne oldu? HTML ve CSS gibi içerik dosyalarında düzenlemeler yapmak için Node.js işleminin yeniden başlatılması gerekmez; bu nedenle etkin bir `azds up` komutu, değiştirilmiş tüm içerik dosyalarını Azure’daki çalışan kapsayıcıya doğrudan otomatik olarak eşitler ve böylece içerik düzenlemelerinizi görmenin hızlı bir yolunu sağlar.
-
-### <a name="test-from-a-mobile-device"></a>Mobil cihazdan test etme
-webfrontend genel URL'sini kullanarak web uygulamasını bir mobil cihazdan açın. Uzun adresi el ile girmemek için URL'yi masaüstü bilgisayarınızda kopyalayıp cihazınıza gönderebilirsiniz. Web uygulaması mobil cihazınızda yüklendiğinde, kullanıcı arabiriminin küçük bir cihazda düzgün şekilde gösterilmediğini fark edersiniz.
-
-Bu sorunu gidermek için bir `viewport` meta etiketi ekleyin:
-1. `./public/index.html` dosyasını açın
-1. Mevcut `head` öğesine bir `viewport` meta etiketi ekleyin:
-
-    ```html
-    <head>
-        <!-- Add this line -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    ```
-
-1. Dosyayı kaydedin.
-1. Cihazınızın tarayıcısını yenileyin. Şimdi web uygulamasının doğru şekilde işlendiğini görürsünüz. 
-
-Bu örnek, bir uygulamayı kullanılması amaçlanan cihazlarda test edinceye kadar bazı sorunların nasıl bulunamadığını gösterir. Azure Dev Spaces sayesinde kodunuzda hızla yineleme yapabilir ve hedef cihazlardaki değişiklikleri doğrulayabilirsiniz.
-
-### <a name="update-a-code-file"></a>Kod dosyasını güncelleştirme
-Sunucu tarafı kod dosyalarının güncelleştirilmesi, Node.js uygulamasının yeniden başlatılması gerektiği için biraz daha fazla işlem gerektirir.
-
-1. Terminal penceresinde `Ctrl+C` düğmesine basın (`azds up` hizmetini durdurmak için).
-1. `server.js` adlı kod dosyasını açın ve hizmetin karşılama iletisini düzenleyin: 
-
+1. Varsa `azds up` hala, çalışıyor basın *Ctrl + c*.
+1. Güncelleştirme [10'da satır `server.js` ](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L10) için:
+    
     ```javascript
-    res.send('Hello from webfrontend running in Azure!');
+        res.send('Hello from webfrontend in Azure');
     ```
 
-3. Dosyayı kaydedin.
-1. Terminal penceresinde `azds up` komutunu çalıştırın. 
+1. Yaptığınız değişiklikleri kaydedin.
+1. Yeniden çalıştırılan `azds up` komutu:
 
-Bu işlem, kapsayıcı görüntüsünü yeniden derler ve Helm grafiğini yeniden dağıtır. Kod değişikliklerinizin uygulandığını görmek için tarayıcı sayfasını yeniden yükleyin.
+    ```cmd
+    $ azds up
+    Using dev space 'default' with target 'MyAKS'
+    Synchronizing files...1s
+    Installing Helm chart...3s
+    Waiting for container image build...
+    ...    
+    ```
 
-Bununla birlikte, kod geliştirmek için sonraki bölümde öğreneceğiniz daha da *hızlı bir yöntem* mevcuttur. 
+1. Çalışan hizmetinize gidin ve yaptığınız değişiklikleri gözlemleyin.
+1. Tuşuna *Ctrl + c* durdurmak için `azds up` komutu.
 
-## <a name="debug-a-container-in-kubernetes"></a>Kubernetes’te bir kapsayıcının hatalarını ayıklama
+## <a name="initialize-code-for-debugging-in-kubernetes-with-visual-studio-code"></a>Kodu Visual Studio Code ile kubernetes hata ayıklama başlatılamıyor
 
-Bu bölümde, Azure'da çalıştırılan kapsayıcımızda doğrudan hata ayıklamak için VS Code kullanacaksınız. Ayrıca daha hızlı bir düzenleme-çalıştırma-test döngüsü elde etmeyi öğreneceksiniz.
+Visual Studio Code'u açın, *dosya* ardından *Aç...* , gitmek *geliştirme-alanları/samples/nodejs/alma-çalışmaya/webfrontend* dizin seçeneğine tıklayıp *açık*.
 
-![](./media/common/edit-refresh-see.png)
+Artık *webfrontend* proje Visual Studio kullanarak çalıştırdığınız aynı hizmet olan Code'da açık `azds up` komutu. Bu hizmeti kullanmak yerine Visual Studio Code kullanarak AKS hata ayıklamak için `azds up` doğrudan geliştirme alanınızı ile iletişim kurmak için Visual Studio Code'u kullanmak için bu projeyi hazırlamanız gerekir.
 
-### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Hata ayıklama varlıklarını VS Code uzantısıyla başlatma
-VS Code'un Azure Dev Space'imizle iletişim kurabilmesi için önce kod projenizi yapılandırmalısınız. Azure Dev Spaces için VS Code uzantısı hata ayıklama yapılandırmasını ayarlamak için yardımcı komutu sağlar. 
-
-**Komut Paleti**'ni açın (**Görünüm | Komut Paleti** menüsünü kullanarak) ve otomatik tamamlama özelliğini kullanarak komutu yazın ve seçin: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
-
-Bu, `.vscode` klasörünün altında Azure Dev Spaces için hata ayıklama yapılandırması ekler. Bu komut, projeyi dağıtım için yapılandıran `azds prep` komutuyla karıştırılmamalıdır.
+Komut paletini Visual Studio Code'da açmak için *görünümü* ardından *komut paleti*. Yazmaya başlayın `Azure Dev Spaces` tıklayın `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 
 ![](./media/common/command-palette.png)
 
-### <a name="select-the-azds-debug-configuration"></a>AZDS hata ayıklama yapılandırmasını seçme
-1. Hata Ayıklama görünümünü açmak için VS Code’un yan tarafındaki **Etkinlik Çubuğu** içinde Hata Ayıklama simgesine tıklayın.
-1. Etkin hata ayıklama yapılandırması olarak **Program Başlat (AZDS)** öğesini seçin.
+Bu komut, Azure geliştirme alanlarında doğrudan Visual Studio Code'dan çalıştırmak üzere projenizi hazırlar. Ayrıca oluşturur bir *.vscode* projenizin kökünde yapılandırmasını hata ayıklama dizin.
 
-![](media/get-started-node/debug-configuration-nodejs2.png)
+## <a name="build-and-run-code-in-kubernetes-from-visual-studio-code"></a>Derleme ve kod, Visual Studio Code'dan Kubernetes'te çalıştırma
+
+Tıklayarak *hata ayıklama* simgesine tıklayın ve sol *başlatma sunucu (AZDS)* en üstünde.
+
+![](media/get-started-node/debug-configuration-nodejs.png)
+
+Bu komut, yapılar ve hizmetinizi Azure geliştirme alanlarında hata ayıklama modunda çalıştırır. *Terminal* penceresinin altındaki hizmetiniz için Azure geliştirme alanları çalıştıran yapı çıkışını ve URL'leri gösterir. *Hata ayıklama konsolunu* günlük çıktısını gösterir.
 
 > [!Note]
-> Komut Paletinde herhangi bir Azure Dev Spaces komutu görmüyorsanız, Azure Dev Spaces için VS Code uzantısını yüklediğinizden emin olun.
+> Tüm Azure geliştirme alanları komutlarında görmüyorsanız, *komut paleti*, yüklediğinizden emin olun [Azure geliştirme alanları için Visual Studio Code uzantısı](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Ayrıca, açtığınız doğrulayın *geliştirme-alanları/samples/nodejs/alma-çalışmaya/webfrontend* Visual Studio code'da dizin.
 
-### <a name="debug-the-container-in-kubernetes"></a>Kubernetes’te kapsayıcının hatalarını ayıklama
-Kubernetes’te kodunuzun hatalarını ayıklamak için **F5**’e basın!
+Tıklayın *hata ayıklama* ardından *hata ayıklamayı Durdur* hata ayıklayıcıyı durdurmak için.
 
-`up` komutuna benzer şekilde, hata ayıklamaya başladığınızda kod geliştirme alanıyla eşitlenir ve bir kapsayıcı derlenip Kubernetes’e dağıtılır. Bu kez, hata ayıklayıcı uzak kapsayıcıya eklenir.
+## <a name="setting-and-using-breakpoints-for-debugging"></a>Ayarlama ve hata ayıklama için kesme noktaları kullanma
 
-> [!Tip]
-> VS Code durum çubuğunda tıklanabilir bir URL görüntülenir.
+Hizmeti kullanmaya başlayın *başlatma sunucu (AZDS)*.
 
-Sunucu tarafı kod dosyasında (örneğin `server.js` içindeki `app.get('/api'...` içinde) bir kesme noktası belirleyin. Tarayıcı sayfasını yenilediğinizde veya 'Tekrar Söyleyin' düğmesine bastığınızda kesme noktasına basıp koda girebilirsiniz.
+Geri gidin *Gezgini* tıklayarak görünümü *görünümü* ardından *Gezgini*. Açık `server.js` ve imlecinizi buraya koymanız için 10. satırda bir yere tıklayın. Bir kesme noktası ayarlamak için isabet *F9* veya *hata ayıklama* ardından *iki durumlu kesme noktası*.
 
-Kodun yerel olarak yürütülmesi durumunda olduğu gibi, çağrı yığını, yerel değişkenler, özel durum bilgileri vb. hata ayıklama bilgilerine tam erişiminiz vardır.
+Hizmetinizi bir tarayıcıda açın ve herhangi bir ileti görüntülenir dikkat edin. Visual Studio Code için geri dönün ve 10. satır vurgulanır gözlemleyin. Ayarladığınız kesme noktası 10. satır hizmeti duraklatıldı. Hizmeti sürdürmek için isabet *F5* veya *hata ayıklama* ardından *devam*. Tarayıcınıza dönün ve ileti görüntülenecektir dikkat edin.
 
-### <a name="edit-code-and-refresh-the-debug-session"></a>Kod düzenleme ve hata ayıklama oturumunu yenileme
-Hata ayıklayıcı etkinken bir kod düzenlemesi yapın; örneğin, karşılama iletisini yeniden değiştirin:
+Bir hata ayıklayıcısı ekli Kubernetes'te hizmetinizi çalışırken, çağrı yığını, yerel değişkenleri ve özel durum bilgileri gibi bilgileri hata ayıklamak için tam erişime sahip olursunuz.
 
+Kesme noktası 10 satırında imleci yerleştirerek kaldırma `server.js` ve ulaşmaktan *F9*.
+
+Tıklayın *hata ayıklama* ardından *hata ayıklamayı Durdur* hata ayıklayıcıyı durdurmak için.
+
+## <a name="update-code-from-visual-studio-code"></a>Visual Studio code'dan kodunu güncelleştirme
+
+Hata ayıklama moduna *bir sunucu (AZDS için) eklemek* ve hizmeti başlatın:
+
+![](media/get-started-node/attach-nodejs.png)
+
+Bu komut, oluşturur ve hizmetinizi Azure geliştirme alanlarında çalıştırır. Ayrıca başlatan bir [nodemon](https://nodemon.io) işlem hizmetinizin kapsayıcı ve bunun için VS Code ekler. *Nodemon* işlem, kaynak kodu değişiklikleri yapıldığında, daha hızlı bir şekilde iç döngü geliştirme makinenizde geliştirmeye benzer etkinleştirmek için otomatik yeniden başlatmaları sağlar.
+
+Hizmet başlatıldıktan sonra tarayıcı kullanarak gidin ve kutucukla etkileşim kurabilirsiniz.
+
+Hizmet çalışırken, VS Code ve güncelleştirme 10. satır içinde dönmek `server.js`. Örneğin:
 ```javascript
-app.get('/api', function (req, res) {
-    res.send('**** Hello from webfrontend running in Azure! ****');
-});
+    res.send('Hello from webfrontend in Azure while debugging!');
 ```
 
-Dosyayı kaydedin ve **Hata ayıklama eylemleri** bölmesinde **Yenile** düğmesine tıklayın. 
+Dosyayı kaydedin ve bir tarayıcıda, hizmetinize geri dönün. Hizmetiyle etkileşim kurmak ve güncelleştirilmiş iletinizi görüntülenen dikkat edin.
 
-![](media/get-started-node/debug-action-refresh-nodejs.png)
+Çalışırken *nodemon*, herhangi bir kod değişikliği algılandı hemen sonra düğüm işlemi otomatik olarak yeniden başlatılır. Bu otomatik yeniden başlatma işlemi, düzenleme ve hizmetinizi yerel makinenizdeki bir iç döngü geliştirme deneyimi sağlayan, yeniden başlatma deneyimini benzerdir.
 
-Azure Dev Spaces, her kod düzenlemesi yapıldığında yeni bir kapsayıcı görüntüsünü yeniden derleme ve yeniden dağıtmayı içeren uzun süreli işlem yerine, hata ayıklama oturumları arasında Node.js işlemini yeniden başlatarak daha hızlı bir düzenleme/hata ayıklama döngüsü sağlar.
+## <a name="clean-up-your-azure-resources"></a>Azure kaynaklarınızı temizleme
 
-Tarayıcıda web uygulamasını yenileyin veya *Tekrar Söyleyin* düğmesine basın. Özel iletinizin kullanıcı arabiriminde görüntülendiğini görürsünüz.
-
-### <a name="use-nodemon-to-develop-even-faster"></a>NodeMon ile daha da hızlı geliştirme
-
-Örnek `webfrontend` projesi, Azure Dev Spaces ile tamamen uyumlu bir Node.js dağıtımını hızlandırmaya yönelik olan popüler [nodemon](https://nodemon.io/) aracını kullanacak şekilde yapılandırılmıştır.
-
-Aşağıdaki adımları deneyin:
-1. VS Code hata ayıklayıcıyı durdurun.
-1. VS Code’un yan tarafındaki **Etkinlik Çubuğu** içinde Hata Ayıklama simgesine tıklayın. 
-1. Etkin hata ayıklama yapılandırması olarak **Ekle (AZDS)** öğesini seçin.
-1. F5'e basın.
-
-Bu yapılandırmada, kapsayıcı *nodemon* başlatacak şekilde yapılandırılmıştır. Sunucu kodu düzenlemeleri yapıldığında *nodemon*, tıpkı yerel olarak geliştirme sırasında yaptığı gibi Node işlemini otomatik olarak yeniden başlatır. 
-1. `server.js` içindeki karşılama iletisini yeniden düzenleyin ve dosyayı kaydedin.
-1. Değişikliklerinizin uygulandığını görmek için tarayıcıyı yenileyin veya *Tekrar Söyleyin* düğmesine tıklayın!
-
-**Artık kod üzerinde hızlıca yineleme ve doğrudan Kubernetes’te hata ayıklamaya yönelik bir yönteminiz var!**
+```cmd
+az group delete --name MyResourceGroup --yes --no-wait
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
+Azure geliştirme alanları, birden çok kapsayıcıya daha karmaşık uygulamalar geliştirmenize nasıl yardımcı olur ve farklı sürümleri ya da farklı alanları kodunuzun dalları birlikte çalışarak işbirliğine dayalı geliştirme nasıl basitleştirebileceğinizi öğrenin.
 
 > [!div class="nextstepaction"]
 > [Birden çok kapsayıcı ve takım geliştirme ile çalışma](multi-service-nodejs.md)

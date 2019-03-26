@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ccea3ebae4bcc19410cfb5537a7140f69b04c4e7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400769"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438793"
 ---
-# <a name="prepare-and-customize-a-master-vhd-image"></a>Hazırlama ve bir ana VHD görüntüsünü özelleştirme
+# <a name="prepare-and-customize-a-master-vhd-image"></a>Ana VHD görüntüsünü hazırlama ve özelleştirme
 
 Bu makalede yüklemek için Azure sanal makineler (VM) oluşturun ve yazılım yükleme ve bunlar üzerinde yapılandırma dahil olmak üzere, bir ana sanal sabit disk (VHD) görüntüsü hazırlama bildirir. Kuruluşunuzun mevcut işlemleri ile kullanılabilecek bir Windows sanal masaüstü Önizleme özgü yapılandırma için bu yönergeleri yöneliktir.
 
@@ -162,8 +162,8 @@ Otomatik Güncelleştirmeler el ile devre dışı bırakabilirsiniz.
 
 Otomatik Güncelleştirmeler devre dışı bırakmak için:
 
-1. Office365'ndaki yönergeleri takip ederek yükleme [Office görüntüsü hazırlama](set-up-customize-master-image.md#office-image-preparation).
-2. Yönergeleri izleyerek herhangi ek uygulamalar yüklemek [kullanıcı profili kurulumu (FSLogix)](set-up-customize-master-image.md#user-profile-setup-fslogix), [Windows Defender](set-up-customize-master-image.md#windows-defender), ve [diğer uygulamalar ve kayıt defteri yapılandırmasını](set-up-customize-master-image.md#other-applications-and-registry-configuration).
+1. Office365'ndaki yönergeleri takip ederek yükleme [yazılım hazırlama ve yükleme](set-up-customize-master-image.md#software-preparation-and-installation).
+2. Yönergeleri izleyerek herhangi ek uygulamalar yüklemek [kullanıcı profili kapsayıcısı (FSLogix) ayarlamak](set-up-customize-master-image.md#set-up-user-profile-container-fslogix), [Windows Defender yapılandırma](set-up-customize-master-image.md#configure-windows-defender), ve [diğer uygulamalar ve kayıt defteri Yapılandırma](set-up-customize-master-image.md#other-applications-and-registry-configuration).
 3. Yerel sanal makine üzerinde Windows otomatik güncelleştirme hizmeti devre dışı bırakın.
 4. Açık **yerel Grup İlkesi Düzenleyicisi\\Yönetim Şablonları\\Windows bileşenleri\\Windows Update**.
 5. Sağ **otomatik güncelleştirme yapılandırma** ve **devre dışı bırakılmış**.
@@ -171,7 +171,7 @@ Otomatik Güncelleştirmeler devre dışı bırakmak için:
 Ayrıca, bir komut istemi otomatik güncelleştirmeler devre dışı bırakmak için aşağıdaki komutu çalıştırabilirsiniz.
 
 ```batch
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
+reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
 Windows 10 bilgisayarları için bir başlangıç düzenini belirtmek için bu komutu çalıştırın.
@@ -232,9 +232,7 @@ Windows sanal masaüstü resmi olarak Skype iş ve takımlar için desteklemez.
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Kullanıcı profili kapsayıcısı ayarlamak (FSLogix)
 
-FSLogix kapsayıcı görüntüsünün bir parçası dahil etmek için yönergeleri izleyin. [ana makine havuzu için bir kullanıcı profili paylaşımını ayarlama](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).
-
-Dosya Paylaşımı kayıt defteri anahtarı yapılandırırken, oluşturduğunuz dosya paylaşımını kullanma [izinlerini dosya sunucusu için yapılandırma](set-up-customize-master-image.md#configure-permissions-for-the-file-server) profili kapsayıcıları depolar planladığınız yerde. Ayrıca bunu kullanarak FSLogix kapsayıcı işlevselliğini test [hızlı](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
+FSLogix kapsayıcı görüntüsünün bir parçası dahil etmek için yönergeleri izleyin. [ana makine havuzu için bir kullanıcı profili paylaşımını ayarlama](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). FSLogix kapsayıcıyla işlevselliğini test edebilirsiniz [Bu hızlı başlangıçta](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
 
 ### <a name="configure-windows-defender"></a>Windows Defender'ı yapılandırma
 

@@ -4,14 +4,14 @@ description: Yeni kaynak grubuna veya aboneliğe taşınabilir Azure kaynak tür
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 2/13/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: f82c3adc0049c7386206fb4be10d3e634627a25a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d44b1bf778c7ec9551e2fd30f67083f8dded22d1
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236898"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438477"
 ---
 # <a name="move-operation-support-for-resources"></a>İşlem desteği kaynakları Taşı
 Bu makalede, bir Azure kaynak türü taşıma işlemini destekleyip desteklemediğini listelenmektedir. Bir kaynak türü taşıma işlemi desteklemesine rağmen kaynak taşınmasını engellemek koşulları olabilir. Taşıma işlemlerini etkileyen koşullar hakkında daha fazla ayrıntı için bkz: [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](resource-group-move-resources.md).
@@ -241,7 +241,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| Paketleri | Hayır | Hayır |
+| paketler | Hayır | Hayır |
 | planlar | Hayır | Hayır |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
@@ -422,7 +422,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| labaccounts | Evet | Evet |
+| labaccounts | Hayır | Hayır |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Kaynak türü | Kaynak grubu | Abonelik |

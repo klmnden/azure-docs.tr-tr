@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: raynew
-ms.openlocfilehash: e83698af6bb1caab1568375b726753d34a8c8467
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1cc86470b9e45469d633d47121869b3c2dc1b052
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861358"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439014"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasasını silme
 
@@ -31,7 +31,7 @@ Başlamadan önce sunucusu olan bir kurtarma Hizmetleri kasası silinemiyor anla
 - Kurtarma Hizmetleri Kasası'nda hiçbir veriyi saklamak ve kasayı silmek isteyip istemediğiniz kasa tarafından zorla silebilirsiniz.
 - Bir kasayı silmeyi deneyin ancak kullanamazsanız, yedekleme verilerini almak için kasa yine de yapılandırılır.
 
-Bölümüne bakın, bir kasayı silme hakkında bilgi edinmek için [Azure portalından bir kasayı silme](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal). Varsa bölümünde [zorla tarafından kasayı silin](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Kasada nedir emin değilseniz ve kasayı silebilirsiniz emin olmanız gerekir, bölümüne bakın. [Kaldır kasa bağımlılıkları ve delete kasası](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
+Bölümüne bakın, bir kasayı silme hakkında bilgi edinmek için [Azure portalından bir kasayı silme](#delete-a-vault-from-the-azure-portal). Varsa bölümünde [zorla tarafından kasayı silin](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Kasada nedir emin değilseniz ve kasayı silebilirsiniz emin olmanız gerekir, bölümüne bakın. [Kaldır kasa bağımlılıkları ve delete kasası](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 
 ## <a name="delete-a-vault-from-the-azure-portal"></a>Azure portalından bir kasayı silme
 
@@ -90,7 +90,7 @@ Bir kurtarma Hizmetleri kasasını silmek için:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-9. Kasa boş değil, "Bu kasa içinde mevcut kaynaklar bulunduğundan kasa silinemiyor" hatasını alıyorsunuz. İçerilen bir kasa içinde kaldırmak için aşağıdakileri yapın:
+9. Kasa boş değil, "Bu kasa içinde mevcut kaynaklar bulunduğundan kasa silinemiyor" hatasını alıyorsunuz. Bir kasa içinde bir kapsayıcı kaldırmak için aşağıdakileri yapın:
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01

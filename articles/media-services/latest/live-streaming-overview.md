@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: a31cd950ae241eb55c840c716f4679c5a67b1379
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: b8725dfcb2a337750c6e2a78ba7571114b8e3cd3
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350022"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407192"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Canlı akış ile Azure Media Services v3
 
@@ -69,7 +69,7 @@ Media Services v3 canlı akış iş akışı anlamak için ilk gözden geçirme 
 - [Canlı etkinlikler ve canlı çıkışları](live-events-outputs-concept.md)
 - [Akış bulucuları](streaming-locators-concept.md)
 
-Canlı akış iş akışı için adımlar şunlardır:
+### <a name="general-steps"></a>Genel adımlar
 
 1. Media Services hesabınızı emin **akış uç noktası** çalışıyor. 
 2. Oluşturma bir [canlı olay](live-events-outputs-concept.md). <br/>Olay oluşturulurken otomatik başlatma için bunu belirtebilirsiniz. Alternatif olarak, akış başlamaya hazır olduğunuzda olayı başlatın.<br/> Autostart canlı olay true olarak ayarlandığında oluşturulduktan sonra doğru başlatılır. Faturalandırma, canlı olay çalışmaya başladıktan hemen sonra başlar. Daha fazla faturalama durdurmak için canlı olay kaynağı durdurma açıkça çağırmanız gerekir. Daha fazla bilgi için [canlı olay durumları ve faturalandırma](live-event-states-billing.md).

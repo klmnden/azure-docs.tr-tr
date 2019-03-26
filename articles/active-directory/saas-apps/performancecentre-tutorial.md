@@ -4,192 +4,204 @@ description: Azure Active Directory ve PerformanceCentre arasında çoklu oturum
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 65288c32-f7e6-4eb3-a6dc-523c3d748d1c
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/28/2017
+ms.topic: tutorial
+ms.date: 03/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20775dee9c6cfca655593ec7ac125d72763c518c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c5e9ccfa3c179aea190028ba5f97086186b70a02
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195887"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407581"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Öğretici: PerformanceCentre ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile PerformanceCentre tümleştirme konusunda bilgi edinin.
-
 Azure AD ile PerformanceCentre tümleştirme ile aşağıdaki avantajları sağlar:
 
-- PerformanceCentre erişimi, Azure AD'de denetleyebilirsiniz
-- Otomatik olarak imzalanan için PerformanceCentre (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
+* PerformanceCentre erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) PerformanceCentre için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile PerformanceCentre yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Abonelik PerformanceCentre çoklu oturum açma etkin
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik PerformanceCentre çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden PerformanceCentre ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* PerformanceCentre destekler **SP** tarafından başlatılan
 
 ## <a name="adding-performancecentre-from-the-gallery"></a>Galeriden PerformanceCentre ekleme
+
 Azure AD'de PerformanceCentre tümleştirmesini yapılandırmak için PerformanceCentre Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden PerformanceCentre eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Uygulamalar][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Uygulamalar][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **PerformanceCentre**.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/performancecentre-tutorial/tutorial_performancecentre_search.png)
+4. Arama kutusuna **PerformanceCentre**seçin **PerformanceCentre** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-1. Sonuçlar panelinde seçin **PerformanceCentre**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+     ![Sonuç listesinde PerformanceCentre](common/search-new-app.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/performancecentre-tutorial/tutorial_performancecentre_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
-Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı PerformanceCentre sınayın.
-
-Tek iş için oturum açma için Azure AD ne PerformanceCentre karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının PerformanceCentre ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
-
-PerformanceCentre içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma PerformanceCentre adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının PerformanceCentre ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma PerformanceCentre ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[PerformanceCentre test kullanıcısı oluşturma](#creating-a-performancecentre-test-user)**  - kullanıcı Azure AD gösterimini bağlı PerformanceCentre Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[PerformanceCentre çoklu oturum açmayı yapılandırma](#configure-performancecentre-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[PerformanceCentre test kullanıcısı oluşturma](#create-performancecentre-test-user)**  - kullanıcı Azure AD gösterimini bağlı PerformanceCentre Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve PerformanceCentre uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma ile PerformanceCentre yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma ile PerformanceCentre yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **PerformanceCentre** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **PerformanceCentre** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/performancecentre-tutorial/tutorial_performancecentre_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **PerformanceCentre etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/performancecentre-tutorial/tutorial_performancecentre_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `http://companyname.performancecentre.com/saml/SSO`
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `http://companyname.performancecentre.com`
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [PerformanceCentre istemci Destek ekibine](https://www.performancecentre.com/contact-us/) bu değerleri almak için. 
+    ![PerformanceCentre etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `http://<companyname>.performancecentre.com/saml/SSO`
 
-    ![Çoklu oturum açmayı yapılandırın](./media/performancecentre-tutorial/tutorial_performancecentre_certificate.png) 
+    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın: `http://<companyname>.performancecentre.com`
 
-1. Tıklayın **Kaydet** düğmesi.
+    > [!NOTE]
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [PerformanceCentre istemci Destek ekibine](https://www.performancecentre.com/contact-us/) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/performancecentre-tutorial/tutorial_general_400.png)
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-1. Üzerinde **PerformanceCentre yapılandırma** bölümünde **yapılandırma PerformanceCentre** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+    ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/performancecentre-tutorial/tutorial_performancecentre_configure.png) 
+6. Üzerinde **PerformanceCentre kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
+
+    a. Oturum Açma URL'si:
+
+    b. Azure AD Tanımlayıcısı
+
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-performancecentre-single-sign-on"></a>PerformanceCentre tek oturum açmayı yapılandırın
 
 1. Oturum açma, **PerformanceCentre** şirketinizin sitesi yöneticisi olarak.
 
-1. Sol tarafta, sekmesini **yapılandırma**.
+2. Sol tarafta, sekmesini **yapılandırma**.
    
     ![Azure AD çoklu oturum açma][10]
 
-1. Sol tarafta, sekmesini **çeşitli**ve ardından **çoklu oturum açma**.
+3. Sol tarafta, sekmesini **çeşitli**ve ardından **çoklu oturum açma**.
    
     ![Azure AD çoklu oturum açma][11]
 
-1. Olarak **Protokolü**seçin **SAML**.
+4. Olarak **Protokolü**seçin **SAML**.
    
     ![Azure AD çoklu oturum açma][12]
 
-1. İndirilen meta veri dosyasını Not Defteri'nde açın, içeriği kopyalayın ve yapıştırın **kimlik sağlayıcısı meta verileri** metin kutusuna ve ardından **Kaydet**.
+5. İndirilen meta veri dosyasını Not Defteri'nde açın, içeriği kopyalayın ve yapıştırın **kimlik sağlayıcısı meta verileri** metin kutusuna ve ardından **Kaydet**.
    
     ![Azure AD çoklu oturum açma][13]
 
-1. Doğrulayın değerlerini **varlık temel URL** ve **varlık kimliği URL** doğrudur.
+6. Doğrulayın değerlerini **varlık temel URL** ve **varlık kimliği URL** doğrudur.
     
      ![Azure AD çoklu oturum açma][14]
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD kullanıcısı oluşturun][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/performancecentre-tutorial/create_aaduser_01.png) 
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/performancecentre-tutorial/create_aaduser_02.png) 
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/performancecentre-tutorial/create_aaduser_03.png) 
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/performancecentre-tutorial/create_aaduser_04.png) 
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    a. İçinde **adı** metin kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
-
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
- 
-### <a name="creating-a-performancecentre-test-user"></a>PerformanceCentre test kullanıcısı oluşturma
+
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+
+Bu bölümde, Azure çoklu oturum açma kullanmak için PerformanceCentre erişim vererek Britta Simon etkinleştirin.
+
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **PerformanceCentre**.
+
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
+2. Uygulamalar listesinde **PerformanceCentre**.
+
+    ![Uygulamalar listesinde PerformanceCentre bağlantı](common/all-applications.png)
+
+3. Soldaki menüde **kullanıcılar ve gruplar**.
+
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
+
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+
+### <a name="create-performancecentre-test-user"></a>PerformanceCentre test kullanıcısı oluşturma
 
 Bu bölümün amacı PerformanceCentre Britta Simon adlı bir kullanıcı oluşturmaktır.
 
@@ -197,11 +209,11 @@ Bu bölümün amacı PerformanceCentre Britta Simon adlı bir kullanıcı oluşt
 
 1. PerformanceCentre şirketinizin sitesi için yönetici olarak oturum açın.
 
-1. Soldaki menüde **Interrelate**ve ardından **Katılımcısı oluşturma**.
+2. Soldaki menüde **Interrelate**ve ardından **Katılımcısı oluşturma**.
    
     ![Kullanıcı Oluştur][400]
 
-1. Üzerinde **arasında bir ilişki vardır - Katılımcısı oluşturma** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **arasında bir ilişki vardır - Katılımcısı oluşturma** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
    
     ![Kullanıcı Oluştur][401]
     
@@ -214,65 +226,26 @@ Bu bölümün amacı PerformanceCentre Britta Simon adlı bir kullanıcı oluşt
     
     c. **Kaydet**’e tıklayın. 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
-Bu bölümde, Azure çoklu oturum açma kullanmak için PerformanceCentre erişim vererek Britta Simon etkinleştirin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-![Kullanıcı Ata][200] 
+Erişim paneli PerformanceCentre kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama PerformanceCentre için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-**Britta Simon PerformanceCentre için atamak için aşağıdaki adımları gerçekleştirin:**
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-    ![Kullanıcı Ata][201] 
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-1. Uygulamalar listesinde **PerformanceCentre**.
-
-    ![Çoklu oturum açmayı yapılandırın](./media/performancecentre-tutorial/tutorial_performancecentre_app.png) 
-
-1. Soldaki menüde **kullanıcılar ve gruplar**.
-
-    ![Kullanıcı Ata][202] 
-
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
-
-    ![Kullanıcı Ata][203]
-
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
-
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
-
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
-### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
-
-Bu bölümün amacı, erişim panelini kullanarak Azure AD SSO yapılandırmanızı sınamanızı sağlamaktır.  
-
-Erişim panelinde PerformanceCentre kutucuğa tıkladığınızda, otomatik olarak PerformanceCentre uygulamanıza açan.
-
-## <a name="additional-resources"></a>Ek kaynaklar
-
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 <!--Image references-->
 
-[1]: ./media/performancecentre-tutorial/tutorial_general_01.png
-[2]: ./media/performancecentre-tutorial/tutorial_general_02.png
-[3]: ./media/performancecentre-tutorial/tutorial_general_03.png
-[4]: ./media/performancecentre-tutorial/tutorial_general_04.png
 [10]: ./media/performancecentre-tutorial/tutorial_performancecentre_06.png
 [11]: ./media/performancecentre-tutorial/tutorial_performancecentre_07.png
 [12]: ./media/performancecentre-tutorial/tutorial_performancecentre_08.png
 [13]: ./media/performancecentre-tutorial/tutorial_performancecentre_09.png
 [14]: ./media/performancecentre-tutorial/tutorial_performancecentre_10.png
-
-[100]: ./media/performancecentre-tutorial/tutorial_general_100.png
-
-[200]: ./media/performancecentre-tutorial/tutorial_general_200.png
-[201]: ./media/performancecentre-tutorial/tutorial_general_201.png
-[202]: ./media/performancecentre-tutorial/tutorial_general_202.png
-[203]: ./media/performancecentre-tutorial/tutorial_general_203.png
 [400]: ./media/performancecentre-tutorial/tutorial_performancecentre_11.png
 [401]: ./media/performancecentre-tutorial/tutorial_performancecentre_12.png
-

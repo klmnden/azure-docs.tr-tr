@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 9f5ea30c458954a3e87b9575b5632fbfb0df97b8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 283808c0bd3f5297011b25619d6f978c99d4dc32
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318607"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439235"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Kurumsal Sözleşme, Microsoft Müşteri sözleşmesi API'lerine geçiş
 
@@ -463,7 +463,7 @@ Aşağıdaki alanları olan Microsoft Müşteri sözleşmesi fiyat sayfası API'
 | OfferId | Geçerli değildir. ProductOrderName MCA içinde karşılık gelir. |
 | meterCategory  | Geçerli değildir. MCA hizmetinde karşılık gelir. |
 | birim | Geçerli değildir. UnitOfMeasure ayrıştırılamaz. |
-| currencyCode | Aynı pricingCurrency MCA içinde. |
+| currencyCode | PricingCurrency MCA içinde aynıdır. |
 | meterLocation | MeterRegion MCA içinde aynıdır. |
 | partNumber partnumber | Parça numarası MCA faturaları listede olduğundan geçerli değil. PartNumber yerine meterId ve productOrderName birleşimi fiyatları benzersiz olarak tanımlanabilmesi için kullanın. |
 | totalIncludedQuantity | Geçerli değildir. |

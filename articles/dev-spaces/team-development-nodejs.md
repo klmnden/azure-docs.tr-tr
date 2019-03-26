@@ -9,17 +9,17 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: f0fc1e693f3eccd0b6f6b69339f210785df6ea69
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5d89ac6a0a8918b30cac31580e7fc95c3f770b1a
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773241"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436770"
 ---
 [!INCLUDE [](../../includes/devspaces-team-development-1.md)]
 
 ### <a name="make-a-code-change"></a>Bir kod değişikliği yaptığınızda
-`mywebapi` için VS Code penceresine gidin ve varsayılan GET `/` işleyicisinde bir kod düzenlemesi yapın; örneğin:
+Git için VS Code penceresinin `mywebapi` ve GET varsayılan düzen Kodu'nu `/` işleyicisinde `server.js`, örneğin:
 
 ```javascript
 app.get('/', function (req, res) {

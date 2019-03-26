@@ -1,116 +1,131 @@
 ---
-title: Bulutta Kubernetes geliştirme alanı oluşturun
+title: Azure geliştirme alanları ve Visual Studio 2017 ile AKS üzerinde .NET Core ile geliştirme
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.custom: vs-azure
-ms.workload: azure-vs
+ms.subservice: azds-kubernetes
 ms.author: zarhoads
-ms.date: 07/09/2018
+ms.date: 03/22/2019
 ms.topic: quickstart
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: 972a3f86e08d60db5a16ea505cb3fe446516c87e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
+manager: jeconnoc
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.openlocfilehash: 0ae2b264e689270743bc8e4aa5024a4b99eb6626
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770127"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418848"
 ---
-# <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Hızlı Başlangıç: Azure geliştirme alanları (.NET Core ve Visual Studio) ile Kubernetes geliştirme alanı oluşturma
+# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Hızlı Başlangıç: Azure geliştirme alanları (Visual Studio 2017) ile Kubernetes üzerinde .NET Core ile geliştirin
 
 Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 
 - Azure’da yönetilen bir Kubernetes ile Azure Dev Spaces’ı ayarlayın.
-- Visual Studio kullanarak kapsayıcılarda yinelemeli kod geliştirin.
-- Bu kümede çalıştırılan kodda hata ayıklaması yapın.
-
-> [!Note]
-> Herhangi bir zamanda **kilitlenirseniz** [Sorun giderme](troubleshooting.md) bölümüne başvurun veya bu sayfada bir yorum paylaşın. Daha ayrıntılı bir [öğreticiyi](get-started-netcore-visualstudio.md) de deneyebilirsiniz.
+- Yinelemeli olarak Visual Studio 2017 kullanarak kapsayıcılardaki kod geliştirin.
+- Visual Studio 2017'yi kullanarak kümenizde çalışan kodda hata ayıklama.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Kubernetes 1.9.6 çalışan bir Kubernetes kümesi ya da daha sonra EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral veya CanadaEast bölge.
+- Azure aboneliği. Hesabınız yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free) oluşturabilirsiniz.
+- Visual Studio 2017'de Windows yüklü Web geliştirme iş yüküyle birlikte sağlanır. Yüklü değilse, [buradan](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) indirin.
+- [Kubernetes için Visual Studio Araçları](https://aka.ms/get-vsk8stools) yüklü.
 
-- Web Geliştirme iş yükünün yüklendiği Visual Studio 2017. Yüklü değilse, [buradan](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) indirin.
+## <a name="create-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service kümesi oluşturma
 
-## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces'i ayarlama
+Bir AKS kümesinde oluşturmalısınız bir [bölge desteklenen](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). Bir küme oluşturmak için:
 
-[Kubernetes için Visual Studio Araçları](https://aka.ms/get-vsk8stools)'nı yükleyin.
+1. [Azure portalda](https://portal.azure.com) oturum açma
+1. Seçin *+ kaynak Oluştur > Kubernetes hizmeti*. 
+1. Girin _abonelik_, _kaynak grubu_, _Kubernetes küme adı_, _bölge_, _Kubernetessürümü_, ve _DNS adı ön eki_.
 
-## <a name="connect-to-a-cluster"></a>Kümeye bağlanma
+    ![Azure portalında AKS oluşturma](media/get-started-netcore-visualstudio/create-aks-portal.png)
 
-Ardından, Azure Dev Spaces için bir proje oluşturur ve yapılandırırsınız.
+1. *Gözden geçir ve oluştur*’a tıklayın.
+1. *Oluştur*’a tıklayın.
 
-### <a name="create-an-aspnet-web-app"></a>ASP.NET web uygulaması oluşturma
+## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Azure geliştirme alanları AKS kümenizde etkinleştirme
 
-Visual Studio 2017’de yeni bir proje oluşturun. Şu anda, projenin bir **ASP.NET Core Web Uygulaması** olması gerekir. Projeyi **webfrontend** olarak adlandırın.
+Azure portalında AKS kümenizin gelin ve tıklayın *geliştirme alanları*. Değişiklik *etkinleştirme geliştirme alanları* için *Evet* tıklatıp *Kaydet*.
 
-**Web Uygulaması (Model-Görünüm-Denetleyici)** şablonunu seçin ve **.NET Core** ile **ASP.NET Core 2.0**’ı hedeflediğinizden emin olun.
+![Azure portalında geliştirme alanları etkinleştirme](media/get-started-netcore-visualstudio/enable-dev-spaces-portal.png)
 
-### <a name="enable-dev-spaces-for-an-aks-cluster"></a>AKS kümesi için Azure Dev Spaces'i etkinleştirme
+## <a name="create-a-new-aspnet-web-app"></a>Yeni bir ASP.NET web uygulaması oluşturma
 
-Yeni oluşturduğunuz projede, aşağıda gösterildiği gibi başlatma ayarları açılır listesinden **Azure Dev Spaces** seçeneğini belirleyin.
+1. Visual Studio 2017'yi açın.
+1. Yeni bir proje oluşturma.
+1. Seçin *ASP.NET Core Web uygulaması* ve projenizi adlandırın *webfrontend*.
+1. *Tamam* düğmesine tıklayın.
+1. İstendiğinde, *Web uygulaması (Model-View-Controller)* şablonu için.
+1. Seçin *.NET Core* ve *ASP.NET Core 2.0* en üstünde.
+1. *Tamam* düğmesine tıklayın.
+
+## <a name="connect-your-project-to-your-dev-space"></a>Geliştirme alanınıza projenizi bağlama
+
+Projenizde, seçin **Azure geliştirme alanları** aşağıda gösterildiği gibi başlatma ayarları açılır listeden.
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
-Daha sonra gösterilen iletişim kutusunda, uygun hesapla oturum açtığınızdan emin olun ve ardından mevcut bir kümeyi seçin.
+Azure geliştirme alanları iletişim kutusunda seçin, *abonelik* ve *Azure Kubernetes kümesi*. Bırakın *alanı* kümesine *varsayılan* ve etkinleştirme *genel olarak erişilebilir* onay kutusu. *Tamam* düğmesine tıklayın.
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
-**Alan** açılır listesini şimdilik ayarlanmış olduğu `default` değerinde bırakın. Web uygulamasına bir genel uç noktadan erişilebilmesi için **Genel Erişime Açık** onay kutusunu işaretleyin.
-
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
-
-Kümeyi seçmek veya oluşturmak için **Tamam**’a tıklayın.
-
-Azure Dev Spaces ile çalışacak şekilde yapılandırılmamış bir küme seçerseniz, yapılandırmak isteyip istemediğinizi soran bir ileti görürsünüz.
+Bu işlem, hizmetinize dağıtır *varsayılan* genel olarak erişilebilir bir URL ile geliştirme alanı. Azure Dev Spaces ile çalışacak şekilde yapılandırılmamış bir küme seçerseniz, yapılandırmak isteyip istemediğinizi soran bir ileti görürsünüz. *Tamam* düğmesine tıklayın.
 
 ![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
-**Tamam**’ı seçin. 
+Çalışan hizmetin genel URL *varsayılan* geliştirme alanı görüntülenir *çıkış* penceresi:
 
-### <a name="look-at-the-files-added-to-project"></a>Projeye eklenen dosyalara bakın
-Geliştirme alanının oluşturulmasını beklerken, Azure Dev Spaces kullanmayı seçmeniz sırasında projenize eklenmiş dosyalara bakın.
+```cmd
+Starting warmup for project 'webfrontend'.
+Waiting for namespace to be provisioned.
+Using dev space 'default' with target 'MyAKS'
+...
+Successfully built 1234567890ab
+Successfully tagged webfrontend:devspaces-11122233344455566
+Built container image in 39s
+Waiting for container...
+36s
 
-- `charts` adlı bir klasörün eklenmiş ve bu klasörün içinde uygulamanız için bir [Helm grafiği](https://docs.helm.sh) oluşturulmuştur. Bu dosyalar, uygulamanızı geliştirme alanına dağıtmak için kullanılır.
-- `Dockerfile`, uygulamanızı standart Docker biçiminde paketlemek için gereken bilgileri içerir.
-- `azds.yaml`, geliştirme alanının ihtiyaç duyduğu geliştirme zamanı yapılandırmasını içerir.
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 80 (http) is available at http://localhost:62266
+Completed warmup for project 'webfrontend' in 125 seconds.
+```
 
-![](media/get-started-netcore-visualstudio/ProjectFiles.png)
+Yukarıdaki örnekte, genel URL'dir http://webfrontend.1234567890abcdef1234.eus.azds.io/. Hizmetinizin genel URL'ye gidin ve geliştirme alanınız hizmetiyle etkileşim kurabilirsiniz.
 
-## <a name="debug-a-container-in-kubernetes"></a>Kubernetes’te bir kapsayıcının hatalarını ayıklama
-Geliştirme alanı başarıyla oluşturulduktan sonra uygulamanızda hata ayıklayabilirsiniz. Kodda bir kesme noktası oluşturun. Örneğin, `Message` değişkeninin ayarlandığı `HomeController.cs` dosyasının 20. satırında. Hata ayıklamaya başlamak için **F5**’e tıklayın. 
+## <a name="update-code"></a>Kodu güncelleştirme
 
-Visual Studio, uygulamayı derleyip dağıtmak için geliştirme alanıyla iletişim kurar ve sonra web uygulaması çalışır durumdayken bir tarayıcı açar. Kapsayıcı yerel olarak çalışıyor gibi görünebilir, ancak gerçekte Azure’daki geliştirme ortamında çalışıyordur. Localhost adresinin nedeni, Azure Dev Spaces’in AKS’de çalışan kapsayıcıya geçici bir SSH tüneli oluşturmasıdır.
+Visual Studio 2017 hala geliştirme alanınıza bağlıysa, Durdur düğmesini tıklatın. Satır 20 değiştirme `Controllers/HomeController.cs` için:
+    
+```csharp
+ViewData["Message"] = "Your application description page in Azure.";
+```
 
-Kesme noktasını tetiklemek için sayfanın üst kısmındaki **Hakkında** bağlantısına tıklayın. Kodun yerel olarak yürütülmesi durumunda olduğu gibi, çağrı yığını, yerel değişkenler, özel durum bilgileri vb. hata ayıklama bilgilerine tam erişiminiz vardır.
+Yaptığınız değişiklikleri kaydedin ve hizmeti kullanmaya başlayın **Azure geliştirme alanları** başlatma ayarları açılır listeden. Hizmetinizin genel URL açın, bir tarayıcı ve tıklatın *hakkında*. Güncelleştirilmiş ileti göründüğünü gözlemleyin.
 
+Yeniden oluşturma ve kod düzenleme yapılan her zaman, yeni bir kapsayıcı görüntüsü Azure geliştirme alanları artımlı olarak dağıtarak yerine daha hızlı bir düzenleme/hata ayıklama döngüsü sağlamak için mevcut kapsayıcı içindeki kodu yeniden derler.
 
-## <a name="iteratively-develop-code"></a>Kodu yinelemeli geliştirme
+## <a name="setting-and-using-breakpoints-for-debugging"></a>Ayarlama ve hata ayıklama için kesme noktaları kullanma
 
-Azure Dev Spaces yalnızca kodu Kubernetes’te çalıştırmaya yönelik değildir; aynı zamanda kod değişikliklerinizin buluttaki bir Kubernetes ortamında uygulandığını hızlıca ve yinelenerek görmenizi sağlar.
+Visual Studio 2017 hala geliştirme alanınıza bağlıysa, Durdur düğmesini tıklatın. Açık `Controllers/HomeController.cs` yere imlecinizi buraya koymanız ila 20 satıra tıklayın. Bir kesme noktası ayarlamak için isabet *F9* veya *hata ayıklama* ardından *iki durumlu kesme noktası*. Hata ayıklama modunda geliştirme alanınızı hizmetinizi başlatmak için isabet *F5* veya *hata ayıklama* ardından *hata ayıklamayı Başlat*.
 
-### <a name="update-a-content-file"></a>İçerik dosyası güncelleştirme
-1. `./Views/Home/Index.cshtml` dosyasını bulun ve HTML dosyasında bir düzenleme yapın. Örneğin, `<h2>Application uses</h2>` olan 70. satırı `<h2>Hello k8s in Azure!</h2>` benzeri bir değerle değiştirin.
-1. Dosyayı kaydedin.
-1. Tarayıcınıza gidip sayfayı yenileyin. Web sayfasında güncelleştirilmiş HTML’in gösterildiğini görürsünüz.
+Hizmetinizi bir tarayıcıda açın ve herhangi bir ileti görüntülenir dikkat edin. Visual Studio 2017 için geri dönün ve 20 satırı vurgulanır gözlemleyin. Kesme satırı 20 hizmeti duraklatıldı. Hizmeti sürdürmek için isabet *F5* veya *hata ayıklama* ardından *devam*. Tarayıcınıza dönün ve ileti görüntülenecektir dikkat edin.
 
-Ne oldu? HTML ve CSS gibi içerik dosyalarında düzenleme yapılması için bir .NET Core web uygulamasında yeniden derleme yapılması gerekmez; bu nedenle, etkin bir F5 oturumu değiştirilmiş içerik dosyalarını AKS’deki çalışan kapsayıcı ile otomatik olarak eşitler ve böylece içerik düzenlemelerinizi hemen görebilirsiniz.
+Bir hata ayıklayıcısı ekli Kubernetes'te hizmetinizi çalışırken, çağrı yığını, yerel değişkenleri ve özel durum bilgileri gibi bilgileri hata ayıklamak için tam erişime sahip olursunuz.
 
-### <a name="update-a-code-file"></a>Kod dosyasını güncelleştirme
-.NET Core uygulamasının güncelleştirilmiş uygulama ikili dosyalarını yeniden derleyip oluşturması gerektiğinden, kod dosyalarının güncelleştirilmesi biraz daha fazla iş gerektirir.
+Kesme noktası 20 satırında imleci yerleştirerek kaldırmak `Controllers/HomeController.cs` ve ulaşmaktan *F9*.
 
-1. Visual Studio'daki hata ayıklayıcısını durdurun.
-1. `Controllers/HomeController.cs` adlı kod dosyasını açın ve Hakkında sayfasında gösterilen iletiyi düzenleyin: `ViewData["Message"] = "Your application description page.";`
-1. Dosyayı kaydedin.
-1. Hata ayıklamaya yeniden başlamak için **F5**'e basın. 
+## <a name="clean-up-your-azure-resources"></a>Azure kaynaklarınızı temizleme
 
-Azure Dev Spaces, her kod düzenlemesi yapıldığında yeni bir kapsayıcı görüntüsünü yeniden derleme ve yeniden dağıtmayı içeren uzun süreli işlem yerine, mevcut kapsayıcı içindeki kodu artımlı bir şekilde yeniden derleyerek daha hızlı bir düzenleme/hata ayıklama döngüsü sağlar.
+Azure portalında kaynak grubunuzun gelin ve tıklayın *kaynak grubunu Sil*. Alternatif olarak, [az aks Sil](/cli/azure/aks#az-aks-delete) komutu:
 
-Tarayıcıda web uygulamasını yenileyin ve Hakkında sayfasına gidin. Özel iletinizin kullanıcı arabiriminde görüntülendiğini görürsünüz.
-
+```cmd
+az group delete --name MyResourceGroup --yes --no-wait
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

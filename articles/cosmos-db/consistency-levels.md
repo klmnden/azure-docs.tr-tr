@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: b43fe513b15d55ee595acaa6733d96cdb58f4e83
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 836d36cc6f220bb544e0c7723506c624c5f9fc39
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294522"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407309"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB'deki tutarlılık düzeyleri
 
@@ -31,41 +31,41 @@ Bölüm anahtar aralığı veya bir mantıksal bölüm içinde kapsamlı bir tek
 
 ## <a name="configure-the-default-consistency-level"></a>Varsayılan tutarlılık düzeyini yapılandırma
 
-İstediğiniz zaman Azure Cosmos hesabınızdaki varsayılan tutarlılık düzeyini yapılandırabilirsiniz. Tüm Azure Cosmos DB veritabanları ve kapsayıcılar, hesap altında yapılandırılmış hesabınızdaki varsayılan tutarlılık düzeyi uygular. Tüm okuma ve verilen bir kapsayıcı veya bir veritabanına karşı sorgular belirtilen tutarlılık düzeyi varsayılan olarak kullanır. Daha fazla bilgi için bkz. nasıl [varsayılan tutarlılık düzeyini yapılandırma](how-to-manage-consistency.md#configure-the-default-consistency-level).
+İstediğiniz zaman Azure Cosmos hesabınızdaki varsayılan tutarlılık düzeyini yapılandırabilirsiniz. Tüm Azure Cosmos veritabanı ve kapsayıcıları söz konusu hesap altında yapılandırılmış hesabınızdaki varsayılan tutarlılık düzeyi uygular. Tüm okuma ve verilen bir kapsayıcı veya bir veritabanına karşı sorgular belirtilen tutarlılık düzeyi varsayılan olarak kullanır. Daha fazla bilgi için bkz. nasıl [varsayılan tutarlılık düzeyini yapılandırma](how-to-manage-consistency.md#configure-the-default-consistency-level).
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>Tutarlılık düzeyleri ile ilişkili garanti eder
 
-Yüzde 100 okuma isteklerinin seçtiğiniz herhangi bir tutarlılık düzeyi için tutarlılık garantisini karşılayan Azure Cosmos DB garantisi tarafından sağlanan kapsamlı SLA'lar. Tutarlılık düzeyi ile ilişkili tüm tutarlılık garantileri sağlanırsa Okuma isteği tutarlılık SLA karşılar. Kullanarak Azure Cosmos DB'de beş tutarlılık düzeyi kesin tanımlarını [TLA + belirtim dili](https://lamport.azurewebsites.net/tla/tla.html) sağlanan [azure cosmos tla](https://github.com/Azure/azure-cosmos-tla) GitHub deposu. 
+Yüzde 100 okuma isteklerinin seçtiğiniz herhangi bir tutarlılık düzeyi için tutarlılık garantisini karşılayan Azure Cosmos DB garantisi tarafından sağlanan kapsamlı SLA'lar. Tutarlılık düzeyi ile ilişkili tüm tutarlılık garantileri sağlanırsa Okuma isteği tutarlılık SLA karşılar. Azure Cosmos DB kullanarak beş tutarlılık düzeyi kesin tanımlarını [TLA + belirtim dili](https://lamport.azurewebsites.net/tla/tla.html) sağlanan [azure cosmos tla](https://github.com/Azure/azure-cosmos-tla) GitHub deposu. 
 
 Beş tutarlılık düzeyi semantiği aşağıda açıklanmıştır:
 
 - **Güçlü**: Güçlü tutarlılık sunan bir [doğrusallaştırılabilirlik](https://aphyr.com/posts/313-strong-consistency-models) garanti. Okuma işlemleri, bir öğe işlenen en son sürümünü döndürmek için garanti edilir. Bir istemci hiçbir zaman işlenmemiş ya da kısmi bir yazma görür. Kullanıcıların her zaman en son kabul edilen yazma okumak için garanti edilir.
 
-- **Sınırlanmış eskime durumu**: Okuma işlemleri, tutarlı ön ek garantisi uymanız garanti edilir. Okuma yazma (yani "güncelleştirmeler") "K" sürümlerle en fazla bir öğenin veya "t" zaman aralığına lag. Sınırlanmış eskime durumu seçtiğinizde, "eskime" iki şekilde yapılandırılabilir: 
+- **Sınırlanmış eskime durumu**: Okuma işlemleri, tutarlı ön ek garantisi uymanız garanti edilir. Okuma göre yazma işlemlerinin arkasındaki en fazla lag *"K"* (yani, "güncelleştirmeler") bir öğe veya tarafından sürümleri *"T"* zaman aralığı. Diğer bir deyişle, sınırlanmış eskime durumu seçtiğinizde, "eskime" iki şekilde yapılandırılabilir: 
 
-  * Sürüm (K) öğe sayısı
-  * Yazma lag okur ile zaman aralığını (t) 
+  * Sürüm sayısı (*K*) öğesi
+  * Zaman aralığı (*T*) tarafından okuma işlemleri yazma lag 
 
-  Sınırlanmış eskime durumu teklifler toplam genel sıra dışında "eskime durumu penceresi içinde." Monoton okuma garantisi, hem Azure içindeki hem eskime durumu penceresi dışında bir bölge içinde mevcut. Güçlü tutarlılık, sınırlanmış eskime durumu tarafından sunulan olanları ile aynı semantiğe sahip. Eskime durumu penceresi sıfıra eşittir. Sınırlanmış eskime durumu, doğrusallaştırılabilme zaman Gecikmeli da bilinir. Bir istemci, okuma işlemleri yazma kabul eden bir bölge içinde gerçekleştirdiğinde, sınırlanmış eskime durumu tutarlılık tarafından sağlanan garantisi için bu garanti güçlü tutarlılık ile aynıdır.
+  Sınırlanmış eskime durumu teklifler toplam genel sıra dışında "eskime durumu penceresi içinde." Monoton okuma garantisi, hem Azure içindeki hem eskime durumu penceresi dışında bir bölge içinde mevcut. Güçlü tutarlılık, sınırlanmış eskime durumu tarafından sunulan biri ile aynı semantiğe sahip. Eskime durumu penceresi sıfıra eşittir. Sınırlanmış eskime durumu, doğrusallaştırılabilme zaman Gecikmeli da bilinir. Bir istemci, okuma işlemleri yazma kabul eden bir bölge içinde gerçekleştirdiğinde, sınırlanmış eskime durumu tutarlılık tarafından sağlanan garantileri güçlü tutarlılık tarafından bu garantileri aynıdır.
 
 - **Oturum**: Okuma tutarlı (çoklu "yazan" oturumu varsayılarak) ön ek, monoton okuma, monoton yazma, okuma your-yazma ve yazma yazdıklarınızı okuma garanti etmenin garanti edilir. Oturum tutarlılığı için bir istemci oturumundan kapsamlıdır.
 
-- **Tutarlı ön ek**: Tüm güncelleştirmeleri herhangi bir boşluk ile bazı ön döndürülen güncelleştirmeleri içerir. Tutarlı ön ek okumalar hiçbir sırası yazma gördüğünüzü garanti eder.
+- **Tutarlı ön ek**: Tüm güncelleştirmeleri herhangi bir boşluk ile bazı ön döndürülen güncelleştirmeleri içerir. Tutarlı ön ek tutarlılık düzeyi okuma hiçbir sırası yazma gördüğünüzü garanti eder.
 
 - **Nihai**: Okuma için sıralama garantisi yoktur. Başka yazma işlemlerinin olmaması durumunda, yineleme sonunda birbirine yaklaşır.
 
 ## <a name="consistency-levels-explained-through-baseball"></a>Beyzbol örneği ile açıklanan tutarlılık düzeyleri
 
-Beyzbol oyun senaryoya örnek olarak alalım. Beyzbol oyunu baştan puanı temsil eden bir yazma dizisi düşünün. İnning tarafından inning satır puanı açıklanan [Beyzbol aracılığıyla veri tutarlılığı çoğaltılan](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) kağıt. Şu anda yedinci inning ortasında bu kuramsal Beyzbol oyundur. Bu, yedinci – inning esnetme olur. 2-5 puanı ile ziyaretçiler arkasındaki.
+Beyzbol oyun senaryoya örnek olarak alalım. Beyzbol oyunu baştan puanı temsil eden bir yazma dizisi düşünün. İnning tarafından inning satır puanı açıklanan [Beyzbol aracılığıyla veri tutarlılığı çoğaltılan](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) kağıt. Şu anda yedinci inning ortasında bu kuramsal Beyzbol oyundur. Bu, yedinci – inning esnetme olur. Ziyaretçi arkasında aşağıda gösterildiği gibi bir 2 ila 5 puanı ile şunlardır:
 
 | | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **Çalıştırmalar** |
 | - | - | - | - | - | - | - | - | - | - | - |
 | **Ziyaretçiler** | 0 | 0 | 1. | 0 | 1. | 0 | 0 |  |  | 2 |
 | **Giriş** | 1 | 0 | 1. | 1 | 0 | 2 |  |  |  | 5 |
 
-Bir Azure Cosmos DB kapsayıcısı ziyaretçilerinizin ve toplamları çalıştırma giriş takım tutar. Garanti farklı puanları okuma istemcilerle sonuçlanabilir oyun devam ederken, farklı okuyun. Aşağıdaki tabloda her beş tutarlılık garantileri giriş puanları ve ziyaretçilerinizin okuyarak döndürülebilir puanları tam kümesini listeler. Ziyaretçilerinizin puanı önce listelenir. Farklı olası dönüş değerleri virgülle ayrılır.
+Bir Azure Cosmos kapsayıcı giriş takımlar ve ziyaretçiler için çalıştırma toplam tutar. Garanti farklı puanları okuma istemcilerle sonuçlanabilir oyun devam ederken, farklı okuyun. Aşağıdaki tabloda her beş tutarlılık garantileri giriş puanları ve ziyaretçilerinizin okuyarak döndürülebilir puanları tam kümesini listeler. Ziyaretçilerinizin puanı önce listelenir. Farklı olası dönüş değerleri virgülle ayrılır.
 
-| **Tutarlılık düzeyi** | **Puanları** |
+| **Tutarlılık düzeyi** | **Puanlar (ziyaretçilerin, giriş)** |
 | - | - |
 | **Tanımlayıcı** | 2-5 |
 | **Sınırlanmış eskime durumu** | En fazla bir inning güncel olan Puanları: 2-3, 2-4, 2-5 |
