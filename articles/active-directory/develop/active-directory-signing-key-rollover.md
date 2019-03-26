@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5597937ff0bc44b55deb43ccc45b618a1bb8fec
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 82e9941a6c468a3b0ed9d1f22a2970cfa6584617
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186112"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439354"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>İmzalama anahtarı geçiş işlemi, Azure Active Directory'de
 Bu makalede, Azure Active Directory (Azure AD) güvenlik belirteçleri imzalamak için kullanılan ortak anahtarları hakkında bilmeniz gerekenler açıklanmaktadır. Bu anahtarları geçişi düzenli aralıklarla ve acil bir durum uzatılabilir, hemen dikkat edin önemlidir. Azure AD kullanan tüm uygulamalar, program aracılığıyla anahtarı geçiş işlemi ya da bir düzenli el ile geçiş işlemi'kurmak başlatabilmeniz gerekir. Anahtarları nasıl çalıştığını, anlamak için okumaya devam uygulamanıza geçişin etkisini değerlendirmek ve uygulamanızı güncelleştirmeniz veya gerekirse, anahtar geçişi işlemek için bir düzenli el ile geçiş işlemi oluşturmak.
@@ -278,7 +278,7 @@ Bu adımları uyguladıktan sonra uygulamanızın Web.config son anahtarları gi
 
 Anahtar geçişi mantığı çalıştığını doğrulamak için aşağıdaki adımları izleyin.
 
-1. Yukarıdaki kod, uygulamanızın kullandığı doğruladıktan sonra açmak **Web.config** gidin ve dosya **<issuerNameRegistry>** özellikle aşağıdakiler için aramayı engelle, birkaç satırı:
+1. Yukarıdaki kod, uygulamanızın kullandığı doğruladıktan sonra açmak **Web.config** gidin ve dosya  **\<issuerNameRegistry >** özellikle örnek kod bloğu birkaç satırı aşağıdaki:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -286,7 +286,7 @@ Anahtar geçişi mantığı çalıştığını doğrulamak için aşağıdaki ad
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. İçinde **<add thumbprint="">** ayarlama, farklı bir karakterle değiştirilerek parmak izi değerini değiştirin. Kaydet **Web.config** dosya.
+2. İçinde  **\<parmak izini ekleyin = "" >** ayarlama, farklı bir karakterle değiştirilerek parmak izi değerini değiştirin. Kaydet **Web.config** dosya.
 3. Uygulamayı derleyin ve çalıştırın. Oturum açma işlemini tamamladığınızda, uygulamanız başarıyla anahtar dizin Federasyon meta veri belge gerekli bilgileri indirerek güncelleştiriliyor. Oturum açma sorunları yaşıyorsanız, uygulamanızdaki değişiklikleri doğru okuyarak emin [ekleme oturum açma, Web uygulaması kullanarak Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) makalenin veya indiriliyor ve İnceleme aşağıdaki kod örneği: [Azure Active Directory için çok Kiracılı bulut uygulaması](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="vs2010"></a>Kaynakları koruma ve Visual Studio 2008 veya 2010 ile oluşturulan web uygulamaları ve .NET 3.5 için Windows Identity Foundation (WIF) v1.0

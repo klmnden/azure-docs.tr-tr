@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1b1fd5976189c4c74791bf2e6a80a494a2fccc6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 18042b34e7c3a32dd5e4706c8020324c0cef0754
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433306"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437399"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcılar ve grupların Azure Active Directory'den uygulamalara otomatik olarak sağlamak için sistem etki alanları arası Kimlik Yönetimi (SCIM) kullanma
 
@@ -149,21 +149,49 @@ Bu bölümde, Azure AD SCIM istemci hem de tarafından beklenen örnek yanıtlar
 >Nasıl ve ne zaman Azure AD kullanıcı sağlama hizmeti aşağıda açıklanan işlemleri yayan anlamak için bkz [kullanıcı sağlama sırasında ne olur?](user-provisioning.md#what-happens-during-provisioning).
 
 - [Kullanıcı işlemleri](#user-operations)
-    - [Kullanıcı oluşturma](#create-user) - [istek](#request) - [yanıt](#response)
-    - [Kullanıcı Al](#get-user) - [istek](#request-1) - [yanıt](#response-1)
-    - [Sorgu tarafından kullanıcı alma](#get-user-by-query) - [istek](#request-2) - [yanıt](#response-2)
-    - [Kullanıcı sorgusu - sıfır sonuçları Al](#get-user-by-query---zero-results) - [istek](#request-3) - [yanıt](#response-3)
-    - [[Birden çok değerli özellikler] kullanıcı güncelleştirme](#update-user-multi-valued-properties) - [istek](#request-4) - [yanıt](#response-4)
-    - [Kullanıcı [tek değerli özellikler] güncelleştirme](#update-user-single-valued-properties) - [istek](#request-5) - [yanıt](#response-5)
-    - [Kullanıcı silme](#delete-user) - [istek](#request-6) - [yanıt](#response-6)
+  - [Create User](#create-user)
+    - [İstek](#request)
+    - [Yanıt](#response)
+  - [Get User](#get-user)
+    - [İstek](#request-1)
+    - [Yanıt](#response-1)
+  - [Kullanıcı tarafından sorgu Al](#get-user-by-query)
+    - [İstek](#request-2)
+    - [Yanıt](#response-2)
+  - [Kullanıcı sorgusu - sıfır sonuçlarını Al](#get-user-by-query---zero-results)
+    - [İstek](#request-3)
+    - [Yanıt](#response-3)
+  - [[Birden çok değerli özellikler] kullanıcı güncelleştirme](#update-user-multi-valued-properties)
+    - [İstek](#request-4)
+    - [Yanıt](#response-4)
+  - [Kullanıcı güncelleştirme [tek değerli özellikler]](#update-user-single-valued-properties)
+    - [İstek](#request-5)
+    - [Yanıt](#response-5)
+  - [Delete User](#delete-user)
+    - [İstek](#request-6)
+    - [Yanıt](#response-6)
 - [Grup işlemleri](#group-operations)
-    - [Grup oluşturma](#create-group) - [istek](#request-7) - [yanıt](#response-7)
-    - [Get grubu](#get-group) - [istek](#request-8) - [yanıt](#response-8)
-    - [DisplayName Get grupla](#get-group-by-displayname) - [istek](#request-9) - [yanıt](#response-9)
-    - [Güncelleştirme grubu [olmayan üye öznitelikleri]](#update-group-non-member-attributes) - [istek](#request-10) - [yanıt](#response-10)
-    - [Güncelleştirme grubu [üye ekleme]](#update-group-add-members) - [istek](#request-11) - [yanıt](#response-11)
-    - [Güncelleştirme grubu [Kaldır üyeleri]](#update-group-remove-members) - [istek](#request-12) - [yanıt](#response-12)
-    - [Grubu Sil](#delete-group) - [istek](#request-13) - [yanıt](#response-13)
+  - [Create Group](#create-group)
+    - [İstek](#request-7)
+    - [Yanıt](#response-7)
+  - [Get Group](#get-group)
+    - [İstek](#request-8)
+    - [Yanıt](#response-8)
+  - [DisplayName tarafından grubunu Al](#get-group-by-displayname)
+    - [İstek](#request-9)
+    - [Yanıt](#response-9)
+  - [Güncelleştirme grubu [olmayan üye öznitelikleri]](#update-group-non-member-attributes)
+    - [İstek](#request-10)
+    - [Yanıt](#response-10)
+  - [Güncelleştirme grubu [üye ekleme]](#update-group-add-members)
+    - [İstek](#request-11)
+    - [Yanıt](#response-11)
+  - [Güncelleştirme grubu [Kaldır üyeleri]](#update-group-remove-members)
+    - [İstek](#request-12)
+    - [Yanıt](#response-12)
+  - [Delete Group](#delete-group)
+    - [İstek](#request-13)
+    - [Yanıt](#response-13)
 
 ### <a name="user-operations"></a>Kullanıcı işlemleri
 
@@ -609,7 +637,7 @@ Azure ad sağlama isteklerini kabul edebilen bir SCIM uç noktası uygulamak iç
 
 5. FileProvisioningService projeyi derleyin.
 6. Windows komut istemi uygulamasını (Yönetici) olarak açmak ve kullanmak **cd** komut için dizini değiştirmek için **\AzureAD-BYOA-Provisioning-Samples\FileProvisioning\Host\bin\Debug**klasör.
-7. < IP adresi > IP adresine veya etki alanı adını Windows makinesi ile değiştirerek aşağıdaki komutu çalıştırın:
+7. Aşağıdaki komutu çalıştırın değiştirerek `<ip-address>` Windows makinenin IP adresi veya etki alanı adı ile:
 
    ```
     FileSvc.exe http://<ip-address>:9000 TargetFile.csv
@@ -626,8 +654,8 @@ Azure ad sağlama isteklerini kabul edebilen bir SCIM uç noktası uygulamak iç
 4. Sonuçta elde edilen ekranında seçin **sağlama** sol sütunda sekmesi.
 5. İçinde **sağlama modu** menüsünde **otomatik**.
     
-  ![][2]
-  *Şekil 6: Azure portalında sağlama yapılandırma*
+   ![][2]
+   *Şekil 6: Azure portalında sağlama yapılandırma*
     
 6. İçinde **Kiracı URL'si** internet açık URL ve bağlantı noktası SCIM uç noktanızı girin. Giriş aşağıdakine benzer olan http://testmachine.contoso.com:9000 veya http://\<IP adresi >: 9000 / burada \<IP adresi > olan internet açık IP adresi.  
 7. SCIM uç noktanın bir OAuth taşıyıcı belirtecinden bir veren Azure AD dışındaki gerektiriyorsa, gerekli OAuth taşıyıcı belirteci sonra isteğe bağlı kopyalayın **gizli belirteç** alan. Bu alan boş bırakılırsa, Azure AD her isteği ile Azure AD tarafından verilen bir OAuth taşıyıcı belirtecini içerir. Azure AD kimlik sağlayıcısı bu Azure AD'ye doğrulayabilirsiniz olarak kullanan uygulamalar-belirteç.
@@ -839,12 +867,12 @@ SCIM hizmeti oluşturmak için Microsoft tarafından sağlanan CLI kitaplıklar�
     >[!NOTE]
     > Bu yalnızca örnektir. Tüm kullanıcıların mailNickname özniteliğine sahip olacağı ve bir kullanıcının değer dizininde benzersiz olmayabilir. Ayrıca, (olan bu durumda externalID) eşleştirmek için kullanılan öznitelik yapılandırılabilir [Azure AD'ye öznitelik eşlemelerini](customize-application-attributes.md).
 
-  ````
+   ````
     GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
     Authorization: Bearer ...
-  ````
-  Hizmet SCIM Hizmetleri uygulamak için Microsoft tarafından sağlanan CLI kitaplıklar kullanılarak oluşturulduysa, isteği hizmet sağlayıcısının sorgu yöntemine bir çağrı çevrilir.  Aşağıda, bu yöntem imzası verilmiştir: 
-  ````
+   ````
+   Hizmet SCIM Hizmetleri uygulamak için Microsoft tarafından sağlanan CLI kitaplıklar kullanılarak oluşturulduysa, isteği hizmet sağlayıcısının sorgu yöntemine bir çağrı çevrilir.  Aşağıda, bu yöntem imzası verilmiştir: 
+   ````
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
     // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
@@ -854,9 +882,9 @@ SCIM hizmeti oluşturmak için Microsoft tarafından sağlanan CLI kitaplıklar�
     System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource[]> Query(
       Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters parameters, 
       string correlationIdentifier);
-  ````
-  Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters arabirim tanımı aşağıda verilmiştir: 
-  ````
+   ````
+   Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters arabirim tanımı aşağıda verilmiştir: 
+   ````
     public interface IQueryParameters: 
       Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
     {
@@ -940,58 +968,58 @@ SCIM hizmeti oluşturmak için Microsoft tarafından sağlanan CLI kitaplıklar�
 
 2. If the response to a query to the web service for a user with an externalId attribute value that matches the mailNickname attribute value of a user does not return any users, then Azure Active Directory requests that the service provision a user corresponding to the one in Azure Active Directory.  Here is an example of such a request: 
 
-  ````
+   ````
     Https://.../scim/Users HTTP/1.1 YETKİLENDİRME: Taşıyıcı...  İçerik türü: uygulama/scım + json {"şemaları": ["urn: ietf:params:scim:schemas:core:2.0:User", "urn: ietf:params:scim:schemas:extension:enterprise:2.0User"] "externalID =": "jyoung", "userName": "jyoung", "etkin": true, "Adres": null    "displayName": "Oyun Young", "e-postaları": [{"type": "İş", "value": "jyoung@Contoso.com", "birincil": true}], "meta": {"resourceType": "Kullanıcı"}, "name": {"familyName": "Küçük", "givenName": "Oyun"}, "PhoneNumber": "preferredLa null nguage": null,"title":"departman"null: null,"Yönetici": null}
-  ````
-  The CLI libraries provided by Microsoft for implementing SCIM services would translate that request into a call to the Create method of the service’s provider.  The Create method has this signature: 
-  ````
+   ````
+   The CLI libraries provided by Microsoft for implementing SCIM services would translate that request into a call to the Create method of the service’s provider.  The Create method has this signature: 
+   ````
     System.Threading.Tasks.Tasks mscorlib.dll içinde tanımlanır.  
     İçinde tanımlı Microsoft.SystemForCrossDomainIdentityManagement.Resource / / Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
 
     System.Threading.Tasks.Task < Microsoft.SystemForCrossDomainIdentityManagement.Resource > oluşturun (Microsoft.SystemForCrossDomainIdentityManagement.Resource kaynak, dize correlationIdentifier);
-  ````
-  In a request to provision a user, the value of the resource argument is an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, defined in the Microsoft.SystemForCrossDomainIdentityManagement.Schemas library.  If the request to provision the user succeeds, then the implementation of the method is expected to return an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, with the value of the Identifier property set to the unique identifier of the newly provisioned user.  
+   ````
+   In a request to provision a user, the value of the resource argument is an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, defined in the Microsoft.SystemForCrossDomainIdentityManagement.Schemas library.  If the request to provision the user succeeds, then the implementation of the method is expected to return an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, with the value of the Identifier property set to the unique identifier of the newly provisioned user.  
 
 3. To update a user known to exist in an identity store fronted by an SCIM, Azure Active Directory proceeds by requesting the current state of that user from the service with a request such as: 
-  ````
+   ````
     ~/Scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1 yetkilendirme alın: Taşıyıcı...
-  ````
-  In a service built using the CLI libraries provided by Microsoft for implementing SCIM services, the request is translated into a call to the Retrieve method of the service’s provider.  Here is the signature of the Retrieve method: 
-  ````
+   ````
+   In a service built using the CLI libraries provided by Microsoft for implementing SCIM services, the request is translated into a call to the Retrieve method of the service’s provider.  Here is the signature of the Retrieve method: 
+   ````
     System.Threading.Tasks.Tasks mscorlib.dll içinde tanımlanır.  
     Microsoft.SystemForCrossDomainIdentityManagement.Resource ve / / Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters / / Microsoft.SystemForCrossDomainIdentityManagement.Schemas içinde tanımlanır.  
     System.Threading.Tasks.Task < Microsoft.SystemForCrossDomainIdentityManagement.Resource > Al (Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters parametreleri, dize correlationIdentifier);
 
     Ortak arabirim Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters:   
         IRetrievalParameters {Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier Resourceıdentifier {get;}} genel arabiriminin Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier {dize tanımlayıcısı {get; kümesi;} dize Microsoft.SystemForCrossDomainIdentityManagement.SchemaIdentifier {get; kümesi;}}
-  ````
-  In the example of a request to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters argument are as follows: 
+   ````
+   In the example of a request to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters argument are as follows: 
   
    * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
    * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 4. If a reference attribute is to be updated, then Azure Active Directory queries the service to determine whether or not the current value of the reference attribute in the identity store fronted by the service already matches the value of that attribute in Azure Active Directory. For users, the only attribute of which the current value is queried in this way is the manager attribute. Here is an example of a request to determine whether the manager attribute of a particular user object currently has a certain value: 
 
-  If the service was built using the CLI libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
+   If the service was built using the CLI libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
   
-  * parameters.AlternateFilters.Count: 2
-  * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
-  * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
-  * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
-  * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
-  * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
-  * parameters.RequestedAttributePaths.ElementAt(0): "ID"
-  * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+   * parameters.AlternateFilters.Count: 2
+   * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
+   * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
+   * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
+   * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
+   * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
+   * parameters.RequestedAttributePaths.ElementAt(0): "ID"
+   * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-  Here, the value of the index x may be 0 and the value of the index y may be 1, or the value of x may be 1 and the value of y may be 0, depending on the order of the expressions of the filter query parameter.   
+   Here, the value of the index x may be 0 and the value of the index y may be 1, or the value of x may be 1 and the value of y may be 0, depending on the order of the expressions of the filter query parameter.   
 
 5. Here is an example of a request from Azure Active Directory to an SCIM service to update a user: 
-  ````
+   ````
     Düzeltme eki ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1 yetkilendirme: Taşıyıcı...  İçerik türü: uygulama/scım + json {"şemaları": ["urn: ietf:params:scim:api:messages:2.0:PatchOp"], "İşlemler": [{"op": "Ekle", "path": "Yönetici", "value": [{"$ref": "http://.../scim/Users/2819c223-7f76-453a-919d-413861904646", "value": "2819c223-7f76-453a-919d-413861904646"}]}]}
-  ````
-  The Microsoft CLI libraries for implementing SCIM services would translate the request into a call to the Update method of the service’s provider. Here is the signature of the Update method: 
-  ````
+   ````
+   The Microsoft CLI libraries for implementing SCIM services would translate the request into a call to the Update method of the service’s provider. Here is the signature of the Update method: 
+   ````
     System.Threading.Tasks.Tasks ve / / System.Collections.Generic.IReadOnlyCollection<T> / / mscorlib.dll içinde tanımlanır.  
     Microsoft.SystemForCrossDomainIdentityManagement.IPatch, / / Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase, / / Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, / / Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation, / / Microsoft.SystemForCrossDomainIdentityManagement.OperationName, / / Microsoft.SystemForCrossDomainIdentityManagement.IPath ve / / Microsoft.SystemForCrossDomainIdentityManagement.OperationValue / veya tüm tanımlandığı Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
 
@@ -1005,19 +1033,19 @@ SCIM hizmeti oluşturmak için Microsoft tarafından sağlanan CLI kitaplıklar�
 
    Hizmet SCIM Hizmetleri uygulamak için Microsoft tarafından sağlanan ortak dil altyapısı kitaplıklar kullanılarak oluşturulduysa, isteği hizmet sağlayıcısının sorgu yöntemine bir çağrı çevrilir. Parametre bağımsız değişkenin değeri sağlanan nesne özelliklerini değerini aşağıdaki gibidir: 
   
-   * Parametreler. AlternateFilters.Count: 2
-   * parameters.AlternateFilters.ElementAt(x).AttributePath: "Kimlik"
-   * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
-   * Parametreler. AlternateFilter.ElementAt(x). ComparisonValue:  "54D382A4-2050-4C03-94D1-E769F1D15682"
-   * Parametreler. AlternateFilters.ElementAt(y). AttributePath: "Yönetici"
-   * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
-   * parameters.AlternateFilter.ElementAt(y).ComparisonValue:  "2819c223-7f76-453a-919d-413861904646"
-   * Parametreler. RequestedAttributePaths.ElementAt(0): "Kimlik"
-   * Parametreler. SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
+* Parametreler. AlternateFilters.Count: 2
+* parameters.AlternateFilters.ElementAt(x).AttributePath: "Kimlik"
+* parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
+* Parametreler. AlternateFilter.ElementAt(x). ComparisonValue:  "54D382A4-2050-4C03-94D1-E769F1D15682"
+* Parametreler. AlternateFilters.ElementAt(y). AttributePath: "Yönetici"
+* parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
+* parameters.AlternateFilter.ElementAt(y).ComparisonValue:  "2819c223-7f76-453a-919d-413861904646"
+* Parametreler. RequestedAttributePaths.ElementAt(0): "Kimlik"
+* Parametreler. SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-   Burada, dizinin x değeri 0 olabilir ve dizin y değeri 1 ' olabilir veya 1 x değeri olabilir ve y değeri 0, filtre sorgu parametresinin ifadelerin düzene bağlı olarak olabilir.   
+  Burada, dizinin x değeri 0 olabilir ve dizin y değeri 1 ' olabilir veya 1 x değeri olabilir ve y değeri 0, filtre sorgu parametresinin ifadelerin düzene bağlı olarak olabilir.   
 
-5. İsteğinin bir örneği bir Azure Active Directory'den kullanıcıyı güncelleştirmek için SCIM'yi hizmetine şöyledir: 
+1. İsteğinin bir örneği bir Azure Active Directory'den kullanıcıyı güncelleştirmek için SCIM'yi hizmetine şöyledir: 
 
    ```
      PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
@@ -1133,7 +1161,7 @@ SCIM hizmeti oluşturmak için Microsoft tarafından sağlanan CLI kitaplıklar�
    * (PatchRequest PatchRequest2 olarak). Operations.ElementAt(0). Value.ElementAt(0). Başvuru: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
    * (PatchRequest PatchRequest2 olarak). Operations.ElementAt(0). Value.ElementAt(0). Değer: 2819c223-7f76-453a-919d-413861904646
 
-6. Bir kullanıcı bir SCIM hizmeti tarafından fronted kimlik mağazadan sağlamasını için Azure AD gibi bir istek gönderir: 
+1. Bir kullanıcı bir SCIM hizmeti tarafından fronted kimlik mağazadan sağlamasını için Azure AD gibi bir istek gönderir: 
 
    ```
      DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
@@ -1154,13 +1182,13 @@ SCIM hizmeti oluşturmak için Microsoft tarafından sağlanan CLI kitaplıklar�
 
    Resourceıdentifier bağımsız değişkenin değeri sağlanan nesne bir isteğin kullanıcı sağlamasını örnekte bu özellik değerleri vardır: 
 
-6. Bir kullanıcı bir SCIM hizmeti tarafından fronted kimlik mağazadan sağlamasını için Azure AD gibi bir istek gönderir: 
-  ````
+1. Bir kullanıcı bir SCIM hizmeti tarafından fronted kimlik mağazadan sağlamasını için Azure AD gibi bir istek gönderir: 
+   ````
     DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
-  ````
-  Hizmet SCIM Hizmetleri uygulamak için Microsoft tarafından sağlanan CLI kitaplıklar kullanılarak oluşturulduysa, isteği hizmet sağlayıcısının silme yöntemine bir çağrı çevrilir.   Bu yöntem, bu imzaya sahip: 
-  ````
+   ````
+   Hizmet SCIM Hizmetleri uygulamak için Microsoft tarafından sağlanan CLI kitaplıklar kullanılarak oluşturulduysa, isteği hizmet sağlayıcısının silme yöntemine bir çağrı çevrilir.   Bu yöntem, bu imzaya sahip: 
+   ````
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
     // is defined in Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
@@ -1168,11 +1196,11 @@ SCIM hizmeti oluşturmak için Microsoft tarafından sağlanan CLI kitaplıklar�
       Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier  
         resourceIdentifier, 
       string correlationIdentifier);
-  ````
-  Resourceıdentifier bağımsız değişkenin değeri sağlanan nesne bir isteğin kullanıcı sağlamasını örnekte bu özellik değerleri vardır: 
+   ````
+   Resourceıdentifier bağımsız değişkenin değeri sağlanan nesne bir isteğin kullanıcı sağlamasını örnekte bu özellik değerleri vardır: 
   
-  * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * ResourceIdentifier.SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
+   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * ResourceIdentifier.SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 ## <a name="user-and-group-schema-reference"></a>Kullanıcı ve Grup şema başvurusu
 Azure Active Directory kaynakları SCIM web hizmetleri için iki tür sağlayabilirsiniz.  Bu kaynak türleri, kullanıcılar ve gruplar şunlardır.  
@@ -1182,6 +1210,7 @@ Kullanıcı kaynaklarını şema tanımlayıcısı tarafından tanımlanan `urn:
 Grup kaynaklarının şema tanımlayıcısı tarafından tanımlanan `urn:ietf:params:scim:schemas:core:2.0:Group`.  Tablo 2'in altında varsayılan eşleme gruplarının özniteliklerin Azure Active Directory'de Grup kaynak öznitelikleri gösterir.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>Tablo 1: Varsayılan kullanıcı öznitelik eşlemesi
+
 | Azure Active Directory kullanıcısı | "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
 | IsSoftDeleted |etkin |
@@ -1203,6 +1232,7 @@ Grup kaynaklarının şema tanımlayıcısı tarafından tanımlanan `urn:ietf:p
 | Kullanıcı PrincipalName |Kullanıcı adı |
 
 ### <a name="table-2-default-group-attribute-mapping"></a>Tablo 2: Varsayılan grubu öznitelik eşlemesi
+
 | Azure Active Directory grubu | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | displayName |externalId |

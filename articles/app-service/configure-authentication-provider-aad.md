@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 0c5ceda99fe35fafff23f2bcf4ea766d7dd42b75
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403230"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438233"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>App Service uygulamanızı Azure Active Directory oturum açma kullanacak şekilde yapılandırma
 
@@ -43,8 +43,6 @@ Bu makalede, Azure App Services'ı, Azure Active Directory kimlik doğrulama sa�
 5. (İsteğe bağlı) Sitenizi yalnızca Azure Active Directory tarafından kimliği doğrulanmış kullanıcılar için erişimi kısıtlamak için ayarlanmış **isteğin kimliği doğrulanmamış olduğunda gerçekleştirilecek eylem** için **Azure Active Directory ile oturum aç**. Bu, tüm istekleri kimliğinin doğrulanmasını gerektirir ve kimliği doğrulanmamış tüm istekleri için Azure Active Directory kimlik doğrulaması için yönlendirilirsiniz.
 6. **Kaydet**’e tıklayın.
 
-App Service uygulamanızda kimlik doğrulaması için Azure Active Directory kullanmak artık hazırsınız.
-
 ## <a name="advanced"> </a>Gelişmiş ayarlarla yapılandırın
 
 Yapılandırma ayarlarını sağlamak el ile. Kullanmak istediğiniz Azure Active Directory kiracısı ile Azure'da oturum açın kiracıda farklı ise bu tercih edilen bir çözümdür. Yapılandırmayı tamamlamak için öncelikle bir kaydı Azure Active Directory'de oluşturmanız gerekir ve ardından kayıt ayrıntılarının bazılarını App Service'e sağlamanız gerekir.
@@ -57,8 +55,12 @@ Yapılandırma ayarlarını sağlamak el ile. Kullanmak istediğiniz Azure Activ
 4. Birkaç saniye içinde oluşturduğunuz yeni uygulama kaydı görmeniz gerekir.
 5. Uygulama kaydı eklendikten sonra uygulama kayıt adına tıklayın, tıklayarak **ayarları** en üstünde, ardından **özellikleri** 
 6. İçinde **uygulama kimliği URI'si** kutusunda, (1. adımdan), uygulama URL'sini yapıştırın de **giriş sayfası URL'si** (Başlangıç 1. adım) uygulama URL'yi yapıştırın da ardından **Kaydet**
-7. Artık tıklayarak **yanıt URL'leri**, Düzen **yanıt URL'si**(Başlangıç 1. adım) uygulama URL'sini yapıştırın ve ardından, URL'nin sonuna */.auth/login/aad/callback* (için Örneğin, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). **Kaydet**’e tıklayın.   
-8.  Bu noktada, kopyalama **uygulama kimliği** uygulama için. Bu, daha sonra kullanmak üzere saklayın. App Service yapılandırmanız gerekir.
+7. Artık tıklayarak **yanıt URL'leri**, Düzenle **yanıt URL'si**(Başlangıç 1. adım) uygulama URL'sini yapıştırın ve ardından, URL'nin sonuna append */.auth/login/aad/callback* (için Örneğin, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). **Kaydet**’e tıklayın.
+
+   > [!NOTE]
+   > Ek ekleyerek, birden çok etki alanı için aynı uygulama kaydı kullanabilirsiniz **yanıt URL'leri**. Kendi izinler ve onay sahiptir, kendi kayıt, her bir App Service örnek model emin olun. Ayrıca ayrı site yuvaları için ayrı uygulama kayıtları kullanmayı düşünün. Bu, test ettiğiniz yeni kodda bir hata, üretim etkilemez böylece, ortamlar arasında paylaşılmasını izinleri önlemek içindir.
+    
+8. Bu noktada, kopyalama **uygulama kimliği** uygulama için. Bu, daha sonra kullanmak üzere saklayın. App Service yapılandırmanız gerekir.
 9. Kapat **kayıtlı uygulama** sayfası. Üzerinde **uygulama kayıtları** Sayfası'na tıklayın **uç noktaları** düğmesi en üstünde, ardından kopyalama **WS-FEDERASYON oturum açma uç noktası** URL ancak Kaldır `/wsfed` bitiş URL. Sonuç gibi görünmelidir `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000`. Etki alanı adı bağımsız bir bulut için farklı olabilir. Daha sonra kullanmak üzere bu veren URL'si davranacak.
 
 ### <a name="secrets"> </a>App Service uygulamanızı Azure Active Directory bilgilerini ekleyin
