@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f0b62f73650294349e1879b306beebabdaf974a7
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
-ms.translationtype: HT
+ms.openlocfilehash: 190b675076f757925e71324d072b2ce37b7881a4
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633410"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436649"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Cihazı Sağlama Hizmeti’ni kullanarak sağlanacak bir cihaz ayarlama
 
@@ -34,7 +34,7 @@ Otomatik sağlama işlemini bilmiyorsanız, devam etmeden önce [Otomatik sağla
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * ["C++ ile masaüstü geliştirme"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) iş yükünün etkinleştirildiği Visual Studio 2015 veya [Visual Studio 2017](https://www.visualstudio.com/vs/).
 * [Git](https://git-scm.com/download/)'in en son sürümünün yüklemesi.
@@ -45,20 +45,22 @@ Otomatik sağlama işlemini bilmiyorsanız, devam etmeden önce [Otomatik sağla
 
 Cihaz Sağlama Hizmeti İstemci SDK’sı, cihaz kaydı yazılımınızı uygulamanıza yardımcı olur. Ancak bunu kullanabilmeniz için önce geliştirme istemci platformunuza ve kanıtlama mekanizmanıza özgü bir SDK sürümü derlemeniz gerekir. Bu öğreticide, desteklenen bir kanıtlama türü için, Windows geliştirme platformunda Visual Studio 2017’yi kullanan bir SDK derlersiniz:
 
-1. [CMake derleme sistemi](https://cmake.org/download/)'nin 3.11.4 sürümünü indirin. İlgili şifreleme karması değerini kullanarak indirilen ikili dağıtımı doğrulayın. Aşağıdaki örnekte, x64 MSI dağıtımı 3.11.4 sürümünün şifreleme karmasını doğrulamak için Windows PowerShell kullanılır:
+1. İndirme [CMake derleme sistemini](https://cmake.org/download/). İndirdiğiniz sürümüne karşılık gelen şifreleme karması değerini kullanarak indirilen ikili doğrulayın. Şifreleme karma değerlerini de zaten sağlanan CMake karşıdan yükleme bağlantısını yer alır.
+
+    Aşağıdaki örnek, şifreleme karması x64 3.13.4 sürümü için doğrulamak için Windows PowerShell kullanılan MSI dağıtım:
 
     ```PowerShell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
     ```
-    
-    Bu metnin yazıldığı tarihte CMake sitesinde 3.11.4 sürümü için şu karma değerleri listeleniyordu:
+
+    Aşağıdaki sürüm 3.13.4 karma değerlerini bu makalenin yazıldığı sırada CMake sitesinde listelenen:
 
     ```
-    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
-    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
-    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
+    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
+    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
+    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
     ```
 
     `CMake` yüklemesine başlamadan **önce** makinenizde Visual Studio önkoşullarının (Visual Studio ve "C++ ile masaüstü geliştirme" iş yükü) yüklenmiş olması önemlidir. Önkoşullar sağlandıktan ve indirme doğrulandıktan sonra, CMake derleme sistemini yükleyin.
@@ -111,7 +113,7 @@ SDK'yı kanıtlama için fiziksel TPM/HSM veya X.509 sertifikası kullanacak şe
 - Bir X.509 cihazı için cihazlarınıza verilmiş sertifikaları almanız gerekir. Sağlama hizmeti, X.509 kanıtlama mekanizmasını kullanan cihazlara erişimi kontrol eden iki kayıt girişi türü sunar. Gerekli sertifikalar, kullanacağınız kayıt türüne göre değişiklik gösterir.
 
     1. Bireysel kayıtlar: Tek bir cihaz kaydı. Bu kayıt girişi türü için [end-entity, "leaf", certificates](concepts-security.md#end-entity-leaf-certificate) kullanılması gerekir.
-    1. Kayıt grupları: Bu kayıt girişi türü için ara veya kök sertifika kullanılması gerekir. Daha fazla bilgi için bkz. [X.509 sertifikalarıyla sağlama hizmetine cihaz erişimini denetleme](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    1. Kayıt grupları: Bu tür bir kayıt girişi gerektiren ara veya kök sertifikaları. Daha fazla bilgi için bkz. [X.509 sertifikalarıyla sağlama hizmetine cihaz erişimini denetleme](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### <a name="simulated-devices"></a>Sanal cihazlar
 

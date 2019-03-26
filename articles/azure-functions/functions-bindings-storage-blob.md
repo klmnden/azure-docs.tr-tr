@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 16899c833d996902cf7a0a3f7ab57479869fbdd9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e18a63892f000eff0f72656082d5e6e1f0ca159b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737799"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437484"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -282,7 +282,7 @@ public void run(
   {
       ....
   }
-  ```
+   ```
 
   Tam bir örnek için bkz. [tetikleyici - C# örneği](#trigger---c-example).
 
@@ -318,8 +318,8 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|----------------------|
 |**type** | yok | Ayarlanmalıdır `blobTrigger`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır.|
 |**direction** | yok | Ayarlanmalıdır `in`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır. Özel durumlar belirtilmiştir [kullanım](#trigger---usage) bölümü. |
-|**Adı** | yok | İşlev kodunu blob temsil eden değişken adı. | 
-|**Yolu** | **BlobPath** |[Kapsayıcı](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) izlemek için.  Olabilir bir [blob adı deseni](#trigger---blob-name-patterns). | 
+|**Adı** | yok | İşlev kodunu blob temsil eden değişken adı. |
+|**Yolu** | **BlobPath** |[Kapsayıcı](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) izlemek için.  Olabilir bir [blob adı deseni](#trigger---blob-name-patterns). |
 |**bağlantı** | **bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [Blob Depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -450,7 +450,9 @@ JavaScript ve Java işlevleri, belleğe, tüm blob yüklemek ve C# işlevleri ya
 
 ## <a name="trigger---polling"></a>Tetikleme - yoklama
 
-İzlenmekte olan blob kapsayıcı 10. 000'den fazla BLOB varsa, İşlevler çalışma zamanı taramalar günlük dosyaları için yeni veya değiştirilmiş blobları izleyin. Bu işlem, gecikmelerine neden olabilir. Blob oluşturulduktan sonra bir işleve kadar birkaç dakika veya daha uzun tetiklenir değil. Ayrıca, [depolama günlükleri "en iyi çaba" üzerinde oluşturulan](/rest/api/storageservices/About-Storage-Analytics-Logging) temel. Tüm olaylar yakalanır garantisi yoktur. Bazı koşullar altında günlükleri eksik olabilir. Daha hızlı veya daha güvenilir blob işleme gerekiyorsa oluşturmayı göz önünde bulundurun bir [kuyruk iletisi](../storage/queues/storage-dotnet-how-to-use-queues.md) blob oluşturduğunuzda. Ardından bir [kuyruk tetikleyicisi](functions-bindings-storage-queue.md) blob işlemek için bir blob tetikleyicisi yerine. Event grid'i başka bir seçenektir; öğreticiye bakın [karşıya yüklenen görüntülerin Event Grid kullanarak otomatikleştirme yeniden boyutlandırma](../event-grid/resize-images-on-storage-blob-upload-event.md).
+İzlenmekte olan blob kapsayıcı (tüm kapsayıcılar arasında) 10. 000'den fazla BLOB varsa, İşlevler çalışma zamanı taramalar günlük dosyaları için yeni veya değiştirilmiş blobları izleyin. Bu işlem, gecikmelerine neden olabilir. Blob oluşturulduktan sonra bir işleve kadar birkaç dakika veya daha uzun tetiklenir değil. Ayrıca, [depolama günlükleri "en iyi çaba" üzerinde oluşturulan](/rest/api/storageservices/About-Storage-Analytics-Logging) temel. Tüm olaylar yakalanır garantisi yoktur. Bazı koşullar altında günlükleri eksik olabilir.
+
+Daha hızlı veya daha güvenilir blob işleme gerekiyorsa oluşturmayı göz önünde bulundurun bir [kuyruk iletisi](../storage/queues/storage-dotnet-how-to-use-queues.md) blob oluşturduğunuzda. Ardından bir [kuyruk tetikleyicisi](functions-bindings-storage-queue.md) blob işlemek için bir blob tetikleyicisi yerine. Event grid'i başka bir seçenektir; öğreticiye bakın [karşıya yüklenen görüntülerin Event Grid kullanarak otomatikleştirme yeniden boyutlandırma](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
 ## <a name="input"></a>Girdi
 
@@ -479,7 +481,7 @@ public static void Run(
 {
     log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
-```        
+```
 
 ### <a name="input---c-script-example"></a>Giriş - C# betiği örneği
 
@@ -802,7 +804,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
     { ImageSize.Small,      (640, 400) },
     { ImageSize.Medium,     (800, 600) }
 };
-```        
+```
 
 ### <a name="output---c-script-example"></a>Çıkış - C# betiği örneği
 

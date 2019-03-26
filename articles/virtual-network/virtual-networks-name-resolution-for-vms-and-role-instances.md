@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 3/25/2019
 ms.author: subsarma
-ms.openlocfilehash: 9130fef895d4f9cd31f643b20a735c0e821923b8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ea15468722fcf1b9e2649236ef4dd05549d8f460
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194002"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418746"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure sanal ağlarda bulunan kaynaklar için ad çözümlemesi
 
@@ -74,6 +74,7 @@ Azure tarafından sağlanan ad çözümlemesi kullanırken dikkate alınacak nok
 * Ana bilgisayar adları, DNS ile uyumlu olması gerekir. Adları, yalnızca 0-9, a-z, kullanmalıdır ve '-' ve başlayamaz veya bitemez bir '-'.
 * DNS sorgu trafiği her VM için kısıtlanır. Azaltma, çoğu uygulama etkisi olmaması gerekir. İstek azaltma gözlemlendiğinde istemci tarafı önbelleğe alma etkin olduğundan emin olun. Daha fazla bilgi için [DNS istemci yapılandırması](#dns-client-configuration).
 * Yalnızca ilk 180 bulut hizmetlerindeki VM'ler, Klasik dağıtım modelinde her bir sanal ağ için kaydedilir. Bu sınır, Azure Resource Manager'da sanal ağlar için geçerli değildir.
+* Azure DNS IP adresi: 168.63.129.16. Bu statik bir IP adresi ve değişmez.
 
 ## <a name="dns-client-configuration"></a>DNS istemcisi yapılandırması
 

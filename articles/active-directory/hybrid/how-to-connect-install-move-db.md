@@ -11,12 +11,12 @@ ms.date: 03/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeeb9989b6bf0233354d493f5dbb6916c806cfdb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3485639062f33d013152cd30f6785df4d1c79790
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076845"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437790"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Azure AD Connect veritabanını SQL Server Express'ten SQL Server'a taşıma 
 
@@ -36,13 +36,13 @@ Azure AD Connect veritabanını uzak SQL Server'a taşımak için aşağıdaki a
 4. Denetim Masası - - Programlar - Programlar ve Özellikler sayfasından Azure AD Connect'i kaldırın.  Microsoft Azure AD Connect'e ve ardından üst taraftaki Kaldır düğmesine tıklayın.
 5. Uzak SQL sunucusunda SQL Server Management Studio'yu açın.
 6. Veritabanları bölümüne sağ tıklayıp Ekle'yi seçin.
-7. **Veritabanı Ekle** ekranında **Ekle**'ye tıklayıp ADSync.mdf dosyasını gösterin.  **Tamam**'ı tıklatın.
+7. **Veritabanı Ekle** ekranında **Ekle**'ye tıklayıp ADSync.mdf dosyasını gösterin.  **Tamam** düğmesine tıklayın.
    ![](media/how-to-connect-install-move-db/move2.png)
 
 8. Veritabanı eklendikten sonra Azure AD Connect sunucusuna gidip Azure AD Connect'i yükleyin.
 9. MSI yüklemesi tamamlandıktan sonra Azure AD Connect sihirbazı Hızlı mod kurulumu açılır. Çıkış simgesine tıklayarak ekranı kapatın.
    ![Hoş geldiniz](./media/how-to-connect-install-move-db/db1.png)
-10. Yeni bir komut istemi veya PowerShell oturumu başlatın. <drive>\program files\Microsoft Azure AD Connect klasörüne gidin. Azure AD Connect sihirbazını "Var olan veritabanını kullan" modunda başlatmak için .\AzureADConnect.exe /useexistingdatabase komutunu çalıştırın.
+10. Yeni bir komut istemi veya PowerShell oturumu başlatın. Klasörüne gidin \<sürücüsü > \Program Azure AD Connect. Azure AD Connect sihirbazını "Var olan veritabanını kullan" modunda başlatmak için .\AzureADConnect.exe /useexistingdatabase komutunu çalıştırın.
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. Azure AD Connect'e Hoş Geldiniz ekranı açılır. Lisans koşullarını ve gizlilik bildirimini kabul ettikten sonra **Devam**'a tıklayın.
     ![Hoş geldiniz](./media/how-to-connect-install-move-db/db3.png)

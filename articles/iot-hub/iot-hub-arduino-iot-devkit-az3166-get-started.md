@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 941455e39a32405097563b043046866aeb5c7964
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 0c6189dfd02a4bdd3662f4fa50dbb812fe995884
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351941"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438491"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>IOT DevKit AZ3166 Azure IOT hub'a bağlama
 
@@ -24,7 +24,9 @@ Kullanabileceğiniz [MXChip IOT DevKit](https://microsoft.github.io/azure-iot-de
 
 ## <a name="what-you-do"></a>Neler
 
-DevKit oluşturduğunuz Azure IOT hub'a bağlayın. Ardından sensörden sıcaklık ve nem verileri toplamak ve IOT hub'ına verileri gönderin.
+Bu makalede, kullanacağınız [Visual Studio Code](https://code.visualstudio.com/), platformlar arası kaynak kod Düzenleyicisi ile birlikte [Azure IOT Araçları](https://aka.ms/azure-iot-tools) uzantı paketi.
+
+Oluşturduğunuz bir Azure IOT hub'ına DevKit bağlanır. Ardından sensörden sıcaklık ve nem verileri toplamak ve IOT hub'ına verileri gönderin.
 
 Bir DevKit henüz yok mu? Deneyin [DevKit simülatör](https://azure-samples.github.io/iot-devkit-web-simulator/) veya [bir DevKit satın](https://aka.ms/iot-devkit-purchase).
 
@@ -119,7 +121,9 @@ Algılayıcılar test etmek için B düğmesine basın. Her algılayıcı geçi�
 
 ### <a name="install-azure-iot-tools"></a>Azure IOT araçlarını yükleme
 
-Öneririz [Azure IOT Araçları](https://aka.ms/azure-iot-tools) DevKit üzerinde geliştirmek Visual Studio Code için uzantı paketi. Azure IOT araçları içeren [Azure IOT cihaz Workbench](https://aka.ms/iot-workbench) geliştirin ve çeşitli IOT devkit cihazlarda hata ayıklama ve [Azure IOT hub'ı Araç Seti](https://aka.ms/iot-toolkit) yönetmek ve Azure IOT Hub ile etkileşim kurmak için.
+Bu bölümde, yükleyecek [Arduino IDE](https://www.arduino.cc/en/Main/Software) ile birlikte [Visual Studio Code](https://code.visualstudio.com/), platformlar arası kaynak kod Düzenleyicisi.
+
+Ayrıca yükleyecek [Azure IOT Araçları](https://aka.ms/azure-iot-tools) Visual Studio Code için uzantı paketi. Kullanmanızı öneririz [Azure IOT Araçları](https://aka.ms/azure-iot-tools) DevKit uygulamaları geliştirmek Visual Studio Code için uzantı paketi. Azure IOT araçları uzantısı paketi içeren [Azure IOT cihaz Workbench](https://aka.ms/iot-workbench) geliştirme ve çeşitli IOT devkit cihazlarda hata ayıklama için kullanılır. [Azure IOT hub'ı Araç Seti](https://aka.ms/iot-toolkit), ayrıca Azure IOT araçları uzantısı paketindeki, yönetmek ve Azure IOT hub'ları ile etkileşim kurmak için kullanılır.
 
 Bu izleme [Channel 9](https://channel9.msdn.com/) yaptıkları genel bakış için videolar:
 * [Yeni IOT Workbench uzantısı için VS Code giriş](https://channel9.msdn.com/Shows/Internet-of-Things-Show/IoT-Workbench-extension-for-VS-Code)

@@ -3,7 +3,7 @@ title: Sertifikalarla Azure AD raporlama API'sini kullanarak öğretici verileri
 description: Bu öğretici, kullanıcı müdahalesi olmadan dizinlerden veri almak üzere sertifika kimlik bilgileriyle Azure AD raporlama API'sini kullanmayı açıklar.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8706414b27969efd6aa26085370f8a0b1f891d69
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0e006111cce7f53ff87f1c6d60b2a5147da02e1e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095203"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438997"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Öğretici: Sertifikalarla Azure Active Directory raporlama API’sini kullanarak veri alma
 

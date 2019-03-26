@@ -448,6 +448,12 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/data-explorer">
+                                                <img src="media/index/azure_data_explorer.svg" alt="" />
+                                                <p>Azure Veri Gezgini</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/azure-cache-for-redis/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
                                                 <p>Redis için Azure Önbelleği</p>
@@ -494,7 +500,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                                 <img src="media/index/database-migration.svg" alt="" />
                                                 <p>Azure Veritabanı Geçiş Hizmeti</p>
                                             </a>
-                                        </li>
+                                        </li>                                        
                                     </ul>
                                     <h3>Kapsayıcılar</h3>
                                     <ul>
@@ -1158,7 +1164,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                         </li>
                                         <li>
                                             <a href="/azure/data-explorer/">
-                                                <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
+                                                <img src="media/index/azure_data_explorer.svg" alt="" />
                                                 <p>Azure Veri Gezgini</p>
                                             </a>
                                         </li>
@@ -3086,6 +3092,25 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/data-explorer">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_data_explorer.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Veri Gezgini</h3>
+                                                    <p>Günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/azure-cache-for-redis/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3236,7 +3261,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                         </div>
                                     </div>
                                 </a>
-                            </li>
+                            </li>                            
                         </ul>
                     </li>
                     <li>
@@ -3325,7 +3350,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
+                                                        <img src="media/index/azure_data_explorer.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">

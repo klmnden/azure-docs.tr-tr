@@ -7,23 +7,24 @@ tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 03/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8ec6a6a24629f72199d5f5afa86200acf53aba01
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c7c120b9bac33f71df72650d8a9d9a72e819d227
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136555"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439210"
 ---
-# <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Lucene sözdizimi sorgu örnekleri, Azure Search'te Gelişmiş sorgular oluşturmak için
-Azure arama için sorgular oluşturma sırasında varsayılan değiştirebilirsiniz [Basit Sorgu ayrıştırıcı](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) ile kapsamlı [Azure Search'te Lucene sorgu ayrıştırıcısına](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) özelleştirilmiş ve Gelişmiş sorguyu formüle etmek için tanımları. 
+# <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>"Tam" Lucene arama söz dizimi (Azure Search Gelişmiş sorgular) kullanarak sorgu örnekleri
 
-Lucene sorgu ayrıştırıcısına alan kapsamlı sorgular, belirsiz ve ön ek joker arama, yakınlık araması, terimle ve normal ifade araması gibi karmaşık sorgu yapılarını destekler. Ek güç ek işleme gereksinimleriyle sunulur; böylece biraz daha uzun bir yürütme süresi beklemelisiniz. Bu makalede, tam sözdizimini kullanırken kullanılabilir sorgu işlemleri gösteren örnekler geçebilirsiniz.
+Azure arama için sorgular oluşturma sırasında varsayılan değiştirebilirsiniz [Basit Sorgu ayrıştırıcı](query-simple-syntax.md) ile kapsamlı [Azure Search'te Lucene sorgu ayrıştırıcısına](query-lucene-syntax.md) özelleştirilmiş ve Gelişmiş sorguyu formüle etmek için tanımları. 
+
+Lucene çözümleyici alan kapsamlı sorgular, belirsiz ve ön ek joker arama, yakınlık araması, terimle ve normal ifade araması gibi karmaşık sorgu yapılarını destekler. Ek güç ek işleme gereksinimleriyle sunulur; böylece biraz daha uzun bir yürütme süresi beklemelisiniz. Bu makalede, tam sözdizimini kullanırken kullanılabilir sorgu işlemleri gösteren örnekler geçebilirsiniz.
 
 > [!Note]
-> Birçok özel sorgu yapılarını tam Lucene sorgu söz dizimi etkin olmayan [çözümlenmiş metin](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), olabilen dallanma veya başsözcüğe bekliyorsanız şaşırtıcı. Sözcük analizi yalnızca tam koşullarınızda gerçekleştirilir (terimi sorgu veya sorgu deyimi). Sorgu türleri (ön ek sorgu, joker karakter sorgu, normal ifade sorgu, belirsiz sorgu) tamamlanmamış koşullarıyla analysis aşaması atlayarak doğrudan sorgu ağacına eklenir. Sorgu eksik koşullarınızda gerçekleştirilen yalnızca dönüşümü harfe. 
+> Birçok özel sorgu yapılarını tam Lucene sorgu söz dizimi etkin olmayan [çözümlenmiş metin](search-lucene-query-architecture.md#stage-2-lexical-analysis), olabilen dallanma veya başsözcüğe bekliyorsanız şaşırtıcı. Sözcük analizi yalnızca tam koşullarınızda gerçekleştirilir (terimi sorgu veya sorgu deyimi). Sorgu türleri (ön ek sorgu, joker karakter sorgu, normal ifade sorgu, belirsiz sorgu) tamamlanmamış koşullarıyla analysis aşaması atlayarak doğrudan sorgu ağacına eklenir. Sorgu eksik koşullarınızda gerçekleştirilen yalnızca dönüşümü harfe. 
 >
 
 ## <a name="formulate-requests-in-postman"></a>Postman'deki istekleri düzenleme
@@ -58,13 +59,15 @@ URL'si birleşimi aşağıdaki öğeleri içerir:
 
 ## <a name="send-your-first-query"></a>İlk sorgunuzu Gönder
 
-Bir doğrulama adımı aşağıdaki isteği GET yapıştırın ve tıklayın **Gönder**. Sonuçları ayrıntılı JSON belgeleri olarak döndürülür. Kopyalama bu URL'yi aşağıdaki ilk örnekte yapıştırma.
+Bir doğrulama adımı aşağıdaki isteği GET yapıştırın ve tıklayın **Gönder**. Sonuçları ayrıntılı JSON belgeleri olarak döndürülür. Tüm alanları ve tüm değerleri görmenize olanak sağlayan tüm belgeler döndürülür.
+
+Bu URL'yi bir doğrulama adımı olarak ve belge yapısı görüntülemek için bir REST istemcisi yapıştırın.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
   ```
 
-Sorgu dizesi **`search=*`**, belirtilmeyen bir arama null veya boş aramaya eşdeğerdir. Özellikle kullanışlı değildir, ancak yapabileceğiniz basit arama olur.
+Sorgu dizesi **`search=*`**, belirtilmeyen bir arama null veya boş aramaya eşdeğerdir. Basit arama yapabileceğiniz var.
 
 İsteğe bağlı olarak ekleyebileceğiniz **`$count=true`** arama ölçütleriyle eşleşen belgelerin sayısını döndürmek için URL. Üzerinde bir boş bir arama dizesi (yaklaşık 2800 NYC işleri söz konusu olduğunda) dizindeki tüm belgelerin budur.
 
@@ -80,12 +83,26 @@ Tüm bu makaledeki örneklerde belirtin **queryType = full** arama parametresi, 
 
 ## <a name="example-1-field-scoped-query"></a>Örnek 1: Alan kapsamlı sorgu
 
-Bu ilk örneği, ayrıştırıcı özgü değildir, ancak ilk sorgu temel kavramı tanıtmak için Biz bu ile neden: kapsama. Bu örnek, sorgu yürütme ve yalnızca birkaç belirli alanları yanıta kapsamlar. Postman veya arama Gezgini araç olduğunda, okunabilir bir JSON yanıtı nasıl haberdar olmak önemlidir. 
+Bu ilk örnekte Lucene özgü değildir, ancak ilk sorgu temel kavramı tanıtmak için Biz bu ile neden: kapsama. Bu örnek, sorgu yürütme ve yalnızca birkaç belirli alanları yanıta kapsamlar. Postman veya arama Gezgini araç olduğunda, okunabilir bir JSON yanıtı nasıl haberdar olmak önemlidir. 
 
 Konuyu uzatmamak amacıyla, sorgu hedefleyen yalnızca *business_title* alan ve yalnızca iş başlıkları döndürülür belirtir. Söz dizimi **searchFields** business_title alan yalnızca, sorgu yürütme kısıtlamak için ve **seçin** yanıt olarak hangi alanların ekleneceğini belirlemek için.
 
+### <a name="partial-query-string"></a>Kısmi bir sorgu dizesi
+
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*
+&search=*&searchFields=business_title&$select=business_title
+```
+
+Virgülle ayrılmış bir liste içinde birden çok alan ile aynı sorgu aşağıdadır.
+
+```http
+search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
+```
+
+### <a name="full-url"></a>Tam URL
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&search=*&searchFields=business_title&$select=business_title
 ```
 
 Bu sorgu için yanıt, aşağıdaki ekran görüntüsüne benzer görünmelidir.
@@ -96,10 +113,24 @@ Yanıt arama puanı fark etmiş olabilirsiniz. 1 Tekdüzen puanları olduğunda 
 
 ## <a name="example-2-intra-field-filtering"></a>Örnek 2: İçi alan filtreleme
 
-Tam Lucene sözdizimi bir alandaki ifadeleri destekler. Bu sorgu iş başlıkları terim Kıdemli bunları ancak değil çırak arar:
+Tam Lucene sözdizimi bir alandaki ifadeleri destekler. Bu örnekte, iş başlıkları terim Kıdemli bunları ancak değil çırak arar.
+
+### <a name="partial-query-string"></a>Kısmi bir sorgu dizesi
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:senior+NOT+junior
+```
+
+Birden çok alan ile aynı sorgu aşağıdadır.
+
+```http
+searchFields=business_title, posting_type&$select=business_title, posting_type&search=business_title:senior+NOT+junior AND posting_type:external
+```
+
+### <a name="full-url"></a>Tam URL
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:senior+NOT+junior
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:senior+NOT+junior
 ```
 
   ![Postman örnek yanıt](media/search-query-lucene-examples/intrafieldfilter.png)
@@ -117,49 +148,73 @@ Belirtilen alan **fieldname:searchterm** aranabilir bir alanı olmalıdır. Bkz:
 
 Tam Lucene sözdizimi, belirsiz arama, benzer bir yapı koşullarınızda eşleşen da destekler. Belirsiz arama yapmak için tilde ekleme `~` isteğe bağlı bir parametre, düzenleme uzaklığı belirten bir değeri 0. ve 2 arasındaki tek bir sözcük sonuna simgesi. Örneğin, `blue~` veya `blue~1` mavi, mavi ve bağlantılı döndürür.
 
+### <a name="partial-query-string"></a>Kısmi bir sorgu dizesi
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:asosiate~
+```
+
+İfadeleri doğrudan desteklenmez ancak bir bileşen kısımlarına bir benzer eşleştirme belirtebilirsiniz.
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:asosiate~ AND comm~ 
+```
+
+
+### <a name="full-url"></a>Tam URL
+
 Bu sorgu için işleri "terimi ilişkilendirme (bilerek yanlış yazılmış)" arar:
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:asosiate~
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:asosiate~
 ```
   ![Belirsiz arama yanıt](media/search-query-lucene-examples/fuzzysearch.png)
 
-Başına [Lucene belgeleri](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), belirsiz arama temel [Damerau Levenshtein uzaklık](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
 > [!Note]
-> Belirsiz sorguları olmayan [analiz](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). Sorgu türleri (ön ek sorgu, joker karakter sorgu, normal ifade sorgu, belirsiz sorgu) tamamlanmamış koşullarıyla analysis aşaması atlayarak doğrudan sorgu ağacına eklenir. Sorgu eksik koşullarınızda gerçekleştirilen yalnızca dönüşümü harfe.
+> Belirsiz sorguları olmayan [analiz](search-lucene-query-architecture.md#stage-2-lexical-analysis). Sorgu türleri (ön ek sorgu, joker karakter sorgu, normal ifade sorgu, belirsiz sorgu) tamamlanmamış koşullarıyla analysis aşaması atlayarak doğrudan sorgu ağacına eklenir. Sorgu eksik koşullarınızda gerçekleştirilen yalnızca dönüşümü harfe.
 >
 
 ## <a name="example-4-proximity-search"></a>Örnek 4: Yakınlık araması
 Yakınlık arama koşulları bulmak için kullanılan olan birbirine yakın bir belgede. Bir tilde işareti ekle "~" simgesiyle sonunda bir ifade, yakınlık sınır oluşturan bir kelimelerin sayısı. Örneğin, "otel havaalanı" ~ 5 belgeye birbiriyle 5 sözcük içinde havaalanı ve koşulları otel bulacaksınız.
 
+### <a name="partial-query-string"></a>Kısmi bir sorgu dizesi
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
+```
+
+### <a name="full-url"></a>Tam URL
+
 Bu sorguda, "üst düzey analist tarafından birden fazla sözcük ayrıldığı" terimi ile işleri için:
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:%22senior%20analyst%22~1
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
 ```
   ![Yakınlık sorgu](media/search-query-lucene-examples/proximity-before.png)
 
 Sözcükler "üst düzey analist" terimi arasında kaldırmayı yeniden deneyin. Önceki sorgunun 10 aksine bu sorgu için 8 belgeler döndürülür dikkat edin.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:%22senior%20analyst%22~0
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~0
 ```
 
 ## <a name="example-5-term-boosting"></a>Örnek 5: Terim artırma
 Terimle terim içermeyen belgeleri göre artırmalı terimi içeriyorsa, daha yüksek bir belge sıralaması için ifade eder. Giriş işaretini bir terim artırma kullanılacağı "^", sembol arama terimi sonunda bir boost faktörle (sayı). 
 
+### <a name="full-urls"></a>Tam URL'leri
+
 Bu konuda "önce" sorgu ifadesi olan işler için arama *bilgisayar analist* ve her iki sözcükleri içeren sonuç olduğuna dikkat edin *bilgisayar* ve *analist*, henüz  *bilgisayar* işleri, sonuçları üstünde.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:computer%20analyst
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
 ```
   ![Terim artırma önce](media/search-query-lucene-examples/termboostingbefore.png)
 
 Arama terimi sonuçlarıyla artırma şu "sonra" sorguda yineleme *analist* terimi üzerinden *bilgisayar* hem sözcük yoksa. 
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:computer%20analyst%5e2
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst%5e2
 ```
 Yukarıdaki sorguda daha fazla insan tarafından okunabilir sürümü `search=business_title:computer analyst^2`. Çalışılabilir bir sorgu için `^2` olarak kodlanmış `%5E2`, olduğu zor görmek için.
 
@@ -176,10 +231,18 @@ Faktörü düzeyi ayarlarken terimi yüksek boost faktör, daha fazla ilgili di�
 
 Bir normal ifade araması eğik arasında "/", belgelenmiş içinde olarak içeriğine göre bir eşleşme bulur [RegExp sınıfı](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
 
-Terim üst düzey veya alt düzey olan işler için bu sorgu, arama: ' arama business_title:/(Sen| = Haz) ior /''.
+### <a name="partial-query-string"></a>Kısmi bir sorgu dizesi
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
+```
+
+### <a name="full-url"></a>Tam URL
+
+Terim üst düzey veya alt düzey olan işler için bu sorgu, arama: `search=business_title:/(Sen|Jun)ior/`.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:/(Sen|Jun)ior/
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
 ```
 
   ![Regex sorgu](media/search-query-lucene-examples/regex.png)
@@ -191,10 +254,18 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 ## <a name="example-7-wildcard-search"></a>Örnek 7: joker karakter araması
 Birden çok genel olarak kabul edilen sözdizimini kullanabilirsiniz (\*) veya tek bir karakter joker karakter aramalarını (?). Lucene sorgu ayrıştırıcısına Not tek bir terim ve bir ifade ile bu sembolleri kullanımını destekler.
 
+### <a name="partial-query-string"></a>Kısmi bir sorgu dizesi
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:prog*
+```
+
+### <a name="full-url"></a>Tam URL
+
 Bu sorguda önek 'iş başlıkları programlama terimleri ve programcı da dahil prog' içeren işleri arayın. Kullanamazsınız bir * veya? Sembol arama ilk karakteri olarak.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:prog*
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
 ```
   ![Joker karakter sorgu](media/search-query-lucene-examples/wildcard.png)
 

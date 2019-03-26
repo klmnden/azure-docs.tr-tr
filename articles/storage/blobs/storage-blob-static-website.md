@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1794aa26fc725207c4a901c11c345eeaa3d2f65d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a72182091721dd6a1104cb8e3495aee1a3b25eb8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867751"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439403"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Depolama'da statik Web sitesi barındırma
 Azure depolama ve GPv2 hesapları doğrudan adlı bir depolama kapsayıcısındaki statik içerik (HTML, CSS, JavaScript ve görüntü dosyaları) sunmak izin *$web*. Azure Depolama'da barındırma yararlanma dahil olmak üzere sunucusuz mimarileri kullanmanıza olanak verir [Azure işlevleri](/azure/azure-functions/functions-overview) ve diğer PaaS Hizmetleri.
@@ -46,6 +46,9 @@ https://contoso.z4.web.core.windows.net/image.png
 ```
 
 Bir dosya adı sağlanmazsa, seçilen varsayılan dosya adı, kök ve alt dizinleri kullanılır. Sunucu bir 404 döndürür ve bir hata belgesi yolu belirtmezseniz varsayılan 404 sayfa kullanıcıya döndürülür.
+
+> [!NOTE]
+> Dosyaları için varsayılan genel erişim düzeyi özel ' dir. Dosyaları anonim erişim istekleri aracılığıyla sunulan olduğundan, bu ayar yoksayılır. Tüm dosyalara genel erişimi yoktur ve RBAC izinlerinin göz ardı edilir.
 
 ## <a name="cdn-and-ssl-support"></a>CDN ve SSL desteği
 

@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: d861eba6ce905ccaf0d08a08cdd9998a199889da
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: c2a11422398b3cdb99c9f71accddfcd78237c64c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287535"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417913"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturmaC#
 
@@ -25,20 +25,19 @@ ms.locfileid: "58287535"
 > * [Python](create-cluster-database-python.md)
 >  
 
-
-Bu Hızlı Başlangıç'ı kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma işlemini açıklar C#.
+Azure Veri Gezgini uygulamalar, web siteleri, IoT cihazları ve daha fazlasından akışı yapılan büyük miktarda veri üzerinde gerçek zamanlı analiz yapmaya yönelik hızlı ve tam olarak yönetilen bir veri analizi hizmetidir. Azure veri gezginini kullanmak için ilk küme oluşturma ve bu kümede bir veya daha fazla veritabanı oluşturun. Ardından karşı sorgular çalıştırabileceği şekilde onlara bir veritabanına (yükle) veri alın. Bu hızlı başlangıçta, bir küme ve bir veritabanı kullanarak oluşturduğunuz C#.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
+* Visual Studio 2017 yoksa, indirip kullanabilirsiniz **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
 
-- Bu hızlı başlangıcı tamamlamak bir Azure aboneliğinizin olması gerekir. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+* Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/) oluşturun.
 
 ## <a name="install-c-nuget"></a>Yükleme C# nuget
 
-- Azure Veri Gezgini (Kusto) için nuget paketi gerekir, Nuget burada bulabilirsiniz: https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/
-- Kimlik doğrulaması için de Microsoft.IdentityModel.Clients.activedirectory nuget gerekir https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/
+1. Yükleme [Azure Veri Gezgini (Kusto) nuget paketi](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 
+1. Yükleme [Microsoft.IdentityModel.Clients.activedirectory nuget paketini](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) kimlik doğrulaması için.
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Azure Veri Gezgini kümesi oluşturma
 
@@ -72,10 +71,10 @@ Bu Hızlı Başlangıç'ı kullanarak bir Azure Veri Gezgini kümesi ile veritab
    | resourceGroupName | *testrg* | Kümenin oluşturulacağı kaynak grubu adı. |
 
     Küme kapasitesi gibi kullanabileceğiniz ek isteğe bağlı parametre yok.
-    
-    'Kimlik' için kimlik bilgilerinizi ayarlayın (daha fazla bilgi için https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet )
 
-2. Kümenizi başarıyla oluşturulup oluşturulmadığını kontrol etmek için aşağıdaki komutu çalıştırın:
+1. Ayarlama [kimlik bilgilerinizi](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
+
+1. Kümenizi başarıyla oluşturulup oluşturulmadığını kontrol etmek için aşağıdaki komutu çalıştırın:
 
     ```C#-interactive
     KustoManagementClient.Clusters.Get(resourceGroupName, clusterName);

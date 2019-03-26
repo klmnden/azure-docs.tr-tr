@@ -3,7 +3,7 @@ title: Azure Active Directory raporlarını kullanarak oturum açma hataları na
 description: Azure portalında Azure Active Directory raporlarını kullanarak oturum açma hatalarında sorun giderme hakkında bilgi edinin
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22126114f2d4fcb865485d9cebc69f0e35f70201
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 26a3594b00f19c2790e9dfd5f09fbdc7d73d478f
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198482"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434900"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Nasıl yapılır: Azure Active Directory raporlarını kullanarak oturum açma hatalarında sorun giderme
 
@@ -37,17 +37,17 @@ Ayrıca, oturum açma işlemleri raporu da kuruluşunuzdaki kullanıcılar için
 Gerekenler:
 
 * Azure AD kiracısı (ö1/ö2) premium lisansına sahip. Bkz: [Azure Active Directory Premium ile çalışmaya başlama](../fundamentals/active-directory-get-started-premium.md) , Azure Active Directory sürümünü yükseltmek için.
-* İçinde olan bir kullanıcı **genel yönetici**, **Güvenlik Yöneticisi**, **güvenlik okuyucusu** veya **rapor okuyucu** kiracının rol. Ayrıca, herhangi bir kullanıcı kendi oturum açma etkinliklerine erişebilir. 
+* İçinde olan bir kullanıcı **genel yönetici**, **Güvenlik Yöneticisi**, **güvenlik okuyucusu**, veya **rapor okuyucu** kiracının rol. Ayrıca, herhangi bir kullanıcı kendi oturum açma etkinliklerine erişebilir. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Oturum açma işlemleri raporu kullanarak oturum açma hatalarında sorun giderme
 
 1. Gidin [Azure portalında](https://portal.azure.com) ve dizininizi seçin.
 2. Seçin **Azure Active Directory** seçip **oturum açma işlemleri** gelen **izleme** bölümü. 
-3. Kullanıcı adı veya nesne tanımlayıcısı, uygulama adı veya tarih hatası daraltmak için sağlanan filtreleri kullanın. Ayrıca seçin **hatası** gelen **durumu** yalnızca başarısız oturum açma işlemlerini görüntülemek üzere açılır. 
+3. Kullanıcı adı veya nesne tanımlayıcısı, uygulama adı veya tarih hatası daraltmak için sağlanan filtreleri kullanın. Ayrıca, seçin **hatası** gelen **durumu** yalnızca başarısız oturum açma işlemlerini görüntülemek için açılan. 
 
     ![Sonuçları filtreleme](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
-4. Başarısız araştırmak ve seçmek için istediğiniz oturum belirleyin. Bu, başarısız oturum açma hakkında daha fazla bilgi içeren ek ayrıntıları penceresini açar. Not **oturum açma hata kodu** ve **hata nedeni**. 
+4. Başarısız araştırmak istediğiniz oturum belirleyin. Başarısız oturum açma hakkında daha fazla bilgi içeren ek ayrıntıları penceresini açmak için seçin. Not **oturum açma hata kodu** ve **hata nedeni**. 
 
     ![Kaydı seçin](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
         
@@ -55,7 +55,7 @@ Gerekenler:
 
     ![Sorun giderme ve destek](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
-6. Hatanın nedenini hata açıklar. Örneğin, yukarıdaki senaryoda başarısızlık nedeni **geçersiz kullanıcı adı veya parola ya da geçersiz şirket içi kullanıcı adı veya parola**. Bu, kullanıcı bir hatalı kullanıcı adı veya Azure portalında oturum açmak için parola girilen anlamına gelir. İçin yalnızca oturum açma doğru kullanıcı adı ve parola ile yeniden açıklanmıştır.
+6. Hatanın nedenini hata açıklar. Örneğin, yukarıdaki senaryoda başarısızlık nedeni **geçersiz kullanıcı adı veya parola ya da geçersiz şirket içi kullanıcı adı veya parola**. İçin yalnızca oturum açma doğru kullanıcı adı ve parola ile yeniden açıklanmıştır.
 
 7. Düzeltme için hata kodu için arama yaparak dahil olmak üzere ek bilgiler alabilirsiniz **50126** Bu örnekte, [oturum açma hata kodları başvurusu](reference-sign-ins-error-codes.md). 
 

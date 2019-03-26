@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 9a4c6b8046934159533755f048e1aa158e7e591e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 37fad0769753f462859809ff8600f5b15c7eaa1f
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011762"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437518"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET Web Uygulamanızı izlemeye başlama
 
@@ -101,6 +101,10 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 ```
 
 Daha fazla bilgi edinmek için [açık kaynak JavaScript SDK'sı](https://github.com/Microsoft/ApplicationInsights-JS) GitHub deposunu ziyaret edin.
+
+## <a name="video"></a>Video
+
+* İlgili dış adım adım video [sıfırdan bir .NET uygulaması ile Application Insights'ı yapılandırma](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu hızlı başlangıç bölümünde, Azure Application Insights tarafından izleme için uygulamanızı etkinleştirdiniz.  İstatistikleri izlemek ve uygulamanızdaki sorunları tespit etmek üzere nasıl kullanacağınızı öğrenmek için öğreticilere ilerleyin.

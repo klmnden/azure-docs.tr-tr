@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 9ba1b5a9b231822fd12d5a349e2518bc77669274
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 77cbc73c6c6aef40c482b0cfe456dcbd4b7e85d0
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351414"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435321"
 ---
 # <a name="dynamic-packaging"></a>Dinamik paketleme
 
@@ -30,32 +30,20 @@ Yararlanmak için **dinamik paketleme**, ihtiyacınız bir **varlık** Uyarlamal
 
 Bunu sonucunda, dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services hizmeti, istemciden gelen isteklere göre uygun yanıtı derler ve sunar. 
 
-Media Services'de, dinamik paketleme, Canlı veya isteğe bağlı Akış olup olmadığını kullanılır. Aşağıdaki diyagram, talep üzerine akış dinamik paketleme iş akışıyla gösterir.
-
-![Dinamik paketleme](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
-
-> [!NOTE]
-> Şu anda Azure portalında v3 kaynakları yönetmek için kullanamazsınız. Kullanım [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), veya desteklenen biri [SDK'ları](developers-guide.md).
-
-## <a name="delivery-protocols"></a>Teslim protokollerine
-
-|Protokol|Örnek|
-|---|---|
-|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
-|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
-|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
-|MPEG DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
-|MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
-|Kesintisiz Akış| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
+Media Services'de, dinamik paketleme, Canlı veya isteğe bağlı Akış olup olmadığını kullanılır. 
 
 ## <a name="common-on-demand-workflow"></a>İsteğe bağlı ortak iş akışı
 
 Dinamik paketleme kullanıldığı akış iş akışı ortak bir Media Services verilmiştir.
 
-1. (Bir ara dosyayı olarak adlandırılır) bir giriş dosyasını karşıya yükleyin. Örneğin, H.264, MP4 veya WMV (desteklenen biçimler listesi için bkz. [Media Encoder Standard tarafından desteklenen biçimleri](media-encoder-standard-formats.md).
+1. (Bir ara dosyayı olarak adlandırılır) bir giriş dosyasını karşıya yükleyin. Örneğin, MP4, MOV veya MXF (desteklenen biçimler listesi için bkz. [Media Encoder Standard tarafından desteklenen biçimleri](media-encoder-standard-formats.md).
 2. Mezzanine dosyanızı Uyarlamalı bit hızı kümelerine H.264 MP4 kodlayın.
 3. Hızı Uyarlamalı MP4 kümesine içeren varlığı yayımlayın. Yayımladığınız oluşturarak bir **akış Bulucu**.
 4. Farklı biçimlerde (HLS, Dash ve kesintisiz akış) hedef URL'leri oluşturun. **Akış uç noktası** hizmet istekleri için bu farklı biçimler ve doğru bildirimi ilgileniriz.
+
+Aşağıdaki diyagram, talep üzerine akış dinamik paketleme iş akışıyla gösterir.
+
+![Dinamik paketleme](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 ### <a name="encode-to-adaptive-bitrate-mp4s"></a>Uyarlamalı bit hızı MP4 için kodlama
 
@@ -87,13 +75,16 @@ Canlı akış ile dinamik paketleme iş akışı aşağıdaki diyagramda göster
 
 ![geçiş](./media/live-streaming/pass-through.svg)
 
-## <a name="dynamic-encryption"></a>Dinamik şifreleme
+## <a name="delivery-protocols"></a>Teslim protokollerine
 
-**Dinamik şifreleme** dinamik olarak Canlı veya isteğe bağlı içeriğinizi AES-128 veya üç ana dijital hak yönetimi (DRM) sistemlerinden şifrelemenizi sağlar: Microsoft PlayReady, Google Widevine ve FairPlay Apple. Media Services de AES anahtarları ve DRM sunmaya yönelik bir hizmet sağlar (PlayReady, Widevine ve FairPlay) lisansları yetkili istemcilere. Daha fazla bilgi için [dinamik şifreleme](content-protection-overview.md).
-
-## <a name="dynamic-manifest"></a>Dinamik bildirimi
-
-Dinamik filtreleme izler, biçimleri, bit hızlarına dönüştürme ve oyunculara gönderilen sunu zaman pencereleri sayısını denetlemek için kullanılır. Daha fazla bilgi için [filtreleri ve dinamik bildirimlere](filters-dynamic-manifest-overview.md).
+|Protokol|Örnek|
+|---|---|
+|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
+|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
+|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
+|MPEG DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
+|MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
+|Kesintisiz Akış| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>Dinamik paketleme tarafından desteklenen video codec bileşenleri
 
@@ -105,6 +96,10 @@ Dinamik paketleme ile kodlanmış bir ses içeren MP4 dosyalarını destekler [A
 
 > [!NOTE]
 > Dinamik paketleme içeren dosyaları desteklemez [Dolby dijital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) ses (eski codec olmadığı).
+
+## <a name="dynamic-encryption"></a>Dinamik şifreleme
+
+**Dinamik şifreleme** dinamik olarak Canlı veya isteğe bağlı içeriğinizi AES-128 veya üç ana dijital hak yönetimi (DRM) sistemlerinden şifrelemenizi sağlar: Microsoft PlayReady, Google Widevine ve FairPlay Apple. Media Services de AES anahtarları ve DRM sunmaya yönelik bir hizmet sağlar (PlayReady, Widevine ve FairPlay) lisansları yetkili istemcilere. Daha fazla bilgi için [dinamik şifreleme](content-protection-overview.md).
 
 ## <a name="manifests"></a>Bildirimler 
  
@@ -195,6 +190,14 @@ Kesintisiz akış bildirimin bir örnek aşağıda verilmiştir:
    </StreamIndex>
 </SmoothStreamingMedia>
 ```
+
+## <a name="dynamic-manifest"></a>Dinamik bildirimi
+
+Dinamik filtreleme izler, biçimleri, bit hızlarına dönüştürme ve oyunculara gönderilen sunu zaman pencereleri sayısını denetlemek için kullanılır. Daha fazla bilgi için [filtreleri ve dinamik bildirimlere](filters-dynamic-manifest-overview.md).
+
+> [!NOTE]
+> Şu anda Azure portalında v3 kaynakları yönetmek için kullanamazsınız. Kullanım [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), veya desteklenen biri [SDK'ları](developers-guide.md).
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Karşıya yükleme, kodlama, video akışı](stream-files-tutorial-with-api.md)

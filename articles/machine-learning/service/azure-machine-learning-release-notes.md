@@ -8,20 +8,27 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/11/2019
+ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2a2817501628d55d7ccc84979700ea53e4114eed
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6b9ab48ea971a5e7f5e9c72f9e729d2fcb5ed37f
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860644"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437875"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
 Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  Her bir SDK tam bir açıklaması için başvuru belgelerini ziyaret edin:
 + Azure Machine Learning'ın [ **Python için ana SDK'sı**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [ **veri hazırlama SDK'sı**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-03-25"></a>2019-03-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1021"></a>Azure Machine SDK için Python v1.0.21 Learning
+
++ **Yeni Özellikler**
+  + *Azureml.core.Run.create_children* yöntemi sağlayan birden çok alt düşük gecikme süreli oluşturulmasını tek bir çağrı ile çalışır.
 
 ## <a name="2019-03-11"></a>2019-03-11
 

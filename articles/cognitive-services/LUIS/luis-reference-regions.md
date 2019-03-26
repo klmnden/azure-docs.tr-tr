@@ -1,7 +1,7 @@
 ---
 title: Yayımlama bölgeleri & uç noktaları
 titleSuffix: Azure Cognitive Services
-description: LUIS uygulamanızı yayımladığınız bölge, bölge veya Azure portalında bir Azure LUIS uç noktası anahtarı oluştururken belirttiğiniz konuma karşılık gelir. LUIS, otomatik olarak bir uygulama yayımladığınızda, bir anahtar ile ilişkili bölge için uç nokta URL'si oluşturur.
+description: çok sayıda tüm yayımlama bölge 3 yazma bölgeleri ve bunların portalları destekler. LUIS uygulamanızı yayımladığınız bölge, bölge veya Azure portalında bir Azure LUIS uç noktası anahtarı oluştururken belirttiğiniz konuma karşılık gelir. LUIS, otomatik olarak bir uygulama yayımladığınızda, bir anahtar ile ilişkili bölge için uç nokta URL'si oluşturur.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,27 +9,33 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/25/2019
 ms.author: diberry
-ms.openlocfilehash: bbe46db1972951b466b431c9efc0420e15ff6dee
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 01444cec798763bc4e44bcabe0d7ebb640e537a8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765179"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436345"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Bölgeler ve ilişkili anahtarları yayımlama ve yazma
 
-LUIS uygulamanızı yayımladığınız bölge, bölge veya Azure portalında bir Azure LUIS uç noktası anahtarı oluştururken belirttiğiniz konuma karşılık gelir. Olduğunda, [uygulama yayımlama](./luis-how-to-publish-app.md), LUIS otomatik olarak bir anahtar ile ilişkili bölge için uç nokta URL'si oluşturur. Birden fazla bölgeye LUIS uygulaması yayımlamak için bölge başına en az bir anahtar gerekir. 
+Üç yazma bölgesine ve bunların portalları birçok tüm yayımlama bölgeleri destekler. LUIS uygulamanızı yayımladığınız bölge, bölge veya Azure portalında bir Azure LUIS uç noktası anahtarı oluştururken belirttiğiniz konuma karşılık gelir. Olduğunda, [uygulama yayımlama](./luis-how-to-publish-app.md), LUIS otomatik olarak bir anahtar ile ilişkili bölge için uç nokta URL'si oluşturur. Birden fazla bölgeye LUIS uygulaması yayımlamak için bölge başına en az bir anahtar gerekir. 
 
-## <a name="luis-website"></a>LUIS Web sitesi
+<a name="luis-website"></a>
+
+## <a name="luis-authoring-regions"></a>LUIS yazma bölgeleri
 Bölgeye göre üç LUIS Web siteleri, vardır. Yazar ve aynı bölgede yayımlama gerekir. 
 
-|LUIS|Bölge|
-|--|--|
-|[www.luis.ai][www.luis.ai]|ABD<br>Avrupa'değil<br>Avustralya'değil|
-|[AU.luis.ai][au.luis.ai]|Avustralya|
-|[EU.luis.ai][eu.luis.ai]|Avrupa|
+|LUIS|Genel bölge|Azure bölgesinde yazma|
+|--|--|--|
+|[www.luis.ai][www.luis.ai]|ABD<br>Avrupa'değil<br>Avustralya'değil| `westus`|
+|[AU.luis.ai][au.luis.ai]|Avustralya| `australiaeast`|
+|[EU.luis.ai][eu.luis.ai]|Avrupa|`westeurope`|
+
+Yazma bölgesi, farklı bir bölgede Azure yayımlama dağıtılan LUIS hizmetiyle etkileşim için kullanabilirsiniz.  
+
+Yazma bölgeleri sahip [eşleştirilmiş bölgeleri yük devretme](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 ## <a name="regions-and-azure-resources"></a>Bölgeler ve Azure kaynakları
 Uygulama LUIS Portalı'nda eklenen LUIS kaynaklarla ilişkili tüm bölgeler için yayımlanır. Örneğin, üzerinde oluşturulan bir uygulama için [www.luis.ai][www.luis.ai]LUIS kaynak oluşturma, **westus** ve uygulamaya bir kaynak olarak eklemek için uygulama o bölgenin yayımlanır. 

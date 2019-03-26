@@ -10,57 +10,43 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
-ms.openlocfilehash: 5d66dcaccc6ca2e40fbd516f535ec56c1baf6b17
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: e0f768b876b49ec006ce98decf121d73d334b6d8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195617"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439537"
 ---
 ### <a name="run-the-service"></a>Hizmeti çalıştırma
 
-1. Hizmeti çalıştırmak için F5'e basın (veya Terminal Penceresine `azds up` yazın). Hizmet otomatik olarak yeni seçilen alanınızda çalışır _dev/scott_. 
-1. Hizmetin kendi alanında çalıştırıldığını onaylamak için `azds list-up` komutunu yeniden çalıştırabilirsiniz. Bir örneğini göreceksiniz *mywebapi* şu anda çalışıyor _dev/scott_ alanı (çalışan sürümü _geliştirme_ hala çalışıyor, ancak bu listede değil).
+Hizmeti çalıştırmak için F5'e basın (ya da türü `azds up` Terminal penceresinde) hizmeti çalıştırmak için. Hizmet otomatik olarak yeni seçilen alanınızda çalışır _dev/scott_. Hizmetinizi kendi alanında çalıştırarak çalışır durumda olduğunu doğrulamak `azds list-up`:
 
-    ```
-    Name                      DevSpace  Type     Updated  Status
-    mywebapi                  scott     Service  3m ago   Running
-    mywebapi-bb4f4ddd8-sbfcs  scott     Pod      3m ago   Running
-    webfrontend               dev       Service  26m ago  Running
-    ```
+```cmd
+$ azds list-up
 
-1. Çalıştırma `azds list-uris`ve URL erişimi fark *webfrontend*.
-
-    ```
-    Uri                                                                        Status
-    -------------------------------------------------------------------------  ---------
-    http://localhost:53831 => mywebapi.scott:80                                Tunneled
-    http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
-    ```
-
-1. URL ile kullanmak *scott.s* önek uygulamanıza gidin. Bu URL güncelleştirilen bildirim hala çözümler. Bu URL için benzersiz _dev/scott_ alanı. Özel URL Hizmetleri'nde ilk yol "tan" URL'ye istekleri dener gösterir _dev/scott_ , başarısız olursa, ancak alanı, bunlar geri döner hizmetlere _geliştirme_ alanı.
-
-<!--
-TODO: replace 2 & 3 with below once bug#753164 and PR#158827 get pushed to production.
-
-You can confirm that your service is running in its own space by running `azds list-up` again. First, you'll notice an instance of *mywebapi* is now running in the _dev/scott_ space (the version running in _dev_ is still running but it is not listed). If you run `azds list-uris`, you will notice that the access point URL for *webfrontend* is prefixed with the text "scott.s.". This URL is unique to the _dev/scott_ space. The special URL signifies that requests sent to the "Scott URL" will try to first route to services in the _dev/scott_ space, but if that fails, they will fall back to services in the _dev_ space.
-
-```
 Name                      DevSpace  Type     Updated  Status
 mywebapi                  scott     Service  3m ago   Running
-mywebapi-bb4f4ddd8-sbfcs  scott     Pod      3m ago   Running
 webfrontend               dev       Service  26m ago  Running
 ```
 
-```
+Örneği fark *mywebapi* şu anda çalışıyor _dev/scott_ alanı. Çalıştırma sürümünü _geliştirme_ hala çalışıyor, ancak bu listede değil.
+
+Çalıştırarak geçerli alanı URL'leri listesi `azds list-uris`.
+
+```cmd
+$ azds list-uris
+
 Uri                                                                        Status
 -------------------------------------------------------------------------  ---------
 http://localhost:53831 => mywebapi.scott:80                                Tunneled
 http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
 ```
--->
 
-![](../articles/dev-spaces/media/common/space-routing.png)
+Genel erişim noktası URL'si fark *webfrontend* ile önek *scott.s*. Bu URL için benzersiz _dev/scott_ alanı. Bu URL ön eki istekleri için giriş denetleyicisini söyler _dev/scott_ hizmet sürümü. Geliştirme boşluklarla bu URL ile bir istek işlendiğinde, giriş denetleyicisine ilk isteği yönlendirmek çalıştığında *webfrontend* hizmeti _dev/scott_ alanı. İçin başarısız olursa, istek iletilir *webfrontend* hizmeti _geliştirme_ alan bir geri dönüş olarak. Ayrıca Kubernetes kullanarak localhost hizmete erişmek için localhost URL'ye fark *bağlantı noktası iletme* işlevselliği. URL'ler ve Azure Dev boşluk yönlendirme hakkında daha fazla bilgi için bkz. [nasıl Azure geliştirme alanları çalışır ve olan yapılandırılmış](../articles/dev-spaces/how-dev-spaces-works.md).
+
+
+
+![Alanı yönlendirme](../articles/dev-spaces/media/common/Space-Routing.png)
 
 Azure Dev Spaces’ın bu yerleşik özelliği, her geliştiricinin alanlarındaki hizmetlerin tam yığınını yeniden oluşturmasına gerek kalmadan kodu paylaşılan bir alanda test etmenize olanak sağlar. Bu yönlendirme, bu kılavuzun önceki adımında gösterildiği gibi uygulama kodunuzun yayma üst bilgilerini iletmesini gerektirir.
 

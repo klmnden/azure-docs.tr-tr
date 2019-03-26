@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6e502ed1e0865aca167915493eca400ce026f0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2fcb77fe257a1b99525d009a1756a473e7e61a5d
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096155"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438525"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Federasyon çoklu oturum açma galeri dışı bir uygulama için yapılandırma
 
@@ -140,7 +140,7 @@ Azure AD uygulama meta verileri veya sertifika indirmek için aşağıdaki adım
 
 8. Git **SAML imzalama sertifikası** bölümünde'a tıklayın **indirme** sütun değeri. Hangi uygulamanın çoklu oturum açmayı yapılandırma gerektirir bağlı olarak, meta veri XML yükleme seçeneği ya da sertifika bakın.
 
-Azure AD ayrıca meta verilerini almak için bir URL sağlar. Meta veri URL'si, uygulamaya özgü almak için bu deseni izler: https://login.microsoftonline.com/ <Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>.
+Azure AD ayrıca meta verilerini almak için bir URL sağlar. Meta veri URL'si, uygulamaya özgü almak için bu deseni izler: `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
 ## <a name="assign-users-to-the-application"></a>Uygulamaya kullanıcı atama
 

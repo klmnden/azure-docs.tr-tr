@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc27e5cd6af19f06a5eab73e30d3034fada0ccc2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a65af5a5ea0629b617c4e736d8c110cbb9aa540c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838400"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438310"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Kimlik eşitleme ve yinelenen öznitelik dayanıklılığı
 Yinelenen öznitelik dayanıklılığı kaynaklanan uyuşmazlıkları ortadan kaldıracak Azure Active Directory özelliğidir **UserPrincipalName** ve **ProxyAddress** Microsoft'un birini çalıştırırken çakışıyor Eşitleme araçları.
@@ -40,7 +40,7 @@ Bu benzersizlik kısıtlamasını ihlal ediyor UPN veya ProxyAddress değeri ile
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Yinelenen öznitelik dayanıklılığı ile davranışı
 Tamamen sağlama veya bir nesne ile yinelenen bir öznitelik güncelleştir başarısız yerine, Azure Active Directory "benzersizlik kısıtlamasını ihlal ediyor yinelenen özniteliği karantinaya". Bu öznitelik gerekliyse, UserPrincipalName gibi sağlamak için hizmeti bir yer tutucu değeri atar. Bu geçici değerleri biçimi  
-"***<OriginalPrefix>+ < 4DigitNumber >\@<InitialTenantDomain>. onmicrosoft.com***".  
+"***\<OriginalPrefix > +\<4DigitNumber >\@\<InitialTenantDomain >. onmicrosoft.com***".  
 Öznitelik gerekli değilse, ister bir **ProxyAddress**, Azure Active Directory yalnızca çakışma öznitelik karantinaya alır ve nesne oluşturma veya güncelleştirme ile devam eder.
 
 Öznitelik karantinaya üzerine çakışması hakkında bilgi eski davranışa kullanılan aynı hata raporu e-posta gönderilir. Karantina gerçekleştiğinde, ancak bu bilgileri, hata raporunda yalnızca bir kez görüntülenir. Bu gelecekteki e-postalarda günlüğe kaydedilecek devam etmez. Ayrıca, bu nesne için dışarı aktarma başarılı oldu eşitleme istemcisi bir hata günlüğe kaydetmez ve oluşturma yeniden denemez / güncelleştirme işlemi sırasında sonraki eşitleme döngüsü.
@@ -66,7 +66,7 @@ Bu özellik, kiracınız için etkin olup olmadığını denetlemek için Azure 
 > Artık, kiracınız için açık önce proaktif bir şekilde yinelenen öznitelik dayanıklılığı özelliğini etkinleştirmek için Set-MsolDirSyncFeature cmdlet'ini kullanabilirsiniz. Özelliği test etmek için yeni bir Azure Active Directory Kiracı oluşturmanız gerekir.
 
 ## <a name="identifying-objects-with-dirsyncprovisioningerrors"></a>DirSyncProvisioningErrors nesneleriyle tanımlama
-PowerShell Azure Active Directory ve Office 365 Yönetici portalı yinelenen özellik çakışmaları nedeniyle bu hataları olan nesneleri tanımlamak için şu anda iki yöntem vardır. Ek portal tabanlı gelecekte Raporlama ile genişletmek için bir plan yok.
+Şu anda bu hataları nedeniyle yinelenen özellik çakışmaları, Azure Active Directory PowerShell sahip nesneleri tanımlamak için iki yöntem vardır ve [Microsoft 365 Yönetim merkezini](https://admin.microsoft.com). Ek portal tabanlı gelecekte Raporlama ile genişletmek için bir plan yok.
 
 ### <a name="azure-active-directory-powershell"></a>Azure Active Directory PowerShell
 PowerShell cmdlet'leri için bu konudaki aşağıdaki geçerlidir:
@@ -113,17 +113,17 @@ Yapmak için bir geniş dize arama kullanın **- SearchString** bayrağı. Bu ba
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
 #### <a name="in-a-limited-quantity-or-all"></a>Sınırlı bir miktar veya tümü
-1. **Maxresults bağımsız değişkenini <Int>**  değerleri belirli sayıda sorguya sınırlamak için kullanılabilir.
+1. **Maxresults bağımsız değişkenini \<Int >** değerleri belirli sayıda sorguya sınırlamak için kullanılabilir.
 2. **Tüm** tüm sonuçları, çok sayıda hata var durumda alınır emin olmak için kullanılabilir.
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
 
-## <a name="office-365-admin-portal"></a>Office 365 Yönetici portalı
-Office 365 Yönetim merkezinde dizin eşitleme hataları görüntüleyebilirsiniz. Office 365 portalı raporda yalnızca görüntüler **kullanıcı** bu hataları olan nesne. Arasındaki çakışmalar hakkında bilgi göstermez **grupları** ve **kişiler**.
+## <a name="microsoft-365-admin-center"></a>Microsoft 365 Yönetim Merkezi
+Microsoft 365 Yönetim merkezinde dizin eşitleme hataları görüntüleyebilirsiniz. Raporda Microsoft 365 Yönetim Merkezi yalnızca görüntüler **kullanıcı** bu hataları olan nesne. Arasındaki çakışmalar hakkında bilgi göstermez **grupları** ve **kişiler**.
 
 ![Etkin kullanıcılar](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "etkin kullanıcılar")
 
-Office 365 Yönetim merkezinde dizin eşitleme hataları görüntülemek yönergeler için bkz: [Office 365'te dizin eşitleme hataları belirlemenize](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
+Microsoft 365 Yönetim merkezinde dizin eşitleme hataları görüntülemek yönergeler için bkz: [Office 365'te dizin eşitleme hataları belirlemenize](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
 ### <a name="identity-synchronization-error-report"></a>Kimlik eşitleme hata raporu
 Yinelenen öznitelik çakışma sahip bir nesne zaman işlenir davranışlarla teknik bildirim gönderilir standart kimlik eşitleme hata raporu e-postadaki bildirim dahil bu Kiracı için iletişime geçin. Ancak, bu davranışı önemli bir değişiklik yoktur. Çakışma çözümlendi kadar her sonraki hata raporu geçmişte, yinelenen öznitelik çakışma hakkında bilgi dahil edilir. Bu yeni davranış ile belirli bir çakışma hata bildirimine yalnızca bir kez - çakışan bir öznitelik karantinaya zaman gibi görünüyor.

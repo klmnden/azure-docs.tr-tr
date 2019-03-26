@@ -6,18 +6,18 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: a56f391aa76bd1216fd51d516adb836a2093bcba
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a39fa0949276b7e86c7fdd0d0861492a9a0b723e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371148"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438641"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Veri akışı havuz dönüştürme eşlemesi
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Havuz seçenekleri](media/data-flow/windows1.png "havuzu 1")
+![Havuz seçenekleri](media/data-flow/sink1.png "havuzu 1")
 
 Veri akışı dönüşümünüzü tamamlandığında, bir hedef veri kümesine dönüştürülmüş veri havuzu. Havuz dönüşümünde hedef çıktı verileri için kullanmak istediğiniz veri kümesi tanımı seçebilirsiniz. Veri akışınızı gerektirdiği sayıda havuz dönüştürme olabilir.
 

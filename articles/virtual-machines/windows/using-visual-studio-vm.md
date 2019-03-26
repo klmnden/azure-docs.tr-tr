@@ -13,15 +13,15 @@ ms.workload: azure-vs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 02/19/2019
+ms.date: 03/15/2019
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: b1b47b5353340da9c1d36d8d2035a6c9f5963d80
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3d269db8ada2b939f53f3efadc696941fd830d5d
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449708"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439371"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure'da Visual Studio görüntüleri
 Önceden yapılandırılmış Azure sanal makineler'de (VM) Visual Studio kullanarak herhangi bir şey bir yukarı ve çalışan geliştirme ortamına gitmek için hızlı ve kolay bir yoludur. Sistem görüntüleri farklı Visual Studio yapılandırmalarıyla kullanılabilir [Azure Marketi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=visual%20studio&page=1).
@@ -33,9 +33,9 @@ En son ana sürümleri, Visual Studio 2017 ve Visual Studio 2015 için görünt�
 
 | Yayın sürümü                                              | Sürümler                     |     Ürün sürümü      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|    Visual Studio 2019: Önizleme (Önizleme 3)                   |           Enterprise         | Önizleme sürümüne 16.0.0 3 |
-| Visual Studio 2017: En son (sürüm 15.9)                    |    Kurumsal ve topluluk     |      Sürüm 15.9.7      |
-|         Visual Studio 2017: RTW                              |    Kurumsal ve topluluk     |      Sürüm 15.0.20     |
+|     Visual Studio 2019: Önizleme (RC3)                        |           Enterprise         |    Sürüm 16.0.0 RC3    |
+| Visual Studio 2017: En son (sürüm 15.9)                    |    Kurumsal ve topluluk     |      Sürüm 15.9.9      |
+|         Visual Studio 2017: RTW                              |    Kurumsal ve topluluk     |      Sürüm 15.0.22     |
 |   Visual Studio 2015: En son (Aktualizace 3)                      |    Kurumsal ve topluluk     |  Sürüm 14.0.25431.01   |
 |         Visual Studio 2015: RTW                              |             None             | (Bakım için süresi doldu)  |
 

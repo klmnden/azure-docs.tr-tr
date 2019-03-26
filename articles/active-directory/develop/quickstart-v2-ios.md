@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9134f939e771f92453b184aad643d41089623e19
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 57aabb25b960c1135704c62c30b5724026078b08
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201475"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439271"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir iOS yerel uygulamadan Microsoft Graph API çağırma
 
@@ -44,7 +44,7 @@ Bu hızlı başlangıç, yerel bir iOS uygulaması ile kişisel, iş ve okul hes
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>1. Adım: Uygulamanızı yapılandırma
-> Bu hızlı başlangıçtaki kod örneğinin çalışması için `msal<AppId>://auth` (msal<AppId> uygulama kimliğidir) olarak bir yanıt URL’si eklemeniz gerekir.
+> Çalışmak bu hızlı başlangıç için kod örneği için bir yanıt URL'si olarak eklemek istediğiniz `msal<AppId>://auth` (burada msal\<AppID > Bu uygulama kimliği).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Bu değişikliği benim için yap]()
 >
@@ -168,7 +168,7 @@ applicationContext.acquireToken(forScopes: self.kScopes) { (result, error) in /*
 
 > |Konumlar:||
 > |---------|---------|
-> | `forScopes` | İstenilen kapsamları içerir (yani, [ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`)) |
+> | `forScopes` | İstenilen kapsamları içerir (yani Microsoft Graph için `[ "user.read" ]` veya özel Web API’leri için `[ "<Application ID URL>/scope" ]` (örn. `api://<Application ID>/access_as_user`)) |
 
 #### <a name="getting-an-access-token-silently"></a>Erişim belirtecini sessiz bir şekilde alma
 

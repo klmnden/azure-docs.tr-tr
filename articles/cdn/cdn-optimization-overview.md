@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 03/25/2019
 ms.author: magattus
-ms.openlocfilehash: 5be1835de2aa1631c4ec2115dd34ea85f0267403
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 954d19fb557540e4fdc6b17f313127e01eba97a7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870899"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435617"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Azure CDN, içerik teslim türü için en iyi duruma getirme
 
@@ -38,6 +38,8 @@ Bu makalede, en iyi duruma getirme özellikleri ve ne zaman kullanmanız gerekti
 
 * [Genel web teslimatı](#general-web-delivery). Bu iyileştirme, medya akışı için de kullanılır ve büyük dosya indirin.
 
+> [!NOTE]
+> Dinamik site hızlandırma Microsoft gelen aracılığıyla sunulanlar [Azure ön kapısı Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 **Azure CDN standart Verizon** ve **verizon'dan Azure CDN Premium** profilleri, aşağıdaki iyileştirmeleri destekler:
 
@@ -120,6 +122,9 @@ Büyük dosya iyileştirmesi hakkında daha fazla bilgi için bkz: [büyük dosy
 ### <a name="dynamic-site-acceleration"></a>Dinamik site hızlandırma
 
  Dinamik site Hızlandırma (DSA), kullanılabilir **akamai'den Azure CDN standart**, **verizon'dan Azure CDN standart**, ve **verizon'dan Azure CDN Premium** profilleri. Bu iyileştirme kullanmak için ek bir ücreti gerektirir; Daha fazla bilgi için [Content Delivery Network fiyatlandırması](https://azure.microsoft.com/pricing/details/cdn/).
+
+> [!NOTE]
+> Dinamik site hızlandırma Microsoft gelen aracılığıyla sunulur [Azure ön kapısı hizmet](https://docs.microsoft.com/azure/frontdoor/front-door-overview) genel olduğu [anycast](https://en.wikipedia.org/wiki/Anycast) yararlanarak uygulama iş yüklerinizi sunmak için Microsoft'un özel genel ağ hizmeti.
 
 DSA gecikme süresi ve dinamik içerik performansının yararlanan çeşitli teknikler içerir. Yolun ve ağın en iyi duruma getirme, TCP iyileştirme ve diğer teknikleri içerir. 
 
