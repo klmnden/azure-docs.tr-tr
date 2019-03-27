@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5fa553d63a33f06432d8ae3e5247d7eca0fde90a
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 00c8d7cefd7539cd53de8081f44fe861bd063bee
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351907"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487796"
 ---
 # <a name="data-management-gateway"></a>Veri Yönetimi Ağ Geçidi
 > [!NOTE]
@@ -283,12 +283,12 @@ Devre dışı bırak/otomatik güncelleştirme özelliği aşağıdaki adımlar�
 2. C:\Program Files\Microsoft tümleştirme Runtime\3.0\PowerShellScript\ klasöre geçin.
 3. Özellik (devre dışı bırakın) otomatik güncelleştirmesini etkinleştirmek için aşağıdaki komutu çalıştırın.
 
-    ```PowerShell
+    ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -off
     ```
 4. Yeniden açmak için:
 
-    ```PowerShell
+    ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on
     ```
    [Yüksek oranda kullanılabilir ve ölçeklenebilir çok düğümlü gateway için](data-factory-data-management-gateway-high-availability-scalability.md)
@@ -297,12 +297,12 @@ Devre dışı bırak/otomatik güncelleştirme özelliği aşağıdaki adımlar�
 3. Özellik (devre dışı bırakın) otomatik güncelleştirmesini etkinleştirmek için aşağıdaki komutu çalıştırın.
 
     Yüksek oranda kullanılabilirlik özelliği ile ağ geçidi için ek bir AuthKey param gereklidir.
-    ```PowerShell
+    ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -off -AuthKey <your auth key>
     ```
 4. Yeniden açmak için:
 
-    ```PowerShell
+    ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
@@ -485,12 +485,12 @@ Bu bölümde, oluşturma ve Azure PowerShell cmdlet'lerini kullanarak bir ağ ge
 1. Başlatma **Azure PowerShell** Yönetici modunda.
 2. Aşağıdaki komutu çalıştırarak ve Azure kimlik bilgilerinizi girerek Azure hesabınızda oturum açın.
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 3. Kullanım **yeni AzDataFactoryGateway** cmdlet'i gibi mantıksal bir ağ geçidi oluşturmak için:
 
-    ```PowerShell
+    ```powershell
     $MyDMG = New-AzDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
     ```
     **Örnek komut ve çıktı**:
@@ -513,7 +513,7 @@ Bu bölümde, oluşturma ve Azure PowerShell cmdlet'lerini kullanarak bir ağ ge
 
 1. Azure PowerShell'de klasöre geçin: **C:\\Program Files\Microsoft veri yönetimi Gateway\2.0\PowerShellScript\\**. Çalıştırma **RegisterGateway.ps1** yerel değişkeni ile ilişkili **$Key** aşağıdaki komutta gösterildiği gibi. Bu betik, daha önce oluşturduğunuz mantıksal ağ geçidi kurulu istemci Aracısı kaydeder.
 
-    ```PowerShell
+    ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
     ```
     ```
@@ -521,25 +521,25 @@ Bu bölümde, oluşturma ve Azure PowerShell cmdlet'lerini kullanarak bir ağ ge
     ```
     Ağ geçidini bir uzak makineye IsRegisterOnRemoteMachine parametresini kullanarak kaydedebilirsiniz. Örnek:
 
-    ```PowerShell
+    ```powershell
     .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
     ```
 2. Kullanabileceğiniz **Get-AzDataFactoryGateway** veri fabrikanızı ağ geçitleri listesini almak için cmdlet. Zaman **durumu** gösterir **çevrimiçi**, ağ geçidiniz hazır anlamına gelir.
 
-    ```PowerShell        
+    ```powershell        
     Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
    Bir ağ geçidi kullanarak kaldırabilirsiniz **Remove-AzDataFactoryGateway** kullanarak bir ağ geçidi için cmdlet ve güncelleştirme açıklaması **kümesi AzDataFactoryGateway** cmdlet'leri. Data Factory Cmdlet başvurusu söz dizimi ve bu cmdlet'ler hakkında diğer ayrıntılar için bkz.  
 
 ### <a name="list-gateways-using-powershell"></a>PowerShell kullanarak listesi ağ geçitleri
 
-```PowerShell
+```powershell
 Get-AzDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
 ```
 
 ### <a name="remove-gateway-using-powershell"></a>PowerShell kullanarak ağ geçidini kaldırma
 
-```PowerShell
+```powershell
 Remove-AzDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
 ```
 

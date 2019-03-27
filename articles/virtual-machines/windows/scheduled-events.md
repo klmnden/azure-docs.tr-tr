@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: c9bd14128a6874f06983aa99ebb5a8a9a85843a2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2ed92486b55aa4fd7dce32f54f0b6567c7bb3cf2
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550701"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486742"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure meta veri hizmeti: Windows Vm'leri için zamanlanmış olaylar
 
@@ -46,7 +46,9 @@ Zamanlanmış olaylar, uygulamanızın kullanarak bakım zaman ve ortaya etkisin
 
 Zamanlanmış olaylar, olayları aşağıdaki kullanım örnekleri sağlar:
 - Platform tarafından başlatılan Bakım (örneğin konak işletim sistemi güncelleştirmesi)
+- Düzeyi düşürülmüş donanım
 - Kullanıcı tarafından başlatılan Bakım (örneğin kullanıcı yeniden başlatır veya bir sanal makine yeniden dağıtır)
+- [Düşük öncelikli VM çıkarma](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets) içinde ölçek kümeleri
 
 ## <a name="the-basics"></a>Temel bilgileri  
 
@@ -55,15 +57,16 @@ Azure meta veri hizmeti REST uç noktasını VM içinden erişilebilir kullanara
 ### <a name="endpoint-discovery"></a>Uç nokta bulma
 Sanal ağ özellikli VM'ler için bir statik yönlendirilemeyen IP, meta veri hizmeti kullanılabilir `169.254.169.254`. Zamanlanmış olaylar en son sürümü için tam uç noktadır: 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01`
 
 Sanal makineyi bir sanal ağdaki bulut Hizmetleri ve klasik VM'ler için varsayılan durumlar oluşturulmazsa ek mantık kullanılacak IP adresini bulmak için gereklidir. Bilgi edinmek için bu örnek başvuru nasıl [konak son noktasını Bul](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="version-and-region-availability"></a>Sürümü ve bölge kullanılabilirliği
-Zamanlanmış olaylar tutulan hizmetidir. Sürümleri zorunludur ve geçerli sürümü `2017-08-01`.
+Zamanlanmış olaylar tutulan hizmetidir. Sürümleri zorunludur ve geçerli sürümü `2017-11-01`.
 
 | Sürüm | Yayın türü | Bölgeler | Sürüm Notları | 
 | - | - | - | - |
+| 2017-11-01 | Genel Erişilebilirlik | Tümü | <li> Düşük öncelikli VM çıkarma EventType 'Preempt' desteği eklendi<br> | 
 | 2017-08-01 | Genel Erişilebilirlik | Tümü | <li> Iaas Vm'leri için kaynak adları alt çizgi başına kaldırıldı<br><li>Tüm istekler için zorlanan meta veri üst bilgisi gereksinimi | 
 | 2017-03-01 | Önizleme | Tümü |<li>İlk yayın
 
@@ -90,7 +93,7 @@ Zamanlanmış olaylar için aşağıdaki çağrıyı yaparak sorgulayabilirsiniz
 
 #### <a name="powershell"></a>PowerShell
 ```
-curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01 -H @{"Metadata"="true"}
+curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01 -H @{"Metadata"="true"}
 ```
 
 Yanıt, zamanlanmış olaylar dizisini içerir. Boş bir dizi var. şu anda zamanlanmış bir olayı yok anlamına gelir.
@@ -101,7 +104,7 @@ Bu durumda Zamanlanmış olaylar olduğunda, bir dizi olay yanıtı içerir:
     "Events": [
         {
             "EventId": {eventID},
-            "EventType": "Reboot" | "Redeploy" | "Freeze",
+            "EventType": "Reboot" | "Redeploy" | "Freeze" | "Preempt",
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
@@ -116,7 +119,7 @@ DocumentIncarnation ETag ve olayları yükü son sorgu bu yana değişmişse inc
 |Özellik  |  Açıklama |
 | - | - |
 | EventID | Bu olay için genel benzersiz tanımlayıcı. <br><br> Örnek: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Bu olaya neden olan etkisi. <br><br> Değerler: <br><ul><li> `Freeze`: Sanal makine, birkaç saniye için duraklatır şekilde zamanlanır. CPU askıya alındı, ancak bellek, açık dosyalar ve ağ bağlantıları üzerinde etkisi yoktur. <li>`Reboot`: Sanal makine için yeniden başlatma zamanlanır (kalıcı olmayan bellek kaybolur). <li>`Redeploy`: Sanal makineyi başka bir düğüme taşımak üzere zamanlanmış (kısa ömürlü diskleri kaybolur). |
+| EventType | Bu olaya neden olan etkisi. <br><br> Değerler: <br><ul><li> `Freeze`: Sanal makine, birkaç saniye için duraklatır şekilde zamanlanır. CPU askıya alındı, ancak bellek, açık dosyalar ve ağ bağlantıları üzerinde etkisi yoktur. <li>`Reboot`: Sanal makine için yeniden başlatma zamanlanır (kalıcı olmayan bellek kaybolur). <li>`Redeploy`: Sanal makineyi başka bir düğüme taşımak üzere zamanlanmış (kısa ömürlü diskleri kaybolur). <li>`Preempt`: Düşük öncelikli sanal makine siliniyor (kısa ömürlü diskleri kaybolur).|
 | ResourceType | Bu olay etkiler kaynak türü. <br><br> Değerler: <ul><li>`VirtualMachine`|
 | Kaynaklar| Bu olay etkiler kaynakların listesi. Bu en çok bir makinelerden içeren garanti [güncelleme etki alanı](manage-availability.md), ancak UD içindeki tüm makineler içeremez. <br><br> Örnek: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Olay durumu | Bu olay durumu. <br><br> Değerler: <ul><li>`Scheduled`: Bu olay, belirtilen süre geçtikten sonra başlatmak için zamanlanmış `NotBefore` özelliği.<li>`Started`: Bu olayı başlatıldı.</ul> Hayır `Completed` veya benzer durum hiç olmadığı kadar sağlanır; olay tamamlandığında, artık olay döndürülür.
@@ -130,6 +133,7 @@ Her olay zamanlanmış bir minimum süre gelecekte olay türüne dayalı. Bu sü
 | Dondurma| 15 dakika |
 | Yeniden başlatma | 15 dakika |
 | Yeniden dağıtım | 10 dakika |
+| Etkisiz hale | 30 saniye |
 
 ### <a name="event-scope"></a>Olay kapsamı     
 Zamanlanmış olaylar teslim edilir:        
@@ -156,7 +160,7 @@ Beklenen json verilmiştir `POST` istek gövdesi. İstek bir listesini içermeli
 
 #### <a name="powershell"></a>PowerShell
 ```
-curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
+curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01
 ```
 
 > [!NOTE] 
@@ -167,7 +171,7 @@ curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": 
 
 Aşağıdaki örnek, zamanlanmış olaylar için meta veri hizmetini sorgular ve her bir bekleyen olay onaylar.
 
-```PowerShell
+```powershell
 # How to get scheduled events 
 function Get-ScheduledEvents($uri)
 {
@@ -202,7 +206,7 @@ function Handle-ScheduledEvents($scheduledEvents)
 
 # Set up the scheduled events URI for a VNET-enabled VM
 $localHostIP = "169.254.169.254"
-$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-08-01' -f $localHostIP 
+$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-11-01' -f $localHostIP 
 
 # Get events
 $scheduledEvents = Get-ScheduledEvents $scheduledEventURI

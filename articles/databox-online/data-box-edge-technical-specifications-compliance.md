@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ab3d3a13f8bfa69bd9e13dae344cfbcc3731cc77
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 52fb32a8b34c62fe94ab35e2c051d996ab8bef10
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402601"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449196"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure veri kutusu Edge Teknik Özellikler
 
@@ -57,9 +57,17 @@ Aşağıdaki tabloda milimetre ve inç muhafazada boyutlarını listeler.
 
 |     Kutu     |     Milimetre     |     İnç yükseklik     |
 |-------------------|---------------------|----------------|
-|    Yükseklik         |    304.8            |    12          |
-|    Genişlik          |    660.4            |    26          |
-|    Derinliği          |    1041.4           |    41          |
+|    Yükseklik         |    44.45            |    1.75"          |
+|    Genişlik          |    434.1           |    17.09"          |
+|    Uzunluk          |    740.4           |    29.15"          |
+
+Aşağıdaki tabloda milimetre ve inç sevkiyat pakette boyutlarını listeler.
+
+|     Paket     |     Milimetre     |     İnç yükseklik     |
+|-------------------|---------------------|----------------|
+|    Yükseklik         |    311.2            |    12.25"          |
+|    Genişlik          |    642.8          |    25.31"          |
+|    Uzunluk          |   1,051.1          |    41.38"          |
 
 ### <a name="enclosure-weight"></a>Kasa ağırlığı
 
@@ -67,8 +75,8 @@ Cihaz paketi 66 lbs hafiftir. ve bunu işlemek iki kişi gerektirir. Cihaz ağı
 
 |     Kutu                                 |     Ağırlık          |
 |-----------------------------------------------|---------------------|
-|    Pakete dahil olmak üzere toplam ağırlığı       |    66 lbs.          |
-|    Cihazın ağırlığı                       |    48.3 lbs.        |
+|    Pakete dahil olmak üzere toplam ağırlığı       |    61 lbs.          |
+|    Cihazın ağırlığı                       |    35 lbs.          |
 
 ## <a name="enclosure-environment-specifications"></a>Kutu ortamı özellikleri
 

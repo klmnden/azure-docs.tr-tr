@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: f1515af1ef61bc40ae91e3e5b43154f92bc89ae4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: f158e08f0f882801dc488721013e9705ea4ff738
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725381"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448306"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>HDInsight üzerinde WebHCat alınan hatalarını anlama ve çözme
 
@@ -29,7 +29,7 @@ WebHCat HDInsight ve bunların nasıl çözüleceğine kullanırken alınan hata
 > [!IMPORTANT]  
 > Bu belgede listelenen hataların bazıları, yapılandırılan en fazla aşıldığından oluşur. Bir değeri değiştirebilirsiniz. çözüm adım bahsetmeleri, aşağıdakilerden birini değişiklik yapmak için kullanmanız gerekir:
 
-* İçin **Windows** kümeleri: Küme oluşturma sırasında değerini yapılandırmak için betik eylemi kullanın. Daha fazla bilgi için [betik eylemleri geliştirme](hdinsight-hadoop-script-actions.md).
+* İçin **Windows** kümeleri: Küme oluşturma sırasında değerini yapılandırmak için betik eylemi kullanın. Daha fazla bilgi için [betik eylemleri geliştirme](hdinsight-hadoop-script-actions-linux.md).
 
 * İçin **Linux** kümeleri: Apache Ambari (web veya REST API) değerini değiştirmek için kullanın. Daha fazla bilgi için [Apache Ambari kullanarak HDInsight yönetme](hdinsight-hadoop-manage-ambari.md)
 
@@ -43,7 +43,7 @@ Aşağıdaki varsayılan değerler aşılırsa, WebHCat performansı düşebilir
 | Ayar | Ne yapar? | Varsayılan değer |
 | --- | --- | --- |
 | [yarn.scheduler.capacity.maximum-applications][maximum-applications] |Aynı anda etkin olabilen işlerin sayısı (Bekleyen veya çalışıyor) |10,000 |
-| [templeton.Exec.max yakalar][max-procs] |Aynı anda hizmet isteklerinin sayısı |20 |
+| [templeton.exec.max-procs][max-procs] |Aynı anda hizmet isteklerinin sayısı |20 |
 | [mapreduce.jobhistory.max-age-ms][max-age-ms] |İş geçmişini gün sayısını korunur |7 gün |
 
 ## <a name="too-many-requests"></a>Çok fazla istek var
@@ -70,7 +70,7 @@ Aşağıdaki varsayılan değerler aşılırsa, WebHCat performansı düşebilir
 | --- | --- |
 | İş ayrıntılarını iş geçmişine göre Temizleyicisi temizlendi |İş geçmişi için varsayılan saklama süresi 7 gündür. Varsayılan saklama süresi değiştirerek değiştirilebilir `mapreduce.jobhistory.max-age-ms`. Daha fazla bilgi için [değiştirme yapılandırma](#modifying-configuration) |
 | İş yük devretmesi nedeniyle sonlandırıldı |İş gönderme için iki dakikaya kadar yeniden dene |
-| Geçersiz iş kimliği kullanıldı |İş kimliğini doğru olup olmadığını denetleyin |
+| Geçersiz iş kimliği kullanıldı |İş Kimliğini doğru olup olmadığını denetleyin |
 
 ## <a name="bad-gateway"></a>Hatalı ağ geçidi
 
@@ -80,7 +80,7 @@ Aşağıdaki varsayılan değerler aşılırsa, WebHCat performansı düşebilir
 | --- | --- |
 | WebHCat işlem içinde iç atık toplama gerçekleşiyor |WebHCat hizmeti yeniden başlatın ya da son Çöp toplamayı beklemeniz |
 | Zaman aşımı ResourceManager hizmetinden gelen yanıt bekleniyor. Etkin uygulama sayısı yapılandırılan üst sınırı (varsayılan 10.000) olduğunda bu hata oluşabilir |Şu anda çalışan işi tamamlamak ya da değiştirerek eş zamanlı iş sınırını artırmak için bekleyin `yarn.scheduler.capacity.maximum-applications`. Daha fazla bilgi için [değiştirme yapılandırma](#modifying-configuration) bölümü. |
-| Tüm işleri aracılığıyla almaya çalışırken [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) çağrısı sırasında `Fields` ayarlanır `*` |Alamadı *tüm* iş ayrıntıları. Bunun yerine kullanın `jobid` yalnızca belirli iş kimliği büyük projeler için Ayrıntılar alınamadı. Ya da kullanmayın `Fields` |
+| Tüm işleri aracılığıyla almaya çalışırken [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) çağrısı sırasında `Fields` ayarlanır `*` |Alamadı *tüm* iş ayrıntıları. Bunun yerine kullanın `jobid` yalnızca belirli iş kimliği büyük iş ayrıntılarını almak için Ya da kullanmayın `Fields` |
 | Baş düğüm yük devretme sırasında WebHCat hizmeti çalışmıyor |İki dakika bekleyin ve işlemi yeniden deneyin |
 | WebHCat gönderilen 500'den fazla bekleyen iş yok |Daha fazla iş göndermeden önce şu anda bekleyen işler tamamlanana kadar bekleyin |
 

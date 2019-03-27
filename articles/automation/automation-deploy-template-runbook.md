@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: PowerShell, runbook, json, azure Otomasyonu
-ms.openlocfilehash: ef97d4e2fd0951e30a725e8f2f9603a73c61f1ca
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 2008ba697665baa0e8cf73564ec31d6267425404
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416131"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446962"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Azure Otomasyonu PowerShell runbook’unda Azure Resource Manager şablonu dağıtma
 
@@ -32,7 +32,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 * Azure aboneliği. Henüz yoksa, şunları yapabilirsiniz [MSDN abone Avantajlarınızı etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) veya [ücretsiz bir hesap için kaydolun](https://azure.microsoft.com/free/).
 * Runbook’u tutacak ve Azure kaynaklarında kimlik doğrulamasını yapacak bir [Automation hesabı](automation-sec-configure-azure-runas-account.md).  Bu hesabın sanal makineyi başlatma ve durdurma izni olmalıdır.
 * [Azure depolama hesabı](../storage/common/storage-create-storage-account.md) depolanacağı Resource Manager şablonu
-* Azure Powershell, yerel bir makinede yüklü. Bkz: [yüklemek ve Azure Powershell yapılandırma](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.1.0) Azure PowerShell edinme hakkında bilgi için.
+* Azure Powershell, yerel bir makinede yüklü. Bkz: [yüklemek ve Azure Powershell yapılandırma](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) Azure PowerShell edinme hakkında bilgi için.
 
 ## <a name="create-the-resource-manager-template"></a>Resource Manager şablonu oluşturma
 
@@ -203,7 +203,7 @@ Publish-AzureRmAutomationRunbook @publishParams
 
 ## <a name="start-the-runbook"></a>Runbook’u başlatma
 
-Şimdi biz çağırarak runbook'u başlatmak [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook?view=azurermps-4.1.0) cmdlet'i.
+Şimdi biz çağırarak runbook'u başlatmak [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet'i.
 
 Azure Portalı'nda bir runbook başlatma hakkında daha fazla bilgi için bkz: [Azure Automation'da bir runbook başlatma](automation-starting-a-runbook.md).
 

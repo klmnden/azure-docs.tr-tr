@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: cb68e93553be66d0d0be0edf61e491217bfe4d48
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 92c09e7defe159818b22bc8275d011d05512aa66
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091316"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446571"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>HDInsight, Apache Hadoop ile Apache Ambari Hive görünümünü kullanırsınız.
 
@@ -108,8 +108,6 @@ Tez kullanıcı Arabirimi için sorguyu görüntülemek için seçin **Tez** sek
 
 > [!IMPORTANT]  
 > Tez tüm sorguları çözümlemek için kullanılmaz. Çok sayıda sorgu Tez kullanmadan çözebilirsiniz. 
-
-Tez sorgusunu çözümlemek için kullanıldıysa, yönlendirilmiş Çevrimsiz graf (DAG) görüntülenir. Geçmişte çalıştırma sorgular için DAG görüntülemek istiyorsanız veya Tez işlemde hata ayıklamak isterseniz kullanın [Tez görünümü](../hdinsight-debug-ambari-tez-view.md) yerine.
 
 ## <a name="view-job-history"></a>İş geçmişini görüntüleme
 

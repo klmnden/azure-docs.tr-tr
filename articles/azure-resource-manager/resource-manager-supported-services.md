@@ -4,22 +4,20 @@ description: Resource Manager, kendi şemaları ve kullanılabilir API sürümle
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 3c7a6fe4-371a-40da-9ebe-b574f583305b
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: aa61b88bb0a944a048bc4b2db9c542efe3e30ddf
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 520aeb8e47b5e94e6346e682f21f46cb0814f8f3
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564128"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445452"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure kaynak sağlayıcıları ve türleri
 
@@ -32,9 +30,9 @@ Kaynakları dağıtılırken sık kaynak sağlayıcıları ve türleri hakkında
 * Bir kaynak türü için geçerli konumları
 * Bir kaynak türü için geçerli API sürümleri görüntüle
 
-Azure portalı, Azure PowerShell veya Azure CLI aracılığıyla aşağıdaki adımları gerçekleştirebilirsiniz.
+Bu adımları Azure portalı, Azure PowerShell veya Azure CLI aracılığıyla yapabilirsiniz.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
 Tüm kaynak sağlayıcıları ve aboneliğiniz için kayıt durumunu görmek için:
 
@@ -48,14 +46,14 @@ Tüm kaynak sağlayıcıları ve aboneliğiniz için kayıt durumunu görmek iç
 
     ![Kaynak sağlayıcıları göster](./media/resource-manager-supported-services/show-resource-providers.png)
 
-6. Bir kaynak sağlayıcısı kaydediliyor, aboneliğinizin kaynak sağlayıcısı ile çalışacak şekilde yapılandırır. Kayıt için kapsam her zaman aboneliktir. Varsayılan olarak, birçok kaynak sağlayıcısı otomatik olarak kaydedilir. Ancak, bazı kaynak sağlayıcıları elle kaydetmeniz gerekebilir. Bir kaynak sağlayıcısını kaydetmek için gerçekleştirmek için izne sahip `/register/action` işlem kaynak sağlayıcısı. Bu işlem, Katkıda Bulunan ve Sahip rolleriyle birlikte sunulur. Bir kaynak sağlayıcısını kaydetmek için seçin **kaydetme**. Önceki ekran görüntüsünde **kaydetme** bağlantısını için vurgulanır **Microsoft.Blueprint**.
+6. Bir kaynak sağlayıcısı kaydediliyor, aboneliğinizin kaynak sağlayıcısı ile çalışacak şekilde yapılandırır. Kayıt için kapsam her zaman aboneliktir. Varsayılan olarak, birçok kaynak sağlayıcısı otomatik olarak kaydedilir. Ancak, bazı kaynak sağlayıcıları elle kaydetmeniz gerekebilir. Bir kaynak sağlayıcısını kaydetmek için izniniz olmalıdır `/register/action` işlem kaynak sağlayıcısı. Bu işlem, Katkıda Bulunan ve Sahip rolleriyle birlikte sunulur. Bir kaynak sağlayıcısını kaydetmek için seçin **kaydetme**. Önceki ekran görüntüsünde **kaydetme** bağlantısını için vurgulanır **Microsoft.Blueprint**.
 
     Aboneliğinizde kaynak türleri, kaynak sağlayıcısından hala varsa, bir kaynak Sağlayıcısı kaydı silinemiyor.
 
 Belirli kaynak sağlayıcısı bilgileri görmek için:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Seçin **tüm hizmetleri**...
+2. **Tüm Hizmetler**’i seçin.
 
     ![Tüm hizmetleri seçin](./media/resource-manager-supported-services/more-services.png)
 
@@ -98,7 +96,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Bir kaynak sağlayıcısı kaydediliyor, aboneliğinizin kaynak sağlayıcısı ile çalışacak şekilde yapılandırır. Kayıt için kapsam her zaman aboneliktir. Varsayılan olarak, birçok kaynak sağlayıcısı otomatik olarak kaydedilir. Ancak, bazı kaynak sağlayıcıları elle kaydetmeniz gerekebilir. Bir kaynak sağlayıcısını kaydetmek için gerçekleştirmek için izne sahip `/register/action` işlem kaynak sağlayıcısı. Bu işlem, Katkıda Bulunan ve Sahip rolleriyle birlikte sunulur.
+Bir kaynak sağlayıcısı kaydediliyor, aboneliğinizin kaynak sağlayıcısı ile çalışacak şekilde yapılandırır. Kayıt için kapsam her zaman aboneliktir. Varsayılan olarak, birçok kaynak sağlayıcısı otomatik olarak kaydedilir. Ancak, bazı kaynak sağlayıcıları elle kaydetmeniz gerekebilir. Bir kaynak sağlayıcısını kaydetmek için izniniz olmalıdır `/register/action` işlem kaynak sağlayıcısı. Bu işlem, Katkıda Bulunan ve Sahip rolleriyle birlikte sunulur.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -203,7 +201,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Bir kaynak sağlayıcısı kaydediliyor, aboneliğinizin kaynak sağlayıcısı ile çalışacak şekilde yapılandırır. Kayıt için kapsam her zaman aboneliktir. Varsayılan olarak, birçok kaynak sağlayıcısı otomatik olarak kaydedilir. Ancak, bazı kaynak sağlayıcıları elle kaydetmeniz gerekebilir. Bir kaynak sağlayıcısını kaydetmek için gerçekleştirmek için izne sahip `/register/action` işlem kaynak sağlayıcısı. Bu işlem, Katkıda Bulunan ve Sahip rolleriyle birlikte sunulur.
+Bir kaynak sağlayıcısı kaydediliyor, aboneliğinizin kaynak sağlayıcısı ile çalışacak şekilde yapılandırır. Kayıt için kapsam her zaman aboneliktir. Varsayılan olarak, birçok kaynak sağlayıcısı otomatik olarak kaydedilir. Ancak, bazı kaynak sağlayıcıları elle kaydetmeniz gerekebilir. Bir kaynak sağlayıcısını kaydetmek için izniniz olmalıdır `/register/action` işlem kaynak sağlayıcısı. Bu işlem, Katkıda Bulunan ve Sahip rolleriyle birlikte sunulur.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch

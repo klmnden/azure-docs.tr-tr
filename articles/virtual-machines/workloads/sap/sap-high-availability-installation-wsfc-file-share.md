@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4f9628be1d1f1d146ed0dbc5ebd9579f0512aeac
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a0192b88525d326840283f79ecea7027516ce8c7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997367"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483447"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Azure üzerinde SAP ASCS/SCS örneği için bir Windows Yük devretme kümesi ve dosya paylaşım SAP NetWeaver-yüksek kullanılabilirlik yükleyin
 
@@ -253,7 +253,7 @@ SAPMNT dosya paylaşımını kaldırmak *hem* ASCS/SCS küme düğümleri.
 
 Aşağıdaki PowerShell betiğini çalıştırın:
 
-```PowerShell
+```powershell
 Remove-SmbShare sapmnt -ScopeName * -Force
  ```
 
@@ -261,7 +261,7 @@ SAPLOC paylaşımı mevcut değilse oluşturun *hem* ASCS/SCS küme düğümleri
 
 Aşağıdaki PowerShell betiğini çalıştırın:
 
-```PowerShell
+```powershell
 #Create SAPLOC share and set security
 $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
@@ -289,12 +289,12 @@ SOFS küme üzerinde aşağıdaki birim ve dosya paylaşımını oluşturun:
 Bir CSV birimi yansıtma dayanıklılığı ile oluşturmak için SOFS küme düğümlerinden biri üzerinde aşağıdaki PowerShell cmdlet'ini yürütün:
 
 
-```PowerShell
+```powershell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR1 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 SAPMNT oluşturup klasörü ve paylaşımı güvenlik için SOFS küme düğümlerinden biri üzerinde aşağıdaki PowerShell betiğini çalıştırın:
 
-```PowerShell
+```powershell
 # Create SAPMNT on file share
 $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
@@ -354,7 +354,7 @@ Aşağıdaki adımları uygulayın:
 
 SAP ASCS/SCS küme düğümlerinden biri üzerinde aşağıdaki PowerShell betiğini yürütün:
 
-```PowerShell
+```powershell
 # Grant <DOMAIN>\SAP_<SID>_GlobalAdmin group access to the cluster
 
 $SAPSID = "PR1"
@@ -419,7 +419,7 @@ Yeni SAP ASCS/SCS sanal ana bilgisayar adını kullanın ve SAP genel ana bilgis
 
 Kopyalama [ **SAPScripts.psm1** ] [ sap-powershell-scrips] C:\tmp yerel sürücü ve aşağıdaki PowerShell cmdlet'ini çalıştırın:
 
-```PowerShell
+```powershell
 Import-Module C:\tmp\SAPScripts.psm1
 
 Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
@@ -463,7 +463,7 @@ Daha fazla bilgi için [SAP notu 1596496 - SAP kaynak türü'nı DLL'ler Küme K
 
 SAP oluşturmak için \<SID > Küme grubu, bir ASCS/SCS ağ adı ve karşılık gelen bir IP adresi, aşağıdaki PowerShell cmdlet'ini çalıştırın:
 
-```PowerShell
+```powershell
 # Create SAP Cluster Group
 $SAPSID = "PR1"
 $SAPClusterGroupName = "SAP $SAPSID"
@@ -533,7 +533,7 @@ SAP SAP kaynakların oluşturma işlemini sonlandırmak için\<SID > Küme grubu
 
 Aşağıdaki PowerShell cmdlet'ini çalıştırın:
 
-```PowerShell
+```powershell
 $SAPSID = "PR1"
 $SAPInstanceNumber = "00"
 $SAPNetworkNameClusterResourceName = "pr1-ascs"

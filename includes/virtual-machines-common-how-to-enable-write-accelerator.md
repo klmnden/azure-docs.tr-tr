@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/22/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 44533bc6ed0656be387fa76c0e975046ad7f79ab
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 72d9ec52732a78e39f6481e2cb2d40f17f86f028
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741446"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58495150"
 ---
 # <a name="enable-write-accelerator"></a>Yazma hızlandırıcıyı etkinleştirme
 
@@ -96,7 +96,7 @@ $True veya $false diskleri Azure yazma Hızlandırıcı desteğiyle denetlemek i
 
 Komutları örnekleri gibi görünebilir:
 
-```PowerShell
+```powershell
 New-AzVMConfig | Set-AzVMOsDisk | Add-AzVMDataDisk -Name "datadisk1" | Add-AzVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVM
 
 Get-AzVM | Update-AzVM -OsDiskWriteAccelerator $true
@@ -114,7 +114,7 @@ Bu betik, VM'nize yeni bir disk eklemek için kullanabilirsiniz. Bu betik ile ol
 
 Değiştirin `myVM`, `myWAVMs`, `log001`, disk ve diskin belirli bir dağıtım için uygun değerlerle Lunıd boyut.
 
-```PowerShell
+```powershell
 # Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group
@@ -137,7 +137,7 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 Bu betik, mevcut bir diske yazma Hızlandırıcı etkinleştirmek için kullanabilirsiniz. Değiştirin `myVM`, `myWAVMs`, ve `test-log001` belirli bir dağıtım için uygun değerlerle. Betik yazma Hızlandırıcı için var olan bir diski ekler. burada değeri **$newstatus** '$true' olarak ayarlayın. ' % S'değeri '$false' kullanarak yazma Hızlandırıcı üzerinde belirli bir disk devre dışı bırakır.
 
-```PowerShell
+```powershell
 #Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group

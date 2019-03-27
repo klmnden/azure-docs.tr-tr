@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: b7cc47c449b91693831dda74bf987f595fe65681
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 646b862733e8727c9c8729f1ac038fa88cfa0580
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997886"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443178"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>StorSimple cihazları yönetmek için Azure Resource Manager SDK tabanlı betik kullanma
 
@@ -62,10 +62,10 @@ Bu bölümde, bir örnek betiği alır ve betiği çalıştırmak için gereken 
 Başlamadan önce şunları yapın:
 
 *   Azure PowerShell yüklü. Azure PowerShell modüllerini yüklemek için:
-    * Bir Windows ortamında adımları [yüklemek ve Azure PowerShell yapılandırma](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0). Azure PowerShell, Windows Server konağında StorSimple'ınızı birini kullanıyorsanız yükleyebilirsiniz.
-    * Bir Linux veya Macos'ta ortamında adımları [yüklemek ve Azure PowerShell'i MacOS veya Linux'ta yapılandırma](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux?view=azurermps-4.4.0).
+    * Bir Windows ortamında adımları [yüklemek ve Azure PowerShell yapılandırma](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Azure PowerShell, Windows Server konağında StorSimple'ınızı birini kullanıyorsanız yükleyebilirsiniz.
+    * Bir Linux veya Macos'ta ortamında adımları [yüklemek ve Azure PowerShell'i MacOS veya Linux'ta yapılandırma](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux).
 
-Azure PowerShell kullanma hakkında daha fazla bilgi için Git [kullanarak Azure PowerShell ile çalışmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
+Azure PowerShell kullanma hakkında daha fazla bilgi için Git [kullanarak Azure PowerShell ile çalışmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ### <a name="run-azure-powershell-script"></a>Azure PowerShell Betiği çalıştırma
 

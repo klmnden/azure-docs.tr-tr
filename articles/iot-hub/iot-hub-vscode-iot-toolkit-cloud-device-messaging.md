@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 0455dafaa39f9f6bc19399fab31663d6b2e06e95
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: dd56db628dd8a25ab2664f8f1c16b8ac45996549
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726355"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443567"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>IOT Hub ve cihaz arasında ileti göndermek ve almak için Visual Studio Code için Azure IOT araçları kullanın
 
@@ -39,7 +39,7 @@ CİHAZDAN buluta iletileri izlemeye yönelik ve bulut-cihaz iletilerini gönderm
 - Etkin bir Azure aboneliği.
 - Azure IOT hub, aboneliğiniz altında.
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [VS Code için Azure IOT araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+- [VS Code için Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) veya [Visual Studio Code'da bu bağlantının açılabilmesi](vscode:extension/vsciot-vscode.azure-iot-tools).
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>IOT hub'ınıza erişmek için oturum açın
 

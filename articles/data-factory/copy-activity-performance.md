@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 835ba407fb72a8cb512425e59cf56ba1a1cc8a4b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 47b9ede2d529f78b14c21f53c6cd18ed691a3df3
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301280"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445838"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Etkinlik performansı ve ayarlama Kılavuzu kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -134,7 +134,7 @@ Her kopya etkinlik çalıştırma için Data Factory veri depolamak ve için hed
 | Herhangi bir kaynak veri deposundan Azure tablo depolama alanına veri kopyalama |4 |
 | Tüm diğer kopyalama senaryolarında |1 |
 
-[!TIP]
+> [!TIP]
 > Dosya tabanlı depoları arasında veri kopyalama işlemi sırasında varsayılan davranışı (otomatik olarak belirlenir) genellikle size en iyi aktarım hızı. 
 
 Verilerinizi barındıran makinelerin yükünü denetlemek için depolar veya kopyalama performansı ayarlamak için varsayılan değeri geçersiz kılmak ve için bir değer belirtmek seçebilirsiniz **parallelCopies** özelliği. Büyük veya 1'e eşit bir tamsayı değeri olmalıdır. Çalışma zamanında, en iyi performans için ayarladığınız değerine eşit veya daha az olan bir değer kopyalama etkinliği kullanır.

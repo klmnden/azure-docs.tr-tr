@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: 9929b09280cea56a5fadcd4d0d9aba5b851f326e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f7d1c5bc54d909d1a948123839d95e1ee1158a5c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544053"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444830"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Otomatik ölçeklendirme ve bölgesel olarak yedekli bir uygulama ağ geçidi (genel Önizleme)
 
@@ -29,6 +29,29 @@ Uygulama ağ geçidi ve Web uygulaması Güvenlik Duvarı (WAF) artık performan
 > Otomatik ölçeklendirme yapan ve alanlar arası yedekli uygulama ağ geçidi SKU'su şu anda genel önizleme aşamasındadır. Bu önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
+
+## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>SKU v1 ve v2 SKU arasında özellik karşılaştırması
+
+Aşağıdaki tabloda her SKU ile sunulan özellikler karşılaştırılmaktadır.
+
+|                                                   | v1 SKU   | v2 SKU   |
+| ------------------------------------------------- | -------- | -------- |
+| Otomatik ölçeklendirme                                       |          | &#x2713; |
+| Bölge artıklığı                                   |          | &#x2713; |
+| &nbsp;Statik VIP&nbsp;&nbsp;                      |          | &#x2713; |
+| URL tabanlı yönlendirme                                 | &#x2713; | &#x2713; |
+| Birden çok site barındırma                             | &#x2713; | &#x2713; |
+| Trafik yeniden yönlendirmesi                               | &#x2713; | &#x2713; |
+| Web uygulaması güvenlik duvarı (WAF)                    | &#x2713; | &#x2713; |
+| Güvenli Yuva Katmanı (SSL) sonlandırma            | &#x2713; | &#x2713; |
+| Uçtan uca SSL şifrelemesi                         | &#x2713; | &#x2713; |
+| Oturum benzeşimi                                  | &#x2713; | &#x2713; |
+| Özel hata sayfaları                                | &#x2713; | &#x2713; |
+| HTTP (S) üst bilgileri yeniden yazma                           |          | &#x2713; |
+| WebSocket desteği                                 | &#x2713; | &#x2713; |
+| HTTP/2 desteği                                    | &#x2713; | &#x2713; |
+| Bağlantı boşaltma                               | &#x2713; | &#x2713; |
+| Azure Kubernetes Service (AKS) giriş denetleyicisine |          | &#x2713; |
 
 ## <a name="supported-regions"></a>Desteklenen bölgeler
 
@@ -48,7 +71,7 @@ Otomatik ölçeklendirme SKU aşağıdaki bölgelerde kullanılabilir: Kuzey Ort
 |Gelen bağlantı noktası aralığı için NSG| -65200 ila 65535 Standard_v2 için SKU<br>-65503 için 65534 standart SKU için.<br>Daha fazla bilgi için [SSS](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Azure Tanılama'da Performans Günlükleri|Desteklenmiyor.<br>Azure ölçümleri kullanılmalıdır.|
 |Faturalandırma|Şu anda hiçbir ödeme yoktur.|
-|FIPS modundayken, WebSocket|Bunlar şu anda desteklenmemektedir.|
+|FIPS modundayken|Bunlar şu anda desteklenmemektedir.|
 |ILB yalnızca modu|Bu şu anda desteklenmiyor. Genel ve ILB modu birlikte desteklenir.|
 |Netwatcher tümleştirme|Genel Önizleme sürümünde desteklenmiyor.|
 

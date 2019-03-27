@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ff543b7275ab05a83b1be1d156cbc6059a3b5430
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 08fdc20df70e4a97dd0cb99468354ef2b5c51f2b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369906"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447030"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Erişim için Azure BLOB'ları ve kuyrukları Azure Active Directory'yi kullanarak kimlik doğrulaması
 
@@ -22,8 +22,6 @@ Azure depolama, Blob ve kuyruk hizmetlerine kimlik doğrulaması ve yetkilendirm
 Kullanıcılar veya uygulamalar Azure AD kimlik bilgilerini kullanarak kimlik doğrulaması yetkilendirme başka bir yolla üstün güvenlik ve kullanım kolaylığı sağlar. Paylaşılan anahtar yetkilendirme uygulamalarınızı kullanmaya devam ederken, Azure AD kullanarak kodunuzu ile hesap erişim anahtarını depolamak için gereken bozar. Depolama hesabınızdaki kaynaklara ayrıntılı erişim vermek için paylaşılan erişim imzaları (SAS) kullanmaya devam edebilirsiniz, ancak Azure AD'ye SAS belirteçlerini yönetin veya güvenliği aşılmış bir SAS iptal etme hakkında endişelenmenize gerek kalmadan benzer özellikleri sunar. Microsoft Azure depolama uygulamalarınız için mümkün olduğunda Azure AD kimlik doğrulaması kullanmanızı önerir.
 
 Kimlik doğrulaması ve Azure AD kimlik bilgileriyle yetkilendirme tüm genel amaçlı v2, genel amaçlı v1 ve Blob Depolama hesapları tüm ortak bölgelerde kullanılabilir. Depolama hesapları yalnızca Azure Resource Manager dağıtım modeli desteği ile Azure AD yetkilendirme oluşturuldu.
-
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>BLOB'lar ve Kuyruklar için Azure AD genel bakış
 
@@ -41,7 +39,11 @@ Bir RBAC rolü için bir Azure AD güvenlik sorumlusu atandığında, Azure veri
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-Azure portalında yerleşik bir rol atama hakkında bilgi edinmek için [Azure kapsayıcıları ve Azure portalında RBAC ile kuyruk için erişim verin](storage-auth-aad-rbac.md).
+Azure Storage kaynakları için yerleşik bir RBAC atayacağınızı öğrenmek için aşağıdaki konulardan birine bakın:
+
+- [Azure blob ve kuyruk verilere RBAC ile Azure portalında erişim izni ver](storage-auth-aad-rbac-portal.md)
+- [Azure CLI kullanarak RBAC ile Azure blob ve kuyruk verilere erişim izni ver](storage-auth-aad-rbac-cli.md)
+- [PowerShell ile RBAC ile Azure blob ve kuyruk verilere erişim izni ver](storage-auth-aad-rbac-powershell.md)
 
 ### <a name="access-permissions-granted-by-rbac-roles"></a>RBAC rolleri tarafından verilen erişim izinleri 
 
@@ -49,7 +51,6 @@ Azure depolama işlemleri çağırmak için gereken izinler hakkında daha fazla
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure kapsayıcıları ve Azure portalında RBAC ile kuyruk için erişim izni ver](storage-auth-aad-rbac.md)
 - [Bloblara ve kuyruklara erişmek için bir uygulamadan Azure Active Directory ile kimlik doğrulaması yapma](storage-auth-aad-app.md)
 - [Azure kaynakları için BLOB'ları ve kuyrukları yönetilen kimliklerle erişimi kimlik doğrulaması](storage-auth-aad-msi.md)
-- [CLI veya PowerShell ile Azure depolamaya erişmek için bir Azure AD kimliğini kullanın.](storage-auth-aad-script.md)
+- Azure dosyaları SMB üzerinden Azure AD ile kimlik doğrulaması etki alanına katılmış sanal makineleri için yalnızca (Önizleme) destekler. Azure dosyaları için SMB üzerinden Azure AD kullanma hakkında bilgi edinmek için [genel bakış, Azure Active Directory kimlik doğrulaması SMB üzerinden Azure dosyaları (Önizleme)](../files/storage-files-active-directory-overview.md).

@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: richrund
-ms.openlocfilehash: 1cfb4850c35806d702f76f4006ad46ad43d6bcf0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 956c6c7c17812996853f35440c60251aa5a91057
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076420"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482116"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>PowerShell kullanarak Log Analytics’i yönetme
 
@@ -58,7 +58,7 @@ Aşağıdaki betik örneğinde gösterilmiştir nasıl yapılır:
 11. Windows bilgisayarlardan bellek kullanılabilir MBayt performans sayacı Topla
 12. Özel günlük toplama
 
-```PowerShell
+```powershell
 
 $ResourceGroup = "oms-example"
 $WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique - Get-Random helps with this for the example code
@@ -180,7 +180,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 Yukarıdaki örnekte regexDelimiter olarak tanımlanan "\\n" için yeni satır. Günlük sınırlayıcı bir zaman damgası da olabilir.  Desteklenen biçimler şunlardır:
 
-| Biçim | JSON normal ifade biçimi kullanan iki \\ için her \ standart bir normal ifade, bunu bir normal ifade uygulamasında test azaltılırsa \\ için \ | | |
+| Biçimlendir | JSON normal ifade biçimi kullanan iki \\ için her \ standart bir normal ifade, bunu bir normal ifade uygulamasında test azaltılırsa \\ için \ | | |
 | --- | --- | --- | --- |
 | `YYYY-MM-DD HH:MM:SS` | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 | `M/D/YYYY HH:MM:SS AM/PM` | `(([0-1]\\\\d)\|[0-9])/(([0-3]\\\\d)\|(\\\\d))/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\\\s(AM\|PM\|am\|pm)` | | |
@@ -222,7 +222,7 @@ Kullanılabilir ölçümler ayrıntılarını başvurmak [ölçümleri Azure İz
 
 Kullanılabilir günlükleri ayrıntılarını başvurmak [desteklenen Hizmetleri ve şema için tanılama günlüklerini](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
-```PowerShell
+```powershell
 $workspaceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
 $resourceId = "/SUBSCRIPTIONS/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO"
@@ -246,7 +246,7 @@ Aşağıdaki örnekte gösterildiği nasıl yapılır:
 3. Yeni oluşturulan yapılandırma veri dizini oluşturmak için ek konumlardan güncelleştirin.
 4. Yeni oluşturulan yapılandırmasını Sil
 
-```PowerShell
+```powershell
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable"
 $workspace = (Get-AzOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 

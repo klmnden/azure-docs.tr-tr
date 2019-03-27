@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8f333b626fa51fa60f80350547ee53f346d6cc3a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ea0094624727ca1395a1276e7968ac1c74b750e7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436776"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486980"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Oluşturabilir, izleyebilir ve Azure Data Factory .NET SDK kullanarak Azure data factory'leri yönetme
 > [!NOTE]
@@ -44,17 +44,17 @@ Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sor
 1. **PowerShell**’i başlatın.
 2. Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 3. Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın.
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription
     ```
 4. Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **&lt;NameOfAzureSubscription**&gt; değerini Azure aboneliğinizin adıyla değiştirin.
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 
@@ -63,7 +63,7 @@ Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sor
 
 5. PowerShell’de aşağıdaki komutu çalıştırarak **ADFTutorialResourceGroup** adlı bir Azure kaynak grubu oluşturun.
 
-    ```PowerShell
+    ```powershell
     New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
@@ -72,28 +72,28 @@ Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sor
     Farklı bir kaynak grubu kullanıyorsanız, bu öğreticide kullanılan ADFTutorialResourceGroup yerine kaynak grubunuzun adını kullanmanız gerekir.
 6. Bir Azure Active Directory uygulaması oluşturun.
 
-    ```PowerShell
+    ```powershell
     $azureAdApplication = New-AzADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
     ```
 
     Aşağıdaki hatayı alırsanız farklı bir URL belirtip komutu yeniden çalıştırın.
     
-    ```PowerShell
+    ```powershell
     Another object with the same value for property identifierUris already exists.
     ```
 7. AD hizmet sorumlusunu oluşturun.
 
-    ```PowerShell
+    ```powershell
     New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
 8. Hizmet sorumlusunu **Data Factory Katılımcısı** rolüne ekleyin.
 
-    ```PowerShell
+    ```powershell
     New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
 9. Uygulama kimliğini alın.
 
-    ```PowerShell
+    ```powershell
     $azureAdApplication 
     ```
     Çıktıdaki uygulama kimliğini (applicationID) not alın.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: c7fa81f6d23962eedb3dfeafdd397b62a83d130e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 4c66f35537cff87eb53a6cfe9bc0389f038f1a10
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372684"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449768"
 ---
 Azure depolama verilerine erişim için aşağıdaki yerleşik RBAC rolleri sağlar:
 
@@ -24,5 +24,8 @@ Azure depolama verilerine erişim için aşağıdaki yerleşik RBAC rolleri sağ
 - [Depolama kuyruk verileri okuyucu](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader-preview): Azure kuyrukları salt okunur izinler vermek için kullanın.
 - [Depolama kuyruk verileri ileti İşlemci](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor-preview): Grant gözlem, alma ve silme izinlerine Azure depolama kuyruklarına iletileri kullanın.
 - [Depolama kuyruk verileri ileti gönderen](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender-preview): Vermek Azure depolama kuyruklarına iletilerinde izinleri ekleyin.
+
+> [!IMPORTANT]
+> RBAC rolü atamalarını yayılması için beş dakika sürebilir.
 
 Hakkında daha fazla bilgi için Azure depolama için yerleşik roller tanımlanır, bkz: [rol tanımlarını anlamak](../articles/role-based-access-control/role-definitions.md#management-and-data-operations-preview). Özel bir RBAC rollerini oluşturma hakkında daha fazla bilgi için bkz: [Azure rol tabanlı erişim denetimi için özel roller oluşturma](../articles/role-based-access-control/custom-roles.md). 

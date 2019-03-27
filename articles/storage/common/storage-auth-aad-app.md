@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a313061f89d33ee2bf5379dbd37495db06b64440
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 8fdc4445e28a420b6b4f7935443d7d991d9e8a4d
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369522"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446072"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>BLOB'lar ve Kuyruklar için erişim için bir uygulamadan Azure Active Directory kimlik doğrulaması
 
@@ -21,11 +21,11 @@ Azure depolama ile Azure Active Directory (Azure AD) kullanarak önemli bir avan
 
 Bu makalede, Azure AD ile kimlik doğrulaması için uygulamanızı yapılandırma gösterilmektedir. Kod örneği özellikleri .NET, ancak diğer diller benzer bir yaklaşım kullanın.
 
-Azure Storage uygulamanızı bir güvenlik sorumlusunun kimlik doğrulama gerçekleştirmeden önce güvenlik sorumlusunu için rol tabanlı erişim denetimi (RBAC) ayarlarını yapılandırın. Azure depolama kapsayıcıları ve Kuyruklar için izinleri kapsayacak RBAC rolleri tanımlar. Bu güvenlik sorumlusu, RBAC rolü için bir güvenlik sorumlusu atandığında, bu kaynağa erişim izni verilir. Daha fazla bilgi için [RBAC ile depolama verilere erişim haklarını yönetme](storage-auth-aad-rbac.md).
+Azure Storage uygulamanızı bir güvenlik sorumlusu kimliğini önce güvenlik sorumlusunu için rol tabanlı erişim denetimi (RBAC) ayarlarını yapılandırın. Azure depolama kapsayıcıları ve Kuyruklar için izinleri kapsayacak RBAC rolleri tanımlar. Bu güvenlik sorumlusu, RBAC rolü için bir güvenlik sorumlusu atandığında, bu kaynağa erişim izni verilir. Daha fazla bilgi için [RBAC ile depolama verilere erişim haklarını yönetme](storage-auth-aad-rbac.md).
 
 OAuth 2.0 kodu verme akışı genel bakış için bkz: [Authorize OAuth 2.0 kod kullanarak Azure Active Directory web uygulamalarına erişim akışı](../../active-directory/develop/v1-protocols-oauth-code.md).
 
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
+Bir OAuth belirteci ile BLOB ve kuyruk işlemlerini yetkilendirmek için HTTPS kullanmalıdır.
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Bir Azure AD güvenlik sorumlusu için bir RBAC rolü atayın
 
@@ -157,7 +157,7 @@ static string GetUserOAuthToken()
 
 ### <a name="create-the-block-blob"></a>Blok blobu oluştur
 
-Son olarak, yeni depolama kimlik bilgileri oluşturmak için erişim belirteci kullanın ve blob oluşturmak için bu kimlik bilgilerini kullanın:
+Son olarak, yeni depolama kimlik bilgileri oluşturmak için erişim belirteci kullanın ve blob oluşturmak için bu kimlik bilgilerini kullanın. Bir OAuth belirteci ile BLOB ve kuyruk işlemlerini yetkilendirmek için HTTPS kullanmanız gerekir göz önünde bulundurun.:
 
 ```dotnet
 // Get the access token.

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a64a60603cd9898386a975313afc676e3b253326
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 071db2d9aeda2373c85ae62c47bbef175dcb7678
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353606"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483412"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>HANA büyük örnekleri için bir sanal ağı bağlama
 
@@ -34,7 +34,7 @@ Bir ağ geçidi zaten varsa, bir ExpressRoute ağ geçidi olup olmadığını de
   - Azure portalını kullanıyorsanız, yeni bir ekleme **sanal ağ geçidi**ve ardından **ExpressRoute** ağ geçidi türü.
   - PowerShell kullanıyorsanız, indirmeniz ve en günceli kullan [Azure PowerShell SDK'sı](https://azure.microsoft.com/downloads/). Aşağıdaki komutlar bir ExpressRoute ağ geçidi oluşturur. Metinleri öncesinde bir _$_ özel bilgileri ile güncelleştirilmesi kullanıcı tanımlı değişkenler.
 
-```PowerShell
+```powershell
 # These Values should already exist, update to match your environment
 $myAzureRegion = "eastus"
 $myGroupName = "SAP-East-Coast"
@@ -71,7 +71,7 @@ Azure sanal ağı bir ExpressRoute ağ geçidi artık sahiptir. SAP HANA (büyü
 
 Her bağlantı için farklı bir AuthGUID kullanarak her sanal ağ geçidi için aşağıdaki komutları çalıştırın. Aşağıdaki kodda gösterilen ilk iki girişe Microsoft tarafından sağlanan bilgileri gelir. Ayrıca, her sanal ağ ve ağ geçidini AuthGUID özeldir. Başka bir Azure sanal ağı eklemek istiyorsanız, HANA büyük örnekleri azure'a bağlayan ExpressRoute bağlantı hattı için başka bir AuthID almanız gerekir. 
 
-```PowerShell
+```powershell
 # Populate with information provided by Microsoft Onboarding team
 $PeerID = "/subscriptions/9cb43037-9195-4420-a798-f87681a0e380/resourceGroups/Customer-USE-Circuits/providers/Microsoft.Network/expressRouteCircuits/Customer-USE01"
 $AuthGUID = "76d40466-c458-4d14-adcf-3d1b56d1cd61"

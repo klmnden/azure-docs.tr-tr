@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: 21119816477d460aa48560b8ca231f23144a901b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b24a0397a1365479907fedc6348caa54508dbbb0
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888507"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444874"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Programlamayla Azure panoları oluşturma
 
@@ -28,7 +28,7 @@ Bu belge, program aracılığıyla oluşturma ve Azure panoları yayımlama sür
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure olan panoları paylaşılan [kaynakları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) olduğu gibi sanal makineler ve depolama hesapları.  Bu nedenle, program aracılığıyla aracılığıyla yönetilebilir [Azure Resource Manager REST API'leri](/rest/api/), [Azure CLI](https://docs.microsoft.com/cli/azure), [Azure PowerShell komutlarını](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0)ve birçok [ Azure portalında](https://portal.azure.com) kaynak yönetimini kolaylaştırmak için bu API'leri temel özellikler oluşturun.  
+Azure olan panoları paylaşılan [kaynakları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) olduğu gibi sanal makineler ve depolama hesapları.  Bu nedenle, program aracılığıyla aracılığıyla yönetilebilir [Azure Resource Manager REST API'leri](/rest/api/), [Azure CLI](https://docs.microsoft.com/cli/azure), [Azure PowerShell komutlarını](https://docs.microsoft.com/powershell/azure/get-started-azureps)ve birçok [ Azure portalında](https://portal.azure.com) kaynak yönetimini kolaylaştırmak için bu API'leri temel özellikler oluşturun.  
 
 Bu API'leri ve araçları, listesi oluşturmak için yol almak, değiştirebilir ve kaynakları silmek sunar.  Panolar kaynaklar olduğundan, en sevdiğiniz API'nizi seçin / aracı.
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e845724d02d668444a770deb5f02b50560a14653
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 99c4f0f99af61196cf1a12f2f68a7d10d8b2e6c7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771402"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481289"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure Sanal Makinelerinde SQL Server nedir? (Windows)
 
@@ -85,7 +85,7 @@ Kendi lisansını Getir için var olan kullanım başına ödeme SQL VM'yi ya da
 
 PowerShell kullanarak Azure portalında kullanılabilir olmayan bir SQL Server'ın daha eski bir görüntü dağıtmak mümkündür. PowerShell kullanarak tüm kullanılabilir görüntüleri görmek için aşağıdaki komutu kullanın:
 
-  ```PowerShell
+  ```powershell
   Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
   ```
 

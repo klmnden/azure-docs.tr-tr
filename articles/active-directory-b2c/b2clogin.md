@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 61c4212233dd7ed9c34de779176c3402890e673f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8188e36278bad9c93f709a5d7d9f831d1c19e6b4
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160913"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486856"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Kümesi yeniden yönlendirme URL'leri b2clogin.com için Azure Active Directory B2C için
 
@@ -25,6 +25,13 @@ B2clogin.com kullanma, ek avantajlar gibi sunar:
 
 - Tanımlama bilgisi üstbilgisi içinde Microsoft hizmetler tarafından kullanılan alanı azalır.
 - URL'nizde artık Microsoft bir başvuru içerir. Örneğin, `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
+
+>[!NOTE]
+> Hem Kiracı adı hem de GUID Kiracı şu şekilde kullanabilirsiniz:
+> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` (hangi hala başvurduğu `onmicrosoft.com`)
+> * `https://your-tenant-name.b2clogin.com/your-tenant-guid` (Bu durumda yoktur Microsoft'a başvurmayın hiç)
+>
+> Ancak, kullanamazsınız bir _özel etki alanı_ için Azure Active Directory B2C kiracısı, örneğin `https://your-tenant-name.b2clogin.com/your-custom-domain-name` misiniz _değil_ çalışma.
 
 Bu ayar b2clogin.com kullanırken değiştirmeniz gerekebileceğini göz önünde bulundurun:
 

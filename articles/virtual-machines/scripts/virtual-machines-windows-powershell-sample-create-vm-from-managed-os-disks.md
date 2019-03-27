@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 92a4560f35abe0a6da0ffd6f0536413f22d7289e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a608db9d806f9b0ed69eec3ce4dfb69adc5a5ea3
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989587"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449085"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>PowerShell ile yönetilen bir diski işletim sistemi diski olarak ekleyerek sanal makine oluşturma
 
@@ -60,7 +60,7 @@ Bu betik yönetilen disk özelliklerini almak, yeni bir VM’ye yönetilen bir d
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Sanal makine oluşturur. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Kaynak grubunu ve grubun içerdiği tüm kaynakları kaldırır. |
 
-Market görüntülerini kullanma [kümesi AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan?view=azurermps-6.7.0) plan bilgisini ayarlamak için.
+Market görüntülerini kullanma [kümesi AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan) plan bilgisini ayarlamak için.
 
 ```powershell
 Set-AzVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $Bame

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 493f6f3380dee4ed70bb6e0bc9bba24f93071097
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 954cbe66bfc4a0cebf7692a90aeee637ffcb6ca3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165340"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485064"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Azure dosya eşitleme ile kayıtlı sunucuları yönetme
 Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Bunu Windows sunucularınızı Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürerek yapar. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -101,7 +101,7 @@ Bir sunucu olarak kullanılabilmesi için önce bir *sunucu uç noktası* bir Az
 #### <a name="register-the-server-with-powershell"></a>PowerShell ile sunucu kaydetme
 Ayrıca, PowerShell aracılığıyla sunucu kaydı gerçekleştirebilirsiniz. Sunucu kaydı bulut çözümü sağlayıcısı (CSP) abonelikleri için desteklenen tek yol budur:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
 Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
@@ -116,7 +116,7 @@ Depolama eşitleme hizmeti ile bir sunucu kaydını silmek için gereken birkaç
 #### <a name="optional-recall-all-tiered-data"></a>(İsteğe bağlı) Tüm katmanlı verileri geri çağırma
 Azure dosya eşitleme (yani bu, bir üretim olmayan bir test, ortam) kaldırdıktan sonra kullanılabilir olması için şu anda katmanlı dosyalar isterseniz, sunucu uç noktaları içeren her bir birimdeki tüm dosyaları geri çağırma. Bulut katmanlaması tüm sunucu uç noktaları için devre dışı bırakın ve sonra aşağıdaki PowerShell cmdlet'ini çalıştırın:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
@@ -134,7 +134,7 @@ Depolama eşitleme hizmeti sunucuda kaydını önce bu sunucudaki tüm sunucu u�
 
 Bu, basit bir PowerShell Betiği ile de gerçekleştirilebilir:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
 $accountInfo = Connect-AzAccount
@@ -172,20 +172,20 @@ Kullanarak Azure dosya eşitleme ağ kullanımını daraltabilir `StorageSyncNet
 
 Örneğin, Azure dosya eşitleme 09: 00 ve 17: 00 (17:00 h) çalışma haftası boyunca arasında fazla 10 MB/sn kullanmadığından emin olmak için yeni bir kısıtlama sınırı oluşturabilirsiniz: 
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 New-StorageSyncNetworkLimit -Day Monday, Tuesday, Wednesday, Thursday, Friday -StartHour 9 -EndHour 17 -LimitKbps 10000
 ```
 
 Aşağıdaki cmdlet'i kullanarak, sınırınızı görebilirsiniz:
 
-```PowerShell
+```powershell
 Get-StorageSyncNetworkLimit # assumes StorageSync.Management.ServerCmdlets.dll is imported
 ```
 
 Ağ sınırları kaldırmak için `Remove-StorageSyncNetworkLimit`. Örneğin, aşağıdaki komut, tüm ağ sınırları kaldırır:
 
-```PowerShell
+```powershell
 Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -Id $_.Id } # assumes StorageSync.Management.ServerCmdlets.dll is imported
 ```
 

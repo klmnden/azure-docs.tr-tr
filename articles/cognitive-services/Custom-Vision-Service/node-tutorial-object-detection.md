@@ -8,18 +8,18 @@ manager: daauld
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 2/21/2019
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 9cc1e2cd3735d8292ebca803b83351bb97de8b83
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 17b6e59e121b836823b9e86d0d60b91d93ba82f9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752363"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487269"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Hızlı Başlangıç: Özel görüntü işleme Node.js SDK'sı ile bir nesne algılama projesi oluşturma
 
-Bu makalede, bilgi ve yardımcı olması için örnek kod, bir nesne algılama modeli oluşturmak için Node.js ile Custom Vision SDK'sı ile çalışmaya başlamak sağlar. Oluşturulduktan sonra etiketlenmiş bölgeler ekleyebilir, görüntüleri karşıya yükleyebilir, projeyi eğitebilir, projenin varsayılan tahmin uç nokta URL’sini alabilir ve bir görüntüyü programlama yoluyla test etmek için uç noktayı kullanabilirsiniz. Bu örnek, kendi Node.js uygulaması oluşturmak için şablon olarak kullanın.
+Bu makalede, bilgi ve yardımcı olması için örnek kod, bir nesne algılama modeli oluşturmak için Node.js ile Custom Vision SDK'sı ile çalışmaya başlamak sağlar. Oluşturulduktan sonra etiketli bölge ekleme, görüntüleri karşıya yüklemek, proje eğitmek, projenin yayımlanan tahmin uç nokta URL'si almak ve program aracılığıyla resim test etmek için uç noktayı kullanın. Bu örnek, kendi Node.js uygulaması oluşturmak için şablon olarak kullanın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -58,9 +58,12 @@ const setTimeoutPromise = util.promisify(setTimeout);
 
 const trainingKey = "<your training key>";
 const predictionKey = "<your prediction key>";
+const predictionResourceId = "<your prediction resource id>";
 const sampleDataRoot = "<path to image files>";
 
 const endPoint = "https://southcentralus.api.cognitive.microsoft.com"
+
+const publishIterationName = "detectModel";
 
 const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
 
@@ -181,9 +184,9 @@ Projeye görüntüler, etiket ve bölgeler eklemek için etiket oluşturduktan s
     await Promise.all(fileUploadPromises);
 ```
 
-### <a name="train-the-project"></a>Projeyi eğitme
+### <a name="train-the-project-and-publish"></a>Proje eğitin ve yayımlayın
 
-Bu kod, projedeki ilk yinelemeyi oluşturur ve bunu varsayılan yineleme olarak işaretler. Varsayılan yineleme, tahmin isteklerine yanıt verecek modelin sürümünü yansıtır. Bu modeli her yeniden eğitişinizde bunu güncelleştirmeniz gerekir.
+Bu kod, ilk yineleme projede oluşturur ve ardından bu yineleme tahmin uç noktaya yayımlar. Yayımlanmış bir yineleme için verilen ad, tahmin istekleri göndermek için kullanılabilir. Yineleme yayımlanmadan tahmin uç noktasında kullanılabilir değil.
 
 ```javascript
     console.log("Training...");
@@ -198,11 +201,11 @@ Bu kod, projedeki ilk yinelemeyi oluşturur ve bunu varsayılan yineleme olarak 
     }
     console.log("Training status: " + trainingIteration.status);
 
-    trainingIteration.isDefault = true;
-    await trainer.updateIteration(sampleProject.id, trainingIteration.id, trainingIteration);
+    // Publish the iteration to the end point
+    await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>Varsayılan tahmin uç noktasını alma ve kullanma
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Edinin ve öngörü uç noktasında yayımlanan yineleme kullanın
 
 Tahmin uç noktasına bir görüntü göndermek ve tahmini almak için dosyanın sonuna aşağıdaki kodu ekleyin:
 
@@ -210,7 +213,7 @@ Tahmin uç noktasına bir görüntü göndermek ve tahmini almak için dosyanın
     const predictor = new PredictionApi.PredictionAPIClient(predictionKey, endPoint);
     const testFile = fs.readFileSync(`${sampleDataRoot}/Test/test_od_image.jpg`);
 
-    const results = await predictor.predictImage(sampleProject.id, testFile, { iterationId: trainingIteration.id })
+    const results = await predictor.detectImage(sampleProject.id, publishIterationName, testFile)
 
     // Show results
     console.log("Results:");
@@ -224,7 +227,7 @@ Tahmin uç noktasına bir görüntü göndermek ve tahmini almak için dosyanın
 
 Çalıştırma *sample.js*.
 
-```PowerShell
+```powershell
 node sample.js
 ```
 

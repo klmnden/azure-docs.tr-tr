@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: e594ace368799f85eea2e7291ead6febea0ea4b7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dc6e218fe048e1781f53c53935308eb193fcd094
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543891"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487167"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>PowerShell kullanarak bir VHD dosyasından özel bir görüntü oluşturma
 
@@ -37,20 +37,20 @@ Aşağıdaki adımlar, PowerShell kullanarak bir VHD dosyasından bir özel gör
 
 1. Bir PowerShell komut isteminde aşağıdaki çağrısını Azure hesabınızla oturum açın **Connect AzAccount** cmdlet'i.  
     
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 
 1.  Çağırarak istediğiniz Azure aboneliğini seçin **seçin AzSubscription** cmdlet'i. Aşağıdaki yer tutucusunu değiştirin **$subscriptionId** bir geçerli Azure abonelik kimliğinizle değişken 
 
-    ```PowerShell
+    ```powershell
     $subscriptionId = '<Specify your subscription ID here>'
     Select-AzSubscription -SubscriptionId $subscriptionId
     ```
 
 1.  Laboratuvar nesnesi çağırarak alma **Get-AzResource** cmdlet'i. Aşağıdaki yer tutucularını değiştirin **$labRg** ve **$labName** değişkenleri ortamınız için uygun değerlerle. 
 
-    ```PowerShell
+    ```powershell
     $labRg = '<Specify your lab resource group name here>'
     $labName = '<Specify your lab name here>'
     $lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
@@ -58,20 +58,20 @@ Aşağıdaki adımlar, PowerShell kullanarak bir VHD dosyasından bir özel gör
  
 1.  Laboratuvar, laboratuvarı nesnesinden depolama hesabı ve Laboratuvar depolama hesap anahtarı değerleriyle alın. 
 
-    ```PowerShell
+    ```powershell
     $labStorageAccount = Get-AzResource -ResourceId $lab.Properties.defaultStorageAccount 
     $labStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
     ```
 
 1.  Aşağıdaki yer tutucusunu değiştirin **$vhdUri** URI'yı kullanarak karşıya VHD dosyası için içeren değişken. VHD dosya URI'si, Azure portalında depolama hesabının blob dikey penceresinden alabilirsiniz.
 
-    ```PowerShell
+    ```powershell
     $vhdUri = '<Specify the VHD URI here>'
     ```
 
 1.  Özel görüntü kullanarak oluşturma **yeni AzResourceGroupDeployment** cmdlet'i. Aşağıdaki yer tutucularını değiştirin **$customImageName** ve **$customImageDescription** değişkenleri ortamınız için anlamlı adlar.
 
-    ```PowerShell
+    ```powershell
     $customImageName = '<Specify the custom image name>'
     $customImageDescription = '<Specify the custom image description>'
 
@@ -84,7 +84,7 @@ Aşağıdaki adımlar, PowerShell kullanarak bir VHD dosyasından bir özel gör
 
 Aşağıdaki PowerShell Betiği, bir VHD dosyasından özel bir görüntü oluşturmak için kullanılabilir. Gereksinimlerinize uygun değerlerle (başlangıç ve bitiş açılı ayraçlar ile) yer tutucularını değiştirin. 
 
-```PowerShell
+```powershell
 # Log in to your Azure account.  
 Connect-AzAccount
 

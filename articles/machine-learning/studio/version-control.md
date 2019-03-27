@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 10/27/2016
-ms.openlocfilehash: 102d06f6d4a51f7edc1fc269180f8fb3e5b0626c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ff7aa1ab8972b6cbb891a67b1065044b48f1cfa3
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121477"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446214"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da uygulama yaşam döngüsü yönetimi
 Azure Machine Learning Studio, Azure bulut platformunda Çalıştır duruma getirdiniz makine öğrenimi denemeleri geliştirmek için kullanılan bir araçtır. Tek bir platformda Visual Studio IDE ve ölçeklenebilir bir bulut hizmeti gibi birleştirilir. Azure Machine Learning Studio'ya çeşitli varlıklar otomatik yürütme ve dağıtım, sürüm oluşturma standart uygulama yaşam döngüsü yönetimi (ALM) yöntemleri birleştirebilirsiniz. Bu makalede bazı seçenekleri ve yaklaşımları açıklanmaktadır.
@@ -73,7 +73,7 @@ Zaman içinde aynı web hizmetinde oluşturulan fazla uç nokta olabilir. Her u�
 Birçok aynı web hizmeti uç noktalarını oluşturabilir ve farklı sürümleri olan iLearner dosyasını benzer etkiyi elde etmek için uç nokta için düzeltme eki uygulama. [Bu makalede](create-models-and-endpoints-with-powershell.md) bunu yapmaya yönelik daha ayrıntılı olarak açıklanmaktadır.
 
 ### <a name="new-web-service"></a>Yeni web hizmeti
-Yeni bir Azure Resource Manager tabanlı web hizmeti oluşturursanız, uç nokta yapısı artık kullanılamıyor. Bunun yerine, web hizmeti tanımının (WSD) dosyaları, JSON biçiminde kullanarak Tahmine dayalı denemenizi gelen oluşturabileceğiniz [dışarı aktarma AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell komutunu kullanarak veya [ *Dışarı aktarma AzureRmMlWebservice* ](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice?view=azurermps-6.6.0) dağıtılan Resource Manager tabanlı web hizmetinden PowerShell komutu.
+Yeni bir Azure Resource Manager tabanlı web hizmeti oluşturursanız, uç nokta yapısı artık kullanılamıyor. Bunun yerine, web hizmeti tanımının (WSD) dosyaları, JSON biçiminde kullanarak Tahmine dayalı denemenizi gelen oluşturabileceğiniz [dışarı aktarma AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell komutunu kullanarak veya [ *Dışarı aktarma AzureRmMlWebservice* ](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice) dağıtılan Resource Manager tabanlı web hizmetinden PowerShell komutu.
 
 Dışarı aktarılan WSD dosya ve sürüm denetlemesine oluşturduktan sonra ayrıca WSD yeni bir web hizmeti olarak farklı bir web hizmeti planı farklı bir Azure bölgesinde dağıtabilirsiniz. Yeni web hizmeti planı kimliği yanı sıra, uygun bir depolama hesabı yapılandırması sağladığınız emin olmanız yeterlidir Farklı iLearner dosyalarında yama yapma WSD dosyasını değiştirin ve eğitilen modelin konumu başvuru güncelleştirme ve yeni web hizmeti olarak dağıtın.
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 340c08841b7bedc9f2453617aeff111beb810961
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0146f6ca610a25e57771fb21436a70acbdd5a5ef
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888187"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481391"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Ayıklanan verileri - çok kiracılı uygulamayı kullanarak kiracılar arası analiz
  
@@ -92,7 +92,7 @@ Aşağıdaki adımlarda, çağrılan analytics deponun dağıttığınız **tena
 2. $DemoScenario değişkeni betik analytics deposuna tercih ettiğiniz eşleşecek şekilde ayarlayın. Öğrenme amacıyla SQL veritabanı columnstore olmadan önerilir.
     - Columnstore olmadan SQL veritabanını kullanacak şekilde ayarlama **$DemoScenario** = **2**
     - SQL veritabanı ile columnstore kullanmak için ayarlanmış **$DemoScenario** = **3**  
-3. Tuşuna **F5** tanıtım betiğini çalıştırmak için (çağrılarının *Dağıt TenantAnalytics<XX>.ps1* betik) Kiracı analiz deposu oluşturur. 
+3. Tuşuna **F5** tanıtım betiğini çalıştırmak için (çağrılarının *Dağıt TenantAnalytics\<XX > .ps1* betik) Kiracı analiz deposu oluşturur. 
 
 Uygulamanın dağıtılması ve ilgi çekici Kiracı verilerle doldurulmuş göre kullanın [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) bağlanmak için **tenants1-mt -\<kullanıcı\>**  ve **Kataloğu-mt -\<kullanıcı\>**  oturum açma kullanarak sunucuları = *Geliştirici*, parola = *P\@ssword1*.
 
@@ -121,7 +121,7 @@ Devam etmeden önce iş hesabı ve jobaccount veritabanını dağıttığınız 
 
 1. SSMS'de bağlanma **jobaccount** katalog veritabanında-mt -\<kullanıcı\>.
 2. SSMS'de açın *...\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql* 
-3. Değiştirme @User değişken komut üst kısmındaki değiştirerek <User> Wingtip bilet SaaS çok kiracılı veritabanı uygulamasını dağıtırken kullandığınız kullanıcı değerine sahip.
+3. Değiştirme @User değişken komut üst kısmındaki değiştirerek `<User>` Wingtip bilet SaaS çok kiracılı veritabanı uygulamasını dağıtırken kullandığınız kullanıcı değerine sahip.
 4. Tuşuna **F5** iki hedef grupları oluşturur ve betiği çalıştırmak için.
 
 ### <a name="extract-raw-data-from-all-tenants"></a>Tüm kiracılardan ham verileri ayıklayın
@@ -135,7 +135,7 @@ Her bir iş, verileri ayıklayan ve analytics deposuna gönderir. Var ayrı bir 
 
 1. SSMS'de bağlanma **jobaccount** katalog veritabanında-mt -\<kullanıcı\> sunucusu.
 2. SSMS'de açın *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*.
-3. Değiştirme @User en üstündeki komut dosyası ve Değiştir <User> Wingtip bilet SaaS çok kiracılı veritabanı uygulamasını dağıtırken kullandığınız kullanıcı adı. 
+3. Değiştirme @User en üstündeki komut dosyası ve Değiştir `<User>` Wingtip bilet SaaS çok kiracılı veritabanı uygulamasını dağıtırken kullandığınız kullanıcı adı. 
 4. Tuşuna **F5** oluşturan ve her Kiracı veritabanından biletler ve müşterilerin verileri ayıklayan işi çalıştırır ve betiği çalıştırmak için. İş verileri analizi deposuna kaydeder.
 5. Tablonun tüm kiracıların bilet bilgileriyle doldurulduğundan emin olmak için tenantanalytics veritabanındaki TicketsRawData tablosunu sorgulayın.
 

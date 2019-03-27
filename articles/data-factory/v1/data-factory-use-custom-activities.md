@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 1341a8fce95dff0499a698fcddf8d048f3628dba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0ddc235064d99e9d6385ab48e78f893952eefa15
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108248"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487490"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -113,12 +113,12 @@ Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü
 
 3. Paket Yöneticisi Konsolu'nda içeri aktarmak için aşağıdaki komutu yürütün **Microsoft.Azure.Management.DataFactories**.
 
-    ```PowerShell
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactories
     ```
 4. İçeri aktarma **Azure depolama** NuGet paketini projeye.
 
-    ```PowerShell
+    ```powershell
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 
@@ -709,7 +709,7 @@ Sorun giderme birkaç temel teknikten oluşur:
 
     4.3.0 kullandığınız Azure depolama paketin sürümü Azure depolama paketi sürümü > 4.3.0 mevcut başvurusunu kaldırın. Ardından, NuGet Paket Yöneticisi konsolundan aşağıdaki komutu çalıştırın.
 
-    ```PowerShell
+    ```powershell
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 

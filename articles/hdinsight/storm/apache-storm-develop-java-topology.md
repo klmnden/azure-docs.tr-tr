@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 2c1c144899189e2320d1388fca848fa3d7ec2257
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32a8c81cd7b2078f4866d4c7311ea5ac0d0b3439
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122089"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448303"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Java'da bir Apache Storm topolojisi oluşturma
 
@@ -829,7 +829,7 @@ Trident hakkında daha fazla bilgi için bkz: [Trident API'sine genel bakış](h
 
 Java kullanarak bir Apache Storm topolojisi oluşturulacağını öğrendiniz. Daha fazla bilgi için nasıl:
 
-* [HDInsight üzerinde Apache Storm topolojilerini dağıtma ve yönetme](apache-storm-deploy-monitor-topology.md)
+* [HDInsight üzerinde Apache Storm topolojilerini dağıtma ve yönetme](apache-storm-deploy-monitor-topology-linux.md)
 
 * [Visual Studio kullanarak HDInsight üzerinde Apache Storm için C# topolojileri geliştirme](apache-storm-develop-csharp-visual-studio-topology.md)
 

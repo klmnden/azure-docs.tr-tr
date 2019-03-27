@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d62fd909d10515c9217a4dd0aa760afa376b8d7c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9b3ba8d216f3e82c9aff7f2b49b9c24115b32f2
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838910"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487915"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Sorun gidermek için sistem durum raporlarını kullanma
 Azure Service Fabric bileşenleri çıktığı kümedeki tüm varlıklarda sistem durumu raporları sağlar. [Sistem durumu deposu](service-fabric-health-introduction.md#health-store) oluşturur ve sistem raporlarına dayalı varlıkları siler. Bu da onları varlık etkileşimleri yakalayan bir hiyerarşide düzenler.
@@ -57,7 +57,7 @@ Rapor yaşam süresi (TTL) kira genel zaman aşımını belirtir. Koşul etkin k
 * **Özellik**: İle başlayan **Komşuları** ve düğüm bilgileri içerir.
 * **Sonraki adımlar**: Komşu kaybı neden olduğunu araştırın. Örneğin, küme düğümler arasında iletişim bakın.
 
-### <a name="rebuild"></a>Yeniden derle
+### <a name="rebuild"></a>Yeniden derleme
 
 Yük Devretme Yöneticisi'ni (FM) hizmeti, küme düğümleri hakkında bilgi yönetir. FM verilerini kaybeder ve veri kaybı gider, küme düğümleri hakkında en güncel bilgilere sahip olmasını garanti edemez. Bu durumda, sistem yeniden geçer, ve System.FM veri kümedeki tüm düğümlerden durumunu yeniden derlemek için toplar. Bazı durumlarda, ağ veya düğüm sorunları nedeniyle yeniden takılı durmuş veya. Aynı durum, Yük Devretme Yöneticisi ana (FMM) hizmetiyle meydana gelebilir. FMM FMs kümede olduğu, izleme tutan bir durum bilgisi olmayan sistemi hizmetidir. FMM'ın birincil her zaman 0 olarak en yakın kimlikli düğümüdür. Bu düğüm bırakılan, yeniden derleme tetiklenir.
 Önceki koşullardan biri gerçekleştiğinde **System.FM** veya **System.FMM** bir hata raporu işaretler. Yeniden iki aşama birinde takılmış olabilir:
@@ -84,7 +84,7 @@ Düğüm (onu çalışır duruma) halkası katıldığında System.FM Tamam bild
 
 Aşağıdaki örnekte System.FM olay Tamam düğümü için bir sistem durumu ile gösterilmektedir:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricNodeHealth  _Node_0
 
 NodeName              : _Node_0
@@ -137,7 +137,7 @@ Uygulama oluşturulduğunda veya güncelleştirildiğinde System.CM olarak Tamam
 
 Aşağıdaki örnek durum olayı gösteren **fabric: / WordCount** uygulama:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
 
 ApplicationName                 : fabric:/WordCount
@@ -169,7 +169,7 @@ Hizmet oluşturulduğunda System.FM olarak Tamam bildirir. Hizmet silindiğinde 
 
 Aşağıdaki örnek, hizmet durumu olay gösterir **fabric: / WordCount/WordCountWebService**:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountWebService -ExcludeHealthStatistics
 
 
@@ -224,7 +224,7 @@ Aşağıdaki örnekler, bu raporlar bazılarını açıklar.
 
 Aşağıdaki örnek, sağlıklı bir bölümünü gösterir:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountWebService | Get-ServiceFabricPartitionHealth -ExcludeHealthStatistics -ReplicasFilter None
 
 PartitionId           : 8bbcd03a-3a53-47ec-a5f1-9b77f73c53b2
@@ -246,7 +246,7 @@ HealthEvents          :
 
 Aşağıdaki örnek, hedef çoğaltma sayısı olan bir bölüm durumunu gösterir. Sonraki adım nasıl yapılandırıldığını gösteren bölüm açıklaması almaktır: **MinReplicaSetSize** üçüncü bölümüdür ve **TargetReplicaSetSize** yedidir. Ardından beş bu durumda olan kümedeki düğüm sayısını alın. Çoğaltma hedefi sayısı kullanılabilir düğüm sayısından daha yüksek olduğu halde bu durumda, yinelemeler, yerleştirilemez.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None -ExcludeHealthStatistics
 
 
@@ -324,7 +324,7 @@ PS C:\> @(Get-ServiceFabricNode).Count
 
 Aşağıdaki örnek sistem durumunda bir bölümü yeniden yapılandırma nedeniyle iptal uygularken değil kullanıcı belirtecini gösterir **RunAsync** yöntemi. Birincil olarak işaretlenmiş tüm çoğaltma (P) sistem durumu raporu araştırmaya yardımcı detaya gitmek için aşağı sorunla daha fazla.
 
-```PowerShell
+```powershell
 PS C:\utilities\ServiceFabricExplorer\ClientPackage\lib> Get-ServiceFabricPartitionHealth 0e40fd81-284d-4be4-a665-13bc5a6607ec -ExcludeHealthStatistics 
 
 
@@ -388,7 +388,7 @@ Her çoğaltma için sistem durumu raporu içerir:
 
 Aşağıdaki örnek, sağlıklı bir yineleme gösterilmektedir:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 
 PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
@@ -419,7 +419,7 @@ Bu sistem durumu uyarıları, yerel olarak bazı kaç kez (ilke) bağlı olarak 
 
 Aşağıdaki örnek, yanlamasına ivme kazanmaz bir çoğaltma durumunu gösterir. `TargetInvocationException` kendi açık yönteminden. Açıklama, hata noktasını içeren **IStatefulServiceReplica.Open**, özel durum türü **TargetInvocationException**ve yığın izlemesi.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 337cf1df-6cab-4825-99a9-7595090c0b1b -ReplicaOrInstanceId 131483509874784794
 
 
@@ -470,7 +470,7 @@ Exception has been thrown by the target of an invocation.
 
 Aşağıdaki örnek, kapatma sırasında sürekli olarak kilitlenen bir yineleme gösterilmektedir:
 
-```PowerShell
+```powershell
 C:>Get-ServiceFabricReplicaHealth -PartitionId dcafb6b7-9446-425c-8b90-b3fdf3859e64 -ReplicaOrInstanceId 131483565548493142
 
 
@@ -515,7 +515,7 @@ Nadiren de olsa, iletişim veya bu düğüm ve Yük Devretme Yöneticisi hizmeti
 
 Aşağıdaki örnek, bir sistem durumu raporu yerel çoğaltmasında burada bir yeniden yapılandırma takıldı gösterir. Bu örnekte, bu hizmet nedeniyle iptal belirteci uygularken değil.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 9a0cedee-464c-4603-abbc-1cf57c4454f3 -ReplicaOrInstanceId 131483600074836703
 
 
@@ -601,7 +601,7 @@ Yeniden yapılandırma engelini kaldırmak için:
 
 İptal uygularken değil güvenilir bir hizmet için System.RAP aşağıdaki örnek sistem durumu olayı belirtecini gösterir **RunAsync**:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 5f6060fb-096f-45e4-8c3d-c26444d8dd10 -ReplicaOrInstanceId 131483966141404693
 
 
@@ -679,7 +679,7 @@ Adlandırma işlemi beklenenden daha uzun sürerse, işlemi bir uyarı raporu ad
 
 Aşağıdaki örnek, bir oluşturma hizmeti işlemi gösterilmektedir. İşlemi, yapılandırılan süreden daha uzun sürdü. "AO" yeniden deneme sayısı ve iş "Hayır" olarak gönderir. Zaman AŞIMI ile son işlemi tamamlandı "Hayır". Bu durumda, aynı çoğaltma "AO" ve "Hayır" rolleri için birincil.
 
-```PowerShell
+```powershell
 PartitionId           : 00000000-0000-0000-0000-000000001000
 ReplicaId             : 131064359253133577
 AggregatedHealthState : Warning
@@ -736,7 +736,7 @@ Düğüm üzerinde bir uygulama başarıyla etkinleştirildi System.Hosting olar
 
 Aşağıdaki örnek, başarılı bir etkinleştirme gösterir:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ExcludeHealthStatistics
 
 ApplicationName                    : fabric:/WordCount
@@ -762,7 +762,7 @@ HealthEvents                       :
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>İndir
+### <a name="download"></a>İndirme
 Uygulama paket indirmesi başarısız olursa System.Hosting bir hata bildirir.
 
 * **SourceId**: System.Hosting
@@ -793,7 +793,7 @@ System.Hosting hizmet türü başarıyla kaydedildi, Tamam bildirir. Bir hata bi
 
 Aşağıdaki örnek, bir sorunsuz dağıtılan hizmet paketi gösterir:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
 
 
@@ -840,7 +840,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>İndir
+### <a name="download"></a>İndirme
 Hizmet paketin indirmesi başarısız olursa System.Hosting bir hata bildirir.
 
 * **SourceId**: System.Hosting

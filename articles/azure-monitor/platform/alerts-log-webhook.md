@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 908422927feabd156c5dcdc7a04d44ff8fc42094
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a592dc150d535df775a62c157f76f327b54240fd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442894"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496097"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Günlük uyarı kuralları için Web kancası eylemleri
 Olduğunda bir [günlük uyarı Azure'da oluşturulan](alerts-log.md), seçeneğiniz vardır [Eylem grupları kullanarak yapılandırma](action-groups.md) bir veya daha fazla eylem gerçekleştirmek için.  Bu makalede, özel JSON tabanlı Web kancası yapılandırma hakkında ayrıntıları ve mevcut olan farklı bir Web kancası eylemleri açıklar.
@@ -54,7 +54,7 @@ Web kancaları, bir URL ve dış hizmete gönderilen veriler JSON biçimli bir y
 | Abonelik Kimliği |#subscriptionid |Application Insights ile kullanılan Azure aboneliğinizin kimliği. 
 
 > [!NOTE]
-> LinkToSearchResults SearchQuery, arama aralığının StartTime & arama aralığının bitiş saati gibi parametreleri Analytics bölümünde izleme için Azure portalı URL'sini geçirir. Azure portalında sahip olur ve yaklaşık 2000 karakter sınırını boyut URI *değil* parametrelerin değerleri söz konusu sınırı aşarsa Uyarıları ' sağlanan bağlantıyı aç. Kullanıcıları el ile Analytics portalında sonuçları görüntülemek veya kullanmak için ayrıntıları giriş [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) veya [Log Analytics REST API](https://dev.loganalytics.io/reference) programlı olarak sonuçlar almak için 
+> LinkToSearchResults SearchQuery, arama aralığının StartTime & arama aralığının bitiş saati gibi parametreleri Analytics bölümünde izleme için Azure portalı URL'sini geçirir. Azure portalında sahip olur ve yaklaşık 2000 karakter sınırını boyut URI *değil* parametrelerin değerleri söz konusu sınırı aşarsa Uyarıları ' sağlanan bağlantıyı aç. Kullanıcıları el ile Analytics portalında sonuçları görüntülemek veya kullanmak için ayrıntıları giriş [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) veya [Log Analytics REST API](/rest/api/loganalytics/) programlı olarak sonuçlar almak için 
 
 Örneğin, adında tek bir parametre içeren aşağıdaki özel yükü belirtebilirsiniz *metin*.  Bu Web kancasını çağırır hizmet, bu parametre bekleniyor.
 

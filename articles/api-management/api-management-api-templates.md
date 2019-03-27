@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: ba56804431048005914a79c4cd957a8365de067a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a78c03537d7fb3db6afa0c4a4e84c4746146ca85
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970901"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486385"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API Management'ta API şablonları
 
@@ -90,7 +90,7 @@ Bu bölümdeki şablonları, geliştirici portalında API'yi sayfaların içeri�
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|API'leri|Koleksiyonu [API özeti](api-management-template-data-model-reference.md#APISummary) varlıklar.|Geçerli kullanıcıya görünür API'ler.|  
+|`apis`|Koleksiyonu [API özeti](api-management-template-data-model-reference.md#APISummary) varlıklar.|Geçerli kullanıcıya görünür API'ler.|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   
@@ -345,15 +345,15 @@ Bu bölümdeki şablonları, geliştirici portalında API'yi sayfaların içeri�
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|apiId|dize|Geçerli API kimliği.|  
-|ApiName|dize|API adı.|  
-|apiDescription|dize|API tanımı.|  
-|api|[API özeti](api-management-template-data-model-reference.md#APISummary) varlık.|Geçerli API.|  
-|işlem|[İşlem](api-management-template-data-model-reference.md#Operation)|Şu anda görüntülenen işlemi.|  
-|sampleUrl|dize|Geçerli işlem için URL.|  
-|operationMenu|[İşlem menüsü](api-management-template-data-model-reference.md#Menu)|Bu API için işlemlerinin bir menü.|  
-|consoleUrl|URI|URI'sini **deneyin** düğmesi.|  
-|örnekler|Koleksiyonu [kod örneği](api-management-template-data-model-reference.md#Sample) varlıklar.|Geçerli işlem için kod örnekleri...|  
+|`apiId`|string|Geçerli API kimliği.|  
+|`apiName`|string|API adı.|  
+|`apiDescription`|string|API tanımı.|  
+|`api`|[API özeti](api-management-template-data-model-reference.md#APISummary) varlık.|Geçerli API.|  
+|`operation`|[İşlem](api-management-template-data-model-reference.md#Operation)|Şu anda görüntülenen işlemi.|  
+|`sampleUrl`|string|Geçerli işlem için URL.|  
+|`operationMenu`|[İşlem menüsü](api-management-template-data-model-reference.md#Menu)|Bu API için işlemlerinin bir menü.|  
+|`consoleUrl`|URI|URI'sini **deneyin** düğmesi.|  
+|`samples`|Koleksiyonu [kod örneği](api-management-template-data-model-reference.md#Sample) varlıklar.|Geçerli işlem için kod örnekleri...|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   

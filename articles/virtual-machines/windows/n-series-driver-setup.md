@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 756a836ff276804e9c85675c1acd5cb18aaa1258
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d173f1f9048a46f3fb2500d225ec121157d5d960
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008406"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483555"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Windows çalıştıran N serisi Vm'lerde NVIDIA GPU sürücüleri yükleyin 
 
@@ -59,7 +59,7 @@ GPU cihaz durumunu sorgulamak için aşağıdaki komutu çalıştırın [NVIDIA 
 Aynı kullanılabilirlik kümesinde veya sanal makine ölçek kümesindeki bir tek bir yerleştirme grubu içinde dağıtılan NC24r gibi RDMA özellikli N serisi vm'lerde RDMA ağ bağlantısı etkin hale getirilebilir. RDMA bağlantı sağlayan Windows ağ aygıt sürücülerini yüklemek için HpcVmDrivers uzantısı eklenmesi gerekir. RDMA özellikli bir N-serisi VM için VM uzantısı eklemek için [Azure PowerShell](/powershell/azure/overview) cmdlet'leri için Azure Resource Manager.
 
 En son sürüm 1.1 yüklemek için HpcVMDrivers uzantısı mevcut RDMA özellikli VM'yi Batı ABD bölgesinde myVM adlı:
-  ```PowerShell
+  ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
   Daha fazla bilgi için [sanal makine uzantıları ve özellikleri Windows için](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

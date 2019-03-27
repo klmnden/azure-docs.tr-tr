@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2fecf300bb14132a2e02c81a8a0862adff6b46cc
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: bca61c652953cd7fb9745c49773d22dc372b0f35
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202767"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448830"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>HDInsight, Apache Hadoop için .NET SDK kullanarak Apache Sqoop işleri çalıştırma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -117,6 +117,6 @@ Linux tabanlı HDInsight aşağıdaki sınırlamalar sunar:
 ## <a name="next-steps"></a>Sonraki adımlar
 Artık Sqoop kullanmayı öğrendiniz. Daha fazla bilgi için bkz:
 
-* [HDInsight ile Apache Oozie kullanma](../hdinsight-use-oozie.md): İçinde bir Oozie iş akışının Sqoop eylemini kullanın.
+* [HDInsight ile Apache Oozie kullanma](../hdinsight-use-oozie-linux-mac.md): İçinde bir Oozie iş akışının Sqoop eylemini kullanın.
 * [HDInsight için verileri karşıya](../hdinsight-upload-data.md): HDInsight veya Azure Blob depolamaya veri yüklemek için diğer yöntemler bulun.
 

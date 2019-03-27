@@ -3,7 +3,7 @@ title: Azure kaynakları için yönetilen kimlikleri bir şablon kullanarak sana
 description: Bir Azure Resource Manager şablonu kullanarak Azure kaynakları için yönetilen kimlikleri üzerinde bir sanal makine ölçek yapılandırma için adım adım yönergeler ayarlayın.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bed701f8948b27d4a242c6bb0af8ecf939db409
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 15b37c4845526227799173b09f468701954fc7b5
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223487"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449309"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Azure kaynakları için yönetilen kimlikleri bir şablonu kullanarak bir Azure sanal makine ölçek üzerinde yapılandırma
 

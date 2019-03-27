@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 8cda538cade4750e03ecb91dfb2c478df730e556
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 20ca4b9d347b9dc01e3b890fcf3758fb2fb135b9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961304"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486147"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -63,8 +63,8 @@ Düzenleme adımlarının sıralanmış listesini belirtmek için bir **Orchestr
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Sipariş verme | Evet | Düzenleme adımlarının sırası. | 
-| Type | Evet | Düzenleme adımı türü. Olası değerler: <ul><li>**ClaimsProviderSelection** -düzenleme adımı birini seçmek için kullanıcıya çeşitli talep sağlayıcıları sunan gösterir.</li><li>**CombinedSignInAndSignUp** -düzenleme adımı oturum açma ve yerel hesap kaydolma sayfası birleşik sosyal sağlayıcılar sunar gösterir.</li><li>**ClaimsExchange** -düzenleme adımı talepler bir talep sağlayıcı ile değiştirir gösterir.</li><li>**SendClaims** -düzenleme adımı, bir talep veren tarafından verilmiş bir belirteç ile bağlı olan tarafa talep gönderdiğini belirtir.</li></ul> | 
+| `Order` | Evet | Düzenleme adımlarının sırası. | 
+| `Type` | Evet | Düzenleme adımı türü. Olası değerler: <ul><li>**ClaimsProviderSelection** -düzenleme adımı birini seçmek için kullanıcıya çeşitli talep sağlayıcıları sunan gösterir.</li><li>**CombinedSignInAndSignUp** -düzenleme adımı oturum açma ve yerel hesap kaydolma sayfası birleşik sosyal sağlayıcılar sunar gösterir.</li><li>**ClaimsExchange** -düzenleme adımı talepler bir talep sağlayıcı ile değiştirir gösterir.</li><li>**SendClaims** -düzenleme adımı, bir talep veren tarafından verilmiş bir belirteç ile bağlı olan tarafa talep gönderdiğini belirtir.</li></ul> | 
 | ContentDefinitionReferenceId | Hayır | Tanımlayıcısını [içerik tanımı](contentdefinitions.md) bu düzenleme adımı ile ilişkili. Çoğunlukla içerik tanım başvurusu tanımlayıcısını otomatik olarak onaylanan teknik profili içinde tanımlanır. Ancak, teknik bir profili olmayan bir şey görüntülemek Azure AD B2C ihtiyacı olduğunda bazı durumlar vardır. Düzenleme adımı türü aşağıdakilerden biri ise iki örnekler verilmiştir: `ClaimsProviderSelection` veya `CombinedSignInAndSignUp`. Teknik profil gerek kalmadan kimlik sağlayıcısı seçim görüntülemek Azure AD B2C gerekir. | 
 | CpimIssuerTechnicalProfileReferenceId | Hayır | Düzenleme adımı türü `SendClaims`. Bu özellik, bağlı olan taraf için belirteç veren talep sağlayıcısı teknik profil tanımlayıcısını tanımlar.  Yoksa, bağlı olan taraf belirteci olmadan oluşturulduysa. |
 
@@ -92,8 +92,8 @@ Düzenleme adımlarının sıralanmış listesini belirtmek için bir **Orchestr
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Type | Evet | Onay veya bu önkoşulu için gerçekleştirmek için sorgu türü. Değer olabilir **ClaimsExist**, kullanıcının geçerli talep kümesinde belirtilen talep varsa eylemlerin gerçekleştirilmesi gereken belirtir veya **ClaimEquals**, hangi belirtir eylemleri Belirtilen talep varsa ve değeri belirtilen değere eşittir gerçekleştirilmelidir. |
-| ExecuteActionsIf | Evet | True veya false test önkoşuluna eylemleri gerçekleştirilen karar vermek için kullanın. | 
+| `Type` | Evet | Onay veya bu önkoşulu için gerçekleştirmek için sorgu türü. Değer olabilir **ClaimsExist**, kullanıcının geçerli talep kümesinde belirtilen talep varsa eylemlerin gerçekleştirilmesi gereken belirtir veya **ClaimEquals**, hangi belirtir eylemleri Belirtilen talep varsa ve değeri belirtilen değere eşittir gerçekleştirilmelidir. |
+| `ExecuteActionsIf` | Evet | True veya false test önkoşuluna eylemleri gerçekleştirilen karar vermek için kullanın. | 
 
 **Önkoşulu** öğeleri aşağıdaki öğeleri içerir:
 

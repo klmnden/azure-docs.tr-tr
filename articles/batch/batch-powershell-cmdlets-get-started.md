@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 10d8683724622f164299016a801e1960e0a868c7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 11028561cf6742cfd5e8c0c882de16ff35ebf0ef
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770059"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486378"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Batch kaynaklarını PowerShell cmdlet'leriyle yönetme
 
@@ -36,13 +36,13 @@ Bu makalede 1.0.0 Az Batch modülündeki cmdlet'leri temel almaktadır. Hizmet g
 
 * Çalıştırma **Connect AzAccount** cmdlet'ini (Azure Batch cmdlet'leri Azure Resource Manager modülüyle birlikte verilir) aboneliğinize bağlanın:
 
-  ```PowerShell
+  ```powershell
   Connect-AzAccount
   ```
 
 * **Batch sağlayıcı ad alanı ile kaydolun**. Bu işlemin **her abonelik için yalnızca bir kez** gerçekleştirilmesi gerekir.
   
-  ```PowerShell
+  ```powershell
   Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
@@ -52,13 +52,13 @@ Bu makalede 1.0.0 Az Batch modülündeki cmdlet'leri temel almaktadır. Hizmet g
 
 **Yeni AzBatchAccount** belirtilen kaynak grubunda bir Batch hesabı oluşturur. Bir kaynak grubu zaten sahip değilseniz, birini çalıştırarak oluşturma [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet'i. **Location** parametresinde, "Orta ABD" gibi Azure bölgelerinden birini belirtin. Örneğin:
 
-```PowerShell
+```powershell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
 Ardından, kaynak grubunda bir Batch hesabı oluşturun. Hesap için bir ad belirtin <*account_name*>, kaynak grubunuzun adını ve konumunu. Batch hesabının oluşturulması biraz zaman alabilir. Örneğin:
 
-```PowerShell
+```powershell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
 ```
 
@@ -69,7 +69,7 @@ New-AzBatchAccount –AccountName <account_name> –Location "Central US" –Res
 
 **Get-AzBatchAccountKeys** bir Azure Batch hesabıyla ilişkili erişim anahtarlarını gösterir. Örneğin, oluşturduğunuz birincil ve ikincil anahtarları almak için aşağıdakini çalıştırın.
 
- ```PowerShell
+ ```powershell
 $Account = Get-AzBatchAccountKeys –AccountName <account_name>
 
 $Account.PrimaryAccountKey
@@ -81,7 +81,7 @@ $Account.SecondaryAccountKey
 
 **Yeni AzBatchAccountKey** Azure Batch hesabı için yeni bir birincil veya ikincil hesap anahtarı oluşturur. Örneğin, Batch hesabınıza yeni bir birincil anahtar oluşturmak için şunu yazın:
 
-```PowerShell
+```powershell
 New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 ```
 
@@ -92,7 +92,7 @@ New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 **Remove-AzBatchAccount** Batch hesabını siler. Örneğin:
 
-```PowerShell
+```powershell
 Remove-AzBatchAccount -AccountName <account_name>
 ```
 
@@ -104,7 +104,7 @@ Batch kaynaklarını yönetmek için kimlik doğrulamasını paylaşılan anahta
 
 ### <a name="shared-key-authentication"></a>Paylaşılan anahtar kimlik doğrulaması
 
-```PowerShell
+```powershell
 $context = Get-AzBatchAccountKeys -AccountName <account_name>
 ```
 
@@ -113,7 +113,7 @@ $context = Get-AzBatchAccountKeys -AccountName <account_name>
 
 ### <a name="azure-active-directory-authentication"></a>Azure Active Directory kimlik doğrulaması
 
-```PowerShell
+```powershell
 $context = Get-AzBatchAccount -AccountName <account_name>
 ```
 
@@ -129,7 +129,7 @@ Bir Batch havuzu oluştururken ya da güncelleştirirken, işlem düğümlerinde
 
 Çalıştırdığınızda **yeni AzBatchPool**, işletim sistemi ayarlarını bir PSCloudServiceConfiguration veya PSVirtualMachineConfiguration nesnesi içinde geçirin. Örneğin, aşağıdaki kod parçacığı Standard_A1 boyutta havuz işlem düğümlerini yansıması Ubuntu Server 18.04-LTS ile sanal makine yapılandırması, bir toplu iş oluşturur. Burada **VirtualMachineConfiguration** parametresi *$configuration* değişkenini PSVirtualMachineConfiguration nesnesi olarak belirtir. **BatchContext** parametresi önceden tanımlanmış *$context* değişkenini BatchAccountContext nesnesi olarak belirtir.
 
-```PowerShell
+```powershell
 $imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04.0-LTS")
 
 $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageRef, "batch.node.ubuntu 18.04")
@@ -147,7 +147,7 @@ Gibi cmdlet'leri kullanın **Get-AzBatchPool**, **Get-AzBatchJob**, ve **Get-AzB
 
 Bir örnek **Get-AzBatchPools** havuzlarınızı bulmak için. Varsayılan olarak, hesabınız altındaki tüm havuzlarla ilgili bu sorgular zaten *$context* değişkenindeki BatchAccountContext nesnesinde depolanır:
 
-```PowerShell
+```powershell
 Get-AzBatchPool -BatchContext $context
 ```
 
@@ -155,7 +155,7 @@ Get-AzBatchPool -BatchContext $context
 
 Yalnızca ilgilendiğiniz nesneleri bulmak için **Filtre** parametresini kullanan bir OData filtresi sağlayabilirsiniz. Örneğin, ile kimlikleri "myPool" ile başlayan tüm havuzları bulabilirsiniz:
 
-```PowerShell
+```powershell
 $filter = "startswith(id,'myPool')"
 
 Get-AzBatchPool -Filter $filter -BatchContext $context
@@ -167,7 +167,7 @@ Bu yöntem, yerel bir işlem hattında "Where-Object" kullanmak kadar esnek değ
 
 OData filtresinin bir alternatifi de **Kimlik** parametresi kullanmaktır. "myPool" Kimliğine sahip belirli bir havuzu sorgulamak için:
 
-```PowerShell
+```powershell
 Get-AzBatchPool -Id "myPool" -BatchContext $context
 ```
 
@@ -177,7 +177,7 @@ Get-AzBatchPool -Id "myPool" -BatchContext $context
 
 Varsayılan olarak, her cmdlet en çok 1000 nesne döndürür. Bu sınıra ulaştıysanız, daha az nesne döndürmek için filtreyi daraltın veya **MaxCount** parametresini kullanarak kesin bir üst sınır ayarlayın. Örneğin:
 
-```PowerShell
+```powershell
 Get-AzBatchTask -MaxCount 2500 -BatchContext $context
 ```
 
@@ -189,13 +189,13 @@ Batch cmdlet'leri, verileri cmdlet'ler arasında göndermek için PowerShell iş
 
 Örneğin, hesabınızın altındaki tüm görevleri bulup görüntüleyin:
 
-```PowerShell
+```powershell
 Get-AzBatchJob -BatchContext $context | Get-AzBatchTask -BatchContext $context
 ```
 
 Havuzdaki her işlem düğümünü yeniden başlatın:
 
-```PowerShell
+```powershell
 Get-AzBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzBatchComputeNode -BatchContext $context
 ```
 
@@ -205,25 +205,25 @@ Uygulama paketleri havuzlarınızdaki işlem düğümlerine uygulama dağıtman�
 
 Bir uygulama **oluşturun**:
 
-```PowerShell
+```powershell
 New-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 ```
 
 Bir uygulama paketi **ekleyin**:
 
-```PowerShell
+```powershell
 New-AzBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0" -Format zip -FilePath package001.zip
 ```
 
 Uygulamanın **varsayılan sürümünü** ayarlayın:
 
-```PowerShell
+```powershell
 Set-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -DefaultVersion "1.0"
 ```
 
 Uygulamanın paketlerini **listeleme**
 
-```PowerShell
+```powershell
 $application = Get-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 
 $application.ApplicationPackages
@@ -231,13 +231,13 @@ $application.ApplicationPackages
 
 Uygulama paketini **silme**
 
-```PowerShell
+```powershell
 Remove-AzBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0"
 ```
 
 Uygulamayı **silme**
 
-```PowerShell
+```powershell
 Remove-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 ```
 
@@ -250,7 +250,7 @@ Bir havuz oluşturduğunuzda dağıtım için bir veya daha fazla uygulama paket
 
 Bir uygulama paketini havuza katıldıklarında havuzun düğümlerine dağıtmak üzere havuz oluştururken `-ApplicationPackageReference` seçeneğini belirtin. İlk olarak, oluşturun bir **PSApplicationPackageReference** nesne ve havuzdaki işlem düğümlerine dağıtmak istediğiniz uygulama kimliği ve Paket sürümü ile yapılandırın:
 
-```PowerShell
+```powershell
 $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
 
 $appPackageReference.ApplicationId = "MyBatchApplication"
@@ -260,7 +260,7 @@ $appPackageReference.Version = "1.0"
 
 Şimdi havuzu oluşturun ve paket başvuru nesnesini, `ApplicationPackageReferences` seçeneğinin bağımsız değişkeni olarak belirtin:
 
-```PowerShell
+```powershell
 New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 ```
 
@@ -273,7 +273,7 @@ New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServi
 
 Mevcut bir havuza atanan uygulamaları güncelleştirmek için önce istediğiniz özelliklere (uygulama kimliği ve Paket sürümü) sahip bir PSApplicationPackageReference nesnesi oluşturun:
 
-```PowerShell
+```powershell
 $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
 
 $appPackageReference.ApplicationId = "MyBatchApplication"
@@ -284,7 +284,7 @@ $appPackageReference.Version = "2.0"
 
 Ardından, Batch’den havuzu alın, mevcut paketleri temizleyin, yeni paket başvurumuzu ekleyin ve Batch hizmetini yeni havuz ayarlarıyla güncelleştirin:
 
-```PowerShell
+```powershell
 $pool = Get-AzBatchPool -BatchContext $context -Id "PoolWithAppPackage"
 
 $pool.ApplicationPackageReferences.Clear()
@@ -296,7 +296,7 @@ Set-AzBatchPool -BatchContext $context -Pool $pool
 
 Batch hizmetinde havuzun özelliklerini güncelleştirmiş oldunuz. Bununla birlikte, yeni uygulama paketini havuzdaki işlem düğümlerine gerçekten dağıtmak için bu düğümleri yeniden başlatmanız ya da görüntülerini yeniden oluşturmanız gerekir. Bu komutla havuzdaki her düğümü yeniden başlatabilirsiniz:
 
-```PowerShell
+```powershell
 Get-AzBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Restart-AzBatchComputeNode -BatchContext $context
 ```
 

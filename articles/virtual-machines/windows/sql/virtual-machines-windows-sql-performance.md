@@ -16,18 +16,18 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bb9b90ca239ff03f44b76a7ee5754eb7872caa31
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 8d31f04c355b47720a1c9b0334042ba2f6654768
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415910"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448567"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure sanal Makineler'de SQL Server için performans yönergeleri
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu makalede, Microsoft Azure sanal Makine'de SQL Server performansını iyileştirmek için yönergeler sağlar. Azure sanal Makineler'de SQL Server çalıştırırken, aynı veritabanı performans için şirket içi sunucu ortamında SQL Server için geçerli olan seçenekleri ayarlama kullanarak devam öneririz. Ancak, genel buluttaki ilişkisel bir veritabanı performansını bir sanal makinenin boyutunu ve veri disklerinin yapılandırması gibi birçok faktöre bağlıdır.
+Bu makalede, Microsoft Azure sanal Makine'de SQL Server performansını iyileştirmek için yönergeler sağlar. Azure sanal Makineler'de SQL Server çalıştırırken, aynı veritabanı performans için şirket içi sunucu ortamında SQL Server için geçerli olan seçenekleri ayarlama kullanarak devam öneririz. Bununla birlikte genel buluttaki bir ilişkisel veritabanının performansı, sanal makinenin boyutu ve veri disklerinin yapılandırması gibi birçok faktöre bağlıdır.
 
 [SQL Server görüntülerini Azure Portalı'nda sağlanan](quickstart-sql-vm-create-portal.md) genel depolama yapılandırması en iyi uygulamaları izleyin (depolama nasıl yapılandırılacağı ile ilgili daha fazla bilgi için bkz: [SQL Server Vm'leri için depolama yapılandırması](virtual-machines-windows-sql-server-storage-configuration.md)). Sağladıktan sonra bu makalede ele alınan diğer iyileştirmeler uygulamayı düşünün. Seçimlerinizi temel iş yükünüze dayalı ve test sürecinde doğrulayın.
 
@@ -135,7 +135,7 @@ Bu öneri için bir istisna vardır: _yazma yoğunluklu TempDB kullanımınızı
 
   * Önceki öneriler, premium SSD için geçerlidir. Premium SSD kullanmıyorsanız, tüm veri disklerinde önbelleğe alma etkinleştirmeyin.
 
-  * Disk önbelleğe almayı yapılandırma ile ilgili yönergeler için aşağıdaki makalelere bakın. Dağıtım modeli Klasik (ASM) için bkz: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) ve [kümesi AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Azure Resource Manager dağıtım modeli görmek için: [Set-AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-4.4.1) ve [kümesi AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk?view=azurermps-4.4.1).
+  * Disk önbelleğe almayı yapılandırma ile ilgili yönergeler için aşağıdaki makalelere bakın. Dağıtım modeli Klasik (ASM) için bkz: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) ve [kümesi AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Azure Resource Manager dağıtım modeli görmek için: [Set-AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) ve [kümesi AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk).
 
      > [!WARNING]
      > Azure VM Disk önbellek ayarı veritabanında bozulma olasılığını önlemek için değiştirilirken SQL Server hizmetini durdurun.

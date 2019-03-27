@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 2df08968ad66bd330611b975c045c9e9c9b240aa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 6f0d2d59ed50c743adb19027c404bfa83a1886f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735560"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484872"
 ---
 Ortamı ve Seçenekler bağlı olarak, Azure sanal ağ, depolama hesapları, bulut Hizmetleri, etki alanı denetleyicisi, uzak veya yerel SQL veritabanları, baş düğüm ve ek küme düğümlerini dahil olmak üzere tüm küme altyapısı, komut dosyası oluşturabilirsiniz. Alternatif olarak, betik önceden var olan Azure altyapısını kullanır ve yalnızca HPC küme düğümleri oluşturabilir.
 
@@ -22,7 +22,7 @@ Bir HPC Pack kümesinde planlama hakkında arka plan bilgileri için bkz. [ürü
 * **Yapılandırma betiği**: HPC kümesini yapılandırmak için komut dosyası kullanan bir XML dosyası oluşturun. Bilgi ve örnekler için bu makalede ve dağıtım betiğini eşlik eden Manual.rtf dosyasını devamındaki bölümlerin bakın.
 
 ## <a name="syntax"></a>Sözdizimi
-```PowerShell
+```powershell
 New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminPassword] <String>] [[-HPCImageName] <String>] [[-LogFile] <String>] [-Force] [-NoCleanOnFailure] [-PSSessionSkipCACheck] [<CommonParameters>]
 ```
 > [!NOTE]
@@ -53,7 +53,7 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 ### <a name="example"></a>Örnek
 Aşağıdaki örnek yapılandırma dosyası kullanarak bir HPC Pack kümesi oluşturur *MyConfigFile.xml*, Küme yükleme için yönetici kimlik bilgilerini belirtir.
 
-```PowerShell
+```powershell
 .\New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
 ```
 

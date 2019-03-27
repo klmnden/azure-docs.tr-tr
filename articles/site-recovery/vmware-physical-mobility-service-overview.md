@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 6b06ee7710dedbf2283fc4e365b767aa57547e7c
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 0e5e4e207542a74ef3fc5ff7fc78431b7956e54c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417828"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449248"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware Vm'lerini ve fiziksel sunucular için Mobility hizmeti hakkında
 
@@ -43,7 +43,8 @@ Mobility Aracısı göndererek yükleme sırasında aşağıdaki adımları ger�
 2. Aracı başarıyla oturum kopyalandıktan sonra sunucusu önkoşul denetimlerini sunucu üzerinde gerçekleştirilir. Yüklenmesi başarısız olursa, bir veya daha fazla [önkoşulları](vmware-physical-azure-support-matrix.md) karşılanmadı. Tüm Önkoşullar karşılanıyorsa, yükleme tetiklenir.
 3. Azure Site Recovery VSS sağlayıcısı sunucusunda Mobility Aracısı yüklemesinin bir parçası olarak yüklenir. Bu sağlayıcı uygulama tutarlı noktaları oluşturmak için kullanılır. VSS sağlayıcısı yüklemesi başarısız olursa, bu adımın atlanır ve aracı yüklemesi devam eder.
 4. Ardından iş durumu, aracı yüklemesi başarılı ancak VSS sağlayıcısı yüklemesi başarısız olursa, "Uyarı" olarak işaretlenir. Kilitlenme tutarlılığı noktaları üretimi etkilemez.
-    a. Uygulama tutarlı noktaları oluşturmak için başvurmak [kılavuzumuzu](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) Site Recovery VSS sağlayıcısı yüklemesi el ile tamamlamak için.
+
+    a. Uygulama tutarlı noktaları oluşturmak için başvurmak [kılavuzumuzu](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) Site Recovery VSS sağlayıcısı yüklemesi el ile tamamlamak için. </br>
     b.  Oluşturulacak, uygulama tutarlı noktaları istemiyorsanız [çoğaltma ilkesini değiştirmek](vmware-azure-set-up-replication.md#create-a-policy) uygulama tutarlı noktaları açmak için.
 
 ### <a name="before-922-versions"></a>9.22 sürümlerinden önce

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b9ab48ea971a5e7f5e9c72f9e729d2fcb5ed37f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c1c6e0408145ea76ad93b6dc3803fd56a01dc6d4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437875"
+ms.locfileid: "58444649"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
@@ -29,6 +29,23 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  
 
 + **Yeni Özellikler**
   + *Azureml.core.Run.create_children* yöntemi sağlayan birden çok alt düşük gecikme süreli oluşturulmasını tek bir çağrı ile çalışır.
+
+### <a name="azure-machine-learning-data-prep-sdk-v110"></a>Azure Machine Learning veri hazırlama SDK v1.1.0
+
++ **Bozucu değişiklikler**
+  + Veri hazırlık paketi kavramı, kullanım dışı bırakıldı ve artık desteklenmiyor. Tek bir pakette birden çok veri akışı kalıcı yerine, veri akışlarını ayrı ayrı kalıcı hale getirebilirsiniz.
+    + Nasıl yapılır kılavuzunda: [Açma ve kaydetme veri akışlarını not defteri](https://aka.ms/aml-data-prep-open-save-dataflows-nb)
+
++ **Yeni Özellikler**
+  + Veri hazırlığı, belirli bir anlam türüyle eşleşmesi ve buna göre bölme sütunlar artık tanıyabilirsiniz. Şu anda desteklenen STypes içerir: e-posta adresi, coğrafi koordinatlar vardır (enlem ve boylam), IPv4 ve IPv6 adresleri, ABD telefon numarası ve ABD posta kodu.
+    + Nasıl yapılır kılavuzunda: [Anlam türleri not defteri](https://aka.ms/aml-data-prep-semantic-types-nb)
+  + Veri hazırlığı, iki sayısal sütunları sonuç bir sütun oluşturmak için aşağıdaki işlemleri artık destekliyor: çıkarma, çarpma, bölme, modül ve.
+  + Çağırabilirsiniz `verify_has_data()` çalıştırıldığında veri akışı kayıtları neden olup olmadığını denetlemek için bir veri akışı üzerinde.
+
++ **Hata düzeltmeleri ve geliştirmeleri**
+  + Artık bir histogramda için sayısal bir sütun profilleri kullanmak için depo sayısını belirtebilirsiniz.
+  + `read_pandas_dataframe` Dönüşüm artık DataFrame dize - olmasını gerektiriyor veya bayt - yazılan sütun adları.
+  + Bir hata düzeltildi `fill_nulls` dönüştürme, burada değerleri doğru doldurulmamış sahipse sütunu eksik.
 
 ## <a name="2019-03-11"></a>2019-03-11
 

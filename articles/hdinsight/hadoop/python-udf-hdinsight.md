@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: f6a9d688169f0f8fdd6f0be7b664dbe9ebd71941
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: adcfb308bbbc8e3de456c4e7a71c543f988db02a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295241"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498001"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Apache Hive ve Apache Pig, HDInsight ile kullanmak Python kullanıcı tanımlı işlevler (UDF)
 
@@ -35,7 +35,7 @@ HDInsight, Java dilinde yazılmış bir Python uygulaması Jython de içerir. Jy
 * İsteğe bağlı.  PowerShell kullanmayı planlıyorsanız ihtiyacınız olacak [AZ modül](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) yüklü.
 
 > [!NOTE]  
-> Bu makalede kullanılan depolama hesabı Azure Storage ile olan [güvenli aktarım](/../storage/common/storage-require-secure-transfer.md) etkin ve bu nedenle `wasbs` makale boyunca kullanılır.
+> Bu makalede kullanılan depolama hesabı Azure Storage ile olan [güvenli aktarım](../../storage/common/storage-require-secure-transfer.md) etkin ve bu nedenle `wasbs` makale boyunca kullanılır.
 
 ## <a name="storage-configuration"></a>Depolama yapılandırması
 Kullanılan depolama hesabı türü ise Eylem gerekmiyor `Storage (general purpose v1)` veya `StorageV2 (general purpose v2)`.  Bu makaledeki işlemi çıkış için en az üretecektir `/tezstaging`.  Varsayılan hadoop yapılandırma içerecek `/tezstaging` içinde `fs.azure.page.blob.dir` yapılandırma değişkeni `core-site.xml` hizmeti `HDFS`.  Bu yapılandırma, çıkış dizini, depolama hesabı türü için desteklenmeyen sayfa blobları için neden olacak `BlobStorage`.  Kullanılacak `BlobStorage` kaldırmak için bu makalede, `/tezstaging` gelen `fs.azure.page.blob.dir` yapılandırma değişkeni.  Yapılandırma erişilebilir [Ambari UI](../hdinsight-hadoop-manage-ambari.md).  Aksi takdirde hata iletisi alırsınız: `Page blob is not supported for this account type.`

@@ -3,7 +3,7 @@ title: REST kullanarak bir Azure sanal makinesinde sistem ve kullanıcı tarafı
 description: Adım adım bir sistem ve kullanıcı tarafından atanan yönetilen kimlikleri REST API'si yapmak için CURL kullanarak bir Azure sanal makinesinde yapılandırmaya yönelik yönergeler çağırır.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 778897e1a146abd0655d76ef157f64522681cb0d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 18350337ba44d969173d518a4bc8dfe40185de21
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889684"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447115"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>REST API çağrıları kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlik yapılandırma
 
@@ -83,8 +83,8 @@ Etkin sistem tarafından atanan yönetilen kimlik ile bir Azure VM oluşturmak i
    
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*İçerik türü*     | Gerekli. Kümesine `application/json`.        |
-   |*Yetkilendirme*     | Gerekli. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
    
    **İstek gövdesi**
 
@@ -172,8 +172,8 @@ Sistem tarafından atanan yönetilen kimlik olmadan ilk olarak sağlanan bir VM 
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*İçerik türü*     | Gerekli. Kümesine `application/json`.        |
-   |*Yetkilendirme*     | Gerekli. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
    
    **İstek gövdesi**
     
@@ -204,8 +204,8 @@ Sistem tarafından atanan yönetilen kimlik olmadan ilk olarak sağlanan bir VM 
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*İçerik türü*     | Gerekli. Kümesine `application/json`.        |
-   |*Yetkilendirme*     | Gerekli. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
 
    **İstek gövdesi**
 
@@ -239,8 +239,8 @@ Sistem tarafından atanan yönetilen kimlik olmadan ilk olarak sağlanan bir VM 
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*İçerik türü*     | Gerekli. Kümesine `application/json`.        |
-   |*Yetkilendirme*     | Gerekli. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
 
    **İstek gövdesi**
 
@@ -282,8 +282,8 @@ Yönetilen kimlik sistem tarafından atanan bir VM'de devre dışı bırakmak i�
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*İçerik türü*     | Gerekli. Kümesine `application/json`.        |
-   |*Yetkilendirme*     | Gerekli. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
 
    **İstek gövdesi**
 
@@ -341,8 +341,8 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*İçerik türü*     | Gerekli. Kümesine `application/json`.        |
-   |*Yetkilendirme*     | Gerekli. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
 
    **İstek gövdesi**
 
@@ -422,8 +422,8 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*İçerik türü*     | Gerekli. Kümesine `application/json`.        |
-   |*Yetkilendirme*     | Gerekli. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
 
    **İstek gövdesi**
 
@@ -513,7 +513,7 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*Yetkilendirme*     | Gerekli. Geçerli bir kümesi `Bearer` erişim belirteci.
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.
 
     Herhangi bir kullanıcı veya sistem tarafından atanan yönetilen kimlikleri tanımlandığı gibi VM'ye atanmış varsa `identity` değerini yanıt olarak, sistem tarafından atanan bir yönetilen kimlik üzerinde kullanıcı tarafından atanan bir yönetilen kimlik eklenirken korumak nasıl oluşturulduğunu gösteren 5. adım için Atla Sanal makinenizin.
 
@@ -534,8 +534,8 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*İçerik türü*     | Gerekli. Kümesine `application/json`.        |
-   |*Yetkilendirme*     | Gerekli. Geçerli bir kümesi `Bearer` erişim belirteci.        |
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        |
  
    **İstek gövdesi**
 
@@ -566,8 +566,8 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*İçerik türü*     | Gerekli. Kümesine `application/json`.        |
-   |*Yetkilendirme*     | Gerekli. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
 
    **İstek gövdesi**
 
@@ -602,8 +602,8 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*İçerik türü*     | Gerekli. Kümesine `application/json`.        |
-   |*Yetkilendirme*     | Gerekli. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
 
    **İstek gövdesi**
 
@@ -641,8 +641,8 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*İçerik türü*     | Gerekli. Kümesine `application/json`.        |
-   |*Yetkilendirme*     | Gerekli. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
 
    **İstek gövdesi**
 
@@ -682,8 +682,8 @@ Bir VM için bir kullanıcı tarafından atanan kimliği kaldırmak için hesab�
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*İçerik türü*     | Gerekli. Kümesine `application/json`.        |
-   |*Yetkilendirme*     | Gerekli. Geçerli bir kümesi `Bearer` erişim belirteci.
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.
  
    Sanal Makineye atanan kimlikleri yönetiliyorsa, yanıtta listelendikleri `identity` değeri.
 
@@ -705,8 +705,8 @@ Bir VM için bir kullanıcı tarafından atanan kimliği kaldırmak için hesab�
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*İçerik türü*     | Gerekli. Kümesine `application/json`.        |
-   |*Yetkilendirme*     | Gerekli. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
 
    **İstek gövdesi**
 
@@ -737,8 +737,8 @@ Bir VM için bir kullanıcı tarafından atanan kimliği kaldırmak için hesab�
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*İçerik türü*     | Gerekli. Kümesine `application/json`.        |
-   |*Yetkilendirme*     | Gerekli. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
 
    **İstek gövdesi**
 
@@ -767,8 +767,8 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |İstek üstbilgisi  |Açıklama  |
 |---------|---------|
-|*İçerik türü*     | Gerekli. Kümesine `application/json`.        |
-|*Yetkilendirme*     | Gerekli. Geçerli bir kümesi `Bearer` erişim belirteci. | 
+|*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+|*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci. | 
 
 **İstek gövdesi**
 
@@ -794,8 +794,8 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |İstek üstbilgisi  |Açıklama  |
 |---------|---------|
-|*İçerik türü*     | Gerekli. Kümesine `application/json`.        |
-|*Yetkilendirme*     | Gerekli. Geçerli bir kümesi `Bearer` erişim belirteci.| 
+|*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+|*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.| 
 
 **İstek gövdesi**
 

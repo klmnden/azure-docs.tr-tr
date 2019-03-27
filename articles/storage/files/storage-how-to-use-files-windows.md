@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 93ba17c58dfcb5955bafbcc63655778903f60c18
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2bf323b34c5a5301094bdecdc9fa705fe9077320
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076352"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482139"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Azure dosya paylaşımını Windows'da kullanma
 [Azure Dosyaları](storage-files-introduction.md), Microsoft’un kullanımı kolay bulut dosya sistemidir. Azure dosya paylaşımları, Windows ve Windows Server’da sorunsuz bir şekilde kullanılabilir. Bu makalede Azure dosya paylaşımını Windows ve Windows Server ile kullanma konusunda dikkat edilmesi gerekenler anlatılmaktadır.
@@ -49,7 +49,7 @@ Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azu
 
     Aşağıdaki PowerShell kodunda AzureRM PowerShell modülünü yüklediğiniz varsayılır. Daha fazla bilgi için bkz. [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-az-ps). `<your-storage-account-name>` ile `<your-resource-group-name>` yerine depolama hesabınızla ilgili bilgileri yazmayı unutmayın.
 
-    ```PowerShell
+    ```powershell
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
@@ -87,7 +87,7 @@ Azure'da SMB dosya paylaşımına ihtiyaç duyan iş kolu (LOB) uygulamalarını
 ### <a name="persisting-azure-file-share-credentials-in-windows"></a>Azure dosya paylaşımı kimlik bilgilerinin Windows'da kalıcı olmasını sağlama  
 [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) yardımcı programı, depolama hesabı kimlik bilgilerinizi Windows'a kaydetmenizi sağlar. Bu da bir Azure dosya paylaşımına UNC adını kullanarak erişmeye veya Azure dosya paylaşımını bağlamaya çalıştığınızda kimlik bilgilerini belirtmek zorunda kalmayacağınız anlamına gelir. Depolama hesabınızın kimlik bilgilerini kaydetmek için aşağıdaki PowerShell komutlarını çalıştırın ve `<your-storage-account-name>` ile `<your-resource-group-name>` yerine uygun bilgileri girin.
 
-```PowerShell
+```powershell
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 
@@ -107,7 +107,7 @@ Invoke-Expression -Command ("cmdkey /add:$([System.Uri]::new($storageAccount.Con
 
 cmdkey yardımcı programının depolama hesabınızın kimlik bilgilerini kaydedip kaydetmediğini doğrulamak için list parametresini kullanabilirsiniz:
 
-```PowerShell
+```powershell
 cmdkey /list
 ```
 
@@ -128,7 +128,7 @@ cmdkey ile kullanılabilecek iki ek senaryo daha vardır. Bunlardan biri makiney
 
 Makinede başka bir kullanıcının kimlik bilgilerini kaydetmek oldukça kolaydır. Hesapta oturum açtığınızda aşağıdaki PowerShell komutunu yürütmeniz yeterlidir:
 
-```PowerShell
+```powershell
 $password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
 Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
@@ -141,7 +141,7 @@ cmdkey yardımcı programı, kullanıcı PowerShell uzaktan iletişim özellikle
 ### <a name="mount-the-azure-file-share-with-powershell"></a>Azure dosya paylaşımını PowerShell ile bağlama
 Azure dosya paylaşımını bağlamak için aşağıdaki komutları normal (yükseltilmiş olmayan) bir PowerShell oturumundan çalıştırın. `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` ve `<desired-drive-letter>` yerine gerekli bilgileri eklemeyi unutmayın.
 
-```PowerShell
+```powershell
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 $fileShareName = "<your-file-share-name>"
@@ -172,7 +172,7 @@ New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\$($file
 
 İsterseniz aşağıdaki PowerShell cmdlet'ini kullanarak Azure dosya paylaşımını çıkarabilirsiniz.
 
-```PowerShell
+```powershell
 Remove-PSDrive -Name <desired-drive-letter>
 ```
 
@@ -252,7 +252,7 @@ SMB 1'i ortamınızdan kaldırmadan önce bu değişiklikten etkilenecek istemci
 
 Denetimi etkinleştirmek için aşağıdaki cmdlet'i yükseltilmiş PowerShell oturumundan yürütün:
 
-```PowerShell
+```powershell
 Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
@@ -261,7 +261,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 
 SMB 1'i bir Windows Server örneğinden kaldırmak için aşağıdaki cmdlet'i yükseltilmiş PowerShell oturumundan yürütün:
 
-```PowerShell
+```powershell
 Remove-WindowsFeature -Name FS-SMB1
 ```
 
@@ -275,7 +275,7 @@ Kaldırma işlemini tamamlamak için sunucunuzu yeniden başlatın.
 
 SMB 1'i bir Windows istemcinizden kaldırmak için aşağıdaki cmdlet'i yükseltilmiş PowerShell oturumundan yürütün:
 
-```PowerShell
+```powershell
 Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 ```
 
@@ -288,7 +288,7 @@ SMB 1, eski Windows/Windows Server sürümlerinden tamamen kaldırılamaz ancak 
 
 Bunu işlemi aşağıdaki PowerShell cmdlet'ini kullanarak da kolayca gerçekleştirebilirsiniz:
 
-```PowerShell
+```powershell
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
 ```
 

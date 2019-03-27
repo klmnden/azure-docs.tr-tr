@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a6b6728d7eaa263bb7e9da0f08a47ffe2f1e961a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 81e31a6e5fd1260ec844cc36f28a64e44334ebec
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009468"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482784"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure sanal makineleri SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -455,14 +455,14 @@ _**Şekil 11:** SAP yüksek kullanılabilirlik Azure Resource Manager parametrel
 2. İçinde **SUBNETID** kutusunda, hazırlanan Azure alt ağınızı Azure sanal makinelerinizi dağıtmak planladığınız Subnetıd tam dizesi ekleyin.
 3. Tüm Azure ağ alt ağların bir listesini almak için bu PowerShell komutunu çalıştırın:
 
-   ```PowerShell
+   ```powershell
    (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
    ```
 
    **Kimliği** alan gösterir **SUBNETID**.
 4. Tüm listesini almak için **SUBNETID** değerleri, bu PowerShell komutunu çalıştırın:
 
-   ```PowerShell
+   ```powershell
    (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
    ```
 
@@ -1196,7 +1196,7 @@ Bir araştırma bağlantı noktası eklemek için:
 
 1. Geçerli denetleyin **ProbePort** aşağıdaki PowerShell komutunu çalıştırarak ayarlama. Bu sanal makinelerden biri içinde küme yapılandırmasını yürütün.
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPNetworkIPClusterName = "SAP $SAPSID IP"
@@ -1213,7 +1213,7 @@ Bir araştırma bağlantı noktası eklemek için:
 
    Yeni bir ProbePort değerini ayarlamak için **SAP <*SID*> IP** küme kaynağı için aşağıdaki PowerShell betiğini çalıştırın. PowerShell benzeri değişkenleri ortamınız için güncelleştirin. Betik çalıştıktan sonra değişiklikleri etkinleştirmek için SAP küme grubu yeniden başlatmanız istenir.
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"      # SAP <SID>
    $ProbePort = 62000   # ProbePort of the Azure Internal Load Balancer
 
@@ -1271,7 +1271,7 @@ Bir araştırma bağlantı noktası eklemek için:
 
    Sonra Getir **SAP <*SID*>** doğrulayın, küme rolünü **ProbePort** yeni değere ayarlanır.
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPNetworkIPClusterName = "SAP $SAPSID IP"
@@ -1287,7 +1287,7 @@ Bir araştırma bağlantı noktası eklemek için:
 
 Her iki küme düğümlerinde Windows Güvenlik Duvarı araştırma bağlantı noktası açma gerekir. Bir Windows Güvenlik Duvarı araştırma bağlantı noktasını açmak için aşağıdaki betiği kullanın. PowerShell benzeri değişkenleri ortamınız için güncelleştirin.
 
-  ```PowerShell
+  ```powershell
   $ProbePort = 62000   # ProbePort of the Azure Internal Load Balancer
 
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
@@ -1347,7 +1347,7 @@ _**Şekil 62:** SIOS DataKeeper yerel birim bir küme düğümünden küme düğ
    - Yük Devretme Kümesi Yöneticisi'ni kullanın  
    - Yük devretme kümesi PowerShell kullanma
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPClusterGroup = "SAP $SAPSID"

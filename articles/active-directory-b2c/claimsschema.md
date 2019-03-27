@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 635700529007cc90c7e9b79c224f55f34b326f0f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5d7036f2c7301223b27c80402dace8e9ea05b7f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167079"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487830"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -106,8 +106,8 @@ Sonuç olarak, Azure AD B2C tarafından verilen JWT belirteci yayan `family_name
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Type | Evet | Talep maskesi türü. Olası değerler: `Simple` veya `Regex`. `Simple` Değeri basit metin maske dizesi talep önde gelen bölümüne uygulandığını gösterir. `Regex` Değeri belirten bir normal ifade dizesini talep bütün olarak uygulanır.  Varsa `Regex` değeri belirtilirse, isteğe bağlı bir öznitelik, kullanılacak normal ifade ile tanımlanmalıdır. |
-| Regex | Hayır | Varsa **türü** ayarlanır `Regex`, normal ifadeyi belirtin.
+| `Type` | Evet | Talep maskesi türü. Olası değerler: `Simple` veya `Regex`. `Simple` Değeri basit metin maske dizesi talep önde gelen bölümüne uygulandığını gösterir. `Regex` Değeri belirten bir normal ifade dizesini talep bütün olarak uygulanır.  Varsa `Regex` değeri belirtilirse, isteğe bağlı bir öznitelik, kullanılacak normal ifade ile tanımlanmalıdır. |
+| `Regex` | Hayır | Varsa **`Type`** ayarlanır `Regex`, normal ifadeyi belirtin.
 
 Aşağıdaki örnek yapılandırır bir **PhoneNumber** ile talep `Simple` maskesi:
 
@@ -162,7 +162,7 @@ Kimlik deneyimi çerçevesi e-posta adresini ve e-posta etki alanı adı yalnız
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
 | Metin | Evet | Bu seçenek için kullanıcı arabirimi kullanıcılara gösterilen görüntü dizesi. |
-|Value | Evet | Bu seçeneğin belirlenmesi ile ilişkili talep değeri. |
+|Değer | Evet | Bu seçeneğin belirlenmesi ile ilişkili talep değeri. |
 | SelectByDefault | Hayır | Bu seçenek varsayılan olarak kullanıcı arabiriminde seçili olup olmadığını gösterir. Olası değerler: TRUE veya False. |
 
 Aşağıdaki örnek yapılandırır bir **Şehir** açılan liste talep kümesine varsayılan değeri `New York`:

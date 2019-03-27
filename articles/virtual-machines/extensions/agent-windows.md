@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 051c9cb0c6c1af121a1bdd1f553ef124f980b49d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d17d7c9d7b57e6ca040e4f81c9665789c8bc26e2
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977160"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483259"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure sanal makine Aracısı genel bakış
 Microsoft Azure sanal makine Aracısı (VM Aracısı) sanal makine (VM) etkileşim Azure yapı denetleyicisi tarafından yönetilen güvenli, hafif bir işlemdir. VM Aracısı, etkinleştirme ve Azure sanal makine uzantıları yürütme süreçlerinde birincil role sahiptir. Dağıtım sonrası yapılandırma, yükleme ve yazılım yapılandırma gibi sanal makine, VM uzantılarını etkinleştirin. VM uzantıları, bir sanal makinenin yönetici parola sıfırlama gibi kurtarma özellikleri de olanak sağlar. VM uzantıları Azure VM Aracısı, çalıştırılamaz.
@@ -80,7 +80,7 @@ Get-AzVM
 
 Aşağıdaki sıkıştırılmış örneğe çıktısı bunu gösterir *ProvisionVMAgent* özelliği iç içe geçmiş içinde *OSProfile*. Bu özellik, VM Aracısı VM dağıtıp dağıtmadığını belirlemek için kullanılabilir:
 
-```PowerShell
+```powershell
 OSProfile                  :
   ComputerName             : myVM
   AdminUsername            : myUserName
@@ -91,7 +91,7 @@ OSProfile                  :
 
 Sanal makine adları ve VM aracısının durumunu kısa bir listesini döndürmek için aşağıdaki komut kullanılabilir:
 
-```PowerShell
+```powershell
 $vms = Get-AzVM
 
 foreach ($vm in $vms) {

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: monhaber
-ms.openlocfilehash: 5f49de453f9cd694598918500a8ac0221937bdb1
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 680e39b291cbaa1012cd972e188ab4e5f7aef694
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201696"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449012"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Güvenlik Merkezi'nin Gelişmiş güvenlik için standart katmana yükseltin
 Azure Güvenlik Merkezi, Azure’da, şirket içinde ve diğer bulutlarda çalışan iş yükleri için birleşik güvenlik yönetimi ve gelişmiş tehdit koruması sağlar. Bu, hibrit bulut iş yükleri, hızla gelişen siber saldırı ile uydurmanıza yardımcı olmak için tehditleri ve akıllı algılama maruz kalma riskinizi azaltmak etkin savunmaları üzerinde görünürlük ve denetim sunar.
@@ -49,7 +49,7 @@ Standart katman almak için:
 ![Güvenlik Merkezi fiyatlandırma](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
-> Tüm Güvenlik Merkezi özelliklerini etkinleştirmek için standart fiyatlandırma katmanı abonelik veya kaynak grubunun geçerli sanal makineleri içeren uygulamanız gerekir. Yapılandırma için bir çalışma alanı fiyatlandırma, yalnızca Azure kaynakları için ağ algılamalar zamanında VM erişimi ve Uyarlamalı uygulama denetimleri içinde etkinleştirmez.
+> Tüm Güvenlik Merkezi özelliklerini etkinleştirmek için standart fiyatlandırma katmanı geçerli sanal makineleri içeren aboneliği için uygulamanız gerekir. Yapılandırma için bir çalışma alanı fiyatlandırma, yalnızca Azure kaynakları için ağ algılamalar zamanında VM erişimi ve Uyarlamalı uygulama denetimleri içinde etkinleştirmez.
 >
 >
 

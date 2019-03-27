@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2ed42e10071e3100f285c55c7b965dfa836d6c0e
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 0ec778cc349ba7c21e693437b6a20c40f2e9c173
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437472"
+ms.locfileid: "58485321"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Hızlı Başlangıç: Azure IOT C SDK'sını kullanarak sanal bir TPM cihazı sağlama
 
@@ -48,7 +48,7 @@ Bu bölümde, [Azure IoT C SDK'sı](https://github.com/Azure/azure-iot-sdk-c) il
 
     Aşağıdaki örnek, şifreleme karması x64 3.13.4 sürümü için doğrulamak için Windows PowerShell kullanılan MSI dağıtım:
 
-    ```PowerShell
+    ```powershell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
     PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
@@ -144,7 +144,7 @@ Bu bölümde, çalışır ve 2321 ile 2322 numaralı bağlantı noktaları üzer
 
 3. **Kayıt ekle** altında aşağıdaki bilgileri girin ve **Kaydet** düğmesine tıklayın.
 
-    - **Mekanizması:** Kimlik onay *Mekanizması* olarak TPM seçeneğini belirleyin.
+    - **Mekanizması:** Kimlik onay *Mekanizması* olarak **TPM** seçeneğini belirleyin.
     - **Onay anahtarı:** Girin *onay anahtarını* çalıştırarak TPM cihazınız için oluşturulan *tpm_device_provision* proje.
     - **Kayıt Kimliği:** Girin *kayıt kimliği* çalıştırarak TPM cihazınız için oluşturulan *tpm_device_provision* proje.
     - **IOT Edge cihazı:** Seçin **devre dışı**.

@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 07/08/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 754562487f0fe9f825107445a3059cc15a1faa26
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 359347e41264711a6ac0fa4d2dd0c3633590e917
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39146263"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488034"
 ---
 Azure dosya eşitleme hizmeti sunucudan erişilebilir olduğunda bu hata oluşabilir. Aşağıdaki adımları aracılığıyla bu hatayı gidermek:
 
 1. Windows hizmeti doğrulamak `FileSyncSvc.exe` güvenlik duvarı tarafından engellenip engellenmediğini.
 2. Bağlantı noktası 443 giden bağlantı Azure dosya eşitleme hizmeti için açık olduğunu doğrulayın. İle bunu yapabilirsiniz `Test-NetConnection` cmdlet'i. URL `<azure-file-sync-endpoint>` yer tutucu aşağıda bulunan [Azure dosya Eşitleme proxy'si ve güvenlik duvarı ayarlarını](../articles/storage/files/storage-sync-files-firewall-and-proxy.md#firewall) belge. 
 
-    ```PowerShell
+    ```powershell
     Test-NetConnection -ComputerName <azure-file-sync-endpoint> -Port 443
     ```
 
 3. Proxy yapılandırması beklenen şekilde ayarlandığından emin olun. Bu ile yapılabilir `Get-StorageSyncProxyConfiguration` cmdlet'i. Azure dosya eşitleme bulunabilir için proxy yapılandırması'nı yapılandırma hakkında daha fazla bilgi [Azure dosya Eşitleme proxy'si ve güvenlik duvarı ayarlarını](../articles/storage/files/storage-sync-files-firewall-and-proxy.md#firewall).
 
-    ```PowerShell
+    ```powershell
     $agentPath = "C:\Program Files\Azure\StorageSyncAgent"
     Import-Module "$agentPath\StorageSync.Management.ServerCmdlets.dll"
     Get-StorageSyncProxyConfiguration
