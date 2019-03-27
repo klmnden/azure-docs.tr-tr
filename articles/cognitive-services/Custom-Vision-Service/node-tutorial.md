@@ -8,18 +8,18 @@ manager: daauld
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 2/21/2019
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 3ae3a70ff1cfdda356c99e734b7078a54ab48171
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 9d9021cd3acaebe689c583281e0316b30d5892c0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752361"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482462"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>Hızlı Başlangıç: Özel görüntü işleme Node.js SDK'sı ile bir görüntü sınıflandırma projesi oluşturma
 
-Bu makalede, bilgi ve yardımcı olması için örnek kod, bir görüntü sınıflandırma modeli oluşturmak için Node.js ile özel görüntü işleme SDK'sı ile çalışmaya başlamak sağlar. Oluşturulduktan sonra etiketler ekleyebilir, görüntüleri karşıya yükleyebilir, projeyi eğitebilir, projenin varsayılan tahmin uç nokta URL’sini alabilir ve bir görüntüyü programlama yoluyla test etmek için uç noktayı kullanabilirsiniz. Bu örnek, kendi Node.js uygulaması oluşturmak için şablon olarak kullanın. Kod _içermeyen_ bir sınıflandırma modeli oluşturma ve kullama işlemi yapmak istiyorsanız, [tarayıcı tabanlı kılavuz](getting-started-build-a-classifier.md) konusuna bakın.
+Bu makalede, bilgi ve yardımcı olması için örnek kod, bir görüntü sınıflandırma modeli oluşturmak için Node.js ile özel görüntü işleme SDK'sı ile çalışmaya başlamak sağlar. Oluşturulduktan sonra etiketler ekleyin, görüntüleri karşıya yüklemek, proje eğitmek, projenin yayımlanan tahmin uç nokta URL'si almak ve program aracılığıyla resim test etmek için uç noktayı kullanın. Bu örnek, kendi Node.js uygulaması oluşturmak için şablon olarak kullanın. Kod _içermeyen_ bir sınıflandırma modeli oluşturma ve kullama işlemi yapmak istiyorsanız, [tarayıcı tabanlı kılavuz](getting-started-build-a-classifier.md) konusuna bakın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -30,7 +30,7 @@ Bu makalede, bilgi ve yardımcı olması için örnek kod, bir görüntü sını
 
 Node.js için özel görüntü işleme hizmeti SDK'sını yüklemek için PowerShell'de aşağıdaki komutu çalıştırın:
 
-```PowerShell
+```powershell
 npm install azure-cognitiveservices-customvision-training
 npm install azure-cognitiveservices-customvision-prediction
 ```
@@ -56,9 +56,12 @@ const setTimeoutPromise = util.promisify(setTimeout);
 
 const trainingKey = "<your training key>";
 const predictionKey = "<your prediction key>";
+const predictionResourceId = "<your prediction resource id>";
 const sampleDataRoot = "<path to image files>";
 
 const endPoint = "https://southcentralus.api.cognitive.microsoft.com"
+
+const publishIterationName = "classifyModel";
 
 const trainer = new TrainingApiClient(trainingKey, endPoint);
 
@@ -102,9 +105,9 @@ Projeye örnek görüntüleri eklemek için etiket oluşturduktan sonra aşağı
     await Promise.all(fileUploadPromises);
 ```
 
-### <a name="train-the-classifier"></a>Sınıflandırıcıyı eğitme
+### <a name="train-the-classifier-and-publish"></a>Sınıflandırıcı eğitin ve yayımlayın
 
-Bu kod, projedeki ilk yinelemeyi oluşturur ve bunu varsayılan yineleme olarak işaretler. Varsayılan yineleme, tahmin isteklerine yanıt verecek modelin sürümünü yansıtır. Bu modeli her yeniden eğitişinizde bunu güncelleştirmeniz gerekir.
+Bu kod, ilk yineleme projede oluşturur ve ardından bu yineleme tahmin uç noktaya yayımlar. Yayımlanmış bir yineleme için verilen ad, tahmin istekleri göndermek için kullanılabilir. Yineleme yayımlanmadan tahmin uç noktasında kullanılabilir değil.
 
 ```javascript
     console.log("Training...");
@@ -119,12 +122,11 @@ Bu kod, projedeki ilk yinelemeyi oluşturur ve bunu varsayılan yineleme olarak 
     }
     console.log("Training status: " + trainingIteration.status);
     
-    // Update iteration to be default
-    trainingIteration.isDefault = true;
-    await trainer.updateIteration(sampleProject.id, trainingIteration.id, trainingIteration);
+    // Publish the iteration to the end point
+    await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>Varsayılan tahmin uç noktasını alma ve kullanma
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Edinin ve öngörü uç noktasında yayımlanan yineleme kullanın
 
 Tahmin uç noktasına bir görüntü göndermek ve tahmini almak için dosyanın sonuna aşağıdaki kodu ekleyin:
 
@@ -132,7 +134,7 @@ Tahmin uç noktasına bir görüntü göndermek ve tahmini almak için dosyanın
     const predictor = new PredictionApiClient(predictionKey, endPoint);
     const testFile = fs.readFileSync(`${sampleDataRoot}/Test/test_image.jpg`);
 
-    const results = await predictor.predictImage(sampleProject.id, testFile, { iterationId: trainingIteration.id });
+    const results = await predictor.classifyImage(sampleProject.id, publishIterationName, testFile);
 
     // Step 6. Show results
     console.log("Results:");
@@ -146,7 +148,7 @@ Tahmin uç noktasına bir görüntü göndermek ve tahmini almak için dosyanın
 
 Çalıştırma *sample.js*.
 
-```PowerShell
+```powershell
 node sample.js
 ```
 

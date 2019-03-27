@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 1b6c8b1af00c2819632c60a27d61d7cf8db44885
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d39c2414aa8299282b3896a9ceb57897fdb25ff1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012319"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445991"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure Depolama Performansı ve Ölçeklenebilirlik Onay Listesi
 ## <a name="overview"></a>Genel Bakış
@@ -98,7 +98,7 @@ Makalenin yazıldığı sırada, bant genişliği hedefleri coğrafi olarak yede
 Depolama hesabı içinde bir belirli aboneliğe/bölge birleşimi olabilir sınırına yaklaşılıyor, uygulama ve depolama hesapları kullanımını değerlendirin ve Bu koşullardan herhangi biri geçerli olup olmadığına belirleyin.
 
 * Yönetilmeyen diskler depolama hesaplarının kullanılması ve sanal makinelerinize bu diskleri ekleme. Bu senaryoda kullanılması önerilir [yönetilen diskler](../../virtual-machines/windows/managed-disks-overview.md)depolama disk ölçeklenebilirliği, ayrı depolama hesaplarını oluşturur ve yönetirken gerek kalmadan işledikleri gibi.
-* Veri yalıtımı amacıyla, müşteri başına temelinde bir depolama hesabı kullanma. Bu senaryoda depolama kapsayıcıları tüm depolama hesabınız yerine her müşteri için kullanmanızı öneririz. Azure depolama artık rol tabanlı erişim denetimi üzerinde belirtmenize olanak verir bir başına [kapsayıcı temel](storage-auth-aad-rbac.md).
+* Veri yalıtımı amacıyla, müşteri başına temelinde bir depolama hesabı kullanma. Bu senaryoda depolama kapsayıcıları tüm depolama hesabınız yerine her müşteri için kullanmanızı öneririz. Azure depolama artık rol tabanlı erişim denetimi üzerinde belirtmenize olanak verir bir başına [kapsayıcı temel](storage-auth-aad-rbac-portal.md).
 * Birden çok depolama hesabında parçalara ayırmak için giriş/çıkış/IOPS/kapasitesi daha büyük ölçeklendirme kullanma. Bu senaryoda, mümkünse, avantajından öneririz [artırılmış sınırlar](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) yükünüz için gerekli depolama hesapları sayısını azaltmak için standart depolama hesabı.
 
 Uygulamanız için bir tek bir depolama hesabı ölçeklenebilirlik hedefleri yaklaşıyorsa, aşağıdaki yaklaşımlardan birini benimsemeyi göz önünde bulundurun:  

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: d66db88dd1e962acc63c960270bb5685218aa391
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 23654dd41714314ab5c9f217d4f805d7b9d62413
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316084"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472815"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid güvenliğini ve kimlik doğrulaması 
 
@@ -41,7 +41,7 @@ HTTP tetikleyicisi tabanlı Azure işlevi gibi başka türde bir uç noktasını
 
    Event Grid, sürümü 2018-05-01-preview ile başlayarak, el ile doğrulama el sıkışması destekler. Bir olay aboneliği bir SDK veya API sürümü 2018-05-01-preview'ı kullanan aracıyla oluştururken ya da daha sonra Event Grid gönderir, bir `validationUrl` abonelik doğrulama olayı veri bölümünü özelliği. Anlaşma tamamlamak için bulma olay verileri ve el ile bu URL'yi bir GET isteği gönder. Bir REST istemcisi ya da web tarayıcınızı kullanabilirsiniz.
 
-   Sağlanan URL'de 10 dakika için geçerlidir. Bu süre boyunca, olay aboneliğinin sağlama durumu: `AwaitingManualAction`. 10 dakika içinde el ile doğrulama tamamlamazsanız, sağlama durumu kümesine `Failed`. Olay aboneliği el ile doğrulama başlatmadan önce yeniden oluşturmanız gerekir.
+   Sağlanan URL'de 5 dakika için geçerlidir. Bu süre boyunca, olay aboneliğinin sağlama durumu: `AwaitingManualAction`. 10 dakika içinde el ile doğrulama tamamlamazsanız, sağlama durumu kümesine `Failed`. Olay aboneliği el ile doğrulama başlatmadan önce yeniden oluşturmanız gerekir.
 
 ### <a name="validation-details"></a>Doğrulama ayrıntıları
 

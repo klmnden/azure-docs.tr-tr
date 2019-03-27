@@ -3,7 +3,7 @@ title: Yönetilen kimlik VM uzantısını kullanmayı bırakmak ve Azure örnek 
 description: VM uzantısını kullanmayı bırakmak ve kimlik doğrulaması için Azure örnek meta veri hizmeti (IMDS) kullanmaya başlamak için yönergeleri adım adım.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
-ms.author: priyamo
-ms.openlocfilehash: c29eb22f2606fc44cfd7d948f2c363cb51c811dd
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.author: markvi
+ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227692"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498341"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Sanal makineyi durdurmak nasıl yönetilen kimlikleri uzantısı ve Azure örnek meta veri hizmeti kullanmaya başlayın
 
@@ -196,7 +196,7 @@ Sanal makine uzantısını kullanmanın birkaç önemli sınırlamaları vardır
 
 ## <a name="azure-instance-metadata-service"></a>Azure örnek meta veri hizmeti
 
-[Azure örnek meta veri hizmeti (IMDS)](https://docs.microsoft.com/azure/virtual-machines/instance-metadata-service) yönetmek ve sanal makinelerinizi yapılandırmak için kullanılan sanal makine örneklerini çalıştırma hakkında bilgi sağlayan bir REST uç noktası. İyi bilinen yönlendirilemeyen IP adresinde uç noktası kullanılabilir (`169.254.169.254`), erişilebilir yalnızca sanal makine içinde.
+[Azure örnek meta veri hizmeti (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) yönetmek ve sanal makinelerinizi yapılandırmak için kullanılan sanal makine örneklerini çalıştırma hakkında bilgi sağlayan bir REST uç noktası. İyi bilinen yönlendirilemeyen IP adresinde uç noktası kullanılabilir (`169.254.169.254`), erişilebilir yalnızca sanal makine içinde.
 
 Azure IMDS isteği belirteçleri kullanarak çeşitli avantajları vardır. 
 

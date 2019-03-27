@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d5100a3da9b00f5c9a1defee1e4b9280528fd2d8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2d816ab2f14be8574f77491807d4dbd071487f42
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543024"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483074"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Öğretici: Visual Studio kullanarak veri fabrikası oluşturma
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -314,8 +314,8 @@ Bu adımda, projenizdeki Data Factory varlıklarını (bağlı hizmetler, veri k
    5. Data factory için **bölge** seçin.
    6. **Öğeleri Yayımla** sayfasına geçmek için **İleri**’ye tıklayın. (Ad alanından çıkmak için, **İleri** düğmesi devre dışıysa **SEKME** tuşuna basın.)
 
-    > [!IMPORTANT]
-    > Yayımladığınızda **“DataFactoryUsingVS” data factory adı yok** hatasını alırsanız adı değiştirin (örneğin, yournameDataFactoryUsingVS). Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.   
+      > [!IMPORTANT]
+      > Yayımladığınızda **“DataFactoryUsingVS” data factory adı yok** hatasını alırsanız adı değiştirin (örneğin, yournameDataFactoryUsingVS). Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.   
 1. **Öğeleri Yayımla** sayfasında tüm Data Factory varlıklarının işaretli olmasını sağlayın ve **Özet** sayfasına geçmek için **İleri**’ye tıklayın.
 
     ![Öğe yayımlama sayfası](media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png)     
@@ -328,12 +328,12 @@ Dikkat edilmesi gereken önemli noktalar şunlardır:
 
 - Hatayı alırsanız: **Bu abonelik Microsoft.DataFactory ad alanını kullanacak şekilde kaydedilmemiş**, aşağıdakilerden birini yapın ve yeniden yayımlamayı deneyin:
     - Azure PowerShell’de Data Factory sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın.
-        ```PowerShell   
+        ```powershell   
         Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
         ```
         Data Factory sağlayıcısının kayıtlı olduğunu onaylamak için aşağıdaki komutu çalıştırabilirsiniz.
 
-        ```PowerShell
+        ```powershell
         Get-AzResourceProvider
         ```
     - Azure aboneliğini kullanarak [Azure portalında](https://portal.azure.com) oturum açın ve Data Factory dikey penceresine gidin (ya da) Azure portalında bir data factory oluşturun. Bu eylem sağlayıcıyı sizin için otomatik olarak kaydeder.
@@ -565,6 +565,7 @@ Bir etkinliğin çıkış veri kümesini diğer etkinliğin giriş veri kümesi 
 
 
 ## <a name="see-also"></a>Ayrıca Bkz.
+
 | Konu | Açıklama |
 |:--- |:--- |
 | [İşlem hatları](data-factory-create-pipelines.md) |Bu makale, Azure Data Factory’de işlem hatlarını ve etkinlikleri anlamanıza, senaryonuz ya da işletmeniz için veri odaklı iş akışları oluşturmak amacıyla bunları nasıl kullanacağınızı öğrenmenize yardımcı olur. |

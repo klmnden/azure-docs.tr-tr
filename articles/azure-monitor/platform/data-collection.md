@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: b65613de8f11aa36c398d15176541ac43a3dba69
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e6d953841e5c22c21640f874ecad942f8db76ad1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770229"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448892"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Azure İzleyici tarafından toplanan verileri izleme
 [Azure İzleyici](../overview.md) yardımcı olan bir hizmeti izlemek, uygulamalarınızın ve bunların bağımlı kaynakları olduğundan. Telemetri ve diğer verileri izlenen kaynaklardan bu işleve merkezi depolamadır. Bu makalede, Azure İzleyici tarafından kullanılan bu veriler nasıl depolanır ve kapsamlı bir açıklama sağlar.
@@ -102,7 +102,7 @@ Azure İzleyici tarafından toplanan ölçümleri üç temel kaynakları vardır
 - Yol ölçümlerinin günlüklerine günlük verileriyle birlikte ölçüm verilerini analiz etmek ve ölçüm değerleri 93 günden daha uzun süre saklamak için. 
 - Stream için ölçümleri bir [olay hub'ı](stream-monitoring-data-event-hubs.md) kendisine yönlendirmek için [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) veya harici sistemlere bağlanma.
 - [Arşiv](../../azure-monitor/learn/tutorial-archive-data.md) kaynağınızın denetim ya da çevrimdışı raporlamaya uyumluluk, performans veya sistem durumu geçmişi.
-- Bir komut satırı veya özel bir uygulama kullanarak ölçüm değerleri erişim [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) veya [REST API](rest-api-walkthrough.md).
+- Bir komut satırı veya özel bir uygulama kullanarak ölçüm değerleri erişim [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.insights/) veya [REST API](rest-api-walkthrough.md).
 
 
 
@@ -146,7 +146,7 @@ Günlükleri ile gerçekleştirebileceğiniz görevler aşağıdakileri içerir:
 - Yapılandırma bir [günlük uyarı kuralı](alerts-log.md) bildirim gönderen veya alan [eylemi otomatik](action-groups.md) zaman sorgunun sonuçlarını eşleşen belirli bir sonuç.
 - Günlük veri kullanımına dayalı bir iş akışı derleme [Logic Apps](~/articles/logic-apps/index.yml).
 - Sorgu sonuçlarını dışarı aktarma [Power BI](powerbi.md) farklı görselleştirme kullanın ve Azure dışındaki kullanıcılarla paylaşmak için.
-- Bir komut satırı veya özel bir uygulama kullanarak ölçüm değerleri erişim [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) veya [REST API](https://dev.loganalytics.io/).
+- Bir komut satırı veya özel bir uygulama kullanarak ölçüm değerleri erişim [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) veya [REST API](https://dev.loganalytics.io/).
 
 ### <a name="viewing-log-data"></a>Günlük verilerini görüntüleme
 Azure İzleyici'de tüm günlük verilerini kullanarak alınır bir [günlük sorgusu](../log-query/log-query-overview.md) ile yazılmış [Kusto sorgu dili](../log-query/get-started-queries.md), hızlı bir şekilde almak, birleştirmek ve toplanan verileri çözümlemek yapmanıza olanak tanıyan. Kullanım [Log Analytics](../log-query/portals.md) yazma ve sorgular Azure Portalı'nda test etmek için. İş sonuçları ile etkileşimli olarak veya bunları diğer görselleştirmeler ile bunları görüntülemek için panoya sabitleyin. Günlükleri kullanarak da alabilirsiniz [Azure REST API izleme](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).

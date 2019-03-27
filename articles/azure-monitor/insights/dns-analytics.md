@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: fdc3c42da7f3d2290806a8cd00d7c90d16f3b87d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5eac6110cc021a749b787cd97c3a8872d8476668
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103936"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499803"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS analizi Önizleme çözümü, DNS altyapısıyla ilgili Öngörüler toplayın
 
@@ -106,7 +106,7 @@ DNS kutucuğu, verilerin toplandığı DNS sunucularının sayısını içerir. 
 
 ![DNS güvenlik dikey penceresi](./media/dns-analytics/dns-security-blade.png)
 
-Bir istemci IP listesinde tıkladığınızda, günlük araması açılır ve ilgili sorgu arama ayrıntılarını gösterir. Aşağıdaki örnekte, DNS analizi iletişimi ile yapıldığını algılamıştır bir [Ircbot](https://www.microsoft.com/wdsi/threats/threat-search?query=Win32/IRCbot):
+Bir istemci IP listesinde tıkladığınızda, günlük araması açılır ve ilgili sorgu arama ayrıntılarını gösterir. Aşağıdaki örnekte, DNS analizi iletişimi ile yapıldığını algılamıştır bir [Ircbot](https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot):
 
 ![Ircbot gösteren günlük arama sonuçları](./media/dns-analytics/ircbot.png)
 

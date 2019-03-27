@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0f0a22ea4a24a82cb4acf7a3b20a743ee7425c72
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: ac1c1c4ae21ebd184b833fe4d23084f7cf324d2c
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294918"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500483"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight kümesi için günlükleri yönetme
 
@@ -98,7 +98,7 @@ Sonraki adım, çeşitli hizmetler için iş yürütme günlük dosyalarını'g�
 
 ### <a name="access-the-hadoop-log-files"></a>Hadoop günlük dosyalarına erişmek
 
-HDInsight, küme dosya sistemi hem de Azure depolama, günlük dosyalarını depolar. Günlük dosyaları küme içindeki açarak inceleyebilirsiniz bir [SSH](/hdinsight-hadoop-linux-use-ssh-unix.md) bağlantı kümesi ve dosya sistemini tarama veya uzak bir baş düğüm sunucu üzerinde Hadoop YARN durumu portalını kullanarak. Günlük dosyaları erişebilir ve Azure Depolama'dan veri indirme araçlardan herhangi birini kullanarak Azure Depolama'daki inceleyebilirsiniz. Örnekler [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)ve Visual Studio Sunucu Gezgini. PowerShell ve Azure depolama istemcisi kitaplıklarını veya Azure .NET SDK'ları, Azure blob depolama alanındaki verilere erişmek için kullanabilirsiniz.
+HDInsight, küme dosya sistemi hem de Azure depolama, günlük dosyalarını depolar. Günlük dosyaları küme içindeki açarak inceleyebilirsiniz bir [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) bağlantı kümesi ve dosya sistemini tarama veya uzak bir baş düğüm sunucu üzerinde Hadoop YARN durumu portalını kullanarak. Günlük dosyaları erişebilir ve Azure Depolama'dan veri indirme araçlardan herhangi birini kullanarak Azure Depolama'daki inceleyebilirsiniz. Örnekler [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)ve Visual Studio Sunucu Gezgini. PowerShell ve Azure depolama istemcisi kitaplıklarını veya Azure .NET SDK'ları, Azure blob depolama alanındaki verilere erişmek için kullanabilirsiniz.
 
 Hadoop işlerinin iş çalıştıran *görev denemesi* kümesinde çeşitli düğümler üzerinde. HDInsight, ilk tamamlamayın herhangi bir görev denemesi sonlandırma kurgusal görev denemesi başlatabilirsiniz. Bu denetleyici, stderr ve syslog günlük dosya çubuğunda halindeyken günlüğe önemli bir etkinlik oluşturur. Ayrıca, birden çok görev denemesi aynı anda çalışıyor, ancak bir günlük dosyası yalnızca sonuçlarını doğrusal olarak görüntüleyebilirsiniz.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: df1542d6d20120a9b1e087fadf3743479ecebf07
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c89764d746f07e6100b1f250d4c107bb700fe014
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533842"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445844"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Artımlı olarak veri kopyalama aracını kullanarak zaman bölümlenmiş dosya adına göre yeni dosyaları kopyalama
 
@@ -54,9 +54,10 @@ Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
-1. Soldaki menüden **+ Yeni** > **Veri ve Analiz** > **Data Factory**’yi seçin: 
+1. Sol menüden **kaynak Oluştur** > **veri ve analiz** > **Data Factory**: 
    
-   ![Yeni veri fabrikası oluşturma](./media/tutorial-copy-data-tool/new-azure-data-factory-menu.png)
+   ![“Yeni” bölmesinde Data Factory seçimi](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. **Yeni veri fabrikası** sayfasında **Ad** bölümüne **ADFTutorialDataFactory** girin. 
       
     ![Yeni veri fabrikası](./media/tutorial-copy-data-tool/new-azure-data-factory.png)

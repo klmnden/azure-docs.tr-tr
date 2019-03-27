@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8898280e887392591873f1fc832bfd0c105689fe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0dad74f75fd7b73e7dab0b2dddbdfda193d5b2ec
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097295"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445792"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Azure Otomasyonu durumu Azure İzleyici günlüklerine veri raporlama yapılandırma ilet
 
@@ -44,7 +44,7 @@ Azure İzleyici günlüklerine Otomasyon durum yapılandırması raporlarınız�
 
 Azure İzleyici günlüklerine Azure Automation DSC veri almaya başlamak için aşağıdaki adımları tamamlayın:
 
-1. PowerShell Azure hesabınızda oturum açın. Bkz: [oturum Azure PowerShell ile oturum açma](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
+1. PowerShell Azure hesabınızda oturum açın. Bkz: [oturum Azure PowerShell ile oturum açma](https://docs.microsoft.com/powershell/azure/authenticate-azureps)
 1. Alma _ResourceId_ Otomasyon hesabınızı aşağıdaki PowerShell komutunu çalıştırarak: (birden fazla Otomasyon hesabınız varsa, seçin _ResourceId_ yapılandırmak istediğiniz hesap için).
 
    ```powershell

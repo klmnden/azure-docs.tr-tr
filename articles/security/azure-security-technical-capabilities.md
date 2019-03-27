@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 76944d98d6a5fe7c3f83ce12bb2fdf1a34d5e234
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c904d8306c145bad57ca7d77b139a2ad6d216b0b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839109"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500262"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure güvenlik Teknik Özellikler
 
@@ -274,7 +274,7 @@ Makaleyi okuyarak Azure VPN seçeneği hakkında daha fazla bilgi edinebilirsini
 
 [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) dosyalarınızın ve e-posta güvenliğini sağlamaya yardımcı olmak için şifreleme, kimlik ve yetkilendirme ilkelerini kullanır. Azure RMS'nin çalışmasını birden çok cihazda — telefonlar, tabletler ve bilgisayarlar tarafından hem kuruluşunuz içinde hem de kuruluşunuz dışında koruma. Bu özellik, Azure RMS veriler kuruluşunuzun sınırları dışına çıktığında bile, verilerle kalan bir koruma düzeyi eklediğinden mümkündür.
 
-Dosyalarınızı korumak için Azure RMS kullandığınızda tam destek sayesinde sektör standardı şifreleme kullanmakta olduğunuz [FIPS 140-2](https://csrc.nist.gov/groups/STM/cmvp/standards.html). Azure RMS veri koruma için yararlanın, denetimi altında olmayan depolama alanına kopyalansa bile dosyanın koruması devam eder Güvencesine sahip bir bulut depolama hizmeti gibi BT'nin. Aynı oluştuğunda e-posta ile paylaşılan dosyaları yönergeler içeren bir e-posta iletisi ek olarak dosyayı koruyan nasıl korumalı eki açın.
+Dosyalarınızı korumak için Azure RMS kullandığınızda tam destek sayesinde sektör standardı şifreleme kullanmakta olduğunuz [FIPS 140-2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf). Azure RMS veri koruma için yararlanın, denetimi altında olmayan depolama alanına kopyalansa bile dosyanın koruması devam eder Güvencesine sahip bir bulut depolama hizmeti gibi BT'nin. Aynı oluştuğunda e-posta ile paylaşılan dosyaları yönergeler içeren bir e-posta iletisi ek olarak dosyayı koruyan nasıl korumalı eki açın.
 Azure RMS benimseme için planlama yaparken aşağıdakileri öneririz:
 
 - Yükleme [RMS sharing uygulamasını](https://technet.microsoft.com/library/dn339006.aspx). Bu uygulama bir Office yükleyerek-kullanıcıların kolayca dosyaları doğrudan koruyabilmesi Office uygulamalarıyla ile tümleştirilir.

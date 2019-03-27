@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 371347149b3c3f14784ba62365cfd6224ded99d1
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 2553dccaa57e5340bf36bbccdf7826d242716300
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407343"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472642"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Ön kapısı bir coğrafi filtreleme WAF İlkesi ayarlama
 Bu öğreticide, örnek bir coğrafi filtreleme ilkesi oluşturmak ve bu ilkeyi mevcut bir Front Door ön uç konağı ile ilişkilendirmek için Azure PowerShell kullanma gösterilmektedir. Bu örnek coğrafi filtreleme ilkesi, Birleşik Devletler dışındaki diğer tüm ülkelerden gelen istekleri engeller.
@@ -42,6 +42,11 @@ PowerShellGet yüklü geçerli sürümü olduğundan emin olun. Aşağıdaki kom
 ```
 Install-Module PowerShellGet -Force -AllowClobber
 ``` 
+#### <a name="install-azfrontdoor-module"></a>Az.FrontDoor modülünü yükleme 
+
+```
+Install-Module -Name Az.FrontDoor -AllowPrerelease
+```
 
 ### <a name="create-a-front-door-profile"></a>Bir ön kapısı profili oluşturma
 Açıklanan yönergeleri izleyerek bir ön kapısı profili oluşturma [hızlı başlangıç: Ön kapısı profil oluşturma](quickstart-create-front-door.md).

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: 4b3225dd25fee2859a36f98add51fcf612a45c83
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c54b78a24068758fabb0918cfeb7d6516fd1bce5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108900"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487252"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Azure Key Vault güvenlik duvarları ve sanal ağları yapılandırma
 
@@ -84,33 +84,33 @@ PowerShell kullanarak Key Vault güvenlik duvarları ve sanal ağları yapıland
 1. Son yükleme [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps), ve [oturum](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
 2. Kullanılabilir sanal ağ kuralları listesi. Bu anahtar kasası için herhangi bir kuralın ayarlamadıysanız listesi boş olur.
-   ```PowerShell
+   ```powershell
    (Get-AzKeyVault -VaultName "mykeyvault").NetworkAcls
    ```
 
 3. Hizmet uç noktası, bir var olan sanal ağı ve alt ağ üzerinde anahtar kasası için etkinleştirin.
-   ```PowerShell
+   ```powershell
    Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
    ```
 
 4. Bir sanal ağ ve alt ağ için bir ağ kuralı ekleyin.
-   ```PowerShell
+   ```powershell
    $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
    Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
    ```
 
 5. Bir IP adresi aralığı, trafiğe izin verecek şekilde ekleyin.
-   ```PowerShell
+   ```powershell
    Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
    ```
 
 6. Bu anahtar kasası güvenilir hizmetlerin tarafından erişilebilir olması gereken verilirse `bypass` için `AzureServices`.
-   ```PowerShell
+   ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
    ```
 
 7. Varsayılan eylem ayarlayarak ağ kurallarını açma `Deny`.
-   ```PowerShell
+   ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
    ```
 

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: fce3c2975e4b82583aa09a3862f704f05a363828
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a10b4d7fac29a6b016b5660b0430d042f2443fbd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210603"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498086"
 ---
 # <a name="service-bus-faq"></a>Hizmet Veri Yolu SSS
 
@@ -55,7 +55,7 @@ Bir kuyruk ve konu aşağıdaki özelliklerini sabittir. Varlıklarınızı sağ
 ## <a name="pricing"></a>Fiyatlandırma
 Bu bölümde, Service Bus fiyatlandırma yapısı hakkında sık sorulan bazı sorular yanıtlanmaktadır.
 
-[Fiyatlandırma ve faturalama Service Bus](service-bus-pricing-billing.md) makalede, Service Bus, faturalandırma ölçümlerinde açıklanmaktadır. Service Bus fiyatlandırma seçenekleri hakkında ayrıntılı bilgi için bkz: [Service Bus fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/service-bus/).
+[Fiyatlandırma ve faturalama Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) makalede, Service Bus, faturalandırma ölçümlerinde açıklanmaktadır. Service Bus fiyatlandırma seçenekleri hakkında ayrıntılı bilgi için bkz: [Service Bus fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Da ziyaret edebilirsiniz [Azure desteği SSS](https://azure.microsoft.com/support/faq/) genel Azure fiyatlandırma bilgileri için. 
 

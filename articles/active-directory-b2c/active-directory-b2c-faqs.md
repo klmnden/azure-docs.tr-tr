@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 12b8fc2fb8df7fd730e220a3c1b60097ed7748a2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 89ad91316da027e399891a7e1b348e66c1d3a4f5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433731"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499905"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri güncelleştirmeleri kontrol etmeyi unutmayın.
@@ -113,7 +113,8 @@ Evet!  Hakkında bilgi edinin [dil özelleştirme](active-directory-b2c-referenc
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Azure AD B2C kiracıma nasıl silebilirim?
 Azure AD B2C kiracınızı silmek için aşağıdaki adımları izleyin:
 
-1. Azure AD B2C kiracınızdaki tüm ilkeleri silin.
+1. Tüm kullanıcı akışları (ilke) Azure AD B2C kiracınızdaki silin.
+1. Azure AD B2C kiracınızda kayıtlı olan tüm uygulamaları silin.
 1. Şimdi oturum açın [Azure portalında](https://portal.azure.com/) Abonelik Yöneticisi olarak. (Aynı iş veya Okul hesabı veya Azure'a kaydolmak için kullandığınız aynı Microsoft hesabını kullanın.)
 1. Geçiş için Azure AD B2C kiracısı silmek istediğiniz.
 2. Soldaki Active Directory menüsüne gidin.

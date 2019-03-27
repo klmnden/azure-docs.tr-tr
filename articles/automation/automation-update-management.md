@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5267467b2874c1cc36c8a9f5f27cc1c348eba7ac
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a2adb0dbbacbec28f241ae89d1b9f763e0f00b90
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369777"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447618"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -238,7 +238,7 @@ Güncelleştirme dağıtımları da bir program aracılığıyla oluşturulabili
 
 ### <a name="multi-tenant"></a>Kiracılar arası güncelleştirme dağıtımları
 
-Güncelleştirme yönetimi için düzeltme yapmanız raporlama başka bir Azure kiracısı makineleriniz varsa, zamanlanmış getirmek için aşağıdaki geçici çözümü kullanmanız gerekir. Kullanabilirsiniz [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) anahtarıyla cmdlet'i `-ForUpdate` bir zamanlama oluşturmak ve kullanmak için [yeni AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+Güncelleştirme yönetimi için düzeltme yapmanız raporlama başka bir Azure kiracısı makineleriniz varsa, zamanlanmış getirmek için aşağıdaki geçici çözümü kullanmanız gerekir. Kullanabilirsiniz [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) anahtarıyla cmdlet'i `-ForUpdate` bir zamanlama oluşturmak ve kullanmak için [yeni AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) cmdlet'i ve geçirin diğer kiracıdaki makineler `-NonAzureComputer` parametresi. Aşağıdaki örnek bunu nasıl bir örnek gösterir:
 
 ```azurepowershell-interactive

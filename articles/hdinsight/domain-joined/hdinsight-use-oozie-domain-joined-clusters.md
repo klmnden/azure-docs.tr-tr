@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 15cdc78559a8f299e2bf0f357bbb7c0664881712
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 86cb6f6a18cb799574ae9badc0f02144b3a6e1d7
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116903"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445113"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Apache Oozie HDInsight Hadoop kümeleri Kurumsal güvenlik paketi ile çalıştırın.
 
@@ -332,5 +332,4 @@ Oozie web kullanıcı Arabirimi, küme üzerinde Oozie işlerin durumunu web tab
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Tanımlamak ve Linux tabanlı Azure HDInsight üzerinde bir iş akışı çalıştırmak için Apache Hadoop ile Apache Oozie kullanma](../hdinsight-use-oozie-linux-mac.md).
-* [Zamana bağlı Apache Oozie Düzenleyici kullanma](../hdinsight-use-oozie-coordinator-time.md).
 * [SSH kullanarak HDInsight için (Apache Hadoop) bağlanma](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

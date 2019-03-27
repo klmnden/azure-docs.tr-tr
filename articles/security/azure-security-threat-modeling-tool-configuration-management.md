@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bd1d3c71660ae584b0aa57c7cc765fdc519f4b1b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863602"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498392"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Güvenlik çerçevesi: Yapılandırma Yönetimi | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -85,7 +85,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
-| **Başvuruları**              | [ASP.NET hata ayıklamaya genel bakış](https://msdn2.microsoft.com/library/ms227556.aspx), [ASP.NET izlemeye genel bakış](https://msdn2.microsoft.com/library/bb386420.aspx), [nasıl yapılır: Bir ASP.NET uygulaması için izlemeyi etkinleştirme](https://msdn2.microsoft.com/library/0x5wc973.aspx), [nasıl yapılır: ASP.NET uygulamaları için hata ayıklamayı etkinleştirme](https://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **Başvuruları**              | [ASP.NET hata ayıklamaya genel bakış](https://msdn.microsoft.com/library/ms227556.aspx), [ASP.NET izlemeye genel bakış](https://msdn.microsoft.com/library/bb386420.aspx), [nasıl yapılır: Bir ASP.NET uygulaması için izlemeyi etkinleştirme](https://msdn.microsoft.com/library/0x5wc973.aspx), [nasıl yapılır: ASP.NET uygulamaları için hata ayıklamayı etkinleştirme](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **Adımları** | Zaman izleme, iç sunucu durumu ve iş akışı hakkında veri içeren izleme bilgilerini de alır isteyen her tarayıcı sayfa için etkinleştirilir. Bu bilgileri güvenlik duyarlı olabilir. Sayfa için hata ayıklama etkinleştirildiğinde, sunucuda'olmuyor hataları tarayıcıya sunulan tam yığın izleme verileri sonuçlanır. Bu verileri, sunucunun iş akışıyla ilgili güvenlik bakımından hassas bilgiler ortaya çıkarabilir. |
 
 ## <a id="js-trusted"></a>Yalnızca güvenilir kaynaklardan gelen erişim üçüncü taraf JavaScript'i
@@ -492,7 +492,7 @@ Bir denetleyici veya eylem için CORS devre dışı bırakmak için [DisableCors
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | IOT cihaz | 
+| **Bileşen**               | IoT Cihazı | 
 | **SDL aşaması**               | Dağıtım |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
@@ -503,7 +503,7 @@ Bir denetleyici veya eylem için CORS devre dışı bırakmak için [DisableCors
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | IOT cihaz | 
+| **Bileşen**               | IoT Cihazı | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
@@ -514,7 +514,7 @@ Bir denetleyici veya eylem için CORS devre dışı bırakmak için [DisableCors
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | IOT cihaz | 
+| **Bileşen**               | IoT Cihazı | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
@@ -525,7 +525,7 @@ Bir denetleyici veya eylem için CORS devre dışı bırakmak için [DisableCors
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | IOT cihaz | 
+| **Bileşen**               | IoT Cihazı | 
 | **SDL aşaması**               | Dağıtım |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |

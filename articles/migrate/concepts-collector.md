@@ -4,15 +4,15 @@ description: Azure geçişi, Toplayıcı gerecini hakkında bilgi sağlar.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 78ef88d0710e8a82d30fa26b60073aa75e363c15
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 224511b9748c540f2cd48a3d8393a9c74f76ce32
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315309"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498426"
 ---
 # <a name="about-the-collector-appliance"></a>Toplayıcı gerecini hakkında
 
@@ -150,6 +150,9 @@ vCenter Server | TCP 443 | Toplayıcı, vCenter Server ile iletişim kurabildiğ
 RDP | TCP 3389 |
 
 ## <a name="collected-metadata"></a>Toplanan meta verileri
+
+> [!NOTE]
+> Toplayıcı gerecini Azure'a geçirirken, doğru boyuta uygulamalarınızı yardımcı olmak için kullanılan Azure geçişi tarafından bulunan meta verileri Azure uygunluk analizi, uygulama bağımlılık analizi ve maliyet planlaması gerçekleştirin. Microsoft, herhangi bir lisans uyumluluk denetimi ile ilgili olarak bu verileri kullanmaz.
 
 Toplayıcı gerecini her VM için aşağıdaki yapılandırma meta verileri bulur. Sanal makineler için yapılandırma verilerini bulma başlattıktan sonra bir saat kullanılabilir.
 

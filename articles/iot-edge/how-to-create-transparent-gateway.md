@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: c769ae8e684a94e60f6a2e31ba404a0593f7aa78
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d67a87b182758e37c9e379a8f96a6540797ce3e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096716"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482955"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Saydam bir ağ geçidi olarak görev yapacak bir IOT Edge cihazı yapılandırma
 
@@ -71,7 +71,7 @@ OpenSSL için Windows sertifikalarını oluşturmak için kullanmakta olduğunuz
    
    2. Windows için x64 OpenSSL paketi yüklemek için aşağıdaki komutu vcpkg yüklendiğinde bir powershell isteminden çalıştırın. Yükleme, genellikle tamamlanması yaklaşık 5 dakika sürer.
 
-      ```PowerShell
+      ```powershell
       .\vcpkg install openssl:x64-windows
       ```
    3. Ekleme `<VCPKGDIR>\installed\x64-windows\tools\openssl` , PATH ortam değişkenine böylece openssl.exe dosya çağırma için kullanılabilir.
@@ -84,7 +84,7 @@ C için Azure IOT cihaz SDK'sını test sertifikalarınızı oluşturmak için k
 
 2. Üretim dışı sertifikalarını oluşturmak için komut dosyalarını içeren bir git deposunu kopyalayın. Bu betikler, saydam bir ağ geçidini ayarlamak için gerekli sertifikaları oluşturmanıza yardımcı olur. Kullanım `git clone` komutu veya [ZIP indir](https://github.com/Azure/azure-iot-sdk-c/archive/master.zip). 
 
-   ```PowerShell
+   ```powershell
    git clone https://github.com/Azure/azure-iot-sdk-c.git
    ```
 
@@ -92,7 +92,7 @@ C için Azure IOT cihaz SDK'sını test sertifikalarınızı oluşturmak için k
 
 4. Yapılandırma ve komut dosyaları, çalışma dizinine kopyalayın. 
 
-   ```PowerShell
+   ```powershell
    copy <path>\azure-iot-sdk-c\tools\CACertificates\*.cnf .
    copy <path>\azure-iot-sdk-c\tools\CACertificates\ca-certs.ps1 .
    ```
@@ -101,25 +101,25 @@ C için Azure IOT cihaz SDK'sını test sertifikalarınızı oluşturmak için k
 
 5. Ortam değişkeni OPENSSL_CONF openssl_root_ca.cnf yapılandırma dosyası kullanmak için ayarlayın.
 
-    ```PowerShell
+    ```powershell
     $env:OPENSSL_CONF = "$PWD\openssl_root_ca.cnf"
     ```
 
 6. PowerShell komut dosyalarını çalıştırmak etkinleştirin.
 
-   ```PowerShell
+   ```powershell
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
    ```
 
 7. PowerShell'in genel ad alanına betikler tarafından kullanılan işlevler, getirin.
    
-   ```PowerShell
+   ```powershell
    . .\ca-certs.ps1
    ```
 
 8. OpenSSL doğru şekilde yüklendiğini doğrulayın ve var olan sertifikalar ile ad çakışmalarını olmayacak emin olun. İlgili sorun varsa betiği nasıl düzeltileceğini sisteminizde açıklamalıdır.
 
-   ```PowerShell
+   ```powershell
    Test-CACertsPrerequisites
    ```
 
@@ -129,19 +129,19 @@ Bu bölümde, üç sertifikaları oluşturma ve bunları bir zincirinde bağlay�
 
 1. Sahip CA sertifikası oluşturabilir ve bunu bir ara sertifika sağlayabilirsiniz. Sertifikalar tüm yerleştirilir  *\<WRKDIR >*.
 
-      ```PowerShell
+      ```powershell
       New-CACertsCertChain rsa
       ```
 
 2. Aşağıdaki komutla, Edge cihaz CA sertifikasını ve özel anahtar oluşturun. Sertifika oluşturma sırasında ve dosya adı için kullanılan ağ geçidi cihazı için bir ad sağlayın. 
 
-   ```PowerShell
+   ```powershell
    New-CACertsEdgeDevice "<gateway name>"
    ```
 
 3. Sahibi CA sertifikası ara sertifika ve aşağıdaki komutla Edge cihaz CA sertifikasını bir sertifika zinciri oluşturun. 
 
-   ```PowerShell
+   ```powershell
    Write-CACertsCertificatesForEdgeDevice "<gateway name>"
    ```
 

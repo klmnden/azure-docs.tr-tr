@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eac9f80e4b57c725de3bc05f55e09d49fb8e2ee5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 845bf72f52bb83fa597c597871599c826e5749f6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004614"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479990"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -279,7 +279,7 @@ _**Şekil 3:** Çoklu SID SOFS SAP genel ana bilgisayar adı ile aynıdır_
 SAP genel ana bilgisayar için hazırlamak üzere \<SID2 > Bu örnek, aşağıdaki PowerShell betiğini çalıştırın:
 
 
-```PowerShell
+```powershell
 ##################
 # SAP multi-SID
 ##################
@@ -335,7 +335,7 @@ _**Şekil 4:** Çoklu SID SOFS SAP genel ana bilgisayar adı 2 ile aynıdır_
 
 İkinci SOFS rolüyle oluşturmak için \<SAPGlobalHost2 >, bu PowerShell betiğini çalıştırın:
 
-```PowerShell
+```powershell
 # Create SOFS with SAP Global Host Name 2
 $SAPGlobalHostName = "sapglobal2"
 Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
@@ -343,7 +343,7 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 
 İkinci oluşturma **birim2**. Bu PowerShell Betiği yürütün:
 
-```PowerShell
+```powershell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 
@@ -355,7 +355,7 @@ SAP genel bir klasör oluşturmak için ikinci \<SID2 >, dosya güvenliği ayarl
 
 Bu PowerShell Betiği yürütün:
 
-```PowerShell
+```powershell
 # Create a folder for <SID2> on a second Volume2 and set file security
 $SAPSID = "PR2"
 $DomainName = "SAPCLUSTER"

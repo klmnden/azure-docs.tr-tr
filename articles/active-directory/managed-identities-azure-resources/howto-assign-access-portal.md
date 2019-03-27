@@ -3,7 +3,7 @@ title: Azure portalını kullanarak bir Azure kaynağı için bir yönetilen kim
 description: Azure portalını kullanarak başka bir kaynak için bir yönetilen kimlik bir kaynağa erişim atamak için adım adım yönergeler.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfeec56de5507694a08c1e3b80cd394906022473
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 958b3d72a3a8df4a3b67f62e7db788d7142ca667
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169182"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445462"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>Azure portalını kullanarak bir kaynağa bir yönetilen kimlik erişim atama
 

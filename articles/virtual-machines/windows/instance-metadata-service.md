@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 777b3a8d414f0b785d908c37da98e987445ed96d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c54d2aef2d8e748e31bffcecef323c4806d15f60
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317468"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482071"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örnek meta veri hizmeti
 
@@ -96,6 +96,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > Tüm örnek meta veri sorguları büyük/küçük harfe duyarlıdır.
 
 ### <a name="data-output"></a>Veri çıkışı
+
 Varsayılan olarak, örnek meta veri hizmeti verileri JSON biçiminde döndürür (`Content-Type: application/json`). Ancak, farklı bir API veri farklı biçimlerde istenmesi halinde döndürür.
 Aşağıdaki tablo, diğer veri biçimlerini API'leri destekleyebilir bir başvurudur.
 
@@ -111,6 +112,9 @@ Varsayılan olmayan yanıt biçimi erişmek için istenen biçimi isteğinde sor
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
+> [!NOTE]
+> Yaprak düğümleri için `format=json` çalışmaz. Bu sorguları için `format=text` varsayılan biçimi json olup olmadığını açıkça belirtilmesi gerekir.
+
 ### <a name="security"></a>Güvenlik
 
 Örnek meta veri Hizmeti uç noktası yalnızca yönlendirilemeyen bir IP adresi üzerinde çalışan sanal makine örneği içinde erişilebilir. Ayrıca, tüm ile istek bir `X-Forwarded-For` üst bilgi, hizmet tarafından reddedildi.
@@ -123,8 +127,8 @@ Bir veri öğesi bulunamadı ya da hatalı biçimlendirilmiş isteği ise örnek
 HTTP durum kodu | Neden
 ----------------|-------
 200 TAMAM |
-400 Hatalı istek | Eksik `Metadata: true` üstbilgisi
-404 Bulunamadı | İstenen öğe yok 
+400 Hatalı istek | Eksik `Metadata: true` üst bilgi veya bir yaprak düğüm sorgulanırken biçimi eksik
+404 Bulunamadı | İstenen öğe yok
 405 Yönteme izin verilmiyor | Yalnızca `GET` ve `POST` istekleri desteklenir
 429 çok fazla istek | API şu anda en fazla saniye başına 5 sorguları destekler.
 500 Hizmeti hatası     | Bir süre sonra yeniden deneyin
@@ -503,12 +507,12 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Azure, çeşitli bağımsız bulutlarda gibi sahiptir [Azure kamu](https://azure.microsoft.com/overview/clouds/government/). Bazı durumlarda, bazı çalışma zamanı kararlar almak için Azure ortamı gerekir. Aşağıdaki örnek, bu davranışı nasıl elde edebileceğiniz gösterir.
 
 **İstek**
-``` bash
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **Yanıt**
-```
+```bash
 AZUREPUBLICCLOUD
 ```
 

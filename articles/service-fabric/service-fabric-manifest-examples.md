@@ -3,7 +3,7 @@ title: Azure Service Fabric kapsayıcı uygulaması bildirim örnekleri | Micros
 description: Uygulama yapılandırma ve hizmet Service Fabric uygulaması için bildirim ayarları hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: na
-author: rwike77
+author: peterpogorski
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
-ms.author: ryanwi
-ms.openlocfilehash: 8336f0a63f74aa0db176adbb3baf462c903ba2ec
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: pepogors
+ms.openlocfilehash: 552ff326ed38175f711924873daab4fcc48f0d09
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095588"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500398"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Service Fabric uygulaması ve hizmet örnekleri listesi
 Bu bölümde, uygulama ve hizmet bildirimleri örnekleri içerir. Bu örnekler, önemli senaryoları göstermek için ancak mevcut olan farklı ayarlar ve bunları nasıl kullanacağınızı gösterecek şekilde değildir. 

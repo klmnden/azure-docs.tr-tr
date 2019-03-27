@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b30ef7d0b373f0d9a440b6649f819e429e28328c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 95e10f4727de239016a2e3c88571e74267e3967b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314935"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482997"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure güvenlik ve uyumluluk planı: UK resmi iş yükleri için barındırma PaaS Web uygulaması
 
@@ -95,7 +95,7 @@ Veriler aktarım sırasında dışında ve Azure bileşenleri arasında kullanı
 
 [Azure Danışmanı](https://docs.microsoft.com/azure/advisor/advisor-overview) olan yardımcı olan kişiselleştirilmiş bulut Danışmanı, Azure dağıtımlarınızın iyileştirilmesine yönelik en iyi uygulamaları izleyin. Danışman, kaynak yapılandırmanızı ve kullanım telemetrinizi analiz ederek Azure kaynaklarınızın maliyet verimliliğini, performansını, yüksek kullanılabilirliğini ve güvenliğini geliştirmenize yardımcı olabilecek çözümler önerir.
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) belirlenmesi ve virüslerin, casus yazılımların ve diğer kötü amaçlı yazılım kaldırılmasına yardımcı olan bir gerçek zamanlı koruma özelliğidir. Varsayılan olarak bu temel alınan PaaS sanal makine altyapısı üzerinde yüklenir ve şeffaf bir şekilde sağlayarak müşteri, Azure fabric tarafından yönetilir
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) belirlenmesi ve virüslerin, casus yazılımların ve diğer kötü amaçlı yazılım kaldırılmasına yardımcı olan bir gerçek zamanlı koruma özelliğidir. Bu varsayılan olarak, temel alınan PaaS sanal makine altyapısı üzerinde yüklü ve şeffaf bir şekilde müşteriye Azure fabric tarafından yönetilir.
 
 ### <a name="paas-services-in-this-blueprint"></a>Bu şema PaaS Hizmetleri
 

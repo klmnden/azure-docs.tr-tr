@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: b367251e6799031ed96058d21e606446e14636c7
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: c316176094f6d9b8b45b812acaad04ad37f4bce2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407615"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449137"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Etki alanı ve Azure App Service SSL sertifikası sorunlarını giderme
 
@@ -314,7 +314,7 @@ Evet. Özel etki alanları ve SSL dikey penceresinde Azure portalında erişim, 
 
 **Başka bir abonelik için bir etki alanı bir abonelikten aktarabilirim?**
 
-Başka bir abonelik/kaynak grubu için kullanılacak bir etki alanı taşıyabilirsiniz [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource?view=azurermps-6.13.0) PowerShell cmdlet'i.
+Başka bir abonelik/kaynak grubu için kullanılacak bir etki alanı taşıyabilirsiniz [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource) PowerShell cmdlet'i.
 
 **Şu anda bir Azure App Service uygulamasına sahip değilseniz özel etki alanım nasıl yönetebilirim?**
 

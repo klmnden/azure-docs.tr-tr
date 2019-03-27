@@ -3,7 +3,7 @@ title: Bir küme için bir Azure yük dengeleyici kuralı oluşturma
 description: Azure Service Fabric kümeniz için bağlantı noktalarını açmak için bir Azure Load Balancer'ı yapılandırın.
 services: service-fabric
 documentationcenter: na
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: ryanwi
-ms.openlocfilehash: e41e5d48141b120ec1f80b0faa899bda07a2934e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.author: aljo
+ms.openlocfilehash: 777ac1c18447ed86559e82e730949dfef0bccd71
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962072"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499293"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Service Fabric kümesi için bağlantı noktalarını açma
 

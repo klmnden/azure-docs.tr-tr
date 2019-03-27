@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: b9a847f04048cd17d550ca66bd3e6502577746eb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4e91e193b3980901e7778a8826989e729517a29a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878464"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481765"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights Bağlayıcısı yönetim çözümü (kullanım dışı)
 
@@ -272,7 +272,7 @@ Bu çözüm panosunda gösterilen örnek günlük aramaları kümesi yok. Örnek
 ## <a name="removing-the-connector-with-powershell"></a>PowerShell ile bir bağlayıcı kaldırılıyor
 OMS portalı kullanımdan kaldırma ile yapılandırmak ve mevcut bağlantıları Portalı'ndan kaldırmak için hiçbir yolu yoktur. Var olan bağlantıları aşağıdaki PowerShell Betiği ile kaldırabilirsiniz. Sahip veya bu işlemi gerçekleştirmek için çalışma alanının katkıda bulunan ve okuyucu Application Insights kaynağına ait olmalıdır.
 
-```PowerShell
+```powershell
 $Subscription_app = "App Subscription Name"
 $ResourceGroup_app = "App ResourceGroup"
 $Application = "Application Name"
@@ -289,7 +289,7 @@ Remove-AzureRmOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceG
 
 REST API çağrısı çağıran aşağıdaki PowerShell betiğini kullanarak uygulamaların bir listesini alabilirsiniz. 
 
-```PowerShell
+```powershell
 Connect-AzureRmAccount
 $Tenant = "TenantId"
 $Subscription_workspace = "Workspace Subscription Name"

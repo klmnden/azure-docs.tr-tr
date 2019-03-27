@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4372045590938df701dd00e58a111215f6e8e56d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 76bf36f63051f02d6c37261799342f424609f9b2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369667"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58442293"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources"></a>Azure kaynakları için BLOB'ları ve kuyrukları yönetilen kimliklerle erişimi kimlik doğrulaması
 
@@ -22,8 +22,6 @@ Azure Blob ve kuyruk depolama ile Azure Active Directory (Azure AD) kimlik doğr
 Yönetilen bir kimlik bir blob kapsayıcısı veya kuyruğa izinler vermek için uygun kapsamda bu kaynak için izinleri kapsayan yönetilen kimlik için rol tabanlı erişim denetimi (RBAC) rolüne atayın. Depolamadaki RBAC rolleri hakkında daha fazla bilgi için bkz. [RBAC ile depolama verilere erişim haklarını yönetme](storage-auth-aad-rbac.md). 
 
 Bu makalede, Azure Blob veya kuyruk depolama ile yönetilen bir kimlik için bir Azure VM'den kimlik doğrulaması yapmayı gösterir.  
-
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="enable-managed-identities-on-a-vm"></a>Bir VM'de yönetilen kimlikleri etkinleştir
 
@@ -42,6 +40,8 @@ Azure Storage uygulamanızı bir yönetilen kimlik doğrulamak için önce yöne
 ## <a name="get-a-managed-identity-access-token"></a>Yönetilen kimlik erişim belirteci alma
 
 İle yönetilen bir kimlik doğrulamak için uygulama veya betik bir yönetilen kimlik erişim belirtecini almalıdır. Erişim belirteci alma hakkında bilgi edinmek için [bir erişim belirteci almak için bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlikleri kullanmak nasıl](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+
+Bir OAuth belirteci ile BLOB ve kuyruk işlemlerini yetkilendirmek için HTTPS kullanmalıdır.
 
 ## <a name="net-code-example-create-a-block-blob"></a>.NET kod örneği: Bir blok blobu oluştur
 

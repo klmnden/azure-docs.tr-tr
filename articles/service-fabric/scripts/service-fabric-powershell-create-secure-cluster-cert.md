@@ -3,7 +3,7 @@ title: Azure PowerShell Betik örneği - Service Fabric kümesi oluşturma | Mic
 description: Azure PowerShell Betik Örneği - Service Fabric kümesi oluşturun.
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,20 +13,22 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 01/19/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: ad3c51f0f43d63fd784156eca680218850897e8f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: de807a52e0e97c7cc0886cee5d5586afdf5077a5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31596560"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496080"
 ---
 # <a name="create-a-service-fabric-cluster"></a>Service Fabric kümesi oluşturma
 
 Bu örnek betik bir X.509 sertifikasıyla güvenliği sağlanan beş düğümlü bir Service Fabric kümesi oluşturur.  Bu komut otomatik olarak imzalanan bir sertifika oluşturur ve bunu yeni bir anahtar kasasına yükler. Sertifika aynı zamanda bir yerel dizine de kopyalanır.  Küme düğümleri üzerinde çalışan Windows veya Linux sürümünü seçmek için *-OS* parametresini ayarlayın.  Parametreleri gereken şekilde özelleştirin.
 
-Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeleri kullanarak Azure PowerShell’i yükleyin ve ardından Azure ile bir bağlantı oluşturmak için `Connect-AzureRmAccount` öğesini çalıştırın. 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeleri kullanarak Azure PowerShell’i yükleyin ve ardından Azure ile bir bağlantı oluşturmak için `Connect-AzAccount` öğesini çalıştırın. 
 
 ## <a name="sample-script"></a>Örnek betik
 
@@ -38,7 +40,7 @@ Betik örneği çalıştırıldıktan sonra, kaynak grubunu, kümeyi ve ilişkil
 
 ```powershell
 $groupname="mysfclustergroup"
-Remove-AzureRmResourceGroup -Name $groupname -Force
+Remove-AzResourceGroup -Name $groupname -Force
 ```
 
 ## <a name="script-explanation"></a>Betik açıklaması
@@ -47,7 +49,7 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 
 | Komut | Notlar |
 |---|---|
-| [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | Yeni bir Service Fabric kümesi oluşturur. |
+| [Yeni AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) | Yeni bir Service Fabric kümesi oluşturur. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

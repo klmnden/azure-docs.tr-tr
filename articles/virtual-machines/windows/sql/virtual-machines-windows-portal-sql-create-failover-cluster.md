@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 19910782142bf78c10dda155f40a5c41bdd64958
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3bb829e7cc99ee0d6e2d02f7ed3880d6c0226123
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842762"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486327"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure sanal makinelerinde SQL Server Yük devretme kümesi örneğini yapılandırma
 
@@ -178,7 +178,7 @@ Bu önkoşulları yerine getirilince, yük devretme kümeniz oluşturmaya devam 
    | Amaç | TCP bağlantı noktası | Notlar
    | ------ | ------ | ------
    | SQL Server | 1433 | Varsayılan SQL Server örnekleri için normal bağlantı noktası. Galeriden bir görüntü kullandıysanız, bu bağlantı noktasını otomatik olarak açılır.
-   | Durum araştırması | 59999 | Tüm TCP bağlantı noktasını açın. Daha sonraki bir adımda yük dengeleyici yapılandırma [durum araştırması](#probe) ve bu bağlantı noktasını kullanacak şekilde kümesi.  
+   | Durum yoklaması | 59999 | Tüm TCP bağlantı noktasını açın. Daha sonraki bir adımda yük dengeleyici yapılandırma [durum araştırması](#probe) ve bu bağlantı noktasını kullanacak şekilde kümesi.  
 
 1. Depolama, sanal makineye ekleyin. Ayrıntılı bilgi için bkz. [depolama ekleme](../disks-types.md).
 
@@ -222,7 +222,7 @@ Sonraki adım, yük devretme kümesi ile S2D yapılandırmaktır. Bu adımda, a�
 
    PowerShell ile yük devretme kümeleme özelliğini yüklemek için aşağıdaki betiği bir yönetici PowerShell oturumundan sanal makinelerden birini çalıştırın.
 
-   ```PowerShell
+   ```powershell
    $nodes = ("<node1>","<node2>")
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
@@ -253,7 +253,7 @@ Küme kullanıcı Arabirimi ile doğrulamak için sanal makinelerin birinden aş
 
 PowerShell ile küme doğrulamak için aşağıdaki betiği bir yönetici PowerShell oturumundan sanal makinelerden birini çalıştırın.
 
-   ```PowerShell
+   ```powershell
    Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
@@ -270,7 +270,7 @@ Yük devretme kümesi oluşturmak için ihtiyacınız vardır:
 
 Aşağıdaki PowerShell, yük devretme kümesi oluşturur. Düğümler (sanal makine adları) ve Azure sanal ağdan kullanılabilir bir IP adresi adlarıyla betiğini güncelleştirin:
 
-```PowerShell
+```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
 
@@ -294,7 +294,7 @@ S2D için diskler boş ve bölümler veya başka veri içermemesi gerekir. Temiz
 
    Aşağıdaki PowerShell depolama alanları doğrudan'ı etkinleştirir.  
 
-   ```PowerShell
+   ```powershell
    Enable-ClusterS2D
    ```
 
@@ -304,7 +304,7 @@ S2D için diskler boş ve bölümler veya başka veri içermemesi gerekir. Temiz
 
    S2D özelliklerden biri, etkinleştirdiğinizde, otomatik olarak bir depolama havuzu oluşturmasıdır. Birim oluşturmak artık hazırsınız. PowerShell komutu `New-Volume` biçimlendirme, kümeye ekleme ve Küme Paylaşılan birimi (CSV) oluşturma gibi birim oluşturma işlemini otomatikleştirir. Aşağıdaki örnek, bir 800 gigabayt (GB) CSV oluşturur.
 
-   ```PowerShell
+   ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
    ```   
 
@@ -431,7 +431,7 @@ PowerShell'de küme araştırma bağlantı noktası parametresini ayarlayın.
 
 Küme araştırma bağlantı noktası parametresini ayarlamak için aşağıdaki betiği değişkenlerinde ortamınızdaki değerlerle güncelleştirin. Açılı ayraçlar kaldırmak `<>` komut dosyası. 
 
-   ```PowerShell
+   ```powershell
    $ClusterNetworkName = "<Cluster Network Name>"
    $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
    $ILBIP = "<n.n.n.n>" 
@@ -457,7 +457,7 @@ Küme araştırma bağlantı noktası parametresini ayarlamak için aşağıdaki
 
 Küme araştırma ayarladıktan sonra PowerShell'de küme parametrelerin tümü görebilirsiniz. Şu betiği çalıştırın:
 
-   ```PowerShell
+   ```powershell
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: a0f22e7940a2be442bdf836c0e76e29bad2e9b36
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a7271eb6b8cbc8a117b5a8e75edfe02985ec3452
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769940"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487473"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Kafka MirrorMaker Event Hubs ile Apache Kafka için kullanın.
 
@@ -119,6 +119,12 @@ bin/kafka-mirror-maker.sh --consumer.config source-kafka.config --num.streams 1 
 Giriş İstatistikleri olayları Kafka özellikli bir olay hub'ı ulaşıyor doğrulamak için bkz [Azure portalında](https://azure.microsoft.com/features/azure-portal/), veya bir tüketici karşı olay hub'ı çalıştırın.
 
 MirrorMaker, çalışan ile Kafka kümesi kaynağına gönderilen tüm olayları hem Kafka kümesi alınır ve olay hub'ı hizmet yansıtılmış Kafka etkin. MirrorMaker ve olay hub'ları Kafka uç nokta kullanarak, mevcut bir Kafka işlem hattını yönetilen Azure Event Hubs hizmeti için mevcut kümeyi değiştirme veya tüm devam eden veri akışı engellemeden geçirebilirsiniz.
+
+## <a name="samples"></a>Örnekler
+GitHub üzerindeki aşağıdaki örneklere bakın:
+
+- [Github'da Bu öğretici için örnek kod](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
+- [Azure Container Instance üzerinde çalışan Azure olay hub'ları Kafka MirrorMaker](https://github.com/djrosanova/EventHubsMirrorMaker)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

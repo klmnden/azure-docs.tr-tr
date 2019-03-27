@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.subservice: common
-ms.openlocfilehash: 8928e59b97143038e0850132196f1ce9a1da131d
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ab3984b29b3bdfac7599c68c14bd6cc5b671cdf4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337893"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447256"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Bölgesel olarak yedekli depolama (ZRS): Azure depolama yüksek kullanılabilirliğe sahip uygulamalar
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -50,7 +50,7 @@ LRS, GRS ve RA-GRS gelen veya geçirme adımları oldukça kolaydır. Azure port
 
 Veri geçişi ZRS gelen veya farklı bir strateji gerektirir. ZRS geçişi, bir bölgede birden fazla damga tek bir depolama damga verileri fiziksel hareketini içerir.
 
-İçin iki birincil seçenek geçiş için veya ZRS vardır: 
+Geçiş için ZRS iki birincil seçenek vardır: 
 
 - Elle kopyalamanız veya veri, var olan bir hesabı yeni bir ZRS hesabına taşıyın.
 - Dinamik geçiş isteyin.
@@ -73,6 +73,7 @@ Dinamik geçiş üzerine aşağıdaki kısıtlamaları göz önünde bulundurun:
 - Hesabınıza veri içermesi gerekir.
 - Yalnızca aynı bölgede verilerin geçirebilirsiniz. Veri kaynağı hesaptan farklı bir bölgede bulunan bir ZRS hesabına geçirmek istiyorsanız, el ile geçiş gerçekleştirmeniz gerekir.
 - Yalnızca standart depolama hesabı türleri, dinamik geçiş desteği. Premium depolama hesapları el ile geçirilmesi gerekir.
+- LRS, GRS veya RA-GRS ZRS Canlı geçiş desteklenmiyor. Yeni veya mevcut bir depolama hesabı için verileri el ile taşımanız gerekir.
 
 Dinamik geçiş aracılığıyla isteyebilir [Azure destek portalı](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Portalda, ZRS için dönüştürmek istediğiniz depolama hesabını seçin.
 1. Seçin **yeni destek isteği**
@@ -128,7 +129,19 @@ ZRS Klasik, kullanılabilir yalnızca **blok blobları** , genel amaçlı V1 (GP
 
 El ile ya da bir LRS, ZRS Klasik, GRS veya RA-GRS hesabı'ndan ZRS hesap verileri geçirmek için aşağıdaki araçlardan birini kullanın: AzCopy, Azure Depolama Gezgini, Azure PowerShell veya Azure CLI. Ayrıca, kendi geçiş çözümüyle Azure depolama istemci kitaplıklarından birini de oluşturabilirsiniz.
 
-Ayrıca, ZRS Klasik hesapları Portal ya da kullanarak Azure PowerShell veya Azure CLI ZRS yükseltebilirsiniz.
+ZRS Portal ya da kullanarak Azure PowerShell veya Azure CLI'yı ZRS kullanılabildiği bölgelerdeki, ZRS Klasik hesapları da yükseltebilirsiniz.
+
+Yükseltmek için portalda ZRS hesap yapılandırması bölümüne gidin ve Yükselt'i seçin:![ZRS Klasik Portalı'nda ZRS yükseltme](media/storage-redundancy-zrs/portal-zrs-classic-upgrade.jpg)
+
+PowerShell kullanarak ZRS için yükseltmek için aşağıdaki komutu arayın:
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource_group> -AccountName <storage_account> -UpgradeToStorageV2
+```
+
+CLI kullanarak ZRS için yükseltmek için aşağıdaki komutu arayın:
+```cli
+az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
+```
 
 ## <a name="see-also"></a>Ayrıca bkz.
 - [Azure Depolama çoğaltması](storage-redundancy.md)

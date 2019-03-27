@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 7bfda764c418258a7bc555697530214240a5f0d3
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: abeca204296bcb3933013f2b7434b8c558f62e50
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734328"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496596"
 ---
 # <a name="brand-detection"></a>Marka algılama
 
@@ -91,7 +91,8 @@ Bazı durumlarda, marka algılayıcısı hem logo resmi ve stilize marka adı ik
 ```
 
 ## <a name="use-the-api"></a>API kullanın
-Marka algılama özelliği parçasıdır [analiz görüntü](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Bu API'nin yerel SDK veya REST çağrılarını aracılığıyla çağırabilirsiniz. Yalnızca tam JSON yanıt aldığınızda içeriğini dizesi ayrıştırılamıyor. `"brands"` bölümü.
+
+Marka algılama özelliği parçasıdır [analiz görüntü](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Bu API'nin yerel SDK veya REST çağrılarını aracılığıyla çağırabilirsiniz. Dahil `Brands` içinde **visualFeatures** sorgu parametresi. Daha sonra tam JSON yanıt aldığınızda, sadece içerikleri için dizeyi ayrıştırmak `"brands"` bölümü.
 
 * [Hızlı Başlangıç: (.NET SDK) bir resmi çözümleme](./quickstarts-sdk/csharp-analyze-sdk.md)
 * [Hızlı Başlangıç: Bir resmi (REST API'si) çözümleme](./quickstarts/csharp-analyze.md)

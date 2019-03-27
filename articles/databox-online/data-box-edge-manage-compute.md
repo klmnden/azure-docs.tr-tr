@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/24/2019
+ms.date: 03/26/2019
 ms.author: alkohli
-ms.openlocfilehash: de8ddd0d2886cd7798160e830094b295c62e17e9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f2416bd3393ae05a74665fe7e11bd1c8c04c91d7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400691"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499039"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>İşlem, Azure veri kutusu edge'de yönetme
 
@@ -32,7 +32,7 @@ Bu makalede şunları öğreneceksiniz:
 
 ## <a name="manage-triggers"></a>Tetikleyicileri yönetme
 
-Bulut ortamınızda veya Cihazınızda üzerinde işlem gerçekleştirmek isteyebileceğiniz şeyler olaylardır. Örneğin, bir paylaşımında bir dosya oluşturulduğunda, bir olay olur. Tetikleyici bu olaylara yanıt olarak var. Tetikleyiciler, her olayı tetiklendiğinde bir işlevi yürütmek yardımcı olabilir. Veri kutusu Edge için Tetikleyiciler, yanıt dosyası olayları veya bir zamanlama olabilir.
+Bulut ortamınızda veya Cihazınızda üzerinde işlem gerçekleştirmek isteyebileceğiniz şeyler olaylardır. Örneğin, bir paylaşımında bir dosya oluşturulduğunda, bir olay olur. Tetikleyici olayları tetikleyebilir. Veri kutusu Edge için Tetikleyiciler, yanıt dosyası olayları veya bir zamanlama olabilir.
 
 - **Dosya**: Bu tetikleyiciler gibi bir dosya değişikliği bir dosyanın dosya olaylara yanıt vermek için geçerlidir.
 - **Zamanlanmış**: Bu tetikleyiciler, yanıt olarak başlangıç tarihi, başlangıç saati ve yineleme aralığı ile tanımladığınız bir planlamada olan.

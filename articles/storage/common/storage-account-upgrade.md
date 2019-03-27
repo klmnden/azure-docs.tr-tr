@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: df9bc1680f20fe6264da0109cd52db1072fd9fc5
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a1ee95ad847d20159c79af8f080cc7878e114759
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311144"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444519"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Genel amaçlı v2 depolama hesabı için yükseltme
 
@@ -21,7 +21,7 @@ Genel amaçlı v2 depolama hesabı için en son Azure depolama özelliklerini de
 Genel amaçlı v2 depolama hesabı, genel amaçlı v1'den veya Blob Depolama hesapları için yükseltme basit bir işlemdir. Azure portal, PowerShell veya Azure CLI kullanarak yükseltebilirsiniz.
 
 > [!IMPORTANT]
-> V1 depolama hesabı genel amaçlı v2'ye yükseltme kalıcıdır ve geri alınamaz.
+> Genel amaçlı v1 veya Blob Depolama, depolama hesabı genel amaçlı v2'ye yükseltme kalıcıdır ve geri alınamaz.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Azure portalını kullanarak yükseltme
 
@@ -31,6 +31,8 @@ Genel amaçlı v2 depolama hesabı, genel amaçlı v1'den veya Blob Depolama hes
 4. **Hesap Türü** altında **Yükselt**’e tıklayın.
 5. **Yükseltmeyi Onayla** altında, hesabınızın adını yazın.
 6. Tıklayın **yükseltme** dikey pencerenin alt kısmındaki.
+
+    ![Yükseltme hesap türü](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
 ## <a name="upgrade-with-powershell"></a>Powershell ile yükseltme
 
@@ -116,7 +118,7 @@ Bu özellik etkinleştirildiğinde bir depolama hesabının Blob hizmeti için k
 Blob depolama hizmetinin veri erişim desenlerini izlemek için API’den saatlik işlem ölçümlerini etkinleştirmeniz gerekir. Saatlik işlem ölçümleri etkinleştirildiğinde API başına işlemler saatte bir toplanır ve aynı depolama hesabındaki *$MetricsHourPrimaryTransactionsBlob* tablosuna yazılan bir tablo girişi olarak kaydedilir. RA-GRS depolama hesapları kullanılırken *$MetricsHourSecondaryTransactionsBlob* tablosu, işlemleri ikincil uç noktaya kaydeder.
 
 > [!NOTE]
-> Blok ve ekleme blobu verileriyle birlikte sayfa bloblarını ve sanal makine disklerini veya kuyrukları, dosyaları ya da tabloları depoladığınız genel amaçlı bir depolama hesabınız olması durumunda bu tahmin işlemi geçerli değildir. Kapasite verileri blok bloblarını diğer türlerden ayırt etmez ve diğer veri türleri için kapasite verileri sunmaz. Bu türleri kullanıyorsanız alternatif bir yöntem de en son faturanızdaki miktarlara bakmaktır.
+> Hangi sayfa bloblarını ve sanal makine disklerini veya Kuyrukları, dosyaları ya da blok yanı sıra tabloları depoladığınız ve ekleme blobu verileriyle bir genel amaçlı depolama hesabınız varsa bu tahmin işlemi geçerli değildir. Kapasite verileri blok bloblarını diğer türlerden ayırt etmez ve diğer veri türleri için kapasite verileri sunmaz. Bu türleri kullanıyorsanız alternatif bir yöntem de en son faturanızdaki miktarlara bakmaktır.
 
 Veri tüketim ve erişim modelinizi yaklaşık olarak tahmin etmek için, ölçümler için düzenli kullanımınızı temsil eden bir elde tutma süresi seçmeniz ve tahmin etmeniz önerilir. Seçeneklerden biri son yedi güne ait ölçüm verilerinin tutulması ve verilerin ay sonunda analiz için haftada bir toplanmasıdır. Diğer bir seçenek ise son 30 güne ait ölçüm verilerinin tutulması ve verilerin 30 günlük süre sonunda toplanıp çözümlenmesidir.
 

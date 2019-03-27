@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: 715b0f9c5a5a68bb1fc42ed4206ca81ad85b844f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4ebd53db9622c5a40f67cba04aa35cbfbaa78c8d
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450694"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446098"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Azure Resource Manager kullanarak bir Service Fabric kümesi oluşturma 
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ Kullanılan şablon edinilebilir [Azure Service Fabric şablonu örnekleri: wind
 Aşağıdaki komutu ya da Windows oluşturabilir veya Linux kümeleri, işletim sistemi uygun şekilde belirtmeniz gerekir. PowerShell/CLI komutları da belirtilen sertifika çıkış *CertificateOutputFolder*; ancak, önceden oluşturulmuş emin sertifika klasör oluşturun. Komut diğer parametre VM SKU gibi de alır.
 
 > [!NOTE]
-> Aşağıdaki PowerShell komutu, yalnızca Azure Resource Manager PowerShell ile çalışır sürüm > 6.1. Geçerli Azure Resource Manager PowerShell sürümü denetlemek için "Get-Module AzureRM" aşağıdaki PowerShell komutunu çalıştırın. İzleyin [bu bağlantıyı](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.3.0) , Azure Resource Manager PowerShell sürümüne yükseltmek için. 
+> Aşağıdaki PowerShell komutu, yalnızca Azure Resource Manager PowerShell ile çalışır sürüm > 6.1. Geçerli Azure Resource Manager PowerShell sürümü denetlemek için "Get-Module AzureRM" aşağıdaki PowerShell komutunu çalıştırın. İzleyin [bu bağlantıyı](/powershell/azure/azurerm/install-azurerm-ps) , Azure Resource Manager PowerShell sürümüne yükseltmek için. 
 >
 >
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c87aca6c480d9ebc4add7943a341fe94d640a4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1229b7f9e2a430a663a3e78bb457c03cf4a4a590
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001299"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480592"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>SAP NetWeaver HA Windows Yük devretme kümesi ve azure'da SAP ASCS/SCS örneği için paylaşılan disk yükleyin
 
@@ -251,7 +251,7 @@ Bir araştırma bağlantı noktası eklemek için:
 
 1. Geçerli denetleyin **ProbePort** aşağıdaki PowerShell komutunu çalıştırarak değeri:
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPNetworkIPClusterName = "SAP $SAPSID IP"
@@ -270,7 +270,7 @@ Bir araştırma bağlantı noktası eklemek için:
 
    SAP için yeni bir ProbePort değeri ayarlamak için \<SID\> IP küme kaynağı, ortamınızı PowerShell değişkenleri güncelleştirmek için aşağıdaki PowerShell betiğini çalıştırın:
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"      # SAP <SID>
    $ProbePort = 62000   # ProbePort of the Azure internal load balancer
 
@@ -328,7 +328,7 @@ Bir araştırma bağlantı noktası eklemek için:
 
    SAP getirdikten sonra \<SID\> doğrulayın, küme rolünü **ProbePort** yeni değere ayarlanır.
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPNetworkIPClusterName = "SAP $SAPSID IP"
@@ -345,7 +345,7 @@ Bir araştırma bağlantı noktası eklemek için:
 
 Windows Güvenlik Duvarı araştırma bağlantı noktasını her iki küme düğümlerinde açın. Bir Windows Güvenlik Duvarı araştırma bağlantı noktasını açmak için aşağıdaki betiği kullanın. PowerShell benzeri değişkenleri ortamınız için güncelleştirin.
 
-  ```PowerShell
+  ```powershell
   $ProbePort = 62000   # ProbePort of the Azure internal load balancer
 
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
@@ -405,7 +405,7 @@ _**Şekil 7:** SIOS DataKeeper yerel birim bir küme düğümünden küme düğ�
    - Yük Devretme Kümesi Yöneticisi  
    - Yük devretme kümesi PowerShell
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPClusterGroup = "SAP $SAPSID"

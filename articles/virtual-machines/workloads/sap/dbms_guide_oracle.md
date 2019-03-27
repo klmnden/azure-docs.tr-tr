@@ -1,6 +1,6 @@
 ---
 title: SAP iş yükü için Oracle Azure sanal makineleri DBMS dağıtım | Microsoft Docs
-description: SAP iş yükü için Oracle Azure sanal makineleri DBMS dağıtım
+description: SAP iş yükü için Oracle Azure Sanal Makineler DBMS dağıtımı
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ef8498ae1aa9be0322f508b3723778311e2cdd5
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 6abfd26e63cc8001f501371fffce0a4c10f4ff85
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327791"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483528"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP iş yükü Azure sanal makineleri DBMS dağıtım
 
@@ -158,7 +158,7 @@ ms.locfileid: "56327791"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "56327791"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -314,7 +314,7 @@ Bu belge, Oracle Database, Azure Iaas SAP iş yükü için dağıtırken göz ö
 Oracle ve SAP notuna göz atın, azure'da Oracle üzerinde SAP çalıştırmak için desteklenen karşılık gelen işletim sistemi sürümleri hakkında bilgi bulabilirsiniz [2039619].
 
 SAP Business Suite üzerinde Oracle çalıştırmayla ilgili genel bilgiler bulunabilir [Oracle üzerinde SAP](https://www.sap.com/community/topic/oracle.html).
-Oracle yazılımlarını Microsoft Azure üzerinde çalıştırmak için Oracle tarafından desteklenir. Windows Hyper-V ve Azure genel desteği hakkında daha fazla bilgi için kontrol [Oracle ve Microsoft Azure SSS](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+Oracle yazılımlarını Microsoft Azure üzerinde çalıştırmak için Oracle tarafından desteklenir. Windows Hyper-V ve Azure genel desteği hakkında daha fazla bilgi için kontrol [Oracle ve Microsoft Azure SSS](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
 ## <a name="sap-notes-relevant-for-oracle-sap-and-azure"></a>Oracle, SAP ve Azure için ilgili SAP notları 
 
@@ -405,7 +405,7 @@ Performans yapılandırması aşağıdaki gibidir:
 Daha fazla IOPS gerekiyorsa, bir büyük mantıksal cihaz üzerinde birden fazla bağlı disk oluşturmak için Windows depolama havuzları (yalnızca Windows Server 2012'de kullanılabilir ve üzeri) kullanmanızı öneririz. Bu yaklaşım, disk alanını yönetmek için ek yükü yönetimini basitleştirir ve el ile oluşturulmuş birden çok diskte dosyaları dağıtma çaba önlemenize yardımcı olur.
 
 
-#### <a name="write-accelerator"></a>Yazma Hızlandırıcı
+#### <a name="write-accelerator"></a>Yazma Hızlandırıcısı
 Azure M serisi VM'ler için Azure Premium Depolama'ya karşılaştırıldığında etkenlerden çevrimiçi Yinele günlüklerine yazma gecikme süresi azaltılabilir. Azure yazma Hızlandırıcı çevrimiçi Yinele günlük dosyaları için kullanılan Azure Premium depolama tabanlı diskler (VHD'ler) için etkinleştirin. Daha fazla bilgi için [yazma hızlandırıcı](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 
@@ -426,7 +426,7 @@ Windows üzerinde Oracle dağıtımları için hızlandırılmış ağ içinde a
 [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md) dağıtımları VM'lerin Azure kullanılabilirlik kümeleri ve SAP izleme dahil olmak üzere, Oracle veritabanı ile ilgili diğer önemli kavramlar açıklanmaktadır.
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Oracle Linux'ta Oracle veritabanı özellikleri
-Oracle yazılımları, Microsoft azure'da Oracle Linux konuk işletim sistemi çalıştırmak için Oracle tarafından desteklenir. Windows Hyper-V ve Azure genel desteği hakkında daha fazla bilgi için bkz: [Azure'da ve Oracle SSS](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+Oracle yazılımları, Microsoft azure'da Oracle Linux konuk işletim sistemi çalıştırmak için Oracle tarafından desteklenir. Windows Hyper-V ve Azure genel desteği hakkında daha fazla bilgi için bkz: [Azure'da ve Oracle SSS](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
 Oracle veritabanları yararlanarak SAP uygulama belirli bir senaryoyu de desteklenir. Ayrıntılar, belgenin sonraki bölümünde ele alınmıştır.
 
@@ -463,12 +463,13 @@ Azure sayfa blob depolama veya yönetilen diskleri temel diskleri kullanıyorsan
 Desteklenen Azure VM türleri tanımlamak için'lu SAP notuna bakın [1928533].
 
 En düşük yapılandırma:
+
 | Bileşen | Disk | Önbelleğe alma | Çıkarma * |
 | --- | ---| --- | --- |
-| /Oracle/<SID>/origlogaA & mirrlogB | Premium | None | Gerekli değil |
-| /Oracle/<SID>/origlogaB & mirrlogA | Premium | None | Gerekli değil |
-| /Oracle/<SID>/sapdata1...n | Premium | Salt okunur | Kullanılabilir |
-| /Oracle/<SID>/oraarch | Standart | None | Gerekli değil |
+| /Oracle/\<SID > / origlogaA & mirrlogB | Premium | None | Gerekli değil |
+| /Oracle/\<SID > / origlogaB & mirrlogA | Premium | None | Gerekli değil |
+| /Oracle/\<SID > / sapdata1... n | Premium | Salt okunur | Kullanılabilir |
+| /Oracle/\<SID > / oraarch | Standart | None | Gerekli değil |
 | Oracle giriş, saptrace... | İşletim sistemi diski | | Gerekli değil |
 
 * Şeridi oluşturma: LVM'yi stripe veya MDADM RADI0 kullanma
@@ -476,15 +477,16 @@ En düşük yapılandırma:
 Oracle'nın çevrimiçi Yinele günlükleri barındırmak için disk seçimi tarafından IOPS gereksinimleri dikkate alınmalıdır. Tüm sapdata1... depolamak mümkündür (açabilmek) tek bir diskte takılı birim, IOPS ve aktarım hızı gereksinimlerini yerine getirdiğinizden sürece n. 
 
 Performans yapılandırması:
+
 | Bileşen | Disk | Önbelleğe alma | Çıkarma * |
 | --- | ---| --- | --- |
-| /Oracle/<SID>/origlogaA | Premium | None | Kullanılabilir  |
-| /Oracle/<SID>/origlogaB | Premium | None | Kullanılabilir |
-| /Oracle/<SID>/mirrlogAB | Premium | None | Kullanılabilir |
-| /Oracle/<SID>/mirrlogBA | Premium | None | Kullanılabilir |
-| /Oracle/<SID>/sapdata1...n | Premium | Salt okunur | Önerilen  |
-| /Oracle/SID/sapdata(n+1)* | Premium | None | Kullanılabilir |
-| /Oracle/<SID>/oraarch* | Premium | None | Gerekli değil |
+| /Oracle/\<SID > / origlogaA | Premium | None | Kullanılabilir  |
+| /Oracle/\<SID > / origlogaB | Premium | None | Kullanılabilir |
+| /Oracle/\<SID > / mirrlogAB | Premium | None | Kullanılabilir |
+| /Oracle/\<SID > / mirrlogBA | Premium | None | Kullanılabilir |
+| /Oracle/\<SID > / sapdata1... n | Premium | Salt okunur | Önerilen  |
+| /Oracle/\<SID > / sapdata(n+1) * | Premium | None | Kullanılabilir |
+| /Oracle/\<SID > / oraarch * | Premium | None | Gerekli değil |
 | Oracle giriş, saptrace... | İşletim sistemi diski | Gerekli değil |
 
 * Şeridi oluşturma: LVM'yi stripe veya MDADM RADI0 kullanma
@@ -497,7 +499,7 @@ Performans yapılandırması:
 Daha fazla IOPS gerekiyorsa, birden çok bağlı diskler üzerinde büyük bir mantıksal birim oluşturmak için LVM (mantıksal birim Yöneticisi) veya MDADM kullanmanızı öneririz. Daha fazla bilgi için [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md) yönergeleri ve işaretçileri LVM veya MDADM nasıl ilgili. Bu yaklaşım, disk alanını yönetme yönetim yükünü basitleştirir ve el ile oluşturulmuş birden çok diskte dosyaları dağıtma çaba önlemenize yardımcı olur.
 
 
-#### <a name="write-accelerator"></a>Yazma Hızlandırıcı
+#### <a name="write-accelerator"></a>Yazma Hızlandırıcısı
 Azure yazma Hızlandırıcı, kullandığınızda Azure M serisi VM'ler için Azure Premium depolama performansı için karşılaştırıldığında etkenlerden çevrimiçi Yinele günlüklerine yazma gecikme süresi azaltılabilir. Azure yazma Hızlandırıcı çevrimiçi Yinele günlük dosyaları için kullanılan Azure Premium depolama tabanlı diskler (VHD'ler) için etkinleştirin. Daha fazla bilgi için [yazma hızlandırıcı](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 

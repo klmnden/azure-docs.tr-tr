@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa6a44a3fb92647ba74f865b2a1a46bdd79eb433
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e7b0242a8e3745a0014e5c2a1289ca2bc8c85c75
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174093"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484552"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Azure Active Directory'de (Önizleme) yapılandırılabilir belirteç ömürleri
 
@@ -209,13 +209,13 @@ Başlamak için aşağıdaki adımları uygulayın:
 1. En son sürümünü indirin [Azure AD PowerShell modülü genel Önizleme sürümü](https://www.powershellgallery.com/packages/AzureADPreview).
 2. Çalıştırma `Connect` komutu Azure AD yönetici hesabınızda oturum açın. Her zaman bu komutu çalıştırın, yeni bir oturum başlatın.
 
-    ```PowerShell
+    ```powershell
     Connect-AzureAD -Confirm
     ```
 
 3. Kuruluşunuzda oluşturulan tüm ilkeleri görmek için aşağıdaki komutu çalıştırın. Aşağıdaki senaryolarda çoğu işlemlerinden sonra bu komutu çalıştırın. Komutu çalıştırmadan da yardımcı olur, Al ** ** ilkelerinizin.
 
-    ```PowerShell
+    ```powershell
     Get-AzureADPolicy
     ```
 
@@ -226,7 +226,7 @@ Bu örnekte, kuruluşunuz genelinde daha az sıklıkta oturum açın, kullanıc�
 
     1.  Kümesi tek öğeli yenileme belirteci "kadar iptal edilen." Erişimi iptal kadar belirtecin süresi sona ermiyor. Aşağıdaki ilke tanımı oluşturun:
 
-        ```PowerShell
+        ```powershell
         @('{
             "TokenLifetimePolicy":
             {
@@ -238,13 +238,13 @@ Bu örnekte, kuruluşunuz genelinde daha az sıklıkta oturum açın, kullanıc�
 
     2.  İlkeyi oluşturmak için aşağıdaki komutu çalıştırın:
 
-        ```PowerShell
+        ```powershell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
     3.  Yeni ilkeniz bakın ve ilkenin almak için **objectID**, aşağıdaki komutu çalıştırın:
 
-        ```PowerShell
+        ```powershell
         Get-AzureADPolicy
         ```
 
@@ -252,7 +252,7 @@ Bu örnekte, kuruluşunuz genelinde daha az sıklıkta oturum açın, kullanıc�
 
     Bu örnekte, ayarladığınız ilk ilke hizmetiniz için gerekli olarak katı değil karar verebilirsiniz. Tek öğeli yenileme süresi iki gün içinde dolacak belirtecinizi ayarlamak için aşağıdaki komutu çalıştırın:
 
-    ```PowerShell
+    ```powershell
     Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
 
@@ -266,13 +266,13 @@ Bu örnekte, kullanıcıların daha sık web uygulamanızda kimlik doğrulaması
 
     1.  İlkeyi oluşturmak için şu komutu çalıştırın:
 
-        ```PowerShell
+        ```powershell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
     2.  Yeni ilkeniz görmek için ve ilkeyi almak üzere **objectID**, aşağıdaki komutu çalıştırın:
 
-        ```PowerShell
+        ```powershell
         Get-AzureADPolicy
         ```
 
@@ -282,7 +282,7 @@ Bu örnekte, kullanıcıların daha sık web uygulamanızda kimlik doğrulaması
 
     2.  Olduğunda **objectID** aşağıdaki komutu çalıştırın, hizmet sorumlusunun:
 
-        ```PowerShell
+        ```powershell
         Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
         ```
 
@@ -294,13 +294,13 @@ Bu örnekte, kullanıcıların daha az sıklıkta kimlik doğrulaması gerektire
 
     1.  Web API'si için katı bir ilke oluşturmak için aşağıdaki komutu çalıştırın:
 
-        ```PowerShell
+        ```powershell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
     2.  Yeni ilkeniz görmek için ve ilkeyi almak üzere **objectID**, aşağıdaki komutu çalıştırın:
 
-        ```PowerShell
+        ```powershell
         Get-AzureADPolicy
         ```
 
@@ -308,7 +308,7 @@ Bu örnekte, kullanıcıların daha az sıklıkta kimlik doğrulaması gerektire
 
    Olduğunda **objectID** uygulamanızın aşağıdaki komutu çalıştırın:
 
-        ```PowerShell
+        ```powershell
         Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
         ```
 
@@ -320,13 +320,13 @@ Bu örnekte, öncelik sistem nasıl çalıştığını öğrenmek için birkaç 
 
     1.  30 gün için tek öğeli yenileme belirteci ömrü ayarlar bir kuruluş varsayılan ilkeyi oluşturmak için aşağıdaki komutu çalıştırın:
 
-        ```PowerShell
+        ```powershell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
     2.  Yeni ilkeniz bakın ve ilkenin almak için **objectID**, aşağıdaki komutu çalıştırın:
 
-        ```PowerShell
+        ```powershell
         Get-AzureADPolicy
         ```
 
@@ -338,19 +338,19 @@ Bu örnekte, öncelik sistem nasıl çalıştığını öğrenmek için birkaç 
 
     2.  Olduğunda **objectID** aşağıdaki komutu çalıştırın, hizmet sorumlusunun:
 
-            ```PowerShell
+            ```powershell
             Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
             ```
         
 3. Ayarlama `IsOrganizationDefault` bayrağı false:
 
-    ```PowerShell
+    ```powershell
     Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
 4. Yeni bir kuruluş varsayılan ilkesi oluşturun:
 
-    ```PowerShell
+    ```powershell
     New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "ComplexPolicyScenarioTwo" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
     ```
 
@@ -366,7 +366,7 @@ Aşağıdaki cmdlet, ilkelerini yönetmek için kullanabilirsiniz.
 
 Yeni bir ilke oluşturur.
 
-```PowerShell
+```powershell
 New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
 ```
 
@@ -383,7 +383,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 #### <a name="get-azureadpolicy"></a>Get-AzureADPolicy
 Tüm Azure AD ilkeleri veya belirtilen ilkesini alır.
 
-```PowerShell
+```powershell
 Get-AzureADPolicy
 ```
 
@@ -396,7 +396,7 @@ Get-AzureADPolicy
 #### <a name="get-azureadpolicyappliedobject"></a>Get-AzureADPolicyAppliedObject
 Tüm uygulamaları ve bir ilke için bağlı hizmet sorumluları alır.
 
-```PowerShell
+```powershell
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
@@ -409,7 +409,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 #### <a name="set-azureadpolicy"></a>Set-AzureADPolicy
 Var olan bir ilkeyi güncelleştirir.
 
-```PowerShell
+```powershell
 Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
@@ -427,7 +427,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 #### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
 Belirtilen ilke siler.
 
-```PowerShell
+```powershell
  Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
@@ -443,7 +443,7 @@ Uygulama ilkeleri için aşağıdaki cmdlet'leri kullanabilirsiniz.</br></br>
 #### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
 Belirtilen ilke uygulama bağlar.
 
-```PowerShell
+```powershell
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
@@ -457,7 +457,7 @@ Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectI
 #### <a name="get-azureadapplicationpolicy"></a>Get-AzureADApplicationPolicy
 Bir uygulamaya atanan ilkesini alır.
 
-```PowerShell
+```powershell
 Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
@@ -470,7 +470,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 #### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
 Bir ilke, bir uygulamadan kaldırır.
 
-```PowerShell
+```powershell
 Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
@@ -487,7 +487,7 @@ Aşağıdaki cmdlet'leri için hizmet sorumlusu ilkeleri kullanabilirsiniz.
 #### <a name="add-azureadserviceprincipalpolicy"></a>AzureADServicePrincipalPolicy ekleyin
 Belirtilen ilke için bir hizmet sorumlusu bağlar.
 
-```PowerShell
+```powershell
 Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
@@ -501,7 +501,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectI
 #### <a name="get-azureadserviceprincipalpolicy"></a>Get-AzureADServicePrincipalPolicy
 Belirtilen hizmet sorumlusuna bağlı herhangi bir ilke alır.
 
-```PowerShell
+```powershell
 Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
@@ -514,7 +514,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 #### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
 İlke, belirtilen hizmet sorumlusu kaldırır.
 
-```PowerShell
+```powershell
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 116defb43126932c1a9ce0e7a9d588e731abff78
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a6cb5ffe6c21c6eda9eb8b7f610952e92707a6bd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182039"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483480"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java istemci API'leri
 
@@ -126,11 +126,11 @@ AutoRest aracını kullanarak Service Fabric Java istemci kodu oluşturmak üzer
 Her API için uygulama dört aşırı bulabilirsiniz. Ardından isteğe bağlı parametreler varsa bu isteğe bağlı parametreleri de dahil olmak üzere dört daha fazla çeşitleme bulun. Örneğin bir API göz önünde bulundurun ``removeReplica``.
  1. **public void removeReplica (dize nodeName, UUID PartitionID, dize ReplicaID, Boole forceRemove, uzun bir zaman aşımı)**
     * Bu, zaman uyumlu değişken removeReplica API çağrısı
- 2. **Genel ServiceFuture<Void> removeReplicaAsync (dize nodeName, UUID PartitionID, dize ReplicaID, Boole forceRemove, uzun zaman aşımı, son ServiceCallback<Void> serviceCallback)**
+ 2. **Genel ServiceFuture\<Void > removeReplicaAsync (dize nodeName, UUID PartitionID, dize ReplicaID, Boole forceRemove, uzun zaman aşımı, son ServiceCallback\<Void > serviceCallback)**
     * Gelecekteki tabanlı zaman uyumsuz programlama ve geri çağırmaları kullanmak istiyorsanız, bu API çağrısı türevi kullanılabilir
- 3. **Genel Observable<Void> removeReplicaAsync (dize nodeName, UUID PartitionID, dize ReplicaID)**
+ 3. **Genel Observable\<Void > removeReplicaAsync (dize nodeName, UUID PartitionID, dize ReplicaID)**
     * Reaktif zaman uyumsuz programlama kullanmak istiyorsanız, bu API çağrısı çeşidini kullanılabilir
- 4. **Genel Observable < ServiceResponse<Void>> removeReplicaWithServiceResponseAsync (dize nodeName, UUID PartitionID, dize ReplicaID)**
+ 4. **Genel Observable\<ServiceResponse\<Void >> removeReplicaWithServiceResponseAsync (dize nodeName, UUID PartitionID, dize ReplicaID)**
     * Reaktif zaman uyumsuz programlama kullanın ve ham rest yanıtı ile uğraşmak istiyorsanız bu API çağrısı çeşidini kullanılabilir
 
 ## <a name="next-steps"></a>Sonraki adımlar

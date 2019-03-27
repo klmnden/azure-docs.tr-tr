@@ -4,14 +4,14 @@ description: Azure geçişi hizmeti ve sorun giderme ipuçları için sık karş
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 2b542cc8202b75c0007686e3f0e0d9fbd1ac28c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67c07169b3ff66d99ee52a0e078e0e463a42702e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119182"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482921"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -61,11 +61,11 @@ Portaldan değerlendirme raporunu dışarı bulamıyorsanız, kullanmayı deneyi
 
    a.    Bir yönetici Windows PowerShell penceresinde aşağıdaki komutu çalıştırın: ```armclient login```
 
-   Bu, Azure'da oturum açmak için gereken Azure açılır oturum açar.
+        This opens the Azure login pop-up where you need to sign in to Azure.
 
    b.    Aynı PowerShell penceresinde değerlendirme raporu (aşağıda istek URI parametreleri örnek API uygun değerlerle değiştirin) indirme URL'sini almak için aşağıdaki komutu çalıştırın
 
-      ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
       Örnek istek ve çıktı:
 
@@ -102,6 +102,9 @@ Gidebilirsiniz **Essentials** konusundaki **genel bakış** meta verilerin depol
    - Dosyaya tıklayın > dağıtma OVF şablonu > OVA için göz atın ve dağıtımı tamamlandı
 4. Dağıtım yine başarısız olursa Azure geçişi desteğe başvurun.
 
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance"></a>Bulut Gereci Azure seçin yüklenemiyor
+
+Bu bilinen bir sorundur ve sorun için bir düzeltme kullanılabilir. Lütfen indirin [BITS'en son yükseltme](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) Gereci ve güncelleştirme düzeltmesi uygulamak için gereç için.
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>Toplayıcı, internet'e bağlanmak mümkün değildir.
 
@@ -330,4 +333,4 @@ Olay izleme için Windows toplamak için aşağıdakileri yapın:
 | 802       | TimeSyncError                  | Saat, İnternet saat sunucusuyla eşitlenmemiş.                            | Saat, İnternet saat sunucusuyla eşitlenmemiş.                                                    | Makinedeki saatin saat dilimine göre doğru ayarlandığından emin olun ve işlemi yeniden deneyin.                                 |
 | 702       | OMSInvalidProjectKey           | Geçersiz proje anahtarı belirtildi.                                                | Geçersiz proje anahtarı belirtildi.                                                                        | İşlemi doğru proje anahtarıyla yeniden deneyin.                                                                                              |
 | 703       | OMSHttpRequestException        | İstek gönderilirken hata oluştu. İleti % Message;                                | Proje kimliği ile anahtarını denetleyerek uç noktanın erişilebilir olduğundan emin olun.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun.                                                                     |
-| 704       | OMSHttpRequestTimeoutException | HTTP isteği zaman aşımına uğradı. İleti % Message;                                     | Uç noktanın erişilebilir olduğundan emin olmak için proje kimliği ve anahtarını kontrol edin.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun.                                                                     |
+| 704       | OMSHttpRequestTimeoutException | HTTP isteği zaman aşımına uğradı. İleti % Message;                                     | Proje kimliği ile anahtarını denetleyerek uç noktanın erişilebilir olduğundan emin olun.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun.                                                                     |

@@ -3,7 +3,7 @@ title: Azure PowerShell Betiği Örneği - Bir kümeye uygulama sertifikası ekl
 description: Azure PowerShell Betiği Örneği - Service Fabric kümesine uygulama sertifikası ekleme.
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,20 +13,22 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 01/18/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: be097f88f774df9e4a6429af444c6c742737f4c9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: d5e1540a347bb14e7479bc445afa98e220b5475a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598719"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497070"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Service Fabric kümesine uygulama sertifikası ekleme
 
 Bu örnek betik, belirtilen Azure anahtar kasasında otomatik olarak imzalanan bir sertifika oluşturur ve bunu Service Fabric kümesinin tüm düğümlerine yükler. Sertifika, yerel bir klasöre de indirilir. İndirilen sertifikanın adı, anahtar kasasındaki sertifikanın adıyla aynıdır. Parametreleri gereken şekilde özelleştirin.
 
-Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeleri kullanarak Azure PowerShell’i yükleyin ve ardından Azure ile bir bağlantı oluşturmak için `Connect-AzureRmAccount` öğesini çalıştırın. 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeleri kullanarak Azure PowerShell’i yükleyin ve ardından Azure ile bir bağlantı oluşturmak için `Connect-AzAccount` öğesini çalıştırın. 
 
 ## <a name="sample-script"></a>Örnek betik
 
@@ -38,7 +40,7 @@ Bu betik şu komutları kullanır: Tablodaki her komut, komuta özgü belgelere 
 
 | Komut | Notlar |
 |---|---|
-| [Add-AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) | Kümeyi oluşturan sanal makine ölçek kümesine yeni bir uygulama sertifikası ekleyin.  |
+| [Add-AzServiceFabricApplicationCertificate](/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) | Kümeyi oluşturan sanal makine ölçek kümesine yeni bir uygulama sertifikası ekleyin.  |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

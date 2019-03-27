@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 03/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 79d013e5836555547cbf254bb25c06add0a717e1
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 0de6cf9be01fc93a26a782189a2062d19eaf73e8
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295394"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499276"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Otomatik makine öğrenimi denemelerini yapılandırın
 
@@ -39,21 +39,24 @@ Denemenizi başlamadan önce çözümü machine learning sorun türünü belirle
 
 Genel kullanıma sunulan otomatik makine öğrenimi özelliklerinden çalışırken **tahmin hala genel Önizleme aşamasında olan.**
 
-Otomatik machine learning, otomasyon ve ayarlama işlemi sırasında aşağıdaki algoritmalarını destekler. Bir kullanıcı olarak, algoritma belirtmek gerek yoktur.
+Otomatik machine learning, otomasyon ve ayarlama işlemi sırasında aşağıdaki algoritmalarını destekler. Bir kullanıcı olarak, algoritma belirtmek gerek yoktur. DNN algoritmaları eğitim sırasında kullanılabilir, ancak otomatik ML DNN modelleri oluşturmaz.
 
 Sınıflandırma | Regresyon | Tahmin etme
 |-- |-- |--
 [Lojistik regresyon](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Esnek Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Esnek Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
-[Stokastik aşama (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|[Işık GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Işık GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|[Gradyan artırma](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[Gradyan artırma](https://scikit-learn.org/stable/modules/ensemble.html#regression)
-[C-Destek vektör sınıflandırma (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[Karar ağacı](https://scikit-learn.org/stable/modules/tree.html#regression)|[Karar ağacı](https://scikit-learn.org/stable/modules/tree.html#regression)
-[Doğrusal SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[K Komşuları en yakın](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Komşuları en yakın](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[K Komşuları en yakın](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors)|[LARS Serbest Şekil](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS Serbest Şekil](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
-[Karar ağacı](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[Stokastik aşama (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[Stokastik aşama (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
+[Işık GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Işık GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Işık GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
+[Gradyan artırma](https://scikit-learn.org/stable/modules/ensemble.html#classification)|[Gradyan artırma](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[Gradyan artırma](https://scikit-learn.org/stable/modules/ensemble.html#regression)
+[Karar ağacı](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[Karar ağacı](https://scikit-learn.org/stable/modules/tree.html#regression)|[Karar ağacı](https://scikit-learn.org/stable/modules/tree.html#regression)
+[K Komşuları en yakın](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Komşuları en yakın](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Komşuları en yakın](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
+[Doğrusal SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[LARS Serbest Şekil](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS Serbest Şekil](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[C-Destek vektör sınıflandırma (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[Stokastik aşama (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[Stokastik aşama (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
 [Rastgele orman](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Rastgele orman](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Rastgele orman](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Son derece rastgele ağaçları](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Son derece rastgele ağaçları](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Son derece rastgele ağaçları](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
-[Gradyan artırma](https://scikit-learn.org/stable/modules/ensemble.html#classification)|
-[Işık GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|
+[xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
+[DNN Classifer](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN Regresörü](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN Regresörü](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
+[DNN doğrusal Sınıflandırıcısı](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Doğrusal Regresörü](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[Doğrusal Regresörü](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
+[Stokastik aşama (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
 
 
 ## <a name="data-source-and-format"></a>Veri kaynağı ve biçimi
@@ -156,15 +159,15 @@ Ayrı eğitme ve get_data() üzerinden veya doğrudan bir doğrulama belirtebili
 
 ### <a name="k-folds-cross-validation"></a>K hatları çapraz doğrulama
 
-Kullanım `n_cross_validations` ayarı doğrulamaları çapraz sayısını belirtin. Eğitim veri kümesi, içine rastgele bölünür `n_cross_validations` eşit boyutta hatları. Her çapraz doğrulama sırasında yuvarlak bir kat sayısı üzerinde kalan hatları eğitilmiş modelin doğrulama için kullanılır. Bu işlem yinelenir `n_cross_validations` her Katlama doğrulama kümesi olarak bir kez kullanılana kadar yuvarlar. Tüm ortalama puanları `n_cross_validations` yuvarlar bildirilir ve ilgili modeli tüm eğitim veri kümesi eğitilebileceği.
+Kullanım `n_cross_validations` ayarı doğrulamaları çapraz sayısını belirtin. Eğitim veri kümesi, içine rastgele bölünür `n_cross_validations` eşit boyutta hatları. Her çapraz doğrulama sırasında yuvarlak bir kat sayısı üzerinde kalan hatları eğitilmiş modelin doğrulama için kullanılır. Bu işlem yinelenir `n_cross_validations` her Katlama doğrulama kümesi olarak bir kez kullanılana kadar yuvarlar. Tüm ortalama puanları `n_cross_validations` yuvarlar bildirilir ve ilgili modeli tüm eğitim veri kümesi eğitilebileceği. 
 
 ### <a name="monte-carlo-cross-validation-aka-repeated-random-sub-sampling"></a>Monte Carlo çapraz doğrulama (yani) Yinelenen rastgele alt örnekleme)
 
-Kullanma `validation_size` doğrulama ve kullanımı için kullanılması gereken eğitim veri kümesi yüzdesini belirtmek için `n_cross_validations` doğrulamaları çapraz sayısını belirtmek için. Her sırasında çapraz doğrulama round, bir alt boyutunun `validation_size` kalan veriler üzerine geliştirilen model doğrulama için rastgele seçilir. Son olarak, ortalama puanlar tamamında `n_cross_validations` yuvarlar bildirilir ve ilgili modeli tüm eğitim veri kümesi eğitilebileceği.
+Kullanma `validation_size` doğrulama ve kullanımı için kullanılması gereken eğitim veri kümesi yüzdesini belirtmek için `n_cross_validations` doğrulamaları çapraz sayısını belirtmek için. Her sırasında çapraz doğrulama round, bir alt boyutunun `validation_size` kalan veriler üzerine geliştirilen model doğrulama için rastgele seçilir. Son olarak, ortalama puanlar tamamında `n_cross_validations` yuvarlar bildirilir ve ilgili modeli tüm eğitim veri kümesi eğitilebileceği. Monte Carlo zaman serisi tahmini için desteklenmiyor.
 
 ### <a name="custom-validation-dataset"></a>Özel doğrulama veri kümesi
 
-Rastgele bölünmüş kabul edilebilir değilse, özel doğrulama veri kümesini kullan (genellikle zaman serisi verileri veya imbalanced verileri). Kendi doğrulama veri kümesi belirtebilirsiniz. Model doğrulama veri kümesi yerine rastgele veri kümesi belirtilen karşı değerlendirilir.
+Rastgele bölünmüş kabul edilebilir değilse, özel doğrulama veri kümesi, genellikle zaman serisi verilerini veya imbalanced verileri kullanın. Kendi doğrulama veri kümesi belirtebilirsiniz. Model doğrulama veri kümesi yerine rastgele veri kümesi belirtilen karşı değerlendirilir.
 
 ## <a name="compute-to-run-experiment"></a>Denemeyi çalıştırmak için işlem
 
@@ -178,7 +181,7 @@ Bkz: [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master
 
 ## <a name="configure-your-experiment-settings"></a>Deneme ayarlarınızı yapılandırın
 
-Otomatik makine öğrenimi deneme yapılandırmak için kullanabileceğiniz birkaç seçenek vardır. Bu parametreleri örnekleme tarafından ayarlanan bir `AutoMLConfig` nesne.
+Otomatik makine öğrenimi deneme yapılandırmak için kullanabileceğiniz birkaç seçenek vardır. Bu parametreleri örnekleme tarafından ayarlanan bir `AutoMLConfig` nesne. Bkz: [AutoMLConfig sınıfı](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) parametrelerin tam bir listesi için.  
 
 Bazı örnekler:
 
@@ -223,6 +226,7 @@ Vardır üç farklı `task` uygulamak için algoritmalar listesini belirleyen pa
     * GradientBoosting
     * TensorFlowDNN
     * TensorFlowLinearClassifier
+    * XGBoostClassifier
 * Regresyon
     * ElasticNet
     * GradientBoosting
@@ -235,6 +239,7 @@ Vardır üç farklı `task` uygulamak için algoritmalar listesini belirleyen pa
     * LightGBM
     * TensorFlowLinearRegressor
     * TensorFlowDNN
+    * XGBoostRegressor
 * Tahmin etme
     * ElasticNet
     * GradientBoosting
@@ -247,8 +252,7 @@ Vardır üç farklı `task` uygulamak için algoritmalar listesini belirleyen pa
     * LightGBM
     * TensorFlowLinearRegressor
     * TensorFlowDNN
-
-Bkz: [AutoMLConfig sınıfı](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) parametrelerin tam bir listesi için.  
+    * XGBoostRegressor
 
 ## <a name="data-pre-processing-and-featurization"></a>Veri ön işleme ve özellik kazandırma sayesinde
 
@@ -265,6 +269,44 @@ Kullanırsanız `preprocess=True`, ön işleme adımları olarak aşağıdaki ve
     * Sayısal özellikleri kategorik özelliklerini dönüştürülmüş çok az benzersiz değerlere sahip.
     * Etiket kodlama veya (sık erişimli bir kodlama karma) bağlı olarak kardinalite kategorik özelliklerinin gerçekleştirin.
 
+## <a name="time-series-forecasting"></a>Zaman serilerini tahmin etme
+Zaman serisi tahmin görev türü için ek parametreler tanımlamak için vardır.
+1. time_horizon_name - Bu, eğitim veri içeren tarih/saat serisinde sütunun adını tanımlayan gerekli bir parametredir. 
+1. max_horizon - Bu eğitim verilerin dönemselliği üzerinde temel kullanıma tahmin etmek istediğiniz süreyi tanımlar. Örneğin günlük zaman grains ile eğitim verileriniz varsa, ne kadar out modelini eğitmek için istediğiniz gün tanımlayın.
+1. grain_column_names - Bu, tek tek zaman serisi verilerinde görülen eğitim verilerinizi içeren bir sütun adını tanımlar. Örneğin, mağaza tarafından belirli bir marka satışları tahmin etme özelliği, depolama ve marka sütunları dilimi sütunlar tanımlarsınız.
+
+Bu örnek aşağıda kullanılan ayarları, Not Defteri örneği kullanılabilir [burada](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
+
+```python
+# Setting Store and Brand as grains for training.
+grain_column_names = ['Store', 'Brand']
+nseries = data.groupby(grain_column_names).ngroups
+
+# View the number of time series data with defined grains
+print('Data contains {0} individual time-series.'.format(nseries))
+```
+
+```python
+time_series_settings = {
+    'time_column_name': time_column_name,
+    'grain_column_names': grain_column_names,
+    'drop_column_names': ['logQuantity'],
+    'max_horizon': n_test_periods
+}
+
+automl_config = AutoMLConfig(task='forecasting',
+                             debug_log='automl_oj_sales_errors.log',
+                             primary_metric='normalized_root_mean_squared_error',
+                             iterations=10,
+                             X=X_train,
+                             y=y_train,
+                             n_cross_validations=5,
+                             enable_ensembling=False,
+                             path=project_folder,
+                             verbosity=logging.INFO,
+                             **time_series_settings)
+```
+
 ## <a name="run-experiment"></a>Denemeyi çalıştırma
 
 Denemeyi çalıştırmak ve bir model oluşturmak için gönderin. Geçirmek `AutoMLConfig` için `submit` modeli oluşturmak için yöntemi.
@@ -277,6 +319,13 @@ run = experiment.submit(automl_config, show_output=True)
 >Bağımlılıklar, önce yeni bir makineye yüklenir.  Bu çıkış gösterilmeden önce en fazla 10 dakika sürebilir.
 >Ayarı `show_output` için `True` konsolunda gösterilen çıkış sonuçlanıyor.
 
+## <a name="exit-criteria"></a>Sonlandırma kriteri 
+Burada birkaç seçenek denemenizi tamamlanması tanımlayabilirsiniz.
+1. Hiçbir ölçüt herhangi tanımlamazsanız - denemeyi başka hiçbir ilerleme birincil ölçümünüzün yapılana kadar devam edecek parametreleri çıkın. 
+1. Sayı - yinelemeleri çalıştırılacak deneme için yineleme sayısını tanımlayın. İsteğe bağlı yapabilecekleriniz her yineleme başına dakika zaman sınırı tanımlamak için iteration_timeout_minutes ekleyin.
+1. Saati - ne kadar süreyle dakikalar içinde bir deneme çalıştırma sırasında devam etmesi gerektiğini tanımlayabileceğiniz ayarlarınızdaki experiment_timeout_minutes kullanarak bir süre sonra çıkın.
+1. Bir puan - kullanarak, birincil bir ölçüme göre bir puan ulaştıktan sonra experiement tamamlamak için seçebileceğiniz experiment_exit_score limite ulaşıldıktan sonra çıkın.
+
 
 ## <a name="explore-model-metrics"></a>Model ölçümleri keşfedin
 Bir not defteri kullanıyorsanız, sonuçlarınızı bir pencere öğesi veya satır içi görüntüleyebilirsiniz. Bkz: [izlemek ve modellerin değerlendirmesi](how-to-track-experiments.md#view-run-details) daha fazla ayrıntı için.
@@ -285,7 +334,7 @@ Bir not defteri kullanıyorsanız, sonuçlarınızı bir pencere öğesi veya sa
 ### <a name="classification-metrics"></a>Sınıflandırma ölçümleri
 Aşağıdaki ölçümler, her yinelemede sınıflandırma görevi için kaydedilir.
 
-|Birincil Metrik|Açıklama|Hesaplama|Ek parametreler
+|Ölçüm|Açıklama|Hesaplama|Ek parametreler
 --|--|--|--|
 AUC_Macro| AUC alıcı çalıştırma özellikleri eğrisi altında alandır. Her sınıf için AUC aritmetik ortalamasını makrodur.  | [Hesaplama](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Ortalama "makrosu" =|
 AUC_Micro| AUC alıcı çalıştırma özellikleri eğrisi altında alandır. Mikro genel doğru pozitif sonuçlar ve hatalı pozitif sonuçları her sınıftaki birleştirilerek hesaplanır| [Hesaplama](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Ortalama "micro" =|
@@ -311,7 +360,7 @@ weighted_accuracy|Her örnek için verilen ağırlık o örneğin true sınıfı
 ### <a name="regression-and-forecasting-metrics"></a>Regresyon ve tahmin ölçümleri
 Aşağıdaki ölçümler, her yineleme için gerileme veya tahmin görev kaydedilir.
 
-|Birincil Metrik|Açıklama|Hesaplama|Ek parametreler
+|Ölçüm|Açıklama|Hesaplama|Ek parametreler
 --|--|--|--|
 explained_variance|Anlatıldığı farkı, belirli bir veri kümesi çeşitlemesi için matematiksel bir model hesapları oranı ' dir. Sadece, varyans hataları varyansını özgün verilerin içinde azaltma yüzdesi değil. Hataların ortalaması 0 olduğunda anlatıldığı varyansı için eşittir.|[Hesaplama](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|None|
 r2_score|R2 belirleme veya karesi alınmış hataların ortalaması çıkaran bir temel modele kıyasla yüzde azalma katsayısıdır. Hataların ortalaması 0 olduğunda anlatıldığı varyansı için eşittir.|[Hesaplama](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|None|

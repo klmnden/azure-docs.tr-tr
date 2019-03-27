@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: lyrana
-ms.openlocfilehash: 94217deace731f6650db8003d2e1e3c6c63dcb66
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 2d437f3fd96c38bebac52d6bb9dacf2c01b20a3c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121031"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443683"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Azure dijital İkizlerini rol tabanlı erişim denetimi
 
@@ -67,7 +67,7 @@ Rol tanımının, izinleri ve rol oluşturan diğer özniteliklerini oluşan bir
 Aşağıdaki başvuru belgeleri makaleler açıklar:
 
 - Nasıl yapılır [sorgu veya bir kullanıcı nesnesi kimliği](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
-- Nasıl yapılır [nesne Kimliğini almak için bir hizmet sorumlusu](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.8.1).
+- Nasıl yapılır [nesne Kimliğini almak için bir hizmet sorumlusu](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal).
 - Nasıl yapılır [nesne Kimliğini almak için Azure AD kiracısı](../active-directory/develop/quickstart-create-new-tenant.md).
 
 ## <a name="role-assignments"></a>Rol atamaları

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: c64a3455e1189b83558707a96dc80b88dc242b48
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eaea0719aa8ca981da68841dae365decdd3c860e
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181665"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499871"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Özelleştirme Media Encoder Standard hazır ayarları  
 
@@ -28,6 +28,9 @@ ms.locfileid: "58181665"
 Bu makalede, özel önayarın kullanarak medya Kodlayıcı standart (MES ile) Gelişmiş encoding gerçekleştirme gösterilmektedir. Makale, bir kodlama görevi ve bu görevi yürüten bir iş oluşturmak için .NET kullanır.  
 
 Bu makalede önceden ayarlanmış yararlanarak özelleştirmek gösterilmektedir [H264 Çoklu bit hızı 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) hazır ve katman sayısını azaltır. [Media Encoder Standard özelleştirme önayarlar](media-services-advanced-encoding-with-mes.md) makalede, gelişmiş kodlama görevleri gerçekleştirmek için kullanılan özel önayarların kullanılmasına gösterilmektedir.
+
+> [!NOTE]
+> Bu makalede açıklanan özel önayarların kullanılmasına kullanılamaz [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) dönüşümleri veya CLI komutları. Bkz: [v3 v2'den geçiş kılavuzuna](../latest/migrate-from-v2-to-v3.md) daha fazla ayrıntı için.
 
 ## <a id="customizing_presets"></a> MES ön ayarı özelleştirme
 
@@ -261,10 +264,15 @@ namespace CustomizeMESPresests
 }
 ```
 
+## <a name="see-also"></a>Ayrıca bkz.
+
+- [CLI kullanarak özel bir dönüşüm ile kodlama](../latest/custom-preset-cli-howto.md)
+- [Kodlama ile medya Hizmetleri v3](../latest/encoding-concept.md)
+
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Geri bildirim gönder
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Ayrıca Bkz.

@@ -6,12 +6,12 @@ ms.service: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/21/2019
-ms.openlocfilehash: 33958eae291b03b568491e24f09abefdacb667c8
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: e98e501806971f3cf1bec29960ad15ef9c0024fc
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58405910"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498154"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Uzantı sıralama kullanımı Azure Disk şifrelemesi ile sanal makine ölçek kümesi
 
@@ -152,7 +152,7 @@ Olmasını istiyorsanız, önce başka bir uzantı Azure Disk şifrelemesi uygul
 ```
 
 Daha fazla ayrıntılı şablonları için bkz:
-* Azure Disk şifrelemesi uzantısını (Linux) Masası biçimlendiren bir özel bir kabuk betiği sonra Uygula: [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
+* Azure Disk şifrelemesi uzantısını (Linux) diski biçimlendirir sonra bir özel Kabuk betiği Uygula: [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
 * Azure Disk şifrelemesi uzantısı'nı başlatır ve (Windows) diski biçimlendirir özel bir Powershell betiği sonra uygulayın: [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-windows-ADE-after-customscript.json)
 * Azure Disk şifrelemesi uzantısını başlatır ve (Windows) diski biçimlendirir özel bir Powershell betiği önce Uygula: [deploy-extseq-windows-CustomScript-after-ADE.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-windows-CustomScript-after-ADE.json)
 

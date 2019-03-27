@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: aljo
-ms.openlocfilehash: 5831a21225b80e613f713a516d2f000f8b33f096
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa883f819c53f57a8e281069b2a3db1c55efc6c6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853163"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480557"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Paketleme ve varolan bir yürütülebilir dosya Service Fabric'e dağıtma
 Varolan bir yürütülebilir dosya olarak paketlenirken bir [Konuk yürütülebilir dosyası](service-fabric-guest-executables-introduction.md), Visual Studio Proje şablonu kullanmayı seçebilirsiniz veya [uygulama paketini el ile oluşturmak](#manually). Visual Studio kullanarak, uygulama paketi yapısı ve bildirim dosyalarını yeni bir proje şablonu tarafından sizin için oluşturulur.
@@ -254,7 +254,7 @@ Günlük dosyaları, hizmetin çalışma dizinleri birinde kaydedilir. Dosyalar�
 ## <a name="deployment"></a>Dağıtım
 Son adım [uygulamanızı dağıtmak](service-fabric-deploy-remove-applications.md). Aşağıdaki PowerShell komut dosyası, uygulamanızı yerel geliştirme kümesi dağıtmak ve yeni bir Service Fabric hizmeti başlatmak gösterilmektedir.
 
-```PowerShell
+```powershell
 
 Connect-ServiceFabricCluster localhost:19000
 

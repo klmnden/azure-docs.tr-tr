@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: ae4e4487b3d9df4b2cf756174f0a56e721af91c4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 034abe4e3c37c94afbe431a51efd9493b707fa89
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406921"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498545"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Azure Hizmet Günlükleri ve Log Analytics kullanım ölçümlerini Topla
 
@@ -81,8 +81,6 @@ Destekleyen azure kaynak [Azure İzleyici](../../azure-monitor/overview.md) kend
 ### <a name="enable-diagnostics-with-powershell"></a>PowerShell ile tanılamayı etkinleştirme
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Kasım 2016 (v2.3.0) gereksinim veya sonraki sürümünün [Azure PowerShell](/powershell/azure/overview).
 
 Aşağıdaki PowerShell örneği kullanma işlemini gösterir [kümesi AzDiagnosticSetting](/powershell/module/Az.Monitor/Set-AzDiagnosticSetting) bir ağ güvenlik grubu tanılamayı etkinleştirmek için. Desteklenen tüm kaynaklar için aynı yaklaşımı çalışır - Ayarla `$resourceId` tanılama için etkinleştirmek istediğiniz kaynağının kaynak kimliği.
 

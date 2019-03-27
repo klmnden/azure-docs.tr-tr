@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 5f6708a9c22939395f992c2ac58a7e510b35f763
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 32ad4434db8c2816fe7792b1b851e020021d543a
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317281"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447103"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight üzerinde Apache Storm topolojilerini dağıtma ve yönetme 
 
@@ -23,7 +23,6 @@ Bu belgede, yönetmeye ve izlemeye ilişkin temel bilgileri alın [Apache Storm]
 > [!IMPORTANT]  
 > Bu makaledeki adımlarda, HDInsight kümesinde Linux tabanlı Storm gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement). 
 >
-> Dağıtma ve Topolojilerde Windows tabanlı HDInsight üzerinde izleme hakkında daha fazla bilgi için bkz: [dağıtma ve yönetme Windows tabanlı HDInsight üzerinde Apache Storm topolojilerini](apache-storm-deploy-monitor-topology.md).
 
 
 ## <a name="prerequisites"></a>Önkoşullar

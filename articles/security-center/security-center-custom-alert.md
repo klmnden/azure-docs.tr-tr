@@ -14,15 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5af778ff23c9b3f9188ac2e7b38767e4693f64a1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f09e5dc2b4e15d0364b3091af82c9db2eb6833c7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107625"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500160"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi'ndeki Özel Uyarı Kuralları (Önizleme)
 Bu belge, Azure Güvenlik Merkezi'nde özel uyarı kuralları oluşturmanıza yardımcı olur.
+
+## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde devre dışı bırakılması özel uyarı kuralları
+
+> [!NOTE]
+> Özel uyarı deneyimi 30 Haziran 2019 Azure İzleyici Klasik Uyarılar hizmeti kullanımdan kaldırma nedeniyle kullanımdan kaldırılacaktır. Zaman çerçevesinde kullanımdan kaldırma kadar kullanıcılar var olan özel uyarı kuralları düzenlemek mümkün olacaktır, ancak yenilerini eklemek mümkün olmayacaktır.
+> Kullanıcılar tavsiye etkinleştirmek için [Azure Gözcü](https://azure.microsoft.com/en-us/services/azure-sentinel/) günlük uyarıları ile otomatik olarak mevcut uyarılarını geçirme ve yenilerini oluşturun veya alternatif olarak Azure İzleyici ile uyarılarını yeniden oluşturmak için tek tıklamayla ekleme.
+>                                      
+> Mevcut uyarılarınızı tutun ve bunları Azure Gözcü için geçirmek için lütfen [Azure Gözcü başlatma](https://portal.azure.com/#create/Microsoft.ASI/preview). İlk adımı olarak özel uyarıları depolandığı çalışma alanını seçin ve sonra uyarıları otomatik olarak geçirilecek 'Analytics' menü öğesini seçin.
+>
+> ** Azure Gözcü özel uyarılar geçiş seçilen çalışma alanındaki tüm özel uyarı tek seferlik bir geçiş olduğunu unutmayın. Geçiş tamamlandıktan sonra özel uyarıları, seçilen çalışma alanı için Azure Güvenlik Merkezi erişilemez.
+> Kullanarak özel uyarılar [arama](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/search-queries) veya [birleşim](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) deyimleri sorgular Azure Gözcü içinde desteklenmez ve geçişi yapılmaz. Geçişi gerçekleştirmeden önce lütfen bu uyarılar düzenleyin.
+>
+> Azure İzleyici günlük uyarıları kullanarak uyarıları yeniden oluşturmak için lütfen bkz: [Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetme](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) günlüğü uyarıları oluşturma hakkında yönergeler için. Azure İzleyici'de günlüğü uyarılarına genel bakış için tıklayın [burada](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-unified-log).
 
 ## <a name="what-are-custom-alert-rules-in-security-center"></a>Güvenlik Merkezi'ndeki özel uyarı kuralları nelerdir?
 

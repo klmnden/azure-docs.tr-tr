@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 840ea818c7c2e197f1ab65f4bd61067bf5e51283
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ab0e7ce1891dc3553f89f652c7dac70e66a4df0
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57836989"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499922"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayınlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -40,6 +40,56 @@ Gerekli izinler | Bir güncelleştirmeyi uygulamak için gereken izinler için b
 
 >[!NOTE]
 >Tüm sürümleri Azure AD Connect otomatik yükseltme için kullanılabilir hale getirilir. Yayın durumu, bir yayın otomatik yükseltme için veya yalnızca karşıdan yükleme için kullanılabilir hale getirileceğini olup olmadığını gösterir. Ardından Azure AD Connect sunucunuzda otomatik yükseltmeyi etkinleştirilmişse, sunucu otomatik olarak otomatik yükseltme için yayımlanan Azure AD Connect'in en son sürümünü yükseltecek. Tüm Azure AD Connect yapılandırmaları otomatik yükseltme için uygun olduğunu unutmayın. Lütfen hakkında daha fazla bilgi için bu bağlantıyı izleyin [otomatik yükseltme](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+
+## <a name="13900"></a>1.3.90.0 
+
+### <a name="release-status"></a>Yayın durumu 
+
+3/25/2019: Henüz serbest 
+ 
+### <a name="new-features-and-improvements"></a>Yeni özellikler ve geliştirmeler 
+
+
+
+- Etki alanı yenileme için destek eklendi 
+- Exchange posta ortak klasörleri özelliğini GA gider 
+- Hizmet hataları için işleme Sihirbazı hatası geliştirin 
+- Bağlayıcı özellikleri sayfasında eski kullanıcı Arabirimi için uyarı bağlantı eklendi. 
+- Birleştirilmiş grup geri yazma özelliğini GA sunulmuştur 
+- DC bir LDAP denetimi eksik olduğunda geliştirilmiş SSPR hata iletisi 
+- Yükleme sırasında DCOM kayıt hataları için ek tanılama  
+- İyileştirilmiş PHS RPC hatalarını izleme 
+- Bir alt etki alanından EA güvenilirlikleri izin ver 
+- İzin ver (varsayılan ad ADSync) yükleme sırasında girdiğiniz veritabanı adı
+- Bir WS-Trust düzeltme için Ping çekmek ve yeni Azure örnekleri için destek eklemek için ADAL 3.19.8 yükseltme 
+- Değiştirme grubu eşitleme kurallarını samAccountName DomainNetbios ve buluta - DomainFQDN akış talep için gereken 
+- Varsayılan eşitleme kuralı işleme – daha fazla bilgi edinin değiştiren [burada](how-to-connect-fix-default-rules.md).
+- Bir windows hizmeti olarak çalışan yeni bir Aracısı eklendi. "Yönetim Aracı" adlı bu aracı, Microsoft destek talebinde bulunun ortaya çıkan sorun giderme Engineers yardımcı olmak için Azure AD Connect sunucusunun uzak daha ayrıntılı tanılama sağlar. Yönetim Aracısı hakkında daha fazla bilgiyi [burada](whatis-aadc-admin-agent.md). 
+- Son Kullanıcı Lisans Sözleşmesi (EULA) güncelleştirildi 
+- Kullanıcıların oturum açma türü AD FS kullanan dağıtımlar için Otomatik yükseltme desteği eklendi.  Bu ayrıca, yükseltme işleminin bir parçası AD FS'yi Azure AD bağlı olan taraf güveni güncelleştirme gereksinimi kaldırıldı. 
+- İki seçenekler sunan bir Azure AD güven yönetim görevi ekledik: güven analiz/güncelleştir ve güvenini sıfırlama. 
+- Her zaman - SupportMultipleDomain anahtar kullanır şekilde AD FS'yi Azure AD bağlı olan taraf güveni davranış değiştirilmiştir (güven ve Azure AD etki alanını içeren güncelleştirmeleri). 
+- Önceden yüklenmiş bir sertifika kullanma seçeneğini kaldırarak bir .pfx sertifika gerektirir yükleme yeni AD FS grubu davranış değiştirilmiştir.
+- Yükleme yeni AD FS grubu iş akışı yalnızca 1 AD FS ve WAP sunucusu 1 dağıtma tanır şekilde güncelleştirildi.  İlk yüklemeden sonra tüm ek sunucular yapılır. 
+
+### <a name="fixed-issues"></a>Düzeltilen sorunlar 
+
+
+- Düzeltme SQL yeniden ADSync hizmeti için mantığı 
+- Boş bir SQL AOA DB kullanarak temiz yükleme izin vermek için düzeltme 
+- GWB izinleri iyileştirmek için izinleri PS betiği düzeltin 
+- LocalDB ile VSS hataları düzeltin  
+- Nesne türü, kapsam içinde değil yanıltıcı bir hata iletisi düzeltildi 
+- Azure AD PowerShell yüklemesi bir sunucu üzerinde büyük olasılıkla bir birleştirme çakışması Azure AD Connect ile neden olduğu sorunu düzeltildi. 
+- Bağlayıcı kimlik bilgileri eski kullanıcı Arabiriminde güncelleştirildiğinde hazırlama sunucusunda PHS hata düzeltildi. 
+- Bazı bellek sızıntılarını düzeltildi 
+- Çeşitli Autoupgrade düzeltmeleri 
+- Çeşitli düzeltmeleri dışa ve içe aktarma onaylanmamış işleniyor 
+- Etki alanı ve OU ters eğik çizgi işleme ile bir hata düzeltildi filtreleme 
+- Burada ADSync hizmeti durdurmak için birden fazla 2 dakika sürer ve yükseltme zamanında bir soruna neden olan sorun düzeltildi. 
+
+
+
 
 ## <a name="12700"></a>1.2.70.0
 

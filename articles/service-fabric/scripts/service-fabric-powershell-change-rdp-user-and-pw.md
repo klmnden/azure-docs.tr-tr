@@ -3,7 +3,7 @@ title: Azure PowerShell Betiği Örneği - RDP kullanıcı adını ve parolasın
 description: Azure PowerShell Betiği Örneği - Belirli bir düğüm türünün tüm Service Fabric küme düğümleri için RDP kullanıcı adını ve parolasını güncelleştirin.
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,18 +13,20 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 03/19/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: ff9cfabc4ac7b759a916ddaaeb3f4c95ceecd452
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: HT
+ms.openlocfilehash: a5c1e7786f02b7ebc42f96e4ed12b2fb5729bb41
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30177840"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498018"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>Bir kümedeki sanal makinelerin yönetici kullanıcı adını ve parolasını güncelleştirme
 
 Service Fabric kümesindeki her [düğüm türü](../service-fabric-cluster-nodetypes.md) bir sanal makine ölçek kümesidir. Bu örnek betik, belirli bir düğüm türündeki küme sanal makineleri için yönetici kullanıcı adı ve parolasını güncelleştirir.  Yönetici parolası, değiştirilebilir bir ölçek kümesi özelliği olmadığından, ölçek kümesine VMAccessAgent uzantısını ekleyin.  Kullanıcı adı ve parola değişiklikleri, ölçek kümesindeki tüm düğümlere uygulanır. Parametreleri gereken şekilde özelleştirin.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeyi kullanarak Azure PowerShell’i yükleyin. 
 
@@ -38,9 +40,9 @@ Bu betik şu komutları kullanır: Tablodaki her komut, komuta özgü belgelere 
 
 | Komut | Notlar |
 |---|---|
-| [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) | Küme düğümü türünün özelliklerini alır (sanal makine ölçek kümesi).   |
-| [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension)| Sanal makine ölçek kümesine bir uzantı ekler.|
-| [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)|Sanal makine ölçek kümesinin durumunu, yerel bir VMSS nesnesinin durumuna güncelleştirir.|
+| [Get-AzVmss](/powershell/module/az.compute/get-azvmss) | Küme düğümü türünün özelliklerini alır (sanal makine ölçek kümesi).   |
+| [AzVmssExtension ekleyin](/powershell/module/az.compute/add-azvmssextension)| Sanal makine ölçek kümesine bir uzantı ekler.|
+| [Güncelleştirme AzVmss](/powershell/module/az.compute/update-azvmss)|Sanal makine ölçek kümesinin durumunu, yerel bir VMSS nesnesinin durumuna güncelleştirir.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

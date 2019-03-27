@@ -3,7 +3,7 @@ title: Windows Azure'da çalışan bir Service Fabric kümesi oluşturma | Micro
 description: Bu öğreticide, PowerShell kullanarak bir Azure sanal ağı ve ağ güvenlik grubu içinde bir Windows Service Fabric kümesi dağıtmayı öğrenirsiniz.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/13/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: aa44355ea86b42f8865d7791fec04ffad2b6f3ad
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 28f115e356c8852174b923f4891f93ad435ce7d7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313830"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498188"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Öğretici: Windows çalıştıran bir Azure sanal ağına Service Fabric kümesine dağıtma
 
@@ -58,6 +58,7 @@ Bu öğreticiye başlamadan önce:
 * Yükleme [Service Fabric SDK'sını ve PowerShell Modülü](service-fabric-get-started.md).
 * Yükleme [Azure Powershell modülü sürüm 4.1 veya üzerini](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 * Temel kavramlarını gözden [Azure kümeleri](service-fabric-azure-clusters-overview.md).
+* [Plan ve hazırlık](service-fabric-cluster-azure-deployment-preparation.md) bir küme dağıtımları için.
 
 Aşağıdaki yordamlar yedi düğümlü bir Service Fabric küme oluşturun. Kullanım [Azure fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/) Azure'da bir Service Fabric kümesi çalıştırmaktan kaynaklanan maliyetleri hesaplamak için.
 
@@ -181,7 +182,7 @@ Küme erişimi denetlemek için iki Azure AD uygulaması oluştur: bir web uygul
 
 Çalıştırma `SetupApplications.ps1`ve parametrelere Kiracı kimliği, küme adı ve web uygulamasının yanıt URL'si girin. Kullanıcı adları ve kullanıcılar için parola belirtin. Örneğin:
 
-```PowerShell
+```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin

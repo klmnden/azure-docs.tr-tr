@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
 ms.subservice: files
-ms.openlocfilehash: fe363bd6d16d7beea1c8f1e6ec17710975a80924
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 871eb1663d6cba550f1403215b1d3ce5fe8278d3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652569"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486113"
 ---
 # <a name="cloud-tiering-overview"></a>Bulut katmanlama genel bakış
 Bulut katmanlaması olduğundan, sık erişilen dosyaları önbelleğe alınır yerel sunucuda tüm dosyaları Azure İlkesi ayarlarına göre dosyaları katmanlı sırasında Azure dosya eşitleme'nin isteğe bağlı bir özelliktir. Bir dosya katmanlı, Azure dosya eşitleme dosya sistemi filtresi (StorageSync.sys) dosyasını yerel olarak bir işaretçi veya yeniden ayrıştırma noktası ile değiştirir. Yeniden ayrıştırma noktası, Azure dosyaları'nda bir dosyaya bir URL temsil eder. Katmanlanmış bir dosyanın, hem "Çevrimdışı" özniteliği hem de üçüncü taraf uygulamaların katmanlı dosyaları güvenli bir şekilde belirleyebilmek NTFS FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS özniteliği vardır.
@@ -85,7 +85,7 @@ Azure dosya paylaşımınıza dosya katmanlanmış olup olmadığını denetleme
    * **Kullanım `fsutil` bir dosyayı yeniden ayrıştırma noktalarında denetlemek için.**
        Önceki seçeneği açıklandığı gibi bir katmanlı dosya her zaman bir yeniden ayrıştırma noktası kümesi vardır. Azure dosya eşitleme dosya sistemi filtresi (StorageSync.sys) için özel bir işaretçi bir yeniden ayrıştırma işaretçisidir. Bir dosya, yükseltilmiş bir komut istemi veya PowerShell penceresinde bir yeniden ayrıştırma noktası olup olmadığını denetlemek için çalıştırın `fsutil` yardımcı programı:
     
-        ```PowerShell
+        ```powershell
         fsutil reparsepoint query <your-file-name>
         ```
 
@@ -101,7 +101,7 @@ Bir dosyayı diske geri çekmek için en kolay yolu, dosya açmaktır. Azure dos
 
 Bir dosya çağrılmaya zorlamak için PowerShell de kullanabilirsiniz. Bu seçenek, bir klasördeki tüm dosyaları gibi birden çok dosyayı aynı anda geri çekmek istiyorsanız yararlı olabilir. Azure dosya eşitleme'nın yüklendiği sunucu düğümü için bir PowerShell oturumu açın ve sonra aşağıdaki PowerShell komutlarını çalıştırın:
     
-    ```PowerShell
+    ```powershell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
     ```
@@ -114,7 +114,7 @@ Windows dosya Gezgini'nde, bir dosyanın boyutunu göstermek için iki özellik 
 ### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>Bir dosya veya dizin katmanlanmış nasıl zorlarım?
 Bulut katmanlama özelliği etkinleştirilmişse, bu bulut katmanları dosyaları otomatik olarak katmanlama son erişimini ve bulut uç noktada belirtilen birim boş alanı yüzde elde etmek için bir kez değiştirin. Bazı durumlarda, yine de el ile bir dosya katmanı zorlamak isteyebilirsiniz. Bu uzun bir süredir yeniden kullanmayı düşünmüyorsanız büyük bir dosya kaydetmeniz halinde kullanışlı olabilir ve diğer dosyalar ve klasörler için kullanılacak toplu artık boş alan istediğiniz. Aşağıdaki PowerShell komutlarını kullanarak katmanlama zorlayabilirsiniz:
 
-    ```PowerShell
+    ```powershell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
     ```

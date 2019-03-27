@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/30/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8362ae5e9647c023ff950a363f9ba7bfde37fdb6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 91cf0986241a40c48430d8305849c12864d645fb
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863330"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499565"
 ---
 # <a name="what-is-azure-container-instances"></a>Azure Container Instances nedir?
 
@@ -52,10 +52,11 @@ Bazı özellikler şu anda Linux kapsayıcıları için kısıtlanmıştır:
 
 * Kapsayıcı grubu başına birden çok kapsayıcı
 * Birim bağlama ([Azure dosyaları](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [gizli](container-instances-volume-secret.md))
+* [Kaynak kullanım ölçümleri](container-instances-monitor.md) Azure İzleyici ile
 * [Sanal ağ dağıtım](container-instances-vnet.md) (Önizleme)
 * [GPU kaynakları](container-instances-gpu.md) (Önizleme)
 
-Azure Container Instances, uzun süreli bakım kanalı (LTSC) sürüme göre Windows Server 2016 görüntüleri destekler. 1709 ve 1803 gibi Windows Yarı Yıllık Kanal (SAC) sürümleri desteklenmez.
+Azure Container Instances, şu anda uzun süreli bakım kanalı (LTSC) sürüme göre Windows Server 2016 görüntüleri destekler. 1709 ve 1803 gibi Windows Yarı Yıllık Kanal (SAC) sürümleri desteklenmez.
 
 ## <a name="co-scheduled-groups"></a>Birlikte zamanlanmış gruplar
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: eeda1ed3181b8cc8f641ed731b7f00fac2d3fad6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bbda2a16e57f3907ef2910b17ed3c744d2d1ec3e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005836"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487864"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -58,7 +58,7 @@ Sunucunun bir depolama eşitleme hizmeti ile daha önceden kaydedilen bu ileti g
 
 Sunucu altında listede yoksa **kayıtlı sunucuları** depolama eşitleme hizmetinde kaydını kaldırmak istediğiniz sunucuda aşağıdaki PowerShell komutlarını çalıştırın:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Reset-StorageSyncServer
 ```
@@ -113,7 +113,7 @@ Sunucu çevrimdışı veya ağ bağlantısı yok, bu sorun oluşur. Sunucu artı
 <a id="server-endpoint-provisioningfailed"></a>**Sunucu uç noktası özellikler sayfasını açın veya Bulut katmanlama İlkesi güncelleştirilemedi**  
 Sunucu uç noktasında bir yönetim işlemi başarısız olursa, bu sorun oluşabilir. Azure portalında sunucu uç noktası özellikleri sayfası açık değilse, sunucudan PowerShell komutlarıyla sunucu uç noktası güncelleniyor bu sorunu çözebilir. 
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 # Get the server endpoint id based on the server endpoint DisplayName property
 Get-AzureRmStorageSyncServerEndpoint `
@@ -253,7 +253,7 @@ Bu hataları görmek için şunu çalıştırın **FileSyncErrorsReport.ps1** Po
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Bir dosya kullanımda olduğundan eşitlenemiyor. Dosya artık kullanımda olmadığında eşitlenecektir. | Eylem gerekmiyor. Azure dosya eşitleme, günde bir kez açık tanıtıcıları içeren dosyaları eşitleyin sunucudaki geçici bir VSS anlık görüntüsü oluşturur. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Bir dosya değişti, ancak değişiklik henüz eşitlemeden algılanmadı. Bu değişiklik algılandıktan sonra eşitleme kurtarır. | Eylem gerekmiyor. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Azure dosya paylaşımı sınırına ulaştığından dosya eşitlenemez. | Bu sorunu çözmek için bkz: [Azure dosya paylaşımı depolama sınırına](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) sorun giderme kılavuzu bölümüne. |
-| 0x80070005 | -2147024891 | E_ACCESSDENIED | Bu hata, dosya (NTFS EFS gibi) desteklenmeyen bir çözüm tarafından şifrelenmiş veya dosyanın durumu bir silme işlemi oluşabilir. | Tarafından desteklenmeyen bir çözüm dosya şifrelenmişse, dosyanın şifresini çözmek ve desteklenen şifreleme çözümü kullanın. Destek çözümleri listesi için bkz. [şifreleme çözümleri](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) Planlama Kılavuzu'nda bölümü. Dosya durumu bekleyen bir silme ise, tüm açık dosya tanıtıcıları kapatıldıktan sonra dosya silinir. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | Bu hata aşağıdaki nedenlerle oluşabilir: dosya (NTFS EFS gibi) desteklenmeyen bir çözüm tarafından şifrelenir, bekleme durumunda dosya sahip bir silme veya dosya bir DFS-R Salt okunur çoğaltma klasöründe bulunur | Tarafından desteklenmeyen bir çözüm dosya şifrelenmişse, dosyanın şifresini çözmek ve desteklenen şifreleme çözümü kullanın. Destek çözümleri listesi için bkz. [şifreleme çözümleri](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) Planlama Kılavuzu'nda bölümü. Dosya durumu bekleyen bir silme ise, tüm açık dosya tanıtıcıları kapatıldıktan sonra dosya silinir. Dosya bir DFS-R Salt okunur çoğaltma klasöründe yer alıyorsa, Azure dosya eşitleme DFS-R Salt okunur çoğaltma klasörlerde sunucu uç noktalarını desteklemiyor. Bkz: [planlama kılavuzunun](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) daha fazla bilgi için.
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | Bir dosya kullanımda olduğundan eşitlenemiyor. Dosya artık kullanımda olmadığında eşitlenecektir. | Eylem gerekmiyor. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Eşitleme sırasında bir dosya değiştirildiğinden yeniden eşitlenmesi gerekiyor. | Eylem gerekmiyor. |
 
@@ -331,7 +331,7 @@ Azure dosya eşitleme aracısının Azure dosya paylaşımını veya artık bar�
 
 1. Sunucudan depolama DNS adı çözümlemesini denetleyin.
 
-    ```PowerShell
+    ```powershell
     Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 443
     ```
 2. [Depolama hesabının var olduğunu doğrulayın.](#troubleshoot-storage-account)
@@ -457,13 +457,13 @@ Kuruluşunuz, SSL sonlandırma proxy kullanıyorsa veya kötü amaçlı bir varl
 
 1. SkipVerifyingPinnedRootCertificate kayıt defteri değeri oluşturun.
 
-    ```PowerShell
+    ```powershell
     New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Azure\StorageSync -Name SkipVerifyingPinnedRootCertificate -PropertyType DWORD -Value 1
     ```
 
 2. Kayıtlı sunucu eşitleme hizmetini yeniden başlatın.
 
-    ```PowerShell
+    ```powershell
     Restart-Service -Name FileSyncSvc -Force
     ```
 
@@ -503,7 +503,7 @@ Sunucu saatinin doğru ise, bu sorunu çözmek için aşağıdaki adımları ger
 1. Azure dosya eşitleme Aracısı sürüm 4.0.1.0 doğrulayın veya üstü yüklü.
 2. Sunucuda aşağıdaki PowerShell komutlarını çalıştırın:
 
-    ```PowerShell
+    ```powershell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
     Login-AzureRmStorageSync -SubscriptionID <guid> -TenantID <guid>
     Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
@@ -616,7 +616,7 @@ Bu hata, eşitleme veritabanı ile dahili bir sorun nedeniyle oluşur. Bu hata o
     ![Bir depolama hesabı bağlantısını içeren bulut uç noktası ayrıntıları bölmesinin gösteren ekran görüntüsü.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 # Variables for you to populate based on your configuration
 $agentPath = "C:\Program Files\Azure\StorageSyncAgent"
 $region = "<Az_Region>"
@@ -719,7 +719,7 @@ if ($storageAccount -eq $null) {
     ![Bir depolama hesabı güvenlik duvarı ve ağ kuralları devre dışı gösteren ekran görüntüsü.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
     [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
     Write-Host ("The storage account referenced contains network " + `
@@ -735,7 +735,7 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 3. Bulut uç noktası tarafından başvurulan dosya paylaşımı (Bu yukarıdaki 1. adımda not ettiğiniz) dosya paylaşımları listesinde göründüğünü doğrulayın.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 $fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
     $_.IsSnapshot -eq $false
@@ -762,7 +762,7 @@ if ($fileShare -eq $null) {
     - İçinde **seçin** alanına **karma dosya eşitleme hizmeti**, rolü seçin ve tıklayın **Kaydet**.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell    
+```powershell    
 $foundSyncPrincipal = $false
 Get-AzRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
     if ($_.DisplayName -eq "Hybrid File Sync Service") {
@@ -790,13 +790,13 @@ Kullanabileceğiniz [Dosya Sunucusu Kaynak Yöneticisi (FSRM) dosya filtrelerini
 
 Önce kullanarak bir FSRM dosya grubu oluşturma [FsrmFileGroup yeni cmdlet](https://docs.microsoft.com/powershell/module/fileserverresourcemanager/new-fsrmfilegroup). Bu örnek yalnızca iki desteklenmeyen karakterler içerecek Grup tanımlar, ancak bu kadar çok dosyası grubunuzdaki gerekirse karakterleri içerebilir.
 
-```PowerShell
+```powershell
 New-FsrmFileGroup -Name "Unsupported characters" -IncludePattern @(("*"+[char]0x00000090+"*"),("*"+[char]0x0000008F+"*"))
 ```
 
 Bir FSRM dosya grubu tanımlandıktan sonra yeni FsrmFileScreen cmdlet'ini kullanarak bir FSRM dosya filtresi oluşturabilirsiniz.
 
-```PowerShell
+```powershell
 New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported characters" -IncludeGroup "Unsupported characters"
 ```
 
@@ -893,7 +893,7 @@ Sorun çözülmezse AFSDiag aracı çalıştırın:
 1. (Örneğin, C:\Output) AFSDiag çıkış kaydedileceği bir dizin oluşturun.
 2. Yükseltilmiş bir PowerShell penceresi açın ve ardından (her komuttan sonra Enter tuşuna basın) aşağıdaki komutları çalıştırın:
 
-    ```PowerShell
+    ```powershell
     cd "c:\Program Files\Azure\StorageSyncAgent"
     Import-Module .\afsdiag.ps1
     Debug-Afs c:\output # Note: Use the path created in step 1.

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 56ca87f318aa5f1843a3b28480be834df1669c71
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 96f580532d9ea45dd767e32c2451243e83af66ea
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811018"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480813"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service'te gelen ve giden IP adresleri
 
@@ -45,11 +45,11 @@ Bazen, uygulamanız için adanmış ve statik bir IP adresi isteyebilirsiniz. St
 
 Kümesi giden IP adresleri uygulama değişiklikleriniz uygulamanızı daha düşük Katmanlar arasındaki ölçeklediğinizde (**temel**, **standart**, ve **Premium**) ve  **Premium V2** katmanı.
 
-Uygulamanızı kullanabilir, bakarak fiyatlandırma katmanları bağımsız olarak tüm olası giden IP adresleri kümesini bulabilirsiniz `possibleOutboundIPAddresses` özelliği. Bkz: [Bul giden IP'ler](#find-outbound-ips).
+Uygulamanızı kullanabilir, bakarak fiyatlandırma katmanları bağımsız olarak tüm olası giden IP adresleri kümesini bulabilirsiniz `possibleOutboundIPAddresses` özelliği veya **ek giden IP adresleri** alanındaki **özellikleri**  Azure portalındaki dikey penceresinde. Bkz: [Bul giden IP'ler](#find-outbound-ips).
 
 ## <a name="find-outbound-ips"></a>Giden IP'ler bulun
 
-Uygulamanızı Azure portalında şu anda kullandığı giden IP adresleri bulmak için tıklatın **özellikleri** uygulamanızın sol gezinti bölmesinde. 
+Uygulamanızı Azure portalında şu anda kullandığı giden IP adresleri bulmak için tıklatın **özellikleri** uygulamanızın sol gezinti bölmesinde. İçinde listelenen **giden IP adresleri** alan.
 
 Aşağıdaki komutu çalıştırarak aynı bilgileri bulabilirsiniz [Cloud Shell](../cloud-shell/quickstart.md).
 
@@ -61,7 +61,9 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-Tüm olası bulmak için giden IP adresleri fiyatlandırma katmanları, bağımsız olarak uygulamanız için aşağıdaki komutu çalıştırın [Cloud Shell](../cloud-shell/quickstart.md).
+Bulunacak _tüm_ fiyatlandırma katmanları, bağımsız olarak uygulamanız için olası giden IP adresleri tıklayın **özellikleri** uygulamanızın sol gezinti bölmesinde. İçinde listelenen **ek giden IP adresleri** alan.
+
+Aşağıdaki komutu çalıştırarak aynı bilgileri bulabilirsiniz [Cloud Shell](../cloud-shell/quickstart.md).
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv

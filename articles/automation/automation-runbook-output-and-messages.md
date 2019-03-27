@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ec71f8998f7db07cafca7f8141acb9898b016328
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821362"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487677"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook çıkışı ve iletileri Azure Otomasyonu
 Çoğu Azure Automation runbook'ları, bir çıkış biçimine sahip. Bu çıkış, bir hata iletisi, başka bir runbook ile kullanmak istediğiniz kullanıcı veya karmaşık bir nesne olabilir. Windows PowerShell sağlar [birden çok akış](/powershell/module/microsoft.powershell.core/about/about_redirection) bir betik veya iş akışı, çıkış göndermek için. Azure Otomasyonu bu akışları her biriyle farklı biçimde çalışır. Bir runbook oluştururken her kullanmak için en iyi uygulamaları izlemelisiniz.
@@ -35,7 +35,7 @@ Aşağıdaki tabloda her akışları ve yayımlanan runbook'lar için Azure Port
 
 [Write-Output](https://technet.microsoft.com/library/hh849921.aspx) kullanarak veya nesneyi runbook'ta kendi satırına koyarak çıkış akışına veri yazabilirsiniz.
 
-```PowerShell
+```powershell
 #The following lines both write an object to the output stream.
 Write-Output –InputObject $object
 $object
@@ -46,7 +46,7 @@ Runbook'unuza dahil bir işlevde çıkış akışına yazdığınızda, çıkı�
 
 Aşağıdaki örnek runbook'u göz önünde bulundurun:
 
-```PowerShell
+```powershell
 Workflow Test-Runbook
 {
   Write-Verbose "Verbose outside of function" -Verbose
@@ -90,7 +90,7 @@ Bir iş akışı [OutputType özniteliğini](https://technet.microsoft.com/libra
 
 Aşağıdaki örnek runbook bir dize nesnesi çıkışı yapar ve çıkış türü bildirimini içerir. Runbook'unuz belirli bir türde dizi çıkışı yapıyorsa, yine de o türdeki dizi yerine, türü belirtmelisiniz.
 
-```PowerShell
+```powershell
 Workflow Test-Runbook
 {
   [OutputType([string])]
@@ -126,7 +126,7 @@ Uyarı ve Hata akışlarının bir runbook'ta oluşan sorunları günlüğe kayd
 
 [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) veya [Write-Error](https://technet.microsoft.com/library/hh849962.aspx) cmdlet'ini kullanarak bir uyarı veya hata iletisi oluşturun. Etkinlikler de bu akışlara yazabilir.
 
-```PowerShell
+```powershell
 #The following lines create a warning message and then an error message that will suspend the runbook.
 
 $ErrorActionPreference = "Stop"
@@ -141,7 +141,7 @@ Zaman [bir runbook'u test etme](automation-testing-runbook.md), runbook ayrınt�
 
 [Write-Verbose](https://technet.microsoft.com/library/hh849951.aspx) cmdlet'ini kullanarak bir ayrıntılı ileti oluşturun.
 
-```PowerShell
+```powershell
 #The following line creates a verbose message.
 
 Write-Verbose –Message "This is a verbose message."
@@ -183,7 +183,7 @@ Windows PowerShell'de, çıkışı ve iletileri kullanarak bir runbook'tan alabi
 
 Aşağıdaki örnek, örnek bir runbook başlatır ve tamamlanmasını bekler. Tamamlandığında, çıkış akışı işten toplanır.
 
-```PowerShell
+```powershell
 $job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
   –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 398b984f4d97005fdc4d749f3fe072423cc5bbd7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1d1e0f100a90c28bd7469991dee559abcd88f9a2
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309307"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499480"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Azure IOT Edge çalışma zamanı (x64) Linux'ta yükleme
 
@@ -23,7 +23,7 @@ Azure IOT Edge çalışma zamanı, ne bir cihaz ile IOT Edge cihazı kapatır ' 
 
 Daha fazla bilgi için bkz. [Azure IOT Edge çalışma zamanı ve mimarisini anlama](iot-edge-runtime.md).
 
-Bu makalede x64 (Intel/AMD), Linux üzerinde Azure IOT Edge çalışma zamanı yükleme adımlarını listeler IOT Edge cihazı. Başvurmak [Azure IOT Edge desteği](support.md#operating-systems) desteklenen AMD64 işletim sistemlerinin bir listesi için.
+Bu makalede Azure IOT Edge çalışma zamanı, Ubuntu Linux x64 (Intel/AMD) yüklemek için adımları listelenir. IOT Edge cihazı. Başvurmak [Azure IOT Edge desteği](support.md#operating-systems) desteklenen AMD64 işletim sistemlerinin bir listesi için.
 
 > [!NOTE]
 > Linux yazılım depoları paketlerinde her pakette yer alan lisans koşullarına tabidir (/ usr/paylaşım/doc/*paket adı*). Paket kullanarak önce lisans koşullarını okuyun. Bu koşulları kabul etmeniz, yükleme ve kullanım paket oluşturur. Lisans koşullarını kabul etmiyorsanız, paket kullanmayın.
@@ -33,11 +33,22 @@ Bu makalede x64 (Intel/AMD), Linux üzerinde Azure IOT Edge çalışma zamanı y
 Cihazınız için IOT Edge çalışma zamanı yükleme hazırlayın.
 
 
-Depo Yapılandırması'nı yükleyin. Değiştirin **\<yayın\>** ile **16.04** veya **18.04** , Ubuntu sürümü için uygun şekilde.
+Depo Yapılandırması'nı yükleyin. Seçin ya da **16.04** veya **18.04** kod parçacığı, Ubuntu sürümü için uygun şekilde.
 
+> [!IMPORTANT]
+> Kod parçacığı Ubuntu sürümünüz için doğru kod kutusundan seçtiğinizden emin olun.
+
+* İçin **Ubuntu 16.04**:
    ```bash
-   curl https://packages.microsoft.com/config/ubuntu/<release>/prod.list > ./microsoft-prod.list
+   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
    ```
+
+* İçin **Ubuntu 18.04**:
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
+   ```
+   
+Depo Yapılandırması'nı yükleyin. Seçin ya da **16.04** veya **18.04** kod parçacığı, Ubuntu sürümü için uygun şekilde.
 
 Oluşturulan listenin kopyalayın.
 

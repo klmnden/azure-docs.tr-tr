@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 40c08f87a1711ae57ceb8b288851686d1e2ad391
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f0632b0d6e651ba6e0b43586e60d582e29c5ce00
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993959"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500551"
 ---
 # <a name="understand-cost-management-data"></a>Maliyet Yönetimi verilerini anlama
 
@@ -25,42 +25,42 @@ Bu makalede, hangi verilerin Azure maliyet Yönetimi'nde dahildir daha iyi anlam
 
 Aşağıdaki bilgiler, şu anda desteklenen gösterir [Microsoft Azure'un sunduğu](https://azure.microsoft.com/support/legal/offer-details/) Azure maliyet Yönetimi'nde.  Bir Azure teklifi, sahip olduğunuz Azure aboneliğinin türüdür.
 
-| Kategori  | **Teklif adı** | **Teklif numarası** |
-| --- | --- | --- |
-| **Azure Almanya** | [Azure Almanya Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-de-0003p/) | MS-AZR-DE-0003P |
-| **Azure Devlet Kurumları** | Azure kamu Enterprise | MS-AZR-USGOV-0017P |
-| **Kurumsal Anlaşma (EA)** | Kurumsal Geliştirme ve Test | MS-AZR-0148P |
-| **Kurumsal Anlaşma (EA)** | [Microsoft Azure Kurumsal](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade/) | MS-AZR-0017P |
-| **Microsoft Geliştirici Ağı (MSDN)** | [MSDN platformları](https://azure.microsoft.com/offers/ms-azr-0062p/) | MS-AZR-0062P |
-| **Kullandıkça Öde** | [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
-| **Kullandıkça Öde** | [Kullandıkça Öde geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
-| **Kullandıkça Öde** | [Microsoft İş Ortağı Ağı](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
-| **Kullandıkça Öde** | [Ücretsiz deneme](https://azure.microsoft.com/offers/ms-azr-0044p/) | MS-AZR-0044P |
-| **Kullandıkça Öde** | [Açık lisansta Azure](https://azure.microsoft.com/offers/ms-azr-0111p/) | MS-AZR-0111P |
-| **Kullandıkça Öde** | [Öğrenciler için Azure](https://azure.microsoft.com/offers/ms-azr-0170p/) | MS-AZR-0170P |
-| **Kullandıkça Öde** | Azure Pass | MS-AZR - 0120P, MS - AZR - 0122P, MS-AZR - 0125P, MS - AZR - 0128P - MS-AZR - 0130P |
-| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p/) | MS-AZR-0029P |
-| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) | MS-AZR-0059P |
-| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/) | MS-AZR-0060P |
-| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) | MS-AZR-0063P |
-| **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P |
+| Kategori  | **Teklif adı** | **Kota kimliği** | **Teklif numarası** |
+| --- | --- | --- | --- |
+| **Azure Almanya** | [Azure Almanya Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
+| **Azure Devlet Kurumları** | Azure kamu Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
+| **Kurumsal Anlaşma (EA)** | Kurumsal Geliştirme ve Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
+| **Kurumsal Anlaşma (EA)** | [Microsoft Azure Kurumsal](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
+| **Microsoft Geliştirici Ağı (MSDN)** | [MSDN platformları](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
+| **Kullandıkça Öde** | [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
+| **Kullandıkça Öde** | [Kullandıkça Öde geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
+| **Kullandıkça Öde** | [Microsoft İş Ortağı Ağı](https://azure.microsoft.com/offers/ms-azr-0025p)           | MPN_2014-09-01 | MS-AZR-0025P |
+| **Kullandıkça Öde** | [Ücretsiz deneme](https://azure.microsoft.com/offers/ms-azr-0044p)                          | FreeTrial_2014-09-01 | MS-AZR-0044P |
+| **Kullandıkça Öde** | [Açık lisansta Azure](https://azure.microsoft.com/offers/ms-azr-0111p)                       | AzureInOpen_2014-09-01 | MS-AZR-0111P |
+| **Kullandıkça Öde** | [Öğrenciler için Azure](https://azure.microsoft.com/offers/ms-azr-0170p)                  | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **Kullandıkça Öde** | Azure Pass                                                                             | AzurePass_2014-09-01 | MS-AZR - 0120P, MS - AZR - 0122P, MS-AZR - 0125P, MS - AZR - 0128P - MS-AZR - 0130P |
+| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)      | MPN_2014-09-01 | MS-AZR-0029P |
+| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)          | MSDN_2014-09-01 | MS-AZR-0059P |
+| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)     | MSDNDevTest_2014-09-01 | MS-AZR-0060P |
+| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)            | MSDN_2014-09-01 | MS-AZR-0063P |
+| **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)  | MSDN_2014-09-01 | MS-AZR-0064P |
 
 Aşağıdaki tabloda, desteklenmeyen teklifler gösterilmektedir.
 
-| Kategori  | **Teklif adı** | **Teklif numarası** |
-| --- | --- | --- |
-| **Bulut çözümü sağlayıcısı (CSP)** | Microsoft Azure | MS-AZR-0145P |
-| **Bulut çözümü sağlayıcısı (CSP)** | Azure kamu CSP | MS-AZR-USGOV-0145P |
-| **Bulut çözümü sağlayıcısı (CSP)** | Microsoft Bulut Almanya için CSP’de Azure Almanya | MS-AZR-DE-0145P |
-| **Kullandıkça Öde** | Öğrenciler için Azure Başlangıç | MS-AZR - 0144P |
-| **Kullandıkça Öde** | [Microsoft Azure Sponsorluğu](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
-| **Destek planları** | Standart destek | MS-AZR-0041P |
-| **Destek planları** | Profesyonel doğrudan desteği | MS-AZR-0042P |
-| **Destek planları** | Geliştirici Desteği | MS-AZR-0043P |
-| **Destek planları** | Almanya destek planı | MS-AZR-DE-0043P |
-| **Destek planları** | Azure kamu standart destek | MS-AZR-USGOV-0041P |
-| **Destek planları** | Azure kamu profesyonel doğrudan desteği | MS-AZR-USGOV-0042P |
-| **Destek planları** | Azure kamu Geliştirici Desteği | MS-AZR-USGOV-0043P |
+| Kategori  | **Teklif adı** | **Kota kimliği** | **Teklif numarası** |
+| --- | --- | --- | --- |
+| **Bulut çözümü sağlayıcısı (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
+| **Bulut çözümü sağlayıcısı (CSP)** | Azure kamu CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
+| **Bulut çözümü sağlayıcısı (CSP)** | Microsoft Bulut Almanya için CSP’de Azure Almanya   | CSP_2015-05-01 | MS-AZR-DE-0145P |
+| **Kullandıkça Öde**                 | Öğrenciler için Azure Başlangıç | DreamSpark_2015-02-01 | MS-AZR - 0144P |
+| **Kullandıkça Öde**                 | [Microsoft Azure Sponsorluğu](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
+| **Destek planları** | Standart destek                    | Default_2014-09-01 | MS-AZR-0041P |
+| **Destek planları** | Profesyonel doğrudan desteği         | Default_2014-09-01 | MS-AZR-0042P |
+| **Destek planları** | Geliştirici Desteği                   | Default_2014-09-01 | MS-AZR-0043P |
+| **Destek planları** | Almanya destek planı                | Default_2014-09-01 | MS-AZR-DE-0043P |
+| **Destek planları** | Azure kamu standart destek   | Default_2014-09-01 | MS-AZR-USGOV-0041P |
+| **Destek planları** | Azure kamu profesyonel doğrudan desteği | Default_2014-09-01 | MS-AZR-USGOV-0042P |
+| **Destek planları** | Azure kamu Geliştirici Desteği  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
 Kullandıkça Öde, MSDN ve Visual Studio Teklif kategorileri olan müşteriler için veriler 02/10/2018 başlayarak maliyet Yönetimi'nde kullanılabilir. 02/10/2018 önce aboneliğinizi verilerine erişmek için kullanabileceğiniz [Azure hesap Merkezi](https://account.azure.com/subscriptions) kullanımınızı indirmek için bir CSV dosyasında ayrıntıları veya kullanabileceğiniz [kullanım ayrıntılarını API'si](/rest/api/consumption/usagedetails).
 

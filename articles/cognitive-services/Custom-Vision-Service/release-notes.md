@@ -9,14 +9,28 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 1850959946531abbaf531484696951dee59dadbb
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: ce48a240c67c6077027210ffb0ca85db93610782
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351771"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472965"
 ---
 # <a name="custom-vision-service-release-notes"></a>Özel görüntü işleme hizmeti sürüm notları
+
+## <a name="march-26-2019"></a>26 Mart 2019
+- Özel görüntü işleme hizmeti, Azure üzerinde genel kullanılabilirlik geçtiğini! 
+- Yeni bir makine öğrenme, özellikle zorlu veri kümeleri ve hassas sınıflandırma üzerinde daha iyi performans için arka uç ile gelişmiş bir eğitim özelliği eklendi. Gelişmiş eğitimle, eğitim ve özel işleme için işlem saati bütçe experimentally en iyi eğitim ve genişletmeyi ayarları tanımlayacak belirtebilirsiniz. Hızlı yinelemeler için var olan Hızlı eğitim kullanmaya devam edebilirsiniz. 
+- 3.0 sunulan API'ler. Önümüzdeki öncesi 3.0 API'leri 1 Ekim 2019 tarihinde duyurulana. Hızlı Başlangıçlar belgelerine bakın için [.Net](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/csharp-tutorial), [Python](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/python-tutorial), [düğüm](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/node-tutorial), [Java](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/java-tutorial), veya [Git](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/go-tutorial) örnekler nasıl kullanmaya başlamak. 
+- "Yinelemeler yayımlama/yayımdan ile 3. 0'varsayılan" yerine API'leri. 
+- Yeni model dışarı aktarma hedefler sürümüne eklenmiştir. Dockerfile dışarı aktarma, Raspberry Pi 3'için ARM destekleyecek şekilde yükseltildi. Dışarı aktarma desteği eklendi [işleme yapay ZEKA Geliştirme Seti.](https://visionaidevkit.com/) 
+- S0 katmanı için 500 proje başına artan sınırı etiket. S0 katmanı için 100.000 projeye başına artan sınırı görüntüleri.
+- Yetişkinlere yönelik etki alanı kaldırıldı. Genel etki alanı yapmanız olur.
+- Duyurulan [fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-vision-service/) genel kullanılabilirlik.  
+
+
+## <a name="february-25-2019"></a>25 Şubat 2019
+- Sınırlı deneme sürümünde projeleri (Projeler) bir Azure kaynağı ile ilişkili olmayan, sonuna duyurulan Azure genel önizlemesi için geçiş tamamlanmasından Custom Vision yaklaştığında. 25 Mart 2019'den itibaren CustomVision.ai site yalnızca ücretsiz özel görüntü işleme kaynak gibi bir Azure kaynağı ile ilişkili izleme projeleri destekler. 1 Ekim 2019, hala mevcut sınırlı deneme projelerinize özel görüntü işleme API'leri aracılığıyla erişmesini mümkün olacaktır. Size zaman bu, özel görüntü ile yazdığınız tüm uygulamalar için API anahtarları güncelleştirme olanağı sunar. 1 Ekim 2019'dan sonra Azure'a taşıdık henüz tüm sınırlı deneme projelerin silinir.
 
 ## <a name="january-22-2019"></a>22 Ocak 2019
 - Yeni Azure bölgeleri için eklenen destek: Batı ABD 2, Doğu ABD, Doğu ABD 2, Batı Avrupa, Kuzey Avrupa, Güneydoğu Asya, Avustralya Doğu, Orta Hindistan, UK Güney, Japonya Doğu ve Kuzey Orta ABD. Destek, Güney Orta ABD için devam eder. 

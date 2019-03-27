@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dd89d9645d2054f301ed999121fefc417ea5c6fa
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6a69d8d60b2e588ded9ccca20521195ae11ff136
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293915"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449413"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services ölçeğini genişletme
 
@@ -45,9 +45,9 @@ Sonraki bir ölçeklendirme işlemi gerçekleştirirken, örneğin, iki beş, so
 
 * Eşitleme bile sorgu havuzundaki hiçbir çoğaltması olduğunda izin verilir. Sıfırdan yeni verilerle bir veya daha fazla çoğaltma birincil sunucudaki bir işleme işlemi ölçeği genişletmeyi, sorgu havuzundaki hiçbir çoğaltması ile ilk eşitleme gerçekleştirin ve sonra ölçek genişletme. Ölçeği genişletme önce eşitleme, yeni eklenen çoğaltmaların yedek hidrasyonu önler.
 
-* Bir model veritabanı birincil sunucudan silinirken, otomatik olarak sorgu havuzundaki çoğaltmaların silinebilir değil. Bu veritabanı için dosya/sn yinelemenin paylaşılan blob depolama konumundan kaldırır ve ardından model veritabanında sorgu havuzundaki çoğaltmalar siler bir eşitleme işlemi gerçekleştirmeniz gerekir.
+* Bir model veritabanı birincil sunucudan silinirken, otomatik olarak sorgu havuzundaki çoğaltmaların silinebilir değil. Bir eşitleme işlemi kullanarak gerçekleştirmeniz gerektiğini [eşitleme AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) bu veritabanı için dosya/sn yinelemenin paylaşılan blob depolama konumundan kaldırır ve ardından modeli siler PowerShell komutu Sorgu havuzundaki çoğaltmalarındaki veritabanı.
 
-* Birincil sunucuda bir veritabanını yeniden adlandırma, veritabanı için tüm çoğaltmaları doğru eşitlendiğinden emin olmak için gereken ek bir adım yoktur. Yeniden adlandırdıktan sonra belirten bir eşitleme gerçekleştirin `-Database` parametresi eski bir veritabanı adı. Bu eşitleme, eski adıyla dosya ve veritabanı tüm çoğaltmaları kaldırır. Ardından başka bir eşitleme belirtme gerçekleştirin `-Database` yeni veritabanı adı ile parametre. İkinci eşitleme, yeni adlandırılmış veritabanı dosyaları ikinci kümesine kopyalar ve tüm çoğaltmaları hydrates. Portalda Eşitle modeli komutunu kullanarak bu eşitleme gerçekleştirilemiyor.
+* Birincil sunucuda bir veritabanını yeniden adlandırma, veritabanı için tüm çoğaltmaları doğru eşitlendiğinden emin olmak için gereken ek bir adım yoktur. Yeniden adlandırdıktan sonra eşitleme kullanarak gerçekleştirin. [eşitleme AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) komut belirtme `-Database` parametresi eski bir veritabanı adı. Bu eşitleme, eski adıyla dosya ve veritabanı tüm çoğaltmaları kaldırır. Ardından başka bir eşitleme belirtme gerçekleştirin `-Database` yeni veritabanı adı ile parametre. İkinci eşitleme, yeni adlandırılmış veritabanı dosyaları ikinci kümesine kopyalar ve tüm çoğaltmaları hydrates. Portalda Eşitle modeli komutunu kullanarak bu eşitleme gerçekleştirilemiyor.
 
 ### <a name="separate-processing-from-query-pool"></a>Sorgu havuzundan ayrı işleme
 
@@ -103,6 +103,20 @@ Kullanım **eşitleme** işlemi.
 
 `GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
+Döndürülen durum kodları:
+
+
+|Kod  |Açıklama  |
+|---------|---------|
+|-1     |  Geçersiz       |
+|0     | Çoğaltılıyor        |
+|1     |  Dolduruluyor       |
+|2     |   Tamamlandı       |
+|3     |   Başarısız      |
+|4     |    Sonlandırılıyor     |
+|||
+
+
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -112,6 +126,8 @@ PowerShell'i kullanarak önce [yükleme veya en son Azure PowerShell modülü g�
 Eşitleme çalıştırmak için kullandığınız [eşitleme AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
 
 Sorgu yinelemelerinin sayısı ayarlamak için kullanın [kümesi AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). İsteğe bağlı belirtin `-ReadonlyReplicaCount` parametresi.
+
+Sorgu havuzu işleme sunucudan ayırmak için kullanın [kümesi AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). İsteğe bağlı belirtin `-DefaultConnectionMode` kullanılacak parametreyi `Readonly`.
 
 ## <a name="connections"></a>Bağlantılar
 

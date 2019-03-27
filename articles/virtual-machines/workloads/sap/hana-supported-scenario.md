@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e8253238bf5edb5e0ea3f89fe67d6aa39f4a2d7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 501c5ffa86f2360e44c187e087f7285bbf4084fd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855464"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482972"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>HANA büyük örnekler için desteklenen senaryolar
 Bu belgede, HANA büyük örnekleri (HLI) için kendi mimari ayrıntılarıyla birlikte desteklenen senaryolar açıklanmaktadır.
@@ -68,10 +68,10 @@ Sağlanan her bir sunucu ethernet arabirimleri kümesi ile önceden yapılandır
 | B | BEN YAZIN | eth2.tenant | eno3.tenant | Düğüm için düğüm |
 | C | BEN YAZIN | eth1.tenant | eno2.tenant | Depolama düğümü |
 | D | BEN YAZIN | eth4.tenant | eno4.tenant | STONITH |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI istemcisi |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant + 2 | Düğüm için düğüm |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant + 1 | Depolama düğümü |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant + 3 | STONITH |
+| A | TYPE II | VLAN\<tenantNo > | team0.tenant | HLI istemcisi |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant + 2 | Düğüm için düğüm |
+| C | TYPE II | VLAN\<tenantNo + 1 > | team0.tenant + 1 | Depolama düğümü |
+| D | TYPE II | VLAN\<tenantNo + 3 > | team0.tenant + 3 | STONITH |
 
 HLI biriminde yapılandırılmış topolojisi temel arabirimler kullanırsınız. Örneğin, "B" arabirimi yapılandırılmış bir ölçek genişletme topolojiye sahipseniz, kullanışlı olan düğümden düğüme iletişimi için ayarlanır. Tek düğümlü ölçek büyütme yapılandırmasını söz konusu olduğunda, bu arabirim kullanılmaz. Arabirim kullanımı hakkında daha fazla bilgi almak için gerekli senaryolarınızı (Bu belgenin ilerleyen bölümlerinde) gözden geçirin. 
 
@@ -101,7 +101,7 @@ HANA sistem çoğaltması veya HANA genişleme dağıtımı durumlarda iki IP ad
 Depolama, istenen topolojisini temel önceden yapılandırılmıştır. Birim boyutları ve takma noktası sunucuları, SKU'ları ve yapılandırılmış topolojisi sayısına göre değişir. Daha fazla bilgi almak için gerekli senaryolarınızı (Bu belgenin ilerleyen bölümlerinde) gözden geçirin. Daha fazla depolama alanı gerekiyorsa, bir TB artış satın alabilirsiniz.
 
 >[!NOTE]
->Takma noktası/usr/sap/ <SID> /hana/paylaşılan mountpoint sembolik bir bağlantıdır.
+>Takmanoktası/usr/sap/\<SID >/hana/paylaşılan mountpoint sembolik bir bağlantıdır.
 
 
 ## <a name="supported-scenarios"></a>Desteklenen senaryolar
@@ -142,10 +142,10 @@ Bu topoloji, bir düğüm yapılandırması bir SID ile bir ölçek destekler.
 | B | BEN YAZIN | eth2.tenant | eno3.tenant | Kullanımda olmayan yapılandırılmış |
 | C | BEN YAZIN | eth1.tenant | eno2.tenant | Depolama düğümü |
 | D | BEN YAZIN | eth4.tenant | eno4.tenant | Kullanımda olmayan yapılandırılmış |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI istemcisi |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant + 2 | Kullanımda olmayan yapılandırılmış |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant + 1 | Depolama düğümü |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant + 3 | Kullanımda olmayan yapılandırılmış |
+| A | TYPE II | VLAN\<tenantNo > | team0.tenant | HLI istemcisi |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant + 2 | Kullanımda olmayan yapılandırılmış |
+| C | TYPE II | VLAN\<tenantNo + 1 > | team0.tenant + 1 | Depolama düğümü |
+| D | TYPE II | VLAN\<tenantNo + 3 > | team0.tenant + 3 | Kullanımda olmayan yapılandırılmış |
 
 ### <a name="storage"></a>Depolama
 Aşağıdaki bağlama yapılandırılmış:
@@ -177,10 +177,10 @@ Bu topoloji, bir düğüm yapılandırması çoklu SID ile bir ölçek destekler
 | B | BEN YAZIN | eth2.tenant | eno3.tenant | Kullanımda olmayan yapılandırılmış |
 | C | BEN YAZIN | eth1.tenant | eno2.tenant | Depolama düğümü |
 | D | BEN YAZIN | eth4.tenant | eno4.tenant | Kullanımda olmayan yapılandırılmış |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI istemcisi |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant + 2 | Kullanımda olmayan yapılandırılmış |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant + 1 | Depolama düğümü |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant + 3 | Kullanımda olmayan yapılandırılmış |
+| A | TYPE II | VLAN\<tenantNo > | team0.tenant | HLI istemcisi |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant + 2 | Kullanımda olmayan yapılandırılmış |
+| C | TYPE II | VLAN\<tenantNo + 1 > | team0.tenant + 1 | Depolama düğümü |
+| D | TYPE II | VLAN\<tenantNo + 3 > | team0.tenant + 3 | Kullanımda olmayan yapılandırılmış |
 
 ### <a name="storage"></a>Depolama
 Aşağıdaki bağlama yapılandırılmış:
@@ -217,10 +217,10 @@ Bu topoloji, bir düğüm yapılandırması birincil SID DR sitesine depolama ta
 | B | BEN YAZIN | eth2.tenant | eno3.tenant | Kullanımda olmayan yapılandırılmış |
 | C | BEN YAZIN | eth1.tenant | eno2.tenant | Depolama düğümü |
 | D | BEN YAZIN | eth4.tenant | eno4.tenant | Kullanımda olmayan yapılandırılmış |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI istemcisi |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant + 2 | Kullanımda olmayan yapılandırılmış |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant + 1 | Depolama düğümü |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant + 3 | Kullanımda olmayan yapılandırılmış |
+| A | TYPE II | VLAN\<tenantNo > | team0.tenant | HLI istemcisi |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant + 2 | Kullanımda olmayan yapılandırılmış |
+| C | TYPE II | VLAN\<tenantNo + 1 > | team0.tenant + 1 | Depolama düğümü |
+| D | TYPE II | VLAN\<tenantNo + 3 > | team0.tenant + 3 | Kullanımda olmayan yapılandırılmış |
 
 ### <a name="storage"></a>Depolama
 Aşağıdaki bağlama yapılandırılmış:
@@ -258,10 +258,10 @@ Bu topoloji, bir düğüm yapılandırması birincil SID DR sitesine depolama ta
 | B | BEN YAZIN | eth2.tenant | eno3.tenant | Kullanımda olmayan yapılandırılmış |
 | C | BEN YAZIN | eth1.tenant | eno2.tenant | Depolama düğümü |
 | D | BEN YAZIN | eth4.tenant | eno4.tenant | Kullanımda olmayan yapılandırılmış |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI istemcisi |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant + 2 | Kullanımda olmayan yapılandırılmış |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant + 1 | Depolama düğümü |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant + 3 | Kullanımda olmayan yapılandırılmış |
+| A | TYPE II | VLAN\<tenantNo > | team0.tenant | HLI istemcisi |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant + 2 | Kullanımda olmayan yapılandırılmış |
+| C | TYPE II | VLAN\<tenantNo + 1 > | team0.tenant + 1 | Depolama düğümü |
+| D | TYPE II | VLAN\<tenantNo + 3 > | team0.tenant + 3 | Kullanımda olmayan yapılandırılmış |
 
 ### <a name="storage"></a>Depolama
 Aşağıdaki bağlama yapılandırılmış:
@@ -312,10 +312,10 @@ Bu topoloji, HANA sistem çoğaltması (HSR) yapılandırma için iki düğüm d
 | B | BEN YAZIN | eth2.tenant | eno3.tenant | Kullanımda olmayan yapılandırılmış |
 | C | BEN YAZIN | eth1.tenant | eno2.tenant | Depolama düğümü |
 | D | BEN YAZIN | eth4.tenant | eno4.tenant | STONITH için kullanılan |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI istemcisi |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant + 2 | Kullanımda olmayan yapılandırılmış |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant + 1 | Depolama düğümü |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant + 3 | STONITH için kullanılan |
+| A | TYPE II | VLAN\<tenantNo > | team0.tenant | HLI istemcisi |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant + 2 | Kullanımda olmayan yapılandırılmış |
+| C | TYPE II | VLAN\<tenantNo + 1 > | team0.tenant + 1 | Depolama düğümü |
+| D | TYPE II | VLAN\<tenantNo + 3 > | team0.tenant + 3 | STONITH için kullanılan |
 
 ### <a name="storage"></a>Depolama
 Aşağıdaki bağlama yapılandırılmış:
@@ -360,10 +360,10 @@ Bu topoloji, HANA sistem çoğaltması (HSR) yapılandırma için iki düğüm d
 | B | BEN YAZIN | eth2.tenant | eno3.tenant | Kullanımda olmayan yapılandırılmış |
 | C | BEN YAZIN | eth1.tenant | eno2.tenant | Depolama düğümü |
 | D | BEN YAZIN | eth4.tenant | eno4.tenant | STONITH için kullanılan |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI istemcisi |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant + 2 | Kullanımda olmayan yapılandırılmış |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant + 1 | Depolama düğümü |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant + 3 | STONITH için kullanılan |
+| A | TYPE II | VLAN\<tenantNo > | team0.tenant | HLI istemcisi |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant + 2 | Kullanımda olmayan yapılandırılmış |
+| C | TYPE II | VLAN\<tenantNo + 1 > | team0.tenant + 1 | Depolama düğümü |
+| D | TYPE II | VLAN\<tenantNo + 3 > | team0.tenant + 3 | STONITH için kullanılan |
 
 ### <a name="storage"></a>Depolama
 Aşağıdaki bağlama yapılandırılmış:
@@ -419,10 +419,10 @@ Bu topoloji, bir ana bilgisayar otomatik yük devretme yapılandırmasında iki 
 | B | BEN YAZIN | eth2.tenant | eno3.tenant | Düğüm düğüm iletişim |
 | C | BEN YAZIN | eth1.tenant | eno2.tenant | Depolama düğümü |
 | D | BEN YAZIN | eth4.tenant | eno4.tenant | Kullanımda olmayan yapılandırılmış |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI istemcisi |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant + 2 | Düğüm düğüm iletişim |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant + 1 | Depolama düğümü |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant + 3 | Kullanımda olmayan yapılandırılmış |
+| A | TYPE II | VLAN\<tenantNo > | team0.tenant | HLI istemcisi |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant + 2 | Düğüm düğüm iletişim |
+| C | TYPE II | VLAN\<tenantNo + 1 > | team0.tenant + 1 | Depolama düğümü |
+| D | TYPE II | VLAN\<tenantNo + 3 > | team0.tenant + 3 | Kullanımda olmayan yapılandırılmış |
 
 ### <a name="storage"></a>Depolama
 Aşağıdaki bağlama yapılandırılmış:
@@ -460,10 +460,10 @@ Bu topoloji, bir genişleme yapılandırmasında birden çok düğüm destekler.
 | B | BEN YAZIN | eth2.tenant | eno3.tenant | Düğüm düğüm iletişim |
 | C | BEN YAZIN | eth1.tenant | eno2.tenant | Depolama düğümü |
 | D | BEN YAZIN | eth4.tenant | eno4.tenant | Kullanımda olmayan yapılandırılmış |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI istemcisi |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant + 2 | Düğüm düğüm iletişim |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant + 1 | Depolama düğümü |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant + 3 | Kullanımda olmayan yapılandırılmış |
+| A | TYPE II | VLAN\<tenantNo > | team0.tenant | HLI istemcisi |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant + 2 | Düğüm düğüm iletişim |
+| C | TYPE II | VLAN\<tenantNo + 1 > | team0.tenant + 1 | Depolama düğümü |
+| D | TYPE II | VLAN\<tenantNo + 3 > | team0.tenant + 3 | Kullanımda olmayan yapılandırılmış |
 
 ### <a name="storage"></a>Depolama
 Aşağıdaki bağlama yapılandırılmış:
@@ -496,10 +496,10 @@ Bu topoloji, bir genişleme yapılandırmasında birden çok düğüm destekler.
 | B | BEN YAZIN | eth2.tenant | eno3.tenant | Düğüm düğüm iletişim |
 | C | BEN YAZIN | eth1.tenant | eno2.tenant | Depolama düğümü |
 | D | BEN YAZIN | eth4.tenant | eno4.tenant | Kullanımda olmayan yapılandırılmış |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI istemcisi |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant + 2 | Düğüm düğüm iletişim |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant + 1 | Depolama düğümü |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant + 3 | Kullanımda olmayan yapılandırılmış |
+| A | TYPE II | VLAN\<tenantNo > | team0.tenant | HLI istemcisi |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant + 2 | Düğüm düğüm iletişim |
+| C | TYPE II | VLAN\<tenantNo + 1 > | team0.tenant + 1 | Depolama düğümü |
+| D | TYPE II | VLAN\<tenantNo + 3 > | team0.tenant + 3 | Kullanımda olmayan yapılandırılmış |
 
 ### <a name="storage"></a>Depolama
 Aşağıdaki bağlama yapılandırılmış:
@@ -535,10 +535,10 @@ Bu topoloji ölçek genişletme bir DR ile birden çok düğüm destekler. Hem n
 | B | BEN YAZIN | eth2.tenant | eno3.tenant | Düğüm düğüm iletişim |
 | C | BEN YAZIN | eth1.tenant | eno2.tenant | Depolama düğümü |
 | D | BEN YAZIN | eth4.tenant | eno4.tenant | Kullanımda olmayan yapılandırılmış |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI istemcisi |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant + 2 | Düğüm düğüm iletişim |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant + 1 | Depolama düğümü |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant + 3 | Kullanımda olmayan yapılandırılmış |
+| A | TYPE II | VLAN\<tenantNo > | team0.tenant | HLI istemcisi |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant + 2 | Düğüm düğüm iletişim |
+| C | TYPE II | VLAN\<tenantNo + 1 > | team0.tenant + 1 | Depolama düğümü |
+| D | TYPE II | VLAN\<tenantNo + 3 > | team0.tenant + 3 | Kullanımda olmayan yapılandırılmış |
 
 ### <a name="storage"></a>Depolama
 Aşağıdaki bağlama yapılandırılmış:

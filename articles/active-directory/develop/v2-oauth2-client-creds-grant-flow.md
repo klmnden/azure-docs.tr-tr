@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d25963d44960ec3ab15fdee2c264c3bf18e26c2a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8183ac9241ab57150717eebd85267a33912f1660
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540577"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445440"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 istemci kimlik bilgileri akışı
 
@@ -76,10 +76,10 @@ Uygulama izinleri, uygulamanızda kullanmak için sonraki bölümde açıklanan 
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Uygulama kayıt portalında izinlere ilişkin istek
 
-1. Kaydetme ve uygulama üzerinden oluşturma [uygulama kayıt portalı](quickstart-v2-register-an-app.md) veya yeni [uygulama kayıtları (Önizleme) deneyimi](quickstart-register-app.md).
-1. Uygulamanızı kaydetmek veya uygulamanızı oluşturmak için kullanılan portalında gidin. Uygulamanızı oluşturduğunuzda en az bir uygulama gizli anahtarı kullanmanız gerekir.
-1. Bulun **API izinleri** bölümüne ve ardından ekleyin **uygulama izinleri** , uygulamanız için gerekli.
-1. **Kaydet** uygulama kaydı.
+1. Kaydolun ve yeni aracılığıyla uygulama oluşturma [uygulama kayıtları (Önizleme) deneyimi](quickstart-register-app.md).
+2. Uygulama kayıtları (Önizleme) deneyimi uygulamanıza gidin. Gidin **sertifikaları ve parolaları** bölümünde ve ekleme bir **yeni gizli**, bir belirteç istemek için en az bir istemci parolasını kullanmanız gerekecektir.
+3. Bulun **API izinleri** bölümüne ve ardından ekleyin **uygulama izinleri** , uygulamanız için gerekli.
+4. **Kaydet** uygulama kaydı.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Önerilen: Kullanıcı uygulamanızda oturum açın
 
@@ -172,7 +172,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | `tenant` | Gerekli | Dizin Kiracı uygulama, GUID ya da etki alanı adı biçiminde boşluğunun planlamaktadır. |
 | `client_id` | Gerekli | Uygulamanıza atanan uygulama kimliği. Uygulamanızı kayıtlı olduğu portalda bu bilgiyi bulabilirsiniz. |
 | `scope` | Gerekli | Geçirilen değer `scope` bu istek parametresi istediğiniz ile yapıştırılmış kaynağın kaynak tanımlayıcısı (uygulama kimliği URI'si) olmalıdır `.default` soneki. Microsoft Graph örnekte değeri, `https://graph.microsoft.com/.default`. </br>Bu değer, uygulamanız için yapılandırdığınız tüm doğrudan uygulama izinleri, kullanmak istediğiniz kaynağı ile ilgili olanlar için bir belirteç uç noktası yayımlamalısınız v2.0 uç noktasına bildirir. Hakkında daha fazla bilgi edinmek için `/.default` kapsam için bkz: [belge onay](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Gerekli | Uygulama kayıt portalında uygulamanıza için oluşturulan uygulama gizli anahtarı. İstemci gizli anahtarı gönderilmeden önce URL kodlamalı olmalıdır. |
+| `client_secret` | Gerekli | Uygulama kayıt portalında uygulamanıza için oluşturulan istemci gizli anahtarı. İstemci gizli anahtarı gönderilmeden önce URL kodlamalı olmalıdır. |
 | `grant_type` | Gerekli | Ayarlanmalıdır `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>İkinci durum: Bir sertifika ile erişim belirteci isteği

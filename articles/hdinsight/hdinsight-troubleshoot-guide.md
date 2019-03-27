@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 9dbc6b5de3f2050067dc558be7bffdbcad2cb4eb
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 5ffd1cb0c71c4948e522d44231242e33889c6409
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339372"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58442455"
 ---
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Azure HDInsight'ı kullanarak sorun giderme
 
@@ -32,4 +32,4 @@ ms.locfileid: "58339372"
 | HDInsight Linux ve en iyi duruma getirme | - [Linux'ta HDInsight kullanma hakkında bilgi](hdinsight-hadoop-linux-information.md)<br>- [Apache Hadoop bellek ve performans sorunlarını giderme](hdinsight-hadoop-stack-trace-error-messages.md)<br>- [Apache Hive sorgu performansı](https://web.archive.org/web/20190217214250/ https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
 | Günlükleri ve dökümleri | - [Linux üzerinde Access Apache Hadoop YARN uygulama günlüklerine](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [Linux üzerinde Apache Hadoop Hizmetleri için yığın dökümlerini etkinleştirme](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>- [HDInsight günlüklerini çözümleme](hdinsight-debug-jobs.md)|
 | Hatalar | - [WebHCat hatalarını anlama ve çözme](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Apache Hive ayarları OutofMemory hatayı düzeltmek için](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
-| Araçlar | - [Apache Tez işlerinin hatalarını ayıklamak için Apache Ambari görünümlerini kullanma](hdinsight-debug-ambari-tez-view.md)<br>- [Apache Hive sorgularını en iyi duruma getirme](hdinsight-hadoop-optimize-hive-query.md)<br>- [HDInsight Intellij aracı](./spark/apache-spark-intellij-tool-plugin.md)<br>- [HDInsight Eclipse aracı](./spark/apache-spark-eclipse-tool-plugin.md)<br>- [HDInsight VSCode aracını](hdinsight-for-vscode.md)<br>- [HDInsight Visual Studio aracı](./hadoop/apache-hadoop-visual-studio-tools-get-started.md) |
+| Araçlar | - [Apache Hive sorgularını en iyi duruma getirme](hdinsight-hadoop-optimize-hive-query.md)<br>- [HDInsight Intellij aracı](./spark/apache-spark-intellij-tool-plugin.md)<br>- [HDInsight Eclipse aracı](./spark/apache-spark-eclipse-tool-plugin.md)<br>- [HDInsight VSCode aracını](hdinsight-for-vscode.md)<br>- [HDInsight Visual Studio aracı](./hadoop/apache-hadoop-visual-studio-tools-get-started.md) |

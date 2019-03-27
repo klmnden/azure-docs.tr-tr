@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: c37e2357038e4f711b015fda80a0de8c4dbd9498
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 02db9f2b8cb2ec71d23ad077b90eeacb905d2a16
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880934"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445632"
 ---
 # <a name="azure-networking"></a>Azure ağı
 
@@ -34,7 +34,7 @@ Azure, çeşitli birlikte veya ayrı ayrı kullanılabilir ağ özellikleri sağ
 - [Yönetilebilirlik](#manageability): İzleme ve ağ, Azure kaynaklarınızı yönetme.
 - [Dağıtım ve yapılandırma araçları](#tools): Ağ kaynaklarını yapılandırmak ve dağıtmak, web tabanlı bir portal veya platformlar arası komut satırı araçlarını kullanın.
 
-## <a name="Connectivity"></a>Azure kaynakları arasında bağlantı
+## <a name="connectivity"></a>Azure kaynakları arasında bağlantı
 
 Sanal makineler, bulut Hizmetleri, sanal makine ölçek kümeleri ve Azure App Service ortamları gibi Azure kaynaklarının birbiriyle birbirleri ile bir Azure sanal ağı (VNet) iletişim kurabilir. Bir mantıksal yalıtım adanmış Azure bulutunun sanal ağ olduğundan, [abonelik](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json). Her Azure aboneliğinde birden fazla sanal ağ ve Azure uygulayabilirsiniz [bölge](https://azure.microsoft.com/regions). Her VNet diğer Vnet'lere yalıtılır. Her sanal ağ için şunları yapabilirsiniz:
 
@@ -150,7 +150,7 @@ Azure ağı yönetmek ve izlemek için aşağıdaki araçları sağlar:
 Dağıtma ve Azure ağ kaynakları aşağıdaki araçlardan birini yapılandırın:
 
 - **Azure portalı:** Bir tarayıcıda çalışan bir grafik kullanıcı arabirimi. [Azure portalı](https://portal.azure.com) açın.
-- **Azure PowerShell:** Azure Windows bilgisayarlardan yönetmek için komut satırı araçları. Azure PowerShell hakkında daha fazla bilgi edinmek [Azure PowerShell'e genel bakış](/powershell/azure/overview?view=azurermps-3.8.0?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
+- **Azure PowerShell:** Azure Windows bilgisayarlardan yönetmek için komut satırı araçları. Azure PowerShell hakkında daha fazla bilgi edinmek [Azure PowerShell'e genel bakış](/powershell/azure/overview?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
 - **Azure komut satırı arabirimi (CLI):** Azure Linux, macOS veya Windows bilgisayarlardan yönetmek için komut satırı araçları. Azure CLI hakkında daha fazla bilgi edinmek [Azure CLI'yı genel bakış](/cli/azure/get-started-with-azure-cli?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
 - **Azure Resource Manager şablonları:** Altyapı ve bir Azure çözümü yapılandırmasını tanımlayan bir dosyası (JSON biçiminde). Bir şablon kullanarak çözümünü yaşam döngüsü boyunca defalarca dağıtabilir ve kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz. Yazma şablonları hakkında daha fazla bilgi edinmek için [şablonları oluşturmaya yönelik en iyi uygulamalar](../azure-resource-manager/resource-manager-template-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi. Şablonları Azure portalı, CLI veya PowerShell ile dağıtılabilir. Şablonlarla hemen çalışmaya başlamak için çok sayıda önceden yapılandırılmış şablonlar birini dağıtmak [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/resources/templates/?term=network) kitaplığı. 
 

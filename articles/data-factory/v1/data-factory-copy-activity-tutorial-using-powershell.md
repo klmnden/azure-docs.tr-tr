@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7031e003ad05d647ccfaebf9239f26ef0af00a7d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 13f67bfe0902a528d16b6a967f9d4ac189100406
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110724"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482412"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Öğretici: Azure PowerShell kullanarak verileri taşıyan bir Data Factory işlem hattı oluşturma
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Bu eğitimin bir parçası olarak gerçekleştireceğiniz adımlar şunlardır:
     Kopyalama etkinliği, verileri Azure blob depolama alanındaki bir blobdan Azure SQL veritabanındaki tabloya kopyalar. Verileri desteklenen herhangi bir kaynaktan desteklenen herhangi bir hedefe kopyalamak için bir işlem hattındaki kopyalama etkinliğini kullanabilirsiniz. Desteklenen veri depolarının bir listesi için [veri taşıma etkinlikleri](data-factory-data-movement-activities.md#supported-data-stores-and-formats) makalesine bakın. 
 1. İşlem hattını izleyin. Bu adımda, girdi ve çıktı veri kümelerinin dilimlerini PowerShell kullanarak **izlersiniz**.
 
-## <a name="create-a-data-factory"></a>Data factory oluştur
+## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 > [!IMPORTANT]
 > Henüz yapmadıysanız, [öğreticinin ön koşullarını](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) tamamlayın.   
 
@@ -82,31 +82,31 @@ Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hatt�
 
     Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin:
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```   
    
     Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın:
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription
     ```
 
     Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **&lt;NameOfAzureSubscription**&gt; değerini Azure aboneliğinizin adıyla değiştirin:
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 1. Aşağıdaki komutu kullanarak **ADFTutorialResourceGroup** adlı bir Azure kaynak grubu oluşturun:
 
-    ```PowerShell
+    ```powershell
     New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
     
     Bu öğreticideki adımlardan bazıları **ADFTutorialResourceGroup** adlı kaynak grubunu kullandığınızı varsayar. Farklı bir kaynak grubu kullanıyorsanız, bu öğreticide ADFTutorialResourceGroup yerine onu kullanmanız gerekir.
 1. Çalıştırma **yeni AzDataFactory** adlı bir veri fabrikası oluşturmak için cmdlet'i **ADFTutorialDataFactoryPSH**:  
 
-    ```PowerShell
+    ```powershell
     $df=New-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
     ```
     Bu ad zaten alınmış olabilir. Bu nedenle, veri fabrikasının adını benzersiz bir önek veya sonek ekleyerek olun (örneğin: ADFTutorialDataFactoryPSH05152017) ve komutu yeniden çalıştırın.  
@@ -124,13 +124,13 @@ Aşağıdaki noktalara dikkat edin:
 
   * Azure PowerShell’de Data Factory sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın:
 
-    ```PowerShell
+    ```powershell
     Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
     Data Factory sağlayıcısının kayıtlı olduğunu onaylamak için aşağıdaki komutu çalıştırın:
 
-    ```PowerShell
+    ```powershell
     Get-AzResourceProvider
     ```
   * Azure aboneliğini kullanarak [Azure portalda](https://portal.azure.com) oturum açın. Data Factory dikey penceresine gidin veya Azure portalında bir veri fabrikası oluşturun. Bu eylem sağlayıcıyı sizin için otomatik olarak kaydeder.
@@ -166,7 +166,7 @@ Bu adımda, Azure depolama hesabınızı veri fabrikanıza bağlarsınız.
 1. **Azure PowerShell**’de **ADFGetStartedPSH** klasörüne geçin.
 1. Çalıştırma **yeni AzDataFactoryLinkedService** bağlı hizmetini oluşturmak için cmdlet: **AzureStorageLinkedService**. Bu öğreticide kullandığınız bu cmdlet ve diğer Data Factory cmdlet’leri, **ResourceGroupName** ve **DataFactoryName** parametreleri için değerleri geçirmenizi gerektirir. Alternatif olarak, bir cmdlet'i her çalıştırdığınızda ResourceGroupName ve DataFactoryName yazmadan New-AzDataFactory cmdlet'i tarafından döndürülen DataFactory nesnesini geçirebilirsiniz. 
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryLinkedService $df -File .\AzureStorageLinkedService.json
     ```
     Örnek çıktı aşağıdaki gibidir:
@@ -181,7 +181,7 @@ Bu adımda, Azure depolama hesabınızı veri fabrikanıza bağlarsınız.
 
     Bu bağlı hizmeti oluşturmanın diğer yolu, DataFactory nesnesi yerine kaynak grubu adını ve veri fabrikası adını belirtmektir.  
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName <Name of your data factory> -File .\AzureStorageLinkedService.json
     ```
 
@@ -206,7 +206,7 @@ Bu adımda, Azure SQL veritabanınızı veri fabrikanıza bağlarsınız.
     ```
 1. Bağlı hizmet oluşturmak için şu komutu çalıştırın:
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
     ```
     
@@ -285,12 +285,12 @@ Bu adımda, InputDataset adlı bir veri kümesi oluşturursunuz. Bu veri kümesi
     | format -> type |Girdi dosyası metin biçiminde olduğundan **TextFormat**'ı kullanırız. |
     | columnDelimiter | Girdi dosyasındaki sütunlar, **virgül (`,`)** ile ayrılmıştır. |
     | frequency/interval | frequency **Saat**, interval da **1** olarak ayarlanmıştır. Bu, girdi dilimlerinin **saatlik** olarak kullanılabileceğini belirtir. Başka bir deyişle, Data Factory hizmeti belirttiğiniz blob kapsayıcısının (**adftutorial**) kök klasöründe girdi verilerini saatte bir kere arar. İşlem hattı başlangıç ve bitiş zamanlarındaki verileri arar, bu zamanlardan önceki veya sonraki verileri aramaz.  |
-    | dış | Bu özellik, veriler bu işlem hattı tarafından oluşturulmazsa **true** olarak ayarlanır. Bu öğreticideki girdi verileri, bu işlem hattı tarafından oluşturulmayan emp.txt dosyasında bulunur, bu nedenle bu özelliği true olarak ayarlarız. |
+    | external | Bu özellik, veriler bu işlem hattı tarafından oluşturulmazsa **true** olarak ayarlanır. Bu öğreticideki girdi verileri, bu işlem hattı tarafından oluşturulmayan emp.txt dosyasında bulunur, bu nedenle bu özelliği true olarak ayarlarız. |
 
     Bu JSON özellikleri hakkında daha fazla bilgi için bkz. [Azure Blob bağlayıcısı makalesi](data-factory-azure-blob-connector.md#dataset-properties).
 1. Data Factory veri kümesi oluşturmak için şu komutu çalıştırın:
 
-    ```PowerShell  
+    ```powershell  
     New-AzDataFactoryDataset $df -File .\InputDataset.json
     ```
     Örnek çıktı aşağıdaki gibidir:
@@ -353,7 +353,7 @@ Adımın bu bölümünde **OutputDataset** adlı bir çıktı veri kümesi oluş
     Bu JSON özellikleri hakkında daha fazla bilgi için bkz. [Azure SQL bağlayıcısı makalesi](data-factory-azure-sql-connector.md#dataset-properties).
 1. Veri fabrikası veri kümesi oluşturmak için aşağıdaki komutu çalıştırın.
 
-    ```PowerShell   
+    ```powershell   
     New-AzDataFactoryDataset $df -File .\OutputDataset.json
     ```
 
@@ -438,7 +438,7 @@ Bu adımda, girdi olarak **InputDataset** ve çıktı olarak **OutputDataset** k
      İşlem hattı tanımındaki JSON özelliklerinin açıklamaları için [işlem hatları oluşturma](data-factory-create-pipelines.md) makalesine bakın. Kopyalama etkinliği tanımındaki JSON özelliklerinin açıklamaları için bkz. [veri taşıma etkinlikleri](data-factory-data-movement-activities.md). BlobSource tarafından desteklenen JSON özelliklerinin açıklamaları için bkz. [Azure Blob bağlayıcısı makalesi](data-factory-azure-blob-connector.md). SqlSink tarafından desteklenen JSON özelliklerinin açıklamaları için bkz. [Azure SQL Veritabanı bağlayıcısı makalesi](data-factory-azure-sql-connector.md).
 1. Veri fabrikası tablosu oluşturmak için aşağıdaki komutu çalıştırın.
 
-    ```PowerShell   
+    ```powershell   
     New-AzDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
     ```
 
@@ -459,12 +459,12 @@ Bu adımda, Azure data factory’de neler olduğunu izlemek için Azure PowerShe
 
 1. Değiştirin &lt;DataFactoryName&gt; çalıştırma ve veri fabrikası adını **Get-AzDataFactory**, çalıştırın ve çıktıyı $df değişkenine atayın.
 
-    ```PowerShell  
+    ```powershell  
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name <DataFactoryName>
     ```
 
     Örneğin:
-    ```PowerShell
+    ```powershell
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH0516
     ```
     
@@ -483,7 +483,7 @@ Bu adımda, Azure data factory’de neler olduğunu izlemek için Azure PowerShe
     ```
 1. Çalıştırma **Get-AzDataFactorySlice** tüm dilimleri hakkında bilgi almak için **OutputDataset**, işlem hattının çıktı veri kümesi olduğu.  
 
-    ```PowerShell   
+    ```powershell   
     Get-AzDataFactorySlice $df -DatasetName OutputDataset -StartDateTime 2017-05-11T00:00:00Z
     ```
 
@@ -527,7 +527,7 @@ Bu adımda, Azure data factory’de neler olduğunu izlemek için Azure PowerShe
     ```
 1. Çalıştırma **Get-AzDataFactoryRun** ayrıntılarını almak için etkinlik çalıştırmalarının bir **belirli** dilim. StartDateTime parametresinin değerini belirlemek için önceki komutun çıktısındaki tarih-saat değerini kopyalayın. 
 
-    ```PowerShell  
+    ```powershell  
     Get-AzDataFactoryRun $df -DatasetName OutputDataset -StartDateTime "5/11/2017 09:00:00 PM"
     ```
 

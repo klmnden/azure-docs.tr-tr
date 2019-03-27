@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ae84b5fd5647ef6c54006c0411e334b14173392e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: a7d0a899b4a2ef86153e82a4e3f04e7ec430a1bc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33836588"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488051"
 ---
 1. [Google Cloud Console](https://console.developers.google.com/cloud-resource-manager)’a gidin, Google hesabı kimlik bilgilerinizle giriş yapın. 
 2. Araç çubuğunda **Proje Oluştur**’u seçin. 
    
     ![Yeni proje oluşturma](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)   
 3. **Proje adı** olarak projeniz için bir ad girin ve **Oluştur**’a tıklayın.
-4. Araç çubuğundaki **Uyarılar** düğmesini seçip listeden projenizi seçin. Projenizin panosunu görürsünüz. Dilerseniz şu URL'yi kullanarak doğrudan panoya da gidebilirsiniz: https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
+4. Araç çubuğundaki **Uyarılar** düğmesini seçip listeden projenizi seçin. Projenizin panosunu görürsünüz. Doğrudan Pano'ya bağlanabilir, URL'yi kullanarak da gidebilirsiniz: `https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 
     ![Uyarılar bölümünden projenizi seçin](./media/mobile-services-enable-google-cloud-messaging/alert-new-project.png)
 5. Panonun **Proje bilgileri** kutucuğundaki **Proje numarası**’nı kaydedin. 
@@ -51,5 +51,5 @@ ms.locfileid: "33836588"
 
     ![API anahtarını kopyalama](./media/mobile-services-enable-google-cloud-messaging/copy-api-key.png)
    
-    Azure’un GCM ile kimlik doğrulaması yapmasını ve uygulamanız adına anında iletme bildirimleri göndermesini etkinleştirmek için bu API anahtarını kullanın. Proje panosuna geri gitmek için şu URL'yi kullanın: https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
+    Azure’un GCM ile kimlik doğrulaması yapmasını ve uygulamanız adına anında iletme bildirimleri göndermesini etkinleştirmek için bu API anahtarını kullanın. Proje panosuna geri gidin, URL'yi kullanın: `https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 

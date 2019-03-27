@@ -3,7 +3,7 @@ title: Sertifika ortak adını kullanmak için Azure Service Fabric kümesi gün
 description: Sertifika ortak adını kullanarak için sertifika parmak izleri kullanarak bir Service Fabric kümesine nasıl değiştireceğinizi öğrenin.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: aljo
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
-ms.author: ryanwi
-ms.openlocfilehash: e1a52aff0890e32ae739285c0380258939f29597
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.author: aljo
+ms.openlocfilehash: 7280424c57e2dfab0a64794855cb522bcf69e135
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312880"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500517"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Küme sertifikası parmak izini ortak ad olarak değiştirme
 İki sertifika küme sertifika geçişi veya yönetim zorlaştırır aynı parmak olabilir. Ancak, aynı ortak adı veya konu birden çok sertifika sahip olabilir.  Sertifika ortak adları kullanarak sertifika parmak izleri kullanarak dağıtılan bir kümenin geçiş sertifika yönetimi çok daha kolay hale getirir. Bu makalede, sertifika ortak adına sertifika parmak izi yerine kullanmak için çalışan bir Service Fabric kümesinin güncelleştirileceğini açıklar.

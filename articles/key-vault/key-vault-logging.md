@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: afec42551f124890dd2cc7b03cce48c359fc88c4
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 25ebd72c512eb92c5d9a464a4b4d74f9e41ae389
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194104"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484121"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault günlüğü
 
@@ -55,7 +55,7 @@ Noktası Azure PowerShell günlüğe kaydetmek istediğiniz bir anahtar kasasın
 
 Azure PowerShell oturumu başlatın ve aşağıdaki komutu kullanarak Azure hesabınızda oturum açın:  
 
-```PowerShell
+```powershell
 Connect-AzAccount
 ```
 
@@ -63,13 +63,13 @@ Açılır tarayıcı penceresinde Azure hesabı kullanıcı adınızı ve parola
 
 Anahtar kasanızı oluşturmak için kullanılan abonelik belirtmeniz gerekebilir. Hesabınız için abonelikleri görmek için aşağıdaki komutu girin:
 
-```PowerShell
+```powershell
 Get-AzSubscription
 ```
 
 Ardından, günlüğe kaydedilmesi anahtar kasasıyla ilişkili aboneliği belirtmek için şunu girin:
 
-```PowerShell
+```powershell
 Set-AzContext -SubscriptionId <subscription ID>
 ```
 
@@ -81,7 +81,7 @@ Günlükleriniz için var olan bir depolama hesabını kullanmanız mümkün olm
 
 Ek yönetim kolaylığı için Ayrıca aynı kaynak grubunda anahtar kasasını içeren bir kullanacağız. Gelen [başlangıç Öğreticisi](key-vault-get-started.md), bu kaynak grubunun adı **ContosoResourceGroup**, Doğu Asya konumunu kullanmaya devam. Bu değerleri uygun şekilde kendi ile değiştirin:
 
-```PowerShell
+```powershell
  $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 ```
 
@@ -94,7 +94,7 @@ Ek yönetim kolaylığı için Ayrıca aynı kaynak grubunda anahtar kasasını 
 
 İçinde [başlangıç Öğreticisi](key-vault-get-started.md), anahtar kasamızın adı **ContosoKeyVault**. Biz bu adı kullanmaya ve ayrıntıları adlı bir değişkende depolayın eklemeye devam edeceğiz **kv**:
 
-```PowerShell
+```powershell
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
@@ -102,7 +102,7 @@ $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
 Key Vault için günlüğe kaydetmeyi etkinleştirmek için kullanacağız **kümesi AzDiagnosticSetting** cmdlet'i, yeni depolama hesabını ve anahtar kasası için oluşturduğumuz değişkenleri birlikte. Ayrıca **-etkin** bayrak **$true** ve kategorisini ayarlayın **AuditEvent** (anahtar kasası günlüğü için tek Kategori):
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
@@ -122,7 +122,7 @@ Bu çıkış, günlük kaydı artık anahtar kasanız için etkindir ve depolama
 
 İsteğe bağlı olarak, eski günlüklerin otomatik olarak silinmesi gerektiğini günlükleriniz için bekletme ilkesi ayarlayabilirsiniz. Örneğin, bekletme ilkesi ayarlamak için **- RetentionEnabled** bayrak **$true**, ayarlayıp **- Retentionındays** parametresi **90**böylece 90 günden eski olan günlükler otomatik olarak silinir.
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
@@ -141,13 +141,13 @@ Anahtar kasası günlükleri depolanır **insights-logs-auditevent** , sağladı
 
 İlk olarak, kapsayıcı adı için bir değişken oluşturun. Gözden geçirme geri kalanında bu değişken kullanacaksınız.
 
-```PowerShell
+```powershell
 $container = 'insights-logs-auditevent'
 ```
 
 Bu kapsayıcıdaki tüm blobları listelemek için şunu girin:
 
-```PowerShell
+```powershell
 Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
@@ -174,19 +174,19 @@ Birden fazla kaynak için günlükleri toplamak için aynı depolama hesabını 
 
 Blobları indirmek için bir klasör oluşturun. Örneğin:
 
-```PowerShell 
+```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
 ```
 
 Ardından tüm blobların listesini alın:  
 
-```PowerShell
+```powershell
 $blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 Bu listede kanal **Get-AzStorageBlobContent** blobları hedef klasöre yüklemek için:
 
-```PowerShell
+```powershell
 $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
 ```
 
@@ -196,19 +196,19 @@ Blobları seçmeli olarak indirmek için jokerleri kullanın. Örneğin:
 
 * Birden çok anahtar kasanız varsa ve yalnızca CONTOSOKEYVAULT3 adlı bir anahtar kasası için günlük indirmek isterseniz:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
   ```
 
 * Birden çok kaynak grubunuz varsa ve yalnızca bir kaynak grubu için günlük indirmek isterseniz `-Blob '*/RESOURCEGROUPS/<resource group name>/*'` kullanın:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
   ```
 
 * Ocak 2019 ayı için tüm günlükleri indirmek istiyorsanız, kullanmanız `-Blob '*/year=2019/m=01/*'`:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
   ```
 
@@ -221,7 +221,7 @@ Artık günlüklerin içinde neler olduğuna bakmaya başlamak için hazırsın�
 
 Tek tek bloblar JSON blobu olarak biçimlendirilip metin olarak depolanır. Bir örnek günlük girişi sırasında göz atalım. Şu komutu çalıştırın:
 
-```PowerShell
+```powershell
 Get-AzKeyVault -VaultName 'contosokeyvault'`
 ```
 

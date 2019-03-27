@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c89cdc34c23c461e5cebf3026cb0774bf91b75d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0a5b8bdbcd5a05574d824e3f57cfc23967278e27
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998553"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487745"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>Öğretici: Azure App Service'e var olan özel bir SSL sertifikası bağlama
 
@@ -252,7 +252,7 @@ az webapp config set \
 
 Aşağıdaki komut, dışarı aktarılan bir PFX dosyasını karşıya yükler ve SNI tabanlı bir SSL bağlaması ekler.
 
-```PowerShell
+```powershell
 New-AzWebAppSSLBinding `
     -WebAppName <app_name> `
     -ResourceGroupName <resource_group_name> `

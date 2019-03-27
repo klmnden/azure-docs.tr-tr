@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cbbc710c9408c84c601d7b9eb9560641b5313a05
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090942"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484704"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Azure portalını kullanarak Azure Resource Manager kaynak gruplarını yönetme
 
@@ -122,7 +122,7 @@ Kaynak grubunuz başarıyla ayarladıktan sonra kaynak grubu için Resource Mana
 
 Bu yöntem, bazı dağıtımlar için şablonları dışarı aktarır. Portal ya da birden çok dağıtım kaynağı ekleme/kaldırma yapıldığında kaynakları değiştirdiyseniz bkz [dışarı aktarma şablonları kaynak gruplarınızdaki](#export-templates-from-resource-groups).
 
-1. Silmek istediğiniz kaynak grubunu açın.  Bkz: [açık kaynak grupları](#open-resource-groups).
+1. Dışarı aktarmak istediğiniz kaynak grubunu açın.  Bkz: [açık kaynak grupları](#open-resource-groups).
 2. Sol bölmede seçin **dağıtımları**, veya altındaki bağlantıyı seçin **dağıtımları**.  Aşağıdaki ekran gösterilir **4 başarılı** olmadığı için dört farklı dağıtım adlarına sahip dört ayrılmış dağıtımları. Görebileceğiniz **1 başarılı**.
 
     ![Azure kaynak grubunu dışarı aktarma şablonları](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
@@ -148,8 +148,8 @@ Bu yöntem, bazı dağıtımlar için şablonları dışarı aktarır. Portal ya
 
 Dağıtım geçmişinden bir şablonu alınırken, kaynaklarınızı portal değiştirdiyseniz veya birden çok dağıtım kaynakları eklenen/Kaldır, kaynak grubunun geçerli durumunu yansıtmaz. Bu bölümde kaynak grubunun geçerli durumunu yansıtan bir şablonun nasıl dışarı aktarıldığı gösterilir. Aynı kaynak grubuna yeniden dağıtmak için kullanabileceğiniz kaynak grubunun bir anlık görüntü olarak tasarlanmıştır. Diğer çözümler için dışarı aktarılan şablon kullanmak için önemli ölçüde değiştirmeniz gerekir.
 
-1. Silmek istediğiniz kaynak grubunu açın.  Bkz: [açık kaynak grupları](#open-resource-groups).
-2. Sol bölmede seçin **Otomasyon betiği**. Resource Manager sizin için aşağıdaki altı dosyayı alır:
+1. Dışarı aktarmak istediğiniz kaynak grubunu açın.  Bkz: [açık kaynak grupları](#open-resource-groups).
+2. Sol bölmede seçin **şablonu dışarı aktarma**. Resource Manager sizin için aşağıdaki altı dosyayı alır:
 
    - **Şablon** - Çözümünüze ait altyapıyı tanımlayan şablon. Portal üzerinden depolama hesabı oluşturduğunuzda, Resource Manager bunu dağıtmak için bir şablon kullandı ve bu şablonu gelecekte başvurmak üzere kaydetti.
    - **Parametreler**: Dağıtım sırasında değerleri geçirmek için kullanabileceğiniz bir parametre dosyası. İlk dağıtım sırasında sağladığınız değerleri içerir. Şablonu yeniden dağıtırken bu değerlerden herhangi birini değiştirebilirsiniz.

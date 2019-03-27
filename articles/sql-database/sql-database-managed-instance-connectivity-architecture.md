@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: 6ef020ff1054416e2b9af5af824b9aa27f0b1e64
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ad005ff879ef5e4c0fb2fb72ce3062a5dd25d99a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247248"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486793"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL veritabanı yönetilen örneği için bağlantı mimarisi 
 
@@ -67,7 +67,7 @@ Derin Dalış bağlantı mimarisi yönetilen örnekleri için içine alalım. Sa
 
 ![Sanal küme bağlantı mimarisi](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-İstemciler, biçiminde olan bir ana bilgisayar adını kullanarak yönetilen bir örneğine bağlanır `<mi_name>.<dns_zone>.database.windows.net`. Bir ortak etki alanı adı sistemi (DNS) bölgesinde kaydedilir ve genel olarak çözümlenebilen rağmen bu ana bilgisayar adı için özel bir IP adresi çözümler. `zone-id` Kümeyi oluşturduğunuzda otomatik olarak oluşturulur. Yeni oluşturulan bir küme ikincil bir yönetilen örnek barındırıyorsa, kendi bölge kimliği birincil küme ile paylaşır. Daha fazla bilgi için [birden fazla veritabanının saydam ve Eşgüdümlü yük devretmeyi etkinleştirmek için autofailover grupları kullanma](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
+İstemciler, biçiminde olan bir ana bilgisayar adını kullanarak yönetilen bir örneğine bağlanır `<mi_name>.<dns_zone>.database.windows.net`. Bir ortak etki alanı adı sistemi (DNS) bölgesinde kaydedilir ve genel olarak çözümlenebilen rağmen bu ana bilgisayar adı için özel bir IP adresi çözümler. `zone-id` Kümeyi oluşturduğunuzda otomatik olarak oluşturulur. Yeni oluşturulan bir küme ikincil bir yönetilen örnek barındırıyorsa, kendi bölge kimliği birincil küme ile paylaşır. Daha fazla bilgi için [birden fazla veritabanının saydam ve Eşgüdümlü yük devretmeyi etkinleştirmek için otomatik yük devretme grupları kullanma](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
 
 Özel IP adresi yönetilen örneğin iç load balancer'a ait. Yük Dengeleyici yönetilen örneğin ağ geçidi trafiği yönlendirir. Birden çok yönetilen örnek içinde aynı kümede çalıştığından ağ geçidi yönetilen örneğin ana bilgisayar adı için doğru SQL Altyapısı hizmeti trafiği yönlendirmek için kullanır.
 
@@ -109,6 +109,8 @@ Yönetilen örnek sanal ağ içinde ayrılmış bir alt ağ içinde dağıtın. 
 |------------|--------------|--------|-----------------|-----------|------|
 |yönetim  |80, 443, 12000|TCP     |Herhangi biri              |Internet   |İzin Ver |
 |mi_subnet   |Herhangi biri           |Herhangi biri     |Herhangi biri              |MI ALT *  |İzin Ver |
+
+> 9003, yalnızca bir gelen kuralı 9000, bağlantı noktaları olduğundan emin olmak için bağlantı noktası 80, 443, 12000 1438, 1440, 1452 ve bir giden kuralı. Giriş ve çıkış kuralları her bağlantı için ayrı olarak yapılandırılmışsa, ARM dağıtımları yönetilen örneğini sağlama başarısız olabilir. 
 
 \* Form 10.x.x.x/y alt ağ için IP adresi aralığı mı alt ifade eder. Bu bilgi, alt ağ özelliklerini Azure portalında bulabilirsiniz.
 
@@ -167,6 +169,6 @@ Sanal ağ özel DNS içeriyorsa (168.63.129.16 gibi) Azure özyinelemeli çözü
 - [Alt ağ boyutunu hesaplamak](sql-database-managed-instance-determine-size-vnet-subnet.md) yönetilen örnekleri'ni dağıtmak istediğiniz.
 - Yönetilen örnek oluşturma işlemleri gerçekleştirmeyi öğreneceksiniz:
   - Gelen [Azure portalında](sql-database-managed-instance-get-started.md).
-  - Kullanarak [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
+  - Kullanarak [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - Kullanarak [bir Azure Resource Manager şablonu](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
   - Kullanarak [(Sıçrama kutusu, dahil edilen SSMS ile kullanarak) bir Azure Resource Manager şablonu](https://portal.azure.com/).

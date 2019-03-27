@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: 4656cc5a27d459c4f30f7cf23cc41b9525e79dcd
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d27b1ae05205d5b9c19b99733a3fa647a7f69c58
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437650"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499205"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Başvuru - IOT Hub kotaları ve azaltma
 
@@ -42,7 +42,7 @@ Aşağıdaki tabloda zorlanan kısıtlamalar gösterilmektedir. Değerleri tek t
 | Bulut-cihaz alır<sup>1</sup> <br/> (yalnızca cihaz HTTPS kullandığında)| 16.67/sec/Unit (1000/dk/birim) | 16.67/sec/Unit (1000/dk/birim) | 833.33/sec/Unit (50000/dk/birim) |
 | Karşıya dosya yükleme | 1.67 dosya karşıya yükleme bildirimi/sn/birim (100/dk/birim) | 1.67 dosya karşıya yükleme bildirimi/sn/birim (100/dk/birim) | 83.33 dosya karşıya yükleme bildirimi/sn/birim (5000/dk/birim) |
 | Doğrudan yöntemler<sup>1</sup> | 160KB/sn/birim<sup>2</sup> | 480KB/sn/birim<sup>2</sup> | 24MB/sn/birim<sup>2</sup> | 
-| Sorgular | 20/sn/birim | 20/sn/birim | 1000/sn/birim |
+| Sorgular | 20/dk/birim | 20/dk/birim | 1000/dk/birim |
 | İkiz (cihaz ve modül) okuma<sup>1</sup> | 100/sn | Daha yüksek 100/sn veya 10/sn/birim | 500/sn/birim |
 | İkiz Güncelleştirmesi (cihaz ve modül)<sup>1</sup> | 50/sn | Daha yüksek 50/sn veya 5/sn/birim | 250/sn/birim |
 | İşler işlemleri<sup>1,3</sup> <br/> (oluşturma, güncelleştirme, listeleme, silme) | 1.67/sec/Unit (100/dk/birim) | 1.67/sec/Unit (100/dk/birim) | 83.33/sec/Unit (5000/dk/birim) |

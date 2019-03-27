@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: ad6fd4a75ca139c4943ca0d079a2d041ccb46d09
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2c04c13eb6399bebf908337d8f71bd03adf4d06a
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101100"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447229"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Azure Data Lake depolama Gen2 Azure Data Factory ile veri yükleme
 
@@ -39,9 +39,10 @@ Bu makalede Data Factory-veri kopyalama aracını kullanarak verileri gösterilm
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
-1. Sol menüden **yeni** > **veri ve analiz** > **Data Factory**:
+1. Sol menüden **kaynak Oluştur** > **veri ve analiz** > **Data Factory**:
    
-   ![Yeni bir veri fabrikası oluşturma](./media/load-azure-data-lake-storage-gen2/new-azure-data-factory-menu.png)
+   ![“Yeni” bölmesinde Data Factory seçimi](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. İçinde **yeni veri fabrikası** sayfasında, aşağıdaki görüntüde gösterilen alanlar için değerleri sağlayın: 
       
    ![Yeni veri fabrikası sayfası](./media/load-azure-data-lake-storage-gen2//new-azure-data-factory.png)

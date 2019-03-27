@@ -1,6 +1,6 @@
 ---
-title: Azure SQL veritabanı veri bulma & sınıflandırma | Microsoft Docs
-description: Azure SQL veritabanı veri bulma & sınıflandırma
+title: Azure SQL veritabanı ve SQL veri ambarı veri bulma & sınıflandırma | Microsoft Docs
+description: Azure SQL veritabanı ve veri bulma & sınıflandırma
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,15 +11,15 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: ac52d8fa03c3c3ad1d618d014381fadfa752b7d7
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.date: 03/22/2019
+ms.openlocfilehash: 74bd3af3e1ffd126f8cb4f2347e4566cc4708e25
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202988"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58495995"
 ---
-# <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL veritabanı veri bulma & sınıflandırma
+# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Azure SQL veritabanı ve SQL veri ambarı veri bulma & sınıflandırma
 
 Veri bulma & sınıflandırma (şu anda önizlemede), Azure SQL veritabanı için gelişmiş özellikler sunar **keşfetme**, **sınıflandırma**, **etiketleme**  &  **koruma** veritabanlarınızı hassas verileri.
 Bulma ve sınıflandırma en hassas verileriniz (iş, Finans, sağlık hizmeti, kişisel verileri (PII) ve benzeri) rol içinde kuruluş bilgilerini koruma stature oynatabilirsiniz. Altyapı olarak hizmet eder:
@@ -31,7 +31,7 @@ Bulma ve sınıflandırma en hassas verileriniz (iş, Finans, sağlık hizmeti, 
 Veri bulma & sınıflandırma parçası olan [gelişmiş veri güvenliği](sql-database-advanced-data-security.md) (REKLAM) sunumunun Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir. Veri bulma & sınıflandırma erişilen ve merkezi SQL REKLAM portalı üzerinden yönetilebilir.
 
 > [!NOTE]
-> Bu belge, Azure SQL veritabanı'na yalnızca ilişkilendirir. (Şirket içi) SQL Server için bkz: [SQL veri bulma ve sınıflandırma](https://go.microsoft.com/fwlink/?linkid=866999).
+> Bu belge, Azure SQL veri ambarı ve Azure SQL veritabanı ile ilişkilendirir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır. (Şirket içi) SQL Server için bkz: [SQL veri bulma ve sınıflandırma](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>Veri bulma & sınıflandırma nedir
 

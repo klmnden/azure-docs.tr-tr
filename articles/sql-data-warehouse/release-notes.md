@@ -9,12 +9,12 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 ms.date: 02/09/2019
-ms.openlocfilehash: 2ac60287c9d92ab6230e1dd6777504036e54492d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e77556ac0d6f64797906c0f3b4181f147b1668e2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244683"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448417"
 ---
 # <a name="azure-sql-data-warehouse-release-notes-and-documentation-updates"></a>Azure SQL veri ambarı sürüm notları ve belge güncelleştirmeleri
 
@@ -22,9 +22,10 @@ Azure SQL veri ambarı (SQL DW) bulut tabanlı kurumsal veri yüksek düzeyde pa
 
 Azure SQL veri ambarı'nın en yeni sürümünde beklediğiniz geliştirmeleri ve yeni özellikleri hakkında daha fazla bilgi için aşağıdaki bağlantıları tıklatın. Tanımlanan bakım zamanlamanızı sırasında bu hizmet güncelleştirmeleri almasını bekleyebilirsiniz.
 
-- [SQL veri ambarı sürümü 10.0.10106.0 (Ocak)](./release-notes-10-0-10106-0.md)
-- [Aralık 2018'e](./release-notes-december-2018.md)
-- [Ekim 2018](./release-notes-october-2018.md)
+- [Mart 2019](./release-notes-10-0-10106-0.md#march-2019)
+- [Ocak 2019](./release-notes-10-0-10106-0.md#january-2019)
+- [Aralık 2018'e](./release-notes-10-0-10106-0.md#december-2018)
+- [Ekim 2018](./release-notes-10-0-10106-0.md#october-2018)
 - [Eylül 2018](./release-notes-september-2018.md)
 - [Ağustos 2018](./release-notes-august-2018.md)
 - [Temmuz 2018](./release-notes-july-2018.md)
@@ -39,9 +40,9 @@ Hangi sürüm veri ambarınıza uygulanmış olarak onaylanan için. SSMS ile ve
 SELECT @@VERSION AS 'SQL Data Warehouse';
 ```
 
-Örnek çıktı: ![SQL veri ambarı sürümü](./media/release-notes/dw-version.png)
+Örnek çıktı: ![SQL veri ambarı sürümü](./media/release-notes/sql_data_warehouse_version.png)
 
-Lütfen hangi sürüm, Azure SQL veri ambarı'na uygulanmış onaylamak için tanımlanan sürümünü kullanın. 
+Lütfen hangi sürüm, Azure SQL veri ambarı'na uygulanmış onaylamak için belirlenen tarih kullanın. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 305d81d6614d1f0654e0d96b10f1759498683003
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 172e6f53b25a1aeef67afea0c1769e6fcaf497cd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558473"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487881"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Parametreli URL'yi kullanarak özel görünümü paylaşma
 
@@ -81,13 +81,13 @@ Kabul edilen değerler, Time Series Insights gezgininin **kısa süre** menüsü
 - 'multiChartStack=false&multiChartSameScale=true' 
   - Terimler arasında aynı Y ekseni ölçeğini kullanmak için yığın oluşturmanın etkinleştirilmesi gerekir.  Varsayılan olarak 'false' olduğu için, 'true' değerinin geçirilmesi bu işlevi etkinleştirir.  
   
-'timeBucketUnit=<Unit>&timeBucketSize=<integer>' parametresi, aralık kaydırıcısını daha ayrıntılı veya düz, daha toplu bir grafik görünümüne ayarlamanızı sağlar.  
-- 'timeBucketUnit=<Unit>&timeBucketSize=<integer>'
+`timeBucketUnit=<Unit>&timeBucketSize=<integer>` Aralık kaydırıcısını daha ayrıntılı veya düz, sayesinde daha toplu bir grafik görünümü.  
+- `timeBucketUnit=<Unit>&timeBucketSize=<integer>`
   - Birimler = gün, saat, dakika, saniye, milisaniye.  Her zaman birimin ilk harfini büyük yapın.
   - timeBucketSize için istediğiniz tamsayıyı geçererek birim sayısını tanımlayın.  En fazla 7 güne kadar düzleştirebilirsiniz.  
   
-'timezoneOffset=<integer>' parametresi, grafiğin UTC’ye uzaklık cinsinden görüntülenecek saat dilimini ayarlamanızı sağlar.  
-  - 'timezoneOffset=-<integer>'
+`timezoneOffset=<integer>` Parametresi, grafiğin içinde UTC'ye uzaklık cinsinden görüntülenecek saat dilimini ayarlamanızı sağlar.  
+  - `timezoneOffset=-<integer>`
     - Bu tamsayı her zaman milisaniye cinsindendir.  
     - Bu işlevsellik, TSI gezgininde etkinleştirdiğimiz ve yerel (tarayıcı saati) ya da UTC saat dilimini seçmenize olanak tanıdığımız işlevden biraz farklıdır.  
  

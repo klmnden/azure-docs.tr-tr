@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 03/02/2019
+ms.date: 03/26/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: 86e28c3561968b1411a3baa9ec0daecfab6ac73f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 32328b89e8a220269f0d07c3700566db5b899d5b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202896"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445695"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>İş açısından kritik verilerin Azure Blob Depolama alanında Store
 
@@ -46,6 +46,8 @@ Aşağıdaki sabit depolama destekler:
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
 Azure Blob Depolama için sabit depolama SOLUCAN veya sabit ilkeleri iki tür destekler: zamana bağlı bekletme ve yasal tutma kuralı. Zamana bağlı bekletme ilkesi veya yasal tutma bir kapsayıcı uygulandığında, tüm mevcut blobları 30 saniyeden kısa bir süre içinde sabit olmayan bir SOLUCAN duruma taşıyın. Bu kapsayıcıya yüklenir ve yeni tüm bloblar da sabit duruma taşınır. Sabit duruma taşınmış tüm bloblar, sabit ilke doğrulanır ve tüm üzerine ya da sildiğinizde sonra değişmez kapsayıcısında mevcut ve yeni nesneler için işlemlerine izin verilmez.
+
+Sabit bir ilke tarafından korunan tüm blobların varsa kapsayıcı ve hesabını silme işlemi de izin verilmez. Kilitli zamana bağlı bekletme ilkesi veya yasal tutma ile en az bir blob mevcut kapsayıcı silme işlemi başarısız olur. Yasal tutma ilkesine veya zaman tabanlı saklama aralığına sahip en az bir WORM kapsayıcısı olması halinde depolama hesabı silme işlemi başarısız olur. 
 
 ### <a name="time-based-retention"></a>Zamana bağlı bekletme
 
@@ -85,12 +87,10 @@ Aşağıdaki tabloda farklı bir sabit senaryolar için devre dışı bırakılm
 Bu özelliği kullanmak için ek ücret yoktur. Sabit veri aynı şekilde normal, kesilebilir veri olarak fiyatlandırılır. Azure Blob Depolama fiyatlandırma ayrıntıları için bkz: [Azure depolama fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="getting-started"></a>Başlarken
+Sabit depolama, yalnızca genel amaçlı v2 ve Blob Depolama hesapları için kullanılabilir. Bu hesap aracılığıyla yönetilmelidir [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Mevcut bir genel amaçlı v1 depolama hesabını yükseltme hakkında daha fazla bilgi için bkz. [bir depolama hesabını yükseltme](../common/storage-account-upgrade.md).
 
 En son sürümleri [Azure portalında](https://portal.azure.com), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ve [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) sabit depolama Azure Blob Depolama için destek. [İstemci Kitaplığı desteğiyle](#client-libraries) de sağlanır.
 
-> [!NOTE]
->
-> Sabit depolama, yalnızca genel amaçlı v2 ve Blob Depolama hesapları için kullanılabilir. Bu hesap aracılığıyla yönetilmelidir [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Mevcut bir genel amaçlı v1 depolama hesabını yükseltme hakkında daha fazla bilgi için bkz. [bir depolama hesabını yükseltme](../common/storage-account-upgrade.md).
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -114,17 +114,19 @@ En son sürümleri [Azure portalında](https://portal.azure.com), [Azure CLI](ht
 
     !["İlkesi menüsünde kilitleme"](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
-    Seçin **kilitleme ilkesi**. İlke artık kilitli durumda ve silinemez, yalnızca uzantıları bekletme aralığının izin verilir.
+6. Seçin **kilitleme ilkesi** ve kilit onaylayın. İlke artık kilitli durumda ve silinemez, yalnızca uzantıları bekletme aralığının izin verilir. BLOB siler ve geçersiz kılmaları izin verilmez. 
 
-6. Yasal tutma Kuralı etkinleştirmek için seçin **+ ilke Ekle**. Seçin **yasal tutma** aşağı açılan menüden.
+    !["Kilitleme ilkesi" menüsünde onaylayın](media/storage-blob-immutable-storage/portal-image-5-lock-policy.png)
+
+7. Yasal tutma Kuralı etkinleştirmek için seçin **+ ilke Ekle**. Seçin **yasal tutma** aşağı açılan menüden.
 
     !["Bir yasal tutma" altında "İlke türü" menüsünde](media/storage-blob-immutable-storage/portal-image-legal-hold-selection-7.png)
 
-7. Yasal tutma, bir veya daha fazla etiket ile oluşturun.
+8. Yasal tutma, bir veya daha fazla etiket ile oluşturun.
 
     ![İlke türü altında "Etiket adı" kutusu](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
 
-8. Yasal tutma temizlemek için basitçe uygulanan yasal tutma tanımlayıcısı etiket kaldırın.
+9. Yasal tutma temizlemek için basitçe uygulanan yasal tutma tanımlayıcısı etiket kaldırın.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -170,9 +172,9 @@ Evet. Belge uyumluluk için Microsoft kayıtları yönetim ve bilgi İdaresi, Az
 
 Sabit depolama ile herhangi bir blob türü kullanılabilir, ancak çoğunlukla blok blobları için kullanmanızı öneririz. Aksine blok blobları, sayfa blobları ve ekleme blobları dışında bir SOLUCAN container oluşturulması gerekir ve ardından içinde kopyalanır. Bu bloblar bir SOLUCAN kapsayıcıya Hayır daha da kopyaladığınız sonra *ekler* için bir ekleme blobu veya bir sayfa blobu değişiklikleri izin verilir.
 
-**Bu özelliği kullanabilmek için her seferinde yeni bir depolama hesabı mı oluşturmam gerekiyor?**
+**Bu özelliği kullanmak için yeni bir depolama hesabı oluşturmak gerekiyor mu?**
 
-Herhangi bir mevcut veya yeni oluşturulan genel amaçlı v2 veya Blob Depolama hesaplarına sabit depolama kullanabilirsiniz. Bu özellik, GPv2 ve Blob Depolama hesaplarında blok bloblarının ile kullanım için tasarlanmıştır.
+Hayır, herhangi bir mevcut veya yeni oluşturulan genel amaçlı v2 veya Blob Depolama hesapları ile sabit depolamayı kullanabilirsiniz. Bu özellik, GPv2 ve Blob Depolama hesaplarında blok bloblarının ile kullanım için tasarlanmıştır. Genel amaçlı v1 depolama hesapları desteklenmez, ancak genel amaçlı v2'ye kolayca yükseltilebilir. Mevcut bir genel amaçlı v1 depolama hesabını yükseltme hakkında daha fazla bilgi için bkz. [bir depolama hesabını yükseltme](../common/storage-account-upgrade.md).
 
 **Bir yasal tutma ve zamana bağlı bekletme ilkesi uygulayabilir miyim?**
 
@@ -188,7 +190,7 @@ Kilitli zamana bağlı bekletme ilkesi veya yasal tutma ile en az bir blob mevcu
 
 **Zaman tabanlı saklama veya yasal tutma ilkesi ile *kilitlenmiş* bir WORM kapsayıcısı bulunan depolama hesabını silmeye çalışırsam ne olur?**
 
-Yasal tutma ilkesine veya zaman tabanlı saklama aralığına sahip en az bir WORM kapsayıcısı olması halinde depolama hesabı silme işlemi başarısız olur.  Depolama hesabını silmeden önce tüm SOLUCAN kapsayıcıları silmeniz gerekir. Önceki soruyu kapsayıcı silme hakkında daha fazla bilgi için bkz.
+Yasal tutma ilkesine veya zaman tabanlı saklama aralığına sahip en az bir WORM kapsayıcısı olması halinde depolama hesabı silme işlemi başarısız olur. Depolama hesabını silmeden önce tüm SOLUCAN kapsayıcıları silmeniz gerekir. Önceki soruyu kapsayıcı silme hakkında daha fazla bilgi için bkz.
 
 **Blob sabit durumda olduğunda farklı blob katmanları (sık erişimli, seyrek erişimli, soğuk depolama) arasında veri aktarımı gerçekleştirebilir miyim?**
 

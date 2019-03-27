@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0a25dd3a2228f0b1b3ab33db0c9c689d7b2899d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310566"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479538"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Windows Server Active Directory için Azure AD parola koruması zorlama
 
@@ -32,8 +32,15 @@ Azure AD parola koruması ile bu ilkeleri göz önünde tasarlanmıştır:
 * En düşük Active Directory etki alanı veya orman işlevsel düzeyi yok (DFL/FFL) gereklidir.
 * Yazılım oluşturma değil veya koruduğu Active Directory etki alanı hesaplarında gerektirir.
 * Kullanıcı düz metin parolaları, parola doğrulama işlemleri sırasında veya herhangi bir anda etki alanı denetleyicisi bırakmayın.
-* Artımlı dağıtım desteklenir. Ancak, etki alanı denetleyicisi Aracısı'nı (DC Aracısı) yüklü olduğu parola ilkesi devreye girer.
-* Evrensel parola koruması güvenlik zorlama emin olmak için etki alanı denetleyicilerinde, DC aracı yüklemenizi öneririz.
+* Artımlı dağıtım desteklenir, ancak parola ilkesini etki alanı denetleyicisi Aracısı'nı (DC Aracısı) yüklendiği devreye girer. Daha fazla ayrıntı için sonraki bölüme bakın.
+
+## <a name="incremental-deployment"></a>Artımlı dağıtım
+
+Azure AD parola koruması, bir Active Directory etki alanındaki etki alanı denetleyicileri arasında artımlı dağıtımı destekler. ancak bunun gerçekten anlamı ve ödün ne olduğunu anlamak önemlidir.
+
+Bu etki alanı denetleyicisine gönderilen parola değişiklikleri yanı sıra, bir etki alanı denetleyicisine yüklendiğinde Azure AD parola DC koruma Aracısı yazılımı yalnızca parolaları doğrulayabilirsiniz. Hangi etki alanı denetleyicileri Windows istemci makineleri için kullanıcının parola değişiklikleri işlemeye tarafından seçmiş denetlemek için mümkün değildir. Tutarlı bir davranış ve evrensel parola koruması güvenlik zorlama garanti için DC Aracısı yazılımını bir etki alanındaki tüm etki alanı denetleyicilerinde yüklenmelidir.
+
+Birçok kuruluşun bir alt kümesi üzerinde Azure AD parola koruması tam dağıtımını yapmadan önce etki alanı denetleyicilerini dikkatli testi yapmak isteyebilirsiniz. Azure AD parola koruması kısmi dağıtım desteği, bile etki alanındaki diğer DC'leri DC aracı yazılımı yüklü olmadığında IE DC aracı yazılımı belirli bir DC üzerinde etkin bir şekilde parolaları doğrular. Bu tür kısmi dağıtımları olmayan dışında tavsiye edilmez ve güvenli sınama amacıyla.
 
 ## <a name="architectural-diagram"></a>Mimari diyagramı
 

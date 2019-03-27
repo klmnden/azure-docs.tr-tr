@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2e05e5e430760d16d5d494a6f27ef985aafc487
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 71e9a3f614048185d9444011da3c47b88931d0c5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098000"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499956"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Öğretici: Zendesk otomatik kullanıcı hazırlama için yapılandırma
 
@@ -39,7 +39,7 @@ Bu öğreticide özetlenen senaryo, aşağıdaki önkoşulları zaten sahip oldu
 *   Zendesk yönetici izinlerine sahip bir kullanıcı hesabı 
 
 > [!NOTE]
-> Azure AD tümleştirmesi sağlama dayanan [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/core/introduction), daha iyi veya Kurumsal plan Zendesk takımlar için kullanılabilir.
+> Azure AD tümleştirmesi sağlama dayanan [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/zendesk-apis/resources), daha iyi veya Kurumsal plan Zendesk takımlar için kullanılabilir.
 
 ## <a name="adding-zendesk-from-the-gallery"></a>Zendesk galeri ekleme
 Otomatik kullanıcı hazırlama ile Azure AD için Zendesk yapılandırmadan önce Zendesk Azure AD uygulama galerisinden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.

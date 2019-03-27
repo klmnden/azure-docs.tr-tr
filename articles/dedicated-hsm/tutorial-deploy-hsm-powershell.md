@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: fdda53172bef9fb7a4a09cbacfdc5fa4ec4c7509
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6470a358fd3127c93e2e2248b42f79690f4e8b55
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122361"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449348"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Öğretici: PowerShell kullanarak mevcut sanal ağına HSM'ler dağıtma
 
@@ -37,7 +37,7 @@ Bu öğreticide HSM'ler çifti üzerinde odaklanır ve gerekli ExpressRoute (bkz
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure ayrılmış HSM Azure portalında şu anda kullanılamıyor, bu nedenle tüm etkileşim hizmeti ile komut satırı veya kullanarak PowerShell olur. Bu öğreticide, Azure Cloud Shell'de PowerShell kullanacaksınız. PowerShell için yeni başladıysanız, izleme Buradaki yönergeleri Başlarken: [Azure PowerShell kullanmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0).
+Azure ayrılmış HSM Azure portalında şu anda kullanılamıyor, bu nedenle tüm etkileşim hizmeti ile komut satırı veya kullanarak PowerShell olur. Bu öğreticide, Azure Cloud Shell'de PowerShell kullanacaksınız. PowerShell için yeni başladıysanız, izleme Buradaki yönergeleri Başlarken: [Azure PowerShell kullanmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 Varsayımlar:
 

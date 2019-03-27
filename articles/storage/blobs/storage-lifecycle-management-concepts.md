@@ -4,20 +4,20 @@ description: Yaşam döngüsü ilkesi kuralları geçiş eskime verileri seyrek 
 services: storage
 author: yzheng-msft
 ms.service: storage
-ms.topic: article
-ms.date: 11/04/2018
+ms.topic: conceptual
+ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 1428c2925ab57642899732bd4504b2d5b38781a8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0d52b2f59bba2270b3d36ff2499ce1e0e492b228
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315156"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500432"
 ---
-# <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Depolama (Önizleme) yaşam döngüsünü yönetme
+# <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Depolama yaşam döngüsünü yönetme
 
-Veri kümeleri benzersiz yaşam döngüleri vardır. Yaşam döngüsünde kişiler bazı veriler genellikle erişebilir. Ancak veriler eskidikçe önemli ölçüde erişim gereksinimini bırakır. Bazı veriler bulutta boşta kalır ve saklanmaya başlanan nadiren erişilir. Başka veri Setleri etkin bir şekilde okuyun ve kendi ömürleri değiştirilmiş olsa bazı veriler gün veya ay, oluşturulduktan sonra süresi dolar. Azure Blob Depolama yaşam döngüsü yönetimi (Önizleme), GPv2 ve Blob Depolama hesapları için zengin, kural tabanlı bir ilke sunar. Verilerinizi uygun erişim katmanları için geçiş ya da veri yaşam döngüsü sonunda sona ilkesini kullanın.
+Veri kümeleri benzersiz yaşam döngüleri vardır. Yaşam döngüsünde kişiler bazı veriler genellikle erişebilir. Ancak veriler eskidikçe önemli ölçüde erişim gereksinimini bırakır. Bazı veriler bulutta boşta kalır ve saklanmaya başlanan nadiren erişilir. Başka veri Setleri etkin bir şekilde okuyun ve kendi ömürleri değiştirilmiş olsa bazı veriler gün veya ay, oluşturulduktan sonra süresi dolar. Azure Blob Depolama yaşam döngüsü yönetimi, GPv2 ve Blob Depolama hesapları için zengin, kural tabanlı bir ilke sunar. Verilerinizi uygun erişim katmanları için geçiş ya da veri yaşam döngüsü sonunda sona ilkesini kullanın.
 
 Yaşam döngüsü yönetim ilkesini sağlar:
 
@@ -34,44 +34,18 @@ Yaşam döngüsü yönetim ilkesi hem genel amaçlı v2 ile kullanılabilir (GPv
 
 ## <a name="pricing"></a>Fiyatlandırma 
 
-Yaşam döngüsü yönetimi ücretsiz önizleme olarak özelliğidir. Müşteriler normal işlem maliyetini ücretlendirilir [Blobları listeleme](https://docs.microsoft.com/rest/api/storageservices/list-blobs) ve [Blob katmanını ayarlama](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API çağrıları. Fiyatlandırma hakkında daha fazla bilgi için bkz. [blok blobu fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Yaşam döngüsü yönetimi özelliği ücretsizdir. Müşteriler normal işlem maliyetini ücretlendirilir [Blobları listeleme](https://docs.microsoft.com/rest/api/storageservices/list-blobs) ve [Blob katmanını ayarlama](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API çağrıları. Silme işlemi ücretsizdir. Fiyatlandırma hakkında daha fazla bilgi için bkz. [blok blobu fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="register-for-preview"></a>Önizleme için kaydolun 
-Genel önizlemeye kaydolmak için aboneliğinize bu özelliği kaydetmek için bir istek göndermeniz gerekir. 72 saat içinde istek genellikle onaylanmış. Onay sonrasında, tüm mevcut ve yeni GPv2 veya Blob Depolama hesapları şu bölgelerde özellikler şunları içerir: Batı ABD 2, Batı Orta ABD, Doğu ABD 2 ve Batı Avrupa. Önizleme, yalnızca blok blob destekler. Tarife ulaşana kadar gibi çoğu Önizleme ile bu özelliği üretim iş yükleri için kullanmamanız gerekir
-
-Bir istek göndermek için aşağıdaki PowerShell veya CLI komutları çalıştırın.
-
-### <a name="powershell"></a>PowerShell
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Bir istek göndermek için:
-
-```powershell
-Register-AzProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage 
-```
-Aşağıdaki komutla kayıt onay durumunu kontrol edebilirsiniz:
-```powershell
-Get-AzProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
-```
-Onay ve uygun kayıt ile aldığınız *kayıtlı* önceki isteklerde ne zaman gönderdiğiniz belirtin.
-
-### <a name="azure-cli"></a>Azure CLI
-
-Bir istek göndermek için: 
-```cli
-az feature register --namespace Microsoft.Storage --name DLM
-```
-Aşağıdaki komutla kayıt onay durumunu kontrol edebilirsiniz:
-```cli
-az feature show --namespace Microsoft.Storage --name DLM
-```
-Onay ve uygun kayıt ile aldığınız *kayıtlı* önceki isteklerde ne zaman gönderdiğiniz belirtin.
+## <a name="regional-availability"></a>Bölgesel Kullanılabilirlik 
+Yaşam döngüsü yönetimi özelliği tüm genel Azure bölgelerinde kullanılabilir. 
 
 
 ## <a name="add-or-remove-a-policy"></a>Bir ilke ekleyip 
 
-Ekleme, düzenleme veya Azure portalını kullanarak bir ilkeyi kaldırdığınızda [PowerShell](https://www.powershellgallery.com/packages/Az.Storage), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/storage-preview/storage/account/management-policy?view=azure-cli-latest#ext-storage-preview-az-storage-account-management-policy-create), [REST API'leri](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate), ya da istemci araçları aşağıdaki dillerde: [.NET ](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Ekleme, düzenleme veya Azure portalını kullanarak bir ilkeyi kaldırdığınızda [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), Azure CLI, REST API'leri veya bir istemci aracı. Bu makalede, portal ve PowerShell yöntemlerini kullanarak ilkesini yönetmek gösterilmektedir.  
+
+> [!NOTE]
+> Depolama hesabınız için güvenlik duvarı kuralları etkinleştirirseniz, yaşam döngüsü yönetimi istekleri engellenebilir. Bu istekler, özel durumlar sağlayarak engelini kaldırabilirsiniz. Daha fazla bilgi için bkz: özel durumlar [güvenlik duvarları ve sanal ağları yapılandırma](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -79,28 +53,34 @@ Ekleme, düzenleme veya Azure portalını kullanarak bir ilkeyi kaldırdığın�
 
 2. Seçin **tüm kaynakları** ve ardından depolama hesabınızı seçin.
 
-3. Seçin **yaşam döngüsü yönetimi (Önizleme)** görüntülemek veya değiştirmek ilkeniz için Blob hizmeti altında gruplandırılır.
+3. Altında **Blob hizmeti**seçin **yaşam döngüsü yönetimi** görüntülemek veya ilkenizi değiştirmek için.
 
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$rules = '{ ... }'
+#Install the latest module
+Install-Module -Name Az -Repository PSGallery 
 
-Set-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules 
+#Create a new action object
 
-Get-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName]
+$action = Add-AzStorageAccountManagementPolicyAction -BaseBlobAction Delete -daysAfterModificationGreaterThan 2555
+$action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -BaseBlobAction TierToArchive -daysAfterModificationGreaterThan 90
+$action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -BaseBlobAction TierToCool -daysAfterModificationGreaterThan 30
+$action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -SnapshotAction Delete -daysAfterCreationGreaterThan 90
+
+# Create a new filter object
+# PowerShell automatically sets BlobType as “blockblob” because it is the only available option currently
+$filter = New-AzStorageAccountManagementPolicyFilter -PrefixMatch ab,cd 
+
+#Create a new fule object
+#PowerShell automatically sets Type as “Lifecycle” because it is the only available option currently
+$rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Filter $filter
+
+#Set the policy 
+$policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
+
 ```
 
-### <a name="azure-cli"></a>Azure CLI
-
-```
-az account set --subscription "[subscriptionName]”
-az extension add --name storage-preview
-az storage account management-policy show --resource-group [resourceGroupName] --account-name [accountName]
-```
-
-> [!NOTE]
-> Depolama hesabınız için güvenlik duvarı kuralları etkinleştirirseniz, yaşam döngüsü yönetimi istekleri engellenebilir. Bu istekler, özel durumlar sağlayarak engelini kaldırabilirsiniz. Daha fazla bilgi için bkz: özel durumlar [güvenlik duvarları ve sanal ağları yapılandırma](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ## <a name="policy"></a>İlke
 
@@ -108,10 +88,10 @@ Yaşam döngüsü yönetim ilkesi kuralları bir JSON belgesinde koleksiyonudur:
 
 ```json
 {
-  "version": "0.5",
   "rules": [
     {
       "name": "rule1",
+      "enabled": true,
       "type": "Lifecycle",
       "definition": {...}
     },
@@ -125,27 +105,27 @@ Yaşam döngüsü yönetim ilkesi kuralları bir JSON belgesinde koleksiyonudur:
 ```
 
 
-Bir ilke, iki parametre gerektirir:
+İlke kuralları koleksiyonudur:
 
 | Parametre adı | Parametre türü | Notlar |
 |----------------|----------------|-------|
-| version        | Bir dize olarak ifade edilen `x.x` | Önizleme sürümü 0,5 sayısıdır. |
-| rules          | Kural nesnelerinin bir dizisi | Her bir ilkede en az bir kural gerekir. Önizleme sırasında ilke başına en fazla 4 kuralları belirtebilirsiniz. |
+| rules          | Kural nesnelerinin bir dizisi | İlke en az bir kural gerekir. İlke, en fazla 100 kuralları tanımlayabilirsiniz.|
 
-Her bir kural ilke içinde üç parametreler gereklidir:
+Her bir kural ilke içinde çeşitli parametrelere sahiptir:
 
-| Parametre adı | Parametre türü | Notlar |
-|----------------|----------------|-------|
-| Ad           | String | Kural adı, alfasayısal karakterlerin herhangi bir birleşimini içerebilir. Kural adı büyük/küçük harf duyarlıdır. Bir ilke içinde benzersiz olmalıdır. |
-| type           | Bir sabit listesi değeri | Geçerli Önizleme değeri `Lifecycle`. |
-| tanım     | Yaşam döngüsü kuralı tanımlayan bir nesne | Her tanım, bir filtre kümesi ve bir eylem kümesinden oluşur. |
+| Parametre adı | Parametre türü | Notlar | Gerekli |
+|----------------|----------------|-------|----------|
+| ad           | String |Kural adı, alfasayısal en fazla 256 karakter içerebilir. Kural adı büyük/küçük harf duyarlıdır.  Bir ilke içinde benzersiz olmalıdır. | True |
+| enabled | Boole | Bir kural geçici olarak izin vermek için isteğe bağlı bir boolean devre dışı. Bunu ayarlanmamışsa varsayılan değer True'dur. | False | 
+| type           | Bir sabit listesi değeri | Geçerli geçerli tür `Lifecycle`. | True |
+| tanım     | Yaşam döngüsü kuralı tanımlayan bir nesne | Her tanım, bir filtre kümesi ve bir eylem kümesinden oluşur. | True |
 
 ## <a name="rules"></a>Kurallar
 
 Her kural tanımı bir filtre kümesi ve bir eylem kümesi içerir. [Filtre kümesi](#rule-filters) adları nesneleri veya bir kapsayıcı içindeki nesneler belirli bir dizi kural eylemi sınırlar. [Eylem kümesi](#rule-actions) katmanı uygular veya filtrelenmiş nesne kümesini eylemleri sil.
 
 ### <a name="sample-rule"></a>Örnek kural
-Aşağıdaki örnek kural yalnızca eylemleri çalıştırmak için hesap filtreleri `container1/foo`. İçinde mevcut olan tüm nesneleri için aşağıdaki eylemleri çalıştırmak `container1` **ve** ile başlayan `foo`: 
+Aşağıdaki örnek kural içinde varolan nesnelere eylemleri çalıştırmak için hesap filtreleri `container1` **ve** başlayın `foo`.  
 
 - 30 gün sonra son değiştirilme katmanını seyrek erişimli blob katmanı
 - Katmanı son değiştirilme 90 gündür arşiv katmanında blob
@@ -154,10 +134,10 @@ Aşağıdaki örnek kural yalnızca eylemleri çalıştırmak için hesap filtre
 
 ```json
 {
-  "version": "0.5",
   "rules": [
     {
       "name": "ruleFoo",
+      "enabled": true,
       "type": "Lifecycle",
       "definition": {
         "filters": {
@@ -185,18 +165,18 @@ Aşağıdaki örnek kural yalnızca eylemleri çalıştırmak için hesap filtre
 
 Filtreler, BLOB Depolama hesabında bir alt kural eylemi sınırlayın. Birden fazla filtre tanımlanırsa, bir mantıksal `AND` tüm filtreleri çalıştırır.
 
-Önizleme süresince geçerli filtreler aşağıdakileri içerir:
+Geçerli filtreler aşağıdakileri içerir:
 
 | Filtre adı | Filtre türü | Notlar | Gerekli |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Önceden tanımlanmış bir sabit listesi değerleri dizisi. | Önizleme sürümü yalnızca destekler `blockBlob`. | Evet |
-| prefixMatch | Olması eşleşecek şekilde ön ekleri için dize dizisi. Bir önek dizesi, bir kapsayıcı adı ile başlamalıdır. Örneğin, tüm BLOB'ları altındaki eşleştirmek istiyorsanız "https:\//myaccount.blob.core.windows.net/container1/foo/..." bir kural için prefixMatch olan `container1/foo`. | PrefixMatch tanımlamazsanız, hesabındaki tüm bloblar için kurallar uygulanır. | Hayır |
+| blobTypes   | Önceden tanımlanmış bir sabit listesi değerleri dizisi. | Geçerli yayın destekler `blockBlob`. | Evet |
+| prefixMatch | Olması eşleşecek şekilde ön ekleri için dize dizisi. Her kural için 10 adede kadar ön ekleri tanımlayabilirsiniz. Bir önek dizesi, bir kapsayıcı adı ile başlamalıdır. Örneğin, tüm BLOB'ları altındaki eşleştirmek istiyorsanız "https://myaccount.blob.core.windows.net/container1/foo/..." için bir kural, prefixMatch olduğu `container1/foo`. | PrefixMatch tanımlamazsanız, kural, depolama hesabındaki tüm bloblar için geçerlidir.  | Hayır |
 
 ### <a name="rule-actions"></a>Kural eylemi
 
-Yürütme koşul karşılandığında eylemler için filtrelenmiş bloblara uygulanır.
+Çalıştırma koşul karşılandığında eylem filtrelenmiş BLOB'ları uygulanır.
 
-Önizleme'de, katmanlama ve silme BLOB ve blob anlık görüntülerin silinmesi, yaşam döngüsü yönetimini destekler. BLOB'ları veya blob anlık görüntüleri, her kural için en az bir eylem tanımlayın.
+Yaşam döngüsü yönetimi, katmanlama ve silme BLOB ve blob anlık görüntüleri silme işlemi destekler. BLOB'ları veya blob anlık görüntüleri, her kural için en az bir eylem tanımlayın.
 
 | Eylem        | Temel Blob                                   | Anlık Görüntü      |
 |---------------|---------------------------------------------|---------------|
@@ -204,12 +184,12 @@ Yürütme koşul karşılandığında eylemler için filtrelenmiş bloblara uygu
 | tierToArchive | Seyrek veya sık erişimli katmanı şu anda bloblarını destekler | Desteklenmiyor |
 | delete        | Desteklenen                                   | Desteklenen     |
 
-> [!NOTE]
-> Aynı bloba birden fazla eylem tanımlarsanız, yaşam döngüsü yönetimi için blob ucuz eylemini uygular. Örneğin, eylem `delete` eyleminden daha ucuz `tierToArchive`. Eylem `tierToArchive` eyleminden daha ucuz `tierToCool`.
+>[!NOTE] 
+>Aynı bloba birden fazla eylem tanımlarsanız, yaşam döngüsü yönetimi için blob ucuz eylemini uygular. Örneğin, eylem `delete` eyleminden daha ucuz `tierToArchive`. Eylem `tierToArchive` eyleminden daha ucuz `tierToCool`.
 
-Önizleme aşamasında olan eylem yürütme koşullar üzerinde yaş temel alır. Temel blobları yaş izlemek için son değiştirilme zamanı kullanın ve yaş izlemek için anlık görüntüleri kullanmak anlık görüntü oluşturma zamanı blob.
+Çalıştırma koşulları üzerinde yaş temel alır. Temel blobları yaş izlemek için son değiştirilme zamanı kullanın ve yaş izlemek için anlık görüntüleri kullanmak anlık görüntü oluşturma zamanı blob.
 
-| Eylem yürütme durumu | Koşul değeri | Açıklama |
+| Koşul Çalıştır eylemi | Koşul değeri | Açıklama |
 |----------------------------|-----------------|-------------|
 | daysAfterModificationGreaterThan | Yaş gün cinsinden belirten bir tamsayı değeri | Temel blob eylemler için geçerli bir koşul |
 | daysAfterCreationGreaterThan     | Yaş gün cinsinden belirten bir tamsayı değeri | Blob anlık görüntüsü eylemler için geçerli bir koşul | 
@@ -223,10 +203,10 @@ Bu örnekte ön ekine sahip blok blobları geçiş gösterilmektedir `container1
 
 ```json
 {
-  "version": "0.5",
   "rules": [
     {
       "name": "agingRule",
+      "enabled": true,
       "type": "Lifecycle",
       "definition": {
         "filters": {
@@ -251,10 +231,10 @@ Bazı veriler bulutta boşta kalır ve nadiren istenir; her zamankinden çok kez
 
 ```json
 {
-  "version": "0.5",
   "rules": [
     {
       "name": "archiveRule",
+      "enabled": true,
       "type": "Lifecycle",
       "definition": {
         "filters": {
@@ -279,10 +259,10 @@ Bazı veriler, gün veya ay maliyetleri düşürmeyi veya kamu gereksinimlerini 
 
 ```json
 {
-  "version": "0.5",
   "rules": [
     {
       "name": "expirationRule",
+      "enabled": true,
       "type": "Lifecycle",
       "definition": {
         "filters": {
@@ -305,11 +285,11 @@ Değiştirilebilir ve yaşam süresi boyunca düzenli olarak erişilen veriler i
 
 ```json
 {
-  "version": "0.5",
   "rules": [
     {
       "name": "snapshotRule",
-      "type": "Lifecycle",
+      "enabled": true,
+      "type": "Lifecycle",      
     "definition": {
         "filters": {
           "blobTypes": [ "blockBlob" ],
@@ -327,7 +307,7 @@ Değiştirilebilir ve yaşam süresi boyunca düzenli olarak erişilen veriler i
 ```
 ## <a name="faq---i-created-a-new-policy-why-are-the-actions-not-run-immediately"></a>SSS - Eylemler neden hemen çalıştırılmaz, yeni bir ilke oluşturduğum? 
 
-Platform yaşam döngüsü ilkesi günde bir kez çalışır. Yeni bir ilke ayarladıktan sonra Başlat ve Çalıştır bazı eylemler (örneğin, katmanlama ve silme) için 24 saate kadar sürebilir.  
+Platform yaşam döngüsü ilkesi günde bir kez çalışır. Bir ilkeyi yapılandırdıktan sonra ilk kez çalıştırmak için bazı eylemler (örneğin, katmanlama ve silme) için 24 saate kadar sürebilir.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

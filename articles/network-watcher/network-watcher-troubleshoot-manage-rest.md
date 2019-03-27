@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 0889476d84bbeaf620d9fc952efe102601a1eaf8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1276d1e581caf477449ce9a4c928d4493a6354d3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857853"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487609"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Sanal ağ geçidi ve Azure Ağ İzleyicisi'ni kullanarak bağlantı sorunlarını giderme
 
@@ -50,7 +50,7 @@ Ağ İzleyicisi sorun giderme olanağı sağlayan bağlantılar ve sanal ağ ge�
 
 ## <a name="log-in-with-armclient"></a>Oturum ARMClient oturum açın
 
-```PowerShell
+```powershell
 armclient login
 ```
 

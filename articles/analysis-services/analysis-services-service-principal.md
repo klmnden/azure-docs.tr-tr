@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d87fe608b92dd70cb2dee78c817e0055445b7c70
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ee4a78148c36c7838edcc36f8f76ad612ac87ab0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732538"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487966"
 ---
-# <a name="automation-with-service-principals"></a>Otomasyon ile hizmet sorumluları
+# <a name="automation-with-service-principals"></a>Hizmet sorumlularıyla otomasyon
 
 Hizmet sorumluları, katılımsız kaynak ve hizmet düzeyinde işlemler gerçekleştirmek için kiracınızın içinde oluşturduğunuz bir Azure Active Directory uygulama kaynağıdır. Benzersiz türde oldukları *kullanıcı kimliğini* bir uygulama kimliği ve parola veya sertifika ile. Bir hizmet sorumlusu yalnızca kendisi için atanan izinleri ve rolleri tarafından tanımlanan görevleri gerçekleştirmek gerekli izinleri vardır. 
 
@@ -51,7 +51,7 @@ Hizmet sorumlusu uygulama kimliği ve parola veya sertifika kullanılabilir bağ
 
 Aşağıdaki örnekte, uygulama kimliği ve parola, bir model veritabanı yenileme işlemi gerçekleştirmek için kullanılır:
 
-```PowerShell
+```powershell
 Param (
 
         [Parameter(Mandatory=$true)] [String] $AppId,

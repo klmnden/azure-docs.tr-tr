@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 3/25/2019
+ms.date: 3/26/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 5029fb29aecda1f1bef14dc95f6301b539c60441
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: c632989ea85033c6cbdd4188351d34345e919c49
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419113"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500670"
 ---
 ### <a name="what-is-azure-firewall"></a>Azure Güvenlik Duvarı nedir?
 
@@ -45,10 +45,11 @@ Azure Güvenlik Duvarı'nı, Azure portalı, PowerShell, REST API kullanarak vey
 
 Azure güvenlik duvarı kuralları ve kural koleksiyonlarınızı destekler. Bir kural koleksiyonu, aynı sıraya ve önceliği paylaşan bir kurallar kümesidir. Kural koleksiyonları, öncelik sırasına göre çalıştırılır. Ağ kural topluluklarıdır uygulama kural koleksiyonları daha yüksek bir öncelik ve tüm kuralları sonlandırılıyor.
 
-Kural koleksiyonları iki tür vardır:
+Kural koleksiyonları üç tür vardır:
 
-* *Uygulama kuralları*: Bir alt ağdan erişilebilen, tam etki alanı adlarını (FQDN) yapılandırmanıza olanak sağlar.
-* *Ağ kuralları*: Kaynak adresleri, protokolleri, hedef bağlantı noktaları ve adresleri içeren kuralları yapılandırmanıza olanak sağlar.
+* *Uygulama kuralları*: Bir alt ağdan erişilebilen, tam etki alanı adlarını (FQDN) yapılandırın.
+* *Ağ kuralları*: Kaynak adresleri, protokolleri, hedef bağlantı noktaları ve adresleri içeren kurallarını yapılandırın.
+* *NAT kuralları*: Dnat'ı kurallarını, gelen bağlantılara izin verecek şekilde yapılandırın.
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Azure güvenlik duvarı, gelen trafiği filtreleme destekliyor mu?
 
@@ -94,19 +95,19 @@ Azure PowerShell kullanabilirsiniz *serbest* ve *tahsis* yöntemleri.
 ```azurepowershell
 # Stop an exisitng firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
-Set-AzureRmFirewall -AzureFirewall $azfw
+Set-AzFirewall -AzureFirewall $azfw
 ```
 
 ```azurepowershell
 #Start a firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-$publicip = Get-AzureRmPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+$publicip = Get-AzPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
 $azfw.Allocate($vnet,$publicip)
-Set-AzureRmFirewall -AzureFirewall $azfw
+Set-AzFirewall -AzureFirewall $azfw
 ```
 
 > [!NOTE]
@@ -124,6 +125,14 @@ Evet, hub sanal ağında iki uç sanal ağ arasında yönlendirme ve filtreleme 
 
 Evet. Ancak, aynı sanal ağda alt ağlar arasındaki trafiği yönlendirmek için Udr'leri yapılandırma, ek bir ilgi gerektirir. Hedef öneki UDR için yeterli olduğundan sanal ağ adres aralığı kullanırken, bu da Azure güvenlik duvarı örneği ile aynı alt ağda başka bir makineye bir makineden tüm trafiği yönlendirir. Bunu önlemek için bir sonraki atlama türü ile UDR alt ağ için bir rota içerecek. **VNET**. Bu yolları yönetmek sıkıcı ve hataya açık olabilir. İç ağ kesimleme için önerilen yöntem, Udr gerektirmeyen ağ güvenlik grupları kullanmaktır.
 
+### <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>Bir sanal ağ desteklenen Gerecine tünel oluşturma ve zincirleme zorlanır?
+
+Evet.
+
+Azure güvenlik duvarı, doğrudan Internet bağlantısı olması gerekir. NextHopType değeri ayarlanmış varsayılan olarak, AzureFirewallSubnet 0.0.0.0/0 rota sahip **Internet**.
+
+Şirket içi ExpressRoute veya VPN ağ geçidi aracılığıyla zorlamalı tünel etkinleştirirseniz, açıkça Internet olarak ayarlanan NextHopType değeri ile 0.0.0.0/0 kullanıcı tanımlı yol (UDR) yapılandırmak ve bunu, AzureFirewallSubnet ile ilişkilendirmek gerekebilir. Bu, olası varsayılan ağ geçidi, şirket içi ağınıza geri BGP reklamı geçersiz kılar. Kuruluşunuz Azure Güvenlik Duvarı'nda, varsayılan ağ geçidi trafiği şirket içi ağınız üzerinden yeniden yönlendirmek zorlamalı tünel gerektiriyorsa, desteğe başvurun. Internet bağlantısı gerekli güvenlik duvarı emin olmak için aboneliğinizi korunur bir beyaz liste şunları yapabiliriz.
+
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>Kaynak grubu kısıtlaması herhangi bir güvenlik duvarı vardır?
 
 Evet. Güvenlik Duvarı, alt ağ, sanal ağ ve genel IP adresini tüm aynı kaynak grubunda olmalıdır.
@@ -131,3 +140,7 @@ Evet. Güvenlik Duvarı, alt ağ, sanal ağ ve genel IP adresini tüm aynı kayn
 ### <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Gelen ağ trafiğini dnat'ı yapılandırırken, ayrıca bu trafiğe izin vermek için ilgili ağ kuralını yapılandırmak ihtiyacım var?
 
 Hayır. NAT kuralları, örtük olarak çevrilmiş trafiğine izin verecek şekilde karşılık gelen bir ağ kuralı ekleyin. Bu davranışı, çevrilen trafikle eşleşen reddetme kuralları olan bir ağ kural koleksiyonunu açıkça ekleyerek geçersiz kılabilirsiniz. Azure Güvenlik Duvarı kural işleme mantığı hakkında daha fazla bilgi için bkz: [Azure Güvenlik Duvarı kural işleme mantığı](../articles/firewall/rule-processing.md).
+
+### <a name="how-to-wildcards-work-in-an-application-rule-target-fqdn"></a>Joker karakter için bir uygulama kuralı hedef FQDN nasıl?
+
+Yapılandırırsanız ***. contoso.com**, veren *anyvalue*. contoso.com, ancak contoso.com (etki alanı tepesinde). Etki alanı tepesinde izin vermek istiyorsanız, bunu açıkça FQDN hedef olarak yapılandırmanız gerekir.

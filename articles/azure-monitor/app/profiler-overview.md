@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c42de8cf189c0ebaf5f13ef5971ad91d14d862fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850284"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498137"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Azure Application Insights ile profil üretim uygulamaları
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Uygulamanız için Application Insights Profiler ' ı etkinleştir
@@ -75,7 +75,7 @@ Varsa **clr! ThePreStub** uzun sürüyorsa bir istek, istek için olan bu yönte
 
 ### <a id="ngencold"></a>Kod ([SOĞUK]) yükleniyor
 
-Yöntem adı içeriyorsa **[SOĞUK]**, gibi **mscorlib.ni! [ COLD]System.Reflection.CustomAttribute.IsDefined**, .NET Framework çalışma zamanı tarafından iyileştirilmedi ilk kez kod yürütüyordur [profil temelli iyileştirme](https://msdn.microsoft.com/library/e7k32f4k.aspx). Her yöntem için en fazla bir kez işlemi sırasında görüntülenmesi gerekir.
+Yöntem adı içeriyorsa **[SOĞUK]**, gibi **mscorlib.ni! [ COLD]System.Reflection.CustomAttribute.IsDefined**, .NET Framework çalışma zamanı tarafından iyileştirilmedi ilk kez kod yürütüyordur [profil temelli iyileştirme](/cpp/build/profile-guided-optimizations). Her yöntem için en fazla bir kez işlemi sırasında görüntülenmesi gerekir.
 
 Bir isteğin süresi önemli miktarda kod yükleniyor aldığı durumlarda yöntemi iyileştirilmemiş bölümünü yürütmek için birinci isteğidir. Kullanıcılarınızın erişim önce söz konusu bölümü kod yürüten bir Isınma işlem kullanmayı düşünün.
 

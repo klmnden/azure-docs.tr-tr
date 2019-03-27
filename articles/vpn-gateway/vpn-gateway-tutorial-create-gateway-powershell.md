@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: afe71953e9917ccf274742124d59cb790f15521b
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 790a8b74f437fe8fd7b8660c2ac9d208328b487f
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414142"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445214"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Öğretici: Oluşturma ve PowerShell kullanarak VPN ağ geçidi yönetme
 
@@ -118,7 +118,7 @@ Ağ geçidi oluşturma işlemi tamamlandığında sanal ağınız ile başka bir
 
 ## <a name="view-the-gateway-public-ip-address"></a>Ağ geçidi genel IP adresini görüntüleyin
 
-Genel IP adresini adını biliyorsanız kullanın [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azurermps-6.8.1) ağ geçidine atanan genel IP adresini göstermek için.
+Genel IP adresini adını biliyorsanız kullanın [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) ağ geçidine atanan genel IP adresini göstermek için.
 
 Oturumunuz zaman aşımına uğradı, bu öğreticinin yeni oturumunuza baştan ortak ağ parametrelerini kopyalayın ve devam etmek ve sonra devam.
 

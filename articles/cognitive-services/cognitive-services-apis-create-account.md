@@ -1,20 +1,20 @@
 ---
 title: Azure portalında bir Bilişsel Hizmetler hesabı oluşturma
 titlesuffix: Azure Cognitive Services
-description: Azure portalında Microsoft Bilişsel hizmetler API hesabı oluşturma
+description: Azure portalında bir Azure Bilişsel hizmetler API hesabı oluşturma
 services: cognitive-services
 author: garyericson
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 03/22/2019
 ms.author: garye
-ms.openlocfilehash: 21e1eb00f688f2e7061e876cc4375d6d780838fc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7df429aa848c6f9fb9abe09fbf4357db20fcde6a
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534812"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472863"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında bir Bilişsel Hizmetler hesabı oluşturma
 
@@ -29,7 +29,7 @@ Bu hızlı başlangıçta, Azure Bilişsel hizmetler için kaydolun ve bir hizme
 Başlamadan önce Azure Bilişsel hizmetler abonelik iki tür olduğunu bilmek önemlidir. İlk görüntü işleme veya konuşma Hizmetleri gibi tek bir hizmet için bir aboneliktir. Bu kaynak için bir tek hizmet aboneliği sınırlıdır. İkincisi, Azure Bilişsel hizmetler için birden çok hizmet bir aboneliktir. Bu abonelik, Azure Bilişsel Hizmetler'in bir çoğu için tek bir abonelik kullanmanıza olanak sağlar. Bu seçenek ayrıca faturalandırma birleştirir. Bkz: [Bilişsel hizmetler fiyatlandırması](https://azure.microsoft.com/pricing/details/cognitive-services/) ek bilgi için.
 
 >[!WARNING]
-> Şu anda bu hizmetler **yoksa** çok hizmet anahtarlarını destekler: Soru-cevap Oluşturucu, konuşma Hizmetleri ve özel görüntü işleme.
+> Şu anda bu hizmetler **yoksa** çok hizmet anahtarlarını destekler: Soru-cevap Oluşturucu, konuşma Hizmetleri, özel görüntü işleme ve Anomali algılayıcısı.
 
 Sonraki bölümlerde, tek veya birden çok hizmet aboneliği oluşturmak adım adım açıklanmaktadır.
 

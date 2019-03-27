@@ -3,7 +3,7 @@ title: PowerShell kullanarak bir Azure sanal makinesinde Azure kaynakları için
 description: Adım adım yapılandırma yönergeleri kimliklerini Azure VM'de PowerShell kullanarak Azure kaynakları için yönetilen.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28f9c17e21db5a46ad01fd1b318c52a3a721f8b9
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: eb0eacd90c3b748920e5f43bf669a36df7a3f17c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226972"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446994"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>PowerShell kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlik Yapılandır
 

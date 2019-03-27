@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e6ea0be84cc36ca6fa6547d01054599e37229d7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0aac3e40089c67cd71a2c634280e333964e47902
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162943"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499990"
 ---
 # <a name="application-types-for-v20"></a>V2.0 için uygulama türleri
 
@@ -124,7 +124,7 @@ Kullanıcı oturum açtığında bu akışta uygulama v2.0 uç noktasından bir 
 
 Uzun süre çalışan işlemler sahip olan veya bir kullanıcı etkileşimi olmadan çalışan uygulamalar da Web API'leri gibi güvenli kaynaklara erişmek için bir yol gerekir. Bu uygulamalar, kimlik doğrulaması ve uygulamanın kimliğini kullanarak belirteçleri almak yerine bir kullanıcının kimliği OAuth 2.0 istemci kimlik bilgileri akışı ile temsilci. Uygulamanın kimliğini istemci parolası veya sertifika kullanarak kanıtlayabilirsiniz. Daha fazla bilgi için bkz. [sertifikaları ile arka plan programı uygulamalarında Azure AD'ye kimlik doğrulaması](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
 
-Bu akışta uygulama doğrudan etkileşime `/token` uç noktaları edinmek için uç nokta:
+Bu akışta uygulama doğrudan etkileşime `/token` erişim edinmek için uç nokta:
 
 ![Arka plan programı uygulama kimlik doğrulama akışı](./media/v2-app-types/convergence_scenarios_daemon.png)
 

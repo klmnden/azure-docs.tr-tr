@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 501555c68b7b5922bbf5a74d2a7ed5e548b900c5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8a2c149faa0ec9d135713a123a33d7c220522496
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57833546"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496012"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Konuşma hizmeti için özel konuşma hizmeti geçirme
 
@@ -48,7 +48,7 @@ Konuşma Hizmetleri portalında konuşma Hizmetleri için mevcut kaynak anahtarl
 > [!NOTE]
 > Kaynak anahtarları yalnızca aynı bölge içinde geçirilebilir.
 
-1. Oturum [cris.ai](https://www.cris.ai) Portalı ' nı seçip sağ üst menüdeki abonelikte.
+1. Oturum [cris.ai](https://cris.ai/Home/CustomSpeech) Portalı ' nı seçip sağ üst menüdeki abonelikte.
 
 2. Seçin **seçili abonelik geçişi**.
 

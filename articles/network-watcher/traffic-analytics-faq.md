@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 41b80e3914c93a4baeb39f35c7281f8fe81ff37c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fee22561bb0c341ed5c6e4dc49a8d7f8aa8efaf2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835325"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445194"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Trafik analizi hakkında sık sorulan sorular
 
@@ -163,7 +163,7 @@ Kaynak bilgileri Panoda gördüğünüz; Ancak, hiçbir akış ile ilgili istati
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>PowerShell kullanarak trafik analizi yapılandırabilir miyim veya Azure Resource Manager şablonu veya istemci?
 
-Trafik analizi sürümünden 6.2.1 başlayarak Windows PowerShell kullanarak yapılandırabilirsiniz. Akış günlüğe kaydetme ve trafik analizi için belirli bir NSG kümesi cmdlet'ini kullanarak yapılandırmak için bkz. [kümesi AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.3.0). İçin belirli bir NSG akış günlüğe kaydetme ve trafik analizi durumu almak için bkz. [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus?view=azurermps-6.3.0).
+Trafik analizi sürümünden 6.2.1 başlayarak Windows PowerShell kullanarak yapılandırabilirsiniz. Akış günlüğe kaydetme ve trafik analizi için belirli bir NSG kümesi cmdlet'ini kullanarak yapılandırmak için bkz. [kümesi AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog). İçin belirli bir NSG akış günlüğe kaydetme ve trafik analizi durumu almak için bkz. [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus).
 
 Şu anda, trafik analizi yapılandırmak için bir Azure Resource Manager şablonu kullanamazsınız.
 

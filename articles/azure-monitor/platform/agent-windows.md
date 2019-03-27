@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: f9df65d143fbb0eaf6276a0f38971e19c0741786
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: c7031e54c354392379fee83dbf2a777ba726c5e7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370967"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480068"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Azure İzleyici Windows bilgisayarları bağlama
 
@@ -138,7 +138,7 @@ Aracı paketi 32-bit ve 64-bit sürümleri farklı ürün kodları ve yayımlana
 2.  Azure Otomasyonu değişken varlıkları için oluşturma *OPSINSIGHTS_WS_ID* ve *OPSINSIGHTS_WS_KEY*. Ayarlama *OPSINSIGHTS_WS_ID* Log Analytics çalışma alanı kimliği ve kümesi *OPSINSIGHTS_WS_KEY* çalışma alanınızın birincil anahtarı.
 3.  Betiği kopyalayın ve MMAgent.ps1 kaydedin.
 
-    ```PowerShell
+    ```powershell
     Configuration MMAgent
     {
         $OIPackageLocalPath = "C:\Deploy\MMASetup-AMD64.exe"

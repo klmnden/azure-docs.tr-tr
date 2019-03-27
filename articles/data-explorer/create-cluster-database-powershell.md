@@ -8,12 +8,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: ec012f85c4b4e93e9be475781e9da79f686cbf9e
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 86fbf5801e9ff1c8bd9dead8be14aeeea1b58a29
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417726"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472489"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>PowerShell kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma
 
@@ -25,7 +25,7 @@ ms.locfileid: "58417726"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Azure Veri Gezgini uygulamalar, web siteleri, IoT cihazları ve daha fazlasından akışı yapılan büyük miktarda veri üzerinde gerçek zamanlı analiz yapmaya yönelik hızlı ve tam olarak yönetilen bir veri analizi hizmetidir. Azure veri gezginini kullanmak için ilk küme oluşturma ve bu kümede bir veya daha fazla veritabanı oluşturun. Ardından karşı sorgular çalıştırabileceği şekilde onlara bir veritabanına (yükle) veri alın. Bu hızlı başlangıçta, bir küme ve bir veritabanını Powershell kullanarak oluşturun. Windows, Linux üzerinde veya PowerShell cmdlet'leri ve betikleri çalıştırılabilir [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) ile birlikte [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) Azure Veri Gezgini kümeleri ve veritabanlarını oluşturma ve yapılandırma için.
+Azure Veri Gezgini uygulamalar, web siteleri, IoT cihazları ve daha fazlasından akışı yapılan büyük miktarda veri üzerinde gerçek zamanlı analiz yapmaya yönelik hızlı ve tam olarak yönetilen bir veri analizi hizmetidir. Azure veri gezginini kullanmak için ilk küme oluşturma ve bu kümede bir veya daha fazla veritabanı oluşturun. Ardından karşı sorgular çalıştırabileceği şekilde onlara bir veritabanına (yükle) veri alın. Bu hızlı başlangıçta, bir küme ve bir veritabanını Powershell kullanarak oluşturun. Windows, Linux üzerinde veya PowerShell cmdlet'leri ve betikleri çalıştırılabilir [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) ile [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) Azure Veri Gezgini kümeleri ve veritabanlarını oluşturma ve yapılandırma için.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -47,12 +47,12 @@ Komutları Azure Cloud Shell'de çalıştırıyorsanız, aşağıdaki adımları
     Connect-AzAccount
     ```
 
-2. Abonelik oluşturulacak kümenizi istediğiniz ayarlayın:
+1. Abonelik oluşturulacak kümenizi istediğiniz ayarlayın:
 
     ```azurepowershell-interactive
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
-3. Azure CLI'yi yerel olarak veya Azure Cloud Shell'i çalıştırırken, Cihazınızda Az.Kusto modül yüklemeniz gerekir:
+1. Azure CLI'yi yerel olarak veya Azure Cloud Shell'i çalıştırırken, Cihazınızda Az.Kusto modül yüklemeniz gerekir:
     
     ```azurepowershell-interactive
      Install-Module -Name Az.Kusto  
@@ -74,7 +74,7 @@ Komutları Azure Cloud Shell'de çalıştırıyorsanız, aşağıdaki adımları
 
     Küme kapasitesi gibi kullanabileceğiniz ek isteğe bağlı parametre yok.
 
-2. Kümenizi başarıyla oluşturulup oluşturulmadığını kontrol etmek için aşağıdaki komutu çalıştırın:
+1. Kümenizi başarıyla oluşturulup oluşturulmadığını kontrol etmek için aşağıdaki komutu çalıştırın:
 
     ```azurepowershell-interactive
     Get-AzKustoCluster -Name mykustocluster --ResourceGroupName testrg
@@ -98,7 +98,7 @@ Sonuç içeriyorsa `provisioningState` ile `Succeeded` değer sonra küme başar
    | SoftDeletePeriod | *3650:00:00:00* | Verileri sorgulamak kullanılabilen tutulacak süre miktarı. |
    | HotCachePeriod | *3650:00:00:00* | Veriler önbellekte tutulacak süre miktarı. |
 
-2. Oluşturduğunuz veritabanını görmek için aşağıdaki komutu çalıştırın:
+1. Oluşturduğunuz veritabanını görmek için aşağıdaki komutu çalıştırın:
 
     ```azurepowershell-interactive
     Get-AzKustoDatabase -ClusterName mykustocluster --ResourceGroupName testrg -Name mykustodatabase

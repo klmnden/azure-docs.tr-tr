@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 8faeb06987577d7e0098e3b5047cdde91b1254ae
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 55874d261ac453d559975f25b2272319cdc6a7db
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315240"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448000"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Yedekleme ve geri yükleme Azure SQL veri ambarı
 
@@ -44,7 +44,7 @@ order by run_id desc
 
 ## <a name="user-defined-restore-points"></a>Kullanıcı Tanımlı Geri Yükleme Noktaları
 
-Bu özellik, veri ambarınızın geri yükleme noktaları önce ve sonra büyük değişiklikler oluşturmak için el ile tetikleyici anlık görüntüleri sağlar. Bu özellik, herhangi bir iş yükünün kesintiye uğraması veya kullanıcı hata durumunda Hızlı Kurtarma zamanı ek veri koruma sağlayan, geri yükleme noktaları mantıksal olarak tutarlı olmasını sağlar. Kullanıcı tanımlı bir geri yükleme noktaları yedi gün boyunca kullanılabilir ve sizin adınıza otomatik olarak silinir. Kullanıcı tanımlı bir geri yükleme noktalarının saklama süresini değiştiremezsiniz. **Kullanıcı tanımlı 42 geri yükleme noktaları** olması gerekir böylece zaman içinde herhangi bir noktada garanti [silinmiş](https://go.microsoft.com/fwlink/?linkid=875299) başka oluşturmadan önce geri yükleme noktası. Kullanıcı tanımlı bir geri yükleme noktaları aracılığıyla oluşturmak için anlık görüntüleri tetikleyebilirsiniz [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) veya Azure portalında.
+Bu özellik, veri ambarınızın geri yükleme noktaları önce ve sonra büyük değişiklikler oluşturmak için el ile tetikleyici anlık görüntüleri sağlar. Bu özellik, herhangi bir iş yükünün kesintiye uğraması veya kullanıcı hata durumunda Hızlı Kurtarma zamanı ek veri koruma sağlayan, geri yükleme noktaları mantıksal olarak tutarlı olmasını sağlar. Kullanıcı tanımlı bir geri yükleme noktaları yedi gün boyunca kullanılabilir ve sizin adınıza otomatik olarak silinir. Kullanıcı tanımlı bir geri yükleme noktalarının saklama süresini değiştiremezsiniz. **Kullanıcı tanımlı 42 geri yükleme noktaları** olması gerekir böylece zaman içinde herhangi bir noktada garanti [silinmiş](https://go.microsoft.com/fwlink/?linkid=875299) başka oluşturmadan önce geri yükleme noktası. Kullanıcı tanımlı bir geri yükleme noktaları aracılığıyla oluşturmak için anlık görüntüleri tetikleyebilirsiniz [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint#examples) veya Azure portalında.
 
 > [!NOTE]
 > Geri yükleme noktaları 7 günden daha uzun süre gerekiyorsa, lütfen bu özellik için oy [burada](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Ayrıca, bir kullanıcı tanımlı bir geri yükleme noktası oluşturmak ve yeni bir veri ambarı yeni oluşturulan geri yükleme noktasından geri yükleme. Geri yükledikten sonra çevrimiçi veri ambarına sahip ve, duraklatma süresiz olarak bilgi işlem maliyetlerinden tasarruf için. Duraklatılmış veritabanı, Azure Premium depolama fiyattan depolama ücreti alınmaz. Geri yüklenen veri ambarı etkin bir kopyasına ihtiyacınız olursa, hangi yalnızca birkaç dakika sürer devam edebilir.

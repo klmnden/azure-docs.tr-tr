@@ -3,7 +3,7 @@ title: Azure Service Fabric uygulama güvenliği hakkında bilgi edinin | Micros
 description: Service Fabric'te mikro hizmet uygulamaları güvenli bir şekilde çalışmasına nasıl genel bakış. Farklı güvenlik hesapları altında Hizmetleri ve başlangıç komut dosyasını çalıştırın, kimlik doğrulaması ve kullanıcıları yetkilendirme, uygulama parolalarını yönetme, güvenli hizmet iletişimleri, bekleyen bir API ağ geçidi ve güvenli uygulama verileri kullanma hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: msfussell
 manager: timlt
 editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
-ms.author: ryanwi
-ms.openlocfilehash: 91e7fdd215d246156f601d3b5e6e05b7f8f71f59
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.author: mfussell
+ms.openlocfilehash: fd90bdba94a985a2a3529f605972217382b23b2a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116465"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498358"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric uygulaması ve hizmet güvenliği
 Bir mikro hizmet mimarisi getirebilirsiniz [birçok avantaj](service-fabric-overview-microservices.md). Mikro hizmetler, güvenliğini yönetme ancak sınama ve geleneksel tek parçalı uygulamalarla güvenliğini yönetme farklı olabilir. 

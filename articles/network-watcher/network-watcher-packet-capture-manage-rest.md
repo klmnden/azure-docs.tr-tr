@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 48688c58115a002508f9df0b242ea3e2d2d94719
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 49a703164b302443d8b50ba950cf23b8601cb599
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855444"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480711"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Paket yakalama işlemlerini Azure REST API'sini kullanarak Azure Ağ İzleyicisi ile yönetme
 
@@ -50,7 +50,7 @@ Bu senaryo, zaten uyguladığınız adımları varsayar [Ağ İzleyicisi oluştu
 
 ## <a name="log-in-with-armclient"></a>Oturum ARMClient oturum açın
 
-```PowerShell
+```powershell
 armclient login
 ```
 

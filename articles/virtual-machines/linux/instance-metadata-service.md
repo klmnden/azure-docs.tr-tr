@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: c38b21d860e25c0f31122e75d822257e14ca01db
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 7c5e979f399a487d29138b57d1fc4ee2c77622ff
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351975"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445482"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örnek meta veri hizmeti
 
@@ -105,11 +105,14 @@ API | Varsayılan veri biçimi | Diğer biçimler
 /scheduledevents | json | yok
 / TPM'de | json | yok
 
-Varsayılan olmayan yanıt biçimi erişmek için istenen biçimi istek sorgu dizesi parametresi olarak belirtin. Örneğin:
+Varsayılan olmayan yanıt biçimi erişmek için istenen biçimi isteğinde sorgu dizesi parametresi olarak belirtin. Örneğin:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
+
+> [!NOTE]
+> Yaprak düğümleri için `format=json` çalışmaz. Bu sorguları için `format=text` varsayılan biçimi json olup olmadığını açıkça belirtilmesi gerekir.
 
 ### <a name="security"></a>Güvenlik
 
@@ -123,8 +126,8 @@ Bir veri öğesi bulunamadı ya da hatalı biçimlendirilmiş isteği ise örnek
 HTTP durum kodu | Neden
 ----------------|-------
 200 TAMAM |
-400 Hatalı istek | Eksik `Metadata: true` üstbilgisi
-404 Bulunamadı | İstenen öğe yok 
+400 Hatalı istek | Eksik `Metadata: true` üst bilgi veya bir yaprak düğüm sorgulanırken biçimi eksik
+404 Bulunamadı | İstenen öğe yok
 405 Yönteme izin verilmiyor | Yalnızca `GET` ve `POST` istekleri desteklenir
 429 çok fazla istek | API şu anda en fazla saniye başına 5 sorguları destekler.
 500 Hizmeti hatası     | Bir süre sonra yeniden deneyin

@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 6afc9325cb2aababb286f653323531c9ebb04b4a
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: cfc9b44963f6880e97859bc7ab77bff12d258471
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438810"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500177"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Azure Search'te bir sorgu oluşturmak nasıl
 
@@ -76,7 +76,7 @@ Bir alan olup olmadığını bir alanda dizin özniteliklerini ayarlayın - izin
 Yukarıdaki ekran görüntüsünde, Emlak örneği için dizin özniteliklerini, kısmi bir listesidir. Portalda tüm dizin şemasını görüntüleyebilirsiniz. Dizin öznitelikleri hakkında daha fazla bilgi için bkz: [dizin REST API oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
-> Bazı sorgu işlevselliği, dizin genelinde yerine alan başına temelinde etkinleştirilir. Bu özellikler şunları içerir: [eş anlamlı eşler](search-synonyms.md), [özel çözümleyiciler](index-add-custom-analyzers.md), [öneri aracı yapıları (otomatik tamamlama için ve otomatik öneri)](index-add-suggesters.md), [mantığı Puanlama Sonuçları sıralama](index-add-scoring-profiles.md).
+> Bazı sorgu işlevselliği, dizin genelinde yerine alan başına temelinde etkinleştirilir. Bu özellikler şunları içerir: [eş anlamlı eşler](search-synonyms.md), [özel çözümleyiciler](index-add-custom-analyzers.md), [öneri aracı oluşturur (otomatik tamamlama ve önerilen sorgular)](index-add-suggesters.md), [mantıksal Puanlama Sonuçları sıralama için](index-add-scoring-profiles.md).
 
 ## <a name="elements-of-a-query-request"></a>Bir sorgu isteği öğeleri
 

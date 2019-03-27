@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2c317bbdef2511728d23b33d8eef1c4a41a87d97
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 4599498918b7a01a1207f20135c26924c6758eb8
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201526"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499434"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Azure Search'te eşzamanlılığı yönetme
 
@@ -170,7 +170,7 @@ Aşağıdaki kod, anahtar güncelleştirme işlemlerinde accessCondition denetle
 
 Uygulamak için bir tasarım deseni iyimser eşzamanlılık erişim koşulu yeniden deneme bir döngü içermelidir, test erişim koşulu için kontrol edin ve isteğe bağlı olarak, değişiklikleri yeniden uygulayın çalışmadan önce güncelleştirilmiş bir kaynak alır.
 
-Bu kod parçacığı bir synonymMap zaten bir dizine eklenmesi gösterilmektedir. Bu kod dandır [eş anlamlı (Önizleme) C# Azure Search örneğin](https://docs.microsoft.com/azure/search/search-synonyms-example-sdk).
+Bu kod parçacığı bir synonymMap zaten bir dizine eklenmesi gösterilmektedir. Bu kod dandır [eş anlamlı (Önizleme) C# Azure Search örneğin](search-synonyms-tutorial-sdk.md).
 
 Kod parçacığı, "hotels" dizinini alır, bir güncelleştirme işlemi nesne sürümünde denetler, koşul başarısız olursa, bir özel durum oluşturur ve en son sürümünü almak için sunucu dizini alma başlayarak bu işlemi (en fazla üç kez), deneme.
 

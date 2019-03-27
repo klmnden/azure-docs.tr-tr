@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8502ab3257bc1d121e0440ba765dfd19a6722cec
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3be702d1f75b0a96e22ea03602c924be580b0968
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311977"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499259"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD parola korumasını dağıtma
 
@@ -36,7 +36,7 @@ Denetim aşamasında pek çok kuruluş bulmak:
 
 ## <a name="deployment-requirements"></a>Dağıtım gereksinimleri
 
-* DC Aracı hizmeti Azure AD parola koruması yüklü Windows Server 2012 çalıştırmanız gerekir veya sonraki bir sürümü Al tüm etki alanı denetleyicileri.
+* DC Aracı hizmeti Azure AD parola koruması yüklü Windows Server 2012 çalıştırmanız gerekir veya sonraki bir sürümü Al tüm etki alanı denetleyicileri. Bu gereksinim Active Directory etki alanı veya orman Windows Server 2012 etki alanı veya orman işlev düzeyinde de olmalıdır göstermez. Belirtildiği gibi [tasarım ilkeleri](concept-password-ban-bad-on-premises.md#design-principles), en düşük DFL veya çalıştırmak her iki DC aracı veya ara yazılım için gerekli FFL yoktur.
 * Proxy hizmet için Azure AD parola koruması yüklü Windows Server 2012 R2 çalıştırmalıdır veya sonraki bir sürümü alın, tüm makineler.
 * Azure AD parola koruması Proxy hizmeti yüklü olduğu tüm makineler .NET 4.7 yüklü olması gerekir.
   .NET 4.7 zaten tamamen güncelleştirilmiş bir Windows sunucusuna yüklenmesi gerekir. Durum bu değilse, indirmek ve bulunan yükleyiciyi çalıştırın [Windows için .NET Framework 4.7 çevrimdışı yükleyici](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
@@ -85,7 +85,7 @@ Azure AD parola koruması için gerekli iki yükleyiciler vardır. Kullanılabil
 1. Yönetici olarak bir PowerShell penceresi açın.
    * Parola koruması ara yazılım içeren yeni bir PowerShell Modülü *AzureADPasswordProtection*. Aşağıdaki adımlar, bu PowerShell modülünden çeşitli cmdlet'lerini çalıştırın. Yeni modül gibi içeri aktarın:
 
-      ```PowerShell
+      ```powershell
       Import-Module AzureADPasswordProtection
       ```
 
@@ -106,7 +106,7 @@ Azure AD parola koruması için gerekli iki yükleyiciler vardır. Kullanılabil
 
      * Etkileşimli kimlik doğrulaması modu:
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
         > [!NOTE]
@@ -114,7 +114,7 @@ Azure AD parola koruması için gerekli iki yükleyiciler vardır. Kullanılabil
 
      * Cihaz kodu kimlik doğrulama modu:
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
         ```
@@ -123,7 +123,7 @@ Azure AD parola koruması için gerekli iki yükleyiciler vardır. Kullanılabil
 
      * Sessiz (parola tabanlı) kimlik doğrulama modu:
 
-        ```PowerShell
+        ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionProxy -AzureCredential $globalAdminCredentials
         ```
@@ -146,7 +146,7 @@ Azure AD parola koruması için gerekli iki yükleyiciler vardır. Kullanılabil
 
      * Etkileşimli kimlik doğrulaması modu:
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
         > [!NOTE]
@@ -154,7 +154,7 @@ Azure AD parola koruması için gerekli iki yükleyiciler vardır. Kullanılabil
 
      * Cihaz kodu kimlik doğrulama modu:
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
         ```
@@ -162,7 +162,7 @@ Azure AD parola koruması için gerekli iki yükleyiciler vardır. Kullanılabil
         Ardından farklı bir cihazda görüntülenen yönergeleri izleyerek kimlik doğrulaması tamamlayın.
 
      * Sessiz (parola tabanlı) kimlik doğrulama modu:
-        ```PowerShell
+        ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
         ```
@@ -221,7 +221,7 @@ Azure AD parola koruması için gerekli iki yükleyiciler vardır. Kullanılabil
 1. İsteğe bağlı: Belirli bir bağlantı noktasında dinleyecek biçimde parola koruması için proxy hizmeti yapılandırın.
    * Etki alanı denetleyicilerinde parola koruması DC Aracısı yazılımı proxy'si hizmeti ile iletişim kurmak için TCP üzerinden RPC kullanır. Varsayılan olarak, tüm kullanılabilir dinamik RPC uç nokta üzerinde proxy hizmeti dinler. Ancak, ağ topolojisi veya ortamınızda güvenlik duvarı gereksinimleri nedeniyle gerekli olması durumunda belirli bir TCP bağlantı noktasında dinleyecek şekilde hizmeti yapılandırabilirsiniz.
       * <a id="static" /></a>Hizmetini, statik bir bağlantı noktası altında çalışacak şekilde yapılandırmak için kullanın `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet'i.
-         ```PowerShell
+         ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
          ```
 
@@ -229,7 +229,7 @@ Azure AD parola koruması için gerekli iki yükleyiciler vardır. Kullanılabil
          > Durdur ve bu değişikliklerin devreye girmesi hizmeti yeniden başlatmanız gerekir.
 
       * Hizmetini, dinamik bir bağlantı noktası altında çalışacak şekilde yapılandırmak için aynı yordamı kullanın ancak ayarlanmış *StaticPort* sıfır geri dön:
-         ```PowerShell
+         ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
          ```
 
@@ -241,7 +241,7 @@ Azure AD parola koruması için gerekli iki yükleyiciler vardır. Kullanılabil
 
    * Hizmetin geçerli yapılandırmasını sorgulamak için aşağıdaki komutu kullanın `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet:
 
-      ```PowerShell
+      ```powershell
       Get-AzureADPasswordProtectionProxyConfiguration | fl
 
       ServiceName : AzureADPasswordProtectionProxy

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.subservice: ''
-ms.openlocfilehash: 12c0ee08435ca4b3077bc3a8c28b217ebaf70e08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f47e9fd8842f9884ced290385e5f647fac57bc13
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993331"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484991"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure REST API izleme Kılavuzu
 
@@ -31,7 +31,7 @@ Azure İzleyici API program aracılığıyla kullanılabilir varsayılan ölçü
 
 Azure İzleyici API'sine karşı yürütülen tüm görevler, Azure Resource Manager kimlik doğrulama modeli kullanın. Bu nedenle, tüm istekleri Azure Active Directory (Azure AD) ile kimlik doğrulaması gerekir. İstemci uygulaması kimlik doğrulaması için bir yaklaşım, Azure AD hizmet sorumlusu oluşturma ve (JWT) kimlik doğrulama belirtecini alma oluşturmaktır. Aşağıdaki örnek betik, Azure AD hizmet sorumlusu PowerShell aracılığıyla oluşturma gösterilmektedir. Daha ayrıntılı bir Rehber için belgelerine başvurun [kaynaklara erişmek için bir hizmet sorumlusu oluşturmak için Azure PowerShell kullanarak](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Ayrıca filtrelenebilir [Azure portal aracılığıyla hizmet sorumlusu oluşturma](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-```PowerShell
+```powershell
 $subscriptionId = "{azure-subscription-id}"
 $resourceGroupName = "{resource-group-name}"
 
@@ -60,7 +60,7 @@ New-AzRoleAssignment -RoleDefinitionName Reader `
 
 Azure İzleyici API sorgulamak için istemci uygulaması daha önce oluşturulan hizmet sorumlusuyla kimlik doğrulaması yapmak için kullanmanız gerekir. Aşağıdaki örnek PowerShell Betiği bir gösterir kullanarak yaklaşımını [Active Directory Authentication Library](../../active-directory/develop/active-directory-authentication-libraries.md) JWT kimlik doğrulama belirteci almak için (ADAL). JWT belirteci varsayılan olarak, Azure İzleyici REST API için bir HTTP yetkilendirme parametresi isteklerinde bir parçası olarak geçirilir.
 
-```PowerShell
+```powershell
 $azureAdApplication = Get-AzADApplication -IdentifierUri "https://localhost/azure-monitor"
 
 $subscription = Get-AzSubscription -SubscriptionId $subscriptionId
@@ -102,7 +102,7 @@ Kullanım [Azure İzleyici ölçüm tanımlarını REST API](https://docs.micros
 
 Örneğin, bir Azure depolama hesabı için ölçüm tanımları almak için isteği şu şekilde görünür:
 
-```PowerShell
+```powershell
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01"
 
 Invoke-RestMethod -Uri $request `
@@ -246,7 +246,7 @@ Kullanılabilir ölçüm tanımlarını bilinen sonra boyutlara sahip bazı öl�
 
 Örneğin, 'İşlemleri' ölçümü için 'API adı boyutu' için nereden yayılan boyut değerlerinin listesini almak için GeoType boyut 'Birincil' = belirtilen zaman aralığı içinde İstek şu şekilde olacaktır:
 
-```PowerShell
+```powershell
 $filter = "APIName eq '*' and GeoType eq 'Primary'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T00:00:00Z/2018-03-02T00:00:00Z&resultType=metadata&`$filter=${filter}&api-version=2018-01-01"
 Invoke-RestMethod -Uri $request `
@@ -319,7 +319,7 @@ Kullanılabilir ölçüm tanımlarını ve olası boyut değerleri bilinen sonra
 
 Örneğin, ilk 3 almak için API'leri, azalan sırada bir 5 dakika aralık sırasında 'işlemleri' sayısına göre GeotType 'Birincil' olduğu değerini isteği şu şekilde olacaktır:
 
-```PowerShell
+```powershell
 $filter = "APIName eq '*' and GeoType eq 'Primary'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T02:00:00Z/2018-03-01T02:05:00Z&`$filter=${filter}&interval=PT1M&aggregation=Total&top=3&orderby=Total desc&api-version=2018-01-01"
 Invoke-RestMethod -Uri $request `
@@ -398,7 +398,7 @@ Kullanım [Azure İzleyici ölçüm tanımlarını REST API](https://msdn.micros
 
 Örneğin, bir Azure mantıksal uygulaması için ölçüm tanımları almak için isteği şu şekilde görünür:
 
-```PowerShell
+```powershell
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01"
 
 Invoke-RestMethod -Uri $request `
@@ -471,7 +471,7 @@ Kullanılabilir ölçüm tanımlarını bilinen sonra ardından ilgili ölçüm 
 
 Örneğin, 1 saatlik bir zaman dilimi ve belirtilen zaman aralığı için RunsSucceeded ölçüm veri noktalarını almaya yönelik istek şu şekilde olacaktır:
 
-```PowerShell
+```powershell
 $filter = "(name.value eq 'RunsSucceeded') and aggregationType eq 'Total' and startTime eq 2017-08-18T19:00:00 and endTime eq 2017-08-18T23:00:00 and timeGrain eq duration'PT1H'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metrics?`$filter=${filter}&api-version=2016-09-01"
 Invoke-RestMethod -Uri $request `
@@ -519,7 +519,7 @@ Sonuçta elde edilen JSON yanıt gövdesine aşağıdaki örneğe benzer olacakt
 
 Birden çok veri veya toplama noktalarını almak için ölçüm tanımı adlarını ve toplama türlerini filtresi için aşağıdaki örnekte görüldüğü gibi ekleyin:
 
-```PowerShell
+```powershell
 $filter = "(name.value eq 'ActionsCompleted' or name.value eq 'RunsSucceeded') and (aggregationType eq 'Total' or aggregationType eq 'Average') and startTime eq 2017-08-18T21:00:00 and endTime eq 2017-08-18T21:30:00 and timeGrain eq duration'PT1M'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metrics?`$filter=${filter}&api-version=2016-09-01"
 Invoke-RestMethod -Uri $request `
@@ -631,7 +631,7 @@ Kaynak Kimliği, Azure portalından da alınabilir. Bunu yapmak için istenen ka
 
 Kaynak Kimliği, Azure PowerShell cmdlet'leri kullanılarak alınabilir. Örneğin, bir Azure mantıksal uygulaması için kaynak Kimliğini almak için aşağıdaki örnekte olduğu gibi Get-AzureLogicApp cmdlet'ini yürütün:
 
-```PowerShell
+```powershell
 Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
 ```
 
@@ -710,7 +710,7 @@ Sonuç, aşağıdaki örneğe benzer olmalıdır:
 
 Ölçüm tanımlarını ve ilgili değerleri yanı sıra, ayrıca Azure kaynaklarla ilgili ek ilgi çekici bilgiler almak için Azure İzleyici REST API'sini kullanmak mümkündür. Örneğin, sorgu için olası [etkinlik günlüğü](https://msdn.microsoft.com/library/azure/dn931934.aspx) veri. Aşağıdaki örnek, bir Azure aboneliği için belirli bir tarih aralığı içinde sorgu etkinlik günlüğü verileri için Azure İzleyici REST API kullanarak göstermektedir:
 
-```PowerShell
+```powershell
 $apiVersion = "2015-04-01"
 $filter = "eventTimestamp ge '2017-08-18' and eventTimestamp le '2017-08-19'and eventChannels eq 'Admin, Operation'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/microsoft.insights/eventtypes/management/values?api-version=${apiVersion}&`$filter=${filter}"

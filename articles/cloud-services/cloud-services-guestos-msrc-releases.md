@@ -11,21 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/14/2019
+ms.date: 3/26/2019
 ms.author: raiye
-ms.openlocfilehash: ec50cff2a2d3323b988632fd7ee96b73f60117b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 42c241ce6b14eac2f76785b7b16b537d3e88bd8d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887298"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500619"
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirmelerin Microsoft Güvenlik Yanıt Merkezi (MSRC) gösterilmektedir. Belirli bir güncelleştirmenin Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeler her zaman taşıyan İleri için belirli [ailesi] [ family-explain] sürümünde yapılan.
-
->[!NOTE]
->Mart konuk işletim sistemi, şu anda, otomatik güncelleştirmeler için yapılandırılmış olan bir bulut hizmeti vm'lerine da sunulacaktır. Piyasaya çıkış tamamlandığında, bu sürümü ile Azure portal ve yapılandırma dosyalarını el ile güncelleştirmeleri kullanılabilir hale getirilir. Aşağıdaki düzeltme ekleri, Mart işletim sisteminde dahil edilir. Bu liste değiştirilebilir ' dir.
-
 
 ## <a name="march-2019-guest-os"></a>Mart 2019 konuk işletim sistemi
 

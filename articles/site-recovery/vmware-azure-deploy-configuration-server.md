@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
-ms.openlocfilehash: ef0e29217e03b3c5d1b2880a6ce755c6cc02ceba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fb558644f29cd7b84156f976f525a88080f101dc
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004444"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449222"
 ---
 # <a name="deploy-a-configuration-server"></a>Yapılandırma sunucusunu dağıtma
 
@@ -184,7 +184,7 @@ Devam eden çoğaltma kesintileri önlemek için yapılandırma sunucusunu bir k
     İçinde **kurtarma Hizmetleri kasası**, **yönetme** > **Site Recovery altyapısı** > **yapılandırmasunucusu**. Sunucularda seçin **indirme kayıt anahtarı** kasa kimlik bilgileri dosyası indirilemedi.
 10. Var olan bir yapılandırma sunucusu kopyalayın ve miyim çoğaltma düzenleme işlemi için kullanılmakta?
 
-    **Hayır**, klonlanmış bir yapılandırma sunucusu bileşeni kullanımı desteklenmiyor.
+    **Hayır**, klonlanmış bir yapılandırma sunucusu bileşeni kullanımı desteklenmiyor. Genişleme işlem sunucusu bir kopyasını da desteklenmeyen bir senaryodur. Site Recovery kopyalama bileşenleri Süren çoğaltmaları etkiler.
 
 11. Yapılandırma sunucusu IP'si değiştirebilirim?
 

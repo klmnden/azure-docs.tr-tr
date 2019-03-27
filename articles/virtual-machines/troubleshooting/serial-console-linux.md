@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 4fd96aedc658833493d6fddb704104a70c01df44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f407d87249c44ad3a4773b2cd8fc85ee09506ceb
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010984"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445649"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Linux için sanal makine seri Konsolu
 
@@ -41,9 +41,9 @@ Windows Vm'leri için seri konsol belgeleri için bkz [Windows için sanal makin
 
 - Seri konsol kullanan bir hesabınızın olması gerekir [sanal makine Katılımcısı rolü](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) VM için ve [önyükleme tanılaması](boot-diagnostics.md) depolama hesabı:
 
-    - Sanal Makinenin seri konsol eriştiğiniz parola tabanlı bir hesabı olması gerekir. İle bir tane oluşturabilirsiniz [parolayı Sıfırla](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) işlevi VM erişimi uzantısı. Seçin **parolayı Sıfırla** gelen **destek + sorun giderme** bölümü.
+- Sanal Makinenin seri konsol eriştiğiniz parola tabanlı bir hesabı olması gerekir. İle bir tane oluşturabilirsiniz [parolayı Sıfırla](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) işlevi VM erişimi uzantısı. Seçin **parolayı Sıfırla** gelen **destek + sorun giderme** bölümü.
 
-    - Linux dağıtımları için özel ayarları için bkz: [seri konsol Linux dağıtım kullanılabilirlik](#serial-console-linux-distribution-availability).
+- Linux dağıtımları için özel ayarları için bkz: [seri konsol Linux dağıtım kullanılabilirlik](#serial-console-linux-distribution-availability).
 
 
 
@@ -85,12 +85,11 @@ Oracle Linux        | Seri konsol erişimi varsayılan olarak etkindir.
 
 Senaryo          | Seri konsol eylemleri
 :------------------|:-----------------------------------------
-Bozuk *FSTAB* dosyası | Tuşuna **Enter** devam etmek ve gidermek için bir metin düzenleyicisi kullanın. anahtar *FSTAB* dosya. Bunu yapmak için tek kullanıcı modunda olması gerekebilir. Daha fazla bilgi için [fstab sorunlarını gidermeye yönelik](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) ve [GRUB ve tek kullanıcı modunda erişmek için kullanım seri konsol](serial-console-grub-single-user-mode.md).
-Yanlış güvenlik duvarı kuralları | Seri konsola erişin, iptables düzeltin.
-Dosya Sistemi Bozulması/işaretleyin | Seri konsol erişmek ve dosya sistemi kurtarın.
-SSH/RDP yapılandırma sorunları | Seri konsola erişin, ayarları değiştirin.
-Sistem ağ kilitleme| Seri konsol sistemini yönetmek için Azure portalından erişim.
-Önyükleme yükleyicisi ile etkileşim kurma | GRUB Linux vm'nize erişmesine, VM'den seri konsol Dikey içinde yeniden başlatın. Daha fazla bilgi için [GRUB ve tek kullanıcı modunda erişmek için kullanım seri konsol](serial-console-grub-single-user-mode.md).
+Bozuk *FSTAB* dosyası | Tuşuna **Enter** devam etmek ve gidermek için bir metin düzenleyicisi kullanın. anahtar *FSTAB* dosya. Bunu yapmak için tek kullanıcı modunda olması gerekebilir. Daha fazla bilgi için seri konsol bölümüne bakın. [fstab sorunlarını gidermeye yönelik](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) ve [GRUB ve tek kullanıcı modunda erişmek için kullanım seri konsol](serial-console-grub-single-user-mode.md).
+Yanlış güvenlik duvarı kuralları |  İptables SSH bağlantısı engelleyecek şekilde yapılandırdıysanız, seri konsol ile sanal makinenize SSH gerek kalmadan etkileşim kurmak için kullanabilirsiniz. Daha fazla ayrıntı şu adreste bulunabilir: [iptables adam sayfa](https://linux.die.net/man/8/iptables). Benzer şekilde, siz firewalld SSH erişimi engelliyorsa, sanal Makinenin seri konsol üzerinden erişmek ve firewalld yeniden yapılandırın. Daha fazla ayrıntı bulunabilir [firewalld belgeleri](https://firewalld.org/documentation/).
+Dosya Sistemi Bozulması/işaretleyin | Lütfen seri konsol bölümüne bakın [Azure Linux VM, dosya sistem hataları nedeniyle başlatılamıyor](https://support.microsoft.com/en-us/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) daha fazla bilgi için sorun giderme ayrıntıları seri konsol kullanarak dosya sistemleri bozuk.
+SSH yapılandırma sorunları | Seri konsola erişin, ayarları değiştirin. Seri konsol bağımsız olarak sanal makinenin SSH yapılandırması kullanılabilir VM çalışacak şekilde ağ bağlantısının olmasını gerektirmez. Sorun giderme kılavuzu kullanılabilir [sorun giderme SSH bağlantıları için bir Azure Linux VM, hataları, başarısız veya reddedildi](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection). Daha fazla ayrıntı bulabilirsiniz [ayrıntılı sorun giderme adımları için azure'da bir Linux VM'ye bağlanma sorunu SSH](./detailed-troubleshoot-ssh-connection.md)
+Önyükleme yükleyicisi ile etkileşim kurma | GRUB Linux vm'nize erişmesine, VM'den seri konsol Dikey içinde yeniden başlatın. Daha fazla ayrıntı ve distro özgü bilgiler için bkz. [GRUB ve tek kullanıcı modunda erişmek için kullanım seri konsol](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Seri konsol devre dışı bırak
 Varsayılan olarak, seri konsol erişimi tüm VM'ler için Etkin Abonelikler var. Seri konsol abonelik düzeyinde veya VM düzeyinde devre dışı bırakabilirsiniz.

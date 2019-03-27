@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: iainfou
-ms.openlocfilehash: 691decb88188a428edfeab1ea9e99c48876b6d9f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7476747de31819907cf144e5a6b33cb29e1f866f
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110227"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496183"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Depolama ve yedekleme Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -91,9 +91,9 @@ Depolama sınıfı seçenekleri hakkında daha fazla bilgi için bkz. [depolamay
 
 ## <a name="secure-and-back-up-your-data"></a>Güvenli ve verilerinizi yedekleme
 
-**En iyi uygulama kılavuzunu** - geri Heptio Ark veya Azure Site Recovery gibi depolama türü için uygun bir araç kullanarak verilerinizi. Bütünlük ve güvenliğini, bu yedekleri doğrulayın.
+**En iyi uygulama kılavuzunu** - geri Velero veya Azure Site Recovery gibi depolama türü için uygun bir araç kullanarak verilerinizi. Bütünlük ve güvenliğini, bu yedekleri doğrulayın.
 
-Uygulamalarınızı depolamak ve kullanmak veri diskleri veya dosyaları kalıcı, düzenli yedeklemeler veya verilerin anlık görüntüsünü almak gerekir. Azure diskleri yerleşik anlık görüntü teknolojileri kullanabilirsiniz. Anlık görüntü işlemi gerçekleştirmeden önce diske temizleme Yazar uygulamalarınız için bir kancasını gerekebilir. [Heptio Ark] [ heptio-ark] ek küme kaynaklarını ve yapılandırmalarıyla birlikte kalıcı birimler yedekleyebilirsiniz. Çalıştıramıyorsanız [durumu uygulamasını kaldırmak][remove-state]kalıcı birimlerdeki verileri yedeklemek ve geri yükleme işlemleri, veri bütünlüğü ve gerekli işlemleri doğrulamak için düzenli olarak test edin.
+Uygulamalarınızı depolamak ve kullanmak veri diskleri veya dosyaları kalıcı, düzenli yedeklemeler veya verilerin anlık görüntüsünü almak gerekir. Azure diskleri yerleşik anlık görüntü teknolojileri kullanabilirsiniz. Anlık görüntü işlemi gerçekleştirmeden önce diske temizleme Yazar uygulamalarınız için bir kancasını gerekebilir. [Velero] [ velero] ek küme kaynaklarını ve yapılandırmalarıyla birlikte kalıcı birimler yedekleyebilirsiniz. Çalıştıramıyorsanız [durumu uygulamasını kaldırmak][remove-state]kalıcı birimlerdeki verileri yedeklemek ve geri yükleme işlemleri, veri bütünlüğü ve gerekli işlemleri doğrulamak için düzenli olarak test edin.
 
 Veri yedekleri ve anlık görüntü önce verilerinizi Sessiz mod için gerekiyorsa farklı yaklaşımların kısıtlamaları anlayın. Veri yedekleri, uygulama ortamınız Küme dağıtımı geri mutlaka izin vermeyin. Bu senaryolar hakkında daha fazla bilgi için bkz. [aks'deki iş sürekliliği ve olağanüstü durum kurtarma için en iyi yöntemler][best-practices-multi-region].
 
@@ -102,7 +102,7 @@ Veri yedekleri ve anlık görüntü önce verilerinizi Sessiz mod için gerekiyo
 Bu makalede aks'deki en iyi depolamaya odaklı. Kubernetes'te depolama temelleri hakkında daha fazla bilgi için bkz. [AKS uygulamalar için depolama kavramları][aks-concepts-storage].
 
 <!-- LINKS - External -->
-[heptio-ark]: https://github.com/heptio/ark
+[velero]: https://github.com/heptio/velero
 [dysk]: https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/dysk
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/12/2017
+ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53c14ce92a422c2254a1e9b7fc4989b49790a88a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774447"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487326"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect eşitleme: Filtrelemeyi yapılandırma
 Filtreleme kullanarak, hangi nesnelerin Azure Active Directory (Azure AD) görüneceğini şirket içi dizininizden denetleyebilirsiniz. Varsayılan yapılandırma, yapılandırılmış Ormanlardaki etki alanlarındaki tüm nesneleri alır. Genel olarak, bu önerilen yapılandırmadır. E-posta gönderin ve herkesin çağırmak için eksiksiz bir genel adres listesi gibi Exchange Online ve Skype Kurumsal, Office 365 iş yükleri kullanarak kullanıcıların yararlanır. Varsayılan yapılandırma ile bir şirket içi Exchange veya Lync uygulamasıyla sahip olabileceği aynı deneyimi sahip.
@@ -99,6 +99,12 @@ Etki alanı tabanlı filtreleme yapılandırması aşağıdaki adımlardan oluş
 3. [Değişiklikleri uygulama ve doğrulama](#apply-and-verify-changes).
 
 ### <a name="select-the-domains-to-be-synchronized"></a>Eşitlenmesi gereken etki alanları seçin
+Eşitlenecek etki alanlarını seçmek için iki yolu vardır:
+    - Eşitleme Hizmeti'ni kullanma
+    - Azure AD Connect Sihirbazı'nı kullanarak.
+
+
+#### <a name="select-the-domains-to-be-synchronized-using-the-synchronization-service"></a>Eşitleme hizmeti kullanılarak eşitlenmesi için etki alanı seçin
 Etki alanı filtre ayarlamak için aşağıdaki adımları uygulayın:
 
 1. Azure AD Connect eşitleme üyesi olan bir hesap kullanarak çalıştıran sunucuya oturum **ADSyncAdmins** güvenlik grubu.
@@ -112,6 +118,17 @@ Etki alanı filtre ayarlamak için aşağıdaki adımları uygulayın:
    ![Yenileme gerekiyor](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. İşiniz bittiğinde kapatın **özellikleri** tıklayarak iletişim **Tamam**. Ormandan etki alanları kaldırılırsa, bir etki alanı kaldırıldı ve bu yapılandırma Temizlenen bir açılır ileti diyor.
 7. Çalıştırma profilleri ayarlamaya devam edin.
+
+#### <a name="select-the-domains-to-be-synchronized-using-the-azure-ad-connect-wizard"></a>Azure AD Connect Sihirbazı'nı kullanarak eşitlenmesi için etki alanı seçin
+Etki alanı filtre ayarlamak için aşağıdaki adımları uygulayın:
+
+1.  Azure AD Connect Sihirbazı'nı başlatın
+2.  **Yapılandır**'a tıklayın.
+3.  Seçin **eşitleme seçeneklerini özelleştirme** tıklatıp **sonraki**.
+4.  Azure AD kimlik bilgilerinizi girin
+5.  Üzerinde **bağlı dizinleri** ekran tıklatın **sonraki**.
+6.  Üzerinde **etki alanı ve OU filtreleme sayfası** tıklayın **Yenile**.  Artık, yeni etki alanları olgu görüntülenir ve silinen etki alanları görünmez.
+   ![Bölümler](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>Çalıştırma profillerini güncelleştirin
 Etki alanı filtrenizle güncelleştirdiyseniz, ayrıca çalıştırma profillerini güncelleştirmeniz gerekir.

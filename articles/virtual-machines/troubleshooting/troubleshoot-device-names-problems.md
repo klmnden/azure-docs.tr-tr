@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: bb33427712533e669ecf41f48474c02313e2a411
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: d636d5f31e78828a518882091af29b25f7219304
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568915"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443983"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Linux VM cihaz adı değişikliklerle ilgili sorunları giderme
 
@@ -36,15 +36,17 @@ Linux Vm'leri, Microsoft Azure'da çalıştırırken aşağıdaki sorunlarla kar
 
 Linux yollarında cihaz yeniden başlatmaları arasında tutarlı olması garanti değildir. Cihaz adları (harf) büyük sayılar ve küçük sayı oluşur. Linux depolama cihazı sürücüsünün yeni bir cihaz algıladığında, sürücü cihaza büyük ve küçük sayı kullanılabilir aralıktan atar. Bir cihaz kaldırıldığında, cihaz sayıları için yeniden kullanılması kurtulurlar.
 
-Zaman uyumsuz olarak gerçekleştirilecek zamanlanmış tarama Linux'ta cihaz SCSI alt sistemi tarafından olduğundan sorun oluşur. Sonuç olarak, bir cihaz yolu adı yeniden başlatmaları arasında farklılık gösterebilir. 
+Zaman uyumsuz olarak gerçekleştirilecek zamanlanmış tarama Linux'ta cihaz SCSI alt sistemi tarafından olduğundan sorun oluşur. Sonuç olarak, bir cihaz yolu adı yeniden başlatmaları arasında farklılık gösterebilir.
 
 ## <a name="solution"></a>Çözüm
 
-Bu sorunu çözmek için kalıcı adlandırma kullanın. Kalıcı adlandırma kullanmak için dört yolu vardır: dosya sistemi etiketine göre UUID, Kimliğine göre veya yolu. Azure Linux Vm'leri için dosya sistemi etiket veya UUID kullanmanızı öneririz. 
+Bu sorunu çözmek için kalıcı adlandırma kullanın. Kalıcı adlandırma kullanmak için dört yolu vardır: dosya sistemi etiketine göre UUID, Kimliğine göre veya yolu. Azure Linux Vm'leri için dosya sistemi etiket veya UUID kullanmanızı öneririz.
 
-Çoğu dağıtımlar sağlamak `fstab` **nofail** veya **nobootwait** parametreleri. Bu parametreleri başlangıçta bağlanacak bir disk başarısız olduğunda önyükleme için bir sisteme olanak tanır. Bu parametreler hakkında daha fazla bilgi için dağıtım belgelerinize bakın. Bir veri diski eklediğinizde bir UUID'ye kullanmak üzere bir Linux VM yapılandırma hakkında daha fazla bilgi için bkz: [yeni disk bağlanacak Linux VM'ye bağlanma](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk). 
+Çoğu dağıtımlar sağlamak `fstab` **nofail** veya **nobootwait** parametreleri. Bu parametreleri başlangıçta bağlanacak bir disk başarısız olduğunda önyükleme için bir sisteme olanak tanır. Bu parametreler hakkında daha fazla bilgi için dağıtım belgelerinize bakın. Bir veri diski eklediğinizde bir UUID'ye kullanmak üzere bir Linux VM yapılandırma hakkında daha fazla bilgi için bkz: [yeni disk bağlanacak Linux VM'ye bağlanma](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 Bir VM'de Azure Linux Aracısı yüklendiğinde, aracı Udev kuralları /dev/disk/azure yolunda simgesel bağlantılar gibi bir dizi oluşturmak için kullanır. Uygulamalar ve betiklerde Udev kuralları disk türü ile birlikte bir VM'ye bağlı diskler ve diskin LUN'ları tanımlamak için kullanın.
+
+VM'niz değil önyükleme ve sanal Makinenize SSH oluşturulamıyor şekilde, fstab düzenlediyseniz, kullanabileceğiniz [VM seri konsol](./serial-console-linux.md) girmek için [tek kullanıcı modunda](./serial-console-grub-single-user-mode.md) ve, fstab değiştirin.
 
 ### <a name="identify-disk-luns"></a>Diskin LUN'ları tanımlama
 
@@ -83,29 +85,29 @@ Konuk LUN bilgileri Azure aboneliği meta verilerini Azure Depolama'da bölüm v
 
     $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks
     [
-      {
-        "caching": "None",
-          "createOption": "empty",
-        "diskSizeGb": 1023,
-          "image": null,
-        "lun": 0,
-        "managedDisk": null,
-        "name": "testVM-20170619-114353",
-        "vhd": {
-          "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
-        }
-      },
-      {
-        "caching": "None",
-        "createOption": "empty",
-        "diskSizeGb": 512,
-        "image": null,
-        "lun": 1,
-        "managedDisk": null,
-        "name": "testVM-20170619-121516",
-        "vhd": {
-          "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
-        }
+    {
+    "caching": "None",
+      "createOption": "empty",
+    "diskSizeGb": 1023,
+      "image": null,
+    "lun": 0,
+    "managedDisk": null,
+    "name": "testVM-20170619-114353",
+    "vhd": {
+      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
+    }
+    },
+    {
+    "caching": "None",
+    "createOption": "empty",
+    "diskSizeGb": 512,
+    "image": null,
+    "lun": 1,
+    "managedDisk": null,
+    "name": "testVM-20170619-121516",
+    "vhd": {
+      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
+      }
       }
     ]
 
@@ -138,7 +140,7 @@ Herhangi bir ek bölümlerden `blkid` listesinde bulunan bir veri diski üzerind
 
     lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
 
-    
+
 ### <a name="get-the-latest-azure-storage-rules"></a>En son Azure depolama kurallarını Al
 
 En son Azure depolama kuralları almak için aşağıdaki komutları çalıştırın:

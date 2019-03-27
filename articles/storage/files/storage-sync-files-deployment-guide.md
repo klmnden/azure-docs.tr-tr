@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: f871174982e965a32d5f2dca5e2e53c5dc436055
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: eeb9765cfd6242ecdc14dd59dd9b5337cc56c597
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405496"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481224"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure Dosya Eşitleme’yi dağıtma
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -28,7 +28,7 @@ Okumanızı öneririz [bir Azure dosyaları dağıtımını planlama](storage-fi
 * Azure dosya eşitleme ile eşitlenecek Windows Server veya Windows Server kümesinin desteklenen en az bir örnek. Windows Server'ın desteklenen sürümleri hakkında daha fazla bilgi için bkz. [Windows Server ile birlikte çalışabilirlik](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
 * PowerShell 5.1, Windows Server'da yüklü emin olun. Windows Server 2012 R2 kullanıyorsanız, en az çalıştırdığınızdan emin olun. PowerShell 5.1. \*. PowerShell 5.1 varsayılan sürümü kullanıma hazır olduğu gibi güvenli bir şekilde Windows Server 2016 üzerinde bu denetimi atlayabilirsiniz. Windows Server 2012 R2 üzerinde PowerShell 5.1 çalıştığını doğrulayabilirsiniz. \* değerinde bakarak **PSVersion** özelliği **$PSVersionTable** nesnesi:
 
-    ```PowerShell
+    ```powershell
     $PSVersionTable.PSVersion
     ```
 
@@ -40,7 +40,7 @@ Okumanızı öneririz [bir Azure dosyaları dağıtımını planlama](storage-fi
     - Buradaki yönergeleri izleyerek Az modül yüklenebilir: [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
     - AzureRM PowerShell modülü, aşağıdaki PowerShell cmdlet'ini çalıştırarak yüklenebilir:
     
-        ```PowerShell
+        ```powershell
         Install-Module AzureRM
         ```
 
@@ -59,7 +59,7 @@ Yük devretme kümesinde, her sunucu düğümü dahil olmak üzere, Azure dosya 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Internet Explorer Artırılmış Güvenlik Yapılandırması devre dışı bırakmak için yükseltilmiş bir PowerShell oturumunda aşağıdakileri yürütün:
 
-```PowerShell
+```powershell
 # Disable Internet Explorer Enhanced Security Configuration 
 # for Administrators
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
@@ -100,7 +100,7 @@ Azure dosya eşitleme yönetim Cmdlet'lerine etkileşim önce DLL içeri ve bir 
 > [!Note]  
 > Azure dosya eşitleme Yönetimi cmdlet'leri içeren StorageSync.Management.PowerShell.Cmdlets.dll paket (bilerek) onaylanmamış bir fiil bir cmdlet içerir (`Login`). Adı `Login-AzureStorageSync` eşleşecek şekilde seçilmiştir `Login-AzAccount` cmdlet diğer Azure PowerShell modülü. Azure dosya eşitleme aracısının Azure PowerShell modülü eklendiğinde, bu hata iletisi (ve cmdlet) kaldırılır.
 
-```PowerShell
+```powershell
 $acctInfo = Login-AzAccount
 
 # The location of the Azure File Sync Agent. If you have installed the Azure File Sync 
@@ -160,7 +160,7 @@ Login-AzureRmStorageSync `
 
 Azure dosya eşitleme bağlamı ile oluşturduktan sonra `Login-AzureR,StorageSync` cmdlet, depolama eşitleme hizmeti oluşturabilirsiniz. Değiştirdiğinizden emin olun `<my-storage-sync-service>` istenen, depolama eşitleme hizmeti adı.
 
-```PowerShell
+```powershell
 $storageSyncName = "<my-storage-sync-service>"
 New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
 ```
@@ -188,7 +188,7 @@ Azure dosya eşitleme aracısının işletim sisteminiz için uygun sürümünü
 > [!Important]  
 > Azure dosya eşitleme ile bir yük devretme kümesi kullanmayı planlıyorsanız, kümedeki her düğümde Azure dosya eşitleme aracısının yüklenmesi gerekir. Kümedeki her düğümün Azure dosya eşitleme ile çalışmak için kaydetmiş olmalıdır.
 
-```PowerShell
+```powershell
 # Gather the OS version
 $osver = [System.Environment]::OSVersion.Version
 
@@ -242,7 +242,7 @@ Oturum açtıktan sonra aşağıdaki bilgileri girmeniz istenir:
 Uygun bilgileri seçtikten sonra seçin **kaydetme** sunucu kaydını tamamlamak için. Kayıt işleminin bir parçası olarak bir kez daha oturum açmanız istenir.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $storageSyncName
 ```
 
@@ -271,14 +271,14 @@ Açılan bölmede, bulut uç noktası olan bir eşitleme grubu oluşturmak için
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Eşitleme grubu oluşturmak için aşağıdaki PowerShell yürütün. Değiştirmeyi unutmayın `<my-sync-group>` istenen eşitleme grubu adı.
 
-```PowerShell
+```powershell
 $syncGroupName = "<my-sync-group>"
 New-AzureRmStorageSyncGroup -SyncGroupName $syncGroupName -StorageSyncService $storageSyncName
 ```
 
 Eşitleme grubu başarıyla oluşturulduktan sonra bulut uç noktası oluşturabilirsiniz. Değiştirdiğinizden emin olun `<my-storage-account>` ve `<my-file-share>` beklenen değerleri.
 
-```PowerShell
+```powershell
 # Get or create a storage account with desired name
 $storageAccountName = "<my-storage-account>"
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup | Where-Object {
@@ -335,7 +335,7 @@ Sunucu uç noktası eklemek için seçin **Oluştur**. Dosyalarınız artık Win
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Sunucu uç noktası oluşturma ve değiştirdiğinizden emin olun aşağıdaki PowerShell komutları `<your-server-endpoint-path>` ve `<your-volume-free-space>` istenen değerleri.
 
-```PowerShell
+```powershell
 $serverEndpointPath = "<your-server-endpoint-path>"
 $cloudTieringDesired = $true
 $volumeFreeSpacePercentage = <your-volume-free-space>

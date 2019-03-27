@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 718a679418790a6bf1207a96e5c204f7962de239
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: a4d1a54e94b3228c64352bf08cd8cc69820a5e2d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411297"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500058"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Bir sembol katmanı haritaya eklemek
 
@@ -36,9 +36,12 @@ Yukarıdaki kod ilk bloğu bir harita nesnesi oluşturur. Gördüğünüz [bir h
 
 A [sembol katman](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) sarmalanmış noktası tabanlı veri işleme için metin veya simge kullanan [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) harita üzerinde simgeler olarak.  Veri kaynağı, click olay dinleyicisi ve sembol katmanı oluşturulur ve eşlemesine eklenen [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) işlev eşlemesi tam olarak yüklendikten sonra noktası görüntülendiğinden emin olun.
 
+> [!TIP]
+> Varsayılan olarak, performans için çakışan sembolleri gizleyerek sembol katmanları simgeleri işleme iyileştirin. Gizli sembolleri yakınlaştırma gibi görünebilir. Bu özellik devre dışı bırakın ve her zaman tüm sembolleri işlemek için ayarlanmış `allowOverlap` özelliği `iconOptions` seçenekleri `true`.
+
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Özel bir simge için simge katman ekleyin
 
-Sembol katmanları, WebGL kullanılarak işlenir. Simge görüntüleri gibi tüm bu kaynaklar olarak WebGL bağlamına yüklü olması gerekir. Bu örnek bir özel sembol simgesi eşleme kaynakları ekleme ve harita üzerinde özel bir simge ile veri noktası oluşturmak için kullanın gösterir. `textField` Sembol katmanın özelliği belirtilmesi bir ifade gerektirir. Bu durumda noktası özelliğinin metin değeri olarak sıcaklık özelliği oluşturmak istiyoruz. Bu ifade ile sağlanabilir: `['get', 'temperature']`. 
+Sembol katmanları, WebGL kullanılarak işlenir. Simge görüntüleri gibi tüm bu kaynaklar olarak WebGL bağlamına yüklü olması gerekir. Bu örnek bir özel sembol simgesi eşleme kaynakları ekleme ve harita üzerinde özel bir simge ile veri noktası oluşturmak için kullanın gösterir. `textField` Sembol katmanın özelliği belirtilmesi bir ifade gerektirir. Bu durumda, sıcaklık özelliği noktası özelliğinin metin değeri olarak işlenecek istiyoruz. Bu ifade ile sağlanabilir: `['get', 'temperature']`. 
 
 <br/>
 

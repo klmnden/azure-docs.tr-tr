@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 6523c2b26a0340fa5347d8224ac8bf6c5e285926
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 90e841628d989a16f504d2efd7a2c7b18335ff48
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759058"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482632"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Klasik bulut Hizmetleri için Azure İzleyici ölçüm ölçümleri konuk işletim sistemi göndermek 
 
@@ -142,26 +142,26 @@ Bu tanılama dosyasını yerel olarak kaydedin.
 
 PowerShell'i başlatın ve Azure'da oturum açın. 
 
-```PowerShell
+```powershell
 Login-AzAccount 
 ```
 
 Daha önce oluşturduğunuz depolama hesabı ayrıntılarını depolamak için aşağıdaki komutları kullanın. 
 
-```PowerShell
+```powershell
 $storage_account = <name of your storage account from step 3> 
 $storage_keys = <storage account key from step 3> 
 ```
 
 Benzer şekilde, tanılama dosya yolu, aşağıdaki komutu kullanarak bir değişkene ayarlayın:
 
-```PowerShell
+```powershell
 $diagconfig = “<path of the Diagnostics configuration file with the Azure Monitor sink configured>” 
 ```
 
 Tanılama uzantısını Azure Monitor havuzu aşağıdaki komutu kullanarak yapılandırılmış ile tanılama dosyasıyla bulut hizmetinize dağıtın:  
 
-```PowerShell
+```powershell
 Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -StorageAccountName $storage_account -StorageAccountKey $storage_keys -DiagnosticsConfigurationPath $diagconfig 
 ```
 

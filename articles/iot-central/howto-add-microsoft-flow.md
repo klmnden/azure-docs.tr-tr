@@ -1,25 +1,32 @@
 ---
 title: Azure IOT Central Bağlayıcısı Microsoft Flow ile iş akışları oluşturun | Microsoft Docs
-description: IOT Central Bağlayıcısı'nı Microsoft Flow için iş akışlarının kullanın ve oluşturma, güncelleştirme ve cihazları iş akışlarında silin.
+description: IOT Central Bağlayıcısı'nı Microsoft Flow için tetikleyici iş akışları kullanın ve oluşturma, alma, güncelleştirme, cihazları silin ve akışlarında komutları çalıştırın.
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 03/26/2019
 ms.topic: conceptual
 ms.service: iot-central
-manager: peterpr
-ms.openlocfilehash: 555fe54174c9e13319af676cab3a5d3dcfaf2fe5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+manager: hegate
+ms.openlocfilehash: 2c4ee6a2feb737bcafc64b1c8503c03757a53364
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770258"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497746"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>IOT Central Bağlayıcısı Microsoft Flow ile iş akışları oluşturun
 
 *Bu konu, Oluşturucular ve Yöneticiler için geçerlidir.*
 
-Birçok uygulama ve işletme kullanıcılarının kullandığı hizmetler arasında iş akışlarını otomatikleştirmek için Microsoft Flow kullanın. Microsoft Flow IOT Central Bağlayıcısı'nı kullanarak IOT Central içinde bir kuralı tetiklendiğinde iş akışları tetikleyebilirsiniz. IOT Central veya başka bir uygulama tarafından tetiklenen bir iş akışında bir cihaz oluşturma, bir cihazın özellikleri ve ayarları güncelleştirin veya bir cihazı silmek için Eylemler IOT Central Bağlayıcısı kullanabilirsiniz. Kullanıma [bu Microsoft Flow şablonları](https://aka.ms/iotcentralflowtemplates) mobil bildirim ve Microsoft Teams gibi diğer hizmetlere IOT Central bağlanma.
+Birçok uygulama ve işletme kullanıcılarının kullandığı hizmetler arasında iş akışlarını otomatikleştirmek için Microsoft Flow kullanın. Microsoft Flow IOT Central Bağlayıcısı'nı kullanarak IOT Central içinde bir kuralı tetiklendiğinde iş akışları tetikleyebilirsiniz. IOT Central veya başka bir uygulama tarafından tetiklenen bir iş akışında eylemleri için IOT Central Bağlayıcısı kullanabilirsiniz:
+- Cihaz oluşturma
+- Cihaz bilgilerini alma
+- Bir cihazın özelliklerini ve ayarlarını güncelleştirme
+- Bir cihaza bir komut çalıştırın
+- Bir cihazı silme
+
+Kullanıma [bu Microsoft Flow şablonları](https://aka.ms/iotcentralflowtemplates) mobil bildirim ve Microsoft Teams gibi diğer hizmetlere IOT Central bağlanma.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -28,19 +35,19 @@ Birçok uygulama ve işletme kullanıcılarının kullandığı hizmetler arası
 
 ## <a name="trigger-a-workflow"></a>Bir iş akışı tetikleyicisi
 
-Bu bölümde, IOT Central bir kural tetiklendiğinde, Flow mobil uygulamasında mobil bildirim tetikleyip gösterilir.
+Bu bölümde, IOT Central bir kural tetiklendiğinde, Flow mobil uygulamasında mobil bildirim tetikleyip gösterilir. Katıştırılmış Microsoft Flow Tasarımcısı'nı kullanarak IOT Central uygulamanızda bu tüm iş akışı oluşturabilirsiniz.
 
-1. Başlayın [IOT Central içinde bir kural oluşturma](howto-create-telemetry-rules.md). Kural koşulları kaydettikten sonra seçin **Microsoft Flow eylem** yeni bir eylem olarak. Microsoft Flow alma, tarayıcınızda yeni bir sekme veya penceresi açmanız gerekir.
+1. Başlayın [IOT Central içinde bir kural oluşturma](howto-create-telemetry-rules.md). Kural koşulları kaydettikten sonra seçin **Microsoft Flow eylem** yeni bir eylem olarak. Bir iletişim kutusu penceresinin, iş akışınızı yapılandırmak üzere açılır. IOT Central, oturum açmış kullanıcı hesabı, Microsoft Flow ile imzalamak için kullanılır.
 
     ![Yeni bir Microsoft Flow eylem oluşturun](media/howto-add-microsoft-flow/createflowaction.png)
 
-1. Microsoft Flow ' nda oturum açın. Bu IOT Central kullandığınız bir hesapla aynı olması gerekmez. Bir IOT Central Bağlayıcısı özel bir eylem bağlama gösteren bir genel bakış sayfasında açmayacaksınız.
+1. Erişimi ve bu IOT Central kuralına bağlı iş akışları tha listesini görürsünüz. Tıklayın **şablonları keşfedin** veya **yeni > Şablondan Oluştur** ve kullanılabilir şablonlardan birini seçebilirsiniz. 
 
-1. IOT Central Connector'a açıp seçmek **devam**. Microsoft Flow tasarımcısına, iş akışınızı oluşturmak için alınır. İş akışı, uygulamanızı ve kural zaten doldurulmuş olan bir IOT Central tetikleyicisine sahiptir.
+    ![Kullanılabilir Microsoft Flow şablonları](media/howto-add-microsoft-flow/flowtemplates.png)
 
-1. Seçin **+ yeni adım** ve **Eylem Ekle**. Bu noktada, akışınız için istediğiniz herhangi bir eylem ekleyebilirsiniz. Örneğin, şimdi mobil bildirim gönder. Arama **bildirim**ve **bildirimler - bana Mobil Bildirim Gönder**.
+1. Seçtiğiniz şablon bağlayıcılarında oturum açmanız istenir. Bağlayıcılar oturum açtıktan sonra iş akışınızı oluşturmak için Tasarımcısı'nda ulaşırsınız. İş akışı, uygulamanızı ve kural zaten doldurulmuş olan bir IOT Central tetikleyicisine sahiptir.
 
-1. Uygulamada, bildirim söylemek istediğiniz metin alanını doldurun. Ekleyebileceğiniz *dinamik içerik* , IOT Central kuraldan boyunca cihaz adı ve zaman damgası gibi önemli bilgiler için bildirim geçirme.
+1. Ekleme yeni eylemler ve eylem için geçirilen bilgileri özelleştirerek, iş akışını özelleştirebilirsiniz. Bu örnekte, eylem ise **bildirimler - bana Mobil Bildirim Gönder**. Ekleyebileceğiniz *dinamik içerik* , IOT Central kuraldan boyunca cihaz adı ve zaman damgası gibi önemli bilgiler için bildirim geçirme.
 
     > [!NOTE]
     > Seçin **daha fazla bilgi bkz** kuralını tetikleyen ölçüm ve özellik değerlerini almak için dinamik içerik penceresindeki metin.
@@ -52,9 +59,9 @@ Bu bölümde, IOT Central bir kural tetiklendiğinde, Flow mobil uygulamasında 
     > [!NOTE]
     > Diğer kullanıcıların bu kuralı düzenlemek için IOT Central uygulamanızda istiyorsanız, onlarla Microsoft Flow paylaşmanız gerekir. Microsoft Flow hesaplarında akışınızın sahipler ekleyin.
 
-1. IOT Central uygulamanıza geri dönün, bu kural Eylemler alanının altında bir Microsoft Flow eylemi içeriyor görürsünüz.
+1. IOT Central uygulamanıza geri dönün, bu kural Eylemler alanında bir Microsoft Flow eylemi içeriyor görürsünüz.
 
-Her zaman, IOT Central Bağlayıcısı'nı kullanarak Microsoft Flow iş akışı oluşturmaya başlayabilirsiniz. Sonra hangi IOT Central ve bağlanmak için hangi kural de seçebilirsiniz.
+Ayrıca, Microsoft Flow doğrudan IOT Central Bağlayıcısı'nı kullanarak iş akışları da oluşturabilirsiniz. Daha sonra bağlanmak için hangi IOT Central uygulaması seçebilirsiniz.
 
 ## <a name="create-a-device-in-a-workflow"></a>Bir iş akışında bir cihaz oluşturma
 
@@ -107,6 +114,18 @@ Bu bölümde, cihaz ayarlarını ve özelliklerini IOT Central içinde bir düğ
 1. Son olarak, iş akışınızı kaydedin.
 
 1. İş akışınızı Microsoft Flow mobil uygulamasını deneyin. Git **düğmeleri** uygulama sekmesinde. Bir cihaz iş akışını güncelleştirme -> düğmenizin görmeniz gerekir. Girişleri girin ve IOT Central ' güncelleştirilmesi cihaz bakın!
+
+## <a name="get-device-information-in-a-workflow"></a>Bir iş akışında cihaz bilgilerini alma
+
+Cihaz bilgilerini, cihaz kimliği kullanarak alabileceğiniz **Azure IOT Central - bir aygıt alma** eylem. Cihaz adı, cihaz şablonu adı, özellik değerlerini ve iş akışınızı sonraki eylemlerde geçirilecek ayarları değerlerini gibi daha fazla bilgi edinebilirsiniz. Müşteri adı özellik değeri bir CİHAZDAN için Microsoft Teams geçirir. bir örnek iş akışı şu şekildedir.
+
+   ![Akış get cihaz iş akışı](./media/howto-add-microsoft-flow/flowgetdevice.png)
+
+
+## <a name="run-a-command-on-a-device-in-a-workflow"></a>Bir komut bir iş akışında bir cihazda çalıştırma
+Kendi cihaz kimliği kullanılarak belirtilen bir cihaz üzerinde komut çalıştırabilirsiniz **Azure IOT bir komut Merkezi -** eylem. Komutu çalıştırın ve komut parametrelerinde bu eylem geçirmek için seçebilirsiniz. Microsoft Flow mobil uygulamasında bir düğmeyle cihaz yeniden başlatma komutu çalışan bir örnek iş akışı şu şekildedir.
+
+   ![Akış get cihaz iş akışı](./media/howto-add-microsoft-flow/flowrunacommand.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>Bir iş akışında bir cihazı silme
 

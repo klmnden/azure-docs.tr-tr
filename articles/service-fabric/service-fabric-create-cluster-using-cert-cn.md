@@ -3,7 +3,7 @@ title: Sertifika ortak adını kullanarak bir Azure Service Fabric kümesi oluş
 description: Bir şablondan sertifika ortak adını kullanarak bir Service Fabric kümesi oluşturmayı öğrenin.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
-ms.author: ryanwi
-ms.openlocfilehash: f6f4858740288facb1e206eed3a8cd4ee1854daa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: aljo
+ms.openlocfilehash: 5f2ba517e68dcd37de44bd26f476442e80817086
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111455"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498035"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Parmak izi yerine sertifika ortak adını kullanan bir Service Fabric kümesi dağıtma
 İki sertifika küme sertifika geçişi veya yönetim zorlaştırır aynı parmak olabilir. Ancak, aynı ortak adı veya konu birden çok sertifika sahip olabilir.  Sertifika ortak adları kullanarak bir küme, sertifika yönetimi çok daha kolay hale getirir. Bu makalede, sertifika ortak adına sertifika parmak izi yerine kullanılacak bir Service Fabric kümesi dağıtmayı açıklar.

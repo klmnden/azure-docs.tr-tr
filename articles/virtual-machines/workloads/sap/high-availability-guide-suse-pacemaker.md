@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: b0842bfc4c9d60420f6409afc4bc42692346050b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a2e03a548b403262dca7e7a76b84cc99661242c6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999666"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487373"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacemaker ayarlama
 
@@ -563,6 +563,36 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
    params pcmk_delay_max="15" \
    op monitor interval="15" timeout="15"
 </code></pre>
+
+## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Azure için pacemaker yapılandırma zamanlanmış olaylar
+
+Azure tekliflerini [zamanlanmış olaylar](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events). Zamanlanmış olaylar, meta veri hizmeti sağlanır ve uygulamanın olayları VM kapatma, yeniden dağıtım VM, vb. için hazırlamak zaman tanıyın. Kaynak Aracısı **[azure etkinlikleri](https://github.com/ClusterLabs/resource-agents/pull/1161)** izleyiciler için zamanlanmış Azure etkinlikleri. Olayları algılanmazsa, tüm kaynaklar üzerinde etkilenen sanal Makineyi durdurun ve kümedeki başka bir düğüme taşımak aracı deneyecek. Bu ek Pacemaker kaynaklara ulaşmak için yapılandırılmalıdır. 
+
+1. **[A]**  Yükleme **azure etkinlikleri** aracı. 
+
+<pre><code>sudo zypper install resource-agents
+</code></pre>
+
+2. **[1]**  Pacemaker kaynakları yapılandırırsınız. 
+
+<pre><code>
+#Place the cluster in maintenance mode
+sudo crm configure property maintenance-mode=true
+
+#Create Pacemaker resources for the Azure agent
+sudo crm configure primitive rsc_azure-events ocf:heartbeat:azure-events op monitor interval=10s
+sudo crm configure clone cln_azure-events rsc_azure-events
+
+#Take the cluster out of maintenance mode
+sudo crm configure property maintenance-mode=false
+</code></pre>
+
+   > [!NOTE]
+   > Küme içinde veya bakım modundan yerleştirdiğinizde Pacemaker kaynaklar azure etkinlikleri aracı için yapılandırdıktan sonra uyarı iletileri gibi alabilirsiniz:  
+     Uyarı: cib önyükleme seçenekleri: Bilinmeyen öznitelik ' hostName_  <strong>hostname</strong>'  
+     Uyarı: cib önyükleme seçenekleri: Bilinmeyen öznitelik 'azure-events_globalPullState'  
+     Uyarı: cib önyükleme seçenekleri: Bilinmeyen öznitelik ' hostName_ <strong>hostname</strong>'  
+   > Bu uyarı iletilerini yoksayılabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: 4a8a014b365974bb8c138c74197d3d89cc63e42e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d3326713b0fbae070d04fa0fe7ead712fbcacf84
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771989"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496902"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Yüksek ağ bant genişliği ile orta, büyük veri kümeleri için veri aktarımı
  
@@ -76,7 +76,7 @@ Aşağıdaki tablolarda, önerilen seçenek için temel işlevleri farklılıkla
 |    İş ortağı tümleştirmesi              |    Belirli Kullanıcılar                         |    [Yüksek](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [Yüksek](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Belirli Kullanıcılar                                |
 |    Sevkiyat                         |    Microsoft tarafından yönetilen            |    Microsoft tarafından yönetilen                             |    Microsoft tarafından yönetilen                     |    Müşteri tarafından yönetilen                    |
 | Veri hareket ettiğinde kullanın         |Bir ticari sınır içinde|Bir ticari sınır içinde|Bir ticari sınır içinde|Coğrafi sınırlar arasında örneğin BİZE AB|
-|    Fiyatlandırma                          |    [Fiyatlandırma](https://azure.microsoft.com/pricing/details/storage/databox/disk/)                    |   [Fiyatlandırma](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Fiyatlandırma](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Fiyatlandırma](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
+|    Fiyatlandırma                          |    [Fiyatlandırma](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Fiyatlandırma](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Fiyatlandırma](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Fiyatlandırma](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
 
 Çevrimiçi veri aktarımı kullanıyorsanız, tablo aşağıdaki bölümde yüksek ağ bant genişliği için kullanın.

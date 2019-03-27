@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 1b62bb6b00e1add93ee4215507d1b110dcf51424
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f0b6ed366f35368c70f3d2224f430f400ee9656c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567001"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481187"
 ---
 # <a name="how-to-deploy-azure-files"></a>Azure Dosyaları’nı dağıtma
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı SMB protokolünü erişilebilen bulutta sunar. Bu makale pratikte, kuruluşunuzda Azure dosyaları dağıtmak nasıl gösterir.
@@ -132,7 +132,7 @@ Bir şirket içi dosya paylaşımı değiştirmek için önceden paylaşımları
 ### <a name="windows"></a>Windows
 Bağlama komutu birden çok bilgisayarlarında çalışan PowerShell kullanılabilir. Aşağıdaki örnekte, `$computers` el ile doldurulur, ancak otomatik olarak bağlamak için bilgisayar listesini oluşturabilirsiniz. Örneğin, bu değişken Active Directory'den sonuçlarla doldurabilirsiniz.
 
-```PowerShell
+```powershell
 $computer = "MyComputer1", "MyComputer2", "MyComputer3", "MyComputer4"
 $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name> /PERSISTENT:YES } }
 ```

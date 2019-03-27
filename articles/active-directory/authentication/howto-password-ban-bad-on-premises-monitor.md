@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae2d18541788e769e4f1b44319aa1be200921b88
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: a029135da79d1a0b24b2941873a0fe3187ac9f7c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437569"
+ms.locfileid: "58479733"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD parola izleme ve günlüğe kaydetme koruması
 
@@ -81,7 +81,7 @@ Olay çifti birlikte günlüğe kaydedildiğinde, her iki olay açıkça aynı C
 
 `Get-AzureADPasswordProtectionSummaryReport` Cmdlet'i, parola doğrulama etkinliği bir Özet görünümünü oluşturmak için kullanılabilir. Bu cmdlet'in bir örnek çıktısı aşağıdaki gibidir:
 
-```PowerShell
+```powershell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
 DomainController                : bplrootdc2
 PasswordChangesValidated        : 6677
@@ -254,7 +254,7 @@ Adlı bir performans sayacı nesne DC Aracısı hizmeti yazılımını yükler *
 
 Bu cmdlet'in bir örnek çıktısı aşağıdaki gibidir:
 
-```PowerShell
+```powershell
 Get-AzureADPasswordProtectionDCAgent
 ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
 Domain                : bplchild.bplRootDomain.com
@@ -326,7 +326,7 @@ Bir cmdlet hatası oluşur ve neden ve/veya özetleri çözüm kolaylıkla gör�
 
 Bu cmdlet'in bir örnek çıktısı aşağıdaki gibidir:
 
-```PowerShell
+```powershell
 Get-AzureADPasswordProtectionProxy
 ServerFQDN            : bplProxy.bplchild2.bplRootDomain.com
 Domain                : bplchild2.bplRootDomain.com

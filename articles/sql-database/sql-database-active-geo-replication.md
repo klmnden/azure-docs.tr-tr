@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: cb83f0c38f6860340444c15b6c5eef0b990d0ad0
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.date: 03/26/2019
+ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295258"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498494"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Oluşturma ve etkin coğrafi çoğaltma kullanma
 
@@ -75,8 +75,11 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
   Bir uygulama, ikincil bir veritabanını birincil veritabanına erişmek için kullanılan aynı veya farklı güvenlik prensiplerinin salt okunur işlemler için erişebilirsiniz. Güncelleştirmeler (günlük yeniden yürütme) birincil çoğaltması ikincil yürütülen sorgular tarafından gecikiyor değil emin olmak için anlık görüntü yalıtım modunda ikincil veritabanlarıyla çalışır.
 
-  > [!NOTE]
-  > Birincil şema güncelleştirmeleri varsa, günlük yeniden yürütme ikincil veritabanı üzerinde gecikir. İkincisi, ikincil veritabanında bir şema kilidi gerektirir.
+> [!NOTE]
+> Birincil şema güncelleştirmeleri varsa, günlük yeniden yürütme ikincil veritabanı üzerinde gecikir. İkincisi, ikincil veritabanında bir şema kilidi gerektirir.
+> [!IMPORTANT]
+> Coğrafi çoğaltma, birincil olarak aynı bölgede ikincil bir veritabanı oluşturmak için kullanabilirsiniz. Bu ikincil veritabanına Yük Dengeleme salt okunur iş yükleri aynı bölgede kullanabilirsiniz. Ancak, ikincil bir veritabanı ile aynı bölgede hataya dayanıklılık sağlamaz ve bu nedenle bir olağanüstü durum kurtarma için uygun yük devretme hedefi değil. Ayrıca avaialability bölge yalıtım garantilemez. İş açısından kritik ya da Premium hizmet katmanı ile kullanmak [bölge yedekli Yapılandırması](sql-database-high-availability.md#zone-redundant-configuration) avaialability bölge ayırma sağlamak için.   
+>
 
 - **Planlı yük devretme**
 

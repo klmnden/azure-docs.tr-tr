@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3172354752e2c6a1a7368b297e3cc6e763cd2fcb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 466ed4c2bd353e4a5ec3bec5535b70a90446ee0b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900582"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483905"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C özel bir ilke doğrulama teknik profil tanımlama
 
@@ -65,8 +65,8 @@ Otomatik olarak onaylanan bir teknik profili, bazıları veya tümü, çıkış 
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Type | Evet | Onay veya için önkoşul gerçekleştirmek için sorgu türü. Her iki `ClaimsExist` kullanıcının geçerli talep kümesinde belirtilen talep varsa, eylemlerin gerçekleştirildiğinden emin olun belirtilen veya `ClaimEquals` belirtilen talep varsa ve değeri eşittir Eylemler gerçekleştirilmelidir belirtilir Belirtilen değer. |
-| ExecuteActionsIf | Evet | Test true veya false olursa önkoşuluna eylemlerin gerçekleştirilmesi gerekip gerekmediğini gösterir. |
+| `Type` | Evet | Onay veya için önkoşul gerçekleştirmek için sorgu türü. Her iki `ClaimsExist` kullanıcının geçerli talep kümesinde belirtilen talep varsa, eylemlerin gerçekleştirildiğinden emin olun belirtilen veya `ClaimEquals` belirtilen talep varsa ve değeri eşittir Eylemler gerçekleştirilmelidir belirtilir Belirtilen değer. |
+| `ExecuteActionsIf` | Evet | Test true veya false olursa önkoşuluna eylemlerin gerçekleştirilmesi gerekip gerekmediğini gösterir. |
 
 **Önkoşulu** öğesi öğeleri içerir:
 

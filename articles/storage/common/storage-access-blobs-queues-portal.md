@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bc4896f634bb98b4663dfc3fbc6bad7ba9bace3e
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: 5a4426b665c58dd2c0bf7f5b5b41ebfca158e782
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319724"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444717"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Blob veya sıra verilerinize erişmek için Azure portalını kullanma
 
@@ -43,7 +43,7 @@ Azure portalından Azure AD hesabınızla BLOB veya kuyruğa verilere erişmek i
 - Azure Resource Manager size atandı [okuyucu](../../role-based-access-control/built-in-roles.md#reader) rol, en azından, depolama hesabının düzeyine kapsamlı ya da daha yüksek. **Okuyucu** rolü en kısıtlı izinler verir, ancak depolama hesabı yönetim kaynaklarına erişim veren başka bir Azure Resource Manager rol de kullanılabilir.
 - Size veya bloblar veya kuyruk verilerine erişim sağlayan yerleşik veya özel bir rolü atandı.
 
-**Okuyucu** rol ataması veya başka bir Azure Resource Manager rol ataması gereklidir ve böylece kullanıcı görüntüleyebilir ve Azure portalında depolama hesabı yönetim kaynaklarına gidebilirsiniz. Blob veya kuyruğa verilerine erişim izni RBAC rollerini depolama hesabı yönetim kaynaklarına erişimi veremez. Portalı'nda BLOB veya kuyruğa verilerine erişmek için kullanıcının depolama hesabı kaynaklarına gitmek için izinleri olmalıdır. Bu gereksinim hakkında daha fazla bilgi için bkz. [portal erişimi için okuyucu rolü atamak](../common/storage-auth-aad-rbac.md#assign-the-reader-role-for-portal-access).
+**Okuyucu** rol ataması veya başka bir Azure Resource Manager rol ataması gereklidir ve böylece kullanıcı görüntüleyebilir ve Azure portalında depolama hesabı yönetim kaynaklarına gidebilirsiniz. Blob veya kuyruğa verilerine erişim izni RBAC rollerini depolama hesabı yönetim kaynaklarına erişimi veremez. Portalı'nda BLOB veya kuyruğa verilerine erişmek için kullanıcının depolama hesabı kaynaklarına gitmek için izinleri olmalıdır. Bu gereksinim hakkında daha fazla bilgi için bkz. [portal erişimi için okuyucu rolü atamak](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
 
 Blob veya sıra verilerinize erişimi destekleyen yerleşik roller şunlardır:
 
@@ -96,5 +96,7 @@ Hesabı anahtarlarına erişimi yoksa BLOB listede göründüğüne dikkat edin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Erişim için Azure BLOB'ları ve kuyrukları (Önizleme) Azure Active Directory'yi kullanarak kimlik doğrulaması](storage-auth-aad.md)
-- [Azure kapsayıcılar ve RBAC ile kuyrukları (Önizleme) Azure portalında erişim izni ver](storage-auth-aad-rbac.md)
+- [Erişim için Azure BLOB'ları ve kuyrukları Azure Active Directory'yi kullanarak kimlik doğrulaması](storage-auth-aad.md)
+- [Azure kapsayıcıları ve Azure portalında RBAC ile kuyruk için erişim izni ver](storage-auth-aad-rbac-portal.md)
+- [Azure CLI kullanarak RBAC ile Azure blob ve kuyruk verilere erişim izni ver](storage-auth-aad-rbac-cli.md)
+- [PowerShell ile RBAC ile Azure blob ve kuyruk verilere erişim izni ver](storage-auth-aad-rbac-powershell.md)

@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: bee02549d68b1dbdba3f0e62477b28bbd475ea32
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 379e73c33aa4570c3e56f902b011d75944c94a8d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402499"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497906"
 ---
-# <a name="automatically-scale-session-hosts"></a>Oturum konakları otomatik olarak ölçeklendirme
+# <a name="automatically-scale-session-hosts"></a>Oturum ana bilgisayarlarını otomatik olarak ölçeklendirme
 
 Azure'da çok sayıda Windows sanal masaüstü Önizleme dağıtımlar için sanal makine maliyetleri önemli toplam Windows Sanal Masaüstü Dağıtım maliyetini bölümünü temsil eder. Maliyetleri azaltmak için kapatma ve yoğun olmayan saatlerde oturum konak sanal makineleri (VM'ler) serbest bırakın ve ardından bunları yeniden kullanımı yoğun zamanlarda en iyisidir.
 
@@ -81,7 +81,7 @@ Ardından, güvenli şekilde depolanan kimlik bilgileri oluşturmanız gerekir:
 | currentAzureSubscriptionId    | Oturum ana bilgisayarının Vm'leri çalıştırdığı Azure abonelik kimliği                        |
 | tenantname değeri:                    | Windows sanal masaüstü Kiracı adı                                                    |
 | hostPoolName                  | Windows sanal masaüstü ana makine havuzu adı                                                 |
-| RDBroker                      | Varsayılan değer WVD hizmetine URL <https://rdbroker.wvd.microsoft.com>             |
+| RDBroker                      | Varsayılan değer https WVD Hizmeti'ne URL:\//rdbroker.wvd.microsoft.com             |
 | Kullanıcı adı                      | Hizmet sorumlusu uygulama kimliği (AADApplicationId gibi aynı hizmet sorumlusu olması olası) veya standart kullanıcı multi-Factor authentication olmaksızın |
 | isServicePrincipal            | Kabul edilen değerler **true** veya **false**. İkinci bir dizi kimlik bilgisi kullanılan bir hizmet sorumlusu olup veya standart hesabı gösterir. |
 | BeginPeakTime                 | En yüksek kullanım süresi ne zaman başlar                                                            |

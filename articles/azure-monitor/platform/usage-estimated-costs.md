@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 1ae35c30e0379ed7a0f1fac16c279651e3bcd8fd
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7911bd398b6760fb4f83382868f040382b86cd1f
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315886"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480559"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Kullanım ve Tahmini maliyetler izleme
 
@@ -138,7 +138,7 @@ isGrandFatherableSubscription optedInDate
 
 Geçirmek için bu aboneliği yeni fiyatlandırma modeline çalıştırın:
 
-```PowerShell
+```powershell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -149,7 +149,7 @@ Invoke-AzResourceAction `
 
 Değişikliği yeniden başarılı olduğunu doğrulamak için:
 
-```PowerShell
+```powershell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -170,7 +170,7 @@ OptInDate artık zaman bu aboneliği yeni fiyatlandırma modeline kabul, bir zam
 
 Eski fiyatlandırma modeline geri dönmek gerekiyorsa çalıştırırsınız:
 
-```PowerShell
+```powershell
  $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -183,7 +183,7 @@ Sahip önceki betiği yeniden varsa ``-Action listmigrationdate``, aboneliğiniz
 
 Aynı kiracısı altında barındırılan, geçirmek istediğiniz birden fazla aboneliğiniz varsa aşağıdaki betikler parçaları kullanarak kendi değişken oluşturabilirsiniz:
 
-```PowerShell
+```powershell
 #Query tenant and create an array comprised of all of your tenants subscription ids
 $TenantId = <Your-tenant-id>
 $Tenant =Get-AzSubscription -TenantId $TenantId
@@ -192,7 +192,7 @@ $Subscriptions = $Tenant.Id
 
 Kiracınızdaki tüm abonelikleri için yeni fiyatlandırma modeline uygun olup olmadığını denetlemek için çalıştırabilirsiniz:
 
-```PowerShell
+```powershell
 Foreach ($id in $Subscriptions)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"
@@ -206,7 +206,7 @@ Invoke-AzResourceAction `
 
 Betik daraltılmış üç diziden oluşturan kod oluşturma tarafından daha fazla. Bir dizi olan tüm abonelik kimliği oluşur ```isGrandFatherableSubscription``` True olarak ayarlayın ve optedInDate şu anda bir değeri yok. Tüm abonelikler şu anda yeni fiyatlandırma modeli, ikinci bir dizisi. Ve yeni fiyatlandırma modeline uygun olmayan abonelik kimlikleri kiracınızdaki doldurulmuş üçüncü bir dizi:
 
-```PowerShell
+```powershell
 [System.Collections.ArrayList]$Eligible= @{}
 [System.Collections.ArrayList]$NewPricingEnabled = @{}
 [System.Collections.ArrayList]$NotEligible = @{}
@@ -242,7 +242,7 @@ $Result= Invoke-AzResourceAction `
 
 Artık üç diziye bölünmüş aboneliklerinizi sahip olduğunuza göre sonuçlarınızı dikkatli bir şekilde gözden geçirmelisiniz. Değişikliklerinizi gelecekte ihtiyacınız olursa kolayca geri dönebilirsiniz diziler içeriğini yedek kopyasını yapmak isteyebilirsiniz. Verdiyseniz, şu anda yeni eski fiyatlandırma modelinde bu görev artık ile gerçekleştirilmesi fiyatlandırma modeli tüm uygun abonelikleri dönüştürmek istedi:
 
-```PowerShell
+```powershell
 Foreach ($id in $Eligible)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"

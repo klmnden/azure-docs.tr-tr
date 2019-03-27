@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 143d14df3019aa0c5c5dd798f656f95c8ebde372
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 2abec4d9d74cf58503dec667080f478b1fec06ff
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731086"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485161"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure'da hizmet eşlemesi çözümünü kullanma
-Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet eşlemesi ile bunları düşündüğünüz gibi sunucularınızı görüntüleyebilirsiniz: kritik Hizmetleri sunmak birbirine sistemleri olarak. Bir aracı yüklemesini dışında hiçbir yapılandırma tüm TCP bağlantılı mimarisi arasında bağlantı noktaları gerekli ve hizmet eşlemesi sunucuları, işlemler, gelen ve giden bağlantı gecikmesi arasındaki bağlantıları gösterir.
+Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet Eşlemesi ile, sunucularınızı planladığınız şekilde kullanabilirsiniz: kritik hizmetler sunabilen birbirine bağlı sistemler. Sunucu Eşlemesi, aracının yüklenmesi dışında herhangi bir yapılandırma gerektirmeden sunucular, işlemler, gelen ve giden bağlantıların gecikme süresi ile TCP aracılığıyla bağlı mimarilerdeki bağlantı noktaları arasındaki bağlantıları gösterir.
 
 Bu makalede, ekleme ve hizmet eşlemesi kullanarak ayrıntılarını açıklar. Hizmet eşlemesi ve aracı ekleme işlemi yapılandırma hakkında daha fazla bilgi için bkz: [yapılandırma hizmet eşlemesi çözümünü azure'da]( service-map-configure.md).
 
@@ -374,50 +374,50 @@ Kayıt türü ile *ServiceMapComputer_CL* Envanter verileri için hizmet eşleme
 
 | Özellik | Açıklama |
 |:--|:--|
-| Type | *ServiceMapComputer_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | Çalışma alanı içindeki bir makine için benzersiz tanımlayıcı |
-| ResourceName_s | Çalışma alanı içindeki bir makine için benzersiz tanımlayıcı |
-| ComputerName_s | FQDN bilgisayar |
-| Ipv4Addresses_s | Bir listesi sunucunun IPv4 adresleri |
-| Ipv6Addresses_s | Bir listesini sunucu IPv6 adresleri |
-| DnsNames_s | Bir dizi DNS adları |
-| OperatingSystemFamily_s | Windows veya Linux |
-| OperatingSystemFullName_s | İşletim sisteminin tam adı  |
-| Bitness_s | Bit genişliği makinenin (32 bit veya 64-bit)  |
-| PhysicalMemory_d | MB fiziksel bellek |
-| Cpus_d | CPU sayısı |
-| CpuSpeed_d | CPU hızı MHz|
-| VirtualizationState_s | *Bilinmeyen*, *fiziksel*, *sanal*, *hiper yönetici* |
-| VirtualMachineType_s | *hyperv*, *vmware*, vb. |
-| VirtualMachineNativeMachineId_g | VM, hiper yönetici tarafından atanan kimliği |
-| VirtualMachineName_s | VM adı |
-| BootTime_t | Önyükleme zamanı |
+| `Type` | *ServiceMapComputer_CL* |
+| `SourceSystem` | *OpsManager* |
+| `ResourceId` | Çalışma alanı içindeki bir makine için benzersiz tanımlayıcı |
+| `ResourceName_s` | Çalışma alanı içindeki bir makine için benzersiz tanımlayıcı |
+| `ComputerName_s` | FQDN bilgisayar |
+| `Ipv4Addresses_s` | Bir listesi sunucunun IPv4 adresleri |
+| `Ipv6Addresses_s` | Bir listesini sunucu IPv6 adresleri |
+| `DnsNames_s` | Bir dizi DNS adları |
+| `OperatingSystemFamily_s` | Windows veya Linux |
+| `OperatingSystemFullName_s` | İşletim sisteminin tam adı  |
+| `Bitness_s` | Bit genişliği makinenin (32 bit veya 64-bit)  |
+| `PhysicalMemory_d` | MB fiziksel bellek |
+| `Cpus_d` | CPU sayısı |
+| `CpuSpeed_d` | CPU hızı MHz|
+| `VirtualizationState_s` | *Bilinmeyen*, *fiziksel*, *sanal*, *hiper yönetici* |
+| `VirtualMachineType_s` | *hyperv*, *vmware*, vb. |
+| `VirtualMachineNativeMachineId_g` | VM, hiper yönetici tarafından atanan kimliği |
+| `VirtualMachineName_s` | VM adı |
+| `BootTime_t` | Önyükleme zamanı |
 
 ### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL türü kayıtları
 Kayıt türü ile *ServiceMapProcess_CL* hizmet eşlemesi aracılarıyla sunucularında Envanter verileri için TCP bağlantılı işlemleri sahip. Bu kayıtlar aşağıdaki tabloda özelliklere sahiptir:
 
 | Özellik | Açıklama |
 |:--|:--|
-| Type | *ServiceMapProcess_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | Çalışma alanı içinde bir işlem için benzersiz tanımlayıcı |
-| ResourceName_s | Üzerinde çalıştığı makinenin içinde bir işlem için benzersiz tanımlayıcı|
-| MachineResourceName_s | Makinenin kaynak adı |
-| ExecutableName_s | İşlem yürütülebilir dosyası adı |
-| StartTime_t | İşlem havuzu başlangıç saati |
-| FirstPid_d | İşlem havuzunda ilk PID |
-| Description_s | İşlem açıklaması |
-| CompanyName_s | Şirketin adı |
-| InternalName_s | İç adı |
-| ProductName_s | Ürün adı |
-| ProductVersion_s | Ürün sürümü |
-| FileVersion_s | Dosya sürümü |
-| CommandLine_s | Komut satırı |
-| ExecutablePath _Yanları | Yürütülebilir dosya yolu |
-| WorkingDirectory_s | Çalışma dizini |
-| UserName | Hesabın altında işlemi yürütülüyor |
-| USERDOMAIN | Etki alanı altında işlemi yürütülüyor |
+| ' Türü | *ServiceMapProcess_CL* |
+| `SourceSystem` | *OpsManager* |
+| `ResourceId` | Çalışma alanı içinde bir işlem için benzersiz tanımlayıcı |
+| `ResourceName_s` | Üzerinde çalıştığı makinenin içinde bir işlem için benzersiz tanımlayıcı|
+| `MachineResourceName_s` | Makinenin kaynak adı |
+| `ExecutableName_s` | İşlem yürütülebilir dosyası adı |
+| `StartTime_t` | İşlem havuzu başlangıç saati |
+| `FirstPid_d` | İşlem havuzunda ilk PID |
+| `Description_s` | İşlem açıklaması |
+| `CompanyName_s` | Şirketin adı |
+| `InternalName_s` | İç adı |
+| `ProductName_s` | Ürün adı |
+| `ProductVersion_s` | Ürün sürümü |
+| `FileVersion_s` | Dosya sürümü |
+| `CommandLine_s` | Komut satırı |
+| `ExecutablePath _s` | Yürütülebilir dosya yolu |
+| `WorkingDirectory_s` | Çalışma dizini |
+| `UserName` | Hesabın altında işlemi yürütülüyor |
+| `UserDomain` | Etki alanı altında işlemi yürütülüyor |
 
 ## <a name="sample-log-searches"></a>Örnek günlük aramaları
 

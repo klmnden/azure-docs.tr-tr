@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 02f698d531555aa9b5498060918a2a361b28817e
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: ec40c587ea4c609b1f8201e9860eb0e98e06ec62
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361260"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448183"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Windows tabanlı HDInsight kümesinden bir Linux tabanlı bir kümeye geçirme
 
@@ -238,7 +238,7 @@ Bir C# uygulaması kullanan bir iş akışı varsa, bu uygulamaların bir Linux 
 
 HBase için znode üst Linux tabanlı kümelerde `/hbase-unsecure`. Bu değer yerel HBase Java API kullanan uygulamalardan herhangi bir Java istemci yapılandırmasını ayarlayın.
 
-Bkz: [bir Java tabanlı Apache HBase uygulaması](hdinsight-hbase-build-java-maven.md) bu değeri ayarlayan bir örnek istemci için.
+Bkz: [bir Java tabanlı Apache HBase uygulaması](hbase/apache-hbase-build-java-maven-linux.md) bu değeri ayarlayan bir örnek istemci için.
 
 ## <a name="spark"></a>Spark
 

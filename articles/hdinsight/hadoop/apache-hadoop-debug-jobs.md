@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 4d3d45434a90e89e011bf8aa7c3fd37909e25386
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: a035789af08aa4c0d877a06295d9bd6fdedf6844
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203073"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449494"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Apache Hadoop günlüklerini analiz etme
 
@@ -315,6 +315,5 @@ HDInsight kümelerini yönetmek için kullanıldığında bu hata iletileri baz�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [HDInsight üzerinde Apache Tez işlerinin hatalarını ayıklamak için Apache Ambari görünümlerini kullanma](../hdinsight-debug-ambari-tez-view.md)
 * [Linux tabanlı HDInsight üzerinde Apache Hadoop Hizmetleri için yığın dökümlerini etkinleştirme](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [HDInsight kümelerini Apache Ambari Web arabiriminden yönetme](../hdinsight-hadoop-manage-ambari.md)

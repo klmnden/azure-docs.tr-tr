@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: İşlemler, güç Azure geliştirme alanları ve azds.yaml yapılandırma dosyasında nasıl yapılandırılacağı açıklanmaktadır.
 keywords: azds.yaml, Azure geliştirme alanları, geliştirme alanları, Docker, Kubernetes, Azure, AKS, kapsayıcılar, Azure Kubernetes hizmeti
-ms.openlocfilehash: b6f178628961001c4022ffc86bc13ee0e529e3c4
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438980"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500568"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure geliştirme alanları nasıl çalışır ve olan yapılandırılmış
 
@@ -96,7 +96,7 @@ Azure geliştirme alanları AKS kümenizde etkinleştirildiğinde, kümeniz içi
 * Tüm Kubernetes ad alanı adlı kaldırır *azds*, varsa ve yeni bir tane oluşturur.
 * Kubernetes Başlatıcı nesne dağıtır.
 
-! [Azure geliştirme alanları küme hazırlama]] (media/how-dev-spaces-works/prepare-cluster.svg)
+![Azure geliştirme alanları küme hazırlama](media/how-dev-spaces-works/prepare-cluster.svg)
 
 Azure geliştirme alanları kullanmak için en az bir geliştirme alanı olmalıdır. Azure geliştirme alanları AKS kümenizi içinde Kubernetes ad alanları için geliştirme alanları kullanır. Bir denetleyici yüklendikten sonra ilk geliştirme alanınızı kullanmak için mevcut bir ad alanı seçin veya yeni bir Kubernetes ad alanı oluşturma ister. Bir ad alanı bir geliştirme boşluk olarak belirlenmişse, denetleyici ekler *azds.io/space=true* geliştirme boşluk olarak tanımlamak için bu ad alanı için etiketi. Kümenizi hazırladıktan sonra ilk geliştirme alanı oluşturun veya belirleyin, varsayılan olarak seçilidir. Bir alan seçildiğinde, Azure geliştirme boşluklarla yeni iş yükleri oluşturmak için kullanılır.
 

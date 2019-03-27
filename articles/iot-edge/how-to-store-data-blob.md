@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0fc34c913453abd174009213233a54e30b9346d3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3a0df408e70ed61355ffba319f6261f90d8e4348
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881393"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499167"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>IOT Edge (Önizleme) Azure Blob Depolama ile uçta veri Store
 
@@ -78,7 +78,7 @@ Bulut kaynakları:
 
 Modüller IOT Edge cihazına dağıtmak için birkaç yolu vardır ve bunların tümünü IOT Edge modülleri Azure Blob Depolama için çalışır. Visual Studio kod şablonları ve Azure Portalı'nı kullanmak için iki basit yöntemler şunlardır. 
 
-### <a name="azure-portal"></a>Azure portalı
+### <a name="azure-portal"></a>Azure portal
 
 Azure marketi, IOT Edge, IOT Edge üzerinde Azure Blob Depolama da dahil olmak üzere doğrudan IOT Edge cihazlarınıza, dağıtılan modülleri sağlar. Azure portalından modülü dağıtmak için aşağıdaki adımları izleyin.
 
@@ -345,7 +345,7 @@ Bu modül için istenen özellikler örneği aşağıdadır: ![azureblobstorageo
     }
 
    ```
-  ## <a name="logs"></a>Günlükler
+## <a name="logs"></a>Günlükler
 
 Lütfen için yönergeleri izleyin [IOT Edge modülleri, docker günlüklerini Yapılandır](production-checklist.md#set-up-logs-and-diagnostics)
 
@@ -383,9 +383,10 @@ Ek blob depolama modüllerini bağladığınızda, uç nokta güncel ana bilgisa
 * [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
 
 ### <a name="azure-storage-explorer"></a>Azure Depolama Gezgini
-Ayrıca deneyebilirsiniz [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) yerel depolama hesabınıza bağlanmak için. İle çalıştınız [önceki sürümü 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0) Azure Gezgini.
+"Azure depolama, yerel depolama hesabınıza bağlanmak için Gezgini" de deneyebilirsiniz. İle çalışır [Azure Depolama Gezgini sürüm 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0).
+
 > [!NOTE]
-> Aşağıdaki adımları gerçekleştirirken hatalarla, yoksay ve yenileme. 
+> Bir bağlantı için bir yerel depolama hesabı ekleme veya yerel depolama hesabındaki kapsayıcıları oluşturma gibi aşağıdaki adımları gerçekleştirirken hatalarla karşılaşabilirsiniz. Lütfen yoksay ve yenileyin. 
 
 1. Azure Depolama Gezgini indirip yükleme
 2. Bağlantı dizesi kullanarak Azure Depolama'ya Bağlan
@@ -420,7 +421,7 @@ Desteklenmeyen:
 Desteklenen: 
 * Oluşturma ve kapsayıcı silme
 * Kapsayıcı özellikleri ve meta verileri alma
-* Blobları listele
+* Blobları listeleme
 * Alma ve kapsayıcı ACL ayarlama
 * Kümesi kapsayıcı meta verileri
 

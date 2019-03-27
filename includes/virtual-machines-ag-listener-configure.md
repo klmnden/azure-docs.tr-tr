@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9c7c6d31b9443ee09539d4882a9e8f4c4332763b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 276ddf0a70fa450451cd3ddc78c7610c4ab1edc1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124645"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58495023"
 ---
 Kullanılabilirlik grubu dinleyicisi SQL Server kullanılabilirlik grubu dinlediği bir IP adresi ve ağ adı değil. Kullanılabilirlik grubu dinleyicisi oluşturmak için aşağıdakileri yapın:
 
@@ -76,7 +76,7 @@ Kullanılabilirlik grubu dinleyicisi SQL Server kullanılabilirlik grubu dinledi
 
    ![Kaynak IP](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
-    c. Tıklayın **bağımlılıkları** sekmesi. IP adresi bir bağımlılığı olduğundan emin olun. Yüklü değilse, IP adresi üzerinde bir bağımlılık ayarlayın. Listelenen birden çok kaynaklar varsa, IP adresleri veya değil olduğunu doğrulayın ve bağımlılıkları. **Tamam**'ı tıklatın. 
+    c. Tıklayın **bağımlılıkları** sekmesi. IP adresi bir bağımlılığı olduğundan emin olun. Yüklü değilse, IP adresi üzerinde bir bağımlılık ayarlayın. Listelenen birden çok kaynaklar varsa, IP adresleri veya değil olduğunu doğrulayın ve bağımlılıkları. **Tamam** düğmesine tıklayın. 
 
    ![Kaynak IP](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
@@ -92,7 +92,7 @@ Kullanılabilirlik grubu dinleyicisi SQL Server kullanılabilirlik grubu dinledi
     
    - `$ListenerProbePort` Azure yük dengeleyicide kullanılabilirlik grubu dinleyicisi için yapılandırılan bağlantı noktasıdır.
 
-   ```PowerShell
+   ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
    $IPResourceName = "<IPResourceName>" # the IP Address resource name
    $ListenerILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
@@ -126,7 +126,7 @@ Gerekirse, WSFC küme IP adresi kümesi parametrelerini ayarlamak için yukarıd
 
    - `$ClusterProbePort` WSFC durum araştırması için Azure yük dengeleyici üzerinde yapılandırılan bağlantı noktasıdır. Kullanılabilirlik grubu dinleyicisinin araştırma farklıdır.
 
-   ```PowerShell
+   ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
    $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
    $ClusterCoreIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 1c28c0bb3fdc2bb94595910ccff9f86769b17da5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 81e00c4a3b9490a05667d58952f7bdf8945bacdb
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547139"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446570"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Hataları, başarısız veya reddedildi Azure Linux VM'ye SSH bağlantısı sorunlarını giderme
 Bu makale, bulun ve Secure Shell (SSH) hataları, SSH bağlantı hataları nedeniyle oluşan sorunları düzeltmek olur veya SSH, Linux sanal makinesi (VM) bağlanmaya çalıştığınızda reddedilir. Azure portalı, Azure CLI veya Linux için VM erişimi uzantısı ve bağlantı sorunlarını gidermek için kullanabilirsiniz.
@@ -37,7 +37,7 @@ Sorun giderme her adımdan sonra sanal Makineye yeniden bağlanmayı deneyin.
 3. Doğrulama [ağ güvenlik grubu](../../virtual-network/security-overview.md) kurallarının SSH trafiğine izin verir.
    * Emin bir [ağ güvenlik grubu kuralı](#security-rules) (varsayılan olarak, TCP bağlantı noktası 22) SSH trafiğine izin vermek için bulunmaktadır.
    * Bağlantı noktası yeniden yönlendirme kullanamazsınız / Azure load balancer'ı kullanmadan eşleme.
-4. Denetleme [VM kaynak durumu](../../resource-health/resource-health-overview.md). 
+4. Denetleme [VM kaynak durumu](../../resource-health/resource-health-overview.md).
    * Sanal Makinenin iyi durumda olacak şekilde bildirdiğinden emin olmak.
    * Varsa [önyükleme tanılaması etkin](boot-diagnostics.md), VM'yi önyükleme günlüklerde değil raporlama doğrulayın.
 5. [VM'yi yeniden başlatın](#restart-vm).
@@ -49,6 +49,7 @@ Daha ayrıntılı sorun giderme adımları ve açıklamaları için okuma devam 
 Kimlik bilgileri veya aşağıdaki yöntemlerden birini kullanarak SSH yapılandırması sıfırlayabilir:
 
 * [Azure portalında](#use-the-azure-portal) - hızlı bir şekilde SSH yapılandırması veya SSH anahtarını sıfırlamak gereken ve Azure araçlarının yüklü olduğu yoksa harika.
+* [Azure sanal makine seri Konsolu](https://aka.ms/serialconsolelinux) -VM seri konsol SSH yapılandırma bağımsız olarak çalışır ve etkileşimli konsol ile VM'nize sağlayacaktır. Aslında, "SSH olamaz" özellikle seri konsol neydi durumlardır çözmeye yardımcı olmak için tasarlanmıştır. Daha fazla ayrıntı aşağıdadır.
 * [Azure CLI](#use-the-azure-cli) - komut satırında zaten varsa hızlı bir şekilde SSH yapılandırması veya kimlik bilgilerini sıfırlama. Klasik bir sanal makine ile çalışıyorsanız, kullanabileceğiniz [Azure Klasik CLI](#use-the-azure-classic-cli).
 * [Azure VMAccessForLinux uzantısını](#use-the-vmaccess-extension) - oluşturma ve SSH yapılandırma veya kullanıcı kimlik bilgilerini sıfırlamak için json tanımı dosyaları yeniden kullanma.
 
@@ -76,6 +77,26 @@ Kullanım [IP akışı doğrulama](../../network-watcher/network-watcher-check-i
 ### <a name="check-routing"></a>Yönlendirmeyi denetleyin
 
 Ağ İzleyicisi'nin [sonraki atlama](../../network-watcher/network-watcher-check-next-hop-portal.md) yönlendiriliyor veya bir sanal makineden bir yol trafiği engelleyen değil olduğunu onaylamak için yeteneği. Ayrıca, bir ağ arabirimi için tüm geçerli rotalar görmek için geçerli rotalar gözden geçirebilirsiniz. Daha fazla bilgi için [VM sorunlarını gidermek için geçerli rotaları kullanma trafik akışı](../../virtual-network/diagnose-network-routing-problem.md).
+
+## <a name="use-the-azure-vm-serial-console"></a>Azure sanal makine seri Konsolu
+[Azure sanal makine seri Konsolu](./serial-console-linux.md) Linux sanal makineleri için metin tabanlı bir konsol erişim sağlar. Etkileşimli bir kabuk, SSH bağlantı sorunlarını gidermek için konsolu kullanabilirsiniz. Ulaştığından emin [önkoşulları](./serial-console-linux.md#prerequisites) seri konsol ve deneyin kullanmak için daha fazla bilgi için aşağıdaki komutları, SSH bağlantı sorunlarını giderme.
+
+### <a name="check-that-ssh-is-running"></a>SSH çalışan olup olmadığını kontrol edin
+VM'NİZDE SSH çalışıp çalışmadığını doğrulamak için aşağıdaki komutu kullanabilirsiniz:
+```
+$ ps -aux | grep ssh
+```
+Herhangi bir çıktı varsa, SSH çalışır duruma.
+
+### <a name="check-which-port-ssh-is-running-on"></a>SSH üzerinde çalıştığı hangi bağlantı noktasını denetle
+SSH üzerinde çalıştığı hangi bağlantı noktasını denetlemek için aşağıdaki komutu kullanabilirsiniz:
+```
+$ sudo grep Port /etc/ssh/sshd_config
+```
+Çıktınız aşağıdakine benzer görünecektir:
+```
+Port 22
+```
 
 ## <a name="use-the-azure-cli"></a>Azure CLI kullanma
 Henüz yapmadıysanız, en son yükleme [Azure CLI](/cli/azure/install-az-cli2) ve Azure oturum açma hesabı kullanarak [az login](/cli/azure/reference-index).
@@ -209,8 +230,8 @@ Temel alınan herhangi bir ağ sorunu giderebilir Azure içinde başka bir düğ
 
 > [!NOTE]
 > Bu işlem tamamlandıktan sonra kısa ömürlü disk verileri kaybedilirse ve sanal makine ile ilişkili olan dinamik IP adresleri güncelleştirilir.
-> 
-> 
+>
+>
 
 ### <a name="azure-portal"></a>Azure portal
 Azure portalını kullanarak bir VM yeniden dağıtmak için VM'nizi seçin ve ekranı aşağı kaydırarak **destek + sorun giderme** bölümü. Seçin **yeniden** aşağıdaki örnekteki gibi:
@@ -236,12 +257,12 @@ Klasik dağıtım modeli kullanılarak oluşturulan sanal makineler için en sı
 
 * Uzaktan erişimi sıfırlama [Azure portalında](https://portal.azure.com). Azure portalında VM'nizi seçin ve ardından **uzaktan Sıfırla...** .
 * VM’yi yeniden başlatın. Üzerinde [Azure portalında](https://portal.azure.com), VM'nizi seçin ve seçin **yeniden**.
-    
+
 * VM için yeni bir Azure düğümüne yeniden dağıtın. Bir VM'yi yeniden dağıtma hakkında daha fazla bilgi için bkz: [sanal makineyi yeni Azure düğümüne yeniden dağıtma](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-  
+
     Bu işlem tamamlandıktan sonra kısa ömürlü diskin veri kaybı olmayacağını ve sanal makineyle ilişkili olan dinamik IP adresleri güncelleştirildi.
 * Bölümündeki yönergeleri [Linux tabanlı sanal makineler için bir parola veya SSH sıfırlama](../linux/classic/reset-access-classic.md) için:
-  
+
   * Parolayı veya SSH anahtarını Sıfırla.
   * Oluşturma bir *sudo* kullanıcı hesabı.
   * SSH yapılandırmasını sıfırlayın.

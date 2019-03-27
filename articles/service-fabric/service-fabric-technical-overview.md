@@ -3,7 +3,7 @@ title: Azure Service Fabric terminolojisi öğrenin | Microsoft Docs
 description: Service Fabric terminolojisi bakış. Önemli terimleri ve kavramları ve belgeleri geri kalanında kullanılan terimler açıklanmaktadır.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: masnider
 manager: timlt
 editor: chackdan;subramar
 ms.assetid: 3a970679-e19e-43b3-9be8-71773f307c57
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/17/2018
-ms.author: ryanwi
-ms.openlocfilehash: fda6af0f253457aaf3aef1e8444850592255b318
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: masnider
+ms.openlocfilehash: d9012ff37693b406d4e91560c880d6bed66c051b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113682"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498307"
 ---
 # <a name="service-fabric-terminology-overview"></a>Service Fabric terminolojiye genel bakış
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur.  Yapabilecekleriniz [konak Service Fabric kümelerinin her yerden](service-fabric-deploy-anywhere.md): Azure, bir şirket içi veri merkezinde veya tüm bulut sağlayıcıları.  Service Fabric, güç katan orchestrator [Azure Service Fabric Mesh](/azure/service-fabric-mesh). Kendi hizmetlerinizi yazmanızı ve birden çok ortam seçenekleri uygulamayı çalıştırmak hedef konumu seçin, herhangi bir çerçeveyi kullanabilirsiniz. Bu makalede belgelerinde kullanılan terimler anlamak için Service Fabric tarafından kullanılan terimler açıklanmaktadır.
