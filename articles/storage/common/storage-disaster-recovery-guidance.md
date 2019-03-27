@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e14e35cc8589bb524bae791ccd74952da90bdb04
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871545"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486079"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Olağanüstü durum kurtarma ve depolama hesabı yük devretme (Önizleme) Azure Depolama'daki
 
@@ -121,14 +121,14 @@ Hesap yük devretme, GRS veya RA-GRS ile Azure Resource Manager dağıtımların
 
 Önizlemeye kaydolmak için PowerShell'de aşağıdaki komutları çalıştırın. Köşeli ayraçlar içindeki yer tutucusunu kendi abonelik kimliği ile değiştirdiğinizden emin olun:
 
-```PowerShell
+```powershell
 Connect-AzureRmAccount -SubscriptionId <subscription-id>
 Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 Bu önizleme için onay almak için 1-2 gün sürebilir. Kaydınızı onaylandığını doğrulamak için aşağıdaki komutu çalıştırın:
 
-```PowerShell
+```powershell
 Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
@@ -164,6 +164,7 @@ Aşağıdaki özellikler veya hizmetleri Önizleme sürümü için hesap yük de
 - Azure Data Lake depolama Gen2 hiyerarşik ad alanı'nı kullanarak depolama hesaplarında yük devredilemez.
 - Arşivlenen bloblarını içeren depolama hesabı üzerinden devredilemez. Yük devretme planlamadığınız ayrı bir depolama hesabı arşivlenmiş blob'larda korur.
 - Premium blok bloblarını içeren depolama hesabı üzerinden devredilemez. Coğrafi yedeklilik premium blok blobları destekleyen depolama hesapları şu anda desteklemez.
+- Yük devretme işlemi tamamlandıktan sonra aşağıdaki özellikleri özgün olarak etkinleştirilirse çalışmayı durdurur: [Olay abonelikleri](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [yaşam döngüsü ilkeleri](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [depolama analizi günlük](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Yük devretme için alternatif olarak veri kopyalama
 

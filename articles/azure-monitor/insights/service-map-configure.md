@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 26da504188a9060dbbb35330dbd8604bf5fe5e1b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d3de1d0b242017f7026873ccaeba547f85981fc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995138"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482108"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure'da hizmet eşlemesi yapılandırma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--kritik Hizmetleri sunmak birbirine sistemleri düşündüğünüz sunucularınızın görüntülemek için kullanabilirsiniz. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi, gerekli bir aracı yüklemesini dışında hiçbir yapılandırma boyunca sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -29,8 +29,8 @@ Bu makalede hizmet eşlemesi ve onboarding aracıları yapılandırma ayrıntıl
 Hizmet eşlemesi aşağıdaki Azure bölgeleri şu anda kullanılabilir:
 - Doğu ABD
 - Batı Orta ABD
-- Kanada Orta
-- BK Güney
+- Orta Kanada
+- Birleşik Krallık Güney
 - Batı Avrupa
 - Güneydoğu Asya
 
@@ -166,7 +166,7 @@ Bir uzantı (DependencyAgentWindows) Windows ve Linux (DependencyAgentLinux) iç
 
 PowerShell ile Azure VM uzantısı dağıtmak için aşağıdaki örneği kullanabilirsiniz:
 
-```PowerShell
+```powershell
 #
 # Deploy the Dependency agent to every VM in a Resource Group
 #
@@ -278,7 +278,7 @@ Bağımlılık Aracısı'nı dosyaları aşağıdaki dizinlerde yerleştirilir:
 Bağımlılık aracısını birçok sunucuda tek seferde kolayca dağıtmak için aşağıdaki betiği örneği indirip bağımlılık aracısını Windows veya Linux'ta sağlanır.
 
 ### <a name="powershell-script-for-windows"></a>Windows için PowerShell betiği
-```PowerShell
+```powershell
 Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
 
 .\InstallDependencyAgent-Windows.exe /S

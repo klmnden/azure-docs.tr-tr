@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a34dea7e1eb53531db55dc62df8fbad8541f7a35
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a2ec36a99b2940fa662b0d9bd16b06777684db2f
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586809"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448066"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Desired State Configuration (DSC) sorunlarını giderme
 
@@ -40,7 +40,7 @@ An error occured while deleteing the DSC configuration '<name>'.  Error-details:
 
 * Yapılandırmayı silmek için "Remove-AzAutomationDscConfiguration" Az cmdlet'ini kullanın.
 * Bu cmdlet belgeleri henüz güncelleştirilmemiş.  O zamana kadar AzureRM modülünü belgelerine bakın.
-  * [Remove-AzureRmAutomationDSCConfiguration](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration?view=azurermps-6.13.0)
+  * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
 ### <a name="failed-not-found"></a>Senaryo: Bir "Bulunamadı" hatası ile başarısız durumundaki düğümüdür
 

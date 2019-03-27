@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: fd5ae375dff80c8b1179d2fd73566d07c5861e4a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a9de0f0021d92c59c44e85f0487cc9a08b6a3099
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000346"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497371"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Azure Vm'lerinde MATLAB dağıtılmış bilgi işlem sunucusu kümeleri oluşturma
 Microsoft Azure sanal makineler, yoğun işlem gücü kullanımlı paralel MATLAB iş yüklerini çalıştırmak için bir veya daha fazla MATLAB dağıtılmış bilgi işlem sunucusu kümeleri oluşturmak için kullanın. Temel görüntü olarak ve bir Azure Hızlı Başlangıç şablonu veya Azure PowerShell Betiği kullanmak, bir VM'de MATLAB dağıtılmış bilgi işlem sunucu yazılımınızı yüklemeniz (kullanılabilir [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) dağıtmak ve kümeyi yönetmek için. Dağıtımdan sonra iş yüklerinizi çalıştırmak için kümeye bağlanın.
@@ -34,7 +34,7 @@ Azure sanal makinelerini kullanarak, aynı mekanizmaları etkileşimli işleri, 
 * **Azure PowerShell** -bkz [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview) istemci bilgisayarınıza yüklemek için.
 * **Azure aboneliği** -bir aboneliğiniz yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) yalnızca birkaç dakika içinde. Daha büyük kümeler için bir Kullandıkça Öde aboneliğine veya diğer satın alma seçeneklerini göz önünde bulundurun.
 * **Vcpu kotası** -büyük bir küme veya birden fazla MATLAB dağıtılmış bilgi işlem sunucusu kümesi dağıtmak için vCPU kotası artırmanız gerekebilir. Bir Kotayı artırmak için [bir çevrimiçi müşteri destek isteği açın](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) ücret olmadan.
-* **MATLAB, paralel bilgi işlem araç ve MATLAB dağıtılmış bilgi işlem sunucusu lisansları** -betikleri varsayımında [MathWorks barındırılan Lisans Yöneticisi](https://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) tüm lisansları için kullanılır.  
+* **MATLAB, paralel bilgi işlem araç ve MATLAB dağıtılmış bilgi işlem sunucusu lisansları** -betikleri varsayımında [MathWorks barındırılan Lisans Yöneticisi](https://www.mathworks.com/help/install/license-management.html) tüm lisansları için kullanılır.  
 * **MATLAB dağıtılmış bilgi işlem sunucu yazılımı** -küme Vm'leri için temel VM görüntüsü olarak kullanılacak bir VM'de yüklü.
 
 ## <a name="high-level-steps"></a>Yüksek düzey adımları

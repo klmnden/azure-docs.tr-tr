@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 0d0452cba099bbc568f2b9e926258eb16060eaf4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 25a100a224984b0d5608ba933b7a4fa024c22c9d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855929"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481170"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-posta bildirimlerini otomatik ayarlama
 
@@ -91,7 +91,7 @@ PowerShell betiğini üst bilgisinde değiştirmeniz gerekiyor. `<SUBSCRIPTION_I
 
 Birkaç abonelikleri olması durumunda bunları virgülle ayrılmış komut dosyasının üst bilgisindeki "$subscriptions" özelliğine ekleyebilirsiniz.
 
-```PowerShell
+```powershell
 # PowerShell script to retrieve Azure SQL Database Automatic tuning recommendations.
 #
 # Provided “as-is” with no implied warranties or support.

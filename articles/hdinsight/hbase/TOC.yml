@@ -79,21 +79,6 @@ items:
       - name: HDInsight uygulamalarını Azure Market’te yayımlama
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
-      - name: Yayımlanan uygulamayı yükleme - Cask Data Application Platform (CDAP)
-        href: ../hdinsight-apps-install-cask.md
-        maintainContext: true
-      - name: Yayımlanan uygulamayı yükleme - Dataiku
-        href: ../hdinsight-apps-install-dataiku.md
-        maintainContext: true
-      - name: Yayımlanan uygulamayı yükleme - Datameer
-        href: ../hdinsight-apps-install-datameer.md
-        maintainContext: true
-      - name: Yayımlanan uygulamayı yükleme - H2O
-        href: ../hdinsight-apps-install-h2o.md
-        maintainContext: true
-      - name: Yayımlanan uygulamayı yükleme - Streamsets
-        href: ../hdinsight-apps-install-streamsets.md
-        maintainContext: true
   - name: Güvenlik
     items:
     - name: HDInsight ile SSH kullanma
@@ -231,9 +216,6 @@ items:
       - name: Apache Hive ayarları ile Yetersiz Bellek hatalarını düzeltme
         href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
         maintainContext: true
-      - name: Apache TEZ İşlerinde hata ayıklamak için Apache Ambari Görünümleri kullanma
-        href: ../hdinsight-debug-ambari-tez-view.md
-        maintainContext: true
       - name: Apache Hive sorgularını iyileştirme
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
@@ -303,33 +285,6 @@ items:
     - name: .NET çözümlerini Linux kümelerine geçirme
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
       maintainContext: true
-    - name: Apache Hadoop MapReduce örneklerini çalıştırma
-      href: ../hdinsight-run-samples.md
-      maintainContext: true
-    - name: Büyük ölçekli grafikleri işlemek için Apache Giraph kullanma
-      href: ../hdinsight-hadoop-giraph-install.md
-      maintainContext: true
-    - name: İş akışları için Apache Oozie kullanma
-      href: ../hdinsight-use-oozie.md
-      maintainContext: true
-    - name: Apache Storm topolojilerini dağıtma ve yönetme
-      href: ../storm/apache-storm-deploy-monitor-topology.md
-      maintainContext: true
-    - name: Java uygulamaları oluşturmak için Apache Maven kullanma
-      href: ../hdinsight-hbase-build-java-maven.md
-      maintainContext: true
-    - name: Apache Hadoop’ta YARN uygulama günlüklerine erişme
-      href: ../hdinsight-hadoop-access-yarn-app-logs.md
-      maintainContext: true
-    - name: Apache Mahout kullanarak film önerileri oluşturma
-      href: ../hdinsight-mahout.md
-      maintainContext: true
-    - name: Betik eylemleri geliştirme
-      href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: Apache Ambari API’sini kullanarak kümeleri izleme
-      href: ../hdinsight-monitor-use-ambari-api.md
-      maintainContext: true
 - name: Kaynaklar
   items:
   - name: Sürüm notları
@@ -352,9 +307,9 @@ items:
   - name: HDInsight için Windows araçları
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: e00619810711e0a27c2c49224e96818e7d184d1f
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 39bc984d593f9026a3f6db85da8b8d1b80038335
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360037"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444411"

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 963fd1bfd67a20033f0712d3b447091abda40d11
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: de27d5c4fd65515e25319f9e7ac3eafc4110b137
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369914"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481576"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows ve Linux için Log Analytics aracısını korumak ve yönetme
 
@@ -39,7 +39,7 @@ Log Analytics Windows veya Linux Aracısı Azure İzleyici'de, ilk dağıtımdan
 
 #### <a name="remove-a-workspace-using-powershell"></a>PowerShell kullanarak bir çalışma alanını Kaldır
 
-```PowerShell
+```powershell
 $workspaceId = "<Your workspace Id>"
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
 $mma.RemoveCloudWorkspace($workspaceId)
@@ -48,7 +48,7 @@ $mma.ReloadConfiguration()
 
 #### <a name="add-a-workspace-in-azure-commercial-using-powershell"></a>Azure PowerShell kullanarak ticari bir çalışma alanı Ekle
 
-```PowerShell
+```powershell
 $workspaceId = "<Your workspace Id>"
 $workspaceKey = "<Your workspace Key>"
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
@@ -58,7 +58,7 @@ $mma.ReloadConfiguration()
 
 #### <a name="add-a-workspace-in-azure-for-us-government-using-powershell"></a>PowerShell kullanarak ABD için Azure'a bir çalışma alanı ekleyin
 
-```PowerShell
+```powershell
 $workspaceId = "<Your workspace Id>"
 $workspaceKey = "<Your workspace Key>"
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
@@ -117,7 +117,7 @@ Hizmet bir ara sunucu üzerinden iletişim kurmak için aracıyı yapılandırma
 
 Aşağıdaki örnek PowerShell kodu kopyalayın, ortamınıza özgü bilgilerle güncelleştirin ve bir PS1 dosya adı uzantısıyla kaydedin. Log Analytics çalışma alanını Azure İzleyici'de doğrudan bağlanan her bilgisayarda betiği çalıştırın.
 
-```PowerShell
+```powershell
 param($ProxyDomainName="https://proxy.contoso.com:30443", $cred=(Get-Credential))
 
 # First we get the Health Service configuration object. We need to determine if we

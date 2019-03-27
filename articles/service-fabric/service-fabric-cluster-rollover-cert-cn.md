@@ -3,7 +3,7 @@ title: Bir Azure Service Fabric küme sertifikası aktarma | Microsoft Docs
 description: Nasıl geçiş için bir Service Fabric küme sertifikası sertifika ortak adına göre tanımlanan öğrenin.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: aljo
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
-ms.author: ryanwi
-ms.openlocfilehash: 72640a4d917ddb2485199f0df1fead8b0bdcd1c9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: aljo
+ms.openlocfilehash: 549c5fed02402bb17b85fe796fecc4b53b321a66
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192983"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497099"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>El ile bir Service Fabric küme sertifikası alma
 Bir Service Fabric küme sertifikasının süresi dolmak üzere olduğunda sertifika güncelleştirmeniz gerekiyor.  Küme ise, Basit sertifika geçişi [ortak adını temel alarak sertifikaları kullan kadar ayarlanmış](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (yerine parmak izi).  Yeni bir sona erme tarihi ile sertifika yetkilisinden yeni bir sertifika alın.  Otomatik olarak imzalanan sertifikaları Azure portalı küme oluşturma iş akışı sırasında oluşturulan sertifikalar dahil etmek için üretim Service Fabric kümeleri için destek değildir. Yeni sertifika, ortak eski sertifikanın adıyla aynı olmalıdır. 

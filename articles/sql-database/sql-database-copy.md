@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 87db25bbfd68aea1b8835211d7b51dfddcd43038
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2aeb756bda50597bf3e43c0c84391e0750bd8acb
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57899392"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486827"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Bir Azure SQL veritabanı işlemsel olarak tutarlı bir kopyasını kopyalayın
 
@@ -54,7 +54,7 @@ Azure portalını kullanarak bir veritabanını kopyalamak için veritabanınız
 
 PowerShell kullanarak bir veritabanını kopyalamak için kullanmak [yeni AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet'i. 
 
-```PowerShell
+```powershell
 New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
     -ServerName $sourceserver `
     -DatabaseName "MySampleDatabase" `

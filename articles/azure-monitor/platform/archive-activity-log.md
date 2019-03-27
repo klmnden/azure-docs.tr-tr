@@ -8,20 +8,15 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: 5328173090bce3e3adf51a1503e18c8da5532b0e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b6009471048232b52020e4bef6272ed8cb1bd35b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310918"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497763"
 ---
 # <a name="archive-the-azure-activity-log"></a>Azure Etkinlik günlüğünü arşivleme
 Bu makalede, biz arşivlemek için Azure portalı, PowerShell cmdlet'leri veya platformlar arası CLI nasıl kullanabileceğinizi gösterir, [ **Azure etkinlik günlüğü** ](../../azure-monitor/platform/activity-logs-overview.md) bir depolama hesabında. Etkinlik günlüğünüzü 90 günden uzun (ile bekletme ilkesini üzerinde tam denetim) denetim, statik analiz veya yedekleme korumak istiyorsanız, bu seçenek kullanışlıdır. Yalnızca olaylarınızı 90 gün boyunca Beklet gerekir ya da daha az, etkinlik günlüğü olaylarını arşivleme etkinleştirmeden Azure platformunda 90 gün boyunca bekletilir olduğundan bir depolama hesabına arşivleme ayarlamak ihtiyacınız yoktur.
-
-> [!WARNING]
-> Depolama hesabındaki günlük verilerinin biçimi, 1 Kasım 2018 tarihinde JSON Satırları olarak değişecektir. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
 
 ## <a name="prerequisites"></a>Önkoşullar
 Başlamadan önce yapmanız [depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md) etkinlik günlüğünüzü arşiv. İçinde depolanır, bu sayede daha iyi İzleme verilerine erişimi denetleyebilir, diğer izleme olmayan veriler içeren mevcut bir depolama hesabını kullanmamanızı öneririz. Ayrıca Tanılama günlükleri ve ölçümler bir depolama hesabına arşivleme, Bununla birlikte, tüm izleme verilerini merkezi bir konumda tutmak için etkinlik günlüğü de bu depolama hesabını kullanmak için mantıklı olabilir. Ayarı yapılandıran kullanıcının her iki abonelik için uygun RBAC erişimine sahip olduğu sürece, günlükleri yayan ile aynı abonelikte olması depolama hesabı yok.
@@ -65,7 +60,7 @@ Aşağıdaki yöntemlerden birini kullanarak Etkinlik günlüğünü arşivleme 
 | --- | --- | --- |
 | StorageAccountId |Evet |Etkinlik günlükleri kaydedileceği depolama hesabı kaynak kimliği. |
 | Konumlar |Evet |Etkinlik günlüğü olayları toplamak istiyorsanız bölgelerin virgülle ayrılmış listesi. Tüm bölgelerin listesi için aboneliği kullanarak görüntüleyebileceğiniz `(Get-AzLocation).Location`. |
-| Retentionındays |Hayır |Hangi olayların tutulacağını, 1 ile 2147483647 arasında bir gün sayısı. Sıfır değeri günlükler süresiz olarak depolar (sonsuz). |
+| Retentionındays |Hayır |Hangi olayların tutulacağını, 1 ile 365 arasında bir gün sayısı. Sıfır değeri günlükler süresiz olarak depolar (sonsuz). |
 | Kategoriler |Hayır |Virgülle ayrılmış liste toplanması gereken olay kategorileri. Olası değerler şunlardır: yazma, silme ve eylem.  Sağlanmazsa, ardından tüm olası değerler kabul edilir |
 
 ## <a name="archive-the-activity-log-via-cli"></a>CLI aracılığıyla Etkinlik günlüğünü arşivleme
@@ -79,7 +74,7 @@ Aşağıdaki yöntemlerden birini kullanarak Etkinlik günlüğünü arşivleme 
 | ad |Evet |Günlük profilinin adı. |
 | Depolama hesabı kimliği |Evet |Etkinlik günlükleri kaydedileceği depolama hesabı kaynak kimliği. |
 | konumlar |Evet |Boşlukla ayrılmış etkinlik günlüğü olayları toplamak istiyorsanız bölgelerin listesi. Tüm bölgelerin listesi için aboneliği kullanarak görüntüleyebileceğiniz `az account list-locations --query [].name`. |
-| gün |Evet |Hangi olayların tutulacağını, 1 ile 2147483647 arasında bir gün sayısı. Sıfır değeri günlükler süresiz olarak depolar (sonsuz).  Sıfır ise, ardından etkin parametresi ayarlanmalıdır true. |
+| gün |Evet |Hangi olayların tutulacağını, 1 ile 365 arasında bir gün sayısı. Sıfır değeri günlükler süresiz olarak depolar (sonsuz).  Sıfır ise, ardından etkin parametresi ayarlanmalıdır true. |
 |enabled | Evet |TRUE veya False.  Bekletme İlkesi devre dışı bırakmak veya etkinleştirmek için kullanılır.  TRUE ise gün parametresi 0'dan büyük bir değer olması gerekir.
 | kategoriler |Evet |Boşlukla ayrılmış toplanması gereken olay kategorilerinin listesi. Olası değerler şunlardır: yazma, silme ve eylem. |
 

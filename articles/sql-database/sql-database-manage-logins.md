@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: b12fdcec32aca65b0c66f6a3fb14595453d36fdb
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.date: 03/26/2019
+ms.openlocfilehash: b1e952d9af474e2318ef91a6bdcc2605a3c30018
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301766"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497933"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Denetleme ve SQL veritabanı ve SQL veri ambarı veritabanına erişim izni verme
 
@@ -203,6 +203,12 @@ SQL Veritabanında oturum açma bilgilerini ve kullanıcıları yönetirken aşa
            WHERE  [name] = N'database_name')
   DROP DATABASE [database_name];
   GO
+  ```
+  
+  Bunun yerine, aşağıdaki Transact-SQL deyimini kullanın:
+  
+  ```sql
+  DROP DATABASE IF EXISTS [database_name]
   ```
 
 - `CREATE USER` deyimini `FOR/FROM LOGIN` seçeneğiyle yürütürken bunun bir Transact-SQL toplu işindeki tek deyim olması gerekir.

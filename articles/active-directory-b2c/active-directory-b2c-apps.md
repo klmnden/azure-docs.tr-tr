@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 116abd259d11e66be2dc158d833c569f06aaa923
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 5324f1ed92ae4513dcd877853cb6fa2f4c7dd8f3
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446384"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497968"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Active Directory B2C'de kullanılabilir uygulama türleri
 
@@ -108,7 +108,7 @@ Azure AD B2C'yi kullanarak bir web API'sini nasıl güvence altına alacağını
 
 Mobil ve Masaüstü uygulamaları gibi cihazlara yüklenen uygulamaların çoğunlukla arka uç hizmetlerine veya web API'lerine kullanıcılar adına erişim gerekir. Yerel uygulamalarınıza özelleştirilmiş kimlik yönetimi deneyimleri ekleyebilir ve güvenli bir şekilde Azure AD B2C'yi kullanarak arka uç hizmetlerini çağırma ve [OAuth 2.0 yetkilendirme kod akışı](active-directory-b2c-reference-oauth-code.md).  
 
-Bu akışta uygulama yürütür [ilkeleri](active-directory-b2c-reference-policies.md) ve alan bir `authorization_code` kullanıcı ilkeyi tamamladıktan sonra Azure AD'den. `authorization_code` Uygulamanın şu anda oturum açan kullanıcı adına arka uç hizmetlerini çağırma izni temsil eder. Uygulama ardından exchange `authorization_code` arka planda bir `id_token` ve `refresh_token`.  Uygulamanın kullanabileceği `id_token` HTTP isteklerinde arka uç web API'si için kimlik doğrulaması. Ayrıca eskisinin süresi dolduğunda yeni bir `id_token` almak için `refresh_token` öğesini kullanabilir.
+Bu akışta uygulama yürütür [ilkeleri](active-directory-b2c-reference-policies.md) ve alan bir `authorization_code` kullanıcı ilkeyi tamamladıktan sonra Azure AD'den. `authorization_code` Uygulamanın şu anda oturum açan kullanıcı adına arka uç hizmetlerini çağırma izni temsil eder. Uygulama ardından exchange `authorization_code` arka planda bir `access_token` ve `refresh_token`.  Uygulamanın kullanabileceği `access_token` HTTP isteklerinde arka uç web API'si için kimlik doğrulaması. Ayrıca eskisinin süresi dolduğunda yeni bir `access_token` almak için `refresh_token` öğesini kullanabilir.
 
 ## <a name="current-limitations"></a>Geçerli sınırlamalar
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: cdc3e7ec6ec55c3376aeb545e1f64079ad1f6323
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 1706fc050fecd2e4be3a40725ec3e63a9036b3a9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407411"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486639"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Günlük uyarıları için API anahtarı tercihi
 
@@ -66,7 +66,7 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 
 API kullanarak bir PowerShell komut satırı da erişilebilir [ARMClient](https://github.com/projectkudu/ARMClient), Azure Resource Manager API'si çağırma basitleştiren bir açık kaynak komut satırı aracı. Aşağıda gösterildiği gibi örnek PUT çağrısında uyarı kurallarının tümünü geçiş yapmak için ARMclient aracı kullanarak belirli bir Log Analytics çalışma alanıyla ilişkili.
 
-```PowerShell
+```powershell
 $switchJSON = '{"scheduledQueryRulesEnabled": "true"}'
 armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
 ```
@@ -88,7 +88,7 @@ GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 
 PowerShell kullanarak komut satırı kullanarak yukarıdaki yürütmek için [ARMClient](https://github.com/projectkudu/ARMClient) aracı, aşağıdaki örneğe bakın.
 
-```PowerShell
+```powershell
 armclient GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 

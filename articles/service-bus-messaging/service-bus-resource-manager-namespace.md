@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: a79565661ae11e70364d64503b3b11bdeabeabdb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e5c4eca772cf17f04ea10f4d5ae166ea41eaa830
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899766"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496930"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir Service Bus ad alanı oluşturma
 Bu hızlı başlangıçta, bir Service Bus ad alanı türü oluşturan bir Azure Resource Manager şablonu oluşturma **Mesajlaşma** ile bir **standart** SKU. Makale ayrıca dağıtım yürütülmesi için belirtilen parametreleri tanımlar. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz. Şablon oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates]. Tam şablon için bkz: [Service Bus ad alanı şablon] [ Service Bus namespace template] GitHub üzerinde.
@@ -44,7 +44,7 @@ Oluşturma ve şablon el ile dağıtmak için aşağıdaki bölümlerde bu makal
 ## <a name="prerequisites"></a>Önkoşullar
 Bu hızlı başlangıcı tamamlamak bir Azure aboneliğinizin olması gerekir. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
-Kullanmak istiyorsanız **Azure PowerShell** Resource Manager şablonu dağıtmak için [Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
+Kullanmak istiyorsanız **Azure PowerShell** Resource Manager şablonu dağıtmak için [Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 
 Kullanmak istiyorsanız **Azure CLI** Resource Manager şablonu dağıtmak için [Azure CLI yükleme]( /cli/azure/install-azure-cli).
 
@@ -166,7 +166,7 @@ Azure PowerShell kullanarak kaynakları dağıtmak için JSON dosyalarını kayd
 
 ## <a name="use-azure-cli-to-deploy-the-template"></a>Şablonu dağıtmak için Azure CLI kullanma
 
-### <a name="sign-in-to-azure"></a>Oturum açın: Azure
+### <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 1. Azure'da oturum açmak için aşağıdaki komutu çalıştırın:
 
@@ -205,6 +205,6 @@ Bu makalede, Service Bus ad alanı oluşturdunuz. Bkz. kuyruklar, konular/abonel
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Service Bus pricing and billing]: service-bus-pricing-billing.md
+[Service Bus pricing and billing]: https://azure.microsoft.com/pricing/details/service-bus/
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md

@@ -3,7 +3,7 @@ title: Azure Depolama’ya erişmek için Windows VM sistem tarafından atanan y
 description: Windows VM üzerinde bir sistem tarafından atanmış yönetilen kimlik kullanarak Azure Depolama'ya erişme işleminde size yol gösteren bir öğretici.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/24/2019
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a5b5b2e50950967b1cb8ae1aa22587244ad67a8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5fd2e30f7ae96ff38b0ded11c158fcef636e3a26
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203939"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448810"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Öğretici: Azure depolama erişim anahtarı erişmek için bir Windows VM sistem tarafından atanan yönetilen kimliği kullanma
 

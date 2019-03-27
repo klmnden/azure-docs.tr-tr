@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 64fb3acf9b134b7188d316633bc663d7dd9b14b8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 573c205cd2e208a1cb2b526d96fb08ca21331c80
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760231"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481332"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Bir Windows sanal makine ölçek kümesi için bir Azure Resource Manager şablonu kullanarak konuk işletim sistemi ölçümler Azure İzleyici ölçüm depoya gönder
 
@@ -242,12 +242,12 @@ Resource Manager şablonu dağıtmak için Azure PowerShell kullanın:
 1. Aboneliklerinizin listesi almak `Get-AzSubscription`.
 1. Abonelik oluşturmak veya sanal makineyi güncelleştirmek ayarlayın: 
 
-   ```PowerShell
+   ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. Dağıtılan VM için yeni bir kaynak grubu oluşturun. Şu komutu çalıştırın: 
 
-   ```PowerShell
+   ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
@@ -259,7 +259,7 @@ Resource Manager şablonu dağıtmak için Azure PowerShell kullanın:
    > [!NOTE]  
    > Mevcut bir ölçek kümesini güncelleştirmek istiyorsanız, ekleme **-artımlı modu** sonuna kadar komutu. 
  
-   ```PowerShell
+   ```powershell
    New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
