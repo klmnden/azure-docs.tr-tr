@@ -1,0 +1,65 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 7b7305a84ac8600629ce27551c0243c427082e5e
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58473417"
+documentType: LandingData
+title: Anomali Algılayıcısı API'si Belgeleri
+metadata:
+  title: Anomali Algılayıcısı API'si - Öğreticiler, hızlı başlangıçlar, API başvurusu - Azure Bilişsel Hizmetler | Microsoft Docs
+  description: Verileri zaman içinde izlemek ve makine öğrenmesi ile anomalileri algılamak için Anomali Algılayıcısı API'sini kullanın. Hacimden, sektörden veya senaryodan bağımsız olarak verilerinizle ilgili içgörüler elde edin.
+  services: cognitive-services
+  author: aahill
+  manager: cgronlun
+  layout: LandingPage
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/26/2019
+  ms.author: aahi
+abstract:
+  description: Anomali Algılayıcısı API'si, kullanıcılarınızın sorunları hızla tanımlayıp kayıpları ve müşteriler üzerindeki etkiyi en aza indirmesini sağlamak için anomali algılama özelliklerini kolayca uygulamalarınıza eklemenize yardımcı olur. Makine öğrenmesi ile ilgili arka plan bilgisi gerekmez. Tek bir API çağrısıyla, her türde ve her hacimde zaman serisi verilerini alan, yüksek bir doğruluk düzeyi için verilerinize en uygun anomali algılama modelini seçen ve olayları oluştukları anda yüzeye çıkaran bu önceden eğitilmiş AI modelini etkinleştirebilirsiniz. Her büyüklükteki anomaliyi algılamak için hizmeti özelleştirebilirsiniz.  Anomali Algılayıcısı'nı kullanarak iş olaylarını tanımlayabilir, IoT cihaz trafiğini izleyebilir, sahtekarlığı yönetebilir, pazarlardaki değişikliklere yanıt verebilir ve daha birçok şey yapabilirsiniz.
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/anomaly-detector/overview
+      html: <p>Anomali Algılayıcısı API'si hakkında bilgi edinin</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Anomali Algılayıcısı API'si nedir?
+    - href: /azure/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices
+      html: <p>API ile en iyi yöntemleri kullanarak anomali algılama sonuçlarınızı iyileştirin</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Anomali Algılayıcısı API'sini kullanırken en iyi yöntemler
+    - href: /azure/cognitive-services/anomaly-detector/how-to/identify-anomalies
+      html: <p>Anomali algılama hassaslığını ayarlayın, farklı algılama modları kullanın ve başka ayarlamalar yapın.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Anomali Algılama API'sini kullanma
+- title: 5 Dakikalık Hızlı Başlangıçlar
+  items:
+  - type: paragraph
+    text: 'Aşağıdakileri kullanarak zaman serisi verilerinizdeki anomalileri algılayın:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/logo_Csharp.svg
+      href: quickstarts/detect-data-anomalies-csharp
+      text: C#
+    - image:
+        src: media/logo_Java.svg
+      href: quickstarts/detect-data-anomalies-java
+      text: Java
+    - image:
+        src: media/logo_python.svg
+      href: quickstarts/detect-data-anomalies-python
+      text: Python

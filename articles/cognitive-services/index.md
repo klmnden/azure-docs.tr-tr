@@ -291,7 +291,7 @@ ms.topic: hub-page
                         <h3>Görüntü İşleme API'si</h3>
                         <p><a href="/azure/cognitive-services/computer-vision/">Görüntü İşleme</a></p>
                         <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
-                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/"><span>Özel Görüntü İşleme Hizmeti&nbsp;<sup style="font-size:70%">ÖNİZLEME</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Özel Görüntü İşleme Hizmeti</a></p>
                         <p><a href="/azure/cognitive-services/face/">Yüz Tanıma API’si</a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
                     </div>
@@ -366,20 +366,8 @@ ms.topic: hub-page
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Labs</h3>
-                        <p><a href="https://docs.microsoft.com/gestures/">Hareket Projesi</a></p>
-                        <p><a href="/azure/cognitive-services/project-personality-chat/overview">Kişilik Sohbeti Projesi</a></p>
-                        <p><a href="https://labs.cognitive.microsoft.com/en-us/Project-Cuzco/documentation/overview">Olay İzleme Projesi</a></p>
-                        <p><a href="/azure/cognitive-services/academic-knowledge/home">Akademik Bilgi Projesi</a></p>
-                        <p><a href="https://labs.cognitive.microsoft.com/en-us/Project-Wollongong/documentation">Yerel Öngörüler Projesi</a></p>
-                        <p><a href="/azure/cognitive-services/kes/overview">Bilgi Keşfetme Hizmeti Projesi</a></p>
-                        <p><a href="/azure/cognitive-services/entitylinking/home">Varlık Bağlama Projesi</a></p>
-                        <p><a href="/azure/cognitive-services/labs/url-preview/overview">URL Önizlemesi Projesi</a></p>
-                        <p><a href="/azure/cognitive-services/labs/answer-search/overview">Yanıt Arama Projesi</a></p>
-                        <p><a href="/azure/cognitive-services/labs/anomaly-finder/overview">Anomali Bulucu Projesi</a></p>
-                        <p><a href="/azure/cognitive-services/labs/conversation-learner/overview">Konuşma Öğrenici Projesi</a></p>
-                        <p><a href="/azure/cognitive-services/acoustics/what-is-acoustics">Project Acoustics</a></p>
-                        <p><a href="/azure/cognitive-services/custom-decision-service/"><span>Özel Karar Alma Hizmeti&nbsp;<sup style="font-size:70%">ÖNİZLEME</sup></span></a></p>
+                        <h3>Anomali Algılama</h3>
+                        <p><a href="/azure/cognitive-services/anomaly-detector/"><span>Anomali Algılayıcısı&nbsp;<sup style="font-size:70%">ÖNİZLEME</sup></span></a></p>               
                     </div>
                 </div>
             </div>

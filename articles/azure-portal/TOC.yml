@@ -1,31 +1,38 @@
 items:
-- name: Azure portal özelleştirme belgeleri
+- name: Azure portal belgeleri
   href: index.yml
-- name: Azure panoları
+- name: Genel Bakış
+  items:
+  - name: Azure portalı hakkında
+    href: azure-portal-overview.md
+  - name: Desteklenen tarayıcılar ve cihazlar
+    href: azure-portal-supported-browsers-devices.md
+- name: Kavramlar
   items:
   - name: Azure panoları oluşturma ve paylaşma
     href: azure-portal-dashboards.md
-  - name: Özel Markdown kutucuğunu kullanma
-    href: azure-portal-markdown-tile.md
   - name: Rol tabanlı erişim denetimi ile panoları paylaşma
     href: azure-portal-dashboard-share-access.md
-  - name: Azure panolarının yapısı
-    href: azure-portal-dashboards-structure.md
   - name: Program aracılığıyla Azure panoları oluşturma
     href: azure-portal-dashboards-create-programmatically.md
-- name: Ayarlar
+- name: Nasıl yapılır kılavuzları
+  items:
+  - name: Yüksek karşıtlığı açma veya tema değiştirme
+    href: azure-portal-change-theme-high-contrast.md
+  - name: Özel Markdown kutucuğunu kullanma
+    href: azure-portal-markdown-tile.md
+  - name: Kullanıcı ayarlarını dışarı aktarma veya silme
+    href: azure-portal-export-delete-settings.md
+- name: Başvuru
   items:
   - name: Klavye kısayolları
     href: azure-portal-keyboard-shortcuts.md
-  - name: Desteklenen tarayıcılar ve cihazlar
-    href: ../azure-preview-portal-supported-browsers-devices.md
-  - name: Yüksek karşıtlığı açma veya tema değiştirme
-    href: azure-portal-change-theme-high-contrast.md
-  - name: Kullanıcı ayarlarını dışarı aktarma veya silme
-    href: azure-portal-export-delete-settings.md
-  expanded: true
+  - name: Azure panolarının yapısı
+    href: azure-portal-dashboards-structure.md
 - name: Kaynaklar
   items:
+  - name: Azure portalı nasıl yapılır video serisi
+    href: https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR
   - name: Azure yol haritası
     href: https://azure.microsoft.com/updates/
   - name: Microsoft Learn ile becerilerinizi geliştirin
@@ -36,11 +43,11 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-management-portal
-  - name: Videolar
+  - name: Azure Videoları
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest
-ms.openlocfilehash: 7fee5a433470309384931e6ea43817288aecf7a8
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 43a009582b565f10261c0cc6cc24507c3ef6e44e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902780"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443868"

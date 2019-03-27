@@ -114,6 +114,20 @@ items:
       href: notification-hubs-php-push-notification-tutorial.md
     - name: Bildirim hub’ı oluşturma - Python
       href: notification-hubs-python-push-notification-tutorial.md
+  - name: Platform Bildirim Hizmeti ayarlarını yapılandırma
+    items:
+    - name: Apple Anında İletilen Bildirim Servisi ayarlarını yapılandırma
+      href: configure-apple-push-notification-service.md
+    - name: Google Firebase Cloud Messaging ayarlarını yapılandırma
+      href: configure-google-firebase-cloud-messaging.md
+    - name: Windows Anında İletme Bildirimi Hizmeti'ni yapılandırma
+      href: configure-windows-push-notification-service.md
+    - name: Microsoft Anında İletme Bildirimi Hizmeti'ni yapılandırma
+      href: configure-microsoft-push-notification-service.md
+    - name: Android Device Messaging'i yapılandırma
+      href: configure-android-device-messaging.md
+    - name: Baidu Cloud Push'ı yapılandırma
+      href: configure-baidu-cloud-push.md
   - name: Uygulama arka ucuna kaydetme
     href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
   - name: Apple cihazları ile belirteç temelli kimlik doğrulaması kullanma
@@ -150,9 +164,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Destek seçenekleri
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: a618c3788c501f28d822021b35c925fcf85c7b3c
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: a5681a615638fdd14aecb2654e2c6d46f0a7bda4
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438776"
+ms.locfileid: "58486963"

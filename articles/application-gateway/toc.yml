@@ -17,15 +17,15 @@ items:
 - name: Öğreticiler
   items:
   - name: Tek bir site barındırma
-    href: tutorial-manage-web-traffic-cli.md
+    href: quick-create-portal.md
   - name: Web uygulaması güvenlik duvarını etkinleştirme
-    href: tutorial-restrict-web-traffic-cli.md
+    href: application-gateway-web-application-firewall-portal.md
   - name: SSL ile güvenli
-    href: tutorial-ssl-cli.md
+    href: create-ssl-portal.md
   - name: Birden çok site barındırma
-    href: tutorial-multiple-sites-cli.md
+    href: create-multiple-sites-portal.md
   - name: URL’ye göre yönlendirme
-    href: tutorial-url-route-cli.md
+    href: create-url-route-portal.md
   - name: Web trafiğini yeniden yönlendirme
     href: tutorial-url-redirect-cli.md
   - name: Otomatik ölçeklendirme ve bölgesel olarak yedeklilik
@@ -90,8 +90,10 @@ items:
   items:
   - name: Tek bir site barındırma
     items:
-    - name: Azure portal
+    - name: Azure PowerShell
       href: tutorial-manage-web-traffic-powershell.md
+    - name: Azure CLI
+      href: tutorial-manage-web-traffic-cli.md
     - name: Şablon
       href: create-vmss-template.md
   - name: İç yük dengeleyicisi yapılandırma
@@ -104,10 +106,10 @@ items:
     items:
     - name: SSL sonlandırma
       items:
-      - name: SSL sonlandırma - portal
-        href: create-ssl-portal.md
       - name: SSL sonlandırma - PowerShell
         href: tutorial-ssl-powershell.md
+      - name: SSL sonlandırma - Azure CLI
+        href: tutorial-ssl-cli.md
     - name: Uçtan uca SSL
       items:
       - name: Uçtan uca SSL - Portal
@@ -126,10 +128,10 @@ items:
         href: application-gateway-configure-ssl-policy-powershell.md
   - name: Web Uygulaması Güvenlik Duvarı’nı Yapılandırma
     items:
-    - name: Azure portal
-      href: application-gateway-web-application-firewall-portal.md
     - name: Azure PowerShell
       href: tutorial-restrict-web-traffic-powershell.md
+    - name: Azure CLI
+      href: tutorial-restrict-web-traffic-cli.md
   - name: WAF kural kümelerini yapılandırma
     items:
     - name: Azure portal
@@ -140,16 +142,16 @@ items:
       href: application-gateway-customize-waf-rules-cli.md
   - name: URL’ye göre yönlendirme
     items:
-    - name: Azure portal
-      href: create-url-route-portal.md
     - name: Azure PowerShell
       href: tutorial-url-route-powershell.md
+    - name: Azure CLI
+      href: tutorial-url-route-cli.md
   - name: Birden çok site barındırma
     items:
-    - name: Azure portal
-      href: create-multiple-sites-portal.md
     - name: Azure PowerShell
       href: tutorial-multiple-sites-powershell.md
+    - name: Azure CLI
+      href: tutorial-multiple-sites-cli.md
   - name: Trafiği yeniden yönlendirme
     items:
     - name: Dış trafik
@@ -236,9 +238,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: cd08a1ac880bb4242f4f57882d0e45133cf26748
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: b7b696b2094dc74e1a30cbd33f304aa663bf742e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350770"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444925"

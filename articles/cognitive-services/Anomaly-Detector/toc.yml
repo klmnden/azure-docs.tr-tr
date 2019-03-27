@@ -1,0 +1,47 @@
+items:
+- name: Anomali Algılayıcısı Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+  - name: Anomali Algılayıcısı API'si nedir?
+    href: overview.md
+  expanded: true
+- name: Hızlı Başlangıçlar
+  items:
+  - name: Verilerinizdeki anomalileri algılama
+    items:
+    - name: C# kullanma
+      href: quickstarts/detect-data-anomalies-csharp.md
+    - name: Java'yı kullanma
+      href: quickstarts/detect-data-anomalies-java.md
+    - name: Python’u kullanma
+      href: quickstarts/detect-data-anomalies-python.md
+  expanded: true
+- name: Nasıl yapılır kılavuzları
+  items:
+  - name: Verilerinizdeki anomalileri belirleme
+    href: how-to/identify-anomalies.md
+- name: Kavramlar
+  items:
+  - name: Anomali Algılama API'si en iyi yöntemleri
+    href: concepts/anomaly-detection-best-practices.md
+- name: Başvuru
+  items:
+  - name: REST API Başvurusu
+    href: https://aka.ms/anomaly-detector-rest-api-ref
+  - name: SDK’lar
+    items:
+    - name: .NET
+      href: https://aka.ms/anomaly-detector-dotnet-ref
+- name: Kaynaklar
+  items:
+  - name: Fiyatlandırma
+    href: https://aka.ms/anomaly-detector-pricing
+  - name: Bölgesel kullanılabilirlik
+    href: https://aka.ms/anomaly-detector-region
+ms.openlocfilehash: c752383026434ca2f8f1d3f047bb1dbc3740c7ea
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58473418"

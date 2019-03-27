@@ -102,7 +102,7 @@ items:
         href: search-dotnet-mgmt-sdk-migration.md
     - name: REST API’yi yükseltme
       href: search-api-migration.md
-  - name: Tasarım dizinleri
+  - name: Dizinleri oluşturma
     items:
     - name: Temel bir dizin oluşturma
       href: search-what-is-an-index.md
@@ -120,9 +120,7 @@ items:
       items:
       - name: Öneri oluşturucu oluşturma
         href: index-add-suggesters.md
-      - name: Otomatik öneri örneği
-        href: search-autosuggest-example.md
-      - name: Otomatik Tamamlama örneği
+      - name: Örnekler (öneriler, otomatik tamamlama)
         href: search-autocomplete-tutorial.md
     - name: Eş anlamlılar
       items:
@@ -172,7 +170,7 @@ items:
         href: search-indexer-field-mappings.md
       - name: Genel sorunları giderme
         href: search-indexer-troubleshooting.md
-  - name: Yapay zekayla zenginleştirilmiş dizinleme (bilişsel arama)
+  - name: AI dizini oluşturma (bilişsel arama)
     items:
     - name: Bilişsel Hizmetler kaynağı iliştirme
       href: cognitive-search-attach-cognitive-services.md
@@ -202,9 +200,9 @@ items:
       href: query-simple-syntax.md
     - name: Tam Lucene sorgu söz dizimi
       href: query-lucene-syntax.md
-    - name: Sorgu örnekleri (basit söz dizimi)
+    - name: Örnekler (basit söz dizimi)
       href: search-query-simple-examples.md
-    - name: Sorgu örnekleri (tam Lucene)
+    - name: Örnekler (tam Lucene)
       href: search-query-lucene-examples.md
   - name: Sonuçları işleme
     items:
@@ -309,9 +307,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Videolar
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: a126d909d90e70324a0f6038ddd89e4a619d0721
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 74d4c29b7a4c70116531ef242929571eee3e4d90
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437756"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500509"

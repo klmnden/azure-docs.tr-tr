@@ -1,27 +1,22 @@
 ---
 title: Azure Hizmet Durumu | Microsoft Docs
-description: Azure Hizmet Durumu, Azure hizmetlerindeki sorunlardan etkilendiğiniz durumlar için kişiselleştirilmiş rehberlik ve destek sağlayan bir deneyim paketidir.
+description: 'Azure Hizmet Durumu, Azure hizmetlerindeki sorunlardan etkilendiğiniz durumlar için kişiselleştirilmiş rehberlik ve destek sağlayan bir deneyim paketidir.'
 author: stephbaron
 layout: LandingPage
 ms.service: service-health
 ms.topic: landing-page
-ms.date: 03/27/2018
+ms.date: 03/4/2019
 ms.author: stbaron
-ms.openlocfilehash: d8d922dd16cb00b5e3a682dc491af6b59f8476f2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881936"
 ---
 # <a name="azure-service-health-documentation"></a>Azure Hizmet Durumu Belgeleri
 
-Azure Hizmet Durumu, Azure hizmetlerindeki sorunlardan etkilendiğiniz durumlar için kişiselleştirilmiş rehberlik ve destek sağlayan bir deneyim paketidir. Sizi bilgilendirebilir, sorunların etkisini anlamanızda yardımcı olabilir ve sorunların çözümü hakkında güncel kalmanızı sağlayabilir. Kaynaklarınızın kullanılabilirliğini etkileyebilecek planlanan bakım ve değişiklikler için hazırlık yapmanıza da yardımcı olabilir.
+Azure, hizmeti etkileyen olaylar, planlı bakım ve kullanılabilirliğinizi etkileyebilecek diğer değişiklikler gibi güncel ve yaklaşan sorunlar da dahil olmak üzere bulut kaynaklarınızın durumu hakkında sizi sürekli bilgilendiren bir deneyim paketi sunar.
 
-Azure Hizmet Durumu şunlardan oluşur:
- 1. **Azure durumu** - Azure hizmetlerinin durumuna dair genel bir görünüm
- 2. **Hizmet Durumu** - Azure hizmetlerinizin durumuyla ilgili kişiselleştirilmiş bir görünüm
- 3. **Kaynak Durumu** - Azure hizmetleriniz tarafından sağlanan her bir kaynağın durumuyla ilgili daha derin bir görünüm
+Tüm Azure bölgelerindeki tüm Azure hizmetlerinin durumunun genel görünümünü sağlayan **[Azure Durum sayfasını](https://status.azure.com)** biliyor olabilirsiniz. Durum sayfası, etkileri geniş bir alana yayılan olaylar için iyi bir başvurudur ama geçerli Azure kullanıcılarının Azure olaylarını ve bakımını yakından izlemek için kesinlikle **Azure Hizmet Durumu**'ndan yararlanmasını öneririz.
+
+**[Azure Hizmet Durumu](service-health-overview.md)**, kullandığınız Azure hizmetlerinin ve bölgelerinin kişiselleştirilmiş bir görünümünü sağlar. Kesintiler, planlı bakım etkinlikleri ve diğer hizmet durumu önerileri hakkında hizmeti etkileyen iletişimleri bulmak için en iyi yer burasıdır, çünkü kimliği doğrulanmış Azure Hizmet Durumu deneyimi şu anda hangi hizmetleri ve kaynakları kullandığınızı bilir. Hizmet Durumu'nu kullanmanın en iyi yolu, hizmet sorunlarının, planlı bakımların veya diğer değişikliklerin kullandığınız hizmetleri ve bölgeleri etkileyebileceği durumlarda tercih ettiğiniz iletişim kanalları üzerinden bildirim almak için Hizmet Durumu uyarılarını ayarlamaktır.
+
+**[Azure Kaynak Durumu](resource-health-overview.md)**, belirli sanal makine örnekleri gibi tek tek bulut kaynaklarınızın durumu hakkında bilgi sağlar. Azure İzleyici'yi kullanarak, bulut kaynaklarınızın kullanılabilirliğindeki değişiklikleri size bildirecek uyarılar yapılandırabilirsiniz. Azure Kaynak Durumu, Azure İzleyici bildirimleriyle birlikte kaynaklarınızın kullanılabilirliği hakkında dakika ölçeğinde daha iyi bilgi sahibi olmanıza yardım eder ve bir sorunun sizin tarafınızdan mı yoksa bir Azure platformu etkinliğinden mi kaynaklandığını hızla değerlendirir.
 
 Bu deneyimler bir araya gelerek Azure sistem durumunun size en uygun ayrıntı düzeyindeki kapsamlı bir görünümünü sunar.
 
