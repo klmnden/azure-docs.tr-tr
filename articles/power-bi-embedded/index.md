@@ -1,6 +1,6 @@
 ---
-title: Azure Power BI Embedded Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
-description: Uygulamalara Power BI veri görselleştirmeleri ve etkileşimli raporları ekleme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler.
+title: 'Azure Power BI Embedded Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
+description: 'Uygulamalara Power BI veri görselleştirmeleri ve etkileşimli raporları ekleme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler.'
 services: power-bi-embedded
 author: markingmyname
 ms.author: maghan
@@ -9,13 +9,8 @@ layout: LandingPage
 ms.service: power-bi-embedded
 ms.topic: landing-page
 ms.date: 07/31/2018
-ms.openlocfilehash: 051b7d725a121b3160e8a572c5fab91e8289f44b
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678245"
 ---
+
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded Belgeleri
 
 Power BI Embedded ile uygulamalara veri görselleştirmeleri ve etkileşimli raporlar ekleme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, uygulamalara sorunsuz bir şekilde Power BI raporları ve panoları ekleme ile ilgili bilgiler içerir.
@@ -105,7 +100,7 @@ Power BI Embedded ile uygulamalara veri görselleştirmeleri ve etkileşimli rap
                 <div class="card">
                     <div class="cardText">
                         <h3>PowerShell</h3>
-                        <p><a href="https://docs.microsoft.com/powershell/module/azurerm.powerbiembedded/?view=azurermps-6.5.0#power_bi_embedded_capacity">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/module/azurerm.powerbiembedded/#power_bi_embedded_capacity">PowerShell</a></p>
                     </div>
                 </div>
             </div>
