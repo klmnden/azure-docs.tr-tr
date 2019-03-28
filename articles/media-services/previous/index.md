@@ -18,6 +18,8 @@ ms.author: carolz
 
 Genişletilebilir bir bulut platformu olan Media Services ile yayın kalitesindeki videoların akışını yapma hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, güvenli bir biçimde milyonlarca kullanıcıya ölçeklendirilebilen, isteğe bağlı ve canlı video veya ses akışları sağlama ile ilgili bilgiler içerir.
 
+**NOT:** Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz. [v2’den v3’e geçiş kılavuzu](../latest/migrate-from-v2-to-v3.md).
+
 <ul class="panelContent cardsFTitle">
      <li>
         <a href="/azure/media-services/media-services-overview">
@@ -66,7 +68,7 @@ Genişletilebilir bir bulut platformu olan Media Services ile yayın kalitesinde
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Portal ile Azure Media Services’ı kullanmaya başlama</h3>
+                        <h3>Azure portalı ile Azure Media Services’ı kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -84,7 +86,7 @@ Genişletilebilir bir bulut platformu olan Media Services ile yayın kalitesinde
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Portal ile Azure Media Services hesabı oluşturma</h3>
+                        <h3>Azure portal ile Azure Media Services hesabı oluşturma</h3>
                     </div>
                 </div>
             </div>
@@ -102,7 +104,7 @@ Genişletilebilir bir bulut platformu olan Media Services ile yayın kalitesinde
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Portal’ı kullanarak içerik göndermeye başlama</h3>
+                        <h3>Azure portalını kullanarak içerik göndermeye başlama</h3>
                     </div>
                 </div>
             </div>

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3b778caed10981923d424745d820bfe10c1ce553
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 903c1153db57f7cb632fc752bb696598902f5aaa
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903615"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519723"
 documentType: LandingData
 title: Azure Media Services Belgeleri
 metadata:
@@ -21,7 +21,7 @@ metadata:
   ms.date: 03/11/2019
   ms.author: juliako
 abstract:
-  description: Azure Media Services (AMS), en popüler cihazlar üzerinden hedef kitlenize ulaşan yüksek çözünürlüklü video kodlama ve yayın kalitesinde video akışı yapma olanağı sunan çözümler oluşturmanızı sağlayan bulut tabanlı bir platformdur. AMS v3 önceden belirlenmiş çözümleyici ayarları sayesinde AMS v3, Video Indexer ile video ve ses dosyalarınızdan içgörü ayıklamanıza da olanak tanır. Daha ayrıntılı içgörüler istiyorsanız doğrudan Video Indexer’ı kullanın.<br/> Video Indexer’ı ve Media Services çözümleyicisinin önceden belirlenmiş ayarlarını hangi durumlarda kullanacağınızı anlamak için <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">karşılaştırma belgesine</a> bakın.
+  description: Azure Media Services, en popüler cihazlar üzerinden hedef kitlenize ulaşan yüksek çözünürlüklü video kodlama ve yayın kalitesinde video akışı yapma olanağı sunan çözümler oluşturmanızı sağlayan bulut tabanlı bir platformdur. Media Services v3 önceden belirlenmiş çözümleyici ayarları sayesinde Media Services v3, Video Indexer ile video ve ses dosyalarınızdan içgörü ayıklamanıza da olanak tanır. Daha ayrıntılı içgörüler istiyorsanız doğrudan Video Indexer’ı kullanın.
 sections:
 - items:
   - type: list
@@ -40,7 +40,7 @@ sections:
         src: media/index/AMSIcons-media_analytics.svg
       title: Video Indexer
     - href: /azure/media-services/previous/
-      html: <p>Media Services v2 ile kodlama, isteğe bağlı akış yapma, videolarla canlı yayın gerçekleştirme hakkında bilgi edinin.</p>
+      html: <p>Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. En son sürüm olan Media Services v3’ü inceleyin.</p>
       image:
         src: media/index/AMSIcons-media_servicesV2.svg
       title: Azure Media Services v2 (eski)
@@ -49,51 +49,3 @@ sections:
       image:
         src: /azure/cdn/media/index/cdn.svg
       title: CDN
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: 'Media Services v3 ile kodlama ve akış yapmayı öğrenin:'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-encoding.svg
-      text: Dosyaları akışla aktarma
-      href: /azure/media-services/latest/stream-files-dotnet-quickstart
-  - type: paragraph
-    text: 'Video Indexer’ı kullanarak videolarınızdan içgörü ayıklamayı öğrenin:'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: İçgörü ayıklama
-      href: ../cognitive-services/video-indexer/video-indexer-get-started.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: 'Media Services v3 ile isteğe bağlı dosya akışı yapma, canlı yayın gerçekleştirme ve videolarınızı analiz etme hakkında bilgi edinin:'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-encoding.svg
-      text: Videoları karşıya yükleme, kodlama ve akışla aktarma
-      href: /azure/media-services/latest/stream-files-tutorial-with-api
-    - image:
-        src: media/index/AMSIcons-live.svg
-      text: Canlı yayın yapma
-      href: /azure/media-services/latest/stream-live-tutorial-with-api
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: Videolarınızı analiz etme
-      href: /azure/media-services/latest/analyze-videos-tutorial-with-api
-  - type: paragraph
-    text: 'Video Indexer API’sini kullanarak videolarınızdan içgörü ayıklamayı öğrenin:'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: İçgörü ayıklama
-      href: ../cognitive-services/video-indexer/video-indexer-use-apis.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
