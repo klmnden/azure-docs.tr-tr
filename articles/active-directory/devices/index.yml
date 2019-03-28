@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d04106379f520ca86d28dd346b79355df64dbd32
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 46eb23cf23506b950142068146283345db71a3ea
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100759"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520828"
 documentType: LandingData
 title: Azure AD Cihaz Yönetimi Belgeleri
 metadata:
@@ -13,14 +13,14 @@ metadata:
   description: Azure Active cihaz yönetimini yapılandırmayı ve test etmeyi öğrenin.
   services: active-directory
   ms.subservice: devices
-  author: MarkusVi
+  author: MicrosoftGuyJFlo
   manager: daveba
   ms.service: active-directory
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/14/2018
-  ms.author: markvi
+  ms.author: joflore
 abstract:
   description: Kullanıcılarınız, cihazlar aracılığıyla kuruluşunuzun varlıklarına erişir. Bir BT yöneticisi olarak, kuruluşunuzun varlıklarını korumak için bu cihazlar üzerinde denetiminiz olmalıdır. Bu sayede kullanıcılarınızın kaynaklarınıza güvenlik ve uyumluluk standartlarınızı karşılayan cihazlarla erişmesini sağlayabilirsiniz.<br>Cihaz yönetimi, cihaz temelli koşullu erişim senaryolarının da altyapıdır. Cihaz tabanlı koşullu erişim sayesinde, ortamınızdaki kaynaklara yalnızca yönetilen cihazlar üzerinden erişilebilmesini sağlayabilirsiniz.
 sections:

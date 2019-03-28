@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 615005e265f199cd6950123aa2af8b26f4fa4637
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2fe1a1fc1ff82415a5c2f88c72ae707b12cd5283
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456814"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541171"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager Test Sürüşü
 
@@ -51,7 +51,7 @@ Bir Azure Resource Manager Test Sürüşü oluşturma işlemi şu şekildedir:
 
 Bir Azure Resource Manager Test Sürüşü oluşturma konusunda en önemli kısmı, müşterilerinizin deneyimini istediğiniz hangi senaryoları tanımlamaktır. Bir güvenlik duvarı ürünü ve tanıtım ne kadar iyi, betik ekleme saldırılarını işlemek istiyorsanız misiniz? Depolama ürün ve ne kadar hızlı ve kolay bir şekilde çözümünüzü tanıtım istiyorsanız dosyaları sıkıştırır misiniz?
 
-Ürününüzü göstermek için en iyi yollarından nelerdir değerlendirme süresi yeterli miktarda harcama surety olun. Resource Manager şablonu yeterince daha kolay paketleme getirir özellikle tüm gerekli kaynakları geçici olarak ihtiyacınız.
+Ürününüzü göstermek için en iyi yollarından nelerdir değerlendirme süresi yeterli miktarda harcayabileceğiniz emin olun. Resource Manager şablonu yeterince daha kolay paketleme getirir özellikle tüm gerekli kaynakları geçici olarak ihtiyacınız.
 
 Güvenlik Duvarı Örneğimizdeki ile devam etmek için mimarisi, güvenlik duvarınızı koruyan bir Web sitesi için hizmetinizin genel bir IP URL'sini ve başka bir genel IP URL gerekiyor olabilir. Her IP bir sanal makinede dağıtılan ve bağlı bir ağ güvenlik grubu + ağ arabirimi ile birlikte.
 

@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/10/2017
+ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f1d557396f17357afd6f9e5d701e946668fcee65
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b5c7050ac006ea2500854f8f41b134895e5e0061
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861052"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541222"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Arama'da çok yönlü navigasyon
 Çok yönlü gezinme, kendinden yönlendirmeli detayına gitme Gezinti arama uygulamalarda sağlayan filtreleme bir mekanizmadır. ' % S'terim 'çok yönlü gezinme' bilinmiyor olabilir, ancak büyük olasılıkla daha önce kullanılmış. Aşağıdaki örnekte gösterildiği gibi çok yönlü gezinme sonuçları filtrelemek için kullanılan kategorileri başka bir şey var.
@@ -34,7 +34,7 @@ Uygulama geliştirme çalışmalarınızı sorguları oluşturan kod yazma, topl
 ## <a name="sample-code-and-demo"></a>Örnek kod ve tanıtım
 Bu makalede örnek olarak bir iş araması portalını kullanır. Örneğin, bir ASP.NET MVC uygulaması uygulanır.
 
--   Görebilir ve test sırasında çevrimiçi çalışma Tanıtımı [Azure arama iş Portal Tanıtımı](https://azjobsdemo.azurewebsites.net/).
+-   Görebilir ve test sırasında çevrimiçi çalışma Tanıtımı [Azure arama iş Portal Tanıtımı](http://azjobsdemo.azurewebsites.net/).
 
 -   Kodu indir [github'daki Azure örnekleri deposu](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -364,7 +364,7 @@ Azure Search'te iki Jeo-uzamsal işlevleri vardır **geo.distance** ve **geo.int
 * **Geo.distance** işlevi iki nokta mesafeyi içinde uzaklık döndürür. Bir noktada bir alandır ve diğer filtre bir parçası olarak geçirilen bir sabit değerdir. 
 * **Geo.intersects** işlevi belirli bir noktaya içinde belirli bir Çokgen ise true döndürür. Bir alan noktasıdır ve Çokgen sabit liste filtresinin bir bölümü olarak geçirilen koordinatları olarak belirtilir.
 
-Filtre örnekler bulabilirsiniz [OData ifadesi söz dizimi (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+Filtre örnekler bulabilirsiniz [OData ifadesi söz dizimi (Azure Search)](query-odata-filter-orderby-syntax.md).
 
 <a name="tryitout"></a>
 

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b1e6ffc985c35b6711b8e602dbb877e840ab3f1b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: dcd0461e185fa97853bcd84e53bb43aacc5799c0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992388"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517021"
 documentType: LandingData
 title: MariaDB için Azure Veritabanı Belgeleri
 metadata:
@@ -14,7 +14,7 @@ metadata:
   ms.author: andrela
   ms.service: mariadb
   ms.topic: landing-page
-  ms.date: 02/25/2018
+  ms.date: 03/25/2019
 abstract:
   description: MariaDB için Azure Veritabanı, açık kaynak MySQL MariaDB Server altyapısını temel alan ilişkisel bir veritabanı hizmetidir.  Bu, kritik iş yüklerini teslim edebilen, tahmin edilebilir performans ve dinamik ölçeklenebilirlik sunan, tam olarak yönetilen bir hizmet olarak veritabanıdır. MariaDB için Azure Veritabanı ile açık kaynak araçları ve seçtiğiniz platformu kullanarak uygulamalar geliştirin. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, MariaDB için Azure Veritabanı’nı kullanmayı öğrenin.
 sections:
@@ -38,7 +38,7 @@ sections:
   - type: paragraph
     text: 'Veritabanı tasarlamayı ve uygulama geliştirmeyi öğrenin:'
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: Veritabanı Tasarlama&#58; <a href="/azure/mariadb/tutorial-design-database-using-portal">Azure portalı</a> | <a href="/azure/mariadb/tutorial-design-database-cli">Azure CLI</a>
 - title: Örnekler

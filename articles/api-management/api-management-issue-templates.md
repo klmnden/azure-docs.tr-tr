@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 99732a61ab64f8600ca368d4af5f47451014a993
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c70e88a572bc261ad9d25f9a742b1987d0c19b44
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760759"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540848"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Azure API Management şablonları verme
 Azure API Management içeriklerini yapılandıran bir dizi kullanarak Geliştirici portal sayfalarının içeriğini özelleştirme becerisi sunuyor. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) söz dizimi ve tercih ettiğiniz düzenleyiciyi gibi [tasarımcılarına yönelik DotLiquid](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [karakter Kaynakları](api-management-template-resources.md#glyphs), ve [sayfasında denetimleri](api-management-page-controls.md), sayfaların içeriğini bu şablonları kullanarak dilediğiniz şekilde yapılandırmak için harika esnekliğine sahip olursunuz.  
@@ -99,11 +99,11 @@ Azure API Management içeriklerini yapılandıran bir dizi kullanarak Geliştiri
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Sorunlar|Koleksiyonu [sorunu](api-management-template-data-model-reference.md#Issue) varlıklar.|Sorunları geçerli kullanıcıya görünür.|  
-|Sayfalama|[Disk belleği](api-management-template-data-model-reference.md#Paging) varlık.|Uygulama koleksiyonu için sayfalandırma bilgileri.|  
-|Isauthenticated durumunda olmasını gerektirir|boole|Olup geçerli kullanıcı Geliştirici portalında oturum açmış.|  
-|CanReportIssues|boole|Geçerli kullanıcı bir sorun dosya izni olup olmadığı.|  
-|Arama|string|Bu özellik, kullanım dışıdır ve kullanılmamalıdır.|  
+|`Issues`|Koleksiyonu [sorunu](api-management-template-data-model-reference.md#Issue) varlıklar.|Sorunları geçerli kullanıcıya görünür.|  
+|`Paging`|[Disk belleği](api-management-template-data-model-reference.md#Paging) varlık.|Uygulama koleksiyonu için sayfalandırma bilgileri.|  
+|`IsAuthenticated`|boole|Olup geçerli kullanıcı Geliştirici portalında oturum açmış.|  
+|`CanReportIssues`|boole|Geçerli kullanıcı bir sorun dosya izni olup olmadığı.|  
+|`Search`|string|Bu özellik, kullanım dışıdır ve kullanılmamalıdır.|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   

@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 51be74d0adbd5ce75234be2a5b7c99fcd36ca91c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: e33d014bd2dddf0c7310727229f8137c9f181325
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295275"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540984"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch hizmet kotaları ve limitleri
 
@@ -77,14 +77,12 @@ Batch hesabı kotaları görüntüleme [Azure portalında][portal].
 1. Seçin **Batch hesapları** portalda sonra ilgilendiğiniz Batch hesabı seçin.
 1. Seçin **kotalar** Batch hesabının menüsünde.
 1. Batch hesabına uygulanmakta kotaları görüntüle
-   
+
     ![Batch hesabı kotaları][account_quotas]
-
-
 
 ## <a name="increase-a-quota"></a>Kota artırma
 
-Kota isteği için aşağıdaki adımları kullanarak veya Batch hesabınız için artırmak izleyin [Azure portalında][portal]. Kota artışı türü, Batch hesabınızın Havuz ayırma moduna bağlıdır.
+Kota isteği için aşağıdaki adımları kullanarak veya Batch hesabınız için artırmak izleyin [Azure portalında][portal]. Kota artışı türü, Batch hesabınızın Havuz ayırma moduna bağlıdır. Bir kota artırım talebinde bulunmak için kotayı artırmak için istediğiniz VM serisi eklemeniz gerekir. Kota artışı uygulandığında, bu Vm'leri tüm dizi uygulanır.
 
 ### <a name="increase-a-batch-cores-quota"></a>Batch çekirdek kota artırma 
 

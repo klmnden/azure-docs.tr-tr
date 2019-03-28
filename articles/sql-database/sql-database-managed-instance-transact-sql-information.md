@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 8654899e0a6dfce8f25855eba6c5f4a88af78665
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b044a7c2b3122fcbce44ae2e45198f57f6a87260
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903139"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541290"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
 
@@ -217,7 +217,7 @@ Daha fazla bilgi için [ALTER DATABASE SET PARTNER ve SET WITNESS](https://docs.
 
 - Birden çok günlük dosyası desteklenmez.
 - Bellek içi nesneler genel amaçlı hizmet katmanında desteklenmiyor.  
-- Veritabanı başına en fazla 280 dosyaları olduğunu belirtmek örnek başına 280 dosyaların bir sınırlama yoktur. Hem verileri hem de günlük dosyaları, bu sınırında sayılır.  
+- Veritabanı başına en fazla 280 dosyaları olduğunu belirtmek genel amaçlı örneği başına 280 dosyaların bir sınırlama yoktur. Hem verileri hem de günlük dosyaları genel amaçlı katmanı, bu sınırında sayılır. [Kritik iş katmanı, veritabanı başına 32.767 dosyalarını destekler](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 - Veritabanı dosya akışı verisi içeren dosya grupları içeremez.  Geri yükleme başarısız olur .bak içeriyorsa `FILESTREAM` veri.  
 - Her dosya, Azure Blob depolamada yer alır. G/ç ve dosya başına aktarım hızı, her bir dosya boyutuna bağlıdır.  
 
@@ -485,9 +485,9 @@ Yönetilen örnek geri yükleyemiyor [içerdiği veritabanları](https://docs.mi
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Küçük veritabanı dosyalarıyla aşan depolama alanı
 
-Her yönetilen örneği 35 TB depolama alanı Azure Premium Disk alanı için ayrılmış olan ve her veritabanını ayrı bir fiziksel diskte yerleştirilir. Disk boyutları 128 GB, 256 GB, 512 GB, 1 TB veya 4 TB olabilir. Diskte kullanılmayan alan değil ücretlendirilir, ancak Azure Premium Disk boyutları toplam 35 TB aşamaz. Bazı durumlarda, yönetilen örneğe 8 TB toplam gerekmeyen 35 TB Azure sınırlama nedeniyle iç parçalanma depolama boyutu aşabilir.
+Yönetilen her bir genel amaçlı örneği 35 TB depolama alanı Azure Premium Disk alanı için ayrılmış olan ve her veritabanını ayrı bir fiziksel diskte yerleştirilir. Disk boyutları 128 GB, 256 GB, 512 GB, 1 TB veya 4 TB olabilir. Diskte kullanılmayan alan değil ücretlendirilir, ancak Azure Premium Disk boyutları toplam 35 TB aşamaz. Bazı durumlarda, yönetilen örneğe 8 TB toplam gerekmeyen 35 TB Azure sınırlama nedeniyle iç parçalanma depolama boyutu aşabilir.
 
-Örneğin, bir yönetilen örnek bir olabilir bir 4 TB diskine yerleştirilen boyutu ve ayrı 128 GB diskler üzerinde yerleştirilen 248 dosyaları (her 1 GB boyutunda) 1,2 TB dosya. Bu örnekte:
+Örneğin, yönetilen bir genel amaçlı örneği bir olabilir bir 4 TB diskine yerleştirilen boyutu ve ayrı 128 GB diskler üzerinde yerleştirilen 248 dosyaları (her 1 GB boyutunda) 1,2 TB dosya. Bu örnekte:
 
 - Toplam ayrılmış disk depolama boyutudur 4 x 1 TB + 248 x 128 GB = 35 TB.
 - örneğindeki veritabanları için ayrılan toplam alan olan 1.2 x 1 TB + 248 x 1 GB = 1,4 TB.
@@ -495,6 +495,8 @@ Her yönetilen örneği 35 TB depolama alanı Azure Premium Disk alanı için ay
 Bunu, belirli bir dağıtım dosyalarının nedeniyle belirli durumda altında göstermektedir, yönetilen örneğe beklediğiniz değil bağlı Azure Premium Disk için rezerve 35 TB ulaşmak.
 
 Bu örnekte, var olan veritabanlarını çalışmaya devam eder ve yeni dosyaları eklenmedi sürece herhangi bir sorun büyüyebilir. Ancak yeni veritabanlarını değil oluşturulabilir veya tüm veritabanlarının toplam boyutu örneği boyutu sınırına ulaştığında değil olsa bile yeni disk sürücüsü için yeterli alan olmadığından geri. Döndürülen hata durumda açık değildir.
+
+Yapabilecekleriniz [kalan dosyaların sayısını belirleme](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) sistem görünümleri kullanma. Erişmeye çalıştığınız deneyin bu sınırı [boş ve DBCC SHRINKFILE deyimini kullanarak daha küçük dosyalar bazılarını silin](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) veya için shitch [yoksa iş açısından kritik katmanında, bu sınırı bulunur](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>SAS anahtarı hatalı yapılandırılması sırasında veritabanı geri yükleme
 

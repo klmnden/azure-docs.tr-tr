@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: be96aaa69fc1d59bdfa8079eff99c13c1e92c736
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3b3bb206286629a68c14b6444f3f88ffa0af50dd
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905129"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540882"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Sanal Makineler’de SQL Server ile Azure Premium Depolama kullanma
 
@@ -682,7 +682,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>2. Adım: İzin verilen kaynaklar hatalarında artırın <Optional>
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>2. Adım: İzin verilen kaynaklar hatalarında artırmak \<isteğe bağlı >
 
 Always On kullanılabilirlik grubu için ait bazı kaynaklar sınırı yoktur kaç hatalarda burada kaynak grubunu yeniden başlatmak için Küme hizmeti çalışır bir süre içinde ortaya çıkabilir. Bu sınıra yakın alabilirsiniz makineleri kapatarak el ile yük devretme ve tetikleyici yük devretme yoksa bu yana Bu yordam, walking yaparken bu artırmak önerilir.
 
@@ -692,7 +692,7 @@ Yük Devretme Kümesi Yöneticisi'nde bunun için hata indirimi çift akıllıca
 
 En fazla hata sayısı 6'ya değiştirin.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>3. Adım: Küme grubu için ek IP adresi kaynağı <Optional>
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>3. Adım: Küme grubu için ek IP adresi kaynağı \<isteğe bağlı >
 
 Küme grubunu ve bu hizalanması için bulut alt ağ ile tek bir IP adresi varsa, küme ağ adı ve küme IP kaynak değil sonra çevrimiçi olması için yanlışlıkla tüm küme düğümleri o ağ üzerinde bulutta çevrimdışı izlerseniz, dikkatli olun. Bu durumda, diğer küme kaynakları için güncelleştirmeleri engeller.
 

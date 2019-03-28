@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 72839ff812c2e8574f911cf18ea54fcda11fe831
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4b98648325eaf434d675bfdc1cdd704870912bc3
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173964"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517224"
 documentType: LandingData
 title: Azure AD Kimlik Koruması
 metadata:
@@ -13,14 +13,14 @@ metadata:
   description: Azure Active Directory Kimlik Koruması’nı yapılandırmayı ve test etmeyi öğrenin.
   services: active-directory
   ms.subservice: identity-protection
-  author: MarkusVi
+  author: MicrosoftGuyJFlo
   manager: daveba
   ms.service: active-directory
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 09/14/2018
-  ms.author: markvi
+  ms.author: joflore
 abstract:
   description: Risk altında olabilecek kimlik algılamasının nasıl çalıştığını ve bunları ele almak için otomatik yanıtları nasıl uygulayacağınızı öğrenin. Azure Active Directory Kimlik Koruması, Azure AD Premium P2 sürümünün bir özelliğidir ve şunları yapmanıza olanak sağlar:<ul><li>Kuruluşunuzun kimliklerini etkileyen olası güvenlik açıklarını algılama</li><li>Kuruluşunuzun kimlikleriyle ilişkili şüpheli eylemlere otomatik olarak yanıt vermek üzere koşullu erişim ilkeleri yapılandırma</li><li>Şüpheli olayları araştırma ve bunları çözmek için uygun eylemi gerçekleştirme</li></ul><br> Aşağıdaki kaynaklar hızlı bir başlangıç yapmanıza yardımcı olur.
   aside:

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 994612f390cb6c6dcb3b4c2acaaec839ef461d2c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 07a488556bc899efa80d67ceb984b60f461b9742
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999552"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541048"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek kümeleri hakkında SSS
 
@@ -243,7 +243,7 @@ Bir örnek için bkz. [101 vm sshkey GitHub Hızlı Başlangıç şablonu](https
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Ne zaman çalıştırabilir `Update-AzVmss` birden fazla sertifika aynı anahtar kasasından ekledikten sonra şu iletiyi görüyorum:
 
->Update-AzVmss: Liste gizli /subscriptions/ < my abonelik-kimliği > yinelenen örneklerini içeren / form veya resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev izin verilmiyor.
+>Update-AzVmss: Liste gizli /subscriptions/ yinelenen örneklerini içeren\<my-subscrıptıon-ID > / izin verilmiyor resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev,.
 
 Bu var olan bir kaynak kasası için yeni bir kasa sertifika kullanmak yerine aynı kasaya yeniden eklemeyi denerseniz oluşabilir. `Add-AzVmssSecret` Komut düzgün çalışmaz ek gizli dizileri ekliyorsanız.
 
@@ -303,7 +303,7 @@ CRP bileşen müşteri gizli dizileri devam etmez. Çalıştırırsanız `stop d
 
 Azure Service fabric'te gizli (fabric tek kiracılı model), önbelleğe alınmış bir kopyasını olduğundan, ölçeği genişletme, bu sorunla karşılaşırsanız yok.
 
-### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurenet443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenarioshttpsazuremicrosoftcomdocumentationarticlesservice-fabric-cluster-security"></a>Neden gerekiyor sertifika URL'sini tam konumunu belirtmek (https://<name of the vault>.vault.azure.net:443/secrets/<exact location>) belirtilen gibi [Service Fabric kümesi güvenlik senaryoları](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
+### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurenet443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenarioshttpsazuremicrosoftcomdocumentationarticlesservice-fabric-cluster-security"></a>Neden gerekiyor sertifika URL'sini tam konumunu belirtmek (https:\/\/\<kasa adı >.vault.azure.net:443/secrets/\<tam konum >) gösterilen gibi [Service Fabric Küme güvenliği senaryoları](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
 
 Azure Key Vault belgelerindeki sürüm belirtilmezse, gizli dizi en son sürümünü Al gizli REST API döndürmesi gerektiğini belirtir.
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04da80cd5c30d0556dc681b7bff412391aa2bcda
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ab71b8d3af573f62e69c02564c237ad433962ff9
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107738"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541239"
 ---
 # <a name="backup-and-restore"></a>Yedekleme ve geri yükleme
 
@@ -416,10 +416,10 @@ For snapshot of the volume storing the boot LUN
 Parametrelerin ayrıntıları aşağıdaki gibidir: 
 
 - İlk parametre, anlık görüntü yedekleme türünü belirtir. İzin verilen değerler: **hana**, **günlükleri**, ve **önyükleme**. 
-- Parametre **<HANA Large Instance Type>** yalnızca önyükleme birimi yedeklemeler için gereklidir. HANA büyük örneği birime bağımlı iki geçerli değerler "TypeI" veya "TypeII" vardır. Birim türü çıkış bulmak için bkz [SAP HANA (büyük örnekler) genel bakışı ve mimarisi azure'da](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
-- Parametre **< snapshot_prefix >** bir anlık görüntü veya anlık görüntü türü için yedekleme etiketi. İki amacı vardır: biridir sizin için bir ad vermek böylece bu anlık görüntüler hakkında olduğunu bilirsiniz. Betik için ikinci amaçtır *azure\_hana\_backup.pl* belirli bir etiket altında korunur depolama anlık görüntü sayısını belirlemek için. Aynı türdeki iki depolama anlık görüntüsü yedekleri, zamanlama (gibi **hana**), iki farklı etiketleri ve 30 anlık görüntüleri saklanır her biri için etkilenen birim 60 depolama anlık görüntülerle son tanımlayın. Yalnızca alfa sayısal ("A-Z, a-z, 0-9"), alt çizgi ("_") ve tire ("-") karakterlere izin verilir. 
-- Parametre **< snapshot_frequency >** için gelecek gelişmeler ayrılmıştır ve herhangi bir etkisi yoktur. "3 dk" türü yedeklerini yürütülürken ayarlamak **günlük**ve "bir yedekleme türleri yürütülürken 15 dakika".
-- Parametre **<number of snapshots retained>** aynı anlık görüntü önek (etiketi) ile anlık görüntü sayısını tanımlayarak anlık görüntü saklama dolaylı olarak tanımlar. Bu parametre, cron aracılığıyla zamanlanan yürütme için önemlidir. Anlık görüntü sayısı ile aynı snapshot_prefix Bu parametre tarafından sağlanan sayıyı aşarsa, yeni bir depolama anlık görüntü yürütmeden önce eski anlık görüntü silindi.
+- Parametre  **\<HANA büyük örnek türü >** yalnızca önyükleme birimi yedeklemeler için gereklidir. HANA büyük örneği birime bağımlı iki geçerli değerler "TypeI" veya "TypeII" vardır. Birim türü çıkış bulmak için bkz [SAP HANA (büyük örnekler) genel bakışı ve mimarisi azure'da](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
+- Parametre  **\<snapshot_prefix >** bir anlık görüntü veya anlık görüntü türü için yedekleme etiketi. İki amacı vardır: biridir sizin için bir ad vermek böylece bu anlık görüntüler hakkında olduğunu bilirsiniz. Betik için ikinci amaçtır *azure\_hana\_backup.pl* belirli bir etiket altında korunur depolama anlık görüntü sayısını belirlemek için. Aynı türdeki iki depolama anlık görüntüsü yedekleri, zamanlama (gibi **hana**), iki farklı etiketleri ve 30 anlık görüntüleri saklanır her biri için etkilenen birim 60 depolama anlık görüntülerle son tanımlayın. Yalnızca alfa sayısal ("A-Z, a-z, 0-9"), alt çizgi ("_") ve tire ("-") karakterlere izin verilir. 
+- Parametre  **\<snapshot_frequency >** için gelecek gelişmeler ayrılmıştır ve herhangi bir etkisi yoktur. "3 dk" türü yedeklerini yürütülürken ayarlamak **günlük**ve "bir yedekleme türleri yürütülürken 15 dakika".
+- Parametre  **\<anlık görüntüleri korunur sayısı >** aynı anlık görüntü önek (etiketi) ile anlık görüntü sayısını tanımlayarak anlık görüntü saklama dolaylı olarak tanımlar. Bu parametre, cron aracılığıyla zamanlanan yürütme için önemlidir. Anlık görüntü sayısı ile aynı snapshot_prefix Bu parametre tarafından sağlanan sayıyı aşarsa, yeni bir depolama anlık görüntü yürütmeden önce eski anlık görüntü silindi.
 
 Bir ölçek genişletme söz konusu olduğunda, betik tüm HANA sunucuları erişebildiğinden emin olmak için ek denetimi yapar. Betik ayrıca bir SAP HANA anlık görüntüsünü oluşturmadan önce tüm HANA örnekleri örnekleri uygun durumunu döndürmek denetler. SAP HANA anlık görüntü depolama anlık görüntü tarafından izlenir.
 

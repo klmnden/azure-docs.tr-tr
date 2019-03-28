@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: v-doglov
-ms.openlocfilehash: a0707ad356e51a9e4d4f73c54085fe9736bb0752
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c598c5e238458c010500579c5371622b85e71de0
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56885301"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540814"
 ---
 # <a name="troubleshoot-vcenter-discovery-failures"></a>VCenter bulma sorunlarını giderme
 
@@ -46,8 +46,8 @@ Genel olarak, proxy ortak ağlara iletişim kurmak için kullanılır; Azure ile
 
 Bu sorun oluştuğunda aşağıdaki durumlarda oluşur:
 
-- VCenter server <vCenter> hata nedeniyle erişilebilir değil: Uzak sunucu hata döndürdü: (503) sunucusu kullanılamıyor
-- VCenter server <vCenter> hata nedeniyle erişilebilir değil: Uzak sunucu hata döndürdü: Uzak sunucuya bağlanılamıyor.
+- VCenter server \<vCenter > hata nedeniyle erişilebilir değil: Uzak sunucu hata döndürdü: (503) sunucusu kullanılamıyor
+- VCenter server \<vCenter > hata nedeniyle erişilebilir değil: Uzak sunucu hata döndürdü: Uzak sunucuya bağlanılamıyor.
 - VCenter/ESXi sunucusuna bağlanılamıyor.
 
 Bu sorunu çözmek için:
