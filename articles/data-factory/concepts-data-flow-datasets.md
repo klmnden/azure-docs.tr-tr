@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 4e36e96947e6a8595230023065eb9f44a5a1f3d2
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: efb82c57a5620ef3eace8b39f6f27f2286202f84
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371324"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521848"
 ---
 # <a name="mapping-data-flow-datasets"></a>Veri akış veri kümeleri eşlemesi
 
@@ -49,9 +49,27 @@ Veri akışı havuz dönüşümü yeni bir tablo adı olan bir veri kümesi ayar
 
 ![Kaynak dönüştürme şema](media/data-flow/dataset2.png "SQL şeması")
 
-## <a name="delimited-text-dataset"></a>Sınırlandırılmış metin veri kümesi
+## <a name="choose-your-type-of-data-first"></a>Önce veri türünü seçin
 
-Sınırlandırılmış metin kümesinde ya da tek sınırlayıcılar işlemek için sınırlayıcı ayarlayacak ('\t 'TSV,','for ' csv, ' |'...) veya birden çok karakter için sınırlayıcı kullanın. Üst bilgi satırı getirin ve ardından veri türlerini otomatik olarak algılamak için kaynak dönüşümünü gidin.
+### <a name="delimited-text"></a>Sınırlandırılmış metin
+
+Sınırlandırılmış metin kümesinde ya da tek sınırlayıcılar işlemek için sınırlayıcı ayarlayacak ('\t 'TSV,','for ' csv, ' |'...) veya birden çok karakter için sınırlayıcı kullanın. Üst bilgi satırı getirin ve ardından veri türlerini otomatik olarak algılamak için kaynak dönüşümünü gidin. Bir havuz land verileri bir virgülle ayrılmış metin veri kümesine kullanıyorsanız, yalnızca bir hedef klasör seçin. Havuz Ayarları'nda, çıkış dosyalarının adını tanımlayabilirsiniz.
+
+### <a name="parquet"></a>Parquet
+
+Tercih edilen hazırlama veri kümesi türü ADF veri akışları olarak Parquet kullanın. Zengin meta veriler şema verileriyle birlikte parquet depolar.
+
+### <a name="database-types"></a>Veritabanı türü
+
+Azure SQL DB veya Azure SQL DW seçebilirsiniz.
+
+Diğer ADF veri kümesi türleri için kopyalama etkinliği, verilerinizi hazırlamak için kullanın. Bu düzen oluşturmanıza yardımcı olmak için şablon galerisinde ADF şablonu yoktur.
+
+![kopyalama hazırlama](media/data-flow/templatedf.png "kopyalama hazırlama")
+
+## <a name="choose-your-connection-type"></a>Bağlantı türü seçin
+
+Parquet veya ayrılmış metin veri kümeleri kullanıyorsanız, konumu, verileriniz için daha sonra seçebilirsiniz: ADLS veya Blob.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

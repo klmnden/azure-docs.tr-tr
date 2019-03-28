@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 1c0a04a074cfbd96423502ac92dd5821bade78e1
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 841193305556e3bc9e543abc47974c7b91b0cea1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258539"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518055"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Azure depolama için bir şirket içi HDFS Mağazası'ndan veri taşımak için Azure Data Box'ı kullanın
 
@@ -111,7 +111,7 @@ Kopyalama hızını artırmak için:
 
 Microsoft Data Box cihaz hazırlayıp için bu adımları izleyin.
 
-1. Veri kopyalama işlemi tamamlandıktan sonra çalıştırın [göndermeye hazırlama](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#prepare-to-ship) Data Box'ınızı üzerinde. Cihaz hazırlığı tamamlandıktan sonra ürün reçetesi dosyalarını indirin. Bu ürün reçetesi veya bildirim dosyaları daha sonra verileri Azure'a karşıya doğrulamak için zamanlanacak. Cihazı kapatın ve kabloların kaldırın. 
+1. Veri kopyalama işlemi tamamlandıktan sonra çalıştırın [göndermeye hazırlama](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest) Data Box'ınızı üzerinde. Cihaz hazırlığı tamamlandıktan sonra ürün reçetesi dosyalarını indirin. Bu ürün reçetesi veya bildirim dosyaları daha sonra verileri Azure'a karşıya doğrulamak için zamanlanacak. Cihazı kapatın ve kabloların kaldırın. 
 2.  Bir toplama için UPS ile zamanlama [Data Box'ınızı azure'a geri gönderin](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up). 
 3.  Ne zaman Cihazınızı Microsoft alır ve ağ veri merkezine bağlı olduğu (devre dışı hiyerarşik ad alanları ile) belirtilen depolama hesabı için veriler karşıya yüklendikten sonra Data Box sipariş. BOM dosyalara karşı tüm verileri Azure'a karşıya yüklendiğini doğrulayın. Artık bu veri bir Data Lake depolama Gen2'ye depolama hesabına geçebilirsiniz.
 

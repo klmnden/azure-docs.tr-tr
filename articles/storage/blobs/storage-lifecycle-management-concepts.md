@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 0d52b2f59bba2270b3d36ff2499ce1e0e492b228
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: fe5e4b6a4f6a3da851b6e27419bff265758a1ba1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500432"
+ms.locfileid: "58522222"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Depolama yaşam döngüsünü yönetme
 
@@ -227,7 +227,7 @@ Bu örnekte ön ekine sahip blok blobları geçiş gösterilmektedir `container1
 
 ### <a name="archive-data-at-ingest"></a>Arşiv veri alma 
 
-Bazı veriler bulutta boşta kalır ve nadiren istenir; her zamankinden çok kez eriştiyseniz depolanır. Alındıktan sonra hemen bu verileri arşivleme. Aşağıdaki yaşam döngüsü ilkesi alma, verileri arşivlemek için yapılandırılır. Bu örnekte geçişleri blok blobları depolama hesabında kapsayıcı içindeki `archivecontainer` hemen içine bir arşiv katmanı. Hemen geçiş bloblarda 0 gün sonra son değiştirilme zamanı işlevi tarafından gerçekleştirilir:
+Bazı veriler bulutta boşta kalır ve nadiren istenir; her zamankinden çok kez eriştiyseniz depolanır. Aşağıdaki yaşam döngüsü ilkesi içe alındığından sonra verileri arşivlemek için yapılandırılır. Bu örnekte geçişleri blok blobları depolama hesabında kapsayıcı içindeki `archivecontainer` içine bir arşiv katmanı. 0 gün sonra son değiştirilme zamanı bloblarda işlevi gören geçişi gerçekleştirilir:
 
 ```json
 {

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: 36b2f3817c7e96a35c1e8f3aba22db201224ceba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/26/2019
+ms.openlocfilehash: 5247183f50301554a986fde474b27a9bfc67d91d
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075944"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540678"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL hiper ölçekli veritabanları hakkında SSS
 
@@ -216,7 +216,7 @@ Hayır. Genel Önizleme sürümünde başka bir hizmet katmanına bir hiper öl�
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Hiper ölçekli hizmet katmanına geçişten sonra herhangi bir işlevselliğini veya özellikleri kaybetmeden miyim
 
-Evet. Azure SQL veritabanı özelliklerden bazıları hiper ölçekli ancak bunlarla sınırlı olmamak TDE ve uzun süreli bekletme yedeklemesi, genel Önizleme sırasında desteklenmez. Bu özellikler için hiper ölçekli veritabanlarınızı geçirdikten sonra durabilir.
+Evet. Bazı Azure SQL veritabanı özellikleri hiper ölçekli dahil olmak üzere ancak bunlarla sınırlı olmamak uzun süreli bekletme yedeklemesi, genel Önizleme sırasında desteklenmez. Bu özellikler için hiper ölçekli veritabanlarınızı geçirdikten sonra durabilir.
 
 ### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>Hiper ölçekli için şirket içi SQL Server veritabanını veya SQL Server sanal makine Veritabanım taşıyabilirim
 

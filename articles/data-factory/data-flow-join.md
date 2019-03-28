@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 18f713198ef9aa45cb72a6718c0f7b086c019258
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726881"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540049"
 ---
 # <a name="mapping-data-flow-join-transformation"></a>Veri akışı birleştirme dönüştürme eşlemesi
 
@@ -67,6 +67,10 @@ Diğer ad var olan bir akış seçin dönüşümü kullanarak ADF veri akışı 
 ![Kendi kendine birleşme](media/data-flow/selfjoin.png "kendi kendine birleşim")
 
 Yukarıdaki diyagramda, Select dönüştürme en üstünde alır. Tüm bu yaptığını diğer ad kullanımı "OrigSourceBatting" için özgün akışıdır. Vurgulanan birleştirme Dönüştür altındaki bu seçim diğer akış sağ birleştirme, aynı anahtarı sol ve sağ tarafında iç birleşim başvurmak bize verme kullandığımızı görebilirsiniz.
+
+## <a name="composite-and-custom-keys"></a>Bileşik ve özel anahtarlar
+
+İç birleşim dönüşümü hareket halindeyken özel ve karma anahtarları oluşturabilirsiniz. Her ilişki satır yanındaki artı işaretini (+) ile ek birleştirme sütunların satır ekleyin. Veya yeni bir anahtar değeri ifade oluşturucu üzerinde halindeyken birleştirme değeri için işlem.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

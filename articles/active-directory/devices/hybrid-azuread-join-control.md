@@ -3,7 +3,7 @@ title: Cihazlarınızı hibrit Azure AD'ye katılma denetim | Microsoft Docs
 description: Cihazlarınızı Azure Active Directory'de hibrit Azure AD'ye katılımı denetlemeyi öğrenin.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b113dd3e354e778d2cf16182665afff5440d2e5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 93afc6f748ca9f464261c59e037a603ab6113bf8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408539"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518176"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Cihazlarınızın hibrit Azure AD katılımını denetleme
 

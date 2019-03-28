@@ -4,7 +4,7 @@ description: Bu hızlı başlangıçta, oturum açma oturumu riskler için temel
 services: active-directory
 keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e950450a1ebe710a56ccfa0e8abefc7104602ec5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4de5fdfab0858536cdd0cd81a81ea7cbc012b855
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206183"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518227"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Hızlı Başlangıç: Azure Active Directory koşullu erişim ile bir oturumu risk algılandığında erişimi engelleme  
 

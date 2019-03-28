@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: 2fc881aac096ccbafa351fcac2d726cc51d8f178
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 7d5c0a2a05bbdb19681641f53fb4e1cfcf30f6ca
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286899"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519978"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure'da isteğe bağlı Red Hat Enterprise Linux VM'ler için Red Hat güncelleştirme altyapısı
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) gibi Red Hat barındırılan depo içeriğini yansıtmak için özel depolar ile Azure özgü içerik oluşturmak ve son kullanıcı VM'ler için kullanılabilir hale getirmek amacıyla bulut sağlayıcıları sağlar.
@@ -108,6 +108,11 @@ sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
 
 Alternatif olarak, çalışan `sudo yum update` başka depolar için görürsünüz "süresi dolmuş SSL sertifikası" hataları rağmen (sürümüne bağlı olarak, RHEL), istemci sertifika paketini de güncelleştirebilirsiniz. Bu güncelleştirme başarılı olursa, çalıştırılacak mümkün olmayacak şekilde diğer RHUI depolarda normal bağlantısı, geri yüklenmelidir `sudo yum update` başarıyla.
 
+404 hatası çalışırken karşılaşırsanız bir `yum update`, yum önbelleğinizi yenilemek için aşağıdakileri deneyin:
+```bash
+sudo yum clean all;
+sudo yum makecache
+```
 
 ### <a name="troubleshoot-connection-problems-to-azure-rhui"></a>Azure RHUI için bağlantı sorunlarını giderme
 Azure RHEL PAYG VM'den Azure RHUI bağlanma konusunda sorunlar karşılaşırsanız, aşağıdaki adımları izleyin:

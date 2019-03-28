@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 400583f50e898bfc750a387bf0ee83a3147e5006
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6834ab15f3d46b8b7116a48b0e970f553eb65ba8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57905077"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521831"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Sık Sorulan Sorular
 
@@ -153,7 +153,7 @@ Bu, kodunuzu tür veri gönderiyorsa mümkündür. Yığın izlemelerini değiş
 
 **Tüm** coğrafi konum özniteliklerini aranır sonra istemci web adresinin sekizlik tabanda 0 olarak her zaman ayarlanmış.
 
-## <a name="my-ikey-is-visible-in-my-web-page-source"></a>My iKey my web sayfası kaynağında görülebilir. 
+## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>My izleme anahtarını my web sayfası kaynağında görülebilir. 
 
 * Bu izleme çözümleri, genel yöntemdir.
 * Verilerinizi çalmak için kullanılamaz.
@@ -162,7 +162,7 @@ Bu, kodunuzu tür veri gönderiyorsa mümkündür. Yığın izlemelerini değiş
 
 Şunları yapabilirsiniz:
 
-* (Application Insights kaynakları ayırın) iki ayrı İkey'leri istemci ve sunucu verileri için kullanın. Veya
+* İki ayrı izleme (Application Insights kaynakları ayırın) anahtarlar, istemci ve sunucu verileri için kullanın. Veya
 * Çalıştıran sunucunuzda bir ara sunucu yazabilir ve proxy üzerinden verileri göndermek web istemcisi vardır.
 
 ## <a name="post"></a>Gönderme verisi tanılama aramasındaki nasıl görebilirim?

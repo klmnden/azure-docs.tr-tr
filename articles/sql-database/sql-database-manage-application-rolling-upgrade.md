@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: ad971ae3157dd17ecd4af662626c986584a27fe2
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 63f301b4618df9764460d0a9a133834fb72e33bb
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329175"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540593"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Sıralı yükseltmeler, bulut uygulamalarının SQL veritabanı etkin coğrafi çoğaltma'yı kullanarak yönetme
 
@@ -103,7 +103,21 @@ Yükseltmeyi geri mümkün hale getirmek için bir hazırlık ortamı ile uygula
 Hazırlık adımları tamamlandığında, yükseltme için hazırlık ortamı hazırdır. Bir sonraki diyagramda yükseltme adımları göstermektedir:
 
 1. Birincil veritabanı salt okunur moda (10) üretim ortamında ayarlayın. Bu mod, bu nedenle V1 ve V2 veritabanı örnekleri arasında veri Geçitler önleme yükseltme işlemi sırasında üretim veritabanı (V1) değişmez garanti eder.
-2. İkincil veritabanı aynı bölgede planlı sonlandırma modu (11) kullanarak çıkarın. Bu eylem, bağımsız ancak tam bir eşitleme bir üretim veritabanının kopyasını oluşturur. Bu veritabanı yükseltilir.
+
+```sql
+-- Set the production database to read-only mode
+ALTER DATABASE <Prod_DB>
+SET (ALLOW_CONNECTIONS = NO)
+```
+
+2. Coğrafi çoğaltma ikincil (11) bağlantısını keserek sonlandırın. Bu eylem, bağımsız ancak tam bir eşitleme bir üretim veritabanının kopyasını oluşturur. Bu veritabanı yükseltilir. Aşağıdaki örnek, Transact-SQL kullanır ancak [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) de kullanılabilir. 
+
+```sql
+-- Disconnect the secondary, terminating geo-replication
+ALTER DATABSE V1
+REMOVE SECONDARY ON SERVER <Partner-Server>
+```
+
 3. Yükseltme betiği karşı çalıştırmak `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net`ve hazırlama birincil veritabanı (12). Veritabanı değişiklikleri otomatik olarak ikincil hazırlama çoğaltılır.
 
 ![Bulutta olağanüstü durum kurtarma için SQL veritabanı coğrafi çoğaltma yapılandırması.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)

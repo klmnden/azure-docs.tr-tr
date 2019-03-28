@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: d4587b5268635691d55b51a7bf88bbe01df2a0c4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 06b2a5211c720d50a2f14e5fa56fa296cb80d41f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871661"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519638"
 ---
 # <a name="what-are-the-speech-services"></a>Konuşma Tanıma Hizmetleri nelerdir?
 
@@ -39,9 +39,9 @@ Bu özellikler Azure konuşma Hizmetleri ' hale getirir. Bağlantıları, her ö
 
 İle Azure konuşma Hizmetleri yenilikleri öğrenin.
 
+* Mart 2019 - belirli bir bölgede kullanılabilir sesleri tam bir listesini döndürür metin okuma için yeni bir uç noktası artık kullanılabilir. Daha fazla bilgi için [metin okuma API Başvurusu (REST)](rest-text-to-speech.md).
 * Şubat 2019 - serbest konuşma SDK 1.3.0 desteğiyle [Unity (beta)](quickstart-csharp-unity.md). İçin destek eklendi `AudioInput` ses akış kaynağı seçmenize olanak sağlayan sınıf. Yenilikleri ve bilinen sorunların tam listesi için bkz: [sürüm notları](releasenotes.md).
 * Aralık 2018'e - serbest konuşma SDK 1.2.0 desteğiyle [Python](quickstart-python.md) ve [Node.js](quickstart-js-node.md), Ubuntu LTS 18.04 yanı sıra. Daha fazla bilgi için [sürüm notları](releasenotes.md).
-* Metin okuma Hızlı başlangıçlar aralık 2018'e - eklenen [.NET Core](quickstart-dotnet-text-to-speech.md), [Python](quickstart-python-text-to-speech.md), [Node.js](quickstart-nodejs-text-to-speech.md). Ek örnekler mevcuttur [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http).
 
 ## <a name="try-speech-services"></a>Konuşma Hizmetleri deneyin
 

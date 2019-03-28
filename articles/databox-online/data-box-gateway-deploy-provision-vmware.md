@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 61fc72fe295fc292f944d6fea0f67fce0d537c32
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 85992224edd10c0a0f233de9f6274cc77e109b22
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402341"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517788"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Öğretici: Vmware'de sağlama Azure veri kutusu ağ geçidi
 
@@ -139,7 +139,7 @@ Hiper yöneticinizde sanal cihaz sağlamak için aşağıdaki adımları gerçek
 15. **Select storage** (Depolama alanı seçin) sayfasında VM'nizi sağlamak için kullanmak istediğiniz veri deposunu seçin. **İleri**’ye tıklayın.
 
     ![Depolama sayfası seçin](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. **Customize settings** (Ayarları özelleştirin) sayfasında **CPU** ayarını 4, **Memory** (Bellek) ayarını 8192 MB (veya üzeri), **Hard disk 1** (Sabit disk 1) ayarını 2 TB (veya üzeri) olarak belirtin. Eklemek için **SCSI hard disk** (SCSI sabit disk) girişini seçin. Bu örnekte LSI Logic SAS seçilmiştir. **Statik IDE diskler desteklenmez.** **Hard disk 1** (Sabit disk 1), sanal veri diskidir. Sağlanan diskin boyutunu küçültemeyeceğinizi unutmayın.
+16. **Customize settings** (Ayarları özelleştirin) sayfasında **CPU** ayarını 4, **Memory** (Bellek) ayarını 8192 MB (veya üzeri), **Hard disk 1** (Sabit disk 1) ayarını 2 TB (veya üzeri) olarak belirtin. Eklemek için **SCSI hard disk** (SCSI sabit disk) girişini seçin. Bu örnekte LSI Logic SAS seçilmiştir. **Statik IDE diskler desteklenmez.** **Hard disk 1** (Sabit disk 1), sanal veri diskidir. Sağlanan diskin boyutunu küçültemeyeceğinizi unutmayın. Cihazdaki tüm yerel verilerin kaybı disk sonuçları daraltmak çalışıyor. 
 
     ![Ayarlar sayfasını özelleştirme](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 

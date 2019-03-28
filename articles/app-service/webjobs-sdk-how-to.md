@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 0da4e1a0b20874c4452dd77bf77df0860dec455f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 81401d95b9c40f16a6e593d61b79f5c2d647c0c5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848082"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518839"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli bir arka plan işlemleri için Azure Web işleri SDK'sını kullanma
 
@@ -153,7 +153,7 @@ static void Main(string[] args)
 
 ## <a name="triggers"></a>Tetikleyiciler
 
-İşlevler genel yöntemleri olmalıdır ve bir tetikleyici özniteliği olmalıdır veya [ `NoAutomaticTrigger` ](#manual-trigger) özniteliği.
+İşlevler genel yöntemleri olmalıdır ve bir tetikleyici özniteliği olmalıdır veya [ `NoAutomaticTrigger` ](#manual-triggers) özniteliği.
 
 ### <a name="automatic-triggers"></a>Otomatik Tetikleyiciler
 
@@ -995,7 +995,7 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-`SamplingPercentageEstimatorSettings` Nesnesi yapılandırır [Uyarlamalı örnekleme](https://docs.microsoft.com/azure/application-insights/app-insights-sampling#adaptive-sampling-at-your-web-server). Başka bir deyişle, belirli yüksek hacimli senaryolar telemetri verilerinin seçili bir alt kümesi uygulamaları Insights sunucusuna gönderir.
+`SamplingPercentageEstimatorSettings` Nesnesi yapılandırır [Uyarlamalı örnekleme](https://docs.microsoft.com/azure/application-insights/app-insights-sampling). Başka bir deyişle, belirli yüksek hacimli senaryolar telemetri verilerinin seçili bir alt kümesi uygulamaları Insights sunucusuna gönderir.
 
 Telemetri fabrikasını oluşturduktan sonra içinde Application Insights günlük sağlayıcısına geçirilen:
 

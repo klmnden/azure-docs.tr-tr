@@ -4,12 +4,12 @@ ms.author: robin.shahan
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: b7d043b15cad23c9c9eca60c9a24096fee12e14a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c30f31903e59c505d778c95c58adbb48af0db96f
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319758"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505836"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Azure Resource Manager isteklerinin kimliğini doğrulamak hazırlama
 Kaynakları kullanarak gerçekleştirdiğiniz tüm işlemleri kimlik doğrulaması yapması gereken [Azure Resource Manager] [ lnk-authenticate-arm] ile Azure Active Directory (AD). Bunu yapılandırmak için en kolay yolu, PowerShell veya Azure CLI kullanmaktır.
@@ -21,19 +21,19 @@ Aşağıdaki adımlar PowerShell kullanarak bir AD uygulaması için parola kiml
 1. Aşağıdaki komutu kullanarak Azure aboneliğinizde oturum açın:
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 1. Birden çok Azure aboneliğiniz varsa Azure'da oturum açma, kimlik bilgilerinizle ilişkili tüm Azure abonelikleri erişim verir. Azure aboneliklerini kullanmak için size sunulan listelemek için aşağıdaki komutu kullanın:
 
     ```powershell
-    Get-AzureRMSubscription
+    Get-AzSubscription
     ```
 
     IOT hub'ınıza yönetmek için komutları çalıştırmak için kullanmak istediğiniz aboneliği seçmek için aşağıdaki komutu kullanın. Önceki komutun çıkışında yer alan abonelik adını veya kimliği kullanabilirsiniz:
 
     ```powershell
-    Select-AzureRMSubscription `
+    Select-AzSubscription `
         -SubscriptionName "{your subscription name}"
     ```
 
@@ -47,18 +47,18 @@ Aşağıdaki adımlar PowerShell kullanarak bir AD uygulaması için parola kiml
      
      ```powershell
      $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
-     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
+     New-AzADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
 4. Not **ApplicationId** oluşturduğunuz uygulamanın. Buna daha sonra ihtiyacınız olur.
 5. Aşağıdaki komutu kullanarak, değiştirerek yeni bir hizmet sorumlusu oluşturma **{MyApplicationId}** ile **ApplicationId** önceki adımdan:
    
     ```powershell
-    New-AzureRmADServicePrincipal -ApplicationId {MyApplicationId}
+    New-AzADServicePrincipal -ApplicationId {MyApplicationId}
     ```
 6. Aşağıdaki komutu kullanarak, değiştirerek bir rol ataması kümesi **{MyApplicationId}** ile **ApplicationId**.
    
     ```powershell
-    New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
+    New-AzRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
     ```
 
 Artık, özel kimlik doğrulaması olanak tanıyan Azure AD uygulaması oluşturmayı tamamladıktan C# uygulama. Aşağıdaki değerlerden Bu öğreticide daha sonra ihtiyacınız vardır:
@@ -69,4 +69,4 @@ Artık, özel kimlik doğrulaması olanak tanıyan Azure AD uygulaması oluştur
 * Parola
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps

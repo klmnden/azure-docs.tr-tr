@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: diberry
-ms.openlocfilehash: 39c1a212bee552b436ef21d208f4a20086578325
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d6c0d04966d3a713493485d52ca4e81ba25ab743
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437858"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521491"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Yükleme ve metin analizi kapsayıcıları çalıştırma
 
@@ -145,6 +145,10 @@ Kapsayıcı, REST tabanlı sorgu tahmin uç nokta API'leri sağlar.
 
 Ana bilgisayarını kullanmak `https://localhost:5000`, kapsayıcı API'leri için.
 
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## <a name="stop-the-container"></a>Kapsayıcı Durdur
 
 [!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
@@ -152,10 +156,6 @@ Ana bilgisayarını kullanmak `https://localhost:5000`, kapsayıcı API'leri iç
 ## <a name="troubleshooting"></a>Sorun giderme
 
 Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](../text-analytics-resource-container-config.md#mount-settings) ve günlüğe kaydetme etkin, kapsayıcı başlatma veya kapsayıcı çalıştırma sırasında gerçekleşen sorunları gidermek yararlı olan günlük dosyalarını oluşturur. 
-
-## <a name="containers-api-documentation"></a>Kapsayıcının API belgeleri
-
-[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Faturalandırma
 

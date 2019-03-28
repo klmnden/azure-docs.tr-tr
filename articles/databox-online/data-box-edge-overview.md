@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/25/2019
+ms.date: 03/27/2019
 ms.author: alkohli
-ms.openlocfilehash: 31a50d1dab0d5b62ab4dd549127e9092148bd88c
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 8e07678604797e7e2090f5fefcdb3f3adff40161
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438096"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521780"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Azure Data Box Edge nedir? 
 
@@ -102,9 +102,9 @@ Data Box Edge fiziksel cihazı, Azure kaynağı ve verileri aktardığınız hed
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Data Box Edge sistem gereksinimlerini](https://aka.ms/dbe-docs) gözden geçirin.
-- [Data Box Edge sınırlarını](https://aka.ms/dbe-docs) anlayın.
-- Azure portalda [Azure Data Box Edge](https://aka.ms/dbe-docs)’i dağıtın.
+- [Data Box Edge sistem gereksinimlerini](data-box-edge-system-requirements.md) gözden geçirin.
+- [Data Box Edge sınırlarını](data-box-edge-limits.md) anlayın.
+- Azure portalda [Azure Data Box Edge](data-box-edge-deploy-prep.md)’i dağıtın.
 
 
 

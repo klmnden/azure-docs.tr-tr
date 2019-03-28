@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: aae081232d3633d3f7d8094979764606bf99430d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 76892e22e940476ca26cde7a91bfe928b47f22ba
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311193"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522273"
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Azure Search'te dile göre filtreleme 
 
@@ -39,11 +39,11 @@ De dahil olmak üzere örneklerimizi [real estate and örnek](search-get-started
   ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> Dil Çözümleyicileri ile alan tanımları gösteren kod örnekleri için bkz [(.NET) bir dizin tanımla](https://docs.microsoft.com/azure/search/search-create-index-dotnet#define-your-azure-search-index) ve [(REST) bir dizin tanımla](https://docs.microsoft.com/azure/search/search-create-index-rest-api#define-your-azure-search-index-using-well-formed-json).
+> Dil Çözümleyicileri ile alan tanımları gösteren kod örnekleri için bkz [(.NET) bir dizin tanımla](https://docs.microsoft.com/azure/search/search-create-index-dotnet) ve [(REST) bir dizin tanımla](https://docs.microsoft.com/azure/search/search-create-index-rest-api-using-well-formed-json).
 
 ## <a name="build-and-load-an-index"></a>Derleme ve dizin yükleme
 
-Ara (ve belki de belirgin) bir adım için sahip olduğu [oluşturun ve dizini doldurma](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) sorgu formulating önce. Biz bu adımı burada bütünlük bahsedebilirsiniz. Dizin kullanılabilir olup olmadığını belirlemenin bir yolu olan dizinler listesi işaretleyerek [portalı](https://portal.azure.com).
+Ara (ve belki de belirgin) bir adım için sahip olduğu [oluşturun ve dizini doldurma](https://docs.microsoft.com/azure/search/search-create-index-dotnet) sorgu formulating önce. Biz bu adımı burada bütünlük bahsedebilirsiniz. Dizin kullanılabilir olup olmadığını belirlemenin bir yolu olan dizinler listesi işaretleyerek [portalı](https://portal.azure.com).
 
 ## <a name="constrain-the-query-and-trim-results"></a>Sorgu kısıtlamak ve sonuçları Kes
 

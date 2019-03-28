@@ -8,17 +8,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 1c863bc3b0ded0558e052ee3d98586ad815a0cfd
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.date: 03/21/2019
+ms.openlocfilehash: 63def1464c3c219b5181a31bf19cc80a1e487025
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202750"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521746"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Azure HDInsight, Apache Hive sorgularını en iyi duruma getirme
 
-Azure HDInsight çeşitli küme türleri ve Apache Hive sorguları çalıştırabilirsiniz teknolojiler vardır. HDInsight kümenizi oluşturmak, performans, iş yükü ihtiyaçları için en iyi duruma getirmek için uygun küme türü seçin. 
+Azure HDInsight çeşitli küme türleri ve Apache Hive sorguları çalıştırabilirsiniz teknolojiler vardır. HDInsight kümenizi oluşturmak, performans, iş yükü ihtiyaçları için en iyi duruma getirmek için uygun küme türü seçin.
 
 Örneğin, **etkileşimli sorgu** küme geçici, etkileşimli sorgular için en iyi duruma getirme türü. Apache seçin **Hadoop** küme toplu bir işlem olarak kullanılan Hive sorguları için en iyi duruma getirme türü. **Spark** ve **HBase** küme türleri Hive sorguları da çalıştırabilirsiniz. Üzerinde çeşitli HDInsight küme türleri Hive sorguları çalıştırma hakkında daha fazla bilgi için bkz. [Apache Hive ve HiveQL Azure HDInsight üzerinde nedir?](hadoop/hdinsight-use-hive.md).
 

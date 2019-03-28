@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 1f6887a403e03ac11bb080a1d9855daff66ca088
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096784"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517275"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara ile ilişkili maliyetleri izleme
 Bu makalede, laboratuvarınız maliyetini izleme konusunda bilgi sağlar. Tahmini görüntüleme gösterir trent geçerli Takvim ayı boyunca Laboratuvar maliyeti. Makalede ayrıca kaynak başına aylık tarih maliyeti laboratuvarda görüntüleme gösterilmektedir.
@@ -71,7 +71,7 @@ DevTest Labs aylık tahmini maliyet eğilimi grafiği daha sonra görüntüleyeb
    - Belirtin bir **hedef maliyet**. Örneğin, ne kadar bu Laboratuvar tanımladığınız dönemdeki harcayabileceğiniz planlayın.
    - Etkinleştirme veya devre dışı herhangi bir eşik seçin, istediğiniz bildirilen – – % 25 artışlarla kadar kaynağının % 125, belirtilen **hedef maliyet**.
       - **Bildirim**: Bu eşik geçildikten sonra size belirttiğiniz bir Web kancası URL'si bildirilir.
-      - **Grafik çizim**: Bu eşik geçildikten sonra sonuçları görüntüleyebilir, maliyet eğilimi grafikte açıklandığı gibi çizilir [aylık tahmini maliyet eğilimi grafiği görüntüleme](#viewing-the-monthly-estimated-cost-trend-chart).
+      - **Grafik çizim**: Bu eşik geçildikten sonra sonuçları görüntüleyebilir, maliyet eğilimi grafiği aylık tahmini maliyet eğilimi grafiği görüntüleme içinde anlatıldığı gibi çizilir.
    - İsterseniz **bildirim** eşiğine ulaşıldığında, bir Web kancası URL'si belirtmeniz gerekir. Maliyet tümleştirmeler alanında seçin **bir tümleştirme eklemek için burayı tıklatın**. Girin bir **Web kancası URL'si** yapılandırma bildirim bölmesi ve ardından **Tamam**.
 
        ![Bildirim bölmesini Yapılandır](./media/devtest-lab-configure-cost-management/configure-notification.png)

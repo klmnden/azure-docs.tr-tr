@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 2f84c48092581a313ff7bead7a862221e0fe4eee
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 6be897cc1ae11b8d3032e3ffc669eac05dafe5b2
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400905"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522324"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Azure sanal ağlarına Azure Logic Apps'ten tümleştirme hizmeti ortamı (ISE) kullanarak bağlanma
 
@@ -121,7 +121,7 @@ Sonuçlar listesinden **tümleştirme hizmeti ortamı (Önizleme)** ve ardından
    | **Tümleştirme hizmeti ortamı adı** | Evet | <*ortam adı*> | Ortamınızı verilecek ad |
    | **Konum** | Evet | <*Azure veri merkezi bölgesi*> | Azure veri merkezi bölgesini ortamınızı dağıtılacağı yeri |
    | **Ek kapasite** | Evet | 0, 1, 2, 3 | Bu işe kaynak için kullanılacak işleme birimi sayısı. Oluşturulduktan sonra Kapasite eklemek için bkz [Kapasite eklemek](#add-capacity). |
-   | **Sanal ağ** | Evet | <*Azure sanal-ağ-adı*> | Mantıksal uygulamalar bu ortamda, sanal ağınızın erişebilmesi için ortamınızı eklemesine istediğiniz Azure sanal ağı. Bir ağ yoksa, bir oluşturabilirsiniz burada. <p>**Önemli**: Yapabilecekleriniz *yalnızca* , işe oluşturduğunuzda bu ekleme gerçekleştirin. Bu ilişki oluşturabilmeniz için önce ancak, zaten emin [sanal ağınızdaki rol tabanlı erişim denetimi için Azure Logic Apps ayarlama](#vnet-access). |
+   | **Sanal ağ** | Evet | <*Azure sanal-ağ-adı*> | Mantıksal uygulamalar bu ortamda, sanal ağınızın erişebilmesi için ortamınızı eklemesine istediğiniz Azure sanal ağı. Bir ağ yoksa, bir oluşturabilirsiniz burada. <p>**Önemli**: Yapabilecekleriniz *yalnızca* , işe oluşturduğunuzda bu ekleme gerçekleştirin. Ancak, bu ilişki oluşturabilmeniz için zaten rol tabanlı erişim denetimini sanal ağınızda Azure Logic Apps için ayarladığınız emin olun. |
    | **Alt ağlar** | Evet | <*alt ağ kaynak listesi*> | Bir işe dört gerektirir *boş* ortamınızda kaynakları oluşturmak için alt ağlar. Her alt ağ oluşturmak için [bu tablonun altındaki adımları](#create-subnet).  |
    |||||
 

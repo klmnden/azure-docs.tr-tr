@@ -4,12 +4,12 @@ ms.service: log-analytics
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 44febf95c660601df78047fc473f61e0d3169890
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 6890c71ac7c265d46cc77751786fea4d0b228588
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52272682"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505662"
 ---
 ### <a name="troubleshoot-azure-diagnostics"></a>Azure Tanılama Sorunlarını Giderme
 
@@ -32,6 +32,6 @@ Kaynak sağlayıcısını kaydetmek için Azure portalında aşağıdaki adımla
 
 PowerShell'de aşağıdaki hata iletisini alırsanız, PowerShell sürümünüz güncelleştirmeniz gerekir:
 
-`Set-AzureRmDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
+`Set-AzDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
 
-Kasım 2016 (v2.3.0) PowerShell sürümünüzü güncelleştirin veya daha sonra yönergeleri kullanarak sürüm [Azure PowerShell cmdlet'lerini kullanmaya başlama](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) makalesi.
+Azure PowerShell sürümünüzü güncelleştirin, yönergeleri [Azure PowerShell yükleme](/powershell/azure/install-az-ps) makalesi.

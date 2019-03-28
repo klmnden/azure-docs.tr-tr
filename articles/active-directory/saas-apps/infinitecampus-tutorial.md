@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0ada3055a3347cb42179fddbba671f2f03f502d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d7d194d810e0fd3b9fb57b0876bee12447f65c6
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885076"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519876"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Öğretici: Sonsuz kampüs ile Azure Active Directory Tümleştirme
 
@@ -90,7 +90,7 @@ Yapılandırma ve Azure AD çoklu oturum açma sonsuz kampüs ile test etmek iç
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Bir sonsuz kampüs test kullanıcısı oluşturma](#creating-a-infinite-campus-test-user)**  - sonsuz kullanıcı Azure AD gösterimini bağlı olduğu kampüs Britta simon'un bir karşılığı vardır.
+3. **[Bir sonsuz kampüs test kullanıcısı oluşturma](#creating-an-infinite-campus-test-user)**  - sonsuz kullanıcı Azure AD gösterimini bağlı olduğu kampüs Britta simon'un bir karşılığı vardır.
 4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 

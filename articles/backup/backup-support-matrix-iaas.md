@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 63821ef5ebc36f49d4f3a43a7fbfbcf8fda12c50
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 4b4901b0323caa8eeda6b49228e65d1f28495164
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352043"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518499"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM yedeklemesi için destek matrisi
 Kullanabileceğiniz [Azure Backup hizmeti](backup-overview.md) şirket içi makinelerin ve iş yükleri ve Azure sanal makineleri (VM) yedekleme. Bu makalede, Azure sanal makinelerini Azure Backup ile yedeklediğinizde destek ayarları ve sınırlamaları özetlenmektedir.
@@ -82,8 +82,7 @@ Azure VM Linux yedeklemeleri için Azure Backup, Linux listesini destekler [Azur
 - Azure Backup, Core OS Linux desteklememektedir.
 - Azure yedekleme, 32-bit işletim sistemlerini desteklemez.
 - Diğer Getir kendi Linux dağıtımları da çalışabilir sürece [Linux için Azure VM Aracısı](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) VM üzerinde kullanılabilir ve Python desteklenmediğinden uzun.
-- Azure Backup yapılandırılmış proxy ile Python sürüm 2.6* çalıştıran VM desteklememektedir.
-
+- Python sürüm 2.7 yüklü olmaması durumunda azure Backup, proxy olarak yapılandırılmış bir Linux VM desteklememektedir.
 
 
 ## <a name="backup-frequency-and-retention"></a>Yedekleme sıklığı ve bekletme

@@ -4,7 +4,7 @@ description: Azure Active Directory kimlik koruması (yenilenmiş) içinde algı
 services: active-directory
 keywords: Azure active directory kimlik koruması, bulut uygulaması bulma, yönetme, uygulamaları, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2019
-ms.author: markvi
-ms.reviewer: raluthra
+ms.author: joflore
+ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1385442ace852c310ca6796da9294ca57c797690
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7724d69a9294b420ca061d5ad26ad64826372203
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211045"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517683"
 ---
 # <a name="how-to-improve-the-detection-accuracy"></a>Nasıl Yapılır: Algılama doğruluğunu artırmak 
 
@@ -49,7 +49,7 @@ Algılama doğruluğunu artırmak için üç yolu vardır: riskli oturum açma c
 Geri bildiriminiz algılama sonuçları doğruluğunu artırmak için Azure AD tarafından işlenir. Genellikle, bir kullanıcı risk veya oturum açma riski araştırma bir parçası olarak geri bildirim sağlayın. Daha fazla bilgi için [riskli kullanıcılar ve oturum açma araştırma](howto-investigate-risky-users-signins.md).
 
 
-## <a name="confirm-compromised"></a>Gizliliğin ihlal edildiğini onayla
+## <a name="confirm-compromised"></a>Güvenliğin tehlikeye girdiğini onaylayın
 
 Tehlikeye gibi bir oturum açma olay onaylama için Azure AD oturum açma kimlik sahibinin yetkilendirdiği değildi, bildirir. "Tehlikeye onaylayın" seçtiğinizde Azure AD olacaktır.
 

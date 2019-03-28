@@ -9,16 +9,16 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6d0b3f3d53d6e8204e23ac9aaa8a428b25dc4dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 74a7316ea00f5c38d6a2b1a98d81affeeffcd5e9
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195558"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518006"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect eşitlemesi ile parola karması eşitlemeyi uygulama
 Bu makalede, şirket içi Active Directory örneğinden bulut tabanlı bir Azure Active Directory (Azure AD) örneği, kullanıcı parolalarını eşitlemek için gereken bilgileri sağlar.
@@ -46,7 +46,7 @@ Bir kullanıcı şirket kimlik bilgilerini, olup, şirket ağlarına oturum açm
 ### <a name="detailed-description-of-how-password-hash-synchronization-works"></a>Parola Karması eşitleme nasıl çalıştığına ilişkin ayrıntılı bir açıklaması
 Aşağıdaki bölümde açıklanmaktadır, ayrıntılı, Active Directory ve Azure AD arasında parola karması eşitleme nasıl çalışır.
 
-![Ayrıntılı parola akış](./media/how-to-connect-password-hash-synchronization/arch3.png)
+![Ayrıntılı parola akış](./media/how-to-connect-password-hash-synchronization/arch3a.png)
 
 
 1. Her iki dakikada bir DC gelen parola karmalarını (unicodePwd özniteliğini) AD Connect sunucusu isteklerde parola karması eşitleme Aracısı depolanır.  Bu istek için standarttır [MS DRSR](https://msdn.microsoft.com/library/cc228086.aspx) DC'leri arasında verileri eşitleyebilmeniz için kullanılan çoğaltma protokolü. Hizmet hesabı, parola karmaları almak için dizin değişikliklerini çoğaltma ve (varsayılan olarak yükleme izni) dizin değişikliklerini tümüne çoğaltma AD izinleri olmalıdır.

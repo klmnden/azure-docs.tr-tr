@@ -4,7 +4,7 @@ description: Risk olayları ve ilişkili Azure Active Directory bilgilerinden bi
 services: active-directory
 keywords: Azure active directory kimlik koruması, risk olayı, güvenlik açığı, güvenlik ilkesi, Microsoft Graph
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
-ms.author: markvi
-ms.reviewer: nigu
+ms.author: joflore
+ms.reviewer: sahandle
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d9935b5605bc09f000a81e7616e807a0e194e12
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8f748e10ffa8b1c8a7f4ee3dc3d151f7413179ab
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295547"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517462"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Microsoft Graph ve Azure Active Directory kimlik koruması ile çalışmaya başlama
 
-Microsoft Graph olan Microsoft unified API uç noktası ve giriş, [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md) API'leri. Riskli kullanıcılar ve oturum açma işlemleri hakkındaki bilgilerin açığa çıkmasına neden üç API vardır. İlk API **identityRiskEvents**, Microsoft Graph listesi için sorgu sağlar [risk olayları](../reports-monitoring/concept-risk-events.md) ve ilişkili bilgileri. İkinci bir API **riskyUsers**, kullanıcıların algılanan risk kimlik koruması hakkında daha fazla bilgi için Microsoft Graph sorguya izin verir. Üçüncü API **Signın**risk durumuyla ilgili belirli özellikleri olan Azure AD oturum açma işlemleri hakkında bilgi için Microsoft Graph sorgu sağlar ayrıntılı ve düzey. Bu makale, kullanmaya başlamanızı [bağlanmak için Microsoft Graph](#Connect-to-Microsoft-Graph) ve [bu API'leri sorgulama](#Query-the-APIs). Bir ayrıntılı giriş, tüm belgeler ve Graph Gezgini erişimi için bkz. [Microsoft Graph site](https://graph.microsoft.io/) veya bu API'leri için belirli başvuru belgeleri:
+Microsoft Graph olan Microsoft unified API uç noktası ve giriş, [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md) API'leri. Riskli kullanıcılar ve oturum açma işlemleri hakkındaki bilgilerin açığa çıkmasına neden üç API vardır. İlk API **identityRiskEvents**, Microsoft Graph listesi için sorgu sağlar [risk olayları](../reports-monitoring/concept-risk-events.md) ve ilişkili bilgileri. İkinci bir API **riskyUsers**, kullanıcıların algılanan risk kimlik koruması hakkında daha fazla bilgi için Microsoft Graph sorguya izin verir. Üçüncü API **Signın**risk durumuyla ilgili belirli özellikleri olan Azure AD oturum açma işlemleri hakkında bilgi için Microsoft Graph sorgu sağlar ayrıntılı ve düzey. Bu makalede, Microsoft Graph için bağlanma ve sorgulama bu API'leri ile çalışmaya başlamanızı sağlar. Bir ayrıntılı giriş, tüm belgeler ve Graph Gezgini erişimi için bkz. [Microsoft Graph site](https://graph.microsoft.io/) veya bu API'leri için belirli başvuru belgeleri:
 
 * [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
 * [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)

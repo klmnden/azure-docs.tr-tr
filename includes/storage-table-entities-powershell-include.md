@@ -2,14 +2,14 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 03/27/2019
 ms.author: tamram
-ms.openlocfilehash: e8c5bf8e3c4cd63b7eec278c480527e95455140d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166055"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541392"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
     There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
@@ -18,53 +18,54 @@ ms.locfileid: "50166055"
 
 Bir tablonuz olduğuna göre varlıklar veya tablosundaki satırları yönetme göz atalım. 
 
-Bir varlığın 3 sistem özelliği dahil olmak üzere, en fazla 255 özellikleri olabilir: **PartitionKey**, **RowKey**, ve **zaman damgası**. Ekleme ve güncelleştirme değerlerini sorumludur **PartitionKey** ve **RowKey**. Sunucu değeri yönetir **zaman damgası**, hangi değiştirilemez. Birlikte **PartitionKey** ve **RowKey** tablo içindeki her bir varlık benzersiz olarak tanımlanabilmesi.
+Varlıkları üç sistem özelliği dahil olmak üzere, en fazla 255 özelliklere sahiptir: **PartitionKey**, **RowKey**, ve **zaman damgası**. Ekleme ve güncelleştirme değerlerini sorumlu **PartitionKey** ve **RowKey**. Sunucu değeri yönetir **zaman damgası**, hangi değiştirilemez. Birlikte **PartitionKey** ve **RowKey** tablo içindeki her bir varlık benzersiz olarak tanımlanabilmesi.
 
-* **PartitionKey**: Varlık depolanan bölüm belirler.
-* **RowKey**: varlığı bölüm içinde benzersiz şekilde tanımlar.
+* **PartitionKey**: Varlık içinde depolanır bölüm belirler.
+* **RowKey**: Varlığı bölüm içinde benzersiz olarak tanımlar.
 
 Bir varlık için özel en çok 252 özellik tanımlayabilir. 
 
 ### <a name="add-table-entities"></a>Tablo varlık ekleme
 
-Varlıkları kullanarak bir tablo ekleyin **Ekle StorageTableRow**. Bu örnekler, bölüm anahtarı değerleri "Bölüm1" ve "bölüm2" ve satır anahtarı için durum kısaltmalar eşit kullanın. Her varlık özellikleri, kullanıcı adı ve kullanıcı kimliği ' dir. 
+Varlıkları kullanarak bir tablo ekleyin **Ekle AzTableRow**. Bu örneklerde değerlerle bölüm anahtarları `partition1` ve `partition2`, ve satır anahtarı için durum kısaltmalar eşit. Her bir varlıkta özellikleri `username` ve `userid`. 
 
 ```powershell
 $partitionKey1 = "partition1"
 $partitionKey2 = "partition2"
 
 # add four rows 
-Add-StorageTableRow `
-    -table $storageTable `
+Add-AzTableRow `
+    -table $cloudTable `
     -partitionKey $partitionKey1 `
     -rowKey ("CA") -property @{"username"="Chris";"userid"=1}
 
-Add-StorageTableRow `
-    -table $storageTable `
+Add-AzTableRow `
+    -table $cloudTable `
     -partitionKey $partitionKey2 `
     -rowKey ("NM") -property @{"username"="Jessie";"userid"=2}
 
-Add-StorageTableRow `
-    -table $storageTable `
+Add-AzTableRow `
+    -table $cloudTable `
     -partitionKey $partitionKey1 `
     -rowKey ("WA") -property @{"username"="Christine";"userid"=3}
 
-Add-StorageTableRow `
-    -table $storageTable `
+Add-AzTableRow `
+    -table $cloudTable `
     -partitionKey $partitionKey2 `
     -rowKey ("TX") -property @{"username"="Steven";"userid"=4}
 ```
 
 ### <a name="query-the-table-entities"></a>Tablo varlıkları sorgulama
 
-Bir tablodaki varlıkları sorgulamak için çeşitli yollar vardır.
+Bir tablodaki varlıkları kullanarak sorgulayabilirsiniz **Get-AzTableRow** komutu.
+
+> [!NOTE]
+> Cmdlet'ler **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get-AzureStorageTableRowByColumnName**, ve  **Get-AzureStorageTableRowByCustomFilter** kullanım dışıdır ve gelecekteki sürümüne güncelleştirmede kaldırılacak.
 
 #### <a name="retrieve-all-entities"></a>Tüm varlıkları alma
 
-Tüm varlıkları almak için kullanın **Get-AzureStorageTableRowAll**.
-
 ```powershell
-Get-AzureStorageTableRowAll -table $storageTable | ft
+Get-AzTableRow -table $cloudTable | ft
 ```
 
 Bu komut için aşağıdaki tabloda benzer sonuçlar verir:
@@ -78,11 +79,10 @@ Bu komut için aşağıdaki tabloda benzer sonuçlar verir:
 
 #### <a name="retrieve-entities-for-a-specific-partition"></a>Belirli bir bölüm için varlıkları alma
 
-Belirli bir bölümdeki tüm varlıkları almak için kullanın **Get-AzureStorageTableRowByPartitionKey**.
-
 ```powershell
-Get-AzureStorageTableRowByPartitionKey -table $storageTable -partitionKey $partitionKey1 | ft
+Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 ```
+
 Sonuçları aşağıdaki tabloda benzer görünmelidir:
 
 | Kullanıcı Kimliği | kullanıcı adı | bölüm | rowkey |
@@ -92,10 +92,8 @@ Sonuçları aşağıdaki tabloda benzer görünmelidir:
 
 #### <a name="retrieve-entities-for-a-specific-value-in-a-specific-column"></a>Belirli bir değeri belirli bir sütundaki varlıkları alma
 
-Burada belirli bir sütundaki değer belirli bir değere eşittir varlıkları almak için kullanın **Get-AzureStorageTableRowByColumnName**.
-
 ```powershell
-Get-AzureStorageTableRowByColumnName -table $storageTable `
+Get-AzTableRow -table $cloudTable `
     -columnName "username" `
     -value "Chris" `
     -operator Equal
@@ -112,11 +110,9 @@ Bu sorgu, bir kaydı alır.
 
 #### <a name="retrieve-entities-using-a-custom-filter"></a>Özel bir filtre kullanarak varlıkları alma 
 
-Özel bir filtre kullanarak varlıkları almak için kullanın **Get-AzureStorageTableRowByCustomFilter**.
-
 ```powershell
-Get-AzureStorageTableRowByCustomFilter `
-    -table $storageTable `
+Get-AzTableRow `
+    -table $cloudTable `
     -customFilter "(userid eq 1)"
 ```
 
@@ -131,27 +127,27 @@ Bu sorgu, bir kaydı alır.
 
 ### <a name="updating-entities"></a>Varlıkları güncelleştirme 
 
-Varlıkları güncelleştirme için üç adım vardır. İlk olarak değiştirmek için varlık alın. İkinci olarak, değişikliği yapın. Üçüncü olarak, değişiklik kullanarak işleme **güncelleştirme AzureStorageTableRow**.
+Varlıkları güncelleştirme için üç adım vardır. İlk olarak değiştirmek için varlık alın. İkinci olarak, değişikliği yapın. Üçüncü olarak, değişiklik kullanarak işleme **güncelleştirme AzTableRow**.
 
-Kullanıcı adıyla varlığı Güncelleştirme 'kullanıcı adı için Jessie' = 'Jessie2' =. Bu örnek ayrıca .NET türlerini kullanarak özel bir filtre oluşturmak için başka bir yol gösterir. 
+Kullanıcı adıyla varlığı Güncelleştirme 'kullanıcı adı için Jessie' = 'Jessie2' =. Bu örnek ayrıca .NET türlerini kullanarak özel bir filtre oluşturmak için başka bir yol gösterir.
 
 ```powershell
 # Create a filter and get the entity to be updated.
 [string]$filter = `
-    [Microsoft.WindowsAzure.Storage.Table.TableQuery]::GenerateFilterCondition("username",`
-    [Microsoft.WindowsAzure.Storage.Table.QueryComparisons]::Equal,"Jessie")
-$user = Get-AzureStorageTableRowByCustomFilter `
-    -table $storageTable `
+    [Microsoft.Azure.Cosmos.Table.TableQuery]::GenerateFilterCondition("username",`
+    [Microsoft.Azure.Cosmos.Table.QueryComparisons]::Equal,"Jessie")
+$user = Get-AzTableRow `
+    -table $cloudTable `
     -customFilter $filter
 
 # Change the entity.
-$user.username = "Jessie2" 
+$user.username = "Jessie2"
 
 # To commit the change, pipe the updated record into the update cmdlet.
-$user | Update-AzureStorageTableRow -table $storageTable 
+$user | Update-AzTableRow -table $cloudTable
 
 # To see the new record, query the table.
-Get-AzureStorageTableRowByCustomFilter -table $storageTable `
+Get-AzTableRow -table $cloudTable `
     -customFilter "(username eq 'Jessie2')"
 ```
 
@@ -170,33 +166,33 @@ Bir varlık veya tablodaki tüm varlıkları silebilirsiniz.
 
 #### <a name="deleting-one-entity"></a>Bir varlığı silme
 
-Tek bir varlığı silmek için bu varlığa bir başvuru almak ve içine kanal **Remove-AzureStorageTableRow**.
+Tek bir varlığı silmek için bu varlığa bir başvuru almak ve içine kanal **Remove-AzTableRow**.
 
 ```powershell
 # Set filter.
 [string]$filter = `
-  [Microsoft.WindowsAzure.Storage.Table.TableQuery]::GenerateFilterCondition("username",`
-  [Microsoft.WindowsAzure.Storage.Table.QueryComparisons]::Equal,"Jessie2")
+  [Microsoft.Azure.Cosmos.Table.TableQuery]::GenerateFilterCondition("username",`
+  [Microsoft.Azure.Cosmos.Table.QueryComparisons]::Equal,"Jessie2")
 
 # Retrieve entity to be deleted, then pipe it into the remove cmdlet.
-$userToDelete = Get-AzureStorageTableRowByCustomFilter `
-    -table $storageTable `
+$userToDelete = Get-AzTableRow `
+    -table $cloudTable `
     -customFilter $filter
-$userToDelete | Remove-AzureStorageTableRow -table $storageTable 
+$userToDelete | Remove-AzTableRow -table $cloudTable
 
 # Retrieve entities from table and see that Jessie2 has been deleted.
-Get-AzureStorageTableRowAll -table $storageTable | ft
+Get-AzTableRow -table $cloudTable | ft
 ```
 
-#### <a name="delete-all-entities-in-the-table"></a>Tablodaki tüm varlıklarını silme 
+#### <a name="delete-all-entities-in-the-table"></a>Tablodaki tüm varlıklarını silme
 
 Tablodaki tüm varlıkları silmek için bunları alın ve sonuçları Kaldır cmdlet'e kanal oluşturarak. 
 
 ```powershell
 # Get all rows and pipe the result into the remove cmdlet.
-Get-AzureStorageTableRowAll `
-    -table $storageTable | Remove-AzureStorageTableRow -table $storageTable 
+Get-AzTableRow `
+    -table $cloudTable | Remove-AzTableRow -table $cloudTable 
 
 # List entities in the table (there won't be any).
-Get-AzureStorageTableRowAll -table $storageTable | ft
+Get-AzTableRow -table $cloudTable | ft
 ```

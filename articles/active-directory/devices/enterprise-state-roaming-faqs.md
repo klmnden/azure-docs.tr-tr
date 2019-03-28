@@ -4,7 +4,7 @@ description: BT yöneticileri bazı soruların yanıtlarını ayarları ve uygul
 services: active-directory
 keywords: Enterprise state Dolaşım ayarlarını windows bulut, Kurumsal durumda Dolaşım hakkında sık sorulan sorular
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: curtand
 ms.subservice: devices
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
-ms.author: markvi
+ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96cb46135e82e9cad740a51ea7de5789e6b398b7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a77cf89b7697b7b6b08dead34339ae50dbba8518
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205792"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517870"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Ayarlar ve veri dolaşımı hakkında SSS
 Bu makalede, BT yöneticileri, ayarları ve uygulama verilerini eşitleme hakkında olabilir. bazı sorular yanıtlanmaktadır.

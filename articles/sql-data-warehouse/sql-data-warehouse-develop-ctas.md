@@ -2,27 +2,27 @@
 title: Azure SQL Data Warehouse'da tablo AS SELECT (CTAS) oluşturma | Microsoft Docs
 description: Azure SQL veri ambarı CREATE TABLE AS SELECT (CTAS) deyiminde ile çözüm geliştirmek için kodlama için ipuçları.
 services: sql-data-warehouse
-author: ckarst
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 03/26/2019
+ms.author: mlee3gsd
 ms.reviewer: igorstan
-ms.openlocfilehash: 6b66b6018ed5f6f427896db00b5348983b76a0e5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f791f460efec1b84533379e74add003619dbac6f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472159"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521576"
 ---
 # <a name="using-create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>CREATE TABLE AS SELECT (CTAS) kullanarak Azure SQL veri ambarı'nda
 Azure SQL veri ambarı CREATE TABLE AS SELECT (CTAS) T-SQL deyiminde ile çözüm geliştirmek için kodlama için ipuçları.
 
 ## <a name="what-is-create-table-as-select-ctas"></a>CREATE TABLE AS SELECT (CTAS) nedir?
 
-[CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) veya CTAS deyimi, en önemli T-SQL özellikleri biridir. Bir SELECT deyiminin çıktı göre yeni bir tablo oluşturur paralel bir işlemdir. CTASD bir tablonun kopyasını oluşturma basit ve en hızlı yoludur. 
+[CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) veya CTAS deyimi, en önemli T-SQL özellikleri biridir. Bir SELECT deyiminin çıktı göre yeni bir tablo oluşturur paralel bir işlemdir. CTAS oluşturma ve tek bir komutla bir tabloya veri ekleme basit ve hızlı bir yoludur. 
 
 ## <a name="selectinto-vs-ctas"></a>SEÇİN... Vs'ye. CTAS
 CTAS bir süper dolu sürümü olarak düşünebileceğiniz [seçin... İÇİNE](/sql/t-sql/queries/select-into-clause-transact-sql) deyimi.
@@ -35,11 +35,10 @@ INTO    [dbo].[FactInternetSales_new]
 FROM    [dbo].[FactInternetSales]
 ```
 
-Önceki örnekte `[dbo].[FactInternetSales_new]` olması oluşturulur ROUND_ROBIN kümelenmiş COLUMNSTORE dizini olan dağıtılmış tablo olarak bunlar Azure SQL Data warehouse'da tablo Varsayılanları olduğundan.
+SEÇİN... Ancak, dağıtım yöntemini ya da dizin türünü işleminin bir parçası olarak değiştirmenize izin vermiyor. `[dbo].[FactInternetSales_new]` Kümelenmiş COLUMNSTORE dizini ROUND_ROBIN ve varsayılan tablo yapısı varsayılan dağıtım türü kullanılarak oluşturulur.
 
-SEÇİN... Ancak, dağıtım yöntemini ya da dizin türünü işleminin bir parçası olarak değiştirmenize izin vermiyor. Bu, CTAS burada devreye girer.
-
-CTAS önceki örneğe oldukça rahatça dönüştürülür:
+CTAS kullanarak dağıtım tablo yapısı türü yanı sıra tablo verilerini güvendiklerini belirtebilirler.
+CTAS önceki örneğe dönüştürmek için:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_new]
@@ -54,7 +53,7 @@ FROM    [dbo].[FactInternetSales]
 ;
 ```
 
-CTAS ile dağıtım tablo verilerini ve bunun yanı sıra tablo türünü değiştiremezsiniz. 
+ 
 
 > [!NOTE]
 > Yalnızca dizin değiştirmeye çalışıyorsanız, `CTAS` işlemi ve kaynak tablo karma dağıtılmış olan sonra `CTAS` işlemi aynı dağıtım sütunu ve veri türü sahipseniz en iyi şekilde gerçekleştirir. Bu dağıtım veri taşıma daha verimli olan işlemi sırasında kaçının.
@@ -62,7 +61,7 @@ CTAS ile dağıtım tablo verilerini ve bunun yanı sıra tablo türünü deği�
 > 
 
 ## <a name="using-ctas-to-copy-a-table"></a>CTAS bir tabloyu kopyalama için kullanma
-Belki de en yaygın birini kullanır `CTAS` DDL değiştirebilmeniz bir tablonun kopyasını oluşturuyor. Örneğin, tablo olarak başlangıçta oluşturduysanız `ROUND_ROBIN` ve isterseniz değiştirme artık, dağıtılmış bir sütuna, tabloya `CTAS` nasıl dağıtım sütunu değiştirin. `CTAS` Ayrıca bölümlendirme, dizin oluşturma veya sütun türlerini değiştirmek için kullanılabilir.
+Belki de en yaygın birini kullanır `CTAS` DDL değiştirebilmeniz bir tablonun kopyasını oluşturuyor. Örneğin, başlangıçta tablonuz olarak oluşturduğunuz, `ROUND_ROBIN` ve artık dağıtılmış bir sütuna, tabloya değiştirmek istiyorsanız `CTAS` nasıl dağıtım sütunu değiştirin. `CTAS` Ayrıca bölümlendirme, dizin oluşturma veya sütun türlerini değiştirmek için kullanılabilir.
 
 Bu tabloda, varsayılan dağıtım türünü kullanarak oluşturduğunuz varsayalım `ROUND_ROBIN` hiç dağıtım sütunu belirtilmediğinden dağıtılmış `CREATE TABLE`.
 
@@ -125,13 +124,8 @@ RENAME OBJECT FactInternetSales_new TO FactInternetSales;
 DROP TABLE FactInternetSales_old;
 ```
 
-> [!NOTE]
-> Azure SQL Data Warehouse henüz istatistiklerin otomatik olarak oluşturulup güncelleştirilmesini desteklemiyor.  Sorgularınızdan en iyi performansı elde edebilmeniz için ilk yüklemeden veya verilerdeki önemli değişikliklerden sonra her tablonun her sütununa ilişkin istatistiklerin oluşturulması önemlidir.  İstatistiklerin ayrıntılı bir açıklama için geliştirme grubu konuları [İstatistikler] [İstatistikler] konusuna bakın.
-> 
-> 
-
 ## <a name="using-ctas-to-work-around-unsupported-features"></a>Desteklenmeyen özellikler etrafında çalışmak için CTAS kullanarak
-CTAS, aşağıda listelenen desteklenmeyen özellikler geçici olarak çözmek için de kullanılabilir. Bu genellikle yalnızca kodunuzu uyumlu olur ancak bu genellikle daha hızlı bir şekilde SQL veri ambarı üzerinde yürütülür win/win durumda olacak şekilde kanıtlayabilirsiniz. Tam olarak paralel tasarımını sonucu olarak budur. Geçici bir çözüm ile CTAS çalışılabilmesi senaryolar şunlardır:
+CTAS, aşağıda listelenen desteklenmeyen özellikler geçici olarak çözmek için de kullanılabilir. Bu yöntem, genellikle yalnızca kodunuzu uyumlu olur ancak bu genellikle daha hızlı bir şekilde SQL veri ambarı üzerinde yürütülür win/win durumda olacak şekilde kanıtlayabilirsiniz. Bu performans, tam olarak paralel tasarımını sonucudur. Geçici bir çözüm ile CTAS çalışılabilmesi senaryolar şunlardır:
 
 * ANSI BİRLEŞTİRMELER güncelleştirmeleri
 * ANSI birleştirmeler üzerinde siler
@@ -222,7 +216,7 @@ DROP TABLE CTAS_acs
 ```
 
 ## <a name="ansi-join-replacement-for-delete-statements"></a>ANSI birleştirme ardılı delete deyimleri
-Bazen verileri silmek için en iyi yaklaşımdır `CTAS`. Verileri yalnızca silme yerine tutmak istediğiniz verileri seçin. Bu özellikle doğrudur için `DELETE` birleştiren SQL veri ambarı ANSI desteklemediğinden birleşme söz dizimi içinde ANSI kullanan deyimleri `FROM` yan tümcesi bir `DELETE` deyimi.
+Bazen verileri silmek için en iyi yaklaşımdır `CTAS`. Verileri silme yerine, korumak istediğiniz verileri seçin. Bu özellikle doğrudur için `DELETE` ANSI kullanan deyimleri JOIN söz dizimi SQL veri ambarı ANSI birleşimlerde desteklemediğinden `FROM` yan tümcesi bir `DELETE` deyimi.
 
 Dönüştürülen bir DELETE deyimi bir örneği aşağıda kullanılabilir:
 
@@ -246,9 +240,9 @@ RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 ```
 
 ## <a name="replace-merge-statements"></a>Merge deyimlerinde değiştirin
-Birleştirme deyimleri, en az bölümünde CTAS kullanarak değiştirilebilir. Tek bir deyimde INSERT ve UPDATE birleştirebilir. Silinen herhangi bir kayıt devre dışı'ı bir ikinci deyiminde kapatılması gerekir.
+Birleştirme deyimleri, en az bölümünde CTAS kullanarak değiştirilebilir. Tek bir deyimde INSERT ve UPDATE birleştirebilir. Tüm silinen kayıtlar kısıtlı `SELECT` sonuçlardan atlamak için deyimi.
 
-Bir UPSERT örneği verilmiştir:
+Aşağıdaki örnek, bir UPSERT için verilmiştir:
 
 ```sql
 CREATE TABLE dbo.[DimProduct_upsert]
@@ -327,13 +321,13 @@ from ctas_r
 ;
 ```
 
-Sonuç için depolanan değeri farklıdır. Sonuç sütunu kalıcı değeri diğer ifadelerinde kullanılan hata daha önemli hale gelir.
+Sonuç için depolanan değeri farklıdır. Sonuç sütunu kalıcı değeri diğer ifadeler kullanıldıkça, hata daha önemli hale gelir.
 
 ![CTAS sonuçları](media/sql-data-warehouse-develop-ctas/ctas-results.png)
 
 Bu veri geçişler için özellikle önemlidir. İkinci sorgu tartışmaya daha doğru olsa bile bir sorun yoktur. Veriler için kaynak sistem karşılaştırıldığında farklı olacaktır ve bu soruların geçişin bütünlüğü gidiyor. Bu, nadir durumlarda "yanlış" yanıt gerçekten doğru olanı olduğu biridir!
 
-İki sonuçtan arasındaki bu farkları görüyoruz örtük tür atama aşağı nedenidir. İlk örnekte, tablonun sütun tanımı tanımlar. Örtük tür dönüştürme satır eklendiğinde gerçekleşir. İkinci örnekte örtük tür dönüştürme ifadesi sütunun veri türünü tanımlar gibi bulunur. Ayrıca ilk örnekte, henüz ise ikinci örnekteki sütun null yapılabilir sütun olarak tanımlanmış dikkat edin. Tablonun ilk örnek sütun öğesinin oluşturulduğu açıkça tanımlandı. İkinci örnek, yalnızca ifade ve varsayılan olarak bu bırakıldı NULL tanımında neden olur.  
+İki sonuçtan arasındaki bu farkları görüyoruz örtük tür atama aşağı nedenidir. İlk örnekte, tablonun sütun tanımı tanımlar. Örtük tür dönüştürme satır eklendiğinde gerçekleşir. İkinci örnekte, örtük tür dönüştürme ifadesi sütunun veri türünü tanımlar gibi bulunur. Ayrıca ilk örnekte, henüz ise ikinci örnekteki sütun null yapılabilir sütun olarak tanımlanmış dikkat edin. Tablonun ilk örnekte oluşturulurken sütun öğesinin açıkça tanımlandı. İkinci örnekte, bu ifade ve varsayılan olarak bırakıldı, bir NULL tanımında neden olur.  
 
 Bu sorunları çözmek için açıkça CTAS deyimi seçme bölümünde öğesinin ve tür dönüştürme ayarlamanız gerekir. Oluşturma tablo bölümünde bu özellikleri ayarlanamıyor.
 
@@ -386,7 +380,7 @@ WITH
 
 Ancak, değer kaynak veriler bir parçası değil hesaplanan bir ifade bir alandır.
 
-Bölümlenmiş kümenizi oluşturmak için bunu yapmak isteyebilirsiniz:
+Bölümlenmiş kümenizi oluşturmak için aşağıdakileri yapmak isteyebilirsiniz:
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -410,7 +404,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create')
 ;
 ```
 
-Sorgu mükemmel iyi çalışır. Sorun, bölüm anahtarı gerçekleştirmeye çalıştığınızda gelir. Tablo tanımları eşleşmiyor. CTAS eşleşen tablo tanımları yapmak için değiştirilmesi gerekir.
+Sorgu mükemmel iyi çalışır. Sorun, bölüm anahtarı gerçekleştirmeye çalıştığınızda gelir. Tablo tanımları eşleşmiyor. Eşleşen tablo tanımları yapmak için CTAS eklemek için değiştirilmesi gereken bir `ISNULL` sütun null atanabilirlik özniteliğine korumak için işlevi.
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -435,7 +429,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 Bu nedenle, türü tutarlılık ve öğesinin özellikte CTAS koruma iyi bir mühendislik en iyi uygulama olduğunu görebilirsiniz. Bu, hesaplamalarınızda bütünlüğünü sağlamaya yardımcı olur ve ayrıca bölüm değiştirme mümkün olmasını sağlar.
 
-Lütfen [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) belgeleri. Azure SQL veri ambarı en önemli deyimlerinde biridir. İyice anladığınızdan emin olun.
+Başvurmak [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) belgeleri. Azure SQL veri ambarı en önemli deyimlerinde biridir. İyice anladığınızdan emin olun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla geliştirme ipuçları için bkz: [geliştirmeye genel bakış](sql-data-warehouse-overview-develop.md).

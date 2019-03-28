@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: magoedte
-ms.openlocfilehash: c59e0e7cd846f77082b7131aaec15e4945a18191
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0578b50952c12d4587f7a4751bc831d3134c64e7
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110163"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540780"
 ---
-# <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics, Azure Resource Manager şablonlarını kullanarak yönetme
+# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanarak Log Analytics çalışma alanını yönetme
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Kullanabileceğiniz [Azure Resource Manager şablonları](../../azure-resource-manager/resource-group-authoring-templates.md) oluşturmak ve Log Analytics çalışma alanları yapılandırmak için. Şablonlar ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
+Kullanabileceğiniz [Azure Resource Manager şablonları](../../azure-resource-manager/resource-group-authoring-templates.md) oluşturmak ve Azure İzleyici'de Log Analytics çalışma alanları yapılandırmak için. Şablonlar ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
 
 * Fiyatlandırma katmanını ayarlama dahil olmak üzere bir çalışma alanı oluşturma 
 * Çözüm ekleme

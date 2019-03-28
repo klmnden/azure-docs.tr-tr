@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: 681ee66ca165ece170dd2a2ce2736cf55a44f1f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d599414978c44407acc1a449f853607d6a40c495
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104089"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541018"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Windows güvenliğini kullanarak Windows üzerinde tek başına küme güvenliğini sağlama
 Bir Service Fabric kümesine yetkisiz erişimi önlemek için küme güvenlik altına almanız gerekir. Üretim iş yükleri küme çalıştırdığında, güvenlik özellikle önemlidir. Bu makalede Windows güvenliği kullanarak düğümden düğüme ve düğümden istemci güvenlik yapılandırma *ClusterConfig.JSON* dosya.  İşleme için yapılandırma güvenlik adımı, karşılık gelen [Windows üzerinde çalışan tek başına küme oluşturma](service-fabric-cluster-creation-for-windows-server.md). Service Fabric Windows Güvenlik nasıl kullandığı hakkında daha fazla bilgi için bkz. [küme güvenliği senaryoları](service-fabric-cluster-security.md).
@@ -30,7 +30,7 @@ Bir Service Fabric kümesine yetkisiz erişimi önlemek için küme güvenlik al
 >
 
 ## <a name="configure-windows-security-using-gmsa"></a>Windows güvenliğini kullanarak gmsa'yı yapılandırma  
-Örnek *ClusterConfig.gMSA.Windows.MultiMachine.JSON* yapılandırma dosyası ile indirilen [Microsoft.Azure.ServiceFabric.WindowsServer.<version> .zip](https://go.microsoft.com/fwlink/?LinkId=730690) tek başına küme paketi içeren Windows güvenliği kullanarak yapılandırmak için bir şablon [Grup yönetilen hizmet hesabı (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
+Örnek *ClusterConfig.gMSA.Windows.MultiMachine.JSON* yapılandırma dosyası ile indirilen [Microsoft.Azure.ServiceFabric.WindowsServer.\< Sürüm > .zip](https://go.microsoft.com/fwlink/?LinkId=730690) tek başına küme pakette Windows güvenliğini kullanarak yapılandırmak için bir şablon [Grup yönetilen hizmet hesabı (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
 
 ```
 "security": {
@@ -86,7 +86,7 @@ Aşağıdaki örnek **güvenlik** bölüm Windows güvenliğini kullanarak gmsa'
 ```
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>Windows güvenliğini kullanarak bir makine grubu yapılandırma  
-Bu model kullanımdan kaldırılıyor. Yukarıda açıklandığı biçimde gMSA kullanmak için önerilir. Örnek *ClusterConfig.Windows.MultiMachine.JSON* yapılandırma dosyası ile indirilen [Microsoft.Azure.ServiceFabric.WindowsServer.<version> .zip](https://go.microsoft.com/fwlink/?LinkId=730690) tek başına küme paketi, Windows güvenliği yapılandırmak için bir şablonu içerir.  Windows Güvenlik yapılandırılmıştır **özellikleri** bölümü: 
+Bu model kullanımdan kaldırılıyor. Yukarıda açıklandığı biçimde gMSA kullanmak için önerilir. Örnek *ClusterConfig.Windows.MultiMachine.JSON* yapılandırma dosyası ile indirilen [Microsoft.Azure.ServiceFabric.WindowsServer.\< Sürüm > .zip](https://go.microsoft.com/fwlink/?LinkId=730690) tek başına küme paketi Windows güvenliği yapılandırmak için bir şablonu içerir.  Windows Güvenlik yapılandırılmıştır **özellikleri** bölümü: 
 
 ```
 "security": {

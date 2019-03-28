@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d70ad65f5bbc4424b4224cf601d903ad7ec10691
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: f44161586f9f4e121001b9f5e285b0e1e1dcd9d1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405122"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518754"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Azure Search Blob Dizin Oluşturucu kullanarak JSON bloblarını dizinleme
 Bu makalede bir Azure Search blob yapılandırma işlemi gösterilmektedir [dizin oluşturucu](search-indexer-overview.md) JSON belgeleri olarak Azure Blob depolama alanından yapılandırılmış içeriği ayıklamak ve Azure Search aranabilir hale getirin. Bu iş akışı, bir Azure Search dizini oluşturur ve JSON bloblarından ayıklanan mevcut metinle yükler. 
@@ -211,7 +211,7 @@ Dizin Oluşturucu, istek gövdesinde yapılandırmadır. Bir veri kaynağı ve A
 
 Zamanlama ve parametreler isteğe bağlıdır. Bunları atlarsanız, dizin oluşturucu hemen kullanarak çalışır `json` ayrıştırma modu.
 
-Bu belirli bir dizin oluşturucu içermemesi [alan eşlemeleri](#field-mappings). Dizin Oluşturucu tanımı içinde bırakabilirsiniz **alan eşlemeleri** kaynak JSON belge özelliklerini hedef arama dizininizin alanlarıyla eşleşiyorsa. 
+Bu belirli bir dizin oluşturucu, alan eşlemelerini içermez. Dizin Oluşturucu tanımı içinde bırakabilirsiniz **alan eşlemeleri** kaynak JSON belge özelliklerini hedef arama dizininizin alanlarıyla eşleşiyorsa. 
 
 
 ### <a name="rest-example"></a>REST örneği
@@ -253,7 +253,7 @@ Tüm dizin oluşturucular veri alan bir hedef dizin gerektirir. İstek gövdesi,
 
 ### <a name="indexer-request"></a>Dizin Oluşturucu isteği
 
-Bu istek tam olarak belirtilen bir dizin oluşturucuyu gösterir. İçerdiği [alan eşlemeleri](#field-mappings), önceki örneklerde atlandı. Bu "zamanlama", "parameters" geri çağırma ve kullanılabilir bir varsayılan var olduğu sürece "fieldMappings" isteğe bağlıdır. "Zamanlama" atlama hemen çalıştırmak için dizin oluşturucuyu neden olur. "ParsingMode" atlama "json" varsayılan dizin neden olur.
+Bu istek tam olarak belirtilen bir dizin oluşturucuyu gösterir. Önceki örneklerde atlanmış alan eşlemeleri içerir. Bu "zamanlama", "parameters" geri çağırma ve kullanılabilir bir varsayılan var olduğu sürece "fieldMappings" isteğe bağlıdır. "Zamanlama" atlama hemen çalıştırmak için dizin oluşturucuyu neden olur. "ParsingMode" atlama "json" varsayılan dizin neden olur.
 
 Azure Search'te dizin oluşturucuyu oluşturma, veri alma işlemi tetikler. Bir sağlamışsanız hemen ve bundan sonra bir zamanlamaya göre çalıştırır.
 

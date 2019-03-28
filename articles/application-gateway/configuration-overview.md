@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: ca4f9bf00d70f327ff756558e25315762a9a77a8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319457"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519757"
 ---
 # <a name="application-gateway-configuration-overview"></a>Uygulama ağ geçidi yapılandırmasına genel bakış
 
@@ -72,7 +72,7 @@ Uygulama ağ geçidi genel IP adresi veya özel bir IP adresi ya da hem olmasın
 
 Yalnızca bir genel IP adresi veya bir özel IP adresi desteklenir. Uygulama ağ geçidi oluşturulurken, ön uç IP seçin. 
 
-- Bir genel IP olması durumunda, yeni bir genel IP oluşturma veya Application Gateway ile aynı konumda var olan bir genel IP kullanmayı seçebilirsiniz. Seçili IP adresi türü (statik veya dinamik), yeni bir ortak IP adresi oluşturursanız, daha sonra değiştirilemez. Daha fazla bilgi için [statik ve dinamik genel IP](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip) 
+- Bir genel IP olması durumunda, yeni bir genel IP oluşturma veya Application Gateway ile aynı konumda var olan bir genel IP kullanmayı seçebilirsiniz. Seçili IP adresi türü (statik veya dinamik), yeni bir ortak IP adresi oluşturursanız, daha sonra değiştirilemez. Daha fazla bilgi için [statik ve dinamik genel IP](https://docs.microsoft.com/azure/application-gateway/application-gateway-components) 
 
 - Özel IP olması durumunda, uygulama ağ geçidinin oluşturulduğu alt ağdan özel bir IP adresi belirtmeyi tercih edebilirsiniz. Açıkça belirtilmediği takdirde, rastgele bir IP adresi alt ağından otomatik olarak seçilir. Daha fazla bilgi için [bir iç yük dengeleyici (ILB) uç noktası ile uygulama ağ geçidi oluşturun.](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)
 
@@ -110,7 +110,7 @@ HTTP ve HTTPS protokolü arasında seçmeniz gerekebilir.
 
 - HTTP seçerseniz, istemci ve uygulama ağ geçidi arasındaki trafik akışını şifrelenmemiş.
 
-- İlgilendiğiniz HTTPS belirleyin [Güvenli Yuva Katmanı (SSL) sonlandırma](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl) veya [uçtan uca SSL şifrelemesini](https://docs.microsoft.com/azure/application-gateway/ssl-overview). HTTPS seçerseniz, istemci ve uygulama ağ geçidi arasındaki trafik şifrelenir ve uygulama ağ geçidinde SSL bağlantı sonlandırılacak.  Uçtan uca SSL şifrelemesini isterseniz, ayrıca yapılandırılırken HTTPS protokolünü seçin gerekecektir *arka uç HTTP ayarı*. Bu, arka uç uygulama ağ geçidi'ndeki dolaşımı sırasında trafiği yeniden şifrelenmiş olduğunu garanti eder.
+- İlgilendiğiniz HTTPS belirleyin [Güvenli Yuva Katmanı (SSL) sonlandırma](https://docs.microsoft.com/azure/application-gateway/overview) veya [uçtan uca SSL şifrelemesini](https://docs.microsoft.com/azure/application-gateway/ssl-overview). HTTPS seçerseniz, istemci ve uygulama ağ geçidi arasındaki trafik şifrelenir ve uygulama ağ geçidinde SSL bağlantı sonlandırılacak.  Uçtan uca SSL şifrelemesini isterseniz, ayrıca yapılandırılırken HTTPS protokolünü seçin gerekecektir *arka uç HTTP ayarı*. Bu, arka uç uygulama ağ geçidi'ndeki dolaşımı sırasında trafiği yeniden şifrelenmiş olduğunu garanti eder.
 
   Güvenli Yuva Katmanı (SSL) sonlandırma ve uçtan uca SSL şifrelemesini yapılandırmak için bir simetrik anahtar SSL protokolü belirtimi uyarınca türetmek Application Gateway etkinleştirmek için dinleyici eklenecek bir sertifika gereklidir. Simetrik anahtar, ardından şifrelemek ve şifresini çözmek için ağ geçidi gönderilen trafiği için kullanılır. Ağ geçidi sertifikası kişisel bilgi değişimi (PFX) biçiminde olması gerekir. Bu dosya biçimi, uygulama ağ geçidi tarafından şifreleme ve şifre çözme trafik gerçekleştirmek için gerekli olan özel anahtarı dışarı olanak tanır. 
 

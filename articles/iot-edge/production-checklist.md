@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 618414331ab22cff41c7ac02c78f4bef333d0c84
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c64db6b35aa2f1daa4484f137c8505b1415c5a0b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433459"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521763"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IOT Edge çözümünüzü üretim ortamında dağıtmaya hazırlanma
 
@@ -134,7 +134,7 @@ Modüller için üretim IOT Edge cihazları dağıtmadan önce böylece dışar�
 
 ### <a name="use-tags-to-manage-versions"></a>Sürümleri yönetmek için etiketleri kullanma
 
-Bir etiket, Docker kapsayıcıları sürümleri arasında ayrım yapmak için kullanabileceğiniz bir Docker kavramıdır. Etiketlerdir gibi sonekleri **1.0** bir kapsayıcı deposuna ucunda gidin. Örneğin, **mcr.microsoft.com/azureiotedge-agent:1.0**. Etiketleri değişebilir ve takımınızın ilerletme, modül görüntüleri güncelleştirme olarak izlemek için bir kuralı kabul ediyorum için herhangi bir zamanda başka bir kapsayıcıya işaret edecek şekilde değiştirilebilir. 
+Bir etiket, docker kapsayıcıları sürümleri arasında ayrım yapmak için kullanabileceğiniz bir docker kavramıdır. Etiketlerdir gibi sonekleri **1.0** bir kapsayıcı deposuna ucunda gidin. Örneğin, **mcr.microsoft.com/azureiotedge-agent:1.0**. Etiketleri değişebilir ve takımınızın ilerletme, modül görüntüleri güncelleştirme olarak izlemek için bir kuralı kabul ediyorum için herhangi bir zamanda başka bir kapsayıcıya işaret edecek şekilde değiştirilebilir. 
 
 Etiketler, IOT Edge cihazlarınıza güncelleştirmeleri uygulamak için de yardımcı olur. Kapsayıcı kayıt defterinizde bir modül güncelleştirilmiş bir sürümünü gönderdiğinizde, etiket artırın. Ardından, yeni bir dağıtım artan etiketiyle cihazlarınıza gönderin. Kapsayıcı altyapısı, yeni bir sürüm olarak artan etiketi algılar ve en son Modül sürümü cihazınıza çeker. 
 
@@ -172,7 +172,7 @@ Bu denetim, güvenlik duvarı kuralları için bir başlangıç noktasıdır:
    | \*. azurecr.io | 443 | Kişisel ve 3. taraf kapsayıcı kayıt defterleri |
    | \*.blob.core.windows.net | 443 | Görüntü deltalarını indirin | 
    | \*.Azure devices.net | 5671, 8883, 443 | IOT hub'ı erişim |
-   | \*. docker.io  | 443 | Docker erişim (isteğe bağlı) |
+   | \*. docker.io  | 443 | Docker Hub erişim (isteğe bağlı) |
 
 ### <a name="configure-communication-through-a-proxy"></a>Bir proxy üzerinden iletişimi yapılandırma
 
@@ -186,16 +186,57 @@ Cihazlarınızı bir ara sunucu kullanıyorsa bir ağ üzerinde dağıtılıp ku
 
 ### <a name="set-up-logs-and-diagnostics"></a>Günlükleri ve tanılamayı ayarlama
 
-Linux üzerinde IOT Edge arka plan programının günlüklerini sürücü günlüğü varsayılan kullanır. Komut satırı aracı kullanabilirsiniz `journalctl` arka plan programı'nı sorgulamak için günlüğe kaydeder. Windows üzerinde PowerShell tanılama IOT Edge arka plan programı kullanır. Kullanım `Get-WinEvent` arka planından sorgu günlükleri. IOT Edge modülleri, Docker varsayılan günlük kaydı için JSON sürücüsü kullanın.  
+Linux üzerinde IOT Edge arka plan programının günlüklerini sürücü günlüğü varsayılan kullanır. Komut satırı aracı kullanabilirsiniz `journalctl` arka plan programı'nı sorgulamak için günlüğe kaydeder. Windows üzerinde PowerShell tanılama IOT Edge arka plan programı kullanır. Kullanım `Get-WinEvent` arka planından sorgu günlükleri. IOT Edge modülleri, varsayılan günlük kaydı için JSON sürücüsü kullanın.  
 
 IOT Edge dağıtımı test ederken cihazlarınızı günlüklerini almak ve sorunları gidermek için genellikle erişebilirsiniz. Dağıtım senaryosunda, bu seçeneği olmayabilir. Cihazlarınızı üretimde hakkında bilgi toplamak için nasıl gideceğinizi göz önünde bulundurun. Diğer modüller bilgilerini toplar ve buluta gönderen bir günlük modülü kullanmak bir seçenektir. Bir örneği, bir günlük modülü [logspout loganalytics](https://github.com/veyalla/logspout-loganalytics), ya da kendi tasarlayabilirsiniz. 
 
-Bir kaynak kısıtlı cihazda çok büyük boyutlu hale gelmesini günlükleri hakkında endişeleniyoruz, bellek kullanımını azaltmak için birkaç seçeneğiniz vardır. 
+### <a name="place-limits-on-log-size"></a>Günlük boyutu sınırları yerleştirin
 
-* Özellikle, Docker cinini içindeki tüm docker logfiles boyutunu sınırlandırabilirsiniz. Linux için arka plan programı, yapılandırma `/etc/docker/daemon.json`. Windows için `C:\ProgramData\docker\confige\daemon.json`. 
-* Her kapsayıcı için günlük dosyası boyutunu ayarlamak istiyorsanız, bunu her modülün CreateOptions yapabilirsiniz. 
-* Docker günlükleri varsayılan günlük kaydı sürücüsü ayarlayarak için Docker günlüklerini otomatik olarak yönetmek için yapılandırın. 
-* Düzenli aralıklarla eski günlükleri için Docker logrotate aracı yükleyerek cihazınızdan kaldırın. Aşağıdaki dosya belirtimi kullanın: 
+Varsayılan olarak, kapsayıcı günlük boyutu sınırları Moby container altyapısı ayarlı değil. Zaman içinde bu cihazın günlükleriyle dolmaya ve disk boş alan tükeniyor neden olabilir. Bunu önlemek için aşağıdaki seçenekleri göz önünde bulundurun:
+
+**Seçenek: Tüm kapsayıcı modüller için geçerli olan genel sınırlarını ayarlama**
+
+Tüm kapsayıcı logfiles kapsayıcı altyapısı günlük seçenekleri boyutunu sınırlandırabilirsiniz. Aşağıdaki örnek log sürücü ayarlar `json-file` boyutu ve dosya sayısı sınırı (önerilen):
+
+    {
+        "log-driver": "json-file",
+        "log-opts": {
+            "max-size": "10m",
+            "max-file": "3"
+        }
+    }
+
+Bu bilgiler adlı bir dosyaya ekleyin (veya ekleme) `daemon.json` ve cihaz platformunuz için doğru konuma yerleştirin.
+
+| Platform | Konum |
+| -------- | -------- |
+| Linux | `/etc/docker/` |
+| Windows | `C:\ProgramData\iotedge-moby-data\config\` |
+
+Kapsayıcı altyapısı değişikliklerin etkili olması için yeniden başlatılması gerekiyor.
+
+**Seçenek: Her kapsayıcı modülü için günlük ayarları**
+
+Bu nedenle de yapabilirsiniz **createOptions** her modülü. Örneğin:
+
+    "createOptions": {
+        "HostConfig": {
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-size": "10m",
+                    "max-file": "3"
+                }
+            }
+        }
+    }
+
+
+**Linux sistemleri üzerindeki ek seçenekler**
+
+* Günlükleri göndermek için kapsayıcı altyapısını yapılandırma `systemd` [günlük](https://docs.docker.com/config/containers/logging/journald/) ayarlayarak `journald` varsayılan günlük kaydı sürücüsü. 
+
+* Düzenli aralıklarla eski günlüklerin logrotate aracı yükleyerek cihazınızdan kaldırın. Aşağıdaki dosya belirtimi kullanın: 
 
    ```
    /var/lib/docker/containers/*/*-json.log{

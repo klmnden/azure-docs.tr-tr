@@ -1,5 +1,5 @@
 ---
-title: Azure Application Gateway için web uygulaması Güvenlik Duvarı (WAF) giriş
+title: Azure Application Gateway web uygulaması güvenlik duvarı için giriş
 description: Bu makalede, Application Gateway için web uygulaması Güvenlik Duvarı (WAF) genel bir bakış sağlanmaktadır
 services: application-gateway
 author: vhorne
@@ -7,150 +7,153 @@ ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 914583747d4e0e045d5023d9072451983037e57f
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 830513a03bd65ca14cb0938ae599a676f1bb3bca
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790366"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518193"
 ---
-# <a name="web-application-firewall-waf"></a>Web uygulaması güvenlik duvarı (WAF)
+# <a name="web-application-firewall-for-azure-application-gateway"></a>Azure Application Gateway Web uygulaması güvenlik duvarı
 
-Web uygulaması güvenlik duvarı (WAF), web uygulamalarınızda açıklardan yararlanmaya ve güvenlik açıklarına karşı merkezi koruma sağlayan bir Application Gateway özelliğidir.
+Azure Application Gateway, web uygulamalarınızda ortak açıklardan yararlanmaya ve güvenlik açıkları merkezi koruma sağlayan bir web uygulaması Güvenlik Duvarı (WAF) sunar. Web uygulamaları tarafından yaygın olarak bilinen açıklarından kötü amaçlı saldırılar giderek hedeflenir. SQL ekleme ve siteler arası betik en yaygın saldırı arasında var.
 
-Web uygulamaları, bilinen yaygın güvenlik açıklarından yararlanan kötü amaçlı saldırıların giderek daha fazla hedefi olmaktadır. Bu açıklardan yararlanma örnekleri arasında SQL ekleme saldırıları yaygındır ve siteler arası betik saldırıları birkaçıdır. 
+Uygulama kodunda bu tür saldırılarını önleme zordur. Bu ayrıntılı bakım, düzeltme eki uygulama ve uygulama topolojisinin birden çok katmanına izleme gerektirebilir. Merkezi bir web uygulaması güvenlik duvarı, güvenlik yönetimi çok daha kolay hale getirir. Bir WAF, ayrıca uygulama yöneticileri tehditleri ve izinsiz girişi karşı koruma daha iyi güvence verir.
 
-Uygulama kodunda bu tür saldırıların önlenmesi zor olabilir ve uygulama topolojisinin birden fazla katmanında ayrıntılı bakım, düzeltme eki uygulama ve izleme işlemleri gerektirebilir. Merkezi bir web uygulaması güvenlik duvarı, güvenlik yönetimini çok daha kolay hale getirir ve yetkisiz erişim ya da izinsiz giriş tehditlerine karşı uygulama yöneticilerine daha iyi güvence verir. Bir WAF çözümü bilinen bir güvenlik açığına yerine tek tek web uygulamalarının her birinin güvenliğini sağlama merkezi bir konumda düzeltme eki uygulayarak güvenlik tehdidine daha hızlı ayrıca tepki verebilir. Var olan uygulama ağ geçitleri, web uygulaması güvenlik duvarı bulunan bir uygulama ağ geçidine kolaylıkla dönüştürülebilir.
+Bir WAF çözümü, merkezi olarak her tek tek web uygulamasını güvenli hale getirme yerine bilinen bir güvenlik düzeltme eki uygulayarak güvenlik tehdidine daha hızlı tepki verebilir. Mevcut uygulama ağ geçitleri yangın duvar özellikli uygulama ağ geçitleri kolaylıkla dönüştürülebilir.
 
-WAF kurallarını temel [OWASP çekirdek kural kümeleri](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 veya 2.2.9'daki. Yeni güvenlik açıklarına karşı koruma, gereken ek bir yapılandırma olmadan içerecek şekilde otomatik olarak güncelleştirir.
+Application Gateway WAF dayanır [çekirdek kural kümesi (CRS)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 veya 2.2.9'daki gelen açık Web uygulaması güvenlik Project (OWASP). WAF, gereken ek bir yapılandırma olmadan yeni güvenlik açıklarına karşı koruma içerecek şekilde otomatik olarak güncelleştirir.
 
-![imageURLroute](./media/waf-overview/WAF1.png)
+![Application Gateway WAF diyagramı](./media/waf-overview/WAF1.png)
 
-Application Gateway bir uygulama teslim denetleyicisi (ADC) çalışır ve SSL sonlandırma, tanımlama bilgilerine dayalı oturum benzeşimi, hepsini bir kez deneme yük dağıtımı, içerik tabanlı yönlendirme, birden çok Web siteleri ve güvenlik geliştirmeleri barındırma olanağı sunar.
+Uygulama ağ geçidi, bir uygulama teslim denetleyicisi (ADC) çalışır. Güvenli Yuva Katmanı (SSL) sonlandırma, tanımlama bilgilerine dayalı oturum benzeşimi, hepsini bir kez deneme yük dağıtımı, içerik tabanlı yönlendirme, birden çok Web siteleri ve güvenlik geliştirmeleri barındırma olanağı sunar.
 
-Uçtan uca SSL desteği ve Application Gateway tarafından güvenlik geliştirmeleri SSL ilke yönetimi içerir. Uygulama güvenliği, ADC teklifi ile doğrudan tümleştirilen WAF (web uygulaması güvenlik duvarı) ile artık daha güçlüdür. Bunun yapılması, merkezi bir konumu web uygulamalarınızı yönetmek ve yaygın web güvenlik açıklarına karşı korumak üzere yapılandırmayı kolaylaştırır.
+Uygulama ağ geçidi güvenlik geliştirmeleri SSL ilke yönetimi içerir ve uçtan uca SSL desteği. Application Gateway WAF tümleştirme tarafından uygulama güvenliği güçlendirilmiş. Birlikte web uygulamalarınızı yaygın güvenlik açıklarına karşı korur. Ve bunu yönetmek için bir kolayca yapılandırma merkezi bir konum sağlar.
 
 ## <a name="benefits"></a>Avantajlar
 
-Application Gateway ve web uygulaması güvenlik duvarının sunduğu temel avantajlar şunlardır:
+Bu bölümde, uygulama ağ geçidi ve, WAF'yi sağlayan temel avantajlar açıklanmaktadır.
 
 ### <a name="protection"></a>Koruma
 
-* Arka uç kodunda herhangi bir değişiklik yapmadan web uygulamanızı web güvenlik açıklarından ve saldırılarından koruma.
+* Web güvenlik açıklarından ve saldırılarından arka uç kodunda değişiklik yapmadan web uygulamalarınızı koruyun.
 
-* Bir uygulama ağ geçidinin arkasında birden fazla web uygulamasını aynı anda koruma. Application Gateway, tek bir ağ geçidinin arkasında tümü WAF ile web saldırılarına karşı korunabilecek 20’ye kadar web sitesini barındırmayı destekler.
+* Aynı anda birden çok web uygulamaları koruyun. Application Gateway örneği barındırabilir en fazla 20 Web siteleri, bir web uygulaması güvenlik duvarı tarafından korunur.
 
 ### <a name="monitoring"></a>İzleme
 
-* Gerçek zamanlı bir WAF günlüğü kullanarak web uygulamanızı saldırılara karşı izleyin. Bu günlük, WAF uyarılarını ve günlüklerini takip edip eğilimleri daha kolay izlemek için [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md) ile tümleştirilmiştir.
+* Gerçek zamanlı bir WAF günlüğü kullanarak web uygulamalarınızı saldırılara izleyin. Günlük ile tümleşiktir [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md) WAF uyarılarını takip edip eğilimleri kolayca izleyin.
 
-* WAF, Azure Güvenlik Merkezi ile tümleşiktir. Azure Güvenlik Merkezi, tüm Azure kaynaklarınızın güvenlik durumuna ilişkin genel bir görünüm sağlar.
+* Application Gateway WAF, Azure Güvenlik Merkezi ile tümleşiktir. Güvenlik Merkezi, tüm Azure kaynaklarınızın güvenlik durumuna genel bir görünüm sağlar.
 
 ### <a name="customization"></a>Özelleştirme
 
-* WAF kurallarını ve kural gruplarını, uygulama gereksinimlerinize göre ve hatalı pozitif sonuçları ortadan kaldıracak şekilde özelleştirme becerisi.
+* WAF kurallarını ve kural gruplarını, uygulama gereksinimlerinize göre ve hatalı pozitif sonuçları ortadan kaldırmak için özelleştirebilirsiniz.
 
 ## <a name="features"></a>Özellikler
 
-- SQL ekleme koruması
-- Arası komut dosyası site koruması
-- Yaygın Web saldırıları koruması komut ekleme, HTTP isteği kaçakçılığı, HTTP yanıtı bölme ve uzak dosya ekleme saldırıcı gibi
-- HTTP protokolü ihlallerine karşı koruma
-- Eksik gibi HTTP protokolü anormalliklerine karşı koruma konak kullanıcısı-aracısı ve kabul üst bilgileri
-- Robotlar, gezginler ve tarayıcıları önleme
-- Yaygın yanlış uygulama yapılandırmalarını (örneğin, Apache, IIS vb.) algılama
-- İstek boyutu sınırları - Web uygulaması güvenlik duvarı, istek boyutu sınırları içinde alt ve üst sınırları yapılandırmak kullanıcıların sağlar.
-- Hariç tutma listeleri - WAF hariç tutma listeleri, kullanıcıların belirli bir WAF değerlendirme özniteliklerini atlamak izin verin. Yaygın olarak karşılaşılan örneklerden, Active Directory kimlik doğrulaması veya parola alanı için kullanılan belirteçleri eklenen ' dir.
+- SQL ekleme koruması.
+- Siteler arası komut dosyası koruması.
+- Komut ekleme, HTTP isteği kaçakçılığı, HTTP yanıtı bölme ve uzak dosya ekleme gibi diğer yaygın web saldırılarına karşı koruma.
+- HTTP protokolü ihlallerine karşı koruma.
+- Eksik gibi HTTP protokolü anormalliklerine karşı koruma, konak kullanıcısı-aracısı ve kabul üst bilgileri.
+- Robotlar, gezginler ve tarayıcıları karşı koruma.
+- Yaygın yanlış uygulama yapılandırmalarını (örneğin, Apache ve IIS gibi) algılanması.
+- Yapılandırılabilir istek boyutu, alt ve üst sınırları ile sınırlar.
+- Hariç tutma listeleri, belirli bir WAF değerlendirme özniteliklerini atlamak sağlar. Kimlik doğrulaması veya parola alanı için kullanılan Active Directory eklenen belirteçleri buna yaygın bir örnektir.
 
 ### <a name="core-rule-sets"></a>Çekirdek kural kümeleri
 
-Application Gateway CRS 3.0 ve CRS 2.2.9 şeklinde iki kural kümesini destekler. Bu çekirdek kural kümeleri, web uygulamalarınızı kötü amaçlı etkinliğe karşı koruyan kurallar içeren koleksiyonlardır.
+Application Gateway, CRS 3.0 ve CRS 2.2.9 şeklinde iki kural kümelerini destekler. Bu kurallar, web uygulamalarınızı kötü amaçlı etkinliği koruyun.
 
-Web uygulaması güvenlik duvarı, CRS 3.0 ile varsayılan olarak önceden yapılandırılmış halde gelir veya 2.2.9’u kullanmayı seçebilirsiniz. CRS 3.0, 2.2.9 sürümüne göre daha az hatalı pozitif sonuç verir. [Kuralları gereksinimlerinize göre özelleştirme olanağı](application-gateway-customize-waf-rules-portal.md) sağlanır. Web uygulaması güvenlik duvarının koruma sağladığı bazı yaygın web güvenlik açıkları şunlardır:
+Application Gateway WAF CRS 3.0 ile varsayılan olarak önceden yapılandırılmış olarak gelir. Ancak, CRS 2.2.9 kullanmayı seçebilirsiniz. CRS 3.0 teklifler hatalı pozitif sonuçları CRS 2.2.9 ile karşılaştırıldığında sınırlı. Ayrıca [kuralları gereksinimlerinize uyacak şekilde özelleştirin](application-gateway-customize-waf-rules-portal.md).
 
-- SQL ekleme koruması
-- Arası komut dosyası site koruması
-- Yaygın Web saldırıları koruması komut ekleme, HTTP isteği kaçakçılığı, HTTP yanıtı bölme ve uzak dosya ekleme saldırıcı gibi
-- HTTP protokolü ihlallerine karşı koruma
-- Eksik gibi HTTP protokolü anormalliklerine karşı koruma konak kullanıcısı-aracısı ve kabul üst bilgileri
-- Robotlar, gezginler ve tarayıcıları önleme
-- Yaygın yanlış uygulama yapılandırmalarını (örneğin, Apache, IIS, vb.) algılama
+WAF, aşağıdaki web güvenlik açıklarına karşı korur:
 
-Kurallar ve korumalarını içeren daha ayrıntılı listesi için bkz [çekirdek kural kümeleri](#core-rule-sets).
+- SQL ekleme saldırıları
+- Siteler arası betik saldırıları
+- Komut ekleme, HTTP gibi diğer yaygın saldırılardan kaçakçılığı, HTTP yanıtı bölme ve uzak dosya ekleme isteği
+- HTTP protokolü ihlallerine
+- HTTP protokolü anormalliklerine gibi eksik konak kullanıcısı-aracısı ve kabul üst bilgileri
+- Robotlar, gezginler ve tarayıcıları
+- Yaygın yanlış uygulama yapılandırmalarını (örneğin, Apache ve IIS)
 
-#### <a name="owasp30"></a>OWASP_3.0
+#### <a name="owasp-crs-30"></a>OWASP CRS 3.0
 
-Sağlanan 3.0 çekirdek kural kümesi, aşağıdaki tabloda gösterilen 13 kural grubunu içerir. Bu kural gruplarının her biri devre dışı bırakılabilen birden çok kural içerir.
+CRS 3.0, aşağıdaki tabloda gösterilen 13 kural grubunu içerir. Her grubu devre dışı bırakılabilen birden çok kural içerir.
 
-|RuleGroup|Açıklama|
+|Kural grubu|Açıklama|
 |---|---|
-|**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|(PUT, PATCH) yöntemleri kilitlemeye yönelik kurallar içerir|
-|**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| Bağlantı noktası ve ortam tarayıcılara karşı korumaya yönelik kurallar içerir.|
-|**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Protokol ve kodlama sorunlarına karşı korumaya yönelik kurallar içerir.|
-|**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|Üst bilgi ekleme, istek kaçakçılığı ve yanıt bölmeye karşı korumaya yönelik kurallar içerir|
-|**[REQUEST-930-APPLICATION-ATTACK-LFI](application-gateway-crs-rulegroups-rules.md#crs930)**|Dosya ve yol saldırılarına karşı korumaya yönelik kurallar içerir.|
-|**[REQUEST-931-APPLICATION-ATTACK-RFI](application-gateway-crs-rulegroups-rules.md#crs931)**|Uzaktan Dosya Eklemeye (RFI) karşı korumaya yönelik kurallar içerir|
-|**[REQUEST-932-APPLICATION-ATTACK-RCE](application-gateway-crs-rulegroups-rules.md#crs932)**|Uzaktan Kod Yürütmeye karşı korumaya yönelik kurallar içerir.|
-|**[REQUEST-933-APPLICATION-ATTACK-PHP](application-gateway-crs-rulegroups-rules.md#crs933)**|PHP ekleme saldırılarına karşı korumaya yönelik kurallar içerir.|
-|**[REQUEST-941-APPLICATION-ATTACK-XSS](application-gateway-crs-rulegroups-rules.md#crs941)**|Siteler arası betik oluşturmaya karşı korumaya yönelik kurallar içerir.|
-|**[REQUEST-942-APPLICATION-ATTACK-SQLI](application-gateway-crs-rulegroups-rules.md#crs942)**|SQL ekleme saldırılarına karşı korumaya yönelik kurallar içerir.|
-|**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](application-gateway-crs-rulegroups-rules.md#crs943)**|Oturum Sabitleme Saldırılarına karşı korumaya yönelik kurallar içerir.|
+|**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Kilitleme yöntemleri (PUT, PATCH)|
+|**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**|Bağlantı noktası ve ortam tarayıcılara karşı korumaya|
+|**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Protokol ve kodlama sorunlarına karşı koruma|
+|**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|Üst bilgi ekleme, istek kaçakçılığı ve yanıt karşı koruma|
+|**[REQUEST-930-APPLICATION-ATTACK-LFI](application-gateway-crs-rulegroups-rules.md#crs930)**|Dosya ve yol saldırılarına karşı koruyun|
+|**[REQUEST-931-APPLICATION-ATTACK-RFI](application-gateway-crs-rulegroups-rules.md#crs931)**|Uzak dosya ekleme (RFI) saldırılarına karşı koruyun|
+|**[REQUEST-932-APPLICATION-ATTACK-RCE](application-gateway-crs-rulegroups-rules.md#crs932)**|Tekrar uzaktan kod yürütme saldırılarına|
+|**[REQUEST-933-APPLICATION-ATTACK-PHP](application-gateway-crs-rulegroups-rules.md#crs933)**|PHP ekleme saldırılarına karşı koruyun|
+|**[REQUEST-941-APPLICATION-ATTACK-XSS](application-gateway-crs-rulegroups-rules.md#crs941)**|Siteler arası betik saldırılara karşı koruma|
+|**[REQUEST-942-APPLICATION-ATTACK-SQLI](application-gateway-crs-rulegroups-rules.md#crs942)**|SQL ekleme saldırılarına karşı koruyun|
+|**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](application-gateway-crs-rulegroups-rules.md#crs943)**|Oturum sabitleme saldırılarına karşı koruyun|
 
-#### <a name="owasp229"></a>OWASP_2.2.9
+#### <a name="owasp-crs-229"></a>OWASP CRS 2.2.9
 
-Sağlanan 2.2.9 çekirdek kural kümesi, aşağıdaki tabloda gösterilen 10 kural grubunu içerir. Bu kural gruplarının her biri devre dışı bırakılabilen birden çok kural içerir.
+Aşağıdaki tabloda gösterildiği gibi CRS 2.2.9 10 kural grubunu içerir. Her grubu devre dışı bırakılabilen birden çok kural içerir.
 
-|RuleGroup|Açıklama|
+|Kural grubu|Açıklama|
 |---|---|
-|**[crs_20_protocol_violations](application-gateway-crs-rulegroups-rules.md#crs20)**|Protokol ihlallerine (geçersiz karakterler, istek gövdesi ile GET vb.) karşı korumaya yönelik kurallar içerir.|
-|**[crs_21_protocol_anomalies](application-gateway-crs-rulegroups-rules.md#crs21)**|Hatalı üst bilgilere karşı korumaya yönelik kurallar içerir.|
-|**[crs_23_request_limits](application-gateway-crs-rulegroups-rules.md#crs23)**|Sınırları aşan bağımsız değişken veya dosyalara karşı korumaya yönelik kurallar içerir.|
-|**[crs_30_http_policy](application-gateway-crs-rulegroups-rules.md#crs30)**|Kısıtlı yöntemler, üst bilgiler ve dosya türlerine karşı korumaya yönelik kurallar içerir. |
-|**[crs_35_bad_robots](application-gateway-crs-rulegroups-rules.md#crs35)**|Web gezginleri ve tarayıcılara karşı korumaya yönelik kurallar içerir.|
-|**[crs_40_generic_attacks](application-gateway-crs-rulegroups-rules.md#crs40)**|Genel saldırılara (oturum sabitleme, uzak dosya ekleme, PHP ekleme vb.) karşı korumaya yönelik kurallar içerir|
-|**[crs_41_sql_injection_attacks](application-gateway-crs-rulegroups-rules.md#crs41sql)**|SQL ekleme saldırılarına karşı korumaya yönelik kurallar içerir|
-|**[crs_41_xss_attacks](application-gateway-crs-rulegroups-rules.md#crs41xss)**|Siteler arası betik oluşturmaya karşı korumaya yönelik kurallar içerir.|
-|**[crs_42_tight_security](application-gateway-crs-rulegroups-rules.md#crs42)**|Yol çapraz geçişi saldırılarına karşı korumaya yönelik bir kural içerir|
-|**[crs_45_trojans](application-gateway-crs-rulegroups-rules.md#crs45)**|Arka kapı Truva atlarına karşı korumaya yönelik kurallar içerir.|
+|**[crs_20_protocol_violations](application-gateway-crs-rulegroups-rules.md#crs20)**|(Örneğin, geçersiz karakterler ya da bir Al ile istek gövdesi) protokolü ihlallerine karşı koruma|
+|**[crs_21_protocol_anomalies](application-gateway-crs-rulegroups-rules.md#crs21)**|Hatalı üst bilgilere karşı koruma|
+|**[crs_23_request_limits](application-gateway-crs-rulegroups-rules.md#crs23)**|Bağımsız değişkenler veya sınırları aşan dosyaları karşı koruma|
+|**[crs_30_http_policy](application-gateway-crs-rulegroups-rules.md#crs30)**|Kısıtlı yöntemler, üst bilgiler ve dosya türlerine karşı koruma|
+|**[crs_35_bad_robots](application-gateway-crs-rulegroups-rules.md#crs35)**|Web gezginleri ve tarayıcılara karşı koruma|
+|**[crs_40_generic_attacks](application-gateway-crs-rulegroups-rules.md#crs40)**|(Oturum sabitleme, uzak dosya ekleme ve PHP ekleme gibi) genel saldırılara karşı koruma|
+|**[crs_41_sql_injection_attacks](application-gateway-crs-rulegroups-rules.md#crs41sql)**|SQL ekleme saldırılarına karşı koruyun|
+|**[crs_41_xss_attacks](application-gateway-crs-rulegroups-rules.md#crs41xss)**|Siteler arası betik saldırılara karşı koruma|
+|**[crs_42_tight_security](application-gateway-crs-rulegroups-rules.md#crs42)**|Yol çapraz geçişi saldırılarına karşı koruyun|
+|**[crs_45_trojans](application-gateway-crs-rulegroups-rules.md#crs45)**|Arka kapı Truva atlarına karşı korumaya|
 
-### <a name="waf-modes"></a>WAF Modları
+### <a name="waf-modes"></a>WAF modları
 
 Application Gateway WAF, aşağıdaki iki modda çalışacak şekilde yapılandırılabilir:
 
-* **Algılama modu** – algılama modunda, Application Gateway WAF izleyiciler ve günlükleri tüm tehdit uyarılarını bir günlük dosyasına çalışacak şekilde yapılandırıldığında. **Tanılama** bölümünden yararlanarak Application Gateway günlük tanılamaları açılmalıdır. Ayrıca, WAF günlüğünün seçili ve açık olduğundan emin olmanız gerekir. Algılama modunda çalışırken, web uygulaması güvenlik duvarı gelen istekleri engellemez.
-* **Önleme modu** – Application Gateway önleme modunda çalışacak şekilde yapılandırıldığında izinsiz girişleri ve kuralları tarafından algılanan saldırıları etkin bir şekilde engeller. Saldırgan bir 403 yetkisiz erişim özel durumu alır ve bağlantı sonlandırılır. Önleme modu bu tür saldırıları WAF günlüklerine kaydetmeye devam eder.
+* **Algılama modu**: İzler ve tüm tehdit uyarıları günlüğe kaydeder. Uygulama ağ geçidi için günlük tanılamayı Aç **tanılama** bölümü. Ayrıca WAF günlüğünün seçili ve açık olduğundan emin olmanız gerekir. Algılama modunda çalışırken, web uygulaması güvenlik duvarı gelen istekleri engellemez.
+* **Önleme modu**: Blokları izinsiz girişleri ve kuralları algılamak saldırıları. Saldırgan "403 yetkisiz erişim" özel durumu alır ve bağlantı sonlandırılır. Önleme modu bu tür saldırıları WAF günlüklerine kaydeder.
 
-### <a name="anomaly-scoring-mode"></a>Anomali Puanlama modu 
+### <a name="anomaly-scoring-mode"></a>Anomali Puanlama modu
  
-OWASP veya trafiği engelleme karar için kullanabileceğiniz iki mod vardır. Geleneksel modu ve bir Anomali Puanlama modu yoktur. Geleneksel modunda olup diğer kurallar çok sözleşmenizle bağımsız olarak trafikle eşleşen herhangi bir kural olarak kabul edilir. Kaç tane kuralları belirli bir istek tarafından tetiklenen bilgi eksikliği daha kolay bir şekilde anlamak olsa da bu mod sınırlamaları biridir. Bu nedenle Anomali Puanlama modu, OWASP varsayılan haline gelmiştir sunulmuştur 3.x. 
+OWASP trafiği engellemek karar verme için iki mod vardır: Geleneksel modu ve Anomali Puanlama modu.
 
-Puanlama Anomali modunda trafik kuralları önceki bölümde açıklanan biriyle eşleşen bir olgu hemen güvenlik duvarı önleme modunda olduğunu varsayarak trafiği engellenmesi için gittiği anlamına gelmez. Bir belirli önem derecesi (kritik, hata, uyarı ve bildirim) kurallara sahip olabilirsiniz ve bu önem derecesine bağlı olarak, Anomali puanı adlı istek için sayısal bir değer bunlar da artacaktır. Örneğin, eşleşen bir uyarı kuralı 3 değeri katkıda bulunur, ancak eşleşen bir kritik kural 5 değerini katkıda bulunur. 
+Geleneksel modunda herhangi bir kural eşleşen trafik herhangi bir kural eşleşen bağımsız olarak kabul edilir. Bu mod, anlaşılması kolay bir işlemdir. Ancak, belirli bir istek kaç kurallarla eşleşecek hakkında bilgi eksikliği bir sınırlamadır. Bu nedenle, Anomali Puanlama modu sunulmuştur. OWASP 3 için varsayılandır. *x*.
 
-Bir eşiğin altında değil trafik engellenir Anomali puanı için bu eşiği 5 olarak ayarlanmıştır. Bu, tek bir eşleşen kritik kural (kritik kuralı anomali puanı 5, önceki paragrafta göre artırır olduğundan) Azure WAF önleme modunda bir isteği engeller. böylece yeterli anlamına gelir. Ancak, bir eşleşen kuralı uyarı olacak yalnızca artış anomali bir düzeyde puanı ile 3. 3 hala 5 eşiğin altında olduğundan, WAF önleme modunda olsa bile hiçbir trafik engellenir. 
+Güvenlik Duvarı önleme modunda olduğunda Anomali Puanlama modunda hemen herhangi bir kural eşleşen trafik engellenmiş değil. Kuralları belirli bir önem derecesi vardır: *Kritik*, *hata*, *uyarı*, veya *bildirimi*. Bu önem derecesi Anomali puanı adlı istek için sayısal bir değer etkiler. Örneğin, bir *uyarı* kural eşleştirme 3 puana katkıda bulunur. Bir *kritik* kural eşleşen 5 katkıda bulunur.
 
-İleti bir WAF kurallarını eşleşme trafiği alan action_s "Engellendi" olarak dahil edilir, ancak bu mutlaka trafiğin gerçekten engellendi gelmez günlüğe unutmayın. 5 veya daha yüksek bir anomali puanı gerçekten trafiği engellemek için gereklidir.  
+Bir Anomali puanı trafiği engellemek için 5 eşiğinin yoktur. Bunu, tek bir *kritik* kural eşleşmedir önleme modunda bile bir istek engellemek Application Gateway WAF için yeterli. Ancak bir *uyarı* kural eşleşme, yalnızca tek başına trafiği engellemek için yeterli değildir Anomali puanı 3 artırır.
 
-### <a name="application-gateway-waf-reports"></a>WAF İzleme
+> [!NOTE]
+> Trafiği WAF kural eşleşen olduğunda günlüğe ileti "Engellendi." eylemi değeri içerir Ancak, gerçekte yalnızca bir Anomali puanı 5 için engellenen veya daha yüksek trafik.  
 
-Uygulama ağ geçidinizin durumunu izlemek önemlidir. Sistem durumu izleme, web uygulaması güvenlik duvarı ile koruduğu uygulamaların günlüğe kaydetme ve Azure Güvenlik Merkezi, Azure İzleyici ile tümleştirmesi aracılığıyla sağlanan ve Azure İzleyici günlüğe kaydeder.
+### <a name="waf-monitoring"></a>WAF izleme
 
-![tanılama](./media/waf-overview/diagnostics.png)
+Uygulama ağ geçidinizin durumunu izlemek önemlidir. WAF ile koruduğu uygulamaların durumunu izleme Azure Güvenlik Merkezi, Azure İzleyici ile entegrasyon tarafından desteklenen ve Azure İzleyici günlüğe kaydeder.
+
+![Application Gateway WAF tanılama diyagramı](./media/waf-overview/diagnostics.png)
 
 #### <a name="azure-monitor"></a>Azure İzleyici
 
-Her uygulama ağ geçidi günlüğü [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md) ile tümleştirilir.  Bunun yapılması, WAF uyarıları ve günlükleri de dahil olmak üzere tanılama bilgilerini izlemenize olanak tanır.  Bu özellik, portaldaki **Tanılama** sekmesinin Application Gateway kaynağında veya doğrudan Azure İzleyici hizmetinde sağlanır. Uygulama ağ geçidi için tanılama günlüklerini etkinleştirme hakkında daha fazla bilgi edinmek için [Application Gateway tanılama](application-gateway-diagnostics.md)
+Uygulama ağ geçidi günlükleri ile tümleştirilir [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md). Bu, WAF uyarıları ve günlükleri de dahil olmak üzere tanılama bilgilerini izlemenize olanak sağlar. Bu özellik erişebileceğiniz **tanılama** portalında veya Azure İzleyici aracılığıyla doğrudan Application Gateway kaynağında sekmesi. Günlükleri etkinleştirme hakkında daha fazla bilgi edinmek için [Application Gateway tanılama](application-gateway-diagnostics.md).
 
 #### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
 
-[Azure Güvenlik Merkezi](../security-center/security-center-intro.md), Azure kaynaklarınızın güvenliğine yönelik artırılmış görünürlük ve denetim yoluyla tehditleri engellemenize, algılamanıza ve yanıtlamanıza yardımcı olur. Application Gateway artık [Azure Güvenlik Merkezi ile tümleşiktir](application-gateway-integration-security-center.md). Azure Güvenlik Merkezi, korumasız web uygulamalarını algılamak için ortamınızı tarar. Artık bu savunmasız kaynakları korumak için Application Gateway WAF'ye önerilerde bulunabilir. Doğrudan Azure Güvenlik Merkezi'nden Application Gateway WAF oluşturabilirsiniz.  Bu WAF örnekleri, Azure Güvenlik Merkezi ile tümleşik olup raporlama için Azure Güvenlik Merkezi'ne uyarılar ve durum bilgileri gönderir.
+[Güvenlik Merkezi](../security-center/security-center-intro.md) önleyin, algılayın ve tehditlere yanıt verin yardımcı olur. Bu, artırılmış görünürlük ve denetim, Azure kaynaklarınızın güvenliğine sağlar. Application Gateway [Güvenlik Merkezi ile tümleşik](application-gateway-integration-security-center.md). Güvenlik Merkezi, korumasız web uygulamalarını algılamak için ortamınızı tarar. Bu, bu savunmasız kaynakları korumak için Application Gateway WAF önerilerde bulunur. Doğrudan Güvenlik Merkezi'nden güvenlik duvarları oluşturun. Bu WAF örnekleri Güvenlik Merkezi ile tümleşiktir. Bunlar uyarılar ve durum bilgileri için Güvenlik Merkezi raporlama için gönderin.
 
-![Şekil 1](./media/waf-overview/figure1.png)
+![Güvenlik merkezine genel bakış penceresi](./media/waf-overview/figure1.png)
 
 #### <a name="logging"></a>Günlüğe kaydetme
 
-Application Gateway WAF, algıladığı her tehdit için ayrıntılı raporlar sağlar. Günlük kaydı Azure Tanılama günlükleri ile tümleştirilir ve uyarılar json biçiminde kaydedilir. Bu günlükleri ile tümleştirilebilir [Azure İzleyicisi](../azure-monitor/insights/azure-networking-analytics.md).
+Application Gateway WAF, algıladığı her tehdit ayrıntılı raporlama sağlar. Günlük kaydı Azure tanılama günlükleri ile tümleştirilir. Uyarılar .json biçiminde kaydedilir. Bu günlükleri ile tümleştirilebilir [Azure İzleyicisi](../azure-monitor/insights/azure-networking-analytics.md).
 
-![imageURLroute](./media/waf-overview/waf2.png)
+![Windows uygulama ağ geçidi tanılama günlükleri](./media/waf-overview/waf2.png)
 
 ```json
 {
@@ -182,11 +185,10 @@ Application Gateway WAF, algıladığı her tehdit için ayrıntılı raporlar s
 
 ## <a name="application-gateway-waf-sku-pricing"></a>Application Gateway WAF SKU fiyatlandırması
 
-Web uygulaması güvenlik duvarı yeni bir WAF SKU altında bulunur. Bu SKU yalnızca Azure Resource Manager sağlama modelinde mevcuttur ve klasik dağıtım modelinde bulunmaz. Ayrıca, WAF SKU sadece orta ve büyük uygulama ağ geçidi örnek boyutlarında gelir. Uygulama ağ geçidine ilişkin tüm sınırlar WAF SKU için de geçerlidir.
+Application Gateway WAF yeni bir altında kullanılabilir bir SKU. Bu SKU yalnızca Azure Resource Manager sağlama modelinde, Klasik dağıtım modelinde kullanılabilir. Ayrıca, WAF SKU sadece orta ve büyük uygulama ağ geçidi örnek boyutlarında gelir. Uygulama ağ geçidine ilişkin tüm sınırlar WAF SKU için de geçerlidir.
 
-Fiyatlandırma, saatlik ağ geçidi örneği ücretine ve veri işleme ücretine bağlıdır. WAF SKU’su için saatlik ağ geçidi fiyatlandırması, Standart SKU ücretlerinden farklıdır ve [Application Gateway fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/application-gateway/) bölümünde bulunabilir. Veri işleme ücretleri aynı kalır. Var olan kural veya kural grubu ücretleri başına yok. Aynı web uygulaması güvenlik duvarı arkasında birden fazla web uygulamasını koruyabilirsiniz ve birden fazla uygulamayı desteklemek için ücretlendirilmez.
+Fiyatlandırma, saatlik bir ağ geçidi örneği ücretine ve bir veri işleme ücretine bağlıdır. [Application Gateway fiyatlandırması](https://azure.microsoft.com/pricing/details/application-gateway/) WAF SKU'su, standart SKU ücretlerinden farklıdır. Veri işleme ücretleri aynı olur. Kural başına veya kural grubu ücretlendirme yoktur. Aynı web uygulaması güvenlik duvarı arkasında birden fazla web uygulamasını koruyabilirsiniz. Birden fazla uygulamayı desteklemek için ücretlendirilmezsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-WAF hakkında daha fazla edindikten sonra bkz: [Application Gateway üzerinde web uygulaması güvenlik duvarı yapılandırma](tutorial-restrict-web-traffic-powershell.md).
-
+Bkz: [Application Gateway üzerinde web uygulaması güvenlik duvarı yapılandırma](tutorial-restrict-web-traffic-powershell.md).

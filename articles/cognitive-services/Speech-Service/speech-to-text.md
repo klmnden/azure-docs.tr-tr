@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: acf338afdf33408637bf7cca79d28f5e90888eba
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 6400e3d3fa7f0317ff927f2931e705365a450770
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224449"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520675"
 ---
 # <a name="what-is-speech-to-text"></a>Konuşmayı metne nedir?
 
@@ -24,7 +24,7 @@ Konuşma metin Azure konuşma Hizmetleri, olarak da bilinen Konuşmayı metne d�
 
 Varsayılan olarak, konuşma metin hizmetini Evrensel dil modelini kullanır. Bu model, Microsoft'a ait verileri kullanarak eğitim ve olduğu buluta dağıtılabilir. İçin en iyi damıtarak konuşma bağlamında kullanılabilen ve dikte senaryoları. Konuşma metin tanıma ve benzersiz bir ortamda transkripsiyonu için kullanıyorsanız, oluşturabilir ve adresi ortam gürültü veya sektöre özel sözlük özel akustik ve dil telaffuz modellerini eğitin. 
 
-Kolayca mikrofondan gelen sesi yakalama, bir akıştan okumak veya REST API'leri ve Speech SDK'sı ile depolama biriminden ses dosyaları erişim. Speech SDK'sı, konuşma tanıma için WAV/PCM 16-bit, 16 kHz tek kanal ses destekler. Kullanarak ek ses biçimleri desteklenmektedir [konuşma metin REST uç noktasını](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-formats) veya [batch transkripsiyonu hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+Kolayca mikrofondan gelen sesi yakalama, bir akıştan okumak veya REST API'leri ve Speech SDK'sı ile depolama biriminden ses dosyaları erişim. Speech SDK'sı, konuşma tanıma için WAV/PCM 16-bit, 16 kHz tek kanal ses destekler. Kullanarak ek ses biçimleri desteklenmektedir [konuşma metin REST uç noktasını](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) veya [batch transkripsiyonu hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
 ## <a name="core-features"></a>Temel özellikleri
 

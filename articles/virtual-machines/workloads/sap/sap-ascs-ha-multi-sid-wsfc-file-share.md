@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 845bf72f52bb83fa597c597871599c826e5749f6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479990"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540151"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -241,7 +241,7 @@ Aşağıda gösterildiği gibi aynı WSFC kümesinde birden çok SAP Gelişmiş 
 
 _**Şekil 2:** SAP çoklu SID yapılandırmada iki küme_
 
-Ek bir yüklenmesini **SAP \<SID2 >** sistemidir bir yükleme için aynı <SID> sistem. Dosya Paylaşımı SOFS kümesi yanı sıra ASCS/SCS kümede iki ek hazırlık adımı gereklidir.
+Ek bir yüklenmesini **SAP \<SID2 >** sistemidir bir yükleme için aynı \<SID > Sistem. Dosya Paylaşımı SOFS kümesi yanı sıra ASCS/SCS kümede iki ek hazırlık adımı gereklidir.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Bir SAP çoklu SID senaryosu için altyapıyı hazırlama
 
@@ -261,7 +261,7 @@ Bu adımları açıklanmıştır [bir SAP çoklu SID senaryosuna ilişkin altyap
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>Mevcut SAP genel ana bilgisayar kullanarak bir SOFS kümesi üzerinde altyapıyı hazırlama
 
-Var olan yeniden \<SAPGlobalHost > ve ilk SAP Volume1 <SID1> sistem.
+Var olan yeniden \<SAPGlobalHost > ve ilk SAP Volume1 \<SID1 > Sistem.
 
 ![Şekil 3: Çoklu SID SOFS SAP genel ana bilgisayar adı ile aynıdır][sap-ha-guide-figure-8014]
 
@@ -271,7 +271,7 @@ _**Şekil 3:** Çoklu SID SOFS SAP genel ana bilgisayar adı ile aynıdır_
 >İkinci **SAP \<SID2 >** sistem, aynı Volume1 ve aynı  **\<SAPGlobalHost >** ağ adı kullanılır.
 >Zaten ayarladığınız çünkü **SAPMNT** yeniden kullanmak için çeşitli SAP sistemlerini paylaşım adı olarak  **\<SAPGlobalHost >** ağ adı aynı kullanmalısınız **Volume1**.
 >
->Dosya yolunun <SID2> genel yöneticisidir C:\ClusterStorage\\**Volume1**\usr\sap\<SID2 > \SYS\.
+>Dosya yolunun \<SID2 > Genel yöneticisidir C:\ClusterStorage\\**Volume1**\usr\sap\<SID2 > \SYS\.
 >
 
 İçin \<SID2 > Sistem, SAP genel konak hazırlama gerekir... \SYS\.. SOFS kümesi klasör.

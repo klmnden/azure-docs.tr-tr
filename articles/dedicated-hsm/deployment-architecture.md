@@ -10,14 +10,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/27/2019
 ms.author: barclayn
-ms.openlocfilehash: 36de8378a7dd22cfa6ba37da921213a18670cc67
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1e00e1f06f2409c94174a752a799cd4c1b7b23ef
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113354"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539981"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure ayrılmış HSM dağıtım mimarisi
 
@@ -37,6 +37,12 @@ HSM'ler, Microsoft veri merkezleri arasında dağıtılan ve yüksek oranda kull
 * Doğu Asya
 * Kuzey Avrupa
 * Batı Avrupa
+* Birleşik Krallık Güney
+* Birleşik Krallık Batı
+* Orta Kanada
+* Doğu Kanada
+* Avustralya Doğu
+* Avustralya Güneydoğu
 
 Bu bölgeler her iki bağımsız veri merkezine veya en az iki bağımsız kullanılabilirlik alanları dağıtılmış HSM raflar sahiptir. Güney Doğu Asya üç kullanılabilirlik ve Doğu ABD 2 iki sahiptir. Avrupa, Asya ve ayrılmış HSM hizmeti sunan ABD toplam sekiz bölgede yoktur. Resmi Azure bölgeleri hakkında daha fazla bilgi için bkz. [Azure bölgeleri bilgi](https://azure.microsoft.com/global-infrastructure/regions/).
 Ayrılmış HSM tabanlı herhangi bir çözüm için bazı tasarım etkenleri konum/gecikme, yüksek kullanılabilirliği olan ve diğer dağıtılmış uygulamalar için destek.

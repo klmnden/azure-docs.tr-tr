@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 3/22/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 84af16c156635f7f7dbfb42972e564dd21a554bb
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: b7e60b4fbdf076c50a7d9a29092de9ab1c32b210
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436898"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520658"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Yükleme ve metni tanı kapsayıcıları çalıştırma
 
@@ -133,6 +133,11 @@ Kullanabileceğiniz `POST /vision/v2.0/recognizeText` ve `GET /vision/v2.0/textO
 
 Kullanabileceğiniz `POST /vision/v2.0/recognizeTextDirect` görüntüdeki basılı metin eş zamanlı olarak tanıyacak şekilde işlemi. Bu işlem zaman uyumlu olduğundan, bu işlem için istek gövdesi için aynıdır `POST /vision/v2.0/recognizeText` işlemi, ancak yanıt gövdesi için bu işlem tarafından döndürülen aynı `GET /vision/v2.0/textOperations/*{id}*` işlemi.
 
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
+
 ## <a name="stop-the-container"></a>Kapsayıcı Durdur
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
@@ -141,9 +146,6 @@ Kullanabileceğiniz `POST /vision/v2.0/recognizeTextDirect` görüntüdeki bası
 
 Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](./computer-vision-resource-container-config.md#mount-settings) ve günlüğe kaydetme etkin, kapsayıcı başlatma veya kapsayıcı çalıştırma sırasında gerçekleşen sorunları gidermek yararlı olan günlük dosyalarını oluşturur. 
 
-## <a name="containers-api-documentation"></a>Kapsayıcının API belgeleri
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Faturalandırma
 

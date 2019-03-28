@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 5c4d2320ffd54054eb8a5bb26ef14c8e99dabb33
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 900ad8b7f676eb67f9ac0fc808600779f832a102
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855963"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539505"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Öğretici: Azure Content Moderator ile orta e-ticaret ürün görüntüleri
 
@@ -61,7 +61,7 @@ Bu öğreticide, projeye merkezi kodu vurgulanır, ancak bunu her gerekli kod sa
 
 ## <a name="define-api-keys-and-endpoints"></a>API anahtarları ve uç noktalarını tanımlayın
 
-Yukarıda belirtildiği gibi Bu öğretici üç bilişsel hizmetler kullanır; Bu nedenle, üç ilgili anahtarları ve API uç noktalarını gerektirir. Aşağıdaki alanları görmek **Program** sınıfı: 
+Yukarıda belirtildiği gibi Bu öğretici üç bilişsel hizmetler kullanır; Bu nedenle, üç ilgili anahtarları ve API uç noktalarını gerektirir. Aşağıdaki alanları görmek **Program** sınıfı:
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
@@ -79,19 +79,19 @@ Bkz: **EvaluateAdultRacy** yönteminde **Program** sınıfı. Bu yöntem, parame
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 
-## <a name="evaluatecustomvisiontags-method"></a>EvaluateCustomVisionTags yöntemi
+## <a name="evaluatecomputervisiontags-method"></a>EvaluateComputerVisionTags yöntemi
 
-Sonraki yöntem, bir resim URL'si ve görüntü işleme abonelik bilgilerinizi alır ve ünlüleri varlığını görüntüyü inceler. Bir veya daha fazla ünlüleri bulunursa buna karşılık gelen bir değer ayarlar **ReviewTags** için dizi **True**. 
+Sonraki yöntem, bir resim URL'si ve görüntü işleme abonelik bilgilerinizi alır ve ünlüleri varlığını görüntüyü inceler. Bir veya daha fazla ünlüleri bulunursa buna karşılık gelen bir değer ayarlar **ReviewTags** için dizi **True**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=115-146)]
 
 ## <a name="evaluatecustomvisiontags-method"></a>EvaluateCustomVisionTags yöntemi
 
-Ardından, bkz **EvaluateCustomVisionTags** gerçek ürünleri sınıflandırır yöntemi&mdash;kalemler ve bu durumda toys bayraklar. Bölümündeki yönergeleri [sınıflandırıcı oluşturma](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) görüntülerde bayrakları, toys ve kalemler (veya özel etiketlerinizi seçtiğiniz) varolup olmadığını algılamak için kendi özel görüntünüzü sınıflandırıcı oluşturma kılavuzu.
+Ardından, bkz **EvaluateCustomVisionTags** gerçek ürünleri sınıflandırır yöntemi&mdash;kalemler ve bu durumda toys bayraklar. Bölümündeki yönergeleri [sınıflandırıcı oluşturma](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) görüntülerde bayrakları, toys ve kalemler (veya özel etiketlerinizi seçtiğiniz) varolup olmadığını algılamak için kendi özel görüntünüzü sınıflandırıcı oluşturma kılavuzu. Görüntüleri kullanabileceğiniz **örnek görüntüleri** klasörü [GitHub deposunu](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) hızlı bir şekilde Bu kategorilerden bazıları eğitmek için.
 
 ![Özel görüntü işleme web sayfası, kalemler, toys ve bayrakları eğitim resmi](images/tutorial-ecommerce-custom-vision.PNG)
 
-Sınıflandırıcınızı eğitim almış sonra tahmin uç nokta URL'si ve tahmin anahtar Al (bkz [URL'si ve tahmin anahtarını alma](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) bunları alınırken yardıma ihtiyacınız varsa) ve bu değerleri atamak, `CustomVisionKey` ve `CustomVisionUri` alanları , sırasıyla. Yöntemi, bir sınıflandırıcı sorgulamak için bu değerleri kullanır. Sınıflandırıcı görüntüde bir veya daha fazla özel etiketler bulursa, bu yöntem karşılık gelen değerleri ayarlar **ReviewTags** için dizi **True**. 
+Sınıflandırıcınızı eğitim almış sonra tahmin uç nokta URL'si ve tahmin anahtar Al (bkz [URL'si ve tahmin anahtarını alma](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) bunları alınırken yardıma ihtiyacınız varsa) ve bu değerleri atamak, `CustomVisionKey` ve `CustomVisionUri` alanları , sırasıyla. Yöntemi, bir sınıflandırıcı sorgulamak için bu değerleri kullanır. Sınıflandırıcı görüntüde bir veya daha fazla özel etiketler bulursa, bu yöntem karşılık gelen değerleri ayarlar **ReviewTags** için dizi **True**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 

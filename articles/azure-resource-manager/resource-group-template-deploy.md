@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8005b187f300375b62c254516a61f4993675b0b9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 3b9a35cb5a37aa17a2f7803f3e996d51bede81e0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403117"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518567"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma
 
@@ -47,7 +47,7 @@ Bu makaledeki örneklerde, kaynak grubu dağıtımı kullanın. Abonelik dağıt
 
 Bir şablonu dağıtmak için ihtiyacınız vardır. Zaten yoksa, indirin ve kaydedin bir [örnek şablonu](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) Azure hızlı başlangıç şablonları deposundan. Bu makalede kullanılan yerel dosya adı **c:\MyTemplates\azuredeploy.json**.
 
-Kullanmadığınız sürece [Azure Cloud Shell'i](#deploy-templates-from-azure-cloud-shell) şablonlarını dağıtmak için Azure PowerShell'i yükleme ve Azure'a bağlanmak için ihtiyaç duyduğunuz:
+Azure Cloud shell şablonları dağıtmak için kullandığınız sürece, Azure PowerShell'i yükleme ve Azure'a bağlanmak gereken:
 
 - **Azure PowerShell cmdlet'lerini yerel bilgisayarınıza yükleyin.** Daha fazla bilgi için bkz. [Azure PowerShell kullanmaya başlayın](/powershell/azure/get-started-azureps).
 - **Kullanarak Azure'a bağlanma [Connect AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Birden çok Azure aboneliğiniz varsa, aynı zamanda çalıştırmak ihtiyacınız olabilecek [kümesi AzContext](/powershell/module/Az.Accounts/Set-AzContext). Daha fazla bilgi için [birden çok Azure aboneliği kullanın](/powershell/azure/manage-subscriptions-azureps).

@@ -1,5 +1,5 @@
 ---
-title: Toplamak ve Log analytics'te Azure etkinlik günlüklerini çözümleme | Microsoft Docs
+title: Toplama ve çözümleme Azure etkinlik günlüklerini Log Analytics çalışma alanında | Microsoft Docs
 description: Azure etkinlik günlükleri çözümü, analiz etmek ve tüm Azure aboneliklerinizi arasında Azure etkinlik günlüğü aramak için kullanabilirsiniz.
 services: log-analytics
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 20246cfa5904c3c89ab9a14d11f2e61883b27344
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2fd74262d9c1b4a751df5d836f98bf89d31dbdc2
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540277"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540440"
 ---
-# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Toplamak ve Log analytics'te Azure etkinlik günlüklerini çözümleme
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Toplama ve Azure İzleyici'de Log Analytics çalışma alanında Azure etkinlik günlüklerini çözümleme
 
 ![Azure etkinlik günlüklerini simgesi](./media/collect-activity-logs/activity-log-analytics.png)
 
@@ -28,7 +28,7 @@ Etkinlik günlüğü analizi çözümü arayın ve çözümlemenize yardımcı o
 
 Etkinlik günlüğü'nü kullanarak belirleyebilirsiniz *ne*, *kimin*, ve *olduğunda* işlemlerini (PUT, POST, DELETE), aboneliğinizdeki kaynaklar için yapılan herhangi bir yazma için. Ayrıca, işlemleri ve diğer ilgili özellikler durumunu anlayabilirsiniz. Etkinlik günlüğünü okuma (GET) işlemlerini ya da Klasik dağıtım modelini kullanan kaynakları işlemlerinde dahil değildir.
 
-Azure etkinlik günlüklerini Log Analytics'e bağlandığınızda, şunları yapabilirsiniz:
+Azure etkinlik günlüklerini Log Analytics çalışma alanına bağlandığınızda, şunları yapabilirsiniz:
 
 - Önceden tanımlanmış görünümleri ile etkinlik günlüklerini çözümleme
 - Analiz ve arama ve etkinlik günlüklerinden birden çok Azure aboneliği
@@ -40,15 +40,15 @@ Azure etkinlik günlüklerini Log Analytics'e bağlandığınızda, şunları ya
 - Kaynaklarınızı etkileyen kesinti veya hizmet sistem durumu sorunlarını tanımlama
 - Kullanıcı etkinliklerini, otomatik ölçeklendirme işlemlerini, yetkilendirme değişikliklerini ve diğer günlükleri ve ölçümleri hizmet durumunu ortamınızdaki ilişkilendirmek için günlük araması'nı kullanın
 
-<sup>1</sup>ücretsiz katmanında olsa bile varsayılan olarak, Azure etkinlik günlüklerini Log Analytics 90 gün boyunca tutar. Veya 90 günden daha az workspace saklama ayarı varsa. Etkinlik günlükleri 90 günden daha uzun bekletme çalışma alanınız varsa çalışma alanınızı sunucusundaki bekletme süresini göre tutulur.
+<sup>1</sup>ücretsiz katmanında olsa bile varsayılan olarak, Azure İzleyici, Azure etkinlik günlüklerini Log Analytics çalışma alanında 90 gün boyunca tutar. Veya 90 günden daha az workspace saklama ayarı varsa. Etkinlik günlükleri 90 günden daha uzun bekletme çalışma alanınız varsa çalışma alanınızı sunucusundaki bekletme süresini göre tutulur.
 
-Log Analytics'i ücretsiz olarak etkinlik günlüklerini toplar ve günlükleri, 90 gün boyunca ücretsiz olarak depolar. Günlükleri, 90 günden daha uzun süre saklamak, veri saklama 90 günden daha uzun depolanan veriler için ücretlendirilirsiniz.
+Log Analytics çalışma alanı ücretsiz olarak etkinlik günlüklerini toplar ve günlükleri, 90 gün boyunca ücretsiz olarak depolar. Günlükleri, 90 günden daha uzun süre saklamak, veri saklama 90 günden daha uzun depolanan veriler için ücretlendirilirsiniz.
 
 Ücretsiz fiyatlandırma katmanı olduğunuzda, etkinlik günlükleri, günlük veri tüketimi için geçerli değildir.
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
 
-Diğer Log Analytics çözümlerinin çoğu farklı olarak, etkinlik günlükleri için aracıları tarafından toplanan verileri değil. Çözüm tarafından kullanılan tüm verileri doğrudan Azure gelir.
+Diğer birçok Azure İzleyici çözümlerinden farklı olarak, etkinlik günlükleri için aracıları tarafından verileri toplanmaz. Çözüm tarafından kullanılan tüm verileri doğrudan Azure gelir.
 
 | Bağlı Kaynak | Desteklenen | Açıklama |
 | --- | --- | --- |

@@ -4,15 +4,17 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 432d0d4c201d0d73e5695a1726129e7fa744bdde
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 2a1bf160926bc2f90e326d773bf6a3e7fdc37103
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319747"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505804"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Klasik modelden Azure Resource Manager’a geçiş sırasında sık karşılaşılan hatalar
 Bu makale, IaaS kaynakları Azure klasik dağıtım modelinden Azure Resource Manager yığınına geçirilirken en sık karşılaşılan hataları ve risk azaltma yollarını içerir.
+
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ## <a name="list-of-errors"></a>Hata listesi
 
@@ -22,7 +24,7 @@ Bu makale, IaaS kaynakları Azure klasik dağıtım modelinden Azure Resource Ma
 | HostedService {barındırılan hizmet adı} içindeki {dağıtım adı} Dağıtımı bir PaaS dağıtımı (Web/Çalışan) olduğundan, dağıtımın geçirilmesi desteklenmiyor. |Bu, dağıtım web/çalışan rolü içerdiğinde gerçekleşir. Geçiş yalnızca sanal makineler için desteklendiğinden, lütfen web/çalışan rolünü dağıtımdan kaldırın ve geçiş işlemini yeniden deneyin. |
 | Şablon {şablon-adı} dağıtımı başarısız oldu. CorrelationId={guid} |Geçiş hizmeti arka ucunda Azure Resource Manager yığınında kaynakları oluşturmak için Azure Resource Manager şablonları kullanıyoruz. Şablonları tekrar denenebilir yapıda olduğundan, bu hatayı gidermek için geçiş işlemi güvenli bir şekilde yeniden denenebilir. Hata devam ederse, lütfen [Azure desteğine başvurun](../articles/azure-supportability/how-to-create-azure-support-request.md) ve CorrelationId değerini verin. <br><br> **NOT:** Olay destek ekibi tarafından izlenirken bu olabilir Lütfen tüm kendi kendine risk azaltma çalışmayın ortamınızda istenmeyen sonuçları. |
 | Sanal ağ {sanal-ağ-adı} yok. |Bu hata, sanal ağı yeni Azure portalında oluşturduysanız oluşabilir. Gerçek sanal ağ adı şu yapıdadır: "Grup * <VNET name>" |
-| HostedService {barındırılan-hizmet-adı} içindeki VM {vm-adı}, Azure Resource Manager'da desteklenmeyen bir Uzantı {uzantı-adı} içeriyor. Geçirme işlemine devam etmeden önce sanal makineden bunu kaldırmanız için önerilir. |BGInfo 1.* gibi XML uzantıları Azure Resource Manager’da desteklenmez. Bu nedenle bu uzantılar geçirilemez. Bu uzantılar sanal makinede yüklü bırakılırsa bunlar geçiş tamamlanmadan önce otomatik olarak kaldırılır. |
+| HostedService {barındırılan-hizmet-adı} içindeki VM {vm-adı}, Azure Resource Manager'da desteklenmeyen bir Uzantı {uzantı-adı} içeriyor. Geçirme işlemine devam etmeden önce sanal makineden bunu kaldırmanız için önerilir. |Bgınfo 1 gibi XML uzantıları. \* Azure Resource Manager'da desteklenmez. Bu nedenle bu uzantılar geçirilemez. Bu uzantılar sanal makinede yüklü bırakılırsa bunlar geçiş tamamlanmadan önce otomatik olarak kaldırılır. |
 | HostedService {barındırılan-service-adı} içindeki VM {vm-adı}, VMSnapshot/VMSnapshotLinux Uzantısı içeriyor. Bu uzantının şu an için geçişi desteklenmemektedir. Uzantıyı sanal makineden kaldırın ve geçiş tamamlandıktan sonra Azure Resource Manager kullanarak tekrar ekleyin |Bu, sanal makinenin Azure Backup için yapılandırıldığı senaryodur. Bu şu anda desteklenmeyen bir senaryo olduğundan, lütfen adresindeki geçici çözümü izleyin https://aka.ms/vmbackupmigration |
 | HostedService {barındırılan-hizmet-adı} içindeki VM {vm-adı}, Durumu VM’den bildirilmeyen bir Uzantı {uzantı-adı} içeriyor. Bu nedenle bu VM geçirilemez. Uzantı durumunun bildirildiğinden emin olun veya uzantıyı VM'den kaldırın ve geçişi yeniden deneyin. <br><br> HostedService {barındırılan-hizmet-adı} içindeki VM {vm-adı}, İşleyici Durumu: {işleyici-durumu} bildiren bir Uzantı {uzantı-adı} içeriyor. Bu nedenle VM geçirilemiyor. Uzantı işleyici durumunun {handler-status} olduğundan emin olun veya uzantıyı VM’den kaldırıp geçişi tekrar deneyin. <br><br> HostedService {barındırılan-hizmet-adı} içindeki VM için VM Aracısı {vm-adı} genel aracı durumunun hazır olmadığı bildiriyor. Bu nedenle, geçirilebilir bir uzantısı varsa VM geçirilemeyebilir. VM Aracısının genel aracı durumunu hazır olarak bildirdiğinden emin olun. Başvurmak https://aka.ms/classiciaasmigrationfaqs. |Azure konuk aracısı ve VM Uzantılarının, durumlarını bildirmek için VM depolama hesabına giden İnternet erişimine sahip olması gerekir. Durum hatasının yaygın nedenleri <li> Giden İnternet erişimini engelleyen bir Ağ Güvenlik Grubu <li> VNET DNS sunucuları şirket içi varsa ve DNS bağlantısı kesilir <br><br> Desteklenmeyen durum görmeye devam ederseniz, bu denetimi atlamak ve geçişe devam etmek için uzantıları kaldırabilirsiniz. |
 | HostedService {barındırılan hizmet adı} içindeki {dağıtım adı} Dağıtımı birden fazla Kullanılabilirlik Kümesine sahip olduğundan, dağıtımın geçirilmesi desteklenmiyor. |Şu anda yalnızca bir veya daha az kullanılabilirlik kümesine sahip barındırılan hizmetler geçirilebilir. Bu sorunu geçici olarak çözmek için lütfen bu kullanılabilirlik kümelerindeki ek kullanılabilirlik kümelerini ve sanal makineleri farklı bir barındırılan hizmete taşıyın. |
@@ -44,7 +46,7 @@ Bu, Veri diskinin mantıksal boyutu ile gerçek VHD blob boyutu eşitlenmediğin
 
 #### <a name="verifying-the-issue"></a>Sorunu doğrulama
 
-```PowerShell
+```powershell
 # Store the VM details in the VM object
 $vm = Get-AzureVM -ServiceName $servicename -Name $vmname
 
@@ -65,7 +67,7 @@ ExtensionData       :
 
 # Now get the properties of the blob backing the data disk above
 # NOTE the size of the blob is about 15 GB which is different from LogicalDiskSizeInGB above
-$blob = Get-AzureStorageblob -Blob "coreosvm-dd1.vhd" -Container vhds 
+$blob = Get-AzStorageblob -Blob "coreosvm-dd1.vhd" -Container vhds 
 
 $blob
 
@@ -82,7 +84,7 @@ Name              : coreosvm-dd1.vhd
 
 #### <a name="mitigating-the-issue"></a>Sorunu giderme
 
-```PowerShell
+```powershell
 # Convert the blob size in bytes to GB into a variable which we'll use later
 $newSize = [int]($blob.Length / 1GB)
 

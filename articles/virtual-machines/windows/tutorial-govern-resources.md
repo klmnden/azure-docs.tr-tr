@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 48774c616fa8fb477218264cb58e09659142a5cd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 9be421e85d41586c18bee15cd748539e3910021b
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497950"
+ms.locfileid: "58540661"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Öğretici: Azure PowerShell ile Windows sanal makine yönetimi hakkında bilgi edinin
 
@@ -71,7 +71,7 @@ New-AzRoleAssignment -ObjectId $adgroup.id `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-**<guid> sorumlusunun dizinde bulunmadığını** belirten bir hatayla karşılaşmanız yeni grubun Azure Active Directory'de yayılmadığını gösterir. Komutu tekrar çalıştırmayı deneyin.
+Belirten bir hata alırsanız **asıl \<GUID > dizinde yok**, yeni Grup Azure Active Directory yayılan edilmemiş. Komutu tekrar çalıştırmayı deneyin.
 
 Genellikle, kullanıcıların dağıtılmış kaynakları yönetmek için atandığından emin olmak üzere *Ağ Katılımcısı* ve *Depolama Hesabı Katılımcısı* için işlemi yinelemeniz gerekir. Bu makalede, söz konusu adımları atlayabilirsiniz.
 

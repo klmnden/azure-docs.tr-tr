@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 10497d40dcf67fb18d40eba02ec9e95c45be097b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1897ddf328413decdc13cffaab0fb569d8d95665
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820867"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521678"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>İş durumunu ve iş akışları Otomasyonu, Azure İzleyici günlüklerine iletin.
 
@@ -63,7 +63,7 @@ Bulmanız gerekiyorsa *adı* Otomasyon hesabınızda Azure portalında Otomasyon
    $workspaceId = "[resource id of the log analytics workspace]"
    $automationAccountId = "[resource id of your automation account]"
 
-   Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
+   Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
    ```
 
 Bu betiği çalıştırdıktan sonra bu kayıtları yeni JobLogs veya JobStreams yazılmakta olan Azure İzleyici günlüklerine başlamadan önce bir saat sürebilir.

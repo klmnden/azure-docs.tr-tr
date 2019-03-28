@@ -1,6 +1,6 @@
 ---
 title: Öğretici - Azure’da cloud-init ile bir Linux VM’si yapılandırma | Microsoft Docs
-description: Bu öğreticide, Linux sanal makinelerinin Azure’da ilk önyüklenmesini özelleştirmek için cloud-init ve Key Vault’un nasıl kullanılacağını öğreneceksiniz
+description: Bu öğreticide, Linux sanal makineleri, Azure'da ilk önyüklenmesini özelleştirmek için cloud-init ve Key Vault kullanmayı öğrenin
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b71c48a86be13df51222069f6948642455bc77fc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2543ffb20c4e7da840201cfd3be04505515458a6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121273"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539369"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Öğretici - Azure’da ilk önyüklemede bir Linux sanal makinesini özelleştirmek için cloud-init kullanma
 
@@ -131,7 +131,7 @@ az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
 ## <a name="test-web-app"></a>Web uygulamasını test etme
-Artık bir web tarayıcısı açıp adres çubuğuna *http://<publicIpAddress>* ifadesini girebilirsiniz. VM oluşturma işleminden kendi herkese açık IP adresinizi sağlayın. Node.js uygulamanız, aşağıdaki örnekte olduğu gibi görüntülenir:
+Artık bir web tarayıcısı açın ve girin *http:\/\/\<Publicıpaddress >* adres çubuğundaki. VM oluşturma işleminden kendi herkese açık IP adresinizi sağlayın. Node.js uygulamanız, aşağıdaki örnekte olduğu gibi görüntülenir:
 
 ![Çalışan NGINX sitesini görüntüleme](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -262,7 +262,7 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>Güvenli web uygulamasını test etme
-Artık web tarayıcısı açıp adres çubuğuna *https://<publicIpAddress>* ifadesini girebilirsiniz. Önceki VM oluşturma işleminin çıkışında gösterildiği gibi kendi genel IP adresinizi girin. Otomatik olarak imzalanan sertifika kullanıyorsanız güvenlik uyarısını kabul edin:
+Artık bir web tarayıcısı açın ve girin *https:\/\/\<Publicıpaddress >* adres çubuğundaki. Önceki VM oluşturma işleminin çıkışında gösterildiği gibi kendi genel IP adresinizi girin. Otomatik olarak imzalanan sertifika kullanıyorsanız güvenlik uyarısını kabul edin:
 
 ![Web tarayıcısı güvenlik uyarısını kabul edin](./media/tutorial-automate-vm-deployment/browser-warning.png)
 

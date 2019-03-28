@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 4ff99cab168abeb0bbeeb8b29de0ea0285c255b0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 01020a23b102c896bbeb3d8cf455afabfc164917
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457996"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505847"
 ---
 ## <a name="prepare-for-akv-integration"></a>AKV tümleştirme için hazırlama
 SQL Server VM'nize yapılandırmak için Azure anahtar kasası tümleştirmeyi kullanmak için birkaç önkoşul vardır: 
@@ -29,8 +29,10 @@ SQL Server VM'nize yapılandırmak için Azure anahtar kasası tümleştirmeyi k
 
 Aşağıdaki bölümlerde, bu önkoşulları ve daha sonra PowerShell cmdlet'lerini çalıştırmak üzere toplamanız gereken bilgiler açıklanmaktadır.
 
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
+
 ### <a id="install"></a> Azure PowerShell'i yükleme
-En son Azure PowerShell SDK'sını yüklediğinizden emin olun. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
+En son Azure PowerShell SDK'sını yüklediğinizden emin olun. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-az-ps).
 
 ### <a id="register"></a> Azure Active Directory'niz içinde bir uygulamayı kaydetme
 
@@ -49,7 +51,7 @@ Ardından, bir uygulamayı AAD'ye kaydetme. Bu, sanal Makinenizin gerekir, anaht
 
 * Uygulama Kimliğini ve parolasını SQL Server'da bir kimlik bilgisi oluşturmak için de kullanılır.
 
-* Bu yeni istemci kimliği aşağıdaki erişim izinlerine sahip yetkilendirmeniz gerekir: **alma**, **wrapKey**, **unwrapKey**. Bunun [kümesi AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet'i. Daha fazla bilgi için [Azure anahtar kasası genel bakış](../articles/key-vault/key-vault-overview.md).
+* Bu yeni istemci kimliği aşağıdaki erişim izinlerine sahip yetkilendirmeniz gerekir: **alma**, **wrapKey**, **unwrapKey**. Bunun [kümesi AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet'i. Daha fazla bilgi için [Azure anahtar kasası genel bakış](../articles/key-vault/key-vault-overview.md).
 
 ### <a id="createkeyvault"></a> Anahtar kasası oluşturma
 Kullanacağınız için şifreleme, sanal anahtarları depolamak için Azure anahtar Kasası'nı kullanmak için bir anahtar kasasına erişim gerekir. Anahtar kasanız zaten ayarlamadıysanız adımları izleyerek bir tane oluşturmak [Azure anahtar kasası ile çalışmaya başlama](../articles/key-vault/key-vault-overview.md) makalesi. Bu adımları gerçekleştirmeden önce SQL sanal makinenizde Azure anahtar kasası tümleştirmeyi etkinleştirdiğinizde, daha sonra gerekli yedekleme sırasında bu kümesi toplamanız gereken bazı bilgileri yoktur.

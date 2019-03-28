@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b88660548feaa1d3a8e83e633f798212c80ac6dc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 31e8e65b382a3a6bcad2998a0babdf9605dc4968
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190315"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539114"
 ---
 # <a name="backup-and-restore"></a>Yedekleme ve geri yükleme
 
@@ -24,8 +24,7 @@ Azure Analysis Services'da tablosal model veritabanlarını yedeklemeye kadar ş
 > 
 > 
 
-Yedeklemeleri abf uzantısıyla kaydedilir. Bellek içi tablosal modeller model verileri hem meta veriler depolanır. DirectQuery için tablosal modeller, yalnızca model meta verilerini depolanır. Yedeklemeler, sıkıştırılır ve şifrelenir, belirlediğiniz seçeneklere bağlı olarak. 
-
+Yedeklemeleri .abf uzantısıyla kaydedilir. Bellek içi tablosal modeller model verileri hem meta veriler depolanır. DirectQuery için tablosal modeller, yalnızca model meta verilerini depolanır. Yedeklemeler, sıkıştırılır ve şifrelenir, belirlediğiniz seçeneklere bağlı olarak.
 
 
 ## <a name="configure-storage-settings"></a>Depolama ayarlarını yapılandırma

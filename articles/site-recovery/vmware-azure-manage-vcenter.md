@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: ramamill
-ms.openlocfilehash: efbcc0143570b3d379cf392c170f599fcc0176d4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9694c682f171ab715812b05fed2064c9bbcd36b3
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855138"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518091"
 ---
 # <a name="manage-vmware-vcenter-server"></a>VMware vCenter server'ı yönetme
 
@@ -108,7 +108,7 @@ Yeni bir vCenter birkaç sanal makineleri taşımak için:
 4. Şimdi, geçirilen sanal makineler tarafından korumak [korumayı etkinleştirdiğinizde yeni vCenter'ı seçerek](vmware-azure-tutorial.md#enable-replication).
 
 > [!TIP]
-> Geçirilmekte olan sanal makinelerin sayı **yüksek** verilen yönergeleri kullanarak yeni vCenter'ın IP adresi güncelleştirme eski vCenter korunan sanal makine sayısı [burada](#modify-vcenter-ip-address-port). Eski vCenter korunur birkaç sanal makineler için [çoğaltmayı devre dışı bırak](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [yapılandırma sunucusuna yeni vCenter ayrıntılarını Ekle](#add-vmware-server-to-the-vault)ve başlangıç  **[korumayı etkinleştir](vmware-azure-tutorial.md#enable-replication)**.
+> Geçirilmekte olan sanal makinelerin sayı **yüksek** burada verilen yönergeleri kullanarak yeni vCenter'ın IP adresi güncelleştirme eski vCenter korunan sanal makine sayısı. Eski vCenter korunur birkaç sanal makineler için [çoğaltmayı devre dışı bırak](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [yapılandırma sunucusuna yeni vCenter ayrıntılarını Ekle](#add-vmware-server-to-the-vault)ve başlangıç  **[korumayı etkinleştir](vmware-azure-tutorial.md#enable-replication)**.
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 

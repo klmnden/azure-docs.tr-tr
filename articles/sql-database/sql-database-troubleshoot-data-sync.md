@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 8b86103f76e2425acea1b4f7c590204f0a893510
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 4e2808378834a0270586ce674e1043ca443320c5
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484437"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539641"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>SQL Data Sync ile ilgili sorunları giderme
 
@@ -40,7 +40,7 @@ SQL Data Sync hizmetine genel bakış için bkz. [Azure SQL Data Sync ile birden
 
 - [Önemli bir performans düşüşü görüyorum](#sync-perf)
 
-- [Bu iletiyi görüyorum: "Sütununa NULL değer eklenemiyor <column>. Sütun null değerlere izin vermiyor." Bunun anlamı nedir ve nasıl düzeltebilirim?](#sync-nulls)
+- [Bu iletiyi görüyorum: "Sütununa NULL değer eklenemiyor \<sütun >. Sütun null değerlere izin vermiyor." Bunun anlamı nedir ve nasıl düzeltebilirim?](#sync-nulls)
 
 - [Veri eşitleme, döngüsel başvurular nasıl işliyor? Diğer bir deyişle, ne zaman aynı verileri birden çok eşitleme gruplarında eşitlenen ve bunun sonucunda değişir mi?](#sync-circ)
 
@@ -105,7 +105,7 @@ Performansınızı önemli ölçüde büyük olasılıkla veri eşitleme UI bile
 
 - **Çözüm**. En iyi önleme açıklanmıştır. Eşitleme gruplarınızı döngüsel başvurular olmadığından emin olun. Bir eşitleme grubu tarafından eşitlenen herhangi bir satırın başka bir eşitleme grubu ile eşitlenemiyor.
 
-### <a name="sync-nulls"></a> Bu iletiyi görüyorum: "Sütununa NULL değer eklenemiyor <column>. Sütun null değerlere izin vermiyor." Bunun anlamı nedir ve nasıl düzeltebilirim? 
+### <a name="sync-nulls"></a> Bu iletiyi görüyorum: "Sütununa NULL değer eklenemiyor \<sütun >. Sütun null değerlere izin vermiyor." Bunun anlamı nedir ve nasıl düzeltebilirim? 
 Bu hata iletisini iki aşağıdaki sorunlardan biri oluştuğunu gösterir:
 -  Bir tabloda bir birincil anahtar yok. Bu sorunu gidermek için birincil anahtarı eşitleniyor tüm tabloları ekleyin.
 -  CREATE INDEX deyiminde WHERE yan tümcesi yoktur. Veri eşitleme, bu durum işlemiyor. Bu sorunu gidermek için WHERE yan tümcesini kaldırın veya tüm veritabanları için el ile değişiklik. 

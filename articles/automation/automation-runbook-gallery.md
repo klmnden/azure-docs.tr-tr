@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 58f666d7ebf8ac02d393a42f55e00f08d82b8cae
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 20aafc117ad8b6bd625894180fdfe79bd86192bd
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337098"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519009"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Otomasyonu Runbook ve modül galerileri
 
 Azure Automation'da kendi runbook'ları ve modüller oluşturmak yerine, Microsoft ve topluluk tarafından zaten oluşturulduğundan senaryoları erişebilirsiniz.
 
-Alabileceğiniz [PowerShell runbook'ları](#runbooks-in-runbook-gallery) ve [modülleri](#modules-in-powerShell-gallery) PowerShell Galerisi'ndeki ve [Python runbook'ları](#python-runbooks) Komut Merkezi Galerisi. Ayrıca katkıda bulunabilir bakın topluluğa geliştirme senaryoları paylaşabilir, [runbook Galerisine ekleme](#adding-a-runbook-to-the-runbook-gallery)
+PowerShell runbook'ları alabilirsiniz ve [modülleri](#modules-in-powershell-gallery) PowerShell Galerisi'ndeki ve [Python runbook'ları](#python-runbooks) Komut Merkezi Galerisi. Topluluğa bir runbook Galerisine ekleme bakın, sizin geliştirdiğiniz senaryoları paylaşarak da katkıda bulunabilir
 
 ## <a name="runbooks-in-powershell-gallery"></a>PowerShell Galerisi runbook'ları
 

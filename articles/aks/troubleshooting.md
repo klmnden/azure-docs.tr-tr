@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 5902ba86b51ca1998364e393ac02bbb0d0a23a28
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 56d91d7801c576064b941ac6089a52e74b4a3b7b
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432643"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540933"
 ---
 # <a name="aks-troubleshooting"></a>AKS sorunlarını giderme
 
@@ -90,3 +90,7 @@ Küme işlemlerini, etkin yükseltme gibi işlemler gerçekleştiğini veya yük
 
 * Kümenin etkin bir şekilde yükseltme işlemi sonlanana kadar bekleyin. Bu başarılı olursa, daha önce başarısız olan işlemi yeniden deneyin.
 * Küme yükseltme başarısız oldu, yukarıda özetlenen adımları izleyin.
+
+## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Kümem için farklı bir abonelik veya aboneliğime kümem için yeni bir kiracı ile taşıyabilirim?
+
+AKS kümenizi farklı bir abonelik veya yeni bir kiracı için abonelik sahibi olan küme taşıdıysanız, küme işlevselliği kaybeden rol atamaları ve hizmet sorumluları hakları nedeniyle kaybedersiniz. **AKS abonelikleri veya kiracılar arasında taşıma kümelerini desteklemez** nedeniyle bu kısıtlama.

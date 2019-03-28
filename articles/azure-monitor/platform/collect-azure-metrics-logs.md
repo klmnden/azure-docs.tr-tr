@@ -1,6 +1,6 @@
 ---
-title: Azure Hizmet Günlükleri ve ölçümleri Log Analytics'e toplama | Microsoft Docs
-description: Tanılama günlükleri ve ölçümleri Log Analytics'e yazmak için Azure kaynaklarını yapılandırın.
+title: Log Analytics çalışma alanına Azure hizmeti günlükleri ve ölçümleri toplamak | Microsoft Docs
+description: Tanılama günlükleri ve ölçümler, Azure İzleyici'de Log Analytics çalışma alanına yazmak için Azure kaynaklarını yapılandırın.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 034abe4e3c37c94afbe431a51efd9493b707fa89
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 5a619b768d61875a03e53a613dfb9a3fb01dd7aa
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498545"
+ms.locfileid: "58540187"
 ---
-# <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Azure Hizmet Günlükleri ve Log Analytics kullanım ölçümlerini Topla
+# <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>Azure İzleyici'de Log Analytics çalışma alanına Azure Hizmeti günlüklerini ve ölçümlerini Topla
 
 Toplama günlükleri ve ölçümleri Azure Hizmetleri için dört farklı yolu vardır:
 
-1. Azure tanılama verilerini doğrudan Log Analytics'e (*tanılama* aşağıdaki tabloda)
-2. Log Analytics için Azure depolama için Azure tanılama (*depolama* aşağıdaki tabloda)
+1. Azure tanılama verilerini doğrudan Log Analytics çalışma alanına Azure İzleyicisi'nde (*tanılama* aşağıdaki tabloda)
+2. Log Analytics çalışma alanına Azure İzleyici'de Azure depolama için Azure tanılama (*depolama* aşağıdaki tabloda)
 3. Azure Hizmetleri için bağlayıcılar (*Bağlayıcılar* aşağıdaki tabloda)
-4. Toplamak ve daha sonra Log Analytics (boş olanları aşağıdaki tabloda ve listelenmeyen Hizmetleri) içine veri göndermek için komut dosyaları
+4. Toplamak ve daha sonra (boş olanları aşağıdaki tabloda ve listelenmeyen Hizmetleri) Azure İzleyici'de Log Analytics çalışma alanına veri göndermek için komut dosyaları
 
 
 | Hizmet                 | Kaynak Türü                           | Günlükler        | Ölçümler     | Çözüm |
@@ -64,12 +64,12 @@ Toplama günlükleri ve ölçümleri Azure Hizmetleri için dört farklı yolu v
 >
 
 ## <a name="azure-diagnostics-direct-to-log-analytics"></a>Azure tanılama verilerini doğrudan Log Analytics'e bağlanma
-Birçok Azure kaynağı tanılama günlükleri yazabiliyor ve doğrudan Log Analytics ve bunun için ölçümleri analiz için veri toplama tercih edilen yoludur. Azure Tanılama'yı kullanarak, verileri Log Analytics'e hemen yazılır ve ilk veri depolama alanına yazmaya gerek yoktur.
+Birçok Azure kaynaklarını doğrudan Azure İzleyici'de bir Log Analytics çalışma alanı için tanılama günlükleri ve ölçümleri yazma olanağına sahip olursunuz ve bu analiz için verilerin toplanması, tercih edilen yoludur. Azure Tanılama'yı kullanarak, veriler hemen çalışma alanına yazılır ve ilk veri depolama alanına yazmaya gerek yoktur.
 
-Destekleyen azure kaynak [Azure İzleyici](../../azure-monitor/overview.md) kendi günlükleri ve ölçümleri doğrudan Log Analytics'e gönderebilirsiniz.
+Destekleyen azure kaynak [Azure İzleyici](../../azure-monitor/overview.md) kendi günlükleri ve ölçümleri bir Log Analytics çalışma alanınıza doğrudan gönderebilirsiniz.
 
 > [!NOTE]
-> Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla Log Analytics’e gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
+> Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla bir Log Analytics çalışma alanınız gönderme şu anda desteklenmiyor. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
 >
 > *Örneğin*: Bir olay Hub'ındaki 'Gelen iletiler' ölçümü temelinde araştırılıp bir kuyruk düzeyi. Ancak, ölçüm tamamında tüm gelen iletiler halinde gösterilir tanılama ayarları aracılığıyla dışarı aktardığınızda olay hub'ı sıralar.
 >
@@ -125,9 +125,9 @@ Oluşturulduktan ve Log Analytics çalışma alanınıza tanılama gönderdiğin
 
 ## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Azure tanılama depolama sonra Log Analytics
 
-Bazı kaynaklar içinde günlüklerinden toplamak için Azure depolama birimine günlük gönderme ve ardından Log Analytics'i depolamadan günlükleri okuyacak şekilde yapılandırmak mümkündür.
+Bazı kaynaklar içinde günlüklerinden toplamak için Azure depolama birimine günlük gönderme ve ardından depolama alanından günlüklerini okumak için Log Analytics çalışma alanı yapılandırmak mümkündür.
 
-Log Analytics, günlükleri ve aşağıdaki kaynaklar için Azure depolama biriminden tanılama toplamak için bu yaklaşımı kullanabilirsiniz:
+Azure İzleyici, günlükleri ve aşağıdaki kaynaklar için Azure depolama biriminden tanılama toplamak için bu yaklaşımı kullanabilirsiniz:
 
 | Kaynak | Günlükler |
 | --- | --- |
@@ -136,23 +136,23 @@ Log Analytics, günlükleri ve aşağıdaki kaynaklar için Azure depolama birim
 | Web rolleri <br> Çalışan rolleri |Linux Syslog <br> Windows olay <br> IIS günlüğü <br> Windows ETWEvent |
 
 > [!NOTE]
-> Normal Azure veri ücretleri depolama ve bir depolama hesabına tanılama gönderdiğinizde, işlemler için ve ne zaman Log Analytics depolama hesabınızdan veri okuma için ücretlendirilir.
+> Bir depolama hesabına ve ne zaman Log Analytics çalışma alanı depolama hesabınızdan verileri okur. tanılama gönderdiğinizde, depolama ve işlemler için normal bir Azure veri ücretleri ödersiniz.
 >
 >
 
-Bkz: [olaylar için IIS ve tablo depolama için blob depolama alanını kullanın](azure-storage-iis-table.md) nasıl Log Analytics Bu günlükleri toplayabilir hakkında daha fazla bilgi edinmek için.
+Bkz: [olaylar için IIS ve tablo depolama için blob depolama alanını kullanın](azure-storage-iis-table.md) nasıl Azure İzleyici Bu günlükleri toplayabilir hakkında daha fazla bilgi edinmek için.
 
 ## <a name="connectors-for-azure-services"></a>Azure Hizmetleri için bağlayıcılar
 
-Application ınsights, Log Analytics'e gönderilmesi için Application Insights tarafından toplanan verileri sağlayan bir bağlayıcı vardır.
+Application ınsights, Log Analytics çalışma alanına gönderilmesi için Application Insights tarafından toplanan verileri sağlayan bir bağlayıcı vardır.
 
 Daha fazla bilgi edinin [Application Insights Bağlayıcısı](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/).
 
-## <a name="scripts-to-collect-and-post-data-to-log-analytics"></a>Komut toplamak ve Log Analytics'e gönderme verisi
+## <a name="scripts-to-collect-and-post-data-to-log-analytics-workspace"></a>Komut toplamak ve Log Analytics çalışma alanına gönderme verisi
 
-Günlükleri ve ölçümleri Log Analytics'e göndermek için doğrudan bir yol sağlamaz Azure Hizmetleri için günlük ve ölçümleri toplamak için bir Azure Otomasyonu betiği kullanabilirsiniz. Betik daha sonra verileri Log Analytics kullanarak gönderebilirsiniz [veri toplayıcı API'si](../../azure-monitor/platform/data-collector-api.md)
+Log Analytics çalışma alanına günlükleri ve ölçümleri göndermek için doğrudan bir yol sağlamaz Azure Hizmetleri için günlük ve ölçümleri toplamak için bir Azure Otomasyonu betiği kullanabilirsiniz. Betik daha sonra verileri kullanarak çalışma alanı gönderebilirsiniz [veri toplayıcı API'si](../../azure-monitor/platform/data-collector-api.md)
 
-Azure şablonu galeri sahip [Azure Otomasyonu kullanma örnekleri](https://azure.microsoft.com/resources/templates/?term=OMS) Hizmetleri ve Log Analytics'e gönderme verileri toplamak için.
+Azure şablonu galeri sahip [Azure Otomasyonu kullanma örnekleri](https://azure.microsoft.com/resources/templates/?term=OMS) hizmetlerden veri toplayın ve Azure İzleyici göndermek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92cb4f1093d8450bb2c32d99f4ccedd0a5688253
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 845ab85ae10a9d57bf3e263d49532675f60cd84f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58165926"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517853"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Öğretici: InsideView ile Azure Active Directory Tümleştirme
 
@@ -91,7 +91,7 @@ Yapılandırma ve Azure AD çoklu oturum açma InsideView ile test etmek için a
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Bir InsideView test kullanıcısı oluşturma](#creating-a-insideview-test-user)**  - kullanıcı Azure AD gösterimini bağlı InsideView Britta simon'un bir karşılığı vardır.
+1. **[Bir InsideView test kullanıcısı oluşturma](#creating-an-insideview-test-user)**  - kullanıcı Azure AD gösterimini bağlı InsideView Britta simon'un bir karşılığı vardır.
 1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
@@ -254,4 +254,3 @@ Erişim panelinde InsideView kutucuğa tıkladığınızda, otomatik olarak Insi
 [201]: ./media/insideview-tutorial/tutorial_general_201.png
 [202]: ./media/insideview-tutorial/tutorial_general_202.png
 [203]: ./media/insideview-tutorial/tutorial_general_203.png
-

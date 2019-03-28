@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: d1b5125c2e3904900adb0a121d60cba8a1731d43
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 105996cf72e2a96a06a4478518e68765d3d158f5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499650"
+ms.locfileid: "58516901"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Azure portalı kullanarak Azure Data Box Gateway paylaşımlarını yönetme 
 
@@ -84,6 +84,9 @@ Paylaşım listesi silinen paylaşıma göre güncelleştirilir.
 
 Yenileme özelliği, şirket içi paylaşımın içeriğini yenilemenizi sağlar. Bir paylaşımı yenilediğinizde bloblar ve dosyalar dahil olmak üzere son yenileme işleminden sonra buluta eklenmiş olan tüm Azure nesnelerini bulmak için bir arama başlatılır. Ardından bu ek dosyalar kullanılarak cihazdaki şirket içi paylaşımın içeriği yenilenir. 
 
+> [!NOTE]
+> İzinler ve erişim denetim listeleri (ACL'ler), bir yenileme işlemi arasında korunmaz. 
+
 Paylaşımı yenilemek için Azure portalda aşağıdaki adımları gerçekleştirin.
 
 1.  Azure portalda **Paylaşımlar** sayfasına gidin. Yenilemek istediğiniz paylaşımı seçin ve üzerine tıklayın.
@@ -107,7 +110,7 @@ Paylaşımı yenilemek için Azure portalda aşağıdaki adımları gerçekleşt
 Hata varsa bir uyarı görüntülenir. Uyarıda sorunun nedeni ve düzeltme adımları yer alır. Uyarıda ayrıca güncelleştirme veya silme işleminin başarısız olduğu dosyalar da dahil olmak üzere hatanın ayrıntılı bir özetinin yer aldığı bir dosyaya bağlantı da verilir.
 
 >[!IMPORTANT]
-> Bu önizleme sürümünde aynı anda birden fazla paylaşımı yenilemeniz önerilmez.
+> Bu sürümde, aynı anda birden çok tek bir paylaşım yenilenmez.
 
 ## <a name="sync-storage-keys"></a>Depolama anahtarlarını eşitleme
 

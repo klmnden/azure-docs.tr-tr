@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: bcc09095955a28bde3ed999f23180e08485543fc
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: c27856da0a5131f2c0e8dfd4d929b577a0a68421
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57993996"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520152"
 ---
 # <a name="sql-data-warehouse-workload-classification-preview"></a>SQL veri ambarı iş yükü sınıflandırma (Önizleme)
 
@@ -33,6 +33,8 @@ Bu makalede, gelen istekleri kaynak sınıfı ve önemi atamak SQL veri ambarı 
 Veri ambarı iş yükleriniz sınıflandırmak için birçok yolu olsa da, basit ve en yaygın yükleme ve sorgu sınıflandırılmasıdır. INSERT, update ve delete deyimleri ile veri yükleme.  Verileri seçer kullanarak sorgulayın. Veri depolama çözümü, genellikle daha fazla kaynak ile daha yüksek bir kaynak sınıfı atamak gibi yük etkinliği için bir iş yükü İlkesi gerekir. Etkinlikleri yüklenemiyor kıyasla daha düşük önem gibi bir sorgu için farklı iş yükü ilke uygulayabilirsiniz.
 
 Ayrıca, yükleme ve sorgu iş yüklerinizi subclassify. Subclassification iş yüklerinizi daha fazla denetim verir. Örneğin, sorgu iş yükleri küpün yenileme, Pano sorguları veya geçici sorgular oluşabilir. Her biri farklı kaynak sınıfları veya önem ayarı olan bu sorgu iş yükleri sınıflandırabilirsiniz. Yük subclassification da yararlanabilirsiniz. Büyük dönüştürmeleri için daha büyük kaynak sınıfları atanabilir. Yüksek önem derecesi, hava durumu verileri önce yükleyici veya sosyal veri akışı anahtar satış verilerini sağlamak için kullanılabilir.
+
+Tüm ifadeler, bunlar kaynakları gerektirmez veya önem yürütme etkilemek için gereken şekilde sınıflandırılır.  DBCC komutları, başlangıç, işleme ve ROLLBACK TRANSACTION deyimlerini yok olarak sınıflandırılır.
 
 ## <a name="classification-process"></a>Sınıflandırma işlemi
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics olayları için IIS ve tablo depolama için BLOB Depolama kullanma | Microsoft Docs
-description: Log Analytics, tablo depolama için tanılama yazma Azure Hizmetleri için günlükleri veya BLOB depolamaya yazılan IIS günlüklerini okuyabilir.
+title: Azure İzleyicisi'nde olayları için IIS ve tablo depolama için BLOB Depolama kullanma | Microsoft Docs
+description: Azure İzleyici, tablo depolama için tanılama yazma Azure Hizmetleri için günlükleri veya BLOB depolamaya yazılan IIS günlüklerini okuyabilir.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,28 +13,28 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 9f5948887262ae190547c96aa09318a19f64812e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 35befe7122f493998d0d91c2721e6013e057fed3
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306638"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540610"
 ---
-# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Log Analytics ile olayları için IIS ve Azure tablo depolama için Azure blob depolama kullanma
+# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>Azure İzleyici'olan olaylar için IIS ve Azure tablo depolama için Azure blob depolama kullanma
 
-Log Analytics için tanılama tablo depolamaya yazma aşağıdaki hizmetleri günlükleri veya BLOB depolamaya yazılan IIS günlükler okuyabilirsiniz:
+Azure İzleyici, tablo depolama için tanılama yazma aşağıdaki hizmetlerin günlükleri veya BLOB depolamaya yazılan IIS günlükler okuyabilirsiniz:
 
 * Service Fabric kümeleri (Önizleme)
 * Virtual Machines
 * Web/çalışan rolleri
 
-Azure tanılama log Analytics bu kaynaklar için veri toplayabilmek için önce etkinleştirilmesi gerekir.
+Azure Tanılama'yı Azure İzleyici, bu kaynaklar için bir Log Analytics çalışma alanına veri toplayabilmek için önce etkinleştirilmesi gerekir.
 
-Tanılama etkinleştirildikten sonra PowerShell, Log Analytics, günlükleri toplamak için yapılandırma ya da Azure portalını kullanabilirsiniz.
+Tanılama etkinleştirildikten sonra Azure portalını kullanabilirsiniz veya PowerShell günlükleri toplamak için çalışma alanı yapılandırın.
 
-Azure Tanılama, bir çalışan rolü, web rolü veya sanal makine Azure'da çalışan Tanılama verileri toplamanızı sağlayan Azure bir uzantısıdır. Veriler bir Azure depolama hesabında depolanır ve Log Analytics tarafından toplanabilir.
+Azure Tanılama, bir çalışan rolü, web rolü veya sanal makine Azure'da çalışan Tanılama verileri toplamanızı sağlayan Azure bir uzantısıdır. Veriler bir Azure depolama hesabında depolanır ve Azure İzleyici tarafından toplanabilir.
 
-Log Analytics'ın bu Azure tanılama günlükleri toplamak günlükleri şu konumlarda olmalıdır:
+Azure İzleyici'nın bu Azure tanılama günlükleri toplamak günlükleri şu konumlarda olmalıdır:
 
 | Günlük türü | Kaynak Türü | Konum |
 | --- | --- | --- |
@@ -116,10 +116,10 @@ ConfigurationSettings aşağıdaki örnekteki gibi bir depolama hesabı belirtti
 
 **AccountName** ve **AccountKey** değerleri, Azure portalında depolama hesabı Panosu, erişim tuşlarını Yönet altında bulunur. Protokolü için bağlantı dizesi olmalıdır **https**.
 
-Bulut hizmetinize güncelleştirilen Tanılama yapılandırmasını uygulanır ve Azure depolama için tanılama yazıyor sonra ardından Log Analytics yapılandırmaya hazır olursunuz.
+Güncelleştirilen Tanılama yapılandırmasını bulut hizmetinize uygulanır ve Azure depolama için tanılama yazıyor sonra ardından Log Analytics çalışma alanı yapılandırmaya hazır olursunuz.
 
 ## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>Azure Depolama'dan günlükleri toplamak için Azure portalını kullanma
-Aşağıdaki Azure Hizmetleri için günlükleri toplamak için Log Analytics'i yapılandırmak için Azure portalını kullanabilirsiniz:
+Azure İzleyici, aşağıdaki Azure Hizmetleri için günlükleri toplamak için bir Log Analytics çalışma alanı yapılandırmak için Azure portalını kullanabilirsiniz:
 
 * Service Fabric kümeleri
 * Virtual Machines
@@ -136,9 +136,9 @@ Azure portalında Log Analytics çalışma alanınıza gidin ve aşağıdaki gö
 5. Kaynak değeri veri türüne göre otomatik olarak doldurulur ve değiştirilemez
 6. Yapılandırmayı kaydetmek için Tamam'a tıklayın
 
-Ek depolama hesapları ve Log Analytics, toplamak istediğiniz veri türleri için 2-6 adımlarını yineleyin.
+Ek depolama hesapları ve çalışma alanınıza toplamak istediğiniz veri türleri için 2-6 adımlarını yineleyin.
 
-Yaklaşık 30 dakika içerisinde Log analytics'te depolama hesabına ait verileri görebildiğine olursunuz. Yalnızca yapılandırma uygulandıktan sonra depolama alanına yazılan verileri görürsünüz. Log Analytics depolama hesabından önceden var olan verilere okumaz.
+Yaklaşık 30 dakika içerisinde Log Analytics çalışma alanındaki depolama hesabına ait verileri görebildiğine olursunuz. Yalnızca yapılandırma uygulandıktan sonra depolama alanına yazılan verileri görürsünüz. Çalışma alanı, önceden mevcut olan verileri depolama hesabından okumaz.
 
 > [!NOTE]
 > Portal, kaynak depolama hesabında mevcut veya yeni veriler yazılır doğrulamaz.
@@ -149,7 +149,7 @@ Yaklaşık 30 dakika içerisinde Log analytics'te depolama hesabına ait veriler
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-İçindeki adımları kullanın [Azure tanılama dizin için Log Analytics'i yapılandırma](../../azure-monitor/platform/powershell-workspace-configuration.md#configuring-log-analytics-to-collect-azure-diagnostics-from-storage) tablo Depolama'ya yazılan Azure tanılama verilerini okumak üzere PowerShell kullanma.
+İçindeki adımları kullanın [Azure tanılama dizini oluşturmak için Azure İzleyici yapılandırma](powershell-workspace-configuration.md#configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage) tablo Depolama'ya yazılan Azure tanılama verilerini okumak üzere PowerShell kullanma.
 
 Azure PowerShell kullanarak Azure Depolama'ya yazılan olayları daha kesin olarak belirtebilirsiniz.
 Daha fazla bilgi için [Azure sanal Makineler'de tanılamayı etkinleştirme](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).

@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/21/2019
+ms.date: 03/26/2019
 ms.author: monhaber
-ms.openlocfilehash: cbda94b8ceeaf7a225117e1ca73445135a32a243
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c4b2ed1269ef669def2b6f2036d34a40fb181c5d
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089004"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517989"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki uyarlamalı uygulama denetimleri
 Bu kılavuzu kullanarak Azure Güvenlik Merkezi'ndeki uygulama denetimi özelliklerini yapılandırmayı öğrenebilirsiniz.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Güvenlik Merkezi'ndeki uyarlamalı uygulama denetimleri nelerdir?
-Uyarlamalı uygulama denetimlerini, Azure Güvenlik Merkezi'nden bir akıllı, otomatik uçtan uca uygulama beyaz listeye ekleme çözümüdür. Vm'lerinizi diğer avantajlar arasında sanal makinelerinizi kötü amaçlı yazılımlara karşı sağlamlaştırma yardımcı olan Azure bulunan hangi uygulamaların çalıştırabilirsiniz denetlemenize yardımcı olur. Güvenlik Merkezi, sanal makinelerinizde çalışan uygulamaları analiz için makine öğrenimini kullanıyor ve bu bilgileri kullanarak belirli bir beyaz listeye ekleme kuralları uygulamanıza yardımcı olur. Bu özellik, yapılandırma ve uygulama beyaz listeye ekleme ilkeleri olanak tanıyarak, bakımını yapma işlemini büyük ölçüde kolaylaştırır:
+Uyarlamalı uygulama denetimlerini, Azure Güvenlik Merkezi'nden bir akıllı, otomatik uçtan uca uygulama beyaz listeye ekleme çözümüdür. Denetim hangi uygulamaları, Azure üzerinde çalıştırabilir ve olmayan Azure Vm'lerinizi kötü amaçlı yazılımlara karşı sağlamlaştırma diğer yararları arasında yardımcı olan VM'lerin (Windows ve Linux) yardımcı olur. Güvenlik Merkezi, sanal makinelerinizde çalışan uygulamaları analiz için makine öğrenimini kullanıyor ve bu bilgileri kullanarak belirli bir beyaz listeye ekleme kuralları uygulamanıza yardımcı olur. Bu özellik, yapılandırma ve uygulama beyaz listeye ekleme ilkeleri olanak tanıyarak, bakımını yapma işlemini büyük ölçüde kolaylaştırır:
 
 - Blok veya kötü amaçlı yazılımdan koruma çözümleri tarafından aksi halde eksik, da dahil olmak üzere kötü amaçlı uygulamaların çalıştırma girişimlerini uyarı.
 - Kuruluşunuzun yalnızca lisanslı yazılım kullanımını gerektiren kuruluş güvenlik ilkelerine uygun hareket etme.
@@ -34,8 +34,11 @@ Uyarlamalı uygulama denetimlerini, Azure Güvenlik Merkezi'nden bir akıllı, o
 - Kuruluşunuzda kullanılmasına izin verilmeyen belirli yazılım araçlarını engelleme.
 - BT ekibinin uygulama üzerinden gizli verilere erişimi denetlemesini mümkün kılma.
 
+> [!NOTE]
+> Azure olmayan ve Linux Vm'leri için Uyarlamalı uygulama denetimleri yalnızca denetim modunda desteklenir.
+
 ## <a name="how-to-enable-adaptive-application-controls"></a>Uyarlamalı uygulama denetimleri nasıl etkinleştirilir?
-Uyarlamalı uygulama denetimleri, bir dizi yapılandırılan VM grupları üzerinde çalışmasına izin verilen uygulamalar tanımlamanıza yardımcı olur. Bu özellik yalnızca Windows makinelerde kullanılabilir (tüm sürümler, klasik veya Azure Resource Manager). Güvenlik Merkezi'nde uygulama beyaz listesini yapılandırmak için aşağıdaki adımları kullanabilirsiniz:
+Uyarlamalı uygulama denetimleri, bir dizi yapılandırılan VM grupları üzerinde çalışmasına izin verilen uygulamalar tanımlamanıza yardımcı olur. Bu özellik, hem Azure olmayan - Azure Windows (tüm sürümler, Klasik veya Azure Resource Manager) ve Linux sanal makineleri ve sunucular için kullanılabilir. Güvenlik Merkezi'nde uygulama beyaz listesini yapılandırmak için aşağıdaki adımları kullanabilirsiniz:
 
 1. **Güvenlik Merkezi** panosunu açın.
 2. Sol bölmeden **Gelişmiş bulut savunması** altında bulunan **Uyarlamalı uygulama denetimlerini** seçin.
@@ -64,10 +67,10 @@ Uyarlamalı uygulama denetimleri, bir dizi yapılandırılan VM grupları üzeri
 
    Liste aşağıdakileri içerir:
 
-   - **AD**: Aboneliğin ve grubun adı
-   - **VM'ler**: Grup içindeki sanal makine sayısı
+   - **Grup adı**: Aboneliğin ve grubun adı
+   - **VM'ler ve bilgisayarlar**: Grubu içindeki sanal makine sayısı
    - **Durum**: önerilerin durumu
-   - **ÖNEM DERECESİ**: Önerilerin önem derecesi
+   - **Önem derecesi**: önerilerin önem derecesi
 
 2. Açmak için bir grubu tıklatın **uygulama denetimi kuralları oluştur** seçeneği.
 
@@ -102,8 +105,8 @@ Uyarlamalı uygulama denetimleri, bir dizi yapılandırılan VM grupları üzeri
 
    Liste aşağıdakileri içerir:
 
-   - **Ad**: aboneliğin ve grubun adı
-   - **VM'ler**: Grup içindeki sanal makine sayısı
+   - **Grup adı**: aboneliğin ve grubun adı
+   - **VM'ler ve bilgisayarlar**: grubu içindeki sanal makine sayısı
    - **Modu**: Denetim modu alınmamış uygulamaların çalıştırma girişimlerini günlüğe kaydeder; Zorunlu alınmamış uygulamaların çalışmasına izin verme
    - **Uyarılar**: herhangi bir geçerli ihlal
 
@@ -146,14 +149,14 @@ Güvenlik Merkezi, yalnızca uygulama beyaz listeye ekleme ilkeleri kararlı bir
 ![Öneri](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
 
 Liste aşağıdakileri içerir:
-- **AD**: Aboneliğin ve grubun adı
-- **VM'ler**: Grup içindeki sanal makine sayısı
+- **Grup adı**: aboneliğin ve grubun adı
+- **VM'ler ve bilgisayarlar**: grubu içindeki sanal makine sayısı
 
 Azure Güvenlik Merkezi uygulama beyaz listeye ekleme ilkesi olmayan önerilen VM grupları üzerinde de tanımlamanızı sağlar. Daha önce bu gruplara göre bir uygulama beyaz listeye ekleme İlkesi yapılandırmak için açıklanan aynı ilkeler izleyin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu belgede, Azure Güvenlik Merkezi'ndeki uyarlamalı uygulama denetimlerini kullanarak Azure VM'lerinde çalışan uygulamaları beyaz listeye eklemeyi öğrendiniz. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
+Bu belgede, Azure ve Azure Vm'lerinde çalışan uygulamaları beyaz listeye için Azure Güvenlik Merkezi'ndeki Uyarlamalı uygulama denetimlerini kullanmak öğrendiniz. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve ele alma](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Güvenlik Merkezi’nde uyarıları yönetme ve güvenlik olaylarına yanıt vermeyi öğrenin.
 * [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md). Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.

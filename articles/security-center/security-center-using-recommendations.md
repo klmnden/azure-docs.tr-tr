@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/24/2019
+ms.date: 3/26/2019
 ms.author: monhaber
-ms.openlocfilehash: 8c8108697e39153aef8727942c166a741cb8398c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 82a46ae9523c4c2778f86c445e35d0bec961307f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402771"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517700"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Güvenliği artırmak için Azure Güvenlik Merkezi'ni kullanarak önerileri
 Güvenlik İlkesi yapılandırma ve sonra Azure Güvenlik Merkezi tarafından sağlanan öneriler uygulayarak bir önemli güvenlik olayı olasılığını azaltabilirsiniz. Bu makalede güvenlik ilkeleri ve öneriler Güvenlik Merkezi'nde güvenlik saldırısını önlemeye yardımcı olmak için nasıl kullanılacağını gösterir. 
 
-Güvenlik Merkezi, Azure kaynaklarınızın güvenlik durumunu analiz etmek için sürekli taramaları otomatik olarak çalıştırılır. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli güvenlik denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur. Güvenlik Merkezi önerileri 24 saatte bir kez güncelleştirir.
+Güvenlik Merkezi, Azure kaynaklarınızın güvenlik durumunu analiz etmek için sürekli taramaları otomatik olarak çalıştırılır. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli güvenlik denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur. Güvenlik Merkezi önerilerini, aşağıdaki istisnalarla birlikte 24 saat içinde güncelleştirir:
+
+- İşletim sistemi güvenlik yapılandırması önerileri 48 saat içinde güncelleştirilir.
+- Endpoint Protection sorunlarını önerileri 8 saat içinde güncelleştirilir.
 
 ## <a name="scenario"></a>Senaryo
 Bu senaryo izleme Güvenlik Merkezi önerileri ve eylemi gerçekleştirmeden bir güvenlik olayı olasılığını azaltmaya yardımcı olmak için Güvenlik Merkezi'ni kullanmayı gösterir. Senaryo adlı kurgusal şirketin, Contoso ve Güvenlik Merkezi tarafından sunulan rollerini kullanır [planlama ve işlemler Kılavuzu](security-center-planning-and-operations-guide.md#security-roles-and-access-controls). Bu senaryoda, biz aşağıdaki kişilerin rollerine odaklandığınız:

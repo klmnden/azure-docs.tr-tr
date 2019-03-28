@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: f350d0ae6602fb393da3ddc350f33ec89e86078e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: c98136e2f45965834fa1c538a5929eee14b24466
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369055"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521593"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Bir olayı kuralı oluşturun ve Azure IOT Central uygulamanızdaki bildirimleri ayarlama
 
@@ -113,4 +113,5 @@ Azure IOT Central uygulamanızda kuralları oluşturulacağını öğrendiniz, b
 
 - [Microsoft Flow eylem kurallarında Ekle](howto-add-microsoft-flow.md)
 - [Web kancası eylem kurallarında Ekle](howto-create-webhooks.md)
+- [Bir veya daha fazla kurallardan çalıştırmak için birden fazla eylem grubu](howto-use-action-groups.md)
 - [Cihazlarınızı yönetme](howto-manage-devices.md)

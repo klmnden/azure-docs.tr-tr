@@ -1,21 +1,19 @@
 ---
 title: Azure Power BI çalışma alanı koleksiyonları'nda bir rapor ekleme | Microsoft Docs
 description: Uygulamanıza Power BI çalışma alanı koleksiyonları'nda olan bir raporu katıştırma hakkında bilgi edinin.
-services: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
 author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: ''
-ms.service: power-bi-embedded
+ms.author: maghan
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-ms.openlocfilehash: ecf73b08755f548c5506888a8113ad53fd8987ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bdfaaf3ecd5beb7cea56f017006921a86ecfb3f6
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877981"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519270"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Power BI çalışma alanı koleksiyonları'nda bir rapor ekleme
 

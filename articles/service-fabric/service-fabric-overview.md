@@ -15,18 +15,21 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: 8f2a3536b7d1b02f124b3116c96ce442383a6b3b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 4e686d314c1b6550c2c782e9a1e1dc681ff154e1
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294442"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539692"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric'e genel bakış
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur. Service Fabric ayrıca bulut yerel uygulamalarını geliştirme ve yönetme sürecinde karşılaşılan başlıca sorunların giderilmesini de sağlar. Geliştiriciler ve yöneticiler, karmaşık altyapı sorunlarını çözmeye çalışmak yerine görev açısından kritik, zorlu iş yüklerini uygulamaya odaklanabilir. Service Fabric, bu iş yüklerinin ölçeklenebilir, güvenilir ve yönetilebilir olmasını sağlar. Service Fabric, kapsayıcılarda çalıştırılan 1. katman bulut ölçeğindeki bu kurumsal sınıf uygulamaları oluşturmak ve yönetmek için tasarlanan yeni nesil bir platformdur.
 
 Bu kısa videoda Service Fabric ve mikro hizmetler tanıtılır:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
+
+## <a name="compliance"></a>Uyumluluk
+Azure Service Fabric kaynak sağlayıcısı, tüm Azure bölgelerinde kullanılabilir durumdadır ve Azure olan tüm uyumluluk sertifikaları ile uyumludur; Buna aşağıdakiler dahildir: SOC ve ISO, PCI DSS, HIPPA ve GDRP. Lütfen uyumluluk sertifikaları tam listesi için aşağıdakileri inceleyin: [Uyumluluk teklifi](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## <a name="applications-composed-of-microservices"></a>Mikro hizmetlerden oluşturulmuş uygulamalar 
 Service Fabric, makinenin küme olarak adlandırılan bir paylaşılan havuzunda yüksek yoğunlukta çalışan mikro hizmetlerden oluşturulmuş, ölçeklendirilebilir ve güvenilir uygulamalar oluşturmanıza ve bunları yönetmenize olanak tanır. Dağıtılmış, ölçeklendirilebilir, durum bilgisi olmayan, durum bilgisi olan ve kapsayıcılarda çalıştırılan mikro hizmetler oluşturmak için gelişmiş, basit bir çalışma zamanı sağlar. Ayrıca, kapsayıcılı hizmetler de dahil olmak üzere dağıtılan uygulamaları sağlamak, dağıtmak, izlemek, yükseltmek/yama uygulamak ve silmek için kapsamlı uygulama yönetim özellikleri de sağlar.

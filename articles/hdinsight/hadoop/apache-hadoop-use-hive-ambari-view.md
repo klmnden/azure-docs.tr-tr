@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92c09e7defe159818b22bc8275d011d05512aa66
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 978b865f6dd7e3427a0139e7e71ed4b2d937fbe5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446571"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517309"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>HDInsight, Apache Hadoop ile Apache Ambari Hive görünümünü kullanırsınız.
 
@@ -24,22 +24,14 @@ Apache Ambari Hive görünümünü kullanarak Hive sorguları çalıştırmayı 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir Linux tabanlı Apache Hadoop üzerine HDInsight kümesi sürüm 3.4.
-
-  > [!IMPORTANT]  
-  > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
+* HDInsight Hadoop kümesinde. Bkz: [Linux'ta HDInsight kullanmaya başlama](./apache-hadoop-linux-tutorial-get-started.md).
 * Bir web tarayıcısı
 
 ## <a name="run-a-hive-query"></a>Hive sorgusu çalıştırma
 
-1. [Azure portalı](https://portal.azure.com) açın.
+1. Gelen [Azure portalında](https://portal.azure.com/), kümenizi seçin.  Bkz: [kümeleri Listele ve Göster](../hdinsight-administer-use-portal-linux.md#showClusters) yönergeler için. Kümeye yeni bir portal dikey penceresinde açılır.
 
-2. HDInsight kümenizi seçin ve ardından **Ambari görünümleri** gelen **hızlı bağlantılar** bölümü.
-
-    ![Portalın Hızlı Bağlantılar bölümüne](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
-
-    Kimlik doğrulaması için istendiğinde, küme oturum açma bilgilerini kullanacak (varsayılan `admin`) hesap adı ve kümeyi oluştururken belirttiğiniz parola.
+2. Gelen **küme panoları**seçin **Ambari görünümlerini**. Kimlik doğrulaması için istendiğinde, küme oturum açma bilgilerini kullanacak (varsayılan `admin`) hesap adı ve kümeyi oluştururken belirttiğiniz parola.
 
 3. Görünümler listesinden seçin __Hive görünümü__.
 
@@ -81,30 +73,30 @@ Apache Ambari Hive görünümünü kullanarak Hive sorguları çalıştırmayı 
 
    * `SELECT`: Burada ' % s'değeri [Hata] sütunu t4 içeren tüm satırların sayımını seçer.
 
-     > [!IMPORTANT]  
-     > Bırakın __veritabanı__ seçimde __varsayılan__. Bu belgedeki örneklerde, HDInsight ile dahil varsayılan veritabanı kullanın.
+   > [!IMPORTANT]  
+   > Bırakın __veritabanı__ seçimde __varsayılan__. Bu belgedeki örneklerde, HDInsight ile dahil varsayılan veritabanı kullanın.
 
-5. Sorgu başlatmak için **yürütme** düğmesinin altında çalışma sayfası. Düğme turuncu olur ve metin değişikliklerini **Durdur**.
+5. Sorgu başlatmak için **yürütme** çalışma aşağıda. Düğme turuncu olur ve metin değişikliklerini **Durdur**.
 
 6. Sorgu tamamlandıktan sonra **sonuçları** sekmesinde işlemin sonuçları görüntülenir. Sorgu sonucu aşağıda gösterilmiştir:
 
         loglevel       count
         [ERROR]        3
 
-    Kullanabileceğiniz **günlükleri** iş oluşturulan günlük bilgilerini görüntülemek için sekmesinde.
+    Kullanabileceğiniz **günlük** iş oluşturulan günlük bilgilerini görüntülemek için sekmesinde.
 
    > [!TIP]  
-   > İndirme veya sonuçlarını kaydetmek **sonuçlarını kaydetmek** üst kısımdaki açılan iletişim kutusunda sol üst **sorgu işleminin sonuçları** bölümü.
+   > İndirme veya sonuçlarını kaydetmek **eylemleri** altındaki aşağı açılan iletişim kutusunda **sonuçları** sekmesi.
 
 ### <a name="visual-explain"></a>Visual açıklayın
 
 Bir sorgu planı görselleştirmesini görüntülemek için seçin **Visual açıklayan** sekmesi altında çalışma sayfası.
 
-**Visual açıklayan** sorgu görünümü karmaşık sorgular akışını anlamak yararlı olabilir. Bu görünüm bir metinsel eşdeğerini kullanarak görebilirsiniz **açıklama** sorgu Düzenleyicisi'nde düğmesi.
+**Visual açıklayan** sorgu görünümü karmaşık sorgular akışını anlamak yararlı olabilir.
 
 ### <a name="tez-ui"></a>Tez UI
 
-Tez kullanıcı Arabirimi için sorguyu görüntülemek için seçin **Tez** sekmesi altında çalışma sayfası.
+Tez kullanıcı Arabirimi için sorguyu görüntülemek için seçin **Tez kullanıcı Arabirimi** sekmesi altında çalışma sayfası.
 
 > [!IMPORTANT]  
 > Tez tüm sorguları çözümlemek için kullanılmaz. Çok sayıda sorgu Tez kullanmadan çözebilirsiniz. 

@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 03/25/2019
 ms.author: jingwang
-ms.openlocfilehash: f27e7eba11dd98bc30f4f1b5d796488d3973f64a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: d589714be387bdff14d76ccd9417123295a62770
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405632"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522018"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Lake depolama Gen2'ye gelen veya veri kopyalama kullanarak Azure Data Factory
 
@@ -104,10 +104,10 @@ Hizmet sorumlusu kimlik doğrulaması kullanmak için aşağıdaki adımları iz
     - **Havuz olarak**, Depolama Gezgini içinde en az izni **yazma + yürütme** klasörde alt öğeler oluşturmak için izni. Alternatif olarak, erişim denetimi (IAM), en az izni **depolama Blob verileri katkıda bulunan** rol.
 
 >[!NOTE]
->Listeye klasör, kökten başlayarak izni için izin verilen hizmet sorumlusunun ayarlamanız gerekir. **"Yürütme" iznine sahip kök düzeyinde** veya IAM izni. Kullandığınızda, bu durum geçerlidir:
+>Listeye hesabı düzeyinden başlayan klasör, izni için izin verilen hizmet sorumlusunun ayarlamanız gerekir. **"Yürütme" iznine sahip depolama hesabı** veya IAM izni. Kullandığınızda, bu durum geçerlidir:
 >- **Kopyalama aracı veri** Yazar kopyalama işlem hattını için.
 >- **Data Factory kullanıcı arabirimini** bağlantı ve geliştirme sırasında klasörleri gezinme test etmek için. 
->Kök düzeyinde izin verme üzerinde kaygısı varsa, bağlantıyı test et ve Giriş yolu el ile yazma sırasında atlayabilirsiniz. Hizmet sorumlusu kopyalanacak uygun ile dosyalarını izni sürece kopyalama etkinliği çalışmaya devam eder.
+>Hesap düzeyinde izin verme üzerinde kaygısı varsa, bağlantıyı test et ve Giriş yolu el ile yazma sırasında atlayabilirsiniz. Hizmet sorumlusu kopyalanacak uygun ile dosyalarını izni sürece kopyalama etkinliği çalışmaya devam eder.
 
 Bu özellikleri bağlı hizmetinde desteklenir:
 
@@ -158,10 +158,10 @@ Azure kaynakları ile kimlik doğrulaması için yönetilen kimlikleri kullanmak
     - **Havuz olarak**, Depolama Gezgini içinde en az izni **yazma + yürütme** klasörde alt öğeler oluşturmak için izni. Alternatif olarak, erişim denetimi (IAM), en az izni **depolama Blob verileri katkıda bulunan** rol.
 
 >[!NOTE]
->Listeye klasör, kökten başlayarak izni için izin verilen yönetilen kimlik ayarlamanız gerekir. **"Yürütme" iznine sahip kök düzeyinde** veya IAM izni. Kullandığınızda, bu durum geçerlidir:
+>Listeye hesabı düzeyinden başlayan klasör, izni için izin verilen yönetilen kimlik ayarlamanız gerekir. **"Yürütme" iznine sahip depolama hesabı** veya IAM izni. Kullandığınızda, bu durum geçerlidir:
 >- **Kopyalama aracı veri** Yazar kopyalama işlem hattını için.
 >- **Data Factory kullanıcı arabirimini** bağlantı ve geliştirme sırasında klasörleri gezinme test etmek için. 
->Kök düzeyinde izin verme üzerinde kaygısı varsa, bağlantıyı test et ve Giriş yolu el ile yazma sırasında atlayabilirsiniz. Yönetilen kimlik kopyalanacak uygun ile dosyalarını izni sürece kopyalama etkinliği çalışmaya devam eder.
+>Hesap düzeyinde izin verme üzerinde kaygısı varsa, bağlantıyı test et ve Giriş yolu el ile yazma sırasında atlayabilirsiniz. Yönetilen kimlik kopyalanacak uygun ile dosyalarını izni sürece kopyalama etkinliği çalışmaya devam eder.
 
 Bu özellikleri bağlı hizmetinde desteklenir:
 
@@ -196,7 +196,7 @@ Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Dataset öğesinin type özelliği ayarlanmalıdır **AzureBlobFSFile**. |Evet |
-| folderPath | Data Lake depolama Gen2'ye klasöründe yolu. Belirtilmezse, kök dizinine işaret eder. <br/><br/>Joker karakter filtresi desteklenir, joker karakterlere izin şunlardır: `*` (sıfır veya daha fazla karakter ile eşleşir) ve `?` (eşleşen sıfır ya da tek bir karakter); kullanmak `^` joker karakter veya içinde bu kaçış karakteri, gerçek bir klasör adı varsa, kaçış için. <br/><br/>Örnekler: rootfolder/alt/daha fazla örneklere bakın [klasör ve dosya filtreleme örnekler](#folder-and-file-filter-examples). |Hayır |
+| folderPath | Data Lake depolama Gen2'ye klasöründe yolu. Belirtilmezse, kök dizinine işaret eder. <br/><br/>Joker karakter filtresi desteklenir, joker karakterlere izin şunlardır: `*` (sıfır veya daha fazla karakter ile eşleşir) ve `?` (eşleşen sıfır ya da tek bir karakter); kullanmak `^` joker karakter veya içinde bu kaçış karakteri, gerçek bir klasör adı varsa, kaçış için. <br/><br/>Örnekler: dosya/klasör/daha fazla örneklere bakın [klasör ve dosya filtreleme örnekler](#folder-and-file-filter-examples). |Hayır |
 | fileName | **Adı veya joker karakter filtresi** belirtilen "folderPath" altında dosyaları için. Bu özellik için bir değer belirtmezseniz, klasördeki tüm dosyaları için veri kümesini işaret eder. <br/><br/>Filtre için joker karakterlere izin verilir: `*` (sıfır veya daha fazla karakter ile eşleşir) ve `?` (eşleşen sıfır ya da tek bir karakter).<br/>-Örnek 1: `"fileName": "*.csv"`<br/>-Örnek 2: `"fileName": "???20180427.txt"`<br/>Kullanım `^` joker karakter veya içinde bu kaçış karakteri, gerçek dosya adı varsa, kaçış için.<br/><br/>Dosya adı değil belirtildiği zaman için bir çıktı veri kümesi ve **preserveHierarchy** belirtilmediyse etkinliği havuz kopyalama etkinliği, dosya adı şu deseni ile otomatik olarak oluşturur: "*Veri. [etkinlik çalıştırma kimliği GUID]. [GUID, FlattenHierarchy]. [biçim] yapılandırılmışsa. [yapılandırdıysanız sıkıştırma]* ", örneğin "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; Tablo adı yerine sorgu kullanarak tablo kaynağından kopyalarsanız, adı desendir "*[tablo adı]. [ Biçim]. [yapılandırdıysanız sıkıştırma]* ", örneğin "MyTable.csv". |Hayır |
 | modifiedDatetimeStart | Dosya Filtresi özniteliğine dayanarak: Son değiştirme. Kendi son değiştirilme zamanı zaman aralığı içinde olduğunda dosyaları seçilir `modifiedDatetimeStart` ve `modifiedDatetimeEnd`. Zaman biçimi UTC saat diliminde uygulanan "2018-12-01T05:00:00Z". <br/><br/> Özellikler, hiçbir dosya öznitelik filtresi, veri kümesine uygulanacak anlamına NULL olabilir.  Zaman `modifiedDatetimeStart` datetime değerine sahip ancak `modifiedDatetimeEnd` NULL olduğu için daha büyük olan son değiştirilen özniteliği dosyaları geldiğini veya tarih saat değeri ile eşit seçilir.  Zaman `modifiedDatetimeEnd` datetime değerine sahip ancak `modifiedDatetimeStart` NULL ise, son değiştirilen özniteliği, tarih saat değeri seçilir daha az dosya anlamına gelir.| Hayır |
 | modifiedDatetimeEnd | Dosya Filtresi özniteliğine dayanarak: Son değiştirme. Kendi son değiştirilme zamanı zaman aralığı içinde olduğunda dosyaları seçilir `modifiedDatetimeStart` ve `modifiedDatetimeEnd`. Zaman biçimi UTC saat diliminde uygulanan "2018-12-01T05:00:00Z". <br/><br/> Özellikler, hiçbir dosya öznitelik filtresi, veri kümesine uygulanacak anlamına NULL olabilir.  Zaman `modifiedDatetimeStart` datetime değerine sahip ancak `modifiedDatetimeEnd` NULL olduğu için daha büyük olan son değiştirilen özniteliği dosyaları geldiğini veya tarih saat değeri ile eşit seçilir.  Zaman `modifiedDatetimeEnd` datetime değerine sahip ancak `modifiedDatetimeStart` NULL ise, son değiştirilen özniteliği, tarih saat değeri seçilir daha az dosya anlamına gelir.| Hayır |

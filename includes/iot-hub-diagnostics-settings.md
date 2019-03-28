@@ -8,14 +8,16 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 6f7772eb7f2c500bbb58c391b1bc4b7a73141699
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: dd5dc53311c8611a4ca4d174401bba797fe5c4b1
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675764"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505916"
 ---
 ### <a name="enable-logging-with-diagnostics-settings"></a>Tanılama ayarları ile günlük kaydını etkinleştirme
+
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 1. Oturum [Azure portalında](https://portal.azure.com) ve IOT hub'ınıza gidin.
 
@@ -56,9 +58,9 @@ ms.locfileid: "56675764"
 PowerShell ile tanılama ayarları etkinleştirmek istiyorsanız, aşağıdaki kodu kullanın:
 
 ```azurepowershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName <subscription that includes your IoT Hub>
-Set-AzureRmDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName <subscription that includes your IoT Hub>
+Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
 Yeni ayarları yaklaşık 10 dakika içinde etkinleşir. Sonra günlükleri yapılandırılmış arşivleme hedef üzerinde görünen **tanılama ayarları** dikey penceresi. Tanılama yapılandırma hakkında daha fazla bilgi için bkz. [toplamak ve azure kaynaklarınızdan günlük verilerini kullanma](../articles/azure-monitor/platform/diagnostic-logs-overview.md).

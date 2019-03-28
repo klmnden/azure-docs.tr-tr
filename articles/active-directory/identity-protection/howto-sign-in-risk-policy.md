@@ -4,7 +4,7 @@ description: Azure AD kimlik koruması oturum açma riski ilkesini yapılandırm
 services: active-directory
 keywords: Azure active directory kimlik koruması, bulut uygulaması bulma, yönetme, uygulamaları, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: markvi
-ms.reviewer: raluthra
+ms.author: joflore
+ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da3f03cfcf821fa093e9f21cf9a11a2d99d67683
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fe9e0a4d481ef7b802c50fdc347872e389fa8ef7
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999031"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518057"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Nasıl Yapılır: Oturum açma risk ilkesini yapılandırma
 

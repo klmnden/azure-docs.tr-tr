@@ -4,14 +4,14 @@ description: Azure Cosmos kapsayıcılarınızdaki ve veritabanları için sağl
 author: aliuy
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 03/19/2019
 ms.author: andrl
-ms.openlocfilehash: 439b48c271260e9744bb9c9ca0e2b21e61cf4687
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8335a235de708227136400f3af8fa7b4d0a52e29
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005072"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520913"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Kapsayıcı ve veritabanlarına aktarım hızı sağlama
 
@@ -75,6 +75,20 @@ Aşağıdaki resimde, bir veritabanı içinde farklı kapsayıcılar ait bir vey
 * Açıkça sağlanan aktarım hızının ru "P" b adlı kapsayıcıdaki yapılandırabilirsiniz
 * "K" RU aktarım hızı dört kapsayıcımız A, C, D ve E. arasında paylaşılır Aktarım hızı miktarda kullanılabilir a, C, D ya da E değişir. Tek tek her kapsayıcının aktarım hızını SLA'sı vardır.
 * B adlı kapsayıcı her zaman "P" RU aktarım hızı alma garanti edilir. Bu SLA'ları tarafından desteklenmektedir.
+
+## <a name="update-throughput-on-a-database-or-a-container"></a>Bir veritabanı veya bir kapsayıcının aktarım hızını güncelleştir
+
+Bir Azure Cosmos kapsayıcısı veya bir veritabanı oluşturduktan sonra sağlanan aktarım hızı güncelleştirebilirsiniz. Veritabanı veya kapsayıcı yapılandırabilirsiniz en fazla sağlanan aktarım hızı sınırı yoktur. En düşük sağlanan aktarım hızı, aşağıdaki etkenlere bağlıdır: 
+
+* Şimdiye kadar kapsayıcıda depoladığınız en yüksek boyut
+* Kapsayıcıdaki her zamankinden sağlama en yüksek aktarım
+* Paylaşılan aktarım hızı olan bir veritabanında oluşturduğunuz Azure Cosmos kapsayıcı sayısı. 
+
+SDK'ları kullanarak program aracılığıyla bir kapsayıcı veya bir veritabanının en düşük aktarım hızı alma veya Azure portalında değerini görüntüleyin. .NET SDK'sı kullanırken [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) yöntemi, sağlanan aktarım hızı değerinde ölçeklendirmenize olanak sağlar. Java SDK'sı kullanırken [RequestOptions.setOfferThroughput](sql-api-java-samples.md#offer-examples) yöntemi, sağlanan aktarım hızı değerinde ölçeklendirmenize olanak sağlar. 
+
+.NET SDK'sı kullanırken [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) yöntemi bir kapsayıcı veya bir veritabanının en düşük aktarım hızı almanızı sağlar. 
+
+Herhangi bir zamanda, bir kapsayıcı veya bir veritabanı sağlanan aktarım hızını ölçeklendirebilirsiniz. Boşta kalma süresi 4 saat sonra ölçek azaltma işlemi çalıştırabilirsiniz. Boşta kalma süresi zaman olarak tanımlanır (içeren ölçek büyütme ve ölçek azaltma) değiştirme işlemlerini bir kapsayıcı veya bir veritabanı teklif yok, dönem. 
 
 ## <a name="comparison-of-models"></a>Modellerin karşılaştırması
 

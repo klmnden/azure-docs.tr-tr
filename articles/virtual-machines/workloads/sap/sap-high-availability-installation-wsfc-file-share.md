@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0192b88525d326840283f79ecea7027516ce8c7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 04490abb8b7f3f4c39e4134a314429e190db5174
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483447"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540797"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Azure üzerinde SAP ASCS/SCS örneği için bir Windows Yük devretme kümesi ve dosya paylaşım SAP NetWeaver-yüksek kullanılabilirlik yükleyin
 
@@ -278,7 +278,7 @@ New-SmbShare -Name saploc -Path c:\usr\sap -FullAccess "BUILTIN\Administrators",
 
 SOFS küme üzerinde aşağıdaki birim ve dosya paylaşımını oluşturun:
 
-* SAP GLOBALHOST dosya C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS\ yapısına SOFS Küme Paylaşılan birimi (CSV)
+* SAP GLOBALHOST dosya `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` SOFS kümesi yapısına paylaşılan birimi (CSV)
 
 * SAPMNT dosya paylaşımı
 
@@ -347,8 +347,8 @@ Aşağıdaki adımları uygulayın:
 ## <a name="move-the-sys-folder-to-the-sofs-cluster"></a>\SYS taşıma\... SOFS kümesine klasörü
 
 Aşağıdaki adımları uygulayın:
-1. SYS klasörünü kopyalayın (örneğin, C:\usr\sap\\<SID>\SYS) SOFS kümesine ASCS/SCS birinden küme düğümleri (örneğin C:\ClusterStorage\Volume1\usr\sap için\\<SID>\SYS).
-2. C:\usr\sap Sil\\<SID>ASCS/SCS her iki küme düğümünün \SYS klasöründen.
+1. SYS klasörünü kopyalayın (örneğin, `C:\usr\sap\<SID>\SYS`) SOFS kümesine ASCS/SCS birinden küme düğümleri (örneğin, `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS`).
+2. Silme `C:\usr\sap\<SID>\SYS` ASCS/SCS küme düğümlerinden iki klasör.
 
 ## <a name="update-the-cluster-security-setting-on-the-sap-ascsscs-cluster"></a>SAP ASCS/SCS kümesinde Küme güvenlik ayarını güncelleştirme
 
@@ -374,7 +374,7 @@ Bir SAP ASCS/SCS küme ağ adı oluşturun (örneğin, **pr1-ascs [10.0.6.7]**) 
 
 ## <a name="update-the-default-and-sap-ascsscs-instance-profile"></a>Varsayılan ve SAP ASCS/SCS örneği profilini güncelleştir
 
-Yeni SAP ASCS/SCS sanal ana bilgisayar adını kullanın ve SAP genel ana bilgisayar adı için varsayılan hem de SAP ASCS/SCS örneği profili güncelleştirme \<SID >_ASCS/SCS\<Nr >_<Host>.
+Yeni SAP ASCS/SCS sanal ana bilgisayar adını kullanın ve SAP genel ana bilgisayar adı için varsayılan hem de SAP ASCS/SCS örneği profili güncelleştirme \<SID >_ASCS/SCS\<Nr >_\<konak >.
 
 
 | Eski değer |  |
@@ -459,7 +459,7 @@ Yeni saprc.dll dosyanın her iki ASCS/SCS küme düğümlerine yüklenir.
 
 Daha fazla bilgi için [SAP notu 1596496 - SAP kaynak türü'nı DLL'ler Küme Kaynak İzleyicisi için güncelleştirme][1596496].
 
-## <a name="create-a-sap-sid-cluster-group-network-name-and-ip"></a>SAP oluşturma <SID> küme grubu, ağ adı ve IP
+## <a name="create-a-sap-sid-cluster-group-network-name-and-ip"></a>SAP oluşturma \<SID > Küme grubu, ağ adı ve IP
 
 SAP oluşturmak için \<SID > Küme grubu, bir ASCS/SCS ağ adı ve karşılık gelen bir IP adresi, aşağıdaki PowerShell cmdlet'ini çalıştırın:
 

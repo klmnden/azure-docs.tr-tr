@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/28/2019
-ms.openlocfilehash: 8dab132cd03b24f4f9e55cb777cc0f984526ba12
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 51398c893f212bc51f3edd20ee4c666d91779352
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243372"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520012"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Hızlı Başlangıç: Bir IOT hub'ına bir CİHAZDAN telemetri gönderme ve arka uç uygulaması ile (Python) okuyun
 
@@ -31,7 +31,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıçta çalıştırdığınız iki örnek uygulama, Python kullanılarak yazılır. Şu anda Python için Microsoft Azure IOT SDK, her platform için Python yalnızca belirli sürümlerini destekler. Daha fazla bilgi için bkz. [Python SDK'sı Benioku](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
+Bu hızlı başlangıçta çalıştırma örnek uygulaması, Python kullanarak yazılır. Şu anda Python için Microsoft Azure IOT SDK, her platform için Python yalnızca belirli sürümlerini destekler. Daha fazla bilgi için bkz. [Python SDK'sı Benioku](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
 
 Bu hızlı başlangıçta, Windows geliştirme makinesi kullandığınızı varsayar. Yalnızca Windows sistemleri için [Python 3.6.x](https://www.python.org/downloads/release/python-368/) desteklenir. Çalıştığınız sistemin mimarisine uygun Python yükleyicisini seçmeniz gerekir. Sisteminiz CPU mimarisi, 32 bit ve ardından indirme x86 yükleyici ise; 64 bit mimari için x86 64 yükleyiciyi indirin. Ayrıca, emin olun [Microsoft Visual C++ yeniden dağıtılabilir için Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) Mimarinizi (x86 veya x64) için yüklenir.
 

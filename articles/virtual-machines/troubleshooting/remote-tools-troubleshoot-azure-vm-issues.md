@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 2126ed2624d735d88d52ddc1ee97bfb970cc8a74
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dc27ea0552c6135d01256586b1746219caac17f1
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119777"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539879"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Azure VM sorunlarını gidermek için Uzak Araçlar kullanın
 
@@ -39,7 +39,7 @@ psexec \\<computer>-u user -s cmd
 
 >[!Note]
 >* Komutu, aynı sanal ağda bulunan bir bilgisayarda çalıştırmanız gerekir.
->* Değiştirilecek DIP veya ana bilgisayar adı kullanılabilir <computer>.
+>* Değiştirilecek DIP veya ana bilgisayar adı kullanılabilir \<bilgisayar >.
 >* -S parametresi komut sistem hesabı (yönetici izni) kullanılarak çağrılır emin olur.
 >* PsExec 135 ve 445 numaralı TCP bağlantı noktalarını kullanır. Bu nedenle, iki bağlantı noktası Güvenlik Duvarı'nı açık olması gerekir.
 

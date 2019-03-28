@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: eaea0719aa8ca981da68841dae365decdd3c860e
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499871"
+ms.locfileid: "58516493"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Özelleştirme Media Encoder Standard hazır ayarları  
 
@@ -267,14 +267,10 @@ namespace CustomizeMESPresests
 ## <a name="see-also"></a>Ayrıca bkz.
 
 - [CLI kullanarak özel bir dönüşüm ile kodlama](../latest/custom-preset-cli-howto.md)
-- [Kodlama ile medya Hizmetleri v3](../latest/encoding-concept.md)
+- [Media Services v3 ile kodlama](../latest/encoding-concept.md)
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
-## <a name="see-also"></a>Ayrıca Bkz.
-[Media Services Encoding genel bakış](media-services-encode-asset.md)
-

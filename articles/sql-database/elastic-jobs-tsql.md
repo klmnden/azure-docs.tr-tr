@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 057f5fcf9f050bdce9efb301db43b909893ade60
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d2b0209f57ff5f59d59ee057db7675b2dcd071b8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769175"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522069"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Elastik veritabanı işleri oluşturmak ve yönetmek için Transact-SQL (T-SQL) kullanın
 
@@ -408,19 +408,19 @@ Aşağıdaki saklı yordamlara bulunan [işleri veritabanı](sql-database-job-au
 
 |Saklı yordam  |Açıklama  |
 |---------|---------|
-|[sp_add_job](#spaddjob)     |     Yeni Proje ekler.    |
-|[sp_update_job](#spupdatejob)    |      Var olan bir işi güncelleştirir.   |
-|[sp_delete_job](#spdeletejob)     |      Var olan bir işi siler.   |
-|[sp_add_jobstep](#spaddjobstep)    |    Bir adım, bir projeye ekler.     |
-|[sp_update_jobstep](#spupdatejobstep)     |     Bir iş adımı güncelleştirir.    |
-|[sp_delete_jobstep](#spdeletejobstep)     |     Bir iş adımı siler.    |
-|[sp_start_job](#spstartjob)    |  Bir işi yürütmeden başlatır.       |
-|[sp_stop_job](#spstopjob)     |     İş yürütmeyi durdurur.   |
-|[sp_add_target_group](#spaddtargetgroup)    |     Bir hedef grubu ekler.    |
-|[sp_delete_target_group](#spdeletetargetgroup)     |    Hedef grubunu siler.     |
-|[sp_add_target_group_member](#spaddtargetgroupmember)     |    Bir veritabanı veya veritabanı grubu için bir hedef grubu ekler.     |
-|[sp_delete_target_group_member](#spdeletetargetgroupmember)     |     Hedef grup üyesi hedef gruptan kaldırır.    |
-|[sp_purge_jobhistory](#sppurgejobhistory)    |    Bir iş geçmişi kayıtları kaldırır.     |
+|sp_add_job     |     Yeni Proje ekler.    |
+|sp_update_job    |      Var olan bir işi güncelleştirir.   |
+|sp_delete_job     |      Var olan bir işi siler.   |
+|sp_add_jobstep    |    Bir adım, bir projeye ekler.     |
+|sp_update_jobstep     |     Bir iş adımı güncelleştirir.    |
+|sp_delete_jobstep     |     Bir iş adımı siler.    |
+|sp_start_job    |  Bir işi yürütmeden başlatır.       |
+|sp_stop_job     |     İş yürütmeyi durdurur.   |
+|sp_add_target_group    |     Bir hedef grubu ekler.    |
+|sp_delete_target_group     |    Hedef grubunu siler.     |
+|sp_add_target_group_member     |    Bir veritabanı veya veritabanı grubu için bir hedef grubu ekler.     |
+|sp_delete_target_group_member     |     Hedef grup üyesi hedef gruptan kaldırır.    |
+|sp_purge_jobhistory    |    Bir iş geçmişi kayıtları kaldırır.     |
 
 
 
@@ -1195,13 +1195,13 @@ Aşağıdaki görünümleri kullanılabilir [işleri veritabanı](sql-database-j
 
 |Görünüm  |Açıklama  |
 |---------|---------|
-|[jobs_executions](#jobsexecutions-view)     |  İş yürütme geçmişini gösterir.      |
+|jobs_executions     |  İş yürütme geçmişini gösterir.      |
 |[İşleri](#jobs-view)     |   Tüm işleri gösterir.      |
-|[job_versions](#jobversions-view)     |   Tüm iş sürümlerini gösterir.      |
+|job_versions     |   Tüm iş sürümlerini gösterir.      |
 |[sp_reassign_proxy](#jobsteps-view)     |     Tüm adımları her projenin geçerli sürümünde gösterir.    |
-|[jobstep_versions](#jobstepversions-view)     |     Tüm adımları her bir iş tüm sürümlerini gösterir.    |
-|[target_groups](#targetgroups-view)     |      Tüm hedef gruplarını gösterir.   |
-|[target_group_members](#targetgroups-view)     |   Tüm hedef grupların tüm üyeleri gösterir.      |
+|jobstep_versions     |     Tüm adımları her bir iş tüm sürümlerini gösterir.    |
+|target_groups     |      Tüm hedef gruplarını gösterir.   |
+|target_group_members     |   Tüm hedef grupların tüm üyeleri gösterir.      |
 
 
 ### <a name="jobsexecutions-view"></a>jobs_executions görüntüle

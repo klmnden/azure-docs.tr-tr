@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: bc4de2d406ea2c1814825daf89d5e6a576c94036
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4b3bba1da5238655ca749f6464c539e53ca48f27
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764821"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540066"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Azure dosya depolama bağlama SMB kullanarak Linux vm'lerinde
 
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Kullanarak, oluşturduğunuz kaynak grubunda yeni bir depolama hesabı oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account). Bu örnek adlı bir depolama hesabı oluşturur *mySTORAGEACCT<random number>*  ve bu depolama hesabının adını değişkenine yerleştirilir **STORAGEACCT**. Depolama hesabı adları kullanarak benzersiz olmalıdır `$RANDOM` benzersiz olacak şekilde sonuna bir sayı ekler.
+Kullanarak, oluşturduğunuz kaynak grubunda yeni bir depolama hesabı oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account). Bu örnek adlı bir depolama hesabı oluşturur *mySTORAGEACCT\<rastgele sayı >* ve bu depolama hesabının adını değişkenine yerleştirilir **STORAGEACCT**. Depolama hesabı adları kullanarak benzersiz olmalıdır `$RANDOM` benzersiz olacak şekilde sonuna bir sayı ekler.
 
 ```bash
 STORAGEACCT=$(az storage account create \

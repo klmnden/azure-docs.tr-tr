@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 934d0a73bf6345edd79ae00526a1db0361b3524d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ae0d3658d9ae8534b1596fa7363495926cd0dfe7
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482792"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520760"
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core için Application Insights
 
@@ -409,6 +409,6 @@ Bu yöntemlerden birini kullanarak sorunu bunlar yalnızca Application ınsights
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Kullanıcı akışları keşfedin](../../azure-monitor/app/usage-flows.md) için kullanıcıların uygulamanızda nasıl gezindiğini anlayın.
-* [Anlık görüntü koleksiyonunu yapılandırma](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications) bir özel durum şu anda kaynak kodu ve değişkenleri durumunu görmek için.
+* [Anlık görüntü koleksiyonunu yapılandırma](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) bir özel durum şu anda kaynak kodu ve değişkenleri durumunu görmek için.
 * [API'yi kullanmak](../../azure-monitor/app/api-custom-events-metrics.md) kendi olayları ve ölçümleri daha ayrıntılı bir görünüm, uygulamanızın performans ve kullanım için gönderilecek.
 * Kullanım [kullanılabilirlik testleri](../../azure-monitor/app/monitor-web-app-availability.md) uygulamanızdan sürekli olarak dünyanın dört bir yanındaki denetlemek için.

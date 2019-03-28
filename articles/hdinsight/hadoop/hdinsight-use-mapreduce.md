@@ -8,27 +8,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
-ms.openlocfilehash: eeb548d6bd955aedf322a63c861fd23bb37c1167
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.date: 03/20/2019
+ms.openlocfilehash: f2baaf598be8ede69fd6e1fa49a5f5a6b64c24ff
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634635"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521209"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>HDInsight üzerinde Apache Hadoop MapReduce kullanma
 
-HDInsight kümelerinde MapReduce işleri çalıştırmayı öğrenin. MapReduce kullanılabilir çeşitli yollarını bulmak için aşağıdaki tabloyu kullanın. HDInsight ile:
-
-| **Bunu kullanın**... | **...bilgisayarınızın bunu** | ...hemen bu **küme işletim sistemi** | ...from bu **istemci işletim sistemi** |
-|:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Hadoop komutu aracılığıyla **SSH** |Linux |Linux, UNIX, Mac OS X veya Windows |
-| [REST](apache-hadoop-use-mapreduce-curl.md) |Kullanarak uzaktan işi göndermek **REST** (örnekler cURL kullanın) |Linux veya Windows |Linux, UNIX, Mac OS X veya Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Kullanarak uzaktan işi göndermek **Windows PowerShell** |Linux veya Windows |Windows |
-
-> [!IMPORTANT]
-> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
+HDInsight kümelerinde MapReduce işleri çalıştırmayı öğrenin. 
 
 ## <a id="whatis"></a>MapReduce nedir
 
@@ -162,9 +152,6 @@ HDInsight, çeşitli yöntemlerle HiveQL işleri çalıştırabilirsiniz. Hangi 
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Hadoop komutu aracılığıyla **SSH** |Linux |Linux, UNIX, Mac OS X veya Windows |
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |Kullanarak uzaktan işi göndermek **REST** |Linux veya Windows |Linux, UNIX, Mac OS X veya Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Kullanarak uzaktan işi göndermek **Windows PowerShell** |Linux veya Windows |Windows |
-
-> [!IMPORTANT]  
-> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 

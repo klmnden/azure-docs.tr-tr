@@ -7,14 +7,14 @@ author: garyericson
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 03/26/2019
 ms.author: garye
-ms.openlocfilehash: 7df429aa848c6f9fb9abe09fbf4357db20fcde6a
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 6950cba5ac958233e7ea77c8dc783ca86cc5a386
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472863"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519910"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında bir Bilişsel Hizmetler hesabı oluşturma
 
@@ -33,27 +33,6 @@ Başlamadan önce Azure Bilişsel hizmetler abonelik iki tür olduğunu bilmek �
 
 Sonraki bölümlerde, tek veya birden çok hizmet aboneliği oluşturmak adım adım açıklanmaktadır.
 
-### <a name="single-service-subscription"></a>Tek hizmet aboneliği
-
-1. Oturum [Azure portalında](https://portal.azure.com), tıklatıp **+ kaynak Oluştur**.
-
-    ![Bilişsel hizmetler API'leri seçin](media/cognitive-services-apis-create-account/azurePortalScreen.png)
-
-2. Azure Marketi bölümünde seçin **yapay ZEKA + makine öğrenimi**. İlgilendiğiniz hizmet görmüyorsanız, tıklayarak **tümünü gör** Bilişsel hizmetler API'leri, tüm katalogunu görüntülemek için.
-
-    ![Bilişsel hizmetler API'leri seçin](media/cognitive-services-apis-create-account/azureMarketplace.png)
-
-3. Üzerinde **Oluştur** sayfasında, aşağıdaki bilgileri sağlayın:
-
-    |    |    |
-    |--|--|
-    | **Ad** | Bilişsel hizmetler kaynağınız için açıklayıcı bir ad. Örneğin, açıklayıcı bir ad kullanmanızı öneririz *MyNameFaceAPIAccount*. |
-    | **Abonelik** | Kullanılabilir Azure aboneliklerinizi birini seçin. |
-    | **Konum** | Bilişsel hizmet örneğinizin konumu. Farklı konumlara gecikmelere neden ancak kaynağınızı çalışma zamanı kullanılabilirliğini etkilemez sahip. |
-    | **Fiyatlandırma katmanı** | Bilişsel hizmetler hesabınızın maliyeti, belirttiğiniz seçeneklere ve kullanımınıza bağlıdır. Daha fazla bilgi için bkz. API [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    | **Kaynak grubu** | [Azure kaynak grubu](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) Bilişsel hizmetler kaynağınızı içerecek. Yeni bir grup oluşturmak veya önceden mevcut olan bir gruba ekleyin. |
-
-    ![Kaynak oluşturma ekranı](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
 ### <a name="multi-service-subscription"></a>Birden çok hizmet aboneliği
 
@@ -80,6 +59,28 @@ Sonraki bölümlerde, tek veya birden çok hizmet aboneliği oluşturmak adım a
     | **Kaynak grubu** | [Azure kaynak grubu](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) Bilişsel hizmetler kaynağınızı içerecek. Yeni bir grup oluşturmak veya önceden mevcut olan bir gruba ekleyin. |
 
     ![Kaynak oluşturma ekranı](media/cognitive-services-apis-create-account/resource_create_screen_multi.png)
+
+### <a name="single-service-subscription"></a>Tek hizmet aboneliği
+
+1. Oturum [Azure portalında](https://portal.azure.com), tıklatıp **+ kaynak Oluştur**.
+
+    ![Bilişsel hizmetler API'leri seçin](media/cognitive-services-apis-create-account/azurePortalScreen.png)
+
+2. Azure Marketi bölümünde seçin **yapay ZEKA + makine öğrenimi**. İlgilendiğiniz hizmet görmüyorsanız, tıklayarak **tümünü gör** Bilişsel hizmetler API'leri, tüm katalogunu görüntülemek için.
+
+    ![Bilişsel hizmetler API'leri seçin](media/cognitive-services-apis-create-account/azureMarketplace.png)
+
+3. Üzerinde **Oluştur** sayfasında, aşağıdaki bilgileri sağlayın:
+
+    |    |    |
+    |--|--|
+    | **Ad** | Bilişsel hizmetler kaynağınız için açıklayıcı bir ad. Örneğin, açıklayıcı bir ad kullanmanızı öneririz *MyNameFaceAPIAccount*. |
+    | **Abonelik** | Kullanılabilir Azure aboneliklerinizi birini seçin. |
+    | **Konum** | Bilişsel hizmet örneğinizin konumu. Farklı konumlara gecikmelere neden ancak kaynağınızı çalışma zamanı kullanılabilirliğini etkilemez sahip. |
+    | **Fiyatlandırma katmanı** | Bilişsel hizmetler hesabınızın maliyeti, belirttiğiniz seçeneklere ve kullanımınıza bağlıdır. Daha fazla bilgi için bkz. API [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/cognitive-services/).
+    | **Kaynak grubu** | [Azure kaynak grubu](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) Bilişsel hizmetler kaynağınızı içerecek. Yeni bir grup oluşturmak veya önceden mevcut olan bir gruba ekleyin. |
+
+    ![Kaynak oluşturma ekranı](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
 ## <a name="access-your-resource"></a>Kaynak erişimi
 

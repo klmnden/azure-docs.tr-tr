@@ -10,16 +10,16 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: igorstan
 ms.reviewer: igorstan
-ms.openlocfilehash: 393fca972676f2584a9ef4fc457b33161a325089
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1937d96db96c00af7f004ef4c22c4985499e393e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477786"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521644"
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse Nedir?
 
-SQL Veri Ambarı, petabaytlarca veri üzerinde karmaşık sorguların hızlı bir şekilde çalıştırılması için Yüksek Düzeyde Paralel İşleme (MPP) kullanan bulut tabanlı Kurumsal Veri Ambarı (EDW) çözümüdür. SQL Veri Ambarı'nı büyük veri çözümünün temel bileşenlerinden biri olarak kullanabilirsiniz. Basit PolyBase T-SQL sorguları kullanarak büyük verileri SQL Veri Ambarı'na aktarıp MPP gücünü kullanarak yüksek performanslı analizler gerçekleştirebilirsiniz. Tümleştirme ve analiz işlemleri sırasında veri ambarı, işletmenizin öngörüler için güvenebileceği tek veri sürümü haline gelir.  
+SQL Veri Ambarı, petabaytlarca veri üzerinde karmaşık sorguların hızlı bir şekilde çalıştırılması için Yüksek Düzeyde Paralel İşleme (MPP) kullanan bulut tabanlı Kurumsal Veri Ambarı (EDW) çözümüdür. SQL Veri Ambarı'nı büyük veri çözümünün temel bileşenlerinden biri olarak kullanabilirsiniz. Büyük veri aktarma SQL veri ambarı'na ile basit [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) T-SQL sorguları ve yüksek performanslı bir analiz çalıştırılacak MPP gücünü kullanın. Tümleştirme ve analiz işlemleri sırasında veri ambarı, işletmenizin öngörüler için güvenebileceği tek veri sürümü haline gelir.  
 
 
 ## <a name="key-component-of-big-data-solution"></a>Büyük veri çözümünün önemli bileşeni

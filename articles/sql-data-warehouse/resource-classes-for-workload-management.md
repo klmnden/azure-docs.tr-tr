@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5b21c16a166a3a264156b7719be6a331e00e6e8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5ad8dad35013a28696e7c9cb5cc68464f3c4bf64
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881376"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520063"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda kaynak sınıfları ile iş yükü yönetimi
 
@@ -130,7 +130,21 @@ Kullanıcı daha büyük bir kaynak sınıfının üyesi olsa bile bazı sorgula
 
 Aşağıdaki deyimleri, kaynak sınıflardan dışındadır ve her zaman smallrc içinde çalıştırın:
 
--OLUŞTURMA veya tablo - ALTER TABLE... ANAHTAR, bölme ve birleştirme bölüm-ALTER INDEX devre dışı bırak - DROP INDEX-oluşturma, güncelleştirme veya DROP STATISTICS-TRUNCATE TABLE-ALTER AUTHORIZATION-CREATE LOGIN-CREATE, ALTER ve DROP USER-oluşturma, değiştirme veya bırakma yordamı-oluşturun ya da açılan VIEW - INSERT değerleri - seçin sistem görünümleri ve Dmv'leri-- DBCC AÇIKLAYIN
+- CREATE veya DROP TABLE
+- ALTER TABLE... ANAHTAR, bölme ve birleştirme bölüm
+- ALTER INDEX DEVRE DIŞI BIRAK
+- DROP INDEX
+- OLUŞTURMA, güncelleştirme veya DROP STATISTICS
+- TRUNCATE TABLE
+- ALTER YETKİLENDİRME
+- OTURUM AÇMA OLUŞTURMA
+- CREATE, ALTER ve DROP USER
+- CREATE, ALTER veya bırakma yordamı
+- CREATE veya açılan VIEW
+- DEĞER EKLE
+- Sistem görünümleri ve Dmv'leri seçin
+- AÇIKLAYIN
+- DBCC
 
 <!--
 Removed as these two are not confirmed / supported under SQL DW

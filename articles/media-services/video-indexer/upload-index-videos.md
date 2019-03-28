@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: e7f39b6298dd950147fea7ac21969c53e1b58e2e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f9bf23094f47f5c200f7a02f81a8e185f469c580
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877879"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58516978"
 ---
 # <a name="upload-and-index-your-videos"></a>Videolarınızı karşıya yükleme ve dizinleme  
 
@@ -37,6 +37,7 @@ Videonuz karşıya yüklendikten sonra Video Indexer, isteğe bağlı olarak kod
 - Bayt dizisi seçeneği 30 dakika sonra zaman aşımına uğruyor
 - `videoURL` parametresinde sağlanan URL kodlanmış olmalıdır
 - URL'den dizin olarak da aynı sınırlama sahip varlıklar Media Services dizin oluşturma
+- Video Indexer'ı tek bir dosya için 4 saat maksimum süre sınırı vardır
 
 > [!Tip]
 > .NET Framework 4.6.2 veya üzeri bir sürümünü kullanmanız önerilir. Eski .NET Framework sürümlerinde varsayılan olarak TLS 1.2 ayarı kullanılmaz.

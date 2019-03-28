@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: raynew
-ms.openlocfilehash: 3133f22a4d9ecd8a0ee4bff9f8b0be9c1f4eb705
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 7fc724f1aff40c6dedff59ce3919496a30b30337
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403672"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520182"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Azure Vm'lerini bir kurtarma Hizmetleri kasasına yedekleme
 
@@ -220,7 +220,8 @@ Backup'ı etkinleştirdikten sonra:
 - İlk yedekleme, yedekleme planınızın çalıştırır.
 - VM'nin çalışır durumda olup olmadığını Backup hizmeti yedekleme uzantısını yükler.
     - Çalışan bir VM, uygulamayla tutarlı bir kurtarma noktası alınma olasılığını en yükseğe çıkarır.
-    -  Ancak, sanal makine kapalı ve uzantı yüklenemiyor olsa bile yedeklenir. Bu bir çevrimdışı VM adı verilir. Bu durumda, kurtarma noktası kilitlenme tutarlı olur. [Daha fazla bilgi edinin]() Not-gün ışığından değişiklikleri Azure VM yedeklemeleri için Azure Backup otomatik saat ayarlamayı desteklemiyor. Yedekleme ilkelerini el ile gerektiği gibi değiştirin.
+    -  Ancak, sanal makine kapalı ve uzantı yüklenemiyor olsa bile yedeklenir. Bu bir çevrimdışı VM adı verilir. Bu durumda, kurtarma noktası kilitlenme tutarlı olur.
+    Azure yedekleme Azure VM yedeklemeleri için ışığından değişikliklerin otomatik saat ayarlama desteklemediğini unutmayın. Yedekleme ilkelerini el ile gerektiği gibi değiştirin.
 
 ## <a name="run-the-initial-backup"></a>İlk yedeklemeyi çalıştırın
 

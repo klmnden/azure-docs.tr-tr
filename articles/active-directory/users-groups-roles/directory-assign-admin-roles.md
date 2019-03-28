@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9793ad76859fdd14b3194dfeb77e68905ff58fe5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: b62b710a7217792276392e8815013848ef607733
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58362076"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522375"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory'de Yönetici rolü izinleri
 
@@ -231,7 +231,7 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 
 * **[Takımlar iletişimleri destek uzmanı](#teams-communications-support-specialist)**: Bu roldeki kullanıcılar, Microsoft Teams & Skype Kurumsal'a kullanarak sorun giderme araçları Microsoft Teams ve Skype kurumsal iş Yönetim Merkezi için kullanıcı çağrısı içinde iletişim sorunları giderebilirsiniz. Bu roldeki kullanıcılar yalnızca bunlar Aranan kullanıcıyı çağrıda kullanıcı ayrıntıları da görüntüleyebilirsiniz. Bu rol, görüntülemek, oluşturmak veya destek biletlerini yönetme erişimi vardır.
 
-* **[Kullanıcı Yöneticisi](#user-account-administrator)**: Bu rolü olan kullanıcılar kullanıcıları, oluşturmanız ve bazı kısıtlamalar (aşağıya bakın) sahip kullanıcılar tüm özelliklerini yönetebilir ve parola süre sonu ilkeleri güncelleştirebilirsiniz. Ayrıca, bu role sahip kullanıcılar oluşturun ve tüm gruplarını yönetin. Bu rolü, oluşturma ve kullanıcı görünümleri yönetme, destek biletlerini yönetebilir ve hizmet durumu izleme olanağı da içerir.
+* **Kullanıcı Yöneticisi**: Bu rolü olan kullanıcılar kullanıcıları, oluşturmanız ve bazı kısıtlamalar (aşağıya bakın) sahip kullanıcılar tüm özelliklerini yönetebilir ve parola süre sonu ilkeleri güncelleştirebilirsiniz. Ayrıca, bu role sahip kullanıcılar oluşturun ve tüm gruplarını yönetin. Bu rolü, oluşturma ve kullanıcı görünümleri yönetme, destek biletlerini yönetebilir ve hizmet durumu izleme olanağı da içerir.
 
   | | |
   | --- | --- |

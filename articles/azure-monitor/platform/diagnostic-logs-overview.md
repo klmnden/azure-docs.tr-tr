@@ -1,19 +1,19 @@
 ---
 title: Azure tanılama günlükleri'ne genel bakış
 description: Azure tanılama günlükleri nelerdir ve bir Azure kaynağı içinde gerçekleşen olaylar anlamak için bunları nasıl kullanabileceğinizi öğrenin.
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
-ms.author: johnkem
+ms.date: 03/26/2019
+ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 890f2224a4053ec8cad65b44b85eab0e31be3b64
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310191"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519400"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Toplama ve Azure kaynaklarınızdan günlük verilerini kullanma
 
@@ -49,11 +49,6 @@ Günlükleri yayan biri ile aynı abonelikte değil Event Hubs ad alanı veya bi
 > [!NOTE]
 >  Şu anda, ağ akışı günlükleri güvenli bir sanal ağda olduğu bir depolama hesabına arşivlenemiyor.
 
-> [!WARNING]
-> Depolama hesabındaki günlük verilerinin biçimi, 1 Kasım 2018 tarihinde JSON Satırları olarak değişecektir. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
-
 ## <a name="diagnostic-settings"></a>Tanılama ayarları
 
 Kaynak tanılama günlükleri, kaynak tanılama ayarlarını kullanarak yapılandırılır. Kiracı tanılama günlükleri, Kiracı tanılama ayarı kullanılarak yapılandırılır. **Tanılama ayarları** hizmet denetimi için:
@@ -61,7 +56,7 @@ Kaynak tanılama günlükleri, kaynak tanılama ayarlarını kullanarak yapılan
 * (Depolama hesabı, olay hub'ları ve/veya Azure İzleyici) burada tanılama günlükleri ve ölçümleri gönderilir.
 * Ölçüm verilerini de gönderilip ve hangi günlük kategorileri gönderilir.
 * Bir depolama hesabında günlük kategorileri ne kadar süre tutulacağını
-    - Bekletme günü sayısının sıfır günlükler süresiz olarak tutulur anlamına gelir. Aksi takdirde, değeri herhangi bir sayıda gün 1 ile 2147483647 arasında olabilir.
+    - Bekletme günü sayısının sıfır günlükler süresiz olarak tutulur anlamına gelir. Aksi takdirde, değeri herhangi bir sayıda gün 1 ile 365 arasında olabilir.
     - Bekletme ilkeleri ayarlayın, ancak yalnızca (örneğin, Event Hubs veya Log Analytics seçeneği seçili) günlükleri bir depolama hesabında depolama devre dışı, bekletme ilkeleri bir etkisi yoktur.
     - Bekletme ilkeleri uygulanan günlük, olduğundan, bir günün (UTC), şu anda sonra saklama günü günlüklerinden sonunda İlkesi silindi. Örneğin, bir günlük bir bekletme ilkesi olsaydı, bugün günün başında dünden önceki gün kayıtları silinir. Gece yarısı UTC, ancak bu günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir not silme işlemi başlar.
 

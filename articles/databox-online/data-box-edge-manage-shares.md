@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ec5fbffdf7df5ef3a952e21b79ab02f355fb8e29
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: e85e006a54fcb4bb677932b3e1ff9fa79352dba9
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403655"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519842"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Azure veri kutusu Ucunuzdaki paylaşımlarında yönetmek için Azure portalını kullanma
 
@@ -63,7 +63,7 @@ Paylaşım oluşturmak için Azure portalda aşağıdaki adımları gerçekleşt
 
         ![NFS paylaşımı ekleme](media/data-box-edge-manage-shares/add-nfs-share.png)
 
-7. Kolayca Edge işlem modüllerden paylaşımlara erişmek için yerel bağlama noktası kullanın. Seçin **paylaşımı ile Edge işlem kullanmasını** otomatik olarak paylaşımıdır böylece bundan sonra oluşturulan bağlı. Bu seçenek belirlendiğinde, Edge modülü ile yerel bağlama noktası işlem de kullanabilirsiniz.
+7. Kolayca Edge işlem modüllerden paylaşımlara erişmek için yerel bağlama noktası kullanın. Seçin **paylaşımı ile Edge işlem kullanmasını** böylece paylaşım oluşturulduktan sonra otomatik olarak bağlanmıştır. Bu seçenek belirlendiğinde, Edge modülü ile yerel bağlama noktası işlem de kullanabilirsiniz.
 
 8. Paylaşımı oluşturmak için **Oluştur**'a tıklayın. Paylaşım oluşturma işleminin devam ettiği size bildirilir. Paylaşım belirtilen ayarlarla oluşturulduktan sonra, **Paylaşımlar** dikey penceresi yeni paylaşımı yansıtacak şekilde güncelleştirilir.
 
@@ -97,6 +97,30 @@ Paylaşım oluşturmak için Azure portalda aşağıdaki adımları gerçekleşt
 
     ![Yerel paylaşım ayrıntılarını görüntüle](media/data-box-edge-manage-shares/add-local-share-4.png)
 
+## <a name="mount-a-share"></a>Bir paylaşımını bağlama
+
+Veri kutusu Edge Cihazınızda işlem yapılandırılmış önce bir paylaşımı oluşturduysanız ve paylaşımı bağlamak gerekir. Bir paylaşımı bağlamak için aşağıdaki adımları uygulayın.
+
+
+1. Azure portalında veri kutusu Edge kaynağınıza gidin ve ardından Git **ağ geçidi > paylaşımları**. Bağlamak istediğiniz paylaşımı paylaşımları listesinden seçin. **İşlem için kullanılan** sütununu durumunu olarak göster **devre dışı bırakılmış** Seçilen paylaşımın.
+
+    ![Paylaşımı seçme](media/data-box-edge-manage-shares/select-share-mount.png)
+
+2. Seçin **bağlama**.
+
+    ![Bağlama seçin](media/data-box-edge-manage-shares/select-mount.png)
+
+3. Onayınız istendiğinde seçin **Evet**. Bu paylaşımı bağlar.
+
+    ![Bağlama onaylayın](media/data-box-edge-manage-shares/confirm-mount.png)
+
+4. Paylaşım takılı sonra paylaşımları listesine gidin. Göreceksiniz **işlem için kullanılan** sütun olarak paylaşım durumu gösterilir **etkin**.
+
+    ![Bağlı paylaşım](media/data-box-edge-manage-shares/share-mounted.png)
+
+5. Paylaşım için yerel mountpoint yeniden görüntülemek için paylaşım seçin. Bu yerel mountpoint paylaşım için Edge işlem modülü kullanır.
+
+    ![Paylaşım için yerel mountpoint](media/data-box-edge-manage-shares/share-mountpoint.png)
 
 ## <a name="unmount-a-share"></a>Bir paylaşımı çıkarın
 
@@ -142,7 +166,8 @@ Silinmesini yansıtacak şekilde paylaşımları güncelleştirmeleri listesi.
 Yenileme özelliği, bir paylaşım içeriğini yenilemek sağlar. Bir paylaşımı yenilediğinizde bloblar ve dosyalar dahil olmak üzere son yenileme işleminden sonra buluta eklenmiş olan tüm Azure nesnelerini bulmak için bir arama başlatılır. Bu ek dosyalar, ardından cihaz paylaşımında içeriğini yenilemek için indirilir.
 
 > [!IMPORTANT]
-> Yerel paylaşımlar yeniden yenilenemiyor.
+> - Yerel paylaşımlar yeniden yenilenemiyor.
+> - İzinler ve erişim denetim listeleri (ACL'ler), bir yenileme işlemi arasında korunmaz. 
 
 Paylaşımı yenilemek için Azure portalda aşağıdaki adımları gerçekleştirin.
 

@@ -5,18 +5,18 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: c6c82ee26fdbd824bdf42720ed7fc08135a872da
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a4da7a23d6dcb50164829507130fed145abeebbd
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372421"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517326"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure sanal ağına Container Instances'ı dağıtma
 
-[Azure sanal ağı](../virtual-network/virtual-networks-overview.md) ve şirket içi kaynaklara güvenli, özel ağ filtreleme, Yönlendirme ve eşleme için Azure dahil olmak üzere sağlar. Kapsayıcı grupları bir Azure sanal ağa dağıtma, kapsayıcıları güvenli bir şekilde sanal ağdaki diğer kaynaklarla iletişim kurabilir.
+[Azure sanal ağı](../virtual-network/virtual-networks-overview.md) ve şirket içi kaynaklara Azure için güvenli, özel ağ sağlar. Kapsayıcı grupları bir Azure sanal ağa dağıtma, kapsayıcıları güvenli bir şekilde sanal ağdaki diğer kaynaklarla iletişim kurabilir.
 
 Bir Azure sanal ağa dağıtılan kapsayıcı grupları gibi senaryolara olanak tanır:
 
@@ -34,7 +34,6 @@ Bir Azure sanal ağa dağıtılan kapsayıcı grupları gibi senaryolara olanak 
 Kapsayıcı grupları bir sanal ağa dağıttığınız zaman, bazı sınırlamalar uygulanır.
 
 * Kapsayıcı grubu bir alt ağa dağıtmak için alt ağdaki diğer kaynak türlerini içeremez. Kapsayıcı grubu için dağıtmadan önce var olan bir alt ağdan var olan tüm kaynakları kaldırın veya yeni bir alt ağ oluşturun.
-* Kapsayıcı grupları dağıtılan bir sanal ağa, genel IP adresleri veya DNS adı etiketleri şu anda desteklemez.
 * Kullanamazsınız bir [yönetilen kimliği](container-instances-managed-identity.md) bir kapsayıcı grubunda dağıtılan bir sanal ağa.
 * Ek ağ kaynakları nedeniyle dahil, bir kapsayıcı grubu için bir sanal ağ dağıtma genellikle bir standart kapsayıcı örneği dağıtmaya oranla biraz daha yavaştır.
 
@@ -46,10 +45,14 @@ Bu özellik Önizleme aşamasında olduğu sürece, bir sanal ağa kapsayıcı g
 
 Kapsayıcı kaynak sınırları ağa container Instances aşağıdaki bölgelerde sınırlarını farklılık gösterebilir. Şu anda yalnızca Linux kapsayıcıları için bu özelliği desteklenmektedir. Windows desteği planlanmaktadır.
 
-### <a name="unsupported-network-resources-and-features"></a>Desteklenmeyen ağ kaynaklarının ve özellikleri
+### <a name="unsupported-networking-scenarios"></a>Desteklenmeyen ağ senaryoları 
 
-* Azure Load Balancer
-* Sanal ağ eşleme
+* **Azure Load Balancer** -container Instances önünde Azure Load Balancer bir ağa bağlı bir kapsayıcı grubuna eklemek desteklenmiyor
+* **Sanal Ağ eşlemesi** -başka bir sanal ağ için Azure Container Instances'a temsilci bir alt ağ içeren bir sanal ağı eşleyebilme olamaz
+* **Rota tabloları** -kullanıcı tanımlı yollar ayarlanamaz bir alt ağda Azure Container Instances'a temsilcisi
+* **Ağ güvenlik grupları** -olmayan uygulanmakta Azure Container Instances'a temsilci bir alt ağa uygulanan Nsg giden güvenlik kuralları 
+* **Genel IP veya DNS etiketi** -kapsayıcı grupları dağıtılan bir sanal ağa genel bir IP adresi veya tam etki alanı adı ile doğrudan Internet'e ifşa edildi kapsayıcılar şu anda desteklemez
+* **İç ad çözümlemesi** -sanal ağ üzerinden iç Azure DNS, Azure kaynakları için ad çözümlemesi desteklenmiyor
 
 **Ağ kaynak silme** gerektirir [ek adımlar](#delete-network-resources) kapsayıcı grupları sanal ağa dağıttıktan sonra.
 

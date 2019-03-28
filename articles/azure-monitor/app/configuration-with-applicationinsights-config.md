@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: d17b1b754afc5067a885025dba83cd0fba2370d5
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 1a5b6d435dcc82b59c30302f9cd711975864594c
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214581"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522256"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config veya .xml ile Application Insights SDK yapılandırma
 Application Insights .NET SDK'sı NuGet paketlerini birtakım oluşur. [Çekirdek paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights'a telemetri göndermek için API sağlar. [Ek paketleri](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) telemetri sağlamak *modülleri* ve *başlatıcılar* telemetri uygulamanız ve onun içeriği otomatik olarak izlemek için. Yapılandırma dosyası ayarlayarak, etkinleştirmek veya telemetri modülleri ve başlatıcılar devre dışı bırakın ve bunlardan bazıları için parametreleri ayarlayın.
@@ -30,7 +30,7 @@ Denetimi eşdeğer bir dosyaya hiç [SDK'sı bir web sayfasında][client].
 Bu belgede, dosya, bunlar SDK'sı bileşenlerinin nasıl kontrol ve bu bileşenlerin hangi NuGet paketlerini yükleme yapılandırma konusuna bakın bölümleri açıklanmaktadır.
 
 > [!NOTE]
-> Applicationınsights.config veya .xml yönergelerini .NET Core SDK'sı için geçerli değildir. Değişiklikler bir .NET Core uygulaması için genellikle appsettings.json dosyasını kullanırız. Bunun bir örneği bulunabilir [anlık görüntü hata ayıklayıcısı belgeleri.](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)
+> Applicationınsights.config veya .xml yönergelerini .NET Core SDK'sı için geçerli değildir. Değişiklikler bir .NET Core uygulaması için genellikle appsettings.json dosyasını kullanırız. Bunun bir örneği bulunabilir [anlık görüntü hata ayıklayıcısı belgeleri.](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
 
 ## <a name="telemetry-modules-aspnet"></a>Telemetri modülleri (ASP.NET)
 Her telemetri modülü, belirli türde bir veri toplar ve veri göndermek için çekirdek API kullanır. Modüller, ayrıca gerekli satır .config dosyasına ekleyin farklı NuGet paketleri tarafından yüklenir.

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 06478cb3366054bd20239bf80f026562efd26232
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f0fd93af7cba3057ad4c2224aa1298a221505645
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087406"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541069"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>OData ifadesi söz dizimi filtreleri ve Azure Search order by yan tümceleri
 
@@ -128,10 +128,10 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 ## <a name="filter-examples"></a>Filtre örnekleri  
 
- Bir temel ücrete ile tüm hotels $ veya 4 üzerindeki derecelendirilir 100'den daha az bulun:  
+ Bir temel ücrete ile tüm hotels $ veya 4 üzerindeki derecelendirilir 200'den daha az bulun:  
 
 ```
-$filter=baseRate lt 100.0 and rating ge 4
+$filter=baseRate lt 200.0 and rating ge 4
 ```
 
  2010'dan itibaren renovated tüm hotels "Roach Motel" dışında bulun:  
@@ -140,10 +140,10 @@ $filter=baseRate lt 100.0 and rating ge 4
 $filter=hotelName ne 'Roach Motel' and lastRenovationDate ge 2010-01-01T00:00:00Z
 ```
 
- 2012, Pasifik Standart Saati için saat dilimi bilgilerini içeren bir datetime hazır değerinde beri renovated bir temel ücrete $200'den daha az olan tüm hotels bulun:  
+ Bir temel ücrete $200'den daha az ile 2010, Pasifik Standart Saati için saat dilimi bilgilerini içeren bir datetime hazır değerinde beri renovated tüm hotels bulun:  
 
 ```
-$filter=baseRate lt 200 and lastRenovationDate ge 2012-01-01T00:00:00-08:00
+$filter=baseRate lt 200 and lastRenovationDate ge 2010-01-01T00:00:00-08:00
 ```
 
  Dahil edilen park ve İçilmez izin verme tüm hotels bulun:  

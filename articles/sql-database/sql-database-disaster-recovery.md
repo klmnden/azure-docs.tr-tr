@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5fcd7f05aeb294441b16bab0aeb18ef5d0bf5c28
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749045"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540491"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Geri yükleme için ikincil bir Azure SQL veritabanı veya yük devretme
 
@@ -32,6 +32,13 @@ Azure SQL veritabanını kesintiden kurtarma için aşağıdaki özellikleri sun
 
 > [!NOTE]
 > Bölgesel olarak yedekli Premium veya iş açısından kritik veritabanları veya havuzları kullanıyorsanız, kurtarma işlemini otomatik hale getirilmiştir ve bu yazıda geri kalanı için geçerli değildir.
+
+> [!NOTE]
+> Birincil ve ikincil veritabanları aynı hizmet katmanı için gereklidir. Aynı işlem boyutu (Dtu veya sanal çekirdekler) olarak birincil ile ikincil veritabanı oluşturulduğunu de önemle tavsiye edilir. Daha fazla bilgi için [yükseltme veya indirgeme birincil veritabanı olarak](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
+
+> [!NOTE]
+> Bir veya birden çok yük devretme grubu yük devretme işlemlerini birden fazla veritabanını yönetmek için kullanın.
+> Mevcut bir coğrafi çoğaltma ilişkisi için yük devretme grubuna eklerseniz, coğrafi-ikincil aynı hizmet katmanına ve işlem boyutu birincil olarak yapılandırıldığından emin olun. Daha fazla bilgi için [birden fazla veritabanının saydam ve Eşgüdümlü yük devretmeyi etkinleştirmek için otomatik yük devretme grupları kullanma](sql-database-auto-failover-group.md).
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>Kesinti olayı için hazırlama
 
@@ -73,6 +80,7 @@ Coğrafi çoğaltmalı ikincil veritabanına yük devretmek için aşağıdaki k
 
 - [Azure portalını kullanarak bir coğrafi olarak çoğaltılmış ikincil sunucuya Yük devretme](sql-database-geo-replication-portal.md)
 - [PowerShell kullanarak ikincil sunucuya Yük devretme](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+- [Transact-SQL (T-SQL) kullanarak bir ikincil sunucuya Yük devretme](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>Coğrafi geri yükleme kullanarak kurtarma
 

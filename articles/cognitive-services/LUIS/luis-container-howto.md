@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: b007575c614134f298a16b32c3179f7f0dfd31e5
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: edd035bc95cd2e694a7cfac39e447c63fce0f7d3
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436702"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520165"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Yükleme ve LUIS docker kapsayıcılarını çalıştırın
  
@@ -309,6 +309,11 @@ LUIS Portalı'ndan uygulamanızı seçip **içe uç nokta günlükleri** Bu gün
 
 Günlük karşıya yüklendikten sonra [uç nokta gözden](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) LUIS portalında konuşma.
 
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## <a name="stop-the-container"></a>Kapsayıcı Durdur
 
 Burada kapsayıcı çalışıyor, komut satırı ortamında kapsayıcı kapatmak için basın **Ctrl + C**.
@@ -316,10 +321,6 @@ Burada kapsayıcı çalışıyor, komut satırı ortamında kapsayıcı kapatmak
 ## <a name="troubleshooting"></a>Sorun giderme
 
 Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](luis-container-configuration.md#mount-settings) ve günlüğe kaydetme etkin, kapsayıcı başlatma veya kapsayıcı çalıştırma sırasında gerçekleşen sorunları gidermek yararlı olan günlük dosyalarını oluşturur. 
-
-## <a name="containers-api-documentation"></a>Kapsayıcının API belgeleri
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Faturalandırma
 

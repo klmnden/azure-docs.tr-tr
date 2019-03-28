@@ -4,7 +4,7 @@ description: Konum koşulu, bir kullanıcının ağ konumuna dayalı bulut uygul
 services: active-directory
 keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/01/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e59e00b0be7b7694d03961b19fadfa92c5db98b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 886bfb97b5aac303b99d3e8da0a19b38b7049012
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58171083"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521797"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Konum koşulu Azure Active Directory koşullu erişim nedir? 
 

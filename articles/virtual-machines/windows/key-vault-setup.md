@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
-ms.openlocfilehash: bc83a2cde841e7d1e90cb46304c879fcc6cedb72
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: a8c29f015b6b3652361a886585cb4ccc3f3b7293
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105782"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519961"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager'da sanal makineler için anahtar kasası ayarlama
 
@@ -50,7 +50,7 @@ Komut satırı arabirimi (CLI) kullanarak bir anahtar kasası oluşturmak için 
 
 CLI için dağıtım ilkesi atamadan önce anahtar kasası oluşturmanız gerekir. Aşağıdaki komutu kullanarak bunu yapabilirsiniz:
 
-    azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
+    az keyvault set-policy ContosoKeyVault –enabled-for-deployment true
 
 ## <a name="use-templates-to-set-up-key-vault"></a>Anahtar kasası ayarlama için şablonları kullanma
 Bir şablon kullanırken ayarlamanız gerekir `enabledForDeployment` özelliğini `true` Key Vault kaynak için.

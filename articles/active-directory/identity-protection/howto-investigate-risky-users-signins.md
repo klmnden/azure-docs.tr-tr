@@ -4,9 +4,9 @@ description: Riskli kullanıcılar ve oturum açma (yenilenmiş) Azure Active Di
 services: active-directory
 keywords: Azure active directory kimlik koruması, bulut uygulaması bulma, yönetme, uygulamaları, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: mtillman
-ms.author: markvi
+ms.author: joflore
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.reviewer: raluthra
+ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 546d9f6771ea75c2601630850f4e9ef082fd5623
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 743b078eac783365ae83e540a7dc05aba0ae8754
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210994"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517613"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Nasıl Yapılır: Riskli kullanıcıları ve oturum açma işlemlerini araştırma 
 
@@ -238,7 +238,7 @@ Buna ek olarak, şunları yapabilirsiniz:
 
 ![Riskli kullanıcılar raporu](./media/howto-investigate-risky-users-signins/13.png)
 
-- Gizliliğin ihlal edildiğini onayla 
+- Güvenliğin tehlikeye girdiğini onaylayın 
 
 - Güvenli olduğunu onayla
 
@@ -279,7 +279,7 @@ Raporlanan verileri kendinize uygun bir seviyeye gelecek şekilde daraltmak içi
 **Risk durumu** filtre seçmenize imkan tanır:
 
 - Risk altında
-- Riskli işlem onaylandı
+- Güvenliğin tehlikeye girdiği onaylandı
 - Güvenli işlem onaylandı
 - Kapatıldı
 - Düzeltildi

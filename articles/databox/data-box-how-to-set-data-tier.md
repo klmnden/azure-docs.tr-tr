@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: dc84d5850656a0898fba328b652d86f3d8995bef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bb1d6c5bd51fcfe35127c2f6d8dd6a80b727c45f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118383"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517156"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Uygun Azure depolama blob katmanı veri göndermek için Azure Data Box'ı kullanma
 
@@ -27,7 +27,7 @@ Azure depolama, en uygun maliyetli bir şekilde - sık erişimli, verileri depol
 
 En az 30 gün için depolanması gereken erişilen verileri seyrek erişimli depolama katmanı için sık var. Depolama maliyet soğuk katmanı, sık erişimli depolama katmanı düşük olduğu, ancak veri erişimi ücretleri sık erişimli katmana kıyasla yüksek.
 
-Azure arşiv katmanını çevrimdışı olduğundan ve en düşük depolama maliyetleri, ancak ayrıca en yüksek erişim maliyetleri sunar. Bu katman, en az 180 günlük arşiv depolama alanında kalan veriler için tasarlanmıştır. Ayrıntılar için her birinin bu katmanlar ve fiyatlandırma modeli, Git [depolama katmanlarının karşılaştırması](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#comparison-of-the-storage-tiers).
+Azure arşiv katmanını çevrimdışı olduğundan ve en düşük depolama maliyetleri, ancak ayrıca en yüksek erişim maliyetleri sunar. Bu katman, en az 180 günlük arşiv depolama alanında kalan veriler için tasarlanmıştır. Ayrıntılar için her birinin bu katmanlar ve fiyatlandırma modeli, Git [depolama katmanlarının karşılaştırması](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
 
 Data Box verileri, depolama hesabıyla ilişkili depolama katmanı için yüklenir. Bir depolama hesabı oluşturduğunuzda erişim katmanını sıcak veya soğuk olarak belirtebilirsiniz. İş yükü ve maliyeti erişim desenini bağlı olarak, bu verileri başka bir depolama katmanı varsayılan katmanından taşıyabilirsiniz.
 

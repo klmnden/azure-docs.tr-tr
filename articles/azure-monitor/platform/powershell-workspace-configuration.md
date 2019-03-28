@@ -1,6 +1,6 @@
 ---
 title: Oluşturma ve Log Analytics çalışma alanı yapılandırma için PowerShell kullanma | Microsoft Docs
-description: Şirket içi sunuculardan analiz kullanan veri oturum veya altyapı bulut. Azure tanılama tarafından oluşturulmuş bir Azure depolama makine verilerini toplayabilir.
+description: Log Analytics çalışma alanları Azure İzleyici'de, sunuculardan verileri şirket içinde depolamak veya altyapı bulut. Azure tanılama tarafından oluşturulmuş bir Azure depolama makine verilerini toplayabilir.
 services: log-analytics
 author: richrundmsft
 ms.service: log-analytics
@@ -8,18 +8,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: richrund
-ms.openlocfilehash: 956c6c7c17812996853f35440c60251aa5a91057
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: f37c8290defa5e7c9baa3b705393aba376936fd8
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482116"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539386"
 ---
-# <a name="manage-log-analytics-using-powershell"></a>PowerShell kullanarak Log Analytics’i yönetme
+# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>PowerShell kullanarak Azure İzleyici'de log Analytics çalışma alanını yönetme
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Kullanabileceğiniz [Log Analytics PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) Log Analytics'te, komut satırından veya betik bir parçası olarak çeşitli işlevleri gerçekleştirmek için.  PowerShell ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
+Kullanabileceğiniz [Log Analytics PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) bir Log Analytics çalışma alanına Azure İzleyici'de bir komut satırından veya betik bir parçası olarak çeşitli işlevleri gerçekleştirmek için.  PowerShell ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
 
 * Çalışma alanı oluşturma
 * Çözüm Ekle Kaldır
@@ -195,7 +195,7 @@ Yukarıdaki örnekte regexDelimiter olarak tanımlanan "\\n" için yeni satır. 
 | `yyyy-MM-ddTHH:mm:ss` <br> Bir değişmez değer Harf T T olduğu | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
 ## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Log Analytics, Azure Tanılama verileri gönderecek şekilde yapılandırma
-Azure kaynaklarını aracısız izleme için kaynakları etkin ve Log Analytics çalışma alanına yazmak için yapılandırılmış Azure tanılama olması gerekir. Bu yaklaşım, doğrudan Log Analytics'e veri gönderir ve bir depolama hesabına yazılmasına izin gerektirmez. Desteklenen kaynaklar şunlardır:
+Azure kaynaklarını aracısız izleme için kaynakları etkin ve Log Analytics çalışma alanına yazmak için yapılandırılmış Azure tanılama olması gerekir. Bu yaklaşım, verileri doğrudan çalışma alanınıza gönderir ve bir depolama hesabına yazılmasına izin gerektirmez. Desteklenen kaynaklar şunlardır:
 
 | Kaynak Türü | Günlükler | Ölçümler |
 | --- | --- | --- |
@@ -233,15 +233,15 @@ Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Ena
 Ayrıca, farklı Aboneliklerde olması kaynaklardan günlükleri toplamak için önceki cmdlet'ini de kullanabilirsiniz. Cmdlet'ini her iki kaynağın günlükleri ve günlüklerde gönderilir çalışma alanı oluşturma kimliği sunuyorsunuz olduğundan, abonelikler arasında iş kuramıyor.
 
 
-## <a name="configuring-log-analytics-to-collect-azure-diagnostics-from-storage"></a>Log Analytics, depolama alanından Azure tanılama verilerini toplamak için yapılandırma
-Bir Klasik bulut hizmetini veya service fabric kümesi çalışan bir örnek günlük verilerini toplamak için önce verileri Azure depolama alanına yazmak gerekir. Log Analytics, ardından depolama hesabından günlükleri toplamak için yapılandırılır. Desteklenen kaynaklar şunlardır:
+## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Depolama alanından Azure tanılama verilerini toplamak için Log Analytics çalışma alanını yapılandırma
+Bir Klasik bulut hizmetini veya service fabric kümesi çalışan bir örnek günlük verilerini toplamak için önce verileri Azure depolama alanına yazmak gerekir. Bir Log Analytics çalışma alanı, ardından depolama hesabından günlükleri toplamak için yapılandırılır. Desteklenen kaynaklar şunlardır:
 
 * Klasik cloud services (web ve çalışan rolleri)
 * Service fabric kümeleri
 
 Aşağıdaki örnekte gösterildiği nasıl yapılır:
 
-1. Log Analytics verilerinden dizinini oluşturacak konumları ve var olan depolama hesaplarını Listele
+1. Verileri çalışma dizinini oluşturacak konumları ve var olan depolama hesaplarını Listele
 2. Bir depolama hesabından okumak için bir yapılandırma oluşturun
 3. Yeni oluşturulan yapılandırma veri dizini oluşturmak için ek konumlardan güncelleştirin.
 4. Yeni oluşturulan yapılandırmasını Sil
@@ -250,7 +250,7 @@ Aşağıdaki örnekte gösterildiği nasıl yapılır:
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable"
 $workspace = (Get-AzOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 
-# Update these two lines with the storage account resource ID and the storage account key for the storage account you want to Log Analytics to index
+# Update these two lines with the storage account resource ID and the storage account key for the storage account you want the workspace to index
 $storageId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/demo/providers/Microsoft.Storage/storageAccounts/wadv2storage"
 $key = "abcd=="
 

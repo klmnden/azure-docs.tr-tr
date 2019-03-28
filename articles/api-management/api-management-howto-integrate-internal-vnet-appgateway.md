@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 46678590366021ff0f3ddb714d439c18addc578b
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 4ee970f14a6da3d65849a79ff4afae68601f106f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361088"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521934"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>API yönetimi bir iç sanal ağ'ı Application Gateway ile tümleştirme
 
@@ -51,7 +51,7 @@ Bu makalede açıklanan adımları takip etmek için şunlara sahip olmalısın�
 
 Bu makalede, iç ve dış müşteriler için tek bir API Management hizmet ve şirket içi hem de tek bir ön uç davranır ve bulut API'leri nasıl kullanılacağı anlatılmaktadır. Ayrıca, yalnızca bir alt kümesini (yeşil renkte vurgulanmış örnekte) API'leri dış Application Gateway'i kullanılabilir yönlendirme işlevini kullanarak tüketimi için nasıl sunacağınızı öğrenin görürsünüz.
 
-İlk kurulum örnekte tüm API'leri yalnızca sanal ağınızdaki yönetilir. İç ve dış tüm Apı'lerinizi iç tüketiciler (vurgulanmış turuncu) erişebilir. Trafik hiçbir zaman bir yüksek performanslı teslim Internet'e Expressroute bağlantı hatları gider.
+İlk kurulum örnekte tüm API'leri yalnızca sanal ağınızdaki yönetilir. İç ve dış tüm Apı'lerinizi iç tüketiciler (vurgulanmış turuncu) erişebilir. Trafik hiçbir zaman internet'e gider. Yüksek performanslı bağlantı, Expressroute bağlantı hatları teslim edilir.
 
 ![URL yolu](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 

@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 03/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 96766a12d7e78dacd93432e30d12f313d52ad4c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2b7364a2bb32f2d38f5cf9ddeddd5e4e1f928e01
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176183"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519808"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'i kullanarak bir HDInsight kümesi ile Kurumsal Güvenlik Paketi yapılandırma
 
@@ -87,7 +87,7 @@ Sanal ağlar eşlendikten sonra HDInsight VNET özel bir DNS sunucusu kullanın 
 
 ![Eşlenen sanal ağ için özel DNS sunucuları yapılandırma](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
-Ağ güvenlik grupları (NSG) kuralları, HDInsight alt ağda kullanıyorsanız, izin vermeniz gerekir [IP'ler gerekli](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1) hem gelen hem de giden trafiği için. 
+Ağ güvenlik grupları (NSG) kuralları, HDInsight alt ağda kullanıyorsanız, izin vermeniz gerekir [IP'ler gerekli](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network) hem gelen hem de giden trafiği için. 
 
 **Sınanacak** ağınızın doğru şekilde ayarlanıp ayarlanmadığını windows VM HDInsight VNET/alt ağına katılın ve etki alanı adı (çözmek için bir IP) ping ve ardından çalıştırın **Ldp.exe'yi** Azure AD DS etki alanını erişmek için. Ardından **bu windows VM onaylamak için etki alanına** istemci ve sunucu tüm gerekli RPC çağrıları başarılı. Ayrıca **nslookup** (örneğin, dış Hive meta veri deposu veya Ranger DB) kullanıyor olabileceğiniz herhangi bir dış DB veya depolama hesabınız için ağ erişimi onaylamak için.
 Emin olmanız gerekir tüm [gerekli bağlantı noktaları](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) AAD DS bir NSG tarafından sağlanıyorsa AAD DS alt ağ güvenlik grubu kurallarını güvenilir listededir. Bu windows etki alanına katılma VM başarılı olur sonraki adıma geçin ve ESP kümeleri oluşturma.

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 02/27/2019
-ms.openlocfilehash: 65b8253a307693d00f5eaefe7660d500dce49be4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0278332105f2102fc82122c5a74db6326f011e81
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078661"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541205"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility hizmeti anında yükleme sorunlarını giderme
 
@@ -183,7 +183,7 @@ Yukarıdaki kalın dize gözlemlerseniz, GRUB parametreleri "root" ve "Devam" UU
 Cihaz adları, karşılık gelen UUID ile değiştirilmelidir.<br>
 
 
-1. Komutunu yürüterek cihazı UUID'si Bul "blkid <device name>". Örneğin:<br>
+1. Komutunu yürüterek cihazı UUID'si Bul "blkid \<cihaz adı >". Örneğin:<br>
    ```
    blkid /dev/sda1
    /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
@@ -191,7 +191,7 @@ Cihaz adları, karşılık gelen UUID ile değiştirilmelidir.<br>
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
    ```
 
-2. Biçimde, UUID artık cihaz adı yerine "kök UUID = =<UUID>". Örneğin cihaz adları için kök UUID ile değiştirin ve parametre dosyaları yukarıdaki sürdürmek için "/ boot/grub2/grub.cfg", "/ boot/grub2/grub.cfg" veya "/ varsayılan/etc/grub: dosyalarda satır ardından aramak gibi. <br>
+2. Biçimde, UUID artık cihaz adı yerine "kök UUID = =\<UUID >". Örneğin cihaz adları için kök UUID ile değiştirin ve parametre dosyaları yukarıdaki sürdürmek için "/ boot/grub2/grub.cfg", "/ boot/grub2/grub.cfg" veya "/ varsayılan/etc/grub: dosyalarda satır ardından aramak gibi. <br>
    *Çekirdek /boot/vmlinuz-3.0.101-63-default **kök UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4 =** **sürdürme UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b =** splash sessiz crashkernel = 256M-:128M = showopts vga 0x314 =*
 3. Korumayı yeniden yeniden başlatın
 

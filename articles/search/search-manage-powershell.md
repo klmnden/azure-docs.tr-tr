@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: heidist
-ms.openlocfilehash: 541feee2005428226b3f46927bc0e4bfb53cc98d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7a91ad691089ac816b31ebe1fce202110e580f71
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781724"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520573"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>PowerShell ile Azure Search hizmetinizi yönetme
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Windows, Linux üzerinde veya PowerShell cmdlet'leri ve betikleri çalıştırı
 > * [Aboneliğinizdeki tüm arama hizmetleri listeleyin](#list-search-services)
 > * [Belirli bir arama hizmeti hakkında bilgi edinin](#get-search-service-information)
 > * [Oluşturma veya hizmet silme](#create-or-delete-a-service)
-> * [Yönetici API anahtarlarını yeniden oluştur](#regenerate-admin-api-keys)
+> * Yönetici API anahtarlarını yeniden oluştur
 > * [Oluşturma veya sorgu api anahtarlarından silme](#create-or-delete-query-keys)
 > * [Bir hizmet ölçeğini artırmayı veya düşüren, çoğaltmalar ve bölümler](#scale-replicas-and-partitions)
 

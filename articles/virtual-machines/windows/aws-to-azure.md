@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: f66101d9847c57c5e078c3484a243e7b38823f53
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d6a4c5b2b6d9818dffdb1c1fee8c4c0df7cad77c
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001794"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539811"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Bir Windows VM Amazon Web Services'dan (AWS) için bir Azure sanal makinesi taşıyın.
 
@@ -48,7 +48,7 @@ Azure için genelleştirilmiş ve özelleştirilmiş VHD yükleyebilirsiniz. Her
 
 EC2 örneği, bir Amazon S3 demetini VHD dışarı aktarın. Amazon belgeleri makaledeki adımları izleyin [örneği bir VM kullanarak VM'yi içeri/dışarı aktarma olarak dışarı aktarma](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) çalıştırıp [oluşturma-örnek-dışarı aktarma-görev](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) EC2 örneği için bir VHD dosyasını dışarı aktarmak için komutu. 
 
-Dışarı aktarılan VHD dosyasının belirttiğiniz Amazon S3 demetini kaydedilir. Temel sözdizimi aşağıda olan VHD dışarı aktarma için yalnızca değiştirmek yer tutucu metni <brackets> bilgilerinizle.
+Dışarı aktarılan VHD dosyasının belirttiğiniz Amazon S3 demetini kaydedilir. Temel sözdizimi aşağıda olan VHD dışarı aktarma için yalnızca değiştirmek yer tutucu metni \<ayraçlar > bilgilerinizle.
 
 ```
 aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft \

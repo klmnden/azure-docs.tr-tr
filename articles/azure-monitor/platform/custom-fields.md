@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 11372894e1dbcac6a49205ff56d8b30ffb6ee976
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d3eb0fba2b7178b8b1702d4ca89ff85a441c20d6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261273"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541086"
 ---
-# <a name="create-custom-fields-in-log-analytics"></a>Log Analytics'te özel alanlar oluşturma
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Azure İzleyici'de bir Log Analytics çalışma alanında özel alanlar oluşturma
 
 > [!NOTE]
-> Bu makale, Log analytics'te metin verileri toplandıktan olarak ayrıştırılacak açıklamaktadır. Bölümünde anlatıldığı gibi toplandıktan sonra bir sorguda metin verilerini ayrıştırma avantajları vardır [ayrıştırma metin verilerini Log analytics'te](../log-query/parse-text.md).
+> Bu makalede, bir Log Analytics çalışma alanında metin verileri toplandıktan olarak ayrıştırmak açıklar. Bölümünde anlatıldığı gibi toplandıktan sonra bir sorguda metin verilerini ayrıştırma avantajları vardır [ayrıştırma metin verilerini Azure İzleyici'de](../log-query/parse-text.md).
 
-**Özel alanlar** özelliği Log Analytics, Log analytics'te var olan kayıtların kendi arama yapılabilir alanlar ekleyerek genişletebilir olanak tanır.  Özel alanlar, diğer özellikleri aynı kaydın ayıklanan verilerden otomatik olarak doldurulur.
+**Özel alanlar** özelliği, Azure İzleyici sayesinde var olan kayıtların Log Analytics çalışma alanınızda kendi arama yapılabilir alanlar ekleyerek genişletebilir.  Özel alanlar, diğer özellikleri aynı kaydın ayıklanan verilerden otomatik olarak doldurulur.
 
 ![Özel alanlarına genel bakış](media/custom-fields/overview.png)
 

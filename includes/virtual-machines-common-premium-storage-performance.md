@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5f97c2997711c30ad52e5209ba86e0d1bfe30ea8
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 12bcf665fafca3df7fc2d21c77c2f8d2fbec84fc
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57251834"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58542421"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium Depolama: yüksek performans tasarımı
 
@@ -235,7 +235,7 @@ Azure Premium depolama, sekiz GA disk boyutları ve şu anda Önizleme aşaması
 
 | Premium disk türü  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Disk boyutu           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 giB (16 tib'a kadar)    | 32.767 giB (32 GiB)    |
+| Disk boyutu           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 giB (16 tib'a kadar)    | 32.767 giB (32 tib'a kadar)    |
 | Disk başına IOPS       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500              | 15.000              | 20.000              |
 | Disk başına aktarım hızı | Saniye başına 25 MiB  | Saniye başına 50 MiB  | Saniye başına 100 MiB |Saniye başına 125 MiB | Saniye başına 150 MiB | Saniye başına 200 MiB | Saniye başına 250 MiB | Saniye başına 250 MiB | Saniye başına 480 MiB | Saniye başına 750 MiB | Saniye başına 750 MiB |
 

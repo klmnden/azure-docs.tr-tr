@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 831a72fff0931d116a669060b160f51fde6e1d3e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 309ef92b33d5bbdf8e8aed6b162ed9428a669c87
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572865"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505683"
 ---
 ## <a name="verify-the-output"></a>Çıktıyı doğrulama
 İşlem hattı adftutorial blob kapsayıcısında çıktı klasörünü otomatik olarak oluşturur. Ardından, giriş klasöründeki emp.txt dosyasını çıktı klasörüne kopyalar. 
@@ -27,7 +27,7 @@ Hızlı başlangıç bölümünde oluşturduğunuz kaynakları iki şekilde temi
 
 Bir kaynak grubunun silinmesi, içindeki veri fabrikaları dahil olmak üzere tüm kaynakları siler. Kaynak grubunun tamamını silmek için şu komutu çalıştırın: 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 Not: Bir kaynak grubunun bırakılması biraz zaman alabilir. Lütfen işlemin tamamlanmasını bekleyin
@@ -35,5 +35,5 @@ Not: Bir kaynak grubunun bırakılması biraz zaman alabilir. Lütfen işlemin t
 Tüm kaynak grubu yerine yalnızca veri fabrikasını silmek istiyorsanız aşağıdaki aşağıdaki komutu çalıştırın: 
 
 ```powershell
-Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
+Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```

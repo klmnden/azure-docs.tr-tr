@@ -2,7 +2,7 @@
 title: Sık sorulan sorular - Azure ayrılmış HSM | Microsoft Docs
 description: Sık sorulan sorular Azure ayrılmış HSM üzerinde farklı konuları kapsayan
 services: dedicated-hsm
-author: johndaw
+author: johncdawson
 manager: barbkess
 tags: azure-resource-manager
 ms.custom: mvc
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/19/2019
+ms.date: 3/27/2019
 ms.author: barclayn
-ms.openlocfilehash: b28d9607bf35d37e252d7d0bc59d1ce808e38665
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 19e2fb7736457884d29a142e997338e3c7ef72e7
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260001"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540831"
 ---
 # <a name="frequently-asked-questions-faq"></a>Sık sorulan sorular (SSS)
 
@@ -58,9 +58,28 @@ Gemalto kez Microsoft tarafından sağlanan HSM cihaz için tüm yazılım sağl
 
 Microsoft, yalnızca ayrılmış HSM hizmeti aracılığıyla Gemalto SafeNet Luna ağ HSM sunar ve herhangi bir müşteri tarafından sağlanan cihaza barındıramaz.
 
-### <a name="q-does-azure-dedicated-hsm-support-pinetf-features-or-meet-pci-hsm-v1-or-v2-certification-requirements"></a>S: Azure ayrılmış HSM PIN/ETF özellikleri veya desteklemez PCI HSM v1 veya v2 sertifika gereksinimlerini karşılayan?
+### <a name="q-does-azure-dedicated-hsm-support-payment-pinetf-features"></a>S: Azure ayrılmış HSM destek ödeme (PIN/ETF) özellikleri mu?
 
-Azure ayrılmış HSM hizmetini SafeNet Luna ağ HSM 7 (model A790) cihazlar kullanır. Bu cihazlar, ödeme HSM belirli işlevleri (örneğin, PIN veya ETF) veya sertifikaları desteklemez. Gelecekteki ödeme HSM'ler desteklemek üzere Azure ayrılmış HSM hizmetini esnetmek istiyorsanız lütfen aşağıdaki geri bildirim sağlayın.
+Azure ayrılmış HSM hizmetini SafeNet Luna ağ HSM 7 (model A790) cihazlar kullanır. Bu cihazlar, ödeme HSM belirli işlevleri (örneğin, PIN veya ETF) veya sertifikaları desteklemez. Lütfen ödeme HSM'ler gelecekte desteklemek üzere Azure ayrılmış HSM hizmetini isterseniz, geribildirim için Microsoft hesap temsilcinize geçirin.
+
+### <a name="q-which-azure-regions-is-dedicated-hsm-available-in"></a>S: Hangi Azure bölgeleri ayrılmış HSM kullanılabilir?
+
+Geç Mart 2019'den itibaren ayrılmış HSM aşağıda listelenen 14 bölgede kullanılabilir. Daha fazla bölge planlanmaktadır ve Microsoft hesap temsilcinize aracılığıyla ele alınması.
+
+* Doğu ABD
+* Doğu ABD 2
+* Batı ABD
+* Orta Güney ABD
+* Güneydoğu Asya
+* Doğu Asya
+* Kuzey Avrupa
+* Batı Avrupa
+* Birleşik Krallık Güney
+* Birleşik Krallık Batı
+* Orta Kanada
+* Doğu Kanada
+* Avustralya Doğu
+* Avustralya Güneydoğu
 
 ## <a name="interoperability"></a>Birlikte çalışabilirlik
 

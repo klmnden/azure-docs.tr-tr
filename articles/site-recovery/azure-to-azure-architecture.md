@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 73def6b659676cc4fecf1d9ef499247c23888566
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 96873b5fdefc74893929f8150230118a162f195b
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310294"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540729"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure'dan Azure'a olağanüstü durum kurtarma mimarisi
 
@@ -144,7 +144,7 @@ VM'ler için IP adreslerini kullanarak giden bağlantıyı denetlemek için bu a
 
 **Kural** |  **Ayrıntılar** | **Hizmet etiketi**
 --- | --- | --- 
-HTTPS Gidene izin ver: bağlantı noktası 443 | Depolama hesabı kaynak bölgede karşılık gelen aralıklarına izin verin | Depolama. < bölgeye-adı >.
+HTTPS Gidene izin ver: bağlantı noktası 443 | Depolama hesabı kaynak bölgede karşılık gelen aralıklarına izin verin | Depolama alanı. \<bölge adı >.
 HTTPS Gidene izin ver: bağlantı noktası 443 | Azure Active Directory (Azure AD) karşılık gelen aralıklarına izin verin.<br/><br/> Azure AD adresleri gelecekte eklenirse, yeni ağ güvenlik grubu (NSG) kuralları oluşturmanız gerekir.  | AzureActiveDirectory
 HTTPS Gidene izin ver: bağlantı noktası 443 | Erişime izin ver [Site Recovery uç noktaları](https://aka.ms/site-recovery-public-ips) hedef konuma karşılık gelir. 
 
@@ -152,7 +152,7 @@ HTTPS Gidene izin ver: bağlantı noktası 443 | Erişime izin ver [Site Recover
 
 **Kural** |  **Ayrıntılar** | **Hizmet etiketi**
 --- | --- | --- 
-HTTPS Gidene izin ver: bağlantı noktası 443 | Depolama hesapları hedef bölgede karşılık gelen aralıklarına izin verin. | Depolama. < bölgeye-adı >.
+HTTPS Gidene izin ver: bağlantı noktası 443 | Depolama hesapları hedef bölgede karşılık gelen aralıklarına izin verin. | Depolama alanı. \<bölge adı >.
 HTTPS Gidene izin ver: bağlantı noktası 443 | Azure AD'ye karşılık gelen aralıklarına izin verin.<br/><br/> Azure AD adresleri gelecekte eklenirse, yeni NSG kuralları oluşturmanız gerekir.  | AzureActiveDirectory
 HTTPS Gidene izin ver: bağlantı noktası 443 | Erişime izin ver [Site Recovery uç noktaları](https://aka.ms/site-recovery-public-ips) kaynak konumuna karşılık gelir. 
 

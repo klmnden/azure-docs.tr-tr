@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0de6cf9be01fc93a26a782189a2062d19eaf73e8
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: fd937aba302004f23904e4f743c93e69460f9026
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499276"
+ms.locfileid: "58541154"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Otomatik makine öğrenimi denemelerini yapılandırın
 
@@ -36,8 +36,6 @@ Otomatik machine learning'de kullanılabilen yapılandırma seçenekleri:
 
 ## <a name="select-your-experiment-type"></a>Deneme türünüzü seçin
 Denemenizi başlamadan önce çözümü machine learning sorun türünü belirlemeniz gerekir. Otomatik machine learning, Sınıflandırma, regresyon ve tahmin görev türlerini destekler.
-
-Genel kullanıma sunulan otomatik makine öğrenimi özelliklerinden çalışırken **tahmin hala genel Önizleme aşamasında olan.**
 
 Otomatik machine learning, otomasyon ve ayarlama işlemi sırasında aşağıdaki algoritmalarını destekler. Bir kullanıcı olarak, algoritma belirtmek gerek yoktur. DNN algoritmaları eğitim sırasında kullanılabilir, ancak otomatik ML DNN modelleri oluşturmaz.
 

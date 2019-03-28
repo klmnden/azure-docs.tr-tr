@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: asgang
-ms.openlocfilehash: 978566eb9e0073c60046eca024e09ba63c642180
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: b378f77874b1ebef243836c101fa71a53f4775d1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458017"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517760"
 ---
 # <a name="exclude-disks-from-replication-of-azure-vms-to-azure-using-azure-powershell"></a>Azure PowerShell kullanarak Azure'a geçişte diskleri Azure vm'leri bir çoğaltmanın dışında tutma
 
@@ -31,7 +31,7 @@ Başlamadan önce:
 ## <a name="why-exclude-disks-from-replication"></a>Diskleri çoğaltmanın dışında tutma nedenleri nelerdir?
 Disklerin çoğaltmanın dışında tutulması, çoğu zaman aşağıdaki nedenlerden dolayı gereklidir:
 
-- Sanal makinenizi ulaştı [veri çoğaltmak için Azure Site Recovery sınırlarını değiştirme oranları](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#azure-site-recovery-limits-to-replicate-data-change-rates)
+- Sanal makinenizi ulaştı [veri çoğaltmak için Azure Site Recovery sınırlarını değiştirme oranları](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix)
 
 - Hariç tutulan diskteki değişen veriler önemli değildir veya çoğaltılmaları gerekmez.
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: e9e47eff3df941b0c1437083dc7440fab4091418
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0224d9ba5a430635e4675c2fb2bf354e7c975f31
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317077"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518739"
 ---
 # <a name="monitor-azure-functions"></a>Azure İşlevlerini İzleme
 
@@ -24,7 +24,7 @@ ms.locfileid: "58317077"
 
 ![Application Insights ölçüm Gezgini](media/functions-monitoring/metrics-explorer.png)
 
-Azure işlevleri de sahip [yerleşik izleme, Application Insights kullanmaz](#monitoring-without-application-insights). Daha fazla veri ve verileri çözümlemek için daha iyi bir yolu sağladığından Application ınsights'ı öneririz.
+Azure işlevleri de olan Application Insights kullanmaz yerleşik izleme. Daha fazla veri ve verileri çözümlemek için daha iyi bir yolu sağladığından Application ınsights'ı öneririz.
 
 ## <a name="application-insights-pricing-and-limits"></a>Application Insights fiyatlandırma ve limitler
 
@@ -77,7 +77,7 @@ Sonraki adım [yerleşik günlüğünü devre dışı](#disable-built-in-logging
 
 ## <a name="disable-built-in-logging"></a>Yerleşik günlük devre dışı bırakma
 
-Application Insights'ı etkinleştirdiğinizde, devre dışı [Azure depolama kullanan yerleşik günlük](#logging-to-storage). Yerleşik günlük hafif iş yükleriyle test edilmesi için yararlıdır, ancak yüksek yük üretim kullanımı için tasarlanmamıştır. Üretim izlemek için Application ınsights'ı öneririz. Üretimde yerleşik günlük kaydı kullandıysanız, günlük kaydı eksik Azure depolama alanında azaltma nedeniyle olabilir.
+Application Insights'ı etkinleştirdiğinizde, Azure depolama kullanan yerleşik günlük kaydını devre dışı bırakın. Yerleşik günlük hafif iş yükleriyle test edilmesi için yararlıdır, ancak yüksek yük üretim kullanımı için tasarlanmamıştır. Üretim izlemek için Application ınsights'ı öneririz. Üretimde yerleşik günlük kaydı kullandıysanız, günlük kaydı eksik Azure depolama alanında azaltma nedeniyle olabilir.
 
 Yerleşik günlük kaydetme devre dışı bırakmak için silme `AzureWebJobsDashboard` uygulama ayarı. Uygulama ayarları Azure portalında silme hakkında daha fazla bilgi için bkz: **uygulama ayarları** bölümünü [bir işlev uygulaması yönetme](functions-how-to-use-azure-function-app-settings.md#settings). Uygulama ayarı silmeden önce Azure depolama Tetikleyicileri veya bağlamaları için aynı işlev uygulamasında var olan bir işlev yok ayarını kullandığınızdan emin olun.
 
@@ -125,7 +125,7 @@ Application Insights'ı kullanma hakkında daha fazla bilgi için bkz: [Applicat
 
 ![Ölçüm Gezgini](media/functions-monitoring/metrics-explorer.png)
 
-Üzerinde [hataları](../azure-monitor/app/asp-net-exceptions.md) sekmesinde grafikler oluşturabilir ve uyarılar, özel durumlar işlevi hataları ve sunucuda temel. **İşlem adı** işlev adıdır. Bağımlılıklar hataları olmayan gösterilen uyguladığınız sürece [özel telemetri](#custom-telemetry-in-c-functions) bağımlılıklar için.
+Üzerinde [hataları](../azure-monitor/app/asp-net-exceptions.md) sekmesinde grafikler oluşturabilir ve uyarılar, özel durumlar işlevi hataları ve sunucuda temel. **İşlem adı** işlev adıdır. Bağımlılıklar için özel telemetri uygulamak sürece hataları bağımlılıkları gösterilmez.
 
 ![Hatalar](media/functions-monitoring/failures.png)
 
@@ -423,7 +423,7 @@ C# betik işlevleri'nde kullanabilirsiniz `LogMetric` genişletme yöntemini `IL
 logger.LogMetric("TestMetric", 1234);
 ```
 
-Bu kodu çağırmak için bir alternatifidir `TrackMetric` kullanarak [.NET için Application Insights API](#custom-telemetry-in-c-functions).
+Bu kodu çağırmak için bir alternatifidir `TrackMetric` .NET için Application Insights API kullanarak.
 
 ## <a name="write-logs-in-javascript-functions"></a>JavaScript işlevleri günlüklerini yazma
 
@@ -441,7 +441,7 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 context.log.metric("TestMetric", 1234);
 ```
 
-Bu kodu çağırmak için bir alternatifidir `trackMetric` kullanarak [Application ınsights Node.js SDK'sı](#custom-telemetry-in-javascript-functions).
+Bu kodu çağırmak için bir alternatifidir `trackMetric` için Application Insights Node.js SDK'sını kullanarak.
 
 ## <a name="log-custom-telemetry-in-c-functions"></a>Özel telemetri oturum C# işlevleri
 
@@ -632,7 +632,7 @@ module.exports = function (context, req) {
 
 ### <a name="dependencies"></a>Bağımlılıklar
 
-İşlev diğer hizmetlere olan bağımlılıkları otomatik olarak görünmüyor. Bağımlılıkları göstermek için özel kod yazabilirsiniz. Örnek kodda örnekler için bkz [ C# özel telemetri bölümü](#custom-telemetry-in-c-functions). Örnek kod sonuçlanıyor bir *Uygulama Haritası* Application ınsights'ın aşağıdaki görüntü gibi görünür:
+İşlev diğer hizmetlere olan bağımlılıkları otomatik olarak görünmüyor. Bağımlılıkları göstermek için özel kod yazabilirsiniz. Örnek kodda örnekler için bkz [ C# özel telemetri bölümü](#log-custom-telemetry-in-c-functions). Örnek kod sonuçlanıyor bir *Uygulama Haritası* Application ınsights'ın aşağıdaki görüntü gibi görünür:
 
 ![Uygulama eşlemesi](media/functions-monitoring/app-map.png)
 

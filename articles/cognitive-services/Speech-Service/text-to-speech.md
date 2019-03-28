@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 05028704c08ebd06f9b9e4e3f45c5137eb1e6b58
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1edc2587ef8680f60082bf6271b73d30184f331b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226921"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521253"
 ---
 # <a name="what-is-text-to-speech"></a>Metin okuma nedir?
 
-Azure konuşma Services'dan metin okuma, uygulamalar, Araçlar veya cihazları doğal insan benzeri Sentezlenen konuşmaya metni dönüştürmek sağlayan bir REST tabanlı bir hizmettir. Standart ve sinir ses arasından seçin veya kendinizinkini oluşturun [özel sesli](#custom-voice-fonts) benzersiz ürün veya marka. 75'ten fazla standart sesleri 45'den fazla dil ve yerel ayar kullanılabilir ve 5 sinir sesleri 4 dil ve yerel ayarlar kullanılabilir. Tam bir listesi için bkz [desteklenen diller](language-support.md#text-to-speech).
+Azure konuşma Services'dan metin okuma, uygulamalar, Araçlar veya cihazları doğal insan benzeri Sentezlenen konuşmaya metni dönüştürmek sağlayan bir REST tabanlı bir hizmettir. Standart ve sinir ses arasından seçin veya kendi özel sesli benzersiz ürün veya marka oluşturun. 75'ten fazla standart sesleri 45'den fazla dil ve yerel ayar kullanılabilir ve 5 sinir sesleri 4 dil ve yerel ayarlar kullanılabilir. Tam bir listesi için bkz [desteklenen diller](language-support.md#text-to-speech).
 
 Metin okuma teknolojisi, içerik oluşturucuların kullanıcılarının ile farklı yöntemle etkileşim kurmasına imkan tanır. Metin okuma, kullanımı içeriklerle etkileşim için bir seçenek ile kullanıcılara sağlayarak erişilebilirlik artırabilir. Metin okuma, kullanıcı bir görsel engelliler, bir öğrenme engelli veya sürüş Gezinti bilgilerini gerektiriyor olsun, var olan bir deneyim artırabilir. Metin okuma da bir değerli ses robotlar ve sanal Yardımcıları eklentisidir.
 
@@ -56,9 +56,9 @@ Hızlı başlangıçlar, kodu 10 dakikadan kısa bir süre içinde çalıştırm
 
 | Hızlı Başlangıç | Platform | API başvurusu |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Göz atma](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Pencere, macOS, Linux | [Göz atma](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
-| [Python](quickstart-python-text-to-speech.md) | Pencere, macOS, Linux | [Göz atma](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Göz atma](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Pencere, macOS, Linux | [Göz atma](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Pencere, macOS, Linux | [Göz atma](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 
 ## <a name="sample-code"></a>Örnek kod
 

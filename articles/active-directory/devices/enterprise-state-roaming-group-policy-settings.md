@@ -4,7 +4,7 @@ description: Şirkete ait cihazlarda kullanılması gereken Yönetimi (MDM) ayar
 services: active-directory
 keywords: Grup İlkesi ve MDM ayarları Kurumsal durumda dolaşım, Kurumsal durumda dolaşım, windows bulut nedir
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: curtand
 ms.subservice: devices
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
-ms.author: markvi
+ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33638d9b22fb1717fadcb1717f816e95076a7d66
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5f1b23862edeabbf8e03d4589fa3f22a3fab9f72
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161108"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520998"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Grup İlkesi ve MDM ayarları
 Bu ilkeler, kullanıcının cihazın tamamını uygulandığından yalnızca şirkete ait cihazlarda bu Grup İlkesi ve mobil cihaz Yönetimi (MDM) ayarlarını kullanın. Cihaz kullanıcıya ait kişisel için ayarları eşitleme devre dışı bırakmak için bir MDM ilkesi uygulayarak, cihazın kullanımını olumsuz etkiler. Ek olarak, diğer cihazda kullanıcı hesaplarını ilkeden etkilenir.

@@ -8,12 +8,12 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4714ea7aa4bf55f7cbd4500977b09505788233dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9e77dcd96ffa0fbd57aa0ed1b4f857279ca768a7
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895813"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520811"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Azure uzamsal bağlayıcılarını kullanarak bir etkin bağlantı deneyimi oluşturun
 
@@ -86,7 +86,7 @@ Hedef senaryosunda, fotoğraflar yardımcı olabilir. Kullanıcıların cihazlar
 
 Oda senaryoda, kullanıcılar yalnızca var olan Buraya bir yer işareti yere bilmek bir boşluk girin. Kullanıcı, cihazını alanı tarama ve hızlı bir şekilde bağlantı bulun.
 
-Bu deneyim genellikle iyi seçkin yer işaretleri oluşturmanız konusunda değinildiği gibi gerektiren [çeşitli görüntüleme Perspektifler](#consider-various-viewing-perspectives). Yer işareti oluşturduğunuzda, birden çok perspektif odasından taradığınız ise bulmak çalıştıklarında kullanıcıların neredeyse her yerden tarayabilirsiniz.
+Bu deneyim genellikle iyi seçkin yer işaretleri oluşturmanız size çeşitli görüntüleme açılardan açıklandığı gibi gerektirir. Yer işareti oluşturduğunuzda, birden çok perspektif odasından taradığınız ise bulmak çalıştıklarında kullanıcıların neredeyse her yerden tarayabilirsiniz.
 
 ![Bir kullanıcı bir bağlayıcı bulmayı oda nasıl tarayabilir çizimi](./media/scan-room.png)
 

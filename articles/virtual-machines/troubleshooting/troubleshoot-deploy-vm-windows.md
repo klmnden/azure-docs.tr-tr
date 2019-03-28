@@ -1,6 +1,6 @@
 ---
 title: Azure'da dağıtma Windows sanal makine sorunlarını giderme | Microsoft Docs
-description: Dağıtma Azurethe Resource Manager dağıtım modelinde Windows sanal makine sorunlarını giderin.
+description: Azure Resource Manager dağıtım modelinde dağıtma Windows sanal makine sorunlarını giderin.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 9d98a060033674a53c8ac5390bc40d10b0fbe69b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5752731f08a7dc9ae8661e698aef9655837c6220
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882510"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540712"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Azure'da dağıtma Windows sanal makine sorunlarını giderme
 
@@ -32,11 +32,7 @@ Bu makalede herhangi bir noktada daha fazla yardıma ihtiyacınız olursa, üzer
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>İstenen VM boyutu küme desteği
-<properties
-supportTopicIds="123456789"
-resourceTags="windows"
-productPesIds="1234, 5678"
-/>
+\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
 - Daha küçük bir VM boyutu isteği yeniden deneyin.
 - İstenen VM boyutu değiştirilemiyorsa:
     - Kullanılabilirlik kümesindeki tüm sanal makineler durdurun. Tıklayın **kaynak grupları** > kaynak grubunuzun > **kaynakları** > kullanılabilirlik kümeniz > **sanal makineler** > sanal makinenizi >  **Durdur**.
@@ -45,11 +41,7 @@ productPesIds="1234, 5678"
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>Kümenin boş kaynak yok
-<properties
-supportTopicIds="123456789"
-resourceTags="windows"
-productPesIds="1234, 5678"
-/>
+\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
 - İstek daha sonra yeniden deneyin.
 - Yeni VM'yi farklı bir kullanılabilirlik kümesinin bir parçası olarak
     - Bir VM'yi (aynı bölgede) farklı bir kullanılabilirlik oluşturun.
