@@ -8,6 +8,8 @@ items:
     href: architecture.md
   - name: Güvenlik aracıları
     href: security-agent-architecture.md
+  - name: Edge güvenlik modülü
+    href: security-edge-architecture.md
   - name: Hizmet önkoşulları
     href: service-prerequisites.md
   - name: IoT için ASC’yi kullanmaya başlama
@@ -23,26 +25,8 @@ items:
   - name: Özel güvenlik uyarıları oluşturma
     href: quickstart-create-custom-alerts.md
   expanded: true
-- name: Öğreticiler
-  items:
-  - name: Güvenlik aracısı dağıtma
-    items:
-    - name: Windows cihazında C# tabanlı güvenlik aracısı dağıtma
-      href: tutorial-deploy-windows-cs.md
-    - name: Linux cihazında C# tabanlı güvenlik aracısı dağıtma
-      href: tutorial-deploy-linux-cs.md
-    - name: Linux cihazında C tabanlı güvenlik aracısı dağıtma
-      href: tutorial-deploy-linux-c.md
-  - name: Cihazı araştırma
-    href: tutorial-investigate-device.md
-  - name: Kendi güvenlik iletilerinizi gönderme
-    href: tutorial-send-security-messages.md
 - name: Kavramlar
   items:
-  - name: Hangi aracıyı dağıtmalıyım?
-    href: select-deploy-agent.md
-  - name: Güvenlik aracılarını yapılandırma
-    href: concept-agent-configuration.md
   - name: Güvenlik aracısında kimlik doğrulaması
     href: concept-security-agent-authentication-methods.md
   - name: Güvenlik modülü
@@ -51,12 +35,30 @@ items:
     href: concept-security-alerts.md
   - name: Güvenlik önerileri
     href: concept-recommendations.md
+  - name: Fiyatlandırma ve ilişkili maliyetler
+    href: concept-pricing.md
 - name: Nasıl yapılır kılavuzları
   items:
+  - name: Hangi aracıyı dağıtmalıyım?
+    items:
+    - name: Dağıtılacak aracıyı seçme
+      href: how-to-deploy-agent.md
+    - name: Windows cihazında C# tabanlı güvenlik aracısı dağıtma
+      href: how-to-deploy-windows-cs.md
+    - name: Linux cihazında C# tabanlı güvenlik aracısı dağıtma
+      href: how-to-deploy-linux-cs.md
+    - name: Linux cihazında C tabanlı güvenlik aracısı dağıtma
+      href: how-to-deploy-linux-c.md
+  - name: Edge güvenlik modülünü dağıtma
+    href: how-to-deploy-edge.md
+  - name: Güvenlik aracılarını yapılandırma
+    href: how-to-agent-configuration.md
+  - name: Kendi güvenlik iletilerinizi gönderme
+    href: how-to-send-security-messages.md
   - name: Ham güvenlik verilerine erişme
     href: how-to-security-data-access.md
-  - name: Güvenlik modül ikizini değiştirme
-    href: how-to-modify-security-module-twin.md
+  - name: Cihazı araştırma
+    href: how-to-investigate-device.md
 - name: Kaynaklar
   items:
   - name: Sık sorulan sorular
@@ -67,9 +69,9 @@ items:
     href: http://blogs.msdn.com/b/azuresecurity/
   - name: Bölgesel kullanılabilirlik
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 6789b87deb5c502df3541a10e9a8e4eece21a351
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 17508e05a8de52e12487bf35fd3e063761abcbe2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541339"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575173"

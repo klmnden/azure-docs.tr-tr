@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 12ba136bb227ef5ea469d91c6da9477b718b9e92
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: fad8ecd0658b2a00f249e8b218bab1dbdaf83187
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542242"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578229"
 documentType: LandingData
-title: IoT için Azure Güvenlik Merkezi (ASC) Önizleme Belgeleri
+title: IoT için ASC Önizleme Belgeleri
 metadata:
-  title: IoT için Azure Güvenlik Merkezi (ASC) Önizleme Belgeleri - Öğreticiler, Hızlı Başlangıçlar | Microsoft Docs
-  meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
+  title: IoT için ASC Önizleme Belgeleri - Öğreticiler, Hızlı Başlangıçlar | Microsoft Docs
+  meta.description: ASC for IoT unifies your security management and enables advanced threat protection across your IoT solution.
   services: ascforiot
   author: mlottner
   manager: barbkess
@@ -32,19 +32,19 @@ sections:
     - image:
         src: media/index/deploy.svg
       text: IoT için ASC’yi etkinleştirme
-      href: /azure/ascforiot/quickstart-onboard-iot-hub
+      href: /azure/asc-for-iot/quickstart-onboard-iot-hub
     - image:
         src: media/index/get-started.svg
       text: IoT için ASC’yi kullanmaya başlama
-      href: /azure/ascforiot/quickstart-getting-started
-- title: Adım Adım Öğreticiler
+      href: /azure/asc-for-iot/getting-started
+- title: Nasıl yapılır kılavuzları
   items:
   - type: paragraph
     text: Güvenlik ilkelerini tanımlamayı, cihazlarınızı kötü amaçlı etkinliklere karşı korumayı ve güvenlik uyarıları ile olaylara yanıt vermeyi öğrenin.
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: <a href="/azure/ascforiot/tutorial-investigate-device">IoT için ASC ile tehdit algılama</a>
+    - html: <a href="/azure/asc-for-iot/how-to-investigate-device">IoT için ASC ile tehdit algılama</a>
 - title: Microsoft Learn ile becerilerinizi geliştirin
   items:
   - type: list
