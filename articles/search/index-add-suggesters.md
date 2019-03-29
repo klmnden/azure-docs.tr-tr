@@ -19,29 +19,29 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5a46575f6e8a0b05b65dbf49c70bddb570b514b2
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: a629a022e332eae5c8a58e9ffc0f760f96bc24dd
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497442"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577135"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Azure Search'te typeahead için dizin öneri Araçları eklemek
 
-A **öneri aracı** bir yapıdır bir [Azure Search dizini](search-what-is-an-index.md) , "arama---yazarken" deneyimini destekler. Bu sorgu girişleri typeahead etkinleştirmek istediğiniz alanların listesini içerir. Typeahead iki çeşidi vardır: *otomatik tamamlama* terimini veya tümceciğini yazdığınız, tamamlanan *önerileri* sonuçların kısa listesini sağlar. 
+A **öneri aracı** bir yapıdır bir [Azure Search dizini](search-what-is-an-index.md) , "arama---yazarken" deneyimini destekler. Bu sorgu girişleri typeahead etkinleştirmek istediğiniz alanların listesini içerir. İçinde bir dizin veya her ikisini bu iki typeahead çeşitleri aynı öneri aracı destekler: *otomatik tamamlama* terimini veya tümceciğini yazdığınız, tamamlanan *önerileri* sonuçların kısa listesini sağlar. 
 
-Öneriler, belirli bir oyun için bir sayfa olacak gerçek sonuçlar ise bu Xbox arama sayfasında, otomatik tamamlama öğeleri, bu sorgu için yeni bir arama sonuçları sayfası ulaşmanızı sağlar. Arama çubuğuna bir öğe için otomatik tamamlama sınırlamak veya aşağıda gösterilene benzer bir liste sağlar. Öneriler için en iyi sonucu açıklayan bir belge herhangi bir bölümünü ortaya çıkabilir.
+Aşağıdaki ekran görüntüsünde iki typeahead özelliklerini gösterir. Öneriler, belirli bir oyun için bir sayfa olacak gerçek sonuçlar ise bu Xbox arama sayfasında, otomatik tamamlama öğeleri, bu sorgu için yeni bir arama sonuçları sayfası ulaşmanızı sağlar. Arama çubuğuna bir öğe için otomatik tamamlama sınırlamak veya aşağıda gösterilene benzer bir liste sağlar. Öneriler için en iyi sonucu açıklayan bir belge herhangi bir bölümünü ortaya çıkabilir.
 
 ![Otomatik Tamamlama ve önerilen sorgular Visual karşılaştırması](./media/index-add-suggesters/visual-comparison-suggest-complete.png "otomatik tamamlama ve önerilen sorgular Visual karşılaştırması")
 
 Azure Search'te Bu davranışların uygulamak için bir dizin ve sorgu bileşeni yoktur. 
 
-+ Bir dizinde bir öneri aracı ekleyin. Bir öneri aracı oluşturmak için portalı, REST API'si veya .NET SDK'sını kullanabilirsiniz. 
++ Bir öneri aracı dizini bileşendir. Bir öneri aracı oluşturmak için portalı, REST API'si veya .NET SDK'sını kullanabilirsiniz. 
 
-+ Bir sorguyu temel bir öneri veya sutocomplete eylemi belirtin. 
++ Sorgu bileşeni belirtilen sorgu isteği (bir öneri veya otomatik tamamlama eylemini) bir eylemdir. 
 
 > [!Important]
-> Otomatik Tamamlama, REST API Önizleme aşamasında kullanıma Önizleme ve .NET SDK'sı şu anda kullanılabilir ve üretim uygulamaları için desteklenmiyor. 
+> Otomatik Tamamlama, Önizleme, REST API Önizleme aşamasında kullanıma ve .NET SDK'sı şu anda kullanılabilir. Üretim uygulamaları için tasarlanmamıştır. 
 
 Arama---yazarken destek alan başına temelinde etkinleştirilir. Ekran görüntüsünde gösterilen benzer bir deneyim istiyorsanız her iki typeahead davranışları aynı arama çözüm içinde uygulayabilirsiniz. Her iki istekleri hedef *belgeleri* belirli dizinini ve yanıtları koleksiyonu, bir kullanıcı en az üç karakter giriş dizesi ayarının sonra döndürülür.
 
@@ -77,7 +77,7 @@ Bir öneri aracı oluşturulduktan sonra Ekle [öneriler API'si](https://docs.mi
 
 ### <a name="use-the-net-sdk"></a>.NET SDK’yı kullanma
 
-İçinde C#, tanımlayan bir [öneri aracı sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Öneri aracı koleksiyonudur ancak yalnızca tek bir öğeyi alabilirler.
+İçinde C#, tanımlayan bir [öneri aracı sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Bir öneri aracı yalnızca tek bir öğeyi alabilirler koleksiyonudur. Eklediğinizden emin olun `using System.Collections.Generic;` böylece nesnelerin bir listesini oluşturabilirsiniz. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -137,4 +137,4 @@ Azure Search hizmeti bir korumalı alan kullanır ve tüm yapmanız gereken çal
 İsteklerin nasıl ifade edilir görmek için aşağıdaki örnek öneririz.
 
 > [!div class="nextstepaction"]
-> [Otomatik tamamlanan sorgu örneği (Önizleme)](search-autocomplete-tutorial.md) 
+> [Öneriler ve otomatik tamamlama örnekler](search-autocomplete-tutorial.md) 

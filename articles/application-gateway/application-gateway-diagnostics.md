@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/11/2019
+ms.date: 3/28/2019
 ms.author: amitsriva
-ms.openlocfilehash: 14b99f648bb1d7e1926aa9d5dd9926e267ba9709
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309137"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620885"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway
 
@@ -131,7 +131,7 @@ Etkinlik günlüğü tüm Kaynak Yöneticisi kaynakları için otomatik olarak e
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Azure portaldan günlüğe kaydetmeyi etkinleştirme
 
-1. Azure portalında, kaynağınızı bulun ve tıklatın **tanılama günlükleri**.
+1. Azure portalında, kaynağınızı bulun ve seçin **tanılama ayarları**.
 
    Application Gateway için üç günlükleri kullanılabilir:
 
@@ -139,21 +139,15 @@ Etkinlik günlüğü tüm Kaynak Yöneticisi kaynakları için otomatik olarak e
    * Performans günlüğü
    * Güvenlik Duvarı günlüğü
 
-2. Veri toplamaya başlamak için **Tanılamayı aç**'a tıklayın.
+2. Veri toplamaya başlamak için seçin **tanılamayı Aç**.
 
    ![Tanılamayı açma][1]
 
-3. **Tanılama ayarları** dikey penceresinde tanılama günlükleri için ayarları sağlar. Bu örnekte, Log Analytics, günlükleri depolar. Tıklayın **yapılandırma** altında **Log Analytics** çalışma alanınızı yapılandırmak için. Tanılama günlüklerini kaydetmek için Event Hubs'ı veya depolama hesabını da kullanabilirsiniz.
+3. **Tanılama ayarları** sayfasında tanılama günlükleriyle ilgili ayarlar bulunur. Bu örnekte, Log Analytics, günlükleri depolar. Tanılama günlüklerini kaydetmek için Event Hubs'ı veya depolama hesabını da kullanabilirsiniz.
 
    ![Yapılandırma işlemi başlatılıyor][2]
 
-4. Mevcut bir Log Analytics çalışma alanı seçin veya yeni bir tane oluşturun. Bu örnekte, mevcut bir kullanır.
-
-   ![Log Analytics çalışma alanları için Seçenekler][3]
-
-5. Ayarları onaylayın ve tıklayın **Kaydet**.
-
-   ![Tanılama ayarları dikey penceresinin seçimleri][4]
+5. Ayarları için bir ad yazın, ayarları onaylayın ve seçin **Kaydet**.
 
 ### <a name="activity-log"></a>Etkinlik günlüğü
 
@@ -334,7 +328,7 @@ Yüklenen ve popüler çalıştırılan bir Resource Manager şablonu yayımlad�
 
    Filtreleyebilirsiniz bir arka uç havuzu olarak belirli arka uç havuzunda iyi durumda ve uygun olmayan konakları göstermek için.
 
-Bir uygulama ağ geçidi için altında Gözat **izleme** tıklayın **ölçümleri**. Kullanılabilir değerleri görüntülemek için **ÖLÇÜM** açılan listesini seçin.
+Bir uygulama ağ geçidi için altında Gözat **izleme** seçin **ölçümleri**. Kullanılabilir değerleri görüntülemek için **ÖLÇÜM** açılan listesini seçin.
 
 Aşağıdaki görüntüde üç ölçümlerle son 30 dakika boyunca görüntülenen bir örneğe bakın:
 
@@ -348,11 +342,11 @@ Uyarı kuralları bir kaynağına ait ölçümleri temel başlayabilirsiniz. Ör
 
 Aşağıdaki örnek, bir eşik ihlallerini aktarım hızı sonra yönetici e-posta gönderen bir uyarı kuralı oluşturma işleminde size yol gösterir:
 
-1. Tıklayın **ölçüm uyarısı Ekle** açmak için **Kuralı Ekle** dikey penceresi. Bu dikey pencereden ölçümler dikey penceresine de ulaşabilirsiniz.
+1. seçin **ölçüm uyarısı Ekle** açmak için **Kuralı Ekle** sayfası. Bu sayfayı ölçümleri sayfasından da ulaşabilirsiniz.
 
    !["Ölçüm uyarısı Ekle" düğmesi][6]
 
-2. Üzerinde **Kuralı Ekle** dikey penceresinde adı, koşul, doldurun ve bölümleri bildirmek ve tıklayın **Tamam**.
+2. Üzerinde **Kuralı Ekle** sayfasında adı, koşul, doldurun ve bölüm bildirim ve seçin **Tamam**.
 
    * İçinde **koşul** Seçici, dört değerden birini seçin: **Büyüktür**, **büyüktür veya eşittir**, **küçüktür**, veya **ya da eşit**.
 
@@ -360,7 +354,7 @@ Aşağıdaki örnek, bir eşik ihlallerini aktarım hızı sonra yönetici e-pos
 
    * Seçerseniz **e-posta sahipleri, Katkıda Bulunanlar ve okuyucular**, bu kaynağa erişimi olan kullanıcılar göre e-posta dinamik olabilir. Aksi takdirde, kullanıcıların virgülle ayrılmış bir listesini sağlayabilirsiniz **ek yönetici email(s)** kutusu.
 
-   ![Kural dikey penceresi ekleme][7]
+   ![Kural Sayfası Ekle][7]
 
 Eşiği ihlal edilirse, aşağıdaki görüntüde gösterilene benzer bir e-posta geldiğinde:
 

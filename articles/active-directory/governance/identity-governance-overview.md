@@ -1,6 +1,6 @@
 ---
-title: Azure AD Kimlik Yönetimi | Microsoft Docs
-description: Azure AD Kimlik Yönetimi, kuruluşunuzun gerekir için güvenlik ve çalışan üretkenliğinin doğru işlemler ve görünürlük sağlar.
+title: Kimlik Yönetimi - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory kimlik yönetimini, güvenlik ve çalışan üretkenliğinin doğru işlemler ve görünürlük kuruluşunuzun gereksinimini Bakiye olanak tanır.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 304399905e9dfd37557a342248c829c1f940452b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7872a43d5000ddb1ba581f76358c8001902ab56b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167612"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579725"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD kimlik yönetimi nedir?
 
@@ -77,7 +77,7 @@ Mükemmel bir çözüm ya da her müşteri için öneri olsa da aşağıdaki yap
 - [Erişim gözden geçirmesi nedir?](access-reviews-overview.md)
 - [Erişim gözden geçirmeleriyle kullanıcı erişimini yönetme](manage-user-access-with-access-reviews.md)
 - [Erişim gözden geçirmeleriyle konuk erişimini yönetme](manage-guest-access-with-access-reviews.md)
-- [Dizin rolü erişim değerlendirmesi başlatma](../privileged-identity-management/pim-how-to-start-security-review.md)
+- [Azure AD rolleri erişim değerlendirmesi başlatma](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>Kullanım koşulları
 

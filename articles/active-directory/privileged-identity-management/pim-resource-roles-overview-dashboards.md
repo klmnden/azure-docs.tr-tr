@@ -1,5 +1,5 @@
 ---
-title: Kaynak Pano PIM - Azure erişim gözden geçirmesi gerçekleştirme | Microsoft Docs
+title: Kaynak Pano PIM - Azure Active Directory erişim gözden geçirmesi gerçekleştirme | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM) erişim gözden geçirmesi gerçekleştirmek için bir kaynak Pano kullanmayı açıklar.
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89abf15731bd125737e7c18ab45782820a856b38
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37057e531ea8387fbed84c9b03bbfb9c14d160ea
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012688"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574969"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>PIM'de erişim gözden geçirmesi gerçekleştirmek için bir kaynak Panosu'nu kullanın
 
-Erişim gözden geçirmesi Azure kaynakları için Privileged Identity Management (PIM) gerçekleştirmek için bir kaynak panoyu kullanabilirsiniz. Yönetici görünümü Pano üç birincil bileşenden oluşur:
+Kaynak Pano, Azure Active Directory (Azure AD) Privileged Identity Management (PIM) erişim gözden geçirmesi gerçekleştirmek için kullanabilirsiniz. Yönetici görünümü Pano üç birincil bileşenden oluşur:
 
 - Kaynak rol etkinleştirmeleri grafik gösterimi.
 - Rol atamaları atamaya göre dağılımını gösteren iki grafik türü.
@@ -43,4 +43,4 @@ Grafikleri, son 30 gün ve roller (Azalan) toplam atamalara göre sıralanmış 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure kaynak rolleri için erişim gözden geçirmesi PIM'de Başlat](pim-resource-roles-start-access-review.md) 
+- [PIM hizmetinde Azure kaynak rolleri için erişim gözden geçirmesi başlatma](pim-resource-roles-start-access-review.md) 

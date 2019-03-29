@@ -1,6 +1,6 @@
 ---
-title: Grupların veya Azure AD erişim gözden geçirmeleri uygulamalarda erişim değerlendirmesi tamamlama | Microsoft Docs
-description: Grup üyelerini veya Azure AD erişim gözden geçirmeleri uygulama erişimi erişim değerlendirmesi tamamlama hakkında bilgi edinin.
+title: Gruplar veya uygulamalar - Azure Active Directory erişim gözden geçirmesi tamamlama | Microsoft Docs
+description: Grup üyelerini Azure Active Directory erişim gözden geçirmeleri uygulama erişimi ve erişim değerlendirmesi tamamlama hakkında bilgi edinin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc5dbee47bd6a621b14b39858132ce229663481b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4265a7e08eab079e55ce91b27142ec3e55b3f3e9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729619"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579606"
 ---
-# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Grupların veya Azure AD erişim gözden geçirmeleri uygulamalarda erişim değerlendirmesi tamamlama
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Erişim gözden geçirmesi gruplarının tamamlamak ya da uygulamaları Azure ad erişim gözden geçirmeleri
 
 Yöneticiler, bir uygulamaya atanmış grup üyeleri veya kullanıcılar için [bir erişim gözden geçirmesi oluşturmak](create-access-review.md) üzere Azure Active Directory’yi (Azure AD) kullanabilir. Azure AD, gözden geçirenler otomatik olarak erişim gözden geçirmek için isteyen bir e-posta gönderir. Bir kullanıcı bir e-posta almadıysanız, bunları yönergeleri gönderebilirsiniz [gruplar veya uygulamalar için erişim gözden geçirme](perform-access-review.md). (Davet gözden geçirme önce ilk kabul etmelidir gibi daveti kabul ancak gözden geçirenler olarak atanan konukların erişim gözden geçirmeleri, e-posta almaz unutmayın.) Erişim gözden geçirmesi dönemi bittikten sonra veya bir yönetici erişim gözden geçirmesi durduğunda bakın ve sonuçları uygulamak için bu makaledeki adımları izleyin.
 

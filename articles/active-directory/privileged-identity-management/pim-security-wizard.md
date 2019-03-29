@@ -1,5 +1,5 @@
 ---
-title: Azure AD PIM rolleri Güvenlik Sihirbazı | Microsoft Docs
+title: Azure AD PIM - Azure Active Directory rolleri Güvenlik Sihirbazı | Microsoft Docs
 description: Dönüştürme kalıcı ayrıcalıklı Azure AD rol atamaları için Azure AD Privileged Identity Management (PIM) kullanarak uygun için kullanabileceğiniz Güvenlik Sihirbazı'nı açıklar.
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66dcc834ab089f28e6bb47c2905e6a2a3907091
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 226c00dfdf651580a58a9409bc7cd22658415a56
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208767"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576369"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>Azure AD PIM rolleri Güvenlik Sihirbazı
 
-Kuruluşunuz için Azure AD Privileged Identity Management (PIM) çalıştırmak için ilk kişi siz, sihirbaz ile sunulur. Sihirbaz ayrıcalıklı kimlikleri ve bu riskleri azaltmak için PIM'i kullanma güvenlik risklerini anlamanıza yardımcı olur. Daha sonra yapmayı tercih ediyorsanız sihirbazında, mevcut rol atamaları herhangi bir değişiklik yapmak gerekmez.
+Kuruluşunuz için Azure Active Directory (Azure AD) Privileged Identity Management (PIM) çalıştırmak için ilk kişi siz, sihirbaz ile sunulur. Sihirbaz ayrıcalıklı kimlikleri ve bu riskleri azaltmak için PIM'i kullanma güvenlik risklerini anlamanıza yardımcı olur. Daha sonra yapmayı tercih ediyorsanız sihirbazında, mevcut rol atamaları herhangi bir değişiklik yapmak gerekmez.
 
 ## <a name="wizard-overview"></a>Sihirbazına genel bakış
 
@@ -53,11 +53,11 @@ Sihirbazın ikinci adım, yöneticinin rol atamalarını değiştirme olanağı 
 
 1. Tıklayın **sonraki** uygun hale getirmek istediğiniz üyeleri seçin.
 
-    ![Üyeleri uygun hale dönüştür](./media/pim-security-wizard/convert-members-eligible.png)
+    ![Üyeleri uygun hale getirme](./media/pim-security-wizard/convert-members-eligible.png)
 
 1. Üyelerini seçtikten sonra tıklayın **sonraki**.
 
-    ![Değişiklikleri inceleyin](./media/pim-security-wizard/review-changes.png)
+    ![Değişiklikleri gözden geçirin](./media/pim-security-wizard/review-changes.png)
 
 1. Tıklayın **Tamam** kalıcı atamaları uygun hale getirme için.
 
@@ -65,9 +65,9 @@ Sihirbazın ikinci adım, yöneticinin rol atamalarını değiştirme olanağı 
 
     ![Bildirimler](./media/pim-security-wizard/notification-completion.png)
 
-Diğer ayrıcalıklı rol atamaları için uygun dönüştürmek gerekirse Sihirbazı yeniden çalıştırabilirsiniz. PIM arabirimi yerine Sihirbazı'nı kullanmak istiyorsanız, bkz. [atama Azure AD dizin rollerini PIM](pim-how-to-add-role-to-user.md).
+Diğer ayrıcalıklı rol atamaları için uygun dönüştürmek gerekirse Sihirbazı yeniden çalıştırabilirsiniz. PIM arabirimi yerine Sihirbazı'nı kullanmak istiyorsanız, bkz. [Azure AD PIM Rolleri Ata](pim-how-to-add-role-to-user.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure AD dizin rollerini PIM atayın](pim-how-to-add-role-to-user.md)
+- [Azure AD PIM Rolleri Ata](pim-how-to-add-role-to-user.md)
 - [PIM yönetmek için diğer yöneticilere erişim izni ver](pim-how-to-give-access-to-pim.md)

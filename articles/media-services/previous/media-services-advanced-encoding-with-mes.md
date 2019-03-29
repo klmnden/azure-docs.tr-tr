@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: aa29b1e2d0e80b3134be69d17ed5be454f8a51c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fadf1aa54f525fb3d4c414161583f8a89f2e4c05
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850369"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576301"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>MES ön Ayarları özelleştirerek Gelişmiş encoding gerçekleştirme 
 
@@ -27,11 +27,10 @@ ms.locfileid: "57850369"
 
 Bu konuda, Media Encoder Standard hazır ayarlarını özelleştirme gösterilmektedir. [Kullanarak Media Encoder özel önayarların kullanılmasına Standard ile kodlama](media-services-custom-mes-presets-with-dotnet.md) konu .NET bir kodlama görevi ve bu görevi yürüten bir iş oluşturmak için nasıl kullanılacağını gösterir. Önceden ayarlanmış özelleştirildikten sonra özel önayarların kullanılmasına kodlama görevine sağlayın. 
 
->[!NOTE]
->Aşağıdaki XML örneklerde gösterildiği gibi bir XML ön ayarı kullanıyorsanız, öğelerin sırasını doğru yazdığınızdan emin olun (örneğin, KeyFrameInterval SceneChangeDetection gelmelidir).
->
+Aşağıdaki XML örneklerde gösterildiği gibi bir XML ön ayarı kullanıyorsanız, öğelerin sırasını doğru yazdığınızdan emin olun (örneğin, KeyFrameInterval SceneChangeDetection gelmelidir).
 
-Bu konuda, aşağıdaki kodlama görevleri gerçekleştiren özel önayarların kullanılmasına gösterilmiştir.
+> [!NOTE] 
+> Media Encoder Standard'ın gelişmiş Media Services v2 özelliklerin çoğu şu anda v3 sürümünde kullanılabilir değil. Daha fazla bilgi için [özellik boşlukları](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="support-for-relative-sizes"></a>Göreli boyutları için destek
 
@@ -245,7 +244,7 @@ Aşağıdaki maddeler geçerlidir:
     Karışık ve yazarken gösterimler Lütfen eşleşen.
 
     Ayrıca, başlangıç özel makro de destekler: {, hangi içerik Not ilk "ilginç" çerçevesini belirlemeye çalışır en iyi}: (Başlangıç {iyi} olarak ayarlandığında adım ve aralığı göz ardı edilir)
-  * Varsayılanlar: Başlangıç: {en iyi}
+  * Varsayılan olarak: Başlangıç: {en iyi}
 * Çıkış biçimi için her görüntü biçimi açıkça sağlanması gerekir: Jpg/Png/BmpFormat. MES JpgVideo JpgFormat için mevcut olduğunda, vb. ile eşleşir. Yeni bir görüntü codec bileşeni belirli makrosu OutputFormat sunar: {Index} olması gereken sunar (bir kez ve yalnızca bir kez) görüntü için Çıkış biçimleri.
 
 ## <a id="trim_video"></a>(Kırpma) bir videoyu Kırp

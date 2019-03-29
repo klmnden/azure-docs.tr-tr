@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: e196a7a0b1ad29462aa7e2fb60fcb5d07c57eea7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886686"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575105"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>İzleme, oluşturma ve SSH ve Azure Logic Apps kullanarak SFTP dosyaları yönetme
 
@@ -27,10 +27,16 @@ ms.locfileid: "57886686"
 * Dosya içeriğini ve meta verileri alın.
 * Arşivi klasöre ayıklayın.
 
-Karşılaştırılan [SFTP Bağlayıcısı](../connectors/connectors-create-api-sftp.md), SFTP-SSH bağlayıcı okuyup okuyamayacağını veya dosyaları en fazla yazma *1 GB* boyutu 50 MB cinsinden veri yönetimi tarafından parça. 1 GB'den büyük olan dosyalar için Eylemler kullanabilirsiniz [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md). Daha fazla fark için gözden [karşılaştırma SFTP-SSH ve SFTP](#comparison) bu makalenin ilerleyen bölümlerinde.
-
 SFTP sunucunuzdaki olayları izleyen ve çıkış diğer eylemler için kullanılabilir hale getirmek Tetikleyicileri kullanabilirsiniz. SFTP sunucunuzda çeşitli görevler gerçekleştiren eylemlerini kullanabilirsiniz. SFTP eylemleri çıktısını kullanan diğer eylemler mantıksal uygulamanızda da olabilir. Örneğin, düzenli olarak dosyaları SFTP sunucunuzdan almak, dosyaları ve içeriklerini hakkında e-posta uyarıları Office 365 Outlook Bağlayıcısı veya Outlook.com bağlayıcısını kullanarak gönderebilirsiniz.
 Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](../logic-apps/logic-apps-overview.md)
+
+## <a name="limits"></a>Sınırlar
+
+* SFTP-SSH eylemleri okuma veya yazma dosyaları *1 GB veya daha küçük* olarak veri yönetimi tarafından *50 MB parça*, değil 1 GB parça.
+
+* Dosyalar için *1 GB'tan daha büyük*, Eylemler kullanabileceğiniz [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md). Şu anda, SFTP-SSH Tetikleyicileri Öbekleme desteklemez.
+
+Daha fazla fark için gözden [karşılaştırma SFTP-SSH ve SFTP](#comparison) sonraki bölümde daha sonra.
 
 <a name="comparison"></a>
 
@@ -38,23 +44,23 @@ Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](..
 
 SFTP-SSH Bağlayıcısı ve SFTP-SSH bağlayıcı yeteneklere sahip olduğu SFTP Bağlayıcısı arasındaki diğer temel farklılıklar şunlardır:
 
-* Kullanan <a href="https://github.com/sshnet/SSH.NET" target="_blank"> **SSH.NET** </a> .NET destekleyen bir açık kaynak güvenli Kabuk (SSH) kitaplığı olan bir kitaplık. 
+* Kullanan <a href="https://github.com/sshnet/SSH.NET" target="_blank"> **SSH.NET** </a> .NET destekleyen bir açık kaynak güvenli Kabuk (SSH) kitaplığı olan bir kitaplık.
 
   > [!NOTE]
   >
   > SFTP-SSH bağlayıcısını destekler *yalnızca* bu özel anahtarlar, biçimleri, algoritmaları ve parmak izi:
-  > 
+  >
   > * **Özel anahtar biçimleri**: RSA (Rivest Shamir Adleman) ve OpenSSH hem ssh.com biçimlerde DSA (dijital imza algoritması) anahtarları
   > * **Şifreleme algoritmalarını**: DES EDE3 CBC, DES-EDE3-CFB DES CBC, AES-128-CBC, AES 192 CBC ve AES 256 CBC
   > * **Parmak izi**: MD5
 
-* Okur veya dosyalarını kadar Yazar *1 GB* boyutu için SFTP Bağlayıcısı karşılaştırıldığında, ancak veri 50 MB parça değil 1 GB parça içinde işler. 1 GB'den büyük olan dosyalar için Eylemler de kullanabilirsiniz [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md). Şu anda Tetikleyicileri Öbekleme desteklemez.
+* Eylemler okuma veya yazma dosyaları *1 GB'a kadar* parçaları SFTP Bağlayıcısı, ancak işler veri 50 MB parça, 1 GB değil karşılaştırıldığında. 1 GB'den büyük olan dosyalar için Eylemler de kullanabilirsiniz [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md). Şu anda, SFTP-SSH Tetikleyicileri Öbekleme desteklemez.
 
 * Sağlar **klasör oluştur** eylem, SFTP sunucusundaki belirtilen yolda bir klasör oluşturur.
 
 * Sağlar **dosyayı yeniden adlandır** eylem, SFTP sunucusundaki bir dosyayı yeniden adlandırır.
 
-* SFTP sunucusuna bağlanırken önbelleğe *için 1 saate kadar*, performansı geliştirir ve konumundaki sunucuya bağlanma denemelerinin sayısını azaltır. Bu süre önbelleğe alma davranışını belirlemek için Düzenle <a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank"> **satırını Clientaliveınterval** </a> SSH yapılandırması SFTP sunucunuzdaki bir özellik. 
+* SFTP sunucusuna bağlanırken önbelleğe *için 1 saate kadar*, performansı geliştirir ve konumundaki sunucuya bağlanma denemelerinin sayısını azaltır. Bu süre önbelleğe alma davranışını belirlemek için Düzenle <a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank"> **satırını Clientaliveınterval** </a> SSH yapılandırması SFTP sunucunuzdaki bir özellik.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -140,7 +146,7 @@ Dosya içeriği isterken Tetikleyicileri 50 MB'tan büyük dosyaları uygulanmaz
 
 <a name="file-added-modified"></a>
 
-### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - SSH tetikleyin: Dosya eklendiğinde veya değiştirildiğinde
+### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - SSH tetikleyin: Bir dosya eklendiğinde veya değiştirildiğinde
 
 Bir dosya eklendiğinde veya bir SFTP sunucu üzerinde değiştirilmiş bu tetikleyiciyi bir mantıksal uygulama iş akışı başlatır. Örneğin, dosyanın içeriğini denetler ve içerik belirtilen bir koşulu karşılayıp içeriği alan bir koşul ekleyebilirsiniz. Ardından, dosyanın içeriğini alır ve bu içeriği SFTP sunucusunda bir klasöre koyar, bir eylem ekleyebilirsiniz. 
 

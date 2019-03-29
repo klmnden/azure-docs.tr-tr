@@ -1,7 +1,7 @@
 ---
 title: OData ifadesi söz dizimi filtreleri ve sipariş tarafından tümceleri - Azure Search için
 description: Filtre ve order by deyimi Azure arama sorguları için OData söz dizimi.
-ms.date: 01/31/2019
+ms.date: 03/27/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f0fd93af7cba3057ad4c2224aa1298a221505645
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8445ab2c8797226b08519e2f186350a31416f049
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541069"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578416"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>OData ifadesi söz dizimi filtreleri ve Azure Search order by yan tümceleri
 
@@ -207,7 +207,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-Tüm hotels adlı eşit ya da Roach motel Bul ' veya 'Bütçe otel'):  
+Tüm hotels adlı 'Roach motel' veya 'Bütçe otel' eşittir bulabilirsiniz). İfadeler, varsayılan sınırlayıcı olduğu alanları içerir. Bir sınırlayıcı geçersiz kılma belirtmek için yeni sınırlayıcı filtre ifadesi bir parçası olarak tek tırnak işaretleri içine alın:  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -223,6 +223,12 @@ Etiket 'wifi' veya 'havuzu' tüm hotels bulun:
 
 ```
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
+```
+
+Birden çok etiketleri, 'ısıtılan towel raflar' veya 'dahil hairdryer' bir eşleşme bulur. Varsayılan alan sınırlayıcı çalışmaz olmadığında, başka bir sınırlayıcı belirtmeyi unutmayın. 
+
+```
+$filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))
 ```
 
 Etiket 'motel' veya 'kabini' olmadan tüm hotels bulun:  

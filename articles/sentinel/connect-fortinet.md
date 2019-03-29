@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5310d85b73f4485c27b61735afab9ad5ed3fb9ea
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2164969de4198d381a5c7a5f5ab73128a67ccbda
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898933"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576854"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Fortinet gerecinize bağlanma 
 
@@ -32,7 +32,7 @@ Azure Gözcü herhangi bir Fortinet gereç Syslog CEF günlük dosyalarını kay
 > [!NOTE]
 > - Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
 
-## <a name="step-1-connect-your-fortinet-appliance-using-an-agent"></a>1. adım: Fortinet gerecinize bir aracı kullanarak bağlanma
+## <a name="step-1-connect-your-fortinet-appliance-using-an-agent"></a>1. Adım: Fortinet gerecinize bir aracı kullanarak bağlanma
 
 Azure Gözcü için Fortinet cihazınıza bağlanmak için adanmış bir makinede bir aracı dağıtmak gerekir (VM veya şirket içi) Gereci ve Azure Gözcü arasındaki iletişimi desteklemek için. Aracı otomatik olarak veya el ile dağıtabilirsiniz. Otomatik dağıtım, yalnızca ayrılmış makineniz Azure'da oluşturduğunuz yeni bir VM ise kullanılabilir. 
 
@@ -97,7 +97,7 @@ Azure kullanmıyorsanız, adanmış bir Linux sunucusu üzerinde çalıştırmak
       1. Bu komutu kullanarak Syslog aracıyı yeniden başlatın: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Hiçbir hata aracı günlüğünde şu komutu çalıştırarak onaylayın: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
-## <a name="step-2-forward-fortinet-logs-to-the-syslog-agent"></a>2. adım: Fortinet günlükleri Syslog aracıya ilet
+## <a name="step-2-forward-fortinet-logs-to-the-syslog-agent"></a>2. Adım: Fortinet günlükleri Syslog aracıya ilet
 
 Fortinet Syslog aracı üzerinden Azure çalışma alanınıza CEF biçiminde Syslog iletilerini iletecek şekilde yapılandırın:
 
@@ -120,7 +120,7 @@ Fortinet Syslog aracı üzerinden Azure çalışma alanınıza CEF biçiminde Sy
    > [!NOTE] 
    > Daha fazla bilgi için Git [Fortinet belge kitaplığı](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Sürümünüzü seçin ve kullanmak **el kitabı** ve **günlük iletisi başvurusu**.
 
-## <a name="step-3-validate-connectivity"></a>3. adım: Bağlantıyı doğrula
+## <a name="step-3-validate-connectivity"></a>3. Adım: Bağlantıyı doğrula
 
 Çalınıyor Log Analytics'te görünmesini günlüklerinizi başlatana kadar 20 dakika sürebilir. 
 
@@ -138,6 +138,7 @@ Fortinet Syslog aracı üzerinden Azure çalışma alanınıza CEF biçiminde Sy
 1. Bu komutların her ikisi de başarılı sonuçları sağlanan günlüklerinizi gelme görmek için Log Analytics kontrol edin. Bu gereçlerini akışa tüm olayları ham biçimde Log Analytics kapsamında görünen `CommonSecurityLog ` türü.
 1. Hatalar varsa veya günlükleri gelen olmayan denetlemek için konum `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 1. Syslog iletisi varsayılan boyutunuz (2 KB) 2048 bayt ile sınırlı olduğundan emin olun. Günlükleri çok uzun olması durumunda, bu komutu kullanarak security_events.conf güncelleştirin: `message_length_limit 4096`
+6. İlgili şema Fortinet olayları Log Analytics'te kullanmak için arama **CommonSecurityLog**.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

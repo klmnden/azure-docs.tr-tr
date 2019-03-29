@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 7132c2073223008cd82d0ffd54aaf266d0a630ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6cdccd54546296c85864f1588b71109ed8b8f79f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839026"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620523"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>3. Öğretici: Kredi riski model - Azure Machine Learning Studio dağıtma
 
@@ -172,7 +172,7 @@ Web hizmeti erişim sağlandığında aracılığıyla kullanıcının veri gire
 Sonuçları kullanıcıya web hizmeti aracılığıyla döndürülen **Web hizmeti çıkış** modülü.
 
 > [!TIP]
-> Tüm yapılandırılmış, Tahmine dayalı denemeye sahip olduğunuz şekilde oluşur [Score Model] [ score-model] modülü döndürülür. Bu, tüm giriş verilerini ayrıca kredi riski değeri ve puanlama olasılık içerir. Ancak isterseniz farklı bir şey döndürebilir; Örneğin, yalnızca kredi riski değer döndürebilir. Bunu yapmak için INSERT bir [proje sütunları] [ project-columns] arasında Modülü [Score Model] [ score-model] ve **Web hizmeti çıkış**döndürmek için web hizmeti istemediğiniz sütunları ortadan kaldırmak için. 
+> Tüm yapılandırılmış, Tahmine dayalı denemeye sahip olduğunuz şekilde oluşur [Score Model] [ score-model] modülü döndürülür. Bu, tüm giriş verilerini ayrıca kredi riski değeri ve puanlama olasılık içerir. Ancak isterseniz farklı bir şey döndürebilir; Örneğin, yalnızca kredi riski değer döndürebilir. Bunu yapmak için INSERT bir [Sütunları Seç] [ select-columns] arasında Modülü [Score Model] [ score-model] ve **Web hizmeti çıkış**döndürmek için web hizmeti istemediğiniz sütunları ortadan kaldırmak için. 
 > 
 > 
 
@@ -267,4 +267,4 @@ Ayrıca, R, sağlanan başlangıç kodunu kullanarak web hizmetine erişmek içi
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/

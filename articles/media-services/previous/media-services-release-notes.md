@@ -13,19 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f09d18759478c6c07aa0aea82f8bd1707595aa63
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: ea5a6a70372571daf82e7639fc31c125d69fa44f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499089"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621439"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
 
 Bu sürüm notlarını Azure Media Services önceki sürümleri ve bilinen sorunlar değişiklikleri özetlemek için.
 
 > [!NOTE]
-> Hiçbir yeni özellikler veya işlevsellikler eklenmektedir Media Services v2 ile. <br/>En son sürümü kullanıma alma [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
+> Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
 
 Şu sorunlardan etkilendiğiniz sorunlarını düzeltmeye odaklandık müşterilerimizden duymak istiyoruz. Sorun bildirin veya soru sormak için bir gönderiyi gönderme [Azure Media Services MSDN Forumu]. 
 
@@ -42,13 +42,12 @@ Bu sürüm notlarını Azure Media Services önceki sürümleri ve bilinen sorun
 | Bazı istemciler, kesintisiz akış bildiriminde bir yineleme etiketi sorunu arasında gelebilir. |Daha fazla bilgi için [Bu bölümde](media-services-deliver-content-overview.md#known-issues). |
 | Media Services .NET SDK'sı nesneleri seri hale getirilemiyor ve ile Azure önbelleği için Redis sonucunda çalışmaz. |Azure önbelleği için Redis eklemek için SDK'sı AssetCollection nesneyi serileştirmek denerseniz, bir özel durum oluşturulur. |
 
-
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API Sürüm Geçmişi
 Media Services REST API sürüm geçmişi hakkında daha fazla bilgi için bkz. [Azure Media Services REST API'si başvurusu].
 
 ## <a name="december-2018"></a>Aralık 2018
 
-[Medya Hyperlapse Önizleme](media-services-hyperlapse-content.md) Azure Media Services özelliği yakında kullanımdan kaldırılacak. 19 Aralık 2018 tarihinden itibaren Media Services artık değişiklikleri veya geliştirmeleri için medya Hyperlapse hale getirir. 29 Mart 2019, kullanımdan kaldırılmış ve artık kullanılabilir olacaktır.
+Azure Media Services medya Hyperlapse önizleme özelliği yakında kullanımdan kaldırılacaktır. 19 Aralık 2018 tarihinden itibaren Media Services artık değişiklikleri veya geliştirmeleri için medya Hyperlapse hale getirir. 29 Mart 2019, kullanımdan kaldırılmış ve artık kullanılabilir olacaktır.
 
 ## <a name="october-2018"></a>Ekim 2018
 
@@ -260,7 +259,6 @@ Aşağıdaki yeni özellikler duyurduk:
 
 * [Media Services ile gerçek zamanlı kodlama, Önizleme](media-services-manage-live-encoder-enabled-channels.md)
 * [Dinamik bildirimi](media-services-dynamic-manifest-overview.md)
-* [Azure medya Hyperlapse medya işlemcisi bir önizleme](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
 
 ## <a id="april_changes_15"></a>Nisan 2015 sürümü
 ### <a name="general-media-services-updates"></a>Genel medya Hizmetleri güncelleştirmeleri

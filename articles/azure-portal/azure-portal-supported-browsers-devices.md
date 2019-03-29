@@ -12,23 +12,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 03/27/2019
 ms.author: kfollis
 ms.custom: accessibility
-ms.openlocfilehash: c9425875685236db99d78506e23f879d39d94ce5
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 1595d744fbfda47a9db9ff27de09cd53c6f73ece
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888762"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576403"
 ---
-# <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Desteklenen tarayıcılar ve cihazlar için Azure portalı
-Çalıştırabileceğiniz [Azure portalında](https://portal.azure.com) tüm modern masaüstü, cihazlar ve tarayıcılar tablet.
+# <a name="supported-devices"></a>Desteklenen cihazlar
 
-### <a name="supported-devices"></a>Desteklenen cihazlar
-Azure portal, modern PC'leri, Mac'leri ve tabletler harika çalışır. Bir mobil CİHAZDAN Azure kaynaklarınızı yönetmek için ihtiyacınız varsa, iPhone ve Android üzerinde kullanılabilir olan Azure mobil uygulaması deneyin. Daha fazla bilgi için [Azure mobil uygulaması](https://azure.microsoft.com/features/azure-portal/mobile-app/).
+[Azure portalında](https://portal.azure.com) , tüm modern masaüstlerini ve tablet cihazları tarayıcıda çalışan ve bir web tabanlı bir konsoldur. Bir mobil CİHAZDAN Azure kaynaklarını yönetmek ihtiyacınız varsa deneyin [Azure mobil uygulaması](https://azure.microsoft.com/features/azure-portal/mobile-app/). İOS ve Android için kullanılabilir.
 
-### <a name="supported-browsers"></a>Desteklenen tarayıcılar
+## <a name="recommended-browsers"></a>Önerilen tarayıcılar
+
 İşletim sisteminiz ile uyumlu olan en güncel tarayıcı kullanmanızı öneririz. Aşağıdaki tarayıcılar desteklenir:
 
 * Microsoft Edge (en son sürüm)
@@ -36,4 +35,3 @@ Azure portal, modern PC'leri, Mac'leri ve tabletler harika çalışır. Bir mobi
 * Safari (en so sürüm, yalnızca Mac)
 * Chrome (en son sürüm)
 * Firefox (en son sürüm)
-

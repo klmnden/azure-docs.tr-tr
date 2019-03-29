@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 2baabe6837d25cce5e9f5d9e1071af8417fe5f4d
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: da653842b09c15a5fd42bae0ed45e7b31452b972
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401871"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578761"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Öğretici: Windows sanal masaüstü Önizleme için uygulama gruplarını yönetme
 
@@ -28,13 +28,13 @@ Başlamadan önce [indirin ve Windows sanal masaüstü PowerShell modülünü i�
 
 ## <a name="create-a-remoteapp-group"></a>Bir RemoteApp grubu oluşturun
 
-1. Yeni ve boş bir RemoteApp grubu oluşturmak için aşağıdaki PowerShell cmdlet'ini çalıştırın.
+1. Yeni bir boş RemoteApp uygulama grubu oluşturmak için aşağıdaki PowerShell cmdlet'ini çalıştırın.
 
    ```powershell
    New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType "RemoteApp"
    ```
 
-2. (İsteğe bağlı) Uygulama grubunun oluşturulduğu doğrulamak için ana makine havuzu için tüm uygulama grupları listesini görmek için aşağıdaki cmdlet'i çalıştırabilirsiniz.
+2. (İsteğe bağlı) Uygulama grubu oluşturuldu doğrulamak için ana makine havuzu için tüm uygulama grupları listesini görmek için aşağıdaki cmdlet'i çalıştırabilirsiniz.
 
    ```powershell
    Get-RdsAppGroup <tenantname> <hostpoolname>
@@ -45,17 +45,17 @@ Başlamadan önce [indirin ve Windows sanal masaüstü PowerShell modülünü i�
    ```powershell
    Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
    ```
-
-4. 1. adımda oluşturduğunuz uygulama grubu için yeni bir RemoteApp yayımlamak için aşağıdaki cmdlet'i çalıştırın.
+   
+4. Kendi appalias alarak uygulamayı yüklemek için aşağıdaki cmdlet'i çalıştırın. 3. adımdaki çıktı çalıştırdığınızda appalias görünür hale gelir.
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>
    ```
 
-5. (İsteğe bağlı) Appalias alarak uygulamayı yüklemek için aşağıdaki cmdlet'i çalıştırın. 3. adımdaki çıktı çalıştırdığınızda appalias görünür hale gelir.
+5. (İsteğe bağlı) 1. adımda oluşturduğunuz uygulama grubu için yeni bir RemoteApp yayımlamak için aşağıdaki cmdlet'i çalıştırın.
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -AppAlias <appalias>
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
    ```
 
 6. Uygulama yayımlandığını doğrulamak için aşağıdaki cmdlet'i çalıştırın.
@@ -76,4 +76,4 @@ Başlamadan önce [indirin ve Windows sanal masaüstü PowerShell modülünü i�
 Uygulama gruplarınızı oluşturduktan sonra hizmet sorumluları oluşturur ve kullanıcılarınıza roller atayabilirsiniz. Bunu öğrenmek için PowerShell ile hizmet sorumluları ve rol atamalarını oluşturmayı öğrenmek için bkz.
 
 > [!div class="nextstepaction"]
-> [PowerShell ile hizmet sorumluları ve rol atamalarını oluşturma](create-service-principal-role-powershell.md)
+> [PowerShell ile hizmet sorumluları ve rol atamaları oluşturma](create-service-principal-role-powershell.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 4d3de1d0b242017f7026873ccaeba547f85981fc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a152d9242c4d272800e2e159603c2554f1d89092
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482108"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622051"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure'da hizmet eşlemesi yapılandırma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--kritik Hizmetleri sunmak birbirine sistemleri düşündüğünüz sunucularınızın görüntülemek için kullanabilirsiniz. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi, gerekli bir aracı yüklemesini dışında hiçbir yapılandırma boyunca sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -57,13 +57,11 @@ Aşağıdaki bölümde, Windows üzerinde bağımlılık aracısını için dest
 - Windows 7
 
 ## <a name="supported-linux-operating-systems"></a>Desteklenen Linux işletim sistemleri
-Aşağıdaki bölümde, Red Hat Enterprise Linux, CentOS Linux ve Oracle Linux (RHEL çekirdek ile) bağımlılık aracısı için desteklenen işletim sistemleri listesi.  
+Aşağıdaki bölümde, Linux üzerinde bağımlılık aracısını için desteklenen işletim sistemleri listesi.  
 
 - Yalnızca varsayılan ve SMP Linux çekirdek sürümleri desteklenir.
 - PAE ve Xen gibi standart dışı çekirdek sürümleri hiçbir Linux dağıtımında desteklenmez. Örneğin, "2.6.16.21-0.8-xen" sürüm dizesi sistemiyle desteklenmiyor.
 - Standart çekirdeklerin yeniden derlemeleri de dahil olmak üzere özel çekirdekler desteklenmez.
-- CentOSPlus çekirdek desteklenir.
-- Oracle Unbreakable Enterprise Kernel (UEK), bu makalenin sonraki bir bölümünde ele alınmıştır.
 
 ### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 

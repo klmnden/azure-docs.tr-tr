@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: tulasim
-ms.openlocfilehash: 0e9e8456bb493ad4591c0f2a22d28bdf342f09e1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8fcc3ea8340a8645a1983eebb4a619904f884a19
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433119"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578637"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Veri kaynakları için soru-cevap Oluşturucu içeriği
 
@@ -32,7 +32,11 @@ Aşağıdaki tabloda, soru-cevap Oluşturucu tarafından desteklenen içeriği v
 
 ## <a name="data-source-locations"></a>Veri kaynağı konumları
 
-Yalnızca genel URL, tüm veri kaynakları için geçerlidir. Kimlik doğrulaması gerektiren veri kaynakları paylaşmayın. Dosya kimliği doğrulanmış sitesinden sonra soru ve cevapları ayıklayın için dosya karşıya yükleme seçeneğini kullanın.
+Çoğu veri kaynağı konumlarınız genel URL veya kimlik doğrulaması gerektirmeyen dosyaları sağlamanız gerekir. 
+
+[SharePoint veri kaynağı konumları](../How-to/add-sharepoint-datasources.md) kimliği doğrulanmış dosyaları sağlamanıza izin verilir. SharePoint kaynakları, dosyalar, web sayfaları olmalıdır. 
+
+Kimliği doğrulanmış bir dosyaya veya URL'ye sahip alternatif bir seçenek varsa, dosyayı yerel bilgisayarınıza kimliği doğrulanmış siteden indirmek için yerel dosya eklersiniz bilgisayar için bilgi bankasına. 
 
 ## <a name="faq-urls"></a>SSS URL'leri
 

@@ -7,75 +7,51 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: b620ca76cfea296e504afffd91852308a01575db
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 902303a8f55f4494e0cc6c21b0438e41437c0567
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002026"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620674"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Tutarlılık düzeyleri ve Azure Cosmos DB API’leri
 
-Azure Cosmos DB tarafından sunulan beş tutarlılık modeli yerel olarak SQL API'si tarafından desteklenir. Azure Cosmos DB kullandığınızda, SQL API'si varsayılandır. 
+Azure Cosmos DB, hat üzeri için yerel destek sağlar popüler veritabanları için protokolü ile uyumlu API'leri. Bunlar, MongoDB, Apache Cassandra, Gremlin ve Azure tablo depolama alanı içerir. Bu veritabanları, tam olarak tanımlanmış tutarlılık modeli veya tutarlılık düzeyleri için SLA destekli garanti sağlamaz. Bunlar genellikle yalnızca bir alt kümesini Azure Cosmos DB tarafından sunulan beş tutarlılık modeli sunar. 
 
-Azure Cosmos DB ayrıca kablo için yerel destek sağlar popüler veritabanları için protokolü ile uyumlu API'leri. Veritabanlarını, MongoDB, Apache Cassandra, Gremlin ve Azure tablo depolama alanı içerir. Bu veritabanları, tam olarak tanımlanmış tutarlılık modeli veya tutarlılık düzeyleri için SLA destekli garantileri sunmamaktadır. Bunlar genellikle yalnızca bir alt kümesini Azure Cosmos DB tarafından sunulan beş tutarlılık modeli sunar. SQL API, Gremlin API ve tablo API'si için Azure Cosmos hesabında yapılandırılmış varsayılan tutarlılık düzeyini kullanılır. 
+SQL API, Gremlin API ve tablo API'sini kullanarak Azure Cosmos hesabında yapılandırılmış varsayılan tutarlılık düzeyini kullanılır. 
 
-Aşağıdaki bölümlerde, Apache Cassandra, MongoDB ve Azure Cosmos DB'de karşılık gelen tutarlılık düzeyi için bir OSS istemci sürücü tarafından istenen veri tutarlılığı arasındaki eşlemeyi gösterir.
+Cassandra API veya Azure Cosmos DB'nin MongoDB kullanarak, MongoDB, Apache Cassandra ile sırasıyla sunulan tutarlılık düzeyleri, daha güçlü tutarlılık ve dayanıklılık Garantisi ile tam bir set uygulamaları alma. Bu belge, Apache Cassandra ve MongoDB tutarlılık düzeyleri için karşılık gelen Azure Cosmos DB tutarlılık düzeyleri gösterir.
+
 
 ## <a id="cassandra-mapping"></a>Apache Cassandra ve Azure Cosmos DB tutarlılık düzeyleri arasında eşleme
 
-Aşağıdaki tabloda bir Cassandra API'si ve Cosmos DB eşdeğer yerel tutarlılık düzeyi eşleme karşı kullanabileceğiniz çeşitli tutarlılık birleşimi açıklar. Apache Cassandra yazma ve okuma modları tüm birleşimi Cosmos DB tarafından yerel olarak desteklenir. Apache Cassandra yazma ve okuma tutarlılık modelini her bileşimlerde Cosmos DB Apache Cassandra eşit veya daha yüksek tutarlılık garantileri sağlar. Ayrıca, Cosmos DB Apache Cassandra yazma zayıf modunda bile daha yüksek bir dayanıklılık garanti sağlar.
+AzureCosmos DB, Apache Cassandra yerel olarak tam olarak tanımlanmış tutarlılık garantileri sağlamaz.  Bunun yerine, Apache Cassandra yazma tutarlılık düzeyi ve yüksek kullanılabilirlik, tutarlılık ve gecikme süresini bileşim etkinleştirmek için bir salt okunur tutarlılık düzeyi sağlar. Azure Cosmos DB'nin Cassandra API'si kullanıldığında: 
 
-Aşağıdaki tabloda **yazma tutarlılığı eşleme** Azure Cosmos DB ile Cassandra arasında:
+* Apache Cassandra yazma tutarlılık düzeyi, Azure Cosmos hesabınızda yapılandırılmış varsayılan tutarlılık düzeyini eşleştirilir. 
 
-| Cassandra | Azure Cosmos DB | Garantisi |
-| - | - | - |
-|TÜMÜ|Güçlü  | Doğrusallaştırma |
-| EACH_QUORUM   | Güçlü    | Doğrusallaştırma | 
-| ÇEKİRDEK SERİ |  Güçlü |    Doğrusallaştırma |
-| LOCAL_QUORUM, ÜÇ, İKİ, BİRİ, LOCAL_ONE, TÜM | Tutarlı Ön Ek |Genel tutarlı ön ek |
-| EACH_QUORUM   | Güçlü    | Doğrusallaştırma |
-| ÇEKİRDEK SERİ |  Güçlü |    Doğrusallaştırma |
-| LOCAL_QUORUM, ÜÇ, İKİ, BİRİ, LOCAL_ONE, TÜM | Tutarlı Ön Ek | Genel tutarlı ön ek |
-| ÇEKİRDEK SERİ | Güçlü   | Doğrusallaştırma |
-| LOCAL_QUORUM, ÜÇ, İKİ, BİRİ, LOCAL_ONE, TÜM | Tutarlı Ön Ek | Genel tutarlı ön ek |
-| LOCAL_QUORUM, LOCAL_SERIAL, İKİ, ÜÇ    | Sınırlanmış Eskime Durumu | <ul><li>Sınırlanmış eskime durumu.</li><li>En fazla K sürümleri veya t saatten.</li><li>Son yürütülen değere bölgede okuyun.</li></ul> |
-| BİR LOCAL_ONE, TÜM   | Tutarlı Ön Ek | Bölge başına tutarlı ön ek |
+* Azure Cosmos DB Cassandra istemci sürücüsünü bir okuma isteği üzerinde dinamik olarak yapılandırılmış bir Azure Cosmos DB tutarlılık düzeyi tarafından belirtilen okuma tutarlılık düzeyi dinamik olarak eşler. 
 
-Aşağıdaki tabloda **okuma tutarlılığı eşleme** Azure Cosmos DB ile Cassandra arasında:
+Aşağıdaki tabloda, nasıl yerel Cassandra tutarlılık düzeyleri için Azure Cosmos DB tutarlılık düzeyleri Cassandra API'si kullanılırken eşlendiğine gösterilmektedir:  
 
-| Cassandra | Azure Cosmos DB | Garantisi |
-| - | - | - |
-| TÜM ÇEKİRDEK, SERİ, LOCAL_QUORUM, LOCAL_SERIAL, ÜÇ, İKİ, BİRİ, LOCAL_ONE | Güçlü  | Doğrusallaştırma|
-| TÜM ÇEKİRDEK, SERİ LOCAL_QUORUM, LOCAL_SERIAL, ÜÇ, İKİ   |Güçlü |   Doğrusallaştırma |
-|LOCAL_ONE, ONE | Tutarlı Ön Ek | Genel tutarlı ön ek |
-| TÜMÜ, ÇEKİRDEK, SERİ   | Güçlü    | Doğrusallaştırma |
-| LOCAL_ONE, BİRİ, LOCAL_QUORUM, LOCAL_SERIAL, İKİ, ÜÇ |  Tutarlı Ön Ek   | Genel tutarlı ön ek |
-| LOCAL_ONE, BİR, İKİ, ÜÇ, LOCAL_QUORUM, ÇEKİRDEK |    Tutarlı Ön Ek   | Genel tutarlı ön ek |
-| TÜM ÇEKİRDEK, SERİ LOCAL_QUORUM, LOCAL_SERIAL, ÜÇ, İKİ   |Güçlü |   Doğrusallaştırma |
-| LOCAL_ONE, ONE    | Tutarlı Ön Ek | Genel tutarlı ön ek|
-| TÜM çekirdek, seri güçlü Doğrusallaştırılabilirlik
-LOCAL_ONE, BİRİ, LOCAL_QUORUM, LOCAL_SERIAL, İKİ, ÜÇ  |Tutarlı Ön Ek  | Genel tutarlı ön ek |
-|TÜMÜ    |Güçlü |Doğrusallaştırma |
-| LOCAL_ONE, BİR, İKİ, ÜÇ, LOCAL_QUORUM, ÇEKİRDEK  |Tutarlı Ön Ek  |Genel tutarlı ön ek|
-|TÜM çekirdek, seri güçlü Doğrusallaştırılabilirlik
-LOCAL_ONE, BİRİ, LOCAL_QUORUM, LOCAL_SERIAL, İKİ, ÜÇ  |Tutarlı Ön Ek  |Genel tutarlı ön ek |
-|TÜMÜ    |Güçlü | Doğrusallaştırma |
-| LOCAL_ONE, BİR, İKİ, ÜÇ, LOCAL_QUORUM, ÇEKİRDEK  | Tutarlı Ön Ek | Genel tutarlı ön ek |
-| ÇEKİRDEK LOCAL_QUORUM, LOCAL_SERIAL, İKİ, ÜÇ |  Sınırlanmış Eskime Durumu   | <ul><li>Sınırlanmış eskime durumu.</li><li>En fazla K sürümleri veya t saatten. </li><li>Son yürütülen değere bölgede okuyun.</li></ul>
-| LOCAL_ONE, ONE |Tutarlı Ön Ek | Bölge başına tutarlı ön ek |
-| LOCAL_ONE, BİR, İKİ, ÜÇ, LOCAL_QUORUM, ÇEKİRDEK  | Tutarlı Ön Ek | Bölge başına tutarlı ön ek |
+[ ![Cassandra tutarlılık modeli eşleme](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
+## <a id="mongo-mapping"></a>MongoDB ve Azure Cosmos DB tutarlılık düzeyleri arasında eşleme
 
-## <a id="mongo-mapping"></a>MongoDB 3.4 ve Azure Cosmos DB tutarlılık düzeyleri arasında eşleme
+Azure Cosmos DB, tam olarak tanımlanmış tutarlılık garantileri yerel MongoDB sağlamaz. Bunun yerine, yerel MongoDB aşağıdaki tutarlılık garantileri yapılandırmak kullanıcılara: Okuma işlemleri için birincil veya ikincil çoğaltmaları, istediğiniz tutarlılık düzeyi elde etmek için doğrudan isMaster yönergesi - yazma önemli ve okuma önemli. 
 
-Aşağıdaki tabloda, Azure Cosmos DB MongoDB 3.4 varsayılan tutarlılık düzeyini arasında "konuları okuyun" eşleme gösterilmektedir. Tabloda, çok bölgeli ve tek bölgeli dağıtımlar gösterilmiştir.
+Azure Cosmos DB'nin MongoDB kullanarak, MongoDB sürücü yazma bölgenizi birincil çoğaltma olarak değerlendirir ve tüm bölgelere çoğaltma okunur. Birincil çoğaltması olarak Azure Cosmos hesabınızla ilişkili hangi bölge seçebilirsiniz. 
 
-| **MongoDB 3.4** | **Azure Cosmos DB (çok bölgeli)** | **Azure Cosmos DB (tek bölge)** |
-| - | - | - |
-| Linearizable | Güçlü | Güçlü |
-| Çoğunluk | Sınırlanmış eskime durumu | Güçlü |
-| Yerel | Tutarlı ön ek | Tutarlı ön ek |
+MongoDB için Azure Cosmos DB'nin API'sini kullanırken:
+
+* Yazma sorunu, Azure Cosmos hesabınızda yapılandırılmış varsayılan tutarlılık düzeyini eşleştirilir.
+ 
+* Azure Cosmos DB MongoDB istemci sürücüsü üzerinde okuma isteği dinamik olarak yapılandırılmış olan Azure Cosmos DB tutarlılık düzeyleri birine tarafından belirtilen okuma sorunu dinamik olarak eşler. 
+
+* Belirli bir bölge yazılabilir ilk bölgeye bölgede yaparak "Ana" olarak Azure Cosmos hesabınızla ilişkili açıklama ekleyebilirsiniz. 
+
+Aşağıdaki tabloda, nasıl yerel MongoDB yazma/kaygıları okuma gösterilmektedir. Azure Cosmos DB'nin MongoDB kullanarak, Azure Cosmos tutarlılık düzeylerine eşlenir:
+
+[ ![MongoDB tutarlılık modeli eşleme](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

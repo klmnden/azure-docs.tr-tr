@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 1/4/2019
+ms.date: 03/28/2019
 ms.author: jowargo
-ms.openlocfilehash: f7088179f43c69fb9f72eacd6ff3703a926cabe2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 03cfecb2faaacbe1017fb4e7acfa3c475c18a9ab
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886567"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620029"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Öğretici: Xamarin.Android uygulamaları Azure Notification hubs'ı kullanarak anında iletme bildirimleri
 
@@ -28,7 +28,7 @@ ms.locfileid: "57886567"
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu öğretici, bir Xamarin.Android uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını size gösterir. Firebase Cloud Messaging (FCM) kullanarak anında iletme bildirimleri alan boş bir Xamarin.Android uygulaması oluşturursunuz. Uygulamanızı çalıştıran tüm cihazlara anında iletme bildirimleri yayımlamak için bildirim hub’ınızı kullanırsınız. Tamamlanan kodu [NotificationHubs uygulaması][GitHub] örneğinde bulabilirsiniz.
+Bu öğretici, bir Xamarin.Android uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını size gösterir. Firebase Cloud Messaging (FCM) kullanarak anında iletme bildirimleri alan boş bir Xamarin.Android uygulaması oluşturursunuz. Uygulamanızı çalıştıran tüm cihazlara anında iletme bildirimleri yayımlamak için bildirim hub’ınızı kullanırsınız. Tamamlanan kodu kullanılabilir [NotificationHubs uygulaması](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/Xamarin/GetStartedXamarinAndroid) örnek.
 
 Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 
@@ -112,8 +112,15 @@ Bildirim hub'ınız FCM ile birlikte çalışmak üzere yapılandırıldı. Ayr�
         </intent-filter>
     </receiver>
     ```
+2. Aşağıdaki deyimleri ekleyin **uygulama önce** öğesi. 
 
-2. Android uygulamanız ve bildirim hub'ınız için aşağıdaki bilgileri toplayın:
+    ```xml
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    ```
+1. Android uygulamanız ve bildirim hub'ınız için aşağıdaki bilgileri toplayın:
 
    * **Dinleme bağlantı dizesi**: Panodan [Azure portalındaki], seçin **bağlantı dizelerini görüntüle**. Kopyalama `DefaultListenSharedAccessSignature` bu değer için bağlantı dizesi.
    * **Hub adı**: Hub'ınızın adını [Azure portalındaki]. Örneğin, *mynotificationhub2*.
@@ -131,13 +138,61 @@ Bildirim hub'ınız FCM ile birlikte çalışmak üzere yapılandırıldı. Ayr�
 
     ```csharp
     using Android.Util;
+    using Android.Gms.Common;
     ```
-6. Bir örnek değişkeni ekleyin `MainActivity.cs*` uygulama çalışırken uyarı iletişim kutusu göstermek için kullanılır:
+6. MainActivity sınıfına aşağıdaki özellikleri ekleyin. Etiket değişkeni, uygulama çalışırken uyarı iletişim kutusu göstermek için kullanılır:
 
     ```csharp
     public const string TAG = "MainActivity";
+    internal static readonly string CHANNEL_ID = "my_notification_channel";
     ```
-7. İçinde `MainActivity.cs`, aşağıdaki kodu ekleyin `OnCreate` sonra `base.OnCreate(savedInstanceState)`:
+7. MainActivity sınıfına aşağıdaki yöntemi ekleyin. Denetlediği olmadığını **Google Play Hizmetleri** cihazda kullanılabilir. 
+
+    ```csharp
+    public bool IsPlayServicesAvailable()
+    {
+        int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.Success)
+        {
+            if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
+                Log.Debug(TAG, GoogleApiAvailability.Instance.GetErrorString(resultCode));
+            else
+            {
+                Log.Debug(TAG, "This device is not supported");
+                Finish();
+            }
+            return false;
+        }
+     
+        Log.Debug(TAG, "Google Play Services is available.");
+        return true;
+    }
+    ```
+1. Bir bildirim kanalı oluşturan MainActivity sınıfına aşağıdaki yöntemi ekleyin.
+
+    ```csharp
+    private void CreateNotificationChannel()
+    {
+        if (Build.VERSION.SdkInt < BuildVersionCodes.O)
+        {
+            // Notification channels are new in API 26 (and not a part of the
+            // support library). There is no need to create a notification
+            // channel on older versions of Android.
+            return;
+        }
+     
+        var channelName = CHANNEL_ID;
+        var channelDescription = string.Empty;
+        var channel = new NotificationChannel(CHANNEL_ID, channelName, NotificationImportance.Default)
+        {
+            Description = channelDescription
+        };
+     
+        var notificationManager = (NotificationManager)GetSystemService(NotificationService);
+        notificationManager.CreateNotificationChannel(channel);
+    }
+    ```
+1. İçinde `MainActivity.cs`, aşağıdaki kodu ekleyin `OnCreate` sonra `base.OnCreate(savedInstanceState)`:
 
     ```csharp
     if (Intent.Extras != null)
@@ -151,6 +206,9 @@ Bildirim hub'ınız FCM ile birlikte çalışmak üzere yapılandırıldı. Ayr�
             }
         }
     }
+    
+    IsPlayServicesAvailable();
+    CreateNotificationChannel();
     ```
 8. Yeni bir sınıf oluşturun `MyFirebaseIIDService` oluşturduğunuz gibi `Constants` sınıfı.
 9. Aşağıdaki using deyimlerini `MyFirebaseIIDService.cs`:
@@ -201,6 +259,9 @@ Bildirim hub'ınız FCM ile birlikte çalışmak üzere yapılandırıldı. Ayr�
     using Android.App;
     using Android.Util;
     using Firebase.Messaging;
+    using Android.OS;
+    using Android.Support.V4.App;
+    using Build = Android.OS.Build;
     ```
 14. Aşağıdaki sınıf bildiriminizin ekleyin ve sınıfınızın devralınacak `FirebaseMessagingService`:
 
@@ -236,12 +297,18 @@ Bildirim hub'ınız FCM ile birlikte çalışmak üzere yapılandırıldı. Ayr�
         intent.AddFlags(ActivityFlags.ClearTop);
         var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-        var notificationBuilder = new Notification.Builder(this)
+        var notificationBuilder = new NotificationCompat.Builder(this)
                     .SetContentTitle("FCM Message")
                     .SetSmallIcon(Resource.Drawable.ic_launcher)
                     .SetContentText(messageBody)
                     .SetAutoCancel(true)
+                    .SetShowWhen(false)
                     .SetContentIntent(pendingIntent);
+
+        if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
+        {
+            notificationBuilder.SetChannelId(MainActivity.CHANNEL_ID);
+        }
 
         var notificationManager = NotificationManager.FromContext(this);
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 453af401f3b6120345cbe489fbfc323eca464ade
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b4d1830e705e1813c8448787e587d720eaf5ddbd
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092285"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574727"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Barracuda gerecinize bağlanma 
 
@@ -42,6 +42,7 @@ Barracuda Web uygulaması güvenlik duvarı, tümleştirme ve günlükleri [ASI]
 2. Gözcü Azure portalında, dağıtılan Azure Gözcü çalışma alanına gidin ve üç noktasını (...) seçin ve satır sonunda **Gelişmiş ayarlar**. 
 1. Seçin **veri** ardından **Syslog**.
 1. Barracuda ayarladığınız tesis var ve önem derecesini ayarlayın ve tıklayın emin **Kaydet**.
+6. İlgili şema Barracuda olayları Log Analytics'te kullanmak için arama **CommonSecurityLog**.
 
 
 ## <a name="validate-connectivity"></a>Bağlantıyı doğrula

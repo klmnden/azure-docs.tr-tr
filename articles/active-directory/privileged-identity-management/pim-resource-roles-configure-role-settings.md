@@ -1,5 +1,5 @@
 ---
-title: PIM'de Azure kaynak rol ayarlarını yapılandırma | Microsoft Docs
+title: PIM - Azure Active Directory Azure kaynak rol ayarlarını yapılandırma | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM) Azure kaynak rol ayarlarını yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f793ee22796497b96a1acbd998397dbe2ac40d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f9db39e67cf3ee67b7990f227dbad7e3210cd14b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162144"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577161"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>PIM'de Azure kaynak rol ayarlarını yapılandırma
 
-Azure kaynak rol ayarlarını yapılandırdığınızda, Azure AD Privileged Identity Management (PIM) Azure kaynak rol atamalarında uygulanan varsayılan ayarları tanımlar. Onay iş akışını yapılandırın ve kimler onaylayabilir veya istekleri reddetme belirtmek için aşağıdaki yordamları kullanın.
+Azure kaynak rol ayarlarını yapılandırdığınızda, Azure kaynak rol atamaları Azure Active Directory (Azure AD) Privileged Identity Management (PIM) içinde uygulanan varsayılan ayarları tanımlar. Onay iş akışını yapılandırın ve kimler onaylayabilir veya istekleri reddetme belirtmek için aşağıdaki yordamları kullanın.
 
 ## <a name="open-role-settings"></a>Rol ayarlarını Aç
 

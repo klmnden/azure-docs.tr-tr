@@ -1,6 +1,6 @@
 ---
-title: PIM'de görüntülemek için Azure AD Dizin rolleri denetim geçmişi | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM) için Azure AD Dizin rolleri denetim geçmişi görüntülemeyi öğrenin.
+title: Denetim geçmişi Azure AD rolleri için PIM - Azure Active Directory görüntüleme | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) Azure AD rolleri için denetim geçmişini görüntülemeyi öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,15 +14,15 @@ ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b91e2c15e86cdda4daab27892fa7a2b6ed0c0e0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c080173af8ddd31b077bb820ea19d82eb2b29300
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008911"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576157"
 ---
-# <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Azure AD dizin rollerini PIM denetim geçmişini görüntüle
-Tüm ayrıcalıklı roller için belirli bir süre içinde tüm kullanıcı atama ve etkinleştirme görmek için Privileged Identity Management (PIM) denetim Geçmişi'ni kullanabilirsiniz. Etkinlik, kiracınızda yönetici ve son kullanıcı eşitleme etkinliği de dahil olmak üzere tam denetim geçmişini görmek istiyorsanız kullanabileceğiniz [Azure Active Directory erişim ve kullanım raporlarını.](../reports-monitoring/overview-reports.md)
+# <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Azure AD PIM rolleri için denetim geçmişini görüntüleme
+Tüm ayrıcalıklı roller için belirli bir süre içinde tüm kullanıcı atama ve etkinleştirme görmek için Azure Active Directory (Azure AD) Privileged Identity Management (PIM) denetim Geçmişi'ni kullanabilirsiniz. Etkinlik, kiracınızda yönetici ve son kullanıcı eşitleme etkinliği de dahil olmak üzere tam denetim geçmişini görmek istiyorsanız kullanabileceğiniz [Azure Active Directory erişim ve kullanım raporlarını.](../reports-monitoring/overview-reports.md)
 
 ## <a name="navigate-to-audit-history"></a>Denetim geçmişi gidin
 Gelen [Azure portalında](https://portal.azure.com) panoyu seçin **Azure AD Privileged Identity Management** uygulama. Tıklayarak denetim geçmişini buradan, erişim **ayrıcalıklı rollerimi Yönet** > **denetim geçmişi** PIM panosunda.
