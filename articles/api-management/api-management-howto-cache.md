@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 39284805d9b9b5c10f5e211dc7d4c461d15cc6bc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a0459eb67b5a79219e556cb03473a5ddf691b49d
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763546"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577025"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Azure API Management performansını artırmak için önbelleğe alma ekleme
 
 API Management işlemleri yanıt önbelleğe alma için yapılandırılabilir. Yanıt önbelleğe alma, çok sık değişmeyen veriler için API gecikmesi, bant genişliği kullanımı ve web hizmeti yükünü önemli ölçüde azaltabilir.
- 
+
 Önbelleğe alma hakkında daha ayrıntılı bilgi için bkz. [API Management önbelleğe alma ilkeleri](api-management-caching-policies.md) ve [Azure API Management'te özel önbelleğe alma](api-management-sample-cache-by-key.md).
 
 ![önbellek ilkeleri](media/api-management-howto-cache/cache-policies.png)
@@ -59,7 +59,7 @@ Bu örnekte önbelleğe alma ilkeleri kullanılarak, **GetSpeakers** işlemine y
 6. Ekranın üst kısmında **Tasarım** sekmesini seçin.
 7. İçinde **gelen işlem** bölümünde **</>** simgesi.
 
-    ![kod düzenleyicisi](media/api-management-howto-cache/code-editor.png) 
+    ![kod düzenleyicisi](media/api-management-howto-cache/code-editor.png)
 
 8. **Gelen** öğesinde, şu ilkeyi ekleyin:
 
@@ -76,7 +76,7 @@ Bu örnekte önbelleğe alma ilkeleri kullanılarak, **GetSpeakers** işlemine y
     **Süre** önbelleğe alınan yanıtların sona erme aralığını belirtir. Bu örnekte, aralık **20** saniyedir.
 
 > [!TIP]
-> Bölümünde anlatıldığı gibi bir dış önbellek kullanıyorsanız [bir dış Azure Cache Redis Azure API Yönetimi'nde kullanmak](api-management-howto-cache-external.md), belirtmek isteyebilirsiniz `cache-preference` önbelleğe alma ilkelerini özniteliği. Bkz: [API Management önbelleğe alma ilkeleri](api-management-caching-policies.md) daha fazla ayrıntı için.
+> Bölümünde anlatıldığı gibi bir dış önbellek kullanıyorsanız [bir dış Azure Cache Redis Azure API Yönetimi'nde kullanmak](api-management-howto-cache-external.md), belirtmek isteyebilirsiniz `caching-type` önbelleğe alma ilkelerini özniteliği. Bkz: [API Management önbelleğe alma ilkeleri](api-management-caching-policies.md) daha fazla ayrıntı için.
 
 ## <a name="test-operation"> </a>İşlem çağırma ve önbelleğe almayı test etme
 Önbelleğe alma eylemini görmek için, işlemi geliştirici portalından çağırın.

@@ -1,5 +1,5 @@
 ---
-title: Azure kaynak rolleri için erişim gözden geçirmesi PIM'de başlangıç | Microsoft Docs
+title: Azure kaynak rolleri için erişim gözden geçirmesi PIM - Azure Active Directory başlangıç | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM) Azure kaynak rolleri için erişim gözden geçirmesi başlatmayı öğrenin.
 services: active-directory
 documentationcenter: ''
@@ -15,15 +15,15 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f4ebf9ec08915a557f897a743cac1160d7e6823
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 46903967b375d882dc3c7a62cd0b7f8b6059f8b3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173445"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579504"
 ---
 # <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>Azure kaynak rolleri için erişim gözden geçirmesi PIM'de Başlat
-Kullanıcılar artık ihtiyacınız yoksa erişim ayrıcalıklı, rol atamaları "eski" olur. Bu eski rol atamaları ile ilişkili riskini azaltmak için ayrıcalıklı rol yöneticileri düzenli olarak rolleri gözden geçirmelisiniz. Bu belge, erişim gözden geçirmesi Azure kaynakları için Privileged Identity Management (PIM) başlatmak için ilgili adımları içermektedir.
+Kullanıcılar artık ihtiyacınız yoksa erişim ayrıcalıklı, rol atamaları "eski" olur. Bu eski rol atamaları ile ilişkili riskini azaltmak için ayrıcalıklı rol yöneticileri düzenli olarak rolleri gözden geçirmelisiniz. Bu belge, Azure Active Directory (Azure AD) Privileged Identity Management (PIM) erişim gözden geçirmesi başlatma adımlarını kapsar.
 
 PIM uygulama ana sayfadan sayfaya gidin:
 
@@ -76,4 +76,4 @@ Değerlendirme süresi bitene kadar gözden geçirmelerini tamamlamak için kull
 
 - [PIM Azure kaynak rolleri için erişim değerlendirmesi tamamlama](pim-resource-roles-complete-access-review.md)
 - [PIM hizmetinde Azure kaynak rollerimin erişim gözden geçirmesini gerçekleştirme](pim-resource-roles-perform-access-review.md)
-- [Azure AD Dizin rolleri için erişim gözden geçirmesi PIM'de Başlat](pim-how-to-start-security-review.md)
+- [Azure AD rolleri için erişim gözden geçirmesi PIM'de Başlat](pim-how-to-start-security-review.md)

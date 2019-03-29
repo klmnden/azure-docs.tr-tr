@@ -6,20 +6,20 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 69fce34c55007daff48b2463da590ffb9cd59926
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775331"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620650"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Bölümleri ve çoğaltmalarını sorgu ve iş yüklerini Azure Search'te dizin oluşturma için ölçeklendirme
 Çalıştırdıktan sonra [bir fiyatlandırma katmanı seçin](search-sku-tier.md) ve [bir arama hizmeti sağlama](search-create-service-portal.md), isteğe bağlı olarak çoğaltmalar veya bölümler hizmetiniz tarafından kullanılan sayısını artırmak için sonraki adımdır. Her katman, sabit bir faturalandırma birimi sayısı sunar. Bu makalede dengeleyen sorgu yürütme, dizin oluşturma ve depolama gereksinimlerinize en uygun yapılandırmayı elde etmek için bu birimleri ayırma açıklanmaktadır.
 
-Kaynak yapılandırması, bir hizmetin ayarlarken kullanılabilir [temel katman](https://aka.ms/azuresearchbasic) veya biri [standart katmanları](search-limits-quotas-capacity.md). Bu katmanda Hizmetleri için kapasite artışlarla satın alınır *arama birimleri* (su) burada her bölüm ve çoğaltma sayılır bir SU. 
+Kaynak yapılandırması, bir hizmetin ayarlarken kullanılabilir [temel katman](https://aka.ms/azuresearchbasic) veya biri [standart veya depolama için iyileştirilmiş Katmanlar](search-limits-quotas-capacity.md). Bu katmanda Hizmetleri için kapasite artışlarla satın alınır *arama birimleri* (su) burada her bölüm ve çoğaltma sayılır bir SU. 
 
 Daha az SUs sonuç orantılı olarak daha düşük bir fatura kullanma. Hizmet ayarlandıysa sürece faturalandırma için geçerli olur. Hizmet geçici olarak kullanmıyorsanız, faturaları önlemek için yalnızca hizmetin silinmesi ve gerektiğinde daha sonra yeniden oluşturma yoludur.
 
@@ -81,7 +81,7 @@ Genellikle, özellikle hizmet işlemleri sorgu iş yükleri doğru güçlü eği
 
 Temel bir hizmet, tam olarak bir bölüm ve üç kopyaya kadar için en fazla üç SUs sınırlayın. Çoğaltmalar yalnızca ayarlanabilir kaynaktır. Sorgular üzerinde yüksek kullanılabilirlik için en az iki çoğaltmaları gerekir.
 
-Tüm standart Hizmetleri, çoğaltmalar ve bölümler, 36 SU sınırına tabi aşağıdaki birleşimlerini kabul edilebilir. 
+Tüm standart ve depolama için iyileştirilmiş arama hizmetleri, çoğaltmalar ve bölümler, 36 SU sınırına tabi aşağıdaki birleşimlerini kabul edilebilir. 
 
 |   | **Bölüm 1** | **2 bölüm** | **3 bölümleri** | **4 bölüm** | **6 bölümleri** | **12 bölümleri** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -112,7 +112,7 @@ Yüksek kullanılabilirlik için genel öneriler şunlardır:
 
 Azure Search için hizmet düzeyi sözleşmeleri (SLA), sorgu işlemleri ve ekleme, güncelleştirme veya belgelerinin silinmesini bileşiminden dizin güncelleştirmelerini hedeflenir.
 
-Temel katman bir bölüm ve üç kopyaya en üste. Dizin oluşturma ve sorgu aktarım hızı için isteğe bağlı dalgalanmaların hemen yanıt esnekliğini istiyorsanız, standart katmanlardan birine göz önünde bulundurun.
+Temel katman bir bölüm ve üç kopyaya en üste. Dizin oluşturma ve sorgu aktarım hızı için isteğe bağlı dalgalanmaların hemen yanıt esnekliğini istiyorsanız, standart katmanlardan birine göz önünde bulundurun.  Depolama gereksinimleriniz, sorgu aktarım hızı çok daha hızlı büyüyor bulursanız, depolama için iyileştirilmiş katmanlardan birine göz önünde bulundurun.
 
 ### <a name="index-availability-during-a-rebuild"></a>Yeniden derleme sırasında dizin kullanılabilirlik
 

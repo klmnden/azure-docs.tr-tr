@@ -1,6 +1,6 @@
 ---
-title: PIM'de erişim gözden geçirmesi Azure AD dizin rollerim gerçekleştirmek | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM) erişim gözden geçirmesi, Azure AD Dizin rolleri gerçekleştirmeyi öğreneceksiniz.
+title: PIM - Azure Active Directory erişim gözden geçirmesi Azure AD'ye rollerim gerçekleştirmek | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) erişim gözden geçirmesi, Azure AD rolleri gerçekleştirmeyi öğreneceksiniz.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,15 +14,15 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c7b3905d05e62bd3f11ef4de7f966e6bf9340f0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 66f16e02716ceb94d2c8b10bb246a13dc566229c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178915"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578340"
 ---
-# <a name="perform-an-access-review-of-my-azure-ad-directory-roles-in-pim"></a>PIM'de erişim gözden geçirmesi Azure AD dizin rollerim gerçekleştirin
-Azure Active Directory (AD) Privileged Identity Management, kuruluşlara ayrıcalıklı Azure ad'deki ve Office 365 veya Microsoft Intune gibi diğer Microsoft çevrimiçi hizmetlerine erişimi yönetme basitleştirir.  
+# <a name="perform-an-access-review-of-my-azure-ad-roles-in-pim"></a>PIM'de erişim gözden geçirmesi Azure AD'ye rollerim gerçekleştirin
+Azure Active Directory (AD) Privileged Identity Management (PIM), kuruluşlara ayrıcalıklı Azure ad'deki ve Office 365 veya Microsoft Intune gibi diğer Microsoft çevrimiçi hizmetlerine erişimi yönetme sürecini basitleştirir.  
 
 Bir yönetici rolüne atanırsa, kuruluşunuzun ayrıcalıklı Rol Yöneticisi yine de bu rol için işinizi gerektiğini düzenli olarak doğrulamanızı isteyebilir. Bir bağlantısını içeren bir e-posta alabilir veya doğrudan gidebilirsiniz [Azure portalında](https://portal.azure.com). Bir kendi kendini gözden geçirin, atanan rollerinin gerçekleştirmek için bu makaledeki adımları izleyin.
 

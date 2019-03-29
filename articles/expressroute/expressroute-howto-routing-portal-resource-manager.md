@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 401827f3fa5eb6d364d0f133d8cd672cf8968031
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6d1ce56ef66d224b89f49a00c2883ebbf22a5745
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103188"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622034"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Bir ExpressRoute bağlantı hattı için eşlemesi oluşturma ve değiştirme
 
@@ -35,7 +35,7 @@ Bir ExpressRoute bağlantı hattı için bir, iki veya üç eşlemenin tamamın�
 
 * Yapılandırmaya başlamadan önce [önkoşullar](expressroute-prerequisites.md) sayfasını, [yönlendirme gereksinimleri](expressroute-routing.md) sayfasını ve [iş akışları](expressroute-workflows.md) sayfasını gözden geçirdiğinizden emin olun.
 * Etkin bir ExpressRoute bağlantı hattınızın olması gerekir. Devam etmeden önce [ExpressRoute bağlantı hattı oluşturma](expressroute-howto-circuit-portal-resource-manager.md) yönergelerini izleyin ve bağlantı sağlayıcınızın bağlantı hattını etkinleştirmesini isteyin. ExpressRoute bağlantı hattı, bir, sonraki bölümde cmdlet'leri çalıştırılabilmesi sağlanmış ve etkin durumda olması gerekir.
-* Paylaşılan bir anahtar/MD5 karma değeri kullanmayı planlıyorsanız, bu tünelinin iki tarafı üzerinde kullanın ve en fazla 25 karakter sayısını sınırlamak emin olun.
+* Paylaşılan bir anahtar/MD5 karma değeri kullanmayı planlıyorsanız, bu tünelinin iki tarafı üzerinde kullanın ve en fazla 25 alfasayısal karakter sayısını sınırlamak emin olun. Özel karakterler desteklenmez. 
 
 Bu yönergeler yalnızca Katman 2 bağlantı hizmetleri sunan hizmet sağlayıcıları ile oluşturulan bağlantı hatları için geçerlidir. Katman 3 Hizmetleri (genellikle gibi bir IPVPN MPLS) yönetilen sunan bir hizmet sağlayıcısı kullanıyorsanız, bağlantı sağlayıcınız yapılandırır ve yönlendirmeyi sizin için yönetir. 
 

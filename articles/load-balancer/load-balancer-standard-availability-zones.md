@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/08/2018
+ms.date: 03/27/2018
 ms.author: kumud
-ms.openlocfilehash: 2c4503b6ff065e98c49fe3f4e06b63cbeb7d1770
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 6f33be6e418366f57d243f578035b5c87079c99e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652753"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579368"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standard Load Balancer ve Kullanılabilirlik Bölgeleri
 
 Azure Load Balancer'ın standart SKU destekler [kullanılabilirlik](../availability-zones/az-overview.md) senaryoları. Bazı yeni kavramlar, uçtan uca senaryo kullanılabilirlik alanları ile kaynakları hizalama ve dilimlerinde dağıtmadan iyileştirmenize izin Standard Load Balancer ile kullanılabilir.  Gözden geçirme [kullanılabilirlik](../availability-zones/az-overview.md) kullanılabilirlik alanları nedir ile ilgili yönergeler için hangi bölgeler şu anda kullanılabilirlik alanları ve diğer destek kavramları ve ürünleri ilgili. Standard Load Balancer ile kullanılabilirlik alanına birlikte birçok farklı senaryo oluşturabileceğiniz bir korunmalarını ve esnek bir özellik kümesidir.  Bunlar anlamak için bu belgeyi gözden [kavramları](#concepts) ve temel senaryo [tasarım kılavuzunu](#design).
 
->[!NOTE]
->Gözden geçirme [kullanılabilirlik](https://aka.ms/availabilityzones) ilgili diğer konular. 
+>[!IMPORTANT]
+>Gözden geçirme [kullanılabilirlik](../availability-zones/az-overview.md) ilgili konular için bölge belirli bilgilere dahil.
 
 ## <a name="concepts"></a> Yük Dengeleyici için uygulanan kullanılabilirlik kavramları
 
@@ -33,7 +33,7 @@ Yük Dengeleyici kaynakları ve gerçek altyapınız arasında doğrudan bir ili
 
 Bir yük dengeleyici kaynağın işlevleri, bir ön uç, bir kural, bir durum araştırması ve arka uç havuzu tanımı ifade edilir.
 
-Kullanılabilirlik bağlamında, bir yük dengeleyici kaynak özelliklerini ve davranışını bölgesel olarak yedekli ya da bölgesel olarak açıklanmıştır.  Bölgesel olarak yedekli ve bölgesel bir özelliğin zonality açıklanmaktadır.  Yük Dengeleyici bağlamında, her zaman bölgesel olarak yedekli anlamına gelir *tüm bölgeleri* ve hizmete güvence altına almak bölgesel bir *tek bölge*.
+Kullanılabilirlik bağlamında, bir yük dengeleyici kaynak özelliklerini ve davranışını bölgesel olarak yedekli ya da bölgesel olarak açıklanmıştır.  Bölgesel olarak yedekli ve bölgesel bir özelliğin zonality açıklanmaktadır.  Yük Dengeleyici bağlamında, her zaman bölgesel olarak yedekli anlamına gelir *birden çok bölge* ve hizmetle yalıtma bölgesel bir *tek bölge*.
 
 Hem genel hem de iç Load Balancer, bölgesel olarak yedekli ve bölgesel senaryoları desteklemek ve her ikisi de trafiği dilimlerinde gerektiği şekilde yönlendirebilir (*bölgeler arası Yük Dengeleme*).
 
@@ -53,9 +53,12 @@ Birden çok ön uç kullanırken gözden [Load Balancer için birden çok ön u�
 
 #### <a name="zone-redundant-by-default"></a>Bölge varsayılan olarak yedekli
 
+>[!IMPORTANT]
+>Gözden geçirme [kullanılabilirlik](../availability-zones/az-overview.md) ilgili konular için bölge belirli bilgilere dahil.
+
 Kullanılabilirlik alanları ile bir bölgede standart yük dengeleyici ön uç, bölgesel olarak yedekli varsayılan olarak.  Tek bir ön uç IP adresi bölge hatası hayatta kalamaz ve bölge ne olursa olsun tüm arka uç havuzu üyelerine erişmek için kullanılabilir. Bu hitless veri yolu gelmez, ancak herhangi bir yeniden deneme veya reestablishment başarılı olur. DNS yedeklilik düzenleri gerekli değildir. Ön uç'ın tek bir IP adresi, aynı anda birden fazla kullanılabilirlik alanına birden çok bağımsız altyapı dağıtımı tarafından sunulur.  Bölgesel olarak yedekli tüm gelen veya giden akışlar aynı anda tek bir IP adresi kullanarak bir bölgede birden fazla kullanılabilirlik tarafından sunulan anlamına gelir.
 
-Bir veya daha fazla kullanılabilirlik başarısız olabilir ve veri yolu olduğu sürece bir bölgede bölge kalır sağlıklı devam eder. Bölgesel olarak yedekli yapılandırma varsayılandır ve hiçbir ek eylem gerektirir.  Bir bölge kullanılabilirlik alanlarını destekleyen olanağı elde edince, var olan bir ön uç otomatik olarak bölgesel olarak yedekli hale gelir.
+Bir veya daha fazla kullanılabilirlik başarısız olabilir ve veri yolu olduğu sürece bir bölgede bölge kalır sağlıklı devam eder. Bölgesel olarak yedekli yapılandırma varsayılandır ve hiçbir ek eylem gerektirir.  
 
 İç standart Load Balancer'ınız için bir bölgesel olarak yedekli genel IP adresi oluşturmak için aşağıdaki betiği kullanın. Yapılandırmanızda mevcut Resource Manager şablonları kullanıyorsanız, ekleyin **sku** bölümüne bu şablonları.
 
@@ -96,7 +99,7 @@ Bir veya daha fazla kullanılabilirlik başarısız olabilir ve veri yolu olduğ
                 ],
 ```
 
-#### <a name="optional-zone-guarantee"></a>İsteğe bağlı bölge garantisi
+#### <a name="optional-zone-isolation"></a>İsteğe bağlı bölge yalıtım
 
 Tek bir bölge için garantili bir ön ucu olarak da bilinen sahip olmadığınıza bir *bölgesel ön uç*.  Bu, bir bölgedeki tek bir bölge tarafından sunulan herhangi bir gelen veya giden akış anlamına gelir.  Ön uç sunucularınızın kader bölge durumunu paylaşır.  Veri yolu, burada garanti dışındaki bölgelerde hataları tarafından etkilenmez. Bölgesel ön uçlar, bir IP adresi kullanılabilirlik alanı başına kullanıma sunmak için kullanabilirsiniz.  Ayrıca, bölgesel ön uçlar doğrudan kullanmak veya kullanabilirsiniz, ön uç genel IP adreslerini oluşuyorsa bunları gibi yük dengeleyici DNS ürün tümleştirin [Traffic Manager](../traffic-manager/traffic-manager-overview.md) ve bir istemci için çözümler tek bir DNS adı kullanın birden çok bölgesel IP adresi.  Ayrıca bu tek tek her bölge izlemek için bölge yükü dengelenmiş Uç noktalara kullanıma sunmak için kullanabilirsiniz.  Bu kavramlar (Bölgesel olarak yedekli ve aynı arka uç için bölgesel) blend isterseniz, gözden [Azure Load Balancer için birden çok ön uç](load-balancer-multivip-overview.md).
 
@@ -205,6 +208,9 @@ Kullanılabilirlik kazançlar kullanılabilirlik alanları kullanılırken silin
   - Bir bölge geri döndüğünde, uygulamanızın nasıl güvenli biçimde anlıyor mu?
 
 ### <a name="zonalityguidance"></a> Bölgesel olarak yedekli bölgesel karşılaştırması
+
+>[!IMPORTANT]
+>Gözden geçirme [kullanılabilirlik](../availability-zones/az-overview.md) ilgili konular için bölge belirli bilgilere dahil.
 
 Bölgesel olarak yedekli bir bölge belirsiz sağlayabilir veya hizmet için aynı zaman dayanıklı seçeneğinde tek bir IP adresi.  Sırayla Bu karmaşıklığı azaltabilir.  Bölgesel olarak yedekli ayrıca mobility dilimlerinde vardır ve herhangi bir bölge içinde kaynaklara güvenli bir şekilde kullanılabilir.  Ayrıca, bir bölge kullanılabilirlik elde edin sonra gerekli değişiklikleri sınırlayabilirsiniz kullanılabilirlik alanları olmayan bölgelerde geleceğe vardır.  Kullanılabilirlik alanları olmadan dahil olmak üzere herhangi bir bölgedeki bir bölgesel olarak yedekli IP adresi veya ön uç yapılandırması sözdizimi başarılı.
 

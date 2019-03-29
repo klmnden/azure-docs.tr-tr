@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6d9c5b080c491d3a6f35f591c69d4c39989b22a8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4ed0be3178f9d5d014e9e50c11d555b586ced765
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099806"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579334"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Azure Güvenlik Merkezi ile uç nokta koruma sorunları yönetme
 Azure Güvenlik Merkezi, kötü amaçlı yazılımdan korunma durumunu izler ve bu uç nokta koruma sorunları dikey penceresi bildirir. Güvenlik Merkezi, algılanan tehditlere ve sanal makinelerinizi (VM) ve bilgisayarları kötü amaçlı yazılım tehditlerine karşı savunmasız hale getirebilirsiniz yetersiz koruma gibi sorunlar vurgular. Altında verilen bilgileri kullanarak **uç nokta koruma sorunları**, tanımlanan tüm sorunların ele almak için bir plan belirleyebilirsiniz.
@@ -31,12 +31,12 @@ Güvenlik Merkezi şu uç nokta koruma sorunları bildirir:
 - Endpoint protection sistem durumu:
 
   - Kötü amaçlı yazılımdan koruma çözümünü bu Vm'lere ve bilgisayarlara yüklenir, ancak çözümüne sahip en son kötü amaçlı yazılımdan koruma imzaları güncel – imzası.
-  - Gerçek zamanlı koruma yok – kötü amaçlı yazılımdan koruma çözümünü bu Vm'lere ve bilgisayarlara yüklenir, ancak gerçek zamanlı koruma için yapılandırılmamış.   Hizmet devre dışı bırakılabilir veya Güvenlik Merkezi çözüm desteklenmediğinden durumu alınamıyor olabilir. Bkz: [iş ortağı tümleştirmesi](security-center-partner-integration.md) desteklenen çözümleri listesi.
+  - Gerçek zamanlı koruma yok – kötü amaçlı yazılımdan koruma çözümünü bu Vm'lere ve bilgisayarlara yüklenir, ancak gerçek zamanlı koruma için yapılandırılmamış.   Hizmet devre dışı bırakılabilir veya Güvenlik Merkezi çözüm desteklenmediğinden durumu alınamıyor olabilir. Bkz: [iş ortağı tümleştirmesi](security-center-os-coverage.md#supported-endpoint-protection-solutions) desteklenen çözümleri listesi.
   - Raporlama – kötü amaçlı yazılımdan koruma çözümünü yüklenir, ancak raporlama verilerini değil.
   - Bilinmiyor – kötü amaçlı yazılımdan koruma çözümünü yüklü ancak bilinmeyen veya bilinmeyen bir hata raporlama durumundadır.
 
     > [!NOTE]
-    > Bkz: [güvenlik çözümlerini tümleştirme](security-center-partner-integration.md#integrated-azure-security-solutions) uç nokta koruma güvenlik çözümlerini Güvenlik Merkezi ile tümleşik bir listesi.
+    > Bkz: [güvenlik çözümlerini tümleştirme](security-center-os-coverage.md#supported-endpoint-protection-solutions) uç nokta koruma güvenlik çözümlerini Güvenlik Merkezi ile tümleşik bir listesi.
     >
     >
 

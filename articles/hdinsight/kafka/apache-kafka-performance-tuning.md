@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 903cd8921801ffb47dd73f48e507f30aa0b6dccc
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 3f15f45e0543c582d70463fb9ddc7ac569ff57bc
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58373158"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576767"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Apache Kafka HDInsight kümeleri için performansı iyileştirme
 
@@ -66,7 +66,7 @@ Depolama diskleri sınırlı IOPS (giriş/çıkış işlem / saniye) ve okuma/ya
 
 ### <a name="number-of-topics-and-partitions"></a>Konuları ve bölümleri sayısı
 
-Kafka üreticileri konulara yazın. Kafka tüketicileri konuları okuyun. Bir konu disk üzerindeki veri yapısıdır bir oturum ile ilişkilidir. Kafka, kayıtları bir producer(s) konu günlük sonuna ekler. Birden çok dosya yayılan birçok bölümlerin konu günlük oluşur. Sırayla bu dosyaları birden fazla Kafka küme düğümleri arasında yayılır. Tüketicilerin kendi temposu, Kafka konularını okuma ve ve bunların konumunu (kaydırma) konu günlüğünde seçebilirsiniz.
+Kafka üreticileri konulara yazın. Kafka tüketicileri konuları okuyun. Bir konu disk üzerindeki veri yapısıdır bir oturum ile ilişkilidir. Kafka, kayıtları bir producer(s) konu günlük sonuna ekler. Birden çok dosya yayılan birçok bölümlerin konu günlük oluşur. Sırayla bu dosyaları birden fazla Kafka küme düğümleri arasında yayılır. Tüketiciler, kendi temposu, Kafka konularını okuma ve konu günlük konumlarını (kaydırma) seçebilirsiniz.
 
 Bir günlük dosyası sistem üzerindeki her Kafka bölümdür ve üretici iş parçacığı aynı anda birden çok günlüklerine yazabilirsiniz. Benzer şekilde, her bir tüketicinin iş parçacığı bir bölümden iletileri okuyan olduğundan, birden çok bölümdeki verileri kullanan de paralel olarak ele alınır.
 

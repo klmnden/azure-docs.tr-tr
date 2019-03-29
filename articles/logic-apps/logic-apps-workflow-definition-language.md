@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 04/30/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 3c17ec2133e278b17475e4988e1e9766b1349ba4
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d2de2a25d67da230d539156c851cca34335a01c2
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734649"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620845"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps iş akışı tanımı dil Şeması Başvurusu
 
@@ -41,7 +41,7 @@ Bir iş akışı tanımı için üst düzey yapısı şu şekildedir:
 | Öğe | Gerekli | Açıklama |
 |---------|----------|-------------|
 | tanım | Evet | Başlangıç öğesi, iş akışı tanımı |
-| $schema | Yalnızca bir iş akışı tanımı dışarıdan başvurma sırasında | Burada bulabilirsiniz iş akışı tanımı dil sürümü tanımlayan JSON şema dosyası için konumu: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |
+| $schema | Yalnızca bir iş akışı tanımı dışarıdan başvurma sırasında | Burada bulabilirsiniz iş akışı tanımı dil sürümü tanımlayan JSON şema dosyası için konumu: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
 | contentVersion | Hayır | Varsayılan "1.0.0.0" olan, iş akışı tanımı sürüm numarası. Tanımlamak ve doğru tanımı bir iş akışı dağıtırken doğrulamak için kullanılacak bir değer belirtin. |
 | parametreler | Hayır | Veri, iş akışınıza aktarmak bir veya daha fazla parametre tanımları <p><p>En fazla Parametreler: 50 |
 | tetikleyiciler | Hayır | Tanımları, iş akışı örneği bir veya daha fazla tetikleyici. Ancak yalnızca iş akışı tanımlama dili ile Logic Apps Tasarımcısı ile görsel olarak değil birden fazla tetikleyici tanımlayabilirsiniz. <p><p>En fazla Tetikleyicileri: 10 |
@@ -72,8 +72,8 @@ Bir parametre tanımında genel yapısı şu şekildedir:
 
 | Öğe | Gerekli | Tür | Açıklama |
 |---------|----------|------|-------------|
-| type | Evet | int, kayan noktalı sayı, dize, securestring, bool, dizi, JSON nesnesi, secureobject <p><p>**Not**: Tüm parolalar, anahtarlar ve gizli dizileri için kullanmak `securestring` ve `secureobject` çünkü `GET` işlemi, bu tür döndürmez. | Parametresinin türü |
-| defaultValue | Hayır | Aynı `type` | İş akışı örneğini oluşturduğunda hiçbir değer belirtilmemişse varsayılan parametre değeri |
+| type | Evet | int, kayan noktalı sayı, dize, securestring, bool, dizi, JSON nesnesi, secureobject <p><p>**Not**: Tüm parolalar, anahtarlar ve gizli dizileri için kullanmak `securestring` ve `secureobject` çünkü `GET` işlemi, bu tür döndürmez. Parametreleri güvenliğini sağlama hakkında daha fazla bilgi için bkz. [mantıksal uygulamanızı güvenli hale getirme](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Parametresinin türü |
+| defaultValue | Evet | Aynı `type` | İş akışı örneğini oluşturduğunda hiçbir değer belirtilmemişse varsayılan parametre değeri |
 | izin verilen değerler | Hayır | Aynı `type` | Bir dizi parametre kabul edebilen değerlerle |
 | meta veriler | Hayır | JSON nesnesi | Diğer parametre ayrıntıları, örneğin, ad veya mantıksal uygulama veya Visual Studio veya diğer araçları tarafından kullanılan tasarım zamanı verileri için okunabilir bir açıklaması |
 ||||

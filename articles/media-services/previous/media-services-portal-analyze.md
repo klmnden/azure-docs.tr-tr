@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7a303b9d27b3708bd4f59517452fa232cc38c923
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259695"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619450"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Azure portalını kullanarak medyanızı analiz etme 
 > [!NOTE]
@@ -73,11 +73,6 @@ Bir anahtar sözcük XML dosyası oluşturmak istiyorsanız bu seçeneği belirl
 
 ### <a name="output-file"></a>Çıktı dosyası
 Çıkış içeriği belirlemenize olanak sağlayan bir kolay ad. 
-
-## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Azure medya Hyperlapse birinci kişi veya eylem kamera içerikten kesintisiz zaman aralıklı videoları oluşturan bir MP ' dir.  Daha fazla bilgi için [bu](media-services-hyperlapse-content.md) konu başlığına bakın. Bu bölümde, bu MP için belirttiğiniz seçenekleri hakkında bazı ayrıntılar sağlar.
-
-![Videoları analiz etme](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
 ### <a name="speed"></a>Hız
 Hızını giriş videosunu hızlandırma katsayısını belirtin. Titreşimsiz ve zaman aralıklı bir işleme giriş video çıktıdır.

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 51e9d44a95a3896767caf4b3f04d17c2933e8599
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 801a37496b36be1f98408c46807f5b10db2b0282
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990553"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622068"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Yönetim gruplarıyla kaynaklarınızı yönetin
 
@@ -67,9 +67,9 @@ Bir yönetim grubunu silmek için aşağıdaki gereksinimler karşılanmalıdır
 
 1. Alt Yönetim grupları veya yönetim grubundaki abonelikleri yoktur.
 
-   - Bir yönetim grubu dışında bir aboneliği taşımak için bkz [abonelik başka bir yönetim grubuna Taşı](#Move-subscriptions-in-the-hierarchy).
+   - Bir yönetim grubu dışında bir aboneliği taşımak için bkz [abonelik başka bir yönetim grubuna Taşı](#move-subscriptions-in-the-hierarchy).
 
-   - Bir yönetim grubunu başka bir yönetim grubuna taşımak için bkz [Yönetim grupları hiyerarşide Taşı](#Move-management-groups-in-the-hierarchy).
+   - Bir yönetim grubunu başka bir yönetim grubuna taşımak için bkz [Yönetim grupları hiyerarşide Taşı](#move-management-groups-in-the-hierarchy).
 
 1. Yönetim grubunda ("Sahip", "Katılımcı" veya "Yönetim grubu katkıda bulunan") yazma izinlerine sahip. Hangi izinlerin görmek için sahip, yönetim grubu seçip **IAM**. RBAC rolleri hakkında daha fazla bilgi için bkz. [erişim ve izinleri ile RBAC yönetme](../../role-based-access-control/overview.md).  
 
@@ -316,11 +316,11 @@ az account management-group update --name 'Contoso' --parent-id '/providers/Micr
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Etkinlik günlüklerini kullanarak yönetim gruplarını denetleme
 
-Yönetim grupları içinde desteklenir [Azure etkinlik günlüğü](../../azure-monitor/platform/activity-logs-overview.md). Bir yönetim grubuna diğer Azure kaynakları ile aynı merkezi konumda gerçekleşen tüm olayları sorgulayabilirsiniz.  Örneğin, belirli bir yönetim grubuna yapılan tüm rol atamaları veya ilke atama değişiklikleri görebilirsiniz.
+Yönetim grupları [Azure Etkinlik Günlüğü](../../azure-monitor/platform/activity-logs-overview.md)'nde desteklenir. Bir yönetim grubuna diğer Azure kaynakları ile aynı merkezi konumda gerçekleşen tüm olayları sorgulayabilirsiniz.  Örneğin, belirli bir yönetim grubunda yapılan tüm Rol Atamalarını veya İlke Ataması değişikliklerini görebilirsiniz.
 
-![Yönetim gruplarıyla etkinlik günlükleri](media/al-mg.png)
+![Yönetim Gruplarıyla Etkinlik Günlükleri](media/al-mg.png)
 
-Sorgu üzerinde yönetim grupları Azure portal dışında baktığımda Yönetim grupları için hedef kapsamı benzer **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"**.
+Azure portalının dışında Yönetim Gruplarını sorgulamak istediğinizde, yönetim gruplarının hedef kapsamı **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** gibi görünür.
 
 ## <a name="referencing-management-groups-from-other-resource-providers"></a>Diğer kaynak sağlayıcılarından başvuruda bulunan Yönetim grupları
 

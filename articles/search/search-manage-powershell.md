@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/28/2019
 ms.author: heidist
-ms.openlocfilehash: 7a91ad691089ac816b31ebe1fce202110e580f71
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 8f07468ccff4431e1afdf66aedc72599ddc0c25b
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520573"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620606"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>PowerShell ile Azure Search hizmetinizi yönetme
 > [!div class="op_single_selector"]
@@ -24,17 +24,17 @@ ms.locfileid: "58520573"
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Windows, Linux üzerinde veya PowerShell cmdlet'leri ve betikleri çalıştırılabilir [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) oluşturmak ve yapılandırmak için [Azure Search](https://docs.microsoft.com/azure/search/). [ **Az.Search** ](https://docs.microsoft.com/powershell/module/az.search/?view=azps-1.4.0#search) modülü genişletir [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.4.0) için tam eşlikli [Azure arama yönetimi REST API'lerini](https://docs.microsoft.com/rest/api/searchmanagement). Azure PowerShell ile ve **Az.Search**, aşağıdaki görevleri gerçekleştirebilirsiniz:
+Windows, Linux üzerinde veya PowerShell cmdlet'leri ve betikleri çalıştırılabilir [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) oluşturmak ve Azure Search yapılandırmak için. **Az.Search** Azure PowerShell modülü genişletir] için tam eşlikli [Azure arama yönetimi REST API'lerini](https://docs.microsoft.com/rest/api/searchmanagement). Azure PowerShell ile ve **Az.Search**, aşağıdaki görevleri gerçekleştirebilirsiniz:
 
 > [!div class="checklist"]
 > * [Aboneliğinizdeki tüm arama hizmetleri listeleyin](#list-search-services)
 > * [Belirli bir arama hizmeti hakkında bilgi edinin](#get-search-service-information)
 > * [Oluşturma veya hizmet silme](#create-or-delete-a-service)
-> * Yönetici API anahtarlarını yeniden oluştur
+> * [Yönetici API anahtarlarını yeniden oluştur](#regenerate-admin-keys)
 > * [Oluşturma veya sorgu api anahtarlarından silme](#create-or-delete-query-keys)
 > * [Bir hizmet ölçeğini artırmayı veya düşüren, çoğaltmalar ve bölümler](#scale-replicas-and-partitions)
 
-PowerShell, ad, bölge veya hizmetinizin katmanını değiştirmek için kullanılamaz. Bir hizmet oluşturulduğunda ayrılmış kaynakları tahsis edilir. Temel alınan donanım (konumu veya düğüm tür) değiştirme, yeni bir hizmet gerektirir. Var. hiçbir araç veya API'lerden içerik aktarmak için Tüm içerik yönetimi aracılığıyladır [REST](https://docs.microsoft.com/rest/api/searchservice/) veya [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) API'leri ve dizinleri taşımak istiyorsanız, yeniden oluşturun ve bunları yeni bir hizmet üzerinde yeniden yüklemek gerçekleştirmeniz gerekir. 
+PowerShell, ad, bölge veya hizmetinizin katmanını değiştirmek için kullanılamaz. Bir hizmet oluşturulduğunda ayrılmış kaynakları tahsis edilir. Temel alınan donanım (konumu veya düğüm tür) değiştirme, yeni bir hizmet gerektirir. Araçlar veya yoktur API'leri içeriğin bir hizmetten diğerine aktarılması için. Tüm içerik yönetimi aracılığıyladır [REST](https://docs.microsoft.com/rest/api/searchservice/) veya [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) API'leri ve dizinleri taşımak istiyorsanız, yeniden oluşturun ve bunları yeni bir hizmet üzerinde yeniden yüklemek gerçekleştirmeniz gerekir. 
 
 İçerik Yönetimi için ayrılmış bir PowerShell komut yok olsa da, REST veya .NET oluşturmak ve dizinleri yüklemek için çağıran PowerShell Betiği yazabilirsiniz. **Az.Search** modülü kendisi tarafından bu işlemleri sağlamaz.
 

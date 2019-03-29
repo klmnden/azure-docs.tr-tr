@@ -7,23 +7,20 @@ manager: vijayts
 keywords: yedeklemeyi geri yükleme; geri yükleme; kurtarma noktası;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/28/2019
 ms.author: geg
-ms.openlocfilehash: 2253e729daedc3b130919913c1616449245f9cc1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3b32418361b992b91aa96579a0cf1f84d8b9d312
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315394"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620419"
 ---
 # <a name="restore-azure-vms"></a>Azure VM'lerini geri yükleme
 
 Bu makalede Azure VM veri depolanan kurtarma noktalarından geri yükleme [Azure Backup](backup-overview.md) kurtarma Hizmetleri kasaları.
 
-Geri yüklemek için bir VM gerekli sahip olduğundan emin olun [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) izni.
 
-> [!NOTE]
-> Yoksa [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) gerçekleştirebileceğiniz izni [diski geri yükleme](backup-azure-arm-restore-vms.md#create-new-restore-disks) ve kullanarak VM oluşturma [şablonu Dağıt](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) özelliği.
 
 ### <a name="restore-options"></a>Geri yükleme seçenekleri
 
@@ -39,6 +36,13 @@ Azure Backup, birkaç VM'yi geri yüklemek için yol sağlar.
 > Ayrıca, belirli dosyaları ve klasörleri Azure VM'de kurtarabilirsiniz. [Daha fazla bilgi edinin](backup-azure-restore-files-from-vm.md).
 >
 > Çalıştırıyorsanız [en son sürümü](backup-instant-restore-capability.md) Azure Backup Azure Vm'leri (anında geri yükleme bilinir) için anlık görüntüler için yedi güne kadar da saklanır ve yedekleme verileri kasaya gönderilmeden önce anlık görüntülerden VM geri yükleyebilirsiniz. VM son yedi güne ait bir yedekten geri yüklemek istiyorsanız, anlık görüntüden ve vault'tan geri yüklemek daha hızlıdır.
+
+## <a name="before-you-start"></a>Başlamadan önce
+
+Bir VM'yi geri yüklemek için (yeni bir VM oluşturun) doğru rol tabanlı erişim denetimi (RBAC) sahip olduğunuzdan emin olun [izinleri](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) VM geri yükleme işlemi için.
+
+İzinleriniz yoksa, şunları yapabilirsiniz [bir diski geri yükleme](#restore-disks), ve ardından disk geri yüklendikten sonra [şablonu](#use-templates-to-customize-a-restored-vm) yeni bir VM oluşturmak için geri yükleme işleminin bir parçası olarak oluşturulan.
+
 
 
 ## <a name="select-a-restore-point"></a>Bir geri yükleme noktası seçin
@@ -61,7 +65,7 @@ Azure Backup, birkaç VM'yi geri yüklemek için yol sağlar.
 
 2. Uygulamanızın seçili geri yükleme seçeneği için ayarları belirtin.
 
-## <a name="create-new-create-a-vm"></a>Oluşturma yeni-VM oluşturma
+## <a name="create-a-vm"></a>VM oluşturma
 
 Biri olarak [geri yükleme seçenekleri](#restore-options), bir VM hızlıca geri yükleme noktasından temel ayarlarla oluşturabilirsiniz.
 
@@ -76,7 +80,7 @@ Biri olarak [geri yükleme seçenekleri](#restore-options), bir VM hızlıca ger
 6. İçinde **geri yükleme Yapılandırması**seçin **Tamam**. İçinde **geri**, tıklayın **geri** geri yükleme işlemi tetiklemek için.
 
 
-## <a name="create-new-restore-disks"></a>Geri yükleme yeni disk oluşturma
+## <a name="restore-disks"></a>Diskleri geri yükle
 
 Biri olarak [geri yükleme seçenekleri](#restore-options), geri yükleme noktasından bir disk oluşturabilirsiniz. Ardından diskle aşağıdakilerden birini yapabilirsiniz:
 
@@ -132,11 +136,11 @@ Vm'leri geri yükleme gerekebilir yaygın senaryolar vardır.
 --- | ---
 **Hibrit kullanım teklifi kullanarak Vm'leri geri yükleme** | Bir Windows VM kullanıyorsa [karma kullanım Avantajı'nı (HUB) lisans](../virtual-machines/windows/hybrid-use-benefit-licensing.md)diskleri geri yükle ve belirtilen şablonu kullanarak yeni bir VM oluşturun (ile **lisans türü** kümesine **Windows_Server**) , veya PowerShell.  Bu ayar, VM oluşturduktan sonra da uygulanabilir.
 **Bir Azure veri merkezi olağanüstü durum sırasında Vm'leri geri yükleme** | Azure Backup, GRS kasası kullanıyorsa ve sanal makine için birincil veri merkezinde arıza eşleştirilmiş veri merkezine geri yükleme yedeklenen sanal makineleri destekler. Eşleştirilmiş veri merkezine bir depolama hesabı seçin ve normal olarak geri yükleyin. Azure Backup, geri yüklenen VM'yi oluşturmak için eşleştirilmiş konumunda işlem hizmeti kullanır. [Daha fazla bilgi edinin](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md) datacenter dayanıklılığı hakkında.
-**Tek bir etki alanı denetleyicisi VM'SİNİN tek bir etki alanında geri yükleme** | VM diğer VM'ler gibi geri yükleyin. Şunlara dikkat edin:<br/><br/> ROM bir Active Directory perspektif, diğer VM'ler gibi Azure vm'dir.<br/><br/> Dizin Hizmetleri Geri Yükleme Modu'nda (DSRM), ayrıca tüm Active Directory Kurtarma senaryolarına uygun olacak şekilde kullanılabilir. [Daha fazla bilgi edinin](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v) sanallaştırılmış etki alanı denetleyicileri için yedekleme ve geri yükleme konusunda.
-**Birden çok etki alanı denetleyicisi tek etki alanındaki Vm'leri geri yükleme** | f diğer etki alanı denetleyicileri aynı etki alanında ağ üzerinden ulaşılabilir, etki alanı denetleyicisi gibi herhangi bir VM geri yüklenebilir. Etki alanındaki son kalan etki alanı denetleyicisi olduğundan ya da kurtarma yalıtılmış bir ortamda gerçekleştirilen kullanan bir [orman kurtarma](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
+**Tek bir etki alanı denetleyicisi VM'SİNİN tek bir etki alanında geri yükleme** | VM diğer VM'ler gibi geri yükleyin. Şunlara dikkat edin:<br/><br/> Active Directory açısından bakıldığında, diğer VM'ler gibi Azure vm'dir.<br/><br/> Dizin Hizmetleri Geri Yükleme Modu'nda (DSRM), ayrıca tüm Active Directory Kurtarma senaryolarına uygun olacak şekilde kullanılabilir. [Daha fazla bilgi edinin](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v) sanallaştırılmış etki alanı denetleyicileri için yedekleme ve geri yükleme konusunda.
+**Birden çok etki alanı denetleyicisi tek etki alanındaki Vm'leri geri yükleme** | Diğer etki alanı denetleyicileri aynı etki alanında ağ üzerinden ulaşılabilir değilse, etki alanı denetleyicisi gibi herhangi bir VM geri yüklenebilir. Etki alanındaki son kalan etki alanı denetleyicisi olduğundan ya da kurtarma yalıtılmış bir ortamda gerçekleştirilen kullanan bir [orman kurtarma](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Birden çok ormandaki etki alanlarında bulunan bir geri yükleme** | Öneririz bir [orman kurtarma](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Tam geri yükleme** | Azure VM ve şirket içi hiper arasındaki başlıca fark, Azure'da hiçbir VM konsol olduğunu ' dir. Bir konsol tam kurtarma (BMR) kullanarak kurtarma gibi belirli senaryolar için gerekli değildir-türü yedekleme. Ancak, kasadan VM geri yükleme, BMR için tam yerini almıştır.
-**Özel ağ yapılandırmaları ile Vm'leri geri yükleme** | Özel ağ yapılandırmaları kullanarak iç veya dış Yük Dengeleme, birden çok NIC veya birden çok ayrılmış IP adresleri kullanarak Vm'leri içerir. Bu Vm'leri kullanarak geri yükleme [disk seçeneği geri](#create-new-restore-disks). Bu seçenek belirtilen depolama hesabına VHD bir kopyasını yapar ve sonra bir VM oluşturabilirsiniz bir [iç](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) veya [dış](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) yük dengeleyici, [birden çok NIC](../virtual-machines/windows/multiple-nics.md), veya [birden çok ayrılmış IP adresleri](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), yapılandırmanız uygun olarak.
+**Özel ağ yapılandırmaları ile Vm'leri geri yükleme** | Özel ağ yapılandırmaları kullanarak iç veya dış Yük Dengeleme, birden çok NIC veya birden çok ayrılmış IP adresleri kullanarak Vm'leri içerir. Bu Vm'leri kullanarak geri yükleme [disk seçeneği geri](#restore-disks). Bu seçenek belirtilen depolama hesabına VHD bir kopyasını yapar ve sonra bir VM oluşturabilirsiniz bir [iç](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) veya [dış](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) yük dengeleyici, [birden çok NIC](../virtual-machines/windows/multiple-nics.md), veya [birden çok ayrılmış IP adresleri](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), yapılandırmanız uygun olarak.
 **NIC/alt ağ üzerinde ağ güvenlik grubu (NSG)** | Azure VM yedeklemesi vnet, alt ağ ve NIC düzeyinde yedekleme ve geri yükleme, NSG bilgileri destekler.
 
 ## <a name="track-the-restore-operation"></a>Geri yükleme işlemi İzle

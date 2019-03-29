@@ -1,5 +1,5 @@
 ---
-title: Azure AD erişim gözden geçirmeleri için programları ve denetimleri yönetme | Microsoft Docs
+title: Programları ve denetimleri için erişim gözden geçirmeleri - Azure Active Directory yönetme | Microsoft Docs
 description: Azure Active Directory erişim gözden geçirmesi denetimlerini toplayıp kuruluşunuzdaki diğer programlar için her yönetim, risk yönetimi ve uyumluluk girişim oluşturmayı öğrenin.
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3056976ada6c0a0287eec608dbad230e8dbb2625
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 43c0f1c041bfed1b041a9926efd869d167c6f1e9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895193"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577272"
 ---
-# <a name="manage-programs-and-controls-for-azure-ad-access-reviews"></a>Azure AD erişim gözden geçirmeleri için programları ve denetimleri yönetme
+# <a name="manage-programs-and-controls-for-azure-ad-access-reviews"></a>Programları yönetir ve denetimler için Azure AD erişim gözden geçirmeleri
 
 Azure Active Directory (Azure AD) erişim gözden geçirmeleri grup üyelerini ve uygulama erişimi içerir. Bu örnekler denetimlerin kimlerin erişebileceğini, kuruluşunuzun Grup üyeliklerini ve uygulamalar için gözetim emin olun. Kuruluşlar, verimli bir şekilde, yönetim, risk yönetimi ve uyumluluk gereksinimlerini ele almak için bu denetimleri kullanabilirsiniz.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: f39fee9b59dfec643a640a4e17460ed9199c858f
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 23af0d9e2d7c4033a2457676b29b5e4b2f8c15ea
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542075"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579453"
 ---
 # <a name="asc-for-iot-security-alerts"></a>ASC IOT güvenlik uyarıları
 
@@ -27,8 +27,15 @@ ms.locfileid: "58542075"
 > ASC IOT için şu anda genel Önizleme aşamasındadır.
 > Bu önizleme sürümü, bir hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim iş yükleri için önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+IOT için ASC, kötü amaçlı etkinliğe karşı sizi uyarmak için Gelişmiş analiz ve tehdit zekasını kullanarak IOT çözümünüzü sürekli olarak analiz eder.
+Ayrıca, bilginizi beklenen cihaz davranışının dayalı özel uyarılar oluşturabilirsiniz.
+Bir uyarı comprise, göstergesi görev yapar ve araştırılması ve düzeltilebilir.
 
-## <a name="device-alerts"></a>Cihaz uyarıları
+Bu makalede, IOT Hub ve/veya IOT cihazları üzerinde tetiklenebilen yerleşik uyarıların bir listesini bulabilirsiniz.
+Yerleşik uyarı ASC IOT için beklenen Hub ve/veya cihaz davranışı üzerinde alan özel uyarılar tanımlamanızı sağlar.
+Daha fazla ayrıntı için [özel uyarılar oluşturabilirsiniz](quickstart-create-custom-alerts.md).
+
+## <a name="built-in-alerts-for-iot-devices"></a>IOT cihazları için yerleşik uyarılar
 
 | Severity | Ad                                                   | Veri Kaynağı | Açıklama                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |----------|--------------------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -72,7 +79,7 @@ ms.locfileid: "58542075"
 | Düşük      | Bash geçmişi temizlendi                                   | Aracı       | Bash geçmişi günlüğü temizlendi. Saldırganlar kendi komutları gizlemek gelen günlüklerde görünür.                                                                                                                                                                                                                                                                                                                                                   |
 | Düşük      | Başarısız deneme yanılma                                      | Aracı       | Tanımlanan birden çok başarısız oturum açma denemesi. Bir denenen ve başarısız deneme yanılma saldırısı zorla cihazda yapıldı.                                                                                                                                                                                                                                                                                                                                                  |
 
-## <a name="iot-hub-alerts"></a>IOT hub'ı uyarıları
+## <a name="built-in-alerts-for-iot-hub"></a>IOT hub'ın yerleşik uyarılar
 
 | Severity | Ad                                                                         | Açıklama                                                                                                                                                                                                                                                                                                                            |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -88,4 +95,4 @@ ms.locfileid: "58542075"
 
 - [Genel Bakış](overview.md)
 - [Güvenlik verilerinize erişin](how-to-security-data-access.md)
-- [Bir cihaz araştırın](tutorial-investigate-device.md)
+- [Bir cihaz araştırın](how-to-investigate-device.md)

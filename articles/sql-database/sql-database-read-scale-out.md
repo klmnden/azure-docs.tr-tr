@@ -11,15 +11,15 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 8f34b3ed91e4b470fdfa7c2ffad401e7890abe1e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/28/2019
+ms.openlocfilehash: d9ad859ef24b51dc337dc23281d2fe4e1eada1e6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886465"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619900"
 ---
-# <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Yük Dengeleme (Önizleme) salt okunur sorgu iş yükleri için salt okunur çoğaltmalar kullanın
+# <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Yük Dengeleme salt okunur sorgu iş yükleri için salt okunur çoğaltmalar kullanın
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -27,24 +27,23 @@ ms.locfileid: "57886465"
 
 **Okuma ölçeği genişletme** , bir salt okunur çoğaltma kapasitesini kullanarak Azure SQL veritabanı salt okunur dengelemeye sağlar.
 
-Her bir veritabanında Premium katman ([DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md)) veya iş açısından kritik katmanında ([sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md)) için birden fazla AlwaysON kopyaları olan otomatik olarak sağlandı Kullanılabilirlik SLA'sı destekler.
+Her bir veritabanında Premium katman ([DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md)) veya iş açısından kritik katmanında ([sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md)) için birden fazla AlwaysON kopyaları olan otomatik olarak sağlandı Kullanılabilirlik SLA'sı destekler. Bu işlem tarafından Aşağıdaki diyagramda gösterilmiştir.
 
-![Salt okunur çoğaltmalar](media/sql-database-managed-instance/business-critical-service-tier.png)
+![Salt okunur çoğaltmalar](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-Bu çoğaltmaların normal veritabanı bağlantıları tarafından kullanılan okuma-yazma çoğaltma olarak aynı işlem boyutu ile sağlanır. **Okuma ölçeği genişletme** özelliği okuma-yazma çoğaltma paylaşmak yerine kapasitesi salt okunur çoğaltmalarından birini kullanarak SQL veritabanı salt okunur dengelemeye yüklemenizi sağlar. Bu şekilde salt okunur iş yükü ana okuma-yazma iş yükünden yalıtılmış ve performansını etkilemez. Özellik içeren mantıksal uygulamalar, salt okunur gibi iş yükleri, analiz, ayrılmış ve bu nedenle bu ek kapasite olmaksızın kullanarak performans avantajlarının geçirebilir öngörülmüştür ek bir maliyet.
+İkincil çoğaltmaları birincil çoğaltması olarak aynı işlem boyutu ile sağlanır. **Okuma ölçeği genişletme** özelliği okuma-yazma çoğaltma paylaşmak yerine kapasitesi salt okunur çoğaltmalarından birini kullanarak SQL veritabanı salt okunur dengelemeye yüklemenizi sağlar. Bu şekilde salt okunur iş yükü ana okuma-yazma iş yükünden yalıtılmış ve performansını etkilemez. Özellik içeren mantıksal uygulamalar, salt okunur gibi iş yükleri, analiz, ayrılmış ve bu nedenle bu ek kapasite olmaksızın kullanarak performans avantajlarının geçirebilir öngörülmüştür ek bir maliyet.
 
 Okuma ölçeği genişletme özelliği ile belirli bir veritabanını kullanmak için açık bir şekilde veritabanı oluşturulurken veya daha sonra çağırarak PowerShell kullanarak yapılandırmasını değiştirmeyi etkinleştirmeniz gerekir [kümesi AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) veya [Yeni AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet'leri veya Azure Resource Manager REST API aracılığıyla [veritabanları - oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) yöntemi.
 
-Bir veritabanı için okuma ölçeği genişletme etkinleştirildikten sonra o veritabanına bağlanan uygulamalar okuma-yazma çoğaltmaya veya salt okunur bir çoğaltmaya göre veritabanının yönlendirilirsiniz `ApplicationIntent` uygulamanın yapılandırılmış özelliği bağlantı dizesi. Hakkında bilgi için `ApplicationIntent` özelliğine bakın [belirterek uygulama amacı](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+Okuma-yazma çoğaltmaya veya salt okunur bir çoğaltmaya göre veritabanının ağ geçidi tarafından bir veritabanı için okuma ölçeği genişletme etkinleştirildikten sonra o veritabanına bağlanan uygulamalar yönlendirilirsiniz `ApplicationIntent` yapılandırılan özelliği uygulamanın bağlantı dizesi. Hakkında bilgi için `ApplicationIntent` özelliğine bakın [belirterek uygulama amacı](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
 Okuma ölçeği genişletme devre dışı bırakıldı veya bir desteklenmeyen hizmet katmanında ReadScale özelliğini ayarlamanız, okuma / yazma kopyasına, bağımsız olarak tüm bağlantıları yönlendirilmiş `ApplicationIntent` özelliği.
 
 > [!NOTE]
-> Sorgu veri Store ve genişletilmiş olaylar üzerinde salt okunur çoğaltmaların desteklenmez.
-
+> Sorgu veri Store, genişletilmiş olaylar, SQL Profiler ve denetim özellikleri salt okunur çoğaltmalarda desteklenmiyor. 
 ## <a name="data-consistency"></a>Veri tutarlılığı
 
-Çoğaltmaların her zaman işlemsel olarak tutarlı bir durumda olduğundan, ancak farklı zaman noktalarında olabilir bazı küçük gecikme süresi arasında farklı kopyaya çoğaltmaları avantajlarından biridir. Oturum düzeyinde tutarlılık okuma ölçeği genişletme destekler. Geldiğini, salt okunur oturumu sonra bir bağlantı hatası nedeniyle çoğaltma kullanılamazlık tarafından bağlanırsa, % 100 okuma-yazma çoğaltma ile güncel değil bir çoğaltmaya yönlendirilebilir. Benzer şekilde, bir uygulama bir okuma-yazma oturumu kullanarak verileri yazar ve hemen bir salt okunur oturumu kullanarak okur, olası en son güncelleştirmeleri hemen görünmez. İşlem günlüğü Yinele çoğaltmaları için zaman uyumsuz olmasıdır.
+Çoğaltmaların her zaman işlemsel olarak tutarlı bir durumda olduğundan, ancak farklı zaman noktalarında olabilir bazı küçük gecikme süresi arasında farklı kopyaya çoğaltmaları avantajlarından biridir. Oturum düzeyinde tutarlılık okuma ölçeği genişletme destekler. Geldiğini, salt okunur oturumu sonra bir bağlantı hatası nedeniyle çoğaltma kullanılamazlık tarafından bağlanırsa, % 100 okuma-yazma çoğaltma ile güncel değil bir çoğaltmaya yönlendirilebilir. Benzer şekilde, uygulamanın bir okuma-yazma oturumu kullanarak verileri yazar ve hemen bir salt okunur oturumu kullanarak okur, olası en son güncelleştirmeleri çoğaltmaya hemen görünür değildir. Gecikme süresi, bir zaman uyumsuz işlem günlüğü Yinele işlemi tarafından neden olur.
 
 > [!NOTE]
 > Bölge içinde çoğaltma gecikmeleri düşüktür ve bu nadir bir durumdur.
@@ -77,6 +76,14 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 > [!NOTE]
 > Belirli bir zamanda tek AlwaysON çoğaltmalarının salt okunur oturumları tarafından erişilebilir.
+
+## <a name="monitoring-and-troubleshooting-read-only-replica"></a>İzleme ve salt okunur çoğaltma sorunlarını giderme
+
+Salt okunur kopyaya bağlandığınızda, performans ölçümleri kullanarak erişebileceğiniz `sys.dm_db_resource_stats` DMV. Sorgu planı istatistikleri erişmek için `sys.dm_exec_query_stats`, `sys.dm_exec_query_plan` ve `sys.dm_exec_sql_text` Dmv'leri.
+
+> [!NOTE]
+> DMV `sys.resource_stats` mantıksal ana veritabanında CPU kullanımı ve depolama, birincil çoğaltma döndürür.
+
 
 ## <a name="enable-and-disable-read-scale-out"></a>Enable ve disable okuma ölçeği genişletme
 
@@ -124,9 +131,13 @@ Body:
 
 Daha fazla bilgi için [veritabanları - oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
 
+## <a name="using-tempdb-on-read-only-replica"></a>TempDB üzerinde salt okunur çoğaltma kullanma
+
+TempDB veritabanı salt okunur kopyaya çoğaltılmaz. Her yineleme kendi yineleme oluşturulduğu sırada oluşturduğunuz TempDB veritabanı sürümüne sahiptir. TempDB güncelleştirilebilir ve, sorgu yürütme işlemi sırasında değiştirilebilir sağlar. Salt okunur iş yükünüz TempDB nesneleri kullanarak bağlıysa, sorgu betiğinizin bir parçası olarak bu nesneleri oluşturmanız gerekir. 
+
 ## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Coğrafi olarak çoğaltılmış veritabanlarıyla okuma ölçeği genişletme kullanma
 
-Yük Dengeleme salt okunur iş yükleri coğrafi olarak yedekli (örneğin bir bir yük devretme grubunun üyesi olarak) bir veritabanı üzerinde okuma ölçeği genişletme kullanıyorsanız, bu salt okunur genişleme hem birincil hem de coğrafi olarak çoğaltılmış ikincil veritabanlarıyla etkin olduğundan emin olun. Uygulamanızın yük devretmeden sonra yeni birincil siteye bağlandığında, bu yük dengeleyici aynı etkiyi garanti eder. Coğrafi çoğaltmalı ikincil veritabanına okuma-etkin, Ölçek ile bağlanıyorsanız, oturumları `ApplicationIntent=ReadOnly` çoğaltmalarından birini birincil veritabanı üzerinde şu yol bağlantıları aynı şekilde yönlendirilmez.  Oturumlarının olmadan `ApplicationIntent=ReadOnly` aynı zamanda salt okunur olan, coğrafi çoğaltmalı ikincil birincil çoğaltmaya yönlendirilir. Coğrafi çoğaltmalı ikincil veritabanının birincil veritabanı farklı bir uç nokta olduğundan, daha önce ikincil erişmek için bunu ayarlamak için gerekli değildi `ApplicationIntent=ReadOnly`. Geriye dönük uyumluluk sağlamak için `sys.geo_replication_links` DMV gösterir `secondary_allow_connections=2` (tüm istemci bağlantıya izin verilir).
+Yük Dengeleme salt okunur iş yükleri coğrafi olarak yedekli (örneğin, bir bir yük devretme grubunun üyesi olarak) bir veritabanı üzerinde okuma ölçeği genişletme kullanıyorsanız, bu salt okunur genişleme hem birincil hem de coğrafi olarak çoğaltılmış ikincil veritabanlarıyla etkin olduğundan emin olun. Bu yapılandırma, uygulamanızın yük devretmeden sonra yeni birincil siteye bağlandığında, aynı yük dengeleyici deneyimini devam etmesini sağlar. Coğrafi çoğaltmalı ikincil veritabanına okuma-etkin, Ölçek ile bağlanıyorsanız, oturumları `ApplicationIntent=ReadOnly` çoğaltmalarından birini birincil veritabanı üzerinde şu yol bağlantıları aynı şekilde yönlendirilmez.  Oturumlarının olmadan `ApplicationIntent=ReadOnly` aynı zamanda salt okunur olan, coğrafi çoğaltmalı ikincil birincil çoğaltmaya yönlendirilir. Coğrafi çoğaltmalı ikincil veritabanının birincil veritabanı farklı bir uç nokta olduğundan, daha önce ikincil erişmek için bunu ayarlamak için gerekli değildi `ApplicationIntent=ReadOnly`. Geriye dönük uyumluluk sağlamak için `sys.geo_replication_links` DMV gösterir `secondary_allow_connections=2` (tüm istemci bağlantıya izin verilir).
 
 > [!NOTE]
 > Yerel ikincil veritabanı çoğaltmalarını arasında yönlendirme hepsini veya diğer yük dengeli desteklenmiyor.

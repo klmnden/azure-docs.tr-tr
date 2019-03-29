@@ -1,5 +1,5 @@
 ---
-title: PIM - Azure'ı kullanmaya başlayın | Microsoft Docs
+title: PIM - Azure Active Directory kullanmaya başlayın | Microsoft Docs
 description: Etkinleştirme ve Azure portalında Azure AD Privileged Identity Management (PIM) kullanmaya başlama hakkında bilgi edinin.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26e94c9b56ba65e3a7c51c1a85e97f7521377bae
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 00a93b23b5967e8b6b881f5d1fe6adcd89b0f77b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546866"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576750"
 ---
 # <a name="start-using-pim"></a>PIM kullanmaya başlama
 
@@ -38,7 +38,7 @@ Daha fazla bilgi için [lisans PIM kullanmak için gereksinimler](subscription-r
 
 ## <a name="first-person-to-use-pim"></a>İlk kişinin PIM'i kullanma
 
-PIM'i kullanmak dizininizde ilk kişi siz, otomatik olarak size atanır [Güvenlik Yöneticisi](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) ve [ayrıcalıklı Rol Yöneticisi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) dizindeki roller. Kullanıcıların Azure AD dizini rol atamaları, yalnızca ayrıcalıklı rol yöneticileri tarafından yönetilebilir. Ayrıca, çalıştırmayı da seçebilirsiniz [Güvenlik Sihirbazı](pim-security-wizard.md) , ilk Keşif ve atama deneyiminizde size yol gösterir.
+PIM'i kullanmak dizininizde ilk kişi siz, otomatik olarak size atanır [Güvenlik Yöneticisi](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) ve [ayrıcalıklı Rol Yöneticisi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) dizindeki roller. Yalnızca ayrıcalıklı rol Yöneticileri kullanıcıların Azure AD rol atamalarını yönetebilir. Ayrıca, çalıştırmayı da seçebilirsiniz [Güvenlik Sihirbazı](pim-security-wizard.md) , ilk Keşif ve atama deneyiminizde size yol gösterir.
 
 ## <a name="enable-pim"></a>PIM'i etkinleştirin
 
@@ -56,7 +56,7 @@ PIM dizininizde kullanmaya başlamak için öncelikle PIM etkinleştirmeniz gere
 
 1. Listesinde **PIM onayı**.
 
-    ![PIM'i onayla](./media/pim-getting-started/consent-pim.png)
+    ![PIM'i Onayla](./media/pim-getting-started/consent-pim.png)
 
 1. Tıklayın **Kimliğimi doğrula** Azure MFA ile kimliğinizi doğrulayın. Bir hesap seçin istenir.
 
@@ -108,7 +108,7 @@ PIM kurulumundan sonra kimlik yönetimi görevlerini gerçekleştirebilir.
 | **İsteklerim** | Uygun rol atamalarını etkinleştirmek için Bekleyen isteklerinizi görüntüler. |
 | **İstekleri onaylama** | Uygun rolleri dizininizdeki kullanıcılar tarafından etkinleştirme isteklerini listesini görüntüler onaylanacak atanmış. |
 | **Erişim gözden geçirin** | Erişimi kendiniz veya başka bir kullanıcı için inceliyor olmanızdan bağımsız tamamlamak için atanan beklemedeki erişim gözden geçirmelerini listeler. |
-| **Azure AD rolleri** | Bir Pano ve Azure AD dizini rol atamalarını yönetmek ayrıcalıklı rol yöneticileri ayarlarını görüntüler. Bu pano, ayrıcalıklı rol yöneticisi olmayan kullanıcılar için devre dışıdır. Bu kullanıcılar Görünümüm adlı özel bir panoya erişebilir. Görünümüm panosu, tüm kiracı değil yalnızca panoya erişen kullanıcı hakkında bilgileri görüntüler. |
+| **Azure AD rolleri** | Bir Pano ve Azure AD rol atamalarını yönetmek ayrıcalıklı rol yöneticileri ayarlarını görüntüler. Bu pano, ayrıcalıklı rol yöneticisi olmayan kullanıcılar için devre dışıdır. Bu kullanıcılar Görünümüm adlı özel bir panoya erişebilir. Görünümüm panosu, tüm kiracı değil yalnızca panoya erişen kullanıcı hakkında bilgileri görüntüler. |
 | **Azure kaynakları** | Bir Pano ve Azure kaynak rol atamalarını yönetmek ayrıcalıklı rol yöneticileri ayarlarını görüntüler. Bu pano, ayrıcalıklı rol yöneticisi olmayan kullanıcılar için devre dışıdır. Bu kullanıcılar Görünümüm adlı özel bir panoya erişebilir. Görünümüm panosu, tüm kiracı değil yalnızca panoya erişen kullanıcı hakkında bilgileri görüntüler. |
 
 ## <a name="add-a-pim-tile-to-the-dashboard"></a>PIM kutucuğu panoya ekleme
@@ -133,5 +133,5 @@ PIM açma daha kolay hale getirmek için PIM kutucuğu, Azure portalı panonuza 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure AD dizin rollerini PIM atayın](pim-how-to-add-role-to-user.md)
+- [Azure AD PIM Rolleri Ata](pim-how-to-add-role-to-user.md)
 - [PIM'de yönetmek için Azure kaynaklarını keşfedin](pim-resource-roles-discover-resources.md)

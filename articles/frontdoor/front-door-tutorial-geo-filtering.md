@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 2553dccaa57e5340bf36bbccdf7826d242716300
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: bdbf0d78b45291e7482c1af3999c8ce3980ef36f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472642"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578501"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Ön kapısı bir coğrafi filtreleme WAF İlkesi ayarlama
 Bu öğreticide, örnek bir coğrafi filtreleme ilkesi oluşturmak ve bu ilkeyi mevcut bir Front Door ön uç konağı ile ilişkilendirmek için Azure PowerShell kullanma gösterilmektedir. Bu örnek coğrafi filtreleme ilkesi, Birleşik Devletler dışındaki diğer tüm ülkelerden gelen istekleri engeller.
@@ -79,7 +79,7 @@ $nonUSBlockRule = New-AzFrontDoorCustomRuleObject `
 ## <a name="add-rules-to-a-policy"></a>Bir ilke kuralları ekleme
 Ön kapısı profili kullanılarak içeren kaynak grubunun adını bulma `Get-AzResourceGroup`. Ardından, oluşturun bir `geoPolicy` İlkesi nesnesini içeren `nonUSBlockRule` kullanarak [yeni AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) ön kapısı profilini içerir belirtilen kaynak grubunda. Coğrafi ilkesi için benzersiz bir ad sağlamanız gerekir. 
 
-Aşağıdaki örnekte kaynak grubu adı kullanan *myResourceGroupFD1* ön kapısı oluşturduğunuz varsayımıyla, sağlanan yönergeleri kullanarak profil [hızlı başlangıç: Bir ön kapı oluşturmak](quickstart-create-front-door.md) makalesi.
+Aşağıdaki örnekte kaynak grubu adı kullanan *myResourceGroupFD1* ön kapısı oluşturduğunuz varsayımıyla, sağlanan yönergeleri kullanarak profil [hızlı başlangıç: Bir ön kapı oluşturmak](quickstart-create-front-door.md) makalesi. İçinde aşağıdaki örnekte, ilke adını değiştirin *geoPolicyAllowUSOnly* ile benzersiz bir ilke adı.
 
 ```
 $geoPolicy = New-AzFrontDoorFireWallPolicy `

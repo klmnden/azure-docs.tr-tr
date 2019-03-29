@@ -1,5 +1,5 @@
 ---
-title: PIM'de yönetmek için Azure kaynaklarını bulun | Microsoft Docs
+title: PIM - Azure Active Directory yönetmek için Azure kaynaklarını bulun | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM) yönetmek için Azure kaynaklarını keşfedin. öğrenin.
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.subservice: pim
 ms.date: 01/23/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a90bd76470f5c06eb0e73615a358312b46d8be4a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 717cec41f152f0ebe3120b25db76cd684f39cbe3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195405"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575020"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>PIM'de yönetmek için Azure kaynaklarını keşfedin
 
-Azure AD Privileged Identity Management (PIM) kullanarak, Azure kaynaklarınızın korumasını artırabilirsiniz. Bu, zaten korumak Azure AD Dizin rolleri için PIM kullanan kuruluşlar ve üretim kaynaklarını arayan yönetim grubu ve abonelik sahipleri için yararlıdır.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kullanarak, Azure kaynaklarınızın korumasını artırabilirsiniz. Bu, zaten Azure AD rolleri korumak için PIM kullanan kuruluşlar ve üretim kaynaklarını arayan yönetim grubu ve abonelik sahipleri için yararlıdır.
 
 Azure kaynakları için PIM ayarlamanız, bulmak ve PIM ile korumak istediğiniz kaynakları seçin gerekir. PIM ile yönetebileceğiniz kaynakları sayısı sınırı yoktur. Ancak, en kritik (üretim) kaynaklarınız ile başlamanızı öneririz.
 

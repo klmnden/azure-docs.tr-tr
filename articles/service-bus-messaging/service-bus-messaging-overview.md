@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 8217eddd6f31a30b9113b178d74b59afb94f42af
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 06f1cdccc135d8f025d6256a12d47a97c92dbee8
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900871"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579351"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus nedir?
 
@@ -39,7 +39,7 @@ Ad alanı, tüm mesajlaşma bileşenlerini kapsayan bir kapsayıcıdır. Tek bir
 
 ![Kuyruk](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-Kuyruklardaki iletiler geldiklerinde sıralanır ve zaman damgası alır. Kabul edildikten sonra ileti güvenli bir şekilde yedekli depolama alanında tutulur. İletileri teslim edilir *çekme* istek iletileri sunan modu.
+Sıralarındaki iletileri sıralanır ve zaman damgalı işle. Kabul edildikten sonra ileti yedekli depolama alanında güvenli bir şekilde tutulur. İletileri teslim edilir *çekme* istek iletileri sunan modu.
 
 ## <a name="topics"></a>Konu başlıkları
 

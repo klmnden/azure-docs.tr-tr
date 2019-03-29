@@ -1,5 +1,5 @@
 ---
-title: Koşullu erişim ilkeleri'nden dışlanacak kullanıcıları yönetmek için Azure AD erişim gözden geçirmeleri kullanın | Microsoft Docs
+title: Azure Active Directory koşullu erişim ilkeleri - dışlanan kullanıcıları yönetmek için erişim gözden geçirmeleri kullanın | Microsoft Docs
 description: Koşullu erişim ilkeleri'nden dışlanacak kullanıcıları yönetmek için Azure Active Directory (Azure AD) erişim gözden geçirmeleri kullanmayı öğrenin
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a197a6c27b337d7aa97667dc07b1059e82050549
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892735"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577144"
 ---
-# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Koşullu erişim ilkeleri'nden dışlanacak kullanıcıları yönetmek için Azure AD erişim gözden geçirmeleri kullanın
+# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Koşullu erişim ilkeleri'nden dışlanacak kullanıcıları yönetmek için kullanım Azure AD erişim gözden geçirmeleri
 
 İdeal bir dünyada, tüm kullanıcıların erişimini izlemeniz gerekir ilkeleri, kuruluşunuzun kaynaklarına güvenli erişim için. Ancak, bazı durumlarda özel durumları yapmanızı gerektiren iş durumlar vardır. Bu makalede burada dışlamaları gerekli olabilir bazı örnekler ve nasıl BT yöneticisi olarak, bu görevi yönetebilir, İlkesi özel durumları sözleşmeli önlemek ve denetçiler düzenli olarak Azure'ı kullanarak bu özel durumlar incelenir kavram ile sağlayın Active Directory (Azure AD) erişim gözden geçirmeleri.
 
@@ -44,7 +44,7 @@ Koşullu erişim ilkesi olan başka bir örnek olabilir, [blokları eski kimlik 
 
 ## <a name="why-are-exclusions-challenging"></a>Neden dışlamaları zor?
 
-Azure AD'de bir koşullu erişim ilkesi kullanıcı kapsamını belirleyebilirsiniz. De bu kullanıcılardan bazıları Dizin rolleri, bireysel kullanıcılar ve kullanıcıların Konukları seçerek hariç tutabilirsiniz. Bu özel durumlar yapılandırıldığında, ilke hedefi söz konusu kullanıcılar için zorlanamaz unutmamak önemlidir. Bu dışlama ya da bir liste olarak bireysel kullanıcıların ya da eski şirket içi güvenlik grubu ile yapılandırılmış sonra (kullanıcılar bilmiyor onun varlığını) bu çıkarma listesi ve BT yöneticisinin denetime görünürlüğü sınırlar (kullanıcılar katılın ilke devat etmesine güvenlik grubu). Ayrıca, tek seferde dışlama için yetkili kullanıcılar artık ihtiyaç veya için uygundur.
+Azure AD'de bir koşullu erişim ilkesi kullanıcı kapsamını belirleyebilirsiniz. Bu kullanıcılardan bazıları, Azure AD rolleri, bireysel kullanıcılar veya kullanıcıların Konukları seçerek de dışlayabilirsiniz. Bu özel durumlar yapılandırıldığında, ilke hedefi söz konusu kullanıcılar için zorlanamaz unutmamak önemlidir. Bu dışlama ya da bir liste olarak bireysel kullanıcıların ya da eski şirket içi güvenlik grubu ile yapılandırılmış sonra (kullanıcılar bilmiyor onun varlığını) bu çıkarma listesi ve BT yöneticisinin denetime görünürlüğü sınırlar (kullanıcılar katılın ilke devat etmesine güvenlik grubu). Ayrıca, tek seferde dışlama için yetkili kullanıcılar artık ihtiyaç veya için uygundur.
 
 Bir dışlama başında ilkesini atlama kullanıcılar kısa bir listesi yoktur. Zaman içinde giderek daha fazla kullanıcılar hariç tutulan ve listeyi genişler. Belirli bir noktada listesini gözden geçirin ve bu kullanıcıların her birinden hala bırakılmalıdır onaylayın gerek yoktur. Bir teknik bakış açısıyla, listeyi yönetmek nispeten kolay olabilir, ancak kimin iş kararlarını verir ve tüm denetlenebilirdir nasıl emin olabilirim?
 

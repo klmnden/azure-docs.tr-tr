@@ -5,16 +5,16 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 12/07/2018
+ms.date: 03/27/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 59c274c0967ef73bb7843fb1e155953bccce4857
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b0fb6ea527c46ab6a9de95ba5f5ae39b8a5d50b1
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183382"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576991"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Hızlı Başlangıç: Web uç noktasına Azure portalı ve Event Grid ile özel olaylarını yönlendirme
 
@@ -35,49 +35,38 @@ Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Azure
 Event grid konusu, olaylarınızı göndereceğiniz kullanıcı tanımlı bir uç nokta sağlar. 
 
 1. [Azure portalda](https://portal.azure.com/) oturum açın.
+2. Seçin **tüm hizmetleri** sol gezinti menüsünde arama **Event Grid**seçip **olay ızgarası konu başlıkları**. 
 
-1. Özel bir konu oluşturmak için **Kaynak oluşturun** seçeneğini belirleyin. 
+    ![Olay ızgarası konu başlıkları seçin](./media/custom-event-quickstart-portal/select-event-grid-topics.png)
+3. Üzerinde **olay ızgarası konu başlıkları** sayfasında **+ Ekle** araç. 
 
-   ![Kaynak oluşturma](./media/custom-event-quickstart-portal/create-resource.png)
+    ![Olay Kılavuzu konusu düğmesi ekleme](./media/custom-event-quickstart-portal/add-event-grid-topic-button.png)
+4. Üzerinde **Create konusunda** sayfasında, aşağıdaki adımları izleyin:
+    1. Benzersiz bir sağlamak **adı** özel konu için. Konu adı bir DNS girdisi ile temsil edildiğinden konu adı benzersiz olmalıdır. Görüntüde gösterilen adı kullanmayın. Bunun yerine, kendi adınızı oluşturun - 3-50 karakter arasında olması gerekir ve içeren yalnızca a-z, A-Z, 0-9, değerleri ve "-".
+    2. Azure **aboneliğinizi** seçin.
+    3. Mevcut bir kaynak grubunu seçin ya da seçin **Yeni Oluştur**girin bir **adı** için **kaynak grubu**.
+    4. Seçin bir **konumu** olay Kılavuzu konusu için.
+    5. Varsayılan değer tutmak **Event Grid şema** için **olay şeması** alan. 
 
-1. *Olay Kılavuzu Konu Başlığı* için arama yapın ve sağlanan seçeneklerden bunu seçin.
-
-   ![Olay kılavuzu konusunu arama](./media/custom-event-quickstart-portal/search-event-grid.png)
-
-1. **Oluştur**’u seçin.
-
-   ![Başlangıç adımları](./media/custom-event-quickstart-portal/select-create.png)
-
-1. Özel konu için benzersiz bir ad belirtin. Konu adı bir DNS girdisi ile temsil edildiğinden konu adı benzersiz olmalıdır. Görüntüde gösterilen adı kullanmayın. Bunun yerine, kendi adınızı oluşturun - 3-50 karakter arasında olması gerekir ve içeren yalnızca a-z, A-Z, 0-9, değerleri ve "-". Kaynak grubu için bir ad belirtin. **Oluştur**’u seçin.
-
-   ![Olay kılavuzu konu değerlerini sağlama](./media/custom-event-quickstart-portal/create-custom-topic.png)
-
-1. Özel konu oluşturulduktan sonra başarılı bildirim görürsünüz.
+       ![Konu sayfası oluşturma](./media/custom-event-quickstart-portal/create-custom-topic.png)
+    6. **Oluştur**’u seçin. 
+5. Özel konu oluşturulduktan sonra başarılı bildirim görürsünüz. Seçin **kaynak grubuna gidin**. 
 
    ![Başarılı durum bildirimini görüntüleme](./media/custom-event-quickstart-portal/success-notification.png)
+6. Üzerinde **kaynak grubu** sayfasında, olay ızgarası konu seçin. 
 
-   Dağıtım başarılı olmadıysa neyin hataya neden olduğunu öğrenin. **Dağıtım başarısız** seçeneğini belirleyin.
+   ![Olay ızgarası konu kaynağı seçin](./media/custom-event-quickstart-portal/select-event-grid-topic.png)
+7. Gördüğünüz **olay Kılavuzu konusu** , event grid için sayfa. Bu sayfayı açık tutun. Bu hızlı başlangıçta kullanın. 
 
-   ![Dağıtım başarısız seçeneğini belirleyin](./media/custom-event-quickstart-portal/select-failed.png)
-
-   Hata iletisini seçin.
-
-   ![Dağıtım başarısız seçeneğini belirleyin](./media/custom-event-quickstart-portal/failed-details.png)
-
-   Aşağıdaki resimde, özel konunun adı zaten kullanımda olduğundan başarısız olan bir dağıtım gösterilmektedir. Bu hatayı görürseniz, farklı bir adla dağıtımı yeniden deneyin.
-
-   ![Ad çakışması](./media/custom-event-quickstart-portal/name-conflict.png)
+    ![Olay Kılavuzu konusu giriş sayfası](./media/custom-event-quickstart-portal/event-grid-topic-home-page.png)
 
 ## <a name="create-a-message-endpoint"></a>İleti uç noktası oluşturma
+Özel Konu aboneliği oluşturmadan önce olay iletisi için bir uç noktası oluşturun. Normalde, olay verileri temelinde uç nokta eylemleri gerçekleştirir. Bu hızlı başlangıcı basitleştirmek için, olay iletilerini görüntüleyin bir [önceden oluşturulmuş web uygulaması](https://github.com/Azure-Samples/azure-event-grid-viewer) dağıtırsınız. Dağıtılan çözüm bir App Service planı, App Service web uygulaması ve GitHub'dan kaynak kod içerir.
 
-Özel konuya abone olmadan önce, olay iletisi için uç noktayı oluşturalım. Normalde, olay verileri temelinde uç nokta eylemleri gerçekleştirir. Bu hızlı başlangıcı basitleştirmek için, olay iletilerini görüntüleyin bir [önceden oluşturulmuş web uygulaması](https://github.com/Azure-Samples/azure-event-grid-viewer) dağıtırsınız. Dağıtılan çözüm bir App Service planı, App Service web uygulaması ve GitHub'dan kaynak kod içerir.
-
-1. Çözümü aboneliğinize dağıtmak için **Azure'a Dağıt**'ı seçin. Azure portalında parametre değerlerini girin.
+1. Makale sayfasında seçin **azure'a Dağıt** çözüm aboneliğinize dağıtın. Azure portalında parametre değerlerini girin.
 
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
-
 1. Dağıtımın tamamlanması birkaç dakika sürebilir. Dağıtım başarıyla gerçekleştirildikten sonra, web uygulamanızı görüntüleyip çalıştığından emin olun. Web tarayıcısında şu adrese gidin: `https://<your-site-name>.azurewebsites.net`
-
 1. Siteyi görürsünüz ancak henüz yayımlanmış olay yoktur.
 
    ![Yeni siteyi görüntüleme](./media/custom-event-quickstart-portal/view-site.png)
@@ -86,101 +75,131 @@ Event grid konusu, olaylarınızı göndereceğiniz kullanıcı tanımlı bir u�
 
 Event Grid’e hangi olayları izlemek istediğinizi ve olayların nereye gönderileceğini bildirmek için bir Event Grid konusuna abone olursunuz.
 
-1. Portalda özel konunuzu seçin.
-
-   ![Özel konu seçme](./media/custom-event-quickstart-portal/select-custom-topic.png)
-
-1. **+ Olay Aboneliği**'ni seçin.
+1. Şimdi, **olay Kılavuzu konusu** özel konuyu, seçme sayfası **+ olay aboneliği** araç.
 
    ![Olay aboneliği ekleyin](./media/custom-event-quickstart-portal/new-event-subscription.png)
+2. Üzerinde **olay aboneliği oluşturma** sayfasında, aşağıdaki adımları izleyin:
+    1. Olay bir **adı** olay aboneliği için.
+    3. Seçin **Web kancası** için **uç noktası türü**. 
+    4. Seçin **bir uç nokta seçin**. 
 
-1. Uç noktası türü olarak **Web Kancası**'nı seçin. Olay aboneliği için bir ad belirtin.
+       ![Olay abonelik değerlerini sağlama](./media/custom-event-quickstart-portal/provide-subscription-values.png)
+    5. Web kancası uç noktası için web uygulamanızın URL'sini girin ve ana sayfa URL'sine `api/updates` ekleyin. **Seçimi Onayla**'yı seçin.
 
-   ![Olay abonelik değerlerini sağlama](./media/custom-event-quickstart-portal/provide-subscription-values.png)
+       ![Uç nokta URL'si sağlama](./media/custom-event-quickstart-portal/provide-endpoint.png)
+    6. Yeniden **olay aboneliği oluşturma** sayfasında **Oluştur**.
 
-1. **Bir uç nokta seçin**'i belirleyin. 
+3. Web uygulamanızı yeniden görüntüleyin ve buna bir abonelik doğrulama olayının gönderildiğine dikkat edin. Göz simgesini seçerek olay verilerini genişletin. Uç noktanın olay verilerini almak istediğini doğrulayabilmesi için Event Grid doğrulama olayını gönderir. Web uygulaması aboneliği doğrulamak için kod içerir.
 
-1. Web kancası uç noktası için web uygulamanızın URL'sini girin ve ana sayfa URL'sine `api/updates` ekleyin. **Seçimi Onayla**'yı seçin.
-
-   ![Uç nokta URL'si sağlama](./media/custom-event-quickstart-portal/provide-endpoint.png)
-
-1. Olay aboneliği değerlerini girmeyi tamamladıktan sonra **Oluştur**'u seçin.
-
-Web uygulamanızı yeniden görüntüleyin ve buna bir abonelik doğrulama olayının gönderildiğine dikkat edin. Göz simgesini seçerek olay verilerini genişletin. Uç noktanın olay verilerini almak istediğini doğrulayabilmesi için Event Grid doğrulama olayını gönderir. Web uygulaması aboneliği doğrulamak için kod içerir.
-
-![Abonelik olayını görüntüleme](./media/custom-event-quickstart-portal/view-subscription-event.png)
+    ![Abonelik olayını görüntüleme](./media/custom-event-quickstart-portal/view-subscription-event.png)
 
 ## <a name="send-an-event-to-your-topic"></a>Konunuza olay gönderme
 
 Şimdi, Event Grid’in iletiyi uç noktanıza nasıl dağıttığını görmek için bir olay tetikleyelim. Özel konunuza bir test olayı göndermek için Azure CLI veya PowerShell kullanın. Normalde olay verilerini bir uygulama veya Azure hizmeti gönderir.
 
-Birinci örnekte, Azure CLI kullanılmaktadır. Özel konunun URL’si ve anahtarı ile örnek olay verilerini alır. `<topic_name>` yerine özel konunuzun adını yazın. Örnek olay verileri oluşturulur. JSON’un `data` öğesi, olayınızın yüküdür. Bu alana doğru oluşturulmuş herhangi bir JSON gelebilir. Ayrıca, gelişmiş yönlendirme ve filtreleme için konu alanını da kullanabilirsiniz. CURL, HTTP istekleri gönderen bir yardımcı programdır.
+Birinci örnekte, Azure CLI kullanılmaktadır. Özel konunun URL’si ve anahtarı ile örnek olay verilerini alır. `<topic name>` yerine özel konunuzun adını yazın. Örnek olay verileri oluşturulur. JSON’un `data` öğesi, olayınızın yüküdür. Bu alana doğru oluşturulmuş herhangi bir JSON gelebilir. Ayrıca, gelişmiş yönlendirme ve filtreleme için konu alanını da kullanabilirsiniz. CURL, HTTP istekleri gönderen bir yardımcı programdır.
 
-```azurecli-interactive
-endpoint=$(az eventgrid topic show --name <topic_name> -g myResourceGroup --query "endpoint" --output tsv)
-key=$(az eventgrid topic key list --name <topic_name> -g myResourceGroup --query "key1" --output tsv)
 
-event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
+### <a name="azure-cli"></a>Azure CLI
+1. Azure portalında **Cloud Shell**. Seçin **Bash** Cloud Shell penceresinin sol üst köşesindeki. 
 
-curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
-```
+    ![Cloud Shell'i - Bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
+1. Almak için aşağıdaki komutu çalıştırın **uç nokta** konu için: Komutu kopyalayıp sonra güncelleştirme **konu adı** ve **kaynak grubu adı** komutu çalıştırmadan önce. 
 
+    ```azurecli
+    endpoint=$(az eventgrid topic show --name <topic name> -g <resource group name> --query "endpoint" --output tsv)
+    ```
+2. Almak için aşağıdaki komutu çalıştırın **anahtar** özel konu için: Komutu kopyalayıp sonra güncelleştirme **konu adı** ve **kaynak grubu** komutu çalıştırmadan önce adlandırın. 
+
+    ```azurecli
+    key=$(az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv)
+    ```
+3. Aşağıdaki deyim olay tanımı ve basın kopyalama **ENTER**. 
+
+    ```json
+    event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
+    ```
+4. Aşağıdaki komutu çalıştırın **Curl** komut olayı göndermek için:
+
+    ```
+    curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
+    ```
+
+### <a name="azure-powershell"></a>Azure PowerShell
 İkinci örnek, benzer adımları gerçekleştirmek için PowerShell’i kullanır.
 
-```azurepowershell-interactive
-$endpoint = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Endpoint
-$keys = Get-AzEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic-name>
+1. Azure portalında **Cloud Shell**. Seçin **PowerShell** Cloud Shell penceresinin sol üst köşesindeki. Örnek görmek **Cloud Shell** Azure CLI bölümünde penceresinin resmi. 
+2. Almak için aşağıdaki komutu çalıştırın **uç nokta** konu için: Komutu kopyalayıp sonra güncelleştirme **konu adı** ve **kaynak grubu adı** komutu çalıştırmadan önce. 
 
-$eventID = Get-Random 99999
+    ```powershell
+    $endpoint = (Get-AzEventGridTopic -ResourceGroupName <resource group name> -Name <topic name>).Endpoint
+    ```
+3. Almak için aşağıdaki komutu çalıştırın **anahtar** özel konu için: Komutu kopyalayıp sonra güncelleştirme **konu adı** ve **kaynak grubu** komutu çalıştırmadan önce adlandırın.
 
-#Date format should be SortableDateTimePattern (ISO 8601)
-$eventDate = Get-Date -Format s
+    ```powershell
+    $keys = Get-AzEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic name>
+    ```
+4. Olay hazırlayın. Kopyala ve Cloud Shell penceresine deyimleri çalıştırın. 
 
-#Construct body using Hashtable
-$htbody = @{
-    id= $eventID
-    eventType="recordInserted"
-    subject="myapp/vehicles/motorcycles"
-    eventTime= $eventDate   
-    data= @{
-        make="Ducati"
-        model="Monster"
+    ```azurepowershell
+    $eventID = Get-Random 99999
+
+    #Date format should be SortableDateTimePattern (ISO 8601)
+    $eventDate = Get-Date -Format s
+
+    #Construct body using Hashtable
+    $htbody = @{
+        id= $eventID
+        eventType="recordInserted"
+        subject="myapp/vehicles/motorcycles"
+        eventTime= $eventDate   
+        data= @{
+            make="Ducati"
+            model="Monster"
+        }
+        dataVersion="1.0"
     }
-    dataVersion="1.0"
-}
+    
+    #Use ConvertTo-Json to convert event body from Hashtable to JSON Object
+    #Append square brackets to the converted JSON payload since they are expected in the event's JSON payload syntax
+    $body = "["+(ConvertTo-Json $htbody)+"]"
+    ```
+5. Kullanım **Invoke-WebRequest** olay göndermek için cmdlet'i. 
 
-#Use ConvertTo-Json to convert event body from Hashtable to JSON Object
-#Append square brackets to the converted JSON payload since they are expected in the event's JSON payload syntax
-$body = "["+(ConvertTo-Json $htbody)+"]"
+    ```powershell
+    Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+    ```
 
-Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
-```
-
+### <a name="verify-in-the-event-grid-viewer"></a>Olay ızgarası Görüntüleyicisi doğrulayın
 Olayı tetiklediniz ve Event Grid, iletiyi abone olurken yapılandırdığınız uç noktaya gönderdi. Az önce gönderdiğiniz olayı görmek için web uygulamanızı görüntüleyin.
 
 ```json
-[{
-  "id": "1807",
+{
+  "id": "974",
   "eventType": "recordInserted",
   "subject": "myapp/vehicles/motorcycles",
-  "eventTime": "2017-08-10T21:03:07+00:00",
+  "eventTime": "2019-03-28T01:11:59+00:00",
   "data": {
     "make": "Ducati",
     "model": "Monster"
   },
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
-}]
+  "topic": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myegridrg/providers/Microsoft.EventGrid/topics/myegridtopic"
+}
 ```
 
-
-
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-
 Bu olayla çalışmaya devam etmeyi planlıyorsanız bu makalede oluşturulan kaynakları temizlemeyin. Aksi takdirde, bu makalede oluşturduğunuz kaynakları silin.
 
-Kaynak grubunu seçin ve **Kaynak grubunu sil** seçeneğini belirleyin.
+1. Seçin **kaynak grupları** sol menüsünde. Sol taraftaki menüde görmüyorsanız, seçin **tüm hizmetleri** seçin ve soldaki menüden **kaynak grupları**. 
+2. Başlatmak için kaynak grubunu seçin **kaynak grubu** sayfası. 
+3. Seçin **kaynak grubunu Sil** araç. 
+4. Kaynak grubu adı girerek silme işlemini onaylayın ve **Sil**. 
+
+    ![Kaynak grupları](./media/custom-event-quickstart-portal/delete-resource-groups.png)
+
+    Görüntüde gördüğünüz diğer kaynak grubu oluşturulmuş ve Cloud Shell penceresi tarafından kullanılır. Cloud Shell penceresini daha sonra kullanmak üzere planlamıyorsanız silin. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

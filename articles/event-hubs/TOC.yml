@@ -53,6 +53,14 @@ items:
       href: event-hubs-node-get-started-receive.md
     - name: Apache Storm
       href: event-hubs-storm-getstarted-receive.md
+  - name: Olayları yakalama
+    items:
+    - name: Event Hubs Capture için Azure portalı kullanma
+      href: event-hubs-capture-enable-through-portal.md
+    - name: Event Hubs Capture’ı etkinleştirmek için bir Resource Manager şablonu kullanma
+      href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
+    - name: Python kullanarak Event Hubs verilerini yakalama
+      href: event-hubs-capture-python.md
   - name: Apache Kafka için Event Hubs’da akış yapma
     href: event-hubs-quickstart-kafka-enabled-event-hubs.md
   expanded: true
@@ -116,14 +124,6 @@ items:
       href: event-hubs-create-kafka-enabled.md
     - name: Stream Analytics kullanarak Event Hubs için Apache Kafka olaylarını işleme
       href: event-hubs-kafka-stream-analytics.md
-  - name: Olayları yakalama
-    items:
-    - name: Event Hubs Capture için Azure portalı kullanma
-      href: event-hubs-capture-enable-through-portal.md
-    - name: Event Hubs Capture’ı etkinleştirmek için bir Resource Manager şablonu kullanma
-      href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
-    - name: Python kullanarak Event Hubs verilerini yakalama
-      href: event-hubs-capture-python.md
   - name: Yönetme
     items:
     - name: Azure İzleme ile Event Hubs’ı izleme
@@ -199,9 +199,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: f565b8c743d8ed29b1fea4480f798dd522fcd045
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 21aafbeff9aa06d890afb6282fdf10e1feac739e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285998"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577289"

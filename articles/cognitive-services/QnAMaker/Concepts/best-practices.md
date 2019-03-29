@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/28/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 72a3bead4ba8670187c35856f9cd4e4f4b975a30
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0f94a1fdc01825b5bf78644f84c72e6b031109c0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311704"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621983"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Soru-cevap Oluşturucu Bilgi Bankası en iyi yöntemleri
 [Bilgi Bankası geliştirme yaşam döngüsü](../Concepts/development-lifecycle-knowledge-base.md) başlangıçtan bitişe kadar KB yönetme konusunda size yol gösterir. Bilgi bankanızı artırmak ve uygulama/sohbet Robotu ait son kullanıcılara daha iyi sonuçlar sağlamak için bu en iyi uygulamaları kullanın.
@@ -108,7 +108,7 @@ Soru-cevap Oluşturucu, kullanıcılara sağlayan [işbirliği](../How-to/collab
 
 ## <a name="active-learning"></a>Etkin öğrenme
 
-[Etkin öğrenme](../How-to/improve-knowledge-base.md) çok çeşitli kalite ve kullanıcı tabanlı sorgular miktarını sahip olduğunda, diğer sorular önerme en iyi bir iş yapar. Etkin durumda katılmak istemci uygulamalar kullanıcı sorgularına izin ver önemlidir Gerçekliğinde olmadan geri bildirim döngüsü öğrenme. Sorular soru-cevap Oluşturucu Portalı'nda önerilen sonra gözden geçirip kabul edin ya da bu önerileri Reddet gerekir. 
+[Etkin öğrenme](../How-to/improve-knowledge-base.md) çok çeşitli kalite ve kullanıcı tabanlı sorgular miktarını sahip olduğunda, diğer sorular önerme en iyi bir iş yapar. Etkin durumda katılmak istemci uygulamalar kullanıcı sorgularına izin ver önemlidir Gerçekliğinde olmadan geri bildirim döngüsü öğrenme. Sorular soru-cevap Oluşturucu Portalı'nda önerilen sonra **[önerileri filtreyle](../How-To/improve-knowledge-base.md#add-active-learning-suggestion-to-knowledge-base)** sonra gözden geçirin ve kabul edin veya bu önerilere reddet. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

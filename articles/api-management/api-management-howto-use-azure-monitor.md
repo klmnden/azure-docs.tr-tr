@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 7f2fe6fc3ba3ae515d372fb5a794e46897bad115
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6a4e9a0c33b227716227213e94948df430566065
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517955"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622204"
 ---
 # <a name="monitor-published-apis"></a>Yayımlanan API’leri izleme
 
@@ -77,21 +77,28 @@ API Management, dakika başı yaydığı ölçümlerle API’lerinizin durumu ha
 
 Uyarıları yapılandırmak için:
 
-1. Sayfanın alt kısmındaki menü çubuğundan **Uyarılar (klasik)** seçeneğini belirleyin.
+1. Seçin **uyarılar** sayfanın alt kısmındaki menü çubuğundan.
 
-    ![alerts](./media/api-management-azure-monitor/api-management-alert-rules-blade.png)
+    ![alerts](./media/api-management-azure-monitor/alert-menu-item.png)
 
-2. **Ölçüm uyarısı ekle**’yi seçin.
-3. Bu uyarı için bir **Ad** girin.
-4. İzlenecek ölçüm için **Yetkisiz Ağ Geçidi İstekleri** seçeneğini belirleyin.
-5. **E-posta sahipleri, katkıda bulunanlar ve okuyucular**’ı seçin.
-6. **Tamam**'a basın.
-7. Bir API anahtarı olmadan Konferans API’sini çağırmayı deneyin. Bu API Management hizmetinin sahibi olarak bir e-posta uyarı alırsınız. 
+2. Tıklayarak bir **yeni uyarı kuralı** bu uyarı için.
+3. Tıklayarak **koşul Ekle**.
+4. Seçin **ölçümleri** sinyal türü içinde açılır.
+5. Seçin **yetkisiz ağ geçidi isteği** olarak izlemek için sinyal.
 
-    > [!TIP]
-    > Uyarı kuralı tetiklendiğinde bir Web Kancası veya Azure Mantıksal Uygulaması da çağırabilir.
+    ![alerts](./media/api-management-azure-monitor/signal-type.png)
 
-    ![set-up-alert](./media/api-management-azure-monitor/set-up-alert.png)
+6. İçinde **sinyal mantığını yapılandırma** görüntülemek için uyarı tetiklenmesinin gerekip ve'a tıklayın, sonra bir eşiği belirtin **Bitti**.
+
+    ![alerts](./media/api-management-azure-monitor/threshold.png)
+
+7. Var olan bir eylem grubu seçin veya yeni bir tane oluşturun. Aşağıdaki örnekte, yöneticilerine bir e-posta gönderilir. 
+
+    ![alerts](./media/api-management-azure-monitor/action-details.png)
+
+8. Uyarı kuralı açıklaması bir ad sağlayın ve önem derecesini seçin. 
+9. Tuşuna **uyarı kuralı oluştur**.
+10. Artık, bir API anahtarı olmadan konferans API'sini çağırmayı deneyin. Uyarıyı tetikleyen yöneticilerine bir e-posta gönderilir. 
 
 ## <a name="activity-logs"></a>Etkinlik Günlükleri
 

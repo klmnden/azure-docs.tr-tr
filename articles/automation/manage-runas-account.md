@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/12/2018
+ms.date: 03/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b3c9f2f8671d5a7aa313a9f49e07230a4f9b6220
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: af67109fb7f55f365cd71714a3eefab2336b636a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109350"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578620"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Otomasyonu farklı çalıştır hesaplarını yönetme
 
@@ -30,8 +30,10 @@ Farklı Çalıştır hesapları iki tür vardır:
   * Belirtilen Otomasyon hesabında *AzureRunAsConnection* adlı bir Otomasyon bağlantı varlığı oluşturur. Bağlantı varlığı applicationId, tenantId, subscriptionId ve sertifika parmak izini içerir.
 
 * **Azure Klasik farklı çalıştır hesabı** -bu hesap, Klasik dağıtım modeli kaynakları yönetmek için kullanılır.
+  * Abonelikte bir yönetim sertifikası oluşturur
   * Belirtilen Otomasyon hesabında *AzureClassicRunAsCertificate* adlı bir Otomasyon sertifikası varlığı oluşturur. Sertifika varlığı, yönetim sertifikası tarafından kullanılan sertifika özel anahtarını içerir.
   * Belirtilen Otomasyon hesabında *AzureClassicRunAsConnection* adlı bir Otomasyon bağlantı varlığı oluşturur. Bağlantı varlığı; abonelik adı, subscriptionId ve sertifika varlık adını içerir.
+  * Oluşturma veya yenilemek için aboneliğin ortak yönetici olmanız gerekir
   
   > [!NOTE]
   > Azure bulut çözümü sağlayıcısı (Azure CSP) abonelikleri yalnızca Azure Resource Manager modeline destek, Azure Resource Manager - program kullanılamıyor. CSP aboneliklerini kullanırken Azure Klasik farklı çalıştır hesabı oluşturulmamış. Azure farklı çalıştır hesabını yine de oluşturulur. CSP abonelikleri hakkında daha fazla bilgi edinmek için [CSP aboneliklerinde kullanılabilir hizmetler](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
@@ -52,6 +54,10 @@ Oluşturun veya bir farklı çalıştır hesabını güncelleştirmek için öze
 <sup>1</sup> Azure AD kiracınızdaki yönetici olmayan kullanıcılar için [AD uygulamalarını kaydedebilir](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) varsa Azure AD kiracısının **kullanıcılar uygulamaları kaydedebilir** seçeneğini **kullanıcı ayarları**sayfası ayarlandığında **Evet**. Uygulama kayıtları ayarı **Hayır** olarak ayarlanırsa bu işlemi gerçekleştiren kullanıcının, Azure AD’de genel yönetici olması gerekir.
 
 Genel yönetici/ortak Yönetici rolüne aboneliğin eklenen önce aboneliğin Active Directory örneğine üye değilseniz, bir konuk olarak eklenir. Bu durumda, aldığınız bir `You do not have permissions to create…` üzerinde uyarı **Otomasyon hesabı Ekle** sayfası. İlk olarak genel yönetici/ortak yönetici rolüne eklenen kullanıcılar aboneliğin Active Directory örneğinden kaldırılabilir ve tekrar eklenerek Active Directory’de tam bir Kullanıcı haline getirilebilir. Bu durumu doğrulamak için Azure portalındaki **Azure Active Directory** bölmesinde **Kullanıcılar ve gruplar**’ı, **Tüm kullanıcılar**’ı seçin ve belirli bir kullanıcıyı seçtikten sonra **Profil**’i seçin. Kullanıcı profili altındaki **Kullanıcı türü** özniteliğinin **Konuk** olmaması gerekir.
+
+## <a name="permissions-classic"></a>Klasik farklı çalıştır hesaplarını yapılandırmak için izinler
+
+Yapılandırma veya Klasik farklı çalıştır hesapları yenilemek için olmalıdır **ortak yönetici** abonelik düzeyinde rolü. Klasik izinler hakkında daha fazla bilgi edinmek için [Azure Klasik abonelik yöneticileri](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
 
 ## <a name="create-a-run-as-account-in-the-portal"></a>Portalda bir farklı çalıştır hesabı oluşturma
 
@@ -197,10 +203,10 @@ Bu PowerShell betiği aşağıdaki yapılandırmalar için destek içerir:
         return
     }
 
-    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous two lines to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
+    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous 8 lines that import the AzureRM modules to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
 
     # Import-Module Az.Automation
-    # Enable-AzureRmAlias 
+    # Enable-AzureRmAlias
 
 
     Connect-AzureRmAccount -Environment $EnvironmentName 
@@ -357,7 +363,7 @@ Sertifikayı yenilemek için aşağıdakileri yapın:
 
     ![Farklı Çalıştır hesabının sertifikasını yenileme](media/manage-runas-account/automation-account-renew-runas-certificate.png)
 
-1. Sertifika yenilenirken menünün **Bildirimler** öğesi altında ilerleme durumunu izleyebilirsiniz. 
+1. Sertifika yenilenirken menünün **Bildirimler** öğesi altında ilerleme durumunu izleyebilirsiniz.
 
 ## <a name="limiting-run-as-account-permissions"></a>Farklı Çalıştır hesabı izinleri sınırlama
 
@@ -394,4 +400,3 @@ Hesabı silip yeniden oluşturarak Farklı Çalıştır hesabıyla ilgili bu sor
 
 * Hizmet sorumluları hakkında daha fazla bilgi için bkz. [uygulama nesneleri ve hizmet sorumlusu nesneleri](../active-directory/develop/app-objects-and-service-principals.md).
 * Sertifikalar ve Azure hizmetleri hakkında daha fazla bilgi için bkz. [Azure Cloud Services sertifikalarına genel bakış](../cloud-services/cloud-services-certs-create.md).
-

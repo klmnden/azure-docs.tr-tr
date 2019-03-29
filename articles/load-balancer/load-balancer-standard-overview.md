@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/11/2019
+ms.date: 03/28/2019
 ms.author: kumud
-ms.openlocfilehash: d914242b6a29e05e5b97ad11a1bde6f894113e43
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382553"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578535"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure standart Load Balancer'a genel bakış
 
-Azure Load Balancer, uygulamalarınızı ölçeklendirmenize ve hizmetleriniz için yüksek kullanılabilirlik sağlar. Yük Dengeleyici gelen yanı sıra giden senaryoları için kullanılabilir ve düşük gecikme süreli, yüksek aktarım hızı sağlar ve en fazla akışlar tüm TCP ve UDP uygulamaları için milyonlarca ölçeklendirir. 
+Azure Load Balancer, uygulamalarınızı ölçeklendirmenize ve hizmetleriniz için yüksek kullanılabilirlik oluşturmanıza olanak sağlar. Yük Dengeleyici gelen yanı sıra giden senaryoları için kullanılabilir ve düşük gecikme süreli, yüksek aktarım hızı sağlar ve en fazla akışlar tüm TCP ve UDP uygulamaları için milyonlarca ölçeklendirir. 
 
 Bu makalede standart yük dengeleyici üzerinde odaklanır.  Azure Load Balancer için daha genel bir bakış için gözden [yük dengeleyiciye genel bakış](load-balancer-overview.md) de.
 
@@ -73,6 +73,9 @@ Buna ek olarak, tüm arka uç havuzuna [aşağı araştırmaları](load-balancer
 Gözden geçirme [yük dengeleyici sistem durumu araştırmalarının](load-balancer-custom-probe-overview.md) Ayrıntılar için.
 
 ### <a name="az"></a>Kullanılabilirlik alanları
+
+>[!IMPORTANT]
+>Gözden geçirme [kullanılabilirlik](../availability-zones/az-overview.md) ilgili konular için bölge belirli bilgilere dahil.
 
 Standart Load Balancer, kullanılabilirlik alanları kullanılabilir olduğu bölgelerde ek yetenekler destekler.  Bu özellikler, tüm standart yük dengeleyici için artımlı sağlar.  Kullanılabilirlik yapılandırmaları için genel ve iç standart yük dengeleyici kullanılabilir.
 

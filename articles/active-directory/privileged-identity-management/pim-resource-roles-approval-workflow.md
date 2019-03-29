@@ -1,5 +1,5 @@
 ---
-title: Onaylayın veya reddedin PIM Azure kaynak rolleri için istekleri | Microsoft Docs
+title: Onaylayın veya reddedin PIM - Azure Active Directory Azure kaynak rolleri için istekleri | Microsoft Docs
 description: Onaylayın veya reddedin Azure AD Privileged Identity Management (PIM) Azure kaynak rolleri için istekleri öğrenin.
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a458f62ec38503e401b3fb810dc7edc8059a7715
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 5ecb55dd2798241ca0ae1754ecf95a79f8aeb134
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245584"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575122"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Onaylayın veya reddedin PIM Azure kaynak rolleri için istekleri
 
-Azure AD Privileged Identity Management ile (PIM), rollerini etkinleştirme için onay gerektirecek şekilde yapılandırın ve bir veya birden çok kullanıcı veya grup onaylayanlara temsilci olarak seçin. Temsilci onaylayanlar, istekleri onaylamak için 24 saat vardır. Bir isteği 24 saat içinde onaylanmazsa, ardından uygun kullanıcı yeni bir isteği yeniden göndermeniz gerekir. Onay 24 saatlik zaman penceresi yapılandırılabilir değildir.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) ile rollerini etkinleştirme için onay gerektirecek şekilde yapılandırın ve bir veya birden çok kullanıcı veya grup onaylayanlara temsilci olarak seçin. Temsilci onaylayanlar, istekleri onaylamak için 24 saat vardır. Bir isteği 24 saat içinde onaylanmazsa, ardından uygun kullanıcı yeni bir isteği yeniden göndermeniz gerekir. Onay 24 saatlik zaman penceresi yapılandırılabilir değildir.
 
 Onaylayın veya reddedin Azure kaynak rolleri için istekleri için bu makaledeki adımları izleyin.
 
@@ -84,4 +84,4 @@ Onayınızı bekleyen bir Azure Kaynak rolü istek olduğunda, bir temsilci onay
 
 - [PIM Azure kaynak rolleri genişletmek veya yenileme](pim-resource-roles-renew-extend.md)
 - [PIM e-posta bildirimleri](pim-email-notifications.md)
-- [Onaylayın veya Azure AD dizin rollerini PIM isteklerini reddedin](azure-ad-pim-approval-workflow.md)
+- [Onaylayın veya reddedin istekleri için Azure AD PIM rolleri](azure-ad-pim-approval-workflow.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 4fd7fb68fd2eb8be0c1c109d76cff341faba9391
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: cea7517a99358d41a8ba60a78b4e2bfdbdeaf0e8
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541684"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576233"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Hızlı Başlangıç: IOT hub hizmetini etkinleştirme
 
@@ -36,7 +36,7 @@ Bu makalede, IOT Hub'ınızın IOT Önizleme hizmeti için ASC etkinleştirmek b
 ## <a name="prerequisites-for-enabling-the-service"></a>Hizmetini etkinleştirmek için Önkoşullar
 
 - Log Analytics çalışma alanı
-  - İki tür bilgileri varsayılan olarak, IOT için Log Analytics çalışma alanınızda tarafından ASC tarafından varsayılan olarak depolanır; **güvenlik uyarıları** ve **önerileri**. 
+  - İki tür bilgi varsayılan olarak, IOT için Log Analytics çalışma alanınızda ASC tarafından varsayılan olarak depolanır; **güvenlik uyarıları** ve **önerileri**. 
   - Bir ek bilgi türü depolama alanı eklemek seçebileceğiniz **ham olaylar**. Bu depolama Not **ham olaylar** Log Analytics'e ek depolama maliyetlerini taşır. 
 - IOT hub'ı (standart katmana veya üzeri)
 

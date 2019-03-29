@@ -1,21 +1,21 @@
 ---
-title: FTP - Azure Logic Apps sunucusuna | Microsoft Docs
+title: FTP sunucusu - Azure Logic Apps bağlanma
 description: Oluşturabilir, izleyebilir ve Azure Logic Apps ile bir FTP sunucusunda dosyaları yönetme
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: 1e649f21758adedb069b38f64f083ccb85df874d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913368"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576335"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Oluşturabilir, izleyebilir ve Azure Logic Apps kullanarak FTP dosyalarını yönetme
 
@@ -28,10 +28,11 @@ Azure Logic Apps ve FTP Bağlayıcısı ile otomatik görevler ve iş akışlar�
 
 FTP sunucunuzdan yanıtlar almak ve çıkış diğer eylemler için kullanılabilir Tetikleyicileri kullanabilirsiniz. FTP sunucunuzdaki dosyaları yönetmek için logic apps çalışma eylemlerini kullanabilirsiniz. Ayrıca, FTP eylemleri çıktısını kullanan diğer eylemler olabilir. Örneğin, FTP sunucunuzdan düzenli olarak dosyaları alırsanız, Office 365 Outlook Bağlayıcısı veya Outlook.com Bağlayıcısı'nı kullanarak dosyaları ve içeriklerini hakkında e-posta gönderebilirsiniz. Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](../logic-apps/logic-apps-overview.md)
 
-> [!NOTE]
-> FTP Bağlayıcısı 50 MB üzerinde olan dosyaları destekler veya kullanılmadıkça daha küçük [eylemleri Öbekleme ileti](../logic-apps/logic-apps-handle-large-messages.md). Şu anda, tetikleyici Öbekleme kullanamazsınız.
->
-> Ayrıca, FTP Bağlayıcısı yalnızca açık FTP (FTPS) SSL üzerinden destekler ve örtük FTPS ile uyumlu değil. 
+## <a name="limits"></a>Sınırlar
+
+* FTP eylemleri desteklemek yalnızca dosyaları *50 MB veya daha küçük* kullanılmadıkça [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md), hangi sağlar, bu sınırı aşan. Şu anda FTP Tetikleyicileri Öbekleme desteklemez.
+
+* FTP Bağlayıcısı, yalnızca açık FTP (FTPS) SSL üzerinden destekler ve örtük FTPS ile uyumlu değil.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -51,7 +52,7 @@ FTP sunucunuzdan yanıtlar almak ve çıkış diğer eylemler için kullanılabi
 
 1. Oturum [Azure portalında](https://portal.azure.com)ve Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın, açık değilse.
 
-1. Boş mantıksal uygulama için arama kutusuna filtreniz olarak "ftp" girin. Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin. 
+1. Boş mantıksal uygulama için arama kutusuna filtreniz olarak "ftp" girin. Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin.
 
    -veya-
 
@@ -82,7 +83,7 @@ Bir dosya eklendiğinde veya bir FTP sunucusuna değiştirilen tetikleyici algı
 
 **Kuruluş örnek**: Bu tetikleyici, müşteri siparişleri açıklayan yeni dosyaları bir FTP klasörü izlemek için kullanabilirsiniz. Ardından bir FTP eylem gibi kullanabilir **dosya içeriğini Al**, böylece daha ayrıntılı işleme için sipariş içeriklerini almak ve o sırada bir sipariş veritabanında depolayın.
 
-Dosya içeriği isterken Tetikleyicileri 50 MB'tan büyük dosyaları uygulanmaz. 50 MB'tan büyük dosyaları almak için bu düzeni izleyin: 
+Dosya içeriği isterken Tetikleyicileri 50 MB'tan büyük dosyaları alınamıyor. 50 MB'tan büyük dosyaları almak için bu düzeni izleyin: 
 
 * Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)**.
 
@@ -121,7 +122,7 @@ Mantıksal uygulamanızın tetikleyici vardır, mantıksal uygulamanız yeni vey
 
 Bu dosya eklendiğinde veya bu eylem bir FTP sunucusuna dosya içeriği alır. Örneğin, önceki örnekte ve bu dosyayı eklenmiş veya düzenlenmişse sonra dosyanın içeriğini alır bir eylem tetikleyici ekleyebilirsiniz. 
 
-Dosya içeriği isterken Tetikleyicileri 50 MB'tan büyük dosyaları uygulanmaz. 50 MB'tan büyük dosyaları almak için bu düzeni izleyin: 
+Dosya içeriği isterken Tetikleyicileri 50 MB'tan büyük dosyaları alınamıyor. 50 MB'tan büyük dosyaları almak için bu düzeni izleyin: 
 
 * Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)**.
 
@@ -151,7 +152,7 @@ Bu eylem gösteren bir örnek aşağıda verilmiştir: **İçerik alın**
 
 ## <a name="connector-reference"></a>Bağlayıcı başvurusu
 
-Tetikleyiciler ve Eylemler sınırları hakkında teknik ayrıntılar için bağlayıcının Openapı'nin açıklanmıştır (önceki adıyla Swagger) açıklama, bağlayıcının gözden [başvuru sayfası](/connectors/ftpconnector/).
+Tetikleyiciler ve Eylemler sınırları hakkında teknik ayrıntılar için bağlayıcının Openapı'nin açıklanmıştır (önceki adıyla Swagger) açıklama, gözden geçirme [bağlayıcının başvuru sayfası](/connectors/ftpconnector/).
 
 ## <a name="get-support"></a>Destek alın
 

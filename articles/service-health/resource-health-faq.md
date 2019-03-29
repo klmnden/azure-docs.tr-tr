@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
 ms.workload: Supportability
-ms.openlocfilehash: c0de42935c1e46fd51e82a58083f85f6cee83ce3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b4062b3f0bc389de4403ac81b56688508f5ea50e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884554"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579572"
 ---
 # <a name="azure-resource-health-faq"></a>Azure kaynak durumu hakkında SSS
 Azure kaynak durumu hakkında genel soruların yanıtlarını öğrenin.
@@ -50,7 +50,7 @@ Evet, kaynak kullanılamadığında, kök nedeni bu kategorilerden birini içind
 Portalda, planlı ve plansız olayları kırmızı bir uyarı simgesi kullanarak gösterilmekte iken bir mavi bildirim simgesini kullanarak kullanıcı tarafından başlatılan Eylemler gösterilir. Daha fazla ayrıntı sağlanır [kaynak durumu genel bakış](Resource-health-overview.md).  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Kaynak durumu my izleme araçları ile tümleştirebilir miyim?
-Kaynak durumu, kaynaklarınızı etkileyen Azure hizmet sorunlarını tanılamak ve azaltmak yardımcı olmak için tasarlanan bir hizmettir. Program aracılığıyla sistem durumunu almak için kaynak durumu API'si kullanabilirsiniz, ancak kaynaklarınızı izleme ölçümleri'ı kullanmanızı öneririz. Bir sorun algılandığında, kaynak durumu sorunun temel nedenini belirlemenize yardımcı olur ve onları adreslemek üzere eylemlerde size yol gösterir. Ziyaret [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) kaynaklarınızı denetlemek için ölçümleri nasıl kullanabileceğiniz hakkında daha fazla bilgi edinmek için.
+Kaynak durumu sahip [Önizleme desteği](resource-health-alert-arm-template-guide.md) etkinlik günlüğü uyarıları tabanlı için. Etkinlik günlüğü uyarıları, kullanım [Eylem grupları](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups) uyarı tetiklendi kullanıcılara bildirmek için. Eylem grupları, bildirim kanalları e-posta, SMS, Web kancası ve ITSM eylemleri gibi çeşitli destekler.
 
 ## <a name="where-do-i-find-resource-health"></a>Kaynak durumu nerede bulabilirim?
 Azure portalında oturum açtıktan sonra kaynak durumu erişebileceğiniz birden çok yolu vardır:
@@ -67,13 +67,7 @@ Sistem durumu denetimleri ve kaynak durumu desteklenen kaynak türleri listesi b
 Kaynak durumunu denetleme, sistem durumunu altında sağ tıklayabilirsiniz **yanlış sistem durumu raporu**. Raporu göndermeden önce neden geçerli durumu yanlış olduğunu düşündüğünüz hakkında ek ayrıntılar sağlayan seçeneğiniz vardır.
 
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>Kaynak durumu için tüm Azure bölgelerinde kullanılabilir mi? 
-Kaynak durumu aşağıdaki alt bölgeler dışındaki tüm Azure coğrafi bölgeler genelinde kullanılabilir:
-- ABD Devleti Virginia
-- US Gov Iowa
-- US DoD Doğu
-- US DoD Orta
-- Almanya Orta
-- Almanya Kuzeydoğu
+Kaynak durumu, tüm Azure coğrafi bölgesinde kullanılabilir.
 
 ## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>Kaynak durumu Azure durumu ya da hizmet durumu Panosu farklı mı?
 Kaynak durumu tarafından sağlanan bilgileri ne Azure durumu veya hizmet durumu Panosu tarafından sağlanan daha özel hale geldi.

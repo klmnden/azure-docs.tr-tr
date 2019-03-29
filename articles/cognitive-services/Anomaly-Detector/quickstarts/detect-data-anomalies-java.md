@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 2a6d356bcf65cdb59e84b34cf2a7478de796e61a
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 06cb4d32359014f3cbc67ed1f75988c794e6599e
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473288"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619524"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Hızlı Başlangıç: Java ve Anomali algılayıcısı REST API kullanarak, zaman serisi verilerinde görülen anomalileri algılayın
 
@@ -91,7 +91,7 @@ Zaman serisi verilerinizdeki anormallikleri algılamak için Anomali algılayıc
 
 2. Oluşturma bir `CloseableHttpClient` nesnesini API için istek gönderebilirsiniz. İstek gönderin bir `HttpPost` uç noktanızı ve bir Anomali algılayıcısı URL birleştirerek istek nesnesi.
 
-3. İsteğin kullanın `setHeader()` ayarlamak için işlevi `Content-Type` için üst `application/json`, abonelik anahtarınızı ekleyin `Ocp-Apim-Subscription-Key` başlığı.
+3. İsteğin kullanın `setHeader()` ayarlamak için işlevi `Content-Type` başlığına `application/json`, abonelik anahtarınızı ekleyin `Ocp-Apim-Subscription-Key` başlığı.
 
 4. İsteğin kullanın `setEntity()` işleve gönderilecek veri.   
 

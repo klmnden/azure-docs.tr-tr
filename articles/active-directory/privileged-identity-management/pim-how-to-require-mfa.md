@@ -1,5 +1,5 @@
 ---
-title: Çok faktörlü kimlik doğrulaması (MFA) ve PIM - Azure | Microsoft Docs
+title: Çok faktörlü kimlik doğrulaması (MFA) ve PIM - Azure Active Directory | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM) çok faktörlü kimlik doğrulaması (MFA) nasıl doğrular öğrenin.
 services: active-directory
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.date: 08/31/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a641f5be28e4750ba8d3d4f8b56802034aab2c5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8831a838a403d58d8673c6400e0dda06c03dc69f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187262"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578807"
 ---
 # <a name="multi-factor-authentication-mfa-and-pim"></a>Çok faktörlü kimlik doğrulaması (MFA) ve PIM
 
 Tüm Yöneticiler için çok faktörlü kimlik doğrulaması (MFA) gerekli öneririz. Bu, gizliliği bozulan parola nedeniyle bir saldırı riskini azaltır.
 
-Kullanıcılar oturum açtığında MFA testini tamamlamanız gerektirebilir. Ayrıca, Azure AD Privileged Identity Management (PIM) rolünde etkinleştirdiğinizde kullanıcılar'ın bir MFA testini tamamlamanız gerekebilir. Kullanıcı MFA testini tamamlanmadıysa, bunlar oturum açarken bu şekilde, bunu yapmak için PIM tarafından istenir.
+Kullanıcılar oturum açtığında MFA testini tamamlamanız gerektirebilir. Ayrıca, Azure Active Directory (Azure AD) Privileged Identity Management (PIM) içinde rol etkinleştirdiğinizde kullanıcılar'ın bir MFA testini tamamlamanız gerekebilir. Kullanıcı MFA testini tamamlanmadıysa, bunlar oturum açarken bu şekilde, bunu yapmak için PIM tarafından istenir.
 
 > [!IMPORTANT]
 > Şimdi, Azure MFA yalnızca çalışır, iş veya Okul hesapları, Microsoft hesapları (Skype, Xbox, Outlook.com vb. gibi Microsoft hizmetlerinde oturum açmak için kullanılan genellikle bir kişisel hesap.) değil sağ. Kendi rollerini etkinleştirebilmelerini MFA kullanamazsınız çünkü bu nedenle, herhangi bir Microsoft hesabı kullanarak uygun yönetici olamaz. Bu kullanıcılar, bir Microsoft hesabı kullanarak iş yüklerini yönetmeye devam etmek gerekiyorsa, şu an için kalıcı yöneticileri Yükselt.
@@ -40,5 +40,5 @@ Alternatif olarak, kullanıcılar şirket içi kimlik doğrulaması, kimlik sağ
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [PIM'de Azure AD dizini rol ayarlarını yapılandırma](pim-how-to-change-default-settings.md)
+- [PIM'de Azure AD rol ayarlarını yapılandırma](pim-how-to-change-default-settings.md)
 - [PIM'de Azure kaynak rol ayarlarını yapılandırma](pim-resource-roles-configure-role-settings.md)

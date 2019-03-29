@@ -11,18 +11,32 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/30/2018
+ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: abf833cc054bfac0581506f75259e357f0ab1b38
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: db4b468c03d93b073067083f4fae1ec86c70dde8
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985759"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577067"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici sorunlarını giderme
 
 Azure Kubernetes Service (AKS) kümenizi kapsayıcılar için Azure İzleyici ile izleme yapılandırdığınızda veri toplama işlemini engelliyor veya durum raporlama bir sorunla karşılaşabilirsiniz. Bu makalede bazı yaygın sorunlar ve sorun giderme adımları ayrıntılı olarak açıklanmaktadır.
+
+## <a name="authorization-error-during-onboarding-or-update-operation"></a>Ekleme veya güncelleştirme işlemi sırasında Yetkilendirme hatası
+Kapsayıcılar için Azure İzleyicisi'ni etkinleştirmek veya toplama ölçümleri desteklemek için küme güncelleştirme sırasında bir hata alabilirsiniz. - aşağıdaki benzeyen *< kullanıcı kimliği > istemci ' nesne kimliği '< kullanıcının objectID >' yoktur kapsamı üzerinde 'Microsoft.Authorization/roleAssignments/write' işlemini gerçekleştirme yetkisi*
+
+Ekleme veya güncelleştirme işlemi sırasında verme **izleme ölçümleri yayımcı** rol ataması, küme kaynağında denenir. Ölçümleri koleksiyonunu desteklemek, Azure İzleyici'kapsayıcıları veya güncelleştirmesi için etkinleştirme işlemini başlatan kullanıcı erişiminiz olmalıdır **Microsoft.Authorization/roleAssignments/write** AKS kümesi izni Kaynak kapsamı. Yalnızca üyelerinin **sahibi** ve **kullanıcı erişimi Yöneticisi** yerleşik roller, bu izin için erişim verilir. Ayrıntılı düzeyi izinler atanıyor, güvenlik ilkeleriniz ihtiyacınız varsa görüntülemenizi öneririz [özel roller](../../role-based-access-control/custom-roles.md) ve bu gereksinim duyan kullanıcılara atayın. 
+
+Aşağıdaki adımları uygulayarak Azure portalından bu rolü el ile de verebilirsiniz:
+
+1. [Azure Portal](https://portal.azure.com) oturum açın. 
+2. Azure portalının sol alt köşesinde bulunan **Tüm hizmetler**’e tıklayın. Kaynak listesinde yazın **Kubernetes**. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Seçin **Azure Kubernetes**.
+3. Kubernetes kümelerini listesinde listesinden seçin.
+2. Sol taraftaki menüden **erişim denetimi (IAM)**.
+3. Seçin **+ Ekle** rolü ataması ekleme ve seçmek için **izleme ölçümleri yayımcı** rolü altında **seçin** kutusuna **AKS** için abonelikte tanımlanan ilkeleri kümeleri sonuçlarına hizmet Filtresi. Bu kümeye özgü listeden birini seçin.
+4. Seçin **Kaydet** rol atama tamamlanması. 
 
 ## <a name="azure-monitor-for-containers-is-enabled-but-not-reporting-any-information"></a>Kapsayıcılar için Azure İzleyici herhangi bir bilgi bildirmeyen ancak etkin
 Kapsayıcılar için Azure İzleyici başarıyla etkinleştirildikten ve yapılandırıldıktan sonra ancak durum bilgilerini görüntüleyemezsiniz veya günlük sorgudan döndürülen sonuç, aşağıdaki adımları izleyerek sorunu tanılamak: 

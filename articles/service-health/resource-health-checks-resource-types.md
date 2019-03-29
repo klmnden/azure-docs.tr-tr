@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
-ms.openlocfilehash: a8bc82a2717bfa6838b2331ef54ed8098422c223
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0f79a1eed044814d6c2e27f4eadb5ba68a47303f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770357"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620759"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Kaynak türleri ve sistem durumu Azure kaynak durumu denetler
 Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimleri tam bir listesi aşağıdadır.
@@ -51,10 +51,15 @@ Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimleri tam bir 
 |---|
 |<ul><li>Sunucu yukarı bu sanal makineyi barındıran ve çalışır?</li><li>Konak işletim sistemi önyükleme tamamladı?</li><li>Sanal makine kapsayıcısını sağlandığında ve güç?</li><li>Konak ve depolama hesabı arasında ağ bağlantısı var mı?</li><li>Konuk işletim sistemi önyükleme tamamladı?</li><li>Devam eden planlı bakım var mı?</li></ul>|
 
+## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
+|Yürütülen denetimleri|
+|---|
+|<ul><li>İşlem hattı çalıştırması hataları var. neydi?</li><li>Kümenin iyi durumda Data Factory barındırıyor?</li></ul>|
+
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/Accounts
 |Yürütülen denetimleri|
 |---|
-|<ul><li>Gönderme veya Data Lake Analytics işlerini listeleme kullanıcılar deneyimli sorunlar mı var?</li><li>Data Lake Analytics işleri için sistem hataları tamamlayamıyor misiniz?</li></ul>|
+|<ul><li>Gönderme veya Data Lake Analytics işlerini listeleme kullanıcılar deneyimli sorunlar mı var?</li><li>Data Lake Analytics işlerini sistem hataları nedeniyle tamamlayamıyor misiniz?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/Accounts
@@ -62,8 +67,27 @@ Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimleri tam bir 
 |---|
 |<ul><li>Kullanıcılar, Data Lake Store için karşıya veri yükleme sorunlarını gördünüz mü?</li><li>Kullanıcılar, Data Lake Store ' veri indirme sorunları gördünüz mü?</li></ul>|
 
-## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
+## <a name="microsoftdatamigrationservices"></a>Microsoft.datamigration/Services
+|Yürütülen denetimleri|
+|---|
+|<ul><li>Veritabanı geçiş hizmeti sağlamak başarısız oldu?</li><li>Veritabanı geçiş hizmetini eylemsizlik veya Kullanıcı isteği nedeniyle durdu?</li></ul>|
 
+## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
+|Yürütülen denetimleri|
+|---|
+|<ul><li>Bakım nedeniyle sunucu kullanılamıyor?</li><li>Sunucu yeniden yapılandırma nedeniyle kullanılamıyor?</li></ul>|
+
+## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
+|Yürütülen denetimleri|
+|---|
+|<ul><li>Bakım nedeniyle sunucu kullanılamıyor?</li><li>Sunucu yeniden yapılandırma nedeniyle kullanılamıyor?</li></ul>|
+
+## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
+|Yürütülen denetimleri|
+|---|
+|<ul><li>Bakım nedeniyle sunucu kullanılamıyor?</li><li>Sunucu yeniden yapılandırma nedeniyle kullanılamıyor?</li></ul>|
+
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 |Yürütülen denetimleri|
 |---|
 |<ul><li>IOT hub'ı çalışır mı?</li></ul>|
@@ -73,15 +97,40 @@ Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimleri tam bir 
 |---|
 |<ul><li>Bulunmamış bir Azure Cosmos DB hizmet kullanılabilir olmaması nedeniyle hizmet olmayan veritabanı veya koleksiyon istekleri?</li><li>Bulunmamış bir Azure Cosmos DB hizmet kullanılabilir olmaması nedeniyle hizmet değil herhangi bir belge isteğinin?</li></ul>|
 
+## <a name="microsofteventhubnamespaces"></a>Microsoft.eventhub/namespaces
+|Yürütülen denetimleri|
+|---|
+|<ul><li>Event Hubs ad alanı, kullanıcı tarafından oluşturulan hatalar yaşıyor?</li><li>Event Hubs ad alanı şu anda yükseltiliyor?</li></ul>|
+
+## <a name="microsofthdinsightclusters"></a>Microsoft.hdinsight/Clusters
+|Yürütülen denetimleri|
+|---|
+|<ul><li>Çekirdek Hizmetleri HDInsight kümesinde kullanılabilir mi?</li><li>HDInsight küme BYOK bekleme sırasında şifreleme anahtarı erişebilir miyim?</li></ul>|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |Yürütülen denetimleri|
 |---|
 |<ul><li>İstekleri anahtar kasasına Azure KeyVault platform sorunları nedeniyle başarısız oluyor?</li><li>İstekleri anahtar kasası için müşteri tarafından atılan çok fazla istek nedeniyle kısıtlanan?</li></ul>|
 
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationgateways
+|Yürütülen denetimleri|
+|---|
+|<ul><li>Performans düzeyi düşürülmüş uygulama ağ geçidinin var mı?</li><li>Uygulama ağ geçidi kullanılabilir mi?</li></ul>|
+
 ## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
 |Yürütülen denetimleri|
 |---|
 |<ul><li>VPN tüneli bağlı mı?</li><li>Yapılandırma çakışmaları bağlantı vardır?</li><li>Önceden paylaşılan anahtarlar düzgün şekilde yapılandırıldığından?</li><li>Şirket içi VPN cihazının ulaşılabildiğinden?</li><li>Uyuşmazlıkların IPSec/IKE ilkesi var mı?</li><li>S2S VPN bağlantısının düzgün olarak sağlanan veya başarısız durumda mı?</li><li>VNET-VNET bağlantısı düzgün bir şekilde sağlanmış veya başarısız durumda mı?</li></ul>|
+
+## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft.Network/expressreoutecircuits
+|Yürütülen denetimleri|
+|---|
+|<ul><li>ExpressRoute bağlantı hattı iyi durumda?</li></ul>|
+
+## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
+|Yürütülen denetimleri|
+|---|
+|<ul><li>Sistem durumu araştırmaları hatalarla ön kapısı arka uçlar yanıt?</li><li>Gecikmeli yapılandırma değişiklikleri?</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |Yürütülen denetimleri|
@@ -91,7 +140,12 @@ Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimleri tam bir 
 ## <a name="microsoftnotificationhubsnamespace"></a>Microsoft.NotificationHubs/namespace
 |Yürütülen denetimleri|
 |---|
-|<ul><li> Çalışma zamanı işlemleri kayıt, yükleme veya gönderme gibi ad alanı üzerinde gerçekleştirilebilir?</li></ul>|
+|<ul><li>Çalışma zamanı işlemleri kayıt, yükleme veya gönderme gibi ad alanı üzerinde gerçekleştirilebilir?</li></ul>|
+
+## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.operationalinsights/Workspaces
+|Yürütülen denetimleri|
+|---|
+|<ul><li>Gecikmeler çalışma alanı için dizin var mı?</li></ul>|
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
 |Yürütülen denetimleri|

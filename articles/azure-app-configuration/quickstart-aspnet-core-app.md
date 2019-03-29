@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a721cc2252619923496ee5a3a8ae590a5cda3b04
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 23c74c0b1d4c311cd57a02cbac9498f3acb16992
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487558"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578127"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Hızlı Başlangıç: Azure uygulama yapılandırması ile bir ASP.NET Core uygulaması oluşturma
 
@@ -93,13 +93,15 @@ Ekleme [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core
 
     Bu gizli dizi API configuration ile erişilir. İki nokta üst üste (:) Yapılandırma adı ' % s'yapılandırma API'si tüm desteklenen platformlarda ile çalışır. Bkz: [ortama göre yapılandırma](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Program.cs dosyasını açın ve güncelleştirme `CreateWebHostBuilder` yöntemi çağırarak uygulama yapılandırmasını kullanma `config.AddAzureAppConfiguration()` yöntemi.
+4. Açık *Program.cs*, bir uygulama yapılandırma .NET Core yapılandırma sağlayıcısı bir başvuru ekleyin.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    ```
 
-    ...
+5. Güncelleştirme `CreateWebHostBuilder` yöntemi çağırarak uygulama yapılandırmasını kullanma `config.AddAzureAppConfiguration()` yöntemi.
 
+    ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostingContext, config) =>
@@ -113,7 +115,7 @@ Ekleme [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core
             .UseStartup<Startup>();
     ```
 
-5. Görünümlerde Index.cshtml açın > giriş dizini ve içeriğini aşağıdaki kodla değiştirin:
+6. Görünümlerde Index.cshtml açın > giriş dizini ve içeriğini aşağıdaki kodla değiştirin:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -139,7 +141,7 @@ Ekleme [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core
     </html>
     ```
 
-6. Görünümlerde _Layout.cshtml açın > Dizin paylaşılan ve içeriğini aşağıdaki kodla değiştirin:
+7. Görünümlerde _Layout.cshtml açın > Dizin paylaşılan ve içeriğini aşağıdaki kodla değiştirin:
 
     ```html
     <!DOCTYPE html>

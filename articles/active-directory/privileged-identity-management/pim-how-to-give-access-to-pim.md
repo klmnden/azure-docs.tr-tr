@@ -1,5 +1,5 @@
 ---
-title: Azure PIM - yönetmek için diğer yöneticiler için erişim verme | Microsoft Docs
+title: PIM - Azure Active Directory yönetmek için diğer yöneticiler için erişim verme | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM) yönetmek için diğer yönetimler erişimi vermeyi öğreneceksiniz.
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0d8cb77cda97c3141987fa8b0ea39541ace6db3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 74b938335dbace5a827bcfa43172704dc8b09da2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191750"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579623"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-pim"></a>PIM yönetmek için diğer yöneticilere erişim izni ver
 
-Azure AD Privileged Identity Management (PIM) bir kuruluş için otomatik olarak sağlayan genel yönetici rolü atamalarını ve PIM erişimi alın. Başka hiç kimse yazma erişimi varsayılan olarak, ancak diğer genel yöneticileri dahil alır. Diğer genel Yöneticiler, güvenlik yöneticileri ve güvenlik okuyucuları PIM salt okunur erişimi vardır. PIM için erişim vermek için ilk kullanıcı başkalarına atayabilirsiniz **ayrıcalıklı Rol Yöneticisi** rol.
+Bir kuruluş için Azure Active Directory (Azure AD) Privileged Identity Management (PIM) otomatik olarak sağlayan genel yönetici rolü atamalarını ve PIM erişimi alın. Başka hiç kimse yazma erişimi varsayılan olarak, ancak diğer genel yöneticileri dahil alır. Diğer genel Yöneticiler, güvenlik yöneticileri ve güvenlik okuyucuları PIM salt okunur erişimi vardır. PIM için erişim vermek için ilk kullanıcı başkalarına atayabilirsiniz **ayrıcalıklı Rol Yöneticisi** rol.
 
 > [!NOTE]
 > PIM yönetme, Azure mfa'yı gerektirir. Microsoft hesapları için Azure MFA kaydını yapamıyorum olduğundan, bir Microsoft hesabıyla oturum açtığında bir kullanıcının PIM erişemez.
@@ -36,11 +36,11 @@ Her zaman en az iki kullanıcı ayrıcalıklı Rol Yöneticisi rolünde, bir kul
 
 1. Açık **Azure AD Privileged Identity Management**.
 
-1. Tıklayın **Azure AD Dizin rolleri**.
+1. Tıklayın **Azure AD rolleri**.
 
 1. Tıklayın **rolleri**.
 
-    ![PIM Azure AD Dizin rolleri - roller](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
+    ![PIM Azure AD rolleri - roller](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
 
 1. Tıklayın **ayrıcalıklı Rol Yöneticisi** rolü üyeleri sayfasını açın.
 
@@ -74,7 +74,7 @@ Biri ayrıcalıklı rol yöneticisi rolünden kaldırmadan önce her zaman ayrı
 
 1. Açık **Azure AD Privileged Identity Management**.
 
-1. Tıklayın **Azure AD Dizin rolleri**.
+1. Tıklayın **Azure AD rolleri**.
 
 1. Tıklayın **rolleri**.
 

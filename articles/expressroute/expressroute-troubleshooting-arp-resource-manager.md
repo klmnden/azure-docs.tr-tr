@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 01eac27b63f9eaaf62e863cd023201c3eab4b74e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 76e242adb07f4e6176bbdc6c03c75950e3732c2b
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432150"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622085"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>ARP tablolarını Resource Manager dağıtım modelinde alma
 > [!div class="op_single_selector"]
@@ -59,6 +59,11 @@ Daha fazla ilerleme önce aşağıdakiler olduğunuzdan emin olun
 * IP adresi aralıklarını (Azure özel, Azure genel ve Microsoft) eşlikleri yapılandırmak için kullanılır. IP adresi ataması örneklerde gözden [ExpressRoute yönlendirme gereksinimleri sayfasındaki](expressroute-routing.md) arabirimlerine, tarafında ve ExpressRoute tarafında IP adreslerinin nasıl eşlendiğini bir anlamak için. Gözden geçirerek eşleme yapılandırması hakkında daha fazla bilgi edinebilirsiniz [ExpressRoute eşlemesi yapılandırma sayfası](expressroute-howto-routing-arm.md).
 * Ağ takımınızın bilgileri / MAC adreslerini arabirimleri üzerinde bağlantı sağlayıcısı ile bu IP adresleri kullanılır.
 * En son PowerShell modülü için Azure (1,50 veya daha yeni sürümü) olmalıdır.
+
+> [!NOTE]
+> Katman 3 hizmet sağlayıcısı tarafından sağlanır ve aşağıdaki portal/çıktıda boş ARP tablolarını, portalı Yenile düğmesini kullanarak bağlantı hattı yapılandırma yenileyin. Bu işlem hattınız üzerinde doğru yönlendirme yapılandırması uygulanır. 
+>
+>
 
 ## <a name="getting-the-arp-tables-for-your-expressroute-circuit"></a>ARP tablolarını ExpressRoute devreniz alma
 Bu bölüm, PowerShell kullanarak eşleme başına ARP tablolarını nasıl görüntüleyebileceğiniz hakkında yönergeler sağlar. Daha fazla ilerlediğini önce eşdüzey hizmet sağlama, siz veya bağlantı sağlayıcınızdan yapılandırmış olmanız gerekir. Her bağlantı hattı (birincil ve ikincil) iki yolu vardır. Her yol için ARP tablosu bağımsız olarak kontrol edebilirsiniz.

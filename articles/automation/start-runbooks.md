@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c3c936a3d547389de3681b4f82f329c4978742d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: cf1d36458bab867e35fa23ae702a6f6f45d8dc60
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886630"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620589"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Azure Automation'da bir runbook başlatın
 
@@ -39,7 +39,7 @@ Aşağıdaki resimde bir runbook yaşam döngüsünü ayrıntılı adım adım i
 1. Azure portalında **Otomasyon** ve ardından bir Otomasyon hesabının adına tıklayın.
 2. Hub menüsünde **runbook'ları**.
 3. Üzerinde **runbook'ları** sayfasında, bir runbook seçin ve ardından **Başlat**.
-4. Runbook'un parametreleri varsa her parametre için bir metin kutusuyla birlikte değerler sağlamak için istenir. Parametreler hakkında daha fazla bilgi için bkz. [Runbook parametreleri](#Runbook-parameters).
+4. Runbook'un parametreleri varsa her parametre için bir metin kutusuyla birlikte değerler sağlamak için istenir. Parametreler hakkında daha fazla bilgi için bkz. [Runbook parametreleri](#runbook-parameters).
 5. Üzerinde **iş** sayfasında, runbook işinin durumunu görüntüleyebilirsiniz.
 
 ## <a name="start-a-runbook-with-powershell"></a>PowerShell ile bir runbook başlatma
@@ -69,7 +69,7 @@ While ($doLoop) {
 Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-Runbook parametre gerektiriyor sonra olarak sağlamanız gereken bir [hashtable](https://technet.microsoft.com/library/hh847780.aspx). Karma tablosu anahtarının parametre adıyla eşleşmelidir ve değerin parametre değeri olduğu. Aşağıdaki örnek, FirstName ve LastName, RepeatCount adlı bir tamsayı ve Show adlı bir Boole parametresi adlı iki dize parametre ile bir runbook başlatmak gösterilmektedir. Parametreler hakkında daha fazla bilgi için bkz. [Runbook parametreleri](#Runbook-parameters) aşağıda.
+Runbook parametre gerektiriyor sonra olarak sağlamanız gereken bir [hashtable](https://technet.microsoft.com/library/hh847780.aspx). Karma tablosu anahtarının parametre adıyla eşleşmelidir ve değerin parametre değeri olduğu. Aşağıdaki örnek, FirstName ve LastName, RepeatCount adlı bir tamsayı ve Show adlı bir Boole parametresi adlı iki dize parametre ile bir runbook başlatmak gösterilmektedir. Parametreler hakkında daha fazla bilgi için bkz. [Runbook parametreleri](#runbook-parameters) aşağıda.
 
 ```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}

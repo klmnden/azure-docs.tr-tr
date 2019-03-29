@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 63d21cc5027145ab87030bd2561bc5087298f16c
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d766b17c9d49792d2e8192a952e8e6e559a8acd3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541850"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579385"
 ---
-# <a name="security-module"></a>Güvenlik Modülü
+# <a name="security-module"></a>Güvenlik modülü
 
 > [!IMPORTANT]
 > ASC IOT için şu anda genel Önizleme aşamasındadır.
@@ -35,16 +35,18 @@ Azure'da yerleşik IOT çözümleri için cihaz ikizlerini hem süreç otomasyon
 
 ASC IOT için cihaz güvenlik durumunuzu yönetmenize olanak sağlayan tam tümleştirmesi var olan IOT cihaz Yönetimi platformunuz ile sunuyor olun yanı sıra mevcut cihaz denetim özelliklerini kullanın. Tümleştirme, IOT hub'ını kullanın sağlayarak gerçekleştirilir ikizi mekanizması.  
 
-Kavramı hakkında daha fazla bilgi [cihaz](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) Azure IOT hub'ında çiftleri. 
+Kavramı hakkında daha fazla bilgi [cihaz ikizlerini](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) Azure IOT hub. 
 
 ## <a name="security-module-twins"></a>Modül ikizlerini güvenlik
 
-IOT için ASC hizmetindeki her cihaz için bir güvenlik modül ikizi tutar. Güvenlik modül ikizi tüm bilgileri çözümünüzde belirli her cihaz için cihaz güvenliği ile ilgili tutar. Cihaz güvenlik özellikleri, bir adanmış güvenlik modül ikizi güncelleştirmeleri ve daha az kaynak gerektiren Bakımı etkinleştirmek için ve güvenli iletişim için korunur.  
+IOT için ASC hizmetindeki her cihaz için bir güvenlik modül ikizi tutar.
+Güvenlik modül ikizi tüm bilgileri çözümünüzde belirli her cihaz için cihaz güvenliği ile ilgili tutar.
+Cihaz güvenlik özellikleri, bir adanmış güvenlik modül ikizi güncelleştirmeleri ve daha az kaynak gerektiren Bakımı etkinleştirmek için ve güvenli iletişim için korunur.  
 
-Bkz [Oluştur güvenlik modül ikizi](quickstart-create-security-twin.md) ve [güvenlik Denetleyicisilerinin](concept-agent-configuration.md) nasıl oluşturulacağını öğrenmek için özelleştirme ve ikizi yapılandırın. Bkz: [modül ikizlerini anlama](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) modül ikizlerini IOT hub'ında kavramı hakkında daha fazla bilgi için. 
+Bkz [Oluştur güvenlik modül ikizi](quickstart-create-security-twin.md) ve [güvenlik Denetleyicisilerinin](how-to-agent-configuration.md) nasıl oluşturulacağını öğrenmek için özelleştirme ve ikizi yapılandırın. Bkz: [modül ikizlerini anlama](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) modül ikizlerini IOT hub'ında kavramı hakkında daha fazla bilgi için. 
  
 
 ## <a name="see-also"></a>Ayrıca bkz.
 - [ASC IOT Önizleme](overview.md)
-- [Güvenlik aracılarını dağıtma](select-deploy-agent.md)
+- [Güvenlik aracılarını dağıtma](how-to-deploy-agent.md)
 - [Güvenlik aracı kimlik doğrulama yöntemleri](concept-security-agent-authentication-methods.md)

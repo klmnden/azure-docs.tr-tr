@@ -7,16 +7,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 230c68b0b1de1ef452de51b7b0661a3c3786ea76
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 3f64be35aca985d0374e224cc9c8940502005014
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521712"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578892"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Yedekleme ve PowerShell ile Azure Vm'lerini geri yükleme
 
-Bu makalede bir Azure sanal Makinesinde geri açıklanmaktadır bir [Azure Backup](backup-overview.md) kurtarma Hizmetleri kasası PowerShell cmdlet'lerini kullanarak. 
+Bu makalede bir Azure sanal Makinesinde geri açıklanmaktadır bir [Azure Backup](backup-overview.md) kurtarma Hizmetleri kasası PowerShell cmdlet'lerini kullanarak.
 
 Bu makalede şunları öğreneceksiniz:
 
@@ -24,10 +24,7 @@ Bu makalede şunları öğreneceksiniz:
 > * Bir kurtarma Hizmetleri kasası oluşturun ve kasa bağlamını ayarlayın.
 > * Yedekleme ilkesi tanımlama
 > * Birden çok sanal makineyi korumak için yedekleme ilkesini uygulama
-> * Tetikleyici, önce korumalı sanal makineler için bir isteğe bağlı yedekleme işi yedekleyebilir (veya korumak) bir sanal makine, tamamlamalısınız [önkoşulları](backup-azure-arm-vms-prepare.md) sanal makinelerinizi korumak için ortamınızı hazırlamak için. 
-
-
-
+> * Tetikleyici, önce korumalı sanal makineler için bir isteğe bağlı yedekleme işi yedekleyebilir (veya korumak) bir sanal makine, tamamlamalısınız [önkoşulları](backup-azure-arm-vms-prepare.md) sanal makinelerinizi korumak için ortamınızı hazırlamak için.
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
@@ -44,8 +41,6 @@ Nesne hiyerarşisi aşağıdaki diyagramda özetlenir.
 
 Gözden geçirme **Az.RecoveryServices** [cmdlet başvurusu](https://docs.microsoft.com/powershell/module/Az.RecoveryServices/?view=azps-1.4.0) Azure Kitaplığı Başvurusu.
 
-
-
 ## <a name="set-up-and-register"></a>Ayarlama ve kaydetme
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -58,7 +53,7 @@ Başlamak için:
 
     ```powershell
     Get-Command *azrecoveryservices*
-    ```   
+    ```
  
     Azure Backup, Azure Site Recovery ve kurtarma Hizmetleri kasası için cmdlet'leri ve diğer adları görüntülenir. Aşağıdaki görüntüde, görürsünüz, bir örnektir. Cmdlet öğelerinin tam listesi değil.
 
@@ -147,6 +142,18 @@ Bir sanal makine üzerindeki korumayı etkinleştirmeden önce kullanmak [kümes
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
 ```
 
+### <a name="modifying-storage-replication-settings"></a>Depolama çoğaltma ayarlarını değiştirme
+
+Kullanım [kümesi AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0) LRS/GRS depolama çoğaltma yapılandırması kasasının ayarlamak için komutu
+
+```powershell
+$vault= Get-AzRecoveryServicesVault -name "testvault"
+Set-AzRecoveryServicesBackupProperties -Vault $vault -BackupStorageRedundancy GeoRedundant/LocallyRedundant
+```
+
+> [!NOTE]
+> Depolama Yedekliliği kasaya korumalı hiç yedekleme öğesi yoksa değiştirilebilir.
+
 ### <a name="create-a-protection-policy"></a>Bir koruma ilkesi oluşturma
 
 Bir Kurtarma Hizmetleri kasası oluşturduğunuzda bu, varsayılan koruma ve saklama ilkeleri ile birlikte gelir. Varsayılan koruma ilkesi, her gün belirtilen saatte bir yedekleme işini tetikler. Varsayılan saklama ilkesi, 30 gün boyunca günlük kurtarma noktasını korur. Farklı ayrıntılarla daha sonra ilkeyi düzenleyebilir ve hızla, sanal Makineyi korumak için varsayılan ilke kullanabilirsiniz.
@@ -226,7 +233,6 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > Azure kamu Bulutu kullanıyorsanız ServicePrincipalName parametresi için değer ff281ffe-705c-4f53-9f37-a40e6f2c68f3 kullanın, [kümesi AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet'i.
 >
 
-
 ### <a name="modify-a-protection-policy"></a>Bir koruma ilkesini değiştirme
 
 Koruma ilkesini değiştirmek için kullanın [kümesi AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) SchedulePolicy veya RetentionPolicy nesneleri değiştirmek için.
@@ -239,6 +245,19 @@ $retPol.DailySchedule.DurationCountInDays = 365
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $RetPol
 ```
+
+#### <a name="configuring-instant-restore-snapshot-retention"></a>Anında geri yükleme anlık görüntü saklama yapılandırma
+
+> [!NOTE]
+> Az PS ' sürüm 1.6.0 ve sonraki sürümlerde, bir Powershell kullanarak ilkesinde anında geri yükleme anlık görüntü saklama süresi güncelleştirebilirsiniz
+
+````powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=7
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+````
+
+Varsayılan değer 2, değeri en az 1 ve en fazla 5 kullanıcı ayarlayabilirsiniz. Haftalık yedekleme ilkeleri için süresi 5 olarak ayarlanmıştır ve değiştirilemez.
 
 ## <a name="trigger-a-backup"></a>Bir yedeklemeyi tetikleyin
 
@@ -672,7 +691,7 @@ $rp[0]
 
 Çıktı aşağıdaki örneğe benzer:
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -719,4 +738,4 @@ Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure kaynaklarıyla etkileşim kurmak amacıyla PowerShell kullanmayı tercih ederseniz, PowerShell bkz [dağıtma ve yönetme Windows Server için Yedekleme'yi](backup-client-automation.md). DPM yedeklemelerini yönetiyorsanız bkz [dağıtma ve yönetme yedekleme için DPM](backup-dpm-automation.md). 
+Azure kaynaklarıyla etkileşim kurmak amacıyla PowerShell kullanmayı tercih ederseniz, PowerShell bkz [dağıtma ve yönetme Windows Server için Yedekleme'yi](backup-client-automation.md). DPM yedeklemelerini yönetiyorsanız bkz [dağıtma ve yönetme yedekleme için DPM](backup-dpm-automation.md).

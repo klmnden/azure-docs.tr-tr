@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: e00c086e0b91c0f48821143ff118c62afdd76e82
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 7c84a5c39b1a3b4a52505c053fdcfc92030237c3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485178"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575787"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Hızlı Başlangıç: Oluşturma bir .NET Core uygulaması ile uygulama yapılandırması
 
@@ -57,14 +57,16 @@ Kullandığınız [.NET Core komut satırı arabirimi (CLI)](https://docs.micros
 
         dotnet restore
 
-3. Açık *Program.cs*ve güncelleştirme `Main` yöntemi çağırarak uygulama yapılandırmasını kullanma `builder.AddAzureAppConfiguration()` yöntemi.
+3. Açık *Program.cs*, bir uygulama yapılandırma .NET Core yapılandırma sağlayıcısı bir başvuru ekleyin.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    ```
 
-    ...
+4. Güncelleştirme `Main` yöntemi çağırarak uygulama yapılandırmasını kullanma `builder.AddAzureAppConfiguration()` yöntemi.
 
+    ```csharp
     static void Main(string[] args)
     {
         var builder = new ConfigurationBuilder();

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: d669842c60fb69820e6d94ad0a9359f6460101fe
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 95e984f6f08af01a2ffd7b9b4e0ec598d73f4d05
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481884"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621082"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows üzerinde Azure IOT Edge çalışma zamanı yükleme
 
@@ -26,7 +26,16 @@ IOT Edge çalışma zamanı hakkında daha fazla bilgi için bkz: [Azure IOT Edg
 Bu makalede Azure IOT Edge çalışma zamanı, Windows x64 (AMD/Intel) yüklemek için adımları listelenmektedir sistem. Windows Destek şu anda Önizleme aşamasındadır.
 
 > [!NOTE]
-> Windows sistemlerinde Linux kapsayıcıları kullanarak Azure IOT Edge için önerilen veya desteklenen üretim yapılandırma değildir. Ancak, geliştirme ve test amacıyla kullanılabilir.
+> Bilinen bir Windows işletim sistemi sorun uyku ve güç durumlarını, IOT Edge modülleri (işlem yalıtılmış Windows Nano sunucu kapsayıcıları) çalıştırırken, hazırda bekleme moduna geçiş engeller. Bu sorun, cihazın pil ömrü etkiler.
+>
+> Geçici bir çözüm olarak komutunu `Stop-Service iotedge` bu güç durumlarını kullanmadan önce çalışan tüm IOT Edge modülleri durdurmak için. 
+
+<!--
+> [!NOTE]
+> Using Linux containers on Windows systems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes.
+-->
+
+Linux kullanarak Windows sistemlerinde kapsayıcı bir Azure IOT Edge için önerilen veya desteklenen üretim yapılandırma değil. Ancak, geliştirme ve test amacıyla kullanılabilir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 

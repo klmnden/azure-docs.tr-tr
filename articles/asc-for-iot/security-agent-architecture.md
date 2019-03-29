@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 7c8f256cf91a479c45f21b933efdb6a5e0212796
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 7de4307f7eef95a637dc828ac1738bd0ed39c7c7
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541880"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578467"
 ---
 # <a name="security-agent-reference-architecture"></a>Güvenlik aracı başvuru mimarisi
 
@@ -32,15 +32,15 @@ IOT için ASC, oturum, işlemek, toplama ve güvenlik verileri IOT hub'ı üzeri
 
 Güvenlik aracıları kısıtlanmış bir IOT ortamda çalışacak şekilde tasarlanmıştır ve değerleri kullandıkları kaynaklar için karşılaştırıldığında sağlamak açısından tümüyle özelleştirilebilir.
 
-Güvenlik aracıları aşağıdaki IOT çözüm özellikleri destekler:
+Güvenlik aracıları, aşağıdaki özellikleri destekler:
 
-- Temel alınan OS (Linux, Windows) ham güvenlik olaylarını toplayın. Kullanılabilir güvenlik veri toplayıcıları hakkında daha fazla bilgi için bkz: [ASC IOT Aracısı yapılandırması için](concept-agent-configuration.md).
+- Ham güvenlik olayları alttaki işletim sisteminden (Linux, Windows) toplayın. Kullanılabilir güvenlik veri toplayıcıları hakkında daha fazla bilgi için bkz: [ASC IOT Aracısı yapılandırması için](how-to-agent-configuration.md).
 
 - IOT hub'ı aracılığıyla gönderilen iletilere ham güvenlik olaylarını toplama.
 
 - Var olan bir cihaz kimliği veya adanmış modül kimliği ile kimlik doğrulaması. Bkz: [güvenlik aracı kimlik doğrulama yöntemleri](concept-security-agent-authentication-methods.md) daha fazla bilgi için.
 
-- Aracılığıyla uzaktan yapılandırma **ascforiot** modül ikizi. Daha fazla bilgi için bkz. [bir ASC IOT aracısı için yapılandırma](concept-agent-configuration.md).
+- Aracılığıyla uzaktan yapılandırma **azureiotsecurity** modül ikizi. Daha fazla bilgi için bkz. [bir ASC IOT aracısı için yapılandırma](how-to-agent-configuration.md).
 
 ASC IOT güvenlik aracılar için açık kaynaklı proje olarak geliştirilir ve Github'dan kullanılabilir: 
 
@@ -62,10 +62,8 @@ Bu makalede, IOT güvenlik aracı mimarisi ve kullanılabilir yükleyicileri hak
 
 ASC ile IOT dağıtımı için Başlarken devam etmek için aşağıdaki makaleleri kullanın:
 
-
+- Anlamak [güvenlik aracı kimlik doğrulama yöntemleri](concept-security-agent-authentication-methods.md)
+- Seçin ve dağıtan bir [güvenlik aracı](how-to-deploy-agent.md)
 - ASC gözden geçirmek için IOT [hizmet önkoşulları](service-prerequisites.md)
 - Bilgi edinmek için nasıl [ASC etkinleştirmek için IOT hub'ınızdaki IOT hizmeti](quickstart-onboard-iot-hub.md)
-- Hızlı Başlangıç için kullanmak [çözümünüzü yapılandırın](quickstart-configure-your-solution.md)
-- Anlamak [güvenlik aracı kimlik doğrulama yöntemleri](concept-security-agent-authentication-methods.md)
-- Seçin ve dağıtan bir [güvenlik aracı](select-deploy-agent.md)
 - Hizmet hakkında daha fazla bilgi [ASC için IOT hakkında SSS](resources-frequently-asked-questions.md)

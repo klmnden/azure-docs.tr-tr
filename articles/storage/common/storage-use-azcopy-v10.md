@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/24/2019
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: ffc4a0c57681e877250c7be82f5160174178892a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ad3e96af95d952956af02acfd87d6d317bc29ed0
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486028"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574986"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>AzCopy v10 ile veri aktarımı (Önizleme)
 
@@ -175,7 +175,7 @@ Sync komutunun, bir kaynak dizin dosya adlarını karşılaştırma hedef dizini
 
 > [!NOTE] 
 > Kullanım `--delete-destination` bayrağı konusunda dikkatli olun. Etkinleştirme [geçici silme](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) silme davranışını hesabınızdaki yanlışlıkla silinmekten önlemek için eşitleme etkinleştirmeden önce özellik. 
-
+>
 > Zaman `--delete-destination` ayarlandığında true, AzCopy kullanıcıya bir istem olmadan hedef kaynakta mevcut dosyaları da siler. Onay için istemde istiyorsanız kullanın `--delete-destination=prompt`.
 
 Bir depolama hesabı için yerel dosya sisteminize eşitlemek için aşağıdaki komutu kullanın:

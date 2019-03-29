@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 03/22/2019
 ms.topic: article
-ms.openlocfilehash: 2cbd4f7d8e0a07f6f504f2b9c687b56dae0e0a3b
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c103bc0a314f1e5a4a0afef3f7969f53b6a0dccd
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440036"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621609"
 ---
 # <a name="jenkins-plugins-for-azure"></a>Azure için Jenkins eklentileri
 
@@ -21,13 +21,16 @@ Aşağıdaki Jenkins eklentileri Azure ile kullanmak için çeşitli özellikler
   
 | Jenkins eklentisi | Açıklama                                   |
 |------------------------------------------------------------------------------|
-| [Azure App Service eklentisi](https://plugins.jenkins.io/azure-app-service)     | Bir Jenkins eklentisi, bir Azure App Service'e dağıtım yapmak (yalnızca Web uygulaması şu anda destekler). | 
-| [Azure AD eklentisi](https://plugins.jenkins.io/azure-ad)                       | Azure Active Directory aracılığıyla kimlik doğrulama & destekleyen bir Jenkins eklentisi. | 
+| [Azure App Service eklentisi](https://plugins.jenkins.io/azure-app-service)     | Bir Azure App Service'e dağıtım yapmak, Jenkins Eklentisi (yalnızca Web uygulaması şu anda destekler). | 
+| [Azure AD eklentisi](https://plugins.jenkins.io/azure-ad)                       | Kimlik doğrulama ve yetkilendirme Azure Active Directory aracılığıyla destekler, Jenkins eklentisi. | 
+| [Azure yapı yöneticisi eklentisi](https://plugins.jenkins.io/azure-artifact-manager) | Azure yapı yöneticisi eklentisi yapıtlarınızı Azure Blob depolamada depoladığınız izin veren bir Yapıt yöneticisidir. Jenkins ve işleriniz için şeffaf bir şekilde Azure yapı yöneticisi eklentisi çalışır, bu gibi yapı yöneticisi varsayılandır. | 
 | [Azure Kapsayıcı Aracıları eklentisi](https://plugins.jenkins.io/azure-container-agents) | Azure kapsayıcı aracıları eklentisi, Jenkins'te aracı olarak bir kapsayıcı çalıştırılmasına yardımcı olabilir | 
-| [Azure Container Service eklentisi](https://plugins.jenkins.io/azure-acs)       | Azure Container Service (AKS) için yapılandırmaları dağıtmak için bir Jenkins eklentisi. | 
+| [Azure kapsayıcı kayıt defteri görevi eklentisi](https://plugins.jenkins.io/azure-container-registry-tasks)       | Jenkins eklentisi için docker derleme isteğini göndermeyi [Azure Container Registry](/azure/container-registry/container-registry-tasks-overview). |
+| [Azure Container Service eklentisi](https://plugins.jenkins.io/azure-acs)       | Azure Container Service (AKS) için yapılandırmaları dağıtmak için Jenkins eklentisi. | 
 | [Azure Kimlik Bilgisi eklentisi](https://plugins.jenkins.io/azure-credentials)      | Azure kimlik bilgilerini yönetmek için Jenkins eklentisi. | 
-| [Azure İşlev eklentisi](https://plugins.jenkins.io/azure-function)           | Azure işlevi dağıtmak için bu eklentiyi kullanmak için öncelikle bir Azure hizmet sorumlusu Jenkins örneğinizin olması gerekir. | 
+| [Azure İşlev eklentisi](https://plugins.jenkins.io/azure-function)           | Bir Azure işlevi dağıtmak için Jenkins eklentisi. | 
+| [Azure IOT Edge eklentisi](https://plugins.jenkins.io/azure-iot-edge)           | Azure IOT Edge eklentisi Jenkins bir IOT Edge çözümü geliştirmek için bir CI/CD işlem hattı ayarlamayı kolaylaştırır. | 
 | [Azure Service Fabric eklentisi](https://plugins.jenkins.io/service-fabric)     | Azure Service Fabric Linux projeleri için Jenkins eklentisi. |
-| [Azure Depolama eklentisi](https://plugins.jenkins.io/windows-azure-storage)     | Bir eklenti karşıya yükleme için derleme yapıtları veya derleme bağımlılıkları, Microsoft Azure Blob depolama alanından indiriliyor. | 
-| [Azure VM aracıları eklentisi](https://plugins.jenkins.io/azure-vm-agents)         | (Azure Resource Manager şablonu) aracılığıyla Azure sanal makinelerinde Jenkins aracıları oluşturur bir Jenkins eklentisi. | 
-| [Azure sanal makine ölçek kümesi eklentisi](https://plugins.jenkins.io/azure-vmss)           | Azure sanal makine ölçek VM görüntülerini dağıtmak için bir Jenkins eklentisi ayarlar. | 
+| [Azure Depolama eklentisi](https://plugins.jenkins.io/windows-azure-storage)     | karşıya yükleme, eklenti derleme yapıtları veya derleme bağımlılıkları, Microsoft Azure Blob depolama alanından indiriliyor. | 
+| [Azure VM aracıları eklentisi](https://plugins.jenkins.io/azure-vm-agents)         | Jenkins eklentisini (Azure Resource Manager şablonu) aracılığıyla Azure sanal makinelerinde Jenkins aracıları oluşturur. | 
+| [Azure sanal makine ölçek kümesi eklentisi](https://plugins.jenkins.io/azure-vmss)           | Azure sanal makine ölçek VM görüntülerini dağıtmak için Jenkins eklentisi ayarlar. | 

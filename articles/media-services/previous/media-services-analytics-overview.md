@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: 0c090499ee6ae2aaaa14af18c3c38db28ecb2f3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aac9719f8d74c4b7bc283745ee2b8e01365a81f0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884736"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620011"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Services platformunda medya analizi 
 
@@ -40,8 +40,6 @@ Medya Analizi medya işlemcileri MP4 veya JSON dosyaları üretir. Medya işlemc
 
 ### <a name="indexer"></a>Dizinleyici
 Azure Media Indexer ile aranabilir içerik ve Kapalı Açıklamalı Altyazı parçaları oluşturma yapabilirsiniz. Azure Media Indexer 2 Önizleme önceki sürüme kıyasla daha hızlı dizinleme ve daha geniş dil desteği vardır. İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca, Çince, Portekizce ve Arapça desteklenen diller şunlardır. Ayrıntılı bilgi ve örnekler için bkz. [Azure Media Indexer 2 ile video işleme](media-services-process-content-with-indexer2.md).
-### <a name="hyperlapse"></a>Hyperlapse
-Video sabitleme ve hızlı, uzun biçimli içeriğinizi tüketilebilir videolardan oluşturmak için zaman atlama özelliği, Microsoft Hyperlapse birleştirir. Atlamalı video oluşturmanın yanı sıra Hyperlapse kararlı video cep telefonları ve kamera yakalanır görüntü titremesi sorunu olan videoları oluşturmak için kullanabilirsiniz. Ayrıntılı bilgi ve örnekler için bkz. [Hyperlapse Azure medya Hyperlapse ile medya dosyalarının](media-services-hyperlapse-content.md).
 ### <a name="motion-detector"></a>Hareket Algılayıcısı
 Hareket algılayıcısı, sabit bir arka plan ile bir video hareket algılama için kullanabilirsiniz. Bu hatalı pozitif sonuç ekleme işlemlerini kaydedecek tarafından algılanan hareket olayları denetlemek mümkün kılar. Ayrıntılı bilgi ve örnekler için bkz. [hareket algılama için Azure medya analizi](media-services-motion-detection.md).
 ### <a name="face-detector"></a>Yüz Algılayıcısı
@@ -53,7 +51,7 @@ Azure medya OCR (optik karakter tanıma) ile metin içerikli videoları düzenle
 ### <a name="scalable-face-redaction"></a>Ölçeklenebilir yüz flulaştırma
 Azure Media Redactor, bulutta ölçeklenebilir yüz flulaştırma sunan medya analizi Medya işleyicisi ' dir. Yüz flulaştırma kullanarak seçilen kişilerin yüzlerini bulanıklaştıran için videonuzu değiştirebilirsiniz. Yüz flulaştırma hizmet haber medya veya kamu güvenliği söz konusu olduğunda kullanmak isteyebilirsiniz. El ile özgürlüğü saat birden fazla yüzeye içeren görüntülerini, birkaç dakika sürebilir, ancak bu hizmet ile yalnızca birkaç basit adımda yüz flulaştırma alır. Daha fazla bilgi için [özgürlüğü Azure medya Analizi ile yüzleri](media-services-face-redaction.md) makalesi.
 ### <a name="content-moderation"></a>İçerik Denetleme
-Azure Content Moderator, videolarınız için makine Yardımlı resim denetimi kullanmanıza olanak sağlar. Örneğin, videoları olası yetişkinlere yönelik ve müstehcen içerikleri algılama ve insan tarafından denetim takımlarınızın bayrak eklenen içeriği gözden geçir isteyebilirsiniz. El ile videolar için istenmeyen içeriği yönetme bir zaman alabilir ve pahalı bir görevdir. Bu hizmet ve ilişkili İnceleme araçları ile verimli ve hesaplı bir şekilde en iyi sonuçlar için İnsan içinde--döngüsü özelliği olan makine Yardımlı resim denetimi birleştirin. Daha fazla bilgi için bkz. [videolarınızı Azure Content Moderator ile işleme](media-services-content-moderation.md) makalesi.
+Azure Content Moderator, videolarınız için makine Yardımlı resim denetimi kullanmanıza olanak sağlar. Örneğin videolardaki yetişkinlere yönelik veya müstehcen içerikleri tespit edip belirlenen içeriklerin moderasyon ekibiniz tarafından gözden geçirilmesini isteyebilirsiniz. El ile videolar için istenmeyen içeriği yönetme bir zaman alabilir ve pahalı bir görevdir. Bu hizmet ve ilişkili İnceleme araçları ile verimli ve hesaplı bir şekilde en iyi sonuçlar için İnsan içinde--döngüsü özelliği olan makine Yardımlı resim denetimi birleştirin. Daha fazla bilgi için bkz. [videolarınızı Azure Content Moderator ile işleme](media-services-content-moderation.md) makalesi.
 
 ## <a name="common-scenarios"></a>Genel senaryolar
 Medya analizi, kuruluşların yardımcı olur ve işletmelerin video ait yeni öngörüleri elde ve daha etkili bir şekilde video içeriğinin büyük birimleri yönetin. Çeşitli senaryolar şunlardır:

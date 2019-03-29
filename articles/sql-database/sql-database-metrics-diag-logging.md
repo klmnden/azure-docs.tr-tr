@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: c5be8af71fcbdf6f38f878c70180f38227070245
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: bb45062697b113b676f85381f0653c14ac8c0c67
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499334"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621239"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri
 
@@ -148,7 +148,7 @@ Aşağıdaki tanılama telemetrisi toplamak için bir yönetilen örnek kaynağ�
 
 | Kaynak | Telemetri izleme |
 | :------------------- | ------------------- |
-| **Yönetilen örnek** | ResourceUsageStats sanal çekirdek sayısı, ortalama CPU yüzdesi, g/ç istekleri, bayt okunan/yazılan, ayrılmış depolama alanı içerir ve kullanılan depolama alanı. |
+| **Yönetilen örnek** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) sanal çekirdek sayısı, ortalama CPU yüzdesi, g/ç istekleri, bayt okunan/yazılan, ayrılmış depolama alanı içerir ve kullanılan depolama alanı. |
 
 Yönetilen örnek ve örnek veritabanları için tanılama telemetrisi akışını yapılandırmak için ayrı ayrı yapılandırmanız gerekecektir **hem** biri:
 

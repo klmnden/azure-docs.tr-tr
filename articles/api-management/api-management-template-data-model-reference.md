@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 8fb60f36bbc7c8886c1f465177a11224a1c90659
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 3c2384b536235554fed7c1cf1a08b7c665f513a8
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541256"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621932"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management şablonu veri modeli başvurusu
 Bu konu içinde veri modellerini Azure API Management'ta Geliştirici portal şablonları için kullanılan ortak öğeler için varlık ve türü gösterimleri açıklar.  
@@ -162,7 +162,7 @@ Geliştirici Portalı tüketim katmanında kullanılamıyor.
 ##  <a name="Header"></a> Üst bilgi  
  Bu bölümde açıklanmaktadır `parameter` gösterimi.  
   
-|Özellik|Açıklama|Type|  
+|Özellik|Tür|Açıklama|  
 |--------------|-----------------|----------|  
 |`name`|string|Parametre adı.|  
 |`description`|string|Parametre açıklaması.|  
@@ -239,7 +239,7 @@ Geliştirici Portalı tüketim katmanında kullanılamıyor.
 ##  <a name="Parameter"></a> Parametre  
  Bu bölümde açıklanmaktadır `parameter` gösterimi.  
   
-|Özellik|Açıklama|Type|  
+|Özellik|Tür|Açıklama|  
 |--------------|-----------------|----------|  
 |`name`|string|Parametre adı.|  
 |`description`|string|Parametre açıklaması.|  

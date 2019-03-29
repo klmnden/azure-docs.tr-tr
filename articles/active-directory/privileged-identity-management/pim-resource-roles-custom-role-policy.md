@@ -1,5 +1,5 @@
 ---
-title: PIM Azure kaynakları için özel roller kullanın | Microsoft Docs
+title: PIM - Azure Active Directory Azure kaynakları için özel roller kullanın | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM) Azure kaynakları için özel roller kullanmayı öğrenin.
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.subservice: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2767d817d6f15d38aeef4c669b2b11c3d8a8a6b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 13aef9b180a671a9b42bbc6319c487be36652093
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168026"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574884"
 ---
 # <a name="use-custom-roles-for-azure-resources-in-pim"></a>PIM Azure kaynakları için özel roller kullanın
 
-Başkaları için büyük özerkliği sağlamanın bir rolün bazı üyeler için katı Privileged Identity Management (PIM) ayarlarını uygulamak gerekebilir. Kuruluşunuzun bir Azure aboneliğinde çalıştırılan bir uygulamanın geliştirilmesi konusunda yardımcı olmak için birkaç sözleşme ilişkilendirir işe alma bir senaryo düşünün.
+Başkaları için büyük özerkliği sağlamanın bir rolün bazı üyeler için katı Azure Active Directory (Azure AD) Privileged Identity Management (PIM) ayarlarını uygulamak gerekebilir. Kuruluşunuzun bir Azure aboneliğinde çalıştırılan bir uygulamanın geliştirilmesi konusunda yardımcı olmak için birkaç sözleşme ilişkilendirir işe alma bir senaryo düşünün.
 
 Bir kaynak yöneticisi olarak, çalışanlarınızın onay gerek kalmadan erişim hakkı olmasını istersiniz. Ancak, kuruluşunuzun kaynaklarına erişimi istediklerinde, tüm sözleşme ilişkilendirir onaylanmalıdır.
 

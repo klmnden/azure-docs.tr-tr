@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 6990bed4065183ecabb502ea90b5ddf26db563b4
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: fd47b5de2226d88b6295cb28713db2a5d251e768
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500194"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577255"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Günlük verilerini ve Azure İzleyici'de çalışma alanlarını yönetme
 Azure İzleyici depoları, temelde verileri ve yapılandırma bilgilerini içeren bir kapsayıcı ve Log Analytics çalışma alanında verilerini günlüğe kaydedebilirsiniz. Verileri günlüğe kaydetmek için erişimi yönetmek için çalışma alanları ile ilgili çeşitli yönetim görevlerini gerçekleştirin. Siz veya kuruluşunuzun diğer üyeleri, IT altyapınızın tümünden veya bir bölümünden toplanan farklı veri kümelerini yönetmek için birden çok çalışma alanı kullanabilirsiniz.
@@ -300,10 +300,10 @@ Yalnızca erişimi olan bir rol oluşturmak için _SecurityBaseline_ ve başka b
 
 ```
     "Actions":  [
-        "Microsoft.OperationalInsights/workspaces/query/*/read"
+        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
     ],
     "NotActions":  [
-        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
+        "Microsoft.OperationalInsights/workspaces/query/*/read"
     ],
 ```
 

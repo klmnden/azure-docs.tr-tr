@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 16abcd2130e92f182dc129c2d7f5cd07ac04a766
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 2493866f2926f29e673a7825dbd3c4a2d0e41808
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313540"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579538"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Azure Kubernetes Service (AKS) kapsayıcıları için Azure İzleyici ile izleme durdurma
 
@@ -32,7 +32,7 @@ Kullanım [az aks devre dışı bırak-addons](https://docs.microsoft.com/cli/az
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
-Kümeniz için izleme yeniden etkinleştirmek için bkz: [Azure CLI kullanarak izlemeyi etkinleştirin](container-insights-onboard.md#enable-monitoring-using-azure-cli).
+Kümeniz için izleme yeniden etkinleştirmek için bkz: [Azure CLI kullanarak izlemeyi etkinleştirin](container-insights-onboard.md#enable-using-azure-cli).
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager şablonu
 Sağlanan olan iki çözüm kaynakları tutarlı ve sürekli kaynak grubunuzda kaldırma desteklemek için Azure Resource Manager şablonu. İzlemeyi durdurmak için yapılandırmasını belirten bir JSON şablonunu biridir ve diğer küme olarak dağıtılan AKS küme kaynağı kimliği ve kaynak grubu belirtmek için yapılandırdığınız parametre değerlerini içerir. 

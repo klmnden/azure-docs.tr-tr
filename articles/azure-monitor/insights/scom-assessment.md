@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 5b4da39d56b86f79727590076ac60b87541643e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 27b55af74a713c51655891df8c852ff44cd3744a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082849"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621779"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ortamınızı System Center Operations Manager sistem durumunu denetleyin (Önizleme) çözümü ile en iyi duruma getirme
 
@@ -297,7 +297,7 @@ Yok saymak için istediğiniz önerilerini varsa, öneriler, değerlendirme sonu
 
 *Neden yalnızca ilk 10 önerileri görüntülensin mi?* Kapsamlı, büyük bir Görevler listesini vermek yerine, Önceliklendirilmiş öneriler adresleme odaklanmak öneririz. Bunları adres sonra ek öneriler kullanılabilir hale gelir. Ayrıntılı listesini görmek isterseniz, günlük arama özelliğini kullanarak tüm önerileri görüntüleyebilirsiniz.
 
-*Bir öneri yok saymak için bir yol var mı?* Evet, bkz: [önerileri yoksay](#Ignore-recommendations).
+*Bir öneri yok saymak için bir yol var mı?* Evet, bkz: [önerileri yoksay](#ignore-recommendations).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

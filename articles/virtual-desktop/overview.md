@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 4443d71d5c0b84ac7dbc18129338229c40323d2c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f922f940f6c579c8710dadec29b365e7cf4c7938
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401047"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577195"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Windows sanal masaüstü önizlemesi nedir? 
 
@@ -72,7 +72,7 @@ Altyapınızı Windows sanal masaüstü desteklemek için aşağıdakiler gereki
   
 Windows sanal masaüstü için oluşturduğunuz Azure sanal makineleri olması gerekir:
 
-* [Etki alanına katılmış standart](https://docs.microsoft.com/microsoft-desktop-optimization-pack/appv-v4/domain-joined-and-non-domain-joined-clients) veya [hibrit AD'ye katılmış](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Sanal makineler, Azure AD'ye katılmış olamaz.
+* [Etki alanına katılmış standart](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) veya [hibrit AD'ye katılmış](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Sanal makineler, Azure AD'ye katılmış olamaz.
 * Aşağıdaki desteklenen işletim sistemi görüntüleri birini çalıştırıyor:
   * Windows 10 Enterprise çok oturum
   * Windows Server 2016

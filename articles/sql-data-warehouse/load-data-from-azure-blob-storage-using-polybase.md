@@ -2,20 +2,20 @@
 title: "Öğretici: New York taksi verilerini Azure SQL veri ambarı'nı yükleme | Microsoft Docs"
 description: Öğreticide, Azure portalı ve New York taksi verilerini genel bir Azure yük için SQL Server Management Studio'yu Azure SQL veri ambarı'na blob.
 services: sql-data-warehouse
-author: ckarst
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 09/12/2018
-ms.author: cakarst
+ms.date: 03/27/2019
+ms.author: mlee3gsd
 ms.reviewer: igorstan
-ms.openlocfilehash: 979488009f7afa2ccae3993d756e92e1ae15d5a0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 57ca749aec2a72379e92c46764eb9b6558653e29
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466538"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620198"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Öğretici: New York taksi verilerini Azure SQL veri ambarı'nı yükleme
 
@@ -80,7 +80,7 @@ Boş bir SQL veri ambarı oluşturmak için aşağıdaki adımları izleyin.
 
 6. Tıklayın **performans düzeyi** veri ambarı Gen1 veya 2. nesil ve sayı veri ambarı birimleri olup olmadığını belirtmek için. 
 
-7. Bu öğreticide, seçin **Gen1** SQL veri ambarı. Kaydırıcı varsayılan olarak ayarlanmış **DW1000c**.  Nasıl çalıştığını görmek için yukarı ve aşağı taşımayı deneyin. 
+7. Bu öğreticide, seçin **Gen2** SQL veri ambarı. Kaydırıcı kümesine **DW1000c** varsayılan olarak.  Nasıl çalıştığını görmek için yukarı ve aşağı taşımayı deneyin. 
 
     ![performansı yapılandırma](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -150,7 +150,7 @@ Bu bölümde Azure SQL sunucunuzla bağlantı kurmak için [SQL Server Managemen
     | ------------ | --------------- | ----------- | 
     | Sunucu türü | Veritabanı altyapısı | Bu değer gereklidir |
     | Sunucu adı | Tam sunucu adı | Ad şunun gibi olmalıdır: **mynewserver-20180430.database.windows.net**. |
-    | Kimlik Doğrulaması | SQL Server Kimlik Doğrulaması | Bu öğreticide yapılandırdığımız tek kimlik doğrulaması türü SQL Kimlik Doğrulamasıdır. |
+    | Authentication | SQL Server Kimlik Doğrulaması | Bu öğreticide yapılandırdığımız tek kimlik doğrulaması türü SQL Kimlik Doğrulamasıdır. |
     | Oturum Aç | Sunucu yöneticisi hesabı | Bu, sunucuyu oluştururken belirttiğiniz hesaptır. |
     | Parola | Sunucu yöneticisi hesabınızın parolası | Bu, sunucuyu oluştururken belirttiğiniz paroladır. |
 

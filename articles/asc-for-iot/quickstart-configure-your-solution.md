@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ba8b1a099dc204730813754fdfc4b0b8ce45303
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 2a24db1124ecd9c2437eafee54d856120a77e97f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541683"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576454"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Hızlı Başlangıç: IOT çözümünüzü yapılandırın
 
@@ -29,11 +29,11 @@ ms.locfileid: "58541683"
 
 Bu makalede, IOT için ASC kullanarak IOT güvenlik çözümünüzü ilk yapılandırmasını gerçekleştirmek bir açıklama sağlar. 
 
-## <a name="asc-for-iot"></a>IOT için ASC
+## <a name="asc-for-iot"></a>IoT için ASC
 
 ASC IOT için Azure tabanlı IOT çözümleri için kapsamlı uçtan uca güvenlik sağlar.
 
-IOT için ASC ile. tek bir Panoda tüm IOT çözümünüzü IOT cihazlarınızı, IOT platformları ve Azure arka uç kaynaklarına tümünün görünmesini izleyebilirsiniz.
+IOT için ASC ile tek bir Panoda tüm IOT çözümünüzü IOT cihazlarınızı, IOT platformları ve Azure arka uç kaynaklarına tümünün görünmesini izleyebilirsiniz.
 
 IOT Hub'ınızda etkinleştirildikten sonra IOT için ASC da IOT hub'ınıza bağlanan ve IOT çözümünüzü ilişkili diğer Azure hizmetleri otomatik olarak tanımlar.
 
@@ -50,7 +50,7 @@ IOT çözümünüzü yeni bir kaynak eklemek için aşağıdakileri yapın:
 2. Seçin ve açın **kaynakları** altında **güvenlik** sol menüden. 
 3. Seçin **kaynak Ekle**.
 4. IOT çözümünüze ait kaynakları seçin.
-4. **Ekle**'ye tıklayın. 
+5. **Ekle**'ye tıklayın. 
 
 Tebrikler! IOT çözümünüzü yeni bir kaynak ekledik.
 

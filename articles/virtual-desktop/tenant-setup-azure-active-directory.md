@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: b8b5c2cef1db5018ce0d61e1950f49a3bd215ac2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 8ab1f31d61b7a6a1637cd274cc5ac7fc4f5dc2f1
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402907"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622170"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Öğretici: Windows sanal masaüstü önizlemesinde bir kiracı oluşturma
 
@@ -75,7 +75,7 @@ Azure Active Directory sorgulamak için Windows sanal masaüstü hizmet izinleri
 Windows sanal masaüstünü Bu cmdlet ile TenantCreator kullanıcı hesabını kullanarak oturum açın:
 
 ```powershell
-Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
 Bundan sonra Azure Active Directory kiracısı ile ilişkili yeni bir Windows sanal masaüstü kiracısı oluşturun:

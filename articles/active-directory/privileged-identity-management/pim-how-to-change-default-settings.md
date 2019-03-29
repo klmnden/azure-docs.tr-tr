@@ -1,6 +1,6 @@
 ---
-title: PIM'de Azure AD dizini rol ayarlarını yapılandırma | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM) Azure AD dizini rol ayarlarını yapılandırmayı öğrenin.
+title: PIM - Azure Active Directory Azure AD rol ayarlarını yapılandırma | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) Azure AD rol ayarlarını yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,34 +14,34 @@ ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 761bb31ca51f29547f594af99f779665a255c0be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b14cf76ec7b8b905c41792f4dc9a56e97dc0f7ba
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162552"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576871"
 ---
-# <a name="configure-azure-ad-directory-role-settings-in-pim"></a>PIM'de Azure AD dizini rol ayarlarını yapılandırma
+# <a name="configure-azure-ad-role-settings-in-pim"></a>PIM'de Azure AD rol ayarlarını yapılandırma
 
-Ayrıcalıklı Rol Yöneticisi, Azure AD Privileged Identity Management (PIM) uygun rol atamasını etkinleştirme bir kullanıcı deneyimi değiştirme gibi kuruluşlarındaki özelleştirebilirsiniz.
+Ayrıcalıklı rol yöneticisi uygun rol atamasını etkinleştirme bir kullanıcı deneyimi değiştirme dahil olmak üzere, bir kuruluş içindeki Azure Active Directory (Azure AD) Privileged Identity Management (PIM) özelleştirebilirsiniz.
 
 ## <a name="open-role-settings"></a>Rol ayarlarını Aç
 
-Bir Azure AD dizin rolü ayarlarını açmak için şu adımları izleyin.
+Azure AD rolüne ayarlarını açmak için şu adımları izleyin.
 
 1. Açık **Azure AD Privileged Identity Management**.
 
-1. Tıklayın **Azure AD Dizin rolleri**.
+1. Tıklayın **Azure AD rolleri**.
 
 1. Tıklayın **ayarları**.
 
-    ![Azure AD Dizin rolleri - ayarlar](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
+    ![Azure AD rolleri - ayarlar](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
 1. Tıklayın **rolleri**.
 
 1. Ayarları yapılandırmak istediğiniz rolüne tıklayın.
 
-    ![Azure AD Dizin rolleri - ayarları rolleri](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
+    ![Azure AD rolleri - ayarları roller](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
 
     Her rol için Ayarlar sayfasında, yapılandırabileceğiniz birkaç ayar vardır. Bu ayarlar yalnızca kullanıcılar etkiler **uygun** atamaları değil **kalıcı** atamaları.
 
@@ -98,13 +98,13 @@ Bir rolü etkinleştirmek için onay gerektir istiyorsanız, aşağıdaki adıml
 
 1. Ayarlama **onayı iste** geçin **etkin**. Onaylayanları seçin seçeneklerle bölmesini genişletir.
 
-    ![Azure AD Dizin rolleri - Settings - onayı iste](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Azure AD rolleri - Settings - onayı iste](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     Varsa, **yok** tüm onaylayanlar belirtin, varsayılan onaylayanlar ayrıcalıklı rol yöneticileri olur. Ayrıcalıklı rol yöneticileri gereken onaylanacak **tüm** bu rol için etkinleştirme istekleri.
 
 1. Onaylayanlar belirtmek için **onaylayanları seçin**.
 
-    ![Azure AD Dizin rolleri - Settings - onayı iste](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
+    ![Azure AD rolleri - Settings - onayı iste](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
 1. Bir veya daha fazla onaylayanları seçin ve ardından **seçin**. Kullanıcılar veya gruplar seçebilirsiniz. En az 2 onaylayan önerilir. Kendini onaylama izin verilmez.
 
@@ -117,5 +117,5 @@ Bir rolü etkinleştirmek için onay gerektir istiyorsanız, aşağıdaki adıml
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure AD dizin rollerini PIM atayın](pim-how-to-add-role-to-user.md)
-- [Azure AD Dizin rolleri için güvenlik uyarıları PIM'de yapılandırın](pim-how-to-configure-security-alerts.md)
+- [Azure AD PIM Rolleri Ata](pim-how-to-add-role-to-user.md)
+- [PIM'de Azure AD rolleri güvenlik uyarılarını yapılandırma](pim-how-to-configure-security-alerts.md)

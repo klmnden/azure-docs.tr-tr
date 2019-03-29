@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 52f1316b8167d2e1c3e37dbbfc0059b68e832172
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 827d7d9a3d584342703a84dd2a42e5cda9b3a656
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538570"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579419"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Cihazdan buluta iletilerini yerleşik uç noktadan okuma
 
@@ -24,7 +24,7 @@ Varsayılan olarak, iletiler yerleşik hizmet'e yönelik uç noktaya yönlendiri
 | **Bölüm sayısı** | Oluşturma sırasında sayısını tanımlamak için bu özelliği ayarlayın [bölümleri](../event-hubs/event-hubs-features.md#partitions) CİHAZDAN buluta olay alımı için. |
 | **Elde tutma süresi**  | Bu özellik ne kadar süreyle iletileri IOT Hub tarafından korunur gün cinsinden belirtir. Varsayılan bir gündür, ancak yedi gün olarak artırılabilir. |
 
-IOT hub'ı en fazla 7 gün için yerleşik olay hub'larındaki veri saklama sağlar. IOT hub'ınızın oluşturulması sırasında bekletme süresini ayarlayabilirsiniz. Veri saklama boyutu IOT hub, IOT hub katmanını ve birim türü bağlıdır. Boyutu bakımından en büyük ileti boyutu kotası için en az 24 saat kadar iletilerini yerleşik Event Hubs tutabilirsiniz. Örneğin, IOT hub'ı en az korumak için yeterli depolama alanı sağlar 1 S1 birimi için 400 binden iletileri 4 k her boyutu. Cihazlarınızı küçük ileti göndermesi için (ne kadar depolama alanı tüketilen bağlı olarak uzun varan 7 gün) korunmayabilir. Belirtilen bekletme süresi en düşük için veri koruma garanti ediyoruz.
+IOT hub'ı en fazla 7 gün için yerleşik olay hub'larındaki veri saklama sağlar. IOT hub'ınızın oluşturulması sırasında bekletme süresini ayarlayabilirsiniz. Veri saklama zamanı IOT hub, IOT hub katmanını ve birim türü bağlıdır. Boyutu bakımından en büyük ileti boyutu kotası için en az 24 saat kadar iletilerini yerleşik Event Hubs tutabilirsiniz. Örneğin, IOT hub'ı en az korumak için yeterli depolama alanı sağlar 1 S1 birimi için 400 binden iletileri 4 k her boyutu. Cihazlarınızı küçük ileti göndermesi için (ne kadar depolama alanı tüketilen bağlı olarak uzun varan 7 gün) korunmayabilir. Belirtilen bekletme süresi en düşük için veri koruma garanti ediyoruz.
 
 IOT Hub ayrıca yönetmenize imkan sağlar tüketici grupları yerleşik cihaz-bulut uç noktası alırsınız.
 

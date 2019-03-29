@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: a78eeda814b21d489eb957d44202b17c61d836d5
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 1186b362cf8f59f24020ae9afa3526e2e27b1794
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541895"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575224"
 ---
 # <a name="get-started-with-azure-security-center-asc-for-iot"></a>IOT için Azure Güvenlik Merkezi (ASC) ile çalışmaya başlama 
 
@@ -67,7 +67,7 @@ ASC, test ve hizmeti etkinleştirmek için aşağıdaki temel iş akışı kulla
 1. Kayıtlı cihaz yok, IOT Hub'ınız varsa [yeni bir cihaz kayıt](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
 1. [Bir azureiotsecurity güvenlik modülünüzü oluşturmak](quickstart-create-security-twin.md) cihazlarınız için.
 1. Gerçek bir cihaza yüklemek yerine bir Azure sanal cihazı aracıyı yüklemek için [döngü oluşturan yeni bir Azure sanal makine (VM)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) mevcut bir bölge içinde. 
-1. [IOT güvenliği aracısı için bir ASC dağıtma](tutorial-deploy-linux-cs.md) IOT cihaz veya yeni bir VM.
+1. [IOT güvenliği aracısı için bir ASC dağıtma](how-to-deploy-linux-cs.md) IOT cihaz veya yeni bir VM.
 1. Yönergelerini izleyin [trigger_events](https://aka.ms/iot-security-github-trigger-events) zararsız bir saldırı simülasyonu çalıştırmak için.
 1. Yanıt önceki adımda sanal saldırı olarak IOT uyarılar için ASC doğrulayın. 
     - Betiği çalıştırdıktan sonra beş dakika doğrulama başlayın.
@@ -79,4 +79,4 @@ ASC, test ve hizmeti etkinleştirmek için aşağıdaki temel iş akışı kulla
 - Yapılandırma, [çözümü](quickstart-configure-your-solution.md)
 - [Güvenlik modülleri oluşturma](quickstart-create-security-twin.md)
 - Yapılandırma [özel uyarılar](quickstart-create-custom-alerts.md)
-- [Güvenlik aracı dağıtma](select-deploy-agent.md)
+- [Güvenlik aracı dağıtma](how-to-deploy-agent.md)

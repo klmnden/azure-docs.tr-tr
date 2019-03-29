@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3c79747bf33e1769af5f8d3589904ba15105f216
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 90bff4cd98046a42fa31d98ff00e76d7fc9ac307
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087610"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576097"
 ---
 # <a name="connect-windows-security-events"></a>Windows güvenlik olaylarını bağlama 
 
@@ -45,7 +45,7 @@ Tam olarak Windows Güvenlik olaylarınız Gözcü Azure ile tümleştirmek içi
 1. Gözcü Azure portalında **veri toplama** ve ardından **Windows Güvenlik olayları** Döşe. 
 1. Akışı yapmak istediğiniz veri türlerini seçin.
 1. Tıklayın **güncelleştirme**.
-
+6. İlgili şema için Windows Güvenlik olaylarını Log Analytics'e kullanmak için arama **SecurityEvent**.
 
 ## <a name="validate-connectivity"></a>Bağlantıyı doğrula
 

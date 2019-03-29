@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 1e4582d93d1e3380ecdabdb241f27839d4da4565
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: dc37404e45e4efd0697b0f3b19c4927813ab56fa
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541865"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576215"
 ---
 # <a name="security-recommendations"></a>Güvenlik önerileri
 
@@ -27,12 +27,13 @@ ms.locfileid: "58541865"
 > ASC IOT için şu anda genel Önizleme aşamasındadır.
 > Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Devam eden çözüm analize dayalı olarak, IOT için ASC artırmak ve cihazlarınızı, işlemsel durum ve genel IOT hub'ı ortamının korunmasına yardımcı olmak için gereken kullanırken aşağıdaki önerilerileri sağlar. 
+ASC IOT için Azure kaynaklarını ve IOT cihazları tarar ve saldırı yüzeyinizi azaltmak için güvenlik önerileri sağlar. Güvenlik önerileri, eyleme dönüştürülebilir ve uymak için en iyi güvenlik uygulamalarını belirleyin müşterilerine yardımcı olmak için hedeflenir.
 
+Bu makalede, IOT Hub ve/veya IOT cihazları üzerinde tetiklenebilen öneriler listesini bulabilirsiniz.
 
-## <a name="device-recommendations"></a>Cihaz önerileri
+## <a name="recommendations-for-iot-devices"></a>IOT cihazları için öneriler
 
-Cihaz öneriler, Öngörüler ve cihaz güvenliğini ve davranışını geliştirmek için öneriler sağlar. 
+Cihaz öneriler, Öngörüler ve cihaz güvenliğini artırmak için önerileri sağlar. 
 
 | Severity | Ad                                                      | Veri Kaynağı | Açıklama                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,9 +43,9 @@ Cihaz öneriler, Öngörüler ve cihaz güvenliğini ve davranışını gelişti
 | Orta   | Çıkış zincirindeki izin veren güvenlik duvarı kuralı bulunamadı    | Aracı       | Çok çeşitli IP adres veya bağlantı noktası için esnek bir düzen içeren bir güvenlik duvarı kuralında bulundu.                                                                                   |
 | Orta   | Sistem taban çizgisi doğrulama işlemi başarısız oldu           | Aracı       | Cihaz uyumlu değil [CIS Linux değerlendirmeleri](https://www.cisecurity.org/cis-benchmarks/)                                                                                                         |
 
-### <a name="operational-recommendation"></a>İşletimsel önerisi
+### <a name="operational-recommendations-for-iot-devices"></a>IOT cihazlarının işletimsel önerileri
 
-İşletimsel öneriler, Öngörüler ve aracı yapılandırması geliştirmek için öneriler sağlar.
+İşletimsel öneriler, Öngörüler ve güvenlik aracı yapılandırması geliştirmek için öneriler sağlar.
 
 | Severity | Ad                                    | Veri Kaynağı | Açıklama                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
@@ -53,7 +54,7 @@ Cihaz öneriler, Öngörüler ve cihaz güvenliğini ve davranışını gelişti
 | Düşük      | Güvenlik ikizi yapılandırma çakışması    | Aracı       | Çakışmaları güvenlik ikizi yapılandırmada tanımlandı.                           |
 
 
-## <a name="iot-hub-recommendations"></a>IOT hub'ı önerileri
+## <a name="recommendations-for-iot-hub"></a>IOT hub'ına yönelik öneriler
 
 Öneri uyarılar, içgörü ve ortamın güvenlik duruşunu eylemleri için öneriler sağlar.  
 

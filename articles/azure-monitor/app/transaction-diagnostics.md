@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: ba72f273724bb45418b104b1245648419ababbf0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c6c44525018e2115f1df8ed2d3f15432b95490c6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903632"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619841"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Birleşik bileşenler arası işlem tanılamaları
 
@@ -32,7 +32,7 @@ Bağımsız bir şekilde dağıtılabilen dağıtılmış mikro uygulamanızın 
 * Bileşenleri ayrı bir Application Insights izleme anahtarı (abonelikler farklı olsa bile) olması ya da farklı roller için tek bir Application Insights izleme anahtarı raporlama gerçekleştirebilirsiniz. Yeni deneyimi nasıl bunlar ayarlanan bakılmaksızın tüm bileşenler genelinde ayrıntıları gösterir.
 
 > [!NOTE]
-> * **İlgili öğe bağlantıları eksik?** Tüm ilişkili telemetri bulunan [üst](#cross-component-transaction-chart) ve [alt](#all-telemetry-with-this-Operation-Id) sol tarafındaki bölümlerini. 
+> * **İlgili öğe bağlantıları eksik?** Tüm ilişkili telemetri bulunan [üst](#cross-component-transaction-chart) ve [alt](#all-telemetry-with-this-operation-id) sol tarafındaki bölümlerini. 
 
 ## <a name="transaction-diagnostics-experience"></a>İşlem tanılama deneyimi
 Bu görünüm dört bölümden oluşur: sonuçları listesi, bileşenler arası işlem grafik, bu işlem ve Ayrıntılar bölmesinde soldaki herhangi bir telemetri seçili öğe için ilgili tüm telemetri zaman sıralı listesi.

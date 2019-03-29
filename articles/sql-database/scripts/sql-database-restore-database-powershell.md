@@ -1,6 +1,6 @@
 ---
 title: PowerShell örneği-Azure SQL veritabanını geri yükleme-yedekleme | Microsoft Docs
-description: Azure PowerShell örnek betiği, tek bir Azure SQL veritabanı, coğrafi olarak yedekli yedeklemelerden geri yüklemek için
+description: Tek bir Azure SQL veritabanı için daha önceki bir noktaya otomatik yedeklemelerden geri yükleme için azure PowerShell örnek betiği
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,17 +11,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 3bfefa704fdd819b3841dcc58866c310353bfdc3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/27/2019
+ms.openlocfilehash: f58cc930ace2dc1fc65aa0494fd6c1510ee5ff29
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883619"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621354"
 ---
-# <a name="use-powershell-to-restore-an-azure-sql-single-database-from-backups"></a>Tek bir Azure SQL veritabanı yedeklemeleri geri yüklemek için PowerShell kullanma
+# <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Tek bir Azure SQL veritabanını zamandaki önceki bir noktaya geri yükleme için PowerShell kullanma
 
-Bu PowerShell betiği örneği, coğrafi olarak yedekli bir yedeklemeden Azure SQL veritabanını geri yükler, silinmiş bir Azure SQL veritabanını en son yedeklemeye geri yükler ve Azure SQL veritabanını belirli bir zaman noktasına geri yükler.  
+Bu PowerShell Betiği örneği, bir Azure SQL veritabanı zaman içinde belirli bir noktaya geri yükler.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -45,7 +45,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
-| Komut | Notes |
+| Komut | Notlar |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. | 
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Tek veritabanı veya elastik havuz barındıran bir SQL veritabanı sunucusu oluşturur. |

@@ -1,6 +1,6 @@
 ---
-title: Onaylayın veya reddedin istekleri için Azure AD dizin rollerini PIM | Microsoft Docs
-description: Onaylayın veya reddedin Azure AD Privileged Identity Management (PIM), Azure AD Dizin rolleri için istekleri öğrenin.
+title: Onaylayın veya reddedin istekleri için Azure AD PIM - Azure Active Directory rolleri | Microsoft Docs
+description: Onaylayın veya reddedin istekleri için Azure AD Privileged Identity Management (PIM) Azure AD rolleri öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,32 +16,32 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68b0dba0280ce7875e797634a5dc2254cb889ad7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 125a9864eaf53ecdf035247ba23d7c95a8daf131
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244990"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576803"
 ---
-# <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>Onaylayın veya Azure AD dizin rollerini PIM isteklerini reddedin
+# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Onaylayın veya reddedin istekleri için Azure AD PIM rolleri
 
-Azure AD Privileged Identity Management ile (PIM), rollerini etkinleştirme için onay gerektirecek şekilde yapılandırın ve bir veya birden çok kullanıcı veya grup onaylayanlara temsilci olarak seçin. Temsilci onaylayanlar, istekleri onaylamak için 24 saat vardır. Bir isteği 24 saat içinde onaylanmazsa, ardından uygun kullanıcı yeni bir isteği yeniden göndermeniz gerekir. Onay 24 saatlik zaman penceresi yapılandırılabilir değildir.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) ile rollerini etkinleştirme için onay gerektirecek şekilde yapılandırın ve bir veya birden çok kullanıcı veya grup onaylayanlara temsilci olarak seçin. Temsilci onaylayanlar, istekleri onaylamak için 24 saat vardır. Bir isteği 24 saat içinde onaylanmazsa, ardından uygun kullanıcı yeni bir isteği yeniden göndermeniz gerekir. Onay 24 saatlik zaman penceresi yapılandırılabilir değildir.
 
-Onaylayın veya reddedin istekleri için Azure AD Dizin rolleri için bu makaledeki adımları izleyin.
+Onaylamak veya reddetmek için Azure AD rolleri istekleri için bu makaledeki adımları izleyin.
 
 ## <a name="view-pending-requests"></a>Bekleyen istekleri görüntüleme
 
-Onayınızı bekleyen bir Azure AD dizini rol istek olduğunda, bir temsilci onaylayan olarak bir e-posta bildirimi alırsınız. Bu bekleyen istekler PIM'de görüntüleyebilirsiniz.
+Onayınızı bekleyen bir Azure AD rol istek olduğunda, bir temsilci onaylayan olarak bir e-posta bildirimi alırsınız. Bu bekleyen istekler PIM'de görüntüleyebilirsiniz.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
 1. Açık **Azure AD Privileged Identity Management**.
 
-1. Tıklayın **Azure AD Dizin rolleri**.
+1. Tıklayın **Azure AD rolleri**.
 
 1. Tıklayın **istekleri onaylama**.
 
-    ![PIM Azure AD Dizin rolleri - roller](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
+    ![PIM Azure AD rolleri - roller](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
     Onayınızı bekleyen isteklerinin bir listesini görürsünüz.
 

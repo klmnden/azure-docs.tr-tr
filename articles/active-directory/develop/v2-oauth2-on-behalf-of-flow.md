@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cc9b2b38ae0ba97e5a29d58d1605e5452224e4b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5d933eaf99258a3f3322a915b418b52fad6e459f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445764"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576939"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 On-Behalf-Of akış
 
@@ -72,8 +72,8 @@ Paylaşılan gizlilik kullanırken, hizmetten hizmete erişim belirteci isteği 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
 | `grant_type` | Gerekli | Belirteç isteği türü. JWT'nin kullanarak bir istek için bir değer olmalıdır `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Gerekli | (İstemci) uygulama kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) veya yeni [uygulama kayıtları (Önizleme) portalı](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) uygulamanıza atanan. |
-| `client_secret` | Gerekli | Portal uygulamanız için uygulamanızı kaydetmek için kullanılan tarafından üretilen uygulama gizli anahtarı. |
+| `client_id` | Gerekli | (İstemci) uygulama kimliği [Azure Portalı - Uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) sayfa uygulamanıza atanan. |
+| `client_secret` | Gerekli | Uygulamanızı Azure portalında - uygulama kayıtları sayfası için oluşturulan istemci gizli anahtarı. |
 | `assertion` | Gerekli | İstekte kullanılan belirteç değeri. |
 | `scope` | Gerekli | Boşlukla ayrılmış belirteci isteği için kapsam listesi. Daha fazla bilgi için [kapsamları](v2-permissions-and-consent.md). |
 | `requested_token_use` | Gerekli | İsteğin nasıl işleneceğini belirtir. OBO flow'da değeri ayarlamak `on_behalf_of`. |
@@ -104,7 +104,7 @@ Bir sertifika ile hizmetten hizmete erişim belirteci isteği aşağıdaki param
 | Parametre |  | Açıklama |
 | --- | --- | --- |
 | `grant_type` | Gerekli | Belirteç isteği türü. JWT'nin kullanarak bir istek için bir değer olmalıdır `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Gerekli | (İstemci) uygulama kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) veya yeni [uygulama kayıtları (Önizleme) portalı](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) uygulamanıza atanan. |
+| `client_id` | Gerekli |  (İstemci) uygulama kimliği [Azure Portalı - Uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) sayfa uygulamanıza atanan. |
 | `client_assertion_type` | Gerekli | Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | Gerekli | Oluşturma ve sertifika ile imzalamak için gereken onaylama (bir JSON web belirteci) uygulamanız için kimlik bilgileri olarak kayıtlı. Sertifikanızı ve onaylama biçimi kaydetme hakkında bilgi için bkz: [sertifika kimlik bilgileri](active-directory-certificate-credentials.md). |
 | `assertion` | Gerekli | İstekte kullanılan belirteç değeri. |
@@ -205,7 +205,7 @@ Yalnızca iş veya Okul hesapları için gerek duyan uygulamalar için gelenekse
 
 #### <a name="pre-authorized-applications"></a>Önceden yetkilendirilmiş uygulamalar
 
-Yeni önizleme uygulama portalı "önceden yetkilendirilmiş uygulamalar" özelliğidir. Bu şekilde, her zaman belirli bir uygulama belirli kapsamları alma izni olan bir kaynak belirtebilirsiniz. Bu, özellikle istemci ön uç ve arka uç kaynağı arasındaki bağlantıları daha sorunsuz hale getirmek yararlıdır. Kaynak birden fazla önceden yetkilendirilmiş uygulamalar bildirebilirsiniz: Bu tür bir uygulama bu izinlerin bir OBO akış ve bunları onay veren kullanıcıya sorulmadan almak isteyebilirsiniz.
+"Önceden yetkilendirilmiş uygulamalar" uygulama portalı özelliğidir. Bu şekilde, her zaman belirli bir uygulama belirli kapsamları alma izni olan bir kaynak belirtebilirsiniz. Bu, özellikle istemci ön uç ve arka uç kaynağı arasındaki bağlantıları daha sorunsuz hale getirmek yararlıdır. Kaynak birden fazla önceden yetkilendirilmiş uygulamalar bildirebilirsiniz: Bu tür bir uygulama bu izinlerin bir OBO akış ve bunları onay veren kullanıcıya sorulmadan almak isteyebilirsiniz.
 
 #### <a name="admin-consent"></a>Yönetici onayı
 

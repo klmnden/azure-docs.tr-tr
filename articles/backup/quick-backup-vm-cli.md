@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8a7c722944aacaca9780939a1726c6e47be79be1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d3ed9370726d35f67edfbcf32dfd25e74d7865e5
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112050"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621575"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>CLI ile Azure'daki bir sanal makineyi yedekleme
 Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Düzenli aralıklarla yedekleme yaparak verilerinizi koruyabilirsiniz. Azure Backup, coğrafi olarak yedekli kurtarma kasalarında saklanabilecek kurtarma noktaları oluşturur. Bu makalede Azure CLI ile Azure'daki bir sanal makinenin nasıl yedekleneceği anlatılmaktadır. Bu adımları [Azure PowerShell](quick-backup-vm-powershell.md) veya [Azure portalı](quick-backup-vm-portal.md) ile de gerçekleştirebilirsiniz.
@@ -43,7 +43,14 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-Varsayılan olarak Kurtarma Hizmetleri kasasında Coğrafi Olarak Yedekli depolama özelliği etkindir. Coğrafi Olarak Yedekli depolama, yedeklenen verilerinizin birincil bölgeden yüzlerce kilometre uzaktaki ikincil bir Azure bölgesinde çoğaltılmasını sağlar.
+Varsayılan olarak Kurtarma Hizmetleri kasasında Coğrafi Olarak Yedekli depolama özelliği etkindir. Coğrafi Olarak Yedekli depolama, yedeklenen verilerinizin birincil bölgeden yüzlerce kilometre uzaktaki ikincil bir Azure bölgesinde çoğaltılmasını sağlar. Depolama yedekliliği ayarı değiştirilmesi gereken kullanırsanız [az yedekleme kasası yedekleme özellikleri kümesi](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet'i.
+
+```azurecli
+az backup vault backup-properties set \
+    --name myRecoveryServicesVault  \
+    --resource-group myResourceGroup \
+    --backup-storage-redundancy "LocallyRedundant/GeoRedundant" 
+```
 
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Bir Azure sanal makinesi için yedeklemeyi etkinleştirme

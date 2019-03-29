@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: juliako
-ms.openlocfilehash: 61ebebaf61d1cbbc72f3e12b5ff516924cc9b8c7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b951da73006731b38b265dc3a2f542e670f9fbf6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317757"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621745"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2'den v3 taşımak için Geçiş Kılavuzu
 
@@ -79,12 +79,14 @@ Bugün üzerine geliştirilen bir video hizmeti varsa [eski Media Services v2 AP
 V3 API v2 API'si ile ilgili aşağıdaki özellik boşluklarına sahiptir. Boşlukları Kapatma aşamasındadır.
 
 * [Premium Kodlayıcı](../previous/media-services-premium-workflow-encoder-formats.md) ve eski [medya analizi işlemcileri](../previous/media-services-analytics-overview.md) (Azure medya Hizmetleri Dizin Oluşturucu 2 Önizleme, Face Redactor, vb.) v3 erişilebilir değildir.<br/>Media Indexer 1 veya 2 Önizleme geçirmek isteyen müşteriler, hemen v3 API'SİNDE önceden AudioAnalyzer kullanabilirsiniz.  Bu yeni hazır eski Media Indexer 1'den daha fazla özellik ya da 2 içerir. 
-* Media Encoder Standard v2 API'lerindeki Gelişmiş özelliklerinin birçoğunu şu anda gibi v3 sürümünde kullanılabilir değil:
+* Çoğu [özelliklerinin Media Encoder Standard v2'de Gelişmiş](../previous/media-services-advanced-encoding-with-mes.md) API'ler şu anda v3 sürümünde kullanılabilir değildir gibi:
     * (İsteğe bağlı ve canlı senaryoları için) kırpma
     * Varlıkları birleştirme
     * Yer paylaşımları
     * Kırpma
     * Küçük resim zıplamasını sağlayın
+    * Ses yok sahip olduğunda giriş sessiz bir ses kaydı ekleme
+    * Video sahip olduğunda giriş video parça ekleme
 * API çağrısı aracılığıyla maskeleme görüntüsü ekleme Orta stream ve reklam işareti ekleme ile etkinliklerin Canlı kodlama dönüştürme şu anda desteklemez. 
 
 > [!NOTE]

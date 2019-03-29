@@ -4,233 +4,203 @@ description: Azure Active Directory ve fiyat Predictix raporlama arasında çokl
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 691d0c43-3aa1-4220-9e46-e7a88db234ad
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/08/2017
+ms.topic: tutorial
+ms.date: 03/26/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50f7275f1bccbb19a535e2bbafec2591229359ea
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d6b1303cfdc28cf568796e03c23ff69320ab83dc
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217624"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577008"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Öğretici: Fiyat Predictix Raporlama ile Azure Active Directory Tümleştirmesi
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile tümleştirme Predictix Fiyat Raporlama konusunda bilgi edinin.
-
 Azure AD ile tümleştirme Predictix Fiyat Raporlama ile aşağıdaki avantajları sağlar:
 
-- Fiyat Predictix raporlama erişimi, Azure AD'de kontrol edebilirsiniz.
-- Azure AD hesaplarına otomatik olarak imzalanan Predictix fiyat raporlama için (çoklu oturum açma) açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* Fiyat Predictix raporlama erişimi, Azure AD'de kontrol edebilirsiniz.
+* Azure AD hesaplarına otomatik olarak Predictix fiyat raporlama için (çoklu oturum açma) oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Fiyat Predictix Raporlama ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Bir fiyat Predictix raporlama çoklu oturum açma abonelik etkin.
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Fiyat Predictix raporlama çoklu oturum açma abonelik etkin.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Fiyat Predictix raporlama galeri ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* Fiyat Predictix raporlamayı destekler **SP** tarafından başlatılan
 
 ## <a name="adding-predictix-price-reporting-from-the-gallery"></a>Fiyat Predictix raporlama galeri ekleme
+
 Azure AD'de Predictix Fiyat Raporlama tümleştirmesini yapılandırmak için fiyat Predictix raporlama Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Predictix fiyat raporlama eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Yeni Uygulama düğmesi][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **fiyat Predictix raporlama**seçin **fiyat Predictix raporlama** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Fiyat Predictix raporlama sonuç listesinde](./media/predictixpricereporting-tutorial/tutorial_predictixpricereporting_addfromgallery.png)
+4. Arama kutusuna **fiyat Predictix raporlama**seçin **fiyat Predictix raporlama** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+
+     ![Fiyat Predictix raporlama sonuç listesinde](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı fiyat Predictix Raporlama ile test edin.
-
-Tek çalışmak için oturum açma için Azure AD ne fiyat Predictix raporlama karşılık gelen kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve fiyat Predictix Raporlama'da ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
-
-Fiyat Predictix raporlamada değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma adlı bir test kullanıcı tabanlı fiyat Predictix Raporlama ile test etme **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısı ve fiyat Predictix Raporlama'da ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma fiyat Predictix Raporlama ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Fiyat Predictix raporlama test kullanıcısı oluşturma](#create-a-predictix-price-reporting-test-user)**  - Predictix fiyat kullanıcı Azure AD gösterimini bağlı raporlama Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[Predictix Fiyat Raporlama çoklu oturum açmayı yapılandırma](#configure-predictix-price-reporting-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Fiyat Predictix raporlama test kullanıcısı oluşturma](#create-predictix-price-reporting-test-user)**  - Predictix fiyat kullanıcı Azure AD gösterimini bağlı raporlama Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve fiyat Predictix raporlama uygulamanızda çoklu oturum açmayı yapılandırma.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Fiyat Predictix Raporlama ile Azure AD çoklu oturum açmayı yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Fiyat Predictix Raporlama ile Azure AD çoklu oturum açmayı yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında üzerinde **fiyat Predictix raporlama** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **fiyat Predictix raporlama** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açma iletişim kutusu](./media/predictixpricereporting-tutorial/tutorial_predictixpricereporting_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **Predictix fiyat raporlama etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Predictix fiyat raporlama etki alanı ve URL'ler tek oturum açma bilgileri](./media/predictixpricereporting-tutorial/tutorial_predictixpricereporting_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname-pricing>.predictix.com/sso/request`
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
-    
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+
+    ![Predictix fiyat raporlama etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
+
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<companyname-pricing>.predictix.com/sso/request`
+
+    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın:
+
     | |
     |--|
     | `https://<companyname-pricing>.predictix.com` |
     | `https://<companyname-pricing>.dev.predictix.com` |
+    | |
 
-    > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [Predictix fiyat raporlama istemcisi Destek ekibine](https://www.infor.com/company/customer-center/) bu değerleri almak için. 
- 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+    > [!NOTE]
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [Predictix fiyat raporlama istemcisi Destek ekibine](https://www.infor.com/company/customer-center/) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-    ![Sertifika indirme bağlantısı](./media/predictixpricereporting-tutorial/tutorial_predictixpricereporting_certificate.png) 
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-1. Tıklayın **Kaydet** düğmesi.
+    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/predictixpricereporting-tutorial/tutorial_general_400.png)
+6. Üzerinde **Set up Predictix fiyat Reporting** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-1. Üzerinde **Predictix Fiyat Raporlama yapılandırma** bölümünde **Predictix fiyat Raporlamayı Yapılandır** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-    ![Predictix Fiyat Raporlama yapılandırma](./media/predictixpricereporting-tutorial/tutorial_predictixpricereporting_configure.png) 
+    a. Oturum Açma URL'si:
 
-1. Çoklu oturum açmayı yapılandırma **fiyat Predictix raporlama** tarafı, indirilen göndermek için ihtiyacınız **sertifika (Base64)**, **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si**  için [fiyat Predictix raporlama Destek ekibine](https://www.infor.com/company/customer-center/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+    b. Azure AD Tanımlayıcısı
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    c. Oturum Kapatma URL'si
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="configure-predictix-price-reporting-single-sign-on"></a>Çoklu oturum açma raporlama Predictix fiyat yapılandırın
+
+Çoklu oturum açmayı yapılandırma **fiyat Predictix raporlama** tarafı, indirilen göndermek için ihtiyacınız **sertifika (Base64)** ve uygun Azure portalına kopyalanan URL'lerden [Predictix fiyat Raporlama, Destek ekibine](https://www.infor.com/company/customer-center/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/predictixpricereporting-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/predictixpricereporting-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü brittasimon@yourcompanydomain.extension. Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/predictixpricereporting-tutorial/create_aaduser_03.png)
-
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/predictixpricereporting-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
- 
-### <a name="create-a-predictix-price-reporting-test-user"></a>Fiyat Predictix raporlama test kullanıcısı oluşturma
-
-Bu bölümde, fiyat Predictix raporlamada Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [fiyat Predictix raporlama Destek ekibine](https://www.infor.com/company/customer-center/) Predictix Fiyat Raporlama platform kullanıcıları eklemek için.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, fiyat Predictix raporlama için erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **fiyat Predictix raporlama**.
 
-**Britta Simon Predictix fiyat raporlama için atamak için aşağıdaki adımları gerçekleştirin:**
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **fiyat Predictix raporlama**.
 
-    ![Kullanıcı Ata][201] 
+    ![Uygulamalar listesinde Predictix Fiyat Raporlama bağlantı](common/all-applications.png)
 
-1. Uygulamalar listesinde **fiyat Predictix raporlama**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Uygulamalar listesinde Predictix Fiyat Raporlama bağlantı](./media/predictixpricereporting-tutorial/tutorial_predictixpricereporting_app.png)  
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![Atama Ekle bölmesi][203]
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+### <a name="create-predictix-price-reporting-test-user"></a>Fiyat Predictix raporlama test kullanıcısı oluşturma
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
+Bu bölümde, fiyat Predictix raporlamada Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [fiyat Predictix raporlama Destek ekibine](https://www.infor.com/company/customer-center/) Predictix Fiyat Raporlama platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde Predictix Fiyat Raporlama kutucuğa tıkladığınızda, otomatik olarak fiyat Predictix raporlama uygulamanıza açan.
+Erişim panelinde Predictix Fiyat Raporlama kutucuğa tıkladığınızda, otomatik olarak Predictix Fiyat Raporlama SSO'yu ayarlamak için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/predictixpricereporting-tutorial/tutorial_general_01.png
-[2]: ./media/predictixpricereporting-tutorial/tutorial_general_02.png
-[3]: ./media/predictixpricereporting-tutorial/tutorial_general_03.png
-[4]: ./media/predictixpricereporting-tutorial/tutorial_general_04.png
-
-[100]: ./media/predictixpricereporting-tutorial/tutorial_general_100.png
-
-[200]: ./media/predictixpricereporting-tutorial/tutorial_general_200.png
-[201]: ./media/predictixpricereporting-tutorial/tutorial_general_201.png
-[202]: ./media/predictixpricereporting-tutorial/tutorial_general_202.png
-[203]: ./media/predictixpricereporting-tutorial/tutorial_general_203.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

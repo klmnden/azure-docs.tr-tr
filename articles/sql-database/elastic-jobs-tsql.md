@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: d2b0209f57ff5f59d59ee057db7675b2dcd071b8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 4f4032551efbf517ab47a64afc393cc57ace6bc1
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522069"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621507"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Elastik veritabanı işleri oluşturmak ve yönetmek için Transact-SQL (T-SQL) kullanın
 
@@ -408,19 +408,19 @@ Aşağıdaki saklı yordamlara bulunan [işleri veritabanı](sql-database-job-au
 
 |Saklı yordam  |Açıklama  |
 |---------|---------|
-|sp_add_job     |     Yeni Proje ekler.    |
-|sp_update_job    |      Var olan bir işi güncelleştirir.   |
-|sp_delete_job     |      Var olan bir işi siler.   |
-|sp_add_jobstep    |    Bir adım, bir projeye ekler.     |
-|sp_update_jobstep     |     Bir iş adımı güncelleştirir.    |
-|sp_delete_jobstep     |     Bir iş adımı siler.    |
-|sp_start_job    |  Bir işi yürütmeden başlatır.       |
-|sp_stop_job     |     İş yürütmeyi durdurur.   |
-|sp_add_target_group    |     Bir hedef grubu ekler.    |
-|sp_delete_target_group     |    Hedef grubunu siler.     |
-|sp_add_target_group_member     |    Bir veritabanı veya veritabanı grubu için bir hedef grubu ekler.     |
-|sp_delete_target_group_member     |     Hedef grup üyesi hedef gruptan kaldırır.    |
-|sp_purge_jobhistory    |    Bir iş geçmişi kayıtları kaldırır.     |
+|[sp_add_job](#sp_add_job)     |     Yeni Proje ekler.    |
+|[sp_update_job](#sp_update_job)    |      Var olan bir işi güncelleştirir.   |
+|[sp_delete_job](#sp_delete_job)     |      Var olan bir işi siler.   |
+|[sp_add_jobstep](#sp_add_jobstep)    |    Bir adım, bir projeye ekler.     |
+|[sp_update_jobstep](#sp_update_jobstep)     |     Bir iş adımı güncelleştirir.    |
+|[sp_delete_jobstep](#sp_delete_jobstep)     |     Bir iş adımı siler.    |
+|[sp_start_job](#sp_start_job)    |  Bir işi yürütmeden başlatır.       |
+|[sp_stop_job](#sp_stop_job)     |     İş yürütmeyi durdurur.   |
+|[sp_add_target_group](#sp_add_target_group)    |     Bir hedef grubu ekler.    |
+|[sp_delete_target_group](#sp_delete_target_group)     |    Hedef grubunu siler.     |
+|[sp_add_target_group_member](#sp_add_target_group_member)     |    Bir veritabanı veya veritabanı grubu için bir hedef grubu ekler.     |
+|[sp_delete_target_group_member](#sp_delete_target_group_member)     |     Hedef grup üyesi hedef gruptan kaldırır.    |
+|[sp_purge_jobhistory](#sp_purge_jobhistory)    |    Bir iş geçmişi kayıtları kaldırır.     |
 
 
 
@@ -1195,13 +1195,13 @@ Aşağıdaki görünümleri kullanılabilir [işleri veritabanı](sql-database-j
 
 |Görünüm  |Açıklama  |
 |---------|---------|
-|jobs_executions     |  İş yürütme geçmişini gösterir.      |
+|[jobs_executions](#jobs_executions-view)     |  İş yürütme geçmişini gösterir.      |
 |[İşleri](#jobs-view)     |   Tüm işleri gösterir.      |
-|job_versions     |   Tüm iş sürümlerini gösterir.      |
+|[job_versions](#job_versions-view)     |   Tüm iş sürümlerini gösterir.      |
 |[sp_reassign_proxy](#jobsteps-view)     |     Tüm adımları her projenin geçerli sürümünde gösterir.    |
-|jobstep_versions     |     Tüm adımları her bir iş tüm sürümlerini gösterir.    |
-|target_groups     |      Tüm hedef gruplarını gösterir.   |
-|target_group_members     |   Tüm hedef grupların tüm üyeleri gösterir.      |
+|[jobstep_versions](#jobstep_versions-view)     |     Tüm adımları her bir iş tüm sürümlerini gösterir.    |
+|[target_groups](#target_groups-view)     |      Tüm hedef gruplarını gösterir.   |
+|[target_group_members](#target_groups_members-view)     |   Tüm hedef grupların tüm üyeleri gösterir.      |
 
 
 ### <a name="jobsexecutions-view"></a>jobs_executions görüntüle
@@ -1347,4 +1347,3 @@ Tüm hedef grupların tüm üyeleri gösterir.
 
 - [PowerShell’i kullanarak Elastik İşler oluşturma ve yönetme](elastic-jobs-powershell.md)
 - [SQL Server yetkilendirme ve izinler](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)
-  

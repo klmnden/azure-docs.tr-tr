@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 1eba32683883e60ae48f4d6fec9c434c27ce55da
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8940d629d2f4827ee724c813a40394378dde5a4c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541940"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575156"
 ---
 # <a name="asc-for-iot-frequently-asked-questions"></a>ASC IOT için sık sorulan sorular  
 
@@ -77,7 +77,7 @@ Ayrıntılı yükleme ve aracı dağıtım bilgileri Github'da bulunabilir: http
 
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>Aracısı'nın önkoşulları ve bağımlılıklar nelerdir?
 
-ASC IOT için çok çeşitli platformları destekler. Bkz: [desteklenen cihaz platformları](select-deploy-agent.md) belirli cihazlarınız için destek doğrulayın. 
+ASC IOT için çok çeşitli platformları destekler. Bkz: [desteklenen cihaz platformları](how-to-deploy-agent.md) belirli cihazlarınız için destek doğrulayın. 
 
 ## <a name="which-data-is-collected-by-the-agent"></a>Hangi verilerin aracı tarafından toplanır?
 
@@ -97,9 +97,9 @@ Evet. IOT hub'ı kota aktarılan aracı verilerini hesaba katılır.
 
 ## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>Şimdi ne yapacaksınız? Aracıyı yükledikten ve herhangi bir etkinlik veya günlükleri göremiyorum
 
-1. Denetleme [aracı türü uygun cihazınızın belirtilen işletim sistemi platformu](select-deploy-agent.md)
+1. Denetleme [aracı türü uygun cihazınızın belirtilen işletim sistemi platformu](how-to-deploy-agent.md)
 
-1. Onayla [aracı cihaz üzerinde çalışan](concept-agent-configuration.md).
+1. Onayla [aracı cihaz üzerinde çalışan](how-to-agent-configuration.md).
 
 2. Denetleme [hizmeti başarıyla etkinleştirildi](quickstart-onboard-iot-hub.md) için **güvenlik** IOT hub'ınızdaki. 
 

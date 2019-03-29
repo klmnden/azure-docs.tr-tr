@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6145d77e6485a33ea3a9f9d66a4356587966bc5f
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: bcab43869b488eed1cc6693a2970b6ea4bb2e7c1
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403570"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576352"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Palo Alto Networks gerecinize bağlanma
 
@@ -122,6 +122,7 @@ Palo Alto Networks, Syslog aracı üzerinden Azure çalışma alanınıza CEF bi
 3. Bu komutların her ikisi de başarılı sonuçları sağlanan günlüklerinizi gelme görmek için Log Analytics kontrol edin. Bu gereçlerini akışa tüm olayları ham biçimde Log Analytics kapsamında görünen `CommonSecurityLog ` türü.
 1. Hatalar varsa veya günlükleri gelen olmayan denetlemek için konum `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 4. Syslog iletisi varsayılan boyutunuz (2 KB) 2048 bayt ile sınırlı olduğundan emin olun. Günlükleri çok uzun olması durumunda, bu komutu kullanarak security_events.conf güncelleştirin: `message_length_limit 4096`
+6. İlgili şema Palo Alto Networks olayları Log Analytics'te kullanmak için arama **CommonSecurityLog**.
 
 
 

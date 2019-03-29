@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 63c649f0850c4ffc60ce2087e91f3f69917e4837
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868553"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622221"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure etkinlik günlüğü olay şeması
 **Azure etkinlik günlüğü** Azure'da gerçekleşen herhangi bir abonelik düzeyindeki olayların sağlayan günlüktür. Bu makalede veri kategorisini başına olay şeması. Portal, PowerShell, CLI veya karşı REST API aracılığıyla doğrudan veri okunuyorsa veri şeması bağlı olarak farklı [veri depolama veya günlük profilini kullanarak Event Hubs akış](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Aşağıdaki örnekler, portal, PowerShell, CLI ve REST API kullanıma sunulan teklifinizle şema gösterir. Bu özellikler için bir eşleme [Azure tanılama günlükleri şema](./diagnostic-logs-schema.md) makalenin sonunda sağlanır.
@@ -358,6 +358,7 @@ Bu kategorideki tüm etkinleştirmeleri Azure uyarıları kaydını içerir. Bu 
 | correlationId | Dize biçiminde bir GUID. |
 | açıklama |Uyarı olayının açıklaması statik metin. |
 | eventDataId |Uyarı olayı benzersiz tanımlayıcısı. |
+| category | Her zaman "uyarı" |
 | düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error", "Uyarı" ve "Bilgilendirici" |
 | resourceGroupName |Etkilenen kaynak ölçüm uyarısı ise kaynak grubunun adı. Diğer uyarı türleri için uyarıyı içeren kaynak grubunun adıdır. |
 | resourceProviderName |Etkilenen kaynak ölçüm uyarısı ise kaynak sağlayıcı adı. Diğer uyarı türleri için kaynak sağlayıcısı için uyarı adıdır. |
@@ -556,6 +557,7 @@ Bu kategori, Azure Güvenlik Merkezi tarafından oluşturulan herhangi bir uyar�
 | açıklama |Güvenlik olayı açıklaması statik metin. |
 | eventDataId |Güvenlik olayı benzersiz tanımlayıcısı. |
 | EventName |Güvenlik olayı kolay adı. |
+| category | Her zaman "güvenlik" |
 | id |Güvenlik olayı benzersiz bir kaynak tanımlayıcısı. |
 | düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error", "Uyarı" veya "Bilgilendirici" |
 | resourceGroupName |Kaynak için kaynak grubunun adı. |

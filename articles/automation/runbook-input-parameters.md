@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 969e0c2582ce8f72592059fbf1d58e3ebe9faa5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5f190d60a059108b9763f35e2ee8cf99ae77b694
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117209"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578161"
 ---
 # <a name="runbook-input-parameters"></a>Runbook giriş parametreleri
 
@@ -30,10 +30,10 @@ Azure Otomasyonu, PowerShell ve PowerShell iş akışı runbook'ları aşağıda
 
 | **Özellik** | **Açıklama** |
 |:--- |:--- |
-| Type |Gereklidir. Parametre değeri beklenen veri türü. Herhangi bir .NET türü geçerli değil. |
-| Ad |Gereklidir. Parametrenin adı. Bu gerekir runbook içinde benzersiz olmalı ve yalnızca harf, sayı içeren veya alt çizgi karakterlerini içermeli. Bu, bir harfle başlamalıdır. |
-| Zorunlu |İsteğe bağlı. Parametresi için bir değer sağlanmalıdır olup olmadığını belirtir. Bu ayar,  **\$true**, sonra da runbook başlatılırken bir değer belirtilmelidir. Bu ayar,  **\$false**, sonra da isteğe bağlı bir değerdir. |
-| Varsayılan değer |İsteğe bağlı. Runbook başlatılırken bir değer gönderilirse değil parametresi için kullanılan bir değer belirtir. Varsayılan değer otomatik olarak parametre zorunlu ayarından bağımsız olarak isteğe bağlı hale getirir ve herhangi bir parametre için ayarlanabilir. |
+| `Type` |Gereklidir. Parametre değeri beklenen veri türü. Herhangi bir .NET türü geçerli değil. |
+| `Name` |Gereklidir. Parametrenin adı. Bu gerekir runbook içinde benzersiz olmalı ve yalnızca harf, sayı içeren veya alt çizgi karakterlerini içermeli. Bu, bir harfle başlamalıdır. |
+| `Mandatory` |İsteğe bağlı. Parametresi için bir değer sağlanmalıdır olup olmadığını belirtir. Bu ayar,  **\$true**, sonra da runbook başlatılırken bir değer belirtilmelidir. Bu ayar,  **\$false**, sonra da isteğe bağlı bir değerdir. |
+| `Default value` |İsteğe bağlı. Runbook başlatılırken bir değer gönderilirse değil parametresi için kullanılan bir değer belirtir. Varsayılan değer otomatik olarak parametre zorunlu ayarından bağımsız olarak isteğe bağlı hale getirir ve herhangi bir parametre için ayarlanabilir. |
 
 Windows PowerShell, girdi parametrelerinin olanlar burada doğrulama gibi diğer adlar, listelenmiş ve parametre ayarlar çok daha fazla özniteliklerini de destekler. Ancak, Azure Otomasyonu, şu anda yalnızca yukarıdaki giriş parametrelerini destekler.
 
@@ -94,11 +94,11 @@ Kullanabileceğiniz [ **Write-Output** ](/powershell/module/microsoft.powershell
 
    | **Özellik** | **Açıklama** |
    |:--- |:--- |
-   | Ad |Gereklidir. Parametrenin adı. Bu gerekir runbook içinde benzersiz olmalı ve yalnızca harf, sayı içeren veya alt çizgi karakterlerini içermeli. Bu, bir harfle başlamalıdır. |
-   | Açıklama |İsteğe bağlı. Giriş parametresi amacı hakkında açıklama. |
-   | Type |İsteğe bağlı. Parametre değeri beklenen veri türü. Desteklenen parametre türleri **dize**, **Int32**, **Int64**, **ondalık**, **Boole**,  **DateTime**, ve **nesne**. Bir veri türü seçili değilse, varsayılan **dize**. |
-   | Zorunlu |İsteğe bağlı. Parametresi için bir değer sağlanmalıdır olup olmadığını belirtir. Seçerseniz **Evet**, sonra da runbook başlatılırken bir değer belirtilmelidir. Seçerseniz **hiçbir**, bir değer runbook'u başlatan ve varsayılan değer ayarlama gerekli değildir. |
-   | Varsayılan Değer |İsteğe bağlı. Runbook başlatılırken bir değer gönderilirse değil parametresi için kullanılan bir değer belirtir. Zorunlu olmayan bir parametre için varsayılan bir değer ayarlanabilir. Varsayılan değer ayarlamak için **özel**. Runbook başlatılırken başka bir değer sağlanmadığı sürece bu değeri kullanılır. Seçin **hiçbiri** herhangi bir varsayılan değer sağlamak istemiyorsanız. |
+   | `Name` |Gereklidir. Parametrenin adı. Bu gerekir runbook içinde benzersiz olmalı ve yalnızca harf, sayı içeren veya alt çizgi karakterlerini içermeli. Bu, bir harfle başlamalıdır. |
+   | `Description` |İsteğe bağlı. Giriş parametresi amacı hakkında açıklama. |
+   | `Type` |İsteğe bağlı. Parametre değeri beklenen veri türü. Desteklenen parametre türleri **dize**, **Int32**, **Int64**, **ondalık**, **Boole**,  **DateTime**, ve **nesne**. Bir veri türü seçili değilse, varsayılan **dize**. |
+   | `Mandatory` |İsteğe bağlı. Parametresi için bir değer sağlanmalıdır olup olmadığını belirtir. Seçerseniz **Evet**, sonra da runbook başlatılırken bir değer belirtilmelidir. Seçerseniz **hiçbir**, bir değer runbook'u başlatan ve varsayılan değer ayarlama gerekli değildir. |
+   | `Default Value` |İsteğe bağlı. Runbook başlatılırken bir değer gönderilirse değil parametresi için kullanılan bir değer belirtir. Zorunlu olmayan bir parametre için varsayılan bir değer ayarlanabilir. Varsayılan değer ayarlamak için **özel**. Runbook başlatılırken başka bir değer sağlanmadığı sürece bu değeri kullanılır. Seçin **hiçbiri** herhangi bir varsayılan değer sağlamak istemiyorsanız. |
 
     ![Yeni giriş Ekle](media/automation-runbook-input-parameters/automation-runbook-input-parameter-new.png)
 4. Tarafından kullanılan aşağıdaki özelliklere sahip iki parametre oluşturma **Get-AzureRmVm** etkinlik:

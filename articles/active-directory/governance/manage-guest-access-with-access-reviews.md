@@ -1,5 +1,5 @@
 ---
-title: Azure AD erişim gözden geçirmeleriyle konuk erişimini yönetme | Microsoft Docs
+title: Erişim gözden geçirmeleri - Azure Active Directory ile konuk erişimini yönetme | Microsoft Docs
 description: Azure Active Directory erişim gözden geçirmeleri ile bir uygulamaya atanan veya bir grubun üyesi olarak Konuk kullanıcıları yönetme
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bed8a5d20b50fd90922730c958cb1a36933776f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 967fbf460175dee303d26074426a1f90e4353407
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881053"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576505"
 ---
-# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD erişim gözden geçirmeleriyle konuk erişimini yönetme
+# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD ile konuk erişimini yönetme erişim gözden geçirmeleri
 
 
 Azure Active Directory'ye (Azure AD), kolayca işbirliği kuruluş sınırlarında kullanarak etkinleştirebilirsiniz [Azure AD B2B özellik](../b2b/what-is-b2b.md). Konuk kullanıcıları diğer kiracılardan olabilir [yöneticiler tarafından davet](../b2b/add-users-administrator.md) ya da [diğer kullanıcıların](../b2b/what-is-b2b.md). Bu özellik, Microsoft hesapları gibi sosyal kimlikler için de geçerlidir.

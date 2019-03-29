@@ -4,17 +4,17 @@ description: Standart Lucene özel, önceden tanımlanmış veya dile özgü alt
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 03/27/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 7306258b6a7eee66df0961b2b993d0bcc9de94b9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 3e6f0a2b9b935df9b12cf9146ebf05f1b1c84855
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343281"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578773"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Metin işleme Azure Search'te çözümleyiciler
 
@@ -97,16 +97,18 @@ Beklenen sonuçları döndürmek bir arama başarısız olursa, büyük olasıl�
 
 [Arama Çözümleyicisi Tanıtımı](https://alice.unearth.ai/) standart olarak Lucene Çözümleyici, Lucene'nın İngilizce dil Çözümleyicisi ve Microsoft'un doğal dil İngilizce işlemci yan yana karşılaştırmasını gösteren bir üçüncü taraf tanıtım uygulaması. Dizin sabittir; Bu yaygın bir hikaye metni içerir. İçin her bir arama giriş sağlarsanız, her çözümleyici sonuçları bitişik bölmelerinde görüntülenen her Çözümleyicisi aynı dize nasıl işlediği hakkında bir fikir verir. 
 
-## <a name="examples"></a>Örnekler
+<a name="examples"></a>
+
+## <a name="rest-examples"></a>KALAN örnekler
 
 Aşağıdaki örnekler birkaç önemli senaryolar için Çözümleyicisi tanımları gösterir.
 
-+ [Özel bir çözümleyici örneği](#Example1)
-+ [Bir alan örneğe Çözümleyicileri atayın](#Example2)
-+ [Dizin oluşturma ve arama için Çözümleyicileri karıştırma](#Example3)
-+ [Dil Çözümleyicisi örneği](#Example4)
++ [Özel bir çözümleyici örneği](#Custom-analyzer-example)
++ [Bir alan örneğe Çözümleyicileri atayın](#Per-field-analyzer-assignment-example)
++ [Dizin oluşturma ve arama için Çözümleyicileri karıştırma](#Mixing-analyzers-for-indexing-and-search-operations)
++ [Dil Çözümleyicisi örneği](#Language-analyzer-example)
 
-<a name="Example1"></a>
+<a name="Custom-analyzer-example"></a>
 
 ### <a name="custom-analyzer-example"></a>Özel bir çözümleyici örneği
 
@@ -180,7 +182,7 @@ Bu örnekte yürüyen:
   }
 ~~~~
 
-<a name="Example2"></a>
+<a name="Per-field-analyzer-assignment-example"></a>
 
 ### <a name="per-field-analyzer-assignment-example"></a>Alan başına Çözümleyicisi atama örneği
 
@@ -213,7 +215,7 @@ Standart Çözümleyicisi varsayılandır. Desen Çözümleyicisi gibi farklı b
   }
 ~~~~
 
-<a name="Example3"></a>
+<a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
 ### <a name="mixing-analyzers-for-indexing-and-search-operations"></a>Dizin oluşturma ve arama işlemleri için Çözümleyicileri karıştırma
 
@@ -241,7 +243,7 @@ API'ler farklı Çözümleyicileri için dizin oluşturma ve arama belirtmek iç
   }
 ~~~~
 
-<a name="Example4"></a>
+<a name="Language-analyzer-example"></a>
 
 ### <a name="language-analyzer-example"></a>Dil Çözümleyicisi örneği
 
@@ -273,6 +275,69 @@ Diğer alanları varsayılan korumak (veya diğer bazı önceden tanımlanmış 
      ],
   }
 ~~~~
+
+## <a name="c-examples"></a>C#örnekleri
+
+.NET SDK kod örneklerini kullanıyorsanız kullanın veya Çözümleyicileri yapılandırmak için bu örnekleri ekleyebilir.
+
++ [Yerleşik Çözümleyicisi Ata](#Assign-a-language-analyzer)
++ [Bir çözümleyici yapılandırın](#Define-a-custom-analyzer)
+
+<a name="Assign-a-language-analyzer"></a>
+
+### <a name="assign-a-language-analyzer"></a>Bir dil Çözümleyicisi Ata
+
+Olarak kullanılan tüm Çözümleyicisi-, yapılandırma gerektirmeden ise, bir alan tanımında belirtilir. Bir çözümleyici yapısı oluşturmak için bir gereksinim değildir. 
+
+Bu örnek Microsoft English ve Fransızca Çözümleyicileri açıklama alanlarına atar. Daha büyük bir hotels.cs dosyasında otel sınıfını kullanarak oluşturmak Oteller dizinini tanımını alındığı bir kod parçacığı olan [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) örnek.
+
+Çağrı [Çözümleyicisi](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), belirten [AnalyzerName sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) tüm Azure Search'te desteklenen metin Çözümleyicileri sağlar.
+
+```csharp
+    public partial class Hotel
+    {
+       . . . 
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.FrLucene)]
+        [JsonProperty("description_fr")]
+        public string DescriptionFr { get; set; }
+
+      . . .
+    }
+```
+<a name="Define-a-custom-analyzer"></a>
+
+### <a name="define-a-custom-analyzer"></a>Özel bir çözümleyici tanımlayın
+
+Özelleştirme veya yapılandırma gerekli olduğunda bir çözümleyici yapısı için bir dizin eklemek gerekir. Tanımladığınız sonra önceki örnekte gösterildiği gibi bu alan tanımı ekleyebilirsiniz.
+
+Kullanım [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) nesnesi oluşturulamıyor. Daha fazla örnek için bkz. [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
+
+```csharp
+{
+   var definition = new Index()
+   {
+         Name = "hotels",
+         Fields = FieldBuilder.BuildForType<Hotel>(),
+         Analyzers = new[]
+            {
+               new CustomAnalyzer()
+               {
+                     Name = "url-analyze",
+                     Tokenizer = TokenizerName.UaxUrlEmail,
+                     TokenFilters = new[] { TokenFilterName.Lowercase }
+               }
+            },
+   };
+
+   serviceClient.Indexes.Create(definition);
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

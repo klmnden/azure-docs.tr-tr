@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d1debbcc8f225a0d4608d67b19e5e00aca580ce1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 51191f3276a9420129f47944b47a182479719d5a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122021"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621677"
 ---
 # <a name="what-is-azure-backup"></a>Azure Backup nedir?
 
@@ -26,12 +26,16 @@ Azure Backup hizmeti, Microsoft Azure bulutuna verileri yedekler. Şirket içi m
 Azure Backup şu önemli avantajlara sahiptir:
 
 - **Şirket içi yedekleme boşaltma**: Azure Backup, şirket içi kaynaklarınızı buluta yedekleme için basit bir çözüm sunar. Alma kısa ve uzun vadeli yedekleme karmaşık dağıtmaya gerek kalmadan şirket yedekleme çözümleri. 
-- **Azure Iaas Vm'leri yedekleme**: Azure Backup, özgün verilerin yanlışlıkla edilmesine karşı koruma sağlamak için bağımsız ve ayrı yedeklemeler sağlar. Yedeklemeler ile yerleşik kurtarma noktaları yönetilen bir kurtarma Hizmetleri kasasında depolanır. Yapılandırma ve ölçeklenebilirlik özellikleri, basit, yedeklemeleri en iyi duruma getirilir ve gerektiğinde kolayca geri yükleyebilirsiniz.
+- **Azure Iaas Vm'leri yedekleme**: Azure Backup, özgün verilerin yanlışlıkla edilmesine karşı koruma sağlamak için bağımsız ve ayrı yedeklemeler sağlar. Yedeklemeler ile yerleşik kurtarma noktaları yönetilen bir kurtarma Hizmetleri kasasında depolanır. Yapılandırma ve ölçeklenebilirlik basit, yedeklemeleri en iyi duruma getirilir ve gerektiğinde kolayca geri yükleyebilirsiniz.
 - **Ölçeği kolayca** -herhangi bir bakım ve izleme maliyetleri ile yüksek kullanılabilirlik sunmak için Azure Backup kullanan temel alınan gücü ve sınırsız ölçek Azure bulutunun. 
-- **Sınırsız veri aktarımı alma** - Azure Backup, gelen miktarını sınırlamaz veya giden veri aktarımı, ya da aktarılan veriler için ücret alınır.
+- **Sınırsız veri aktarımı alma**: Azure yedekleme, gelen veya giden veri aktarımı ve aktarılan veriler için ücret miktarını sınırlamaz.
     - Giden veriler, geri yükleme işlemi sırasında bir Kurtarma Hizmetleri kasasından aktarılan verileri tanımlar.
     - Büyük miktarda veriyi içeri aktarmak için Azure içeri/dışarı aktarma hizmetini kullanarak çevrimdışı ilk yedekleme yapıyorsanız, gelen verilerle ilişkili bir maliyeti yoktur.  [Daha fazla bilgi edinin](backup-azure-backup-import-export.md). 
-- **Verileri güvenli tutmak**: Veri şifreleme güvenli şekilde iletilmesini ve genel bulutta verilerinizin depolama sağlar. Şifreleme parolası yerel olarak depolanır ve hiçbir zaman Azure'a iletilmez veya orada depolanmaz. Verileri geri yüklemeniz gerekirse, şifreleme parolası veya anahtarı yalnızca sizde olur.
+- **Verileri güvenli tutmak**:
+    - Şirket içi, Taşınmakta olan veriler AES256 kullanılarak şirket içi makinede şifrelenir. İletilen veriler, depolama ve yedekleme HTTPS tarafından korunur. İSCSI protokolü, yedekleme ve kullanıcı makine arasında aktarılan verilerin güvenliğini sağlar. Güvenli bir tünel iSCSI kanalı korumak için kullanılır.
+    - Şirket içi için Azure yedekleme, azure'daki şifreli yedekleme sağladığınız parolayı kullanarak bekleyen verilerdir. Hiçbir zaman aktarılan veya Azure'da depolanan anahtar ve parola. Verileri geri yüklemeniz gerekirse, şifreleme parolası veya anahtarı yalnızca sizde olur.
+    - Azure Vm'leri için veriler şifrelenir sıfırlama sırasında depolama hizmeti şifrelemesi (SSE) kullanma. Yedekleme verileri depolamadan önce otomatik olarak şifreler. Azure depolama, almadan önce verilerin şifresini çözer.
+    - Backup, Azure Azure Disk şifrelemesi (ADE) kullanılarak şifrelenmiş VM'ler de destekler. [Daha fazla bilgi edinin](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 - **Uygulamayla tutarlı yedekler almak**: Bir uygulamayla tutarlı yedekleme, kurtarma noktası yedek kopyayı geri yüklemek için tüm gerekli verileri içeren anlamına gelir. Azure Backup, verileri geri yüklerken ek düzeltmelere gerek kalmaması için uygulamayla tutarlı yedeklemeler yapılmasını sağlar. Uygulamayla tutarlı verilerin geri yüklenmesi, geri yükleme süresini azaltarak hizmetlerinizin kısa süre içinde çalışır hale gelmesini sağlar.
 - **Kısa ve uzun süreli saklanması**: Kısa vadede ve uzun veri saklama için kurtarma Hizmetleri kasalarını kullanabilirsiniz. Azure, bir Kurtarma Hizmetleri kasasında verileri saklama süresini kısıtlamaz. Dilediğiniz sürece için tutabilirsiniz. Azure Backup, korunan her örnek için 9999 kurtarma noktası sınırına sahiptir. [Daha fazla bilgi edinin](backup-introduction-to-azure-backup.md#backup-and-retention)bu sınırın yedekleme gereksinimlerinizi nasıl etkileyeceği hakkında.
 - **Otomatik depolama yönetimi** - Karma ortamlar genelde heterojen depolamaya (bazıları şirket içi, bazıları ise bulutta olan) ihtiyaç duyar. Azure Backup çözümünde, şirket içi depolama cihazlarının kullanımıyla ilişkili maliyetler yoktur. Azure yedekleme, otomatik olarak ayırır ve yedekleme depolama yönetir ve böylece yalnızca kullandığınız depolama alanı için ödeme yaparsınız-,-kullandıkça modeli kullanır. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/backup) fiyatlandırma hakkında daha fazla.
@@ -56,7 +60,7 @@ BCDR gereksinimlerinizi şekil yardımcı olması için tablo noktalarını kull
 
 **Hedefi** | **Ayrıntılar** | **Karşılaştırma**
 --- | --- | --- 
-**Veri yedekleme/saklama** | Yedekleme verileri korunur ve gün, ay veya yıl bile uyumluluk açısından bakıldığında gerekirse saklanan. | Azure yedekleme gibi yedekleme çözümleri, ince yedeklemek istediğiniz veri çekmek izin ve ince yedekleme ve bekletme ilkeleri ayarlayın.<br/><br/> Site Recovery, aynı ince ayar yapma izin vermez.
+**Veri yedekleme/saklama** | Yedekleme verileri korunur ve gün, ay veya yıl bile uyumluluk açısından bakıldığında gerekirse saklanan. | Azure yedekleme gibi yedekleme çözümleri, ince yedeklemek istediğiniz veri çekmek izin ve ince yedekleme ve bekletme ilkeleri ayarlayın.<br/><br/> Site Recovery, aynı ince ayar izin vermez.
 **Kurtarma noktası hedefi (RPO)** | Kurtarma işleminin gerekli olduğu durumlarda kabul edilebilir veri kaybı miktarı. | Daha fazla değişken RPO yedeklemelere sahip.<br/><br/> Veritabanı Yedeklemeleri 15 dakika kadar düşük RPO'lar VM yedeklemeleri genellikle bir gün, bir RPO bulunur.<br/><br/> Site Recovery, düşük RPO'ya sağlar, bu çoğaltma sürekli veya sık, olduğundan kaynak ve çoğaltma kopyalama arasındaki delta küçük olmasını sağlayın.
 **Kurtarma süresi hedefi (RTO)** |Bir geri yükleme veya kurtarma işlemini tamamlamak için geçen süre. | Daha büyük RPO nedeniyle, bir yedekleme çözümünün işlemesi gereken veri miktarı genellikle çok daha yüksektir; bu da daha uzun RTO'lara yol açar. Örneğin, bandın şirket dışı bir konumdan taşınması için harcanan süreye bağlı olarak, bantlardan veri geri yükleme işlemi birkaç gün sürebilir. 
 
@@ -66,7 +70,7 @@ Azure yedekleme, hem şirket içi makinelerin ve Azure sanal makinelerini yedekl
 
 **Makine** | **Senaryoyu oluşturan yedekleme**
 --- | ---
-**Şirket içi yedekleme** |  (1) Azure Backup Microsoft Azure kurtarma Hizmetleri (MARS) aracısı şirket içi tek tek dosya ve sistem durumu yedekleme için Windows makineleri çalıştırın. <br/><br/>2) bir yedekleme sunucusuna (System Center Data Protection Manager (DPM) veya Microsoft Azure Backup sunucusu (MABS)) şirket içi makineleri yedekleme ve Azure'da yedekleme Azure yedekleme kurtarma Hizmetleri kasasına yedekleme sunucusuna yapılandırın.
+**Şirket içi yedekleme** |  (1) Azure Backup Microsoft Azure kurtarma Hizmetleri (MARS) aracısı şirket içi tek tek dosya ve sistem durumu yedekleme için Windows makineleri çalıştırın. <br/><br/>2) bir yedekleme sunucusuna (System Center Data Protection Manager (DPM) veya Microsoft Azure Backup sunucusu (MABS)) şirket içi makineleri yedekleme ve azure'da bir Azure yedekleme kurtarma Hizmetleri kasasına yedeklemek için backup sunucusu yapılandırın.
 **Azure Vm'leri** | (1) tek tek Azure Vm'leri için yedeklemeyi etkinleştirin. Yedeklemeyi etkinleştirdiğinizde, Azure Backup uzantısı VM'de çalışan Azure VM aracısı yükler. Aracı, VM'nin tamamını yedekler.<br/><br/> (2) bir Azure sanal makinesinde MARS Aracısı çalıştırın. Bu VM üzerinde tek tek dosya ve klasörleri yedeklemek istiyorsanız kullanışlıdır.<br/><br/> 3) DPM sunucusuna veya MABS Azure'da çalışan bir Azure VM'yi yedekleme. Ardından DPM sunucusu/MABS kullanarak Azure Backup vault'a yedekleyin. 
 
 
@@ -78,7 +82,7 @@ Azure yedekleme, hem şirket içi makinelerin ve Azure sanal makinelerini yedekl
 Makineleri ve uygulamaları MABS/DPM depolama alanı için yedekleme ve ardından DPM/MABS depolama Kasası'na yedekleme avantajları şunlardır:
 
 - Azure'a yedekleme MABS/DPM, SQL Server, Exchange ve SharePoint gibi sık kullanılan uygulamaları için iyileştirilmiş uygulama durumunu algılayan yedeklemelerini sağlar ek dosya/klasör/birim yedeklemelerinin ve makine durumu yedeklemeleri (çıplak, sistem durumu).
-- Şirket içi makineler için MARS aracısının yedeklemek istediğiniz her makineye yüklemeniz gerekmez. DPM/MABS koruma aracısını her makineler çalışır ve MARS aracısının MABS/DPM'de yalnızca çalıştırır.
+- Şirket içi makineler için MARS aracısının yedeklemek istediğiniz her makineye yüklemeniz gerekmez. DPM/MABS koruma aracısını her makinede çalışır ve MARS aracısının MABS/DPM'de yalnızca çalıştırır.
 - Daha fazla esneklik ve yedeklemeleri için ayrıntılı zamanlama seçenekleri var.
 - Tek bir konsolda koruma gruplarına toplamak birden çok makineleri için yedeklemeleri yönetebilir. Bu uygulamalar birden çok makinede yük katmanlı halde bulunan ve birlikte yedeklemek istediğiniz özellikle yararlı olur.
 

@@ -10,25 +10,24 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: f8692bac271c2b0a51fef358d2fc73d6cfc8fe97
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 08d168a688935328fb4716b849c70e828545765b
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004406"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620079"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>SQL veri ambarı veri yönetimi iş ortakları
 Veri ambarı çözümünüzü oluşturmak için çok çeşitli sektör lideri araçları seçin. Bu makalede, Microsoft iş ortağı şirketlerden veri yönetimi araçları ve Azure SQL veri ambarı destek çözümleriyle vurgulanır.
 
 ## <a name="data-management-partners"></a>Veri Yönetimi iş ortakları
-| İş ortağı | Açıklama | Bağlantılar | Videolar |
-| --- | --- | --- | --- |
-| ![Coffing veri ambarı][1] |**Coffing veri ambarı**<br>Coffing veri ambarlama, Nexus Chameleon, 10 yıl tasarım sistemlerinin sorgulama için adanmış bir araç sağlar. Nexus, SQL veri ambarı için bir sorgu araç olarak kullanılabilir. Şirket içinde sorgulamak ve farklı platformlar arasında bulut bilgisayarları ve verileri birleştirme için nexus kullanın. Noktası-Click-rapor! |[Web sitesi][coffing_website]<br>[Basın bülteni][coffing_press]<br>[Twitter][coffing_twitter]<br>[YouTube][coffing_youtube] |[![video coffing](./media/sql-data-warehouse-partner-data-management/coffing_video.jpg)](https://www.youtube.com/watch?v=N5GSxBEySFc) |
-| ![Inbrein][2] |**MicroERD**<br>Inbrein MicroERD hassas veri modeli oluşturma, veri yedekliği azaltmak, verimliliği artırmak ve standartları gözlemlemek için ihtiyacınız olan araçları sağlar. Kapsamlı kullanıcı deneyimleri temel geliştirilmiştir, kullanıcı Arabirimi kullanarak bir Modelleyicisi DB modeller üzerinde kolayca ve uygun şekilde çalışabilir. MicroERD yeni ve geliştirilmiş işlevleri istemi işlevsel iyileştirmeler ve Güncelleştirmeler aracılığıyla sürekli olarak yararlanabilirsiniz. |[Web sitesi][inbrein_website]<br>[Veri sayfası][inbrein_datasheet]<br>[Twitter][inbrein_twitter]<br>[YouTube][inbrein_youtube] |[![video inbrein](./media/sql-data-warehouse-partner-data-management/inbrein_video.jpg)](https://www.youtube.com/watch?v=IGHSAk4bxdE) |
-| ![Infolibrarian][3] |**Infolibrarian**<br>InfoLibrarian kataloglar, depolar ve veri yönetimi, anahtar sorunlu noktaları çözmenize yardımcı olması için meta verileri yönetir. Ayrıca, meta veri yönetimi, veri yönetimi ve varlık yönetimi yazılım çözümleri, Araçlar ve teknolojiler kümelerinden meta veri yayımlama ve yönetme için Infolibrarian sağlar. |[Market][infolibrarian_marketplace]<br>[Web sitesi][infolibrarian_website]<br>[Twitter][infolibrarian_twitter] |[![video infolibrarian](./media/sql-data-warehouse-partner-data-management/infolibrarian_video.png)](http://www.infolibcorp.com/metadata-management-videos/vdbplayer.swf?volume=100&url=video/infolibrarian-azure-provisioning.mp4) |
-| ![Redpoint genel][4] |**RedPoint etkileşimi**<br>RedPoint etkileşim müşterilerle sürekli bir iletişim kutusunda her bir iletişim kanalı etkileşim kurun ve temas noktası sağlar. Tek bir işletimsel denetim noktasından pazarlama omnichannel tam yaşam döngüsü kolayca yönetin |[Market][redpoint_it_marketplace]<br>[Web sitesi][redpoint_it_website]<br>[Basın bülteni][redpoint_press]<br>[Veri sayfası][redpoint_it_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![video redpoint dm](./media/sql-data-warehouse-partner-data-management/redpoint_it_video.jpg)](https://vimeo.com/103715582) |
-| ![Redpoint genel][4] |**RedPoint veri yönetimi**<br>Veri Yönetimi RedPoint s Pazarlamacılar, tüm verilerini sürücü arası kanal müşteri katılımı gerçekleştirirken yapılandırılmış ve yapılandırılmamış veri yönetimi uygulamak etkinleştirin. Azure SQL veri ambarı ve RedPoint avantajlarından yararlanarak günümüzün omni kanal müşteri katılım için gerekli hyper-kişiselleştirilmiş ve bağlamsal etkileşimleri sunmak için yapılandırılmış ve yapılandırılmamış veri değerini en üst düzeye çıkarabilirsiniz. Sürükle ve bırak arabirimi tasarlama ve yürütülen veri yönetimi işlemlerini kolay hale getirir. |[Market][redpoint_dm_marketplace]<br>[Web sitesi][redpoint_dm_website]<br>[Basın bülteni][redpoint_press]<br>[Veri sayfası][redpoint_dm_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![video redpoint dm](./media/sql-data-warehouse-partner-data-management/redpoint_dm_video.jpg)](https://www.youtube.com/watch?v=o3DtXRpiEg0) |
-| ![Sentry bir][5] |**DW Sentry**<br>Akıllı veri taşıma Pano ve olay takvimi ile her zaman tam olarak hangi iş yükünüz etkilenip bildiğiniz. Yükleme, yedekleme veya verilerinizi geri yüklemek için çalışan işleri ve sorguları görünürlük vermek için tasarlanmış, hiçbir zaman Azure kaynaklarınızı en iyi hale getirme hakkında endişe ediyorsunuz. |[Market][sql_sentry_marketplace]<br>[Web sitesi][sql_sentry_website]<br>[Basın bülteni][sql_sentry_press]<br>[Twitter][sql_sentry_twitter]<br>[YouTube][sql_sentry_youtube] | |
+| İş ortağı | Açıklama | Web sitesi/ürün bağlantısı |
+| ------- | ----------- | -------------------- |
+| ![Coffing veri ambarı][1] |**Coffing veri ambarı**<br>Coffing veri ambarlama, Nexus Chameleon, 10 yıl tasarım sistemlerinin sorgulama için adanmış bir araç sağlar. Nexus, SQL veri ambarı için bir sorgu araç olarak kullanılabilir. Şirket içinde sorgulamak ve farklı platformlar arasında bulut bilgisayarları ve verileri birleştirme için nexus kullanın. Noktası-Click-rapor! |[Ürün sayfası][coffing_website]<br> |
+| ![Inbrein][2] |**Inbrein MicroERD**<br>Inbrein MicroERD hassas veri modeli oluşturma, veri yedekliği azaltmak, verimliliği artırmak ve standartları gözlemlemek için ihtiyacınız olan araçları sağlar. Kapsamlı kullanıcı deneyimleri temel geliştirilmiştir, kullanıcı Arabirimi kullanarak bir Modelleyicisi DB modeller üzerinde kolayca ve uygun şekilde çalışabilir. MicroERD yeni ve geliştirilmiş işlevleri istemi işlevsel iyileştirmeler ve Güncelleştirmeler aracılığıyla sürekli olarak yararlanabilirsiniz. |[Ürün sayfası][inbrein_website]<br> |
+| ![Infolibrarian][3] |**Infolibrarian (meta veri yönetim sunucusu)**<br>InfoLibrarian kataloglar, depolar ve veri yönetimi, anahtar sorunlu noktaları çözmenize yardımcı olması için meta verileri yönetir. Ayrıca, meta veri yönetimi, veri yönetimi ve varlık yönetimi yazılım çözümleri, Araçlar ve teknolojiler kümelerinden meta veri yayımlama ve yönetme için Infolibrarian sağlar. |[Ürün sayfası][infolibrarian_website]<br> [Azure Market][infolibrarian_marketplace]<br> |
+| ![Redpoint genel][4] |**RedPoint veri yönetimi**<br>Pazarlamacılar, tüm verilerini sürücü arası kanal müşteri katılımı gerçekleştirirken yapılandırılmış ve yapılandırılmamış veri yönetimi uygulamak RedPoint veri yönetimi sağlar. Azure SQL veri ambarı ve RedPoint avantajlarından yararlanarak günümüzün omni kanal müşteri katılım için gerekli hyper-kişiselleştirilmiş ve bağlamsal etkileşimleri sunmak için yapılandırılmış ve yapılandırılmamış veri değerini en üst düzeye çıkarabilirsiniz. Sürükle ve bırak arabirimi tasarlama ve yürütülen veri yönetimi işlemlerini kolay hale getirir. |[Ürün sayfası][redpoint_dm_website]<br> [Azure Market][redpoint_dm_marketplace]<br> |
+| ![Sentry bir][5] |**SentryOne (DW Sentry)**<br>Akıllı veri taşıma Pano ve olay takvimi ile her zaman tam olarak hangi iş yükünüz etkilenip bildiğiniz. Yükleme, yedekleme veya verilerinizi geri yüklemek için çalışan işleri ve sorguları görünürlük vermek için tasarlanmış, hiçbir zaman Azure kaynaklarınızı en iyi hale getirme hakkında endişe ediyorsunuz. |[Ürün sayfası][sql_sentry_website]<br>[Azure Market][sql_sentry_marketplace]<br> |
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 Diğer iş ortaklarıyla ilgili daha fazla bilgi için bkz. [iş zekası iş ortakları] [ bi_partners] ve [veri tümleştirme iş ortakları][di_partners].
@@ -52,64 +51,12 @@ Diğer iş ortaklarıyla ilgili daha fazla bilgi için bkz. [iş zekası iş ort
 [coffing_website]:https://www.coffingdw.com/software/nexus/
 [inbrein_website]:http://microerd.com/
 [infolibrarian_website]:http://www.infolibcorp.com/metadata-management/software-tools
-[redpoint_it_website]:http://www.redpoint.net/products/customer-interaction-management/
 [redpoint_dm_website]:http://www.redpoint.net/products/data-management-solutions/
 [sql_sentry_website]:https://sentryone.com/platform/azure-sql-dw-performance-monitoring/
 
-<!--ebook Links-->
-
-<!--Datasheet Links-->
-
-<!--[coffing_datasheet]:-->
-
-[inbrein_datasheet]:http://microerd.com/images/MicroERD_Manual/MicroERD_Manual.pdf
-
-<!--[infolibrarian_datasheet]:-->
-
-[redpoint_it_datasheet]:http://www.redpoint.net/wp-content/uploads/2016/06/RedPoint-Interaction-FS-wordle-8.5x11-RPIUS0815-07-PRINT.pdf
-[redpoint_dm_datasheet]:http://www.redpoint.net/wp-content/uploads/2014/09/RedPoint-Data-Management-FS-V2-wordle-8.5x11-0216-WEB.pdf
-
-<!--[sql_sentry_datasheet]:-->
 
 <!--Marketplace Links -->
 
-<!--[coffing_marketplace]:https://azure.microsoft.com/marketplace/partners/nexus/nexus-chameleon-9/ -->
-
-<!--[inbrein_marketplace]:-->
-
 [infolibrarian_marketplace]:https://azure.microsoft.com/marketplace/partners/infolibrarian/infolibrarian-metadata-management-server/
-[redpoint_it_marketplace]:https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-interaction/
 [redpoint_dm_marketplace]:https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-rpdm/ 
-[sql_sentry_marketplace]:https://www.sentryone.com/products/sentryone-platform/dw-sentry/azure-sql-data-warehouse-monitoring
-
-<!--Press links-->
-
-[coffing_press]:https://www.coffingdw.com/press-release-nexus-tuned-for-azure-sql-data-warehouse/
-
-<!--[inbrein_press]:-->
-
-<!--[infolibrarian_press]:-->
-
-[redpoint_press]:http://www.redpoint.net/press/redpoint-global-announces-support-for-microsoft-azure-sql-data-warehouse-microsoft-azure-data-lake-service/
-[sql_sentry_press]:https://www.sentryone.com/sentryone-v-11.2-offers-new-insights-and-powerful-automation
-
-
-<!--YouTube links-->
-
-[coffing_youtube]:https://www.youtube.com/channel/UC8o1zhc9tNp9ve6vDn34tkw
-[inbrein_youtube]:https://www.youtube.com/channel/UCHTYjFFaTpo6bPAtuxgdZig
-
-<!--[infolibrarian_youtube]:-->
-
-[redpoint_youtube]:https://www.youtube.com/user/RedPointGlobal
-[sql_sentry_youtube]:https://www.youtube.com/user/SQLSentry
-
-<!--Twitter links-->
-
-[coffing_twitter]:https://twitter.com/CoffingDW
-[inbrein_twitter]:https://twitter.com/microerd
-[infolibrarian_twitter]:https://twitter.com/InfoLibCorp
-[redpoint_twitter]:https://twitter.com/RedPointGlobal
-[sql_sentry_twitter]:https://twitter.com/SQLSentry
-
-<!--Video links-->
+[sql_sentry_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/sentryone.sentryoneeval

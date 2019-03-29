@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: c4b6b416d6a36938948573da7b9c3f5cac04bdcf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 591f7ed52a64d1005f1bb52e54eb3359da0e30a2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904908"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579657"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>Cisco ASA gerecinize bağlanma 
 
@@ -116,6 +116,7 @@ Git [dış bir Syslog sunucusuna göndermek için Syslog iletileri](https://aka.
 3. Bu komutların her ikisi de başarılı sonuçları sağlanan günlüklerinizi gelme görmek için Log Analytics kontrol edin. Bu gereçlerini akışa tüm olayları ham biçimde Log Analytics kapsamında görünen `CommonSecurityLog ` türü.
 1. Hatalar varsa veya günlükleri gelen olmayan denetlemek için konum `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 4. Syslog iletisi varsayılan boyutunuz (2 KB) 2048 bayt ile sınırlı olduğundan emin olun. Günlükleri çok uzun olması durumunda, bu komutu kullanarak security_events.conf güncelleştirin: `message_length_limit 4096`
+6. İlgili şema Cisco olayları Log Analytics'te kullanmak için arama **CommonSecurityLog**.
 
 
 

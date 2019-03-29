@@ -1,6 +1,6 @@
 ---
-title: Güvenlik Uyarıları Azure AD Dizin rolleri için PIM içinde yapılandırma | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM) güvenlik uyarıları Azure AD Dizin rolleri için yapılandırmayı öğrenin.
+title: Güvenlik Uyarıları Azure AD rolleri için PIM - Azure Active Directory yapılandırma | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) güvenlik uyarıları Azure AD rolleri için yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,22 +14,22 @@ ms.date: 01/04/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2cb78d048559a011756362b58848c5e91ca40dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1cd391af4e4b4722e433e9bf25f0d584fba2321e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172391"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577238"
 ---
-# <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Azure AD Dizin rolleri için güvenlik uyarıları PIM'de yapılandırın
+# <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>PIM'de Azure AD rolleri güvenlik uyarılarını yapılandırma
 
-Azure AD Privileged Identity Management (PIM), ortamınızda şüpheli veya güvenli olmayan bir etkinlik olduğunda uyarılar oluşturur. Bir uyarı tetiklendiğinde, PIM panosunda görünür. Uyarıyı tetikleyen rollerin listeleyen bir rapor görmek için uyarıyı seçin.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM), ortamınızda şüpheli veya güvenli olmayan bir etkinlik olduğunda uyarılar oluşturur. Bir uyarı tetiklendiğinde, PIM panosunda görünür. Uyarıyı tetikleyen rollerin listeleyen bir rapor görmek için uyarıyı seçin.
 
 ![PIM güvenlik uyarıları - ekran görüntüsü](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## <a name="security-alerts"></a>Güvenlik uyarıları
 
-Bu bölüm, nasıl düzeltileceğini ve nasıl engelleyeceğinizi yanı sıra Dizin rolleri için tüm güvenlik uyarılarını listeler. Önem derecesi şu anlama sahiptir:
+Bu bölümde, nasıl düzeltileceğini ve engelleme ile birlikte Azure AD rolleri için tüm güvenlik uyarılarını listeler. Önem derecesi şu anlama sahiptir:
 
 * **Yüksek**: Acil eylem ilke ihlali nedeniyle gerektirir.
 * **Orta**: Acil eylem gerektirmeyen ancak olası bir ilke ihlali bildirir.
@@ -126,8 +126,8 @@ Güvenlik Uyarıları ortamınız ve Güvenlik amaçları ile çalışmak için 
 
 1. Bu uyarının ayarı yapılandırmak için bir uyarı adına tıklayın.
 
-    ![Güvenlik uyarısı ayarları](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
+    ![Güvenlik Uyarısı Ayarları](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [PIM'de Azure AD dizini rol ayarlarını yapılandırma](pim-how-to-change-default-settings.md)
+- [PIM'de Azure AD rol ayarlarını yapılandırma](pim-how-to-change-default-settings.md)

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 777bf38fbc8a90335af79bbd0fb2ce74310bd991
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a42eb7b57319df7de4c5277cdcdd93eb777f376c
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006805"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622119"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Uygulama Haritası: Dağıtılmış uygulamalar Önceliklendirme
 
@@ -199,11 +199,12 @@ Uygulama Haritası, beklendiği gibi çalışmaya başlama ile ilgili sorunlar y
 
 3. Azure işlevleri ile kullanıyorsanız, C#yükseltmek için [işlevler V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Onayla [cloud_RoleName](app-map.md#set-cloudrolename) doğru yapılandırılmış.
+4. Onayla [cloud_RoleName](#set-cloud_rolename) doğru yapılandırılmış.
 
 5. Bir bağımlılık eksikse, bunun [otomatik olarak toplanan bağımlılıklar](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies) listesinde bulunduğundan emin olun. Listede yoksa, bunu yine de [izleme bağımlılık çağrısı](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency) kullanarak el ile izleyebilirsiniz.
 
 ## <a name="portal-feedback"></a>Portalı geri bildirim
+
 Geri bildirim sağlamak için geri bildirim seçeneğini kullanın.
 
 ![MapLink 1 görüntüsü](./media/app-map/14-updated.png)

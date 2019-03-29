@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 26e54ba507ecab5d12ceb4169baaa52f99c20792
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b6a8393a5f47d7fb85699f6828c4d08cc7afcabc
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232439"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620708"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Coğrafi trafik yönlendirme yöntemi için Azure Traffic Manager tarafından kullanılan ülke/bölge hiyerarşisi
 
@@ -97,7 +97,7 @@ Bu makalede, ülke ve bölge tarafından kullanılan listeler **Geographic** tra
 
         - MD(Moldova)
 
-        - Me(Montenegro)
+        - ME(Montenegro)
 
         - MK (Makedonya, EYC)
 
@@ -128,6 +128,7 @@ Bu makalede, ülke ve bölge tarafından kullanılan listeler **Geographic** tra
         - SM (San Marino)
 
         - UA(Ukraine)
+            - Crimea bölgesi
 
         - VA (Vatikan)
 
@@ -199,7 +200,7 @@ Bu makalede, ülke ve bölge tarafından kullanılan listeler **Geographic** tra
 
             - CA NL(Newfoundland and Labrador)
 
-            - CA NS(Nova Scotia)
+            - CA-NS(Nova Scotia)
 
             - CA NT(Northwest Territories)
 
@@ -207,7 +208,7 @@ Bu makalede, ülke ve bölge tarafından kullanılan listeler **Geographic** tra
 
             - CA-on(Ontario)
 
-            - CA PE(Prince Edward Island)
+            - CA-PE(Prince Edward Island)
 
             - CA-QC(Québec)
 
@@ -219,7 +220,7 @@ Bu makalede, ülke ve bölge tarafından kullanılan listeler **Geographic** tra
 
         - Cu(Cuba)
 
-        - CW(CuraÃ§AO)
+        - CW(CuraÃ§ao)
 
         - DM(Dominica)
 
@@ -255,7 +256,7 @@ Bu makalede, ülke ve bölge tarafından kullanılan listeler **Geographic** tra
 
         - NI(Nicaragua)
 
-        - Pa(Panama)
+        - PA(Panama)
 
         - PM (Saint Pierre ve Miquelon)
 
@@ -331,7 +332,7 @@ Bu makalede, ülke ve bölge tarafından kullanılan listeler **Geographic** tra
 
             - ABD ND(North Dakota)
 
-            - US-ne(Nebraska)
+            - US-NE(Nebraska)
 
             - ABD NH(New Hampshire)
 
@@ -383,7 +384,7 @@ Bu makalede, ülke ve bölge tarafından kullanılan listeler **Geographic** tra
 
         - XE (Sint Eustatius)
 
-        - Xs(Saba)
+        - XS(Saba)
 
     - GEO-AS(Asia)
 
@@ -429,7 +430,7 @@ Bu makalede, ülke ve bölge tarafından kullanılan listeler **Geographic** tra
 
         - LA(Laos)
 
-        - LK (Sri Lanka)
+        - LK(Sri Lanka)
 
         - MM(Myanmar)
 
@@ -511,7 +512,7 @@ Bu makalede, ülke ve bölge tarafından kullanılan listeler **Geographic** tra
 
         - GW(Guinea_Bissau)
 
-        - Ke(Kenya)
+        - KE(Kenya)
 
         - KM(Comoros)
 
@@ -525,13 +526,13 @@ Bu makalede, ülke ve bölge tarafından kullanılan listeler **Geographic** tra
 
         - MG(Madagascar)
 
-        - ML(mali)
+        - ML(Mali)
 
         - MR(Mauritania)
 
         - MU(Mauritius)
 
-        - Mw(Malawi)
+        - MW(Malawi)
 
         - MZ(Mozambique)
 

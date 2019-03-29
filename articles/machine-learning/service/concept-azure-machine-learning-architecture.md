@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: ec35e383a182cf783c253b9242e6abb73e39385d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 9e910fb3bc75c285986871627d875296f1a2a746
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361107"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577331"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
 
@@ -46,11 +46,13 @@ Bu makalede, mimari ve Azure Machine Learning hizmeti için kavramlar açıklan�
 
 Model çalışma alanı ile kaydedin. Bir görüntü oluşturmak için kayıtlı bir model ve puanlama komut dosyaları'nı kullanın. Ardından görüntüyü Azure Container Instances, Azure Kubernetes hizmeti veya bir alanda programlanabilir kapı dizileri (FPGA) için bir REST tabanlı bir HTTP uç noktası olarak dağıtabilirsiniz. Ayrıca, görüntüyü Azure IOT Edge cihazına bir modül olarak dağıtabilirsiniz.
 
-Her bir çalışma alanı birden çok kişi tarafından paylaşılabilir ve birden çok çalışma alanı oluşturabilirsiniz. Bir çalışma alanı paylaştığınızda, kullanıcılara aşağıdaki rolleri atayarak erişim iznini kontrol edebilirsiniz:
+Her bir çalışma alanı birden çok kişi tarafından paylaşılabilir ve birden çok çalışma alanı oluşturabilirsiniz. Bir çalışma alanı paylaştığınızda, kullanıcılar için aşağıdaki rolleri atayarak erişim iznini kontrol edebilirsiniz:
 
 * Sahip
 * Katılımcı
 * Okuyucu
+
+Bu roller hakkında daha fazla bilgi için bkz. [yönetmek için bir Azure Machine Learning çalışma alanına erişim](how-to-assign-roles.md) makalesi.
 
 Yeni bir çalışma alanı oluşturduğunuzda, çalışma alanı tarafından kullanılan bazı Azure kaynakları otomatik olarak oluşturur:
 

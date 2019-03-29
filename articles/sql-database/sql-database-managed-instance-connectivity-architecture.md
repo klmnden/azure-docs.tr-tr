@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: ad005ff879ef5e4c0fb2fb72ce3062a5dd25d99a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: c7587b6cb2b4b30e265657b9d3792c9d4acd4428
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486793"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621558"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL veritabanı yönetilen örneği için bağlantı mimarisi 
 
@@ -107,7 +107,7 @@ Yönetilen örnek sanal ağ içinde ayrılmış bir alt ağ içinde dağıtın. 
 
 | Ad       |Bağlantı noktası          |Protokol|Kaynak           |Hedef|Eylem|
 |------------|--------------|--------|-----------------|-----------|------|
-|yönetim  |80, 443, 12000|TCP     |Herhangi biri              |Internet   |İzin Ver |
+|yönetim  |80, 443, 12000|TCP     |Herhangi biri              |AzureCloud  |İzin Ver |
 |mi_subnet   |Herhangi biri           |Herhangi biri     |Herhangi biri              |MI ALT *  |İzin Ver |
 
 > 9003, yalnızca bir gelen kuralı 9000, bağlantı noktaları olduğundan emin olmak için bağlantı noktası 80, 443, 12000 1438, 1440, 1452 ve bir giden kuralı. Giriş ve çıkış kuralları her bağlantı için ayrı olarak yapılandırılmışsa, ARM dağıtımları yönetilen örneğini sağlama başarısız olabilir. 

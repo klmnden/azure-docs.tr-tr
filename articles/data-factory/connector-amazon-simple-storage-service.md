@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 03/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 5a3da4d890cd5bdffa5373d2e1319009609283f2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6f531a814255b9171ff1767ede379bbd4f4a19b3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541647"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578178"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Amazon basit depolama hizmeti Azure Data Factory kullanarak veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ Bu makalede, kopyalama etkinliği Azure Data Factory'de Amazon S3'ten veri kopya
 
 Verileri Amazon S3, tüm desteklenen havuz veri deposuna kopyalayabilirsiniz. Kopyalama etkinliği tarafından kaynak ve havuz desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
-Özellikle, bu Amazon S3 bağlayıcı kopyalama dosyaları gibi destekler- ya da dosyaları ayrıştırma [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md).
+Özellikle, bu Amazon S3 bağlayıcı kopyalama dosyaları gibi destekler- ya da dosyaları ayrıştırma [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md). Kullandığı [AWS imza sürüm 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) S3 isteklerine kimlik doğrulaması için.
 
 >[!TIP]
 >Bu Amazon S3 bağlayıcı veri kopyalamak için kullanabileceğiniz **herhangi S3 ile uyumlu depolama sağlayıcıları** örn [Google bulut depolama](connector-google-cloud-storage.md). Bağlı hizmet yapılandırmasında karşılık gelen hizmet URL'si belirtin.

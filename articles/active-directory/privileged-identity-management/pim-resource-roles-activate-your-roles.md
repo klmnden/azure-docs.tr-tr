@@ -1,5 +1,5 @@
 ---
-title: Azure kaynağı rollerim PIM etkinleştirme | Microsoft Docs
+title: Azure kaynağı rollerim PIM - Azure Active Directory etkinleştirme | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM), Azure kaynak rolleri etkinleştirmeyi öğrenin.
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b574e538c407040518f3905f8fbd9fa91d5dd067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 23fcba94a8f29d0f1bc458dd4779e5a2f0c06f38
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002043"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575815"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Azure kaynağı rollerim PIM etkinleştir
 
-Azure AD Privileged Identity Management (PIM) kullanarak Azure kaynakları için uygun rolü üyeleri etkinleştirme bir gelecek tarih ve saat için zamanlayabilirsiniz. Bunlar, belirli etkinleştirme süresi üst sınırı (yönetici tarafından yapılandırılır) içinde de seçebilirsiniz.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kullanarak Azure kaynakları için uygun rolü üyeleri etkinleştirme bir gelecek tarih ve saat için zamanlayabilirsiniz. Bunlar, belirli etkinleştirme süresi üst sınırı (yönetici tarafından yapılandırılır) içinde de seçebilirsiniz.
 
 Bu makalede, Azure Kaynak rolü PIM etkinleştirmek için gereken üyeleri içindir.
 
@@ -38,7 +38,7 @@ Bir Azure Kaynak rolü gerektiğinde kullanarak etkinleştirme isteyebilir **rol
 
 1. Tıklayın **rollerim**.
 
-    ![Azure AD Dizin rolleri ve Azure kaynak rolleri - rollerim](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+    ![Azure AD rolleri ve Azure kaynak rolleri - rollerim](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
 1. Tıklayın **Azure kaynağı rolleri** , uygun bir Azure kaynağı rolleri listesini görmek için.
 
@@ -84,7 +84,7 @@ Azure kaynak rollerinizi hemen kullanmak için etkinleştirdikten sonra etkinle�
 
 1. Azure AD Privileged Identity Management'ı açın.
 
-1. Tıklayın **rollerim** , uygun bir listesini görmek için Azure AD Dizin rolleri ve Azure kaynağı rolleri.
+1. Tıklayın **rollerim** , uygun bir listesini görmek için Azure AD rolleri ve Azure kaynağı rolleri.
 
 1. Tıklayın **Azure kaynağı rolleri**.
 
@@ -100,9 +100,9 @@ Etkinleştirmek için Bekleyen isteklerinizi durumunu görüntüleyebilirsiniz.
 
 1. Azure AD Privileged Identity Management'ı açın.
 
-1. Tıklayın **isteklerim** Azure AD dizin rolü ve Azure Kaynak rolü listesini görmek için ister.
+1. Tıklayın **isteklerim** Azure AD rolüne ve Azure Kaynak rolü listesini görmek için ister.
 
-    ![Azure AD Dizin rolleri ve Azure kaynak rolleri - isteklerim](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
+    ![Azure AD rolleri ve Azure kaynak rolleri - isteklerim](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. Görüntülemek için sağa kaydırma **istek durumu** sütun.
 
@@ -138,4 +138,4 @@ Bir ileti alırsanız kapsamında bir rol ataması olan bir kaynak bir kaynak ki
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [PIM Azure kaynak rolleri genişletmek veya yenileme](pim-resource-roles-renew-extend.md)
-- [Azure AD dizin rollerim PIM etkinleştir](pim-how-to-activate-role.md)
+- [PIM Azure AD'ye rollerimi etkinleştir](pim-how-to-activate-role.md)

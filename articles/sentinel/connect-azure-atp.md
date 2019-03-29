@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 154af3988084792331db082b99cae0ae06126f1b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5254e60b9b7c38e5f4534e90f8aabe938aef99b2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242182"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574952"
 ---
 # <a name="collect-data-from-azure-advanced-threat-protection-atp"></a>Gelen Azure Gelişmiş tehdit Koruması (ATP) veri toplama
 
@@ -46,6 +46,7 @@ Varsa Azure ATP dağıtılan ve verileriniz başlayan kümeniz, şüpheli uyarı
 
 2. **Bağlan**'a tıklayın.
 
+6. İlgili şema Log Analytics'te Azure ATP uyarılarını kullanmak için arama **SecurityAlert**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu belgede, Azure Gözcü için Azure Gelişmiş tehdit koruması bağlanma öğrendiniz. Azure Gözcü hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:

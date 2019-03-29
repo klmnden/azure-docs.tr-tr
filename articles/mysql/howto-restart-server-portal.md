@@ -1,17 +1,17 @@
 ---
 title: Azure portalını kullanarak MySQL sunucusu için Azure veritabanını yeniden başlatın
-description: Bu makalede Azure portalını kullanarak MySQL için Azure veritabanı nasıl yeniden açıklanır.
+description: Bu makalede, Azure portalını kullanarak MySQL için Azure veritabanı nasıl yeniden açıklanır.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/7/2019
-ms.openlocfilehash: 6cf6679dc6398b112ffc964f50986b2ab30aba47
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a20030a1dc6cd8b89064731c283f9b462d30ec8f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882493"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621414"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Azure portalını kullanarak MySQL sunucusu için Azure veritabanını yeniden başlatın
 Bu konuda, MySQL için Azure veritabanı nasıl yeniden açıklanmaktadır. Sunucu işlemi gerçekleştirirken, kısa bir kesintiye neden sunucunuzun bakım nedeniyle yeniden başlatmanız gerekebilir.
@@ -22,7 +22,7 @@ Yeniden başlatma tamamlamak için gereken süreyi MySQL kurtarma işlemi bağl�
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu nasıl yapılır kılavuzunda tamamlanması gerekir:
-- Bir [MySQL sunucusu ve veritabanı için Azure veritabanı](quickstart-create-mysql-server-database-using-azure-portal.md)
+- Bir [MySQL sunucusu için Azure veritabanı](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 ## <a name="perform-server-restart"></a>Sunucunun yeniden başlatılmasını gerçekleştirme
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8973558e0841bfd0d6651a08d39da96b544156c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 223eff79d809a78d531d86d315fff80282cd29bb
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842466"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620164"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bulut Market yayımcısı olur
 
@@ -44,6 +44,8 @@ Bu makale, bir bulut Market yayımcısı kaydetme kapsar. Seçilen yayımlama se
 Kaydolduktan sonra kuruluşunuz için Microsoft iş ortağı ağ Kimliğini kaydedin. Bu adım 3'sırasında Market kaydı formunuza gönderirken ihtiyacınız olacak.
 *   Avantajları hakkında bilgi edinin [Microsoft iş ortağı ağı](https://partner.microsoft.com/commercial)
 *   Ardından, kuruluşunuzun varolan bir üyelik varsa, kayıt sırasında kuruluşunuzun katılır. Kullanırsanız [iş ortağı Merkezi](https://partnercenter.microsoft.com/partner/home), iş ortağı merkezi hesabınız kimliği görmeye devam. Kullanırsanız [iş ortağı üyelik Merkezi'nde (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), iş ortağı üyelik Merkezi'nde hesabınızdaki görmeye devam. 
+
+Microsoft ile bilet [iş ortağı Destek](https://partner.microsoft.com/support) MPN kayıt ile ilgili sorunlar için.
 
 ---
 

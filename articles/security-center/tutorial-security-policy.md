@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/14/2019
+ms.date: 3/28/2019
 ms.author: monhaber
-ms.openlocfilehash: d99ef6026f3605f4081393811d840ba3fe2892ba
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1931026869e930caef2ff2f92fb85dade15a9c8c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226122"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578450"
 ---
 # <a name="working-with-security-policies"></a>Güvenlik ilkeleriyle çalışma
 
@@ -109,7 +109,7 @@ Varsayılan güvenlik ilkesini, ortamınız için uygun değilse bir öneri olu�
 
    ![İlke yönetimi](./media/tutorial-security-policy/policy-management.png)
 
-2. Öneri devre dışı bırakmak istediğiniz aboneliğe tıklayın.
+2. Öneri devre dışı bırakmak istediğiniz abonelik veya yönetim grubuna tıklayın.
 
 1. Atanan ilke'ye tıklayın.
 

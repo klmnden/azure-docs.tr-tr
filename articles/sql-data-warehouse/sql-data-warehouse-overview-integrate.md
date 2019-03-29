@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 2995c08b2dc92f36061c6ba29be68b402b2d3ec0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d2fcdd4aa28a7d3b1a8e50629e5be1d88046a12b
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876485"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621218"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>SQL veri ambarı ile diğer Hizmetleri Tümleştirme
 Çekirdek işlevselliğini ek olarak, SQL veri ambarı birçok diğer Azure Hizmetleri ile tümleştirme olanağı sağlar. Bu hizmetlerden bazıları şunlardır:
@@ -58,6 +58,4 @@ Azure Stream Analytics, işleme ve oluşturulan Azure olay Hub'ından olay veril
 
 Daha fazla bilgi için [Azure Stream Analytics ile tümleştirme](sql-data-warehouse-integrate-azure-stream-analytics.md).
 
-## <a name="next-steps"></a>Sonraki adımlar
-Azure SQL veritabanı ile tümleştirmek için bkz: [yapılandırma SQL veritabanı esnek sorgu](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 

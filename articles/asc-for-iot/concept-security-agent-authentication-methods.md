@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 23bc4d0df1c8124ec225ac31239c7acb3f1ab546
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 2ace8ffd82efe70251b48e20593906986173cbb0
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541820"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577809"
 ---
 # <a name="security-agent-authentication-methods"></a>Güvenlik aracı kimlik doğrulama yöntemleri 
 
@@ -41,10 +41,12 @@ IOT Hub, IOT için ASC için her cihaz eklenmedi için bir güvenlik modülü ge
 
  - **Modül** kimlik doğrulama modu<br>
    Modül, cihaz ikizi bağımsız olarak doğrulanır.
-   Bu kimlik doğrulama türü için Authentication.config dosyası tarafından tanımlanır için gereken bilgileri C# ve c için LocalConfiguration.json
+   Güvenlik aracısının güvenlik modülüne (yalnızca simetrik anahtarı) aracılığıyla bir özel kimlik doğrulama yöntemini kullanmak isterseniz, bu kimlik doğrulama türünü kullanın.
         
  - **Cihaz** kimlik doğrulama modu<br>
-    Bu yöntemde, güvenlik aracı ilk karşı cihazın kimliğini doğrular. İlk kimlik doğrulamasından sonra IOT Aracısı ASC gerçekleştirir **Rest** Rest API ile cihaz kimlik doğrulama verilerini kullanarak IOT Hub'ına çağırın. ASC IOT aracı için güvenlik modülü kimlik doğrulama yöntemi ve veri ardından IOT Hub'ından ister. Son adımda ASC IOT aracısı için IOT modülü ASC karşı kimlik doğrulaması gerçekleştirir.    
+    Bu yöntemde, güvenlik aracı ilk cihaz kimliğiyle kimliğini doğrular. İlk kimlik doğrulamasından sonra IOT Aracısı ASC gerçekleştirir bir **REST** REST API ile cihaz kimlik doğrulama verilerini kullanarak IOT Hub'ına çağırın. ASC IOT aracı için güvenlik modülü kimlik doğrulama yöntemi ve veri ardından IOT Hub'ından ister. Son adımda ASC IOT aracısı için IOT modülü ASC karşı kimlik doğrulaması gerçekleştirir.
+    
+    Var olan bir cihaz kimlik doğrulama yöntemi yeniden (sertifika veya simetrik anahtar otomatik imzalanan) güvenlik aracı isterseniz bu kimlik doğrulama türünü kullanın. 
 
 Bkz: [güvenlik aracı yükleme parametrelerini](#security-agent-installation-parameters) nasıl yapılandırılacağını öğrenin.
                                 
@@ -55,7 +57,7 @@ Bkz: [güvenlik aracı yükleme parametrelerini](#security-agent-installation-pa
 
 ## <a name="security-agent-installation-parameters"></a>Güvenlik aracı yükleme parametreleri
 
-Zaman [güvenlik aracısı dağıtma](select-deploy-agent.md), kimlik doğrulama ayrıntıları bağımsız değişken olarak sağlanmalıdır.
+Zaman [güvenlik aracısı dağıtma](how-to-deploy-agent.md), kimlik doğrulama ayrıntıları bağımsız değişken olarak sağlanmalıdır.
 Bu bağımsız değişkenler aşağıdaki tabloda belirtilmiştir.
 
 
@@ -111,5 +113,5 @@ Düzen _LocalConfiguration.json_ şu parametrelerle:
 
 ## <a name="see-also"></a>Ayrıca bkz.
 - [Güvenlik aracıları genel bakış](security-agent-architecture.md)
-- [Güvenlik aracı dağıtma](select-deploy-agent.md)
+- [Güvenlik aracı dağıtma](how-to-deploy-agent.md)
 - [Erişim ham güvenlik verileri](how-to-security-data-access.md)

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 03/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 78008357e3ea8fbfe707a7dbead19e3fce83b578
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 34bc4d7cbdbb89cd9ff3f334ca32087c474735b7
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403706"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620096"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Öğretici: Azure veri kutusu ağ geçidi dağıtmaya hazırlanma
 
@@ -101,8 +101,11 @@ Bir veri kutusu ağ geçidi kaynağı oluşturmak için Azure portalında aşağ
     |Kaynak grubu  |Mevcut grubu seçin veya yeni bir grup oluşturun.<br>[Azure Kaynak Grupları](../azure-resource-manager/resource-group-overview.md) hakkında daha fazla bilgi edinin.     |
 
 5. Aşağıdaki seçin veya girin **örnek ayrıntıları**.
-   | Ad | Kaynağı tanımlamak için bir kolay ad.<br>Ad 2 ile 50 karakter arasında olmalı, harf, rakam ve kısa çizgilerden oluşmalıdır.<br> Ad bir harf veya rakamla başlar ve biter.        |   
-    | Bölge | Bu sürümde, Doğu ABD, Güneydoğu Asya ve Batı Avrupa, kaynak dağıtmak kullanılabilir. Azure kamu, kamu bölgeleri listelenen [Azure bölgeleri](https://azure.microsoft.com/global-infrastructure/regions/) kullanılabilir. <br> Cihazınızı dağıtmak istediğiniz coğrafi bölgeye yakın bir konum seçin. |
+
+    |Ayar  |Değer  |
+    |---------|---------|
+    |Ad   | Kaynağı tanımlamak için kolay bir ad.<br>Ad 2 ile 50 karakter arasında olmalı, harf, rakam ve kısa çizgilerden oluşmalıdır.<br> Ad bir harf veya rakamla başlar ve biter.        |   
+    |Bölge     |Bu sürümde, Doğu ABD, Güneydoğu Asya ve Batı Avrupa, kaynak dağıtmak kullanılabilir. Azure kamu, kamu bölgeleri listelenen [Azure bölgeleri](https://azure.microsoft.com/global-infrastructure/regions/) kullanılabilir. <br> Cihazınızı dağıtmak istediğiniz coğrafi bölgeye yakın bir konum seçin.|
     
     ![Data Box Gateway kaynağını oluşturma](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     

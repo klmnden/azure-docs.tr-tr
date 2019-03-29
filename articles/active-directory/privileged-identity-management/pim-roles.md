@@ -1,5 +1,5 @@
 ---
-title: Rolleri Yönet olamaz, PIM - Azure | Microsoft Docs
+title: PIM - Azure Active Directory yönetemezsiniz rolleri | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM) yönetemez rolleri açıklanır.
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 666b534c3ab07be2b1e2335015fc4723782a1249
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: aa5fb632ee5fd9c18bde7443e81fe2ef6e5335e4
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181584"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579555"
 ---
 # <a name="roles-you-cannot-manage-in-pim"></a>Rolleri PIM'de yönetemez.
 
-Azure AD Privileged Identity Management (PIM) tüm yönetmenize imkan sağlar [Azure AD Dizin rolleri](../users-groups-roles/directory-assign-admin-roles.md) ve tüm [Azure kaynağı rolleri](../../role-based-access-control/built-in-roles.md). Bu roller, Yönetim grupları, abonelik, kaynak grupları ve kaynaklara bağlı özel rollerinizi de içerir. Ancak, yönetemezsiniz birkaç rol vardır. Bu makalede PIM'de yönetemez rolleri açıklanır.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) tüm yönetmenize imkan sağlar [Azure AD rolleri](../users-groups-roles/directory-assign-admin-roles.md) ve tüm [Azure kaynağı rolleri](../../role-based-access-control/built-in-roles.md). Bu roller, Yönetim grupları, abonelik, kaynak grupları ve kaynaklara bağlı özel rollerinizi de içerir. Ancak, yönetemezsiniz birkaç rol vardır. Bu makalede PIM'de yönetemez rolleri açıklanır.
 
 ## <a name="classic-subscription-administrator-roles"></a>Klasik abonelik yönetici rolleri
 
@@ -44,5 +44,5 @@ Exchange Online veya SharePoint Online, Exchange yönetici ve SharePoint Yöneti
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure AD dizin rollerini PIM atayın](pim-how-to-add-role-to-user.md)
+- [Azure AD PIM Rolleri Ata](pim-how-to-add-role-to-user.md)
 - [PIM Azure kaynak Rolleri Ata](pim-resource-roles-assign-roles.md)

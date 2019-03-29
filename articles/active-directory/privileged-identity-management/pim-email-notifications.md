@@ -1,5 +1,5 @@
 ---
-title: E-posta bildirimleri PIM - Azure | Microsoft Docs
+title: E-posta bildirimleri PIM - Azure Active Directory | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM) e-posta bildirimleri tanımlar.
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f2e5674413cb4057187b7573fde0bcd8899caab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905180"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576956"
 ---
 # <a name="email-notifications-in-pim"></a>PIM e-posta bildirimleri
 
-Azure AD Privileged Identity Management (PIM), ne zaman bir rol atandıktan veya etkinleştirildikten gibi önemli olayları ne zaman oluştuğunu bilmenizi sağlar. PIM, diğer katılımcılarla bildirimleri e-posta göndererek haberdar tutar. Bu e-postaları da ilgili görevler, bu tür etkinleştirme veya bir rolü yenileme bağlantılar içerebilir. Bu makalede, bu e-postaları görünmesi, ne zaman gönderilir ve kimin alır açıklanır.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM), ne zaman bir rol atandıktan veya etkinleştirildikten gibi önemli olayları ne zaman oluştuğunu bilmenizi sağlar. PIM, diğer katılımcılarla bildirimleri e-posta göndererek haberdar tutar. Bu e-postaları da ilgili görevler, bu tür etkinleştirme veya bir rolü yenileme bağlantılar içerebilir. Bu makalede, bu e-postaları görünmesi, ne zaman gönderilir ve kimin alır açıklanır.
 
 ## <a name="sender-email-address-and-subject-line"></a>Gönderenin e-posta adresi ve konu satırı
 
@@ -101,5 +101,5 @@ Aşağıda kurgusal Contoso kuruluş için bir Azure Kaynak rolü atanmış bir 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [PIM'de Azure AD dizini rol ayarlarını yapılandırma](pim-how-to-change-default-settings.md)
-- [Onaylayın veya Azure AD dizin rollerini PIM isteklerini reddedin](azure-ad-pim-approval-workflow.md)
+- [PIM'de Azure AD rol ayarlarını yapılandırma](pim-how-to-change-default-settings.md)
+- [Onaylayın veya reddedin istekleri için Azure AD PIM rolleri](azure-ad-pim-approval-workflow.md)

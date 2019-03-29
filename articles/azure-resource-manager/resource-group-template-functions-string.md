@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: c35352c47edb4f34100501ac791c84108fa9ac17
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 07221e5d93c004a2542adfc3a5374fd75ca34b31
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762849"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621423"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Dize işlevleri için Azure Resource Manager şablonları
 
@@ -340,7 +340,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | ---- | ---- | ----- |
 | döndürülecek | Dizi | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-## <a name="contains"></a>içerir
+## <a name="contains"></a>şunu içerir
 
 `contains (container, itemToFind)`
 
@@ -1218,7 +1218,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | firstOutput | String | 1231231234 |
 | secodeOutput | String | 123-123-xxxx |
 
-## <a name="skip"></a>atla
+## <a name="skip"></a>Atla
 
 `skip(originalValue, numberToSkip)`
 
@@ -1609,7 +1609,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
 | arrayOutput | Dizi | ["", "iki"] |
-| stringOutput | String | açık |
+| stringOutput | String | şurada: |
 
 ## <a name="tolower"></a>toLower
 
@@ -1809,7 +1809,7 @@ Aşağıdaki örnek, kaynak grubunuzun tabanlı bir depolama hesabı için benze
     ...
 ```
 
-Her seferinde yeni bir benzersiz ad oluşturmanız gerekiyorsa bir şablonu dağıtmak ve kaynağı güncelleştirmek için hedefi yok, kullanabileceğiniz [utcNow](#utcnow) uniqueString işleviyle. Bir test ortamında bu yaklaşımı kullanabilirsiniz. Bir örnek için bkz. [utcNow](#utcNow).
+Her seferinde yeni bir benzersiz ad oluşturmanız gerekiyorsa bir şablonu dağıtmak ve kaynağı güncelleştirmek için hedefi yok, kullanabileceğiniz [utcNow](#utcnow) uniqueString işleviyle. Bir test ortamında bu yaklaşımı kullanabilirsiniz. Bir örnek için bkz. [utcNow](#utcnow).
 
 ### <a name="return-value"></a>Dönüş değeri
 

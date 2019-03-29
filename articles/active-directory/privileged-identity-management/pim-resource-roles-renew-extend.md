@@ -1,5 +1,5 @@
 ---
-title: PIM Azure kaynak rol atamalarını yenileme veya genişletme | Microsoft Docs
+title: PIM - Azure Active Directory, Azure kaynak rol atamalarını yenileme veya genişletme | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM) Azure kaynak rol atamalarını yenileme veya genişletme öğrenin.
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79549c1b8ed578319e43fc1c4354c7cd76f71589
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8aef7d4ac37109233af4ffb364b6f3e4c9b291ac
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004236"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578399"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>PIM Azure kaynak rol atamalarını yenileme veya genişletme
 
-Azure kaynakları için Privileged Identity Management (PIM) Azure kaynakları için erişim ve atama yaşam döngüsünü yönetmek için yeni denetimler sunar. Yöneticiler, üyeliği başlangıç ve bitiş tarihi zamanı özelliklerini kullanarak atayabilirsiniz. Atama sonuna yaklaştığında, PIM etkilenen kullanıcılar veya gruplar için e-posta bildirimleri gönderir. Ayrıca uygun erişim sağlandığından emin olmak için kaynak için Yöneticiler e-posta bildirimleri gönderir. Atamalar yenilenmesi ve erişim genişletilmedi bile görünür 30 güne kadar süresi dolmuş durumda kalır.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) Azure kaynakları için erişim ve atama yaşam döngüsünü yönetmek için yeni denetimler sunar. Yöneticiler, üyeliği başlangıç ve bitiş tarihi zamanı özelliklerini kullanarak atayabilirsiniz. Atama sonuna yaklaştığında, PIM etkilenen kullanıcılar veya gruplar için e-posta bildirimleri gönderir. Ayrıca uygun erişim sağlandığından emin olmak için kaynak için Yöneticiler e-posta bildirimleri gönderir. Atamalar yenilenmesi ve erişim genişletilmedi bile görünür 30 güne kadar süresi dolmuş durumda kalır.
 
 ## <a name="who-can-extend-and-renew"></a>Kimin genişletin, yenilemek ve?
 

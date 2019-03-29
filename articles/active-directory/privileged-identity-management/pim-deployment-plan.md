@@ -1,5 +1,5 @@
 ---
-title: Azure AD Privileged Identity Management (PIM) dağıtma | Microsoft Docs
+title: Privileged Identity Management (PIM) - Azure Active Directory dağıtma | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM) dağıtımını planlama açıklanır.
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05bf125d629ffef01a645dc407c341a984805520
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227040"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578212"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD Privileged Identity Management (PIM) dağıtma
 
-Bu adım adım kılavuzda, Azure AD Privileged Identity Management (PIM), kuruluşunuzdaki dağıtımını planlamak açıklar.
+Bu adım adım kılavuzda, Azure Active Directory (Azure AD) Privileged Identity Management (PIM), kuruluşunuzdaki dağıtımını planlama açıklar.
 
 > [!TIP]
 > Bu belge boyunca olarak işaretlenmiş olan öğeleri görürsünüz:
@@ -79,7 +79,7 @@ Daha fazla bilgi için [Azure AD Privileged Identity Management nedir?](pim-conf
 
 ### <a name="roles-that-can-be-managed-by-pim"></a>PIM tarafından yönetilebilen rolleri
 
-**Azure AD rolleri** – Azure Active Directory (örneğin, genel yönetici, Exchange yönetici ve Güvenlik Yöneticisi) içinde tüm dizin rolleri bu rolleridir. Daha fazla bilgi roller ve bunların işlevleri hakkında [Azure Active Directory'de Yönetici rolü izinleri](../users-groups-roles/directory-assign-admin-roles.md). Yöneticilerinize atamak için hangi rollerin belirleme konusunda daha fazla yardım için bkz: [göreviyle ayrıcalıklı rolleri az](../users-groups-roles/roles-delegate-by-task.md).
+**Azure AD rolleri** – tüm Azure Active Directory'de (örneğin, genel yönetici, Exchange yönetici ve Güvenlik Yöneticisi gibi) bu rolleridir. Daha fazla bilgi roller ve bunların işlevleri hakkında [Azure Active Directory'de Yönetici rolü izinleri](../users-groups-roles/directory-assign-admin-roles.md). Yöneticilerinize atamak için hangi rollerin belirleme konusunda daha fazla yardım için bkz: [göreviyle ayrıcalıklı rolleri az](../users-groups-roles/roles-delegate-by-task.md).
 
 **Azure kaynağı rolleri** – bu rol bir Azure kaynak, kaynak grubu, abonelik veya yönetim grubu bağlı. PIM katkıda bulunan, sahibi ve kullanıcı erişimi Yöneticisi gibi iki yerleşik role tam zamanında erişim sağlar yanı [özel roller](../../role-based-access-control/custom-roles.md). Azure kaynak rolleri hakkında daha fazla bilgi için bkz. [rol tabanlı erişim denetimi (RBAC)](../../role-based-access-control/overview.md).
 
@@ -294,7 +294,7 @@ Test kullanıcılarını tanımladığınıza göre PIM test kullanıcılarını
 
 #### <a name="configure-pim-for-azure-ad-roles"></a>Azure AD rolleri için PIM'i yapılandırın
 
-1. [Azure AD dizini rol ayarlarını yapılandırma](pim-how-to-change-default-settings.md) , planlanan üzerinde temel.
+1. [Azure AD rol ayarlarını yapılandırma](pim-how-to-change-default-settings.md) , planlanan üzerinde temel.
 
 1. Gidin **Azure AD rolleri**, tıklayın **rolleri**ve ardından, yapılandırdığınız rolü seçin.
 

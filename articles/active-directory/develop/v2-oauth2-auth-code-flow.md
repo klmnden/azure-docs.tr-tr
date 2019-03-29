@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/5/2019
+ms.date: 03/24/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02183abb60fe24b9ee9c769f7af696355966ab24
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 698dc61d42adb398376161480cf4d32180846c48
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551067"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577603"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0 protokolleri - OAuth 2.0 yetkilendirme kod akışı
 
@@ -67,7 +67,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parametre    | Gerekli/isteğe bağlı | Açıklama |
 |--------------|-------------|--------------|
 | `tenant`    | gerekli    | `{tenant}` İstek yolunda değer, uygulamaya oturum denetimi için kullanılabilir. İzin verilen değerler `common`, `organizations`, `consumers`ve Kiracı tanımlayıcıları. Daha fazla ayrıntı için [protokolü temel](active-directory-v2-protocols.md#endpoints).  |
-| `client_id`   | gerekli    | Kimliği (istemci) uygulama kayıt portalı ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) veya **uygulama kayıtları (Önizleme)** Azure portalında uygulamanıza atanan deneyimi.  |
+| `client_id`   | gerekli    | **Uygulama (istemci) kimliği** , [Azure portalında – uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) uygulamanıza atanan deneyimi.  |
 | `response_type` | gerekli    | İçermelidir `code` yetkilendirme kod akışı için.       |
 | `redirect_uri`  | Önerilen | Burada kimlik doğrulama yanıtlarının gönderilebilen veya uygulamanız tarafından alınan uygulamanızın redirect_uri. Bu url olarak kodlanmış olması dışında Portalı'nda kayıtlı redirect_uris biri tam olarak eşleşmesi gerekir. Yerel & mobil uygulamaları için varsayılan değeri kullanması gereken `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
 | `scope`  | gerekli    | Boşlukla ayrılmış bir listesini [kapsamları](v2-permissions-and-consent.md) onay kullanıcıya istiyor. |
@@ -154,7 +154,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parametre  | Gerekli/isteğe bağlı | Açıklama     |
 |------------|-------------------|----------------|
 | `tenant`   | gerekli   | `{tenant}` İstek yolunda değer, uygulamaya oturum denetimi için kullanılabilir. İzin verilen değerler `common`, `organizations`, `consumers`ve Kiracı tanımlayıcıları. Daha fazla ayrıntı için [protokolü temel](active-directory-v2-protocols.md#endpoints).  |
-| `client_id` | gerekli  | Uygulama kimliği kayıt portalı ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) uygulamanızı atanmış. |
+| `client_id` | gerekli  | (İstemci) uygulama kimliği [Azure portalında – uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) uygulamanıza atanan sayfası. |
 | `grant_type` | gerekli   | Olmalıdır `authorization_code` yetkilendirme kod akışı için.   |
 | `scope`      | gerekli   | Kapsamları boşlukla ayrılmış listesi. İçinde bu oluşturan istenen kapsamlar, eşdeğer veya ilk oluşturan içinde istenen kapsamları bir alt kümesi olmalıdır. Ardından bu istekte belirtilen kapsamlar birden çok kaynak sunucusu yayılıyorsa, v2.0 uç noktası ilk kapsamında belirtilen kaynak için bir belirteç döndürür. Kapsamlar hakkında daha ayrıntılı açıklaması için başvurmak [izinler ve onay kapsamları](v2-permissions-and-consent.md). |
 | `code`          | gerekli  | Akışın ilk oluşturan satın aldığınız authorization_code. |
@@ -267,7 +267,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parametre     |                | Açıklama        |
 |---------------|----------------|--------------------|
 | `tenant`        | gerekli     | `{tenant}` İstek yolunda değer, uygulamaya oturum denetimi için kullanılabilir. İzin verilen değerler `common`, `organizations`, `consumers`ve Kiracı tanımlayıcıları. Daha fazla ayrıntı için [protokolü temel](active-directory-v2-protocols.md#endpoints).   |
-| `client_id`     | gerekli    | **Uygulama (istemci) kimliği** , uygulama kayıt portalı ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) veya **uygulama kayıtları (Önizleme)** Azure portalında bir deneyimi vardır Uygulamanızı atanır.  |
+| `client_id`     | gerekli    | **Uygulama (istemci) kimliği** , [Azure portalında – uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) uygulamanıza atanan deneyimi. |
 | `grant_type`    | gerekli    | Olmalıdır `refresh_token` yetkilendirme kod akışı, bu oluşturan için. |
 | `scope`         | gerekli    | Kapsamları boşlukla ayrılmış listesi. İçinde bu oluşturan istenen kapsamlar, eşdeğer veya özgün authorization_code isteği oluşturan içinde istenen kapsamları bir alt kümesi olmalıdır. Ardından bu istekte belirtilen kapsamlar birden çok kaynak sunucusu yayılıyorsa, v2.0 uç noktası ilk kapsamında belirtilen kaynak için bir belirteç döndürür. Kapsamlar hakkında daha ayrıntılı açıklaması için başvurmak [izinler ve onay kapsamları](v2-permissions-and-consent.md). |
 | `refresh_token` | gerekli    | Akışın ikinci oluşturan satın aldığınız refresh_token. |

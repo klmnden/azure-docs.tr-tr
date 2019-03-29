@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: a1ee95ad847d20159c79af8f080cc7878e114759
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 2d6a5c96bf99439520e26fc905668835944cee29
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444519"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578935"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Genel amaçlı v2 depolama hesabı için yükseltme
 
@@ -21,7 +21,7 @@ Genel amaçlı v2 depolama hesabı için en son Azure depolama özelliklerini de
 Genel amaçlı v2 depolama hesabı, genel amaçlı v1'den veya Blob Depolama hesapları için yükseltme basit bir işlemdir. Azure portal, PowerShell veya Azure CLI kullanarak yükseltebilirsiniz.
 
 > [!IMPORTANT]
-> Genel amaçlı v1 veya Blob Depolama, depolama hesabı genel amaçlı v2'ye yükseltme kalıcıdır ve geri alınamaz.
+> Genel amaçlı v1 veya Blob Depolama hesabı genel amaçlı v2'ye yükseltme kalıcıdır ve geri alınamaz.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Azure portalını kullanarak yükseltme
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 9ca55a1c977b887e8d1ea51186068e57627e78f1
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 46107797acad52e3df82d341750c52f99c81d63e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542030"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578824"
 ---
-# <a name="introducing-asc-for-iot"></a>IOT için ASC Tanıtımı 
+# <a name="introducing-asc-for-iot"></a>IOT için ASC Tanıtımı
 
 > [!IMPORTANT]
 > ASC IOT için şu anda genel Önizleme aşamasındadır.
@@ -45,7 +45,7 @@ Tüm şirket içi güvenlik birleşik bir görünümünü elde ve iş yükleri, 
 
 ### <a name="adaptive-threat-prevention"></a>Uyarlamalı tehdit önleme
 
-IOT için ASC makineler, ağlar ve Azure IOT çözümünüzden uç cihazlarında uygulamaları gibi Azure hizmetlerini güvenliğini sürekli olarak izlemek için kullanın. Yüzlerce yerleşik güvenlik değerlendirmeleri ile kullanın veya kendi IOT hub'ı Pano için merkezi ASC oluşturmak seçim yapabilirsiniz. Güvenlik ayarlarını en iyi duruma getirmek ve sanal makineler, ağlar, uygulamalar ve verilerde, eyleme dönüştürülebilir öneriler güvenlik puanıyla geliştirin. Artık yeni eklenen IOT özelliklerle, saldırı yüzeyini azaltmak için Azure IOT çözümünüzü ve kötüye kullanılmadan önce sorunları düzeltin. 
+IOT için ASC makineler, ağlar ve Azure IOT çözümünüzden uç cihazlarında uygulamaları gibi Azure hizmetlerini güvenliğini sürekli olarak izlemek için kullanın. Yüzlerce yerleşik güvenlik değerlendirmeleri ile kullanın veya kendi IOT hub'ı Pano için merkezi ASC oluşturmak seçim yapabilirsiniz. Güvenlik ayarlarını en iyi duruma getirmek ve sanal makineler, ağlar, uygulamalar ve verilerde, eyleme dönüştürülebilir öneriler güvenlik puanıyla geliştirin. Artık yeni eklenen IOT özelliklerle, saldırı yüzeyini azaltmak için Azure IOT çözümünüzü ve kötüye kullanılmadan önce sorunları düzeltin.
 
 ### <a name="intelligent-threat-detection-and-response"></a>Akıllı tehdit algılama ve yanıtlama
 

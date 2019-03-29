@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7cd90b987550dc60b30d3aa0cd1016b681eec85f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ad501958a5f88c821e48a3e21f69a960160b3c8e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547045"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574867"
 ---
 # <a name="collect-data-from-office-365-logs"></a>Office 365 günlüklerinden verileri toplama
 
@@ -33,7 +33,7 @@ Denetim günlükleri akışını [Office 365](https://docs.microsoft.com/office3
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Kiracınızda genel yönetici veya güvenlik yöneticisi olmanız gerekir
-- Bir kiracı eklemek, bağlantıyı gerçekleştiren bilgisayarın web trafiğinde bağlantı noktası 4433 açın.
+- Bilgisayarınızda, bağlantı oluşturmak için Azure Gözcü oturum web trafiğinin yapma suretha bağlantı noktası 4433 açıktır.
 
 ## <a name="connect-to-office-365"></a>Office 365’e bağlanın
 

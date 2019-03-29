@@ -1,6 +1,6 @@
 ---
-title: Azure AD dizin rollerini PIM için erişim gözden geçirmesi tamamlama | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM), Azure AD Dizin rolleri için erişim gözden geçirmesi tamamlama ve sonuçları görüntüleme hakkında bilgi edinin
+title: Azure AD PIM - Azure Active Directory rolleri için erişim gözden geçirmesi tamamlama | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM), Azure AD rolleri için erişim gözden geçirmesi tamamlama ve sonuçları görüntüleme hakkında bilgi edinin
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,15 +14,15 @@ ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bea4f649b40298de15b8352fc8eb522da87dead5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ed53c8bb3cb735822fc40aab86ca40bef7b9607a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190356"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619191"
 ---
-# <a name="complete-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Azure AD dizin rollerini PIM için erişim değerlendirmesi tamamlama
-Ayrıcalıklı rol yöneticileri gözden geçirebileceğiniz ayrıcalıklı erişim kez bir [erişim gözden geçirmesi çalışmaya](pim-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) otomatik olarak kullanıcıların erişim gözden geçirilecek kullanıcılar isteyen bir e-posta gönderir. Bir kullanıcı bir e-posta alma değil, onlara yönergeleri gönderebilirsiniz [erişim gözden geçirmesi gerçekleştirme](pim-how-to-perform-security-review.md).
+# <a name="complete-an-access-review-for-azure-ad-roles-in-pim"></a>Azure AD PIM rolleri için erişim değerlendirmesi tamamlama
+Ayrıcalıklı rol yöneticileri gözden geçirebileceğiniz ayrıcalıklı erişim kez bir [erişim gözden geçirmesi çalışmaya](pim-how-to-start-security-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) otomatik olarak kullanıcıların erişim gözden geçirilecek kullanıcılar isteyen bir e-posta gönderir. Bir kullanıcı bir e-posta alma değil, onlara yönergeleri gönderebilirsiniz [erişim gözden geçirmesi gerçekleştirme](pim-how-to-perform-security-review.md).
 
 Erişim gözden geçirmesi dönemi bittikten veya tüm kullanıcılar, kendi kendini gözden tamamladıktan sonra gözden geçirme yönetmek ve sonuçları görmek için bu makaledeki adımları izleyin.
 
@@ -55,5 +55,5 @@ Diğer incelemesindeki ilgilenmiyorsanız silin. **Sil** düğmesini gözden PIM
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure AD Dizin rolleri için erişim gözden geçirmesi PIM'de Başlat](pim-how-to-start-security-review.md)
-- [PIM hizmetinde Azure AD dizin rollerimin erişim gözden geçirmesini gerçekleştirme](pim-how-to-perform-security-review.md)
+- [Azure AD rolleri için erişim gözden geçirmesi PIM'de Başlat](pim-how-to-start-security-review.md)
+- [PIM'de erişim gözden geçirmesi Azure AD'ye rollerim gerçekleştirin](pim-how-to-perform-security-review.md)

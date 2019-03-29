@@ -7,133 +7,94 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
-ms.date: 04/17/2018
+ms.date: 03/27/2019
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 0e82c1887cb096c7c95ad7e1cbbc1d76962f7831
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 74449f7319f800e8008c5d457351fa49ae1af59a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000445"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621711"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL veri ambarı veri tümleştirme iş ortakları
-Veri ambarı çözümünüzü oluşturmak için çok çeşitli sektör lideri araçları seçin. Bu makalede, Azure SQL veri ambarı destekleyen veri tümleştirme çözümleri ile Microsoft iş ortağı şirketlerden vurgulanır.
+Veri ambarı çözümünüzü oluşturmak için çok çeşitli sektör lideri araçları seçin. Bu makalede, Azure SQL veri ambarı destek resmi veri tümleştirme çözümleri ile Microsoft iş ortağı şirketlerden vurgulanır.
 
 ## <a name="data-integration-partners"></a>Veri tümleştirme iş ortakları
-| İş Ortağı | Açıklama | Bağlantılar | Videolar |
-| --- | --- | --- | --- |
-| ![Alteryx][1] |**Alteryx**<br> Alteryx Tasarımcısı, daha kapsamlı içgörüler için değil, geleneksel yaklaşım tipik hafta saat olarak müşteri adayları Self Servis veri analizi için bir iş akışı sağlar! Alteryx Tasarımcısı, veri hazırlama, verileri ve Tahmine dayalı, istatistiksel ve uzamsal – aynı sezgisel kullanıcı arabirimini kullanarak Analiz – birleştirerek veri analistleri yardımcı olur. |[Market][alteryx_marketplace]<br>[Web sitesi][alteryx_designer_website]<br>[Teknik incelemesi][alteryx_whitepaper]<br>[Veri sayfası][alteryx_designer_datasheet]<br>[Twitter][alteryx_designer_twitter]<br>[YouTube][alteryx_designer_youtube] |[![Alteryx video](./media/sql-data-warehouse-partner-data-integration/alteryx_designer_video.jpg)](https://www.youtube.com/watch?v=CdqSDPyNDKc) |
-| ![Attunity][2] |**Attunity**<br>Attunity CloudBeam SQL Data warehouse'a veri yükleme için otomatik ve en iyi duruma getirilmiş bir çözüm sağlar. "'ye tıklayın yükleme" bir tasarım, basitleştirir ve hem toplu yükleme, hem de SQL Server, Oracle, DB2, Sybase ve mySQL gibi birçok heterojen veritabanlarında artımlı çoğaltma hızlandırır. |[Market][attunity_marketplace]<br>[Hızlı Başlangıç][attunity_quickstart]<br>[Web sitesi][attunity_cloudbeam_website]<br>[Veri sayfası][attunity_cloudbeam_datasheet]<br>[Twitter][attunity_cloudbeam_twitter]<br>[YouTube][attunity_cloudbeam_youtube] |[![Attunity video](./media/sql-data-warehouse-partner-data-integration/attunity_video.jpg)](https://www.youtube.com/watch?v=w14zuSjMlok) |
-| ![Bryte sistemleri][3] |**Bryte sistemleri**<br>Çeşitli veritabanları ve kaynakları Bryte sistemleri SQL Data Warehouse'a veri aktarımı otomatikleştirir. Bryte sistemleri veri taşıma ve tümleştirme teknolojileri konusunda uzmanlaşmış. Bunlar, bulut tabanlı veri ambarları ve veri gölleri açığa çıkarmak için oluşturun. |[Web sitesi][bryte_systems_azure_website] | |
-| ![Informatica][4] |**Azure Kullandıkça Öde Informatica bulut Hizmetleri**<br> Azure hizmetlerinizin değerini artırmanız ve eyleme dönüştürülebilir Öngörüler, Kullandıkça Öde Azure için Informatica bulut Hizmetleri ile tüm karma veri kümelerini dışında. Informatica bulut veri tümleştirme, bulut analizi, uygulama tümleştirmesi ve veri yönetimi için sınıfının en iyi çözüm sunar. Self Servis veri geçişi ile tümleştirme ve yönetim özellikleri müşteriler hızlı ve güvenilir bir şekilde içeri aktarabilir, dışarı aktarma, eşitleme ve zamanlama petabaytlarca veriyi kaynakları SaaS uygulamalarına, Hadoop tabanlı veri gölleri gibi çeşitli Azure ve diğer şirket içi veri kaynakları (Oracle, SAP). Azure için Informatica bulut Hizmetleri, yerel, yüksek birim, Azure SQL veri ambarı, SQL veritabanı, Blob Depolama, Data Lake Store ve Azure Cosmos DB için yüksek performanslı bağlantı sağlar. |[Market][informatica_Cloud_Services_marketplace]<br>[Ücretsiz deneme][informatica_cloud_free_trial]<br>[Yapılandırma Kılavuzu][informatica_cloud_services_config]<br>[Web sitesi][informatica_Cloud_Services_website]<br>[Twitter][informatica_cloud_twitter]<br>[YouTube][informatica_cloud_youtube] | |
-| ![Informatica][4] |**Informatica PowerCenter**<br>Informatica, dünyanın en tanınabilir bağımsız sağlayıcı veri tümleştirme yazılım biridir. PowerCenter tüm veri tümleştirme girişimler için temel oluşturur. PowerCenter analiz, veri ambarlama, uygulama geçiş, birleştirme veya veri yönetimi için kullanın. |[Market][informatica_PowerCenter_byol]<br>[Web sitesi][informatica_PowerCenter_website]<br>[Veri sayfası][informatica_powercenter_datasheet]<br>[Twitter][informatica_powercenter_twitter]<br>[YouTube][informatica_powercenter_youtube] | |
-| ![Redgate][5] |**Redgate Data Platform Studio (Önizleme)**<br>Redgate Data Platform Studio, şirket içi SQL veritabanları Azure SQL veri ambarı'na geçirmek için basit ve güvenilir bir yol sağlar. Tam otomatik geçiş için akıllı kararlar almak için tasarlanmıştır ve bir kerelik geçiş için ücretsiz olarak kullanılabilir. |[Web sitesi][redgate_website]<br>[Twitter][redgate_twitter]<br>[YouTube][redgate_youtube] |[![Redgate video](./media/sql-data-warehouse-partner-data-integration/redgate_video.jpg)](https://www.youtube.com/watch?v=IR9HNvnU46s) |
-| ![SnapLogic][6] |**SnapLogic**<br>(İPaaS) hizmet olarak SnapLogic tümleştirme platformu, müşterilerin hızla içine ve dışına Microsoft Azure SQL veri ambarı veri aktarımı sağlar. SnapLogic uygulamalarınıza, hizmetlerinize ve bir çözümde IOT senaryoları yüzlerce tümleştirme olanağı sunar. Hızlı, etkili içgörüler bulutta, şirket içi veya karma modda SnapLogic sunar! |[Market][snaplogic_marketplace]<br>[Web sitesi][snaplogic_website]<br>[Veri sayfası][snaplogic_datasheet]<br>[Twitter][snaplogic_twitter]<br>[YouTube][snaplogic_youtube] |[![Snaplogic video](./media/sql-data-warehouse-partner-data-integration/snaplogic_video.jpg)](https://www.youtube.com/watch?v=YiJCwObOh5Y) |
+| İş ortağı | Açıklama | Web sitesi/ürün bağlantısı |
+| ------- | ----------- | -------------------- |
+| ![Alooma][7] |**Alooma**<br> Alooma veri ekipleri, tümleştirme, zenginleştirin ve verileri çeşitli veri ambarlarının yayılması gelen SQL veri ambarı tüm gerçek zamanlı akış sağlayan bir ETL çözümüdür. |[Ürün sayfası][alooma_website] |
+| ![Alteryx][1] |**Alteryx**<br> Alteryx Tasarımcısı, daha kapsamlı içgörüler için değil, geleneksel yaklaşım tipik hafta saat olarak müşteri adayları Self Servis veri analizi için bir iş akışı sağlar! Alteryx Tasarımcısı, veri hazırlama, verileri ve Tahmine dayalı, istatistiksel ve uzamsal – aynı sezgisel kullanıcı arabirimini kullanarak Analiz – birleştirerek veri analistleri yardımcı olur. |[Ürün sayfası][alteryx_designer_website]<br>[Azure Market][alteryx_marketplace]<br>|
+| ![Attunity][2] |**Attunity (CloudBeam)**<br>Attunity CloudBeam SQL Data Warehouse'a veri yükleme için otomatik bir çözüm sağlar. Toplu yükleme ve - SQL Server, Oracle, DB2, Sybase, MySQL ve daha pek çok kaynaktan alınan verileri, artımlı çoğaltma kolaylaştırır. |[Ürün sayfası][attunity_cloudbeam_website]<br>[Azure Market][attunity_marketplace]<br> |
+| ![Denodo][3] |**Denodo**<br>Denodo, bir kuruluşun farklı veri kaynakları arasında gerçek zamanlı veri erişim sağlar. Çoğaltma olmayan birçok kaynakları arasında köprü verilere veri sanallaştırma kullanır. Enterprise, büyük veri ve bulut kaynaklarında batch hem gerçek zamanlı bulunan yapılandırılmış ve yapılandırılmamış veriler için daha geniş erişim sunar.|[Ürün sayfası][denodo_website]<br>[Azure Market][denodo_marketplace]<br> |
+| ![Fivetran][8] |**Fivetran**<br>Fivetran birbirinden farklı kaynaklardan gelen verileri tek bir merkezden yönetin yardımcı olur. Bir sıfır Bakım özellikleri sıfır yapılandırma veri işlem hattı, ürünle birlikte tüm popüler veri kaynakları için yerleşik bağlayıcılar giderek büyüyen bir listesi. Kurulum, veri kaynağı ve hedef veri ambarı için kimliklerini doğruladıktan sonra beş dakika sürer.|[Ürün sayfası][fivetran_website]<br> |
+| ![Informatica][4] |**1. Azure için Informatica bulut Hizmetleri**<br> Informatica bulut Self Servis veri geçişi, tümleştirmesi ve yönetim özellikleri için sınıfının en iyi çözüm sunar. Müşteriler hızlı ve güvenilir bir şekilde içeri aktarabilir ve petabaytlarca veriyi Azure'a çeşitli kaynaklardan dışarı aktarın. Azure için Informatica bulut Hizmetleri, yerel, yüksek birim, Azure SQL veri ambarı, SQL veritabanı, Blob Depolama, Data Lake Store ve Azure Cosmos DB için yüksek performanslı bağlantı sağlar. <br><br> **2 Informatica PowerCenter** PowerCenter bu jumpstarts meta veri temelli bir veri tümleştirme platformudur ve veri tümleştirme projeleri için iş verileri el ile el kodlama daha hızlı teslim etmek için hızlandırır. Veri tümleştirme yatırımlarınızı temeli olarak kullanılır |**Azure için Informatica bulut Hizmetleri**<br>[Ürün sayfası][informatica_Cloud_Services_website]<br>[Azure Market][informatica_Cloud_Services_marketplace]<br><br> **Informatica PowerCenter**<br>[Ürün sayfası][informatica_PowerCenter_website]<br> [Azure Market][informatica_PowerCenter_byol]<br>|
+| ![Bilgi oluşturucular][5] |**Bilgi oluşturucular (veri yönetimi Gen Omni)**<br>Bilgi oluşturucunun Omni genel veri yönetimi platformu veri tümleştirmesi, veri kalitesini ve ana veri yönetimi çözümleri sağlar. Bu erişim, taşıma ve biçimi, konum, birim veya gecikme süresi bağımsız olarak tüm veri blend kolaylaştırır.|[Ürün sayfası][omnifocus_website]<br> [Azure Market][omnigen_marketplace] |
+| ![Qubole][9] |**Qubole**<br>Qubole kullanıcıların ETL, analiz ve yapay ZEKA/ML iş yükleri gerçekleştir olanak sağlayan bir bulutta çalışan platform sunar. Bu, çeşitli açık kaynak altyapılarını - Apache Spark, TensorFlow, Presto, hava akışı, Hadoop, Hive ve daha fazlasını destekler. Not defterlerini ve güçlü açık kaynak altyapılarını yararlanan panolara SQL sorgu araçları, veri işleme için kullanımı kolay son kullanıcı araçları sağlar.|[Ürün sayfası][qubole_website]<br> [Azure Market][qubole_marketplace] |
+| ![Segment][10] |**Segment**<br>Veri Yönetimi segmenttir ve yardımcı olan Analiz çözümleri çeşitli kaynaklardan gelen müşteri verilerini anlamlı. Verilerinizi daha iyi kararlar, ürünler ve deneyimler oluşturmak için 200'den fazla araçları bağlanmanıza olanak sağlar. Segmenti Dönüştür ve ambarınıza, yerleşik veri bağlayıcılarını kullanarak, birden çok veri kaynağına yüklemek|[Ürün sayfası][segment_website]<br> |
+| ![Skyvia][11] |**Skyvia (veri tümleştirmesi)**<br>Skyvia veri tümleştirmesi, veri içeri aktarmaları otomatik hale getiren bir sihirbaz sağlar. Bu sihirbaz, çeşitli kaynaklardan - katılımlarını, uygulama veritabanını, CSV dosyaları ve diğer arasında verileri geçirmenizi sağlar. |[Ürün sayfası][segment_website]<br> |
+| ![SnapLogic][6] |**SnapLogic**<br>SnapLogic platformu, müşterilerin hızla içine ve dışına Microsoft Azure SQL veri ambarı veri aktarımı sağlar. Uygulamalarınıza, hizmetlerinize ve bir çözümde IOT senaryoları yüzlerce tümleştirme olanağı sunar.|[Ürün sayfası][snaplogic_website]<br>[Azure Market][snaplogic_marketplace]<br> |
+| ![Talend][12] |**Talend bulut**<br>Bağlanmak, erişmek ve tüm şirket içi ve bulut arasında dönüştürme interprise veri tümleştirme platformu Talend bulutudur. Son büyük veri ve bulut teknolojileri için geniş bir bağlantı, yerleşik veri kalitesi ve yerel destek sağlayan bir tümleştirme hizmet olarak platform-a-(iPaaS) teklifi olan |[Ürün sayfası][talend_website]<br> [Azure Market][talend_marketplace] |
+| ![Trifacta][13] |**Trifacta Wrangler**<br> Kişiler Trifacta yardımcı olur ve kuruluşların keşfedin ve analiz için çeşitli veri birlikte katılın. Trifacta Wrangler, ölçek ve son kullanıcılar, çok sayıda veri desteklemek için gereken veri denetimi iş yüklerini işlemek üzere tasarlanmıştır.|[Ürün sayfası][trifacta_website]<br> [Azure Market][trifacta_marketplace] |
+| ![WhereScape][14] |**Wherescape kırmızı**<br> WhereScape kırmızı ETL iş akışları kolaylaştırmak için Otomasyon araçları ile takımlar sağlayan bir ıde'dir. En iyi uygulama, popüler veri hedefler için en iyi duruma getirilmiş yerel kod IDE sağlar. WhereScape kırmızı, geliştirmek, dağıtmak ve veri altyapınızı çalıştırma süresini yarıya için kullanın.|[Ürün sayfası][wherescape_website]<br> [Azure Market][wherescape_marketplace] |
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Diğer iş ortaklarıyla ilgili daha fazla bilgi için bkz. [iş zekası iş ortakları] [ bi_partners] ve [veri yönetimi iş ortakları][dm_partners].
 
+<!--Article links-->
+
+[bi_partners]: ./sql-data-warehouse-partner-business-intelligence.md
+[di_partners]: ./sql-data-warehouse-partner-data-integration.md
+[dm_partners]: ./sql-data-warehouse-partner-data-management.md
+
+
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-partner-data-integration/alteryx_logo.png
 [2]: ./media/sql-data-warehouse-partner-data-integration/attunity_logo.png
-[3]: ./media/sql-data-warehouse-partner-data-integration/bryte_systems_logo.png
+[3]: ./media/sql-data-warehouse-partner-data-integration/denodo_logo.png
 [4]: ./media/sql-data-warehouse-partner-data-integration/informatica_logo.png
-[5]: ./media/sql-data-warehouse-partner-data-integration/redgate_logo.png
+[5]: ./media/sql-data-warehouse-partner-data-integration/informationbuilders_logo.png
 [6]: ./media/sql-data-warehouse-partner-data-integration/snaplogic_logo.png
+[7]: ./media/sql-data-warehouse-partner-data-integration/alooma_logo.png
+[8]: ./media/sql-data-warehouse-partner-data-integration/fivetran_logo.png
+[9]: ./media/sql-data-warehouse-partner-data-integration/qubole_logo.png
+[10]: ./media/sql-data-warehouse-partner-data-integration/segment_logo.png
+[11]: ./media/sql-data-warehouse-partner-data-integration/skyvia_logo.png
+[12]: ./media/sql-data-warehouse-partner-data-integration/talend_logo.png
+[13]: ./media/sql-data-warehouse-partner-data-integration/trifacta_logo.png
+[14]: ./media/sql-data-warehouse-partner-data-integration/wherescape_logo.png
 
-
-<!--Article links-->
-[bi_partners]: ./sql-data-warehouse-partner-business-intelligence.md
-[dm_partners]: ./sql-data-warehouse-partner-data-management.md
-[di_partners]: ./sql-data-warehouse-partner-data-integration.md
-
-<!--ebook Links-->
-
-<!--Configuration Guides-->
-[informatica_cloud_services_config]:https://kb.informatica.com/proddocs/Product%20Documentation/6/IC_Spring2017_MicrosoftAzure[SQL]DataWarehouseConnectorGuide_en.pdf
-
-<!--Datasheet Links-->
-[alteryx_designer_datasheet]:https://www.alteryx.com/sites/default/files/resources/files/alt-designer-ds.pdf
-[attunity_cloudbeam_datasheet]:http://www.attunity.com/sites/default/files/content/attunity-azure-solution-sheet.pdf
-
-<!--[bryte_systems_azure_datasheet]:-->
-
-<!--[informatica_cloud_datasheet]:https://www.informatica.com/content/dam/informatica-com/global/amer/us/collateral/data-sheet/cloud-integration-platform_data-sheet_2711.pdf-->
-
-[informatica_powercenter_datasheet]:https://www.informatica.com/content/dam/informatica-com/global/amer/us/collateral/brochure/powercenter_brochure_6659.pdf
-[snaplogic_datasheet]:https://campaigns.snaplogic.com/rs/055-FYJ-916/images/SnapLogic-for-Microsoft-Cortana.pdf
-
-<!--Free Trial-->
-[informatica_cloud_free_trial]:https://www.informatica.com/products/cloud-integration/connectivity/microsoft-azure-connector.html
 
 <!--Website Links -->
+
+[alooma_website]:https://www.alooma.com/
 [alteryx_designer_website]:https://www.alteryx.com/partners/microsoft/
 [attunity_cloudbeam_website]:http://www.attunity.com/attunity-cloudbeam-for-azure/
 [bryte_systems_azure_website]:https://www.bryteflow.com/
 [informatica_Cloud_Services_website]:https://www.informatica.com/products/cloud-integration.html
 [informatica_PowerCenter_website]:https://www.informatica.com/products/data-integration/powercenter.html
-[redgate_website]:http://dataplatformstudio.com/
-[snaplogic_website]:https://www.snaplogic.com/solutions/microsoft-cortana-analytics-integration/
+[snaplogic_website]:https://www.snaplogic.com/
+[denodo_website]:https://www.denodo.com/en
+[fivetran_website]:https://fivetran.com/
+[omnifocus_website]:https://www.informationbuilders.com/3i-platform
+[qubole_website]:https://www.qubole.com/
+[segment_website]:https://segment.com/
+[skyvia_website]:https://skyvia.com/
+[talend_website]:https://www.talend.com/
+[trifacta_website]:https://www.trifacta.com/
+[wherescape_website]:https://www.wherescape.com/
 
 <!--Marketplace Links -->
+
 [alteryx_marketplace]:https://azure.microsoft.com/marketplace/partners/alteryx/alteryx-designer/
 [attunity_marketplace]:https://azure.microsoft.com/marketplace/partners/attunity-cloudbeam/cloudbeam-dw-byol/ 
-
-<!--[bryte_systems_marketplace]:https://azure.microsoft.com/marketplace/partners/bryte/bryteflow-cdc-free-trial/--> 
-
+[denodo_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/denodo.denodo-platform-7_0
 [informatica_Cloud_Services_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/informatica.ics-byol
-
-<!--[informatica_PowerCenter_std_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica/informatica-powercenter-standard-10-0pc-std-10-0-windows/
-[informatica_PowerCenter_adv_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica/informatica-powercenter-advanced-10-0pc-adv-10-0-ubuntu/-->
-
-[informatica_PowerCenter_byol]:https://azuremarketplace.microsoft.com/en-us/marketplace/apps/informatica.powercenter/
-
-<!--[redgate_marketplace]:-->
-
+[informatica_PowerCenter_byol]:https://azuremarketplace.microsoft.com/marketplace/apps/informatica.powercenter/
 [snaplogic_marketplace]:https://azure.microsoft.com/marketplace/partners/snaplogic/snaplogic-elastic-integration-windows/ 
-
-<!--Quickstart_links-->
-
-[attunity_quickstart]:https://www.attunity.com/products/cloudbeam/solutions-attunity-cloudbeam-azure-data-analytic-services/
-
-<!--PressRelease_links-->
-
-[alteryx_designer_press]:https://www.alteryx.com/press-releases/alteryx-now-enables-data-analysts-to-perform-in-database-blending-in-microsoft-azure 
-[attunity_cloudbeam_press]:http://www.attunity.com/news/attunity-launches-cloud-data-warehouse-solutions-microsoft-azure
-[bryte_systems_azure_press]:https://medianet.com.au/releases/release-details?id=837667
-
-<!--[informatica_Cloud_Services_press]:-->
-<!--[informatica_PowerCenter_press]:-->
-
-<!--[redgate_press]:-->
-
-[snaplogic_press]:https://www.snaplogic.com/press-releases/snaplogic-introduces-support-for-microsoft-azure-sql-data-warehouse
-
-<!--YouTube-->
-
-[alteryx_designer_youtube]:https://www.youtube.com/user/alteryx
-[attunity_cloudbeam_youtube]:https://www.youtube.com/user/Attunity
-
-<!--[bryte_systems_azure_youtube]:-->
-
-[informatica_Cloud_youtube]:https://www.youtube.com/user/InformaticaOnDemand
-[informatica_PowerCenter_youtube]:https://www.youtube.com/user/InformaticaCorp
-[redgate_youtube]:https://www.youtube.com/user/RedGateVideos
-[snaplogic_youtube]:https://www.youtube.com/user/snapLogicInc
-
-<!--Twitter-->
-
-[alteryx_designer_twitter]:https://twitter.com/alteryx
-[attunity_cloudbeam_twitter]:https://twitter.com/attunity
-
-<!--[bryte_systems_azure_twitter]:-->
-
-[informatica_cloud_twitter]:https://twitter.com/infacloud
-[informatica_powercenter_twitter]:https://twitter.com/Informatica
-[redgate_twitter]:https://twitter.com/RedgateDPS
-[snaplogic_twitter]:https://twitter.com/snaplogic
-
-<!--WhitePaper-->
-
-[alteryx_whitepaper]:https://pages.alteryx.com/Microsoft-Azure-InDB-WP?lsm=microsoft
+[omnigen_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/informationbuilders.omni-gen-mdm
+[qubole_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/qubole-inc.qubole-data-service?tab=Overview
+[talend_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/talend.talendremoteengine?source=datamarket&tab=Overview
+[trifacta_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.tr01?source=datamarket&tab=Overview
+[wherescape_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/wherescapesoftware.wherescape-red?source=datamarket&tab=Overview

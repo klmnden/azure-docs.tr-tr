@@ -5,20 +5,20 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/18/2019
+ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2b99207f35bd83c9e02ad636a070ae538ae3472c
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: a83b8a56a8108f86d868e3420d8368c74fba308a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412232"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578207"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Öğretici: SQL Server veritabanları ile uçta veri Store
 
-Uç cihazlarda veri depolamak ve sorgulamak için Azure IoT Edge ve SQL Server işlevlerini kullanın. Azure IOT Edge cihaz çevrimdışı olduğunda iletileri önbelleğe alınması ve bağlantı yeniden kurulduğunda bunları iletmek için temel depolama özellikleri vardır. Ancak sorgu verilerini yerel ortamda sorgulayabilme gibi daha gelişmiş depolama özelliklerine ihtiyaç duyabilirsiniz. IoT Edge cihazlarınız yerel veritabanlarını kullanarak sabit IoT Hub bağlantısı olmadan da karmaşık işlemler gerçekleştirebilir. Örneğin, bir makine üzerinde algılayıcı verilerini buluta raporlama ve makine öğrenme modülü geliştirme için ayda bir kez yükler. Ancak, bir Saha teknisyeni makine üzerinde çalışıyorsa, yerel olarak sensör verilerinin son birkaç gün erişebilirsiniz.
+Uç cihazlarda veri depolamak ve sorgulamak için Azure IoT Edge ve SQL Server işlevlerini kullanın. Azure IOT Edge cihaz çevrimdışı olduğunda iletileri önbelleğe alınması ve bağlantı yeniden kurulduğunda bunları iletmek için temel depolama özellikleri vardır. Ancak sorgu verilerini yerel ortamda sorgulayabilme gibi daha gelişmiş depolama özelliklerine ihtiyaç duyabilirsiniz. IOT Edge cihazlarınıza yerel veritabanlarını, IOT hub'ı bir bağlantı sürdürmenizi gerek kalmadan daha karmaşık bilgi işlem gerçekleştirmek için kullanabilirsiniz. 
 
 Bu makalede bir IoT Edge cihazına SQL Server veritabanı dağıtma yönergeleri yer almaktadır. IoT Edge cihazında çalışan Azure İşlevleri, gelen verileri yapılandırıp veritabanına gönderir. Bu makaledeki adımlar MySQL veya PostgreSQL gibi kapsayıcılarda çalışan diğer veritabanlarına da uygulanabilir.
 
@@ -36,10 +36,8 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bir Azure IoT Edge cihazı:
 
-* [Linux](quickstart-linux.md) veya [Windows cihazları](quickstart.md) için hızlı başlangıç adımlarını izleyerek dağıtım makinenizi veya sanal makinenizi bir Edge cihazı olarak kullanabilirsiniz.
-
-  > [!NOTE]
-  > SQL Server, yalnızca Linux kapsayıcıları destekler. Bu öğreticide bir Windows cihazı Edge Cihazınızı kullanarak test etmek isterseniz, Linux kapsayıcıları kullanmasını sağlayacak şekilde yapılandırmalısınız. Bkz: [Windows yükleme Azure IOT Edge çalışma zamanına](how-to-install-iot-edge-windows-with-linux.md) Önkoşullar ve yükleme adımları Windows üzerinde Linux kapsayıcıları için IOT Edge çalışma zamanı yapılandırma.
+* Bir Azure sanal makinesi için hızlı başlangıç adımları izleyerek bir IOT Edge cihazı kullanabilirsiniz [Linux](quickstart-linux.md).
+* SQL Server, yalnızca Linux kapsayıcıları destekler. Bu öğretici, IOT Edge cihazınız olarak bir Windows cihazı kullanarak test etmek isterseniz, Linux kapsayıcıları kullanmasını sağlayacak şekilde yapılandırmalısınız. Bkz: [Windows yükleme Azure IOT Edge çalışma zamanına](how-to-install-iot-edge-windows.md) Önkoşullar ve yükleme adımları Windows üzerinde Linux kapsayıcıları için IOT Edge çalışma zamanı yapılandırma.
 
 Bulut kaynakları:
 
@@ -52,6 +50,7 @@ Geliştirme kaynakları:
 * [Visual Studio Code için Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 * [.NET Core 2.1 SDK'sı](https://www.microsoft.com/net/download). 
 * [Docker CE](https://docs.docker.com/install/). 
+  * Bir Windows makinesinde geliştiriyorsanız, Docker olduğundan emin olun [Linux kapsayıcıları kullanacak şekilde yapılandırılmış](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
 
 ## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
 
@@ -98,7 +97,7 @@ Aşağıdaki adımlar Visual Studio Code ve Azure IOT araçları kullanarak bir 
    | Çözüm adı sağlayın | Gibi çözümünüz için açıklayıcı bir ad girin **SqlSolution**, veya varsayılan değeri kabul edin. |
    | Modül şablonunu seçin | Seçin **Azure işlevleri - C#** . |
    | Modül adı sağlayın | Modülünüze **sqlFunction** adını verin. |
-   | Modül için Docker görüntü deposunu sağlama | Görüntü deposu, kapsayıcı kayıt defterinizin adını ve kapsayıcı görüntünüzün adını içerir. Kapsayıcı görüntünüz bir önceki adımdaki değerle önceden doldurulur. **localhost:5000** yerine Azure kapsayıcı kayıt defterinizden alacağınız oturum açma sunucusu değerini yazın. Oturum açma sunucusunu Azure portalda kapsayıcı kayıt defterinizin Genel bakış sayfasından alabilirsiniz. Son dize şuna benzer \<kayıt defteri adı\>.azurecr.io/sqlFunction. |
+   | Modül için Docker görüntü deposunu sağlama | Görüntü deposu, kapsayıcı kayıt defterinizin adını ve kapsayıcı görüntünüzün adını içerir. Kapsayıcı görüntünüz bir önceki adımdaki değerle önceden doldurulur. **localhost:5000** yerine Azure kapsayıcı kayıt defterinizden alacağınız oturum açma sunucusu değerini yazın. Oturum açma sunucusunu Azure portalda kapsayıcı kayıt defterinizin Genel bakış sayfasından alabilirsiniz. <br><br>Son dize şuna benzer \<kayıt defteri adı\>.azurecr.io/sqlFunction. |
 
    VS Code penceresi IoT Edge çözümü çalışma alanınızı yükler. 
    
@@ -119,7 +118,7 @@ Aşağıdaki adımlar Visual Studio Code ve Azure IOT araçları kullanarak bir 
 
 7. VS Code Gezgininde açın **modülleri** > **sqlFunction** > **sqlFunction.cs**.
 
-8. Dosyanın içeriğini aşağıdaki kodla değiştirin:
+8. Dosyanın tüm içeriğini aşağıdaki kodla değiştirin:
 
    ```csharp
    using System;
@@ -206,7 +205,7 @@ Aşağıdaki adımlar Visual Studio Code ve Azure IOT araçları kullanarak bir 
    }
    ```
 
-6. Dize 35 satırında değiştirin **\<sql bağlantı dizesi\>** aşağıdaki dizeyi. **Veri kaynağı** özelliğine başvuruyor adıyla oluşturduğunuz SQL Server kapsayıcı adı **SQL** sonraki bölümde. 
+6. Dize 35 satırında değiştirin **\<sql bağlantı dizesi\>** aşağıdaki dizeyi. **Veri kaynağı** özelliği henüz mevcut olmayan SQL Server kapsayıcı başvuruyor ancak adıyla oluşturacağınız **SQL** sonraki bölümde. 
 
    ```csharp
    Data Source=tcp:sql,1433;Initial Catalog=MeasurementsDB;User Id=SA;Password=Strong!Passw0rd;TrustServerCertificate=False;Connection Timeout=30;
@@ -216,7 +215,7 @@ Aşağıdaki adımlar Visual Studio Code ve Azure IOT araçları kullanarak bir 
 
 8. Açık **sqlFunction.csproj** dosya.
 
-9. Paket başvuruları grubunu bulun ve yeni bir SqlClient dahil ekleyin. 
+9. Paket başvuruları grubunu bulun ve SqlClient dahil etmek için yeni bir tane ekleyin. 
 
    ```csproj
    <PackageReference Include="System.Data.SqlClient" Version="4.5.1"/>
@@ -224,76 +223,53 @@ Aşağıdaki adımlar Visual Studio Code ve Azure IOT araçları kullanarak bir 
 
 10. Kaydet **sqlFunction.csproj** dosya.
 
-## <a name="add-a-sql-server-container"></a>SQL Server kapsayıcısı ekleme
+## <a name="add-the-sql-server-container"></a>SQL Server kapsayıcı ekleme
 
-[Dağıtım bildirimi](module-composition.md), IoT Edge çalışma zamanının hangi modüllerinin IoT Edge cihazınıza yükleneceğini bildirir. Önceki bölümde özelleştirilmiş bir işlev modülü için gereken kodu sağlanan, ancak SQL Server modülü zaten oluşturulmuştur. Tek yapmanız gereken IoT Edge çalışma zamanına bunu dahil etmek ve cihazınızda yapılandırmaktır. 
+[Dağıtım bildirimi](module-composition.md), IoT Edge çalışma zamanının hangi modüllerinin IoT Edge cihazınıza yükleneceğini bildirir. Önceki bölümde özelleştirilmiş bir işlev modülü için gereken kodu sağlanan, ancak SQL Server modülü zaten oluşturulmuş ve Azure Marketi'nde kullanılabilir. Tek yapmanız gereken IoT Edge çalışma zamanına bunu dahil etmek ve cihazınızda yapılandırmaktır. 
 
-1. Visual Studio Code gezgininde **deployment.template.json** dosyasını açın. 
+1. Visual Studio Code'da seçerek komut paletini açın **görünümü** > **komut paleti**.
 
-1. Bulma **modülleri** bölümü. Listede iki modül bulunmalıdır: Simülasyon verilerini oluşturan **tempSensor** ve **sqlFunction** modülünüz.
+2. Yazın ve şu komutu çalıştırın komut Paleti'nde **Azure IOT Edge: IOT Edge Modülü Ekle**. Komut paletini içinde yeni bir modül eklemek için aşağıdaki bilgileri sağlayın: 
 
-1. Üçüncü bir modül bildirmek için aşağıdaki kodu ekleyin. sqlFunction bölümünden sonra bir virgül ekleyip aşağıdakileri ekleyin:
+   | Alan | Değer | 
+   | ----- | ----- |
+   | Dağıtım şablonu dosyasını seçin | Komut paletini deployment.template.json dosyanın geçerli çözüm klasörünüzde vurgular. Bu dosyayı seçin.  |
+   | Modül şablonunu seçin | Seçin **modülü Azure Market'ten**. |
 
-   ```json
-   "sql": {
-     "version": "1.0",
-     "type": "docker",
-     "status": "running",
-     "restartPolicy": "always",
-     "env":{},
-     "settings": {
-       "image": "",
-       "createOptions": ""
-     }
-   }
-   ```
+3. Azure IOT Edge modülü Market'te arayın ve seçin **SQL Server Modülü**. 
 
-   ![Bildirim için SQL server Modül Ekle](./media/tutorial-store-data-sql-server/view_json_sql.png)
+4. Modül adı için değiştirme **sql**, tamamen küçük harflerden. Bu ad, kapsayıcı adı bağlantı dizesinde sqlFunction.cs dosyasında bildirilen eşleşir. 
 
-1. Güncelleştirme **sql** modül parametrelerini aşağıdaki kod ile:
-      ```json
-      "env": {
-        "ACCEPT_EULA": {"value": "Y"},
-        "SA_PASSWORD": {"value": "Strong!Passw0rd"}
-      },
-      "settings": {
-        "image": "mcr.microsoft.com/mssql/server:latest",
-        "createOptions": {
-          "HostConfig": {
-            "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
-            "PortBindings": {
-              "1433/tcp": [{"HostPort": "1401"}]
-            }
-          }
-        }
-      }
-      ```
+5. Seçin **alma** modülü çözümünüze eklemek için. 
+
+6. Çözüm klasörünüzü açın **deployment.template.json** dosya. 
+
+7. Bulma **modülleri** bölümü. Üç modül görmeniz gerekir. Modül *tempSensor* varsayılan olarak yeni çözümler dahil edilmiştir ve diğer modüller ile kullanmak için test verilerini sağlar. Modül *sqlFunction* başlangıçta oluşturduğunuz ve yeni kod iler güncelleştirilmiş modülüdür. Son olarak, modül *sql* Azure Marketi'nden içeri aktarıldı. 
 
    >[!Tip]
-   >Üretim ortamında bir SQL Server kapsayıcısı oluşturduğunuzda [varsayılan sistem yöneticisi parolasını değiştirmeniz gerekir](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker).
+   >SQL Server modülü, varsayılan parola dağıtım bildiriminin ortam değişkenleri kümesi ile birlikte gelir. Üretim ortamında bir SQL Server kapsayıcısı oluşturduğunuzda [varsayılan sistem yöneticisi parolasını değiştirmeniz gerekir](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker).
 
-1. **deployment.template.json** dosyasını kaydedin.
+8. Kapat **deployment.template.json** dosya.
 
 ## <a name="build-your-iot-edge-solution"></a>IoT Edge çözümünüzü derleyin
 
-Önceki bölümlerde tek modüle sahip bir çözüm oluşturdunuz ve dağıtım bildirimi şablonuna başka bir modül daha eklediniz. Şimdi çözümü derlemeniz, modüller için kapsayıcı görüntülerini oluşturmanız ve görüntüleri kapsayıcı kayıt defterinize göndermeniz gerekir. 
+Önceki bölümlerde tek modüle sahip bir çözüm oluşturdunuz ve dağıtım bildirimi şablonuna başka bir modül daha eklediniz. SQL Server modülü genel olarak Microsoft tarafından barındırılan ancak işlevler modüldeki kodun kapsayıcılı hale getirme gerekir. Bu bölümde, çözümü derleyin, sqlFunction modülü için kapsayıcı görüntüleri oluşturma ve görüntüyü kapsayıcı kayıt defterinize gönderin. 
 
-1. Görüntüleri kayıt defterinize gönderebilmeniz için kapsayıcı kayıt defterinizi Visual Studio Code'a ekleyin. .env dosyasına eklediğiniz kimlik bilgilerini kullanın. Tümleşik terminale aşağıdaki komutu girin:
+1. Visual Studio Code'da **Görünüm** > **Terminal**'i seçerek tümleşik terminali açın.  
+
+1. Görüntüleri kayıt defterinize gönderebilmeniz için kapsayıcı kayıt defterinizi Visual Studio Code'a ekleyin. .Env dosyasına eklediğiniz Azure Container Registry (ACR) kimlik bilgilerini kullanın. Tümleşik terminale aşağıdaki komutu girin:
 
     ```csh/sh
-    docker login -u <ACR username> <ACR login server>
+    docker login -u <ACR username> -p <ACR password> <ACR login server>
     ```
     
-    Parola istenir. Parolanızı tuşuna basın ve (güvenlik için parolanızı gizli) istemi yapıştırın **Enter**. 
-
-    ```csh/sh
-    Password: <paste in the ACR password and press enter>
-    Login Succeeded
-    ```
+    Kullanımını öneren bir güvenlik uyarısı görebilirsiniz--parola stdin parametre. Bunun kullanımı bu makalenin kapsamında olmasa da bu en iyi yöntemin izlenmesi önerilir. Daha fazla bilgi için [docker oturum açma](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) komut başvurusu. 
 
 2. VS Code gezgininde **deployment.template.json** dosyasına sağ tıklayıp **Build and Push IoT Edge solution** (IoT Edge Çözümü Oluştur ve Gönder) öğesini seçin. 
 
 Visual Studio Code uygulamasına çözümünüzü derleme komutu verdiğinizde dağıtım şablonundaki bilgileri alır ve **config** adlı yeni bir klasörde deployment.json dosyası oluşturur. Ardından tümleşik terminalde `docker build` ve `docker push` komutlarını çalıştırır. Bu iki komut, kodunuzu derlemek, modül kapsayıcılı hale getirme ve ardından kod çözümü hazırlarken belirttiğiniz kapsayıcı kayıt defterine gönderin. 
+
+SqlFunction modülü, kapsayıcı kayıt defterinizde başarıyla gönderildi doğrulayabilirsiniz. Azure portalında kapsayıcı kayıt defterinize gidin. Seçin **depoları** araması **sqlFunction**. Zaten Microsoft kayıtlarla kendi depolarına işaret çünkü diğer iki modülleri tempSensor ve sql, kapsayıcı kayıt defterinizde itilecek olmaz.
 
 ## <a name="deploy-the-solution-to-a-device"></a>Çözümü bir cihaza dağıtma
 
@@ -312,6 +288,8 @@ IoT Hub üzerinden bir cihazda modül ayarlayabilirsiniz ancak IoT Hub ve cihazl
    ![Tek bir cihaz için dağıtım oluşturma](./media/tutorial-store-data-sql-server/create-deployment.png)
 
 6. Dosya Gezgini'nde gidin **config** klasörün içinde çözümünüzün ve **deployment.amd64**. **Select Edge deployment manifest** (Edge dağıtım bildirimini seç) öğesine tıklayın. 
+
+   Deployment.template.json dosyasını bir dağıtım bildirimi kullanmayın.
 
 Dağıtım başarılı olursa VS Code çıkışında onay iletisi yazdırılır. 
 
@@ -376,9 +354,6 @@ Bir sonraki önerilen makaleye geçmeyi planlıyorsanız, oluşturduğunuz kayna
 Geçmeyecekseniz ücret kesilmesini önlemek için yerel yapılandırmalarınızı ve bu makalede oluşturulan Azure kaynaklarını silebilirsiniz. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
-
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

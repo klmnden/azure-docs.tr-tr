@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: fbc62628bfec67bd648188920731f985f990a53d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/27/2019
+ms.openlocfilehash: 6181183b1455d5ca38ab9bbd37102cb3bc091b3c
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837192"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622102"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Saydam veri şifrelemesi kullanarak kendi anahtarınızı Azure anahtar Kasası'ndaki bir yönetilen örneğinde yönetme
 
@@ -28,8 +28,6 @@ Bu PowerShell Betiği örneği, Azure SQL yönetilen Azure Key vault'tan bir ana
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
 PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz Bu öğretici AZ PowerShell 1.4.0 gerektirir veya üzeri. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-az-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzAccount` komutunu da çalıştırmanız gerekir.
-
-PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz Bu öğretici Azurerm.SQL'e PowerShell paketi önizleme sürümünü de gerektirir. *4.11.6-preview*. Yüklemek için aşağıdaki komutu çalıştırın: `Install-Module -Name AzureRM.Sql -RequiredVersion 4.11.6-preview -AllowPrerelease`
 
 ## <a name="sample-scripts"></a>Örnek komut dosyaları
 

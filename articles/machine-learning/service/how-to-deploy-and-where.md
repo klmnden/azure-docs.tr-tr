@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 370fb17e9f00d64db847e49c48c6f03cb329612d
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: ea2986ea2b2f561288773a7d187101f90f3e9fa9
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472948"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622136"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -26,7 +26,7 @@ Modelleri için aşağıdaki işlem hedeflerine dağıtabilirsiniz:
 
 | Hedef işlem | Dağıtım türü | Açıklama |
 | ----- | ----- | ----- |
-| [Azure Kubernetes Service'i (AKS)](#aks) | Gerçek zamanlı çıkarımı | Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
+| [Azure Kubernetes Service (AKS)](#aks) | Gerçek zamanlı çıkarımı | Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
 | [Azure Machine Learning işlem (amlcompute)](#azuremlcompute) | Batch çıkarımı | Batch tahmin, sunucusuz bir işlem üzerinde çalıştırın. Normal veya düşük öncelikli sanal makineleri destekler. |
 | [Azure Container Instances (ACI)](#aci) | Test Etme | Geliştirme veya test için iyidir. **Üretim iş yükleri için uygun değildir.** |
 | [Azure IoT Edge](#iotedge) | (Önizleme) IOT Modülü | IOT cihazlarında modelleri dağıtın. Çıkarım cihazda'olmuyor. |
@@ -48,9 +48,7 @@ Dağıtım iş akışı içinde ilgili kavramları hakkında daha fazla bilgi i�
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree) bugün.
-
-- Bir Azure Machine Learning hizmeti çalışma alanında ve yüklü Python için Azure Machine Learning SDK'sı. Kullanarak şu önkoşul olarak gerekenleri edinin öğrenin [bir Azure Machine Learning hizmeti çalışma alanı oluşturma](setup-create-workspace.md).
+[!INCLUDE [aml-prereq](../../../includes/aml-prereq.md)]
 
 - Eğitilen bir modeli. Eğitilen bir modelin yoksa içindeki adımları kullanın [eğitme modelleri](tutorial-train-models-with-aml.md) eğitmek ve bir Azure Machine Learning hizmeti ile kaydetme öğretici.
 
@@ -214,7 +212,7 @@ Dağıtıma aldığınızda, dağıttığınız işlem hedef bağlı olarak bira
 
 | Hedef işlem | Dağıtım türü | Açıklama |
 | ----- | ----- | ----- |
-| [Azure Kubernetes Service'i (AKS)](#aks) | Web hizmeti (gerçek zamanlı çıkarımı)| Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
+| [Azure Kubernetes Service (AKS)](#aks) | Web hizmeti (gerçek zamanlı çıkarımı)| Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
 | [Azure ML işlemi](#azuremlcompute) | Web hizmeti (Batch çıkarımı)| Batch tahmin, sunucusuz bir işlem üzerinde çalıştırın. Normal veya düşük öncelikli sanal makineleri destekler. |
 | [Azure Container Instances (ACI)](#aci) | Web hizmeti (geliştirme/test)| Geliştirme veya test için iyidir. **Üretim iş yükleri için uygun değildir.** |
 | [Azure IoT Edge](#iotedge) | (Önizleme) IOT Modülü | IOT cihazlarında modelleri dağıtın. Çıkarım cihazda'olmuyor. |

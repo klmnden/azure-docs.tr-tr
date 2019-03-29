@@ -1,5 +1,5 @@
 ---
-title: Erişimi gözden geçir kendiniz gruplar veya uygulamalar Azure AD erişim gözden geçirmeleri | Microsoft Docs
+title: Erişimi gözden geçir kendiniz gruplara veya erişim gözden geçirmeleri - Azure Active Directory uygulamaları | Microsoft Docs
 description: Kendi erişim grupları ve uygulamaları Azure Active Directory erişim gözden geçirmeleri, gözden geçirmeyi öğrenin.
 services: active-directory
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76f90a5aa3f201fa5d1578ac63526be26377aedf
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3fe2013ff84dd0451fed7d108539606520cb9403
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731217"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576318"
 ---
-# <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Erişimi kendiniz için grupları ve uygulamaları Azure AD erişim gözden geçirmeleri, gözden geçirin
+# <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Erişimi gözden geçir kendiniz gruplara veya Azure AD uygulama erişim gözden geçirmeleri
 
-Azure Active Directory (Azure AD), kuruluşların Azure AD'de grupları veya uygulamalara erişimi yönetme basitleştirir ve başka bir özellik ile Microsoft Çevrimiçi Hizmetler Azure AD erişim gözden geçirmeleri çağrılır.
+Azure Active Directory (Azure AD) nasıl kuruluşlar, Azure AD'de grupları veya uygulamalara erişim yönetmek ve diğer Microsoft Çevrimiçi Hizmetler Azure AD erişim adlı bir özellik ile incelemeleri kolaylaştırır.
 
 Bu makalede, bir grup veya uygulamanın kendi erişimi gözden geçirmek açıklar.
 
@@ -44,11 +44,11 @@ E-posta yoksa, aşağıdaki adımları izleyerek, beklemedeki erişim gözden ge
 
     ![MyApps portalında](./media/review-your-access/myapps-access-panel.png)
 
-1. Sayfanın sağ üst köşede, adını ve varsayılan kuruluşunuz görüntüleyen kullanıcı simgeyi tıklatın. Birden fazla kuruluş listeleniyorsa, erişim gözden geçirmesi istenen kuruluş seçin.
+1. Sayfanın sağ üst köşesinde yer alan ve adınızla varsayılan kuruluşunuzun gösterildiği kullanıcı simgesine tıklayın. Listede birden fazla kuruluş varsa erişim gözden geçirmesi isteğinde bulunan kuruluşu seçin.
 
 1. Sayfanın sağ tarafında tıklayın **erişim gözden geçirmeleriyle** beklemedeki erişim gözden geçirmeleri listesini görmek için kutucuğu.
 
-    Kutucuk görünür değilse, bu kuruluşa ait gerçekleştirmek için hiç erişim gözden geçirmesi yok ve şu anda hiçbir eylem gerekmiyor.
+    Kutucuk yoksa ilgili kuruluş için bekleyen erişim gözden geçirmesi yoktur ve herhangi bir işlem yapmanız gerekmez.
 
     ![Erişim incelemeleri listesi](./media/review-your-access/access-reviews-list.png)
 

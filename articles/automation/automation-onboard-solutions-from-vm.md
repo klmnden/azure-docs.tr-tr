@@ -4,17 +4,17 @@ description: Bilgi nasıl için yerleşik bir Azure sanal makinesi ile güncelle
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 70d9957ae5f0ec43269d371c96e3722e52edb26d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837771"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619739"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Bir Azure sanal makinesinden yerleşik güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri
 
@@ -26,7 +26,7 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="enable-the-solutions"></a>Çözümleri etkinleştirme
 
-Varolan bir sanal makineye gidin. Altında **işlemleri**seçin **güncelleştirme yönetimi**, **Envanter**, veya **değişiklik izleme**. Sanal makine konumu Otomasyon hesabınızın ne olursa olsun tüm bölgelerdeki mevcut olabilir.
+Varolan bir sanal makineye gidin. Altında **işlemleri**seçin **güncelleştirme yönetimi**, **Envanter**, veya **değişiklik izleme**. Sanal makine konumu Otomasyon hesabınızın ne olursa olsun tüm bölgelerdeki mevcut olabilir. Bir VM'den bir çözüm ekleme gerektiğinde sahip `Microsoft.OperationalInsights/workspaces/read` VM için bir çalışma alanına eklenen olup olmadığını belirlemek için izni. Genel olarak gerekli olan ek izinler hakkında bilgi edinmek için [makine için gereken izinleri](automation-role-based-access-control.md#onboarding).
 
 Yalnızca VM için çözümü etkinleştirmek için emin olun **bu VM için etkinleştirme** seçilir. İçin yerleşik bir çözüm, birden çok makineye seçin **VM'ler için bu abonelikte etkinleştirmek**ve ardından **etkinleştirmek için makineleri seçmek için tıklatın**. Nasıl için yerleşik birden çok makine aynı anda öğrenmek için [yerleşik güncelleştirme yönetimi, değişiklik izleme ve sayım çözümlerini](automation-onboard-solutions-from-automation-account.md).
 
@@ -85,13 +85,13 @@ Bu çözümleri kaldırdıktan sonra Otomasyon hesabının bağlantısını kald
 
 1. Azure portalından Otomasyon hesabınızı açın ve sayfa seçin üzerinde Otomasyon hesabı **bağlantılı çalışma** bölümünde **ilgili kaynakları** soldaki.
 
-1. Bağlantıyı kaldır çalışma sayfasında tıklayın **çalışma alanının bağlantısını Kaldır**.
+2. Bağlantıyı kaldır çalışma sayfasında tıklayın **çalışma alanının bağlantısını Kaldır**.
 
    ![Çalışma sayfası bağlantısını Kaldır](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
 
    Devam etmek istediğinizi doğrulayan bir ileti alacaksınız.
 
-1. Azure Otomasyonu hesabı Log Analytics çalışma alanınızın bağlantısını dener, ancak altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde.
+3. Azure Otomasyonu hesabı Log Analytics çalışma alanınızın bağlantısını dener, ancak altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde.
 
 İsteğe bağlı olarak, güncelleştirme yönetimi çözümünü kullandıysanız, çözümü kaldırdıktan sonra artık gerekli olmayan aşağıdaki öğeleri kaldırmak isteyebilirsiniz.
 

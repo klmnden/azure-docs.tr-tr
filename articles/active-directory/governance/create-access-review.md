@@ -1,6 +1,6 @@
 ---
-title: Azure AD erişim gözden geçirmeleri grupları ve uygulamaları, erişim gözden geçirmesi oluştur | Microsoft Docs
-description: Erişim gözden geçirmesi grubu üyeleri veya uygulama erişimi, Azure AD erişim gözden geçirmelerine oluşturmayı öğrenin.
+title: Gruplar veya uygulamalar - Azure Active Directory erişim gözden geçirmesi oluştur | Microsoft Docs
+description: Erişim gözden geçirmesi grubu üyeleri veya uygulama erişimi Azure Active Directory erişim gözden geçirmelerine oluşturmayı öğrenin.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -15,14 +15,14 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c17078ea14a254f64a41751f2efffc16e2a1e821
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5e25af938d09a254abd5d28ca3a5eecca2d3f8f1
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847391"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576216"
 ---
-# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Azure AD erişim gözden geçirmeleri grupları ve uygulamaları, erişim gözden geçirmesi oluşturma
+# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Grupları bir erişim gözden geçirmesi oluşturma veya uygulamaları Azure ad erişim gözden geçirmeleri
 
 Gruplara ve uygulamalara çalışanlar ve konuklar için erişim, zaman içinde değişir. Eski erişim atamalarını ile ilişkili riski azaltmak için Yöneticiler Azure Active Directory (Azure AD) erişim gözden geçirmeleri grubu üyeleri veya uygulama erişimi için oluşturmak için kullanabilirsiniz. Düzenli bir şekilde erişim gözden geçirmek gerekiyorsa, yinelenen erişim gözden geçirmeleri oluşturabilirsiniz. Bu senaryolar hakkında daha fazla bilgi için bkz: [kullanıcı erişimini yönetme](manage-user-access-with-access-reviews.md) ve [konuk erişimini yönetme](manage-guest-access-with-access-reviews.md).
 
@@ -120,7 +120,7 @@ Yalnızca bunlar zaten davetini kabul ettiğiniz, Konuklar, gözden geçirenleri
 
 ## <a name="manage-the-access-review"></a>Erişim gözden geçirmesi yönetme
 
-Gözden geçirenler Azure AD'ye panosunda bulunan kendi incelemeler tamamlandı olarak ilerleme durumunu izleyebilir **erişim gözden geçirmeleri** bölümü. Erişim hakları dizine kadar değişen [gözden geçirme tamamlandığında](complete-access-review.md).
+Gözden geçirenler Azure AD'ye panosunda bulunan kendi incelemeler tamamlandı olarak ilerleme durumunu izleyebilir **erişim gözden geçirmeleriyle** bölümü. Erişim hakları dizine kadar değişen [gözden geçirme tamamlandığında](complete-access-review.md).
 
 Bu tek seferlik bir gözden geçirme ise, ardından yönetici erişim gözden geçirmesi durdurur veya erişim incelemesi süresi bittikten sonra adımları [grupları ve uygulamaları, erişim değerlendirmesi tamamlama](complete-access-review.md) bakın ve sonuçları uygulamak için.  
 
@@ -130,7 +130,7 @@ Tamamlama ayarlarını üzerinde yaptığınız seçimlere bağlı olarak, otoma
 
 ## <a name="create-reviews-via-apis"></a>Gözden geçirmeler API'leri aracılığıyla oluşturma
 
-Erişim gözden geçirmeleri API'lerini kullanarak da oluşturabilirsiniz. Erişimi yönetmek için bunu gruplarını gözden geçirir ve uygulama kullanıcıları Azure portalında da yapılabilir Microsoft Graph API'leri kullanılarak. Daha fazla bilgi için [Azure AD erişim gözden geçirmeleri API başvuru](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Bir kod örneği için bkz. [Microsoft Graph aracılığıyla Azure AD erişim gözden geçirmeleri alma örnek](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
+Erişim gözden geçirmeleri API'lerini kullanarak da oluşturabilirsiniz. Erişimi yönetmek için bunu gruplarını gözden geçirir ve uygulama kullanıcıları Azure portalında da yapılabilir Microsoft Graph API'leri kullanılarak. Daha fazla bilgi için [Azure AD erişim gözden geçirmeleri, API Başvurusu](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Bir kod örneği için bkz. [örnek alma Azure AD erişim gözden geçirmeleri, Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

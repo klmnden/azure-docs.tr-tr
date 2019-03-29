@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 0b84f02d11e278950e4e44874e7b1af9da58f83f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54d7979f9fbe23e9372aa2702b46e42ca64496d2
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092455"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621643"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Nasıl bir zamanlamaya göre Azure-SSIS tümleştirme çalışma zamanını durdurmak ve başlatmak
 Bu makalede, Azure Data Factory (ADF) kullanarak zamanlama başlatma ve durdurma Azure-SSIS Integration Runtime (IR) açıklar. Azure-SSIS IR, ADF kaynak SQL Server Integration Services (SSIS) paketlerini yürütmek için adanmış işlem ' dir. Azure-SSIS IR çalıştıran, kendisiyle ilişkili bir maliyeti vardır. Bu nedenle, genellikle, IR, SSIS paketlerini Azure'da yürütmek ve artık ihtiyacınız olmayan olduğunda, IR durdurmak yalnızca ihtiyacınız olduğunda çalıştırmak istediğiniz. Kullanabileceğiniz ADF kullanıcı arabirimi (UI) / uygulama veya Azure PowerShell ile [el ile başlatın veya durdurun, IR](manage-azure-ssis-integration-runtime.md)).
@@ -94,7 +94,7 @@ Gece yarısı her gün çalışacak şekilde zamanlanırsa üçüncü bir tetikl
   
     2. İçin **yöntemi**seçin **POST**. 
     3. İçin **gövdesi**, girin `{"message":"Start my IR"}`. 
-    4. İçin **kimlik doğrulaması**seçin **MSI** , ADF için yönetilen kimlik kullanmak için bkz: [Data Factory için yönetilen identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) makale daha fazla bilgi için.
+    4. İçin **kimlik doğrulaması**seçin **MSI** , ADF için yönetilen kimlik kullanmak için bkz: [yönetilen kimliği için Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) makale daha fazla bilgi için.
     5. İçin **kaynak**, girin `https://management.azure.com/`.
     
        ![ADF Web etkinlik zamanlaması SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
@@ -348,7 +348,7 @@ Aşağıdaki bölümde, bir PowerShell runbook'u oluşturmak için adımları sa
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Azure-SSIS IR Başlat/Durdur için runbook'unuzda için zamanlamaları oluşturma
 
-Önceki bölümde başlayın veya Azure-SSIS IR'yi durdurma, Azure Otomasyonu runbook oluşturdunuz. Bu bölümde, iki zamanlamaları, runbook için oluşturacaksınız. İlk zamanlama yapılandırırken belirttiğiniz **Başlat** için **işlemi**. Benzer şekilde, ikinci yapılandırırken belirttiğiniz **Durdur** için **işlemi**. Tabloları oluşturmak ayrıntılı adımlar için bkz. [bir zamanlama oluşturmak](../automation/automation-schedules.md#creating-a-schedule) makalesi.
+Önceki bölümde başlayın veya Azure-SSIS IR'yi durdurma, Azure Otomasyonu runbook oluşturdunuz. Bu bölümde, iki zamanlamaları, runbook için oluşturacaksınız. İlk zamanlama yapılandırırken belirttiğiniz **Başlat** için **işlemi**. Benzer şekilde, ikinci yapılandırırken belirttiğiniz **Durdur** için **işlemi**. Tabloları oluşturmak ayrıntılı adımlar için bkz. [bir zamanlama oluşturmak](../automation/shared-resources/schedules.md#creating-a-schedule) makalesi.
 
 1. İçinde **Runbook** penceresinde **zamanlamaları**seçip **+ zamanlama Ekle** araç. 
 

@@ -1,5 +1,5 @@
 ---
-title: Güvenlik Uyarıları Azure kaynak rolleri için PIM içinde yapılandırma | Microsoft Docs
+title: Güvenlik Uyarıları Azure kaynak rolleri için PIM - Azure Active Directory yapılandırma | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM) Azure kaynak rolleri için güvenlik uyarıları yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
@@ -15,15 +15,15 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 538661df85ca0960992cb40a53b0e149c3b566b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 09e04e6b61d3387cb8c50c2af4eef2cfb4bec196
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189540"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575778"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Güvenlik Uyarıları Azure kaynak rolleri için PIM içinde yapılandırma
-Azure kaynakları için privileged Identity Management (PIM), ortamınızda şüpheli veya güvenli olmayan bir etkinlik olduğunda uyarılar oluşturur. Bir uyarı tetiklendiğinde, bunu bir uyarılar sayfasında gösterilir. 
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM), ortamınızda şüpheli veya güvenli olmayan bir etkinlik olduğunda uyarılar oluşturur. Bir uyarı tetiklendiğinde, bunu bir uyarılar sayfasında gösterilir. 
 
 ![Uyarılar sayfası](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
 

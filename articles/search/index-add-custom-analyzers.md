@@ -19,18 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8eb762e8a18ea5de25413681894f692628493a2f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a15078c953c1fab40ad521eff079a623c93b9d9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842864"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577552"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Azure Search dizini için özel çözümleyiciler ekleme
 
 A *özel çözümleyici* belirli bir tür [metin Çözümleyicisi](search-analyzers.md) bir kullanıcı tanımlı bir birleşimini mevcut simgeleştirici ve isteğe bağlı filtreler oluşur. Yeni yollarla oluşturma denenmeden ve filtreleri birleştirerek metin arama motoruna belirli sonuçlar elde etmek için işleme özelleştirebilirsiniz. Örneğin, ile özel bir çözümleyici oluşturabilirsiniz bir *char filtre* metin girişi simgeleştirilmiş önce HTML biçimlendirme kaldırmak için.
 
- Filtreler birleşimi değiştirmek için birden çok özel çözümleyiciler tanımlayabilirsiniz, ancak her alanı yalnızca bir Çözümleyicisi çözümleme ve arama çözümleme için dizin oluşturma için kullanabilirsiniz. Bir müşteri Çözümleyicisi nasıl göründüğüne ilişkin bir çizim için bkz [özel çözümleyici örneği](search-analyzers.md#Example1).
+ Filtreler birleşimi değiştirmek için birden çok özel çözümleyiciler tanımlayabilirsiniz, ancak her alanı yalnızca bir Çözümleyicisi çözümleme ve arama çözümleme için dizin oluşturma için kullanabilirsiniz. Bir müşteri Çözümleyicisi nasıl göründüğüne ilişkin bir çizim için bkz [özel çözümleyici örneği](search-analyzers.md#Custom-analyzer-example).
 
 ## <a name="overview"></a>Genel Bakış
 

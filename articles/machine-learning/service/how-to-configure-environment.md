@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1d4144a2a6cf41d594ee096d8802ccc5b29009a5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: c4bdeb4e00a59d6ba2b415801c0689d77ed9a825
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361804"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577569"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
@@ -315,7 +315,9 @@ Küme çalışmaya başladıktan sonra [bir kitaplığı oluşturma](https://doc
    1. Üzerinde **kitaplıkları** sekmesinde **yeniden**.
       
    Ayrıca göz önünde bulundurun:
-   + Gibi bazı paketler `psutil`, yükleme sırasında Databricks çakışmalara neden olabilir. Bu tür hataları önlemek için paketleri dondurma LIB sürümüyle gibi yükleyen `pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0`. 
+   + Automl yapılandırmada kullanırken Azure Databricks, lütfen şu parametreleri ekleyin:
+    1. ```max_concurrent_iterations``` Kümenizde çalışan düğümlerinin sayısını temel alır. 
+    2. ```spark_context=sc``` #databricks/spark varsayılan spark bağlamı. 
    + Veya eski bir SDK sürümü varsa, kümenin yüklü libs seçimini kaldırmak ve çöp kutusuna taşınacak. Yeni SDK sürümünü yükleyin ve küme yeniden başlatın. Bir sorun olduğunda bundan sonra ayırma ve kümenizi yeniden bağlayın.
 
 Yükleme başarılı olduysa, içeri aktarılan kitaplık bunlardan biri gibi görünmelidir:

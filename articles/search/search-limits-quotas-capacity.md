@@ -7,24 +7,29 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b97c84a7a5d7732c8c895fd3074734762e5e040c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8a6023c87dd1d68ab76c5c2342cb825e63d2b336
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780414"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620658"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search'te hizmet sınırları
-En fazla depolama, iş yüklerini ve dizinleri, belgeler, miktarlarını sınırlar ve bağımlı nesneler bağımsız olarak, [Azure Search sağlama](search-create-service-portal.md) adresindeki **ücretsiz**, **temel**, veya **Standart** fiyatlandırma katmanları.
+En fazla depolama, iş yüklerini ve dizinleri, belgeler, miktarlarını sınırlar ve bağımlı nesneler bağımsız olarak, [Azure Search sağlama](search-create-service-portal.md) adresindeki **ücretsiz**, **temel**,  **Standart**, veya **depolama için iyileştirilmiş** fiyatlandırma katmanları.
 
 + **Ücretsiz** Azure aboneliğinizle birlikte gelen bir çok kiracılı paylaşılan bir hizmettir.
 
 + **Temel** daha küçük ölçekli üretim iş yükleri için adanmış işlem kaynakları sağlar.
 
 + **Standart** ayrılmış makineye daha fazla depolama ve işleme kapasitesi olan her düzeyinde çalışır. Standart, içinde dört düzeyi sunar: S1, S2, S3 ve S3 HD.
+
++ **Depolama için optimize edilmiş** daha fazla toplam depolama, depolama bant genişliği ve daha bellek ayrılmış makinelerde çalışır **standart**. Depolama için optimize edilmiş iki düzey gelir: L1 ve L2
+
+> [!NOTE]
+> Depolama için iyileştirilmiş hizmet katmanları şu an geri bildirim toplamak amacıyla test ve deneme amaçları için indirimli fiyatlandırma önizleme olarak kullanılabilir. Bu katmanları genel olarak kullanılabilir olduğunda son fiyatlandırma daha sonra duyurulacaktır. Biz, üretim uygulamaları için bu katmanları kullanan karşı önerin.
 
   S3 yüksek yoğunluklu (S3 HD) belirli iş yükleri için tasarlandı: [çok kiracılı](search-modeling-multitenant-saas-applications.md) ve büyük miktarlarda küçük dizinleri (bir milyon dizin başına belge, hizmet başına üç bin dizin). Bu katman sağlamaz [dizin oluşturucu özelliği](search-indexer-overview.md). S3 HD üzerinde dizin kaynaktan veri göndermek için API çağrıları kullanarak anında iletme yaklaşım, veri alımı yararlanarak gerekir. 
 
@@ -42,13 +47,13 @@ En fazla depolama, iş yüklerini ve dizinleri, belgeler, miktarlarını sınır
 
 ## <a name="index-limits"></a>Dizin sınırları
 
-| Kaynak | Ücretsiz | Temel&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD |
-| -------- | ---- | ------------------- | --- | --- | --- | --- |
-| En fazla dizin |3 |5 veya 15 |50 |200 |200 |Bölüm başına 1000 veya hizmet başına 3000 |
-| Dizin başına en fazla alanları |1000 |100 |1000 |1000 |1000 |1000 |
-| En fazla [öneri Araçları](https://docs.microsoft.com/rest/api/searchservice/suggesters) dizin başına |1 |1. |1. |1. |1. |1 |
-| En fazla [Puanlama profilleri](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) dizin başına |100 |100 |100 |100 |100 |100 |
-| Profil başına en fazla işlevleri |8 |8 |8 |8 |8 |8 |
+| Kaynak | Ücretsiz | Temel&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
+| En fazla dizin |3 |5 veya 15 |50 |200 |200 |Bölüm başına 1000 veya hizmet başına 3000 |10 |10 |
+| Dizin başına en fazla alanları |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| En fazla [öneri Araçları](https://docs.microsoft.com/rest/api/searchservice/suggesters) dizin başına |1 |1. |1. |1. |1. |1. |1. |1 |
+| En fazla [Puanlama profilleri](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) dizin başına |100 |100 |100 |100 |100 |100 |100 |100 |
+| Profil başına en fazla işlevleri |8 |8 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> geç 2017 15 dizinleri, veri kaynağı ve dizin artan bir sınırı oluşturduktan sonra oluşturulan temel Hizmetleri. Daha önce oluşturduğunuz Hizmetleri 5 sahiptir. Temel katmanı, yalnızca SKU ile dizin başına 100 alanların bir alt limit içindir.
 
@@ -98,16 +103,16 @@ Geç 2017'den sonra oluşturulan temel Hizmetleri 15 dizinleri, veri kaynakları
 
 Kaynak Kullanımı Yoğun işlemleri, Azure blob dizin oluşturma veya bilişsel arama, doğal dil işleme, görüntü analizi gibi diğer dizin oluşturma işleri kullanılabilmesi için en çok kısa çalışan süreleri olması. İzin verilen en uzun süre içinde bir dizin oluşturma işi tamamlayamıyor bir zamanlamaya göre çalıştırmayı deneyin. Zamanlayıcı, dizin oluşturma durumunu izler. Zamanlanmış bir dizin oluşturma işi herhangi bir nedenden dolayı kesilirse, dizin oluşturucunun son zamanlanan sonraki çalışmaya kaldığı yukarı seçebilirsiniz.
 
-| Kaynak | Ücretsiz&nbsp;<sup>1</sup> | Temel&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
-| -------- | ----------------- | ----------------- | --- | --- | --- | --- |
-| En fazla dizin oluşturucu |3 |5 veya 15|50 |200 |200 |Yok |
-| En fazla veri kaynağı |3 |5 veya 15 |50 |200 |200 |Yok |
-| En fazla becerilerini <sup>4</sup> |3 |5 veya 15 |50 |200 |200 |Yok |
-| Çağrı başına en fazla dizin yükleme |10.000 belge |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |Yok |
-| En fazla çalışma süresi <sup>5</sup> | 1-3 dakika |24 saat |24 saat |24 saat |24 saat |Yok  |
-| Bilişsel arama becerilerini veya blob dizini oluşturmanın görüntü Analizi ile çalışan en fazla <sup>5</sup> | 3-10 dakika |2 saat |2 saat |2 saat |2 saat |Yok  |
-| BLOB dizin oluşturucu: en yüksek blob boyutu, MB |16 |16 |128 |256 |256 |Yok  |
-| BLOB dizin oluşturucu: bir blobun ayıkladığınız içeriği en fazla karakter |32,000 |64,000 |4 milyonluk |4 milyonluk |4 milyonluk |Yok |
+| Kaynak | Ücretsiz&nbsp;<sup>1</sup> | Temel&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
+| En fazla dizin oluşturucu |3 |5 veya 15|50 |200 |200 |Yok |10 |10 |
+| En fazla veri kaynağı |3 |5 veya 15 |50 |200 |200 |Yok |10 |10 |
+| En fazla becerilerini <sup>4</sup> |3 |5 veya 15 |50 |200 |200 |Yok |10 |10 |
+| Çağrı başına en fazla dizin yükleme |10.000 belge |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |Yok |Sınırsız |Sınırsız |
+| En fazla çalışma süresi <sup>5</sup> | 1-3 dakika |24 saat |24 saat |24 saat |24 saat |Yok  |24 saat |24 saat |
+| Bilişsel arama becerilerini veya blob dizini oluşturmanın görüntü Analizi ile çalışan en fazla <sup>5</sup> | 3-10 dakika |2 saat |2 saat |2 saat |2 saat |Yok  |2 saat |2 saat |
+| BLOB dizin oluşturucu: en yüksek blob boyutu, MB |16 |16 |128 |256 |256 |Yok  |256 |256 |
+| BLOB dizin oluşturucu: bir blobun ayıkladığınız içeriği en fazla karakter |32,000 |64,000 |4 milyonluk |4 milyonluk |4 milyonluk |Yok |4 milyonluk |4 milyonluk |
 
 <sup>1</sup> blob kaynakları için ve diğer tüm veri kaynakları için 1 dakika dizin oluşturucu en uzun yürütme süresi 3 dakikalık ücretsiz hizmetlere sahip.
 
@@ -124,6 +129,8 @@ Kaynak Kullanımı Yoğun işlemleri, Azure blob dizin oluşturma veya bilişsel
 QPS tahminleri bağımsız olarak her müşteri tarafından geliştirilmiş olmalıdır. Dizin boyutu ve karmaşıklığı, sorgu boyutu ve karmaşıklığı ve trafik miktarını QPS, birincil determinantlar var. Anlamlı tahminleri gibi faktörleri bilinmeyen olduğunda sunmak için hiçbir yolu yoktur.
 
 Ayrılmış kaynaklarda (temel ve standart Katmanlar) üzerinde çalışan hizmetleri hesaplandığında daha öngörülebilir biriminizdeki tahmini fiyatlardır. Daha fazla parametre üzerinde denetime sahip olduğundan daha fazla QPS yakından tahmin edebilirsiniz. Yaklaşım tahmin etme ile ilgili yönergeler için bkz [Azure Search performans ve iyileştirme](search-performance-optimization.md).
+
+Depolama için iyileştirilmiş katmanlar için daha düşük bir sorgu ve standart katmanların daha yüksek gecikme süresini beklemelisiniz.  Yöntemi, deneyeceksiniz sorgu performansını tahmin etmek için standart katmanların ile aynıdır.
 
 ## <a name="data-limits-cognitive-search"></a>Veri sınırları (bilişsel arama)
 
