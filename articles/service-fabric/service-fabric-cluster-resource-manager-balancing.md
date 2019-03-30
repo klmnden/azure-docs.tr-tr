@@ -4,7 +4,7 @@ description: İle Service Fabric Küme Kaynak Yöneticisi kümenizi Dengeleme gi
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 9a124bd9a52e22c359fb771e4d4c8714bd1dbe2c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 74fe4f7c4c231f80c7555f39f840a85baae310e9
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123241"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662032"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Service fabric kümenizi Dengeleme
 Service Fabric küme kaynak yöneticisi ekleme veya çıkarma düğümleri veya hizmetler için tepki dinamik yük değişiklikleri destekler. Sabiti ihlallerini de otomatik olarak düzeltir ve proaktif olarak kümeye yeniden dengeler. Ancak bu eylemler ne sıklıkta alınır ve bunları tetikler?

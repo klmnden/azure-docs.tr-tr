@@ -4,7 +4,7 @@ description: Yapılandırma ve hizmet kaynak tüketimi yönetmek için Service F
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 642f479aba62e5cc9dde63aed7c30de39b513a5e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1a61de6b0b6f73e112dd69108272ded3a67497e8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093358"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661709"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Kaynak tüketimine ve Service Fabric yük ölçümlerle yönetme
 *Ölçümleri* , hizmetleri çok değer verdiğiniz ve, kümedeki düğümler tarafından sağlanan kaynaklar. Bir ölçüm iyileştirmek veya hizmetlerinizin performansını izlemek için yönetmek istediğiniz herhangi bir şey: Örneğin, hizmetiniz aşırı yüklü olmadığını bilmek bellek tüketimi izlemek. Başka bir olup hizmet bellek az daha iyi performans elde etmek için sınırlı olduğu başka bir yere taşıyabilirsiniz şekil için kullanılır.
@@ -143,7 +143,7 @@ Bir anımsatıcı olarak: yalnızca varsayılan ölçümleri kullanmak istiyorsa
 
 Şimdi daha ayrıntılı bir şekilde bu ayarların her biri aracılığıyla dönelim ve onu etkileyen davranışı hakkında konuşun.
 
-## <a name="load"></a>Yükleme
+## <a name="load"></a>Yükle
 Bazı yük temsil etmek için ölçümleri tanımlamanın tüm noktayı belirler. *Yük* olan belirli bir metrik ne kadarının bazı hizmet örneği veya belirli bir düğüm üzerinde çoğaltma tarafından kullanılır. Yük neredeyse herhangi bir noktada yapılandırılabilir. Örneğin:
 
   - Bir hizmet oluşturduğunuzda yük tanımlanabilir. Bu adlandırılır _varsayılan yük_.

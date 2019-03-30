@@ -3,8 +3,8 @@ title: Bir Azure Service Fabric hizmetinin sistemi ve yerel güvenlik hesapları
 description: Service Fabric uygulaması sistem ve yerel güvenlik hesapları altında çalıştırmayı öğrenin.  Güvenlik ilkeleri oluşturma ve güvenli bir şekilde hizmetlerinizi çalıştırmak için Çalıştır ilkesini uygulayın.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
-ms.author: mfussell
-ms.openlocfilehash: f454ec7805db0a79f9346f252809c9d7f6869734
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: aljo
+ms.openlocfilehash: 28cd1162d7cae2b3a16062bdf18a2971e1f05aad
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871020"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664446"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Bir yerel kullanıcı hesabı veya yerel sistem hesabı bir hizmet çalıştırma
 Azure Service Fabric kullanarak kümedeki farklı bir kullanıcı hesabı altında çalışan uygulamaların güvenliğini sağlayabilirsiniz. Varsayılan olarak, Service Fabric uygulamaları Fabric.exe işlemin altında çalıştığı hesabın altına çalıştırın. Service Fabric uygulamaları yerel bir kullanıcı veya sistem hesabı altında çalıştırma özelliği de sağlar. Desteklenen yerel sistem hesabı türleri **LocalUser**, **NetworkService**, **LocalService**, ve **LocalSystem**.  Service Fabric Windows tek başına küme üzerinde çalıştırıyorsanız, altında bir hizmeti çalıştırabileceğiniz [Active Directory etki alanı hesapları](service-fabric-run-service-as-ad-user-or-group.md) veya [Grup yönetilen hizmet hesapları](service-fabric-run-service-as-gmsa.md).

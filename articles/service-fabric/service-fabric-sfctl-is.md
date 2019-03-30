@@ -4,7 +4,7 @@ description: Service Fabric CLI'yı açıklar sfctl olan komutları.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: abc1e835fa153fc5d061cca5a3eb009931240332
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2039dd9222809d2c05aaeaf01f9d38c51f3b3797
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276341"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661607"
 ---
 # <a name="sfctl-is"></a>sfctl is
 Sorgulamak ve hizmet için altyapı komutlar gönderebilirsiniz.
@@ -28,7 +28,7 @@ Sorgulamak ve hizmet için altyapı komutlar gönderebilirsiniz.
 
 |Komut|Açıklama|
 | --- | --- |
-| command | Verilen altyapı hizmeti örneği yönetimsel bir komutu çalıştırır. |
+| Komutu | Verilen altyapı hizmeti örneği yönetimsel bir komutu çalıştırır. |
 | sorgu | Verilen altyapı hizmeti örneği üzerinde salt okunur bir sorguyu çağırır. |
 
 ## <a name="sfctl-is-command"></a>sfctl komutudur.
@@ -41,7 +41,7 @@ Yapılandırılmış altyapı hizmeti bir veya daha fazla örneğe sahip kümele
 |Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --[gerekli] komutu | Çağrılacak komut metni. Komut içeriğini altyapı özeldir. |
-| --Hizmet kimliği | Altyapı hizmeti kimliği. <br><br> Bu hizmet altyapı tam adı, ' fabric\:' URI düzeni. Bu parametre yalnızca birden fazla örneğini çalıştıran hizmet altyapı sahip küme için gereklidir. |
+| --service-id | Altyapı hizmeti kimliği. <br><br> Bu hizmet altyapı tam adı, ' fabric\:' URI düzeni. Bu parametre yalnızca birden fazla örneğini çalıştıran hizmet altyapı sahip küme için gereklidir. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
@@ -64,7 +64,7 @@ Yapılandırılmış altyapı hizmeti bir veya daha fazla örneğe sahip kümele
 |Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --[gerekli] komutu | Çağrılacak komut metni. Komut içeriğini altyapı özeldir. |
-| --Hizmet kimliği | Altyapı hizmeti kimliği. <br><br> Bu hizmet altyapı tam adı, ' fabric\:' URI düzeni. Bu parametre yalnızca birden fazla örneğini çalıştıran hizmet altyapı sahip küme için gereklidir. |
+| --service-id | Altyapı hizmeti kimliği. <br><br> Bu hizmet altyapı tam adı, ' fabric\:' URI düzeni. Bu parametre yalnızca birden fazla örneğini çalıştıran hizmet altyapı sahip küme için gereklidir. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri

@@ -3,8 +3,8 @@ title: Azure Service Fabric uygulama dağıtımı | Microsoft Docs
 description: FabricClient API'leri dağıtma ve Service Fabric uygulamaları kaldırmak için kullanın.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
-ms.author: ryanwi
-ms.openlocfilehash: 9b3641ddd9d27c0ffa18e62f317d7a8c8ecb6eb3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: aljo
+ms.openlocfilehash: 408ef5abeed238a2bf4437bea0b77b6768961f53
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834940"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661165"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Dağıtma ve FabricClient kullanarak uygulamaları kaldırma
 > [!div class="op_single_selector"]
@@ -100,7 +100,7 @@ Bir uygulama örneği artık gerekli olmadığında, kalıcı olarak adını kul
 ## <a name="unregister-an-application-type"></a>Bir uygulama türünün kaydını silmek
 Belirli bir uygulama türü sürümü artık gerekli değilse, uygulama türünü kullanarak bu belirli sürümü kaydını kaldırmanız gerekir [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API. Kullanılmayan uygulama türü sürümleri kaydı, görüntü deposu tarafından kullanılan depolama alanı serbest bırakır. Uygulama türü sürümünü uygulama bu uygulama türü sürümünü karşı örneği oluşturulur ve bu uygulama türü sürümünü hiçbir bekleyen uygulama yükseltmeleri başvuruyor sürece kaydı olabilir.
 
-## <a name="troubleshooting"></a>Sorun giderme
+## <a name="troubleshooting"></a>Sorun Giderme
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>İçin bir Imagestoreconnectionstring kopyalama ServiceFabricApplicationPackage sorar
 Service Fabric SDK'sı ortamı zaten ayarlanmış doğru varsayılan değerleri olmalıdır. Ancak, gerekirse Imagestoreconnectionstring tüm komutlar için Service Fabric kümesi kullanan değer ile eşleşmelidir. Küme bildiriminde Imagestoreconnectionstring bulabilirsiniz kullanarak [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) ve Get-ImageStoreConnectionStringFromClusterManifest komutları:
 

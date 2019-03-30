@@ -4,7 +4,7 @@ description: Bu makalede, Service fabric'te hata analizi hizmeti inducing hatala
 services: service-fabric
 documentationcenter: .net
 author: anmolah
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: 1f064276-293a-4989-a513-e0d0b9fdf703
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: a4ddfc17a81a6816bc797bab4c3b5a8b2fc4334e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3581550779b2387515b4f300d211b4e0a894edc7
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425247"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662362"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Hata analizi hizmeti giriş
 Hata analizi hizmeti, Microsoft Azure Service Fabric'te yerleşik hizmetlere test etmek için tasarlanmıştır. Hata analizi hizmeti ile anlamlı hataları anlamına ve uygulamalarınızı karşı tam test senaryoları çalıştırın. Bu hataları ve senaryoları çalışma ve çeşitli durumları ve hizmet ömrü boyunca, tüm denetimli, güvenli ve tutarlı bir şekilde yaşar geçişleri doğrulayın.
@@ -46,9 +46,9 @@ Hata eylemi veya test senaryosu başlatıldığında hata eylemi veya test senar
 ## <a name="testing-distributed-systems"></a>Dağıtılmış sistemler test etme
 Service Fabric, ölçeklenebilir dağıtılmış uygulamaları önemli ölçüde daha kolay yönetme ve yazma iş sağlar. Hata analizi hizmeti, benzer şekilde daha kolay bir dağıtılmış uygulama testi kolaylaştırır. Test ederken çözülmesi gereken üç ana sorunları vardır:
 
-1. Gerçek senaryolar ortaya çıkabilecek hataları benzetimi/oluşturuluyor: Service Fabric önemli yönlerini biri olan çeşitli arızalardan kurtarmak dağıtılmış uygulamalar sağlar. Ancak, uygulamanın Bu hatalardan kurtarma mümkün olduğunu test etmek için bu denetimli bir test ortamında gerçek hata benzetimi/oluşturmak için bir mekanizma ihtiyacımız var.
-1. Bağlantılı hataları oluşturma yeteneği: sistemin ağ hataları ve makine hataları gibi temel hataları ayrı ayrı oluşturmak kolaydır. Çok sayıda gerçek dünyada etkileşim bu tek hata sonucunda oluşabilir senaryoları oluşturma önemsiz değil.
-1. Geliştirme ve dağıtım çeşitli düzeylere birleşik deneyim: çeşitli hataların yapabilirsiniz çok sayıda hata ekleme sistemler mevcuttur. Ancak, tüm bu testleri üretim için bunları kullanarak büyük test ortamlarında, aynı testleri çalıştırmak için hazır bir geliştirici senaryolarından taşırken kötü deneyimidir.
+1. Gerçek senaryolar ortaya çıkabilecek benzetimi/oluşturma hataları: Service Fabric önemli yönlerini çeşitli arızalardan kurtarmak dağıtılmış uygulamalar sağlayan biridir. Ancak, uygulamanın Bu hatalardan kurtarma mümkün olduğunu test etmek için bu denetimli bir test ortamında gerçek hata benzetimi/oluşturmak için bir mekanizma ihtiyacımız var.
+1. Bağlantılı hataları oluşturabilme özelliği: Sisteminde, ağ hataları ve makine hataları gibi temel hataları ayrı ayrı oluşturmak kolaydır. Çok sayıda gerçek dünyada etkileşim bu tek hata sonucunda oluşabilir senaryoları oluşturma önemsiz değil.
+1. Birleşik deneyim çeşitli düzeyde geliştirme ve dağıtım: Çeşitli hataları yapmak için çok sayıda hata ekleme sistemler mevcuttur. Ancak, tüm bu testleri üretim için bunları kullanarak büyük test ortamlarında, aynı testleri çalıştırmak için hazır bir geliştirici senaryolarından taşırken kötü deneyimidir.
 
 Gerekli garanti ile--aynı ortamından üretim kümeleri--test etmek için tamamen hazır bir geliştirici, yapan bir sistem bu sorunları çözmek için birçok mekanizma varken eksik. Hata analizi hizmeti, uygulama geliştiricilerin kendi iş mantığının test edilmesi hakkında yoğunlaşabilirsiniz yardımcı olur. Hata analizi hizmeti temel Dağıtılmış Sistem etkileşimlerine hizmeti test etmek için gerekli tüm yetenekleri sağlar.
 

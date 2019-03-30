@@ -1,10 +1,10 @@
 ---
-title: Service Fabric hizmetlerin kullanılabilirliğini | Microsoft Docs
-description: Hata algılama, yük devretme ve kurtarma Hizmetleri açıklar
+title: Service Fabric hizmetlerinin kullanılabilirliği | Microsoft Docs
+description: Hata algılama, yük devretme ve kurtarma Hizmetleri açıklanmaktadır
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 279ba4a4-f2ef-4e4e-b164-daefd10582e4
 ms.service: service-fabric
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 0794c0e190ecbc4cce808e94f98bb0ac63d1075a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: dd10af0d3c8a57168a27a039286ea0ec4c1dad02
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206258"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662763"
 ---
-# <a name="availability-of-service-fabric-services"></a>Service Fabric hizmetlerin kullanılabilirliğini
-Bu makalede Azure Service Fabric bir hizmetin kullanılabilirliğini nasıl korur genel bir bakış sağlar.
+# <a name="availability-of-service-fabric-services"></a>Service Fabric hizmetlerinin kullanılabilirliği
+Bu makalede, Azure Service Fabric hizmet kullanılabilirliğini nasıl korur genel bir bakış sağlar.
 
 ## <a name="availability-of-service-fabric-stateless-services"></a>Service Fabric durum bilgisi olmayan hizmetler kullanılabilirliği
-Service Fabric Hizmetleri durum bilgisi olan ya da durum bilgisiz olabilir. Durum bilgisiz hizmeti sahip olmayan bir uygulama hizmetidir bir [yerel durumu](service-fabric-concepts-state.md) , yüksek oranda kullanılabilir veya güvenilir olması gerekir.
+Service Fabric Hizmetleri, durum bilgisi olan veya durum bilgisi olmayan olabilir. Durum bilgisi olmayan hizmet sahip olmayan bir uygulama hizmetidir bir [yerel durumu](service-fabric-concepts-state.md) , yüksek oranda kullanılabilir veya güvenilir olması gerekir.
 
-Durum bilgisiz hizmet oluşturma gerektirir tanımlayan bir `InstanceCount`. Örnek sayısı, kümede çalışan bir durum bilgisi olmayan hizmetin uygulama mantığı örneklerinin sayısını tanımlar. Örneklerinin sayısını artırarak bir durum bilgisi olmayan hizmetin ölçeklendirme önerilen yoludur.
+Durum bilgisi olmayan hizmet oluşturma gerektirir tanımlayan bir `InstanceCount`. Örnek sayısı, kümede çalışan uygulama mantığı durum bilgisi olmayan hizmetin örnek sayısını tanımlar. Örneği sayısının artırılması, bir durum bilgisi olmayan hizmetin ölçeğini ölçeklendirmenin önerilen bir yoldur.
 
-Bir durum bilgisiz adlı hizmet örneği başarısız olduğunda, uygun bir küme düğümünde yeni bir örneği oluşturulur. Örneğin, bir durum bilgisiz hizmet örneği üzerinde Düğüm1 başarısız olabilir ve Düğüm5'yeniden oluşturulmalıdır.
+Bir durum bilgisi olmayan adlı-hizmet örneğini başarısız olduğunda, uygun bir küme düğümünde yeni bir örneği oluşturulur. Örneğin, bir durum bilgisi olmayan hizmet örneği üzerinde Düğüm1 başarısız olabilir ve Düğüm5 yeniden oluşturulmalıdır.
 
-## <a name="availability-of-service-fabric-stateful-services"></a>Service Fabric durum bilgisi olan hizmetler kullanılabilirliği
-Durum bilgisi olan hizmet kendisiyle ilişkili bir durumuna sahip. Service Fabric durum bilgisi olan hizmet çoğaltmaları kümesi olarak modellenir. Her Çoğaltma hizmetinin kodunun çalışan bir örneğidir. Çoğaltma durumu bu hizmet için bir kopyasını da sahiptir. Okuma ve yazma işlemleri adlı bir yinelemede gerçekleştirilen *birincil*. Durumu değişiklikleri yazma işlemleri *çoğaltılan* diğer çoğaltmalar için çoğaltma kümesinde, adlı *etkin ikinciller*ve uygulanır. 
+## <a name="availability-of-service-fabric-stateful-services"></a>Service Fabric durum bilgisi olan hizmetlerin kullanılabilirliği
+Durum bilgisi olan hizmet kendisiyle ilişkili bir duruma sahip. Service Fabric durum bilgisi olan hizmet çoğaltmalar bir dizi modellenir. Her yineleme, hizmetin kod çalışan bir örneğidir. Çoğaltma, hizmet durumunun bir kopyasını da vardır. Okuma ve yazma işlemleri olarak adlandırılan bir çoğaltma üzerinde gerçekleştirilen *birincil*. Durumu değişiklikleri yazma işlemleri *çoğaltılan* diğer çoğaltma için çoğaltma kümesindeki adlı *etkin ikincil veritabanı*ve uygulanır. 
 
-Yalnızca bir birincil çoğaltmaya olabilir, ancak birden fazla etkin ikincil çoğaltma olabilir. Etkin ikincil çoğaltmaların sayısı yapılandırılabilir bir değerdir ve daha yüksek bir sayı çoğaltmalarının daha fazla sayıda eşzamanlı yazılım ve donanım hatalarına dayanabilir.
+Yalnızca bir birincil çoğaltma olabilir, ancak birden fazla etkin ikincil çoğaltma olabilir. Etkin ikincil çoğaltmaların sayısı yapılandırılabilir ve daha yüksek bir yineleme sayısı daha fazla sayıda eş zamanlı yazılım ve donanım hatalarına dayanabileceğinden.
 
-Birincil çoğaltma devre dışı kalırsa, Service Fabric etkin ikincil çoğaltmaları yeni birincil birini yapar çoğaltma. Bu etkin ikincil çoğaltma durumu güncelleştirilmiş sürümü aracılığıyla zaten *çoğaltma*, ve okuma/yazma işlemleri daha fazla işleme devam edebilirsiniz. Bu işlem olarak bilinir *yeniden yapılandırma* ve daha ayrıntılı açıklanmıştır [yeniden yapılandırma](service-fabric-concepts-reconfiguration.md) makalesi.
+Birincil çoğaltma kalırsa, Service Fabric yeni birincil etkin ikincil çoğaltmalardan birine sağlar çoğaltma. Bu etkin ikincil çoğaltma durumu, güncelleştirilmiş sürümünü aracılığıyla zaten *çoğaltma*, ve daha fazla okuma/yazma işlemleri işleme devam edebilirsiniz. Bu işlem olarak bilinir *yeniden yapılandırma* ve daha ayrıntılı açıklanmıştır [yeniden yapılandırma](service-fabric-concepts-reconfiguration.md) makalesi.
 
-Bir birincil veya etkin ikincil olan bir çoğaltma kavramı olarak bilinir *çoğaltma rolü*. Bu çoğaltmalar daha ayrıntılı açıklanır [çoğaltmaları ve örnekleri](service-fabric-concepts-replica-lifecycle.md) makalesi. 
+Bir birincil veya etkin ikincil olan bir çoğaltma kavramı olarak bilinen *çoğaltma rolü*. Bu çoğaltmaların daha ayrıntılı açıklanır [çoğaltmalar ve örnekler](service-fabric-concepts-replica-lifecycle.md) makalesi. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Service Fabric kavramları hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
 - [Service Fabric Hizmetleri ölçeklendirme](service-fabric-concepts-scalability.md)
-- [Service Fabric Hizmetleri bölümlendirme](service-fabric-concepts-partitioning.md)
-- [Tanımlama ve durumunu yönetme](service-fabric-concepts-state.md)
+- [Service Fabric hizmetlerini bölümleme](service-fabric-concepts-partitioning.md)
+- [Durum tanımlama ve yönetme](service-fabric-concepts-state.md)
 - [Reliable Services](service-fabric-reliable-services-introduction.md)
 

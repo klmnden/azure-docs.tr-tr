@@ -4,7 +4,7 @@ description: Azure Service Fabric güvenilir durum Yöneticisi ve güvenilir kol
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: masnider,rajak
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: aljo
-ms.openlocfilehash: 246606792797afe0e57dbe2e582c4e94df3133d4
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 9785a09a3ac3e119507b4ac28075d887c7edc619
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806445"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662049"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>İşlemler ve Azure Service Fabric Reliable Collections kilit modları
 
@@ -48,8 +48,8 @@ Güvenilir bir sözlük ve kuyruk işlemleri için yalıtım düzeyi varsayılan
 
 | İşlem \ rolü | Birincil | İkincil |
 | --- |:--- |:--- |
-| Tek varlık okuma |Tekrarlanabilir okuma |Anlık Görüntü |
-| Numaralandırma, sayısı |Anlık Görüntü |Anlık Görüntü |
+| Tek varlık okuma |Tekrarlanabilir okuma |Anlık görüntü |
+| Numaralandırma, sayısı |Anlık görüntü |Anlık görüntü |
 
 > [!NOTE]
 > Tek varlık işlemleri ortak verilebilir `IReliableDictionary.TryGetValueAsync`, `IReliableQueue.TryPeekAsync`.
@@ -75,10 +75,10 @@ Bir güncelleştirme kilidi birden çok işlem sonraki bir zamanda potansiyel g�
 
 Kilit uyumluluk matrisi aşağıdaki tabloda bulunabilir:
 
-| İstek \ verildi | None | Paylaşılan | Güncelleştirme | Özel |
+| İstek \ verildi | Hiçbiri | Paylaşılan | Güncelleştir | Özel |
 | --- |:--- |:--- |:--- |:--- |
 | Paylaşılan |Çakışma yok |Çakışma yok |Çakışma |Çakışma |
-| Güncelleştirme |Çakışma yok |Çakışma yok |Çakışma |Çakışma |
+| Güncelleştir |Çakışma yok |Çakışma yok |Çakışma |Çakışma |
 | Özel |Çakışma yok |Çakışma |Çakışma |Çakışma |
 
 Güvenilir koleksiyonlar API'lerde zaman aşımı bağımsız değişkeni, kilitlenme algılaması için kullanılır.

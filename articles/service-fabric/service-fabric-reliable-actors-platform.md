@@ -4,7 +4,7 @@ description: Reliable Actors Reliable Services üzerinde katmanlanmış ve Servi
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: amanbha
 ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: f6594ccaa4d11361c3aacb8f774327600d3ffdde
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bc7569c9f230abb7677a8df9fc0cc0268e57296f
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889259"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661182"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Reliable Actors hizmeti tarafından Service Fabric platformunun kullanımı
 Bu makalede, Reliable Actors Azure Service Fabric platformunda nasıl çalıştığı açıklanmaktadır. Reliable Actors hizmetini durum bilgisi olan güvenilir hizmet uygulaması içinde barındırılan bir çerçeve çalıştırmak adlı *actor hizmetinin*. Actor hizmetinin yaşam döngüsü ve ileti gönderme, aktörler için yönetmek gerekli tüm bileşenleri içerir:

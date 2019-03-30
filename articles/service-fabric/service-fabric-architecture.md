@@ -1,10 +1,10 @@
 ---
-title: Azure Service Fabric mimarisi | Microsoft Docs
-description: Service Fabric, bulut için ölçeklenebilir, güvenilir ve kolay yönetilen uygulamalar oluşturmak için kullanılan bir dağıtılmış sistemler platformudur. Bu makalede, Service Fabric mimarisi gösterilmektedir.
+title: Azure Service fabric mimarisi | Microsoft Docs
+description: Service Fabric, bulut için ölçeklenebilir, güvenilir ve kolayca yönetilen uygulamalar oluşturmak için kullanılan bir dağıtılmış sistemler platformudur. Bu makalede, Service Fabric mimarisi gösterilmektedir.
 services: service-fabric
 documentationcenter: .net
 author: rishirsinha
-manager: timlt
+manager: chackdan
 editor: rishirsinha
 ms.assetid: 6b554243-70cb-4c22-9b28-1a8b4703f45e
 ms.service: service-fabric
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/12/2017
 ms.author: rsinha
-ms.openlocfilehash: 5e69d4b09261c90fd3c33e60645fe484b816e369
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a1e68e2e39ea6f1c8cf8669e2e02d8dacaf0f284
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209979"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664599"
 ---
 # <a name="service-fabric-architecture"></a>Service Fabric mimarisi
-Service Fabric katmanlı alt sistemleri ile yerleşik olarak bulunur. Bu alt sistemleri, uygulamaları yazma olanak sağlar:
+Service Fabric ile katmanlı alt sistemleri yerleşik olarak bulunur. Bu alt sistemleri olan uygulamaları yazmak etkinleştir:
 
 * Yüksek oranda kullanılabilir
 * Ölçeklenebilir
 * Yönetilebilir
 * Test edilebilir
 
-Aşağıdaki diyagramda, Service Fabric, ana alt sistemleri gösterir.
+Aşağıdaki diyagramda, Service Fabric, büyük alt sistemleri gösterir.
 
 ![Service Fabric mimarisi diyagramı](media/service-fabric-architecture/service-fabric-architecture.png)
 
-Dağıtılmış bir sistemde, kümedeki düğümler arasında güvenli iletişim olanağı önemlidir. Yığın tabanına düğümler arasında güvenli iletişim sağlayan aktarım alt sistemidir. Aktarım subsystem Service Fabric hatalarını algılayacak, öncü seçim gerçekleştirmek ve tutarlı yönlendirme sağlayan farklı düğümler (kümeleri olarak adlandırılır) tek bir varlık kümeleri Federasyon alt sistemi arasındadır. Federasyon alt sistemi üzerinde katmanlanmış güvenilirlik alt sistemi, çoğaltma, kaynak yönetimi ve yük devretme gibi mekanizmaları Service Fabric hizmetleriyle güvenilirliğini sorumludur. Federasyon alt sistemi de tek bir düğümde bir uygulama yaşam döngüsü yönetir barındırma ve etkinleştirme alt sistemi vurgular. Uygulamalar ve hizmetler yaşam döngüsü yönetimi alt yönetir. Test Edilebilirlik alt sistemi uygulama geliştiricileri kendi sanal hataları hizmetleriyle önce ve sonra uygulamaları ve Hizmetleri üretim ortamlarına dağıtmadan test yardımcı olur. Service Fabric hizmet konumları, iletişim alt sistemi aracılığıyla çözümleme olanağı sağlar. Geliştiricilere sunulan uygulama programlama modelleri, araç etkinleştirmek için uygulama modeli ile birlikte bu alt sistemleri üzerinde katmanlanmış.
+Dağıtılmış bir sistemde, kümedeki düğümler arasında güvenli bir şekilde iletişim kurabilir büyük/küçük harf önemlidir. Yığın tabanına düğümler arasında güvenli iletişim sağlayan aktarım alt sistemi ' dir. Taşıma alt sistemi, Service Fabric hatalarını algılamak, öncü seçimi gerçekleştirmek ve tutarlı yönlendirmesi sağlayın (kümeleri adlı) tek bir varlığa farklı düğümlerde kümelerini Federasyon alt sistemi arasındadır. Federasyon alt sistemi üzerinde katmanlanmış güvenilirlik alt sistemi, Service Fabric Hizmetleri yük devretme çoğaltma ve kaynak yönetimi gibi bir yolla güvenilirliğini sorumludur. Federasyon alt sistemi ayrıca tek bir düğümde bir uygulamanın yaşam döngüsünü yöneten barındırma ve etkinleştirme alt sistemi vurgular. Uygulamalar ve hizmetler yaşam döngüsü yönetimi alt yönetir. Test Edilebilirlik alt sistemi, uygulama geliştiricilerin kendi sanal hataları hizmetleriyle önce ve sonra uygulamaları ve Hizmetleri üretim ortamlarına dağıtmadan test yardımcı olur. Service Fabric hizmet konumlar, iletişim alt sistemi aracılığıyla çözümleme olanağı sağlar. Geliştiriciler için kullanıma sunulan uygulama programlama modellerini, bu alt sistemlerin yanı sıra Araçları etkinleştirmek için uygulama modeli üzerinde katmanlıdır.
 
-## <a name="transport-subsystem"></a>Taşıma alt sistemi
-Taşıma alt sistemi bir noktadan noktaya veri birimi iletişim kanalı uygular. Bu kanal, service fabric kümeleri içinde iletişim ve service fabric kümesi ve istemciler arasında iletişim için kullanılır. Tek yönlü destekler ve yayın ve çok noktaya yayın Federasyon katmanda uygulamak üzere temelini istek-yanıt iletişim deseni. Taşıma alt sistemi X509 kullanarak iletişimi güvenli hale getirdiği sertifikalar veya Windows Güvenliği. Bu alt sistemi Service Fabric tarafından dahili olarak kullanılır ve geliştiricilere uygulama programlama için doğrudan erişilebilir değil.
+## <a name="transport-subsystem"></a>Aktarım alt sistemi
+Aktarım alt sistemi, noktadan noktaya veri birimi iletişim kanalı uygular. Bu kanal, service fabric kümeleri içinde iletişim kurmak ve service fabric kümesi ve istemciler arasındaki iletişimi için kullanılır. Tek yönlü destekler ve istek-yanıt iletişim düzenleri yayın ve çok noktaya yayın Federasyon katmanda uygulamak için temel sağlar. Aktarım alt X509 kullanarak iletişimin güvenliğini sağlar sertifikaları veya Windows Güvenlik. Bu alt sistemi, Service Fabric tarafından dahili olarak kullanılır ve uygulama programlama için geliştiricilere doğrudan erişilebilir değil.
 
 ## <a name="federation-subsystem"></a>Federasyon alt sistemi
-Dağıtılmış bir sistemde düğümleri kümesi hakkında neden için tutarlı bir görünüm sisteminin gerekir. Federasyon alt sistemi hakkında neden tek bir birleşik kümesinde çeşitli düğümleri bitiştirir ve aktarım alt sistemi tarafından sağlanan iletişim temelleri kullanır. Diğer alt sistemleri tarafından - hata algılama, öncü seçim ve tutarlı yönlendirme gerekli dağıtılmış sistemlerin temelleri sağlar. Federasyon alt sistemi dağıtılmış karma tabloları 128-bit belirteci alanı ile en üstünde yerleşik olarak bulunur. Alt düğümleri, her bir alt simge alanı sahipliğini ayrılan halkası düğümünde üzerinden halka topolojisi oluşturur. Hata algılaması için katman vuruş Kalp ve yönetimini dayalı bir kiralama mekanizması kullanır. Federasyon alt sistemi, aynı zamanda karmaşık birleştirme ve herhangi bir anda yalnızca tek bir sahibi belirtecin var. ayrılma protokolleri aracılığıyla garanti eder. Bu kılavuz seçim ve tutarlı yönlendirme garantileri sağlar.
+Dağıtılmış bir sistemde bir dizi düğümü hakkında nedeni için tutarlı bir görünüm sisteminin gerekir. Federasyon alt aktarım alt sistemi tarafından sağlanan iletişim temelleri kullanır ve hakkında nedeni tek bir birleştirilmiş kümesinde çeşitli düğümler bitiştirir. Bu, diğer alt sistemler tarafından - hata algılama, öncü seçimi ve tutarlı yönlendirmesi gereken dağıtılmış sistemler temelleri sağlar. Federasyon alt sistemi, 128 bit belirteci alana sahip dağıtılmış bir karma tablo üzerinde oluşturulmuştur. Alt düğümleri, her düğüm sahipliği için ayrılan bir alt simge alanı halka üzerinden halka topolojisi oluşturur. Hata algılama için katman beating Kalp ve Tahkim dayalı bir kiralama mekanizmasının kullanır. Federasyon alt sistemi, aynı zamanda karmaşık birleştirme ve herhangi bir zamanda yalnızca tek bir sahibi belirteci var. kalkış protokolleri üzerinden garanti eder. Bu, öncü seçimi ve tutarlı yönlendirme garantileri sağlar.
 
 ## <a name="reliability-subsystem"></a>Güvenilirlik alt sistemi
-Güvenilirlik alt sistemi Service Fabric hizmetinin durumunu kullanılarak yüksek oranda kullanılabilir yapmak için mekanizma sağlar *çoğaltıcı*, *Yük Devretme Yöneticisi*, ve *kaynak Dengeleyici*.
+Güvenilirlik alt sistemi bir Service Fabric hizmetinin durumunu kullanımının yüksek oranda kullanılabilir hale getirmek için bir mekanizma sağlar *çoğaltıcı*, *Yük Devretme Yöneticisi*, ve *kaynak Dengeleyici*.
 
-* Çoğaltıcı birincil hizmet çoğaltma durumu değişiklikleri ikincil çoğaltmalar için otomatik olarak çoğaltılır hizmet çoğaltma kümesinde birincil ve ikincil çoğaltmalar arasında tutarlılığı koruma sağlar. Çoğaltıcı, çekirdek Yönetimi yineleme kümesindeki çoğaltmalar arasında sorumludur. Çoğaltmak için işlemlerin listesini almak için yük devretme birimi ile etkileşim kurar ve yeniden yapılandırma aracısı çoğaltma kümesi yapılandırması ile sağlar. Bu yapılandırma işlemleri çoğaltılması gereken çoğaltmalar gösterir. Service Fabric hizmet durumu yüksek oranda kullanılabilir ve güvenilir hale getirmek için programlama modelini API tarafından kullanılan Fabric çoğaltması olarak adlandırılan bir varsayılan çoğaltıcı sağlar.
-* Yük Devretme Yöneticisi düğümleri eklenecek veya kümeden kaldırılmış olduğunda yük otomatik olarak kullanılabilir düğümleri arasında dağıtılır sağlar. Kümedeki bir düğüm başarısız olursa, küme kullanılabilirliğini sağlamak için hizmeti çoğaltmaları otomatik olarak yeniden yapılandırır.
-* Resource Manager kümedeki hata etki alanı arasında hizmet çoğaltmaları yerleştirir ve tüm yük devretme birimi işletimsel olmasını sağlar. Kaynak Yöneticisi hizmet kaynakları en iyi Tekdüzen yük dağıtımı elde etmek için küme düğümleri arasında temel paylaşılan havuzu da dengeler.
+* Çoğaltma Hizmeti Çoğaltma kümesinde birincil ve ikincil çoğaltmalar arasında tutarlılığı sürdürmeye birincil hizmet çoğaltmasını durum değişiklikleri otomatik olarak ikincil çoğaltmalara çoğaltılır sağlar. Çoğaltma, çoğaltma yinelemeleri arasında çekirdek Yönetimi sorumludur. Çoğaltmak için işlemlerin listesini almak için yük devretme birimi ile etkileşim ve isteğe bağlı olarak yeniden yapılandırma aracısı çoğaltma kümesine yapılandırılmasını sağlar. Bu yapılandırma işlemleri çoğaltılacağını çoğaltmalar gösterir. Service Fabric programlama modeli API'si tarafından hizmet durumu, yüksek kullanılabilirliğe sahip ve güvenilir hale getirmek için kullanılabilecek Fabric Çoğaltıcısı adlı bir varsayılan yineleyici sağlar.
+* Yük Devretme Yöneticisi düğümleri eklenir veya kümeden kaldırılmış, yükleme otomatik olarak kullanılabilir düğümlere dağıtılır sağlar. Kümedeki bir düğüm başarısız olursa, küme kullanılabilirliği sürdürmek için hizmeti çoğaltmaları otomatik olarak yeniden yapılandırır.
+* Resource Manager, kümedeki hata etki alanı genelinde hizmet çoğaltmaları yerleştirir ve tüm yük devretme birimi işletimsel olmasını sağlar. Resource Manager, hizmet kaynakları ayrıca temel alınan paylaşılan havuzunda Tekdüzen en iyi yük dağılımı elde etmek için küme düğümlerinin dengeler.
 
 ## <a name="management-subsystem"></a>Yönetim alt sistemi
-Yönetimi alt uçtan uca hizmet ve uygulama yaşam döngüsü yönetimi sağlar. PowerShell cmdlet'leri ve yönetim API'leri sağlamak, dağıtma, düzeltme eki, yükseltme ve kullanılabilirlik kaybı olmadan uygulamaları sağlanmasını olanak sağlar. Yönetim alt sistemi bu aşağıdaki hizmetler aracılığıyla gerçekleştirir.
+Yönetim alt sistemi, uçtan uca hizmet ve uygulama yaşam döngüsü yönetimi sağlar. PowerShell cmdlet'leri ve yönetim API'leri, sağlama, dağıtma, düzeltme eki uygulama, yükseltme ve kullanılabilirliği kaybı olmadan uygulamaları sağlamasını etkinleştirin. Yönetim alt sistemi, bu aşağıdaki hizmetleri aracılığıyla gerçekleştirir.
 
-* **Küme Yöneticisi'ni**: Bu ile yük devretme hizmet yerleştirme kısıtlamalarına göre düğümlerde uygulamaları yerleştirmek için Yöneticisi'nden güvenilirlik etkileşime giren, birincil hizmetidir. Kaynak Yöneticisi'nde yük devretme alt sistemi kısıtlamalarını hiçbir zaman bozuk olmasını sağlar. Küme Yöneticisi'ni sağlanmasını karşılık uygulamaları yaşam döngüsü yönetir. Uygulama kullanılabilirliği yükseltmeler sırasında bir anlam sistem durumu açısından kaybı olmadığından emin olmak için sistem durumu Yöneticisi ile entegre olur.
-* **Sağlık Yöneticisi**: Bu hizmet uygulamaları, hizmetleri ve küme varlık sistem durumu izleme sağlar. Küme varlıklar (örneğin, düğümleri, hizmet bölümler ve çoğaltmalar) Merkezi durum deposuna toplanabilecek sistem durumu bilgilerini bildirebilirsiniz. Bu sistem durumu bilgileri Hizmetleri ve tüm gerekli düzeltici eylemleri olanak sağlayarak kümedeki birden çok düğüm arasında dağıtılmış düğümlere noktası zaman genel sistem durumu görüntüsünü sağlar. Sistem durumu sorgusu API'leri, sistem durumu olayları sorgulamak üzere etkinleştirmek için sistem durumu alt sisteminin bildirdiği. Sistem sağlığı deposunu veya toplanmış, depolanan ham sistem durumu verileri API'leri döndürüldüğü bir sistem durumu sorgu belirli küme varlık için sistem durumu veri yorumlanır.
-* **Image Store**: Bu hizmet, depolama ve uygulama ikili dosyalarının dağıtımını sağlar. Bu hizmet, bir basit dağıtılmış dosya depolama burada uygulamaları için karşıya ve karşıdan sağlar.
+* **Küme Yöneticisi'ni**: İle yük devretme uygulamaları hizmet yerleştirme kısıtlamalarına göre düğümlerin yerleştirmek için Yöneticisi'nden güvenilirlik etkileşim birincil hizmetidir. Kaynak Yöneticisi'nde yük devretme alt kısıtlamaları hiçbir zaman bozuk olmasını sağlar. Küme Yöneticisi, uygulamaları yaşam döngüsü sağlamasını karşılık yönetir. Uygulama kullanılabilirliği yükseltmeler sırasında bir anlam sistem durumu açısından kaybı olmadığından emin olmak için sistem durumu Yöneticisi ile tümleştirilir.
+* **Sistem Durumu Yöneticisi**: Bu hizmet, uygulamaları, hizmetleri ve küme varlık sistem durumu izleme sağlar. Merkezi Sistem deposuna toplanabilecek sistem durumu bilgileri, küme varlıkları (ör. düğüm, hizmet bölümleri ve çoğaltmalarını) bildirebilirsiniz. Bu sistem durumu bilgileri bir genel-belirli bir noktaya sistem durumu hizmetleri ve gerekli düzeltmeleri yapın olanak tanıyarak kümedeki birden fazla düğümde dağıtılmış düğümleri anlık görüntüsünü sağlar. Sistem durumu sorgusu API'leri, sistem durumu olayları'nı sorgulamak etkinleştirmek için sistem durumu alt bildirdi. Sistem durumu deposu veya toplu, depolanan ham sistem durumu verileri API'leri döndürüldüğü bir sistem durumu sorgu belirli küme varlık sistem durumu verilerini yorumlanır.
+* **Görüntü Store**: Bu hizmet, depolama ve uygulama ikili dosyalarını dağıtımını sağlar. Bu hizmet, uygulamaları burada yüklenen ve indirilen basit dağıtılmış bir dosya deposu sağlar.
 
 ## <a name="hosting-subsystem"></a>Barındırma alt sistemi
-Küme Yöneticisi'ni yönetmek için belirli bir düğüm için gereken hizmetler (her düğüm üzerinde çalışan) barındırma alt bildirir. Barındırma alt sistemi, ardından bu düğümde uygulama yaşam döngüsü yönetir. Çoğaltmaları düzgün yerleştirilir ve iyi durumda emin olmak için güvenilirlik ve sistem durumu bileşenlerle etkileşimi.
+Küme Yöneticisi'ni yönetmek için belirli bir düğüm için gereken hizmetleri (her düğümde çalışan) barındırma alt bildirir. Barındırma alt sistemi, ardından o düğümdeki uygulama yaşam döngüsü yönetir. Bu çoğaltmaların düzgün bir şekilde yerleştirildiğinden ve Sağlıklı olduğunu emin olmak için güvenilirlik ve sistem durumu bileşenlerle etkileşimi.
 
 ## <a name="communication-subsystem"></a>İletişim alt sistemi
-Bu alt sistemi adlandırma hizmeti aracılığıyla küme ve hizmet bulma içinde güvenilir Mesajlaşma sağlar. Adlandırma hizmeti kümedeki bir konuma hizmet adlarını çözer ve kullanıcıların hizmet adlarını ve özelliklerini yönetmenize olanak tanır. Adlandırma Hizmeti kullanıldığında, istemcileri güvenli bir şekilde bir hizmet adı giderin ve hizmeti meta verilerini almak için kümedeki herhangi bir düğümün ile iletişim kurabilir. Basit bir adlandırma İstemcisi API kullanarak, hizmetler ve istemcileri düğümü yeni bir dinamizm rağmen geçerli ağ konumu veya kümesini yeniden boyutlandırma çözme özellikli Service Fabric kullanıcılarının geliştirebilirsiniz.
+Bu alt küme ve hizmet bulma adlandırma hizmeti aracılığıyla içinde güvenilir Mesajlaşma sağlar. Adlandırma hizmeti bir konumu kümedeki hizmet adları çözümlenir ve kullanıcıların hizmet adları ve özelliklerini yönetmenize olanak tanır. Adlandırma Hizmeti kullandığınızda, istemcileri güvenli bir şekilde bir hizmet adı çözümlenmeye ve hizmet meta verilerini almak için kümedeki herhangi bir düğüm ile iletişim kurabilir. Basit bir adlandırma İstemcisi API kullanarak, Service Fabric, kullanıcıların hizmetler ve düğüm dynamism rağmen geçerli ağ konumu veya kümesini yeniden boyutlandırma çözme özelliğine sahip istemciler geliştirebilirsiniz.
 
 ## <a name="testability-subsystem"></a>Test Edilebilirlik alt sistemi
-Test Edilebilirlik Service Fabric üzerinde oluşturulmuş Hizmetleri test etmek için özellikle tasarlanmış araçlar paketidir. Alıştırma ve çok sayıda durumları ve yaşam süresi, denetimli ve güvenli bir şekilde tümünde boyunca bir hizmet yaşar geçişleri doğrulamak için sınama senaryolarını kolayca anlamlı hataları anlamına ve geliştirici araçları sağlar. Test Edilebilirlik da kullanılabilirlik kaybetmeden çeşitli olası hataları yineleyebilirsiniz uzun testleri çalıştırmak için bir mekanizma sağlar. Bu olan bir üretim, test ortamı sağlar.
+Test Edilebilirlik bir Service Fabric üzerinde oluşturulmuş Hizmetleri test etmek için özel olarak tasarlanmış araçları paketidir. Kolayca anlamlı hataları anlamına ve çalışma ve çeşitli durumları ve hizmet ömrü boyunca, tüm kontrollü ve güvenli bir şekilde yaşar geçişleri doğrulamak için test senaryoları çalıştırın bir geliştirici araçları sağlar. Test Edilebilirlik ayrıca kullanılabilirlik kaybetmeden çeşitli olası hataları yineleyebilirsiniz uzun testleri çalıştırmak için bir mekanizma sağlar. Bu test, üretim ortamıyla sağlar.
 

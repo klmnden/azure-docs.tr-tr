@@ -4,7 +4,7 @@ description: Service Fabric durum bilgisi olan hizmetler yüksek oranda kullanı
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 1/3/2019
 ms.author: aljo
-ms.openlocfilehash: 944bb69ed028338efb243c8646035089566ccf80
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 4ed76b207db4712058b5524cd1b31fd65b0e19a4
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806513"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664421"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure Service Fabric durum bilgisi olan hizmetler güvenilir koleksiyonlar giriş
 
@@ -63,10 +63,10 @@ Bugün, **Microsoft.ServiceFabric.Data.Collections** üç koleksiyonu içerir:
 * [İşlemler ve kilitler](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Verileri yönetme
   * [Yedekleme ve Geri Yükleme](service-fabric-reliable-services-backup-restore.md)
-  * [Bildirimler](service-fabric-reliable-services-notifications.md)
+  * [Bildirimleri](service-fabric-reliable-services-notifications.md)
   * [Güvenilir Koleksiyonu serileştirme](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Seri hale getirme ve yükseltme](service-fabric-application-upgrade-data-serialization.md)
   * [Güvenilir durum Yöneticisi'ni yapılandırma](service-fabric-reliable-services-configuration.md)
-* Diğer
+* Diğerleri
   * [Reliable Services hızlı başlangıç](service-fabric-reliable-services-quick-start.md)
   * [Güvenilir koleksiyonlar için Geliştirici Başvurusu](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

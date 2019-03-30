@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 96ac8522f94a3555fe63575baca8bbfbabc272d9
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 9c0e672788858176800c04d7b2aa355d303aec1f
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570462"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666180"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Java ve Maven ile ilk işlevinizi oluşturma
 
@@ -48,6 +48,9 @@ mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
+
+> [!NOTE]
+> Komutu çalıştırmadaki sorunları yaşıyorsanız, ne göz atın `maven-archetype-plugin` sürümü kullanılır. Boş bir dizin yok ile'komutu çalıştırdığınızdan `.pom` , onu uygulanmaya çalışılıyor, eski sürümden bir eklentiyi `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` Maven eski bir sürümden yükselttiyseniz. Bu durumda, silmeyi deneyin `maven-archetype-plugin` dizin ve komutu yeniden çalıştırılıyor.
 
 ### <a name="windows"></a>Windows
 

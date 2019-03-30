@@ -1,10 +1,10 @@
 ---
 title: Azure Service Fabric durumunu yönetme | Microsoft Docs
-description: Erişim, kaydedin ve Service Fabric Reliable Actors durumu kaldırma hakkında bilgi edinin.
+description: Kaydet ve Service Fabric Reliable Actors durum kaldırma erişimi öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
 ms.service: service-fabric
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: ac3afe144b9cf9e2fb307087edb175a603ffe4e9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7c10d00916ef65767c98616c7337bfa444c339a9
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206756"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664735"
 ---
-# <a name="access-save-and-remove-reliable-actors-state"></a>Erişim, kaydetme ve Reliable Actors durumunu kaldırın
-[Güvenilir aktörler](service-fabric-reliable-actors-introduction.md) mantığı ve durumunu saklayan ve durumunu güvenilir bir şekilde korumak tek iş parçacıklı nesneleridir. Her aktör örneği kendi sahip [durum Yöneticisi](service-fabric-reliable-actors-state-management.md): depoladıktan bir sözlük benzeri veri yapısı anahtar/değer çiftleri. Durum Yöneticisi durum sağlayıcısı çevresinde bir sarmalayıcı ' dir. Hangi bağımsız olarak veri depolamak için kullanmak [Kalıcılık ayarı](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) kullanılır.
+# <a name="access-save-and-remove-reliable-actors-state"></a>Kaydet ve Reliable Actors durum kaldırma erişimi
+[Reliable Actors](service-fabric-reliable-actors-introduction.md) hem mantıksal hem de durum kapsüllemek ve güvenilir bir şekilde durumunu korumak tek iş parçacıklı nesnelerdir. Her aktör örnek kendi bölümüne sahiptir [durum Yöneticisi](service-fabric-reliable-actors-state-management.md): güvenilir bir şekilde depolayan bir sözlüğü benzeri veri yapısı anahtar/değer çiftleri. Durum Yöneticisi durum sağlayıcısı çevresinde bir sarmalayıcı ' dir. Hangi verileri depolamak için kullanabileceğiniz [Kalıcılık ayarı](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) kullanılır.
 
-Durum Yöneticisi anahtarları dize olmalıdır. Değerler genel ve herhangi bir türü olabilir özel türleri dahil olmak üzere. Diğer düğümlere ağ üzerinden çoğaltma sırasında iletilebilir ve bağlı olarak bir aktör'ın durum Kalıcılık ayarını diske yazılan çünkü durum Yöneticisi'nde depolanan değerleri veri sözleşmesi seri hale getirilebilir olmalıdır.
+Durum Yöneticisi anahtarları dize olmalıdır. Değerleri geneldir ve herhangi bir tür olabilir özel türler dahil. Durum Yöneticisi'nde depolanan değerleri, diğer düğümlerle ağ üzerinden çoğaltma sırasında iletilebilir ve, bir aktörün durumu Kalıcılık ayarlarına bağlı olarak diske yazılan çünkü veri sözleşme seri hale getirilebilir olması gerekir.
 
-Durum Yöneticisi durum, güvenilir sözlükte bulunan benzer yönetmek için ortak sözlüğü yöntemlerini gösterir.
+Durum Yöneticisi durum, güvenilir bir sözlükte bulunan benzer yönetmek için ortak sözlüğü yöntemleri sunar.
 
-Bilgi için bkz: [en iyi uygulamalar aktör durumunu yönetme](service-fabric-reliable-actors-state-management.md#best-practices).
+Bilgi için [en iyi uygulamalar aktör durumu yönetiminde](service-fabric-reliable-actors-state-management.md#best-practices).
 
 ## <a name="access-state"></a>Erişim durumu
-Durum anahtarının durum Yöneticisi aracılığıyla erişilir. Durum Yöneticisi yöntemlerini tüm zaman uyumsuz olduklarından aktörler durumu kalıcı olduğunda disk g/ç gerektirebilir. İlk erişim kaybedilmez durum nesneleri bellekte önbelleğe alınır. Erişim işlemleri erişimi nesneleri doğrudan bellekten yineleyin ve disk g/ç veya zaman uyumsuz bağlam geçişi yükü yansıtılmasını olmadan zaman uyumlu olarak döndürür. Bir durum nesnesi, aşağıdaki durumlarda önbellekten kaldırılır:
+Durum anahtarıyla durum Yöneticisi erişilir. Durum Yöneticisi yöntemlerini tüm zaman uyumsuz olduklarından durumu aktörlerini kalıcı, disk g/ç gerektirebilir. İlk erişim kaybedilmez durum nesneleri bellekte önbelleğe alınır. Doğrudan bellekten işlemleri erişim nesnelere erişme yinelemek ve disk g/ç veya zaman uyumsuz bağlam geçişi yükü olmaksızın zaman uyumlu olarak döndürür. Durum nesnesi, aşağıdaki durumlarda önbellekten kaldırılır:
 
-* Durum Yöneticisi'nden bir nesneyi alır sonra aktör yöntemi işlenmeyen bir özel durum oluşturur.
-* Bir aktör, devre dışı bırakılan sonra veya hatadan sonra yeniden başlatılır.
-* Disk durumu sağlayıcısı sayfaları durumu. Bu davranışı üzerinde durumu sağlayıcısı uygulaması bağlıdır. Varsayılan durum sağlayıcısı için `Persisted` ayarının bu davranışı.
+* Durum Yöneticisi'nden nesneyi aldıktan sonra bir aktör yöntemi işlenmeyen özel durum oluşturur.
+* Bir aktör, sonra devre dışı bırakılan veya hatadan sonra yeniden başlatılır.
+* Disk durumu sağlayıcısı sayfaları durumu. Bu davranış durum sağlayıcısı uygulamasının bağlıdır. İçin varsayılan durumu sağlayıcısı `Persisted` ayarının bu davranışı.
 
-Standart bir kullanarak durumu alabilirsiniz *almak* oluşturur işlemi `KeyNotFoundException`(C#) veya `NoSuchElementException`(bir girdi için anahtar mevcut değilse Java):
+Standart'ı kullanarak durumu alabilirsiniz *alma* oluşturan işlem `KeyNotFoundException`(C#) veya `NoSuchElementException`(Java) bir giriş için anahtar mevcut değilse:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -70,7 +70,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Kullanarak durumu alabilirsiniz bir *TryGet* bir girdi için bir anahtar mevcut değilse oluşturmadığını yöntemi:
+Kullanarak durumu alabilirsiniz bir *TryGet* bir giriş için bir anahtar mevcut değilse oluşturmaz yöntemi:
 
 ```csharp
 class MyActor : Actor, IMyActor
@@ -112,10 +112,10 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-## <a name="save-state"></a>Durumu kaydedin
-Durum Yöneticisi Alma yöntemlerini yerel bellekte bir nesneye başvuru döndürür. Bu nesne yerel bellek tek başına değiştirme işlemi kaydedilmesi için neden olmaz. Bir nesnenin durumu Yöneticisi'nden alınan ve değişiklik olduğunda işlemi kaydedilecek durumu Manager'a yeniden gerekir.
+## <a name="save-state"></a>Durumu Kaydet
+Durum Yöneticisi Alma yöntemlerini yerel belleğinde bir nesneye bir başvuru döndürür. Bu nesne tek başına yerel bellek değiştirme arızaya kaydedilmesi için neden olmaz. Bir nesne durum Yöneticisi'nden alınan ve değişiklik olduğunda arızaya kaydedilecek durum Yöneticisi'ne yeniden gerekir.
 
-Bir koşulsuz kullanarak durumu ekleyebilirsiniz *ayarlamak*, denk olduğu `dictionary["key"] = value` sözdizimi:
+Bir koşulsuz kullanarak durumu ekleyebilirsiniz *ayarlamak*, denk olan `dictionary["key"] = value` söz dizimi:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -148,7 +148,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Kullanarak durumu ekleyebilirsiniz bir *Ekle* yöntemi. Bu yöntem oluşturulur `InvalidOperationException`(C#) veya `IllegalStateException`(anahtar zaten eklemek çalıştığında Java) bulunmaktadır.
+Kullanarak durumu ekleyebilirsiniz bir *Ekle* yöntemi. Bu yöntem `InvalidOperationException`(C#) veya `IllegalStateException`(Java) zaten bir anahtar eklemek çalıştığında bulunmaktadır.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -181,7 +181,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Kullanarak durumu ekleyebilirsiniz bir *TryAdd* yöntemi. Zaten bir anahtar eklemek çalıştığında, bu yöntem oluşturmadığını.
+Kullanarak durumu ekleyebilirsiniz bir *TryAdd* yöntemi. Zaten bir anahtar eklemek çalıştığında, bu yöntem oluşturmaz.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -224,9 +224,9 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Aktör yöntemi sonunda, durum Yöneticisi'ni otomatik olarak eklenen veya bir INSERT veya update işlem tarafından değiştirilmiş tüm değerleri kaydeder. "Kaydet" diske ve kullanılan ayarlarına bağlı olarak çoğaltma kalıcı içerebilir. Değiştirilmemiş değerleri kalıcı veya çoğaltılan değil. Hiçbir değer değiştirildi, kaydetme işlemi hiçbir şey yapmaz. Başarısız kaydetme, değiştirilmiş durum atılır ve özgün duruma geri yüklenir.
+Durum Yöneticisi, bir aktör yönteminin sonunda, eklenen veya bir ekleme veya güncelleştirme işlemi tarafından değiştiren herhangi bir değeri otomatik olarak kaydeder. "Kaydet" diske ve kullanılan ayarlarına bağlı olarak, çoğaltma kalıcı içerebilir. Değiştirilmemiş değerleri kalıcı veya çoğaltılan değil. Değer değiştirildi, kaydetme işlemi hiçbir şey yapmaz. Kaydetme başarısız, değiştirilen durum atılır ve özgün durumuna geri yüklenir.
 
-Ayrıca durumu el ile çağırarak kaydedebilirsiniz `SaveStateAsync` aktör tabanında yöntemi:
+Ayrıca durumu el ile çağırarak kaydedebilirsiniz `SaveStateAsync` aktör taban yöntemi:
 
 ```csharp
 async Task IMyActor.SetCountAsync(int count)
@@ -247,8 +247,8 @@ interface MyActor {
 }
 ```
 
-## <a name="remove-state"></a>Durum Kaldır
-Durum kalıcı olarak bir aktör'ın durum Yöneticisi'nden çağırarak kaldırabilirsiniz *kaldırmak* yöntemi. Bu yöntem oluşturulur `KeyNotFoundException`(C#) veya `NoSuchElementException`(mevcut olmayan bir anahtarı kaldırmak çalıştığında Java).
+## <a name="remove-state"></a>Durumu Kaldır
+Durumu kalıcı olarak bir aktörün durum Yöneticisi'nden çağırarak kaldırabilirsiniz *Kaldır* yöntemi. Bu yöntem `KeyNotFoundException`(C#) veya `NoSuchElementException`mevcut olmayan bir anahtar kaldırmaya çalıştığında (Java).
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -281,7 +281,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Ayrıca durumu kalıcı olarak kullanarak kaldırabilirsiniz *TryRemove* yöntemi. Mevcut bir anahtarı kaldırmak çalıştığında, bu yöntem oluşturmadığını.
+Ayrıca durumu kalıcı olarak kullanarak kaldırabilirsiniz *TryRemove* yöntemi. Bu yöntem, var olmayan bir anahtar kaldırmaya çalıştığında oluşturmaz.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -326,6 +326,6 @@ class MyActorImpl extends FabricActor implements  MyActor
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Reliable Actors içinde depolanan durumu serileştirilmiş, diske yazılan ve yüksek kullanılabilirlik için çoğaltılmış önce. Daha fazla bilgi edinmek [aktör türü seri hale getirme](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+Reliable Actors içinde depolanan durumu serileştirilmiş önce diske yazılan ve yüksek kullanılabilirlik için çoğaltılır. Daha fazla bilgi edinin [aktör türü serileştirme](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
-Ardından, daha fazla bilgi edinmek [aktör tanılama ve performans izlemesi](service-fabric-reliable-actors-diagnostics.md).
+Ardından, daha fazla bilgi edinin [aktör tanılama ve performans izleme](service-fabric-reliable-actors-diagnostics.md).

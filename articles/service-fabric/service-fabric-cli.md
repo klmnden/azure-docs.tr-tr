@@ -3,17 +3,17 @@ title: Azure Service Fabric CLI'sı ile çalışmaya başlama
 description: Azure Service Fabric CLI’sını kullanmayı öğrenin. Kümeye bağlanmayı ve uygulamaları yönetmeyi öğrenin.
 services: service-fabric
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 579df1c8412ae626ced6776a98e054a13e4a3e64
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: d5b6f183a59e3f47aa5867b5e09e06541a6a67db
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273094"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662661"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI'sı
 
@@ -34,7 +34,7 @@ Service Fabric CLI, Service Fabric SDK'sının en son çalışma zamanı sürüm
 | CLI sürümü   | desteklenen çalışma zamanı sürümü |
 |---------------|---------------------------|
 | En son (~ = 7)  | En son (~ = 6.4)            |
-| 6.0.0'dan         | 6.3                       |
+| 6.0.0         | 6.3                       |
 | 5.0.0         | 6.2                       |
 | 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 19/02/2019
 ms.author: monhaber
-ms.openlocfilehash: d9c9a079198a8ff263c729b8e90c1fc8d0e64cd0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ef6b476e2c85715e86ef4c1cfe1194bb25cade28
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100079"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665500"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Gelişmiş güvenlikten yararlanmaya başlamak için Azure Güvenlik Merkezi standart ekleme
 Gelişmiş güvenlik yönetimi ve tehdit koruması için hibrit bulut iş yüklerinizi yararlanmak için Güvenlik Merkezi standart yükseltin.  Standart ücretsiz deneyebilirsiniz. Güvenlik Merkezi'ni [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/) daha fazla bilgi için.
@@ -33,7 +33,7 @@ Güvenlik Merkezi standart içerir:
 ## <a name="detecting-unprotected-resources"></a>Korumasız kaynaklara algılama     
 Güvenlik Merkezi, Güvenlik Merkezi Standart sürümü için etkinleştirilmemiş herhangi bir Azure aboneliğini veya çalışma alanını otomatik olarak algılar. Buna, Güvenlik Merkezi Ücretsiz sürümünü kullanan Azure abonelikleri ve etkin bir Güvenlik çözümü olmayan çalışma alanları dahildir.
 
-Tüm Azure aboneliğinin abonelik içindeki tüm kaynaklar tarafından devralınan bir standart katmana yükseltebilirsiniz ya da yalnızca belirli bir kaynak grubunu yükseltmek için benzersiz bir ilke tanımlayabilirsiniz. Kaynak Grup İlkesi ayarlarının benzersiz olduğundan, aboneliği standart katmana yükseltme yaptığınızda, Güvenlik Merkezi fiyatlandırma ilkeleri kılmaz. Standart uygulama katmanı bir aboneliğe uygular Abonelikteki tüm desteklenen kaynaklar. Standart uygulama katmanında bir çalışma alanı için çalışma alanınıza raporlayan tüm kaynakları uygular.
+Tüm Azure aboneliğinin, abonelik içindeki tüm desteklenen kaynaklar tarafından devralınır standart katmana yükseltebilirsiniz. Standart uygulama katmanında bir çalışma alanı için çalışma alanınıza raporlayan tüm kaynakları uygular.
 
 > [!NOTE]
 > Maliyetlerinizi yönetin ve belirli bir aracılar kümesi için sınırlayarak bir çözüm için toplanan veri miktarını sınırlamak isteyebilirsiniz. [Çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) çözüm için bir kapsam geçerli ve hedef çalışma alanındaki bilgisayarların alt ağlarından olanak tanır.  Çözüm hedefleme kullanıyorsanız, Güvenlik Merkezi çalışma alanına sahip olmayan bir çözüm olarak listeler.

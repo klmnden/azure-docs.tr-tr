@@ -4,7 +4,7 @@ description: Service Fabric güvenilir hizmetler bildirimleri için kavramsal be
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
-manager: timlt
+manager: chackdan
 editor: masnider,vturecek
 ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
 ms.service: service-fabric
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: a13e5d74390b82888f51cfd225c54e29550354e9
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a3df5f28475b03f1799dc1e245c3a7e904b49cb3
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433523"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662678"
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services bildirimleri
-Bildirimler, ilginizi çeken bir nesneye yapılan değişiklikleri izlemek istemcileri olanak tanır. İki nesne türünün destek bildirimleri: *güvenilir durum Yöneticisi* ve *güvenilir bir sözlük*.
+Bildirimler, ilginizi çeken bir nesneye yapılan değişiklikleri izlemek istemcileri olanak tanır. Bildirimleri iki tür nesne destekler: *Güvenilir durum Yöneticisi* ve *güvenilir bir sözlük*.
 
 Bildirimlerin kullanılmasıyla ilgili yaygın nedenleri şunlardır:
 
@@ -35,9 +35,9 @@ Bildirimleri işlemleri uygulayarak bir parçası olarak tetiklenir. Bu nedenle 
 Güvenilir durum Yöneticisi aşağıdaki olaylar için bildirimleri sağlar:
 
 * İşlem
-  * İşleme
+  * Yürüt
 * Durum Yöneticisi
-  * Yeniden derleme
+  * Yeniden derle
   * Güvenilir durum ekleme
   * Güvenilir durum temizleme
 
@@ -46,9 +46,9 @@ Güvenilir durum Yöneticisi geçerli hareket halindeki işlemleri izler. Yalnı
 Güvenilir durum Yöneticisi gibi güvenilir bir sözlük ve güvenilir bir sıra güvenilir durumları koleksiyonunu tutar. Güvenilir durum Yöneticisi bu koleksiyonu değiştiğinde bildirim harekete: güvenilir durumu eklendiğinde veya kaldırıldığında ya da tüm koleksiyon yeniden oluşturulur.
 Güvenilir durum Yöneticisi koleksiyonu üç durumlarda yeniden oluşturulur:
 
-* Kurtarma: bir çoğaltma başladığında, önceki durumuna diskten kurtarır. Kurtarma sonunda kullandığı **NotifyStateManagerChangedEventArgs** kurtarılan güvenilir durumları kümesini içeren bir olay harekete geçirmek için.
-* Tam kopyalama: bir çoğaltma yapılandırma kümesi katılabilmesi için önce oluşturulacak sahiptir. Bazı durumlarda, güvenilir durum Yöneticisi'nin durumu boşta ikincil çoğaltmaya uygulanması için birincil çoğaltmadan tam bir kopyasını gerektirir. İkincil Çoğaltmada güvenilir durum Yöneticisi kullanan **NotifyStateManagerChangedEventArgs** kullanarak birincil çoğaltmadan alınan güvenilir bildiren kümesini içeren bir olay harekete geçirmek için.
-* Geri yükleme: olağanüstü durum kurtarma senaryolarında yinelemenin durumu bir yedekten geri yüklenebilir **RestoreAsync**. Böyle durumlarda birincil çoğaltmadaki güvenilir durum Yöneticisi kullanan **NotifyStateManagerChangedEventArgs** yedekten geri güvenilir bildiren kümesini içeren bir olay harekete geçirmek için.
+* Kurtarma: Bir çoğaltma başladığında, önceki durumuna diskten kurtarır. Kurtarma sonunda kullandığı **NotifyStateManagerChangedEventArgs** kurtarılan güvenilir durumları kümesini içeren bir olay harekete geçirmek için.
+* Tam kopyalama: Bir çoğaltma yapılandırma kümesi katılabilmesi için önce oluşturulması gerekir. Bazı durumlarda, güvenilir durum Yöneticisi'nin durumu boşta ikincil çoğaltmaya uygulanması için birincil çoğaltmadan tam bir kopyasını gerektirir. İkincil Çoğaltmada güvenilir durum Yöneticisi kullanan **NotifyStateManagerChangedEventArgs** kullanarak birincil çoğaltmadan alınan güvenilir bildiren kümesini içeren bir olay harekete geçirmek için.
+* Geri yükleme: Olağanüstü durum kurtarma senaryolarında yinelemenin durumu bir yedekten geri yüklenebilir **RestoreAsync**. Böyle durumlarda birincil çoğaltmadaki güvenilir durum Yöneticisi kullanan **NotifyStateManagerChangedEventArgs** yedekten geri güvenilir bildiren kümesini içeren bir olay harekete geçirmek için.
 
 İşlem bildirimleri ve/veya durum manager bildirimlerine kaydetmek için ile kaydetmeniz gerekir **TransactionChanged** veya **StateManagerChanged** güvenilir durum Yöneticisi olayları. Oluşturucusu, durum bilgisi olan hizmet, bu olay işleyicileri ile kaydetmek için ortak bir yerdir. Oluşturucu kaydolduğunuzda, kullanım süresi boyunca bir değişiklik nedeniyle herhangi bir bildirim eksik olmaz **Telemetryclient**.
 
@@ -109,11 +109,11 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 ## <a name="reliable-dictionary-notifications"></a>Güvenilir bir sözlük bildirimleri
 Güvenilir bir sözlük aşağıdaki olaylar için bildirimleri sağlar:
 
-* Yeniden oluşturma: çağrılır **ReliableDictionary** durumuna kurtarılan ya da kopyalanmış yerel durumu ya da yedekleme kurtarıldı.
-* Temizle: çağrılır durumunu **ReliableDictionary** aracılığıyla temizlenmiş **ClearAsync** yöntemi.
-* Ekleyin: için bir öğe eklendiğinde adlı **ReliableDictionary**.
-* Güncelleştirme: bir öğe olduğunda çağrılır **IReliableDictionary** güncelleştirildi.
-* Kaldır: bir öğe olduğunda çağrılır **IReliableDictionary** silindi.
+* Yeniden oluştur: Çağrılır **ReliableDictionary** durumuna kurtarılan ya da kopyalanmış yerel durumu ya da yedekleme kurtarıldı.
+* Temizle: Çağrılır durumunu **ReliableDictionary** aracılığıyla temizlenmiş **ClearAsync** yöntemi.
+* Ekle: İçin bir öğe eklendiğinde çağırılır **ReliableDictionary**.
+* Güncelleştir: Bir öğe olduğunda çağrılır **IReliableDictionary** güncelleştirildi.
+* Kaldır: Bir öğe olduğunda çağrılır **IReliableDictionary** silindi.
 
 Güvenilir bir sözlük bildirimleri almak için kaydetmek gereken **DictionaryChanged** olay işleyicisini **IReliableDictionary**. Bu olay işleyicileri ile kaydetmek için ortak bir konum **ReliableStateManager.StateManagerChanged** bildirimi ekleyin.
 Ne zaman kaydetme **IReliableDictionary** eklenir **Telemetryclient** herhangi bir bildirim eksik olmaz sağlar.

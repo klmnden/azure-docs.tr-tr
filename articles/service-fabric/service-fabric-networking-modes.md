@@ -4,7 +4,7 @@ description: Azure Service Fabric tarafından desteklenen farklı ağ modları a
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: 01b1cfafab75acef918b001752837a4dc44ca909
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f14b3184cabd1dfd84f04260f6b8c831037cbcf
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57899052"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668135"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric kapsayıcı ağ modları
 
@@ -205,9 +205,9 @@ Bir kapsayıcı hizmeti yeniden başlatılıyor veya kümedeki başka bir düğ�
    |Öncelik |2000 | |
    |Ad |Custom_Dns  | |
    |Kaynak |VirtualNetwork | |
-   |Hedef | VirtualNetwork | |
+   |Varış Adresi | VirtualNetwork | |
    |Hizmet | DNS (UDP/53) | |
-   |Eylem | İzin Ver  | |
+   |Eylem | İzin ver  | |
    | | |
 
 4. Her hizmet için uygulama bildiriminde ağ modu belirtin: `<NetworkConfig NetworkType="Open">`. **Açık** modu sonuçları bir ayrılmış IP adresini alma hizmetinde ağ oluşturma. Hizmet bir modu belirtilmezse, varsayılan **nat** modu. Aşağıdaki örnekte liste, `NodeContainerServicePackage1` ve `NodeContainerServicePackage2` hizmetleri her aynı bağlantı noktasını dinler kullanabilirsiniz (her iki hizmet de dinlemede `Endpoint1`). Ağ modunu açın belirtildiğinde `PortBinding` yapılandırmaları belirtilemez.

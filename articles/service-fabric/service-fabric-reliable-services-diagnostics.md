@@ -4,7 +4,7 @@ description: Azure Service fabric'te durum bilgisi olan Reliable Services için 
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: c3116b42e8696ae0bb2457a3c64320cb187b7447
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 96fc58ca8456e9a2e539e432f0ed85f6edc1a54f
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890721"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664124"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Durum Bilgisi Olan Reliable Services için tanılama işlevi
 Azure Service Fabric durum bilgisi olan Reliable Services StatefulServiceBase sınıfı yayan [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) hizmette hata ayıklamak için kullanılan olayları nasıl çalışma zamanı olan işletim ve gidermeye yardım öngörüleri sağlayın.
@@ -29,8 +29,8 @@ Azure Service Fabric durum bilgisi olan Reliable Services StatefulServiceBase s�
 
 Örnekleri, toplama ve/veya EventSource olaylarını görüntüleme içinde yardım araçları ve teknolojileri [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure tanılama](../cloud-services/cloud-services-dotnet-diagnostics.md)ve [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
-## <a name="events"></a>Olaylar
-| Olay adı | Olay kimliği | Düzey | Olay açıklaması |
+## <a name="events"></a>Olaylar (Event)
+| Olay adı | Olay Kimliği | Düzey | Olay açıklaması |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Bilgilendirici |Hizmet RunAsync görevi başlatılırken yayılan |
 | StatefulRunAsyncCancellation |2 |Bilgilendirici |Hizmet RunAsync görev iptal edildiğinde yayılan |

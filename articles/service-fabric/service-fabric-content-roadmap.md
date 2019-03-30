@@ -3,8 +3,8 @@ title: Azure Service Fabric hakkında daha fazla bilgi edinin | Microsoft Docs
 description: Azure Service Fabric temel alanları ve temel kavramlar hakkında bilgi edinin. Service Fabric ve mikro hizmetler oluşturma genişletilmiş bir genel bakış sağlar.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
-ms.author: ryanwi
-ms.openlocfilehash: 8beac9d4a84fdee4e8fa7689d60cb51c20acd671
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.author: atsenthi
+ms.openlocfilehash: adbe101455bc200bc6be439920736b756f08b695
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241842"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667999"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Bu nedenle, Service Fabric hakkında öğrenmek ister misiniz?
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur.  Ancak, Service Fabric, büyük bir yüzey alanı vardır ve öğreneceğiniz çok şey yoktur.  Bu makale, Service fabric'in bir özeti sağlar ve programlama modellerini, uygulama yaşam döngüsü, test, kümeler ve sistem durumu izleme temel kavramları açıklar. Okuma [genel bakış](service-fabric-overview.md) ve [mikro hizmetler nedir?](service-fabric-overview-microservices.md) giriş ve Service Fabric mikro hizmetler oluşturmak için nasıl kullanılabilir. Bu makalede, kapsamlı bir içerik listesi içermiyor, ancak genel bakış ve Service Fabric için her bir alanı Başlarken makaleleri bağlantı. 
@@ -84,7 +84,7 @@ Varsayılan olarak, Service Fabric dağıtır ve hizmet işlemleri olarak etkinl
 ### <a name="reliable-actors"></a>Reliable Actors
 Reliable Services üzerinde oluşturulmuş [Reliable Actor](service-fabric-reliable-actors-introduction.md) framework, aktör tasarım deseni temel alınarak sanal gerçekleştiren deseni, uygulayan bir uygulama altyapısıdır. Reliable Actor çerçeve yürütme aktörler olarak adlandırılan tek iş parçacıklı işlem durumu ve bağımsız bir birim kullanır. Reliable Actor çerçevesi sağlar, iletişim aktörler için yerleşik ve durumu kalıcı ve genişleme yapılandırmaları önceden ayarlayın.
 
-### <a name="aspnet-core"></a>ASP.NET Çekirdeği
+### <a name="aspnet-core"></a>ASP.NET Core
 Service Fabric ile tümleştirilir [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) web ve API uygulamaları oluşturmak için birinci sınıf bir programlama modeli olarak.  ASP.NET Core, Service Fabric iki farklı şekillerde kullanılabilir:
 
 - Konuk tarafından yürütülebilir bir dosya olarak barındırılan. Bu, öncelikli olarak mevcut ASP.NET Core uygulamaları kod değişikliği olmadan Service Fabric üzerinde çalıştırmak için kullanılır.

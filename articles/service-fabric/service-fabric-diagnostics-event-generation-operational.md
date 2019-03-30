@@ -4,7 +4,7 @@ description: Olayları izlemenize yardımcı olması için Azure Service Fabric 
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 6aec4e4bbf0abcfb6201da50381b6697a47716fa
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 7a4cccf774d89229810c1668f38e4e2ef99fa79d
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244596"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663953"
 ---
 # <a name="list-of-service-fabric-events"></a>Service Fabric olayları listesi 
 
@@ -42,11 +42,11 @@ Küme yükseltme hakkında daha fazla ayrıntı bulunabilir [burada](service-fab
 
 | EventID | Ad | Kategori | Açıklama |Kaynak (görev) | Düzey | 
 | --- | --- | --- | --- | --- | --- | 
-| 29627 | ClusterUpgradeStarted | Yükseltme | Bir küme yükseltmesi başlatıldı | CM | Bilgilendirici |
-| 29628 | ClusterUpgradeCompleted | Yükseltme | Bir küme yükseltmesi tamamlandı | CM | Bilgilendirici | 
-| 29629 | ClusterUpgradeRollbackStarted | Yükseltme | Bir küme yükseltmesi için geri alma başlatıldı  | CM | Uyarı | 
-| 29630 | ClusterUpgradeRollbackCompleted | Yükseltme | Bir küme yükseltmesi geri alma tamamlandı | CM | Uyarı | 
-| 29631 | ClusterUpgradeDomainCompleted | Yükseltme | Bir yükseltme etki alanını bir küme yükseltmesi sırasında yükseltmeyi tamamladı. | CM | Bilgilendirici | 
+| 29627 | ClusterUpgradeStarted | Yükselt | Bir küme yükseltmesi başlatıldı | CM | Bilgilendirici |
+| 29628 | ClusterUpgradeCompleted | Yükselt | Bir küme yükseltmesi tamamlandı | CM | Bilgilendirici | 
+| 29629 | ClusterUpgradeRollbackStarted | Yükselt | Bir küme yükseltmesi için geri alma başlatıldı  | CM | Uyarı | 
+| 29630 | ClusterUpgradeRollbackCompleted | Yükselt | Bir küme yükseltmesi geri alma tamamlandı | CM | Uyarı | 
+| 29631 | ClusterUpgradeDomainCompleted | Yükselt | Bir yükseltme etki alanını bir küme yükseltmesi sırasında yükseltmeyi tamamladı. | CM | Bilgilendirici | 
 
 ## <a name="node-events"></a>Düğüm olayları
 
@@ -81,11 +81,11 @@ Uygulama yükseltmeleri hakkında daha fazla ayrıntı bulunabilir [burada](serv
 
 | EventID | Ad | Kategori | Açıklama |Kaynak (görev) | Düzey | 
 | --- | --- | ---| --- | --- | --- | 
-| 29621 | ApplicationUpgradeStarted | Yükseltme | Uygulama yükseltmesi başlatıldı | CM | Bilgilendirici | 
-| 29622 | ApplicationUpgradeCompleted | Yükseltme | Uygulama yükseltme tamamlandı | CM | Bilgilendirici | 
-| 29623 | ApplicationUpgradeRollbackStarted | Yükseltme | Uygulama yükseltmesi için geri alma başlatıldı |CM | Uyarı | 
-| 29624 | ApplicationUpgradeRollbackCompleted | Yükseltme | Uygulama yükseltmeyi geri alma tamamlandı | CM | Uyarı | 
-| 29626 | ApplicationUpgradeDomainCompleted | Yükseltme | Bir yükseltme etki alanını bir uygulama yükseltmesi sırasında yükseltmeyi tamamladı. | CM | Bilgilendirici | 
+| 29621 | ApplicationUpgradeStarted | Yükselt | Uygulama yükseltmesi başlatıldı | CM | Bilgilendirici | 
+| 29622 | ApplicationUpgradeCompleted | Yükselt | Uygulama yükseltme tamamlandı | CM | Bilgilendirici | 
+| 29623 | ApplicationUpgradeRollbackStarted | Yükselt | Uygulama yükseltmesi için geri alma başlatıldı |CM | Uyarı | 
+| 29624 | ApplicationUpgradeRollbackCompleted | Yükselt | Uygulama yükseltmeyi geri alma tamamlandı | CM | Uyarı | 
+| 29626 | ApplicationUpgradeDomainCompleted | Yükselt | Bir yükseltme etki alanını bir uygulama yükseltmesi sırasında yükseltmeyi tamamladı. | CM | Bilgilendirici | 
 
 ## <a name="service-events"></a>Hizmet olayları
 

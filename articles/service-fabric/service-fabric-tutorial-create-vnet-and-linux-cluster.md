@@ -4,7 +4,7 @@ description: Azure CLI kullanarak mevcut bir Azure sanal ağına Linux Service F
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 890f7c207b373781c55e4261a58505d849298d82
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 00d7e510fa43865f1427092f2f20b9847f1afa9b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499174"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661131"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Azure sanal ağına Linux Service Fabric kümesi dağıtma
 
@@ -53,7 +53,7 @@ Bu şablon, üç düğüm türleri ve yedi sanal makineleri bir sanal ağa güve
 
 * üç düğüm türleri
 * (şablon parametrelerinde yapılandırılabilir) birincil düğüm türünde beş düğüm, bir düğüm her bir düğüm türleri
-* İşletim Sistemi: Ubuntu 16.04 LTS (şablon parametrelerinde yapılandırılabilir)
+* İşletim sistemi: Ubuntu 16.04 LTS (şablon parametrelerinde yapılandırılabilir)
 * sertifikanın güvenliğinin sağlanması (şablon parametrelerinde yapılandırılabilir)
 * [DNS hizmeti](service-fabric-dnsservice.md) etkin
 * Bronz [dayanıklılık düzeyi](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) (şablon parametrelerinde yapılandırılabilir)
@@ -83,12 +83,12 @@ Başka bir uygulama bağlantı noktası gerekiyorsa, gelen trafiğe izin vermek 
 
 [AzureDeploy.Parameters][parameters] parametre dosyası, kümenin ve ilişkili kaynakların dağıtılması için kullanılan birçok değeri bildirir. Dağıtımınız için değiştirmeniz gerekebilecek bazı parametreler:
 
-|Parametre|Örnek değer|Notlar|
+|Parametre|Örnek değer|Notes|
 |---|---||
 |adminUserName|vmadmin| Küme VM’leri için yönetici kullanıcı adı. |
 |adminPassword|Password#1234| Küme VM’leri için yönetici parolası.|
 |clusterName|mysfcluster123| Kümenin adı. |
-|location|southcentralus| Kümenin konumu. |
+|konum|southcentralus| Kümenin konumu. |
 |certificateThumbprint|| <p>Otomatik olarak imzalanan bir sertifika oluşturuluyor veya sertifika dosyası sağlanıyorsa değer boş olmalıdır.</p><p>Daha önce bir anahtar kasasına yüklenmiş mevcut bir sertifikayı kullanmak için sertifika SHA1 parmak izi değerini girin. Örneğin: "6190390162C988701DB5676EB81083EA608DCCF3". </p>|
 |certificateUrlValue|| <p>Otomatik olarak imzalanan bir sertifika oluşturuluyor veya sertifika dosyası sağlanıyorsa değer boş olmalıdır.</p><p>Daha önce bir anahtar kasasına yüklenmiş mevcut bir sertifikayı kullanmak için sertifika URL’sini girin. Örneğin, "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Otomatik olarak imzalanan bir sertifika oluşturuluyor veya sertifika dosyası sağlanıyorsa değer boş olmalıdır.</p><p>Daha önce bir anahtar kasasına yüklenmiş mevcut bir sertifikayı kullanmak için kaynak kasa değerini girin. Örneğin: "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|

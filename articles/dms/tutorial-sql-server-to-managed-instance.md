@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 450d47e4c20da1d9d9760ababf58c75eef2814b3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 78f19fcca51bb9c14fd05013834599c3e0f12779
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182379"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662117"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-offline-using-dms"></a>Öğretici: SQL Server'ı Azure SQL veritabanı yönetilen örneğine geçirme DMS kullanarak çevrimdışı
 
@@ -74,13 +74,13 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 
 3. "migration" araması yapın ve **Microsoft.DataMigration** öğesinin sağ tarafındaki **Kaydet**'i seçin.
 
-    ![Kaynak sağlayıcısını kaydetme](media/tutorial-sql-server-to-managed-instance/portal-register-resource-provider.png)   
+    ![Kaynak sağlayıcısını kaydet](media/tutorial-sql-server-to-managed-instance/portal-register-resource-provider.png)   
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>Azure Veritabanı Geçiş Hizmeti örneğini oluşturma
 
 1. Azure portalda +**Kaynak oluştur**'u seçin, **Azure Veritabanı Geçiş Hizmeti** araması yapın ve açılan listeden **Azure Veritabanı Geçiş Hizmeti**'ni seçin.
 
-     ![Azure Market](media/tutorial-sql-server-to-managed-instance/portal-marketplace.png)
+     ![Azure Marketi](media/tutorial-sql-server-to-managed-instance/portal-marketplace.png)
 
 2. **Azure Veritabanı Geçiş Hizmeti** ekranında **Oluştur**'u seçin.
 
@@ -152,28 +152,28 @@ Hizmetin bir örneği oluşturulduktan sonra Azure portaldan bulun, açın ve ye
 
 1. Üzerinde **geçiş hedef ayrıntıları** ekranında, kendisine geçiş yaptığınız önceden sağlanmış Azure SQL veritabanı yönetilen örneği hedef için bağlantı ayrıntılarını belirt **AdventureWorks2012**veritabanı.
 
-    Azure SQL veritabanı yönetilen örneği hazırlamadıysanız seçin **Hayır** örneği sağlaması yardımcı olması için bir bağlantı için. Proje oluşturma işlemine devam ve bir Azure SQL veritabanı yönetilen örneği hazır olduğunda geçiş yürütmek için bu belirli proje dönün.
+    Azure SQL veritabanı yönetilen örneği hazırlamadıysanız seçin [bağlantı](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) örneği sağlaması yardımcı olacak. Proje oluşturma işlemine devam ve bir Azure SQL veritabanı yönetilen örneği hazır olduğunda geçiş yürütmek için bu belirli proje dönün.
 
-       ![Select Target](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
+     ![Hedef seçme](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
 
 2. **Kaydet**’i seçin.
 
-## <a name="select-source-databases"></a>Kaynak veritabanlarını seçme
+## <a name="select-source-databases"></a>Kaynak veritabanlarını seçin
 
 1. **Kaynak veritabanlarını seçin** ekranında geçirmek istediğiniz kaynak veritabanını seçin.
 
-    ![Kaynak veritabanlarını seçme](media/tutorial-sql-server-to-managed-instance/select-source-databases.png)
+    ![Kaynak veritabanlarını seçin](media/tutorial-sql-server-to-managed-instance/select-source-databases.png)
 
 2. **Kaydet**’i seçin.
 
-## <a name="select-logins"></a>Oturum açmaları seçme
+## <a name="select-logins"></a>Oturum açmaları seçin
 
 1. **Oturum açmaları seçin** ekranında geçirmek istediğiniz oturum açmaları seçin.
 
     >[!NOTE]
     >Bu sürüm yalnızca SQL oturum açma bilgilerinin geçirilmesini destekler.
 
-    ![Oturum açmaları seçme](media/tutorial-sql-server-to-managed-instance/select-logins.png)
+    ![Oturum açmaları seçin](media/tutorial-sql-server-to-managed-instance/select-logins.png)
 
 2. **Kaydet**’i seçin.
 

@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 03/29/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 88113fee64251344bd84085caedc9dfccfa10933
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 19e94fc65ddc1719c601397adfe77f8f9445e4fa
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351465"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662134"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3 nedir?
 
@@ -44,19 +44,6 @@ Media Services, bulutta çeşitli medya iş akışı derlemenize olanak sağlar.
 * Azure Media Services ile birlikte kullanmak [Azure Bilişsel hizmetler API'leri](https://docs.microsoft.com/azure/#pivot=products&panel=ai) videoları daha geniş bir kitleye (örneğin, işitme engelli kişiler veya isteyenler boyunca farklı bir okumak için uygun alt yazı ve açıklamalı alt yazı eklemek için Dil).
 * Azure CDN, anlık yüksek yükleri (örneğin, bir ürün sunumu etkinliğinin başlangıcını) daha iyi işlemek için büyük ölçeklendirme elde etmek etkinleştirin. 
 
-## <a name="v3-capabilities"></a>v3 özellikleri
-
-v3, Azure Resource Manager'da yerleşik olan yönetim ve işlem işlevselliğini kullanıma sunan, birleşik bir API yüzeyini temel alır. 
-
-Bu sürüm aşağıdaki özellikleri sağlar:  
-
-* Medya işleme veya analiz görevlerinin basit iş akışlarını tanımlamanıza yardımcı olan **dönüştürmeler**. Dönüştürme, video ve ses dosyalarınızı işlemeye yönelik bir tariftir. İşleri Dönüştürmeye göndererek içerik kitaplığınızdaki tüm dosyaları işlemek için art arda bunu uygulayabilirsiniz.
-* Videolarınızı işleme (kodlama veya analiz etme) **İşleri**. Azure Blob depolamada bulunan dosyaların yolları, SAS URL’leri veya HTTPS URL’leri kullanılarak bir işte girdi içeriği belirtilebilir. AMS v3 şu anda HTTPS URL'leri üzerinden yığın halinde aktarım kodlamasını desteklememektedir.
-* **Bildirimleri** işin ilerleme durumunu veya durumları ya da Canlı olayları başlatma/durdurma ve hatası olaylarını izleyin. Bildirimler, Azure Event Grid bildirim sisteminde tümleşiktir. Azure Media Services’ta birçok kaynaktaki olaya kolayca abone olabilirsiniz. 
-* **Azure kaynak yönetimi** şablonları dönüşümleri, akış uç noktalarını, Canlı olayları ve daha fazlasını oluşturmak ve dağıtmak için kullanılabilir.
-* **Rol tabanlı erişim denetimi** dönüşümleri, Canlı olayları ve diğer gibi belirli kaynaklara erişim kilitlemenize olanak tanıyan kaynak düzeyinde ayarlanabilir.
-* Birçok dilde **İstemci SDK’ları**: .NET, .NET core, Python, Go, Java ve Node.js.
-
 ## <a name="naming-conventions"></a>Adlandırma kuralları
 
 Azure Media Services v3 kaynaklarının adları (Varlıklar, İşler, Dönüşümler gibi), Azure Resource Manager adlandırma kısıtlamalarına tabidir. Azure Resource Manager uyarınca kaynak adları her zaman benzersizdir. Bu nedenle kaynaklarınızda benzersiz tanıtıcı dizeleri (GUID gibi) kullanabilirsiniz. 
@@ -76,6 +63,41 @@ Bunun örnekleri:
 * İşlerin HTTP Giriş URL’lerinde URL’nin sorgu dizesi bölümünü döndürmüyor (imzayı kaldırmak için).
 
 Bkz: [içerik anahtarı ilkesi - .NET edinme](get-content-key-policy-dotnet-howto.md) örnek.
+
+
+## <a name="how-can-i-get-started-with-v3"></a>v3’ü kullanmaya nasıl başlayabilirim? 
+
+Kodlama ve içerik paketi, talep üzerine video akışı, Canlı yayın gerçekleştirme, Media Services v3 ile videolarınızı analiz öğrenin. Öğreticiler, API başvuruları ve diğer belgeler, güvenli bir biçimde milyonlarca kullanıcıya ölçeklendirilebilen, isteğe bağlı ve canlı video veya ses akışları sağlama ile ilgili bilgiler içerir.
+
+### <a name="quickstarts"></a>Hızlı girişler  
+
+Hızlı başlangıçlar, Media Services'ı hızlı şekilde denemenize yönelik yeni müşteriler için temel gün-1 yönergeler gösterir.
+
+* [Stream video dosyaları - .NET](stream-files-dotnet-quickstart.md)
+* [Stream video dosyaları - CLI](stream-files-cli-quickstart.md)
+* [Stream video dosyaları - Node.js](stream-files-nodejs-quickstart.md)
+    
+### <a name="tutorials"></a>Öğreticiler 
+
+Öğretici senaryo tabanlı yordamlar üst Media Services görevlerden bazılarını gösterir.
+
+* [Uzak dosya ve akış videosu – REST kodlayın](stream-files-tutorial-with-rest.md)
+* [Karşıya yüklenen dosya ve akış video - .NET kodlama](stream-files-tutorial-with-api.md)
+* [Stream Canlı - .NET](stream-live-tutorial-with-api.md)
+* [Videonuzu - .NET analiz etme](analyze-videos-tutorial-with-api.md)
+* [Dinamik şifreleme AES-128 - .NET](protect-with-aes128.md)
+    
+### <a name="how-to-guides"></a>Nasıl yapılır kılavuzları
+
+Makaleler, bir görevin nasıl tamamlanacağını gösteren kod örnekleri içerir. Bu bölümde, birçok örnekler bulabilirsiniz, yalnızca birkaç tanesi şunlardır:
+
+* [Bir hesap oluşturma - CLI](create-account-cli-how-to.md)
+* [API'lere erişim - CLI](access-api-cli-how-to.md)
+* [SDK'ları ile geliştirmeye başlayın](developers-guide.md)
+* [HTTPS ile giriş - iş olarak .NET kodlama](job-input-from-http-how-to.md)  
+* [Olay İzleme - Portal](monitor-events-portal-how-to.md)
+* [Birden çok DRM ile - .NET dinamik olarak şifreleyin](protect-with-drm.md) 
+* [CLI kullanarak özel bir dönüşüm ile kodlama](custom-preset-cli-howto.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

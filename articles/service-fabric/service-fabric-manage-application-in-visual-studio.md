@@ -4,7 +4,7 @@ description: Oluşturma, geliştirme, paketlemeyi, dağıtmayı ve Azure Service
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
 ms.service: service-fabric
@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.openlocfilehash: b90c39416a522b42932dd82214316e586ba4293a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4744858869e10094389be58ddd3960cb8cc2773a
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192562"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664854"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Service Fabric uygulamalarınızı yönetmek ve yazma işlemlerini kolaylaştırmak için Visual Studio'yu kullanın.
 Azure Service Fabric uygulamalarınızı ve hizmetlerinizi Visual Studio aracılığıyla yönetebilirsiniz. Kaydederler [geliştirme ortamınızı ayarlama](service-fabric-get-started.md), Service Fabric uygulamaları oluşturmanıza, hizmetler veya paket, kayıt ekleyin ve uygulamaları, yerel geliştirme kümenizin dağıtmak için Visual Studio'yu kullanabilirsiniz.

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a29da9e87c09ad157babf1e1a391fb967859d73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 433c2d712ca4867a5ec59f86c333511070b6d507
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210518"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665058"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>İki adımlı doğrulama ayarlarınızı yönetme
 Bu makalede, iki aşamalı doğrulama veya çok faktörlü kimlik doğrulaması ayarlarını güncelleştirme hakkında sorular yanıtlanmaktadır. Hesabınızda oturum açma sorunları yaşıyorsanız başvurmak [iki aşamalı doğrulama konusunda sorun mu yaşıyorsunuz](multi-factor-authentication-end-user-troubleshoot.md) sorun giderme Yardımı.
@@ -50,7 +50,7 @@ Bu bağlantıya tıkladığınızda sizin için işe yaramazsa, ayrıca ulaşmak
     ![Düzenleyebileceğinizi](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
 
 ## <a name="i-want-to-change-my-phone-number-or-add-a-secondary-number"></a>Telefon numaramı değiştirin ya da ikincil numara eklemek istiyorum
-İkincil kimlik doğrulama telefon numarasını yapılandırmak önemlidir.  Birincil telefon numaranızı ve mobil uygulamanıza büyük olasılıkla aynı telefonda olduğu için ikincil bir telefon numarası, telefonunuz kaybolur veya çalınırsa hesabınıza geri almak mümkün olmayacak tek yoludur.
+İkincil kimlik doğrulama telefon numarasını yapılandırmak önemlidir.  Birincil telefon numaranızı ve mobil uygulamanıza büyük olasılıkla aynı telefonda olduğu için ikincil bir telefon numarası, telefonunuz kaybolur veya çalınırsa hesabınıza geri almak mümkün olmayacak en hızlı yoludur.
 
 > [!NOTE]
 > Birincil telefon numaranızı erişimi ve hesabınıza alınırken yardıma ihtiyacınız yoksa bkz [iki aşamalı doğrulama konusunda sorun mu yaşıyorsunuz](multi-factor-authentication-end-user-troubleshoot.md) daha fazla yardım makalesi.  

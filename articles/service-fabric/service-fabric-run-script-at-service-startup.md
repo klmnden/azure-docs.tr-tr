@@ -3,8 +3,8 @@ title: Bir Azure Service Fabric hizmeti yeniden başlatıldığında betik çal�
 description: Bir Service Fabric Hizmet Kurulumu giriş noktası için bir ilke yapılandırın ve hizmeti başlatma süresi, betik çalıştırma hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
-ms.author: mfussell
-ms.openlocfilehash: 3ae43f7427996f8be15b22fec4406bbdfe8aa4fe
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: atsenthi
+ms.openlocfilehash: 76be814e0dd4c054fc3a873716dbfe395eeeb2dc
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838451"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660400"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Yerel kullanıcı veya sistem hesabı olarak bir hizmet başlangıcı komut dosyası çalıştırma
 Yürütülebilir bir Service Fabric hizmeti başlatıldığında önce bazı yapılandırma ve kurulum için bir iş çalıştırmak gerekli olabilir.  Örneğin, ortam değişkenlerini yapılandırma. Hizmeti için hizmet bildiriminde yürütülebilir hizmeti başlatıldığında önce çalıştırılacak bir betik belirtebilirsiniz. Hangi hesabı değiştirebilirsiniz Hizmet Kurulumu giriş noktası için bir RunAs ilkesini yapılandırarak yürütülebilir Kurulum altında çalışır.  Ayrı bir Kurulum giriş noktası yürütülebilir hizmet konağı uzun sürelerle yüksek ayrıcalıklarla çalıştırmanız gerekmez, kısa bir süre için yüksek ayrıcalıklı yapılandırması çalıştırmanıza olanak tanır.

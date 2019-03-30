@@ -4,7 +4,7 @@ description: Bu makalede, Microsoft Azure Service Fabric'te bulunan Test Edilebi
 services: service-fabric
 documentationcenter: .net
 author: motanv
-manager: timlt
+manager: chackdan
 editor: heeldin
 ms.assetid: ed53ca5c-4d5e-4b48-93c9-e386f32d8b7a
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 70ed1561af6dc06b4d1db89e6449540dd76b67be
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 37a794387f3a2f02124805705d380ad9f1fc1270
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815891"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662865"
 ---
 # <a name="testability-actions"></a>Test Edilebilirlik eylemleri
 Güvenilir olmayan bir altyapı benzetimini yapmak için Azure Service Fabric, çeşitli gerçek hataları ve durum geçişlerini benzetimini yapmak için yol ile geliştirici olarak size sağlar. Bu işlem Test Edilebilirlik eylemleri sunulur. Belirli hata ekleme, durum geçişi ve doğrulama neden alt düzey API'ler eylemlerdir. Bu eylemleri birleştirerek, hizmetlerinizi için kapsamlı test senaryolarını yazabilirsiniz.
@@ -39,7 +39,7 @@ Daha iyi kalite doğrulama için çeşitli zarif ve yaşanmamasını hataları i
 ## <a name="testability-actions-list"></a>Test Edilebilirlik eylemleri listesi
 | Eylem | Açıklama | Yönetilen API | PowerShell cmdlet'i | Normal/yaşanmamasını hataları |
 | --- | --- | --- | --- | --- |
-| CleanTestState |Tüm test durumu, test sürücüsünün hatalı bir kapanma durumunda bir kümeden kaldırır. |CleanTestStateAsync |Remove-ServiceFabricTestState |Uygulanamaz |
+| CleanTestState |Tüm test durumu, test sürücüsünün hatalı bir kapanma durumunda bir kümeden kaldırır. |CleanTestStateAsync |Remove-ServiceFabricTestState |Geçerli değil |
 | InvokeDataLoss |Veri kaybı hizmet bölüme sevk. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Normal |
 | InvokeQuorumLoss |Belirli bir durum bilgisi olan hizmet bölüm çekirdek kayıp yerleştirir. |InvokeQuorumLossAsync |Çağırma ServiceFabricQuorumLoss |Normal |
 | MovePrimary |Belirtilen küme düğümü için bir durum bilgisi olan hizmet belirtilen birincil çoğaltmasını taşır. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Normal |
@@ -49,10 +49,10 @@ Daha iyi kalite doğrulama için çeşitli zarif ve yaşanmamasını hataları i
 | RestartNode |Bir Service Fabric küme düğümü hatası bir düğümü yeniden başlatarak benzetimini yapar. |RestartNodeAsync |Yeniden başlatma-ServiceFabricNode |Yaşanmamasını |
 | RestartPartition |Bir veri merkezi Kararma veya küme Kararma senaryo bazılarını veya tümünü bir bölüm çoğaltmalarını yeniden başlatarak benzetimini yapar. |RestartPartitionAsync |Restart-ServiceFabricPartition |Normal |
 | RestartReplica |Bir çoğaltma hatası bir kümede kalıcı bir çoğaltması yeniden başlatılıyor, çoğaltma kapatma ve yeniden açmayı benzetimini yapar. |RestartReplicaAsync |Yeniden başlatma-servicefabricreplica komutunu |Normal |
-| BaşlangıçDüğümü |Bir düğüm zaten durdurulmuş bir kümede başlatır. |StartNodeAsync |Start-ServiceFabricNode |Uygulanamaz |
+| BaşlangıçDüğümü |Bir düğüm zaten durdurulmuş bir kümede başlatır. |StartNodeAsync |Start-ServiceFabricNode |Geçerli değil |
 | StopNode |Bir düğümde hata oluştuktan bir kümedeki bir düğüm durdurarak benzetimini yapar. BaşlangıçDüğümü çağrılana kadar düğümü kapalı kalır. |StopNodeAsync |Stop-ServiceFabricNode |Yaşanmamasını |
-| ValidateApplication |Kullanılabilirlik ve bazı hata sisteme inducing sonra genellikle bir uygulamadaki tüm Service Fabric hizmetlerinin durumunu doğrular. |ValidateApplicationAsync |Test-ServiceFabricApplication |Uygulanamaz |
-| ValidateService |Bir Service Fabric hizmetinin sistem durumunu ve kullanılabilirliğini genellikle sisteme bazı hata inducing sonra doğrular. |ValidateServiceAsync |Test-ServiceFabricService |Uygulanamaz |
+| ValidateApplication |Kullanılabilirlik ve bazı hata sisteme inducing sonra genellikle bir uygulamadaki tüm Service Fabric hizmetlerinin durumunu doğrular. |ValidateApplicationAsync |Test-ServiceFabricApplication |Geçerli değil |
+| ValidateService |Bir Service Fabric hizmetinin sistem durumunu ve kullanılabilirliğini genellikle sisteme bazı hata inducing sonra doğrular. |ValidateServiceAsync |Test-ServiceFabricService |Geçerli değil |
 
 ## <a name="running-a-testability-action-using-powershell"></a>PowerShell kullanarak bir Test Edilebilirlik eylemi çalıştıran
 Bu öğreticide PowerShell kullanarak bir Test Edilebilirlik eylemi çalıştırmak gösterilmektedir. Yerel bir (bir kutu) kümesi veya Azure kümesine karşı Test Edilebilirlik eylemi çalıştırmayı öğreneceksiniz. Microsoft.Fabric.Powershell.dll--Service Fabric PowerShell modülünü--Microsoft Service Fabric MSI yüklediğinizde otomatik olarak yüklenir. Bir PowerShell istemi açtığınızda modülü otomatik olarak yüklenir.

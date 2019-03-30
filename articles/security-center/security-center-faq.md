@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 276b2815b36f05aa49183681b6c9e622155938e9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 79faab0dcf2dd4c5592fe0543fa63f2538facf36
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401128"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664021"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, artırılmış görünürlük ve Microsoft Azure kaynaklarınızın güvenliğini denetim ile tehditleri önleyin, algılayın ve yardımcı olan bir hizmet hakkında sorular yanıtlanmaktadır.
@@ -43,6 +43,9 @@ Güvenlik Merkezi iki katmanda sunulur:
 **Ücretsiz katmanı** iş ortaklarının güvenlik ürün ve hizmetleriyle Azure kaynakları, temel güvenlik ilkesi, güvenlik önerileri ve tümleştirme güvenlik durumunu görünürlük sağlar.
 
 **Standart katman** algılama özellikleri dahil olmak üzere, tehdit zekası, davranışsal analiz, anomali algılama, güvenlik olayları ve tehdit attribution raporları Gelişmiş tehdit ekler. Bir standart katman ücretsiz deneme süresi başlatabilirsiniz. Yükseltmek için seçin [fiyatlandırma katmanı](https://docs.microsoft.com/azure/security-center/security-center-pricing) güvenlik ilkesinde. Daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
+
+### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>Kuruluşumda kimlerin fiyatlandırma katmanı değişiklikleri, Azure Güvenlik Merkezi'nde yapılan nasıl izleyebilir miyim
+Bir Azure aboneliği fiyatlandırma katmanını değiştirmek için gerekli izinlere sahip birden çok Yöneticisi olabilir gibi bir kullanıcı fiyatlandırma katmanı değişikliği gerçekleştiren bilmek isteyebilir. Azure etkinlik günlüğü kullanabilirsiniz, kullanılacak. Lütfen diğer yönergeleri görmek [burada](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)
 
 ## <a name="permissions"></a>İzinler
 Azure Güvenlik Merkezi, Azure'daki kullanıcılara, gruplara ve hizmetlere atanabilen [yerleşik roller](../role-based-access-control/built-in-roles.md) sağlayan [Rol Tabanlı Erişim Denetimi'ni (RBAC)](../role-based-access-control/role-assignments-portal.md) kullanır.
@@ -116,22 +119,22 @@ Mevcut bir Log Analytics çalışma alanı seçmek için:
    - Seçin **iptal** işlemi iptal etme.
 
 ### Ne Microsoft Monitoring Agent, sanal makine uzantısı olarak zaten yüklendi?<a name="mmaextensioninstalled"></a>
-İzleme Aracısı, uzantı olarak yüklendikten sonra uzantı yapılandırması yalnızca tek bir çalışma alanına raporlama sağlar. Güvenlik Merkezi, kullanıcı çalışma alanları için varolan bağlantılar kılmaz. Güvenlik Merkezi şartıyla "güvenlik" veya "securityFree" çözüm üzerinde yüklü bir VM Güvenlik verileri zaten bağlıysa, bir çalışma alanında depolar. Güvenlik Merkezi, uzantı sürümü, bu işlem en son sürüme yükseltebilirsiniz.
+İzleme Aracısı, uzantı olarak yüklendikten sonra uzantı yapılandırması yalnızca tek bir çalışma alanına raporlama sağlar. Güvenlik Merkezi, kullanıcı çalışma alanları için varolan bağlantılar kılmaz. Güvenlik Merkezi koşuluyla "Güvenlik" veya "SecurityCenterFree" çözüm üzerinde yüklenmiş olan bir VM Güvenlik verileri zaten bağlıysa, bir çalışma alanında depolar. Güvenlik Merkezi, uzantı sürümü, bu işlem en son sürüme yükseltebilirsiniz.
 
 Daha fazla bilgi için [önceden var olan bir aracı yüklemesi durumlarda otomatik sağlama](security-center-enable-data-collection.md#preexisting).
 
 
-### Ne miyim makinede ancak uzantı (doğrudan aracı) olarak değil doğrudan yüklü Microsoft Monitoring Agent oldu?<a name="directagentinstalled"></a>
+### Ben Microsoft Monitoring Agent ne vardı doğrudan makinede ancak uzantı (doğrudan aracı) olarak değil yüklü mü?<a name="directagentinstalled"></a>
 Microsoft Monitoring Agent (olarak değil bir Azure uzantısı) doğrudan VM'de yüklü değilse, Güvenlik Merkezi Microsoft Monitoring Agent uzantısını yükleyecek ve Microsoft Monitoring agent, en son sürüme yükseltebilirsiniz.
 Yüklü aracı için zaten yapılandırılmış kendi çalışma alanlarında bildirmeye devam eder ve ayrıca Güvenlik Merkezi'nde yapılandırılmış çalışma alanına rapor eder (birden çok giriş desteklenir).
-Bir kullanıcı çalışma (değil Güvenlik Merkezi'nin varsayılan çalışma alanına) yapılandırılmış çalışma alanı ise yüklemeniz gerekir "güvenlik /"securityFree"çözümü için Güvenlik Merkezi, Vm'leri ve Bilgisayarları'ndan olayları işlemeyi başlatmak bu çalışma alanına raporlama.
+Bir kullanıcı çalışma (değil Güvenlik Merkezi'nin varsayılan çalışma alanına) yapılandırılmış çalışma alanı ise yüklemeniz gerekir "güvenlik / dayanarak Güvenlik Merkezi, Vm'leri ve Bilgisayarları'ndan olayları işlemeyi başlatmak"SecurityCenterFree"Çözüm için raporlama Çalışma alanı.
 
 Güvenlik Merkezi'ne abonelikleri eklenmedi 2019-03-mevcut bir aracının ne zaman algılanır, 17 önce mevcut makinelerde Microsoft Monitoring Agent uzantısını yüklenmez ve makine etkilenmez. Bu makineler üzerinde aracı yükleme sorunlarını gidermek için "Çözümle makinelerinizde aracı sistem durumu sorunlarını izleme" öneri bu makineler için bkz.
 
  Daha fazla bilgi için sonraki bölüme bakın [SCOM veya OMS Aracısı VM üzerinde zaten yüklü doğrudan ne olur?](#scomomsinstalled)
 
-### SCOM Aracısı VM'deki uygulamalarımdan birine zaten yüklü değilse ne olur?<a name="scomomsinstalled"></a>
-Güvenlik Merkezi, var olan SCOM için Microsoft Monitoring Agent uzantısı yan yana yüklenir. Var olan SCOM aracısı için SCOM server normalde bildirmeye devam eder. SCOM aracısı ve Microsoft Monitoring Agent bu verisine sırasında en son sürüme güncelleştirilir ortak çalışma zamanı kitaplıkları paylaşmak unutmayın.
+### Bir System Center Operations Manager (SCOM) aracısı VM'deki uygulamalarımdan birine zaten yüklü değilse ne olur?<a name="scomomsinstalled"></a>
+Güvenlik Merkezi, Microsoft Monitoring Agent uzantısı yan yana için var olan System Center Operations Manager aracısını yükler. Var olan SCOM Aracısı System Center Operations Manager sunucusuna normalde bildirmeye devam eder. System Center Operations Manager aracısı ve Microsoft Monitoring Agent bu verisine sırasında en son sürüme güncelleştirilir ortak çalışma zamanı kitaplıkları paylaşmak unutmayın. System Center Operations Manager 2012 aracı sürümü yüklü değil açarsanız üzerinde sağlama otomatik - unutmayın (yönetilebilirlik özellikleri olabilir kayıp System Center Operations Manager server 2012 sürümü olduğunda).
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>Bu Uzantılar'ı kaldırmanın etkisi nedir?
 Microsoft Monitoring uzantısı kaldırırsanız, Güvenlik Merkezi sanal makine ve bazı güvenlik önerilerini güvenlik verilerini toplamak mümkün değildir ve uyarılar kullanılamıyor. 24 saat içinde Güvenlik Merkezi, VM uzantısı eksik ve uzantıyı yükler belirler.
@@ -156,7 +159,7 @@ Otomatik aboneliklerinizde güvenlik ilkesinde sağlamayı kapatın kapatabilirs
 Aşağıdakiler sizin için geçerliyse, otomatik sağlama dışında bırakmak isteyebilirsiniz:
 
 - Güvenlik Merkezi tarafından otomatik aracı yüklemesi, tüm abonelik için geçerlidir.  Otomatik Yükleme VM'lerin bir alt kümesine uygulanamıyor. Microsoft İzleme Aracısı ile yüklenmiş kritik VM'lerin varsa, otomatik sağlama dışında iyileştirilmiş.
-- Microsoft Monitoring Agent uzantısını yükleme kullanarak aracının sürümünü güncelleştirir. Bu, doğrudan bir aracı ve bir SCOM aracısı için geçerlidir. Yüklü SCOM Aracısı 2012 sürümüdür ve yükseltilir, SCOM server 2012 sürümü olduğunda yönetilebilirlik özellikleri kaybolabilir. Yüklü SCOM Aracısı sürümü 2012 ise, otomatik sağlama dışında edilmesiyle dikkate almanız gerekir.
+- Microsoft Monitoring Agent (MMA) uzantısını yükleme kullanarak aracının sürümünü güncelleştirir. Bu doğrudan bir aracı ve bir SCOM aracısı için geçerlidir (ikincisi SCOM ve MMA işleminde güncelleştirilecek ortak çalışma zamanı kitaplıkları - paylaşma). Yüklü SCOM Aracısı 2012 sürümüdür ve yükseltilir, SCOM server 2012 sürümü olduğunda yönetilebilirlik özellikleri kaybolabilir. Yüklü SCOM Aracısı sürümü 2012 ise, otomatik sağlama dışında edilmesiyle dikkate almanız gerekir.
 - Özel çalışma alanı aboneliği (merkezi bir çalışma alanı) dış varsa dışı otomatik sağlamayı tercih. El ile Microsoft Monitoring Agent uzantısını yükleyin ve bağlantıyı geçersiz kılma olmadan Güvenlik Merkezi çalışma alanınızı bağlayın.
 - Abonelik başına birden çok çalışma alanı oluşturulmasını önlemek istediğiniz ve kendi özel bir çalışma alanı aboneliği içinde varsa, iki seçeneğiniz vardır:
 
@@ -224,9 +227,9 @@ Bu Aracıdan toplanan veriler, aboneliğinizle ilişkili mevcut bir Log Analytic
 ## Azure İzleyici mevcut müşteriler günlüğe kaydeder<a name="existingloganalyticscust"></a>
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>Güvenlik Merkezi, Vm'leri ve çalışma alanları arasında herhangi bir mevcut bağlantı geçersiz kılmaz?
-Güvenlik Merkezi bir VM zaten Microsoft Monitoring Agent yüklüyse Azure uzantı olarak varsa, varolan bir çalışma alanı bağlantıyı geçersiz kılmaz. Bunun yerine, Güvenlik Merkezi, varolan bir çalışma alanını kullanır.
+Güvenlik Merkezi bir VM zaten Microsoft Monitoring Agent yüklüyse Azure uzantı olarak varsa, varolan bir çalışma alanı bağlantıyı geçersiz kılmaz. Bunun yerine, Güvenlik Merkezi, varolan bir çalışma alanını kullanır. "Güvenlik" veya "SecurityCenterFree" Çözüm için çalışma alanı için raporlama yüklü olması koşuluyla, sanal makine korunur. 
 
-Güvenlik Merkezi çözüm çalışma alanı yüklü zaten mevcut değilse ve çözüm, yalnızca ilgili Vm'lere uygulanır. Bir çözümü eklediğinizde, Log Analytics çalışma alanınıza bağlı tüm Windows ve Linux aracıları için varsayılan olarak otomatik olarak dağıtılır. [Çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) çözümlerinize bir kapsam uygulamanıza imkan sağlar.
+Güvenlik Merkezi çözüm veri toplama ekranda seçilen çalışma alanına yüklenmiş zaten mevcut değilse ve çözüm, yalnızca ilgili Vm'lere uygulanır. Bir çözümü eklediğinizde, Log Analytics çalışma alanınıza bağlı tüm Windows ve Linux aracıları için varsayılan olarak otomatik olarak dağıtılır. [Çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) çözümlerinize bir kapsam uygulamanıza imkan sağlar.
 
 Microsoft Monitoring Agent (olarak değil bir Azure uzantısı) doğrudan VM'de yüklü değilse, Güvenlik Merkezi Microsoft Monitoring Agent yüklemez ve güvenlik izleme sınırlıdır.
 
@@ -300,7 +303,7 @@ Azure Güvenlik Merkezi, aşağıdaki Azure kaynakları izler:
 
 Ayrıca, Azure dışı (şirket içi) dahil bilgisayar de Azure Güvenlik Merkezi tarafından izlenebilir (her ikisi de [Windows bilgisayarları](./quick-onboard-windows-computer.md) ve [Linux bilgisayarları](./quick-onboard-linux-computer.md) desteklenir)
 
-## <a name="virtual-machines"></a>Virtual Machines
+## <a name="virtual-machines"></a>Sanal Makineler
 ### <a name="what-types-of-virtual-machines-are-supported"></a>Sanal makinelerin hangi türleri desteklenir?
 İzleme ve öneriler her ikisi de kullanılarak oluşturulan sanal makineler için (VM'ler) kullanılabilir [Klasik ve Resource Manager dağıtım modellerinde](../azure-classic-rm.md).
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 9b0e94deda205497cda4ebf383f302c6c3bb896a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: a3096729b2430adf0fd884fc03e3b051b17f5b51
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403604"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660469"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Windows PowerShell aracılığıyla bir Azure veri kutusu Edge cihazı yönetme
 
@@ -43,6 +43,20 @@ Bu makalede, aşağıdaki yordamları içerir:
 ## <a name="upload-certificate"></a>Sertifikayı karşıya yükleme
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
+
+IOT Edge Cihazınızı ve buna bağlanmak aşağı akış cihazları arasında güvenli bir bağlantı etkinleştirmek için IOT Edge sertifikalarını da karşıya yükleyebilirsiniz. IOT Edge üç sertifika bulunur (*.pem* biçimi) yüklemek gereken:
+
+- Kök CA sertifikasını veya CA sahibi
+- Cihaz CA sertifikası
+- Cihaz anahtar sertifikası
+
+Aşağıdaki örnek, IOT Edge sertifikaları yüklemek için bu cmdlet'in kullanımı gösterilmektedir:
+
+```
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username/password"
+```
+
+Sertifikalar hakkında daha fazla bilgi için Git [Azure IOT Edge sertifikaları](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) veya [sertifikaları üzerinde bir ağ geçidi yükleme](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
 
 ## <a name="view-device-information"></a>Cihaz bilgilerini görüntüle
  

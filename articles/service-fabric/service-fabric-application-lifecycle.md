@@ -3,8 +3,8 @@ title: Service fabric'te uygulama yaşam döngüsü | Microsoft Docs
 description: Geliştirme, dağıtma, test, yükseltme, bakımını yapma ve Service Fabric uygulamaları kaldırma açıklar.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: 08837cca-5aa7-40da-b087-2b657224a097
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
-ms.author: ryanwi
-ms.openlocfilehash: 65104503af2e177f1898d8509c2d82bd9b58c266
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.author: atsenthi
+ms.openlocfilehash: 53cab3591ea11721e36b48438f35df016e2a9f3a
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446973"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664990"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Service Fabric uygulama yaşam döngüsü
 Diğer platformlar ile Azure Service fabric'te uygulama genellikle aşağıdaki aşamaları geçtikçe: tasarım, geliştirme, test, dağıtım, yükseltme, Bakım ve kaldırma. Service Fabric, nihai yetkisinin alınması için bulut uygulamaları, geliştirme, dağıtım, günlük yönetim ve Bakım tam uygulama yaşam döngüsü için birinci sınıf destek sağlar. Hizmet modeli, uygulama yaşam döngüsü içinde bağımsız olarak katılmak birkaç farklı rol sağlar. Bu makalede, API'leri ve Service Fabric uygulama yaşam döngüsünün aşamaları boyunca farklı rolleri tarafından nasıl kullanıldıkları hakkında genel bir bakış sağlar.
@@ -42,7 +42,7 @@ Hizmet modeli rolü şunlardır:
 
 Bkz: [Reliable Actors hizmetini kullanmaya başlama](service-fabric-reliable-actors-get-started.md) ve [Reliable Services ile çalışmaya başlama](service-fabric-reliable-services-quick-start.md) örnekler.
 
-## <a name="deploy"></a>Dağıtma
+## <a name="deploy"></a>Dağıt
 1. Bir *Uygulama Yöneticisi* uygulama türünü uygun parametrelerini belirterek, bir Service Fabric kümesine dağıtılması için belirli bir uygulamaya belirlenmek **ApplicationType** uygulama bildiriminde öğesi.
 2. Bir *işleci* kullanarak uygulama paketini kümenin görüntü deposuna yükler [ **CopyApplicationPackage** yöntemi](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient) veya [  **Kopyalama ServiceFabricApplicationPackage** cmdlet'i](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps). Uygulama paketi, uygulama bildiriminin ve hizmet paketleri koleksiyonunu içerir. Service Fabric uygulamalarını bir Azure blob depolama veya Service Fabric sistem hizmeti görüntü deposunda saklanan uygulama paketinden dağıtır.
 3. *İşleci* sonra uygulama türünü kullanarak karşıya yüklenen uygulama paketinin hedef kümedeki sağlar [ **ProvisionApplicationAsync** yöntemi](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient),  [ **Register-ServiceFabricApplicationType** cmdlet'i](https://docs.microsoft.com/powershell/module/servicefabric/register-servicefabricapplicationtype), veya [ **uygulama sağlama** REST işlemini](https://docs.microsoft.com/rest/api/servicefabric/provision-an-application).
@@ -52,14 +52,14 @@ Bkz: [Reliable Actors hizmetini kullanmaya başlama](service-fabric-reliable-act
 
 Bkz: [uygulama dağıtma](service-fabric-deploy-remove-applications.md) örnekler.
 
-## <a name="test"></a>Test etme
+## <a name="test"></a>Test et
 1. Yerel geliştirme kümesi veya bir test kümesine dağıttıktan sonra bir *servis Geliştirici* yerleşik yük devretme testi senaryosu kullanarak çalıştırır [ **FailoverTestScenarioParameters** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenarioparameters) ve [ **FailoverTestScenario** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenario) sınıfları veya [ **Invoke-ServiceFabricFailoverTestScenario** cmdlet'i](/powershell/module/servicefabric/invoke-servicefabricfailovertestscenario?view=azureservicefabricps). Yük devretme testi senaryosu, önemli geçişleri ve hala kullanılabilir ve çalışır olduğundan emin olmak için yük devretme işlemleri belirtilen bir hizmeti çalışır.
 2. *Servis Geliştirici* ardından yerleşik chaos test senaryosu kullanarak çalıştırır [ **ChaosTestScenarioParameters** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) ve [  **ChaosTestScenario** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario) sınıfları veya [ **Invoke-ServiceFabricChaosTestScenario** cmdlet'i](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). Kaos test senaryosu, kümeye birden çok düğüm, kod paketi ve çoğaltma hataları rastgele sevk.
 3. *Servis Geliştirici* [hizmetten hizmete iletişimi test](service-fabric-testability-scenarios-service-communication.md) birincil çoğaltmalara küme çevresinde hareket test senaryoları yazma tarafından.
 
 Bkz: [hata analizi hizmeti giriş](service-fabric-testability-overview.md) daha fazla bilgi için.
 
-## <a name="upgrade"></a>Yükseltme
+## <a name="upgrade"></a>Yükselt
 1. A *servis Geliştirici* bağlı Hizmetleri örneklenmiş uygulamanın güncelleştirir ve/veya hataları düzeltir ve hizmet bildiriminin yeni bir sürümü sağlar.
 2. Bir *uygulama geliştiricisi* parametreleştiren tutarlı hizmetlerin yapılandırma ve dağıtım ayarları geçersiz kılar ve yeni bir sürümünü uygulama bildirim sağlar. Uygulama geliştiricisi uygulamasına hizmet bildirimleri yeni sürümlerini içerir ve güncelleştirilmiş uygulama paketi uygulama türünde yeni bir sürümü sağlar.
 3. Bir *Uygulama Yöneticisi* uygun parametreleri güncelleştirerek hedef uygulamasına yeni uygulama türü sürümünü içerir.

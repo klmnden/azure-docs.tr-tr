@@ -4,7 +4,7 @@ description: Service Fabric CLI'sını sfctl kafes secretvalue komutlarını aç
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 064aeaea47dd59a1dd75cf19ea4060d8f9c2c4bf
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 3f8e46f063d3e725e2174fd907169f3e0167586a
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559068"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666554"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
 Alın ve kafes secretvalue kaynakları silin.
@@ -28,8 +28,8 @@ Alın ve kafes secretvalue kaynakları silin.
 
 |Komut|Açıklama|
 | --- | --- |
-| delete | Adlandırılmış gizli kaynağı için belirtilen değer siler. |
-| list | Tüm değerlerin belirtilen gizli kaynak adlarını listeler. |
+| sil | Adlandırılmış gizli kaynağı için belirtilen değer siler. |
+| liste | Tüm değerlerin belirtilen gizli kaynak adlarını listeler. |
 | göster | Gizli bir kaynağın belirtilen bir sürümünü değerini alın. |
 
 ## <a name="sfctl-mesh-secretvalue-delete"></a>sfctl kafes secretvalue Sil

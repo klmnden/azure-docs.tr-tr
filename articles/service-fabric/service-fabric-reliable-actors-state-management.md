@@ -4,7 +4,7 @@ description: Nasıl Reliable Actors durum yönetilen kalıcı ve yüksek kullan�
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 77fa369a3085a3d11d5bf03406b4ddb885a24009
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 65dd47ab21ca4b1c50e0f17b73e7bc4eae8a96e8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57847408"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665789"
 ---
 # <a name="reliable-actors-state-management"></a>Reliable Actors durum yönetimi
 Reliable Actors hem mantıksal hem de durum kapsülleyebilir tek iş parçacıklı nesneleridir. Aktörler Reliable Services üzerinde çalıştığından, bunların durumu güvenilir bir şekilde aynı Kalıcılık ve çoğaltma mekanizması kullanarak koruyabilir. Bu şekilde, etkinleştirme veya Çöp toplamadan sonra kaynak Dengeleme veya yükseltme işlemleri nedeniyle, bir kümedeki düğümler arasında geçici olarak taşındıklarında bağlı bir hatadan sonra durumlarını aktörler kaybetmeyin.
@@ -114,7 +114,7 @@ Durum Yöneticisi durum, güvenilir bir sözlükte bulunan benzer yönetmek içi
 
 Aktör durumunu yönetme örnekleri için okuma [erişimi kaydedin ve Reliable Actors durum Kaldır](service-fabric-reliable-actors-access-save-remove-state.md).
 
-## <a name="best-practices"></a>En iyi uygulamalar
+## <a name="best-practices"></a>En iyi yöntemler
 Bazı önerilen yöntemler ve sorun giderme ipuçları, aktör durumunu yönetmek için aşağıda verilmiştir.
 
 ### <a name="make-the-actor-state-as-granular-as-possible"></a>Aktör durumu mümkün olduğunca ayrıntılı olun

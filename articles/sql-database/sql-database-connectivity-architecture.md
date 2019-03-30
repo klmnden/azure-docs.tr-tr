@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 801e3b20908c3e92693e5e800428773bf5c90539
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c5fadf5c445310534ab3001371e1b73b1f502f15
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521474"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661795"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL bağlantı mimarisi
 
@@ -39,7 +39,7 @@ Bu makalede, Azure SQL Örneğiniz için trafiği farklı bileşenleri işlevi n
 >
 > Azure SQL sunucusuna bağlantılara hizmet uç noktası kurulamadı ve bu değişiklikten etkilenen suspecting, bağlantı türü açıkça değerine ayarlandığını doğrulayın `Redirect`. Bu durumda, Sql ait tüm Azure IP adreslerine bölgedeki VM Güvenlik duvarı kuralları ve ağ güvenlik grupları (NSG) açmanız gerekir [hizmet etiketi](../virtual-network/security-overview.md#service-tags) 11000 12000 bağlantı noktaları. Bu, sizin için bir seçenek değilse, sunucu açıkça geçiş `Proxy`.
 > [!NOTE]
-> Bu konuda, tek veritabanları ve elastik havuzların ve SQL veri ambarı veritabanlarını barındıran Azure SQL veritabanı sunucuları için geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır.
+> Bu konu, tek veritabanları ve elastik havuzlar, SQL veri ambarı veritabanları, MySQL için Azure veritabanı, MariaDB için Azure veritabanı ve PostgreSQL için Azure veritabanı'nı barındıran Azure SQL veritabanı sunucuları için geçerlidir. Kolaylık olması için SQL veritabanı, MySQL, MariaDB için Azure veritabanı ve PostgreSQL için Azure veritabanı için SQL veritabanı, SQL veri ambarı, Azure veritabanı terimi kullanılmaktadır.
 
 ## <a name="connectivity-architecture"></a>Bağlantı mimarisi
 
@@ -81,11 +81,11 @@ Aşağıdaki tablo, Azure SQL veritabanı ağ geçidi tüm veri bölgeleri için
 
 | Bölge Adı | Birincil IP adresi | İkincil IP adresi |
 | --- | --- |--- |
-| Avustralya Doğu | 13.75.149.87 | 40.79.161.1 |
+| Doğu Avustralya | 13.75.149.87 | 40.79.161.1 |
 | Avustralya Güneydoğu | 191.239.192.109 | 13.73.109.251 |
 | Güney Brezilya | 104.41.11.5 | |
-| Orta Kanada | 40.85.224.249 | |
-| Doğu Kanada | 40.86.226.166 | |
+| Kanada Orta | 40.85.224.249 | |
+| Kanada Doğu | 40.86.226.166 | |
 | Orta ABD | 23.99.160.139 | 13.67.215.62 |
 | Çin Doğu 1 | 139.219.130.35 | |
 | Çin Doğu 2 | 40.73.82.1 | |
@@ -100,16 +100,16 @@ Aşağıdaki tablo, Azure SQL veritabanı ağ geçidi tüm veri bölgeleri için
 | Hindistan Orta | 104.211.96.159 | |
 | Hindistan Güney | 104.211.224.146 | |
 | Hindistan Batı | 104.211.160.80 | |
-| Japonya Doğu | 191.237.240.43 | 13.78.61.196 |
-| Japonya Batı | 191.238.68.11 | 104.214.148.156 |
+| Doğu Japonya | 191.237.240.43 | 13.78.61.196 |
+| Batı Japonya | 191.238.68.11 | 104.214.148.156 |
 | Kore Orta | 52.231.32.42 | |
 | Kore Güney | 52.231.200.86 |  |
-| Orta Kuzey ABD | 23.98.55.75 | 23.96.178.199 |
+| Kuzey Orta ABD | 23.98.55.75 | 23.96.178.199 |
 | Kuzey Avrupa | 191.235.193.75 | 40.113.93.91 |
-| Orta Güney ABD | 23.98.162.75 | 13.66.62.124 |
-| Güneydoğu Asya | 23.100.117.95 | 104.43.15.0 |
-| Birleşik Krallık Güney | 51.140.184.11 | |
-| Birleşik Krallık Batı | 51.141.8.11| |
+| Güney Orta ABD | 23.98.162.75 | 13.66.62.124 |
+| Güney Doğu Asya | 23.100.117.95 | 104.43.15.0 |
+| BK Güney | 51.140.184.11 | |
+| BK Batı | 51.141.8.11| |
 | Batı Orta ABD | 13.78.145.25 | |
 | Batı Avrupa | 191.237.232.75 | 40.68.37.158 |
 | Batı ABD 1 | 23.99.34.75 | 104.42.238.205 |

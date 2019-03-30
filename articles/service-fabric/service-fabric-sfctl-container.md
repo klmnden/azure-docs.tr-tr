@@ -4,7 +4,7 @@ description: Service Fabric CLI'sını sfctl kapsayıcı komutlarını açıklam
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 455b2a70568566bff5b1ea4c185568a1758f7db3
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a5037c535737946a50d8af6fa60d0815120276d9
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274913"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663715"
 ---
 # <a name="sfctl-container"></a>sfctl container
 Kapsayıcı çalıştırma komutları bir küme düğümünde ilgili.
@@ -45,8 +45,8 @@ Belirli bir kod paketi için bir Service Fabric düğüm dağıtılan bir kapsay
 | --[gerekli] düğüm adı | Düğümün adı. |
 | --service-bildirim-name [gerekli] | Bir Service Fabric kümesindeki bir uygulama türünün bir parçası olarak kayıtlı bir hizmet bildiriminin adı. |
 | --container-API-gövde | Kapsayıcı REST API için HTTP istek gövdesi. |
-| --container-API-içerik türü | Kapsayıcı REST API için içerik türü varsayılan olarak 'application/json'. |
-| --container-API-http fiili | GET için varsayılan olarak HTTP fiili kapsayıcısı, REST API için. |
+| --container-api-content-type | Kapsayıcı REST API için içerik türü varsayılan olarak 'application/json'. |
+| --container-api-http-verb | GET için varsayılan olarak HTTP fiili kapsayıcısı, REST API için. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri

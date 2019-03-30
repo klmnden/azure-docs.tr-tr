@@ -1,10 +1,10 @@
 ---
-title: İle C# ile Azure Service Fabric hizmeti remoting iletişimler güvenli | Microsoft Docs
-description: Bir Azure Service Fabric kümesi çalıştıran C# güvenilir hizmetler için hizmet tabanlı remoting iletişimi güvenli hale getirmek öğrenin.
+title: Hizmet uzaktan iletişimi ile güvenli iletişim C# Azure Service fabric'te | Microsoft Docs
+description: Temel uzaktan iletişim için güvenliğini sağlamayı öğrenmek C# bir Azure Service Fabric kümesinde çalışan güvenilir Hizmetleri.
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: fc129c1a-fbe4-4339-83ae-0e69a41654e0
 ms.service: service-fabric
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: be5dab7b9714f13a4bd30e6ab33a5a0e2016212d
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: b6d4a44a53ba553ab4fd514c81867156192b69f5
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020028"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662549"
 ---
-# <a name="secure-service-remoting-communications-in-a-c-service"></a>C# hizmetindeki hizmet remoting iletişimleri güvenli
+# <a name="secure-service-remoting-communications-in-a-c-service"></a>Hizmet uzaktan iletişim güvenli bir C# hizmeti
 > [!div class="op_single_selector"]
 > * [Windows üzerinde C#](service-fabric-reliable-services-secure-communication.md)
 > * [Linux üzerinde Java](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-Güvenlik iletişim en önemli yönlerinden birisidir. Güvenilir hizmetler uygulama çerçevesi birkaç önceden oluşturulmuş iletişimi yığınları ve güvenliği geliştirmek için kullanabileceğiniz araçlar sağlar. Bu makalede, C# hizmetinde hizmet remoting kullanırken güvenliğini artırmak nasıl anlatılmaktadır. Var olan derlemeler [örnek](service-fabric-reliable-services-communication-remoting.md) , C# ile yazılmış güvenilir hizmetler için uzaktan iletişim ayarlamak açıklanmaktadır. 
+Güvenlik iletişim en önemli yönlerinden birisidir. Reliable Services uygulaması çerçevesi, birkaç önceden oluşturulmuş iletişim yığınlarını ve güvenliği geliştirmek için kullanabileceğiniz araçlar sağlar. Bu makalede ele alınmaktadır hizmet uzaktan iletişimi kullanırken güvenliğini artırmak nasıl bir C# hizmeti. Var olan bir derleme [örnek](service-fabric-reliable-services-communication-remoting.md) , yazılan reliable services için uzaktan iletişim ayarlamak amacıyla açıklanmaktadır C#. 
 
-C# hizmetleriyle hizmet remoting kullanırken bir hizmeti güvenli hale getirmek için aşağıdaki adımları izleyin:
+Uzaktan hizmet iletişimini ile kullanırken bir hizmeti güvenli hale getirmek için C# Hizmetleri, şu adımları izleyin:
 
-1. Bir arabirim oluşturmak `IHelloWorldStateful`, hizmetiniz üzerinde uzaktan yordam çağrısı için kullanılabilecek yöntemleri tanımlar. Hizmetinizi kullanacak `FabricTransportServiceRemotingListener`, içinde bildirilen `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` ad alanı. Bu bir `ICommunicationListener` remoting özellikleri sağlayan uygulama.
+1. Bir arabirim oluşturma `IHelloWorldStateful`, hizmetinizde bir uzak yordam çağrısı için kullanılabilecek yöntemleri tanımlar. Hizmetinizi kullanacak `FabricTransportServiceRemotingListener`, içinde bildirilen `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` ad alanı. Bu bir `ICommunicationListener` remoting özellikleri sağlayan uygulama.
 
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -55,16 +55,16 @@ C# hizmetleriyle hizmet remoting kullanırken bir hizmeti güvenli hale getirmek
         }
     }
     ```
-2. Dinleyici ayarları ve güvenlik kimlik bilgileri ekleyin.
+2. Dinleyici ayarları ve güvenlik kimlik bilgilerini ekleyin.
 
-    Hizmet iletişimi güvenli hale getirmek için kullanmak istediğiniz sertifikayı kümedeki tüm düğümlerde yüklü olduğundan emin olun. 
+    Hizmeti iletişiminizin güvenliğini sağlamak için kullanmak istediğiniz sertifikayı kümedeki tüm düğümlerde yüklü olduğundan emin olun. 
     
     > [!NOTE]
-    > Linux düğümleri üzerinde sertifika PEM biçimli dosya olarak mevcut olmalıdır */var/lib/sfcerts* dizini. Daha fazla bilgi için bkz: [konumu ve Linux düğümleri X.509 sertifikaları biçimini](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes). 
+    > Linux düğümlerinde sertifika PEM biçimli dosya olarak mevcut olmalıdır */var/lib/sfcerts* dizin. Daha fazla bilgi için bkz. [konumu ve X.509 sertifikaları Linux düğümlerinde biçimini](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes). 
 
-    Dinleyici ayarları ve güvenlik kimlik bilgileri sağlayabilir iki yolu vardır:
+    Dinleyici ayarları ve güvenlik kimlik bilgilerini sağlayabilir iki yolu vardır:
 
-   1. Bunları doğrudan hizmet kodunda sağlar:
+   1. Bunları doğrudan hizmeti kodunda sağlar:
 
        ```csharp
        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -97,9 +97,9 @@ C# hizmetleriyle hizmet remoting kullanırken bir hizmeti güvenli hale getirmek
            return x509Credentials;
        }
        ```
-   2. Kullanarak sağlama bir [yapılandırma paketi](service-fabric-application-and-service-manifests.md):
+   2. Bunları kullanarak sağlama bir [yapılandırma paketi](service-fabric-application-and-service-manifests.md):
 
-       Bir adlandırılmış eklemek `TransportSettings` settings.xml dosyasındaki bölümü.
+       Adlandırılmış ekleme `TransportSettings` settings.xml dosyasının bir bölümünde.
 
        ```xml
        <Section Name="HelloWorldStatefulTransportSettings">
@@ -115,7 +115,7 @@ C# hizmetleriyle hizmet remoting kullanırken bir hizmeti güvenli hale getirmek
        </Section>
        ```
 
-       Bu durumda, `CreateServiceReplicaListeners` yöntemi şöyle görünür:
+       Bu durumda, `CreateServiceReplicaListeners` yöntemi şu şekilde görünür:
 
        ```csharp
        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -129,7 +129,7 @@ C# hizmetleriyle hizmet remoting kullanırken bir hizmeti güvenli hale getirmek
        }
        ```
 
-        Eklerseniz bir `TransportSettings` settings.xml dosyasındaki bölümünde `FabricTransportRemotingListenerSettings ` tüm ayarları varsayılan olarak bu bölümünden yüklenir.
+        Eklerseniz bir `TransportSettings` settings.xml dosyasının bir bölümünde `FabricTransportRemotingListenerSettings ` tüm ayarları sayfasından Bu bölüm, varsayılan olarak yüklenir.
 
         ```xml
         <!--"TransportSettings" section .-->
@@ -137,7 +137,7 @@ C# hizmetleriyle hizmet remoting kullanırken bir hizmeti güvenli hale getirmek
             ...
         </Section>
         ```
-        Bu durumda, `CreateServiceReplicaListeners` yöntemi şöyle görünür:
+        Bu durumda, `CreateServiceReplicaListeners` yöntemi şu şekilde görünür:
 
         ```csharp
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -150,7 +150,7 @@ C# hizmetleriyle hizmet remoting kullanırken bir hizmeti güvenli hale getirmek
             };
         }
         ```
-3. Çağırdığınızda yöntemler güvenli bir hizmette kullanmak yerine uzaktan iletişim yığını kullanarak `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` hizmeti proxy'si oluşturmak, kullanmak için sınıf `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Geçirin `FabricTransportRemotingSettings`, içeren `SecurityCredentials`.
+3. Çağırdığınızda yöntemleri güvenli bir hizmette kullanmak yerine uzaktan iletişim yığını kullanarak `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` hizmeti proxy oluşturma, kullanma, sınıf `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Geçirin `FabricTransportRemotingSettings`, içeren `SecurityCredentials`.
 
     ```csharp
 
@@ -180,7 +180,7 @@ C# hizmetleriyle hizmet remoting kullanırken bir hizmeti güvenli hale getirmek
 
     ```
 
-    İstemci kodu bir hizmetin bir parçası çalışıyorsa, yükleyebilir `FabricTransportRemotingSettings` settings.xml dosyasından. Daha önce gösterildiği gibi hizmet koduna benzer HelloWorldClientTransportSettings bir bölüm oluşturun. İstemci kodu aşağıdaki değişiklikleri yapın:
+    İstemci kodu bir hizmetin parçası olarak çalışıyorsa, yükleyebilir `FabricTransportRemotingSettings` settings.xml dosyasından. Daha önce gösterildiği gibi hizmet koduna benzer HelloWorldClientTransportSettings bir bölüm oluşturun. İstemci kodu için aşağıdaki değişiklikleri yapın:
 
     ```csharp
     ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory(
@@ -193,11 +193,11 @@ C# hizmetleriyle hizmet remoting kullanırken bir hizmeti güvenli hale getirmek
 
     ```
 
-    İstemci bir hizmetin bir parçası çalışır durumda değilse, client_name.exe olduğu aynı konumda client_name.settings.xml dosyası oluşturabilirsiniz. Ardından bu dosyada bir TransportSettings bölüm oluşturun.
+    İstemciye bir hizmetin parçası olarak çalışmıyorsa client_name.exe olduğu aynı konumda client_name.settings.xml dosyası oluşturabilirsiniz. Ardından bu dosyada TransportSettings bölümü oluşturun.
 
-    Hizmete benzer şekilde, eklerseniz bir `TransportSettings` istemci settings.xml/client_name.settings.xml bölümünde `FabricTransportRemotingSettings` tüm ayarları varsayılan olarak bu bölümünden yükler.
+    Hizmete benzer şekilde, eklerseniz bir `TransportSettings` istemci settings.xml/client_name.settings.xml bölümünde `FabricTransportRemotingSettings` tüm ayarları sayfasından Bu bölüm, varsayılan olarak yükler.
 
-    Bu durumda, önceki kod daha Basitleştirilmiş:  
+    Bu durumda, önceki kod daha basitleştirilmiştir:  
 
     ```csharp
 
@@ -209,4 +209,4 @@ C# hizmetleriyle hizmet remoting kullanırken bir hizmeti güvenli hale getirmek
     ```
 
 
-Sonraki adım olarak, okuma [Reliable Services OWIN ile Web API](service-fabric-reliable-services-communication-webapi.md).
+Sonraki adım olarak, okuma [Reliable Services özelliğinde OWIN ile Web API](service-fabric-reliable-services-communication-webapi.md).

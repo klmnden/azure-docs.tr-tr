@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: e6913b1de0045f86667fdcea824ee4cc613c4bc3
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 71710cd940aad3a56dae6c19d4d52a5b141b3d80
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497678"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660978"
 ---
 # <a name="text-to-speech-rest-api"></a>Metin okuma REST API
 
@@ -44,20 +44,31 @@ Bu API kullanmadan önce anlayın:
 
 | Bölge | Uç Nokta |
 |--------|----------|
-| Batı ABD | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list  |
-| Batı ABD 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Doğu Avustralya | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Güney Brezilya | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Kanada Orta | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Orta ABD | https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Doğu Asya | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | Doğu ABD | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | Doğu ABD 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Doğu Asya | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Güneydoğu Asya | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Fransa Orta | https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Hindistan Orta | https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Doğu Japonya | https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Kore Orta | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Kuzey Orta ABD | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | Kuzey Avrupa | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Güney Orta ABD | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Güneydoğu Asya | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| BK Güney | https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | Batı Avrupa | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Batı ABD | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Batı ABD 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
 Bu tablo, metin okuma istekleri için gerekli ve isteğe bağlı üst bilgileri listeler.
 
-| Üst bilgi | Açıklama | Gerekli / isteğe bağlı |
+| Üstbilgi | Açıklama | Gerekli / isteğe bağlı |
 |--------|-------------|---------------------|
 | `Authorization` | Bir yetkilendirme belirteci word tarafından öncesinde `Bearer`. Daha fazla bilgi için bkz. [Kimlik doğrulaması](#authentication). | Gerekli |
 
@@ -148,7 +159,7 @@ Bu bölgeler, REST API kullanarak metin okuma için desteklenir. Eşleşen abone
 
 Bu tablo, metin okuma istekleri için gerekli ve isteğe bağlı üst bilgileri listeler.
 
-| Üst bilgi | Açıklama | Gerekli / isteğe bağlı |
+| Üstbilgi | Açıklama | Gerekli / isteğe bağlı |
 |--------|-------------|---------------------|
 | `Authorization` | Bir yetkilendirme belirteci word tarafından öncesinde `Bearer`. Daha fazla bilgi için bkz. [Kimlik doğrulaması](#authentication). | Gerekli |
 | `Content-Type` | Sağlanan metin için içerik türünü belirtir. Kabul değeri: `application/ssml+xml`. | Gerekli |

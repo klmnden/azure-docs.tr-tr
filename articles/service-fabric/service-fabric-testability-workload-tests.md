@@ -4,7 +4,7 @@ description: Hizmetlerinizi zarif ve yaşanmamasını arızalarına karşı zorl
 services: service-fabric
 documentationcenter: .net
 author: anmolah
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 44af01f0-ed73-4c31-8ac0-d9d65b4ad2d6
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: 3c075ac9642c7d050fc45ce6164071c9c733326e
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ceb6ad1a6a1182d78c473b8b0387c365eb660065
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051923"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667217"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Hizmet iş yükleri sırasında hata benzetimleri yapma
 Azure Service fabric'te Test Edilebilirlik senaryoları, geliştiricilerin tek hataları ne yapılacağı hakkında endişe duymamanızı olanak sağlar. Burada bir açık istemci iş yükü ve hataları Interleaving gerekebilecek senaryo vardır. İstemci iş yükü ve hataları Interleaving hata gerçekleştiğinde hizmet aslında bir eylem gerçekleştiriyor sağlar. Test Edilebilirlik sağlar denetim düzeyini göz önünde bulundurulduğunda, bu iş yükü yürütmeye kesin noktalarda olabilir. Bu endüksiyon farklı durumlarda uygulama hatalarını, hataları bulabilir ve kalitesini geliştirin.
@@ -27,11 +27,11 @@ Azure Service fabric'te Test Edilebilirlik senaryoları, geliştiricilerin tek h
 ## <a name="sample-custom-scenario"></a>Özel örnek senaryosu
 Bu test, iş yüküyle karışır bir senaryo gösterilmektedir [zarif ve yaşanmamasını hataları](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Hataları, ortada hizmet işlemleri ya da en iyi sonuçlar için işlem başlattığı.
 
-Dört iş yükleri ortaya koyan bir hizmet örneği atalım: A, B, C ve d her iş akışları için karşılık gelen ve işlem, depolama veya bir karışımı olabilir. Basitleştirmek amacıyla, biz Bu örnekte iş yüklerinin ölçeğini soyut. Bu örnekte yürütülen farklı hatalar şunlardır:
+Dört iş yükleri ortaya koyan bir hizmet örneği atalım: A, B, C ve d Her iş akışları için karşılık gelen ve işlem, depolama veya bir karışımı olabilir. Basitleştirmek amacıyla, biz Bu örnekte iş yüklerinin ölçeğini soyut. Bu örnekte yürütülen farklı hatalar şunlardır:
 
-* RestartNode: makinenin yeniden başlatılması benzetimini yapmak için Yaşanmamasını hatası.
-* RestartDeployedCodePackage: hizmet ana bilgisayarı işlemi benzetimini yapmak için Yaşanmamasını hata kilitleniyor.
-* RemoveReplica: yineleme kaldırma benzetimini yapmak için normal hata.
+* RestartNode: Makinenin yeniden başlatılması benzetimini yapmak için yaşanmamasını hatası.
+* RestartDeployedCodePackage: Hizmet ana bilgisayarı işlemi benzetimini yapmak için yaşanmamasını hata kilitleniyor.
+* RemoveReplica: Yineleme kaldırma benzetimini yapmak için normal hata.
 * MovePrimary: Service Fabric yük dengeleyici tarafından tetiklenen bir yineleme taşır benzetimini yapmak için normal hata.
 
 ```csharp

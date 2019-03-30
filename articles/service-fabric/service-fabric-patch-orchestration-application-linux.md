@@ -4,7 +4,7 @@ description: Bir Linux Service Fabric kümesinde işletim sistemi düzeltme eki 
 services: service-fabric
 documentationcenter: .net
 author: novino
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 5efcc92bc2054dfb66b5fe03ae083c49f924d2ce
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285161"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668203"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Linux işletim sistemi düzeltme eki
 
@@ -41,13 +41,13 @@ Orchestration düzeltme eki uygulama, aşağıdaki özellikleri sağlar:
 
 Orchestration düzeltme eki uygulama aşağıdaki bileşenleri oluşur:
 
-- **Düzenleyicisi hizmeti**: Bu durum bilgisi olan hizmet sorumludur:
+- **Düzenleyicisi hizmeti**: Bu durum bilgisi olan hizmet için sorumludur:
     - Tüm küme üzerinde işletim sistemi güncelleştirme işi koordine.
     - Tamamlanan işletim sistemi güncelleştirme işlemleri sonucu depolama.
 - **Düğüm Aracısı**: Bu durum bilgisi olmayan hizmet tüm Service Fabric küme düğümleri üzerinde çalışır. Hizmet için sorumludur:
     - Linux üzerinde düğüm Aracısı daemon önyükleniyor.
     - Arka plan programı hizmeti izleme.
-- **Düğüm Aracısı arka plan programı**: Bu Linux arka plan programı hizmeti çalıştıran bir üst düzey önceliği (kök). Buna karşılık, düğüm Aracısı hizmeti ve düzenleyici hizmetini düşük düzeyli ayrıcalık çalıştırın. Hizmet, tüm küme düğümlerinde aşağıdaki güncelleştirme işlerini gerçekleştirmek için sorumludur:
+- **Düğüm Aracısı arka plan programı**: Bu Linux daemon hizmeti, bir üst düzey önceliği (kök) çalıştırır. Buna karşılık, düğüm Aracısı hizmeti ve düzenleyici hizmetini düşük düzeyli ayrıcalık çalıştırın. Hizmet, tüm küme düğümlerinde aşağıdaki güncelleştirme işlerini gerçekleştirmek için sorumludur:
     - Düğüm üzerinde otomatik işletim sistemi güncelleştirme devre dışı bırakılıyor.
     - Kullanıcı, işletim sistemi güncelleştirme ilkesine göre yükleyip sağlamıştır.
     - Makine sonrası işletim sistemi güncelleştirme yüklemesi yeniden başlatma gerekirse.
@@ -74,7 +74,7 @@ Düzeltme eki düzenleme uygulama küme üzerinde etkinleştirilmesini onarım Y
 
 Azure linux kümeleri silver ve gold dayanıklılık katmanı varsayılan olarak etkin onarım Yöneticisi hizmeti sahiptir. Onarım Yöneticisi hizmetinin etkinleştirilmiş Azure kümelerde varsayılan olarak, Bronz dayanıklılık katmanı yok. Hizmet zaten etkin değilse, Service Fabric Explorer'da Sistem Hizmetleri bölümündeki çalışmasını görebilirsiniz.
 
-##### <a name="azure-portal"></a>Azure portal
+##### <a name="azure-portal"></a>Azure portalı
 Onarım Yöneticisi Azure Portalı'ndan kümesini ayarlama sırasında etkinleştirebilirsiniz. Seçin **onarım Yöneticisi dahil** altındaki **eklenti özellikleri** küme yapılandırmasının zaman.
 ![Azure portalından etkinleştirme onarım Yöneticisi'nin resmi](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
@@ -132,8 +132,8 @@ Düzeltme eki düzenleme uygulamanın davranış şekli, gereksinimlerinizi kar�
 |MaxResultsToCache    |Uzun                              | Güncelleştirme sonuçları önbelleğe alınması gereken maksimum sayısı. <br>Varsayılan değer: 3000 varsayılarak: <br> -Düğüm sayısı 20'dir. <br> -Bir düğüm / ay üzerinde gerçekleştirilecek güncelleştirme sayısı beştir. <br> -İşlem başına sonuç sayısı 10 olabilir. <br> -Son üç ay için sonuçları depolanması gerekir. |
 |TaskApprovalPolicy   |Sabit listesi <br> {NodeWise, UpgradeDomainWise}                          |Service Fabric küme düğümleri arasında güncelleştirmeleri yüklemek için Düzenleyici hizmeti tarafından kullanılacak olan ilke TaskApprovalPolicy gösterir.<br>                         İzin verilen değerler şunlardır: <br>                                                           <b>NodeWise</b>. Yüklü bir düğümü aynı anda güncelleştirmelerdir. <br>                                                           <b>UpgradeDomainWise</b>. Yüklü bir yükseltme etki alanı aynı anda güncelleştirmelerdir. (En güncelleştirmesi bir yükseltme etki alanına ait olan tüm düğümleri gidebilirsiniz.)
 | UpdateOperationTimeOutInMinutes | Int <br>(Varsayılan: 180)                   | (İndirme veya yükleme) herhangi bir güncelleştirme işlemi için zaman aşımını belirtir. İşlemi belirtilen süre içinde tamamlanmazsa, iptal edildi.       |
-| RescheduleCount      | Int <br> (Varsayılan: 5).                  | Bir işlem kalıcı olarak başarısız olması durumunda en fazla kaç kez işletim sistemi hizmet tarih değiştirdiğinde güncelleştirin.          |
-| RescheduleTimeInMinutes  | Int <br>(Varsayılan: 30). | Hata devam ederse durumunda güncelleştirme, hizmet işletim sistemi tarih değiştirdiğinde aralığı. |
+| RescheduleCount      | Int <br> (Varsayılan: 5)                  | Bir işlem kalıcı olarak başarısız olması durumunda en fazla kaç kez işletim sistemi hizmet tarih değiştirdiğinde güncelleştirin.          |
+| RescheduleTimeInMinutes  | Int <br>(Varsayılan: 30) | Hata devam ederse durumunda güncelleştirme, hizmet işletim sistemi tarih değiştirdiğinde aralığı. |
 | UpdateFrequency           | Virgülle ayrılmış bir dize (varsayılan: "Haftalık, Çarşamba, 7:00:00")     | Küme üzerinde işletim sistemi güncelleştirmeleri yükleme sıklığı. Biçim ve olası değerler şunlardır: <br>-Örneğin, aylık, 5, 12:22:32 aylık, DD ss. <br> -Örneğin, haftalık, Salı, 12:22:32 için haftalık, gün, ss.  <br> -Örneğin, günlük, 12:22:32 günlük, ss.  <br> -Yok, bu güncelleştirmenin yapılması olmamalıdır belirtir.  <br><br> Tüm saatler UTC biçimindedir.|
 | UpdateClassification | Virgülle ayrılmış bir dize (varsayılan: "securityupdates") | Küme düğümleri üzerinde yüklenmesi gereken güncelleştirmelerin türü. Kabul edilebilir değerler securityupdates, tüm. <br> -securityupdates - yalnızca güvenlik güncelleştirmeleri yüklenir <br> -all - Tüm kullanılabilir güncelleştirmeleri apt'ndan yüklenir.|
 | ApprovedPatches | Virgülle ayrılmış bir dize (varsayılan: "") | Küme düğümlerine yüklenmesi gereken onaylı güncelleştirmeler listesidir. Virgülle ayrılmış liste onaylanmış paketler ve isteğe bağlı olarak istenen hedef sürümünü içerir.<br> Örneğin: "apt-utils 1.2.10ubuntu1, jwt python3, aktarım https apt < 1.2.194, libsystemd0 = > 229 4ubuntu16 =" <br> Yukarıdaki yüklenir <br> -apt-utils apt-önbellekte varsa sürüm 1.2.10ubuntu1 ile. Ardından, belirli bir sürümü kullanılabilir durumda değilse, bir İşlemsiz hale gelir. <br> -kullanılabilir en son sürüme yükseltme python3 jwt. Ardından bir paket yoksa, bir İşlemsiz olduğu. <br> -Aktarım https apt yükseltmeleri 1.2.194'den küçük olan en yüksek sürüm. Bu sürüm yoksa, onu bir İşlemsiz olur. <br> -libsystemd0 yükseltmeleri 229 4ubuntu16 değerine eşit veya daha büyük olan en yüksek sürüm. Ardından bu tür bir sürümü mevcut değilse bir İşlemsiz hale gelir.|
@@ -305,7 +305,7 @@ A. Düzeltme eki düzenleme uygulama tarafından gereken süre, genellikle aşa�
 
 S. **Güvenlik güncelleştirmeleri olan mu düzeltme eki düzenleme uygulama hangi güncelleştirmelerin nasıl karar verir.**
 
-A. Düzeltme eki düzenleme uygulama distro özgü mantığı, hangi güncelleştirmelerin güvenlik güncelleştirmeleri kullanılabilir güncelleştirmeler arasında belirlemek için kullanır. Örneğin: uygulama arşivleri $RELEASE güncelleştirmeleri arar ubuntu içinde-güvenlik, $RELEASE-güncelleştirmeleri ($RELEASE xenial = ya da linux standart temel yayın sürümü). 
+A. Düzeltme eki düzenleme uygulama distro özgü mantığı, hangi güncelleştirmelerin güvenlik güncelleştirmeleri kullanılabilir güncelleştirmeler arasında belirlemek için kullanır. Örneğin: Ubuntu, uygulama arşivleri $RELEASE güncelleştirmeleri arar-güvenlik, $RELEASE-güncelleştirmeleri ($RELEASE xenial = ya da linux standart temel yayın sürümü). 
 
  
 S. **Belirli bir paket sürümünü açın nasıl kilitlemek üzere?**
@@ -326,7 +326,7 @@ S. **Düzeltme ekini düzenlemeyi uygulama geliştirme kümem (tek düğümlü k
 
 A. Hayır, düzeltme eki düzenleme uygulama düzeltme eki tek düğümlü küme için kullanılamaz. Bu tasarım gereği, olarak sınırlamasıdır [service fabric sistem hizmetlerinin](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) veya herhangi bir müşteri uygulama kapalı kalma süresi karşılaşır ve bu nedenle düzeltme eki uygulama için herhangi bir onarım işi hiçbir zaman onarım Yöneticisi tarafından onaylanan.
 
-## <a name="troubleshooting"></a>Sorun giderme
+## <a name="troubleshooting"></a>Sorun Giderme
 
 ### <a name="a-node-is-not-coming-back-to-up-state"></a>Bir düğüm geri durumu yukarı geliyor değil
 

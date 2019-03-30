@@ -12,12 +12,12 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: f90e4281be27f4f30f4fdf0e3eb2932fa4e743ef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb5066185f9301450a68276dd4b2ce2123231b34
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840826"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666803"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>PowerShell kullanarak Elastik İş aracısı oluşturma
 
@@ -30,7 +30,7 @@ Bu öğreticide birden fazla veritabanında sorgu çalıştırmak için gerekli 
 > * İşlerin hedeflerinde betik yürütebilmesi için iş kimlik bilgileri oluşturma
 > * İşi çalıştırmak istediğiniz hedefleri (sunucular, elastik havuzlar, parça eşlemeleri) tanımlama
 > * Aracının işlere bağlanıp yürütebilmesi için hedef veritabanlarında veritabanlı kapsamlı kimlik bilgileri oluşturma
-> * Bir iş oluşturma
+> * İş oluştur
 > * Bir işe iş adımları ekleme
 > * Bir işin yürütülmesini başlatma
 > * Bir işi izleme
@@ -129,7 +129,7 @@ $Db2
 
 ## <a name="enable-the-elastic-jobs-preview-for-your-subscription"></a>Aboneliğiniz için Elastik İşler önizleme sürümünü etkinleştirme
 
-Elastik İşleri kullanmak için aşağıdaki komutu çalıştırarak bu özelliği Azure aboneliğinizde etkinleştirin (bu işlemin Elastik İşleri kullanmak istediğiniz her abonelikte yalnızca bir kez çalıştırılması gerekir):
+Esnek işler kullanmak için aşağıdaki komutu çalıştırarak Azure aboneliğinizde özellik kaydedin. Bir kez elastik İş Aracısı sağlamak istediğiniz abonelik için bu komutu çalıştırın. İş hedefleri olan veritabanları yalnızca içeren abonelikler kaydedilmesi gerekmez.
 
 ```powershell
 Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
@@ -230,7 +230,7 @@ $ServerGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $TargetServerNa
 $ServerGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $TargetServerName -Database $Db2.DatabaseName -Exclude
 ```
 
-## <a name="create-a-job"></a>Bir iş oluşturma
+## <a name="create-a-job"></a>İş oluştur
 
 ```powershell
 Write-Output "Creating a new job"
@@ -317,7 +317,7 @@ Bu öğreticide bir veritabanı kümesinde Transact-SQL betiği çalıştırdın
 > * İşlerin hedeflerinde betik yürütebilmesi için iş kimlik bilgileri oluşturma
 > * İşi çalıştırmak istediğiniz hedefleri (sunucular, elastik havuzlar, parça eşlemeleri) tanımlama
 > * Aracının işlere bağlanıp yürütebilmesi için hedef veritabanlarında veritabanlı kapsamlı kimlik bilgileri oluşturma
-> * Bir iş oluşturma
+> * İş oluştur
 > * İşe bir iş adımı ekleme
 > * Bir işi yürütmeye başlatma
 > * İş izleme

@@ -4,7 +4,7 @@ description: Service Fabric CLI'sını sfctl küme komutlarını açıklamaktad�
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: e3aae5f7936204a7fe4fbce4102fc2727088e025
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7bb399472d7e0ab14e6399fc8652d2eb132a866a
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442040"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663817"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Seçin, yönetmek ve Service Fabric kümeleri çalışır.
@@ -30,7 +30,7 @@ Seçin, yönetmek ve Service Fabric kümeleri çalışır.
 | --- | --- |
 | kod-versions | Bir Service Fabric kümesinde sağlanan kod sürümlerini fabric listesini alır. |
 | config-versions | Bir Service Fabric kümesinde sağlanan yapılandırma sürümlerini fabric listesini alır. |
-| sağlık | Service Fabric kümesi durumunu alır. |
+| sistem durumu | Service Fabric kümesi durumunu alır. |
 | Bildirimi | Service Fabric küme bildirimi alın. |
 | işlemi iptal etme | Bir kullanıcı nedenli hata işlemi iptal eder. |
 | işlem listesi | Hata kullanıcı nedenli işlemleri tarafından sağlanan girişin filtrelenmiş bir listesini alır. |

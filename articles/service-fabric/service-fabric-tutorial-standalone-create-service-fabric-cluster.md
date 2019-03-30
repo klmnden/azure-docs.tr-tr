@@ -4,7 +4,7 @@ description: Bu öğreticide, Service Fabric tek başına istemcisini önceki ö
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9563faf5e72bdef2e43afe26d5e8ae0f3d1c67ad
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 1bcb7f9fadc79db0db17336f07f6d58302433c1f
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370423"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664038"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Öğretici: Yükleme ve Service Fabric kümesi oluşturma
 

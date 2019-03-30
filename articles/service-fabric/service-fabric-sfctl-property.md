@@ -4,7 +4,7 @@ description: Service Fabric CLI'sını sfctl özelliği komutlarını açıklama
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 78c04abeea1fdc4771f44d44b973ca0dcd2922ea
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 54cb9f604e9d1b817947990e657390387df6c881
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274998"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664922"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Service Fabric adları altında Store ve sorgu özellikleri.
@@ -28,9 +28,9 @@ Service Fabric adları altında Store ve sorgu özellikleri.
 
 |Komut|Açıklama|
 | --- | --- |
-| delete | Belirtilen Service Fabric özelliği siler. |
+| sil | Belirtilen Service Fabric özelliği siler. |
 | Al | Belirtilen Service Fabric özelliği alır. |
-| list | Verilen adla tüm Service Fabric özellikleri hakkında bilgi alır. |
+| liste | Verilen adla tüm Service Fabric özellikleri hakkında bilgi alır. |
 | yerleştirme | Oluşturur veya bir Service Fabric özelliğini güncelleştirir. |
 
 ## <a name="sfctl-property-delete"></a>sfctl özelliği Sil
@@ -89,7 +89,7 @@ Bir Service Fabric adı özel bilgileri depolayan bir veya daha fazla adlandır�
 |Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --ad kimliği [gerekli] | Service Fabric adı, olmadan ' fabric\:' URI düzeni. |
-| --devamlılık belirteci | Devamlılık belirteci parametresi, sonraki sonuç kümesini almak için kullanılır. Sistem sonuçlardan tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değer ile API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı, API, sonraki sonuç kümesini döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır. |
+| --continuation-token | Devamlılık belirteci parametresi, sonraki sonuç kümesini almak için kullanılır. Sistem sonuçlardan tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değer ile API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı, API, sonraki sonuç kümesini döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır. |
 | --dahil değerleri | Döndürülen özelliklerin değerlerini eklenip eklenmeyeceğini belirtmeye izin verir. Değerleri meta verileriyle döndürülmesi gerekiyorsa true; Yalnızca özellik meta verileri döndürmek için false. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
@@ -115,7 +115,7 @@ Oluşturur veya belirli bir ada altında belirtilen Service Fabric özelliğini 
 | --ad kimliği [gerekli] | Service Fabric adı, olmadan ' fabric\:' URI düzeni. |
 | --[gerekli] özellik adı | Service Fabric özelliğin adı. |
 | --Değer [gerekli] | Bir Service Fabric özellik değeri açıklar. Bir JSON dizesi budur. <br><br> Json dizesi verilerin 'Kind' ve 'Value' verilerin iki alan vardır. 'Kind' değeri bir JSON dizesinde görünmesi için ilk öğe olmalıdır ve 'İkili', 'Int64', 'Double', 'String' veya 'Guid' değerleri olabilir. Değeri serileştirmek-sağlanan türler için gerekir. Hem 'Kind' ve 'Veri' değerleri dize olarak sağlanmalıdır. |
-| --Özel kimliği türü | Özelliğin özel tür kimliği. Bu özelliği kullanarak, kullanıcı özelliğinin değeri türü etiketi mümkün değil. |
+| --custom-id-type | Özelliğin özel tür kimliği. Bu özelliği kullanarak, kullanıcı özelliğinin değeri türü etiketi mümkün değil. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri

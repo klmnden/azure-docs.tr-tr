@@ -4,7 +4,7 @@ description: Service Fabric CLI'sını sfctl bölüm komutlarını açıklamakta
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: c2bb1c0147d38b4286e2cdfb2d161eaa0704e393
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f7c9bcc51757100cb1fc957dee12213bc8bf2eec
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271496"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666775"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Sorgulamak ve tüm bölümlerini yönetin.
@@ -30,17 +30,17 @@ Sorgulamak ve tüm bölümlerini yönetin.
 | --- | --- |
 | veri kaybı | Bu API, belirtilen bölüm için veri kaybı anlamına. |
 | veri kaybı durumu | StartDataLoss API kullanmaya bölüm veri kaybı işlemin ilerlemesini alır. |
-| sağlık | Belirtilen Service Fabric bölümü durumunu alır. |
+| sistem durumu | Belirtilen Service Fabric bölümü durumunu alır. |
 | bilgi | Bir Service Fabric bölümü hakkında bilgi alır. |
-| list | Bir Service Fabric hizmeti bölümlerini listesini alır. |
-| yükleme | Belirtilen Service Fabric bölümü yük bilgilerini alır. |
+| liste | Bir Service Fabric hizmeti bölümlerini listesini alır. |
+| yük | Belirtilen Service Fabric bölümü yük bilgilerini alır. |
 | Yük-Sıfırla | Bir Service Fabric bölümü geçerli iş yükünü sıfırlar. |
 | Çekirdek kayıp | Belirli bir durum bilgisi olan hizmet bölüm çekirdek kayıp sevk. |
 | Çekirdek kayıp durumu | StartQuorumLoss API kullanmaya bir bölüme bir çekirdek kayıp işleminin ilerleme durumunu alır. |
 | Kurtarma | Service Fabric kümesine çekirdek kaybına şu anda takılı belirli bir bölüme, kurtarılır denemesi gösterir. |
 | tüm kurtarma | Service Fabric kümesine çekirdek kaybına şu anda takılı kalıyor (sistem hizmetleri de dahil) tüm hizmetleri, kurtarılır denemesi gösterir. |
 | durumu- | Service Fabric bölüm üzerinde bir sistem durumu raporu gönderir. |
-| restart | Bu API, bazı veya tüm çoğaltmalar veya belirtilen bölüm örneklerini yeniden başlatır. |
+| yeniden başlat | Bu API, bazı veya tüm çoğaltmalar veya belirtilen bölüm örneklerini yeniden başlatır. |
 | yeniden başlatma durumu | StartPartitionRestart kullanmaya PartitionRestart işleminin ilerleme durumunu alır. |
 | SVC adı | Bir bölüm için Service Fabric hizmeti adını alır. |
 
@@ -106,9 +106,9 @@ Sistem durumu olaylarını sistem durumuna bağlı hizmette bildirilen koleksiyo
 |Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --bölüm kimliği [gerekli] | Bölüm kimliği. |
-| --Olay Sistem Durumu Filtresi | Döndürülen sistem durumu olayı nesnelerinin koleksiyonunu sistem durumuna göre filtrelemeye olanak tanır. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Yalnızca filtreyle eşleşen olaylar döndürülür. Tüm olaylar, toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri numaralandırma bayrağı tabanlı olduğundan, değer Bitsel 'Veya' işlecini kullanarak elde ettiğiniz bu değerlerin bir birleşimi olabilir. 6 sağlanan değer, örneğin, ardından tüm olayları Tamam (2) ve (4) uyarı HealthState değeriyle döndürülür.  <br> -Default - varsayılan değer. Tüm HealthState eşleşir. Değer sıfırdır.  <br> -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Belirli bir koleksiyon durumlarının sonuç döndürmek için kullanılır. Değer 1'dir.  <br> -Tamam - eşleşme HealthState değeriyle Tamam giriş filtreleyin. Değeri 2'dir.  <br> -Uyarı - filtre HealthState girişle eşleşir uyarı değeri. Değer 4'tür.  <br> -Hata - giriş hatası HealthState değeri ile eşleşen filtre. Değer 8'dir.  <br> -All - giriş herhangi bir HealthState değeri ile eşleşen filtreleyin. Değer 65535'tir. |
+| --events-health-state-filter | Döndürülen sistem durumu olayı nesnelerinin koleksiyonunu sistem durumuna göre filtrelemeye olanak tanır. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Yalnızca filtreyle eşleşen olaylar döndürülür. Tüm olaylar, toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri numaralandırma bayrağı tabanlı olduğundan, değer Bitsel 'Veya' işlecini kullanarak elde ettiğiniz bu değerlerin bir birleşimi olabilir. 6 sağlanan değer, örneğin, ardından tüm olayları Tamam (2) ve (4) uyarı HealthState değeriyle döndürülür.  <br> -Default - varsayılan değer. Tüm HealthState eşleşir. Değer sıfırdır.  <br> -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Belirli bir koleksiyon durumlarının sonuç döndürmek için kullanılır. Değer 1'dir.  <br> -Tamam - eşleşme HealthState değeriyle Tamam giriş filtreleyin. Değeri 2'dir.  <br> -Uyarı - filtre HealthState girişle eşleşir uyarı değeri. Değer 4'tür.  <br> -Hata - giriş hatası HealthState değeri ile eşleşen filtre. Değer 8'dir.  <br> -All - giriş herhangi bir HealthState değeri ile eşleşen filtreleyin. Değer 65535'tir. |
 | --exclude sağlık istatistikleri | Sistem durumu istatistikleri sorgu sonucu bir parçası olarak döndürülüp döndürülmeyeceğini gösterir. Varsayılan değer false. İstatistik alt öğe sayısı durumunun Tamam, uyarı ve hata varlıkları gösterir. |
-| --çoğaltmaları sağlık Durumu Filtresi | Bölüm ReplicaHealthState nesneleri koleksiyonunu filtrelemeye izin verir. Değer üyeleri veya HealthStateFilter üyeleri üzerinde bit düzeyinde işlemler elde edilebilir. Filtreyle eşleşen çoğaltmaları döndürülür. Tüm çoğaltmalar toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri numaralandırma bayrağı tabanlı olduğundan, değer Bitsel 'Veya' işlecini kullanarak elde ettiğiniz bu değerlerin bir birleşimi olabilir. 6 sağlanan değer ise, örneğin, ardından tüm olayları Tamam (2) ve (4) uyarı HealthState değeriyle döndürülür. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir.  <br> -Default - varsayılan değer. Tüm HealthState eşleşir. Değer sıfırdır.  <br> -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Belirli bir koleksiyon durumlarının sonuç döndürmek için kullanılır. Değer 1'dir.  <br> -Tamam - eşleşme HealthState değeriyle Tamam giriş filtreleyin. Değeri 2'dir.  <br> -Uyarı - filtre HealthState girişle eşleşir uyarı değeri. Değer 4'tür.  <br> -Hata - giriş hatası HealthState değeri ile eşleşen filtre. Değer 8'dir.  <br> -All - giriş herhangi bir HealthState değeri ile eşleşen filtreleyin. Değer 65535'tir. |
+| --replicas-health-state-filter | Bölüm ReplicaHealthState nesneleri koleksiyonunu filtrelemeye izin verir. Değer üyeleri veya HealthStateFilter üyeleri üzerinde bit düzeyinde işlemler elde edilebilir. Filtreyle eşleşen çoğaltmaları döndürülür. Tüm çoğaltmalar toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri numaralandırma bayrağı tabanlı olduğundan, değer Bitsel 'Veya' işlecini kullanarak elde ettiğiniz bu değerlerin bir birleşimi olabilir. 6 sağlanan değer ise, örneğin, ardından tüm olayları Tamam (2) ve (4) uyarı HealthState değeriyle döndürülür. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir.  <br> -Default - varsayılan değer. Tüm HealthState eşleşir. Değer sıfırdır.  <br> -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Belirli bir koleksiyon durumlarının sonuç döndürmek için kullanılır. Değer 1'dir.  <br> -Tamam - eşleşme HealthState değeriyle Tamam giriş filtreleyin. Değeri 2'dir.  <br> -Uyarı - filtre HealthState girişle eşleşir uyarı değeri. Değer 4'tür.  <br> -Hata - giriş hatası HealthState değeri ile eşleşen filtre. Değer 8'dir.  <br> -All - giriş herhangi bir HealthState değeri ile eşleşen filtreleyin. Değer 65535'tir. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
@@ -153,7 +153,7 @@ Yanıt, bölüm kimliği, bölümleme düzeni bilgileri, bölüm, durum, sistem 
 |Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Hizmet kimliği [gerekli] | Hizmet kimliği. Bu kimlik genellikle hizmet olmadan tam adı olan ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Hizmet adı; Örneğin, "fabric\:/myapp/app1/svc1", hizmet kimliği olur "myapp\~app1\~svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde. |
-| --devamlılık belirteci | Devamlılık belirteci parametresi, sonraki sonuç kümesini almak için kullanılır. Sistem sonuçlardan tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değer ile API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı, API, sonraki sonuç kümesini döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır. |
+| --continuation-token | Devamlılık belirteci parametresi, sonraki sonuç kümesini almak için kullanılır. Sistem sonuçlardan tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değer ile API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı, API, sonraki sonuç kümesini döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri

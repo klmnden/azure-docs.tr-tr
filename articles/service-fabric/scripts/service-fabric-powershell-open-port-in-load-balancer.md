@@ -4,7 +4,7 @@ description: Azure PowerShell Betiği Örneği - Service Fabric uygulaması içi
 services: service-fabric
 documentationcenter: ''
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 05/18/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 72badb5ca2e8973fd64f5339eaff55ceb79a5ce3
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 942dd995651f4c672d50163e5c380b62155b2227
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498273"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667268"
 ---
 # <a name="open-an-application-port-in-the-azure-load-balancer"></a>Azure Load Balancer’da bir uygulama bağlantı noktasını açma
 
@@ -38,7 +38,7 @@ Gerekirse, [Service Fabric SDK’sı](../service-fabric-get-started.md) ile Serv
 
 Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
-| Komut | Notlar |
+| Komut | Notes |
 |---|---|
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Bir Azure kaynağını alır.  |
 | [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) | Azure Load Balancer’ı alır. |
