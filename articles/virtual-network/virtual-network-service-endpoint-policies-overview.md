@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 619b9b68a5c4e897642e1f84c25c2822d8291400
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2d65d51ae8148e2e55d57d39e306ded0f75da687
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104497"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652595"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Sanal ağ hizmet uç noktası ilkeleri (Önizleme)
 
@@ -113,7 +113,7 @@ Sanal ağ hizmet uç noktası ilkeleri aşağıdaki avantajları sağlar:
 
      - Azure App Service Ortamı
      - Azure Rediscache
-     - Azure API Management
+     - Azure API Yönetimi
      - Azure SQL Yönetilen Örnek
      - Azure Active Directory Domain Services
      - Azure Application Gateway (Klasik)
@@ -145,7 +145,7 @@ Sanal ağ hizmet uç noktası ilkeleri aşağıdaki avantajları sağlar:
 - **Eşleştirilmiş, bağlanmış veya birden çok sanal ağ**: Eşlenen sanal ağlardaki trafiği filtrelemek için uç noktası ilkeleri bu sanal ağları için ayrı ayrı uygulanması gerekir.
 - **Ağ Gereçleri veya Azure güvenlik duvarı ile Internet trafiğini filtreleme**: Uç noktalar ilkeleri, Azure hizmet trafiğini filtrelemek ve cihazları veya Azure güvenlik duvarı üzerinden İnternet'te veya Azure trafiğinin geri kalanı filtreleyin. 
 - **Azure hizmetlerinde dağıtılan sanal ağlara trafiği filtreleme**: Önizleme sırasında sanal ağınıza dağıtılmış yönetilen Azure Hizmetleri için hizmet uç noktası İlkesi desteklenmez. 
- Belirli hizmetler için [kısıtlamalara](#Limitations) bakın.
+ Belirli hizmetler için [kısıtlamalara](#limitations) bakın.
 - **Şirket içi ortamdan Azure hizmetlerine trafiği filtreleme**: Hizmet uç noktası İlkesi, ilkeleri için ilişkili alt ağlar'dan yalnızca trafiğe uygulanır. Şirket içinden belirli Azure hizmet kaynaklarına yönelik trafiğe izin vermek için, trafiğin ağ sanal cihazları veya güvenlik duvarları kullanılarak filtrelenmesi gerekir.
 
 ## <a name="logging-and-troubleshooting"></a>Günlüğe kaydetme ve sorun giderme
@@ -170,7 +170,7 @@ Hizmet uç noktası ilkelerinde hiçbir merkezi günlük sağlanmaz. Hizmet tan�
   Örneğin, ilke uygulanırsa klasik depolama hesaplarının erişimi reddedilir.
   - Azure hizmetinin uç noktalar üzerinden sanal ağdan erişime izin verecek şekilde yapılandırılıp yapılandırılmadığını veya kaynağın varsayılan ilkesinin *Tümüne İzin Ver* olarak ayarlanıp ayarlanmadığını denetleyin.
 
-## <a name="provisioning"></a>Sağlama
+## <a name="provisioning"></a>Sağlanıyor
 
 Hizmet uç noktası ilkeleri, sanal ağda yazma erişimine sahip bir kullanıcı tarafından alt ağlarda yapılandırılabilir. Azure [yerleşik rolleri](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [özel rollere](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) belirli izinlerin atanması hakkında daha fazla bilgi edinin.
 

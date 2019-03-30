@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 7e1229ceaa2ae7113c95cfb202a84c56a3e53d61
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d8eefff5a5ea03237eea60a63b63d70f605f10b3
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620143"
+ms.locfileid: "58650164"
 ---
 # <a name="send-security-messages-sdk"></a>SDK'sı güvenlik ileti gönderme
 
@@ -92,7 +92,7 @@ ASC IOT aracısının kullanmadan kullanarak güvenlik ileti gönderme [Azure IO
 
 Cihazlarınızı IOT ASC tarafından işlenmek için cihaz verilerini göndermek için doğru ASC'ye IOT işleme işlem hattı ve yönlendirme iletileri işaretlemek için aşağıdaki API'leri birini kullanın. Bu şekilde gönderilen iletileri işlenir ve IOT hem IOT hub'ının içinden olarak ya da Azure Güvenlik Merkezi güvenlik öngörüleri ASC içinde olarak görüntülenen. 
 
-Doğru üstbilgiyle işaretlenmiş olsa bile gönderilen tüm verileri de uymalıdır [ASC IOT ileti şeması için](https://github.com/Azure/ASC-for-IoT-Schemas). 
+Doğru üstbilgiyle işaretlenmiş olsa bile gönderilen tüm verileri de uymalıdır [ASC IOT ileti şeması için](https://aka.ms/iot-security-schemas). 
 
 ### <a name="send-security-message-api"></a>Güvenlik iletisi API Gönder
 

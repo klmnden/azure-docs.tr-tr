@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: d33ef63f142763d5d29c9cb1931fdd87bae5976e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 607c18a67f7acc13ffe4d5c14131f20a2f94e8d9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891027"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652051"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>Öğretici: Netop portalı ile Azure Active Directory Tümleştirme
 
@@ -106,7 +106,7 @@ Azure AD çoklu oturum açma Netop portalıyla yapılandırmak için aşağıdak
 
 5. Netop portalı uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** kullanıcı öznitelikleri iletişim kutusunu açmak için simge.
 
-    ![image](common/edit-attribute.png)
+    ![görüntü](common/edit-attribute.png)
 
 6. Yukarıdaki için ayrıca Netop Portalı Uygulama geri SAML yanıt olarak geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
 
@@ -122,13 +122,13 @@ Azure AD çoklu oturum açma Netop portalıyla yapılandırmak için aşağıdak
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![image](common/new-save-attribute.png)
+    ![görüntü](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![görüntü](common/new-attribute-details.png)
 
     b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 
-    c. Bırakın **Namespace** boş.
+    c. İçinde **Namespace** metin kutusuna https://secure.netop.com.
 
     d. Kaynağı olarak **özniteliği**.
 
@@ -154,7 +154,7 @@ Azure AD çoklu oturum açma Netop portalıyla yapılandırmak için aşağıdak
 
 ### <a name="configure-netop-portal-single-sign-on"></a>NetOp portalı çoklu oturum açmayı yapılandırın
 
-Çoklu oturum açmayı yapılandırma **Netop portalı** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun kopyalanan URL'ler için Azure portalından [Netop Portal destek ekibi ](mailto:casemanager@netop.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açmayı yapılandırmak için **Netop portalı** tarafı, gereksinim duyduğunuz indirilen **Federasyon meta verileri XML** ve Azure Portalı'ndan oturum açma URL'si. 3. Adım'daki yönergeleri belgelerin [burada](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf) NetOp portalı, Azure AD kimlik doğrulamasını yapılandırmak için.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

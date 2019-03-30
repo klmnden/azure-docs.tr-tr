@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ce6744a3a7d71f358dccb3dc29c470f3a376240
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 8bb9f0bc57e03ae0897e77acaa30ec85a3541646
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580711"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649382"
 ---
 # <a name="tutorial-configure-security-agents"></a>Öğretici: Güvenlik aracılarını yapılandırma
 
@@ -42,7 +42,7 @@ ASC IOT'ın güvenlik aracı ikizi yapılandırma nesnesi için bir .json biçim
 
 Bu yapılandırmalar, aracının gerekli her senaryo için özelleştirmenize yardımcı olur. Örneğin, otomatik olarak bazı olaylar hariç veya güç tüketimini en düşük düzeyde tutmak mümkün bu özelliklerini yapılandırarak.  
 
-IOT güvenlik aracı yapılandırması için ASC kullanın [şema](https://github.com/azure/asc-for-iot-schemas/security/module/twin) değişiklik yapma.  
+IOT güvenlik aracı yapılandırması için ASC kullanın [şema](https://aka.ms/iot-security-github-module-schema) değişiklik yapma.  
 
 ## <a name="configuration-objects"></a>Yapılandırma nesneleri 
 
@@ -64,7 +64,7 @@ Aracı, yapılandırma nesnesini şema eşleşmiyorsa başlatmaz.
 
 ## <a name="configuration-schema-and-validation"></a>Yapılandırma şeması ve doğrulama 
 
-Buna karşı aracı yapılandırması emin [şema](https://github.com/Azure/asc-for-iot/schema/security_module_twin). Bir aracı, yapılandırma nesnesini şema eşleşmiyorsa başlatmaz.
+Buna karşı aracı yapılandırması emin [şema](https://aka.ms/iot-security-github-module-schema). Bir aracı, yapılandırma nesnesini şema eşleşmiyorsa başlatmaz.
 
  
 Aracı çalışırken, yapılandırma nesnesini (yapılandırma şeması eşleşmiyor) geçerli olmayan bir yapılandırma değiştirildiyse, aracı geçersiz yapılandırma yoksayar ve geçerli yapılandırmasını kullanarak devam eder. 
@@ -120,20 +120,20 @@ Varsayılan değerler doğru şemasında kullanılabilir [Github](https://aka.ms
 
 |Olay adı| ÖzellikAdı | Varsayılan Değer| Anlık görüntü olay| Durum ayrıntıları  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|Tanılama olayı|eventPriorityDiagnostic| Kapalı| False| Aracı tanılama olayları ilişkili. Bu olay için ayrıntılı günlük kaydını kullanın.| 
-|yapılandırma hatası |eventPriorityConfigurationError |Düşük |False |Aracı yapılandırması ayrıştırılamadı. Şemadaki yapılandırmasını doğrulayın.| 
-|Bırakılan olay istatistikleri |eventPriorityDroppedEventsStatistics |Düşük |True|Olay istatistikleri Aracısı ilgili. |
-|İleti istatistikleri|eventPriorityMessageStatistics |Düşük |True |Aracı ileti istatistikleri ilgili. |
-|Bağlı donanım|eventPriorityConnectedHardware |Düşük |True |Tüm donanım anlık görüntüsünü cihaza bağlı.|
-|Dinleme bağlantı noktaları|eventPriorityListeningPorts |Yüksek |True |Cihazdaki tüm açık dinleme bağlantı noktalarını anlık görüntüsünü.|
-|İşlem Oluştur |eventPriorityProcessCreate |Düşük |False |Denetimleri oluşturma cihazda işleyin.|
-|İşlemi Sonlandır|eventPriorityProcessTerminate |Düşük |False |Denetimleri cihazda sonlandırma işlemi.| 
-|Sistem bilgileri |eventPrioritySystemInformation |Düşük |True |Sistem bilgileri anlık görüntüsünü (örneğin: İşletim sistemi veya CPU).| 
-|Yerel Kullanıcılar| eventPriorityLocalUsers |Yüksek |True|Kayıtlı yerel kullanıcıların sistemi içinde bir anlık görüntü. |
-|Oturum Aç|  eventPriorityLogin |Yüksek|False|Cihaz (yerel ve uzak oturumları) için oturum açma olaylarını denetleyin.|
-|Bağlantı oluşturma |eventPriorityConnectionCreate|Düşük|False|Cihaz için ile oluşturulan TCP bağlantıları denetler. |
-|Güvenlik duvarı yapılandırması| eventPriorityFirewallConfiguration|Düşük|True|Cihaz güvenlik duvarı yapılandırması (güvenlik duvarı kuralları), anlık görüntü. |
-|İşletim sistemi temeli| eventPriorityOSBaseline| Düşük|True|Cihaz işletim sistemi temel anlık görüntüsünü denetleyin.|
+|Tanılama olayı|eventPriorityDiagnostic| Kapalı| Yanlış| Aracı tanılama olayları ilişkili. Bu olay için ayrıntılı günlük kaydını kullanın.| 
+|yapılandırma hatası |eventPriorityConfigurationError |Düşük |Yanlış |Aracı yapılandırması ayrıştırılamadı. Şemadaki yapılandırmasını doğrulayın.| 
+|Bırakılan olay istatistikleri |eventPriorityDroppedEventsStatistics |Düşük |Doğru|Olay istatistikleri Aracısı ilgili. |
+|İleti istatistikleri|eventPriorityMessageStatistics |Düşük |Doğru |Aracı ileti istatistikleri ilgili. |
+|Bağlı donanım|eventPriorityConnectedHardware |Düşük |Doğru |Tüm donanım anlık görüntüsünü cihaza bağlı.|
+|Dinleme bağlantı noktaları|eventPriorityListeningPorts |Yüksek |Doğru |Cihazdaki tüm açık dinleme bağlantı noktalarını anlık görüntüsünü.|
+|İşlem Oluştur |eventPriorityProcessCreate |Düşük |Yanlış |Denetimleri oluşturma cihazda işleyin.|
+|İşlemi Sonlandır|eventPriorityProcessTerminate |Düşük |Yanlış |Denetimleri cihazda sonlandırma işlemi.| 
+|Sistem bilgileri |eventPrioritySystemInformation |Düşük |Doğru |Sistem bilgileri anlık görüntüsünü (örneğin: İşletim sistemi veya CPU).| 
+|Yerel Kullanıcılar| eventPriorityLocalUsers |Yüksek |Doğru|Kayıtlı yerel kullanıcıların sistemi içinde bir anlık görüntü. |
+|Oturum Açın|  eventPriorityLogin |Yüksek|Yanlış|Cihaz (yerel ve uzak oturumları) için oturum açma olaylarını denetleyin.|
+|Bağlantı oluşturma |eventPriorityConnectionCreate|Düşük|Yanlış|Cihaz için ile oluşturulan TCP bağlantıları denetler. |
+|Güvenlik duvarı yapılandırması| eventPriorityFirewallConfiguration|Düşük|Doğru|Cihaz güvenlik duvarı yapılandırması (güvenlik duvarı kuralları), anlık görüntü. |
+|İşletim sistemi temeli| eventPriorityOSBaseline| Düşük|Doğru|Cihaz işletim sistemi temel anlık görüntüsünü denetleyin.|
  
 
 ## <a name="next-steps"></a>Sonraki adımlar

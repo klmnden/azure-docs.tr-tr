@@ -1,10 +1,10 @@
 ---
-title: Güvenilir hizmetler WCF iletişim yığını | Microsoft Docs
-description: Service Fabric yerleşik WCF iletişimi yığınında güvenilir hizmetler için İstemci-hizmet WCF iletişimi sağlar.
+title: Reliable Services WCF iletişim yığını | Microsoft Docs
+description: Service fabric'te yerleşik WCF iletişim yığını istemci hizmeti için Reliable Services WCF iletişim sağlar.
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: 75516e1e-ee57-4bc7-95fe-71ec42d452b2
 ms.service: service-fabric
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/07/2017
 ms.author: bharatn
-ms.openlocfilehash: 4c45bc76c176ce9f2476f6a666afda1daf4cd9c5
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: ae8a0ab0382083ebfca0834d2238403668efa71d
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749938"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670585"
 ---
-# <a name="wcf-based-communication-stack-for-reliable-services"></a>Güvenilir hizmetler için WCF tabanlı iletişim yığını
-Güvenilir hizmetler altyapısına hizmet yazarların kendi hizmet için kullanmak istedikleri iletişim yığını seçin izin verir. Kendi seçtikleri iletişim yığınındaki ekleyebilirsiniz **ICommunicationListener** döndürülen [CreateServiceReplicaListeners veya CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) yöntemleri. Çerçeve WCF tabanlı iletişim kullanmak istediğiniz hizmet yazarlar için Windows Communication Foundation (WCF) tabanlı iletişim yığını uygulaması sağlar.
+# <a name="wcf-based-communication-stack-for-reliable-services"></a>Reliable Services WCF tabanlı iletişim yığını
+Reliable Services framework servisine kullanmak istedikleri iletişim yığını seçmek hizmet yazarlar sağlar. İletişim yığını kendi seçtikleri takabilirsiniz **ICommunicationListener** döndürüldüğü [CreateServiceReplicaListeners veya Createserviceınstancelisteners](service-fabric-reliable-services-communication.md) yöntemleri. Framework'te iletişim WCF tabanlı kullanmak istediğiniz hizmet yazarları için Windows Communication Foundation (WCF) tabanlı iletişim yığını bir uygulamasını sağlar.
 
-## <a name="wcf-communication-listener"></a>WCF iletişimi dinleyicisi
-WCF özel uyarlamasını **ICommunicationListener** tarafından sağlanan **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** sınıfı.
+## <a name="wcf-communication-listener"></a>WCF iletişim dinleyicisi
+WCF özel uygulanışı **ICommunicationListener** tarafından sağlanan **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** sınıfı.
 
-Bir hizmet sözleşmesini türü deyin sahibiz ekleyin `ICalculator`
+Türünde bir hizmet anlaşmasını sunuyoruz deyin ekleyin `ICalculator`
 
 ```csharp
 [ServiceContract]
@@ -38,7 +38,7 @@ public interface ICalculator
 }
 ```
 
-Aşağıdaki şekilde hizmetinde bir WCF iletişimi dinleyici oluşturabiliriz.
+Aşağıdaki şekilde hizmetinde bir WCF iletişim dinleyicisini oluşturabiliriz.
 
 ```csharp
 
@@ -65,7 +65,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 ```
 
 ## <a name="writing-clients-for-the-wcf-communication-stack"></a>İstemciler için WCF iletişim yığını yazma
-WCF kullanarak Hizmetleri ile iletişim kurmak için istemcileri yazmak için bir çerçeve sağlar **WcfClientCommunicationFactory**, WCF özgü uyarlamasını olduğu [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
+WCF kullanarak hizmetlerle iletişim kurmak için istemcilerin yazmak için framework sağlar **WcfClientCommunicationFactory**, WCF özel uygulanışı olduğu [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
 
 ```csharp
 
@@ -77,7 +77,7 @@ public WcfCommunicationClientFactory(
     object callback = null);
 ```
 
-WCF iletişim kanalını erişilebilen **WcfCommunicationClient** tarafından oluşturulan **WcfCommunicationClientFactory**.
+WCF iletişim kanalı erişilebilir **WcfCommunicationClient** tarafından oluşturulan **WcfCommunicationClientFactory**.
 
 ```csharp
 
@@ -91,7 +91,7 @@ public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationCli
 
 ```
 
-İstemci kodu kullanabileceğiniz **WcfCommunicationClientFactory** ile birlikte **WcfCommunicationClient** hangi uygulayan **ServicePartitionClient** belirlemek için uç nokta hizmet ve hizmeti ile iletişim.
+İstemci kodu kullanabileceğiniz **WcfCommunicationClientFactory** ile birlikte **WcfCommunicationClient** uygulayan **ServicePartitionClient** belirlemek için Hizmet uç noktası ve hizmetiyle iletişim kurar.
 
 ```csharp
 // Create binding
@@ -119,12 +119,12 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 
 ```
 > [!NOTE]
-> ServicePartitionResolver varsayılan istemci hizmeti olarak aynı kümedeki çalıştığını varsayar. Diğer bir deyişle Aksi halde, bir ServicePartitionResolver nesnesi oluşturur ve küme bağlantı uç noktalardan geçirin.
+> ' % S'varsayılan ServicePartitionResolver istemci hizmetiyle aynı kümede çalıştığını varsayar. Diğer bir deyişle Aksi halde, bir ServicePartitionResolver nesnesi oluşturur ve küme bağlantısı uç noktaların geçirin.
 > 
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Güvenilir hizmetler remoting ile uzaktan yordam çağrısı](service-fabric-reliable-services-communication-remoting.md)
-* [Web API OWIN güvenilir Hizmetleri'ndeki ile](service-fabric-reliable-services-communication-webapi.md)
-* [Güvenilir hizmetler için iletişimin güvenliğini sağlama](service-fabric-reliable-services-secure-communication-wcf.md)
+* [Reliable Services uzaktan iletişimi ile uzak yordam çağrısı](service-fabric-reliable-services-communication-remoting.md)
+* [Reliable Services özelliğinde OWIN ile Web API'si](service-fabric-reliable-services-communication-webapi.md)
+* [Reliable Services için iletişimin güvenliğini sağlama](service-fabric-reliable-services-secure-communication-wcf.md)
 

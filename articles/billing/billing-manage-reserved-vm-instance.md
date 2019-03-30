@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: b37f198052ee927ea986d2a6046bfd93b6ee5d5e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 0f6e0f3795e0e6d25f7443473c5911995597ca14
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399969"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648648"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Rezervasyonlar Azure kaynaklarını yönetme
 
-Azure rezervasyon satın alma sonra gerekebilir ayırma farklı bir aboneliğe uygulamak için kimin ayırma yönetmek veya ayırma kapsamını değiştirmek değiştirin. Ayrıca, bir ayırma satın aldığınız örnekleri bazı başka bir aboneliğe uygulamak için iki ayırmalar halinde bölebilirsiniz.
+Azure için bir ayırma satın sonra gerekebilir ayırma farklı bir aboneliğe uygulamak için kimin ayırma yönetmek veya ayırma kapsamını değiştirmek değiştirin. Ayrıca, bir ayırma satın aldığınız örnekleri bazı başka bir aboneliğe uygulamak için iki ayırmalar halinde bölebilirsiniz.
 
 Azure ayrılmış sanal makine örnekleri satın aldıysanız, ayırma için İyileştir ayarı değiştirebilirsiniz. Ayırma indirimi, aynı dizide Vm'lere uygulayabilir veya belirli bir VM boyutu için veri merkezi kapasite ayırabilirsiniz.
 
@@ -123,12 +123,20 @@ Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](
 
 Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-- [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
+- [Azure için ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
+
+Bir hizmet planı satın alın:
 - [Azure Ayrılmış VM Örnekleri ile Sanal Makinelere ön ödeme yapma](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure SQL Veritabanı ayrılmış kapasitesi ile SQL Veritabanı işlem kaynakları için ön ödeme yapma](../sql-database/sql-database-reserved-capacity.md)
 - [Azure Cosmos DB ayrılmış kapasite ile Azure Cosmos DB kaynaklarını için ön ödeme](../cosmos-db/cosmos-db-reserved-capacity.md)
+
+Yazılım planı satın alın:
+- [Red Hat yazılımı planlarından Azure ayırmalar için ön ödeme](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Azure Ayırmaları ile SUSE yazılım planları için ön ödeme yapma](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+İndirim ve kullanımını anlayın:
 - [VM ayırma indirimi nasıl uygulanacağını anlama](billing-understand-vm-reservation-charges.md)
+- [Red Hat Enterprise Linux yazılım planı indirim nasıl uygulanacağını anlama](../billing/billing-understand-rhel-reservation-charges.md)
 - [SUSE Linux Enterprise yazılım planı indirim nasıl uygulanacağını anlama](../billing/billing-understand-suse-reservation-charges.md)
 - [Nasıl diğer ayırma indirimi uygulanmaz anlama](billing-understand-reservation-charges.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)

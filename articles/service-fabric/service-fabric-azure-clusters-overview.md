@@ -4,7 +4,7 @@ description: Windows Server ve Linux, yani sizin dağıtmayı mümkün olacaktı
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: a968b173357bf8bcb83990b891f38306895b4ca8
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: d1681aee9dc11f0dbd3133bced0b919a8c1623b8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55967655"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670481"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Azure'da Service Fabric'e genel bakış kümeleri
 Service Fabric kümesi bir ağa bağlı, mikro hizmetlerin dağıtıldığı ve yönetildiği sanal veya fiziksel makine kümesidir. Bir makine ya da bir kümenin parçası olan sanal makine bir küme düğümü adı verilir. Kümeler binlerce düğümde için ölçeklendirme yapabilir. Kümeye yeni düğümler eklerseniz, Service Fabric örnekleri ve hizmet bölüm çoğaltmaları sayısının artması düğümleri arasında yeniden dengeler. Genel uygulama performansını artıran ve bellek erişim çekişmesini azaltır. Kümedeki düğümler verimli bir şekilde kullanılmayan, kümedeki düğümlerin sayısını azaltabilirsiniz. Service Fabric yeniden örnekleri ve bölüm çoğaltmalarını azalan her düğümde donanım daha iyi kullanabilmesine için düğüm sayısını arasında yeniden dengeler.
@@ -31,9 +31,9 @@ Azure'da bir Service Fabric kümesi kullanan ve etkileşime giren bir Azure kayn
 * VM'ler ve sanal ağ kartları
 * sanal makine ölçek kümeleri
 * sanal ağlar
-* Yük Dengeleyiciler
+* yük dengeleyiciler
 * depolama hesabı
-* Genel IP adresleri
+* genel IP adresleri
 
 ![Service Fabric Kümesi][Image]
 

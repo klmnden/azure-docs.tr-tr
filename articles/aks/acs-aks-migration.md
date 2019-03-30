@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: d26e849cf775e0c645ae97e4b67b5918bbbabd55
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 910c96988ec0a8b8aa7b6ac8ce287c4fdc59e177
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361387"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649977"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Azure Kubernetes Service'i (AKS) Azure kapsayıcı hizmeti (ACS) ' geçiş
 
@@ -35,7 +35,7 @@ ACS ve AKS geçiş etkileyen bazı önemli alanda farklılık gösterir. Gözden
 
 ### <a name="differences-between-kubernetes-versions"></a>Kubernetes sürümleri arasındaki farklar
 
-Daha yeni bir Kubernetes sürümüne geçiş yapıyorsanız, (örn: 1.7.x 1.9.x için), ilgilenmenizi gerektiren k8s API'sine yapılan birkaç değişiklik vardır.
+Daha yeni bir Kubernetes sürümüne geçiş yapıyorsanız, (örn: birkaç 1.7.x 1.9.x için), ilgilenmenizi gerektiren k8s API'sine değiştirir.
 
 * [Bir ThirdPartyResource CustomResourceDefinition için geçirme](https://kubernetes.io/docs/tasks/access-kubernetes-api/migrate-third-party-resource/)
 * [İş yükleri API değişiklikleri sürüm 1.8 ve 1.9](https://kubernetes.io/docs/reference/workloads-18-19/).
@@ -53,9 +53,9 @@ Kubernetes denetim düzlemi AKS yönetir olsa da, yeni kümeye dahil etmek isted
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
 | agentpool1 | 1 | Standard_D2_v2 | Windows |
 
-Ek sanal makineler, geçiş sırasında aboneliğinizi içine dağıtılacak olduğundan, kotalar ve sınırlar bu kaynaklar için yeterli olduğunu doğrulamanız gerekir. İnceleyerek daha fazla bilgi [Azure aboneliği ve hizmet sınırlamaları](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). Geçerli kotanızı denetlemek için Git [abonelikler dikey penceresinden](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) Azure portalında aboneliğinizi seçin ve ardından `Usage + quotas`.
+Ek sanal makineler, geçiş sırasında aboneliğinizi içine dağıtılacak olduğundan, kotalar ve sınırlar bu kaynaklar için yeterli olduğunu doğrulamanız gerekir. İnceleyerek daha fazla bilgi [Azure aboneliği ve hizmet sınırlamaları](https://docs.microsoft.com/azure/azure-subscription-service-limits). Geçerli kotanızı denetlemek için Git [abonelikler dikey penceresinden](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) Azure portalında aboneliğinizi seçin ve ardından `Usage + quotas`.
 
-### <a name="networking"></a>Ağ
+### <a name="networking"></a>Ağ İletişimi
 
 Karmaşık uygulamalar için genellikle zaman içinde yerine tek seferde geçirmek. Ağ üzerinden iletişim kurmak eski ve yeni ortamlar gerektiği anlamına gelir. Daha önce kullanmanız mümkün uygulamaları `ClusterIP` Hizmetleri iletişim kurmak için tür olarak açığa gerekebilir `LoadBalancer` ve güvenliği uygun şekilde.
 
@@ -86,12 +86,12 @@ AKS için var olan kalıcı birimler geçiş yapıyorsanız, dikkate alınması 
 2. Anlık görüntü diskleri
 3. Yeni yönetilen diskler, anlık görüntüler oluşturun
 4. AKS kalıcı birimler oluşturun
-5. Pod belirtimlerine güncelleştirme [var olan birimler kullanmak](https://docs.microsoft.com/en-us/azure/aks/azure-disk-volume) PersistentVolumeClaims (statik sağlama) yerine
+5. Pod belirtimlerine güncelleştirme [var olan birimler kullanmak](https://docs.microsoft.com/azure/aks/azure-disk-volume) PersistentVolumeClaims (statik sağlama) yerine
 6. AKS için uygulama dağıtma
-7. Doğrulama
+7. Doğrula
 8. AKS kümesi noktası trafiği
 
-> **Önemli**: değil sessiz moda alın yazma işlemlerini seçerseniz, bu yana disk anlık görüntü yazılan veri eksik gibi yeni dağıtım, verileri çoğaltmak gerekir
+> **Önemli**: Değil sessiz moda alın yazma işlemlerini seçerseniz, bu yana disk anlık görüntü yazılan veri eksik gibi yeni dağıtım, verileri çoğaltmak gerekir
 
 Açık kaynak araçları mevcut yönetilen diskler oluşturma ve birimler Kubernetes kümeleri arasında geçiş yardımcı olabilir.
 
@@ -109,10 +109,10 @@ Aksi durumda, bir olası geçiş yaklaşımı aşağıdaki adımları içerir:
 1. Bir yineleme sayısı 0 ile AKS uygulamanızı dağıtma
 2. Ölçek ACS uygulamayı 0 (kapalı kalma süresi gerektirir)
 3. Uygulama AKS'de 1 kadar ölçeklendirin.
-4. Doğrulama
+4. Doğrula
 5. AKS kümesi noktası trafiği
 
-Burada boş bir paylaşımı ile başlayın, ardından kaynak verilerin bir kopyasını aktarmak istediğiniz durumlarda kullanabilirsiniz [ `az storage file copy` ](https://docs.microsoft.com/en-us/cli/azure/storage/file/copy?view=azure-cli-latest) komutlarını verilerinizi geçirin.
+Burada boş bir paylaşımı ile başlayın, ardından kaynak verilerin bir kopyasını aktarmak istediğiniz durumlarda kullanabilirsiniz [ `az storage file copy` ](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) komutlarını verilerinizi geçirin.
 
 ### <a name="deployment-strategy"></a>Dağıtım stratejisi
 
@@ -134,7 +134,7 @@ Ayrıca, gereksinimlerinize bağlı olarak yardımcı olabilecek birçok açık 
 
 ### <a name="1-create-an-aks-cluster"></a>1. AKS kümesi oluşturma
 
-Docs için izleyebileceğiniz [AKS kümesi oluşturma](https://docs.microsoft.com/en-us/azure/aks/create-cluster) Azure portalı, Azure CLI veya Resource Manager şablonu aracılığıyla.
+Docs için izleyebileceğiniz [AKS kümesi oluşturma](https://docs.microsoft.com/azure/aks/create-cluster) Azure portalı, Azure CLI veya Resource Manager şablonu aracılığıyla.
 
 > AKS Azure Resource Manager şablonları kullanarak bulabilirsiniz [Azure/AKS](https://github.com/Azure/AKS/tree/master/examples/vnet) GitHub deposunu
 
@@ -144,13 +144,13 @@ YAML tanımlarınıza gereken değişiklikleri yapın. Örn: değiştirerek `app
 
 ### <a name="3-optional-migrate-volumes"></a>3. (İsteğe bağlı) Birimlerini geçirmek
 
-Birimleri, ACS kümenizden, AKS kümeye geçirme. Daha fazla ayrıntı bulunabilir [geçirme kalıcı birimler](#Migrating-Persistent-Volumes) bölümü.
+Birimleri, ACS kümenizden, AKS kümeye geçirme. Daha fazla ayrıntı bulunabilir [geçirme kalıcı birimler](#migrating-persistent-volumes) bölümü.
 
 ### <a name="4-deploy-applications"></a>4. Uygulamaları dağıtma
 
 AKS uygulamaları dağıtmak veya YAML tanımları uygulamak için kubectl kullanmayı CI/CD sisteminize kullanın.
 
-### <a name="5-validate"></a>5. Doğrulama
+### <a name="5-validate"></a>5. Doğrula
 
 Uygulamalarınızı beklendiği gibi çalıştığını ve geçirilen tüm veriler üzerinde kopyalandığını doğrulayın.
 

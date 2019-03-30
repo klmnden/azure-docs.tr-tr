@@ -4,14 +4,18 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 563c2bd561328561d30acee6910b70d53ef64c6b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 397a8a9b07b4d7a88d0345399ac4abcc3e738a82
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305372"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58631170"
 ---
 ## <a name="set-up-your-device"></a>Cihazınızı kurma
+
+Unity içinde projeyi açın `Unity` klasör.
+
+![Unity penceresi](./media/spatial-anchors-unity/unity-window.png)
 
 ### <a name="set-up-an-android-device"></a>Bir Android cihazı ayarlama
 
@@ -31,7 +35,9 @@ ms.locfileid: "58305372"
 
 Sahne seçerek Kaydet **dosya** > **Kaydet**.
 
-## <a name="to-deploy-the-app-to-an-android-device"></a>Uygulamasını bir Android cihazına dağıtmak için
+## <a name="deploy-to-your-device"></a>Cihazınıza dağıtma
+
+### <a name="deploy-to-android-device"></a>Android cihazına dağıtma
 
 Android Cihazınızda oturum açın ve bir USB kablosu kullanarak bilgisayarınıza bağlayın.
 
@@ -41,9 +47,9 @@ Altında **sahneler oluşturun**, bir onay işareti koyun `AzureSpatialAnchorsPl
 
 Emin **dışarı proje** bir onay işareti yok. Seçin **derleme ve çalıştırma**. Kaydetmeniz istenir, `.apk` dosya. Bunun için herhangi bir ad seçebilirsiniz.
 
-Uygulamayı'ndaki yönergeleri izleyin. Seçebileceğiniz **oluştur & Paylaşımı bağlantı** veya **paylaşılan bağlantı bulun**. İlk seçenek, daha sonra aynı cihaz veya farklı bir bulunduğu bir bağlantı oluşturmanızı sağlar. Aynı cihaz veya farklı bir uygulama zaten çalıştırdıysanız, ikinci seçenek, daha önce paylaşılan bağlayıcılarını bulundurmanıza olanak tanır.
+Uygulamayı'ndaki yönergeleri izleyin. Seçebileceğiniz **oluştur & Paylaşımı bağlantı** veya **paylaşılan bağlantı bulun**. İlk senaryo, daha sonra aynı cihaz veya farklı bir bulunduğu bir bağlantı oluşturmanızı sağlar. Aynı cihaz veya farklı bir uygulama zaten çalıştırdıysanız, ikinci senaryo, daha önce paylaşılan bağlayıcılarını bulundurmanıza olanak tanır. Senaryonuzu seçin sonra uygulama için neler etrafında ek yönergeler ile yol gösterecektir. Örneğin, ortam bilgilerini toplamak için Cihazınızı hareket istenir. Daha sonra dünyada bir yer işareti koyun, bunu yükler bekleyin ve benzeri.
 
-## <a name="to-deploy-the-app-to-an-ios-device"></a>Uygulamayı bir iOS cihazına dağıtmak için
+### <a name="deploy-to-an-ios-device"></a>Bir iOS cihazına dağıtma
 
 Açık **Build Settings** seçerek **dosya** > **Build Settings**.
 
@@ -51,6 +57,6 @@ Altında **sahneler oluşturun**, bir onay işareti koyun `AzureSpatialAnchorsPl
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-Uygulamayı'ndaki yönergeleri izleyin. Seçebileceğiniz **oluştur & Paylaşımı bağlantı** veya **paylaşılan bağlantı bulun**. İlk seçenek, daha sonra aynı cihaz veya farklı bir bulunduğu bir bağlantı oluşturmanızı sağlar. Aynı cihaz veya farklı bir uygulama zaten çalıştırdıysanız, ikinci seçenek, daha önce paylaşılan bağlayıcılarını bulundurmanıza olanak tanır.
+Uygulamayı'ndaki yönergeleri izleyin. Seçebileceğiniz **oluştur & Paylaşımı bağlantı** veya **paylaşılan bağlantı bulun**. İlk senaryo, daha sonra aynı cihaz veya farklı bir bulunduğu bir bağlantı oluşturmanızı sağlar. Aynı cihaz veya farklı bir uygulama zaten çalıştırdıysanız, ikinci senaryo, daha önce paylaşılan bağlayıcılarını bulundurmanıza olanak tanır. Senaryonuzu seçin sonra uygulama için neler etrafında ek yönergeler ile yol gösterecektir. Örneğin, ortam bilgilerini toplamak için Cihazınızı hareket istenir. Daha sonra dünyada bir yer işareti koyun, bunu yükler bekleyin ve benzeri.
 
 Xcode'da, seçerek uygulamayı durdurun **Durdur**.

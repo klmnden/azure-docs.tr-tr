@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 3f64be35aca985d0374e224cc9c8940502005014
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f0959ff8b8ea5ce8d5516d25fdf0faf29dbcd994
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578892"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629604"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Yedekleme ve PowerShell ile Azure Vm'lerini geri yükleme
 
@@ -184,10 +184,18 @@ Bir yedekleme koruma İlkesi, en az bir bekletme ilkesi ile ilişkilidir. Bir be
 - [Yeni AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) cmdlet'i, yedekleme ilkesi bilgilerini tutan bir PowerShell nesnesi oluşturur.
 - Zamanlama ve Bekletme İlkesi nesneleri yeni AzRecoveryServicesBackupProtectionPolicy cmdlet'e girdi olarak kullanılır.
 
-Aşağıdaki örnek zamanlama ilkesini ve bekletme ilkesi değişkenlerinde depolar. Örnek, bir koruma ilkesi oluşturulurken parametreler tanımlamak için bu değişkenleri kullanır. *NewPolicy*.
+Varsayılan olarak, başlangıç zamanı zamanlama İlkesi nesnesinin tanımlanır. Başlangıç zamanı için istenen başlangıç saati değiştirmek için aşağıdaki örneği kullanın. İstenen başlangıç zamanı, UTC biçiminde de olması gerekir. Aşağıdaki örnekte, istenen başlangıç zamanı, 01: 00'da UTC günlük yedeklemeler için olduğunu varsayar.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
+$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z"
+$UtcTime = $UtcTime.ToUniversalTime()
+$schpol.ScheduleRunTimes[0] = $UtcTime
+```
+
+Aşağıdaki örnek zamanlama ilkesini ve bekletme ilkesi değişkenlerinde depolar. Örnek, bir koruma ilkesi oluşturulurken parametreler tanımlamak için bu değişkenleri kullanır. *NewPolicy*.
+
+```powershell
 $retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
 New-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -WorkloadType "AzureVM" -RetentionPolicy $retPol -SchedulePolicy $schPol
 ```

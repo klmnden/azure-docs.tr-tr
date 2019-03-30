@@ -1,5 +1,5 @@
 ---
-title: Log analytics'te Azure SQL Analytics çözümünü | Microsoft Docs
+title: Azure İzleyici'de Azure SQL Analytics çözümünü | Microsoft Docs
 description: Azure SQL Analytics çözümünü, Azure SQL veritabanlarınızı yönetmenize yardımcı olur.
 services: log-analytics
 ms.service: log-analytics
@@ -10,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 66ab1fa9779aa378c4153adc0da81b3d172e1320
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c68c278b2a7afa8287845c452e3bec5380cf05c0
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170233"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629974"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Analytics (Önizleme) kullanarak Azure SQL veritabanı izleme
 
@@ -23,7 +23,7 @@ ms.locfileid: "58170233"
 
 Azure SQL Analytics, izleme çözümü, uygun ölçekte ve birden çok aboneliği tek bir bölme cam arasında Azure SQL veritabanları, elastik havuzlar ve yönetilen örnekler performansı izleme için Gelişmiş bir buluttur. Toplar ve performans sorunlarını gidermek için yerleşik zeka sayesinde önemli Azure SQL veritabanı performans ölçümleri görselleştirir.
 
-Topladığınız ölçümleri çözümle birlikte kullanarak, özel izleme kuralları ve uyarılar oluşturabilirsiniz. Çözüm, uygulama yığınının her katmanında sorunları tanımlamanıza yardımcı olur. Log Analytics görünümleri yanı sıra Azure tanılama ölçümleri tek bir Log Analytics çalışma alanında yönetilen örnekler tüm, Azure SQL veritabanları, elastik havuzları ve veritabanlarını ilgili verileri sunmak için kullanır. Log Analytics, toplamanıza, ilişkilendirmenize ve yapılandırılmış ve yapılandırılmamış verileri görselleştirmenize yardımcı olur.
+Topladığınız ölçümleri çözümle birlikte kullanarak, özel izleme kuralları ve uyarılar oluşturabilirsiniz. Çözüm, uygulama yığınının her katmanında sorunları tanımlamanıza yardımcı olur. Azure İzleyici görünümleri yanı sıra Azure tanılama ölçümleri tek bir Log Analytics çalışma alanında yönetilen örnekler tüm, Azure SQL veritabanları, elastik havuzları ve veritabanlarını ilgili verileri sunmak için kullanır. Azure İzleyici, toplamanıza, ilişkilendirmenize ve yapılandırılmış ve yapılandırılmamış verileri görselleştirmenize yardımcı olur.
 
 Azure SQL Analytics çözümünü kullanma uygulamalı bir genel bakış ve tipik kullanım senaryoları için katıştırılmış video bakın:
 
@@ -32,29 +32,18 @@ Azure SQL Analytics çözümünü kullanma uygulamalı bir genel bakış ve tipi
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
 
-Azure SQL Analytics, bulut çözümü, Azure SQL veritabanları için tanılama telemetrisi destekleyen akış izleme yalnızca: tek, havuza alınmış ve yönetilen örnek veritabanları. Çözüm, Log Analytics hizmetine bağlanmak için aracıları kullanmaz gibi çözüm barındırılan SQL Server şirket içi veya sanal makineleri izleme desteği değil, uyumluluk tabloya bakın.
+Azure SQL Analytics, bulut çözümü, Azure SQL veritabanları için tanılama telemetrisi destekleyen akış izleme yalnızca: tek, havuza alınmış ve yönetilen örnek veritabanları. Çözüm, Azure İzleyici bağlanmak için aracıları kullanmaz gibi çözüm barındırılan SQL Server şirket içi veya sanal makineleri izleme desteği değil, uyumluluk tabloya bakın.
 
 | Bağlı Kaynak | Desteklenen | Açıklama |
 | --- | --- | --- |
-| [Azure Tanılama](../platform/collect-azure-metrics-logs.md) | **Evet** | Azure ölçüm ve günlük verileri Log Analytics'e doğrudan Azure tarafından gönderilir. |
-| [Azure depolama hesabı](../platform/collect-azure-metrics-logs.md) | Hayır | Log Analytics, verileri bir depolama hesabından okumaz. |
+| [Azure Tanılama](../platform/collect-azure-metrics-logs.md) | **Evet** | Azure İzleyici günlüklerine, Azure ölçüm ve günlük verileri doğrudan Azure tarafından gönderilir. |
+| [Azure depolama hesabı](../platform/collect-azure-metrics-logs.md) | Hayır | Azure İzleyici, verileri bir depolama hesabından okumaz. |
 | [Windows aracıları](../platform/agent-windows.md) | Hayır | Doğrudan Windows aracıları çözüm tarafından kullanılmaz. |
 | [Linux aracıları](../learn/quick-collect-linux-computer.md) | Hayır | Doğrudan Linux aracıları çözüm tarafından kullanılmaz. |
-| [System Center Operations Manager yönetim grubu](../platform/om-agents.md) | Hayır | Operations Manager Aracısı'ndan doğrudan bir bağlantı Log analytics'e çözüm tarafından kullanılmaz. |
+| [System Center Operations Manager yönetim grubu](../platform/om-agents.md) | Hayır | Azure İzleyici Operations Manager Aracısı'ndan doğrudan bağlantı çözümü tarafından kullanılmaz. |
 
 ## <a name="configuration"></a>Yapılandırma
-
-Azure SQL Analytics çözümünü Azure panonuza eklemek için aşağıdaki adımları gerçekleştirin.
-
-1. Çalışma alanınızdan Azure SQL Analytics çözümünü ekleyin [Azure Market](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview).
-2. Azure portalında **+ kaynak Oluştur**, ardından aramak **Azure SQL Analytics**.  
-    ![İzleme + Yönetim](./media/azure-sql/monitoring-management.png)
-3. Seçin **Azure SQL Analytics (Önizleme)** listesinden
-4. İçinde **Azure SQL Analytics (Önizleme)** alanı tıklayın **Oluştur**.  
-    ![Oluşturma](./media/azure-sql/portal-create.png)
-5. İçinde **yeni çözüm oluşturma** alanında, yeni ya da çözüme ekleyin ve ardından istediğiniz mevcut bir çalışma alanını seçin **Oluştur**.
-
-    ![çalışma alanına ekleme](./media/azure-sql/add-to-workspace.png)
+Açıklanan işlemi kullanın [Azure İzleyici'yi ekleyin çözüm galeri'sinden](../../azure-monitor/insights/solutions.md) Azure SQL Analytics (Önizleme) çözümü Log Analytics çalışma alanınıza eklemek için.
 
 ### <a name="configure-azure-sql-databases-elastic-pools-and-managed-instances-to-stream-diagnostics-telemetry"></a>Azure SQL veritabanları, elastik havuzlar ve yönetilen örnekler akışı tanılama telemetrisi için yapılandırma
 
@@ -80,9 +69,9 @@ Azure SQL veritabanları ve elastik havuzlar için Azure SQL Analytics izleme pa
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Azure SQL Analytics verileri görüntüleme
 
-Pano farklı perspektiflerini izlenen tüm veritabanlarının genel bakış içerir. Farklı bakış açıları çalışmak SQL kaynaklarınızın Azure Log Analytics çalışma alanına akışla uygun ölçümleri veya günlükleri etkinleştirmelisiniz.
+Pano farklı perspektiflerini izlenen tüm veritabanlarının genel bakış içerir. Farklı bakış açıları çalışmak SQL kaynaklarınızın Log Analytics çalışma alanına akışla uygun ölçümleri veya günlükleri etkinleştirmelisiniz.
 
-Bazı ölçümler veya günlüklerini Azure Log Analytics'e aktarılır değil, çözümdeki kutucukları izleme bilgilerini doldurulmaz olduğunu unutmayın.
+Azure İzleyici ile bazı ölçümler veya günlüklerini akışla değil, çözümdeki kutucukları izleme bilgilerini doldurulmaz olduğunu unutmayın.
 
 ### <a name="azure-sql-database-and-elastic-pool-view"></a>Azure SQL veritabanı ve elastik havuz görüntüleyin
 
@@ -302,6 +291,6 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Kullanım [günlük aramaları](../log-query/log-query-overview.md) ayrıntılı Azure SQL veri görüntülemek için Log analytics'te.
+- Kullanım [oturum sorguları](../log-query/log-query-overview.md) ayrıntılı Azure SQL veri görüntülemek için Azure İzleyici'de.
 - [Kendi panolarınızı oluşturun](../learn/tutorial-logs-dashboards.md) Azure SQL veri gösteriliyor.
 - [Uyarı oluşturma](../platform/alerts-overview.md) belirli bir Azure SQL olaylar gerçekleştiğinde.

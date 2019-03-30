@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 63d4f8e2f1b88084b2bac5f1a29514b5e289cbd4
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 675ce2de91dd4e53f4945ceef3b174c33be001f6
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286525"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649671"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Ek Azure Disk şifrelemesi 
 
@@ -685,7 +685,7 @@ Gizli anahtar Kasası'na yüklemeden önce bir anahtar şifreleme anahtarı kull
     $secretUrl = $response.id
 ```
 
-Kullanım `$KeyEncryptionKey` ve `$secretUrl` için sonraki adımda [KEK kullanarak işletim sistemi diski](#BKMK_URLKEK).
+Kullanım `$KeyEncryptionKey` ve `$secretUrl` için sonraki adımda [KEK kullanarak işletim sistemi diski](#bkmk_URLKEK).
 
 ##  <a name="bkmk_SecretURL"></a> Bir işletim sistemi diski, gizli bir URL belirtin
 

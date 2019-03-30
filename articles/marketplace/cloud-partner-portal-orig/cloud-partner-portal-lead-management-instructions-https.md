@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 905ce1eca9996140da5f9d33aa7f9749a4ef7034
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cfcd154b2f44c9e8acf12a9666abc9ce95fb3c26
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894130"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648359"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Bir HTTPS uç noktası kullanarak müşteri adayı yönetimini yapılandırma
 
@@ -48,8 +48,8 @@ AppSource müşteri adayları ve Azure Marketi'nde işlemek için bir HTTPS uç 
 
 7. Yapılandırmak için aşağıdaki adımlardan birini kullanın **istek gövdesi JSON şeması**:
 
-   - Kopyalama [JSON şeması](#JSON-schema) bu makalenin sonunda **istek gövdesi JSON şeması** metin kutusu.
-   - **Şema oluşturmak için örnek yük kullanma** öğesini seçin. İçinde **girin veya yapıştırın örnek JSON yükü** metin kutusu, yapıştırma seçeneğiyle [JSON örneği](#JSON-example). Seçin **Bitti** şema oluşturun.
+   - Kopyalama [JSON şeması](#json-schema) bu makalenin sonunda **istek gövdesi JSON şeması** metin kutusu.
+   - **Şema oluşturmak için örnek yük kullanma** öğesini seçin. İçinde **girin veya yapıştırın örnek JSON yükü** metin kutusu, yapıştırma seçeneğiyle [JSON örneği](#json-example). Seçin **Bitti** şema oluşturun.
 
    >[!Note]
    >Bu noktada akışa bir CRM sistemine bağlanmak veya bir e-posta bildirimini yapılandırın.

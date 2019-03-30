@@ -4,7 +4,7 @@ description: Service Fabric Küme Kaynak Yöneticisi'nde uygulama grubu işlevle
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 94ae233f8591c43afa1bb73c3e17964922967d36
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e90dc00a8e042e48d8016e25dda04c15ce9f619
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123037"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670643"
 ---
 # <a name="introduction-to-application-groups"></a>Uygulama gruplarına giriş
 Service Fabric'in Küme Kaynak Yöneticisi genellikle yük yayarak küme kaynaklarını yöneten (aracılığıyla temsil [ölçümleri](service-fabric-cluster-resource-manager-metrics.md)) kümesi boyunca eşit. Service Fabric kümesi ve kümedeki düğümlerin kapasitesini bir bütün olarak yöneten [kapasite](service-fabric-cluster-resource-manager-cluster-description.md). Ölçümler ve kapasite çok sayıda iş yükü, ancak bazen ek gereksinimleri Getir ağır kullanan farklı Service Fabric uygulama örneklerine desenleri için çok iyi çalışır. Örneğin, isteyebilirsiniz:
@@ -44,7 +44,7 @@ Sol örnekte tanımlanan düğümleri en fazla sayıda uygulama yok ve üç hizm
 
 Bu davranışın denetleyen parametresi MaximumNodes çağrılır. Bu parametre uygulama oluşturma sırasında ayarlayın veya zaten çalışan bir uygulama örneği için güncelleştirilmiştir.
 
-PowerShell
+Powershell
 
 ``` posh
 New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -MaximumNodes 3
@@ -130,7 +130,7 @@ Sağ taraftaki örnekte Application1 aşağıdaki ayarlarla oluşturulmuş varsa
 - Bir uygulama ile tanımlanmış bir metrik
   - 20 NodeReservationCapacity
 
-PowerShell
+Powershell
 
  ``` posh
  New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -MinimumNodes 2 -Metrics @("MetricName:Metric1,NodeReservationCapacity:20")

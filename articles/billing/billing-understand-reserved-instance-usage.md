@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/13/2019
 ms.author: banders
-ms.openlocfilehash: a3bacdb19dfe16a63cf1f89ef6fb162d08cb4d32
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883789"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652544"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Kullandıkça Öde aboneliğinizi Azure ayırma kullanımını anlama
 
@@ -64,7 +64,7 @@ Filtre **ek bilgi** ve yazın, **rezervasyon kimliği**. Aşağıdaki ekran gör
 
 ## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Kapasite kullanımı SQL veritabanı ve Cosmos DB için ayrılmış
 
-Aşağıdaki bölümlerde, kullanım raporu açıklamak için örnek olarak Azure SQL veritabanı kullanın. Azure Cosmos DB için de kullanımını almak için aynı adımları kullanabilirsiniz. 
+Aşağıdaki bölümlerde, kullanım raporu açıklamak için örnek olarak Azure SQL veritabanı kullanın. Azure Cosmos DB için de kullanımını almak için aynı adımları kullanabilirsiniz.
 
 Bir SQL veritabanı Gen 4 Aşağıdaki tabloda, ayırma bilgileri görünür, Doğu ABD bölgesinde çalıştığını varsayalım:
 
@@ -93,6 +93,10 @@ Filtre **ek bilgi** ve yazın, **rezervasyon kimliği**. Aşağıdaki ekran gör
 2. **ConsumptionMeter** SQL veritabanı kaynak için ölçüm kimliği.
 3. **Ölçüm kimliği** ayırma ölçer. Bu ölçüm maliyeti 0 TL'dir. Ayırma indirimini Bu ölçüm kimliği CSV dosyasında gösterir. uygun bir SQL veritabanı kaynaklar.
 
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
@@ -104,9 +108,3 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 - [Ayırma indirimi nasıl uygulanacağını anlama](billing-understand-vm-reservation-charges.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 - [Windows yazılım maliyetleri ile ayırmaları dahil değil](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
-
-Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
-
-

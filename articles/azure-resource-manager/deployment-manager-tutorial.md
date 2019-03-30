@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/05/2019
+ms.date: 03/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c9cdac53e43d57feb0d2dc5a8a7153dc05be8a7d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 161eb302dfa1eb002a49afcd08da1a2795bc81ed
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170641"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649433"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Öğretici: Resource Manager şablonları (özel Önizleme) ile Azure Deployment Manager'ı kullanın
 
@@ -45,6 +45,8 @@ Azure Deployment Manager REST API Başvurusu bulunabilir [burada](https://docs.m
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu makaleyi tamamlamak için gerekenler:
@@ -55,13 +57,7 @@ Bu makaleyi tamamlamak için gerekenler:
 * Deployment Manager cmdlet'leri. Bu yayın öncesi cmdlet’leri yüklemek için PowerShellGet’in en son sürümü gereklidir. En son sürümü edinmek için bkz. [PowerShellGet’i Yükleme](/powershell/gallery/installing-psget). PowerShellGet’i yükledikten sonra PowerShell penceresini kapatın. Yeni yükseltilmiş bir PowerShell penceresi açın ve aşağıdaki komutu kullanın:
 
     ```powershell
-    Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
-    ```
-
-    Azure PowerShell Az Modülü yüklü iki ek anahtarlar gerekir:
-
-    ```powershell
-    Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease -AllowClobber -Force
+    Install-Module -Name Az.DeploymentManager -AllowPrerelease -AllowClobber -Force
     ```
 
 * [Microsoft Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/). Azure Depolama Gezgini gerekli değildir, ancak işinizi kolaylaştırır.
@@ -281,7 +277,7 @@ Piyasaya çıkarma şablonuyla kullanılan bir parametre dosyası oluşturursunu
     - **azureResourceLocation**: Şu anda Azure Deployment Manager kaynakları yalnızca **Orta ABD** veya **Doğu ABD 2**’de oluşturulabilir.
     - **artifactSourceSASLocation**: SAS URI'sini kök dizinine (Blob kapsayıcısı), dağıtım için hizmeti birim şablon ve parametreleri dosyalarının depolandığı yeri girin.  [Yapıtları hazırlama](#prepare-the-artifacts) bölümüne bakın.
     - **binaryArtifactRoot**: Yapıtlar klasör yapısını değiştirmediğiniz sürece, kullanın **binaries/1.0.0.0** bu öğreticideki.
-    - **managedIdentityID**: Kullanıcı tarafından atanan bir yönetilen kimlik girin. Bkz. [Kullanıcı tarafından atanmış yönetilen kimlik oluşturma](#create-the-user-assigned-managed-identity). Söz dizimi aşağıdaki gibidir:
+    - **managedIdentityID**: Kullanıcı tarafından atanan bir yönetilen kimlik girin. Bkz. [Kullanıcı tarafından atanmış yönetilen kimlik oluşturma](#create-the-user-assigned-managed-identity). Sözdizimi şöyledir:
 
         ```
         "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userassignedidentities/<ManagedIdentityName>"
@@ -302,10 +298,10 @@ Azure PowerShell şablonları dağıtmak için kullanılabilir.
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
     
     # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location "$location"
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
     
     # Create the service topology
-    New-AzureRmResourceGroupDeployment `
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMServiceTopology.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
@@ -321,7 +317,7 @@ Azure PowerShell şablonları dağıtmak için kullanılabilir.
 
     ```azurepowershell
     # Create the rollout
-    New-AzureRmResourceGroupDeployment `
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMRollout.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMRollout.Parameters.json"
@@ -332,7 +328,7 @@ Azure PowerShell şablonları dağıtmak için kullanılabilir.
     ```azurepowershell
     # Get the rollout status
     $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
-    Get-AzureRmDeploymentManagerRollout `
+    Get-AzDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
         -Name $rolloutName `
         -Verbose

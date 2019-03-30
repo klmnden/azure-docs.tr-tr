@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4f6d94c7090c2bbb0335d46b60be320b2fc19375
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c6ae28e076d14faa7c2173f3a23d92daad4bd59e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962834"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651132"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Azure Lab Services içinde sınıf laboratuvarlarını yönetme 
 Bu makalede, oluşturma ve bir sınıf laboratuvarına silme açıklar. Ayrıca, bir laboratuvar hesabı tüm sınıf laboratuvarlarını görüntülemek nasıl gösterir. 
@@ -37,9 +37,9 @@ Bir laboratuvar hesabında sınıf laboratuvarı ayarlamak için ilgili laboratu
 
         ![Sınıf laboratuvarı oluşturma](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. **Sanal makine özelliklerini seçin** sayfasında aşağıdaki adımları gerçekleştirin:
-    1. Laboratuvarda oluşturulan sanal makineler (VM) için bir **boyut** seçin. 
+    1. Laboratuvarda oluşturulan sanal makineler (VM) için bir **boyut** seçin. Şu anda **küçük**, **orta**, **büyük**, ve **GPU** boyutları izin verilir.
     2. VM'lerin oluşturulmasını istediğiniz **bölgeyi** seçin. 
-    3. Laboratuvardaki VM'leri oluşturmak için kullanılacak **VM görüntüsünü** seçin. 
+    3. Laboratuvardaki VM'leri oluşturmak için kullanılacak **VM görüntüsünü** seçin. Bir Linux görüntüsü seçerseniz, Uzak Masaüstü bağlantı etkinleştirmek için bir seçenek görürsünüz. Ayrıntılar için bkz [Linux için Uzak Masaüstü Bağlantısı etkinleştirme](how-to-enable-remote-desktop-linux.md).
     4. **İleri**’yi seçin.
 
         ![VM özellikleri belirtme](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -51,7 +51,7 @@ Bir laboratuvar hesabında sınıf laboratuvarı ayarlamak için ilgili laboratu
         > Kullanıcı adını ve parolayı not edin. Bunlar tekrar gösterilmeyecektir.
     3. **Oluştur**’u seçin. 
 
-        ![Kimlik bilgilerini ayarlama](../media/tutorial-setup-classroom-lab/set-credentials.png)
+        ![Kimlik bilgilerini ayarla](../media/tutorial-setup-classroom-lab/set-credentials.png)
 6. **Şablonu yapılandır** sayfasında laboratuvar oluşturma işleminin durumunu görebilirsiniz. Laboratuvar şablonunun oluşturulması 20 dakika sürebilir. Laboratuvardaki şablon, tüm kullanıcıların sanal makinelerinin oluşturulduğu bir temel sanal makine görüntüsüdür. Şablon sanal makinesini, tam olarak laboratuvar kullanıcılarına sağlamak istediklerinizle yapılandırılacak şekilde ayarlayın.  
 
     ![Şablonu yapılandır](../media/tutorial-setup-classroom-lab/configure-template.png)
@@ -60,7 +60,7 @@ Bir laboratuvar hesabında sınıf laboratuvarı ayarlamak için ilgili laboratu
     ![Tamamlanmış şablon yapılandırma sayfası](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Bu öğreticide aşağıdaki adımlar isteğe bağlıdır: 
     1. **Başlat**'ı seçerek şablon VM'sini başlatın.
-    2. **Bağlan**'ı seçerek şablon VM'sine bağlanın. 
+    2. **Bağlan**'ı seçerek şablon VM'sine bağlanın. Linux VM şablon varsa (RDP etkinse), SSH veya RDP kullanarak bağlanmasını isteyip istemediğinizi seçin.
     3. Şablon VM'sinde yazılım yükleme ve yapılandırma işlemlerini gerçekleştirin. 
     4. VM'yi **durdurun**.  
     5. Şablon için bir **açıklama** girin

@@ -10,23 +10,24 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 5a1cae376ab9db2b0c4b5e0e5514bf7745593433
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8ad70c5d22ca73258fa9e6501d03d5409a4e45d8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894589"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652493"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile mantıksal uygulamaları oluşturun ve dağıtın
 
-Azure Logic Apps, yalnızca iş akışlarını otomatik hale getirmek için mantıksal uygulamalar oluşturmak için aynı zamanda dağıtım için kullanılan parametreleri ve kaynakları tanımlamak için kullanabileceğiniz Azure Resource Manager şablonları sağlar. Gereksinimlerinizi karşılamak için şablonu özelleştirmek ya da kendi iş senaryoları için bu şablonu kullanın. Daha fazla bilgi edinin [logic apps için Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) ve [Azure Resource Manager şablon yapısını ve söz dizimi](../azure-resource-manager/resource-group-authoring-templates.md). JSON söz dizimi ve özellikler için bkz: [Microsoft.Logic kaynak türleri](/azure/templates/microsoft.logic/allversions).
+Azure Logic Apps, yalnızca iş akışlarını otomatik hale getirmek için mantıksal uygulamalar oluşturmak için aynı zamanda dağıtım için kullanılan parametreleri ve kaynakları tanımlamak için kullanabileceğiniz Azure Resource Manager şablonları sağlar.
+Gereksinimlerinizi karşılamak için şablonu özelleştirmek ya da kendi iş senaryoları için bu şablonu kullanın. Daha fazla bilgi edinin [logic apps için Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) ve [Azure Resource Manager şablon yapısını ve söz dizimi](../azure-resource-manager/resource-group-authoring-templates.md). JSON söz dizimi ve özellikler için bkz: [Microsoft.Logic kaynak türleri](/azure/templates/microsoft.logic/allversions).
 
 ## <a name="define-the-logic-app"></a>Mantıksal uygulama tanımlayın
-
 Bu örnek mantıksal uygulama tanımını saatte bir çalışır ve belirttiğiniz konuma göre ping atan `testUri` parametresi.
-Şablon parametre değerleri için mantıksal uygulama adını kullanır (```logicAppName```) ve test etmek için ping konumu (```testUri```). Daha fazla bilgi edinin [Bu parametreler, şablonunuzda tanımlama](#define-parameters). Şablon, Azure kaynak grubu olarak aynı konuma mantıksal uygulamanın konumu da ayarlanır. 
+Şablon parametre değerleri için mantıksal uygulama adını kullanır (```logicAppName```) ve test etmek için ping konumu (```testUri```). Daha fazla bilgi edinin [Bu parametreler, şablonunuzda tanımlama](#define-parameters).
+Şablon, Azure kaynak grubu olarak aynı konuma mantıksal uygulamanın konumu da ayarlanır.
 
-``` json
+```json
 {
    "type": "Microsoft.Logic/workflows",
    "apiVersion": "2016-06-01",
@@ -69,7 +70,7 @@ Bu örnek mantıksal uygulama tanımını saatte bir çalışır ve belirttiğin
       "parameters": {}
    }
 }
-``` 
+```
 
 <a name="define-parameters"></a>
 
@@ -79,10 +80,10 @@ Bu örnek mantıksal uygulama tanımını saatte bir çalışır ve belirttiğin
 
 Şablon parametreleri için açıklamalar şunlardır:
 
-| Parametre | Açıklama | JSON tanımı örneği | 
-| --------- | ----------- | ----------------------- | 
+| Parametre | Açıklama | JSON tanımı örneği |
+| --------- | ----------- | ----------------------- |
 | `logicAppName` | Adını tanımlayan Bu şablon mantıksal uygulama oluşturur. | "logicAppName": {"type": "dize", "metadata": {"description": "myExampleLogicAppName"}} |
-| `testUri` | Test etmek için ping konumu tanımlar. | "testUri": {"type": "dize", "defaultValue": "https://azure.microsoft.com/status/feed/"} | 
+| `testUri` | Test etmek için ping konumu tanımlar. | "testUri": {"type": "dize", "defaultValue": "https://azure.microsoft.com/status/feed/"} |
 ||||
 
 Daha fazla bilgi edinin [Logic Apps iş akışının tanımını ve özellikleri için REST API](https://docs.microsoft.com/rest/api/logic/workflows) ve [JSON ile mantıksal uygulama tanımları üzerinde oluşturma](logic-apps-author-definitions.md).
@@ -93,7 +94,8 @@ Oluşturma ve otomatik olarak bir mantıksal uygulamayı Azure'a dağıtmak içi
 
 [![Azure’a dağıtma](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-Bu eylem, burada, mantıksal uygulama'nın ayrıntılarını sağlayın ve değişiklik şablon veya parametreleri için Azure portalında oturum açar. Örneğin, Azure portalı için bu Ayrıntılar ister:
+Bu eylem, burada, mantıksal uygulama'nın ayrıntılarını sağlayın ve değişiklik şablon veya parametreleri için Azure portalında oturum açar.
+Örneğin, Azure portalı için bu Ayrıntılar ister:
 
 * Azure abonelik adı
 * Kullanmak istediğiniz kaynak grubu
@@ -110,13 +112,13 @@ Bu eylem, burada, mantıksal uygulama'nın ayrıntılarını sağlayın ve deği
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-```
+```powershell
 New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
-``` 
-
-### <a name="azure-cli"></a>Azure CLI
-
 ```
+
+### <a name="azure-cli"></a>Azure CLI'si
+
+```azurecli
 azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
 ```
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 8e8f7c18c50085d6baf17cc0c9103b2c4bcacbaf
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 9cad860b8808dd2682995768c282d8376ab5d9be
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58052049"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58671686"
 ---
 ## <a name="authentication"></a>Authentication
 
@@ -89,9 +89,6 @@ curl -v -X POST
 Bu C# sınıfı bir erişim belirteci almak nasıl gösterir. Konuşma hizmeti abonelik anahtarınızı sınıfı başlattığınızda geçirin. Aboneliğiniz Batı ABD bölgesinde değilse değiştirin `FetchTokenUri` aboneliğiniz için bölge eşleştirilecek.
 
 ```cs
-/*
-    * This class demonstrates how to get a valid access token.
-    */
 public class Authentication
 {
     public static readonly string FetchTokenUri =

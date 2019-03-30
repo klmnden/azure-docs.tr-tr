@@ -4,7 +4,7 @@ description: Azure Service Fabric kümeleriniz izlemek için Azure İzleyici gü
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: ca5dd4a7c12a68a549f081ad62db1736c9c68837
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 3523a2df413740f644151c548e403c39c9be1f03
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483174"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670515"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Azure İzleyici günlüklerine kümesi için ayarlayın
 
 Azure İzleyici günlüklerine küme düzeyi olayları izlemek için Bizim önerimiz olur. Azure Resource Manager, PowerShell veya Azure Market üzerinden Log Analytics çalışma alanı kurabilir. Güncelleştirilmiş bir Resource Manager şablonu gelecekte kullanım için dağıtımınızın korumak, Azure İzleyici günlüklerine ortamınızı ayarlamak üzere aynı şablonu kullanın. Tanılamayı ile dağıtılan bir küme zaten varsa, Market aracılığıyla dağıtımı çok kolaydır. Abonelik düzeyinde erişimi için dağıttığınız hesabı yoksa, PowerShell veya Resource Manager şablonu kullanarak dağıtın.
 
 > [!NOTE]
-> Kümenizi izlemek için Azure İzleyici günlüklerini ayarlamak için küme düzeyi veya platform düzeyi olayları görüntülemek için tanılamayı etkinleştirmeniz gerekir. Başvurmak [tanılama Windows kümelerinde kurma](service-fabric-diagnostics-event-aggregation-wad.md) ve [Linux kümelerinde tanılama kurma](service-fabric-diagnostics-event-aggregation-lad.md) daha fazla bilgi için
+> Kümenizi izlemek için Azure İzleyici günlüklerini ayarlamak için küme düzeyi veya platform düzeyi olayları görüntülemek için tanılamayı etkinleştirmeniz gerekir. Başvurmak [tanılama Windows kümelerinde kurma](service-fabric-diagnostics-event-aggregation-wad.md) ve [Linux kümelerinde tanılama kurma](service-fabric-diagnostics-oms-syslog.md) daha fazla bilgi için
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -49,7 +49,7 @@ Bir küme dağıttıktan sonra bir Log Analytics çalışma alanı eklemek istiy
 Windows kullanıyorsanız, Azure İzleyici günlüklerine küme olaylarınızı depolandığı depolama hesabına bağlanmak için aşağıdaki adımlarla devam edin. 
 
 >[!NOTE]
->Bu deneyimini Linux kümeleri için henüz kullanılamıyor. 
+>Service Fabric analizi çözümü, yalnızca Windows kümeleri için desteklenir. Linux kümelerine yönelik makalemizi atın [Linux kümeleri için Azure İzleyici günlüklerine kurma](service-fabric-diagnostics-oms-syslog.md).  
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Log Analytics çalışma alanı kümenize bağlanın 
 

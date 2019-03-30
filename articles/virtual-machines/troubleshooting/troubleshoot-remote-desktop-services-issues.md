@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 8dc3dcbe3a84a0c35c1e3fc6e367c63393bebb70
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c9accf09da240f6d3235edd3c9da1876529d8654
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003148"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650764"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Azure sanal makinesine Uzak Masaüstü Hizmetleri başlatma değil
 
@@ -41,10 +41,10 @@ Bir VM'ye bağlanmaya çalıştığınızda, aşağıdaki senaryolarda karşıla
     **Kaynak**:        Hizmet Denetimi Yöneticisi </br>
     **Tarih**:          16/12/2017 11:19:36: 00</br>
     **Olay Kimliği**:      7022</br>
-    **Görev kategorisi**: None</br>
+    **Görev kategorisi**: Hiçbiri</br>
     **Düzey**:         Hata</br>
     **Anahtar sözcükler**:      Klasik</br>
-    **Kullanıcı**:          Yok</br>
+    **Kullanıcı**:          YOK</br>
     **Bilgisayar**: vm.contoso.com</br>
     **Açıklama**: Uzak Masaüstü Hizmetleri hizmeti başlatılırken askıya alındı. 
 
@@ -99,15 +99,15 @@ Bu sorunu gidermek için seri Konsolu kullanın. Veya başka [çevrimdışı VM'
 
     |  Hata |  Öneri |
     |---|---|
-    |5 - ERİŞİM REDDEDİLDİ |Bkz: [TermService'nin erişim reddedildi hatası nedeniyle durdurulduğunu](#termService-service-is-stopped-because-of-an-access-denied-problem). |
-    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Bkz: [TermService'nin devre dışı](#termService-service-is-disabled).  |  
-    |1058 - ERROR_SERVICE_DISABLED  |Bkz: [TermService'nin kilitlenmesine veya yanıt vermemeye başlıyor](#termService-service-crashes-or-hangs).  |
+    |5 - ERİŞİM REDDEDİLDİ |Bkz: [TermService'nin erişim reddedildi hatası nedeniyle durdurulduğunu](#termservice-service-is-stopped-because-of-an-access-denied-problem). |
+    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Bkz: [TermService'nin devre dışı](#termservice-service-is-disabled).  |  
+    |1058 - ERROR_SERVICE_DISABLED  |Bkz: [TermService'nin kilitlenmesine veya yanıt vermemeye başlıyor](#termservice-service-crashes-or-hangs).  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.|
-    |1067 - ERROR_PROCESS_ABORTED  |Bkz: [TermService'nin kilitlenmesine veya yanıt vermemeye başlıyor](#termService-service-crashes-or-hangs).  |
+    |1067 - ERROR_PROCESS_ABORTED  |Bkz: [TermService'nin kilitlenmesine veya yanıt vermemeye başlıyor](#termservice-service-crashes-or-hangs).  |
     |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.|
-    |1069 - ERROR_SERVICE_LOGON_FAILED  |Bkz: [TermService'nin oturum açma hatası nedeniyle başarısız oluyor](#termService-service-fails-because-of-logon-failure) |
-    |1070 - ERROR_SERVICE_START_HANG   | Bkz: [TermService'nin kilitlenmesine veya yanıt vermemeye başlıyor](#termService-service-crashes-or-hangs). |
-    |1077 - ERROR_SERVICE_NEVER_STARTED   | Bkz: [TermService'nin devre dışı](#termService-service-is-disabled).  |
+    |1069 - ERROR_SERVICE_LOGON_FAILED  |Bkz: [TermService'nin oturum açma hatası nedeniyle başarısız oluyor](#termservice-service-fails-because-of-logon-failure) |
+    |1070 - ERROR_SERVICE_START_HANG   | Bkz: [TermService'nin kilitlenmesine veya yanıt vermemeye başlıyor](#termservice-service-crashes-or-hangs). |
+    |1077 - ERROR_SERVICE_NEVER_STARTED   | Bkz: [TermService'nin devre dışı](#termservice-service-is-disabled).  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için. |
     |1753   |[Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.   |
     

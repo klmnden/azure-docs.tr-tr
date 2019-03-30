@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d8790eac93b288d5d5254f188fe5c901b5d5df14
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 8f21374ae5da76c9954acc5227f593ab4be19ce9
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351499"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630547"
 ---
 # <a name="media-services-concepts"></a>Media Services kavramları
 
@@ -30,16 +30,16 @@ Bu konu Azure Media Services kavramları hakkında kısa bir genel bakış sağl
 
 Yönetme, şifreleme, kodlama, çözümleme ve azure'da medya içeriği akışı başlatmak için bir Media Services hesabı oluşturun ve içine dijital dosyalar karşıya yüklemek gereken **varlıklar**.
 
-- [Bulut karşıya yükleme ve depolama](storage-account-concept.md)
+- [Bulutta karşıya yükleme ve depolama](storage-account-concept.md)
 - [Varlıklar kavramı](assets-concept.md)
 
-## <a name="encoding"></a>Encoding
+## <a name="encoding"></a>Kodlama
 
 Yüksek kaliteli dijital medya dosyalarınızın varlıklarına karşıya yükledikten sonra çok çeşitli tarayıcılar ve cihazlar üzerinde yürütülen biçimlere şifreleyebilirsiniz. 
 
 Media Services v3 ile kodlanacak oluşturmanız gerekir **dönüştüren** ve **işleri**.
 
-![Dönüştürmeler](./media/encoding/transforms-jobs.png)
+![Dönüşümler](./media/encoding/transforms-jobs.png)
 
 - [Dönüşümler ve işler](transforms-jobs-concept.md)
 - [Media Services ile kodlama](encoding-concept.md)
@@ -75,33 +75,38 @@ Media Services kullanabileceğiniz **dinamik bildirimlerini** yalnızca belirli 
 ![İşleme filtreleme](./media/filters-dynamic-manifest-overview/media-services-rendition-filter.png)
 
 - [Dinamik paketleme](dynamic-packaging-overview.md)
-- [Akış uç noktaları](streaming-endpoint-concept.md)
-- [Akış bulucuları](streaming-locators-concept.md)
-- [Akış ilkeleri](streaming-policy-concept.md)
-- [İçerik anahtar ilkeleri](content-key-policy-concept.md)
+- [Akış Uç Noktaları](streaming-endpoint-concept.md)
+- [Akış Bulucular](streaming-locators-concept.md)
+- [Akış İlkeleri](streaming-policy-concept.md)
+- [İçerik Anahtarı İlkeleri](content-key-policy-concept.md)
 - [İçerik koruma](content-protection-overview.md)
-- [Dinamik bildirimlerin](filters-dynamic-manifest-overview.md)
+- [Dinamik bildirimler](filters-dynamic-manifest-overview.md)
 - [Filtreleri](filters-concept.md)
 
 ## <a name="live-streaming"></a>Canlı akış
 
-Azure Media Services Canlı etkinlikler müşterilerinizin Azure bulutunda dağıtmanıza olanak sağlar. **Canlı etkinlikler** almak ve canlı video akışları işlenmesinden sorumludur. Oluştururken bir **canlı olay**, uzak bir kodlayıcıdan canlı bir sinyal göndermek için kullanabileceğiniz bir giriş uç noktası oluşturulur. İçine giden akış oluşturduktan sonra **canlı olay**, oluşturarak akış olayını başlayabilirsiniz bir **varlık**, **Canlı çıkış**, ve **akış Bulucu** . **Çıkış canlı** akışa arşiv **varlık** ve aracılığıyla izleyiciler kullanabilmesi **akış uç noktası**. A **canlı olay** iki türden biri olabilir: **doğrudan** ve **live encoding**.
+Azure Media Services Canlı etkinlikler müşterilerinizin Azure bulutunda dağıtmanıza olanak sağlar. **Canlı Etkinlikler** sırasında canlı video akışları alınır ve işlenir. Oluştururken bir **canlı olay**, uzak bir kodlayıcıdan canlı bir sinyal göndermek için kullanabileceğiniz bir giriş uç noktası oluşturulur. İçine giden akış oluşturduktan sonra **canlı olay**, oluşturarak akış olayını başlayabilirsiniz bir **varlık**, **Canlı çıkış**, ve **akış Bulucu** . **Çıkış canlı** akışa arşiv **varlık** ve aracılığıyla izleyiciler kullanabilmesi **akış uç noktası**. A **canlı olay** iki türden biri olabilir: **doğrudan** ve **live encoding**.
 
 Aşağıdaki görüntüde, doğrudan türü iş akışı gösterilmektedir:
 
 ![geçiş](./media/live-streaming/pass-through.svg)
 
 - [Canlı akış genel bakış](live-streaming-overview.md)
-- [Canlı etkinlikler ve canlı çıkışları](live-events-outputs-concept.md)
+- [Canlı Etkinlikler ve Canlı Çıkışlar](live-events-outputs-concept.md)
 
 ## <a name="monitoring"></a>İzleme
 
-### <a name="event-grid"></a>Event Grid
+### <a name="event-grid"></a>Olay Kılavuzu
 
 İşinin ilerleme durumunu görmek için kullanmalısınız **Event Grid**. Media Services, canlı olay türleri de gösterir. Event Grid ile uygulamalarınız neredeyse tüm Azure hizmetleri ve özel kaynaklardan gelen olayları takip edip bu olaylara yanıt verebilir. 
 
 - [Event Grid olaylarını işleme](reacting-to-media-services-events.md)
 - [Şemaları](media-services-event-schemas.md)
+
+### <a name="azure-monitor"></a>Azure İzleyici
+
+İzleyici ölçümleri ve yardımcı olacak tanılama günlüklerini uygulamalarınızı Azure İzleyici ile nasıl performans gösterdiğini anlayın.
+
 - [Ölçümleri ve tanılama günlükleri](media-services-metrics-diagnostic-logs.md)
 - [Tanılama günlükleri şemaları](media-services-diagnostic-logs-schema.md)
 
@@ -109,8 +114,13 @@ Aşağıdaki görüntüde, doğrudan türü iş akışı gösterilmektedir:
 
 Azure Media Player, birçok farklı tarayıcılar ve cihazlar üzerinde Media Services tarafından akışlı medya içeriği kayıttan yürütmek için kullanabilirsiniz. Azure Media Player, zenginleştirilmiş bir Uyarlamalı akış deneyimi sağlamak için HTML5, medya kaynağı Uzantıları (MSE) ve şifreli medya Uzantıları (EME) gibi endüstri standartlarından yararlanır. 
 
-- [Azure Media Player genel bakış](use-azure-media-player.md)
+- [Azure Media Player'a genel bakış](use-azure-media-player.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Karşıya yükleme, kodlama ve Media Services'i kullanarak akış](stream-files-tutorial-with-api.md)
+* [Uzak dosya ve akış videosu – REST kodlayın](stream-files-tutorial-with-rest.md)
+* [Karşıya yüklenen dosya ve akış video - .NET kodlama](stream-files-tutorial-with-api.md)
+* [Stream Canlı - .NET](stream-live-tutorial-with-api.md)
+* [Videonuzu - .NET analiz etme](analyze-videos-tutorial-with-api.md)
+* [Dinamik şifreleme AES-128 - .NET](protect-with-aes128.md)
+* [Birden çok DRM ile - .NET dinamik olarak şifreleyin](protect-with-drm.md) 

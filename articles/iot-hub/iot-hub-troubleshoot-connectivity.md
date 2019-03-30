@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 9057245c108e4a1b9af2549bc87f98258da50535
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6cc5e45ab28a1c83125a37cefb289b1662096eb0
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240176"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648829"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Algılama ve giderme Azure IOT Hub ile bağlantısını keser
 
@@ -32,7 +32,7 @@ Cihaz bağlantı olayları ve hataları günlüğe kaydetmek için IOT hub'ı i�
 1. Seçin **tanılama ayarları**.
 1. Seçin **tanılamayı Aç**.
 1. Etkinleştirme **bağlantıları** toplanacak günlükleri.
-1. Daha kolay analiz için açma **Log Analytics'e gönderme** ([fiyatlandırmaya](https://azure.microsoft.com/pricing/details/log-analytics/)). Altındaki örneğe bakın [bağlantı hatalarını gidermek](#Resolve-connectivity-errors).
+1. Daha kolay analiz için açma **Log Analytics'e gönderme** ([fiyatlandırmaya](https://azure.microsoft.com/pricing/details/log-analytics/)). Altındaki örneğe bakın [bağlantı hatalarını gidermek](#resolve-connectivity-errors).
 
    ![Önerilen ayarlar][2]
 
@@ -40,15 +40,14 @@ Daha fazla bilgi için bkz. [Azure IOT Hub durumunu izleyin ve sorunları hızla
 
 ### <a name="set-up-alerts-for-the-connected-devices-count-metric"></a>İçin uyarıları ayarlama _bağlı cihazları_ ölçüsü Say
 
-Cihazları bağlantısını kestiğinizde uyarıları almak için uyarıları yapılandırın **bağlı cihazları** ölçümü.
+Cihazları bağlantısını kestiğinizde uyarıları almak için uyarıları yapılandırın **bağlı cihazlar (Önizleme)** ölçümü.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 1. IOT hub'ınıza gidin.
-1. Seçin **uyarılar (Klasik)**.
-1. Seçin **ölçüm uyarısı Ekle (Klasik)**.
-1. Seçin ve formu doldurun **Tamam**.
-
-   ![Önerilen bir ölçüm Uyarısı][3]
+1. Seçin **uyarılar**.
+1. Seçin **yeni uyarı kuralı**.
+1. Seçin **koşul Ekle**, "bağlı cihazlar (Önizleme)"'yi seçin.
+1. İstediğiniz, eşikleri ayarlayarak ve seçenekleri uyarı tarafından aşağıdaki istemleri tamamlayın.
 
 Daha fazla bilgi için bkz. [Microsoft azure'da Klasik uyarılar nedir?](../azure-monitor/platform/alerts-overview.md).
 
@@ -72,7 +71,7 @@ Tanılama günlükleri ve uyarılar bağlı cihazlar için etkinleştirdiğinizd
 
 1. Ortak hatalarını anlama ve çözme için bu tabloyu kullanın.
 
-    | Hata | Kök neden | Çözüm |
+    | Hata | Kök neden | Çözümleme |
     |---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | 404104 DeviceConnectionClosedRemotely | Cihaz tarafından bağlantı kapatıldı ancak IOT Hub neden bilmez. Yaygın nedenler MQTT/AMQP zaman aşımı ve internet bağlantısı kaybı. | Cihaz IOT hub'ına bağlanabilir olduğundan emin olun [bağlantı test ediliyor](tutorial-connectivity.md). Bağlantı bir sakınca yoktur, ancak cihaz aralıklı olarak kesiliyor Protokolü (MQTT/AMPQ) tercih ettiğiniz için uygun canlı tutma cihaz mantığını emin olun. |
     | 401003 IoTHubUnauthorized | IOT Hub bağlantı doğrulanamıyor. | SAS ya da kullandığınız diğer güvenlik belirteci süresi olmadığından emin olun. [Azure IOT SDK'ları](iot-hub-devguide-sdks.md) otomatik olarak özel bir yapılandırma gerektirmeden belirteçleri oluşturun. |

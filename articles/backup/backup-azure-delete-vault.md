@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: raynew
-ms.openlocfilehash: 94d66e28f8edbda6c41dcceaf427d7d7d869c90f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 23e98fd7ea3decc478fc359cec457c70b8fc99dc
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620126"
+ms.locfileid: "58652233"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasasını silme
 
@@ -108,7 +108,7 @@ Bu yordam, yedekleme verilerini Azure dosyaları ' kaldırma gösteren bir örne
 
 
 3. İçinde **yedeklemeyi Durdur** > **bir seçenek belirleyin**seçin **yedekleme verilerini Sil**.
-4. Öğesinin adını yazın ve tıklayın **yedeklemeyi Durdur**. 
+4. Öğesinin adını yazın ve tıklayın **yedeklemeyi Durdur**.
    - Bu öğeyi silmek istediğiniz doğrular.
    - **Yedeklemeyi Durdur** doğruladıktan sonra düğmesini etkinleştirir.
    - Korumak ve verileri silme, kasayı silmek mümkün olmayacaktır.
@@ -126,7 +126,7 @@ Bu yordam, yedekleme verilerini Azure dosyaları ' kaldırma gösteren bir örne
 ### <a name="remove-backup-infrastructure-servers"></a>Yedekleme Altyapısı sunucuları kaldırın
 
 1. Kasa Panosu menüsünden tıklayın **Yedekleme Altyapısı**.
-2. Tıklayın **yedekleme yönetim sunucuları** sunucuları görüntülemek için. 
+2. Tıklayın **yedekleme yönetim sunucuları** sunucuları görüntülemek için.
 
     ![panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
@@ -135,7 +135,7 @@ Bu yordam, yedekleme verilerini Azure dosyaları ' kaldırma gösteren bir örne
     ![Yedekleme türünü seçin](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
 3. . İçinde **yedeklemeyi Durdur** > **bir seçenek belirleyin**seçin **yedekleme verilerini Sil**.
-4. Öğesinin adını yazın ve tıklayın **yedeklemeyi Durdur**. 
+4. Öğesinin adını yazın ve tıklayın **yedeklemeyi Durdur**.
    - Bu öğeyi silmek istediğiniz doğrular.
    - **Yedeklemeyi Durdur** doğruladıktan sonra düğmesini etkinleştirir.
    - Korumak ve verileri silme, kasayı silmek mümkün olmayacaktır.

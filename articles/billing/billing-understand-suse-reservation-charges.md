@@ -1,5 +1,5 @@
 ---
-title: SUSE-planı indirim ve kullanımı - Azure ayırmaları anlama | Microsoft Docs
+title: SUSE ayırma planı indirimi ve kullanımı - Azure'ı Anlama | Microsoft Docs
 description: SUSE-planı indirimleri SUSE yazılım sanal makinelerde nasıl uygulanır öğrenin.
 services: billing
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
-ms.openlocfilehash: a9f784d7e7ed21a5a10a2f5e16125d60e7b9667f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 04b456cbaeeb4ba285fd874f7b21abffcc714653
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863483"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649265"
 ---
-# <a name="understand-how-the-suse-linux-enterprise-software-plan-discount-is-applied"></a>SUSE Linux Enterprise yazılım planı indirim nasıl uygulanacağını anlama
+# <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>SUSE Linux Enterprise yazılım ayırma planı indirimi Azure için nasıl uygulanacağını anlama
 
 SUSE Linux planı satın sonra İndirim dağıtılan SUSE sanal ayırma eşleşen makinelerine (VM'ler) otomatik olarak uygulanır. SUSE Linux planı, bir Azure sanal makinesinde SUSE yazılımı çalıştıran maliyetini kapsar.
 
 Doğru SUSE Linux planı satın almak için hangi SUSE Vm'leri, çalıştırma ve bu vm'lerdeki Vcpu sayısı anlamanız gerekir. Ne satın alma planı, kullanım CSV dosyasından belirlemenize yardımcı olması için aşağıdaki bölümleri kullanın.
 
-## <a name="discount-applies-to-different-vm-sizes-with-instance-size-flexibility"></a>İndirim örneği boyutu esnekliği ile farklı VM boyutları için geçerlidir.
+## <a name="discount-applies-to-different-vm-sizes"></a>İndirimi, farklı VM boyutları için geçerlidir.
 
 Ayrılmış VM örnekleri, SUSE planlama gibi satın alma işlemleri örneği boyutu esnekliği sunar. Başka bir deyişle, hatta farklı vCPU sayısı ile bir VM dağıtırken, indirim uygulanır. Yazılım planı içinde farklı VM boyutları indirimi geçerlidir.
 
@@ -40,7 +40,7 @@ Ayrılmış VM örnekleri, SUSE planlama gibi satın alma işlemleri örneği bo
 
 2.6 5 veya daha fazla Vcpu için oranıdır. Bu nedenle yaklaşık %77 yazılım maliyeti, yalnızca bir kısmı 5 veya daha fazla Vcpu ile bir VM ile SUSE için bir ayırma kapsar.
 
-## <a name="understand-your-suse-vm-usage-before-buying-a-suse-linux-plan"></a>SUSE Linux planı satın almadan önce SUSE VM kullanımınızı anlayın
+## <a name="understand-suse-vm-usage-before-you-buy"></a>Satın almadan önce SUSE VM kullanımını anlama
 
 Aşağıdaki tablolarda her biri için yazılım planları için bir ayırma satın alabilir ve bunların ilişkili kullanım ölçümleri oranları gösterilmektedir.
 
@@ -96,17 +96,17 @@ Azure portal Market adları:
 |SLES 2-4 Vcpu |924bee71-5eb8-424f-83ed-a58823c33908|2|D4s_v3|
 |SLES 2-4 Vcpu |60b3ae9d-e77a-46b2-9cdf-92fa87407969|2|D4s_v3|
 |SLES 6 Vcpu |e8862232-6131-4dbe-bde4-e2ae383afc6f|3||
-|SLES 8 Vcpu |e11331a8-fd32-4e71-b60e-4de2a818c67a|3.2|D8s_v3|
-|SLES 12 core Vcpu |a5afd00d-d3ef-4bcd-8b42-f158b2799782|3.2||
-|SLES 16 Vcpu |bb21066f-fe46-46d3-8006-b326b1663e52|3.2| D16s_v3|
-|SLES 20 Vcpu |c5228804-1de6-4BD4-a61c-501d9003acc8|3.2| |
-|SLES 24 çekirdek Vcpu |-005d-4075-ac11-822ccde9e8f6|3.2| ND24s|
-|SLES 32 Vcpu |180c1a0a-b0a5-4de3-a032-f92925a4bf90|3.2| D32s_v3|
-|SLES 40 çekirdek Vcpu |a161d3d3-0592-4956-9b64-6829678b6506|3.2||
-|SLES 64 Vcpu |7f5a36ed-d5b5-4732-b6bb-837dbf0fb9d8|3.2| D64s_v3|
-|SLES 72 çekirdek Vcpu |93329a72-24d7-4faa-93d9-203f367ed334|3.2|F72s_v2|
-|SLES 96 çekirdek Vcpu |2018c3a8-ff13-41f8-b64d-9558c5206547|3.2||
-|SLES 128 çekirdek vCPUss |ac27e4d7-44b5-4fee-bc1a-78ac5b4abaf7|3.2| M128ms|
+|SLES 8 Vcpu |e11331a8-fd32-4e71-b60e-4de2a818c67a|3,2|D8s_v3|
+|SLES 12 core Vcpu |a5afd00d-d3ef-4bcd-8b42-f158b2799782|3,2||
+|SLES 16 Vcpu |bb21066f-fe46-46d3-8006-b326b1663e52|3,2| D16s_v3|
+|SLES 20 Vcpu |c5228804-1de6-4BD4-a61c-501d9003acc8|3,2| |
+|SLES 24 çekirdek Vcpu |-005d-4075-ac11-822ccde9e8f6|3,2| ND24s|
+|SLES 32 Vcpu |180c1a0a-b0a5-4de3-a032-f92925a4bf90|3,2| D32s_v3|
+|SLES 40 çekirdek Vcpu |a161d3d3-0592-4956-9b64-6829678b6506|3,2||
+|SLES 64 Vcpu |7f5a36ed-d5b5-4732-b6bb-837dbf0fb9d8|3,2| D64s_v3|
+|SLES 72 çekirdek Vcpu |93329a72-24d7-4faa-93d9-203f367ed334|3,2|F72s_v2|
+|SLES 96 çekirdek Vcpu |2018c3a8-ff13-41f8-b64d-9558c5206547|3,2||
+|SLES 128 çekirdek vCPUss |ac27e4d7-44b5-4fee-bc1a-78ac5b4abaf7|3,2| M128ms|
 
 ### <a name="suse-linux-enterprise-server-standard"></a>SUSE Linux Enterprise Server standart
 
@@ -133,6 +133,6 @@ Rezervasyonlar hakkında daha fazla bilgi edinmek için aşağıdaki makalelere 
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bize ulaşın
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

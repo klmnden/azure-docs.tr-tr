@@ -1,24 +1,27 @@
 ---
 title: Windows sanal masaüstü önizlemesi, Windows 7 ve Windows 10 - Azure ile bağlanma
-description: Windows sanal masaüstü Önizleme istemcisi Windows 7 veya Windows 10 ile bağlanma.
+description: Windows 7 veya Windows 10 ile Windows sanal masaüstü Önizleme hizmetine bağlanma.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 03/27/2019
 ms.author: helohr
-ms.openlocfilehash: 644a1d650384f151d9c43b9efa5f47532c58ce14
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 8b5a649d767dae9ae9c0fb077f550451a7f83601
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399737"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630373"
 ---
-# <a name="connect-with-windows-7-and-windows-10"></a>Windows 7 ve Windows 10 ile bağlama
+# <a name="connect-with-windows-7-and-windows-10"></a>Windows 7 ve Windows 10'la bağlanma
 
 > Şunlara uygulanır Windows 7 ve Windows 10.
 
 İndirilebilir bir istemci kullanılabilir sağlayan erişim için Windows sanal masaüstü Önizleme kaynakları Windows 7 ve Windows 10 çalıştıran cihazlardan.
+
+> [!IMPORTANT]
+> Kullanmayın **RemoteApp ve Masaüstü bağlantıları (RADC)** veya **Uzak Masaüstü Bağlantısı (MSTSC)** Windows sanal masaüstü ya da istemci desteklemediğinden, Windows sanal masaüstü kaynaklara erişmek için.
 
 ## <a name="install-the-client"></a>İstemciyi yükleme
 
@@ -30,21 +33,17 @@ Mevcut olan kaynakların listesini için yerel Bilgisayarınızdan yöneticiniz 
 
 Bir akışa abone olmak için:
 
-1. Tüm uygulamalar listesinden istemcisini başlatın, Uzak Masaüstü için bakın.
-2. Ana sayfada herhangi bir bir iş veya Okul hesabı seçin. Bu, varsayılan akış URL'si ile abone olur.
-   - Farklı bir URL ile gerekirse sağlayabilir **bir URL kullanmanız** seçeneği.
-3. Kullanıcı hesabınızla oturum açın.
-
-> [!NOTE]
-> Yöneticinizin e-posta discovery'yi ayarlama ayarlanırsa, istemci otomatik olarak akış görüneceğini URL'si, e-posta adresinizi girin.
+1. Tüm uygulamalar listesini, istemciden arama için başlangıç **Uzak Masaüstü**.
+1. Seçin **abone ol** hizmete bağlanmak ve kaynaklarınızı almak için ana sayfasında.
+1. **Oturum** istendiğinde kullanıcı hesabınıza.
 
 Başarıyla kimlik doğrulandıktan sonra artık kaynakların kullanabileceğiniz listesini görmeniz gerekir.
 
 Kaynakları iki yöntemden birini kullanarak başlatabilirsiniz.
 
-- İstemcinin ana sayfasına gidin ve bir kaynak seçin.
+- İstemcinin ana sayfadan başlatmak için bir kaynak çift tıklayın.
 - Başlat Menüsü'nden diğer uygulamalar normalde yaptığınız gibi bir kaynak başlatın.
-  -  Arama çubuğunda uygulamalar için arama yapabilirsiniz.
+  - Arama çubuğunda uygulamalar için arama yapabilirsiniz.
 
 ## <a name="update-the-client"></a>İstemci güncelleştirmesi
 

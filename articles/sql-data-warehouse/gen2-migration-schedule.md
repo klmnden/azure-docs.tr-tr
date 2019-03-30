@@ -10,19 +10,19 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: 8f24bab531143cad1974663eb71b173a20b6f51a
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 575b6384d910abac1c0a1184aef4aa72f686538c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287188"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648582"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Veri ambarınız için Gen2'ye yükseltme
 
 Microsoft, sürücü giriş düzeyi bir veri ambarı'nı çalıştırmanın maliyeti aşağı yardımcı oluyor.  Alt sorgular zorlu işleyebilmesini katmanları Azure SQL veri ambarı için kullanılabilir işlem. Duyurunun tamamını okuyun [alt işlem katmanı desteği Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). Yeni bir teklif, aşağıdaki tabloda belirtildiği bölgelerinde kullanılabilir. Desteklenen bölgeler için mevcut Gen1 veri ambarları için Gen2 üzerinden yükseltilebilir:
 
 - **Otomatik yükseltme işlemi:** Hizmet bir bölgede kullanılabilir hemen sonra otomatik yükseltmeler başlamaz.  Otomatik yükseltmeler belirli bir bölgede başlattığınızda, tek tek DW yükseltmeleri sırasında seçilen bakım zamanlamanızı gerçekleşir.
-- [**2. nesil için kendi kendine yükseltme:**](#Self-upgrade-to-Gen2) 2. nesil için kendi kendine yükseltme yaparak yükseltme zamanı denetleyebilirsiniz. Bölgeniz henüz desteklenmiyor, desteklenen bir bölgede bir Gen2 örneğine doğrudan bir geri yükleme noktasından geri yükleyebilirsiniz.
+- [**2. nesil için kendi kendine yükseltme:**](#self-upgrade-to-gen2) 2. nesil için kendi kendine yükseltme yaparak yükseltme zamanı denetleyebilirsiniz. Bölgeniz henüz desteklenmiyor, desteklenen bir bölgede bir Gen2 örneğine doğrudan bir geri yükleme noktasından geri yükleyebilirsiniz.
 
 ## <a name="automated-schedule-and-region-availability-table"></a>Otomatik zamanlamayı ve bölge kullanılabilirliği tablosu
 
@@ -32,11 +32,11 @@ Aşağıdaki tabloda, bölgeye göre daha düşük 2. nesil işlem katmanını k
 
 | **Bölge** | **Daha düşük Gen2 kullanılabilir** | **Otomatik yükseltmeler başlayın** |
 |:--- |:--- |:--- |
-| Avustralya Doğu |Kullanılabilir |1 Mayıs 2019 |
-| Avustralya Güneydoğu |2 Nisan 2019 |1 Haziran 2019 |
+| Doğu Avustralya |Kullanılabilir |1 Mayıs 2019 |
+| Güney Doğu Avustralya |2 Nisan 2019 |1 Haziran 2019 |
 | Güney Brezilya |15 Mayıs 2019 |\* |
-| Orta Kanada |Kullanılabilir |1 Mayıs 2019 |
-| Doğu Kanada |\* |\* |
+| Kanada Orta |Kullanılabilir |1 Mayıs 2019 |
+| Kanada Doğu |\* |\* |
 | Orta ABD |Kullanılabilir |1 Mayıs 2019 |
 | Çin Doğu |\* |\* |
 | Çin Doğu 2 |\* |\* |
@@ -50,16 +50,16 @@ Aşağıdaki tabloda, bölgeye göre daha düşük 2. nesil işlem katmanını k
 | Almanya Orta Batı |1 Eylül 2019|2 Ocak 2020 |
 | Hindistan Orta |Kullanılabilir |1 Mayıs 2019 |
 | Hindistan Güney |2 Nisan 2019 |1 Haziran 2019 |
-| Japonya Doğu |Kullanılabilir |1 Mayıs 2019 |
-| Japonya Batı |Kullanılabilir |1 Haziran 2019 |
+| Doğu Japonya |Kullanılabilir |1 Mayıs 2019 |
+| Batı Japonya |Kullanılabilir |1 Haziran 2019 |
 | Kore Orta |2 Nisan 2019 |1 Mayıs 2019 |
 | Kore Güney |2 Nisan 2019 |1 Haziran 2019 |
-| Orta Kuzey ABD |2 Nisan 2019 |1 Haziran 2019 |
+| Kuzey Orta ABD |2 Nisan 2019 |1 Haziran 2019 |
 | Kuzey Avrupa |Kullanılabilir |1 Mayıs 2019 |
-| Orta Güney ABD |Kullanılabilir |1 Mayıs 2019 |
-| Güneydoğu Asya |Kullanılabilir |1 Mayıs 2019 |
-| Birleşik Krallık Güney |2 Nisan 2019 |1 Mayıs 2019 |
-| Birleşik Krallık Batı |\*|\* |
+| Güney Orta ABD |Kullanılabilir |1 Mayıs 2019 |
+| Güney Doğu Asya |Kullanılabilir |1 Mayıs 2019 |
+| BK Güney |2 Nisan 2019 |1 Mayıs 2019 |
+| BK Batı |\*|\* |
 | Batı Orta ABD |2 Eylül 2019 |2 Ocak 2020|
 | Batı Avrupa |Kullanılabilir |1 Mayıs 2019 |
 | Batı ABD |2 Nisan 2019 |1 Haziran 2019 |
@@ -103,47 +103,47 @@ Daha fazla bilgi için [yükseltmek için 2. nesil](upgrade-to-latest-generation
 
 **S: Gen2 Gen1 aynı maliyeti?**
 
-- C: Evet.
+- Y: Evet.
 
 **S: Yükseltmeler nasıl my Otomasyon betikleri etkiler mi?**
 
-- C: Bir hizmet düzeyi amacı başvuran tüm otomasyon betiği Gen2'ye denk karşılık gelecek şekilde değiştirilmelidir.  Ayrıntıları görmek [burada](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
+- Y: Bir hizmet düzeyi amacı başvuran tüm otomasyon betiği Gen2'ye denk karşılık gelecek şekilde değiştirilmelidir.  Ayrıntıları görmek [burada](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
 
 **S: Nasıl kendi kendine yükseltme normalde kadar sürer?**
 
-- C: Yerinde yükseltme veya geri yükleme noktasından yükseltin.  
+- Y: Yerinde yükseltme veya geri yükleme noktasından yükseltin.  
    - Yerinde yükseltme, veri ambarınızın anlık olarak duraklatma ve sürdürme neden olur.  Veri ambarı çevrimiçi durumdayken arka plan işlemi devam eder.  
    - Yükseltme tam geri yükleme işleminde geçer çünkü bir geri yükleme noktası yükseltiyorsanız uzun sürer.
 
 **S: Otomatik yükseltme ne kadar sürer?**
 
-- C: Gerçek kapalı kalma süresi yükseltme için yalnızca, duraklatma ve sürdürme 5-10 dakika arasında hizmet için gereken zamanı gelmiştir. Kısa kapalı kalma süresini sonra bir arka plan işlemi, depolama geçişi çalışır. Arka plan işlemi süreyi veri Ambarınızı boyutuna bağlıdır.
+- Y: Gerçek kapalı kalma süresi yükseltme için yalnızca, duraklatma ve sürdürme 5-10 dakika arasında hizmet için gereken zamanı gelmiştir. Kısa kapalı kalma süresini sonra bir arka plan işlemi, depolama geçişi çalışır. Arka plan işlemi süreyi veri Ambarınızı boyutuna bağlıdır.
 
 **S: Ne zaman bu otomatik yükseltme gerçekleşir?**
 
-- C: Bakım zamanlaması sırasında. Seçilen bakım zamanlamanızı yararlanarak işletmenizi aksamasıyla en aza indirirsiniz.
+- Y: Bakım zamanlaması sırasında. Seçilen bakım zamanlamanızı yararlanarak işletmenizi aksamasıyla en aza indirirsiniz.
 
 **S: Yükseltme işlemi arka planda takılmış gibi görünüyor. varsa ne yapmalıyım?**
 
- - C: Columnstore tabloları'bir reindex tetiklersiniz. Tablosu, ancak bu işlem sırasında çevrimdışı olacağını unutmayın.
+ - Y: Columnstore tabloları'bir reindex tetiklersiniz. Tablosu, ancak bu işlem sırasında çevrimdışı olacağını unutmayın.
 
 **S: Hizmet düzeyi hedefi varsa ne Gen2 yok üzerinde Gen1 mı var?**
-- C: DW600 veya DW1200 Gen1 üzerinde çalıştırıyorsanız, 2. nesil daha fazla bellek, kaynakları ve Gen1 daha yüksek performans sağlar. bu yana DW500c veya DW1000c sırasıyla kullanmak için önerilir.
+- Y: DW600 veya DW1200 Gen1 üzerinde çalıştırıyorsanız, 2. nesil daha fazla bellek, kaynakları ve Gen1 daha yüksek performans sağlar. bu yana DW500c veya DW1000c sırasıyla kullanmak için önerilir.
 
 **S: Coğrafi yedekleme devre dışı bırakabilirim?**
-- C: Hayır. Coğrafi yedekleme, verilerinizi korumak için bir kurumsal özellik bir bölge kullanılamaz hale gelmesi durumunda kullanılabilirlik ambar ' dir. Açık bir [destek isteği](sql-data-warehouse-get-started-create-support-ticket.md) daha fazla ilgili endişeleriniz varsa.
+- Y: Hayır. Coğrafi yedekleme, verilerinizi korumak için bir kurumsal özellik bir bölge kullanılamaz hale gelmesi durumunda kullanılabilirlik ambar ' dir. Açık bir [destek isteği](sql-data-warehouse-get-started-create-support-ticket.md) daha fazla ilgili endişeleriniz varsa.
 
 **S: T-SQL söz dizimini Gen1 ve 2. nesil arasında bir fark var mı?**
 
-- C: Gen2'ye Gen1 öğesinden T-SQL dil sözdiziminde bir değişiklik yoktur.
+- Y: Gen2'ye Gen1 öğesinden T-SQL dil sözdiziminde bir değişiklik yoktur.
 
 **S: Gen2 bakım Windows destekliyor mu?**
 
-- C: Evet.
+- Y: Evet.
 
 **S: My bölge yükseltildikten sonra yeni bir Gen1 örneği oluşturabilir kalacağım?**
 
-- C: Hayır. Bir bölge yükseltildikten sonra yeni Gen1 örnekleri oluşturma devre dışı bırakılır.
+- Y: Hayır. Bir bölge yükseltildikten sonra yeni Gen1 örnekleri oluşturma devre dışı bırakılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -10,14 +10,14 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 03/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: f64a76fa6063ebc5681b546b53fe9d6ca7bc5037
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 92476f9ac48c168c3bbe85d4da49b6afe034c117
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400402"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648665"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma
 
@@ -77,7 +77,7 @@ Dağıtımın tamamlanması birkaç dakika sürebilir. Tamamlandığında, sonu�
 Resource Manager şablonları, yerel makinenizde depolamak yerine dış bir konumda depolanması tercih edebilirsiniz. Şablonları bir kaynak denetim deposu (örneğin GitHub) depolayabilirsiniz. Veya, bunları paylaşılan erişim için bir Azure depolama hesabında kuruluşunuzda depolayabilirsiniz.
 
 Dış bir şablonu dağıtmak için **URI şablonu** parametresi. URI örnekte, github'dan örnek şablonu dağıtmak için kullanın.
-   
+
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
 az group deployment create \
@@ -102,7 +102,12 @@ az group deployment create --resource-group examplegroup \
 
 ## <a name="redeploy-when-deployment-fails"></a>Dağıtım başarısız olduğunda yeniden dağıtma
 
-Bir dağıtım başarısız olduğunda, dağıtım geçmişinden eski, başarılı bir dağıtım otomatik olarak yeniden dağıtabilirsiniz. Yeniden dağıtım belirtmek için kullanın `--rollback-on-error` dağıtım komut parametresi.
+Bu özellik olarak da bilinir *hatada geri alma*. Bir dağıtım başarısız olduğunda, dağıtım geçmişinden eski, başarılı bir dağıtım otomatik olarak yeniden dağıtabilirsiniz. Yeniden dağıtım belirtmek için kullanın `--rollback-on-error` dağıtım komut parametresi. Bu işlev, iyi bilinen bir duruma altyapı dağıtımınız için var ve bunun için döndürülmesi için istediğiniz yararlı olur. Uyarılar ve kısıtlamaları vardır:
+
+- Yeniden dağıtma işlemi ile aynı parametreleri daha önce tam olarak çalıştırıldığı olarak çalıştırılır. Parametreleri değiştirilemiyor.
+- Kullanarak önceki dağıtım çalıştırma [tam modda](./deployment-modes.md#complete-mode). Önceki dağıtıma dahil olmayan tüm kaynaklar silinir ve herhangi bir kaynak yapılandırmaları önceki durumlarına ayarlanır. Tam olarak anladığınızdan emin olun [dağıtım modları](./deployment-modes.md).
+- Yeniden dağıtma işlemi, yalnızca kaynakları etkiler, tüm veri değişiklikleri etkilenmez.
+- Bu özellik yalnızca kaynak grubu dağıtımlarında, abonelik düzeyinde dağıtımlar desteklenir. Abonelik düzeyi dağıtımı hakkında daha fazla bilgi için bkz. [oluşturma kaynak grubu ve kaynak abonelik düzeyinde](./deploy-to-subscription.md).
 
 Bu seçeneği kullanmak için dağıtımlarınızı geçmişinde tanımlanan şekilde benzersiz adları olmalıdır. Benzersiz adlara sahip değilseniz, geçerli başarısız dağıtım geçmişini daha önce başarılı dağıtım üzerine yazılabilir. Bu gibi durumlarda, bu seçenek yalnızca kök düzey dağıtımlar kullanabilirsiniz. İç içe geçmiş şablon dağıtımları, yeniden dağıtım için kullanılamaz.
 
@@ -261,9 +266,10 @@ Komut, şablonunuzun söz dizimi hatası varsa, şablon ayrıştırılamadı bel
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bu makaledeki örneklerde, varsayılan aboneliğinizde bir kaynak grubunda kaynak dağıtın. Farklı bir aboneliği kullanmak için bkz: [birden çok Azure aboneliklerini yönetme](/cli/azure/manage-azure-subscriptions-azure-cli).
-* Kaynak grubunda var, ancak şablonunda tanımlanmayan kaynakları nasıl ele alınacağını belirtmek için bkz: [Azure Resource Manager dağıtım modları](deployment-modes.md).
-* Şablonunuzda parametreleri tanımlayan anlamak için bkz. [yapısını ve Azure Resource Manager şablonları söz dizimini anlamak](resource-group-authoring-templates.md).
-* Sık karşılaşılan dağıtım hataları çözümleme hakkında daha fazla ipucu için bkz. [Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme](resource-manager-common-deployment-errors.md).
-* Bir SAS belirteci gerektiren şablonu dağıtma hakkında daha fazla bilgi için bkz: [SAS belirteci ile özel şablonu Dağıt](resource-manager-cli-sas-token.md).
-* Güvenli bir şekilde, bir hizmetin ölçeğini birden fazla bölgeye toplamak için bkz: [Azure Deployment Manager](deployment-manager-overview.md).
+
+- Bu makaledeki örneklerde, varsayılan aboneliğinizde bir kaynak grubunda kaynak dağıtın. Farklı bir aboneliği kullanmak için bkz: [birden çok Azure aboneliklerini yönetme](/cli/azure/manage-azure-subscriptions-azure-cli).
+- Kaynak grubunda var, ancak şablonunda tanımlanmayan kaynakları nasıl ele alınacağını belirtmek için bkz: [Azure Resource Manager dağıtım modları](deployment-modes.md).
+- Şablonunuzda parametreleri tanımlayan anlamak için bkz. [yapısını ve Azure Resource Manager şablonları söz dizimini anlamak](resource-group-authoring-templates.md).
+- Sık karşılaşılan dağıtım hataları çözümleme hakkında daha fazla ipucu için bkz. [Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme](resource-manager-common-deployment-errors.md).
+- Bir SAS belirteci gerektiren şablonu dağıtma hakkında daha fazla bilgi için bkz: [SAS belirteci ile özel şablonu Dağıt](resource-manager-cli-sas-token.md).
+- Güvenli bir şekilde, bir hizmetin ölçeğini birden fazla bölgeye toplamak için bkz: [Azure Deployment Manager](deployment-manager-overview.md).

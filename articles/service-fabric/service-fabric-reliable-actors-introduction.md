@@ -4,7 +4,7 @@ description: Service Fabric Reliable Actors programlama modelini giriş.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 7fdad07f-f2d6-4c74-804d-e0d56131f060
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 363cba145ed4d5bcf138cf3f7130763891c51e8b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5a237e23dffed76e6122e17b59c85d20ca7e1baf
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258070"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668679"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors hizmetine giriş
 Reliable Actors, temel bir Service Fabric uygulama altyapısıdır [sanal aktör](https://research.microsoft.com/en-us/projects/orleans/) deseni. Reliable Actors API Service Fabric tarafından sağlanan ölçeklenebilirlik ve güvenilirlik garantisi temel alan bir tek iş parçacıklı programlama modeli sağlar.
@@ -37,7 +37,7 @@ Aktör tasarım olsa da Desen bir dizi dağıtılmış sistem sorunlarını ve s
 * Aktör örneklerinizi g/ç işlemleri vererek beklenmedik gecikmeler ile çağıranlar engellemez.
 
 ## <a name="actors-in-service-fabric"></a>Service fabric'te aktörler
-Service Fabric'te Reliable Actors framework aktörler uygulanır: üst kısmındaki yerleşik bir aktör desen tabanlı bir uygulama çerçevesi [Service Fabric güvenilir hizmetler](service-fabric-reliable-services-introduction.md). Yazdığınız her Reliable Actor hizmetinin aslında bir bölümlenmiş, durum bilgisi olan güvenilir hizmetidir.
+Service Fabric'te Reliable Actors framework aktörler uygulanır: Üst kısmındaki yerleşik bir aktör desen tabanlı bir uygulama çerçevesi [Service Fabric güvenilir hizmetler](service-fabric-reliable-services-introduction.md). Yazdığınız her Reliable Actor hizmetinin aslında bir bölümlenmiş, durum bilgisi olan güvenilir hizmetidir.
 
 Her aktör, bir .NET nesnesini .NET türünün bir örneği olduğu şekilde özdeş bir aktör türü örneği olarak tanımlanır. Örneğin, bir hesap makinesi işlevselliğini uygulayan bir aktör türü olabilir ve çeşitli düğümler bir küme genelinde dağıtılan birçok aktör türü olabilir. Her bir aktör, bir aktör kimliğine göre benzersiz olarak tanımlanır
 
@@ -106,7 +106,7 @@ Aktör proxy nesnesi oluşturmak için kullanılan bilgilerin iki parça kimliğ
 * İleti, en iyi çaba teslimatıdır.
 * Aktör, aynı istemciden yinelenen iletileri alabilirsiniz.
 
-## <a name="concurrency"></a>Eşzamanlılık
+## <a name="concurrency"></a>Eş Zamanlılık
 Reliable Actors çalışma zamanı, aktör yöntemleri erişmek için bir basit sırayla oynadıkları erişim modeli sağlar. Başka bir deyişle, birden fazla iş parçacığı herhangi bir zamanda bir aktör nesnenin kod içinde etkin olabilir. Veri erişimi için eşitleme mekanizmaları gerek olmadığından erişim sırayla oynadıkları eş zamanlı sistemleri büyük ölçüde kolaylaştırır. Ayrıca, ilgili özel konular her aktör örneğinin ile tek iş parçacıklı erişimi yapısı sistemleri tasarlanmalıdır anlamına gelir.
 
 * Bir tek aktör örneği aynı anda birden fazla isteği işleyemiyor. Eş zamanlı istekleri işlemek üzere bekleniyorsa aktör örneği bir aktarım hızı performans sorununa neden olabilir.

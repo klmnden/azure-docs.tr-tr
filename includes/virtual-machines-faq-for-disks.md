@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/30/2018
+ms.date: 03/28/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 233834bd040362e27ffadc3d0003a87827012352
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 61f65340c3b683674be195f1d30788494b6855a7
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407948"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58671751"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas VM diskleri ve yönetilen ve yönetilmeyen premium diskleri hakkında sık sorulan sorular
 
@@ -187,7 +187,7 @@ Standart SSD disk Hayır, yalnızca yönetilen diskler olarak kullanılabilir.
 **Standart SSD disk "Tek Örnekli sanal makine SLA" destekliyor musunuz?**
 Hayır, standart SSD'ler Tek Örnekli sanal makine SLA'sı yoktur. Premium SSD diskleri tek örnek sanal makine SLA'sını kullanın.
 
-## <a name="migrate-to-managed-disks"></a>Yönetilen Disklere geçme
+## <a name="migrate-to-managed-disks"></a>Yönetilen Disklere geçin
 
 **Yönetilen diskler performans üzerindeki geçişin herhangi bir etkisi var mı?**
 
@@ -219,7 +219,7 @@ Evet, yönetilen disklerle bir VM için yük devretme için seçebilirsiniz.
 
 **Azure'dan Azure'a çoğaltma Azure Site Recovery tarafından korunan Azure vm'lerinde geçişin herhangi bir etkisi var mı?**
 
-Evet. Yönetilen disklere sahip VM'ler için Azure Site Recovery Azure'a korumayı şu anda yalnızca bir genel Önizleme hizmeti olarak olarak kullanılabilir.
+Evet. Şu anda Azure Site kurtarma Azure yönetilen disklere sahip VM'ler için Azure'a korumayı GA hizmet olarak kullanılabilir.
 
 **Veya yönetilen diskleri daha önce şifrelenmiş depolama hesaplarında yer alan yönetilmeyen disklere sahip Vm'leri geçirebilirim?**
 
@@ -339,7 +339,7 @@ Evet.
 
 **Azure Backup ve Azure Site Recovery hizmeti tarafından desteklenen en büyük disk boyutları nelerdir?**
 
-Azure Backup ve Azure Site Recovery hizmeti tarafından desteklenen en büyük disk boyutu 4 TiB ' dir.
+Azure Backup ve Azure Site Recovery hizmeti tarafından desteklenen en büyük disk boyutu 4 TiB ' dir. 32 TiB kadar büyük disk desteği yakında eklenecektir.
 
 **Boyutu daha büyük disk boyutları için önerilen VM nelerdir (> 4 TiB) IOPS ve bant genişliği elde etmek için standart bir SSD ve HDD standart diskler en iyi duruma getirilmiş için disk?**
 

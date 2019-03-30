@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: victorh
-ms.openlocfilehash: 1f1ee4f69cc1ab656df04ed30cae6f4c3e55bfa7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4864a46b91b4e243ce6a2ae3d9d36df28fe74d8d
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963824"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650986"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>DNS kayıtlarını ve Azure CLI kullanarak Azure DNS kayıt kümelerini yönetme
 
@@ -92,7 +92,7 @@ Kayıt verilerini belirtmek için kullanılan parametreler, kayıt türüne bağ
 
 Her durumda, tek bir kaydını nasıl oluşturacağınızı göstereceğiz. Kayıt, var olan kayıt kümesine ya da örtük olarak oluşturulmuş bir kayıt kümesi için eklenir. Kayıt kümeleri oluşturma ve kayıt tanımlama hakkında daha fazla bilgi için parametre açıkça, bakın [DNS kayıt kümesi oluşturma](#create-a-dns-record-set).
 
-SOAs oluşturulduğundan bir SOA kayıt kümesi oluşturmak için örnek atamayın ve ile her bir DNS bölgesi silindi ve oluşturulamıyor veya ayrı olarak silindi. Ancak, [SOA, bir sonraki örnekte gösterildiği gibi değiştirilebilir](#to-modify-an-SOA-record).
+SOAs oluşturulduğundan bir SOA kayıt kümesi oluşturmak için örnek atamayın ve ile her bir DNS bölgesi silindi ve oluşturulamıyor veya ayrı olarak silindi. Ancak, [SOA, bir sonraki örnekte gösterildiği gibi değiştirilebilir](#to-modify-an-soa-record).
 
 ### <a name="create-an-aaaa-record"></a>Bir AAAA kaydı oluşturun
 

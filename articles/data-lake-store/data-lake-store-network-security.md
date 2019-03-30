@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 557f331136726110db2a19e20b9d2f5f971ad384
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 362129b4ccd0e46b6ffc682e7232c62c196ef334
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772917"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652138"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 için sanal ağ tümleştirmesi
 
@@ -75,7 +75,7 @@ Kullanılabilen seçeneklerin bazıları şunlardır:
 
 - Data Lake depolama Gen1 sanal ağ tümleştirme desteği kullanılabilir öncesinde oluşturulmuş olan HDInsight kümeleri, bu yeni özellik destekleyecek şekilde yeniden oluşturulmalıdır.
  
-- Yeni bir HDInsight kümesi oluşturduğunuzda ve sanal ağ tümleştirmesi etkinleştirilmiş bir Data Lake Storage 1. Nesil hesabını seçtiğinizde bu işlem başarısız olur. Öncelikle sanal ağ kuralını devre dışı bırakmanız gerekir. Alternatif olarak Data Lake Storage hesabının **Güvenlik duvarı ve sanal ağlar** dikey penceresinde **Tüm ağlardan ve hizmetlerden erişime izin ver**'i seçebilirsiniz. Son olarak sanal ağ kuralı yeniden etkinleştirerek veya devre dışı bırakmak seçerek önce HDInsight kümesi oluşturup **tüm ağlar ve hizmetlerden erişime izin ver**. Daha fazla bilgi için [Özel durumlar](##Exceptions) bölümüne bakın.
+- Yeni bir HDInsight kümesi oluşturduğunuzda ve sanal ağ tümleştirmesi etkinleştirilmiş bir Data Lake Storage 1. Nesil hesabını seçtiğinizde bu işlem başarısız olur. Öncelikle sanal ağ kuralını devre dışı bırakmanız gerekir. Alternatif olarak Data Lake Storage hesabının **Güvenlik duvarı ve sanal ağlar** dikey penceresinde **Tüm ağlardan ve hizmetlerden erişime izin ver**'i seçebilirsiniz. Son olarak sanal ağ kuralı yeniden etkinleştirerek veya devre dışı bırakmak seçerek önce HDInsight kümesi oluşturup **tüm ağlar ve hizmetlerden erişime izin ver**. Daha fazla bilgi için [Özel durumlar](#exceptions) bölümüne bakın.
 
 - Data Lake depolama Gen1 sanal ağ Tümleştirmesi ile işe yaramazsa [kimliklerini Azure kaynakları için yönetilen](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
   
@@ -137,7 +137,7 @@ Kullanılabilen seçeneklerin bazıları şunlardır:
 
 7.  [İsteğe bağlı] **Güvenlik duvarı ve sanal ağlar** sayfasının **Güvenlik duvarı** bölümünde belirli IP adreslerinden gelen bağlantılara izin verebilirsiniz. 
 
-## <a name="exceptions"></a>Özel durumlar
+## <a name="exceptions"></a>Özel Durumlar
 Seçtiğiniz sanal ağların dışındaki Azure hizmetlerinden ve VM'lerden gelen bağlantılara izin verebilirsiniz. **Güvenlik duvarı ve sanal ağlar** dikey penceresinin **Özel durumlar** bölümündeki iki seçenekten birini belirleyin:
  
 - **Tüm Azure hizmetlerinin bu Data Lake Storage 1. Nesil hesabına erişmesine izin ver**. Bu seçenek Azure Data Factory ve Azure Event Hubs gibi Azure hizmetlerinin ve tüm Azure VM'lerinin Data Lake Storage hesabınızla iletişim kurmasına izin verir.

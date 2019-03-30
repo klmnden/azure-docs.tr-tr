@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: a350576742a9bcb899405aae19c032cc9b966975
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 09a5a6d823240b724e6ec88de38df068a58982d9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351341"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652068"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure depolama analizi günlük kaydı
 
@@ -27,7 +27,6 @@ Depolama analizi, başarılı ve başarısız istekler hakkında ayrıntılı bi
 >  Depolama analizi günlük kaydı şu anda yalnızca Blob, kuyruk ve tablo hizmetler için kullanılabilir. Ancak, premium depolama hesabı desteklenmiyor.
 
 ## <a name="requests-logged-in-logging"></a>İstekleri oturum açanlar
-
 ### <a name="logging-authenticated-requests"></a>Kimlik doğrulaması günlüğe kaydetme istekleri
 
  Aşağıdaki türde kimliği doğrulanmış istekler kaydedilir:
@@ -63,13 +62,13 @@ Her saat için birden çok dosya ile günlük veri hacmi yüksek varsa, günlük
 
 Çoğu depolama gözatma araçları BLOB meta verilerini görüntülemek etkinleştirme; Ayrıca, PowerShell kullanarak bu bilgileri okuyabilirsiniz veya programlama yoluyla. Aşağıdaki PowerShell kod parçacığı bir zaman belirtmek için adı ve meta verileri içeren yalnızca günlükler tanımlamak için günlük BLOB listesini filtreleme ilişkin bir örnektir **yazma** operations.  
 
- ```  
+ ```powershell
  Get-AzureStorageBlob -Container '$logs' |  
- where {  
+ Where-Object {  
      $_.Name -match 'table/2014/05/21/05' -and   
      $_.ICloudBlob.Metadata.LogType -match 'write'  
  } |  
- foreach {  
+ ForEach-Object {  
      "{0}  {1}  {2}  {3}" –f $_.Name,   
      $_.ICloudBlob.Metadata.StartTime,   
      $_.ICloudBlob.Metadata.EndTime,   
@@ -143,24 +142,25 @@ Günlüğe kaydetmek istediğiniz depolama hizmetleri ve günlüğe kaydedilen v
 
  Günlüğünü okuma için aşağıdaki komutu geçer, yazma ve saklama süresi beş gün olarak ayarlanmış varsayılan depolama hesabınızdaki kuyruk hizmeti isteklerinde Sil:  
 
-```  
+```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
  Aşağıdaki komut, tablo hizmeti, varsayılan depolama hesabı için günlük kaydını devre dışı geçer:  
 
-```  
+```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
  Azure PowerShell cmdlet'lerini, Azure aboneliğiniz ile çalışmak için yapılandırma ve kullanılacak varsayılan depolama hesabı seçme hakkında daha fazla bilgi için bkz: [Azure PowerShell'i yükleme ve yapılandırma işlemini](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
 
 ### <a name="enable-storage-logging-programmatically"></a>Depolamayı programlı olarak günlüğü etkinleştir  
+
  Azure portal veya Azure PowerShell Cmdlet'lerine denetim günlüğü depolama kullanmanın yanı sıra, Azure depolama API'lerden birini kullanabilirsiniz. Örneğin, bir .NET dil kullanıyorsanız, depolama istemcisi kitaplığı kullanabilirsiniz.  
 
  Sınıfları **CloudBlobClient**, **CloudQueueClient**, ve **CloudTableClient** tüm yöntemlerine sahip **SetServiceProperties** ve **SetServicePropertiesAsync** süren bir **ServiceProperties** bir parametre olarak nesne. Kullanabileceğiniz **ServiceProperties** depolama günlük yapılandırma nesnesi. Örneğin, aşağıdaki C# parçacığı günlüğe kaydedilir ve sıra günlüğü saklama süresini nasıl değiştirileceğini gösterir:  
 
-```  
+```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
 var queueClient = storageAccount.CreateCloudQueueClient();  
 var serviceProperties = queueClient.GetServiceProperties();  
@@ -190,7 +190,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
  Aşağıdaki örnek, kuyruk hizmeti saat 11: 00-20 Mayıs 2014'te 09 AM ve 10'da başlayan için günlük verileri nasıl indirebileceğiniz gösterir. **/S** parametresi neden olur tarihler ve saatler günlük dosya adlarında; dayalı bir yerel klasör yapısını oluşturmak AzCopy **/V** parametresi neden olur; ayrıntılı çıktı üretmek AzCopy **/Y** parametresi, tüm yerel dosyaları üzerine yazmak AzCopy neden olur. Değiştirin **< yourstorageaccount\>**  değiştirme ve depolama hesabı adı ile **< yourstoragekey\>**  depolama hesabınızın anahtarıyla.  
 
-```  
+```
 AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs\Storage' '2014/05/20/09' '2014/05/20/10' '2014/05/20/11' /sourceKey:<yourstoragekey> /S /V /Y  
 ```  
 
@@ -201,6 +201,7 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
  Günlük verilerinizi yüklendiğinde, günlük girişlerini dosyalarında görüntüleyebilirsiniz. Bu günlük dosyaları, Microsoft Message Analyzer dahil olmak üzere diğer birçok günlük araçları ayrıştırmak için okuma sınırlandırılmış metin biçimi kullanın (daha fazla bilgi için kılavuzuna bakın [izleme Diagnosing ve sorun giderme Microsoft Azure depolama](storage-monitoring-diagnosing-troubleshooting.md)). Biçimlendirme, filtreleme, sıralama, günlük dosyalarının içeriğini arama ad farklı özellikleri farklı araçları vardır. Depolama günlüğü, günlük dosyası biçimi ve içerik hakkında daha fazla bilgi için bkz. [depolama analizi günlük biçimi](/rest/api/storageservices/storage-analytics-log-format) ve [depolama analizi günlüğe yazılan işlemler ve durum iletileri](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * [Depolama analizi günlük biçimi](/rest/api/storageservices/storage-analytics-log-format)
 * [Depolama analizi işlemleri ve durum iletileri günlüğe kaydedilir.](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [Storage Analytics ölçümleri (Klasik)](storage-analytics-metrics.md)

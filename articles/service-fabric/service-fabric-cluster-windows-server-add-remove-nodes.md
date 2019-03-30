@@ -4,7 +4,7 @@ description: Bir fiziksel veya sanal makine şirket içi olabilir Windows Server
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: e9b87c19977fe35132d80729810c3a0547c486fe
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c9e771d97c037ddd07834025063233c3ede1f0c2
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446121"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668502"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Windows Server üzerinde çalışan bir tek başına Service Fabric küme düğümleri ekleyebilir veya kaldırabilirsiniz
 Sonra [tek başına Service Fabric kümeniz Windows Server makinelerinde oluşturulan](service-fabric-cluster-creation-for-windows-server.md)(iş) ihtiyaçlarınızı değişebilir ve kümenize düğümleri ekleyebilir veya kaldırabilirsiniz gerekecektir. Bu makalede Bunu başarmak için ayrıntılı adımlar verilmektedir. Ekle/Kaldır düğüm işlev yerel geliştirme kümelerinde desteklenmiyor unutmayın.

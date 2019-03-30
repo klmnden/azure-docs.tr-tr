@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3baa4a9b91e76b9072714229b6a46e9fca69bcdd
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a33525e44b2e294b7ce85c7081864dbef0856588
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331393"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650862"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Azure'da bir SQL Server sanal makinesine bağlanma
 
@@ -138,7 +138,7 @@ Aşağıdaki tabloda, bir Azure sanal Makinesinde çalışan SQL Server'a bağla
 |---|---|
 | [SQL Server kimlik doğrulaması modunu etkinleştirin](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | SQL Server kimlik doğrulaması, bir sanal ağda Active Directory yapılandırmadığınız sürece VM'ye uzaktan bağlanmak için gereklidir. |
 | [Bir SQL oturum açma oluşturma](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | SQL kimlik doğrulaması kullanıyorsanız, bir SQL oturum açma kullanıcı adı ve hedef veritabanınıza izinlere de sahip bir parola gerekir. |
-| [TCP/IP protokolünü etkinleştirin](#manualTCP) | SQL Server TCP üzerinden bağlantılara izin vermesi gerekir. |
+| [TCP/IP protokolünü etkinleştirin](#manualtcp) | SQL Server TCP üzerinden bağlantılara izin vermesi gerekir. |
 | [SQL Server bağlantı noktası için güvenlik duvarı kuralını etkinleştirme](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | VM Güvenlik duvarını SQL Server bağlantı noktası (varsayılan 1433) gelen trafiğe izin vermeniz gerekir. |
 | [TCP 1433 için bir ağ güvenlik grubu kuralı oluşturma](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) | VM, internet üzerinden bağlanmak istiyorsanız (varsayılan 1433) SQL Server bağlantı noktası üzerinde trafiği almak izin vermeniz gerekir. Yerel ve sanal ağ-yalnızca bağlantıları bu gerektirmez. Azure portalında gereken tek adım budur. |
 

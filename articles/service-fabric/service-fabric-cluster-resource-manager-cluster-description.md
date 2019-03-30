@@ -4,7 +4,7 @@ description: Service Fabric kümesi, hata etki alanları ve yükseltme etki alan
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 810388a85e4ad339ff1444d21ac231fe4c00aeac
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7cd4a54a62d7304587c55338f088c504e40a74af
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120542"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670687"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Service fabric kümesi açıklayan
 Service Fabric Küme Kaynak Yöneticisi bir kümesini tanımlamak için çeşitli mekanizmalar sağlar. Çalışma zamanı sırasında küme kaynak yöneticisi, kümede çalışan hizmetler yüksek kullanılabilirliğini sağlamak için bu bilgileri kullanır. Önemli kurallar zorlarken, ayrıca küme içindeki kaynak tüketimini iyileştirmek çalışır.
@@ -229,7 +229,7 @@ Geri dördüncü düzenini ve beş TargetReplicaSetSize aranıyor. N1 kümeden k
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
-| **UD0** |Yok |Yok |Yok |Yok |Yok |Yok |
+| **UD0** |YOK |YOK |YOK |YOK |YOK |YOK |
 | **UD1** |R2 | | | | |1 |
 | **UD2** | |R3 |R4 | | |2 |
 | **UD3** | | | |R1 | |1 |
@@ -365,7 +365,7 @@ Düğüm özelliği için belirtilen değer bir dize, bool, olabilir veya signed
 
 1) belirli ifadeler oluşturmak için koşullu denetimler
 
-| Bildirim | Sözdizimi |
+| Deyim | Sözdizimi |
 | --- |:---:|
 | "equal" | "==" |
 | "eşit değildir" | "!=" |
@@ -376,7 +376,7 @@ Düğüm özelliği için belirtilen değer bir dize, bool, olabilir veya signed
 
 2) gruplandırma ve mantıksal işlemler için Boolean ifadeleri
 
-| Bildirim | Sözdizimi |
+| Deyim | Sözdizimi |
 | --- |:---:|
 | "ve" | "&&" |
 | "veya" | "&#124;&#124;" |

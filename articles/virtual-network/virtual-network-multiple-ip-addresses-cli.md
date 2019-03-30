@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: 5606fb2f01a79a517279809d6da21ec865ee8b0d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b693500e785d41b2ad3339e26dd9fd3505891bc0
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110146"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648342"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Azure CLI kullanarak sanal makineler için birden çok IP adresi atama
 
@@ -165,7 +165,7 @@ VM oluşturulduktan sonra girin `az network nic show --name MyNic1 --resource-gr
 
 ## <a name="add"></a>Bir VM'ye IP adresleri ekleme
 
-Aşağıdaki adımları izleyerek, ek özel ve genel IP adresleri için mevcut bir Azure ağ arabirimi ekleyebilirsiniz. Örnekler sınayabilmesi [senaryo](#Scenario) bu makalede açıklanan.
+Aşağıdaki adımları izleyerek, ek özel ve genel IP adresleri için mevcut bir Azure ağ arabirimi ekleyebilirsiniz. Örnekler sınayabilmesi [senaryo](#scenario) bu makalede açıklanan.
 
 1. Bir komut kabuğunu açın ve içinde tek bir oturumda bu bölümün kalan adımları tamamlayın. Azure CLI'yı yüklü ve yapılandırılmış yoksa bölümünde bulunan adımları tamamladığınızdan [Azure CLI yükleme](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) makale ve Azure oturum açma hesabı ile `az-login` komutu.
 

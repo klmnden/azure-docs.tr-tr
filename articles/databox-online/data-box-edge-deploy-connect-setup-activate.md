@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/08/2019
+ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 0aaee4b0582f8acb9302c75463c0bc52698acaeb
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ad288067fdd40dbfa84352916e84fa1e3ab9af8e
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403485"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629158"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Öğretici: Bağlanma, ayarlamak ve Azure veri kutusu Edge etkinleştirme 
 
@@ -75,7 +75,7 @@ Panonuzu yapılandırmak ve fiziksel cihaz ile veri kutusu Edge hizmetine kaydet
     ![Yerel web kullanıcı Arabirimi "Cihaz adı" sayfası](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
 2. (İsteğe bağlı) Sol bölmede seçin **ağ ayarları** ve ardından ayarlarını yapılandırın.  
-    Fiziksel Cihazınızda altı ağ arabirimi var. Bağlantı noktası 1 ve 2 bağlantı noktası 1 GB/sn ağ arabirimi var. Bağlantı noktası 3, 4 bağlantı noktası, bağlantı noktası 5 ve 6 bağlantı noktası olan 10 GB/sn ağ arabirimi olarak hizmet verebilen ayrıca tüm 25 GB/sn ağ arabirimleri. Bağlantı noktası 1 yalnızca yönetim bağlantı noktası olarak otomatik olarak yapılandırılır ve bağlantı noktası 2 bağlantı noktası 6 olan tüm veri bağlantı noktaları. **Ağ ayarları** sayfasıdır aşağıda gösterildiği gibi.
+    Fiziksel cihazınızdan altı ağ arabirimi vardır. Bağlantı noktası 1 ve 2 bağlantı noktası 1 GB/sn ağ arabirimi var. Bağlantı noktası 3, 4 bağlantı noktası, bağlantı noktası 5 ve 6 bağlantı noktası olan 10 GB/sn ağ arabirimi olarak hizmet verebilen ayrıca tüm 25 GB/sn ağ arabirimleri. Bağlantı noktası 1 yalnızca yönetim bağlantı noktası olarak otomatik olarak yapılandırılır ve bağlantı noktası 2 bağlantı noktası 6 olan tüm veri bağlantı noktaları. **Ağ ayarları** sayfasıdır aşağıda gösterildiği gibi.
     
     ![Yerel web kullanıcı Arabirimi "Ağ ayarları" sayfası](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
@@ -119,7 +119,14 @@ Panonuzu yapılandırmak ve fiziksel cihaz ile veri kutusu Edge hizmetine kaydet
 
         ![Yerel web kullanıcı Arabirimi "Saat ayarları" sayfası](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
 
-5. Sol bölmede seçin **Cloud ayarları**ve ardından Azure portalında veri kutusu Edge hizmetiyle Cihazınızı etkinleştirin.
+5. (İsteğe bağlı) Sol bölmede seçin **depolama ayarlarını** Cihazınızda depolama dayanıklılığını yapılandırma. Bu özellik şu anda önizleme sürümündedir. Varsayılan olarak, cihazdaki depolama alanına dayanıklı değildir ve cihazda bir veri diski başarısız olursa veri kaybı olan. Dayanıklı seçeneğini etkinleştirdiğinizde, cihazdaki depolama alanına yapılandırılacak ve veri kaybı olmadan bir veri diski başarısız cihaza dayanabilir. Depolama olarak dayanıklı yapılandırma cihazınızın kullanılabilir kapasiteyi azaltır.
+
+    > [!IMPORTANT] 
+    > Dayanıklılık, yalnızca cihaz etkinleştirmeden önce yapılandırılabilir. 
+
+    ![Yerel web kullanıcı Arabirimi "Depolama ayarları" sayfası](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
+
+6. Sol bölmede seçin **Cloud ayarları**ve ardından Azure portalında veri kutusu Edge hizmetiyle Cihazınızı etkinleştirin.
     
     1. İçinde **etkinleştirme anahtarı** kutusuna, bölümünde edindiğiniz etkinleştirme anahtarı girin [etkinleştirme anahtarı alma](data-box-edge-deploy-prep.md#get-the-activation-key) veri kutusu Edge için.
     2. **Uygula**’yı seçin.

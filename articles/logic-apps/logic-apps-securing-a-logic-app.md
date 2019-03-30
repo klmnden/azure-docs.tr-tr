@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 6baeb27855381ca03862f2632d31c628a088af39
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 31b18e2dfbad1f572b5c9b0ae59f5e076db7cde2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620623"
+ms.locfileid: "58649297"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Azure Logic apps'te güvenli erişim
 
@@ -156,8 +156,9 @@ Daha fazla yetkilendirme protokolleri mantıksal uygulamanıza eklemek için kul
 
 Yalnızca belirli kullanıcılar veya mantıksal uygulamanızı işlemleri çalıştırma gruplarına izin vermek için yönetmek, düzenleme ve görüntüleme gibi görevleri erişimi kısıtlayabilirsiniz. Logic Apps destekler [Azure rol tabanlı Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md), özelleştirme veya örneğin, aboneliğinizde yerleşik roller üyelerine atayın:
 
-* **Mantıksal uygulama katkıda bulunanı**: Kullanıcılar görüntülemek, düzenlemek ve mantıksal uygulamanızı güncelleştirin. Bu rol, mantıksal uygulamanızı silme veya yönetici işlemleri çalıştırın.
-* **Mantıksal uygulama operatörü**: Kullanıcıların mantıksal uygulamanız ve çalıştırma geçmişini görüntülemek ve etkinleştirebilir veya mantıksal uygulama devre dışı bırakın. Bu rol, düzenlemek veya mantıksal uygulamanızı güncelleştirin.
+* [Mantıksal uygulama katkıda bulunanı](../role-based-access-control/built-in-roles.md#logic-app-contributor): Kullanıcılar görüntülemek, düzenlemek ve mantıksal uygulamanızı güncelleştirin. 
+
+* [Mantıksal uygulama operatörü](../role-based-access-control/built-in-roles.md#logic-app-operator): Kullanıcıların mantıksal uygulamanız ve çalıştırma geçmişini görüntülemek ve etkinleştirebilir veya mantıksal uygulama devre dışı bırakın. Bu rol, düzenlemek veya mantıksal uygulamanızı güncelleştirin.
 
 Mantıksal uygulamanızı silme veya değiştirme diğerlerinden önlemek için kullanabileceğiniz [Azure kaynak kilidi](../azure-resource-manager/resource-group-lock-resources.md). Bu özellik, değiştirme veya silme üretim kaynakları diğerlerinden engellemenize yardımcı olur.
 
@@ -419,7 +420,7 @@ Azure Logic Apps, güvenli ve güvenilir için bu hizmetleri ile tümleştirme �
 
 Azure Logic Apps için birçok yönetilen bağlayıcılar, şirket içi sistemler, dosya sistemi, SQL, SharePoint, DB2 ve diğerleri gibi güvenli bağlantılar sağlar. Ağ geçidi, şifrelenmiş kanallarda Azure Service Bus aracılığıyla şirket içi kaynaklardan verileri gönderir. Tüm trafiği, ağ geçidi aracının giden trafiği güvenli olarak kaynaklanır. Bilgi [şirket içi veri ağ geçidi nasıl çalıştığını](logic-apps-gateway-install.md#gateway-cloud-service).
 
-#### <a name="azure-api-management"></a>Azure API Management
+#### <a name="azure-api-management"></a>Azure API Yönetimi
 
 [Azure API Management](https://azure.microsoft.com/services/api-management/) siteden siteye sanal özel ağ ve ExpressRoute tümleştirme güvenli proxy ve şirket içi sistemler ile iletişim gibi şirket içi bağlantı seçenekleri sunar. Logic Apps Tasarımcısı'nda, şirket içi sistemlere hızlı erişim sağlayarak mantıksal uygulamanızın iş akışından API Management tarafından sunulan bir API seçebilirsiniz.
 

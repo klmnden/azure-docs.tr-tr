@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: aa534ca4fb29237de6377c7225a11f4758f39c55
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 518a9009ad7a3cca13679f9a410fd36dd874261f
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588390"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630779"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Öğretici: İşleme e-postaları ve ekleri Azure Logic Apps ile otomatikleştirme
 
@@ -119,7 +119,7 @@ Sonra, Depolama Gezgini’ni depolama hesabınıza bağlayın.
    > [!TIP]
    > Herhangi bir istem görüntülenmezse Depolama Gezgini araç çubuğunda **Hesap ekle**’yi seçin.
 
-3. **Hesap adı** bölümüne depolama hesabınızın adını girin. **Hesap anahtarı** bölümüne önceden kaydettiğiniz erişim anahtarını girin. **İleri**’yi seçin.
+3. **Hesap adı** bölümüne depolama hesabınızın adını girin. **Hesap anahtarı** bölümüne önceden kaydettiğiniz erişim anahtarını girin. Seçin **sonraki**.
 
 4. Bağlantı bilgilerinizi onaylayın ve ardından **Bağlan**'ı seçin. 
 
@@ -144,6 +144,7 @@ Sonra, gelen e-postadan HTML’yi kaldıran bir [Azure işlevi](../azure-functio
    | **Kaynak Grubu** | LA-Tutorial-RG | Daha önce kullandığınız Azure kaynak grubu | 
    | **Barındırma Planı** | Tüketim Planı | Bu ayar, işlev uygulamanızı çalıştırmak için bilgi işlem gücü gibi kaynakların nasıl ayrılacağını ve ölçekleneceğini belirler. Bkz. [barındırma planları karşılaştırması](../azure-functions/functions-scale.md). | 
    | **Konum** | Batı ABD | Daha önce kullandığınız bölge | 
+   | **Çalışma zamanı yığını** | Tercih edilen dil | Tercih ettiğiniz işlev programlama dilini destekleyen bir çalışma zamanı seçin. .NET için seçin C# ve F# işlevleri. |
    | **Depolama** | cleantextfunctionstorageacct | İşlev uygulamanız için bir depolama hesabı oluşturun. Yalnızca küçük harfleri ve rakamları kullanın. <p>**Not:** Bu depolama hesabı, işlev uygulamalarınızı içerir ve e-posta ekleri için önceden oluşturulmuş depolama hesabınızdan farklılık gösterir. | 
    | **Application Insights** | Kapalı | [Application Insights](../azure-monitor/app/app-insights-overview.md) ile uygulama izlemeyi açar, ancak bu öğretici için **Kapalı** ayarını seçin. | 
    |||| 
@@ -173,7 +174,7 @@ Sonra, gelen e-postadan HTML’yi kaldıran bir [Azure işlevi](../azure-functio
 
 4. **Yeni İşlev** bölmesinin **Ad** alanına ```RemoveHTMLFunction``` girin. **Yetkilendirme düzeyi**'ni **İşlev** olarak bırakın ve **Oluştur**'u seçin.
 
-   ![İşlevinizi adlandırma](./media/tutorial-process-email-attachments-workflow/function-provide-name.png)
+   ![İşlevinizi adlandırın](./media/tutorial-process-email-attachments-workflow/function-provide-name.png)
 
 5. Düzenleyici açıldıktan sonra şablon kodunu bu örnek kodla değiştirin; böylece HTML kaldırılır ve sonuçlar çağırana döndürülür:
 
@@ -600,7 +601,7 @@ Sonra mantıksal uygulamanızın ekleri gözden geçirmek üzere e-posta gönder
 
    Beklenen bir alan dinamik içerik listesinde bulunmuyorsa **Yeni bir e-posta geldiğinde** seçeneğinin yanındaki **Daha fazla göster**’i seçin. 
 
-   | Ayar | Değer | Notlar | 
+   | Ayar | Değer | Notes | 
    | ------- | ----- | ----- | 
    | **Gövde** | ```Please review new applicant:``` <p>```Applicant name: ``` **Kimden** <p>```Application file location: ``` **Yol** <p>```Application email content: ``` **Gövde** | E-posta gövdesinin içeriği. Bu kutunun içine tıklayın, örnek metni girin ve dinamik içerik listesinden şu alanları seçin: <p>- **Yeni bir e-posta geldiğinde** bölümünde **Kimden** alanı </br>- **E-posta gövdesi için blob oluşturma** bölümünde **Yol** alanı </br>- **E-posta gövdesini temizlemek için RemoveHTMLFunction işlevini çağırma** bölümünde **Gövde** alanı | 
    | **Konu**  | ```ASAP - Review applicant for position: ``` **Konu** | Dahil etmek istediğiniz e-posta konusu. Bu kutunun içine tıklayın, örnek metni girin ve dinamik içerik listesinin **Yeni bir e-posta geldiğinde** bölümünde **Konu** alanını seçin. | 

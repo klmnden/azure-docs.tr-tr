@@ -4,7 +4,7 @@ description: Bu makalede, Service Fabric uygulaması dağıtma, kod değiştirme
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 9bc75748-96b0-49ca-8d8a-41fe08398f25
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: bbee63888e3edbd1e8395593ac34009bbe73e87e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3d4634249b0dc2638373383b7a7cea376b98c65a
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880657"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670549"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell kullanarak Service Fabric uygulaması yükseltme
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ En sık kullanılan ve önerilen yükseltme izlenen sıralı yükseltmesini bir 
 
 Service Fabric izlenen sıralı yükseltmeler, uygulama Yöneticisi uygulama sağlıklı olup olmadığını belirlemek için Service Fabric kullanan sistem durumu değerlendirme ilkesi yapılandırabilirsiniz. Ayrıca, yönetici (Otomatik geri alma işlemi yaptığınızda örneğin.) sistem durumu değerlendirmesi başarısız olduğunda gerçekleştirilecek eylemi yapılandırabilir Bu bölümde bir PowerShell kullanan bir SDK örnekleri için izlenen bir yükseltme kılavuzluk eder. 
 
-## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>1. adım: Derleme ve görsel nesneler örneği dağıtma
+## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>1. Adım: Derleme ve görsel nesneler örneği dağıtma
 Derleme ve uygulamayı uygulama projesine sağ tıklayarak yayımlama **VisualObjectsApplication,** seçerek **Yayımla** komutu.  Daha fazla bilgi için [Service Fabric uygulaması yükseltme Öğreticisi](service-fabric-application-upgrade-tutorial.md).  Alternatif olarak, uygulamanızı dağıtmak için PowerShell kullanabilirsiniz.
 
 > [!NOTE]
@@ -48,7 +48,7 @@ Visual Studio projeyi oluşturduktan sonra PowerShell komutu kullanabilirsiniz [
 
 Şimdi, kullanabileceğiniz [Service Fabric Explorer'ı, küme ve uygulamayı görüntülemek için](service-fabric-visualizing-your-cluster.md). Uygulama bir web hizmeti için Internet Explorer'da yazarak gezinilebilir sahip [ http://localhost:8081/visualobjects ](http://localhost:8081/visualobjects) adres çubuğundaki.  Ekranda Dolaşma bazı kayan görsel nesneler görmeniz gerekir.  Ayrıca, kullanabileceğiniz [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) uygulama durumunu denetlemek için.
 
-## <a name="step-2-update-the-visual-objects-sample"></a>2. adım: Görsel nesneler örnek güncelleştirme
+## <a name="step-2-update-the-visual-objects-sample"></a>2. Adım: Görsel nesneler örnek güncelleştirme
 Adım 1'de dağıtılmış sürümle görsel nesneler değil döndürme fark edebilirsiniz. Şimdi bir görsel nesneler burada döndürmek için bu uygulamayı yükseltin.
 
 VisualObjects çözümünde VisualObjects.ActorService projeyi seçin ve StatefulVisualObjectActor.cs dosyasını açın. Bu dosyanın içindeki yöntemine gidin `MoveObject`, açıklama `this.State.Move()`ve açıklama durumundan çıkarın `this.State.Move(true)`. Hizmet yükseltildikten sonra bu değişiklik nesnesini döndürür.

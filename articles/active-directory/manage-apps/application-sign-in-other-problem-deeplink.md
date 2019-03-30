@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3525436c61038d9cdda3a1b1da8e226ab153134f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d7ad6eeba09c81de33b92722992c6762a4b4327c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098262"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649348"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Uygulamaya portalımdaki ayrıntılı bağlantıyı kullanarak oturum açma sorunları
 
@@ -113,7 +113,7 @@ Ayrıca uzantı Chrome ve Firefox için doğrudan bu bağlantıları karşıdan:
 
 Bir uygulamaya ait Azure AD galeri yapılandırmak için yapmanız gerekir:
 
--   [Uygulama Azure AD galeri ekleme](#add-an-application-from-the-Azure-AD-gallery)
+-   [Uygulama Azure AD galeri ekleme](#add-an-application-from-the-azure-ad-gallery)
 
 -   [Parola çoklu oturum açma için uygulamayı yapılandırma](#configure-the-application-for-password-single-sign-on)
 

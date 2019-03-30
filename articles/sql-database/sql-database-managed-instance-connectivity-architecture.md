@@ -4,7 +4,7 @@ description: Bileşenleri doğrudan trafiğe yönetilen örneğe nasıl Azure SQ
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
+ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: c7587b6cb2b4b30e265657b9d3792c9d4acd4428
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f08b22f24dfde41646f56dc1ecd9777f267620ee
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621558"
+ms.locfileid: "58651321"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL veritabanı yönetilen örneği için bağlantı mimarisi 
 
@@ -97,20 +97,21 @@ Yönetilen örnek sanal ağ içinde ayrılmış bir alt ağ içinde dağıtın. 
 
 ### <a name="mandatory-inbound-security-rules"></a>Zorunlu bir gelen güvenlik kuralları
 
-| Ad       |Bağlantı noktası                        |Protokol|Kaynak           |Hedef|Eylem|
+| Ad       |Bağlantı Noktası                        |Protokol|Kaynak           |Varış Adresi|Eylem|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|yönetim  |9000, 9003, 1438, 1440, 1452|TCP     |Herhangi biri              |Herhangi biri        |İzin Ver |
-|mi_subnet   |Herhangi biri                         |Herhangi biri     |MI ALT AĞ        |Herhangi biri        |İzin Ver |
-|health_probe|Herhangi biri                         |Herhangi biri     |AzureLoadBalancer|Herhangi biri        |İzin Ver |
+|yönetim  |9000, 9003, 1438, 1440, 1452|TCP     |Herhangi              |Herhangi        |İzin ver |
+|mi_subnet   |Herhangi                         |Herhangi     |MI ALT AĞ        |Herhangi        |İzin ver |
+|health_probe|Herhangi                         |Herhangi     |AzureLoadBalancer|Herhangi        |İzin ver |
 
 ### <a name="mandatory-outbound-security-rules"></a>Zorunlu giden güvenlik kuralları
 
-| Ad       |Bağlantı noktası          |Protokol|Kaynak           |Hedef|Eylem|
+| Ad       |Bağlantı Noktası          |Protokol|Kaynak           |Varış Adresi|Eylem|
 |------------|--------------|--------|-----------------|-----------|------|
-|yönetim  |80, 443, 12000|TCP     |Herhangi biri              |AzureCloud  |İzin Ver |
-|mi_subnet   |Herhangi biri           |Herhangi biri     |Herhangi biri              |MI ALT *  |İzin Ver |
+|yönetim  |80, 443, 12000|TCP     |Herhangi              |AzureCloud  |İzin ver |
+|mi_subnet   |Herhangi           |Herhangi     |Herhangi              |MI ALT *  |İzin ver |
 
-> 9003, yalnızca bir gelen kuralı 9000, bağlantı noktaları olduğundan emin olmak için bağlantı noktası 80, 443, 12000 1438, 1440, 1452 ve bir giden kuralı. Giriş ve çıkış kuralları her bağlantı için ayrı olarak yapılandırılmışsa, ARM dağıtımları yönetilen örneğini sağlama başarısız olabilir. 
+> [!IMPORTANT]
+> 9003, yalnızca bir gelen kuralı 9000, bağlantı noktaları olduğundan emin olmak için bağlantı noktası 80, 443, 12000 1438, 1440, 1452 ve bir giden kuralı. Giriş ve çıkış kuralları her bağlantı için ayrı olarak yapılandırılmışsa, ARM dağıtımları yönetilen örneğini sağlama başarısız olur. Bu bağlantı noktalarını ayrı kurallarında kullanıyorsanız, dağıtım hata kodu ile başarısız olur `VnetSubnetConflictWithIntendedPolicy`
 
 \* Form 10.x.x.x/y alt ağ için IP adresi aralığı mı alt ifade eder. Bu bilgi, alt ağ özelliklerini Azure portalında bulabilirsiniz.
 
@@ -125,37 +126,37 @@ Yönetilen örnek sanal ağ içinde ayrılmış bir alt ağ içinde dağıtın. 
 |Ad|Adres ön eki|Sonraki atlama|
 |----|--------------|-------|
 |subnet_to_vnetlocal|[mi_subnet]|Sanal ağ|
-|mi-0-5-Next-Hop-internet|0.0.0.0/5|Internet|
-|mı-11-8-nexthop-Internet|11.0.0.0/8|Internet|
-|mı-12-6-nexthop-Internet|12.0.0.0/6|Internet|
-|mı-128-3-nexthop-Internet|128.0.0.0/3|Internet|
-|mı-16-4-nexthop-Internet|16.0.0.0/4|Internet|
-|mı-160-5-nexthop-Internet|160.0.0.0/5|Internet|
-|mı-168-6-nexthop-Internet|168.0.0.0/6|Internet|
-|mı-172-12-nexthop-Internet|172.0.0.0/12|Internet|
-|mi-172-128-9-nexthop-internet|172.128.0.0/9|Internet|
-|mi-172-32-11-nexthop-internet|172.32.0.0/11|Internet|
-|mi-172-64-10-nexthop-internet|172.64.0.0/10|Internet|
-|mı-173-8-nexthop-Internet|173.0.0.0/8|Internet|
-|mı-174-7-nexthop-Internet|174.0.0.0/7|Internet|
-|mı-176-4-nexthop-Internet|176.0.0.0/4|Internet|
-|mi-192-128-11-nexthop-internet|192.128.0.0/11|Internet|
-|mi-192-160-13-nexthop-internet|192.160.0.0/13|Internet|
-|mi-192-169-16-nexthop-internet|192.169.0.0/16|Internet|
-|mi-192-170-15-nexthop-internet|192.170.0.0/15|Internet|
-|mi-192-172-14-nexthop-internet|192.172.0.0/14|Internet|
-|mi-192-176-12-nexthop-internet|192.176.0.0/12|Internet|
-|mi-192-192-10-nexthop-internet|192.192.0.0/10|Internet|
-|mı-192-9-nexthop-Internet|192.0.0.0/9|Internet|
-|mı-193-8-nexthop-Internet|193.0.0.0/8|Internet|
-|mı-194-7-nexthop-Internet|194.0.0.0/7|Internet|
-|mı-196-6-nexthop-Internet|196.0.0.0/6|Internet|
-|mı-200-5-nexthop-Internet|200.0.0.0/5|Internet|
-|mı-208-4-nexthop-Internet|208.0.0.0/4|Internet|
-|mı-224-3-nexthop-Internet|224.0.0.0/3|Internet|
-|mı-32-3-nexthop-Internet|32.0.0.0/3|Internet|
-|mı-64-2-nexthop-Internet|64.0.0.0/2|Internet|
-|mı-8-7-nexthop-Internet|8.0.0.0/7|Internet|
+|mi-0-5-Next-Hop-internet|0.0.0.0/5|İnternet|
+|mı-11-8-nexthop-Internet|11.0.0.0/8|İnternet|
+|mı-12-6-nexthop-Internet|12.0.0.0/6|İnternet|
+|mı-128-3-nexthop-Internet|128.0.0.0/3|İnternet|
+|mı-16-4-nexthop-Internet|16.0.0.0/4|İnternet|
+|mı-160-5-nexthop-Internet|160.0.0.0/5|İnternet|
+|mı-168-6-nexthop-Internet|168.0.0.0/6|İnternet|
+|mı-172-12-nexthop-Internet|172.0.0.0/12|İnternet|
+|mi-172-128-9-nexthop-internet|172.128.0.0/9|İnternet|
+|mi-172-32-11-nexthop-internet|172.32.0.0/11|İnternet|
+|mi-172-64-10-nexthop-internet|172.64.0.0/10|İnternet|
+|mı-173-8-nexthop-Internet|173.0.0.0/8|İnternet|
+|mı-174-7-nexthop-Internet|174.0.0.0/7|İnternet|
+|mı-176-4-nexthop-Internet|176.0.0.0/4|İnternet|
+|mi-192-128-11-nexthop-internet|192.128.0.0/11|İnternet|
+|mi-192-160-13-nexthop-internet|192.160.0.0/13|İnternet|
+|mi-192-169-16-nexthop-internet|192.169.0.0/16|İnternet|
+|mi-192-170-15-nexthop-internet|192.170.0.0/15|İnternet|
+|mi-192-172-14-nexthop-internet|192.172.0.0/14|İnternet|
+|mi-192-176-12-nexthop-internet|192.176.0.0/12|İnternet|
+|mi-192-192-10-nexthop-internet|192.192.0.0/10|İnternet|
+|mı-192-9-nexthop-Internet|192.0.0.0/9|İnternet|
+|mı-193-8-nexthop-Internet|193.0.0.0/8|İnternet|
+|mı-194-7-nexthop-Internet|194.0.0.0/7|İnternet|
+|mı-196-6-nexthop-Internet|196.0.0.0/6|İnternet|
+|mı-200-5-nexthop-Internet|200.0.0.0/5|İnternet|
+|mı-208-4-nexthop-Internet|208.0.0.0/4|İnternet|
+|mı-224-3-nexthop-Internet|224.0.0.0/3|İnternet|
+|mı-32-3-nexthop-Internet|32.0.0.0/3|İnternet|
+|mı-64-2-nexthop-Internet|64.0.0.0/2|İnternet|
+|mı-8-7-nexthop-Internet|8.0.0.0/7|İnternet|
 ||||
 
 Ayrıca, sanal ağ geçidi veya sanal ağ Gereci (NVA) üzerinden bir hedef olarak şirket içi özel IP aralıkları içeren trafiği yönlendirmek için rota tablosu girdileri ekleyebilirsiniz.

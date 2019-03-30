@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: eadbaacd4bb860cd09997775b8d77cbcf0ff17f2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 494c285f1c096a84925d9d9a4fb98409960e5230
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181631"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650107"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Kullanım ayarları ve ilkeleri yapılandırma
 Bu makalede kullanıcıların laboratuvara ekleme, bunları laboratuvarla kayıtlı almak için VM ve daha fazlasını kullanabilirsiniz saat sayısını denetlemek nasıl açıklar. 
@@ -44,14 +44,20 @@ Varsa **erişimi kısıtlama** etkin kullanıcılar (e-posta adresleri) listeye 
 Varsa **erişimi kısıtlama** yalnızca kullanıcılar listesindeki kullanıcıları için laboratuvar kaydetmek için kayıt bağlantısını kullanabilir Laboratuvar için etkinleştirilir. Bu seçenek varsayılan olarak etkindir. 
 
 ### <a name="send-email-to-users"></a>Kullanıcılara e-posta Gönder
+Azure Lab Services, tüm Laboratuvar davet e-posta Öğretmenler veya istemci başka kullanmak zorunda kalmadan, seçilen Öğrenci e-posta. Öğretmenler her Öğrenci veya seçin, bir veya daha fazla Öğrenciler için e-posta simgesini görmek ve kullanmak için tek tek Öğrenci üzerinde listesinde üzerine gelin **Davet Gönder** araç. Bu özellik, kayıt bağlantısı içeren bir e-posta gönderir ve (varsa) bir ileti Öğretmen tarafından eklenir. Davet gönderildikten sonra davet durumu değişir **davet gönderildi** Öğretmenler hangi Öğrenci zaten kayıt bağlantı ve gönderildiği tarih aldığınız izlemek olacak şekilde.
+
 1. Geçiş **kullanıcılar** sayfada zaten kök kullanıcı değilseniz görüntüleyin. 
-2. Belirli veya tüm kullanıcılar listeden seçin. Belirli kullanıcıları seçmek için listedeki ilk sütunda onay kutularını seçin. Tüm kullanıcıları seçmek için ilk sütun başlığının önüne onay kutusunu seçin (**adı**) veya listeden tüm kullanıcılar için tüm onay kutularını seçin.
-3. Seçin **Davet Gönder** araç. Ayrıca, listedeki bir öğrenci adı fareyi üzerine ve e-posta simgesine gönderin. 
+2. Belirli veya tüm kullanıcılar listeden seçin. Belirli kullanıcıları seçmek için listedeki ilk sütunda onay kutularını seçin. Tüm kullanıcıları seçmek için ilk sütun başlığının önüne onay kutusunu seçin (**adı**) veya listeden tüm kullanıcılar için tüm onay kutularını seçin. Durumunu görebilirsiniz **davet durumu** bu listede.  Aşağıdaki görüntüde tüm Öğrenciler için davet durumu ayarlanır **davet gönderilmedi**. 
+
+    ![Öğrencileri seçme](../media/tutorial-setup-classroom-lab/select-students.png)
+1. Seçin **e-posta simgesine (Zarf)** satır (veya) select biriyle **Davet Gönder** araç. Fare, e-posta simgesini görmek için listedeki bir öğrenci adının üzerine de gelebilirsiniz. 
 
     ![Kayıt bağlantıyı e-posta ile gönderin](../media/tutorial-setup-classroom-lab/send-email.png)
 4. Üzerinde **e-posta ile gönderme kayıt bağlantı** sayfasında, aşağıdaki adımları izleyin: 
     1. Türü bir **isteğe bağlı iletisini** Öğrenciler göndermek istediğiniz. E-posta kayıt bağlantıyı otomatik olarak içerir. 
-    2. Üzerinde **e-posta ile gönderme kayıt bağlantı** sayfasında **Gönder**. 
+    2. Üzerinde **e-posta ile gönderme kayıt bağlantı** sayfasında **Gönder**. Davet değiştirerek durumunu görmek **davet gönderiliyor** ve sonra **davet gönderildi**. 
+        
+        ![Davet gönderildi](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
 ## <a name="get-registration-link"></a>Kayıt bağlantı alma
 1. Geçiş **kullanıcılar** görünümü seçerek **kullanıcılar** sol menüsünde. 

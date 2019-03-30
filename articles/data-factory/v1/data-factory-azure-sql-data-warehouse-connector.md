@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 905d084b46919ad945cf44f5517b95d5321ee3de
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dfd0443dafbc4fcc221937f248bf6d2f292b528f
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116207"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651760"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL veri ambarı gelen ve giden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -170,7 +170,7 @@ Kullanarak **[PolyBase](https://docs.microsoft.com/sql/relational-databases/poly
 * Veri kaynağınızı ise **Azure Blob veya Azure Data Lake Store**ve PolyBase ile uyumlu bir biçimi, Azure SQL PolyBase kullanarak veri ambarı için doğrudan kopyalayabilirsiniz. Bkz: **[PolyBase kullanarak doğrudan kopyalama](#direct-copy-using-polybase)** ayrıntılarla.
 * Kaynak veri deposu ve biçim başlangıçta desteklenmiyor, PolyBase ile kullanabileceğiniz **[PolyBase kullanarak kopyalama aşamalı](#staged-copy-using-polybase)** bunun yerine özellik. Ayrıca, daha iyi aktarım hızı tarafından otomatik olarak verileri PolyBase ile uyumlu biçimine dönüştürmek için kullanılan ve Azure Blob Depolama alanında veri depolama sağlar. Ardından verileri SQL veri ambarı'na yükler.
 
-Ayarlama `allowPolyBase` özelliğini **true** Azure Data Factory, PolyBase, Azure SQL veri ambarı'na veri kopyalamak için kullanmak için aşağıdaki örnekte gösterildiği gibi. Bulunan'allowpolybase true olarak ayarlandığında, PolyBase kullanarak belirli özelliklerini belirtebilirsiniz `polyBaseSettings` özellik grubu. bkz: [SqlDWSink](#SqlDWSink) polyBaseSettings ile kullanabileceğiniz özellikleri hakkında ayrıntılar için bölüm.
+Ayarlama `allowPolyBase` özelliğini **true** Azure Data Factory, PolyBase, Azure SQL veri ambarı'na veri kopyalamak için kullanmak için aşağıdaki örnekte gösterildiği gibi. Bulunan'allowpolybase true olarak ayarlandığında, PolyBase kullanarak belirli özelliklerini belirtebilirsiniz `polyBaseSettings` özellik grubu. bkz: [SqlDWSink](#sqldwsink) polyBaseSettings ile kullanabileceğiniz özellikleri hakkında ayrıntılar için bölüm.
 
 ```JSON
 "sink": {

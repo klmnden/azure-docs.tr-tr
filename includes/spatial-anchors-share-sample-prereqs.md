@@ -4,17 +4,21 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 63c145bf20999145d4edb3bb85766e7251360411
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: bd7db1dd5d5fd6e19584e66a9af1523567d593bf
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305345"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58631161"
 ---
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için şunlar sahip olduğunuzdan emin olun:
 
+* Okumak [Azure uzamsal yer işaretleri genel bakış](../articles/spatial-anchors/overview.md).
+* Biri tamamlandı [5 dakikalık hızlı Başlangıçlar](../articles/spatial-anchors/index.yml).
+* Hakkında temel bilgilere C# ve Unity.
+* Hakkında temel bilgilere <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> Android kullanmak istiyorsanız veya <a href="https://developer.apple.com/arkit/" target="_blank">ARKit</a> iOS kullanmak istiyorsanız.
 * Bir Windows bilgisayarda <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> veya üzeri ile yüklü **ASP.NET ve web geliştirme** iş yükü.
 * [.NET Core SDK'sını 2.2](https://dotnet.microsoft.com/download).
 * Bir veya daha fazla cihazları (iOS veya Android) dağıtın ve uygulamayı çalıştırın.
@@ -25,3 +29,5 @@ Bu öğreticiyi tamamlamak için şunlar sahip olduğunuzdan emin olun:
     * Bir macOS bilgisayara <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a> ya da sonraki <a href="https://cocoapods.org" target="_blank">CocoaPods</a>, ve <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> veya üzeri yüklü.
     * Geliştirici özellikli <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit uyumlu</a> iOS cihaz.
     * Homebrew yüklü Git. Tek bir satırda terminalde aşağıdaki komutu girin: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` Ardından çalıştırın `brew install git`.
+
+

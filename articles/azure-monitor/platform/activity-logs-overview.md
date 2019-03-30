@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: fb3ed970b7f92e1cc06a9d1023e01f5888915e94
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 94465e95dbf5f2eb381c124349bf8fda6622a6c2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088681"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650300"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 
@@ -35,7 +35,6 @@ Azure portalı, CLI, PowerShell cmdlet'lerini kullanarak, etkinlik günlüğünd
 > [!NOTE]
 > [Yeni uyarılarda](../../azure-monitor/platform/alerts-overview.md) oluşturma ve yönetme etkinlik günlük uyarısı kuralları Gelişmiş bir deneyim sunar.  [Daha fazla bilgi edinin](../../azure-monitor/platform/alerts-activity-log.md).
 
-
 ## <a name="categories-in-the-activity-log"></a>Etkinlik günlüğünde kategorileri
 Etkinlik günlüğü birkaç veri kategorilerini içerir. Bu kategorilerin şemaların ilgili tam Ayrıntılar için [bu makaleye bakın](../../azure-monitor/platform/activity-log-schema.md). Bunlar:
 * **Yönetim** -Bu kategoride tüm kaydı oluşturma, güncelleştirme, silme ve eylem işlemlerine Resource Manager aracılığıyla gerçekleştirilir. Görmek Bu kategoride olay türlerini örnekleri arasında "sanal makine oluşturma" ve "bir kullanıcı ya da Resource Manager kullanarak uygulama tarafından gerçekleştirilen her eylemi modellenmiş bir işlemi belirli bir kaynak türü olarak ağ güvenlik grubunu sil". İşlem türü, yazma, silme veya eylem ise, hem Başlangıç hem de başarılı kayıtlar veya bu işlemin başarısız yönetim kategorisi kaydedilir. Yönetim kategorisi, bir abonelikte rol tabanlı erişim denetimi değişiklikleri de içerir.
@@ -48,9 +47,11 @@ Etkinlik günlüğü birkaç veri kategorilerini içerir. Bu kategorilerin şema
 * **İlke** -işlemlerinin Azure İlkesi tarafından gerçekleştirilen tüm etkin eylem kayıtları bu kategorisi içerir. Bu kategoride göreceğiniz olay türlerini denetim ve reddetme verilebilir. İlke tarafından gerçekleştirilen her eylemi, bir kaynak üzerinde bir işlem olarak modellenir.
 
 ## <a name="event-schema-per-category"></a>Kategori başına olay şeması
+
 [Kategori başına etkinlik günlüğü olay şeması anlamak için bu makaleye bakın.](../../azure-monitor/platform/activity-log-schema.md)
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>Etkinlik günlüğü ile yapabilecekleriniz
+
 Etkinlik günlüğü ile yapabileceğiniz çok şey bazıları şunlardır:
 
 ![Azure Etkinlik günlüğü](./media/activity-logs-overview/Activity_Log_Overview_v3.png)
@@ -58,12 +59,13 @@ Etkinlik günlüğü ile yapabileceğiniz çok şey bazıları şunlardır:
 
 * Sorgulamak ve içinde görüntüleyebilir **Azure portalında**.
 * [Bir etkinlik günlüğü olayında uyarı oluşturun.](../../azure-monitor/platform/activity-log-alerts.md)
-* [Kendisine Stream bir **olay hub'ı** ](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) alımı üçüncü taraf hizmeti veya Power BI gibi özel bir analiz çözümü için.
+* [Kendisine Stream bir **olay hub'ı** ](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) alımı bir üçüncü taraf hizmeti veya Power BI gibi özel bir analiz çözümü için.
 * Power BI kullanarak Analiz [ **Power BI içerik paketi**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Kaydetmesi bir **depolama hesabı** arşivleme veya el ile İnceleme](../../azure-monitor/platform/archive-activity-log.md). Bekletme süresi (gün cinsinden) kullanarak belirtebilirsiniz **günlük profilini**.
 * PowerShell cmdlet'i, CLI veya REST API sorgulayın.
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Azure portalında etkinlik günlüğü sorgulama
+
 Azure portalının içinde çeşitli yerlerde, etkinlik günlüğü görüntüleyebilirsiniz:
 * **Etkinlik günlüğü** etkinlik günlüğü altında arayarak erişebileceğiniz **tüm hizmetleri** sol taraftaki gezinti bölmesinde.
 * **İzleyici** varsayılan sol taraftaki gezinti bölmesinde görünür. Etkinlik günlüğü Azure İzleyici bölümüdür.
@@ -86,6 +88,7 @@ Bir filtre kümesi tanımlandıktan sonra bir sorgu her zaman belirli olayları 
 Daha fazla güç için tıklayabilirsiniz **günlükleri** etkinlik günlüğü verilerinizi gösteren bir simge [toplayıp analiz etkinlik günlükleri çözümü](../../azure-monitor/platform/collect-activity-logs.md). Etkinlik günlüğü dikey penceresi, günlükleri, ancak Özet için sorgu ve daha güçlü şekilde görselleştirin Azure İzleyici günlükleri özelliğini etkinleştirir temel filtreleme/göz atma deneyimi sunar.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Günlük profilini ile Etkinlik günlüğünü dışarı aktarma
+
 A **günlük profilini** etkinlik günlüğünüzü nasıl verilir denetimleri. Günlük profilini kullanarak, aşağıdakileri yapılandırabilirsiniz:
 
 * Etkinlik günlüğü'nü (depolama hesabına veya olay hub'ları) nereye gönderileceğini
@@ -102,13 +105,14 @@ Günlükleri yayan bir aynı abonelikte değil bir depolama hesabına veya olay 
 >  Verileri güvenli bir sanal ağda olduğu bir depolama hesabına şu anda arşivlenemiyor.
 
 > [!WARNING]
-> 1 Kasım 2018'de JSON satırlarına değiştirildi depolama hesabında günlük veri biçimi. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> 1 Kasım 2018'de JSON satırlarına değiştirildi depolama hesabında günlük veri biçimi. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
 >
-> 
+>
 
 Bu ayarlar, portalda etkinlik günlüğü dikey penceresindeki "Export" seçeneği aracılığıyla yapılandırılabilir. Bunlar aynı zamanda program aracılığıyla yapılandırılabilir [Azure İzleyici REST API'sini kullanarak](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlet'leri veya CLI. Bir abonelikte yalnızca tek bir günlük profili olabilir.
 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Azure portalını kullanarak günlük profillerini yapılandırma
+
 Etkinlik günlüğü olay Hub'ına akış ya da Azure portalında "Dışarı aktarmak için Event Hub" seçeneğini kullanarak bir depolama hesabında depolayın.
 
 1. Gidin **etkinlik günlüğü** portalın sol tarafındaki menüyü kullanarak.
@@ -117,7 +121,7 @@ Etkinlik günlüğü olay Hub'ına akış ya da Azure portalında "Dışarı akt
 2. Tıklayın **dışarı aktarma, olay Hub'ına** dikey penceresinin üstünde düğme.
 
     ![Portal, Dışarı Aktar](./media/activity-logs-overview/activity-logs-portal-export-v2.png)
-3. Görüntülenen dikey penceresinde şunları seçebilirsiniz:  
+3. Görüntülenen dikey penceresinde şunları seçebilirsiniz:
    * olayları dışarı aktarmak istediğiniz bölgeleri
    * olayları kaydetmek istediğiniz depolama hesabı
    * Bu olaylar depolamadaki saklamak istediğiniz gün sayısı. 0 gün ayarı günlükler süresiz korur.
@@ -132,13 +136,13 @@ Etkinlik günlüğü olay Hub'ına akış ya da Azure portalında "Dışarı akt
 
 #### <a name="get-existing-log-profile"></a>Var olan günlük profilini Al
 
-```
+```powershell
 Get-AzLogProfile
 ```
 
 #### <a name="add-a-log-profile"></a>Günlük profilini ekleyin
 
-```
+```powershell
 Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
@@ -152,7 +156,8 @@ Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resour
 | Kategori |Hayır |Virgülle ayrılmış liste toplanması gereken olay kategorileri. Olası değerler şunlardır: yazma, silme ve eylem. |
 
 #### <a name="remove-a-log-profile"></a>Günlük profilini Kaldır
-```
+
+```powershell
 Remove-AzLogProfile -name my_log_profile
 ```
 
@@ -185,6 +190,6 @@ az monitor log-profiles delete --name <profile name>
 ```
 
 ## <a name="next-steps"></a>Sonraki Adımlar
+
 * [Etkinlik günlüğü'nü (eski adıyla denetim günlükleri) hakkında daha fazla bilgi edinin](../../azure-resource-manager/resource-group-audit.md)
 * [Azure etkinlik günlüğünün Event Hubs'a Stream](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-

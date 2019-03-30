@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 98eb2574ab427f2d5727d74a077628d3a7f829bc
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 213b227c4ab3f97d9f8787f4e84348e36c43a6e6
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311470"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630499"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Hızlı Başlangıç: Görüntü işleme REST API'si ve Java kullanarak uzak bir resmi çözümleme
 
@@ -57,8 +57,6 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
    1. `subscriptionKey` değerini abonelik anahtarınızla değiştirin.
    1. Gerekirse `uriBase` değerini [Görüntü Analizi](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) yönteminin abonelik anahtarlarınızı aldığınız Azure bölgesinden uç nokta URL'si ile değiştirin.
    1. İsteğe bağlı olarak `imageToAnalyze` değerini, analiz etmek istediğiniz başka bir görüntünün URL’si ile değiştirin.
-1. Kaydedin, ardından Java projesini derleyin.
-1. Bir IDE kullanıyorsanız, `Main` yöntemini çalıştırın. Kullanmıyorsanız, bir komut istemi penceresi açın ve ardından derlenmiş sınıfı çalıştırmak için `java` komutunu kullanın. Örneğin, `java Main`.
 
 ```java
 public class Main {
@@ -125,6 +123,25 @@ public class Main {
     }
 }
 ```
+
+## <a name="compile-and-run-the-program"></a>Programı derleme ve çalıştırma
+
+1. Kaydedin, ardından Java projesini derleyin.
+1. Bir IDE kullanıyorsanız, `Main` yöntemini çalıştırın.
+
+Alternatif olarak, bir komut satırı penceresinde program çalıştırıyorsanız, aşağıdaki komutları çalıştırın. Bu komutlar Kitaplıklarınızı olan adlı bir klasörde varsayın `libs` aynı klasörde olan `Main.java`; değilse, değiştirin gerekir `libs` Kitaplıklarınızı yoluyla.
+
+1. Dosyanın derleme `Main.java`.
+
+    ```bash
+    javac -cp ".;libs/*" Main.java
+    ```
+
+1. Programı çalıştırın. Soru-Cevap Oluşturma API'sine KB oluşturma isteği gönderir ve 30 saniyede bir sonucu yoklar. Her yanıt için komut satırı penceresinde yazdırılır.
+
+    ```bash
+    java -cp ".;libs/*" Main
+    ```
 
 ## <a name="examine-the-response"></a>Yanıtı inceleme
 

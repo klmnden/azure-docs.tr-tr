@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 245683ec6c3c2d25f362e035020e162af75e1627
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ec06b25954d25c27cd7606f2f47aa93ef6d54244
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169930"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650402"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory Geliştirici sözlüğü
 
@@ -156,7 +156,7 @@ Kaynak sunucuda API'lerini kullanıma sunar ve kendi korumalı kaynaklara erişi
 
 Yalnızca bir istemci uygulaması gibi kaynak uygulamanın kimlik yapılandırması aracılığıyla kurulur [kayıt](#application-registration) bir Azure AD kiracısında uygulama ve hizmet sorumlusu nesnesi sağlar. Bazı Microsoft tarafından sağlanan API'leri, Azure AD Graph API'si gibi tüm kiracılar sağlama sırasında sunulan hizmet sorumluları önceden kayıtlı.
 
-## <a name="roles"></a>roles
+## <a name="roles"></a>rol
 
 Gibi [kapsamları](#scopes), roller, bir yol sağlar bir [kaynak sunucusu](#resource-server) kendi korumalı kaynaklara erişimi yönetmek için. İki tür vardır: bir "kullanıcı" rolü "uygulama" rolü için aynı uygular kaynak erişim gerektiren kullanıcılar/gruplar için rol tabanlı erişim denetimi uygular [istemci uygulamaları](#client-application) erişimi gerektirir.
 
@@ -204,7 +204,7 @@ Azure ve Office 365 abonelikleri ile oluşturulan/ilişkili kayıt, sağlama kim
 
 ## <a name="token-endpoint"></a>belirteç uç noktası
 
-Uygulayan uç noktalardan biri [yetkilendirme sunucusu](#authorization-server) destek OAuth2 [yetkilendirme vermeleri](#authorization-grant). Grant bağlı olarak, bu almak için kullanılabilir bir [erişim belirteci](#access-token) (ve ilgili "Yenile" belirteci) için bir [istemci](#client-application), veya [kimlik belirteci](#ID-token) ile kullanıldığında [Openıd Connect] [ OpenIDConnect] protokolü.
+Uygulayan uç noktalardan biri [yetkilendirme sunucusu](#authorization-server) destek OAuth2 [yetkilendirme vermeleri](#authorization-grant). Grant bağlı olarak, bu almak için kullanılabilir bir [erişim belirteci](#access-token) (ve ilgili "Yenile" belirteci) için bir [istemci](#client-application), veya [kimlik belirteci](#id-token) ile kullanıldığında [Openıd Connect] [ OpenIDConnect] protokolü.
 
 ## <a name="user-agent-based-client"></a>İstemci kullanıcı aracısı tabanlı
 

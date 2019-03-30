@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics ile SQL Server ortamınızın en iyi duruma getirme | Microsoft Docs
-description: Azure Log Analytics ile SQL sistem durumu denetimi çözümü, düzenli aralıklarla, ortamlarının sistem durumunu ve riskini değerlendirmek için kullanabilirsiniz.
+title: Azure İzleyici ile SQL Server ortamınızın en iyi duruma getirme | Microsoft Docs
+description: Azure İzleyici ile SQL sistem durumu denetimi çözümü, düzenli aralıklarla, ortamlarının sistem durumunu ve riskini değerlendirmek için kullanabilirsiniz.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 03/28/2019
 ms.author: magoedte
-ms.openlocfilehash: e8c06f0a3a33133c7b1595db52204d15b03d6aab
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 94b23bc29c3c986e6a0cd74e0805b5d47ce35849
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372480"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629116"
 ---
-# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Log analytics'te SQL Server sistem durumu denetimi çözümü SQL ortamınızla en iyi duruma getirme
+# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Azure İzleyici'de SQL Server sistem durumu denetimi çözümü SQL ortamınızla en iyi duruma getirme
 
 ![SQL sistem durumunu denetleme simgesi](./media/sql-assessment/sql-assessment-symbol.png)
 
@@ -40,24 +40,24 @@ Yapılan öneriler bilgi ve müşteri binlerce Microsoft mühendisinin göre kaz
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* SQL sistem durumu denetimi çözümü, Microsoft Monitoring Agent (yüklenmiş MMA) olan her bilgisayarda yüklü .NET Framework 4'ün desteklenen bir sürümünü gerektirir.  MMA aracısını, System Center 2016 - Operations Manager ve Operations Manager 2012 R2 ve Log Analytics hizmeti tarafından kullanılır.  
+* SQL sistem durumu denetimi çözümü, Microsoft Monitoring Agent (yüklenmiş MMA) olan her bilgisayarda yüklü .NET Framework 4'ün desteklenen bir sürümünü gerektirir.  MMA aracısını, System Center 2016 - Operations Manager ve Operations Manager 2012 R2 ve Azure İzleyici tarafından kullanılır.  
 * Çözüm, SQL Server 2012, 2014 ve 2016 sürümü destekler.
 * Azure portalında Azure Market'ten SQL sistem durumu denetimi çözümü eklemek için bir Log Analytics çalışma alanı.  Çözümü yüklemek için yönetici veya Azure aboneliğinde katkıda bulunan olması gerekir.
 
   > [!NOTE]
-  > Çözüm ekledikten sonra aracılar sunucularıyla AdvisorAssessment.exe dosyası eklenir. Yapılandırma verilerini okuyun ve sonra işleme için buluttaki Log Analytics hizmetine gönderilir. Mantıksal alınan verilere uygulanır ve bulut hizmeti olan verileri kaydeder.
+  > Çözüm ekledikten sonra aracılar sunucularıyla AdvisorAssessment.exe dosyası eklenir. Yapılandırma verilerini okuyun ve ardından Azure İzleyici bulutta işleme için gönderilen. Mantıksal alınan verilere uygulanır ve bulut hizmeti olan verileri kaydeder.
   >
   >
 
-SQL Server sunucularda sistem durumu denetimi gerçekleştirmek için bunlar bir aracı ve aşağıdaki desteklenen yöntemlerden birini kullanarak Log analytics'e bağlantı gerektirir:
+SQL Server sunucularda sistem durumu denetimi gerçekleştirmek için bunlar bir aracı ve Azure İzleyici'de aşağıdaki desteklenen yöntemlerden birini kullanarak bağlantı gerektirir:
 
 1. Yükleme [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) sunucusu zaten System Center 2016 - Operations Manager veya Operations Manager 2012 R2 tarafından izlenen değil ise.
-2. System Center 2016 - Operations Manager veya Operations Manager 2012 R2 ile izlenir ve yönetim grubunu Log Analytics hizmeti ile tümleşik olmayan, sunucu verileri toplamak ve hala Hizmeti'ne iletmek için Log Analytics ile birden çok girişli olabilir Operations Manager tarafından izlenecek.  
+2. System Center 2016 - Operations Manager veya Operations Manager 2012 R2 ile izlenir ve yönetim grubu, Azure İzleyici ile tümleşiktir değil, sunucu verileri toplamak ve yine de hizmete iletmek için Log Analytics ile birden çok girişli olabilir Operations Manager tarafından izlenen.  
 3. Operations Manager yönetim grubunuzun hizmeti ile tümleşikse, aksi takdirde, etki alanı denetleyicileri için veri toplama altındaki adımları izleyerek hizmet eklemek ihtiyacınız [aracıyla yönetilen bilgisayarlar ekleme](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) seçeneğini etkinleştirdikten sonra çalışma alanınızda çözümün.  
 
-SQL sunucunuzda bir Operations Manager yönetim grubu için hangi raporların verileri toplar aracı kendi atanan yönetim sunucusuna gönderir ve ardından yönetim sunucusundan doğrudan Log Analytics hizmetine gönderilir.  Operations Manager veritabanları için veriler yazılmaz.  
+Aracı SQL sunucunuzda bir Operations Manager yönetim grubu için hangi raporların verileri toplayan kendi atanan yönetim sunucusuna iletir ve doğrudan yönetim sunucusundan Azure İzleyicisi'ne gönderilir.  Operations Manager veritabanları için veriler yazılmaz.  
 
-SQL Server Operations Manager tarafından izleniyorsa, bir Operations Manager farklı çalıştır hesabı yapılandırmanız gerekir. Bkz: [Operations Manager farklı çalıştırma hesapları için Log Analytics](#operations-manager-run-as-accounts-for-log-analytics) aşağıda daha fazla bilgi için.
+SQL Server Operations Manager tarafından izleniyorsa, bir Operations Manager farklı çalıştır hesabı yapılandırmanız gerekir. Bkz: [Operations Manager farklı çalıştırma hesapları için Azure İzleyici](#operations-manager-run-as-accounts-for-log-analytics) aşağıda daha fazla bilgi için.
 
 ## <a name="sql-health-check-data-collection-details"></a>Veri koleksiyonu ayrıntıları SQL sistem durumunu denetle
 SQL sistem durumu denetimi veri etkinleştirdiğiniz aracısını kullanarak aşağıdaki kaynaklardan toplar:
@@ -157,43 +157,37 @@ Olmayabilir. Öneriler bilgi ve müşteri binlerce Microsoft mühendisleri taraf
 Her öneri neden önemli olduğu ile ilgili yönergeler içerir. Öneri uygulandıktan verilen BT hizmetlerinizin doğasını ve kuruluşunuzun iş gereksinimlerini, sizin için uygun olup olmadığını değerlendirmek için bu yönergeleri kullanmanız gerekir.
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Sistem durumu denetimi odak alanı önerileri kullanın
-Log Analytics'te değerlendirme çözümünü kullanmadan önce çözümü yüklenmiş olması gerekir.  Yüklendikten sonra çözüm sayfasında Azure Portalı'ndaki SQL sistem durumu denetimi kutucuk kullanarak önerileri özetini görüntüleyebilirsiniz.
+Azure İzleyici'de bir değerlendirme çözümü kullanabilmeniz için önce çözümü yüklenmiş olmalıdır.  Yüklendikten sonra SQL sistem durumu denetimi kutucuk kullanarak önerileri özetini görüntüleyebilirsiniz **genel bakış** Azure portalında Azure İzleyici sayfası.
 
 Altyapınız ve ardından-ayrıntıya önerileri için Özet uyumluluk değerlendirmesi görüntüleyin.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Odak alanı için önerileri görüntüleme ve düzeltme eylemi
 1. [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
-2. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
-3. Log Analytics abonelikleri bölmesinde, bir çalışma alanı seçin ve ardından **genel bakış** Döşe.  
+2. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **İzleyici** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **İzleyici**'yi seçin.
+3. İçinde **Insights** menüsünde, select bölümünü **daha fazla**.  
 4. Üzerinde **genel bakış** sayfasında **SQL sistem durumu denetimi** Döşe.
 5. Üzerinde **sistem durumu denetimi** sayfasında odak alanı dikey pencereleri biriyle özet bilgilerini gözden geçirin ve ardından bu odak alanı için önerileri görmek için tıklatın.
 6. Herhangi bir odak alanı sayfalar üzerinde ortamınız için yapılan Önceliklendirilmiş öneriler görüntüleyebilirsiniz. Altında bir öneriye tıklayabilir **etkilenen nesneler** öneri neden yapılır hakkında ayrıntılı bilgi görüntülemek için.<br><br> ![SQL sistem durumu denetimi önerileri görüntüsü](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. Önerilen düzeltici eylemleri gerçekleştirebilirsiniz **önerilen eylemleri**. Öğe ele alındığında, önerilen eylemlerin yapıldığını ve uyumluluk puanınız artıracaktır sonraki değerlendirmeler kaydeder. Düzeltilen öğeler görünür olarak **geçirilen nesneleri**.
 
 ## <a name="ignore-recommendations"></a>Öneriler yoksay
-Yok saymak için istediğiniz önerilerini varsa, Log Analytics, öneriler, değerlendirme sonuçlarında görüntülenmesini önlemek için kullanacağı bir metin dosyası oluşturabilirsiniz.
+Yok saymak için istediğiniz önerilerini varsa, Azure İzleyici, öneriler, değerlendirme sonuçlarında görüntülenmesini önlemek için kullanacağı bir metin dosyası oluşturabilirsiniz.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Göz ardı eder önerileri tanımlamak için
-1. Log Analytics çalışma sayfasında seçilen çalışma alanınız için Azure portalında **günlük araması** Döşe.
+1. Azure İzleyici menüden **günlükleri**.
 2. Ortamınızdaki bilgisayarları için başarısız olan liste öneriler için aşağıdaki sorguyu kullanın.
 
     ```
-    Type=SQLAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-
-    >[!NOTE]
-    > Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](../../azure-monitor/log-query/log-query-overview.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
-    >
-    > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
-
-    Günlük araması sorgusuna gösteren ekran görüntüsü aşağıda verilmiştir:<br><br> ![başarısız önerileri](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
+    Günlük sorgusu gösteren ekran görüntüsü aşağıda verilmiştir:<br><br> ![başarısız önerileri](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
 
 3. Yok saymak için istediğiniz önerilerini seçin. Sonraki yordamda Recommendationıd için değerleri kullanacaksınız.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Oluşturma ve bir IgnoreRecommendations.txt metin dosyası kullanma
 1. IgnoreRecommendations.txt adlı bir dosya oluşturun.
-2. Yapıştırın veya ayrı bir satıra yoksay ve sonra dosyayı kaydedip kapatın için Log Analytics'i istediğiniz her bir öneri için her Recommendationıd yazın.
-3. Dosya, aşağıdaki klasörde, önerileri yok saymak için Log Analytics istediğiniz her bilgisayara yerleştirin.
+2. Yapıştırın veya Azure İzleyici'nın ayrı bir satıra yoksay ve sonra dosyayı kaydedip kapatın istediğiniz her bir öneri için her Recommendationıd yazın.
+3. Dosya, aşağıdaki klasörde, önerileri yok saymak için Azure İzleyici istediğiniz her bilgisayara yerleştirin.
    * Bilgisayarlarda Microsoft izleme (doğrudan veya Operations Manager üzerinden bağlı) aracısı ile - *SystemDrive*: \Program Monitoring Agent\Agent
    * Operations Manager yönetim sunucusunda - *SystemDrive*: \Program System Center 2012 R2\Operations Manager\Server
    * Operations Manager 2016 yönetim sunucusunda - *SystemDrive*: \Program System Center 2016\Operations Manager\Server
@@ -203,14 +197,8 @@ Yok saymak için istediğiniz önerilerini varsa, Log Analytics, öneriler, değ
 2. Yoksayılan tüm önerilere listelemek için aşağıdaki günlük arama sorgularını kullanabilirsiniz.
 
     ```
-    Type=SQLAssessmentRecommendation RecommendationResult=Ignored | select Computer, RecommendationId, Recommendation | sort Computer
+    SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-
-    >[!NOTE]
-    > Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](../../azure-monitor/log-query/log-query-overview.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
-    >
-    > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
-
 3. Daha sonra yoksayılan önerileri görmek istediğinize karar verirseniz, IgnoreRecommendations.txt dosyaları kaldırın veya bunları RecommendationIDs kaldırabilirsiniz.
 
 ## <a name="sql-health-check-solution-faq"></a>SQL sistem durumu denetimi çözümü ile ilgili SSS
@@ -263,4 +251,4 @@ Yok saymak için istediğiniz önerilerini varsa, Log Analytics, öneriler, değ
 * Evet, bkz: [önerileri yoksay](#ignore-recommendations) yukarıdaki bölümde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Arama günlüklerini](../../azure-monitor/log-query/log-query-overview.md) ayrıntılı veri SQL sistem durumunu denetleyin ve önerileri çözümleme hakkında bilgi edinmek için.
+* [Oturum sorguları](../log-query/log-query-overview.md) ayrıntılı veri SQL sistem durumunu denetleyin ve önerileri çözümleme hakkında bilgi edinmek için.

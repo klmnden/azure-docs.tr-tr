@@ -4,15 +4,15 @@ description: Azure Site Recovery kullanarak başka bir Azure bölgesine olağan�
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 03/18/2019
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 2c1890570f153de68d187c37dc0a7bca156c2d47
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 66d57677b216130316c6a3ddd9a6cff993540808
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312062"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649892"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Sık sorulan sorular: Azure'dan Azure'a çoğaltma
 
@@ -34,6 +34,9 @@ Evet, Azure Site Recovery korunan bir örnek için ilk 31 gün boyunca ücretsiz
 3. [Azure Vm'leri için olağanüstü durum kurtarmayı ayarlayın](azure-to-azure-how-to-enable-replication.md)
 4. [Yük devretme testi çalıştırma](azure-to-azure-tutorial-dr-drill.md)
 5. [Yük devretme ve birincil bölgeye geri döndürme](azure-to-azure-tutorial-failover-failback.md)
+
+### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>Kapasite hedef bölgede Azure Vm'leri için nasıl sağlanır?
+Azure Site Recovery (ASR) takım yeterli altyapı kapasiteyi planlamak üzere Azure kapasitesine yönetim ekibi ile çalışır, Vm'leri için olağanüstü durum tarafından ASR korumalı emin olmak için girişiminde kurtarma başarıyla olağanüstü durum kurtarma (DR) bölgede dağıtılacağı, ASR yük devretme işlemlerini ne zaman başlatılır.
 
 ## <a name="replication"></a>Çoğaltma
 
@@ -79,7 +82,7 @@ Kurtarma noktası bekletme geçmişine ve uygulamayla tutarlı anlık görüntü
 [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings).
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>Kilitlenmeyle tutarlı kurtarma noktası nedir?
-Kilitlenmeyle tutarlı kurtarma noktası, sanki VM kilitlenmesi veya güç kablosunu sunucudan anlık görüntünün alındığı zaman çekilmiştir diskteki verileri temsil eder. Bellek anlık görüntü alındığında olan herhangi bir şey içermez. 
+Kilitlenmeyle tutarlı kurtarma noktası, sanki VM kilitlenmesi veya güç kablosunu sunucudan anlık görüntünün alındığı zaman çekilmiştir diskteki verileri temsil eder. Bellek anlık görüntü alındığında olan herhangi bir şey içermez.
 
 Bugün, çoğu uygulama iyi kilitlenme ile tutarlı anlık görüntülerden kurtarabilirsiniz. Kilitlenmeyle tutarlı kurtarma noktası yeterince genellikle no-veritabanı işletim sistemleri ve dosya sunucuları, DHCP sunucuları ve yazdırma sunucuları gibi uygulamalar içindir.
 
@@ -87,9 +90,7 @@ Bugün, çoğu uygulama iyi kilitlenme ile tutarlı anlık görüntülerden kurt
 Site Recovery, her 5 dakikada bir kilitlenme ile tutarlı kurtarma noktası oluşturur.
 
 ### <a name="what-is-an-application-consistent-recovery-point"></a>Uygulamayla tutarlı kurtarma noktası nedir? 
-Uygulamayla tutarlı kurtarma noktaları, uygulamayla tutarlı anlık görüntülerden oluşturulur. Uygulamayla tutarlı kurtarma noktaları, bellekteki tüm verileri ve tüm işlemleri ile kilitlenme ile tutarlı anlık görüntüler aynı verileri yakalayın. 
-
-Ek içeriklerini nedeniyle uygulamayla tutarlı anlık görüntüleri en ilgili ve tanımladığımız gerçekleştirmek için gerçekleştirin. Veritabanı işletim sistemleri ve SQL Server gibi uygulamalar için uygulamayla tutarlı kurtarma noktalarını öneririz.
+Uygulamayla tutarlı kurtarma noktaları, uygulamayla tutarlı anlık görüntülerden oluşturulur. Uygulamayla tutarlı kurtarma noktaları, bellekteki tüm verileri ve tüm işlemleri ile kilitlenme ile tutarlı anlık görüntüler aynı verileri yakalayın. Ek içeriklerini nedeniyle uygulamayla tutarlı anlık görüntüleri en ilgili ve tanımladığımız gerçekleştirmek için gerçekleştirin. Veritabanı işletim sistemleri ve SQL Server gibi uygulamalar için uygulamayla tutarlı kurtarma noktalarını öneririz.
 
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Uygulamayla tutarlı kurtarma noktası uygulama performansı üzerindeki etkisi nedir?
 Uygulamayla tutarlı kurtarma noktalarını yakalar tüm verileri bellek içinde ve işlem dikkate framework sessiz moda alın, uygulama için windows VSS gibi gerektirir. Bu, çok sık yapıldığında olabilir performans etkisi iş yükü çok meşgul ise. Genellikle düşük sıklık düzeyi veritabanı olmayan iş yükleri için ve veritabanı iş yükü için bile uygulama ile tutarlı kurtarma noktaları için 1 saat kullanmayı düşürebilmek önerilir. 
@@ -116,8 +117,8 @@ Kullanabileceğiniz en eski kurtarma noktası değer 72 saattir.
 ### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>Bir çoğaltma ilkesi 24 saat ve bir sorun varsa ne olacağını 24 saatten fazla bir süre için Site Recovery oluşturma kurtarma noktalarından önler? Önceki kurtarma noktalarıma kaybolacak?
 Hayır, Site Recovery, önceki tüm kurtarma noktalarını tutar. Yalnızca yeni noktaları nesil ise kurtarma noktası bekletme penceresi sırasında bağlı olarak, 24 saat bu durumda, Site Recovery eski noktasını değiştirir. Bu durumda, bazı sorun nedeniyle oluşturulan tüm yeni kurtarma noktası olmayacağından biz bekletme penceresi ulaştıktan sonra tüm eski noktalarını değişmeden olarak kalır.
 
-### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Bir VM üzerinde çoğaltmayı etkinleştirdikten sonra çoğaltma ilkesi nasıl değiştirebilirim? 
-Git **Site kurtarma kasası** > **Site Recovery altyapısı** > **çoğaltma ilkeleri**. Düzenle ve değişiklikleri kaydetmek istediğiniz ilkeyi seçin. Herhangi bir değişiklik var olan tüm çoğaltmalar için de geçerlidir. 
+### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Bir VM üzerinde çoğaltmayı etkinleştirdikten sonra çoğaltma ilkesi nasıl değiştirebilirim?
+Git **Site kurtarma kasası** > **Site Recovery altyapısı** > **çoğaltma ilkeleri**. Düzenle ve değişiklikleri kaydetmek istediğiniz ilkeyi seçin. Herhangi bir değişiklik var olan tüm çoğaltmalar için de geçerlidir.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>Tüm kurtarma noktalarını VM ya da bir fark tam bir kopyasını misiniz?
 Oluşturulan ilk kurtarma noktasını tam kopya vardır. Art arda gelen kurtarma noktalarını delta değişiklikler var.
@@ -125,7 +126,7 @@ Oluşturulan ilk kurtarma noktasını tam kopya vardır. Art arda gelen kurtarma
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>Kurtarma noktalarının saklama süresini artırmak depolama maliyeti mu?
 Evet. 24 saatten saklama süresini 72 saate artırmak istiyorsanız, Site Recovery kurtarma noktaları için ek bir 48 saat kaydedin. Eklenen süre depolama ücreti uygulanacaktır. Örneğin, bir tek bir kurtarma noktası değişiklikleri / 10 GB ve GB başına maliyet aylık $0,16 ek ücretler $1.6 * 48 aylık olacaktır.
 
-## <a name="multi-vm-consistency"></a>Çoklu VM tutarlılığı 
+## <a name="multi-vm-consistency"></a>Çoklu VM tutarlılığı
 
 ### <a name="what-is-multi-vm-consistency"></a>Çoklu VM tutarlılığını nedir?
 Bu kurtarma noktasını tüm çoğaltılan sanal makineler arasında tutarlı olduğundan emin olmak anlamına gelir.
@@ -134,7 +135,7 @@ Yük devretme zaman tüm sanal makineleri kilitlenmeyle tutarlı ve uygulamayla 
 Go için Bu öğreticide [çoklu VM tutarlılığını etkinleştirmek](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
 
 ### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>Alabilirim bir çoklu VM tutarlılığı çoğaltma grubu içindeki tek sanal makine yük devretme?
-"Çoklu VM tutarlılığı" seçeneğini belirleyerek, uygulama bir grup içindeki tüm sanal makineler üzerinde bir bağımlılık olduğunu belirten. Bu nedenle, tek sanal makine yük devretme izin verilmez. 
+"Çoklu VM tutarlılığı" seçeneğini belirleyerek, uygulama bir grup içindeki tüm sanal makineler üzerinde bir bağımlılık olduğunu belirten. Bu nedenle, tek sanal makine yük devretme izin verilmez.
 
 ### <a name="how-many-virtual-machines-can-i-replicate-as-a-part-of-a-multi-vm-consistency-replication-group"></a>Bir çoklu VM tutarlılığı çoğaltma grubunun bir parçası olarak kaç tane sanal makineyi çoğaltabilirim?
 Bir çoğaltma grubunda birlikte 16 sanal makinelerini çoğaltabilirsiniz.
@@ -143,11 +144,14 @@ Bir çoğaltma grubunda birlikte 16 sanal makinelerini çoğaltabilirsiniz.
 CPU bakımından yoğun olduğundan, çoklu VM tutarlılığını etkinleştirmek, iş yükü performansını etkileyebilir. Yalnızca makineler aynı iş yükünü çalıştırıyorsa ve birden fazla makine arasında tutarlılık ihtiyacınız varsa kullanılmalıdır. Örneğin, bir uygulamada iki SQL Server örneği ve iki web sunucusu varsa, yalnızca SQL Server örnekleri için çoklu VM tutarlılığı olmalıdır.
 
 
-## <a name="failover"></a>Yük devretme
+## <a name="failover"></a>Yük devret
+
+### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>Kapasite hedef bölgede Azure Vm'leri için nasıl sağlanır?
+Azure Site Recovery (ASR) takım yeterli altyapı kapasiteyi planlamak üzere Azure kapasitesine yönetim ekibi ile çalışır, Vm'leri için olağanüstü durum tarafından ASR korumalı emin olmak için girişiminde kurtarma başarıyla olağanüstü durum kurtarma (DR) bölgede dağıtılacağı, ASR yük devretme işlemlerini ne zaman başlatılır.
 
 ### <a name="is-failover-automatic"></a>Yük devretme işlemi otomatik midir?
 
-Yük devretme işlemi otomatik değildir. Yük devretmeleri tek bir tıklamayla portaldan başlayın ya da kullanabilirsiniz [PowerShell](azure-to-azure-powershell.md) bir yük devretmeyi tetiklemek için. 
+Yük devretme işlemi otomatik değildir. Yük devretmeleri tek bir tıklamayla portaldan başlayın ya da kullanabilirsiniz [PowerShell](azure-to-azure-powershell.md) bir yük devretmeyi tetiklemek için.
 
 ### <a name="can-i-retain-a-public-ip-address-after-failover"></a>Yük devretme sonrasında genel IP adresi tutabilir miyim?
 
@@ -158,7 +162,8 @@ Evet, özel bir IP adresi tutabilirsiniz. Azure Vm'leri için DR etkinleştirdi�
 
 ### <a name="after-failover-the-server-doesnt-have-the-same-ip-address-as-the-source-vm-why-is-it-assigned-a-new-ip-address"></a>Yük devretmeden sonra sunucunun VM kaynağı olarak aynı IP adresine sahip değil. Neden bunu yeni bir IP adresi atanır?
 
-Site Recovery, yük devretme sırasında IP adresi sağlamak çalışır. Başka bir sanal makine bu adrese sürüyorsa, Site Recovery sonraki kullanılabilir IP adresi hedef olarak ayarlar. Adresleme Site Recovery nasıl işlediğini tam açıklama için bkz. [ağ eşlemesini ve sanal ağlar için IP adresini ayarlama](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms).
+Site Recovery, yük devretme sırasında IP adresi sağlamak çalışır. Başka bir sanal makine bu adrese sürüyorsa, Site Recovery sonraki kullanılabilir IP adresi hedef olarak ayarlar.
+Adresleme Site Recovery nasıl işlediğini tam açıklama için bkz. [ağ eşlemesini ve sanal ağlar için IP adresini ayarlama](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms).
 
 ### <a name="what-are-latest-lowest-rpo-recovery-points"></a>Hangi **en son (en düşük RPO)** kurtarma noktaları?
 **En son (en düşük RPO)** seçeneği ilk önce yük devretme için her VM için bir kurtarma noktası oluşturmak için Site Recovery hizmetine gönderilen tüm verileri işler. Yük devretme yük devretme tetiklendiğinde Site Recovery'ye çoğaltılan tüm verilere sahip olduktan sonra VM oluşturulduğundan, bu seçenek en düşük kurtarma noktası hedefi (RPO) sağlar.
@@ -173,7 +178,7 @@ Evet. Bu seçeneğe sahip diğer seçenekleri karşılaştırıldığında daha 
 Kesinti bir yük devretme tetikleyebilirsiniz. Site Recovery, yük devretme gerçekleştirmek için birincil bölgeden bağlantı gerek yoktur.
 
 ### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>Sanal makine yük devretme bir RTO nedir?
-Site Recovery sahip bir [2 saat RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Ancak, çoğu zaman, Site Recovery başarısız yükü Devredilmiş sanal makineleri dakikalar içinde. RTO hesaplayabilirsiniz saati gösteren yük devretme için işleri giderek VM'yi getirmek için işlem. RTO için kurtarma planında, bölüme bakın. 
+Site Recovery sahip bir [2 saat RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Ancak, çoğu zaman, Site Recovery başarısız yükü Devredilmiş sanal makineleri dakikalar içinde. RTO hesaplayabilirsiniz saati gösteren yük devretme için işleri giderek VM'yi getirmek için işlem. RTO için kurtarma planında, bölüme bakın.
 
 ## <a name="recovery-plans"></a>Kurtarma planları
 
@@ -188,7 +193,7 @@ Site Recovery kurtarma planında yük devretme VM'lerin kurtarılmasını sağla
 
 ### <a name="how-is-sequencing-achieved-in-a-recovery-plan"></a>Sıralama, bir kurtarma planında nasıl sağlanır?
 
-Bir kurtarma planında sıralama elde etmek için çeşitli gruplar oluşturabilirsiniz. Her gruba aynı anda üzerinde başarısız olur. Aynı grubu başarısız parçası üzerinde birlikte, başka bir grubu tarafından izlenen VM'ler. Bir kurtarma planı kullanarak bir uygulama modelini öğrenmek için bkz. [kurtarma planlarıyla ilgili](recovery-plan-overview.md#model-apps). 
+Bir kurtarma planında sıralama elde etmek için çeşitli gruplar oluşturabilirsiniz. Her gruba aynı anda üzerinde başarısız olur. Aynı grubu başarısız parçası üzerinde birlikte, başka bir grubu tarafından izlenen VM'ler. Bir kurtarma planı kullanarak bir uygulama modelini öğrenmek için bkz. [kurtarma planlarıyla ilgili](recovery-plan-overview.md#model-apps).
 
 ### <a name="how-can-i-find-the-rto-of-a-recovery-plan"></a>Bir kurtarma planı RTO nasıl bulabilirim?
 Bir kurtarma planı RTO denetlemek için kurtarma planı için bir yük devretme testi yapın ve Git **Site Recovery işleri**.
@@ -199,7 +204,7 @@ Aşağıdaki örnekte, SAPTestRecoveryPlan adlı işi 8 dakika 59 tüm sanal mak
 ### <a name="can-i-add-automation-runbooks-to-the-recovery-plan"></a>Kurtarma planına Otomasyon runbook'ları ekleyebilir miyim?
 Evet, Azure Otomasyonu runbook'ları, kurtarma planına tümleştirebilirsiniz. [Daha fazla bilgi edinin](site-recovery-runbook-automation.md).
 
-## <a name="reprotection-and-failback"></a>Yeniden koruma ve yeniden çalışma 
+## <a name="reprotection-and-failback"></a>Yeniden koruma ve yeniden çalışma
 
 ### <a name="after-a-failover-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>Yük devretme sonrasında birincil bölgeden için bir olağanüstü durum kurtarma bölgesindeki VM'ler otomatik olarak korunan DR bölgesinde misiniz?
 Hayır. Olduğunda, [yük devretme](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) Azure Vm'leri bir bölgeden diğerine Vm'leri başlatma DR bölgesinde korumasız bir durumda. Vm'leri birincil bölgeye yeniden çalışma için şunları yapmanız [yeniden koruma](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) ikincil bölgedeki Vm'leri.
@@ -208,7 +213,7 @@ Hayır. Olduğunda, [yük devretme](https://docs.microsoft.com/azure/site-recove
 Bu, durumunuza bağlıdır. Örneğin, VM Kaynak bölgesi varsa, kaynak ve hedef disk arasında yalnızca değişiklikleri eşitlenir. Site Recovery, diskleri karşılaştırarak differentials hesaplar ve ardından verileri aktarır. Bu işlem genellikle birkaç saat sürer. Yeniden koruma sırasında neler olduğu hakkında daha fazla bilgi için bkz. [birincil bölgeye yeniden koruma başarısız Azure Vm'leri üzerinde]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Ne kadar zaman mevcut yeniden çalışma için sınav zamanı?
-Yeniden koruma sonra yeniden çalışma için süreyi genellikle zaman yük devretme için birincil bölgeden ikincil bir bölgeye benzer. 
+Yeniden koruma sonra yeniden çalışma için süreyi genellikle zaman yük devretme için birincil bölgeden ikincil bir bölgeye benzer.
 
 ## <a name="capacity"></a>Kapasite
 ### <a name="does-site-recovery-work-with-reserved-instance"></a>Site Recovery, ayrılmış örnek ile çalışır mı?

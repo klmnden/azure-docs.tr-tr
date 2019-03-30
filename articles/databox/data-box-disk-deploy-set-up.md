@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 4c2f2ebca40ee3e4b5a9a32767783694af52944b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ee1150dd146be1f022134ffe6df3ca2fbf84f867
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106653"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652159"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Öğretici: Cihazınızı kutusundan çıkarma, bağlama ve Azure Data Box Disk kilidini aç
 
@@ -90,7 +90,7 @@ Disklerinizi bağlamak ve kilitlerini açmak için aşağıdaki adımları gerç
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ``` 
 
-6. `DataBoxDiskUnlock.exe` dosyasını çalıştırın ve [Disklere bağlanma ve destek anahtarı alma](#Connect-to-disks-and-get-the-passkey) bölümünde edindiğiniz destek anahtarını girin. Diske atanan sürücü harfi görüntülenir. Örnek çıktı aşağıda gösterilmiştir.
+6. `DataBoxDiskUnlock.exe` dosyasını çalıştırın ve [Disklere bağlanma ve destek anahtarı alma](#connect-to-disks-and-get-the-passkey) bölümünde edindiğiniz destek anahtarını girin. Diske atanan sürücü harfi görüntülenir. Örnek çıktı aşağıda gösterilmiştir.
 
     ```powershell
     PS C:\WINDOWS\system32> cd C:\DataBoxDiskUnlockTool\DiskUnlock
@@ -204,7 +204,7 @@ Disklerinizi bağlamak ve kilitlerini açmak için aşağıdaki adımları gerç
      OpenSSL is already installed.
      ```
 
-6. Data Box Disk Kilidi Açma aracını çalıştırın. [Disklere bağlanma ve destek anahtarı alma](#Connect-to-disks-and-get-the-passkey) bölümünde edindiğiniz Azure portaldan destek anahtarını girin. İsteğe bağlı olarak, kilidi açılacak BitLocker şifreli birimlerin listesini belirtin. Destek anahtarı ve birim listesi tek tırnak içinde belirtilmelidir. 
+6. Data Box Disk Kilidi Açma aracını çalıştırın. [Disklere bağlanma ve destek anahtarı alma](#connect-to-disks-and-get-the-passkey) bölümünde edindiğiniz Azure portaldan destek anahtarını girin. İsteğe bağlı olarak, kilidi açılacak BitLocker şifreli birimlerin listesini belirtin. Destek anahtarı ve birim listesi tek tırnak içinde belirtilmelidir. 
 
     Aşağıdaki komutu yazın.
  

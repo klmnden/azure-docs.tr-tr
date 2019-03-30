@@ -10,12 +10,12 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: b7532dc910fae84733c04d4e16ac93a5cd0f11c8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 642c30c4df233476a8f649f7b5f30d0538b0e83f
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097915"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629847"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET kullanarak Azure Key Vault hizmetten hizmete kimlik doğrulaması
 
@@ -101,7 +101,7 @@ Yerel geliştirme için Azure CLI kullanmak için:
 
 Kullanım `az account get-access-token` erişimi doğrulamak için.  Bir hata alırsanız, 1. adım başarıyla tamamlandığını doğrulayın. 
 
-Azure CLI için varsayılan dizin yüklü değilse, raporlama bir hata alabilirsiniz `AzureServiceTokenProvider` yolu, Azure CLI için bulunamıyor.  Kullanım **AzureCLIPath**ortam değişkenini Azure CLI yükleme klasörünü tanımlayın. `AzureServiceTokenProvider` Belirtilen dizini ekler **AzureCLIPath** ortam değişkenine **yolu** ortam değişkeni gerektiğinde.
+Azure CLI için varsayılan dizin yüklü değilse, raporlama bir hata alabilirsiniz `AzureServiceTokenProvider` yolu, Azure CLI için bulunamıyor.  Kullanım **AzureCLIPath** ortam değişkenini Azure CLI yükleme klasörünü tanımlayın. `AzureServiceTokenProvider` Belirtilen dizini ekler **AzureCLIPath** ortam değişkenine **yolu** ortam değişkeni gerektiğinde.
 
 Azure CLI kullanarak birden çok hesap için oturum veya hesabınızı birden çok aboneliğe erişiminiz varsa, kullanılacak belirli abonelik belirtmeniz gerekir.  Bunu yapmak için kullanın:
 

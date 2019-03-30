@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/13/2019
 ms.author: banders
-ms.openlocfilehash: 66fd42e5aa110b4c9ef686b1d66429ff7dbaf550
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857700"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648308"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Kurumsal kayıt için Azure ayırma kullanımını anlama
 
@@ -53,7 +53,7 @@ Enterprise Portal'da Kurumsal kullanım CSV dosyası indirebilirsiniz. CSV dosya
 
 ## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Kapasite kullanımı SQL veritabanı ve Cosmos DB için ayrılmış
 
-Aşağıdaki bölümlerde, kullanım raporu açıklamak için örnek olarak Azure SQL veritabanı kullanın. Azure Cosmos DB için de kullanımını almak için aynı adımları kullanabilirsiniz. 
+Aşağıdaki bölümlerde, kullanım raporu açıklamak için örnek olarak Azure SQL veritabanı kullanın. Azure Cosmos DB için de kullanımını almak için aynı adımları kullanabilirsiniz.
 
 Bir SQL veritabanı Gen 4 Aşağıdaki tabloda, ayırma bilgileri görünür, Doğu ABD bölgesinde çalıştığını varsayalım:
 
@@ -64,7 +64,7 @@ Bir SQL veritabanı Gen 4 Aşağıdaki tabloda, ayırma bilgileri görünür, Do
 |Ürün| SQL veritabanı 4. nesil (2 Çekirdek)|
 |Bölge | eastus |
 
-### <a name="usage-in-csv-file"></a>CSV dosyası kullanımı 
+### <a name="usage-in-csv-file"></a>CSV dosyası kullanımı
 
 Filtre **ek bilgi** ve yazın, **rezervasyon kimliği**ve gerekli **ölçüm kategorisi** -Azure SQL veritabanı veya Azure Cosmos DB. Aşağıdaki ekran görüntüsünde ayırmaya ilgili alanları gösterir.
 
@@ -81,19 +81,20 @@ Azure ayırma kullanımınızı da Enterprise portal'ın kullanımı Özeti böl
 1. Rezervasyon anlatılan sanal makinenin donanım bileşeni için ücretlendirilmezsiniz. Bir SQL veritabanı ayırma için gördüğünüz bir çizgiyle **hizmet adı** kapasite kullanımı Azure SQL veritabanı ayrılmış.
 2. Bu örnekte, sanal makine ile kullanılan Windows yazılım için ücret ödersiniz için Azure hibrit teklifi yok.
 
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
 - [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
 - [Azure Ayrılmış VM Örnekleri ile Sanal Makinelere ön ödeme yapma](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure SQL Veritabanı ayrılmış kapasitesi ile SQL Veritabanı işlem kaynakları için ön ödeme yapma](../sql-database/sql-database-reserved-capacity.md) 
+- [Azure SQL Veritabanı ayrılmış kapasitesi ile SQL Veritabanı işlem kaynakları için ön ödeme yapma](../sql-database/sql-database-reserved-capacity.md)
 - [Azure Ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
 - [Ayırma indirimi nasıl uygulanacağını anlama](billing-understand-vm-reservation-charges.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Windows yazılım maliyetleri ile ayırmaları dahil değil](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
-
-Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

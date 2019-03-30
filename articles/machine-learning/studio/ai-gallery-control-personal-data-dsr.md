@@ -11,12 +11,12 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 1b1583731f9b95bea7fe64efe628b05bb7b9a476
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 44ff2a5b723c086604acf39e9f975deb53759ae1
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118042"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648118"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Ve Azure AI Gallery ürün içi kullanıcı verilerini silme
 
@@ -80,7 +80,7 @@ Gibi bir yanıt döndürür:
 
 Kataloğu API'sini doğrudan görüntüleyebilirsiniz Azure AI Gallery için yayımlanan varlıkları hakkında bilgi depolar [yapay ZEKA Galerisi'ni Web sitesi](https://gallery.azure.ai/). 
 
-Yayımlanmış olan varlıkları görüntülemek için aşağıdaki URL'yi ziyaret edin değiştirerek `[AuthorId]` elde Yazar kimlikli [Yazar Kimliğini alın](#get-an-author-ID) yukarıda.
+Yayımlanmış olan varlıkları görüntülemek için aşağıdaki URL'yi ziyaret edin değiştirerek `[AuthorId]` elde Yazar kimlikli [Yazar Kimliğini alın](#get-an-author-id) yukarıda.
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
 

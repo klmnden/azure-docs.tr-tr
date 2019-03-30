@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 3a295a5c8a202b2f3186e696bb281002090fcad4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112611"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652176"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>IP adresi türleri ve ayırma yöntemleri (Azure'da Klasik)
 Diğer Azure kaynaklarıyla, şirket içi ağınızla ve İnternet’le iletişim kurmak için Azure kaynaklarına IP adresleri atayabilirsiniz. Azure'da kullanabileceğiniz IP adreslerinin iki tür vardır: Genel ve özel.
@@ -41,7 +41,7 @@ Genel bir IP adresi, aşağıdaki kaynak türleriyle ilişkilendirilir:
 * Uygulama ağ geçitleri
 
 ### <a name="allocation-method"></a>Ayırma yöntemi
-Azure kaynağına atanmış genel IP adresi gerektiğinde olduğu *dinamik olarak* kaynağın oluşturulduğu konum içinde kullanılabilir genel IP adresi havuzundan ayrılan. Bu IP adresi kaynağı durdurulduğunda serbest bırakılır. Tüm rol örneklerine, hangi kullanılarak önlenebilir durdurulduğunda böyle bulut hizmetiyle bir *statik* (ayrılmış) IP adresi (bkz [Cloud Services](#Cloud-services)).
+Azure kaynağına atanmış genel IP adresi gerektiğinde olduğu *dinamik olarak* kaynağın oluşturulduğu konum içinde kullanılabilir genel IP adresi havuzundan ayrılan. Bu IP adresi kaynağı durdurulduğunda serbest bırakılır. Tüm rol örneklerine, hangi kullanılarak önlenebilir durdurulduğunda böyle bulut hizmetiyle bir *statik* (ayrılmış) IP adresi (bkz [Cloud Services](#cloud-services)).
 
 > [!NOTE]
 > İçinden genel IP adresleri Azure kaynaklarına ayrılan IP aralıklarının Listesi sayfasında yayımlanır [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -149,9 +149,9 @@ Aşağıdaki tabloda, Azure'da abonelik başına adresleme IP uygulanan sınırl
 
 |  | Varsayılan limit | Üst sınır |
 | --- | --- | --- |
-| Genel IP adresleri (dinamik) |5 |desteğe başvurun |
-| Ayrılmış genel IP adresleri |20 |desteğe başvurun |
-| Dağıtım (bulut hizmeti) başına genel VIP |5 |desteğe başvurun |
+| Genel IP adresleri (dinamik) |5 |destekle iletişime geç |
+| Ayrılmış genel IP adresleri |20 |destekle iletişime geç |
+| Dağıtım (bulut hizmeti) başına genel VIP |5 |destekle iletişime geç |
 | Özel VIP (ILB) başına dağıtım (bulut hizmeti) |1 |1 |
 
 Eksiksiz bir listesi okuduğunuzdan emin olun [ağ limitlerinin](../azure-subscription-service-limits.md#networking-limits) azure'da.

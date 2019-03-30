@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f2837121c84081c77176b18758dfe1a83d6a070
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876917"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650674"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect eşitleme: İşlevler Başvurusu
 Azure AD Connect, işlevleri, bir öznitelik değeri, eşitleme sırasında işlemek için kullanılır.  
@@ -51,8 +51,9 @@ Türleri aşağıdaki sözdizimiyle belirtilir:
 İşlevleri türleriyle **mvbin**, **mvstr**, ve **mvref** yalnızca birden çok değerli öznitelikler üzerinde çalışabilir. İçeren işlevler **bin**, **str**, ve **ref** tek değerli hem birden çok değerli öznitelikler üzerinde çalışır.
 
 ## <a name="functions-reference"></a>İşlevler Başvurusu
+
 | İşlevlerin listesi |  |  |  |  |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | **Sertifika** | | | | |
 | [CertExtensionOids](#certextensionoids) |[CertFormat](#certformat) |[CertFriendlyName](#certfriendlyname) |[CertHashString](#certhashstring) | |
 | [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
@@ -63,7 +64,7 @@ Türleri aşağıdaki sözdizimiyle belirtilir:
 | **Dönüştürme** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
-| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#StringFromGuid) |[StringFromSid](#stringfromsid) | |
+| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#stringfromguid) |[StringFromSid](#stringfromsid) | |
 | **Tarih / saat** | | | | |
 | [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[formatDateTime](#formatdatetime) |[Şimdi](#now) | |
 | [NumFromDate](#numfromdate) | | | | |
@@ -362,7 +363,7 @@ CGuid işlevi bir GUID dize gösterimini ikili gösterimine dönüştürür.
 * Bu düzende biçimlendirilmiş bir dize: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx veya {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
 - - -
-### <a name="contains"></a>Contains
+### <a name="contains"></a>İçerir
 **Açıklama:**  
 Contains işlevi, birden çok değerli bir özniteliği içindeki bir dizeyle bulur.
 
@@ -809,7 +810,7 @@ Bu işlev tersini IsNullOrEmpty olarak adlandırılır.
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
 - - -
-### <a name="item"></a>Öğe
+### <a name="item"></a>Nesne
 **Açıklama:**  
 Item işlevi, birden çok değerli bir dizeyi/özniteliği bir öğeyi döndürür.
 
@@ -1165,7 +1166,7 @@ RTrim işlevi bir dizedeki sondaki boşlukları kaldırır.
 "Test" döndürür.
 
 - - -
-### <a name="select"></a>Şunu seçin:
+### <a name="select"></a>Seçin
 **Açıklama:**  
 Belirtilen işlev üzerinde birden çok değerli bir öznitelik (veya bir ifadenin çıkış) tüm değerler temel işlemi.
 
@@ -1216,7 +1217,7 @@ Bir güvenlik tanımlayıcısı için bir dize içeren bir bayt dizisi StringFro
 `str StringFromSid(bin ObjectSID)`  
 
 - - -
-### <a name="switch"></a>Anahtar
+### <a name="switch"></a>Switch
 **Açıklama:**  
 Anahtar işlev, değerlendirilen koşullara göre tek bir değer döndürmek için kullanılır.
 
@@ -1290,7 +1291,7 @@ Belirli bir koşula dayalı birden çok değerli öznitelik (veya bir ifadenin �
 Sertifika değerleri, süresi dolmuş olmayan birden çok değerli öznitelik userCertificate döndürür.
 
 - - -
-### <a name="with"></a>Avantaj ile
+### <a name="with"></a>Şununla birlikte:
 **Açıklama:**  
 WITH işlevi karmaşık ifadeyi temsil eden bir görünen bir alt ifade bir değişken kullanarak veya birden fazla kez karmaşık ifadenin basitleştirmesini sağlar.
 

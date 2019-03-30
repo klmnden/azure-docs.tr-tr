@@ -8,14 +8,15 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4552249e7d7dd79edbe885b3d615f5071aa694ee
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c7a185e1c7f271cdca0c688ce7838f6390594da5
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116108"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650419"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Öğretici: Şifreleme ve şifre çözme Azure anahtar Kasası'nı kullanarak Microsoft Azure depolama BLOB'ları
+
 ## <a name="introduction"></a>Giriş
 Bu öğreticide nasıl yapılacağını kapsayan, Azure Key Vault ile istemci tarafı depolama şifrelemesi kullanın. Bu, şifreleme ve şifre çözme teknolojiler kullanarak bir konsol uygulamasında bir blob konusunda yol göstermektedir.
 
@@ -26,6 +27,7 @@ Azure Key Vault hakkında genel bilgi için bkz. [Azure anahtar kasası nedir?](
 Azure depolama için istemci tarafı şifreleme hakkında genel bilgi için bkz. [istemci tarafı şifreleme ve Microsoft Azure depolama için Azure anahtar kasası](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Bu öğreticiyi tamamlamak için aşağıdakilere sahip olmanız gerekir:
 
 * Bir Azure depolama hesabı
@@ -33,6 +35,7 @@ Bu öğreticiyi tamamlamak için aşağıdakilere sahip olmanız gerekir:
 * Azure PowerShell
 
 ## <a name="overview-of-client-side-encryption"></a>İstemci Tarafı Şifrelemesi'ne genel bakış
+
 Azure depolama için istemci tarafı şifrelemesi genel bakış için bkz. [istemci tarafı şifreleme ve Microsoft Azure depolama için Azure anahtar kasası](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 Aşağıda, istemci tarafı şifreleme nasıl çalışır hakkında kısa bir açıklaması verilmiştir:
@@ -43,6 +46,7 @@ Aşağıda, istemci tarafı şifreleme nasıl çalışır hakkında kısa bir a�
 4. Şifrelenmiş veriler, ardından Azure depolama hizmetine yüklenir.
 
 ## <a name="set-up-your-azure-key-vault"></a>Azure anahtar kasası ayarlama
+
 Öğreticide gösterilen aşağıdaki adımları gerçekleştirmeniz gereken bu öğreticiyle devam edebilmek için [Azure anahtar kasası nedir?](../../key-vault/key-vault-overview.md):
 
 * Bir anahtar kasası oluşturma.
@@ -55,11 +59,12 @@ Azure Active Directory ile bir uygulama kaydı sırasında oluşturulan ClientSe
 Her iki anahtar, anahtar Kasası'nda oluşturun. Biz, bu öğreticinin geri kalanını için şu adı kullandığınızı varsayar: ContosoKeyVault ve TestRSAKey1.
 
 ## <a name="create-a-console-application-with-packages-and-appsettings"></a>Paketler ve AppSettings ile bir konsol uygulaması oluşturun
+
 Visual Studio'da yeni bir konsol uygulaması oluşturun.
 
 Paket Yöneticisi Konsolu'nda gerekli nuget paketlerini ekleyin.
 
-```
+```powershell
 Install-Package WindowsAzure.Storage
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
@@ -93,6 +98,7 @@ using System.IO;
 ```
 
 ## <a name="add-a-method-to-get-a-token-to-your-console-application"></a>Konsol uygulamanıza bir belirteç almak için yöntem ekleme
+
 Aşağıdaki yöntem, anahtar kasanıza erişim için kimlik doğrulaması gerekli Key Vault sınıflar tarafından kullanılır.
 
 ```csharp
@@ -112,6 +118,7 @@ private async static Task<string> GetToken(string authority, string resource, st
 ```
 
 ## <a name="access-storage-and-key-vault-in-your-program"></a>Programınızda, depolama ve anahtar kasası erişim
+
 Main işlevi içinde aşağıdaki kodu ekleyin.
 
 ```csharp
@@ -141,6 +148,7 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 > 
 
 ## <a name="encrypt-blob-and-upload"></a>BLOB şifreleme ve karşıya yükleme
+
 Bir blobu şifreleme ve Azure depolama hesabınıza yüklemek için aşağıdaki kodu ekleyin. **ResolveKeyAsync** yöntemi bir ikey değerini döndürür.
 
 ```csharp
@@ -167,6 +175,7 @@ using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
 > 
 
 ## <a name="decrypt-blob-and-download"></a>Blob şifresini çözmek ve indirin
+
 Şifre çözme gerçekten ne zaman çözümleyici sınıflarını kullanarak mantıklı olur. Sebep anahtarı almak ve blob ile anahtar arasındaki ilişkiyi unutmayın. Bu nedenle şifreleme için kullanılan anahtarı kimliği blob meta ile ilişkilidir. Yalnızca anahtar, anahtar Kasası'nda kalmasından emin olmak gerekir.   
 
 Özel anahtarı bir RSA anahtarı anahtar Kasası'nda kalır. böylece gerçekleşmesi şifre çözme için blob meta verilerini içeren CEK şifrelenmiş anahtarı şifre çözme için anahtar Kasası'na gönderilir.
@@ -189,6 +198,7 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 > 
 
 ## <a name="use-key-vault-secrets"></a>Key Vault gizli dizileri kullanma
+
 Gizli dizi aslında bir simetrik anahtar olduğundan bir gizli dizi istemci tarafı şifreleme ile kullanılacak şekilde SymmetricKey sınıftır. Ancak, yukarıda belirtildiği gibi bir gizli anahtar Kasası'nda tam olarak bir SymmetricKey eşleşmiyor. Anlamanız gereken bazı noktalar vardır:
 
 * Bir SymmetricKey anahtarı sabit uzunlukta olması gerekir: 128, 192, 256, 384 veya 512 bit.
@@ -221,6 +231,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
 İşte bu kadar. Keyfini çıkarın!
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Microsoft Azure depolama C# ile kullanma hakkında daha fazla bilgi için bkz. [.NET için Microsoft Azure depolama istemci Kitaplığı](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 Blob REST API'si hakkında daha fazla bilgi için bkz. [Blob hizmeti REST API'si](https://msdn.microsoft.com/library/azure/dd135733.aspx).

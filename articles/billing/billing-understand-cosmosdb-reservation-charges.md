@@ -6,15 +6,15 @@ author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 03/13/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: f6549710f90c8d59ed443ab9ae1a302a2d8278d5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8386d1c43761cfb27746b003d136419f72d7d4ae
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899528"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648546"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Ayırma indirimi Azure Cosmos DB'ye nasıl uygulanacağını anlama
 
@@ -24,7 +24,7 @@ Ayırma indirimi, öznitelikleri ve ayırma miktarı ile eşleşen Azure Cosmos 
 
 Ayırma indirimi uygulanan [sağlanan aktarım hızı](../cosmos-db/request-units.md) saat saatlik olarak (RU/sn) saniye başına istek birimleri. Tam bir saat çalıştırma için Azure Cosmos DB kaynaklarını, ayırma indirimini ayırma öznitelikleri eşleşen diğer Cosmos DB kaynaklarını otomatik olarak uygulanır. İndirim, eşzamanlı olarak çalışan Azure Cosmos DB kaynaklarını uygulayabilirsiniz. Tam bir saat olarak çalıştıran ve ayırma öznitelikleri eşleşen Cosmos DB kaynaklarını yoksa, ayırma indirimini bu saat için tüm avantajlarını elde etmezsiniz.
 
-İndirimler katmanlı halde bulunan. İstek birimi daha yüksek olan rezervasyonlar daha yüksek indirim sağlar. 
+İndirimler katmanlı halde bulunan. İstek birimi daha yüksek olan rezervasyonlar daha yüksek indirim sağlar.
 
 Rezervasyon satın alma indirimleri tüm bölgelerde üzerine bölgesel fiyatlandırmayı eşdeğer oranı uygulanır. Her bölgede rezervasyon İndirim oranları için bkz. [bölge başına ayırma indirimi](#reservation-discount-per-region) bu makalenin.
 
@@ -39,10 +39,10 @@ Ayırma indirimi, Azure Cosmos DB performans maliyetleri saat saatlik olarak uyg
 |Azure Cosmos DB - 100 RU/s/saat - KR Güney|    KR Güney     |     1    |
 |Azure Cosmos DB - 100 RU/s/saat - AV Batı|    AV Batı     |      1   |
 |Azure Cosmos DB - 100 RU/s/saat - KR Orta|   KR Orta    |       1  |
-|Azure Cosmos DB - 100 RU/s/saat - UK Güney|   Birleşik Krallık Güney      |     1    |
-|Azure Cosmos DB - 100 RU/s/saat - UK Batı|   Birleşik Krallık Batı      |    1     |
-|Azure Cosmos DB - 100 RU/s/saat - UK Kuzey |   UK Kuzey    |     1    |
-|Azure Cosmos DB - 100 RU/s/saat - UK Güney 2|   UK Güney 2      |     1    |
+|Azure Cosmos DB - 100 RU/s/saat - UK Güney|   BK Güney      |     1    |
+|Azure Cosmos DB - 100 RU/s/saat - UK Batı|   BK Batı      |    1     |
+|Azure Cosmos DB - 100 RU/s/saat - UK Kuzey |   BK Kuzey    |     1    |
+|Azure Cosmos DB - 100 RU/s/saat - UK Güney 2|   BK Güney 2      |     1    |
 |Azure Cosmos DB - 100 RU/s/saat - ABD Doğu 2|  ABD Doğu 2     |     1    |
 |Azure Cosmos DB - 100 RU/s/saat - ABD Orta Kuzey|   ABD Orta Kuzey      |     1    |
 |Azure Cosmos DB - 100 RU/s/saat - ABD Batı|   ABD Batı      |     1    |
@@ -71,15 +71,15 @@ Ayırma indirimi, Azure Cosmos DB performans maliyetleri saat saatlik olarak uyg
 Rezervasyon için aşağıdaki gereksinimleri göz önünde bulundurun:
 
 * Gerekli aktarım hızı: 50.000 RU/sn  
-* Kullanılan bölgeler: 2 
+* Kullanılan bölgeler: 2
 
-Bu durumda, toplam isteğe bağlı bu iki bölgede 100 RU/s ölçümü 500 miktarı için ücretlerdir. Toplam RU/sn tüketimini 100.000 her saattir. 
+Bu durumda, toplam isteğe bağlı bu iki bölgede 100 RU/s ölçümü 500 miktarı için ücretlerdir. Toplam RU/sn tüketimini 100.000 her saattir.
 
 **Senaryo 1**
 
 Örneğin, ABD Orta Kuzey ve ABD Batı bölgelerinde Azure Cosmos DB dağıtımları gerektiğini varsayalım. Her bölgede 50.000 RU/sn aktarım hızı tüketiminin sahiptir. Bir rezervasyon satın alma 100.000 RU/sn tamamen isteğe bağlı bir ücret dengelemeniz.
 
-Kapsayan bir ayırma indirimi şöyle hesaplanır: aktarım hızı tüketim * reservation_discount_ratio_for_that_region. ABD Orta Kuzey ve ABD Batı bölgeleri için ayırma indirim oranı 1'dir. Bu nedenle, toplam indirimli RU/sn, 100. 000 olan. Bu değer olarak hesaplandı: 50.000 * 1 + 50.000 * 1 = 100.000 RU/sn. Normal Kullandıkça Öde fiyatları üzerinden herhangi bir ek ücret ödemek gerekmez. 
+Kapsayan bir ayırma indirimi şöyle hesaplanır: aktarım hızı tüketim * reservation_discount_ratio_for_that_region. ABD Orta Kuzey ve ABD Batı bölgeleri için ayırma indirim oranı 1'dir. Bu nedenle, toplam indirimli RU/sn, 100. 000 olan. Bu değer olarak hesaplandı: 50.000 * 1 + 50.000 * 1 = 100.000 RU/sn. Normal Kullandıkça Öde fiyatları üzerinden herhangi bir ek ücret ödemek gerekmez.
 
 |Ölçüm tanımı | Bölge |Aktarım hızı tüketim (RU/sn) |Ayırma indirimi RU/s olarak uygulandı |
 |---------|---------|---------|---------|
@@ -97,25 +97,24 @@ Kapsayan bir ayırma indirimi şöyle hesaplanır: aktarım hızı tüketim * re
 
 AU Orta 2 bölgesindeki 50.000 birimleri kullanımını 75.000 RU/s olarak Faturalandırılabilir kullanım (veya normalleştirilmiş kullanım) karşılık gelir. Bu değer olarak hesaplandı: aktarım hızı tüketim * reservation_discount_ratio_for_that_region. Hesaplama 75.000 RU/sn Faturalanabilir veya normalleştirilmiş kullanım eşittir. Bu değer olarak hesaplandı: 50.000 * 1.5 = 75.000 RU/sn.
 
-Rezervasyon satın alma, 100.000 RU/sn AU Orta 2 75.000 RU/sn uzaklığı. Bu, FR Güney bölgesine 25.000 RU/sn bırakır. Kalan 25.000 RU/s, FR Güney bölgesine 15,384 RU/sn bir ayırma oranında indirim uygulanır. İndirim değeri olarak hesaplandı: 25.000 / 1,625 15,384 RU/sn =. Kalan 34,616 RU/sn FR Güney bölgesinde normal Kullandıkça Öde fiyatları üzerinden ücretlendirilir. 
+Rezervasyon satın alma, 100.000 RU/sn AU Orta 2 75.000 RU/sn uzaklığı. Bu, FR Güney bölgesine 25.000 RU/sn bırakır. Kalan 25.000 RU/s, FR Güney bölgesine 15,384 RU/sn bir ayırma oranında indirim uygulanır. İndirim değeri olarak hesaplandı: 25.000 / 1,625 15,384 RU/sn =. Kalan 34,616 RU/sn FR Güney bölgesinde normal Kullandıkça Öde fiyatları üzerinden ücretlendirilir.
 
 Azure fatura sistemiyle rezervasyon faturalandırma avantajından, işlenen ve ayırma yapılandırma eşleşen ilk örneğine atar. Örneğin, bu AU Orta 2 Bu durumda olur.
 
 Anlamak ve kullanım raporları faturalama Azure ayırmalarınızın uygulamayı görüntülemek için bkz: [anlamak Azure ayırma kullanım](../billing/billing-understand-reserved-instance-usage-ea.md).
 
-## <a name="next-steps"></a>Sonraki adımlar
-
-Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
-
-* [Azure ayırmaları nelerdir?](../billing/billing-save-compute-costs-reservations.md)  
-* [Azure Cosmos DB ayrılmış kapasite ile Azure Cosmos DB kaynaklarını için ön ödeme](../cosmos-db/cosmos-db-reserved-capacity.md)  
-* [Azure SQL Veritabanı ayrılmış kapasitesi ile SQL Veritabanı işlem kaynakları için ön ödeme yapma](../sql-database/sql-database-reserved-capacity.md)  
-* [Azure ayırmalarını yönetme](../billing/billing-manage-reserved-vm-instance.md)  
-* [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](../billing/billing-understand-reserved-instance-usage.md)  
-* [Kurumsal kayıt için ayırma kullanımını anlama](../billing/billing-understand-reserved-instance-usage-ea.md)  
-* [CSP abonelikleri için ayırma kullanımını anlama](https://docs.microsoft.com/partner-center/azure-reservations)
-
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 
+## <a name="next-steps"></a>Sonraki adımlar
+
+Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
+
+* [Azure için ayırmaları nelerdir](../billing/billing-save-compute-costs-reservations.md)  
+* [Azure Cosmos DB ayrılmış kapasite ile Azure Cosmos DB kaynaklarını için ön ödeme](../cosmos-db/cosmos-db-reserved-capacity.md)  
+* [Azure SQL Veritabanı ayrılmış kapasitesi ile SQL Veritabanı işlem kaynakları için ön ödeme yapma](../sql-database/sql-database-reserved-capacity.md)  
+* [Azure için ayırmaları yönetme](../billing/billing-manage-reserved-vm-instance.md)  
+* [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](../billing/billing-understand-reserved-instance-usage.md)  
+* [Kurumsal kayıt için ayırma kullanımını anlama](../billing/billing-understand-reserved-instance-usage-ea.md)
+* [CSP abonelikleri için ayırma kullanımını anlama](https://docs.microsoft.com/partner-center/azure-reservations)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 6b82c0d2d4a5e22094bf0a408d6a42f17bb3bea4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 82755f01cc881703eeefb6415b2e8e87e50fba60
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839823"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652391"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Microsoft Azure faturanızı görüntüleme ve indirme
 
@@ -28,7 +28,7 @@ ms.locfileid: "57839823"
 
 Yalnızca belirli rolleri gibi kuruluş yöneticisi ve Hesap Yöneticisi, faturaları görüntülemek için izne sahip. Faturalama bilgilerine erişme hakkında daha fazla bilgi için bkz. [Rolleri kullanarak Azure faturalamasına erişimi yönetme](billing-manage-access.md).
 
-Varsa bir [Microsoft Müşteri sözleşmesi](#Check-your-access-to-a-Microsoft-Customer-Agreement), bir faturalandırma profili sahibi, katkıda bulunan, okuyucu veya faturalama yöneticisi faturalarınızda almak için. Microsoft Müşteri sözleşmesi için fatura rolleri hakkında daha fazla bilgi edinmek için bkz. [faturalama profili rolleri ve görevleri](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Varsa bir [Microsoft Müşteri sözleşmesi](#check-your-access-to-a-microsoft-customer-agreement), bir faturalandırma profili sahibi, katkıda bulunan, okuyucu veya faturalama yöneticisi faturalarınızda almak için. Microsoft Müşteri sözleşmesi için fatura rolleri hakkında daha fazla bilgi edinmek için bkz. [faturalama profili rolleri ve görevleri](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="download-your-azure-invoices-pdf"></a>Azure faturalarınızda (.pdf) indirin
 
@@ -127,7 +127,7 @@ Bir faturayı görmemenizin birden fazla nedeni olabilir:
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi erişiminizi kontrol edin
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bize ulaşın
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

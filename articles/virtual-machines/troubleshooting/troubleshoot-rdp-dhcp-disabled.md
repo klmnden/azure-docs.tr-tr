@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 5842c5edd0402d61f564ab15e34e8f69c0e718d7
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213459"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652289"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>DHCP İstemci hizmetini devre dışı olduğundan, Azure sanal makinelerinde RDP olamaz
 
@@ -27,17 +27,16 @@ Bu makalede bir sorun sanal DHCP İstemci hizmetini devre dışı bırakıldıkt
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="symptoms"></a>Belirtiler
-
 VM'yi DHCP İstemci hizmetini devre dışı olduğundan, Azure'da bir VM ile RDP bağlantısı yapamazsınız. Ne zaman iade ekran [önyükleme tanılaması](../troubleshooting/boot-diagnostics.md) Azure Portal'da, VM normal önyüklenir ve kimlik bilgileri oturum açma ekranında bekleyeceği görürsünüz. Uzaktan olay günlüklerini VM ile Olay Görüntüleyicisi'ni kullanarak görüntüleyin. DHCP istemci hizmeti kullanmaya değil veya başlatılamıyor görürsünüz. Aşağıdaki örnek bir oturum:
 
 **Oturum adı**: Sistem </br>
 **Kaynak**: Hizmet Denetimi Yöneticisi </br>
 **Tarih**: 16/12/2015 11:19:36: 00 </br>
 **Olay Kimliği**: 7022 </br>
-**Görev kategorisi**: None </br>
+**Görev kategorisi**: Hiçbiri </br>
 **Düzey**: Hata </br>
 **Anahtar sözcükler**: Klasik</br>
-**Kullanıcı**: Yok </br>
+**Kullanıcı**: YOK </br>
 **Bilgisayar**: myvm.cosotos.com</br>
 **Açıklama**: DHCP istemci hizmeti başlatılırken askıya alındı.</br>
 
@@ -98,7 +97,7 @@ Bu sorunu çözmek için DHCP etkinleştirmek için seri denetimi kullanın veya
 1. Bağlanma [seri konsol](serial-console-windows.md) ve PowerShell örneği açın.
 2. İşlem izleme aracı, aşağıdaki komutu çalıştırarak yükleyin:
 
-   ```
+   ```powershell
    remove-module psreadline
    $source = "https://download.sysinternals.com/files/ProcessMonitor.zip"
    $destination = "c:\temp\ProcessMonitor.zip"
@@ -167,6 +166,7 @@ Bu sorunu çözmek için DHCP etkinleştirmek için seri denetimi kullanın veya
 3. Uzak Masaüstü kullanarak sanal Makineye bağlanmayı deneyin.
 
 #### <a name="dhcp-client-service-crashes-or-hangs"></a>DHCP istemci hizmeti kilitlenmesine veya yanıt vermemeye başlıyor
+
 1. Hizmet durumunu takılıyorsa **başlangıç** veya **durdurma** durum, hizmeti durdurmak deneyin:
 
         sc stop DHCP
@@ -205,5 +205,3 @@ Bu sorunu çözmek için DHCP etkinleştirmek için seri denetimi kullanın veya
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzu için.
-
-

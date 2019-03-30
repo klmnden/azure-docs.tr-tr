@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 72cbf71077a8df2b81b366d9f29ae006100da471
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 45ac09b84aca44f6739a0e29994986200424fc5c
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310549"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669342"
 ---
 # <a name="virtual-network-service-endpoints"></a>Sanal Ağ Hizmeti Uç Noktaları
 
@@ -84,7 +84,7 @@ Hizmet uç noktaları aşağıdaki avantajları sağlar:
 - Hizmet uç noktaları bir sanal ağ içindeki alt ağ üzerinde yapılandırılır. Uç noktalar ilgili alt ağ içinde çalışan tüm işlem örneği türleriyle birlikte çalışabilir.
 - Bir alt ağ üzerindeki desteklenen tüm Azure hizmetleri (örneğin Azure Depolama veya Azure SQL Veritabanı) için birden fazla hizmet uç noktası yapılandırabilirsiniz.
 - Azure SQL Veritabanı için, sanal ağların Azure hizmet kaynağıyla aynı bölgede bulunması gerekir. GRS ve RA-GRS Azure Depolama hesapları kullanılıyorsa, birincil hesap sanal ağ ile aynı bölgede olmalıdır. Diğer tüm hizmetler için, Azure hizmet kaynakları herhangi bir bölgedeki sanal ağlar ile güvenli hale getirilebilir. 
-- Uç noktanın yapılandırıldığı sanal ağ, Azure hizmet kaynağıyla aynı veya ondan farklı abonelikte olabilir. Uç noktaları ayarlamak ve Azure hizmetlerinin güvenliğini sağlamak için gerekli olan izinler hakkında daha fazla bilgi için [Sağlama](#Provisioning) bölümüne bakın.
+- Uç noktanın yapılandırıldığı sanal ağ, Azure hizmet kaynağıyla aynı veya ondan farklı abonelikte olabilir. Uç noktaları ayarlamak ve Azure hizmetlerinin güvenliğini sağlamak için gerekli olan izinler hakkında daha fazla bilgi için [Sağlama](#provisioning) bölümüne bakın.
 - Desteklenen hizmetler için yeni veya mevcut kaynaklar ile sanal ağlar arasındaki güvenliği hizmet uç noktaları kullanarak sağlayabilirsiniz.
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
@@ -132,7 +132,7 @@ Hizmet uç noktalarının kullanımından ek ücret alınmaz. Azure hizmetleri (
 
 Bir sanal ağ içinde sınırsız sayıda hizmet uç noktası oluşturulabilir.
 
-Bir Azure hizmet kaynağında (Azure Depolama hesabı gibi), hizmetler kaynağın güvenliğini sağlamak amacıyla kullanılan alt ağ sayısını sınırlandırabilir. Ayrıntılar için [Sonraki adımlar](#next-steps) bölümündeki hizmet belgelerini inceleyin.
+Azure depolama hesapları gibi Azure belirli hizmetler kaynağın güvenliğini sağlamak için kullanılan alt ağ sayısını sınırlandırabilir. Ayrıntılar için [Sonraki adımlar](#next-steps) bölümündeki hizmet belgelerini inceleyin.
 
 ## <a name="virtual-network-service-endpoint-policies"></a>Sanal ağ hizmet uç noktası İlkesi 
 

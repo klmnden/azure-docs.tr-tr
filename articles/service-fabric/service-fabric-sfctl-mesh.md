@@ -4,7 +4,7 @@ description: Service Fabric CLI'sını sfctl kafes komutlar açıklar.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: c7f4a0774c9277606e7c7c550eaa114e2ebbccbd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 4901630509eb60cb1bbe88a46b51277af244c8f8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285182"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670736"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
 Silme ve Service Fabric Mesh uygulamaları yönetin.
@@ -35,7 +35,7 @@ Silme ve Service Fabric Mesh uygulamaları yönetin.
 | [Gizli anahtarı](service-fabric-sfctl-mesh-secret.md) | GET ve delete gizli kaynaklara kafes. |
 | [secretvalue](service-fabric-sfctl-mesh-secretvalue.md) | Alın ve kafes secretvalue kaynakları silin. |
 | [Hizmet](service-fabric-sfctl-mesh-service.md) | Hizmet ayrıntıları ve uygulama kaynağı listesi Hizmetleri alın. |
-| [Çoğaltma hizmeti](service-fabric-sfctl-mesh-service-replica.md) | Çoğaltma ayrıntılarını ve liste çoğaltmalarını belirli bir hizmete bir uygulama kaynağı alın. |
+| [service-replica](service-fabric-sfctl-mesh-service-replica.md) | Çoğaltma ayrıntılarını ve liste çoğaltmalarını belirli bir hizmete bir uygulama kaynağı alın. |
 | [Birim](service-fabric-sfctl-mesh-volume.md) | Alın ve birim kaynakları silin. |
 
 

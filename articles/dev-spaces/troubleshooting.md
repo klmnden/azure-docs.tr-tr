@@ -1,5 +1,5 @@
 ---
-title: Sorun giderme
+title: Sorun Giderme
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: eff7f88ec6cbf8064df42fa3b22d61bb44baa451
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 5dd77d85e06a821d8dd359174bb5de6bca8b4d61
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339593"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669785"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -316,3 +316,12 @@ configurations:
     build:
       dockerfile: Dockerfile.develop
 ```
+
+## <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Hata "İç izleme başarısız oldu: ENOSPC izleme" eklerken bir Node.js uygulaması için hata ayıklama
+
+### <a name="reason"></a>Neden
+
+Hata ayıklayıcısı ile iliştirme çalıştığınız Node.js uygulaması ile pod çalıştıran düğümü aştı *fs.inotify.max_user_watches* değeri. Bazı durumlarda, [varsayılan değerini *fs.inotify.max_user_watches* bir Haya ayıklayıcı doğrudan bir pod işlemek için çok küçük olabilir](https://github.com/Azure/AKS/issues/772).
+
+### <a name="try"></a>Deneme
+Değerini artırmak için bu sorun için geçici bir çözüm olan *fs.inotify.max_user_watches* kümedeki her düğümde ve değişikliklerin etkili olması bu düğümü yeniden başlatın.

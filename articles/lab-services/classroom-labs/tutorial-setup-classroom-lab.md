@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 03/29/2019
 ms.author: spelluru
-ms.openlocfilehash: 6816c21d30ff5340441d58aff202c271eb1c836a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 00c32d1aaace765a1b46d5b25e82bab6e937d2ed
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090330"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649733"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Öğretici: Bir sınıf laboratuvarı ayarlama 
 Bu öğreticide, sınıftaki öğrenciler tarafından kullanılan sanal makinelerle bir sınıf laboratuvarı ayarlayacaksınız.  
@@ -32,7 +32,7 @@ Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
 > * Öğrencilere kayıt bağlantısı gönderme
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bir laboratuvar hesabı içinde bir sınıf laboratuvarı kurmak için laboratuvar hesabında bu rollerden birinin üyesi gerekir: Sahip, Laboratuvar oluşturan veya katkıda bulunan. Bir laboratuvar hesabı oluşturmak için kullanılan hesap sahibi rolüne otomatik olarak eklenir.
+Bir laboratuvar hesabı içinde bir sınıf laboratuvarı kurmak için laboratuvar hesabında bu rollerden birinin üyesi olması gerekir: Sahip, Laboratuvar oluşturan veya katkıda bulunan. Bir laboratuvar hesabı oluşturmak için kullanılan hesap sahibi rolüne otomatik olarak eklenir.
 
 Laboratuvar sahibi diğer kullanıcılara ekleyebilirsiniz **Laboratuvar oluşturan** rol. Örneğin, bir laboratuvar sahibi profesörlerinin Laboratuvar oluşturan rolüne ekler. Ardından, profesörlerinin kendi sınıfları için Vm'lerle laboratuvarlar oluşturun. Öğrenciler için laboratuvar kaydedilecek profesörlerinin almak kayıt bağlantıyı kullanın. Kullanıcılar kaydedildikten sonra Vm'leri Labs'de sınıfı yapmak için kullanabileceklerini iş ve ev iş. Laboratuvar oluşturan rolüne kullanıcı eklemek için ayrıntılı adımlar için bkz. [Laboratuvar oluşturan rolüne kullanıcı ekleme](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
@@ -48,8 +48,8 @@ Laboratuvar sahibi diğer kullanıcılara ekleyebilirsiniz **Laboratuvar oluştu
 
         ![Sınıf laboratuvarı oluşturma](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. **Sanal makine özelliklerini seçin** sayfasında aşağıdaki adımları gerçekleştirin:
-    1. Laboratuvarda oluşturulan sanal makineler (VM) için bir **boyut** seçin. 
-    3. Laboratuvardaki VM'leri oluşturmak için kullanılacak **VM görüntüsünü** seçin. 
+    1. Laboratuvarda oluşturulan sanal makineler (VM) için bir **boyut** seçin. Şu anda **küçük**, **orta**, **büyük**, ve **GPU** boyutları izin verilir.
+    3. Laboratuvardaki VM'leri oluşturmak için kullanılacak **VM görüntüsünü** seçin. Bir Linux görüntüsü seçerseniz, Uzak Masaüstü bağlantı etkinleştirmek için bir seçenek görürsünüz. Ayrıntılar için bkz [Linux için Uzak Masaüstü Bağlantısı etkinleştirme](how-to-enable-remote-desktop-linux.md).
     4. **İleri**’yi seçin.
 
         ![VM özellikleri belirtme](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -61,7 +61,7 @@ Laboratuvar sahibi diğer kullanıcılara ekleyebilirsiniz **Laboratuvar oluştu
         > Kullanıcı adını ve parolayı not edin. Bunlar tekrar gösterilmeyecektir.
     3. **Oluştur**’u seçin. 
 
-        ![Kimlik bilgilerini ayarlama](../media/tutorial-setup-classroom-lab/set-credentials.png)
+        ![Kimlik bilgilerini ayarla](../media/tutorial-setup-classroom-lab/set-credentials.png)
 6. **Şablonu yapılandır** sayfasında laboratuvar oluşturma işleminin durumunu görebilirsiniz. Laboratuvar şablonunun oluşturulması 20 dakika sürebilir. 
 
     ![Şablonu yapılandır](../media/tutorial-setup-classroom-lab/configure-template.png)
@@ -69,16 +69,16 @@ Laboratuvar sahibi diğer kullanıcılara ekleyebilirsiniz **Laboratuvar oluştu
 
     ![Tamamlanmış şablon yapılandırma sayfası](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Üzerinde **yapılandırma şablonu** sayfasında, aşağıdaki adımları uygulayın: Bu adımlar **isteğe bağlı** öğretici.
-   1. **Bağlan**'ı seçerek şablon VM'sine bağlanın. 
-   1. Şablon VM'sinde yazılım yükleme ve yapılandırma işlemlerini gerçekleştirin.     
-   1. Şablon için bir **açıklama** girin
+    1. **Bağlan**'ı seçerek şablon VM'sine bağlanın. Linux VM şablon varsa (RDP etkinse), SSH veya RDP kullanarak bağlanmasını isteyip istemediğinizi seçin.
+    2. Şablon VM'sinde yazılım yükleme ve yapılandırma işlemlerini gerçekleştirin.     
+    3. Şablon için bir **açıklama** girin
 9. Şablon sayfasında **İleri**'yi seçin. 
 10. **Şablonu yayımla** sayfasında aşağıdaki işlemleri gerçekleştirin. 
-    1. Şablon hemen Yayımla ve **Yayımla**.  
+    1. Şablon hemen yayımlamak için seçin **Yayımla**.  
 
         > [!WARNING]
         > Yayımlama işlemini geri alamazsınız. 
-    2. Daha sonra yayımlamak istiyorsanız **Sonrası için kaydet**'i seçin. Şablon VM'sini sihirbaz tamamlandıktan sonra yayımlayabilirsiniz. Sihirbaz tamamlandıktan sonra yapılandırma ve yayımlama adımları için [Sınıf laboratuvarlarını yönetme](how-to-manage-classroom-labs.md) makalesindeki [Şablonu yayımlama](how-to-create-manage-template.md#publish-the-template-vm) bölümüne bakın.
+    2. Daha sonra yayımlamak istiyorsanız **Sonrası için kaydet**'i seçin. Sihirbaz tamamlandıktan sonra VM şablonunu yayımlayabilirsiniz. Yapılandırma ve Sihirbaz sonlandıktan sonra yayımlama hakkında daha fazla bilgi için bkz [şablon yayımlama](how-to-create-manage-template.md#publish-the-template-vm) konusundaki [sınıf laboratuvarlarını yönetme](how-to-manage-classroom-labs.md) makalesi.
 
         ![Şablonu yayımlama](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. Şablonun **yayımlama ilerleme durumunu** görürsünüz. Bu işlemin tamamlanması bir saat sürebilir. 
@@ -89,10 +89,10 @@ Laboratuvar sahibi diğer kullanıcılara ekleyebilirsiniz **Laboratuvar oluştu
     ![Şablonu yayımlama - başarılı](../media/tutorial-setup-classroom-lab/publish-success.png)
 1. Laboratuvar **panosunu** görürsünüz. 
     
-     ![Sınıf laboratuvarı panosu](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
+    ![Sınıf laboratuvarı panosu](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
 4. Geçiş **sanal makineler** sayfasında soldaki menüden sanal makinelerde seçerek veya sanal makineleri kutucuğu seçtiğinizde. Bulunan sanal makineler gördüğünüzü onaylayın **atanmamış** durumu. Bu VM’ler henüz bir öğrenciye atanmamıştır. Bu makinelerin durumu **Durduruldu** olmalıdır. Bu sayfadan bir öğrenci VM'sini başlatabilir, VM'ye bağlanabilir, VM'yi durdurabilir ve VM'yi silebilirsiniz. VM'leri bu sayfadan başlatabilir veya öğrencilerinizin başlatmasını sağlayabilirsiniz. 
 
-     ![Durdurulmuş durumdaki sanal makineler](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
+    ![Durdurulmuş durumdaki sanal makineler](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
 ## <a name="add-users-to-the-lab"></a>Kullanıcılar laboratuvara ekleme
 
@@ -108,15 +108,20 @@ Laboratuvar sahibi diğer kullanıcılara ekleyebilirsiniz **Laboratuvar oluştu
     ![Kullanıcı listesi](../media/how-to-configure-student-usage/users-list-new.png)
 
 
-## <a name="send-registration-link-to-students"></a>Öğrencilere kayıt bağlantısı gönderme
+## <a name="send-an-email-with-the-registration-link"></a>Kayıt bağlantısı içeren bir e-posta Gönder
 
 1. Geçiş **kullanıcılar** sayfada zaten kök kullanıcı değilseniz görüntüleyin. 
-2. Seçin **kayıt bağlantı alma** araç.
-1. **Kullanıcı kaydı** iletişim kutusunda **Kopyala** düğmesini seçin. Bağlantı, panoya kopyalanır.
+2. Belirli veya tüm kullanıcılar listeden seçin. Belirli kullanıcıları seçmek için listedeki ilk sütunda onay kutularını seçin. Tüm kullanıcıları seçmek için ilk sütun başlığının önüne onay kutusunu seçin (**adı**) veya listeden tüm kullanıcılar için tüm onay kutularını seçin. Durumunu görebilirsiniz **davet durumu** bu listede.  Aşağıdaki görüntüde tüm Öğrenciler için davet durumu ayarlanır **davet gönderilmedi**. 
 
-    ![Kayıt bağlantısı](../media/tutorial-setup-classroom-lab/registration-link.png)
-1. **Kullanıcı kaydı** iletişim kutusunda **Kapat**'ı seçin. 
-2. Kayıt bağlantısını sınıfa kaydolmasını istediğiniz öğrencilerle paylaşın.
+    ![Öğrencileri seçme](../media/tutorial-setup-classroom-lab/select-students.png)
+1. Seçin **e-posta simgesine (Zarf)** satır (veya) select biriyle **Davet Gönder** araç. Fare, e-posta simgesini görmek için listedeki bir öğrenci adının üzerine de gelebilirsiniz. 
+
+    ![Kayıt bağlantıyı e-posta ile gönderin](../media/tutorial-setup-classroom-lab/send-email.png)
+4. Üzerinde **e-posta ile gönderme kayıt bağlantı** sayfasında, aşağıdaki adımları izleyin: 
+    1. Türü bir **isteğe bağlı iletisini** Öğrenciler göndermek istediğiniz. E-posta kayıt bağlantıyı otomatik olarak içerir. 
+    2. Üzerinde **e-posta ile gönderme kayıt bağlantı** sayfasında **Gönder**. Davet değiştirerek durumunu görmek **davet gönderiliyor** ve sonra **davet gönderildi**. 
+        
+        ![Davet gönderildi](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, bir sınıf laboratuvarı oluşturdunuz ve laboratuvarı yapılandırdınız. Bir öğrencinin, kayıt bağlantısını kullanarak laboratuvardaki bir sanal makineye nasıl erişebileceğinizi öğrenmek için sonraki öğreticiye ilerleyin:

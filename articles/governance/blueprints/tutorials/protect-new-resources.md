@@ -1,19 +1,19 @@
 ---
-title: Blueprint kaynak kilitleri yeni kaynaklarla koruyun
+title: Şema kaynak kilitleriyle yeni kaynakları koruma
 description: Salt okunur Azure Blueprint kaynak kilitleri nasıl kullanacağınızı öğrenin ve dağıtılan kaynakları yeni korunacak silmeyin.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2018
+ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: e3a05329ea247dbf5baa23ae9b3d32f909c0d1bb
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: f39d59ef7ab3f555637aef69b301a0e77c00fc24
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57858404"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629226"
 ---
 # <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Yeni kaynaklar Azure Blueprint kaynak kilitleri ile koruma
 
@@ -40,7 +40,7 @@ Bu öğreticiyi tamamlamak için bir Azure aboneliği gereklidir. Azure aboneli�
 
 1. Gelen **Başlarken** seçin sol taraftaki sayfasında **Oluştur** düğmesini _blueprint oluşturma_.
 
-1. Bulma **boş örnek** şema örnek seçin ve sayfanın üst kısmındaki **Bu örneği kullanmak**.
+1. Bulma **boş Blueprint** şema örnek seçin ve sayfanın üst kısmındaki **Başlat ile boş blueprint**.
 
 1. Girin _Temelleri_ şema örnek:
 
@@ -81,7 +81,7 @@ Bu öğreticiyi tamamlamak için bir Azure aboneliği gereklidir. Azure aboneli�
        "resources": [{
            "type": "Microsoft.Storage/storageAccounts",
            "name": "[variables('storageAccountName')]",
-           "location": "[resourceGroups('RGtoLock').location]",
+           "location": "[resourceGroup().location]",
            "apiVersion": "2018-07-01",
            "sku": {
                "name": "[parameters('storageAccountType')]"
@@ -182,6 +182,8 @@ Atama oluşturduğunuz kaynak grubunu _TestingBPLocks_ ve Resource Manager şabl
 
    Oluşturulan şema atamasını bir [atamasını Reddet](../../../role-based-access-control/deny-assignments.md) zorlamak için dağıtılan kaynak grubunda _salt okunur_ blueprint kilit modu. Reddetme atama uygun haklara sahip biri üzerinde engeller _rol atamaları_ belirli eylemleri gelen sekmesi. Reddetme atama etkiler _tüm ilkeleri_.
 
+   Sorumlu bir reddetme atamasından dışlama hakkında daha fazla bilgi için bkz: [Blueprint kaynak kilitleme](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment).
+
 1. Reddet Ataması'nı seçin ve ardından **izinler reddedildi** soldaki sayfası.
 
    Reddetme atama ile yapılan tüm işlemlerde engelliyor **\*** ve **eylem** yapılandırma, ancak hariç tutarak okuma erişimi verir  **\* /Okuma**aracılığıyla **NotActions**.
@@ -221,9 +223,9 @@ Bu öğreticiyle tamamlandığında, aşağıdaki kaynakları silin:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Şema yaşam döngüsü](../concepts/lifecycle.md) hakkında bilgi edinin
-- [Statik ve dinamik parametreleri](../concepts/parameters.md) kullanmayı anlayın
-- [Şema kaynak kilitleme](../concepts/resource-locking.md) özelliğini kullanmayı öğrenin
-- [Şema sıralamasını](../concepts/sequencing-order.md) özelleştirmeyi öğrenin
-- [Var olan atamaları güncelleştirmeyi](../how-to/update-existing-assignments.md) öğrenin
-- [Genel sorun giderme](../troubleshoot/general.md) adımlarıyla şema atama sorunlarını giderin
+- [Şema yaşam döngüsü](../concepts/lifecycle.md) hakkında bilgi edinin.
+- [Statik ve dinamik parametrelerin](../concepts/parameters.md) kullanımını anlayın.
+- [Şema kaynak kilitleme](../concepts/resource-locking.md) özelliğini kullanmayı öğrenin.
+- [Şema sıralama düzenini](../concepts/sequencing-order.md) özelleştirmeyi öğrenin.
+- [Mevcut atamaları güncelleştirmeyi](../how-to/update-existing-assignments.md) öğrenin.
+- [Genel sorun giderme](../troubleshoot/general.md) adımlarıyla şema atama sorunlarını giderin.

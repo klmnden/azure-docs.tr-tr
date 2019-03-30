@@ -4,7 +4,7 @@ description: Service Fabric CLI'sını sfctl tek başına küme komutlarını a�
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: ce10e2c24e89140357df3fa6b724a1f89f389a50
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a652439729e538b3ce2545ab3b09284e6645ce9d
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275491"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668526"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Tek başına Service Fabric kümeleri yönetin.
@@ -65,7 +65,7 @@ Sağlanan yapılandırma yükseltme parametreleri doğrulayın ve küme yapılan
 | --- | --- |
 | --Küme yapılandırma [gerekli] | Küme yapılandırması. |
 | --Uygulama sistem durumu ilkeleri | Uygulama türü adı ve en yüksek yüzdesi hatası tetiklenmeden önce sağlıksız çiftleri kodlamalı JSON sözlüğü. |
-| --delta iyi durumda olmayan-düğümler | İzin verilen maksimum delta sistem durumu performans düşüşü yükseltme sırasında yüzdesi. İzin verilen değerler sıfırdan 100 tamsayı değerleri. |
+| --delta-unhealthy-nodes | İzin verilen maksimum delta sistem durumu performans düşüşü yükseltme sırasında yüzdesi. İzin verilen değerler sıfırdan 100 tamsayı değerleri. |
 | --Sistem durumu denetimi deneme | Uygulama veya kümenin iyi durumda değilse, sistem durumu denetimleri gerçekleştirmek için girişimleri arasındaki süre uzunluğu.  Varsayılan\: PT0H0M0S. |
 | --Sistem durumu denetimi kararlı | Süreyi sonraki yükseltme etki alanına yükseltmeye devam etmeden önce uygulama veya kümenin sağlıklı kalmasını gerekir.  Varsayılan\: PT0H0M0S. <br><br> Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. |
 | --Sistem durumu denetimi bekleme | Sistem başlatmadan önce bir yükseltme etki alanını tamamladıktan sonra beklenecek süreyi işlemi denetler.  Varsayılan\: PT0H0M0S. |

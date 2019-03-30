@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: de2d8bcbf4ca75ad7278ec9fe47a3f55160b7910
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bded6c76aa209a718929c891bd2443f8517ec44a
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082662"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649663"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>PowerShell kullanarak sanal makineler için birden çok IP adresi atama
 
@@ -196,7 +196,7 @@ Aşağıdaki adımları senaryoda açıklanan şekilde birden çok IP adresi ile
 
 ## <a name="add"></a>Bir VM'ye IP adresleri ekleme
 
-Aşağıdaki adımları izleyerek Azure ağ arabirimi ile özel ve genel IP adresleri ekleyebilirsiniz. Aşağıdaki bölümlerde örneklerde, bir VM içinde açıklanan üç IP yapılandırmaları ile sahip olduğunuz varsayılmaktadır [senaryo](#Scenario) bu makalede, ancak gerekli değildir, bunu.
+Aşağıdaki adımları izleyerek Azure ağ arabirimi ile özel ve genel IP adresleri ekleyebilirsiniz. Aşağıdaki bölümlerde örneklerde, bir VM içinde açıklanan üç IP yapılandırmaları ile sahip olduğunuz varsayılmaktadır [senaryo](#scenario) bu makalede, ancak gerekli değildir, bunu.
 
 1. Bir PowerShell komut istemi açın ve tek bir PowerShell oturumunda bu bölümün kalan adımları tamamlayın. PowerShell sürümünün yüklü ve yapılandırılmış yoksa bölümünde bulunan adımları tamamladığınızdan [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview) makalesi.
 2. Aşağıdaki $Variables "values" NIC için IP adresi eklemek istediğiniz kaynak grubunu ve konumu NIC var. adı değiştirin:

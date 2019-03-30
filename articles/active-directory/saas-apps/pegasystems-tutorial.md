@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 44a9784e47772c5a2ae1335aa048a4d3b86073eb
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 59dc9f82251e7a406e6fe1339fdb55b4880cd74d
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577131"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649195"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Öğretici: Pega sistemler ile Azure Active Directory Tümleştirme
 
@@ -122,7 +122,7 @@ Azure AD çoklu oturum açma Pega sistemleriyle yapılandırmak için aşağıda
 
 6. Pega sistemleri uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
 
-    ![image](common/edit-attribute.png)
+    ![görüntü](common/edit-attribute.png)
 
 7. Yukarıdaki için ayrıca Pega sistemleri uygulama SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
 
@@ -143,9 +143,9 @@ Azure AD çoklu oturum açma Pega sistemleriyle yapılandırmak için aşağıda
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![image](common/new-save-attribute.png)
+    ![görüntü](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![görüntü](common/new-attribute-details.png)
 
     b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 
@@ -207,11 +207,11 @@ Azure AD çoklu oturum açma Pega sistemleriyle yapılandırmak için aşağıda
 
     a. Kopyalama **varlık kimliği** için yapıştırın ve değer **tanımlayıcı** metin kutusunda **temel SAML yapılandırma** Azure portalında.
 
-    b.  Kopyalama **onaylama tüketici hizmeti (ACS) konumu** için yapıştırın ve değer **yanıt URL'si** textbox metin kutusunda **temel SAML yapılandırma** Azure portalında.
+    b. Kopyalama **onaylama tüketici hizmeti (ACS) konumu** için yapıştırın ve değer **yanıt URL'si** metin kutusunda **temel SAML yapılandırma** Azure portalında.
 
     c. Seçin **imzalama isteğini devre dışı**.
 
-7. **Kaydet**’e tıklayın
+7. **Kaydet**'e tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

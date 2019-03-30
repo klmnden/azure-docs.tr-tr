@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 051aa6b6ca8571fe948fa30e1e4a4320bb564a52
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7ca7e653cc42323f4313ef955de40416154b4ecf
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593327"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651677"
 ---
 # <a name="split-merge-security-configuration"></a>Ayırma-birleştirme güvenliği yapılandırma
 
@@ -83,17 +83,17 @@ Bir SSL sertifikası, iletişimi şifrelemek ve sunucu kimlik doğrulaması içi
 3. [Hizmet yapılandırma dosyasında CA sertifikasını güncelleştir](#update-ca-certificate-in-service-configuration-file)
 4. [İstemci sertifikaları](#issue-client-certificates)
 5. [İstemci sertifikaları için PFX dosyaları oluşturma](#create-pfx-files-for-client-certificates)
-6. [İstemci sertifika İçeri Aktar](#Import-Client-Certificate)
+6. [İstemci sertifika İçeri Aktar](#import-client-certificate)
 7. [İstemci sertifikası parmak izleri kopyalayın](#copy-client-certificate-thumbprints)
 8. [Hizmet yapılandırma dosyasında izin verilen istemcilerini yapılandırma](#configure-allowed-clients-in-the-service-configuration-file)
 
 ### <a name="use-existing-client-certificates"></a>Mevcut istemci sertifikaları kullanın
 1. [CA ortak anahtar bulunamadı](#find-ca-public-key)
-2. [Bulut hizmeti için CA sertifikasını karşıya yükle](#Upload-CA-certificate-to-cloud-service)
-3. [Hizmet yapılandırma dosyasında CA sertifikasını güncelleştir](#Update-CA-Certificate-in-Service-Configuration-File)
-4. [İstemci sertifikası parmak izleri kopyalayın](#Copy-Client-Certificate-Thumbprints)
+2. [Bulut hizmeti için CA sertifikasını karşıya yükle](#upload-ca-certificate-to-cloud-service)
+3. [Hizmet yapılandırma dosyasında CA sertifikasını güncelleştir](#update-ca-certificate-in-service-configuration-file)
+4. [İstemci sertifikası parmak izleri kopyalayın](#copy-client-certificate-thumbprints)
 5. [Hizmet yapılandırma dosyasında izin verilen istemcilerini yapılandırma](#configure-allowed-clients-in-the-service-configuration-file)
-6. [İstemci sertifika iptal denetimi yapılandırma](#Configure-Client-Certificate-Revocation-Check)
+6. [İstemci sertifika iptal denetimi yapılandırma](#configure-client-certificate-revocation-check)
 
 ## <a name="allowed-ip-addresses"></a>İzin verilen IP adresleri
 Hizmet uç noktalarına erişimi belirli IP adresleri aralığı için sınırlı olabilir.
@@ -421,10 +421,10 @@ Bulut hizmeti için karşıya yüklenen sertifikanın parmak izi ile parmak izi 
 1. MMC.exe çalıştırın.
 2. Dosya -> Ekle/Kaldır ek bileşenini...
 3. Seçin **sertifikaları**.
-4. **Ekle**'ye tıklayın.
+4. **Ekle**'yi tıklatın.
 5. Sertifika depolama konumu seçin.
 6. **Son**'a tıklayın.
-7. **Tamam** düğmesine tıklayın.
+7. **Tamam**'ı tıklatın.
 8. Genişletin **sertifikaları**.
 9. Sertifika deposu düğümünü genişletin.
 10. Sertifika alt düğümünü genişletin.
@@ -444,7 +444,7 @@ Bulut hizmeti için karşıya yüklenen sertifikanın parmak izi ile parmak izi 
 9. Yazın veya bir dosya adı sertifikanın depolanacağı yeri bulun (kullanan bir. PFX uzantısı).
 10. **İleri**’ye tıklayın.
 11. **Son**'a tıklayın.
-12. **Tamam** düğmesine tıklayın.
+12. **Tamam**'ı tıklatın.
 
 ## <a name="import-certificate"></a>Sertifikayı içeri aktar
 Sertifika Alma Sihirbazı'nda:

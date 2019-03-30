@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: 69332e923d0975a126fc091e72da51c402c6b29d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bcf03c7d342c6d9ad39fa6327f566f191133fd40
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57907821"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632503"
 ---
 ## <a name="create-a-cloud-spatial-anchor"></a>Bir bulut uzamsal bağlantı oluşturma
 
-Bulut bağlantı oluşturmak için önce platformun AR sistemde bir bağlantı oluşturun ve ardından bulut karşılığı oluşturun. CreateAnchorAsync yöntemini kullanırsınız.
+Bulut bağlantı oluşturmak için önce platformun AR sistemde bir bağlantı oluşturun ve ardından bulut karşılığı oluşturun. Kullandığınız `CreateAnchorAsync()` yöntemi.

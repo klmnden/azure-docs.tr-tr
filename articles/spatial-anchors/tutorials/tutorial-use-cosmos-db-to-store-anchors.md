@@ -1,5 +1,5 @@
 ---
-title: Oturumlarda ve cihazlarda Azure uzamsal yer işaretleri ve bir Azure Cosmos DB arka ucu arasında paylaşımı Öğreticisi - | Microsoft Docs
+title: Öğretici - paylaşım Azure uzamsal Çıpasıyla oturumları ve cihazlar arasında bir Azure Cosmos DB arka ucu | Microsoft Docs
 description: Bu öğreticide, Azure uzamsal bağlayıcılarını tanımlayıcıları Unity Android/iOS cihazlarını bir arka uç hizmeti ve Azure Cosmos DB ile paylaşılmasını öğrenin.
 author: ramonarguelles
 manager: vicenterivera
@@ -8,19 +8,16 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0e7011b9778221869940b137a2b87239f2d8db9b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 17e9d19b755c1d3ac455d9fef8406e00de3a376d
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286406"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58628933"
 ---
-# <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors-and-an-azure-cosmos-db-back-end"></a>Öğretici: Oturumlarda ve cihazlarda Azure uzamsal yer işaretleri ve bir Azure Cosmos DB arka ucu arasında paylaşma
+# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Öğretici: Paylaşım Azure uzamsal bağlayıcılarını oturumları ve cihazlar arasında bir Azure Cosmos DB ile arka uç
 
-Bu öğreticide, nasıl kullanılacağını öğreneceksiniz [Azure uzamsal bağlayıcılarını](../overview.md) için:
-
-- Bir oturumda yer işaretleri oluşturmanız ve bunları aynı cihaz veya farklı bir başka bir oturum sırasında bulun. Örneğin, ikinci oturum başka bir gün olabilir.
-- Aynı yerde ve aynı anda birden çok cihaz tarafından bulunan bağlantıları oluşturun.
+Bu öğreticide, nasıl kullanılacağını öğreneceksiniz [Azure uzamsal bağlayıcılarını](../overview.md) bir oturumu sırasında yer işaretleri oluşturmanız ve ardından aynı cihaz veya farklı bir başka bir oturum sırasında bulun. Örneğin, ikinci oturum başka bir gün olabilir. Bu aynı çıpalarını da aynı yerde ve aynı anda birden çok cihaz tarafından bulunamıyor.
 
 ![GIF gösteren nesne kalıcılığı](./media/persistence.gif)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: 050a7a3718cb7c9eb864b7ed6ea0787c079e31b9
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: fec72a4fac6baa3869928c0203aeb29e53ce5ea4
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226326"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648478"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Hızlı Başlangıç: Uygulama yapılandırması ile bir Java Spring uygulaması oluşturma
 
@@ -72,7 +72,7 @@ Bu hızlı başlangıç yapmak için desteklenen bir yükleme [Java Development 
 
 Kullandığınız [Initializr](https://start.spring.io/) yeni bir Spring Boot proje oluşturmaktır.
 
-1. <https://start.spring.io/> adresine gidin.
+1. konumuna gözatın <https://start.spring.io/>.
 
 2. Aşağıdaki seçenekleri belirtin:
 
@@ -93,7 +93,7 @@ Kullandığınız [Initializr](https://start.spring.io/) yeni bir Spring Boot pr
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M1</version>
+        <version>1.1.0.M3</version>
     </dependency>
     ```
 

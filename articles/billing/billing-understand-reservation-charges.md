@@ -1,6 +1,6 @@
 ---
-title: Azure ayırmaları indirim anlama | Microsoft Docs
-description: Ayırma indirimi çalışan SQL veritabanlarını nasıl uygulanacağını öğrenin.
+title: Azure SQL veritabanları için ayırmaları indirimi anlama | Microsoft Docs
+description: Ayırma indirimi çalışan Azure SQL veritabanlarını nasıl uygulanacağını öğrenin.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: banders
-ms.openlocfilehash: ff31b9be0e927cca7d272e5deaa5ecf48a52580d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aa4fc43efab8c168fd5351ec60def7a3d0eefada
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845475"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649450"
 ---
-# <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Bir Azure ayırma indirimi SQL veritabanına nasıl uygulanacağını anlama
+# <a name="understand-how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Ayırma indirimi Azure SQL veritabanına nasıl uygulanacağını anlama
 
 Ayırma indirimi, SQL veritabanları için öznitelikler ve ayırma miktarı ile eşleşen, otomatik olarak bir Azure SQL veritabanı'nın ayrılmış kapasite satın sonra uygulanır. Rezervasyon SQL veritabanınızın işlem maliyetlerini kapsar. Yazılım, depolama ve ağ için ücretlendirilirsiniz normal fiyatlar. SQL veritabanınız için lisanslama maliyetlerini karşılamak [Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -54,6 +54,6 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 - [CSP abonelikleri için ayırma kullanımını anlama](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bize ulaşın
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2c29d9860f1c8fc4f0f6d9f4d84c06e8ade8dee5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 56b164d9612fd1bef8caf9ae0de679f65595bc39
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286984"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629474"
 ---
 # <a name="quickstart-create-a-hololens-unity-app-that-uses-azure-spatial-anchors"></a>Hızlı Başlangıç: Azure uzamsal bağlayıcıları kullanan HoloLens Unity uygulaması oluşturma
 
@@ -35,7 +35,7 @@ Bu hızlı başlangıcı tamamlamak için:
 
 
 - Bir Windows bilgisayara ihtiyacınız <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> veya üzeri ve <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> veya üzeri yüklü. Visual Studio yüklemenizin içermelidir **Evrensel Windows platformu geliştirme** iş yükü. Ayrıca yüklemelisiniz <a href="https://git-scm.com/download/win" target="_blank">Git için Windows</a>.
-- Bir HoloLens cihazda ihtiyacınız [Geliştirici modu](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) etkin. [Windows 10 Ekim 2018 güncelleştirmesi](https://docs.microsoft.com/en-us/windows/mixed-reality/release-notes-october-2018) (RS5 olarak da bilinir), cihazda yüklü olması gerekir. HoloLens üzerinde en son sürümüne güncelleştirmek için **ayarları** uygulama, Git **güncelleştirme ve güvenlik**ve ardından **Güncelleştirmeleri denetle**.
+- Bir HoloLens cihazda ihtiyacınız [Geliştirici modu](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) etkin. [Windows 10 Ekim 2018 güncelleştirmesi](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (RS5 olarak da bilinir), cihazda yüklü olması gerekir. HoloLens üzerinde en son sürümüne güncelleştirmek için **ayarları** uygulama, Git **güncelleştirme ve güvenlik**ve ardından **Güncelleştirmeleri denetle**.
 - Uygulamanız üzerinde etkinleştirmeniz gerekir. **SpatialPerception** yeteneği. Bu ayar **Build Settings** > **Player ayarları** > **yayımlama ayarları**  >   **Özellikleri**.
 - Uygulamanız üzerinde etkinleştirmeniz gerekir. **sanal gerçeklik desteklenen** ile **Windows karma gerçeklik SDK**. Bu ayar **Build Settings** > **Player ayarları** > **XR ayarları**.
 

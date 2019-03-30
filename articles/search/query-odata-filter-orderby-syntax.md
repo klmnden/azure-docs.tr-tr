@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8445ab2c8797226b08519e2f186350a31416f049
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ab98c3be75fb59603be66ee84e0d288de56cdc91
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578416"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648512"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>OData ifadesi söz dizimi filtreleri ve Azure Search order by yan tümceleri
 
@@ -84,9 +84,11 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 - `search.in` İşlevi verilen dize alanı verilen değerlerin listesini birine eşit olup olmadığını test eder. Bu ayrıca any veya all, tek bir dize koleksiyonu alanı değer verilen değerlerin listesini ile karşılaştırmak için kullanılabilir. Alan ve listedeki her değer arasındaki aynı şekilde olarak büyük küçük harfe duyarlı bir biçimde belirlenir `eq` işleci. Bu nedenle bir ifade ister `search.in(myfield, 'a, b, c')` eşdeğerdir `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`dışında `search.in` çok daha iyi performans verir. 
 
-  İlk parametre olarak `search.in` işlev, dizeyi alan başvurusu (veya bir aralık değişkeni bir dize koleksiyonu alanı durumda üzerinden burada `search.in` içinde kullanılan bir `any` veya `all` ifadesi). İkinci parametre değerleri, boşluk ve/veya virgülle ayrılmış listesini içeren bir dizedir. Değerlerinizin bu karakterleri içerdiğinden boşluk ve virgül dışındaki ayırıcıları kullanmanız gerekiyorsa, isteğe bağlı üçüncü bir parametre belirtebilirsiniz `search.in`. 
-
-  Bu üçüncü parametresi, burada her karakter dizesinin veya bu dizenin alt ayırıcı olarak ikinci parametre değerleri listesi ayrıştırılırken değerlendirilir bir dizedir.
+   İlk parametre olarak `search.in` işlev, dizeyi alan başvurusu (veya bir aralık değişkeni bir dize koleksiyonu alanı durumda üzerinden burada `search.in` içinde kullanılan bir `any` veya `all` ifadesi). 
+  
+   İkinci parametre değerleri, boşluk ve/veya virgülle ayrılmış listesini içeren bir dizedir. 
+  
+   Üçüncü parametresi, burada her karakter dizesinin veya bu dizenin alt ayırıcı olarak ikinci parametre değerleri listesi ayrıştırılırken değerlendirilir bir dizedir. Değerlerinizin bu karakterleri içerdiğinden boşluk ve virgül dışındaki ayırıcıları kullanmanız gerekiyorsa, isteğe bağlı üçüncü bir parametre belirtebilirsiniz `search.in`. 
 
   > [!NOTE]   
   > Bazı senaryolar, çok sayıda sabit değerler karşı bir alan karşılaştırma gerektirir. Örneğin, güvenlik kırpma filtrelerle uygulama Belge Kimliği alanı kimlikleri okuma erişimi izni isteyen kullanıcı için bir listesiyle karşılaştıran gerektirebilir. Bu gibi senaryolarda kullanarak öneririz `search.in` eşitlik ifadeleridir, daha karmaşık bir ayrım yerine işlevi. Örneğin, `search.in(Id, '123, 456, ...')` yerine `Id eq 123 or Id eq 456 or ....`. 
@@ -207,7 +209,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-Tüm hotels adlı 'Roach motel' veya 'Bütçe otel' eşittir bulabilirsiniz). İfadeler, varsayılan sınırlayıcı olduğu alanları içerir. Bir sınırlayıcı geçersiz kılma belirtmek için yeni sınırlayıcı filtre ifadesi bir parçası olarak tek tırnak işaretleri içine alın:  
+Tüm hotels adlı 'Roach motel' veya 'Bütçe otel' eşittir bulabilirsiniz). İfadeler, varsayılan sınırlayıcı olduğu alanları içerir. Üçüncü bir dize parametresi olarak specicfy tek tırnak içinde başka bir sınırlayıcı yapabilecekleriniz:  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -225,7 +227,7 @@ Etiket 'wifi' veya 'havuzu' tüm hotels bulun:
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
 ```
 
-Birden çok etiketleri, 'ısıtılan towel raflar' veya 'dahil hairdryer' bir eşleşme bulur. Varsayılan alan sınırlayıcı çalışmaz olmadığında, başka bir sınırlayıcı belirtmeyi unutmayın. 
+Bir eşleşme ifadeleri 'ısıtılan towel raflar' veya 'dahil hairdryer' gibi bir koleksiyon içinde etiketleri bulun. 
 
 ```
 $filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))

@@ -4,7 +4,7 @@ description: Service Fabric CLI'sını sfctl hizmet komutlarını açıklamaktad
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: dbe234b3c6aaeed90f0b95e5118c1ff2f9e2bb24
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e0454d0124efba04434884fbac9056c5e324710d
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276885"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670889"
 ---
 # <a name="sfctl-service"></a>sfctl service
 Oluşturma, silme ve hizmet, hizmet türlerini ve hizmet paketleri yönetin.
@@ -30,15 +30,15 @@ Oluşturma, silme ve hizmet, hizmet türlerini ve hizmet paketleri yönetin.
 | --- | --- |
 | Uygulama adı | Bir hizmet için Service Fabric uygulamasının adını alır. |
 | kod paketi listesi | Bir Service Fabric düğümde dağıtılan kod paketlerin listesini alır. |
-| oluşturmaya | Belirtilen Service Fabric hizmeti oluşturur. |
-| delete | Var olan bir Service Fabric hizmeti siler. |
+| oluştur | Belirtilen Service Fabric hizmeti oluşturur. |
+| sil | Var olan bir Service Fabric hizmeti siler. |
 | dağıtılan türü | Bir Service Fabric kümesindeki bir düğümde dağıtılan uygulamayı belirtilen hizmet türü hakkındaki bilgileri alır. |
 | dağıtılan-türü-list | Bir Service Fabric kümesindeki bir düğümde dağıtılan uygulamaları hizmet türleri hakkında bilgi içeren listeyi alır. |
 | açıklama | Mevcut bir Service Fabric hizmet açıklamasını alır. |
 | Get-container-logs | Kapsayıcı günlükleri için kapsayıcı bir Service Fabric dağıtıldığını alır. |
-| sağlık | Belirtilen Service Fabric hizmetinin sistem durumunu alır. |
+| sistem durumu | Belirtilen Service Fabric hizmetinin sistem durumunu alır. |
 | bilgi | Service Fabric uygulamaya ait belirli hizmet hakkındaki bilgileri alır. |
-| list | Uygulama kimliği ile belirtilen uygulamaya ait tüm hizmetleri hakkındaki bilgileri alır. |
+| liste | Uygulama kimliği ile belirtilen uygulamaya ait tüm hizmetleri hakkındaki bilgileri alır. |
 | Bildirimi | Hizmet türünü tanımlayan bir bildirim alır. |
 | Paketi dağıtma | Belirtilen hizmet bildirimi için belirtilen düğümün görüntü önbelleğine ilişkili paketleri indirir. |
 | paket durumu | Bir Service Fabric düğümü ve bir uygulama için dağıtılan belirli bir uygulama için bir hizmet paketi sistem durumu hakkında bilgi alır. |
@@ -48,7 +48,7 @@ Oluşturma, silme ve hizmet, hizmet türlerini ve hizmet paketleri yönetin.
 | durumu- | Service Fabric hizmeti üzerinde bir sistem durumu raporu gönderir. |
 | çöz | Bir Service Fabric bölümü çözümleyin. |
 | tür listesi | Bir Service Fabric kümesindeki bir sağlanan uygulama türü tarafından desteklenen hizmet türleri hakkındaki bilgileri içeren listeyi alır. |
-| update | Belirtilen hizmet verilen güncelleştirme açıklaması kullanarak güncelleştirir. |
+| güncelleştirilmek | Belirtilen hizmet verilen güncelleştirme açıklaması kullanarak güncelleştirir. |
 
 ## <a name="sfctl-service-app-name"></a>sfctl hizmet-adı
 Bir hizmet için Service Fabric uygulamasının adını alır.
@@ -107,31 +107,31 @@ Belirtilen Service Fabric hizmeti oluşturur.
 | --Uygulama kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış '\~' karakter. Örneğin, uygulama adı ise ' fabric\:/myapp/app1 ', uygulama kimliği olur ' Uygulamam\~app1' 6.0 + ve ' myapp/app1' in önceki sürümlerindeki. |
 | --Ad [gerekli] | Hizmetin adı. Bu, bir alt uygulama kimliği olmalıdır. Bu, tam adıyla birlikte `fabric\:` URI. Örneğin hizmet `fabric\:/A/B` uygulama alt `fabric\:/A`. |
 | --service-type [gerekli] | Hizmet türünün adı. |
-| --modunu etkinleştirme | Hizmet Paketi için etkinleştirme modu. |
+| --activation-mode | Hizmet Paketi için etkinleştirme modu. |
 | --kısıtlamaları | Dize olarak yerleştirme kısıtlamaları. Yerleştirme kısıtlamaları, boolean ifadeler düğüm özellikleri ve hizmet gereksinimlerine göre belirli düğümler için bir hizmet sınırlamak için sağlar. Örneğin, yerleştirmek için bir hizmeti NodeType olduğu mavi düğümlerinde belirtin aşağıdaki\:"NodeColor mavi ==". |
-| --bağıntılı hizmeti | İle ilişkilendirmek için hedef hizmet adı. |
+| --correlated-service | İle ilişkilendirmek için hedef hizmet adı. |
 | --Bağıntı | Hizmet hizalama benzeşim kullanarak mevcut bir hizmet ile ilişkilendirin. |
-| --dns-adı | Oluşturulacak hizmet DNS adı. Bu ayar için Service Fabric DNS sistem hizmetinin etkinleştirilmesi gerekir. |
+| --dns-name | Oluşturulacak hizmet DNS adı. Bu ayar için Service Fabric DNS sistem hizmetinin etkinleştirilmesi gerekir. |
 | --örnek sayısı | Örnek sayısı. Bu, yalnızca durum bilgisi olmayan hizmetler için geçerlidir. |
 | --int düzeni | Hizmet, işaretsiz tamsayılar aralığı arasında birörnek bölümlendirilmelidir gösterir. |
 | --int düzeni sayısı | Bir Tekdüzen tamsayı bölüm düzeni kullanıyorsanız, oluşturmak için tamsayı anahtar aralığı içindeki bölüm sayısı. |
 | --int düzeni yüksek | Bir Tekdüzen tamsayı bölüm düzeni kullanıyorsanız, anahtar tamsayı aralığı sonu. |
 | --int düzeni düşük | Bir Tekdüzen tamsayı bölüm düzeni kullanıyorsanız, anahtar tamsayı aralığı başlangıcı. |
 | --Yükleme ölçümleri | JSON düğümleri arasında Yük Dengeleme Hizmetleri çalıştırıldığında kullanılan ölçümlerin listesi kodlanmış. |
-| --en küçük çoğaltma kümesi boyutu | En küçük çoğaltma boyutu bir sayı olarak ayarlayın. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
+| --min-replica-set-size | En küçük çoğaltma boyutu bir sayı olarak ayarlayın. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
 | --Taşıma maliyeti | Hizmet taşıma maliyeti belirtir. Olası değerler\: 'Sıfır', 'Düşük', 'Orta', 'Yüksek'. |
-| --adlı düzeni | Hizmet birden çok adlandırılmış bölüm olmayacağını gösterir. |
+| --named-scheme | Hizmet birden çok adlandırılmış bölüm olmayacağını gösterir. |
 | --adlı-şeması-list | JSON olarak kodlanmış hizmeti arasında adlandırılmış bölüm düzeni kullanıyorsanız bölümlemek için adları listesi. |
 | --no-kalıcı-durum | TRUE ise bu hizmette yerel diskte depolanan kalıcı durum olduğunu veya yalnızca bellekte durumunu depolayan belirtir. |
 | --yerleştirme ilke listesi | Hizmet yerleştirme ilkeleri listesi JSON kodlamalı ve tüm ilişkili etki alanı adları. İlkeleri, bir veya daha fazla olabilir\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
 | --Çekirdek kayıp bekleyin | En fazla süreyi saniye cinsinden kendisi için bir bölüm çekirdek kaybı durumunda olmasına izin verilmiyor. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
-| --çoğaltma-yeniden-wait | Bir çoğaltma olduğunda çalışmayı durdurursa ve yeni bir kopya oluşturulduğunda arasındaki saniye cinsinden süre. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
+| --replica-restart-wait | Bir çoğaltma olduğunda çalışmayı durdurursa ve yeni bir kopya oluşturulduğunda arasındaki saniye cinsinden süre. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
 | --ölçeklendirme ilkeleri | Bu hizmet için ilkeleri ölçeklendirme listesi JSON kodlamalı. |
 | --tekil düzeni | Hizmet tek bir bölüm veya bölümlenmemiş bir hizmeti gösterir. |
-| --bağımsız olarak çoğaltma koru | Saniye cinsinden en uzun süresi için hangi bekleme kaldırılmadan önce çoğaltmaları korunur. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
+| --stand-by-replica-keep | Saniye cinsinden en uzun süresi için hangi bekleme kaldırılmadan önce çoğaltmaları korunur. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
 | --durum bilgisi olan | Durum bilgisi olan hizmet hizmet olduğunu gösterir. |
-| --durum bilgisi olmayan | Durum bilgisi olmayan hizmet hizmet olduğunu gösterir. |
-| --Hedef çoğaltma kümesi boyutu | Hedef çoğaltma boyutu bir sayı olarak ayarlayın. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
+| --stateless | Durum bilgisi olmayan hizmet hizmet olduğunu gösterir. |
+| --target-replica-set-size | Hedef çoğaltma boyutu bir sayı olarak ayarlayın. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
@@ -275,7 +275,7 @@ Belirtilen hizmet durumu bilgilerini alır. Sistem durumu olaylarını sistem du
 |Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Hizmet kimliği [gerekli] | Hizmet kimliği. Bu kimlik genellikle hizmet olmadan tam adı olan ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Hizmet adı; Örneğin, "fabric\:/myapp/app1/svc1", hizmet kimliği olur "myapp\~app1\~svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde. |
-| --Olay Sistem Durumu Filtresi | Döndürülen sistem durumu olayı nesnelerinin koleksiyonunu sistem durumuna göre filtrelemeye olanak tanır. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Yalnızca filtreyle eşleşen olaylar döndürülür. Tüm olaylar, toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri numaralandırma bayrağı tabanlı olduğundan, değer Bitsel 'Veya' işlecini kullanarak elde ettiğiniz bu değerlerin bir birleşimi olabilir. 6 sağlanan değer, örneğin, ardından tüm olayları Tamam (2) ve (4) uyarı HealthState değeriyle döndürülür.  <br> -Default - varsayılan değer. Tüm HealthState eşleşir. Değer sıfırdır.  <br> -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Belirli bir koleksiyon durumlarının sonuç döndürmek için kullanılır. Değer 1'dir.  <br> -Tamam - eşleşme HealthState değeriyle Tamam giriş filtreleyin. Değeri 2'dir.  <br> -Uyarı - filtre HealthState girişle eşleşir uyarı değeri. Değer 4'tür.  <br> -Hata - giriş hatası HealthState değeri ile eşleşen filtre. Değer 8'dir.  <br> -All - giriş herhangi bir HealthState değeri ile eşleşen filtreleyin. Değer 65535'tir. |
+| --events-health-state-filter | Döndürülen sistem durumu olayı nesnelerinin koleksiyonunu sistem durumuna göre filtrelemeye olanak tanır. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Yalnızca filtreyle eşleşen olaylar döndürülür. Tüm olaylar, toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri numaralandırma bayrağı tabanlı olduğundan, değer Bitsel 'Veya' işlecini kullanarak elde ettiğiniz bu değerlerin bir birleşimi olabilir. 6 sağlanan değer, örneğin, ardından tüm olayları Tamam (2) ve (4) uyarı HealthState değeriyle döndürülür.  <br> -Default - varsayılan değer. Tüm HealthState eşleşir. Değer sıfırdır.  <br> -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Belirli bir koleksiyon durumlarının sonuç döndürmek için kullanılır. Değer 1'dir.  <br> -Tamam - eşleşme HealthState değeriyle Tamam giriş filtreleyin. Değeri 2'dir.  <br> -Uyarı - filtre HealthState girişle eşleşir uyarı değeri. Değer 4'tür.  <br> -Hata - giriş hatası HealthState değeri ile eşleşen filtre. Değer 8'dir.  <br> -All - giriş herhangi bir HealthState değeri ile eşleşen filtreleyin. Değer 65535'tir. |
 | --exclude sağlık istatistikleri | Sistem durumu istatistikleri sorgu sonucu bir parçası olarak döndürülüp döndürülmeyeceğini gösterir. Varsayılan değer false. İstatistik alt öğe sayısı durumunun Tamam, uyarı ve hata varlıkları gösterir. |
 | --bölümleri sağlık Durumu Filtresi | Bölümler sistem durumu nesnelerini filtreleme, sistem durumuna bağlıdır hizmeti sistem durumu sorgusu sonucunu döndürdü sağlar. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen bölümleri döndürülür. Tüm bölümlerin toplam sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan değer Bitsel 'Veya' işlecini kullanarak elde ettiğiniz bu değeri bir birleşimi olabilir. Sağlanan değer 6 ise, ardından bölümler sistem durumunu Tamam (2) ve (4) uyarı HealthState değeriyle döndürülür.  <br> -Default - varsayılan değer. Tüm HealthState eşleşir. Değer sıfırdır.  <br> -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Belirli bir koleksiyon durumlarının sonuç döndürmek için kullanılır. Değer 1'dir.  <br> -Tamam - eşleşme HealthState değeriyle Tamam giriş filtreleyin. Değeri 2'dir.  <br> -Uyarı - filtre HealthState girişle eşleşir uyarı değeri. Değer 4'tür.  <br> -Hata - giriş hatası HealthState değeri ile eşleşen filtre. Değer 8'dir.  <br> -All - giriş herhangi bir HealthState değeri ile eşleşen filtreleyin. Değer 65535'tir. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
@@ -323,7 +323,7 @@ Uygulama kimliği ile belirtilen uygulamaya ait tüm hizmetleri hakkında bilgi 
 |Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
-| --devamlılık belirteci | Devamlılık belirteci parametresi, sonraki sonuç kümesini almak için kullanılır. Sistem sonuçlardan tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değer ile API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı, API, sonraki sonuç kümesini döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır. |
+| --continuation-token | Devamlılık belirteci parametresi, sonraki sonuç kümesini almak için kullanılır. Sistem sonuçlardan tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değer ile API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı, API, sonraki sonuç kümesini döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır. |
 | --Hizmet türü adı | Sorgulamak için Hizmetleri filtrelemek için kullanılan hizmet türü adı. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
@@ -397,7 +397,7 @@ Bir Service Fabric düğümde dağıtılan belirli bir uygulama için bir hizmet
 | --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
 | --[gerekli] düğüm adı | Düğümün adı. |
 | --hizmet-paketini-name [gerekli] | Hizmet paketi adı. |
-| --Olay Sistem Durumu Filtresi | Döndürülen sistem durumu olayı nesnelerinin koleksiyonunu sistem durumuna göre filtrelemeye olanak tanır. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Yalnızca filtreyle eşleşen olaylar döndürülür. Tüm olaylar, toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri numaralandırma bayrağı tabanlı olduğundan, değer Bitsel 'Veya' işlecini kullanarak elde ettiğiniz bu değerlerin bir birleşimi olabilir. 6 sağlanan değer, örneğin, ardından tüm olayları Tamam (2) ve (4) uyarı HealthState değeriyle döndürülür.  <br> -Default - varsayılan değer. Tüm HealthState eşleşir. Değer sıfırdır.  <br> -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Belirli bir koleksiyon durumlarının sonuç döndürmek için kullanılır. Değer 1'dir.  <br> -Tamam - eşleşme HealthState değeriyle Tamam giriş filtreleyin. Değeri 2'dir.  <br> -Uyarı - filtre HealthState girişle eşleşir uyarı değeri. Değer 4'tür.  <br> -Hata - giriş hatası HealthState değeri ile eşleşen filtre. Değer 8'dir.  <br> -All - giriş herhangi bir HealthState değeri ile eşleşen filtreleyin. Değer 65535'tir. |
+| --events-health-state-filter | Döndürülen sistem durumu olayı nesnelerinin koleksiyonunu sistem durumuna göre filtrelemeye olanak tanır. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Yalnızca filtreyle eşleşen olaylar döndürülür. Tüm olaylar, toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri numaralandırma bayrağı tabanlı olduğundan, değer Bitsel 'Veya' işlecini kullanarak elde ettiğiniz bu değerlerin bir birleşimi olabilir. 6 sağlanan değer, örneğin, ardından tüm olayları Tamam (2) ve (4) uyarı HealthState değeriyle döndürülür.  <br> -Default - varsayılan değer. Tüm HealthState eşleşir. Değer sıfırdır.  <br> -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Belirli bir koleksiyon durumlarının sonuç döndürmek için kullanılır. Değer 1'dir.  <br> -Tamam - eşleşme HealthState değeriyle Tamam giriş filtreleyin. Değeri 2'dir.  <br> -Uyarı - filtre HealthState girişle eşleşir uyarı değeri. Değer 4'tür.  <br> -Hata - giriş hatası HealthState değeri ile eşleşen filtre. Değer 8'dir.  <br> -All - giriş herhangi bir HealthState değeri ile eşleşen filtreleyin. Değer 65535'tir. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
@@ -566,20 +566,20 @@ Belirtilen hizmet verilen güncelleştirme açıklaması kullanarak güncelleşt
 | --- | --- |
 | --Hizmet kimliği [gerekli] | Hizmet kimliği. Bu, genellikle hizmet olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Hizmet adı; Örneğin, ' fabric\:/myapp/app1/svc1', hizmet kimliği olur ' Uygulamam\~app1\~svc1' 6.0 + ve ' myapp/app1/svc1' önceki sürümlerinde. |
 | --kısıtlamaları | Dize olarak yerleştirme kısıtlamaları. Yerleştirme kısıtlamaları, boolean ifadeler düğüm özellikleri ve hizmet gereksinimlerine göre belirli düğümler için bir hizmet sınırlamak için sağlar. Örneğin, yerleştirmek için bir hizmeti NodeType olduğu mavi düğümlerinde belirtin aşağıdaki\: "NodeColor mavi ==". |
-| --bağıntılı hizmeti | İle ilişkilendirmek için hedef hizmet adı. |
+| --correlated-service | İle ilişkilendirmek için hedef hizmet adı. |
 | --Bağıntı | Hizmet hizalama benzeşim kullanarak mevcut bir hizmet ile ilişkilendirin. |
 | --örnek sayısı | Örnek sayısı. Bu, yalnızca durum bilgisi olmayan hizmetler için geçerlidir. |
 | --Yükleme ölçümleri | JSON olarak kodlanmış ölçümlerin listesi kullanılan yük düğümleri arasında dengeleme. |
-| --en küçük çoğaltma kümesi boyutu | En küçük çoğaltma boyutu bir sayı olarak ayarlayın. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
+| --min-replica-set-size | En küçük çoğaltma boyutu bir sayı olarak ayarlayın. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
 | --Taşıma maliyeti | Hizmet taşıma maliyeti belirtir. Olası değerler\: 'Sıfır', 'Düşük', 'Orta', 'Yüksek'. |
 | --yerleştirme ilke listesi | Hizmet yerleştirme ilkeleri listesi JSON kodlamalı ve tüm ilişkili etki alanı adları. İlkeleri, bir veya daha fazla olabilir\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
 | --Çekirdek kayıp bekleyin | En fazla süreyi saniye cinsinden kendisi için bir bölüm çekirdek kaybı durumunda olmasına izin verilmiyor. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
-| --çoğaltma-yeniden-wait | Bir çoğaltma olduğunda çalışmayı durdurursa ve yeni bir kopya oluşturulduğunda arasındaki saniye cinsinden süre. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
+| --replica-restart-wait | Bir çoğaltma olduğunda çalışmayı durdurursa ve yeni bir kopya oluşturulduğunda arasındaki saniye cinsinden süre. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
 | --ölçeklendirme ilkeleri | Bu hizmet için ilkeleri ölçeklendirme listesi JSON kodlamalı. |
-| --bağımsız olarak çoğaltma koru | Saniye cinsinden en uzun süresi için hangi bekleme kaldırılmadan önce çoğaltmaları korunur. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
+| --stand-by-replica-keep | Saniye cinsinden en uzun süresi için hangi bekleme kaldırılmadan önce çoğaltmaları korunur. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
 | --durum bilgisi olan | Hedef hizmet durum bilgisi olan hizmet olduğunu gösterir. |
-| --durum bilgisi olmayan | Hedef hizmet durum bilgisi olmayan hizmet olduğunu gösterir. |
-| --Hedef çoğaltma kümesi boyutu | Hedef çoğaltma boyutu bir sayı olarak ayarlayın. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
+| --stateless | Hedef hizmet durum bilgisi olmayan hizmet olduğunu gösterir. |
+| --target-replica-set-size | Hedef çoğaltma boyutu bir sayı olarak ayarlayın. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri

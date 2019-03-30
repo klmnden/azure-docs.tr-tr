@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2018
+ms.date: 03/28/2018
 ms.author: genli
-ms.openlocfilehash: 9f600dbf27fec036b9a80a5a6fb11c5bc50cc915
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7990a98e0e2d688456db054e3cdfa447e1ed1043
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994173"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630460"
 ---
-# <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Giderme: Azure noktadan siteye bağlantı sorunlarını
+# <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Sorun giderme: Azure noktadan siteye bağlantı sorunları
 
 Bu makalede, karşılaşabileceğiniz genel noktadan siteye bağlantı sorunları listeler. Ayrıca bu sorunlar için olası nedenler ve çözümler açıklanmaktadır.
 
-## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>VPN istemci hatası: sertifika bulunamadı
+## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>VPN istemci hatası: Bir sertifika bulunamadı
 
 ### <a name="symptom"></a>Belirti
 
@@ -41,7 +41,7 @@ VPN istemcisini kullanarak bir Azure sanal ağına bağlanmaya çalıştığın�
 
 Bu sorunu çözmek için aşağıdaki adımları izleyin:
 
-1. Sertifika Yöneticisi açın: tıklayın **Başlat**, türü **bilgisayar sertifikalarını yönetme**ve ardından **bilgisayar sertifikalarını yönetme** arama sonucunda.
+1. Sertifika Yöneticisi'ni açın: Tıklayın **Başlat**, türü **bilgisayar sertifikalarını yönetme**ve ardından **bilgisayar sertifikalarını yönetme** arama sonucunda.
 
 2. Aşağıdaki sertifikalar doğru konumda olduğundan emin olun:
 
@@ -58,7 +58,7 @@ Bu sorunu çözmek için aşağıdaki adımları izleyin:
 > [!NOTE]
 > İstemci sertifikasını içeri aktardığınızda seçmeyin **güçlü özel anahtar korumasını etkinleştir** seçeneği.
 
-## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>VPN istemci hatası: beklenmeyen veya kötü biçimlendirilmiş bir ileti alındı.
+## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>VPN istemci hatası: Beklenmeyen veya kötü biçimlendirilmiş bir ileti alındı.
 
 ### <a name="symptom"></a>Belirti
 
@@ -81,7 +81,7 @@ Bu sorunu çözmek için aşağıdaki adımları izleyin:
 1. Ağ geçidi alt ağı üzerinde UDR kaldırın. UDR tüm trafiğin düzgün bir şekilde iletir emin olun.
 2. Kök sertifika iptal edildi olup olmadığını görmek için Azure portalında durumunu denetleyin. İptal değil, kök sertifika ve reupload silmeyi deneyin. Daha fazla bilgi için [sertifikaları oluşturma](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
 
-## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>VPN istemci hatası: bir sertifika zinciri işlenen ancak sonlandırıldı 
+## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>VPN istemci hatası: Bir sertifika zinciri işlenen ancak sonlandırıldı 
 
 ### <a name="symptom"></a>Belirti 
 
@@ -101,7 +101,7 @@ VPN istemcisini kullanarak bir Azure sanal ağına bağlanmaya çalıştığın�
 
 2. Sertifikaların konumda zaten olması durumunda, sertifikalar silin ve yeniden deneyin. **Azuregateway -*GUID*. cloudapp.net** Azure portalından indirdiğiniz VPN istemcisi yapılandırma paketini sertifika konusu. Dosya archivers paketinden dosyaları ayıklayın için kullanabilirsiniz.
 
-## <a name="file-download-error-target-uri-is-not-specified"></a>Dosya indirme hatası: hedef URI belirtilmedi
+## <a name="file-download-error-target-uri-is-not-specified"></a>Dosya indirme hatası: Hedef URI belirtilmedi
 
 ### <a name="symptom"></a>Belirti
 
@@ -197,7 +197,7 @@ Azure portalında VPN ağ geçidi değişiklikleri kaydetmeyi denediğinizde, ş
 
 Sertifika adı boşluk gibi bir geçersiz karakter içerdiğinden bu sorun oluşur. 
 
-## <a name="azure-portal-error-vpn-package-file-download-error-503"></a>Azure portal hata: VPN paket dosyasını indirme hatası 503
+## <a name="azure-portal-error-vpn-package-file-download-error-503"></a>Azure portal hata: VPN paketi dosya indirme hatası 503
 
 ### <a name="symptom"></a>Belirti
 
@@ -209,7 +209,7 @@ VPN istemcisi yapılandırma paketini yüklemeye çalışırken şu hata iletisi
 
 Bu hata geçici bir ağ sorunu neden olabilir. VPN paketini indir birkaç dakika sonra tekrar deneyin.
 
-## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Azure VPN ağ geçidini yükseltmeye: tüm noktası'Site istemcilere bağlanamıyor
+## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Azure VPN ağ geçidi yükseltme: Tüm noktadan siteye istemcileri bağlanamıyor.
 
 ### <a name="cause"></a>Nedeni
 
@@ -217,7 +217,7 @@ Sertifika yüzde 50'den fazla ise, yaşam sertifika alındı.
 
 ### <a name="solution"></a>Çözüm
 
-Bu sorunu çözmek için tüm istemcilerde Site paket noktasına yeniden dağıtın.
+Bu sorunu gidermek için yeniden indirin ve tüm istemcilerde Site paket noktasına yeniden dağıtın.
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Çok fazla VPN istemcileri tek seferde bağlı
 
@@ -302,9 +302,9 @@ VPN istemcisi Azure VPN ağ geçidinden yolları almazsa, bu sorun oluşabilir.
 
 Bu sorunu çözmek için [Azure VPN Gateway'i sıfırlama](vpn-gateway-resetgw-classic.md). Sanal Ağ eşlemesi başarıyla yapılandırıldıktan sonra yeni yollar kullanılan emin olmak için noktadan siteye VPN istemcileri yeniden yüklenmesi gerekir.
 
-## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Hata: "İptal işlevi iptal etme sunucusu çevrimdışı olduğu için İptal denetleyemedi. (Hata 0x80092013)"
+## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Hata: "İptal işlevi iptal iptal etme sunucusu çevrimdışı olduğundan denetlenemiyor. (Hata 0x80092013)"
 
-### <a name="causes"></a>Neden olur
+### <a name="causes"></a>Nedenler
 İstemci erişemiyorsanız bu hata iletisi görüntüleniyor http://crl3.digicert.com/ssca-sha2-g1.crl ve http://crl4.digicert.com/ssca-sha2-g1.crl.  İptal denetimini, bu iki site erişim gerektirir.  Bu sorun genellikle yapılandırılan proxy sunucusu olan istemcide gerçekleşir. Bazı ortamlarda, isteklerin bir proxy sunucu üzerinden etmeyecekseniz, kenar güvenlik duvarında reddedilir.
 
 ### <a name="solution"></a>Çözüm
@@ -343,7 +343,7 @@ NIC sürücüyü güncelleştirin:
 4. Yeni bir sürücü Windows bulamazsa, bir üreticinin Web sitesini bakmayın deneyin ve bunların yönergeleri izleyin.
 5. Bilgisayarı yeniden başlatın ve bağlantıyı yeniden deneyin.
 
-## <a name="error-file-download-error-target-uri-is-not-specified"></a>Hata: 'dosya' hedef URI belirtilmedi indirme hatası
+## <a name="error-file-download-error-target-uri-is-not-specified"></a>Hata: 'Dosya indirme hatası hedef URI belirtilmedi'
 
 ### <a name="cause"></a>Nedeni
 

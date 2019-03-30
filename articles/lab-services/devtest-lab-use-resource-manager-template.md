@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: eaa285318a868d0ccee07d830e1cc1be18f457a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 533770d98b146dea01e91e1249115c4b5c074b3c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181563"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648444"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak sanal makineleri oluşturma 
 
@@ -30,7 +30,7 @@ Bu makalede tek VM Resource Manager şablonları ile çoklu VM açıklar ve gör
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>Tek VM Resource Manager şablonları ile çoklu VM
-Resource Manager şablonunu kullanarak DevTest Labs'de sanal makineler oluşturmak için iki yolu vardır: Microsoft.DevTestLab/labs/virtualmachines kaynak sağlamanız veya Microsoft.Commpute/virtualmachines kaynak sağlayın. Her farklı senaryolarda kullanılır ve farklı izinleri gerektirir.
+Resource Manager şablonunu kullanarak DevTest Labs'de sanal makineler oluşturmak için iki yolu vardır: Microsoft.DevTestLab/labs/virtualmachines kaynak sağlamanız veya Microsoft.Compute/virtualmachines kaynak sağlayın. Her farklı senaryolarda kullanılır ve farklı izinleri gerektirir.
 
 - ("Kaynak" özelliğinde şablonda bildirilen gibi) bir Microsoft.DevTestLab/labs/virtualmachines kaynak türünü kullanan resource Manager şablonları, tek tek Laboratuvar VM'ler sağlayabilirsiniz. Her VM ardından DevTest Labs sanal makineleri tek bir öğe olarak görünür:
 

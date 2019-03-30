@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2018
 ms.author: banders
-ms.openlocfilehash: a66547ed4bf089bb618dc8b98da7f260b6b5536a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bf18d845b7128c8d6f740555f1a0f791767240ae
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904312"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650232"
 ---
-# <a name="view-reservations-for-azure-in-the-azure-portal"></a>Azure portalında Azure için Görünüm ayırmaları
+# <a name="view-azure-reservations-in-the-azure-portal"></a>Azure portalında Azure rezervasyonların
 
-Abonelik türü ve izinlerine bağlı olarak çeşitli şekillerde Azure kaynakları için ayırmaları görüntülemek için vardır.
+Abonelik türü ve izinlerine bağlı olarak çeşitli şekillerde Azure için ayırmaları görüntülemek için vardır.
 
 ## <a name="view-reservations-as-owner-or-reader"></a>Rezervasyonları sahibi veya okuyucu olarak görüntüleme
 
@@ -62,15 +62,26 @@ Bir API kullanarak veri almak için bkz: [Kurumsal müşteriler için ayrılmı�
 
 Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-- [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
+- [Azure için ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
+- [Azure için ayırmaları yönetme](billing-manage-reserved-vm-instance.md)
+
+Bir hizmet planı satın alın:
+
 - [Cosmos DB ayrılmış kapasite için ön ödeme](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Azure SQL Veritabanı ayrılmış kapasitesi ile SQL Veritabanı işlem kaynakları için ön ödeme yapma](../sql-database/sql-database-reserved-capacity.md)
 - [Azure Ayrılmış VM Örnekleri ile Sanal Makinelere ön ödeme yapma](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
+
+Yazılım planı satın alın:
+
+- [Red Hat yazılımı planlarından Azure ayırmalar için ön ödeme](../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Azure Ayırmaları ile SUSE yazılım planları için ön ödeme yapma](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+Kullanımını anlayın:
+
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 - [CSP abonelikleri için ayırma kullanımını anlama](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bize ulaşın
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ea53048819bfdad5c45e522115aa6e493dfc8bc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1e47b1e548516960c6aab3c48d64255370c94a77
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953387"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650028"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-classic-cli"></a>Klasik Azure CLI kullanarak birden çok NIC ile VM (Klasik) oluşturma
 
@@ -30,7 +30,7 @@ ms.locfileid: "46953387"
 Azure'da sanal makineler (VM) oluşturma ve birden çok ağ arabirimine (NIC) sanal makinelerinizin her birine ekleyin. Birden çok NIC NIC'ler arasında trafik türlerinin ayrımı sağlar. Örneğin, yalnızca iç kaynaklara Internet'e bağlı olmayan başka bir iletişim kurar, ancak bir NIC Internet ile iletişim kuran. Birden çok NIC arasında ağ trafiğini ayırmak olanağı, uygulama teslimi ve WAN iyileştirme çözümleri gibi birçok ağ sanal Gereçleri için gereklidir.
 
 > [!IMPORTANT]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md). Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Bu adımları kullanarak gerçekleştirmeyi öğrenin [Resource Manager dağıtım modeli](../virtual-machines/linux/multiple-nics.md).
+> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md). Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Bu adımları kullanarak gerçekleştirmeyi öğrenin [Resource Manager dağıtım modeli](../virtual-machines/linux/multiple-nics.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -51,7 +51,7 @@ Arka uç sanal makinelerin oluşturulmasını aşağıdaki kaynaklar üzerinde b
 ### <a name="step-1---start-your-script"></a>1. adım - betiğinizi Başlat
 Kullanılan tam bash betiğini indirebilirsiniz [burada](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Ortamınızda çalışması için komut dosyasını değiştirmek için aşağıdaki adımları tamamlayın:
 
-1. Yukarıda dağıtılmış mevcut kaynak grubunuzun göre aşağıdaki değişkenlerin değerlerini değiştirmek [önkoşulları](#Prerequisites).
+1. Yukarıda dağıtılmış mevcut kaynak grubunuzun göre aşağıdaki değişkenlerin değerlerini değiştirmek [önkoşulları](#prerequisites).
 
     ```azurecli
     location="useast2"
@@ -192,4 +192,4 @@ Kullanılan tam bash betiğini indirebilirsiniz [burada](https://raw.githubuserc
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>5. adım - sanal makinenin işletim sistemi içinde yönlendirmeyi yapılandırma
 
-Azure DHCP, varsayılan bir ağ geçidi sanal makinesine bağlı ilk (birincil) ağ arabirimine atar. Azure, bir sanal makineye bağlı ek (ikincil) ağ arabirimlerine varsayılan ağ geçidi atamaz. Bu nedenle varsayılan olarak, alt ağın dışında kalan ve ikincil bir ağ arabirimi içeren kaynaklarla iletişim kurulamaz. Ancak, ikincil ağ arabirimlerine kendi alt dışındaki kaynaklarla iletişim kurabilirsiniz. İkincil ağ arabirimleri için yönlendirmeyi yapılandırmak için bkz: [birden çok ağ arabirimine sahip bir sanal makine işletim sistemi içinde yönlendirme](virtual-network-network-interface-vm.md).
+Azure DHCP, varsayılan bir ağ geçidi sanal makinesine bağlı ilk (birincil) ağ arabirimine atar. Azure, bir sanal makineye bağlı ek (ikincil) ağ arabirimlerine varsayılan ağ geçidi atamaz. Bu nedenle varsayılan olarak, alt ağın dışında kalan ve ikincil bir ağ arabirimi içeren kaynaklarla iletişim kurulamaz. Ancak, ikincil ağ arabirimleri kendi alt ağlarının dışında kalan kaynaklarla iletişim kurabilir. İkincil ağ arabirimleri için yönlendirmeyi yapılandırmak için bkz: [birden çok ağ arabirimine sahip bir sanal makine işletim sistemi içinde yönlendirme](virtual-network-network-interface-vm.md).

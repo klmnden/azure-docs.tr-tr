@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
-ms.openlocfilehash: 0f36ab9ab7703dd9677b6c2989eddb91593af79f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b1873b770a6b4280b7098c68ecb75cc1411fe453
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105116"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650573"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Azure portalını kullanarak sanal makineler için birden çok IP adresi atama
 
@@ -36,7 +36,7 @@ Birden çok IP adresi veya bir statik özel IP adresi ile bir VM oluşturmak ist
 
 ## <a name="add"></a>Bir VM'ye IP adresleri ekleme
 
-Aşağıdaki adımları izleyerek, özel ve genel IP adresleri için bir Azure ağ arabirimi ekleyebilirsiniz. Aşağıdaki bölümlerde örneklerde, bir VM içinde açıklanan üç IP yapılandırmaları ile sahip olduğunuz varsayılmaktadır [senaryo](#Scenario), ancak gerekli değildir.
+Aşağıdaki adımları izleyerek, özel ve genel IP adresleri için bir Azure ağ arabirimi ekleyebilirsiniz. Aşağıdaki bölümlerde örneklerde, bir VM içinde açıklanan üç IP yapılandırmaları ile sahip olduğunuz varsayılmaktadır [senaryo](#scenario), ancak gerekli değildir.
 
 ### <a name="coreadd"></a>Çekirdek adımları
 
@@ -55,7 +55,7 @@ Eklemek istediğiniz IP adresi türüne göre aşağıdaki bölümlerde birindek
 Yeni bir özel IP adresi eklemek için aşağıdaki adımları tamamlayın:
 
 1. Bölümündeki adımları tamamlamanız [çekirdek adımları](#coreadd) bu makalenin.
-2. **Ekle**'ye tıklayın. İçinde **ekleme IP yapılandırması** görüntülenen bölmesi adlı IP yapılandırması oluşturun *IPConfig 4* ile *10.0.0.7* olarak bir *statik* Özel IP adresini'a tıklayın **Tamam**.
+2. **Ekle**'yi tıklatın. İçinde **ekleme IP yapılandırması** görüntülenen bölmesi adlı IP yapılandırması oluşturun *IPConfig 4* ile *10.0.0.7* olarak bir *statik* Özel IP adresini'a tıklayın **Tamam**.
 
     > [!NOTE]
     > Statik bir IP adresi eklerken, NIC'nin bağlı olduğu alt ağdaki kullanılmayan, geçerli bir adresi belirtmeniz gerekir. Seçtiğiniz adresi kullanılabilir değilse, portal IP adresi için bir X görüntüler ve farklı bir seçmeniz gerekir.
@@ -87,7 +87,7 @@ Genel bir IP adresi, bir genel IP adresi kaynağı için bir ayardır. Şu anda 
 #### <a name="associate-the-public-ip-address-resource-to-a-new-ip-configuration"></a>Genel IP adresi kaynağı yeni bir IP yapılandırmasını ilişkilendirin
 
 1. Bölümündeki adımları tamamlamanız [çekirdek adımları](#coreadd) bu makalenin.
-2. **Ekle**'ye tıklayın. İçinde **ekleme IP yapılandırması** görüntülenen bölmesi adlı IP yapılandırması oluşturun *IPConfig 4*. Etkinleştirme **genel IP adresi** bir var olan ve kullanılabilir genel IP adresi kaynağına nden seçip **genel IP adresi seçin** bölmesi görünür.
+2. **Ekle**'yi tıklatın. İçinde **ekleme IP yapılandırması** görüntülenen bölmesi adlı IP yapılandırması oluşturun *IPConfig 4*. Etkinleştirme **genel IP adresi** bir var olan ve kullanılabilir genel IP adresi kaynağına nden seçip **genel IP adresi seçin** bölmesi görünür.
 
     Genel IP adresi kaynağı seçtikten sonra tıklayın **Tamam** ve bölmeyi kapatır. Var olan bir genel IP adresi yoksa, bir adımları tamamlayarak oluşturabilirsiniz [genel bir IP adresi kaynağı oluşturun](#create-public-ip) bu makalenin. 
 

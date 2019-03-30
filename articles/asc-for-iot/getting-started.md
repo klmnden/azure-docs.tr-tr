@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 1186b362cf8f59f24020ae9afa3526e2e27b1794
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 37815c1f1afe3e4c99e2fe171b21857a2018f709
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575224"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648325"
 ---
 # <a name="get-started-with-azure-security-center-asc-for-iot"></a>IOT için Azure Güvenlik Merkezi (ASC) ile çalışmaya başlama 
 
@@ -53,7 +53,7 @@ Cihazınızı izlemeyi etkinleştirmek için Kimlik Yönetimi, Bulut ve cihaz il
 
 1. [IOT Hub'ınızın IOT hizmet ASC etkinleştir](quickstart-onboard-iot-hub.md)
 1. Kayıtlı cihaz yok, IOT Hub'ınız varsa [yeni bir cihaz kayıt](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
-1. [Bir ascforiot güvenlik modülünüzü oluşturmak](quickstart-create-security-twin.md) cihazlarınız için. 
+1. [Cihazlarınız için bir azureiotsecurity güvenlik modülünüzü oluşturmak](quickstart-create-security-twin.md) cihazlarınız için. 
 1. Cihaz ve sistemi normal davranış aracılığıyla tanımlamak [özel uyarılar](quickstart-create-custom-alerts.md). 
 1. Sistem hizmet ve cihaz durumunu doğrulamak için testleri gerçekleştirin. 
 1. Keşfedin [uyarılar](concept-security-alerts.md), [önerileri](concept-recommendations.md), ve [yakından Log Analytics kullanarak](how-to-security-data-access.md) IOT hub'ı kullanarak. 
@@ -69,8 +69,7 @@ ASC, test ve hizmeti etkinleştirmek için aşağıdaki temel iş akışı kulla
 1. Gerçek bir cihaza yüklemek yerine bir Azure sanal cihazı aracıyı yüklemek için [döngü oluşturan yeni bir Azure sanal makine (VM)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) mevcut bir bölge içinde. 
 1. [IOT güvenliği aracısı için bir ASC dağıtma](how-to-deploy-linux-cs.md) IOT cihaz veya yeni bir VM.
 1. Yönergelerini izleyin [trigger_events](https://aka.ms/iot-security-github-trigger-events) zararsız bir saldırı simülasyonu çalıştırmak için.
-1. Yanıt önceki adımda sanal saldırı olarak IOT uyarılar için ASC doğrulayın. 
-    - Betiği çalıştırdıktan sonra beş dakika doğrulama başlayın.
+1. Yanıt önceki adımda sanal saldırı olarak IOT uyarılar için ASC doğrulayın. Betiği çalıştırdıktan sonra beş dakika doğrulama başlayın.
 1. Keşfedin [uyarılar](concept-security-alerts.md), [önerileri](concept-recommendations.md), ve [yakından Log Analytics kullanarak](how-to-security-data-access.md) IOT hub'ı kullanarak. 
 
 ## <a name="next-steps"></a>Sonraki adımlar

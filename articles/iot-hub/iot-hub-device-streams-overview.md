@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 024bb29f9d7276021888e949073f6d45aed0a249
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 672b06dda41edb18cbf31352188b0fdd2a155782
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076284"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649662"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IOT Hub cihaz akışları (Önizleme)
 
@@ -101,7 +101,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 ## <a name="whitelist-device-streaming-endpoints"></a>Beyaz liste cihaz akış uç noktaları
 
-Belirtildiği gibi [önceki](#Overview), cihazınızın IOT Hub ile akış uç noktası için bir giden bağlantı sırasında cihaz akışları başlatma işlemi oluşturur. Cihaz veya alt ağdaki güvenlik duvarlarınızdan giden akış ağ geçidi bağlantı noktası 443 üzerinden (iletişim TLS kullanılarak şifrelenmiş bir WebSocket bağlantısı üzerinden gerçekleşir. Not) bağlanmaya izin vermelidir.
+Belirtildiği gibi [önceki](#overview), cihazınızın IOT Hub ile akış uç noktası için bir giden bağlantı sırasında cihaz akışları başlatma işlemi oluşturur. Cihaz veya alt ağdaki güvenlik duvarlarınızdan giden akış ağ geçidi bağlantı noktası 443 üzerinden (iletişim TLS kullanılarak şifrelenmiş bir WebSocket bağlantısı üzerinden gerçekleşir. Not) bağlanmaya izin vermelidir.
 
 Cihaz akış uç noktası ana bilgisayar adı, Azure IOT hub'ı portalındaki genel bakış sekmesinin altında bulunabilir. ![Alternatif metin](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "cihaz akış uç noktaları")
 
@@ -184,7 +184,7 @@ Kurulum iki yararlanır *yerel Ara* aşağıdaki şekilde, yani gösterilen prog
 
 4. Hizmet yerel proxy kullanıcıdan yeni SSH bağlantıları bekleyen atanan bir bağlantı noktasında dinler (örnek, ancak bu kullanılan 2222 numaralı bağlantı noktasına başka kullanılabilir bağlantı noktasına yapılandırılabilir). Kullanıcı SSH İstemcisi hizmeti-yerel proxy bağlantı noktası localhost üzerinde işaret eder.
 
-### <a name="notes"></a>Notlar
+### <a name="notes"></a>Notes
 - SSH arka plan programı (solda) SSH istemciye (sağdaki) arasında bir uçtan uca tünel yukarıdaki adımları tamamlayın. Bu uçtan uca bağlantı parçası, IOT Hub cihaz akış üzerinden trafik göndermeye içerir.
 
 - Şekil okları bağlantı uç noktaları arasında kurulan yönü belirtir. Özellikle, (Bu genellikle bir güvenlik duvarı tarafından engellenip engellenmediğini) cihaz gidip herhangi bir gelen bağlantı olduğunu unutmayın.

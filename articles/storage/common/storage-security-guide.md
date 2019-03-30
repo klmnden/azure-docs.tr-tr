@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e0c8d4883bb9183f866450477df972fc66c960c5
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 329782a436924355dbdfbb5db260e88795394697
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369760"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650130"
 ---
 # <a name="azure-storage-security-guide"></a>Azure depolama Güvenlik Kılavuzu
 
@@ -46,7 +46,7 @@ Bu makalede ele alınacak konular şunlardır:
 * Kullanarak [depolama analizi](#storage-analytics) Azure depolama erişimi denetlemek için
 
   Bu bölümde, bir istek için depolama analizi günlüklerinde bilgi anlatılmaktadır. Biz, günlük verilerinin gerçek depolama analizi göz atın ve depolama hesabınızın anahtarıyla bir paylaşılan erişim imzası bir istekte veya anonim olarak ve olup başarılı veya başarısız olduğunu ayrım öğrenin.
-* [CORS kullanarak tarayıcı tabanlı istemcileri etkinleştirme](#Cross-Origin-Resource-Sharing-CORS)
+* [CORS kullanarak tarayıcı tabanlı istemcileri etkinleştirme](#cross-origin-resource-sharing-cors)
 
   Bu bölümde, çıkış noktaları arası kaynak paylaşımı (CORS) izin verecek şekilde hakkında konuşuyor. Etki alanları arası erişim ve Azure Depolama'ya yerleşik CORS özellikleriyle işlemek nasıl hakkında konuşacağız.
 

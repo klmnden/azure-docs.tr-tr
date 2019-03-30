@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 67c07169b3ff66d99ee52a0e078e0e463a42702e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482921"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652646"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -102,7 +102,7 @@ Gidebilirsiniz **Essentials** konusundaki **genel bakış** meta verilerin depol
    - Dosyaya tıklayın > dağıtma OVF şablonu > OVA için göz atın ve dağıtımı tamamlandı
 4. Dağıtım yine başarısız olursa Azure geçişi desteğe başvurun.
 
-### <a name="unable-to-select-the-azure-cloud-in-the-appliance"></a>Bulut Gereci Azure seçin yüklenemiyor
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance-fails-with-error-azure-cloud-selection-failed"></a>Gereç, hata ile başarısız oluyor, bulut "Azure bulut seçimi başarısız oldu" Unable to Azure'ı seçin
 
 Bu bilinen bir sorundur ve sorun için bir düzeltme kullanılabilir. Lütfen indirin [BITS'en son yükseltme](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) Gereci ve güncelleştirme düzeltmesi uygulamak için gereç için.
 
@@ -332,5 +332,5 @@ Olay izleme için Windows toplamak için aşağıdakileri yapın:
 | 801       | PowerCLIError                  | VMware PowerCLI yüklenemedi.                                          | VMware PowerCLI yüklenemedi.                                                                  | İşlemi yeniden deneyin. Sorun devam ederse kendiniz yükleyin ve işlemi yeniden deneyin.                                                   |
 | 802       | TimeSyncError                  | Saat, İnternet saat sunucusuyla eşitlenmemiş.                            | Saat, İnternet saat sunucusuyla eşitlenmemiş.                                                    | Makinedeki saatin saat dilimine göre doğru ayarlandığından emin olun ve işlemi yeniden deneyin.                                 |
 | 702       | OMSInvalidProjectKey           | Geçersiz proje anahtarı belirtildi.                                                | Geçersiz proje anahtarı belirtildi.                                                                        | İşlemi doğru proje anahtarıyla yeniden deneyin.                                                                                              |
-| 703       | OMSHttpRequestException        | İstek gönderilirken hata oluştu. İleti % Message;                                | Proje kimliği ile anahtarını denetleyerek uç noktanın erişilebilir olduğundan emin olun.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun.                                                                     |
-| 704       | OMSHttpRequestTimeoutException | HTTP isteği zaman aşımına uğradı. İleti % Message;                                     | Proje kimliği ile anahtarını denetleyerek uç noktanın erişilebilir olduğundan emin olun.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun.                                                                     |
+| 703       | OMSHttpRequestException        | İstek gönderilirken hata oluştu. İleti % Message;                                | Proje kimliği ile anahtarını denetleyerek uç noktanın erişilebilir olduğundan emin olun.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek olanağına başvurun.                                                                     |
+| 704       | OMSHttpRequestTimeoutException | HTTP isteği zaman aşımına uğradı. İleti % Message;                                     | Proje kimliği ile anahtarını denetleyerek uç noktanın erişilebilir olduğundan emin olun.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek olanağına başvurun.                                                                     |

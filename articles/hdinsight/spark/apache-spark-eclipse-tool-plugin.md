@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 05df154db27dcf1b07506c6bf9c2a681408de61e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 123c05470f8f162095b92c0894716c7b5d2a92b2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091826"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648780"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Bir HDInsight kümesi için Apache Spark uygulamaları oluşturmak için Eclipse için Azure Araç Seti'ni kullanma
 
@@ -47,7 +47,7 @@ Eclipse açtığınızda, HDInsight Aracı eklentisi Scala yüklü olup olmadı�
 
 ![Eklenti Scala otomatik olarak yüklenmesini](./media/apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
-Kullanıcı şunları yapabilir ya da [Azure aboneliği için oturum açın](#Sign-in-to-your-Azure-subscription), veya [bir HDInsight kümesini bağlarsınız](#Link-a-cluster) Ambari kullanarak kullanıcı adı/parola veya etki alanına katılmış başlatmak için kimlik bilgisi. 
+Kullanıcı şunları yapabilir ya da [Azure aboneliği için oturum açın](#sign-in-to-your-azure-subscription), veya [bir HDInsight kümesini bağlarsınız](#link-a-cluster) Ambari kullanarak kullanıcı adı/parola veya etki alanına katılmış başlatmak için kimlik bilgisi. 
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Azure aboneliğinizde oturum açın
 1. Eclipse IDE'yi Başlat ve Azure Gezgini açın. Üzerinde **penceresi** menüsünde **görünümü göster**ve ardından **diğer**. Açılan iletişim kutusunda Genişlet **Azure**seçin **Azure Gezgini**ve ardından **Tamam**.
@@ -238,7 +238,7 @@ Ne zaman bir küme bağlantı, ben depolama kimlik bilgileri vermenizi Öner.
 
 ![Eclipse alma hatası ne zaman meşgul küme](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
 
-## <a name="feedback"></a>Geri Bildirim
+## <a name="feedback"></a>Geri bildirim
 Bir Geri bildiriminiz varsa veya bu aracı kullanırken diğer herhangi bir sorunla karşılaşırsanız, bize bir e-postası gönderin hdivstool@microsoft.com.
 
 ## <a name="seealso"></a>Ayrıca bkz.

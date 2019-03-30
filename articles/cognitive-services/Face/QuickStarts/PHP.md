@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 03/27/2019
 ms.author: pafarley
-ms.openlocfilehash: c29647e4ee312302b66535ba834edabb42e4cff7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0c48b85e48153eb70400fc6da4822271f49b7fbe
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550612"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630173"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Hızlı Başlangıç: REST API ve PHP ile bir resimdeki yüz algılama
 
@@ -24,7 +24,8 @@ Bu hızlı başlangıçta, bir resimdeki İnsan yüzlerini algılamak için PHP 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Yüz tanıma API'si abonelik anahtarı. Ücretsiz deneme aboneliği anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) yüz tanıma API'si hizmete abone ve anahtarınızı alın.
-- Bir kod Düzenleyicisi gibi [Visual Studio Code](https://code.visualstudio.com/download)
+- Bir kod Düzenleyicisi gibi [Visual Studio Code](https://code.visualstudio.com/download).
+- PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) paket.
 
 ## <a name="initialize-the-html-file"></a>HTML dosyasını başlatın
 

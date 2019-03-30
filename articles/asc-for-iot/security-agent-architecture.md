@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 7de4307f7eef95a637dc828ac1738bd0ed39c7c7
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d81054e95b9f712262fe5fa46453749b54a7ac24
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578467"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651406"
 ---
 # <a name="security-agent-reference-architecture"></a>Güvenlik aracı başvuru mimarisi
 
@@ -44,8 +44,8 @@ Güvenlik aracıları, aşağıdaki özellikleri destekler:
 
 ASC IOT güvenlik aracılar için açık kaynaklı proje olarak geliştirilir ve Github'dan kullanılabilir: 
 
-- [IOT-art-Aracısı-C](https://github.com/Azure/IoT-ASC-Agent-C) 
-- [ASC aracı CS IOT](https://github.com/Azure/IoT-ASC-Agent-CS)
+- [ASC için IOT C tabanlı aracı](https://github.com/Azure/Azure-IoT-Security-Agent-C) 
+- [IOT için ASC C#-tabanlı aracı](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
 
 ## <a name="agent-supported-platforms"></a>Aracı, desteklenen platformlar
 

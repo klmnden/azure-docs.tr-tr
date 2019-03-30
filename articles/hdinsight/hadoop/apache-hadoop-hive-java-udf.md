@@ -7,53 +7,65 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 94e9a70707472eb94109ebcc404fd7a1a3074135
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: b8417fe4c15259a7fd485254cf9edd2c8c082e92
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575755"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629707"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Bir Java kullanma UDF ile Apache Hive HDInsight
 
 Apache Hive ile çalışan bir Java tabanlı kullanıcı tanımlı işlev (UDF) oluşturmayı öğrenin. Bu örnekte Java UDF bir metin dizesi tablosunu tümü küçük harf karakterlere dönüştürür.
 
-## <a name="requirements"></a>Gereksinimler
+## <a name="prerequisites"></a>Önkoşullar
 
-* Bir HDInsight kümesi 
-
-    > [!IMPORTANT]
-    > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
-    Bu belgedeki çoğu adımlar hem Windows ve Linux tabanlı kümelerde çalışır. Ancak, Linux tabanlı kümeler için derlenmiş UDF kümeye karşıya yüklemek ve çalıştırmak için kullanılan adımlarla özgüdür. Windows tabanlı kümeler ile kullanılabilecek bilgilere bağlantılar sağlanır.
-
-* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 veya üzeri (veya OpenJDK gibi eşdeğeri)
-
-* [Apache Maven](https://maven.apache.org/)
+* HDInsight Hadoop kümesinde. Bkz: [Linux'ta HDInsight kullanmaya başlama](./apache-hadoop-linux-tutorial-get-started.md).
+* [Java Developer Kit (JDK) 8 sürümü](https://aka.ms/azure-jdks)
+* [Apache Maven](https://maven.apache.org/download.cgi) düzgün [yüklü](https://maven.apache.org/install.html) Apache göre.  Maven derleme sistemi Java projeleri için proje olur.
+* [URI şeması](../hdinsight-hadoop-linux-information.md#URI-and-scheme) kümeleri birincil depolama alanı için. Bu wasb olacaktır: / / abfs olan Azure depolama için: / / Azure Data Lake depolama Gen2'ye veya adl: / / Azure Data Lake depolama Gen1. Güvenli aktarım, Azure Depolama'da veya Data Lake depolama Gen2 için etkinse, URI wasbs olacaktır: / / ya da abfss: / /, sırasıyla ayrıca bakın [güvenli aktarım](../../storage/common/storage-require-secure-transfer.md).
 
 * Bir metin düzenleyicisi veya Java IDE
 
-    > [!IMPORTANT]
-    > Bir Windows istemcisi üzerinde Python dosyaları oluşturursanız, bir satır sonu olarak LF kullanan bir düzenleyici kullanmanız gerekir. Düzenleyici LF veya CRLF kullanıp emin değilseniz kaldırmayı CR karakteri üzerinde adımlar için sorun giderme bölümüne bakın.
+    > [!IMPORTANT]  
+    > Bir Windows istemcisi üzerinde Python dosyaları oluşturursanız, bir satır sonu olarak LF kullanan bir düzenleyici kullanmanız gerekir. Düzenleyici LF veya CRLF kullanıp emin değilseniz bkz [sorun giderme](#troubleshooting) kaldırmayı CR karakteri adımlar bölümüne.
 
-## <a name="create-an-example-java-udf"></a>Örnek Java UDF oluşturma 
+## <a name="test-environment"></a>Test ortamı
+Windows 10 çalıştıran bir bilgisayar için bu makalede kullanılan ortamı oluştu.  Komutları komut isteminde yürütüldü ve çeşitli dosyaların Notepad ile düzenlendi. Uygun şekilde değiştirin, ortamınız için.
 
-1. Bir komut satırından yeni bir Maven projesi oluşturmak için aşağıdakileri kullanın:
+Bir komut isteminden çalışma ortamı oluşturmak için aşağıdaki komutları girin:
 
-    ```bash
+```cmd
+IF NOT EXIST C:\HDI MKDIR C:\HDI
+cd C:\HDI
+```
+
+## <a name="create-an-example-java-udf"></a>Örnek Java UDF oluşturma
+
+1. Aşağıdaki komutu girerek yeni bir Maven projesi oluşturun:
+
+    ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-   > [!NOTE]
-   > PowerShell kullanıyorsanız, parametreleri tırnak yerleştirmeniz gerekir. Örneğin, `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
+    Bu komut, adlı bir dizin oluşturur. `exampleudf`, Maven projesi içerir.
 
-    Bu komut adlı bir dizin oluşturur **exampleudf**, Maven projesi içerir.
+2. Proje oluşturulduktan sonra Sil `exampleudf/src/test` aşağıdaki komutu girerek projenin bir parçası oluşturulan dizini:
 
-2. Proje oluşturulduktan sonra Sil **exampleudf/src/test** projenin bir parçası oluşturulduğu dizin.
+    ```cmd
+    cd ExampleUDF
+    rmdir /S /Q "src/test"
+    ```
 
-3. Açık **exampleudf/pom.xml**ve varolan `<dependencies>` şu XML ile giriş:
+3. Açık `pom.xml` aşağıdaki komutu girerek:
+
+    ```cmd
+    notepad pom.xml
+    ```
+
+    Ardından varolan `<dependencies>` şu XML ile giriş:
 
     ```xml
     <dependencies>
@@ -93,7 +105,7 @@ Apache Hive ile çalışan bir Java tabanlı kullanıcı tanımlı işlev (UDF) 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>2.3</version>
+                <version>3.2.1</version>
                 <configuration>
                     <!-- Keep us from getting a can't overwrite file error -->
                     <transformers>
@@ -132,9 +144,13 @@ Apache Hive ile çalışan bir Java tabanlı kullanıcı tanımlı işlev (UDF) 
 
     Değişikliklerinizi yaptıktan sonra dosyayı kaydedin.
 
-4. Yeniden adlandırma **exampleudf/src/main/java/com/microsoft/examples/App.java** için **ExampleUDF.java**ve ardından dosyayı düzenleyicinizde açın.
+4. Oluşturmak ve yeni bir dosya açmak için aşağıdaki komutu girin `ExampleUDF.java`:
 
-5. Öğesinin içeriğini değiştirin **ExampleUDF.java** aşağıdaki ile dosya ve ardından dosyayı kaydedin.
+    ```cmd
+    notepad src/main/java/com/microsoft/examples/ExampleUDF.java
+    ```
+
+    Ardından kopyalayıp aşağıdaki java kod yeni dosyasına yapıştırın. Dosyayı kaydedip kapatın.
 
     ```java
     package com.microsoft.examples;
@@ -165,31 +181,29 @@ Apache Hive ile çalışan bir Java tabanlı kullanıcı tanımlı işlev (UDF) 
 
 ## <a name="build-and-install-the-udf"></a>Derleme ve UDF yükleyin
 
-1. Derleme ve UDF paketlemek için aşağıdaki komutu kullanın:
+Aşağıdaki komutların yerini `sshuser` gerçek kullanıcı farklı olması durumunda. Değiştirin `mycluster` gerçek bir küme adı ile.
 
-    ```bash
+1. Derleme ve aşağıdaki komutu girerek UDF paketi:
+
+    ```cmd
     mvn compile package
     ```
 
     Bu komut, yapılar ve paketler halinde UDF `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` dosya.
 
-2. Kullanım `scp` HDInsight kümesine dosya kopyalamak için komutu.
+2. Kullanım `scp` komut dosyası, aşağıdaki komutu girerek HDInsight kümesine kopyalamak için:
 
-    ```bash
-    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight.net
+    ```cmd
+    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
-    Değiştirin `myuser` kümenizin SSH kullanıcı hesabı ile. Değiştirin `mycluster` küme adı ile. SSH hesabının güvenliğini sağlamak için parola kullandıysanız parolayı girmeniz istenir. Bir sertifika kullanıyorsanız, kullanmanız gerekebilir `-i` parametresini kullanarak özel anahtar dosyası belirtin.
+3. Aşağıdaki komutu girerek SSH kullanarak kümeye bağlanın:
 
-3. SSH kullanarak kümeye bağlanın.
-
-    ```bash
-    ssh myuser@mycluster-ssh.azurehdinsight.net
+    ```cmd
+    ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-    Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
-4. SSH oturumundan, HDInsight depolama alanına jar dosyasını kopyalayın.
+4. Açık SSH oturumundan, HDInsight depolama alanına jar dosyasını kopyalayın.
 
     ```bash
     hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
@@ -197,7 +211,7 @@ Apache Hive ile çalışan bir Java tabanlı kullanıcı tanımlı işlev (UDF) 
 
 ## <a name="use-the-udf-from-hive"></a>UDF kovanından kullanın
 
-1. SSH oturumundan Beeline istemcisini başlatmak için aşağıdakileri kullanın.
+1. Beeline istemci SSH oturumunda aşağıdaki komutu girerek başlayın:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
@@ -208,35 +222,48 @@ Apache Hive ile çalışan bir Java tabanlı kullanıcı tanımlı işlev (UDF) 
 2. Sonra ulaşırsınız `jdbc:hive2://localhost:10001/>` isteminde, UDF için Hive ekleyin ve bir işlev olarak göstermek için aşağıdakileri girin.
 
     ```hiveql
-    ADD JAR wasb:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
+    ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
     CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
     ```
-
-    > [!NOTE]
-    > Bu örnek, Azure depolama kümesi için varsayılan depolama alanı olduğunu varsayar. Bunun yerine, küme Data Lake depolama Gen2'ye kullanıyorsa, Değiştir `wasb:///` değerini `abfs:///`. Kümeniz, Data Lake depolama Gen1 kullanıyorsa, Değiştir `wasb:///` değerini `adl:///`.
 
 3. UDF küçük dizeleri bir tablodan alınan değerlerini dönüştürmek için kullanın.
 
     ```hiveql
-    SELECT tolower(deviceplatform) FROM hivesampletable LIMIT 10;
+    SELECT tolower(state) AS ExampleUDF, state FROM hivesampletable LIMIT 10;
     ```
 
-    Bu sorgu istediğiniz cihaz platformunu (Android, Windows, iOS, vb.) tablosundan seçer, düşük durumda ve bunları görüntülemek için bir dizeye dönüştürün. Çıktı aşağıdaki metne benzer görünür:
+    Bu sorgu durumu tablodan seçer, düşük durumda ve değiştirilmemiş adının yanı sıra bunları görüntülemek için bir dizeye dönüştürün. Çıktı aşağıdaki metne benzer görünür:
 
-        +----------+--+
-        |   _c0    |
-        +----------+--+
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        +----------+--+
+        +---------------+---------------+--+
+        |  exampleudf   |     state     |
+        +---------------+---------------+--+
+        | california    | California    |
+        | pennsylvania  | Pennsylvania  |
+        | pennsylvania  | Pennsylvania  |
+        | pennsylvania  | Pennsylvania  |
+        | colorado      | Colorado      |
+        | colorado      | Colorado      |
+        | colorado      | Colorado      |
+        | utah          | Utah          |
+        | utah          | Utah          |
+        | colorado      | Colorado      |
+        +---------------+---------------+--+
+
+## <a name="troubleshooting"></a>Sorun Giderme
+
+Hive işi çalıştırılırken aşağıdaki metne benzer bir hatayla karşılaşabilirsiniz:
+
+    Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+
+Bu sorunun nedeni Python dosyasındaki satır sonlarını. CRLF sondaysa satır ancak Linux uygulamaları genellikle çok sayıda Windows düzenleyicileri varsayılan LF bekler.
+
+HDInsight için dosyayı karşıya yüklemeden önce CR karakter kaldırmak için aşağıdaki PowerShell ifadeleri kullanabilirsiniz:
+
+```PowerShell
+# Set $original_file to the python file path
+$text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
+[IO.File]::WriteAllText($original_file, $text)
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: 8ad0efffc89a3c11f412d94b922401c23e84a3e5
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: f9fe689e6911c5e9497ee82132e8b70bd9aada7e
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268796"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630609"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Media Services olayları Azure Event Grid şemaları
 
@@ -84,7 +84,12 @@ Bkz: [Şeması Örnekleri](#event-schema-examples) anlatılmaktadır.
 
 ### <a name="track-level-events"></a>İzleme düzeyi olayları
 
-İzleme düzeyi olaylar, parça oluşturulur. İzleme olay türleri şunlardır:
+İzleme düzeyi olaylar, parça oluşturulur. 
+
+> [!NOTE]
+> Gerçek zamanlı bir kodlayıcı bağlandıktan sonra tüm izleme düzeyi olaylar oluşturulur.
+
+İzleme düzeyi olay türleri şunlardır:
 
 | Olay türü | Açıklama |
 | ---------- | ----------- |
@@ -92,7 +97,7 @@ Bkz: [Şeması Örnekleri](#event-schema-examples) anlatılmaktadır.
 | Microsoft.Media.LiveEventIncomingStreamReceived | Medya sunucusu, her parça için ilk veri öbeği stream ya da bağlantı alır. |
 | Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Ses medya sunucusu algılar ve video akışları eşitlenmiş halde değil. Kullanıcı deneyimi olmayan etkilenebilir, çünkü bir uyarı olarak kullanın. |
 | Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Medya sunucusu herhangi bir dış kodlayıcıdan gelen iki video akışları eşitlenmemiş algılar. Kullanıcı deneyimi olmayan etkilenebilir, çünkü bir uyarı olarak kullanın. |
-| Microsoft.Media.LiveEventIngestHeartbeat | Canlı etkinlik çalıştırıldığında, her parça için her 20 saniyede yayımladı. Sağlar sistem durumu özetini alın. |
+| Microsoft.Media.LiveEventIngestHeartbeat | Canlı etkinlik çalıştırıldığında, her parça için her 20 saniyede yayımladı. Sağlar sistem durumu özetini alın.<br/><br/>Kodlayıcı başlangıçta bağlı sonra Kodlayıcı veya hala bağlı olup olmadığını her 20 saniye yaymak sinyal olay devam eder. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Medya sunucusu süreksizlik gelen izde algılar. |
 
 Bkz: [Şeması Örnekleri](#event-schema-examples) anlatılmaktadır.
@@ -668,8 +673,8 @@ Bir olay aşağıdaki üst düzey veri vardır:
 | konu | dize | Media Services kanalın Media Services hesabı altında kaynak yolu. İş için kaynak kimliği konusu ve konu verin birleştiriliyor. |
 | olay türü | dize | Bu olay kaynağı için kayıtlı olay türlerinden biri. Örneğin, "Microsoft.Media.JobStateChange". |
 | eventTime | dize | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
-| id | dize | Olayın benzersiz tanımlayıcısı. |
-| veriler | object | Media Services olay verileri. |
+| kimlik | dize | Olayın benzersiz tanımlayıcısı. |
+| veriler | nesne | Media Services olay verileri. |
 | dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
 | metadataVersion | dize | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 

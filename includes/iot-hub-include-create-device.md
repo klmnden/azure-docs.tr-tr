@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 4a4ec51430242cc3e3d6a0b801f2b4be7858ab50
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: d70544866b9e321d98acd3978da145276e036025
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516118"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58671708"
 ---
 <!-- put the ## header in the file that includes this file -->
 
@@ -23,7 +23,7 @@ Bu bölümde, IOT hub'ına kimlik kayıt defterinde cihaz kimliği oluşturma. K
 
     ![Portalı'nda cihaz kimliği oluşturma](./media/iot-hub-include-create-device/create-identity-portal.png)
 
-1. Gibi yeni cihaz için bir ad verin **myDeviceId**, tıklatıp **Kaydet**. Bu eylem, IOT hub'ınız için yeni bir cihaz kimliği oluşturur.
+1. Gibi yeni cihaz için bir ad verin **myDeviceId**seçip **Kaydet**. Bu eylem, IOT hub'ınız için yeni bir cihaz kimliği oluşturur.
 
    ![Yeni bir cihaz ekleyin](./media/iot-hub-include-create-device/create-a-device.png)
 

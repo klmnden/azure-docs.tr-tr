@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: jdial
-ms.openlocfilehash: 9185bfea8bddff52f6183ac3e5395cdbc0b73bb1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 929c8808721140d5275cba4bcf3fbaa567f961e0
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860780"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652034"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure’da IP adresi türleri ve ayırma yöntemleri
 
@@ -113,7 +113,7 @@ Genel bir IP adresini bir [Windows](../virtual-machines/windows/overview.md?toc=
 
 ### <a name="internet-facing-load-balancers"></a>İnternet'e yönelik yük dengeleyiciler
 
-Herhangi bir [SKU](#SKU) ile oluşturulmuş genel bir IP adresini bir [Azure Load Balancer](../load-balancer/load-balancer-overview.md)'ın **ön uç** yapılandırmasına atayarak yük dengeleyiciyle ilişkilendirebilirsiniz. Genel IP adresi yükü dengelenmiş bir sanal IP adresi (VIP) olarak işlev görür. Bir yük dengeleyici ön ucuna dinamik veya statik bir genel IP adresi atayabilirsiniz. Ayrıca, SSL tabanlı web sitelerinde çok kiracılı bir ortam gibi [çok VIP’li](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) senaryoları mümkün kılmak için bir yük dengeleyici ön ucuna birden çok genel IP adresi de atayabilirsiniz. Azure yük dengeleyici SKU'ları hakkında daha fazla bilgi edinmek için bkz. [Azure yük dengeleyici standart SKU'su](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Herhangi bir [SKU](#sku) ile oluşturulmuş genel bir IP adresini bir [Azure Load Balancer](../load-balancer/load-balancer-overview.md)'ın **ön uç** yapılandırmasına atayarak yük dengeleyiciyle ilişkilendirebilirsiniz. Genel IP adresi yükü dengelenmiş bir sanal IP adresi (VIP) olarak işlev görür. Bir yük dengeleyici ön ucuna dinamik veya statik bir genel IP adresi atayabilirsiniz. Ayrıca, SSL tabanlı web sitelerinde çok kiracılı bir ortam gibi [çok VIP’li](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) senaryoları mümkün kılmak için bir yük dengeleyici ön ucuna birden çok genel IP adresi de atayabilirsiniz. Azure yük dengeleyici SKU'ları hakkında daha fazla bilgi edinmek için bkz. [Azure yük dengeleyici standart SKU'su](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="vpn-gateways"></a>VPN ağ geçitleri
 

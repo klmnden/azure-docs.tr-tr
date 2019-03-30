@@ -1,6 +1,6 @@
 ---
-title: Stream Log analytics'e Azure tanılama günlükleri
-description: Azure tanılama günlükleri Log Analytics çalışma alanına akışı yapmayı öğrenin.
+title: Azure İzleyici'de Log Analytics çalışma alanına Stream Azure tanılama günlükleri
+description: Azure İzleyici'de bir Log Analytics çalışma alanı için Azure tanılama günlükleri akışı yapmayı öğrenin.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,27 +8,26 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: bd760fca20a602127e7d33913547dcb2c6bc95f6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 33d8f2e7c65a786d1ecb389574fe186efb6fb705
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351576"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630782"
 ---
-# <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Log analytics'e Azure tanılama günlükleri
+# <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Azure İzleyici'de Log Analytics çalışma alanına Stream Azure tanılama günlükleri
 
-**[Azure tanılama günlükleri](diagnostic-logs-overview.md)**  portal, PowerShell cmdlet'leri veya Azure CLI kullanarak Azure Log analytics'e neredeyse gerçek zamanlı akış.
+**[Azure tanılama günlükleri](diagnostic-logs-overview.md)**  portal, PowerShell cmdlet'leri veya Azure CLI kullanarak Azure İzleyici'de bir Log Analytics çalışma alanına neredeyse gerçek zamanlı akış.
 
-## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>Tanılama ile neler yapabileceğinizi Log Analytics'te günlüğe kaydeder
+## <a name="what-you-can-do-with-diagnostics-logs-in-a-log-analytics-workspace"></a>Log Analytics çalışma alanında günlükleri Tanılama ile yapabilecekleriniz
 
-Azure Log Analytics, Azure kaynaklarından oluşturulan ham günlük verilerini öngörü sağlayan bir esnek günlük arama ve analiz aracıdır. Bazı özellikler şunlardır:
+Azure İzleyici, Azure kaynaklarından oluşturulan ham günlük verilerini kavramanıza olanak tanıyan bir esnek günlük sorgu ve analiz aracı sağlar. Bazı özellikler şunlardır:
 
-* **Günlük araması** -günlük verileriniz üzerinde yazma Gelişmiş sorgular, performanstaki günlükleri, çeşitli kaynaklardan ve hatta Azure panonuza sabitlenebilir grafikler oluşturun.
-* **Uyarı** -bir veya daha fazla olay belirli sorguyla eşleşen ve bir e-posta veya Web kancası çağrısı ile bildirilmesi algılayabilir.
-* **Çözümleri** -önceden oluşturulmuş görünümleri ve günlük verileriniz hakkında anında bilgi vermek panoları'nı kullanın.
+* **Günlük sorgusu** -yazma günlük verilerinizi çeşitli performanstaki günlüklerinden kaynakları ve Oluştur üzerinden grafikleri Gelişmiş sorgular Azure panonuza sabitlenmiş.
+* **Uyarı** -bir veya daha fazla olay belirli sorguyla eşleşen ve Azure İzleyici uyarıları kullanarak bir e-posta veya Web kancası çağrısı ile bildirilmesi algılayabilir.
 * **Gelişmiş analiz** - makine öğrenimi uygulayın ve günlüklerinizi tarafından ortaya olası sorunları belirlemek için eşleşen algoritmalar desen.
 
-## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Log Analytics için tanılama günlüklerinin akışı etkinleştirme
+## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics-workspace"></a>Log Analytics çalışma alanına tanılama günlüklerinin akışı etkinleştirme
 
 Tanılama günlüklerini programlı olarak portal, akış veya kullanarak etkinleştirebilirsiniz [Azure İzleyici REST API'leri](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). Tanılama ayarını oluşturduğunuz her iki durumda da bir Log Analytics çalışma alanı ve günlük kategorileri ve bu çalışma alanına göndermek istediğiniz ölçümleri, belirttiğiniz içinde. Bir tanılama **günlüğü kategorisi** kaynak sağlayabilir günlük türüdür.
 
@@ -42,9 +41,8 @@ Log Analytics çalışma ayarı yapılandıran kullanıcının her iki abonelik 
 >
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Portalı kullanarak Stream tanılama günlükleri
-1. Portal, Azure İzleyicisi'ne gidin ve tıklayarak **tanılama ayarları**
+1. Portal, Azure İzleyicisi'ne gidin ve tıklayarak **tanılama ayarları** içinde **ayarları** menüsü.
 
-    ![Azure İzleyicisi İzleme](media/diagnostic-logs-stream-log-store/diagnostic-settings-blade.png)
 
 2. İsteğe bağlı olarak kaynak grubu veya kaynak türe göre listeyi filtreleyin ve kaynağın tanılama ayarını ayarlamak istediğiniz'i tıklatın.
 
@@ -97,9 +95,9 @@ Tanılama günlüğüne olarak geçirilen JSON dizisi sözlükleri ekleyerek ek 
 
 `--resource-group` Bağımsız değişken, yalnızca gerekli if `--workspace` bir nesne kimliği değil.
 
-## <a name="how-do-i-query-the-data-in-log-analytics"></a>Log analytics'te verileri nasıl sorgu?
+## <a name="how-do-i-query-the-data-from-a-log-analytics-workspace"></a>Bir Log Analytics çalışma alanı verilerini nasıl sorgu?
 
-Portalında veya Gelişmiş analiz deneyimi Log analytics'in bir parçası olarak günlük arama dikey penceresinde, günlük yönetimi çözümü AzureDiagnostics tablonun altında bir parçası olarak tanılama günlükleri sorgulayabilir. Ayrıca [Azure kaynakları için çeşitli çözümler](../../azure-monitor/insights/solutions.md) günlük verileri anında Öngörüler Log Analytics'e gönderme, alma için yükleyebilirsiniz.
+Azure İzleyicisi portalındaki günlükleri dikey penceresinde, günlük yönetimi çözümü AzureDiagnostics tablonun altında bir parçası olarak tanılama günlükleri sorgulayabilir. Ayrıca [Azure kaynakları için çeşitli izleme çözümleri](../../azure-monitor/insights/solutions.md) günlük verileri anında Öngörüler Azure İzleyici ile gönderdiğiniz almak için yükleyebilirsiniz.
 
 ### <a name="known-limitation-column-limit-in-azurediagnostics"></a>Sınırlama bilinen: AzureDiagnostics sütun sınırı
 Veri türleri gönderilen tüm aynı tabloya birçok kaynağa göndermek için (_AzureDiagnostics_), bu tablonun şeması şemaları toplanmakta olan tüm farklı veri türleri Süper kümesidir. Örneğin, aşağıdaki veri türleri koleksiyonu için tanılama ayarları oluşturduysanız, tümü aynı çalışma alanına gönderilen:
@@ -109,7 +107,7 @@ Veri türleri gönderilen tüm aynı tabloya birçok kaynağa göndermek için (
  
 AzureDiagnostics tabloda bazı örnek verilerle şu şekilde görünür:  
  
-| ResourceProvider | Kategori | A | B | C | D | E | F | G | H | I |
+| ResourceProvider | Kategori | A | B | C | D | E | C | G | H | I |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft.Resource1 | AuditLogs | x1 | Y1 | z1 |
 | Microsoft.Resource2 | Günlüklerini | | | | q1 | W1 | e1 |

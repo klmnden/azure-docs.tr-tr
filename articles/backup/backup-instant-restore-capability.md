@@ -8,17 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 21aa01ec8382341de34cca743b9e088598872659
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 1f96c47e993e9b3d123972aba8eefc54b1d5cdfa
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578909"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652680"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Geliştirilmiş yedeği almak ve performansı Azure Backup anında geri yükleme özelliğine sahip geri yükleme
 
 > [!NOTE]
-> Biz yeniden adlandırma kullanıcılar görüşlerine dayalı **VM yedek yığını V2** için **anında geri yükleme** Karışıklığı önlemek için Azure Stack işlevsellikle azaltmak için.
+> Biz yeniden adlandırma kullanıcılar görüşlerine dayalı **VM yedek yığını V2** için **anında geri yükleme** Karışıklığı önlemek için Azure Stack işlevsellikle azaltmak için.<br/><br/> Tüm Azure yedekleme kullanıcılar için artık yükseltilmiş **anında geri yükleme**.
 
 Yeni model anlık geri yüklemek için aşağıdaki özellik geliştirmeleri sağlar:
 
@@ -60,15 +60,25 @@ Artımlı anlık anında kurtarma için kullanılan sanal makinenin depolama hes
 >[!NOTE]
 > Anlık görüntü saklama, haftalık ilkeleri için 5 gün olarak sabitlenmiştir.
 
-## <a name="configure-snapshot-retention-using-the-azure-portal"></a>Azure portalını kullanarak anlık görüntü saklama yapılandırma
+## <a name="configure-snapshot-retention"></a>Anlık görüntü saklama yapılandırma
 
-**Anında geri yükleme, tüm Azure yedekleme kullanıcılar artık yükseltilmiş**.
+### <a name="using-azure-portal"></a>Azure portalını kullanma
 
 Azure portalında, eklenen bir alan gördüğünüz **VM yedekleme İlkesi** altındaki dikey penceresinde **anında geri yükleme** bölümü. Anlık görüntü saklama süresinden değiştirebilirsiniz **VM yedekleme İlkesi** dikey penceresinde tüm sanal makineler için belirli bir yedekleme ilkesiyle ilişkili.
 
 ![Anında geri yükleme özelliği](./media/backup-azure-vms/instant-restore-capability.png)
 
-PowerShell kullanarak anlık görüntü saklamayı yapılandırmak için başvurmak [bu belgeyi](backup-azure-vms-automation.md#configuring-instant-restore-snapshot-retention).
+### <a name="using-powershell"></a>PowerShell’i kullanma
+
+>[!NOTE]
+> Az Powershell'den sürüm 1.6.0 ve sonraki sürümlerde, PowerShell kullanarak ilkesinde anında geri yükleme anlık görüntü saklama süresi güncelleştirebilirsiniz.
+
+```powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=5
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+```
+Her ilke için varsayılan anlık görüntü saklama 2 gün olarak ayarlanır. Kullanıcı, en az 1 ve en fazla 5 gün değeri değiştirebilirsiniz. Haftalık ilkeleri için anlık görüntü saklama 5 gün için sabit.
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 

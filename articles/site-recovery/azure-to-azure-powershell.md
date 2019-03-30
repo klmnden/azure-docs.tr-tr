@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 9c4576633f98d38da7086711c24def88591ab71f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 64b14f66e05c42581fcce6eb9879fa72d7f0d6f8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869420"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652085"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Azure PowerShell kullanarak Azure sanal makineler için olağanüstü durum kurtarmayı ayarlama
 
@@ -163,7 +163,7 @@ Remove-Item -Path $Vaultsettingsfile.FilePath
 
 Kasadaki doku nesnesi, bir Azure bölgesi temsil eder. Kasa için korunan sanal makinelerle ait Azure bölgesini temsil etmek için birincil doku nesnesi oluşturulur. Bu makaledeki örnekte Doğu ABD bölgesinde korunan sanal makine var.
 
-- Bölge başına yalnızca bir doku nesnesi oluşturulabilir. 
+- Bölge başına yalnızca bir doku nesnesi oluşturulabilir.
 - Azure portalında bir VM için Site Recovery çoğaltma daha önce etkinleştirdiyseniz, Site Recovery otomatik olarak bir doku nesnesi oluşturur. Bir bölge için bir doku nesnesi varsa, yeni bir tane oluşturamazsınız.
 
 
@@ -588,7 +588,22 @@ Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```
 
+## <a name="reprotect-and-failback-to-source-region"></a>Yeniden koruma ve yeniden çalışma için kaynak bölgesi
+
 Özgün bölgesiyle geri dönmek hazır olduğunuzda, bir yük devrinden sonra güncelleştirme AzureRmRecoveryServicesAsrProtectionDirection cmdlet'ini kullanarak çoğaltma korumalı öğe için çoğaltmayı tersine çevirmeyi Başlat.
+
+```azurepowershell
+#Create Cache storage account for replication logs in the primary region
+$WestUSCacheStorageAccount = New-AzureRmStorageAccount -Name "a2acachestoragewestus" -ResourceGroupName "A2AdemoRG" -Location 'West US' -SkuName Standard_LRS -Kind Storage
+```
+
+```azurepowershell
+#Use the recovery protection container, new cache storage accountin West US and the source region VM resource group
+Update-AzureRmRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $ReplicationProtectedItem -AzureToAzure
+-ProtectionContainerMapping $RecoveryProtContainer -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.Id
+```
+
+Yeniden koruma tamamlandıktan sonra Yük devretme ters yönde (Doğu ABD Batı ABD) ve kaynak bölgeye yeniden başlatabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Görünüm [Azure Site Recovery PowerShell başvurusu](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) kurtarma planları oluşturma ve PowerShell üzerinden kurtarma planı yük devretme testi gibi diğer görevleri nasıl gerçekleştirebileceğiniz öğrenin.

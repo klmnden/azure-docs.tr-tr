@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c7744ba4ca37a2a496c75a50f274be9bf431cc5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 3c2461240b398a2b23bb2b2aedc524277d6b9771
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286593"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652527"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos kısıtlanmış temsil için çoklu oturum açma uygulamalarınıza uygulama ara sunucusu ile
 
@@ -82,7 +82,7 @@ Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateT
 2. Uygulamanızı kurumsal uygulamalar listesinde göründükten sonra seçin ve **çoklu oturum açma**.
 3. Çoklu oturum açma modu ayarlamak **tümleşik Windows kimlik doğrulaması**.  
 4. Girin **iç uygulama SPN'si** uygulama sunucusunun. Bu örnekte, http/www.contoso.com yayımlanan uygulamamız için SPN'dir. Bu SPN, istediğiniz bağlayıcıyı temsilci seçilen kimlik bilgilerini sunacağı Hizmetler listesinde olması gerekiyor. 
-5. Seçin **temsilci oturum açma kimliği** Bağlayıcısı kullanıcılarınız adına kullanın. Daha fazla bilgi için [farklı şirket içi ve bulut kimlikleri ile çalışma](#Working-with-different-on-premises-and-cloud-identities)
+5. Seçin **temsilci oturum açma kimliği** Bağlayıcısı kullanıcılarınız adına kullanın. Daha fazla bilgi için [farklı şirket içi ve bulut kimlikleri ile çalışma](#working-with-different-on-premises-and-cloud-identities)
 
    ![Gelişmiş uygulama yapılandırması](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 

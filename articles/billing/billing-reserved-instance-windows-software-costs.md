@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: ee7c471cdd76829abc03fa4578d09b8a7303cb38
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d500e26f5701e59dacfd5f09f6eaf88c5ced74e6
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891442"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648529"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure ayrılmış VM örnekleri ile bulunmayan yazılım maliyetleri
 
@@ -69,15 +69,15 @@ Bir Azure hibrit kullanım teklifi, ayrılmış sanal makine örneklerine sahip 
 Bu ölçümlerin her birinin maliyeti Azure RateCard API aracılığıyla elde edebilirsiniz. Bir azure ölçüm için ücretler alma hakkında daha fazla bilgi için bkz [almak için kullanılan bir Azure aboneliğinde kaynakları fiyat ve meta veri bilgileri](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
+Azure için ayırma hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-- [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
+- [Azure için ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
 - [Azure Ayrılmış VM Örnekleri ile Sanal Makinelere ön ödeme yapma](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure Ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
+- [Azure için ayırmaları yönetme](billing-manage-reserved-vm-instance.md)
 - [Ayırma indirimi nasıl uygulanacağını anlama](billing-understand-vm-reservation-charges.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bize ulaşın
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

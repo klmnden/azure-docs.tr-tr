@@ -4,7 +4,7 @@ description: Syslog Linux küme olayları izleme hakkında bilgi edinin
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 25452d3d65518511c47087d1cb712d0a512416fc
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 402e3dfe018c94ef068caf918b38aaad00064a49
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245565"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670379"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Service Fabric Linux kümesi Syslog olayları
 
@@ -35,7 +35,7 @@ Her bir Syslog olayının 4 bileşenleri olan
 * Özellik
 * Kimlik
 * İleti
-* Severity
+* Önem Derecesi
 
 SyslogConsumer özelliğini kullanarak tüm platform olayları yazar `Local0`. Geçerli bir birime config config değiştirerek güncelleştirebilirsiniz. Kimliktir `ServiceFabric`. Mesaj alanına, böylelikle sorgulandı ve çeşitli araçlar tarafından kullanılan JSON olarak serileştirilmiş tüm olay içerir. 
 

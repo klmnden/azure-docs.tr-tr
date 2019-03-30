@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: 1b2790a4673fd162deca445b4300850fc0e3a087
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 83ae58e4a86d3bc2ffb2197f48d2c641790e8524
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852000"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648291"
 ---
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Azure Machine Learning Studio çalışma alanına Azure Resource Manager kullanarak dağıtma
 
@@ -25,10 +25,11 @@ Kullanarak bir Azure Resource Manager dağıtım şablonu, ölçeklenebilir bir 
 Biz bir Azure kaynak grubu oluşturun ve ardından yeni bir Azure depolama hesabı ve yeni Azure Machine Learning Studio Resource Manager şablonu kullanarak bir çalışma alanı dağıtın. Dağıtım tamamlandıktan sonra biz (birincil anahtar, çalışma alanı kimliği ve çalışma alanı URL) oluşturulan çalışma alanları hakkında önemli bilgileri yazdırır.
 
 ### <a name="create-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu oluşturma
+
 Bir Machine Learning çalışma alanı, bağlantılı veri kümesine depolamak için bir Azure depolama hesabı gerektirir.
 Depolama hesabı adı oluşturmak için kaynak grubu adını ve çalışma alanı adı şu şablonu kullanır.  Ayrıca depolama hesabı adı bir özellik olarak çalışma alanını oluştururken kullanır.
 
-```
+```json
 {
     "contentVersion": "1.0.0.0",
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -76,10 +77,11 @@ Depolama hesabı adı oluşturmak için kaynak grubu adını ve çalışma alan�
 Bu şablon, c:\temp\ altında mlworkspace.json dosyası olarak kaydedin.
 
 ### <a name="deploy-the-resource-group-based-on-the-template"></a>Şablona göre kaynak grubunu dağıtma
+
 * PowerShell’i açın
 * Azure Resource Manager ve Azure hizmet yönetimi için modülleri yükleme
 
-```
+```powershell
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
 Install-Module AzureRM -Scope CurrentUser
 
@@ -91,7 +93,7 @@ Install-Module Azure -Scope CurrentUser
 
 * Azure'da kimlik doğrulaması
 
-```
+```powershell
 # Authenticate (enter your credentials in the pop-up window)
 Connect-AzureRmAccount
 ```
@@ -103,7 +105,7 @@ Azure'a erişimi sahibiz, kaynak grubunu oluşturabiliriz.
 
 * Kaynak grubu oluşturma
 
-```
+```powershell
 $rg = New-AzureRmResourceGroup -Name "uniquenamerequired523" -Location "South Central US"
 $rg
 ```
@@ -115,27 +117,28 @@ Kaynak grubu adı, depolama hesabı adı oluşturmak için şablon tarafından k
 
 * Kaynak grubu dağıtımı'nı kullanarak yeni bir Machine Learning çalışma alanı dağıtın.
 
-```
+```powershell
 # Create a Resource Group, TemplateFile is the location of the JSON template.
 $rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
 ```
 
 Dağıtım tamamlandıktan sonra dağıttığınız çalışma özelliklerine erişmek için basit bir iştir. Örneğin, birincil anahtar belirteci erişebilirsiniz.
 
-```
+```powershell
 # Access Azure Machine Learning studio Workspace Token after its deployment.
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
 Mevcut bir çalışma alanının belirteçlerini almak için başka bir yolu, Invoke-AzureRmResourceAction komutunu kullanmaktır. Örneğin, birincil ve ikincil belirteçleri tüm çalışma alanları listeleyebilirsiniz.
 
-```
+```powershell
 # List the primary and secondary tokens of all workspaces
-Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
+Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
 Çalışma alanı sağlandıktan sonra kullanarak birçok Azure Machine Learning Studio görevleri de otomatik hale getirebilirsiniz [Azure Machine Learning Studio için PowerShell Modülü](https://aka.ms/amlps).
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
+
 * Daha fazla bilgi edinin [Azure Resource Manager şablonları yazma](../../azure-resource-manager/resource-group-authoring-templates.md).
 * Göz atın [Azure hızlı başlangıç şablonları depo](https://github.com/Azure/azure-quickstart-templates).
 * Bu videoyu hakkında [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).

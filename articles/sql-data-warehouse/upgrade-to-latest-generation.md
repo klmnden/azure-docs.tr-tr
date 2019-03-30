@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8ec6ffaba8056eacf44d8e1bd911eb1f22daad84
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 522f1f2f24e8c8c3f68a42569d4057a7694754d1
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314849"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651082"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>SQL Veri Ambarı’nı yükselterek performansı iyileştirme
 
@@ -27,15 +27,15 @@ Artık sorunsuz bir şekilde Azure portalında SQL veri ambarı işlem için iyi
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
-## <a name="applies-to"></a>Uygulandığı öğe
+## <a name="applies-to"></a>Şunlara uygulanacaktır:
 
 İşlem için iyileştirilmiş Gen1 katmanı veri ambarında bu yükseltmenin uygulanabileceği [desteklenen bölgeler](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
 1. Kontrol edin, [bölge](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) GEN1 için Gen2'ye geçiş için desteklenir. Otomatik geçiş tarihleri unutmayın. Otomatik işlemine çakışmalarını önlemek için otomatik işlem başlangıç tarihinden önce el ile geçişinizi planlayın.
-2. Henüz desteklenmeyen bir bölgede ise, eklenecek bölgeniz için denetlemeye devam veya [geri yükleme kullanarak yükseltme](#Upgrade-from-an-Azure-geographical-region-using-restore-through-the-Azure-portal) desteklenen bir bölge.
-3. Bölgeniz destekleniyorsa [Azure Portalı aracılığıyla yükseltme](#Upgrade-in-a-supported-region-using-the-Azure-portal)
+2. Henüz desteklenmeyen bir bölgede ise, eklenecek bölgeniz için denetlemeye devam veya [geri yükleme kullanarak yükseltme](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) desteklenen bir bölge.
+3. Bölgeniz destekleniyorsa [Azure Portalı aracılığıyla yükseltme](#upgrade-in-a-supported-region-using-the-azure-portal)
 4. **Önerilen performans düzeyi seçin** veri ambarı için temel alarak en iyi duruma getirilmiş Gen1 işlem katmanında geçerli performans düzeyiniz aşağıdaki eşlemeyi kullanarak:
 
    | İşlem için iyileştirilmiş Gen1 katmanı | İşlem için iyileştirilmiş 2. nesil katmanı |

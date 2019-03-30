@@ -4,17 +4,21 @@ description: Azure geçiş toplayıcısı adlı Gereci için yükseltme hakkınd
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/29/2019
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: f9f2ef25a2054d92cdcc3ab33ea9234883e352d6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 7cd44318716200d665ece9ffecc45225bdfb85eb
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484517"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648682"
 ---
 # <a name="collector-appliance-updates"></a>Toplayıcı Gereci güncelleştirmeleri
+
+Bu makalede, Toplayıcı Gereci için yükseltme bilgileri özetler [Azure geçişi](migrate-overview.md).
+
+Azure geçişi toplayıcısı bir şirket içi vCenter ortam azure'a geçiş işleminden önce değerlendirme amaçları için keşfetmek için hafif bir gereçtir. [Daha fazla bilgi edinin](concepts-collector.md).
 
 ## <a name="how-to-upgrade-the-appliance"></a>Gereç yükseltme
 
@@ -33,11 +37,19 @@ OVA yeniden indirmeden Toplayıcı en son sürüme yükseltebilirsiniz.
 
 ## <a name="collector-update-release-history"></a>Toplayıcı güncelleştirme sürüm geçmişi
 
-Bu makalede, Toplayıcı Gereci için yükseltme bilgileri özetler [Azure geçişi](migrate-overview.md).
-
-Azure geçişi toplayıcısı bir şirket içi vCenter ortam azure'a geçiş işleminden önce değerlendirme amaçları için keşfetmek için hafif bir gereçtir. [Daha fazla bilgi edinin](concepts-collector.md).
-
 ### <a name="continuous-discovery-upgrade-versions"></a>Sürekli bulma: Sürüm yükseltme
+
+#### <a name="version-101014-released-on-03292019"></a>Sürüm 1.0.10.14 (29/03/2019 üzerinde yayımlanan)
+
+Birkaç kullanıcı Arabirimi geliştirmeleri içerir.
+
+Karma değerleri yükseltme [paketini 1.0.10.14](https://aka.ms/migrate/col/upgrade_10_14)
+
+**Algoritma** | **Karma değeri**
+--- | ---
+MD5 | 846b1eb29ef2806bcf388d10519d78e6
+SHA1 | 6243239fa49c6b3f5305f77e9fd4426a392d33a0
+SHA256 | fb058205c945a83cc4a31842b9377428ff79b08247f3fb8bb4ff30c125aa47ad
 
 #### <a name="version-101012-released-on-03132019"></a>Sürüm 1.0.10.12 (03/13/2019'da yayımlanan)
 

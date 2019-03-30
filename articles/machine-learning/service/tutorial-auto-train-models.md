@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: trbye
-ms.date: 02/05/2019
+ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8fa77409f1f5c32bc1e8f8644111c38f6115a92d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 990991eb1ceb5d74c042b42cfa265c75a073e5ef
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58362059"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670906"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Öğretici: Otomatik makine öğrenimi, regresyon modeli derler
 
@@ -656,7 +656,7 @@ Deneme parametreyi tanımlayın ve ayarları serilerinin otomatik oluşturulmas�
 |**iteration_timeout_minutes**|10|Her yineleme için dakika cinsinden süre. Toplam çalışma zamanı azaltmak için bu değeri azaltın.|
 |**iterations**|30|Yineleme sayısı. Her yinelemede verilerinizle yeni bir machine learning modeli eğitilir. Bu toplam çalıştırma süresi etkileyen birincil bir değerdir.|
 |**primary_metric**| spearman_correlation | İyileştirmek istediğiniz ölçüm. Bu ölçüm temelinde en uygun model seçilir.|
-|**preprocess**| True | Kullanarak **True**, deneme (sayısal, vb. için metin dönüştürme eksik veri işleme) girdi verilerini önceden işlenir|
+|**preprocess**| Doğru | Kullanarak **True**, deneme (sayısal, vb. için metin dönüştürme eksik veri işleme) girdi verilerini önceden işlenir|
 |**Ayrıntı düzeyi**| logging.INFO | Günlüğe kaydetme düzeyini denetler.|
 |**n_cross_validations**|5|Doğrulama verileri belirtilmediğinde gerçekleştirmek için çapraz doğrulama bölmelerini sayısı.|
 

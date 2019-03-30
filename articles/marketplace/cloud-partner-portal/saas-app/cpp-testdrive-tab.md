@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e97e79ef3077431d8fc627cd634a67b0a01b6f8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b12ba53f847b46479b3100c088c29372b58c1b8e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993104"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649042"
 ---
 # <a name="saas-application-test-drive-tab"></a>SaaS uygulama Test Sürüşü sekmesi
 
@@ -52,8 +52,8 @@ Her ürün, senaryo ve Market üzeresiniz türüne göre kullanılabilir Test S�
 |  ---------------   |  ---------------  |  ---------------  |
 |     Azure Resource Manager               |    Bir Azure Resource Manager Test Sürüşü yayımcı tarafından oluşturulan bir çözümünü oluşturan tüm Azure kaynaklarını içeren bir dağıtım şablonudur. Bu tür bir Test Sürüşü uygun ürünler, yalnızca Azure kaynakları şunlardır.               |       [Azure Resource Manager Test Sürüşü](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |
 |       Şirket Dışında Barındırılan             |       Bir barındırılan Test Sürüşü Microsoft barındırma tarafından kurulumun karmaşıklığını ortadan kaldırır ve Test Sürüşü kullanıcı sağlama ve sağlamayı kaldırma gerçekleştiren hizmetin bakımını.             |         [Barındırılan Test Sürüşü](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
-|      Logic App              |       Mantıksal uygulamayı Test Sürüşü, tüm karmaşık çözüm mimarileri kapsayacak şekilde tasarlanmıştır bir dağıtım şablonudur. Tüm Dynamics uygulamaları ve özel ürünler bu tür bir Test Sürüşü kullanmanız gerekir.            |      [Mantıksal uygulamayı Test Sürüşü](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
-|       Power BI             |         Power BI Test Sürüşü özel oluşturulan bir panoya katıştırılmış bir bağlantı içerir. Test Sürüşü bu tür bir etkileşimli Power BI görsel kullanması gereken göstermek istediği herhangi bir ürünü. Karşıya yüklemek için ihtiyacınız olan, katıştırılmış Power BI URL'si.          |        [Power BI Test Sürüşü](#Power-BI-test-drive)           |
+|      Mantıksal Uygulama              |       Mantıksal uygulamayı Test Sürüşü, tüm karmaşık çözüm mimarileri kapsayacak şekilde tasarlanmıştır bir dağıtım şablonudur. Tüm Dynamics uygulamaları ve özel ürünler bu tür bir Test Sürüşü kullanmanız gerekir.            |      [Mantıksal uygulamayı Test Sürüşü](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
+|       Power BI             |         Power BI Test Sürüşü özel oluşturulan bir panoya katıştırılmış bir bağlantı içerir. Test Sürüşü bu tür bir etkileşimli Power BI görsel kullanması gereken göstermek istediği herhangi bir ürünü. Karşıya yüklemek için ihtiyacınız olan, katıştırılmış Power BI URL'si.          |        [Power BI Test Sürüşü](#power-bi-test-drive)           |
 
 ### <a name="power-bi-test-drive"></a>Power BI test sürüşü
 

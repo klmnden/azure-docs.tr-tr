@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2424dbf595743eacef16b7d11f208edc9cd09a41
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 592f2ef95935ce1d1f83db6c3327cab9c20015d3
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185460"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652578"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Nasıl yapılır: Azure AD uygulamanızı (genel Önizleme) için isteğe bağlı bir talep sağla
 
@@ -50,14 +50,14 @@ Hedeflerinden [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview
 
 ## <a name="standard-optional-claims-set"></a>Standart isteğe bağlı bir talep kümesi
 
-İsteğe bağlı varsayılan olarak kullanılabilir talepler için uygulamaları kullanmaya kümesini aşağıda listelenmiştir. Uygulamanız için isteğe bağlı özel talepler eklemek için bkz [dizin genişletmeleri](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)aşağıdaki. Talepleri eklerken unutmayın **erişim belirteci**, bu istenen erişim belirteçleri için geçerli *için* uygulama (bir web API), olanları *tarafından* uygulama. Bu, API'nizi erişen istemci ne olursa olsun, doğru verilere API'nizi karşı kimlik doğrulaması yapmak için kullandıkları erişim belirteci mevcut olmasını sağlar.
+İsteğe bağlı varsayılan olarak kullanılabilir talepler için uygulamaları kullanmaya kümesini aşağıda listelenmiştir. Uygulamanız için isteğe bağlı özel talepler eklemek için bkz [dizin genişletmeleri](active-directory-optional-claims.md#configuring-custom-claims-via-directory-extensions)aşağıdaki. Talepleri eklerken unutmayın **erişim belirteci**, bu istenen erişim belirteçleri için geçerli *için* uygulama (bir web API), olanları *tarafından* uygulama. Bu, API'nizi erişen istemci ne olursa olsun, doğru verilere API'nizi karşı kimlik doğrulaması yapmak için kullandıkları erişim belirteci mevcut olmasını sağlar.
 
 > [!NOTE]
 > Bu talep çoğunu içinde Jwt'ler v1.0 ve v2.0 belirteçleri, ancak değil SAML belirteçlerini dışında belirteç Türü sütununda belirtilmedikçe dahil edilebilir. Ayrıca, isteğe bağlı talepleri yalnızca AAD kullanıcıları için şu anda desteklendiğinden, MSA desteği ekleniyor. MSA v2.0 uç noktada destek isteğe bağlı bir talep varsa, kullanıcı türü sütunu bir AAD veya MSA kullanıcısı için bir talep olup olmadığını gösterir. 
 
 **Tablo 2: Standart isteğe bağlı bir talep kümesi**
 
-| Ad                        | Açıklama   | Belirteç türü | Kullanıcı Türü | Notlar  |
+| Ad                        | Açıklama   | Belirteç türü | Kullanıcı Türü | Notes  |
 |-----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Zaman zaman son kullanıcı kimlik doğrulaması. Bkz: Openıd Connect belirtimi.| JWT        |           |  |
 | `tenant_region_scope`      | Kaynak Kiracı bölgesi | JWT        |           | |
@@ -85,7 +85,7 @@ Bu talepler her zaman v1.0 belirteçlerinde dahil, ancak v2.0 belirteçlerinde i
 
 **Tablo 3: Yalnızca v2.0 isteğe bağlı talepleri**
 
-| JWT talep     | Ad                            | Açıklama                                | Notlar |
+| JWT talep     | Ad                            | Açıklama                                | Notes |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP Adresi                      | Oturum açtığınız istemci IP adresi.   |       |
 | `onprem_sid`  | Şirket İçi Güvenlik Tanımlayıcısı |                                             |       |
@@ -94,7 +94,7 @@ Bu talepler her zaman v1.0 belirteçlerinde dahil, ancak v2.0 belirteçlerinde i
 | `in_corp`     | İç şirket ağı        | Sinyaller istemci ve şirket ağından oturum açılıyor. Değilse, talep dahil değildir.   |  Kapatarak tabanlı [güvenilen IP'ler](../authentication/howto-mfa-mfasettings.md#trusted-ips) MFA ayarları.    |
 | `nickname`    | Takma ad                        | İlk veya son adından ayrı kullanıcı için ek bir ad. | 
 | `family_name` | Soyadı                       | Son adını, soyadını veya kullanıcının aile adı Azure AD kullanıcı nesnesinde tanımlanan sağlar. <br>"family_name": "Mert" |       |
-| `given_name`  | Ad                      | İlk sağlar veya "Azure AD kullanıcı nesnesindeki belirlenen kullanıcı adı verilen".<br>"given_name": "Ferdi"                   |       |
+| `given_name`  | Adı                      | İlk sağlar veya "Azure AD kullanıcı nesnesindeki belirlenen kullanıcı adı verilen".<br>"given_name": "Ferdi"                   |       |
 | `upn`       | Kullanıcı Asıl Adı | Username_hint parametresiyle birlikte kullanılabilecek kullanıcı için bir tanımlayıcı.  Kullanıcı için kalıcı bir tanımlayıcı değil ve anahtar verileri kullanılmamalıdır. | Bkz: [ek özellikler](#additional-properties-of-optional-claims) aşağıda talep yapılandırma. |
 
 ### <a name="additional-properties-of-optional-claims"></a>İsteğe bağlı taleplerin ek özellikler

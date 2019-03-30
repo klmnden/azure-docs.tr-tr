@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 15770246f52e87b8fba4a9ec01e1583d194d002b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67f51b078b8e92592e9593d7d254e6985265eee8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887060"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651278"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure Scheduler kavramları, terminolojisi ve varlıkları
 
@@ -143,7 +143,7 @@ Bu örnekte bir HTTP eyleminin kapsamlı iş tanımı gösterilmiştir ve öğel
 
 ## <a name="action"></a>action
 
-Scheduler işiniz belirtilen zamanlamayı kullanarak birincil **eylemi** çalıştırır. Scheduler HTTP, Depolama kuyruğu, Service Bus kuyruğu ve Service Bus konusu eylemlerini destekler. Birincil **action** nesnesi başarısız olursa Scheduler hatayı işleyen ikincil [**errorAction**](#errorAction) nesnesini çalıştırabilir. **action** nesnesi şu öğeleri tanımlar:
+Scheduler işiniz belirtilen zamanlamayı kullanarak birincil **eylemi** çalıştırır. Scheduler HTTP, Depolama kuyruğu, Service Bus kuyruğu ve Service Bus konusu eylemlerini destekler. Birincil **action** nesnesi başarısız olursa Scheduler hatayı işleyen ikincil [**errorAction**](#erroraction) nesnesini çalıştırabilir. **action** nesnesi şu öğeleri tanımlar:
 
 * Eylemin hizmet türü
 * Eylemin ayrıntıları
@@ -221,7 +221,7 @@ Birincil **eylemde** olduğu gibi, hata eylemi diğer eylemler temelinde basit y
 
 <a name="recurrence"></a>
 
-## <a name="recurrence"></a>yineleme
+## <a name="recurrence"></a>yinelenme
 
 İşin JSON tanımında **recurrence** nesnesi varsa o iş yinelenir, örneğin:
 

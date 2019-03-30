@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: d667dadeb2e7c9d0005ab8d1a565017973038aaa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 891b2988d04a3cf2f7c6676a837bc1ee199f4d16
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905163"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651500"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için NET # sinir ağı belirtim dili Kılavuzu
 
@@ -63,9 +63,9 @@ Azure Machine Learning Studio'da oluşturduğunuz sinir ağı modelleri mimarisi
 + Convolutions ve paket paylaşımı ağırlık gibi özel bir bağlantı yapıları tanımlayın.
 + Farklı etkinleştirme işlevleri belirtin.
 
-Belirtim dili sözdizimi ayrıntıları için bkz. [yapısı belirtimi](#Structure-specifications).
+Belirtim dili sözdizimi ayrıntıları için bkz. [yapısı belirtimi](#structure-specifications).
 
-Sinir ağları için bazı ortak makine öğrenme, karmaşık için tek yönlü görevlerden tanımlama örnekleri için bkz. [örnekler](#Examples-of-Net#-usage).
+Sinir ağları için bazı ortak makine öğrenme, karmaşık için tek yönlü görevlerden tanımlama örnekleri için bkz. [örnekler](#examples-of-net-usage).
 
 ## <a name="general-requirements"></a>Genel gereksinimler
 
@@ -454,7 +454,7 @@ output Digit [10] from Hid3 all;
 + Çekirdek başına ağırlıkları sayısı `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. veya `26 * 50 = 1300`.
 + Her Gizli katmandaki düğüm şekilde hesaplayabilirsiniz:
 
-    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5` `NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
+    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5``NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
     `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
 
 + Düğümlerin toplam sayısı, katmanın bildirilen işlenemez kullanarak hesaplanabilir [50, 5, 5], şu şekilde: `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`

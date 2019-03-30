@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: c27d92a330d82cb8638a970602f2a8d0ce2e79c2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d3821f6a2bad56b46bccbcca8830be09ad1e44c7
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579759"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648274"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Sanal makine ölçek ile dikey otomatik ölçeklendirme ayarlar
 
@@ -98,6 +98,7 @@ Yapmanız gereken ilk şey, sanal makine ölçek kümesi örneklerine ölçeklen
 * [Azure Farklı Çalıştır hesabıyla Runbook Kimlik Doğrulaması](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Aboneliğinize Azure Otomasyon dikey ölçeklendirme runbook'ları alma
+
 Sanal makine ölçek kümeleri dikey olarak ölçeklendirmek için gereken runbook'ları, Azure Otomasyonu Runbook Galerisi'nde zaten yayımlanır. İçeri aktarmak için bunları aboneliğinizi bu makaledeki adımları izleyin:
 
 * [Azure Otomasyonu için runbook ve modül galerileri](../automation/automation-runbook-gallery.md)
@@ -111,6 +112,7 @@ Galeriye Gözat seçeneği runbook'ları menüsünden seçin:
 ![Runbook'lar Galerisi][gallery]
 
 ## <a name="add-a-webhook-to-your-runbook"></a>Runbook'unuza bir Web kancası Ekle
+
 Runbook'ları aktardıktan sonra sanal makine ölçek kümesinden bir uyarı tetiklenebilir bir Web kancası runbook'a ekleyin. Runbook için bir Web kancası oluşturma ayrıntıları bu makalede açıklanmıştır:
 
 * [Azure Otomasyonu Web kancaları](../automation/automation-webhooks.md)
@@ -121,9 +123,10 @@ Runbook'ları aktardıktan sonra sanal makine ölçek kümesinden bir uyarı tet
 > 
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Uyarı, sanal makine ölçek kümesine ekleme
+
 Aşağıda gösteren bir uyarı için bir sanal makine ölçek eklemek bir PowerShell Betiği ayarlanır. Ölçüm uyarı ateşlenmesine adını almak için şu makaleye başvurun: [Azure İzleyici otomatik ölçeklendirme ortak ölçümleri](../azure-monitor/platform/autoscale-common-metrics.md).
 
-```
+```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
 $actionWebhook = New-AzAlertRuleWebhook -ServiceUri <uri-of-the-webhook>
 $threshold = <value-of-the-threshold>
@@ -160,6 +163,7 @@ Uyarılar oluşturma hakkında daha fazla bilgi için aşağıdaki makalelere ba
 * [Azure İzleyici platformlar arası CLI hızlı başlangıç örnekleri](../azure-monitor/platform/cli-samples.md)
 
 ## <a name="summary"></a>Özet
+
 Bu makalede, basit dikey ölçeklendirme örnekleri gösterilmiştir. Bu yapı taşları ile - Otomasyon hesabı, runbook'ları, Web kancaları, uyarılar - zengin çeşitli olayları özelleştirilmiş bir eylemler kümesi ile bağlanabilirsiniz.
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png

@@ -12,17 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: shlo
-ms.openlocfilehash: d2f892941f9d37dd3d74afe17d7952b404dc709f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9a03094683a973db16aa949f0610bc7f9914be45
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551645"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649229"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory işlem hattında dallanma ve zincirleme etkinlikleri
+
 Bu öğreticide, bazı denetim akışı özelliklerini gösteren bir Data Factory işlem hattı oluşturacaksınız. Bu işlem hattı, Azure Blob Depolama içindeki kapsayıcıdan aynı depolama hesabındaki başka bir kapsayıcıya basit bir kopyalama işlemi yapar. Kopyalama etkinliği başarılı olursa, başarılı kopyalama işleminin ayrıntılarını (örneğin, yazılan veri miktarı) bir başarı e-postası ile göndermek istersiniz. Kopyalama etkinliği başarısız olursa, kopyalama hatasının ayrıntılarını (örneğin, hata iletisi) bir hata e-postası ile göndermek istersiniz. Öğretici boyunca parametreleri nasıl geçireceğinizi göreceksiniz.
 
-Senaryoya üst düzey genel bakış: ![Genel Bakış](media/tutorial-control-flow/overview.png)
+Senaryoya üst düzey genel bakış: ![Genel bakış](media/tutorial-control-flow/overview.png)
 
 Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
 
@@ -56,6 +57,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
     John|Doe
     Jane|Doe
     ```
+
 2. [Azure Depolama Gezgini](https://storageexplorer.com/) gibi araçları **adfv2branch** kapsayıcısı oluşturmak ve **input.txt** dosyasını kapsayıcıya yüklemek için kullanın.
 
 ## <a name="create-visual-studio-project"></a>Visual Studio projesi oluşturma
@@ -73,7 +75,7 @@ Visual Studio 2015/2017'yi kullanarak bir C# .NET konsol uygulaması oluşturun.
 1. **Araçlar** -> **NuGet Paket Yöneticisi** -> **Paket Yöneticisi Konsolu**’na tıklayın.
 2. İçinde **Paket Yöneticisi Konsolu**, paketleri yüklemek için aşağıdaki komutları çalıştırın. Başvurmak [Microsoft.Azure.Management.DataFactory nuget paketini](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) ayrıntılarla.
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -138,7 +140,8 @@ Visual Studio 2015/2017'yi kullanarak bir C# .NET konsol uygulaması oluşturun.
     var client = new DataFactoryManagementClient(cred) { SubscriptionId = subscriptionId };
     ```
 
-## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
+## <a name="create-a-data-factory"></a>Data factory oluştur
+
 Program.cs dosyanızda "CreateOrUpdateDataFactory" işlevini oluşturun:
 
 ```csharp
@@ -173,6 +176,7 @@ Factory df = CreateOrUpdateDataFactory(client);
 ```
 
 ## <a name="create-an-azure-storage-linked-service"></a>Azure Depolama bağlı hizmeti oluşturma
+
 Program.cs dosyanızda "StorageLinkedServiceDefinition" işlevini oluşturun:
 
 ```csharp
@@ -188,6 +192,7 @@ static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagemen
     return linkedService;
 }
 ```
+
 Aşağıdaki kodu bir **Azure Depolama bağlı hizmeti** oluşturan **Main** yöntemine ekleyin. Desteklenen özellikler ve ayrıntılar hakkında daha fazla bilgi için [Azure Blob bağlı hizmeti özellikleri](connector-azure-blob-storage.md#linked-service-properties) makalesine bakın.
 
 ```csharp
@@ -199,6 +204,7 @@ client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLink
 Bu bölümde biri kaynak, diğeri havuz için olmak üzere iki veri kümesi oluşturacaksınız. 
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Kaynak Azure Blob için veri kümesi oluşturma
+
 Aşağıdaki kodu bir **Azure blob veri kümesi** oluşturan **Main** yöntemine ekleyin. Desteklenen özellikler ve ayrıntılar hakkında daha fazla bilgi için [Azure Blob veri kümesi özellikleri](connector-azure-blob-storage.md#dataset-properties) makalesine bakın.
 
 Azure Blob’da kaynak verilerini temsil eden bir veri kümesi tanımlayın. Bu Blob veri kümesi, önceki adımda oluşturduğunuz Azure Depolama bağlı hizmetini ifade eder:
@@ -258,6 +264,7 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetNa
 ```
 
 ## <a name="create-a-c-class-emailrequest"></a>Oluşturma bir C# sınıfı: EmailRequest
+
 C# projenizde **EmailRequest** adlı bir sınıf oluşturun. Bu sınıf, bir e-posta gönderirken işlem hattının gövde isteğinde gönderdiği özellikleri tanımlar. Bu öğreticide işlem hattı, işlem hattından e-postaya dört özellik gönderir:
 
 - **İleti**: E-postanın gövdesi. Kopyalama başarılı olursa bu özellik, çalıştırmanın ayrıntılarını (yazılan veri sayısı) içerir. Kopyalama başarısız olursa, bu özellik hatanın ayrıntılarını içerir.
@@ -289,10 +296,13 @@ C# projenizde **EmailRequest** adlı bir sınıf oluşturun. Bu sınıf, bir e-p
         }
     }
 ```
+
 ## <a name="create-email-workflow-endpoints"></a>E-posta iş akışı uç noktaları oluşturma
+
 E-posta göndermeyi tetiklemek için, [Logic Apps](../logic-apps/logic-apps-overview.md) kullanarak iş akışını tanımlayın. Mantıksal Uygulama iş akışı oluşturma ayrıntıları için bkz. [Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ### <a name="success-email-workflow"></a>Başarı e-postası iş akışı 
+
 `CopySuccessEmail` adlı bir Mantıksal Uygulama iş akışı oluşturun. İş akışı tetikleyicisini `When an HTTP request is received` olarak tanımlayın ve bir `Office 365 Outlook – Send an email` eylemi ekleyin.
 
 ![Başarı e-postası iş akışı](media/tutorial-control-flow/success-email-workflow.png)
@@ -318,6 +328,7 @@ E-posta göndermeyi tetiklemek için, [Logic Apps](../logic-apps/logic-apps-over
     "type": "object"
 }
 ```
+
 Bu işlem, önceki bölümde oluşturduğunuz **EmailRequest** sınıfı ile uyumludur. 
 
 İsteğiniz Mantıksal Uygulama Tasarımcısı'nda aşağıdaki gibi görünmelidir:
@@ -336,6 +347,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ```
 
 ## <a name="fail-email-workflow"></a>Hata e-postası iş akışı 
+
 **CopySuccessEmail**’i kopyalayın ve başka bir **CopyFailEmail** Logic Apps iş akışı oluşturun. İstek tetikleyicisinde `Request Body JSON schema` değeri aynıdır. Hata e-postasına uyarlamak için e-postanızın biçimini `Subject` olarak değiştirin. Örnek aşağıda verilmiştir:
 
 ![Mantıksal Uygulama tasarımcısı - hata e-postası iş akışı](media/tutorial-control-flow/fail-email-workflow.png)
@@ -356,7 +368,9 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 //Fail Request Url
 https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=000000
 ```
+
 ## <a name="create-a-pipeline"></a>İşlem hattı oluşturma
+
 Aşağıdaki kodu bir kopyalama etkinliği ve dependsOn özelliği ile işlem hattı oluşturan Main yöntemine ekleyin. Bu öğreticide işlem hattı, kaynak olarak Blob veri kümesini ve havuz olarak başka bir Blob veri kümesini alan kopyalama etkinliği adlı bir etkinlik içerir. Kopyalama etkinliği başarılı ve başarısız olduktan sonra farklı e-posta görevlerini çağırır.
 
 Bu işlem hattında aşağıdaki özellikleri kullanırsınız:
@@ -440,12 +454,15 @@ static PipelineResource PipelineDefinition(DataFactoryManagementClient client)
             return resource;
         }
 ```
+
 Aşağıdaki kodu, işlem hattını oluşturan **Main** yöntemine ekleyin:
 
 ```
 client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, PipelineDefinition(client));
 ```
+
 ### <a name="parameters"></a>Parametreler
+
 İşlem hattının birinci bölümü parametreleri tanımlar. 
 
 - sourceBlobContainer - işlem hattında kaynak blob veri kümesi tarafından tüketilen parametre.
@@ -461,7 +478,9 @@ Parameters = new Dictionary<string, ParameterSpecification>
         { "receiver", new ParameterSpecification { Type = ParameterType.String } }
     },
 ```
+
 ### <a name="web-activity"></a>Web Etkinliği
+
 Web Etkinliği herhangi bir REST uç noktasına çağrı yapmaya olanak tanır. Etkinlik hakkında daha fazla bilgi için bkz. [Web Etkinliği](control-flow-web-activity.md). Bu işlem hattı, Logic Apps e-posta iş akışını çağırmak için bir Web Etkinliği kullanır. İki web etkinliği oluşturursunuz: bir tanesi **CopySuccessEmail**, diğeri ise **CopyFailWorkFlow** iş akışını çağırır.
 
 ```csharp
@@ -481,6 +500,7 @@ Web Etkinliği herhangi bir REST uç noktasına çağrı yapmaya olanak tanır. 
             }
         }
 ```
+
 “Url” özelliğinde İstek URL uç noktalarını Logic Apps iş akışınızdan uygun şekilde yapıştırın. “Body” özelliğine “EmailRequest” sınıfının bir örneğini geçirin. E-posta isteği aşağıdaki özellikleri içerir:
 
 - İleti – `@{activity('CopyBlobtoBlob').output.dataWritten` değerini geçirme. Önceki kopyalama etkinliğinin bir özelliğine erişir ve dataWritten değerini geçirir. Hata durumunda `@{activity('CopyBlobtoBlob').error.message` yerine hata çıktısını geçirir.
@@ -491,6 +511,7 @@ Web Etkinliği herhangi bir REST uç noktasına çağrı yapmaya olanak tanır. 
 Bu kod, başarılı olan önceki kopyalama etkinliğine bağlı olarak yeni bir Etkinlik Bağımlılığı oluşturur.
 
 ## <a name="create-a-pipeline-run"></a>İşlem hattı çalıştırması oluşturma
+
 Aşağıdaki kodu **bir işlem hattı çalıştırması tetikleyen** **Main** yöntemine ekleyin.
 
 ```csharp
@@ -508,6 +529,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
 ## <a name="main-class"></a>Main sınıfı 
+
 Son Main yönteminiz aşağıdaki gibi görünmelidir. Bir işlem hattı çalıştırması tetiklemek için programınızı derleyip çalıştırın!
 
 ```csharp
@@ -539,6 +561,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
 ## <a name="monitor-a-pipeline-run"></a>İşlem hattı çalıştırmasını izleme
+
 1. İşlem hattı çalıştırmasını veri kopyalama işlemi tamamlanıncaya kadar sürekli olarak izlemek için aşağıdaki kodu **Main** yöntemine ekleyin.
 
     ```csharp
@@ -578,6 +601,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
     ```
 
 ## <a name="run-the-code"></a>Kodu çalıştırma
+
 Uygulamayı derleyip başlatın, ardından işlem hattı yürütmesini doğrulayın.
 Konsol; veri fabrikası, bağlı hizmet, veri kümeleri, işlem hattı ve işlem hattı çalıştırmasının ilerleme durumunu yazdırır. Daha sonra işlem hattı çalıştırma durumunu denetler. Okunan/yazılan veri boyutunu içeren kopyalama etkinliği ayrıntılarını görene kadar bekleyin. Ardından, Azure Depolama gezgini gibi araçlar kullanarak, blobların değişkenlerde belirttiğiniz şekilde "inputBlobPath" yolundan "outputBlobPath" yoluna kopyalandığını doğrulayın.
 
@@ -734,6 +758,7 @@ Press any key to exit...
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Bu öğreticide aşağıdaki adımları gerçekleştirdiniz: 
 
 > [!div class="checklist"]

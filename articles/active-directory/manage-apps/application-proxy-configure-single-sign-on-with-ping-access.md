@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4df8f329a135683ea68896605a0a1c6f3ee45984
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 319791c2436395c00dafc744fb6fcb1ff18b0750
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084090"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652340"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Üst bilgi tabanlı kimlik doğrulaması için uygulama proxy'si ile PingAccess ile çoklu oturum açma
 
@@ -43,7 +43,7 @@ Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](../fundamentals
 
 ## <a name="publish-your-application-in-azure"></a>Uygulamanızı Azure'da yayımlayın
 
-Bu makalede, bu senaryo ile bir uygulama ilk kez yayımlıyorsunuz kişilere yöneliktir. Bu yayımlama adımları yanı sıra hem uygulama hem de PingAccess, ile çalışmaya başlama konusunda yol göstermektedir. Her iki hizmet zaten yapılandırdınız ancak yayımlama adımları tazelemek istiyorsanız, bağlayıcı yükleme atlayın ve geçin [uygulamanıza Azure ad uygulama ara sunucusu ile ekler](#add-your-app-to-Azure-AD-with-Application-Proxy).
+Bu makalede, bu senaryo ile bir uygulama ilk kez yayımlıyorsunuz kişilere yöneliktir. Bu yayımlama adımları yanı sıra hem uygulama hem de PingAccess, ile çalışmaya başlama konusunda yol göstermektedir. Her iki hizmet zaten yapılandırdınız ancak yayımlama adımları tazelemek istiyorsanız, bağlayıcı yükleme atlayın ve geçin [uygulamanıza Azure ad uygulama ara sunucusu ile ekler](#add-your-app-to-azure-ad-with-application-proxy).
 
 >[!NOTE]
 >Bu senaryo Azure AD arasındaki iş ortaklığı olduğundan ve PingAccess, alan yönergelerden bazılarını var Ping Identity sitesinde.

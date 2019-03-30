@@ -4,7 +4,7 @@ description: Azure Service Fabric durum bilgisi olan aktör türü reliabledicti
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 79b48ffa-2474-4f1c-a857-3471f9590ded
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 224899e92684d83d33fbd61408e67d4ec11ec0a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4e39357a765ec85aa64055b1aa422d8d7a01c116
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898746"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669410"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Reliable Actors--reliabledictionaryactorstateprovider'ı yapılandırma
 Visual Studio Paket kökünde Config klasörü altında belirtilen aktör için oluşturulan settings.xml dosyasının değiştirerek varsayılan reliabledictionaryactorstateprovider yapılandırmasını değiştirebilirsiniz.
@@ -87,13 +87,13 @@ Varsayılan yapılandırma, Visual Studio şablon tarafından oluşturulur ve ye
 | Ad | Birim | Varsayılan değer | Açıklamalar |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Saniye |0.015 |Kendisi için göndermeden önce bir işlem aldıktan sonra ikincil bekler, yineleyici geri bir bildirim birincil siteye süre. Bu aralıkta işlenen işlemleri için gönderilecek diğer bir onayları bir yanıt olarak gönderilir. |
-| ReplicatorEndpoint |Yok |Varsayılan--gerekli parametre |IP adresi ve birincil/ikincil çoğaltma çoğaltmasındaki diğer çoğaltıcılar ile iletişim kurmak için kullanacağı bağlantı noktası ayarlayın. Bu hizmet bildirimindeki bir TCP kaynak uç noktası başvurmalıdır. Başvurmak [hizmet bildirimi kaynakları](service-fabric-service-manifest-resources.md) daha fazla bilgi için hizmet bildiriminde uç nokta kaynakları tanımlama hakkında. |
+| ReplicatorEndpoint |YOK |Varsayılan--gerekli parametre |IP adresi ve birincil/ikincil çoğaltma çoğaltmasındaki diğer çoğaltıcılar ile iletişim kurmak için kullanacağı bağlantı noktası ayarlayın. Bu hizmet bildirimindeki bir TCP kaynak uç noktası başvurmalıdır. Başvurmak [hizmet bildirimi kaynakları](service-fabric-service-manifest-resources.md) daha fazla bilgi için hizmet bildiriminde uç nokta kaynakları tanımlama hakkında. |
 | (Maxreplicationmessagesize) |Bayt |50 MB |Tek bir iletiye iletilen çoğaltma verilerinin en büyük boyutu. |
 | MaxPrimaryReplicationQueueSize |İşlem sayısı |8192 |Birincil sırasındaki işlemlerinin maksimum sayısı. Birincil çoğaltıcı tüm ikincil çoğaltıcılar alındısı sonra bir işlem yukarı serbest bırakılır. Bu değer, 64 ve 2'in kuvveti büyük olmalıdır. |
 | MaxSecondaryReplicationQueueSize |İşlem sayısı |16384 |İkincil sırasındaki işlemlerinin maksimum sayısı. Bir işlem yukarı durumuna Kalıcılık aracılığıyla yüksek oranda kullanılabilir yaptıktan sonra serbest bırakılır. Bu değer, 64 ve 2'in kuvveti büyük olmalıdır. |
 | CheckpointThresholdInMB |MB |200 |Günlük dosyası alanının sonra durumu belirttiğinizde miktarı. |
 | MaxRecordSizeInKB |KB |1024 |Çoğaltıcı günlüğünde yazabilir en büyük kayıt boyutu. Bu değerin katlarından biri 4 ile 16'dan büyük olması gerekir. |
-| OptimizeLogForLowerDiskUsage |Boole |true |True olduğunda, günlük bir NTFS seyrek dosyası kullanarak yinelemenin ayrılmış günlük dosyası oluşturulur şekilde yapılandırılır. Bu dosya için gerçek disk alanı kullanımını azaltır. Yanlış olduğunda, dosya yazma en iyi performansı sağlamak sabit ayırmaları ile oluşturulur. |
+| OptimizeLogForLowerDiskUsage |Boolean |gerçek |True olduğunda, günlük bir NTFS seyrek dosyası kullanarak yinelemenin ayrılmış günlük dosyası oluşturulur şekilde yapılandırılır. Bu dosya için gerçek disk alanı kullanımını azaltır. Yanlış olduğunda, dosya yazma en iyi performansı sağlamak sabit ayırmaları ile oluşturulur. |
 | SharedLogId |GUID |"" |Bu çoğaltma ile kullanılan paylaşılan günlük dosyası tanımlamak için kullanılacak benzersiz bir GUID belirtir. Genellikle, hizmetleri bu ayarı kullanmanız gerekir. SharedLogId belirtilirse, ancak ardından SharedLogPath de belirtilmelidir. |
 | SharedLogPath |Tam yol adı |"" |Bu yineleme için paylaşılan bir günlük dosyasına oluşturulacağı tam yolunu belirtir. Genellikle, hizmetleri bu ayarı kullanmanız gerekir. SharedLogPath belirtilirse, ancak ardından SharedLogId de belirtilmelidir. |
 

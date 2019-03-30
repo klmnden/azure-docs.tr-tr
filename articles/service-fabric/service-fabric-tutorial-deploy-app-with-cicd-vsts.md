@@ -3,8 +3,8 @@ title: Sürekli tümleştirme ve azure'da Azure işlem hatları ile bir Service 
 description: Bu öğreticide, Azure işlem hatları kullanarak bir Service Fabric uygulaması için sürekli tümleştirme ve dağıtım ayarlama konusunda bilgi edinin.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/02/2018
-ms.author: ryanwi
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 766c0c780807ff7627ae9fb96aca4a896918f9c6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c805d2bc03ad07635b01a5e978822ecab2425457
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094966"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668849"
 ---
-# <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Öğretici: Service Fabric kümesine CI/CD ile uygulama dağıtma
+# <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Öğretici: Bir Service Fabric kümesine CI/CD ile uygulama dağıtma
 
 Bu öğretici bir serinin dördüncü bölümüdür ve sürekli tümleştirme ve Azure işlem hatları kullanarak bir Azure Service Fabric uygulaması için dağıtım ayarlayacağınızı açıklar.  Mevcut bir Service Fabric uygulaması gereklidir; örnek olarak [.NET uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md) bölümünde oluşturulan uygulama kullanılır.
 

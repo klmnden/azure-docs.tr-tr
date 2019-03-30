@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 29a0d0679adc51cf1493d241273e3b572a7fd57d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.date: 03/29/2019
+ms.openlocfilehash: e71039c84c79c27a372a378144b21f6f724d08d8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214308"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670844"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Azure SQL veritabanı hizmeti nedir?
 
@@ -149,11 +149,14 @@ Bugün SQL Veritabanı üzerinde [çok kiracılı SaaS multi-tenant uygulamalar�
 
 ### <a name="adaptive-query-processing"></a>Uyarlamalı sorgu işleme
 
-SQL Veritabanı'na çok durumlu tablo değerli işlevler için araya eklemeli yürütme, toplu iş modu bellek ataması geri bildirimi ve toplu iş modu uyarlamalı birleşimler dahil olmak üzere [uyarlamalı sorgu işleme](/sql/relational-databases/performance/adaptive-query-processing) özellik ailesini de ekliyoruz. Bu uyarlamalı sorgu işleme özelliklerinin her biri benzer "öğren ve uyarla" tekniklerini uygulayarak geçmişe dönük zorlu sorgu iyileştirme sorunlarıyla ilgili performans sorunlarında yardımcı olmaktadır.
+SQL Veritabanı'na çok durumlu tablo değerli işlevler için araya eklemeli yürütme, toplu iş modu bellek ataması geri bildirimi ve toplu iş modu uyarlamalı birleşimler dahil olmak üzere [uyarlamalı sorgu işleme](/sql/relational-databases/performance/intelligent-query-processing) özellik ailesini de ekliyoruz. Bu uyarlamalı sorgu işleme özelliklerinin her biri benzer "öğren ve uyarla" tekniklerini uygulayarak geçmişe dönük zorlu sorgu iyileştirme sorunlarıyla ilgili performans sorunlarında yardımcı olmaktadır.
 
 ## <a name="advanced-security-and-compliance"></a>Gelişmiş koruma ve uyumluluk
 
 SQL Veritabanı, uygulamanızın çeşitli güvenlik ve uyumluluk gereksinimlerine uygun olmasına yardımcı olmak için bir dizi [yerleşik güvenlik ve uyum özelliğine](sql-database-security-overview.md) sahiptir.
+
+> [!IMPORTANT]
+> Azure SQL veritabanı (tüm dağıtım seçeneklerini) sertifikalıdır bir dizi uyumluluk standardı karşı. Daha fazla bilgi için günceli [SQL Veritabanı uyumluluk sertifikası](https://www.microsoft.com/trustcenter/compliance/complianceofferings) listesine ulaşabileceğiniz [Microsoft Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/) sayfasına bakın.
 
 ### <a name="advance-threat-protection"></a>Gelişmiş Tehdit Koruması
 
@@ -173,7 +176,7 @@ Gelişmiş veri güvenliği, Gelişmiş SQL güvenlik özellikleri için birleş
 
 [Denetim](sql-database-auditing.md) veritabanı olaylarını izler ve bir denetim günlüğüne Azure depolama hesabınızdaki yazar. Denetim mevzuatla uyumluluk, veritabanı etkinliğini anlama ve işletme sorunlarını veya şüpheli güvenlik ihlallerini işaret edebilecek farklılıklar ve anormal durumlar hakkında öngörü sahip olmanıza yardımcı olabilir.
 
-### <a name="data-encryption"></a>Veri şifrelemesi
+### <a name="data-encryption"></a>Veri şifreleme
 
 SQL veritabanı ile Hareket halindeki veriler için şifreleme sağlayarak verilerinizi korur [Aktarım Katmanı Güvenliği](https://support.microsoft.com/kb/3135244), ile bekleyen veriler için [saydam veri şifrelemesi](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)ve kullanılmakta olan veriler için [ her zaman şifreli](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
@@ -242,7 +245,7 @@ SQL veritabanı müşterilerinin, SQL Server için Azure hibrit avantajı ile il
 ## <a name="engage-with-the-sql-server-engineering-team"></a>SQL Server mühendislik ekibi ile iletişime geçme
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Veritabanı yönetimi hakkında sorular
-- [Yığın Taşması](http://stackoverflow.com/questions/tagged/sql-server): Geliştirme hakkında sorular
+- [Yığın Taşması](https://stackoverflow.com/questions/tagged/sql-server): Geliştirme hakkında sorular
 - [MSDN Forumları](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Teknik sorular sorun
 - [Geri bildirim](https://aka.ms/sqlfeedback): Rapor bildirimleri ve özellik istekleri
 - [Reddit](https://www.reddit.com/r/SQLServer/): SQL Server'ı tartışmak

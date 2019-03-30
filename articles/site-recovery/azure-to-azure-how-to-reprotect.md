@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: b1676f53125694eeff3a39adf51dc854c197d756
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bd65b1479ace1a51087836eb8032f16fd10dc119
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110503"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648911"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Yeniden koruma birincil bölgeye Azure Vm'leri üzerinde başarısız oldu
 
@@ -22,10 +22,6 @@ Olduğunda, [yük devretme](site-recovery-failover.md) başka bir kullanarak Azu
 
 - Böylece birincil bölgeye çoğaltmak başlatmaları ikincil bölgedeki Vm'leri yeniden koruyun.
 - Yeniden koruma tamamlandıktan sonra Vm'leri çoğaltma yapıyorsanız, siz bunları ikincil birincil bölgeye devredebilir.
-
-> [!WARNING]
-> Belirttiyseniz [geçişi](migrate-overview.md#what-do-we-mean-by-migration) birincil makinelerden ikincil bölgeye VM'yi başka bir kaynak grubuna taşındı veya Azure VM'yi silinmiş, VM yeniden koruma veya yeniden çalışma olamaz.
-
 
 ## <a name="prerequisites"></a>Önkoşullar
 1. Birincil VM yük devretme ikincil bölgeye kaydedilmiş olması gerekir.

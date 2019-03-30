@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 03/27/2019
 ms.author: pafarley
-ms.openlocfilehash: e9f613b6cd02bd1e85b75db7a3b2c2b4adccce3f
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 57605f9bd1a39435e27a2f2c56c06cf3bfb38605
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372140"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630697"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Hızlı Başlangıç: Yüz tanıma .NET SDK'sı ile bir resimdeki yüz algılama
 
@@ -32,11 +32,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 1. Visual Studio'da yeni bir oluşturma **konsol uygulaması (.NET Framework)** adlandırın ve proje **FaceDetection**. 
 1. Çözümünüzde başka projeler de varsa, tek başlangıç projesi olarak bunu seçin.
-1. Gereken NuGet paketlerini alın. Çözüm Gezgini'nde projenize sağ tıklayıp **NuGet paketlerini Yönet**. Tıklayın **Gözat** sekmenize **ön sürümü dahil et**; ardından bulun ve aşağıdaki paketleri yükleyin:
+1. Gereken NuGet paketlerini alın. Çözüm Gezgini'nde projenize sağ tıklayıp **NuGet paketlerini Yönet**. Tıklayın **Gözat** sekmenize **ön sürümü dahil et**; ardından bulun ve aşağıdaki paketi yükleyin:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
-    - Microsoft.Rest.ClientRuntime
-    - Microsoft.Rest.ClientRuntime.Azure
-    - Newtonsoft.Json
+1. Projeniz için tüm NuGet paketlerini en son sürümlerine yüklediğinizden emin olun. Çözüm Gezgini'nde projenize sağ tıklayıp **NuGet paketlerini Yönet**. Tıklayın **güncelleştirmeleri** sekmesini ve en son sürümlerini görünen herhangi bir paket yükleyin.
 
 ## <a name="add-face-detection-code"></a>Yüz algılama kodu ekleyin
 
@@ -50,21 +48,21 @@ Aşağıdaki `using` deyimlerini *Program.cs* dosyanızın en üstüne ekleyin.
 
 ### <a name="add-essential-fields"></a>Gerekli alanları ekleyin
 
-**Program** sınıfına aşağıdaki alanları ekleyin. Bu veriler yüz tanıma Hizmeti'ne bağlanmayı ve giriş verilerinin alınacağı belirtir. Güncellemeniz gerekecektir `subscriptionKey` abonelik anahtarınız ve değerini bir alanla değiştirme gerekebilir `faceEndpoint` doğru bölge tanımlayıcısı içeren dize. Ayrıca ayarlamanız gerekir `localImagePath` ve/veya `remoteImageUrl` gerçek işaret yollara değerleri görüntü dosyaları.
+Ekleme **Program** sınıfı şu alanlara sahip. Bu veriler yüz tanıma Hizmeti'ne bağlanmayı ve giriş verilerinin alınacağı belirtir. Güncellemeniz gerekecektir `subscriptionKey` abonelik anahtarınız ve değerini bir alanla değiştirme gerekebilir `faceEndpoint` doğru bölge tanımlayıcısı içeren dize. Ayrıca ayarlamanız gerekir `localImagePath` ve/veya `remoteImageUrl` gerçek işaret yollara değerleri görüntü dosyaları.
 
 `faceAttributes` Belirli tür öznitelik yalnızca bir dizi bir alandır. Algılanan yüzeylere hakkında almak için hangi bilgilerin, belirtin.
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=13-34)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=9-34)]
 
 ### <a name="create-and-use-the-face-client"></a>Oluşturma ve yüz istemci kullanma
 
-Ardından, aşağıdaki kodu ekleyin **ana** yöntemi **Program** sınıfı. Bu, yüz tanıma API'si istemci ayarlama ayarlar.
+Ardından, ekleme **ana** yöntemi **Program** aşağıdaki kodla sınıfı. Bu, yüz tanıma API'si istemci ayarlama ayarlar.
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=38-41)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=36-41)]
 
 Ayrıca **ana** yöntemi, bir uzak ve yerel görüntüde yüz algılama için yeni oluşturulan yüz istemci kullanmak için aşağıdaki kodu ekleyin. Algılama yöntemleri sonraki tanımlanır. 
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-49)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-50)]
 
 ### <a name="detect-faces"></a>Yüz algılama
 
@@ -82,9 +80,9 @@ Ardından, tanımlama **GetFaceAttributes** yöntemi. Öznitelik ilgili bilgiler
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=103-116)]
 
-Son olarak, tanımlama **DisplayAttributes** konsol çıktısı için yüz özniteliği veri yazmak için yöntemi.
+Son olarak, tanımlama **DisplayAttributes** konsol çıktısı için yüz özniteliği veri yazmak için yöntemi. Ardından, ad alanı ve sınıf kapatabilirsiniz.
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-123)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-125)]
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8017049218bed5a1b1bd86b68dc4342b4044723
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f0880ad2ab02fad574f5204741b0fa03e4ef0338
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109789"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648072"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si kullanarak yayımlanmış uygulamalar için özel bir ana sayfa ayarlayın
 
@@ -69,9 +69,10 @@ Paketi yüklemek için aşağıdaki adımları izleyin:
 
 1. Standart bir PowerShell penceresi açın ve ardından aşağıdaki komutu çalıştırın:
 
-    ```
+    ```powershell
      Install-Module -Name AzureAD
     ```
+
     Komutu yönetici olmayan çalıştırıyorsanız, kullanın `-scope currentuser` seçeneği.
 2. Yükleme sırasında seçin **Y** iki paketlerini Nuget.org adresinden yükleyin. Her iki paketi de gereklidir. 
 
@@ -81,20 +82,22 @@ ObjectID uygulamanın alın ve ardından uygulamayı giriş sayfası arayın.
 
 1. Aynı PowerShell penceresinde, Azure AD modülünü içeri aktarın.
 
-    ```
+    ```powershell
     Import-Module AzureAD
     ```
 
 2. Azure AD modülünü için Kiracı Yöneticisi olarak oturum açın.
 
-    ```
+    ```powershell
     Connect-AzureAD
     ```
+
 3. Kendi giriş sayfası URL'sini temel alarak uygulamayı bulun. URL giderek portalda bulabilirsiniz **Azure Active Directory** > **kurumsal uygulamalar** > **tüm uygulamaları**. Bu örnekte *sharepoint iddemo*.
 
+    ```powershell
+    Get-AzureADApplication | Where-Object { $_.Homepage -like "sharepoint-iddemo" } | Format-List DisplayName, Homepage, ObjectID
     ```
-    Get-AzureADApplication | where { $_.Homepage -like "sharepoint-iddemo" } | fl DisplayName, Homepage, ObjectID
-    ```
+
 4. Aşağıda gösterildiği gibi bir sonuç almanız gerekir. Sonraki bölümde kullanmak için objectID GUID kopyalayın.
 
     ```
@@ -109,7 +112,7 @@ Giriş sayfası URL'si oluşturun ve bu değeri ile uygulamanızı güncelleşti
 
 1. Doğru uygulamanız ve yerine onaylayın *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* ve önceki bölümde kopyaladığınız objectID ile.
 
-    ```
+    ```powershell
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
@@ -117,23 +120,25 @@ Giriş sayfası URL'si oluşturun ve bu değeri ile uygulamanızı güncelleşti
 
 2. Yapmak istediğiniz değişiklikleri tutmak için bir boş uygulama nesnesi oluşturun. Bu değişken, güncelleştirmek istediğiniz değerleri tutar. Hiçbir şey bu adımda oluşturulur.
 
-    ```
+    ```powershell
     $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
     ```
 
 3. Giriş sayfası URL'si istediğiniz değere ayarlayın. Değer yayımlanan bir uygulamanın bir alt etki alanı yolu olmalıdır. Örneğin, giriş sayfası URL değiştirirseniz `https://sharepoint-iddemo.msappproxy.net/` için `https://sharepoint-iddemo.msappproxy.net/hybrid/`, uygulama kullanıcılarının doğrudan özel giriş sayfasına gidin.
 
-    ```
+    ```powershell
     $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
     ```
+
 4. İçinde kopyaladığınız GUID (objectID) kullanılarak güncelleştirme olun "1. adım: ObjectID uygulamanın bulun."
 
-    ```
+    ```powershell
     Set-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 -Homepage $homepage
     ```
+
 5. Değişiklik başarılı olduğunu doğrulamak için uygulamayı yeniden başlatın.
 
-    ```
+    ```powershell
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 

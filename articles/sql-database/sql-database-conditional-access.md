@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
-ms.date: 09/24/2018
-ms.openlocfilehash: fa681198088cd4ae13668193939474d0d501b6f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/29/2019
+ms.openlocfilehash: 79d15a46affb2a6b7159ba080d4235073c59919c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098526"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648992"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Azure SQL veritabanı ve veri ambarı ile koşullu erişim (MFA)  
 
-Hem Azure [SQL veritabanı](sql-database-technical-overview.md) ve [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Microsoft koşullu erişimi destekler. 
+Azure [SQL veritabanı](sql-database-technical-overview.md), [yönetilen örneği](sql-database-managed-instance.md), ve [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Microsoft koşullu erişimi destekler. 
 
 > [!NOTE]
 > Bu konu başlığı, Azure SQL sunucusunun yanı sıra Azure SQL sunucusu üzerinde oluşturulmuş olan SQL Veritabanı ve SQL Veri Ambarı veritabanları için de geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır.

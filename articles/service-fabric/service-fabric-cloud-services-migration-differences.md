@@ -1,10 +1,10 @@
 ---
 title: Bulut Hizmetleri ve Service Fabric arasındaki farklar | Microsoft Docs
-description: Geçiş için kavramsal genel bulut hizmetlerinden Service Fabric uygulamaları.
+description: Geçiş için kavramsal bir genel bulut hizmetlerinden Service Fabric uygulamaları.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
 ms.service: service-fabric
@@ -14,85 +14,85 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 35ab4a9bdd66bf3571e7f189191550f88e17cee2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4682e47e664384a6869e1a74e3de6d9083db082b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206491"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669461"
 ---
-# <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Bulut Hizmetleri ve Service Fabric arasındaki farklar hakkında bilgi geçirmeden önce uygulamaları.
-Microsoft Azure Service Fabric yüksek düzeyde ölçeklenebilir, yüksek oranda güvenilir dağıtılmış uygulamalar için yeni nesil bulut uygulama platformudur. Paketleme, dağıtma, yükseltme ve dağıtılmış bulut uygulamalarını yönetmek için birçok yeni özellik sunar. 
+# <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Geçiş yapmadan önce Cloud Services ve Service Fabric arasındaki farklar hakkında bilgi edinin uygulamalar.
+Microsoft Azure Service Fabric, yüksek düzeyde ölçeklenebilir, yüksek oranda güvenilir dağıtılmış uygulamalar için tasarlanan yeni nesil bulut uygulama platformudur. Bu, paketleme, dağıtma, yükseltme ve dağıtılan bulut uygulamaları yönetmek için birçok yeni özellik sunar. 
 
-Bu geçiş için bir giriş kılavuzdur bulut hizmetlerinden Service Fabric uygulamaları. Öncelikle mimari odaklanır ve bulut Hizmetleri ve Service Fabric arasındaki farklar tasarlayın.
+Bu geçiş için Tanıtım amaçlı bir kılavuz olan bulut hizmetlerinden Service Fabric uygulamaları. Öncelikle mimari odaklanır ve Cloud Services ve Service Fabric arasındaki farklar tasarlayın.
 
 ## <a name="applications-and-infrastructure"></a>Uygulamalar ve altyapı
-Bulut Hizmetleri ve Service Fabric arasındaki temel fark, VM'ler, iş yüklerini ve uygulamaları arasındaki ilişkidir. Buraya bir iş yükü, belirli bir görevi gerçekleştirmek ya da bir hizmet sağlamak için yazdığınız kodu tanımlanır.
+Cloud Services ve Service Fabric arasındaki temel bir fark, VM'ler, iş yüklerini ve uygulamaları arasındaki ilişkidir. Buraya bir iş yükü, belirli bir görevi gerçekleştirme veya bir hizmet sağlamak için yazdığınız kodu olarak tanımlanır.
 
-* **Bulut Hizmetleri ' dir. vm'lerle uygulamaları dağıtma hakkında** Yazdığınız kodları Web veya çalışan rolü gibi bir VM örneğine sıkı şekilde bağlı. Bulut Hizmetleri iş yükünü dağıtmak için iş yükünü çalıştırmak bir veya daha fazla VM örnekleri dağıtmaktır. Uygulamalar ve sanal makineleri hiçbir ayrımı yoktur ve bu nedenle yoktur uygulamanın resmi tanımı yok. Bir uygulama, ardından bir bulut Hizmetleri dağıtımı içindeki Web veya çalışan rolü örnekleri bir dizi veya tam bir bulut Hizmetleri dağıtımını olarak düşünülebilir. Bu örnekte, bir uygulama rolü örnekleri bir küme olarak gösterilir.
+* **Cloud Services, sanal makineleri olarak uygulamaları dağıtma hakkında.** Yazdığınız kodu bir Web veya çalışan rolü gibi bir sanal makine örneğiyle sıkı şekilde bağlı. Bulut Hizmetleri iş yükünü dağıtmak için iş yükü çalıştıran bir veya daha fazla VM örneği dağıtmaktır. Uygulamalar ve VM'lerin hiçbir ayrım yoktur ve bu nedenle yoktur uygulamanın resmi tanımı yok. Bir uygulama, ardından bir bulut Hizmetleri dağıtımı içinde Web veya çalışan rolü örnekleri kümesi veya bütün bir Cloud Services dağıtım olarak düşünülebilir. Bu örnekte, bir uygulama rolü örnekleri bir dizi gösterilir.
 
-![Bulut Hizmetleri uygulamalar ve topolojisi][1]
+![Cloud Services uygulamalarını ve topolojisi][1]
 
-* **Service Fabric, var olan sanal makineleri veya Service Fabric Windows veya Linux çalıştıran makineler uygulamaları dağıtma hakkında ' dir.** Yazdığınız tamamen ayrılmış bir uygulama için birden çok ortamları dağıtılabilmesi amacıyla Service Fabric uygulama platformu tarafından hemen soyutlanır temel altyapısından hizmetleridir. Service Fabric iş yükünü bir "hizmet" adı verilir ve bir veya daha fazla hizmet Service Fabric uygulaması platformunda çalışan resmi olarak tanımlanan bir uygulama içinde gruplandırılır. Birden çok uygulama için tek bir Service Fabric kümesi dağıtılabilir.
+* **Service Fabric uygulamaları mevcut Vm'lere veya Service Fabric Windows veya Linux üzerinde çalışan makineler dağıtma hakkında ' dir.** Yazdığınız tamamen ayrılmış bir uygulama birden çok ortama dağıtılacak şekilde Service Fabric uygulama platformu tarafından soyutlanır uzakta temel altyapısından hizmetleridir. Service Fabric iş yükünü bir "hizmet" adı verilir ve bir veya daha fazla hizmet Service Fabric uygulama platformunda çalışan resmi olarak tanımlanan bir uygulama içinde gruplandırılır. Çoklu uygulamaları tek bir Service Fabric kümesine dağıtılabilir.
 
 ![Service Fabric uygulamaları ve topolojisi][2]
 
-Bulut Hizmetleri ile bağlı iş yüklerini Azure yönetilen sanal makineleri dağıtmak için bir sistem iken Service Fabric kendisi Windows veya Linux çalıştıran bir uygulama platformu katmanıdır.
-Service Fabric uygulama modeli, çok sayıda avantaj vardır:
+Cloud Services, Azure tarafından yönetilen sanal makineleri dağıtma bağlı iş yükleriyle sistemidir ise Service Fabric kendisi Windows veya Linux üzerinde çalışan bir uygulama platformu katmanıdır.
+Service Fabric uygulama modelini, çok sayıda avantaj vardır:
 
-* Hızlı Dağıtım zamanları. VM örnekleri oluşturmak zaman alabilir. Service Fabric içinde sanal makineleri yalnızca Service Fabric uygulaması platformu barındıran bir küme oluşturmak için bir kez dağıtılır. Bu noktadan itibaren kümeye çok hızlı bir şekilde uygulama paketleri dağıtılabilir.
-* Yüksek yoğunlukta barındırma. Bulut Hizmetleri'nde bir iş yükü çalışan rolü VM barındırır. Service Fabric içinde çok sayıda büyük dağıtımlar için genel maliyeti düşürebilirsiniz VM'ler az sayıda uygulamaları dağıtabileceğiniz anlamına gelir, çalışan sanal makineleri ayrı uygulamalardır.
-* Azure veya şirket içi olup Windows Server veya Linux makineler platform herhangi bir yerden çalıştırabilirsiniz Service Fabric sahiptir. Uygulamanızın üzerinde farklı ortamlarda çalıştırabilmeniz için platform altyapının bir soyutlama katmanı sağlar. 
-* Dağıtılmış uygulama yönetimi. Service Fabric yalnızca ana dağıtılmış uygulamalar aynı yaşam döngüleri barındırma VM bağımsız olarak veya makine yaşam döngüsü de yönetmeye yardımcı olur platformudur.
+* Hızlı Dağıtım süreleri. VM örnekleri oluşturma, zaman alıcı olabilir. Service Fabric'te bir küme oluşturmak için Service Fabric uygulama platformu sunan sonra VM'ler yalnızca dağıtılır. Bu noktadan itibaren kümeye çok hızlı bir şekilde uygulama paketleri dağıtılabilir.
+* Yüksek yoğunluklu barındırma. Bulut Hizmetleri'nde çalışan rolü sanal makine bir iş yükü barındırır. Service Fabric'te, çok sayıda küçük bir sayı daha büyük dağıtımlar için genel maliyeti düşürmenizi sanal makinelerin uygulamaları dağıtabileceğiniz anlamına gelir, çalıştıran Vm'leri ayrı uygulamalardır.
+* Azure veya şirket içinde olup olmadığını Windows Server veya Linux makineler, Service Fabric platform, her yerde çalıştırılabilecek sahiptir. Uygulamanızın farklı ortamlarda çalıştırabilmeniz için platform altyapının üzerinde bir soyutlama katmanı sağlar. 
+* Dağıtılmış uygulama yönetimi. Service Fabric yalnızca ana dağıtılmış uygulamalar aynı barındırma VM bağımsız olarak yaşam döngüleri veya makine yaşam döngüsü de yönetilmesine yardımcı olur platformudur.
 
 ## <a name="application-architecture"></a>Uygulama mimarisi
-Bulut Hizmetleri Uygulama Mimarisi genellikle Service Bus, Azure Table ve Blob Storage, SQL, Redis ve diğerleri gibi durum ve verileri bir uygulama ve Web arasındaki iletişimi yönetmek için çok sayıda dış Hizmet bağımlılıklarını içerir ve Bulut Hizmetleri dağıtımında çalışan rolleri. Tam bir bulut Hizmetleri uygulamanın örnek şuna benzeyebilir:  
+Bir Cloud Services uygulamasının mimarisi genellikle, Service Bus, Azure tablosu ve Blob Depolama, SQL, Redis ve diğer durum ve veriler bir uygulama ve Web arasındaki iletişim, yönetilecek gibi çok sayıda dış Hizmet bağımlılıkları içerir ve Bulut hizmetlerini dağıtımında çalışan rolleri. Eksiksiz bir bulut Hizmetleri Uygulaması örneği şuna benzeyebilir:  
 
 ![Bulut Hizmetleri mimarisi][9]
 
-Service Fabric uygulamaları, aynı dış hizmetler tam bir uygulamada kullanmak de seçebilirsiniz. Bu örnek bulut Hizmetleri mimarisi kullanarak, en basit geçiş yolunu bulut hizmetlerinden Service Fabric yalnızca bulut Hizmetleri dağıtımı genel mimarisi aynı kalmasını bir Service Fabric uygulaması ile değiştirmektir. Web ve çalışan rolleri çok az kod değişikliklerle Service Fabric durum bilgisi olmayan hizmetler için bağlantı noktası kurulmuş.
+Service Fabric uygulamaları, aynı dış hizmetlere tam kullanmak üzere de seçebilirsiniz. Bu örneği bulut Hizmetleri mimarisi kullanarak, en basit geçiş bulut hizmetlerinden Service fabric'e genel mimarisi aynı kalmasını bir Service Fabric uygulaması ile yalnızca bulut Hizmetleri dağıtım değiştirilecek yoludur. Web ve çalışan rolleri Service Fabric durum bilgisi olmayan hizmetler çok az kod değişikliğiyle unity'nin.
 
 ![Basit geçişten sonra Service Fabric mimarisi][10]
 
-Bu aşamada, sistem bir önceki ile aynı çalışmaya devam etmesi gerekir. Durum bilgisi olan uygunsa Hizmetleri gibi Service Fabric'ın durum bilgisi olan özellikleri, dış durumu depoları yararlanarak internalized. Bu dış hizmetler önce yaptığınız gibi uygulamanız için eşdeğer işlevsellik sağlayan özel hizmetler yazma gerektirdiğinden daha basit bir Web ve çalışan rolleri geçişini Service Fabric durum bilgisi olmayan hizmetler için daha karmaşıktır. Bunun yapılması avantajları şunlardır: 
+Bu aşamada, sistemin bir önceden olduğu gibi çalışmaya devam etmesi gerekir. Uygun olduğunda, durum bilgisi olan hizmetler, Service Fabric'in durum bilgisi olan özellikleri, dış durumlarını depoları avantajlarından yararlanmaya internalized. Bu dış hizmetler önce yaptığınız gibi uygulamanıza eşdeğer bir işlevselliği sağlayan bir özel hizmetler yazma gerektirdiğinden daha basit bir Web ve çalışan rolleri geçişini Service Fabric durum bilgisi olmayan hizmetler için daha karmaşıktır. Bunu yapmanın avantajları şunları içerir: 
 
-* Dış bağımlılıkları kaldırma 
-* Dağıtım, yönetim ve yükseltme modeli birleştirin. 
+* Dış bağımlılıklar kaldırılıyor 
+* Dağıtım, yönetim ve yükseltme modeli altyapınızı kurun. 
 
-Bu hizmetler internalizing bir örneği elde edilen mimarisi şöyle:
+Bu hizmetler internalizing, bir örneği elde edilen mimari şöyle görünebilir:
 
 ![Tam geçişten sonra Service Fabric mimarisi][11]
 
 ## <a name="communication-and-workflow"></a>İletişim ve iş akışı
-Çoğu bulut hizmeti uygulamaları birden fazla katmanı oluşur. Benzer şekilde, Service Fabric uygulaması birden fazla hizmeti (genellikle birçok Hizmetleri) oluşur. İki ortak iletişim modelleri olan doğrudan iletişim ve dış dayanıklı bir depolama aracılığıyla.
+Çoğu bulut hizmeti uygulamaları birden fazla katmanını oluşur. Benzer şekilde, Service Fabric uygulaması birden fazla hizmeti (genellikle birçok Hizmetleri) oluşur. İki ortak iletişim modelleridir doğrudan iletişim ve bir dış dayanıklı depolama aracılığıyla.
 
 ### <a name="direct-communication"></a>Doğrudan iletişim
-İle doğrudan iletişim, katmanları doğrudan her katmanı tarafından kullanıma sunulan bitiş noktası ile iletişim kurabilir. Bulut Hizmetleri, bu rastgele bir VM rol örneği ya da seçerek anlamına gelir veya hepsini Bakiye yükü ve kendi uç noktasına doğrudan bağlanma gibi durum bilgisiz ortamlarda.
+İle doğrudan iletişim, katmanları doğrudan her katman tarafından kullanıma sunulan uç noktası üzerinden iletişim kurabilir. Cloud Services, bu rastgele bir VM rol örneği ya da seçmek anlamına gelir veya hepsini bir kez deneme yük dengeleme ve kendi uç noktasına doğrudan bağlanma gibi durum bilgisi olmayan ortamlarda.
 
 ![Bulut Hizmetleri doğrudan iletişim][5]
 
- Doğrudan iletişim Service Fabric ortak bir iletişim modelidir. Service Fabric bir hizmete bağlanmak ancak Service Fabric ve Cloud Services arasındaki temel farklılık bir VM'ye bağlanın, içinde bulut Hizmetleri ' dir. Bu, birkaç nedenlerle önemli bir fark oluşur:
+ Doğrudan iletişim, Service fabric'te yaygın bir iletişim modelidir. Service Fabric'te bir hizmete bağlanabilir ancak Service Fabric ve Cloud Services arasındaki temel fark VM'ye bağlanın, içinde bulut Hizmetleri ' dir. Bu önemli bir ayrımdır birkaç nedenleri verilmiştir:
 
-* Service Fabric Hizmetleri'nde kendilerini barındıran sanal makineleri bağlı değildir; Hizmetleri kümeye taşıyabilirsiniz ve çeşitli nedenlerle hareket etmek için aslında, beklenen: kaynak Dengeleme, yük devretme, uygulama ve altyapı yükseltmeleri ve yerleştirme ya da yük kısıtlamaları. Başka bir deyişle, bir hizmet örneğinin Adres dilediğiniz zaman değiştirebilirsiniz. 
-* Service Fabric bir VM'de her benzersiz uç noktaları birden çok hizmet barındırabilir.
+* Service fabric'te Hizmetleri, kendilerini barındıran sanal makinelere bağlı değil; Hizmetleri kümedeki yerleri ve çeşitli nedenlerden dolayı değiştirmemiz aslında, beklenen: Kaynak Dengeleme, yük devretme, uygulama ve altyapı yükseltmeleri ve yerleştirme veya yük kısıtlamaları. Başka bir deyişle, bir hizmet örneği adresi herhangi bir zamanda değişebilir. 
+* Service fabric'te bir VM, her benzersiz uç noktaları ile birden çok hizmeti barındırabilirsiniz.
 
-Service Fabric adlandırma bitiş noktası adreslerini Hizmetleri çözümlemek için kullanılan hizmet adlı bir hizmet bulma mekanizma sağlar. 
+Service Fabric adlandırma uç nokta adresleri Hizmetleri çözümlemek için kullanılan hizmeti adlı bir hizmet bulma mekanizması sağlar. 
 
 ![Service Fabric doğrudan iletişim][6]
 
-### <a name="queues"></a>Kuyruklar
-Bulut Hizmetleri gibi durum bilgisiz ortamlarda katmanları arasında ortak bir iletişim mekanizması işlemi başka bir iş görevleri bir katmanından depolamak için bir dış depolama kuyruğu kullanmaktır. Bir Azure kuyruk veya hizmet burada çalışan rolü örnekleri dequeue ve işleri işlemek veri yolu işleri gönderir web katmanı buna ortak bir senaryodur.
+### <a name="queues"></a>Sıralar
+Bulut Hizmetleri gibi durum bilgisi olmayan ortamlarda katmanlar arasında ortak bir iletişim mekanizması, iş görevleri bir katmandan diğerine arızaya depolamak için bir dış depolama kuyruğu kullanmaktır. İşleri bir Azure kuyruğu veya Service burada çalışan rolü örnekleri sıradan çıkarma ve işleri işlemek Bus'a gönderir bir web katmanı buna yaygın bir senaryodur.
 
-![Bulut Hizmetleri sıra iletişimi][7]
+![Bulut Hizmetleri kuyruk iletişimi][7]
 
-Aynı iletişim modelini Service Fabric içinde kullanılabilir. Service Fabric varolan bir bulut Hizmetleri uygulamaya geçirirken bu yararlı olabilir. 
+Service Fabric'te aynı iletişim modelini kullanılabilir. Service Fabric mevcut bir Cloud Services uygulamasına geçirirken bu yararlı olabilir. 
 
 ![Service Fabric doğrudan iletişim][8]
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-En basit geçiş yolunu bulut hizmetlerinden Service Fabric uygulamanızı genel mimarisi kabaca aynı kalmasını bir Service Fabric uygulaması ile yalnızca bulut Hizmetleri dağıtımı değiştirmektir. Aşağıdaki makalede bir Web veya çalışan rolü bir Service Fabric durum bilgisiz hizmetine dönüştürme yardımcı olacak bir kılavuz sağlar.
+En basit geçiş yolunun bulut Hizmetleri'nden Service Fabric uygulamanızı genel mimarisi yaklaşık aynı kalmasını bir Service Fabric uygulaması ile yalnızca bulut Hizmetleri dağıtım değiştirmektir. Aşağıdaki makalede bir Web veya çalışan rolü bir Service Fabric durum bilgisi olmayan hizmet dönüştürme yardımcı olacak bir kılavuz sağlar.
 
-* [Basit geçiş: bir Service Fabric durum bilgisiz hizmetine Web veya çalışan rolü Dönüştür](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+* [Basit bir geçiş: bir Web veya çalışan rolü bir Service Fabric durum bilgisi olmayan hizmet Dönüştür](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-cloud-services-migration-differences/topology-cloud-services.png

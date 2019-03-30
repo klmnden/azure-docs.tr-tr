@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4aecb2850f80f0991c7466b388147ab4b21c4780
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2c862628fb05e7518166d8e782c2e64538de785e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170709"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652408"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Öğretici: IriusRisk ile Azure Active Directory Tümleştirme
 
@@ -89,7 +89,7 @@ Yapılandırma ve Azure AD çoklu oturum açma IriusRisk ile test etmek için a�
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Bir IriusRisk test kullanıcısı oluşturma](#create-a-iriusrisk-test-user)**  - kullanıcı Azure AD gösterimini bağlı IriusRisk Britta simon'un bir karşılığı vardır.
+1. **[Bir IriusRisk test kullanıcısı oluşturma](#create-an-iriusrisk-test-user)**  - kullanıcı Azure AD gösterimini bağlı IriusRisk Britta simon'un bir karşılığı vardır.
 1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 

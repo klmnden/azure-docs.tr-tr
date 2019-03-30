@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: richcar
 ms.custom: seodec18
-ms.openlocfilehash: 842654f860a94481b53ebf9732fc4ed8be24cf4a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a03ab7bbdadad2728f54127583583c22bd2ec07a
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077520"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650385"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>Bulut Çözüm Sağlayıcıları (CSP) için ExpressRoute
 Microsoft, geleneksel satıcılar veya dağıtımcıların (CSP), yeni hizmetler geliştirmeye yatırım yapmaya gerek kalmadan müşterileriniz için hızlı bir şekilde yeni hizmetler ve çözümler sağlayabilmesi amacıyla hiper ölçekli hizmetler sağlar. Bulut Çözüm Sağlayıcısının (CSP) bu hizmetleri doğrudan yönetebilmesini sağlamak için Microsoft, CSP’nin Microsoft Azure kaynaklarını müşterilerinizin adına yönetebilmesine olanak sağlayan programlar ve API’ler sunar. Bu kaynaklardan biri de ExpressRoute’dur. ExpressRoute, CSP’nin var olan Azure hizmetlerine bağlanmasına olanak sağlar. ExpressRoute, Azure’daki hizmetlere yüksek hızlı özel iletişim bağlantısıdır. 
@@ -31,7 +31,7 @@ Microsoft Azure tarafından sağlanan ve müşterilerinize sunabileceğiniz hizm
 Microsoft, CSP’lere kendi hizmet yönetim sistemlerinizle programlı tümleştirme yapmanıza olanak sağlayarak Azure müşteri aboneliklerini yönetmeleri için API’ler sağlar. Desteklenen yönetim özelliklerini [burada](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx) bulabilirsiniz.
 
 ## <a name="microsoft-azure-resource-management"></a>Microsoft Azure kaynak yönetimi
-Müşterinizle aranızdaki sözleşmeye bağlı olarak aboneliğin nasıl yönetileceği belirlenir. CSP, kaynakların oluşturulmasını ve bakımını doğrudan yönetebilir veya müşteri, Microsoft Azure aboneliğinin kontrolünü sağlayarak Azure kaynaklarını gereksinim duydukları gibi oluşturabilir. Müşteriniz, Microsoft Azure aboneliklerinde kaynak oluşturmayı yönetirse şu iki modelden birini kullanır: “*Aracılı Bağlantı*” modeli veya “*Doğrudan Bağlantı*” modeli. Bu modeller aşağıdaki bölümlerde ayrıntılı olarak açıklanmıştır.  
+Müşterinizle aranızdaki sözleşmeye bağlı olarak aboneliğin nasıl yönetileceği belirlenir. CSP, kaynakların oluşturulmasını ve bakımını doğrudan yönetebilir veya müşteri, Microsoft Azure aboneliğinin kontrolünü sağlayarak Azure kaynaklarını gereksinim duydukları gibi oluşturabilir. Müşteriniz Microsoft Azure aboneliklerinde kaynak oluşturmayı yönetirse bunlar iki modelden birini kullanır: "*Aracılı bağlantı*" modeli veya "*doğrudan*" modeli. Bu modeller aşağıdaki bölümlerde ayrıntılı olarak açıklanmıştır.  
 
 ### <a name="connect-through-model"></a>Aracılı bağlantı modeli
 ![alternatif metin](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -75,7 +75,7 @@ ExpressRoute, 50 Mb/s ile 10Gb/s arası ağ hızlarını destekler. Bu, müşter
 ExpressRoute, yüksek hızlı bağlantıların daha iyi kullanımı için birden fazla sanal ağın tek bir ExpressRoute bağlantı hattına bağlanmasını destekler. Tek bir ExpressRoute bağlantı hattı, aynı müşteriye ait birden fazla Azure aboneliği arasında paylaşılabilir.
 
 ## <a name="configuring-expressroute"></a>ExpressRoute’u yapılandırma
-ExpressRoute, tek bir ExpressRoute bağlantı hattı üzerinden üç tür trafiği ([yönlendirme etki alanları](#ExpressRoute-routing-domains)) destekleyecek şekilde yapılandırılabilir. Bu trafik; Microsoft eşliği, Azure genel eşliği ve özel eşliği olarak ayrılır. Tek bir ExpressRoute bağlantı hattı üzerinden gönderilmek üzere trafik türlerinden birini veya hepsini seçebilirsiniz veya ExpressRoute bağlantı hattının boyutuna ve müşteriniz tarafından gerekli görülen yalıtıma bağlı olarak birden çok ExpressRoute bağlantı hattı kullanabilirsiniz. Müşterinizin güvenlik yaklaşımı, genel ve özel trafiğin aynı bağlantı hattı üzerinden çapraz geçiş yapmalarına izin vermeyebilir.
+ExpressRoute, tek bir ExpressRoute bağlantı hattı üzerinden üç tür trafiği ([yönlendirme etki alanları](#expressroute-routing-domains)) destekleyecek şekilde yapılandırılabilir. Bu trafik; Microsoft eşliği, Azure genel eşliği ve özel eşliği olarak ayrılır. Tek bir ExpressRoute bağlantı hattı üzerinden gönderilmek üzere trafik türlerinden birini veya hepsini seçebilirsiniz veya ExpressRoute bağlantı hattının boyutuna ve müşteriniz tarafından gerekli görülen yalıtıma bağlı olarak birden çok ExpressRoute bağlantı hattı kullanabilirsiniz. Müşterinizin güvenlik yaklaşımı, genel ve özel trafiğin aynı bağlantı hattı üzerinden çapraz geçiş yapmalarına izin vermeyebilir.
 
 ### <a name="connect-through-model"></a>Aracılı bağlantı modeli
 Aracılı bağlantı yapılandırmasında, tüm ağ desteklerinin müşterinizin veri merkezi kaynaklarını Azure’de barındırılan aboneliklere bağlamasından sorumlu olacaksınız.  Azure özelliklerini kullanmak isteyen müşterilerinizin her birinin kendi ExpressRoute bağlantısına ihtiyacı olacak ve bu bağlantılar tarafınızdan yönetilecek. Müşterinin ExpressRoute bağlantı hattını edinmede yararlanacağı aynı yöntemleri kullanacaksınız.  Bağlantı hattı hazırlama ve bağlantı hattı durumları için [ExpressRoute iş akışları](expressroute-workflows.md) makalesinde özetlenen aynı adımları izleyeceksiniz. Daha sonra Sınır Ağ Geçidi (BGP) protokolü yollarını yapılandırarak şirket içi ağ ve Azure sanal ağı arasındaki trafiği kontrol edeceksiniz. 
@@ -88,7 +88,7 @@ Yolların kendi veri merkez(ler)inizdeki kaynakların, kendi veri merkezinizdeki
 ## <a name="expressroute-routing-domains"></a>ExpressRoute yönlendirme etki alanları
 ExpressRoute üç yönlendirme etki alanı sunar: Genel, özel ve Microsoft eşlemesi. Her bir yönlendirme etki alanına, yüksek kullanılabilirlik için aynı yönlendiricilerle aktif-aktif yapılandırma tanımlanır. ExpressRoute yönlendirme etki alanları hakkında daha fazla ayrıntı için [buraya](expressroute-circuit-peerings.md) göz atın.
 
-Sadece istediğiniz veya ihtiyaç duyduğunuz yol(lar)a izin verecek özel yol filtreleri tanımlayabilirsiniz. Bu değişiklikleri nasıl uygulayacağınızı görmek, yönlendirme filtreleri hakkında daha fazla ayrıntı ve daha fazla bilgi için şu makaleye göz atın:[PowerShell kullanarak bir ExpressRoute yönlendirmesi oluşturma ve değiştirme](expressroute-howto-routing-classic.md)
+Sadece istediğiniz veya ihtiyaç duyduğunuz yol(lar)a izin verecek özel yol filtreleri tanımlayabilirsiniz. Daha fazla bilgi için veya bkz bu değişiklikleri nasıl uygulayacağınızı görmek için: [PowerShell kullanarak ExpressRoute devresi için yönlendirme oluşturma ve değiştirme](expressroute-howto-routing-classic.md) yönlendirme filtreleri hakkında daha fazla ayrıntı için.
 
 > [!NOTE]
 > Microsoft Eşlemesi ve Genel Eşleme için bağlantı, müşteri ya da CSP tarafından sahip olunan genel bir IP adresinden sağlanmalıdır ve tüm tanımlı kurallara uymalıdır.  Daha fazla bilgi için bkz. [ExpressRoute ](expressroute-prerequisites.md).  
@@ -120,7 +120,7 @@ Doğrudan veya Aracılı bağlantı modellerinden hangisinin kullanıldığına 
 1. **Müşteri Yalıtımı** — Azure platformu, Müşteri Kimliği ve sanal ağ bilgisini her müşterinin trafik bilgisini bir GRE tünelinde yalıtan güvenli bir veritabanında saklayarak müşteri yalıtımı sağlar.
 2. **Ağ Güvenlik Grubu (NSG)** kuralları, izin verilen trafiğin Azure içindeki alt ağlara çift yönlü olarak tanımlanmasında kullanılan kurallardır.  NSG, varsayılan olarak, İnternet’ten sanal ağa trafik akışını engelleyecek Engelleme kuralları içerir ve sanal ağ içinde trafik akışı kurallarına izin verir. Ağ Güvenlik Grupları hakkında daha fazla bilgi için [buraya](https://azure.microsoft.com/blog/network-security-groups/) göz atın.
 3. **Zorlamalı tünel** — Bu seçenek, Azure’den kaynaklanan internete bağlı trafiği, şirket içi veri merkezine ExpressRoute bağlantısı üzerinden yeniden yönlendirir. Zorlamalı tünel görünümü hakkında daha fazla bilgi için[buraya](expressroute-routing.md#advertising-default-routes) göz atın.  
-4. **Şifreleme** — ExpressRoute bağlantı hatları belirli bir müşteriye ayrılmış olsa da, ağ sağlayıcısının ihlal edilme olasılığı bulunmaktadır ve bu, izinsiz giriş yapanların paket trafiğini incelemesi riskini doğurur.  Bu riske yönelik olarak, bir müşteri ya da CSP, şirket içi kaynaklar ve Azure kaynakları arasında akan tüm trafiği IPSec tünel modu ilkelerine tanımlayarak trafiği bağlantı üzerinden şifreleyebilir (yukarıda Şekil 5’te Müşteri 1 için isteğe bağlı Tünel modu IPSec: ExpressRoute Güvenliği konusunu inceleyin). İkinci seçenek ise ExpressRoute bağlantı hattının her ucunda bir güvenlik duvarı uygulaması kullanmak olabilir.  Bu, ExpressRoute bağlantı hattının tüm trafiğini şifrelemek için her iki uca 3. parti güvenlik duvarı sanal makineleri/uygulamaları kurulmasını gerektirecektir. 
+4. **Şifreleme** — ExpressRoute bağlantı hatları belirli bir müşteriye ayrılmış olsa da, ağ sağlayıcısının ihlal edilme olasılığı bulunmaktadır ve bu, izinsiz giriş yapanların paket trafiğini incelemesi riskini doğurur.  Bu riske yönelik olarak, bir müşteri ya da CSP trafiği bağlantı üzerinden şirket içi kaynaklar ve Azure arasında akan tüm trafiği IPSec tünel modu ilkelerine tanımlayarak şifrelemenize olanak tanır (başvurmak için isteğe bağlı tünel modu IPSec Şekil'te Müşteri 1 için kaynaklar 5: ExpressRoute güvenliği, yukarıdaki). İkinci seçenek ise ExpressRoute bağlantı hattının her ucunda bir güvenlik duvarı uygulaması kullanmak olabilir.  Bu, ExpressRoute bağlantı hattının tüm trafiğini şifrelemek için her iki uca 3. parti güvenlik duvarı sanal makineleri/uygulamaları kurulmasını gerektirecektir. 
 
 ![alternatif metin](./media/expressroute-for-cloud-solution-providers/expressroute-security.png)  
 

@@ -14,17 +14,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8dc0a003a12eb0aca28c6a3238e2119dc449d661
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6cfe9b61d9bbb088e827386b2195bba21333937e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309427"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649095"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Bir Azure sanal makine görüntüsünü doğrulamak için bir kendi kendine test istemcisi oluşturma
 
 Kendi kendine test API'si, istemci hizmeti oluşturmak için bir kılavuz kullanır gibi bu makaleyi kullanın. Bir sanal makine (VM) en son Azure Marketi'nde yayımlama gereksinimleri karşıladığından emin olmak için önceden doğrulamak için sınama API'sini kullanabilirsiniz. Bu istemci hizmet teklifinizi Microsoft sertifika için göndermeden önce bir VM test etmenizi sağlar.
-
 
 ## <a name="development-and-testing-overview"></a>Geliştirme ve test genel bakış
 
@@ -41,13 +40,11 @@ Bir kendi kendine test istemcisi oluşturmak için üst düzey adımlar şunlard
 
 İstemci oluşturduktan sonra sanal Makinenizin karşı test edebilirsiniz.
 
-
 ### <a name="self-test-client-authorization"></a>İstemci kimlik doğrulaması sınama
 
 Aşağıdaki diyagramda yetkilendirme hizmet çağrıları için istemci kimlik bilgilerini (paylaşılan gizli diziyi veya sertifika) kullanarak nasıl çalıştığını gösterir.
 
 ![İstemci Yetkilendirme işlemi](./media/stclient-dev-process.png)
-
 
 ## <a name="the-self-test-client-api"></a>Kendi kendine test İstemcisi API
 
@@ -67,7 +64,6 @@ Request body:    The Request body parameters should use the following JSON forma
                    "PortNo":"22",
                    "CompanyName":"ABCD",
                  }
-
 ```
 
 Aşağıdaki tabloda API alanlar açıklanır.
@@ -83,11 +79,9 @@ Aşağıdaki tabloda API alanlar açıklanır.
 |  PortNo            |  VM'ye bağlanmak için bağlantı noktası numarası açın. Bağlantı noktası numarası genellikle olan `22` Linux ve `5986` Windows için.          |
 |  |  |
 
-
 ## <a name="consuming-the-api"></a>API kullanma
 
 PowerShell veya cURL kullanarak kendi kendine test API'si kullanabilir.
-
 
 ### <a name="use-powershell-to-consume-the-api-on-the-linux-os"></a>Linux işletim sistemi API'yi kullanmak için PowerShell kullanma
 
@@ -112,7 +106,7 @@ $Body = @{
     "CompanyName" = "ABCD"
 
 } | ConvertTo-Json
-$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers; 
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
 $Content = $res | ConvertFrom-Json
 ```
 Aşağıdaki ekran görüntüsü yakalamayı PowerShell'de API'yi çağırmak için bir örnek gösterilmektedir.
@@ -128,7 +122,7 @@ $testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $
   Write-Host "OSVersion: $($testresult.OSVersion)"
   Write-Host "Overall Test Result: $($testresult.TestResult)"
 
-For ($i=0; $i -lt $testresult.Tests.Length; $i++) 
+For ($i=0; $i -lt $testresult.Tests.Length; $i++)
 {
     Write-Host "TestID: $($testresult.Tests[$i].TestID)"
     Write-Host "TestCaseName: $($testresult.Tests[$i].TestCaseName)"
@@ -186,7 +180,7 @@ $testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $
   Write-Host "OSVersion: $($testresult.OSVersion)"
   Write-Host "Overall Test Result: $($testresult.TestResult)"
 
-For ($i=0; $i -lt $testresult.Tests.Length; $i++) 
+For ($i=0; $i -lt $testresult.Tests.Length; $i++)
 {
     Write-Host "TestID: $($testresult.Tests[$i].TestID)"
     Write-Host "TestCaseName: $($testresult.Tests[$i].TestCaseName)"
@@ -213,12 +207,12 @@ CURL ile API'sini çağırmak için aşağıdaki adımları izleyin:
 2. Yöntemi Post ve içerik türünün JSON, aşağıdaki kod parçacığında gösterildiği gibi.
 
 ```
-CURL POST -H "Content-Type:application/json" 
+CURL POST -H "Content-Type:application/json"
 -H "Authorization: Bearer XXXXXX-Token-XXXXXXXX”
-https://isvapp.azurewebsites.net/selftest-vm 
+https://isvapp.azurewebsites.net/selftest-vm
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
-
 ```
+
 Aşağıdaki ekranda API'sini çağırmak için curl kullanarak bir örnek gösterilmektedir.
 
 ![Curl komutu kullanarak API çağırın](./media/stclient-consume-api-curl.png)
@@ -242,7 +236,7 @@ Uygulamanızı oluşturmak istediğiniz Azure AD kiracısını seçmek için aş
    Aşağıdaki adımlarda, Kiracı adı (veya dizin adı) gerekebilir veya Kiracı kimliği (veya dizin kimliği).
 
    **Kiracı bilgilerini almak için:**
-  
+
    İçinde **Azure Active Directory genel bakış**, "Özellikler" için arama yapın ve ardından **özellikleri**. Örnek olarak aşağıdaki ekran görüntüsü yakalamayı kullanma:
 
    - **Ad** -Kiracı adı veya dizin adı
@@ -281,10 +275,10 @@ Uygulamanızı oluşturmak istediğiniz Azure AD kiracısını seçmek için aş
 
     ![Uygulama için API erişimini etkinleştirin](./media/stclient-enable-api-access.png)
 
-14. **Seç**'e tıklayın.
+14. Tıklayın **seçin**.
 15. **Done** (Bitti) öğesini seçin.
 16. Altında **ayarları**seçin **özellikleri**.
-17. Altında **özellikleri**, ekranı aşağı kaydırarak **çok kiracılı**. Seçin **Evet**.  
+17. Altında **özellikleri**, ekranı aşağı kaydırarak **çok kiracılı**. Seçin **Evet**.
 
     ![Çok kiracılı uygulama için yapılandırma](./media/stclient-yes-multitenant.png)
 
@@ -319,6 +313,7 @@ Aşağıdaki programlardan herhangi biriyle oluşturmak ve OAuth REST API kullan
 Method Type : POST
 Base Url: https://login.microsoftonline.com/common/oauth2/token
 ```
+
 İstek gövdesinde Parametreler:
 
 ```
@@ -364,7 +359,7 @@ Aşağıdaki ekran görüntüsü yakalamayı bir belirteç almak üzere curl kom
 
 Auth0 belirteçleri, yetkili uygulamalardan herhangi biri için sormak için bir gönderme işlemi için gerçekleştirmek [ https://soamtenant.auth0.com/oauth/token ](https://soamtenant.auth0.com/oauth/token) aşağıdaki biçimde bir yükü uç noktası:
 
-```
+```csharp
 string clientId = "Your Application Id";
 string clientSecret = "Your Application Secret";
 string audience = "https://management.core.windows.net";
@@ -387,7 +382,7 @@ var token = JObject.Parse(content)["access_token"];
 
 Auth0 belirteçleri, yetkili uygulamalardan herhangi biri için sormak için bir gönderme işlemi için gerçekleştirmek [ https://soamtenant.auth0.com/oauth/token ](https://soamtenant.auth0.com/oauth/token) aşağıdaki biçimde bir yükü uç noktası:
 
-```
+```powershell
 $clientId = "Application Id of AD Client APP";
 $clientSecret = "Secret Key of AD Client APP “
 $audience = "https://management.core.windows.net";
@@ -402,14 +397,13 @@ resp = Invoke-WebRequest -Method Post -Uri $authority -Headers $headers -Content
 
 $token = $resp.Content | ConvertFrom-Json
 $token.AccessToken
-
 ```
 
 ## <a name="pass-the-client-app-token-to-the-api"></a>İstemci uygulama belirteci API'sine geçirin.
 
 Yetkilendirme üst bilgisinde aşağıdaki kodu kullanarak kendi kendine test API'sine belirtecin geçip:
 
-```
+```powershell
 $redirectUri = ‘https://isvapp.azurewebsites.net/selftest-vm’
 $accesstoken = ‘place your token here’
 
@@ -426,9 +420,8 @@ $Body =
 
 $result=Invoke-WebRequest -Method Post -Uri $redirectUri -Headers $headers -ContentType 'application/json' -Body $Body
 $result
-echo 'Test Results:'
+Write-Output 'Test Results:'
 $result.Content
-
 ```
 
 ## <a name="test-your-self-test-client"></a>Kendi test istemcinizi test
@@ -445,7 +438,7 @@ Aşağıdaki kod parçacıkları, test sonuçları JSON biçiminde gösterir.
 
 **Bir Windows VM için test sonuçları:**
 
-```
+```json
 {
   "SchemaVersion": 1,
   "AppCertificationCategory": "Microsoft Single VM Certification",
@@ -484,7 +477,7 @@ Aşağıdaki kod parçacıkları, test sonuçları JSON biçiminde gösterir.
 
 **Bir Linux VM'si için test sonuçları:**
 
-```
+```json
 {
   "SchemaVersion": 1,
   "AppCertificationCategory": "Microsoft Single VM Certification",

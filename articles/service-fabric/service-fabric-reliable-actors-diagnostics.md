@@ -4,7 +4,7 @@ description: Bu makalede tanılama ve performans izleme olayları ve performans 
 services: service-fabric
 documentationcenter: .net
 author: abhishekram
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: 888f9e04e048e3da4c9809ac4f8570f020030335
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5f573db887b3acc2c4a668a8c19c7f8e3cb25019
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855844"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670753"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Reliable Actors için tanılama ve performans izlemesi
 Reliable Actors çalışma zamanı yayan [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) olayları ve [performans sayaçları](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Bunlar, çalışma zamanının nasıl çalıştığını içine ayrıntılı bilgiler sağlar ve performans izleme ve sorun giderme ile yardımcı.
@@ -92,7 +92,7 @@ Yukarıdaki örnekte `ivoicemailboxactor.leavemessageasync` yöntem adı `2` ça
 ### <a name="actor-method-events-and-performance-counters"></a>Aktör yöntemi olaylar ve performans sayaçları
 Reliable Actors çalışma zamanı ile ilgili aşağıdaki olaylar yayan [aktör yöntemleri](service-fabric-reliable-actors-introduction.md).
 
-| Olay adı | Olay kimliği | Düzey | Anahtar sözcüğü | Açıklama |
+| Olay adı | Olay Kimliği | Düzey | Anahtar sözcüğü | Açıklama |
 | --- | --- | --- | --- | --- |
 | ActorMethodStart |7 |Ayrıntılı |0x2 |Yaklaşık bir aktör yöntemini çağırmak için aktör çalışma zamanıdır. |
 | ActorMethodStop |8 |Ayrıntılı |0x2 |Aktör yöntemi yürütülmesi tamamlandı. Diğer bir deyişle, aktör yöntemin zaman uyumsuz çağrı çalışma zamanının döndürdü ve aktör yöntemi tarafından döndürülen görev tamamlandı. |
@@ -109,7 +109,7 @@ Reliable Actors çalışma zamanı aktör yöntemlerin çalıştırmayla ilgili 
 ### <a name="concurrency-events-and-performance-counters"></a>Eşzamanlılık olayları ve performans sayaçları
 Reliable Actors çalışma zamanı ile ilgili aşağıdaki olaylar yayan [eşzamanlılık](service-fabric-reliable-actors-introduction.md#concurrency).
 
-| Olay adı | Olay kimliği | Düzey | Anahtar sözcüğü | Açıklama |
+| Olay adı | Olay Kimliği | Düzey | Anahtar sözcüğü | Açıklama |
 | --- | --- | --- | --- | --- |
 | ActorMethodCallsWaitingForLock |12 |Ayrıntılı |0x8 |Bu olay, her yeni bir aktör sırayla başlangıcında yazılır. Bu sırayla oynadıkları eşzamanlılık zorlayan aktör başına kilit almayı bekleyen aktör çağrısı sayısı bekleyen sayısını içerir. |
 
@@ -124,7 +124,7 @@ Reliable Actors çalışma zamanı için eşzamanlılık ilgili aşağıdaki per
 ### <a name="actor-state-management-events-and-performance-counters"></a>Aktör durumu yönetimi olayları ve performans sayaçları
 Reliable Actors çalışma zamanı ile ilgili aşağıdaki olaylar yayan [aktör durumu yönetimi](service-fabric-reliable-actors-state-management.md).
 
-| Olay adı | Olay kimliği | Düzey | Anahtar sözcüğü | Açıklama |
+| Olay adı | Olay Kimliği | Düzey | Anahtar sözcüğü | Açıklama |
 | --- | --- | --- | --- | --- |
 | ActorSaveStateStart |10 |Ayrıntılı |0x4 |Aktörler çalışma zamanı, yaklaşık aktör durumunun tasarruf etmektir. |
 | ActorSaveStateStop |11 |Ayrıntılı |0x4 |Aktörler çalışma zamanı aktör durumu kaydedilirken tamamlandığı anlamına gelir. |
@@ -139,7 +139,7 @@ Reliable Actors çalışma zamanı aktör durumu yönetimi ile ilgili aşağıda
 ### <a name="events-related-to-actor-replicas"></a>Aktör çoğaltmalarının ilgili olayları
 Reliable Actors çalışma zamanı ile ilgili aşağıdaki olaylar yayan [aktör çoğaltmalarının](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
 
-| Olay adı | Olay kimliği | Düzey | Anahtar sözcüğü | Açıklama |
+| Olay adı | Olay Kimliği | Düzey | Anahtar sözcüğü | Açıklama |
 | --- | --- | --- | --- | --- |
 | ReplicaChangeRoleToPrimary |1 |Bilgilendirici |0x1 |Aktör çoğaltma rolü birincil siteden değiştirildi. Bu aktörler için bu bölümü içinde bu çoğaltma oluşturulacak anlamına gelir. |
 | ReplicaChangeRoleFromPrimary |2 |Bilgilendirici |0x1 |Aktör çoğaltma rolünün birincil olmayan için değiştirildi. Bu aktörler Bu bölüm için artık bu çoğaltma içinde oluşturulacak anlamına gelir. Yeni İstek içinde bu çoğaltma daha önce oluşturulmuş aktörler verilecektir. Tüm Süren istekleri tamamlandıktan sonra aktörleri yok edilir. |
@@ -147,7 +147,7 @@ Reliable Actors çalışma zamanı ile ilgili aşağıdaki olaylar yayan [aktör
 ### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Aktör etkinleştirme ve devre dışı bırakma olaylar ve performans sayaçları
 Reliable Actors çalışma zamanı ile ilgili aşağıdaki olaylar yayan [aktör etkinleştirme ve devre dışı bırakma](service-fabric-reliable-actors-lifecycle.md).
 
-| Olay adı | Olay kimliği | Düzey | Anahtar sözcüğü | Açıklama |
+| Olay adı | Olay Kimliği | Düzey | Anahtar sözcüğü | Açıklama |
 | --- | --- | --- | --- | --- |
 | ActorActivated |5 |Bilgilendirici |0x1 |Aktörün etkinleştirildi. |
 | ActorDeactivated |6 |Bilgilendirici |0x1 |Aktörün devre dışı bırakıldı. |

@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: cde1d8fbc41537c616f28787528f146cc6b09789
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c06b94d179f9f5a17a652cf32bd560cc9b5f8e4f
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57907775"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632693"
 ---
 ### <a name="azure-active-directory-authentication"></a>Azure Active Directory Kimlik Doğrulaması
 
-Azure uzamsal yer işaretleri, kullanıcı Azure Active Directory belirteçleri ile kimlik doğrulaması yapmak, uygulamaların da sağlar. Örneğin, ASA ile tümleştirmek için AAD belirteçleri kullanabilirsiniz. AAD kullanıcıları kuruluş tutar, bir kullanıcının AAD belirteci Azure uzamsal bağlayıcılarını SDK sağlayabilirsiniz. Bunun yapılması ASA hizmeti için aynı AAD kiracısındaki bir parçası olan bir hesap için doğrudan kimlik doğrulamasından geçmesini sağlar.
+Azure uzamsal yer işaretleri, kullanıcı (Active Directory) Azure AD belirteçleri ile kimlik doğrulaması uygulamaların da sağlar. Örneğin, Azure uzamsal yer işaretleri ile tümleştirmek için Azure AD belirteçleri kullanabilirsiniz. Kuruluş kullanıcıları Azure AD'de tutar, bir Azure AD kullanıcı belirteci Azure uzamsal bağlayıcılarını SDK sağlayabilirsiniz. Bunun yapılması, doğrudan Azure uzamsal bağlayıcılarını hizmeti aynı Azure AD kiracısına bir parçası olan bir hesap için kimlik doğrulaması sağlar.

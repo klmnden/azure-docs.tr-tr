@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a629a022e332eae5c8a58e9ffc0f760f96bc24dd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577135"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650470"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Azure Search'te typeahead için dizin öneri Araçları eklemek
 
@@ -77,7 +77,7 @@ Bir öneri aracı oluşturulduktan sonra Ekle [öneriler API'si](https://docs.mi
 
 ### <a name="use-the-net-sdk"></a>.NET SDK’yı kullanma
 
-İçinde C#, tanımlayan bir [öneri aracı sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Bir öneri aracı yalnızca tek bir öğeyi alabilirler koleksiyonudur. Eklediğinizden emin olun `using System.Collections.Generic;` böylece nesnelerin bir listesini oluşturabilirsiniz. 
+İçinde C#, tanımlayan bir [öneri aracı nesne](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters` bir koleksiyonu, ancak yalnızca tek bir öğeyi alabilirler. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 3ec3abffc7962051f4cfc02d5369581ca193d70e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5482ea720ea8d21230587dd9216bd006bf4e5a6e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775586"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650657"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Öğretici: Azure Lab Services içinde bir sınıf laboratuvarına erişim
 Bu öğreticide, öğrenci olarak bir sınıf laboratuvarındaki sanal makineye (VM) bağlanırsınız. 
@@ -46,7 +46,7 @@ Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
     ![VM’ye bağlanma](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
 2. Aşağıdaki adımlardan birini uygulayın: 
     1. İçin **Windows** sanal makineleri Kaydet **RDP** sabit disk dosyası. Sanal makineye bağlanmak için RDP dosyasını açın. Kullanım **kullanıcı adı** ve **parola** makineye oturum açmak için Eğitimci/Profesör alın. 
-    3. İçin **Linux** sanal makineler, kopyalama ve SSH bağlantı dizesini kaydedin **sanal makinenize bağlanın** iletişim kutusu. Bir SSH terminalden Bu bağlantı dizesini kullan (gibi [Putty](https://www.putty.org/)) sanal makineye bağlanmak için. 
+    3. İçin **Linux** kullanabileceğiniz sanal makineleri **SSH** veya **RDP** (etkinse) bunlara bağlanmak için. Daha fazla bilgi için [Linux makineler için Uzak Masaüstü Bağlantısı etkinleştirme](how-to-enable-remote-desktop-linux.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, eğitimcinizden/profesörünüzden aldığınız kayıt bağlantısını kullanarak bir sınıf laboratuvarına eriştiniz.
