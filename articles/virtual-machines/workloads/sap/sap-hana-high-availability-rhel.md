@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: b67a65bad06560a09d2ead88bd20f0568f749bb3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1be3c411a208a2a9da1a4f6a319fdf37cc8aa2dd
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082186"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669053"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux Vm'lerinde Azure üzerinde SAP hana yüksek kullanılabilirlik
 
@@ -108,7 +108,7 @@ Github üzerindeki tüm gerekli kaynakları dağıtmak için hızlı başlangı�
     * **Veritabanı türü**: Seçin **HANA**.
     * **SAP sistemi boyutu**: Yeni sisteme sağlamak için gittiği SAP sayısını girin. SAP teknoloji iş ortağı veya sistem Entegratörü, emin kaç SAP sistemi gerektiriyor olmadığınız durumlarda isteyin.
     * **Sistem kullanılabilirliği**: Seçin **HA**.
-    * **Yönetici kullanıcı adı, yönetici parolası veya SSH anahtarı**: Yeni bir kullanıcı oluşturulur makinesinde oturum açma için kullanılabilir.
+    * **Yönetici kullanıcı adı, yönetici parolası veya SSH anahtarı**: Yeni bir kullanıcı oluşturulur makinede oturum açmak için kullanılabilir.
     * **Alt ağ kimliği**: Tanımlanan bir alt ağa sahip olduğunuz mevcut bir Vnet'te VM dağıtmak istiyorsanız, VM atanmalıdır belirli bir alt ağ kimliği adı için. Kimliği genellikle gibi görünüyor **/subscriptions/\<abonelik kimliği > /resourceGroups/\<kaynak grubu adı > /providers/Microsoft.Network/virtualNetworks/\<sanal ağ adı > /subnets/ \<alt ağ adı >**. Yeni bir sanal ağ oluşturmak istiyorsanız boş bırakın
 
 ### <a name="manual-deployment"></a>El ile dağıtım
@@ -185,7 +185,7 @@ SAP HANA için gerekli bağlantı noktaları hakkında daha fazla bilgi için bu
 
 > [!IMPORTANT]
 > Azure vm'lerinde Azure yük dengeleyicinin arkasına yerleştirilen TCP zaman damgaları etkinleştirmeyin. TCP zaman damgaları etkinleştirme, sistem durumu araştırmaları başarısız olmasına neden olur. Parametre kümesi **net.ipv4.tcp_timestamps** için **0**. Ayrıntılar için bkz. [yük dengeleyici sistem durumu araştırmalarının](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
-> SAP notu [2382421](https://launchpad.support.sap.com/#/notes/2382421) şu anda 1 net.ipv4.tcp_timestamps ayarlamanızı bildiren çakışan deyimi içeriyor. Azure yük dengeleyicinin arkasına yerleştirilen Azure Vm'leri için parametre **net.ipv4.tcp_timestamps** için **0**.
+> Ayrıca SAP bkz Not [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="install-sap-hana"></a>SAP HANA yükleme
 
@@ -382,14 +382,14 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
    SAP HANA 2.0 veya MDC kullanıyorsanız, SAP NetWeaver sisteminiz için bir kiracı veritabanı oluşturun. Değiştirin **NW1** SAP sisteminizin SID ile.
 
-   Olarak oturum açın \<hanasid > adm ve aşağıdaki komutu yürütün:
+   Olarak Yürüt < hanasid\>adm aşağıdaki komutu:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]**  İlk düğümü üzerinde sistem çoğaltma yapılandırın:
 
-   Olarak oturum açın \<hanasid > adm ve veritabanlarını yedeklemek:
+   Veritabanları Yedekleme < hanasid\>adm:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -409,7 +409,7 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 1. **[2]**  İkinci düğümü sistemi çoğaltmayı yapılandırın:
     
-   Sistem çoğaltması başlatmak için ikinci düğümü kaydettirin. Olarak oturum açın \<hanasid > adm ve aşağıdaki komutu çalıştırın:
+   Sistem çoğaltması başlatmak için ikinci düğümü kaydettirin. Aşağıdaki komut olarak çalıştırılmalıdır < hanasid\>adm:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
@@ -457,7 +457,7 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 1. **[1]**  Gerekli kullanıcıları oluşturun.
 
-   Kök olarak oturum açın ve aşağıdaki komutu çalıştırın. Kalın dizeleri değiştirdiğinizden emin olun (HANA sistem kimliği **HN1** ve örnek numarası **03**) SAP HANA yüklemenizin değerleriyle:
+   Kök olarak aşağıdaki komutu çalıştırın. Kalın dizeleri değiştirdiğinizden emin olun (HANA sistem kimliği **HN1** ve örnek numarası **03**) SAP HANA yüklemenizin değerleriyle:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"'
@@ -467,7 +467,7 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 1. **[A]**  Anahtar deposu girdisi oluşturma.
 
-   Kök olarak oturum açın ve yeni bir anahtar deposu girdisi oluşturmak için aşağıdaki komutu çalıştırın:
+   Kök olarak yeni bir anahtar deposu girdisi oluşturmak için aşağıdaki komutu çalıştırın:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
@@ -475,7 +475,7 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 1. **[1]**  Veritabanını yedekleyin.
 
-   Kök olarak oturum açın ve veritabanlarını yedeklemek:
+   Kök olarak veritabanlarını yedekleyin:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
@@ -488,7 +488,7 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 1. **[1]**  İlk düğümü üzerinde sistem çoğaltması yapılandırın.
 
-   Olarak oturum açın \<hanasid > adm ve birincil site oluşturun:
+   Birincil site olarak oluşturma < hanasid\>adm:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -496,7 +496,7 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 1. **[2]**  İkincil düğüme sistem çoğaltmayı yapılandırın.
 
-   Olarak oturum açın \<hanasid > adm ve ikincil site kaydedin:
+   İkincil site olarak kaydolun < hanasid\>adm:
 
    <pre><code>HDB stop
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
