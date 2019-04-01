@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b56ad57255f07c93c1bf5f981db07ad4ba57806d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5077f09cba3548b03045011a7b8f16844156de55
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665670"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757634"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
@@ -97,7 +97,7 @@ Daha iyi otomatik kullanıcı hesabı sağlama üzerinden kuruluşunuzun güvenl
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Grup Yönetimi  
-**Ürün özelliği:** İş birliği
+**Ürün özelliği:** İş Birliği
 
 Şimdi, görüntüleyin ve Azure AD Portalı'ndan silinmiş, Office 365 grupları yönetin. Bu değişikliği geri yükleme, kuruluşunuz tarafından artık gerekmeyen tüm grupları kalıcı olarak süreniz birlikte silmek hangi grupların kullanılabildiğini görmek için yardımcı olur.
 
@@ -109,7 +109,7 @@ Daha fazla bilgi için [geri yükleme süresi doldu veya grupları silinmiş](ht
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Uygulama Proxy'si  
-**Ürün özelliği:** Access Control
+**Ürün özelliği:** Erişim Denetimi
 
 Şimdi, şirket içinde uygulama proxy'si aracılığıyla bu uygulamalara uzaktan erişimi birlikte SAML kimlik doğrulaması uygulamaları için çoklu oturum açma (SSO) deneyimi sağlayabilirsiniz. Şirket içi uygulamalarınızı SAML SSO'yu ayarlama hakkında daha fazla bilgi için bkz. [SAML çoklu oturum açma uygulama ara sunucusu (Önizleme) ile şirket içi uygulamalar için](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-on-premises-apps).
 
@@ -130,7 +130,7 @@ Bu güncelleştirme gönderen bir `invalid_grant` hata: `AADSTS50196: The server
 ### <a name="new-audit-logs-user-experience-now-available"></a>Yeni denetim günlüklerini kullanıcı deneyimini kullanıma sunuldu
 
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** Raporlanıyor  
+**Hizmet kategorisi:** Raporlama  
 **Ürün özelliği:** İzleme ve Raporlama
 
 Yeni bir Azure AD oluşturduk **denetim günlükleri** okunabilirlik ve bilgilerinizi nasıl arama geliştirmek için sayfa. Yeni görmek için **denetim günlükleri** sayfasında **denetim günlükleri** içinde **etkinlik** Azure AD'nin bölüm.
@@ -147,7 +147,7 @@ Yeni hakkında daha fazla bilgi için **denetim günlükleri** sayfasında, bkz:
 **Hizmet kategorisi:** Koşullu Erişim  
 **Ürün özelliği:** Kimlik Güvenliği ve Koruması
 
-Yöneticilerin yanlışlıkla kendilerini yapılandırılmış koşullu erişim ilkeleri aracılığıyla kendi kiracılar dışında kilitlemelerini önlemek için yeni uyarılar ve güncelleştirilmiş yönergeler Azure Portalı'nda oluşturduk. Yeni bir kılavuz hakkında daha fazla bilgi için bkz: [Hizmet bağımlılıkları Azure Active Directory koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
+Yöneticilerin yanlışlıkla kendilerini yapılandırılmış koşullu erişim ilkeleri aracılığıyla kendi kiracılar dışında kilitlemelerini önlemek için yeni uyarılar ve güncelleştirilmiş yönergeler Azure Portalı'nda oluşturduk. Yeni bir kılavuz hakkında daha fazla bilgi için bkz: [Hizmet bağımlılıkları Azure Active Directory koşullu erişim nedir](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
 
 ---
 
@@ -164,7 +164,7 @@ Nasıl gözden geçirin ve bir mobil cihazda kullanım koşullarını kabul eder
 ### <a name="new-azure-ad-activity-logs-download-experience-available"></a>Kullanılabilir deneyimi yeni Azure AD etkinlik günlüklerini indir
 
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** Raporlanıyor  
+**Hizmet kategorisi:** Raporlama  
 **Ürün özelliği:** İzleme ve Raporlama
 
 Etkinlik günlükleri büyük miktarlarda doğrudan Azure Portalı'ndan indirebilirsiniz. Bu güncelleştirme şunları yapmanızı sağlar:
@@ -185,7 +185,7 @@ Bu özellik hakkında daha fazla ayrıntı için bkz. [hızlı başlangıç: Azu
 
 **Türü:** Değişiklik planı  
 **Hizmet kategorisi:** Koşullu Erişim  
-**Ürün özelliği:** Access Control
+**Ürün özelliği:** Erişim Denetimi
 
 Exchange ActiveSync (EAS) aşağıdaki koşulların nasıl değerlendirir güncelleştiriliyor duyuyoruz:
 
@@ -333,7 +333,7 @@ Daha fazla bilgi için [e-posta bir kerelik geçiş kodu kimlik doğrulama (Öni
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Uygulama Proxy'si  
-**Ürün özelliği:** Access Control
+**Ürün özelliği:** Erişim Denetimi
 
 Üç yeni tanımlama bilgisi ayarları, uygulama proxy'si aracılığıyla yayımlandığından uygulamalarınız için kullanılabilir tanıttık:
 
@@ -364,7 +364,7 @@ Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile Sa
 ### <a name="new-azure-ad-identity-protection-enhancements-public-preview"></a>Yeni Azure AD Identity Protection geliştirmeleri (Genel önizleme)
 
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** Identity Protection  
+**Hizmet kategorisi:** Kimlik Koruması  
 **Ürün özelliği:** Kimlik Güvenliği ve Koruması
 
 Biz Azure AD kimlik koruması genel önizlemeye sunuldu teklifin aşağıdaki geliştirmeleri ekledik duyurmaktan Mutluluk duyuyoruz dahil olmak üzere:
@@ -437,7 +437,7 @@ Bu düzeltme, sonuç olarak gerekli olan bazı senaryolarda geçmişte doğrudan
 ### <a name="breaking-change-updates-to-the-audit-and-sign-in-logs-schema-through-azure-monitor"></a>Yeni değişiklik: Denetim ve Azure İzleyici aracılığıyla oturum açma günlükleri şema güncelleştirmeleri
 
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** Raporlanıyor  
+**Hizmet kategorisi:** Raporlama  
 **Ürün özelliği:** İzleme ve Raporlama
 
 Günlük dosyaları, SIEM araçlarınızı veya Log Analytics ile sorunsuz bir şekilde tümleştirebilmeniz için biz şu anda Azure İzleyici aracılığıyla denetim hem oturum açma günlük akışları yayımlıyor. Geri bildirimleriniz ve bu özelliğin genel kullanılabilirlik duyurusuyla hazırlığında bağlı olarak, aşağıdaki değişiklikleri bizim şemaya yapıyoruz. Bu şema değişiklikleri ve onun ilişkili belge güncelleştirmeleri Ocak ilk haftası tarafından gerçekleşir.
@@ -453,7 +453,7 @@ Aşağıdaki alanları denetim şemada değiştiriyorsunuz:
 |Kategori|Bu **hizmet adı** alan. Artık **denetim kategorisini** alan. **Hizmet adı** adlandırıldı **loggedByService** alan.|<ul><li>Hesap Sağlama</li><li>Çekirdek Dizin</li><li>Self Servis parola sıfırlama</li></ul>|<ul><li>Kullanıcı Yönetimi</li><li>Grup Yönetimi</li><li>Uygulama Yönetimi</li></ul>|
 |targetResources|İçerir **TargetResourceType** en üst düzeyde.|&nbsp;|<ul><li>İlke</li><li>Uygulama</li><li>Kullanıcı</li><li>Grup</li></ul>|
 |loggedByService|Denetim günlüğü oluşturulan hizmetin adını sağlar.|Null|<ul><li>Hesap Sağlama</li><li>Çekirdek Dizin</li><li>Self servis parola sıfırlama</li></ul>|
-|Sonuç|Denetim günlüklerini sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1</li></ul>|<ul><li>Başarılı</li><li>Başarısız</li></ul>|
+|Sonuç|Denetim günlüklerini sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1</li></ul>|<ul><li>Başarılı</li><li>Hata</li></ul>|
 
 #### <a name="changed-fields-in-the-sign-in-schema"></a>Oturum açma şema değiştirilen alanları
 Aşağıdaki alanları, oturum açma şemada değiştiriyorsunuz:
@@ -461,8 +461,8 @@ Aşağıdaki alanları, oturum açma şemada değiştiriyorsunuz:
 |Alan adı|Değişiklikler|Eski değer|Yeni değerleri|
 |----------|------------|----------|----------|
 |appliedConditionalAccessPolicies|Bu **conditionalaccessPolicies** alan. Artık **appliedConditionalAccessPolicies** alan.|Değişiklik yok|Değişiklik yok|
-|conditionalAccessStatus|Oturum açma işlemi sırasında koşullu erişim ilkesi durumu sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1.</li><li>2</li><li>3</li></ul>|<ul><li>Başarılı</li><li>Başarısız</li><li>Uygulanmadı</li><li>Devre dışı</li></ul>|
-|appliedConditionalAccessPolicies: sonuç|Oturum açma işlemi sırasında bireysel koşullu erişim ilkesi durumu sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1.</li><li>2</li><li>3</li></ul>|<ul><li>Başarılı</li><li>Başarısız</li><li>Uygulanmadı</li><li>Devre dışı</li></ul>|
+|conditionalAccessStatus|Oturum açma işlemi sırasında koşullu erişim ilkesi durumu sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1.</li><li>2</li><li>3</li></ul>|<ul><li>Başarılı</li><li>Hata</li><li>Uygulanmadı</li><li>Devre dışı</li></ul>|
+|appliedConditionalAccessPolicies: sonuç|Oturum açma işlemi sırasında bireysel koşullu erişim ilkesi durumu sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1.</li><li>2</li><li>3</li></ul>|<ul><li>Başarılı</li><li>Hata</li><li>Uygulanmadı</li><li>Devre dışı</li></ul>|
 
 Şeması hakkında daha fazla bilgi için bkz. [yorumlama Azure AD denetim günlükleri şema Azure İzleyici (Önizleme)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema)
 
@@ -471,7 +471,7 @@ Aşağıdaki alanları, oturum açma şemada değiştiriyorsunuz:
 ### <a name="identity-protection-improvements-to-the-supervised-machine-learning-model-and-the-risk-score-engine"></a>Denetimli makine öğrenimi modeli ve risk puanı altyapısına yönelik Identity Protection geliştirmeleri
 
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** Identity Protection  
+**Hizmet kategorisi:** Kimlik Koruması  
 **Ürün özelliği:** Risk Puanları
 
 Kimlik koruması ile ilgili kullanıcı ve oturum açma risk değerlendirmesi altyapısı iyileştirmeleri kullanıcı risk doğruluk ve kapsamını artırmak yardımcı olabilir. Yöneticiler kullanıcı risk düzeyi artık doğrudan belirli algılamalar risk düzeyine bağlıdır ve sayısı ve riskli oturum açma olaylarını düzeyi arasında bir artış olduğunu fark edebilirsiniz.
@@ -492,7 +492,7 @@ Azure AD yöneticileri artık Microsoft Authenticator uygulama içi bildirimler 
 
 - Diğer Mobil kimlik doğrulayıcısı uygulaması / donanım belirteç kodu
 
-- E-posta
+- Email
 
 - Telefon araması
 
@@ -616,7 +616,7 @@ Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile Sa
 ### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Azure AD Günlükleri şimdi Azure Log Analytics (Genel önizleme) ile çalışıyor
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Raporlanıyor  
+**Hizmet kategorisi:** Raporlama  
 **Ürün özelliği:** İzleme ve Raporlama
 
 Azure Log Analytics için artık Azure AD günlüklerinizi iletebilir duyurmaktan Mutluluk duyuyoruz! Bu en çok istenen özellik analytics'e işletmenizi, işlemleri ve güvenlik yanı sıra altyapınızı izlemeye yardımcı olmak için bir yol için daha iyi erişmesini yardımcı olur. Daha fazla bilgi için [Azure Active Directory etkinlik günlükleri artık Azure Log Analytics'te](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-Activity-logs-in-Azure-Log-Analytics-now/ba-p/274843) blogu.
@@ -671,7 +671,7 @@ Daha fazla bilgi için [bir özel etki alanı adını silme](https://docs.micros
 
 **Türü:** Sabit  
 **Hizmet kategorisi:** Grup Yönetimi  
-**Ürün özelliği:** İş birliği
+**Ürün özelliği:** İş Birliği
 
 Özel yönetici rolleri oluşturabilir ve grubun sahibi olmanıza gerek kalmadan dinamik Üyelik kuralları güncelleştirmek için bir sorunu düzelttik.
 
@@ -733,7 +733,7 @@ Daha fazla bilgi için [uygulamalarım portalı nedir?](https://docs.microsoft.c
 ### <a name="new-troubleshooting-and-support-tab-on-the-sign-ins-logs-page-of-the-azure-portal"></a>Azure portal Oturum Açma Günlükleri sayfasında yeni Sorun Giderme ve Destek sekmesi
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Raporlanıyor  
+**Hizmet kategorisi:** Raporlama  
 **Ürün özelliği:** İzleme ve Raporlama
 
 Yeni **sorun giderme ve Destek** sekmesinde **oturum açma işlemleri** sayfasında Azure portalı, yöneticilerin yardımcı olmak için tasarlanmıştır ve destek mühendisleri, Azure AD oturum açma işlemleri için ilgili sorun giderme. Bu yeni sekme hata kodu, hata iletisi ve düzeltme önerileri (varsa) sorunun çözümüne yardımcı olmak için sağlar. Sorunu çözmek yapamıyorsanız, ayrıca, kullanarak bir destek bileti oluşturmak için yeni bir yolunu sunuyoruz **Panoya Kopyala** deneyimi, hangi doldurur **istek kimliği** ve **Tarih(UTC)** destek biletiniz günlük dosyasında alanları.  
@@ -746,7 +746,7 @@ Yeni **sorun giderme ve Destek** sekmesinde **oturum açma işlemleri** sayfası
 
 **Türü:** Değişen özellik  
 **Hizmet kategorisi:** Grup Yönetimi  
-**Ürün özelliği:** İş birliği
+**Ürün özelliği:** İş Birliği
 
 Bu güncelleştirmeyle, artık tıklayabilirsiniz **özel uzantı özelliklerini alma** bağlantı dinamik kullanıcı grubu kuralı Oluşturucusu'ndan, benzersiz uygulama Kimliğinizi girin ve dinamik oluşturulurken kullanılacak özel uzantı özelliklerinin tam listesini al kullanıcılar için üyelik kuralı. Bu liste, bu uygulama için tüm yeni özel uzantı özellikleri almak için aynı zamanda yenilenebilir.
 

@@ -1,21 +1,21 @@
 ---
-title: "Öğretici: Azure Veri Gezgini verilerini Power BI'da görselleştirme"
+title: "Öğretici: Azure Power BI veri Gezgini'nde verileri görselleştirin"
 description: Bu öğreticide Power BI ile Azure Veri Gezgini'ne bağlanmayı ve verilerinizi görselleştirmeyi öğreneceksiniz.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: c04c9d9618cfc507ebdba170e0697aeaeecb1e99
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: f253911c1830e606dd47b64aaea1f17cb3478cd5
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854110"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757747"
 ---
-# <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Öğretici: Azure Veri Gezgini verilerini Power BI'da görselleştirme
+# <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Öğretici: Azure Power BI veri Gezgini'nde verileri görselleştirin
 
 Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir. Power BI, verilerinizi görselleştirmenizi ve sonuçları kuruluşunuzda paylaşmanızı sağlayan bir iş analizi çözümüdür. Bu öğreticide ilk olarak Azure Veri Gezgini'nde görsel oluşturmayı öğreneceksiniz. Ardından Power BI ile Azure Veri Gezgini'ne bağlanıp örnek verileri temel alan bir rapor oluşturacak ve bu raporu Power BI hizmetinde yayımlayacaksınız.
 
