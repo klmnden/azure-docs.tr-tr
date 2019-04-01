@@ -38,80 +38,60 @@ items:
     href: text-moderation-api.md
   - name: Video denetimi
     href: video-moderation-human-review.md
-  - name: İşler ve incelemeler
+  - name: Gözden geçirme aracı
+    href: Review-Tool-User-Guide/human-in-the-loop.md
+  - name: Gözden geçirmeler, iş akışları ve işler
     href: review-api.md
-  - name: İş akışları
-    href: workflow-api.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Moderation hizmetlerini kullanma
+  - name: İçeriğin moderasyonunu yapma
     items:
-    - name: Yönetim API’leri
+    - name: REST API
       items:
-      - name: .NET SDK’sini kullanma
-        items:
-        - name: Video içeriğini denetleme
-          href: video-moderation-api.md
-        - name: Resimleri özel listelere karşı denetleme
-          href: image-lists-quickstart-dotnet.md
-        - name: Metni özel terimlere karşı denetleme
-          href: term-lists-quickstart-dotnet.md
-      - name: REST API’sini kullanma
-        items:
-        - name: Görüntüler - API konsolu
-          href: try-image-api.md
-        - name: Özel görüntüler - API konsolu
-          href: try-image-list-api.md
-        - name: Metin - API konsolu
-          href: try-text-api.md
-        - name: Özel terimler - API konsolu
-          href: try-terms-list-api.md
-  - name: İnceleme aracını kullanma
+      - name: Görüntüler - API konsolu
+        href: try-image-api.md
+      - name: Özel görüntüler - API konsolu
+        href: try-image-list-api.md
+      - name: Metin - API konsolu
+        href: try-text-api.md
+      - name: Özel terimler - API konsolu
+        href: try-terms-list-api.md
+    - name: .NET SDK
+      items:
+      - name: Video içeriğini denetleme
+        href: video-moderation-api.md
+      - name: Resimleri özel listelere karşı denetleme
+        href: image-lists-quickstart-dotnet.md
+      - name: Metni özel terimlere karşı denetleme
+        href: term-lists-quickstart-dotnet.md
+  - name: Gözden geçirmeleri tanımlama ve kullanma
     items:
-    - name: API’leri inceleme
-      items:
-      - name: .NET SDK’sini kullanma
-        items:
-        - name: İşler - .NET
-          href: moderation-jobs-quickstart-dotnet.md
-        - name: İncelemeler - .NET
-          href: moderation-reviews-quickstart-dotnet.md
-        - name: Video incelemeleri - .NET
-          href: video-reviews-quickstart-dotnet.md
-        - name: Video transkript incelemeleri - .NET
-          href: video-transcript-reviews-quickstart-dotnet.md
-      - name: REST API’sini kullanma
-        items:
-        - name: İşler - API konsolu
-          href: try-review-api-job.md
-        - name: İncelemeler - API konsolu
-          href: try-review-api-review.md
-        - name: İş akışları - API konsolu
-          href: try-review-api-workflow.md
-    - name: Gözden geçirme aracına genel bakış
-      href: Review-Tool-User-Guide/human-in-the-loop.md
-    - name: Gözden geçirme aracı ayarları
-      href: Review-Tool-User-Guide/Configure.md
-    - name: Ekibi yönetme
-      href: Review-Tool-User-Guide/SubTeams.md
-    - name: Etiketleri kullanma
-      href: Review-Tool-User-Guide/Tags.md
-    - name: Görüntüleri inceleme
+    - name: Gözden geçirme aracı (tarayıcı)
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
-    - name: Metni inceleme
-      href: Review-Tool-User-Guide/Text-Reviews.md
-    - name: Kimlik bilgilerini yönetme
-      href: Review-Tool-User-Guide/Credentials.md
-    - name: Bağlayıcıları kullanma
-      href: Review-Tool-User-Guide/Connectors.md
-    - name: İş akışlarını kullanma
+    - name: REST API
+      href: try-review-api-review.md
+    - name: .NET SDK
+      href: moderation-reviews-quickstart-dotnet.md
+    - name: Video gözden geçirmeleri (.NET)
+      href: video-reviews-quickstart-dotnet.md
+    - name: Video transkripti gözden geçirmeleri (.NET)
+      href: video-transcript-reviews-quickstart-dotnet.md
+  - name: İş akışlarını tanımlama ve kullanma
+    items:
+    - name: Gözden geçirme aracı (tarayıcı)
       href: Review-Tool-User-Guide/Workflows.md
-    - name: Panoyu görüntüleme
-      href: Review-Tool-User-Guide/View-Dashboard.md
+    - name: REST API
+      href: try-review-api-workflow.md
+  - name: İşleri tanımlama ve kullanma
+    items:
+    - name: REST API
+      href: try-review-api-job.md
+    - name: .NET SDK
+      href: moderation-jobs-quickstart-dotnet.md
+  - name: Gözden Geçirme aracını yapılandırma
+    href: Review-Tool-User-Guide/Configure.md
   - name: Hesap verilerini dışarı aktarma veya silme
     href: ./export-delete-data.md
-  - name: Azure web semineri serisi
-    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
 - name: Başvuru
   items:
   - name: Content Moderator API’si
@@ -142,6 +122,8 @@ items:
       href: samples-rest.md
     - name: Diğer Azure örnekleri
       href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator
+  - name: Azure web semineri serisi
+    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
   - name: SSS
     href: FAQs.md
   - name: Fiyatlandırma ve limitler
@@ -158,9 +140,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure yol haritası
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-ms.openlocfilehash: cee9e6c585dfa65ccee5c0f4631b5efc81dde760
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8948caa31d1fa464f13295a4dd4c1174b88543f5
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900718"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758143"

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 903c1153db57f7cb632fc752bb696598902f5aaa
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: abfcece2d71e456a39284ddb4cfa106bce31fb53
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519723"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670226"
 documentType: LandingData
 title: Azure Media Services Belgeleri
 metadata:
@@ -30,22 +30,27 @@ sections:
     columns: 2
     items:
     - href: /azure/media-services/latest/
-      html: <p>Media Services v3 ile kodlama, isteğe bağlı akış yapma, canlı yayın gerçekleştirme ve videolarınızı analiz etme hakkında bilgi edinin.</p>
+      html: <p>Media Services v3 ile içeriğinizi kodlayın, paketleyin, koruyun; talep üzerine video akışı yapın; canlı yayın gerçekleştirin; analiz edin.</p>
       image:
         src: media/index/AMSIcons-media_servicesV3.svg
       title: Azure Media Services v3
     - href: /azure/media-services/video-indexer/
-      html: <p>Video Indexer’ı kullanarak video ve ses dosyalarınızdan içgörü ayıklamayı öğrenin.</p>
+      html: <p>Video Indexer’ı kullanarak video ve ses dosyalarınızdan içgörüleri ayıklayın.</p>
       image:
         src: media/index/AMSIcons-media_analytics.svg
       title: Video Indexer
     - href: /azure/media-services/previous/
-      html: <p>Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. En son sürüm olan Media Services v3’ü inceleyin.</p>
+      html: <p>Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. </p>
       image:
-        src: media/index/AMSIcons-media_servicesV2.svg
+        src: 
       title: Azure Media Services v2 (eski)
     - href: /azure/cdn/
-      html: <p>CDN'yi kullanarak statik nesneleri önbelleğe almayı ve önbelleğe alınamayan dinamik içeriği hızlandırmayı öğrenin.</p>
+      html: <p>CDN'yi kullanarak statik nesneleri önbelleğe alın ve önbelleğe alınamayan dinamik içeriği hızlandırın.</p>
       image:
         src: /azure/cdn/media/index/cdn.svg
       title: CDN
+    - href: http://amp.azure.net/libs/amp/latest/docs/index.html
+      html: <p>Microsoft Azure Media Services'ten medya içeriğini çok çeşitli tarayıcılarda ve cihazlarda kayıttan yürütün.</p>
+      image:
+        src: 
+      title: Azure Media Player

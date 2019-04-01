@@ -128,29 +128,64 @@ items:
       href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-java
     - name: Uzaktan İzleme hakkında SSS
       href: iot-accelerators-faq-rm-v2.md
-- name: Bağlı Fabrika
+- name: Endüstriyel IoT
   items:
   - name: Genel Bakış
-    href: iot-accelerators-connected-factory-features.md
     items:
-    - name: Mimari
-      href: iot-accelerators-connected-factory-sample-walkthrough.md
+    - name: Endüstriyel IoT nedir?
+      href: overview-iot-industrial.md
+    - name: OPC Twin
+      items:
+      - name: OPC Twin nedir?
+        href: overview-opc-twin.md
+      - name: OPC Twin Mimarisi
+        href: overview-opc-twin-architecture.md
+    - name: OPC Vault
+      items:
+      - name: OPC Vault nedir?
+        href: overview-opc-vault.md
+    - name: Bağlı Fabrika
+      items:
+      - name: Bağlı Fabrikaya Genel Bakış
+        href: iot-accelerators-connected-factory-features.md
+      - name: Bağlı Fabrika Mimarisi
+        href: iot-accelerators-connected-factory-sample-walkthrough.md
   - name: Hızlı Başlangıçlar
     items:
     - name: Bağlı fabrika çözümünü deneyin
       href: quickstart-connected-factory-deploy.md
   - name: Nasıl yapılır kılavuzları
     items:
-    - name: Panoyu kullanma
-      href: iot-accelerators-connected-factory-dashboard.md
-    - name: Ağ geçidi dağıtma
-      href: iot-accelerators-connected-factory-gateway-deployment.md
-    - name: OPC yayımcısını kullanma
-      href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
-    - name: Çözüm hızlandırıcısını yapılandırma
-      href: iot-accelerators-connected-factory-configure.md
-    - name: Çözüm hızlandırıcısını özelleştirme
-      href: iot-accelerators-connected-factory-customize.md
+    - name: Bağlı Fabrika
+      items:
+      - name: Panoyu kullanma
+        href: iot-accelerators-connected-factory-dashboard.md
+      - name: Ağ geçidi dağıtma
+        href: iot-accelerators-connected-factory-gateway-deployment.md
+      - name: OPC yayımcısını kullanma
+        href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
+      - name: Çözüm hızlandırıcısını yapılandırma
+        href: iot-accelerators-connected-factory-configure.md
+      - name: Çözüm hızlandırıcısını özelleştirme
+        href: iot-accelerators-connected-factory-customize.md
+    - name: OPC Twin
+      items:
+      - name: OPC Twin hizmetlerini dağıtma
+        href: howto-opc-twin-deploy-existing.md
+      - name: OPC Twin modülünü IoT Edge'e dağıtma
+        href: howto-opc-twin-deploy-modules.md
+      - name: Yalnızca OPC Twin bağımlılıklarını dağıtma
+        href: howto-opc-twin-deploy-dependencies.md
+    - name: OPC Vault
+      items:
+      - name: OPC Vault'u mevcut projeye dağıtma
+        items:
+        - name: OPC İstemcisi ile OPC PLC'nin güvenli iletişimi
+          href: howto-opc-vault-deploy-existing-client-plc-communication.md
+        - name: Güvenli OPC UA İstemci ve OPC UA Sunucu Uygulaması
+          href: howto-opc-vault-deploy-existing-client-server-communication.md
+      - name: OPC Vault'u sıfırdan dağıtma
+        href: howto-opc-vault-deploy-scratch.md
   - name: Kaynaklar
     items:
     - name: GitHub deposu
@@ -257,9 +292,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: Uzaktan İzleme V1
     href: https://docs.microsoft.com/previous-versions/azure/iot-suite/
-ms.openlocfilehash: 5b2067facd27e94735aba63bb1c54c15e1511c64
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 02c728f7acef1bcc1436d87dd0c0d9509db8ec97
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342046"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757194"
