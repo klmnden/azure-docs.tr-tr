@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 03/29/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 19e94fc65ddc1719c601397adfe77f8f9445e4fa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: c65c797612e179a9f3c02696d827131f5c830b3c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662134"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755915"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3 nedir?
 
@@ -44,32 +44,13 @@ Media Services, bulutta çeşitli medya iş akışı derlemenize olanak sağlar.
 * Azure Media Services ile birlikte kullanmak [Azure Bilişsel hizmetler API'leri](https://docs.microsoft.com/azure/#pivot=products&panel=ai) videoları daha geniş bir kitleye (örneğin, işitme engelli kişiler veya isteyenler boyunca farklı bir okumak için uygun alt yazı ve açıklamalı alt yazı eklemek için Dil).
 * Azure CDN, anlık yüksek yükleri (örneğin, bir ürün sunumu etkinliğinin başlangıcını) daha iyi işlemek için büyük ölçeklendirme elde etmek etkinleştirin. 
 
-## <a name="naming-conventions"></a>Adlandırma kuralları
-
-Azure Media Services v3 kaynaklarının adları (Varlıklar, İşler, Dönüşümler gibi), Azure Resource Manager adlandırma kısıtlamalarına tabidir. Azure Resource Manager uyarınca kaynak adları her zaman benzersizdir. Bu nedenle kaynaklarınızda benzersiz tanıtıcı dizeleri (GUID gibi) kullanabilirsiniz. 
-
-Media Services kaynak adları şu karakterleri içeremez: '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', tek tırnak karakteri veya kontrol karakterleri. Diğer tüm karakterlere izin verilir. Bir kaynağın adı en fazla 260 karakter olabilir. 
-
-Azure Resource Manager adlandırma hakkında daha fazla bilgi için bkz: [Adlandırma gereksinimlerini](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) ve [adlandırma kuralları](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
-
-## <a name="v3-api-design-principles"></a>V3 API tasarım ilkeleri
-
-v3 API’nin temel tasarım ilkelerinden biri API’yi daha güvenli hale getirmektir. v3 API’ler **Get** veya **List** işlemlerinde gizli diziler ve kimlik bilgileri döndürmez. Anahtarlar her zaman null, boş veya yanıttan ayıklanmış olur. Gizli dizileri ve kimlik bilgilerini almak için ayrı bir eylem yöntemi çağırmanız gerekir. Bazı API’ler gizli dizileri alır ve görüntülerken diğer API'lerin bunu yapmaması durumunda, ayrı eylemler farklı RBAC güvenlik izinleri ayarlamanızı sağlar. RBAC kullanarak erişimi yönetme hakkında daha fazla bilgi için bkz. [Erişimi yönetmek için RBAC kullanma](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
-
-Bunun örnekleri: 
-
-* StreamingLocator’un Get isteği ContentKey değerleri döndürmüyor, 
-* ContentKeyPolicy’nin get isteği kısıtlama anahtarları döndürmüyor, 
-* İşlerin HTTP Giriş URL’lerinde URL’nin sorgu dizesi bölümünü döndürmüyor (imzayı kaldırmak için).
-
-Bkz: [içerik anahtarı ilkesi - .NET edinme](get-content-key-policy-dotnet-howto.md) örnek.
-
-
 ## <a name="how-can-i-get-started-with-v3"></a>v3’ü kullanmaya nasıl başlayabilirim? 
 
 Kodlama ve içerik paketi, talep üzerine video akışı, Canlı yayın gerçekleştirme, Media Services v3 ile videolarınızı analiz öğrenin. Öğreticiler, API başvuruları ve diğer belgeler, güvenli bir biçimde milyonlarca kullanıcıya ölçeklendirilebilen, isteğe bağlı ve canlı video veya ses akışları sağlama ile ilgili bilgiler içerir.
 
-### <a name="quickstarts"></a>Hızlı girişler  
+Geliştirmeye başlamadan önce gözden [temel kavramlar](concepts-overview.md)<br/>
+
+### <a name="quickstarts"></a>Hızlı Başlangıçlar  
 
 Hızlı başlangıçlar, Media Services'ı hızlı şekilde denemenize yönelik yeni müşteriler için temel gün-1 yönergeler gösterir.
 
@@ -97,7 +78,7 @@ Makaleler, bir görevin nasıl tamamlanacağını gösteren kod örnekleri içer
 * [HTTPS ile giriş - iş olarak .NET kodlama](job-input-from-http-how-to.md)  
 * [Olay İzleme - Portal](monitor-events-portal-how-to.md)
 * [Birden çok DRM ile - .NET dinamik olarak şifreleyin](protect-with-drm.md) 
-* [CLI kullanarak özel bir dönüşüm ile kodlama](custom-preset-cli-howto.md)
+* [-CLI gibi özel bir dönüşüm ile kodlama](custom-preset-cli-howto.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,6 +1,6 @@
 ---
-title: IOT cihaz araştırma Kılavuzu Önizleme için ASC | Microsoft Docs
-description: Bu kılavuzu ASC IOT için Log Analytics kullanarak şüpheli bir IOT cihazı araştırmak için nasıl kullanılacağı açıklanmaktadır.
+title: IOT cihaz araştırma Kılavuzu Önizleme için Azure Güvenlik Merkezi | Microsoft Docs
+description: Bu kılavuz nasıl Log Analytics kullanarak şüpheli bir IOT cihazı araştırmak için IOT için Azure Güvenlik Merkezi kullanımı açıklanmaktadır.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 032315d1b618b9716e23c8433c6ec1bf64b7e77d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6097954e09d5fd62c45f59b009d974d277bafc57
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580546"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755237"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Şüpheli bir IOT cihaz araştırın
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Bu önizleme sürümü, bir hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim iş yükleri için önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC IOT hizmet uyarılarını ve kanıt IOT cihazları şüpheli etkinlikler veya ne zaman bir cihaz tehlikeye girmemesini göstergelerden mevcut olacağıyla şüphelenilen olduğunda açık ipuçları sağlar. 
+IOT hizmet uyarılarını ve kanıt için Azure Güvenlik Merkezi (ASC) IOT cihazlarının şüpheli etkinlikler veya ne zaman bir cihaz tehlikeye girmemesini göstergelerden mevcut olacağıyla şüphelenilen olduğunda Temizle göstergelerden sağlar. 
 
 Bu kılavuzda, kuruluşunuz için olası riskleri belirlemek için düzeltmek ve gelecekte benzer saldırıları önlemek için en iyi yollarını keşfetmek nasıl karar vermenize yardımcı olmak için sağlanan araştırma önerileri kullanın.  
 

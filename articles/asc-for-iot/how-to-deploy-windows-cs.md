@@ -1,6 +1,6 @@
 ---
-title: ASC Windows yüklemesi için IOT aracı Önizleme | Microsoft Docs
-description: ASC IOT aracının 32-bit veya 64-bit Windows cihazlarında yükleme hakkında bilgi edinin.
+title: Windows yüklemesi IOT aracı Önizleme için Azure Güvenlik Merkezi | Microsoft Docs
+description: Azure Güvenlik Merkezi, IOT aracının 32-bit veya 64-bit Windows cihazlarında yükleme hakkında bilgi edinin.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 5c3293746fcc52570e708fd4bfab446981d49c24
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 7e3cb1f44711a8eedb248320db8bce5dfd0eaf0c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621847"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754599"
 ---
-# <a name="deploy-an-asc-for-iot-c-based-security-agent-for-windows"></a>IOT için bir ASC dağıtma C#-güvenlik aracı için Windows tabanlı
+# <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>IOT için Azure Güvenlik Merkezi bir dağıtma C#-güvenlik aracı için Windows tabanlı
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Bu kılavuz için IOT ASC yükleneceği açıklanmaktadır C#-Windows Güvenlik aracısında bağlı.
+Bu kılavuz, IOT için Azure Güvenlik Merkezi (ASC) yüklemek açıklanmaktadır C#-Windows Güvenlik aracısında bağlı.
 
 Bu kılavuzda şunların nasıl yapıldığını öğrenirsiniz: 
 > [!div class="checklist"]

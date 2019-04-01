@@ -3,17 +3,17 @@ title: 'Hızlı Başlangıç: Azure Veri Gezgini Python kitaplığı kullanarak 
 description: Bu hızlı başlangıçta Python kullanarak verileri Azure Veri Gezgini'ne almayı (yüklemeyi) öğreneceksiniz.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: 61463f33491cc909a21be99efcbb82094c958edd
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 309e391412a0e2c698173f02eb9fd00d576ead09
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063259"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757701"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Hızlı Başlangıç: Azure Veri Gezgini Python kitaplığı kullanarak veri alma
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 9d3bc50e1578704de029d53c0b1eaa21e74182cf
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401928"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756608"
 ---
 # <a name="api-management-advanced-policies"></a>API Management Gelişmiş ilkeleri
 
@@ -253,7 +253,7 @@ Bu işlem düzeyi ilke istekleri arka uç hizmetine iletmez.
 
 | Öznitelik                               | Açıklama                                                                                                      | Gerekli | Varsayılan     |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| timeout="integer"                       | Zaman aşımı aralığı saniye önce arka uç hizmetine yapılan çağrı başarısız olur. Minimum değer 0 saniyedir. 240 saniye en yüksek değerleri var.| Hayır       | 240 saniye |
+| timeout="integer"                       | Bir zaman aşımı hatası önce arka uç hizmeti tarafından döndürülecek HTTP yanıtı üstbilgileri için beklenecek saniye cinsinden süreyi ortaya çıkar. Minimum değer 0 saniyedir. 240 saniye temel ağ altyapısını ödenmiş olmayabilir daha büyük değerler bu tarihten sonra boşta kalan bağlantıların bırakabilirsiniz. | Hayır       | None |
 | follow-redirects="true &#124; false"    | Arka uç hizmetinden yeniden yönlendirmeleri gateway tarafından izlenen veya çağırana döndürülen belirtir.      | Hayır       | false       |
 | buffer-request-body="true &#124; false" | Ayarlandığında, "true" istek yürütülmeden ve üzerinde yeniden [yeniden](api-management-advanced-policies.md#Retry). | Hayır       | false       |
 

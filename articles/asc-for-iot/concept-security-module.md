@@ -1,6 +1,6 @@
 ---
-title: IOT güvenlik modül ikizlerini Önizleme ASC anlama | Microsoft Docs
-description: Modül ikizlerini güvenlik ve artan düzende IOT için almaları kavramı hakkında bilgi edinin.
+title: Azure Güvenlik Merkezi için IOT güvenlik modül ikizlerini Önizleme anlama | Microsoft Docs
+description: Kavramını güvenlik modül ikizlerini ve IOT için Azure Güvenlik Merkezi'nde nasıl kullanıldığı hakkında bilgi edinin.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: d766b17c9d49792d2e8192a952e8e6e559a8acd3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 56bc93973bd2c080b13b97f1344cc165f742e757
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579385"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758398"
 ---
 # <a name="security-module"></a>Güvenlik modülü
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Bu makalede, ASC için IOT cihaz ikizleri ve modülleri nasıl kullandığını açıklar. 
+Bu makalede, IOT için Azure Güvenlik Merkezi (ASC) cihaz ikizleri ve modüllerini nasıl kullandığı açıklanmaktadır. 
 
 ## <a name="device-twins"></a>Cihaz ikizlerini
 

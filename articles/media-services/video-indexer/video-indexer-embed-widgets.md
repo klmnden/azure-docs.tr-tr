@@ -7,21 +7,18 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: fd680b00feb8a75dfec952d7211554100fca00d8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7cb02a0793a4c96c98b4932b6046839f004461bc
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075075"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758110"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer pencere öğeleri uygulamalarınıza ekleyin
 
 Bu makalede, uygulamalarınıza Video Indexer pencere öğelerini nasıl ekleyebileceğiniz gösterilmektedir. Video Indexer, uygulamanıza ekleme iki tür pencere öğeleri destekler: **Bilişsel İçgörüler** ve **Player**. 
-
-> [!NOTE]
-> 1. sürümünü 1 Şubat 2018'den ile başlayan **Bilişsel İçgörüler** pencere öğesi kullanımdan kaldırılacaktır. Ekleme URL'si sürüm varsayılan `version=2`.
 
 Pencere öğesi temel URL, sürüm 2 ile başlayarak, hesabın bölgesine içerir. Örneğin, Batı ABD bölgesinde bir hesap oluşturur: `https://wus2.videoindexer.ai/embed/insights/...`.
 
@@ -34,7 +31,6 @@ Pencere öğesi temel URL, sürüm 2 ile başlayarak, hesabın bölgesine içeri
 |Ad|Tanım|Açıklama|
 |---|---|---|
 |widgets|Virgülle ayrılmış dizeler|İşlemek istediğiniz öngörüleri denetlemenize olanak sağlar. <br/>Örnek: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` yalnızca kişiler ve markalarla ilgili kullanıcı arabirimi içgörülerini işler<br/>Mevcut seçenekler: people (kişiler), keywords (anahtar sözcükler), annotations (ek açıklamalar), brands (markalar), sentiments (yaklaşımlar), transcript (transkript), search (arama).<br/>version=2’de URL aracılığıyla desteklenmez<br/><br/>**Not:** **Pencere öğeleri** , URL param desteklenmiyor **sürüm 2 =** kullanılır. |
-|version|**Bilişsel İçgörüler** pencere öğesinin sürümleri|Pencere öğesi güncelleştirmeleri en yeni içgörüleri almak için ekleyin `?version=2` query param ekleme URL'si. Örneğin, `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Eski sürümü elde etmek için URL'den `version=2` parametresini kaldırın.
 
 ### <a name="player-widget"></a>Yürütücü pencere öğesi
 

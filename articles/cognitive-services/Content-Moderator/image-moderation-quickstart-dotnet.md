@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 03/20/2019
 ms.author: sajagtap
-ms.openlocfilehash: bd281191deb1a82d4b1b5247a011d9867f0c9bc4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9cc18ce1fde5de354e3da5e384c08ada1927d097
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879301"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757224"
 ---
-# <a name="quickstart-analyze-image-content-for-objectionable-material-in-c"></a>Hızlı Başlangıç: Görüntü içeriğini içeriklere analiz edinC#
+# <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>Hızlı Başlangıç: Uygunsuz içeriği görüntüleri analiz edinC#
 
 Bu makalede, [.NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) için Content Moderator SDK'sını kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri sağlanır. Uygunsuz olabilecek malzemeyi azaltmak amacıyla yetişkinlere yönelik veya müstehcen içeriği, ayıklanabilir metinleri ve insan yüzlerini taramayı öğreneceksiniz.
 

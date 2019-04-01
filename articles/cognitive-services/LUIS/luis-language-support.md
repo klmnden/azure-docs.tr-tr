@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 735835d16eb14c3847f36ecb6f46c08c0a8928ef
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339525"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757649"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS dil ve bölge desteği
 
@@ -105,10 +105,10 @@ Aşağıdaki kültürler özel simgeleştirici sürümleri vardır:
 |Almanca <br>`de-de`|1.0.1|Sözcükleri alanlarının bölerek tokenizes.<br> bir kullanıcı girerse `Ich fahre einen krankenwagen` isteğe bağlı olarak bir utterance tek bir belirteç kalır. Bu nedenle `krankenwagen` tek bir varlık olarak işaretlenir. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Simgeleştirici sürümler arasında geçiş yapma
+<!--
+Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
 
-Uygulama dosyasında belirteç Oluşturucu sürümü değiştirmek için ilk seçenek olup ardından sürüm alın. Bu eylem, konuşma nasıl simgeleştirilmiş değiştirir ancak, aynı uygulama kimliği tutmanızı sağlar 
-
-Simgeleştiricinin JSON 1.0.0. Özellik değeri için fark `tokenizerVersion`. 
+Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`. 
 
 ```JSON
 {
@@ -157,7 +157,7 @@ Simgeleştiricinin JSON 1.0.0. Özellik değeri için fark `tokenizerVersion`.
 }
 ```
 
-Simgeleştiricinin JSON 1.0.1 sürümü. Özellik değeri için fark `tokenizerVersion`. 
+Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`. 
 
 ```JSON
 {
@@ -205,5 +205,8 @@ Simgeleştiricinin JSON 1.0.1 sürümü. Özellik değeri için fark `tokenizerV
     "settings": []
 }
 ```
+-->
 
-İkinci seçenek sağlamaktır [yeni bir uygulama olarak dosyayı içeri](luis-how-to-start-new-app.md#import-an-app-from-file), bir sürüm yerine. Bu eylem, yeni uygulama farklı uygulama Kimliğine sahip, ancak dosyasında belirtilen belirteç Oluşturucu sürümü kullandığı anlamına gelir. 
+Simgeleştirme uygulama düzeyinde gerçekleşir. Sürüm düzeyi simgeleştirme için desteği yoktur. 
+
+[Yeni bir uygulama olarak dosyayı içeri](luis-how-to-start-new-app.md#import-an-app-from-file), bir sürüm yerine. Bu eylem, yeni uygulama farklı uygulama Kimliğine sahip, ancak dosyasında belirtilen belirteç Oluşturucu sürümü kullandığı anlamına gelir. 

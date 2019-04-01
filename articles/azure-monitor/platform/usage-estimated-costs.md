@@ -9,18 +9,18 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 7911bd398b6760fb4f83382868f040382b86cd1f
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 2e59699b667215d4b09e4d87c1776431631348e8
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480559"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754260"
 ---
-# <a name="monitoring-usage-and-estimated-costs"></a>Kullanım ve Tahmini maliyetler izleme
+# <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Kullanım ve Tahmini maliyetler Azure İzleyici'de izleme
 
 > [!NOTE]
 > Bu makalede, kullanım ve Tahmini maliyetler arasında farklı fiyatlandırma modelleri için birden çok Azure İzleme özelliklerini görüntülemek açıklar.  İlgili bilgiler için aşağıdaki makalelere göz atın.
-> - [Veri hacmi ve saklama Log analytics'te kontrol ederek maliyet yönetme](../../azure-monitor/platform/manage-cost-storage.md) veri saklama döneminizin değiştirerek maliyetlerinizi denetlemek nasıl açıklar.
+> - [Veri hacmi ve saklama Log analytics'te kontrol ederek maliyet yönetme](manage-cost-storage.md) veri saklama döneminizin değiştirerek maliyetlerinizi denetlemek nasıl açıklar.
 > - [Log analytics'te veri kullanımını çözümleme](../../azure-monitor/platform/data-usage.md) analiz ve veri kullanımınızı uyarı açıklar.
 > - [Application ınsights fiyatlandırma ve veri hacmini yönetme](../../azure-monitor/app/pricing.md) Application ınsights'ta veri kullanımını çözümleme açıklar.
 
@@ -184,7 +184,7 @@ Sahip önceki betiği yeniden varsa ``-Action listmigrationdate``, aboneliğiniz
 Aynı kiracısı altında barındırılan, geçirmek istediğiniz birden fazla aboneliğiniz varsa aşağıdaki betikler parçaları kullanarak kendi değişken oluşturabilirsiniz:
 
 ```powershell
-#Query tenant and create an array comprised of all of your tenants subscription ids
+#Query tenant and create an array comprised of all of your tenants subscription IDs
 $TenantId = <Your-tenant-id>
 $Tenant =Get-AzSubscription -TenantId $TenantId
 $Subscriptions = $Tenant.Id
@@ -204,7 +204,7 @@ Invoke-AzResourceAction `
 }
 ```
 
-Betik daraltılmış üç diziden oluşturan kod oluşturma tarafından daha fazla. Bir dizi olan tüm abonelik kimliği oluşur ```isGrandFatherableSubscription``` True olarak ayarlayın ve optedInDate şu anda bir değeri yok. Tüm abonelikler şu anda yeni fiyatlandırma modeli, ikinci bir dizisi. Ve yeni fiyatlandırma modeline uygun olmayan abonelik kimlikleri kiracınızdaki doldurulmuş üçüncü bir dizi:
+Betik daraltılmış üç diziden oluşturan kod oluşturma tarafından daha fazla. Bir dizi, tüm abonelik olan kimlikleri oluşur ```isGrandFatherableSubscription``` True olarak ayarlayın ve optedInDate şu anda bir değeri yok. Tüm abonelikler şu anda yeni fiyatlandırma modeli, ikinci bir dizisi. Ve yalnızca abonelik kimlikleri kiracınızdaki doldurulmuş üçüncü bir dizi, yeni fiyatlandırma modeli için uygun değildir:
 
 ```powershell
 [System.Collections.ArrayList]$Eligible= @{}

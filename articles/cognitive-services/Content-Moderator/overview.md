@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 7a6424921b869428d1dbeffadd68e173a32d8821
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 440471acb6e122bf25ba21b0ab3b5a2f7d9b021d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455255"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758138"
 ---
 # <a name="what-is-azure-content-moderator"></a>Azure Content Moderator nedir?
 
@@ -41,24 +41,23 @@ Content Moderator hizmeti hem REST çağrıları hem de .NET SDK'sı ile sunulan
 
 Content Moderator hizmeti aşağıdaki senaryolara hitap eden API'lere sahiptir.
 
-| Eylem | Açıklama |
+| API grubu | Açıklama |
 | ------ | ----------- |
-|[**Metin denetimi**](text-moderation-api.md)| Metinlerde rahatsız edici içerik, cinsel veya müstehcen içerik, küfür ve kişisel bilgi taraması gerçekleştirir.|
+|[**Metin denetimi**](text-moderation-api.md)| Metin rahatsız edici içerik, cinsel açık veya müstehcen içerik, küfür ve kişisel verileri tarar.|
 |[**Özel terim listeleri**](try-terms-list-api.md)| Metinleri yerleşik terimlere ek olarak özel terim listesine göre tarar. İçerik ilkelerinize göre içerik engellemek veya izin vermek için özel listeler kullanabilirsiniz.|  
 |[**Görüntü denetimi**](image-moderation-api.md)| Görüntülerde yetişkinlere yönelik veya müstehcen görüntü taraması yapar, Optik Karakter Tanıyıcı (OCR) ile görüntüdeki metinleri tanır ve yüzleri algılar.|
 |[**Özel görüntü listeleri**](try-image-list-api.md)| Görüntüleri özel görüntü listesine göre tarar. Özel görüntü listelerini kullanarak tekrar tekrar sınıflandırmak istemediğiniz yaygın içerik örneklerini filtreleyebilirsiniz.|
 |[**Video denetimi**](video-moderation-api.md)| Videolarda yetişkinlere yönelik veya müstehcen içerik taraması yapar ve bu içeriklerle ilgili zaman işaretçilerini döndürür.|
-|[**İnceleme**](try-review-api-job.md)| İnsan inceleme aracında döngüde insan araştırma iş akışları oluşturma ve otomatikleştirme için [İşler](try-review-api-job.md), [İncelemeler](try-review-api-review.md) ve [İş Akışı](try-review-api-workflow.md) işlemlerini kullanın. İş Akışı API'si henüz .NET SDK üzerinden kullanılabilir durumda değildir.|
+|[**API'leri İnceleme**](try-review-api-job.md)| İnsan inceleme aracında döngüde insan araştırma iş akışları oluşturma ve otomatikleştirme için [İşler](try-review-api-job.md), [İncelemeler](try-review-api-review.md) ve [İş Akışı](try-review-api-workflow.md) işlemlerini kullanın. İş akışı API henüz .NET SDK'yı kullanılamıyor.|
 
-### <a name="human-review-tool"></a>İnsan inceleme aracı
+### <a name="review-tool"></a>Gözden geçirme aracı
 
-Content Moderator hizmeti, web tabanlı [insan inceleme aracını](Review-Tool-User-Guide/human-in-the-loop.md) da içerir. 
+Content Moderator hizmet ayrıca web tabanlı içerir [gözden geçirme aracı](Review-Tool-User-Guide/human-in-the-loop.md), içeriği barındıran işlemek İnsan Moderatörler gözden geçirir. İnsan girişi hizmeti eğitmez ancak hizmetin ve insanlardan oluşan ekibin birlikte kullanılması, geliştiricilerin verimlilik ve doğruluk arasındaki doğru dengeyi yakalamasını sağlar. İnceleme aracını da kullanıcı dostu bir sağlayan çeşitli Content Moderator kaynaklar için ön uç.
 
 ![Content Moderator insan inceleme aracı giriş sayfası](images/homepage.PNG)
 
-İnceleme APı'lerini kullanarak belirlediğiniz filtrelere göre metin, görüntü ve video içeriğinde inceleme gerçekleştirecek bir ekip oluşturabilirsiniz. Ardından insan denetiminden geçirerek son kararları belirleyebilirsiniz. İnsan girişi hizmeti eğitmez ancak hizmetin ve insanlardan oluşan ekibin birlikte kullanılması, geliştiricilerin verimlilik ve doğruluk arasındaki doğru dengeyi yakalamasını sağlar.
-
 ## <a name="data-privacy-and-security"></a>Veri gizliliği ve güvenliği
+
 Olarak tüm Bilişsel hizmetler, Content Moderator hizmeti kullanan geliştiricilerin Microsoft'un müşteri verilerini ilkelerinin bilmeniz gerekir. Bkz: [Bilişsel Hizmetler sayfasına](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) daha fazla bilgi için Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Sonraki adımlar

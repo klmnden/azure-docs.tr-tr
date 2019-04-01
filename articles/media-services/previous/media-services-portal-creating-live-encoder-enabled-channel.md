@@ -1,5 +1,5 @@
 ---
-title: Azure portalı ile çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’ı kullanarak canlı akış gerçekleştirme | Microsoft Belgeleri
+title: Azure portalı ile Çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services'i kullanarak canlı akış gerçekleştirme | Microsoft Docs
 description: Bu öğreticide, tek bit hızında bir canlı akışı alıp Azure portalını kullanarak çoklu bit hızında akışa kodlayan bir Kanal oluşturulması adım adım anlatılmaktadır.
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: 1482569e415971fba98de8a586cc2868cc574198
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: c230787b739b964998202180efaba20ad8233611
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258098"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757785"
 ---
-# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Azure portalı ile Çoklu bit hızına sahip akışlar oluşturmak üzere Media Services'i kullanarak canlı akış gerçekleştirme  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Azure portalı ile Çoklu bit hızına sahip akışlar oluşturmak üzere Media Services'i kullanarak canlı akış gerçekleştirme  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -42,34 +42,26 @@ Yaygın canlı akış uygulamaları oluşturmak için gerekli olan genel adımla
 > [!NOTE]
 > Canlı bir etkinlik için önerilen en uzun süre şu anda 8 saattir. Daha uzun bir süre için bir Kanal çalıştırmanız gerekiyorsa lütfen amslived@microsoft.com adresine başvurun.
 
-1. Bilgisayara bir video kamera bağlayın. Başlatın ve bir şu protokollerin birinde tek bit hızlı akış çıktısı alınabilen bir şirket içi Canlı Kodlayıcı yapılandırın: RTMP veya kesintisiz akış. Daha fazla bilgi için bkz. [Azure Media Services RTMP Desteği ve Gerçek Zamanlı Kodlayıcılar](https://go.microsoft.com/fwlink/?LinkId=532824).
+1. Bilgisayara bir video kamera bağlayın. <br/>Kurulum fikir edinmek için kullanıma [basit ve taşınabilir olay video dişli Kurulum]( https://link.medium.com/KNTtiN6IeT).
+1. Başlatın ve bir şu protokollerin birinde tek bit hızlı akış çıktısı alınabilen bir şirket içi Canlı Kodlayıcı yapılandırın: RTMP veya kesintisiz akış. Daha fazla bilgi için bkz. [Azure Media Services RTMP Desteği ve Gerçek Zamanlı Kodlayıcılar](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Ayrıca, bu bloguna göz atın: [Üretim OBS ile canlı akış](https://link.medium.com/ttuwHpaJeT).
 
     Bu adım, Kanalınızı oluşturduktan sonra da gerçekleştirilebilir.
-2. Bir Kanal oluşturup başlatın. 
-3. Kanal alma URL’sini alın. 
+1. Bir Kanal oluşturup başlatın. 
+1. Kanal alma URL’sini alın. 
 
     Alma URL’si gerçek zamanlı kodlayıcı tarafından akışı Kanala göndermek için kullanılır.
-4. Kanal önizleme URL’sini alın. 
+1. Kanal önizleme URL’sini alın. 
 
     Kanalınızın canlı akışı düzgün şekilde aldığını doğrulamak için bu URL’yi kullanın.
-5. Bir olay/program oluşturun (ayrıca bir varlık oluşturur). 
-6. Olayı yayımlayın (ilişkili varlığa yönelik bir OnDemand bulucu oluşturulur).    
-7. Akışa ve arşivlemeye hazır olduğunuzda olayı başlatın.
-8. İsteğe bağlı olarak, gerçek zamanlı kodlayıcıya bir reklam başlatması bildirilebilir. Reklam, çıktı akışına eklenir.
-9. Olay akışını ve arşivlemeyi durdurmak istediğinizde, olayı durdurun.
-10. Olayı silin (ve isteğe bağlı olarak varlığı silin).   
-
-## <a name="in-this-tutorial"></a>Bu öğreticide
-Bu öğreticide, Azure portalı aşağıdaki görevleri gerçekleştirmek için kullanılır: 
-
-1. Gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş bir kanal oluşturma.
-2. Gerçek zamanlı kodlayıcıya sağlamak üzere alım URL'sini alma. Gerçek zamanlı kodlayıcı, bu URL’yi kullanarak akışı Kanala alır.
-3. Bir olay/program (ve bir varlık) oluşturma.
-4. Varlığı yayımlama ve akış URL'lerini alma.  
-5. İçeriğinizi oynatma.
-6. Temizleme.
+1. Bir olay/program oluşturun (ayrıca bir varlık oluşturur). 
+1. Olayı yayımlayın (ilişkili varlığa yönelik bir OnDemand bulucu oluşturulur).    
+1. Akışa ve arşivlemeye hazır olduğunuzda olayı başlatın.
+1. İsteğe bağlı olarak, gerçek zamanlı kodlayıcıya bir reklam başlatması bildirilebilir. Reklam, çıktı akışına eklenir.
+1. Olay akışını ve arşivlemeyi durdurmak istediğinizde, olayı durdurun.
+1. Olayı silin (ve isteğe bağlı olarak varlığı silin).   
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir.
 
 * Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. 
@@ -78,6 +70,7 @@ Bu öğreticide, Azure portalı aşağıdaki görevleri gerçekleştirmek için 
 * Bir web kamerası ve tek bit hızlı bir canlı akış gönderebilen bir kodlayıcı.
 
 ## <a name="create-a-channel"></a>Kanal oluşturma
+
 1. [Azure portalında](https://portal.azure.com/), Media Services'i seçin ve ardından Media Services hesabınızın adına tıklayın.
 2. **Canlı Akış**’ı seçin.
 3. **Özel oluştur**’u seçin. Bu seçenek canlı kodlama için etkinleştirilmiş bir kanal oluşturmanızı sağlar.
@@ -120,9 +113,10 @@ Daha fazla bilgi için bkz. [Çoklu bit hızına sahip akışlar oluşturmak üz
 ## <a name="get-ingest-urls"></a>Alma URL’leri alma
 Kanal oluşturulduktan sonra, gerçek zamanlı kodlayıcıya sağlayacağınız alma URL’lerini alabilirsiniz. Kodlayıcı bu URL'leri canlı akış girişi için kullanır.
 
-![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![URL'leri alma](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>Olay oluşturma ve yönetme
+
 ### <a name="overview"></a>Genel Bakış
 Bir kanal, canlı akıştaki kesimleri yayımlamanızı ve depolamanızı denetlemenizi sağlayan olaylar/programlarla ilişkilidir. Olayları/programları kanallar yönetir. Kanal ve Program arasındaki ilişki, kanalın sürekli bir içerik akışının bulunduğu ve programın bu kanalda zamanlanmış bir olayı kapsadığı geleneksel medyadaki ilişkiye benzer.
 
@@ -154,7 +148,7 @@ Olayı başlatmanın iki yolu vardır:
 
     Şunları belirleyin: olay adı, varlık adı, arşiv penceresi ve şifreleme seçeneği.
 
-    ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+    ![Program oluşturma](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 
     **Bu canlı olayı şimdi yayımla** seçeneğini işaretli bıraktıysanız URL'leri YAYIMLAMA olayı oluşturulacaktır.
 

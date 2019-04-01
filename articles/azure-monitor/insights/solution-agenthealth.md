@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: cca234340526b732067adac3c6725f8aa5acc47c
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 294695cceaed39a66a57dcd3a165ca276b6801c6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983396"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757958"
 ---
-#  <a name="agent-health-solution-in-azure"></a>Aracı durumu çözümü, Azure
-Aracı durumu çözümü, Azure, tüm raporlanan aracılar için doğrudan yanıt vermeyen Azure İzleyici için Log Analytics çalışma alanı veya System Center Operations Manager yönetim grubu bağlı ve işletimsel gönderme anlamanıza yardımcı olur veriler.  Ayrıca, kaç aracının dağıtıldığını, bunların coğrafi olarak nerelere dağıtıldığını da izleyebilir ve Azure’da, diğer bulut ortamlarında ya da şirket içinde dağıtılmış aracıların dağılımından her zaman haberdar olmaya yönelik diğer sorguları gerçekleştirebilirsiniz.    
+#  <a name="agent-health-solution-in-azure-monitor"></a>Azure İzleyici'de aracı durumu çözümü
+Aracı durumu çözümü, Azure, tüm aracıların doğrudan Log Analytics çalışma alanını Azure İzleyici'de raporlama anlamanıza yardımcı olur veya yanıt vermeyen olduğu için Azure İzleyici, bağlı bir System Center Operations Manager yönetim grubu ve işletimsel veri gönderiliyor.  Ayrıca, kaç aracının dağıtıldığını, bunların coğrafi olarak nerelere dağıtıldığını da izleyebilir ve Azure’da, diğer bulut ortamlarında ya da şirket içinde dağıtılmış aracıların dağılımından her zaman haberdar olmaya yönelik diğer sorguları gerçekleştirebilirsiniz.    
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu çözümü dağıtmadan önce şu anda desteklenen onaylayın [Windows aracıları](../../log-analytics/log-analytics-windows-agent.md) Log Analytics çalışma alanına raporlama ya da raporlama bir [Operations Manager yönetim grubu](../../azure-monitor/platform/om-agents.md) ile tümleşik Çalışma alanınız.
@@ -62,7 +62,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 | İşletim Sistemi Türüne Göre Dağılım | Ortamınızda kaçar tane Windows ve Linux aracısı olduğuna ilişkin bir bölüm.|
 | Aracı Sürümüne Göre Dağılım | Ortamınızda yüklü olan farklı aracı sürümlerine ve her birinin sayısına ilişkin bir bölüm.|
 | Aracı Kategorisine Göre Dağılım | Sinyal olayları gönderen farklı kategorilerdeki araçlara ilişkin bir bölüm: Doğrudan aracılar, OpsMgr aracıları veya OpsMgr Management Server.|
-| Yönetim Grubuna Göre Dağılım | Ortamınızdaki farklı SCOM Yönetim gruplarına ilişkin bir bölüm.|
+| Yönetim Grubuna Göre Dağılım | Ortamınızdaki farklı Operations Manager yönetim gruplarına ilişkin bir bölüm.|
 | Aracıların coğrafi konumu | Aracılarınızın bulunduğu farklı ülkelere ve her ülkede yüklü olan toplam aracı sayısına ilişkin bir bölüm.|
 | Yüklü Ağ Geçidi Sayısı | Log Analytics ağ geçidinin yüklü olduğu sunucular sayısı ve bu sunucuların listesi.|
 
@@ -117,4 +117,4 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan kayıtlara ilişkin örne
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Hakkında bilgi edinin [Azure İzleyici'de uyarılar](../platform/alerts-overview.md) Log Analytics'ten uyarı oluşturma hakkında bilgi. 
+* Hakkında bilgi edinin [Azure İzleyici'de uyarılar](../platform/alerts-overview.md) uyarıları günlük sorguları oluşturma hakkında bilgi. 

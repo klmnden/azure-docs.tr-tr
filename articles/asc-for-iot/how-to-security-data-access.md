@@ -1,6 +1,6 @@
 ---
-title: ASC IOT Önizleme kullanarak verilere erişilmesi | Microsoft Docs
-description: ASC IOT için kullanılırken, güvenlik uyarısı ve öneri veri erişim hakkında bilgi edinin.
+title: Azure Güvenlik Merkezi için IOT Preview kullanarak verilere erişilmesi | Microsoft Docs
+description: IOT için Azure Güvenlik Merkezi'ni kullanarak güvenlik uyarısı ve öneri verilerinizi erişim hakkında bilgi edinin.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: d81a8973772879f4f4b143701a1f4be3ecad95d9
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 510ee9bdefe87c1fab40e58bb715f2a8cce936b7
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576648"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758517"
 ---
 # <a name="access-your-security-data"></a>Güvenlik verilerinize erişin 
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Bu önizleme sürümü, bir hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim iş yükleri için önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-(Kaydetmeyi seçerseniz) ASC IOT için Log Analytics çalışma alanınızda güvenlik uyarıları, öneriler ve güvenlik ham verileri depolar.
+(Kaydetmeyi seçerseniz) güvenlik uyarıları, öneriler ve güvenlik ham verileri Log Analytics çalışma alanınızda IOT için azure Güvenlik Merkezi (ASC) depolar.
 
 ## <a name="log-analytics"></a>Log Analytics
 
@@ -151,8 +151,8 @@ SecurityRecommendation
     
 | TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | Açıklama | RecommendationAdditionalData |
 |---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
-| 2019-03-22T10:21:06.060 | /Subscriptions/ < subscription_id > /resourceGroups/ < resource_group > /providers/Microsoft.Devices/IotHubs/ < iot_hub > | < aygıt_adı > | Orta | Etkin | Giriş zincirindeki izin veren güvenlik duvarı kuralı bulunamadı | Geniş bir IP adresi veya Bağlantı Noktası aralığı için esnek bir desen içeren bir güvenlik duvarı kuralı bulundu | {"Kurallar": "[{\"SourceAddress\":\"\",\"KaynakBağlantıNoktası\":\"\",\"DestinationAddress\":\" \" \"Trafficdirection\":\"1337\"}] "} |
-| 2019-03-22T10:50:27.237 | /Subscriptions/ < subscription_id > /resourceGroups/ < resource_group > /providers/Microsoft.Devices/IotHubs/ < iot_hub > | < aygıt_adı > | Orta | Etkin | Giriş zincirindeki izin veren güvenlik duvarı kuralı bulunamadı | Geniş bir IP adresi veya Bağlantı Noktası aralığı için esnek bir desen içeren bir güvenlik duvarı kuralı bulundu | {"Kurallar": "[{\"SourceAddress\":\"\",\"KaynakBağlantıNoktası\":\"\",\"DestinationAddress\":\" \" \"Trafficdirection\":\"1337\"}] "} |
+| 2019-03-22T10:21:06.060 | /Subscriptions/ < subscription_id > /resourceGroups/ < resource_group > /providers/Microsoft.Devices/IotHubs/ < iot_hub > | < aygıt_adı > | Orta | Etkin | Giriş zincirindeki izin veren güvenlik duvarı kuralı bulunamadı | Güvenlik duvarında geniş bir IP adresi veya Bağlantı Noktası aralığı için esnek bir desen içeren bir kural bulundu | {"Kurallar": "[{\"SourceAddress\":\"\",\"KaynakBağlantıNoktası\":\"\",\"DestinationAddress\":\" \" \"Trafficdirection\":\"1337\"}] "} |
+| 2019-03-22T10:50:27.237 | /Subscriptions/ < subscription_id > /resourceGroups/ < resource_group > /providers/Microsoft.Devices/IotHubs/ < iot_hub > | < aygıt_adı > | Orta | Etkin | Giriş zincirindeki izin veren güvenlik duvarı kuralı bulunamadı | Güvenlik duvarında geniş bir IP adresi veya Bağlantı Noktası aralığı için esnek bir desen içeren bir kural bulundu | {"Kurallar": "[{\"SourceAddress\":\"\",\"KaynakBağlantıNoktası\":\"\",\"DestinationAddress\":\" \" \"Trafficdirection\":\"1337\"}] "} |
 
 ### <a name="device-summary"></a>Cihaz özeti
 

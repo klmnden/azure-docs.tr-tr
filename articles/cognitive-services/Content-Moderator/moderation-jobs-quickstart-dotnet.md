@@ -1,46 +1,40 @@
 ---
-title: "Hızlı Başlangıç: .NET - Content Moderator'ı kullanarak denetimi işlerini Başlat"
+title: .NET - Content Moderator'ı kullanarak denetimi işlerini kullanma
 titlesuffix: Azure Cognitive Services
-description: .NET için Azure Content Moderator SDK'sını kullanarak denetim işleri başlatma.
+description: Azure Content Moderator, görüntü veya metin içeriği için uçtan uca içerik denetleme işleri başlatmak için içerik Moderator .NET SDK'sını kullanın.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 01/10/2019
+ms.topic: article
+ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 0664e75a299246d9dd2cc14dbab31d22a1bd9c4b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 24d5483cf3b418cada3c5b7f03eedbff13cc36d6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878088"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757037"
 ---
-# <a name="quickstart-start-moderation-jobs-using-net"></a>Hızlı Başlangıç: .NET kullanarak denetimi işleri Başlat
+# <a name="define-and-use-moderation-jobs-net"></a>Tanımlama ve denetleme işleri (.NET) kullanma
 
-Bu makalede, aşağıdaki amaçlarla [.NET için Content Moderator SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)'nı kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri sağlanmaktadır:
- 
+İçerik denetleme, iş akışları ve incelemeleri işlevsellik için sarmalayıcı türü bir denetimi iş görür. Bu kılavuz bilgiler sağlar ve yardımcı olması için kod örnekleri, kullanmaya başlama [Content Moderator SDK'sı .NET için](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) için:
+
 - Tarama ve insan denetimciler için incelemeler oluşturma için bir denetim işi başlatma
 - Bekleyen incelemenin durumunu alma
 - İncelemeyi izleme ve son durumunu alma
-- Geri çağırma URL'sine sonucu gönderme
+- Geri çağırma URL'si için gözden geçirme sonuçlarının gönderin
 
-Bu makale, Visual Studio ve C# hakkında bilgi sahibi olduğunuzu varsayar.
+## <a name="prerequisites"></a>Önkoşullar
 
-## <a name="sign-up-for-content-moderator"></a>Content Moderator için kaydolma
-
-REST API veya SDK aracılığıyla Content Moderator hizmetlerini kullanabilmeniz için önce bir abonelik anahtarınız olması gerekir. Content Moderator'a abone olmak ve anahtarınızı almak için [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) yönergelerini izleyin.
-
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Önceki adımda yapmadıysanız bir inceleme araç hesabına kaydolun
-
-Content Moderator’ı Azure portaldan aldıysanız, [inceleme aracı hesabına da kaydolun](https://contentmoderator.cognitive.microsoft.com/) ve bir inceleme takımı oluşturun. Bir İşi başlatmak ve inceleme aracındaki incelemeleri görüntülemek üzere inceleme API'sini çağırmak için ekip kimliği ve inceleme aracı gerekir.
+- Oturum açma veya hesap üzerinde Content Moderator oluşturmak [gözden geçirme aracı](https://contentmoderator.cognitive.microsoft.com/) site.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>API anahtarınızın inceleme oluşturma amacıyla inceleme API'sini çağırabildiğinden emin olun
 
-Önceki adımları tamamladıktan sonra, başlangıcı Azure portaldan yaptıysanız şu anda iki Content Moderator anahtarınız olmalıdır. 
+Önceki adımları tamamladıktan sonra, başlangıcı Azure portaldan yaptıysanız şu anda iki Content Moderator anahtarınız olmalıdır.
 
-SDK örneğinizde Azure tarafından sağlanan API anahtarını kullanmayı planlıyorsanız, uygulamanızın inceleme API’sini çağırmasına ve incelemeler oluşturmasına izin vermek için [inceleme API'siyle Azure anahtarını kullanma](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) bölümünde anlatılan adımları izleyin.
+SDK örneğinizde Azure tarafından sağlanan API anahtarını kullanmayı planlıyorsanız, uygulamanızın inceleme API’sini çağırmasına ve incelemeler oluşturmasına izin vermek için [inceleme API'siyle Azure anahtarını kullanma](./review-tool-user-guide/configure.md#use-your-azure-account-with-the-review-apis) bölümünde anlatılan adımları izleyin.
 
 İnceleme aracı tarafından oluşturulan ücretsiz deneme anahtarını kullanırsanız, inceleme aracı hesabınız anahtarı zaten tanıdığından ek bir adım gerekmez.
 
@@ -71,14 +65,16 @@ Aşağıdaki NuGet paketlerini yükleyin:
 
 Programı deyimler kullanarak değiştirin.
 
-    using Microsoft.Azure.CognitiveServices.ContentModerator;
-    using Microsoft.CognitiveServices.ContentModerator;
-    using Microsoft.CognitiveServices.ContentModerator.Models;
-    using Newtonsoft.Json;
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Threading;
+```csharp
+using Microsoft.Azure.CognitiveServices.ContentModerator;
+using Microsoft.CognitiveServices.ContentModerator;
+using Microsoft.CognitiveServices.ContentModerator.Models;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+```
 
 ### <a name="create-the-content-moderator-client"></a>Content Moderator istemcisini oluşturma
 
@@ -87,48 +83,49 @@ Aboneliğiniz için bir Content Moderator istemcisi oluşturmak üzere aşağıd
 > [!IMPORTANT]
 > **AzureRegion** ve **CMSubscriptionKey** alanlarını bölge tanımlayıcınız ve abonelik anahtarınızın değerleri ile güncelleştirin.
 
+```csharp
+/// <summary>
+/// Wraps the creation and configuration of a Content Moderator client.
+/// </summary>
+/// <remarks>This class library contains insecure code. If you adapt this
+/// code for use in production, use a secure method of storing and using
+/// your Content Moderator subscription key.</remarks>
+public static class Clients
+{
+    /// <summary>
+    /// The region/location for your Content Moderator account,
+    /// for example, westus.
+    /// </summary>
+    private static readonly string AzureRegion = "YOUR API REGION";
 
     /// <summary>
-    /// Wraps the creation and configuration of a Content Moderator client.
+    /// The base URL fragment for Content Moderator calls.
     /// </summary>
-    /// <remarks>This class library contains insecure code. If you adapt this 
-    /// code for use in production, use a secure method of storing and using
-    /// your Content Moderator subscription key.</remarks>
-    public static class Clients
+    private static readonly string AzureBaseURL =
+        $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+    /// <summary>
+    /// Your Content Moderator subscription key.
+    /// </summary>
+    private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+    /// <summary>
+    /// Returns a new Content Moderator client for your subscription.
+    /// </summary>
+    /// <returns>The new client.</returns>
+    /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+    /// When you have finished using the client,
+    /// you should dispose of it either directly or indirectly. </remarks>
+    public static ContentModeratorClient NewClient()
     {
-        /// <summary>
-        /// The region/location for your Content Moderator account, 
-        /// for example, westus.
-        /// </summary>
-        private static readonly string AzureRegion = "YOUR API REGION";
+        // Create and initialize an instance of the Content Moderator API wrapper.
+        ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-        /// <summary>
-        /// The base URL fragment for Content Moderator calls.
-        /// </summary>
-        private static readonly string AzureBaseURL =
-            $"https://{AzureRegion}.api.cognitive.microsoft.com";
-
-        /// <summary>
-        /// Your Content Moderator subscription key.
-        /// </summary>
-        private static readonly string CMSubscriptionKey = "YOUR API KEY";
-
-        /// <summary>
-        /// Returns a new Content Moderator client for your subscription.
-        /// </summary>
-        /// <returns>The new client.</returns>
-        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
-        /// When you have finished using the client,
-        /// you should dispose of it either directly or indirectly. </remarks>
-        public static ContentModeratorClient NewClient()
-        {
-            // Create and initialize an instance of the Content Moderator API wrapper.
-            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
-
-            client.Endpoint = AzureBaseURL;
-            return client;
-        }
+        client.Endpoint = AzureBaseURL;
+        return client;
     }
+}
+```
 
 ### <a name="initialize-application-specific-settings"></a>Uygulamaya özgü ayarları başlatma
 
@@ -140,47 +137,48 @@ Aşağıdaki sabitleri ve statik alanları Program.cs dosyasındaki **Program** 
 >
 > Ekip adınız **API** bölümündeki **Kimlik** alanının değeridir.
 
+```csharp
+/// <summary>
+/// The moderation job will use this workflow that you defined earlier.
+/// See the quickstart article to learn how to setup custom workflows.
+/// </summary>
+private const string WorkflowName = "OCR";
 
-    /// <summary>
-    /// The moderation job will use this workflow that you defined earlier.
-    /// See the quickstart article to learn how to setup custom workflows.
-    /// </summary>
-    private const string WorkflowName = "OCR";
-    
-    /// <summary>
-    /// The name of the team to assign the job to.
-    /// </summary>
-    /// <remarks>This must be the team name you used to create your 
-    /// Content Moderator account. You can retrieve your team name from
-    /// the Content Moderator web site. Your team name is the Id associated 
-    /// with your subscription.</remarks>
-    private const string TeamName = "***";
+/// <summary>
+/// The name of the team to assign the job to.
+/// </summary>
+/// <remarks>This must be the team name you used to create your
+/// Content Moderator account. You can retrieve your team name from
+/// the Content Moderator web site. Your team name is the Id associated
+/// with your subscription.</remarks>
+private const string TeamName = "***";
 
-    /// <summary>
-    /// The URL of the image to create a review job for.
-    /// </summary>
-    private const string ImageUrl =
-        "https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png";
+/// <summary>
+/// The URL of the image to create a review job for.
+/// </summary>
+private const string ImageUrl =
+    "https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png";
 
-    /// <summary>
-    /// The name of the log file to create.
-    /// </summary>
-    /// <remarks>Relative paths are relative to the execution directory.</remarks>
-    private const string OutputFile = "OutputLog.txt";
+/// <summary>
+/// The name of the log file to create.
+/// </summary>
+/// <remarks>Relative paths are relative to the execution directory.</remarks>
+private const string OutputFile = "OutputLog.txt";
 
-    /// <summary>
-    /// The number of seconds to delay after a review has finished before
-    /// getting the review results from the server.
-    /// </summary>
-    private const int latencyDelay = 45;
+/// <summary>
+/// The number of seconds to delay after a review has finished before
+/// getting the review results from the server.
+/// </summary>
+private const int latencyDelay = 45;
 
-    /// <summary>
-    /// The callback endpoint for completed reviews.
-    /// </summary>
-    /// <remarks>Reviews show up for reviewers on your team. 
-    /// As reviewers complete reviews, results are sent to the
-    /// callback endpoint using an HTTP POST request.</remarks>
-    private const string CallbackEndpoint = "";
+/// <summary>
+/// The callback endpoint for completed reviews.
+/// </summary>
+/// <remarks>Reviews show up for reviewers on your team.
+/// As reviewers complete reviews, results are sent to the
+/// callback endpoint using an HTTP POST request.</remarks>
+private const string CallbackEndpoint = "";
+```
 
 ## <a name="add-code-to-auto-moderate-create-a-review-and-get-the-job-details"></a>Otomatik denetim, denetim oluşturma ve iş ayrıntılarını alma için kod ekleme
 
@@ -189,59 +187,61 @@ Aşağıdaki sabitleri ve statik alanları Program.cs dosyasındaki **Program** 
 
 Aşağıdaki kodu **Main** yöntemine ekleyerek başlayın.
 
-    using (TextWriter writer = new StreamWriter(OutputFile, false))
+```csharp
+using (TextWriter writer = new StreamWriter(OutputFile, false))
+{
+    using (var client = Clients.NewClient())
     {
-        using (var client = Clients.NewClient())
-        {
-            writer.WriteLine("Create review job for an image.");
-            var content = new Content(ImageUrl);
-        
-            // The WorkflowName contains the name of the workflow defined in the online review tool.
-            // See the quickstart article to learn more.
-            var jobResult = client.Reviews.CreateJobWithHttpMessagesAsync(
-                    TeamName, "image", "contentID", WorkflowName, "application/json", content, CallbackEndpoint);
+        writer.WriteLine("Create review job for an image.");
+        var content = new Content(ImageUrl);
 
-            // Record the job ID.
-            var jobId = jobResult.Result.Body.JobIdProperty;
+        // The WorkflowName contains the name of the workflow defined in the online review tool.
+        // See the quickstart article to learn more.
+        var jobResult = client.Reviews.CreateJobWithHttpMessagesAsync(
+                TeamName, "image", "contentID", WorkflowName, "application/json", content, CallbackEndpoint);
 
-            // Log just the response body from the returned task.
-            writer.WriteLine(JsonConvert.SerializeObject(
-                jobResult.Result.Body, Formatting.Indented));
+        // Record the job ID.
+        var jobId = jobResult.Result.Body.JobIdProperty;
 
-            Thread.Sleep(2000);
-            writer.WriteLine();
+        // Log just the response body from the returned task.
+        writer.WriteLine(JsonConvert.SerializeObject(
+            jobResult.Result.Body, Formatting.Indented));
 
-            writer.WriteLine("Get review job status.");
-            var jobDetails = client.Reviews.GetJobDetailsWithHttpMessagesAsync(
-                    TeamName, jobId);
+        Thread.Sleep(2000);
+        writer.WriteLine();
 
-            // Log just the response body from the returned task.
-            writer.WriteLine(JsonConvert.SerializeObject(
-                    jobDetails.Result.Body, Formatting.Indented));
+        writer.WriteLine("Get review job status.");
+        var jobDetails = client.Reviews.GetJobDetailsWithHttpMessagesAsync(
+                TeamName, jobId);
 
-            Console.WriteLine();
-            Console.WriteLine("Perform manual reviews on the Content Moderator site.");
-            Console.WriteLine("Then, press any key to continue.");
-            Console.ReadKey();
+        // Log just the response body from the returned task.
+        writer.WriteLine(JsonConvert.SerializeObject(
+                jobDetails.Result.Body, Formatting.Indented));
 
-            Console.WriteLine();
-            Console.WriteLine($"Waiting {latencyDelay} seconds for results to propagate.");
-            Thread.Sleep(latencyDelay * 1000);
+        Console.WriteLine();
+        Console.WriteLine("Perform manual reviews on the Content Moderator site.");
+        Console.WriteLine("Then, press any key to continue.");
+        Console.ReadKey();
 
-            writer.WriteLine("Get review details.");
-            jobDetails = client.Reviews.GetJobDetailsWithHttpMessagesAsync(
-            TeamName, jobId);
+        Console.WriteLine();
+        Console.WriteLine($"Waiting {latencyDelay} seconds for results to propagate.");
+        Thread.Sleep(latencyDelay * 1000);
 
-            // Log just the response body from the returned task.
-            writer.WriteLine(JsonConvert.SerializeObject(
-            jobDetails.Result.Body, Formatting.Indented));
-        }
-        writer.Flush();
-        writer.Close();
+        writer.WriteLine("Get review details.");
+        jobDetails = client.Reviews.GetJobDetailsWithHttpMessagesAsync(
+        TeamName, jobId);
+
+        // Log just the response body from the returned task.
+        writer.WriteLine(JsonConvert.SerializeObject(
+        jobDetails.Result.Body, Formatting.Indented));
     }
+    writer.Flush();
+    writer.Close();
+}
+```
 
 > [!NOTE]
-> Content Moderator hizmet anahtarınızın saniyede istek sayısı (RPS) hız sınırı vardır. Sınırı aşarsanız, SDK 429 hata koduyla bir özel durum oluşturulur. 
+> Content Moderator hizmet anahtarınızın saniyede istek sayısı (RPS) hız sınırı vardır. Sınırı aşarsanız, SDK 429 hata koduyla bir özel durum oluşturulur.
 >
 > Ücretsiz katman anahtarı bir RPS'lik hız sınırına sahiptir.
 
@@ -249,8 +249,10 @@ Aşağıdaki kodu **Main** yöntemine ekleyerek başlayın.
 
 Konsolda şu örnek çıktıyı görürsünüz:
 
-    Perform manual reviews on the Content Moderator site.
-    Then, press any key to continue.
+```console
+Perform manual reviews on the Content Moderator site.
+Then, press any key to continue.
+```
 
 Bekleyen görüntü incelemesini görmek için Content Moderator inceleme aracında oturum açın.
 
@@ -263,60 +265,62 @@ Göndermek için **İleri** düğmesini kullanın.
 > [!NOTE]
 > Çıktı dosyanızda, **Teamname**, **ContentId**, **CallBackEndpoint** ve **WorkflowId** dizeleri daha önce kullandığınız değerleri yansıtır.
 
-    Create moderation job for an image.
+```json
+Create moderation job for an image.
+{
+    "JobId": "2018014caceddebfe9446fab29056fd8d31ffe"
+}
+
+Get review details.
+{
+    "Id": "2018014caceddebfe9446fab29056fd8d31ffe",
+    "TeamName": "some team name",
+    "Status": "InProgress",
+    "WorkflowId": "OCR",
+    "Type": "Image",
+    "CallBackEndpoint": "",
+    "ReviewId": "",
+    "ResultMetaData": [],
+    "JobExecutionReport": [
     {
-        "JobId": "2018014caceddebfe9446fab29056fd8d31ffe"
-    }
-
-    Get review details.
+        "Ts": "2018-01-07T00:38:26.7714671",
+        "Msg": "Successfully got hasText response from Moderator"
+    },
     {
-        "Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-        "TeamName": "some team name",
-        "Status": "InProgress",
-        "WorkflowId": "OCR",
-        "Type": "Image",
-        "CallBackEndpoint": "",
-        "ReviewId": "",
-        "ResultMetaData": [],
-        "JobExecutionReport": [
-        {
-            "Ts": "2018-01-07T00:38:26.7714671",
-            "Msg": "Successfully got hasText response from Moderator"
-        },
-        {
-            "Ts": "2018-01-07T00:38:26.4181346",
-            "Msg": "Getting hasText from Moderator"
-        },
-        {
-            "Ts": "2018-01-07T00:38:25.5122828",
-            "Msg": "Starting Execution - Try 1"
-        }
-        ]
+        "Ts": "2018-01-07T00:38:26.4181346",
+        "Msg": "Getting hasText from Moderator"
+    },
+    {
+        "Ts": "2018-01-07T00:38:25.5122828",
+        "Msg": "Starting Execution - Try 1"
     }
+    ]
+}
+```
 
-
-## <a name="your-callback-url-if-provided-receives-this-response"></a>Belirtilmişse geri arama Url'niz bu yanıtı alır.
+## <a name="your-callback-url-if-provided-receives-this-response"></a>Belirtilmişse geri arama Url’niz bu yanıtı alır
 
 Şu örneğe benzer bir yanıt alırsınız:
 
 > [!NOTE]
 > Geri çağırma yanıtınızda **ContentId** ve **WorkflowId** dizeleri daha önce kullandığınız değerleri yansıtır.
 
-    {
-        "JobId": "2018014caceddebfe9446fab29056fd8d31ffe",
-        "ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
-        "WorkFlowId": "OCR",
-        "Status": "Complete",
-        "ContentType": "Image",
-        "CallBackType": "Job",
-        "ContentId": "contentID",
-        "Metadata": {
-            "hastext": "True",
-            "ocrtext": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n",
-            "imagename": "contentID"
-        }
+```json
+{
+    "JobId": "2018014caceddebfe9446fab29056fd8d31ffe",
+    "ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
+    "WorkFlowId": "OCR",
+    "Status": "Complete",
+    "ContentType": "Image",
+    "CallBackType": "Job",
+    "ContentId": "contentID",
+    "Metadata": {
+        "hastext": "True",
+        "ocrtext": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n",
+        "imagename": "contentID"
     }
-
+}
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

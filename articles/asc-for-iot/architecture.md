@@ -1,6 +1,6 @@
 ---
-title: ASC Önizleme için IOT Çözüm Mimarisini Anlama | Microsoft Docs
-description: Akışı bilgilerinin ASC IOT hizmeti hakkında bilgi edinin.
+title: IOT çözüm mimarisinin Önizleme için Azure Güvenlik Merkezi'ni anlama | Microsoft Docs
+description: IOT hizmeti için Azure Güvenlik Merkezi'nde bilgi akışını hakkında bilgi edinin.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: ee81d9543525ba1187fc6c078391559929b9bf96
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d70be919fa829401b4a415db626a3cee0713753b
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541910"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754996"
 ---
-# <a name="asc-for-iot-architecture"></a>IOT mimarisinin ASC
+# <a name="azure-security-center-for-iot-architecture"></a>IOT mimarisi için Azure Güvenlik Merkezi
 
-Bu makalede, Azure Güvenlik Merkezi'nin IOT çözümü için işlevsel sistem mimarisi açıklanmaktadır. 
+Bu makalede, IOT çözümü için Azure Güvenlik Merkezi (ASC), işlevsel sistem mimarisi açıklanmaktadır. 
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Bu önizleme sürümü, bir hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim iş yükleri için önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="asc-for-iot-components"></a>ASC IOT bileşenleri

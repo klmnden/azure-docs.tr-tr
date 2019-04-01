@@ -1,6 +1,6 @@
 ---
-title: Seçin ve bir ASC IOT Aracısı Önizleme dağıtma | Microsoft Docs
-description: Hakkında nasıl seçin ve IOT cihazları IOT güvenlik aracıları için ASC dağıtma öğrenin.
+title: Seçin ve Azure Güvenlik Merkezi Önizleme IOT Aracısı dağıtma | Microsoft Docs
+description: Hakkında nasıl seçin ve IOT cihazları IOT güvenlik aracıları için Azure Güvenlik Merkezi dağıtma öğrenin.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 208f7cdbc9d610713d73c5af1e02de5faf11474c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d3a7c3b1b08ab4f0fecd854b969ac18bf9a73ccf
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580801"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755289"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Seçin ve bir IOT Cihazınızı güvenlik aracısında dağıtma
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-IOT için ASC güvenlik aracılar IOT cihazlarından veri toplamak ve izlemek için başvuru mimarileri sağlar.
+IOT için Azure Güvenlik Merkezi (ASC), IOT cihazlarından veri toplamak ve izlemek güvenlik aracılar için başvuru mimarileri sağlar.
 Bkz: [güvenlik aracı başvuru mimarisi](security-agent-architecture.md) daha fazla bilgi için.
 
 Aracılar, açık kaynaklı proje olarak geliştirilir ve iki model olarak sağlanır kullanılabilir: <br> [C](https://aka.ms/iot-security-github-c), ve [ C# ](https://aka.ms/iot-security-github-cs).

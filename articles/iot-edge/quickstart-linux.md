@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 039ef05f7c0cbb9809a51efc3deef978e2970cf4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1913cf8d5fa367cc97dfac0a1ecfdf1edf06e298
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224575"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758668"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Hızlı Başlangıç: İlk IOT Edge modülü bir Linux cihazına dağıtma
 
@@ -128,7 +128,7 @@ IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. Üç bile�
 Önkoşullarda açıklandığı Ubuntu sanal makinesi üzerinde Azure IOT Edge kullanıyorsanız, cihazınız zaten yüklü olan bir IOT Edge çalışma zamanı sahiptir. Önceki bölümde aldığınız cihaz bağlantı dizesiyle Cihazınızı yapılandırmak yeterlidir. Bunu uzaktan sanal makineye bağlanmak zorunda kalmadan yapabilirsiniz. Aşağıdaki komutu çalıştırın değiştirerek **{device_connection_string}** kendi dize ile.
 
    ```azurecli-interactive
-   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
+   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
    ```
 
 IOT Edge yerel makinenize veya ARM32 cihaz üzerinde çalıştırıyorsanız, IOT Edge çalışma zamanı ve ön cihazınıza yüklemeniz gerekir. Bölümündeki yönergeleri [(x64) Linux üzerinde Azure IOT Edge çalışma zamanı yükleme](how-to-install-iot-edge-linux.md) veya [yükleme Azure IOT Edge çalışma zamanı (ARM32v7/armhf) Linux'ta](how-to-install-iot-edge-linux-arm.md), ardından bu hızlı başlangıçta geri dönün.

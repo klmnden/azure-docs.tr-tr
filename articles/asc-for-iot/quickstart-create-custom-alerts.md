@@ -1,6 +1,6 @@
 ---
-title: Özel uyarılar için ASC IOT Önizleme için oluşturun. | Microsoft Docs
-description: Oluşturun ve özel cihaz uyarılar için IOT için ASC atayın.
+title: IOT Önizleme için Azure Güvenlik Merkezi'nde özel uyarı oluşturma | Microsoft Docs
+description: Oluşturun ve IOT için Azure Güvenlik Merkezi için özel cihaz uyarıları atayın.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: fa1825d6f6f6ea5e6c026791aa70dd1b37bdad90
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 40bec01b402d7a597a480a738840cba8f388d88b
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574753"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755149"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Hızlı Başlangıç: Özel uyarılar oluşturabilirsiniz
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Özel güvenlik grupları ve Uyarıları kullanarak uçtan uca güvenlik bilgilerini ve IOT çözümünüzü arasında daha iyi güvenlik emin olmak için kategorik cihaz bilgi tüm avantajlarından yararlanın. 
@@ -33,7 +33,7 @@ ms.locfileid: "58574753"
 
 IOT cihazlarınızı en iyi bildiğiniz.
 
-Müşteriler, tam olarak beklenen cihaz davranışlarını anlamak için herhangi bir sapma uyarısında bekleniyordu, normal davranış ve ASC IOT için bir cihaz davranışı ilke bu anlayış Çevir sağlar.
+Müşteriler, tam olarak beklenen cihaz davranışlarını anlamak için herhangi bir sapma uyarısında bekleniyordu, normal davranış ve IOT için Azure Güvenlik Merkezi (ASC) bu anlayış bir cihaz davranışı ilke Çevir sağlar.
 
 ## <a name="security-groups"></a>Güvenlik Grupları
 

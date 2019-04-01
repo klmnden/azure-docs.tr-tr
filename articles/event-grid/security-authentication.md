@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/29/2019
 ms.author: babanisa
-ms.openlocfilehash: 23654dd41714314ab5c9f217d4f805d7b9d62413
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 2d56a7cda88f96a6728dc1c3e4af8e9ad0bf946f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472815"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755522"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid güvenliğini ve kimlik doğrulaması 
 
@@ -41,7 +41,9 @@ HTTP tetikleyicisi tabanlı Azure işlevi gibi başka türde bir uç noktasını
 
    Event Grid, sürümü 2018-05-01-preview ile başlayarak, el ile doğrulama el sıkışması destekler. Bir olay aboneliği bir SDK veya API sürümü 2018-05-01-preview'ı kullanan aracıyla oluştururken ya da daha sonra Event Grid gönderir, bir `validationUrl` abonelik doğrulama olayı veri bölümünü özelliği. Anlaşma tamamlamak için bulma olay verileri ve el ile bu URL'yi bir GET isteği gönder. Bir REST istemcisi ya da web tarayıcınızı kullanabilirsiniz.
 
-   Sağlanan URL'de 5 dakika için geçerlidir. Bu süre boyunca, olay aboneliğinin sağlama durumu: `AwaitingManualAction`. 10 dakika içinde el ile doğrulama tamamlamazsanız, sağlama durumu kümesine `Failed`. Olay aboneliği el ile doğrulama başlatmadan önce yeniden oluşturmanız gerekir.
+   Sağlanan URL'de 5 dakika için geçerlidir. Bu süre boyunca, olay aboneliğinin sağlama durumu: `AwaitingManualAction`. 5 dakika içinde el ile doğrulama tamamlamazsanız, sağlama durumu kümesine `Failed`. Olay aboneliği el ile doğrulama başlatmadan önce yeniden oluşturmanız gerekir.
+
+    Bu kimlik doğrulama mekanizması ayrıca el ile doğrulama modunda almadan önce doğrulama olayı için POST kabul edildi bildiği bir HTTP durum kodu 200 döndürülecek Web kancası uç noktası gerektirir. Diğer bir deyişle, uç nokta 200 döndürür, ancak doğrulama yanıt program aracılığıyla geri dönmez modunu el ile doğrulama moduna geçirilir. Doğrulama URL'si GET 5 dakika içinde varsa, doğrulama anlaşma başarılı olması için değerlendirilir.
 
 ### <a name="validation-details"></a>Doğrulama ayrıntıları
 

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: a6bd92a675885cb343b07ef981c38571af0a931c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 320638c958799bbf7fea73880fd3e27b6d598d23
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862471"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756051"
 ---
 # <a name="content-moderator-api-reference"></a>Content Moderator API'si başvurusu
 
@@ -31,7 +31,7 @@ Aşağıdaki Content Moderator API'sine sonrası denetimi akışlarınızı ayar
 | Açıklama | Başvuru |
 | -------------------- |-------------|
 | **Görüntü denetimi API'si**<br /><br />Tarama görüntüleri ve etiketleri, güven puanları ve diğer ayıklanan bilgileri kullanarak olası yetişkinlere yönelik ve müstehcen içerikleri algılayın. <br /><br />Yayımlama, reddetme veya sonrası denetimi iş akışınızda içeriği gözden geçir için bu bilgileri kullanın. <br /><br />| [Görüntü Denetim API'si başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "görüntü denetim API'si başvurusu")   |
-| **Metin denetimi API'si**<br /><br />Metin içeriğini tarar. Küfür hüküm ve kişisel bilgileri (PII) döndürülür. <br /><br />Yayımlama, reddetme veya sonrası denetimi iş akışınızda içeriği gözden geçir için bu bilgileri kullanın.<br /><br /> | [Metin denetimi API'si başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "metin denetimi API'si başvurusu")   |
+| **Metin denetimi API'si**<br /><br />Metin içeriğini tarar. Küfür hüküm ve kişisel veriler döndürülür. <br /><br />Yayımlama, reddetme veya sonrası denetimi iş akışınızda içeriği gözden geçir için bu bilgileri kullanın.<br /><br /> | [Metin denetimi API'si başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "metin denetimi API'si başvurusu")   |
 | **Video denetimi API'si**<br /><br />Videoları taramak ve olası yetişkinlere yönelik ve müstehcen içerikleri algılayın. <br /><br />Yayımlama, reddetme veya sonrası denetimi iş akışınızda içeriği gözden geçir için bu bilgileri kullanın.<br /><br /> | [Video denetimi API'sine genel bakış](video-moderation-api.md "Video denetimi API'sine genel bakış")   |
 | **Listeyi yönetim API'si**<br /><br />Oluşturun ve resim ve metin özel dışlama veya ekleme listeleri yönetin. Etkinleştirilirse, **görüntü - eşleşen** ve **metin - ekran** işlemleri yapıp özel listelerinizle gönderilen içerik benzer öğe eşleştirmesi. <br /><br />Verimlilik için makine öğrenme tabanlı denetimi adımı atlayabilirsiniz.<br /><br /> | [Yönetim API başvuru listesinde](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "listesi yönetim API Başvurusu")   |
 

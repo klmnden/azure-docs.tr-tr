@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: eb7f368100269c4e47076bb6b78bafc23e7a6089
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8cd6a68f6593a5b746a19e42e4835deb05e112b6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845612"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757177"
 ---
 # <a name="streaming-endpoints"></a>Akış Uç Noktaları
 
@@ -33,18 +33,38 @@ Tüm ek uç noktalar için: `{EndpointName}-{AccountName}-{DatacenterAbbreviatio
 
 ## <a name="types"></a>Türler  
 
-İki **akış uç noktası** türleri: **Standart** ve **Premium**. Türü ölçek birimi sayısına göre tanımlanır (`scaleUnits`) akış uç noktası için ayırın. 
+İki **Akış Uç Noktası** türü vardır: **Standart** ve **Premium**. Türü ölçek birimi sayısına göre tanımlanır (`scaleUnits`) akış uç noktası için ayırın. 
 
-Tablo türleri açıklanmaktadır:  
+Türler aşağıdaki tabloda açıklanmıştır:  
 
 |Type|Ölçek birimleri|Açıklama|
 |--------|--------|--------|  
-|**Standart akış uç noktası** (önerilir)|0|**Standart** türü neredeyse tüm akış senaryoları ve hedef kitle boyutları için önerilen seçenektir. **Standart** türü giden bant genişliğini otomatik olarak ölçeklendirir. <br/>Media Services ile son derece gereksinimleri yoğunlukta olan çeşitli müşteriler için teklif **Premium** akış uç noktaları kullanılabilir ölçek artırma kapasitesi en büyük internet izleyiciler için. Geniş kitlelere ve eş zamanlı görüntüleyiciler bekliyorsanız, bizimle iletişim kurun amsstreaming\@microsoft.com taşımak gereken yönergeler **Premium** türü. |
-|**Premium akış uç noktası**|>0|**Premium** akış uç noktaları, adanmış ve ölçeklenebilir bant genişliği kapasitesi sağlar; dolayısıyla gelişmiş iş yükleri için uygundur. Geçmeden bir **Premium** ayarlayarak türü `scaleUnits`. `scaleUnits` 200 MB/sn'lik artışlarla satın alınabilir adanmış çıkış kapasitesi sağlar. Kullanırken **Premium** türü, her etkin birim, uygulamaya ek bant genişliği kapasitesi sağlar. |
+|**Standart Akış Uç Noktası** (önerilen)|0|Varsayılan akış uç noktası olan bir **standart** yazın, ancak Premium türüne değiştirilebilir.<br/> Standart türü, neredeyse tüm akış senaryoları ve hedef kitle boyutları için önerilen seçenektir. **Standart** türde giden bant genişliği otomatik olarak ölçeklendirilir. Bu tür bir akış uç noktası hizmetin performansını en fazla 600 MB / sn'dir. CDN'de önbelleğe video parçasının, akış uç noktası bant genişliği kullanmaz.<br/>Media Services, gereksinimleri çok yüksek olan müşteriler için kapasitenin en geniş internet kitlelerine göre ölçeklendirilmesini sağlayan **Premium** akış uç noktalarını sunar. Geniş kitlelere ve eş zamanlı görüntüleyiciler bekliyorsanız, bizimle iletişim kurun amsstreaming\@microsoft.com taşımak gereken yönergeler **Premium** türü. |
+|**Premium Akış Uç Noktası**|>0|**Premium** akış uç noktaları, adanmış ve ölçeklenebilir bant genişliği kapasitesi sağlar; dolayısıyla gelişmiş iş yükleri için uygundur. Geçmeden bir **Premium** ayarlayarak türü `scaleUnits`. `scaleUnits` 200 MB/sn'lik artışlarla satın alınabilir adanmış çıkış kapasitesi sağlar. **Premium** türü kullandığınızda etkinleştirilen her birim, uygulamaya ek bant genişliği kapasitesi sağlar. |
+ 
+## <a name="comparing-streaming-types"></a>Akış türlerini karşılaştırma
+
+### <a name="features"></a>Özellikler
+
+Özellik|Standart|Premium
+---|---|---
+Ücretsiz ilk 15 gün| Evet |Hayır
+Aktarım hızı |Azure CDN olmadığında en fazla 600 MB/sn. CDN ile ölçeklendirilir.|Akış birimi (SU) başına 200 MB/sn. CDN ile ölçeklendirilir.
+SLA | 99.9|% 99,9 (SU başına 200 Mbps).
+CDN|Azure CDN, üçüncü taraf CDN veya hiçbir CDN.|Azure CDN, üçüncü taraf CDN veya hiçbir CDN.
+Faturalama saatlere eşit olarak dağıtılır| Günlük|Günlük
+Dinamik şifreleme|Evet|Evet
+Dinamik paketleme|Evet|Evet
+Ölçek|Otomatik yönelik hedeflenen aktarım hızını ölçeklendirir.|Ek akış birimleri
+IP filtrelemeyi/G20/özel konak <sup>1</sup>|Evet|Evet
+Aşamalı indirme|Evet|Evet
+Önerilen kullanım |Büyük bir çoğunluğu senaryoları akış önerilir.|Profesyonel kullanımı.<br/>Düşünüyorsanız standart ötesinde gereksinimlerine sahip olabilir. Bizimle iletişime geçin (amsstreaming@microsoft.com) görüntüleyiciler 50. 000'den daha büyük bir eş zamanlı hedef kitlesi boyutunu bekliyorsanız.
+
+<sup>1</sup> CDN uç noktasında etkinleştirilmediğinde yalnızca doğrudan akış uç kullanılır.
 
 ## <a name="working-with-cdn"></a>CDN ile çalışma
 
-Çoğu durumda, CDN etkin olması gerekir. En fazla eşzamanlılık 500 görüntüleyiciler düşük kapasitesinden ancak ardından eşzamanlılık ile CDN en iyi ölçeklenen beri CDN devre dışı bırakmak için önerilir.
+Çoğu durumda CDN'yi etkinleştirmeniz gerekir. Ancak eşzamanlı görüntüleyici sayısının 500'ün altında olmasını bekliyorsanız CDN en iyi ölçeklendirme performansını eşzamanlılık ile birlikte sunduğundan CDN'yi devre dışı bırakmanız önerilir.
 
 > [!NOTE]
 > Akış uç noktası `hostname` ve CDN'yi etkinleştirme olup olmadığını akış URL'si aynı kalır.
@@ -70,7 +90,7 @@ Bu bölüm, akış uç noktasının özelliklerini bazıları hakkında ayrınt�
     Bu hatayı alırsanız veri merkezi bunu desteklemez. Başka bir veri merkezinde çalışmanız gerekir.
 - `cdnProfile` - `cdnEnabled` Ayarlandığında true de geçirebilirsiniz `cdnProfile` değerleri. `cdnProfile` CDN profil adı, CDN uç noktası oluşturulacağı ' dir. Mevcut bir cdnProfile sağlamak veya yeni bir tane kullanın. Değer NULL ise ve `cdnEnabled` true, "AzureMediaStreamingPlatformCdnProfile" kullanılan varsayılan değer olan. Varsa sağlanan `cdnProfile` zaten varolan bir uç nokta altında oluşturulur. Profil mevcut değilse yeni bir profil otomatik olarak oluşturulur.
 - `cdnProvider` -CDN etkinleştirildiğinde de geçirebilirsiniz `cdnProvider` değerleri. `cdnProvider` hangi sağlayıcısı kullanılacak denetler. Şu anda üç değerleri desteklenir: "StandardVerizon", "PremiumVerizon" ve "StandardAkamai". Hiçbir değer sağlanmışsa ve `cdnEnabled` true ise "StandardVerizon" (varsayılan değer olan) kullanılır.
-- `crossSiteAccessPolicies` -Çeşitli istemciler için erişim ilkeleri siteler arası belirtmek için kullanılır. Daha fazla bilgi için [etki alanları arası ilke dosyası belirtimi](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) ve [bir hizmet üzerinden etki alanı sınırlarında kullanılabilir hale getirme](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).
+- `crossSiteAccessPolicies` -Çeşitli istemciler için erişim ilkeleri siteler arası belirtmek için kullanılır. Daha fazla bilgi için [etki alanları arası ilke dosyası belirtimi](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) ve [bir hizmet üzerinden etki alanı sınırlarında kullanılabilir hale getirme](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).<br/>Ayarlar, yalnızca kesintisiz akış için geçerlidir.
 - `customHostNames` -Bir akış için bir özel konak adı yönlendirilmiş trafiğini kabul edecek şekilde uç noktası yapılandırmak için kullanılır.  Bu özellik standart ve Premium akış uç noktaları için geçerlidir ve ne zaman ayarlanabilir `cdnEnabled`: false.
     
     Etki alanı sahipliğini, Media Services tarafından onaylanmalıdır. Media Services gerektirerek etki alanı adı sahipliğini doğrulayan bir `CName` Media Services hesabı kimliği olarak kullanılan etki alanına eklenmesi için bir bileşen içeren kayıt. Örneğin, "bir kayıt için akış uç noktası için bir özel konak adı olarak kullanılacak sports.contoso.com" için `<accountId>.contoso.com` Media Services doğrulama ana bilgisayar adlarından birini işaret edecek şekilde yapılandırılması gerekir. Doğrulama ana bilgisayar adı verifydns oluşur. \<mediaservices dns bölgesi >. 

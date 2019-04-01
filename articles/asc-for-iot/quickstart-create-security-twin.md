@@ -1,6 +1,6 @@
 ---
-title: Bir güvenlik modül ikizi ASC IOT Önizleme için oluşturun | Microsoft Docs
-description: IOT modül ikizi kullanmak için bir ASC ASC ile IOT oluşturmayı öğrenin.
+title: Azure Güvenlik Merkezi için bir güvenlik modül ikizi IOT Önizleme için oluşturun | Microsoft Docs
+description: Azure Güvenlik Merkezi IOT modül ikizi kullanmak için IOT için ASC ile oluşturmayı öğrenin.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: cd085333f0ddc8a9d49637a2d7156b34c6e5cc72
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 93b6aa6fe133953025cd504e0486a51c4a3d5e04
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579436"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758378"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Hızlı Başlangıç: Bir azureiotsecurity modül ikizi oluşturma
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır. Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır. Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Bu hızlı başlangıç açıklamaları bireysel oluşturma _azureiotsecurity_ modül ikizlerini yeni cihazları veya toplu iş için bir IOT Hub'ında tüm cihazlar için modül ikizlerini oluşturun.  
 
@@ -32,7 +32,7 @@ Bu hızlı başlangıç açıklamaları bireysel oluşturma _azureiotsecurity_ m
 
 Azure'da yerleşik IOT çözümleri için cihaz ikizlerini hem süreç otomasyonu, hem de cihaz Yönetimi önemli bir rol oynar. 
 
-ASC IOT için cihaz güvenlik durumunuzu yönetmenize olanak sağlayan tam tümleştirmesi var olan IOT cihaz Yönetimi platformunuz ile sunuyor olun yanı sıra mevcut cihaz denetim özelliklerini kullanın.
+IOT için Azure Güvenlik Merkezi (ASC) cihaz güvenlik durumunuzu yönetmenize olanak sağlayan tam tümleştirmesi var olan IOT cihaz Yönetimi platformunuz ile sunuyor olun yanı sıra mevcut cihaz denetim özelliklerini kullanın.
 ASC IOT tümleştirme, IOT hub'ını kullanın sağlayarak gerçekleştirilir ikizi mekanizması.  
 
 Bkz: [IOT hub'ı modül ikizlerini](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) modül ikizlerini Azure IOT hub'ın genel kavram hakkında daha fazla bilgi edinmek için. 

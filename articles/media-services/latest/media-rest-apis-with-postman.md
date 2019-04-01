@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 24ee0083ec79265f0ac4dfc0a2e235bc72522831
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: cecfd0fafd17e9c463e0c0a74f1e30290a53d82f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813900"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758198"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Media Services REST API çağrıları için Postman'ı yapılandırma
 
@@ -89,6 +89,13 @@ AMS v3 kaynakları düzenleme başlamadan önce almak ve hizmet sorumlusu kimlik
 
     ![AAD belirteci alma](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
+## <a name="see-also"></a>Ayrıca bkz.
+
+- [Media Services hesabına - REST dosya yükleme](upload-files-rest-how-to.md)
+- [Medya Hizmetleri - REST ile filtre oluşturma](filters-dynamic-manifest-rest-howto.md)
+- [Azure Resource Manager tabanlı REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Dosyaları REST ile Stream](stream-files-tutorial-with-rest.md).  
+- [Dosyaları REST ile Stream](stream-files-tutorial-with-rest.md).  
+- [Öğretici: Uzak dosya tabanlı URL kodlama ve video akışı yapma - REST](stream-files-tutorial-with-rest.md)

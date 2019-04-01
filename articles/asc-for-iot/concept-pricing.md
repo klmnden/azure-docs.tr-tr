@@ -1,6 +1,6 @@
 ---
-title: ASC Önizleme IOT maliyetlerini anlama | Microsoft Docs
-description: IOT ve nasıl kontrol edebilir ASC ile ilişkili maliyetler hakkında bilgi edinin.
+title: IOT için Azure Güvenlik Merkezi Önizleme maliyetlerini anlama | Microsoft Docs
+description: IOT ve nasıl kontrol edebilir, Azure Güvenlik Merkezi ile ilişkili maliyetler hakkında bilgi edinin.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e694bb1a121b172fe67fbde0bd956700a75dfe12
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e2822b0f2f665220f215b85800081fa2fa7943f9
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580666"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758051"
 ---
-# <a name="pricing-and-associated-costs"></a>Fiyatlandırma ve ilişkili maliyetleri
+# <a name="pricing-and-associated-costs"></a>Fiyatlandırma ve ilişkili maliyetler
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Bu makalede tüm ilişkili maliyetleri özetler ASC için IOT fiyatlandırma modeli açıklar ve bunların nasıl yönetileceğini açıklar.
+Bu makalede Azure Güvenlik Merkezi (ASC) IOT fiyatlandırma modeli açıklar, tüm ilişkili maliyetleri özetler ve bunların nasıl yönetileceğini açıklar.
 
 ## <a name="pricing"></a>Fiyatlandırma
 
@@ -73,7 +73,7 @@ Aşağıdaki tabloda, ilişkili maliyetlerin bir özetini ve her seçeneğin etk
 >[!Important]
 > İletişimlerini ciddi etkileri kullanılabilir güvenlik özelliklerine sahiptir.
   
-| Çıkma | Etkileri |
+| Ayrıl | Etkileri |
 | --- | --- |
 | _İkiz meta veri koleksiyonu_ | Devre dışı [özel uyarılar](quickstart-create-custom-alerts.md) |
 | | IOT Edge bildirim önerileri devre dışı bırak |

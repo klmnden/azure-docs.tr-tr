@@ -3,17 +3,17 @@ title: Grafana Azure veri Gezgini'nde verileri görselleştirin
 description: Bu nasıl yapılır makalesinde, Azure Veri Gezgini, Grafana için veri kaynağı olarak ayarlayın ve ardından örnek Küme verilerini görselleştirmek öğrenin.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: 141859d155383b01cfea998c6b7158848517eac2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c77475c052ab3ce74563aba6e4c75a50c7e41bcc
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531961"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758274"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Grafana Azure veri Gezgini'nde verileri görselleştirin
 
