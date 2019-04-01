@@ -11,24 +11,24 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 03/29/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 5a8bd836322ae005b426707e0994bfdc19701fd8
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 599b1d3f522a0f287736808cce88163f1ef7f28f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295683"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755806"
 ---
-# <a name="manage-usage-and-costs-for-log-analytics"></a>Log Analytics için kullanımı ve maliyetleri yönetme
+# <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>Azure İzleyici'de Log Analytics için kullanımı ve maliyetleri yönetme
 
 > [!NOTE]
 > Bu makalede, maliyetlerinizi Log analytics'te veri saklama süresi ayarlayarak denetlemek nasıl açıklar.  İlgili bilgiler için aşağıdaki makalelere göz atın.
 > - [Log analytics'te veri kullanımını çözümleme](manage-cost-storage.md) analiz ve veri kullanımınızı uyarı açıklar.
 > - [Kullanım ve Tahmini maliyetler izleme](usage-estimated-costs.md) çoklu Azure İzleme özelliklerini farklı fiyatlandırma modelleri için tahmini maliyetleri ve kullanım görüntülemeyi açıklar. Ayrıca, uygulamanızın fiyatlandırma modelinin değiştirilmesi nasıl açıklar.
 
-Log Analytics ölçek ve Destek toplama, dizin oluşturma ve kuruluşunuzda oldukça büyük miktardaki verileri günde herhangi bir kaynaktan depolamak üzere tasarlanmış veya Azure'da dağıtılır.  Bu, kuruluşunuz için birincil bir sürücü olabilir, ancak hesaplıdır sonuçta temel alınan sürücüsüdür. Önemli bir Log Analytics çalışma alanı maliyetini yalnızca, toplanan veri hacmine dayalı değilse anlamak bu amaçla için Ayrıca seçilen plan üzerinde bağımlı olduğu ve ne kadar süreyle, bağlı kaynaklardan oluşturulan verileri depolamak seçtiğiniz.  
+Log Analytics'te Azure İzleyici ölçek ve Destek toplama, dizin oluşturma ve kuruluşunuzda oldukça büyük miktardaki verileri günde herhangi bir kaynaktan depolamak üzere tasarlanmış veya Azure'da dağıtılır.  Bu, kuruluşunuz için birincil bir sürücü olabilir, ancak hesaplıdır sonuçta temel alınan sürücüsüdür. Önemli bir Log Analytics çalışma alanı maliyetini yalnızca, toplanan veri hacmine dayalı değilse anlamak bu amaçla için Ayrıca seçilen plan üzerinde bağımlı olduğu ve ne kadar süreyle, bağlı kaynaklardan oluşturulan verileri depolamak seçtiğiniz.  
 
 Bu makalede nasıl proaktif bir şekilde veri hacmi ve depolama büyüme izleyebilir ve bu ilişkili maliyetleri denetleyebilirsiniz sınırlarını tanımlamak inceleyin. 
 
@@ -114,8 +114,6 @@ Log Analytics çalışma alanınızın eski fiyatlandırma katmanları arasında
 
 Çalışma alanınızdaki geçerli fiyatlandırma katmanına taşımak istiyorsanız, yapmanız [aboneliğinizin Azure İzleyicisi'nde fiyatlandırma modeli izleme değiştirme](usage-estimated-costs.md#moving-to-the-new-pricing-model) bu Abonelikteki tüm çalışma alanlarını fiyatlandırma katmanını değiştirir.
 
-> [!NOTE]
-> Çalışma alanınız bir Otomasyon hesabıyla bağlantılıysa, *Tek Başına (GB başına)* fiyatlandırma katmanını seçebilmeniz için tüm **Otomasyon ve Denetim** çözümlerini silmeniz ve Otomasyon hesabının bağlantısını kaldırmanız gerekir. Çalışma alanı dikey penceresindeki **Genel** altında **Çözümler**’e tıklayıp çözümleri silin. Bir Otomasyon hesabının bağlantısını kaldırmak için **Fiyatlandırma katmanı** dikey penceresinde Otomasyon hesabının adına tıklayın.
 
 > [!NOTE]
 > Daha fazla bilgi edinebilirsiniz [ARM aracılığıyla fiyatlandırma katmanını ayarladıktan](template-workspace-configuration.md#create-a-log-analytics-workspace) ve nasıl emin olup abonelik eski veya yeni fiyatlandırma modeli olduğundan bağımsız olarak, ARM dağıtım başarılı olacağıdır. 
