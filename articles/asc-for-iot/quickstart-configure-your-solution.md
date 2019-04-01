@@ -1,6 +1,6 @@
 ---
-title: IOT çözümü Önizleme, ASC yapılandırma | Microsoft Docs
-description: IOT için ASC kullanarak uçtan uca IOT çözümünüzü yapılandırmayı öğrenin.
+title: Azure Güvenlik Merkezi'ne IOT çözümü Önizleme için yapılandırma | Microsoft Docs
+description: IOT için Azure Güvenlik Merkezi'ni kullanarak uçtan uca IOT çözümünüzü yapılandırmayı öğrenin.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2a24db1124ecd9c2437eafee54d856120a77e97f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 0fc67f77e907bd0bc939bf95b34ed4daaab29a2d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576454"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756793"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Hızlı Başlangıç: IOT çözümünüzü yapılandırın
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Bu makalede, IOT için ASC kullanarak IOT güvenlik çözümünüzü ilk yapılandırmasını gerçekleştirmek bir açıklama sağlar. 
 
-## <a name="asc-for-iot"></a>IoT için ASC
+## <a name="azure-security-center-asc-for-iot"></a>IOT için Azure Güvenlik Merkezi (ASC)
 
 ASC IOT için Azure tabanlı IOT çözümleri için kapsamlı uçtan uca güvenlik sağlar.
 

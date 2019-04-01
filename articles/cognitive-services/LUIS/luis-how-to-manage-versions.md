@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: f615a07352faccc8096752e5ba60360144834907
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: dfe23baa67c87b04a65630611ef71758beda268d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338250"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754898"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Düzenle ve hazırlık veya üretim uygulamaları etkilemeden test sürümleri kullanın
 
@@ -59,7 +59,7 @@ Listeden bir sürüm seçin ve ardından **olun etkin** araç çubuğundan.
 
 ### <a name="import-errors"></a>İçeri Aktarma hataları
 
-* Simgeleştirici hataları: Alırsanız bir **simgeleştirici hata** alırken, farklı bir kullanan bir sürümü içeri aktarmaya çalıştığınız [simgeleştirici](luis-language-support.md#custom-tokenizer-versions) uygulamanın şu anda kullandığı daha. Bu sorunu gidermek için iki seçeneğiniz vardır. Bkz: [simgeleştirici sürümler arasında geçiş](luis-language-support.md#migrating-between-tokenizer-versions) daha fazla bilgi için.
+* Simgeleştirici hataları: Alırsanız bir **simgeleştirici hata** alırken, farklı bir kullanan bir sürümü içeri aktarmaya çalıştığınız [simgeleştirici](luis-language-support.md#custom-tokenizer-versions) uygulamanın şu anda kullandığı daha. Bu sorunu düzeltmek için bkz: [simgeleştirici sürümler arasında geçiş](luis-language-support.md#migrating-between-tokenizer-versions).
 
 <a name = "export-version"></a>
 

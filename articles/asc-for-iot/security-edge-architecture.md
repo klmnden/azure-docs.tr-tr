@@ -1,6 +1,6 @@
 ---
-title: ASC, IOT Edge için IOT güvenlik modülü için anlama | Microsoft Docs
-description: İçin IOT Edge mimarisini ve IOT güvenlik modülü için ASC özelliklerini anlayın.
+title: IOT güvenlik modülü IOT Edge için Azure Güvenlik Merkezi'ni anlama | Microsoft Docs
+description: İçin IOT Edge mimarisini ve IOT güvenlik modülü için Azure Güvenlik Merkezi özelliklerini anlayın.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 68117370e21c7b667bde5447cef510a4e7c77df0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 11eadc70f6da20fdc9b837dfad45705278dd2d27
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580771"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756707"
 ---
 # <a name="azure-iot-edge-security-module"></a>Azure IOT Edge güvenlik modülü
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Bu önizleme sürümü, bir hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim worklo§1ads için önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Azure IOT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/) yönetmek ve iş akışlarını uçta gerçekleştirmek için güçlü özellikler sunar.
 IOT Edge, IOT ortamlarda oynadığı anahtar bölümü yapmak, özellikle çekici kötü amaçlı aktörler için.
 
-ASC IOT güvenlik modülü için kapsamlı güvenlik çözümü için IOT Edge cihazları sağlar.
+IOT güvenlik modülü için Azure Güvenlik Merkezi (ASC), cihazları, IOT Edge için kapsamlı güvenlik çözümü sağlar.
 ASC IOT modülü için toplar, toplar ve eyleme dönüştürülebilir güvenlik önerileri ve uyarılar içinde işletim sistemi ve kapsayıcı sistemi ham güvenlik verileri analiz eder.
 
 ASC IOT cihazlarının IOT güvenlik aracılar için ASC IOT Edge modülü, modül ikizi yüksek oranda özelleştirilebilen benzer.

@@ -1,6 +1,6 @@
 ---
-title: IOT güvenlik Aracı Mimarisi Önizleme ASC anlama | Microsoft Docs
-description: ARTAN düzende IOT hizmeti için kullanılan aracıları için güvenlik aracı mimarisini anlama.
+title: IOT güvenlik Aracı Mimarisi Önizleme için Azure Güvenlik Merkezi'ni anlama | Microsoft Docs
+description: Azure Güvenlik Merkezi'nde IOT hizmeti için kullanılan aracıları için güvenlik aracı mimarisini anlama.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: d81054e95b9f712262fe5fa46453749b54a7ac24
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 83ac2fd1d322dc3fb3c04cdf44d560c392320f91
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651406"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754168"
 ---
 # <a name="security-agent-reference-architecture"></a>Güvenlik aracı başvuru mimarisi
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Bu önizleme sürümü, bir hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim iş yükleri için önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-IOT için ASC, oturum, işlemek, toplama ve güvenlik verileri IOT hub'ı üzerinden göndermek güvenlik aracılar için başvuru mimarisi sağlar.
+IOT için Azure Güvenlik Merkezi (ASC), oturum, işlemek, toplama ve güvenlik verileri IOT hub'ı üzerinden göndermek güvenlik aracılar için başvuru mimarisi sağlar.
 
 Güvenlik aracıları kısıtlanmış bir IOT ortamda çalışacak şekilde tasarlanmıştır ve değerleri kullandıkları kaynaklar için karşılaştırıldığında sağlamak açısından tümüyle özelleştirilebilir.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: c52565403c7fbc80eacbf65428863db07d634030
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897291"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757614"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management şablon kaynakları
 Azure API Management aşağıdaki türdeki kaynakları portal şablonları kullanılmak üzere Geliştirici sağlar.  
@@ -45,6 +45,29 @@ Azure API Management aşağıdaki türdeki kaynakları portal şablonları kulla
   
 ```  
   
+Yerelleştirme şunlardan desteklenir:
+
+| Yerel Ayar    | Dil               |
+|-----------|------------------------|
+| "tr"      | "İngilizce"              |
+| "cs"      | "Čeština"              |
+| "de"      | "Deutsch"              |
+| "es"      | "Español"              |
+| "fr"      | "Français"             |
+| "hu"      | "Magyar"               |
+| ""      | "Italiano"             |
+| "ja-JP"   | "日本語"                |
+| "ko"      | "한국어"                |
+| "nl"      | "Nederlands"           |
+| "pl"      | "Polski"               |
+| "pt-br"   | "Português (Brezilya)"   |
+| "pt-pt"   | "Português (Portekiz)" |
+| "ru"      | "Русский"              |
+| "sv"      | "Svenska"              |
+| "tr"      | "Türkçe"               |
+| "zh-hans" | "中文(简体)"           |
+| "zh-hant" | "中文(繁體)"           |
+
  Dize kaynaklarını kullanılmak üzere Geliştirici portal şablonları için aşağıdaki tablolara bakın. Tablo adını bu tablodaki dize kaynakları için önek olarak kullanın.  
   
 -   [ApisStrings](#ApisStrings)  

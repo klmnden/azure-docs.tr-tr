@@ -1,186 +1,76 @@
 ---
-title: Denetimi işleri ve İnsan içinde--döngüsü incelemeleri - Content Moderator
+title: İncelemeleri, iş akışları ve işleri kavramlar - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: İşletmeniz için en iyi sonuçları almak için Azure Content Moderator İnceleme API'si kullanarak makine Yardımlı resim denetimi İnsan içinde--döngüsü özellikleri ile birleştirin.
+description: İncelemeleri, iş akışları ve işleri hakkında bilgi edinin
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 21d71110853c5f18b0b5f0b51d30110eb45ff54a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c1d4ef640e2ae072dacba7a665b6689e3224c55c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862709"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756304"
 ---
-# <a name="content-moderation-jobs-and-reviews"></a>İçerik denetleme işler ve gözden geçirmeler
+# <a name="content-moderation-reviews-workflows-and-jobs"></a>İçerik denetleme incelemeleri, iş akışları ve işler
 
-Azure Content Moderator'ı kullanarak makine Yardımlı resim denetimi İnsan içinde--döngüsü özellikleriyle birleştirerek [gözden geçirme API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) işletmeniz için en iyi sonuçları almak için.
+Content Moderator makine Yardımlı resim denetimi gerçek dünya senaryoları için bir en iyi denetleme işlemi oluşturmak için İnsan-de--döngü özellikleriyle birleştirir. Bunu bulut tabanlı yapar [gözden geçirme aracı](https://contentmoderator.cognitive.microsoft.com). Bu kılavuzda, gözden geçirme Aracı'nın temel kavramlar hakkında bilgi edineceksiniz: incelemeleri, iş akışları ve işler.
 
-Gözden geçirme API İnsan gözetiminin içerik denetleme işleminize dahil etmek için aşağıdaki yöntemleri sunar:
+## <a name="reviews"></a>İncelemeler
 
-* `Job` işlemler, makine Yardımlı resim denetimi ve insan tarafından İnceleme oluşturulurken bir adım olarak başlatmak için kullanılır.
-* `Review` işlemleri denetleme adım dışında insan tarafından İnceleme oluşturmak için kullanılır.
-* `Workflow` işlem gözden geçirme oluşturma için eşikler ile tarama otomatik hale getiren iş akışlarını yönetmek için kullanılır.
+Bir gözden geçirme, içerik için gözden geçirme aracı yüklenir ve altında görünür **gözden** sekmesi. Buradan, kullanıcılar uygulanan etiketler alter ve uygun şekilde kendi özel etiketler. Bir kullanıcı bir gözden geçirme gönderdiğinde, sonuçlar belirtilen geri çağırma uç noktasına gönderilir ve içeriği siteden kaldırılır.
 
-`Job` Ve `Review` işlemleri kabul durumunu ve sonuçlarını almak için geri çağırma uç noktalarınızı.
+![Gözden geçirme sekmesinde bir tarayıcı gözden geçirme Aracı Web sitesi Aç](./Review-Tool-user-Guide/images/image-workflow-review.png)
 
-Bu makalede ele alınmaktadır `Job` ve `Review` operations. Okuma [iş akışlarına genel bakış](workflow-api.md) nasıl oluşturulacağı hakkında bilgi için düzenleme ve iş akışı tanımları alın.
+Bkz: [gözden geçirme aracı Kılavuzu](./review-tool-user-guide/review-moderated-images.md) değerlendirmeleri oluşturmaya başlayın veya görmek için [REST API Kılavuzu](./try-review-api-review.md) programlamayla Bunun hakkında bilgi edinmek için.
 
-## <a name="job-operations"></a>İş işlemleri
+## <a name="workflows"></a>İş akışları
 
-### <a name="start-a-job"></a>Bir işi başlatma
-Kullanım `Job.Create` denetleme ve insan tarafından İnceleme oluşturma işi başlatmak için işlemi. Content Moderator, içerik tarar ve belirtilen iş akışı değerlendirir. İş akışı sonuçlarına göre incelemeleri oluşturur ya da adım atlar. Ayrıca, geri çağırma uç noktanıza sonrası denetleme ve sonrası gözden geçirme etiketleri gönderir.
+Bir iş akışı içeriği için bulut tabanlı özelleştirilmiş filtre kullanılıyor. İş akışları çeşitli içerik farklı yollarla filtreleyebilir ve ardından uygun eylemi gerçekleştirin için hizmetler için bağlanabilirsiniz. Content Moderator Bağlayıcısı ile bir iş akışı otomatik olarak denetleme etiketler ve gözden geçirmeleri ile gönderilen içerik oluşturun.
 
-Girişler, aşağıdaki bilgileri ekleyin:
+### <a name="view-workflows"></a>Görünüm iş akışları
 
-- Gözden geçirme takım kimliği.
-- Denetlenen içeriği.
-- İş akışının adı. ("Varsayılan" iş akışı varsayılandır.)
-- API çağırmanıza için bildirimler noktası.
- 
-Başlatılan iş tanıtıcısı şu yanıtı gösterir. İşin durumunu alın ve ayrıntılı bilgi almak için iş tanımlayıcısı kullanın.
+Mevcut iş görüntülemek için Git [gözden geçirme aracı](https://contentmoderator.cognitive.microsoft.com/) seçip **ayarları** > **iş akışları**.
 
-    {
-        "JobId": "2018014caceddebfe9446fab29056fd8d31ffe"
-    }
+![Varsayılan iş akışı](images/default-workflow-listed.PNG)
 
-### <a name="get-job-status"></a>İş durumunu Al
+İş akışları tamamen bunları programlı olarak erişilebilir olmasını sağlayan JSON dizeler olarak açıklanabilir. Seçerseniz **Düzenle** akışınız için seçeneğini ve ardından **JSON** sekmesinde, aşağıdaki gibi bir JSON ifadesini görürsünüz:
 
-Kullanım `Job.Get` işlemi ve çalışan veya tamamlanmış bir işin ayrıntılarını almak için iş kimliği. İşlem, zaman uyumsuz olarak hemen denetimi iş çalışırken döndürür. Geri çağırma uç noktası aracılığıyla sonuçlar döndürülür.
-
-Girişlerinizi aşağıdaki bilgileri ekleyin:
-
-- Gözden geçirme Takım Kimliği: Önceki işlem tarafından döndürülen iş tanımlayıcısı
-
-Yanıt aşağıdaki bilgileri içerir:
-
-- Oluşturulan gözden geçirme tanımlayıcısı. (Son gözden geçirme sonuçlarını almak için bu kimliği kullanın.)
-- (Tamamlanan veya devam eden) iş durumu: Atanan denetimi etiketleri (anahtar-değer çiftleri).
-- İş yürütme raporu.
- 
- 
-        {
-            "Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-            "TeamName": "some team name",
-            "Status": "Complete",
-            "WorkflowId": "OCR",
-            "Type": "Image",
-            "CallBackEndpoint": "",
-            "ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
-            "ResultMetaData":[
-            {
-            "Key": "hasText",
-            "Value": "True"
-            },
-            {
-            "Key": "ocrText",
-            "Value": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n"
-            }
-            ],
-            "JobExecutionReport": [
-            {
-                "Ts": "2018-01-07T00:38:29.3238715",
-                "Msg": "Posted results to the Callbackendpoint: https://requestb.in/vxke1mvx"
-                },
-                {
-                "Ts": "2018-01-07T00:38:29.2928416",
-                "Msg": "Job marked completed and job content has been removed"
-                },
-                {
-                "Ts": "2018-01-07T00:38:29.0856472",
-                "Msg": "Execution Complete"
-                },
-            {
-                "Ts": "2018-01-07T00:38:26.7714671",
-                "Msg": "Successfully got hasText response from Moderator"
-                },
-                {
-                "Ts": "2018-01-07T00:38:26.4181346",
-                "Msg": "Getting hasText from Moderator"
-                },
-                {
-                "Ts": "2018-01-07T00:38:25.5122828",
-                "Msg": "Starting Execution - Try 1"
-                }
-            ]
-        }
- 
-![İnsan denetimciler için görüntü incelemesi](images/ocr-sample-image.PNG)
-
-## <a name="review-operations"></a>Gözden geçirme işlemleri
-
-### <a name="create-reviews"></a>Gözden geçirmeler oluşturma
-
-Kullanım `Review.Create` incelemelere oluşturma işlemi. Başka bir yerde Orta ya da denetimi etiketleri atamak için Özel mantık kullanın.
-
-Bu işlem için girişlerinizi şunlardır:
-
-- Gözden geçirilmesi içeriği.
-- İnsan Moderatörler tarafından gözden geçirme için atanan etiketleri (anahtar-değer çiftlerinin).
-
-Gözden geçirme tanımlayıcısı şu yanıtı gösterir:
-
-    [
-        "201712i46950138c61a4740b118a43cac33f434",
-    ]
-
-
-### <a name="get-review-status"></a>Gözden geçirme durumu alma
-Kullanım `Review.Get` aracılı görüntünün bir insan tarafından İnceleme tamamlandıktan sonra sonuçları almak için işlemi. Sağlanan geri çağırma uç noktanız ile bildirim alın. 
-
-İşlem, iki etiket döndürür: 
-
-* Denetimi hizmeti tarafından atanan etiketleri
-* İnsan tarafından İnceleme tamamlandıktan sonra etiketleri
-
-En azından girişlerinizi şunlardır:
-
-- Gözden geçirme takım adı
-- Önceki işlem tarafından döndürülen gözden geçirme tanımlayıcısı
-
-Yanıt aşağıdaki bilgileri içerir:
-
-- Gözden geçirme durumu
-- İnsan tarafından inceleme tarafından onaylanan etiketleri (anahtar-değer çiftleri)
-- Denetimi hizmeti tarafından atanan etiketleri (anahtar-değer çiftleri)
-
-Her iki İnceleme atanan etiketleri görürsünüz (**reviewerResultTags**) ve başlangıç etiketleri (**meta verileri**) aşağıdaki örnek yanıt:
-
-    {
-        "reviewId": "201712i46950138c61a4740b118a43cac33f434",
-        "subTeam": "public",
-        "status": "Complete",
-        "reviewerResultTags": [
-        {
-            "key": "a",
-            "value": "False"
+```json
+{
+    "Type": "Logic",
+    "If": {
+        "ConnectorName": "moderator",
+        "OutputName": "isAdult",
+        "Operator": "eq",
+        "Value": "true",
+        "Type": "Condition"
         },
-        {
-            "key": "r",
-            "value": "True"
-        },
-        {
-            "key": "sc",
-            "value": "True"
-        }
-        ],
-        "createdBy": "{teamname}",
-        "metadata": [
-        {
-            "key": "sc",
-            "value": "true"
-        }
-        ],
-        "type": "Image",
-        "content": "https://reviewcontentprod.blob.core.windows.net/{teamname}/IMG_201712i46950138c61a4740b118a43cac33f434",
-        "contentId": "0",
-        "callbackEndpoint": "{callbackUrl}"
+    "Then": {
+    "Perform": [
+    {
+        "Name": "createreview",
+        "CallbackEndpoint": null,
+        "Tags": []
     }
+    ],
+    "Type": "Actions"
+    }
+}
+```
+
+Bkz: [gözden geçirme aracı Kılavuzu](./review-tool-user-guide/workflows.md) oluşturmaya ve iş akışlarını kullanarak başlayın veya görmek için [REST API Kılavuzu](./try-review-api-workflow.md) programlamayla Bunun hakkında bilgi edinmek için.
+
+## <a name="jobs"></a>İşler
+
+İçerik denetleme, iş akışları ve incelemeleri işlevsellik için sarmalayıcı türü bir denetimi iş görür. İş API veya metin denetim API'si Content Moderator görüntü denetimi kullanarak içeriğinizi tarar ve ardından, belirtilen iş akışı karşı denetler. İş akışının sonuçlarına göre bunu olabilir veya içeriği için bir gözden geçirme oluşturamaz [gözden geçirme aracı](./review-tool-user-guide/human-in-the-loop.md). İncelemeler hem de iş akışları oluşturulabilir ve bunların ilgili API'leri ile yapılandırılmış olsa da iş API (hangi belirtilen geri çağırma uç noktasına gönderilebilir) tüm işleminin ayrıntılı bir rapor almak sağlar.
+
+Bkz: [REST API Kılavuzu](./try-review-api-job.md) işleri ile çalışmaya başlamak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

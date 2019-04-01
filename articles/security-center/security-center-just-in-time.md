@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/18/2019
+ms.date: 3/28/2019
 ms.author: monhaber
-ms.openlocfilehash: c7cc5784caf8a83a50536a8edc69ea76ea8589d8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 66a7171aff7b9bab5f320df1d71e9cab4ce0477d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199843"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758310"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Tam zamanında kullanarak sanal makine erişimini yönetme
 
@@ -162,9 +162,13 @@ Azure portalında Azure VM'ye bağlanmaya çalışırken bu VM üzerinde yapıla
 
   ![JIT istemi](./media/security-center-just-in-time/jit-prompt.png)
 
-- VM üzerinde yapılandırılan bir JIT ilke varsa, tıklayabilirsiniz **erişim isteği** için VM kümesi JIT ilkesine uygun olarak erişmesini sağlamak için.
+- VM üzerinde yapılandırılan bir JIT ilke varsa, tıklayabilirsiniz **erişim isteği** için VM kümesi JIT ilkesine uygun olarak erişmesini sağlamak için. Aşağıdaki varsayılan parametreleri erişim isteniyor:
+    - **kaynak IP**: 'Any' (*) (değiştirilemez)
+    - **zaman aralığı**: 3 saat (değiştirilemez)
+    - **bağlantı noktası numarası** RDP 3389 numaralı bağlantı noktası için Windows / Linux için 22 numaralı bağlantı noktasını (bağlantı noktası numarasını değiştirebilirsiniz **sanal makineye bağlanma** iletişim kutusu.)
 
-  ![JIT erişim isteği](./media/security-center-just-in-time/jit-request-access.png)
+
+  >![JIT erişim isteği](./media/security-center-just-in-time/jit-request-access.png)
 
 ## <a name="auditing-jit-access-activity"></a>JIT erişim etkinliğini denetleme
 

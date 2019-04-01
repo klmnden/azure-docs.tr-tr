@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: sajagtap
-ms.openlocfilehash: cc8cbc19f416e6e80d2d0fdfb4862536da7f0ce2
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312251"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756541"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Hızlı Başlangıç: Metin içeriği için içeriklere analiz edinC# 
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Hızlı Başlangıç: Metin içeriği için içeriklere analiz edinC#
 
 Bu makalede, [.NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) için Content Moderator SDK'sını kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri sağlanır. Uygunsuz olabilecek malzemeleri yönetmek için terim tabanlı filtreleme ve metin içeriğini sınıflandırma işlemlerini yürütmeyi öğreneceksiniz.
 
@@ -74,7 +74,7 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 Aşağıdaki kodu **Main** yöntemine ekleyin. Temel işlem, **ScreenText** yöntemidir. Yöntemin parametreleri hangi moderasyon işlemlerinin yapılacağını belirtir. Bu örnekte, yöntem şu işlemler için yapılandırılır:
 - Metindeki olası küfürleri algılama.
 - Metni normalleştirme ve yazım hatalarını otomatik olarak düzeltme.
-- ABD ve Birleşik Krallık telefon numaraları, e-posta adresleri ve ABD posta adresleri gibi kişisel bilgileri (PII) algılama.
+- ABD ve Birleşik Krallık proje telefon numaraları, e-posta adreslerini ve ABD posta adresleri gibi kişisel verileri algılayın.
 - Makine öğrenme tabanlı modelleri kullanarak metni üç kategoride sınıflandırma.
 
 Bu işlemlerin ne yaptığı hakkında daha fazla bilgi edinmek istiyorsanız, [Sonraki adımlar](#next-steps) bölümündeki bağlantıyı izleyin.

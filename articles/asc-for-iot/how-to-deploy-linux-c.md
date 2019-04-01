@@ -1,6 +1,6 @@
 ---
-title: Yükleyip ASC, Linux C aracı IOT aracı Önizleme için Dağıtım Kılavuzu | Microsoft Docs
-description: ASC IOT aracının hem 32-bit hem de 64-bit Linux üzerinde yüklemeyi öğrenin.
+title: Kılavuzu yüklemek ve IOT aracı Önizleme için Azure Güvenlik Merkezi'nin Linux C Aracısı dağıtmak için | Microsoft Docs
+description: IOT aracı için Azure Güvenlik Merkezi hem 32-bit hem de 64-bit Linux üzerinde yüklemeyi öğrenin.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: mlottner
-ms.openlocfilehash: 2b18a09e5b79e7b3d3ea837e937397ac92491f9f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 147813ae096114b4dfc1a20d2e0a70639aa82445
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619858"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754447"
 ---
-# <a name="deploy-asc-for-iot-c-based-security-agent-for-linux"></a>Linux için aracıyı IOT C tabanlı güvenlik için ASC dağıtma
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Linux için aracıyı IOT C tabanlı güvenlik için Azure Güvenlik Merkezi dağıtma
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Bu kılavuz, yüklemek ve dağıtmak için Linux IOT C tabanlı güvenlik aracısında ASC açıklanmaktadır.
+Bu kılavuz, yüklemek ve Linux aracısını IOT C tabanlı güvenlik için Azure Güvenlik Merkezi (ASC) dağıtmak nasıl açıklar.
 
 Bu kılavuzda şunların nasıl yapıldığını öğrenirsiniz: 
 > [!div class="checklist"]

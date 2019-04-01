@@ -8,19 +8,21 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 01/22/2019
-ms.openlocfilehash: 046aed64d3551d5c0b6ddae44b925452c01c297a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.date: 03/29/2019
+ms.openlocfilehash: c5fabf37ecc97f8edea437f1628949e45aefde77
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337604"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755699"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Kimlik doğrulaması ve Azure Logic apps'te yönetilen kimliklerle kaynaklara erişin
 
 Diğer Azure Active Directory (Azure AD) Kiracı kaynaklara erişmek ve açmadan kimliğinizi doğrulamak için mantıksal uygulamanızı kullanabilirsiniz bir [yönetilen kimliği](../active-directory/managed-identities-azure-resources/overview.md) (eski adıyla yönetilen hizmet kimliği veya MSI olarak bilinir), yerine kimlik bilgileri veya gizli dizileri. Bu kimlik, Azure yönetir ve sağlamak veya gizli dizileri döndürmek zorunda olmadığınız için yardımcı kimlik bilgilerinizi koruyun. Bu makalede nasıl ayarlayabilir ve mantıksal uygulamanız için bir sistem tarafından atanan bir yönetilen kimliği kullanma gösterilmektedir. Yönetilen kimlikler hakkında daha fazla bilgi için bkz. [Azure kaynakları için yönetilen kimlikleri nedir?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
+> Mantıksal uygulamanızı yönetilen kimlikleri yönetilen kimlikleri destekleyen bağlayıcıları kullanabilirsiniz. Şu anda yalnızca HTTP Bağlayıcısı yönetilen kimlikleri destekler.
+>
 > Şu anda sistem tarafından atanan ile 10 mantıksal uygulama iş akışlarını kadar her bir Azure aboneliği kimliklerini yönetilen.
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -148,7 +150,7 @@ Mantıksal uygulamanızın sistem tarafından atanan yönetilen kimlik için ba�
 
 Mantıksal uygulamanız ile ayarladıktan sonra sistem tarafından atanan kimliği yönetilen ve söz konusu kimlik için istediğiniz kaynağa erişim atanan, artık bu kimlik için kimlik doğrulaması kullanabilirsiniz. Örneğin, mantıksal uygulamanızı yapabilir veya bir HTTP isteği göndermek için bu kaynak çağrısı, bir HTTP eylemi kullanabilirsiniz. 
 
-1. Mantıksal uygulamanızı eklemek **HTTP** eylem. 
+1. Mantıksal uygulamanızı eklemek **HTTP** eylem.
 
 1. Bu eylem, isteği gibi gerekli bilgileri sağlayın **yöntemi** ve **URI** çağırmak istediğiniz kaynak konumu.
 
@@ -158,7 +160,7 @@ Mantıksal uygulamanız ile ayarladıktan sonra sistem tarafından atanan kimli�
 
    `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version-2016-06-01`
 
-1. HTTP eylemi seçin **Gelişmiş Seçenekleri Göster**. 
+1. HTTP eylemi seçin **Gelişmiş Seçenekleri Göster**.
 
 1. Gelen **kimlik doğrulaması** listesinden **yönetilen kimliği**. Bu kimlik doğrulaması'nı seçtikten sonra **İzleyici** özelliği varsayılan kaynak kimliği değeri ile görünür:
 
@@ -176,7 +178,7 @@ Mantıksal uygulamanız ile ayarladıktan sonra sistem tarafından atanan kimli�
 
 ## <a name="remove-managed-identity"></a>Yönetilen kimlik Kaldır
 
-Sistem tarafından atanan yönetilen bir kimlik mantıksal uygulamanız üzerinde devre dışı bırakmak için nasıl Azure portalı, Azure Resource Manager dağıtım şablonlarını veya Azure PowerShell aracılığıyla kimlik ayarlamanız benzer adımları izleyebilirsiniz. 
+Sistem tarafından atanan yönetilen bir kimlik mantıksal uygulamanız üzerinde devre dışı bırakmak için nasıl Azure portalı, Azure Resource Manager dağıtım şablonlarını veya Azure PowerShell aracılığıyla kimlik ayarlamanız benzer adımları izleyebilirsiniz.
 
 Mantıksal uygulamanızı silseniz bile Azure mantıksal uygulamanızın sistem tarafından atanan kimlik Azure AD'den otomatik olarak kaldırır.
 
@@ -194,7 +196,7 @@ Sistem tarafından atanan yönetilen bir kimlik mantıksal uygulamanızın Azure
 
 ### <a name="deployment-template"></a>Dağıtım şablonu
 
-Mantıksal uygulamanın yönetilen kimlik sistem tarafından atanan bir Azure Resource Manager dağıtım şablonu ile oluşturulan verilirse `"identity"` öğenin `"type"` özelliğini `"None"`. Bu eylem, sorumlu Kimliğini de Azure AD'den siler. 
+Mantıksal uygulamanın yönetilen kimlik sistem tarafından atanan bir Azure Resource Manager dağıtım şablonu ile oluşturulan verilirse `"identity"` öğenin `"type"` özelliğini `"None"`. Bu eylem, sorumlu Kimliğini de Azure AD'den siler.
 
 ```json
 "identity": {

@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 3e6f0a2b9b935df9b12cf9146ebf05f1b1c84855
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e3738980206277587ca367339d75da4f3faa643a
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578773"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651830"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Metin işleme Azure Search'te çözümleyiciler
 
@@ -291,7 +291,7 @@ Olarak kullanılan tüm Çözümleyicisi-, yapılandırma gerektirmeden ise, bir
 
 Bu örnek Microsoft English ve Fransızca Çözümleyicileri açıklama alanlarına atar. Daha büyük bir hotels.cs dosyasında otel sınıfını kullanarak oluşturmak Oteller dizinini tanımını alındığı bir kod parçacığı olan [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) örnek.
 
-Çağrı [Çözümleyicisi](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), belirten [AnalyzerName sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) tüm Azure Search'te desteklenen metin Çözümleyicileri sağlar.
+Çağrı [Çözümleyicisi](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), belirten [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) Azure arama'yı desteklenen bir metin Çözümleyicisi sağlayan tür.
 
 ```csharp
     public partial class Hotel
@@ -317,7 +317,7 @@ Bu örnek Microsoft English ve Fransızca Çözümleyicileri açıklama alanlar�
 
 Özelleştirme veya yapılandırma gerekli olduğunda bir çözümleyici yapısı için bir dizin eklemek gerekir. Tanımladığınız sonra önceki örnekte gösterildiği gibi bu alan tanımı ekleyebilirsiniz.
 
-Kullanım [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) nesnesi oluşturulamıyor. Daha fazla örnek için bkz. [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
+Oluşturma bir [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) nesne. Daha fazla örnek için bkz. [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {

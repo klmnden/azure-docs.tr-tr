@@ -1,6 +1,6 @@
 ---
-title: Kimlik doğrulama yöntemleri için IOT Önizleme ASC | Microsoft Docs
-description: Kullanılabilir farklı kimlik doğrulama yöntemleri hakkında ASC IOT hizmeti için kullanırken öğrenin.
+title: Kimlik doğrulama yöntemleri için IOT Önizleme için Azure Güvenlik Merkezi | Microsoft Docs
+description: Azure Güvenlik Merkezi için IOT hizmeti kullanırken kullanılabilir farklı kimlik doğrulama yöntemleri hakkında öğrenin.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2ace8ffd82efe70251b48e20593906986173cbb0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ec87c2b65728d8ac29daa90de36271e24cd85c0e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577809"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758389"
 ---
 # <a name="security-agent-authentication-methods"></a>Güvenlik aracı kimlik doğrulama yöntemleri 
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Bu önizleme sürümü, bir hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim iş yükleri için önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Bu makalede AzureIoTSecurity aracı ile IOT hub'ı ile kimlik doğrulaması yapmak için kullanabileceğiniz farklı kimlik doğrulama yöntemleri açıklanmaktadır.
 
-IOT Hub, IOT için ASC için her cihaz eklenmedi için bir güvenlik modülü gereklidir. ASC IOT için cihazın kimliğini doğrulamak için iki yöntemden birini kullanabilirsiniz. Mevcut IOT çözümünüz için en uygun yöntemi seçin. 
+Her cihaz eklenmedi için IOT Hub, IOT için Azure Güvenlik Merkezi (ASC) için bir güvenlik modülü gereklidir. ASC IOT için cihazın kimliğini doğrulamak için iki yöntemden birini kullanabilirsiniz. Mevcut IOT çözümünüz için en uygun yöntemi seçin. 
 
 > [!div class="checklist"]
 > * Güvenlik modül seçeneği

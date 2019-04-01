@@ -2,18 +2,18 @@
 title: Oluşturma veya bir veritabanı veya Azure veri Gezgini'nde tablo silme hatası
 description: Bu makale, veritabanlarını ve tabloları Azure veri Gezgini'nde oluşturma ve silme için sorun giderme adımları açıklanmaktadır.
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0bd9f5ed00193aa9f872287b6afaf9e2b28c24dc
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 62eccebab81745f85450390f64b6b22f3c17b32e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188348"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758312"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Sorun giderme: Oluşturma veya bir veritabanı veya Azure veri Gezgini'nde tablo silme hatası
 
@@ -51,7 +51,7 @@ Yeterli izinlere sahip olun. Bir tabloyu yeniden adlandırma ya da silmek için 
 
 İzinler hakkında daha fazla bilgi için bkz. [veritabanı izinlerini yönetmek](manage-database-permissions.md).
 
-## <a name="general-guidance"></a>Genel rehberlik
+## <a name="general-guidance"></a>Genel kılavuz
 
 1. Denetleme [Azure hizmet durumu Panosu](https://azure.microsoft.com/status/). Azure veri Gezgini'nde bir veritabanı veya tablo ile çalışmak için burada çalıştığınız bölge durumunu arayın.
 

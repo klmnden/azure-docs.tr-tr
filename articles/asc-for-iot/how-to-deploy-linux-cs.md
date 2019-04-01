@@ -1,6 +1,6 @@
 ---
-title: Kılavuzu yüklemek ve Linux'ı dağıtmak için C# ASC IOT Önizleme için aracının | Microsoft Docs
-description: ASC IOT aracının hem 32-bit hem de 64-bit Linux üzerinde yüklemeyi öğrenin.
+title: Kılavuzu yüklemek ve Linux'ı dağıtmak için C# IOT Önizleme için Azure Güvenlik Merkezi Aracısı | Microsoft Docs
+description: IOT aracı için Azure Güvenlik Merkezi hem 32-bit hem de 64-bit Linux üzerinde yüklemeyi öğrenin.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: d6b4e6065b0ef198ad583b3760124730e658fe0b
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: be4c663d3a1e99ef67cbbbc2f39b315f1080125c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619917"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758344"
 ---
-# <a name="deploy-asc-for-iot-c-based-security-agent-for-linux"></a>ASC dağıtmak için IOT C#-Linux için aracıyı güvenlik tabanlı
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>IOT için Azure Güvenlik Merkezi dağıtma C#-Linux için aracıyı güvenlik tabanlı
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Bu kılavuz, yüklemek ve IOT için ASC dağıtmak açıklanmaktadır C#-Linux güvenlik aracı tabanlı.
+Bu kılavuz, yüklemek ve IOT için Azure Güvenlik Merkezi (ASC) dağıtmak açıklanmaktadır C#-Linux güvenlik aracı tabanlı.
 
 Bu kılavuzda şunların nasıl yapıldığını öğrenirsiniz: 
 > [!div class="checklist"]

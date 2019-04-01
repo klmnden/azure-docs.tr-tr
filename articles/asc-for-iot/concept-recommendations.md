@@ -1,6 +1,6 @@
 ---
-title: ASC Önizleme için IOT güvenlik önerilerini anlama | Microsoft Docs
-description: Güvenlik önerilerini ve artan düzende IOT için almaları kavramı hakkında bilgi edinin.
+title: Azure Güvenlik Merkezi Önizleme için IOT güvenlik önerilerini anlama | Microsoft Docs
+description: Kavramını güvenlik önerilerini ve IOT için Azure Güvenlik Merkezi'nde nasıl kullanıldığı hakkında bilgi edinin.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: dc37404e45e4efd0697b0f3b19c4927813ab56fa
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 9204bf864ca915baaf6d107ef3586bcd02ed9fef
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576215"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754811"
 ---
 # <a name="security-recommendations"></a>Güvenlik önerileri
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC IOT için Azure kaynaklarını ve IOT cihazları tarar ve saldırı yüzeyinizi azaltmak için güvenlik önerileri sağlar. Güvenlik önerileri, eyleme dönüştürülebilir ve uymak için en iyi güvenlik uygulamalarını belirleyin müşterilerine yardımcı olmak için hedeflenir.
+IOT için Azure Güvenlik Merkezi (ASC), Azure kaynaklarını ve IOT cihazları tarar ve saldırı yüzeyinizi azaltmak için güvenlik önerileri sağlar. Güvenlik önerileri, eyleme dönüştürülebilir ve uymak için en iyi güvenlik uygulamalarını belirleyin müşterilerine yardımcı olmak için hedeflenir.
 
 Bu makalede, IOT Hub ve/veya IOT cihazları üzerinde tetiklenebilen öneriler listesini bulabilirsiniz.
 

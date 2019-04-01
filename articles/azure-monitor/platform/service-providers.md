@@ -1,6 +1,6 @@
 ---
-title: Log Analytics için hizmet sağlayıcıları | Microsoft Docs
-description: Log Analytics, yönetilen hizmet sağlayıcılarına (msp), büyük kuruluşlar, bağımsız yazılım satıcılarına (ISV) yardımcı olabilir ve barındırma hizmeti sağlayıcılarına müşterinin şirket içi veya Bulut altyapı sunucularını izleme ve yönetme.
+title: Hizmet sağlayıcıları için Azure İzleyici | Microsoft Docs
+description: Azure İzleyici, yönetilen hizmet sağlayıcılarına (msp), büyük kuruluşlar, bağımsız yazılım satıcılarına (ISV) yardımcı olabilir ve barındırma hizmeti sağlayıcılarına müşterinin şirket içi veya Bulut altyapı sunucularını izleme ve yönetme.
 services: log-analytics
 documentationcenter: ''
 author: MeirMen
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.openlocfilehash: 294dd56a7eb62510c30f4fbb0dbeeafc81b790f2
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 97d8d6fac93ebabac8fb319ce2f1ab8719f5f86b
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264791"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756576"
 ---
-# <a name="log-analytics-for-service-providers"></a>Hizmet sağlayıcıları için log Analytics
-Log Analytics, yönetilen hizmet sağlayıcılarına (msp), büyük kuruluşlar, bağımsız yazılım satıcılarına (ISV) ve müşterinin şirket içi veya Bulut altyapı sunucularını izleme ve yönetme barındırma hizmeti sağlayıcılarına yardımcı olabilir. 
+# <a name="azure-monitor-for-service-providers"></a>Hizmet sağlayıcıları için Azure İzleyici
+Log Analytics çalışma alanları Azure İzleyici'de, yönetilen hizmet sağlayıcılarına (msp), büyük kuruluşlar, bağımsız yazılım satıcılarına (ISV) ve müşterinin şirket içi veya Bulut altyapı sunucularını izleme ve yönetme barındırma hizmeti sağlayıcılarına yardımcı olabilir. 
 
 Büyük kuruluşlar özellikle yönetmekten sorumlu merkezi bir BT ekibiniz olduğunda bu benzer hizmet sağlayıcıları ile paylaşmak için birçok farklı iş birimleri BT. Kolaylık olması için bu belgede terimini kullanır. *hizmet sağlayıcısı* ancak aynı işlevselliği de kuruluşlar ve diğer müşteriler için kullanılabilir.
 
-İş ortakları ve parçası olan hizmet sağlayıcıları için [bulut çözümü sağlayıcısı (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) programı, Log Analytics kullanılabilir Azure Hizmetleri biridir [Azure CSP aboneliklerinde](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
+İş ortakları ve parçası olan hizmet sağlayıcıları için [bulut çözümü sağlayıcısı (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) programı, Log Analytics, Azure İzleyici'de bulunan Azure Hizmetleri biridir [Azure CSP aboneliklerinde](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
 ## <a name="architectures-for-service-providers"></a>Hizmet sağlayıcılarına yönelik mimariler
 
@@ -70,11 +70,11 @@ Bu mimari dezavantajları şunlardır:
 
 İki seçenek arasındaki üçüncü mimarisi karışımı. Günlükleri nerededir her müşteri için yerel ilk dağıtılmış mimarisi dayanır ancak günlüklerinin merkezi bir depo oluşturmak için bazı mekanizmasını kullanma. Günlükleri bir kısmı, raporlama ve analiz için merkezi bir konuma çekilir. Bu bölümü, az sayıda veri türleri veya günlük istatistikler gibi etkinliğinin özetini olabilir.
 
-Log Analytics'te merkezi bir konum uygulamak için iki seçenek vardır:
+Merkezi bir konumda günlükler uygulamak için iki seçenek vardır:
 
 1. Merkezi çalışma alanı: Hizmet sağlayıcısı, kiracıda bir çalışma alanı oluşturun ve yararlanan bir betik kullan [sorgu API'si](https://dev.loganalytics.io/) ile [veri koleksiyonu API'sini](../../azure-monitor/platform/data-collector-api.md) bu merkezi bir konuma çeşitli çalışma alanlarından verileri getirmek için. Bir betik dışındaki başka bir seçenek kullanmaktır [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
-2. Power BI olarak merkezi bir konum: Çeşitli çalışma alanları için Log Analytics arasındaki tümleştirmeden kullanarak verileri dışarı aktardığınızda, Power BI merkezi konumunuz olarak hareket edebilir ve [Power BI](../../azure-monitor/platform/powerbi.md). 
+2. Power BI olarak merkezi bir konum: Çeşitli çalışma alanları için Log Analytics çalışma alanı arasında tümleştirmeyi kullanarak verileri dışarı aktardığınızda, Power BI merkezi konumunuz olarak hareket edebilir ve [Power BI](../../azure-monitor/platform/powerbi.md). 
 
 
 ## <a name="next-steps"></a>Sonraki Adımlar

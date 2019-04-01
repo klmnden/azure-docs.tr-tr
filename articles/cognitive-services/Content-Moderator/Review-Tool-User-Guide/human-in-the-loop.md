@@ -1,36 +1,52 @@
 ---
-title: İncelemelere içerik denetleme - Content Moderator dahil edilip derecelendirilir.
+title: Gözden geçirme aracı kavramları - Content Moderator hakkında bilgi
 titlesuffix: Azure Cognitive Services
-description: Nasıl makineler ve insanlar birlikte en iyi sonuçları içerik denetleme için sağlar
+description: Content Moderator gözden geçirme aracı hakkında birleştirilmiş yapay ZEKA ve insan tarafından İnceleme denetimi çaba koordine eden bir Web sitesi öğrenin.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-ms.date: 01/10/2019
+ms.date: 03/15/2019
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.author: sajagtap
-ms.openlocfilehash: 4a8f27a94c5e14c34c2a6500dc555c4281d0ecd7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b7ec997fd3e9bfe294050893d80fd57a96a47aae
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224539"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755869"
 ---
-# <a name="learn-about-the-review-tool"></a>Gözden geçirme aracı hakkında bilgi edinin
+# <a name="content-moderator-review-tool"></a>Content Moderator İnceleme aracı
 
-İnsanlar ve makineler birlikte içerik denetleme üzerinde çalışırken en iyi sonuçları alın. Makineleri etkili bir şekilde tahmin olasılık Yardımlı ya da bir gerçek dünya bağlamında geliştirildiğinde sahip olduğu incelemelere artırabilir. Sonuç gerçekleştiren insanlar ve makineler yalnızca çalışmakta olduğunuz, daha iyi bir karma içerik denetleme işlemidir.
+Azure Content Moderator, machine learning içerik denetleme incelemelere, birleştirmek için hizmetler sağlar ve [gözden geçirme aracı](https://contentmoderator.cognitive.microsoft.com) bu hizmetler için ayrıntılı erişim sağlayan kullanıcı dostu bir ön uç Web sitesidir.
+
+![Bir tarayıcıda gözden geçirme aracı Panosu](./images/0-dashboard.png)
 
 ## <a name="what-it-does"></a>Ne yapar?
 
-Makine Yardımlı resim denetimi API'leri ile birlikte kullanıldığında insan tarafından İnceleme aracı, içerik denetleme yaşam döngüsü ile ilgili önemli görevleri gerçekleştirmenize olanak sağlar.
+[Gözden geçirme aracı](https://contentmoderator.cognitive.microsoft.com), makine Yardımlı resim denetimi API'leri ile birlikte kullanılan, içerik denetleme işlemi aşağıdaki görevleri gerçekleştirmenize olanak tanır:
 
-1. Temel alınan denetimi API'si sonuçlarından incelemelere oluşturulmasını otomatikleştirin
-2. Bir aracı (gözden geçirme aracı ve API) (metin, görüntü ve video) birden çok biçimde Orta
-3. Atayın veya içerik kategori veya deneyim düzeyine göre düzenlenmiş birden çok gözden geçirme ekibi için içerik incelemeleri ilerletebilirsiniz.
-4. Varsayılan iş akışlarını kullanın veya özel iş akışları ile esnek kurallara ve herhangi bir kod yazmadan tanımlar.
-5. Herhangi bir API veya iş için insan tarafından İnceleme ekleyin yalnızca bağlayıcı oluşturmanın tarafından işlem.
-6. Microsoft PhotoDNA, metin analizi ve yüz tanıma API'leri sonuçlarını gözden geçirmek için varsayılan bağlayıcıları kullanın.
-7. Temel performans ölçümlerini, içerik denetleme işlemleri alın.
+- Orta (metin, görüntü ve video) birden çok biçimde içerik için bir dizi araç kullanın.
+- İnsan oluşturulmasını otomatikleştirin [incelemeleri](../review-api.md#reviews) denetimi API'si gelen sonuçları zaman içinde.
+- Atayın veya içerik kategori veya deneyim düzeyine göre düzenlenmiş birden çok gözden geçirme ekibi için içerik incelemeleri ilerletebilirsiniz.
+- Varsayılan veya özel mantığı filtreleri kullanın ([iş akışları](../review-api.md#workflows)) sıralama ve içerik, herhangi bir kod yazmadan izlemek için.
+- Kullanım [Bağlayıcılar](./configure.md#connectors) Microsoft PhotoDNA, metin analizi ve içerik Moderator API'leri yanı sıra yüz tanıma API'leri ile içeriğini işlemek için.
+- İş akışları için herhangi bir API oluşturmak için kendi Bağlayıcınızı oluşturun veya iş süreci.
+- Temel performans ölçümlerini, içerik denetleme işlemleri alın.
 
-![Content Moderator video inceleme aracı](../images/video-review-default-view.png)
+## <a name="review-tool-dashboard"></a>Gözden geçirme aracı Panosu
+
+Üzerinde **Pano** sekme, içerik incelemeleri aracın içinden yapılan ilişkin ana ölçümleri görebilirsiniz. Toplam, tam, ve resim, metin ve video içeriği gözden geçirmeleri bekleyen bakın. Kullanıcılar ve henüz uygulanmamış denetimi etiketleri yanı sıra, incelemeler tamamlandı takımlar dökümünü de görebilirsiniz.
+
+![Panoyu görüntüleyin](images/0-dashboard.png)
+
+## <a name="review-tool-credentials"></a>Aracı kimlik bilgileri gözden geçirin
+
+Oturum açtığınızda ile [gözden geçirme aracı](https://contentmoderator.cognitive.microsoft.com), bir Azure bölgesi seçin, hesap istenir. Bunun nedeni, [gözden geçirme aracı](https://contentmoderator.cognitive.microsoft.com) Content Moderator Azure Hizmetleri için ücretsiz bir deneme anahtar oluşturur, bir REST çağrısı veya istemci SDK'sı hizmetlerinden herhangi birine erişmek için bu anahtar gerekir. Anahtar ve API uç nokta URL'nizi seçerek görüntüleyebilirsiniz **ayarları** > **kimlik bilgilerini**.
+
+![Content Moderator kimlik bilgileri](images/settings-6-credentials.png)
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bkz: [gözden geçirme aracı yapılandırma](./configure.md) gözden geçirme aracı kaynaklara erişebilir ve ayarlarını değiştirme hakkında bilgi edinmek için.

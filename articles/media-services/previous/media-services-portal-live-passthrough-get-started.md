@@ -1,5 +1,5 @@
 ---
-title: Azure portalı kullanarak şirket içi kodlayıcılarda canlı akış | Microsoft Docs
+title: Azure portalını kullanarak şirket içi kodlayıcılarda canlı akış | Microsoft Docs
 description: Bu öğretici, doğrudan teslimat için yapılandırılmış bir Kanal oluşturmaya ilişkin adımları anlatmaktadır.
 services: media-services
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d86151b436ec3cc5ea3d4b687f5c8692b2ca4efa
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 48906a12cd113ef613151bb802e757f218bce425
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258719"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758514"
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Azure portalı kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme
+# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Azure portalını kullanarak şirket içi kodlayıcılarla canlı akış gerçekleştirme
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -45,29 +45,31 @@ Aşağıdaki makaleleri gözden geçirmeniz için önerilir:
 * [Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a id="scenario"></a>Ortak canlı akış senaryosu
+
 Aşağıdaki adımlar, doğrudan teslimat için yapılandırılan kanalları kullanan ortak canlı akış uygulamaları oluşturmaya dahil olan görevleri açıklamaktadır. Bu öğretici, doğrudan geçiş kanalı ve canlı olayları oluşturmayı ve yönetmeyi gösterir.
 
->[!NOTE]
->İçerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumunda olduğundan emin olun. 
+> [!NOTE]
+> İçerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumunda olduğundan emin olun. 
     
-1. Bilgisayara bir video kamera bağlayın. Çoklu bit hızlı RTMP ya da Parçalı MP4 akışı çıktısı veren bir şirket içi gerçek zamanlı kodlayıcı çalıştırın ve yapılandırın. Daha fazla bilgi için bkz. [Azure Media Services RTMP Desteği ve Gerçek Zamanlı Kodlayıcılar](https://go.microsoft.com/fwlink/?LinkId=532824).
+1. Bilgisayara bir video kamera bağlayın. <br/>Kurulum fikir edinmek için kullanıma [basit ve taşınabilir olay video dişli Kurulum]( https://link.medium.com/KNTtiN6IeT).
+1. Çoklu bit hızlı RTMP ya da Parçalı MP4 akışı çıktısı veren bir şirket içi gerçek zamanlı kodlayıcı çalıştırın ve yapılandırın. Daha fazla bilgi için bkz. [Azure Media Services RTMP Desteği ve Gerçek Zamanlı Kodlayıcılar](https://go.microsoft.com/fwlink/?LinkId=532824).<br/>Ayrıca, bu bloguna göz atın: [Üretim OBS ile canlı akış](https://link.medium.com/ttuwHpaJeT).
    
     Bu adım, Kanalınızı oluşturduktan sonra da gerçekleştirilebilir.
-2. Geçiş Kanalı oluşturun ve başlatın.
-3. Kanal alma URL’sini alın. 
+1. Geçiş Kanalı oluşturun ve başlatın.
+1. Kanal alma URL’sini alın. 
    
     Alma URL’si gerçek zamanlı kodlayıcı tarafından akışı Kanala göndermek için kullanılır.
-4. Kanal önizleme URL’sini alın. 
+1. Kanal önizleme URL’sini alın. 
    
     Kanalınızın canlı akışı düzgün şekilde aldığını doğrulamak için bu URL’yi kullanın.
-5. Canlı olay/program oluşturun. 
+1. Canlı olay/program oluşturun. 
    
     Azure portalı kullanırken, canlı bir olay oluşturma bir varlık da oluşturur. 
 
-6. Akışı ve arşivlemeyi başlatmaya hazır olduğunuzda, olayı/programı başlatın.
-7. İsteğe bağlı olarak, gerçek zamanlı kodlayıcıya bir reklam başlatması bildirilebilir. Reklam, çıktı akışına eklenir.
-8. Olay akışını ve arşivlemeyi durdurmak istediğinizde, olayı/programı durdurun.
-9. Olayı/programı silin (ve isteğe bağlı olarak varlığı silin).     
+1. Akışı ve arşivlemeyi başlatmaya hazır olduğunuzda, olayı/programı başlatın.
+1. İsteğe bağlı olarak, gerçek zamanlı kodlayıcıya bir reklam başlatması bildirilebilir. Reklam, çıktı akışına eklenir.
+1. Olay akışını ve arşivlemeyi durdurmak istediğinizde, olayı/programı durdurun.
+1. Olayı/programı silin (ve isteğe bağlı olarak varlığı silin).     
 
 > [!IMPORTANT]
 > Lütfen şirket içi kodlayıcılarda ve geçiş kanallarında canlı akışlarla ilgili kavramları ve dikkate alınması gereken noktaları öğrenmek için [Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md) başlığını gözden geçirin.

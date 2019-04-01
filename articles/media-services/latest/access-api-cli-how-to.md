@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 43f9443e4b5cd700500bd9803f2737ed9e0aa633
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 257fe51cae245708816cd9a7bb0c33b6edf5aa05
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223179"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756015"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Azure CLI ile API erişim Azure medya Hizmetleri
  
@@ -40,10 +40,19 @@ Media Services hesap adını ve kaynak grubu adı için kullanılan değerleri u
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
-## <a name="next-steps"></a>Sonraki adımlar
-
-[Bir dosyayı akışa alma](stream-files-dotnet-quickstart.md)
-
 ## <a name="see-also"></a>Ayrıca bkz.
+
+- [Ölçek medya ayrılmış birimleri - CLI](media-reserved-units-cli-how-to.md)
+- [Bir Media Services hesabı oluşturma - CLI](./scripts/cli-create-account.md) 
+- [Sıfırlama hesabı kimlik bilgileri - CLI](./scripts/cli-reset-account-credentials.md)
+- [Varlıklar - CLI oluşturma](./scripts/cli-create-asset.md)
+- [Karşıya dosya - CLI](./scripts/cli-upload-file-asset.md)
+- [Oluşturma dönüşümleri - CLI](./scripts/cli-create-transform.md)
+- [Oluşturma işleri - CLI](./scripts/cli-create-jobs.md)
+- [CLI EventGrid - oluşturma](./scripts/cli-create-event-grid.md)
+- [Bir varlığı - CLI yayımlayın](./scripts/cli-publish-asset.md)
+- [Filtre - CLI](filters-dynamic-manifest-cli-howto.md)
+
+## <a name="next-steps"></a>Sonraki adımlar
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

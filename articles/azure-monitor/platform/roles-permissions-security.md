@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 591b30d0147e427e8a0dbc2d25276bdcd3b54be6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bac57b18ec5474cfe3c27ad1079c5af7e1d2c451
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445492"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756802"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Birçok ekip verilerini ve ayarlarını izlemeye erişim kesinlikle düzenleyen gerekir. Özel İzleme (destek mühendisleri, devops mühendislerine) üzerinde çalışan takım üyeleri sahipseniz veya yönetilen hizmet sağlayıcısı kullanıyorsanız, bunları oluşturmak için kendi yeteneği sınırlandırırken yalnızca izleme verilerine erişimi vermek isteyebilirsiniz, örneğin, değiştirme, veya kaynakları silin. Bu makalede, azure'da bir kullanıcı için bir yerleşik izleme RBAC rolü uygulamak veya izleme sınırlı izinlere ihtiyaç duyan bir kullanıcı için kendi özel rol oluşturma gösterilmektedir. Ardından, Azure İzleyici ile ilgili kaynaklarınızı ve içerdikleri verilere erişimi nasıl sınırlamak için güvenlik konuları açıklanmaktadır.
+Birçok ekip verilerini ve ayarlarını izlemeye erişim kesinlikle düzenleyen gerekir. Özel İzleme (destek mühendisleri, DevOps mühendislerine) üzerinde çalışan takım üyeleri sahipseniz veya yönetilen hizmet sağlayıcısı kullanıyorsanız, bunları oluşturmak için kendi yeteneği sınırlandırırken yalnızca izleme verilerine erişimi vermek isteyebilirsiniz, örneğin, değiştirme, veya kaynakları silin. Bu makalede, azure'da bir kullanıcı için bir yerleşik izleme RBAC rolü uygulamak veya izleme sınırlı izinlere ihtiyaç duyan bir kullanıcı için kendi özel rol oluşturma gösterilmektedir. Ardından, Azure İzleyici ile ilgili kaynaklarınızı ve içerdikleri verilere erişimi nasıl sınırlamak için güvenlik konuları açıklanmaktadır.
 
 ## <a name="built-in-monitoring-roles"></a>İzleme yerleşik roller
 Azure İzleyicisi'nin yerleşik roller yardımcı olmak için tasarlanmıştır almak ve ihtiyaç duydukları verilere yapılandırmak için altyapı izleme için sorumlu bir etkinleştirme sırasında bir abonelik kaynaklarına erişimi sınırlayın. Azure İzleyici, iki Giden kutusu rolünü sağlar: İzleme okuyucusu ve izleme Katılımcısı için.
@@ -38,10 +38,10 @@ Azure İzleyicisi'nin yerleşik roller yardımcı olmak için tasarlanmıştır 
 * Application Insights veri erişimi ve yapay ZEKA Analytics'te verileri görüntüleme.
 * Çalışma alanı için kullanım verileri dahil olmak üzere Log Analytics çalışma alanı veri arayın.
 * Log Analytics Yönetim grupları görüntüleyin.
-* Log Analytics arama şemasını alır.
-* Log Analytics yönetim bilgisi paketleri listeleyin.
-* Almak ve Log Analytics kayıtlı aramalar yürütün.
-* Log Analytics depolama yapılandırması alır.
+* Log Analytics çalışma alanında arama şemasını alır.
+* Log Analytics çalışma alanında izleme paketlerini listeler.
+* Almak ve Log Analytics çalışma alanında kayıtlı aramalar yürütün.
+* Log Analytics çalışma alanı depolama yapılandırması alır.
 
 > [!NOTE]
 > Bu rol, bir olay hub'ına akış veya bir depolama hesabında depolanan günlük verilerine okuma erişimi sağlamaz. [Aşağıya bakın](#security-considerations-for-monitoring-data) bu kaynaklara erişimini yapılandırma hakkında bilgi için.
@@ -57,9 +57,9 @@ Kişilerin izleme katılımcı rolü, bir Abonelikteki tüm izleme verilerini g�
 * Ayarlama etkinliği uyarı kuralları ve ayarları aracılığıyla [Azure uyarıları](../../azure-monitor/platform/alerts-overview.md).
 * Application Insights web testleri ve bileşenler oluşturun.
 * Log Analytics çalışma alanı paylaşılan anahtarlarını listele.
-* Etkinleştirmek veya Log Analytics yönetim bilgisi paketleri devre dışı bırakın.
-* Oluşturun ve silin ve Log Analytics kayıtlı aramalar yürütün.
-* Oluşturma ve Log Analytics depolama yapılandırması Sil.
+* Etkinleştirmek veya Log Analytics çalışma alanında izleme paketlerini devre dışı bırakın.
+* Oluşturun ve silin ve Log Analytics çalışma alanında kayıtlı aramalar yürütün.
+* Oluşturma ve Log Analytics çalışma alanı depolama yapılandırması Sil.
 
 \*Kullanıcı ayrıca bir günlük profilini veya tanılama ayarını belirlemek için hedef kaynak (depolama hesabına veya olay hub'ı ad alanı) Listkeys'i izni verilmesi gerekir.
 

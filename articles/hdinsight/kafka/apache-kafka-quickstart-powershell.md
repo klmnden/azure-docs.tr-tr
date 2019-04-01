@@ -1,20 +1,19 @@
 ---
-title: Apache Kafka’yı Kullanmaya Başlama - Azure HDInsight Hızlı Başlangıcı
+title: Azure PowerShell - Hızlı Başlangıç'ı kullanarak HDInsight üzerinde Apache kafka'yı ayarlama
 description: Bu hızlı başlangıçta, Azure PowerShell kullanarak Azure HDInsight üzerinde bir Apache Kafka kümesi oluşturmayı öğrenirsiniz. Kafka konuları, aboneleri ve tüketicileri hakkında da bilgi edinirsiniz.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: mvc,hdinsightactive
+ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 42384d3ef025640e302ef8173a25965580784319
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 1bad28a80c388cfd8ddabb77c3c6b15743711617
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361209"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757818"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Hızlı Başlangıç: HDInsight kümesi üzerinde Apache Kafka oluşturma
 

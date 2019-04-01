@@ -1,6 +1,6 @@
 ---
-title: ASC IOT önizlemesi nedir | Microsoft Docs
-description: IOT özelliklerini ve hizmet için hakkında ASC öğrenin.
+title: IOT Önizleme için Azure Güvenlik Merkezi nedir | Microsoft Docs
+description: Azure Güvenlik Merkezi hakkında IOT özelliklerini ve hizmet için öğrenin.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 46107797acad52e3df82d341750c52f99c81d63e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 21737017c5087d25e36aec9701d3b4c5ddcb54e8
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578824"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757586"
 ---
-# <a name="introducing-asc-for-iot"></a>IOT için ASC Tanıtımı
+# <a name="introducing-azure-security-center-for-iot"></a>IOT için Azure Güvenlik Merkezi ile tanışın
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="secure-your-azure-iot-solution"></a>Azure IOT çözümünüzün güvenliğini sağlama 
@@ -35,7 +35,7 @@ Güvenlik yönetimini birleştirin ve hibrit bulut iş yükleri ve Azure IOT ç�
 
 Nesnelerin interneti Dünyamızı hızlıca dönüştürüyor. Analiziyle öngörüleri bağlı cihazlar ve arka uç sistemine özelliği sayesinde güçlü uygulamalar ve hizmetler kurumunuzun işletimsel eşi görülmemiş düzeylerini ve iş elde etmek için bu Öngörüler artık dönüştürebilirsiniz performans. Ancak, yeni cihazları milyarlarca internet'e bağlı ve günlük yaşamımızın ve bizim işletmeler; tümleşik kendi güvenlik stratejileri yeterince hızlı bu yeni saldırı yüzeylerini kapsayacak şekilde evrim Geçiren emin olmak güvenlik işlemleri takımlarınızın gerekir. Diğer herhangi bir sistem gibi IOT çözümünüzün güvenliğini sağlama, uygulamanızın her aşamasında koruması gerekir. 
 
-ASC için IOT edge üzerinde çalışan iş yüklerini şirket içi, Azure ve diğer bulutlarda genelinde birleşik bir görünürlük ve denetim, Uyarlamalı tehdit önleme ve akıllı tehdit algılama ve yanıt sunarak karma iş yükü koruması basitleştirir. 
+IOT için Azure Güvenlik Merkezi (ASC) karma iş yükü koruması edge üzerinde çalışan iş yüklerini şirket içinde ve azure'da genelinde birleşik bir görünürlük ve denetim, Uyarlamalı tehdit önleme ve akıllı tehdit algılama ve yanıt sunarak basitleştirir diğer bulut. 
 
 ![IOT mimarisinin ASC](./media/architecture/asc-for-iot-architecture.png)
 

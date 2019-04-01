@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 8ca6c73d6ccdab3acb4ebb18af9b4aa82683e026
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5a1007f2408b48c96f5eeaf585b94c8caa7ceb45
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864307"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757753"
 ---
 # <a name="learn-text-moderation-concepts"></a>Metin denetimi kavramları öğrenin
 
@@ -26,7 +26,7 @@ Hizmet yanıt aşağıdaki bilgileri içerir:
 
 - Küfür: çeşitli dillerde Küfürlü Koşulları'nın yerleşik listesiyle terimi tabanlı eşleşen
 - Sınıflandırma: üç kategoride makine destekli sınıflandırma
-- Kişisel olarak tanımlanabilir bilgiler (PII)
+- Kişisel veriler
 - Otomatik olarak düzeltti metin
 - Orijinal metni
 - Dil
@@ -75,7 +75,7 @@ Aşağıdaki Ayıkla JSON extract içindeki bir örnek çıktı gösterilmektedi
 - `Score` 0 ile 1 arasındadır. Yüksek puanı, kategori uygun olabilir yüksek modeli tahmin etmektir. Bu özellik, el ile kodlanmış sonuçları yerine istatistiksel bir model kullanır. Her kategori için gereksinimlerinizi nasıl hizalandığını belirlemek için kendi içeriğe sahip test etmenizi öneririz.
 - `ReviewRecommended` true veya false iç puanına göre eşikleri bağlı değil. Müşteriler, bu değeri kullanın veya kendi içerik ilkelere dayalı özel eşikler karar değerlendirmelisiniz.
 
-## <a name="personally-identifiable-information-pii"></a>Kişisel olarak tanımlanabilir bilgiler (PII)
+## <a name="personal-data"></a>Kişisel veriler
 
 PII özelliği, bu bilgilerin olası varolup olmadığını algılar:
 

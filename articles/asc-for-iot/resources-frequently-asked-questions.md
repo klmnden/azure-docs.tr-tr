@@ -1,6 +1,6 @@
 ---
-title: Sık sorulan sorular için IOT Önizleme ASC | Microsoft Docs
-description: En sık sorulan soruları yanıtlar hakkında ASC IOT özelliklerini ve hizmet için bulun.
+title: Sık sorulan sorular için Azure Güvenlik Merkezi Önizleme IOT | Microsoft Docs
+description: En sık sorulan soruları yanıtlar Azure Güvenlik Merkezi hakkında IOT özelliklerini ve hizmet için bulun.
 services: ASCforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 8940d629d2f4827ee724c813a40394378dde5a4c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: dab30a03ff73664fde4e5377794d3ae00625af93
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575156"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755334"
 ---
-# <a name="asc-for-iot-frequently-asked-questions"></a>ASC IOT için sık sorulan sorular  
+# <a name="azure-security-center-for-iot-frequently-asked-questions"></a>IOT için Azure Güvenlik Merkezi sık sorulan sorular  
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Bu önizleme sürümü, bir hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim iş yükleri için önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Bu makalede, IOT için ASC hakkında sık sorulan sorular ve cevaplar listesini sağlar. 
+Bu makalede, IOT için sık sorulan sorular ve yanıtlar hakkında Azure Güvenlik Merkezi (ASC) bir listesini sağlar. 
 
 ## <a name="does-azure-provide-support-for-iot-security"></a>Azure IOT güvenliği için destek sağlar?
 

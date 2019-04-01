@@ -1,6 +1,6 @@
 ---
-title: IOT Edge modülü için bir ASC dağıtma | Microsoft Docs
-description: Hakkında bilgi edinin ASC IOT güvenlik aracısı IOT Edge üzerinde dağıtın.
+title: Azure Güvenlik Merkezi için IOT Edge modülü dağıtma | Microsoft Docs
+description: Hakkında bilgi almak için IOT güvenlik aracı IOT Edge üzerinde Azure Güvenlik Merkezi dağıtın.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 87094b265a0c30c0349d64e4b956224525c04f74
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 2a201fe649d52ad9604c7ac6675b26d60e7f2dd1
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580501"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754773"
 ---
 # <a name="deploy-security-module-on-your-iot-edge-device"></a>IOT Edge Cihazınızda güvenlik modül dağıtma
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-IOT için ASC **azureiotsecurity** modülü IOT Edge cihazınız için kapsamlı güvenlik çözümü sağlar.
+IOT için Azure Güvenlik Merkezi (ASC) **azureiotsecurity** modülü IOT Edge cihazınız için kapsamlı güvenlik çözümü sağlar.
 Güvenlik Modülü toplar, toplar ve eyleme dönüştürülebilir güvenlik önerileri ve uyarılar içinde işletim sistemi ve kapsayıcı sisteminizden ham güvenlik verilerini analiz eder.
 Daha fazla bilgi için bkz. [güvenlik modülü IOT Edge için](security-edge-architecture.md).
 

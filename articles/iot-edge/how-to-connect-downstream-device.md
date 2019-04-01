@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 32b9a00aa943813bec3c518c3c9dbf0e37a9bc63
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5a05b8f0f9484ea49fbfb0bbe8818aa9cd0d66ee
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445934"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757127"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Bir Azure IOT Edge ağ geçidi için bir aşağı akış cihazı bağlayın
 
@@ -43,7 +43,7 @@ Bu makaledeki adımları izlemeden önce iki cihazınız kullanıma hazır olman
     Şu anda yalnızca simetrik anahtarlı kimlik doğrulamayı aşağı akış cihazlarıyla IOT Edge ağ geçidi bağlanabilirsiniz. X.509 sertifika yetkililerini ve otomatik olarak imzalanan X.509 sertifikaları şu anda desteklenmiyor.
     
 > [!NOTE]
-> "Bu yönergesinde sertifikaları oluşturmak için kullanılan ağ geçidi adı" adıyla aynı kullanılan IOT Edge config.yaml dosyanızdaki ana bilgisayar adı ve bağlantı dizesinde aşağı akış cihazın GatewayHostName olarak olması gerekir. "Ağ geçidi adının" IP DNS veya ana işlem dosya girdisi kullanarak bir adresine çözülebilir olması gerekir. İletişim tabanlı kullanılan protokol (MQTTS:8883 / AMQPS:5671 / HTTPS:433) aşağı akış cihaz ile IOT Edge transparant arasında mümkün olması gerekir. Bir güvenlik duvarı arasında ise, ilgili bağlantı noktasının açık olması gerekir.
+> "Bu makalede kullanılan ağ geçidi adı" aynı olması gerekir, IOT Edge config.yaml dosyanızdaki ana bilgisayar adı olarak kullanılan ad. Ağ geçidi adı, IP DNS veya ana işlem dosya girdisi kullanarak bir adresine çözülebilir olması gerekir. İletişim tabanlı kullanılan protokol (MQTTS:8883 / AMQPS:5671 / HTTPS:433) aşağı akış cihaz ile IOT Edge transparant arasında mümkün olması gerekir. Bir güvenlik duvarı arasında ise, ilgili bağlantı noktasının açık olması gerekir.
 
 ## <a name="prepare-a-downstream-device"></a>Bir aşağı akış cihazı hazırlama
 
@@ -197,6 +197,14 @@ Her şeyi olmuştur hangi testlerin ayarlanmış bir örnek komut doğru budur. 
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
+
+## <a name="troubleshoot-the-gateway-connection"></a>Ağ geçidi bağlantısıyla ilgili sorunları giderme
+
+Yaprak cihazınız aralıklı bağlantı, ağ geçidi cihazı varsa, çözüm için aşağıdaki adımları deneyin. 
+
+1. Eklenen bağlantı ağ geçidi adı dize ağ geçidi cihazı IOT Edge config.yaml dosyasında bir ana bilgisayar adı ile aynı mı?
+2. Ağ geçidi adı, bir IP adresi olarak çözümlenebilir nedir? DNS kullanarak veya yaprak cihazda ana işlem dosya girdisi ekleyerek intenmittent bağlantıları çözümleyebilir.
+3. İletişim bağlantı noktalarını güvenlik duvarınızdan açık misiniz? İletişim tabanlı kullanılan protokol (MQTTS:8883 / AMQPS:5671 / HTTPS:433) aşağı akış cihaz ile IOT Edge transparant arasında mümkün olması gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

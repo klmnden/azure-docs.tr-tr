@@ -1,6 +1,6 @@
 ---
-title: Güvenlik iletilerinizi ASC'ye IOT Önizleme için gönderin | Microsoft Docs
-description: IOT için ASC kullanarak güvenlik iletilerinizi göndereceğinizi öğrenin.
+title: Güvenlik iletilerinizi Azure Güvenlik Merkezi'ne IOT Önizleme için gönderin | Microsoft Docs
+description: IOT için Azure Güvenlik Merkezi'ni kullanarak güvenlik iletilerinizi göndereceğinizi öğrenin.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: d8eefff5a5ea03237eea60a63b63d70f605f10b3
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 2e8fc3e2cf85fb06d37347870e3b2b9c82f1aa96
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650164"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754782"
 ---
 # <a name="send-security-messages-sdk"></a>SDK'sı güvenlik ileti gönderme
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Bu önizleme sürümü, bir hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim iş yükleri için önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Bu nasıl yapılır kılavuzunda, toplamak ve cihazınız için IOT Aracısı bir ASC kullanmadan güvenlik iletileri göndermek seçtiğinizde ASC IOT hizmet özelliklerini açıklar ve bunun nasıl yapılacağı açıklanır.  
+Bu nasıl yapılır kılavuzunda, toplamak ve cihazınız için IOT Aracısı bir ASC kullanmadan güvenlik iletileri göndermek seçtiğinizde Azure Güvenlik Merkezi (ASC) için IOT hizmet özellikleri açıklar ve bunun nasıl yapılacağı açıklanır.  
 
 Bu kılavuzda şunların nasıl yapıldığını öğrenirsiniz: 
 > [!div class="checklist"]

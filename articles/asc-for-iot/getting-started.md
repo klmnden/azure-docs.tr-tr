@@ -1,6 +1,6 @@
 ---
 title: Azure Güvenlik Merkezi (ASC) IOT önizlemesini kullanmaya başlama | Microsoft Docs
-description: ASC temel iş akışı IOT özelliklerini ve hizmet için anlamak kullanmaya başlayın.
+description: Azure Güvenlik Merkezi temel iş akışı IOT özelliklerini ve hizmet için anlamak kullanmaya başlayın.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 37815c1f1afe3e4c99e2fe171b21857a2018f709
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 23b15b92c844af85f2e1279e531c38ac7d517423
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648325"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755125"
 ---
-# <a name="get-started-with-azure-security-center-asc-for-iot"></a>IOT için Azure Güvenlik Merkezi (ASC) ile çalışmaya başlama 
+# <a name="get-started-with-azure-security-center-for-iot"></a>IOT için Azure Güvenlik Merkezi ile çalışmaya başlama 
 
 > [!IMPORTANT]
-> ASC IOT için şu anda genel Önizleme aşamasındadır.
+> IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Bu makalede IOT hizmeti için bir açıklama ASC farklı yapı taşları sağlar ve nasıl kullanmaya başlayacağınızı açıklayan [hizmetini etkinleştirme](quickstart-onboard-iot-hub.md). 
+Bu makalede IOT hizmeti için bir açıklamanın yanı sıra Azure Güvenlik Merkezi (ASC) farklı yapı taşlarını sağlar ve nasıl kullanmaya başlayacağınızı açıklayan [hizmetini etkinleştirme](quickstart-onboard-iot-hub.md). 
 
 IOT için ASC, güvenlik analizi, IOT hub'ı yapılandırma, cihaz kimliği ve hub cihaz kimlik doğrulaması desenleri sağlamak için IOT hub'a sorunsuz bir şekilde tümleştirilebilir.
 Gelişmiş güvenlik özellikleri için ASC IOT için güvenlik verilerini IOT cihazlarınızdan aracı tabanlı koleksiyonunu sağlar.

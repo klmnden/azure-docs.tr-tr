@@ -3,17 +3,17 @@ title: Azure Veri Gezgini veri alımı
 description: Azure veri Gezgini'nde (yükle) veri alabilen farklı yolları hakkında bilgi edinin
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 2/18/2019
-ms.openlocfilehash: c4db658db3d32905368390826e5531ca31525486
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e2dd67b7b8e7eaac1b823c044fe3d345ce7e8c7b
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133136"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755765"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure Veri Gezgini veri alımı
 
