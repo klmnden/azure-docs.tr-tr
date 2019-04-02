@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e389eb01faff93c0e45c66cded41e94ac3730715
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226037"
 documentType: LandingData
-title: Azure İlkesi Belgeleri
+title: Azure İlkesi hizmeti belgeleri
 metadata:
-  title: Azure İlkesi Belgeleri - Öğreticiler, API Başvurusu
-  description: Azure İlkesi, kaynaklarınıza yönelik kuralları ve etkileri zorunlu kılan ilke tanımları ile BT sorunlarını yönetip önlemenize yardımcı olur. Azure İlkesi kullandığınızda kaynaklarınız, kurumsal standartlarınız ve hizmet düzeyi sözleşmeleriniz ile uyumlu kalır.
+  title: 'Azure İlkesi Belgeleri - Öğreticiler, API Başvurusu'
+  description: 'Azure İlkesi, kaynaklarınıza yönelik kuralları ve etkileri zorunlu kılan ilke tanımları ile BT sorunlarını yönetip önlemenize yardımcı olur. Azure İlkesi kullandığınızda kaynaklarınız, kurumsal standartlarınız ve hizmet düzeyi sözleşmeleriniz ile uyumlu kalır.'
   services: azure-policy
   author: DCtheGeek
   manager: carmonm
@@ -18,62 +12,62 @@ metadata:
   ms.date: 03/16/2019
   ms.author: dacoulte
 abstract:
-  description: Azure İlkesi, kaynaklarınıza yönelik kuralları ve etkileri zorunlu kılan ilke tanımları ile BT sorunlarını yönetip önlemenize yardımcı olur. Azure İlkesi kullandığınızda kaynaklarınız, kurumsal standartlarınız ve hizmet düzeyi sözleşmeleriniz ile uyumlu kalır.
+  description: 'Azure İlkesi, kaynaklarınıza yönelik kuralları ve etkileri zorunlu kılan ilke tanımları ile BT sorunlarını yönetip önlemenize yardımcı olur. Azure İlkesi kullandığınızda kaynaklarınız, kurumsal standartlarınız ve hizmet düzeyi sözleşmeleriniz ile uyumlu kalır.'
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: Azure’da ilke tanımları oluşturma, atama ve yönetmeyi öğrenin.
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        alt: Azure Portal
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure Portal
-      href: ./assign-policy-portal
-    - image:
-        alt: Azure PowerShell
-        src: ./media/powershell.svg
-      text: Azure PowerShell
-      href: ./assign-policy-powershell
-    - image:
-        alt: Azure CLI
-        src: ./media/cli.svg
-      text: Azure CLI
-      href: ./assign-policy-azurecli
-    - image:
-        alt: Resource Manager şablonu
-        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
-      text: Resource Manager şablonu
-      href: ./assign-policy-template
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: Azure’da ilke tanımları oluşturma, atama ve yönetmeyi öğrenin.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Azure’da ilke tanımları oluşturma, atama ve yönetmeyi öğrenin.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Azure Portal
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Azure Portal
+            href: ./assign-policy-portal
+          - image:
+              alt: Azure PowerShell
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: ./assign-policy-powershell
+          - image:
+              alt: Azure CLI
+              src: ./media/cli.svg
+            text: Azure CLI
+            href: ./assign-policy-azurecli
+          - image:
+              alt: Resource Manager şablonu
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Resource Manager şablonu
+            href: ./assign-policy-template
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Azure İlkesi oluşturma ve yönetme</a>
-    - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">Özel ilke tanımı oluşturma</a>
-- title: Örnekler
-  items:
-  - type: paragraph
-    text: Azure’da ilke tanımları oluşturmanıza yardımcı olmak için sağlanan örnekleri gözden geçirin.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Azure’da ilke tanımları oluşturma, atama ve yönetmeyi öğrenin.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Azure İlkesi oluşturma ve yönetme</a>
+          - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">Özel ilke tanımı oluşturma</a>
+  - title: Örnekler
     items:
-    - html: <a href="/azure/governance/policy/samples/index">Örnek dizini</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Azure’da ilke tanımları oluşturmanıza yardımcı olmak için sağlanan örnekleri gözden geçirin.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/governance/policy/samples/index">Örnek dizini</a>
+  - title: Başvuru
     items:
-    - title: Komut Satırı
-      html: <p><a href="/cli/azure/policy">Azure CLI</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (İlke)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (İlke İçgörüleri)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (Konuk Yapılandırması)</a></p>
-    - title: Resource Manager şablonları
-      html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">Atamalar</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">İlke Tanımları</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">Girişim Tanımları</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/policy-insights/policyevents">Olaylar</a></p><p><a href="/rest/api/policy-insights/policystates">Durumlar</a></p><p><a href="/rest/api/resources/policyassignments">Atamalar</a></p><p><a href="/rest/api/resources/policydefinitions">İlke Tanımları</a></p><p><a href="/rest/api/resources/policysetdefinitions">Girişim Tanımları</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">İlke Tarafından İzlenen Kaynaklar</a></p><p><a href="/rest/api/policy-insights/remediations">Düzeltmeler</a></p><p><a href="/rest/api/guestconfiguration/">Konuk Yapılandırması</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Komut Satırı
+            html: '<p><a href="/cli/azure/policy">Azure CLI</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (İlke)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (İlke İçgörüleri)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (Konuk Yapılandırması)</a></p>'
+          - title: Resource Manager şablonları
+            html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">Atamalar</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">İlke Tanımları</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">Girişim Tanımları</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/policy-insights/policyevents">Olaylar</a></p><p><a href="/rest/api/policy-insights/policystates">Durumlar</a></p><p><a href="/rest/api/resources/policyassignments">Atamalar</a></p><p><a href="/rest/api/resources/policydefinitions">İlke Tanımları</a></p><p><a href="/rest/api/resources/policysetdefinitions">Girişim Tanımları</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">İlke Tarafından İzlenen Kaynaklar</a></p><p><a href="/rest/api/policy-insights/remediations">Düzeltmeler</a></p><p><a href="/rest/api/guestconfiguration/">Konuk Yapılandırması</a></p>

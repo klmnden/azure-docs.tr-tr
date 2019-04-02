@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b79f900c9d1fa78c131b132975f9352c4696b201
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726915"
 documentType: LandingData
-title: Azure Kaynak Grafiği Belgeleri
+title: Azure Kaynak Grafı hizmeti belgeleri
 metadata:
-  title: Azure Kaynak Grafiği Belgeleri - Öğreticiler, API Başvurusu
-  description: Azure Kaynak Grafiği, büyük ölçekteki kaynaklarda karmaşık sorgular çalıştırılmasını sağlayan bir Azure hizmetidir.
+  title: 'Azure Kaynak Grafiği Belgeleri - Öğreticiler, API Başvurusu'
+  description: 'Azure Kaynak Grafiği, büyük ölçekteki kaynaklarda karmaşık sorgular çalıştırılmasını sağlayan bir Azure hizmetidir.'
   services: resource-graph
   author: DCtheGeek
   manager: carmonm
@@ -20,36 +14,36 @@ metadata:
 abstract:
   description: Azure Kaynak Grafı belgeleri büyük ölçekteki kaynaklarınızı keşfetmek için yapılandırma gerçekleştirmenize ve sorgu dilini öğrenmenize yardımcı olur.
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: Kaynak Grafiğini yapılandırın ve ilk sorgunuzu çalıştırın.
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        alt: Azure CLI
-        src: ./media/cli.svg
-      text: Azure CLI
-      href: first-query-azurecli.md
-    - image:
-        alt: Azure PowerShell
-        src: ./media/powershell.svg
-      text: Azure PowerShell
-      href: first-query-powershell.md
-- title: Geri Bildirim
-  items:
-  - type: paragraph
-    text: Bu özellikle ilgili geri bildirimde bulunmak veya sorgularla ilgili yardım almak için Azure portalında <b>Azure İlkesi</b> <b>Kaynak Grafiği (önizleme)</b> sayfasını ziyaret edin ve geri bildirim seçeneğine tıklayın. Ayrıca <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a> sayfasından bize önerilerinizi gönderebilirsiniz.
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Kaynak Grafiğini yapılandırın ve ilk sorgunuzu çalıştırın.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Azure CLI
+              src: ./media/cli.svg
+            text: Azure CLI
+            href: first-query-azurecli.md
+          - image:
+              alt: Azure PowerShell
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: first-query-powershell.md
+  - title: Geri Bildirim
     items:
-    - title: Komut Satırı
-      html: <p><a href="/cli/azure/ext/resource-graph/graph">Azure CLI</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
-    - title: Diller
-      html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">.NET için Azure SDK</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">Python için Azure SDK</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/azureresourcegraph/resources/resources">API Başvurusu</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview (OpenAPI)</a></p>
+      - type: paragraph
+        text: 'Bu özellikle ilgili geri bildirimde bulunmak veya sorgularla ilgili yardım almak için Azure portalında <b>Azure İlkesi</b> <b>Kaynak Grafiği (önizleme)</b> sayfasını ziyaret edin ve geri bildirim seçeneğine tıklayın. Ayrıca <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a> sayfasından bize önerilerinizi gönderebilirsiniz.'
+  - title: Başvuru
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Komut Satırı
+            html: <p><a href="/cli/azure/ext/resource-graph/graph">Azure CLI</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
+          - title: Diller
+            html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">.NET için Azure SDK</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">Python için Azure SDK</a></p>
+          - title: REST
+            html: '<p><a href="/rest/api/azureresourcegraph/resources/resources">API Başvurusu</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview (OpenAPI)</a></p>'
