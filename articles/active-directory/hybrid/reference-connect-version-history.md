@@ -16,12 +16,12 @@ ms.date: 03/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ae5b58fb87aaa94e081f9cb60d063c70e5d0359
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 26f3fe9c2483dda3b9350c110b2e8adf60dcd21e
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540967"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803163"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayınlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -39,17 +39,17 @@ Gerekli izinler | Bir güncelleştirmeyi uygulamak için gereken izinler için b
 İndir | [Azure AD Connect'i indirme](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
->Tüm sürümleri Azure AD Connect otomatik yükseltme için kullanılabilir hale getirilir. Yayın durumu, bir yayın otomatik yükseltme için veya yalnızca karşıdan yükleme için kullanılabilir hale getirileceğini olup olmadığını gösterir. Ardından Azure AD Connect sunucunuzda otomatik yükseltmeyi etkinleştirilmişse, sunucu otomatik olarak otomatik yükseltme için yayımlanan Azure AD Connect'in en son sürümünü yükseltecek. Tüm Azure AD Connect yapılandırmaları otomatik yükseltme için uygun olduğunu unutmayın. Lütfen hakkında daha fazla bilgi için bu bağlantıyı izleyin [otomatik yükseltme](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+>Azure AD Connect'i yeni bir sürümü serbest bırakma işlemi işlevlerini emin olmak için çeşitli kalite kontrolü adım gerektirir bir işlemdir ve size bu süreçte çalışırken uygulamanın sürüm sayısını yayın durumu yanı sıra yeni bir yayın güncelleştirildi en son durumu yansıtacak şekilde.
+Size bu süreçte çalışırken, sürüm sürüm numarasını "1.3.X.0" - olduğu gibi alt sürüm numarası konumu "X" işareti olan bu sürüm notları bu belgedeki "1.3." ile başlayan tüm sürümler için geçerli olduğunu gösterir gösterilir. Biz de yayın işlemini sonlandırıldıktan hemen sonra yayımlanma sürümü numarasını en kısa süre önce yayımlanan sürüme güncelleştirilir ve "İndirme ve Otomatik yükseltme için serbest" yayın durumu güncelleştirilir.
+Tüm sürümleri Azure AD Connect otomatik yükseltme için kullanılabilir hale getirilir. Yayın durumu, bir yayın otomatik yükseltme için veya yalnızca karşıdan yükleme için kullanılabilir hale getirileceğini olup olmadığını gösterir. Ardından Azure AD Connect sunucunuzda otomatik yükseltmeyi etkinleştirilmişse, sunucu otomatik olarak otomatik yükseltme için yayımlanan Azure AD Connect'in en son sürümünü yükseltecek. Tüm Azure AD Connect yapılandırmaları otomatik yükseltme için uygun olduğunu unutmayın. Lütfen hakkında daha fazla bilgi için bu bağlantıyı izleyin [otomatik yükseltme](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## <a name="13100"></a>1.3.10.0 
+## <a name="13x0"></a>1.3.X.0 
 
 ### <a name="release-status"></a>Yayın durumu 
 
-3/25/2019: Henüz serbest 
+3/25/2019: Beklemede
  
 ### <a name="new-features-and-improvements"></a>Yeni özellikler ve geliştirmeler 
-
-
 
 - Etki alanı yenileme için destek eklendi 
 - Exchange posta ortak klasörleri özelliğini GA gider 

@@ -9,12 +9,12 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 703256206a6626222013f4e502545c5c1f8cfab7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: c4e81d9be09855cde986bfd21f8f688fa7d1341e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648699"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793728"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Öğretici: Blob Depolama ile yüksek oranda kullanılabilir bir uygulama oluşturun
 
@@ -49,7 +49,7 @@ Bu öğreticiyi tamamlamak için:
 * [Python](https://www.python.org/downloads/)’ı yükleyin
 * [Python için Azure Depolama SDK’sını](https://github.com/Azure/azure-storage-python) indirip yükleme
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK'sı ](#tab/java-v7)
+# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK'sı](#tab/java-v7)
 
 * [Maven](https://maven.apache.org/download.cgi)’ı yükleyip komut satırından çalışacak şekilde yapılandırma
 * [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)’yı yükleme ve yapılandırma
@@ -107,7 +107,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK'sı ](#tab/java-v7)
+# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK'sı](#tab/java-v7)
 
 [Örnek projeyi indirin](https://github.com/Azure-Samples/storage-java-ha-ra-grs) ve storage-java-ragrs.zip dosyasını ayıklayın. Geliştirme ortamına uygulamanın bir kopyasını indirmek için [git](https://git-scm.com/) de kullanılabilir. Örnek proje, temel bir Java uygulaması içerir.
 
@@ -161,7 +161,7 @@ export storageconnectionstring=\<yourconnectionstring\>
 setx storageconnectionstring "\<yourconnectionstring\>"
 ```
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK'sı ](#tab/java-v7)
+# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK'sı](#tab/java-v7)
 
 Uygulamada, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Uygulamayı çalıştıran yerel makine üzerindeki bu bağlantı dizesi bir ortam değişkeninde depolamanız önerilir. Ortam değişkenini oluşturmak için İşletim Sisteminize bağlı olarak aşağıdaki örneklerden birini izleyin.
 
@@ -370,7 +370,7 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK'sı ](#tab/java-v7)
+# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK'sı](#tab/java-v7)
 
 Java ile, **BlobRequestOptions** öğenizin **LocationMode** özelliği, **PRIMARY\_THEN\_SECONDARY** olarak ayarlanırsa geri çağırma işleyicilerinin tanımlanması gerekmez. Bu, uygulamanın **HelloWorld.png** dosyasını indirmeye çalışırken birincil konuma ulaşamaması durumunda otomatik olarak ikincil konuma geçmesine olanak sağlar.
 

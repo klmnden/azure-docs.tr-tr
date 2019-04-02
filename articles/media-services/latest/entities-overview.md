@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/30/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9a02030cb2b785b027bb78bad5ef636dff9dd8f3
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6bf0efd6994315d56e7b1b2447ffed9154cf5ee5
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758544"
+ms.locfileid: "58804879"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>V3 API'ler Media Services ile geliştirme
 
@@ -42,6 +42,30 @@ Bu örnekleri:
 * İşlerin HTTP giriş URL'lerini (imza kaldırmak için) URL'si sorgu dizesi parçasını döndürme değil.
 
 Bkz: [içerik anahtarı ilkesi - .NET edinme](get-content-key-policy-dotnet-howto.md) örnek.
+
+## <a name="long-running-operations"></a>Uzun süre çalışan işlemler
+
+Sahip olarak işaretlenen işlemler `x-ms-long-running-operation` Azure Media Services [dosyaları swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) uzun süren işlemlere. 
+
+Azure zaman uyumsuz işlemleri izleme hakkında daha fazla ayrıntı için bkz: [zaman uyumsuz işlemler](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)
+
+Media Services, aşağıdaki uzun süre çalışan işlemler bulunur:
+
+* Livestream oluşturma
+* Livestream güncelleştir
+* Delete LiveEvent
+* Livestream Başlat
+* Livestream Durdur
+* Livestream Sıfırla
+* LiveOutput oluşturma
+* LiveOutput Sil
+* StreamingEndpoint oluşturma
+* Güncelleştirme StreamingEndpoint
+* StreamingEndpoint Sil
+* StreamingEndpoint Başlat
+* StreamingEndpoint Durdur
+* Ölçek StreamingEndpoint
+
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Media Services varlıkların filtreleme, sıralama, sayfalama
 

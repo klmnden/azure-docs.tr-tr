@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: abfcece2d71e456a39284ddb4cfa106bce31fb53
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 52a18203e5c6973822f52a65364ae2786913d4f0
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670226"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803859"
 documentType: LandingData
 title: Azure Media Services Belgeleri
 metadata:
@@ -32,13 +32,8 @@ sections:
     - href: /azure/media-services/latest/
       html: <p>Media Services v3 ile içeriğinizi kodlayın, paketleyin, koruyun; talep üzerine video akışı yapın; canlı yayın gerçekleştirin; analiz edin.</p>
       image:
-        src: media/index/AMSIcons-media_servicesV3.svg
+        src: /azure/media-services/latest/media/index/AMSIcons-encoding.svg
       title: Azure Media Services v3
-    - href: /azure/media-services/video-indexer/
-      html: <p>Video Indexer’ı kullanarak video ve ses dosyalarınızdan içgörüleri ayıklayın.</p>
-      image:
-        src: media/index/AMSIcons-media_analytics.svg
-      title: Video Indexer
     - href: /azure/media-services/previous/
       html: <p>Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. </p>
       image:
@@ -52,5 +47,10 @@ sections:
     - href: http://amp.azure.net/libs/amp/latest/docs/index.html
       html: <p>Microsoft Azure Media Services'ten medya içeriğini çok çeşitli tarayıcılarda ve cihazlarda kayıttan yürütün.</p>
       image:
-        src: 
+        src: /azure/media-services/latest/media/index/AMSIcons-Player.svg
       title: Azure Media Player
+    - href: /azure/media-services/video-indexer/
+      html: <p>Video Indexer’ı kullanarak video ve ses dosyalarınızdan içgörüleri ayıklayın.</p>
+      image:
+        src: media/index/AMSIcons-media_analytics.svg
+      title: Video Indexer

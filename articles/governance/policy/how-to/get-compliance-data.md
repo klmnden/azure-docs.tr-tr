@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: df5b6268a2ecd7062969aac9d663ee751eeab130
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: da027e492633ba3e4da912c2c45b2432fd217576
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535221"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802972"
 ---
-# <a name="getting-compliance-data"></a>Uyumluluk verilerini alma
+# <a name="get-compliance-data-of-azure-resources"></a>Azure kaynaklarınızın uyumluluk verilerini al
 
 Azure İlkesi'nin en büyük avantajlarından biri olan içgörü ve denetimler sağlar bir Abonelikteki kaynakları üzerinden veya [yönetim grubu](../../management-groups/overview.md) abonelikler. Bu denetim, yanlış konumda oluşturulan kaynaklarını genel ve tutarlı etiket kullanım zorlamayı engelleyen gibi birçok farklı şekillerde uygulanabilecek veya yapılandırmaları ve ayarları denetim mevcut kaynakları için uygun. Her durumda, veriler sağlamak ortamınızın uyumluluk durumunu anlamak, ilke tarafından oluşturulur.
 
@@ -120,27 +120,27 @@ Yanında **uyumlu** ve **uyumlu**, ilkeleri ve kaynakları diğer üç durumu va
 Uyumluluk yüzdesi bölünmesiyle belirlenir **uyumlu** kaynaklar tarafından _toplam kaynakları_.
 _Toplam kaynakları_ toplamı olarak tanımlanan **uyumlu**, **uyumlu**, ve **çakışan** kaynakları. Farklı kaynaklar toplamını genel uyumluluk sayılardır **uyumlu** toplamı tüm farklı kaynaklar tarafından ayrılmış. Aşağıdaki görüntüde, geçerli olan 20 farklı kaynak vardır ve yalnızca **uyumlu**. Genel kaynak uyumluluk % 95'inden (19 / 20) ' dir.
 
-![Basit uyumluluk örneği](../media/getting-compliance-data/simple-compliance.png)
+![İlke uyumluluğunu uyumluluk sayfası örneği](../media/getting-compliance-data/simple-compliance.png)
 
 ## <a name="portal"></a>Portal
 
 Azure portalında bir grafik deneyimi Görselleştirme ve anlama ortamınızın uyumluluk durumunu gösterir. Üzerinde **ilke** sayfasında **genel bakış** seçeneği kullanılabilir kapsamlarda uyumluluk ilkeleri ve girişimler için Ayrıntılar sağlar. Uyumluluk durumu ve başına atama sayısı ile birlikte, son yedi güne uyumluluk gösteren bir grafiği içerir.
 **Uyumluluk** sayfası (grafik dışında) aynı bilgilerin çoğunu içerir, ancak ek filtreleme ve sıralama seçenekleri sağlar.
 
-![İlke uyumluluk sayfası](../media/getting-compliance-data/compliance-page.png)
+![İlke uyumluluğu sayfası örneği](../media/getting-compliance-data/compliance-page.png)
 
 Bir ilke veya girişim farklı kapsamlara atanabilir olduğundan, tablo, her atama ve tür tanımının atandığı için kapsamı içerir. Uyumlu olmayan kaynakları ve her atama için uyumlu olmayan ilkeler de sağlanır. Bir ilke veya girişim tabloda tıklayarak bu atama için Uyumluluk, daha kapsamlı bir bakış sağlar.
 
-![İlke uyumluluk ayrıntıları](../media/getting-compliance-data/compliance-details.png)
+![İlke uyumluluk Ayrıntıları sayfası örneği](../media/getting-compliance-data/compliance-details.png)
 
 Kaynakları listesini **kaynak Uyumluluk** sekmesinde mevcut kaynaklar mevcut atamanın için değerlendirme durumunu gösterir. Varsayılanları sekmesi **uyumlu**, ancak filtrelenebilir.
 Olaylar (ekleme, Denetim, reddetme, dağıtım) kaynak oluşturmak için istek tarafından tetiklenen altında gösterilen **olayları** sekmesi.
 
-![İlke uyumluluk olayları](../media/getting-compliance-data/compliance-events.png)
+![İlke uyumluluğunu olayları örneği](../media/getting-compliance-data/compliance-events.png)
 
 Olay hakkında daha ayrıntılı bilgi toplamak ve seçmek için istediğiniz satıra sağ **etkinlik günlüklerini göster**. Etkinlik günlüğü sayfasında açılır ve atama ve olayların ayrıntılarını gösteren arama önceden filtre uygulanmış. Etkinlik günlüğü ek bağlam ve bu olaylar hakkında bilgi sağlar.
 
-![İlke uyumluluk etkinlik günlüğü](../media/getting-compliance-data/compliance-activitylog.png)
+![İlke uyumluluk etkinlik günlüğü örneği](../media/getting-compliance-data/compliance-activitylog.png)
 
 ### <a name="understand-non-compliance"></a>Uyumsuzluk anlama
 
@@ -414,7 +414,7 @@ PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
-## <a name="azure-monitor-logs"></a>Azure izleme günlükleri
+## <a name="azure-monitor-logs"></a>Azure İzleyici günlükleri
 
 Varsa bir [Log Analytics çalışma alanı](../../../log-analytics/log-analytics-overview.md) ile `AzureActivity` gelen [Activity Log Analytics çözümünü](../../../azure-monitor/platform/collect-activity-logs.md) aboneliğinize bağlı, uyumsuzluk sonuçları değerlendirme döngüsü kullanarak da görüntüleyebilirsiniz Basit Kusto sorgu ve `AzureActivity` tablo. Azure İzleyici günlüklerine ayrıntılarla uyumsuzluk için izlemek için uyarılar yapılandırılabilir.
 
