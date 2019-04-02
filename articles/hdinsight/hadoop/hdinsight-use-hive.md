@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.openlocfilehash: 6d667df3062112e0c805e3ba26bc6240022cab8b
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.date: 03/26/2019
+ms.openlocfilehash: 1f0746436fa980b6becfa7a88560734aa07a54e2
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446315"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801938"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Apache Hive ve HiveQL Azure HDInsight üzerinde nedir?
 
@@ -37,17 +37,15 @@ HDInsight, belirli iş yükleri için ayarlanmıştır çeşitli küme türleri 
 
 HDInsight ile Hive kullanma farklı yollarını keşfetmek için aşağıdaki tabloyu kullanın:
 
-| **Bu yöntemi kullanmak** istiyorsanız... | ... **etkileşimli** sorguları | ...**toplu** işleme | ...hemen bu **küme işletim sistemi** | ...from bu **istemci işletim sistemi** |
+| **Bu yöntemi kullanmak** istiyorsanız... | ... **etkileşimli** sorguları | ...**toplu** işleme | ...from bu **istemci işletim sistemi** |
 |:--- |:---:|:---:|:--- |:--- |
-| [Visual Studio Code için HDInsight araçları](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux, UNIX, Mac OS X veya Windows |
-| [Visual Studio için HDInsight araçları](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Linux veya Windows * |Windows |
-| [Hive görünümü](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |(Herhangi bir tarayıcı tabanlı) |
-| [Beeline istemci](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, UNIX, Mac OS X veya Windows |
-| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux veya Windows * |Linux, UNIX, Mac OS X veya Windows |
-| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux veya Windows * |Windows |
+| [Visual Studio Code için HDInsight araçları](../hdinsight-for-vscode.md) |✔ |✔ | Linux, UNIX, Mac OS X veya Windows |
+| [Visual Studio için HDInsight araçları](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
+| [Hive görünümü](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |(Herhangi bir tarayıcı tabanlı) |
+| [Beeline istemci](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux, UNIX, Mac OS X veya Windows |
+| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, UNIX, Mac OS X veya Windows |
+| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
-> [!IMPORTANT]
-> \* Linux üzerinde HDInsight sürüm 3.4 kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="hiveql-language-reference"></a>HiveQL dil başvurusu
 
@@ -119,7 +117,6 @@ HDInsight üzerindeki hive'a gelen önceden yüklü adlı bir iç tablo `hivesam
 Sütunları üzerine aşağıdaki HiveQL ifadelerini proje `/example/data/sample.log` dosyası:
 
 ```hiveql
-set hive.execution.engine=tez;
 DROP TABLE log4jLogs;
 CREATE EXTERNAL TABLE log4jLogs (
     t1 string,
@@ -138,10 +135,6 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 Önceki örnekte, HiveQL ifadelerini aşağıdaki eylemleri gerçekleştirin:
 
-* `set hive.execution.engine=tez;`: Yürütme altyapısı, Apache Tez kullanılacak ayarlar. Tez kullanarak sorgu performans artışı sağlayabilir. Tez hakkında daha fazla bilgi için bkz. [Gelişmiş performans için Apache Tez kullanma](#usetez) bölümü.
-
-    > [!NOTE]  
-    > Bu deyimi amaçlıdır bir Windows tabanlı HDInsight kümesi kullanırken gereklidir. Tez Linux tabanlı HDInsight için varsayılan yürütme altyapısıdır.
 
 * `DROP TABLE`: Tablo zaten mevcut değilse silebilirsiniz.
 
@@ -163,7 +156,6 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 Oluşturmak için bir **iç** yerine harici tablo, aşağıdaki HiveQL kullanın:
 
 ```hiveql
-set hive.execution.engine=tez;
 CREATE TABLE IF NOT EXISTS errorLogs (
     t1 string,
     t2 string,
@@ -193,16 +185,7 @@ Bu deyimler, aşağıdaki eylemleri gerçekleştirin:
 
 ### <a id="usetez"></a>Apache Tez
 
-[Apache Tez](https://tez.apache.org) ölçekte çok daha verimli bir şekilde çalıştırmak için Hive gibi veri yoğun uygulamalar sağlayan bir çerçevedir. Tez, Linux tabanlı HDInsight kümeleri için varsayılan olarak etkindir.
-
-> [!NOTE]  
-> Tez şu anda Windows tabanlı HDInsight kümeleri için varsayılan olarak kapalıdır ve etkinleştirilmesi gerekir. Tez yararlanmak için bir Hive sorgusu için şu değere ayarlamanız gerekir:
->
-> `set hive.execution.engine=tez;`
->
-> Tez, Linux tabanlı HDInsight kümeleri için varsayılan altyapısıdır.
-
-[Apache Hive Tez tasarım belgelerinde](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) uygulama seçeneklerine ve ayarlama yapılandırmalar hakkında ayrıntılar içerir.
+[Apache Tez](https://tez.apache.org) ölçekte çok daha verimli bir şekilde çalıştırmak için Hive gibi veri yoğun uygulamalar sağlayan bir çerçevedir. Tez varsayılan olarak etkindir.  [Apache Hive Tez tasarım belgelerinde](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) uygulama seçeneklerine ve ayarlama yapılandırmalar hakkında ayrıntılar içerir.
 
 ### <a name="low-latency-analytical-processing-llap"></a>Düşük gecikme süresi analitik işlem (LLAP)
 
