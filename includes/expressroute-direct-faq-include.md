@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: eb807082443da495cd89e1dd624058c89d3ee65b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6a0d84a2aaf4b52c7fb0163231574eaea63c18c3
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825592"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58807986"
 ---
 ### <a name="what-is-expressroute-direct"></a>ExpressRoute doğrudan nedir?
 
@@ -52,6 +52,6 @@ ExpressRoute doğrudan müşteriler ile doğrudan 100 GB/sn bağlantı noktası 
 
 ExpressRoute doğrudan sabit bir tutar, bağlantı noktası çifti için faturalandırılırsınız. Standart bağlantı hatları için hiçbir ek saat eklenir ve premium bir hafif eklenti ücrete tabi. Çıkış, eşleme konumuna bölgeye bağlı devre başına temelinde faturalandırılır.
 
-### <a name="when-does-billing-state-for-the-expressroute-direct-port-pairs"></a>Ne zaman ExpressRoute doğrudan bağlantı noktası çiftleri için fatura durum mu?
+### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>Ne zaman fatura başlangıç için ExpressRoute doğrudan bağlantı noktası çiftleri mu?
 
 ExpressRoute doğrudan'ın bağlantı noktası çiftleri 45 gün içinde ExpressRoute doğrudan kaynak oluşturulmasını faturalandırılır veya 1 veya bağlantılar hem de etkin olduğunda, hangisi önce gelirse. 45 günlük bir mehil süresi, ortak yerleşim sağlayıcının ile çapraz bağlantı işlemi tamamlamak kanıtlayabilecekleri verilir.

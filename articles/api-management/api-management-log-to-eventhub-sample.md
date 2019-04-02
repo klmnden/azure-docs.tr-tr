@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: cdaaf5323543377d9c2b603ad7377d088710cde8
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c52a1942bda9881f8f782a227c81feaa4813722d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447761"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793654"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Azure API Management, Event hubs'ı ve Moesif API'leri izleme
 [API Management hizmeti](api-management-key-concepts.md) HTTP API'nize gönderilen HTTP isteklerinin işlenmesini geliştirmek için çok sayıda özellik sağlar. Ancak istek ve yanıtların varlığını geçici olabilir. İstek yapıldığında ve arka uç API'niz için API Management hizmeti aracılığıyla akar. API isteği işler ve API tüketiciye yanıt geriye doğru akar. API Management hizmeti görüntülemek için API'ler ile ilgili bazı önemli istatistikleri Azure portal panosunda ancak ötesine ayrıntılarını kaldırılmıştır, tutar.
@@ -47,7 +47,7 @@ Bir olay hub'ı olay verilerinde basit bir dize olarak kabul eder. Bu dizenin i�
 
 Alternatif bir seçenek kullanılmasıydır `application/http` medya türü HTTP Belirtimi'nde açıklanan [RFC 7230](https://tools.ietf.org/html/rfc7230). Bu ortam türünü gerçekten kablo üzerinden HTTP iletileri göndermek için kullanılan tam aynı biçimi kullanır, ancak tüm ileti başka bir HTTP istek gövdesinde put olabilir. Bu örnekte, yalnızca gövdesi bizim iletisi olarak Event Hubs'a göndermek için kullanılacak kullanacağız. Rahat, var olan bir ayrıştırıcı yoktur [Microsoft ASP.NET Web API 2.2 istemci](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) Bu biçim ayrıştırabilir ve yerel dönüştürmek kitaplıkları `HttpRequestMessage` ve `HttpResponseMessage` nesneleri.
 
-Bu ileti oluşturabilmek için C# temel avantajlarından yararlanmak ihtiyacımız [ilke ifadeleri](https://msdn.microsoft.com/library/azure/dn910913.aspx) Azure API Management. Azure Event Hubs için bir HTTP isteği iletisi gönderir ilkeyi, aşağıda verilmiştir.
+Bu ileti oluşturabilmek için C# temel avantajlarından yararlanmak ihtiyacımız [ilke ifadeleri](/azure/api-management/api-management-policy-expressions) Azure API Management. Azure Event Hubs için bir HTTP isteği iletisi gönderir ilkeyi, aşağıda verilmiştir.
 
 ```xml
 <log-to-eventhub logger-id="conferencelogger" partition-id="0">
@@ -315,4 +315,4 @@ Azure API Management hizmeti, Apı'lerinizi gelen ve giden seyahat HTTP trafiği
 * API Management ve olay hub'ları ile tümleştirme hakkında daha fazla bilgi edinin
   * [Azure Event hubs'a, Azure API Management'ta olayları günlüğe kaydetme hakkında](api-management-howto-log-event-hubs.md)
   * [Günlükçü varlık başvurusu](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
-  * [Günlük eventhub ilke başvurusu](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+  * [Günlük eventhub ilke başvurusu](/azure/api-management/api-management-advanced-policies#log-to-eventhub)

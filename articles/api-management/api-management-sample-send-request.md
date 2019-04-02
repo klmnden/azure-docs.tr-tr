@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: bfb08cb3bb81917414e4d34afe47964b738980e7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: adb7329249570750002f04fb72465698f869afdc
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970187"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792493"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Azure API Management hizmetinden dış hizmetler kullanma
 Azure API Management hizmetinde kullanılabilir ilkeleri faydalı iş tamamen gelen istek, giden yanıt ve temel yapılandırma bilgilerini göre çeşitli işlemleri gerçekleştirebilirsiniz. Ancak, API Yönetimi'nden dış hizmetlerle etkileşim için ilkeleri açılır daha fazla fırsatlarının.
@@ -27,7 +27,7 @@ Azure API Management hizmetinde kullanılabilir ilkeleri faydalı iş tamamen ge
 İle etkileşim kurmak nasıl daha önce gördünüz [günlüğe kaydetme, izleme ve analiz için Azure olay hub'ı hizmet](api-management-log-to-eventhub-sample.md). Bu makalede, dış bir HTTP tabanlı hizmetle etkileşim kurmanıza imkan tanıyan ilkelerin gösterilmektedir. Bu ilkeler, uzak olaylarını tetiklemek ya da özgün istek ve yanıt bir şekilde işlemek için kullanılan bilgi almak için kullanılabilir.
 
 ## <a name="send-one-way-request"></a>Bir şekilde İsteği Gönder
-Muhtemelen en basit dış tür önemli olay bildirim almak bir dış hizmet veren istek Başlat ve unut stilini etkileşimidir. Denetim akışı İlkesi `choose` ilgilendiğiniz koşul herhangi bir türden algılamak için kullanılabilir.  Koşul gerçekleştirilirse, dış bir HTTP isteği kullanarak yapabileceğiniz [bir şekilde isteği gönderme](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) ilkesi. Destek gerektiren kritik olayları için şuna benzer PagerDuty veya bu istek Hipchat veya Slack veya SendGrid veya MailChimp gibi bir posta API gibi bir Mesajlaşma sistemi olabilir. Bu ileti sistemlerini çağrılabilir basit HTTP API'si sahiptir.
+Muhtemelen en basit dış tür önemli olay bildirim almak bir dış hizmet veren istek Başlat ve unut stilini etkileşimidir. Denetim akışı İlkesi `choose` ilgilendiğiniz koşul herhangi bir türden algılamak için kullanılabilir.  Koşul gerçekleştirilirse, dış bir HTTP isteği kullanarak yapabileceğiniz [bir şekilde isteği gönderme](/azure/api-management/api-management-advanced-policies#SendOneWayRequest) ilkesi. Destek gerektiren kritik olayları için şuna benzer PagerDuty veya bu istek Hipchat veya Slack veya SendGrid veya MailChimp gibi bir posta API gibi bir Mesajlaşma sistemi olabilir. Bu ileti sistemlerini çağrılabilir basit HTTP API'si sahiptir.
 
 ### <a name="alerting-with-slack"></a>Slack ile uyarı
 Aşağıdaki örnek, HTTP yanıtı durum kodunun en az 500 ise, Slack sohbet odası için bir ileti göndermek nasıl gösterir. Bir 500 aralığı hata istemci API'ın kendilerine çözümlenemiyor arka uç API ile ilgili bir sorun olduğunu gösterir. Genellikle, API Management bölümünde müdahale tür gerektirir.  
@@ -62,7 +62,7 @@ Slack, gelen web kancaları kavramı vardır. Gelen web kancasını yapılandır
 ![Slack Web kancası](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>Ateş ve yeterli unuttunuz mu?
-İsteği Başlat ve unut stilini kullanırken bazı ödünler vardır. Sonra da başarısız olması bildirilmedi bıraktıysanız için istek başarısız olur. Bu belirli durumda, sistem ve ek performans maliyetini yanıt bekleyen raporlama ikincil bir hataya neden karmaşıklığı izin yok. Yanıtı denetlemek için gerekli olduğu senaryolar için sonra [gönderme isteği](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) ilke daha iyi bir seçenektir.
+İsteği Başlat ve unut stilini kullanırken bazı ödünler vardır. Sonra da başarısız olması bildirilmedi bıraktıysanız için istek başarısız olur. Bu belirli durumda, sistem ve ek performans maliyetini yanıt bekleyen raporlama ikincil bir hataya neden karmaşıklığı izin yok. Yanıtı denetlemek için gerekli olduğu senaryolar için sonra [gönderme isteği](/azure/api-management/api-management-advanced-policies#SendRequest) ilke daha iyi bir seçenektir.
 
 ## <a name="send-request"></a>Gönderme isteği
 `send-request` İlke etkinleştirir karmaşık işleme işlevleri gerçekleştiren ve verileri API management hizmet döndürmek için bir dış hizmet kullanarak daha fazla ilke işleme için kullanılabilir.
@@ -209,7 +209,7 @@ Bu bilgi aldıktan sonra tüm arka uç sistemlerine isteğinde bulunabilir. Her 
 Bu istekler ideal değil sırayla yürütülür. 
 
 ### <a name="responding"></a>Yanıt
-Bileşik yanıt oluşturmak için kullanabileceğiniz [döndürülecek yanıt](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) ilkesi. `set-body` Öğesi yeni oluşturmak için bir ifade kullanabilirsiniz `JObject` özellikleri olarak katıştırılmış bileşen gösterimler ile.
+Bileşik yanıt oluşturmak için kullanabileceğiniz [döndürülecek yanıt](/azure/api-management/api-management-advanced-policies#ReturnResponse) ilkesi. `set-body` Öğesi yeni oluşturmak için bir ifade kullanabilirsiniz `JObject` özellikleri olarak katıştırılmış bileşen gösterimler ile.
 
 ```xml
 <return-response response-variable-name="existing response variable">

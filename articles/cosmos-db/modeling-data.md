@@ -8,40 +8,37 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: andrl
 ms.custom: seodec18
-ms.openlocfilehash: f122d60a4f4df011a0adbe7806e70ae173222641
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 5f117d51378f895755b4f5a27fe892d85e12074a
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295105"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762591"
 ---
-# <a name="modeling-document-data-for-nosql-databases"></a>NoSQL veritabanları için belge verilerini modelleme
+# <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB'de modelleme verileri
 
-Gibi Azure Cosmos DB, şemasız veritabanları yaparken Süper kolay veri modelinizi değişiklikler benimsemek yine de bazı zaman düşünmeye verilerinizle ilgili harcadığınız.
+Gibi Azure Cosmos DB, şemasız veritabanları, süper kolay bir şekilde depolama, yapılandırılmamış ve yarı yapılandırılmış verileri Sorgulama yaparken, performans ve ölçeklenebilirlik açısından hizmet ve en düşük, en iyi şekilde yararlanmak için veri modelinizi hakkında bazı zaman düşünmeye ayırması gerektiğini maliyeti.
 
-Nasıl veri depolanacak geçiyor? Uygulamanızı nasıl almak ve veri sorgulamak için geçiyor? Uygulama koyu okuma veya yazma ağır mi?
+Nasıl veri depolanacak geçiyor? Uygulamanızı nasıl almak ve veri sorgulamak için geçiyor? Uygulamanız okuma yoğunluklu mu yazma yoğunluklu mi?
 
 Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlamak mümkün olacaktır:
 
-* Nasıl bir belge veritabanında bir belge dikkat etmeniz?
 * Veri modelleme nedir ve neden miyim dikkat etmelisiniz?
-* Bir belge veritabanında modelleme verileri ilişkisel bir veritabanı için farklı mı?
+* Azure Cosmos DB'de modelleme verileri ilişkisel bir veritabanı için farklı mı?
 * İlişkisel olmayan bir veritabanında veri ilişkileri nasıl express?
 * Ben veri siteme ne zaman ve ne zaman veri bağlamayın?
 
 ## <a name="embedding-data"></a>Veri ekleme
 
-Azure Cosmos DB gibi bir belge deposu, veri modelleme başlattığınızda varlıklarınızı değerlendirilecek deneyin **müstakil belgeleri** JSON'da temsil edilir.
+Azure Cosmos DB'de veri modelleme başlattığınızda varlıklarınızı değerlendirilecek deneyin **müstakil öğeleri** JSON belgeleri olarak temsil edilir.
 
-Biz kolları sıvayın önce çok daha çok, bize birkaç adımda geri alın ve nasıl biz bize çoğunu zaten alışkın olduğu bir konu ilişkisel bir veritabanındaki bir şey model göz gerekir. Aşağıdaki örnek, bir kişinin ilişkisel bir veritabanında depolanabilir nasıl gösterir.
+Karşılaştırma için öncelikle şu ilişkisel veritabanı içindeki veriler nasıl model görelim. Aşağıdaki örnek, bir kişinin ilişkisel bir veritabanında depolanabilir nasıl gösterir.
 
 ![İlişkisel veritabanı modeli](./media/sql-api-modeling-data/relational-data-model.png)
 
-İlişkisel veritabanları ile çalışırken, biz normalleştirmek için Normalleştir, Normalleştir yıllardır verilen.
+İlişkisel veritabanları ile çalışırken, tüm verilerinizi Normalleştir stratejisidir. Verilerinizi genellikle normalleştirme bir kişi gibi bir varlık alma ve ayrık bileşenlerine bozucu içerir. Yukarıdaki örnekte, bir kişi, birden çok adresi kayıtları yanı sıra birden çok kişi ayrıntı kaydı olabilir. İletişim ayrıntıları daha fazla bozulmuş başka ayıklayarak ortak alanları ister bir tür. Aynı adrese geçerlidir, her bir kayıt türü olabilir *giriş* veya *iş*.
 
-Verilerinizi genellikle normalleştirme bir kişi gibi bir varlık alma ve verileri ayrı parçaya bozucu içerir. Yukarıdaki örnekte, bir kişi, birden çok adresi kayıtları yanı sıra birden çok kişi ayrıntı kaydı olabilir. Biz bile bir adım ötesine gidin ve kişi ayrıntılarını ortak başka ayıklayarak kesme alanlarını ister bir tür. Aynı adresi için burada her kaydı gibi bir türe sahip *giriş* veya *iş*.
-
-Kılavuzluk yapar verileri normalleştirmek için olduğunda **yedekli veri depolanmasını önlemek** her kaydı ve bunun yerine veriye başvurmaktadır. Bu örnekte, tüm kişi ayrıntıları ve adresleri olan bir kişi okunacak BİRLEŞTİRMELER etkili bir şekilde çalışma zamanında verilerinizi toplamak için kullanmanız gerekir.
+Kılavuzluk yapar verileri normalleştirmek için olduğunda **yedekli veri depolanmasını önlemek** her kaydı ve bunun yerine veriye başvurmaktadır. Tüm kişi ayrıntıları ve adresleri olan bir kişi okumak için bu örnekte, çalışma zamanında BİRLEŞTİRMELER verilerinizi etkili bir şekilde geri oluşturun (veya normalleştirilmişlikten çıkarmak için) kullanmanız gerekir.
 
     SELECT p.FirstName, p.LastName, a.City, cd.Detail
     FROM Person p
@@ -51,7 +48,7 @@ Kılavuzluk yapar verileri normalleştirmek için olduğunda **yedekli veri depo
 
 Yazma işlemleri, tek bir kişi, iletişim ayrıntılarını ve adresleri ile güncelleştirilmesi arasında bireysel birçok tabloları gerektirir.
 
-Şimdi biz bir belge veritabanında kendi içinde bir varlık olarak aynı verileri modelleyecek nasıl göz atalım.
+Artık size Azure Cosmos DB'de kendi içinde bir varlık olarak aynı verileri modelleyecek nasıl göz atalım.
 
     {
         "id": "1",
@@ -72,10 +69,10 @@ Yazma işlemleri, tek bir kişi, iletişim ayrıntılarını ve adresleri ile g�
         ]
     }
 
-Artık sahibiz yukarıdaki yaklaşımı kullanarak **normalleştirilmişlikten çıkarılmış** kişi nereye kaydetmek size **katıştırılmış** gibi kendi kişi ayrıntıları ve adresler, bu kişinin tek bir JSON ile ilgili tüm bilgileri Belge.
+Size yukarıda bir yaklaşım kullanarak **normalleştirilmişlikten çıkarılmış** göre kişinin kaydı **katıştırma** tüm ilgili bilgileri, kişi ayrıntıları ve adresleri gibi bu kişiye içine bir *tek JSON* belge.
 Ayrıca, biz için sabit bir şema sınırlı değil çünkü biz farklı şekiller kişi ayrıntılarını tamamen sahip gibi şeyleri esnekliğine sahipsiniz.
 
-Veritabanından bir tam kişi kaydı alma tek bir okuma işlemi tek bir koleksiyon karşı ve tek bir belgenin sunulmuştur. Bir kişi kaydı, iletişim ayrıntılarını ve adresleri ile güncelleştirilmesi, bir tek bir yazma işlemi tek bir belge olan.
+Veritabanından bir tam kişi kaydı alınırken, artık bir **tek okuma işlemi** tek bir kapsayıcıya karşı ve tek bir öğe. Bir kişi kaydı, iletişim ayrıntılarını ve adresleri ile güncelleştirilmesi ise ayrıca bir **tek bir yazma işlemi** karşı tek bir öğe.
 
 Veri normal durumdan çıkarmayı, daha az sorgular ve bunun yaygın işlemlerin tamamlanması güncelleştirmeleri uygulamanız gerekebilir.
 
@@ -86,15 +83,15 @@ Genel olarak, katıştırılmış veri kullanın ne zaman modelleri:
 * Vardır **bulunan** varlıklar arasında ilişkiler.
 * Vardır **bir birkaç** varlıklar arasında ilişkiler.
 * Katıştırılmış veri, **seyrek değişen**.
-* Orada katıştırılmış veri olmaz büyütün **bağlı olmadan**.
-* Katıştırılmış veriler var. **integral** bir belgedeki verileri.
+* Değil büyüyecektir katıştırılmış veri **bağlı olmadan**.
+* Katıştırılmış veriler var. **birlikte sık Sorgulanmış**.
 
 > [!NOTE]
 > Genellikle, veri modelleri sağlamak daha iyi çıkarılmışsa **okuma** performans.
 
 ### <a name="when-not-to-embed"></a>Ne zaman değil ekleme
 
-Bir belge veritabanında kural karşısında her şeyi normalleştirilmişlikten çıkarmak ve tüm veriler tek bir belgeye olsa da bu kaçınılmalıdır bazı durumlar için açabilir.
+Azure Cosmos DB'de kural karşısında her şeyi normalleştirilmişlikten çıkarmak ve tüm veriler tek bir öğede olsa da bu kaçınılmalıdır bazı durumlar için açabilir.
 
 Bu JSON parçacığı yararlanın.
 
@@ -114,13 +111,13 @@ Bu JSON parçacığı yararlanın.
         ]
     }
 
-Bu, biz tipik bir blog veya CMS, sistem modelleme, gibi ne yorumlar embedded post varlıkla görünür olabilir. Bu örnekte sorun açıklamaları dizisi olmasıdır **sınırsız**, herhangi tek bir posta olabilir açıklama sayısını (pratik) sınır olmadığını anlamına gelir. Belge boyutunu önemli ölçüde büyüyebilir gibi bu bir sorun olacaktır.
+Bu, biz tipik bir blog veya CMS, sistem modelleme, gibi ne yorumlar embedded post varlıkla görünür olabilir. Bu örnekte sorun açıklamaları dizisi olmasıdır **sınırsız**, herhangi tek bir posta olabilir açıklama sayısını (pratik) sınır olmadığını anlamına gelir. Öğenin boyutunu sonsuz büyük bağlı olarak bu bir sorun olabilir.
 
-Belge boyutunu kablo yanı sıra okuma ve uygun ölçekte, belge güncelleştirme üzerinden veri iletmek için özelliği büyüdükçe etkilenir.
+Öğenin boyutunu kablo yanı sıra okuma ve uygun ölçekte, öğe güncelleştirme üzerinden veri iletmek için özelliği büyüdükçe etkilenir.
 
-Bu durumda, aşağıdaki modeli dikkate alınması gereken daha iyi olur.
+Bu durumda, aşağıdaki veri modeli dikkate alınması gereken daha iyi olur.
 
-    Post document:
+    Post item:
     {
         "id": "1",
         "name": "What's new in the coolest Cloud",
@@ -132,7 +129,7 @@ Bu durumda, aşağıdaki modeli dikkate alınması gereken daha iyi olur.
         ]
     }
 
-    Comment documents:
+    Comment items:
     {
         "postId": "1"
         "comments": [
@@ -151,9 +148,9 @@ Bu durumda, aşağıdaki modeli dikkate alınması gereken daha iyi olur.
         ]
     }
 
-Bu model, en son üç sahip açıklamaları dizisi bir sabit ile posta kendisi, katıştırılmış bağlı bu süre. Diğer açıklamaları 100 yorumların toplu gruplandırılan ve ayrı belgelerinde depolanan. Kurgusal uygulamamız bir kerede 100 açıklamaları yükleyen kullanıcı izin verdiğinden, toplu iş boyutu 100 seçildi.  
+Bu modelde sabit bir öznitelik kümesini sahip olan bir dizi post kapsayıcı katıştırılmış üç en son açıklamalar yok. Diğer açıklamaları 100 yorumların toplu gruplandırılan ve ayrı öğeleri olarak depolanır. Kurgusal uygulamamız bir kerede 100 açıklamaları yükleyen kullanıcı izin verdiğinden, toplu iş boyutu 100 seçildi.  
 
-Katıştırılmış veri belgeler arasında genellikle kullanıldığında ve sık sık değişir katıştırma verileri yararlı olduğu başka bir durumdur.
+Katıştırılmış veri öğeleri arasında sık sık kullanılır ve sık sık değişir katıştırma verileri yararlı olduğu başka bir durumdur.
 
 Bu JSON parçacığı yararlanın.
 

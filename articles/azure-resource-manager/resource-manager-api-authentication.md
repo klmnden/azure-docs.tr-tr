@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 3/22/2019
 ms.author: dugill
-ms.openlocfilehash: 5144a35dd695ce30f4a7ff940f0bca7e6ba9d23c
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 7e6ce8c4e5e6ff79a8e77708bd76cef6c24cadd3
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372565"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805525"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Aboneliklere erişmek için Kaynak Yöneticisi'ni kullanın kimlik doğrulama API'si
 
@@ -255,7 +255,7 @@ Bir istemci kimlik bilgileri için örnek yanıt vermesi belirteci:
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1432039862","not_before":"1432035962","resource":"https://graph.windows.net/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRv****G5gUTV-kKorR-pg"}
 
 ### <a name="get-objectid-of-application-service-principal-in-user-azure-ad"></a>Kullanıcı Azure AD uygulama hizmet sorumlusunun objectID alın
-Şimdi, sorgu için salt uygulama erişim belirteci kullanmak [Azure AD Graph hizmet sorumluları](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) dizinde uygulama hizmet sorumlusu nesne kimliği belirlemek için API.
+Şimdi, sorgu için salt uygulama erişim belirteci kullanmak [Azure AD Graph hizmet sorumluları](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity) dizinde uygulama hizmet sorumlusu nesne kimliği belirlemek için API.
 
 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#) yöntem ASP.net MVC örnek uygulamanın bu çağrı uygular.
 

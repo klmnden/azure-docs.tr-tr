@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 45b34d12fbcecbf5f6bf1225c5bb82c5385224ed
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 186a9bafe70ab9644666868f11d5ddd865a66b8d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338403"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802550"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma
 
@@ -44,7 +44,7 @@ Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturun. Emin olun **hi
 
 ### <a name="setup-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account"></a>Data Lake depolama Gen2 hesabındaki yönetilen kimlik için izinleri ayarlayın
 
-Yönetilen kimlik için Ata **depolama Blob verileri sahibi (Önizleme)** depolama hesabındaki rol. Daha fazla bilgi için [RBAC (Önizleme) ile Azure Blob ve kuyruk verilere erişim haklarını yönetme](../storage/common/storage-auth-aad-rbac.md).
+Yönetilen kimlik için Ata **depolama Blob verileri sahibi** depolama hesabındaki rol. Daha fazla bilgi için [RBAC (Önizleme) ile Azure Blob ve kuyruk verilere erişim haklarını yönetme](../storage/common/storage-auth-aad-rbac.md).
 
 1. İçinde [Azure portalında](https://portal.azure.com)depolama hesabınıza gidin.
 1. Depolama hesabınızı seçin ve ardından **erişim denetimi (IAM)** hesabı için erişim denetimi ayarlarını görüntülemek için. Seçin **rol atamaları** rol atamaları listesini görmek için sekmesinde.
@@ -52,7 +52,7 @@ Yönetilen kimlik için Ata **depolama Blob verileri sahibi (Önizleme)** depola
     ![Depolama erişim denetimi ayarları gösteren ekran görüntüsü](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
 1. Seçin **+ rol ataması Ekle** düğmesini yeni bir rolü ekleyin.
-1. İçinde **rol ataması Ekle** penceresinde **depolama Blob verileri sahibi (Önizleme)** rol. Daha sonra yönetilen bir kimlik ve depolama hesabını içeren aboneliği seçin. Ardından, kullanıcı tarafından atanan ve daha önce oluşturduğunuz yönetilen kimlik bulmak için arama yapın. Son olarak, yönetilen kimlik'i seçin ve altında listelenir **seçili üyeleri**.
+1. İçinde **rol ataması Ekle** penceresinde **depolama Blob verileri sahibi** rol. Daha sonra yönetilen bir kimlik ve depolama hesabını içeren aboneliği seçin. Ardından, kullanıcı tarafından atanan ve daha önce oluşturduğunuz yönetilen kimlik bulmak için arama yapın. Son olarak, yönetilen kimlik'i seçin ve altında listelenir **seçili üyeleri**.
     
     ![Bir RBAC rolü atayın gösteren ekran görüntüsü](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
@@ -102,7 +102,7 @@ az storage account create --name hdinsightadlsgen2 \
     --kind StorageV2 --hierarchical-namespace true
 ```
 
-Ardından, portalda oturum açın. Eklemek için yeni kullanıcı tarafından atanan yönetilen kimlik **depolama Blob verileri katkıda bulunan (Önizleme)** 3. adım altında açıklandığı gibi depolama hesabındaki rol [Azure portalını kullanarak](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Ardından, portalda oturum açın. Eklemek için yeni kullanıcı tarafından atanan yönetilen kimlik **depolama Blob verileri katkıda bulunan** 3. adım altında açıklandığı gibi depolama hesabındaki rol [Azure portalını kullanarak](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 Rolü için kullanıcı tarafından atanan bir yönetilen kimlik atadıktan sonra aşağıdaki kod parçacığını kullanarak şablonu dağıtın.
 

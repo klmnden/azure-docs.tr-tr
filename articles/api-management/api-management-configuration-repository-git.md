@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 36b60b3784739a884b887a29f3dd53c61c44cd6f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: adf4d8d5cfcef2dde8193ce1b7f2805a44e2d93d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57851355"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793280"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Kaydet ve Git kullanarak API Management hizmet yapılandırmanızı yapılandırma
 
@@ -57,7 +57,7 @@ Görüntüleme ve Git yapılandırma ayarlarınızı yapılandırmak için tıkl
 >
 >
 
-REST API kullanarak Git erişimini devre dışı bırakma veya etkinleştirme hakkında daha fazla bilgi için bkz: [etkinleştirmek veya devre dışı REST API kullanarak Git erişim](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
+REST API kullanarak Git erişimini devre dışı bırakma veya etkinleştirme hakkında daha fazla bilgi için bkz: [etkinleştirmek veya devre dışı REST API kullanarak Git erişim](/rest/api/apimanagement/tenantaccess?EnableGit).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Git deposuna hizmet yapılandırmasını kaydetmek için
 
@@ -69,7 +69,7 @@ Birkaç dakika sonra yapılandırma kaydedilir ve tarih ve saat son yapılandır
 
 Yapılandırmayı depoya kaydedildikten sonra kopyalanabilir.
 
-REST API kullanarak bu işlemi gerçekleştirme hakkında daha fazla bilgi için bkz: [REST API kullanarak anlık görüntü işleme yapılandırma](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
+REST API kullanarak bu işlemi gerçekleştirme hakkında daha fazla bilgi için bkz: [REST API kullanarak anlık görüntü işleme yapılandırma](/rest/api/apimanagement/tenantaccess?CommitSnapshot).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Depoyu yerel makinenize kopyalamak için
 
@@ -266,7 +266,7 @@ Hizmet örneğinizi yönetmek için diğer yöntemler hakkında daha fazla bilgi
   * [Hizmet dağıtımı PowerShell cmdlet başvurusu](https://docs.microsoft.com/powershell/module/wds)
   * [Hizmet Yönetimi PowerShell cmdlet başvurusu](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Hizmet örneğinizi REST API kullanarak yönetme
-  * [API Management REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn776326.aspx)
+  * [API Management REST API Başvurusu](/rest/api/apimanagement/)
 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png

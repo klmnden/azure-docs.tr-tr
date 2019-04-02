@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9c0e672788858176800c04d7b2aa355d303aec1f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d25fbfc058337c7a96414cf41f321e039ebc2258
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666180"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801853"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Java ve Maven ile ilk işlevinizi oluşturma
 
@@ -153,6 +153,9 @@ az login
 ```
 
 `azure-functions:deploy` Maven hedefini kullanarak kodunuzu yeni bir İşlev uygulamasına dağıtın.
+
+> [!NOTE]
+> İşlev uygulamanızı dağıtmak için Visual Studio Code kullandığınızda unutmayın olmayan ücretsiz bir abonelik seçin veya bir hata alırsınız. IDE'nin sol tarafında aboneliğinizi izleyebilirsiniz.
 
 ```
 mvn azure-functions:deploy

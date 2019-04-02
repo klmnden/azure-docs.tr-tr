@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 67603e326583400e8fc250ea6120297e7a94d101
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e89fe10768331f5b4099ce9a9e2204dd72aa0bff
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520930"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793473"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Uygulama ağ geçidi (genel Önizleme) ile yeniden yazma HTTP üstbilgileri
 
@@ -96,7 +96,7 @@ Bu özellik aşağıdaki sunucu değişkenleri yazmaksızın üstbilgileri deste
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | İstemci tarafından desteklenen şifreleme listesini döndürür          |
 | ciphers_used               | Yerleşik bir SSL bağlantısı için kullanılan şifrelemeleri dizesi döndürür |
-| client_ip                  | Uygulama ağ geçidi isteği aldığınız istemci IP adresi. Varsa uygulama ağ geçidi ve kaynak istemcisi önce bir ters proxy ardından *client_ip* ters proxy IP adresi döndürür. tjsi değişkeni müşteriler burada yalnızca IP adresi bağlantı noktası bilgileri olmadan başlık içeren Application Gateway tarafından X-iletilen-için üstbilginin yeniden planladığınız senaryolarda özellikle yararlıdır. |
+| client_ip                  | Uygulama ağ geçidi isteği aldığınız istemci IP adresi. Varsa uygulama ağ geçidi ve kaynak istemcisi önce bir ters proxy ardından *client_ip* ters proxy IP adresi döndürür. Bu değişken, müşteriler burada yalnızca IP adresi bağlantı noktası bilgileri olmadan başlık içeren Application Gateway tarafından X-iletilen-için üstbilginin yeniden planladığınız senaryolarda özellikle yararlıdır. |
 | client_port                | İstemci bağlantı noktası                                                  |
 | client_tcp_rtt             | TCP Bağlantısı İstemcisi hakkında bilgiler; TCP_INFO olarak yuva seçeneği destekleyen sistemleri üzerinde kullanılabilir |
 | client_user                | HTTP kimlik doğrulaması kullanılırken kullanıcı adı kimlik doğrulaması için sağlanan |

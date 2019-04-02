@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 0f700b9e24399768977a1fa221322fa4c1c6708d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 18cd5a86cc2f52567c5f320719d1a9f21b377ed4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095152"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791720"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Azure Windows sanal makine etkinleştirme sorunlarını giderme
 
 Özel görüntüden oluşturulan Azure Windows sanal makinesi (VM) etkinleştirirken sorun varsa, sorunu gidermek için bu belgede sağlanan bilgileri kullanabilirsiniz. 
 
 ## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Windows ürün etkinleştirme, Azure sanal makineler için Azure KMS uç anlama
+
 KMS etkinleştirme VM'nin bulunduğu bulut bölgesi bağlı olarak farklı uç noktalar Azure'ı kullanır. Bu sorun giderme kılavuzu kullanırken, bölgeniz için geçerli uygun KMS uç noktayı kullanın.
 
 * Azure genel bulut bölgeleri: kms.core.windows.net:1688
@@ -40,6 +41,7 @@ Azure Windows VM etkinleştirmeyi denediğinizde bir hatayla karşılaştıysan�
 **Hata: 0xC004F074 yazılım LicensingService bilgisayarın etkinleştirilemediğini bildirdi. Hiçbir anahtar ManagementService (KMS) bağlantı kurulamadı. Lütfen ek bilgi için uygulama olay günlüğüne bakın.**
 
 ## <a name="cause"></a>Nedeni
+
 Genellikle, Azure sanal makine etkinleştirme sorunlarını uygun KMS istemci kurulum anahtarı kullanarak Windows VM yapılandırılmamış veya Windows VM (kms.core.windows.net, bağlantı noktası 1688) Azure KMS hizmetine bir bağlantı sorunu varsa oluşur. 
 
 ## <a name="solution"></a>Çözüm
@@ -57,6 +59,7 @@ Bu adım Windows 2012 veya Windows 2008 R2 için geçerli değildir. Yalnızca W
 
 1. Çalıştırma **slmgr.vbs/dlv komutunu** yükseltilmiş bir komut isteminde. Çıktıda açıklama değerini denetleyin ve ardından, perakende (Perakende kanal) veya (VOLUME_KMSCLIENT) toplu lisans medyasından oluşturulduğunu belirleyin:
   
+
     ```
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
@@ -83,16 +86,20 @@ Bu adım Windows 2012 veya Windows 2008 R2 için geçerli değildir. Yalnızca W
 
 3. VM’nin doğru Azure KMS sunucusunu kullanacak şekilde yapılandırıldığından emin olun. Bunu yapmak için aşağıdaki komutu çalıştırın:
   
+
+    ```powershell
+    Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
-    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
-    ```
+
     Komut şu değeri döndürmelidir: Anahtar Yönetimi Hizmeti makine adı için kms.core.windows.net:1688 başarıyla ayarlandı.
 
 4. KMS sunucusunda bağlantınız Psping kullanarak doğrulayın. Pstools.zip dosyasını ayıkladığınız klasöre geçin ve sonra aşağıdaki komutu çalıştırın:
   
+
     ```
     \psping.exe kms.core.windows.net:1688
     ```
+
   
    Çıktının sondan ikinci satırında şunu gördüğünüzden emin olun: Gönderilen = 4, alınan = 4, kayıp = 0 (% 0 kaybı olan).
 
@@ -104,8 +111,8 @@ Ayrıca Konuk Güvenlik Duvarı'nı etkinleştirme girişimlerini engelleyen bir
 
 1. Başarılı bağlantıyı kms.core.windows.net doğruladıktan sonra yükseltilmiş bir Windows PowerShell isteminde aşağıdaki komutu çalıştırın. Bu komut, etkinleştirmeyi birden çok kez dener.
 
-    ```
-    1..12 | % { iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
+    ```powershell
+    1..12 | ForEach-Object { Invoke-Expression “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
     ```
 
 Başarılı bir etkinleştirme aşağıdakine benzer bilgileri döndürür:
@@ -115,16 +122,21 @@ Başarılı bir etkinleştirme aşağıdakine benzer bilgileri döndürür:
 ## <a name="faq"></a>SSS 
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>Azure Market'te Windows Server 2016 oluşturdum. Windows Server 2016'yı etkinleştirme için KMS anahtarı yapılandırmanız gerekiyor mu? 
+
  
 Hayır. Azure Marketi görüntüde zaten yapılandırılmış uygun KMS istemci kurulum anahtarı vardır. 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>VM veya Azure karma kullanım Avantajı'nı (HUB) kullanıyorsa, Windows etkinleştirme bakılmaksızın aynı şekilde çalışır? 
+
  
 Evet. 
  
+
 ### <a name="what-happens-if-windows-activation-period-expires"></a>Windows etkinleştirme süresi dolarsa ne olur? 
+
  
 Yetkisiz kullanım süresi doldu ve Windows hala etkin olduğunda, Windows Server 2008 R2 ve sonraki Windows sürümlerinde etkinleştirme hakkında ilave bildirimler gösterilir. Masaüstü duvar kağıdını siyah kalır ve Windows Update, güvenlik ve yalnızca kritik güncelleştirmeler, ancak isteğe bağlı değil güncelleştirmeleri yükler. Alt kısmındaki bildirimler bölümüne bakın [lisans koşulları](https://technet.microsoft.com/library/ff793403.aspx) sayfası.   
 
 ## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun.
+
 Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

@@ -1,5 +1,5 @@
 ---
-title: Örneği - Linux sanal makineleri içinde belirtilen uygulamaları yüklü değilse denetim
+title: Örnek - uygulama içinde bir Linux VM yüklü değilse denetim
 description: Linux sanal makineleri içinde belirtilen uygulamaları yüklü değilse, bu örnek ilke Konuk yapılandırma girişimi ve tanımları denetim.
 services: azure-policy
 author: DCtheGeek
@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 03/18/2019
 ms.author: dacoulte
-ms.openlocfilehash: bc4c54fa157f5468bbc324ebdf03dd65a47488c9
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: c939deda9b1468b5ce843d497b81a462938a2554
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190497"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805559"
 ---
 # <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>Örneği - Linux sanal makineleri içinde belirtilen uygulamaları yüklü değilse denetim
 
@@ -107,16 +107,16 @@ Sonra **denetim** ve **Deployıfnotexists** tanımları, portalda oluşturulur, 
 
 ### <a name="create-copy-of-audit-definition"></a>Denetim tanımının bir kopyasını oluşturun
 
-[![Azure'a dağıtma](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
-[![Azure Government'a dağıtma](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![İlke örneği Azure'a dağıtma](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![Azure kamu için ilke örneği dağıtma](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 
 Portal üzerinden dağıtmak için bu düğmeleri kullanarak bir kopyasını oluşturur **denetim** ilke tanımı.
 Eşleştirilmiş olmadan **Deployıfnotexists** ilke tanımı, Konuk yapılandırma düzgün çalışmaz.
 
 ### <a name="create-copy-of-deployifnotexists-definition"></a>Deployıfnotexists tanımının bir kopyasını oluşturun
 
-[![Azure'a dağıtma](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
-[![Azure Government'a dağıtma](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![İlke örneği Azure'a dağıtma](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![Azure kamu için ilke örneği dağıtma](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 
 Portal üzerinden dağıtmak için bu düğmeleri kullanarak bir kopyasını oluşturur **Deployıfnotexists** ilke tanımı. Eşleştirilmiş olmadan **denetim** ilke tanımı, Konuk yapılandırma düzgün çalışmaz.
 

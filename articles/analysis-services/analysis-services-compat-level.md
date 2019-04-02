@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9f2eae4160dbef164ec70e8fa4d7b3a83706ae96
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 67a6c99253c549f0b8d3b55809b35b81756843eb
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880135"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803502"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Analysis Services tablolu modellerine yönelik uyumluluk düzeyi
 
@@ -27,7 +27,11 @@ Azure Analysis Services 1200 ve 1400 uyumluluk düzeylerinde tablosal modelleri 
 *  Nesne düzeyinde güvenlik içerdikleri verilerin yanı sıra tablo ve sütun adları.
 *  Düzensiz Hiyerarşiler için gelişmiş destek.
 *  Performans ve izleme geliştirmeleri.
- 
+
+> [!NOTE]
+> Azure Analysis Services 1465 uyumluluk düzeyinde içeri aktarılan Power BI Desktop dosyalarını destekler. Ancak, her zaman bir önizleme özelliği olsaydı, Power BI Desktop işlevselliği İçeri Aktar kullanımdan kaldırıldı ve Mart 2019 içinde hizmetinden kaldırılır. Mevcut modellerde 1465 uyumluluk düzeyinde desteklenen kalır.  
+
+
 ## <a name="set-compatibility-level"></a>Uyumluluk düzeyini ayarlama
 
  Yeni bir tablosal model projesi SSDT'de oluştururken, şirket uyumluluk düzeyini belirtebilirsiniz **Tabular modeli Tasarımcısı** iletişim. 
@@ -47,6 +51,9 @@ Azure Analysis Services 1200 ve 1400 uyumluluk düzeylerinde tablosal modelleri 
  SSMS'de sunucu adına sağ tıklayın > **özellikleri** > **uyumluluk düzeyi desteklenen**.  
   
  Bu özellik, en yüksek (Önizleme hariç) sunucusunda çalışacak bir veritabanı uyumluluk düzeyini belirtir. Desteklenen uyumluluk düzeyi değiştirilemez.  
+
+> [!NOTE]
+> Ssms'de, bir Azure Analysis Services sunucusuna bağlandığında **uyumluluk düzeyi desteklenen** özelliği gösterilir **1200**. Bu bilinen bir sorundur ve gelecek bir SSMS çözümlenir güncelleştirme. Çözümlendi, bu özellik en yüksek desteklenen uyumluluk düzeyini gösterir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

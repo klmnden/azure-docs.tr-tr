@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: d3326713b0fbae070d04fa0fe7ead712fbcacf84
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 8dd55032c933cdc31b848addfdac991550376dcf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496902"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805598"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Yüksek ağ bant genişliği ile orta, büyük veri kümeleri için veri aktarımı
  
@@ -62,7 +62,7 @@ Aşağıdaki tablolarda, önerilen seçenek için temel işlevleri farklılıkla
 
 Çevrimdışı veri aktarımı kullanırken, temel işlevleri farklılıkları anlamak için aşağıdaki tabloyu kullanın.
 
-|                                     |    Data Box Disk (Önizleme)    |    Data Box                                      |    Veri kutusu ağır (Önizleme)              |    İçeri/Dışarı Aktarma                       |
+|                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy            |    İçeri/Dışarı Aktarma                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Veri boyutu                        |    35 TB'a kadar                 |    Cihaz başına en fazla 80 TB'a                       |    Cihaz başına en fazla 800 TB               |    Değişken                            |
 |    Veri türü                        |    Azure BLOB'ları                  |    Azure BLOB'ları<br>Azure Dosyaları                    |    Azure BLOB'ları<br>Azure Dosyaları            |    Azure BLOB'ları<br>Azure Dosyaları          |
@@ -83,7 +83,7 @@ Aşağıdaki tablolarda, önerilen seçenek için temel işlevleri farklılıkla
 
 ### <a name="high-network-bandwidth"></a>Yüksek ağ bant genişliği
 
-|                                     |    Araçlar AzCopy <br>Azure PowerShell <br>Azure CLI             |    Azure depolama REST API, SDK'ları                   |    Veri kutusu ağ geçidi veya veri kutusu Edge (Önizleme)           |    Azure Data Factory                                            |
+|                                     |    Araçlar AzCopy <br>Azure PowerShell <br>Azure CLI             |    Azure depolama REST API, SDK'ları                   |    Veri kutusu ağ geçidi veya veri kutusu kenar          |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    Veri türü                  |    Azure Blobları, Azure dosyaları, Azure tabloları    |    Azure Blobları, Azure dosyaları, Azure tabloları    |    Azure Blobları, Azure dosyaları                           |   Veri depoları ve biçimlerine 70'ten fazla veri bağlayıcıları destekler.    |
 |    Form faktörü                |    Komut satırı araçları                        |    Programlama arabirimi                    |    Microsoft sanal sağlar <br>ya da fiziksel cihaz     |    Azure portalında hizmet                                            |

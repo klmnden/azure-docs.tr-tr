@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 028b36cc442ccef8af4aa401846cbacdaaab35bf
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 14f84b5380a1c106114cdab425de7f69f4e19825
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428491"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793569"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Azure Event hubs'a, Azure API Management'ta olayları günlüğe kaydetme hakkında
 Azure Event Hubs, bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki verileri işleyip analiz edebilmeniz için saniye başına milyonlarca olayı işleyebilen ileri düzeyde ölçeklenebilir bir veri alım sistemidir. Event Hubs bir olay işlem hattının "ön kapısı" olarak görev yapar ve veriler bir olay hub'ına toplandıktan sonra dönüştürülebilir ve herhangi bir gerçek zamanlı analiz sağlayıcısı veya toplu işleme/depolama bağdaştırıcısı kullanılarak depolanabilir. Event Hubs olay akışı üretimlerini bu olayların tüketilmesinden ayırır, böylece olay tüketicileri olaylara kendi zamanlamalarında erişebilir.
@@ -40,7 +40,7 @@ Günlükçü oluşturmak için aşağıdaki URL şablonu kullanarak bir HTTP PUT
 `https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2017-03-01`
 
 * Değiştirin `{your service}` API Management hizmet örneğinizin adı.
-* Değiştirin `{new logger name}` , yeni bir Günlükçü için istenen ad ile. Yapılandırdığınızda bu ada başvuru [günlük eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) İlkesi
+* Değiştirin `{new logger name}` , yeni bir Günlükçü için istenen ad ile. Yapılandırdığınızda bu ada başvuru [günlük eventhub](/azure/api-management/api-management-advanced-policies#log-to-eventhub) İlkesi
 
 Aşağıdaki üst bilgileri isteğe ekleyin:
 

@@ -13,16 +13,30 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: d5c003b2588813f8e8a1dfc2923b9d4c8d8c6cc8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c46e2d4e2aa79d1d62d0361763911660349cfbb0
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820442"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762335"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server Azure sanal makine sürüm notları
 
 Azure SQL Server'ın yerleşik görüntü ile bir sanal makine dağıtmanıza olanak tanır. Bu makalede yeni özellikler ve geliştirmeler son sürümlerinde özetlenir [Azure sanal makineler'de SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/). Makale ayrıca doğrudan ilgili sürüme ancak aynı zaman çerçevesinde yayımlanan önemli içerik güncelleştirmeleri listelenir. Diğer Azure Hizmetleri için geliştirmeler için bkz. [hizmet güncelleştirmeleri](https://azure.microsoft.com/updates)
+
+## <a name="march-2019"></a>Mart 2019
+
+### <a name="service-improvements"></a>Hizmet geliştirmeleri
+
+| Hizmet geliştirmeleri | Ayrıntılar |
+| --- | --- |
+| **Özel görüntü desteklenebilirliği** | Şimdi yükleyebilirsiniz [SQL Iaas uzantısı](virtual-machines-windows-sql-server-agent-extension.md#installation) özel işletim sistemi ve SQL görüntüleri için sunan sınırlı işlevselliğini [esnek lisanslama](virtual-machines-windows-sql-ahb.md). SQL kaynak sağlayıcısı ile özel görüntünüzü kayıt olarak belirttiğinizde lisans türü 'AHUB' Aksi durumda kayıt başarısız olur. Azure portalında SQL yapılandırma dikey penceresi aracılığıyla yönetilebilirlik için özel görüntüler desteklenmiyor.   | 
+| **Adlandırılmış örnek desteklenebilirliği** | Artık kullanabilir [SQL Iaas uzantısı](virtual-machines-windows-sql-server-agent-extension.md#installation) varsayılan örnek düzgün kaldırılmışsa adlandırılmış bir örnek ile. | 
+| &nbsp; | &nbsp; |
+
+### <a name="documentation-improvements"></a>Belgeleri geliştirmeleri
+
+None
 
 
 ## <a name="february-2019"></a>Şubat 2019
@@ -32,15 +46,9 @@ Azure SQL Server'ın yerleşik görüntü ile bir sanal makine dağıtmanıza ol
 | Hizmet geliştirmeleri | Ayrıntılar |
 | --- | --- |
 | **Portal geliştirme** | Bir SQL Server getirin-kendi lisansını kullanmaya VM'den Kullandıkça Öde için lisanslama modeli değiştirmek artık mümkündür [Azure portalında](virtual-machines-windows-sql-ahb.md#with-the-azure-portal-1).|
-|**Azure SQL VM CLI ile AG dağıtım basitleştirme** | Artık hiç olmadığı kadar bir kullanılabilirlik grubuna azure'da bir SQL Server VM'si dağıtmak için daha kolaydır. Azure SQL VM CLI komut satırından tüm ve kayıt zamanında WSFC, ILB ve ağ dinleyicisi oluşturmanıza olanak tanır! Daha fazla bilgi için [Azure VM'deki SQL Server Always On kullanılabilirlik grubu yapılandırmak için Azure SQL VM CLI'yı kullanmak](virtual-machines-windows-sql-availability-group-cli.md). | 
+|**Azure SQL VM CLI ile AG dağıtım basitleştirme** | Artık hiç olmadığı kadar bir kullanılabilirlik grubuna azure'da bir SQL Server VM'si dağıtmak için daha kolaydır. [Azure SQL VM CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) WSFC, ILB ve ağ dinleyicisi tüm komut satırından ve kayıt zamanında oluşturmanıza olanak tanır! Daha fazla bilgi için [Azure VM'deki SQL Server Always On kullanılabilirlik grubu yapılandırmak için Azure SQL VM CLI'yı kullanmak](virtual-machines-windows-sql-availability-group-cli.md). | 
 | &nbsp; | &nbsp; |
 
-### <a name="documentation-improvements"></a>Belgeleri geliştirmeleri
-
-| Belgeleri geliştirmeleri | Ayrıntılar |
-| --- | --- |
-|yok | |
-| | |
 
 ## <a name="december-2018"></a>Aralık 2018
 

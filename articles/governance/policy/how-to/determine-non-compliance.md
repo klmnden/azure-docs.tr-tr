@@ -8,12 +8,12 @@ ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: dba8d9413229a0fa236b082e2e11dbd1a9fe5a5f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1121bdb379265ef592a26a8a31a90d402e529cc8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314135"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802754"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Uyumsuzluk nedenlerini belirleme
 
@@ -46,7 +46,7 @@ Uyumluluk ayrıntıları görüntülemek için aşağıdaki adımları izleyin:
 
 1. **Uyumluluk ayrıntıları** bölmesi, geçerli bir ilke ataması kaynağın en son değerlendirme bilgileri görüntüler. Bu örnekte, alanın **Microsoft.Sql/servers/version** olduğu tespit edildiğinden _12.0_ while beklenen ilke tanımı _14.0_. Kaynak birden fazla nedenlerle uyumlu ise, her bu bölmesinde listelenir.
 
-   ![Uyumluluk ayrıntıları bölmesi](../media/determine-non-compliance/compliance-details-pane.png)
+   ![Ayrıntılar bölmesinde uyumluluk ve uyumsuzluk nedenleri](../media/determine-non-compliance/compliance-details-pane.png)
 
    İçin bir **auditIfNotExists** veya **Deployıfnotexists** ilke tanımı ayrıntıları dahil **details.type** özelliği ve diğer isteğe bağlı özellikleri. Bir liste için bkz. [auditIfNotExists özellikleri](../concepts/effects.md#auditifnotexists-properties) ve [Deployıfnotexists özellikleri](../concepts/effects.md#deployifnotexists-properties). **Kaynak son değerlendirme** ilgili bir kaynaktan geliyorsa **ayrıntıları** tanımının bölümü.
 
@@ -94,16 +94,16 @@ Matris her olası eşler _neden_ sorumlu için [koşul](../concepts/definition-s
 |Geçerli değer mevcut olmalıdır. |Var. |
 |Geçerli değer hedef değerde bulunmalıdır. |içinde veya **değil** notIn |
 |Geçerli değer hedef değer gibi olmalıdır. |gibi veya **değil** notLike |
-|Geçerli değeri hedef değer büyük/küçük harfe eşleşmesi gerekir. |eşleşen veya **değil** notMatch |
-|Geçerli değer harf olarak eşleşen hedef değer gerekir. |matchInsensitively veya **değil** notMatchInsensitively |
+|Geçerli değer, büyük/küçük harfe duyarlı olarak hedef değerle eşleşmelidir. |eşleşen veya **değil** notMatch |
+|Geçerli değer, büyük/küçük harfe duyarlı olmayan şekilde hedef değerle eşleşmelidir. |matchInsensitively veya **değil** notMatchInsensitively |
 |Geçerli değer, anahtar olarak hedef değeri içermemelidir. |notContainsKey veya **değil** containsKey|
 |Geçerli değer hedef değeri içermemelidir. |notContains veya **değil** içerir |
 |Geçerli değer hedef değere eşit olmamalıdır. |notEquals veya **değil** eşittir |
 |Geçerli değer mevcut olmamalıdır. |**değil** var.  |
 |Geçerli değer hedef değerde bulunmamalıdır. |notIn veya **değil** içinde |
 |Geçerli değer hedef değer gibi olmamalıdır. |notLike veya **değil** gibi |
-|Geçerli değer hedef değer küçük harf duyarsız eşleşmesi gerekir. |notMatch veya **değil** eşleşmesi |
-|Geçerli bir değer değil harf olarak eşleşen hedef değer gerekir. |notMatchInsensitively veya **değil** matchInsensitively |
+|Geçerli değer büyük/küçük harfe duyarlı olarak hedef değerle eşleşmemelidir. |notMatch veya **değil** eşleşmesi |
+|Geçerli değer, büyük/küçük harfe duyarlı olmayan bir şekilde hedef değerle eşleşmemelidir. |notMatchInsensitively veya **değil** matchInsensitively |
 |İlke tanımındaki etki ayrıntılarıyla eşleşen ilgili kaynak yok. |Bir kaynak türünün tanımlanan **then.details.type** ve ilgili tanımlanan kaynağa **varsa** ilke kuralı bölümü yok. |
 
 ## <a name="change-history-preview"></a>Değişiklik geçmişi (Önizleme)
@@ -118,11 +118,11 @@ Yeni bir parçası olarak **genel Önizleme**, son 14 gün, değişiklik geçmi�
 
 1. Seçin **değişiklik geçmişini (Önizleme)** sekmesinde **kaynak Uyumluluk** sayfası. Tüm mevcut görüntüleniyorsa listesini değişiklikleri algıladı.
 
-   ![İlke değişiklik geçmişi - sekmesi](../media/determine-non-compliance/change-history-tab.png)
+   ![Kaynak uyumluluk sayfasında ilke değişiklik geçmişi sekmesi](../media/determine-non-compliance/change-history-tab.png)
 
 1. Algılanan değişiklikler birini seçin. _Visual fark_ kaynak üzerinde sunulan için **değişiklik geçmişini** sayfası.
 
-   ![İlke değişiklik geçmişi - görsel fark](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![Değişiklik geçmişi sayfasındaki İlkesi değişiklik geçmişi görsel fark](../media/determine-non-compliance/change-history-visual-diff.png)
 
 _Visual fark_ aides içinde bir kaynak değişikliklerini tanımlama. Algılanan değişiklikler kaynağın geçerli uyumluluk durumu için ilişkili değil.
 

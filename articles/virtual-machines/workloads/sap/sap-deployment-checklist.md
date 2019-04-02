@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/24/2019
+ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 520d417abe27887fad03257c52521c25602009eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4ba866ddf79a9970ef3f5c4ff3b7085242a1cdcd
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096019"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802805"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP iş yüküne Azure planlama ve dağıtım denetim listesi 
 
@@ -77,7 +77,7 @@ Bu aşamada, bir Azure genel bulut üzerinde SAP iş yükü geçişi planlanmakt
 5.  Microsoft Premier Destek sözleşmesi – MS teknik hesap yöneticinizle (TAM) belirleyin. Destek için SAP tarafından gereksinimleri SAP destek not okuma [#2015553](https://launchpad.support.sap.com/#/notes/2015553) 
 6.  Azure Abonelikleriniz ve farklı abonelikler için çekirdek kota sayısını tanımlayın. [Azure abonelikleri kotaları artırmak için destek isteği açın](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) gerektiği şekilde 
 7.  Veri azaltma ve veri geçişi için SAP veri geçişi, Azure'a planlayın. SAP NetWeaver sistemler için SAP çok sayıda sınırlı veri hacmini nasıl şirket yönergeleri sahiptir. Yayımlanan SAP [bu çok büyük bir kılavuz](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) SAP ERP sistemleriyle ortamında veri yönetimi hakkında. Ancak, bazı içerikleri genel NetWeaver ve S/4hana'yı sistemleri için geçerlidir.
-8.  Tanımlamak ve otomatik dağıtım yaklaşımı karar verin. Otomasyon altyapısı dağıtımlarını azure'da arkasında belirlenimci bir şekilde dağıtın ve belirleyici sonuçlar almak için hedefidir. Birçok müşteri, PowerShell veya temel CLI betiklerini kullanır. Ancak, SAP için Azure altyapısını dağıtma ve hatta SAP yazılımı yüklemek için kullanılan açık kaynaklı teknolojiler vardır. Örnekler github'da bulunabilir:
+8.  Tanımlamak ve otomatik dağıtım yaklaşımı karar verin. Otomasyon altyapısı dağıtımlarını azure'da arkasında belirlenimci bir şekilde dağıtın ve belirleyici sonuçlar almak için hedefidir. Birçok müşteri, PowerShell veya temel CLI betiklerini kullanır. Ancak, SAP için Azure altyapısını dağıtma ve hatta SAP yazılımı yüklemek için kullanılan açık kaynaklı teknolojiler vardır. Örnekler Github'da bulunabilir:
     1.  [Azure bulutunda otomatik SAP dağıtımları](https://github.com/Azure/sap-hana)
     2.  [SAP HANA yüklemesi](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  Normal Tasarım ve dağıtım gözden geçirme temposu, müşteri olarak arasında tanımlama sistem entegratörü, Microsoft ve diğer taraflar dahil
@@ -88,19 +88,21 @@ Bu aşamada, bir Azure genel bulut üzerinde SAP iş yükü geçişi planlanmakt
 Pilot proje planlama ve hazırlama için paralel ya da önce çalıştırabilirsiniz. Aşama yaklaşımlar ve tasarım planlama ve hazırlık aşamasında yapılan test etmek için de kullanılabilir. Pilot aşaması, gerçek bir kavram kanıtı için uzatılmış. Ayarlama ve tam bir HA/DR çözümü doğrulamak için önerilen bir pilot dağıtım sırasında güvenlik tasarımı yanı sıra. Bazı müşteri durumlarda ölçeklenebilirlik testleri bu aşamada yürütülebilecek. Diğer müşteriler SAP sanal sistemlerinin dağıtımını pilot aşaması kullanın. Bir pilot çalıştırmak amacıyla Azure'a geçirmek istediğiniz bir sistem tanımlanan varsayıyoruz şekilde.
 
 1. Azure'a veri aktarımı iyileştirin. Yüksek oranda bağımlı müşteri durumları aktarımı [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) şirket içinden Express bağlantı hattı bant genişliği yeterli olsaydı hızlı oldu. Diğer müşteriler ile İnternet'e giderek daha hızlı olmasını anladığınızda
-2. Bir SAP durumunda bir dışarı aktarma ve içeri aktarma ilişkin Veritabanı verilerinin içerir, heterojen platform geçişi, test edin ve dışarı aktarma en iyi duruma getirmek ve aşamaları alın. Hedef platformu olarak SQL Server içeren büyük geçişler için öneriler bulunabilir [burada](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). Birleştirilmiş sürüm yükseltme gerekmez durumunda geçiş İzleyici/SWPM yaklaşım alabilir veya [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) işlem geçiş SAP sürüm yükseltmesi ile birleştirerek ve belirli bir kaynak ve hedef DBMS platformu Karşılama birleşimleri, örneğin, belgelenen olarak [toplam 2.0 SP03, veritabanı geçiş seçeneği (DMO)](https://launchpad.support.sap.com/#/notes/2631152). 
+2. Bir SAP durumunda bir dışarı aktarma ve içeri aktarma ilişkin Veritabanı verilerinin içerir, heterojen platform geçişi, test edin ve dışarı aktarma en iyi duruma getirmek ve aşamaları alın. Hedef platformu olarak SQL Server içeren büyük geçişler için öneriler bulunabilir [burada](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAP-OS-DB-Migration-to-SQL-Server-8211-FAQ-v6-2-April-2017/ba-p/368070). Birleştirilmiş sürüm yükseltme gerekmez durumunda geçiş İzleyici/SWPM yaklaşım alabilir veya [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) işlem geçiş SAP sürüm yükseltmesi ile birleştirerek ve belirli bir kaynak ve hedef DBMS platformu Karşılama birleşimleri, örneğin, belgelenen olarak [toplam 2.0 SP03, veritabanı geçiş seçeneği (DMO)](https://launchpad.support.sap.com/#/notes/2631152). 
    1.  Azure ve alma performansını dışarı aktarma dosyası yükleme kaynağı olarak dışarı aktarın.  Dışarı ve içeri aktarma arasında çakışma en üst düzeye çıkarın
    2.  Veritabanı, altyapı boyutlandırma yansıtmak için hedef ve hedef platform arasında sesini değerlendirecek    
    3.  Doğrulama ve zamanlama en iyi duruma getirme 
 3. Teknik doğrulama 
    1. Sanal Makine Türleri
       1.  SAP destek notları, SAP HANA donanım dizin ve SAP yeniden desteklenen VM'ler için Azure, hiçbir değişiklik desteklenen işletim sistemi sürümleri için bu VM türleri ve sürümleri, SAP ve DBMS desteklenen olan emin olmak için PAM Kaynakları Doğrula
-      2.  Yeniden boyutlandırma, uygulamanızın, Azure'da dağıttığınız altyapıyı ve doğrulayın. Mevcut uygulamaları taşıma durumunda, genellikle gerekli SAP kullandığınız altyapıdan türetebilirsiniz ve [SAP Kıyaslama Web sayfası](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) ve SAP desteği Not listelenen SAP sayıları karşılaştırın [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Ayrıca [bu makalede](https://blogs.msdn.microsoft.com/saponsqlserver/2018/11/04/saps-ratings-on-azure-vms-where-to-look-and-where-you-can-get-confused/) unutmayın
+      2.  Yeniden boyutlandırma, uygulamanızın, Azure'da dağıttığınız altyapıyı ve doğrulayın. Mevcut uygulamaları taşıma durumunda, genellikle gerekli SAP kullandığınız altyapıdan türetebilirsiniz ve [SAP Kıyaslama Web sayfası](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) ve SAP desteği Not listelenen SAP sayıları karşılaştırın [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Ayrıca [bu makalede](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAPS-ratings-on-Azure-VMs-8211-where-to-look-and-where-you-can/ba-p/368208) unutmayın
       3.  Değerlendirmek ve en fazla depolama aktarım hızı ve ağ aktarım hızı planlama aşamasında, seçtiğiniz farklı VM türleri ile ilgili Azure Vm'leriniz boyutlandırması test edin. Veri bulunabilir:
           1.  [Azure'da Windows sanal makine boyutları](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Dikkate almak önemlidir **maksimum önbelleğe alınmamış disk aktarım hızı** boyutlandırma için
           2.  [Azure'da Linux sanal makine boyutları](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) dikkate almak önemlidir **maksimum önbelleğe alınmamış disk aktarım hızı** boyutlandırma için
    2. Depolama
-      1.  Veritabanı VM'ler için Azure Premium depolama kullanma
+      1.  Kullanım [Azure standart SSD depolama](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) performans olmayan hassas DBMS dağıtım ve SAP uygulama katmanları temsil eden VM'ler için minimum
+      2.  Kullanmamaya öneriyoruz [Azure standart HDD diskleri](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd) genel
+      2.  Kullanım [Azure Premium depolama](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) uzaktan performans duyarlı olan tüm DBMS VM'ler için
       2.  Kullanım [Azure yönetilen diskler](https://azure.microsoft.com/services/managed-disks/)
       3.  Azure yazma Hızlandırıcı, M serisi ile DBMS günlük sürücüleri için kullanın. Yazma Hızlandırıcı sınırları ve açıklandığı gibi kullanım bilmeniz [yazma Hızlandırıcısı](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)
       4.  Farklı DBMS türleri için denetleme [genel SAP DBMS belgeleri ilgili](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) ve DBMS özel belgeler için genel belge işaret
@@ -124,6 +126,7 @@ Pilot proje planlama ve hazırlama için paralel ya da önce çalıştırabilirs
               4.  Oracle Linux 7.5. RHCKL çekirdek kullanarak, yayın 3.10.0-862.13.1.el7 olması gerekir. Oracle UEK kullanarak çekirdek sürüm 5 gereklidir
           4.   Test ve SAP desteği Not göre SAP uygulama katmanında VM DBMS VM arasındaki ağ gecikme süresi değerlendirme [#500235](https://launchpad.support.sap.com/#/notes/500235) ve SAP desteği Not [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). SAP destek Not ağ gecikme süresi Kılavuzu karşı sonuçlarını değerlendirmek [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Ağ gecikme süresi, Orta ve iyi aralığında olmalıdır. Özel durumlar geçerlidir HANA büyük örneği ile VM'ler arasındaki trafiği belgelendiği gibi birimleri [burada](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)
           5.   ILB dağıtımları doğrudan sürücü dönüşü kullanmaya ayarlandığından emin olun. Bu ayar Azure Ilb DBMS katmanında yüksek kullanılabilirlik yapılandırmaları için kullanıldığı durumlarda gecikme süresini azaltır.
+          6.   Azure Load Balancer, Linux konuk işletim sistemleri onay Linux parametresi ağ ile birlikte kullanıyorsanız **net.ipv4.tcp_timestamps** ayarlanır **0**. Önerileri SAP'ın eski sürümlerinde karşı Not [#2382421](https://launchpad.support.sap.com/#/notes/2382421). SAP note, bu arada parametresi Azure Load balancer'ları ile birlikte çalışmak için 0 olarak ayarlanması gerekir olgu yansıtacak şekilde güncelleştirilir.
    4. Yüksek kullanılabilirlik ve olağanüstü durum kurtarma dağıtımları. 
       1. SAP uygulama katmanı belirli bir Azure kullanılabilirlik alanı tanımlamadan dağıtırsanız, SAP iletişim örneği veya bir ara yazılım örnekleri tek bir SAP sistemiyle çalışan tüm sanal makineler dağıtılır emin olun. bir [kullanılabilirlik kümesi](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). 
          1.   DBMS ve SAP Central Services'in için yüksek kullanılabilirlik gerektirmeyen durumunda bu VM'lerin aynı kullanılabilirlik kümesi SAP uygulama katmanı olarak dağıtılabilir

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: e7bcfce4e9d23839c623be3b54e97d931e6454cb
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 8348099d778a9ec65e907bb3d21ae995041b9fb6
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268303"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802296"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Kaynaklara uygulanan eylemleri denetlemek için etkinlik günlüklerini görüntüleme
 
@@ -167,7 +167,7 @@ Portal, PowerShell, Azure CLI, Insights REST API aracılığıyla etkinlik günl
 
 ## <a name="rest-api"></a>REST API
 
-Etkinlik günlüğü ile çalışmaya yönelik REST işlemlerini parçası olan [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx). Etkinlik günlüğü olayları almak için bkz: [bir abonelik yönetimi olayları listesi](https://msdn.microsoft.com/library/azure/dn931934.aspx).
+Etkinlik günlüğü ile çalışmaya yönelik REST işlemlerini parçası olan [Insights REST API](/rest/api/monitor/). Etkinlik günlüğü olayları almak için bkz: [bir abonelik yönetimi olayları listesi](/rest/api/monitor/activitylogs).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

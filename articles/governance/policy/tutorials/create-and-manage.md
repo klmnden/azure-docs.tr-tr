@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 32962e6d40103c23a0ec7fd1116aec8820f513bd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ae4be75a4030db9afb02c5696a427b321f9f16b3
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780295"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802618"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Uyumluluğu zorunlu tutmak için ilkeleri oluşturma ve yönetme
 
@@ -34,15 +34,15 @@ Azure İlkesi ile uyumluluğu zorlamanın ilk adımı bir ilke tanımı atamakt�
 
 1. Azure portalında **Tüm hizmetler**’e tıkladıktan sonra **İlke**'yi arayıp seçerek Azure İlkesi hizmetini başlatın.
 
-   ![İlke arama](../media/create-and-manage/search-policy.png)
+   ![Tüm hizmetler ilkesinde arayın](../media/create-and-manage/search-policy.png)
 
 1. Azure İlkesi sayfasının sol tarafından **Atamalar**'ı seçin. Atama, belirli bir kapsamda gerçekleşmesi için atanmış olan bir ilkedir.
 
-   ![Atama seçme](../media/create-and-manage/select-assignments.png)
+   ![İlkeye genel bakış sayfasından atamaları seçin](../media/create-and-manage/select-assignments.png)
 
 1. **İlke - Atamalar** sayfasının üst kısmından **İlke Ata**'yı seçin.
 
-   ![İlke tanımı atama](../media/create-and-manage/select-assign-policy.png)
+   ![Atamalar sayfasından bir ilke tanımı atama](../media/create-and-manage/select-assign-policy.png)
 
 1. **İlke Ata** sayfasında üç noktaya tıklayıp bir yönetim grubu veya abonelik belirleyerek **Kapsam**’ı seçin. İsterseniz bir kaynak grubu seçin. Kapsam, ilke atamasının hangi kaynaklarda veya kaynak gruplarında uygulanacağını belirler.  Ardından **Kapsam** sayfasının alt kısmından **Seç**’e tıklayın.
 
@@ -54,7 +54,7 @@ Azure İlkesi ile uyumluluğu zorlamanın ilk adımı bir ilke tanımı atamakt�
 
 1. **SQL Server sürüm 12.0 gerektir**'i seçin. Hemen bulamıyorsanız, yazın **sql server gerektiren** Ara kutusuna ve ardından ENTER tuşuna basın veya dışında arama kutusuna tıklayın. İlke tanımını bulup seçtikten sonra **Kullanılabilen Tanımlar** sayfasının en altından **Seç**’e tıklayın.
 
-   ![İlkeyi bulma](../media/create-and-manage/select-available-definition.png)
+   ![Bir ilke bulmak için arama filtresi kullanın.](../media/create-and-manage/select-available-definition.png)
 
 1. **Atama adı** otomatik olarak seçtiğiniz ilke adıyla doldurulur, ancak bunu değiştirebilirsiniz. Bu örnekte, *SQL Server sürüm 12.0 gerektir* ayarını değiştirmeyin. İsteğe bağlı bir **Açıklama** da ekleyebilirsiniz. Açıklama, bu ilke atamasıyla ilgili ayrıntıları sağlar.  **Tarafından atanan** açan temel alınarak otomatik olarak doldurulur. Bu alan isteğe bağlı olduğu için özel değerler girilebilir.
 
@@ -68,7 +68,7 @@ Artık bir yerleşik ilke tanımı atadığınıza göre, Azure İlkesi'yle daha
 
 1. Azure İlkesi sayfasının sol tarafındaki **Yazma** bölümünden **Tanımlar**’ı seçin.
 
-   ![Yazma alanındaki Tanım](../media/create-and-manage/definition-under-authoring.png)
+   ![Tanım Sayfası yazma grubu altında](../media/create-and-manage/definition-under-authoring.png)
 
 1. Sayfanın üst kısmındaki **+ İlke tanımı** seçeneğini belirleyin. Bu düğme açılır **ilke tanımı** sayfası.
 
@@ -158,7 +158,7 @@ Aşağıdaki örnekte gösterilene benzer bir istek gövdesi ekleyin:
 
 ## <a name="create-a-policy-definition-with-powershell"></a>PowerShell ile ilke tanımı oluşturma
 
-PowerShell örneğine devam etmeden önce Azure PowerShell'in en son sürümünü yüklediğiniz emin olun. İlke parametreleri 3.6.0 sürümünde eklenmiştir. Önceki bir sürümü varsa, örneklerde parametrenin bulunamadığını belirten bir hata döndürür.
+PowerShell örneğine devam etmeden önce Azure PowerShell Az modülünün en son sürümünü yüklediğiniz emin olun. 
 
 `New-AzPolicyDefinition` cmdlet'ini kullanarak ilke tanımı oluşturabilirsiniz.
 
@@ -328,11 +328,11 @@ Girişim tanımıyla, çeşitli ilke tanımlarını gruplandırıp kapsamlı bir
 
 1. Azure İlkesi sayfasının sol tarafındaki **Yazma** bölümünden **Tanımlar**’ı seçin.
 
-   ![Tanımları seçin](../media/create-and-manage/definition-under-authoring.png)
+   ![Tanımları sayfasında tanımı seçin](../media/create-and-manage/definition-under-authoring.png)
 
 1. Sayfanın üst kısmından **+ Giriş Tanımı**'nı seçerek **Girişim Tanımı** sayfasını açın.
 
-   ![Girişim tanımı](../media/create-and-manage/initiative-definition.png)
+   ![Girişim tanımı sayfasını gözden geçirin](../media/create-and-manage/initiative-definition.png)
 
 1. Tanımın depolanacağı bir yönetim grubu veya abonelik seçmek için **Tanım konumu** üç nokta simgesini kullanın. Önceki sayfanın kapsamı tek bir yönetim grubu veya abonelik olduğunda, **Tanım konumu** otomatik olarak doldurulur.
 
@@ -352,11 +352,11 @@ Girişim tanımıyla, çeşitli ilke tanımlarını gruplandırıp kapsamlı bir
 
    İlke tanımı listeden seçtikten sonra bu seçeneğin altına eklenir **ilkeler ve parametreler**.
 
-   ![Girişim tanımları](../media/create-and-manage/initiative-definition-2.png)
+   ![Girişim tanımı parametreleri gözden geçir](../media/create-and-manage/initiative-definition-2.png)
 
 1. Girişim için eklenen bir ilke tanımı parametrelere sahipse, bunlar ilke adı altında gösterilen **ilkeler ve parametreler** alan. _Değer_'i, "Değer ata" (bu girişimin tüm atamaları için sabit kodlanmıştır) veya "Girişim Parametresini Kullan" (her girişim ataması sırasında ayarlanır) olarak ayarlayabilirsiniz. 'Set değeri' seçilirse sağındaki açılan _değerleri_ girerek veya değerleri seçerek sağlar. 'Girişim Parametresini Kullan' seçildiğinde ise girişim ataması sırasında ayarlanan parametreyi tanımlamanıza olanak sağlayan yeni bir **Giriş parametreleri** bölümü görüntülenir. Bu girişim parametresinde izin verilen değerler, girişim ataması sırasında ayarlanabilecek değerleri daha fazla kısıtlayabilir.
 
-   ![Girişim tanımı parametreleri](../media/create-and-manage/initiative-definition-3.png)
+   ![Girişim tanımı parametrelerini izin verilen değerleri Değiştir](../media/create-and-manage/initiative-definition-3.png)
 
    > [!NOTE]
    > Bazı `strongType` parametrelerinde değer listesi otomatik olarak belirlenebilir. Böyle durumlarda parametre satırının sağ tarafında üç nokta simgesi görünür. Bu simgeye tıklandığında 'Parametre kapsamı (&lt;parametre adı&gt;)' sayfası açılır. Bu sayfada, değer seçeneklerini sağlamak için kullanılacak aboneliği seçin. Bu parametre kapsamı yalnızca girişim tanımı oluşturma işlemi sırasında kullanılır ve atandığında, ilke değerlendirmesi veya girişim kapsamı üzerinde herhangi bir etkisi olmaz.
@@ -369,11 +369,11 @@ Girişim tanımıyla, çeşitli ilke tanımlarını gruplandırıp kapsamlı bir
 
 1. Daha önce oluşturduğunuz **Güvenliği Sağlama** adlı girişim tanımını bulup tıklayın. Seçin **atama** açmak için sayfanın üst kısmındaki **güvenliği sağlama: Girişim Ata** sayfası.
 
-   ![Tanımı atama](../media/create-and-manage/assign-definition.png)
+   ![Girişim tanımı sayfasından bir tanımı atama](../media/create-and-manage/assign-definition.png)
 
    Ayrıca, seçilen satıra sağ tıklayın veya bağlamsal menü satırın sonundaki üç noktaya üzerinde sol.  Sonra da **Ata**’yı seçebilirsiniz.
 
-   ![Bir satıra sağ tıklayın](../media/create-and-manage/select-right-click.png)
+   ![Girişim için diğer seçenekleri](../media/create-and-manage/select-right-click.png)
 
 1. Doldurun **güvenliği sağlama: Girişim Ata** aşağıdaki örnek bilgileri girerek sayfası. Kendi bilgilerinizi de kullanabilirsiniz.
 
@@ -393,11 +393,11 @@ Girişim tanımıyla, çeşitli ilke tanımlarını gruplandırıp kapsamlı bir
 
 1. **Kaynak Alma** girişimini bulun. Yine de olasıdır _uyumluluk durumu_ , **başlatılmadı**. Atamanın ilerleme durumunun tüm ayrıntılarını almak için girişime tıklayın.
 
-   ![Uyumluluk - başlatılmadı](../media/create-and-manage/compliance-status-not-started.png)
+   ![Girişim uyumluluğu sayfası - değerlendirmeleri başlatılmadı](../media/create-and-manage/compliance-status-not-started.png)
 
 1. Girişim ataması tamamlandıktan sonra, uyumluluk sayfası güncelleştirilerek _Uyumluluk durumu_ değeri **Uyumlu** olur.
 
-   ![Uyumluluk - uyumlu](../media/create-and-manage/compliance-status-compliant.png)
+   ![Girişim uyumluluğu sayfası-uyumlu kaynakları](../media/create-and-manage/compliance-status-compliant.png)
 
 1. Girişim uyumluluk sayfasında herhangi bir ilke tıklandığında, ilkenin uyumluluk ayrıntıları sayfası açılır. Bu sayfada uyumluluk için kaynak düzeyinde ayrıntılar sağlanır.
 
@@ -426,7 +426,7 @@ Bu örnekte, Contoso'nun üst düzey sanallaştırma uzmanları birini Trent Eti
 
 1. Üç noktaya tıklayıp dışlanacak kaynak grubunu (bu örnekte *SQLServers_Excluded*) seçerek **Dışlama**’yı ayarlayın.
 
-   ![Dışlama isteğinde bulunma](../media/create-and-manage/request-exclusion.png)
+   ![Hariç tutulan bir kaynak grubu için ilke ataması ekleme](../media/create-and-manage/request-exclusion.png)
 
    > [!NOTE]
    > İlkeye ve sahip olduğu etkiye bağlı olarak atama kapsamı içindeki bir kaynak grubunda yer alan belirli kaynaklara da dışlama izni verilebilir. Bu öğreticide bir **Ret** etkisi kullanıldığından, zaten mevcut olan belirli bir kaynakta dışlama ayarlanması mantıklı değildir.

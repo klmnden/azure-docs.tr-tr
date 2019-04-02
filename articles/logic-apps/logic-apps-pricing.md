@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 03/25/2019
-ms.openlocfilehash: 4e5b63642b5090b50d29d6d3adc49ea683b90faa
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437722"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805185"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps fiyatlandırma modeli
 
@@ -38,12 +38,12 @@ Azure Logic Apps, mantıksal uygulamanızı çalıştıran tüm eylemleri ölç�
 
 ## <a name="fixed-pricing-model"></a>Sabit fiyatlandırma modeli
 
-İçinde çalıştırılır ve yeni mantıksal uygulamalar için bir [ *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), yerleşik Eylemler ve standart bağlayıcılar için aylık sabit fiyata ödeme yaparsınız. Bir işe bir Azure sanal ağdaki kaynaklara erişebilen yalıtılmış mantıksal uygulama oluşturma ve çalıştırma bir yol sağlar.
+Bir [ *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) oluşturmak ve bir Azure sanal ağdaki kaynaklara erişebilen mantık uygulamaları çalıştırmak, özel, yalıtılmış ve adanmış bir yol sağlar. Çalıştırma içinde bir işe yeni logic apps için aylık sabit fiyata, yerleşik Eylemler ve standart bağlayıcılar için ödeme. İŞE da istediğiniz kadar çok bağlantısı içeren bir ücretsiz Kurumsal bağlayıcı içerir. Kullanımı için ek Kurumsal bağlayıcılar kuruluş tüketim fiyatı üzerinden ücretlendirilir. 
+
+ISE temel birim kapasitesi, sabit daha fazla performans gerekiyorsa, bu nedenle [daha fazla ölçek birimi ekleme](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), oluşturma sırasında veya daha sonra.
 
 > [!NOTE]
 > ISE bulunduğu [ *genel Önizleme*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). NET fiyatlandırma bilgileri için bkz. [Azure Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps).
-
-ISE temel birim kapasitesi, sabit daha fazla performans gerekiyorsa, bu nedenle [daha fazla ölçek birimi ekleme](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), oluşturma sırasında veya daha sonra. İstediğiniz kadar çok bağlantısı içeren bir ücretsiz Kurumsal bağlayıcı, işe içerir. Kullanımı için ek Kurumsal bağlayıcılar kuruluş tüketim fiyatı üzerinden ücretlendirilir.
 
 <a name="connectors"></a>
 

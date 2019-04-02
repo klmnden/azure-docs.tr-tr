@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 87770a12ca7e489b11b2d176903f976fdcc256a0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7488231363b0cbf96e25da28751065012754212e
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551340"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803793"
 ---
 # <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>Örnek - SKU'ları depolama hesapları ve sanal makineler için izin verilir.
 
@@ -29,7 +29,7 @@ Bu ilke, depolama hesapları ve sanal makinelerin onaylı SKU’lar kullanmasın
 
 ## <a name="deploy-with-the-portal"></a>Portal ile dağıtma
 
-[![Azure’a dağıtma](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![İlke örneği Azure'a dağıtma](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>PowerShell ile dağıtma
 

@@ -5,18 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 4/1/2019
 ms.author: victorh
-ms.openlocfilehash: 079790952263ae2ef68abc8e426b0330fef1c53f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 7ee92a7508918635849caafab4632bbba81ee628
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321781"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805253"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Azure güvenlik duvarı Azure standart Load Balancer ile tümleştirin
 
-Azure standart Load Balancer (public veya internal) ile bir sanal ağa, bir Azure güvenlik duvarı tümleştirebilirsiniz. Ancak, herkese açık yük dengeleyici senaryosu işlevsellikle bozabilir bir asimetrik yönlendirme sorununu farkında olmanız gerekir.
+Azure standart Load Balancer (public veya internal) ile bir sanal ağa, bir Azure güvenlik duvarı tümleştirebilirsiniz. 
+
+Bu çok daha kolay bir tasarım olduğu için tercih edilen tasarım, Azure güvenlik duvarı ile iç yük dengeleyici tümleştirme sağlamaktır. Dağıtılan bir hesabınız ve yerinde tutmak istiyorsanız, bir genel yük dengeleyici kullanabilirsiniz. Ancak, herkese açık yük dengeleyici senaryosu işlevsellikle bozabilir bir asimetrik yönlendirme sorununu farkında olmanız gerekir.
 
 Azure Load Balancer hakkında daha fazla bilgi için bkz: [Azure Load Balancer nedir?](../load-balancer/load-balancer-overview.md)
 
@@ -34,6 +36,8 @@ Bir alt ağa bir Azure güvenlik duvarı dağıttığınızda, tek bir adımda g
 
 Güvenlik Duvarı, yük dengeleyici senaryosu yapılırsa, Internet trafiğinizi, güvenlik duvarınızın genel IP adresi gelen istersiniz. Burada, güvenlik duvarı, yük dengeleyicinin genel IP adresi NAT paketleri ve güvenlik duvarı kuralları geçerlidir. Sorunun gerçekleştiği budur. Paket gelen Güvenlik Duvarı'nın genel IP adresi, ancak Güvenlik Duvarı (varsayılan yolu kullanarak) özel IP adresi döndürür.
 Bu sorunu önlemek için bir Güvenlik Duvarı'nın genel IP adresi için ek konak yolu oluşturun. Güvenlik Duvarı'nın genel IP adresine giden paketlerin Internet üzerinden yönlendirilir. Bu, güvenlik duvarının özel IP adresi için varsayılan yolu alma önler.
+
+![Asimetrik yönlendirme](media/integrate-lb/Firewall-LB-asymmetric.png)
 
 Örneğin, aşağıdaki bir Güvenlik Duvarı'nın genel IP adresi 13.86.122.41 ve özel IP adresi 10.3.1.4 yollardır.
 

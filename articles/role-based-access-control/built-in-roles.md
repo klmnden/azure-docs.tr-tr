@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/24/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: ce9ef687643de7ec9b289f74feea613fb9a1db7a
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 86bf408f521e11e1bed4e26ca99299abdc710227
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960637"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805644"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure kaynakları için yerleşik roller
 
@@ -38,6 +38,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 | [Sahip](#owner) | Kaynaklara erişim dahil olmak üzere her şeyi yönetmenizi sağlar. |
 | [Katılımcı](#contributor) | Kaynaklara erişim hariç olmak üzere her şeyi yönetmenizi sağlar. |
 | [Okuyucu](#reader) | Her şeyi görüntülemenizi sağlar ancak değişiklik yapmanıza izin vermez. |
+| [AcrDelete](#acrdelete) | ACR delete |
 | [AcrImageSigner](#acrimagesigner) | acr görüntüsü imzalayan |
 | [AcrPull](#acrpull) | ACR çekme |
 | [AcrPush](#acrpush) | ACR gönderme |
@@ -51,6 +52,8 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 | [Otomasyon işi işleci](#automation-job-operator) | Otomasyon Runbook'larını kullanarak İş oluşturun ve yönetin. |
 | [Otomasyon operatörü](#automation-operator) | Otomasyon Operatörleri, işleri başlatabilir, durdurabilir, askıya alabilir ve sürdürebilir |
 | [Otomasyon Runbook'u işleci](#automation-runbook-operator) | Runbook'un İşlerini oluşturabilmek için Runbook özelliklerini okuyun. |
+| [Avere katkıda bulunan](#avere-contributor) | Oluşturabilir ve bir Avere vFXT kümesini yönetme. |
+| [Avere işleci](#avere-operator) | Kümeyi yönetmek için Avere vFXT küme tarafından kullanılan |
 | [Azure Kubernetes hizmeti Küme Yöneticisi rolü](#azure-kubernetes-service-cluster-admin-role) | Küme yöneticisi kimlik bilgileri eylemini listele. |
 | [Azure Kubernetes hizmeti küme kullanıcı rolü](#azure-kubernetes-service-cluster-user-role) | Küme kullanıcısı kimlik bilgileri eylemini listele. |
 | [Azure Stack kayıt sahibi](#azure-stack-registration-owner) | Azure Stack kayıtlarını yönetmenize imkan sağlar. |
@@ -68,7 +71,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 | [Klasik depolama hesabı anahtarı işleci hizmet rolü](#classic-storage-account-key-operator-service-role) | Klasik Depolama Hesabı Anahtarı İşleçlerine, Klasik Depolama Hesaplarında anahtarları listeleme ve yeniden oluşturma izni verilir |
 | [Klasik sanal makine Katılımcısı](#classic-virtual-machine-contributor) | Klasik sanal makineleri yönetmenizi sağlar ancak bunlara veya bağlı oldukları sanal ağ ya da depolama hesaplarına yönelik erişimi yönetme izni vermez. |
 | [Bilişsel hizmetler katkıda bulunan](#cognitive-services-contributor) | Bilişsel Hizmetler anahtarlarını oluşturmanıza, okumanıza, güncelleştirmenize, silmenize ve yönetmenize olanak sağlar. |
-| [Bilişsel hizmetler verileri Okuyucu (Önizleme)](#cognitive-services-data-reader-preview) | Bilişsel hizmetler veri okumanıza olanak tanır. |
+| [Bilişsel hizmetler verileri Okuyucu (Önizleme)](#cognitive-services-data-reader-preview) | Bilişsel Hizmetler verilerini okumanıza olanak sağlar. |
 | [Bilişsel hizmetler kullanıcı](#cognitive-services-user) | Bilişsel Hizmetler anahtarlarını okumanıza ve listelemenize olanak sağlar. |
 | [Cosmos DB hesabı okuyucusu rolü](#cosmos-db-account-reader-role) | Azure Cosmos DB hesabı verileri okuyabilir. Bkz: [DocumentDB hesabı Katılımcısı](#documentdb-account-contributor) Azure Cosmos DB hesapları yönetme. |
 | [CosmosBackupOperator](#cosmosbackupoperator) | Bir Cosmos DB veritabanı veya bir hesaba ilişkin bir kapsayıcı için geri yükleme isteği gönderebilir |
@@ -82,8 +85,8 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 | [DevTest Labs kullanıcısı](#devtest-labs-user) | Azure DevTest Labs'teki tüm sanal makinelerinize bağlanmanıza, bu makineleri başlatmanıza, yeniden başlatmanıza ve kapatmanıza izin verir. |
 | [DNS bölgesi katkıda bulunanı](#dns-zone-contributor) | Azure DNS'te, DNS bölgelerini ve kayıt kümelerini yönetmenize izin verir, ancak bunlara kimlerin erişebildiğini denetlemenize izin vermez. |
 | [DocumentDB hesabı Katılımcısı](#documentdb-account-contributor) | Azure Cosmos DB hesapları yönetebilirsiniz. Azure Cosmos DB, eski adıyla DocumentDB bilinir. |
-| [EventGrid EventSubscription katkıda bulunan (Önizleme)](#eventgrid-eventsubscription-contributor-preview) | EventGrid olay aboneliği işlemlerini yönetmenize olanak sağlar. |
-| [EventGrid EventSubscription Okuyucu (Önizleme)](#eventgrid-eventsubscription-reader-preview) | EventGrid olay aboneliklerini okumanıza olanak sağlar. |
+| [EventGrid EventSubscription katkıda bulunan](#eventgrid-eventsubscription-contributor) | EventGrid olay aboneliği işlemlerini yönetmenize olanak sağlar. |
+| [EventGrid EventSubscription okuyucusu](#eventgrid-eventsubscription-reader) | EventGrid olay aboneliklerini okumanıza olanak sağlar. |
 | [HDInsight etki alanı Hizmetleri katkıda bulunan](#hdinsight-domain-services-contributor) | Okuyabilir oluşturma, değiştirme ve etki alanı Hizmetleri Sil ilgili işlemler için HDInsight Kurumsal Güvenlik Paketi için gereken Etki Alanı Hizmetleriyle ilgili işlemleri Okuyabilir, Oluşturabilir, Değiştirebilir ve Silebilir |
 | [Akıllı sistemler hesap Katılımcısı](#intelligent-systems-account-contributor) | Akıllı Sistemler hesaplarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Key Vault katkıda bulunanı](#key-vault-contributor) | Anahtar kasalarını yönetmenize izin verir, ancak bunlara erişmenize izin vermez. |
@@ -114,21 +117,22 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 | [Site Recovery katkıda bulunanı](#site-recovery-contributor) | Kasa oluşturma ve rol atama işlemleri dışında Site Recovery hizmetini yönetmenize imkan sağlar |
 | [Site Recovery operatörü](#site-recovery-operator) | Yük devretme ve yeniden çalışma dışındaki Site Recovery yönetimi işlemlerini gerçekleştirmenize izin vermez |
 | [Site Recovery okuyucusu](#site-recovery-reader) | Site Recovery durumunu görüntülemenize izin verir, ancak diğer yönetim işlemlerini gerçekleştirmenize izin vermez |
-| [Uzamsal bağlayıcılarını hesabı Katılımcısı](#spatial-anchors-account-contributor) | Sağlar hesabınızı çıpaları uzamsal yönetebilir, ancak silme |
-| [Uzamsal bağlayıcılarını hesap sahibi](#spatial-anchors-account-owner) | Hesabınızı silme de dahil olmak üzere uzamsal tutturucular yönetmenize olanak tanır |
-| [Uzamsal bağlayıcılarını hesabı okuyucusu](#spatial-anchors-account-reader) | Yerini belirleyip okumayı hesabınızdaki uzamsal çıpalarının özellikleri sağlar |
+| [Uzamsal bağlayıcılarını hesabı Katılımcısı](#spatial-anchors-account-contributor) | Hesabınızdaki uzamsal sabit noktaları yönetmenize olanak sağlar, ancak silmenize izin vermez |
+| [Uzamsal bağlayıcılarını hesap sahibi](#spatial-anchors-account-owner) | Silme de dahil olmak üzere hesabınızdaki uzamsal sabit noktaları yönetmenize olanak sağlar |
+| [Uzamsal bağlayıcılarını hesabı okuyucusu](#spatial-anchors-account-reader) | Hesabınızdaki uzamsal sabit noktaları bulup bunların özelliklerini okumanıza olanak sağlar |
 | [SQL DB Katılımcısı](#sql-db-contributor) | SQL veritabanları, ancak onlara yönelik erişimi yönetmenize olanak tanır. Ayrıca, güvenlikle ilgili ilkelerini veya üst SQL sunucularını yönetemezsiniz. |
+| [SQL yönetilen örneği katkıda bulunan](#sql-managed-instance-contributor) | SQL yönetilen örnekler yönetmenize izin verir, ancak kişilere erişim veremez. |
 | [SQL Güvenlik Yöneticisi](#sql-security-manager) | SQL sunucularının ve veritabanlarının güvenlikle ilgili ilkelerini yönetmenizi sağlar ancak onlara erişimi yönetme izni vermez. |
 | [SQL Server Katılımcısı](#sql-server-contributor) | SQL sunucularını ve veritabanlarını yönetmenizi sağlar ancak güvenlikle ilgili ilkelerini yönetmenize izin vermez. |
 | [Depolama Hesabı Katılımcısı](#storage-account-contributor) | Depolama hesaplarını yönetmenize izin verir ancak bunlara yönelik erişimi yönetmenize izin vermez. |
 | [Depolama hesabı anahtarı işleci hizmet rolü](#storage-account-key-operator-service-role) | Depolama Hesabı Anahtarı İşleçlerine, Depolama Hesaplarında anahtarları listeleme ve yeniden oluşturma izni verilir |
-| [Depolama Blob verileri katkıda bulunan (Önizleme)](#storage-blob-data-contributor-preview) | Azure Depolama blob kapsayıcılarına ve verilerine yönelik okuma, yazma ve silme erişimi verir |
-| [Depolama Blob verileri sahibi (Önizleme)](#storage-blob-data-owner-preview) | POSIX erişim denetimini atama dahil olmak üzere Azure Depolama blobu kapsayıcılarına ve verilerine tam erişim sağlar. |
-| [Depolama Blob verileri Okuyucu (Önizleme)](#storage-blob-data-reader-preview) | Azure Depolama blob kapsayıcılarına ve verilerine yönelik okuma erişimi verir |
-| [Depolama kuyruk verileri katkıda bulunan (Önizleme)](#storage-queue-data-contributor-preview) | Azure Depolama kuyruklarına ve kuyruk iletilerine yönelik okuma, yazma ve silme erişimi verir |
-| [Depolama kuyruk verileri ileti işlemci (Önizleme)](#storage-queue-data-message-processor-preview) | Sağlar göz atma, alma ve silme erişimi için Azure depolama kuyruğu iletileri |
-| [Depolama kuyruk verileri iletiyi gönderenin (Önizleme)](#storage-queue-data-message-sender-preview) | Azure depolama kuyruğu iletileri göndermek için izin verir |
-| [Depolama kuyruk verileri Okuyucu (Önizleme)](#storage-queue-data-reader-preview) | Azure Depolama kuyruklarına ve kuyruk iletilerine yönelik okuma erişimi verir |
+| [Depolama Blob verileri katkıda bulunan](#storage-blob-data-contributor) | Azure Depolama blob kapsayıcılarına ve verilerine yönelik okuma, yazma ve silme erişimi verir |
+| [Depolama Blob verileri sahibi](#storage-blob-data-owner) | POSIX erişim denetimini atama dahil olmak üzere Azure Depolama blobu kapsayıcılarına ve verilerine tam erişim sağlar. |
+| [Depolama Blob verileri okuyucu](#storage-blob-data-reader) | Azure Depolama blob kapsayıcılarına ve verilerine yönelik okuma erişimi verir |
+| [Depolama kuyruk verileri katkıda bulunan](#storage-queue-data-contributor) | Azure Depolama kuyruklarına ve kuyruk iletilerine yönelik okuma, yazma ve silme erişimi verir |
+| [Depolama kuyruk verileri ileti işlemci](#storage-queue-data-message-processor) | Azure Depolama kuyruk iletilerine yönelik göz atma, alma ve silme erişimi verir |
+| [Depolama kuyruk verileri ileti gönderen](#storage-queue-data-message-sender) | Azure Depolama kuyruk iletilerinin gönderilmesine izin verir |
+| [Depolama kuyruk verileri okuyucu](#storage-queue-data-reader) | Azure Depolama kuyruklarına ve kuyruk iletilerine yönelik okuma erişimi verir |
 | [Destek isteği Katılımcısı](#support-request-contributor) | Destek istekleri oluşturmanıza ve bunları yönetmenize olanak sağlar |
 | [Traffic Manager katkıda bulunanı](#traffic-manager-contributor) | Traffic Manager profillerini yönetmenize izin verir, ancak bunlara kimlerin erişebildiğini denetlemenize izin vermez. |
 | [Kullanıcı Erişimi Yöneticisi](#user-access-administrator) | Azure kaynaklarına yönelik kullanıcı erişimini yönetmenizi sağlar. |
@@ -181,6 +185,21 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **Kimlik** | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | **Eylemler** |  |
 > | * / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
+> | **NotActions** |  |
+> | *Yok* |  |
+> | **DataActions** |  |
+> | *Yok* |  |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
+## <a name="acrdelete"></a>AcrDelete
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | ACR delete |
+> | **Kimlik** | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
+> | **Eylemler** |  |
+> | Microsoft.ContainerRegistry/registries/artifacts/delete | Kapsayıcı kayıt defterindeki yapıt silin. |
 > | **NotActions** |  |
 > | *Yok* |  |
 > | **DataActions** |  |
@@ -458,6 +477,68 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | *Yok* |  |
 > | **DataActions** |  |
 > | *Yok* |  |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
+## <a name="avere-contributor"></a>Avere katkıda bulunan
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Oluşturabilir ve bir Avere vFXT kümesini yönetme. |
+> | **Kimlik** | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
+> | **Eylemler** |  |
+> | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
+> | Microsoft.Compute/*/read |  |
+> | Microsoft.Compute/availabilitySets/* |  |
+> | Microsoft.Compute/virtualMachines/* |  |
+> | Microsoft.Compute/disks/* |  |
+> | Microsoft.Network/*/read |  |
+> | Microsoft.Network/networkInterfaces/* |  |
+> | Microsoft.Network/virtualNetworks/read | Sanal ağ tanımı Al |
+> | Microsoft.Network/virtualNetworks/subnets/read | Bir sanal ağ alt ağı tanımı alır |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Bir sanal ağa katılır. Alertable değil. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Kaynak depolama hesabı veya SQL veritabanı gibi bir alt ağa katılır. Alertable değil. |
+> | Microsoft.Network/networkSecurityGroups/join/action | Bir ağ güvenlik grubu birleştirir. Alertable değil. |
+> | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
+> | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
+> | Microsoft.Storage/*/read |  |
+> | Microsoft.Storage/storageAccounts/* |  |
+> | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
+> | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Kaynak grubun kaynaklarını alır. |
+> | **NotActions** |  |
+> | *Yok* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Bir blobun silinmesinin sonucunu döndürür |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Bir blobu veya blob listesini döndürür |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Bir blobu yazmanın sonucunu döndürür |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
+## <a name="avere-operator"></a>Avere işleci
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Kümeyi yönetmek için Avere vFXT küme tarafından kullanılan |
+> | **Kimlik** | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
+> | **Eylemler** |  |
+> | Microsoft.Compute/virtualMachines/read | Bir sanal makinenin özelliklerini alır |
+> | Microsoft.Network/networkInterfaces/read | Bir ağ arabirimi tanımı alır.  |
+> | Microsoft.Network/networkInterfaces/write | Bir ağ arabirimi oluşturur veya mevcut bir ağ arabirimi güncelleştirir.  |
+> | Microsoft.Network/virtualNetworks/read | Sanal ağ tanımı Al |
+> | Microsoft.Network/virtualNetworks/subnets/read | Bir sanal ağ alt ağı tanımı alır |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Bir sanal ağa katılır. Alertable değil. |
+> | Microsoft.Network/networkSecurityGroups/join/action | Bir ağ güvenlik grubu birleştirir. Alertable değil. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Bir kapsayıcının silinmesinin sonucunu döndürür |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Kapsayıcı listesini döndürür |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Put blob kapsayıcısı sonucunu döndürür |
+> | **NotActions** |  |
+> | *Yok* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Bir blobun silinmesinin sonucunu döndürür |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Bir blobu veya blob listesini döndürür |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Bir blobu yazmanın sonucunu döndürür |
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
@@ -940,11 +1021,11 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
-## <a name="cognitive-services-data-reader-preview"></a>Bilişsel hizmetler verileri Okuyucu (Önizleme)
+## <a name="cognitive-services-data-reader-preview"></a>Bilişsel Hizmetler Veri Okuyucusu (Önizleme)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Bilişsel hizmetler veri okumanıza olanak tanır. |
+> | **Açıklama** | Bilişsel Hizmetler verilerini okumanıza olanak sağlar. |
 > | **Kimlik** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
 > | **Eylemler** |  |
 > | *Yok* |  |
@@ -1262,7 +1343,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
-## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription Katkıda Bulunanı (Önizleme)
+## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription Katkıda Bulunanı
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1285,7 +1366,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
-## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription Okuyucusu (Önizleme)
+## <a name="eventgrid-eventsubscription-reader"></a>EventGrid EventSubscription Okuyucusu
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1834,17 +1915,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.operationalInsights/workspaces/*/read | Log analytics verilerini görüntüleme |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
-> | Microsoft.Security/*/read | Okuma güvenlik bileşenleri ve ilkeleri |
-> | Microsoft.Security/locations/alerts/activate/action | Bir güvenlik uyarısı etkinleştir |
-> | Microsoft.Security/locations/alerts/dismiss/action | Bir güvenlik uyarısını kapatmanın |
-> | Microsoft.Security/locations/tasks/activate/action | Bir güvenlik önerisi etkinleştir |
-> | Microsoft.Security/locations/tasks/dismiss/action | Bir güvenlik önerisi Kapat |
-> | Microsoft.Security/policies/write | Güvenlik İlkesi güncelleştirmeleri |
-> | Microsoft.Security/pricings/write | Kapsam için fiyatlandırma ayarlarını güncelleştirir |
-> | Microsoft.Security/pricings/delete | Kapsam için fiyatlandırma ayarlarını siler |
-> | Microsoft.Security/securityContacts/delete | Güvenlik ilgili kişi siler |
-> | Microsoft.Security/securityContacts/write | Güvenlik ilgili kişi güncelleştirir |
-> | Microsoft.Security/InformationProtectionPolicies/write | Kaynak için bilgi koruma ilkelerine güncelleştirir |
+> | Microsoft.Security/* |  |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 > | **NotActions** |  |
 > | *Yok* |  |
@@ -2060,7 +2131,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Sağlar hesabınızı çıpaları uzamsal yönetebilir, ancak silme |
+> | **Açıklama** | Hesabınızdaki uzamsal sabit noktaları yönetmenize olanak sağlar, ancak silmenize izin vermez |
 > | **Kimlik** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
 > | **Eylemler** |  |
 > | *Yok* |  |
@@ -2080,7 +2151,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Hesabınızı silme de dahil olmak üzere uzamsal tutturucular yönetmenize olanak tanır |
+> | **Açıklama** | Silme de dahil olmak üzere hesabınızdaki uzamsal sabit noktaları yönetmenize olanak sağlar |
 > | **Kimlik** | 70bbe301-9835-447d-afdd-19eb3167307c |
 > | **Eylemler** |  |
 > | *Yok* |  |
@@ -2101,7 +2172,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Yerini belirleyip okumayı hesabınızdaki uzamsal çıpalarının özellikleri sağlar |
+> | **Açıklama** | Hesabınızdaki uzamsal sabit noktaları bulup bunların özelliklerini okumanıza olanak sağlar |
 > | **Kimlik** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
 > | **Eylemler** |  |
 > | *Yok* |  |
@@ -2134,14 +2205,22 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.Insights/metrics/read | Ölçümleri okuma |
 > | Microsoft.Insights/metricDefinitions/read | Ölçüm tanımlarını oku |
 > | **NotActions** |  |
+> | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/* |  |
+> | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Denetim ilkeleri Düzenle |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Denetim ayarlarını Düzenle |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Veritabanı blob Denetim kayıtlarını alma |
 > | Microsoft.Sql/servers/databases/connectionPolicies/* | Bağlantı ilkeleri Düzenle |
+> | Microsoft.Sql/servers/databases/currentSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Veri maskeleme ilkeleri Düzenle |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
+> | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Uyarı güvenlik ilkelerini düzenleme |
 > | Microsoft.Sql/servers/databases/securityMetrics/* | Güvenlik ölçümlerinin Düzenle |
@@ -2150,6 +2229,31 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | *Yok* |  |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
+## <a name="sql-managed-instance-contributor"></a>SQL yönetilen örneği katkıda bulunan
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | SQL yönetilen örnekler yönetmenize izin verir, ancak kişilere erişim veremez. |
+> | **Kimlik** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
+> | **Eylemler** |  |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
+> | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
+> | Microsoft.Network/networkSecurityGroups/write | Bir ağ güvenlik grubu oluşturur veya mevcut bir ağ güvenlik grubu güncelleştirir |
+> | Microsoft.Network/routeTables/write | Bir rota tablosu oluşturur veya mevcut bir yol tablosu güncelleştirir |
+> | Microsoft.Sql/locations/*/read |  |
+> | Microsoft.Sql/managedInstances/* |  |
+> | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
+> | Microsoft.Network/virtualNetworks/subnets/write | Bir sanal ağ alt ağı oluşturur veya mevcut bir sanal ağ alt ağını güncelleştirir |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Bir sanal ağa katılır. Alertable değil. |
+> | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
+> | **NotActions** |  |
+> | *Yok* |  |
 > | **DataActions** |  |
 > | *Yok* |  |
 > | **NotDataActions** |  |
@@ -2168,7 +2272,13 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
+> | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/* |  |
+> | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | SQL server denetim ilkeleri oluşturma ve yönetme |
 > | Microsoft.Sql/servers/auditingSettings/* | Oluşturma ve SQL server denetim ayarı yönetme |
@@ -2177,13 +2287,15 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Oluşturma ve SQL server veritabanı denetim ayarlarını yönetme |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Denetim kayıtlarını okuma |
 > | Microsoft.Sql/servers/databases/connectionPolicies/* | SQL server veritabanı bağlantı ilkeleri oluşturma ve yönetme |
+> | Microsoft.Sql/servers/databases/currentSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Oluşturma ve SQL server veritabanı veri maskeleme ilkelerini yönetme |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/read | Belirli bir veritabanı üzerinde yapılandırılan genişletilmiş blob denetim ilkesi ayrıntılarını alma |
 > | Microsoft.Sql/servers/databases/read | Veritabanları veya belirtilen veritabanı özelliklerini alır listesini döndürür. |
-> | Microsoft.Sql/servers/databases/schemas/read | Veritabanı şemaları listesi alınamıyor |
-> | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Bir tablonun sütunlarını listesi alınamıyor |
+> | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/* |  |
+> | Microsoft.Sql/servers/databases/schemas/read | Veritabanı şeması alın. |
+> | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Bir veritabanı sütunu alın. |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/schemas/tables/read | Bir veritabanının tabloların listesini alma |
+> | Microsoft.Sql/servers/databases/schemas/tables/read | Bir veritabanı tablosuna alın. |
 > | Microsoft.Sql/servers/databases/securityAlertPolicies/* | SQL server veritabanı güvenlik uyarı ilkeleri oluşturma ve yönetme |
 > | Microsoft.Sql/servers/databases/securityMetrics/* | Oluşturma ve SQL server veritabanı güvenlik ölçümlerini yönetme |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
@@ -2220,7 +2332,13 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.Insights/metrics/read | Ölçümleri okuma |
 > | Microsoft.Insights/metricDefinitions/read | Ölçüm tanımlarını oku |
 > | **NotActions** |  |
+> | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/* |  |
+> | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | SQL server denetim ilkeleri Düzenle |
 > | Microsoft.Sql/servers/auditingSettings/* | SQL sunucusunun denetim ayarlarını Düzenle |
@@ -2228,8 +2346,10 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.Sql/servers/databases/auditingSettings/* | SQL server veritabanı denetim ayarları Düzenle |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Denetim kayıtlarını okuma |
 > | Microsoft.Sql/servers/databases/connectionPolicies/* | SQL server veritabanı bağlantı ilkeleri Düzenle |
+> | Microsoft.Sql/servers/databases/currentSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | SQL server veritabanı veri maskeleme ilkeleri Düzenle |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
+> | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/securityAlertPolicies/* | SQL server veritabanı güvenlik uyarı ilkelerini düzenleme |
 > | Microsoft.Sql/servers/databases/securityMetrics/* | SQL server veritabanı güvenlik ölçümlerini Düzenle |
@@ -2249,7 +2369,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Depolama hesaplarını yönetmenize izin verir ancak bunlara yönelik erişimi yönetmenize izin vermez. |
+> | **Açıklama** | Depolama hesaplarının yönetimini izin verir. Depolama hesabındaki verilere erişim sağlamaz. |
 > | **Kimlik** | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Tüm Yetkilendirme okuyun |
@@ -2272,11 +2392,11 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Depolama Hesabı Anahtarı İşleçlerine, Depolama Hesaplarında anahtarları listeleme ve yeniden oluşturma izni verilir |
+> | **Açıklama** | Listeleme ve depolama hesabı erişim anahtarlarını yeniden izin verir. |
 > | **Kimlik** | 81a9662b-bebf-436f-a333-f67b29880f12 |
 > | **Eylemler** |  |
 > | Microsoft.Storage/storageAccounts/listkeys/action | Belirtilen depolama hesabının erişim anahtarlarını döndürür. |
-> | Microsoft.Storage/storageAccounts/regeneratekey/action | Belirtilen depolama hesabının erişim anahtarlarını yeniden oluşturur. |
+> | Microsoft.Storage/storageAccounts/regeneratekey/action | Belirtilen depolama hesabının erişim anahtarlarını yeniden oluştur. |
 > | **NotActions** |  |
 > | *Yok* |  |
 > | **DataActions** |  |
@@ -2284,117 +2404,117 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
-## <a name="storage-blob-data-contributor-preview"></a>Depolama Blob Verileri Katkıda Bulunan (Önizleme)
+## <a name="storage-blob-data-contributor"></a>Depolama Blob Verileri Katkıda Bulunanı
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Azure Depolama blob kapsayıcılarına ve verilerine yönelik okuma, yazma ve silme erişimi verir |
+> | **Açıklama** | Okuma, yazma ve Azure depolama kapsayıcıları ve blobları silin. Verilen veri çalışması için gerekli eylemleri öğrenmek için bkz: [blob ve kuyruk veri işlemleri çağırmak için izinleri](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Kimlik** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **Eylemler** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Bir kapsayıcının silinmesinin sonucunu döndürür |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Kapsayıcı listesini döndürür |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Put blob kapsayıcısı sonucunu döndürür |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Bir kapsayıcı silin. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Bir kapsayıcı veya bir kapsayıcı listesi döndürür. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Bir kapsayıcının meta verileri veya özelliklerini değiştirin. |
 > | **NotActions** |  |
 > | *Yok* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Bir blobun silinmesinin sonucunu döndürür |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Bir blobu veya blob listesini döndürür |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Bir blobu yazmanın sonucunu döndürür |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Bir blobu silin. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Bir blobu veya BLOB listesini döndürür. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Bir blob olarak yazar. |
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
-## <a name="storage-blob-data-owner-preview"></a>Depolama Blob Verileri Sahibi (Önizleme)
+## <a name="storage-blob-data-owner"></a>Depolama Blob Verileri Sahibi
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | POSIX erişim denetimini atama dahil olmak üzere Azure Depolama blobu kapsayıcılarına ve verilerine tam erişim sağlar. |
+> | **Açıklama** | Azure depolama blob kapsayıcılarına ve verilerine, POSIX erişim denetimi atama dahil olmak üzere tam erişim sağlar. Verilen veri çalışması için gerekli eylemleri öğrenmek için bkz: [blob ve kuyruk veri işlemleri çağırmak için izinleri](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Kimlik** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Eylemler** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/* |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* | Tam kapsayıcılarında.  |
 > | **NotActions** |  |
 > | *Yok* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* | Blobları tam izinleri. |
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
-## <a name="storage-blob-data-reader-preview"></a>Depolama Blob Verileri Okuyucu (Önizleme)
+## <a name="storage-blob-data-reader"></a>Depolama Blob Verileri Okuyucusu
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Azure Depolama blob kapsayıcılarına ve verilerine yönelik okuma erişimi verir |
+> | **Açıklama** | Okuma ve Azure depolama kapsayıcıları ve blobları listeleyin. Verilen veri çalışması için gerekli eylemleri öğrenmek için bkz: [blob ve kuyruk veri işlemleri çağırmak için izinleri](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Kimlik** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Eylemler** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Kapsayıcı listesini döndürür |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Bir kapsayıcı veya bir kapsayıcı listesi döndürür. |
 > | **NotActions** |  |
 > | *Yok* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Bir blobu veya blob listesini döndürür |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Bir blobu veya BLOB listesini döndürür. |
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
-## <a name="storage-queue-data-contributor-preview"></a>Depolama Kuyruk Verileri Katkıda Bulunan (Önizleme)
+## <a name="storage-queue-data-contributor"></a>Depolama Kuyruk Verileri Katkıda Bulunanı
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Azure Depolama kuyruklarına ve kuyruk iletilerine yönelik okuma, yazma ve silme erişimi verir |
+> | **Açıklama** | Okuma, yazma ve Azure depolama kuyruklarına ve kuyruk iletilerine silin. Verilen veri çalışması için gerekli eylemleri öğrenmek için bkz: [blob ve kuyruk veri işlemleri çağırmak için izinleri](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Kimlik** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
 > | **Eylemler** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Bir kuyruğu silmenin sonucunu döndürür |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Bir kuyruk silme. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Bir kuyruğu veya kuyruk listesini döndürür. |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/write | Bir kuyruğu yazmanın sonucunu döndürür |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/write | Kuyruk meta verileri veya özelliklerini değiştirin. |
 > | **NotActions** |  |
 > | *Yok* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Bir iletiyi silmenin sonucunu döndürür |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Bir ileti döndürür |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Bir iletiyi yazmanın sonucunu döndürür |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Bir veya daha fazla ileti kuyruktan silin. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Özet veya kuyruktan bir veya daha fazla ileti alır. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Kuyruğa bir ileti ekleyin. |
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
-## <a name="storage-queue-data-message-processor-preview"></a>Depolama kuyruk verileri ileti işlemci (Önizleme)
+## <a name="storage-queue-data-message-processor"></a>Depolama Kuyruk Verileri İleti İşleyicisi
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Sağlar göz atma, alma ve silme erişimi için Azure depolama kuyruğu iletileri |
+> | **Açıklama** | Özet, almak ve bir Azure depolama kuyruğuna iletiler silin. Verilen veri çalışması için gerekli eylemleri öğrenmek için bkz: [blob ve kuyruk veri işlemleri çağırmak için izinleri](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Kimlik** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | **Eylemler** |  |
 > | *Yok* |  |
 > | **NotActions** |  |
 > | *Yok* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Bir ileti döndürür |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Bir iletiyi işlemenin sonucunu döndürür |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Bir iletiye Gözat. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Almak ve bir ileti Sil. |
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
-## <a name="storage-queue-data-message-sender-preview"></a>Depolama kuyruk verileri iletiyi gönderenin (Önizleme)
+## <a name="storage-queue-data-message-sender"></a>Depolama Kuyruk Verileri İleti Göndericisi
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Azure depolama kuyruğu iletileri göndermek için izin verir |
+> | **Açıklama** | Bir Azure depolama kuyruğuna ileti ekleme. Verilen veri çalışması için gerekli eylemleri öğrenmek için bkz: [blob ve kuyruk veri işlemleri çağırmak için izinleri](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Kimlik** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | **Eylemler** |  |
 > | *Yok* |  |
 > | **NotActions** |  |
 > | *Yok* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Bir ileti eklemenin sonucunu döndürür |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Kuyruğa bir ileti ekleyin. |
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
-## <a name="storage-queue-data-reader-preview"></a>Depolama Kuyruk Verileri Okuyucu (Önizleme)
+## <a name="storage-queue-data-reader"></a>Depolama Kuyruk Verileri Okuyucusu
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Azure Depolama kuyruklarına ve kuyruk iletilerine yönelik okuma erişimi verir |
+> | **Açıklama** | Okuma ve Azure depolama kuyruklarına ve kuyruk iletilerine listeleyin. Verilen veri çalışması için gerekli eylemleri öğrenmek için bkz: [blob ve kuyruk veri işlemleri çağırmak için izinleri](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Kimlik** | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Eylemler** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Bir kuyruğu veya kuyruk listesini döndürür. |
 > | **NotActions** |  |
 > | *Yok* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Bir ileti döndürür |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Özet veya kuyruktan bir veya daha fazla ileti alır. |
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
@@ -2558,6 +2678,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 > | Microsoft.Web/serverFarms/* | Oluşturma ve sunucu grupları yönetme |
+> | Microsoft.Web/hostingEnvironments/Join/Action | App Service ortamı birleştirir |
 > | **NotActions** |  |
 > | *Yok* |  |
 > | **DataActions** |  |
@@ -2595,4 +2716,4 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 
 - [Azure kaynakları için özel roller](custom-roles.md)
 - [RBAC ve Azure portalını kullanarak Azure kaynaklarına erişimi yönetme](role-assignments-portal.md)
-- [Azure Güvenlik Merkezi'nde izinler](../security-center/security-center-permissions.md)
+- [Azure Güvenlik Merkezi'nde İzinler](../security-center/security-center-permissions.md)

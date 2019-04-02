@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/015/2019
+ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91228074e13453ce53c0b4a7606479d45e8a90ac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 40ed06bef45948068e3845e728d9c1d63ed62e71
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182787"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762812"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Barındırma ve SAP iş yükü senaryoları çalıştırmak için Azure'ı kullanma
 
@@ -36,14 +36,16 @@ Azure'da SAP iş yükü senaryoları barındırma kimlik tümleştirmesi ve çok
 
 ## <a name="latest-changes"></a>En son değişiklikleri
 
+Sürümü [Azure HANA büyük örnekleri, Azure Portalı aracılığıyla denetleme](hana-li-portal.md)
+
+Sürümü [SUSE Linux Enterprise Server SAP uygulamaları için Azure NetApp dosya çubuğunda Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik](high-availability-guide-suse-netapp-files.md)
+
+Açıklama **Linux işletim sistemi parametresi net.ipv4.tcp_timestamps** ayarları Azure ile birlikte yük dengeleyici
+
 Sürümü [Azure kullanılabilirlik alanları ile SAP iş yükü yapılandırmaları](sap-ha-availability-zones.md)
 
 Sürümü [SAP iş yükü planlama ve dağıtım denetim listesi](sap-deployment-checklist.md)
 
-Kullanım ve yapılandırmasını geçici olarak açıklama [Azure ağ sanal Gereçleri](https://azure.microsoft.com/solutions/network-appliances/) SAP sistemlerinde kritik iletişim yollarını gecikme süresi içinde:
-
-- [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
-- [Azure'da SAP HANA altyapısı yapılandırmaları ve işlemleri](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 
 
 

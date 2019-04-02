@@ -5,17 +5,17 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4e9080cfc863b4253a4eb4d427f21df74bb08874
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: e54c18eb405ffa36260e9980705784130bc0ca4c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186745"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803024"
 ---
-# <a name="quickstart-create-a-server---portal"></a>Hızlı Başlangıç: Bir sunucu - Portal oluşturma
+# <a name="quickstart-create-a-server---portal"></a>Hızlı Başlangıç: Sunucu oluşturma - Portal
 
 Bu hızlı başlangıçta, portalı kullanarak Azure aboneliğinizde bir Analysis Services sunucusu kaynağı oluşturma adımları açıklanmaktadır.
 
@@ -46,7 +46,7 @@ Bu hızlı başlangıçta, portalı kullanarak Azure aboneliğinizde bir Analysi
    * **Yedekleme depolama ayarı**: İsteğe bağlı. [Depolama hesabınız](../storage/common/storage-introduction.md) varsa model yedekleme veritabanı olarak varsayılan yapabilirsiniz. [Yedekleme ve geri yükleme](analysis-services-backup.md) ayarlarını daha sonra da yapabilirsiniz.
    * **Depo anahtarı süre sonu**: İsteğe bağlı. Depo anahtarı için süre sonu belirtin.
 
-Sunucunun oluşturulması genellikle bir dakikadan kısa sürer. **Portala Ekle**'yi seçtiyseniz yeni sunucunuzu görmek için portalınıza gidin. Ya da **Tüm hizmetler** > **Analysis Services** yolunu izleyerek sunucunuzun hazır olup olmadığına bakabilirsiniz.
+Sunucunun oluşturulması genellikle bir dakikadan kısa sürer. **Portala Ekle**'yi seçtiyseniz yeni sunucunuzu görmek için portalınıza gidin. Ya da **Tüm hizmetler** > **Analysis Services** yolunu izleyerek sunucunuzun hazır olup olmadığına bakabilirsiniz. Sunucuları, 1200 ve üzeri uyumluluk düzeylerinde tablosal modelleri destekler. Model uyumluluk düzeyi SSDT veya SSMS içinde belirtilir.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

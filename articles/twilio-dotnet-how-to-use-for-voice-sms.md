@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 254128d212dec3e6f51a98dc4435894e08377eb0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3b8b21de9664a969e8b1ce5699034aa9ab41d0f1
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955233"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762903"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Ses ve azure'dan SMS özellikleri için Twilio kullanma
 Bu kılavuzda, Azure üzerinde Twilio API'si hizmeti ile genel programlama görevlerini gerçekleştirmek gösterilmiştir. Telefon görüşmesi yapma ve kısa mesaj servisi (SMS) ileti gönderme senaryoları ele alınmaktadır. Twilio ve ses ve SMS uygulamalarınızda kullanma hakkında daha fazla bilgi için bkz. [sonraki adımlar](#NextSteps) bölümü.
@@ -30,7 +30,7 @@ Twilio ses, VoIP ve mesajlaşma uygulamaları gömmek geliştiricilerin iş ilet
 **Twilio ses** yapıp telefon çağrılarını almak, uygulamaların sağlar. **Twilio SMS** SMS iletileri gönderip almak için uygulamalarınızı sağlar. **Twilio istemci** WebRTC destekler ve herhangi bir telefon, tablet veya tarayıcı VoIP çağrı yapmak sağlar.
 
 ## <a id="Pricing"></a>Twilio fiyatlandırma ve özel teklifler
-Azure müşterileri alır bir [özel teklif](https://www.twilio.com/azure): 10 ücretsiz Twilio Twilio hesabınızın yükselttiğinizde kredi. Twilio kredi herhangi bir Twilio kullanım (10 ABD Doları kredi 1.000 adede kadar SMS mesajları göndermek veya telefon numarası ve ileti veya çağrı hedef konumuna bağlı olarak en fazla 1000 gelen sesi dakika alma eşdeğerdir) uygulanabilir. Twilio kredi almak ve başlamak [ahoy.twilio.com/azure](https://ahoy.twilio.com/azure).
+Azure müşterileri alır bir [özel teklif](https://www.twilio.com/azure): 10 ücretsiz Twilio Twilio hesabınızın yükselttiğinizde kredi. Twilio kredi herhangi bir Twilio kullanım (10 ABD Doları kredi 1.000 adede kadar SMS mesajları göndermek veya telefon numarası ve ileti veya çağrı hedef konumuna bağlı olarak en fazla 1000 gelen sesi dakika alma eşdeğerdir) uygulanabilir. Twilio kredi almak ve başlamak [twilio.com/azure](https://twilio.com/azure).
 
 Twilio, bir Kullandıkça Öde hizmetidir. Hesabınızı dilediğiniz zaman kapatabilirsiniz ve Kurulum ücret vardır. Daha fazla bilgi bulabilirsiniz [Twilio fiyatlandırma](https://www.twilio.com/voice/pricing).
 
@@ -44,14 +44,14 @@ Twilio'yu kullanarak API yapar; fiiller Örneğin, **&lt;Say&gt;** fiil kullanı
 
 Twilio fiillerin listesi verilmiştir.  Diğer fiilleri ve aracılığıyla özellikler hakkında bilgi edinin [Twilio işaretleme dili belge](https://www.twilio.com/docs/api/twiml).
 
-* `<Dial>`: Çağıran başka bir telefonu bağlanır.
+* `<Dial>`: Çağıran, başka bir telefonu bağlanır.
 * `<Gather>`: Telefon tuş takımında girilen sayı toplar.
-* `<Hangup>`: Bir aramasını sonlandırır.
-* `<Play>`: Bir ses dosyasını yürütür.
+* `<Hangup>`: Bir çağrı sona erer.
+* `<Play>`: Ses dosyası yürütülür.
 * `<Pause>`: Sessiz bir şekilde belirtilen sayıda saniye bekler.
 * `<Record>`: Arayanın ses kayıtlarını ve kayıt içeren bir dosyanın bir URL döndürür.
 * `<Redirect>`: Arama veya SMS için farklı bir URL'de TwiML aktarımları denetim.
-* `<Reject>`: Reddeder Twilio numaranızı gelen bir arama faturalama olmadan
+* `<Reject>`: Twilio numaranızı gelen bir arama faturalama olmadan reddeder.
 * `<Say>`: Metin, üzerinde bir çağrı yapılır okuma dönüştürür.
 * `<Sms>`: Bir SMS mesajı gönderir.
 
@@ -115,7 +115,7 @@ Varsayılan olarak, Microsoft Visual Studio 2010 NuGet 1.2 sürümünü yükler.
 5. Arama çevrimiçi kutusuna *twilio*.
 6. Tıklayın **yükleme** Twilio paketteki.
 
-## <a id="howto_make_call"></a>Nasıl yapılır: giden bir çağrı yapın
+## <a id="howto_make_call"></a>Nasıl Yapılır: Giden bir çağrı yapın
 Aşağıdaki çağrıda giden hale getirmeyi açıklayan **CallResource** sınıfı. Bu kod, Twilio tarafından sağlanan bir site ayrıca Twilio biçimlendirme dili (TwiML) yanıt için kullanır. Kendi değerlerinizi yerleştirin **için** ve **gelen** telefon numaraları ve doğrulamanız olun **gelen** telefon numarası Twilio hesabınız için kodu çalıştırmadan önce.
 
 ```csharp
@@ -143,9 +143,9 @@ var call = CallResource.Create(
 
 İçin geçirilen parametreler hakkında daha fazla bilgi için **CallResource.Create** yöntemi bkz [ https://www.twilio.com/docs/api/rest/making-calls ] [ twilio_rest_making_calls].
 
-Belirtildiği gibi bu kod bir Twilio tarafından sağlanan site TwiML yanıt döndürmek için kullanır. Bunun yerine, kendi site TwiML yanıt sağlamak için de kullanabilirsiniz. Daha fazla bilgi için [nasıl yapılır: kendi Web sitesinden sağlamak TwiML yanıtları](#howto_provide_twiml_responses).
+Belirtildiği gibi bu kod bir Twilio tarafından sağlanan site TwiML yanıt döndürmek için kullanır. Bunun yerine, kendi site TwiML yanıt sağlamak için de kullanabilirsiniz. Daha fazla bilgi için [nasıl yapılır: Kendi Web sitesinden TwiML yanıt vermek](#howto_provide_twiml_responses).
 
-## <a id="howto_send_sms"></a>Nasıl yapılır: bir SMS iletisi gönderin
+## <a id="howto_send_sms"></a>Nasıl Yapılır: Bir SMS iletisi gönderin
 Aşağıdaki ekran görüntüsünde, bir SMS kullanarak ileti göndermek gösterilmektedir **MessageResource** sınıfı. **Gelen** numarası, SMS mesajları gönderebilir tarafından deneme hesapları için Twilio sağlanır. **İçin** numarası gerekir doğrulanabilir Twilio hesabınız için kodu çalıştırmadan önce.
 
 ```csharp
@@ -172,8 +172,8 @@ catch (TwilioException ex)
 }
 ```
 
-## <a id="howto_provide_twiml_responses"></a>Nasıl yapılır: kendi Web sitesinden TwiML yanıtları sağlayın
-Ne zaman uygulamanızı başlatan Twilio API'si - Örneğin, bir çağrı aracılığıyla **CallResource.Create** yöntem - Twilio gönderir isteğiniz TwiML yanıt dönmesi beklenen bir URL. Örnekte [nasıl yapılır: giden bir çağrı yapmak](#howto_make_call) Twilio tarafından sağlanan URL'yi kullanır [ https://twimlets.com/message ] [ twimlet_message_url] yanıtta döndürülecek.
+## <a id="howto_provide_twiml_responses"></a>Nasıl Yapılır: Kendi Web sitesinden TwiML yanıtları sağlayın
+Ne zaman uygulamanızı başlatan Twilio API'si - Örneğin, bir çağrı aracılığıyla **CallResource.Create** yöntem - Twilio gönderir isteğiniz TwiML yanıt dönmesi beklenen bir URL. Örnekte [nasıl yapılır: Giden bir çağrı yapmak](#howto_make_call) Twilio tarafından sağlanan URL'yi kullanır [ https://twimlets.com/message ] [ twimlet_message_url] yanıtta döndürülecek.
 
 > [!NOTE]
 > TwiML web hizmetleri tarafından kullanılmak üzere tasarlandığından, tarayıcınızda TwiML görüntüleyebilirsiniz. Örneğin, [ https://twimlets.com/message ] [ twimlet_message_url] boş görmek için `<Response>` öğesi; başka bir örnek olarak, tıklayın [ https://twimlets.com/message?Message%5B0%5D=Hello%20World ](https://twimlets.com/message?Message%5B0%5D=Hello%20World) görmek için bir `<Response>` öğesini içeren bir &lt;Say&gt; öğesi.

@@ -1,6 +1,6 @@
 ---
 title: Portalda blueprint oluşturma
-description: Azure şemaları oluşturmak, tanımlamak ve yapıtları Azure Portal aracılığıyla dağıtma için kullanın.
+description: Azure şemaları oluşturmak, tanımlamak ve yapıtları Azure portalı üzerinden dağıtmak için kullanın.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fdf87bff026dee4969b3995b37c31de3ead7714b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0b27514dfa34963901fb94be37d8fe330a3c65ce
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004909"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804403"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Tanımlama ve portalda bir Azure şema Ata
 
@@ -40,7 +40,7 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
 
    - Alternatif olarak, **Başlarken** sayfasında **Oluştur**’a tıklayarak doğrudan şemaya gidebilirsiniz.
 
-   ![Şema oluşturma](./media/create-blueprint-portal/create-blueprint-button.png)
+   ![Şema tanımları sayfasından Blueprint oluşturun](./media/create-blueprint-portal/create-blueprint-button.png)
 
 1. Sağlayan bir **Blueprint adı** 'MyBlueprint gibi' (harfler ve sayılar--en fazla 48 karakter, ancak boşluk veya özel karakterler) için şema, ancak bırakın **Blueprint açıklaması** şimdilik boş. İçinde **tanım konumunu** kutusunda, sağ tıklayın, seçin [yönetim grubu](../management-groups/overview.md) veya şema kaydedin ve tıklayın istediğiniz abonelik **seçin**.
 
@@ -48,7 +48,7 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
 
 1. Rol ataması abonelik ekleyin: Üzerinde sol **+ yapıt ekleme...**  altında satır **abonelik** ve tarayıcı sağ tarafında 'Yapıt ekleme' penceresi açılır. 'Rol Ataması' seçin _Yapıt türü_. Altında _rol_'Katkıda bulunan' seçin ve bırakın _Ekle kullanıcı, uygulama veya grup_ alanını belirten onay kutusu ile bir **dinamik parametre**. Bu yapıtı şemaya eklemek için **Ekle**’ye tıklayın.
 
-   ![Yapıt - Rol Ataması](./media/create-blueprint-portal/add-role-assignment.png)
+   ![Blueprint yapıtı - rol ataması](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > Çoğu _yapıt_, parametreleri destekler. Şema oluşturma sırasında değer atanan bir parametre, **statik parametredir**. Parametre şema ataması sırasında atanırsa **dinamik parametre** olur. Daha fazla bilgi için bkz. [Şema parametreleri](./concepts/parameters.md).
@@ -113,11 +113,11 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
    }
    ```
 
-   ![Yapıt - Azure Resource Manager şablonu](./media/create-blueprint-portal/add-resource-manager-template.png)
+   ![Blueprint yapıtı - Resource Manager şablonu](./media/create-blueprint-portal/add-resource-manager-template.png)
 
 1. Tamamladığınız şema aşağıdakine benzer olmalıdır. Her yapıtın _Parametreler_ sütunu altında '_y_ parametreden _x_ tanesi doldurulmuş' durumdadır. **Dinamik parametreler** şemanın her atamasında ayarlanır.
 
-   ![Tamamlanan şema](./media/create-blueprint-portal/completed-blueprint.png)
+   ![Tamamlanmış bir şema tanımı](./media/create-blueprint-portal/completed-blueprint.png)
 
 1. Planlanan tüm yapıtlar eklendikten sonra sayfanın alt kısmındaki **Taslağı Kaydet** seçeneğine tıklayın.
 
@@ -135,11 +135,11 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
 
 1. Rol ataması kaynak grubu altında ekleyin: Üzerinde sol **+ yapıt ekleme...**  doğrudan altında satır **ResourceGroup** girişi. 'Rol Ataması' seçin _Yapıt türü_. Altında _rol_'Owner' seçmek ve kaldırmak için Denetim _Ekle kullanıcı, uygulama veya grup_ alan, arama ve bir kullanıcı, uygulama veya grup eklemek için seçin. Yapıt, bu şemanın tüm atamalarında aynı **statik parametreyi** kullanır. Bu yapıtı şemaya eklemek için **Ekle**’ye tıklayın.
 
-   ![Yapıt - Rol Ataması 2](./media/create-blueprint-portal/add-role-assignment-2.png)
+   ![Blueprint yapıtı - rol ataması #2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
 1. Tamamladığınız şema aşağıdakine benzer olmalıdır. Yeni eklenen rol atamasında **1 parametreden 1 tanesinin doldurulmuş** olduğuna, yani bunun bir **statik parametre** olduğuna dikkat edin.
 
-   ![Tamamlanan şema 2](./media/create-blueprint-portal/completed-blueprint-2.png)
+   ![Tamamlanan şema tanımını #2](./media/create-blueprint-portal/completed-blueprint-2.png)
 
 1. Güncelleştirildikten sonra **Taslağı Kaydet**’e tıklayın.
 
@@ -224,7 +224,7 @@ Bir şema bir veya daha fazla aboneliğe atandığında iki şey gerçekleşir:
 
 1. Blueprint listesinde, önceden atanmış bir sağ tıklayıp **atama ayrıntıları görüntüle**.
 
-   ![Atama ayrıntıları görüntüleme](./media/create-blueprint-portal/view-assignment-details.png)
+   ![Atanan şemalar sayfasından atama ayrıntılarını görüntüle](./media/create-blueprint-portal/view-assignment-details.png)
 
 1. Üzerinde **Blueprint ataması** sayfasında, tüm yapıtlar başarıyla dağıtıldığını ve yapıldı, hatasız dağıtımı sırasında doğrulayın. Hatalar oluştuysa neyin yanlış gittiğini belirleme adımları için [şema sorunlarını giderme](./troubleshoot/general.md) bölümüne bakın.
 
@@ -249,9 +249,9 @@ Gerekli değilse şema atamasını abonelikten kaldırabilirsiniz. Şema, günce
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Hakkında bilgi edinin [blueprint yaşam döngüsü](./concepts/lifecycle.md).
-- Nasıl kullanılacağını anlamak [statik ve dinamik parametreleri](./concepts/parameters.md).
-- Özelleştirme öğrenin [blueprint sıralama sipariş](./concepts/sequencing-order.md).
-- Öğrenin yapmak kullanım [blueprint kaynak kilitleme](./concepts/resource-locking.md).
-- Bilgi edinmek için nasıl [mevcut Atamaları Güncelleştir](./how-to/update-existing-assignments.md).
-- İle bir blueprint ataması sırasında sorunları gidermek [genel sorun giderme](./troubleshoot/general.md).
+- [Şema yaşam döngüsü](./concepts/lifecycle.md) hakkında bilgi edinin.
+- [Statik ve dinamik parametrelerin](./concepts/parameters.md) kullanımını anlayın.
+- [Şema sıralama düzenini](./concepts/sequencing-order.md) özelleştirmeyi öğrenin.
+- [Şema kaynak kilitleme](./concepts/resource-locking.md) özelliğini kullanmayı öğrenin.
+- [Mevcut atamaları güncelleştirmeyi](./how-to/update-existing-assignments.md) öğrenin.
+- [Genel sorun giderme](./troubleshoot/general.md) adımlarıyla şema atama sorunlarını giderin.

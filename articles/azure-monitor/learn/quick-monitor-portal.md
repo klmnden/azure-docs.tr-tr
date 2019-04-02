@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 03/29/2019
+ms.date: 04/01/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 13fce896c4d83f628bdb7e12e696e32e343fb689
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a43ad92181415593b309b9fafb20f9934a997924
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754930"
+ms.locfileid: "58805355"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET Web Uygulamanızı izlemeye başlama
 
@@ -105,6 +105,11 @@ Daha fazla bilgi edinmek için [açık kaynak JavaScript SDK'sı](https://github
 ## <a name="video"></a>Video
 
 * İlgili dış adım adım video [sıfırdan bir .NET uygulaması ile Application Insights'ı yapılandırma](https://www.youtube.com/watch?v=blnGAVgMAfA).
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+İşiniz bittiğinde test, kaynak grubunu silebilirsiniz ve tüm ilgili kaynakları. İçin aşağıdaki adımları izleyin.
+1. Azure portalında sol taraftaki menüden, **Kaynak grupları**’na tıklayın ve ardından **myResourceGroup**’a tıklayın.
+2. Kaynak grubu sayfanızda, **Sil**’e tıklayın, metin kutusuna **myResourceGroup** yazın ve ardından **Sil**’e tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu hızlı başlangıçta, Azure Application Insights tarafından izleme için uygulamanızı etkinleştirdiniz.  İstatistikleri izlemek ve uygulamanızdaki sorunları tespit etmek üzere nasıl kullanacağınızı öğrenmek için öğreticilere ilerleyin.

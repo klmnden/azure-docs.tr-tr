@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 2/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b40edf705ba61713f4b695dd55a6a20028936c82
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 56813d9a075e1c327fb5612c50ea72f067ec505d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993812"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805610"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Bir Azure Machine Learning çalışma alanı erişimi yönetme
 
@@ -33,7 +33,7 @@ Bir Azure Machine Learning çalışma alanı, bir Azure kaynağıdır. Yeni bir 
 | **Sahip** | Tam erişim görüntülemek, oluşturmak, düzenlemek veya (uygunsa) silme yeteneği dahil olmak üzere çalışma alanında, bir çalışma alanında varlıklar. Ayrıca, rol atamalarını değiştirebilirsiniz. |
 
 > [!IMPORTANT]
-> Azure'da birden çok düzeyi için rol erişimini sınırlayabilirsiniz. Örneğin, bir çalışma grubu sahip erişimi olan bir çalışma grubu içeren kaynak grubunu sahip erişimi olmayabilir. Daha fazla bilgi için [RBAC nasıl çalıştığını](/azure/role-based-access-control/overview#how-rbac-works).
+> Azure'da birden çok düzeyi için rol erişimini sınırlayabilirsiniz. Örneğin, bir çalışma alanı sahibi erişimi olan çalışma alanını içeren kaynak grubunu sahip erişimi olmayabilir. Daha fazla bilgi için [RBAC nasıl çalıştığını](/azure/role-based-access-control/overview#how-rbac-works).
 
 Belirli yerleşik roller hakkında daha fazla bilgi için bkz. [Azure için yerleşik roller](/azure/role-based-access-control/built-in-roles).
 

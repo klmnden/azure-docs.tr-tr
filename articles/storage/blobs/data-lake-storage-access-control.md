@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: a102216a6a2a7dec471678e14f7050cb4ef41d77
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 4ba8977180e33256bfdc6652811495a02a9ef19c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370117"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802973"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2'ye erişim denetimi
 
@@ -27,9 +27,9 @@ RBAC rolü atamalarını kullanarak güçlü bir mekanizma kullanıcı izinlerin
 
 Azure depolama, Blob Depolama için üç yerleşik RBAC rolleri sağlar: 
 
-- [Depolama Blob verileri sahibi](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview)
-- [Depolama Blob verileri katkıda bulunan](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview)
-- [Depolama Blob verileri okuyucu](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview)
+- [Depolama Blob verileri sahibi](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+- [Depolama Blob verileri katkıda bulunan](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- [Depolama Blob verileri okuyucu](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
 
 Bir kullanıcı veya hizmet sorumlusu aracılığıyla bu yerleşik rollerden ya da özel bir rol ile RBAC veri izinleri verildiğinde, bu izinleri yetkilendirme isteği önce değerlendirilir. Yetkilendirme hemen çözümlenmiş ve hiç ise çağıranın RBAC atamaları tarafından istenen işlem yetkiliyse ACL denetimleri yapılır. Alternatif olarak, çağıran bir RBAC ataması yok veya isteğin işlemi izin atandı eşleşmiyor, ardından ACL denetimlerini arayanın istenen işlemi gerçekleştirmek için yetkili olup olmadığını belirlemek için gerçekleştirilir.
 
@@ -285,7 +285,7 @@ Giriş bir kullanıcıyı temsil eder ve bu kullanıcı artık Azure AD'de mevcu
 
 Hizmet sorumluları için ACL'leri tanımladığınızda, nesne kimliği (OID) kullanın önemli olduğu *hizmet sorumlusu* oluşturduğunuz uygulama kaydı için. Kayıtlı uygulama içinde belirli bir ayrı bir hizmet sorumlusu olduğunu unutmamak önemlidir Azure AD kiracısı. Kayıtlı uygulamalar Azure portalda bir OID sahiptir ancak *hizmet sorumlusu* başka bir (farklı) OID sahiptir.
 
-OID, corresonds bir uygulama kaydı için hizmet sorumlusu almak için kullanabileceğiniz `az ad sp show` komutu. Uygulama kimliği, parametre olarak belirtin. İşte bir örnek uygulama kimliği ile bir uygulama kaydı karşılık gelen hizmet sorumlusu için OID edinme 18218b12-1895-43e9-ad80-6e8fc1ea88ce =. Azure CLI içinde aşağıdaki komutu çalıştırın:
+Bir uygulama kaydı için karşılık gelen hizmet sorumlusu OID almak için kullanabileceğiniz `az ad sp show` komutu. Uygulama kimliği, parametre olarak belirtin. İşte bir örnek uygulama kimliği ile bir uygulama kaydı karşılık gelen hizmet sorumlusu için OID edinme 18218b12-1895-43e9-ad80-6e8fc1ea88ce =. Azure CLI içinde aşağıdaki komutu çalıştırın:
 
 `az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>`

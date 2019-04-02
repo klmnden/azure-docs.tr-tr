@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 005b0e74084325606a9a07df6b36b9100cad1750
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 50d0d78e9dc0c7f51fcd82dd16eab5a180eae073
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885957"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792476"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>C# ve Resource Manager şablonu kullanarak bir Azure sanal makine dağıtma
+
 Bu makalede, C# kullanarak bir Azure Resource Manager şablonu dağıtma işlemini göstermektedir. Oluşturduğunuz şablonun yeni bir sanal ağda tek bir alt ağ ile Windows Server çalıştıran tek bir sanal makine dağıtır.
 
 Sanal makine kaynağı ayrıntılı bir açıklaması için bkz. [sanal makineler bir Azure Resource Manager şablonunda](template-description.md). Bir şablonda tüm kaynaklar hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonu Kılavuzu](../../azure-resource-manager/resource-manager-template-walkthrough.md).
@@ -44,7 +45,7 @@ NuGet paketlerini bu adımları tamamlamak için gereken kitaplıklarını yükl
 1. Tıklayın **Araçları** > **Nuget Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**.
 2. Konsolunda aşağıdaki komutları yazın:
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.Fluent
     Install-Package WindowsAzure.Storage
     ```
@@ -206,15 +207,17 @@ Bir şablonu dağıtmadan önce erişimi olmasını emin olun. bir [Active Direc
 3. Azureauth.properties dosyayı kaydedin.
 4. Windows, oluşturduğunuz örneğin komut kullanılabilir aşağıdaki PowerShell yetkilendirme dosyasının tam yolu AZURE_AUTH_LOCATION adlı bir ortam değişkenini ayarlayın:
 
-    ```
+    ```powershell
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
+
     
+
 ## <a name="create-the-management-client"></a>Yönetim istemcisi oluşturma
 
 1. Oluşturduğunuz proje için Program.cs dosyasını açın ve ardından bu dosyasının en üstüne using deyimlerini mevcut deyimlerini ekleyin:
 
-    ```
+    ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
     using Microsoft.Azure.Management.Compute.Fluent.Models;
     using Microsoft.Azure.Management.Fluent;
@@ -226,7 +229,7 @@ Bir şablonu dağıtmadan önce erişimi olmasını emin olun. bir [Active Direc
 
 2. Yönetim istemcisi oluşturmak için bu kodu Main yöntemine ekleyin:
 
-    ```
+    ```csharp
     var credentials = SdkContext.AzureCredentialsFactory
         .FromFile(Environment.GetEnvironmentVariable("AZURE_AUTH_LOCATION"));
 
@@ -241,7 +244,7 @@ Bir şablonu dağıtmadan önce erişimi olmasını emin olun. bir [Active Direc
 
 Uygulama değerlerini belirtmek için kod Main yöntemine ekleyin:
 
-```
+```csharp
 var groupName = "myResourceGroup";
 var location = Region.USWest;
 
@@ -256,7 +259,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
 
 Hesabı oluşturmak için bu kodu Main yöntemine ekleyin:
 
-```
+```csharp
 string storageAccountName = SdkContext.RandomResourceName("st", 10);
 
 Console.WriteLine("Creating storage account...");
@@ -296,7 +299,7 @@ paramblob.UploadFromFileAsync("..\\..\\Parameters.json").Result();
 
 Şablonu dağıtmak için bu kodu Main yöntemine ekleyin:
 
-```
+```csharp
 var templatePath = "https://" + storageAccountName + ".blob.core.windows.net/templates/CreateVMTemplate.json";
 var paramPath = "https://" + storageAccountName + ".blob.core.windows.net/templates/Parameters.json";
 var deployment = azure.Deployments.Define("myDeployment")
@@ -315,7 +318,7 @@ Azure'da kullanılan kaynaklar için ücretlendirilirsiniz, her zaman artık ger
 
 Kaynak grubunu silmek için bu kodu Main yöntemine ekleyin:
 
-```
+```csharp
 azure.ResourceGroups.DeleteByName(groupName);
 ```
 
@@ -328,5 +331,6 @@ Bu son tamamlanması tamamen başından çalıştırmak bu konsol uygulamasını
 2. Basmadan önce **Enter** kaynakları silme başlatmak için Azure portalında kaynaklarının oluşturulmasını doğrulamak için birkaç dakika sürebilir. Dağıtım durumu, dağıtım hakkında bilgi için tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * Dağıtımla ilgili sorunlar varsa, bir sonraki adım bakmak için olacaktır [Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme](../../resource-manager-common-deployment-errors.md).
 * Bir sanal makine ve destek kaynaklarını gözden geçirerek dağıtmayı öğrenin [bir Azure sanal makine kullanarak C# dağıtma](csharp.md).

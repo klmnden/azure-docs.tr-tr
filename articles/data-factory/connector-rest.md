@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 01d00b33a4575f17cffb7ba878372367046271a1
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ee47f464c59bd9deed98671f19cfcc6d2c3c1b39
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578433"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762489"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory kullanarak bir REST uç noktasından veri kopyalama
 
@@ -55,7 +55,7 @@ Aşağıdaki özellikleri bağlantılı REST hizmeti için desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | **Türü** özelliği ayarlanmalıdır **HttpServer**. | Evet |
+| type | **Türü** özelliği ayarlanmalıdır **RestService**. | Evet |
 | url | REST hizmeti temel URL'si. | Evet |
 | enableServerCertificateValidation | Uç noktasına bağlanırken sunucu tarafı SSL sertifikasını doğrulamak belirtir. | Hayır<br /> (varsayılan değer **true**) |
 | authenticationType | REST hizmete bağlanmak için kullanılan kimlik doğrulaması türü. İzin verilen değerler **anonim**, **temel**, **AadServicePrincipal** ve **ManagedServiceIdentity**. Daha fazla özellikler ve örnekler üzerinde aşağıdaki karşılık gelen bölümlere sırasıyla bakın. | Evet |

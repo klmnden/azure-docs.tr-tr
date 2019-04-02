@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 0ede6c0c55e2f953e0d109d2d371313759ed4d06
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2ed29f50278afe5bf7cd3daabe088cee55caae06
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965164"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793960"
 ---
 # <a name="what-is-api-management"></a>API Management nedir?
 
@@ -59,7 +59,7 @@ Sistem aşağıdaki bileşenlerden oluşur:
   * Bir hesap oluşturma ve API anahtarlarını almak için abone olma.
   * Kendi kullanımlarına ilişkin analize erişme.
 
-Daha fazla bilgi için bkz. [Bulut tabanlı API Management: API'lerin Gücünden Yararlanma](https://j.mp/ms-apim-whitepaper) PDF teknik incelemesi. API Management hakkında CITO Research tarafından hazırlanan tanıtım amaçlı bu teknik inceleme şunları içerir: 
+Daha fazla bilgi için [bulut tabanlı API Yönetimi: API'lerin gücünden yararlanma](https://j.mp/ms-apim-whitepaper) PDF teknik incelemesi. API Management hakkında CITO Research tarafından hazırlanan tanıtım amaçlı bu teknik inceleme şunları içerir: 
  
  * Yaygın API gereksinimleri ve sorunları
  * API'leri ayırma ve cepheleri sunma
@@ -101,7 +101,7 @@ Daha fazla bilgi için bkz. [Geliştirici oluşturma ve davet etme][How to creat
 ## <a name="policies"> </a> İlkeler
 İlkeler, Azure portalın API’nin davranışını yapılandırma yoluyla değiştirmesini sağlayan güçlü API Management özellikleridir. İlkeler, bir API isteği veya yanıtı üzerinde sırayla yürütülen deyimlerin bir koleksiyonudur. Sık kullanılan deyimler, XML’den JSON’a biçim dönüştürmeyi ve bir geliştiriciden gelen çağrıların sayısını sınırlamak üzere çağrı hızını sınırlamayı ve çeşitli ilkeleri içerir.
 
-İlke ifadeleri herhangi bir API Management ilkesinde, ilke aksini belirtmedikçe, öznitelik değerleri ya da metin değerleri olarak kullanılabilir. [Akışı denetle](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) ve [Değişken ayarla](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) gibi bazı ilkeler ilke ifadelerini temel alır. Daha fazla bilgi için bkz. [Gelişmiş ilkeler](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) ve [İlke ifadeleri](https://msdn.microsoft.com/library/azure/dn910913.aspx).
+İlke ifadeleri herhangi bir API Management ilkesinde, ilke aksini belirtmedikçe, öznitelik değerleri ya da metin değerleri olarak kullanılabilir. [Akışı denetle](/azure/api-management/api-management-advanced-policies#choose) ve [Değişken ayarla](/azure/api-management/api-management-advanced-policies#set-variable) gibi bazı ilkeler ilke ifadelerini temel alır. Daha fazla bilgi için bkz. [Gelişmiş ilkeler](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) ve [İlke ifadeleri](/azure/api-management/api-management-policy-expressions).
 
 
 API Management ilkelerinin tam listesi için bkz. [İlke başvurusu][Policy reference]. İlkeleri yapılandırma ve kullanma hakkında daha fazla bilgi için bkz. [API Management ilkeleri][API Management policies]. Hız sınırı ve kota ilkeleri içeren bir ürün oluşturmaya ilişkin öğretici için bkz. [Gelişmiş ürün ayarları oluşturma ve yapılandırma][How create and configure advanced product settings].

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 0cf83180647c142c9db2a1229674de96fec6a6bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c2ed053479b11bada4cfc0ec808ad148f024dee6
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087542"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803263"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes hizmeti ile Azure Active Directory Tümleştirme
 
@@ -149,7 +149,15 @@ Bir Azure Active Directory hesabı kullanarak AKS kümesiyle kullanılmadan önc
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-Ardından, bir Azure AD hesabı için bir ClusterRoleBinding oluşturmak için aşağıdaki bildirimi kullanın. Bu örnekte, kümenin tüm ad alanları için hesap tam erişim sağlar. Gibi bir dosya oluşturun *rbac aad user.yaml*ve aşağıdaki içeriği yapıştırın. Azure AD kiracınızdan bir kullanıcı adını güncelleştirin:
+Ardından, bir Azure AD hesabı için bir ClusterRoleBinding oluşturmak için aşağıdaki bildirimi kullanın. Bu örnekte, kümenin tüm ad alanları için hesap tam erişim sağlar. 
+
+Alma *objectID* gerekli kullanıcı hesabını kullanarak [az ad kullanıcı show] [ az-ad-user-show] komutu. Gerekli hesabının kullanıcı asıl adı (UPN) sağlayın:
+
+```azurecli-interactive
+az ad user show --upn-or-object-id user@contoso.com --query objectId -o tsv
+```
+
+Gibi bir dosya oluşturun *rbac aad user.yaml*ve aşağıdaki içeriği yapıştırın. Önceki adımda elde edilen Azure ad kullanıcı hesabınızın nesne Kimliğine sahip kullanıcı adını güncelleştirin:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -163,7 +171,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: "user@contoso.com"
+  name: "947026ec-9463-4193-c08d-4c516e1f9f52"
 ```
 
 Bağlama kullanarak uygulama [kubectl uygulamak] [ kubectl-apply] komutu aşağıdaki örnekte gösterildiği gibi:
@@ -242,3 +250,4 @@ Kubernetes kümelerini ile RBAC ile güvenli hale getirme hakkında daha fazla b
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md
+[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show

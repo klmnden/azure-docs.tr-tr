@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a4426b665c58dd2c0bf7f5b5b41ebfca158e782
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 3a0d10f373b045058c6df242c4d98f78d04c4490
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444717"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801145"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Blob veya sıra verilerinize erişmek için Azure portalını kullanma
 
@@ -47,11 +47,11 @@ Azure portalından Azure AD hesabınızla BLOB veya kuyruğa verilere erişmek i
 
 Blob veya sıra verilerinize erişimi destekleyen yerleşik roller şunlardır:
 
-- [Depolama Blob verileri sahibi](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview): Azure Data Lake depolama Gen2 POSIX erişim denetimi (Önizleme).
-- [Depolama Blob verileri katkıda bulunan](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview): Blobları için okuma/yazma/silme izinleri.
-- [Depolama Blob verileri okuyucu](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview): Bloblar için salt okunur izinler.
-- [Depolama kuyruk verileri katkıda bulunan](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor-preview): Kuyruklar için okuma/yazma/silme izinleri.
-- [Depolama kuyruk verileri okuyucu](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader-preview): Kuyruklar için yalnızca okuma izni.
+- [Depolama Blob verileri sahibi](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Azure Data Lake depolama Gen2 POSIX erişim denetimi (Önizleme).
+- [Depolama Blob verileri katkıda bulunan](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Blobları için okuma/yazma/silme izinleri.
+- [Depolama Blob verileri okuyucu](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Bloblar için salt okunur izinler.
+- [Depolama kuyruk verileri katkıda bulunan](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Kuyruklar için okuma/yazma/silme izinleri.
+- [Depolama kuyruk verileri okuyucu](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): Kuyruklar için yalnızca okuma izni.
     
 Özel roller yerleşik rolleri tarafından sağlanan aynı izinleri farklı birleşimleri destekler. Özel bir RBAC rollerini oluşturma hakkında daha fazla bilgi için bkz. [Azure kaynakları için özel roller](../../role-based-access-control/custom-roles.md) ve [Azure kaynakları için rol tanımlarını anlamak](../../role-based-access-control/role-definitions.md).
 

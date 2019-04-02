@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 6a13988af7a46ff6fafe352e850ee238cda79c08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996703"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58794028"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365 Yönetim çözümüne (Önizleme)
 
@@ -34,6 +34,7 @@ Office 365 yönetim çözümü, Azure İzleyici'de, Office 365 ortamı izlemeniz
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Yüklenmiş ve yapılandırılmış bu çözüm olan önce gerekli verilmiştir.
 
 - Kuruluş Office 365 aboneliği.
@@ -42,12 +43,16 @@ Yüklenmiş ve yapılandırılmış bu çözüm olan önce gerekli verilmiştir.
  
 
 ## <a name="management-packs"></a>Yönetim paketleri
+
 Bu çözüm, tüm yönetim paketlerinde yüklemez [bağlı Yönetim grupları](../platform/om-agents.md).
   
+
 ## <a name="install-and-configure"></a>Yükleme ve yapılandırma
+
 Başlangıç ekleyerek [aboneliğinizi Office 365 çözüme](solutions.md#install-a-monitoring-solution). Eklendikten sonra Office 365 aboneliğinize erişimi vermek için bu bölümdeki yapılandırma adımları gerçekleştirmeniz gerekir.
 
 ### <a name="required-information"></a>Gerekli bilgileri
+
 Bu yordama başlamadan önce aşağıdaki bilgileri toplayın.
 
 Log Analytics çalışma alanınızdan:
@@ -64,6 +69,7 @@ Office 365 aboneliğinize:
 - İstemci gizli anahtarı: Kimlik doğrulaması için gereken şifreli dize.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Azure Active Directory'de bir Office 365 uygulaması oluşturma
+
 İlk adım, Azure Active Directory yönetim çözümü, Office 365 çözümünüzü erişmek için kullanacağı bir uygulama oluşturmaktır.
 
 1. [https://portal.azure.com](https://portal.azure.com/) adresinden Azure portalında oturum açın.
@@ -111,11 +117,12 @@ Office 365 aboneliğinize:
     ![Anahtarlar](media/solution-office-365/keys.png)
 
 ### <a name="add-admin-consent"></a>Yönetici onayı ekleme
+
 İlk kez yönetim hesabı etkinleştirmek için uygulama için yönetici onayı sağlamanız gerekir. Bir PowerShell Betiği ile bunu yapabilirsiniz. 
 
 1. Aşağıdaki betik olarak Kaydet *office365_consent.ps1*.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,     
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -161,9 +168,11 @@ Office 365 aboneliğinize:
     ```
 
 2. Aşağıdaki komutu kullanarak betiği çalıştırın. İki kez kimlik bilgileri istenir. Log Analytics çalışma alanınız için önce kimlik bilgilerini sağlayın ve ardından Office 365 genel yönetici kimlik bilgilerini Kiracı.
+
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
+
     Örnek:
 
     ```
@@ -175,11 +184,12 @@ Office 365 aboneliğinize:
     ![Yönetici onayı](media/solution-office-365/admin-consent.png)
 
 ### <a name="subscribe-to-log-analytics-workspace"></a>Log Analytics çalışma alanına abone olun
+
 Son adım Log Analytics çalışma alanınıza uygulama abone olmaktır. Ayrıca bir PowerShell Betiği ile bunu.
 
 1. Aşağıdaki betik olarak Kaydet *office365_subscription.ps1*.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -342,12 +352,14 @@ Son adım Log Analytics çalışma alanınıza uygulama abone olmaktır. Ayrıca
     ```
 
 2. Betiği ile aşağıdaki komutu çalıştırın:
+
     ```
     .\office365_subscription.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeUsername <OfficeUsername> -OfficeTennantID <Tenant ID> -OfficeClientId <Client ID> -OfficeClientSecret <Client secret>
     ```
+
     Örnek:
 
-    ```
+    ```powershell
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
@@ -355,7 +367,7 @@ Son adım Log Analytics çalışma alanınıza uygulama abone olmaktır. Ayrıca
 
 Uygulamanız bu çalışma alanına zaten abone olunursa veya başka bir çalışma alanına bu Kiracı abone olunursa şu hatayı görebilirsiniz.
 
-```
+```Output
 Invoke-WebRequest : {"Message":"An error has occurred."}
 At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 + $officeresponse = Invoke-WebRequest @Officeparams
@@ -366,7 +378,7 @@ At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 
 Geçersiz parametre değerleri sağlanırsa, aşağıdaki hatayı görebilirsiniz.
 
-```
+```Output
 Select-AzSubscription : Please provide a valid tenant or a valid subscription.
 At line:12 char:18
 + ... cription = (Select-AzSubscription -SubscriptionId $($Subscriptio ...
@@ -377,11 +389,12 @@ At line:12 char:18
 ```
 
 ## <a name="uninstall"></a>Kaldırma
+
 Bağlantısındaki işlemi kullanarak Office 365 yönetim çözümü kaldırabilirsiniz [bir yönetim çözümünü Kaldır](solutions.md#remove-a-monitoring-solution). Bu, Office 365'ten Azure İzleyici ile ancak toplanan verilerin durdurmaz. Office 365'ten aboneliği ve veri toplamayı durdurmak için aşağıdaki yordamı izleyin.
 
 1. Aşağıdaki betik olarak Kaydet *office365_unsubscribe.ps1*.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -472,15 +485,18 @@ Bağlantısındaki işlemi kullanarak Office 365 yönetim çözümü kaldırabil
 
     Örnek:
 
-    ```
+    ```powershell
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
     ```
 
 ## <a name="data-collection"></a>Veri toplama
+
 ### <a name="supported-agents"></a>Desteklenen aracılar
+
 Office 365 çözüm herhangi bir veri almıyorsa [Log Analytics aracılarını](../platform/agent-data-sources.md).  Office 365'ten doğrudan verileri alır.
 
 ### <a name="collection-frequency"></a>Toplama sıklığı
+
 Bu, başlangıçta Toplanacak veriler için birkaç saat sürebilir. Toplama başladığında, Office 365 gönderen bir [Web kancası bildirim](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) ayrıntılı veriler ile Azure İzleyici için her bir kayıt oluşturulur. Bu kayıt alınan sonra birkaç dakika içinde Azure İzleyici'de kullanılabilir.
 
 ## <a name="using-the-solution"></a>Çözümü kullanma
@@ -511,6 +527,7 @@ Pano aşağıdaki tabloda gösterilen sütunları içerir. Her bir sütunun Beli
 Azure İzleyici'de Log Analytics çalışma alanında Office 365 çözüm tarafından oluşturulan tüm kayıtları bir **türü** , **OfficeActivity**.  **OfficeWorkload** özelliği, Exchange, AzureActiveDirectory, SharePoint veya OneDrive için - kayıt başvuruyor hangi Office 365 hizmet belirler.  **RecordType** özelliği, işlem türünü belirtir.  Özellikler, her işlem türü için farklılık gösterir ve aşağıdaki tablolarda gösterilmiştir.
 
 ### <a name="common-properties"></a>Ortak Özellikler
+
 Aşağıdaki özellikler, tüm Office 365 kayıtlarına yaygındır.
 
 | Özellik | Açıklama |
@@ -528,6 +545,7 @@ Aşağıdaki özellikler, tüm Office 365 kayıtlarına yaygındır.
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory temel
+
 Aşağıdaki özellikler, tüm Azure Active Directory kayıtlarına yaygındır.
 
 | Özellik | Açıklama |
@@ -539,6 +557,7 @@ Aşağıdaki özellikler, tüm Azure Active Directory kayıtlarına yaygındır.
 
 
 ### <a name="azure-active-directory-account-logon"></a>Azure Active Directory hesabı oturum açma
+
 Bir Active Directory kullanıcı oturum açmayı denediğinde bu kayıtları oluşturulur.
 
 | Özellik | Açıklama |
@@ -552,6 +571,7 @@ Bir Active Directory kullanıcı oturum açmayı denediğinde bu kayıtları olu
 
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
+
 Azure Active Directory nesneleri değiştirme veya ekleme yapıldığında bu kayıtları oluşturulur.
 
 | Özellik | Açıklama |
@@ -569,6 +589,7 @@ Azure Active Directory nesneleri değiştirme veya ekleme yapıldığında bu ka
 
 
 ### <a name="data-center-security"></a>Veri Merkezi güvenliği
+
 Bu kayıtlar, veri merkezi güvenlik denetim verilerden oluşturulur.  
 
 | Özellik | Açıklama |
@@ -584,6 +605,7 @@ Bu kayıtlar, veri merkezi güvenlik denetim verilerden oluşturulur.
 
 
 ### <a name="exchange-admin"></a>Exchange Yöneticisi
+
 Exchange yapılandırmasını değişiklik yapıldığında bu kayıtları oluşturulur.
 
 | Özellik | Açıklama |
@@ -598,6 +620,7 @@ Exchange yapılandırmasını değişiklik yapıldığında bu kayıtları oluş
 
 
 ### <a name="exchange-mailbox"></a>Exchange posta kutusu
+
 Değişiklikler ve eklemeler Exchange posta kutularına yapıldığında bu kayıtları oluşturulur.
 
 | Özellik | Açıklama |
@@ -620,6 +643,7 @@ Değişiklikler ve eklemeler Exchange posta kutularına yapıldığında bu kay�
 
 
 ### <a name="exchange-mailbox-audit"></a>Exchange posta kutusu denetimi
+
 Bir posta kutusu denetim girişi oluşturulduğunda bu kayıtları oluşturulur.
 
 | Özellik | Açıklama |
@@ -634,6 +658,7 @@ Bir posta kutusu denetim girişi oluşturulduğunda bu kayıtları oluşturulur.
 
 
 ### <a name="exchange-mailbox-audit-group"></a>Exchange posta kutusu denetim grubu
+
 Değişiklikler ve eklemeler Exchange gruplarına yapıldığında bu kayıtları oluşturulur.
 
 | Özellik | Açıklama |
@@ -652,6 +677,7 @@ Değişiklikler ve eklemeler Exchange gruplarına yapıldığında bu kayıtlar�
 
 
 ### <a name="sharepoint-base"></a>SharePoint temel
+
 Bu özellikler, tüm SharePoint kayıtlara yaygındır.
 
 | Özellik | Açıklama |
@@ -668,6 +694,7 @@ Bu özellikler, tüm SharePoint kayıtlara yaygındır.
 
 
 ### <a name="sharepoint-schema"></a>SharePoint şeması
+
 SharePoint için yapılan yapılandırma değişiklikleri bu kayıtları oluşturulur.
 
 | Özellik | Açıklama |
@@ -680,6 +707,7 @@ SharePoint için yapılan yapılandırma değişiklikleri bu kayıtları oluştu
 
 
 ### <a name="sharepoint-file-operations"></a>SharePoint dosya işlemleri
+
 Bu kayıtlar, SharePoint'te dosya işlemleri için yanıt oluşturulur.
 
 | Özellik | Açıklama |
@@ -700,6 +728,7 @@ Bu kayıtlar, SharePoint'te dosya işlemleri için yanıt oluşturulur.
 
 
 ## <a name="sample-log-searches"></a>Örnek günlük aramaları
+
 Aşağıdaki tabloda, bu çözüm tarafından toplanan güncelleştirme kayıtlarına ilişkin örnek günlük aramaları sunulmaktadır.
 
 | Sorgu | Açıklama |
@@ -713,6 +742,7 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan güncelleştirme kayıtla
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * Kullanım [sorgular Azure İzleyici'de oturum](../log-query/log-query-overview.md) ayrıntılı güncelleştirme verilerini görüntülemek için.
 * [Kendi panolarınızı oluşturun](../learn/tutorial-logs-dashboards.md) , sık kullanılan Office 365 arama sorgularını görüntülemek için.
 * [Uyarı oluşturma](../platform/alerts-overview.md) önemli Office 365 etkinliklerini proaktif olarak gönderilecek.  

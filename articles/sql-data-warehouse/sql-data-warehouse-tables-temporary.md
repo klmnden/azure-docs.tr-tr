@@ -7,21 +7,21 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 04/01/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: c989e53113557219e13dd730ac43621d3824baac
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 23a62e28700ad5fd733040c43ea0eec225fd286f
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57434768"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793110"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>SQL veri ambarı'nda geçici tablolar
 Bu makalede, geçici tabloları kullanmaya yönelik temel rehberlik içerir ve oturum düzeyi geçici tablolar sürecin prensiplerini vurgular. Bu makalede verilen bilgileri kullanarak, hem çalışmalarında kodunuzun bakım kolaylığı geliştirip kodunuzu modülerleştirmek yardımcı olabilir.
 
 ## <a name="what-are-temporary-tables"></a>Geçici tablolar nelerdir?
-Geçici tablolar, özellikle Ara sonuçlar geçici olduğu dönüştürme sırasında veri - işleme sırasında yararlıdır. SQL veri ambarı'nda geçici tablolar oturum düzeyinde mevcuttur.  Yalnızca, bunlar oluşturulmuş ve bu oturumu kapattığında otomatik olarak bırakılır oturum görünür.  Uzak Depolama yerine yerel sonuçları yazıldığından geçici tablolar bir performans kazancı sağlar.  Bunlar herhangi bir yeri içinde ve dışında bir saklı yordam dahil olmak üzere oturumu içinde erişilebilir gibi geçici tablolar Azure SQL veritabanından Azure SQL veri ambarı'nda biraz farklı.
+Geçici tablolar, özellikle Ara sonuçlar geçici olduğu dönüştürme sırasında veri - işleme sırasında yararlıdır. SQL veri ambarı'nda geçici tablolar oturum düzeyinde mevcuttur.  Yalnızca, bunlar oluşturulmuş ve bu oturumu kapattığında otomatik olarak bırakılır oturum görünür.  Uzak Depolama yerine yerel sonuçları yazıldığından geçici tablolar bir performans kazancı sağlar.
 
 ## <a name="create-a-temporary-table"></a>Geçici bir tablo oluşturma
 Geçici tablolar tablo adınızla önek tarafından oluşturulan bir `#`.  Örneğin:
@@ -215,7 +215,7 @@ DROP TABLE #stats_ddl;
 ```
 
 ## <a name="temporary-table-limitations"></a>Geçici Tablo sınırlamaları
-SQL veri ambarı, geçici tablolar uygularken birkaç sınırlama uygulamaktadır.  Şu anda, yalnızca oturum kapsamlı geçici tablolar desteklenir.  Genel geçici tablolar desteklenmez.  Ayrıca, geçici tablolarda görünümlere oluşturulamıyor.
+SQL veri ambarı, geçici tablolar uygularken birkaç sınırlama uygulamaktadır.  Şu anda, yalnızca oturum kapsamlı geçici tablolar desteklenir.  Genel geçici tablolar desteklenmez.  Ayrıca, geçici tablolarda görünümlere oluşturulamıyor.  Geçici tablolar ile karma veya hepsini bir kez deneme dağıtım yalnızca oluşturulabilir.  Yinelenen geçici tablo dağıtımı desteklenmiyor. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Tablo geliştirme hakkında daha fazla bilgi için bkz. [tabloya genel bakış](sql-data-warehouse-tables-overview.md).

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 7ff2e89c116ee74665c0e3a74505476972af5d9c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8516035705ad9dfb2ff37592f9381c4f905bb67f
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317162"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802839"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>AES-128 dinamik şifreleme ve anahtar teslim hizmetini kullanma
 > [!div class="op_single_selector"]
@@ -29,23 +29,18 @@ ms.locfileid: "58317162"
 >  
 
 > [!NOTE]
-> Java SDK'ın en son sürümünü almak ve Java ile geliştirmeye başlamak için bkz. [Azure Media Services için Java istemcisi SDK’sı ile çalışmaya başlama](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Media Services için en yeni PHP SDK'sını indirmek üzere, [Packagist deposunda](https://packagist.org/packages/microsoft/windowsazure#v0.5.7) Microsoft/WindowsAzure paketinin 0.5.7 sürümünü arayın.  
+> Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
 
-## <a name="overview"></a>Genel Bakış
-> [!NOTE]
-> İçerik ile Gelişmiş Şifreleme Standardı (AES) teslim Safari için macOS üzerinde şifreleme hakkında daha fazla bilgi için bkz: [bu blog gönderisini](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
-> Medyanızı AES şifreleme ile içerik koruma genel bakış için bkz. [bu videoyu](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption).
-> 
-> 
-
- HTTP canlı akışı (HLS) ve kesintisiz akış ile AES 128 bit şifreleme anahtarları kullanılarak şifrelenmiş sunmak için Media Services'ı kullanabilirsiniz. Media Services, şifreleme anahtarlarını yetkili kullanıcıların sunan anahtar dağıtımı hizmetiyle de sağlar. Media Services'ın bir varlık şifrelemek isterseniz, bir şifreleme anahtarı varlıkla ilişkilendirme ve anahtar için yetkilendirme ilkelerini de yapılandırmanız gerekir. Bir akışa bir oynatıcı tarafından istendiğinde Media Services dinamik olarak içeriğinizi AES şifreleme kullanarak şifrelemek için belirtilen anahtar kullanır. Oynatıcı, akışın şifresini çözmek için anahtar teslim hizmetinden anahtarı ister. Kullanıcı anahtarı almak için yetki verilip verilmediğini belirlemek için anahtar için belirtilen Yetkilendirme İlkeleri hizmet tarafından değerlendirilir.
+HTTP canlı akışı (HLS) ve kesintisiz akış ile AES 128 bit şifreleme anahtarları kullanılarak şifrelenmiş sunmak için Media Services'ı kullanabilirsiniz. Media Services, şifreleme anahtarlarını yetkili kullanıcıların sunan anahtar dağıtımı hizmetiyle de sağlar. Media Services'ın bir varlık şifrelemek isterseniz, bir şifreleme anahtarı varlıkla ilişkilendirme ve anahtar için yetkilendirme ilkelerini de yapılandırmanız gerekir. Bir akışa bir oynatıcı tarafından istendiğinde Media Services dinamik olarak içeriğinizi AES şifreleme kullanarak şifrelemek için belirtilen anahtar kullanır. Oynatıcı, akışın şifresini çözmek için anahtar teslim hizmetinden anahtarı ister. Kullanıcı anahtarı almak için yetki verilip verilmediğini belirlemek için anahtar için belirtilen Yetkilendirme İlkeleri hizmet tarafından değerlendirilir.
 
 Media Services, anahtar isteğinde bulunan kullanıcıların kimlik doğrulamasını yapmanın birden çok yöntemini destekler. İçerik anahtarı yetkilendirme ilkesinin açık veya belirteç kısıtlaması şeklinde bir veya daha fazla yetkilendirme kısıtlaması olabilir. Belirteç kısıtlamalı ilkenin beraberinde bir güvenlik belirteci hizmeti (STS) tarafından verilmiş bir belirteç bulunmalıdır. Media Services, [basit web belirteci](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) ve [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) biçimlerindeki belirteçleri destekler. Daha fazla bilgi edinmek için bkz. [İçerik anahtarının yetkilendirme ilkesini yapılandırma](media-services-protect-with-aes128.md#configure_key_auth_policy).
 
 Dinamik şifrelemeden yararlanmak için, bir grup çoklu bit hızlı MP4 dosyası ya da çoklu bit hızlı Kesintisiz Akış kaynak dosyası içeren bir varlığınız olması gerekir. (Bu makalenin sonraki bölümlerinde açıklanmıştır) varlık teslim ilkesini yapılandırmanız gerekir. Ardından, akış URL'sinde belirtilen biçime bağlı olarak, isteğe bağlı akış sunucusu akışın seçtiğiniz protokolde teslim edilmesini sağlar. Sonuç olarak, depolama yalnızca tek bir depolama biçimindeki dosyaları buna göre ödeme yapmanız gerekir. Media Services, bir istemciden alınan isteklere göre uygun yanıtı oluşturur ve sunar.
 
 Bu makalede, korunan medya teslim eden uygulamalar üzerinde çalışan geliştiriciler için yararlıdır. Makalede, yalnızca yetkili istemcilerin şifreleme anahtarları alabilmesi anahtar teslim hizmetinin Yetkilendirme İlkeleri ile nasıl yapılandırılacağı gösterilmektedir. Ayrıca, dinamik şifreleme kullanmayı gösterir.
+
+İçerik ile Gelişmiş Şifreleme Standardı (AES) teslim Safari için macOS üzerinde şifreleme hakkında daha fazla bilgi için bkz: [bu blog gönderisini](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+Medyanızı AES şifreleme ile içerik koruma genel bakış için bkz. [bu videoyu](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption).
 
 
 ## <a name="aes-128-dynamic-encryption-and-key-delivery-service-workflow"></a>AES-128 dinamik şifreleme ve anahtar teslim hizmeti iş akışı

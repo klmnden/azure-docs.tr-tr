@@ -1,6 +1,6 @@
 ---
-title: Örnek - ISO 27001 şema - denetim eşleme
-description: ISO 27001 şema örnek eşleme denetimi.
+title: Örnek - ISO 27001 ASE/SQL iş yükü şema - denetim eşleme
+description: Azure İlkesi ve RBAC ISO 27001 App Service ortamı/SQL veritabanı iş yükü şema örnek eşleme denetimi.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,14 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: c062759938652518ac3cafff64973050554ca19d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: fb251d71ca9aa20ed06d0a917394097b36322b3c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579708"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802720"
 ---
-# <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Azure kavramsal tasarımlar ISO 27001 şema örnek denetimi eşleme
+# <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>ISO 27001 ASE/SQL iş yükü şema örnek denetimi eşleme
 
 Aşağıdaki makalede, Azure şemaları ISO 27001 ASE/SQL iş yükü şema örnek ISO 27001 denetimlerinin nasıl eşlendiğini ayrıntıları. Denetimler hakkında daha fazla bilgi için bkz. [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
 

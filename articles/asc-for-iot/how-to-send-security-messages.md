@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2e8fc3e2cf85fb06d37347870e3b2b9c82f1aa96
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: be17c5bb4d09e0868af0c6fd9b31f7653b614735
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754782"
+ms.locfileid: "58762778"
 ---
 # <a name="send-security-messages-sdk"></a>SDK'sı güvenlik ileti gönderme
 
@@ -88,7 +88,7 @@ Bir güvenlik uyarısı ayarlamalı ve IOT için gönderilen bu ileti ASC taraf�
 
 ## <a name="send-security-messages"></a>Güvenlik ileti gönderme 
 
-ASC IOT aracısının kullanmadan kullanarak güvenlik ileti gönderme [Azure IOT C# cihaz SDK'sını](https://github.com/Azure/azure-iot-sdk-csharp) veya [Azure IOT C cihaz SDK'sını](https://github.com/Azure/azure-iot-sdk-c).
+ASC IOT aracısının kullanmadan kullanarak güvenlik ileti gönderme [Azure IOT C# cihaz SDK'sını](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) veya [Azure IOT C cihaz SDK'sını](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview).
 
 Cihazlarınızı IOT ASC tarafından işlenmek için cihaz verilerini göndermek için doğru ASC'ye IOT işleme işlem hattı ve yönlendirme iletileri işaretlemek için aşağıdaki API'leri birini kullanın. Bu şekilde gönderilen iletileri işlenir ve IOT hem IOT hub'ının içinden olarak ya da Azure Güvenlik Merkezi güvenlik öngörüleri ASC içinde olarak görüntülenen. 
 

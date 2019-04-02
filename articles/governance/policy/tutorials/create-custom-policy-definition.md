@@ -8,12 +8,12 @@ ms.date: 02/12/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ddda2a8bf1fab4e4c48c647237617d8f705f0561
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 79b99532f5fb38123b03d2a39b7c9c6364e9f636
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112102"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802279"
 ---
 # <a name="create-a-custom-policy-definition"></a>Özel ilke tanımı oluşturma
 
@@ -72,7 +72,7 @@ Bakmak için birkaç şekilde bir [Resource Manager şablonu](../../../azure-res
 Özellikleri bulmak için en basit yolu, mevcut bir kaynağı aynı türde aramaktır. Uygulamak istediğiniz ayarı ile yapılandırılmış kaynaklara karşı Karşılaştırılacak değer de sağlar.
 Bakmak **Otomasyon betiği** sayfa (altında **ayarları**), belirli bir kaynak için Azure portalında.
 
-![Otomasyon betiği sayfası](../media/create-custom-policy-definition/automation-script.png)
+![Şablon sayfasında, var olan kaynak dışarı aktarma](../media/create-custom-policy-definition/automation-script.png)
 
 Bunu yapmak için bir depolama hesabı şu örneğe benzer bir şablon gösterir:
 

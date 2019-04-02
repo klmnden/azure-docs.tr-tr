@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 166ffea9cbeb3f343d70737de9049ee721fa9a98
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b92ce1d5fb0e0b2b043b1bbfcb78dbaf3dde2e23
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448667"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804471"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Güncelleştirme yönetimi ile ilgili sorunları giderme
 
@@ -29,7 +29,7 @@ Bir aracı sorun giderici arka plandaki sorunu belirlemek karma çalışan arac�
 
 15 dakika sonra ekleme bir sanal makinede aşağıdaki iletiyi görmeye devam:
 
-```
+```error
 The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured. Please be patient, as this can sometimes take up to 15 minutes.
 ```
 
@@ -55,7 +55,7 @@ Bu hata, aşağıdaki nedenlerden kaynaklanabilir:
 
 Makineler için Güncelleştirme dağıtımı başka bir Azure kiracısı oluşturmaya çalışırken aşağıdaki hatayı alırsınız:
 
-```
+```error
 The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
 ```
 
@@ -104,7 +104,7 @@ Aşağıdaki bölümde her biri için belirli hata iletileri ve olası çözüm�
 
 Aşağıdaki hata iletisini alıyorsunuz:
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
 ```
 
@@ -122,15 +122,15 @@ Eski yapıtları temizleyin, makine tarafından gerçekleştir [karma runbook gr
 
 Aşağıdaki hata iletilerinden birini alabilirsiniz:
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.ComponentModel.Win32Exception: The client and server can't communicate, because they do not possess a common algorithm
 ```
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value.
 ```
 
-```
+```error
 The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
 ```
 
@@ -148,7 +148,7 @@ Ağınızın gözden geçirin ve uygun bağlantı noktalarını ve adresi izin v
 
 Aşağıdaki hata iletilerinden birini alabilirsiniz:
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception AgentService.HybridRegistration. PowerShell.Certificates.CertificateCreationException: Failed to create a self-signed certificate. ---> System.UnauthorizedAccessException: Access is denied.
 ```
 
@@ -203,7 +203,7 @@ Linux karma çalışanı sağlam değil.
 
 Aşağıdaki günlük dosyası bir kopyasını alın ve sorun giderme amacıyla Koru:
 
-```
+```bash
 /var/opt/microsoft/omsagent/run/automationworker/worker.log
 ```
 
@@ -229,7 +229,7 @@ Bazı durumlarda, güncelleştirme bir güncelleştirme dağıtımı tamamlanmas
 
 Bir düzeltme eki uygulama sorunu çözemezseniz, aşağıdaki günlük dosyası bir kopyasını oluşturun ve bunu korumak **önce** sorun giderme amacıyla sonraki güncelleştirme dağıtımına başlatır:
 
-```
+```bash
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
 ```
 

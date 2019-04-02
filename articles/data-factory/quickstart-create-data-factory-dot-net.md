@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 6c182b4f8de96429f52e8c396503f7a89c5347ec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 835e0153039ecc3bb93fb7aa9b5007c205ec503e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871790"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793893"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Hızlı Başlangıç: .NET SDK’sını kullanarak veri fabrikası ve işlem hattı oluşturma
 
@@ -36,12 +36,15 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
 ### <a name="visual-studio"></a>Visual Studio
+
 Bu makaledeki kılavuzda Visual Studio 2017 kullanılır. Visual Studio 2013 veya 2015 de kullanabilirsiniz.
 
 ### <a name="azure-net-sdk"></a>Azure .NET SDK’sı
+
 [Azure .NET SDK’sını](https://azure.microsoft.com/downloads/) indirip makinenize yükleyin.
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory’de uygulama oluşturma
+
 Aşağıdaki görevleri gerçekleştirmek için [bu makaledeki](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) bölümlerde yer alan yönergeleri izleyin: 
 
 1. **Azure Active Directory uygulaması oluşturma**. Azure Active Directory'de, bu öğreticide oluşturduğunuz .NET uygulamasını temsil eden bir uygulama oluşturma. Oturum açma URL'si için, makalede gösterildiği gibi bir işlevsiz URL sağlayabilirsiniz (`https://contoso.org/exampleapp`).
@@ -64,7 +67,7 @@ Visual Studio 2013/2015/2017'yi kullanarak bir C# .NET konsol uygulaması oluşt
 1. **Araçlar** -> **NuGet Paket Yöneticisi** -> **Paket Yöneticisi Konsolu**’na tıklayın.
 2. İçinde **Paket Yöneticisi Konsolu**, paketleri yüklemek için aşağıdaki komutları çalıştırın. Başvurmak [Microsoft.Azure.Management.DataFactory nuget paketini](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) ayrıntılarla.
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -408,6 +411,7 @@ Press any key to exit...
 ```
 
 ## <a name="verify-the-output"></a>Çıktıyı doğrulama
+
 İşlem hattı adftutorial blob kapsayıcısında çıktı klasörünü otomatik olarak oluşturur. Ardından, giriş klasöründeki emp.txt dosyasını çıktı klasörüne kopyalar. 
 
 1. Çıktı klasörünü görmek için, Azure portalındaki **adftutorial** kapsayıcı sayfasında **Yenile**’ye tıklayın. 
@@ -419,6 +423,7 @@ Press any key to exit...
     ![Yenile](media/quickstart-create-data-factory-dot-net/output-file.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
+
 Veri fabrikasını programlı olarak silmek için aşağıdaki kod satırlarını programa ekleyin: 
 
 ```csharp
@@ -427,4 +432,5 @@ Veri fabrikasını programlı olarak silmek için aşağıdaki kod satırların�
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Bu örnekteki işlem hattı, verileri bir konumdan Azure blob depolama alanındaki başka bir konuma kopyalar. Daha fazla senaryoda Data Factory’yi kullanma hakkında bilgi almak için [öğreticileri](tutorial-copy-data-dot-net.md) okuyun. 

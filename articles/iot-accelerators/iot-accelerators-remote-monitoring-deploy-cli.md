@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: a1e65466bb409007a2f112422f393eee786d7b3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182141"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793790"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>CLI kullanarak Uzaktan izleme çözüm Hızlandırıcısını dağıtma
 
@@ -62,6 +62,8 @@ Bu bölümde, temel ve standart bir dağıtım arasındaki temel farklılıklar 
 
 ### <a name="basic"></a>Temel
 
+Temel bir dağıtımdan yapabileceğiniz [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) veya CLI kullanarak.
+
 Temel dağıtım, çözümü sergilemeye yöneliktir. Maliyetleri azaltmak için tüm mikro hizmetler tek bir sanal makine dağıtılır. Bu dağıtım bir üretim ortamına hazır mimarisi kullanmaz.
 
 Temel dağıtımı aşağıdaki hizmetleri Azure aboneliğinize oluşturur:
@@ -80,6 +82,8 @@ Temel dağıtımı aşağıdaki hizmetleri Azure aboneliğinize oluşturur:
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 birim              | Depolama için iletileri veri ve etkinleştirir yakından telemetri analizi |
 
 ### <a name="standard"></a>Standart
+
+Yalnızca CLI'yı kullanarak standart bir dağıtım yapabilirsiniz.
 
 Bir standart dağıtım, bir geliştirici özelleştirmek ve genişletmek üretime hazır bir dağıtımıdır. Ölçek ve genişletilebilirlik için yerleşik bir üretime hazır mimarisi özelleştirmek hazır olduğunuzda standart dağıtım seçeneğini kullanın. Uygulama mikro Hizmetleri Docker kapsayıcıları olarak oluşturulur ve Azure Kubernetes hizmeti kullanılarak dağıtılabilir. Kubernetes orchestrator dağıtır, ölçekler ve mikro hizmetler yönetir.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 287ae3b8122dd2a1e43c31055ac0ea5b04dddb07
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: dfd91caf67592b349bd16bab673a3e45397ad282
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190667"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58808011"
 ---
 ## <a name="benefits-of-managed-disks"></a>Yönetilen disklerin avantajlarından
 
@@ -43,7 +43,7 @@ Kullanabileceğiniz [Azure rol tabanlı erişim denetimi (RBAC)](../articles/rol
 
 ### <a name="data-disks"></a>Veri diskleri
 
-Veri diski uygulama verileri veya tutmak için ihtiyacınız olan diğer verileri depolamak için bir sanal makineye bağlı yönetilen bir disktir. Veri diskleri SCSI sürücüsü olarak kaydedilir ve seçtiğiniz bir harf ile etiketlenir. Her veri diski 4.095 gibibayt (GiB) kapasiteye sahiptir. Bunu ve depolama türünü ekleyebilirsiniz kaç veri diskinin diskleri barındırmak için kullanabileceğiniz sanal makinenin boyutunu belirler.
+Veri diski uygulama verileri veya tutmak için ihtiyacınız olan diğer verileri depolamak için bir sanal makineye bağlı yönetilen bir disktir. Veri diskleri SCSI sürücüsü olarak kaydedilir ve seçtiğiniz bir harf ile etiketlenir. Her veri diski 32.767 gibibayt (GiB) kapasiteye sahiptir. Bunu ve depolama türünü ekleyebilirsiniz kaç veri diskinin diskleri barındırmak için kullanabileceğiniz sanal makinenin boyutunu belirler.
 
 ### <a name="os-disks"></a>İşletim sistemi diskleri
 
@@ -53,7 +53,7 @@ Bu diski 2.048 GiB kapasiteye sahiptir.
 
 ### <a name="temporary-disk"></a>Geçici disk
 
-Her VM için yönetilen disk değil geçici bir diskle içerir. Geçici disk, uygulamalar ve işlemler için kısa vadeli depolama sağlar ve yalnızca sayfa veya takas dosyaları gibi verileri depolamak için tasarlanmıştır. Geçici diskteki veriler kaybolabilir sırasında bir [bakım olayı](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) olay veya ne zaman, [bir VM'yi yeniden dağıtma](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Başarılı standart yeniden başlatma VM'nin sırasında geçici sürücüdeki verilerin açık kalır. 
+Her VM için yönetilen disk değil geçici bir diskle içerir. Geçici disk, uygulamalar ve işlemler için kısa vadeli depolama sağlar ve yalnızca sayfa veya takas dosyaları gibi verileri depolamak için tasarlanmıştır. Geçici diskteki veriler kaybolabilir sırasında bir [bakım olayı](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) olay veya ne zaman, [bir VM'yi yeniden dağıtma](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Başarılı standart yeniden başlatma VM'nin sırasında geçici sürücüdeki verilerin açık kalır.
 
 ## <a name="managed-disk-snapshots"></a>Yönetilen disk anlık görüntüleri
 
@@ -62,7 +62,7 @@ Varsayılan olarak standart yönetilen disk olarak depolanan bir yönetilen disk
 Yönetilen disklerle anlık görüntüleri oluşturma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Windows anlık görüntüler kullanılarak yönetilen disk olarak depolanmış VHD kopyası oluşturma](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Linux'ta anlık görüntüler kullanılarak yönetilen disk olarak depolanmış VHD kopyası oluşturma](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Linux’ta anlık görüntüler kullanılarak yönetilen disk olarak depolanmış VHD kopyası oluşturma](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Görüntüler
 
@@ -71,7 +71,7 @@ Yönetilen diskler, yönetilen bir özel görüntü oluşturma da destekler. Bir
 Görüntüleri oluşturma hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [Azure'da bir genelleştirilmiş VM'nin yönetilen görüntüsünü yakalama](../articles/virtual-machines/windows/capture-image-resource.md)
-* [Genelleştirmek ve Azure CLI kullanarak bir Linux sanal makinesini yakalama](../articles/virtual-machines/linux/capture-image.md)
+* [Azure CLI'yi kullanarak Linux sanal makinelerini genelleştirme ve yakalama](../articles/virtual-machines/linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>Anlık görüntülerle
 

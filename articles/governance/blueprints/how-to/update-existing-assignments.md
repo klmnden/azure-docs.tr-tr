@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 572a962e98332fc70c276346f497ed2e67e3c329
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 78b2f98b61306c22eaba59b9be7259b3a24d7bbe
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999856"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805763"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Var olan bir şema atamasını güncelleştirme
 
@@ -32,17 +32,17 @@ Bir şema atandığında atama güncelleştirilebilir. Mevcut bir atamanın gün
 
 1. Şema atamasını şemaları listede sol. Ardından **güncelleştirme ataması** düğmesini veya şema atamasını sağ tıklayıp **güncelleştirme ataması**.
 
-   ![Atamayı güncelleştir](../media/update-existing-assignments/update-assignment.png)
+   ![Var olan bir şema atamasını güncelleştir](../media/update-existing-assignments/update-assignment.png)
 
 1. **Ata şema** sayfa özgün atama tüm değerlerle önceden doldurulmuş olarak yüklenecektir. Değiştirebileceğiniz **şema tanımı sürümü**, **kilit atama** durumunu ve herhangi bir şema tanımı üzerinde mevcut dinamik parametre. Tıklayın **atama** değişiklikleriniz bittiğinde.
 
 1. Yeni durum güncelleştirilmiş atama Ayrıntıları sayfasında bakın. Bu örnekte, eklediğimiz **kilitleme** atama.
 
-   ![Güncelleştirilmiş atama - kilitli](../media/update-existing-assignments/updated-assignment.png)
+   ![Var olan bir şema atamasını - kilit modu değiştirildi güncelleştirildi](../media/update-existing-assignments/updated-assignment.png)
 
 1. Diğer ayrıntılarını keşfetmek **atama işlemleri** açılan listeyi kullanarak. İçindekiler tablosunu **yönetilen kaynakları** güncelleştirilerek seçilen atama işlemi.
 
-   ![Atama işlemleri](../media/update-existing-assignments/assignment-operations.png)
+   ![Şema atamasını atama işlemleri](../media/update-existing-assignments/assignment-operations.png)
 
 ## <a name="rules-for-updating-assignments"></a>Kuralları atamaları güncelleştiriliyor
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: af14b242ae7578e1f9797895bd18c37231959ac9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 99c9caa167b1615705adc29193bc395b0c9e2a66
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342720"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803995"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>Uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturma
 
@@ -31,15 +31,15 @@ Bu hızlı başlangıçta, bir ilke ataması oluşturma ve atama *denetim yönet
 
 1. Azure portalında **Tüm hizmetler**’e tıkladıktan sonra **İlke**'yi arayıp seçerek Azure İlkesi hizmetini başlatın.
 
-   ![İlke arama](./media/assign-policy-portal/search-policy.png)
+   ![Tüm hizmetler ilkesinde arayın](./media/assign-policy-portal/search-policy.png)
 
 1. Azure İlkesi sayfasının sol tarafından **Atamalar**'ı seçin. Atama, belirli bir kapsamda gerçekleşmesi için atanmış olan bir ilkedir.
 
-   ![Atama seçme](./media/assign-policy-portal/select-assignments.png)
+   ![İlkeye genel bakış sayfasından atamaları sayfa seçin](./media/assign-policy-portal/select-assignments.png)
 
 1. **İlke - Atamalar** sayfasının üst kısmından **İlke Ata**'yı seçin.
 
-   ![İlke tanımı atama](./media/assign-policy-portal/select-assign-policy.png)
+   ![Atamalar sayfasından bir ilke tanımı atama](./media/assign-policy-portal/select-assign-policy.png)
 
 1. **İlke Ata** sayfasında üç noktaya tıklayıp bir yönetim grubu veya abonelik belirleyerek **Kapsam**’ı seçin. İsterseniz bir kaynak grubu seçin. Kapsam, ilke atamasının hangi kaynaklarda veya kaynak gruplarında uygulanacağını belirler.  Ardından **Kapsam** sayfasının alt kısmından **Seç**’e tıklayın.
 
@@ -71,7 +71,7 @@ Artık ortamınızın uyumluluk durumunu anlamak için uyumlu olmayan kaynaklar�
 
 Seçin **Uyumluluk** sayfanın sol tarafındaki. Ardından bulun **denetim yönetilen diskleri kullanmayan Vm'leri** oluşturduğunuz ilke ataması.
 
-![İlke uyumluluğu](./media/assign-policy-portal/policy-compliance.png)
+![İlke uyumluluğunu sayfasında uyumluluk ayrıntıları](./media/assign-policy-portal/policy-compliance.png)
 
 Bu yeni atamayla uyumlu olmayan mevcut kaynaklar varsa, altında görünür **uyumlu olmayan kaynaklar**.
 
@@ -94,7 +94,7 @@ Oluşturduğunuz atamayı kaldırmak için aşağıdaki adımları izleyin:
 
 1. **Yönetilen disk kullanmayan VM'leri denetle** ilke atamasına sağ tıklayıp **Atamayı sil**’i seçin
 
-   ![Atamayı silme](./media/assign-policy-portal/delete-assignment.png)
+   ![Atama uyumluluk sayfasından Sil](./media/assign-policy-portal/delete-assignment.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Log analytics'te özel alanlar | Microsoft Docs
-description: Özel alanlar özelliğini Log Analytics toplanan kayıt özellikleri Log Analytics kayıtları kendi aranabilir alanları oluşturmanızı sağlar.  Bu makalede, özel bir alan oluşturma işlemini açıklar ve bir örnek olay ile ayrıntılı bir kılavuz sağlar.
+title: Azure İzleyici'de özel alanlar | Microsoft Docs
+description: Azure İzleyicisi'nin özel alanlar özelliğini kendi aranabilir alanları bir Log Analytics çalışma alanında toplanan kayıt özellikleri bir kayıt oluşturmanıza olanak sağlar.  Bu makalede, özel bir alan oluşturma işlemini açıklar ve bir örnek olay ile ayrıntılı bir kılavuz sağlar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2018
+ms.date: 03/29/2019
 ms.author: bwren
-ms.openlocfilehash: d3eb0fba2b7178b8b1702d4ca89ff85a441c20d6
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: eebf3709657382eb403041e6637e32e5f5d43b15
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541086"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793354"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Azure İzleyici'de bir Log Analytics çalışma alanında özel alanlar oluşturma
 
@@ -27,39 +27,37 @@ ms.locfileid: "58541086"
 
 **Özel alanlar** özelliği, Azure İzleyici sayesinde var olan kayıtların Log Analytics çalışma alanınızda kendi arama yapılabilir alanlar ekleyerek genişletebilir.  Özel alanlar, diğer özellikleri aynı kaydın ayıklanan verilerden otomatik olarak doldurulur.
 
-![Özel alanlarına genel bakış](media/custom-fields/overview.png)
+![Genel Bakış](media/custom-fields/overview.png)
 
-Örneğin, aşağıdaki örnek kayıt olay açıklamasında kaçınma yararlı verileri vardır.  Bu verileri ayrı özelliklerini ayıklama olarak sıralama ve filtreleme gibi işlemler için kullanılabilir yapar.
+Örneğin, aşağıdaki örnek kayıt olay açıklamasında kaçınma yararlı verileri vardır. Bu verileri ayrı bir özellikte ayıklama olarak sıralama ve filtreleme gibi işlemler için kullanılabilir yapar.
 
-![Günlük araması düğmesi](media/custom-fields/sample-extract.png)
+![Örnek ayıklayın](media/custom-fields/sample-extract.png)
 
 > [!NOTE]
 > Önizleme sürümünde, çalışma alanınızdaki 100 özel alanlar sınırlıdır.  Bu özellik genel kullanılabilirlik ulaştığında bu sınırı genişletilir.
-> 
-> 
 
 ## <a name="creating-a-custom-field"></a>Özel alan oluşturuluyor
-Özel alan oluşturduğunuzda, Log Analytics veri değerini doldurmak için kullanılacak anlamanız gerekir.  Bu verileri hızlı bir şekilde tanımlamak için bir Microsoft Research adlı FlashExtract teknolojisini kullanır.  Log Analytics, açık yönergeler sağlamanıza gerek kalmadan, sağladığınız örneklerden ayıklamak istediğiniz veriler hakkındaki öğrenir.
+Özel alan oluşturduğunuzda, Log Analytics veri değerini doldurmak için kullanılacak anlamanız gerekir.  Bu verileri hızlı bir şekilde tanımlamak için bir Microsoft Research adlı FlashExtract teknolojisini kullanır.  Azure İzleyici, açık yönergeler sağlamanıza gerek kalmadan, sağladığınız örneklerden ayıklamak istediğiniz veriler hakkındaki öğrenir.
 
 Aşağıdaki bölümler, özel bir alan oluşturmak için yordamı sağlar.  Bu makalenin alt kısmında bir örnek ayıklama kılavuz olur.
 
 > [!NOTE]
-> Özel alan oluşturulduktan sonra toplanan kayıtları yalnızca görünür Log Analytics'e, belirtilen ölçütlerle eşleşen kayıtlar eklendikçe özel alan doldurulur.  Özel alan oluşturulduğunda, veri deposunda zaten olan kayıtları eklenmedi.
+> Özel alan oluşturulduktan sonra toplanan kayıtları yalnızca görünür Log Analytics çalışma alanına belirtilen ölçütlerle eşleşen kayıtlar eklendikçe özel alan doldurulur.  Özel alan oluşturulduğunda, veri deposunda zaten olan kayıtları eklenmedi.
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>1. adım – özel alan olan kayıtların tanımlanması
-İlk adım, özel alan alacak kayıtların belirlemektir.  İle başlayan bir [standart günlük sorgusu](../log-query/log-query-overview.md) ve Log Analytics bilgi edineceksiniz model olarak görev yapacak bir kaydı seçin.  Bir özel alana, verileri ayıklamak için önerilere şu belirttiğinizde **alan ayıklama Sihirbazı** burada doğrulamak ve kriterlerinizi açılır.
+İlk adım, özel alan alacak kayıtların belirlemektir.  İle başlayan bir [standart günlük sorgusu](../log-query/log-query-overview.md) ve Azure İzleyici'den öğreneceksiniz model olarak görev yapacak bir kaydı seçin.  Bir özel alana, verileri ayıklamak için önerilere şu belirttiğinizde **alan ayıklama Sihirbazı** burada doğrulamak ve kriterlerinizi açılır.
 
-1. Git **günlük araması** ve bir [kayıtları almak için sorgu](../log-query/log-query-overview.md) özel alanı olacaktır.
+1. Git **günlükleri** ve bir [kayıtları almak için sorgu](../log-query/log-query-overview.md) özel alanı olacaktır.
 2. Log Analytics özel alanını doldurmak için veri yönelik bir model olarak davranmak için kullanacağı bir kaydı seçin.  Bu kayıttaki ayıklamak istediğiniz veri tanımlayacak ve Log Analytics benzer tüm kayıtlar için özel alanını doldurmak için mantığı belirlemek için bu bilgileri kullanır.
-3. Düğmesini seçin ve kaydın herhangi bir metin özelliği solundaki **alanları Ayıkla**.
-4. **Alan ayıklama Sihirbazı açıldığında**, seçtiğiniz kayıt görüntülendiğini **ana örnek** sütun.  Özel alan seçilen özelliklerinde aynı değerlerle kayıtları için tanımlanır.  
+3. Kayıt Özellikleri'ni genişletin, sol üst kayıt özelliğinin üç nokta işaretine ve seçin **alanları Ayıkla**.
+4. **Alan ayıklama Sihirbazı** açılır ve seçtiğiniz kayıt görüntülenen **ana örnek** sütun.  Özel alan seçilen özelliklerinde aynı değerlerle kayıtları için tanımlanır.  
 5. Seçimi tam olarak istediğiniz varsa, ölçütleri daraltmak için ek alanlar seçin.  Ölçütleri alan değerlerini değiştirmek için iptal etmek ve istediğiniz ölçütlerle eşleşen farklı bir kaydı seçin.
 
 ### <a name="step-2---perform-initial-extract"></a>2. adım - ilk ayıklama gerçekleştirin.
 Özel alan olan kayıtları belirledikten sonra ayıklamak istediğiniz verileri belirleyin.  Log Analytics, benzer kayıtları benzer desenleri tanımlamak için bu bilgileri kullanır.  Bundan sonra bir adımda sonuçları doğrulamak ve daha fazla Log Analytics, kendi analizde kullanılacak ayrıntılarını sağlamak mümkün olacaktır.
 
-1. Örnek kaydındaki özel alanını doldurmak için kullanmak istediğiniz metni vurgulayın.  Ardından alan için bir ad sağlayın ve ilk ayıklama gerçekleştirmek için bir iletişim kutusu karşınıza çıkar.  Karakterleri  **\_CF** otomatik olarak eklenir.
+1. Örnek kaydındaki özel alanını doldurmak için kullanmak istediğiniz metni vurgulayın.  Ardından alan için bir ad ve veri türü sağlamak ve ilk ayıklama gerçekleştirmek için bir iletişim kutusu karşınıza çıkar.  Karakterleri  **\_CF** otomatik olarak eklenir.
 2. Tıklayın **ayıklamak** toplanan kayıtları analizini gerçekleştirme.  
 3. **Özeti** ve **arama sonuçları** bölümleri doğruluğunun inceleyebilirsiniz. Bu nedenle Ayıkla sonuçlarını görüntüler.  **Özet** kayıtları ve sayı her tanımlanan veri değerlerini tanımlamak için kullanılan ölçüt görüntüler.  **Arama sonuçları** ölçütlerle eşleşen kayıtları ayrıntılı bir listesini sağlar.
 
@@ -83,17 +81,17 @@ Kullanarak yönetim grubunuzdaki tüm özel alanların listesini görüntüleyeb
 Özel bir alanı kaldırmak için iki yolu vardır.  İlk **Kaldır** yukarıda açıklandığı gibi tam bir listesi görüntülerken, her bir alan için seçeneği.  Diğer kayıt alıp alanın sol düğmesine yöntemidir.  Menü, özel bir alanı kaldırmak için bir seçenek içerir.
 
 ## <a name="sample-walkthrough"></a>Örnek kılavuz
-Aşağıdaki bölümde, bir özel alan oluşturuluyor, tam bir örneği açıklanmaktadır.  Bu örnek bir hizmetin durumunu değiştirme belirten Windows olayları hizmeti adını ayıklar.  Bu Windows bilgisayarlarda sistem günlüğündeki hizmet denetimi yöneticisi tarafından oluşturulan olayları kullanır.  Bu örneği takip etmek istiyorsanız, olmalıdır [sistem günlüğü bilgilerini olay toplama](data-sources-windows-events.md).
+Aşağıdaki bölümde, bir özel alan oluşturuluyor, tam bir örneği açıklanmaktadır.  Bu örnek bir hizmetin durumunu değiştirme belirten Windows olayları hizmeti adını ayıklar.  Bu Windows bilgisayarlar System oturum hizmet denetimi yöneticisi tarafından oluşturulan olayları kullanır.  Bu örneği takip etmek istiyorsanız, olmalıdır [sistem günlüğü bilgilerini olay toplama](data-sources-windows-events.md).
 
 Biz, hizmet denetimi yöneticisinden olay, hizmet başlatma veya durdurma gösteren olay Kimliğini 7036 sahip tüm olaylar döndürmek için aşağıdaki sorguyu girin.
 
 ![Sorgu](media/custom-fields/query.png)
 
-Ardından herhangi bir olay kimliği 7036 kayıtla seçiyoruz.
+Biz bu seçin ve herhangi bir olay kimliği 7036 kayıtla genişletin.
 
 ![Kaynak kaydı](media/custom-fields/source-record.png)
 
-Hizmet adı, görünen istiyoruz **RenderedDescription** özelliği ve bu özelliğin yanındaki düğmeyi seçin.
+Üst özelliğin yanındaki üç nokta işaretine tıklayarak özel alanlar tanımlarız.
 
 ![Alanları Ayıkla](media/custom-fields/extract-fields.png)
 
@@ -101,11 +99,11 @@ Hizmet adı, görünen istiyoruz **RenderedDescription** özelliği ve bu özell
 
 ![Ana örnek](media/custom-fields/main-example.png)
 
-Biz hizmeti adını vurgulayın **RenderedDescription** özelliği ve kullanım **hizmet** hizmet adını belirlemek için.  Özel alan çağrılacak **Service_CF**.
+Biz hizmeti adını vurgulayın **RenderedDescription** özelliği ve kullanım **hizmet** hizmet adını belirlemek için.  Özel alan çağrılacak **Service_CF**. Alan türü bu durumda bir dize ise, böylece biz değiştirilmemiş bırakabilirsiniz.
 
 ![Alan başlığı](media/custom-fields/field-title.png)
 
-Hizmet adı için diğer ancak bazı kayıtlar için düzgün şekilde tanımlanır görüyoruz.   **Arama sonuçları** göstermek için bu kısmını **WMI Performans bağdaştırıcısı** seçili değildi.  **Özeti** dört kayıtlar gösterir **DPRMA** hizmeti hatalı dahil ek bir sözcük ve belirlenen iki kaydı **Modül Yükleyicisi** yerine**Windows modülleri yükleyici**.  
+Hizmet adı için diğer ancak bazı kayıtlar için düzgün şekilde tanımlanır görüyoruz.   **Arama sonuçları** göstermek için bu kısmını **WMI Performans bağdaştırıcısı** seçili değildi.  **Özeti** tanımlanan bir kaydın gösterir **Modül Yükleyicisi** yerine **Windows modülleri yükleyici**.  
 
 ![Arama sonuçları](media/custom-fields/search-results-01.png)
 
@@ -117,19 +115,11 @@ Biz sözcüğünü eklemediğinizden vurgulama artırmak **WMI** ve ayıklama ye
 
 ![Ek örnek](media/custom-fields/additional-example-01.png)
 
-Görebiliriz girdilerini **WMI Performans bağdaştırıcısı** düzeltildi, Log Analytics de kullanılan ve bu bilgileri kayıtları düzeltmek için **Windows Modülü Yükleyicisi**.  İçinde görebiliriz **özeti** olsa da, bölüm **DPMRA** hala doğru tanımlanmakta olduğunu değil.
+Görebiliriz girdilerini **WMI Performans bağdaştırıcısı** düzeltildi, Log Analytics de kullanılan ve bu bilgileri kayıtları düzeltmek için **Windows Modülü Yükleyicisi**.
 
 ![Arama sonuçları](media/custom-fields/search-results-02.png)
 
-Biz, DPMRA hizmetini içeren bir kayıt kaydırın ve bu kayıtla düzeltmek için aynı işlemi kullanın.
-
-![Ek örnek](media/custom-fields/additional-example-02.png)
-
- Ayıklama çalıştırıyoruz, tüm sonuçları artık doğru olduğunu görebiliriz.
-
-![Arama sonuçları](media/custom-fields/search-results-03.png)
-
-Görebiliriz **Service_CF** oluşturulur ancak henüz herhangi bir kayıt eklenir.
+Biz artık doğrulayan bir sorgu çalıştırabilirsiniz **Service_CF** oluşturulur ancak henüz herhangi bir kayıt eklenir. Özel alan karşı var olan kayıtların çalışmaz, bu yüzden toplanacak yeni kayıtlar için beklenecek olmasıdır.
 
 ![Başlangıç sayısı](media/custom-fields/initial-count.png)
 
@@ -142,6 +132,6 @@ Süre kadar yeni geçtikten sonra toplanan olayları, görebiliriz **Service_CF*
 ![Sorgu tarafından Grup](media/custom-fields/query-group.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [günlük aramaları](../log-query/log-query-overview.md) özel alanlar için ölçütleri kullanarak sorguları oluşturmak için.
+* Hakkında bilgi edinin [oturum sorguları](../log-query/log-query-overview.md) özel alanlar için ölçütleri kullanarak sorguları oluşturmak için.
 * İzleyici [özel günlük dosyalarını](data-sources-custom-logs.md) , özel alanlara kullanarak ayrıştırılamıyor.
 

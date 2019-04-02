@@ -12,18 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: a1b6fe38087975838d99ca4fe45ee0d0638c56c3
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: a976b7c1f697c09082ca0f7978bb23bb4e467e5d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58187753"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801707"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Genel bakış ve Azure üzerinde isteğe bağlı medya kodlayıcılarına karşılaştırma 
 
 ## <a name="encoding-overview"></a>Encoding'e genel bakış
+
+> [!NOTE]
+> Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
+
 Azure Media Services, bulutta medya kodlama için birden fazla seçenek sağlar.
 
 Media Services ile başlıyor, codec bileşenleri ve dosya biçimlerini arasındaki farkı anlamak önemlidir.
@@ -31,8 +35,7 @@ Codec sıkıştırma/sıkıştırma algoritmaları dosya biçimleri sıkıştır
 
 Media Services, yeniden paketlemenize gerek kalmadan, Uyarlamalı bit hızı MP4 veya kesintisiz akış kodlanmış içeriğinizi Media Services tarafından (MPEG DASH, HLS, kesintisiz akış) desteklenen akış biçimlerinde göndermenize olanak tanıyan dinamik paketleme sağlar. Akış biçimlerinde.
 
-> [!NOTE]
-> AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
+AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
 
 Media Services, bu makalede açıklanan kodlayıcılar aşağıdakileri destekler:
 
@@ -41,8 +44,7 @@ Media Services, bu makalede açıklanan kodlayıcılar aşağıdakileri destekle
 
 Bu makalede, kısa bir genel bakış isteğe bağlı medya kodlayıcılarına sağlar ve daha ayrıntılı bilgi vermek makalelere bağlantılar sağlar. Konu ayrıca kodlayıcıların karşılaştırılması sağlar.
 
->[!NOTE]
->Varsayılan olarak, aynı anda etkin bir kodlama görevi her Media Services hesabı olabilir. Aynı anda, bir kodlama her ayrılmış birim, satın aldığınız için çalışan birden çok kodlama görevi açmanıza izin kodlama birimler ayırabilirsiniz. Bilgi için [kodlama birimleri ölçeklendirme](media-services-scale-media-processing-overview.md).
+Varsayılan olarak, aynı anda etkin bir kodlama görevi her Media Services hesabı olabilir. Aynı anda, bir kodlama her ayrılmış birim, satın aldığınız için çalışan birden çok kodlama görevi açmanıza izin kodlama birimler ayırabilirsiniz. Bilgi için [kodlama birimleri ölçeklendirme](media-services-scale-media-processing-overview.md).
 
 ## <a name="media-encoder-standard"></a>Media Encoder Standard
 ### <a name="how-to-use"></a>Nasıl kullanılır

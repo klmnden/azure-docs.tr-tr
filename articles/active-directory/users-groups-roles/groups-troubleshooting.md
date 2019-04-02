@@ -13,27 +13,31 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0594d99874ea9bb83673013a9a03272edcd8ce0b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0eededcc180d7652fd52c79b85ca3c34f65a22a4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897682"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791567"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Sorun giderme ve çözümleme ilgili sorunları gruplandırır
 
 ## <a name="troubleshooting-group-creation-issues"></a>Grup oluşturma sorunlarını giderme
+
 **Ben Azure portalında güvenlik grubu oluşturma devre dışı ancak grupları yine de Powershell oluşturulabilir** **kullanıcı, Azure portallarında güvenlik grupları oluşturabilir** Azure portal denetimlerinde ayarlama olup olmadığını yönetici olmayan Kullanıcılar, erişim paneli veya Azure portalında güvenlik grupları oluşturabilir. Güvenlik grubu oluşturma Powershell aracılığıyla denetlemez.
 
 Grup oluşturma Powershell yönetici olmayan kullanıcılar için devre dışı bırakmak için:
 1. Yönetici olmayan kullanıcılar grupları oluşturmak için izin verildiğini doğrulayın:
    
+
+   ```powershell
+   Get-MsolCompanyInformation | Format-List UsersPermissionToCreateGroupsEnabled
    ```
-   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-   ```
+
   
 2. Döndürürse `UsersPermissionToCreateGroupsEnabled : True`, sonra da yönetici olmayan kullanıcılar, gruplar oluşturabilirsiniz. Bu özellik devre dışı bırakmak için:
   
+
    ``` 
    Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
    ```

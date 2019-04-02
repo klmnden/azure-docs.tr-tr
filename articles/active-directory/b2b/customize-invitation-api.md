@@ -11,18 +11,19 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 610d81912ac0244f25bc39c41690ab7e7ea8897c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17b472b647dd27306ca95345e49dfeb3aee60665
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111319"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793399"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B işbirliği API ve özelleştirme
 
 Biz, birçok müşteri, kuruluşları için en iyi şekilde davet sürecini özelleştirmek istedikleri bize vardı. API ile bunu yapabilirsiniz. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>Davet API özellikleri
+
 API, aşağıdaki özellikleri sunar:
 
 1. İle bir dış kullanıcıyı davet *herhangi* e-posta adresi.
@@ -68,21 +69,25 @@ API, aşağıdaki özellikleri sunar:
 
 
 ## <a name="authorization-model"></a>Yetkilendirme modeli
+
 API aşağıdaki yetkilendirme modu çalıştırabilirsiniz:
 
 ### <a name="app--user-mode"></a>Uygulama + kullanıcı modu
+
 Bu modda, kişi B2B davetleri olması oluşturma izinlerine sahip API gereksinimlerini kullanıyor.
 
 ### <a name="app-only-mode"></a>Tek uygulama modu
+
 Uygulama yalnızca bağlamında, uygulamanın, başarılı olması davet User.Invite.All kapsamını gerekir.
 
 Daha fazla bilgi için bkz: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell
+
 Ekleme ve bir kuruluşun dış kullanıcılara bir kolayca davet için PowerShell kullanabilirsiniz. Cmdlet'ini kullanarak bir davet oluşturun:
 
-```
+```powershell
 New-AzureADMSInvitation
 ```
 
@@ -102,7 +107,8 @@ Bir dış kullanıcıyı Davet Gönder sonra kullanabileceğiniz **Get-AzureADUs
 
 Kullanabileceğiniz **filtre** sonuçlarına göre filtreleme seçeneğini **UserState**. Aşağıdaki örnek, bekleyen davet sahip kullanıcıları göstermek için sonuçları filtrelemek gösterilmektedir. Örnek ayrıca gösterir **Format-List** seçeneği, görüntülenecek özelliklerini belirtmenize olanak tanır. 
  
-```
+
+```powershell
 Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
 ```
 
@@ -119,4 +125,3 @@ Davet API başvurusunda kullanıma [ https://developer.microsoft.com/graph/docs/
 - [B2B işbirliği davet e-posta öğeleri](invitation-email-elements.md)
 - [B2B işbirliği Davetiyesi kullanımı](redemption-experience.md)
 - [B2B işbirliği kullanıcıları davet etmeden ekleme](add-user-without-invite.md)
-

@@ -11,25 +11,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: b6071bef4e4bbd9aaca3f587e5dfa584831d082e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d80a58f1886ecc1ca2a735881fc5822f2fc0c53b
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316883"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802499"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Azure AD kimlik doğrulamasıyla Azure Media Services API'sine erişim  
- 
+
+> [!NOTE]
+> Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
+
 Azure Media Services API'sine bir RESTful API'dir. Kullanılabilir istemci SDK'ları kullanarak ya da REST API'yi kullanarak medya kaynaklar üzerinde işlem gerçekleştirmek için kullanabilirsiniz. Azure Media Services, Microsoft .NET için Media Services istemci SDK'sı sunar. Media Services kaynakları ve Media Services API'sine erişim iznine sahip olması için önce kimliğinin doğrulanması gerekir. 
 
 Media Services'ı destekleyen [Azure Active Directory (Azure AD)-tabanlı kimlik doğrulaması](../../active-directory/fundamentals/active-directory-whatis.md). Azure medya REST hizmeti gerektirir kullanıcı veya REST API yapan uygulamanın ya da sahip istekleri **katkıda bulunan** veya **sahibi** kaynaklara erişmek için rol. Daha fazla bilgi için [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](../../role-based-access-control/overview.md).  
 
-> [!IMPORTANT]
-> Şu anda Media Services, Azure erişim denetimi hizmeti kimlik doğrulama modeli destekler. Ancak, erişim denetimi yetkilendirme 1 Haziran 2018'de kullanımdan kaldırılacaktır. Azure AD kimlik doğrulaması modeline mümkün olan en kısa sürede geçiş yapmanız önerilir.
-
 Bu belge, REST veya .NET API'lerini kullanarak Media Services API'sine erişmek nasıl bir genel bakış sağlar.
+
+> [!NOTE]
+> Erişim denetimi yetkilendirme, 1 Haziran 2018'de kullanım dışı bırakıldı.
 
 ## <a name="access-control"></a>Erişim denetimi
 

@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 645ba6e8306b063892babe25fde41d8dd3144fee
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 87d828e596c42b786d1c54a7158e1151f374c560
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444299"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793048"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Uygulama Ara Sunucusu Aracı Bağlayıcısı’nı yüklerken sorun oluşuyor
 
@@ -64,13 +64,13 @@ Bir bağlayıcı yüklemesi başarısız olduğunda, kök nedeni genellikle aşa
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Yönetici Bağlayıcısı'nı yüklemek için kullanılan doğrulayın
 
-**Hedef:** Bağlayıcı yüklemeye çalıştığında kullanıcı doğru kimlik bilgilerine sahip bir yönetici olduğundan emin olun. Şu anda, kullanıcı bir uygulama Yöneticisi veya yükleme için genel yönetici başarılı olması için olmalıdır.
+**Hedef:** Bağlayıcı yüklemeye çalıştığında kullanıcı doğru kimlik bilgilerine sahip bir yönetici olduğundan emin olun. Şu anda, kullanıcının en az bir uygulama Yöneticisi yükleme başarılı olması gerekir.
 
 **Kimlik bilgilerinin doğru olup olmadığını doğrulamak için:**
 
 Bağlanma <https://login.microsoftonline.com> ve aynı kimlik bilgilerini kullanın. Oturum açma başarılı olduğundan emin olun. Kullanıcı rolü giderek denetleyebilirsiniz **Azure Active Directory**  - &gt; **kullanıcılar ve gruplar**  - &gt; **tüm kullanıcılar**. 
 
-Kullanıcı hesabınızın, ardından "dizin rolü" elde edilen menüsünde seçin. Seçili rolü "uygulama Yönetici" veya "Genel yönetici" olduğunu doğrulayın. Herhangi bir sayfasında bu adımları boyunca erişim bulamıyorsanız, gerekli rol yok.
+Kullanıcı hesabınızın, ardından "dizin rolü" elde edilen menüsünde seçin. Seçili rolü "Uygulama Yöneticisi" olduğunu doğrulayın. Herhangi bir sayfasında bu adımları boyunca erişim bulamıyorsanız, gerekli rol yok.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure AD uygulama ara sunucusu bağlayıcıları anlama](application-proxy-connectors.md)

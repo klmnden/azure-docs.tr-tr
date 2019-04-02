@@ -15,12 +15,12 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: b7f4ce9508928ccc6ab766e7164c674511bcaa37
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342788"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804539"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Azure kaynakları için rol tanımları anlama
 
@@ -97,11 +97,11 @@ Veri işlemlerini desteklemek için yeni veri özellikleri rol tanımı yapısı
 - Bir kapsayıcıda bir depolama blobu yazma
 - Kuyruktaki bir iletiyi sil
 
-İşte [depolama Blob verileri Okuyucu (Önizleme)](built-in-roles.md#storage-blob-data-reader-preview) işlemlerini hem de içerir. rol tanımı `Actions` ve `DataActions` özellikleri. Bu rol blob kapsayıcısını ve ayrıca temel alınan blob verilerini okumanıza izin verir.
+İşte [depolama Blob verileri okuyucu](built-in-roles.md#storage-blob-data-reader) işlemlerini hem de içerir. rol tanımı `Actions` ve `DataActions` özellikleri. Bu rol blob kapsayıcısını ve ayrıca temel alınan blob verilerini okumanıza izin verir.
 
 ```json
 {
-  "Name": "Storage Blob Data Reader (Preview)",
+  "Name": "Storage Blob Data Reader",
   "Id": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
   "IsCustom": false,
   "Description": "Allows for read access to Azure Storage blob containers and data",
@@ -125,18 +125,18 @@ Tüm yönetim işlemi API çağrıları için yetkilendirme, Azure Resource Mana
 
 ### <a name="data-operations-example"></a>Veri işlem örneği
 
-Yönetim ve veri işlemlerini nasıl çalıştığını daha iyi anlamak için belirli bir örnek düşünelim. Alice atanmış [sahibi](built-in-roles.md#owner) abonelik kapsamında bir rol. Bob atanmış [depolama Blob verileri katkıda bulunan (Önizleme)](built-in-roles.md#storage-blob-data-contributor-preview) bir depolama hesabı kapsamda rol. Aşağıdaki diyagramda, bu örnek gösterir.
+Yönetim ve veri işlemlerini nasıl çalıştığını daha iyi anlamak için belirli bir örnek düşünelim. Alice atanmış [sahibi](built-in-roles.md#owner) abonelik kapsamında bir rol. Bob atanmış [depolama Blob verileri katkıda bulunan](built-in-roles.md#storage-blob-data-contributor) bir depolama hesabı kapsamda rol. Aşağıdaki diyagramda, bu örnek gösterir.
 
 ![Rol tabanlı erişim denetimi, hem yönetim hem de veri işlemlerini destekleyecek şekilde genişletildi](./media/role-definitions/rbac-management-data.png)
 
-[Sahibi](built-in-roles.md#owner) Alice için rol ve [depolama Blob verileri katkıda bulunan (Önizleme)](built-in-roles.md#storage-blob-data-contributor-preview) rolde Bob için aşağıdaki eylemleri:
+[Sahibi](built-in-roles.md#owner) Alice için rol ve [depolama Blob verileri katkıda bulunan](built-in-roles.md#storage-blob-data-contributor) rolde Bob için aşağıdaki eylemleri:
 
 Sahip
 
 &nbsp;&nbsp;&nbsp;&nbsp;Eylemler<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-Depolama Blob Verileri Katkıda Bulunan (Önizleme)
+Depolama Blob Verileri Katkıda Bulunanı
 
 &nbsp;&nbsp;&nbsp;&nbsp;Eylemler<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
@@ -149,7 +149,7 @@ Depolama Blob Verileri Katkıda Bulunan (Önizleme)
 
 Alice, joker karakter olduğundan (`*`) eylem bir abonelik kapsamda kendi devralmak aşağı tüm yönetim eylemleri gerçekleştirmek her etkinleştirmek için. Alice, okuma, yazma ve kapsayıcıları silin. Ancak, Alice, ek adımların atılmasından olmadan veri işlemleri gerçekleştiremezsiniz. Örneğin, varsayılan olarak, bir kapsayıcı içinde BLOB'ları Alice okunamıyor. Alice blobları okumak için depolama erişim tuşlarını almak ve bunları bloblara erişmek için gerekir.
 
-Bob'ın izinler için yalnızca sınırlı `Actions` ve `DataActions` belirtilen [depolama Blob verileri katkıda bulunan (Önizleme)](built-in-roles.md#storage-blob-data-contributor-preview) rol. Rol tabanlı, Bob hem yönetim hem de veri işlemleri gerçekleştirebilirsiniz. Örneğin, Bob okumak, yazma ve belirtilen depolama hesabında kapsayıcıları silmek ve he ayrıca okuma, yazma ve blobları silin.
+Bob'ın izinler için yalnızca sınırlı `Actions` ve `DataActions` belirtilen [depolama Blob verileri katkıda bulunan](built-in-roles.md#storage-blob-data-contributor) rol. Rol tabanlı, Bob hem yönetim hem de veri işlemleri gerçekleştirebilirsiniz. Örneğin, Bob okumak, yazma ve belirtilen depolama hesabında kapsayıcıları silmek ve he ayrıca okuma, yazma ve blobları silin.
 
 Yönetim ve depolama için veri düzlemi güvenliği hakkında daha fazla bilgi için bkz. [Azure depolama Güvenlik Kılavuzu](../storage/common/storage-security-guide.md).
 
@@ -157,7 +157,7 @@ Yönetim ve depolama için veri düzlemi güvenliği hakkında daha fazla bilgi 
 
 Görüntülemek ve veri işlemleriyle çalışmak için doğru SDK'lar ve Araçlar sürümlerinin olması gerekir:
 
-| Aracı  | Sürüm  |
+| Tool  | Sürüm  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 veya üzeri |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 veya üzeri |

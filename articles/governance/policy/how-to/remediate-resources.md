@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: f0c05ddbc53d08334aded48ccb3a3ece547b4143
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e86553e789fc9879ea4a6326b08d893fe24c8ac8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816578"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802567"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure İlkesi ile uyumlu olmayan kaynakları Düzelt
 
@@ -139,11 +139,11 @@ Oluşturmak için bir **düzeltme görev**, şu adımları izleyin:
 
 1. Azure portalında **Tüm hizmetler**’e tıkladıktan sonra **İlke**'yi arayıp seçerek Azure İlkesi hizmetini başlatın.
 
-   ![İlke arama](../media/remediate-resources/search-policy.png)
+   ![Tüm hizmetler ilkesinde arayın](../media/remediate-resources/search-policy.png)
 
 1. Seçin **düzeltme** Azure İlkesi sayfasının sol tarafındaki.
 
-   ![Düzeltme seçin](../media/remediate-resources/select-remediation.png)
+   ![Düzeltme İlkesi sayfasında seçin](../media/remediate-resources/select-remediation.png)
 
 1. Tüm **Deployıfnotexists** uyumlu olmayan kaynakları olan ilke atamaları eklenir **düzeltmeye yönelik ilkeler** sekmesi ve veri tablosu. Bir ilkeyle uyumlu olmayan kaynakları tıklayın. **Yeni bir düzeltme görev** sayfası açılır.
 
@@ -152,11 +152,11 @@ Oluşturmak için bir **düzeltme görev**, şu adımları izleyin:
 
 1. Üzerinde **yeni bir düzeltme görev** sayfasında, kaynakları kullanarak düzeltmek için filtre **kapsam** alt kaynakları burada ilkenin atandığı seçmek için üç nokta simgesini (aşağı ayrı kaynak dahil nesneler). Ayrıca, **konumları** daha da fazla filtrelemek için kaynakları açılır. Yalnızca kaynak tabloda listelenen düzeltilebilir.
 
-   ![Düzelt - kaynakları seçin](../media/remediate-resources/select-resources.png)
+   ![Düzelt - düzeltmek için kaynakları seçin](../media/remediate-resources/select-resources.png)
 
 1. Kaynakları tıklayarak filtrelendi sonra düzeltme görevi Başlat **düzelt**. İlke uyumluluk sayfası açılacak **düzeltme görevleri** görevleri ilerleme durumunu göstermek için sekmesinde.
 
-   ![Düzelt - görev ilerleme durumu](../media/remediate-resources/task-progress.png)
+   ![Düzeltme - düzeltme görevlerin ilerlemesini](../media/remediate-resources/task-progress.png)
 
 1. Tıklayarak **düzeltme görev** İlkesi uyumluluk sayfasından ilerleme durumu hakkında ayrıntılı bilgi edinmek için. Görev için kullanılan filtreleme düzeltilen kaynakların listesini birlikte gösterilir.
 

@@ -1,17 +1,17 @@
 ---
-title: Değiştirme, silme veya Azure - Azure idare yönetim gruplarınızı yönetme
+title: Değiştirme, silme veya - Azure idare, yönetim gruplarınızı yönetme
 description: Görüntüleme, tutmak, güncelleştirme ve Yönetim Grup hiyerarşiniz silme hakkında bilgi edinin.
 author: rthorn17
 ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 801a37496b36be1f98408c46807f5b10db2b0282
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f9e9bf51d50863f2e37a2f579c2db0edcfeca634
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622068"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801785"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Yönetim gruplarıyla kaynaklarınızı yönetin
 
@@ -37,11 +37,11 @@ Portal, PowerShell veya Azure CLI kullanarak yönetim grubu adını değiştireb
 
 1. Seçin **grubu Yeniden Adlandır** sayfanın üstündeki seçeneği.
 
-   ![Grubu Yeniden Adlandır seçeneğini](./media/detail_action_small.png)
+   ![Yönetim grubu sayfasındaki grubu Yeniden Adlandır seçeneğini](./media/detail_action_small.png)
 
 1. Menü açıldığında, görüntülenmesini istediğiniz yeni bir ad girin.
 
-   ![Grubu yeniden adlandır bölmesi](./media/rename_context.png)
+   ![Yönetim grubunu yeniden adlandırmak için grubu yeniden adlandır bölmesi](./media/rename_context.png)
 
 1. **Kaydet**’i seçin.
 
@@ -223,7 +223,7 @@ Hangi izinlerin yönetim grubu ve ardından Azure portalında, select olduğunu 
 
 1. Doğru kimliğe sahip bir abonelik seçin
 
-   ![Alt Öğeler](./media/add_context_sub.png)
+   ![Kullanılabilir abonelikler, bir yönetim grubuna eklemek için](./media/add_context_sub.png)
 
 1. "Kaydet"'i seçin.
 
@@ -237,13 +237,13 @@ Hangi izinlerin yönetim grubu ve ardından Azure portalında, select olduğunu 
 
 1. Abonelik için satırın sonundaki üç nokta taşımak istediğiniz listeden seçin.
 
-   ![Taşıma seçeneği](./media/move_small.png)
+   ![Bir yönetim grubunda seçeneği taşıyın](./media/move_small.png)
 
 1. Seçin **taşıma**.
 
 1. Açılan menüden **üst yönetim grubu**.
 
-   ![Taşıma bölmesi](./media/move_small_context.png)
+   ![Üst grup değiştirmek için taşıma bölmesi](./media/move_small_context.png)
 
 1. **Kaydet**’i seçin.
 
@@ -294,7 +294,7 @@ Bir üst yönetim grubuna taşıdığınızda, bu grubun altında hiyerarşi ile
    - Yeni'yi seçerek yeni bir yönetim grubu oluşturur.
    - Mevcut bir seçerek, bu yönetim grubuna taşıyabilirsiniz tüm yönetim grubunun bir açılır menü ile sunacaktır.  
 
-   ![Taşıma](./media/add_context_MG.png)
+   ![Yeni veya varolan bir grup için bir yönetim grubuna Taşı](./media/add_context_MG.png)
 
 1. **Kaydet**’i seçin.
 
@@ -318,7 +318,7 @@ az account management-group update --name 'Contoso' --parent-id '/providers/Micr
 
 Yönetim grupları [Azure Etkinlik Günlüğü](../../azure-monitor/platform/activity-logs-overview.md)'nde desteklenir. Bir yönetim grubuna diğer Azure kaynakları ile aynı merkezi konumda gerçekleşen tüm olayları sorgulayabilirsiniz.  Örneğin, belirli bir yönetim grubunda yapılan tüm Rol Atamalarını veya İlke Ataması değişikliklerini görebilirsiniz.
 
-![Yönetim Gruplarıyla Etkinlik Günlükleri](media/al-mg.png)
+![Yönetim gruplarıyla etkinlik günlükleri](media/al-mg.png)
 
 Azure portalının dışında Yönetim Gruplarını sorgulamak istediğinizde, yönetim gruplarının hedef kapsamı **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** gibi görünür.
 

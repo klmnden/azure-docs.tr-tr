@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: a6505232066d7a2e63c3e9508cb16cb9a31f8e35
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6922d49affdde86728b41ef1d3d0c6a2da5c323e
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776674"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805100"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Düşük veya hiçbir ağ bant genişliği ile büyük veri kümeleri için veri aktarımı
  
@@ -45,7 +45,7 @@ Bu senaryoda kullanılabilir seçenekler, Azure Data Box çevrimdışı transfer
 
 Aşağıdaki tabloda temel işlevleri farklılıkları özetlemektedir.
 
-|                                     |    Data Box Disk (Önizleme)    |    Data Box                                      |    Veri kutusu ağır (Önizleme)              |    İçeri/Dışarı Aktarma                       |
+|                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy              |    İçeri/Dışarı Aktarma                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Veri boyutu                        |    35 TB'a kadar                 |    Cihaz başına en fazla 80 TB'a                       |    Cihaz başına en fazla 800 TB               |    Değişken                            |
 |    Veri türü                        |    Azure BLOB'ları                  |    Azure BLOB'ları<br>Azure Dosyaları                    |    Azure BLOB'ları<br>Azure Dosyaları            |    Azure BLOB'ları<br>Azure Dosyaları          |

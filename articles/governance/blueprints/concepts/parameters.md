@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 538015f3cd26d451285f1fd66853366f814f3b0a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838026"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805590"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Parametreler ile dinamik şemaları oluşturma
 
@@ -67,11 +67,11 @@ Bir şema tanımı içinde tanımlanmış bir parametre değeri olarak adlandır
 
 1. Sahip parametre seçeneklerini görüntülemek için şema eklenen yapıtları **X, Y dolduruldu** içinde **parametreleri** sütun. Yapıt parametrelerini düzenlemek için yapıt satırına tıklayın.
 
-   ![Şema parametreleri](../media/parameters/parameter-column.png)
+   ![Bir şema tanımı üzerinde şema parametreleri](../media/parameters/parameter-column.png)
 
 1. **Düzenle Yapıt** tıkladığınız yapıt için uygun değeri seçenekleri sayfasında görüntülenir. Bir başlık ve değer kutusu bir onay kutusu her yapı parametresine sahiptir. Kutunun hale denetlenmeyen kümesine bir **statik parametresinin**. Yalnızca aşağıdaki örnekte _konumu_ olduğu bir **statik parametresinin** , içerdiğinden denetlenmeyen ve _kaynak grubu adı_ denetlenir.
 
-   ![Blueprint statik Parametreler](../media/parameters/static-parameter.png)
+   ![Blueprint yapıtı üzerinde şema statik Parametreler](../media/parameters/static-parameter.png)
 
 #### <a name="setting-static-parameters-from-rest-api"></a>REST API'SİNDEN statik parametrelerini ayarlama
 
@@ -182,7 +182,7 @@ Statik bir parametrenin tersidir bir **dinamik parametre**. Bu parametre, şema 
 
 1. Üzerinde **Ata şema** sayfasında, bulmak **Yapıt parametreleri** bölümü. En az birine sahip her bir yapıt **dinamik parametre** yapıt ve yapılandırma seçenekleri görüntüler. Blueprint atamadan önce parametreleri için gerekli değerleri sağlayın. Aşağıdaki örnekte _adı_ olduğu bir **dinamik parametre** şema atamasını tamamlamak için tanımlanmalıdır.
 
-   ![Blueprint dinamik parametre](../media/parameters/dynamic-parameter.png)
+   ![Blueprint ataması sırasında şema dinamik parametre](../media/parameters/dynamic-parameter.png)
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>REST API'SİNDEN dinamik parametreleri ayarlanıyor
 
@@ -241,8 +241,8 @@ Yapıtlar bir kaynak grubu için bir "şablonu adıyla" tanımlanmış **adı**,
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Hakkında bilgi edinin [blueprint yaşam döngüsü](lifecycle.md).
-- Özelleştirme öğrenin [blueprint sıralama sipariş](sequencing-order.md).
-- Öğrenin yapmak kullanım [blueprint kaynak kilitleme](resource-locking.md).
-- Bilgi edinmek için nasıl [mevcut Atamaları Güncelleştir](../how-to/update-existing-assignments.md).
-- İle bir blueprint ataması sırasında sorunları gidermek [genel sorun giderme](../troubleshoot/general.md).
+- [Şema yaşam döngüsü](lifecycle.md) hakkında bilgi edinin.
+- [Şema sıralama düzenini](sequencing-order.md) özelleştirmeyi öğrenin.
+- [Şema kaynak kilitleme](resource-locking.md) özelliğini kullanmayı öğrenin.
+- [Mevcut atamaları güncelleştirmeyi](../how-to/update-existing-assignments.md) öğrenin.
+- [Genel sorun giderme](../troubleshoot/general.md) adımlarıyla şema atama sorunlarını giderin.

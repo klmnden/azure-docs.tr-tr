@@ -1,6 +1,6 @@
 ---
-title: Blueprint dağıtım aşamaları
-description: Blueprint Hizmetleri dağıtımı sırasında adımlarını öğrenin.
+title: Şema dağıtımının aşamaları
+description: Azure şema Hizmetleri dağıtımı sırasında adımlarını öğrenin.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,14 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: a3ab5589cd327b73f2e66540da5c49343c4449cd
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: ced8c8ab2e65fb1d3f8a976f122a387fe9161750
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57999183"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801973"
 ---
-# <a name="stages-of-a-blueprint-deployment"></a>Blueprint dağıtım aşamaları
+# <a name="stages-of-a-blueprint-deployment"></a>Şema dağıtımının aşamaları
 
 Bir şema dağıtıldığında, bir dizi eylem blueprint'te tanımlanan kaynakları dağıtmak için Azure şemaları hizmet tarafından alınır. Bu makalede, her bir adımın ne içerir ilişkin ayrıntılar sağlanır.
 
@@ -61,8 +61,8 @@ Dağıtım tamamlandığında, şemalar iptal eder haklarını **sistem tarafın
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Nasıl kullanılacağını anlamak [statik ve dinamik parametreleri](parameters.md).
-- Özelleştirme öğrenin [blueprint sıralama sipariş](sequencing-order.md).
-- Öğrenin yapmak kullanım [blueprint kaynak kilitleme](resource-locking.md).
-- Bilgi edinmek için nasıl [mevcut Atamaları Güncelleştir](../how-to/update-existing-assignments.md).
-- İle bir blueprint ataması sırasında sorunları gidermek [genel sorun giderme](../troubleshoot/general.md).
+- [Statik ve dinamik parametrelerin](parameters.md) kullanımını anlayın.
+- [Şema sıralama düzenini](sequencing-order.md) özelleştirmeyi öğrenin.
+- [Şema kaynak kilitleme](resource-locking.md) özelliğini kullanmayı öğrenin.
+- [Mevcut atamaları güncelleştirmeyi](../how-to/update-existing-assignments.md) öğrenin.
+- [Genel sorun giderme](../troubleshoot/general.md) adımlarıyla şema atama sorunlarını giderin.

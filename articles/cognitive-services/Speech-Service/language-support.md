@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 3188b5acc00f7f0463ae1154346447bee463e09c
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 0a82c2ba8bdf3d01041aa06f55eaaecab29817b2
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225442"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803116"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Konuşma Hizmetleri dil ve bölge desteği
 
@@ -55,7 +55,7 @@ Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir. Farklı
  ru-RU | Rusça (Rusya) | Evet | Evet | Hayır
  sv-SE | İsveççe (İsveç) | Hayır | Hayır | Hayır
  zh-CN | Çince (Basitleştirilmiş Mandarin) | Evet | Evet | Hayır
- zh-HK | Çince (Mandarin, Geleneksel) | Hayır | Evet | Hayır
+ zh-HK | Çince (Kanton, Geleneksel) | Hayır | Evet | Hayır
  zh-TW | Çince (Tayvan Mandarin) | Hayır | Evet | Hayır
  TH TH | Tayca (Tayland) | Hayır | Hayır | Hayır
 

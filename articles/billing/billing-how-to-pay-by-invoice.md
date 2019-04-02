@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 04/01/2019
 ms.author: banders
-ms.openlocfilehash: 1fb5ad056c1b8a331034cab12fa3420ba310bb95
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a17821cc69900c7f24375cbf06a61811bbd52d1
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852347"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762251"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Azure aboneliği faturayla ödeme talebinizi
 
 Bir Azure destek isteği göndererek faturalamak Azure aboneliğinizin ödeme yöntemini değiştirebilirsiniz. İsteğiniz onaylandıktan sonra faturalı ödeme yöntemi için aboneliğinizi ayarlama konusunda yönergeler sağlanır.
 
 > [!IMPORTANT]
-> * Fatura ödeme, yalnızca iş hesapları için kullanılabilir.
+> * Fatura ile ödeme, yalnızca iş hesapları için kullanılabilir.
 > * [Üçüncü taraf veya dış hizmetlere](billing-understand-your-azure-marketplace-charges.md) satın aldığı veya fatura ödeme kullanmak için ücretli. Aboneliğinizi SendGrid gibi dış hizmetlerden kaynaklar içeriyorsa, bunların fatura ödeme değiştirmeden önce silinmesi. Fatura ödeme değiştirdikten sonra dış hizmetler satın almak için bir kredi kartı veya banka kartıyla ayrı bir abonelik gerekir.
-> * Fatura ödeme geçiş yaptıktan sonra geri kredi kartı veya banka kartıyla ödeme geçiş yapamazsınız.
+> * Fatura ile ödemeye geçtikten sonra tekrar kredi kartı veya banka kartı ile ödemeye geçemezsiniz.
 
 ## <a name="request-pay-by-invoice"></a>Faturayla ödeme talep
 
@@ -36,17 +36,39 @@ Bir Azure destek isteği göndererek faturalamak Azure aboneliğinizin ödeme y�
 
     ![Yardım ve Destek düğmesi](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
 
-1. Sorun türü olarak **Faturalandırma**'yı seçin, fatura ile ödeme yapmak istediğiniz aboneliği ve bir destek planı seçip **İleri**'ye tıklayın.
+2. Sorun türü olarak **Faturalandırma**'yı seçin, fatura ile ödeme yapmak istediğiniz aboneliği ve bir destek planı seçip **İleri**'ye tıklayın.
 
-1. **Sorun Türü** kutusunda **Fatura ile ödeme**'yi seçin.
+3. **Sorun Türü** kutusunda **Fatura ile ödeme**'yi seçin.
 
-1. Aşağıdaki bilgileri girin **ayrıntıları** kutusuna ve ardından **sonraki**.
+ 4. Aşağıdaki bilgileri girin **ayrıntıları** kutusuna ve ardından **sonraki**.
 
-    * Şirket adı
-    * Faturalandırma adresi
-    * [Hesap yöneticisinin e-posta adresi](../role-based-access-control/classic-administrators.md#view-the-account-administrator)
+         New or existing customer:
+         If existing, current payment method:
+         Order ID (requesting for invoice option): 
+         Account Admins Live ID (or Org ID) (should be company domain):
+         Commerce Account ID: 
+         Company Name (as registered under VAT or Government Website): 
+         Company Address (as registered under VAT or Government Website): 
+         Company Website:
+         Country: 
+         TAX ID/ VAT ID:
+         Company Established on (Year):
+         Any prior business with Microsoft: 
+         Contact Name:
+         Contact Phone:
+         Contact Email:
+         Justification on why you prefer Invoice option over credit card: 
+    
+        For cores increase, provide the following additional information:
+    
+         (Old quota) Existing Cores:
+         (New quota) Requested cores:
+         Specific region & series of Subscription: 
+ 
+    - **Şirket adı** ve **şirket adresi** Azure hesabı için sağlanan bilgilerin eşleşmesi gerekir.  Görüntülemek veya bilgileri güncelleştirmek için bkz: [Azure hesap profili bilgilerinizi değiştirmek](billing-how-to-change-azure-account-profile.md).
+    - Kredi sınırınıza onaylanabilir önce Azure portalında faturalama kişinizin eklemeniz gerekir. Şirketin Borç hesapları veya Finans departmanı için kişi ayrıntılarını ilişkili olmalıdır. Fatura ilgili güncelleştirmek için Git [Azure hesap Merkezi](https://account.azure.com/Profile).
 
-1. İletişim bilgilerinizi ve tercih edilen iletişim yöntemini seçip **Oluştur**'a tıklayın.
+5. İletişim bilgilerinizi ve tercih edilen iletişim yöntemini seçip **Oluştur**'a tıklayın.
 
 Size gereken kredi miktarı nedeniyle bir kredi kontrolü çalıştırmanız gerekiyorsa, kredi application should check gönderin. Uygulamayı gönderdikten sonra kredi başvurusunun işlenmesi 5-7 günü sürebilir.
 

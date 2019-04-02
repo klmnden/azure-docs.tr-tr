@@ -7,14 +7,14 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: c38d19b8528399ae09d92e48ed7dfc17c18938b7
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: f94cec7919edc6cf6ebb6618d38b8591feb1278b
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338079"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804148"
 ---
-# <a name="management-in-azure"></a>Azure’da Yönetim
+# <a name="overview-of-management-services-in-azure"></a>Azure'daki Yönetim Hizmetleri genel bakış
 
 Azure'da idare, Azure Yönetimi'nin bir parçasıdır. Bu makale, dağıtmak ve Azure kaynaklarınızı korumak için yönetim işleminin farklı alanları kapsar.
 
@@ -22,7 +22,7 @@ Yönetim, iş uygulamalarınızı ve onları destekleyen kaynaklarınızı korum
 
 Aşağıdaki diyagramda herhangi bir uygulamayı veya kaynağı korumak için gereken farklı yönetim alanları gösterilmektedir. Bu farklı alanlar, bir yaşam döngüsü düşünülebilir. Her alanı, bir kaynağın ömrü sürekli art arda gereklidir. Bu kaynak yaşam döngüsü, devam eden işlemi aracılığıyla ilk dağıtımı ile başlar ve son olarak kullanımdan olduğunda.
 
-![Yönetim Bilim](../monitoring/media/management-overview/management-capabilities.png)
+![Azure yönetimi, Bilim](../monitoring/media/management-overview/management-capabilities.png)
 
 Herhangi bir Azure hizmeti, belirli yönetim alanı gereksinimlerini tamamen doldurur. Bunun yerine, her birlikte çalışan birkaç hizmet tarafından gerçekleştirilmiş. Application Insights gibi bazı hizmetleri, web uygulamaları için hedeflenmiş izleme işlevselliği sağlar. Diğer Azure izleme günlükleri gibi diğer hizmetler için yönetim verilerini depolar. Bu özellik, farklı hizmetler tarafından toplanan farklı türdeki verileri analiz etmek verir.
 

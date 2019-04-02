@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d1fdafaaecd448fd09fc40cf5f6173ce600ac4f9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a0972beff48e07b6ce8afdcec10581300f59ed41
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483214"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803587"
 ---
 # <a name="use-an-azure-ad-identity-to-access-blob-and-queue-data-with-cli-or-powershell"></a>CLI veya PowerShell ile bir Azure AD kimlik blob ve kuyruk verilerine erişmek için kullanın.
 
@@ -61,7 +61,7 @@ Aşağıdaki örnek, Azure AD kimlik bilgilerinizi kullanarak Azure clı'dan yen
         --encryption-services blob
     ```
     
-1. Kapsayıcı oluşturmadan önce Ata [depolama Blob verileri katkıda bulunan](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) kendiniz rol. Hesap sahibi olmasına karşın, veri depolama hesabına yönelik açık izinler gerekir. RBAC rollerini atama hakkında daha fazla bilgi için bkz. [verilere Azure blob ve kuyruk RBAC ile Azure portalında erişim ver](storage-auth-aad-rbac.md).
+1. Kapsayıcı oluşturmadan önce Ata [depolama Blob verileri katkıda bulunan](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) kendiniz rol. Hesap sahibi olmasına karşın, veri depolama hesabına yönelik açık izinler gerekir. RBAC rollerini atama hakkında daha fazla bilgi için bkz. [verilere Azure blob ve kuyruk RBAC ile Azure portalında erişim ver](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > RBAC rolü atamalarını yaymak için birkaç dakika sürebilir.
@@ -114,7 +114,7 @@ Aşağıdaki örnek, Azure AD kimlik bilgilerinizi kullanarak Azure powershell'd
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Kapsayıcı oluşturmadan önce Ata [depolama Blob verileri katkıda bulunan](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) kendiniz rol. Hesap sahibi olmasına karşın, veri depolama hesabına yönelik açık izinler gerekir. RBAC rollerini atama hakkında daha fazla bilgi için bkz. [verilere Azure blob ve kuyruk RBAC ile Azure portalında erişim ver](storage-auth-aad-rbac.md).
+1. Kapsayıcı oluşturmadan önce Ata [depolama Blob verileri katkıda bulunan](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) kendiniz rol. Hesap sahibi olmasına karşın, veri depolama hesabına yönelik açık izinler gerekir. RBAC rollerini atama hakkında daha fazla bilgi için bkz. [verilere Azure blob ve kuyruk RBAC ile Azure portalında erişim ver](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > RBAC rolü atamalarını yaymak için birkaç dakika sürebilir.

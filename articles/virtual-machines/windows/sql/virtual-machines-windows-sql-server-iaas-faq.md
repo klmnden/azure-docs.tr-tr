@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 6f064bb875786fc50073ab4216bc1c52ace294bf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0688235d928584df223a3a6a6ca2821282e4cb92
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113274"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762693"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makineler üzerinde çalışan SQL Server için sık sorulan sorular
 
@@ -139,12 +139,7 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
 1. **Iaas uzantısı ile SQL Server'ın adlandırılmış bir örnek kullanabilirsiniz**?
    
-   Evet, adlandırılmış örnek yalnızca SQL Server örneğiyse ve özgün varsayılan örnek düzgün bir şekilde kaldırıldı. Adlandırılmış bir örnek kullanmak için aşağıdakileri yapın:
-    1. Market'ten bir SQL Server VM dağıtın. 
-    1. Iaas uzantıyı kaldırın.
-    1. SQL Server'ı tamamen kaldırın.
-    1. SQL Server adlandırılmış bir örnekle yükleyin. 
-    1. Iaas uzantıyı yükleyin. 
+   Evet, adlandırılmış örnek yalnızca SQL Server örneğiyse ve özgün varsayılan örneği varsa [düzgün bir şekilde kaldırıldı](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md#installation). Varsayılan örnek yok ve tek bir SQL Server VM birden fazla adlandırılmış örnekler vardır, Iaas uzantısı yükleme başarısız olur. 
 
 1. **SQL Server'ı SQL VM'sinden tamamen kaldırabilir miyim?**
 
@@ -176,6 +171,10 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 1. **SQL veri araçları Azure VM'deki uygulamalarımdan birine nasıl yüklerim?**
 
     SQL veri Araçları'ndan yükleyip [Microsoft SQL Server veri araçları - Visual Studio 2013 için iş zekası](https://www.microsoft.com/en-us/download/details.aspx?id=42313).
+
+1. **SQL Server Vm'leri üzerinde desteklenen MSDTC ile dağıtılmış işlemler misiniz?**
+   
+    Evet. Yerel DTC desteklenen SQL Server 2016 SP2 ve daha sonraki sürümleri. Ancak, başarısız olur ve yeniden denenmelidir Always On kullanılabilirlik grupları yük devri sırasında yürütülen bir işlem olarak kullanan uygulamaların test edilmelidir. Kümelenmiş DTC, Windows Server 2019'ile ' den itibaren kullanılabilmektedir. 
 
 ## <a name="resources"></a>Kaynaklar
 

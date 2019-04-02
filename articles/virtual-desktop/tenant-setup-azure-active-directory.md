@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 8ab1f31d61b7a6a1637cd274cc5ac7fc4f5dc2f1
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1c66b3de9e18cb74c43f20499e4065c7ec7ae5ca
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622170"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801690"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Öğretici: Windows sanal masaüstü önizlemesinde bir kiracı oluşturma
 
@@ -30,6 +30,8 @@ Windows sanal masaüstü Kiracı ayarlamak için ihtiyacınız olanlar aşağıd
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) Kiracı kimliği için Windows sanal masaüstü kullanıcılar.
 * Azure Active Directory Kiracı içinde bir genel yönetici hesabı.
    * Bu bulut çözümü sağlayıcısı (CSP) kuruluşlar için müşterilere bir Windows sanal masaüstü Kiracı oluşturma için de geçerlidir. CSP kuruluşuysanız, müşterinin Azure Active Directory genel Yöneticisi olarak oturum açamıyor olması gerekir.
+   * Azure Active Directory kiracısı Windows sanal masaüstü Kiracı oluşturmaya çalıştığınız yönetici hesabı belirlenmelidir. Bu işlem, Azure Active Directory B2B desteklemiyor (konuk) hesaplar.
+   * Yönetici hesabı, bir iş veya Okul hesabı olması gerekir.
 * Azure abonelik kimliği
 
 ## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Windows sanal masaüstü Önizleme hizmeti verme Azure Active Directory izinleri

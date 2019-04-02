@@ -14,19 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: deef5d17f9970f23c40c323bd1612cc3e3e1304e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2e53b0d582a69e10de22e85720833800d44058e3
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107415"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793875"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Azure API Yönetimi'nde rol tabanlı erişim denetimi kullanma
+
 Azure API Management hakkında Azure rol tabanlı erişim denetimi (API Management Hizmetleri ve varlıkları (örneğin, API'leri ve ilkeleri) ayrıntılı erişim yönetimini etkinleştirmek için RBAC) kullanır. Bu makalede, API Yönetimi'nde yerleşik ve özel roller genel bir bakış sağlar. Azure portalında erişim yönetimi hakkında daha fazla bilgi için bkz. [Azure portalında erişim yönetimini kullanmaya başlama](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="built-in-roles"></a>Yerleşik roller
+
 API Yönetimi şu anda üç yerleşik rol sağlar ve iki daha fazla rol yakın gelecekte ekleyeceksiniz. Bu roller, abonelik, kaynak grubu ve tek bir API Management örneği gibi farklı kapsamların atanabilir. Örneğin, kaynak grubu düzeyinde bir kullanıcı için "Azure API Management hizmet okuyucusu" rolünü atamanız durumunda kullanıcı kaynak grubunun içindeki tüm API Management örneği için okuma erişimi olduğundan. 
 
 Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Azure portal veya Azure gibi diğer araçları kullanarak bu roller atayabilirsiniz [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), ve [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Yerleşik rollerin nasıl atanacağı hakkında daha fazla ayrıntı için bkz: [Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanma](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
@@ -46,6 +48,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Azu
 <sup>\* Biz tüm yönetici kullanıcı Arabirimi mevcut yayımcı portalından Azure portalına geçiş yaptıktan sonra Service Düzenleyicisi rolü kullanılabilir. İçerik Yöneticisi rolü, yayımcı portalındaki Geliştirici Portalı yönetmeyle ilgili işlevleri yalnızca içerecek şekilde yeniden düzenlenen sonra kullanılabilir olacaktır.</sup>  
 
 ## <a name="custom-roles"></a>Özel roller
+
 Yerleşik rollerden hiçbiri gereksinimlerinize uygun değilse, API Management varlıklar için daha ayrıntılı erişim yönetimi sağlamak için özel roller oluşturabilirsiniz. Örneğin, bir API Management hizmeti salt okunur erişimi vardır, ancak yalnızca belirli bir API'yi yazma erişimi olan özel bir rol oluşturabilirsiniz. Özel roller hakkında daha fazla bilgi için bkz: [Azure rbac'de özel roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
 
 > [!NOTE]
@@ -53,7 +56,7 @@ Yerleşik rollerden hiçbiri gereksinimlerinize uygun değilse, API Management v
 
 Özel bir rol oluşturduğunuzda, yerleşik rollerden biri ile başlamak kolaydır. Öznitelikleri eklemek için Düzenle **eylemleri**, **NotActions**, veya **AssignableScopes**ve sonra değişiklikleri yeni bir rolü olarak kaydedebilirsiniz. Aşağıdaki örnek "Azure API Management hizmet okuyucusu" rolüne sahip başlar ve "hesaplayıcı API'si Düzenleyici." adlı özel bir rol oluşturur Belirli bir API'ye özel rol atayabilirsiniz. Sonuç olarak, bu rol, bu API'ye erişim yalnızca sahiptir. 
 
-```
+```powershell
 $role = Get-AzRoleDefinition "API Management Service Reader Role"
 $role.Id = $null
 $role.Name = 'Calculator API Contributor'
@@ -82,4 +85,3 @@ Azure rol tabanlı erişim denetimi hakkında daha fazla bilgi için aşağıdak
   * [Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanın](../role-based-access-control/role-assignments-portal.md)
   * [Azure rbac'de özel roller](../role-based-access-control/custom-roles.md)
   * [Azure Resource Manager kaynak sağlayıcısı işlemleri](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)
-

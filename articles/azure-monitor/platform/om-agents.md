@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: d2ecebf47c77baa81193939b64c27348541f7686
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 2768a23c217052a342538b67ec59868e25fd4914
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403417"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793824"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Operations Manager'ı Azure İzleyicisi ile bağlantı
 
@@ -41,6 +41,7 @@ Aşağıdaki diyagramda, System Center Operations Manager yönetim grubu ve bağ
 BT güvenlik ilkeleriniz bilgisayarları ağınızdaki Internet'e bağlanmasına izin vermiyorsa, yönetim sunucuları yapılandırma bilgilerini almak ve çözümleri bağlı olarak toplanan verileri göndermek için Log Analytics ağ geçidine bağlanmak için yapılandırılabilir. etkin. Daha fazla bilgi ve Azure İzleyici için bir Log Analytics ağ geçidi üzerinden iletişim kurmak için Operations Manager yönetim grubunuzun yapılandırma adımları için bkz. [Azure Log Analytics ağ geçidini kullanarak İzleyici bilgisayarları bağlama](../../azure-monitor/platform/gateway.md).  
 
 ## <a name="prerequisites"></a>Önkoşullar 
+
 Başlamadan önce aşağıdaki gereksinimleri gözden geçirin.
 
 * Azure İzleyici, yalnızca System Center Operations Manager 2016 veya sonraki bir sürümü, Operations Manager 2012 SP1 UR6 destekler veya sonraki bir sürümü ve Operations Manager 2012 R2 UR2 veya üzeri. Operations Manager 2012 SP1 UR7 ve Operations Manager 2012 R2 UR3'e ara sunucu desteği eklenmiştir.
@@ -60,6 +61,7 @@ Başlamadan önce aşağıdaki gereksinimleri gözden geçirin.
 >Bu Yönetim Paketi güncelleştirme bir güncelleştirme sürümü sürümü 1801'e ve ürünün değil tam bir derleme olan System Center Operations Manager 1807 için uygulanamaz.   
 
 ### <a name="network"></a>Ağ
+
 Azure İzleyici ile iletişim kurmak Operations Manager Aracısı, yönetim sunucuları ve işletim Konsolu için gerekli proxy ve güvenlik duvarı yapılandırma bilgileri listesi aşağıdaki bilgileri. Azure İzleyici ağınızdan giden trafik her bileşeni.   
 
 |Kaynak | Bağlantı noktası numarası| HTTP İncelemesini atlama|  
@@ -87,9 +89,11 @@ Azure İzleyici ile iletişim kurmak Operations Manager Aracısı, yönetim sunu
 |docs.loganalytics.io| 80 ve 443||  
 
 ### <a name="tls-12-protocol"></a>TLS 1.2 Protokolü
+
 Azure İzleyici geçiş verilerinin güvenliğini sağlamak üzere en az kullanılacak aracı ve yönetim grubunu yapılandırmak için önemle öneririz Aktarım Katmanı Güvenliği (TLS) 1.2. TLS/Güvenli Yuva Katmanı (SSL) daha eski sürümleri, savunmasız bulundu ve bunlar yine de şu anda geriye dönük uyumluluk izin vermek için çalışırken, bunlar **önerilmez**. Ek bilgi için gözden [TLS 1.2 kullanarak güvenli bir şekilde veri gönderen](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Azure İzleyici için Operations Manager'ı bağlama
+
 Operations Manager yönetim grubunuzu Log Analytics çalışma alanlarınızdan birine bağlanacak şekilde yapılandırmak için aşağıdaki adım serisini uygulayın.
 
 Operations Manager yönetim grubunuzun bir Log Analytics çalışma alanıyla ilk kayıt sırasında yönetim grubu için proxy yapılandırmasını belirtme seçeneği Operations konsolunda kullanılamaz.  Bu seçeneğin sağlanması için önce yönetim grubunun hizmete başarıyla kaydedilmiş olması gerekir.  Bu sorunu çözmek için Netsh sistemde işletim konsolundan çalıştıran tümleştirme ve tüm yönetim sunucuları, yönetim grubunda yapılandırmak için kullanarak sistem proxy yapılandırmasını güncelleştirmeniz gerekiyor.  
@@ -121,6 +125,7 @@ Azure İzleyici ile tümleştirmek için aşağıdaki adımları tamamladıktan 
 1. Üzerinde **Operations Management Suite Ekleme Sihirbazı: Son** sayfasında **Kapat**.
 
 ### <a name="add-agent-managed-computers"></a>Aracı tarafından yönetilen bilgisayarlar ekleme
+
 Tümleştirme ile Log Analytics çalışma alanınızı yapılandırma sonra yalnızca bir hizmet ile bağlantı kurar, yönetim grubunuza raporlama aracılardan gelen hiçbir veri toplanmadı. Hangi belirli aracıyla yönetilen bilgisayarların, Azure İzleyici'için günlük verilerinin toplanmasıyla yapılandırdıktan sonra bu kadar gerçekleşmez. Bilgisayar nesnelerini tek tek seçebileceğiniz gibi, Windows bilgisayar nesnelerini içeren bir grup da seçebilirsiniz. Mantıksal diskler veya SQL veritabanları gibi başka bir sınıfın örneklerini içeren grupları seçemezsiniz.
 
 1. Operations Manager konsolunu açın ve **Yönetim** çalışma alanını seçin.
@@ -131,6 +136,7 @@ Tümleştirme ile Log Analytics çalışma alanınızı yapılandırma sonra yal
 İşletim konsolunun **Yönetim** çalışma alanında Operations Manager Suite'in altındaki Yönetilen Bilgisayarlar düğümünden, veri toplamak için yapılandırılmış bilgisayarları ve grupları görüntüleyebilirsiniz. Burada, gerekirse bilgisayarları ve grupları ekleyebilir veya kaldırabilirsiniz.
 
 ### <a name="configure-proxy-settings-in-the-operations-console"></a>İşletim konsolunda ara sunucu ayarlarını yapılandırma
+
 Azure İzleyici ve yönetim grubu arasında bir iç proxy sunucusu ise, aşağıdaki adımları gerçekleştirin. Bu ayarlar merkezi yönetim grubundan yönetilen ve Azure İzleyici'için günlük verilerini toplamak için bir kapsam içinde yer aracıyla yönetilen sistemi dağıtılmış.  Bazı çözümlerin yönetim sunucusunu atladığı ve doğrudan hizmete veri gönderdiği durumlarda, bu yararlı olur.
 
 1. Operations Manager konsolunu açın ve **Yönetim** çalışma alanını seçin.
@@ -156,6 +162,7 @@ Bağlantı oluşturulur ve aracıların toplamak ve rapor günlük verilerini Az
 * Yönetim grubunda veri toplamak için seçilmiş olan aracılar ve gruplar **Microsoft System Center Advisor Sunucu İzleme Grubu**'na eklenir.
 
 ## <a name="management-pack-updates"></a>Yönetim paketi güncelleştirmeleri
+
 Operations Manager yönetim grubu, yapılandırma tamamlandıktan sonra Azure İzleyici ile bağlantı kurar. Yönetim sunucusu web hizmetiyle eşitlenir ve Operations Manager'la tümleştirilmek üzere etkinleştirmiş olduğunuz çözümler için yönetim paketleri biçiminde güncelleştirilmiş yapılandırma bilgilerini alır. Operations Manager denetler ve otomatik olarak bu yönetim paketleri için güncelleştirmeleri indirmek ve bunları kullanılabilir olduklarında içeri aktarır. Bu davranışı denetleyen özellikle iki kural vardır:
 
 * **Microsoft.SystemCenter.Advisor.MPUpdate** -temel Azure İzleyicisi yönetim paketleri güncelleştirir. Varsayılan olarak her 12 saatte bir çalıştırılır.
@@ -166,6 +173,7 @@ Bu iki kılabilirsiniz kurallar devre dışı bırakarak otomatik yüklenmesini 
 Aşağıdaki üretim yönetim grubunuzdaki Yönetim Paketi sürümleri denetlemek için mevcut değişiklik denetimi işlemini devam etmek için kuralları devre dışı bırakabilir ve belirli zamanlarda güncelleştirmeleri ne zaman izin sağlamak. Ortamınızda bir geliştirme veya QA yönetim grubu varsa ve İnternet'e bağlıysa, bu senaryoyu desteklemek için söz konusu yönetim grubunu Log Analytics çalışma alanıyla yapılandırabilirsiniz. Bu, gözden geçirin ve üretim yönetim grubunuza bırakmadan önce Azure izleme yönetim paketlerinin yinelemeli yayınları değerlendirmek sağlar.
 
 ## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Operations Manager grubunu yeni bir Log Analytics Çalışma Alanına geçirme
+
 1. [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 1. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**'i seçin ve bir çalışma alanı oluşturun.  
 1. Operations Manager Yöneticiler rolüne üye olan bir hesapla Operations Manager konsolunu açın ve **Yönetim** çalışma alanını seçin.
@@ -179,9 +187,11 @@ Aşağıdaki üretim yönetim grubunuzdaki Yönetim Paketi sürümleri denetleme
    > 
 
 ## <a name="validate-operations-manager-integration-with-azure-monitor"></a>Azure İzleyici ile Operations Manager tümleştirmesini doğrulama
+
 Operations Manager tümleştirme için Azure İzleyici başarılı olduğunu doğrulamak birkaç farklı yolu vardır.
 
 ### <a name="to-confirm-integration-from-the-azure-portal"></a>Azure portalında tümleştirmeyi onaylamak için
+
 1. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir.
 1. Log Analytics çalışma alanlarınızın listesinde uygun çalışma alanını seçin.  
 1. **Gelişmiş ayarlar**'ı, **Bağlı Kaynaklar**'ı ve sonra da **System Center**'ı seçin. 
@@ -190,6 +200,7 @@ Operations Manager tümleştirme için Azure İzleyici başarılı olduğunu do�
    ![oms-settings-connectedsources](./media/om-agents/oms-settings-connectedsources.png)
 
 ### <a name="to-confirm-integration-from-the-operations-console"></a>İşletim konsolunda tümleştirmeyi onaylamak için
+
 1. Operations Manager konsolunu açın ve **Yönetim** çalışma alanını seçin.
 1. **Yönetim Paketleri**'ni seçin ve **Aranan:** metin kutusuna **Advisor** veya **Intelligence** yazın.
 1. Etkinleştirdiğiniz çözümlere bağlı olarak, arama sonuçlarında ilgili yönetim paketinin listelendiğini görürsünüz.  Örneğin Uyarı Yönetimi çözümünü etkinleştirdiyseniz, listede Microsoft System Center Advisor Uyarı Yönetimi yönetim paketi yer alır.
@@ -198,6 +209,7 @@ Operations Manager tümleştirme için Azure İzleyici başarılı olduğunu do�
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
 ## <a name="remove-integration-with-azure-monitor"></a>Azure İzleyici ile tümleştirmesi Kaldır
+
 Artık Operations Manager yönetim grubunuzda Log Analytics çalışma alanı arasında tümleştirmeye ihtiyacınız kalmadığında, yönetim grubunda bağlantıyı ve yapılandırmayı düzgün kaldırmak için izlenmesi gereken bazı adımlar vardır. Aşağıdaki yordam, yönetim grubunuzun başvuru silerek Log Analytics çalışma alanınızı güncelleştirmek, Azure İzleyici bağlayıcıları silme ve hizmeti ile tümleştirmeyi yönetim paketlerini silin sahiptir.  
 
 Çözümler için yönetim paketleri Operations Manager ile tümleştirilen etkinleştirdiğiniz ve Azure İzleyici ile tümleştirmeyi desteklemek için gereken yönetim paketleri yönetim grubundan kolayca silinemiyor. Bazı Azure izleme yönetim paketlerinin diğer ilgili yönetim paketlerine bağımlılıkları sahip olmasıdır. Diğer yönetim paketlerinde bağımlılıkları olan yönetim paketlerini silmek için, TechNet Betik Merkezi'nden [bağımlılıkları olan yönetim paketini kaldırma](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) betiğini indirin.  
@@ -244,7 +256,7 @@ Artık Operations Manager yönetim grubunuzda Log Analytics çalışma alanı ar
 > 
 > 
 
-```
+```powershell
     param(
     [String] $connectorName,
     [String] $msName="localhost"
@@ -336,6 +348,5 @@ Yönetim grubunuza bir Log Analytics çalışma alanı yeniden bağlanmayı üze
 * Yönetim grubunuza uygulanan en son güncelleştirme dağıtımından. Kaynak klasör Operations Manager 2012 için ` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` klasörüdür ve 2012 R2 için `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups` altında yer alır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 İşlev eklemek ve veri toplamak için bkz: [Azure İzleyici'yi ekleyin çözüm galeri'sinden](../../azure-monitor/insights/solutions.md).
-
-

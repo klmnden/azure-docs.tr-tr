@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 02/14/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a908b00022351b9a91f9381229c773d063390744
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 340f121f64cb01803401a972038677448849e94f
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444166"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803534"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services nedir?
 
@@ -144,6 +144,11 @@ DirectQuery modu*, depolama ve sorgu yürütme için arka uç ilişkisel veritab
 
 Azure Analysis Services’te tablolu modeller, basit metin dosyalarından Azure Data Lake Store’daki Büyük Verilere varan çeşitlilikte veri kaynağını destekler. Daha fazla bilgi edinmek için bkz. [Azure Analysis Services'ta desteklenen veri kaynakları](analysis-services-datasource.md).
 
+## <a name="compatibility-level"></a>Uyumluluk düzeyi
+
+Analysis Services altyapısı yayın özel davranışları uyumluluk düzeyini gösterir. Azure Analysis Services 1200 ve üzeri uyumluluk düzeylerinde tablosal modelleri destekler. Daha fazla bilgi için bkz. [Analysis Services tablolu modellerine yönelik uyumluluk düzeyi](analysis-services-compat-level.md).
+
+
 ## <a name="your-data-is-secure"></a>Verileriniz güvende
 
 Azure Analysis Services, birden fazla düzeyde hassas verileriniz için güvenlik sağlar. Bir Azure hizmeti olduğundan, Analysis Services sağlar **temel** dağıtılmış Azure platformunun bir parçası olarak otomatik olarak etkin hizmet engelleme (DDoS) saldırılarının düzeyini. Daha fazla bilgi için bkz. [Azure DDoS koruması standart genel bakış](../virtual-network/ddos-protection-overview.md). 
@@ -225,7 +230,7 @@ Azure Analysis Services ayrıca [Dynamic Management Görünümleri (DMV)](https:
 
 Azure Analysis Services’e özgü belgeler buraya eklenir. Makaleleri bulmak için tarayıcı ekranınızın sol tarafındaki içindekiler bölümünü kullanın. 
 
-Azure Analysis Services tablolu modelleri SQL Server Analysis Services’deki tablolu modellerle büyük ölçüde aynı olduğundan [SQL Server Analysis Services Belgeleri](https://docs.microsoft.com/sql/analysis-services/analysis-services) bölümünde paylaşılan kavram, yordam, geliştirici ve başvuru makalelerinden oluşan kapsamlı bir kitaplık mevcuttur. SQL Server Analysis Services belgelerindeki makaleler, bunların Azure Analysis Services için de geçerli olup olmadığını başlığın altındaki bir APPLIES TO başlığı ile gösterir.
+Azure Analysis Services tablolu modellerine hemen hemen aynı SQL Server Analysis Services tablolu modeller olduğundan, paylaşılan kavramsal makaleler, yordamsal makaleler, geliştirici ve başvuru makalelerden oluşan kapsamlı bir kitaplık yoktur [SQL Server Analysis Services Belgeleri](https://docs.microsoft.com/sql/analysis-services/analysis-services). SQL Server Analysis Services belgelerindeki makaleler, bunların Azure Analysis Services için de geçerli olup olmadığını başlığın altındaki bir APPLIES TO başlığı ile gösterir.
 
 ![Paylaşılan belgeler](./media/analysis-services-overview/aas-overview-applies-to.png)
 

@@ -5,24 +5,24 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 6664c3d5fde487b7add7c38dc602915d19adb767
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: f04fa5f43844080638c70c44410d233fbe6ad325
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361991"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805474"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB için SQL dil başvurusu 
 
-Tanıdık bir SQL (yapılandırılmış sorgu dili) kullanarak belgelerin sorgulanmasını azure Cosmos DB destekler, bir açık şema veya ikincil dizinlerin oluşturulmasını gerek kalmadan, hiyerarşik JSON belgelerini dilbilgisi ister. Bu makalede SQL API hesabı ile uyumlu SQL sorgu dili sözdizimi için belgeler sağlar. Örnek SQL sorguları için bkz [Cosmos DB'de SQL sorguları](how-to-sql-query.md).  
+Tanıdık bir SQL (yapılandırılmış sorgu dili) kullanarak belgelerin sorgulanmasını azure Cosmos DB destekler, bir açık şema veya ikincil dizinlerin oluşturulmasını gerek kalmadan, hiyerarşik JSON belgelerini dilbilgisi ister. Bu makalede, SQL API'si hesaplarında kullanılan SQL sorgu dili sözdizimi için belgeler sağlar. Örnek SQL sorguları için bkz [Cosmos DB'de SQL sorgu örnekleri](how-to-sql-query.md).  
   
-Ziyaret [sorgu oyun alanı](https://www.documentdb.com/sql/demo) burada Cosmos DB'yi deneyin ve bizim veri kümesinde SQL sorguları çalıştırın.  
+Ziyaret [sorgu oyun alanı](https://www.documentdb.com/sql/demo), Cosmos DB'yi deneyin ve bir örnek veri kümesinde SQL sorguları çalıştırın.  
   
 ## <a name="select-query"></a>SELECT sorgusu  
-Her sorgu bir SELECT yan tümcesi ve isteğe bağlı FROM oluşur ve WHERE yan tümcelerini başına ANSI SQL standartları. Genellikle, her sorgu için kaynak FROM yan tümcesindeki numaralandırılmış alan şeklinde. Ardından filtre WHERE yan tümcesinde bir alt kümesi JSON belgelerini almak için kaynak uygulanır. Son olarak, SELECT yan tümcesi, select listesindeki istenen JSON değerleri proje için kullanılır. SELECT deyimleri tanımlamak için kullanılan kuralları söz dizimi kuralları bölümünde tabloda verilmiştir. Örnekler için bkz [SELECT sorgu örnekleri](how-to-sql-query.md#SelectClause)
+Her sorgu bir SELECT yan tümcesi ve isteğe bağlı FROM oluşur ve WHERE yan tümcelerini başına ANSI SQL standartları. Genellikle, her sorgu için kaynak FROM yan tümcesindeki numaralandırılana sonra kaynak bir alt kümesi JSON belgelerini almak için WHERE yan tümcesinde filtre uygulanır. Son olarak, SELECT yan tümcesi, select listesindeki istenen JSON değerleri proje için kullanılır. Örnekler için bkz [SELECT sorgu örnekleri](how-to-sql-query.md#SelectClause)
   
 **Söz dizimi**  
   
@@ -2342,7 +2342,7 @@ StringToArray(<expr>)
   
 - `expr`  
   
-   Herhangi bir geçerli JSON dizisi ifade var. Dize değerleri geçerli olması için çift tırnak işareti yazılması gerektiğini unutmayın. JSON biçimi hakkında daha fazla bilgi için bkz: [json.org](https://json.org/)
+   Bir JSON dizisi ifade olarak değerlendirilebilmesi için geçerli bir skaler ifade var. İç içe geçmiş dize değerleri geçerli olması için çift tırnak işareti yazılması gerektiğini unutmayın. JSON biçimi hakkında daha fazla bilgi için bkz: [json.org](https://json.org/)
   
   **Dönüş türleri**  
   
@@ -2352,26 +2352,57 @@ StringToArray(<expr>)
   
   Aşağıdaki örnek, StringToArray farklı türleri arasında nasıl davranacağını gösterir. 
   
-```  
+ Geçerli giriş ile örnekleri aşağıda verilmiştir.
+
+```
 SELECT 
-StringToArray('[]'), 
-StringToArray("[1,2,3]"),
-StringToArray("[\"str\",2,3]"),
-IS_ARRAY(StringToArray("[['5','6','7'],['8'],['9']]")), 
-IS_ARRAY(StringToArray('[["5","6","7"],["8"],["9"]]')),
-StringToArray('[1,2,3, "[4,5,6]",[7,8]]'),
-StringToArray("[1,2,3, '[4,5,6]',[7,8]]"),
-StringToArray(false), 
-StringToArray(undefined),
-StringToArray(NaN), 
-StringToArray("[")
-```  
-  
- Sonuç kümesini burada verilmiştir.  
-  
-```  
-[{"$1": [], "$2": [1,2,3], "$3": ["str",2,3], "$4": false, "$5": true, "$6": [1,2,3,"[4,5,6]",[7,8]]}]
-```  
+    StringToArray('[]') AS a1, 
+    StringToArray("[1,2,3]") AS a2,
+    StringToArray("[\"str\",2,3]") AS a3,
+    StringToArray('[["5","6","7"],["8"],["9"]]') AS a4,
+    StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
+```
+
+ Sonuç kümesini burada verilmiştir.
+
+```
+[{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
+```
+
+ Geçersiz giriş örneği verilmiştir. 
+   
+ Dizi içinde tek tırnak işareti, geçerli bir JSON değil.
+Bir sorgu içinde geçerli olsa da, geçerli dizilere ayrıştırılamıyor. Dizi dize içindeki dizeler ya da konulmalıdır "[\"\"]" ya da çevreleyen tırnak tek ' [""]'.
+
+```
+SELECT
+    StringToArray("['5','6','7']")
+```
+
+ Sonuç kümesini burada verilmiştir.
+
+```
+[{}]
+```
+
+ Geçersiz girdi örnekleri aşağıda verilmiştir.
+   
+ Geçen ifadeye bir JSON dizisi olarak ayrıştırılacak; aşağıdaki dizi türü ve dolayısıyla tanımlanmamış döndürmek için değerlendirmez.
+   
+```
+SELECT
+    StringToArray("["),
+    StringToArray("1"),
+    StringToArray(NaN),
+    StringToArray(false),
+    StringToArray(undefined)
+```
+
+ Sonuç kümesini burada verilmiştir.
+
+```
+[{}]
+```
 
 ####  <a name="bk_stringtoboolean"></a> StringToBoolean  
  İfade çevrilmiş bir Boole değeri döndürür. İfade tercüme edilemez, tanımsız döndürür.  
@@ -2386,7 +2417,7 @@ StringToBoolean(<expr>)
   
 - `expr`  
   
-   Herhangi bir geçerli ifade var.  
+   Bir Boole ifadesi değerlendirilebilmesi için geçerli bir skaler ifade var.  
   
   **Dönüş türleri**  
   
@@ -2395,25 +2426,55 @@ StringToBoolean(<expr>)
   **Örnekler**  
   
   Aşağıdaki örnek, StringToBoolean farklı türleri arasında nasıl davranacağını gösterir. 
-  
+ 
+ Geçerli giriş ile örnekleri aşağıda verilmiştir.
+
+ Boşluk yalnızca önce veya sonra "true"/ "false" izin verilmiyor.
+
 ```  
 SELECT 
-StringToBoolean("true"), 
-StringToBoolean("    false"),
-IS_BOOL(StringToBoolean("false")), 
-StringToBoolean("null"),
-StringToBoolean(undefined),
-StringToBoolean(NaN), 
-StringToBoolean(false), 
-StringToBoolean(true), 
-StringToBoolean("TRUE"),
-StringToBoolean("False")
+    StringToBoolean("true") AS b1, 
+    StringToBoolean("    false") AS b2,
+    StringToBoolean("false    ") AS b3
 ```  
   
  Sonuç kümesini burada verilmiştir.  
   
 ```  
-[{"$1": true, "$2": false, "$3": true}]
+[{"b1": true, "b2": false, "b3": false}]
+```  
+
+ Geçersiz giriş ile örnekleri aşağıda verilmiştir.
+ 
+ Boole değerleri büyük/küçük harfe duyarlıdır ve tüm küçük harfle ör "true" ve "false" için yazılmış olmalıdır.
+
+```  
+SELECT 
+    StringToBoolean("TRUE"),
+    StringToBoolean("False")
+```  
+
+ Sonuç kümesini burada verilmiştir.  
+  
+```  
+[{}]
+``` 
+
+ Geçen ifadeye bir Boole ifadesi ayrıştırılacak; Boolean türü ve dolayısıyla tanımlanmamış döndürmek için bu girişlerin değerlendirmez.
+
+ ```  
+SELECT 
+    StringToBoolean("null"),
+    StringToBoolean(undefined),
+    StringToBoolean(NaN), 
+    StringToBoolean(false), 
+    StringToBoolean(true)
+```  
+
+ Sonuç kümesini burada verilmiştir.  
+  
+```  
+[{}]
 ```  
 
 ####  <a name="bk_stringtonull"></a> StringToNull  
@@ -2429,7 +2490,7 @@ StringToNull(<expr>)
   
 - `expr`  
   
-   Herhangi bir geçerli ifade var.  
+   Boş bir ifade olarak değerlendirilebilmesi için geçerli bir skaler ifade var.
   
   **Dönüş türleri**  
   
@@ -2438,24 +2499,54 @@ StringToNull(<expr>)
   **Örnekler**  
   
   Aşağıdaki örnek, StringToNull farklı türleri arasında nasıl davranacağını gösterir. 
-  
+
+ Geçerli giriş ile örnekleri aşağıda verilmiştir.
+ 
+ Boşluk yalnızca önce veya sonra "null" izin verilmiyor.
+
 ```  
 SELECT 
-StringToNull("null"), 
-StringToNull("  null "),
-IS_NULL(StringToNull("null")), 
-StringToNull("true"), 
-StringToNull(false), 
-StringToNull(undefined),
-StringToNull(NaN), 
-StringToNull("NULL"),
-StringToNull("Null")
+    StringToNull("null") AS n1, 
+    StringToNull("  null ") AS n2,
+    IS_NULL(StringToNull("null   ")) AS n3
 ```  
   
  Sonuç kümesini burada verilmiştir.  
   
 ```  
-[{"$1": null, "$2": null, "$3": true}]
+[{"n1": null, "n2": null, "n3": true}]
+```  
+
+ Geçersiz giriş ile örnekleri aşağıda verilmiştir.
+
+ Null büyük/küçük harfe duyarlıdır ve tüm küçük harfle "null" yani yazılmış olmalıdır.
+
+```  
+SELECT    
+    StringToNull("NULL"),
+    StringToNull("Null")
+```  
+  
+ Sonuç kümesini burada verilmiştir.  
+  
+```  
+[{}]
+```  
+
+ Geçen ifadeye null bir ifade olarak ayrıştırılacak; null yazın ve bu nedenle tanımlanmamış döndürmek için bu girişlerin değerlendirmez.
+
+```  
+SELECT    
+    StringToNull("true"), 
+    StringToNull(false), 
+    StringToNull(undefined),
+    StringToNull(NaN) 
+```  
+  
+ Sonuç kümesini burada verilmiştir.  
+  
+```  
+[{}]
 ```  
 
 ####  <a name="bk_stringtonumber"></a> StringToNumber  
@@ -2471,7 +2562,7 @@ StringToNumber(<expr>)
   
 - `expr`  
   
-   Herhangi bir geçerli JSON sayı ifade var. JSON sayı bir tamsayı veya kayan nokta olmalıdır. JSON biçimi hakkında daha fazla bilgi için bkz: [json.org](https://json.org/)  
+   JSON sayı ifade olarak değerlendirilebilmesi için geçerli bir skaler ifade var. JSON sayı bir tamsayı veya kayan nokta olmalıdır. JSON biçimi hakkında daha fazla bilgi için bkz: [json.org](https://json.org/)  
   
   **Dönüş türleri**  
   
@@ -2480,27 +2571,52 @@ StringToNumber(<expr>)
   **Örnekler**  
   
   Aşağıdaki örnek, StringToNumber farklı türleri arasında nasıl davranacağını gösterir. 
-  
+
+ Boşluk yalnızca önce veya sonra sayısı izin verilir.
+ 
 ```  
 SELECT 
-StringToNumber("1.000000"), 
-StringToNumber("3.14"),
-IS_NUMBER(StringToNumber("   60   ")), 
-StringToNumber("0xF"),
-StringToNumber("-1.79769e+308"),
-IS_STRING(StringToNumber("2")),
-StringToNumber(undefined),
-StringToNumber("99     54"), 
-StringToNumber("false"), 
-StringToNumber(false),
-StringToNumber(" "),
-StringToNumber(NaN)
+    StringToNumber("1.000000") AS num1, 
+    StringToNumber("3.14") AS num2,
+    StringToNumber("   60   ") AS num3, 
+    StringToNumber("-1.79769e+308") AS num4
 ```  
   
  Sonuç kümesini burada verilmiştir.  
   
 ```  
-{{"$1": 1, "$2": 3.14, "$3": true, "$5": -1.79769e+308, "$6": false}}
+{{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
+```  
+
+ JSON biçiminde geçerli bir sayı olmalıdır ya da bir tamsayı veya kayan olması nokta sayısı.
+ 
+```  
+SELECT   
+    StringToNumber("0xF")
+```  
+  
+ Sonuç kümesini burada verilmiştir.  
+  
+```  
+{{}}
+```  
+
+ Geçen ifadeye sayı bir ifade olarak ayrıştırılacak; Numarasını yazın ve bu nedenle tanımlanmamış döndürmek için bu girişlerin değerlendirmez. 
+
+```  
+SELECT 
+    StringToNumber("99     54"),   
+    StringToNumber(undefined),
+    StringToNumber("false"),
+    StringToNumber(false),
+    StringToNumber(" "),
+    StringToNumber(NaN)
+```  
+  
+ Sonuç kümesini burada verilmiştir.  
+  
+```  
+{{}}
 ```  
 
 ####  <a name="bk_stringtoobject"></a> StringToObject  
@@ -2516,7 +2632,7 @@ StringToObject(<expr>)
   
 - `expr`  
   
-   Geçerli bir JSON nesnesi ifadesidir. Dize değerleri geçerli olması için çift tırnak işareti yazılması gerektiğini unutmayın. JSON biçimi hakkında daha fazla bilgi için bkz: [json.org](https://json.org/)  
+   Bir JSON nesne ifadesi değerlendirilebilmesi için geçerli bir skaler ifade var. İç içe geçmiş dize değerleri geçerli olması için çift tırnak işareti yazılması gerektiğini unutmayın. JSON biçimi hakkında daha fazla bilgi için bkz: [json.org](https://json.org/)  
   
   **Dönüş türleri**  
   
@@ -2526,26 +2642,73 @@ StringToObject(<expr>)
   
   Aşağıdaki örnek, StringToObject farklı türleri arasında nasıl davranacağını gösterir. 
   
-```  
+ Geçerli giriş ile örnekleri aşağıda verilmiştir.
+ 
+``` 
 SELECT 
-StringToObject("{}"), 
-StringToObject('{"a":[1,2,3]}'),
-StringToObject("{'a':[1,2,3]}"),
-StringToObject("{a:[1,2,3]}"),
-IS_OBJECT(StringToObject('{"obj":[{"b":[5,6,7]},{"c":8},{"d":9}]}')), 
-IS_OBJECT(StringToObject("{\"obj\":[{\"b\":[5,6,7]},{\"c\":8},{\"d\":9}]}")), 
-IS_OBJECT(StringToObject("{'obj':[{'b':[5,6,7]},{'c':8},{'d':9}]}")), 
-StringToObject(false), 
-StringToObject(undefined),
-StringToObject(NaN), 
-StringToObject("{")
+    StringToObject("{}") AS obj1, 
+    StringToObject('{"A":[1,2,3]}') AS obj2,
+    StringToObject('{"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]}') AS obj3, 
+    StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
+``` 
+
+ Sonuç kümesini burada verilmiştir.
+
+```
+[{"obj1": {}, 
+  "obj2": {"A": [1,2,3]}, 
+  "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
+  "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
+```
+ 
+ Geçersiz giriş ile örnekleri aşağıda verilmiştir.
+Bir sorgu içinde geçerli olsa da, geçerli nesnelere ayrıştırılamıyor. Nesnenin dize içindeki dizeler ya da konulmalıdır "{\"bir\":\"str\"}" veya çevreleyen tırnak tek ' {"a": "dizesi"}'.
+
+ Özellik adlarının çevreleyen tırnak geçerli JSON değil.
+
+``` 
+SELECT 
+    StringToObject("{'a':[1,2,3]}")
+```
+
+ Sonuç kümesini burada verilmiştir.
+
 ```  
-  
- Sonuç kümesini burada verilmiştir.  
-  
+[{}]
 ```  
-[{"$1": {}, "$2": {"a": [1,2,3]}, "$5": true, "$6": true, "$7": false}]
+
+ Özellik adlarının çevreleyen tırnak işaretleri olmadan geçerli bir JSON değil.
+
+``` 
+SELECT 
+    StringToObject("{a:[1,2,3]}")
+```
+
+ Sonuç kümesini burada verilmiştir.
+
 ```  
+[{}]
+``` 
+
+ Geçersiz giriş ile örnekleri aşağıda verilmiştir.
+ 
+ Geçen ifadeye bir JSON nesnesi olarak ayrıştırılacak; nesne türünü ve bu nedenle tanımlanmamış döndürmek için bu girişlerin değerlendirmez.
+ 
+``` 
+SELECT 
+    StringToObject("}"),
+    StringToObject("{"),
+    StringToObject("1"),
+    StringToObject(NaN), 
+    StringToObject(false), 
+    StringToObject(undefined)
+``` 
+ 
+ Sonuç kümesini burada verilmiştir.
+
+```
+[{}]
+```
 
 ####  <a name="bk_substring"></a> ALT DİZE  
  Belirtilen karakterin sıfır tabanlı konumunda başlayan bir dize ifadesi bölümünü döndürür ve belirtilen uzunlukta veya dizenin sonuna kadar devam eder.  

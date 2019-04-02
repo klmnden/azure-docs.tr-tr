@@ -4,12 +4,12 @@ ms.service: azure
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
-ms.openlocfilehash: 05d20a701b448f8986292400fa2844d20f928a70
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: b9ecccfef48af8cf3fe7e679277b870256443fab
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58261350"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58808010"
 ---
 ## <a name="open-azure-cloud-shell"></a>Azure Cloud Shell’i açma
 
@@ -17,8 +17,8 @@ Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabilece�
 
 |  |   |
 |-----------------------------------------------|---|
-| Kod bloğunun sağ üst köşesindeki **Deneyin**’i seçin. | ![Bu makaledeki Cloud Shell](./media/cloud-shell-try-it/cli-try-it.png) |
-| Cloud Shell’i tarayıcınızda açın. | [![https://shell.azure.com/bash](./media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com/bash) |
-| [Azure portalının](https://portal.azure.com) sağ üst köşesindeki menüde yer alan **Cloud Shell** düğmesini seçin. |    ![Portalda Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png) |
+| Kod bloğunun sağ üst köşesindeki **Deneyin**’i seçin. | ![Örneği Azure Cloud Shell için deneyin](./media/cloud-shell-try-it/cli-try-it.png) |
+| Cloud Shell’i tarayıcınızda açın. | [![Azure Cloud Shell düğmesine başlatın](./media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com/bash) |
+| [Azure portalının](https://portal.azure.com) sağ üst köşesindeki menüde yer alan **Cloud Shell** düğmesini seçin. |    ![Azure portaldaki Cloud Shell düğmesi](./media/cloud-shell-try-it/cloud-shell-menu.png) |
 |  |  |
 

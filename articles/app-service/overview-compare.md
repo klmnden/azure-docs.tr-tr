@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 05afbd9a621752b8b665c7d2f68cd8cfcc8a1d1a
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: aac2a0b102d50c8d3f0506c2cc1469a838706703
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322036"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793864"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services karşılaştırması
 
@@ -29,7 +29,7 @@ Azure App Service, çoğu Web uygulaması için en iyi seçenektir. Dağıtım v
 
 Mikro hizmet mimarisi kullanan yeni bir uygulama oluşturuyor ya da mevcut bir uygulamayı yeniden yazıyorsanız Service Fabric iyi bir seçenektir. Paylaşılan makine havuzu üzerinde çalışan uygulamalar küçükten başlayıp ihtiyaç olduğunda yüzlerce hatta binlerce makineyle devasa bir ölçeğe ulaşabilirler. Durum bilgisi olan hizmetler uygulama durumunu tutarlı ve güvenilir bir şekilde depolamayı kolaylaştırır ve Service Fabric hizmet bölümleme, ölçeklendirme ve kullanılabilirlik işlemlerini sizin yerinize otomatik olarak yönetir.  Service Fabric aynı zamanda .NET İçin Açık Web Arabirimi (OWIN) ve ASP.NET Core ile WebAPI’yi destekler.  App Service ile karşılaştırıldığında Service Fabric ayrıca temel altyapı üzerinde daha fazla kontrol veya ona doğrudan erişim sağlar. Sunucularınıza uzaktan bağlanabilir veya sunucu başlatma görevleri yapılandırabilirsiniz. Cloud Services, kullanım kolaylığı ve kontrol derecesi bakımından Service Fabric’e benzerdir, ancak artık eski bir hizmettir ve yeni dağıtımlar için Service Fabric önerilir.
 
-App Service’ta veya Service Fabric’te çalışması için önemli değişiklikler yapılmasını gerektiren mevcut bir uygulamanız varsa buluta geçmeyi kolaylaştırmak için Sanal Makineler’i seçebilirsiniz. Ne var ki sanal makineleri doğru yapılandırmak, güvenliğini sağlamak ve bakımını yapmak Azure App Service ve Service Fabric ile karşılaştırıldığında çok daha fazla zaman ve IT uzmanlığı gerektirir. Azure Sanal Makineleri düşünüyorsanız VM ortamınızı yamamak, güncelleştirmek ve yönetmek üzere sürekli bir bakım çabası gerekeceğini dikkate aldığınızdan emin olun. Azure Sanal Makineler Hizmet Olarak Altyapı (IaaS) iken App Service ve Service Fabric ise Hizmet Olarak Platform’dur (Paas). 
+App Service’ta veya Service Fabric’te çalışması için önemli değişiklikler yapılmasını gerektiren mevcut bir uygulamanız varsa buluta geçmeyi kolaylaştırmak için Sanal Makineler’i seçebilirsiniz. Ne var ki sanal makineleri doğru yapılandırmak, güvenliğini sağlamak ve bakımını yapmak Azure App Service ve Service Fabric ile karşılaştırıldığında çok daha fazla zaman ve IT uzmanlığı gerektirir. Azure Sanal Makineleri düşünüyorsanız VM ortamınızı yamamak, güncelleştirmek ve yönetmek üzere sürekli bir bakım çabası gerekeceğini dikkate aldığınızdan emin olun. Azure Sanal Makineler Hizmet Olarak Altyapı (IaaS) iken App Service ve Service Fabric ise Hizmet Olarak Platform’dur (Paas).
 
 ## <a name="features"></a>Özellik Karşılaştırması
 Aşağıdaki tabloda, en iyi seçimi yapmanıza yardımcı olmak için App Service, Cloud Services, Sanal Makineler ve Service Fabric yetenekleri karşılaştırılmıştır. Her seçeneğin SLA’sı hakkında güncel bilgiler için bkz. [Azure Hizmet Düzeyi Sözleşmeleri](https://azure.microsoft.com/support/legal/sla/).
@@ -78,7 +78,7 @@ Aşağıda, bazı yaygın uygulama senaryoları, hangi Azure Web barındırma se
 * [Mobil istemciler için REST API veya Web hizmeti barındırmak istiyorum.](#mobile)
 
 ### <a id="onprem"></a> Şirket içi varlıklarla tümleşik iş uygulamaları çalıştırmak için arka plan işlemleri ve veritabanı arka ucu olan bir Web ön ucuna ihtiyacım var.
-Azure App Service, karmaşık iş uygulamaları için mükemmel bir çözümdür. Yükü dengelenmiş bir platformda otomatik olarak ölçeklenen, Active Directory ile güvenliği sağlanmış ve şirket içi kaynaklarınıza bağlanan uygulamalar geliştirmenizi sağlar. Birinci sınıf portal ve API’ler aracılığıyla bu uygulamaların yönetimini kolaylaştırır ve uygulama analiz araçlarıyla müşterilerin onları nasıl kullandıklarını anlamanızı sağlar. [Webjobs][Webjobs] özelliği, Web katmanınızın parçası olarak arka plan işlem ve görevlerini çalıştırmanızı sağlarken hibrit bağlantı ve VNET özellikleri de şirket içi kaynaklara tekrar bağlanmayı kolaylaştırır. Azure App Service, Web uygulamaları için %99,9 SLA sağlar ve şunları yapmanıza olanak tanır:
+Azure App Service, karmaşık iş uygulamaları için mükemmel bir çözümdür. Yükü dengelenmiş bir platformda otomatik olarak ölçeklenen, Active Directory ile güvenliği sağlanmış ve şirket içi kaynaklarınıza bağlanan uygulamalar geliştirmenizi sağlar. Birinci sınıf portal ve API’ler aracılığıyla bu uygulamaların yönetimini kolaylaştırır ve uygulama analiz araçlarıyla müşterilerin onları nasıl kullandıklarını anlamanızı sağlar. [Webjobs] [ Webjobs] hibrit bağlantı ve VNet özellikleri bağlanmak kolay yaptığınız sırada web katmanınızın parçası olarak görevleri arka şirket içi kaynaklara ve arka plan işlemleri çalıştırmanın özelliği sağlar. Azure App Service, Web uygulamaları için %99,9 SLA sağlar ve şunları yapmanıza olanak tanır:
 
 * Uygulamalarınızı kendi kendini onaran, otomatik düzeltme eki uygulanan bir bulut platformunda güvenilir bir şekilde çalıştırma.
 * Genel veri merkezleri ağında otomatik olarak ölçeklendirme.
@@ -145,7 +145,7 @@ Açık kaynaklı çerçeveniz App Service’ta destekleniyorsa uygulamanızın g
 Açık kaynaklı çerçeveniz App Service’ta desteklenmiyorsa onu diğer Azure Web barındırma seçeneklerinden birinde çalıştırabilirsiniz. Sanal Makineler ile yazılımı Windows veya Linux tabanlı olabilen makine görüntüsüne yükler ve yapılandırırsınız.
 
 ### <a id="lob"></a> Şirket ağına bağlanması gereken bir iş kolu uygulamam var
-Bir iş kolu uygulaması oluşturmak istiyorsanız Web siteniz şirket ağındaki hizmetlere ya da verilere doğrudan erişmeyi gerektirebilir. Bu App Service’ta, Service Fabric’te ve Sanal Makineler’de [Azure Sanal Ağ hizmetini](/azure/virtual-network/) kullanarak yapılabilir. App Service’ta Azure uygulamalarınızın şirket ağınızdaymış gibi çalışmasına izin veren [VNET tümleştirme özelliğini](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) kullanabilirsiniz.
+Bir iş kolu uygulaması oluşturmak istiyorsanız Web siteniz şirket ağındaki hizmetlere ya da verilere doğrudan erişmeyi gerektirebilir. Bu App Service’ta, Service Fabric’te ve Sanal Makineler’de [Azure Sanal Ağ hizmetini](/azure/virtual-network/) kullanarak yapılabilir. App Service üzerinde kullanabileceğiniz [VNet tümleştirme özelliğini](/azure/app-service/web-sites-integrate-with-vnet), Azure uygulamalarınızın şirket ağınızda değilmiş gibi çalışmasına izin verir.
 
 ### <a id="mobile"></a> Mobil istemciler için REST API veya Web hizmeti barındırmak istiyorum
 HTTP tabanlı Web hizmetleri mobil istemciler dahil olmak üzere çok çeşitli istemcileri desteklemenizi sağlar. ASP.NET Web API gibi çerçeveler, REST hizmetlerini oluşturup kullanmayı kolaylaştırmak için Visual Studio ile tümleşirler.  Bu hizmetler bir Web uç noktasından sunulduğundan bu senaryoyu desteklemek için Azure’da herhangi bir Web barındırma yöntemini kullanmak mümkündür. Ancak, App Service REST API'leri barındırmak için harika bir seçimdir. App Service ile yapabilecekleriniz:
@@ -157,8 +157,6 @@ HTTP tabanlı Web hizmetleri mobil istemciler dahil olmak üzere çok çeşitli 
 
 > [!NOTE]
 > Bir hesaba kaydolmadan önce Azure App Service’ı kullanmaya başlamak istiyorsanız Azure App Service’ta hemen kısa süreli bir başlangıç uygulamasını ücretsiz olarak oluşturabileceğiniz <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a> sayfasına gidin. Kredi kartı ve taahhüt gerekli değildir.
-> 
-> 
 
 ## <a id="nextsteps"></a> Sonraki Adımlar
 Üç Web barındırma seçeneği hakkında daha fazla bilgi için bkz. [Azure’a Giriş](../fundamentals-introduction-to-azure.md).

@@ -1,6 +1,6 @@
 ---
 title: Azure Blueprints’e genel bakış
-description: Azure Blueprints, Azure ortamınızda yapıt oluşturmak, tanımlamak ve dağıtmak için kullanılan bir Azure hizmetidir.
+description: Azure şemaları hizmeti, oluşturmak, tanımlamak ve yapıtları Azure ortamınızda dağıtmak nasıl sağlar anlayın.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,14 +9,14 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: cf3801381359bb973d126e2ee946cdb51e5aecb7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 29c58abb3a69da0886d512767cbc301621943f07
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823102"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802584"
 ---
-# <a name="what-is-azure-blueprints"></a>Azure Blueprints nedir?
+# <a name="overview-of-the-azure-blueprints-service"></a>Azure şemaları hizmetine genel bakış
 
 Mühendislerin veya mimarların projenin ana hatlarını oluşturmak için kullandıkları şemalar gibi Azure Blueprints de bulut mimarlarının ve merkezi bilgi teknolojisi gruplarının bir kuruluşun standartlarına, desenlerine ve gereksinimlerine uygun Azure kaynaklarından oluşan tekrarlanabilir bir küme tanımlamasını sağlar. Azure Blueprints geliştirme ekiplerinin yeni ortamları hızlı bir şekilde oluşturup kullanıma almalarını ve bunu yaparken kurumsal uyumluluk çerçevesinde olduklarından ve ağ iletişimi gibi yerleşik bileşenlere sahip olduklarından emin olmalarını mümkün hale getirir.
 

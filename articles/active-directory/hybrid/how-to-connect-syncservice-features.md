@@ -16,14 +16,15 @@ ms.date: 06/25/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7b3da5b2340b6bd4dd49dd6f8278f2fced477bc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 82b2b75d5505ddda91232bf1055bd70a68d333d0
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190730"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792408"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect eşitleme hizmeti özellikleri
+
 Azure AD Connect eşitleme özelliği iki bileşenden oluşur:
 
 * Şirket içi bileşeninizin **Azure AD Connect eşitleme**ayrıca adlı **eşitleme altyapısı**.
@@ -65,26 +66,29 @@ Aşağıdaki ayarlar, Azure AD Connect tarafından yapılandırılır ve tarafı
 | UserWriteback |Şu anda desteklenmiyor. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Yinelenen öznitelik dayanıklılığı
+
 Sağlama başarısız olmak yerine yinelenen UPN ile nesneler / proxyAddresses, "Yinelenen öznitelik karantinaya alındı" ve geçici bir değer atanır. Geçici UPN çakışma giderildikten sonra uygun değere otomatik olarak değiştirilir. Daha fazla ayrıntı için [kimlik eşitleme ve yinelenen öznitelik dayanıklılığı](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
 ## <a name="userprincipalname-soft-match"></a>UserPrincipalName yazılım eşleştir
+
 Bu özellik etkinleştirildiğinde, geçici eşleştirme için ek olarak UPN etkin [birincil SMTP adresi](https://support.microsoft.com/kb/2641663), her zaman etkin olan. Geçici eşleştirme, var olan bulut kullanıcıları, şirket içi kullanıcıları Azure AD'de eşlemek için kullanılır.
 
 Gerekirse eşleşme AD hesaplarıyla bulutta oluşturulan mevcut şirket ve Exchange Online kullanmıyorsanız, ardından bu özellik yararlıdır. Bu senaryoda, genel bulutta SMTP öznitelik ayarlamak için bir neden yoktur.
 
 Bu özellik için varsayılan olarak yeni Azure AD dizini oluşturulur. Bu özellik, çalıştırarak etkin olup olmadığını görebilirsiniz:  
 
-```
+```powershell
 Get-MsolDirSyncFeatures -Feature EnableSoftMatchOnUpn
 ```
 
 Ardından Azure AD dizininiz için bu özellik etkin değilse çalıştırarak etkinleştirebilirsiniz:  
 
-```
+```powershell
 Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 ```
 
 ## <a name="synchronize-userprincipalname-updates"></a>UserPrincipalName güncelleştirmelerini eşitleme
+
 Tarihsel olarak, güncelleştirmeler için eşitleme hizmeti aracılığıyla şirket içi UserPrincipalName özniteliği engellendi, bu koşulların her ikisinin de doğru olduğu sürece:
 
 * Kullanıcı (Federasyon olmayan) yönetilir.
@@ -96,19 +100,19 @@ Bu özelliği etkinleştirmek, şirket değiştirilmiş olduğundan ve parola ka
 
 Bu özellik için varsayılan olarak yeni Azure AD dizini oluşturulur. Bu özellik, çalıştırarak etkin olup olmadığını görebilirsiniz:  
 
-```
+```powershell
 Get-MsolDirSyncFeatures -Feature SynchronizeUpnForManagedUsers
 ```
 
 Ardından Azure AD dizininiz için bu özellik etkin değilse çalıştırarak etkinleştirebilirsiniz:  
 
-```
+```powershell
 Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 ```
 
 Bu özellik etkinleştirildikten sonra mevcut userPrincipalName değerleri olarak kalacak-olduğu. UserPrincipalName özniteliği şirket sonraki değişiminde normal delta eşitleme kullanıcıların UPN güncelleştirir.  
 
 ## <a name="see-also"></a>Ayrıca bkz.
+
 * [Azure AD Connect eşitleme](how-to-connect-sync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md).
-

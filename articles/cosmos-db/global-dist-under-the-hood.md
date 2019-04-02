@@ -4,15 +4,15 @@ description: Bu makalede Azure Cosmos DB genel dağıtımını ilgili teknik ayr
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2019
+ms.date: 03/31/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: a599be52575ed06cdb3a3713fc2f0915ab2f6c2b
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 84ce13ae3bb0a4b66b8167e61b720fe6cecbe95c
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407496"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762421"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Azure Cosmos DB - başlık altında genel veri dağılımı
 
@@ -50,17 +50,17 @@ Bir fiziksel bölüm çoğaltmalarının çoğaltma kümesi olarak adlandırıla
 
 ## <a name="partition-sets"></a>Bölüm-ayarlar
 
-Her Cosmos veritabanı bölge ile yapılandırılmış bir fiziksel bölüm grubu, tüm yapılandırılmış bölgede çoğaltılan anahtarları aynı kümesini yönetmek için oluşur. Bu daha yüksek koordinasyon temel eleman coğrafi olarak dağıtılmış bir dinamik katmana belirli bir anahtar kümesini yönetme fiziksel bölümlerinin bölüm-kümesi - adı verilir. Belirli bir fiziksel bölüm (bir çoğaltma kümesi) bir küme içinde kapsamlıdır, ancak bir bölüm kümesi kümeler, yayılabilir veri merkezleri ve aşağıdaki görüntüde gösterildiği gibi coğrafi bölgeler:  
+Cosmos veritabanı bölge ile yapılandırılmış her fiziksel bölüm grubu, yapılandırılan tüm bölgeler arasında çoğaltılan anahtarları aynı kümesini yönetmek için oluşur. Bu daha yüksek koordinasyon temel olarak adlandırılan bir *bölüm kümesi* -coğrafi olarak dağıtılmış bir dinamik katmana fiziksel bölüm belirli bir anahtar kümesini yönetme. Belirli bir fiziksel bölüm (bir çoğaltma kümesi) bir küme içinde kapsamlıdır, ancak bir bölüm kümesi kümeler, yayılabilir veri merkezleri ve aşağıdaki resimde gösterildiği gibi coğrafi bölgeler:  
 
 ![Bölüm ayarlar](./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png)
 
-Bir coğrafi olarak dağınık "süper çoğaltma çoğaltma-anahtarları kümesinin aynısına sahip olan birden fazla oluşan kümesi", bölüm bir dizi düşünebilirsiniz. Çoğaltma kümesi, bir bölümü kümenin üyelik ayrıca dinamik benzer – belirli bir bölüm kümesi/yeni bölümler eklemek/kaldırmak için örtük fiziksel bölüm yönetimi işlemlerini göre dalgalanma (örneğin, ne zaman ölçeği aktarım hızı üzerinde bir kapsayıcı, bölge, Cosmos veritabanı veya hata gerçekleştiğinde bir ekleme/kaldırma) olması sayesinde her bölüm (kümesinin bir bölüm-) yönetme bölüm kümesi üyelik kendi çoğaltma kümesi içinde üyelik tamamen merkezi olmayan ve yüksek oranda kullanılabilir. Bir bölüm kümesi yeniden yapılandırma sırasında topolojisi, fiziksel bölümler arasında katman da oluşturulur. Topoloji tutarlılık düzeyi, coğrafi uzaklıktan ve kaynak ve hedef fiziksel bölümler arasında kullanılabilir ağ bant genişliği temelinde dinamik olarak seçilir.  
+Bir coğrafi olarak dağınık "süper çoğaltma çoğaltma-anahtarları kümesinin aynısına sahip olan birden fazla oluşan kümesi", bölüm bir dizi düşünebilirsiniz. Çoğaltma kümesi, bir bölümü kümenin üyelik ayrıca dinamik benzer – belirli bir bölüm kümesi/yeni bölümler eklemek/kaldırmak için örtük fiziksel bölüm yönetimi işlemlerini göre dalgalanma (örneğin, ne zaman ölçeği aktarım hızı üzerinde bir kapsayıcı, bölge, Cosmos veritabanı veya hata gerçekleştiğinde bir ekleme/kaldırma). Her bölümlerini (bir bölüm kümesi), kendi çoğaltma kümesi içinde bölüm kümesi üyeliği yönetmek zorunda da üyelik tamamen merkezi olmayan ve yüksek oranda kullanılabilir. Bir bölüm kümesi yeniden yapılandırma sırasında topolojisi, fiziksel bölümler arasında katman da oluşturulur. Topoloji tutarlılık düzeyi, coğrafi uzaklıktan ve kaynak ve hedef fiziksel bölümler arasında kullanılabilir ağ bant genişliği temelinde dinamik olarak seçilir.  
 
 Hizmet bir tek bir yazma bölgesi veya birden çok yazma bölgeleri ile Cosmos veritabanlarınızı yapılandırmanıza olanak tanır ve seçime bağlı olarak, bölüm kümeleri yazma tam olarak bir ya da tüm bölgelerde kabul edecek şekilde yapılandırılmış. İki düzeyli, iç içe geçmiş fikir birliğine varılmış Protokolü sistemi kullanır: bir düzey yazma kabul eden bir fiziksel bölüm dizi çoğaltma çoğaltmalarının içinde çalışır ve diğer tüm tam sıralama garantisi sağlamak için bir bölüm kümesi düzeyinde çalışır bölüm kümesindeki taahhüt yazar. Bu çok katmanlı, iç içe geçmiş fikir birliğine varılmış, Cosmos DB, müşterilerine sağlar. tutarlılık modeli uygulamasının yanı sıra, yüksek kullanılabilirlik için katı SLA'larımız uygulanması için önemlidir.  
 
 ## <a name="conflict-resolution"></a>Çakışma çözümleme
 
-Güncelleştirme yayma, çakışma çözümü ve izleme nedensellik ilişkilerini bizim tasarımı üzerinde Önceki işten esinlenilmiştir [epidemic algoritmaları](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) ve [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) sistem. Fikirleri çekirdekler kurtulan ve Cosmos DB'nin sistem tasarımı iletişim kurmak için kullanışlı bir çerçeve başvuru sağlar, ancak Cosmos DB sistemde uyguladığımız bunları gibi bunlar da önemli dönüştürme yapılmıştır. Önceki sistemleri kaynak İdaresi ne, Cosmos DB çalışmaya (örneğin, sınırlanmış eskime durumu tutarlılık) özellikleri ve katı ve kapsamlı sağlamak ya da ölçekleme ile tasarlanmış çünkü bu, gerekli Cosmos DB, müşterilerine sunduğu SLA'lar.  
+Güncelleştirme yayma, çakışma çözümü ve izleme nedensellik ilişkilerini bizim tasarımı üzerinde Önceki işten esinlenilmiştir [epidemic algoritmaları](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) ve [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) sistem. Fikirleri çekirdekler kurtulan ve Cosmos DB'nin sistem tasarımı iletişim kurmak için kullanışlı bir çerçeve başvuru sağlar, ancak Cosmos DB sistemde uyguladığımız bunları gibi bunlar da önemli dönüştürme yapılmıştır. Önceki sistemleri kaynak İdaresi ne, Cosmos DB çalışılacak ya da (örneğin, sınırlanmış eskime durumu tutarlılık) özellikleri ve katı sağlamak için ölçekleme ile tasarlanmış çünkü bu gerekli ve Cosmos DB, müşterilerine sunduğu geniş kapsamlı SLA'lar.  
 
 Bir bölüm kümesi birden çok bölgede dağıtılır ve belirli bir bölüm kümesi oluşturan fiziksel bölümler arasında veri çoğaltmak için Cosmos Db'ler (çok ana) çoğaltmayı Protokolü aşağıdaki geri çağırma. Her bir fiziksel bölüm (bölüm-kümesi), yazma kabul eder ve okuma bu bölge için yerel istemcileri genellikle yarar. Yazma kabul eden bir fiziksel bölüm bir bölge içinde depolanmasına taahhüt verdiniz ve istemciye kabul edildiğini önce fiziksel bölüm içinde yüksek oranda kullanılabilir hale. Bunlar belirsiz yazma ve koruma entropi kanalı kullanılarak bölüm kümesi içinde fiziksel diğer bölümlerine yayılır. İstemciler, bir istek üst bilgisi geçirerek belirsiz veya kaydedilmiş yazma isteyebilir. (Yayma sıklığını dahil) koruma entropi yayma dinamik fiziksel bölümler ve tutarlılık düzeyi yapılandırılmış bölüm kümesi, bölgesel yakınlık topolojiye bağlı. Bir bölüm kümesinde Cosmos DB, dinamik olarak seçilen arbiter bölümü olan bir birincil işleme düzeni izler. Arbiter seçimi dinamiktir ve yeniden yapılandırma bölümü kümesinin bir parçası katmana topolojisine dayanır. Taahhüt edilen (çok-row/toplu güncelleştirmeler dahil) yazma sipariş edilmesi garanti edilir. 
 
@@ -68,21 +68,21 @@ Nedensellik ilişkilerini izlemek ve algılamak ve çözmek için vektörleri g�
 
 Birden çok yazma bölgeleri ile yapılandırılmış Cosmos veritabanları için sistem esnek otomatik çakışma çözümleme ilkeler arasından, geliştiriciler için de dahil olmak üzere sunar: 
 
-- Son yazma WINS (varsayılan olarak (zaman eşitleme saati protokolünü temel alır) bir sistem tanımlı bir zaman damgası özelliği kullanır, LWW). Cosmos DB Çakışma çözümlemesi için kullanılan diğer özelliklerden herhangi birini özel sayısal belirtmenizi sağlar.  
-- Uygulama tanımlı semantiği mutabakat çakışmaları için tasarlanmış olan (birleştirme yordamları ifade edilir) uygulama tanımlı özel çakışma çözüm ilkesi. Bu yordamlar, bir veritabanı işlemi sunucu tarafı şirket himayesinde yazma yazma çakışmaları algılanması üzerine çağrılır. Tam olarak sistemidir taahhüt protokolünün bir parçası olarak bir birleştirme yordamının yürütülmesi için bir kez garanti. Birkaç örneği ile yürütmek kullanılabilir.  
+- **Son yazma WINS (LWW)**, varsayılan olarak kullanır (zaman eşitleme saati protokolünü temel alır) bir sistem tanımlı bir zaman damgası özelliği. Cosmos DB Çakışma çözümlemesi için kullanılan diğer özelliklerden herhangi birini özel sayısal belirtmenizi sağlar.  
+- **Uygulama tanımlı (özel) çakışma çözüm İlkesi** (birleştirme yordamları ifade edilir), uygulama tanımlı semantiği mutabakat çakışmaları için tasarlanmıştır. Bu yordamlar, bir veritabanı işlemi sunucu tarafı şirket himayesinde yazma yazma çakışmaları algılanması üzerine çağrılır. Tam olarak sistemidir taahhüt protokolünün bir parçası olarak bir birleştirme yordamının yürütülmesi için bir kez garanti. Vardır [birkaç çözüm örnekleri çakışan](how-to-manage-conflicts.md) ile yürütmek kullanılabilir.  
 
 ## <a name="consistency-models"></a>Tutarlılık modeli
 
-Tek bir veya birden çok yazma bölgeleri ile Cosmos veritabanı yapılandırma olsun, beş iyi tanımlanmış tutarlılık modellerinden seçebilirsiniz. Yeni eklenen desteği sayesinde, birden fazla yazma bölgeleri etkinleştirmek için birkaç önemli yönlerini tutarlılık düzeyleri şunlardır:  
+Tek bir veya birden çok yazma bölgeleri ile Cosmos veritabanı yapılandırma olsun, beş iyi tanımlanmış tutarlılık modellerinden seçebilirsiniz. Birden çok yazma bölgeleri ile tutarlılık düzeyleri birkaç önemli yönleri şunlardır:  
 
-Olarak önce sınırlanmış eskime durumu tutarlılık tüm okuma k ön eklerine veya t son yazma saniyeler içinde tüm bölgelerin olacağını garanti eder. Ayrıca, sınırlanmış eskime durumu tutarlılık okuma monoton ve tutarlı ön ek Garantisi ile sağlanır. Koruma entropi protokolü, oranı sınırlı bir biçimde çalışır ve ön ekler değil accumulate ve yazma backpressure uygulanacak yok sağlar. Daha önce oturum tutarlılık monoton garanti eder, monoton yazma, kendi yazma okuma gibi yazma aşağıdaki okuma ve tutarlı ön ek dünya genelinde garanti eder. Güçlü tutarlılık ile avantajlarını yapılandırılmış veritabanları için multi-Uzmanlaşma (düşük yazma gecikme süresi, yüksek yazma kullanılabilirliği) uygulanmaz nedeniyle zaman uyumlu çoğaltma bölgeler arasında.
+Sınırlanmış eskime durumu tutarlılığını, tüm okuma içinde olacağını garanti eder *K* ön ekleri veya *T* saniyeler içinde bölgelerden en son yazma. Ayrıca, sınırlanmış eskime durumu tutarlılık okuma monoton ve tutarlı ön ek Garantisi ile sağlanır. Koruma entropi protokolü, oranı sınırlı bir biçimde çalışır ve ön ekler değil accumulate ve yazma backpressure uygulanacak yok sağlar. Kendi Yazar oturumu tutarlılık garantisi monoton okuma, monoton yazma, okuma, yazma, okuma ve tutarlı ön ek garantisi, dünya çapında izler. Güçlü tutarlılık ile yapılandırılmış veritabanları için birden fazla yazma bölgeleri avantajları (düşük yazma gecikme süresi, yüksek yazma kullanılabilirliği) geçerli değildir, bölgeler arasında zaman uyumlu çoğaltma nedeniyle.
 
-Cosmos DB'de beş tutarlılık modeli semantiği açıklanan [burada](consistency-levels.md) ve üst düzey bir TLA + belirtimlerini kullanarak matematiksel olarak gösterilen [burada](https://github.com/Azure/azure-cosmos-tla).
+Cosmos DB'de beş tutarlılık modeli semantiği açıklanan [burada](consistency-levels.md)ve üst düzey bir TLA + belirtimlerini kullanarak matematiksel olarak açıklanan [burada](https://github.com/Azure/azure-cosmos-tla).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Ardından aşağıdaki makaleleri kullanarak genel dağıtımı yapılandırma işlemleri gerçekleştirmeyi öğreneceksiniz:
 
-* [Birden çok giriş için istemcileri yapılandırma](how-to-manage-database-account.md#configure-clients-for-multi-homing)
 * [Bölge veritabanı hesabınızdan Ekle/Kaldır](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [SQL API hesabı için bir özel çakışma çözüm ilkesi oluşturma](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
+* [Birden çok giriş için istemcileri yapılandırma](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Bir özel çakışma çözüm ilkesi oluşturma](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

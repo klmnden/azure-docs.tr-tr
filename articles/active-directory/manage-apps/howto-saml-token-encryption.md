@@ -16,12 +16,12 @@ ms.date: 02/06/2019
 ms.author: celested
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a7a12cf677661c36a42df36a8fdc6b8f4a8ef75
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 7de6705ad38133b8321caabb7b0f4093284af503
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669899"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793076"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Nasıl yapılır: Azure AD SAML belirteci şifreleme (Önizleme) yapılandırma
 
@@ -136,11 +136,12 @@ Bu işlev yakında kullanıma sunulacaktır.
 
 1. Read the token encryption settings using the following commands.
 
-    ```
+    ```powershell
     $app=Get-AzureADApplication -ObjectId <ApplicationObjectId>
     $app.KeyCredentials
     $app.TokenEncryptionKeyId
     ```
+
 -->
 
 ### <a name="to-configure-token-encryption-using-the-application-manifest"></a>Uygulama bildirimi kullanarak belirteci şifreleme yapılandırmak için
@@ -155,7 +156,7 @@ Bu işlev yakında kullanıma sunulacaktır.
 
     Bir uygulama bildirimi iki şifreleme sertifikaları ile yapılandırılmış ve ikinci tokenEnryptionKeyId kullanarak etkin bir seçili aşağıdaki örnekte gösterilmektedir.
 
-    ```
+    ```json
     { 
       "id": "3cca40e2-367e-45a5-8440-ed94edd6cc35",
       "accessTokenAcceptedVersion": null,

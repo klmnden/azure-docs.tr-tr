@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 99b54a5fe5c28eb66a61fad61d23b94f0955f126
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9c0c8adca9d99c00e32127e02a3d68ff668a235e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728577"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793314"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Yönetimi SSS
 Azure API Management için sık sorulan sorular, desenleri ve en iyi yanıtları alın.
@@ -32,9 +32,9 @@ Azure API Management için sık sorulan sorular, desenleri ve en iyi yanıtları
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 * [Bir özellik önizlemede olduğunda ne anlama geliyor?](#what-does-it-mean-when-a-feature-is-in-preview)
 * [API Management ağ geçidi ile arka uç hizmetleri arasındaki bağlantının güvenliğini nasıl sağlayabilirim?](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
-* [My API Management hizmet örneği için yeni bir örneğini nasıl kopyalayabilirim?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
+* [API Management hizmet örneğimi yeni bir örneğe nasıl kopyalayabilirim?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
 * [API Management Örneğim programlı olarak yönetebilirim?](#can-i-manage-my-api-management-instance-programmatically)
-* [Bir kullanıcı Administrators grubuna nasıl ekleyebilirim?](#how-do-i-add-a-user-to-the-administrators-group)
+* [Yöneticiler grubuna nasıl kullanıcı ekleyebilirim?](#how-do-i-add-a-user-to-the-administrators-group)
 * [Neden eklemek İlkesi Düzenleyicisi'nde kullanılamayan istediğiniz ilke mi?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
 * [Tek bir API birden çok ortamda nasıl ayarlayabilirim?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [SOAP API Management ile kullanabilir miyim?](#can-i-use-soap-with-api-management)
@@ -42,12 +42,12 @@ Azure API Management için sık sorulan sorular, desenleri ve en iyi yanıtları
 * Bir OAuth 2.0 yetkilendirme sunucusu ile AD FS güvenliği yapılandırabilir miyim?
 * [Yönlendirme yöntemi, birden çok coğrafi konumlara dağıtımlarında API Management kullanıyor mu?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [API Management hizmet örneği oluşturmak için bir Azure Resource Manager şablonu kullanabilir miyim?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
-* [Otomatik olarak imzalanan bir SSL sertifikası bir arka uç için kullanabilir miyim?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
+* [Arka uç için otomatik olarak imzalanan bir SSL sertifikası kullanabilir miyim?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
 * [GIT deposunu kopyalamak çalıştığınızda neden bir kimlik doğrulama hatası alıyorum?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [API Management, Azure ExpressRoute ile çalışır mı?](#does-api-management-work-with-azure-expressroute)
 * [API Yönetimi uygulamasına dağıtıldığında sanal ağları Resource Manager stilde ayrılmış alt ağında neden kılarız?](#why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them)
 * [API yönetimi bir VNET'e dağıtırken gereken en düşük alt ağ boyutu nedir?](#what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet)
-* [API Management hizmeti bir abonelikten diğerine taşıyabilirim?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
+* [API Management hizmetini bir abonelikten diğerine taşıyabilir miyim?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
 * [Kısıtlamalar veya API'mi alma bilinen sorunlar vardır?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
 ### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>Nasıl ben Microsoft Azure API Management takım soru sorabilir?
@@ -72,13 +72,13 @@ API Management ağ geçidi ve arka uç hizmetlerinizi arasındaki bağlantıyı 
 API Management örneği için yeni bir örneği kopyalamak istiyorsanız birkaç seçeneğiniz vardır. Şunları yapabilirsiniz:
 
 * Yedekleme ve geri yükleme API Management işlevi. Daha fazla bilgi için [olağanüstü durum kurtarma hizmeti yedekleme uygulamak ve Azure API Yönetimi'nde geri yükleme](api-management-howto-disaster-recovery-backup-restore.md).
-* Kendi yedekleme oluşturma ve kullanarak geri yükleme özelliğini [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx). Kaydet ve varlıkları istediğiniz hizmeti örneğinin geri yüklemek için REST API'yi kullanın.
+* Kendi yedekleme oluşturma ve kullanarak geri yükleme özelliğini [API Management REST API](/rest/api/apimanagement/). Kaydet ve varlıkları istediğiniz hizmeti örneğinin geri yüklemek için REST API'yi kullanın.
 * Git kullanarak hizmet yapılandırmasını indirin ve ardından yeni bir örneğine karşıya yükleyin. Daha fazla bilgi için [kaydedin ve Git kullanarak API Management hizmet yapılandırmanızı yapılandırma](api-management-configuration-repository-git.md).
 
 ### <a name="can-i-manage-my-api-management-instance-programmatically"></a>API Management Örneğim programlı olarak yönetebilirim?
 Evet, kullanarak API Management programlı olarak yönetebilirsiniz:
 
-* [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
+* [API Management REST API](/rest/api/apimanagement/).
 * [Microsoft Azure ApiManagement Hizmet Yönetimi Kitaplığı SDK](https://aka.ms/apimsdk).
 * [Hizmet dağıtımı](https://docs.microsoft.com/powershell/module/wds) ve [Hizmet Yönetimi](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell cmdlet'leri.
 
@@ -97,7 +97,7 @@ Yeni eklenen katkıda bulunan Azure PowerShell artık [cmdlet'leri](https://docs
 4. Yönetici portalına erişmek için URL'yi kullanın.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Neden eklemek İlkesi Düzenleyicisi'nde kullanılamayan istediğiniz ilke mi?
-Eklemek istediğiniz ilke soluk veya İlkesi Düzenleyicisi'nde gölgeli, ilke için doğru kapsamında olduğundan emin görünüyorsa. Her ilke bildirimi, belirli kapsamlar ve ilke bölümlerde kullanabilmeniz için tasarlanmıştır. İlkenin kullanım bölümünde ilke bölüm ve bir ilke için kapsamları gözden geçirmek için bkz [API Management ilkeleri](https://msdn.microsoft.com/library/azure/dn894080.aspx).
+Eklemek istediğiniz ilke soluk veya İlkesi Düzenleyicisi'nde gölgeli, ilke için doğru kapsamında olduğundan emin görünüyorsa. Her ilke bildirimi, belirli kapsamlar ve ilke bölümlerde kullanabilmeniz için tasarlanmıştır. İlkenin kullanım bölümünde ilke bölüm ve bir ilke için kapsamları gözden geçirmek için bkz [API Management ilkeleri](/azure/api-management/api-management-policies).
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Tek bir API birden çok ortamda nasıl ayarlayabilirim?
 Birden çok ortamı, örneğin, bir test ortamı ve bir üretim ortamında, tek bir API ayarlamak için iki seçeneğiniz vardır. Şunları yapabilirsiniz:
@@ -142,7 +142,7 @@ New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -
 ```
 
 #### <a name="direct-api-update-method"></a>Doğrudan API güncelleştirme yöntemi ####
-1. Oluşturma bir [arka uç](https://msdn.microsoft.com/library/azure/dn935030.aspx) API Management kullanarak varlık.       
+1. Oluşturma bir [arka uç](/rest/api/apimanagement/) API Management kullanarak varlık.     
 2. Ayarlama **skipCertificateChainValidation** özelliğini **true**.     
 3. Artık otomatik olarak imzalanan sertifikalar izin vermek istiyorsanız, arka uç varlığı silmek veya ayarlayın **skipCertificateChainValidation** özelliğini **false**.
 

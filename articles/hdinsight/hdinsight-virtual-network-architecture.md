@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 13ea4acb5a3b5b3e7ac6d53013193fddbfcbf9b7
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759597"
+ms.locfileid: "58762931"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight sanal ağ mimarisi
 
@@ -31,8 +31,6 @@ Azure HDInsight kümeleri farklı türlerde sanal makineler veya düğümler var
 | Bölge düğümü | HBase kümesi türü için bölge sunucusu (veri düğümü olarak da bilinir) bölge düğüm çalıştırır. Bölge sunucuları, hizmet ve HBase tarafından yönetilen veri bölümünü yönetin. Bölge düğümler eklenebilir veya hesaplama yeteneği ölçeklendirin ve maliyetleri yönetmek için kümeden kaldırılmış.|
 | Nimbus düğümü | Storm küme türü için Nimbus düğümü, baş düğüm için benzer işlevsellik sağlar. Nimbus düğümü, çalışan Storm topolojilerini koordinatları Zookeeper aracılığıyla kümedeki diğer düğümlere görevler atar. |
 | Gözetmen düğümü | Storm küme türü için istenen işlemi gerçekleştirmek için Nimbus düğümü tarafından sağlanan yönergeleri gözetmen düğüm yürütür. |
-
-* = Apache Hadoop, Apache Hive, Apache Kafka, Apache Spark, Apache HBase ve R Server küme türleri
 
 ## <a name="basic-virtual-network-resources"></a>Temel sanal ağ kaynakları
 

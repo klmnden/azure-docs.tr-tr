@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 8e887409c35619261544b92395301ce06a033e8b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: a89df98224634c08c84cb059eb58e64e3c7febf7
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992745"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801275"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Kaynak kuruluşta ve Yönetim için Yönetim grupları oluşturma
 
@@ -37,14 +37,14 @@ Portal, PowerShell veya Azure CLI kullanarak, yönetim grubu oluşturabilirsiniz
 
 1. Ana sayfasında göze seçin **yeni yönetim grubu**.
 
-   ![Ana Grup](./media/main.png)
+   ![Yönetim gruplarıyla çalışma sayfası](./media/main.png)
 
 1. Yönetim grubu kimliği alanını doldurun.
 
    - **Yönetim grubu Tanıtıcısı** bu yönetim grubunda komutları göndermek için kullanılan dizini benzersiz tanımlayıcısı. Bu Azure sistem genelinde bu grubu tanımlamak için kullanılan bu tanımlayıcıyı oluşturulduktan sonra düzenlenemez.
    - Görünen ad alanı, Azure portalında görüntülenen addır. Yönetim oluştururken ayrı görünen ad isteğe bağlı bir alan olan Grup ve herhangi bir zamanda değiştirilebilir.  
 
-   ![Oluştur](./media/create_context_menu.png)  
+   ![Yeni bir yönetim grubu oluşturmak için seçenekler bölmesi](./media/create_context_menu.png)  
 
 1. **Kaydet**’i seçin.
 

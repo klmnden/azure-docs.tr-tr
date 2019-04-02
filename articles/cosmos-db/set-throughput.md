@@ -1,38 +1,38 @@
 ---
 title: Azure Cosmos kapsayıcılar ve veritabanları sağlama aktarım hızı
 description: Azure Cosmos kapsayıcılarınızdaki ve veritabanları için sağlanan aktarım hızı ayarlama konusunda bilgi edinin.
-author: aliuy
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/19/2019
-ms.author: andrl
-ms.openlocfilehash: 8335a235de708227136400f3af8fa7b4d0a52e29
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.date: 03/31/2019
+ms.author: rimman
+ms.openlocfilehash: 1f8bec6fbf0bce9a3ac272231058a96a5d9e84cc
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520913"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762506"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Kapsayıcı ve veritabanlarına aktarım hızı sağlama
 
 Bir Azure Cosmos veritabanı, bir dizi kapsayıcıları için yönetim birimidir. Bir veritabanı şemadan kapsayıcıların bir kümesinden oluşur. Bir Azure Cosmos kapsayıcı hem aktarım hızı ve depolama için ölçeklenebilirlik birimidir. Bir kapsayıcı makineler bir Azure bölgesi içinde bir dizi yatay olarak bölümlenir ve Azure Cosmos hesabınızla ilişkili tüm Azure bölgelerine dağıtılır.
 
-Azure Cosmos DB ile aktarım sırasında iki ayrıntı düzeylerinde yapılandırabilirsiniz:
+Azure Cosmos DB ile aktarım hızını iki ayrıntı düzeylerinde sağlayabilirsiniz:
  
 - Azure Cosmos kapsayıcıları
 - Azure Cosmos veritabanları
 
 ## <a name="set-throughput-on-a-container"></a>Bir kapsayıcıda aktarım hızı ayarlama  
 
-Bir Azure Cosmos kapsayıcıdaki sağlanmış olan aktarım hızı için kapsayıcı özel olarak ayrılmış. Kapsayıcı, sağlanan aktarım hızı her zaman alır. Bir kapsayıcı sağlanan aktarım hızını finansal SLA'ları tarafından desteklenmektedir. Bir kapsayıcıdaki aktarım hızı yapılandırmak için bkz [bir Azure Cosmos kapsayıcısında aktarım hızını sağlama](how-to-provision-container-throughput.md).
+Bir Azure Cosmos kapsayıcıdaki sağlanmış olan aktarım hızı bu kapsayıcı için özel olarak ayrılmış. Kapsayıcı, sağlanan aktarım hızı her zaman alır. Bir kapsayıcı sağlanan aktarım hızını finansal SLA'ları tarafından desteklenmektedir. Bir kapsayıcıdaki aktarım hızı yapılandırma konusunda bilgi için bkz: [bir Azure Cosmos kapsayıcısında aktarım hızını sağlama](how-to-provision-container-throughput.md).
 
-Bir kapsayıcı sağlanan aktarım hızı ayarlama yaygın olarak kullanılan bir seçenektir. Her miktarda üretilen iş istek birimi (RU) kullanarak sağlayarak bir kapsayıcının aktarım hızını esnek olarak ölçeklendirebilirsiniz. Ancak, mantıksal bölümler için aktarım hızı seçmeli olarak belirtemezsiniz. 
+Ayar, bir kapsayıcıda sağlanan aktarım hızı en sık kullanılan bir seçenektir. Kullanarak herhangi bir üretilen iş miktarını sağlayarak bir kapsayıcının aktarım hızını esnek olarak ölçeklendirebilirsiniz [istek birimi (RU)](request-units.md). 
 
-Mantıksal bölüm üzerinde çalışan bir iş yükünü birden çok belirli mantıksal bölüm için ayrılan aktarım hızı kullanırsa, işlemlerinizin oranı sınırlı alın. Hız sınırlama ortaya çıktığında, kapsayıcının tamamı verimliliğini artırmak veya işlemleri yeniden deneyin. Bölümleme hakkında daha fazla bilgi için bkz: [mantıksal bölümler](partition-data.md).
+Bir Azure Cosmos kapsayıcıdaki sağlanmış olan aktarım hızı, tüm mantıksal bölümler kapsayıcının olarak eşit dağıtılır. Aktarım mantıksal bölümler için seçmeli olarak belirtemezsiniz. Bir fiziksel bölüm tarafından barındırılan bir veya daha fazla mantıksal bölümleri olan bir kapsayıcı olduğundan, fiziksel bölümler yalnızca kapsayıcıya ait ve kapsayıcıdaki sağlanmış olan aktarım hızı destekler. 
+
+Mantıksal bölüm üzerinde çalışan bir iş yükünü birden çok, mantıksal birime ayrılmış aktarım hızı kullanırsa, işlemlerinizin oranı sınırlı alın. Hız sınırlama ortaya çıktığında, tüm kapsayıcı için sağlanan aktarım hızı artırabilir veya işlemleri yeniden deneyin. Bölümleme hakkında daha fazla bilgi için bkz: [mantıksal bölümler](partition-data.md).
 
 Kapsayıcı için garantili performans istediğinizde işleme kapsayıcı ayrıntı düzeyinde yapılandırmanızı öneririz.
-
-Bir Azure Cosmos kapsayıcıdaki sağlanmış olan aktarım hızı, tüm mantıksal bölümler kapsayıcının olarak eşit dağıtılır. Bir fiziksel bölüm tarafından barındırılan bir veya daha fazla mantıksal bölümleri olan bir kapsayıcı olduğundan, fiziksel bölümler yalnızca kapsayıcıya ait ve kapsayıcıdaki sağlanmış olan aktarım hızı destekler. 
 
 Aşağıdaki resimde, bir fiziksel bölüm bir veya daha fazla mantıksal bölümleri olan bir kapsayıcı nasıl barındıran gösterilmektedir:
 
@@ -40,9 +40,9 @@ Aşağıdaki resimde, bir fiziksel bölüm bir veya daha fazla mantıksal bölü
 
 ## <a name="set-throughput-on-a-database"></a>Bir veritabanında aktarım hızı ayarlama
 
-Bir Azure Cosmos veritabanı aktarım hızını sağladığınızda, aktarım hızı veritabanında tüm kapsayıcılar arasında paylaşılır. Sağlanan bir aktarım hızı belirli kapsayıcılarında belirttiyseniz, bir özel durumdur. Veritabanı aktarım hızını kapsayıcılarında arasında paylaşımı makine kümesi üzerinde bir veritabanını barındırmak için benzer. Tüm kapsayıcıları bir veritabanı içinde bir makinede kullanılabilir kaynakları paylaştığından, doğal olarak tahmin edilebilir performans üzerinde belirli bir kapsayıcı almıyor. Aktarım hızı bir veritabanını yapılandırmak için bkz [yapılandırma sağlanan aktarım hızını bir Azure Cosmos veritabanı](how-to-provision-database-throughput.md).
+Bir Azure Cosmos veritabanı aktarım hızını sağladığınızda, aktarım hızı veritabanında tüm kapsayıcılar arasında paylaşılır. Belirli kapsayıcılarına veritabanında bir sağlanan aktarım hızı belirttiyseniz, bir özel durumdur. Veritabanı düzeyinde sağlanan aktarım hızı, kapsayıcılar arasında paylaşımı makine kümesi üzerinde bir veritabanını barındırmak için benzer. Tüm kapsayıcıları bir veritabanı içinde bir makinede kullanılabilir kaynakları paylaştığından, doğal olarak tahmin edilebilir performans üzerinde belirli bir kapsayıcı almıyor. Bir veritabanı üzerinde sağlanan aktarım hızı yapılandırma konusunda bilgi için bkz: [yapılandırma sağlanan aktarım hızını bir Azure Cosmos veritabanı](how-to-provision-database-throughput.md).
 
-Bir Azure Cosmos veritabanı ayarı aktarım hızını, her zaman sağlanan aktarım hızı alma garanti eder. Veritabanı içinde tüm kapsayıcıları sağlanan aktarım hızı paylaştığından, Azure Cosmos DB veritabanındaki belirli bir kapsayıcı için öngörülebilir bir üretilen iş hacmi garanti sağlamaz. Belirli bir kapsayıcı alabileceği aktarım hızı kısmı bağlıdır:
+Bir Azure Cosmos veritabanı ayarı aktarım hızını, her zaman bu veritabanı için sağlanan aktarım hızı alma garanti eder. Veritabanı içinde tüm kapsayıcıları sağlanan aktarım hızı paylaştığından, Azure Cosmos DB veritabanındaki belirli bir kapsayıcı için öngörülebilir bir üretilen iş hacmi garanti sağlamaz. Belirli bir kapsayıcı alabileceği aktarım hızı kısmı bağlıdır:
 
 * Kapsayıcı sayısı.
 * Bölüm anahtarları çeşitli kapsayıcılar için seçimi.
@@ -56,11 +56,11 @@ Aşağıdaki örnekler, burada, aktarım hızı ve veritabanı düzeyinde sağla
 
 * MongoDB veya Azure Cosmos DB'ye bir kümesi sanal makinelerinin ya da şirket içi fiziksel sunucuları üzerinde barındırılan, Cassandra gibi bir NoSQL veritabanı geçiş yaptığınızda, kapsayıcıları kümesi arasında bir veritabanının sağlanan aktarım hızı paylaşımı yararlıdır. Sağlanan aktarım hızı, Azure Cosmos veritabanı bir mantıksal eşdeğeri olarak yapılandırılmış ancak daha düşük maliyetli ve esnek, MongoDB veya Cassandra kümenizi işlem kapasitesinin düşünün.  
 
-Sağlanan aktarım hızına sahip bir veritabanı içinde oluşturulan tüm kapsayıcıları bir bölüm anahtarı ile oluşturulması gerekir. Belirli bir anda zaman, tüm mantıksal bölümler bu kapsayıcı, bir veritabanı içinde bir kapsayıcıya ayrılan aktarım hızı dağıtılır. Aktarım hızı seçmeli olarak sağlanan aktarım hızını bir veritabanını paylaşan kapsayıcılar varsa, belirli bir kapsayıcı veya mantıksal bir bölümü için uygulanamıyor. 
+Sağlanan aktarım hızına sahip bir veritabanı içinde oluşturulan tüm kapsayıcıları ile oluşturulması gereken bir [bölüm anahtarı](partition-data.md). Belirli bir anda zaman, tüm mantıksal bölümler bu kapsayıcı, bir veritabanı içinde bir kapsayıcıya ayrılan aktarım hızı dağıtılır. Aktarım hızı seçmeli olarak bir veritabanı üzerinde yapılandırılan ve sağlanan aktarım hızı paylaşan kapsayıcılar varsa, belirli bir kapsayıcı veya mantıksal bir bölümü için uygulanamıyor. 
 
-Bir mantıksal bölüm iş yüküne en fazla aktarım hızı belirli bir mantıksal birime atanan kullanırsa, işlemlerinizin oranı sınırlı. Hız sınırlama ortaya çıktığında, kapsayıcının tamamı verimliliğini artırmak veya işlemleri yeniden deneyin. Bölümleme hakkında daha fazla bilgi için bkz: [mantıksal bölümler](partition-data.md).
+Bir mantıksal bölüm iş yüküne en fazla aktarım hızı belirli bir mantıksal birime atanan kullanırsa, işlemlerinizin oranı sınırlı. Hız sınırlama ortaya çıktığında, tüm veritabanı verimliliğini artırmak veya işlemleri yeniden deneyin. Bölümleme hakkında daha fazla bilgi için bkz: [mantıksal bölümler](partition-data.md).
 
-Bir veritabanı için sağlanan işleme paylaşan birden çok mantıksal bölümleri tek bir fiziksel bölüm üzerinde barındırılabilir. Tek bir mantıksal bölüm kapsayıcısının her zaman içinde bir fiziksel bölüm kapsamlıdır, ancak sağlanan aktarım hızı bir veritabanını paylaşan "C" kapsayıcılar arasında mantıksal bölümler "L" eşlenen ve "R" fiziksel bölümler barındırılan. 
+Bir veritabanı için sağlanan işleme paylaşan farklı kapsayıcılar ait birden çok mantıksal bölümleri tek bir fiziksel bölüm üzerinde barındırılabilir. Tek bir mantıksal bölüm kapsayıcısının her zaman bir fiziksel bölüm kapsamlı sırada *"L"* mantıksal bölümler arasında *"C"* sağlanan aktarım hızı bir veritabanını paylaşan kapsayıcıları eşlenen ve barındırılan *"R"* fiziksel bölümler. 
 
 Aşağıdaki resimde, bir veritabanı içinde farklı kapsayıcılar ait bir veya daha fazla mantıksal bölümler bir fiziksel bölüm nasıl barındırabilir gösterilmektedir:
 
@@ -70,11 +70,11 @@ Aşağıdaki resimde, bir veritabanı içinde farklı kapsayıcılar ait bir vey
 
 İki model birleştirebilirsiniz. Hem veritabanı hem de kapsayıcı sağlama işleme izin verilmiyor. Aşağıdaki örnek, bir Azure Cosmos veritabanı ve kapsayıcı aktarım hızına gösterilmektedir:
 
-* "K" RU sağlanan aktarım hızı ile Z adlı bir Azure Cosmos veritabanı oluşturabilirsiniz. 
-* Ardından, A adlı beş kapsayıcıları oluşturma B, C, D ve veritabanı içinde E.
-* Açıkça sağlanan aktarım hızının ru "P" b adlı kapsayıcıdaki yapılandırabilirsiniz
-* "K" RU aktarım hızı dört kapsayıcımız A, C, D ve E. arasında paylaşılır Aktarım hızı miktarda kullanılabilir a, C, D ya da E değişir. Tek tek her kapsayıcının aktarım hızını SLA'sı vardır.
-* B adlı kapsayıcı her zaman "P" RU aktarım hızı alma garanti edilir. Bu SLA'ları tarafından desteklenmektedir.
+* Adlı bir Azure Cosmos veritabanı oluşturabileceğiniz *Z* sağlanan aktarım hızı ile *"K"* RU. 
+* Ardından, adlı beş kapsayıcıları oluşturma *A*, *B*, *C*, *D*, ve *E* veritabanı içinde.
+* Açıkça yapılandırabileceğiniz *"P"* RU adlı kapsayıcıda sağlanan aktarım hızının *B*.
+* *"K"* RU aktarım hızı arasında dört kapsayıcımız paylaşılan *A*, *C*, *D*, ve *E*. Aktarım hızı için kullanılabilir miktarda *A*, *C*, *D*, veya *E* değişir. Tek tek her kapsayıcının aktarım hızını SLA'sı vardır.
+* Adlı kapsayıcıyı *B* kesindir *"P"* RU işleme her zaman. Bu SLA'ları tarafından desteklenmektedir.
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Bir veritabanı veya bir kapsayıcının aktarım hızını güncelleştir
 
@@ -92,7 +92,7 @@ Herhangi bir zamanda, bir kapsayıcı veya bir veritabanı sağlanan aktarım h�
 
 ## <a name="comparison-of-models"></a>Modellerin karşılaştırması
 
-|**Kota**  |**Bir veritabanı üzerinde sağlanan aktarım hızı**  |**Bir kapsayıcı sağlanan aktarım hızı**|
+|**Parametre**  |**Bir veritabanı üzerinde sağlanan aktarım hızı**  |**Bir kapsayıcı sağlanan aktarım hızı**|
 |---------|---------|---------|
 |En az ru |400 (sonra ilk dört kapsayıcılar, her ek kapsayıcı en az 100 RU / saniye gerektirir.) |400|
 |Kapsayıcı başına en az ru|100|400|

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: celested
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee35fbfff676e8618a4e5ae02086193c503f482
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bb193119186c2cf9e758f8c74f99f18c5fb389b8
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170831"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792527"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Azure AD uygulama ara sunucusu Bağlayıcısı için Katılımsız yükleme betiği oluşturma
 
@@ -34,7 +34,7 @@ Bu özellik, istediğinizde yararlıdır:
 * Bağlayıcıyı yükleme ve kayıt başka bir yordamının parçası olarak tümleştirin.
 * Bağlayıcı BITS içerir ancak kayıtlı değil standart sunucu görüntüsünü oluşturun.
 
-İçin [uygulama ara sunucusu bağlayıcısını](application-proxy-connectors.md) çözmek için bir genel yönetici ve parolayı kullanarak, Azure AD dizini ile kayıtlı olması gerekir. Normalde bu bilgileri bir açılır iletişim kutusunda Bağlayıcısı yüklemesi sırasında girilir ancak bunun yerine bu işlemi otomatikleştirmek için PowerShell kullanabilirsiniz.
+İçin [uygulama ara sunucusu bağlayıcısını](application-proxy-connectors.md) çalışmak için bir uygulama yönetici ve parolayı kullanarak, Azure AD dizini ile kayıtlı olması gerekir. Normalde bu bilgileri bir açılır iletişim kutusunda Bağlayıcısı yüklemesi sırasında girilir ancak bunun yerine bu işlemi otomatikleştirmek için PowerShell kullanabilirsiniz.
 
 Katılımsız yükleme için iki adımı vardır. İlk olarak Bağlayıcısı'nı yükleyin. İkinci olarak, bağlayıcıyı Azure AD'ye kaydedin. 
 

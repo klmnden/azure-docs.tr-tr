@@ -13,19 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: magoedte
-ms.openlocfilehash: a152d9242c4d272800e2e159603c2554f1d89092
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: ef5ab3d4fe71f688a0b4f3879248ea1715874a0b
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622051"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793739"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure'da hizmet eşlemesi yapılandırma
+
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--kritik Hizmetleri sunmak birbirine sistemleri düşündüğünüz sunucularınızın görüntülemek için kullanabilirsiniz. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi, gerekli bir aracı yüklemesini dışında hiçbir yapılandırma boyunca sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir.
 
 Bu makalede hizmet eşlemesi ve onboarding aracıları yapılandırma ayrıntılarını açıklar. Hizmet eşlemesi kullanma hakkında daha fazla bilgi için bkz. [Azure'da hizmet eşlemesi çözümünü kullanma]( service-map.md).
 
 ## <a name="supported-azure-regions"></a>Desteklenen Azure bölgeleri
+
 Hizmet eşlemesi aşağıdaki Azure bölgeleri şu anda kullanılabilir:
 - Doğu ABD
 - Batı Orta ABD
@@ -35,6 +37,7 @@ Hizmet eşlemesi aşağıdaki Azure bölgeleri şu anda kullanılabilir:
 - Güneydoğu Asya
 
 ## <a name="supported-windows-operating-systems"></a>Desteklenen Windows işletim sistemleri
+
 Aşağıdaki bölümde, Windows üzerinde bağımlılık aracısını için desteklenen işletim sistemleri listesi. 
 
 >[!NOTE]
@@ -42,6 +45,7 @@ Aşağıdaki bölümde, Windows üzerinde bağımlılık aracısını için dest
 >
 
 ### <a name="windows-server"></a>Windows Server
+
 - Windows Server 2019
 - Windows Server 2016 1803
 - Windows Server 2016
@@ -50,6 +54,7 @@ Aşağıdaki bölümde, Windows üzerinde bağımlılık aracısını için dest
 - Windows Server 2008 R2 SP1
 
 ### <a name="windows-desktop"></a>Windows masaüstü
+
 - Windows 10, 1803
 - Windows 10
 - Windows 8.1
@@ -57,6 +62,7 @@ Aşağıdaki bölümde, Windows üzerinde bağımlılık aracısını için dest
 - Windows 7
 
 ## <a name="supported-linux-operating-systems"></a>Desteklenen Linux işletim sistemleri
+
 Aşağıdaki bölümde, Linux üzerinde bağımlılık aracısını için desteklenen işletim sistemleri listesi.  
 
 - Yalnızca varsayılan ve SMP Linux çekirdek sürümleri desteklenir.
@@ -79,6 +85,7 @@ Aşağıdaki bölümde, Linux üzerinde bağımlılık aracısını için destek
 | 6.10 | 2.6.32-754 |
 
 ### <a name="centosplus"></a>CentOSPlus
+
 | İşletim sistemi sürümü | Çekirdek sürümü |
 |:--|:--|
 | 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
@@ -114,6 +121,7 @@ Aşağıdaki bölümde, Linux üzerinde bağımlılık aracısını için destek
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
+
 Hizmet eşlemesi kendi verilerini Microsoft Dependency Aracıdan alır. Log Analytics aracısını Log analytics'e bağlantıları için bağımlılık Aracısı'nı kullanır. Başka bir deyişle, bir sunucuya yüklenmiş ve yapılandırılmış bağımlılık aracısını Log Analytics aracısını olması gerekir.  Aşağıdaki tabloda, hizmet eşlemesi çözümünü destekleyen bağlı kaynaklar açıklanmaktadır.
 
 | Bağlı kaynak | Desteklenen | Açıklama |
@@ -141,16 +149,19 @@ Log Analytics'e bağlı bir yönetim grubuna sahip bir System Center Operations 
 Windows veya Linux bilgisayarlarınızın doğrudan hizmetine bağlanamazsa, ağ geçidini kullanarak Log Analytics çalışma alanına bağlamak için Log Analytics aracısını yapılandırmanız gerekir. Log Analytics ağ geçidi yapılandırmak ve dağıtmak hakkında daha fazla bilgi için bkz. [Log Analytics ağ geçidini kullanarak Internet erişimi bilgisayarları bağlama](../../azure-monitor/platform/gateway.md).  
 
 ### <a name="management-packs"></a>Yönetim paketleri
+
 Log Analytics çalışma alanında hizmet eşlemesi etkinleştirildiğinde, 300 KB Yönetim Paketi bu çalışma alanındaki tüm Windows sunucuları iletilir. System Center Operations Manager aracıları kullanıyorsanız bir [bağlı yönetim grubu](../../azure-monitor/platform/om-agents.md), hizmet eşlemesi Yönetim Paketi, System Center Operations Manager üzerinden dağıtılır. 
 
 Yönetim paketinin adı Microsoft.IntelligencePacks.ApplicationDependencyMonitor'dır. Bu, %Programfiles%\Microsoft izleme Agent\Agent\Health hizmet State\Management Packs\ yazılır. Yönetim Paketi kullanan veri kaynağı % Program files%\Microsoft izleme Agent\Agent\Health hizmet State\Resources,\<AutoGeneratedID > \ Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
 ## <a name="data-collection"></a>Veri toplama
+
 Sistem bağımlılıklarınızı nasıl karmaşık olan bağlı olarak, günde yaklaşık 25 MB iletmek için her bir aracı bekleyebilirsiniz. Her aracı, her 15 saniyede hizmet eşlemesi bağımlılık verileri gönderir.  
 
 Bağımlılık Aracısı'nı genellikle sistem belleğinin yüzde 0,1 ve sistemin CPU yüzdesi 0,1 tüketir.
 
 ## <a name="diagnostic-and-usage-data"></a>Tanılama ve kullanım verileri
+
 Microsoft hizmet eşlemesi hizmeti kullanımınız vasıtasıyla kullanım ve performans verilerini otomatik olarak toplar. Microsoft, kalite, güvenlik ve hizmet eşlemesi hizmeti bütünlüğünü geliştirmek için bu verileri kullanır. Veriler işletim sistemi ve sürümü gibi yazılımınızın yapılandırması hakkında bilgiler içerir. Ayrıca IP adresi, DNS adı ve iş istasyonu adı doğru ve etkili sorun giderme özellikleri sağlamak için içerir. Ad, adres veya diğer iletişim bilgilerinizi toplamaz.
 
 Veri toplama ve kullanım hakkında daha fazla bilgi için bkz. [Microsoft Online Services gizlilik bildirimi](https://go.microsoft.com/fwlink/?LinkId=512132).
@@ -160,6 +171,7 @@ Veri toplama ve kullanım hakkında daha fazla bilgi için bkz. [Microsoft Onlin
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ### <a name="azure-vm-extension"></a>Azure VM uzantısı
+
 Bir uzantı (DependencyAgentWindows) Windows ve Linux (DependencyAgentLinux) için kullanılabilir ve bağımlılık Aracısı'nı kullanarak Azure sanal makinelerini kolayca dağıtım yapabilir bir [Azure VM uzantısı](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Azure VM uzantısı ile Windows ve Linux bir PowerShell Betiği kullanılarak veya doğrudan sanal Makineye bir Azure Resource Manager şablonu kullanarak sanal makine için bağımlılık Aracısı'nı dağıtabilirsiniz.  Azure VM uzantısı aracıyla dağıtırsanız, aracılarınızı en son sürüme otomatik olarak güncelleştirilir.
 
 PowerShell ile Azure VM uzantısı dağıtmak için aşağıdaki örneği kullanabilirsiniz:
@@ -210,6 +222,7 @@ Bağımlılık Aracısı'nı Vm'leriniz üzerinde yüklü emin olmak amacıyla d
 ```
 
 ### <a name="install-the-dependency-agent-on-microsoft-windows"></a>Microsoft Windows üzerinde bağımlılık aracısını yükleme
+
 Bağımlılık aracısını el ile Windows bilgisayarlarda çalıştırarak yüklenebilir `InstallDependencyAgent-Windows.exe`. Bu yürütülebilir dosya hiçbir seçenek olmadan çalıştırırsanız, etkileşimli bir şekilde yüklemek için izlemeniz gereken bir Kurulum Sihirbazı başlar.  
 
 >[!NOTE]
@@ -226,6 +239,7 @@ Bağımlılık Aracısı'nı her bir Windows bilgisayara yüklemek için aşağ�
 4.  Bağımlılık Aracısı'nı başlatmak başarısız olursa, ayrıntılı hata bilgileri için günlükleri denetleyin. Windows aracıları, %Programfiles%\Microsoft bağımlılık Agent\logs günlük dizindir. 
 
 #### <a name="windows-command-line"></a>Windows komut satırı
+
 Komut satırından yüklemek için aşağıdaki tabloda yer alan seçenekleri kullanın. Yükleme bayraklarının listesini görmek için yükleyiciyi çalıştırırken aşağıda gösterildiği gibi /? bayrağını kullanın.
 
     InstallDependencyAgent-Windows.exe /?
@@ -238,6 +252,7 @@ Komut satırından yüklemek için aşağıdaki tabloda yer alan seçenekleri ku
 Windows bağımlılık aracısını dosyaları C:\Program Files\Microsoft bağımlılık Aracısı varsayılan olarak yerleştirilir.
 
 ### <a name="install-the-dependency-agent-on-linux"></a>Linux üzerinde bağımlılık aracısını yükleme
+
 Bağımlılık Aracısı'nı Linux bilgisayarlardan yüklenir `InstallDependencyAgent-Linux64.bin`, kendi kendine ayıklanan bir ikili içeren bir kabuk betiği. Kullanarak dosyayı çalıştırabilirsiniz `sh` veya yürütme izinleri dosya için.
 
 >[!NOTE]
@@ -273,9 +288,11 @@ Bağımlılık Aracısı'nı dosyaları aşağıdaki dizinlerde yerleştirilir:
 | İkili depolama dosyaları | /var/opt/microsoft/dependency-agent/storage |
 
 ## <a name="installation-script-examples"></a>Yükleme betiği örnekleri
+
 Bağımlılık aracısını birçok sunucuda tek seferde kolayca dağıtmak için aşağıdaki betiği örneği indirip bağımlılık aracısını Windows veya Linux'ta sağlanır.
 
 ### <a name="powershell-script-for-windows"></a>Windows için PowerShell betiği
+
 ```powershell
 Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
 
@@ -283,14 +300,17 @@ Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDepend
 ```
 
 ### <a name="shell-script-for-linux"></a>Linux için kabuk betiği
+
 ```
 wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
 sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
+
 ## <a name="desired-state-configuration"></a>İstenen Durum Yapılandırması
+
 Desired State Configuration ' nı (DSC) kullanarak bağımlılık aracısını dağıtmak için aşağıdaki örnek kod ile xPSDesiredStateConfiguration modülü kullanabilirsiniz:
 
-```
+```powershell
 configuration ServiceMap {
 
     Import-DscResource -ModuleName xPSDesiredStateConfiguration
@@ -323,12 +343,15 @@ configuration ServiceMap {
 ```
 
 ## <a name="remove-the-dependency-agent"></a>Bağımlılık aracısını Kaldır
+
 ### <a name="uninstall-agent-on-windows"></a>Windows aracısını kaldırma
+
 Bir yönetici, Windows Denetim Masası'ndan için bağımlılık Aracısı kaldırabilirsiniz.
 
 Bir yönetici, %Programfiles%\Microsoft bağımlılık Aracısı'nı kaldırmak için bağımlılık Agent\Uninstall.exe olarak da çalıştırabilirsiniz.
 
 ### <a name="uninstall-agent-on-linux"></a>Linux aracısını kaldırma
+
 Aşağıdaki komutla Linux'taki bağımlılık aracısını kaldırabilirsiniz.
 
 RHEL, CentOs veya Oracle:
@@ -344,10 +367,13 @@ sudo apt -y purge dependency-agent
 ```
 
 ## <a name="troubleshooting"></a>Sorun giderme
+
 Bu bölümde, yüklenmesini veya çalıştırılmasını hizmet eşlemesi herhangi bir sorun varsa, size yardımcı olabilir. Sorununuzu hala çözümleyememesi durumunda Microsoft Support'ne başvurun.
 
 ### <a name="dependency-agent-installation-problems"></a>Bağımlılık Aracısı yükleme sorunları
+
 #### <a name="installer-prompts-for-a-reboot"></a>Yükleyici için yeniden başlatma ister
+
 Bağımlılık Aracısı'nı *genellikle* yükleme veya kaldırma işlemi sırasında bir yeniden başlatma gerektirmez. Ancak, bazı nadir durumlarda, Windows Server bir yükleme işlemine devam etmek için bir yeniden başlatma gerektirir. Genellikle Microsoft Visual C++ yeniden dağıtılabilir, bir bağımlılık nedeniyle kilitli bir dosyayı yeniden başlatma gerektirdiğinde bu gerçekleşir.
 
 #### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--codenumber-appears"></a>İleti "bağımlılık aracısını yükleme yüklenemiyor: Visual Studio çalışma zamanı kitaplıkları yüklenemedi (kod [code_number] =) "görünür
@@ -365,7 +391,9 @@ Aşağıdaki tabloda, kod sayıları ve önerilen çözümler listelenmektedir.
 | 0x17 | Kitaplık yükleyici, yüklü olmayan bir Windows update gerektirir. | En son kitaplık yükleyicisi günlüğe bakın.<br><br>"Windows8.1-KB2999226-x64.msu" başvuru bir çizgiyle izlediyseniz "hatası 0x80240017: MSU paketi çalıştırılamadı,"KB2999226 yüklemek için gereken önkoşulları yoktur. Önkoşullar bölümünde yönergeleri [Windows Evrensel C çalışma zamanı](https://support.microsoft.com/kb/2999226). Windows Update'i çalıştırın ve birden çok kez önkoşulları yüklemek için yeniden başlatma gerekebilir.<br><br>Microsoft Dependency aracı yükleyiciyi yeniden çalıştırın. |
 
 ### <a name="post-installation-issues"></a>Yükleme sonrası sorunları
+
 #### <a name="server-doesnt-appear-in-service-map"></a>Sunucu hizmeti haritada görünmüyor
+
 Bağımlılık Aracısı yüklendi, ancak hizmet eşlemesi çözüm sunucunuzda görmüyorsanız:
 * Bağımlılık Aracısı'nı başarıyla yüklü mü? Bu hizmet yüklü olup olmadığını denetliyor ve çalıştırarak doğrulayabilirsiniz.<br><br>
 **Windows**: "Microsoft Dependency agent" adlı hizmet için Ara<br>
@@ -380,9 +408,11 @@ Bağımlılık Aracısı yüklendi, ancak hizmet eşlemesi çözüm sunucunuzda 
 Sonuçlar arasında olaylar çeşitli mı aldınız? Verilerin güncel mi? Bu durumda, Log Analytics aracısını düzgün çalışmasını ve Log Analytics ile iletişim kurulurken. Aksi takdirde, sunucudaki aracı denetleyin: [Windows sorun giderme için log Analytics aracısını](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) veya [Linux sorun giderme için Log Analytics aracısını](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Sunucu, hizmet eşlemesinde görünür ancak hiçbir işlem sahiptir
+
 Hizmet eşlemesi sunucunuzun bakın, ancak işlem veya bağlantı veri yok, bağımlılık Aracısı'nı yüklü ve çalışır durumdadır, ancak çekirdek sürücüsü yüklenmedi gösterir. 
 
 C:\Program Files\Microsoft bağımlılık Agent\logs\wrapper.log dosyası (Windows) veya /var/opt/microsoft/dependency-agent/log/service.log dosyası (Linux) kontrol edin. Dosyanın son satırları çekirdek neden yüklenmedi belirtmeniz gerekir. Örneğin, çekirdek güncelleştirilmiş çekirdek Linux üzerinde desteklenmeyebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 - Bilgi edinmek için nasıl [Hizmet eşlemesini kullanmak]( service-map.md) dağıttıktan ve yapılandırılmış sonra.

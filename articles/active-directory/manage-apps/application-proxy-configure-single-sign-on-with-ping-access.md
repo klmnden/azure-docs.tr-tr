@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 319791c2436395c00dafc744fb6fcb1ff18b0750
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f236c6a78edeb04a69685bf27c99997ed470f498
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652340"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791532"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Üst bilgi tabanlı kimlik doğrulaması için uygulama proxy'si ile PingAccess ile çoklu oturum açma
 
@@ -54,7 +54,7 @@ Zaten uygulama Proxy etkin olması ve yüklü bir bağlayıcı varsa, bu bölüm
 
 Uygulama Ara sunucusu Bağlayıcısı'nı, yayımlanmış uygulamaları uzak çalışanlarınız gelen trafiği yönlendiren bir Windows Server hizmetidir. Daha ayrıntılı yükleme yönergeleri için bkz. [Azure portalında uygulama ara sunucusunu etkinleştirme](application-proxy-add-on-premises-application.md).
 
-1. [Azure portalında](https://portal.azure.com) genel yönetici olarak oturum açın.
+1. Oturum [Azure portalında](https://portal.azure.com) uygulama yöneticisi olarak.
 2. Seçin **Azure Active Directory** > **uygulama proxy'si**.
 3. Seçin **Bağlayıcısı'nı indir** uygulama ara sunucusu Bağlayıcısı indirme başlatılamadı. Yükleme yönergelerini izleyin.
 
@@ -69,7 +69,7 @@ Azure portalında atmanız gereken iki eylemler vardır. İlk olarak, uygulama a
 
 Uygulamanızı yayımlamak için aşağıdaki adımları izleyin. 1-8, bkz: adımlarının daha ayrıntılı için [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-add-on-premises-application.md).
 
-1. Son bölümde Aksi takdirde oturum [Azure portalında](https://portal.azure.com) genel Yöneticisi olarak.
+1. Son bölümde Aksi takdirde oturum [Azure portalında](https://portal.azure.com) uygulama yöneticisi olarak.
 2. Seçin **Azure Active Directory** > **kurumsal uygulamalar**.
 3. Seçin **Ekle** dikey penceresinin üstünde.
 4. Seçin **şirket içi uygulama**.
@@ -153,7 +153,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 Bu örnekte [Azure portalında](https://portal.azure.com) güncelleştirilecek *acceptedMappedClaims* alan:
-1. [Azure portalında](https://portal.azure.com) genel yönetici olarak oturum açın.
+1. Oturum [Azure portalında](https://portal.azure.com) uygulama yöneticisi olarak.
 2. Seçin **Azure Active Directory** > **uygulama kayıtları**.
 3. Uygulamanızı seçin > **bildirim**.
 4. Seçin **Düzenle**, arama *acceptedMappedClaims* alan ve değere değiştirin **true**.

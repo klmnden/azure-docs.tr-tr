@@ -6,19 +6,22 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/26/2019
+ms.date: 03/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6b5ef0f165433e2dd0685aa0e4f64bd04bf5c823
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902255"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762948"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
 Çözüm başlar ve Azure sanal makinelerinizi kullanıcı tanımlı zamanlamalarda durdurur, Azure İzleyici günlüklerine aracılığıyla Öngörüler sağlar ve kullanarak isteğe bağlı bir e-postaları gönderen çalışma saatleri dışında Vm'leri başlatma/durdurma [Eylem grupları](../azure-monitor/platform/action-groups.md). Bu, çoğu senaryo için hem Azure Resource Manager ve klasik Vm'leri destekler.
+
+> [!NOTE]
+> Çözüm çözümünü dağıttığınızda, Otomasyon hesabınızda içeri Azure modülleri ile test edilmiştir çalışma saatleri dışında Vm'leri başlatma/durdurma. Çözüm, şu anda Azure modülü daha yeni sürümleriyle çalışmaz. Bu, yalnızca Otomasyon Vm'leri başlatma/durdurma çalışma sırasında yeniden hedeflenen çözümü çalıştırmak için kullandığınız hesabın etkiler. Daha yeni sürümleri, Azure modülü, diğer Automation hesaplarında, açıklanan şekilde kullanmaya devam edebilirsiniz [Azure automation'da Azure PowerShell modüllerini güncelleştirme](automation-update-azure-modules.md)
 
 Bu çözüm, VM maliyetlerini en iyi hale getirmek isteyen kullanıcılar için bir merkezi olmayan düşük maliyetli Otomasyon seçeneği sunar. Bu çözüm ile şunları yapabilirsiniz:
 

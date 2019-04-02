@@ -12,22 +12,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 3e754d81a18b683e601608b856bbc9da1b790dbd
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: ddc1c7f2dd207cba18a8c080c8b14cc53c149a39
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259389"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804184"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Azure portalını kullanarak bir Media Services hesabı oluşturma
+
+> [!NOTE]
+> Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
 
 Azure portalı bir Azure Media Services (AMS) hesabını hızlıca oluşturmanın yolunu sağlar. Azure’da medya içeriği depolamanıza, şifrelemenize, kodlamanıza, yönetmenize ve akış yapmanıza imkan tanıyan Media Services’e erişmek için hesabınızı kullanabilirsiniz. Bir Media Services hesabı oluşturma zamanında, ayrıca ilişkili bir depolama hesabı oluşturun (veya var olanı kullanın). Bir Media Services hesabını silerseniz ilişkili depolama hesabınızdaki blob’lar silinmez.
 
 Birincil depolama hesabınız Genel Amaçlı v1 veya Genel Amaçlı v2 olabilir. Şu an için Azure portal ile yalnızca v1 seçebilirsiniz ancak hesabı API veya PowerShell kullanarak oluşturduğunuzda v2 seçebilirsiniz. Depolama türleri hakkında daha fazla bilgi için bkz. [Azure Storage hesapları hakkında](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
-Media Services hesabı ve tüm ilişkili depolama hesapları aynı Azure aboneliğinde olması gerekir. Depolama hesapları Media Services hesabıyla aynı konumda ek gecikme süresi ve veri kullanım maliyetleri önlemek için önemle tavsiye edilir.
+Media Services hesabı ve onunla ilişkili tüm depolama hesaplarının aynı Azure aboneliğinde olması gerekir. Gecikme süreleri ve veri çıkış maliyetleri ile karşı karşıya kalmamak için mutlaka Media Services ile aynı konumda bulunan depolama hesaplarını kullanmanız önerilir.
 
 Bu makalede, Azure portalını kullanarak Media Services hesabı oluşturma işlemini gösterir.
 

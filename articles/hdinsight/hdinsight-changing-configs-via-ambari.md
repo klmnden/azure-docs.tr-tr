@@ -1,19 +1,19 @@
 ---
 title: Apache Ambari - Azure HDInsight ile küme yapılandırmalarını en iyi duruma getirme
 description: Yapılandırma ve HDInsight kümeleri en iyi duruma getirmek için Apache Ambari web kullanıcı arabirimini kullanın.
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: ashish
-ms.openlocfilehash: 14b634e610fb0da71c5f0d742a250b18cea70dc7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/26/2019
+ms.author: hrasheed
+ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722932"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805389"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>HDInsight küme yapılandırmalarını en iyi duruma getirmek için Apache Ambari kullanın
 
@@ -51,7 +51,7 @@ NameNode Java yığın boyutu değiştirmek için:
 
     ![NameNode Java yığın boyutu Düzenle](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
-1. NameNode Java yığın boyutu 2 GB için 1 GB ile değiştirilir.
+1. NameNode Java yığın boyutu 1 GB-2 GB ile değiştirilir.
 
     ![NameNode Java yığın boyutu düzenlendi](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
@@ -125,7 +125,7 @@ Bir Hive sorgusu, bir veya daha fazla aşamalı olarak yürütülür. Bağımsı
 
 1.  Paralel sorgu yürütme sağlamak Hive gidin **Config** sekmesinde ve arama `hive.exec.parallel` özelliği. Varsayılan değer false'tur. Değeri TRUE ve ENTER tuşuna basın değiştirmek **Enter** değeri kaydetmek için.
  
-1.  Paralel olarak çalıştırılacak iş sayısını sınırlamak için değiştirme `hive.exec.parallel.thread.number` özelliği. Varsayılan değer 8'dir.
+1.  Paralel olarak çalıştırmak için iş sayısını sınırlamak için değiştirme `hive.exec.parallel.thread.number` özelliği. Varsayılan değer 8'dir.
 
     ![Exec paralel hive](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 
@@ -176,7 +176,7 @@ Hadoop işleri genellikle g/ç performansı düşürdüğünü gösterir. Veri s
 
 Kullanılabilir sıkıştırma türleri şunlardır:
 
-| Biçimlendir | Aracı | Algoritması | Dosya uzantısı | Bölünebilir mi? |
+| Biçimlendir | Tool | Algoritma | Dosya uzantısı | Bölünebilir mi? |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | SÖNDÜR | .gz | Hayır |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Evet |
@@ -269,7 +269,7 @@ Aşağıdaki bölümlerde ayarlayabileceğiniz ek Hive ile ilgili iyileştirmele
 
 Hive varsayılan birleştirme türü olan bir *shuffle birleştirme*. Hive, özel azaltıcının giriş okuyun ve join anahtar/değer çifti için bir ara dosya yayma. Hadoop, sıralar ve bu çiftler shuffle aşamasında birleştirir. Bu shuffle aşama pahalıdır. Verilerinizi temel alan sağ birleştirme seçerek performansını önemli ölçüde artırabilir.
 
-| Katılım Türü | Ne zaman: | Nasıl | Hive ayarları | Yorumlar |
+| Katılım Türü | Zaman | Nasıl | Hive ayarları | Yorumlar |
 | -- | -- | -- | -- | -- |
 | Shuffle birleştirme | <ul><li>Varsayılan seçenek</li><li>Her zaman çalışır</li></ul> | <ul><li>Tablolardan birinin bölümünden okur</li><li>Demetleri ve birleştirme anahtarı sıralar</li><li>Tek bir demet her reduce'a gönderir.</li><li>Birleştirme azaltın tarafında gerçekleştirilir</li></ul> | Gerekli ayarı yok önemli Hive | Her zaman çalışır. |
 | Harita birleştirme | <ul><li>Bir tablo belleğe sığması</li></ul> | <ul><li>Küçük bir tablo bellek karma tabloya okur</li><li>Akışları aracılığıyla büyük dosya</li><li>Karma tablosundaki her kayıt birleştirir</li><li>Birleştirmeler Eşleyicisi tarafından olan</li></ul> | `hive.auto.confvert.join=true` | Çok hızlı ancak sınırlı |
@@ -282,7 +282,7 @@ Hive yürütme altyapısı iyileştirmek için ek öneriler:
 | Ayar | Önerilen | HDInsight varsayılan |
 | -- | -- | -- |
 | `hive.mapjoin.hybridgrace.hashtable` | TRUE = daha güvenli, daha yavaş; daha hızlı = false | false |
-| `tez.am.resource.memory.mb` | En üst sınırını 4 GB | Otomatik olarak ayarlanmış |
+| `tez.am.resource.memory.mb` | Çoğu için 4 GB'lık üst sınır | Otomatik olarak ayarlanmış |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
@@ -295,7 +295,7 @@ Hive yürütme altyapısı iyileştirmek için ek öneriler:
 
 1. Bulma, açıklamasını kaldırın ve değiştirmek istediğiniz özelliğin değerini değiştirin.
 
-1. Seçin **Kaydet** yeni değeri kaydetmek için pencerenin sağ üst tarafında bulunan. Bazı özellikler, hizmeti yeniden başlatılması gerekebilir.
+1. Seçin **Kaydet** yeni değeri kaydetmek için pencerenin sağ üst tarafındaki. Bazı özellikler, hizmeti yeniden başlatılması gerekebilir.
 
     ![Gelişmiş pig özellikleri](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
@@ -454,4 +454,4 @@ Memstore yerel ayırma Arabellek kullanımı özelliği tarafından belirlenir `
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Apache Ambari web kullanıcı Arabirimi ile HDInsight kümelerini yönetme](hdinsight-hadoop-manage-ambari.md)
-* [Apache Ambari REST API'si](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

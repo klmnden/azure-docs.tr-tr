@@ -8,14 +8,14 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 7b5d9d483d05ac8225ea4b7497922192be44f1bc
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 7440c9bbfce801ffcfc5c4e0f800f6f4f9d34f8c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731677"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805134"
 ---
-# <a name="what-is-azure-policy"></a>Azure İlkesi nedir?
+# <a name="overview-of-the-azure-policy-service"></a>Azure İlkesi hizmetine genel bakış
 
 İdare doğrular, kuruluşunuzun hedeflerine ulaşmak etkili ve verimli kullanımı aracılığıyla elde edebilirsiniz BT. Bu, iş hedefleri ve BT projeleri arasında netlik oluşturarak bu gereksinimi karşılayan.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 3752e9c227e4db0f583b2f6b21d6c0aa3106d248
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: d8fc929b21bedcb3e7e2bd3f5ed1d6c867bca3c8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337706"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803383"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs SSS
 Azure DevTest Labs hakkında en yaygın soruların yanıtlarını alın.
@@ -44,7 +44,7 @@ Abone [DevTest Labs Azure blogunu](https://azure.microsoft.com/blog/tag/azure-de
 Biz ileriye dönük bizim Twitter tanıtıcısı kullanarak kesinti güncelleştirmeler yayınlayarak. Bizi kesintiler ve bilinen hatalar en son güncelleştirmeleri almak için Twitter'da takip edin.
 
 ### <a name="twitter"></a>Twitter 
-Bizim Twitter tanıtıcısı: azlabservices
+Bizim Twitter tanıtıcısı: [@azlabservices](https://twitter.com/azlabservices)
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Peki sorumun cevabı burada bulamadığınız?
 Sorunuzu burada listelenmiyorsa, bize bildirin ve yanıt bulmanıza yardımcı olabiliriz.
@@ -139,7 +139,9 @@ Aynı anda birden çok VM aynı şablonu oluşturmak için iki seçeneğiniz var
 ## <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>Mevcut Azure Vm'lerimi my DevTest Labs Laboratuvar nasıl taşırım?
 DevTest Labs mevcut Vm'lerinizi kopyalamak için:
 
-1. Mevcut sanal makinenizin VHD dosyasını kullanarak kopyalama bir [Windows PowerShell Betiği](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyVHDFromVMToLab.ps1).
+1. Bir PowerShell Betiği kullanarak mevcut sanal makinenizin VHD dosyasını kopyalayın:
+   * Kaynak Yöneticisi: [CopyRmVHDFromVMToLab.ps1](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyRmVHDFromVMToLab.ps1)
+   * Klasik: [CopyClassicVHDFromVMToLab.ps1](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyClassicVHDFromVMToLab.ps1)
 2. [Özel görüntü oluşturma](devtest-lab-create-template.md) DevTest Labs Laboratuvarınızı içinde.
 3. Laboratuvarda özel görüntü bir VM oluşturun.
 

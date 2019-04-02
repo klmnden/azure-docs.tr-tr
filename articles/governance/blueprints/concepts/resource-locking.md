@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 16ec3428138361726d69eb9b45943b20129e32ed
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 5409de8aabb52a531551abbc28ae9e873b262eba
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630714"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762438"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Kaynak Azure şemaları kilitleme anlama
 
@@ -30,7 +30,7 @@ Modları kilitleme, ancak dışında bir Blueprint'i değiştirilemez.
 |Mod|Yapıt kaynağı türü|Durum|Açıklama|
 |-|-|-|-|
 |Kilitleme|*|Kilitli değil|Kaynakları planlar tarafından korunmayan. Bu durum ayrıca eklenen kaynaklar için kullanılan bir **salt okunur** veya **silmeyin** şema atamasını dışında kaynak grubu yapıt.|
-|Salt Okunur|Kaynak grup|Cannot Edit / Delete|Kaynak grubu salt okunur ve kaynak grubunda etiketlerin değiştirilemez. **Kilitli** kaynakları eklenebilir, taşınabilir, değiştirildi veya bu kaynak grubundan silindi.|
+|Salt Okunur|Kaynak grubu|Cannot Edit / Delete|Kaynak grubu salt okunur ve kaynak grubunda etiketlerin değiştirilemez. **Kilitli** kaynakları eklenebilir, taşınabilir, değiştirildi veya bu kaynak grubundan silindi.|
 |Salt Okunur|Olmayan bir kaynak grubu|Salt Okunur|Kaynak hiçbir şekilde değiştirilemez--herhangi bir değişiklik ve silinemez.|
 |Silmeyin|*|Silinemiyor|Kaynakları değiştirilebilir, ancak silinemez. **Kilitli** kaynakları eklenebilir, taşınabilir, değiştirildi veya bu kaynak grubundan silindi.|
 
@@ -52,6 +52,8 @@ Değiştirmek veya atama tarafından korunan bir kaynağa silmek gerekli hale ge
 ## <a name="how-blueprint-locks-work"></a>Blueprint iş nasıl kilitler
 
 Bir RBAC [atamaları Reddet](../../../role-based-access-control/deny-assignments.md) reddetme eylemi uygulanan yapıt kaynaklarına blueprint ataması sırasında atama seçtiyseniz **salt okunur** veya **silmeyin** seçeneği. Reddetme eylemi şema atamasını yönetilen kimlik eklenir ve yalnızca yapıt kaynakları aynı yönetilen kimlik tarafından kaldırılabilir. Bu güvenlik önlemi kilitleme mekanizması uygular ve şemaları dışında şema kilidi kaldırılıyor engeller.
+
+![Blueprint kaynak grubu atamasını Reddet](../media/resource-locking/blueprint-deny-assignment.png)
 
 > [!IMPORTANT]
 > Azure Resource Manager rol atama ayrıntıları 30 dakikaya kadar önbelleğe alır. Sonuç olarak, eylemin şema kaynaklar üzerinde hemen tam etkili olmayabilir atamaları Reddet reddet. Bu süre boyunca, şema kilitleri tarafından korunacak amaçlanan bir kaynağı silmek mümkün olabilir.

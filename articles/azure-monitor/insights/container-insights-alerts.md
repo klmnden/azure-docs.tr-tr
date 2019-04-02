@@ -11,26 +11,28 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.author: magoedte
-ms.openlocfilehash: e6fdb0d57a44578647c1f16dc76c557296f20ddb
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5bb0a727adcfb35b5d840a063b6fdb478d150953
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886794"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804839"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici'de performans sorunları için uyarılar ayarlama
 Azure İzleyici kapsayıcıları izlemeleri için kapsayıcı iş yüklerinin performansını ya da Azure Container Instances'a dağıtılabilir veya Azure Kubernetes Service (AKS) barındırılan Kubernetes kümelerini yönetilen. 
 
 Bu makalede aşağıdaki durumlar için uyarı vermeyi etkinleştirmek açıklar:
 
-* Zaman küme düğümlerinde CPU ve bellek kullanımı veya tanımlı, eşiği aşıyor.
+* Küme düğümlerinde CPU veya bellek kullanımı, tanımlı bir eşiği aştığında.
 * Ne zaman herhangi bir denetleyici kapsayıcılara CPU veya bellek kullanımı, karşılık gelen kaynağın sınırını göre tanımlanan, eşiği aşıyor.
+* **NotReady** durumu düğümünde sayar
+* Pod aşama sayar **başarısız**, **bekleyen**, **bilinmeyen**, **çalıştıran**, veya **başarılı oldu**
 
-CPU veya bellek kullanımı için bir küme ya da denetleyiciye yüksek olduğunda sizi uyarmak için sağlanan günlük sorguları dışına dayalı bir ölçüm ölçüsü uyarı kuralı oluşturun. Sorgular için şimdi işlecini kullanarak geçerli bir datetime karşılaştırın ve bir saat döner. Kapsayıcılar için Azure İzleyici tarafından depolanan tüm tarihler UTC biçimindedir.
+CPU veya bellek kullanımı, küme düğümlerinde yüksekse, mümkün olduğunda sizi uyarmak için ölçüm uyarısı veya sağlanan günlük sorguları kullanarak bir ölçüm ölçüsü uyarı kuralı oluşturun. Ölçüm uyarıları günlük uyarıları daha düşük gecikme süresi olsa da, gelişmiş sorgulama ve Gelişmiş algoritmaların ölçüm uyarısı daha günlük uyarısı sağlar. Günlük uyarıları için sorgular için şimdi işlecini kullanarak geçerli bir datetime karşılaştırın ve bir saat döner. Kapsayıcılar için Azure İzleyici tarafından depolanan tüm tarihler UTC biçimindedir.
 
-Başlatmadan önce Azure İzleyici'de uyarılar alışkın değilseniz bkz [Microsoft azure'da uyarılara genel bakış](../platform/alerts-overview.md). Günlük sorguları kullanarak Uyarıları hakkında daha fazla bilgi için bkz: [Azure İzleyici'de günlük uyarıları](../platform/alerts-unified-log.md)
+Başlatmadan önce Azure İzleyici'de uyarılar alışkın değilseniz bkz [Microsoft azure'da uyarılara genel bakış](../platform/alerts-overview.md). Günlük sorguları kullanarak Uyarıları hakkında daha fazla bilgi için bkz: [Azure İzleyici'de günlük uyarıları](../platform/alerts-unified-log.md). Ölçüm Uyarıları hakkında daha fazla bilgi için bkz: [Azure İzleyici ölçüm uyarıları](../platform/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Kaynak kullanımı günlük arama sorguları
 Sorgular, bu bölümde, her uyarı senaryoyu desteklemek için sağlanır. 7. adım altında için gerekli sorguların [uyarı oluşturma](#create-alert-rule) bölümüne bakın.  
@@ -187,6 +189,72 @@ KubePodInventory
 | project Computer, ContainerName, TimeGenerated, UsagePercent = UsageValue * 100.0 / LimitValue
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
+
+Aşağıdaki sorgu tüm düğümleri ve durumu sayısı döndürür **hazır** ve **NotReady**.
+
+```kusto
+let endDateTime = now();
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+let clusterName = '<your-cluster-name>';
+KubeNodeInventory
+| where TimeGenerated < endDateTime
+| where TimeGenerated >= startDateTime
+| distinct ClusterName, Computer, TimeGenerated
+| summarize ClusterSnapshotCount = count() by bin(TimeGenerated, trendBinSize), ClusterName, Computer
+| join hint.strategy=broadcast kind=inner (
+    KubeNodeInventory
+    | where TimeGenerated < endDateTime
+    | where TimeGenerated >= startDateTime
+    | summarize TotalCount = count(), ReadyCount = sumif(1, Status contains ('Ready'))
+                by ClusterName, Computer,  bin(TimeGenerated, trendBinSize)
+    | extend NotReadyCount = TotalCount - ReadyCount
+) on ClusterName, Computer, TimeGenerated
+| project   TimeGenerated,
+            ClusterName,
+            Computer,
+            ReadyCount = todouble(ReadyCount) / ClusterSnapshotCount,
+            NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
+| order by ClusterName asc, Computer asc, TimeGenerated desc
+```
+Pod aşama sayar aşağıdaki sorgunun döndürdüğü tüm aşamalarına - tabanlı **başarısız**, **bekleyen**, **bilinmeyen**, **çalıştıran**, veya **Başarılı**.  
+
+```kusto
+let endDateTime = now();
+    let startDateTime = ago(1h);
+    let trendBinSize = 1m;
+    let clusterName = '<your-cluster-name>';
+    KubePodInventory
+    | where TimeGenerated < endDateTime
+    | where TimeGenerated >= startDateTime
+    | where ClusterName == clusterName
+    | distinct ClusterName, TimeGenerated
+    | summarize ClusterSnapshotCount = count() by bin(TimeGenerated, trendBinSize), ClusterName
+    | join hint.strategy=broadcast (
+        KubePodInventory
+        | where TimeGenerated < endDateTime
+        | where TimeGenerated >= startDateTime
+        | distinct ClusterName, Computer, PodUid, TimeGenerated, PodStatus
+        | summarize TotalCount = count(),
+                    PendingCount = sumif(1, PodStatus =~ 'Pending'),
+                    RunningCount = sumif(1, PodStatus =~ 'Running'),
+                    SucceededCount = sumif(1, PodStatus =~ 'Succeeded'),
+                    FailedCount = sumif(1, PodStatus =~ 'Failed')
+                 by ClusterName, bin(TimeGenerated, trendBinSize)
+    ) on ClusterName, TimeGenerated
+    | extend UnknownCount = TotalCount - PendingCount - RunningCount - SucceededCount - FailedCount
+    | project TimeGenerated,
+              TotalCount = todouble(TotalCount) / ClusterSnapshotCount,
+              PendingCount = todouble(PendingCount) / ClusterSnapshotCount,
+              RunningCount = todouble(RunningCount) / ClusterSnapshotCount,
+              SucceededCount = todouble(SucceededCount) / ClusterSnapshotCount,
+              FailedCount = todouble(FailedCount) / ClusterSnapshotCount,
+              UnknownCount = todouble(UnknownCount) / ClusterSnapshotCount
+| summarize AggregatedValue = avg(PendingCount) by bin(TimeGenerated, trendBinSize)
+```
+
+>[!NOTE]
+>Gibi belirli pod aşamalarına uyarmak için **bekleyen**, **başarısız**, veya **bilinmeyen**, sorgunun son satırının değiştirmeniz gerekir. Örneğin, uyarı için *FailedCount* `| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`.  
 
 ## <a name="create-alert-rule"></a>Uyarı kuralı oluştur
 Azure İzleyicisi'nde daha önce sağlanan günlük arama kurallarını kullanarak günlük uyarı oluşturmak için aşağıdaki adımları gerçekleştirin.  

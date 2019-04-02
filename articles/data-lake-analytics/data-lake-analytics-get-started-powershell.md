@@ -9,14 +9,15 @@ ms.reviewer: jasonwhowell
 ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017
-ms.openlocfilehash: f74ebb4e36f9648b2f78e968877a9ef861888af8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ad0a8ea4d06b5085179d4fd3c162114c00518ce1
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58133450"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792544"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell'i kullanarak Azure Data Lake Analytics ile çalışmaya başlama
+
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Azure PowerShell kullanarak Azure Data Lake Analytics hesapları oluşturma ve sonra U-SQL işleri gönderip çalıştırma hakkında bilgi edinin. Data Lake Analytics hakkında daha fazla bilgi için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
@@ -36,13 +37,13 @@ Bu öğreticide, Azure PowerShell kullanımıyla ilgili bilgi sahibi olduğunuz 
 
 Abonelik adı ile oturum açmak için:
 
-```
+```powershell
 Connect-AzAccount -SubscriptionName "ContosoSubscription"
 ```
 
 Oturum açmak için abonelik adı yerine abonelik kimliğini de kullanabilirsiniz:
 
-```
+```powershell
 Connect-AzAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
@@ -61,7 +62,7 @@ CurrentStorageAccount :
 
 Bu öğreticideki PowerShell kod parçacıkları bu bilgileri depolamak için aşağıdaki değişkenleri kullanır:
 
-```
+```powershell
 $rg = "<ResourceGroupName>"
 $adls = "<DataLakeStoreAccountName>"
 $adla = "<DataLakeAnalyticsAccountName>"
@@ -70,7 +71,7 @@ $location = "East US 2"
 
 ## <a name="get-information-about-a-data-lake-analytics-account"></a>Bir Data Lake Analytics hesabı hakkında bilgi edinme
 
-```
+```powershell
 Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla  
 ```
 
@@ -78,7 +79,7 @@ Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla
 
 U-SQL betiğini tutmak için bir PowerShell değişkeni oluşturun.
 
-```
+```powershell
 $script = @"
 @a  = 
     SELECT * FROM 
@@ -96,13 +97,13 @@ OUTPUT @a
 
 Betik metnini `Submit-AdlJob` cmdlet'i ve `-Script` parametresi ile gönderin.
 
-```
+```powershell
 $job = Submit-AdlJob -Account $adla -Name "My Job" -Script $script
 ```
 
 Alternatif olarak, `-ScriptPath` parametresini kullanarak da bir betik dosyası gönderebilirsiniz:
 
-```
+```powershell
 $filename = "d:\test.usql"
 $script | out-File $filename
 $job = Submit-AdlJob -Account $adla -Name "My Job" -ScriptPath $filename
@@ -110,23 +111,24 @@ $job = Submit-AdlJob -Account $adla -Name "My Job" -ScriptPath $filename
 
 `Get-AdlJob` ile bir işin durumunu alın. 
 
-```
+```powershell
 $job = Get-AdlJob -Account $adla -JobId $job.JobId
 ```
 
 Bir iş tamamlanana kadar Get-AdlJob yöntemini tekrar tekrar çağırmak yerine, `Wait-AdlJob` cmdlet’ini kullanabilirsiniz.
 
-```
+```powershell
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
 `Export-AdlStoreItem` komutunu kullanarak çıkış dosyasını indirin.
 
-```
+```powershell
 Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
 ## <a name="see-also"></a>Ayrıca bkz.
+
 * Aynı öğreticiyi diğer araçları kullanarak görmek için sayfanın üst kısmındaki sekme seçicilerine tıklayın.
 * U-SQL öğrenmek için bkz. [Azure Data Lake Analytics U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md).
 * Yönetim görevleri için bkz. [Azure portalı kullanarak Azure Data Lake Analytics'i yönetme](data-lake-analytics-manage-use-portal.md).

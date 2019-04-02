@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: d39c2414aa8299282b3896a9ceb57897fdb25ff1
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445991"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793977"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure Depolama Performansı ve Ölçeklenebilirlik Onay Listesi
 ## <a name="overview"></a>Genel Bakış
@@ -269,7 +269,7 @@ Tek bir büyük blob hızlı bir şekilde karşıya yüklemek için İstemci uyg
 * C++: Blob_request_options::set_parallelism_factor yöntemi kullanın.
 
 #### <a name="subheading22"></a>Hızlı bir şekilde birçok blobları karşıya yükleme
-Hızlı bir şekilde birçok blobları karşıya yüklemek için BLOB'ları paralel karşıya yükleyin. Bu, depolama hizmetinin birden çok bölümde karşıya yükleme yayılan çünkü tek bloblar aynı anda paralel blok karşıya karşıya daha hızlıdır. Tek bir blob aktarım hızı 60 MB/saniye (yaklaşık 480 Mb/sn) yalnızca destekler. Makalenin yazıldığı sırada bir ABD bankasına bağlı LRS hesabına daha fazladır tek bir blob tarafından desteklenen aktarım hızı olan 20 GB/sn giriş kadar destekler.  [AzCopy](#subheading18) yüklemeleri varsayılan olarak paralel olarak gerçekleştirir ve bu senaryo için önerilir.  
+Hızlı bir şekilde birçok blobları karşıya yüklemek için BLOB'ları paralel karşıya yükleyin. Bu, depolama hizmetinin birden çok bölümde karşıya yükleme yayılan çünkü tek bloblar aynı anda paralel blok karşıya karşıya daha hızlıdır. Tek bir blob aktarım hızı 60 MB/saniye (yaklaşık 480 Mb/sn) yalnızca destekler. Makalenin yazıldığı sırada bir ABD bankasına bağlı LRS hesabına daha fazladır tek bir blob tarafından desteklenen üretilen iş 20 GB/sn giriş kadar destekler.  [AzCopy](#subheading18) yüklemeleri varsayılan olarak paralel olarak gerçekleştirir ve bu senaryo için önerilir.  
 
 ### <a name="subheading23"></a>Blob doğru türünü seçme
 Azure depolama blob iki tür destekler: *sayfa* blobları ve *blok* blobları. Belirli kullanım senaryosu için seçtiğiniz blob türü, performans ve ölçeklenebilirlik çözümünüzün etkiler. Blok blobları, büyük miktarlarda verileri verimli bir şekilde karşıya yüklemek istediğiniz zaman uygundur: Örneğin, blob depolama alanına fotoğraf veya videoyu karşıya yüklemek bir istemci uygulaması gerekebilir. Sayfa blobları, rastgele yazmaları veriler üzerinde gerçekleştirmek uygulamanın gerekiyorsa uygun: Örneğin, Azure VHD'leri sayfa blobları depolanır.  
@@ -297,9 +297,7 @@ Depolama hizmeti sürüm 2013-08-15 ile başlayarak, tablo hizmeti JSON XML taba
 Daha fazla bilgi için gönderiye bakın [Microsoft Azure tabloları: JSON ile tanışın](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) ve [tablo hizmeti işlemleri için yükü biçimi](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 #### <a name="subheading26"></a>Nagle kapalı
-Nagle'nın algoritması, yaygın olarak TCP/IP ağları arasında ağ performansını artırmak için bir yol uygulanır. Ancak, tüm durumlarda (örneğin, yüksek oranda etkileşimli ortamları) uygun değil. Azure depolama için Nagle'nın algoritması, tablo ve kuyruk hizmetlere yönelik istekler, performans üzerinde olumsuz bir etkisi yoktur. ve mümkünse devre dışı.  
-
-Bizim blog gönderisi daha fazla bilgi için bkz. [Nagle'nın algoritmasıdır küçük istekler doğrultusunda kolay değil](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx), açıklayan neden Nagle'nın algoritması kötü performans gösteren tablo ve kuyruk istekleri ile etkileşim kurar ve istemcinizde devre dışı bırakmak nasıl gösterir uygulama.  
+Nagle'nın algoritması, yaygın olarak TCP/IP ağları arasında ağ performansını artırmak için bir yol uygulanır. Ancak, tüm durumlarda (örneğin, yüksek oranda etkileşimli ortamları) uygun değil. Azure depolama için Nagle'nın algoritması, tablo ve kuyruk hizmetlere yönelik istekler, performans üzerinde olumsuz bir etkisi yoktur. ve mümkünse devre dışı.
 
 ### <a name="schema"></a>Şema
 Nasıl temsil eder ve verilerinizi sorgulayın, tablo Hizmeti performansını etkileyen en büyük tek faktördür. Her uygulama farklı olsa da, bu bölümde ile ilgili bazı genel kendini kanıtlamış yöntemleri açıklar:  
@@ -390,7 +388,7 @@ En geçerli ölçeklenebilirlik hedeflerini görüntülemek [Azure Storage ölç
 Nagle algoritması ele tablo yapılandırma bölümüne bakın: Nagle algoritmasıdır sıra isteklerini performansı için genellikle hatalı ve devre dışı bırakmalısınız.  
 
 ### <a name="subheading41"></a>İleti boyutu
-Kuyruk performans ve ölçeklenebilirlik azalıyor ileti boyutu artar. Bir ileti yalnızca bir alıcı gerekli bilgileri yerleştirmeniz gerekir.  
+İleti boyutu arttıkça, kuyruk performans ve ölçeklenebilirlik azalır. Bir ileti yalnızca bir alıcı gerekli bilgileri yerleştirmeniz gerekir.  
 
 ### <a name="subheading42"></a>Batch alma
 Tek bir işlemde bir kuyruktan 32 adede kadar iletileri alabilirsiniz. Bu gidiş-dönüş sayısı, mobil cihazlar gibi ortamlarda kullanışlıdır istemci uygulamadan alınan yüksek gecikme süresiyle azaltabilir.  
@@ -401,7 +399,7 @@ Tek bir işlemde bir kuyruktan 32 adede kadar iletileri alabilirsiniz. Bu gidiş
 Maliyet güncel bilgi için bkz: [Azure depolama fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/).  
 
 ### <a name="subheading44"></a>UpdateMessage
-Kullanabileceğiniz **UpdateMessage** görünmezlik zaman aşımı süresini artırın veya iletinin durum bilgilerini güncelleştirmek için. Bu güçlü olmakla birlikte, her unutmayın **UpdateMessage** ölçeklenebilirlik hedef işlem sayılır. Ancak, bu işin her adımı tamamlandı olarak bir iş, bir kuyruktan yanında, geçirir. bir iş akışı sahip daha çok daha etkili bir yaklaşım olabilir. Kullanarak **UpdateMessage** işlemi iletiye iş durumu kaydedin ve ardından yapılacak işin bir sonraki adım için yeniden kuyruğa bir adım tamamlanan her zaman yerine çalışma, devam etmek için uygulamanızı sağlar.  
+Kullanabileceğiniz **UpdateMessage** görünmezlik zaman aşımı süresini artırın veya iletinin durum bilgilerini güncelleştirmek için. Bu güçlü olmakla birlikte, her unutmayın **UpdateMessage** ölçeklenebilirlik hedef işlem sayılır. Ancak, bu işin her adımı tamamlandı olarak bir iş, bir kuyruktan yanında, geçirir. bir iş akışı sahip daha çok daha etkili bir yaklaşım olabilir. Kullanarak **UpdateMessage** işlemi iletiyi iş durumu Kaydet ve bir adım tamamlanan her zaman yapılacak işin bir sonraki adım için requeuing yerine çalışma, devam etmek, uygulamanızın sağlar.  
 
 Daha fazla bilgi için bkz [nasıl yapılır: Kuyruğa Alınan iletinin içeriğini değiştirme](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 

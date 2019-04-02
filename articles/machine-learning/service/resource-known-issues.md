@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: fd518ad8c5ea13c4eeaa017417332744cecd328e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d7542909df336555e17aea9b0e680879b25dc17f
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661233"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791754"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bilinen sorunlar ve sorun giderme Azure Machine Learning hizmeti
 
@@ -44,7 +44,7 @@ Web hizmeti dağıtılırken hata oluşturma görüntüsü. Geçici çözüm ola
 
 Gözlemlerseniz, `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, daha fazla belleğe sahip bir dağıtımda kullanılan VM'ler için SKU değişimi.
 
-## <a name="fpgas"></a>FPGA
+## <a name="fpgas"></a>FPGA'lar
 
 İstenen ve FPGA kotası için onaylanmış kadar FPGA modellerde dağıtmayı mümkün olmayacaktır. Erişim istemek için kota istek formunu doldurun: https://aka.ms/aml-real-time-ai
 
@@ -98,14 +98,13 @@ Kullandığınızda, bu hatayı görürseniz, machine learning otomatik:
 
 Bu sorunu çözmezse, kümeyi yeniden başlatmayı deneyin.
 
-## <a name="azure-portal"></a>Azure portalı
+## <a name="azure-portal"></a>Azure portal
 
 Doğrudan paylaşım bağlantısı SDK veya portalından çalışma alanınızda görüntülemeye giderseniz, uzantı normal genel bakış sayfası ile abonelik bilgilerini görüntülemek mümkün olmayacaktır. Siz de başka bir çalışma alanına geçmeniz mümkün olmayacaktır. Başka bir çalışma alanını görüntülemek gerekiyorsa, doğrudan gitmek için geçici çözüm olan [Azure portalında](https://portal.azure.com) ve çalışma alanı adı arayın.
 
 ## <a name="diagnostic-logs"></a>Tanılama günlükleri
 
-Bazen Yardım isteme, tanılama bilgilerini sağlarsanız, yararlı olabilir.
-Günlük dosyaları burada Canlı aşağıda verilmiştir:
+Bazen Yardım isteme, tanılama bilgilerini sağlarsanız, yararlı olabilir. Bazı günlüklerini görmek için ziyaret [Azure portalında](https://portal.azure.com) ve seçin ve çalışma alanı **çalışma alanı > deneme > çalıştırın > günlükleri**.
 
 ## <a name="resource-quotas"></a>Kaynak kotaları
 

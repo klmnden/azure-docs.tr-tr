@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB hesapları ile çalışma
 description: Bu makalede oluşturma ve Azure Cosmos DB hesapları kullanın
-author: dharmas-cosmos
+author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/08/2018
-ms.author: dharmas
+ms.date: 03/31/2019
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: e40b763aa2a36e3afd85a82b66e393ac78d3afaa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: da55807d4ca803adf63a1dd2dfe3ce3794cdd509
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839585"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762608"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Azure Cosmos hesabıyla çalışma
 
@@ -21,7 +21,7 @@ Azure Cosmos DB, bir tam olarak yönetilen platformu-bir hizmet olarak (PaaS) ' 
 
 Azure Cosmos hesabı genel dağıtım ve yüksek kullanılabilirlik temel birimidir. Genel veriler ve aktarım hızı Azure bölgelerinde dağıtmaktan, ekleyin ve Azure bölgeleri herhangi bir zamanda Azure Cosmos hesabınızı kaldırın. Tek veya birden çok yazma bölgeleri için Azure Cosmos hesabınızı yapılandırabilirsiniz. Daha fazla bilgi için [Azure Cosmos hesabınıza Azure bölgeleri ekleyip nasıl](how-to-manage-database-account.md). Yapılandırabileceğiniz [varsayılan tutarlılık](consistency-levels.md) Azure Cosmos hesap düzeyi. Azure Cosmos DB, aktarım hızı, düşük gecikme süresi 99. yüzdebirlik dilimde, tutarlılık ve yüksek kullanılabilirlik kapsayan kapsamlı SLA'lar sağlar. Daha fazla bilgi için [Azure Cosmos DB SLA'ları](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
 
-Azure Cosmos hesabınızdaki tüm verileri erişimi güvenli bir şekilde yönetmek için hesabınızla ilişkili ana anahtarları kullanabilirsiniz. Verilerinizi daha güvenli erişimi için bir sanal ağ hizmet uç noktası ve IP Güvenlik Duvarı, Azure Cosmos hesabınızda yapılandırabilirsiniz. 
+Azure Cosmos hesabınızdaki tüm verileri erişimi güvenli bir şekilde yönetmek için kullanabileceğiniz [ana anahtarları](secure-access-to-data.md) hesabınızla ilişkilendirilmiş. Daha fazla verilerinize erişim güvenliğini sağlamak için yapılandırabileceğiniz bir [sanal ağ hizmet uç noktası](vnet-service-endpoint.md) ve [IP Güvenlik Duvarı](firewall-support.md) Azure Cosmos hesabınızda. 
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Bir Azure Cosmos hesabındaki öğeleri
 
@@ -33,7 +33,7 @@ Azure Cosmos DB kapsayıcısı ölçeklenebilirlik temel birimidir. Bir kapsayı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Şimdi Azure Cosmos hesabınızı yönetin veya Azure Cosmos DB ile ilişkili diğer kavramlar hakkında bilgi edinmek için geçebilirsiniz:
+Azure Cosmos hesabınızı ve diğer kavramlar yönetmeyi öğrenin:
 
 * [Nasıl yapılır, Azure Cosmos hesabınızı yönetme](how-to-manage-database-account.md)
 * [Genel dağıtım](distribute-data-globally.md)

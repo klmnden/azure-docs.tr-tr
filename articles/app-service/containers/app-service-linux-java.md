@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 4ca42e34dcf215fe45d1f25adb9509034c6144d2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 71632b3846a5dac39d7827c874367bd9802574f8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335853"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803536"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Geliştirici Kılavuzu
 
@@ -154,6 +154,14 @@ Spring önyükleme geliştiriciler [Azure Active Directory Spring Boot Başlatı
 ### <a name="configure-tlsssl"></a>TLS/SSL'yi yapılandırma
 
 Bölümündeki yönergeleri [var olan özel bir SSL sertifikası bağlama](/azure/app-service/app-service-web-tutorial-custom-ssl) mevcut bir SSL sertifikasını karşıya yüklemek ve uygulamanızın etki alanı adı için bağlama için. Varsayılan olarak, uygulamanızın HTTP bağlantıları-özel SSL ve TLS zorlamak için öğreticinin adımlarını yine de sağlar.
+
+### <a name="use-keyvault-references"></a>KeyVault başvuruları kullanın
+
+[Azure anahtar kasası](../../key-vault/key-vault-overview.md) erişim ilkeleri ve denetim geçmişi ile gizli merkezi yönetim sağlar. Gizli anahtarları (parolaları veya bağlantı dizeleri için gibi) Keyvault'ta depolayabilir ve ortam değişkenlerini, uygulamanızda bu gizliliklerin erişin.
+
+İlk olarak, yönergelerini izleyin [Key Vault'a erişim verme](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) ve [bir uygulama ayarı gizli bir anahtar kasası başvurusu yapmak](../app-service-key-vault-references.md#reference-syntax). App Service terminal uzaktan erişirken yazdırma ortam değişkeni tarafından başvuru gizli çözdüğünü doğrulayabilirsiniz.
+
+Bu gizli dizileri Spring veya Tomcat yapılandırma dosyanızdaki eklemesine ortam değişkeni ekleme söz dizimini kullanın (`${MY_ENV_VAR}`). Spring yapılandırma dosyaları için lütfen bu edinmek [yapılandırmaları te dış](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
 ## <a name="data-sources"></a>Veri kaynakları
 

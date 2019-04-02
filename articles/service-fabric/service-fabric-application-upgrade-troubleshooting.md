@@ -14,17 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9e4989f61741d317e78a613c8c8fac312d1568c2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: e393eb92e11dc8dc296f1dc5f1c0036566c285c5
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666962"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792459"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Uygulama yükseltme ile ilgili sorunları giderme
+
 Bu makalede bir Azure Service Fabric uygulama ve bunların nasıl çözüleceğine yükseltme etrafında yaygın sorunlardan bazılarını ele alınmıştır.
 
 ## <a name="troubleshoot-a-failed-application-upgrade"></a>Başarısız uygulama yükseltme sorunlarını giderme
+
 Yükseltme başarısız olduğunda, çıktısını **Get-ServiceFabricApplicationUpgrade** komut hatası hata ayıklama için ek bilgiler içerir.  Aşağıdaki listede, ek bilgilerin nasıl kullanılabileceğini belirtir:
 
 1. Hata türü tanımlar.
@@ -34,6 +36,7 @@ Yükseltme başarısız olduğunda, çıktısını **Get-ServiceFabricApplicatio
 Service Fabric bağımsız olarak hatası algıladığında, bu bilgi kullanılabilir **FailureAction** geri alma veya yükseltme askıya alın.
 
 ### <a name="identify-the-failure-type"></a>Hata türünü tanımlayın
+
 Çıktısındaki **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc** başlangıçtan bir yükseltme hatası Service Fabric tarafından algılandığı zaman damgası (UTC) tanımlar ve  **FailureAction** tetiklendi. **FailureReason** hata üst düzey üç olası nedenlerden biri tanımlar:
 
 1. UpgradeDomainTimeout - gösteren belirli bir yükseltme etki alanı tamamlanması çok uzun sürdü ve **UpgradeDomainTimeout** süresi doldu.
@@ -43,11 +46,14 @@ Service Fabric bağımsız olarak hatası algıladığında, bu bilgi kullanıla
 Yükseltme başarısız olur ve geri alma başlar bu girdiler yalnızca çıktıda gösterilir. Daha fazla bilgi, hatanın türüne bağlı olarak görüntülenir.
 
 ### <a name="investigate-upgrade-timeouts"></a>Yükseltme zaman aşımı araştırın
+
 Hataları en yaygın olarak hizmet kullanılabilirliği sorunlarını tarafından neden olduğu zaman aşımı yükseltin. Bu paragrafın aşağıdaki çıkış burada yeni kod sürümünde başlatmak hizmet çoğaltmalar veya örnekleri başarısız yükseltme işlemleri sırasında görülen bir durumdur. **UpgradeDomainProgressAtFailure** alan, hata anında tüm bekleyen yükseltme çalışmanın anlık görüntüsünü yakalar.
 
+```powershell
+Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 ```
-PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 
+```Output
 ApplicationName                : fabric:/DemoApp
 ApplicationTypeName            : DemoAppType
 TargetApplicationTypeVersion   : v2
@@ -90,11 +96,14 @@ Geçerli **UpgradeState** olduğu *RollingBackCompleted*, özgün yükseltmeyi g
 Nadiren de olsa, **UpgradeDomainProgressAtFailure** alan sadece sistemin geçerli yükseltme etki alanı için tüm iş tamamlanınca genel yükseltme zaman aşımına uğrarsa boş olabilir. Böyle bir durumda artırmayı deneyin **UpgradeTimeout** ve **UpgradeDomainTimeout** yükseltme parametre değerleri ve yükseltmeyi yeniden deneyin.
 
 ### <a name="investigate-health-check-failures"></a>Sistem durumu denetimi hataları Araştır
+
 Sistem durumu denetimi hataları bir yükseltme etki alanındaki tüm düğümleri tüm güvenlik denetimleri geçirme ve yükseltme işlemini tamamladıktan sonra oluşabilecek çeşitli sorunları tarafından tetiklenebilir. Bu paragrafın aşağıdaki çıktı, yükseltme bir hata nedeniyle başarısız sistem durumu denetimleri normaldir. **UnhealthyEvaluations** alan zaman belirtilen göre yükseltme başarısız oldu. sistem durumu denetimleri anlık görüntüsünü yakalar [sistem durumu ilkesi](service-fabric-health-introduction.md).
 
+```powershell
+Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 ```
-PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 
+```Output
 ApplicationName                         : fabric:/DemoApp
 ApplicationTypeName                     : DemoAppType
 TargetApplicationTypeVersion            : v4
@@ -149,6 +158,7 @@ Sistem durumu denetimi hataları araştırma, ilk Service Fabric sistem durumu m
 Yükseltme sırasında başarısız olan belirterek askıya alındığı bir **FailureAction** yükseltme başlatırken el. Bu mod başarısız durumdaki Canlı sistemi herhangi başka bir eylemde bulunmadan önce araştırmak sağlıyor.
 
 ### <a name="recover-from-a-suspended-upgrade"></a>Askıya alınmış bir yükseltmeyi kurtarmak
+
 Bir geri alma ile **FailureAction**, yükseltme otomatik olarak geri başarısız üzerine dağıtılırken bu yana gerekli hiçbir kurtarma yok. El ile **FailureAction**, Kurtarma birkaç seçenek vardır:
 
 1.  Tetikleyici bir geri alma
@@ -161,9 +171,11 @@ Bir geri alma ile **FailureAction**, yükseltme otomatik olarak geri başarısı
 
 **Güncelleştirme ServiceFabricApplicationUpgrade** komutu, izlenen her iki güvenlik yükseltmeye devam etmek için kullanılabilir ve durum gerçekleştirilmekte olan denetimleri.
 
+```powershell
+Update-ServiceFabricApplicationUpgrade fabric:/DemoApp -UpgradeMode Monitored
 ```
-PS D:\temp> Update-ServiceFabricApplicationUpgrade fabric:/DemoApp -UpgradeMode Monitored
 
+```Output
 UpgradeMode                             : Monitored
 ForceRestart                            :
 UpgradeReplicaSetCheckTimeout           :
@@ -179,14 +191,14 @@ MaxPercentUnhealthyReplicasPerPartition :
 MaxPercentUnhealthyServices             :
 MaxPercentUnhealthyDeployedApplications :
 ServiceTypeHealthPolicyMap              :
-
-PS D:\temp>
 ```
 
 Yükseltme devam ediyor burada son askıya alındığı yükseltme etki alanı ve aynı parametre ve önce sistem durumu ilkeleri olarak yükseltme kullanın. Yükseltme devam ettiğinde gerekirse, tüm yükseltme parametreleri ve yukarıdaki çıktıda gösterilen sistem durumu ilkeleri aynı komutta değiştirilebilir. Bu örnekte, parametreler ve değişmeden sistem durumu ilkeleri, izlenen modunda yükseltme devam ediyor.
 
 ## <a name="further-troubleshooting"></a>Daha fazla sorun giderme
+
 ### <a name="service-fabric-is-not-following-the-specified-health-policies"></a>Service Fabric belirtilen sistem durumu ilkeleri takip edilmiyor
+
 Olası nedeni 1:
 
 Service Fabric sistem durumu değerlendirmesi için (örneğin, çoğaltmalar, bölümler ve Hizmetler) varlıkların gerçek sayılar tüm yüzdeleri dönüştürecektir ve her zaman tüm varlıklara yukarı yuvarlar. Örneğin, maksimum *MaxPercentUnhealthyReplicasPerPartition* % 21 ve beş çoğaltmalar, Service Fabric ikiye kadar iyi durumda olmayan çoğaltmalar sağlar (diğer bir deyişle,`Math.Ceiling (5*0.21)`). Bu nedenle, sistem durumu ilkeleri buna göre ayarlamanız gerekir.
@@ -198,12 +210,15 @@ Sistem durumu ilkeleri açısından toplam Hizmetleri ve özel olmayan hizmet ö
 C kötüleşir sırada ancak, yükseltme sırasında D sağlıklı hale gelebilir. Yalnızca %25 Hizmetleri iyi durumda olmayan yükseltme yine de başarılı. Ancak, C d yerine beklenmedik bir şekilde sağlıksız olması nedeniyle beklenmeyen hataları neden olabilir Bu durumda, farklı hizmet türü a, D modellensin B ve c Sistem durumu ilkeleri hizmet türü belirlendiğinden, farklı bir sağlıksız yüzde eşikleri farklı hizmetlere uygulanabilir. 
 
 ### <a name="i-did-not-specify-a-health-policy-for-application-upgrade-but-the-upgrade-still-fails-for-some-time-outs-that-i-never-specified"></a>Uygulama yükseltmesi için bir sistem durumu ilkesi belirtilmedi, ancak yükseltme, hiçbir zaman belirtilen bazı zaman aşımları için yine de başarısız oluyor
+
 Sistem durumu ilkeleri zaman olmayan yükseltme isteği, bunlar alınmıştır sağlanan *ApplicationManifest.xml* geçerli uygulama sürümü. Örneğin, sürüm 1.0 sürüm 2.0, uygulama sistem durumu ilkeleri için sürüm 1.0 için belirtilen uygulama X yükseltiyorsanız kullanılır. Yükseltme için kullanılması gereken farklı sistem durumu ilkesi, ilke, uygulama yükseltme API çağrısı bir parçası olarak belirtilmesi gerekir. API çağrısının bir parçası olarak belirtilen ilkeleri yalnızca yükseltme sırasında uygulanır. Yükseltme tamamlandıktan sonra ilkeleri belirtilen *ApplicationManifest.xml* kullanılır.
 
 ### <a name="incorrect-time-outs-are-specified"></a>Hatalı zaman aşımı belirtildi
+
 Zaman aşımlarını tutarsız olduğunda ne olduğu hakkında merak etmiş. Örneğin, olabilir bir *UpgradeTimeout* o küçüktür *UpgradeDomainTimeout*. Yanıtı bir hata döndürülür. Hatalar varsa döndürülen *UpgradeDomainTimeout* toplamından daha az *HealthCheckWaitDuration* ve *HealthCheckRetryTimeout*, veya  *UpgradeDomainTimeout* toplamından daha az *HealthCheckWaitDuration* ve *HealthCheckStableDuration*.
 
 ### <a name="my-upgrades-are-taking-too-long"></a>My yükseltmeleri çok uzun sürüyor
+
 Yükseltmeyi tamamlamak süre, sistem durumu denetimleri ve belirtilen zaman aşımı bağlıdır. Sistem durumu denetimleri ve zaman aşımları ne kadar kopyalama, dağıtma ve uygulamanın Sabitle vereceğine bağlıdır. Zaman aşımlarını çok agresif olan ölçülü uzun zaman aşımı ile başlamanızı öneririz, böylece başarısız yükseltme anlamına gelebilir.
 
 Zaman aşımlarını yükseltme süreleri ile nasıl etkileşime hızlı Yenileyici şöyledir:
@@ -215,6 +230,7 @@ Yükseltme hatası gerçekleşemez daha hızlı bir şekilde *HealthCheckWaitDur
 Yükseltme etki alanı için yükseltme süresi sınırlıdır *UpgradeDomainTimeout*.  Varsa *HealthCheckRetryTimeout* ve *HealthCheckStableDuration* her ikisi de sıfır dışında olan ve yükseltme sonunda üzerindezamanaşımınauğrarsonrauygulamadurumunugeriveİlerigeçiştutar*UpgradeDomainTimeout*. *UpgradeDomainTimeout* başlar geçerli yükseltme etki alanı için bir kez yükseltme saymaya başlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 [Uygulamayı kullanarak Visual Studio yükseltme](service-fabric-application-upgrade-tutorial.md) Visual Studio kullanarak bir uygulama yükseltmesi size yol gösterir.
 
 [Uygulama Powershell kullanarak yükseltme](service-fabric-application-upgrade-tutorial-powershell.md) PowerShell kullanarak bir uygulama yükseltmesi size yol gösterir.

@@ -7,20 +7,22 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/08/2019
+ms.date: 03/25/2019
 ms.author: dobett
-ms.openlocfilehash: befef76e19640683ba3219374702a049bdecb43b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58184181"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792510"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Hızlı Başlangıç: Bir bulut tabanlı uzaktan izleme çözümünü deneyin
 
 Bu hızlı başlangıçta Azure IoT Uzaktan İzleme çözümü hızlandırıcısını dağıtmayı öğreneceksiniz. Bu bulut tabanlı çözümde **Dashboard** (Pano) sayfasını kullanarak sanal cihazları harita üzerinde görselleştirecek ve **Maintenance** (Bakım) sayfasını kullanarak sanal bir soğutucu cihazından gelen basınç uyarısına müdahale edeceksiniz. Bu çözüm hızlandırıcısını, kendi uygulamanızın başlangıç noktası veya bir öğrenme aracı olarak kullanabilirsiniz.
 
 İlk dağıtımda, Contoso adlı bir şirket için bir çözüm hızlandırıcısı yapılandırılır. Contoso'da çalışan bir operatör olarak, farklı fiziksel ortamlara dağıtılmış olan soğutucular gibi farklı türdeki cihazları yönetiyorsunuz. Soğutucu cihazı Uzaktan İzleme çözümü hızlandırıcısına sıcaklık, nem ve basınç telemetri verilerini göndermektedir.
+
+Bu hızlı başlangıçta dağıtan bir **temel** maliyetlerinizi azaltırken diğer yandan çözüm Hızlandırıcısını sınama ve tanıtma amaçlarıyla sürümü. Dağıtabileceğiniz farklı sürümleri hakkında daha fazla bilgi için bkz. [temel ve standart dağıtımları](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments).
 
 Bu hızlı başlangıcı tamamlamak etkin bir Azure aboneliğinizin olması gerekir.
 
@@ -36,9 +38,7 @@ Tıklayın **Uzaktan izleme** Döşe. Üzerinde **Uzaktan izleme** sayfasında *
 
 ![Uzaktan İzlemeyi Seçme](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
-**Create Remote Monitoring solution** (Uzaktan İzleme çözümü oluştur) sayfasında **Basic** (Temel) dağıtımlardan birini seçin. Çözüm hızlandırıcısını nasıl çalıştığını görmek için veya deneme amacıyla dağıtıyorsanız, maliyetleri minimumda tutmak için **Basic** (Temel) seçeneğini belirleyin.
-
-Dil olarak **.NET**'i seçin. Java ve .NET uygulamaları aynı özelliklere sahiptir.
+Seçin  **C# mikro Hizmetler** olarak **dağıtım seçenekleri**. Java ve C# uygulamalara aynı özelliklere sahip.
 
 Uzaktan İzleme çözümü hızlandırıcınız için benzersiz bir **Solution name** (Çözüm adı) değeri girin. Bu hızlı başlangıçta biz bizim arıyoruz **contoso-rm**.
 
@@ -111,7 +111,7 @@ Soğutucu üzerinde işlem yapmak için **Related information** (İlgili bilgile
 
 **İşler** panelinde **Çalıştırma yöntemi**’ni ve ardından **EmergencyValveRelease** yöntemini seçin. **ChillerPressureRelease** iş adını ekleyin ve **Uygula**’ya tıklayın. Bu ayarlar sizin için hemen yürütülen bir iş oluşturur.
 
-İş durumunu görüntülemek için **Maintenance** (Bakım) sayfasına dönün ve **Jobs** (İşler) görünümünde iş listesini görüntüleyin. Birkaç saniye bekledikten sonra soğutucu üzerindeki basınç valfinin açılması işinin çalıştırıldığını görebilirsiniz:
+İş durumunu görüntülemek için **Maintenance** (Bakım) sayfasına dönün ve **Jobs** (İşler) görünümünde iş listesini görüntüleyin. İşlemi çalıştırıldı görebilmek için önce birkaç saniye beklemeniz gerekebilir:
 
 [![Jobs (İşler) görünümünde işlerin durumu](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-expanded.png#lightbox)
 

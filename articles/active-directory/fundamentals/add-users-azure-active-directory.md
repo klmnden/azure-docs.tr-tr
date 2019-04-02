@@ -8,26 +8,26 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 04/01/2019
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8770648a3683c4f612536c9a04921682a01bcd0c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9cda9f976a7680a1338584e4308426683de82a79
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089820"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802131"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Ekleme veya Azure Active Directory kullanarak kullanıcı silme
-Yeni kullanıcılar ekleyebilir veya var olan kullanıcılar Azure Active Directory (Azure AD) kiracınız silinemiyor.
+Yeni kullanıcı ekleme veya var olan kullanıcılar Azure Active Directory (Azure AD) kuruluşunuzdan silin.
 
 ## <a name="add-a-new-user"></a>Yeni kullanıcı ekleme
 Azure Active Directory portalı kullanarak yeni bir kullanıcı oluşturabilir.
 
 ### <a name="to-add-a-new-user"></a>Yeni bir kullanıcı eklemek için
-1. Oturum [Azure portalında](https://portal.azure.com/) bir genel yönetici veya kullanıcı dizinin Yöneticisi olarak.
+1. Oturum [Azure portalında](https://portal.azure.com/) kuruluş için bir kullanıcı Yöneticisi olarak.
 
 2. Seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **yeni kullanıcı**.
 
@@ -39,7 +39,7 @@ Azure Active Directory portalı kullanarak yeni bir kullanıcı oluşturabilir.
 
    - **Ad (gerekli).** Yeni kullanıcı ilk ve son adı. Örneğin, Gamze Parker.
 
-   - **Kullanıcı adı (gerekli).** Yeni kullanıcının kullanıcı adı. Örneğin, mary@contoso.com. 
+   - **Kullanıcı adı (gerekli).** Yeni kullanıcının kullanıcı adı. Örneğin, mary@contoso.com.
     
        Kullanıcı adının etki alanı bölümünü ya da ilk varsayılan etki alanı adı kullanmanız gerekir <_etkialanıadınız_>. onmicrosoft.com ya da bir özel etki alanı adı contoso.com gibi. Özel etki alanı adı oluşturma hakkında daha fazla bilgi için bkz. [Azure Active Directory'ye özel etki alanı adı ekleme](add-custom-domain.md).
 
@@ -47,7 +47,7 @@ Azure Active Directory portalı kullanarak yeni bir kullanıcı oluşturabilir.
 
    - **Gruplar.** İsteğe bağlı olarak, bir veya daha fazla mevcut gruplara kullanıcı ekleyebilirsiniz. Ayrıca, kullanıcı gruplarına daha sonra ekleyebilirsiniz. Kullanıcı grupları ekleme hakkında daha fazla bilgi için bkz. [temel bir grup oluşturma ve üye ekleme](active-directory-groups-create-azure-portal.md).
 
-   - **Dizin rolü.** İsteğe bağlı olarak, bir dizin rolüne kullanıcı ekleyebilirsiniz. Bir genel yönetici kullanıcı atayabilirsiniz veya bir veya daha fazla Azure AD'de başka yönetici rolleri. Rol atama hakkında daha fazla bilgi için bkz. [kullanıcılara roller atama](active-directory-users-assign-role-azure-portal.md).
+   - **Dizin rolü.** Kullanıcıyı eklemek isteğe bağlı olarak, bir Azure AD Yönetici rolü. Kullanıcı Azure AD'de genel yönetici veya bir veya daha fazla sınırlı yönetici rolleri atayabilir. Rol atama hakkında daha fazla bilgi için bkz. [kullanıcılara roller atama](active-directory-users-assign-role-azure-portal.md).
 
 4. Sağlanan otomatik olarak oluşturulan parola kopyalama **parola** kutusu. İlk oturum açma işlemi için bu parolayı kullanıcıya vermeniz gerekir.
 
@@ -62,7 +62,7 @@ Azure Active Directory (bulut) hem de Windows Server Active Directory (şirket) 
 Mevcut bir kullanıcının Azure Active Directory portalında kullanarak silebilirsiniz.
 
 ### <a name="to-delete-a-user"></a>Kullanıcı silme
-1. Dizin için bir Genel yönetici hesabı kullanarak [Azure portalda](https://portal.azure.com/) oturum açın.
+1. Oturum [Azure portalında](https://portal.azure.com/) kuruluş için bir kullanıcı yönetici hesabını kullanarak.
 
 2. Seçin **Azure Active Directory**seçin **kullanıcılar**, arayın ve Azure AD kiracınızdan silmek istediğiniz kullanıcıyı seçin. Örneğin, _Mary Parker_.
 
@@ -70,12 +70,13 @@ Mevcut bir kullanıcının Azure Active Directory portalında kullanarak silebil
 
     ![Kullanıcılar - tüm kullanıcılar sayfası ile vurgulanmış kullanıcıyı silme](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
 
-    Kullanıcı silindi ve artık görünür **kullanıcılar - tüm kullanıcılar** sayfası. Kullanıcı görülebilir **silinmiş kullanıcılarını** sayfa sonraki 30 gün boyunca ve bu süre içerisinde geri yüklenebilir. Bir kullanıcıyı geri yükleme hakkında daha fazla bilgi için bkz. [geri yüklemek veya yakın zamanda silinen bir kullanıcıyı kalıcı olarak kaldırmak nasıl](active-directory-users-restore.md).
+    Kullanıcı silindi ve artık görünür **kullanıcılar - tüm kullanıcılar** sayfası. Kullanıcı görülebilir **silinmiş kullanıcılarını** sayfa sonraki 30 gün boyunca ve bu süre içerisinde geri yüklenebilir. Bir kullanıcıyı geri yükleme hakkında daha fazla bilgi için bkz. [geri yüklemek veya yakın zamanda silinen bir kullanıcıyı kalıcı olarak kaldırmak nasıl](active-directory-users-restore.md). Bir kullanıcı silindiğinde, kullanıcı tarafından kullanılan tüm lisanslar kullanılacak diğer kullanıcılar için kullanılabilir hale getirilir.
 
     >[!Note]
     >Windows Server Active Directory, kimlik, iletişim bilgileri veya Windows Server Active Directory, yetki kaynağı olan kullanıcılar için iş bilgileri güncelleştirmek için kullanmanız gerekir. Güncelleştirme tamamlandıktan sonra değişiklikleri görürsünüz önce tamamlanması için bir sonraki eşitleme döngüsü beklemeniz gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Kullanıcılarınızın ekledikten sonra aşağıdaki temel işlemleri gerçekleştirebilirsiniz:
 
 - [Profil bilgileri ekleme veya değiştirme](active-directory-users-profile-azure-portal.md)

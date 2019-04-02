@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: f7c52b7ab8aaad917eb03455800df6d8ba4cbc88
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082713"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791635"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Adlandırılmış değerler Azure API Management ilkelerini kullanma
 API Management ilkeleri güçlü bir API configuration aracılığıyla davranışını değiştirmek Azure portalın sistem özellikleridir. İlkeler, bir API isteği veya yanıtı üzerinde sırayla yürütülen deyimlerin bir koleksiyonudur. İlke ifadeleri, metin değerleri, ilke ifadeleri kullanarak ve adlandırılmış değerler oluşturulabilir. 
@@ -34,7 +34,7 @@ Her API Management hizmet örneği adlı hizmet örneği için genel kabul edile
 
 ![Adlandırılmış değerler](./media/api-management-howto-properties/named-values.png)
 
-Özellik değerleri, değişmez değer dizeleri içerebilir ve [ilke ifadeleri](https://msdn.microsoft.com/library/azure/dn910913.aspx). Örneğin, değeri `ExpressionProperty` geçerli tarih ve saat içeren bir dize döndüren bir ilke ifadesidir. Özellik `ContosoHeaderValue` değeri görüntülenmez, böylece bir gizli dizi işaretlenir.
+Özellik değerleri, değişmez değer dizeleri içerebilir ve [ilke ifadeleri](/azure/api-management/api-management-policy-expressions). Örneğin, değeri `ExpressionProperty` geçerli tarih ve saat içeren bir dize döndüren bir ilke ifadesidir. Özellik `ContosoHeaderValue` değeri görüntülenmez, böylece bir gizli dizi işaretlenir.
 
 | Ad | Değer | Gizli dizi | Etiketler |
 | --- | --- | --- | --- |
@@ -55,7 +55,7 @@ Her API Management hizmet örneği adlı hizmet örneği için genel kabul edile
 
 Özellik oluşturulduktan sonra özellikte tıklayarak düzenleyebilirsiniz. Özellik adını değiştirirseniz, bu özelliğe başvuran tüm ilkeler yeni adı kullanacak şekilde otomatik olarak güncelleştirilir.
 
-REST API kullanarak bir özellik düzenleme hakkında daha fazla bilgi için bkz. [REST API kullanarak bir özelliği düzenlemeyi](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
+REST API kullanarak bir özellik düzenleme hakkında daha fazla bilgi için bkz. [REST API kullanarak bir özelliği düzenlemeyi](/rest/api/apimanagement/property?Patch).
 
 ## <a name="to-delete-a-property"></a>Bir özelliği silmek için
 
@@ -66,7 +66,7 @@ Bir özelliği silmek için tıklayın **Sil** silme özelliği yanında.
 > 
 > 
 
-REST API kullanarak bir özelliği silme hakkında daha fazla bilgi için bkz: [REST API kullanarak bir özelliği silmeye](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
+REST API kullanarak bir özelliği silme hakkında daha fazla bilgi için bkz: [REST API kullanarak bir özelliği silmeye](/rest/api/apimanagement/property?Delete).
 
 ## <a name="to-search-and-filter-named-values"></a>Arama ve filtre adlı değerleri
 
@@ -111,8 +111,8 @@ Bakarsanız [API denetçisi izleme](api-management-howto-api-inspector.md) iki �
 ## <a name="next-steps"></a>Sonraki adımlar
 * İlkeleriyle çalışma hakkında daha fazla bilgi edinin
   * [API Management ilkeleri](api-management-howto-policies.md)
-  * [İlke başvurusu](https://msdn.microsoft.com/library/azure/dn894081.aspx)
-  * [İlke ifadeleri](https://msdn.microsoft.com/library/azure/dn910913.aspx)
+  * [İlke başvurusu](/azure/api-management/api-management-policies)
+  * [İlke ifadeleri](/azure/api-management/api-management-policy-expressions)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

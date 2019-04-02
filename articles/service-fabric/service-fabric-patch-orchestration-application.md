@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 477b31e9a821cfa43700eac5f1f61a3d45510cab
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: bce4946b62e3678f7fa8d5f7f6431441cc00b252
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665823"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762846"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
 
@@ -28,6 +28,12 @@ ms.locfileid: "58665823"
 > * [Linux](service-fabric-patch-orchestration-application-linux.md)
 >
 >
+
+
+> 
+> [!IMPORTANT]
+> Uygulama sürümü 1.2. * desteği 30 Nisan 2019 tarihinde geçiyor. Lütfen en son sürüme yükseltin.
+
 
 [Azure sanal makine ölçek kümesinin otomatik işletim sistemi görüntüsü yükseltmeleri](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) tutma, işletim sistemleri, Azure'da düzeltme eki için en iyi yöntem ve düzeltme eki düzenleme uygulaması (POA) hizmeti dokularını RepairManager sistemler hizmeti çevresinde bir sarmalayıcı Bu, yapılandırma temel işletim sistemi düzeltme eki Azure dışı barındırılan kümeler için zamanlama sağlar. POA Azure dışı barındırılan kümeleri için gerekli değildir, ancak yükseltme etki alanları, düzeltme eki yüklemesiyle zamanlama Service Fabric kümeleri konakları kapalı kalma süresi olmadan düzeltme için gereklidir.
 
@@ -72,7 +78,7 @@ Düzeltme eki düzenleme uygulama küme üzerinde etkinleştirilmesini onarım Y
 
 Azure silver dayanıklılık katmanı kümelerde varsayılan olarak etkin onarım Yöneticisi hizmetiniz varsa. Azure gold dayanıklılık katmanı kümelerde olabilir veya onarım Yöneticisi hizmeti bu kümeler yaptığınızda oluşturulan bağlı olarak, etkin olmayabilir. Onarım Yöneticisi hizmetinin etkinleştirilmiş Azure kümelerde varsayılan olarak, Bronz dayanıklılık katmanı yok. Hizmet zaten etkin değilse, Service Fabric Explorer'da Sistem Hizmetleri bölümündeki çalışmasını görebilirsiniz.
 
-##### <a name="azure-portal"></a>Azure portalı
+##### <a name="azure-portal"></a>Azure portal
 Onarım Yöneticisi Azure Portalı'ndan kümesini ayarlama sırasında etkinleştirebilirsiniz. Seçin **onarım Yöneticisi dahil** altındaki **eklenti özellikleri** küme yapılandırmasının zaman.
 ![Azure portalından etkinleştirme onarım Yöneticisi'nin resmi](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
@@ -155,13 +161,13 @@ Düzeltme eki düzenleme uygulamanın davranış şekli, gereksinimlerinizi kar�
 |MaxResultsToCache    |Uzun                              | Önbelleğe alınan Windows Update sonuçlarının maksimum sayısı. <br>Varsayılan değer: 3000 varsayılarak: <br> -Düğüm sayısı 20'dir. <br> -Bir düğüm / ay üzerinde gerçekleştirilecek güncelleştirme sayısı beştir. <br> -İşlem başına sonuç sayısı 10 olabilir. <br> -Son üç ay için sonuçları depolanması gerekir. |
 |TaskApprovalPolicy   |Sabit listesi <br> {NodeWise, UpgradeDomainWise}                          |Service Fabric küme düğümleri arasında Windows güncelleştirmeleri yüklemek için Düzenleyici hizmeti tarafından kullanılacak olan ilke TaskApprovalPolicy gösterir.<br>                         İzin verilen değerler şunlardır: <br>                                                           <b>NodeWise</b>. Windows güncelleştirme yüklü tek bir düğüm bir kerede olur. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update, aynı anda yüklü bir yükseltme etki alanıdır. (En bir yükseltme etki alanına ait olan tüm düğümleri için Windows Update gidebilirsiniz.)<br> Başvurmak [SSS](#frequently-asked-questions) , uygun ilke kümeniz için en iyi olduğuna karar vermeye yönelik bölümü.
 |LogsDiskQuotaInMB   |Uzun  <br> (Varsayılan: 1024)               |Yerel olarak düğümlerinde kalıcı MB, düzeltme eki düzenleme uygulama en büyük boyutunu kaydeder.
-| WUQuery               | dize<br>(Varsayılan: "IsInstalled = 0")                | Windows güncelleştirmeleri almak için sorgulayın. Daha fazla bilgi için [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Boolean <br> (varsayılan: false)                 | Hangi güncelleştirmelerin indirilmesi ve yüklenmesi denetlemek için bu bayrağı kullanın. Aşağıdaki değerlerine izin verilir. <br>TRUE - yalnızca Windows işletim sistemi güncelleştirmeleri yükler.<br>false - makinede sağlanan tüm güncelleştirmeleri yükler.          |
+| WUQuery               | string<br>(Varsayılan: "IsInstalled = 0")                | Windows güncelleştirmeleri almak için sorgulayın. Daha fazla bilgi için [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+| InstallWindowsOSOnlyUpdates | Boole <br> (varsayılan: false)                 | Hangi güncelleştirmelerin indirilmesi ve yüklenmesi denetlemek için bu bayrağı kullanın. Aşağıdaki değerlerine izin verilir. <br>TRUE - yalnızca Windows işletim sistemi güncelleştirmeleri yükler.<br>false - makinede sağlanan tüm güncelleştirmeleri yükler.          |
 | WUOperationTimeOutInMinutes | Int <br>(Varsayılan: 90)                   | (Arama ya da indirme veya yükleme) herhangi bir Windows güncelleştirme işlemi için zaman aşımını belirtir. İşlemi belirtilen süre içinde tamamlanmazsa, iptal edildi.       |
 | WURescheduleCount     | Int <br> (Varsayılan: 5)                  | Bir işlem kalıcı olarak başarısız olması durumunda en fazla kaç kez Windows hizmeti tarih değiştirdiğinde güncelleştirin.          |
 | WURescheduleTimeInMinutes | Int <br>(Varsayılan: 30) | Hata devam ederse durumunda, hizmet Windows update tarih değiştirdiğinde aralığı. |
 | WUFrequency           | Virgülle ayrılmış bir dize (varsayılan: "Haftalık, Çarşamba, 7:00:00")     | Windows güncelleştirme sıklığı. Biçim ve olası değerler şunlardır: <br>-Örneğin, aylık, 5, 12 aylık, gg ss: 22:32.<br>Alanın değerlerini izin gg (gün) olan numaraları arasındaki aralığı 1-28 "son". <br> -Örneğin, haftalık, Salı, 12:22:32 için haftalık, gün, ss.  <br> -Örneğin, günlük, 12:22:32 günlük, ss.  <br> -Hiçbiri, Windows güncelleştirme yapılması olmamalıdır belirtir.  <br><br> Saatleri UTC biçiminde olduğunu unutmayın.|
-| AcceptWindowsUpdateEula | Boolean <br>(Varsayılan: true) | Bu bayrak ayarlandığında, uygulamayı Windows güncelleştirmesi için son kullanıcı lisans sözleşmesi makinenin sahibi adına kabul eder.              |
+| AcceptWindowsUpdateEula | Boole <br>(Varsayılan: true) | Bu bayrak ayarlandığında, uygulamayı Windows güncelleştirmesi için son kullanıcı lisans sözleşmesi makinenin sahibi adına kabul eder.              |
 
 > [!TIP]
 > Windows Update, hemen gerçekleşmeye istiyorsanız ayarlayın `WUFrequency` göre uygulama dağıtım süresi. Örneğin, beş düğümlü test kümesi vardır ve uygulaması yaklaşık 5: 00'da dağıtmayı planladığınız varsayalım UTC. Uygulama yükseltme veya dağıtım sırasında en fazla 30 dakika sürer olduğunu varsayarsak, WUFrequency "Günlük, 17:30:00" ayarlayın.
@@ -350,7 +356,7 @@ A. Hayır, düzeltme eki düzenleme uygulama düzeltme eki tek düğümlü küme
 
 - Düzeltme eki düzenleme uygulama kullanımını ve performansını izlemek için telemetri toplar. Uygulamanın telemetri (Bu varsayılan olarak etkindir) Service Fabric çalışma zamanı telemetri ayarı ayarını izler.
 
-## <a name="troubleshooting"></a>Sorun Giderme
+## <a name="troubleshooting"></a>Sorun giderme
 
 ### <a name="a-node-is-not-coming-back-to-up-state"></a>Bir düğüm geri durumu yukarı geliyor değil
 

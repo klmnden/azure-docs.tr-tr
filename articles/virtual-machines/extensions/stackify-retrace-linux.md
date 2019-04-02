@@ -14,16 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
-ms.openlocfilehash: e80134729c33741aa3007deb2d93a2de3e3fe697
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: b9c035c1c9088957f59550bf6564cc02bc7972f4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979726"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792431"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify yeniden izlemesine Linux Aracısı uzantısı
 
 ## <a name="overview"></a>Genel Bakış
+
 Stackify bulun ve sorunları hızlı bir şekilde çözmek için uygulamayla ilgili ayrıntıları izleyen ürünleri sağlar. Geliştirici takımlar, yeniden izlemesine, tamamen tümleşik, çok ortamı, uygulama performans Süper gücünü içindir. Bunu her geliştirme ekibinin ihtiyaç duyduğu çeşitli araçları bir araya getirir.
 
 Yeniden izlemesine tek bir platformdaki tüm ortamlardaki tüm aşağıdaki özellikleri sunan yalnızca aracıdır.
@@ -40,6 +41,7 @@ Bu uzantı, yeniden izlemesine için Linux aracısı için bir yükleme yolu sa�
 ## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="operating-system"></a>İşletim sistemi 
+
 Yeniden izlemesine aracı bu Linux dağıtımları karşı çalıştırabilirsiniz
 
 | Dağıtım | Sürüm |
@@ -50,12 +52,14 @@ Yeniden izlemesine aracı bu Linux dağıtımları karşı çalıştırabilirsin
 | CentOS | 6.3+, 7.0+ |
 
 ### <a name="internet-connectivity"></a>İnternet bağlantısı
+
 Linux için aracıyı Stackify uzantısı, hedef sanal makineyi internet'e bağlı olduğundan emin gerektirir. 
 
 Stackify'i bağlantılara izin vermek için bkz. ağ yapılandırmanızı ayarlamanız gerekebilir https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall. 
 
 
 ## <a name="extension-schema"></a>Uzantı şeması
+
 ---
 
 Aşağıdaki JSON şema Stackify yeniden izlemesine Aracı Uzantısı gösterir. Uzantı gerektirir `environment` ve `activationKey`.
@@ -151,7 +155,7 @@ Uzantı JSON şablonu kökünde yerleştirilirken, kaynak adı üst sanal makine
 
 Uzantı gerektirir `environment` ve `activationKey`.
 
-```
+```powershell
 $PublicSettings = @{"environment" = "myEnvironment"}
 $ProtectedSettings = @{"activationKey" = "myActivationKey"}
 

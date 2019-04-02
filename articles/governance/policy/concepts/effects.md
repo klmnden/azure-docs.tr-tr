@@ -4,17 +4,17 @@ description: Azure İlkesi tanım uyumluluk nasıl yönetildiği ve bildirilen b
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6c6fbde8ff803a053f8c34765ce95d3981a57c52
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ae9c9c5ed8b951760ddac3034c617a13ebe35006
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551275"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802652"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure İlkesi etkilerini anlama
 
@@ -180,9 +180,10 @@ Bir kaynak sağlayıcısı oluşturma veya güncelleştirme kaynak isteğiyle i�
 
 - **Tür** [gerekli]
   - Eşleştirmek için ilgili kaynak türünü belirtir.
-  - Başlar altında bir kaynak getirilmeye çalışılırken tarafından **varsa** koşul kaynağı, ardından aynı kaynak grubunda sorgulara **varsa** koşul kaynağı.
+  - Varsa **details.type** altında bir kaynak türü **varsa** koşul kaynağı, bu kaynaklar için ilke sorgular **türü** değerlendirilen kaynak kapsamında. Aksi durumda, ilke sorguları değerlendirilen kaynak ile aynı kaynak grubunda.
 - **Ad** (isteğe bağlı)
   - Eşleştirilecek kaynak tam adını belirtir ve belirli bir kaynak belirtilen türdeki tüm kaynakları yerine getirmek ilke neden olur.
+  - Koşul zaman değerleri **if.field.type** ve **then.details.type** , eşleşen **adı** olur _gerekli_ ve olmalıdır`[field('name')]`. Ancak, bir [denetim](#audit) efekt bunun yerine sayılacağı.
 - **ResourceGroupName** (isteğe bağlı)
   - İlişkili kaynağın farklı bir kaynak grubundan gelen eşleşen sağlar.
   - Varsa geçerli değildir **türü** altında olan bir kaynağın **varsa** koşul kaynağı.
@@ -253,6 +254,7 @@ Bir değerlendirme döngüsü sırasında kaynaklarla eşleşen ilke tanımları
   - Başlar altında bir kaynak getirilmeye çalışılırken tarafından **varsa** koşul kaynağı, ardından aynı kaynak grubunda sorgulara **varsa** koşul kaynağı.
 - **Ad** (isteğe bağlı)
   - Eşleştirilecek kaynak tam adını belirtir ve belirli bir kaynak belirtilen türdeki tüm kaynakları yerine getirmek ilke neden olur.
+  - Koşul zaman değerleri **if.field.type** ve **then.details.type** , eşleşen **adı** olur _gerekli_ ve olmalıdır`[field('name')]`.
 - **ResourceGroupName** (isteğe bağlı)
   - İlişkili kaynağın farklı bir kaynak grubundan gelen eşleşen sağlar.
   - Varsa geçerli değildir **türü** altında olan bir kaynağın **varsa** koşul kaynağı.
