@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
-ms.openlocfilehash: becf48320b346feea82944ed2f7e752125795d40
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999512"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876845"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple Sanal Dizini sistem gereksinimleri
 ## <a name="overview"></a>Genel Bakış
@@ -76,7 +76,7 @@ Aşağıdaki yazılım gereksinimleri, StorSimple sanal (bir iSCSI sunucusu olar
 
 Aşağıdaki yazılım gereksinimleri, StorSimple sanal (dosya sunucusu olarak yapılandırılmış) dizininiz erişen SMB istemcileri içindir.
 
-| **SMB sürümü** |
+| **SMB Sürümü** |
 | --- |
 | SMB 2.x |
 | SMB 3.0 |
@@ -123,14 +123,14 @@ StorSimple liberally çoğu zaman sabit IP adreslerinin, temel giden trafik içi
 
 | URL deseni | Bileşen/işlevi |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple Cihaz Yöneticisi hizmeti<br>Access Control Service<br>Azure Service Bus<br>Kimlik Doğrulama Hizmeti|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple Device Manager hizmeti<br>Access Control Service<br>Azure Service Bus<br>Kimlik Doğrulama Hizmeti|
 | `http://*.backup.windowsazure.com` |Cihaz kaydı |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Sertifika iptal etme |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure depolama hesapları ve izleme |
 | `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft Update sunucularına<br> |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |
 | `https://*.partners.extranet.microsoft.com/*` |Destek paketi |
-| `https://*.data.microsoft.com ` |Telemetri hizmeti, Windows bkz [müşteri deneyimini ve tanılama telemetrisi güncelleştirmesi](https://support.microsoft.com/en-us/kb/3068708) |
+| `https://*.data.microsoft.com` |Telemetri hizmeti, Windows bkz [müşteri deneyimini ve tanılama telemetrisi güncelleştirmesi](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [StorSimple Virtual Array'iniz dağıtmak için portalı hazırlama](storsimple-virtual-array-deploy1-portal-prep.md)

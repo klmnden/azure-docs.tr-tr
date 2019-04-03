@@ -3,21 +3,21 @@ title: Azure Data Lake depolama Gen1 depolanan verilerin güvenliğini sağlama 
 description: Azure Data Lake depolama Gen1 grupları kullanarak verileri güvenli ve erişim denetimi listeleri hakkında bilgi edinin
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ca35e65f-3986-4f1b-bf93-9af6066bb716
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
-ms.openlocfilehash: 15ef1e1b96a0da24714b4ddbda6b24f1f6f33ae0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.author: twooley
+ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296745"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885681"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 depolanan verilerin güvenliğini sağlama
 Azure Data Lake depolama Gen1, veri güvenliğini sağlamak için üç adımlık bir yaklaşımdır.  Rol tabanlı erişim denetimi (RBAC) ve tam olarak kullanıcılar ve güvenlik grupları için veri erişimini etkinleştirmek için erişim denetim listeleri (ACL'ler) ayarlamanız gerekir.
@@ -32,7 +32,7 @@ Bu makalede yukarıdaki görevleri gerçekleştirmek için Azure portalını kul
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
-* **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
+* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Bir Data Lake depolama Gen1 hesabı**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake depolama Gen1 ile çalışmaya başlama](data-lake-store-get-started-portal.md)
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Azure Active Directory'de güvenlik grupları oluşturma
@@ -152,7 +152,7 @@ Güvenlik grubu ACL'ler bir Data Lake depolama Gen1 dosya sisteminden kaldırdı
 * [Data Lake depolama Gen1 için Azure depolama Bloblarından veri kopyalama](data-lake-store-copy-data-azure-storage-blob.md)
 * [Azure Data Lake Analytics'i Data Lake depolama Gen1 ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight ile Data Lake depolama Gen1 kullanın](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [PowerShell kullanarak get Started ile Data Lake depolama Gen1](data-lake-store-get-started-powershell.md)
+* [PowerShell ile Data Lake Storage Gen1'i kullanmaya başlama](data-lake-store-get-started-powershell.md)
 * [Get başlangıç .NET SDK kullanarak Data Lake depolama Gen1](data-lake-store-get-started-net-sdk.md)
 * [Data Lake depolama Gen1 için tanılama günlüklerine erişme](data-lake-store-diagnostic-logs.md)
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e18c58aafd4aa56a27f5e4a97c9dcc9dcd0fdbd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9167a5ed72e6fec2ca03cc97d1d41dd6cd4aaba6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199791"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885851"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Öğretici: Gizli dizi sunucusu (şirket içi) ile Azure Active Directory Tümleştirme
 
@@ -111,7 +111,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. İçinde **tanımlayıcı** metin değeri bir örnek olarak seçilen kullanıcı girin: `https://secretserveronpremises.azure`
 
-    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx `
+    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx`
 
     > [!NOTE]
     > Yukarıda gösterilen varlık kimliği yalnızca örnek olarak verilmiştir; Azure AD'de parola Server örneğinizi tanımlayan herhangi bir benzersiz değer seçmek ücretsizdir. Bu varlık kimliği için gönderilmesini [istemci gizli anahtarı sunucusu (şirket içi) destek ekibi](https://thycotic.force.com/support/s/) ve bunlar kendi tarafında yapılandırın. Daha fazla ayrıntı için lütfen okuyun [bu makalede](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server).
@@ -219,7 +219,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 0d9f13003a9b81085fda9635fc8b07566a1c0c66
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d7370fc14a5ede23744e04ac9d35140f2368e21f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107534"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877406"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(KULLANIM DIŞI) Log Analytics ile bir Azure Container Service kümesini izleme
 
@@ -100,7 +100,7 @@ Log Analytics çalışma alanı kimliği ve anahtarını korumak için Kubernete
   #> sudo bash ./secret-gen.sh
   ```
 
-  - Gizli dizileri pod, aşağıdaki komutu çalıştırarak oluşturun: ``` kubectl create -f omsagentsecret.yaml ```
+  - Gizli dizileri pod, aşağıdaki komutu çalıştırarak oluşturun: ```kubectl create -f omsagentsecret.yaml```
 
   - Denetlemek için şu komutu çalıştırın:
 
@@ -123,7 +123,7 @@ Log Analytics çalışma alanı kimliği ve anahtarını korumak için Kubernete
   KEY:    88 bytes
   ```
 
-  - Arka plan programı kümesi çalıştırarak, omsagent oluşturma ``` kubectl create -f omsagent-ds-secrets.yaml ```
+  - Arka plan programı kümesi çalıştırarak, omsagent oluşturma ```kubectl create -f omsagent-ds-secrets.yaml```
 
 ### <a name="conclusion"></a>Sonuç
 İşte bu kadar! Birkaç dakika sonra Log Analytics panonuza akan verileri görebildiğine olmalıdır.

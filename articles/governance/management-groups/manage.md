@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: f9e9bf51d50863f2e37a2f579c2db0edcfeca634
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f75686d19a468983a6b0ce68eb4a456e00c90eeb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801785"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881061"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Yönetim gruplarıyla kaynaklarınızı yönetin
 
@@ -330,7 +330,7 @@ Yönetim Grupları diğer kaynak sağlayıcısının eylemlerden başvururken a�
 
 PowerShell'de bir yönetim grubuna yeni bir rol ataması atarken bu yolu kullanarak, bir örnek verilmiştir
 
-```powershell-interactive
+```azurepowershell-interactive
 New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
@@ -344,8 +344,8 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 
 Yönetim grupları hakkında daha fazla bilgi almak için bkz.:
 
-- [Azure kaynaklarını düzenlemek için yönetim grupları oluşturma](create.md)
-- [Yönetim gruplarınızı değiştirme, silme veya yönetme](manage.md)
-- [Azure PowerShell Kaynak Modülünde yönetim gruplarını gözden geçirme](/powershell/module/az.resources#resources)
-- [REST API'de yönetim gruplarını gözden geçirme](/rest/api/resources/managementgroups)
-- [Azure CLI'de yönetim gruplarını gözden geçirme](/cli/azure/account/management-group)
+- [Azure kaynaklarını düzenlemek için Yönetim grupları oluşturma](create.md)
+- [Değiştirme, silme veya yönetim gruplarınızı yönetme](manage.md)
+- [Azure PowerShell kaynakları modülündeki Yönetim gruplarını gözden geçirin](/powershell/module/az.resources#resources)
+- [REST API Yönetim gruplarını gözden geçirin](/rest/api/resources/managementgroups)
+- [Azure CLI'de Yönetim gruplarını gözden geçirin](/cli/azure/account/management-group)

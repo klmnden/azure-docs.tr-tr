@@ -3,25 +3,25 @@ title: Azure HDInsight kümeleri ile Azure Data Lake depolama Gen1 oluşturmak i
 description: Oluşturun ve HDInsight kümeleri ile Azure Data Lake depolama Gen1 kullanmak için Azure portalını kullanma
 services: data-lake-store,hdinsight
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: a8c45a83-a8e3-4227-8b02-1bc1e1de6767
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 25e4c308b55b66038be6825a239f185e5e813af5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: twooley
+ms.openlocfilehash: 6f9064c6027499fff3a8551ee60722cd66c54dc2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085771"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883437"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Azure portalını kullanarak Azure Data Lake depolama Gen1 ile HDInsight kümeleri oluşturma
 > [!div class="op_single_selector"]
-> * [Azure portal’ı kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
+> * [Azure portalı kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [(Varsayılan depolama için) PowerShell kullanma](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 > * [PowerShell'i kullanma (ek depolama için)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Kaynak Yöneticisi'ni kullanın](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)

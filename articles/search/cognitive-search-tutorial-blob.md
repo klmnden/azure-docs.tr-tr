@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c888c134054f50bc8ab17d17524a4f89d5081dfc
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: f60b9002f939cbf4c3a0ecfb78b358598713ea1c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259627"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881639"
 ---
 # <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Öğretici: Bilişsel hizmetler API'leri çağırmak bir Azure Search dizini oluşturma ardışık düzen (Önizleme)
 
@@ -129,9 +129,6 @@ Bu ilk isteğiniz olduğundan, veri kaynağının Azure Search’te oluşturuldu
   ![Portaldaki veri kaynakları kutucuğu](./media/cognitive-search-tutorial-blob/data-source-tile.png "Portaldaki veri kaynakları kutucuğu")
 
 Bir 403 veya 404 hatası aldıysanız, istek yapısını denetleyin: `api-version=2017-11-11-Preview`, uç nokta üzerinde olmalıdır, `api-key`, Üst bilgide `Content-Type` öğesinden sonra gelmelidir ve değeri bir arama hizmeti için geçerli olmalıdır. Bu öğreticide kalan adımlar için üst bilgiyi kullanabilirsiniz.
-
-> [!TIP]
-> Artık, birçok iş uygulamadan önce arama hizmeti desteklenen konumlardan birinde çalıştığını doğrulamak için iyi bir zaman önizleme özelliğini sağlamaktadır: Güney Orta ABD veya Batı Avrupa.
 
 ## <a name="create-a-skillset"></a>Beceri kümesi oluşturma
 
@@ -554,4 +551,4 @@ Bir öğretici tamamlandıktan sonra temizlemenin en hızlı yolu, Azure Search 
 Özel becerilerle işlem hattını özelleştirin veya genişletin. Özel bir beceri oluşturup bir beceri kümesine eklemeniz, kendi yazdığınız metin veya görüntü analizini eklemenize olanak sağlar. 
 
 > [!div class="nextstepaction"]
-> [Örnek: özel bir beceri oluşturma](cognitive-search-create-custom-skill-example.md)
+> [Örnek: özel bir yetenek oluşturma](cognitive-search-create-custom-skill-example.md)

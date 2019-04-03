@@ -10,67 +10,70 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: b07f36055f9c0690450e8d4ab5abacb8c84d9bf2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 04/03/2019
+ms.openlocfilehash: 7017566092530dce2359d45314ac00dca63b8ad0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182549"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886242"
 ---
-# <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti tarafından desteklenen geçiş senaryoları durumu
-Azure veritabanı geçiş hizmeti çeşitli geçiş senaryoları (kaynak/hedef çiftleri) için hem de çevrimdışı destekleyecek şekilde tasarlanmıştır (tek seferlik) ve çevrimiçi (sürekli eşitleme) geçişi. Azure veritabanı geçiş hizmeti tarafından sağlanan senaryo kapsamı zamanla genişletilir. Yeni senaryolar düzenli olarak eklenmektedir. Bu makalede, Azure veritabanı geçiş hizmeti ve durum tarafından şu anda desteklenen geçiş senaryoları tanımlar (özel [ya da sınırlı] Önizleme, genel Önizleme veya genel kullanıma sunuldu) veya her bir senaryo.
+# <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti tarafından desteklenen geçiş senaryoları durumu
+Azure veritabanı geçiş hizmeti çevrimdışı her ikisi için farklı geçiş senaryolarının (kaynak/hedef çiftleri) destekleyecek şekilde tasarlanmıştır (tek seferlik) ve çevrimiçi (sürekli eşitleme) geçişi. Azure veritabanı geçiş hizmeti tarafından sağlanan senaryo kapsamı zamanla genişletilir. Yeni senaryolar düzenli olarak eklenmektedir. Bu makalede, Azure veritabanı geçiş hizmeti ve her senaryo için durumunu (özel Önizleme, genel Önizleme veya genel kullanıma sunuldu) tarafından şu anda desteklenen geçiş senaryoları tanımlar.
 
 ## <a name="offline-versus-online-migrations"></a>Çevrimdışı online geçişleri karşılaştırması
-Veritabanları, Azure veritabanı geçiş hizmetini kullanarak Azure'a geçirirken, çevrimdışı veya çevrimiçi bir geçiş gerçekleştirebilirsiniz. İle *çevrimdışı* geçişler, uygulama kapalı kalma süresi, geçişi başlatan aynı anda başlar. İçin *çevrimiçi* geçiş kapalı kalma süresi üzerinden geçiş tamamlandığında yeni ortama kesmek için gereken süre sınırlı. Çevrimdışı bir geçiş kapalı kalma süresinin kabul edilebilir olup olmadığını belirlemek için test etmek için önerilir; Aksi durumda, bir çevrimiçi geçiş gerçekleştirin.
+Azure veritabanı geçiş hizmeti ile çevrimdışı veya çevrimiçi bir geçiş yapabilirsiniz. İle *çevrimdışı* geçişler, uygulama kapalı kalma süresi, geçişi başlatan aynı anda başlar. Kapalı kalma süresi üzerinden geçiş tamamlandığında yeni ortama kesmek için gereken süreyi sınırlamak için kullanın. bir *çevrimiçi* geçiş. Çevrimdışı bir geçiş kapalı kalma süresinin kabul edilebilir olup olmadığını belirlemek için test etmek için önerilir; Aksi durumda, bir çevrimiçi geçiş yapın.
 
 ## <a name="migration-scenario-status"></a>Geçiş senaryosu durumu
-Azure veritabanı geçiş hizmeti tarafından desteklenen her geçiş senaryosu durumunu zaman ile olarak değişir. Genel olarak, senaryolar ilk olarak yayımlanan **özel Önizleme**, ve işlevselliği yararlanarak müşteri aracılığıyla ADAYLIK gönderme gerektirir [DMS Önizleme site](https://aka.ms/dms-preview). Özel önizleme tamamlandığında senaryo durumu değişerek **genel Önizleme**. Geçiş senaryoları genel önizlemede olan tüm Azure veritabanı geçiş hizmeti kullanıcıların yararlanabilirsiniz. Ancak, geçiş senaryosu tüm bölgelerde kullanılamayabilir ve işlevselliği son sürüm önce ek değişiklikler meydana gelebilir. Bir geçiş senaryosunda olduğunda **sunuldu**, en son yayımlanan durumu, tam ve tüm Azure veritabanı geçiş hizmeti kullanıcıların erişebileceği bir işlevdir. 
+Azure veritabanı geçiş hizmeti tarafından desteklenen geçiş senaryoları durumunu zaman ile olarak değişir. Genel olarak, senaryolar ilk olarak yayımlanan **özel Önizleme**. Özel önizlemeye katılım aracılığıyla ADAYLIK gönderme müşterilere gerektirir [DMS Önizleme site](https://aka.ms/dms-preview). Özel önizleme sonra senaryo durumu değişerek **genel Önizleme**. Azure veritabanı geçiş hizmeti kullanıcıları kullanıcı arabiriminden doğrudan genel önizlemede geçiş senaryoları deneyebilirsiniz. İstemiyorum'u gereklidir.  Ancak, geçiş senaryoları genel önizlemede tüm bölgelerde kullanılamayabilir ve son sürüm önce ek değişiklikler meydana gelebilir. Genel önizlemeden sonra senaryo durumu değişerek **sunuldu**. Genel kullanıma (GA) son yayın durumu ve işlevselliği tamamını ve tüm kullanıcılar tarafından erişilebilir. 
 
 ## <a name="migration-scenario-support"></a>Geçiş senaryosu desteği
-
 Aşağıdaki tablolarda, hangi geçiş senaryoları Azure veritabanı geçiş hizmeti kullanılırken desteklenen gösterilmektedir.
 
 > [!NOTE]
 > Aşağıda desteklenen olarak listelenen bir senaryoda, kullanıcı arabirimi içinde görünmüyorsa, lütfen başvurun [veri geçiş takım](mailto:datamigrationteam@microsoft.com) ek bilgi için.
 
+> [!IMPORTANT]
+> Şu anda özel Önizleme Azure veritabanı geçiş hizmeti tarafından desteklenen senaryoları görüntülemek için bkz: [DMS Önizleme site](https://aka.ms/dms-preview).
+
 ### <a name="offline-one-time-migration-support"></a>Çevrimdışı (tek seferlik) geçiş desteği
 Aşağıdaki tablo, çevrimdışı geçişleri için Azure veritabanı geçiş hizmeti destek gösterir.
 
-| Hedef  | Kaynak | Destek |
-| ------------- | ------------- | :-------------: |
-| **Azure SQL DB**  | SQL Server | ✔ |
-|   | RDS SQL  |  ✔ |
-|   | Oracle  |   |
-| **Azure SQL DB MI**  | SQL Server  | ✔ |
-|   | RDS SQL  | ✔ |
-|   | Oracle  | ✔  |
-| **Azure SQL sanal makinesi**  | SQL Server | ✔ |
-|   | Oracle  |   |
-| **Azure Cosmos DB**  | MongoDB | ✔ |
-| **MySQL için Azure DB**  | MySQL |  |
-|   | RDS MySQL  |  |
-| **PostgreSQL için Azure DB**  | PostgreSQL |  |
-|  | RDS PostgreSQL  |  |
+| Hedef  | Kaynak | Destek | Durum |
+| ------------- | ------------- | :-------------: | :-------------: |
+| **Azure SQL DB** | SQL Server | ✔ | GA |
+|   | RDS SQL |  |  |
+|   | Oracle |  |  |
+| **Azure SQL DB mı** | SQL Server | ✔ | GA |
+|   | RDS SQL |  |  |
+|   | Oracle |  |   |
+| **Azure SQL VM** | SQL Server | ✔ | GA |
+|   | Oracle |   |   |
+| **Azure Cosmos DB** | MongoDB | ✔ | Genel önizlemeye sunuldu |
+| **MySQL için Azure DB** | MySQL |   |   |
+|   | RDS MySQL |   |   |
+| **PostgreSQL için Azure DB** | PostgreSQL |  |
+|  | RDS PostgreSQL |   |   |
 
 ### <a name="online-continuous-sync-migration-support"></a>Çevrimiçi (sürekli eşitleme) geçiş desteği
-Aşağıdaki tabloda çevrimiçi geçişleri için Azure veritabanı geçiş hizmeti destek gösterilmektedir.
+Aşağıdaki tablo, Azure veritabanı geçiş hizmeti desteği, genel Önizleme veya genel kullanıma sunulan çevrimiçi geçişler gösterir.
 
-| Hedef  | Kaynak | Destek |
-| ------------- | ------------- | :-------------: |
-| **Azure SQL DB**  | SQL Server | ✔ |
-|   | RDS SQL  |   |
-|   | Oracle  |  ✔ |
-| **Azure SQL DB MI**  | SQL Server  | ✔ |
-|   | RDS SQL  |  |
-|   | Oracle  | ✔  |
-| **Azure SQL sanal makinesi**  | SQL Server  |   |
-|   | Oracle  | ✔  |
-| **Azure Cosmos DB**  | MongoDB  | ✔ |
-| **MySQL için Azure DB**  | MySQL | ✔ |
-|   | RDS MySQL  | ✔ |
-| **PostgreSQL için Azure DB**  | PostgreSQL | ✔ |
-|  | RDS PostgreSQL  | ✔ |
+| Hedef  | Kaynak | Destek | Durum |
+| ------------- | ------------- | :-------------: | :-------------: |
+| **Azure SQL DB** | SQL Server | ✔ | GA |
+|   | RDS SQL | ✔ | GA |
+|   | Oracle |  |  |
+| **Azure SQL DB mı** | SQL Server | ✔ | GA |
+|   | RDS SQL | ✔ | GA |
+|   | Oracle | ✔ | Özel önizleme |
+| **Azure SQL VM** | SQL Server |   |   |
+|   | Oracle  |  |  |
+| **Azure Cosmos DB** | MongoDB | ✔ | Genel önizlemeye sunuldu |
+| **MySQL için Azure DB** | MySQL | ✔ | GA |
+|   | RDS MySQL | ✔ | GA |
+| **PostgreSQL için Azure DB** | PostgreSQL | ✔ | GA |
+|   | RDS PostgreSQL | ✔ | GA |
+|   | Oracle | ✔ | Özel önizleme |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bölgesel kullanılabilirlik ve Azure veritabanı geçiş Hizmeti'nin genel bakış için bkz [Azure veritabanı geçiş hizmeti nedir](dms-overview.md). 
+Azure veritabanı geçiş hizmeti ve bölgesel kullanılabilirlik genel bakış için bkz [Azure veritabanı geçiş hizmeti nedir](dms-overview.md).

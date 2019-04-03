@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 823eebeddb64c15ef20d103f2f9290c800753f1a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0f8aafce4c4feeed742504db84664e4dfd472ca6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404772"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884151"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault azaltma kılavuzu
 
@@ -34,7 +34,7 @@ Kaynakları kötüye kullanımı önlemesi ve Key Vault'un istemciler için hizm
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Nasıl kısıtlanacağını uygulamanızın yanıt olarak hizmet sınırları
 
-Aşağıdaki **en iyi uygulamalar** uygulamanızın azaltma için:
+Aşağıdaki **en iyi uygulamalar** hizmetinizi kısıtlanan olduğunda uygulamanız gerekir:
 - İstek başına işlemlerin sayısını azaltın.
 - İstekleri sıklığını azaltın.
 - Hemen yeniden deneme kaçının. 
@@ -115,7 +115,7 @@ Uygulamanızın hata işleme uygularken, istemci tarafı azaltma ihtiyacına alg
 ```
 
 
-Bu kodu kullanarak C istemci olarak\# uygulama (başka bir Web API'sini istemci mikro hizmet, bir ASP.NET MVC uygulaması veya hatta bir C\# Xamarin uygulama) oldukça basittir. Aşağıdaki örnekte gösterildiği nasıl HttpClient sınıfını kullanma.
+Bu kodu kullanarak C istemci olarak\# uygulamasıdır basit. Aşağıdaki örnekte gösterildiği nasıl HttpClient sınıfını kullanma.
 
 ```csharp
 public async Task<Cart> GetCartItems(int page)

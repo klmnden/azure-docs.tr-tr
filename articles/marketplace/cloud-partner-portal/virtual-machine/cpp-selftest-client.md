@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6cfe9b61d9bbb088e827386b2195bba21333937e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ae01b0fb088035240e670c16d4d457d8abda1bfa
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649095"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848937"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Bir Azure sanal makine görüntüsünü doğrulamak için bir kendi kendine test istemcisi oluşturma
 
@@ -51,7 +51,7 @@ Aşağıdaki diyagramda yetkilendirme hizmet çağrıları için istemci kimlik 
 Kendi kendine test API'si yalnızca POST yöntemini destekleyen tek bir uç nokta içerir.  Bunu, aşağıdaki yapıya sahiptir.
 
 ```
-Uri:             https:\//isvapp.azurewebsites.net/selftest-vm
+Uri:             https://isvapp.azurewebsites.net/selftest-vm
 Method:          Post
 Request Header:  Content-Type: “application/json”
 Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
@@ -275,7 +275,7 @@ Uygulamanızı oluşturmak istediğiniz Azure AD kiracısını seçmek için aş
 
     ![Uygulama için API erişimini etkinleştirin](./media/stclient-enable-api-access.png)
 
-14. Tıklayın **seçin**.
+14. **Seç**'e tıklayın.
 15. **Done** (Bitti) öğesini seçin.
 16. Altında **ayarları**seçin **özellikleri**.
 17. Altında **özellikleri**, ekranı aşağı kaydırarak **çok kiracılı**. Seçin **Evet**.
@@ -357,7 +357,7 @@ Aşağıdaki ekran görüntüsü yakalamayı bir belirteç almak üzere curl kom
 
 ### <a name="to-create-and-get-a-token-using-c35"></a>Oluşturma ve C kullanarak bir belirteç almak için&#35;
 
-Auth0 belirteçleri, yetkili uygulamalardan herhangi biri için sormak için bir gönderme işlemi için gerçekleştirmek [ https://soamtenant.auth0.com/oauth/token ](https://soamtenant.auth0.com/oauth/token) aşağıdaki biçimde bir yükü uç noktası:
+Auth0 belirteçleri, yetkili uygulamalardan herhangi biri için sormak için ve https için bir gönderme işlemi gerçekleştirin:\/aşağıdaki biçimde bir yükü /soamtenant.auth0.com/oauth/token uç noktası:
 
 ```csharp
 string clientId = "Your Application Id";
@@ -380,7 +380,7 @@ var token = JObject.Parse(content)["access_token"];
 
 ### <a name="to-create-and-get-a-token-using-powershell"></a>Oluşturma ve PowerShell kullanarak bir belirteç almak için
 
-Auth0 belirteçleri, yetkili uygulamalardan herhangi biri için sormak için bir gönderme işlemi için gerçekleştirmek [ https://soamtenant.auth0.com/oauth/token ](https://soamtenant.auth0.com/oauth/token) aşağıdaki biçimde bir yükü uç noktası:
+Auth0 belirteçleri, yetkili uygulamalardan herhangi biri için sormak için ve https için bir gönderme işlemi gerçekleştirin:\/aşağıdaki biçimde bir yükü /soamtenant.auth0.com/oauth/token uç noktası:
 
 ```powershell
 $clientId = "Application Id of AD Client APP";

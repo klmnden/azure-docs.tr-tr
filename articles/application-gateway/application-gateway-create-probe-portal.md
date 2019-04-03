@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 8e98b50e936ba97881e2937a50eb474d57a24a05
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 90d576fd00a39f7e871cbe0922ce131dfbe38ff0
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107772"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862174"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Portalı kullanarak Application Gateway için özel bir araştırma oluşturma
 
@@ -52,12 +52,12 @@ Araştırmaları iki adımlı bir işlem portal üzerinden yapılandırılır. �
    |**Ayar** | **Değer** | **Ayrıntılar**|
    |---|---|---|
    |**Ad**|customProbe|Bu değer, portalda erişilebilir araştırması için kolay bir addır.|
-   |**Protokolü**|HTTP veya HTTPS | Durum araştırması kullanan protokol.|
-   |**Ana Bilgisayar**|yani contoso.com|Araştırma için kullanılan ana bilgisayar adı değerdir. Geçerli çok siteli, yalnızca uygulama ağ geçidinde yapılandırılan, aksi takdirde '127.0.0.1' kullanın. Bu değer, VM'nin ana bilgisayar adından farklıdır.|
-   |**Yolu**|/ veya başka bir yol|Özel araştırma için tam bir url geri kalanında. İle başlayan geçerli bir yol '/'. Varsayılan yolu http://contoso.com yalnızca '/' |
+   |**Protokol**|HTTP veya HTTPS | Durum araştırması kullanan protokol.|
+   |**Host**|yani contoso.com|Araştırma için kullanılan ana bilgisayar adı değerdir. Geçerli çok siteli, yalnızca uygulama ağ geçidinde yapılandırılan, aksi takdirde '127.0.0.1' kullanın. Bu değer, VM'nin ana bilgisayar adından farklıdır.|
+   |**Yol**|/ veya başka bir yol|Özel araştırma için tam bir url geri kalanında. İle başlayan geçerli bir yol '/'. Http varsayılan yolu:\//contoso.com kullanmanız yeterlidir '/' |
    |**Aralığı (saniye)**|30|Ne sıklıkta denetlemek için sistem durumu için yoklama çalıştırın. Alt ayarlamak için önerilmez 30 saniyeden.|
    |**Zaman aşımı (saniye)**|30|Yoklama zaman aşımına uğrama süre miktarı. Zaman aşımı aralığı, arka uç sistem durumu sayfası kullanılabildiğinden emin olmak için http çağrısı yapılabilir yeterince yüksek olması gerekiyor.|
-   |**Sağlıksız durum eşiği**|3|Sağlıksız olarak değerlendirilmesi için başarısız girişim sayısı. Arka uç sistem durumu denetimi başarısız olursa, sağlıksız hemen belirlenir bir eşik 0 anlamına gelir.|
+   |**İyi durumda olmayan eşik**|3|Sağlıksız olarak değerlendirilmesi için başarısız girişim sayısı. Arka uç sistem durumu denetimi başarısız olursa, sağlıksız hemen belirlenir bir eşik 0 anlamına gelir.|
 
    > [!IMPORTANT]
    > Ana bilgisayar adı sunucu adıyla aynı değil. Bu değer uygulama sunucusunda çalışan sanal ana bilgisayar adıdır. Araştırma http://(host name):(port from httpsetting)/urlPath için gönderilir.

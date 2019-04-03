@@ -1,25 +1,25 @@
 ---
 title: Sık sorulan sorular için Azure Güvenlik Merkezi Önizleme IOT | Microsoft Docs
 description: En sık sorulan soruları yanıtlar Azure Güvenlik Merkezi hakkında IOT özelliklerini ve hizmet için bulun.
-services: ASCforiot
+services: asc-for-iot
+ms.service: ASCforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 97fda6c2-1ecb-491f-b48d-41788bd7e0d3
-ms.service: ASCforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: dab30a03ff73664fde4e5377794d3ae00625af93
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: cd9e77e09e2a2fd5fe1108e98da028d26fc623c7
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755334"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863058"
 ---
 # <a name="azure-security-center-for-iot-frequently-asked-questions"></a>IOT için Azure Güvenlik Merkezi sık sorulan sorular  
 

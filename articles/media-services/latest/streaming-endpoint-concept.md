@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8cd6a68f6593a5b746a19e42e4835deb05e112b6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757177"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881027"
 ---
 # <a name="streaming-endpoints"></a>Akış Uç Noktaları
 
@@ -24,6 +24,8 @@ Microsoft Azure Media Services (AMS) içinde [akış uç noktalarını](https://
 
 > [!NOTE]
 > Video akışını başlatmak için başlatmanız **akış uç noktası** video akışı yapmak istediğiniz. 
+>  
+> Akış uç noktanızı çalışır durumda olduğunda yalnızca faturalandırılırsınız.
 
 ## <a name="naming-convention"></a>Adlandırma kuralı
 
@@ -40,7 +42,7 @@ Türler aşağıdaki tabloda açıklanmıştır:
 |Type|Ölçek birimleri|Açıklama|
 |--------|--------|--------|  
 |**Standart Akış Uç Noktası** (önerilen)|0|Varsayılan akış uç noktası olan bir **standart** yazın, ancak Premium türüne değiştirilebilir.<br/> Standart türü, neredeyse tüm akış senaryoları ve hedef kitle boyutları için önerilen seçenektir. **Standart** türde giden bant genişliği otomatik olarak ölçeklendirilir. Bu tür bir akış uç noktası hizmetin performansını en fazla 600 MB / sn'dir. CDN'de önbelleğe video parçasının, akış uç noktası bant genişliği kullanmaz.<br/>Media Services, gereksinimleri çok yüksek olan müşteriler için kapasitenin en geniş internet kitlelerine göre ölçeklendirilmesini sağlayan **Premium** akış uç noktalarını sunar. Geniş kitlelere ve eş zamanlı görüntüleyiciler bekliyorsanız, bizimle iletişim kurun amsstreaming\@microsoft.com taşımak gereken yönergeler **Premium** türü. |
-|**Premium Akış Uç Noktası**|>0|**Premium** akış uç noktaları, adanmış ve ölçeklenebilir bant genişliği kapasitesi sağlar; dolayısıyla gelişmiş iş yükleri için uygundur. Geçmeden bir **Premium** ayarlayarak türü `scaleUnits`. `scaleUnits` 200 MB/sn'lik artışlarla satın alınabilir adanmış çıkış kapasitesi sağlar. **Premium** türü kullandığınızda etkinleştirilen her birim, uygulamaya ek bant genişliği kapasitesi sağlar. |
+|**Premium akış uç noktası**|>0|**Premium** akış uç noktaları, adanmış ve ölçeklenebilir bant genişliği kapasitesi sağlar; dolayısıyla gelişmiş iş yükleri için uygundur. Geçmeden bir **Premium** ayarlayarak türü `scaleUnits`. `scaleUnits` 200 MB/sn'lik artışlarla satın alınabilir adanmış çıkış kapasitesi sağlar. **Premium** türü kullandığınızda etkinleştirilen her birim, uygulamaya ek bant genişliği kapasitesi sağlar. |
  
 ## <a name="comparing-streaming-types"></a>Akış türlerini karşılaştırma
 
@@ -62,24 +64,11 @@ Aşamalı indirme|Evet|Evet
 
 <sup>1</sup> CDN uç noktasında etkinleştirilmediğinde yalnızca doğrudan akış uç kullanılır.
 
-## <a name="working-with-cdn"></a>CDN ile çalışma
-
-Çoğu durumda CDN'yi etkinleştirmeniz gerekir. Ancak eşzamanlı görüntüleyici sayısının 500'ün altında olmasını bekliyorsanız CDN en iyi ölçeklendirme performansını eşzamanlılık ile birlikte sunduğundan CDN'yi devre dışı bırakmanız önerilir.
-
-> [!NOTE]
-> Akış uç noktası `hostname` ve CDN'yi etkinleştirme olup olmadığını akış URL'si aynı kalır.
-
-### <a name="detailed-explanation-of-how-caching-works"></a>Ayrıntılı açıklaması ve önbelleğe alma nasıl işler?
-
-CDN, akış uç noktası için bir CDN gereken bant genişliği miktarını etkin olduğundan ekleme değişir, belirli bir bant genişliği değer yoktur. Çok fazla içerik, ne kadar popüler olduğunu, bit hızlarına dönüştürme ve iletişim kuralları türüne bağlıdır. CDN ne istenen yalnızca önbelleği. Video parça önbelleğe sürece bu popüler içerik doğrudan CDN'den – hizmet anlamına gelir. Canlı içerik tam aynı şeyi izlemek çok kişi genellikle olduğundan önbelleğe olasıdır. Popüler ve bazıları da değil içerikler olabilir çünkü isteğe bağlı içerik biraz zor olabilir. Milyonlarca nerede bunların hiçbiri popüler (yalnızca 1 veya 2 görüntüleyiciler haftada) olan ancak binlerce kişinin yayınlanan tüm farklı videoları sahip video varlığını varsa, CDN daha az etkili olur. Bu önbellek isabetsizliği, akış uç noktasında yük artırın.
- 
-Ayrıca nasıl Uyarlamalı akış works göz önünde bulundurmanız gerekir. Kendi varlık olduğundan tek tek her video parçayı önbelleğe alınır. Örneğin, belirli bir video izlenen, ilk kez kişi yalnızca birkaç saniye izlemeyi geçici olarak atlarsa vardır ve burada yalnızca kişi izlenen ile ilişkili video parçasının CDN'de önbelleğe. Uyarlamalı akış ile video 5-7 farklı bit hızlarında genellikle sahiptir. Bir kişinin tek bit hızlı izliyor ve başka bir kişiye farklı bir bit hızı izliyor, ardından bunların her ayrı olarak CDN'de önbelleğe alınır. İki kişinin aynı hızı izlerken olsa bile, farklı protokoller üzerinden akış. Her bir protokol (HLS, MPEG-DASH, kesintisiz akış) ayrı olarak önbelleğe alınır. Bu nedenle her bit hızı ve protokol önbelleğe ayrı olarak ve istenen bu video parçasının önbelleğe alınır.
- 
 ## <a name="properties"></a>Özellikler 
 
 Bu bölüm, akış uç noktasının özelliklerini bazıları hakkında ayrıntılar sağlar. Yeni bir akış uç noktası ve açıklamaları tüm özelliklerinin nasıl oluşturulacağını örnekleri için bkz: [akış uç noktası](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). 
 
-- `accessControl` -Bu akış uç noktası için aşağıdaki güvenlik ayarlarını yapılandırmak için kullanılır: Akamai imza üst bilgisi kimlik doğrulaması anahtarları ve bu uç noktaya bağlanmak için izin verilen IP adresleri.<br />Bu özellik zaman ayarlanabilir `cdnEnabled` false olarak ayarlanır.
+- `accessControl` -Bu akış uç noktası için aşağıdaki güvenlik ayarlarını yapılandırmak için kullanılır: Akamai imza üst bilgisi kimlik doğrulaması anahtarları ve bu uç noktaya bağlanmak için izin verilen IP adresleri.<br />Bu özellik yalnızca zaman ayarlanabilir `cdnEnabled` false olarak ayarlanır.
 - `cdnEnabled` -Bu akış uç noktası için Azure CDN tümleştirmesi etkin (varsayılan olarak devredışı) olup olmadığını gösterir. Ayarlarsanız `cdnEnabled` true olarak, aşağıdaki yapılandırmaları devre dışı: `customHostNames` ve `accessControl`.
   
     Tüm veri merkezlerini, Azure CDN tümleştirmesini desteklemiyor. Veri merkezinizde Azure CDN tümleştirmesi kullanılabilir sahip olup olmadığını denetlemek için aşağıdakileri yapın:
@@ -128,7 +117,39 @@ Bu bölüm, akış uç noktasının özelliklerini bazıları hakkında ayrınt�
     - Durdurma - durdurulmuş duruma geçiş
     - Silme - siliniyor
     
-- `scaleUnits ` -200 MB/sn'lik artışlarla satın alınabilir adanmış çıkış kapasitesi sağlar. Taşımak gerekiyorsa bir **Premium** yazın, ayarlamak `scaleUnits`.
+- `scaleUnits` -200 MB/sn'lik artışlarla satın alınabilir adanmış çıkış kapasitesi sağlar. Taşımak gerekiyorsa bir **Premium** yazın, ayarlamak `scaleUnits`.
+
+## <a name="working-with-cdn"></a>CDN ile çalışma
+
+Çoğu durumda CDN'yi etkinleştirmeniz gerekir. Ancak eşzamanlı görüntüleyici sayısının 500'ün altında olmasını bekliyorsanız CDN en iyi ölçeklendirme performansını eşzamanlılık ile birlikte sunduğundan CDN'yi devre dışı bırakmanız önerilir.
+
+### <a name="considerations"></a>Dikkat edilmesi gerekenler
+
+* Akış uç noktası `hostname` ve CDN'yi etkinleştirme olup olmadığını akış URL'si aynı kalır.
+* İçeriğinizi ile veya olmadan CDN test etme olanağı gerekiyorsa, başka bir akış CDN etkin olmayan uç noktası oluşturabilirsiniz.
+
+### <a name="detailed-explanation-of-how-caching-works"></a>Ayrıntılı açıklaması ve önbelleğe alma nasıl işler?
+
+CDN, akış uç noktası için bir CDN gereken bant genişliği miktarını etkin olduğundan ekleme değişir, belirli bir bant genişliği değer yoktur. Çok fazla içerik, ne kadar popüler olduğunu, bit hızlarına dönüştürme ve iletişim kuralları türüne bağlıdır. CDN ne istenen yalnızca önbelleği. Video parça önbelleğe sürece bu popüler içerik doğrudan CDN'den – hizmet anlamına gelir. Canlı içerik tam aynı şeyi izlemek çok kişi genellikle olduğundan önbelleğe olasıdır. Popüler ve bazıları da değil içerikler olabilir çünkü isteğe bağlı içerik biraz zor olabilir. Milyonlarca nerede bunların hiçbiri popüler (yalnızca 1 veya 2 görüntüleyiciler haftada) olan ancak binlerce kişinin yayınlanan tüm farklı videoları sahip video varlığını varsa, CDN daha az etkili olur. Bu önbellek isabetsizliği, akış uç noktasında yük artırın.
+ 
+Ayrıca nasıl Uyarlamalı akış works göz önünde bulundurmanız gerekir. Kendi varlık olduğundan tek tek her video parçayı önbelleğe alınır. Örneğin, belirli bir video izlenen, ilk kez kişi yalnızca birkaç saniye izlemeyi geçici olarak atlarsa vardır ve burada yalnızca kişi izlenen ile ilişkili video parçasının CDN'de önbelleğe. Uyarlamalı akış ile video 5-7 farklı bit hızlarında genellikle sahiptir. Bir kişinin tek bit hızlı izliyor ve başka bir kişiye farklı bir bit hızı izliyor, ardından bunların her ayrı olarak CDN'de önbelleğe alınır. İki kişinin aynı hızı izlerken olsa bile, farklı protokoller üzerinden akış. Her bir protokol (HLS, MPEG-DASH, kesintisiz akış) ayrı olarak önbelleğe alınır. Bu nedenle her bit hızı ve protokol önbelleğe ayrı olarak ve istenen bu video parçasının önbelleğe alınır.
+
+### <a name="enable-azure-cdn-integration"></a>Azure CDN tümleştirmesini etkinleştirme
+
+Bir akış uç noktası ile sağlandıktan sonra akış uç noktası CDN uç noktasına eşleme DNS güncelleştirme yapılmadan önce etkinleştirilirse CDN Media Services'da tanımlanmış bekleme süresini olduğu.
+
+Daha sonra devre dışı bırak / CDN kullanılabilir hale getirmek isterseniz, akış uç noktanızı olmalıdır **durduruldu** durumu. Bu iki saate kadar etkin Azure CDN tümleştirmesi ve değişikliklerin tüm CDN POP'larına arasında etkin olması ele geçirebilir. Ancak, kullanabilirsiniz akış uç noktası ve kesintileri olmadan akışı akış uç noktasından Başlat ve tümleştirme tamamlandıktan sonra akışı CDN'den sağlanır. Akış uç noktanızı olacaktır sağlama süresi boyunca **başlangıç** durumu ve performans gözlemleyin.
+
+Standart akış uç noktası oluşturulduğunda, varsayılan olarak standart Verizon ile yapılandırılır. REST API'lerini kullanarak Premium Verizon veya Akamai Standard sağlayıcılarını yapılandırabilirsiniz. 
+
+CDN tümleştirmesi, Çin ve Federal devlet bölgeler dışındaki tüm Azure veri merkezlerinde etkinleştirilir.
+
+> [!IMPORTANT]
+> Azure CDN ile Azure Media Services tümleştirmesi uygulandığını **verizon'dan Azure CDN** standart akış uç noktaları. Premium akış uç noktaları kullanarak tüm yapılandırılabilir **Azure CDN fiyatlandırma katmanları ve sağlayıcıları**. Azure CDN özellikleri hakkında daha fazla bilgi için bkz: [CDN'ye genel bakış](../../cdn/cdn-overview.md).
+
+### <a name="determine-if-dns-change-has-been-made"></a>DNS değişiklik yapılıp yapılmadığını belirlemek
+
+Bir akış (trafiği yönlendirildiğinde Azure CDN) uç noktasında DNS değişiklik yapılıp yapılmadığını kullanarak belirleyebilirsiniz https://www.digwebinterface.com. Sonuçları varsa azureedge.net etki alanı adları sonuçlarda, trafiği artık CDN işaret edilip.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

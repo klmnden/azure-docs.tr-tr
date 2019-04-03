@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 100d2e4cb57f2b2d0278540a0382fb845dbba53c
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649025"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886378"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Hızlı Başlangıç: ASP.NET web uygulaması oluşturma 
 
@@ -116,7 +116,7 @@ Uygulamayı yerel olarak çalıştırdığınızda, bilgileri *CacheSecrets.conf
 2. *Web.config* dosyasında `<appSetting>` öğesini bulun. Ardından, aşağıdaki `file` özniteliğini ekleyin. Farklı bir dosya adı veya konumu kullandıysanız, örnekte gösterilenlerin yerine bu değerleri koyun.
 
 * Önce: `<appSettings>`
-* Sonra: ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* Sonra:  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 ASP.NET çalışma zamanı, `<appSettings>` öğesindeki biçimlendirmeye sahip harici dosyasının içeriğini birleştirir. Belirtilen dosya bulunamazsa, çalışma zamanı dosya özniteliğini yok sayar. Gizli anahtarlarınız (önbelleğinize bağlantı dizisi) uygulamanız için kaynak kodun bir parçası olarak dahil edilmez. Web uygulamanızı Azure'a dağıtırken *CacheSecrets.config* değil dosya dağıtılır.
 
@@ -337,4 +337,4 @@ Birkaç dakika sonra kaynak grubu ve bu gruptaki kaynakların tümü silinir.
 Sonraki öğreticide, Azure önbelleği için Redis daha gerçekçi bir senaryoda uygulama performansını artırmak için kullanın. ASP.NET ve veritabanı ile edilgen önbellekli düzeni kullanarak puan tablosu sonuçlarını önbelleğe almak için bu uygulamayı güncelleştirirsiniz.
 
 > [!div class="nextstepaction"]
-> [ASP.NET üzerinde edilgen önbellekli puan tablosu oluşturma](cache-web-app-cache-aside-leaderboard.md)
+> [ASP.NET üzerinde bir edilgen önbellek puan tablosu oluşturma](cache-web-app-cache-aside-leaderboard.md)

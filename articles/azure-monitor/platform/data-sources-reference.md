@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 02b4b2efb447e3ba8c45caa378268ec402b5c3e7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c703f735f59a8425c2a14641781f482a6e2d1c78
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002021"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848545"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Azure izleme verilerini kullanma
 
@@ -42,13 +42,13 @@ Azure platformu üzerinde size izleme verilerini tek bir yerde Azure İzleyici i
 | Azure İzleyici ölçüm uyarıları | Bildirimler | [Listesine buradan bakın](metrics-supported.md) | <ul><li>**Web kancası:** [Azure ölçüm uyarıları](alerts-webhooks.md)</li></ul> |
 | Azure İzleyici etkinlik günlüğü uyarıları | Bildirimler | Tüm Azure Hizmetleri | <ul><li>**Web kancası:** Azure etkinlik günlüğü uyarıları</li></ul> |
 | Otomatik ölçeklendirme bildirimleri | Bildirimler | [Listesine buradan bakın](autoscale-overview.md#supported-services-for-autoscale) | <ul><li>**Web kancası:** [Otomatik ölçeklendirme bildirim Web kancası yükü şeması](autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Günlük arama sorgusu uyarıları | Bildirimler | Azure izleme günlükleri | <ul><li>**Web kancası:** [Günlük uyarı kuralları için Web kancası eylemi](alerts-log-webhook.md)</li></ul> |
+| Günlük arama sorgusu uyarıları | Bildirimler | Azure İzleyici günlükleri | <ul><li>**Web kancası:** [Günlük uyarı kuralları için Web kancası eylemi](alerts-log-webhook.md)</li></ul> |
 | Application Insights ölçüm uyarıları | Bildirimler | Application Insights | <ul><li>**Web kancası:** [Application Insights uyarıları](../../azure-monitor/app/alerts.md)</li></ul> |
 | Application Insights web testleri | Bildirimler | Application Insights | <ul><li>**Web kancası:** [Application Insights uyarıları](../../azure-monitor/app/alerts.md)</li></ul> |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinin [Azure İzleyici ölçümleri](data-collection.md)
+- Daha fazla bilgi edinin [Azure İzleyici ölçümleri](data-platform.md)
 - Daha fazla bilgi edinin [Azure etkinlik günlüğü](activity-logs-overview.md)
 - Daha fazla bilgi edinin [Azure tanılama günlükleri](diagnostic-logs-overview.md)
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0facd15d8bc0701448707f48b5a1e93fe3ac592c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 936ad2e49aaf449144296dd941a3fbc42719fe4f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200743"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879038"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Öğretici: Skillport ile Azure Active Directory Tümleştirme
 
@@ -127,7 +127,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
    
     c. İçinde **yanıt URL'si** metin kutusuna URL'yi yazın:
     
-      EU Datacenter: ` https://adfs.skillport.eu/adfs/ls/`
+      EU Datacenter: `https://adfs.skillport.eu/adfs/ls/`
     
       ABD veri merkezinde: `https://sso.skillport.com/sp/ACS.saml2`
  
@@ -216,7 +216,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş]
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

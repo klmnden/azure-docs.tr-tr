@@ -1,6 +1,6 @@
 ---
 title: SAP iş yükü için SQL Server Azure sanal makineleri DBMS dağıtım | Microsoft Docs
-description: SAP iş yükü için SQL Server Azure sanal makineleri DBMS dağıtım
+description: SAP iş yükü için SQL Server Azure Sanal Makineler DBMS dağıtımı
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aac7ca7aa67143f89d9247da879a6fad2cfbb7b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0c12c75bd5c357613d55e04aed67c0cc901135e6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992485"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881095"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver için SQL Server Azure sanal makineleri DBMS dağıtım
 
@@ -235,7 +235,6 @@ ms.locfileid: "57992485"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -528,10 +527,10 @@ Heterojen geçiş şirket içi, Azure üzerinde çalışan Windows/SQL Server ç
 Burada, SAP SQL Server veritabanlarını şirket içinden Azure'a taşıyın durumlarda, hangi altyapı, hızlı uygulanan şifreleme alabilirsiniz test etmenizi öneririz. Bunun için bu bilgileri göz önünde bulundurun:
 
 - Ne kadar iş parçacığı veritabanına veri şifrelemesi uygulamak için kullanılan tanımlayamazsınız. İş parçacığı sayısını majorly SQL Server veri ve günlük dosyaları, üzerinde dağıtılan disk birimlerinin sayısına bağlıdır. Daha fazla farklı birimler (sürücü harfleri) anlamına gelir. daha fazla iş parçacığı paralel olarak şifreleme gerçekleştirmek için bağlı. Bu tür bir yapılandırma biraz daha önceki disk yapılandırma öneri, bir veya daha az sayıda Azure vm'lerde SQL Server veritabanı dosyaları için depolama alanları oluşturma ile çelişiyor. Az sayıda birimler içeren bir yapılandırma için az sayıda şifreleme çalışan iş parçacıklarının sunulmasını sağlar. Şifreleme tek iş parçacığı 64 KB kapsamlarını okuma, şifreler ve bir kayıt kapsamı şifrelendi belirten işlem günlük dosyasına girilir yazın. Sonuç olarak hareket günlüğü yükü orta.
-- Eski SQL Server sürümleri artık SQL Server veritabanınıza şifrelediğinizde yedekleme sıkıştırma verimliliği almadı. Planınız, SQL Server veritabanını şirket içi şifrelenir ve azure'da veritabanını geri yüklemek için Azure yedekleme kopyalayın olduğunda bu davranış bir sorunla geliştirebilir. SQL Server Yedekleme sıkıştırma faktörü 4 sıkıştırma oranı genellikle ulaşır.
+- Eski SQL Server sürümleri artık SQL Server veritabanınıza şifrelediğinizde yedekleme sıkıştırma verimliliği almadı. SQL Server veritabanını şirket içi şifrelenir ve azure'da veritabanını geri yüklemek için Azure yedekleme kopyalayın planınızı olduğunda bu davranış bir sorunla geliştirebilir. SQL Server Yedekleme sıkıştırma faktörü 4 sıkıştırma oranı genellikle ulaşır.
 - SQL Server 2016 ile SQL Server şifreli veritabanlarına verimli bir şekilde de sıkıştırma izin veren yeni işlevler sunulur. Bkz: [bu blogları](https://blogs.msdn.microsoft.com/sqlcat/2016/06/20/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases/) bazı ayrıntılar için.
  
-Uygulama olmadan az SAP iş yüküne yalnızca TDE şifreleme kullanarak, belirli yapılandırmanızda, SAP veritabanı şirket içi için TDE uygulamak veya Azure'da Bunu yapmak için daha iyi olduğu test etmeniz gerekir. Azure'da, kesinlikle fazladan sağlama altyapı açısından daha fazla esnekliğe sahip olursunuz ve TDE uygulanan sonra altyapıyı Daralt.
+Uygulama olmadan az SAP iş yüküne yalnızca TDE şifreleme kullanarak, SAP veritabanı şirket içi için TDE uygulamak veya Azure'da Bunu yapmak için daha iyi olduğu belirli yapılandırmanızda test etmeniz gerekir. Azure'da, kesinlikle fazladan sağlama altyapı açısından daha fazla esnekliğe sahip olursunuz ve TDE uygulanan sonra altyapıyı Daralt.
 
 ### <a name="using-azure-key-vault"></a>Azure Key Vault kullanma
 Azure'un sunduğu hizmet bir [Key Vault](https://azure.microsoft.com/services/key-vault/) şifreleme anahtarlarını depolamak için. SQL Server diğer tarafta TDE sertifika deposu olarak Azure anahtar kasası yararlanmak için bir bağlayıcı sunmaktadır.

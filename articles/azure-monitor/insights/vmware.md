@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: ece6c7048100a8204bfc067d9d57854b1d83c9b6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eac6a27c3bcf64462a9f3d9a57da6df736f30c78
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074922"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883284"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Azure İzleyici çözümde VMware izleme (kullanım dışı)
 
@@ -189,13 +189,13 @@ Birden çok nedeni olabilir:
   1. Onaylamak için ESXi konağı ssh kullanarak oturum açın ve aşağıdaki komutu çalıştırın: `nc -z ipaddressofVM 1514`
 
       Bu başarılı olmazsa, Gelişmiş yapılandırma ayarlarında vSphere olasılıkları doğru değil. Bkz: [syslog koleksiyonu yapılandırmak](#configure-syslog-collection) ESXi konağı için syslog iletmeyi ayarlama hakkında bilgi için.
-  1. Syslog bağlantı başarılı olur, ancak yine de herhangi bir veri görmüyorsanız, syslog ESXi ana bilgisayarındaki ssh aşağıdaki komutu çalıştırarak kullanarak yeniden: ` esxcli system syslog reload`
+  1. Syslog bağlantı başarılı olur, ancak yine de herhangi bir veri görmüyorsanız, syslog ESXi ana bilgisayarındaki ssh aşağıdaki komutu çalıştırarak kullanarak yeniden: `esxcli system syslog reload`
 * Log Analytics aracısını VM doğru şekilde ayarlanmadı. Bunu test etmek için aşağıdaki adımları gerçekleştirin:
 
   1. Log Analytics'e 1514 bağlantı noktasını dinler. Açık olduğunu doğrulamak için aşağıdaki komutu çalıştırın: `netstat -a | grep 1514`
   1. Bağlantı noktası görmelisiniz `1514/tcp` açın. Bunu yapmazsanız, omsagent doğru yüklendiğini doğrulayın. Bağlantı noktası bilgileri görmüyorsanız, syslog bağlantı noktasını VM açık değil.
 
-     a. Log Analytics aracısını kullanarak çalıştığını doğrulamak `ps -ef | grep oms`. Komutunu çalıştırarak işlemi çalışmıyorsa, başlatmak ` sudo /opt/microsoft/omsagent/bin/service_control start`
+    a. Log Analytics aracısını kullanarak çalıştığını doğrulamak `ps -ef | grep oms`. Komutunu çalıştırarak işlemi çalışmıyorsa, başlatmak `sudo /opt/microsoft/omsagent/bin/service_control start`
 
      b. `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` dosyasını açın.
 

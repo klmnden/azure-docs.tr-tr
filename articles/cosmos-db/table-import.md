@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e709aa25a8fa0a8ff6c94bf2e813151e5ecbae65
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a0d2927024dff78021d433b965bb6c0149236ddd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58006249"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876826"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Verilerinizi Azure Cosmos DB Tablo API'si hesabına geçirme
 
@@ -39,11 +39,11 @@ Komut satırı Azure Cosmos DB Veri Taşıma Aracı (dt.exe), var olan Azure Tab
 Tablo verilerinin geçişini gerçekleştirmek için aşağıdaki görevleri tamamlayın:
 
 1. Geçiş aracını [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool)'dan indirin.
-2. `dt.exe` aracını, senaryonuzun komut satırı bağımsız değişkenlerini kullanarak çalıştırın. `dt.exe` aşağıdaki biçimde bir komut alır:
+2. `dt.exe` aracını, senaryonuzun komut satırı bağımsız değişkenlerini kullanarak çalıştırın. `dt.exe` komutu aşağıdaki biçimi alır:
 
    ```bash
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
-```
+   ```
 
 Komutun seçenekleri şunlardır:
 
@@ -74,9 +74,9 @@ Bir Azure Cosmos DB Tablo API (önizleme) hesabından içeri aktarma sırasında
 
 ![HBase kaynağı seçeneklerinin ekran görüntüsü](./media/table-import/cosmos-connection-string.png)
 
-[Azure Tablo Depolama komutu örneği](#azure-table-storage)
+[Örnek Azure tablo depolama komutu](#azure-table-storage)
 
-[Azure Cosmos DB Tablo API’si (önizleme) komutu örneği](#table-api-preview)
+[Azure Cosmos DB tablo API'si (Önizleme) komut örneği](#table-api-preview)
 
 ### <a name="command-line-target-settings"></a>Komut satırı hedefi ayarları
 
@@ -147,4 +147,4 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 Şimdi sonraki öğreticiye devam edebilir ve Azure Cosmos DB Tablo API’sini kullanarak veri sorgulamayı öğrenebilirsiniz. 
 
 > [!div class="nextstepaction"]
->[Veriler nasıl sorgulanır?](../cosmos-db/tutorial-query-table.md)
+>[Veri sorgulama](../cosmos-db/tutorial-query-table.md)

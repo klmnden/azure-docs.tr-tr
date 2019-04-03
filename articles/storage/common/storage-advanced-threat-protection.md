@@ -1,21 +1,21 @@
 ---
-title: Azure depolama için Gelişmiş tehdit koruması
+title: Azure Depolama için Gelişmiş Tehdit Koruması
 description: Azure depolama Gelişmiş tehdit hesabı etkinliğinde anomalileri algılayın ve hesabınıza erişmek için zararlı olabilecek girişimleri hakkında bilgi Koruması'nı yapılandırın.
 services: storage
 author: rmatchoro
 ms.service: storage
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/02/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: b2e51b11e2d79d7f35d6b24df4ba5492ecf9a5c4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 48fdf277f47b1e4abc8e3d7f7222d5b99a248b55
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133238"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850709"
 ---
-# <a name="advanced-threat-protection-for-azure-storage"></a>Azure depolama için Gelişmiş tehdit koruması
+# <a name="advanced-threat-protection-for-azure-storage"></a>Azure Depolama için Gelişmiş Tehdit Koruması
 
 Azure depolama için Gelişmiş tehdit koruması, ek bir erişim veya depolama hesapları yararlanma olağan dışı ve zararlı olabilecek girişimleri algılar güvenlik zekası katmanı sağlar. Bu koruma katmanı tehditlerle Uzman güvenlik veya güvenlik izleme sistemlerine yönetmek zorunda kalmadan olanak tanır. 
 
@@ -51,6 +51,24 @@ Standart katmana abone olduğunuzda Azure Güvenlik Merkezi'nde Gelişmiş tehdi
 
 Etkin. Gelişmiş tehdit koruması ile bir Azure depolama hesabı dağıtmak için bir Azure Resource Manager şablonu kullanın.
 Daha fazla bilgi için [Gelişmiş tehdit koruması ile depolama hesabı](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
+
+### <a name="using-azure-policy"></a>Azure İlkesi'ni kullanma
+
+Belirli bir abonelik veya kaynak grubu altında depolama hesapları arasında Gelişmiş tehdit Koruması'nı etkinleştirmek için bir Azure İlkesi'ni kullanın.
+
+1. Azure yemek **ilke - tanımlar** sayfası.
+
+1. Arama **dağıtma Gelişmiş tehdit koruması depolama hesaplarında** ilkesi.
+
+     ![Arama İlkesi](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
+  
+1. Azure abonelik veya kaynak grubunu seçin.
+
+    ![Abonelik veya Grup Seç](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
+
+1. İlkeyi atayın.
+
+    ![İlke tanımları sayfası](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
 ### <a name="using-rest-api"></a>REST API kullanma
 Oluşturmak, güncelleştirmek veya belirli bir depolama hesabına için Gelişmiş tehdit koruması ayarı almak için REST API komutlarını kullanın.

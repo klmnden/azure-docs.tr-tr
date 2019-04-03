@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 31a800e851eb8a2f533cc8170856b16cd43c21cf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2a8ae3ab71b258d92d9761cc813b168717e44d82
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850726"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878018"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Azure tablosu için yönetim yönergeleri sağlama
 
@@ -34,7 +34,7 @@ Bu makalede, Azure tablo satışa depolamak için yapılandırma açıklanır. A
 
     ![Bir Azure depolama hesabı oluşturma adımları](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
-4.  Depolama hesabı bağlantı dizesi anahtarı kopyalayın ve yapıştırın **depolama hesabı bağlantı dizesi** bulut iş ortağı portalı ile sekmesindeki. Bir bağlantı dizesi örneğidir `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net `
+4.  Depolama hesabı bağlantı dizesi anahtarı kopyalayın ve yapıştırın **depolama hesabı bağlantı dizesi** bulut iş ortağı portalı ile sekmesindeki. Bir bağlantı dizesi örneğidir `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net`
     
     ![Azure depolama anahtarı](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 

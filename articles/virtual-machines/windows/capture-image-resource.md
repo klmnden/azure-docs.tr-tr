@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: b0dc587035509606059e3620201b2061bbe4d6a0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 4e79e0a7d05ef70ae9f7ab2cbb2238c42b2a654b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341774"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847564"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure'da bir genelleştirilmiş VM'nin yönetilen görüntüsünü oluşturma
 
@@ -84,10 +84,11 @@ Windows VM'nizi genelleştirmek için şu adımları izleyin:
 
 ## <a name="create-an-image-of-a-vm-using-powershell"></a>Powershell kullanarak bir VM görüntüsü oluşturma
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Doğrudan VM'den görüntü oluşturma, görüntü işletim sistemi diski ve veri diskleri dahil olmak üzere VM ile ilişkili tüm diskleri içerdiğinden sağlar. Bu örnekte, yönetilen diskleri kullanan bir VM'den yönetilen bir görüntü oluşturma işlemi gösterilmektedir.
 
-
-Başlamadan önce sürüm 5.7.0 olmalıdır AzureRM.Compute PowerShell modülünün en son sürüm olduğundan emin olun veya üzeri. Sürümü bulmak için çalıştırın `Get-Module -ListAvailable AzureRM.Compute` PowerShell'de. Yükseltmeniz gerekirse bkz [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, çalıştırma `Connect-AzAccount` Azure ile bir bağlantı oluşturmak için.
+Başlamadan önce Azure PowerShell modülünün en son sürümüne sahip olduğunuzdan emin olun. Sürümü bulmak için çalıştırın `Get-Module -ListAvailable Az` PowerShell'de. Yükseltmeniz gerekirse bkz [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](/powershell/azure/azurerm/install-az-ps). PowerShell'i yerel olarak çalıştırıyorsanız, çalıştırma `Connect-AzAccount` Azure ile bir bağlantı oluşturmak için.
 
 
 > [!NOTE]

@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53efe44f17f174073ea5ed39f94c9dc8078a9779
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9d986ccbf92192c1fb7375e9db1fb398ed86a829
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206778"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879973"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir iOS uygulamasından Microsoft Graph API çağırma
 
@@ -112,13 +112,13 @@ Artık Azure AD'de bir uygulamanız olduğuna göre, ADAL'ı yükleyebilir ve ki
 
 1. QuickStart projesinde plist dosyasını (`settings.plist`) açın.
 1. Bölümde öğelerin değerlerini, Azure portalında girdiğiniz değerlerin aynılarını kullanacak şekilde değiştirin. Kodunuz ADAL'ı her kullandığında bu değerlere başvurur.
-    * `tenant`, Azure AD kiracınızın etki alanıdır (örneğin, contoso.onmicrosoft.com).
-    * `clientId`, portaldan kopyaladığınız uygulamanızın istemci kimliğidir.
-    * `redirectUri`, portalda kaydettiğiniz yeniden yönlendirme URL'sidir.
+    * `tenant` Örneğin, contoso.onmicrosoft.com, Azure AD kiracınızın etki alanıdır.
+    * `clientId` portaldan kopyaladığınız uygulama kimliğidir.
+    * `redirectUri` Portalda kayıtlı yeniden yönlendirme URL'dir.
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>4. Adım: Azure AD belirteçlerini almak için ADAL'ı kullanın
 
-ADAL'ın ardındaki temel ilke, uygulamanızın bir erişim belirtecine her ihtiyacı olduğunda basitçe bir completionBlock `+(void) getToken : ` çağrısı yapması ve kalan işleri ADAL'ın üstlenmesidir.
+ADAL'ın ardındaki temel ilke, uygulamanızın bir erişim belirtecine her ihtiyacı olduğunda basitçe bir completionBlock `+(void) getToken :` çağrısı yapması ve kalan işleri ADAL'ın üstlenmesidir.
 
 1. `QuickStart` projesinde, `GraphAPICaller.m` dosyasını açın ve üst kısımdaki `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` açıklamasını bulun.
 
@@ -259,5 +259,5 @@ Tamamlanan örnek, başvuru için (yapılandırma değerleriniz olmadan) [GitHub
 
 Artık ek senaryolara geçebilirsiniz. Bundan sonra aşağıdakileri denemenizi öneririz:
 
-* [Azure AD ile Node.JS Web API'sinin güvenliğini sağlama](quickstart-v1-nodejs-webapi.md)
+* [Node.JS Web API'si Azure AD ile güvenli hale getirme](quickstart-v1-nodejs-webapi.md)
 * [ADAL kullanarak iOS'ta uygulamalar arası SSO'yu etkinleştirmeyi](howto-v1-enable-sso-ios.md) öğrenme  

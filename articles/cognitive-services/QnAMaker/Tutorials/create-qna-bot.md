@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 04/02/2019
 ms.author: tulasim
-ms.openlocfilehash: b948835b1a15eee391c6902d18229ec4926b66ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 218103f2c75ec1016a997c259767ccd011191fab
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095220"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879620"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Öğretici: Azure ile soru-cevap Robotu oluşturun Bot hizmeti v3
 
@@ -25,7 +25,7 @@ Bu öğreticide, Azure robot hizmeti v3 ile bir soru-cevap Robotu oluştururken 
 > [!Note] 
 > Bu konuda Bot SDK'sı için 3 sürümüdür. Sürüm 4 bulabilirsiniz [burada](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs). 
 
-**Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
+**Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -104,6 +104,12 @@ Azure portalında **Test Web sohbeti içinde** bot test etmek için.
 ![Soru-cevap Oluşturucu Robotu](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat-response.PNG)
 
 Soru-cevap Botunuzun, Bilgi Bankası yanıtlar.
+
+## <a name="related-to-qna-maker-bots"></a>Soru-cevap Oluşturucu botlar için ilgili
+
+* Soru-cevap Oluşturucu Portalı'nda kullanılan soru-cevap Oluşturucu Yardım bot olarak kullanılabilir bir [bot örnek](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
+    ![Soru-cevap Oluşturucu Yardım bot kırmızı robot simgedir](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
+* [Sağlık Hizmeti botlarınız](https://docs.microsoft.com/HealthBot/qna_model_howto) soru-cevap Oluşturucu birini kullanın. kendi [dil modellerini](https://docs.microsoft.com/HealthBot/qna_model_howto).
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

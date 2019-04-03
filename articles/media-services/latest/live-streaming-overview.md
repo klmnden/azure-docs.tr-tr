@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: b8725dfcb2a337750c6e2a78ba7571114b8e3cd3
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: ab8d4fb9b46573d58fd93fc5121a4fc1918cc69d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407192"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879395"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Canlı akış ile Azure Media Services v3
 
@@ -31,7 +31,7 @@ Azure Media Services Canlı etkinlikler müşterilerinizin Azure bulutunda dağ�
 Bu makalede, bir genel bakış ve Media Services ve ilgili diğer makalelere bağlantılar ile canlı akış rehberlik sağlar.
 
 > [!NOTE]
-> Şu anda Azure portalında v3 kaynakları yönetmek için kullanamazsınız. Kullanım [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), veya desteklenen biri [SDK'ları](developers-guide.md).
+> Şu anda, v3 kaynaklarını yönetmek için Azure portalını kullanamıyorsunuz. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) veya desteklenen [SDK'lardan](developers-guide.md) birini kullanın.
 
 ## <a name="dynamic-packaging"></a>Dinamik paketleme
 
@@ -53,21 +53,21 @@ Canlı bir olay iki türden biri olabilir: doğrudan ve canlı kodlama. Media Se
 
 ![geçiş](./media/live-streaming/pass-through.svg)
 
-Doğrudan kullanırken **canlı olay**, Çoklu bit hızı video akışı oluşturmak ve katkı Canlı (RTMP ya da parçalı MP4 protokolü kullanılarak) olay için akışı göndermek için şirket içi Canlı Kodlayıcı dayanır. Canlı olay ardından gelen video akışları herhangi başka bir işlemeye olmadan taşır. Bu tür bir doğrudan canlı olay uzun süre çalışan Canlı etkinlikler için optimize edilmiştir veya 24 x 365 doğrusal canlı akış. 
+Geçişli **Canlı Etkinlik** seçeneğini kullandığınızda şirket içi gerçek zamanlı kodlayıcı ile çoklu bit hızına sahip video akışı oluşturup katılım akışı olarak Canlı Etkinliğe (RTMP veya bölünmüş MP4 protokolünü kullanarak) gönderirsiniz. Daha sonra Canlı Etkinlik, gelen video akışlarını üzerinde herhangi bir işlem yapmadan iletir. Bu tür bir doğrudan canlı olay uzun süre çalışan Canlı etkinlikler için optimize edilmiştir veya 24 x 365 doğrusal canlı akış. 
 
 ### <a name="live-encoding"></a>Live encoding  
 
 ![live Encoding](./media/live-streaming/live-encoding.svg)
 
-Media Services ile Live encoding kullanıldığında, tek bit hızlı Canlı (RTMP veya parçalanmış Mp4 protokolünü kullanarak) olay için akışı katkı olarak video göndermek için şirket içi Canlı Kodlayıcı yapılandırırsınız. Bu gelen tek bit hızlı canlı olay kodlar için akış bir [birden çok hızlı video akışına](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), MPEG-DASH, HLS ve kesintisiz akış gibi protokolleri aracılığıyla cihazları kayıttan yürütmek teslim için kullanılabilir hale getirir. 
+Media Services ile gerçek zamanlı kodlama özelliğini kullandığınızda şirket içi gerçek zamanlı kodlayıcınızı Canlı Etkinliğe katılım akışı olarak tek bit hızına sahip video gönderecek şekilde (RTMP veya Bölünmüş Mp4 protokolünü kullanarak) yapılandırmanız gerekir. Canlı Etkinlik, gelen tek bit hızına sahip video akışını [birden çok bit hızına sahip video akışı](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) olarak kodlayarak MPEG-DASH, HLS ve Kesintisiz Akış gibi protokoller aracılığıyla cihazlarda kayıttan yürütmek üzere hazır hale getirir. 
 
 ## <a name="live-streaming-workflow"></a>Canlı akış iş akışı
 
 Media Services v3 canlı akış iş akışı anlamak için ilk gözden geçirme için sahip ve aşağıdaki kavramları anlama: 
 
-- [Akış uç noktaları](streaming-endpoint-concept.md)
-- [Canlı etkinlikler ve canlı çıkışları](live-events-outputs-concept.md)
-- [Akış bulucuları](streaming-locators-concept.md)
+- [Akış Uç Noktaları](streaming-endpoint-concept.md)
+- [Canlı Etkinlikler ve Canlı Çıkışlar](live-events-outputs-concept.md)
+- [Akış Bulucuları](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Genel adımlar
 
@@ -86,9 +86,9 @@ Media Services v3 canlı akış iş akışı anlamak için ilk gözden geçirme 
 ## <a name="other-important-articles"></a>Diğer önemli makaleleri
 
 - [Önerilen gerçek zamanlı kodlayıcılar](recommended-on-premises-live-encoders.md)
-- [Bir bulut DVR kullanma](live-event-cloud-dvr.md)
+- [Bulut DVR kullanma](live-event-cloud-dvr.md)
 - [Canlı olay türleri özellik karşılaştırması](live-event-types-comparison.md)
-- [Durumları ve faturalandırma](live-event-states-billing.md)
+- [Durumlar ve faturalandırma](live-event-states-billing.md)
 - [Gecikme süresi](live-event-latency.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar

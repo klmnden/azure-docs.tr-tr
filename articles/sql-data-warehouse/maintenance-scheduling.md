@@ -10,18 +10,18 @@ ms.subservice: design
 ms.date: 03/13/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2f76b0a6565e5ba7c34d88a271e9770f809669dd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b97e27b86ecad1f7f87a6de4d43b09d69c167c6f
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007782"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846900"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Hizmet güncelleştirmeleri ve Bakım yönetmek için bakım zamanlamaları kullanın
 
 Bakım zamanlamaları, artık tüm Azure SQL veri ambarı bölgelerinde kullanılabilir. Bu özellik, hizmet durumu planlı bakım bildirimlerini, kaynak sistem durumu İzleyicisi'ni kontrol edin ve Azure SQL veri ambarı bakım zamanlama hizmetini tümleştirir.
 
-Yeni özellikler, yükseltmeleri ve düzeltme eki almaya uygun olduğunda, bir zaman penceresi seçmek için zamanlama bakım kullanırsınız. Yedi günlük süre içinde bir birincil ve ikincil bir bakım penceresi seçin. Örnek bir Cumartesi birincil penceredir 22:00 ile Pazar 01:00 ve ikincil bir pencere, Çarşamba 19:00 için 22:00. SQL veri ambarı bakım, birincil bir bakım penceresi sırasında gerçekleştiremiyorsanız bakım, ikincil bir bakım penceresi sırasında yeniden deneyecek. Hizmet bakımı, hem birincil hem de ikincil windows sırasında ortaya çıkabilir.
+Yeni özellikler, yükseltmeleri ve düzeltme eki almaya uygun olduğunda, bir zaman penceresi seçmek için zamanlama bakım kullanırsınız. Yedi günlük süre içinde bir birincil ve ikincil bir bakım penceresi seçin. Örnek bir Cumartesi birincil penceredir 22:00 ile Pazar 01:00 ve ikincil bir pencere, Çarşamba 19:00 için 22:00. SQL veri ambarı bakım, birincil bir bakım penceresi sırasında gerçekleştiremiyorsanız bakım, ikincil bir bakım penceresi sırasında yeniden deneyecek. Hizmet bakımı, hem birincil hem de ikincil windows sırasında ortaya çıkabilir. Tüm bakım işlemleri hızla tamamlanmasını sağlamak için DW400(c) ve daha düşük veri ambarı katmanları belirlenen bir bakım penceresi dışında bakım işlemi tamamlanamadı.
 
 Tüm yeni Azure SQL veri ambarı oluşturulan dağıtım sırasında uygulanan bir sistem tarafından tanımlanan bakım zamanlaması örnekleri sahip olur. Dağıtım tamamlandıktan hemen sonra zamanlama düzenlenebilir.
 
@@ -33,7 +33,7 @@ Bu özelliği kullanmak için birincil ve ikincil bir pencere içinde ayrı bir 
 
 Hizmet durumu bildirimi ve kaynak sistem durumu İzleyicisi denetleyin ile tümleştirme, müşterilerin yaklaşan bakım etkinliğini bilgilendirilmenizi sağlar. Yeni Otomasyon Azure İzleyici yararlanır. Yaklaşan bakım olayları almak istediğiniz karar verebilirsiniz. Ayrıca hangi otomatikleştirilmiş akışlar kapalı kalma süresi yönetmenize ve işlemlerinizi etkisini en aza yardımcı olabilir karar verin.
 
-Bir 24 saatlik sağladığımız ön bildirimi tüm bakım olayları önce gelir. Örnek kapalı kalma süresini en aza indirmek için veri Ambarınızı seçilen bakım süreniz önce hiçbir uzun süre çalışan işlemler olduğundan emin olun. Bakım başladığında, tüm etkin oturumlar iptal edilir. Olmayan kaydedilen işlem geri alınacak ve veri ambarınız bir kısa bağlantı kaybı yaşar. Hemen bakım veri ambarınıza tamamlandığında size bildirilir.
+Bir 24 saatlik sağladığımız ön bildirimi DW400c ve alt katmanları geçerli durumun tüm bakım olayları önce gelir. Örnek kapalı kalma süresini en aza indirmek için veri Ambarınızı seçilen bakım süreniz önce hiçbir uzun süre çalışan işlemler olduğundan emin olun. Bakım başladığında, tüm etkin oturumlar iptal edilir. Olmayan kaydedilen işlem geri alınacak ve veri ambarınız bir kısa bağlantı kaybı yaşar. Hemen bakım veri ambarınıza tamamlandığında size bildirilir.
 
 Bakım gerçekleşir, ancak SQL veri ambarı, bu süre boyunca bakım gerçekleştiremiyor sağladığımız ön bildirimi aldıysanız, iptal bildirimi alırsınız. Bakım, ardından bir sonraki zamanlanmış bakım süresi boyunca devam edecek.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: b4a35cb853326aa3e54c7b261eaa72f15929a84c
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 325cd0d2f52405ae1cbf463f6335c8738317ea1f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483973"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878715"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Fiziksel sunucu olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
 
@@ -33,7 +33,7 @@ Tablo, şirket içi yapılandırma sunucusu makine dağıtmak için gereken önk
 | İşletim sistemi yerel ayarı | English (US)|
 | VMware vSphere PowerCLI sürümü | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Windows Server rolleri | Bu rolleri etkinleştirmeyin: <br> - Active Directory Domain Services <br>- İnternet Bilgi Hizmetleri <br> - Hyper-V |
-| Grup İlkeleri| Bu grup ilkeleri etkinleştirme: <br> -Komut istemine erişimi engelle <br> -Kayıt defteri düzenleme araçlarına erişimi engelleme <br> -Mantıksal dosya ekleri için güven <br> -Betik yürütmeyi açma <br> [Daha fazla bilgi](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+| Grup İlkeleri| Bu grup ilkeleri etkinleştirme: <br> -Komut istemine erişimi engelle <br> -Kayıt defteri düzenleme araçlarına erişimi engelleme <br> -Mantıksal dosya ekleri için güven <br> -Betik yürütmeyi açma <br> [Daha fazla bilgi edinin](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 | IIS | -Önceden mevcut olan varsayılan Web sitesi <br> -Etkinleştir [anonim kimlik doğrulaması](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Etkinleştir [Fastcgı](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) ayarı  <br> -Önceden varolan Web sitesi/443 numaralı bağlantı noktasını dinlemeye uygulama<br>|
 | NIC türü | VMXNET3 (VMware VM olarak dağıtıldığında) |
 | IP adresi türü | Statik |
@@ -173,7 +173,7 @@ Makinede yapılandırma sunucusu için proxy ayarlarını aşağıdaki gibi değ
 2. Masaüstü kısayolunu kullanarak cspsconfigtool.exe'yi başlatın.
 3. Tıklayın **kasa kaydı** sekmesi.
 4. Portaldan yeni bir kayıt dosyası indirin ve aracı için giriş olarak sağlayın.
-      ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+      ![kayıt yapılandırma sunucusu](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Proxy sunucusu ayrıntıları sağlayın ve tıklayın **kaydetme** düğmesi.  
 6. Bir yönetici PowerShell komut penceresi açın.
 7. Aşağıdaki komutu çalıştırın
@@ -283,7 +283,7 @@ Sunucuyu aşağıdaki gibi yükseltin:
     `$Fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. Yapılandırma sunucusunu silme
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force] `
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
 > **-Force** Remove-AzureRmSiteRecoveryFabric seçeneğinde, yapılandırma sunucusunun kaldırılması/silinmesini zorlamak için kullanılabilir.

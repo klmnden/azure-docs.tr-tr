@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: bce4946b62e3678f7fa8d5f7f6431441cc00b252
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 6c0aa42cc22d22431d7d0270aca52e089046cb01
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762846"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847740"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
 
@@ -325,7 +325,7 @@ Kümenizi yükseltme etki alanları N-1 sayısı daha sonra ilkeyi 'UpgradeDomai
 
 S. **Ne kadar zaman mevcut bir düğüm düzeltme eki uygulama Al?**
 
-A. Bir düğüm düzeltme eki uygulama dakika sürebilir (örneğin: [Windows Defender tanım güncelleştirmeleri](https://www.microsoft.com/wdsi/definitions)) saat için (örneğin: [Windows toplu güncelleştirmeler](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Bir düğüm düzeltme eki için gereken süre, çoğunlukla bağlıdır 
+A. Bir düğüm düzeltme eki uygulama dakika sürebilir (örneğin: [Windows Defender tanım güncelleştirmeleri](https://www.microsoft.com/en-us/wdsi/definitions)) saat için (örneğin: [Windows toplu güncelleştirmeler](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Bir düğüm düzeltme eki için gereken süre, çoğunlukla bağlıdır 
  - Güncelleştirmeleri boyutu
  - Düzeltme eki uygulayan bir pencere içinde uygulanacak olan güncelleştirme sayısı
  - Bu güncelleştirmeleri yüklemek, (gerekirse) düğümü yeniden başlatma ve yeniden başlatma sonrası yükleme adımlarını tamamlamak için geçen süre.

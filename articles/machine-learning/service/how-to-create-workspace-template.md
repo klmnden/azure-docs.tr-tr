@@ -1,5 +1,5 @@
 ---
-title: Bir çalışma alanı oluşturmak için şablon kullanma
+title: Bir çalışma alanı oluşturmak için bir Azure Resource Manager şablonu kullanma
 titleSuffix: Azure Machine Learning service
 description: Yeni bir Azure Machine Learning hizmeti çalışma alanı oluşturmak için bir Azure Resource Manager şablonu kullanmayı öğrenin.
 services: machine-learning
@@ -8,17 +8,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 02/11/2019
-ms.openlocfilehash: 2b5ee1b5079f22985b03aaafac30c11a10a3c8f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 7349998325e56d5ebb78de5ca30c0127f09102aa
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850086"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883199"
 ---
-# <a name="create-an-azure-machine-learning-service-workspace-by-using-a-template"></a>Bir şablonu kullanarak bir Azure Machine Learning hizmeti çalışma alanı oluşturma
+# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Azure Machine Learning hizmeti için bir çalışma alanı oluşturmak için bir Azure Resource Manager şablonu kullanma
 
-Bu makalede, Azure Resource Manager şablonlarını kullanarak bir Azure Machine Learning hizmeti çalışma alanı oluşturmak için birkaç yol öğreneceksiniz. 
+Bu makalede, Azure Resource Manager şablonlarını kullanarak bir Azure Machine Learning hizmeti çalışma alanı oluşturmak için birkaç yol öğreneceksiniz. Resource Manager şablonu tek ve eşgüdümlü bir işlemle kaynaklarını oluşturmayı kolaylaştırır. Bir dağıtımı için gerekli kaynakları tanımlayan bir JSON belgesi şablonudur. Ayrıca, dağıtım parametreleri de belirtebilirsiniz. Parametreler, şablon kullanırken Giriş değerlerini sağlamak için kullanılır.
 
 Daha fazla bilgi için [Azure Resource Manager şablonu ile uygulama dağıtma](../../azure-resource-manager/resource-group-template-deploy.md).
 
@@ -30,9 +31,7 @@ Daha fazla bilgi için [Azure Resource Manager şablonu ile uygulama dağıtma](
 
 ## <a name="resource-manager-template"></a>Resource Manager şablonu
 
-Resource Manager şablonu tek ve eşgüdümlü bir işlemle kaynaklarını oluşturmayı kolaylaştırır. Bir dağıtımı için gerekli kaynakları tanımlayan bir JSON belgesi şablonudur. Ayrıca, dağıtım parametreleri de belirtebilirsiniz. Parametreler, şablon kullanırken Giriş değerlerini sağlamak için kullanılır.
-
-Aşağıdaki şablonu, bir Azure Machine Learning hizmeti çalışma alanında ve ilişkili Azure kaynaklarını oluşturmak için kullanılabilir:
+Aşağıdaki Resource Manager şablonu, bir Azure Machine Learning hizmeti çalışma alanında ve ilişkili Azure kaynaklarını oluşturmak için kullanılabilir:
 
 ```json
 {
@@ -183,7 +182,7 @@ Kaynak grubu Hizmetleri tutan kapsayıcıdır. Çeşitli hizmetler, Azure Machin
 
 Şablonlar hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Azure Resource Manager şablonları yazma](../../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure Resource Manager Şablonları yazma](../../azure-resource-manager/resource-group-authoring-templates.md)
 * [Azure Resource Manager şablonları ile uygulama dağıtma](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Microsoft.MachineLearningServices kaynak türleri](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 

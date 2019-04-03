@@ -1,5 +1,5 @@
 ---
-title: Modelleri web Hizmetleri olarak dağıtma
+title: Nasıl ve nerede modelleri dağıtma
 titleSuffix: Azure Machine Learning service
 description: 'Nasıl ve nerede bilgi dahil olmak üzere Azure Machine Learning hizmeti Modellerinizi dağıtmak için: Azure Container Instances, Azure Kubernetes hizmeti, Azure IOT Edge ve alanda programlanabilir kapı dizileri.'
 services: machine-learning
@@ -9,28 +9,32 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: ea2986ea2b2f561288773a7d187101f90f3e9fa9
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 1528b5e92e1952bf85799afd71bd5dac16aedcf4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622136"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878307"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
-Azure Machine Learning SDK'sı, eğitilen model dağıtabileceğiniz çeşitli yöntemler sağlar. Bu belgede, modelinizin Azure bulutta veya IOT Edge cihazları için bir web hizmeti olarak dağıtmayı öğrenin.
+Bu belgede, modelinizin Azure bulutta veya IOT Edge cihazları için bir web hizmeti olarak dağıtmayı öğrenin. 
 
-Modelleri için aşağıdaki işlem hedeflerine dağıtabilirsiniz:
+## <a name="compute-targets-for-deployment"></a>Dağıtım için hedef işlem
+
+Azure Machine Learning SDK'sı, eğitilen model aşağıdaki konumlara dağıtmak için kullanın:
 
 | Hedef işlem | Dağıtım türü | Açıklama |
 | ----- | ----- | ----- |
-| [Azure Kubernetes Service (AKS)](#aks) | Gerçek zamanlı çıkarımı | Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
+| [Azure Kubernetes Hizmeti (AKS)](#aks) | Gerçek zamanlı çıkarımı | Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
 | [Azure Machine Learning işlem (amlcompute)](#azuremlcompute) | Batch çıkarımı | Batch tahmin, sunucusuz bir işlem üzerinde çalıştırın. Normal veya düşük öncelikli sanal makineleri destekler. |
 | [Azure Container Instances (ACI)](#aci) | Test Etme | Geliştirme veya test için iyidir. **Üretim iş yükleri için uygun değildir.** |
 | [Azure IoT Edge](#iotedge) | (Önizleme) IOT Modülü | IOT cihazlarında modelleri dağıtın. Çıkarım cihazda'olmuyor. |
 | [Alanda programlanabilir kapı dizileri (FPGA)](#fpga) | (Önizleme) Web hizmeti | Gerçek zamanlı çıkarım için son derece düşük gecikme süresi. |
+
+## <a name="deployment-workflow"></a>Dağıtım iş akışı
 
 Tüm işlem hedeflerine yönelik bir model dağıtma işlemini benzer:
 
@@ -46,7 +50,7 @@ Aşağıdaki videoda, Azure Container Instances'a dağıtma gösterilmektedir:
 
 Dağıtım iş akışı içinde ilgili kavramları hakkında daha fazla bilgi için bkz. [yönetin, dağıtın ve izleyin modeller Azure Machine Learning hizmeti ile](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites-for-deployment"></a>Dağıtım önkoşulları
 
 [!INCLUDE [aml-prereq](../../../includes/aml-prereq.md)]
 
@@ -212,7 +216,7 @@ Dağıtıma aldığınızda, dağıttığınız işlem hedef bağlı olarak bira
 
 | Hedef işlem | Dağıtım türü | Açıklama |
 | ----- | ----- | ----- |
-| [Azure Kubernetes Service (AKS)](#aks) | Web hizmeti (gerçek zamanlı çıkarımı)| Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
+| [Azure Kubernetes Hizmeti (AKS)](#aks) | Web hizmeti (gerçek zamanlı çıkarımı)| Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
 | [Azure ML işlemi](#azuremlcompute) | Web hizmeti (Batch çıkarımı)| Batch tahmin, sunucusuz bir işlem üzerinde çalıştırın. Normal veya düşük öncelikli sanal makineleri destekler. |
 | [Azure Container Instances (ACI)](#aci) | Web hizmeti (geliştirme/test)| Geliştirme veya test için iyidir. **Üretim iş yükleri için uygun değildir.** |
 | [Azure IoT Edge](#iotedge) | (Önizleme) IOT Modülü | IOT cihazlarında modelleri dağıtın. Çıkarım cihazda'olmuyor. |

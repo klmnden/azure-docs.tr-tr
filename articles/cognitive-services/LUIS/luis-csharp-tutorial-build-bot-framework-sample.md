@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: ca4cd1aa074353914f5187e353c233f8b45140eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f23cf78bfca48b3a78e234520d645abdb354038f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091690"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878477"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS bot içinde C# ile Bot Framework 3.x ve Azure Web app botu
 
@@ -111,19 +111,19 @@ Açık **uygulama ayarları** ve düzenleme **LuisAppId** LUIS uygulamanızı uy
 
    [!code-csharp[Dependencies](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=4-5&dedent=8 "dependencies")]
 
-3. Dizeleri en üstündeki yönetmek için sabitleri ekleyin `BasicLuisDialog ` sınıfı:
+3. Dizeleri en üstündeki yönetmek için sabitleri ekleyin `BasicLuisDialog` sınıfı:
 
    [!code-csharp[Add Intent and Entity Constants](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=23-32&dedent=8 "Add Intent and Entity Constants")]
 
-4. Yeni hedefleri için kod ekleme `HomeAutomation.TurnOn` ve `HomeAutomation.TurnOff` içinde `BasicLuisDialog ` sınıfı:
+4. Yeni hedefleri için kod ekleme `HomeAutomation.TurnOn` ve `HomeAutomation.TurnOff` içinde `BasicLuisDialog` sınıfı:
 
    [!code-csharp[Add Intents](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=61-71&dedent=8 "Add Intents")]
 
-5. LUIS içinde bulunan tüm varlıkları almak için kod ekleyin `BasicLuisDialog ` sınıfı:
+5. LUIS içinde bulunan tüm varlıkları almak için kod ekleyin `BasicLuisDialog` sınıfı:
 
    [!code-csharp[Collect entities](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=34-53&dedent=8 "Collect entities")]
 
-6. Değişiklik **ShowLuisResult** yönteminde `BasicLuisDialog ` puanı round, varlıkları toplamak ve sohbet Robotu yanıt iletisini görüntülemek için sınıf:
+6. Değişiklik **ShowLuisResult** yönteminde `BasicLuisDialog` puanı round, varlıkları toplamak ve sohbet Robotu yanıt iletisini görüntülemek için sınıf:
 
    [!code-csharp[Display message in chatbot](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=73-83&dedent=8 "Display message in chatbot")]
 

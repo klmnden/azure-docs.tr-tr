@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 98e00eb382962d2364adda93b1a5b24fdef832eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8db65fd9a1f271aea4ceb345f4d9dfbb6b9ff8a6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101780"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877389"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Enterprise Kılavuzu
 
@@ -119,4 +119,5 @@ App Service, uygulamanızdaki sorunları gidermenize yardımcı olacak araçlar 
 
 -   Tıklayarak günlük özelliğini açar **tanılama günlükleri** sol taraftaki gezinti bölmesinde. Tıklayın **dosya sistemi** depolama kotası ve Bekletme dönemi ayarlayın ve değişikliklerinizi kaydedin. Bu günlükleri altında bulabilirsiniz `/home/LogFiles/`.
 -   [Uygulama örneğine bağlanmak için SSH kullanın](app-service-linux-ssh-support.md) uygulamaları çalıştırmaya yönelik günlükleri görüntülemek için.
--   Onay tanılama günlükleri **tanılama günlükleri** paneli Portal veya Azure CLI komutunu kullanarak: ` az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group> `
+-   Onay tanılama günlükleri **tanılama günlükleri** paneli Portal veya Azure CLI komutunu kullanarak:
+`az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group>`

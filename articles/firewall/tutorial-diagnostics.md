@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 2befbf66733430e6077f5e5ff3044c30a77b7e5c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 10837730bea17f98083f456ec4c9fb0d7567af57
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958992"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877270"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Öğretici: Azure güvenlik duvarı günlükleri ve ölçümleri izleme
 
@@ -41,7 +41,7 @@ Bu öğreticiye başlamadan önce, Azure Güvenlik Duvarında kullanılabilen ta
 Tanılama günlüğüne kaydetme işlemi etkinleştirildikten sonra verilerin günlükte görünmesi birkaç dakika sürebilir. İlk seferde görünen veri olmazsa birkaç dakika sonra tekrar deneyin.
 
 1. Azure portalda güvenlik duvarı kaynak grubunuzu açın ve güvenlik duvarına tıklayın.
-2. **İzleme** bölümünde **Tanılama günlükleri**'ne tıklayın.
+2. Altında **izleme**, tıklayın **tanılama ayarları**.
 
    Azure Güvenlik Duvarı için hizmete özgü iki günlük vardır:
 
@@ -57,9 +57,9 @@ Tanılama günlüğüne kaydetme işlemi etkinleştirildikten sonra verilerin g�
 9. **Log Analytics çalışma alanı** sayfasında yeni **Log Analytics çalışma alanı** adı olarak **firewall-oms** yazın.
 10. Aboneliğinizi seçin, var olan güvenlik duvarı kaynak grubunu (**Test-FW-RG**) kullanın, konum olarak **Doğu ABD** seçin ve **Ücretsiz** fiyatlandırma katmanını belirleyin.
 11. **Tamam** düğmesine tıklayın.
-   ![Yapılandırma işleminin başlatılmasıyla][1] OMS çalışma alanları artık Log Analytics çalışma alanları olarak adlandırılır.  
+   ![Yapılandırma işlemini başlatma][1] OMS çalışma alanları artık adlandırılır Log Analytics çalışma alanları.  
 12. **Günlük** bölümünde uygulama ve ağ kuralları için günlükleri toplamak için **AzureFirewallApplicationRule** ve **AzureFirewallNetworkRule** girişlerini seçin.
-   ![Tanılama ayarlarını kaydetme][2]
+   ![Tanılama ayarları kaydedin][2]
 13. **Kaydet**’e tıklayın.
 
 ## <a name="enable-logging-with-powershell"></a>PowerShell ile günlüğe kaydetmeyi etkinleştirme

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: 822dce08d4555d9039ce310464ba49b6e3d4849c
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 5b647af7925ceb81c524deb0accf90f9e895080e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480660"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876998"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Bir veya daha fazla Always On kullanılabilirlik grubu dinleyicisi - Resource Manager'ı yapılandırma
 Bu konu başlığı altında gösterilir nasıl yapılır:
@@ -35,8 +35,8 @@ Bu konuda, kullanılabilirlik gruplarını zaten yapılandırılmış olmasını
 
 İlgili Konular şunlardır:
 
-* [Azure VM'de (GUI) AlwaysOn Kullanılabilirlik Grupları Yapılandırma](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
-* [Azure Resource Manager ve PowerShell kullanarak VNet-VNet bağlantı yapılandırma](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+* [Azure VM’de AlwaysOn Kullanılabilirlik Grupları yapılandırma (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
+* [Azure Resource Manager ve PowerShell kullanarak bir Sanal Ağdan Sanal Ağa bağlantısı yapılandırma](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
@@ -65,13 +65,13 @@ Geçerli [Microsoft şablon](virtual-machines-windows-portal-sql-alwayson-availa
 Bu makaledeki örneklerde standart load balancer'ı belirtin. Örneklerde, komut dosyasını içeren `-sku Standard`.
 
 ```powershell
-$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
+$ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
 Temel yük dengeleyici oluşturmak için kaldırmak `-sku Standard` satırından yük dengeleyici oluşturur. Örneğin:
 
 ```powershell
-$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
+$ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
 ```
 
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Örnek betiği: PowerShell ile iç yük dengeleyici oluşturma
@@ -79,7 +79,7 @@ $ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupN
 > [!NOTE]
 > Kullanılabilirlik grubunuzun oluşturduysanız [Microsoft şablon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), iç load balancer'ın zaten oluşturuldu.
 
-Aşağıdaki PowerShell betiğini bir iç yük dengeleyici oluşturur, Yük Dengeleme kuralları yapılandırır ve bir IP adresi yük dengeleyici için ayarlar. Betiği çalıştırmak için Windows PowerShell ISE'yi açın ve komut dosyası betik bölmesine yapıştırın. Kullanım `Connect-AzAccount` PowerShell oturum açmak için. Birden çok Azure aboneliğiniz varsa, `Select-AzSubscription ` aboneliği ayarlamak için. 
+Aşağıdaki PowerShell betiğini bir iç yük dengeleyici oluşturur, Yük Dengeleme kuralları yapılandırır ve bir IP adresi yük dengeleyici için ayarlar. Betiği çalıştırmak için Windows PowerShell ISE'yi açın ve komut dosyası betik bölmesine yapıştırın. Kullanım `Connect-AzAccount` PowerShell oturum açmak için. Birden çok Azure aboneliğiniz varsa, `Select-AzSubscription` aboneliği ayarlamak için. 
 
 ```powershell
 # Connect-AzAccount

@@ -1,6 +1,6 @@
 ---
-title: Azure ön kapısı hizmeti - Ölçümler ve günlüğe kaydetme | Microsoft Docs
-description: Bu makalede Azure ön kapısı hizmetinin desteklediği günlüklerine erişme ve farklı ölçümlerin anlamanıza yardımcı olur
+title: Ölçüm ve günlükleri Azure ön kapısı hizmetinde izleme | Microsoft Docs
+description: Bu makalede Azure ön kapısı hizmetinin desteklediği günlüklerine erişme ve farklı ölçümleri
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,30 +11,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 3097f4a1716718df5d67769e234562a234623cfe
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 98aabf5330589bf80f1653bb2882c015a4bc133c
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407037"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862123"
 ---
-# <a name="monitoring-metrics-and-logs-for-front-door"></a>Ölçüm ve günlükleri için ön kapı izleme
+# <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>İzleme ölçümlerini ve günlüklerini Azure ön kapısı hizmetinde
 
 Azure ön kapısı hizmetini kullanarak, aşağıdaki yollarla kaynaklarını izleyebilir:
 
-* [Ölçümleri](#metrics): Application Gateway şu anda performans sayaçlarını görüntülemek için yedi ölçümleri sahiptir.
-* [Günlükleri](#diagnostic-logging): Günlükleri, performans, erişim ve kaydedilen ya da bir kaynaktan izleme amacıyla kullanılan diğer verileri için izin verin.
+- **Ölçümleri**. Application Gateway şu anda performans sayaçlarını görüntülemek için yedi ölçümleri sahiptir.
+- **Günlükleri**. Etkinlik ve tanılama günlükleri, performans, erişim ve kaydedilen ya da bir kaynaktan izleme amacıyla kullanılan diğer verileri sağlar.
 
-## <a name="metrics"></a>Ölçümler
+### <a name="metrics"></a>Ölçümler
 
-Ölçümler, performans sayaçları portalda görüntüleyebileceğiniz belirli Azure kaynakları için bir özelliğidir. Aşağıdaki ölçümler için ön kapı, kullanılabilir:
+Ölçümler, performans sayaçları portalda görmenize izin veren belirli Azure kaynakları için bir özelliğidir. Kullanılabilir ön kapısı ölçümler şunlardır:
 
 | Ölçüm | Ölçüm görünen adı | Birim | Boyutlar | Açıklama |
 | --- | --- | --- | --- | --- |
 | RequestCount | İstek Sayısı | Sayı | Httpstatus'a</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Ön kapısı tarafından sunulan istemci isteklerinin sayısı.  |
 | RequestSize | İstek boyutu | Bayt | Httpstatus'a</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | İstekleri olarak ön kapısı istemcilerden gönderilen bayt sayısı. |
 | ResponseSize | Yanıt boyutu | Bayt | Httpstatus'a</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | İstemcilere ön kapısı yanıt gönderilen bayt sayısı. |
-| TotalLatency | Toplam gecikme süresi | Milisaniye | Httpstatus'a</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | İstemci ön kapısı son yanıt bayttan onaylanır kadar ön kapısı tarafından istemci isteği alındı, hesaplanan saat. |
+| TotalLatency | Toplam gecikme süresi | Milisaniye | Httpstatus'a</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | İstemci ön kapısı son yanıt bayttan onaylanır kadar ön kapısı tarafından alınan istemci isteği zaman hesaplanır. |
 | BackendRequestCount | Arka uç istek sayısı | Sayı | Httpstatus'a</br>HttpStatusGroup</br>Arka uç | Arka uçları için ön kapı gönderilen isteklerin sayısı. |
 | BackendRequestLatency | Arka uç istek gecikme süresi | Milisaniye | Arka uç | Zaman zaman ön kapısı son yanıt bayt arka uçtan alınan kadar isteği arka uca ön kapısı tarafından gönderildiği hesaplanır. |
 | BackendHealthPercentage | Arka uç sistem durumu yüzdesi | Yüzde | Arka uç</br>BackendPool | Başarılı sistem durumu yüzdesi arka uçları için ön kapı araştırmaları. |
@@ -42,35 +42,36 @@ Azure ön kapısı hizmetini kullanarak, aşağıdaki yollarla kaynaklarını iz
 
 ## <a name="activity-log"></a>Etkinlik günlükleri
 
-Etkinlik günlükleri, ön kapısı üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Etkinlik günlüklerini kullanarak, belirleyebilirsiniz "ne, kim ve ne zaman" işlemlerini (PUT, POST, DELETE), ön kapısı üzerinde gerçekleştirilen herhangi bir yazma için.
+Etkinlik günlükleri ön kapısı hizmet üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Bunlar ayrıca belirlemek kim ve ne zaman tüm yazma işlemlerini (put, post veya Sil) ön kapısı hizmette yapılan.
 
-> [!NOTE]
-> Etkinlik günlükleri, okuma (GET) işlemlerini ya da Azure portalında gerçekleştirilen veya özgün Yönetim API’leri kullanan işlemleri içermez.
+>[!NOTE]
+>Etkinlik günlükleri, okuma (get) işlemlerini dahil değildir. Ayrıca Azure portalında veya özgün yönetim API'sini kullanarak gerçekleştirdiğiniz işlemler dahil değildir.
 
-Tüm Azure kaynaklarınızın Azure İzleyici günlüklerine erişmek veya etkinlik günlükleri, ön kapısı erişin. 
-
-Etkinlik günlüklerini görüntülemek için:
+Ön kapısı hizmetinizin veya Azure İzleyici'de, Azure kaynaklarınızın tüm günlükler erişim etkinliğini kaydeder. Etkinlik günlüklerini görüntülemek için:
 
 1. Ön kapısı örneğinizi seçin.
-2. **Etkinlik günlüğü**’ne tıklayın.
+2. Seçin **etkinlik günlüğü**.
 
-    ![etkinlik günlüğü](./media/front-door-diagnostics/activity-log.png)
+    ![Etkinlik günlüğü](./media/front-door-diagnostics/activity-log.png)
 
-3. İstenen filtre kapsamını seçin ve **Uygula**’ya tıklayın.
+3. Bir filtre kapsamı seçin ve ardından **Uygula**.
 
 ## <a name="diagnostic-logging"></a>Tanılama günlükleri
-Tanılama günlükleri, denetim ve sorun giderme konularında önemli işlem ve hatalar hakkında zengin bilgiler sağlar. Tanılama günlükleri, etkinlik günlüklerinden farklıdır. Etkinlik günlükleri, Azure kaynaklarınız üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Tanılama günlükleri, kaynağınızın kendisi tarafından gerçekleştirilen işlemler hakkında bilgi sağlar. Daha fazla bilgi edinin [Azure İzleyici tanılama günlükleri](../azure-monitor/platform/diagnostic-logs-overview.md). 
+Tanılama günlükleri, işlemleri ve denetim ve sorun giderme için önemli olan hatalar hakkında zengin bilgiler sağlar. Tanılama günlükleri, etkinlik günlüklerinden farklıdır.
 
-Tanılama günlükleri, ön kapısı yapılandırmak için:
+Etkinlik günlükleri, Azure kaynaklarında yapılan işlemleri hakkında Öngörüler sağlar. Tanılama günlükleri, kaynağınızın gerçekleştirilen işlemler hakkında bilgi sağlar. Daha fazla bilgi için [Azure İzleyici tanılama günlükleri](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-1. APIM hizmet örneğinizi seçin.
-2. **Tanılama ayarları**'na tıklayın.
+![Tanılama günlükleri](./media/front-door-diagnostics/diagnostic-log.png)
 
-    ![tanılama günlükleri](./media/front-door-diagnostics/diagnostic-log.png)
+Ön kapısı hizmetiniz için tanılama günlüklerini yapılandırmak için:
 
-3. **Tanılamayı aç**’a tıklayın. Bir depolama hesabına ölçümlerle birlikte tanılama günlüklerini arşivleme, bunları bir olay Hub'ına akış veya bunları Azure İzleyici günlüklerine gönderin. 
+1. Azure API Management hizmetinizi seçin.
 
-Azure ön kapısı hizmeti şu anda sağlar tanılama günlükleri (saatlik olarak toplanır) tek tek API hakkında daha fazla istek her bir girdi aşağıdaki şemayı içerecek:
+2. Seçin **tanılama ayarları**.
+
+3. Seçin **tanılamayı Aç**. Bir depolama hesabına ölçümlerle birlikte tanılama günlüklerini arşivleme, bunları bir olay hub'ına akış veya bunları Azure İzleyici günlüklerine gönderin.
+
+Ön kapısı hizmeti şu anda tanılama günlükleri (saatlik olarak toplanır) sağlar. Tanılama günlükleri, API istekleri ayrı ayrı her bir girdi aşağıdaki şemayı içerecek sağlar:
 
 | Özellik  | Açıklama |
 | ------------- | ------------- |
@@ -91,5 +92,5 @@ Azure ön kapısı hizmeti şu anda sağlar tanılama günlükleri (saatlik olar
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Front Door oluşturmayı](quickstart-create-front-door.md) öğrenin.
-- [Front Door’un nasıl çalıştığını](front-door-routing-architecture.md) öğrenin.
+- [Bir ön kapısı profili oluşturma](quickstart-create-front-door.md)
+- [Ön kapısı işleyişi](front-door-routing-architecture.md)

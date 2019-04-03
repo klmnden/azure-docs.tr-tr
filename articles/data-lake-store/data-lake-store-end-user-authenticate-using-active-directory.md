@@ -3,20 +3,20 @@ title: 'Son kullanıcı kimlik doğrulaması: Azure Active Directory ile Azure D
 description: Azure Active Directory kullanarak son kullanıcı kimlik doğrulaması ile Azure Data Lake depolama Gen1 elde öğrenin
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 6f7b812f32eda0c671b1ad1101b13a1290df0482
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: twooley
+ms.openlocfilehash: c0fe63e395ee08cb65e9bbbadc4ce1f03032ce95
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954799"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880092"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory kullanarak son kullanıcı kimlik doğrulaması ile Azure Data Lake depolama Gen1
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Uygulamanız, doğrudan Azure AD'ye kullanıcı kimlik bilgilerini sağlayabilir
 * Yetki verilmiş izinleri ayarlayın
 
 
-## <a name="step-1-create-an-active-directory-native-application"></a>1. adım: yerel bir Active Directory uygulaması oluşturma
+## <a name="step-1-create-an-active-directory-native-application"></a>1. Adım: Yerel bir Active Directory uygulaması oluşturma
 
 Oluşturun ve bir Azure AD yerel uygulaması Azure Active Directory kullanarak son kullanıcı kimlik doğrulama ile Data Lake depolama Gen1 yapılandırın. Yönergeler için [bir Azure AD uygulaması oluştur](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -80,7 +80,7 @@ Bağlantıda bulunan yönergeleri takip ederken seçtiğinizden emin olun **yere
 
 ![Web uygulaması oluşturma](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "yerel uygulama oluştur")
 
-## <a name="step-2-get-application-id-and-redirect-uri"></a>2. adım: uygulama kimliği alma ve yeniden yönlendirme URI'si
+## <a name="step-2-get-application-id-and-redirect-uri"></a>2. Adım: Uygulama Kimliği alma ve yeniden yönlendirme URI'si
 
 Bkz: [uygulama kimliği alma](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) uygulama kimliğini almak için
 
@@ -90,12 +90,12 @@ Yeniden yönlendirme URI'si almak için aşağıdaki adımları uygulayın.
 
 2. Gelen **ayarları** uygulama dikey **yeniden yönlendirme URI'leri**.
 
-    ![Get yeniden yönlendirme URI'si](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-redirect-uri.png)
+    ![Get Redirect URI](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-redirect-uri.png)
 
 3. Görüntülenen değeri kopyalayın.
 
 
-## <a name="step-3-set-permissions"></a>3. adım: İzinleri ayarlama
+## <a name="step-3-set-permissions"></a>3. Adım: İzin ayarla
 
 1. Azure portalından seçin **Azure Active Directory**, tıklayın **uygulama kayıtları**ve ardından bulmak ve oluşturduğunuz Azure AD yerel uygulaması'nı tıklatın.
 

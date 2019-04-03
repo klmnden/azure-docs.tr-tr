@@ -16,14 +16,14 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
-ms.custom: aaddev
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6ccc2a355b22c2235253b78a1efa3912234027a
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: c0614a6bc588a26a23dc9d3795e532a303a472e3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793501"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881656"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>İzinler ve onay Azure Active Directory v2.0 uç noktası
 
@@ -82,7 +82,7 @@ Openıd Connect v2.0 uygulaması belirli bir kaynak için geçerli olmayan birka
 
 ### <a name="openid"></a>openıd
 
-Uygulama oturum açma kullanarak gerçekleştiriyorsa [Openıd Connect](active-directory-v2-protocols.md), isteği göndermelidir `openid` kapsam. `openid` Kapsamı, iş hesabı onay sayfası "oturum açtığınızda" iznini ve kişisel Microsoft hesabı onay sayfası "Profilinizi görüntüleyin ve uygulamaları ve Microsoft hesabınızı kullanarak hizmetlere bağlanma" iznini gösterir. Bu izne sahip bir kullanıcı için benzersiz bir tanımlayıcı biçiminde alabilir `sub` talep. Ayrıca uygulama erişimi ve UserInfo uç noktasına sağlar. `openid` Kapsamı farklı bir uygulama bileşenleri arasında HTTP çağrıları güvenliğini sağlamak için kullanılan kimlik belirteçlerini almak için v2.0 belirteç uç noktası kullanılabilir.
+Uygulama oturum açma kullanarak gerçekleştiriyorsa [Openıd Connect](active-directory-v2-protocols.md), isteği göndermelidir `openid` kapsam. `openid` Kapsamı, iş hesabı onay sayfası "oturum açtığınızda" iznini ve kişisel Microsoft hesabı onay sayfası "Profilinizi görüntüleyin ve uygulamaları ve Microsoft hesabınızı kullanarak hizmetlere bağlanma" iznini gösterir. Bu izne sahip bir kullanıcı için benzersiz bir tanımlayıcı biçiminde alabilir `sub` talep. Ayrıca uygulama erişimi ve UserInfo uç noktasına sağlar. `openid` Kapsamı v2.0 belirteç uç noktada uygulama tarafından kimlik doğrulaması için kullanılan kimlik belirteçlerini almak için kullanılabilir.
 
 ### <a name="email"></a>e-posta
 

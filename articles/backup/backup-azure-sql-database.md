@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4eaaff859811e4d97cbd4f73231d702285792064
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d99a3d23959cfdd9bd068fbde3a882eb1bc9b4ae
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285454"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847293"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM'lerindeki SQL Server Backup hakkında
 
@@ -55,7 +55,7 @@ Başlamadan önce aşağıdakileri doğrulayın:
 
 - SQL Server Yedekleme, Azure portalında yapılandırılabilir veya **PowerShell**. CLI desteklemiyoruz.
 - SQL Server çalıştıran bir VM, Azure genel IP adresleri erişmek için Internet bağlantısı gerektirir.
-- SQL Server Always üzerinde **yük devretme kümesi örnekleri (Fcı'lerde)** desteklenmez.
+- SQL Server **yük devretme kümesi örneği (FCI)** ve SQL Server her zaman yük devretme kümesi örneği üzerinde desteklenmez.
 - Yansıtma veritabanları ve veritabanı anlık görüntüleri için yedekleme ve geri yükleme işlemleri desteklenmez.
 - Birden fazla yedekleme çözümleri, tek başına SQL Server Yedekleme kullanarak örneği veya SQL Always on kullanılabilirlik grubu yedekleme hatasına neden olabilir; Bunun yapılması kaçının.
 - Aynı veya farklı çözümler ile tek tek bir kullanılabilirlik grubunda iki düğüm yedekleme, yedekleme başarısız olmasına neden olabilir. Azure Backup, algılamak ve kasa ile aynı bölgede bulunan tüm düğümleri koruyun. Birincil düğüm olan bölge yedekleme, SQL Server Always on kullanılabilirlik grubu birden çok Azure bölgesine yayılmış durumdaysa ayarlayın. Azure Backup, algılamak ve yedekleme tercihinize göre kullanılabilirlik grubundaki tüm veritabanlarını korumak.  

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: 966518f17392e6158089cb5b6df96f41674fed41
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0641a097761530285c2dd9aa176ddd8c2c159001
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996155"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878749"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Microsoft Azure Storage veri hareketi kitaplığı ile veri aktarma
 
@@ -49,7 +49,7 @@ Bu belge Windows, Linux ve macOS üzerinde çalışır ve aşağıdaki senaryola
 3. Bu dizin, Visual Studio Code'da açın. Bu adım hızla ile komut satırını yazarak yapılabilir `code .` Windows içinde.
 4. Yükleme [C# uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) Visual Studio kod Market. Visual Studio Code'u yeniden başlatın.
 5. Bu noktada, iki istem görmeniz gerekir. Biridir "derleme ve hata ayıklamak için gerekli varlıkları." eklemek için "Evet" seçeneğine tıklayın Çözümlenmemiş bağımlılıklar geri yüklemek için başka bir uyarı içindir. "Geri yükleme".
-6. Değiştirme `launch.json` altında `.vscode` dış terminal bir konsol olarak kullanılacak. Bu ayar olarak okumanız gerekir ` "console": "externalTerminal"`
+6. Değiştirme `launch.json` altında `.vscode` dış terminal bir konsol olarak kullanılacak. Bu ayar olarak okumanız gerekir `"console": "externalTerminal"`
 7. Visual Studio Code, .NET Core uygulamalarında hata ayıklamak sağlar. İsabet `F5` uygulamanızı çalıştırın ve kurulumunuzu çalıştığını doğrulayın. "Hello World!" görmeniz gerekir konsola yazdırılır.
 
 ## <a name="add-data-movement-library-to-your-project"></a>Veri taşıma kitaplığı projenize ekleyin.

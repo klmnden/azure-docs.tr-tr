@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 04/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6c340d6b410a289f8beca156f85472cb729b786a
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: de58f960842e0a4f8e9b964774ce62b3e2772113
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427828"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863192"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir LinkedIn hesabıyla kaydolma ve oturum açma ayarlama
 
@@ -41,3 +41,6 @@ LinkedIn hesabı olarak kullanılacak bir [kimlik sağlayıcısı](active-direct
 7. Seçin **bu kimlik sağlayıcısını ayarlama** ve daha önce olarak kayıtlı istemci kimliğini girin **istemci kimliği** olarak kaydettiğiniz istemci gizli anahtarını girin **gizli**daha önce oluşturduğunuz LinkedIn hesabı uygulamanın.
 8. Tıklayın **Tamam** ve ardından **Oluştur** LinkedIn hesabı yapılandırmanızı kaydetmek için.
 
+## <a name="migration-from-v10-to-v20"></a>V2.0 v1.0 geçiş
+
+Yakın zamanda LinkedIn [, API'nin v1.0 gelen v2.0 için güncelleştirilmiş](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Geçişin bir parçası, Azure AD B2C'yi yalnızca kayıt sırasında LinkedIn kullanıcının tam adını almak kullanabilirsiniz. Bir e-posta adresi toplanan özniteliklerinden biri ise sırasında kaydolma, kullanıcı el ile e-posta adresi girin ve doğrulayın.

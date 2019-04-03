@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 4ae8ae43d8c245270b64611bed0ac4930aa0ecc3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6d03c219025c8cd39214bd8ab6807125709f9742
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763437"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849679"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Azure İzleyici'de veri kaynakları
-Bu makalede, durumunu ve performansını, kaynakları ve bunlar üzerinde çalışan uygulamaları izlemek için Azure İzleyici tarafından toplanan veri kaynaklarını açıklar. Bu kaynaklara başka bir bulut ya da şirket içi azure'da olabilir.  Bkz: [Azure İzleyici tarafından toplanan veriler](data-collection.md) nasıl görüntüleyebilirsiniz ve bu verilerin nasıl depolandığı ile ilgili ayrıntılar için.
+Bu makalede, durumunu ve performansını, kaynakları ve bunlar üzerinde çalışan uygulamaları izlemek için Azure İzleyici tarafından toplanan veri kaynaklarını açıklar. Bu kaynaklara başka bir bulut ya da şirket içi azure'da olabilir.  Bkz: [Azure İzleyici tarafından toplanan veriler](data-platform.md) nasıl görüntüleyebilirsiniz ve bu verilerin nasıl depolandığı ile ilgili ayrıntılar için.
 
 İzleme verileri azure'da bir çeşitli düzenlenebilir kaynaklardan katmanları, uygulamanızın ve tüm işletim sistemleri olan en yüksek katmanları ve Azure platformu bileşenleri olan alt katmanları sunulur. Aşağıdaki bölümlerde ayrıntılı olarak açıklanan her bir katman ile bu Aşağıdaki diyagramda gösterilmiştir.
 
@@ -59,7 +59,7 @@ Belirli bir kaynak için etkinlik günlüğü kendi içinde birden çok kaynakta
 
 
 ### <a name="metrics"></a>Ölçümler
-Çoğu Azure hizmeti oluşturacağını [platform ölçümleri](data-collection.md#metrics) performans ve işlem yansıtır. Belirli [ölçümleri, her kaynak türü için değişir](metrics-supported.md).  Bunlar, ölçümleri analiz erişilebilir ve Log Analytics kullanarak popüler ve çözümleme günlüklerini kopyalanabilir.
+Çoğu Azure hizmeti oluşturacağını [platform ölçümleri](data-platform-metrics.md) performans ve işlem yansıtır. Belirli [ölçümleri, her kaynak türü için değişir](metrics-supported.md).  Bunlar, ölçümleri analiz erişilebilir ve Log Analytics kullanarak popüler ve çözümleme günlüklerini kopyalanabilir.
 
 
 ### <a name="resource-diagnostic-logs"></a>Kaynak tanılama günlükleri
@@ -116,4 +116,4 @@ Azure İzleyicisi'ni kullanarak herhangi bir REST istemcisinden günlük veriler
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinin [türü izleme verilerinin Azure İzleyici tarafından toplanan](data-collection.md) ve görüntüleme ve bu verileri analiz etme.
+- Daha fazla bilgi edinin [türü izleme verilerinin Azure İzleyici tarafından toplanan](data-platform.md) ve görüntüleme ve bu verileri analiz etme.

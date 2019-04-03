@@ -1,23 +1,23 @@
 ---
-title: ".NET SDK'sı: Hesap yönetimi işlemleri Azure Data Lake depolama Gen1 | Microsoft Docs"
+title: '.NET SDK: Hesap yönetimi işlemleri Azure Data Lake depolama Gen1 | Microsoft Docs'
 description: Data Lake depolama Gen1 içinde hesap yönetim işlemlerini gerçekleştirmek için Azure Data Lake depolama Gen1 .NET SDK'sını kullanın
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ea57d5a9-2929-4473-9d30-08227912aba7
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 2ed9f534c0eb27601243428f8e4b9d95db5d16b0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: twooley
+ms.openlocfilehash: 8ab051d49e7ed67e642ef656dfb382ed07763ed2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123921"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879718"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Azure Data Lake depolama Gen1 hesap yönetim işlemlerini .NET SDK'sını kullanma
 > [!div class="op_single_selector"]
@@ -53,8 +53,8 @@ Data Lake depolama Gen1 veri yönetim işlemlerini .NET SDK kullanarak gerçekle
    2. **NuGet Paket Yöneticisi** sekmesinde, **Paket kaynağının** **nuget.org** olarak ayarlandığından ve **Ön sürümü dahil et** onay kutusunun işaretli olduğundan emin olun.
    3. Aşağıdaki NuGet paketlerini arayıp yükleyin:
 
-      * `Microsoft.Azure.Management.DataLake.Store` - Bu öğreticide v2.1.3-preview kullanılır.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Bu öğreticide v2.2.12 kullanılır.
+      * `Microsoft.Azure.Management.DataLake.Store` -Bu öğreticide v2.1.3-preview kullanılır.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -Bu öğreticide v2.2.12 kullanılır.
 
         ![NuGet kaynağı ekleme](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Yeni bir Azure Data Lake hesabı oluşturma")
    4. **NuGet Paket Yöneticisi**'ni kapatın.
@@ -99,7 +99,7 @@ Data Lake depolama Gen1 veri yönetim işlemlerini .NET SDK kullanarak gerçekle
 
 Makalenin geriye kalan bölümlerinde, kullanılabilir .NET yöntemlerinin, kimlik doğrulama, dosyayı karşıya yükleme vb. işlemleri gerçekleştirmek üzere nasıl kullanılacağını öğrenebilirsiniz.
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+## <a name="authentication"></a>Authentication
 
 * Uygulamanız için son kullanıcı kimlik doğrulaması için bkz. [son kullanıcı kimlik doğrulaması .NET SDK kullanarak Data Lake depolama Gen1 ile](data-lake-store-end-user-authenticate-net-sdk.md).
 * Uygulamanız için hizmetten hizmete kimlik doğrulaması için bkz [hizmetten hizmete kimlik doğrulaması .NET SDK kullanarak Data Lake depolama Gen1 ile](data-lake-store-service-to-service-authenticate-net-sdk.md).
@@ -146,4 +146,4 @@ Aşağıdaki kod parçacığı, daha önce oluşturduğunuz Data Lake depolama G
 * [Data Lake depolama Gen1 .NET SDK başvurusu](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
+* [Data Lake depolama Gen1 verileri güvenli hale getirme](data-lake-store-secure-data.md)

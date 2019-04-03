@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78e395db2f8ccaf4fbe9fb64b0faf9ac70c1b21c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d48977c60fb4a13e1fc0dbd294fa4e7708f1cd5d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839043"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878977"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Öğretici: G Suite ile Azure Active Directory Tümleştirme
 
@@ -54,27 +54,27 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
 1. **S: Bu tümleştirme, Azure AD ile tümleştirme Google Cloud Platform SSO destekliyor mu?**
 
-    C: Evet. Google Cloud Platform ve Google Apps, aynı kimlik doğrulaması platformunun paylaşın. Bu nedenle GCP tümleştirme yapmak için Google Apps ile SSO yapılandırmanız gerekir.
+    Y: Evet. Google Cloud Platform ve Google Apps, aynı kimlik doğrulaması platformunun paylaşın. Bu nedenle GCP tümleştirme yapmak için Google Apps ile SSO yapılandırmanız gerekir.
 
 2. **S: Chromebooks ve diğer Chrome cihazları Azure AD çoklu oturum açma ile uyumludur?**
   
-    C: Evet, kullanıcılar, Azure AD kimlik bilgilerini kullanarak Chromebook cihazlarını oturum açabilir. Bkz. Bu [G Suite Destek makalesi](https://support.google.com/chrome/a/answer/6060880) neden hakkında bilgi için kimlik bilgilerini iki kez kullanıcılardan.
+    Y: Evet, kullanıcılar, Azure AD kimlik bilgilerini kullanarak Chromebook cihazlarını oturum açabilir. Bkz. Bu [G Suite Destek makalesi](https://support.google.com/chrome/a/answer/6060880) neden hakkında bilgi için kimlik bilgilerini iki kez kullanıcılardan.
 
 3. **S: Çoklu oturum açma etkinleştirirseniz, kullanıcıların Google Classroom, GMail, Google Drive, YouTube ve benzeri gibi tüm Google ürün oturum açmak için Azure AD kimlik bilgilerini kullanmanız mümkün olacak mı?**
 
-    C: Evet, bağlı olarak [hangi G Suite](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) etkinleştirmek veya kuruluşunuz için devre dışı bırakmak seçin.
+    Y: Evet, bağlı olarak [hangi G Suite](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) etkinleştirmek veya kuruluşunuz için devre dışı bırakmak seçin.
 
 4. **S: Yalnızca bir alt kümesini G Suite Kullanıcılarım için çoklu oturum açmayı etkinleştirebilir?**
 
-    C: Hayır, çoklu oturum açmayı üzerinde hemen kapatma kendi Azure AD kimlik bilgileriyle kimlik doğrulaması tüm G Suite kullanıcılarınız gerektirir. G Suite sahip birden çok kimlik sağlayıcı desteklemediğinden, G Suite ortamınız için kimlik sağlayıcısı ya da Azure AD olabilir veya Google--ikisi aynı anda.
+    Y: Hayır, çoklu oturum açmayı üzerinde hemen kapatma kendi Azure AD kimlik bilgileriyle kimlik doğrulaması tüm G Suite kullanıcılarınız gerektirir. G Suite sahip birden çok kimlik sağlayıcı desteklemediğinden, G Suite ortamınız için kimlik sağlayıcısı ya da Azure AD olabilir veya Google--ikisi aynı anda.
 
 5. **S: Bir kullanıcı Windows oturum açtıysa, otomatik olarak G Suite için bir parola girmeniz istenir alma olmadan kimlik doğrulaması misiniz?**
 
-    C: Bu senaryoyu etkinleştirmek için iki seçenek vardır. İlk olarak, kullanıcılar Windows 10 cihazları oturum [Azure Active Directory Join](../device-management-introduction.md). Alternatif olarak, kullanıcıların etki alanına katılmış bir şirket içi Active Directory'ye Azure ad çoklu oturum açma için etkinleştirilmiş olan Windows cihazları oturum bir [Active Directory Federasyon Hizmetleri (AD FS)](../hybrid/plan-connect-user-signin.md) dağıtım. Azure AD arasında çoklu oturum açmayı etkinleştirmek için aşağıdaki öğreticiye adımları gerçekleştirmek iki seçenek de gerektirir ve G Suite.
+    Y: Bu senaryoyu etkinleştirmek için iki seçenek vardır. İlk olarak, kullanıcılar Windows 10 cihazları oturum [Azure Active Directory Join](../device-management-introduction.md). Alternatif olarak, kullanıcıların etki alanına katılmış bir şirket içi Active Directory'ye Azure ad çoklu oturum açma için etkinleştirilmiş olan Windows cihazları oturum bir [Active Directory Federasyon Hizmetleri (AD FS)](../hybrid/plan-connect-user-signin.md) dağıtım. Azure AD arasında çoklu oturum açmayı etkinleştirmek için aşağıdaki öğreticiye adımları gerçekleştirmek iki seçenek de gerektirir ve G Suite.
 
 6. **S: "Geçersiz e-posta" hata iletisi alıyorum olduğunda ne yapmalıyım?**
 
-    C: Bu kurulumu için e-posta özniteliği, kullanıcıların oturum açabilmesi için gereklidir. Bu öznitelik el ile ayarlanamaz.
+    Y: Bu kurulumu için e-posta özniteliği, kullanıcıların oturum açabilmesi için gereklidir. Bu öznitelik el ile ayarlanamaz.
 
     E-posta özniteliği geçerli bir Exchange lisansına sahip herhangi bir kullanıcı için otomatik doldurulur. Kullanıcı e-posta etkin değilse, erişim vermek için bu öznitelik almak uygulama gereksinimleriniz değiştikçe bu hata alınır.
 
@@ -165,7 +165,7 @@ Azure AD çoklu oturum açma G Suite ile yapılandırmak için aşağıdaki adı
 
     ![G Suite etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
     
@@ -322,7 +322,7 @@ Erişim paneli G Suite kutucuğa tıkladığınızda, size otomatik olarak SSO'y
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Kullanıcı sağlamayı yapılandırma](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)

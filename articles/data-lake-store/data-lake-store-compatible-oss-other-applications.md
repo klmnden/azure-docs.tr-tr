@@ -3,19 +3,19 @@ title: Büyük veri uygulamaları Data Lake depolama Gen1 ile uyumlu | Microsoft
 description: Azure Data Lake depolama Gen1 (daha önce Azure Data Lake Store da bilinir) ile çalışan açık kaynak uygulamaların listesi
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: 2960e8f438480f3e0ba2dcc26f5fc82e69f55427
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 37bf26db5f7ae08734410d36a892aaeb2380bd9f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541885"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880297"
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 ile çalışan açık kaynak büyük veri uygulamaları
 

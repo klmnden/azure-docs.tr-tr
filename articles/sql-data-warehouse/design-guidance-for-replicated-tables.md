@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 03/19/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 031abcb9133663f39375560a06b0770c89eafb27
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: acea42f7f4ab986e9828000ab7cfc9e302ed92a3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259576"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885466"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Tasarım Kılavuzu, Azure SQL veri ambarı'nda çoğaltılmış tablolar'ı kullanma
 Bu makalede, SQL veri ambarı şema çoğaltılmış tablolarda tasarlamaya yönelik öneriler sunar. Veri taşıma ve sorgu karmaşıklığı azaltarak sorgu performansını artırmak için bu önerileri kullanın.
@@ -95,8 +95,8 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 Tüm tablo her işlem düğümünde zaten varolduğundan çoğaltılmış bir tabloda birleştirme için hiçbir veri taşıma gerektirmez. Boyut tabloları hepsini dağıtılmış ise birleştirme her işlem düğümüne yüklenecek tam olarak Boyut tablosuna kopyalar. Verileri taşımak için sorgu planı BroadcastMoveOperation olarak adlandırılan bir işlem içerir. Bu veri taşıma işlem türü, sorgu performansı yavaşlatır ve çoğaltılmış tablolar'ı kullanarak ortadan kalkar. Sorgu planı adımları görüntülemek için kullanın [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) sistem Katalog görünümü. 
 
-Örneğin, aşağıdaki sorguyu AdventureWorks şemayla içinde ` FactInternetSales` tablo karma dağıtılmış. `DimDate` Ve `DimSalesTerritory` daha küçük boyut tabloları tablolarıdır. Bu sorgu, Kuzey Amerika'da 2004 mali yıl için toplam satış döndürür:
- 
+Örneğin, aşağıdaki sorguyu AdventureWorks şemayla içinde `FactInternetSales` tablo karma dağıtılmış. `DimDate` Ve `DimSalesTerritory` daha küçük boyut tabloları tablolarıdır. Bu sorgu, Kuzey Amerika'da 2004 mali yıl için toplam satış döndürür:
+
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
 FROM dbo.FactInternetSales s

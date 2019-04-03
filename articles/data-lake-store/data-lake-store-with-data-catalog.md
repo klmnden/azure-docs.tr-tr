@@ -3,21 +3,21 @@ title: Azure Data Lake depolama Gen1 verileri Azure veri Kataloğu'nda kaydetme 
 description: Azure veri Kataloğu'nda Azure Data Lake depolama Gen1 verileri kaydetme
 services: data-lake-store,data-catalog
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: bc9d6f8f078860000d7a2a38bf4aa1ce00ff450e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: fd887560c0011fb1ec2141e33f02f7e3d8a39c81
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533468"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877893"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Azure veri Kataloğu'nda Azure Data Lake depolama Gen1 verileri kaydetme
 Bu makalede, Azure Data Lake depolama Gen1 veri Kataloğu ile tümleştirerek verilerinizi bir kuruluş içinde bulunabilir hale getirmek için Azure veri Kataloğu ile tümleştirmeyi öğreneceksiniz. Veri kataloglama daha fazla bilgi için bkz: [Azure veri Kataloğu](../data-catalog/data-catalog-what-is-data-catalog.md). Veri Kataloğu, kullanabileceğiniz senaryoları anlamak için bkz: [Azure veri Kataloğu genel senaryoları](../data-catalog/data-catalog-common-scenarios.md).
@@ -25,7 +25,7 @@ Bu makalede, Azure Data Lake depolama Gen1 veri Kataloğu ile tümleştirerek ve
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
-* **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
+* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure aboneliğinizi etkinleştirme** Data Lake depolama Gen1 için. Bkz. [yönergeler](data-lake-store-get-started-portal.md).
 * **Bir Data Lake depolama Gen1 hesabı**. Konumundaki yönergeleri [Azure Data Lake depolama Gen1 ile çalışmaya başlama Azure portalını kullanarak](data-lake-store-get-started-portal.md). Bu öğreticide, adlı bir Data Lake depolama Gen1 hesabı oluşturabilir **datacatalogstore**.
 

@@ -3,21 +3,21 @@ title: Azure Data Lake depolama Gen1 için tanılama günlüklerini görüntüle
 description: 'Kurulum ve tanılama günlüklerine erişmek için Azure Data Lake depolama Gen1 öğrenin '
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: f6e75eb1-d0ae-47cf-bdb8-06684b7c0a94
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
-ms.openlocfilehash: a0bb320abb31b38461102e0e9a062ea0c2af51fb
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.author: twooley
+ms.openlocfilehash: d200f72b3c0e5634c3dca8f60a4754a14351110a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959587"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877967"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 için tanılama günlüklerine erişme
 Azure Data Lake depolama Gen1 hesabınızı ve hesabınız için toplanan günlükleri görüntülemek için günlüğe kaydetme tanılama etkinleştirmeyi öğrenin.
@@ -191,5 +191,5 @@ Azure Data Lake depolama Gen1 günlük verilerini işlemek ve çözümlemek nas�
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Azure Data Lake depolama Gen1 genel bakış](data-lake-store-overview.md)
-* [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
+* [Data Lake depolama Gen1 verileri güvenli hale getirme](data-lake-store-secure-data.md)
 

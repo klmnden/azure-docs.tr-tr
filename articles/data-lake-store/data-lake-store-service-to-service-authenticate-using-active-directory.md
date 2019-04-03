@@ -3,20 +3,20 @@ title: 'Hizmetten hizmete kimlik doğrulaması: Azure Active Directory ile Azure
 description: Azure Data Lake depolama Gen1 ile hizmetten hizmete kimlik doğrulaması Azure Active Directory'yi kullanarak elde öğrenin
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 2ec5d469ba0708288881be3d905b492aa8aa4da6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: twooley
+ms.openlocfilehash: a7fdcf396f586a65efa17e489d002f1c8847a193
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956631"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885001"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Data Lake depolama Gen1 ile hizmetten hizmete kimlik doğrulaması Azure Active Directory'yi kullanarak
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Bu makalede nasıl oluşturulacağı hakkında konuşuyor bir **hizmetten hizmet
 ## <a name="prerequisites"></a>Önkoşullar
 * Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="step-1-create-an-active-directory-web-application"></a>1. adım: bir Active Directory web uygulaması oluşturma
+## <a name="step-1-create-an-active-directory-web-application"></a>1. Adım: Bir Active Directory web uygulaması oluşturma
 
 Oluşturun ve Azure AD web uygulaması için Azure Data Lake depolama Gen1 ile hizmetten hizmete kimlik doğrulaması Azure Active Directory'yi kullanarak yapılandırın. Yönergeler için [bir Azure AD uygulaması oluştur](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -45,14 +45,14 @@ Oluşturun ve Azure AD web uygulaması için Azure Data Lake depolama Gen1 ile h
 
 ![Web uygulaması oluşturma](./media/data-lake-store-authenticate-using-active-directory/azure-active-directory-create-web-app.png "web uygulaması oluşturma")
 
-## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>2. adım: uygulama kimliği, kimlik doğrulama anahtarı ve Kiracı Kimliğinizi alma
+## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>2. Adım: Uygulama kimliği, kimlik doğrulama anahtarı ve Kiracı Kimliğini alma
 Programlamayla oturum açılırken, uygulamanızın kimliği gerekir. Uygulama kendi kimlik bilgileriniz altında çalışıyorsa, ayrıca bir kimlik doğrulama anahtarı gerekir.
 
 * Uygulamanız için (istemci gizli anahtarı olarak da bilinir) uygulama kimliği ve kimlik doğrulama anahtarını almak yönergeler için bkz: [uygulama kimliği ve kimlik doğrulama anahtarını Al](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 * Kiracı Kimliğini almak yönergeler için bkz: [Kiracı kimliği alma](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 
-## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>3. adım: Azure AD uygulaması Azure Data Lake depolama Gen1 hesabı dosya veya klasöre atama
+## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>3. Adım: Azure AD uygulaması Azure Data Lake depolama Gen1 hesabı dosya veya klasörü atayın
 
 
 1. [Azure portalı](https://portal.azure.com) üzerinde oturum açın. Daha önce oluşturduğunuz Azure Active Directory uygulamayla ilişkilendirmek istediğiniz Data Lake depolama Gen1 hesabınızı açın.
@@ -85,7 +85,7 @@ Programlamayla oturum açılırken, uygulamanızın kimliği gerekir. Uygulama k
 > 
 >
 
-## <a name="step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications"></a>4. adım: OAuth 2.0 belirteç uç noktası (yalnızca Java tabanlı uygulamalar için) alın.
+## <a name="step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications"></a>4. Adım: OAuth 2.0 belirteç uç noktası (yalnızca Java tabanlı uygulamalar için) alma
 
 1. Oturum [Azure portalında](https://portal.azure.com) ve sol bölmeden Active Directory'ye tıklayın.
 

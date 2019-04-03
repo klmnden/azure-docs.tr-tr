@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: ebdc90dc35f891ea1811ce81c5bdc1b937c58a5c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0db28fb8016176bdd66e5406a6f1c0a18cc5c3e8
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529264"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847585"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi (Node.js) Azure IOT hub'a bağlanma
 
@@ -24,7 +24,6 @@ ms.locfileid: "57529264"
 Bu öğreticide, Raspbian çalıştıran Raspberry Pi çalışmanın temel bilgileri öğrenerek başlayın. Daha sonra kullanarak cihazlarınızı buluta sorunsuz bir şekilde bağlanmak nasıl öğrenin [Azure IOT hub'ı](about-iot-hub.md). Windows 10 IoT Core örnekleri için Git [Windows Dev Center](https://www.windowsondevices.com/).
 
 Bir paket henüz yok mu? Deneyin [Raspberry Pi çevrimiçi simülatör](iot-hub-raspberry-pi-web-simulator-get-started.md). Veya yeni bir paket satın [burada](https://azure.microsoft.com/develop/iot/starter-kits).
-
 
 ## <a name="what-you-do"></a>Neler
 
@@ -87,7 +86,7 @@ MicroSD kartı Raspbian görüntüyü yüklemesi için hazırlayın.
 
    > [!WARNING]
    > Lütfen indirmek için yukarıdaki bağlantıya kullanın `raspbian-2017-07-5` zip görüntü. En son sürümünü Raspbian görüntüleri, sonraki adımlarda hatasına neden olabilecek kablo-Pi düğüm ile ilgili bazı bilinen sorunlar vardır.
- 
+
    b. Raspbian görüntünün bilgisayarınızdaki bir klasöre ayıklayın.
 
 2. Raspbian microSD kartı yükleyin.
@@ -160,26 +159,26 @@ Pi üzerinde mikro USB kablosu ve güç kaynağı kullanarak etkinleştirin. Pi,
 ### <a name="clone-sample-application-and-install-the-prerequisite-packages"></a>Örnek uygulamayı kopyalayın ve önkoşul paketleri yükleme
 
 1. Raspberry Pi'yi aşağıdaki SSH istemcisi biriyle, ana bilgisayardan bağlanın:
-   
+
    **Windows kullanıcıları**
   
    a. İndirme ve yükleme [PuTTY](https://www.putty.org/) Windows için. 
 
    b. IP adresini, ana bilgisayar adı (veya IP adresi) PI bölümüne kopyalayın ve SSH bağlantı türü olarak seçin.
-   
+
    ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
-   
+
    **Mac ve Ubuntu kullanıcıları**
-   
+
    Yerleşik bir SSH istemcisi, Ubuntu veya Macos'ta kullanın. Çalıştırmanız gerekebilir `ssh pi@<ip address of pi>` Pi SSH aracılığıyla bağlanmak için.
 
    > [!NOTE] 
    > Varsayılan kullanıcı adı `pi` ve parola `raspberry`.
 
 2. Node.js ve NPM için Pi'yi yükleyin.
-   
+
    İlk Node.js sürümünüzü kontrol edin. 
-   
+
    ```bash
    node -v
    ```
@@ -203,6 +202,7 @@ Pi üzerinde mikro USB kablosu ve güç kaynağı kullanarak etkinleştirin. Pi,
    cd iot-hub-node-raspberrypi-client-app
    sudo npm install
    ```
+
    > [!NOTE] 
    >İşlem, ağ bağlantısı bağlı olarak bu yükleme işleminin tamamlanması birkaç dakika sürebilir.
 
@@ -238,8 +238,14 @@ Algılayıcı verilerini ve IOT hub'ınıza gönderdiği iletileri gösterir aş
 
 ![Çıkış - IOT hub'ınıza Raspberry Pi'dan gönderilen algılayıcı verileri](./media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
 
+## <a name="read-the-messages-received-by-your-hub"></a>Hub'ınıza tarafından alınan iletileri okuma
+
+Cihazınızdan IOT hub tarafından alınan iletileri izlemeye yönelik bir yolu, Visual Studio Code için Azure IOT araçları kullanmaktır. Daha fazla bilgi için bkz. [göndermek ve IOT Hub ve cihaz arasında iletileri almak Visual Studio Code için Azure IOT Araçları](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+
+Cihazınız tarafından gönderilen verileri işlemek daha fazla yolu için açın sonraki bölüme devam edin.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Algılayıcı verilerini toplamak ve IOT hub'ına göndermek için örnek bir uygulama çalıştırdınız. Raspberry Pi'yi Raspberry Pi'yi, IOT hub'ı veya gönderme iletilerini gönderilen iletileri görmek için bkz: [göndermek ve IOT Hub ve cihaz arasında iletileri almak Visual Studio Code için Azure IOT Araçları](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Algılayıcı verilerini toplamak ve IOT hub'ına göndermek için örnek bir uygulama çalıştırdınız.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

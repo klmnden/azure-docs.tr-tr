@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 1bf65883ecf23f726aefd2cd889a2bcb08e9b6a6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 012eacb172acfdeb0b82343c484c664a3f75310e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457658"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876749"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Azure Cosmos DB çok bölgeli maliyetini en iyi duruma getirme
 
 Ekleme ve bölgeler, Azure Cosmos hesabınıza dilediğiniz zaman kaldırın. Çeşitli Azure Cosmos veritabanları ve kapsayıcılar için yapılandırdığınız aktarım hızı, hesabınızla ilişkili her bölgede ayrılmış. Saat başına aktarım hızı sağlanmış, varsa, Azure Cosmos hesabınız için tüm veritabanlarını ve kapsayıcılar arasında yapılandırılan RU/sn Topla `T` ve veritabanı hesabınızla ilişkili Azure bölgelerinin sayısı `N`, toplam sağlanan aktarım hızı belirli bir saat Cosmos hesabınız için eşittir:
 
-1. ` T x N RU/s` Azure Cosmos hesabınızı bir tek bir yazma bölgesi ile yapılandırılmışsa. 
+1. `T x N RU/s` Azure Cosmos hesabınızı bir tek bir yazma bölgesi ile yapılandırılmışsa. 
 
 1. `T x (N+1) RU/s` Azure Cosmos hesabınızı yazma işleyebilen tüm bölgeler ile yapılandırılmışsa. 
 
@@ -25,13 +25,13 @@ Tek bir yazma bölgesi ile sağlanan aktarım hızı maliyeti $0.008/ saat baş�
 
 ## <a name="costs-for-multiple-write-regions"></a>Birden çok yazma bölgeleri için maliyet
 
-Çok yöneticili bir sistemde arttıkça net kullanılabilir RU'ları için yazma `N` zaman nerede `N` yazma bölgeleri sayısıdır. Tek bölge yazma aksine her bölge artık yazılabilir olduğundan ve çakışma desteklemelidir. İş yükü yazıcılar için miktarını arttı. Gerçekleştirilecek açısından, planlama maliyetinden` M` yazma dünya çapında değerinde RU/s, M sağlamak gerekir `RUs` bir kapsayıcı veya veritabanı düzeyinde. Yazma işlemleri için bunları gerçekleştirmek için kullanın ve gibi gibi çok bölgesini daha sonra ekleyebilirsiniz `M` RU değerinde dünya çapında yazar. 
+Çok yöneticili bir sistemde arttıkça net kullanılabilir RU'ları için yazma `N` zaman nerede `N` yazma bölgeleri sayısıdır. Tek bölge yazma aksine her bölge artık yazılabilir olduğundan ve çakışma desteklemelidir. İş yükü yazıcılar için miktarını arttı. Gerçekleştirilecek açısından, planlama maliyetinden `M` yazma dünya çapında değerinde RU/s, M sağlamak gerekir `RUs` bir kapsayıcı veya veritabanı düzeyinde. Yazma işlemleri için bunları gerçekleştirmek için kullanın ve gibi gibi çok bölgesini daha sonra ekleyebilirsiniz `M` RU değerinde dünya çapında yazar. 
 
 ### <a name="example"></a>Örnek
 
 Batı ABD'deki kapsayıcı sahip göz önünde bulundurun 10 K RU/sn aktarım hızı ile sağlanan ve 1 TB veri bu ay depolar. Varsayalım üç bölgesi: Doğu ABD, Kuzey Avrupa ve Doğu Asya, eklemek istediğiniz her aynı depolama ve aktarım hızı ve, kapsayıcılara dört tüm bölgelerde küresel olarak dağıtılan uygulamanızdan yazma olanağı. (31 gün varsayılarak) aylık toplam faturanız ayda aşağıdaki gibidir:
 
-|**Öğesi**|**Kullanım (aylık)**|**Oranı**|**Aylık maliyet**|
+|**Öğe**|**Kullanım (aylık)**|**Fiyat**|**Aylık Maliyet**|
 |----|----|----|----|
 |(Birden çok yazma bölgeleri) Batı ABD'deki kapsayıcı için aktarım hızı faturası |10 K RU/sn * 24 * 31 |0,016 başına saat başına 100 RU/sn |$1,190.40 |
 |3 ek bölge - Doğu ABD, Kuzey Avrupa ve Doğu Asya (birden çok yazma bölgeleri) için aktarım hızı faturası |(3 + 1) * 10 K RU/sn * 24 * 31 |0,016 başına saat başına 100 RU/sn |$4,761.60 |

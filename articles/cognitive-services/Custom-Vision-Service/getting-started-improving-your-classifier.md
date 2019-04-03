@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 13c0346324ae8e3cf3485985a9014f9999230630
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 35f83832b0ceb7507b39095e9cc974d82a480c69
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351448"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883082"
 ---
 # <a name="how-to-improve-your-classifier"></a>Nasıl sınıflandırıcınızı geliştirme
 
@@ -73,6 +73,15 @@ Bu sorunu düzeltmek için resimler, sınıflandırıcınızı iyi genelleştire
 
     ![Stil örnekleri görüntüsü](./media/getting-started-improving-your-classifier/style.png)
 
+## <a name="negative-images"></a>Negatif görüntüler
+
+Projenizdeki belirli bir noktada eklemeniz gerekebilir _negatif örnekleri_ sınıflandırıcınızı daha doğru hale getirilmesine yardımcı olacak. Negatif örnekleri diğer etiketlerden herhangi birini eşleşmeyen olanlardır. Bu görüntüleri karşıya yüklediğinizde, özel uygulama **negatif** için bunları etiketleyin.
+
+> [!NOTE]
+> Custom Vision Service'e bazı otomatik negatif görüntü işlemeyi destekler. Bir üzüm Muz sınıflandırıcı karşılaştırması oluşturmaya ve tahmin için bir ayakkabı görüntüsü göndermek, örneğin, sınıflandırıcı %0 yakın olarak bu görüntüyü üzüm ve Muz için Puanlama.
+> 
+> Öte yandan, negatif görüntüler yalnızca eğitim kullanılan görüntülerin çeşitlemesi olduğu durumlarda, model negatif görüntüleri harika benzerlikler nedeniyle etiketli bir sınıf olarak sınıflandırır olasılığı yüksektir. Clementine özelliklerinin çoğu bu portakallar benzer çünkü gibi turuncu grapefruit sınıflandırıcı karşılaştırması sahip ve bir clementine görüntüdeki akışı, onu clementine turuncu puan. Negatif görüntülerinizi bu yapısı varsa, bir veya daha fazla ek etiketler oluşturma öneririz (gibi **diğer**) ve bu sınıflar arasında daha iyi ayırt etmek model izin vermek eğitim sırasında negatif görüntüler bu etikete sahip etiket .
+
 ## <a name="use-prediction-images-for-further-training"></a>Eğitim için daha fazla öngörü görüntülerini kullanma
 
 Kullandığınızda veya görüntü sınıflandırıcı tahmin uç noktasına görüntüleri göndererek test özel görüntü işleme hizmeti, bu görüntüleri depolar. Daha sonra bunları modeli geliştirmek için kullanabilirsiniz.
@@ -102,4 +111,4 @@ Bazen görsel denetim sonra daha fazla eğitim verilerini ekleyerek veya mevcut 
 Bu kılavuzda, özel görüntü sınıflandırma modelini daha doğru hale getirmek amacıyla çeşitli teknikler hakkında bilgi edindiniz. Ardından, programlı olarak tahmin API'ye göndererek test görüntülerimizden öğrenin.
 
 > [!div class="nextstepaction"]
-> [Tahmin API'sini kullanma](use-prediction-api.md)
+> [Tahmin API’sini kullanma](use-prediction-api.md)

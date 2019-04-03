@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 89f5294d6ac01a6fa377e8d0763e77f8034ab44a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 55258dc0c99a918a6314be8317f19c03576a95f5
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449558"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851170"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyici ile desteklenen ölçümler
 
@@ -1608,7 +1608,6 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |MemoryPercentage|Bellek Yüzdesi|Yüzde|Ortalama|Bellek Yüzdesi|Örnek|
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-* [Azure İzleyici'de ölçümleri hakkında bilgi edinin](../../azure-monitor/platform/data-collection.md)
-* [Ölçümler üzerinde uyarı oluşturma](../../azure-monitor/platform/alerts-overview.md)
-* [Depolama, olay hub'ı veya Log Analytics ölçümleri dışarı aktarma](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Azure İzleyici'de ölçümleri hakkında bilgi edinin](data-platform.md)
+* [Ölçümler üzerinde uyarı oluşturma](alerts-overview.md)
+* [Depolama, olay hub'ı veya Log Analytics ölçümleri dışarı aktarma](diagnostic-logs-overview.md)

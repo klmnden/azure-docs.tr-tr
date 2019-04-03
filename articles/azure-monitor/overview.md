@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: d0902c0e0b4c669f3918155f8416f064485abbea
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0485f8e3b377ce94ec23a4a1a94eb7e189b0232b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874911"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850821"
 ---
 # <a name="azure-monitor-overview"></a>Azure İzleyiciye Genel Bakış
 
@@ -26,7 +26,7 @@ Azure İzleyici bulut alınan telemetri üzerinde çalışan toplama ve analiz i
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
 ## <a name="overview"></a>Genel Bakış
-Aşağıdaki diyagram, Azure İzleyici üst düzey bir görünümünü sağlar. Diyagram merkezde, ölçüm ve günlükleri, Azure İzleyici tarafından veri kullanımı iki temel türler için veri depolarıdır. Solda [veri izleme kaynakları](platform/data-sources.md) , doldurmak bu [veri depoları](platform/data-collection.md). Sağ tarafta, uyarı ve dış sisteme akışı toplanan verileri analiz gibi Azure İzleyici gerçekleştiren farklı işlevlerdir.
+Aşağıdaki diyagram, Azure İzleyici üst düzey bir görünümünü sağlar. Diyagram merkezde, ölçüm ve günlükleri, Azure İzleyici tarafından veri kullanımı iki temel türler için veri depolarıdır. Solda [veri izleme kaynakları](platform/data-sources.md) , doldurmak bu [veri depoları](platform/data-platform.md). Sağ tarafta, uyarı ve dış sisteme akışı toplanan verileri analiz gibi Azure İzleyici gerçekleştiren farklı işlevlerdir.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -34,7 +34,7 @@ Aşağıdaki diyagram, Azure İzleyici üst düzey bir görünümünü sağlar. 
 
 
 ## <a name="monitoring-data-platform"></a>İzleme veri platformu
-Azure İzleyici tarafından toplanan tüm verileri iki temel türlerinden birine uyan [ölçümlerini ve günlüklerini](platform/data-collection.md). [Ölçümleri](platform/data-collection.md#metrics) zaman içinde belirli bir noktada bir sistem bazı yönlerini açıklayan bir sayısal değerler. Bunlar, basit ve gerçek zamanlı senaryoları destekleme yeteneği. [Günlükleri](platform/data-collection.md#logs) farklı türde kayıtlarını her türü için farklı özellik kümeleri ile düzenlenir ve verileri içerir. Olaylarla ve izlemelerle gibi telemetri depolanır günlükleri olarak ayrıca performans verilerini ve böylece tüm analiz için birleştirilebilir.
+Azure İzleyici tarafından toplanan tüm verileri iki temel türlerinden birine uyan [ölçümlerini ve günlüklerini](platform/data-platform.md). [Ölçümleri](platform/data-platform-metrics.md) zaman içinde belirli bir noktada bir sistem bazı yönlerini açıklayan bir sayısal değerler. Bunlar, basit ve gerçek zamanlı senaryoları destekleme yeteneği. [Günlükleri](platform/data-platform-logs.md) farklı türde kayıtlarını her türü için farklı özellik kümeleri ile düzenlenir ve verileri içerir. Olaylarla ve izlemelerle gibi telemetri depolanır günlükleri olarak ayrıca performans verilerini ve böylece tüm analiz için birleştirilebilir.
 
 Birçok Azure kaynağı için kendi genel bakış sayfasında Azure portalında Azure İzleyicisi'ni sağ tarafından toplanan verileri görürsünüz. Herhangi bir sanal makineye bir göz gibi sahip ve performans ölçümlerini görüntüleme, birden fazla grafik görürsünüz. Tüm Grafik verileri açmak için tıklayın [ölçüm Gezgini](platform/metrics-charts.md) Azure portalında, zaman içinde birden çok ölçüm değerleri grafik olanak tanıyan.  Etkileşimli olarak grafikleri görüntülemek veya bunları diğer görselleştirmeler ile bunları görüntülemek için panoya sabitleyin.
 
@@ -55,7 +55,7 @@ Azure İzleyici, çeşitli kaynaklardan veri toplayabilir. Uygulamanız, herhang
 - **İzleme verileri bir azure aboneliği**: Azure işlem ve sistem durumu hakkında veriler yanı sıra, işlem ve bir Azure aboneliğinin yönetim verileri kendisini. 
 - **İzleme verileri bir azure kiracısı**: Azure Active Directory gibi Azure hizmetlerinin Kiracı düzeyinde çalışması hakkında veriler.
 
-Bir Azure aboneliği ve sanal makineler ve web uygulamaları gibi kaynakları eklemeye başlayın oluşturduğunuz hemen sonra Azure İzleyici, veri toplamaya başlar.  [Etkinlik günlükleri](platform/activity-logs-overview.md) kaynakları, oluşturulacak veya değiştirilecek kayıt. [Ölçümleri](platform/data-collection.md) kaynak nasıl performans gösterdiğini ve onu kullanan kaynakları söyleyin. 
+Bir Azure aboneliği ve sanal makineler ve web uygulamaları gibi kaynakları eklemeye başlayın oluşturduğunuz hemen sonra Azure İzleyici, veri toplamaya başlar.  [Etkinlik günlükleri](platform/activity-logs-overview.md) kaynakları, oluşturulacak veya değiştirilecek kayıt. [Ölçümleri](platform/data-platform.md) kaynak nasıl performans gösterdiğini ve onu kullanan kaynakları söyleyin. 
 
 Gerçek işlem kaynakları tarafından içine toplama verileri genişletmek [tanılamayı etkinleştirme](platform/diagnostic-logs-overview.md) ve [aracı ekleme](platform/agent-windows.md) işlem kaynakları için. Bu kaynağın iç işlem için telemetri toplar ve yapılandırmak farklı izin [veri kaynakları](platform/agent-data-sources.md) Windows ve Linux konuk işletim sisteminden günlükleri ve ölçümleri toplamak için. 
 
@@ -143,6 +143,6 @@ Birden çok API'ları okuyup ölçüm ve günlükleri için ve Azure İzleyici'd
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdakiler hakkında daha fazla bilgi edinin:
 
-* [Ölçüm ve günlükleri](platform/data-collection.md) Azure İzleyici tarafından toplanan veriler için.
+* [Ölçüm ve günlükleri](platform/data-platform.md) Azure İzleyici tarafından toplanan veriler için.
 * [Veri kaynakları](platform/data-sources.md) nasıl uygulamanızın farklı bileşenlerini telemetri göndermek için.
 * [Oturum sorguları](log-query/log-query-overview.md) toplanan verileri analiz etmek için.

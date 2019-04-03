@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b99b7b03898ad72b4d9c7cc2ba9154855475ef
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 49234472481e30cf74efa3e72ac0e4f31466fada
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488456"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884899"
 ---
-# <a name="what-is-the-azure-ad-connect-admin-agent"></a>Azure AD Connect yönetim Aracısı nedir? 
+# <a name="what-is-the-azure-ad-connect-admin-agent"></a>Azure AD Connect Yönetim Aracısı nedir? 
 Azure AD Connect yönetim Aracısı, Azure Active Directory bir Azure Active Directory Connect sunucusunda yüklü olan Connect, yeni bir bileşenidir. Bir Microsoft destek mühendisi olarak destek servis talebi açtığınızda sorunlarını gidermek için yardımcı olan Active Directory ortamınızdaki belirli verileri toplamak için kullanılır.
 
 Azure Active Directory'den veri eşitleme ortamından istenen verileri alır ve Azure Active Directory'ye gönderir yüklendiğinde, belirli istekler için Azure AD Connect yönetim Aracısı bekler Microsoft Burada sunulan desteği Mühendislik.
@@ -39,7 +39,7 @@ Microsoft destek mühendisine, herhangi bir veri sisteminizde değerini değişt
 
 ## <a name="what-if-i-dont-want-the-microsoft-support-engineer-to-access-my-data"></a>Verilerim erişmek için Microsoft destek mühendisine ne istemez miyiz? 
  
-İstemiyorsanız, bir destek açtığınızda bu gösterebilir bir destek çağrısı için verilerinize erişmek için Microsoft servis mühendisi Portalı'nda çağırın: 
+Bir destek çağrısı için verilerinize erişmek için Microsoft servis mühendisi istemiyorsanız, bunu aşağıda açıklandığı gibi hizmet yapılandırma dosyasını değiştirerek devre dışı bırakabilirsiniz: 
 
   1.    Açık **C:\Program Files\Microsoft Azure AD Connect yönetim Agent\AzureADConnectAdministrationAgentService.exe.config** Defteri'nde.
   2.    Devre dışı **UserDataEnabled** aşağıda gösterildiği gibi ayarlar. Varsa **UserDataEnabled** ayarı var ve true ve false olarak ayarlanır. Bir ayar yoksa, bu ayarı aşağıda gösterildiği gibi ekleyin.    

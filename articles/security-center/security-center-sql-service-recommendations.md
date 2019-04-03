@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 86d50092ccffd5ab958df5d54ea49cd56d815e2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 479e6d222c9fc7d007252bab12e807ec337ea9e6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082169"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880789"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Azure SQL hizmetini ve Azure Güvenlik Merkezi'nde veri koruma
 Azure Güvenlik Merkezi, Azure kaynaklarınızın güvenlik durumunu analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur.  Öneriler, Azure kaynak türleri için geçerlidir: sanal makineleri (VM'ler), ağ, SQL, veri ve uygulama.
@@ -64,10 +64,8 @@ Denetimi etkinleştirmek için **Denetim** seçeneğinin altında **AÇIK**'ı s
 |Data lake store|5|Azure Data Lake Store'da tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
 |SQL|30|SQL veritabanlarınızdaki güvenlik açıklarını düzeltme|SQL güvenlik açığı değerlendirmesi, veritabanınızı güvenlik açıkları için tarar ve yanlış yapılandırmalar, aşırı izinleri ve korumasız hassas veriler gibi en iyi sapmaları kullanıma sunar. Güvenlik açıkları bulundu çözme, veritabanı güvenliği stature büyük ölçüde artırabilir.|
 |SQL|20|SQL sunucusuna Azure AD yöneticisi sağlama|Azure AD kimlik doğrulamasını etkinleştirmek için SQL server için Azure AD Yöneticisi sağlayın. Azure AD kimlik doğrulaması, Basitleştirilmiş izin yönetimi ve merkezi kimlik yönetimi veritabanı kullanıcıları ve diğer Microsoft hizmetleri sağlar.|
-|Depolama hesabı|15|Depolama hesabına sınırsız ağ erişimini devre dışı bırakma|Depolama hesabı güvenlik duvarı ayarlarınızda sınırsız ağ erişimi denetleyin. Bunun yerine, yalnızca izin verilen ağları uygulamalardan depolama hesabına erişebilmesi için ağ kurallarını yapılandırın. Belirli Internet'ten bağlantılara izin vermek ya da şirket içi istemciler için erişim belirli bir Azure sanal ağları gelen trafiği veya genel Internet IP adresi aralıkları için verilebilir.|
-|Depolama hesabı|1|Depolama hesaplarını yeni AzureRM kaynaklarına geçirme|Depolama hesaplarınız gibi güvenlik geliştirmeleri sağlamak için yeni Azure Resource Manager v2 kullanın: yönetilen kimlikleri için anahtar kasasına erişim daha güçlü erişim denetimi (RBAC), daha iyi denetim, Resource Manager tabanlı bir dağıtım ve yönetim erişim Gizli dizileri, Azure AD tabanlı kimlik doğrulaması ve etiketleri için destek ve daha kolay güvenlik yönetimi için kaynak grupları.|
-
-
+|Depolama hesabı|15|Depolama hesabına sınırsız ağ erişimini devre dışı bırakma|Depolama hesabı güvenlik duvarı ayarlarınızda sınırsız ağ erişimi denetleyin. Bunun yerine, yalnızca izin verilen ağları uygulamalardan depolama hesabına erişebilmesi için ağ kurallarını yapılandırın. Belirli bir Internet ya da şirket içi istemcileri bağlantılara izin vermek için belirli bir Azure sanal ağları gelen trafiği veya genel Internet IP adresi aralıkları için erişim verebilirsiniz.|
+|Depolama hesabı|1|Azure Resource Manager modeli kaynakları için depolama hesapları geçirme|Depolama hesaplarınız için yeni Azure Resource Manager v2 gibi güvenlik geliştirmeleri sağlamak için kullanın: yönetilen kimlikleri için anahtar kasasına erişim daha güçlü erişim denetimi (RBAC), daha iyi denetim, Resource Manager tabanlı bir dağıtım ve yönetim erişim gizli ve Azure AD tabanlı kimlik doğrulaması ve etiketleri için destek ve daha kolay güvenlik yönetimi için kaynak grupları.|
 
 ## <a name="see-also"></a>Ayrıca bkz.
 Diğer Azure kaynak türü için geçerli öneriler hakkında daha fazla bilgi için aşağıdakilere bakın:

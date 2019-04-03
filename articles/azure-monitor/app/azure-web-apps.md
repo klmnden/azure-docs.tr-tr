@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 7386f6bd92143cf3fb7b37725900425f99371cd0
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 9d121146924eb153227e35d608a3c6c33aae31a1
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805001"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862616"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service performansını izleme
 
@@ -99,9 +99,9 @@ Katılımı için ASP.NET istemci-tarafı izleme. İstemci-tarafı izlemeyi etki
 * Seçin **ayarları** > ** ** *** Uygulama ayarları
    * Uygulama ayarları, yeni bir ekleme **uygulama ayarı adı** ve **değer**:
 
-     Adı: `APPINSIGHTS_JAVASCRIPT_ENABLED`
+     Ad: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Değer:`true`
+     Değer: `true`
 
    * Ayarları **Kaydedin** ve uygulamanızı **Yeniden başlatın**.
 
@@ -120,7 +120,7 @@ Herhangi bir nedenden dolayı istemci-tarafı izlemeyi devre dışı bırakmak i
 
      Adı: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Değer:`false`
+     Değer: `false`
 
    * Ayarları **Kaydedin** ve uygulamanızı **Yeniden başlatın**.
 
@@ -322,9 +322,9 @@ Uzantı hangi sürümünü denetlemek için şu adresi ziyaret edin çalıştır
 > Java ve Node.js uygulamaları el ile Temel SDK Araçları yalnızca Azure App Services'ta desteklenir ve bu nedenle aşağıdaki adımları bu senaryolar için geçerli değildir.
 
 1. Uygulama aracılığıyla izlenen onay `ApplicationInsightsAgent`.
-    * Bu maddeyi ' ApplicationInsightsAgent_EXTENSION_AGENT uygulama ayarı "~ 2" değerine ayarlanır.
+    * Bu maddeyi `ApplicationInsightsAgent_EXTENSION_VERSION` uygulama ayarı "~ 2" değerine ayarlanır.
 2. Uygulamanın izlenmesi için gereksinimleri karşıladığından emin olun.
-    * Göz atın `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+    * Şu konuma gidin: `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
     ![Ekran görüntüsü https://yoursitename.scm.azurewebsites/applicationinsights sonuçları sayfası](./media/azure-web-apps/app-insights-sdk-status.png)
 
@@ -353,10 +353,10 @@ Aşağıdaki tabloda bu değerlerin anlamları daha ayrıntılı bir açıklama 
 Application Insights Aracısı/uzantı en son bilgiler için kullanıma [sürüm notları](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-* [Canlı uygulamanızda profil oluşturucuyu çalıştırın](../../azure-monitor/app/profiler.md).
+* [Canlı uygulamanızda profil oluşturucuyu çalıştırın](../app/profiler.md).
 * [Azure İşlevleri](https://github.com/christopheranderson/azure-functions-app-insights-sample) - Application Insights ile Azure İşlevlerini izleyin
-* Application Insights’a gönderilmek üzere [Azure tanılamayı etkinleştirin](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
-* Hizmetinizin kullanılabilir ve yanıt verir durumda oluğundan emin olmak için [hizmet durumu ölçümlerini izleyin](../../azure-monitor/platform/data-collection.md).
-* İşletimsel olaylar gerçekleştiğinde ya da ölçümler bir eşiği aştığında [uyarı bildirimleri alın](../../azure-monitor/platform/alerts-overview.md).
-* Sitenizin kapalı olması durumunda uyarı almak istiyorsanız [Kullanılabilirlik web testleri](../../azure-monitor/app/monitor-web-app-availability.md) ayarlayın.
+* Application Insights’a gönderilmek üzere [Azure tanılamayı etkinleştirin](../platform/diagnostics-extension-to-application-insights.md).
+* Hizmetinizin kullanılabilir ve yanıt verir durumda oluğundan emin olmak için [hizmet durumu ölçümlerini izleyin](../platform/data-platform.md).
+* İşletimsel olaylar gerçekleştiğinde ya da ölçümler bir eşiği aştığında [uyarı bildirimleri alın](../platform/alerts-overview.md).
+* Bir web sayfasını ziyaret eden tarayıcılardan istemci telemetrisi toplamak istiyorsanız [JavaScript uygulamaları ve web sayfaları için Application Insights](javascript.md)’ı kullanın.
+* Sitenizin kapalı olması durumunda uyarı almak istiyorsanız [Kullanılabilirlik web testleri](monitor-web-app-availability.md) ayarlayın.

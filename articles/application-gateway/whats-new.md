@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 4/1/2019
 ms.author: victorh
-ms.openlocfilehash: 053eac95a81492e79aee824b02383206c6702a84
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f686c8ac53db2d128cf5bb20f252c547348e5ac7
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58806691"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863109"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Azure Application Gateway yenilikler nelerdir?
 
@@ -33,6 +33,10 @@ Azure Application Gateway, sürekli olarak güncelleştirilir. İle en son geli�
 |Bağlantı boşaltma     |Bağlantı boşaltma düzgün bir şekilde, arka uç havuzlarını üyeleri kaldırmanızı sağlar. Daha fazla bilgi için [bağlantı boşaltma](overview.md#connection-draining).|Eylül 2018|
 |Özel hata sayfaları     |Özel hata sayfalarıyla sitelerinizi geri kalanını biçimi içinde bir hata sayfası oluşturabilirsiniz. Bunu etkinleştirmek için bkz: [uygulama ağ geçidi Oluştur özel hata sayfaları](custom-error.md).|Eylül 2018|
 |Ölçümleri geliştirmeleri     |Gelişmiş ölçümler ile uygulama ağ geçidinizin durumunu daha iyi bir görünümünü elde edebilirsiniz. Ölçümleri, uygulama ağ geçidi üzerinde etkinleştirmek için bkz: [arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway](application-gateway-diagnostics.md).|Haziran 2018|
+
+## <a name="known-issues"></a>Bilinen sorunlar
+
+- [V2 SKU'de bilinen sorunlar](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

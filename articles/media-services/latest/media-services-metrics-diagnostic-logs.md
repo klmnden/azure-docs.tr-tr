@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 4252b0f26ef3c02216a41dde5d2e1cb5ea0efd6a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 23c87ae92a0f22b4a1a31c054df730af2efc07d1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555197"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848042"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Media Services ölçümleri ve tanılama günlüklerini izleyin
 
 [Azure İzleyici](../../azure-monitor/overview.md) ölçümlerini izleme ve yardımcı olacak tanılama günlüklerini anlama, uygulamalarınızın performansını sağlar. Azure İzleyici tarafından toplanan tüm verileri ölçümleri ve günlük olmak üzere iki temel türünden birini uyar. Media Services tanılama günlüklerini izleyin ve uyarılar ve bildirimler için toplanan bir ölçüm ve günlükleri oluşturun. Görselleştirme ve ölçüm verileri kullanarak Analiz [ölçüm Gezgini](../../azure-monitor/platform/metrics-getting-started.md). Günlükleri size gönderebilir [Azure depolama](https://azure.microsoft.com/services/storage/), kendisine akış [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)ve bunları dışarı aktarma [Log Analytics](https://azure.microsoft.com/services/log-analytics/), veya 3. taraf hizmetleri kullanın.
 
-Ayrıntılı bir bakış için bkz: [Azure İzleyici ölçümleri](../../azure-monitor/platform/data-collection.md) ve [Azure İzleyici tanılama günlükleri](../../azure-monitor/platform/diagnostic-logs-overview.md).
+Ayrıntılı bir bakış için bkz: [Azure İzleyici ölçümleri](../../azure-monitor/platform/data-platform.md) ve [Azure İzleyici tanılama günlükleri](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
 Bu konuda şu anda kullanılabilir anlatılmaktadır [Media Services ölçüm](#media-services-metrics) ve [Media Services tanılama günlükleri](#media-services-diagnostic-logs).
 

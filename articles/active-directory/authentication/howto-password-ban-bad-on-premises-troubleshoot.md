@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12cbd9bebf001eb902147175c89b5d7ce49e8449
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 108ead982529d2ac6549cceffd9d2177ab6456bf
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487244"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863194"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD parola koruması sorunlarını giderme
 
@@ -44,7 +44,13 @@ Ana bu sorunun DC aracı yönetici olay günlüğünde 30018 olayları belirtisi
 
 ## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>Proxy hizmet çağrıları etki alanındaki DC aracılardan alabilir, ancak Azure ile iletişim kuramıyor
 
-Proxy makine listelenen uç noktalarına bağlantıyı olduğundan [dağıtım gereksinimleri](howto-password-ban-bad-on-premises-deploy.md).
+1. Proxy makine listelenen uç noktalarına bağlantıyı olduğundan [dağıtım gereksinimleri](howto-password-ban-bad-on-premises-deploy.md).
+
+1. Orman ve tüm proxy sunucuları aynı Azure kiracısı karşı kayıtlı emin olun.
+
+   Çalıştırarak bunu denetleyebilirsiniz `Get-AzureADPasswordProtectionProxy` ve `Get-AzureADPasswordProtectionDCAgent` PowerShell cmdlet'lerini, ardından karşılaştırma `AzureTenant` özelliği her öğe döndürdü. Doğru işlem için bunlar aynı orman içindeki tüm DC aracıları ve proxy sunucuları arasında olmalıdır.
+
+   Bir Azure kiracısı kayıt eşleşmiyor durumu mevcut değilse bu çalıştırarak onarılabilir `Register-AzureADPasswordProtectionProxy` ve/veya `Register-AzureADPasswordProtectionForest` tüm kayıtlar için aynı Azure Kiracı kimlik bilgilerini sağlamaktan gerektiği gibi PowerShell cmdlet'leri.
 
 ## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>DC Aracısı şifrelemek veya parola ilkesi dosyaları ve diğer durum şifresini çözmek alamıyor
 

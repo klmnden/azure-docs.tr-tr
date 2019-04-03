@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f1eba2da1404f5b47d137b3c4f7b4cb9ceab43ea
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 64a688df3b6ed8602bb440d72e7f061c5f5893d1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438062"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885613"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Azure Search'te Lucene sorgu sözdizimi
 Azure arama sorguları dayalı zengin üzerinde yazma [Lucene sorgu ayrıştırıcısına](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) özel sorgu formları için söz dizimi: joker karakter, belirsiz arama, yakınlık araması, normal ifadeler birkaç örnek verilmiştir. Lucene sorgu ayrıştırıcısına sözdizimi çok [bozulmadan Azure Search'te uygulanan](search-lucene-query-architecture.md), dışında *aralığı aramaları* Azure Search ile oluşturulmuş `$filter` ifadeler. 
@@ -85,7 +85,7 @@ Yukarıdaki örnekte, tilde (~) olmakla birlikte her işleci için de aynı ilke
 
  Tüm güvenli hem de ayrılmış karakterleri bir URL kodlanmış emin olun. Örneğin, '#', bir URL fragement/bağlantı tanımlayıcıda olduğundan güvenli olmayan bir karakterdir. İçin karakter kodlanmalı `%23` URL'de kullanılan. ' &' and '=' parametreleri sınırlandırın ve Azure arama'değerlerini belirtin ayrılmış karakterleri örnekleridir. Lütfen [RFC1738: Tekdüzen Kaynak Konum Belirleyicisi (URL)](https://www.ietf.org/rfc/rfc1738.txt) daha fazla ayrıntı için.
 
- Güvenli olmayan karakterleri ``" ` < > # % { } | \ ^ ~ [ ] ``. Ayrılmış karakterler `; / ? : @ = + &`.
+ Güvenli olmayan karakterleri ``" ` < > # % { } | \ ^ ~ [ ]``. Ayrılmış karakterler `; / ? : @ = + &`.
 
 ### <a name="precedence-operators-grouping-and-field-grouping"></a>Öncelik işleçleri: gruplandırma ve alan gruplandırma  
  Parantez, alt sorgularda, parantez ifadesi içinde işleçleri dahil olmak üzere oluşturmak için kullanabilirsiniz. Örneğin, `motel+(wifi||luxury)` "motel" terimini ve "wifi" veya "lüks" (veya her ikisi de) içeren belgeleri arar.

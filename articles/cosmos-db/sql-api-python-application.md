@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.openlocfilehash: 2830772dd69ac94c2b8373936665b9445f9f5f10
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 24426a4249934af1d85f43552617cda7c1d7e172
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431215"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883896"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB kullanarak bir Python Flask web uygulaması derleme
 
@@ -417,7 +417,7 @@ Artık uygulamanın tamamının Azure Cosmos DB ile yerel olarak düzgün çalı
     ![Bottle, Flask ve Django uygulamalarının App Service'te yayımlanmasının sonuçları](./media/sql-api-python-application/python-published-app-services.png)
 
     > [!Tip] 
-    > Web sayfası görünmüyorsa veya hala "İç sunucu hatası oluştuğundan sayfa görüntülenemiyor." iletisini almaya devam ediyorsanız, web.config dosyasını Kudo'da açın ve system.webServer bölümüne ` <httpErrors errorMode="Detailed"></httpErrors>` ifadesini ekleyin, sonra sayfayı yenileyin. Bu, tarayıcıya ayrıntılı hata çıkışı sağlar. 
+    > Web sayfası görünmüyorsa veya hala "İç sunucu hatası oluştuğundan sayfa görüntülenemiyor." iletisini almaya devam ediyorsanız, web.config dosyasını Kudo'da açın ve system.webServer bölümüne `<httpErrors errorMode="Detailed"></httpErrors>` ifadesini ekleyin, sonra sayfayı yenileyin. Bu, tarayıcıya ayrıntılı hata çıkışı sağlar. 
 
 ## <a name="troubleshooting"></a>Sorun giderme
 Bilgisayarınızda çalıştırdığınız ilk Python uygulaması buysa YOL değişkeninize aşağıdaki klasörlerin (veya eşdeğer yükleme konumlarının) dahil olduğundan emin olun:

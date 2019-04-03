@@ -12,17 +12,14 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3cab94744a2ab87dce0a145665e957e1fed0dd2f
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 123a24eb13de584d8e3b70d0d8b1173f583867c1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167554"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881435"
 ---
-# <a name="create-your-first-function-with-java-and-eclipse-preview"></a>Java ile Eclipse (Önizleme) kullanarak ilk işlevinizi oluşturma
-
-> [!NOTE] 
-> Azure İşlevleri için Java şu anda önizleme aşamasındadır.
+# <a name="create-your-first-function-with-java-and-eclipse"></a>Java ile Eclipse kullanarak ilk işlevinizi oluşturma 
 
 Bu makalede nasıl oluşturulacağını gösterir bir [sunucusuz](https://azure.microsoft.com/solutions/serverless/) işlev projesi Eclipse IDE ve Apache Maven ile test ve hata ayıklamak ve ardından Azure işlevleri'ne dağıtın. 
 
@@ -52,7 +49,7 @@ Ayrıca yükleme için önemle tavsiye edilir [Azure işlevleri temel araçları
 1. Seçin **ekleme Archetype** ve girdileri eklemek [azure işlevleri archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
     - Archetype grubu kimliği: com.microsoft.azure
     - Yapıt kimliği archetype: azure işlevleri archetype
-    - Sürüm: Kullanımı en son sürümü [merkezi depo](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - Sürüm: En son sürümü kullan [merkezi depo](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![Eclipse Maven oluşturma](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
 1. Tıklayın **Tamam** ve ayrıntılarını girin geçerli projenin ve sonunda **son**.
 

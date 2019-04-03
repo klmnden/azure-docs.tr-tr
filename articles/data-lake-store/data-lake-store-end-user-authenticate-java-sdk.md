@@ -3,27 +3,27 @@ title: 'Son kullanıcı kimlik doğrulaması: Azure Active Directory kullanarak 
 description: Java ile Azure Active Directory kullanarak son kullanıcı kimlik doğrulaması ile Azure Data Lake depolama Gen1 elde öğrenin
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: d2c0cc277b2115f50455a1caa825306cc173d94c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 8b558fca964f33d47d331e007329d1bae2626877
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538995"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881265"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Java kullanarak son kullanıcı kimlik doğrulaması ile Azure Data Lake depolama Gen1
 > [!div class="op_single_selector"]
-> * [Java kullanma](data-lake-store-end-user-authenticate-java-sdk.md)
-> * [.NET SDK’yı kullanma](data-lake-store-end-user-authenticate-net-sdk.md)
+> * [Java'yı kullanma](data-lake-store-end-user-authenticate-java-sdk.md)
+> * [.NET SDK’sını kullanma](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Python’u kullanma](data-lake-store-end-user-authenticate-python.md)
-> * [REST API’sini kullanma](data-lake-store-end-user-authenticate-rest-api.md)
+> * [REST API kullanma](data-lake-store-end-user-authenticate-rest-api.md)
 > 
 >   
 

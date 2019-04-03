@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: e5dc8ac0716e194dd0949e2e270346ee338a792a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839738"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883018"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Microsoft Müşteri sözleşmesi faturanızla ilgili koşulları anlama
 
@@ -49,7 +49,7 @@ Aşağıdaki bölümlerde her dönem için fatura ve açıklamaları gördüğü
 | P.O. number |İzleme için size atanan bir isteğe bağlı satınalma siparişi numarası |
 | Fatura numarası |İzleme amacıyla kullanılan benzersiz, Microsoft tarafından oluşturulan fatura sayı |
 | Fatura tarihi |Fatura, genellikle 5-12 gün faturalama döngüsü sonuna sonra oluşturulan tarih. Fatura profil özelliklerini, fatura tarihi kontrol edebilirsiniz.|
-| Ödeme koşulları |Nasıl Microsoft faturanız için ödeme yaparsınız. *30 gün içinde net* denetimi tarafından kullandıkları kadar ödemeyi veya Fatura tarihinden itibaren 30 gün içinde aktarım wire anlamına gelir. |
+| Ödeme koşulları |Nasıl Microsoft faturanız için ödeme yaparsınız. *30 gün içinde net* Fatura tarihinden itibaren 30 gün içinde ödeme yapacağınız anlamına gelir. |
 
 ### <a name="billing-summary"></a>Fatura özeti
 

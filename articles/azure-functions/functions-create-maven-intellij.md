@@ -12,17 +12,14 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eb8499ef6c0f872a0761f7be606e058387947b2b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: da93c60b52edf509900adf89fb688a0596d9763b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319889"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877816"
 ---
-# <a name="create-your-first-azure-function-with-java-and-intellij-preview"></a>Intellij (Önizleme) ve Java ile ilk Azure işlevinizi oluşturma
-
-> [!NOTE]
-> Azure İşlevleri için Java şu anda önizleme aşamasındadır.
+# <a name="create-your-first-azure-function-with-java-and-intellij"></a>Intellij ile Java ile ilk Azure işlevinizi oluşturma
 
 Bu makalede, gösterir:
 - Oluşturma bir [sunucusuz](https://azure.microsoft.com/overview/serverless-computing/) Intellij Idea ve Apache Maven ile işlevi projesi
@@ -53,9 +50,9 @@ Java ve Intellij ile bir işlev geliştirmek için aşağıdaki yazılımları y
 1. İçinde **yeni proje** penceresinde **Maven** sol bölmeden.
 1. Seçin **archetype Oluştur** onay kutusunu işaretleyin ve ardından **ekleme Archetype** için [azure işlevleri archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
 1. İçinde **ekleme Archetype** penceresinde alanları aşağıdaki gibi doldurun:
-    - _GroupID_: com.microsoft.azure
+    - _GroupId_: com.microsoft.azure
     - _Artifactıd_: azure işlevleri archetype
-    - _Sürüm_: en son sürümü kullan [merkezi depo](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - _Sürüm_: En son sürümü kullan [merkezi depo](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![archetype Intellij Idea içinde bir Maven projesi oluşturun](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. Seçin **Tamam**ve ardından **sonraki**.
 1. Geçerli proje için ayrıntılarınızı girin ve seçin **son**.

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cf0f7ffe118a3c878e14e4a81793d18a646fa9
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: cd78e6acd801f3b973cc45609b72f86b257f4d43
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202913"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862769"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir Android uygulamasından Microsoft Graph API çağırma
 
@@ -34,89 +34,110 @@ Bu hızlı başlangıç, bir Android uygulaması ile kişisel, iş ve okul hesap
 
 > [!NOTE]
 > **Önkoşullar**
-> * Android Studio 3 veya üzeri
-> * Android SDK 21 veya üzeri gerekir (SDK 27 önerilir)
+> * Android Studio 3+
+> * Android 21 + gereklidir 
+
 
 > [!div renderon="docs"]
-> ## <a name="register-and-download"></a>Kaydolma ve indirme
-> ### <a name="register-and-configure-your-application-and-code-sample"></a>Uygulamanızı ve kod örneğinizi kaydetme ve yapılandırma
+> ## <a name="register-and-download-your-quickstart-app"></a>Hızlı başlangıç uygulamanızı kaydetme ve indirme
+> Hızlı başlangıç uygulamanızı başlatmak için kullanabileceğiniz iki seçenek vardır:
+> * [Express] [Seçenek 1: Kaydet ve otomatik Uygulamanızı yapılandırmak ve ardından, kod örneğini indirin](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [El ile] [Seçeneği 2: Kaydetme ve uygulama ve kod örneğinizi el ile yapılandırma](#option-2-register-and-manually-configure-your-application-and-code-sample)
+>
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>1. seçenek: Kaydet ve otomatik Uygulamanızı yapılandırmak ve ardından, kod örneğini indirin
 > #### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydetme
-> Uygulamanızı kaydetmek ve uygulama kayıt bilgilerinizi çözümünüze eklemek için aşağıdakileri yapın:
-> 1. Uygulamayı kaydetmek için [Microsoft Uygulama Kayıt Portalı](https://apps.dev.microsoft.com/portal/register-app)’na gidin.
-> 1. **Uygulama Adı** kutusuna uygulamanız için bir ad girin.
-> 1. **Destekli Kurulum** onay kutusunun işaretli olmadığından emin olun ve **Oluştur**’u seçin.
-> 1. **Platform Ekle**’yi, **Yerel Uygulama**’yı ve **Kaydet**’i seçin.
+> Uygulamanızı kaydetmek için
+> 1. [Azure portal - Uygulama Kaydı (Önizleme)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs) sayfasına gidin.
+> 1. Uygulamanız için bir ad girin ve **Kaydet**'i seçin.
+> 1. Yönergeleri izleyerek yeni uygulamanızı yalnızca tek tıklamayla indirin ve otomatik olarak yapılandırın.
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>2. seçenek: Kaydetme ve uygulama ve kod örneğinizi el ile yapılandırma
+>
+> #### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydetme
+> Uygulamanızı kaydetmek ve uygulama kayıt bilgilerinizi çözümünüze el ile eklemek için şu adımları izleyin:
+>
+> 1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
+> 1. Hesabınız size birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu istediğiniz Azure AD kiracısına ayarlayın.
+> 1. Sol taraftaki gezinti bölmesinde **Azure Active Directory** hizmetini seçin ve ardından **Uygulama kayıtları (Önizleme)** > **Yeni kayıt** seçeneğini belirleyin.
+> 1. **Uygulama kaydet** sayfası göründüğünde uygulamanızın kayıt bilgilerini girin:
+>      - **Ad** alanına uygulama kullanıcılarına gösterilecek anlamlı bir uygulama adı girin, örneğin `Android-Quickstart`.
+>      - İsabet `Register` düğmesi.
+> 1. Git `Authentication`  >  `Redirect URIs`  >  `Suggested Redirect URIs for public clients`, yeniden yönlendirme URI'si biçiminin seçip **msal {AppID} :/ / auth**. Yaptığınız değişikliği kaydedin.
+
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>1. Adım: Uygulamanızı yapılandırma
 > Bu hızlı başlangıçtaki kod örneğinin çalışması için, **msal{AppId}://auth** gibi bir yanıt URL'si eklemelisiniz (burada {AppId}, uygulamanızın kimliğidir).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Bu değişikliği benim için yap]()
+> > [Benim için bu değişiklik yapın]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Zaten yapılandırılmış](media/quickstart-v2-android/green-check.png) Uygulamanız bu özniteliklerle yapılandırılmış
+> > ![Önceden yapılandırılmış](media/quickstart-v2-android/green-check.png) uygulamanız bu özniteliklerle yapılandırılır
 
 #### <a name="step-2-download-the-project"></a>2. Adım: Projenizi indirin
 
-* [Android Studio Projesini İndirme](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
+* [Android Studio projesi indirme](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-project"></a>3. Adım: Projenizi yapılandırın
 
-1. Projeyi ayıklayın ve Android Studio’da açın.
-1. **app** > **java** > **<i>{host}.{namespace}</i>** öğesinin altındaki **MainActivity**'yi açın.
-1. `final static String CLIENT_ID` ile başlayan satırın yerine aşağıdakini koyun:
+> [!div renderon="docs"]
+> Yukarıdaki seçeneği 1'i seçtiyseniz, şu adımları atlayabilirsiniz. Android Studio projesi açın ve uygulamayı çalıştırın. 
 
-    > [!div renderon="portal" class="sxs-lookup"]
-    > ```java
-    > final static String CLIENT_ID = "ENTER_THE_APPLICATION_ID_HERE";
-    > ```
-
-    > [!div renderon="docs"]
-    > ```java
-    > final static String CLIENT_ID = "<ENTER_THE_APPLICATION_ID_HERE>";
-    > ```
-
-1. Open: **app** > **manifests** > **AndroidManifest.xml**.
-1. Aşağıdaki etkinliği **manifest\application** düğümüne ekleyin. Bu kod parçacığı, kimlik doğrulaması tamamlandıktan sonra işletim sisteminin uygulamanızı sürdürmesini sağlamak için bir **BrowserTabActivity** kaydeder:
-
-    > [!div renderon="docs"]
-    > ```xml
-    > <!--Intent filter to capture System Browser calling back to our app after Sign In-->
-    > <activity
-    >     android:name="com.microsoft.identity.client.BrowserTabActivity">
-    >     <intent-filter>
-    >         <action android:name="android.intent.action.VIEW" />
-    >         <category android:name="android.intent.category.DEFAULT" />
-    >         <category android:name="android.intent.category.BROWSABLE" />
-    > 
-    >         <!--Add in your scheme/host from registered redirect URI-->
-    >         <!--By default, the scheme should be similar to 'msal[appId]' -->
-    >         <data android:scheme="msal<ENTER_THE_APPLICATION_ID_HERE>"
-    >             android:host="auth" />
-    >     </intent-filter>
-    > </activity>
-    > ```
-
-    > [!div renderon="portal" class="sxs-lookup"]
-    > ```xml
-    > <!--Intent filter to capture System Browser calling back to our app after Sign In-->
-    > <activity
-    >     android:name="com.microsoft.identity.client.BrowserTabActivity">
-    >     <intent-filter>
-    >         <action android:name="android.intent.action.VIEW" />
-    >         <category android:name="android.intent.category.DEFAULT" />
-    >         <category android:name="android.intent.category.BROWSABLE" />
-    > 
-    >         <!--Add in your scheme/host from registered redirect URI-->
-    >         <!--By default, the scheme should be similar to 'msal[appId]' -->
-    >         <data android:scheme="msalENTER_THE_APPLICATION_ID_HERE"
-    >             android:host="auth" />
-    >     </intent-filter>
-    > </activity>
-    > ```
+> [!div renderon="portal" class="sxs-lookup"]
+> 1. Projeyi ayıklayın ve Android Studio’da açın.
+> 1. İçinde **uygulama** > **res** > **ham**açın **auth_config.json**.
+> 1. Düzen **auth_config.json** değiştirin `client_id` ve `tenant_id`:
+>    ```javascript
+>    "client_id" : "Enter_the_Application_Id_Here",
+>    "type": "Enter_the_Audience_Info_Here",
+>    "tenant_id" : "Enter_the_Tenant_Info_Here"
+>    ```
+> 1. İçinde **uygulama** > **bildirimlerini**açın **AndroidManifest.xml**.
+> 1. Aşağıdaki etkinliği **manifest\application** düğümüne ekleyin. Microsoft bu kodu uygulamanıza geri çağırma sağlar:   
+>    ```xml
+>    <!--Intent filter to catch Microsoft's callback after Sign In-->
+>    <activity
+>        android:name="com.microsoft.identity.client.BrowserTabActivity">
+>        <intent-filter>
+>            <action android:name="android.intent.action.VIEW" />
+>            <category android:name="android.intent.category.DEFAULT" />
+>            <category android:name="android.intent.category.BROWSABLE" />
+> 
+>            <!--Add in your scheme/host from registered redirect URI-->
+>            <!--By default, the scheme should be similar to 'msal[appId]' -->
+>            <data android:scheme="msalEnter_The_Application_Id_Here"
+>                android:host="auth" />
+>        </intent-filter>
+>    </activity>
+>    ```
 
 > [!div renderon="docs"]
-> <span>6.</span> `<ENTER_THE_APPLICATION_ID_HERE>` kısmını uygulamanız için olan *Uygulama Kimliği* ile değiştirin. *Uygulama Kimliği*’ni bulmanız gerekiyorsa *Genel Bakış* sayfasına gidin.
+> 1. Projeyi ayıklayın ve Android Studio’da açın.
+> 1. İçinde **uygulama** > **res** > **ham**açın **auth_config.json**.
+> 1. Düzen **auth_config.json** değiştirin `client_id` ve `redirect_uri`:
+>    ```javascript
+>    "client_id" : "ENTER_YOUR_APPLICATION_ID",
+>    "redirect_uri": "ENTER_YOUR_REDIRECT_URI", 
+>     ```
+> 1. İçinde **uygulama** > **bildirimlerini**açın **AndroidManifest.xml**.
+> 1. Aşağıdaki etkinliği **manifest\application** düğümüne ekleyin. Bu kod parçacığı, kimlik doğrulaması tamamlandıktan sonra işletim sisteminin uygulamanızı sürdürmesini sağlamak için bir **BrowserTabActivity** kaydeder:
+>    ```xml
+>    <!--Intent filter to catch Microsoft's callback after Sign In-->
+>    <activity
+>        android:name="com.microsoft.identity.client.BrowserTabActivity">
+>        <intent-filter>
+>            <action android:name="android.intent.action.VIEW" />
+>            <category android:name="android.intent.category.DEFAULT" />
+>            <category android:name="android.intent.category.BROWSABLE" />
+> 
+>            <!--Add in your scheme/host from registered redirect URI-->
+>            <!--By default, the scheme should be similar to 'msal[appId]' -->
+>            <data android:scheme="msal<ENTER_YOUR_APPLICATION_ID>"
+>                android:host="auth" />
+>        </intent-filter>
+>    </activity>
+>    ```
+> 1. * kısmını uygulamanız için olan *Uygulama Kimliği ile değiştirin. *Uygulama Kimliği*’ni bulmanız gerekiyorsa *Genel Bakış* sayfasına gidin.
 
 ## <a name="more-information"></a>Daha Fazla Bilgi
 
@@ -128,7 +149,7 @@ MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.ident
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
-implementation 'com.microsoft.identity.client:msal:0.1.+'
+implementation 'com.microsoft.identity.client:msal:0.2.+'
 ```
 
 ### <a name="msal-initialization"></a>MSAL başlatma
@@ -142,18 +163,18 @@ import com.microsoft.identity.client.*;
 Sonra şu kodu kullanarak MSAL'yi başlatın:
 
 ```java
-sampleApp = new PublicClientApplication(
+    sampleApp = new PublicClientApplication(
         this.getApplicationContext(),
-        CLIENT_ID);
+        R.raw.auth_config);
 ```
 
 > |Konumlar: ||
 > |---------|---------|
-> |`CLIENT_ID` | *portal.azure.com* adresinde kayıtlı uygulamaya ait Uygulama Kimliği |
+> |`R.raw.auth_config` | Bu dosya, uygulama/istemci kimliği, oturum, İzleyici ve çeşitli diğer özelleştirme seçeneklerinin dahil olmak üzere, uygulama yapılandırmalarını içerir. |
 
 ### <a name="requesting-tokens"></a>Belirteç isteme
 
-MSAL’in belirteç almak için kullanılan iki yöntemi vardır: `acquireToken` ve `acquireTokenSilentAsync`
+MSAL belirteçlerini almak kullanılan iki yöntem vardır: `acquireToken` ve `acquireTokenSilentAsync`
 
 #### <a name="getting-a-user-token-interactively"></a>Kullanıcı belirtecini etkileşimli olarak alma
 
@@ -178,12 +199,18 @@ sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
 Kullanıcının bir kaynağa her erişmesi gerektiğinde kimlik bilgilerini doğrulamak zorunda kalmasını istemezsiniz. Çoğu zaman belirteç alımları ve yenilemelerinin kullanıcı etkileşimi olmadan gerçekleşmesini istersiniz. İlk `acquireToken` yönteminden sonra korumalı kaynaklara erişecek belirteçleri almak için `AcquireTokenSilentAsync` yöntemini kullanabilirsiniz:
 
 ```java
-sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());
+List<IAccount> accounts = sampleApp.getAccounts();
+if (sample.size() == 1) {
+    sampleApp.acquireTokenSilentAsync(SCOPES, accounts.get(0), getAuthSilentCallback());
+} else {
+    // No or multiple accounts
+}
 ```
 
 > |Konumlar:||
 > |---------|---------|
 > | `SCOPES` | İstenen kapsamları barındırır (Microsoft Graph için `{ "user.read" }` veya Web API’leri için `{ "<Application ID URL>/scope" }` (başka bir deyişle `api://<Application ID>/access_as_user`) |
+> | `accounts.get(0)` | Belirteçleri için'ı sessizce almaya çalıştığınız hesabın içerir |
 > | `getAuthInteractiveCallback` | Kimlik doğrulamasından sonra denetim uygulamaya geri verildiğinde yürütülen geri arama |
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -193,7 +220,7 @@ sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());
 Uygulama oluşturma işlemiyle ve yeni özelliklerle ilgili eksiksiz adım adım yönergeleri almak için Android öğreticisini deneyin. Orada, bu hızlı başlangıcın tam açıklaması da yer alır.
 
 > [!div class="nextstepaction"]
-> [Çağrı Grafı API'si Android öğreticisi](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-android)
+> [Çağrı Grafı Android API Öğreticisi](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-android)
 
 ### <a name="msal-for-android-library-wiki"></a>Android için MSAL kitaplığı wiki'si
 

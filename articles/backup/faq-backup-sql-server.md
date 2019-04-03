@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 48a0400a471e06f65c1d548b7c1c419a1cb198bd
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 8d6323c73e5313a29b7b0df09ebdd24a190879f5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58284587"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876437"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Bir Azure VM yedeklemesi üzerinde çalışan SQL Server veritabanları hakkında SSS
 
@@ -42,7 +42,7 @@ Otomatik-bir özelliği varsayılan olarak tüm kullanıcı için etkin olarak o
 Evet. Yedekleme İlkesi bir SQL Server örneği üzerindeki etkiyi en aza indirmek için çalıştığı oranı kısıtlayabilirsiniz. Bu ayarı değiştirmek için:
 1. SQL Server örneğinde, *C:\Program Files\Azure iş yükü Backup\bin* klasör oluşturma *ExtensionSettingsOverrides.json* dosya.
 2. İçinde *ExtensionSettingsOverrides.json* dosya, değişiklik **DefaultBackupTasksThreshold** ayarını daha düşük bir değere (örneğin, 5). <br>
-  ` {"DefaultBackupTasksThreshold": 5}`
+  `{"DefaultBackupTasksThreshold": 5}`
 
 3. Yaptığınız değişiklikleri kaydedin ve dosyayı kapatın.
 4. SQL Server örneğinde açın **Görev Yöneticisi'ni**. Yeniden **AzureWLBackupCoordinatorSvc** hizmeti.

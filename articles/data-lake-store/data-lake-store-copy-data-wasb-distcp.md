@@ -3,26 +3,26 @@ title: Distcp kullanma WASB Azure Data Lake depolama Gen1 içine gelen ve giden 
 description: Azure Data Lake depolama Gen1 ve Azure depolama bloblarından veri kopyalamak için Distcp aracını kullanın
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ae2e9506-69dd-4b95-8759-4dadca37ea70
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 5c3f393278d3d51dd3a53cd19335cd242c15c6d8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: twooley
+ms.openlocfilehash: fbefe233ce0d2477982faf0a9f38a73062e0c7a1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58168716"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884474"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Azure depolama BLOB'ları ile Azure Data Lake depolama Gen1 arasında veri kopyalamak için Distcp kullanma
 > [!div class="op_single_selector"]
-> * [DistCp’yi kullanma](data-lake-store-copy-data-wasb-distcp.md)
-> * [AdlCopy’yi kullanma](data-lake-store-copy-data-azure-storage-blob.md)
+> * [DistCp kullanma](data-lake-store-copy-data-wasb-distcp.md)
+> * [AdlCopy kullanma](data-lake-store-copy-data-azure-storage-blob.md)
 >
 >
 
@@ -112,6 +112,6 @@ Taşınacak veri kümesi boyutu olduğunda büyük (örneğin, > 1 TB) veya bir�
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Data Lake depolama Gen1 için Azure depolama Bloblarından veri kopyalama](data-lake-store-copy-data-azure-storage-blob.md)
-* [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
+* [Data Lake depolama Gen1 verileri güvenli hale getirme](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics'i Data Lake depolama Gen1 ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight ile Data Lake depolama Gen1 kullanın](data-lake-store-hdinsight-hadoop-use-portal.md)

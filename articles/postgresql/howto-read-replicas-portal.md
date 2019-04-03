@@ -5,46 +5,46 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.openlocfilehash: 24a37775298d6c6b40ec49f34158fcb77f26a379
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/01/2019
+ms.openlocfilehash: bf1fb1c1343173949ecb6348284cb537282b277b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113223"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846958"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>Oluşturma ve Azure portalından salt okunur çoğaltmalar yönetme
 
 Bu makalede, oluşturma ve Azure veritabanı'nda salt okunur çoğaltmalar PostgreSQL için Azure portalından yönetme öğrenin. Salt okunur çoğaltmalar hakkında daha fazla bilgi için bkz: [genel bakış](concepts-read-replicas.md).
 
-> [!IMPORTANT]
-> Salt okunur çoğaltma özelliği genel Önizleme aşamasındadır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bir [PostgreSQL sunucusu için Azure veritabanı](quickstart-create-server-database-portal.md) ana sunucu olarak.
 
 ## <a name="prepare-the-master-server"></a>Ana sunucu hazırlama
-Bu adımlar, genel amaçlı veya bellek için iyileştirilmiş katmanlarındaki ana sunucu hazırlamak için kullanılmalıdır.
-
-`azure.replication_support` Parametresi ayarlanmalıdır **çoğaltma** ana sunucu üzerinde. Bu parametre değiştiğinde, değişikliğin etkili olması için sunucunun yeniden başlatılması gereklidir.
+Bu adımlar, genel amaçlı veya bellek için iyileştirilmiş katmanlarındaki ana sunucu hazırlamak için kullanılmalıdır. Ana sunucu azure.replication_support parametresini ayarlayarak, çoğaltma için hazırlanır. Çoğaltma parametre değiştiğinde, değişikliğin etkili olması için sunucunun yeniden başlatılması gereklidir. Azure portalında tek bir düğmeye tarafından bu iki adımı Kapsüllenen **çoğaltma desteğini etkinleştir**.
 
 1. Azure portalında mevcut bir şablonu kullanmak için Azure veritabanı PostgreSQL sunucusu seçin.
 
-2. Sol menüden **sunucu parametreleri**.
+2. Sunucu Kenar çubuğunda altında **ayarları**seçin **çoğaltma**.
 
-3. Arama `azure.replication_support` parametresi.
+3. Seçin **çoğaltma desteğini etkinleştirin**. 
 
-   ![Azure.replication_support parametresi için arama](./media/howto-read-replicas-portal/azure-replication-parameter.png)
+   ![Çoğaltma desteğini etkinleştir](./media/howto-read-replicas-portal/enable-replication-support.png)
 
-4. Ayarlama `azure.replication_support` parametre değerine **çoğaltma**. Seçin **Kaydet** değişikliklerinizi saklamak için.
+4. Çoğaltma desteğini etkinleştirmek istediğinizi onaylayın. Bu işlem, ana sunucu yeniden başlatılır. 
 
-   ![Çoğaltma için parametreyi ayarlayın ve değişikliklerinizi kaydedin](./media/howto-read-replicas-portal/save-parameter-replica.png)
+   ![Çoğaltma desteğini etkinleştir onaylayın](./media/howto-read-replicas-portal/confirm-enable-replication.png)
+   
+5. İşlem tamamlandıktan sonra iki Azure portalı bildirimleri alırsınız. Sunucu parametresi güncelleştirmek için bir bildirim yoktur. Hemen izleyen sunucunun yeniden başlatılması için başka bir bildirim yoktur.
 
-5. Değişiklikleri kaydettikten sonra bir bildirim alırsınız:
+   ![Başarılı bildirimler - etkinleştir](./media/howto-read-replicas-portal/success-notifications-enable.png)
 
-   ![Bildirim Kaydet](./media/howto-read-replicas-portal/parameter-save-notification.png)
+6. Çoğaltma araç güncelleştirmek için Azure portal sayfasındaki yenileme. Artık bu sunucu için salt okunur çoğaltmalar oluşturabilirsiniz.
 
-6. Yaptığınız değişiklikleri uygulamak için sunucuyu yeniden başlatın. Bir sunucu yeniden başlatma hakkında bilgi edinmek için [PostgreSQL sunucusu için Azure veritabanı'nı yeniden](howto-restart-server-portal.md).
+   ![Güncelleştirilmiş araç çubuğu](./media/howto-read-replicas-portal/updated-toolbar.png)
+   
+Çoğaltma desteğini etkinleştirme, ana sunucu başına tek seferlik bir işlemdir. A **devre dışı çoğaltma desteği** düğmesi, size kolaylık olması için sağlanmıştır. Bu ana sunucuda hiçbir zaman bir çoğaltma oluşturacak olmadıkça çoğaltma desteğini devre dışı bırakmaya önerilmemektedir. Mevcut çoğaltmaları ana sunucunuz varken, çoğaltma desteği devre dışı bırakamazsınız.
 
 
 ## <a name="create-a-read-replica"></a>Salt okunur bir çoğaltma oluşturma
@@ -52,9 +52,7 @@ Salt okunur bir çoğaltma oluşturmak için aşağıdaki adımları izleyin:
 
 1. Mevcut ana sunucu olarak kullanmak için Azure veritabanı PostgreSQL sunucusu seçin. 
 
-2. Sunucu menüsünde altında **ayarları**seçin **çoğaltma**.
-
-   Ayarlamadıysanız `azure.replication_support` parametresi **çoğaltma** üzerinde bir genel amaçlı veya ana sunucu ve sunucu yeniden bellek için iyileştirilmiş, bir bildirim alırsınız. Çoğaltma oluşturmadan önce bu adımları tamamlayın.
+2. Sunucu Kenar çubuğunda altında **ayarları**seçin **çoğaltma**.
 
 3. Seçin **çoğaltma ekleme**.
 

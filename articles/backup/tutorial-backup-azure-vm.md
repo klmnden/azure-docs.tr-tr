@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 85e5fc7e1c8a4561b51afaf0d665fedb6d9cde1f
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 2a35435f56a4bb09a8a1958fbc175ef7c889c380
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258386"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863024"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>PowerShell ile Azure Vm'lerini yedekleme
 
@@ -82,7 +82,7 @@ Kasa şu şekilde oluşturun:
 
 Yedekleme ilkesinde belirtilen zamanlamaya uygun olarak yedekleme çalıştırma. Bir Kurtarma Hizmetleri kasası oluşturduğunuzda bu, varsayılan koruma ve saklama ilkeleri ile birlikte gelir.
 
-- Varsayılan koruma İlkesi yedekleme işini bir tetikleyen bir günde belirli bir süre.
+- Varsayılan koruma İlkesi, belirtilen bir zamanda günde bir kez yedekleme işini tetikler.
 - Varsayılan saklama ilkesi, 30 gün boyunca günlük kurtarma noktasını korur. 
 
 Bu öğreticide Azure VM'yi yedekleme ve etkinleştirmek için biz aşağıdakileri yapın:
@@ -123,4 +123,4 @@ Remove-AzRecoveryServicesVault -Vault $vault1
 
 - [Gözden geçirme](backup-azure-vms-automation.md) daha ayrıntılı bir kılavuz yedekleme ve PowerShell ile Azure Vm'lerini geri yükleme. 
 - [Azure Vm'leri yönetme ve izleme](backup-azure-manage-vms.md)
-- [Azure Vm'lerini geri yükleme](backup-azure-arm-restore-vms.md)
+- [Azure VM'lerini geri yükleme](backup-azure-arm-restore-vms.md)

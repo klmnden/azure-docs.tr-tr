@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 698dc61d42adb398376161480cf4d32180846c48
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 0350db37e13101d315937840fdcf3d9900e214d5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577603"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880274"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0 protokolleri - OAuth 2.0 yetkilendirme kod akışı
 
@@ -181,7 +181,7 @@ Başarılı bir token yanıt şöyle görünecektir:
 |---------------|------------------------------|
 | `access_token`  | İstenen erişim belirteci. Uygulama, web API'si gibi güvenli kaynağına kimliğini doğrulamak için bu belirteci kullanabilirsiniz.  |
 | `token_type`    | Belirteç türü değeri gösterir. Azure AD destekleyen tek taşıyıcı türüdür |
-|` expires_in`    | Ne kadar süreyle erişim belirteci (saniye olarak) geçerli değil. |
+| `expires_in`    | Ne kadar süreyle erişim belirteci (saniye olarak) geçerli değil. |
 | `scope`         | Access_token için geçerli olan kapsamları. |
 | `refresh_token` | OAuth 2.0 yenileme belirteci. Bu belirteç kullanabilecek geçerli erişim belirtecinin süresi dolduktan sonra ek erişim belirteçlerini almak. Refresh_tokens uzun süreli ve uzun süre için kaynaklarına erişimi korumak için kullanılabilir. Bir erişim belirteci yenileme ile ilgili daha fazla ayrıntı için bkz [bölümüne](#refresh-the-access-token). <br> **Not:** Yalnızca belirtilen if `offline_access` kapsam istendi. |
 | `id_token`      | A JSON Web Token (JWT). Uygulama isteği açan kullanıcı hakkında bilgi için bu belirteci parçalarını çözebilen. Uygulama değerleri önbelleğe ve bunları görüntüleyebilirsiniz, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için doğrulamamalısınız. İd_tokens hakkında daha fazla bilgi için bkz: [ `id_token reference` ](id-tokens.md). <br> **Not:** Yalnızca belirtilen if `openid` kapsam istendi. |

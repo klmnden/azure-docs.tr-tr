@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b2ca3d42fd5facb226fd3ddea8c48decaafade85
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 839f77df88314c95df1056b60c3612de27421ca0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009490"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886140"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama için SAP NetWeaver
 
@@ -177,7 +177,7 @@ ms.locfileid: "58009490"
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 
-[msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
+[msdn-set-Azvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
 
 [planning-guide]:planning-guide.md  
 [planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff
@@ -234,7 +234,7 @@ ms.locfileid: "58009490"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-az-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -257,7 +257,7 @@ ms.locfileid: "58009490"
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
 [virtual-machines-azure-resource-manager-architecture]:../../../resource-manager-deployment-model.md
-[virtual-machines-azurerm-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
+[virtual-machines-Az-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md
 [virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md
@@ -317,6 +317,8 @@ ms.locfileid: "58009490"
 Microsoft Azure işlem ve depolama kaynaklarını uzun tedarik döngüleri olmadan mümkün olduğunca az zamanda almaya şirketlerinin sağlar. Azure sanal makine hizmeti, SAP NetWeaver tabanlı Azure uygulamaları gibi Klasik uygulamaları dağıtın ve ek kaynaklar kullanılabilir şirket içi zorunda kalmadan, güvenilirlik ve kullanılabilirlik genişletmek şirketlerin sağlar. Azure sanal makine hizmetleri sağlayan Azure sanal makineler, şirket içi etki alanlarına, kendi özel Bulutlar ve kendi SAP sistem ortamı etkin bir şekilde tümleştirmek şirket içi ve dışı karışık bağlantı da destekler.
 Bu teknik incelemede, Microsoft Azure sanal makinesi temelleri açıklanır ve azure'da SAP NetWeaver yüklemelerinden planlama ve uygulama konularına bir kılavuz sağlar ve gerçek başlatmadan önce okumak için belgeyi şekilde olmalıdır azure'da SAP NetWeaver dağıtımları.
 Kağıt yüklemeleri ve SAP yazılım dağıtımları için birincil kaynakları temsil eden platformları üzerinde SAP notları ve SAP yükleme belgelerine tamamlar.
+
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="summary"></a>Özet
 Bulut bilgi işlem, küçük şirketlerden büyük ve çok uluslu şirketlere kadar daha önemli BT sektör içinde sağlamasını yaygın olarak kullanılan bir terimdir.
@@ -626,7 +628,7 @@ Microsoft Azure ile SAP yazılım hayata geçirmek için istediğimiz tüm senar
 * Bir müşterinin şirket içi ağınız ve Azure ağı arasında şirketler arası bağlantı
 * Azure siteler arasında çapraz Azure bölgesi veya veri merkezi bağlantısı
 
-Buradan daha fazla bilgi bulabilirsiniz: <https://azure.microsoft.com/documentation/services/virtual-network/>
+Daha fazla bilgi burada bulunabilir: <https://azure.microsoft.com/documentation/services/virtual-network/>
 
 Azure'daki adı ve IP çözümü yapılandırmak için birçok farklı olasılık vardır. Kendi DNS sunucunuzu ayarlamak yerine kullanılabilecek bir Azure DNS hizmeti de mevcuttur. Daha fazla bilgi bulunabilir [bu makalede] [ virtual-networks-manage-dns-in-vnet] ve [bu sayfayı](https://azure.microsoft.com/services/dns/).
 
@@ -689,8 +691,8 @@ Yukarıdaki şekilde, IP adresi alt aralıklara kullanım için ayrılmış iki 
 Noktadan siteye VPN ile kendi VPN Azure'a bağlanmak için her bir istemci makine gerekir. SAP senaryoları için arıyoruz, noktadan siteye bağlantı pratik değildir. Bu nedenle, daha fazla başvuru noktadan siteye VPN bağlantısı verilir.
 
 Daha fazla bilgi burada bulunabilir
-* [Azure portal’ı kullanarak bir sanal ağa yönelik Noktadan Siteye bağlantı yapılandırma](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
-* [PowerShell'i kullanarak bir sanal ağa yönelik bir Noktadan Siteye bağlantı yapılandırma](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
+* [Azure portalı kullanarak bir sanal ağa Noktadan Siteye bir bağlantı yapılandırma](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
+* [PowerShell'i kullanarak sanal ağa yönelik bir Noktadan Siteye bağlantısı yapılandırma](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
 
 #### <a name="multi-site-vpn"></a>Çok siteli VPN
 
@@ -720,7 +722,8 @@ Express Route burada açıklandığı gibi bir ExpressRoute bağlantı hattı ü
 #### <a name="forced-tunneling-in-case-of-cross-premises"></a>Zorlamalı tünel durumunda şirket içi
 Siteden siteye, noktadan siteye veya ExpressRoute aracılığıyla şirket içi etki alanlarına katılma VM'ler için de bu vm'lerdeki tüm kullanıcılar için Internet proxy ayarları dağıtılmasını emin olmanız gerekir. Varsayılan olarak, bu Vm'leri veya kullanıcıların İnternet'e erişmek için bir tarayıcı kullanarak çalışan yazılım şirket proxy üzerinden Git değil, ancak Azure internet üzerinden doğrudan bağlanabilir. Ancak bile proxy ayarı, yazılım ve hizmetlerinin proxy için denetlenecek sorumluluk olduğundan şirket proxy'si üzerinden trafiği yönlendirmek için % 100 çözüm değildir. VM'de çalışan yazılım değil yaptığını, ya da yönetici ayarları yönetir, trafiği İnternet'e yeniden detoured doğrudan Azure internet üzerinden.
 
-Bir tür bir doğrudan internet bağlantısı önlemek için zorlamalı tünel şirket içi ve Azure arasında siteden siteye bağlantı ile yapılandırabilirsiniz. Zorlamalı tünel özellik ayrıntılı açıklamasını buraya yayımlanır <https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
+Bir tür bir doğrudan internet bağlantısı önlemek için zorlamalı tünel şirket içi ve Azure arasında siteden siteye bağlantı ile yapılandırabilirsiniz. Zorlamalı tünel özellik ayrıntılı açıklamasını buraya yayımlanır
+<https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
 
 ExpressRoute ile zorlamalı tünel aracılığıyla ExpressRoute BGP eşliği oturumlarını bir varsayılan yolun tanıtılması müşteriler tarafından etkinleştirilir.
 
@@ -751,7 +754,8 @@ Bir kaba karar ağacı bir SAP sistemiyle Azure sanal makine hizmetlerini ve öz
 
 **1. adım**: En önemli bilgiler ile başlamak için belirli bir SAP sistemine SAP gereksinimidir. SAP sistemine zaten şirket içinde dağıtılması 2 katmanlı yapılandırmasında olsa bile, SAP gereksinimleri DBMS ve SAP uygulama bölümlerini ayrılması gerekir. Mevcut sistemler için genellikle donanım kullanımıyla ilgili SAP belirlenen veya mevcut SAP ölçümlerinde göre tahmini. Sonuçları şurada bulunabilir: <https://sap.com/about/benchmark.html>.
 Yeni dağıtılmış SAP sistemlerini için SAP gereklilikleri sisteminin ve boyutlandırma alıştırma çalıştınız.
-Ayrıca bu blog ve SAP boyutlandırma için ekli belge, Azure üzerinde bakın: <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
+Ayrıca bu blog ve SAP boyutlandırma için ekli belge, Azure üzerinde bakın:
+<https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
 **2. adım**: Mevcut sistemler için g/ç hacmi ve saniye başına g/ç işlemleri DBMS sunucuda ölçülen. Yeni planlı sistemler için yeni sistemi için boyutlandırma alıştırma ayrıca DBMS tarafında g/ç gereksinimlerinin kaba fikirleri vermeniz gerekir. Emin değilseniz, sonunda bir kavram kanıtı yürütmek gerekir.
 
@@ -801,10 +805,12 @@ Yükleme, güncelleştirme ve Azure PowerShell cmdlet'lerini de bulunabilir yap�
 
 Müşteri Deneyimini şimdiye PowerShell (PS) kesinlikle Vm'leri dağıtmak ve özel adımlar VM dağıtımı oluşturma için daha güçlü araç olduğunu olmuştur. Azure'da SAP örnekleri çalışan tüm müşteriler, Azure portalından gerçekleştirin veya bile özel olarak azure'da dağıtımlarını yönetmek için PS cmdlet'leri kullanarak yönetim görevleri tamamlamak için PS cmdlet'leri kullanıyor. 2000'den fazla Windows ile ilgili cmdlet'leri ile aynı adlandırma kuralı Azure özgü cmdlet'lerin paylaşmak olduğundan, bu cmdlet'leri yararlanmak Windows yöneticileri için kolay bir görevi var.
 
-Burada örneğe bakın: <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
+Burada örneğe bakın:
+<https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
 [comment]: <> (MShermannd TODO test edildiğinde yeni CLI komutu açıklayın )
-SAP için Azure izleme uzantısı dağıtım (bölüm bakın [SAP için Azure izleme çözümü] [ planning-guide-9.1] bu belgedeki) PowerShell veya CLI aracılığıyla yalnızca mümkündür. Bu nedenle ayarlama ve PowerShell veya CLI dağıtma veya azure'da bir SAP NetWeaver sistemini yönetme, yapılandırma için zorunludur.  
+SAP için Azure izleme uzantısı dağıtım (bölüm bakın [SAP için Azure izleme çözümü] [ planning-guide-9.1] bu belgedeki) PowerShell veya CLI aracılığıyla yalnızca mümkündür. Bu nedenle ayarlama ve PowerShell veya CLI dağıtma veya azure'da bir SAP NetWeaver sistemini yönetme, yapılandırma için zorunludur.
+  
 
 Azure, daha fazla işlevsellik sağlar. gibi yeni PS cmdlet'leri cmdlet'lerinin bir güncelleştirme gerektiren eklenmesi oluşturacaksınız. Bu nedenle en az bir kez ay Azure indirme sitesi denetlemek için mantıklıdır <https://azure.microsoft.com/downloads/> cmdlet'leri yeni bir sürümü için. Yeni sürümün eski sürümün üzerine yüklenir.
 
@@ -948,13 +954,13 @@ Bu durumda veya bilginiz olmaksızın bir işletim sisteminde, bir VHD'yi karş�
 
 **PowerShell**
 
-* Aboneliğinizde oturum açın *Connect-AzureRmAccount*
-* Bağlamınızın ile aboneliği ayarlamak *Set-AzureRmContext* ve Subscriptionıd parametresi veya - SubscriptionName bakın <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
-* VHD'yi karşıya yükleme *Add-AzureRmVhd* bir Azure depolama hesabı - bkz. <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
-* (İsteğe bağlı) İle bir VHD'den yönetilen Disk oluşturma *New-AzureRmDisk* -bakın <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk>
-* VHD veya yönetilen Disk ile yeni bir VM yapılandırması, işletim sistemi diski olarak *Set-AzureRmVMOSDisk* -bakın <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk>
-* VM yapılandırması ile yeni VM oluşturma *New-AzureRmVM* -bakın <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
-* İle yeni bir VM'ye veri diski ekleme *Add-AzureRmVMDataDisk* -bakın <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk>
+* Aboneliğinizde oturum açın *AzAccount Bağlan*
+* Bağlamınızın ile aboneliği ayarlamak *kümesi AzContext* ve Subscriptionıd parametresi veya - SubscriptionName bakın <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
+* VHD'yi karşıya yükleme *Ekle AzVhd* bir Azure depolama hesabı - bkz. <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
+* (İsteğe bağlı) İle bir VHD'den yönetilen Disk oluşturma *yeni AzDisk* -bakın <https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk>
+* VHD veya yönetilen Disk ile yeni bir VM yapılandırması, işletim sistemi diski olarak *kümesi AzVMOSDisk* -bakın <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
+* VM yapılandırması ile yeni VM oluşturma *New-AzVM* -bakın <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
+* İle yeni bir VM'ye veri diski ekleme *Ekle AzVMDataDisk* -bakın <https://docs.microsoft.com/powershell/module/az.compute/add-Azvmdatadisk>
 
 **Azure CLI**
 
@@ -975,14 +981,14 @@ Bu durumda veya bilginiz olmaksızın bir işletim sisteminde, bir VHD'yi karş�
 Böyle bir VM veya VHD gerekir bölümde listelenen gereksinimlerini karşılamak bir Azure VM görüntüsü olarak kullanmak için şirket içi ağdan bir var olan bir sanal makine veya VHD yüklenecek [SAP için bir müşteriye özel görüntü ile bir VM dağıtımı için hazırlık] [ planning-guide-5.2.2] bu belgenin.
 
 * Kullanım *sysprep* Windows üzerinde veya *waagent-sağlamayı kaldırma* Linux VM'nize - genelleştirmek için bkz. [Sysprep teknik başvuru](https://technet.microsoft.com/library/cc766049.aspx) Windows için veya [yakalama bir Resource Manager şablonu olarak kullanmak üzere Linux sanal makinesi] [ capture-image-linux-step-2-create-vm-image] Linux
-* Aboneliğinizde oturum açın *Connect-AzureRmAccount*
-* Bağlamınızın ile aboneliği ayarlamak *Set-AzureRmContext* ve Subscriptionıd parametresi veya - SubscriptionName bakın <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
-* VHD'yi karşıya yükleme *Add-AzureRmVhd* bir Azure depolama hesabı - bkz. <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
-* (İsteğe bağlı) İle bir VHD'den yönetilen Disk görüntüsü oluşturma *New-Azurermımage* -bakın <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage>
+* Aboneliğinizde oturum açın *AzAccount Bağlan*
+* Bağlamınızın ile aboneliği ayarlamak *kümesi AzContext* ve Subscriptionıd parametresi veya - SubscriptionName bakın <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
+* VHD'yi karşıya yükleme *Ekle AzVhd* bir Azure depolama hesabı - bkz. <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
+* (İsteğe bağlı) İle bir VHD'den yönetilen Disk görüntüsü oluşturma *yeni AzImage* -bakın <https://docs.microsoft.com/powershell/module/az.compute/new-Azimage>
 * Yeni bir VM yapılandırması için işletim sistemi diskini ayarlayın
-  * VHD ile *Set-AzureRmVMOSDisk - SourceImageUri - CreateOption Fromımage* -bakın <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk>
-  * Yönetilen disk görüntüsü *kümesi AzureRmVMSourceImage* -bakın <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage>
-* VM yapılandırması ile yeni VM oluşturma *New-AzureRmVM* -bakın <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
+  * VHD ile *AzVMOSDisk Set - SourceImageUri - CreateOption Fromımage* -bakın <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
+  * Yönetilen disk görüntüsü *kümesi AzVMSourceImage* -bakın <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage>
+* VM yapılandırması ile yeni VM oluşturma *New-AzVM* -bakın <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
 
 **Azure CLI**
 
@@ -1011,27 +1017,27 @@ Yönetilen diskler ve VHD'ler indirme olduğu süre boyunca etkin olamaz. Vm'ler
   İlk erişmek için yönetilen Disk, temel alınan blob gerekir. Ardından yeni bir depolama hesabı için temel alınan blob kopyalayıp bu depolama hesabındaki blob indirin.
 
   ```powershell
-  $access = Grant-AzureRmDiskAccess -ResourceGroupName <resource group> -DiskName <disk name> -Access Read -DurationInSecond 3600
-  $key = (Get-AzureRmStorageAccountKey -ResourceGroupName <resource group> -Name <storage account name>)[0].Value
-  $destContext = (New-AzureStorageContext -StorageAccountName <storage account name -StorageAccountKey $key)
-  Start-AzureStorageBlobCopy -AbsoluteUri $access.AccessSAS -DestContainer <container name> -DestBlob <blob name> -DestContext $destContext
+  $access = Grant-AzDiskAccess -ResourceGroupName <resource group> -DiskName <disk name> -Access Read -DurationInSecond 3600
+  $key = (Get-AzStorageAccountKey -ResourceGroupName <resource group> -Name <storage account name>)[0].Value
+  $destContext = (New-AzStorageContext -StorageAccountName <storage account name -StorageAccountKey $key)
+  Start-AzStorageBlobCopy -AbsoluteUri $access.AccessSAS -DestContainer <container name> -DestBlob <blob name> -DestContext $destContext
   # Wait for blob copy to finish
-  Get-AzureStorageBlobCopyState -Container <container name> -Blob <blob name> -Context $destContext
-  Save-AzureRmVhd -SourceUri <blob in new storage account> -LocalFilePath <local file path> -StorageKey $key
+  Get-AzStorageBlobCopyState -Container <container name> -Blob <blob name> -Context $destContext
+  Save-AzVhd -SourceUri <blob in new storage account> -LocalFilePath <local file path> -StorageKey $key
   # Wait for download to finish
-  Revoke-AzureRmDiskAccess -ResourceGroupName <resource group> -DiskName <disk name>
+  Revoke-AzDiskAccess -ResourceGroupName <resource group> -DiskName <disk name>
   ```
 
 * VHD indirme  
-  SAP sistemine durduruldu sonra VM kapatılırken oluşur, şirket içi dünyasına VHD diskleri indirmek için şirket içi hedef kaydetme-AzureRmVhd PowerShell cmdlet'ini kullanabilirsiniz. Bunu yapmak için 'depoda Bölümü' bulabilirsiniz VHD URL'si gerekir (depolama hesabı ve VHD oluşturulduğu depolama kapsayıcısı için gitmek için gereklidir) Azure portalı ve sizin için VHD nereye kopyalanacağını bilmeniz gerekir.
+  SAP sistemine durduruldu sonra VM kapatılırken oluşur, şirket içi dünyasına VHD diskleri indirmek için şirket içi hedef kaydetme AzVhd PowerShell cmdlet'ini kullanabilirsiniz. Bunu yapmak için 'depoda Bölümü' bulabilirsiniz VHD URL'si gerekir (depolama hesabı ve VHD oluşturulduğu depolama kapsayıcısı için gitmek için gereklidir) Azure portalı ve sizin için VHD nereye kopyalanacağını bilmeniz gerekir.
 
   Ardından SourceUri parametresi indirmek için VHD ve LocalFilePath URL'sini VHD'yi (adı dahil) fiziksel konumu olarak tanımlayarak komutu yararlanabilirsiniz. Komutu gibi görünebilir:
 
   ```powerhell
-  Save-AzureRmVhd -ResourceGroupName <resource group name of storage account> -SourceUri http://<storage account name>.blob.core.windows.net/<container name>/sapidedata.vhd -LocalFilePath E:\Azure_downloads\sapidesdata.vhd
+  Save-AzVhd -ResourceGroupName <resource group name of storage account> -SourceUri http://<storage account name>.blob.core.windows.net/<container name>/sapidedata.vhd -LocalFilePath E:\Azure_downloads\sapidesdata.vhd
   ```
 
-  Kaydet-AzureRmVhd cmdlet'inin daha fazla ayrıntı için buraya bakın <https://docs.microsoft.com/powershell/module/azurerm.compute/save-azurermvhd>.
+  Kaydet-AzVhd cmdlet'inin daha fazla ayrıntı için buraya bakın <https://docs.microsoft.com/powershell/module/az.compute/save-Azvhd>.
 
 #### <a name="azure-cli"></a>Azure CLI
 * Yönetilen Disk indiriliyor  
@@ -1067,11 +1073,11 @@ Veri disklerini yönetilen disklere de olabilir. Bu durumda, yönetilen Disk san
 
 ##### <a name="powershell"></a>PowerShell
 
-Bir VHD gösterildiği kopyalamak için Azure PowerShell cmdlet'lerini kullanabilirsiniz [bu makalede][storage-powershell-guide-full-copy-vhd]. Yeni bir yönetilen Disk oluşturmak için New-AzureRmDiskConfig ve New-AzureRmDisk aşağıdaki örnekte gösterildiği gibi kullanın.
+Bir VHD gösterildiği kopyalamak için Azure PowerShell cmdlet'lerini kullanabilirsiniz [bu makalede][storage-powershell-guide-full-copy-vhd]. Yeni bir yönetilen Disk oluşturmak için New-AzDiskConfig ve yeni AzDisk aşağıdaki örnekte gösterildiği gibi kullanın.
 
 ```powershell
-$config = New-AzureRmDiskConfig -CreateOption Copy -SourceUri "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>" -Location <location>
-New-AzureRmDisk -ResourceGroupName <resource group name> -DiskName <disk name> -Disk $config
+$config = New-AzDiskConfig -CreateOption Copy -SourceUri "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>" -Location <location>
+New-AzDisk -ResourceGroupName <resource group name> -DiskName <disk name> -Disk $config
 ```
 
 ##### <a name="azure-cli"></a>Azure CLI
@@ -1097,26 +1103,26 @@ Bir depolama hesabında VHD kendisi yalnızca birkaç saniye (SAN donanım anlı
 
 ```powershell
 # attach a vhd to a vm
-$vm = Get-AzureRmVM -ResourceGroupName <resource group name> -Name <vm name>
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name newdatadisk -VhdUri <path to vhd> -Caching <caching option> -DiskSizeInGB $null -Lun <lun, for example 0> -CreateOption attach
-$vm | Update-AzureRmVM
+$vm = Get-AzVM -ResourceGroupName <resource group name> -Name <vm name>
+$vm = Add-AzVMDataDisk -VM $vm -Name newdatadisk -VhdUri <path to vhd> -Caching <caching option> -DiskSizeInGB $null -Lun <lun, for example 0> -CreateOption attach
+$vm | Update-AzVM
 
 # attach a managed disk to a vm
-$vm = Get-AzureRmVM -ResourceGroupName <resource group name> -Name <vm name>
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name newdatadisk -ManagedDiskId <managed disk id> -Caching <caching option> -DiskSizeInGB $null -Lun <lun, for example 0> -CreateOption attach
-$vm | Update-AzureRmVM
+$vm = Get-AzVM -ResourceGroupName <resource group name> -Name <vm name>
+$vm = Add-AzVMDataDisk -VM $vm -Name newdatadisk -ManagedDiskId <managed disk id> -Caching <caching option> -DiskSizeInGB $null -Lun <lun, for example 0> -CreateOption attach
+$vm | Update-AzVM
 
 # attach a copy of the vhd to a vm
-$vm = Get-AzureRmVM -ResourceGroupName <resource group name> -Name <vm name>
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name <disk name> -VhdUri <new path of vhd> -SourceImageUri <path to image vhd> -Caching <caching option> -DiskSizeInGB $null -Lun <lun, for example 0> -CreateOption fromImage
-$vm | Update-AzureRmVM
+$vm = Get-AzVM -ResourceGroupName <resource group name> -Name <vm name>
+$vm = Add-AzVMDataDisk -VM $vm -Name <disk name> -VhdUri <new path of vhd> -SourceImageUri <path to image vhd> -Caching <caching option> -DiskSizeInGB $null -Lun <lun, for example 0> -CreateOption fromImage
+$vm | Update-AzVM
 
 # attach a copy of the managed disk to a vm
-$vm = Get-AzureRmVM -ResourceGroupName <resource group name> -Name <vm name>
-$diskConfig = New-AzureRmDiskConfig -Location $vm.Location -CreateOption Copy -SourceUri <source managed disk id>
-$disk = New-AzureRmDisk -DiskName <disk name> -Disk $diskConfig -ResourceGroupName <resource group name>
-$vm = Add-AzureRmVMDataDisk -VM $vm -Caching <caching option> -Lun <lun, for example 0> -CreateOption attach -ManagedDiskId $disk.Id
-$vm | Update-AzureRmVM
+$vm = Get-AzVM -ResourceGroupName <resource group name> -Name <vm name>
+$diskConfig = New-AzDiskConfig -Location $vm.Location -CreateOption Copy -SourceUri <source managed disk id>
+$disk = New-AzDisk -DiskName <disk name> -Disk $diskConfig -ResourceGroupName <resource group name>
+$vm = Add-AzVMDataDisk -VM $vm -Caching <caching option> -Lun <lun, for example 0> -CreateOption attach -ManagedDiskId $disk.Id
+$vm | Update-AzVM
 ```
 ##### <a name="azure-cli"></a>Azure CLI
 
@@ -1144,18 +1150,18 @@ Ayrıca, VHD'leri abonelikler arasında kopyalayabilirsiniz. Daha fazla bilgi i�
 
 PS cmdlet'i mantığı temel akışı şöyle görünür:
 
-* İçin bir depolama hesabı bağlamını oluşturun **kaynak** depolama hesabıyla *New-AzureStorageContext* -bakın <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
-* İçin bir depolama hesabı bağlamını oluşturun **hedef** depolama hesabıyla *New-AzureStorageContext* -bakın <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
+* İçin bir depolama hesabı bağlamını oluşturun **kaynak** depolama hesabıyla *yeni AzStorageContext* -bakın <https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext>
+* İçin bir depolama hesabı bağlamını oluşturun **hedef** depolama hesabıyla *yeni AzStorageContext* -bakın <https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext>
 * Kopyalama işlemiyle başlayın
 
 ```powershell
-Start-AzureStorageBlobCopy -SrcBlob <source blob name> -SrcContainer <source container name> -SrcContext <variable containing context of source storage account> -DestBlob <target blob name> -DestContainer <target container name> -DestContext <variable containing context of target storage account>
+Start-AzStorageBlobCopy -SrcBlob <source blob name> -SrcContainer <source container name> -SrcContext <variable containing context of source storage account> -DestBlob <target blob name> -DestContainer <target container name> -DestContext <variable containing context of target storage account>
 ```
 
 * Bir döngü ile kopyalama durumunu denetleyin
 
 ```powershell
-Get-AzureStorageBlobCopyState -Blob <target blob name> -Container <target container name> -Context <variable containing context of target storage account>
+Get-AzStorageBlobCopyState -Blob <target blob name> -Container <target container name> -Context <variable containing context of target storage account>
 ```
 
 * Yeni VHD, yukarıda açıklanan şekilde bir sanal makineye ekleyin.
@@ -1326,7 +1332,8 @@ Klasik modeli ve ARM mimarisi farkı açıklandığı bkz [bu makalede][virtual-
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>İnternet üzerinden SAP sistemine ve SAP GUI bağlantı yapılandırma
 
-Lütfen bu konunun ayrıntılarını açıklayan bu makaleye bakın: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+Lütfen bu konunun ayrıntılarını açıklayan bu makaleye bakın:
+<https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
 
 #### <a name="changing-firewall-settings-within-vm"></a>VM Güvenlik Duvarı ayarlarını değiştirme
 
@@ -1384,39 +1391,39 @@ Senaryoyu uygulamak için olaylar dizisini şöyle görünür:
 
 ```powershell
 $rgName = "SAPERPDemo1"
-New-AzureRmResourceGroup -Name $rgName -Location "North Europe"
+New-AzResourceGroup -Name $rgName -Location "North Europe"
 ```
 * Yönetilen diskleri kullanmayı istemiyorsanız, yeni depolama hesabı oluşturma
 
 ```powershell
 $suffix = Get-Random -Minimum 100000 -Maximum 999999
-$account = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name "saperpdemo$suffix" -SkuName Standard_LRS -Kind "Storage" -Location "North Europe"
+$account = New-AzStorageAccount -ResourceGroupName $rgName -Name "saperpdemo$suffix" -SkuName Standard_LRS -Kind "Storage" -Location "North Europe"
 ```
 
 * Aynı ana bilgisayar adı ve IP adresi kullanımını etkinleştirmek her eğitim/tanıtım yatay için yeni bir sanal ağ oluşturun. Sanal ağ, yalnızca SSH için Uzak Masaüstü erişimi etkinleştirmek için 3389 numaralı bağlantı noktası ve bağlantı noktası 22 trafiğe izin veren bir ağ güvenlik grubu tarafından korunur.
 
 ```powershell
 # Create a new Virtual Network
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name SAPERPDemoNSGRDP -Protocol * -SourcePortRange * -DestinationPortRange 3389 -Access Allow -Direction Inbound -SourceAddressPrefix * -DestinationAddressPrefix * -Priority 100
-$sshRule = New-AzureRmNetworkSecurityRuleConfig -Name SAPERPDemoNSGSSH -Protocol * -SourcePortRange * -DestinationPortRange 22 -Access Allow -Direction Inbound -SourceAddressPrefix * -DestinationAddressPrefix * -Priority 101
-$nsg = New-AzureRmNetworkSecurityGroup -Name SAPERPDemoNSG -ResourceGroupName $rgName -Location  "North Europe" -SecurityRules $rdpRule,$sshRule
+$rdpRule = New-AzNetworkSecurityRuleConfig -Name SAPERPDemoNSGRDP -Protocol * -SourcePortRange * -DestinationPortRange 3389 -Access Allow -Direction Inbound -SourceAddressPrefix * -DestinationAddressPrefix * -Priority 100
+$sshRule = New-AzNetworkSecurityRuleConfig -Name SAPERPDemoNSGSSH -Protocol * -SourcePortRange * -DestinationPortRange 22 -Access Allow -Direction Inbound -SourceAddressPrefix * -DestinationAddressPrefix * -Priority 101
+$nsg = New-AzNetworkSecurityGroup -Name SAPERPDemoNSG -ResourceGroupName $rgName -Location  "North Europe" -SecurityRules $rdpRule,$sshRule
 
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name Subnet1 -AddressPrefix  10.0.1.0/24 -NetworkSecurityGroup $nsg
-$vnet = New-AzureRmVirtualNetwork -Name SAPERPDemoVNet -ResourceGroupName $rgName -Location "North Europe"  -AddressPrefix 10.0.1.0/24 -Subnet $subnetConfig
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name Subnet1 -AddressPrefix  10.0.1.0/24 -NetworkSecurityGroup $nsg
+$vnet = New-AzVirtualNetwork -Name SAPERPDemoVNet -ResourceGroupName $rgName -Location "North Europe"  -AddressPrefix 10.0.1.0/24 -Subnet $subnetConfig
 ```
 
 * İnternet'ten sanal makineye erişmek için kullanılan yeni bir genel IP adresi oluşturma
 
 ```powershell
 # Create a public IP address with a DNS name
-$pip = New-AzureRmPublicIpAddress -Name SAPERPDemoPIP -ResourceGroupName $rgName -Location "North Europe" -DomainNameLabel $rgName.ToLower() -AllocationMethod Dynamic
+$pip = New-AzPublicIpAddress -Name SAPERPDemoPIP -ResourceGroupName $rgName -Location "North Europe" -DomainNameLabel $rgName.ToLower() -AllocationMethod Dynamic
 ```
 
 * Sanal makine için yeni bir ağ arabirimi oluşturma
 
 ```powershell
 # Create a new Network Interface
-$nic = New-AzureRmNetworkInterface -Name SAPERPDemoNIC -ResourceGroupName $rgName -Location "North Europe" -Subnet $vnet.Subnets[0] -PublicIpAddress $pip
+$nic = New-AzNetworkInterface -Name SAPERPDemoNIC -ResourceGroupName $rgName -Location "North Europe" -Subnet $vnet.Subnets[0] -PublicIpAddress $pip
 ```
 
 * Sanal makine oluşturur. Bu senaryoda, her VM, aynı ada sahip olacaktır. Bu sanal makineler SAP NetWeaver örneklerde SAP SID'si aynı de olacaktır. Azure kaynak grubunda VM adının benzersiz olması gerekir, ancak farklı Azure kaynak grubunda aynı ada sahip VM'ler çalıştırabilirsiniz. Windows veya Linux için ' root' varsayılan 'Administrator' hesabının geçerli değildir. Bu nedenle, yeni bir yönetici kullanıcı adı ile birlikte bir parola gerekiyor. Ayrıca VM'nin boyutunu tanımlanması gerekir.
@@ -1426,20 +1433,20 @@ $nic = New-AzureRmNetworkInterface -Name SAPERPDemoNIC -ResourceGroupName $rgNam
 # Create a new virtual machine with an official image from the Azure Marketplace
 #####
 $cred=Get-Credential -Message "Type the name and password of the local administrator account."
-$vmconfig = New-AzureRmVMConfig -VMName SAPERPDemo -VMSize Standard_D11
+$vmconfig = New-AzVMConfig -VMName SAPERPDemo -VMSize Standard_D11
 
 # select image
-$vmconfig = Set-AzureRmVMSourceImage -VM $vmconfig -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
-$vmconfig = Set-AzureRmVMOperatingSystem -VM $vmconfig -Windows -ComputerName "SAPERPDemo" -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-# $vmconfig = Set-AzureRmVMSourceImage -VM $vmconfig -PublisherName "SUSE" -Offer "SLES-SAP" -Skus "12-SP1" -Version "latest"
-# $vmconfig = Set-AzureRmVMSourceImage -VM $vmconfig -PublisherName "RedHat" -Offer "RHEL" -Skus "7.2" -Version "latest"
-# $vmconfig = Set-AzureRmVMSourceImage -VM $vmconfig -PublisherName "Oracle" -Offer "Oracle-Linux" -Skus "7.2" -Version "latest"
-# $vmconfig = Set-AzureRmVMOperatingSystem -VM $vmconfig -Linux -ComputerName "SAPERPDemo" -Credential $cred
+$vmconfig = Set-AzVMSourceImage -VM $vmconfig -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
+$vmconfig = Set-AzVMOperatingSystem -VM $vmconfig -Windows -ComputerName "SAPERPDemo" -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+# $vmconfig = Set-AzVMSourceImage -VM $vmconfig -PublisherName "SUSE" -Offer "SLES-SAP" -Skus "12-SP1" -Version "latest"
+# $vmconfig = Set-AzVMSourceImage -VM $vmconfig -PublisherName "RedHat" -Offer "RHEL" -Skus "7.2" -Version "latest"
+# $vmconfig = Set-AzVMSourceImage -VM $vmconfig -PublisherName "Oracle" -Offer "Oracle-Linux" -Skus "7.2" -Version "latest"
+# $vmconfig = Set-AzVMOperatingSystem -VM $vmconfig -Linux -ComputerName "SAPERPDemo" -Credential $cred
 
-$vmconfig = Add-AzureRmVMNetworkInterface -VM $vmconfig -Id $nic.Id
+$vmconfig = Add-AzVMNetworkInterface -VM $vmconfig -Id $nic.Id
 
-$vmconfig = Set-AzureRmVMBootDiagnostics -Disable -VM $vmconfig
-$vm = New-AzureRmVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmconfig
+$vmconfig = Set-AzVMBootDiagnostics -Disable -VM $vmconfig
+$vm = New-AzVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmconfig
 ```
 
 ```powershell
@@ -1447,20 +1454,20 @@ $vm = New-AzureRmVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmc
 # Create a new virtual machine with a VHD that contains the private image that you want to use
 #####
 $cred=Get-Credential -Message "Type the name and password of the local administrator account."
-$vmconfig = New-AzureRmVMConfig -VMName SAPERPDemo -VMSize Standard_D11
+$vmconfig = New-AzVMConfig -VMName SAPERPDemo -VMSize Standard_D11
 
-$vmconfig = Add-AzureRmVMNetworkInterface -VM $vmconfig -Id $nic.Id
+$vmconfig = Add-AzVMNetworkInterface -VM $vmconfig -Id $nic.Id
 
 $diskName="osfromimage"
 $osDiskUri=$account.PrimaryEndpoints.Blob.ToString() + "vhds/" + $diskName  + ".vhd"
 
-$vmconfig = Set-AzureRmVMOSDisk -VM $vmconfig -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri <path to VHD that contains the OS image> -Windows
-$vmconfig = Set-AzureRmVMOperatingSystem -VM $vmconfig -Windows -ComputerName "SAPERPDemo" -Credential $cred
-#$vmconfig = Set-AzureRmVMOSDisk -VM $vmconfig -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri <path to VHD that contains the OS image> -Linux
-#$vmconfig = Set-AzureRmVMOperatingSystem -VM $vmconfig -Linux -ComputerName "SAPERPDemo" -Credential $cred
+$vmconfig = Set-AzVMOSDisk -VM $vmconfig -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri <path to VHD that contains the OS image> -Windows
+$vmconfig = Set-AzVMOperatingSystem -VM $vmconfig -Windows -ComputerName "SAPERPDemo" -Credential $cred
+#$vmconfig = Set-AzVMOSDisk -VM $vmconfig -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri <path to VHD that contains the OS image> -Linux
+#$vmconfig = Set-AzVMOperatingSystem -VM $vmconfig -Linux -ComputerName "SAPERPDemo" -Credential $cred
 
-$vmconfig = Set-AzureRmVMBootDiagnostics -Disable -VM $vmconfig
-$vm = New-AzureRmVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmconfig
+$vmconfig = Set-AzVMBootDiagnostics -Disable -VM $vmconfig
+$vm = New-AzVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmconfig
 ```
 
 ```powershell
@@ -1468,29 +1475,29 @@ $vm = New-AzureRmVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmc
 # Create a new virtual machine with a Managed Disk Image
 #####
 $cred=Get-Credential -Message "Type the name and password of the local administrator account."
-$vmconfig = New-AzureRmVMConfig -VMName SAPERPDemo -VMSize Standard_D11
+$vmconfig = New-AzVMConfig -VMName SAPERPDemo -VMSize Standard_D11
 
-$vmconfig = Add-AzureRmVMNetworkInterface -VM $vmconfig -Id $nic.Id
+$vmconfig = Add-AzVMNetworkInterface -VM $vmconfig -Id $nic.Id
 
-$vmconfig = Set-AzureRmVMSourceImage -VM $vmconfig -Id <Id of Managed Disk Image>
-$vmconfig = Set-AzureRmVMOperatingSystem -VM $vmconfig -Windows -ComputerName "SAPERPDemo" -Credential $cred
-#$vmconfig = Set-AzureRmVMOperatingSystem -VM $vmconfig -Linux -ComputerName "SAPERPDemo" -Credential $cred
+$vmconfig = Set-AzVMSourceImage -VM $vmconfig -Id <Id of Managed Disk Image>
+$vmconfig = Set-AzVMOperatingSystem -VM $vmconfig -Windows -ComputerName "SAPERPDemo" -Credential $cred
+#$vmconfig = Set-AzVMOperatingSystem -VM $vmconfig -Linux -ComputerName "SAPERPDemo" -Credential $cred
 
-$vmconfig = Set-AzureRmVMBootDiagnostics -Disable -VM $vmconfig
-$vm = New-AzureRmVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmconfig
+$vmconfig = Set-AzVMBootDiagnostics -Disable -VM $vmconfig
+$vm = New-AzVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmconfig
 ```
 
 * İsteğe bağlı olarak ek disk ekleyin ve gerekli içeriği geri yükleyin. Tüm blob adları (bloblara URL'ler), Azure içinde benzersiz olmalıdır.
 
 ```powershell
 # Optional: Attach additional VHD data disks
-$vm = Get-AzureRmVM -ResourceGroupName $rgName -Name SAPERPDemo
+$vm = Get-AzVM -ResourceGroupName $rgName -Name SAPERPDemo
 $dataDiskUri = $account.PrimaryEndpoints.Blob.ToString() + "vhds/datadisk.vhd"
-Add-AzureRmVMDataDisk -VM $vm -Name datadisk -VhdUri $dataDiskUri -DiskSizeInGB 1023 -CreateOption empty | Update-AzureRmVM
+Add-AzVMDataDisk -VM $vm -Name datadisk -VhdUri $dataDiskUri -DiskSizeInGB 1023 -CreateOption empty | Update-AzVM
 
 # Optional: Attach additional Managed Disks
-$vm = Get-AzureRmVM -ResourceGroupName $rgName -Name SAPERPDemo
-Add-AzureRmVMDataDisk -VM $vm -Name datadisk -DiskSizeInGB 1023 -CreateOption empty -Lun 0 | Update-AzureRmVM
+$vm = Get-AzVM -ResourceGroupName $rgName -Name SAPERPDemo
+Add-AzVMDataDisk -VM $vm -Name datadisk -DiskSizeInGB 1023 -CreateOption empty -Lun 0 | Update-AzVM
 ```
 
 ##### <a name="cli"></a>CLI
@@ -2020,10 +2027,12 @@ Ancak, kursunda geçen yıl veri merkezi iş ortaklarının geliştirilmiş orta
 Yedekleme yapmanız (Katman 2 veya 3 katman), burada seçilen SAP yapılandırmasına bağlı olabilir. Veritabanının bir yedeklemesini sağlamak için sanal Makinenin kendisini artı içeriği. DBMS ile ilgili yedekleme veritabanı yöntemleriyle gerçekleştirilmesi beklenir. Ayrıntılı bir açıklaması için farklı veritabanlarını bulunabilir [DBMS Kılavuzu][dbms-guide]. Öte yandan, SAP veri (veritabanı içeriği de dahil) çevrimdışı bir şekilde bu bölümde açıklandığı gibi çevrimiçi veya sonraki bölümde açıklandığı gibi yedeklenebilir.
 
 Çevrimdışı Yedekleme Azure portalından bir VM'nin bir kapatma ve temel VM diskine ve tüm bağlı diskleri olan VM için bir kopyasını temelde gerektirir. Bu görüntü zaman içinde nokta VM ve onun ilişkili disk korumak. Yedekleri farklı bir Azure depolama hesabına kopyalamak için önerilir. Bu bölümde açıklanan yordamı [diskleri Azure depolama hesapları arasında kopyalama] [ planning-guide-5.4.2] bu belgenin uygular.
-Kapatma yanı sıra Azure portalı birini kullanarak da Powershell veya CLI burada açıklandığı bunu yapabilirsiniz: <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
+Kapatma yanı sıra Azure portalı birini kullanarak da Powershell veya CLI burada açıklandığı bunu yapabilirsiniz:
+<https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
 
 Bu durumu bir geri yükleme temel sanal makinenin özgün diskleri yanı sıra temel VM silme oluşur ve diskler, kaydedilmiş diskler yönetilen disklerin özgün depolama hesabı veya kaynak grubu geri kopyalamak ve ardından sistemi yeniden dağıtmaya gerek bağlı.
-Bu makalede, bu işlemde bir Powershell betiği oluşturmak nasıl bir örnek gösterilmektedir: <http://www.westerndevs.com/azure-snapshots/>
+Bu makalede, bu işlemde bir Powershell betiği oluşturmak nasıl bir örnek gösterilmektedir:
+<http://www.westerndevs.com/azure-snapshots/>
 
 Lütfen yukarıda açıklandığı gibi bir VM yedek geri yeni bir donanım anahtarı oluşturduğundan, yeni bir SAP lisansı yüklediğinizden emin olun.
 
@@ -2047,7 +2056,8 @@ Azure sanal makine yedekleme işlevini kullanarak SAP sistemine içindeki diğer
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Linux'ta Windows VSS eşdeğeri yoktur. Bu nedenle yalnızca dosyayla tutarlı yedekleme olası ancak değil uygulamayla tutarlı yedeklemeler altındadır. SAP DBMS yedekleme yapılmalıdır DBMS işlevini kullanarak. SAP ile ilgili veriler içeren bir dosya sistemi, örneğin, burada açıklandığı gibi hedefi kullanarak kaydedilebilir: <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
+> Linux'ta Windows VSS eşdeğeri yoktur. Bu nedenle yalnızca dosyayla tutarlı yedekleme olası ancak değil uygulamayla tutarlı yedeklemeler altındadır. SAP DBMS yedekleme yapılmalıdır DBMS işlevini kullanarak. SAP ile ilgili veriler içeren bir dosya sistemi, örneğin, burada açıklandığı gibi hedefi kullanarak kaydedilebilir:
+> <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
 >
 >
 

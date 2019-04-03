@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: d28ea2972b8b73921bb078d8570afe9a6dffce8f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6ae3ec566c05d2460747439d61c87c995a90b19c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461786"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881741"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows üzerinde AzCopy ile veri aktarma
 AzCopy, en iyi performans için tasarlanmış basit komut kullanarak Microsoft Azure Blob, dosya ve tablo depolama içine/dışına veri kopyalamak için tasarlanan bir komut satırı yardımcı programıdır. Bir dosya sistemi ile depolama hesabı arasında veya depolama hesapları arasında verileri kopyalayabilirsiniz.  
@@ -57,7 +57,7 @@ AzCopy kullanarak blobları indirmek için çeşitli yollar göz atalım.
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
-Klasör unutmayın `C:\myfolder` yok, AzCopy oluşturur ve indirme `abc.txt ` yeni klasöre kopyalar.
+Klasör unutmayın `C:\myfolder` yok, AzCopy oluşturur ve indirme `abc.txt` yeni klasöre kopyalar.
 
 ### <a name="download-a-single-blob-from-the-secondary-region"></a>İkincil bölgeden tek blob indirme
 
@@ -988,7 +988,7 @@ FIPS uyumlu algoritmalar Windows üzerinde varsayılan olarak devre dışı bır
 Azure Depolama ve AzCopy hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 ### <a name="azure-storage-documentation"></a>Azure depolama belgeleri:
-* [Azure Depolama’ya giriş](../storage-introduction.md)
+* [Azure Depolama’ya Giriş](../storage-introduction.md)
 * [Net'ten BLOB storage kullanma](../blobs/storage-dotnet-how-to-use-blobs.md)
 * [Dosya depolama'yı .NET kullanma](../storage-dotnet-how-to-use-files.md)
 * [Tablo depolama'yı .NET kullanma](../../cosmos-db/table-storage-how-to-use-dotnet.md)

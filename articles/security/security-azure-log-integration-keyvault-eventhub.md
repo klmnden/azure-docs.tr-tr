@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: c199adb9ee1d9e5fbc879441da7395efa16f0d40
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e70920e806b3d9838d693ff1fc74a3e9371319d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094669"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883930"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure günlük tümleştirme Öğreticisi: Event Hubs kullanarak Azure Key Vault olayları işleyin
 
@@ -43,7 +43,7 @@ Süreç boyunca sağlanan bilgiler her adım ardındaki nedenler anlamanıza yar
 
 Bu öğreticide bahsetmeleri hizmetleri hakkında daha fazla bilgi için bkz: 
 
-- [Azure Anahtar Kasası.](../key-vault/key-vault-whatis.md)
+- [Azure Key Vault](../key-vault/key-vault-whatis.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Azure günlük tümleştirmesi](security-azure-log-integration-overview.md)
 
@@ -92,10 +92,10 @@ Bu makaledeki adımları tamamlayabilmeniz için aşağıdakiler gerekir:
     - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (Abonelik adınız farklı olabilir. Önceki komutun çıktısındaki bir parçası olarak görebileceğiniz.)
     - ```$location = 'West US'``` (Bu değişkeni kaynaklar nerede oluşturulması gereken konumun geçirmek için kullanılır. "Bu değişken, seçtiğiniz herhangi bir konuma olacak şekilde değiştirebilirsiniz.)
     - ```$random = Get-Random```
-    - ``` $name = 'azlogtest' + $random``` (Ad, herhangi bir şey olabilir, ancak yalnızca küçük harf ve rakam içermelidir.)
-    - ``` $storageName = $name``` (Bu değişken için depolama hesabı adı kullanılır.)
-    - ```$rgname = $name ``` (Bu değişkeni kaynak grubu adı kullanılır.)
-    - ``` $eventHubNameSpaceName = $name``` (Bu olay hub'ı ad alanının adıdır.)
+    - ```$name = 'azlogtest' + $random``` (Ad, herhangi bir şey olabilir, ancak yalnızca küçük harf ve rakam içermelidir.)
+    - ```$storageName = $name``` (Bu değişken için depolama hesabı adı kullanılır.)
+    - ```$rgname = $name``` (Bu değişkeni kaynak grubu adı kullanılır.)
+    - ```$eventHubNameSpaceName = $name``` (Bu olay hub'ı ad alanının adıdır.)
 1. İle çalışacaksınız aboneliği belirtin:
     
     ```Select-AzSubscription -SubscriptionName $subscriptionName```
@@ -114,7 +114,7 @@ Bu makaledeki adımları tamamlayabilmeniz için aşağıdakiler gerekir:
     ```$eventHubNameSpace = New-AzEventHubNamespace -ResourceGroupName $rgname -NamespaceName $eventHubnamespaceName -Location $location```
 1. Insights sağlayıcı ile kullanılacak kural Kimliğini alın:
     
-    ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey' ```
+    ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey'```
 1. Tüm olası Azure konumları alın ve daha sonraki bir adımda kullanılabilmesi için bir değişken adlarını ekleyin:
     
     a. ```$locationObjects = Get-AzLocation```    
@@ -128,7 +128,7 @@ Bu makaledeki adımları tamamlayabilmeniz için aşağıdakiler gerekir:
     Azure günlük profili hakkında daha fazla bilgi için bkz. [Azure etkinlik günlüğü'ne genel bakış](../azure-monitor/platform/activity-logs-overview.md).
 
 > [!NOTE]
-> Günlük profilini oluşturmaya çalıştığınızda bir hata iletisi alabilirsiniz. Daha sonra Get-AzLogProfile ve Remove-AzLogProfile belgelerini gözden geçirebilirsiniz. Get-AzLogProfile çalıştırırsanız, günlük profili hakkındaki bilgileri görürsünüz. Var olan günlük profilini girerek silebilirsiniz ```Remove-AzLogProfile -name 'Log Profile Name' ``` komutu.
+> Günlük profilini oluşturmaya çalıştığınızda bir hata iletisi alabilirsiniz. Daha sonra Get-AzLogProfile ve Remove-AzLogProfile belgelerini gözden geçirebilirsiniz. Get-AzLogProfile çalıştırırsanız, günlük profili hakkındaki bilgileri görürsünüz. Var olan günlük profilini girerek silebilirsiniz ```Remove-AzLogProfile -name 'Log Profile Name'``` komutu.
 >
 >![Resource Manager profil hatası](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
@@ -136,11 +136,11 @@ Bu makaledeki adımları tamamlayabilmeniz için aşağıdakiler gerekir:
 
 1. Anahtar kasası oluşturun:
 
-   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
+   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location```
 
 1. Anahtar kasası için günlüğe kaydetmeyi yapılandırın:
 
-   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
+   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true```
 
 ## <a name="generate-log-activity"></a>Günlük etkinliği oluştur
 
@@ -157,7 +157,8 @@ Bu makaledeki adımları tamamlayabilmeniz için aşağıdakiler gerekir:
    ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. Ayarlayın ve ek günlük girişleri oluşturmak için bir gizli dizi okumak:
     
-   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)```
+   b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![Gizli dizi döndürdü](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 
@@ -169,7 +170,7 @@ Anahtar kasası günlüğü olay hub'ına sağlamak için gereken tüm öğeleri
 1. ```$storage = Get-AzStorageAccount -ResourceGroupName $rgname -Name $storagename```
 1. ```$eventHubKey = Get-AzEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
 1. ```$storagekeys = Get-AzStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
-1. ``` $storagekey = $storagekeys[0].Value```
+1. ```$storagekey = $storagekeys[0].Value```
 
 Her olay hub'ın AzLog komutu çalıştırın:
 

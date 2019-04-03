@@ -1,19 +1,19 @@
 ---
-title: MongoDB için Azure Cosmos DB'nin API'SİNDE depolanan verileri yönetmek için özel komutlar
-description: Bu makalede, MongoDB için Azure Cosmos DB'nin API'SİNDE depolanan verileri yönetmek için özel komutları kullanmayı açıklar.
+title: MongoDB için Azure Cosmos DB'nin API'SİNDE depolanan verileri yönetmek için MongoDB uzantı komutları
+description: Bu makalede, MongoDB için Azure Cosmos DB'nin API'SİNDE depolanan verileri yönetmek için MongoDB uzantı komutları kullanmayı açıklar.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: 238ba2722fef52d4607a7832113c03c097ef90b3
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: aef77f121f20d867c8ec5e764d8c9639c961713d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58807256"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876897"
 ---
-# <a name="use-custom-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB için Azure Cosmos DB'nin API'SİNDE depolanan verileri yönetmek için özel komutları kullanma 
+# <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB için Azure Cosmos DB'nin API'SİNDE depolanan verileri yönetmek için MongoDB uzantı komutları kullanma 
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Azure Cosmos DB API'si ile açık kaynak kullanarak MongoDB için iletişim kurabilir [MongoDB istemcisi sürücüsünü](https://docs.mongodb.org/ecosystem/drivers). Azure Cosmos DB MongoDB API'si için bağlı kalarak mevcut istemci sürücülerin kullanımını etkinleştirir. [MongoDB kablo protokolüne](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
@@ -21,7 +21,7 @@ MongoDB için Azure Cosmos DB'nin API'sini kullanarak, Cosmos DB genel dağıtı
 
 ## <a name="mongodb-protocol-support"></a>MongoDB için protokol desteği
 
-Varsayılan olarak, Azure Cosmos DB API, MongoDB MongoDB daha fazla ayrıntı için sunucu sürümü 3.2, uyumlu olduğu için bkz. [desteklenen özellikleri ve söz dizimi](mongodb-feature-support.md). Özellikleri veya MongoDB 3.4 sürümü eklenen sorgu işleçleri şu anda bir Azure Cosmos DB MongoDB API'si önizleme olarak kullanılabilir. Aşağıdaki özel komutları belirli işlevleri Azure Cosmos DB, MongoDB için Azure Cosmos DB'nin API'SİNDE depolanan veriler üzerinde CRUD işlemleri gerçekleştirirken destekler:
+Varsayılan olarak, Azure Cosmos DB API, MongoDB MongoDB daha fazla ayrıntı için sunucu sürümü 3.2, uyumlu olduğu için bkz. [desteklenen özellikleri ve söz dizimi](mongodb-feature-support.md). Özellikleri veya MongoDB 3.4 sürümü eklenen sorgu işleçleri şu anda bir Azure Cosmos DB MongoDB API'si önizleme olarak kullanılabilir. Aşağıdaki uzantı komutları belirli işlevleri Azure Cosmos DB, MongoDB için Azure Cosmos DB'nin API'SİNDE depolanan veriler üzerinde CRUD işlemleri gerçekleştirirken destekler:
 
 * [Veritabanı oluşturma](#create-database)
 * [Veritabanını Güncelleştir](#update-database)
@@ -32,7 +32,7 @@ Varsayılan olarak, Azure Cosmos DB API, MongoDB MongoDB daha fazla ayrıntı i�
 
 ## <a id="create-database"></a> Veritabanı oluşturma
 
-Create database özel komutu yeni bir MongoDB veritabanı oluşturur. Veritabanı adı karşı komutu yürütülmeden veritabanları bağlamdan kullanılır. CreateDatabase komut biçimi aşağıdaki gibidir:
+Create database uzantı komutu yeni bir MongoDB veritabanı oluşturur. Veritabanı adı karşı komutu yürütülmeden veritabanları bağlamdan kullanılır. CreateDatabase komut biçimi aşağıdaki gibidir:
 
 ```
 {
@@ -43,7 +43,7 @@ Create database özel komutu yeni bir MongoDB veritabanı oluşturur. Veritaban�
 
 Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 
-|**Alan**|**Tür** |**Açıklama** |
+|**Alan**|**Type** |**Açıklama** |
 |---------|---------|---------|
 | Özel   |  string  |   Ad özel komut, "CreateDatabase" olmalıdır.      |
 | offerThroughput | int  | Veritabanı üzerinde ayarladığınız sağlanan aktarım hızı. Bu parametre isteğe bağlıdır. |
@@ -74,7 +74,7 @@ db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 
 ## <a id="update-database"></a> Veritabanını Güncelleştir
 
-Güncelleştirme veritabanı özel komut belirtilen veritabanıyla ilişkili özelliklerini güncelleştirir. Şu anda yalnızca "offerThroughput" özelliğini güncelleştirebilirsiniz.
+Güncelleştirme veritabanı uzantısı komut belirtilen veritabanıyla ilişkili özelliklerini güncelleştirir. Şu anda yalnızca "offerThroughput" özelliğini güncelleştirebilirsiniz.
 
 ```
 {
@@ -85,7 +85,7 @@ Güncelleştirme veritabanı özel komut belirtilen veritabanıyla ilişkili öz
 
 Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 
-|**Alan**|**Tür** |**Açıklama** |
+|**Alan**|**Type** |**Açıklama** |
 |---------|---------|---------|
 | Özel    |    string     |   Özel komut adı. "UpdateDatabase" olmalıdır.      |
 |  offerThroughput   |  int       |     Veritabanı üzerinde ayarlamak istediğiniz yeni sağlanan aktarım hızı.    |
@@ -107,7 +107,7 @@ db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 
 ## <a id="get-database"></a> Veritabanı Al
 
-Get veritabanı özel komut veritabanı nesnesi döndürür. Veritabanı adı, veritabanı bağlamında karşı komutu yürütülmeden kullanılır.
+Get veritabanı uzantısı komut veritabanı nesnesi döndürür. Veritabanı adı, veritabanı bağlamında karşı komutu yürütülmeden kullanılır.
 
 ```
 {
@@ -118,7 +118,7 @@ Get veritabanı özel komut veritabanı nesnesi döndürür. Veritabanı adı, v
 Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 
 
-|**Alan**|**Tür** |**Açıklama** |
+|**Alan**|**Type** |**Açıklama** |
 |---------|---------|---------|
 |  Özel   |   string      |   Özel komut adı. "Getcollection" olmalıdır|
         
@@ -126,7 +126,7 @@ Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 
 Komut başarılı olursa, yanıt bir belgesiyle aşağıdaki alanları içerir:
 
-|**Alan**|**Tür** |**Açıklama** |
+|**Alan**|**Type** |**Açıklama** |
 |---------|---------|---------|
 |  `ok`   |   `int`     |   Yanıt durumu. 1 == başarılı. 0 hata ==.      |
 | `database`    |    `string`        |   Veritabanının adı.      |
@@ -147,7 +147,7 @@ db.runCommand({customAction: "GetDatabase"});
 
 ## <a id="create-collection"></a> Koleksiyon oluşturma
 
-Koleksiyon özel oluşturma komutu, yeni bir MongoDB koleksiyonu oluşturur. Veritabanı adı karşı komutu yürütülmeden veritabanları bağlamdan kullanılır. CreateCollection komut biçimi aşağıdaki gibidir:
+Oluşturma koleksiyonu uzantısı komut yeni bir MongoDB koleksiyonu oluşturur. Veritabanı adı karşı komutu yürütülmeden veritabanları bağlamdan kullanılır. CreateCollection komut biçimi aşağıdaki gibidir:
 
 ```
 {
@@ -160,7 +160,7 @@ Koleksiyon özel oluşturma komutu, yeni bir MongoDB koleksiyonu oluşturur. Ver
 
 Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 
-|**Alan**|**Tür** |**Açıklama** |
+|**Alan**|**Type** |**Açıklama** |
 |---------|---------|---------|
 | Özel    | string | Özel komut adı. "CreateDatabase" olmalıdır     |
 | koleksiyon      | string | Koleksiyon adı                                   |
@@ -193,7 +193,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 ## <a id="update-collection"></a> Koleksiyonu güncelleştir
 
-Güncelleştirme koleksiyonu özel komut belirtilen koleksiyonla ilişkili özelliklerini güncelleştirir.
+Güncelleştirme koleksiyonu uzantısı komut belirtilen koleksiyonla ilişkili özelliklerini güncelleştirir.
 
 ```
 {
@@ -205,7 +205,7 @@ Güncelleştirme koleksiyonu özel komut belirtilen koleksiyonla ilişkili özel
 
 Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 
-|**Alan**|**Tür** |**Açıklama** |
+|**Alan**|**Type** |**Açıklama** |
 |---------|---------|---------|
 |  Özel   |   string      |   Özel komut adı. "UpdateCollection" olmalıdır.      |
 |  koleksiyon   |   string      |   Koleksiyonun adı.       |
@@ -240,7 +240,7 @@ Get koleksiyon özel komutu, koleksiyon nesnesini döndürür.
 Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 
 
-|**Alan**|**Tür** |**Açıklama** |
+|**Alan**|**Type** |**Açıklama** |
 |---------|---------|---------|
 | Özel    |   string      |   Özel komut adı. "Belirtilmiş" olmalıdır.      |
 | koleksiyon    |    string     |    Koleksiyonun adı.     |
@@ -250,7 +250,7 @@ Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 Komut başarılı olursa, yanıt bir belgesiyle aşağıdaki alanları içerir.
 
 
-|**Alan**|**Tür** |**Açıklama** |
+|**Alan**|**Type** |**Açıklama** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   Yanıt durumu. 1 == başarılı. 0 hata ==.      |
 | `database`    |    `string`     |   Veritabanının adı.      |
@@ -275,7 +275,7 @@ db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 
 Belirtilmezse, özel bir yanıt bir belgesiyle aşağıdaki alanları içerir:
 
-|**Alan**|**Tür** |**Açıklama** |
+|**Alan**|**Type** |**Açıklama** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   Yanıt durumu. 1 == başarılı. 0 hata ==.      |
 | `code`    |   `int`      |   Komut başarısız oldu, yalnızca döndürülen (yani Tamam == 0). MongoDB hata kodunu içerir. Bu isteğe bağlı bir yanıt parametredir.      |

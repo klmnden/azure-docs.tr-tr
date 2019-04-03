@@ -11,20 +11,20 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 04/01/2019
 ms.author: kumud
-ms.openlocfilehash: bd40278015bf4580759c1b7b9522400b3dae31d6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0b46cbdec6d0ffe2a614a976f70b833726fb0e8a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475671"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849950"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Standart yük Azure CLI kullanarak dengeleyici Yük Dengeleme ve giden kuralları yapılandırma
 
 Bu hızlı başlangıçta Azure CLI kullanarak nasıl standart yük dengeleyici giden kuralları yapılandırılacağını gösterir.  
 
-İşiniz bittiğinde, yük dengeleyici kaynağı iki ön uçlar ve bunlarla ilişkili kurallar içeriyor: için bir gelen ve giden.  Her ön uç genel IP adresi ve bu senaryo kullanır, farklı bir genel IP adresi için gelen ve giden bir başvuru içeriyor.   Yük Dengeleme kuralını yalnızca gelen Yük Dengeleme sağlar ve giden NAT VM için sağlanan giden kuralı denetler.
+İşiniz bittiğinde, yük dengeleyici kaynağı iki ön uçlar ve bunlarla ilişkili kurallar içeriyor: için bir gelen ve giden.  Her ön uç genel IP adresi ve bu senaryo kullanır, farklı bir genel IP adresi için gelen ve giden bir başvuru içeriyor.   Yük Dengeleme kuralını yalnızca gelen Yük Dengeleme sağlar ve giden NAT VM için sağlanan giden kuralı denetler.  Bu hızlı başlangıç kullanan iki ayrı arka uç havuzları için bir gelen, diğeri giden yeteneğini gösterir ve bu senaryo için esneklik sağlar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -69,30 +69,41 @@ Load Balancer'ın ön uç giden yapılandırmasını kullanmak için standart IP
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
 ```
 
-
 ## <a name="create-azure-load-balancer"></a>Azure yük dengeleyici oluşturma
 
 Bu bölümde yük dengeleyicinin aşağıdaki bileşenlerini nasıl oluşturabileceğiniz ve yapılandırabileceğiniz açıklanmaktadır:
   - Yük dengeleyicideki gelen ağ trafiğini alan bir ön uç IP.
   - Bir arka uç havuzu ön uç IP göndereceği yeri Yük Dengelemesi yapılmış ağ trafiğini.
+  - Giden bağlantı için bir arka uç havuzu. 
   - arka uç sanal makine örneklerinin durumunu belirleyen bir durum araştırması.
   - Trafiğin sanal makinelere dağıtımını tanımlayan bir yük dengeleyici gelen kuralı.
   - Trafiğin sanal makinelerinden dağıtımını tanımlayan bir yük dengeleyici giden kuralı.
 
 ### <a name="create-load-balancer"></a>Yük Dengeleyici oluşturma
 
-Gelen IP adresi kullanarak bir yük dengeleyici oluşturma [az ağ lb oluşturma](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) adlı *lb* içeren bir gelen ön uç IP yapılandırmasını ve genel IP adresi ile ilişkili olan bir arka uç havuzu *mypublicipinbound* , önceki adımda oluşturduğunuz.
+Gelen IP adresi kullanarak bir yük dengeleyici oluşturma [az ağ lb oluşturma](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) adlı *lb* gelen ön uç IP yapılandırmasını ve arka uç havuzu içeren *bepoolinbound*genel IP adresiyle ilişkili *mypublicipinbound* , önceki adımda oluşturduğunuz.
 
 ```azurecli-interactive
   az network lb create \
     --resource-group myresourcegroupoutbound \
     --name lb \
     --sku standard \
-    --backend-pool-name bepool \
+    --backend-pool-name bepoolinbound \
     --frontend-ip-name myfrontendinbound \
     --location eastus2 \
     --public-ip-address mypublicipinbound   
   ```
+
+### <a name="create-outbound-pool"></a>Çıkış havuzu oluşturma
+
+Bir havuz ile VM'lerin için giden bağlantı tanımlamak için bir ek arka uç adres havuzu oluşturma [az ağ lb adres havuzu oluşturma](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) adıyla *bepooloutbound*.  Ayrı bir giden havuz oluşturmak, en üst düzeyde esneklik sağlar, ancak bu adımı atlayabilir ve yalnızca gelen kullanın *bepoolinbound* de.
+
+```azurecli-interactive
+  az network lb address-pool \
+    --resource-group myresourcegroupoutbound \
+    --lb-name lb \
+    --name bepooloutbound
+```
 
 ### <a name="create-outbound-frontend-ip"></a>Giden ön uç IP oluşturma
 Yük Dengeleyici ile giden ön uç IP yapılandırmasını oluşturun [az network lb frontend-IP oluşturma](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) içeren ve giden ön uç IP yapılandırması adlı *myfrontendoutbound* diğer bir deyişle genel IP adresine ilişkili *mypublicipoutbound*
@@ -136,7 +147,7 @@ az network lb rule create \
 --backend-port 80 \
 --probe http \
 --frontend-ip-name myfrontendinbound \
---backend-pool-name bepool \
+--backend-pool-name bepoolinbound \
 --disable-outbound-snat
 ```
 
@@ -153,10 +164,12 @@ az network lb outbound-rule create \
  --protocol All \
  --idle-timeout 15 \
  --outbound-ports 10000 \
- --address-pool bepool
+ --address-pool bepooloutbound
 ```
 
-Bu noktada, sanal makinenizin arka uç havuzuna eklemeye devam *bepool* güncelleştirerek ilgili NIC kaynakları IP yapılandırması.
+Ayrı bir giden havuzunu kullanmayı istemiyorsanız, adres havuzu bağımsız değişken belirlemek için önceki komutta değiştirebilirsiniz *bepoolinbound* yerine.  Esneklik ve sonuçta elde edilen yapılandırma okunabilirliğini için ayrı havuzlar kullanılması önerilir.
+
+Bu noktada, sanal makinenizin arka uç havuzuna eklemeye devam *bepoolinbound* __ve__ *bepooloutbound* güncelleştirerek ilgili NIC IP yapılandırması kullanarak kaynakları [az ağ NIC IP-config adres havuzu ekleme](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -171,4 +184,3 @@ Bu makalede, standart yük dengeleyici oluşturdunuz, hem gelen yük dengeleyici
 
 > [!div class="nextstepaction"]
 > [Azure Load Balancer öğreticileri](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
-

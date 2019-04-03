@@ -1,25 +1,25 @@
 ---
 title: Kimlik doğrulama yöntemleri için IOT Önizleme için Azure Güvenlik Merkezi | Microsoft Docs
 description: Azure Güvenlik Merkezi için IOT hizmeti kullanırken kullanılabilir farklı kimlik doğrulama yöntemleri hakkında öğrenin.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 10b38f20-b755-48cc-8a88-69828c17a108
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: ec87c2b65728d8ac29daa90de36271e24cd85c0e
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d1f9d77d1f87e8d201e2cb034401bb3cae14f41b
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758389"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862922"
 ---
 # <a name="security-agent-authentication-methods"></a>Güvenlik aracı kimlik doğrulama yöntemleri 
 
@@ -63,11 +63,11 @@ Bu bağımsız değişkenler aşağıdaki tabloda belirtilmiştir.
 
 |Parametre|Açıklama|Seçenekler|
 |---------|---------------|---------------|
-|**Kimlik**|Kimlik doğrulaması modu| **Modül** veya **cihaz**|
+|**identity**|Kimlik doğrulaması modu| **Modül** veya **cihaz**|
 |**type**|Kimlik doğrulaması türü|**SymmetricKey** veya **SelfSignedCertificate**|
 |**dosya yolu**|Sertifika veya simetrik anahtarı içeren dosyanın tam yolunu mutlak| |
 |**gatewayHostname**|IOT Hub'ın FQDN'si|Örnek: ContosoIotHub.azure-devices.net|
-|**cihaz kimliği**|Cihaz Kimliği|Örnek: MyDevice1|
+|**deviceId**|Cihaz Kimliği|Örnek: MyDevice1|
 |**certificateLocationKind**|Sertifika depolama konumu|**YerelDosya** veya **Store**|
 
 
@@ -114,4 +114,4 @@ Düzen _LocalConfiguration.json_ şu parametrelerle:
 ## <a name="see-also"></a>Ayrıca bkz.
 - [Güvenlik aracıları genel bakış](security-agent-architecture.md)
 - [Güvenlik aracı dağıtma](how-to-deploy-agent.md)
-- [Erişim ham güvenlik verileri](how-to-security-data-access.md)
+- [Ham güvenlik verilerine erişme](how-to-security-data-access.md)

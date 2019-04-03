@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi'nde, ağ kaynakları koruma | Microsoft Docs
 description: Bu belge adresleri yardımcı önerilerini Azure Güvenlik Merkezi'ne Azure ağı kaynaklarınızı koruma ve güvenlik ilkelerine uygun haberdar olun.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 55318f40918833688e0c516924642c781141438c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 04/02/2019
+ms.author: monhaber
+ms.openlocfilehash: cca1962e5146300cc376fab4bcb1bf0876acec6c
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118012"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863160"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde ağ kaynaklarınızı koruma
 Azure Güvenlik Merkezi, ağ güvenliği için en iyi uygulamalar, Azure kaynaklarınızın güvenlik durumunu sürekli olarak analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde sağlamlaştırmak ve kaynaklarınızı korumak için gerekli denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur.
@@ -30,10 +30,9 @@ Bu makalede bir ağ güvenlik açısından Azure kaynaklarınıza uygulama öner
 > **Ağ** sayfa, Azure kaynak durumu hakkında ayrıntılı bir inceleme ağ açısından sağlar. Uyarlamalı ağ denetimleri ve ağ eşlemesi Azure Güvenlik Merkezi standart katmanı için yalnızca kullanılabilir. [Ücretsiz katmanı kullanırsanız, düğmeyi tıklatabilirsiniz **eski ağ iletişimini görüntüle** ve ağ kaynağı önerileri almak](#legacy-networking).
 >
 
-**Ağ** sayfası için ayrıntılı bölümlere genel bir bakış sağlar derinlerine, ağ kaynaklarınızın sağlığı hakkında daha fazla bilgi edinin:
+**Ağ** dikey penceresinde derin yapabilecekleriniz bölümleri genel bir bakış sağlar derinlerine, ağ kaynaklarınızın sağlığı hakkında daha fazla bilgi edinin:
 
 - Ağ eşlemesi (yalnızca Azure Güvenlik Merkezi standart katmanı)
-- NSG sağlamlaştırma (yakında kullanıma sunulacak. Önizleme için kaydolun)
 - Ağ güvenlik önerileri.
 - Eski **ağ** dikey (önceki ağ dikey) 
  
@@ -50,6 +49,7 @@ Ağ eşlemesi'ni açmak için:
 Bir topoloji Haritası varsayılan görünümünü görüntüler:
 - Azure'da seçili abonelikler. Eşleme, birden çok abonelik destekler.
 - VM'ler, alt ağlar ve sanal ağları Resource Manager kaynak türü (Klasik Azure kaynakları desteklenmez)
+- Eşlenmiş sanal ağlar
 - Sahip kaynakları [ağ önerileri](security-center-recommendations.md) Orta veya yüksek önem derecesi  
 - İnternet'e yönelik kaynaklar
 - Harita, Azure'da seçili abonelikler için optimize edilmiştir. Seçiminizi değiştirirseniz, haritayı yeniden hesaplanması yeniden en iyi duruma getirilmiş ve yeni kendi ayarlarınızı temel alan.  
@@ -98,7 +98,7 @@ Bu görünüm gücünü, kullanabilmeniz için izin verilen bu bağlantıların 
 
 Bir kaynağa detaya gitmek için:
 1. Harita üzerinde belirli bir kaynak seçin, sağ bölmede açılır ve kaynak varsa, bağlı güvenlik çözümleri hakkında genel bilgiler verir ve kaynağa ilgili öneriler. Bu davranış her seçtiğiniz kaynak türü için aynı türüdür. 
-2. Tıklayın **trafiği** kaynakta - olası giden ve gelen trafik listesini görmek için bu kapsamlı kimin kaynak ile iletişim kurabilir ve ile ve hangi protokoller ve bağlantı noktaları üzerinden iletişim kurabilir listesidir.
+2. Tıklayın **trafiği** kaynakta - olası giden ve gelen trafik listesini görmek için bu kapsamlı kimin kaynak ile iletişim kurabilir ve ile ve hangi protokoller ve bağlantı noktaları üzerinden iletişim kurabilir listesidir. Örneğin, seçtiğinizde bir VM, ile iletişim kurabilir tüm sanal makineler gösterilir ve bir alt ağ seçtiğinizde ile iletişim kurabilir, tüm alt ağlar gösterilir.
 
 **Bu veriler ağ güvenlik grupları yanı sıra gelişmiş makine öğrenimi, kendi crossovers ve etkileşimleri anlamak için birden çok kural çözümleyen ve algoritma Analizine temel alır.** 
 

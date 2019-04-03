@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 8f0470b10589ecbbc9e2c98e8d3445435e7f8ed4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 2f00636da2b29e7815569a683fdf51c6a4e3b0e0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668832"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880308"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Eclipse kullanarak Service Fabric Java uygulamanızı hata ayıklama
 > [!div class="op_single_selector"]
@@ -29,12 +29,12 @@ ms.locfileid: "58668832"
 
 1. İçindeki adımları izleyerek bir yerel geliştirme kümesi Başlat [Service Fabric geliştirme ortamınızı ayarlama](service-fabric-get-started-linux.md).
 
-2. Uzaktan hata ayıklama parametreleriyle java işlemini başlatır, hata ayıklamak için istediğiniz hizmetin entryPoint.sh güncelleştirin. Bu dosya şu konumda bulunabilir: ``ApplicationName\ServiceNamePkg\Code\entrypoint.sh``. Bu örnekte, hata ayıklama için 8001 numaralı bağlantı noktası ayarlanmıştır.
+2. Uzaktan hata ayıklama parametreleriyle java işlemini başlatır, hata ayıklamak için istediğiniz hizmetin entryPoint.sh güncelleştirin. Bu dosya şu konumda bulunabilir: `ApplicationName\ServiceNamePkg\Code\entrypoint.sh`. Bu örnekte, hata ayıklama için 8001 numaralı bağlantı noktası ayarlanmıştır.
 
     ```sh
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
     ```
-3. Hatası ayıklanmakta olan hizmet için çoğaltma sayısını veya örnek sayısını 1 olarak ayarlayarak uygulama bildirimini güncelleştirin. Bu ayar, hata ayıklama için kullanılan bağlantı noktası için çakışmaları önler. Örneğin, şu işlemleri izleyerek durum bilgisi olmayan hizmetler için ``InstanceCount="1"`` ayarını yapın ve durum bilgisi olan hizmetler için hedefi ve en az çoğaltma kümesi boyutlarını 1 olarak ayarlayın: `` TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
+3. Hatası ayıklanmakta olan hizmet için çoğaltma sayısını veya örnek sayısını 1 olarak ayarlayarak uygulama bildirimini güncelleştirin. Bu ayar, hata ayıklama için kullanılan bağlantı noktası için çakışmaları önler. Örneğin, şu işlemleri izleyerek durum bilgisi olmayan hizmetler için `InstanceCount="1"` ayarını yapın ve durum bilgisi olan hizmetler için hedefi ve en az çoğaltma kümesi boyutlarını 1 olarak ayarlayın: `TargetReplicaSetSize="1" MinReplicaSetSize="1"`.
 
 4. Uygulamayı dağıtın.
 
@@ -46,7 +46,7 @@ ms.locfileid: "58668832"
    ```
 6.  İstenen noktalarda kesme noktaları ayarlayın ve uygulamanın hatasını ayıklama.
 
-Uygulama kilitlenmesi durumunda coredumps etkinleştirmek isteyebilirsiniz. Yürütme ``ulimit -c`` bir Kabuğu'nda ve 0 döndürür sonra coredumps etkin değil. Sınırsız coredumps etkinleştirmek için aşağıdaki komutu yürütün: ``ulimit -c unlimited``. Komutunu kullanarak durum da doğrulayabilirsiniz ``ulimit -a``.  Coredump oluşturma yolu güncelleştirmek isterseniz, yürütme ``echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern``. 
+Uygulama kilitlenmesi durumunda coredumps etkinleştirmek isteyebilirsiniz. Yürütme `ulimit -c` bir Kabuğu'nda ve 0 döndürür sonra coredumps etkin değil. Sınırsız coredumps etkinleştirmek için aşağıdaki komutu yürütün: `ulimit -c unlimited`. Komutunu kullanarak durum da doğrulayabilirsiniz `ulimit -a`.  Coredump oluşturma yolu güncelleştirmek isterseniz, yürütme `echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern`. 
 
 ### <a name="next-steps"></a>Sonraki adımlar
 

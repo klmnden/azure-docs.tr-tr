@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: c66a7d7af2a73e26878b92f34e0f42ce0b3ae7f2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fb17afa4bfe8c00c91cc8fb33ab3326452065a9e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437506"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885426"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Öğretici: Bir Windows sanal makinede .NET ile Azure anahtar kasası
 
@@ -107,9 +107,9 @@ Bu gizli dizinin değerini depolar **ettiyseniz**.
 ## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 Aşağıdaki yöntemlerden birini kullanarak bir sanal makine oluşturabilirsiniz:
 
-* [Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
+* [The Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
 * [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
-* [Azure portalı](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+* [Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
 ## <a name="assign-an-identity-to-the-vm"></a>Bir kimlik VM'ye atayın
 Bu adımda, Azure CLI içinde aşağıdaki komutu çalıştırarak sanal makine için sistem tarafından atanan bir kimlik oluşturun:
@@ -148,7 +148,7 @@ Bir komut istemi açın.
 
 Aşağıdaki komutları çalıştırarak konsolda "Hello World" yazdırabilirsiniz:
 
-```
+```batch
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
@@ -158,7 +158,7 @@ dotnet run
 
 Açık *Program.cs* dosya ve bu paketleri ekleyin:
 
-```
+```csharp
 using System;
 using System.IO;
 using System.Net;
@@ -172,7 +172,7 @@ Aşağıdaki iki adımlı işlem kodu içermesi için sınıf dosyasını düzen
 1. Bir belirteç VM'de yerel MSI uç noktasından getirin. Bunun yapılması ayrıca Azure AD'den bir belirtecini getirir.
 1. Anahtar kasanızı belirtecin geçip ve sonra gizli anahtarı getirilemedi. 
 
-```
+```csharp
  class Program
     {
         static void Main(string[] args)
@@ -226,4 +226,4 @@ Artık gerekli olmadığında sanal makine ve anahtar kasanıza silin.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Azure anahtar kasası REST API'si](https://docs.microsoft.com/rest/api/keyvault/)
+> [Azure Key Vault REST API](https://docs.microsoft.com/rest/api/keyvault/)

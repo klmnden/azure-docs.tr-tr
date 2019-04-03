@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 4f5c7696e711db7c128317f7ed17dc051e8fd18a
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: d98922937781fd169d34881fa67a6b5746d06df7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803128"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882473"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator metin API'si, dil ve bölge desteği
 
@@ -110,16 +110,16 @@ Transliterate yöntemi aşağıdaki dilleri desteklemektedir. İçinde "içine/d
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arapça | `ar` | Arapça `Arab` | <--> | Latin `Latn` |
 |Bangla  | `bn` | Bengali `Beng` | <--> | Latin `Latn` |
-| Çince (Basitleştirilmiş) | `zh-Hans` | Basitleştirilmiş Çince `Hans`| <--> | Latin `Latn` |
-| Çince (Basitleştirilmiş) | `zh-Hans` | Basitleştirilmiş Çince `Hans`| <--> | Geleneksel Çince `Hant`|
+| Çince (Basitleştirilmiş) | `zh-Hans` | Çince Basitleştirilmiş `Hans`| <--> | Latin `Latn` |
+| Çince (Basitleştirilmiş) | `zh-Hans` | Çince Basitleştirilmiş `Hans`| <--> | Geleneksel Çince `Hant`|
 | Geleneksel Çince | `zh-Hant` | Geleneksel Çince `Hant`| <--> | Latin `Latn` |
-| Geleneksel Çince | `zh-Hant` | Geleneksel Çince `Hant`| <--> | Basitleştirilmiş Çince `Hans` |
-| Gucerat dili | `gu`  | Gujarati `Gujr` | --> | Latin `Latn` |
+| Geleneksel Çince | `zh-Hant` | Geleneksel Çince `Hant`| <--> | Çince Basitleştirilmiş `Hans` |
+| Gucerat dili | `gu`  | Gucerat dili `Gujr` | --> | Latin `Latn` |
 | İbranice | `he` | İbranice `Hebr` | <--> | Latin `Latn` |
 | Hintçe | `hi` | Devanagari `Deva` | <--> | Latin `Latn` |
 | Japonca | `ja` | Japonca `Jpan` | <--> | Latin `Latn` |
-| Kannada dili | `kn` | Kannada `Knda` | --> | Latin `Latn` |
-| Malayalam dili | `ml` | Malayalam `Mlym` | --> | Latin `Latn` |
+| Kannada dili | `kn` | Kannada dili `Knda` | --> | Latin `Latn` |
+| Malayalam dili | `ml` | Malayalam dili `Mlym` | --> | Latin `Latn` |
 | Marathi dili | `mr` | Devanagari `Deva` | --> | Latin `Latn` |
 | Odia | `or` | Odia `Orya` | <--> | Latin `Latn` |
 | Pencap dili | `pa` | Gurmuki `Guru`  | <--> | Latin `Latn`  |
@@ -127,7 +127,7 @@ Transliterate yöntemi aşağıdaki dilleri desteklemektedir. İçinde "içine/d
 | Sırpça (Latin) | `sr-Latn` | Latin `Latn` | --> | Kiril `Cyrl`|
 | Tamil dili | `ta` | Tamil dili `Taml` | --> | Latin `Latn` |
 | Telugu dili | `te` | Telugu dili `Telu` | --> | Latin `Latn` |
-| Tay Dili | `th` | Tay dili `Thai` | <--> | Latin `Latn` |
+| Tay Dili | `th` | Tay Dili `Thai` | <--> | Latin `Latn` |
 
 ## <a name="dictionary"></a>Sözlük
 
@@ -268,7 +268,7 @@ Dilleri yöntemiyle Translator Text API v3.0 desteklenen dillerin listesini alab
 
 ## <a name="customization"></a>Özelleştirme
 
-Özelleştirme için veya İngilizce kullanarak aşağıdaki dillerde kullanılabilir [özel Translator](http://aka.ms/CustomTranslator).
+Özelleştirme için veya İngilizce kullanarak aşağıdaki dillerde kullanılabilir [özel Translator](https://aka.ms/CustomTranslator).
 
 | Dil    | Dil kodu |
 |:----------- |:-------------:|

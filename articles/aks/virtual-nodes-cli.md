@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 841e00825b243d883303121022918efd51397f04
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 54c8e44685bb69e845c819b0c2846b188a771d71
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757428"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878239"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Önizleme - oluşturma ve Azure CLI kullanarak sanal düğümü kullanmak için Azure Kubernetes Hizmetleri (AKS) kümesini yapılandırın
 
@@ -47,7 +47,7 @@ Sağlayıcı olarak gösteriliyorsa *NotRegistered*, kullanarak sağlayıcısın
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability-limitations"></a>Bölgesel kullanılabilirlik sınırlamaları
+## <a name="regional-availability"></a>Bölgesel kullanılabilirlik
 
 Aşağıdaki bölgelerde sanal düğüm dağıtımları için desteklenir:
 
@@ -162,13 +162,7 @@ az aks create \
 
 Birkaç dakika sonra komut tamamlanır ve küme hakkında JSON tarafından biçimlendirilmiş bilgiler gösterilir.
 
-## <a name="enable-virtual-nodes"></a>Sanal düğümler etkinleştir
-
-Ek işlevsellik sağlamak için bir Azure CLI uzantısı sanal düğümü Bağlayıcısı'nı kullanır. Sanal düğümler Bağlayıcısı'nı etkinleştirmeden önce ilk uzantısını kullanarak yükleme [az uzantısı ekleme] [ az-extension-add] komutu:
-
-```azurecli-interactive
-az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
-```
+## <a name="enable-virtual-nodes-addon"></a>Sanal düğümler eklentisini etkinleştir
 
 Sanal düğümler etkinleştirmek için artık kullanın [az aks enable-addons] [ az-aks-enable-addons] komutu. Aşağıdaki örnekte adlı alt *myVirtualNodeSubnet* bir önceki adımda oluşturduğunuz:
 
@@ -179,6 +173,11 @@ az aks enable-addons \
     --addons virtual-node \
     --subnet-name myVirtualNodeSubnet
 ```
+> [!NOTE]
+> Sanal bulunamamasından düğümlü hakkında bir hata alırsanız, CLI uzantısını yüklemeniz gerekebilir 
+> ```azurecli-interactive
+> az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
+> ```
 
 ## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
 

@@ -3,20 +3,20 @@ title: Azure Data Lake depolama Gen1 için olağanüstü durum kurtarma Kılavuz
 description: Azure Data Lake depolama Gen1 için olağanüstü durum kurtarma Kılavuzu
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 44c1dc3e3f6c2c9af52a6e9c9320d4a8ba63b4d0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: twooley
+ms.openlocfilehash: b3f1888a73baf2b7f9efa9f5e7cdb3305aa9f90d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127117"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878120"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 veriler için olağanüstü durum kurtarma Kılavuzu
 
@@ -25,8 +25,8 @@ Azure Data Lake depolama Gen1 yerel olarak yedekli depolama (LRS) sağlar. Bu ne
 ## <a name="disaster-recovery-guidance"></a>Olağanüstü durum kurtarma kılavuzu
 Her müşterinin kendi olağanüstü durum kurtarma planını hazırlaması kritik öneme sahiptir. Olağanüstü durum kurtarma planınızı oluşturmak için bu makaledeki bilgileri okuyun. Kendi planınızı oluşturmanıza yardımcı olabilecek bazı kaynaklar aşağıda verilmiştir.
 
-* [Azure uygulamaları için olağanüstü durum kurtarma ve yüksek kullanılabilirlik](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
-* [Azure dayanıklılık teknik kılavuzu](../resiliency/resiliency-technical-guidance.md)
+* [Olağanüstü durum kurtarma ve Azure uygulamaları için yüksek kullanılabilirlik](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
+* [Azure dayanıklılık teknik Kılavuzu](../resiliency/resiliency-technical-guidance.md)
 
 ### <a name="best-practices"></a>En iyi uygulamalar
 Kritik verilerinizi başka bir bölgede başka bir Data Lake depolama Gen1 hesabına ile olağanüstü durum kurtarma planınızın gereksinimlerine uygun bir sıklıkta kopyalamanız önerilir. Verileri kopyalamak için [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) veya [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) dahil olmak üzere çeşitli yöntemler mevcuttur. Azure Data Factory, yinelenen bir düzende veri taşıma işlem hatları oluşturmak ve dağıtmak için kullanışlı bir hizmettir.
@@ -43,5 +43,5 @@ Kuruluşlar da etkinleştirebilir [tanılama günlüğüne kaydetme](data-lake-s
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Data Lake depolama Gen1 ile çalışmaya başlama](data-lake-store-get-started-portal.md)
-* [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
+* [Data Lake depolama Gen1 verileri güvenli hale getirme](data-lake-store-secure-data.md)
 

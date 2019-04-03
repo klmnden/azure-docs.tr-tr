@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2019
 ms.author: bwren
-ms.openlocfilehash: 3557aa4236904a3654d40337e391fbcaa5486894
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 8f645f7d569546a8362d0149806a2b4636567fd0
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430776"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848001"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure İzleyici adlandırma ve terminoloji değişiklikleri
 Önemli değişiklikler için Azure İzleyici kısa bir süre önce Azure müşterileri için izlemeyi basitleştirmek için birleştirilmiş farklı hizmetlerle yapıldı. Bu makalede, en son adı ve Azure İzleyici belgeleri terminolojisi değişiklikleri açıklar.
@@ -26,7 +26,7 @@ ms.locfileid: "56430776"
 Azure İzleyici farklı hizmetler birleştirme sonra sizi daha iyi Azure İzleyici hizmeti ve farklı bileşenlerini açıklamak için belgelerimize terminolojisinde değiştirerek sonraki adıma yönlendiriyoruz. 
 
 ### <a name="log-analytics"></a>Log Analytics
-Azure İzleyici günlük veri olmasına rağmen bir Log Analytics çalışma alanında depolanan ve yine de toplanır ve aynı Log Analytics hizmeti tarafından çözümlenen ancak biz terimi değiştirme _Log Analytics_ için birçok yerde _Azure İzleyicisi_ . Bu terim daha iyi Azure İzleyici'de, rolü yansıtır ve daha iyi tutarlılık sağlar [Azure İzleyicisi'nde ölçümler](platform/data-collection.md).
+Azure İzleyici günlük veri olmasına rağmen bir Log Analytics çalışma alanında depolanan ve yine de toplanır ve aynı Log Analytics hizmeti tarafından çözümlenen ancak biz terimi değiştirme _Log Analytics_ için birçok yerde _Azure İzleyicisi_ . Bu terim daha iyi Azure İzleyici'de, rolü yansıtır ve daha iyi tutarlılık sağlar [Azure İzleyicisi'nde ölçümler](platform/data-platform-metrics.md).
 
 Terim _günlük analizi_ yazma ve sorgular çalıştırma ve günlük verilerini analiz etmek için kullanılan Azure portalının sayfası artık öncelikli olarak uygulanır. Bu işlev eşdeğerdir [ölçüm Gezgini](platform/metrics-charts.md), ölçüm verilerini analiz etmek için kullanılan Azure portal sayfasındaki olduğu.
 

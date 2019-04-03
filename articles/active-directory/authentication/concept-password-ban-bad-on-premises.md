@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9cd9f6112cbca78b323e0a14818b06f891a3f673
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479538"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862896"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Windows Server Active Directory için Azure AD parola koruması zorlama
 
@@ -83,16 +83,6 @@ Azure AD parola koruması gerçek zamanlı ilke uygulama altyapısı değildir. 
 Azure AD parola koruması bir Active Directory ormanındaki dağıtımını söz konusu ormanın Azure AD ile kayıt gerektirir. Dağıtılan her bir proxy hizmeti ayrıca Azure AD ile kayıtlı olması gerekir. Bu orman ve proxy kayıtları belirli bir ile ilişkili kayıt sırasında kullanılan kimlik bilgileri tarafından örtük olarak tanımlandığında, Azure AD kiracısına.
 
 Active Directory ormanı ve bir orman içindeki tüm dağıtılan proxy Hizmetleri ile aynı kiracıda kayıtlı olması gerekir. Farklı Azure AD'ye kayıtlı orman Kiracı, bir Active Directory orman ya da tüm proxy hizmetleri için desteklenmiyor. Yanlış yapılandırılmış bir dağıtım belirtileri parola ilkelerini karşıdan yükleyebilir yeteneğinin içerir.
-
-## <a name="license-requirements"></a>Lisans gereksinimleri
-
-Genel yasaklı parola listesi avantajları, Azure ad tüm kullanıcılar için geçerlidir.
-
-Özel yasaklanmış parola liste Azure AD temel lisansı gerektirir.
-
-Azure AD parola koruması için Windows Server Active Directory, Azure AD Premium lisansı gerektirir.
-
-Ek lisans bilgileri için bkz. [Azure Active Directory fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="download"></a>İndirme
 

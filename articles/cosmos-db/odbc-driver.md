@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 95811459ff51b71153fb5ceef804a64c8b6a9be6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a4cf3a9c19497057d7799be3bec78ad0de97e71a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816637"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851064"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC sürücüsü ile BI analizi araçları kullanarak Azure Cosmos DB'ye bağlanma
 
@@ -97,7 +97,7 @@ Kullanabileceğiniz örnekleme yöntemleri iki tür vardır: **koleksiyon eşlem
 
 1. Şemasını tanımlamak tamamladıktan sonra tıklayın **dosya** | **Kaydet**şemayı kaydetmek için dizine gidin ve ardından **Kaydet**.
 
-    Gelecekte bu şema DSN ile kullanmak istiyorsanız, Azure Cosmos DB ODBC sürücüsü DSN Kurulum penceresi (aracılığıyla ODBC Veri Kaynağı Yöneticisi) açın, Gelişmiş Seçenekler'i ve ardından kaydedilen şemaya şema dosyası kutusuna gidin. Var olan bir DSN bir şema dosyası kaydetme veri ve şema tarafından tanımlanan yapısına kapsamına DSN bağlantı değiştirir.
+1. Bu şema DSN ile kullanmak için açık **Azure Cosmos DB ODBC sürücüsü DSN Kurulum penceresi** tıklayın (ODBC Veri Kaynağı Yöneticisi aracılığıyla), **Gelişmiş Seçenekler**ve ardından **şemadosyası** kutusunda, kaydedilmiş şemaya gidin. Var olan bir DSN bir şema dosyası kaydetme veri ve şema tarafından tanımlanan yapısına kapsamına DSN bağlantı değiştirir.
 
 ## <a id="table-mapping"></a>4. adım: Tablo sınırlayıcı kullanarak bir şema tanımı oluşturma yöntemi eşleme
 

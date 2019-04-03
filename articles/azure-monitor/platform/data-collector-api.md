@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: 7942b4eb5788357a807911d3eb89d1054a92c3eb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f3ee9b7aa595ae07bb97a8513bc0b751e94d7cc9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449368"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883947"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Azure İzleyici HTTP veri toplayıcı API'sini (genel Önizleme) ile günlük verileri gönderin
 Bu makalede günlük verilerini Azure İzleyici için bir REST API istemcisinden göndermek için HTTP veri toplayıcı API'sini kullanmayı gösterir.  Bu betik ya da uygulama tarafından toplanan verileri biçimlendirme, bir isteğe ekleyin ve bu isteği Azure İzleyici tarafından yetkilendirilmiş olması açıklar.  PowerShell, C# ve Python için örnek verilmiştir.
@@ -166,6 +166,11 @@ Ancak, ardından bu sonraki gönderim yaptıysanız, Azure İzleyici'yeni özell
 Kayıt türü oluşturulmadan önce şu girişi, ardından gönderdiyseniz, Azure İzleyici üç özellik bir kayıt oluşturacak **başarı sayısı**, **boolean_s**, ve **string_s**. Bu girdiye her ilk değeri bir dize olarak biçimlendirilmiş:
 
 ![Örnek kayıt 4](media/data-collector-api/record-04.png)
+
+## <a name="reserved-properties"></a>Ayrılmış Özellikler
+Aşağıdaki özellikler ayrılmış ve bir özel kayıt türü kullanılmamalıdır. Bu özellik adlarının herhangi yükünüzü içeriyorsa bir hata alırsınız.
+
+- kiracı
 
 ## <a name="data-limits"></a>Veri sınırları
 Azure İzleyicisi veri koleksiyonu API'sini için gönderilen veriler etrafında bazı kısıtlamalar vardır.

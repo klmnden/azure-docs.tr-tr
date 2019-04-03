@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3c2567564e015ef19adf9f8c776e1f377a9cdf30
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 187e40716bc55f71623ef758722eb58d27651d4d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133068"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882513"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>"Bilişsel arama" Azure Search nedir?
 
@@ -38,7 +38,7 @@ Doğal dil ile görüntü işleme uygulanır veri alımı aşaması sırasında 
 
 ## <a name="components-of-cognitive-search"></a>Bilişsel arama bileşenleri
 
-Bilişsel arama, bir önizleme özelliğidir [Azure Search](search-what-is-azure-search.md), desteklenen [Bu bölgeler](#where-do-i-start). 
+Bilişsel arama, bir önizleme özelliğidir [Azure Search](search-what-is-azure-search.md).
 
 Bilişsel arama işlem hattı dayanır [Azure Search *dizin oluşturucular* ](search-indexer-overview.md) gezinme veri kaynakları ve uçtan uca dizin işleme sağlar. Becerileri, artık kesintiye dizin oluşturucular için bağlı olan ve belgeleri becerilerine göre zenginleştirilmesi tanımlayın. Dizine sonra içerik arama istekleri aracılığıyla tüm erişebileceğiniz [sorgu türü Azure arama tarafından desteklenen](search-query-overview.md).  Dizin oluşturucular için yeni başladıysanız, bu bölümdeki adımlarda size yol gösterir.
 
@@ -92,23 +92,23 @@ Dizinler, alanların özniteliklerini tanımlayan bir dizin şemasını oluştur
 
 ## <a name="where-do-i-start"></a>Nereden başlamalıyım?
 
-**1. adım: [Bir Azure Search kaynağı oluşturun](search-create-service-portal.md)** 
+**1. Adım: [Bir Azure Search kaynağı oluşturun](search-create-service-portal.md)** 
 
-**2. adım: Bazı hızlı başlangıç kılavuzlarımız ve örnekler için uygulamalı deneyim deneyin**
+**2. Adım: Bazı hızlı başlangıç kılavuzlarımız ve örnekler için uygulamalı deneyim deneyin**
 
 + [Hızlı Başlangıç (portal)](cognitive-search-quickstart-blob.md)
 + [Öğretici (HTTP istek)](cognitive-search-tutorial-blob.md)
 + [Örnek özel becerileri (C#)](cognitive-search-create-custom-skill-example.md)
 
-**3. adım: Gözden geçirme (yalnızca REST) API'si**
+**3. Adım: Gözden geçirme (yalnızca REST) API'si**
 
 Şu anda yalnızca REST API'leri de sağlanır. Kullanım `api-version=2017-11-11-Preview` tüm isteklerde. Bilişsel arama çözümü oluşturmak için aşağıdaki API'leri kullanın. Yalnızca iki API eklendiğinde veya bilişsel arama için genişletilmiş. Diğer API'leri genel kullanıma sunulan sürümleri aynı söz dizimini sahip.
 
 | REST API | Açıklama |
 |-----|-------------|
-| [Veri Kaynağı Oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Zenginleştirilmiş belgeleri oluşturmak için kullanılan kaynak verileri sağlayan bir dış veri kaynağı tanımlayan bir kaynaktır.  |
+| [Veri kaynağı oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Zenginleştirilmiş belgeleri oluşturmak için kullanılan kaynak verileri sağlayan bir dış veri kaynağı tanımlayan bir kaynaktır.  |
 | [Beceri kümesi oluşturma (API Sürüm 2017-11-11-Preview =)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Bir kaynak kullanımını koordine [önceden tanımlanmış beceriler](cognitive-search-predefined-skills.md) ve [özel bilişsel beceriler](cognitive-search-custom-skill-interface.md) dizin oluşturma sırasında bir zenginleştirme hattında kullanılan. |
-| [Dizin oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Azure Search dizini ifade şema. Kaynak veri alanları veya alanları (örneğin, bir alan için kuruluş adlarını varlık tanıma tarafından oluşturulan) zenginleştirme aşaması sırasında üretilen dizin alanları eşleyin. |
+| [Dizin Oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Azure Search dizini ifade şema. Kaynak veri alanları veya alanları (örneğin, bir alan için kuruluş adlarını varlık tanıma tarafından oluşturulan) zenginleştirme aşaması sırasında üretilen dizin alanları eşleyin. |
 | [Dizin Oluşturucu Oluşturma (API Sürüm 2017-11-11-Preview =)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Bir kaynak dizin oluşturma sırasında kullanılan bileşenleri tanımlama: bir veri kaynağı, bir beceri kümesi, kaynak ve aracı veri yapılarını alan ilişkilendirme hedef dizin ve dizin de dahil olmak üzere. Dizin Oluşturucu veri alımı ve zenginleştirme tetikleyicisi çalışıyor. Çıkış bir arama topluluğunuza uzmanlık becerileri ile zenginleştirilmiş kaynak verilerle doldurulmuş dizin şemasını temel alınır.  |
 
 **Denetim listesi: Tipik bir iş akışı**

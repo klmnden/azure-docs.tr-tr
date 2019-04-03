@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 65f9b392f3ae57c1eaad7454434b4870954f36f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 82e31c498c6148454a5790a6eb4b82e3a2300a92
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085108"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847058"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Adafruit Feather HUZZAH ESP8266 bulutta Azure IOT hub'a bağlanma
 
@@ -168,10 +168,10 @@ Bu bölümde, dağıtın ve Feather HUZZAH ESP8266 hakkında bir örnek uygulama
 
 9. İçinde **kullanıcı ayarları** penceresinde, aşağıdaki dosya sonunda kopyalayıp
 
-   ```
+   ```json
    "arduino.additionalUrls": "http://arduino.esp8266.com/stable/package_esp8266com_index.json"
    ```
-   
+
    ![VS Code'da Arduino paket URL'si yapılandırın](media/iot-hub-arduino-huzzah-esp8266-get-started/12_vscode-package-url.png)
 
 10. Dosyayı kaydedin ve kapatın **kullanıcı ayarları** sekmesi.
@@ -213,7 +213,7 @@ Bu bölümde, dağıtın ve Feather HUZZAH ESP8266 hakkında bir örnek uygulama
    ```c
    define SIMULATED_DATA true
    ```
-   
+
    ![Sanal veri kullanmak için örnek uygulamayı yapılandırma](media/iot-hub-arduino-huzzah-esp8266-get-started/15_vscode-configure-app-use-simulated-data.png)
 
 3. Dosyayı kaydedin.
@@ -251,8 +251,14 @@ Feather HUZZAH ESP8266 üzerinde aşağıdaki çıktıyı seri İzleme penceresi
 
 ![Arduino IDE içindeki son çıkış](media/iot-hub-arduino-huzzah-esp8266-get-started/16_arduino-ide-final-output.png)
 
+## <a name="read-the-messages-received-by-your-hub"></a>Hub'ınıza tarafından alınan iletileri okuma
+
+Cihazınızdan IOT hub tarafından alınan iletileri izlemeye yönelik bir yolu, Visual Studio Code için Azure IOT araçları kullanmaktır. Daha fazla bilgi için bkz. [göndermek ve IOT Hub ve cihaz arasında iletileri almak Visual Studio Code için Azure IOT Araçları](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+
+Cihazınız tarafından gönderilen verileri işlemek daha fazla yolu için açın sonraki bölüme devam edin.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Başarıyla Feather HUZZAH ESP8266 IOT hub'ınıza bağlanan ve yakalanan sensör verilerini IOT hub'ına gönderilen. 
+Başarıyla Feather HUZZAH ESP8266 IOT hub'ınıza bağlanan ve yakalanan sensör verilerini IOT hub'ına gönderilen.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

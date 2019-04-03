@@ -5,20 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.openlocfilehash: 40b31f166ea97cfce67d3cc386062e32338ffd45
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.date: 04/01/2019
+ms.openlocfilehash: f340f1e42b6993a1f834ab05570c669d4241222b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455526"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847176"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>PostgreSQL için Azure Veritabanı’nda okuma amaçlı çoğaltmalar
 
 Okuma çoğaltması özelliği salt okunur bir sunucuya bir PostgreSQL sunucusu için Azure veritabanı'ndan veri çoğaltmanıza olanak sağlar. Ana sunucu ile aynı Azure bölgesindeki en fazla beş çoğaltmalarına çoğaltabilirsiniz. Çoğaltmalar, PostgreSQL altyapısı yerel çoğaltma teknolojisiyle zaman uyumsuz olarak güncelleştirilir.
-
-> [!IMPORTANT]
-> Salt okunur çoğaltma özelliği genel Önizleme aşamasındadır.
 
 Çoğaltmalar, PostgreSQL sunucuları için benzer normal için Azure veritabanı'nı yönetme yeni sunucularıdır. Her yineleme okumak için sanal Çekirdeklerde sağlanan işlem ve depolama GB için faturalandırılırsınız / ay.
 

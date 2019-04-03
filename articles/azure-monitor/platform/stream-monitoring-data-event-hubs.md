@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 549ec74514ff03e06ff25893d3fa865f179470e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ab439eb77113c53ab046256dd8d448a18b63f887
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870695"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850078"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure harici bir aracı tarafından veri tüketimi için olay hub'ına izleme
 
@@ -70,10 +70,10 @@ Bir Event Hubs ad alanına Azure etkinlik günlüğünde veri göndermek için a
 ## <a name="azure-resource-metrics-and-diagnostics-logs"></a>Azure kaynak ölçümleri ve tanılama günlükleri
 
 Azure kaynaklarını izleme verilerinin iki tür göstermiyor:
-1. [Kaynak tanılama günlükleri](./../../azure-monitor/platform/diagnostic-logs-overview.md)
-2. [Ölçümler](../../azure-monitor/platform/data-collection.md)
+1. [Kaynak tanılama günlükleri](diagnostic-logs-overview.md)
+2. [Ölçümler](data-platform.md)
 
-Her iki tür veri kaynak tanılama ayarı kullanarak bir olay hub'ına gönderilir. [Bu kılavuzu izleyerek](./../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) kaynak tanılama ayarı belirli bir kaynak üzerinde ayarlamak için. Kaynak tanılama ayarı günlükleri toplamak istediğiniz her kaynaktan üzerinde ayarlayın.
+Her iki tür veri kaynak tanılama ayarı kullanarak bir olay hub'ına gönderilir. [Bu kılavuzu izleyerek](diagnostic-logs-stream-event-hubs.md) kaynak tanılama ayarı belirli bir kaynak üzerinde ayarlamak için. Kaynak tanılama ayarı günlükleri toplamak istediğiniz her kaynaktan üzerinde ayarlayın.
 
 > [!TIP]
 > Azure İlkesi belirli bir kapsamdaki tüm kaynakların her zaman bir tanılama ayarı ile kurulduğundan emin olmak için kullanabileceğiniz [Deployıfnotexists etkisi ilke kuralında kullanarak](../../governance/policy/concepts/definition-structure.md#policy-rule).

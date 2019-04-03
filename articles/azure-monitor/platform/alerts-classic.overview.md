@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 3b6ddd99d7b198cdc5274b2944a723e68864bd4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d91e12de075ee6efebe39fd5ab582d4998046f9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993033"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847863"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft azure'da Klasik uyarılar nedir?
 
@@ -88,14 +88,14 @@ Web kancaları otomasyon ve düzeltme, örneğin, kullanarak sağlar:
 ## <a name="next-steps"></a>Sonraki adımlar
 Uyarı kuralları ve bunları kullanarak yapılandırma hakkında bilgi alın:
 
-* Daha fazla bilgi edinin [ölçümleri](../../azure-monitor/platform/data-collection.md)
+* Daha fazla bilgi edinin [ölçümleri](data-platform.md)
 * Yapılandırma [Azure portalında Klasik ölçüm uyarıları](alerts-classic-portal.md)
 * Yapılandırma [Klasik ölçüm uyarılarını PowerShell](alerts-classic-portal.md)
 * Yapılandırma [Klasik ölçüm uyarılarını komut satırı arabirimi (CLI)](alerts-classic-portal.md)
 * Yapılandırma [Klasik ölçüm uyarılarını Azure İzleyici REST API'si](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* Daha fazla bilgi edinin [etkinlik günlüğü](../../azure-monitor/platform/activity-logs-overview.md)
-* Yapılandırma [Azure portal aracılığıyla etkinlik günlüğü uyarıları](../../azure-monitor/platform/activity-log-alerts.md)
+* Daha fazla bilgi edinin [etkinlik günlüğü](activity-logs-overview.md)
+* Yapılandırma [Azure portal aracılığıyla etkinlik günlüğü uyarıları](activity-log-alerts.md)
 * Yapılandırma [etkinlik günlüğü uyarıları Resource Manager aracılığıyla](alerts-activity-log.md)
-* Gözden geçirme [etkinlik günlüğü uyarısı Web kancası şeması](../../azure-monitor/platform/activity-log-alerts-webhook.md)
-* Daha fazla bilgi edinin [Eylem grupları](../../azure-monitor/platform/action-groups.md)
-* Yapılandırma [yeni uyarılar](../../azure-monitor/platform/alerts-metric.md)
+* Gözden geçirme [etkinlik günlüğü uyarısı Web kancası şeması](activity-log-alerts-webhook.md)
+* Daha fazla bilgi edinin [Eylem grupları](action-groups.md)
+* Yapılandırma [yeni uyarılar](alerts-metric.md)

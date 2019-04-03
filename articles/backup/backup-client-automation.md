@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: pvrk
-ms.openlocfilehash: 1025f358df5e19d7be22b3a26d671ded9f2393b9
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: c2f6d8262d47a537667ef7b25333a3beff425bbe
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802640"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878698"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell kullanarak Windows Server/Windows İstemcisi için Azure’a yedekleme dağıtma ve yönetme
 
@@ -88,7 +88,7 @@ Azure Backup aracısını yüklemeden önce Windows Server yükleyici, indirilen
 Alternatif olarak, yükleyici almak için PowerShell kullanın:
  
  ```powershell
- $MarsAURL = 'Http://Aka.Ms/Azurebackup_Agent'
+ $MarsAURL = 'https://aka.ms/Azurebackup_Agent'
  $WC = New-Object System.Net.WebClient
  $WC.DownloadFile($MarsAURL,'C:\downloads\MARSAgentInstaller.EXE')
  C:\Downloads\MARSAgentInstaller.EXE /q

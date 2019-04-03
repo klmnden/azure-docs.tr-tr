@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 64a7a52d39fcac87bdc49b9d36e80d453557bc5b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002282"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850680"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana, Azure hizmetlerinizi izleyin
 Artık Azure Hizmetleri ve uygulamaları izleyebilirsiniz [Grafana](https://grafana.com/) kullanarak [Azure İzleyicisi veri kaynağı eklentisi](https://grafana.com/plugins/grafana-azure-monitor-datasource). Eklenti çeşitli günlükleri ve ölçümler de dahil olmak üzere Azure İzleyici tarafından toplanan uygulama performansı verileri toplar. Grafana Panonuzda daha sonra bu verileri görüntüleyebilirsiniz.
@@ -47,7 +47,7 @@ Bir yerel Grafana sunucusu kurmak için [Grafana yerel ortamınızda yükleyip](
 
 7. Grafana sunucunuzun genel IP adresini alma - kaynaklarının ve seçim listesine geri dönün **genel IP adresi**.
 
-## <a name="log-in-to-grafana"></a>Grafana için oturum açın
+## <a name="sign-in-to-grafana"></a>Grafana için oturum açın
 
 1. Sunucunuzun IP adresini kullanarak açın oturum açma sayfasına *http://\<IP adresi\>: 3000* veya  *\<DNSName >\:3000* tarayıcınızda. Varsayılan bağlantı noktası 3000 olsa da, Kurulum sırasında farklı bir bağlantı noktası seçmiş olabilirsiniz unutmayın. Derlediğiniz Grafana sunucusu için bir oturum açma sayfası görmeniz gerekir.
 
@@ -167,5 +167,5 @@ Kurulum Grafana ortamı Azure'da belirttiyseniz, VM'ler, bunları veya kullanıp
 2. Kaynak grubu sayfanızda tıklayın **Sil**, türü **Grafana** metin kutusuna ve ardından **Sil**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure İzleyici ölçümlerine genel bakış](../../azure-monitor/platform/data-collection.md)
+* [Azure İzleyici ölçümlerine genel bakış](data-platform.md)
 

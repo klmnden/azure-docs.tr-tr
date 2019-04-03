@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 16c8444bdf91caf9da6f9625485090d09058ba52
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 66bda68b1313a7c172e273671bc3a03503d08e0d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522834"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876589"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Hızlı Başlangıç: Python kullanarak metin okuma seslerini'nın listesini alın
 
@@ -82,7 +82,7 @@ def get_token(self):
 
 Burada, derleme isteği ve döndürülen seslerle listesine kaydetmek için yedekleyeceksiniz. İlk olarak, ayarlanacak ihtiyacınız `base_url` ve `path`. Bu örnek, Batı ABD uç nokta kullanmakta olduğunuz varsayılır. Kaynağınız için farklı bir bölgede kayıtlı değilse, güncelleştirdiğinizden emin olun `base_url`. Daha fazla bilgi için [konuşma Hizmetleri bölgeleri](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Ardından, istek için gerekli üst bilgileri ekleyin. Son olarak, hizmete istek yapacaksınız. İstek başarılı olur ve 200 durum kodu döndürülmesine ise konuşma yanıt zaman damgalı bir dosyaya yazılır.
+Ardından, istek için gerekli üst bilgileri ekleyin. Son olarak, hizmete istek yapacaksınız. İstek başarılı olur ve 200 durum kodu döndürülmesine ise yanıt dosyasına yazılır.
 
 Bu kodu kopyalayın `GetVoices` sınıfı:
 
@@ -135,6 +135,6 @@ Abonelik anahtarları gibi örnek uygulamanızın kaynak kodundan olan gizli bil
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Metin Okuma API başvurusu](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
+* [Metin okuma API başvurusu](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Özel ses tipi olarak oluşturma](how-to-customize-voice-font.md)
 * [Özel ses oluşturma kayıt ses örnekleri](record-custom-voice-samples.md)

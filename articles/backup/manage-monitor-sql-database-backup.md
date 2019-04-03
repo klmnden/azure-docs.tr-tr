@@ -8,15 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: 500986478e554a3a114d11ee4b25ea40b5decd97
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ea5495867d5f453db014e000e01d533d049dc628
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004123"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849586"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Yönetme ve İzleme SQL Server veritabanlarını desteklenir
-
 
 Tarafından kasası yönetme ve izleme, yedeklenir bir Azure Backup kurtarma Hizmetleri ve bir Azure sanal makine (VM) üzerinde çalışan SQL Server veritabanları için bu makalede, ortak görevler açıklanmaktadır. [Azure Backup](backup-overview.md) hizmeti. İşlerini ve Uyarıları izleme, durdurun ve veritabanını korumayı sürdürmek, yedekleme işlerinin çalıştırılması ve bir sanal makine yedeklemelerinden kaydını öğreneceksiniz.
 
@@ -113,6 +112,7 @@ Farklı türde isteğe bağlı yedeklemeler çalıştırabilirsiniz:
 * Değişiklik yedeği
 * Günlük yedekleme
 
+Yalnızca kopya tam yedekleme bekletme süresini belirtmek düzeltmeniz gerekirken, diğer yedekleme türleri için bekletme aralığı geçerli saatten 30 gün için otomatik olarak ayarlanır. <br/>
 Daha fazla bilgi için [SQL Server Yedekleme türleri](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>SQL Server örneği kaydı

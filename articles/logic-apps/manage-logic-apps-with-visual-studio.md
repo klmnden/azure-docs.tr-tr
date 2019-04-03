@@ -1,26 +1,25 @@
 ---
-title: Visual Studio - Azure Logic Apps ile mantıksal uygulamaları yönetme | Microsoft Docs
+title: Visual Studio - Azure Logic Apps ile mantıksal uygulamaları yönetme
 description: Logic apps ve diğer Azure varlıklarınızdan Visual Studio Cloud Explorer ile yönetme
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 03/15/2018
-ms.openlocfilehash: f3a9a1cb7a5829c7c824f9aa61d5f4976a533f4a
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.date: 04/02/2019
+ms.openlocfilehash: 9654caca5fd4b1f79544ea7303a5d3fff72d22f8
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519740"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862752"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Visual Studio ile mantıksal uygulamaları yönetme
 
-Oluşturabilirseniz de düzenleme, yönetme ve logic apps'te dağıtma <a href="https://portal.azure.com" target="_blank">Azure portalında</a>, logic apps kaynak denetimi, farklı sürümler yayımlayabilir ve oluşturmak için eklemek istediğiniz zaman Visual Studio'yu da kullanabilirsiniz [Azure kaynağı Yöneticisi](../azure-resource-manager/resource-group-overview.md) farklı dağıtım ortamları için şablonlar. Visual Studio Cloud Explorer ile bulun ve diğer Azure kaynakları ile birlikte mantıksal uygulamalarınızı yönetin. Örneğin, açın, indirme, düzenleme, çalıştırma, çalıştırma geçmişi, devre dışı bırakma ve zaten dağıtılmış olan etkinleştirme logic apps, Azure portalında görüntülemek. Visual Studio'da Azure Logic Apps ile çalışmaya yeni başladıysanız, bilgi [Visual Studio ile mantıksal uygulamalar oluşturmak nasıl](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+Oluşturabilirseniz de düzenleme, yönetme ve logic apps'te dağıtma <a href="https://portal.azure.com" target="_blank">Azure portalında</a>, kaynak denetimi, farklı sürümler yayımlayabilir ve oluşturmak için logic apps eklemek istediğiniz zaman Visual Studio'yu da kullanabilirsiniz [Azure Kaynak Yöneticisi'ni](../azure-resource-manager/resource-group-overview.md) çeşitli dağıtım ortamları için şablonlar. Visual Studio Cloud Explorer ile bulun ve diğer Azure kaynakları ile birlikte mantıksal uygulamalarınızı yönetin. Örneğin, açın, indirme, düzenleme, çalıştırma, çalıştırma geçmişi, devre dışı bırakma ve zaten dağıtılmış olan etkinleştirme logic apps, Azure portalında görüntülemek. Visual Studio'da Azure Logic Apps ile çalışmaya yeni başladıysanız, bilgi [Visual Studio ile mantıksal uygulamalar oluşturmak nasıl](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 > [!IMPORTANT]
 > Azure Portalı'nda, uygulama sürümü, dağıtma veya Visual Studio'dan bir mantıksal uygulama yayımlama üzerine yazar. Tutmak istediğiniz Azure portalında değişiklik yaparsanız, bu nedenle emin olun, [mantıksal uygulamayı Visual Studio'da yenileme](#refresh) dağıtın veya Visual Studio'dan yayımlama sonraki süreden önce Azure portalından.
@@ -33,22 +32,32 @@ Oluşturabilirseniz de düzenleme, yönetme ve logic apps'te dağıtma <a href="
 
 * Henüz yoksa şu araçları indirip yükleyin: 
 
-  * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 veya Visual Studio 2015 - Community sürümü veya üzeri</a>. 
+  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 veya 2015 - Community sürümü veya üzeri</a>. 
   Bu hızlı başlangıçta ücretsiz olan Visual Studio Community 2017 kullanılmaktadır.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 veya sonrası)</a> ve <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+    > [!IMPORTANT]
+    > Visual Studio 2019 veya 2017'yi yüklediğinizde, seçtiğinizden emin olun **Azure geliştirme** iş yükü.
+    > Daha fazla bilgi için [şekilde Azure hesaplarınızı Visual Studio Cloud Explorer ile ilişkili kaynakları yönetme](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
+    >
+    > Visual Studio 2019, Cloud Explorer Azure portalında mantıksal Uygulama Tasarımcısı açabilirsiniz, ancak henüz ekli mantıksal Uygulama Tasarımcısı açılamıyor.
 
-  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Visual Studio 2017 için Azure Logic Apps Araçları</a> veya <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015 sürümü</a> 
-  
+    Visual Studio 2015 için cloud Explorer'ı yüklemek için [Cloud Explorer'ı Visual Studio Market'ten indir](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
+    Daha fazla bilgi için [Azure hesaplarınızı Visual Studio Cloud Explorer (2015) ile ilişkili kaynakları yönetme](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
+
+  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 veya sonrası)</a> 
+
+  * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+
+  * Azure Logic Apps araçları istediğiniz Visual Studio sürümü için:
+
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
+    
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
+    
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
+
     Azure Logic Apps Araçlarını doğrudan Visual Studio Market’ten indirip yükleyebilir veya <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">bu uzantıyı Visual Studio’nun içinden yükleme</a> hakkında bilgi edinebilirsiniz. 
     Yükleme işlemini tamamladıktan sonra Visual Studio’yu yeniden başlattığınızdan emin olun.
-
-* Visual Studio 2017 veya Visual Studio 2015 için cloud Explorer
-
-  * Visual Studio 2017 için Visual Studio Yükleyicisi'ni çalıştırın ve yükleme **Azure iş yükü**. Daha fazla bilgi için [Visual Studio bulut Gezgini'nde, Azure accuonts ilişkili kaynakları yönetme](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2017).
-
-  * Visual Studio 2015 için [Cloud Explorer'ı Visual Studio Market'ten indir](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
-  Daha fazla bilgi için [Azure hesaplarınızı Visual Studio Cloud Explorer (2015) ile ilişkili kaynakları yönetme](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
 
 * Katıştırılmış Logic Apps Tasarımcısı kullanılırken web erişimi
 
@@ -184,8 +193,9 @@ Azure portalında Cloud Explorer, mantıksal uygulamanızı silmek için mantık
 
 Logic Apps Tasarımcısı'nda mantıksal uygulama projenizin açtığınızda, Azure aboneliğinizi seçmek için seçenek alamayabilirsiniz. Bunun yerine, mantıksal uygulamanızı kullanmak istediğiniz bir tane değil bir Azure aboneliği ile açılır. Bir mantıksal uygulama .json dosyasını açın, sonra Visual Studio'yu ilk seçili abonelik gelecekte kullanım için ön belleğe aldığından, bu davranış gerçekleşir. Bu sorunu çözmek için aşağıdaki adımlardan birini deneyin:
 
-* Mantıksal uygulama .json dosyasını yeniden adlandırın. Abonelik önbellek dosyası adına bağlıdır. 
-* Daha önce seçilen abonelikleri için kaldırmak için *tüm* logic apps'te, çözümünüzün Sil *gizli* .vs klasöründeki çözümünüzün dizin. Bu konum abonelik bilgilerinizi depolar. 
+* Mantıksal uygulama .json dosyasını yeniden adlandırın. Abonelik önbellek dosyası adına bağlıdır.
+
+* Daha önce seçilen abonelikleri için kaldırmak için *tüm* logic apps, çözümünüz içinde gizli Visual Studio ayarları klasöründe (.vs) çözümünüzün dizini silin. Bu konum abonelik bilgilerinizi depolar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

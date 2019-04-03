@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 06ee97cff08804093d3ee77ee11eca1b4e84bb0f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994856"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885970"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>REST API ile Azure Blueprint Tanımlama ve Atama
 
@@ -40,10 +40,10 @@ Blueprints belirtimleri için bkz. [Azure Blueprints REST API’si](/rest/api/bl
 
 REST API çağrısı yapmak için bir aracınız yoksa bu yönergeleri PowerShell kullanarak gerçekleştirebilirsiniz. Aşağıda Azure kimlik doğrulaması için basit bir üst bilgi verilmiştir. Bir kimlik doğrulaması üst bilgisi (bazen **Taşıyıcı belirteç** olarak da adlandırılır) oluşturun ve bağlanılacak REST API URI'sini herhangi bir parametre ya da **İstek Gövdesi** ile sağlayın:
 
-```powershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -69,7 +69,7 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
 Her bir REST API URI'sinde kendi değerlerinizle değiştirmeniz gereken değişkenler bulunur:
 
 - `{YourMG}` -Yönetim grubunuzun kimliği ile değiştirin.
-- `{subscriptionId}` - Abonelik kimliğinizle değiştirin
+- `{subscriptionId}` -Abonelik Kimliğinizle değiştirin.
 
 > [!NOTE]
 > Şemalar, abonelik düzeyinde de oluşturulabilir. Bir örnek için bkz [abonelik örneğe blueprint oluşturma](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
@@ -336,7 +336,7 @@ Her bir REST API URI'sinde kendi değerlerinizle değiştirmeniz gereken değiş
 
 - `{tenantId}` -Kiracı Kimliğinizle değiştirin.
 - `{YourMG}` -Yönetim grubunuzun kimliği ile değiştirin.
-- `{subscriptionId}` - Abonelik kimliğinizle değiştirin
+- `{subscriptionId}` -Abonelik Kimliğinizle değiştirin.
 
 1. Azure Blueprints hizmet sorumlusuna hedef abonelikte **Sahip** rolünü atayın. AppID statiktir (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), ancak Kiracı tarafından hizmet sorumlusu kimliği değişir. Aşağıdaki REST API ile kiracınıza ait ayrıntılı bilgileri isteyebilirsiniz. Farklı bir yetkilendirme sistemine sahip olan [Azure Active Directory Graph API'sini](../../active-directory/develop/active-directory-graph-api.md) kullanır.
 

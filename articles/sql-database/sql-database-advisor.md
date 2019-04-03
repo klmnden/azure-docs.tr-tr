@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 348183e1a164dd0a0f5f9672346423b95c27eba4
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 3ac55ef4159ab97c909fc5dfc084889bc58a7b7c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793712"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846678"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL veritabanı için performans önerileri
 
@@ -88,7 +88,7 @@ Azure SQL veritabanı hizmeti SQL veritabanı'nda oluşmasını şema ile ilgili
 
 ## <a name="custom-applications"></a>Özel uygulamalar
 
-Geliştiriciler, Azure SQL veritabanı için performans önerisi kullanan özel uygulamalar geliştirmeye göz önünde bulundurabilirsiniz. Tüm önerilerin bir veritabanı erişilebilir portalda listelenen [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) API.
+Geliştiriciler, Azure SQL veritabanı için performans önerisi kullanan özel uygulamalar geliştirmeye göz önünde bulundurabilirsiniz. Tüm önerilerin bir veritabanı erişilebilir portalda listelenen [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzSqlDatabaseRecommendedAction) API.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Önerilerinizi izleyin ve performansı iyileştirmek için bunları uygulanmaya devam eder. Veritabanı iş yüklerini, dinamik ve sürekli olarak değiştirin. SQL veritabanı Danışmanı, büyük olasılıkla veritabanınızın performansını iyileştirebilir önerileri sağlamak ve izlemek devam eder. 

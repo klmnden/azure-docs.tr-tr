@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 607c18a67f7acc13ffe4d5c14131f20a2f94e8d9
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 17c5e568bbdbdd9aa07db0ee10438cb7d05bd56c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652051"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849245"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>Öğretici: Netop portalı ile Azure Active Directory Tümleştirme
 
@@ -106,7 +106,7 @@ Azure AD çoklu oturum açma Netop portalıyla yapılandırmak için aşağıdak
 
 5. Netop portalı uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** kullanıcı öznitelikleri iletişim kutusunu açmak için simge.
 
-    ![görüntü](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. Yukarıdaki için ayrıca Netop Portalı Uygulama geri SAML yanıt olarak geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
 
@@ -122,13 +122,13 @@ Azure AD çoklu oturum açma Netop portalıyla yapılandırmak için aşağıdak
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![görüntü](common/new-save-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![görüntü](common/new-attribute-details.png)
+    ![image](common/new-attribute-details.png)
 
     b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 
-    c. İçinde **Namespace** metin kutusuna https://secure.netop.com.
+    c. İçinde **Namespace** metin türü https:\//secure.netop.com.
 
     d. Kaynağı olarak **özniteliği**.
 

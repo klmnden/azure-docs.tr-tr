@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c3f46e40dfaf0d1ba2ab393b593cdd479c48c45d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a076c924d57aadfae477a5df0d128aad8e67af60
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585071"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862735"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Azure automation'da az Modülü Desteği
 
@@ -69,7 +69,7 @@ Yeni cmdlet'lerle kullanmak için runbook değiştirme kullanarak önce runbook'
 
 ## <a name="after-migration-details"></a>Sonra geçiş ayrıntıları
 
-Geçiş tamamlandıktan sonra runbook'ları kullanarak başlatma `AzureRM` hesabında artık modüller. Ayrıca önerilir alma veya güncelleştirme `AzureRM` Bu hesapta modüller. Bu andan itibaren başlamayı düşünün bu hesabı geçirildiği için `Az`ve `Az` yalnızca modüller. Yeni bir Otomasyon hesabı oluşturulduğunda mevcut `AzureRM` modülleri hala yüklenir ve öğretici runbook'ları hala ile yazılmış olarak görünür `AzureRM` cmdlet'leri. Bu runbook'ları olması çalıştı değil.
+Geçiş tamamlandıktan sonra runbook'ları kullanarak başlatma `AzureRM` hesabında artık modüller. Ayrıca önerilir alma veya güncelleştirme `AzureRM` Bu hesapta modüller. Bu andan itibaren başlamayı düşünün bu hesabı geçirildiği için `Az`ve `Az` yalnızca modüller. Yeni bir Otomasyon hesabı oluşturulduğunda mevcut `AzureRM` modülleri hala yüklenir ve öğretici runbook'ları hala ile yazılmış olarak görünür `AzureRM` cmdlet'leri. Bu runbook'ları çalıştırılmamalıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

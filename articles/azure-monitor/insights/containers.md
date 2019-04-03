@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: e8afdfece258986f5dc4cc6f1c7e66aed24e0500
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5eec77084e104f7bd541405e2ef18e5a178e869c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092557"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877797"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure İzleyici'de kapsayıcı izleme çözümü
 
@@ -365,7 +365,7 @@ Kubernetes için Linux için Log Analytics aracısını yüklemek çalışma ala
         KEY:    88 bytes
         ```
 
-    5. Arka plan programı kümesi çalıştırarak, omsagent oluşturma ``` sudo kubectl create -f omsagent-ds-secrets.yaml ```
+    5. Arka plan programı kümesi çalıştırarak, omsagent oluşturma ```sudo kubectl create -f omsagent-ds-secrets.yaml```
 
 2. Log Analytics aracısını DaemonSet, aşağıdaki gibi çalıştığını doğrulayın:
 
@@ -409,7 +409,7 @@ Windows Kubernetes için Log Analytics aracısını yüklemek çalışma alanı 
         ```
         #> sudo bash ./secret-gen.sh
         ```
-    3. Arka plan programı kümesi çalıştırarak, omsagent oluşturma ``` kubectl create -f omsagentsecret.yaml ```
+    3. Arka plan programı kümesi çalıştırarak, omsagent oluşturma ```kubectl create -f omsagentsecret.yaml```
     4. Denetlemek için şu komutu çalıştırın:
 
         ```

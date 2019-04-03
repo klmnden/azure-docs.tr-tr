@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: orspod
-ms.openlocfilehash: 4e2448b3043c194bda884963975d85536c329baf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6138fadd060051c1b4264cd844ca2a4b8c28116a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531649"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880041"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Ya da Azure veri Gezgini'nde Azure Data Factory kullanarak veri kopyalama
 
@@ -66,7 +66,7 @@ Azure Veri Gezgini bağlı hizmeti için aşağıdaki özellikleri destekler:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** özelliği ayarlanmalıdır **AzureDataExplorer** | Evet |
-| endpoint | Uç nokta URL'si biçiminde Azure Veri Gezgini kümenin `https://<clusterName>.<regionName>.kusto.windows.net `. | Evet |
+| endpoint | Uç nokta URL'si biçiminde Azure Veri Gezgini kümenin `https://<clusterName>.<regionName>.kusto.windows.net`. | Evet |
 | veritabanı | Veritabanının adı. | Evet |
 | kiracı | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Bu, normal olarak tanıdığınız, "**yetkilisi kimliği**" içinde [Kusto bağlantı dizesi](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Bu, Azure portalının sağ üst köşedeki fareyle gelerek alın. | Evet |
 | servicePrincipalId | Uygulamanın istemci kimliği belirtin. Bu, normal olarak tanıdığınız, "**AAD uygulama istemci Kimliğini**" içinde [Kusto bağlantı dizesi](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Evet |

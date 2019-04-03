@@ -3,28 +3,28 @@ title: HDInsight ile Azure Data Lake depolama Gen1 oluşturmak için Azure şabl
 description: Oluşturup HDInsight kümeleri ile Azure Data Lake depolama Gen1 kullanmak için Azure Resource Manager şablonlarını kullanma
 services: data-lake-store,hdinsight
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 8ef8152f-2121-461e-956c-51c55144919d
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 5694f8eead2b0fd4be75ee858c3c124dd8c53e03
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: b09ca2cc358107c5f95fe3426351d380380db3c2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540424"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880143"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Azure Resource Manager şablonu kullanarak Azure Data Lake depolama Gen1 bir HDInsight kümesi oluşturun
 > [!div class="op_single_selector"]
 > * [Portalı kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [PowerShell'i kullanma (varsayılan depolama için)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 > * [PowerShell'i kullanma (ek depolama için)](data-lake-store-hdinsight-hadoop-use-powershell.md)
-> * [Kaynak Yöneticisi'ni kullanma](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+> * [Resource Manager'ı kullanma](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 
@@ -48,7 +48,7 @@ Bu makalede, biz ek depolama alanı olarak Data Lake depolama Gen1 ile bir Hadoo
 
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
-* **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
+* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 veya üstü**. Bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
 * **Azure Active Directory Hizmet sorumlusu**. Bu öğreticideki adımlar, Azure AD'de hizmet sorumlusu oluşturma hakkında yönergeler sağlar. Ancak, bir hizmet sorumlusu oluşturmak için Azure AD yönetici olmanız gerekir. Bir Azure AD Yöneticisi olarak, bu önkoşulu atlayın ve öğreticiyle devam edin.
 

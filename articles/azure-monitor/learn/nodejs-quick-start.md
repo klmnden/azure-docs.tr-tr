@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 04/01/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 542bc1a185f80eaae442931650eb3cd604c197b1
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: c6979ce5cade09d4daa4e6eddd79fb69175ec902
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081367"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849381"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Node.js Web Uygulamanızı İzlemeye Başlama
 
@@ -33,17 +33,20 @@ Bir Node.js web uygulamanız yoksa [Node.js web uygulaması oluşturma hızlı b
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
-[Azure Portal](https://portal.azure.com/)’da oturum açın.
+[Azure Portal](https://portal.azure.com/) oturum açın.
 
 ## <a name="enable-application-insights"></a>Application Insights'ı etkinleştirme
 
 Application Insights, şirket içinde veya bulutta çalışmasından bağımsız olarak İnternet’e bağlı herhangi bir uygulamadan telemetri verilerini toplayabilir. Bu verileri görüntülemeyi başlatmak için aşağıdaki adımları kullanın.
 
-1. **Kaynak oluştur** > **İzleme ve Yönetim** > **Application Insights**’ı seçin.
+1. **Kaynak oluştur** > **Geliştirici araçları** > **Application Insights** seçeneğini belirleyin.
 
-   ![Application Insights Kaynağı ekleme](./media/nodejs-quick-start/001-u.png)
+   ![Application Insights Kaynağı ekleme](./media/nodejs-quick-start/1createresourseappinsights.png)
+
+   ![Application Insights Kaynağı ekleme](./media/nodejs-quick-start/2createnodejs.png)
+
 
    Bir yapılandırma kutusu görünür. Giriş alanlarını doldurmak için aşağıdaki tabloyu kullanın.
 
@@ -58,9 +61,9 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
 
 ## <a name="configure-app-insights-sdk"></a>App Insights SDK’sını Yapılandırma
 
-1. **Genel Bakış** > **Temel Bilgiler**’i seçin > Uygulamanızın **İzleme Anahtarı**’nı kopyalayın.
+1. Seçin **genel bakış** ve uygulamanızın kopyalayın **izleme anahtarını**.
 
-   ![Yeni App Insights kaynağı formu](./media/nodejs-quick-start/instrumentation-key-001.png)
+   ![Yeni App Insights kaynağı formu](./media/nodejs-quick-start/3key.png)
 
 2. Uygulamanıza Node.js için Application Insights SDK’sı ekleyin. Uygulamanızın kök klasörü çalıştırmasından:
 
@@ -84,19 +87,19 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
 
 1. Artık izleme anahtarınızı aldığınız Application Insights **Genel Bakış** sayfasını yeniden açarak o anda çalışan uygulamanıza ilişkin ayrıntıları görüntüleyebilirsiniz.
 
-   ![Application Insights’a Genel Bakış Menüsü](./media/nodejs-quick-start/overview-001.png)
+   ![Application Insights’a Genel Bakış Menüsü](./media/nodejs-quick-start/4overview.png)
 
 2. Uygulama bileşenleriniz arasındaki bağımlılık ilişkilerinin görsel düzeni için **Uygulama haritası**’na tıklayın. Her bileşen yük, performans, hatalar ve uyarılar gibi KPI'leri gösterir.
 
-   ![Uygulama Eşlemesi](./media/nodejs-quick-start/application-map.png)
+   ![Uygulama Eşlemesi](./media/nodejs-quick-start/5appmap.png)
 
-3. **Uygulama Analizi** simgesine ![Uygulama Haritası simgesi](./media/nodejs-quick-start/006.png) tıklayın.  Bu işlem, Application Insights tarafından toplanan tüm verileri analiz etmeye yönelik zengin bir sorgu dili sağlayan **Application Insights Analizi**’ni açar. Bu örnekte, istek sayısını grafik olarak işleyen bir sorgu oluşturulur. Diğer verileri çözümlemek için kendi sorgularınızı yazabilirsiniz.
+3. Tıklayarak **uygulama analizi** simgesi ![Uygulama Haritası simgesi](./media/nodejs-quick-start/006.png) **analytics'te görüntüle**.  Bu işlem, Application Insights tarafından toplanan tüm verileri analiz etmeye yönelik zengin bir sorgu dili sağlayan **Application Insights Analizi**’ni açar. Bu örnekte, istek sayısını grafik olarak işleyen bir sorgu oluşturulur. Diğer verileri çözümlemek için kendi sorgularınızı yazabilirsiniz.
 
-   ![Belirli bir süre içindeki kullanıcı isteklerinin analiz grafiği](./media/nodejs-quick-start/007-Black.png)
+   ![Belirli bir süre içindeki kullanıcı isteklerinin analiz grafiği](./media/nodejs-quick-start/6analytics.png)
 
-4. **Genel Bakış** sayfasına geri dönüp KPI graflarını inceleyin.  Bu pano, gelen istek sayısı, bu isteklerin süresi ve oluşan hatalar dahil olmak üzere uygulamanızın sistem durumu hakkında istatistikler sağlar. 
+4. **Genel Bakış** sayfasına geri dönüp KPI graflarını inceleyin.  Bu pano, gelen istek sayısı, bu isteklerin süresi ve oluşan hatalar dahil olmak üzere uygulamanızın sistem durumu hakkında istatistikler sağlar.
 
-   ![Sistem Durumuna Genel Bakış zaman çizelgesi grafikleri](./media/nodejs-quick-start/overview-perf.png)
+   ![Sistem Durumuna Genel Bakış zaman çizelgesi grafikleri](./media/nodejs-quick-start/7kpidashboards.png)
 
    **Sayfa Görünümü Yükleme Süresi** grafiğini **istemci tarafı telemetri** verileriyle doldurmak üzere etkinleştirmek için, bu betiği izlemek istediğiniz her sayfaya ekleyin:
 
@@ -120,15 +123,15 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
    </script>
    ```
 
-5. **Araştır** üst bilgisinin altındaki **Tarayıcı** öğesine tıklayın. Burada, uygulamanızın sayfalarına ait performansla ilgili ölçümleri bulabilirsiniz. **Yeni grafik ekle**’ye tıklayarak ek özel görünümler oluşturabilir veya **Düzenle**’yi seçerek mevcut grafik türlerini, yüksekliğini, renk paletini, gruplandırmaları ve ölçümleri değiştirebilirsiniz.
+5. Sol tıklayın üzerinde **ölçümleri**. Sistem durumunu ve kaynak kullanımını araştırmak için ölçüm Gezgini'ni kullanın. **Yeni grafik ekle**’ye tıklayarak ek özel görünümler oluşturabilir veya **Düzenle**’yi seçerek mevcut grafik türlerini, yüksekliğini, renk paletini, gruplandırmaları ve ölçümleri değiştirebilirsiniz. Örneğin, ortalama tarayıcı sayfa yükleme süresi "Tarayıcı sayfa yükleme süresi" seçerek ölçümleri açılır ve "Ortalama" günlüklerden tutun gösteren bir grafik yapabilirsiniz. Azure ölçüm Gezgini ziyaret hakkında daha fazla bilgi edinmek için [Azure ölçüm Gezgini ile çalışmaya başlama](../../azure-monitor/platform/metrics-getting-started.md).
 
-   ![Sunucu ölçüm grafiği](./media/nodejs-quick-start/009-Black.png)
+   ![Sunucu ölçüm grafiği](./media/nodejs-quick-start/8metrics.png)
 
 Node.js izleme hakkında daha fazla bilgi için [ek App Insights Node.js belgelerine](../../azure-monitor/app/nodejs.md) bakın.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Sonraki hızlı başlangıçlar veya öğreticilerle devam etmeyi planlıyorsanız, bu hızlı başlangıçta oluşturulan kaynakları silmeyin. Devam etmeyi planlamıyorsanız, Azure portalda bu hızlı başlangıç ile oluşturulan tüm kaynakları silmek için aşağıdaki adımları kullanın.
+İşiniz bittiğinde test, kaynak grubunu silebilirsiniz ve tüm ilgili kaynakları. İçin aşağıdaki adımları izleyin.
 
 1. Azure portalında sol taraftaki menüden, **Kaynak grupları**’na tıklayın ve ardından **myResourceGroup**’a tıklayın.
 2. Kaynak grubu sayfanızda, **Sil**’e tıklayın, metin kutusuna **myResourceGroup** yazın ve ardından **Sil**’e tıklayın.

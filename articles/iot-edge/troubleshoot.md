@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 92294700ac9a491bfdbfa3b3d3f781eb18d5339e
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 83595bf045de412954c176028babc4f94fcb21e1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437110"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847533"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge için genel sorunlar ve çözümler
 
@@ -346,7 +346,10 @@ Cihaz dağıtımda tanımlı modülleri başlangıç sorun vardır. Yalnızca ed
 Varsayılan olarak, IOT Edge modülleri, kendi yalıtılmış kapsayıcıyı ağında başlatır. Cihaz bu özel ağda DNS ad çözümlemesi ile ilgili sorun yaşıyor olabilirsiniz.
 
 ### <a name="resolution"></a>Çözüm
-DNS sunucusu, ortamınız için kapsayıcı altyapısı ayarları belirtin. Adlı bir dosya oluşturun `daemon.json` kullanmak için DNS sunucusu belirtme. Örneğin:
+
+**1. seçenek: DNS sunucusunu kapsayıcısında altyapısı ayarları ayarlayın.**
+
+Ortamınız için DNS sunucusu altyapısı tarafından başlatılan tüm kapsayıcı modülleri uygulanacak kapsayıcı altyapısı ayarları belirtin. Adlı bir dosya oluşturun `daemon.json` kullanmak için DNS sunucusu belirtme. Örneğin:
 
 ```
 {
@@ -371,6 +374,22 @@ Konum zaten varsa `daemon.json` ekleyin **dns** için anahtar ve dosyayı kayded
 | --------- | -------- |
 | Linux | `sudo systemctl restart docker` |
 | Windows (yönetici Powershell) | `Restart-Service iotedge-moby -Force` |
+
+**2. seçenek: IOT Edge dağıtımındaki modülün başına DNS sunucusunu ayarlayın**
+
+DNS sunucusu için her modülün ayarlayabilirsiniz *createOptions* IOT Edge dağıtımındaki. Örneğin:
+
+```
+"createOptions": {
+  "HostConfig": {
+    "Dns": [
+      "x.x.x.x"
+    ]
+  }
+}
+```
+
+Bunun için ayarladığınızdan emin olun *edgeAgent* ve *edgeHub* modüller de. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 IoT Edge platformunda bir hata bulduğunuzu düşünüyor musunuz? [Sorun bildir](https://github.com/Azure/iotedge/issues) böylece biz geliştirmeye devam. 

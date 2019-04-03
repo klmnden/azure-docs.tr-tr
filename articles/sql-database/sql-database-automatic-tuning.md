@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/06/2019
-ms.openlocfilehash: e872c29712c3fadca676ec87870bcc5c4eb58565
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 028c69294d693202b626044cb903dc3124b5d7b7
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727408"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863228"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL veritabanı'nda otomatik ayarlama
 
@@ -50,7 +50,7 @@ Azure SQL veritabanı otomatik ayarlama, SQL Server otomatik ayarlama altyapıs�
 
 ## <a name="use-automatic-tuning"></a>Otomatik ayarlama kullanın
 
-Otomatik ayarlama, aboneliğinizde el ile etkinleştirilmesi gerekir. Azure portalını kullanarak bir otomatik ayarlama etkinleştirmek için bkz: [otomatik ayarlamayı etkinleştirme](sql-database-automatic-tuning-enable.md).
+Otomatik ayarlama, aboneliğinizde etkinleştirilmesi gerekir. Azure portalını kullanarak bir otomatik ayarlama etkinleştirmek için bkz: [otomatik ayarlamayı etkinleştirme](sql-database-automatic-tuning-enable.md).
 
 Otomatik ayarlama otomatik doğrulama performans artışı, dahil olmak üzere ayar önerileri otomatik olarak uygulanması aracılığıyla otonom olarak çalışabilir. 
 
@@ -74,7 +74,9 @@ Azure SQL veritabanı'nda kullanılabilir otomatik ayarlama seçeneklerini şunl
 
 Otomatik ayarlama tanımlayan **CREATE INDEX**, **DROP INDEX**, ve **ZORLA son iyi planı** veritabanınızın performansı iyileştirebilir ve bunları gösterir önerileri [Azure portalında](sql-database-advisor-portal.md)ve bunları üzerinden kullanıma sunan [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) ve [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). 
 
-Ya da portalı kullanarak ayar önerileri el ile uygulayabilirsiniz veya otomatik olarak çalışabilen uygulamak için ayar önerileri ayarlama sağlayabilirsiniz. Otonom olarak ayarlama önerileri için geçerli sistem izin vererek avantajları olduğundan, otomatik olarak var. doğrulama iş yükü performansına olumlu bir kazancı var ve algılanan hiçbir önemli bir performans geliştirmesi ise çalışır otomatik ayarlama önerileri geri al. Sıklıkla yürütülen değil önerilerinde tarafından etkilenen sorgular olması durumunda, en fazla 72 doğrulama aşamasını alabileceğine Lütfen dikkat edin. Tasarım saat. El ile ayarlama uyguladığınızı durumunda öneriler, otomatik performans doğrulama ve ters mekanizmaları kullanılamaz.
+Ya da portalı kullanarak ayar önerileri el ile uygulayabilirsiniz veya otomatik olarak çalışabilen uygulamak için ayar önerileri ayarlama sağlayabilirsiniz. Otonom olarak ayarlama önerileri için geçerli sistem izin vererek avantajları olduğundan, otomatik olarak var. doğrulama iş yükü performansına olumlu bir kazancı var ve algılanan hiçbir önemli bir performans geliştirmesi ise çalışır otomatik ayarlama önerileri geri al. Sıklıkla yürütülen değil önerilerinde tarafından etkilenen sorgular olması durumunda, en fazla 72 doğrulama aşamasını alabileceğine Lütfen dikkat edin. Tasarım saat.
+
+El ile ayarlama uyguladığınızı durumunda öneriler, otomatik performans doğrulama ve ters mekanizmaları kullanılamaz. Ayrıca, el ile uygulanan önerileri 24-48 saat için etkin ve öneriler listesinde gösterilen kalır. Sistem otomatik olarak bunları testimizde önce. Bir öneri daha çabuk kaldırmak istiyorsanız, el ile iptal edebilirsiniz.
 
 Otomatik ayarlama seçeneklerini bağımsız olarak etkinleştirilebilir veya veritabanı başına devre dışı veya bunlar üzerinde SQL veritabanı sunucuları yapılandırılabilir ve sunucudan ayarları devralıyor her bir veritabanına uygulanır. SQL veritabanı sunucularını otomatik ayarlama ayarları için Azure Varsayılanları devralabilir. Şu anda Azure Varsayılanları ayarlandığında FORCE_LAST_GOOD_PLAN etkin CREATE_INDEX etkin ve DROP_INDEX devre dışı bırakıldı.
 

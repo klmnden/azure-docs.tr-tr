@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/5/2018
+ms.date: 04/02/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 017c8c2f060f969f2e7f8d387dcbafa2dac426d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7b7adcc85b9274af45ddab653e875377e959e40c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842954"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876335"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Öğretici: Azure sanal WAN (Önizleme) kullanarak ExpressRoute ilişkilendirme oluşturma
 
@@ -45,10 +45,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Sanal WAN yapılandırabilmeniz için önce aboneliğinizi Önizleme'ye kaydetmeniz gerekir. Aksi halde portalda Sanal WAN ile çalışamazsınız. Kaydetmek için bir e-posta Gönder **azurevirtualwan\@microsoft.com** abonelik kimliğinizi Aboneliğiniz kaydedildiğinde siz de bir e-posta alırsınız.
 
-**Önizlemede Dikkat Edilmesi Gerekenler:**
+**Önizleme dikkate alınacak noktalar:**
 
-* Bölge kullanılabilirliği: Batı Orta ABD
-* ExpressRoute bağlantı hattı [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported) özelliğini destekleyen bir ülkede etkinleştirilmelidir
+ExpressRoute bağlantı hattı destekleyen bir ülkede etkinleştirilmelidir [ExpressRoute Global erişim](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported).
 
 ## <a name="vnet"></a>1. Sanal ağ oluşturma
 
@@ -70,16 +69,16 @@ Bir tarayıcıdan [Azure portala (önizleme)](https://aka.ms/azurevirtualwanprev
 
 ## <a name="hub"></a>4. Bağlantı hattı bulun ve hub ile ilişkilendirin
 
-1. vWAN’ınızı seçin ve **Sanal WAN Mimarisi** altında **ExpressRoute Bağlantı Hatları**’nı seçin
-1. ExpressRoute bağlantı hattı, vWAN’ınız ile aynı abonelikte bulunuyorsa aboneliklerinizden **ExpressRoute bağlantı hattı seç** seçeneğine tıklayın 
+1. VWAN seçin ve altındaki **sanal WAN mimarisi**seçin **ExpressRoute devreleri**.
+1. ExpressRoute bağlantı hattı, vWAN ile aynı abonelikte tıklayarak **seçin ExpressRoute bağlantı hattı** Abonelikleriniz öğesinden. 
 1. Aşağı açılır kullanarak hub'a ilişkilendirmek istiyorsanız, ExpressRoute'ı seçin.
 1. ExpressRoute bağlantı hattı, aynı abonelikte değilse veya size sağlanan [yetkilendirme anahtar ve Eş Kimliği](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)seçin **yetkilendirme anahtarını kullanırken bir devreyi Bul**
 1. Şu ayrıntıları girin:
 1. **Yetkilendirme anahtarı** - Yukarıda açıklandığı gibi bağlantı hattı sahibinden tarafından oluşturulur
 1. **Eş bağlantı hattı URI’si** - Bağlantı hattının sahibi tarafından oluşturulan ve hattın benzersiz tanımlayıcısı olan bağlantı hattı URI’si
 1. **Yönlendirme ağırlığı** - [yönlendirme ağırlığı](../expressroute/expressroute-optimize-routing.md) eşleme farklı konumlardaki birden çok bağlantı hattına aynı hub'ına bağlandığında, belirli yollarını tercih etmesini sağlar
-1. **Bağlantı hattı bul**’a tıklayın ve bulmanız halinde bağlantı hattını seçin
-1. Açılır listeden 1 veya daha fazla hub seçerek **Kaydet**’e tıklayın
+1. Tıklayın **bulma devre** ve bağlantı hattı seçin bulunamadı.
+1. Aşağı açılan listeden 1 veya daha fazla hub'ı seçin ve tıklayın **Kaydet**.
 
 ## <a name="vnet"></a>5. Sanal ağınızı bir hub'a bağlama
 
