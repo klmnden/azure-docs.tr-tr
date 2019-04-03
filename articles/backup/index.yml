@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: bb766cb1ab2c38ea642262ace785cb0dde0c3c0a
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54328858"
 documentType: LandingData
 title: Azure Backup Belgeleri
 metadata:
-  title: Azure Backup Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
-  description: Azure Backup, şirket içi sunucular, sanal makineler, sanallaştırılmış iş yükleri, SQL sunucusu, SharePoint sunucusu ve daha birçok hizmet için verileri yedeklemenize olanak tanır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizden yararlanarak verilerinizi nasıl yedekleyebileceğinizi ve kurtarabileceğinizi öğrenin.
+  title: 'Azure Backup Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
+  description: 'Azure Backup, şirket içi sunucular, sanal makineler, sanallaştırılmış iş yükleri, SQL sunucusu, SharePoint sunucusu ve daha birçok hizmet için verileri yedeklemenize olanak tanır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizden yararlanarak verilerinizi nasıl yedekleyebileceğinizi ve kurtarabileceğinizi öğrenin.'
   services: backup
   author: rayne-wiselman
   manager: carmonm
@@ -19,57 +13,57 @@ metadata:
   ms.date: 05/22/2018
   ms.author: raynew
 abstract:
-  description: Şirket içi sunucular, sanal makineler, sanallaştırılmış iş yükleri, SQL sunucusu, SharePoint sunucusu ve daha birçok hizmette verileri korumak için Azure Backup kullanın. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizden yararlanarak verilerinizi nasıl yedekleyebileceğinizi ve kurtarabileceğinizi öğrenin.
+  description: 'Şirket içi sunucular, sanal makineler, sanallaştırılmış iş yükleri, SQL sunucusu, SharePoint sunucusu ve daha birçok hizmette verileri korumak için Azure Backup kullanın. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizden yararlanarak verilerinizi nasıl yedekleyebileceğinizi ve kurtarabileceğinizi öğrenin.'
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: Azure’da Azure sanal makinesini nasıl yedekleyebileceğinizi öğrenin.
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
-      text: Azure Portal
-      href: quick-backup-vm-portal
-    - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: quick-backup-vm-powershell
-    - image:
-        src: https://docs.microsoft.com/media/common/cli.svg
-      text: Azure CLI
-      href: quick-backup-vm-cli
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: Windows Server veya Azure’daki sanal makineleri nasıl yedekleyebileceğinizi ve kurtarabileceğinizi öğrenin.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Azure’da Azure sanal makinesini nasıl yedekleyebileceğinizi öğrenin.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
+            text: Azure Portal
+            href: quick-backup-vm-portal
+          - image:
+              src: 'https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg'
+            text: Azure PowerShell
+            href: quick-backup-vm-powershell
+          - image:
+              src: 'https://docs.microsoft.com/media/common/cli.svg'
+            text: Azure CLI
+            href: quick-backup-vm-cli
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="tutorial-backup-vm-at-scale">Birden fazla Azure VM'yi yedekleme</a>
-    - html: <a href="tutorial-restore-disk">Bir diski geri yükleme ve kurtarılan bir VM oluşturma</a>
-    - html: <a href="tutorial-restore-files">Azure’da dosyaları Sanal Makine’de kurtarma</a>
-    - html: <a href="tutorial-backup-windows-server-to-azure">Windows Server’ı Azure’da yedekleme</a>
-    - html: <a href="tutorial-backup-restore-files-windows-server">Azure’daki dosyaları Windows Server makinesinde kurtarma</a>
-- title: Örnekler
-  items:
-  - type: paragraph
-    text: Azure’da verilerinizi korumak için aşağıdaki örnekleri kullanın.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: Windows Server veya Azure’daki sanal makineleri nasıl yedekleyebileceğinizi ve kurtarabileceğinizi öğrenin.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-backup-vm-at-scale">Birden fazla Azure VM'yi yedekleme</a>
+          - html: <a href="tutorial-restore-disk">Bir diski geri yükleme ve kurtarılan bir VM oluşturma</a>
+          - html: <a href="tutorial-restore-files">Azure’da dosyaları Sanal Makine’de kurtarma</a>
+          - html: <a href="tutorial-backup-windows-server-to-azure">Windows Server’ı Azure’da yedekleme</a>
+          - html: <a href="tutorial-backup-restore-files-windows-server">Azure’daki dosyaları Windows Server makinesinde kurtarma</a>
+  - title: Örnekler
     items:
-    - html: <a href="/azure/backup/powershell-backup-samples">Azure PowerShell</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Azure’da verilerinizi korumak için aşağıdaki örnekleri kullanın.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/backup/powershell-backup-samples">Azure PowerShell</a>
+  - title: Başvuru
     items:
-    - title: Komut Satırı
-      html: <p><a href="/powershell/module/azurerm.backup">Azure PowerShell</a></p><p><a href="/cli/azure/backup?view=azure-cli-latest">Azure CLI</a></p>
-    - title: Diller
-      html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/backup/">Azure Backup API Başvurusu</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Komut Satırı
+            html: <p><a href="/powershell/module/az.recoveryservices">Azure PowerShell</a></p><p><a href="/cli/azure/backup?view=azure-cli-latest">Azure CLI</a></p>
+          - title: Diller
+            html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/backup/">Azure Backup API Başvurusu</a></p>
