@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 136c7e497b24db99b230884514d4a286bbeb64be
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8afaeaea3c8ceb0de33147e70e00f3f57c857ca7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084564"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883165"
 ---
 Sanal makine (VM) oluşturma, durduruldu (serbest bırakıldı) Vm'leri yeniden başlatma veya VM'yi yeniden boyutlandırma, Microsoft Azure aboneliğinize işlem kaynakları ayırır. Biz sürekli olarak ek altyapı ve her zaman müşteri talebini desteklemek mevcut tüm VM türleri sahibiz emin olmak için Özellikler'de yatırım yapıyor. Ancak, belirli bölgelerde Azure Hizmetleri için talepte eşi görülmemiş büyüme nedeniyle bazen kaynak ayırma hatalarıyla karşılaşabilirsiniz. Bu sorun, oluşturma veya aşağıdaki hata kodu ve şu iletiyle Vm'leri görüntüleme sırada bir bölgede VM'lerin başlatma çalıştığınızda oluşabilir:
 
 **Hata kodu**: AllocationFailed veya ZonalAllocationFailed
 
-**Hata iletisi**: "Ayırma başarısız oldu. Bu bölgede biz istenen VM boyutu için yeterli kapasite yoktur. Başarılı ayırma olasılığını artırma hakkında daha fazla okuma http://aka.ms/allocation-guidance"
+**Hata iletisi**: "Ayırma başarısız oldu. Bu bölgede biz istenen VM boyutu için yeterli kapasite yoktur. Başarılı ayırma olasılığını artırma hakkında daha fazla okuma https://aka.ms/allocation-guidance"
 
 Bu makalede, ortak bir ayırma hatalarının bazı nedenleri açıklanır ve olası çözümler önerir.
 
@@ -79,7 +79,7 @@ Biz, size Azure altyapı genişlettiğinizde, en son sanal makine türlerini des
 
 |Eski VM serisi/boyutu|Önerilen yeni VM serisi/boyut|Daha fazla bilgi|
 |----------------------|----------------------------|--------------------|
-|Av1 serisi|[Av2 serisi](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
+|Av1 serisi|[Av2 Serisi](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
 |Dv1 veya DSv1 serisi (D1 D5 için)|[Dv3 veya Dsv3 serisi](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
 |Dv1 veya DSv1 serisi (D11-D14)|[Ev3 veya Esv3 serisi](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)|
 |D15v2 veya DS15v2|Büyük VM boyutları yararlanabilmek theResource Manager dağıtım modelini kullanıyorsanız E16v3/E16sv3 veya E32v3/E32sv3 taşımayı düşünün. Bu, en yeni nesil donanımlarda çalıştırmak için tasarlanmıştır. Sanal makine Örneğinize tek bir müşteriye özel donanımla yalıtılmıştır emin olmak için Resource Manager dağıtım modelini kullanıyorsanız, en yeni nesil donanımlarda çalıştırmak için tasarlanmış yeni yalıtılmış VM boyutları, E64i_v3 veya E64is_v3, geçmeyi göz önünde bulundurabilirsiniz. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/

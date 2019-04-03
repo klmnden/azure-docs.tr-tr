@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50ab4d3c9134e94b60c4dd3eeb5603f450b036c3
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: c8c3395345093ae9a3d35deb27a08f12d331c9f3
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58794045"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861913"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD parola koruması hakkında sık sorulan sorular şirket içinde
 
@@ -117,6 +117,8 @@ Denetleme modunda, yalnızca şirket içi Active Directory ortamında destekleni
 ## <a name="additional-content"></a>Ek içeriği
 
 Aşağıdaki bağlantılar temel Azure AD parola koruması belgeleri parçası değildir ancak yararlı bir özellik hakkında ek bilgi kaynağı olabilir.
+
+[Azure AD parola koruması genel kullanıma sunulmuştur!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
 
 [Kimlik koruması Kılavuzu – Bölüm 15'e-posta: Microsoft Azure AD parola koruması uygulayan (şirket içi çok!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
 

@@ -3,21 +3,21 @@ title: Çevrimdışı yöntemleri kullanarak Azure Data Lake depolama Gen1 büy�
 description: Azure Data Lake depolama Gen1 için Azure depolama bloblarından veri kopyalamak için AdlCopy aracını kullanın
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 45321f6a-179f-4ee4-b8aa-efa7745b8eb6
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 98cad0873c4ba687948dc404abc19655319bdc36
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.author: twooley
+ms.openlocfilehash: 4a8126d658f227d9eed372cd51cf06f8f12c99f9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232276"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885540"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 veri çevrimdışı kopyalama için Azure içeri/dışarı aktarma hizmetini kullanma
 Bu makalede, büyük veri kümelerini kopyalama hakkında bilgi edineceksiniz (> 200 GB) gibi çevrimdışı kopya yöntemleri kullanarak Azure Data Lake depolama Gen1 içine [Azure içeri/dışarı aktarma hizmeti](../storage/common/storage-import-export-service.md). Özellikle, bu makaledeki örnek olarak kullanılan 339,420,860,416 bayt veya yaklaşık 319 GB disk üzerinde dosyasıdır. Bu dosya 319GB.tsv adlandıralım.
@@ -211,6 +211,6 @@ Join-AzDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importedda
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
+* [Data Lake depolama Gen1 verileri güvenli hale getirme](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics'i Data Lake depolama Gen1 ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight ile Data Lake depolama Gen1 kullanın](data-lake-store-hdinsight-hadoop-use-portal.md)

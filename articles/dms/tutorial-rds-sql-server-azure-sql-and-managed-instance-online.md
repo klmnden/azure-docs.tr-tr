@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 5b91e3082dba2ac8ea19606f4269e65a0f537ce1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/03/2019
+ms.openlocfilehash: 4990b5f42291856c3695b4bf0eb6ec4084e9214e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183144"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886412"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Öğretici: RDS SQL Server'ı Azure SQL veritabanı'na geçirme veya Azure SQL veritabanı yönetilen örneği çevrimiçi DMS kullanarak
 RDS SQL Server örneğine veritabanlarını geçirmek için Azure veritabanı geçiş hizmetini kullanabilirsiniz [Azure SQL veritabanı](https://docs.microsoft.com/azure/sql-database/) veya [Azure SQL veritabanı yönetilen örneği](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) en düşük kapalı kalma süresi. Bu öğreticide, geçiş **Adventureworks2012** geri yüklenen veritabanı bir RDS SQL Server örneği SQL Server 2012'in (veya üzeri) Azure SQL veritabanı veya Azure SQL veritabanı için Azure veritabanı geçişi kullanarak yönetilen örnek Hizmeti.
@@ -61,7 +61,7 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
     >
     > Azure veritabanı geçiş hizmeti internet bağlantısı olmadığı için bu gerekli bir yapılandırmadır. 
  
-- VNET ağ güvenlik grubu kurallarınızı aşağıdaki engelleme olun iletişim bağlantı noktası 443, 53, 9354, 445, 12000. Azure VNET NSG trafiğini filtreleme hakkında ayrıntılı bilgi için [Ağ güvenlik grupları ile ağ trafiğini filtreleme](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) makalesine bakın.
+- VNET ağ güvenlik grubu kurallarınızı aşağıdaki gelen iletişim bağlantı noktaları için Azure veritabanı geçiş hizmeti engelleme emin olun: 443, 53, 9354, 445, 12000. Azure VNET NSG trafiğini filtreleme hakkında ayrıntılı bilgi için [Ağ güvenlik grupları ile ağ trafiğini filtreleme](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) makalesine bakın.
 - [Windows Güvenlik Duvarınızı veritabanı altyapısı erişimi](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) için yapılandırın.
 - Azure Veritabanı Geçiş Hizmeti'ne kaynak SQL Server erişimi sağlamak için Windows güvenlik duvarınızı açın. Varsayılan ayarlarda 1433 numaralı TCP bağlantı noktası kullanılır.
 - Azure Veritabanı Geçiş Hizmeti'nin hedef veritabanlarına erişmesini sağlama amacıyla Azure SQL Veritabanı için sunucu düzeyinde [güvenlik duvarı kuralı](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) oluşturun. Azure Veritabanı Geçiş Hizmeti için kullanılan sanal ağın alt ağ aralığını belirtin.
@@ -237,7 +237,7 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
     | ------------- | ------------- |
     | **En fazla paralel olarak yüklemek için tablo sayısı** | DMS, geçiş sırasında paralel olarak yürütülen tablo sayısını belirtir. Varsayılan değer 5'tir, ancak her POC geçişleri dayalı belirli bir geçiş gereksinimlerini karşılamak için en uygun bir değere da ayarlanabilir. |
     | **Zaman kaynak tablosu kesilmiş** | DMS, geçiş sırasında hedef tablosu keser olup olmadığını belirtir. Bu ayar, geçiş işleminin bir parçası bir veya daha fazla tablosu kesilmiş istediğinizde yararlı olabilir. |
-    | **Büyük nesne (LOB) verileri ayarlarını yapılandır** | DMS sınırsız LOB verileri geçirir ya da belirli bir boyuta sınırları LOB veri geçişi belirtir.  Bir sınır yoktur, LOB veri geçişi, bu sınırı ötesinde herhangi bir LOB veri kesilmiş. Üretim geçişleri için seçilecek önerilir **LOB boyut izin** veri kaybını önlemek için. Sınırsız LOB boyutunun belirtirken seçin **LOB boyutu (KB) küçük olduğunda tek bir blok LOB geçirme verilerinde belirtilen** performansını artırmak için onay kutusunu işaretleyin. |
+    | **Büyük nesne (LOB) verileri ayarlarını yapılandırın** | DMS sınırsız LOB verileri geçirir ya da belirli bir boyuta sınırları LOB veri geçişi belirtir.  Bir sınır yoktur, LOB veri geçişi, bu sınırı ötesinde herhangi bir LOB veri kesilmiş. Üretim geçişleri için seçilecek önerilir **LOB boyut izin** veri kaybını önlemek için. Sınırsız LOB boyutunun belirtirken seçin **LOB boyutu (KB) küçük olduğunda tek bir blok LOB geçirme verilerinde belirtilen** performansını artırmak için onay kutusunu işaretleyin. |
     
     ![Gelişmiş çevrimiçi geçiş ayarlarını belirleme](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-advanced-online-migration-settings.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
-ms.openlocfilehash: 2e1b231a5cf13d2655ff66c7e48752729c580f48
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a2f8e75578e396085e7d80f43c1180e158967061
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232876"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885596"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Yükleme ve SharePoint için StorSimple bağdaştırıcısını yapılandırın
 ## <a name="overview"></a>Genel Bakış
@@ -140,7 +140,7 @@ SharePoint sunucu grubundaki doğru şu şekilde yapılandırıldığından emin
   3. Sol bölmede **yerel sunucu**.
   4. Sağ bölmede yanındaki **IE Artırılmış Güvenlik Yapılandırması**, tıklayın **üzerinde**.
   5. Altında **Yöneticiler**, tıklayın **kapalı**.
-  6. **Tamam**’a tıklayın.
+  6. **Tamam** düğmesine tıklayın.
 
 ## <a name="remote-blob-storage-rbs-prerequisites"></a>Uzak bir BLOB Depolama (KKY) önkoşulları
 SQL Server'ın desteklenen bir sürümünü kullandığınızdan emin olun. Desteklenen ve KKY kullanmak için yalnızca aşağıdaki sürümler şunlardır:
@@ -226,9 +226,9 @@ Yazılım SharePoint için StorSimple bağdaştırıcısını kaldırmadan önce
 4. Üzerinde **StorSimple bağdaştırıcısını yapılandırın** sayfasında **devre dışı** dış BLOB depolama alanından kaldırmak istediğiniz içerik veritabanlarının her biri aşağıda düğmesi. 
 5. SharePoint'ten nesneleri silin ve ardından yeniden yükleyin.
 
-Alternatif olarak, Microsoft kullanabilirsiniz` RBS Migrate()` PowerShell cmdlet'i ile SharePoint dahildir. Daha fazla bilgi için [içine veya dışına KKY İçerik Geçişi](https://technet.microsoft.com/library/ff628255.aspx).
+Alternatif olarak, Microsoft kullanabilirsiniz `RBS Migrate()` PowerShell cmdlet'i ile SharePoint dahildir. Daha fazla bilgi için [içine veya dışına KKY İçerik Geçişi](https://technet.microsoft.com/library/ff628255.aspx).
 
-Bloblara içerik veritabanını geri taşıdıktan sonra sonraki adıma gidin: [bağdaştırıcı kaldırma](#uninstall-the-adapter).
+Bloblara içerik veritabanını geri taşıdıktan sonra sonraki adıma gidin: [Bağdaştırıcı Kaldırma](#uninstall-the-adapter).
 
 ### <a name="uninstall-the-adapter"></a>Bağdaştırıcı Kaldırma
 BLOB'ları için SQL Server veritabanlarını geri taşıdıktan sonra SharePoint için StorSimple bağdaştırıcısını kaldırmak için aşağıdaki seçeneklerden birini kullanın.

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 469c6802879707a3cf16b3e17876cb1f5e3854fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093016"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886021"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps için yönetilen istemci kullanma
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -62,13 +62,13 @@ public class TodoItem
 
 [JsonPropertyAttribute] [ 6] tanımlamak için kullanılan *PropertyName* istemci alanı ve tablo alanı eşleme.
 
-Mobile Apps arka ucunuzu tabloları oluşturmaya ilişkin bilgi edinmek için [.NET sunucu SDK'sı konu] [ 7] veya [Node.js sunucu SDK'sı konu][8]. Hızlı Başlangıç adımlarını kullanarak Azure portalında mobil uygulama arka ucunuzu oluşturduysanız, ayrıca kullanabileceğiniz **kolay tablolar** ayarı [Azure portal].
+Mobile Apps arka ucunuzu tabloları oluşturmaya ilişkin bilgi edinmek için [.NET sunucu SDK'sı konu] [ 7] veya [Node.js sunucu SDK'sı konu][8]. Hızlı Başlangıç adımlarını kullanarak Azure portalında mobil uygulama arka ucunuzu oluşturduysanız, ayrıca kullanabileceğiniz **kolay tablolar** ayarı [Azure portalında].
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>Nasıl yapılır: Yönetilen istemci SDK paketini yükleme
 Mobil uygulamaları için yönetilen istemci SDK paketini yüklemek için aşağıdaki yöntemlerden birini kullanın [NuGet][9]:
 
 * **Visual Studio** projenize sağ tıklayın, **NuGet paketlerini Yönet**, arama `Microsoft.Azure.Mobile.Client` paketini ve ardından tıklayın **yüklemek**.
-* **Xamarin Studio** projenize sağ tıklayın, **Ekle** > **NuGet paketleri Ekle**, arama `Microsoft.Azure.Mobile.Client `paketini ve ardından **' paket Ekle** .
+* **Xamarin Studio** projenize sağ tıklayın, **Ekle** > **NuGet paketleri Ekle**, arama `Microsoft.Azure.Mobile.Client` paketini ve ardından **' paket Ekle** .
 
 Ana etkinlik dosyanıza aşağıdaki unutmayın **kullanarak** deyimi:
 
@@ -89,7 +89,7 @@ Aşağıdaki kod oluşturur [MobileServiceClient] [ 12] Mobile App arka ucunuzu 
 var client = new MobileServiceClient("MOBILE_APP_URL");
 ```
 
-Önceki kod içinde `MOBILE_APP_URL` mobil uygulama arka uç URL'si ile bulunduğu dikey penceresinde mobil uygulama arka ucunuzu [Azure portal]. Bir tekliyi MobileServiceClient nesnesi olmalıdır.
+Önceki kod içinde `MOBILE_APP_URL` mobil uygulama arka uç URL'si ile bulunduğu dikey penceresinde mobil uygulama arka ucunuzu [Azure portalında]. Bir tekliyi MobileServiceClient nesnesi olmalıdır.
 
 ## <a name="work-with-tables"></a>Tablolarla çalışma
 Aşağıdaki bölümde, arama ve kayıtlarını almak ve tablo içindeki verileri değiştirme işlemi açıklanmaktadır.  Aşağıdaki konular ele alınmaktadır:
@@ -249,7 +249,7 @@ Gerçek bir uygulamada, sorgular önceki örneğe benzer bir çağrı cihazı de
 
 
 ### <a name="selecting"></a>Nasıl Yapılır: Belirli sütunları seçin
-Özellikleri ekleyerek sonuçların dahil edileceği ayarladığı belirtebileceğiniz bir [Seç] sorgunuzu yan tümcesini. Örneğin, aşağıdaki kod, yalnızca bir alan seçin ve ayrıca seçin ve birden çok alan biçimlendirmek gösterir:
+Özellikleri ekleyerek sonuçların dahil edileceği ayarladığı belirtebileceğiniz bir [seçin] sorgunuzu yan tümcesini. Örneğin, aşağıdaki kod, yalnızca bir alan seçin ve ayrıca seçin ve birden çok alan biçimlendirmek gösterir:
 
 ```csharp
 // Select one field -- just the Text
@@ -462,7 +462,7 @@ private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 }
 ```
 
-Daha fazla bilgi için [Azure Mobile Apps’te Çevrimdışı Veri Eşitleme] konu.
+Daha fazla bilgi için [Azure Mobile apps'te çevrimdışı veri eşitleme] konu.
 
 ### <a name="binding"></a>Nasıl Yapılır: Bir Windows kullanıcı arabirimine Mobile Apps veri bağlama
 Bu bölümde, bir Windows uygulaması kullanıcı Arabirimi öğeleri kullanarak döndürülen veriler nesne görüntülenecek gösterilmektedir.  Aşağıdaki kod örneği, tamamlanmamış öğeleri için sorgu listesiyle kaynağına bağlar. [MobileServiceCollection] mobil uygulamaları algılayan bir bağlama koleksiyonu oluşturur.
@@ -654,7 +654,7 @@ Azure Active Directory kimlik doğrulamasını kullanarak istemciden başlatma k
 2. Visual Studio veya Xamarin Studio, projenizi açın ve bir başvuru ekleyin `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet paketi. Arama yaparken, yayın öncesi sürümlerini içerir.
 3. Kullandığınız platform göre uygulamanız için aşağıdaki kodu ekleyin. Her, aşağıdaki değişiklikleri yapın:
 
-   * Değiştirin **INSERT yetkilisi burada** uygulamanızı sağlanan Kiracı adı. Biçim olmalıdır https://login.microsoftonline.com/contoso.onmicrosoft.com. Bu değer, Azure Active Directory etki alanı sekmesinden kopyalanabilir [Azure portal].
+   * Değiştirin **INSERT yetkilisi burada** uygulamanızı sağlanan Kiracı adı. Biçim olmalıdır https://login.microsoftonline.com/contoso.onmicrosoft.com. Bu değer, Azure Active Directory etki alanı sekmesinden kopyalanabilir [Azure portalında].
    * Değiştirin **Ekle-RESOURCE-kimliği-Buraya** mobil uygulamanızın arka ucu için istemci kimliği. İstemci kimliği edinebilirsiniz **Gelişmiş** sekmesinde altında **Azure Active Directory ayarları** portalında.
    * Değiştirin **istemci kimliği burayı INSERT** yerel istemci uygulamasından kopyaladığınız istemci kimliği.
    * Değiştirin **ekleme-yeniden yönlendirme-URI-Buraya** sitenizin ile */.auth/login/done* uç noktasını, HTTPS düzenini kullanarak. Bu değer, aşağıdakine benzer olmalıdır *https://contoso.azurewebsites.net/.auth/login/done*.
@@ -827,7 +827,7 @@ private async System.Threading.Tasks.Task Authenticate()
 
 Facebook dışında bir kimlik sağlayıcısı kullanıyorsanız, değiştirin [MobileServiceAuthenticationProvider] sağlayıcınız için değer.
 
-Azure App Service, sunucu akışı, OAuth kimlik doğrulaması akışı seçili sağlayıcının oturum açma sayfası görüntüleyerek yönetir.  Kimlik sağlayıcısı döndürür, Azure App Service oluşturur sonra bir App Service kimlik doğrulama belirteci. [LoginAsync] yöntemi döndürür bir [MobileServiceUser], her ikisi de sağlayan [Kullanıcı Kimliği] kimliği doğrulanmış kullanıcının ve [MobileServiceAuthenticationToken], JSON web Token (JWT). Bu belirteç önbelleğe alınabilir süresi sona erene kadar yeniden kullanılabilir. Daha fazla bilgi için [kimlik doğrulama belirteci önbelleğe alma](#caching).
+Azure App Service, sunucu akışı, OAuth kimlik doğrulaması akışı seçili sağlayıcının oturum açma sayfası görüntüleyerek yönetir.  Kimlik sağlayıcısı döndürür, Azure App Service oluşturur sonra bir App Service kimlik doğrulama belirteci. [LoginAsync] yöntemi döndürür bir [MobileServiceUser], her ikisi de sağlayan [UserID] kimliği doğrulanmış kullanıcının ve [ MobileServiceAuthenticationToken], JSON web Token (JWT). Bu belirteç önbelleğe alınabilir süresi sona erene kadar yeniden kullanılabilir. Daha fazla bilgi için [kimlik doğrulama belirteci önbelleğe alma](#caching).
 
 ### <a name="caching"></a>Kimlik doğrulama belirteci önbelleğe alma
 Bazı durumlarda, oturum açma yöntemi çağrısı sağlayıcıdan kimlik doğrulaması belirteci depolayarak ilk başarılı kimlik doğrulamasından sonra önlenebilir.  Microsoft Store ve UWP uygulamaları kullanabilir [PasswordVault] gibi geçerli kimlik doğrulama belirtecini bir başarılı oturum açma işleminden sonra önbelleğe almak için:
@@ -912,7 +912,7 @@ Bu değeri elde etmek için:
 1. Microsoft Store uygulaması projesi Visual Studio Çözüm Gezgini'nde sağ tıklayın, **Store** > **uygulamayı Store ile ilişkilendir...** .
 2. Sihirbazı'nda tıklatın **sonraki**, Microsoft hesabınızla oturum açın, uygulamanız için bir ad yazın **yeni bir uygulama adı ayrılmaya**, ardından **ayırma**.
 3. Uygulama kaydı başarıyla oluşturulduktan sonra uygulama adı seçin, **sonraki**ve ardından **ilişkilendirmek**.
-4. Oturum [Windows Geliştirme Merkezi] Microsoft Account kullanarak. Altında **uygulamalarım**, oluşturduğunuz uygulama kaydı tıklayın.
+4. Oturum [Windows Dev Center] Microsoft Account kullanarak. Altında **uygulamalarım**, oluşturduğunuz uygulama kaydı tıklayın.
 5. Tıklayın **Uygulama Yönetimi** > **uygulama kimliği**ve ardından bulma aşağı kaydırın, **paket SID'si**.
 
 Paket SID'si birçok kullanımı, bir URI olarak kullanmanız gerekir ve bu durumda kabul *ms-app: / /* düzeni olarak. Bir ön ek olarak bu değer ile birleştirerek biçimlendirilmiş SID, paketin sürümü not edin.
@@ -963,7 +963,7 @@ MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObj
 
 Tüm etiketleri yerine güvenlik için kayıt sırasında kaldırılır. Yüklemeleri veya yüklemeleri şablonlarında etiket eklemek için bkz. [Azure Mobile Apps için .NET arka uç sunucu SDK'sı ile çalışma].
 
-Kayıtlı bu şablonları kullanarak bildirim göndermek için başvurmak [Bildirim hub'ları API'leri].
+Kayıtlı bu şablonları kullanarak bildirim göndermek için başvurmak [bildirim hub'ları API].
 
 ## <a name="misc"></a>Çeşitli konular
 ### <a name="errors"></a>Nasıl Yapılır: Hataları işleme
@@ -986,7 +986,7 @@ private async void InsertTodoItem(TodoItem todoItem)
 }
 ```
 
-Başka bir örnek hata koşulları uğraşmanızı bulunabilir [Mobil uygulamalar dosyaları örnek]. [LoggingHandler] örnek arka uç için yapılan isteklerini günlüğe kaydetmek için günlüğe kaydetme temsilci işleyicisi sağlar.
+Başka bir örnek hata koşulları uğraşmanızı bulunabilir [Mobile Apps dosyaları örnek]. [LoggingHandler] örnek arka uç için yapılan isteklerini günlüğe kaydetmek için günlüğe kaydetme temsilci işleyicisi sağlar.
 
 ### <a name="headers"></a>Nasıl Yapılır: İstek üstbilgilerini özelleştirme
 Belirli uygulama senaryonuzu desteklemek için mobil uygulama arka ucu ile iletişim özelleştirmek gerekebilir. Örneğin, her bir giden istek için özel bir başlık ekleyin veya hatta yanıt durum kodları değiştirmek isteyebilirsiniz. Özel bir kullanabileceğiniz [DelegatingHandler], aşağıdaki örnekte olduğu gibi:
@@ -1062,12 +1062,12 @@ public class MyHandler : DelegatingHandler
 [OrderBy]: https://msdn.microsoft.com/library/azure/dn250572(v=azure.10).aspx
 [OrderByDescending]: https://msdn.microsoft.com/library/azure/dn250568(v=azure.10).aspx
 [ReadAsync]: https://msdn.microsoft.com/library/azure/mt691741(v=azure.10).aspx
-[ele]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
-[Seç]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
+[sınav zamanı]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
+[Şunu seçin:]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
 [Atla]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [Kullanıcı Kimliği]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
-[Burada]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
+[Konum]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
 [Azure portal]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx

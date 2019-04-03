@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 822c4631c08da27ef7b92af2df5e5e0d04f063b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f2ad46e7738582f82edcef6b54ac8234901c887d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013888"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885341"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB için SQL sorgu örnekleri
 
@@ -403,15 +403,15 @@ Birli işleçler +,-, ~, değil de desteklenir ve aşağıdaki örneklerde göst
 
 Aşağıdaki tabloda, her iki JSON türünden SQL API eşitlik karşılaştırmaları sonucunu gösterir.
 
-| **OP** | **Tanımsız** | **Null** | **Boole değeri** | **Sayı** | **dize** | **Nesne** | **Dizi** |
+| **OP** | **Undefined** | **Null** | **Boole** | **Sayı** | **String** | **Nesne** | **Dizi** |
 |---|---|---|---|---|---|---|---|
-| **Tanımsız** | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı |
-| **Null** | Tanımlanmadı | **Tamam** | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı |
-| **Boole değeri** | Tanımlanmadı | Tanımlanmadı | **Tamam** | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı |
-| **Sayı** | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | **Tamam** | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı |
-| **dize** | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | **Tamam** | Tanımlanmadı | Tanımlanmadı |
-| **Nesne** | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | **Tamam** | Tanımlanmadı |
-| **Dizi** | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | **Tamam** |
+| **Undefined** | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Undefined |
+| **Null** | Undefined | **Tamam** | Undefined | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Undefined |
+| **Boole** | Undefined | Undefined | **Tamam** | Undefined | Tanımlanmadı | Tanımlanmadı | Undefined |
+| **Sayı** | Undefined | Tanımlanmadı | Undefined | **Tamam** | Undefined | Tanımlanmadı | Undefined |
+| **String** | Undefined | Tanımlanmadı | Tanımlanmadı | Undefined | **Tamam** | Undefined | Undefined |
+| **Nesne** | Undefined | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Undefined | **Tamam** | Undefined |
+| **Dizi** | Undefined | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Undefined | **Tamam** |
 
 Gibi diğer Karşılaştırma işleçleri için >, > =,! =, <, ve < =, aşağıdaki kurallar geçerlidir:
 
@@ -452,7 +452,7 @@ Mantıksal işleçler Boole değerleri üzerinde çalışır. Bu işleçler içi
 | --- | --- | --- | --- |
 | True |True |True |True |
 | False |True |False |Tanımlanmadı |
-| Tanımlanmadı |True |Tanımlanmadı |Tanımlanmadı |
+| Tanımlanmadı |True |Tanımlanmadı |Undefined |
 
 **AND işleci**
 
@@ -460,7 +460,7 @@ Mantıksal işleçler Boole değerleri üzerinde çalışır. Bu işleçler içi
 | --- | --- | --- | --- |
 | True |True |False |Tanımlanmadı |
 | False |False |False |False |
-| Tanımlanmadı |Tanımlanmadı |False |Tanımlanmadı |
+| Tanımlanmadı |Tanımlanmadı |False |Undefined |
 
 **NOT işleci**
 
@@ -1440,19 +1440,19 @@ Aşağıdaki skaler İşlevler, bir dize giriş değeri bir işlem gerçekleşti
 
 | Kullanım | Açıklama |
 | --- | --- |
-| [UZUNLUK (str_expr)](sql-api-query-reference.md#bk_length) | Belirtilen dize ifadesinin karakter sayısını döndürür |
+| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | Belirtilen dize ifadesinin karakter sayısını döndürür |
 | [CONCAT (str_expr str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | İki veya daha fazla dize değerlerini birleştirirken sonucu olan bir dize döndürür. |
 | [Alt dize (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | Parçası olan bir dize ifadesi döndürür. |
 | [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | Boole döndürüp döndüremeyeceğini belirten döndürür ilk dize ifade olup olmadığını ve ikinci başlatır |
 | [ENDSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_endswith) | Boole döndürüp döndüremeyeceğini belirten döndürür ilk dize ifade olup olmadığını ve ikinci sona erer |
-| [İÇERİR (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | Döndürür bir Boolean gösteren ikinci ilk dize ifade olup olmadığını içerir. |
+| [CONTAINS (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | Döndürür bir Boolean gösteren ikinci ilk dize ifade olup olmadığını içerir. |
 | [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | İkinci dizenin başlangıç konumunu döndürür dize bulunamazsa, ilk belirtilen dize ifadesi veya -1 içindeki ifadenin dize. |
 | [Sol (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | Belirtilen sayıda karakteri içeren bir dize sol bölümünü döndürür. |
 | [SAĞ (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | Belirtilen sayıda karakteri içeren bir dize sağ bölümünü döndürür. |
 | [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | Baştaki boşluklar kaldırdıktan sonra bir dize ifadesi döndürür. |
 | [RTRIM (str_expr)](sql-api-query-reference.md#bk_rtrim) | Sonundaki tüm boşlukları kesilmesi sonrasında bir dize ifadesi döndürür. |
-| [DÜŞÜK (str_expr)](sql-api-query-reference.md#bk_lower) | Büyük harf karakter verileri küçük harfe dönüştürmenin sonra bir dize ifadesi döndürür. |
-| [ÜST (str_expr)](sql-api-query-reference.md#bk_upper) | Küçük harf karakter verileri büyük harfe dönüştürmenin sonra bir dize ifadesi döndürür. |
+| [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | Büyük harf karakter verileri küçük harfe dönüştürmenin sonra bir dize ifadesi döndürür. |
+| [UPPER (str_expr)](sql-api-query-reference.md#bk_upper) | Küçük harf karakter verileri büyük harfe dönüştürmenin sonra bir dize ifadesi döndürür. |
 | [Değiştir (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | Belirtilen dize değeri tüm oluşumlarını başka bir dize değeri ile değiştirir. |
 | [Çoğaltma (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) | Bir dize değeri, belirtilen sayıda yineler. |
 | [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | Bir dize değerinin ters sırada döndürür. |
@@ -1757,7 +1757,7 @@ Bazı standart LINQ Sorgu işleçleri Cosmos DB sorgular aşağı nasıl dönü�
 
 Söz dizimi `input.Select(x => f(x))`burada `f` skaler bir ifade.
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
 ```csharp
     input.Select(family => family.parents[0].familyName);
@@ -1770,7 +1770,7 @@ Söz dizimi `input.Select(x => f(x))`burada `f` skaler bir ifade.
     FROM Families f
 ```
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
 ```csharp
     input.Select(family => family.children[0].grade + c); // c is an int variable
@@ -1783,7 +1783,7 @@ Söz dizimi `input.Select(x => f(x))`burada `f` skaler bir ifade.
     FROM Families f
 ```
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
 ```csharp
     input.Select(family => new
@@ -1806,7 +1806,7 @@ Söz dizimi `input.Select(x => f(x))`burada `f` skaler bir ifade.
 
 Söz dizimi `input.SelectMany(x => f(x))`burada `f` bir kapsayıcı türü döndüren bir skaler ifade.
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
 ```csharp
     input.SelectMany(family => family.children);
@@ -1823,7 +1823,7 @@ Söz dizimi `input.SelectMany(x => f(x))`burada `f` bir kapsayıcı türü dönd
 
 Söz dizimi `input.Where(x => f(x))`burada `f` bir Boole değeri döndüren bir skaler ifade.
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
 ```csharp
     input.Where(family=> family.parents[0].familyName == "Smith");
@@ -1837,7 +1837,7 @@ Söz dizimi `input.Where(x => f(x))`burada `f` bir Boole değeri döndüren bir 
     WHERE f.parents[0].familyName = "Smith"
 ```
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
 ```csharp
     input.Where(
@@ -1862,7 +1862,7 @@ Daha güçlü sorgular oluşturmak için yukarıdaki işleçleri oluşabilir. Co
 
 Söz dizimi `input(.|.SelectMany())(.Select()|.Where())*`. Birleştirilmiş bir sorgu ile isteğe bağlı olarak başlatabilirsiniz `SelectMany` sorgu birden fazla izlenen `Select` veya `Where` işleçleri.
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
 ```csharp
     input.Select(family=>family.parents[0])
@@ -1877,7 +1877,7 @@ Söz dizimi `input(.|.SelectMany())(.Select()|.Where())*`. Birleştirilmiş bir 
     WHERE f.parents[0].familyName = "Smith"
 ```
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
 ```csharp
     input.Where(family => family.children[0].grade > 3)
@@ -1892,7 +1892,7 @@ Söz dizimi `input(.|.SelectMany())(.Select()|.Where())*`. Birleştirilmiş bir 
     WHERE f.children[0].grade > 3
 ```
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
 ```csharp
     input.Select(family => new { grade=family.children[0].grade}).
@@ -1907,7 +1907,7 @@ Söz dizimi `input(.|.SelectMany())(.Select()|.Where())*`. Birleştirilmiş bir 
     WHERE ({grade: f.children[0].grade}.grade > 3)
 ```
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
 ```csharp
     input.SelectMany(family => family.parents)
@@ -1928,7 +1928,7 @@ Söz dizimi `input.SelectMany(x=>x.Q())` Q olduğu bir `Select`, `SelectMany`, v
 
 İç içe geçmiş bir sorguda iç sorgu dış kapsayıcı her öğeye uygulanır. Bir önemli özelliği iç sorgu gibi dış kapsayıcıdaki öğelerin alanlara başvurabilir kendinden birleştirmeler.
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
 ```csharp
     input.SelectMany(family=>
@@ -1943,7 +1943,7 @@ Söz dizimi `input.SelectMany(x=>x.Q())` Q olduğu bir `Select`, `SelectMany`, v
     JOIN p IN f.parents
 ```
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
 ```csharp
     input.SelectMany(family =>
@@ -1959,7 +1959,7 @@ Söz dizimi `input.SelectMany(x=>x.Q())` Q olduğu bir `Select`, `SelectMany`, v
     WHERE c.familyName = "Jeff"
 ```
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
 ```csharp
     input.SelectMany(family => family.children.Where(
@@ -2208,7 +2208,7 @@ Sonraki örnek, birleşimler, LINQ SelectMany ifade gösterir.
 
 .NET istemci otomatik olarak sorgu sonuçları foreach bloklar yukarıda da gösterildiği gibi tüm sayfaları aracılığıyla yinelenir. REST API bölümünde sunulan sorgu seçeneklerini de .NET SDK kullanarak kullanılabilir `FeedOptions` ve `FeedResponse` CreateDocumentQuery yöntemi sınıflar. Sayfa sayısı kullanılarak denetlenebilir `MaxItemCount` ayarı.
 
-Disk belleği oluşturarak de açıkça denetleyebilirsiniz `IDocumentQueryable` kullanarak `IQueryable` okuyarak sonra nesne,` ResponseContinuationToken` değerleri ve bunları geçirmeden geri olarak `RequestContinuationToken` içinde `FeedOptions`. `EnableScanInQuery` Sorgu yapılandırılan dizin oluşturma ilkesi tarafından desteklendiğinde taramaları etkinleştirmek için ayarlanabilir. Bölümlenmiş kapsayıcılar için kullanabileceğiniz `PartitionKey` (ancak Azure Cosmos DB otomatik olarak ayıklayabilir ve bu sorgu metni) tek bir bölüm karşı sorgu çalıştırmak için ve `EnableCrossPartitionQuery` karşı birden çok bölüm çalıştırılması gereken sorguları çalıştırmak için.
+Disk belleği oluşturarak de açıkça denetleyebilirsiniz `IDocumentQueryable` kullanarak `IQueryable` okuyarak sonra nesne, `ResponseContinuationToken` değerleri ve bunları geçirmeden geri olarak `RequestContinuationToken` içinde `FeedOptions`. `EnableScanInQuery` Sorgu yapılandırılan dizin oluşturma ilkesi tarafından desteklendiğinde taramaları etkinleştirmek için ayarlanabilir. Bölümlenmiş kapsayıcılar için kullanabileceğiniz `PartitionKey` (ancak Azure Cosmos DB otomatik olarak ayıklayabilir ve bu sorgu metni) tek bir bölüm karşı sorgu çalıştırmak için ve `EnableCrossPartitionQuery` karşı birden çok bölüm çalıştırılması gereken sorguları çalıştırmak için.
 
 Başvurmak [Azure Cosmos DB .NET örnekleri](https://github.com/Azure/azure-cosmosdb-dotnet) sorgular içeren daha fazla örnek için.
 

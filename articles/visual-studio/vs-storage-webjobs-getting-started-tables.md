@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: c708c396911badb7c7ce5df2497aaba47cb7defe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a9a4475465fefb01ec53e6e0eb814f9b8f192a1b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243769"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850200"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Azure kullanmaya başlama depolama (Azure WebJob Proje)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "51243769"
 ## <a name="overview"></a>Genel Bakış
 Bu makalede, Azure Web işleri SDK'sı sürümünü kullanmayı gösteren C# kod örneği sağlanmıştır 1.x ile Azure tablo depolama hizmeti. Kod örnekleri kullan [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) sürüm 1.x.
 
-Azure Table storage hizmeti büyük miktarlarda yapısal veriyi depolamanızı sağlar. Kimliği doğrulanmış çağrılarından içindeki ve Azure Bulutu dışındaki kabul eden bir NoSQL veri deposu hizmetidir. Azure tabloları, yapılandırılmış ve ilişkisel olmayan verilerin depolanması için idealdir.  Bkz: [.NET kullanarak Azure tablo depolama ile çalışmaya başlama](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) daha fazla bilgi için.
+Azure Table storage hizmeti büyük miktarlarda yapısal veriyi depolamanızı sağlar. Kimliği doğrulanmış çağrılarından içindeki ve Azure Bulutu dışındaki kabul eden bir NoSQL veri deposu hizmetidir. Azure tabloları, yapılandırılmış ve ilişkisel olmayan verilerin depolanması için idealdir.  Bkz: [.NET kullanarak Azure tablo depolama ile çalışmaya başlama](../cosmos-db/tutorial-develop-table-dotnet.md#create-a-table) daha fazla bilgi için.
 
 Bazı kod parçacıkları Göster **tablo** el ile diğer bir deyişle, tetikleyici özniteliklerinden biri kullanılmadığında çağrılan işlevlerde kullanılan öznitelik.
 

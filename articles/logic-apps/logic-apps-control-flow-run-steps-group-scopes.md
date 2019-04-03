@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: d73a43aedde9a88e009ddca1f0363dbcd92e1379
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080463"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882421"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Azure Logic apps'te kapsamları Grup durumuyla göre eylemleri çalıştırma
 
@@ -82,10 +82,10 @@ Mantıksal uygulamanızı kaydetmek istediğiniz zaman, genellikle çalışmalar
       | **Güzergah noktası 1** | <*Başlangıç*> | Rotanızın girin. | 
       | **Güzergah noktası 2** | <*end*> | Rotanızın hedefi girin. | 
       | **Kaçının** | None | Ücretli geçişler, Otoyollar gibi yönlendiricilerin önlemek ve benzeri öğeleri girin. Olası değerler için bkz. [rota hesaplama](https://msdn.microsoft.com/library/ff701717.aspx). | 
-      | **İyileştir** | timeWithTraffic | Uzaklık, zaman ile geçerli trafik bilgileri vb. gibi Rotanızı iyileştirmeye yönelik bir parametre seçin. Bu örnekte bu değer: "timeWithTraffic" | 
+      | **İyileştirme** | timeWithTraffic | Uzaklık, zaman ile geçerli trafik bilgileri vb. gibi Rotanızı iyileştirmeye yönelik bir parametre seçin. Bu örnekte bu değer: "timeWithTraffic" | 
       | **Mesafe birimi** | <*your-preference*> | Hesaplamak rotanız için mesafe birimi girin. Bu örnekte, bu değeri kullanır: "Mil" | 
       | **Seyahat modu** | Sürüş | Rotanız için seyahat modunu girin. Bu örnekte bu değer "Driving" kullanır. | 
-      | **Toplu Ulaşım Tarih-Saati** | None | Yalnızca toplu ulaşım modu için geçerlidir. | 
+      | **Geçiş tarihi-saati** | None | Yalnızca toplu ulaşım modu için geçerlidir. | 
       | **Aktarım türü tarih türü** | None | Yalnızca toplu ulaşım modu için geçerlidir. | 
       ||||  
 
@@ -119,7 +119,7 @@ Mantıksal uygulamanızı kaydetmek istediğiniz zaman, genellikle çalışmalar
 
    1. İçinde **gövdesi** bir boşluk koyarak şu metni girin: 
 
-      ```Travel time: ```
+      ```Travel time:```
 
       İmlecinizi görünür ancak **gövdesi** alan, dinamik içerik listesinden kalır açık bu noktada kullanılabilir herhangi bir parametre seçebilirsiniz.
 
@@ -146,11 +146,13 @@ Mantıksal uygulamanızı kaydetmek istediğiniz zaman, genellikle çalışmalar
 
    1. İşiniz bittiğinde seçin **Tamam**.
 
+   <!-- markdownlint-disable MD038 -->
    1. İfade çözümlendikten sonra başında boşluk koyarak şu metni ekleyin: ``` minutes```
   
        **Gövdesi** alan artık şu örnekteki gibi görünür:
 
        ![Tamamlanmış "Gövde" alanı](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+   <!-- markdownlint-enable MD038 -->
 
 1. Mantıksal uygulamanızı kaydedin.
 

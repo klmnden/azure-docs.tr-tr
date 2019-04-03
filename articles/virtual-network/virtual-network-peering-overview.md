@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: e32bc2f4697b5ac32993a5da66e5c38cb7add03f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 3488e8501b0b9bea83bfcce5085d42b6476d3ed2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200591"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880432"
 ---
 # <a name="virtual-network-peering"></a>Sanal ağ eşleme
 
@@ -92,7 +92,7 @@ Bir sanal ağ eşlemesi oluşturmak için gereken izinler hakkında bilgi edinme
 
 Sanal ağ eşleme bağlantısı kullanan girdi ve çıkış trafiği için nominal bir ücret uygulanır. Sanal Ağ Eşleme ve Genel Sanal Ağ eşleme fiyatlandırması hakkında daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-network).
 
-Ağ geçidi aktarımı, bir sanal ağın şirket içi ve dışı karışık bağlantı ya da sanal ağlar arası bağlantı için eşlenmiş sanal ağdaki bir VPN ağ geçidinden yararlanmasını sağlayan bir eşleme özelliğidir. Bu senaryoda uzak ağ geçidinden geçen trafik [VPN ağ geçidi ücretlerine](https://azure.microsoft.com/pricing/details/vpn-gateway/) tabidir ve [Sanal ağ eşleme ücretleri](https://azure.microsoft.com/pricing/details/virtual-network) alınmaz. Örneğin VNetA, şirket içi bağlantı için VPN ağ geçidine sahipse ve VNetB, VNetA ile eşlenmiş ve uygun özellikler yapılandırılmış durumdaysa VNetB kaynağından şirket içine giden grafik için yalnızca VPN ağ geçidi fiyatlandırmasına göre çıkış için ücret alınır. Sanal ağ eşleme ücretleri uygulanmaz. [Sanal ağ eşlemesi için VPN ağ geçidi aktarımını yapılandırma](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) hakkında bilgi edinin.
+Ağ geçidi aktarımı, bir sanal ağın şirket içi ve dışı karışık bağlantı ya da sanal ağlar arası bağlantı için eşlenmiş sanal ağdaki bir VPN ağ geçidinden yararlanmasını sağlayan bir eşleme özelliğidir. Bu senaryoda uzak ağ geçidinden geçen trafik [VPN ağ geçidi ücretlerine](https://azure.microsoft.com/pricing/details/vpn-gateway/) tabidir ve [Sanal ağ eşleme ücretleri](https://azure.microsoft.com/pricing/details/virtual-network) alınmaz. Örneğin, Sanalağa şirket içi bağlantı için bir VPN ağ geçidi varsa ve Sanalağb Sanalağa için yapılandırılmış uygun özellikleri ile eşlenmişse, şirket içi Sanalağb gelen trafiği yalnızca VPN ağ geçidi fiyatlandırması çıkışı ücretlendirilir. Sanal ağ eşleme ücretleri uygulanmaz. [Sanal ağ eşlemesi için VPN ağ geçidi aktarımını yapılandırma](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) hakkında bilgi edinin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -101,9 +101,9 @@ Ağ geçidi aktarımı, bir sanal ağın şirket içi ve dışı karışık bağ
     |Azure dağıtım modeli             | Abonelik  |
     |---------                          |---------|
     |Her ikisi de Resource Manager              |[Aynı](tutorial-connect-virtual-networks-portal.md)|
-    |                                   |[Farklı](create-peering-different-subscriptions.md)|
+    |                                   |[Fark](create-peering-different-subscriptions.md)|
     |Biri Resource Manager, diğeri klasik  |[Aynı](create-peering-different-deployment-models.md)|
-    |                                   |[Farklı](create-peering-different-deployment-models-subscriptions.md)|
+    |                                   |[Fark](create-peering-different-deployment-models-subscriptions.md)|
 
 * [Hub ve bağlı bileşen ağ topolojisi](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json) oluşturmayı öğrenin.
 * Tüm [sanal ağ eşleme ayarları ve ayarların nasıl değiştirileceği](virtual-network-manage-peering.md) hakkında bilgi edinin.

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
 ms.date: 03/29/2019
-ms.openlocfilehash: b5417787472b332e38db002067920153d554fdb0
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5c9e11572bc142637066214e1a807a80ce711c48
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668509"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877695"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Gelişmiş veri güvenliği, sanal ağlarla ve neredeyse % 100 uyumluluk SQL veritabanını kullan
 
@@ -149,7 +149,7 @@ Azure SQL veritabanı, verilerinizi korumak için kullanılan gelişmiş güvenl
 - [Satır düzeyi güvenlik](/sql/relational-databases/security/row-level-security) denetleme bir veritabanı tablosundaki satırlara erişimi etkinleştirir, sorguyu yürüten kullanıcının özelliklerine temel (gibi Grup üyeliği veya yürütme bağlamı olarak). Satır düzeyi güvenlik (RLS), uygulamanızın güvenlik tasarımını ve kodlama aşamasını kolaylaştırır. RLS, veri satırı erişiminde kısıtlama uygulamanızı sağlar. Örneğin, çalışanlar departmanı veya ilgili veriler yalnızca bir veri erişimi kısıtlamak için uygun olan veri satırları eriştiğinden emin olun.
 - [Saydam veri şifrelemesi (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) yönetilen örnek veri dosyalarını, bekleyen verileri şifreleme olarak bilinen şifreler. TDE, gerçek zamanlı g/ç şifreleme ve şifre çözme veri ve günlük dosyalarının gerçekleştirir. Şifreleme, Kurtarma sırasında kullanılabilirlik veritabanı önyükleme kaydında depolanan bir veritabanı şifreleme anahtarı (DEK) kullanır. Saydam veri şifrelemesi ile yönetilen bir örnekteki tüm veritabanlarınızın koruyabilirsiniz. TDE SQL Server'ın birçok uyumluluk standardı tarafından depolama medyalarını hırsızlığına karşı korumak için gerekli olan bekleyen şifreleme teknolojisidir.
 
-Azure veritabanı geçiş hizmeti (DMS) veya yerel bir geri yükleme ile şifrelenmiş bir veritabanı yönetilen örneğine geçişi desteklenir. Yerel bir geri yükleme kullanarak bir şifrelenmiş veritabanına geçirmeyi planlıyorsanız, mevcut TDE sertifikanın SQL Server şirket içi veya SQL Server bir sanal makinede bir yönetilen örneğe geçiş gerekli bir adımdır. Geçiş seçenekleri hakkında daha fazla bilgi için bkz. [yönetilen örnek için SQL Server örneği geçiş](sql-database-managed-instance-migrate.md).
+Azure veritabanı geçiş hizmeti (DMS) veya yerel bir geri yükleme ile şifrelenmiş bir veritabanı yönetilen örneğine geçişi desteklenir. Yerel bir geri yükleme kullanarak bir şifrelenmiş veritabanına geçirmeyi planlıyorsanız, mevcut TDE sertifikanın şirket içi SQL Server veya SQL Server bir sanal makinede bir yönetilen örneğe geçiş gerekli bir adımdır. Geçiş seçenekleri hakkında daha fazla bilgi için bkz. [yönetilen örnek için SQL Server örneği geçiş](sql-database-managed-instance-migrate.md).
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory Tümleştirmesi
 
@@ -226,12 +226,12 @@ Yönetilen örnek dağıtım seçeneği Sistem Yöneticisi, SQL veritabanı hizm
 
 Aşağıdaki tabloda uygulamanız ile yönetilen örnek çalışıp çalışmadığını belirlemek için kullanabilir ve önemli özelliklerini almak Transact SQL erişilebilir çeşitli özellikleri gösterir.
 
-|Özellik|Değer|Yorum|
+|Özellik|Değer|Açıklama|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 2018-03-07 12.0.2000.8 Telif Hakkı (C) 2018 Microsoft Corporation.|Bu değer, SQL veritabanı olduğu gibi aynı olur.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Bu değer, SQL veritabanı olduğu gibi aynı olur.|
 |`SERVERPROPERTY('EngineEdition')`|8|Bu değer, bir yönetilen örnek benzersiz şekilde tanımlar.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Tam örnek DNS adı şu biçimde:`<instanceName>`.`<dnsPrefix>`.Database.Windows.NET, burada `<instanceName>` müşteri tarafından sağlanan ad sırada `<dnsPrefix>` Genel DNS adı benzersizliği garanti etme adı otomatik olarak oluşturulan parçasıdır ("wcus17662feb9ce98", örneğin)|Örnek: my-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@SERVERNAME`,  `SERVERPROPERTY ('ServerName')`|Tam örnek DNS adı şu biçimde:`<instanceName>`.`<dnsPrefix>`.Database.Windows.NET, burada `<instanceName>` müşteri tarafından sağlanan ad sırada `<dnsPrefix>` Genel DNS adı benzersizliği garanti etme adı otomatik olarak oluşturulan parçasıdır ("wcus17662feb9ce98", örneğin)|Örnek: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

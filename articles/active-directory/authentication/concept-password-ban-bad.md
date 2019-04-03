@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 795abcadb1cee7599665f7bc3b8e0d3e08a3da05
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369080"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884355"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Hatalı parola kuruluşunuzdaki ortadan kaldırın
 
@@ -106,8 +106,11 @@ Normalleştirme sonra bu parola, "contosoblankf9!" olur. Bu parola iki yasaklı 
 
 |   | Genel yasaklı parola listesi ile Azure AD parola koruması | Özel yasaklı parola listesi ile Azure AD parola koruması|
 | --- | --- | --- |
-| Yalnızca bulutta yer alan kullanıcılar | Azure AD Ücretsiz | Azure AD Basic |
+| Yalnızca bulutta yer alan kullanıcılar | Azure AD Ücretsiz | Azure AD Premium P1 veya P2 |
 | Şirket içi Windows Server Active Directory'de eşitlenen kullanıcılar | Azure AD Premium P1 veya P2 | Azure AD Premium P1 veya P2 |
+
+> [!NOTE]
+> Azure Active Directory ile eşitlenen olmayan şirket içi Windows Server Active Directory Kullanıcıları, ayrıca mevcut eşitlenmiş kullanıcılar için lisans tabanlı Azure AD parola koruması avantajlarından yararlanabilmek.
 
 Maliyetleri de dahil olmak üzere ek lisans bilgilerini bulunabilir [Azure Active Directory site fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/).
 

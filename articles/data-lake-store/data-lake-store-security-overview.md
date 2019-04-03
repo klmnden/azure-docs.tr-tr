@@ -3,21 +3,21 @@ title: Azure Data Lake depolama Gen1 Güvenliğe genel bakış | Microsoft Docs
 description: Azure Data Lake depolama Gen1 daha güvenli bir büyük veri deposuna nasıl olduğunu anlama
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ebd5b2ac-c5cc-46d4-9cfd-1a1ee70024c2
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
-ms.openlocfilehash: a310851819f70d138a4980b1ab61891fb0b2c311
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.author: twooley
+ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959621"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883317"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 güvenliği
 Çoğu kurum akıllı kararlar yapmalarına yardımcı olmak iş öngörüleri için büyük veri analizi avantajlarından sürüyor. Bir kuruluş, artan sayıda farklı kullanıcılar ile karmaşık ve denetimli bir ortam olabilir. Kritik iş verilerini doğru bireysel kullanıcılara verilen erişim düzeyini ile daha güvenli bir şekilde saklandığından emin olmak bir kuruluş için önemlidir. Azure Data Lake depolama Gen1 bu güvenlik gereksinimlerini karşılamanıza yardımcı olmak üzere tasarlanmıştır. Bu makalede, dahil olmak üzere güvenlik özelliklerinin Data Lake depolama Gen1, hakkında bilgi edinin:
@@ -112,5 +112,5 @@ Data Lake depolama Gen1 yenilikleri görmek istiyorsanız, bize geri bildirim g�
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Azure Data Lake depolama Gen1 genel bakış](data-lake-store-overview.md)
 * [Data Lake depolama Gen1 ile çalışmaya başlama](data-lake-store-get-started-portal.md)
-* [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
+* [Data Lake depolama Gen1 verileri güvenli hale getirme](data-lake-store-secure-data.md)
 

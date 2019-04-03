@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 02/20/2019
-ms.openlocfilehash: ce510168e2aa92758a3468fa55ff7b2a8d39b547
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 0d75b983ad6d3b6256852335dc523b481bbe046f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360276"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885902"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Azure Machine Learning hizmetinde günlüğe kaydetmeyi etkinleştir
 
@@ -115,7 +115,7 @@ Ayrıca özel oturum yığın izlemeler web hizmetiniz için izleme istek/yanıt
 service.update(enable_app_insights=True)
 ```
 
-Bkz: [yapılır](how-to-enable-app-insights.md#enable-and-disable-in-the-portal) Azure portalında Application Insights ile çalışma konusunda daha fazla bilgi için.
+Bkz: [yapılır](how-to-enable-app-insights.md) Azure portalında Application Insights ile çalışma konusunda daha fazla bilgi için.
 
 ## <a name="python-native-logging-settings"></a>Python yerel günlük ayarları
 

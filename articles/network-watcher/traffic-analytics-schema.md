@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 922e01c26a2cfe24c8b8a32bb8037d9b3b3384c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109129"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879344"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Trafik analizi şema ve veri toplama işlemleri
 
@@ -120,7 +120,7 @@ Trafik Analizi ile donatılmış ve uyarılar aynı veriler üzerinde özel sorg
 1. ExternalPublic - IP adreslerinden birini ait Azure sanal ağ için bir IP adresi Azure'da değil bir genel IP olsa da, kötü amaçlı trafik analizi işleme aralığını için kullandığı ASC akışlardaki olarak bildirilmedi " FlowIntervalStartTime_t"ve"FlowIntervalEndTime_t". 
 1. MaliciousFlow - IP adreslerinden birini ait azure sanal ağına Azure'da değil ve kötü amaçlı trafik analizi işleme aralığını için kullandığı ASC akışlardaki olarak bildirilen bir genel IP olsa da bir IP adresi" FlowIntervalStartTime_t"ve"FlowIntervalEndTime_t". 
 1. UnknownPrivate - IP adreslerinden birini ait Azure sanal ağ için bir IP adresi RFC 1918 ' tanımlanan özel IP aralığına ait ve site veya Azure sanal ağına ait bir müşteriye tarafından trafik analizi eşleştirilemedi.
-1. Bilinmiyor – yanı sıra azure'da müşteri topolojisi akışlardaki IP adresleriyle birini harita şirket içi (site) yüklenemiyor.
+1. Bilinmiyor – IP birini eşleme yapılamıyor azure'da müşteri topolojisi ile akışlarında adresleri yanı sıra şirket içinde (site).
 
 ### <a name="next-steps"></a>Sonraki Adımlar
 Sık sorulan sorulara yanıtlar almak için bkz. [trafik Analizi ile ilgili SSS](traffic-analytics-faq.md) işlevleri hakkında daha fazla ayrıntı için bkz: [trafik analizi belgeleri](traffic-analytics.md)

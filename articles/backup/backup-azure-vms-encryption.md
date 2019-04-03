@@ -1,5 +1,5 @@
 ---
-title: Azure Backup kullanarak şifreli VM'ler geri
+title: Yedekleme ve Azure Backup Hizmetleri kullanılarak şifrelenmiş Azure Vm'lerini geri yükleme
 description: Bu makalede, Azure Disk şifrelemesi kullanılarak şifrelenmiş VM'ler için yedekleme ve geri yükleme deneyimi hakkında konuşuyor.
 services: backup
 author: geetha
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: geetha
-ms.openlocfilehash: 004d35290d7bfa365d2e1d0ea605c14b03ffb4a5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 28126df0dfd9a03e93a76fa5071331603c4819a4
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114765"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851027"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Yedekleme ve Azure Backup ile şifrelenmiş sanal makineleri geri yükleme
 Bu makalede Azure Backup'ı kullanarak sanal makineleri (VM'ler) geri adım hakkında konuşuyor. Ayrıca hata durumları için desteklenen senaryolar, önkoşulları ve sorun giderme adımları hakkında ayrıntılar sağlar.
@@ -28,8 +28,8 @@ Bu makalede Azure Backup'ı kullanarak sanal makineleri (VM'ler) geri adım hakk
    | **Yönetilen VM'ler**  | Evet | Evet  |
 
    > [!NOTE]
-   > Azure Backup, tek başına anahtarlar kullanılarak şifrelenmiş VM'ler destekler. Bir VM şifrelemek için kullanılan bir sertifika bir parçası olan herhangi bir tuşa bugün desteklenmiyor.
-   >   
+   > Azure Backup, tek başına anahtarlar kullanılarak şifrelendi Vm'leri destekler. Bir VM şifrelemek için kullanılan bir sertifika bir parçası olan herhangi bir tuşa bugün desteklenmiyor.
+   >
 
 ## <a name="prerequisites"></a>Önkoşullar
 * VM kullanılarak şifrelenen [Azure Disk şifrelemesi](../security/azure-security-disk-encryption.md).
@@ -38,7 +38,7 @@ Bu makalede Azure Backup'ı kullanarak sanal makineleri (VM'ler) geri adım hakk
 
 * Yedekleme şifreli VM'ler için anahtarları ve gizli anahtarları içeren bir anahtar kasasına erişim izni verildi.
 
-## <a name="backup-encrypted-vm"></a>VM yedekleme şifreli
+## <a name="back-up-an-encrypted-vm"></a>Şifrelenmiş bir VM'yi yedekleme
 Yedekleme hedefi ayarlayın, bir ilkesi tanımlama, yapılandırma öğeleri ve bir yedeklemeyi tetikleyin için aşağıdaki adımları kullanın.
 
 ### <a name="configure-backup"></a>Yedeklemeyi yapılandırma
@@ -72,7 +72,7 @@ Yedekleme hedefi ayarlayın, bir ilkesi tanımlama, yapılandırma öğeleri ve 
 
       ![Şifrelenmiş sanal makineleri seçin](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
 1. Bu sayfa, seçtiğiniz şifrelenmiş VM'ler ile ilişkili anahtar kasalarını hakkında bir ileti gösterir. Yedekleme, anahtarları ve gizli anahtarları key vault'ta yalnızca okuma erişimi gerektirir. Bu izinler, ilişkili sanal makinelerin yanı sıra gizli dizileri ve anahtarları yedeklemek için kullanır.<br>
-Eğer bir **üye kullanıcı**, etkinleştirme Yedekleme işleminin sorunsuz bir şekilde için anahtar kasasına erişim elde yedekleme, kullanıcı müdahalesi gerektirmeden VM'ler şifreli.
+Eğer bir **üye kullanıcı**, etkinleştirme Yedekleme işleminin sorunsuz bir şekilde herhangi bir kullanıcı müdahalesi gerektirmeden şifrelenmiş Vm'leri yedekleme için anahtar kasasına erişim elde.
 
    ![Şifrelenmiş Vm'leri message](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
@@ -88,10 +88,10 @@ Eğer bir **üye kullanıcı**, etkinleştirme Yedekleme işleminin sorunsuz bir
 Bağlantısındaki [Azure Vm'leri bir kurtarma Hizmetleri kasasına yedekleme](backup-azure-arm-vms.md) bir yedekleme işini tetiklemek için.
 
 ### <a name="continue-backups-of-already-backed-up-vms-with-encryption-enabled"></a>Yedeklenen zaten VM yedekleri etkin şifreleme ile devam edin  
-Daha sonra şifreleme için etkinleştirilen, bir kurtarma Hizmetleri kasasında zaten yedeklenen Vm'leriniz varsa, yedekleme devam etmek yedeklemeler için anahtar kasasına erişim izinleri vermeniz gerekir. Takip ederek, bu izinleri sağlayabilirsiniz [aşağıdaki bölümde adımları](#provide-permissions-to-azure-backup). Veya "Yedeklemeyi etkinleştir" bölümündeki PowerShell adımları izleyebilirsiniz [PowerShell belgeleri](backup-azure-vms-automation.md).
+Daha sonra şifreleme için etkinleştirilen, bir kurtarma Hizmetleri kasasında zaten yedeklenen Vm'leriniz varsa, devam etmek yedeklemeler için anahtar kasası erişim kadar geri izinleri vermelisiniz. Takip ederek, bu izinleri sağlayabilirsiniz [aşağıdaki bölümde adımları](#provide-permissions). Veya "Yedeklemeyi etkinleştir" bölümündeki PowerShell adımları izleyebilirsiniz [PowerShell belgeleri](backup-azure-vms-automation.md).
 
-## <a name="provide-permissions-to-azure-backup"></a>Yedekleme için izinler sağlayın
-Yedekleme için anahtar kasasına erişim ve şifrelenmiş vm'leri Yedekleme gerçekleştirmek için uygun izinlere sağlamak için aşağıdaki adımları kullanın.
+## <a name="provide-permissions"></a>İzinler sağlayın
+Anahtar kasasına erişim ve şifrelenmiş vm'leri Yedekleme gerçekleştirmek Azure Backup için ilgili izinleri sağlamak için aşağıdaki adımları kullanın.
 1. Seçin **tüm hizmetleri**, araması **anahtar kasalarını**.
 
     ![Anahtar kasaları](./media/backup-azure-vms-encryption/search-key-vault.png)
@@ -137,7 +137,7 @@ Azure Backup artık destekliyor geri yüklemesi [Azure, Azure AD olmayan VM şif
 ## <a name="troubleshooting-errors"></a>Hatalarda sorun giderme
 | İşlem | Hata Ayrıntıları | Çözüm |
 | --- | --- | --- |
-|Backup | Hata kodu: UserErrorKeyVaultPermissionsNotConfigured<br><br>Hata iletisi: Azure Backup hizmeti yedekleme, şifrelenmiş sanal makineleri için yeterli izinlere için Key Vault yok. | Yedekleme sağlanması bu izinleri izleyerek [önceki bölümdeki adımları](#provide-permissions-to-azure-backup). Veya makalenin "korumayı etkinleştirme" bölümündeki PowerShell adımları izleyebilirsiniz [yedeklemek ve sanal makineleri geri yükleme için PowerShell kullanma](backup-azure-vms-automation.md#enable-protection). |  
+|Backup | Hata kodu: UserErrorKeyVaultPermissionsNotConfigured<br><br>Hata iletisi: Azure Backup hizmeti yedekleme, şifrelenmiş sanal makineleri için yeterli izinlere için Key Vault yok. | Yedekleme sağlanması bu izinleri izleyerek [önceki bölümdeki adımları](#provide-permissions). Veya makalenin "korumayı etkinleştirme" bölümündeki PowerShell adımları izleyebilirsiniz [yedeklemek ve sanal makineleri geri yükleme için PowerShell kullanma](backup-azure-vms-automation.md#enable-protection). |  
 | Geri Yükleme | Bu VM ile ilişkili anahtar kasası olmadığından bu şifreli VM'yi geri yükleyemezsiniz. |Kullanarak anahtar kasası oluşturma [Azure anahtar kasası nedir?](../key-vault/key-vault-overview.md). Bkz: [Azure Backup'ı kullanarak bir anahtar kasası anahtar ve gizli dizi geri](backup-azure-restore-key-secret.md) mevcut değilse, bir anahtar ve gizli dizi geri yüklemek için. |
 | Geri Yükleme | Hata kodu: UserErrorKeyVaultKeyDoesNotExist<br><br> Hata iletisi: Bu VM ile ilişkili anahtar mevcut olmadığından bu şifreli VM'yi geri yükleyemezsiniz. |Bkz: [Azure Backup'ı kullanarak bir anahtar kasası anahtar ve gizli dizi geri](backup-azure-restore-key-secret.md) mevcut değilse, bir anahtar ve gizli dizi geri yüklemek için. |
 | Geri Yükleme | Hata kodu: ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed<br><br>Hata iletisi: Yedekleme Hizmeti'nin aboneliğinizdeki kaynaklara erişme yetkisi yok. |Daha önce belirtildiği gibi diskleri önce "yedeklenen diskleri geri yükleme" kısmında bulunan adımları izleyerek geri [bir VM geri yükleme yapılandırması seçin](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Bundan sonra PowerShell'i kullanarak [geri yüklenen diskten VM oluşturma](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |

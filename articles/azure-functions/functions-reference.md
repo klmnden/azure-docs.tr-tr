@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
 ms.openlocfilehash: 01fce9813299465767bdaed7f3c2939813cfab87
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: MT
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
+ms.lasthandoff: 04/03/2019
 ms.locfileid: "56339502"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure işlevleri Geliştirici Kılavuzu
@@ -48,9 +48,9 @@ Function.json dosyası, işlevin tetikleyici, bağlamalar ve diğer yapılandır
 
 | Özellik | Değerler/türleri | Yorumlar |
 | --- | --- | --- |
-| `type` |dize |Bağlama türü. Örneğin, `queueTrigger`. |
+| `type` |string |Bağlama türü. Örneğin, `queueTrigger`. |
 | `direction` |'de,' 'out' |Bağlama işlevdeki veri alma veya işlevden veri göndermek için uygun olup olmadığını gösterir. |
-| `name` |dize |İşlevde bağlı veriler için kullanılan ad. C# için bu bir bağımsız değişken adıdır; JavaScript için bir anahtar/değer listesinde anahtardır. |
+| `name` |string |İşlevde bağlı veriler için kullanılan ad. C# için bu bir bağımsız değişken adıdır; JavaScript için bir anahtar/değer listesinde anahtardır. |
 
 ## <a name="function-app"></a>İşlev uygulaması
 Bir işlev uygulaması, işlevlerinizin çalıştığı azure'da bir yürütme bağlamı sağlar. Bir işlev uygulaması yönetilen, dağıtılan ve birlikte ölçeği genişletilmiş bir veya daha fazla bireysel işlevleri oluşur. Tüm işlevlerin bir işlev uygulaması, aynı fiyatlandırma planı, sürekli dağıtım ve çalışma zamanı sürümü paylaşır. Bir işlev uygulaması düzenlemek ve topluca işlevlerinizi yönetmek için bir yol düşünün. 
@@ -105,7 +105,7 @@ Bağlamaları çıkacak hatalarla sorun mu yaşıyorsunuz? Gözden geçirme [Azu
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Azure işlevleri Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md)
-* [Azure İşlevleri’ni yerel olarak kodlama ve test etme](./functions-develop-local.md)
-* [Azure İşlevleri için En İyi Uygulamalar](functions-best-practices.md)
+* [Kod ve Azure işlevleri yerel olarak test etme](./functions-develop-local.md)
+* [Azure işlevleri için en iyi uygulamalar](functions-best-practices.md)
 * [Azure işlevleri C# Geliştirici Başvurusu](functions-reference-csharp.md)
 * [Azure işlevleri NodeJS Geliştirici Başvurusu](functions-reference-node.md)

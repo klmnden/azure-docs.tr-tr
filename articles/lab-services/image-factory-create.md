@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: c7923282396481dcfd6aa19b75d110fa03e50931
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: e51c56f54a4e30b5e9094388ed92aa0a62ba0840
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440027"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879157"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Azure DevTest Labs'de bir özel görüntü fabrikası oluşturma
 Bu makalede bulunan örnek betikler kullanarak bir özel görüntü Fabrika ayarlanacağı gösterilmektedir [Git deposu](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory).
@@ -27,7 +27,7 @@ Bir görüntü factory oluşturan ve dağıtan tüm istenen yapılandırmaları 
 
 DevTest Labs hazır durumda bir geliştirici Masaüstü almak için önemli Hızlandırıcı, özel görüntüleri kullanıyor. Özel görüntüleri dezavantajı, laboratuvarda korumak için ek bir sorun olmadığını ' dir. Örneğin, zamanla ürünleri deneme sürümleri sona (veya) yeni kullanıma sunulan güvenlik güncelleştirmeleri, düzenli aralıklarla özel görüntüyü yenilemek için bize zorla uygulanmaz. Görüntü factory ile otomatik bir işlem tanımına dayalı olarak özel görüntüleri oluşturmak için kaynak kodu denetimi ve iade görüntü tanımı sahip.
 
-Çözüm ek devam eden bakım maliyetlerini sorununu ortadan kaldırırken özel görüntülerden sanal makineler oluşturma hızı sağlar. Bu çözüm ile otomatik olarak özel görüntüleri oluşturabilir, bunları dağıtmak için diğer DevTest Labs ve eski görüntülerin devre dışı bırakma. Aşağıdaki videoda, görüntü Fabrika ve DevTest Labs'i kullanmaya nasıl uygulandığı hakkında bilgi edinin.  Ücretsiz olarak kullanılabilir ve bulunan tüm Azure Powershell betikleri aşağıda verilmiştir: [ http://aka.ms/dtlimagefactory ](http://aka.ms/dtlimagefactory).
+Çözüm ek devam eden bakım maliyetlerini sorununu ortadan kaldırırken özel görüntülerden sanal makineler oluşturma hızı sağlar. Bu çözüm ile otomatik olarak özel görüntüleri oluşturabilir, bunları dağıtmak için diğer DevTest Labs ve eski görüntülerin devre dışı bırakma. Aşağıdaki videoda, görüntü Fabrika ve DevTest Labs'i kullanmaya nasıl uygulandığı hakkında bilgi edinin.  Ücretsiz olarak kullanılabilir ve bulunan tüm Azure Powershell betikleri aşağıda verilmiştir: [ https://aka.ms/dtlimagefactory ](https://aka.ms/dtlimagefactory).
 
 <br/>
 

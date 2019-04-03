@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 4215b008af21a3473a1d2dcef5f73a1b19133215
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 73fc17ae5c65cd1a6ce47a18cbe17e6c338b7aaf
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821568"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882132"
 ---
 # <a name="configure-face-docker-containers"></a>Yüz tanıma Docker kapsayıcıları yapılandırın
 
 **Yüz** kapsayıcı çalışma zamanı ortamı kullanarak yapılandırılmış `docker run` komut bağımsız değişkenleri. Bu kapsayıcı birkaç isteğe bağlı ayarları ile birlikte gerekli birkaç ayar vardır. Birkaç [örnekler](#example-docker-run-commands) komutu kullanılabilir. Kapsayıcı özgü ayarları faturalandırma ayarlarıdır. 
-
-Kapsayıcı ayarları [hiyerarşik](#hierarchical-settings) ve ayarlanabilir [ortam değişkenlerini](#environment-variable-settings) ya da docker [komut satırı bağımsız değişkenleri](#command-line-argument-settings).
 
 ## <a name="configuration-settings"></a>Yapılandırma ayarları
 
@@ -127,10 +125,6 @@ Konak bağlama konumu söz dizimi konak işletim sistemine göre değişir. Ayr�
 |İzin verilmedi| `Input` | String | Yüz tanıma kapsayıcıları bu kullanmayın.|
 |İsteğe bağlı| `Output` | String | Çıkış bağlama hedefi. Varsayılan değer `/output` şeklindedir. Bu günlükler konumdur. Bu, kapsayıcı günlükleri içerir. <br><br>Örnek:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="hierarchical-settings"></a>Hiyerarşik ayarları
-
-[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
-
 ## <a name="example-docker-run-commands"></a>Örnek docker komutlarını çalıştırın 
 
 Aşağıdaki örnekler, yazma ve kullanma göstermek için yapılandırma ayarlarını kullanır. `docker run` komutları.  Kapsayıcıyı çalıştıran sonra dek çalıştırmaya devam [Durdur](face-how-to-install-containers.md#stop-the-container) bu.
@@ -163,23 +157,13 @@ Aşağıdaki Docker için yüz kapsayıcı verilebilir.
   ApiKey={BILLING_KEY} 
   ```
 
-### <a name="logging-example-with-command-line-arguments"></a>Komut satırı bağımsız değişkenleri ile günlük örnek
+### <a name="logging-example"></a>Günlük örnek 
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
   Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
-  Logging:Console:LogLevel=Information
-  ```
-
-### <a name="logging-example-with-environment-variable"></a>Günlük örnek ortam değişkeni
-
-  ```
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
-  Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY}
+  Logging:Console:LogLevel:Default=Information
   ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -14,40 +14,41 @@ ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16794dfdcdc6ed9c2effe412237d2681fca4f394
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 3ffd783ec41b1b0c4a11ee426648c1e36fbbbf75
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803304"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883709"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Sistem sağlığı hizmeti verileri güncel uyarı değil
 
 ## <a name="overview"></a>Genel Bakış
-Azure AD Connect Health düzenli aralıklarla izler şirket içi makinelere aracılar, Azure AD Connect Health hizmeti için veri yükler. Portalı'nda sunulan bilgiler, hizmet Aracısı'ndan veri almazsa, eski olacaktır. Hizmet sorunu vurgulamak için oluşturacağı **sistem sağlığı hizmeti verileri güncel değil** uyarı. Hizmet son iki saat içinde tamamlanmış bir veri almadı olduğunda oluşturulur.  
 
-* **Uyarı** durum uyarısı tetikler sistem sağlığı hizmeti yalnızca aldıysa **kısmi** sunucudan son iki saat içinde gönderilen veri türleri. Uyarı durumu, yapılandırılmış alıcılara e-posta bildirimleri tetiklemez. 
-* **Hata** sistem sağlığı hizmeti, son iki saat içinde sunucudan tüm veri türleri almadı, durumu uyarı tetikler. Hata durumu uyarı Tetikleyicileri yapılandırılmış alıcılara e-posta bildirimleri.
+Azure AD Connect Health düzenli aralıklarla izler şirket içi makinelere aracılar, Azure AD Connect Health hizmeti için verileri karşıya yükleyin. Hizmet Aracısı'ndan veri almazsa, portal sunar bilgi eski olacaktır. Hizmet sorunu vurgulamak için oluşturacağı **sistem sağlığı hizmeti verileri güncel değil** uyarı. Hizmet, son iki saat içinde eksiksiz bir veri almadı olduğunda bu uyarı oluşturulur.  
 
-Hizmet şirket içi makinelerde çalışan aracılardan gelen verileri alır. Hizmet türüne bağlı olarak, aşağıdaki tabloda hizmet tarafından oluşturulan veri türleri yanı sıra yaptıkları makine üzerinde çalışan aracıları listeler. Bazı durumlarda, vardır, bu nedenle bunlardan birini sürecinizde birden çok hizmet sorunlu olabilir. 
+- **Uyarı** durum uyarısı tetikler sistem sağlığı hizmeti yalnızca aldıysa **kısmi** sunucudan son iki saat içinde gönderilen veri türleri. Uyarı durumu, yapılandırılmış alıcılara e-posta bildirimleri tetiklemez. 
+- **Hata** sistem sağlığı hizmeti, son iki saat içinde sunucudan tüm veri türleri almadı, durumu uyarı tetikler. Hata durumu uyarı Tetikleyiciler yapılandırılmış alıcılara e-posta bildirimleri.
+
+Hizmet, hizmet türüne bağlı olarak şirket içi makinelerde çalışan aracılardan gelen verileri alır. Aşağıdaki tabloda, makine, yaptıkları ve hizmet oluşturur veri türleri üzerinde çalışan aracıları listeler. Bazı durumlarda, birden çok hizmet mevcuttur işleminde yer alan için bunlardan herhangi birini sorunlu olabilir. 
 
 ## <a name="understanding-the-alert"></a>Uyarı anlama
-Uyarı ayrıntıları dikey penceresinde, uyarı oluşturulur ve son algılama zamanı gösterir. Uyarı oluşturulan/yeniden-iki saatte bir çalışan bir arka plan işlemi tarafından evaluated belirtir. Aşağıdaki örnekte, 9: 59'da 03/10'da ilk uyarının gerçekleştiği zaman. Bile 03/12 var olmaya devam etti 10:00 AM ne zaman uyarı değerlendirilen yeniden.
-Dikey Ayrıca, belirli bir veri türü sistem durumu hizmetinin son alındığı zamanı ayrıntıları. 
+
+**Uyarı ayrıntıları** ne zaman uyarı oluştu ve son algılama dikey pencerede gösterilir. Her iki saatte bir çalışan bir arka plan işlemi oluşturur ve uyarıyı yeniden değerlendirir. Aşağıdaki örnekte, 9: 59'da 03/10'da ilk uyarı oluştu. Uyarı, 10:00 ne zaman uyarı yeniden Hesaplandı'da hala 03/12 vardı. Dikey penceresinde, da sistem sağlığı hizmeti, belirli bir veri türüne en son aldığı zaman ayrıntıları. 
  
  ![Azure AD Connect Health uyarı ayrıntıları](./media/how-to-connect-health-data-freshness/data-freshness-details.png)
  
-Hizmet türlerini ve karşılık gelen gerekli veri türü eşlemesi aşağıdadır.
+Aşağıdaki tabloda hizmet türleri karşılık gelen gerekli veri türlerine eşlenir:
 
-| Hizmet Türü | Aracı (Windows hizmeti adı) | Amaç | Oluşturulan veri türü  |
+| Hizmet türü | Aracı (Windows hizmeti adı) | Amaç | Oluşturulan veri türü  |
 | --- | --- | --- | --- |  
-| Azure AD Connect (eşitleme) | Azure AD Connect Health Eşitleme Öngörü Hizmeti | AAD Connect belirli bilgiler toplamak (bağlayıcılar, eşitleme kurallarını vb..) | AadSyncService SynchronizationRules <br />  AadSyncService bağlayıcılar <br /> AadSyncService GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
-|  | Azure AD Connect Health Eşitleme İzleme Hizmeti | Performans sayaçları, ETW izlemelerini (AAD Connect belirli) dosyaları Topla | Performans Sayacı |
+| Azure AD Connect (eşitleme) | Azure AD Connect Health Eşitleme Öngörü Hizmeti | AAD Connect özgü bilgileri toplama (bağlayıcılar, eşitleme kuralları, vb.) | AadSyncService SynchronizationRules <br />  AadSyncService bağlayıcılar <br /> AadSyncService GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
+|  | Azure AD Connect Health Eşitleme İzleme Hizmeti | AAD Connect özgü performans sayaçları, ETW izlemelerini, dosyaları Topla | Performans sayacı |
 | AD DS | Azure AD Connect Health AD DS Insights Hizmeti | Yapay testler gerçekleştirin, topoloji bilgilerini, çoğaltma meta verilerini topla |  Ekler-TopologyInfo-Json <br /> Ortak-test-(test sonuçlarını oluşturur) Json   | 
-|  | Azure AD Connect Health AD DS İzleme Hizmeti | (ADDS özgü) performans sayaçları, ETW izlemelerini dosyaları Topla | -Performans sayacı  <br /> Ortak-test-(test sonuçlarını yükler) Json  |
+|  | Azure AD Connect Health AD DS İzleme Hizmeti | ADDS özgü performans sayaçları, ETW izlemelerini, dosyaları Topla | -Performans sayacı  <br /> Ortak-test-(test sonuçlarını yükler) Json  |
 | AD FS | Azure AD Connect Health AD FS Tanılama Hizmeti | Yapay testleri gerçekleştir | TestResult (test sonuçlarını oluşturur) | 
 | | Azure AD Connect Health AD FS Öngörü Hizmeti  | ADFS kullanım ölçümlerini Topla | Adfs-UsageMetrics |
-| | Azure AD Connect Health AD FS İzleme Hizmeti | (Özel ADFS) performans sayaçları, ETW izlemelerini dosyaları Topla | TestResult (test sonuçlarını yükler) |
+| | Azure AD Connect Health AD FS İzleme Hizmeti | ADFS özgü performans sayaçları, ETW izlemelerini, dosyaları Topla | TestResult (test sonuçlarını yükler) |
 
 ## <a name="troubleshooting-steps"></a>Sorun giderme adımları 
 

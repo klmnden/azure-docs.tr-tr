@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 7511b85384c2c64c823d93df4369b0fea3e64b51
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 5d168264cbc392e1ba426707429f47dea70d1ea8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226224"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882064"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Öğretici: Azure AD sunucu sorumlusu (oturum açma) kullanarak Azure SQL veritabanı yönetilen örnek güvenlik
 
@@ -56,7 +56,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki önkoşulların karşılandığın
 
 ## <a name="limiting-access-to-your-managed-instance"></a>Yönetilen Örneğinize erişimi sınırlandırma
 
-Yönetilen örnekleri yalnızca özel bir IP adresi erişilebilir. Yönetilen örnek Ağ dışından bir yönetilen örneğine bağlanmak kullanılabilir olan hiçbir hizmet uç noktaları vardır. Bir bağlantı kurulmadan önce çok bir yalıtılmış SQL Server şirket içi ortamda gibi uygulamalara veya kullanıcılara yönetilen örnek ağa (VNet) erişim gerekir. Daha fazla bilgi için şu makaleye bakın [uygulamanızın yönetilen örneğe bağlanma](sql-database-managed-instance-connect-app.md).
+Yönetilen örnekleri yalnızca özel bir IP adresi erişilebilir. Yönetilen örnek Ağ dışından bir yönetilen örneğine bağlanmak kullanılabilir olan hiçbir hizmet uç noktaları vardır. Çok yalıtılmış bir SQL Server ortamı, uygulamalara veya kullanıcılara şirket gibi bir bağlantı önce yönetilen örnek ağa (VNet) erişim kurulabilir. Daha fazla bilgi için şu makaleye bakın [uygulamanızın yönetilen örneğe bağlanma](sql-database-managed-instance-connect-app.md).
 
 > [!NOTE] 
 > Yönetilen örnekleri yalnızca kendi sanal ağ içinde erişilebildiğinden [SQL veritabanı güvenlik duvarı kuralları](sql-database-firewall-configure.md) geçerli değildir. Yönetilen örnek sahip kendi [yerleşik güvenlik duvarı](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
@@ -442,7 +442,7 @@ Veritabanları arası sorgular, Azure AD sunucu sorumlusu (oturum açma bilgiler
 Şu [yönetilen örnek özellikleri güvenlik özellikleri](sql-database-managed-instance.md#azure-sql-database-security-features) kapsamlı bir liste için bir makale birkaç yolla yapılandırarak veritabanınızın güvenliğini sağlama. Aşağıdaki güvenlik özellikleri ele alınmıştır:
 
 - [Yönetilen örnek denetleme](sql-database-managed-instance-auditing.md) 
-- [Her zaman şifreli](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
+- [Always encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Tehdit algılama](sql-database-managed-instance-threat-detection.md) 
 - [Dinamik veri maskeleme](/sql/relational-databases/security/dynamic-data-masking)
 - [Satır düzeyi güvenlik](/sql/relational-databases/security/row-level-security) 

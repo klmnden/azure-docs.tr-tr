@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: 2d296281f6865030bcdfec33d8c69cc313a358a5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c93bca14d9385eaf9f79f69d76e9e704796da7a9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011897"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850879"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure sanal makineler dağıtım için SAP NetWeaver
 
@@ -178,7 +178,7 @@ ms.locfileid: "58011897"
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 
-[msdn-set-azurermvmaemextension]:https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmaemextension
+[msdn-set-Azvmaemextension]:https://docs.microsoft.com/powershell/module/az.compute/set-azvmaemextension
 
 [planning-guide]:planning-guide.md (Azure sanal makineleri planlama ve uygulama için SAP)
 [planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Kaynakları)
@@ -234,7 +234,6 @@ ms.locfileid: "58011897"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure ağı)
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Depolama: Microsoft Azure depolama ve veri diskleri)
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/network-overview.md
@@ -262,7 +261,7 @@ ms.locfileid: "58011897"
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
 [virtual-machines-azure-resource-manager-architecture]:../../../resource-manager-deployment-model.md
-[virtual-machines-azurerm-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
+[virtual-machines-Az-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md (Azure Resource Manager şablonları ve Azure CLI kullanarak sanal makineleri yönetme ve dağıtma)
 [virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md (Azure Resource Manager ve PowerShell kullanarak sanal makineleri yönetme)
@@ -318,6 +317,8 @@ Azure sanal makineler, en az sürede ve uzun tedarik döngüleri olmadan işlem 
 Bu makalede, azure'da, diğer dağıtım seçenekleri dahil olmak üzere ve sorun giderme sanal makineleri (VM'ler) SAP uygulamaları dağıtma adımları ele. Bu makalede yer alan bilgiler geliştirir [planlama Azure sanal makineleri ve SAP NetWeaver uygulamasını][planning-guide]. Ayrıca SAP yükleme belgelerine ve yükleme ve SAP yazılım dağıtmak için birincil kaynaklardır SAP notları tamamlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 Bir Azure sanal makinesi için SAP yazılım dağıtımı ayarlama adımları ve kaynakları birden çok içerir. Başlamadan önce Azure sanal makinelerinde SAP yazılım yüklemeye yönelik önkoşulları karşıladığından emin olun.
 
@@ -786,7 +787,7 @@ Sık güncelleştirmeler genellikle aylık güncelleştirilir PowerShell Cmdlet'
 
 Azure PowerShell cmdlet'lerini, bilgisayarınızda yüklü sürümünü denetlemek için bu PowerShell komutunu çalıştırın:
 ```powershell
-(Get-Module AzureRm.Compute).Version
+(Get-Module Az.Compute).Version
 ```
 Sonucu şöyle görünür:
 
@@ -937,22 +938,22 @@ Azure Gelişmiş izleme uzantısını SAP için PowerShell kullanarak yüklemek 
 
 1. Azure PowerShell cmdlet'ini en son sürümünü yüklediğinizden emin olun. Daha fazla bilgi için [dağıtma, Azure PowerShell cmdlet'lerini][deployment-guide-4.1].  
 1. Aşağıdaki PowerShell cmdlet’ini çalıştırın.
-    Kullanılabilir ortamların listesi için çalıştırma `commandlet Get-AzureRmEnvironment`. Küresel Azure kullanmak istiyorsanız, ortamınızın olup **AzureCloud**. Çin'de Azure için seçin **AzureChinaCloud**.
+    Kullanılabilir ortamların listesi için çalıştırma `commandlet Get-AzEnvironment`. Küresel Azure kullanmak istiyorsanız, ortamınızın olup **AzureCloud**. Çin'de Azure için seçin **AzureChinaCloud**.
 
     ```powershell
-    $env = Get-AzureRmEnvironment -Name <name of the environment>
-    Connect-AzureRmAccount -Environment $env
-    Set-AzureRmContext -SubscriptionName <subscription name>
+    $env = Get-AzEnvironment -Name <name of the environment>
+    Connect-AzAccount -Environment $env
+    Set-AzContext -SubscriptionName <subscription name>
 
-    Set-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
+    Set-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
     ```
 
 Hesap verilerinizi girin ve Azure sanal makineyi tanımlamak sonra betik gerekli uzantılarını dağıtır ve gerekli özellikleri sağlar. Bu işlem birkaç dakika sürebilir.
-Hakkında daha fazla bilgi için `Set-AzureRmVMAEMExtension`, bkz: [Set-AzureRmVMAEMExtension][msdn-set-azurermvmaemextension].
+Hakkında daha fazla bilgi için `Set-AzVMAEMExtension`, bkz: [kümesi AzVMAEMExtension][msdn-set-Azvmaemextension].
 
-![SAP özgü aktarılmadığı Azure cmdlet Set-AzureRmVMAEMExtension][deployment-guide-figure-900]
+![SAP özgü aktarılmadığı Azure cmdlet kümesi AzVMAEMExtension][deployment-guide-figure-900]
 
-`Set-AzureRmVMAEMExtension` Yapılandırma, SAP için izleme ana bilgisayarı yapılandırmak için gereken tüm adımları yapar.
+`Set-AzVMAEMExtension` Yapılandırma, SAP için izleme ana bilgisayarı yapılandırmak için gereken tüm adımları yapar.
 
 Betik çıktısı, aşağıdaki bilgileri içerir:
 
@@ -1129,15 +1130,15 @@ Tüm bu denetimlerin başarısız olursa, ve uzantıyı yeniden dağıtma hakkı
 
 ### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Sistem durumu için Azure izleme altyapı yapılandırmasını denetleyin
 
-Bazı izleme, veri açıklanan test tarafından belirtildiği şekilde doğru şekilde teslim edilemedi [Azure SAP Gelişmiş izleme için hazır olma denetimi][deployment-guide-5.1]çalıştırın `Test-AzureRmVMAEMExtension` cmdlet'ini olmadığını Azure için SAP altyapı ve izleme uzantısı izleme doğru şekilde yapılandırılır.
+Bazı izleme, veri açıklanan test tarafından belirtildiği şekilde doğru şekilde teslim edilemedi [Azure SAP Gelişmiş izleme için hazır olma denetimi][deployment-guide-5.1]çalıştırın `Test-AzVMAEMExtension` cmdlet'ini olmadığını Azure için SAP altyapı ve izleme uzantısı izleme doğru şekilde yapılandırılır.
 
 1. Açıklandığı gibi Azure PowerShell cmdlet en son sürümünü yüklediğinizden emin olun [dağıtma, Azure PowerShell cmdlet'lerini][deployment-guide-4.1].
-1. Aşağıdaki PowerShell cmdlet’ini çalıştırın. Kullanılabilir ortamların listesi için cmdlet'i çalıştırın `Get-AzureRmEnvironment`. Küresel Azure kullanmayı tercih **AzureCloud** ortamı. Çin'de Azure için seçin **AzureChinaCloud**.
+1. Aşağıdaki PowerShell cmdlet’ini çalıştırın. Kullanılabilir ortamların listesi için cmdlet'i çalıştırın `Get-AzEnvironment`. Küresel Azure kullanmayı tercih **AzureCloud** ortamı. Çin'de Azure için seçin **AzureChinaCloud**.
    ```powershell
-   $env = Get-AzureRmEnvironment -Name <name of the environment>
-   Connect-AzureRmAccount -Environment $env
-   Set-AzureRmContext -SubscriptionName <subscription name>
-   Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
+   $env = Get-AzEnvironment -Name <name of the environment>
+   Connect-AzAccount -Environment $env
+   Set-AzContext -SubscriptionName <subscription name>
+   Test-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
    ```
 
 1. Hesap verilerinizi girin ve Azure sanal makine belirleyin.
@@ -1168,7 +1169,7 @@ Yükleme dizini C:\\paketleri\\eklentileri\\Microsoft.AzureCAT.AzureEnhancedMoni
 
 ###### <a name="solution"></a>Çözüm
 
-Uzantısı yüklü değil. (Daha önce açıklandığı gibi) bu Ara sunucu sorunu olup olmadığını belirler. Makineyi yeniden başlatın veya yeniden çalıştırmak ihtiyacınız olabilecek `Set-AzureRmVMAEMExtension` yapılandırma betiği.
+Uzantısı yüklü değil. (Daha önce açıklandığı gibi) bu Ara sunucu sorunu olup olmadığını belirler. Makineyi yeniden başlatın veya yeniden çalıştırmak ihtiyacınız olabilecek `Set-AzVMAEMExtension` yapılandırma betiği.
 
 ##### <a name="service-for-azure-enhanced-monitoring-does-not-exist"></a>Azure Gelişmiş izleme için hizmet kayıtlı değil
 
@@ -1201,7 +1202,7 @@ Yapılandırması doğru değil. İzleme uzantısı açıklandığı gibi sanal 
 
 AzureEnhancedMonitoring Windows hizmeti, azure'da performans ölçümleri toplar. Hizmet, çeşitli kaynaklardan veri alır. Bazı yapılandırma verilerini yerel olarak toplanır ve bazı performans ölçümlerini Azure Tanılama'ya okunur. Depolama sayaçları, oturum depolama abonelik düzeyinde kullanılır.
 
-SAP notu kullanarak sorun giderme olursa [1999351] değil, sorunu yeniden `Set-AzureRmVMAEMExtension` yapılandırma betiği. Hemen etkinleştirdikten sonra depolama analizi veya tanılama sayaçları oluşturulamaz çünkü bir saat beklemeniz gerekebilir. Sorun devam ederse, SAP Müşteri Destek iletisine için bileşen OP NT AZR BC Windows veya BC-işlem-LNX-AZR Linux sanal makinesi için açın.
+SAP notu kullanarak sorun giderme olursa [1999351] değil, sorunu yeniden `Set-AzVMAEMExtension` yapılandırma betiği. Hemen etkinleştirdikten sonra depolama analizi veya tanılama sayaçları oluşturulamaz çünkü bir saat beklemeniz gerekebilir. Sorun devam ederse, SAP Müşteri Destek iletisine için bileşen OP NT AZR BC Windows veya BC-işlem-LNX-AZR Linux sanal makinesi için açın.
 
 #### <a name="linuxlogolinux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Azure performans sayaçları hiç gösterilmez
 
@@ -1215,13 +1216,13 @@ Dizin \\var\\LIB\\waagent\\ Azure Gelişmiş izleme uzantısı için bir alt diz
 
 ###### <a name="solution"></a>Çözüm
 
-Uzantısı yüklü değil. (Daha önce açıklandığı gibi) bu Ara sunucu sorunu olup olmadığını belirler. Makineyi yeniden başlatın ve/veya yeniden çalıştırmak ihtiyacınız olabilecek `Set-AzureRmVMAEMExtension` yapılandırma betiği.
+Uzantısı yüklü değil. (Daha önce açıklandığı gibi) bu Ara sunucu sorunu olup olmadığını belirler. Makineyi yeniden başlatın ve/veya yeniden çalıştırmak ihtiyacınız olabilecek `Set-AzVMAEMExtension` yapılandırma betiği.
 
-##### <a name="the-execution-of-set-azurermvmaemextension-and-test-azurermvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>Set-AzureRmVMAEMExtension ve Test-AzureRmVMAEMExtension yürütülmesini standart yönetilen diskler desteklenmediğini belirten bir uyarı iletilerini göster
+##### <a name="the-execution-of-set-azvmaemextension-and-test-azvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>Set-AzVMAEMExtension ve Test AzVMAEMExtension yürütülmesini standart yönetilen diskler desteklenmediğini belirten bir uyarı iletilerini göster
 
 ###### <a name="issue"></a>Sorun
 
-Ne zaman yürütülen Set-AzureRmVMAEMExtension veya Test-AzureRmVMAEMExtension iletileri bunlar gibi gösterilir:
+Ne zaman yürütülen kümesi AzVMAEMExtension veya Test AzVMAEMExtension iletileri bunlar gibi gösterilir:
 
 <pre><code>
 WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
@@ -1242,4 +1243,4 @@ Azure'da performans ölçümleri, çeşitli kaynaklardan veri alır bir arka pla
 
 Bilinen sorunların eksiksiz ve güncel listesi için bkz. Not SAP [1999351], SAP için Azure izleme Gelişmiş ek sorun giderme bilgileri içeriyor.
 
-SAP notu kullanarak sorun giderme olursa [1999351] değil sorunu çözün, yeniden `Set-AzureRmVMAEMExtension` açıklandığı gibi yapılandırma betiğini [Azure Gelişmiş izleme uzantısını SAP için yapılandırmak] [deployment-guide-4.5]. Hemen etkinleştirdikten sonra depolama analizi veya tanılama sayaçları oluşturulamaz çünkü bir saat beklemeniz gerekebilir. Sorun devam ederse, SAP Müşteri Destek iletisine için bileşen OP NT AZR BC Windows veya BC-işlem-LNX-AZR Linux sanal makinesi için açın.
+SAP notu kullanarak sorun giderme olursa [1999351] değil sorunu çözün, yeniden `Set-AzVMAEMExtension` açıklandığı gibi yapılandırma betiğini [Azure Gelişmiş izleme uzantısını SAP için yapılandırmak] [deployment-guide-4.5]. Hemen etkinleştirdikten sonra depolama analizi veya tanılama sayaçları oluşturulamaz çünkü bir saat beklemeniz gerekebilir. Sorun devam ederse, SAP Müşteri Destek iletisine için bileşen OP NT AZR BC Windows veya BC-işlem-LNX-AZR Linux sanal makinesi için açın.

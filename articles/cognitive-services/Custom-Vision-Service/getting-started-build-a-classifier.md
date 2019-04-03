@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: f2cd8f5074f815e84caaedb01335406657f29088
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: cf8a36145ebf5d5dabf8c539d4f245e1d4b209f0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088018"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886446"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Özel görüntü ile bir sınıflandırıcı oluşturma
 
@@ -27,7 +27,7 @@ Custom Vision Service'e görüntü sınıflandırması için kullanılacak bir s
 - Sınıflandırıcınızı eğitmek görüntüleri bir dizi. Görüntüleri seçme hakkında ipuçları için aşağıya bakın.
 
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Azure Portalı'nda özel görüntü işleme kaynakları oluşturma
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Azure portalında özel görüntü işleme kaynakları oluşturma
 Özel görüntü işleme hizmeti kullanmak için Custom Vision eğitim ve tahmin kaynaklarında oluşturmanız gerekecektir içinde [Azure portalında](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Bu, eğitim ve tahmin kaynak oluşturur. 
 
 ## <a name="create-a-new-project"></a>Yeni bir proje oluşturma
@@ -43,8 +43,8 @@ Web tarayıcınızda gidin [Custom Vision web sayfası](https://customvision.ai)
 
 1. Bir ad ve proje için bir açıklama girin. Ardından, bir kaynak grubu seçin. Oturum açtığınız hesabınız bir Azure hesabı ile ilişkili ise, kaynak grubu açılan bir özel görüntü işleme hizmeti kaynağı içeren Azure kaynak gruplarınızdaki tüm görüntüler. 
 
-> [!NOTE]
-> Hiçbir kaynak grubu varsa, Lütfen oturum açıldı onaylayın [customvision.ai](https://customvision.ai) yazarken aynı hesabı ile oturum açmak için kullanılan [Azure portalı](https://portal.azure.com/). Ayrıca, aynı "dizin" özel görüntü işleme kaynaklarınızı yer aldığı Azure portalında bir dizinle Custom Vision Portalı'nda seçtiğiniz lütfen onaylayın. Her iki site, ekranın sağ üst köşesinde hesap menüsünde açılan dizininize seçebilirsiniz. 
+   > [!NOTE]
+   > Hiçbir kaynak grubu varsa, Lütfen oturum açıldı onaylayın [customvision.ai](https://customvision.ai) yazarken aynı hesabı ile oturum açmak için kullanılan [Azure portalında](https://portal.azure.com/). Ayrıca, aynı "dizin" özel görüntü işleme kaynaklarınızı yer aldığı Azure portalında bir dizinle Custom Vision Portalı'nda seçtiğiniz lütfen onaylayın. Her iki site, ekranın sağ üst köşesinde hesap menüsünde açılan dizininize seçebilirsiniz. 
 
 1. Seçin __sınıflandırma__ altında __proje türleri__. Ardından, altında __sınıflandırma türleri__, seçin ya da **Multilabel** veya **veya çoklu sınıflar**kullanım Örneğinize bağlı olarak. (Gönderdiğiniz her resim büyük olasılıkla etiketine sıralanacağını) tek kategorilere görüntüleri sınıflı sınıflandırma sıralar sırada multilabel sınıflandırma etiketleri herhangi bir sayıda görüntüye (sıfır veya daha fazla) uygulanır. İsterseniz daha sonra sınıflandırma türünü değiştirmek mümkün olacaktır.
 
@@ -53,7 +53,7 @@ Web tarayıcınızda gidin [Custom Vision web sayfası](https://customvision.ai)
     |Domain|Amaç|
     |---|---|
     |__Genel__| Çok sayıda görüntü sınıflandırma görevleri için en iyi duruma getirilmiş. Diğer etki alanlarıyla uygun yok ya da seçmek için hangi etki alanı emin değilseniz, genel etki alanını seçin. |
-    |__Gıda__|Bir restoran menüsünde göreceğiniz şekilde çanakları fotoğraflarını için en iyi duruma getirilmiş. Bireysel MEYVELERİ veya et fotoğraflarını sınıflandırma istiyorsanız, Yemek etki alanını kullanın.|
+    |__Yiyecek__|Bir restoran menüsünde göreceğiniz şekilde çanakları fotoğraflarını için en iyi duruma getirilmiş. Bireysel MEYVELERİ veya et fotoğraflarını sınıflandırma istiyorsanız, Yemek etki alanını kullanın.|
     |__Yer işareti__|Tanınabilir için yer işareti, doğal ve yapay en iyi duruma getirilmiş. Yer işareti fotoğraf açıkça görünür olduğunda bu etki alanı en iyi şekilde çalışır. Bu etki alanında yer işareti biraz önündeki kişiler tarafından engellendiği bile çalışır.|
     |__Perakende__|Bir alışveriş katalog veya alışveriş Web sitesinde bulunan görüntüleri için en iyi duruma getirilmiş. Elbiselerini pants ve gömlekler arasında yüksek duyarlık sınıflandırmak istiyorsanız, bu etki alanını kullanın.|
     |__Yetişkin__|Yetişkinlere yönelik içerik ve yetişkin olmayan içerik daha iyi tanımlamak için en iyi duruma getirilmiş. Örneğin, görüntüleri bathing cins insanların engellemek istiyorsanız, bu etki alanı, bunu yapmak için özel bir sınıflandırıcı oluşturmanıza olanak sağlar.|
@@ -96,12 +96,7 @@ Bu bölümde karşıya yükleme ve sınıflandırıcı eğitmenize yardımcı ol
 
     ![İlerleme çubuğu, tamamlanan tüm görevleri gösterir.](./media/getting-started-build-a-classifier/add-images04.png)
 
-Başka bir dizi görüntüleri karşıya yüklemek için bu bölümde dön ve adımları yineleyin. Projenizdeki belirli bir noktada eklemeniz gerekebilir _negatif örnekleri_ sınıflandırıcınızı daha doğru hale getirilmesine yardımcı olacak. Negatif örnekleri diğer etiketlerden herhangi birini eşleşmeyen olanlardır. Bu görüntüleri karşıya yüklediğinizde, özel uygulama **negatif** için bunları etiketleyin.
-
-> [!NOTE]
-> Custom Vision Service'e bazı otomatik negatif görüntü işlemeyi destekler. Bir üzüm Muz sınıflandırıcı karşılaştırması oluşturmaya ve tahmin için bir ayakkabı görüntüsü göndermek, örneğin, sınıflandırıcı %0 yakın olarak bu görüntüyü üzüm ve Muz için Puanlama.
-> 
-> Öte yandan, negatif görüntüler yalnızca eğitim kullanılan görüntülerin çeşitlemesi olduğu durumlarda, model negatif görüntüleri harika benzerlikler nedeniyle etiketli bir sınıf olarak sınıflandırır olasılığı yüksektir. Clementine özelliklerinin çoğu bu portakallar benzer çünkü gibi turuncu grapefruit sınıflandırıcı karşılaştırması sahip ve bir clementine görüntüdeki akışı, onu clementine turuncu puan. Negatif görüntülerinizi bu yapısı varsa, bir veya daha fazla ek etiketler oluşturma öneririz (gibi **diğer**) ve bu sınıflar arasında daha iyi ayırt etmek model izin vermek eğitim sırasında negatif görüntüler bu etikete sahip etiket .
+Başka bir dizi görüntüleri karşıya yüklemek için bu bölümde dön ve adımları yineleyin.
 
 ## <a name="train-the-classifier"></a>Sınıflandırıcıyı eğitme
 
@@ -138,5 +133,5 @@ Sol bölmede, ayrıca bulacaksınız **Sil** düğmesi, eski ise, bir yineleme s
 
 Bu kılavuzda, özel görüntü işleme Web sitesini kullanarak bir görüntü sınıflandırma modeli eğitmek ve oluşturma hakkında bilgi edindiniz. Ardından, modelinizi geliştirme, yinelemeli işlemi hakkında daha fazla bilgi alın.
 
-[Modeli test etme ve yeniden eğitme](test-your-model.md)
+[Test edin ve bir modeli yeniden eğitme](test-your-model.md)
 

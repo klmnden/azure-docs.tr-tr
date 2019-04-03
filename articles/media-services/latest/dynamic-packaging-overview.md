@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 77cbc73c6c6aef40c482b0cfe456dcbd4b7e85d0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c9254c8dd629230a549dd95aba9afbd932746007
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58435321"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886463"
 ---
 # <a name="dynamic-packaging"></a>Dinamik paketleme
 
@@ -26,7 +26,7 @@ Microsoft Azure Media Services, birçok medya kaynak dosya biçimleri akış bi�
 
 [Akış uç noktaları](streaming-endpoint-concept.md) istemci oyuncular medya içeriği teslim etmek için kullanılan Media Services dinamik paketleme hizmetidir. Dinamik paketleme, tüm standart gelen bir özelliktir **akış uç noktalarını** (standart veya Premium). 
 
-Yararlanmak için **dinamik paketleme**, ihtiyacınız bir **varlık** Uyarlamalı bit hızı MP4 dosyaları ve akış yapılandırma dosyalarını, Media Services dinamik paketleme tarafından gereken bir dizi. Dosyaları almak için bir ara (kaynak) dosyanızı Media Services ile kodlanacak yoludur. Oluşturmak zorunda video kodlanmış varlıkta kayıttan yürütme için istemcilere kullanabilmek için bir **akış Bulucu** ve akış URL'lerini oluşturun. Ardından, akış istemci bildirimi (HLS, DASH veya kesintisiz) belirtilen biçime bağlı olarak, akışın seçtiğiniz protokolde alırsınız.
+Yararlanmak için **dinamik paketleme**, ihtiyacınız bir **varlık** Uyarlamalı bit hızı MP4 dosyaları ve akış yapılandırma dosyalarını, Media Services dinamik paketleme tarafından gereken bir dizi. Dosyaları almak için kullanabileceğiniz yöntemlerden biri, ara (kaynak) dosyanızı Media Services ile kodlamaktır. Oluşturmak zorunda video kodlanmış varlıkta kayıttan yürütme için istemcilere kullanabilmek için bir **akış Bulucu** ve akış URL'lerini oluşturun. Ardından, akış istemci bildirimi (HLS, DASH veya kesintisiz) belirtilen biçime bağlı olarak, akışın seçtiğiniz protokolde alırsınız.
 
 Bunu sonucunda, dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services hizmeti, istemciden gelen isteklere göre uygun yanıtı derler ve sunar. 
 
@@ -196,7 +196,7 @@ Kesintisiz akış bildirimin bir örnek aşağıda verilmiştir:
 Dinamik filtreleme izler, biçimleri, bit hızlarına dönüştürme ve oyunculara gönderilen sunu zaman pencereleri sayısını denetlemek için kullanılır. Daha fazla bilgi için [filtreleri ve dinamik bildirimlere](filters-dynamic-manifest-overview.md).
 
 > [!NOTE]
-> Şu anda Azure portalında v3 kaynakları yönetmek için kullanamazsınız. Kullanım [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), veya desteklenen biri [SDK'ları](developers-guide.md).
+> Şu anda, v3 kaynaklarını yönetmek için Azure portalını kullanamıyorsunuz. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) veya desteklenen [SDK'lardan](developers-guide.md) birini kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

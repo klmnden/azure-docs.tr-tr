@@ -17,24 +17,25 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 592f2ef95935ce1d1f83db6c3327cab9c20015d3
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 929d6b55b9261ae29ba43f05b378866adfdcd2ed
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652578"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882810"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Nasıl yapılır: Azure AD uygulamanızı (genel Önizleme) için isteğe bağlı bir talep sağla
+# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-preview"></a>Nasıl yapılır: Azure AD uygulamanızı (Önizleme) için isteğe bağlı bir talep sağla
 
 Bu özellik, uygulama geliştiriciler tarafından hangi kullanıcıların uygulamaya gönderilen belirteçlerde istediği talepleri belirtmek için kullanılır. İsteğe bağlı talepleri kullanabilirsiniz:
+
 - Ek talep belirteçleri uygulamanıza eklemek için seçin.
 - Azure AD belirteçleri döndüren belirli talep davranışını değiştirin.
-- Ekleme ve özel talepler uygulamanıza erişebilirsiniz. 
+- Ekleme ve özel talepler uygulamanıza erişebilirsiniz.
 
 > [!NOTE]
 > Bu özellik şu anda genel Önizleme aşamasındadır. Değişiklikleri geri almaya veya kaldırmaya hazırlıklı olun. Bu özellik, herhangi bir Azure AD aboneliğiniz genel Önizleme sırasında kullanılabilir. Ancak, bazı yönlerini özellik özelliği genel kullanıma sunulduğunda, bir Azure AD premium aboneliği gerektirebilir.
 
-Standart talepler ve belirteçler nasıl kullanıldığı listesi için bkz. [Azure AD tarafından verilen belirteçlere Temelleri](v1-id-and-access-tokens.md). 
+Standart talepler ve belirteçler kullanılma listesi için bkz. [Azure AD tarafından verilen belirteçlere Temelleri](v1-id-and-access-tokens.md).
 
 Hedeflerinden [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview.md) istemciler tarafından en iyi performansı elde etmek için daha küçük simge boyutları. Sonuç olarak, eski erişim ve kimlik belirteçlerini dahil birkaç talep artık v2.0 belirteçleri varsa ve için özellikle uygulama başına temelinde sorulması gerekir.
 
@@ -50,19 +51,19 @@ Hedeflerinden [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview
 
 ## <a name="standard-optional-claims-set"></a>Standart isteğe bağlı bir talep kümesi
 
-İsteğe bağlı varsayılan olarak kullanılabilir talepler için uygulamaları kullanmaya kümesini aşağıda listelenmiştir. Uygulamanız için isteğe bağlı özel talepler eklemek için bkz [dizin genişletmeleri](active-directory-optional-claims.md#configuring-custom-claims-via-directory-extensions)aşağıdaki. Talepleri eklerken unutmayın **erişim belirteci**, bu istenen erişim belirteçleri için geçerli *için* uygulama (bir web API), olanları *tarafından* uygulama. Bu, API'nizi erişen istemci ne olursa olsun, doğru verilere API'nizi karşı kimlik doğrulaması yapmak için kullandıkları erişim belirteci mevcut olmasını sağlar.
+İsteğe bağlı varsayılan olarak kullanılabilir talepler için uygulamaları kullanmaya kümesini aşağıda listelenmiştir. Uygulamanız için isteğe bağlı özel talepler eklemek için bkz [dizin genişletmeleri](#configuring-custom-claims-via-directory-extensions)aşağıdaki. Talepleri eklerken **erişim belirteci**, bu istenen erişim belirteçleri için geçerli *için* uygulama (bir web API), olanları *tarafından* uygulama. Bu, API'nizi erişen istemci ne olursa olsun, doğru verilere API'nizi karşı kimlik doğrulaması yapmak için kullandıkları erişim belirteci mevcut olmasını sağlar.
 
 > [!NOTE]
 > Bu talep çoğunu içinde Jwt'ler v1.0 ve v2.0 belirteçleri, ancak değil SAML belirteçlerini dışında belirteç Türü sütununda belirtilmedikçe dahil edilebilir. Ayrıca, isteğe bağlı talepleri yalnızca AAD kullanıcıları için şu anda desteklendiğinden, MSA desteği ekleniyor. MSA v2.0 uç noktada destek isteğe bağlı bir talep varsa, kullanıcı türü sütunu bir AAD veya MSA kullanıcısı için bir talep olup olmadığını gösterir. 
 
 **Tablo 2: Standart isteğe bağlı bir talep kümesi**
 
-| Ad                        | Açıklama   | Belirteç türü | Kullanıcı Türü | Notes  |
+| Ad                        | Açıklama   | Belirteç türü | Kullanıcı Türü | Notlar  |
 |-----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Zaman zaman son kullanıcı kimlik doğrulaması. Bkz: Openıd Connect belirtimi.| JWT        |           |  |
 | `tenant_region_scope`      | Kaynak Kiracı bölgesi | JWT        |           | |
 | `home_oid`                 | Konuk kullanıcılar için kullanıcının giriş kiracısında kullanıcının nesne kimliği.| JWT        |           | |
-| `sid`                      | Oturum başına kullanıcı signout için kullanılan oturum kimliği. | JWT        |           |         |
+| `sid`                      | Oturum başına kullanıcı oturumu kapatma için kullanılan oturum kimliği. | JWT        |           |         |
 | `platf`                    | Cihaz platformu    | JWT        |           | Cihaz türü doğrulayabilirsiniz yönetilen cihazlar için kısıtlı.|
 | `verified_primary_email`   | Kullanıcının PrimaryAuthoritativeEmail kaynağı      | JWT        |           |         |
 | `verified_secondary_email` | Kullanıcının SecondaryAuthoritativeEmail kaynağı   | JWT        |           |        |
@@ -71,7 +72,7 @@ Hedeflerinden [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview
 | `fwd`                      | IP adresi.| JWT    |   | İstekte bulunan istemciye (bir sanal ağ içindeki olduğunda) özgün IPv4 adresini ekler |
 | `ctry`                     | Kullanıcının ülke | JWT |           | Azure AD döndürür `ctry` varsa ve FR, JP, SZ ve benzeri gibi bir standart iki harfli ülke kodu talep değeri isteğe bağlı bir talep. |
 | `tenant_ctry`              | Kaynak kiracının ülke | JWT | | |
-| `xms_pdl`          | Tercih edilen veri konumu   | JWT | | Çoklu coğrafi kiracılar için bu yöntem, kullanıcının hangi coğrafi bölgede gösteren 3 harfli koddur. Daha fazla ayrıntı için [tercih edilen veri konumu hakkında Azure AD Connect belgelerini](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation). <br> Örneğin: `APC` Asya Pasifik için. |
+| `xms_pdl`          | Tercih edilen veri konumu   | JWT | | Çoklu coğrafi kiracılar için gösteren kullanıcının bulunduğu coğrafi bölge 3 harfli kod budur. Daha fazla bilgi için bkz. [tercih edilen veri konumu hakkında Azure AD Connect belgelerini](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation).<br/>Örneğin: `APC` Asya Pasifik için. |
 | `xms_pl`                   | Kullanıcı tercih edilen dil  | JWT ||Kullanıcının, uygulamanın tercih edilen dil, ayarlayın. Konuk erişimi senaryoları kendi giriş kiracısında kaynağı. Tümünü CC biçimlendirilmiş ("en-us"). |
 | `xms_tpl`                  | Kiracı tercih edilen dil| JWT | | Kaynak Kiracı kişinin tercih ettiği dili, ayarlayın. Biçimlendirilmiş LL ("tr"). |
 | `ztdid`                    | Sıfır dokunma dağıtım kimliği | JWT | | Cihaz kimliği için kullanılan [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
@@ -85,16 +86,16 @@ Bu talepler her zaman v1.0 belirteçlerinde dahil, ancak v2.0 belirteçlerinde i
 
 **Tablo 3: Yalnızca v2.0 isteğe bağlı talepleri**
 
-| JWT talep     | Ad                            | Açıklama                                | Notes |
+| JWT talep     | Ad                            | Açıklama                                | Notlar |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP Adresi                      | Oturum açtığınız istemci IP adresi.   |       |
 | `onprem_sid`  | Şirket İçi Güvenlik Tanımlayıcısı |                                             |       |
 | `pwd_exp`     | Parola süre sonu zamanı        | Parola süresinin dolma datetime. |       |
 | `pwd_url`     | Parola URL'sini değiştirme             | Kullanıcının parolasını değiştirmek için ziyaret edebileceği bir URL.   |   |
-| `in_corp`     | İç şirket ağı        | Sinyaller istemci ve şirket ağından oturum açılıyor. Değilse, talep dahil değildir.   |  Kapatarak tabanlı [güvenilen IP'ler](../authentication/howto-mfa-mfasettings.md#trusted-ips) MFA ayarları.    |
+| `in_corp`     | İç şirket ağı        | Sinyaller istemci ve şirket ağından oturum açılıyor. Değilseniz, talep dahil değildir.   |  Kapatarak tabanlı [güvenilen IP'ler](../authentication/howto-mfa-mfasettings.md#trusted-ips) MFA ayarları.    |
 | `nickname`    | Takma ad                        | İlk veya son adından ayrı kullanıcı için ek bir ad. | 
 | `family_name` | Soyadı                       | Son adını, soyadını veya kullanıcının aile adı Azure AD kullanıcı nesnesinde tanımlanan sağlar. <br>"family_name": "Mert" |       |
-| `given_name`  | Adı                      | İlk sağlar veya "Azure AD kullanıcı nesnesindeki belirlenen kullanıcı adı verilen".<br>"given_name": "Ferdi"                   |       |
+| `given_name`  | Ad                      | İlk sağlar veya "Azure AD kullanıcı nesnesindeki belirlenen kullanıcı adı verilen".<br>"given_name": "Ferdi"                   |       |
 | `upn`       | Kullanıcı Asıl Adı | Username_hint parametresiyle birlikte kullanılabilecek kullanıcı için bir tanımlayıcı.  Kullanıcı için kalıcı bir tanımlayıcı değil ve anahtar verileri kullanılmamalıdır. | Bkz: [ek özellikler](#additional-properties-of-optional-claims) aşağıda talep yapılandırma. |
 
 ### <a name="additional-properties-of-optional-claims"></a>İsteğe bağlı taleplerin ek özellikler
@@ -128,7 +129,7 @@ Bu OptionalClaims nesne başka bir upn ile ek giriş kiracısında ve kaynak Kir
 
 ## <a name="configuring-optional-claims"></a>İsteğe bağlı bir talep yapılandırma
 
-(Aşağıdaki örneğe bakın) uygulama bildirimini değiştirerek, uygulamanız için isteğe bağlı bir talep yapılandırabilirsiniz. Daha fazla bilgi için [Azure AD uygulama bildirim makaleyi anlama](reference-app-manifest.md).
+(Aşağıdaki örneğe bakın) uygulama bildirimini değiştirerek, uygulamanız için isteğe bağlı bir talep yapılandırabilirsiniz. Daha fazla bilgi için bkz. [Azure AD uygulama bildirim makaleyi anlama](reference-app-manifest.md).
 
 **Örnek şeması:**
 
@@ -188,7 +189,7 @@ Belirli bir talep tarafından destekleniyorsa, ayrıca AdditionalProperties alan
 | `additionalProperties` | Koleksiyon (Edm.String) | Talep ek özellikleri. Bu koleksiyonda bir özellik varsa, belirtilen ad özelliği isteğe bağlı bir talep davranışını değiştirir.                                                                                                                                               |
 ## <a name="configuring-custom-claims-via-directory-extensions"></a>Özel talepler dizin uzantıları aracılığıyla yapılandırma
 
-Standart isteğe bağlı talep kümesine ek olarak, belirteçleri directory şema uzantıları içerecek şekilde de yapılandırılabilir (bkz [Directory şema uzantılarını makalesi](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) daha fazla bilgi için). Bu özellik, uygulamanızı – örneğin kullanabileceğiniz ek kullanıcı bilgileri, bir ek tanımlayıcı veya kullanıcı önemli yapılandırma seçeneğini eklemek için yararlıdır. 
+Standart isteğe bağlı talep kümesine ek olarak, belirteçleri directory şema uzantıları içerecek şekilde yapılandırabilirsiniz. Daha fazla bilgi için bkz. [Directory şema uzantıları](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions). Bu özellik, uygulamanızı – örneğin kullanabileceğiniz ek kullanıcı bilgileri, bir ek tanımlayıcı veya kullanıcı önemli yapılandırma seçeneğini eklemek için yararlıdır. 
 
 > [!Note]
 > Uygulamanızı bildirim istekleri, özel uzantı ve bir MSA kullanıcısı oturum uygulamanıza directory şema uzantıları yalnızca AAD özelliği olduğundan, bu uzantıları döndürülmez. 
@@ -205,7 +206,7 @@ SAML belirteçlerini içinde bu talepler aşağıdaki URI biçimi ile yayılan: 
 
 Bu bölümde, isteğe bağlı bir talep özelliği, uygulamanız için nasıl kullanabileceğinizi görmek için bir senaryo size yol.
 Özellikleri etkinleştirmek ve isteğe bağlı talepleri yapılandırmak için uygulamanın kimlik yapılandırmasını güncelleştirmek için kullanılabilir birden çok seçenek vardır:
--   Uygulama bildirimini değiştirebilirsiniz. Aşağıdaki örnekte, yapılandırmayı gerçekleştirmek için bu yöntemi kullanır. Okuma [Azure AD uygulama bildirimi belge anlama](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) ilk bildirimi için giriş.
+-   Uygulama bildirimini değiştirebilirsiniz. Aşağıdaki örnekte, yapılandırma adımları için bu yöntemi kullanır. Okuma [Azure AD uygulama bildirimi belge anlama](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) ilk bildirimi için giriş.
 -   Kullanan bir uygulamayı yazmak mümkündür [Graph API'si](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) uygulamanızı güncelleştirmek için. [Varlık ve karmaşık tür başvurusu](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) Graph API Başvurusu Kılavuzu, isteğe bağlı talepleri yapılandırmaya yardımcı olabilir.
 
 **Örnek:** Aşağıdaki örnekte, erişim kimliği ve SAML talepleri eklemek için bir uygulamanın bildirim değiştirecek uygulama için amaçlanan belirteçleri.
@@ -250,5 +251,5 @@ Bu bölümde, isteğe bağlı bir talep özelliği, uygulamanız için nasıl ku
 
 Azure AD tarafından sağlanan standart talepler hakkında daha fazla bilgi edinin.
 
-- [Kimliği belirteçleri](id-tokens.md)
+- [Kimlik belirteçleri](id-tokens.md)
 - [Erişim belirteçleri](access-tokens.md)

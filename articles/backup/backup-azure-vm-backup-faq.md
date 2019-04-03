@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: sogup
-ms.openlocfilehash: ef46c37fec3e5438aeb4f9309201d45365a96fdc
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402074"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885273"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Sık sorulan sorular-Azure Vm'leri yedekleme
 
@@ -68,7 +68,7 @@ Evet. Bir makine kapatıldığında yedeklemeleri çalıştırın. Kurtarma nokt
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Devam eden yedekleme işi iptal edebilir miyim?
 Evet. Yedekleme işi iptal edebilirsiniz bir **anlık görüntü alınıyor** durumu. Anlık görüntüden veri aktarımı sürüyorsa bir iş iptal edilemiyor.
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie--azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Miyim (yani Azure Backup hizmeti tarafından oluşturulan kaynak grubu kilidi etkin ` AzureBackupRG_<geo>_<number>`), yedeklemelerim çalışmaya devam eder mi?
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Miyim (yani Azure Backup hizmeti tarafından oluşturulan kaynak grubu kilidi etkin `AzureBackupRG_<geo>_<number>`), yedeklemelerim çalışmaya devam eder mi?
 Azure Backup hizmeti tarafından oluşturulan kaynak grubu kilitlerseniz, yedeklemeler 18 geri yükleme noktaları üst sınırına olduğundan başarısız olmaya başlar.
 
 Kullanıcı gerekli kilidi kaldırın ve sonraki yedeklemelerin başarılı olmak için bu kaynak grubundaki geri yükleme noktası koleksiyonunu temizlemek [adımları](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) geri yükleme noktası koleksiyonu kaldırmak için.
@@ -88,7 +88,7 @@ Anlık görüntüleri WA özellikli diskte alınamaz. Ancak, Azure Backup hizmet
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Yazma Hızlandırıcı (WA) disklerle bir VM sahibim ve SAP HANA yüklenir. Nasıl yapılır? yedekleyin
 Azure yedekleme WA etkin disk yedekleyemezsiniz, ancak yedeklemeden hariç tutabilirsiniz. Ancak, WA özellikli diskteki bilgileri yedeklenmediğini nedeniyle yedekleme veritabanı tutarlılığını sağlamaz. İşletim sistemi diskini yedekleme ve WA etkin olmayan disk yedekleme istiyorsanız bu yapılandırmayı disklerle yedekleyebilirsiniz.
 
-Biz, 15 dakikalık bir RPO ile bir SAP HANA yedeklemesi için özel Önizleme çalıştırıyorsunuz. SQL DB yedekleme benzer bir şekilde oluşturulmuştur ve üçüncü taraf çözümleri ile SAP HANA sertifikalı backInt arabirim kullanır. İlgileniyorsanız, adresinden bize e-posta ` AskAzureBackupTeam@microsoft.com ` konu ile **Azure vm'lerde SAP HANA yedeklemesi için özel Önizleme için kaydolun**.
+Biz, 15 dakikalık bir RPO ile bir SAP HANA yedeklemesi için özel Önizleme çalıştırıyorsunuz. SQL DB yedekleme benzer bir şekilde oluşturulmuştur ve üçüncü taraf çözümleri ile SAP HANA sertifikalı backInt arabirim kullanır. İlgileniyorsanız, adresinden bize e-posta `AskAzureBackupTeam@microsoft.com` konu ile **Azure vm'lerde SAP HANA yedeklemesi için özel Önizleme için kaydolun**.
 
 
 ## <a name="restore"></a>Geri Yükleme

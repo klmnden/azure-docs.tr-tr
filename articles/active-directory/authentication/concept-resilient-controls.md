@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7a61d8c1b9ec15327836f7d31e9e299c57cb21
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316346"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886089"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory ile esnek erişim denetimi yönetim stratejisi oluşturma
 
@@ -131,9 +131,9 @@ Bir yedek koşullu erişim ilkesi bir **ilke devre dışı** , Azure MFA'yı ü�
   
 Bu adlandırma standardı yedek ilkeleri şu şekilde olacaktır: 
 
-`
+```
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
-`
+```
 
 Aşağıdaki örnekte: **Örnek bir - erişimi için Görev açısından kritik İşbirliği uygulamaları geri yüklemek için yedek CA ilkesi**, tipik kurumsal tahminlere olduğu. Bu senaryoda, kuruluş, MFA genellikle tüm Exchange Online ve SharePoint Online'a erişimi gerektirir. ve (Azure MFA, şirket içi olmadığını MFA sağlayıcısı veya üçüncü taraf MFA) müşterinin MFA sağlayıcısı kesinti yaşandığında kesintisi bu durumda olur. Bu ilke, yalnızca, uygulama kendi güvenilen şirket ağından erişirken belirli hedeflenen kullanıcılar bu uygulamaları güvenilir Windows cihazlarından erişimine tarafından bu kesinti azaltır. Bu ayrıca Acil Durum hesapları ve çekirdek Yöneticiler bu kısıtlamaları dışında bırakır. Diğer kullanıcıların kesinti nedeniyle uygulamalara erişim hala yoktur ancak hedeflenen kullanıcılara ardından Exchange Online'a ve SharePoint Online erişim sahibi. Bu örnek bir adlandırılmış bir ağ konumuna gerektirecek **CorpNetwork** ve bir güvenlik grubu **ContingencyAccess** hedef kullanıcılarla adlı bir grubu **CoreAdmins** ile Çekirdek yöneticileri ve adlandırılmış grup **EmergencyAccess** Acil Durum erişim hesaplarına sahip. Yedek plan istenen erişim sağlamak için dört İlkesi gerektirir. 
 
@@ -261,12 +261,12 @@ Kuruluşunuzun kullanıcı başına MFA eski ilkeleri kullanıyorsanız, aşağ�
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
 
-* [Azure AD Authentication belgeleri](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
+* [Azure AD Kimlik Doğrulaması Belgeleri](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Azure AD'de Acil Durum erişimi yönetici hesaplarını yönetme](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [Azure Active Directory'de adlandırılmış konumları yapılandırma](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
   * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Hibrit Azure Active Directory'ye katılmış cihazları yapılandırma](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-* [İş İçin Windows Hello Dağıtım Kılavuzu](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+* [Dağıtım Kılavuzu'ı iş için Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Parola Kılavuzu - Microsoft Research'ün](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [Azure Active Directory koşullu erişim koşulları nelerdir?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [Azure Active Directory koşullu erişim erişim denetimleri nelerdir?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

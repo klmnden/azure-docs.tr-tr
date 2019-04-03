@@ -1,6 +1,6 @@
 ---
 title: İstemci Ip'lerine - Azure App Service kısıtlamak | Microsoft Docs
-description: IP kısıtlamaları, Azure App Service ile kullanma
+description: Azure App Service ile erişim kısıtlamaları kullanma
 author: ccompy
 manager: stefsch
 editor: ''
@@ -15,56 +15,60 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 337d71c84ace7f44c2668cf2344d9083c4a85bee
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 805de614246028bc75268e83991fa7831b990325
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651071"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882336"
 ---
-# <a name="azure-app-service-static-ip-restrictions"></a>Azure App Service'e statik IP kısıtlamaları #
+# <a name="azure-app-service-static-access-restrictions"></a>Azure App Service'e statik erişim kısıtlamaları #
 
-IP kısıtlamaları sıralı uygulamanıza erişmek için izin verilen IP adreslerini izin verme/reddetme listesi öncelikli tanımlamanızı sağlar. IPv4 ve IPv6 adresleri izin verilenler listesine ekleyebilirsiniz. Bir veya daha fazla olduğunda, örtük olarak reddetmek sonra listenin en sonunda bulunan tüm yoktur. 
+Erişim kısıtlamalarını sıralı uygulamanıza erişmek için izin verilen IP adreslerini izin verme/reddetme listesi öncelikli tanımlamanızı sağlar. IPv4 ve IPv6 adresleri izin verilenler listesine ekleyebilirsiniz. Bir veya daha fazla olduğunda, örtük olarak reddetmek sonra listenin en sonunda bulunan tüm yoktur.
 
-IP kısıtlamaları özelliği içeren iş yükleri, App Service barındırılan tümüyle çalışır; Web apps, API apps, Linux uygulamaları, Linux kapsayıcı uygulamaları ve işlevleri. 
+Erişim kısıtlamaları özelliği içeren iş yükleri, App Service barındırılan tümüyle çalışır; Web apps, API apps, Linux uygulamaları, Linux kapsayıcı uygulamaları ve işlevleri.
 
-Uygulamanız için bir istek yapıldığında, gelen IP adresi IP kısıtlamaları listesine göre değerlendirilir. Adres listesinde yer alan kurallara göre erişim izin verilmiyorsa, hizmet ile yanıtlar bir [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) durum kodu.
+Uygulamanız için bir istek yapıldığında, gelen IP adresi erişim sınırlamaları listesine göre değerlendirilir. Adres listesinde yer alan kurallara göre erişim izin verilmiyorsa, hizmet ile yanıtlar bir [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) durum kodu.
 
-IP kısıtlamaları özelliği, kodunuzun çalıştığı çalışan ana Yukarı Akış olan App Service ön uç rollerinde gerçekleştirilir. Bu nedenle, IP kısıtlamaları, etkili bir şekilde ağ ACL'leri altındadır.  
+Erişim kısıtlamaları özelliği, kodunuzun çalıştığı çalışan ana Yukarı Akış olan App Service ön uç rollerinde gerçekleştirilir. Bu nedenle, erişim kısıtlamaları etkili bir şekilde ağ ACL'leri altındadır.  
 
-![IP kısıtlamaları akışı](media/app-service-ip-restrictions/ip-restrictions-flow.png)
+![erişim kısıtlamaları akışı](media/app-service-ip-restrictions/ip-restrictions-flow.png)
 
-Bir süre için portalda IP kısıtlamaları özelliği IIS'de IPSecurity özelliği üzerinde bir katman oluştu. Geçerli IP kısıtlamaları özelliği farklıdır. İçinde uygulamanın web.config IPSecurity hala yapılandırabilirsiniz, ancak herhangi bir trafik IIS ulaşmadan önce tabanlı ön uç IP kısıtlamaları kuralları uygulanır.
+Bir süre için erişim kısıtlamaları özelliği portalında IPSecurity özelliği IIS üzerinde bir katman oluştu. Geçerli erişim kısıtlamaları özelliği farklıdır. İçinde uygulamanın web.config IPSecurity hala yapılandırabilirsiniz, ancak herhangi bir trafik IIS ulaşmadan önce ön uç tabanlı erişim kısıtlamalarını kuralları uygulanır.
 
-## <a name="adding-and-editing-ip-restriction-rules-in-the-portal"></a>Ekleme ve düzenleme portalında IP kısıtlaması kuralları ##
+## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>Ekleme ve erişimi kısıtlama kuralları Portalı'nda düzenleme ##
 
-Uygulamanız için bir IP kısıtlama kuralı eklemek, açmak için menü kullanın **ağ**>**IP kısıtlamaları** tıklayın **IP kısıtlamalarını Yapılandır**
+Uygulamanız için bir erişim kısıtlama kuralı eklemek, açmak için menü kullanın **ağ**>**erişim kısıtlamalarını** tıklayın **erişim kısıtlamalarını yapılandırma**
 
 ![App Service ağ seçenekleri](media/app-service-ip-restrictions/ip-restrictions.png)  
 
-IP kısıtlamaları Arabiriminden uygulamanız için tanımlanan IP kısıtlama kurallar listesini gözden geçirebilirsiniz.
+Erişim kısıtlamaları Arabiriminden uygulamanız için tanımlanan erişim kısıtlama kuralları listesini gözden geçirebilirsiniz.
 
-![Liste IP kısıtlamaları](media/app-service-ip-restrictions/ip-restrictions-browse.png)
+![Liste erişim kısıtlamaları](media/app-service-ip-restrictions/ip-restrictions-browse.png)
 
 Bu resimde göründüğü gibi kuralları yapılandırıldıysa, uygulamanız yalnızca 131.107.159.0/24 gelen trafiği kabul eder ve diğer bir IP adresinden reddedilir.
 
-Tıklayabilirsiniz **[+] Ekle** yeni bir IP kısıtlama kuralı eklemek için. Bir kural eklediğinizde, hemen geçerli olur. Kurallar öncelik sırasına göre yukarı ve en düşük sayıdan başlayan uygulanır. Örtük Reddet tek bir kural eklediğinizde, geçerli tüm yoktur. 
+Tıklayabilirsiniz **[+] Ekle** yeni bir erişim kısıtlama kuralı eklemek için. Bir kural eklediğinizde, hemen geçerli olur. Kurallar öncelik sırasına göre yukarı ve en düşük sayıdan başlayan uygulanır. Örtük Reddet tek bir kural eklediğinizde, geçerli tüm yoktur.
 
-![bir IP kısıtlama Kuralı Ekle](media/app-service-ip-restrictions/ip-restrictions-add.png)
+![bir erişim kısıtlama Kuralı Ekle](media/app-service-ip-restrictions/ip-restrictions-add.png)
 
 IP adresi gösterimi, IPv4 ve IPv6 adresleri CIDR gösteriminde belirtilmelidir. Bir tam adresini belirtmek için burada IP adresiniz ilk dört sekizlik tabanda temsil eder ve özelliğini/32 maske 1.2.3.4/32 gibi kullanabilirsiniz. Tüm adresler için IPv4 CIDR gösteriminde 0.0.0.0/0 ' dir. CIDR gösterimi hakkında daha fazla bilgi edinebilirsiniz [sınıfsız etki alanları arası yönlendirme](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).  
 
-Mevcut bir IP kısıtlama kuralı düzenlemek için herhangi bir satıra tıklayabilirsiniz. Düzenlemeler hemen öncelik sıralamada değişiklikleri içeren son derece etkilidir.
+Mevcut bir erişim kısıtlama kuralı düzenlemek için herhangi bir satıra tıklayabilirsiniz. Düzenlemeler hemen öncelik sıralamada değişiklikleri içeren son derece etkilidir.
 
-![bir IP kısıtlama kuralını Düzenle](media/app-service-ip-restrictions/ip-restrictions-edit.png)
+![bir erişim kısıtlama kuralını Düzenle](media/app-service-ip-restrictions/ip-restrictions-edit.png)
 
-Bir kuralı silmek için tıklayın **...**  kural ve ardından **Kaldır**. 
+Bir kuralı silmek için tıklayın **...**  kural ve ardından **Kaldır**.
 
-![IP kısıtlama kuralını Sil](media/app-service-ip-restrictions/ip-restrictions-delete.png)
+![erişimi kısıtlama kuralını Sil](media/app-service-ip-restrictions/ip-restrictions-delete.png)
 
-## <a name="programmatic-manipulation-of-ip-restriction-rules"></a>Programsal olarak işlenmesini IP kısıtlama kuralları ##
+Sonraki sekme dağıtım erişimi de kısıtlayabilirsiniz. Ekleme/düzenleme/silme için her kural, yukarıdakilerle aynı adımı izleyin.
 
-Şu anda herhangi bir CLI veya PowerShell için yeni IP kısıtlamaları özelliği olmakla birlikte değerlerini el ile Kaynak Yöneticisi'nde uygulama yapılandırması üzerindeki PUT işlemi sırasında ayarlanabilir. Örneğin, resources.azure.com kullanın ve gerekli JSON eklemek için ipSecurityRestrictions bloğu düzenleyin. 
+![Liste erişim kısıtlamaları](media/app-service-ip-restrictions/ip-restrictions-scm-browse.png)
+
+## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Programsal olarak erişim kısıtlama kuralları ##
+
+Şu anda herhangi bir CLI veya PowerShell yeni erişim kısıtlamaları özelliği için olmakla birlikte değerlerini el ile Kaynak Yöneticisi'nde uygulama yapılandırması üzerindeki PUT işlemi sırasında ayarlanabilir. Örneğin, resources.azure.com kullanın ve gerekli JSON eklemek için ipSecurityRestrictions bloğu düzenleyin.
 
 Bu bilgiler Kaynak Yöneticisi'nde konumudur:
 

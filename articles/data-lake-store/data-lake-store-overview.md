@@ -3,19 +3,19 @@ title: Azure Data Lake depolama Gen1 genel bakış | Microsoft Docs
 description: (Daha önce Azure Data Lake Store bilinir) hangi Data Lake depolama Gen1 ve diğer veri depolarına kıyasla sağladığı değeri anlama
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: b733a0bec20c7abae5df41acd74284bdf75bca2c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: twooley
+ms.openlocfilehash: 438eab091fac103b66f0789beca0098b87ee44cd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124142"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885664"
 ---
 # <a name="overview-of-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 genel bakış
 
@@ -45,7 +45,7 @@ Data Lake depolama Gen1 sınırsız depolama sağlar ve veri analizi için çeş
 ### <a name="performance-tuned-for-big-data-analytics"></a>Büyük veri analizi için performans ayarı yapılmıştır
 Data Lake depolama Gen1, büyük ölçekli sorgulanması ve büyük miktarlarda verinin çözümlenmesi için devasa bir işlem hacmi gerektiren analiz sistemlerini çalıştırmak üzere tasarlanmıştır. Veri gölü, bir dosyanın parçalarını birkaç ayrı depolama sunucusu üzerinde dağıtır. Bu, veri analizinin gerçekleştirilmesi için dosyanın paralel olarak okunması sırasında okuma verimini artırır.
 
-### <a name="enterprise-ready-highly-available-and-secure"></a>Kurumsal kullanıma hazırdır: Yüksek kullanılabilirliğe sahip ve güvenlidir
+### <a name="enterprise-ready-highly-available-and-secure"></a>Kurumsal kullanıma hazır: Yüksek oranda kullanılabilir ve güvenli
 Data Lake depolama Gen1 endüstri standardı kullanılabilirlik ve güvenilirlik sağlar. Veri varlıklarınız, herhangi bir beklenmeyen arızaya karşı koruma sağlamak üzere yedekli kopyaların oluşturulmasıyla sağlam bir şekilde depolanır. Kuruluşlar, kendi çözümlerinde, mevcut veri platformu önemli bir parçası Data Lake depolama Gen1 kullanabilirsiniz.
 
 Data Lake depolama Gen1 ayrıca depolanan veriler için kurumsal düzeyde güvenlik sağlar. Daha fazla bilgi için [Azure Data Lake depolama Gen1 verileri güvenli hale getirme](#DataLakeStoreSecurity).
@@ -60,7 +60,7 @@ Data Lake depolama Gen1 kullanan Azure Active Directory kimlik doğrulaması ve 
 
 | Özellik | Açıklama |
 | --- | --- |
-| Kimlik Doğrulaması |Data Lake depolama Gen1, Data Lake depolama Gen1 içinde depolanan tüm veriler için kimlik ve erişim yönetimi için Azure Active Directory (AAD) ile tümleşir. Tümleştirme sonucunda, Data Lake depolama Gen1 çok faktörlü kimlik doğrulaması, koşullu erişim, rol tabanlı erişim denetimi, uygulama kullanımını izleme, güvenlik izleme ve uyarı verme, vb. dahil olmak üzere tüm AAD özelliklerinden faydalanır. Data Lake depolama Gen1, REST arabirimi içinde kimlik doğrulaması için OAuth 2.0 protokolünü destekler. Bkz: [Data Lake depolama Gen1 kimlik doğrulaması](data-lakes-store-authentication-using-azure-active-directory.md)|
+| Authentication |Data Lake depolama Gen1, Data Lake depolama Gen1 içinde depolanan tüm veriler için kimlik ve erişim yönetimi için Azure Active Directory (AAD) ile tümleşir. Tümleştirme sonucunda, Data Lake depolama Gen1 çok faktörlü kimlik doğrulaması, koşullu erişim, rol tabanlı erişim denetimi, uygulama kullanımını izleme, güvenlik izleme ve uyarı verme, vb. dahil olmak üzere tüm AAD özelliklerinden faydalanır. Data Lake depolama Gen1, REST arabirimi içinde kimlik doğrulaması için OAuth 2.0 protokolünü destekler. Bkz: [Data Lake depolama Gen1 kimlik doğrulaması](data-lakes-store-authentication-using-azure-active-directory.md)|
 | Erişim denetimi |Data Lake depolama Gen1 WebHDFS protokolünün kullanıma sunulan POSIX stili izinleri destekleyerek erişim denetimi sağlar. ACL’ler kök klasörde, alt klasörlerde ve dosyalarda tek tek etkinleştirilebilir. ACL'ler Data Lake depolama Gen1 bağlamında nasıl çalıştığı hakkında daha fazla bilgi için bkz. [Data Lake depolama Gen1'deki erişim denetimi](data-lake-store-access-control.md). |
 | Şifreleme |Data Lake depolama Gen1 ayrıca hesapta depolanan veriler için şifreleme sağlar. Bir Data Lake depolama Gen1 hesabı oluşturulurken şifreleme ayarlarını belirtirsiniz. Verilerinizin şifrelenmesini tercih edebilir ya da şifrelemeyi kabul etmeyebilirsiniz. Daha fazla bilgi için [şifreleme Data Lake depolama Gen1](data-lake-store-encryption.md). Şifreleme tabanlı yapılandırma sağlama konusunda yönergeler için bkz. [Azure Data Lake depolama Gen1 ile çalışmaya başlama Azure portalını kullanarak](data-lake-store-get-started-portal.md). |
 

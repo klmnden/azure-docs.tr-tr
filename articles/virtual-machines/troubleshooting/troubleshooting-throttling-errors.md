@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: 401bd3badc555ee001fbc355c7bdb77786c2d053
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: fa65b108f3aea79d4417e65d706d42f0bd819f54
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977827"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880721"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>API azaltma hatalarının sorunlarını giderme 
 
@@ -35,7 +35,7 @@ Bir Azure API istemcisini bir kısıtlama hatası girdiğinde, HTTP 429 çok faz
 | Üst bilgi                            | Değeri biçimi                           | Örnek                               | Açıklama                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-kalan-kaynak |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Bu istek hedefi de dahil olmak üzere kaynak demetine veya işlem grubu kapsayan azaltma ilkesi için kalan API çağrısı sayısı                                                                   |
-| x-ms-istek-ücretsiz               | ```<count>   ```                             | 1                                     | Bu geçerli ilkenin sınırı yönelik HTTP isteği için "dolu" çağrısı sayısını sayar. Bu çoğunlukla 1'dir. Toplu istekleri, örneğin bir sanal makine ölçek kümesi ölçeklendirme birden çok sayıları ücret. |
+| x-ms-istek-ücretsiz               | ```<count>```                             | 1                                     | Bu geçerli ilkenin sınırı yönelik HTTP isteği için "dolu" çağrısı sayısını sayar. Bu çoğunlukla 1'dir. Toplu istekleri, örneğin bir sanal makine ölçek kümesi ölçeklendirme birden çok sayıları ücret. |
 
 
 Bir API isteği birden fazla kısıtlama ilkelere tabi olduğunu unutmayın. Ayrı bir olacaktır `x-ms-ratelimit-remaining-resource` her ilke için başlığı. 
@@ -79,7 +79,7 @@ Yukarıda gösterildiği gibi her kısıtlama hatası içerir `Retry-After` sani
 
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>API çağrısı oranı ve azaltma hata Çözümleyicisi
 Bir sorun giderme özelliğini bir önizleme sürümünü işlem kaynak sağlayıcısı API'si için kullanılabilir. Bu PowerShell cmdlet'lerini işlemi her zaman aralığını ve azaltma ihlalleri her işlem grubu (ilke) başına API istek hızı hakkında istatistikler sağlar:
--   [Dışarı aktarma AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
+-   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
 -   [Dışarı aktarma AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
 
 API çağrısı istatistikleri, bir aboneliğin istemci davranışını harika Öngörüler sağlar ve azaltma neden arama desenlerinin kolay tanımayı etkinleştirin.

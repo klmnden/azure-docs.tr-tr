@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 023395126a587992c1b5648bd9b8a993d9fa9ced
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564247"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863211"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Bulma ve performans önerilerini uygulama
 
@@ -78,6 +78,7 @@ Gözden geçirin ve önerileri bir anda kabul et.
 Seçilen öneri, veritabanı üzerinde uygulanır.
 
 ### <a name="removing-recommendations-from-the-list"></a>Öneriler listeden kaldırma
+
 Öneriler listesini listesinden kaldırmak istediğiniz öğeler içeriyorsa, öneriyi iptal edebilirsiniz:
 
 1. Bir öneri listesinde seçin **önerileri** ayrıntılarını açın.
@@ -110,18 +111,21 @@ Azure SQL veritabanı önerileri otomatik olarak uygulamak için ayarlayabilirsi
 
 İstediğiniz yapılandırma seçtikten sonra Uygula'yı tıklatın.
 
-### <a name="manually-run-the-recommended-t-sql-script"></a>El ile önerilen T-SQL betiği çalıştırın
+### <a name="manually-apply-recommendations-through-t-sql"></a>El ile T-SQL aracılığıyla önerileri uygulayın
+
 Herhangi bir öneri seçin ve ardından **komut dosyasını Göster**. Bu betik, el ile bir öneri uygulamak için veritabanınızda çalıştırın.
 
-*El ile çalıştırılan dizin değil izlenen ve performans etkisi için hizmet tarafından doğrulanmış* önerilen oluşturulduktan sonra bunlar performans artışı sağlar ve ayarlamak veya gerekirse silme doğrulamak için bu dizinleri izlemek için. Dizin oluşturma hakkında daha fazla bilgi için bkz: [dizin oluşturma (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
+*El ile çalıştırılan dizin değil izlenen ve performans etkisi için hizmet tarafından doğrulanmış* önerilen oluşturulduktan sonra bunlar performans artışı sağlar ve ayarlamak veya gerekirse silme doğrulamak için bu dizinleri izlemek için. Dizin oluşturma hakkında daha fazla bilgi için bkz: [dizin oluşturma (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). Ayrıca, el ile uygulanan önerileri 24-48 saat için etkin ve öneriler listesinde gösterilen kalır. Sistem otomatik olarak bunları testimizde önce. Bir öneri daha çabuk kaldırmak istiyorsanız, el ile iptal edebilirsiniz.
 
 ### <a name="canceling-recommendations"></a>Öneriler iptal ediliyor
+
 Bulunan önerileri bir **bekleyen**, **doğrulama**, veya **başarı** durumu iptal edilemez. Durumu ile ilgili öneriler **Executing** iptal edilemez.
 
 1. İçinde bir öneri seçin **ayarlama geçmişi** açmak için alan **öneri ayrıntılarını** sayfası.
 2. Tıklayın **iptal** öneriyi uygulama işlemi iptal etmek için.
 
 ## <a name="monitoring-operations"></a>İzleme işlemleri
+
 Bir öneriyi uygulama anında olabilir değil. Portal, öneri durumuyla ilgili ayrıntıları sağlar. Bir dizin olabilir olası durumlar şunlardır:
 
 | Durum | Açıklama |
@@ -162,7 +166,7 @@ Azure SQL veritabanı, SQL veritabanı performansını geliştirmeye yönelik ö
 * Bkz: [sorgu performansı öngörüleri](sql-database-query-performance.md) performans etkisini en sık kullandığınız sorguların görüntüleme hakkında bilgi edinmek için.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
-* [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
+* [Sorgu Deposu](https://msdn.microsoft.com/library/dn817826.aspx)
 * [DİZİN OLUŞTURMA](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Rol tabanlı erişim denetimi](../role-based-access-control/overview.md)
 

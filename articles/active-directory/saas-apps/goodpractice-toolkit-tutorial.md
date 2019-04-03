@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8453c93b4e48a076d8efbe1d438d15d8131fc9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f9b847fd424e14eba492018887dbc28c44100f61
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57864414"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885358"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>Öğretici: GoodPractice araç seti ile Azure Active Directory Tümleştirmesi
 
@@ -105,7 +105,7 @@ Azure AD çoklu oturum açma GoodPractice araç seti ile yapılandırmak için a
 
     ![GoodPractice Araç Seti etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-intiated.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId> `.
+    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>`.
 
     > [!Note]
     > Oturum açma URL değeri, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [GoodPractice Araç Seti istemci Destek ekibine](mailto:support@goodpractice.com) değeri alınamıyor.
@@ -193,7 +193,7 @@ Erişim paneli GoodPractice Araç Seti kutucuğa tıkladığınızda, size otoma
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 8a8c8c7abf5b6f0f2a870f6983c7e855db1e0192
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: ebc6388f1ebc7546ffda07095ead50797bde4e8b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231823"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884695"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Azure Logic Apps ile zamanlamaya göre trafik denetleme
 
@@ -37,7 +37,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Azure aboneliğiniz yoksa başlamadan önce <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Logic Apps tarafından desteklenen Office 365 Outlook, Outlook.com veya Gmail gibi bir e-posta sağlayıcıdan alınmış e-posta hesabı. Diğer sağlayıcılar için [buradaki bağlayıcı listesini inceleyin](https://docs.microsoft.com/connectors/). Bu hızlı başlangıç bir Outlook.com hesabını kullanır. Farklı bir e-posta hesabı kullanırsanız genel adımlar aynı kalır, ancak kullanıcı arabiriminiz biraz farklı görünebilir.
 
@@ -74,11 +74,12 @@ Ardından, belirtilen bir zamanlamaya göre tetiklenen yinelenme [tetikleyicisin
 
 ## <a name="add-scheduler-trigger"></a>Zamanlayıcı tetikleyicisi ekleme
 
-1. Tasarımcıda arama kutusuna "yinelenme" yazın. Şu tetikleyiciyi seçin: **Zamanlama - Yinelenme**
+1. Tasarımcıda arama kutusuna "yinelenme" yazın. Şu tetikleyiciyi seçin: **Zamanlama - yinelenme**
 
    !["Zamanlama - Yinelenme" tetikleyicisini bulup ekleyin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
 
-2. **Yinelenme** şeklinin üzerindeki **üç nokta** (**...**) düğmesini ve ardından **Yeniden Adlandır**’ı seçin. Tetikleyiciyi şu açıklama ile yeniden adlandırın: ```Check travel time every weekday morning```
+2. **Yinelenme** şeklinin üzerindeki **üç nokta** (**...**) düğmesini ve ardından **Yeniden Adlandır**’ı seçin. Tetikleyiciyi şu açıklama ile yeniden adlandırın:
+```Check travel time every weekday morning```
 
    ![Tetikleyiciyi yeniden adlandırma](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
@@ -90,7 +91,7 @@ Ardından, belirtilen bir zamanlamaya göre tetiklenen yinelenme [tetikleyicisin
 
    | Ayar | Değer | Açıklama | 
    | ------- | ----- | ----------- | 
-   | **Aralık** | 1 | Denetimler arasında beklenecek aralık sayısı | 
+   | **Interval** | 1 | Denetimler arasında beklenecek aralık sayısı | 
    | **Sıklık** | Hafta | Yinelenme için kullanılacak zaman birimi | 
    | **Saat dilimi** | None | Yalnızca bir başlangıç zamanı belirttiğinizde geçerlidir. Yerel olmayan bir saat dilimi belirtmek için kullanışlıdır. | 
    | **Başlangıç saati** | None | Yinelenme, belirli bir tarih ve saate kadar ertelenir. Daha fazla bilgi için bkz. [Düzenli olarak çalıştırılan görevler ve iş akışları zamanlama](../connectors/connectors-native-recurrence.md). | 
@@ -117,7 +118,7 @@ Ardından, belirtilen bir zamanlamaya göre tetiklenen yinelenme [tetikleyicisin
 
 1. Logic Apps Tasarımcısı’nda tetikleyicinizin altında **+ Yeni adım** > **Eylem ekle**’yi seçin.
 
-2. "Haritalar" araması yapın ve şu eylemi seçin: **Bing Haritalar - Rota al**
+2. "Haritalar" için arama yapın ve şu eylemi seçin: **Bing Haritalar - rota Al**
 
 3. Bing Haritalar bağlantınız yoksa bir bağlantı oluşturmanız istenir. Bu bağlantı ayrıntılarını sağlayın ve **Oluştur**’u seçin.
 
@@ -129,7 +130,8 @@ Ardından, belirtilen bir zamanlamaya göre tetiklenen yinelenme [tetikleyicisin
    | **API Anahtarı** | <*your-Bing-Maps-key*> | Daha önce aldığınız Bing Haritalar anahtarını girin. Bing Haritalar anahtarınız yoksa <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">nasıl anahtar alacağınızı</a> öğrenin. | 
    | | | |  
 
-4. Eylemi şu açıklama ile yeniden adlandırın: ```Get route and travel time with traffic```
+4. Eylemi şu açıklama ile yeniden adlandırın:
+```Get route and travel time with traffic```
 
 5. Burada gösterildiği ve açıklandığı gibi **Rota al** eylemi için ayrıntıları sağlayın; örneğin:
 
@@ -140,11 +142,11 @@ Ardından, belirtilen bir zamanlamaya göre tetiklenen yinelenme [tetikleyicisin
    | **Güzergah noktası 1** | <*start-location*> | Rotanızın başlangıç noktası | 
    | **Güzergah noktası 2** | <*end-location*> | Rotanızın hedefi | 
    | **Kaçının** | None | Otoyollar, ücretli geçişler vb. gibi rotanızda kaçınılacak öğeler | 
-   | **İyileştir** | timeWithTraffic | Rotanızı iyileştirmeye yönelik bir parametre; örneğin, mesafe, mevcut trafik ile seyahat süresi vb. Şu parametreyi seçin: "timeWithTraffic" | 
+   | **İyileştirme** | timeWithTraffic | Rotanızı iyileştirmeye yönelik bir parametre; örneğin, mesafe, mevcut trafik ile seyahat süresi vb. Şu parametreyi seçin: "timeWithTraffic" | 
    | **Mesafe birimi** | <*your-preference*> | Rotanız için mesafe birimi. Bu makalede şu birim kullanılmaktadır: "Mil"  | 
-   | **Seyahat modu** | Sürüş | Rotanız için seyahat modu. Şu modu seçin: "Sürüş" | 
-   | **Toplu Ulaşım Tarih-Saati** | None | Yalnızca toplu ulaşım modu için geçerlidir | 
-   | **Tarih-Saat Türü** | None | Yalnızca toplu ulaşım modu için geçerlidir | 
+   | **Seyahat modu** | Sürüş | Rotanız için seyahat modu. Bu mod seçin: "Sürüş" | 
+   | **Geçiş tarihi-saati** | None | Yalnızca toplu ulaşım modu için geçerlidir | 
+   | **Tarih-saat türü** | None | Yalnızca toplu ulaşım modu için geçerlidir | 
    |||| 
 
    Bu parametreler hakkında daha fazla bilgi için bkz. [Rota hesaplama](https://msdn.microsoft.com/library/ff701717.aspx).
@@ -161,18 +163,19 @@ Varsayılan olarak, önceki **Rota al** eylemi, **Seyahat Süresi Trafik** alan�
 
 1. **Rota al** eyleminin altında **+ Yeni adım** > **Eylem ekle** seçeneğini belirleyin.
 
-2. "Değişkenler" araması yapın ve şu eylemi seçin: **Değişkenler - Değişken başlat**
+2. "Değişkenler" için arama yapın ve şu eylemi seçin: **Değişkenler - değişken Başlat**
 
    !["Değişkenler - Değişken başlat" eylemini seçin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
 
-3. Bu eylemi şu açıklama ile yeniden adlandırın: ```Create variable to store travel time```
+3. Bu eylemi şu açıklama ile yeniden adlandırın:
+```Create variable to store travel time```
 
 4. Burada açıklandığı gibi değişkeniniz için ayrıntıları sağlayın:
 
    | Ayar | Değer | Açıklama | 
    | ------- | ----- | ----------- | 
    | **Ad** | travelTime | Değişkeninizin adı | 
-   | **Tür** | Tamsayı | Değişkeninizin veri türü | 
+   | **Type** | Tamsayı | Değişkeninizin veri türü | 
    | **Değer** | Geçerli seyahat süresini saniyelerden dakikalara dönüştüren bir ifade (bu tablonun altındaki adımlara bakın). | Değişkeninizin ilk değeri | 
    |||| 
 
@@ -256,13 +259,14 @@ Ardından seyahat süresi, sınırınızı aştığında gerçekleştirilecek ey
 
    Logic Apps, e-posta hesabınıza bir bağlantı oluşturur.
 
-4. Eylemi şu açıklama ile yeniden adlandırın: ```Send email with travel time```
+4. Eylemi şu açıklama ile yeniden adlandırın:
+```Send email with travel time```
 
 5. **Alıcı** kutusuna alıcının e-posta adresini girin. Test amacıyla e-posta adresinizi kullanın.
 
 6. **Konu** kutusunda e-postanın konusunu belirtin ve **travelTime** değişkenini dahil edin.
 
-   1. Sonunda boşluk olacak şekilde ```Current travel time (minutes): ``` metnini girin. 
+   1. Sonunda boşluk olacak şekilde ```Current travel time (minutes):``` metnini girin. 
    
    2. Parametre listesinden veya dinamik içerik listesinden, **Değişkenler** bölümündeki **travelTime** seçeneğini belirleyin. 
    
@@ -272,7 +276,7 @@ Ardından seyahat süresi, sınırınızı aştığında gerçekleştirilecek ey
 
 7. **Gövde** kutusunda e-posta gövdesi için içeriği belirtin. 
 
-   1. Sonunda boşluk olacak şekilde ```Add extra travel time (minutes): ``` metnini girin. 
+   1. Sonunda boşluk olacak şekilde ```Add extra travel time (minutes):``` metnini girin. 
    
    2. Gerekirse dinamik içerik listesi görüntüleninceye kadar tarayıcınızı genişletin. 
    Dinamik içerik listesinde **İfade**’yi seçin.

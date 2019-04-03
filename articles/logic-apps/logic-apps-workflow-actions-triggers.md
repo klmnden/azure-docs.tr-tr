@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 066c8bc3edfc2bf36b4d96f787d6db6f16daec9b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c817f017c7394943864e7f20a130c90d3f8485d9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856833"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885987"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic apps'te iş akışı tanımlama dili tetikleyicisi ve eylem türleri başvurusu
 
@@ -78,7 +78,7 @@ Farklı bir arabirim ve tetikleyicinin davranışını belirleyen girişlerin he
 |--------------|-------------| 
 | [**HTTP**](#http-trigger) | Denetler veya *yoklamalar* herhangi bir uç nokta. Bu uç nokta "202" zaman uyumsuz desen kullanma ya da bir dizi dönerek belirli tetikleyici sözleşmeye uymalıdır. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Mantıksal uygulamanız için çağrılabilen bir uç nokta oluşturur ancak kaydetmek veya kaydını silmek için belirtilen URL çağırır. |
-| [**Yinelenme**](#recurrence-trigger) | Tanımlanan bir zamanlamaya göre ateşlenir. Gelecekteki bir tarih ve saat bu tetikleme adımını için ayarlayabilirsiniz. Sıklığı temel alarak, süreleri de belirtebilirsiniz ve iş akışınızı çalıştırmak için gün. | 
+| [**Yineleme**](#recurrence-trigger) | Tanımlanan bir zamanlamaya göre ateşlenir. Gelecekteki bir tarih ve saat bu tetikleme adımını için ayarlayabilirsiniz. Sıklığı temel alarak, süreleri de belirtebilirsiniz ve iş akışınızı çalıştırmak için gün. | 
 | [**İstek**](#request-trigger)  | Mantıksal uygulamanız için çağrılabilen bir uç noktası oluşturur ve "elle" tetikleyici olarak da bilinen olduğu. Örneğin, [çağrı, tetikleyici veya iç içe iş akışları HTTP uç noktaları ile](../logic-apps/logic-apps-http-endpoint.md). | 
 ||| 
 
@@ -819,17 +819,17 @@ Bazı yaygın olarak kullanılan eylem türleri şunlardır:
 
 | Eylem türü | Açıklama | 
 |-------------|-------------| 
-| [**Oluşturan**](#compose-action) | Çeşitli türlerde olabilen girişler, tek bir çıktı oluşturur. | 
-| [**İşlevi**](#function-action) | Bir Azure işlevi çağırır. | 
+| [**Oluştur**](#compose-action) | Çeşitli türlerde olabilen girişler, tek bir çıktı oluşturur. | 
+| [**İşlev**](#function-action) | Bir Azure işlevi çağırır. | 
 | [**HTTP**](#http-action) | Bir HTTP uç noktası çağırır. | 
-| [**Katılın**](#join-action) | Bir dizideki tüm öğeler bir dize oluşturur ve bu öğeleri ile belirtilen bir sınırlayıcı karakter ayırır. | 
+| [**Birleştir**](#join-action) | Bir dizideki tüm öğeler bir dize oluşturur ve bu öğeleri ile belirtilen bir sınırlayıcı karakter ayırır. | 
 | [**JSON Ayrıştır**](#parse-json-action) | Kullanıcı dostu belirteçleri JSON özelliklerinde içerik oluşturur. Sonra mantıksal uygulamanızın belirteçleri dahil olmak üzere bu özelliklere başvuruda bulunabilir. | 
 | [**Sorgu**](#query-action) | Bir koşul veya filtre temel başka bir dizideki öğelerden bir dizi oluşturur. | 
 | [**Yanıt**](#response-action) | Gelen çağrıyı veya isteği bir yanıt oluşturur. | 
-| [**Seçin**](#select-action) | Bir dizi JSON nesnesi ile belirtilen haritasına dayalı olarak başka bir diziden öğeleri dönüştürerek oluşturur. | 
+| [**Şunu seçin:**](#select-action) | Bir dizi JSON nesnesi ile belirtilen haritasına dayalı olarak başka bir diziden öğeleri dönüştürerek oluşturur. | 
 | [**Tablo**](#table-action) | Bir diziyi bir CSV veya HTML tablosu oluşturur. | 
-| [**sonlandırma**](#terminate-action) | Etkin olarak çalışan bir iş akışı durdurur. | 
-| [**bekleme**](#wait-action) | İş akışınızı, belirtilen bir süre boyunca veya belirli bir tarih ve saate kadar duraklatılır. | 
+| [**Sonlandır**](#terminate-action) | Etkin olarak çalışan bir iş akışı durdurur. | 
+| [**Wait**](#wait-action) | İş akışınızı, belirtilen bir süre boyunca veya belirli bir tarih ve saate kadar duraklatılır. | 
 | [**İş akışı**](#workflow-action) | Başka bir iş akışı içinde bir iş akışı gömer. | 
 ||| 
 
@@ -855,7 +855,7 @@ Bu Eylemler, iş akışının yürütülmesini denetlemenize ve diğer Eylemler 
 | [**Eğer**](#if-action) | Bağlı çalışma Eylemler belirtilen koşulun true veya false. | 
 | [**Kapsam**](#scope-action) | Bir dizi eylemi Grup durumu göre eylemleri çalıştırın. | 
 | [**Anahtar**](#switch-action) | İfadeler, nesneler veya belirteçleri değerlerinden her örneği tarafından belirtilen değerleri eşleştiğinde durumlarına düzenlenmiş eylemleri çalıştırın. | 
-| [**Kadar**](#until-action) | Belirtilen koşul true olana kadar Eylemler bir döngüde çalışır. | 
+| [**Bitiş:**](#until-action) | Belirtilen koşul true olana kadar Eylemler bir döngüde çalışır. | 
 |||  
 
 ## <a name="actions---detailed-reference"></a>Eylemler - ayrıntılı başvuru
@@ -1015,7 +1015,9 @@ Eylemin çıkış diğer eylemleri daha sonra kullanabilirsiniz.
 
 *Örnek 1*
 
+<!-- markdownlint-disable MD038 -->
 Bu eylem tanımı birleştirir `abcdefg ` bir boşluk ve değerle `1234`:
+<!-- markdownlint-enable MD038 -->
 
 ```json
 "Compose": {
@@ -1413,7 +1415,7 @@ Bu eylem tanımı bir HTTP isteğine yanıt olarak belirtilen durum kodu, ileti 
 }
 ```
 
-*Kısıtlamaları*
+*Kısıtlamalar*
 
 Diğer Eylemler aksine **yanıt** eylem özel kısıtlamaları vardır: 
 
@@ -2446,7 +2448,7 @@ Ayarlama `runtimeConfiguration.concurrency.runs` özelliğini `1`:
 }
 ```
 
-*- veya -*
+*-veya-*
 
 Ayarlama `operationOptions` özelliğini `SingleInstance`:
 
@@ -2498,7 +2500,7 @@ Ayarlama `runtimeConfiguration.concurrency.repetitions` özelliğini `1`:
 }
 ```
 
-*- veya -*
+*-veya-*
 
 Ayarlama `operationOptions` özelliğini `Sequential`:
 
@@ -2567,7 +2569,7 @@ HTTP uç noktaları, farklı kimlik doğrulaması türlerini destekler. Kimlik d
 
 Ayarlayabileceğiniz kimlik doğrulama türleri şunlardır:
 
-* [Temel kimlik doğrulaması](#basic-authentication)
+* [Temel kimlik doğrulama](#basic-authentication)
 * [İstemci sertifikası kimlik doğrulaması](#client-certificate-authentication)
 * [Azure Active Directory (Azure AD) OAuth kimlik doğrulaması](#azure-active-directory-oauth-authentication)
 
@@ -2583,8 +2585,8 @@ Ayarlayabileceğiniz kimlik doğrulama türleri şunlardır:
 | Özellik | Gereklidir | Value | Açıklama | 
 |----------|----------|-------|-------------| 
 | **type** | Evet | "Temel" | Burada "Temel" olan kullanmak için kimlik doğrulaması türü | 
-| **Kullanıcı adı** | Evet | "@parameters('userNameParam')" | Hedef hizmet uç noktası erişimi kimlik doğrulaması için kullanıcı adı |
-| **Parola** | Evet | "@parameters('passwordParam')" | Hedef hizmet uç noktası erişimi kimlik doğrulaması için parola |
+| **kullanıcı adı** | Evet | "@parameters('userNameParam')" | Hedef hizmet uç noktası erişimi kimlik doğrulaması için kullanıcı adı |
+| **password** | Evet | "@parameters('passwordParam')" | Hedef hizmet uç noktası erişimi kimlik doğrulaması için parola |
 ||||| 
 
 Bu örnekte HTTP eylemi tanımı `authentication` bölümü belirtiyor `Basic` kimlik doğrulaması. Kullanma ve parametreleri güvenliğini sağlama hakkında daha fazla bilgi için bkz. [mantıksal uygulamanızı güvenli hale getirme](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
@@ -2618,7 +2620,7 @@ Bu örnekte HTTP eylemi tanımı `authentication` bölümü belirtiyor `Basic` k
 |----------|----------|-------|-------------|
 | **type** | Evet | "ClientCertificate" | Güvenli Yuva Katmanı (SSL) istemci sertifikaları için kullanılacak kimlik doğrulaması türü. Otomatik olarak imzalanan sertifikalar desteklendiğinden, SSL için otomatik olarak imzalanan sertifikalar desteklenmiyor. |
 | **PFX** | Evet | "@parameters('pfxParam') | Bir kişisel bilgi değişimi (PFX) dosyasından base64 ile kodlanmış içeriği |
-| **Parola** | Evet | "@parameters('passwordParam')" | PFX dosyasına erişim için parola |
+| **password** | Evet | "@parameters('passwordParam')" | PFX dosyasına erişim için parola |
 ||||| 
 
 Bu örnekte HTTP eylemi tanımı `authentication` bölümü belirtiyor `ClientCertificate` kimlik doğrulaması. Kullanma ve parametreleri güvenliğini sağlama hakkında daha fazla bilgi için bkz. [mantıksal uygulamanızı güvenli hale getirme](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
@@ -2652,13 +2654,13 @@ Bu örnekte HTTP eylemi tanımı `authentication` bölümü belirtiyor `ClientCe
 |----------|----------|-------|-------------|
 | **type** | Evet | `ActiveDirectoryOAuth` | Azure AD OAuth "ActiveDirectoryOAuth" olan kullanmak için kimlik doğrulaması türü |
 | **Yetkilisi** | Hayır | <*URL-için-yetkilisi-token-yayımcısı*> | Kimlik Doğrulama belirtecini sağlar yetkilisi URL'si |
-| **Kiracı** | Evet | <*Kiracı kimliği*> | Azure AD kiracısı için Kiracı kimliği |
+| **kiracı** | Evet | <*Kiracı kimliği*> | Azure AD kiracısı için Kiracı kimliği |
 | **Hedef kitle** | Evet | <*yetki kaynağı*> | Yetkilendirme, örneğin kullanmak istediğiniz kaynak `https://management.core.windows.net/` |
-| **clientId** | Evet | <*istemci kimliği*> | Yetkilendirmesi uygulama istemci kimliği |
+| **ClientID** | Evet | <*istemci kimliği*> | Yetkilendirmesi uygulama istemci kimliği |
 | **credentialType** | Evet | "Sertifika" veya "Gizli" | İstemci kimlik bilgisi türü yetkilendirmesi için kullanır. Bu özellik ve değer temel Tanımınızda görünmez, ancak kimlik bilgisi türü için gerekli parametreler belirler. |
 | **PFX** | Evet, yalnızca "Sertifika" kimlik bilgisi türü | "@parameters('pfxParam') | Bir kişisel bilgi değişimi (PFX) dosyasından base64 ile kodlanmış içeriği |
-| **Parola** | Evet, yalnızca "Sertifika" kimlik bilgisi türü | "@parameters('passwordParam')" | PFX dosyasına erişim için parola |
-| **Gizli anahtarı** | Evet, yalnızca "Gizli dizisini" kimlik bilgisi türü için | "@parameters('secretParam')" | Yetkilendirmesi için istemci gizli anahtarı |
+| **password** | Evet, yalnızca "Sertifika" kimlik bilgisi türü | "@parameters('passwordParam')" | PFX dosyasına erişim için parola |
+| **gizli dizi** | Evet, yalnızca "Gizli dizisini" kimlik bilgisi türü için | "@parameters('secretParam')" | Yetkilendirmesi için istemci gizli anahtarı |
 |||||
 
 Bu örnekte HTTP eylemi tanımı `authentication` bölümü belirtiyor `ActiveDirectoryOAuth` kimlik doğrulaması ve "Gizli" kimlik bilgisi türü. Kullanma ve parametreleri güvenliğini sağlama hakkında daha fazla bilgi için bkz. [mantıksal uygulamanızı güvenli hale getirme](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).

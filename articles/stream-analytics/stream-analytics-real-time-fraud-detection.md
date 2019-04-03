@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 84f74392b93212558851f89dab924ae3db5620ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995120"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883726"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics'i kullanmaya başlama: Gerçek zamanlı sahtekarlık algılama
 
@@ -292,7 +292,7 @@ Bu dönüştürme için bir dizi çakışmadığından zamana bağlı windows is
 
     Projeksiyon içerir `System.Timestamp`, her pencere sonu için bir zaman damgasını döndürür. 
 
-    Bir atlayan pencere kullanmak istediğinizi belirtmek için kullandığınız [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) işlevi `GROUP BY `yan tümcesi. İşlevinde, bir zaman birimi (herhangi bir yere mikrosaniye ölçeğinde bir gün için) ve pencere boyutunu (kaç birimleri) belirtin. Ülkeye göre bir sayısı çağrıları için her 5 saniyede değerinde erişmenizi sağlayacak şekilde bu örnekte, atlayan pencere 5 saniyelik aralıklarla, oluşur.
+    Bir atlayan pencere kullanmak istediğinizi belirtmek için kullandığınız [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) işlevi `GROUP BY` yan tümcesi. İşlevinde, bir zaman birimi (herhangi bir yere mikrosaniye ölçeğinde bir gün için) ve pencere boyutunu (kaç birimleri) belirtin. Ülkeye göre bir sayısı çağrıları için her 5 saniyede değerinde erişmenizi sağlayacak şekilde bu örnekte, atlayan pencere 5 saniyelik aralıklarla, oluşur.
 
 2. Tıklayın **Test** yeniden. Sonuçlarda dikkat zaman damgaları altında **WindowEnd** 5 saniyelik artışlarla olan.
 
@@ -415,7 +415,7 @@ Aşağıdaki makalede bu öğreticiyle devam edebilirsiniz:
 
 Stream Analytics hakkında daha fazla bilgi için genel olarak, şu makalelere bakın:
 
-* [Azure Stream analytics'e giriş](stream-analytics-introduction.md)
-* [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
-* [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Akış Analizi Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics'ne Giriş](stream-analytics-introduction.md)
+* [Azure Stream Analytics işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)

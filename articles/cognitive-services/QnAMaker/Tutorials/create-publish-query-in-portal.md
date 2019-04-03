@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 5635e0f669cec64bdbbf947099f980066a4aebc1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f79614e4b1ec660d2ec5c8aee40924908cf8f5c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121426"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884134"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Öğretici: Bilgi Bankası sonra soruyu yanıtlama soru-cevap Oluşturucu portalı üzerinden oluşturma
 
@@ -66,7 +66,7 @@ Bu öğretici için var olan bir [Soru-Cevap Oluşturma hizmetini](../How-To/set
     |Ayar adı|Ayar değeri|Amaç|
     |--|--|--|
     |URL'si|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |URL'deki SSS içeriği, soru-cevap şeklinde biçimlendirilir. Soru-Cevap Oluşturma hizmeti bu biçimi yorumlayarak soruları ve cevaplarını ayıklayabilir.|
-    |Dosya |_bu öğreticide kullanılmayacaktır_|Bu işlem sorular ve cevaplar için gerekli dosyaları karşıya yükler. |
+    |Dosya |_Bu öğreticide kullanılan değil_|Bu işlem sorular ve cevaplar için gerekli dosyaları karşıya yükler. |
     |Chit-chat personality (Konuşma kişiliği)|The friend (Arkadaş)|Bu ayar yaygın sorulara ve cevaplara arkadaş canlısı ve günlük kullanım dilini kullanan bir kişilik ekler. Bu soruları ve cevapları daha sonra düzenleyebilirsiniz. |
 
     ![KB oluşturma işleminin 4. adımı](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
@@ -105,7 +105,7 @@ Bilgi bankası yayımlandıktan sonra uç nokta görüntülenir
 
     ![Curl komutu](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-3-curl.png)
 
-1. **Curl** sekmesinin metnini kopyalayın ve Curl özellikli bir terminalde veya komut satırında yürütün. Yetkilendirme üst bilgisinin değeri `Endpoint ` metni, bir boşluk ve anahtar değerini içerir.
+1. **Curl** sekmesinin metnini kopyalayın ve Curl özellikli bir terminalde veya komut satırında yürütün. Yetkilendirme üst bilgisinin değeri `Endpoint` metni, bir boşluk ve anahtar değerini içerir.
 
 1. `<Your question>` yerine `How large can my KB be?` yazın. Bu ifade `How large a knowledge base can I create?` sorusuna yakındır ancak tam olarak aynısı değildir. Soru-Cevap Oluşturma, doğal dil işleme süreçlerini kullanarak iki sorunun aynı olduğunu belirler.     
 
@@ -208,4 +208,4 @@ Genel konuşma [kişilikleri](../Concepts/best-practices.md#chit-chat) hakkında
 Varsayılan cevap hakkında daha fazla bilgi için bkz. [Eşleşme bulunamadı](../Concepts/confidence-score.md#no-match-found). 
 
 > [!div class="nextstepaction"]
-> [Bilgi bankası kavramları](../Concepts/knowledge-base.md)
+> [Bilgi Bankası kavramları](../Concepts/knowledge-base.md)

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fddbcbea23226bef68f36369341afcf1b100b77
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f1f493120431481423892706fa2a9352b322c500
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847340"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880806"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Öğretici: CylancePROTECT ile Azure Active Directory Tümleştirme
 
@@ -109,7 +109,7 @@ Azure AD çoklu oturum açma ile CylancePROTECT yapılandırmak için aşağıda
     
     | Bölge | URL değeri |
     |----------|---------|
-    | Asya Pasifik Kuzeydoğu (APNE1)| ` https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Asya Pasifik Kuzeydoğu (APNE1)| `https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
     | Asya Pasifik Güneydoğu (AU) | `https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml` |
     | Avrupa, Orta (EUC1)|`https://login-euc1.cylance.com/EnterpriseLogin/ConsumeSaml`|
     | Kuzey Amerika|`https://login.cylance.com/EnterpriseLogin/ConsumeSaml`|
@@ -208,7 +208,7 @@ Erişim paneli CylancePROTECT kutucuğa tıkladığınızda, size otomatik olara
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

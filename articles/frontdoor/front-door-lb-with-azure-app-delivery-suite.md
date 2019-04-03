@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: a89043f814bc97aeb081789e92d9e4488712a465
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3d5c0ac068a6644f3499da6c3b642a4a04408370
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439035"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879668"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Azure uygulama teslim paketiyle yük dengeleme
 
@@ -26,10 +26,10 @@ Microsoft Azure, birden çok ağ trafiğinizi nasıl dağıtıldığını yönet
 ![Uygulama teslim paketi ][1]
  
 Bu hizmetler, iki kategoriye ayrılır:
-1. **Genel Yük Dengeleme hizmetlerini** Traffic Manager ve ön kapısı son kullanıcılarınızdan gelen trafiği dağıtmak, bölgesel arka uçlar arasında Bulut veya hatta karma şirket içi hizmetlerinizi gibi. Genel Yük Dengeleme trafiğinizi en yakın hizmet arka ucunuza yönlendirir ve değişiklikler, hizmet güvenilirliğini veya kullanıcılarınız için her zaman açık, düzeyde performansını korumak için performans tepki verir. 
+1. **Genel Yük Dengeleme hizmetlerini** Traffic Manager ve ön kapısı dağıtım son kullanıcılarınızdan gelen trafik, bölgesel arka uçlar arasında bulutlarda veya hibrit bile şirket içi hizmetler gibi. Genel Yük Dengeleme trafiğinizi en yakın hizmet arka ucunuza yönlendirir ve değişiklikler, hizmet güvenilirliğini veya kullanıcılarınız için her zaman açık, düzeyde performansını korumak için performans tepki verir. 
 2. **Bölgesel Yük Dengeleme hizmetlerini** trafiği sanal ağları (Vnet) içinde sanal makineler (VM) veya bir bölgedeki bölgesel hizmet uç noktaları arasında dağıtma kabiliyeti gibi standart yük dengeleyici veya Application Gateway sağlayın.
 
-Küresel ve bölgesel Services uygulamanızdaki bir uçtan uca güvenilir, yüksek performanslı ve güvenli yolu trafiği yönlendirmek için ve kullanıcılarınızın Iaas, PaaS veya şirket içi hizmetleri sağlar. Sonraki bölümde, biz bu hizmetlerin her biri açıklanmaktadır.
+Küresel ve bölgesel Services uygulamanızdaki bir uçtan uca güvenilir, yüksek performanslı ve güvenli yolu trafiği yönlendirmek için ve kullanıcılarınızın Iaas, PaaS veya şirket içi hizmetler sağlar. Sonraki bölümde, biz bu hizmetlerin her biri açıklanmaktadır.
 
 ## <a name="global-load-balancing"></a>Genel Yük Dengeleme
 **Traffic Manager** Genel DNS Yük Dengeleme sağlar. Bu, gelen DNS istekleri arar ve müşterinin seçtiği yönlendirme ilkesine uygun olarak sağlıklı bir arka uç ile yanıt verir. Yönlendirme yöntemleri için Seçenekler şunlardır:
@@ -59,7 +59,7 @@ Genel Yönlendirme için bir genel yük dengeleyici Traffic Manager ve Azure ön
 | Traffic Manager | Azure Front Door Hizmeti |
 | --------------- | ------------------------ |
 |**Herhangi bir protokolü:** Traffic Manager DNS katmanında çalışır çünkü her türlü ağ trafiği yönlendirebilen; HTTP, TCP, UDP, vs. | **HTTP hızlandırma:** Ön kapısı ile Edge Microsoft'un ağ proxy trafiğidir.  Bu nedenle, HTTP (S) istek gecikme süresi ve aktarım hızı geliştirmeleri SSL anlaşması için gecikme süresini azaltma ve sık erişimli AFD bağlantılarından uygulamanıza kullanarak bakın.|
-|**Yönlendirme şirket içi:** Bir DNS katmanında yönlendirme, trafiği her zaman bir noktadan noktaya gider.  Şube ofisinizde, şirket içi veri merkezine yönlendirme doğrudan bir yol alabilir; Traffic Manager kullanarak da kendi ağ üzerinde. | **Bağımsız ölçeklenebilirlik:** Ön kapısı HTTP isteği ile çalıştığı için farklı bir URL yolu için istekleri farklı arka uca yönlendirilmiş / bölgesel hizmet kuralları ve her uygulama mikro hizmet durumunu temel alan havuzları (mikro).|
+|**Yönlendirme şirket içinde:** Bir DNS katmanında yönlendirme, trafiği her zaman bir noktadan noktaya gider.  Şube ofisinizde, şirket içi veri merkezine yönlendirme doğrudan bir yol alabilir; Traffic Manager kullanarak da kendi ağ üzerinde. | **Bağımsız ölçeklenebilirlik:** Ön kapısı HTTP isteği ile çalıştığı için farklı bir URL yolu için istekleri farklı arka uca yönlendirilmiş / bölgesel hizmet kuralları ve her uygulama mikro hizmet durumunu temel alan havuzları (mikro).|
 |**Faturalandırma biçimi:** DNS kullanıma dayalı faturalandırma Kullanıcılarınızla ve daha fazla kullanıcısı olan hizmetleri ölçeklenen, en yüksek kullanımı maliyetini azaltmak için plateaus. |**Satır içi güvenlik:** Ön kapısı, oran sınırlandırma ve IP trafiği, uygulamanızı ulaşmadan önce uçlarınıza korumanıza olanak acl'sinin gibi kuralları etkinleştirir. 
 
 </br>Performans, çalışabilirlik ve ön kapısı HTTP iş yükleriniz için güvenlik avantajları nedeniyle, müşterilerin ön kapısı, HTTP iş yükleri için kullanmanızı öneririz.    Traffic Manager ve ön kapısı paralel olarak tüm trafiği uygulamanız için hizmet vermek için kullanılabilir. 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b6481b490182b874161a79390cc61b140c58bec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9faf5068f6007cc357bcd22480c08af4223ba906
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872809"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883035"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skyward-qmlativ"></a>Öğretici: Skyward Qmlativ ile Azure Active Directory Tümleştirme
 
@@ -105,7 +105,7 @@ Azure AD çoklu oturum açma ile Skyward Qmlativ yapılandırmak için aşağıd
 
     ![Çoklu oturum açma bilgileri skyward Qmlativ etki alanı ve URL'ler](common/sp-identifier.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: ` https://<SUBDOMAIN>.skyward.com/<CUSTOMERIDENTIFIERSTS>`
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<SUBDOMAIN>.skyward.com/<CUSTOMERIDENTIFIERSTS>`
 
     b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<BASEURL>/customeridentifierSTS`
 
@@ -185,7 +185,7 @@ Erişim paneli Skyward Qmlativ kutucuğa tıkladığınızda, size otomatik olar
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

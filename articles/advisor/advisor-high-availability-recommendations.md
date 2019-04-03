@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 6ffe051c019184d5ce1a32af50dbf3e7faa06675
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 42627649145b568b2b25411d182e5a36cdb025b0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490320"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881197"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Azure Danışmanı ile uygulamanızın kullanılabilirliğini artırın
 
@@ -76,7 +76,7 @@ Etkin-etkin yapılandırmasında S2S VPN tünelinde şirket içi VPN cihazınız
 
 Danışman önerileri hakkında daha fazla bilgi için bkz:
 * [Azure Danışmanı giriş](advisor-overview.md)
-* [Danışman’ı kullanmaya başlama](advisor-get-started.md)
+* [Danışman'ı kullanmaya başlama](advisor-get-started.md)
 * [Advisor maliyet önerileri](advisor-cost-recommendations.md)
 * [Danışmanı performans önerileri](advisor-performance-recommendations.md)
 * [Advisor güvenlik önerileri](advisor-security-recommendations.md)

@@ -3,19 +3,19 @@ title: PowerShell kullanarak Azure Data Lake depolama Gen1 ile çalışmaya baş
 description: Bir Azure Data Lake depolama Gen1 hesabı oluşturmak ve temel işlemleri gerçekleştirmek için Azure PowerShell'i kullanma
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: 54d6dec6b61e4042b12cba833f4adf5d1321d1f1
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.author: twooley
+ms.openlocfilehash: 6635b572d11339307083b8aa2aaaba69dc731101
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237792"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885868"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Azure Data Lake depolama Gen1 ile çalışmaya başlama Azure PowerShell'i kullanma
 > [!div class="op_single_selector"]
@@ -123,6 +123,6 @@ Data Lake depolama Gen1 hesabınızı silmek için aşağıdaki komutu kullanın
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Performans ayarlama Kılavuzu, Azure Data Lake depolama Gen1 ile PowerShell kullanma](data-lake-store-performance-tuning-powershell.md)
 * [Büyük veri gereksinimleri için Azure Data Lake depolama Gen1 kullanın](data-lake-store-data-scenarios.md) 
-* [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
+* [Data Lake depolama Gen1 verileri güvenli hale getirme](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics'i Data Lake depolama Gen1 ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight ile Data Lake depolama Gen1 kullanın](data-lake-store-hdinsight-hadoop-use-portal.md)

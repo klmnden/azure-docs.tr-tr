@@ -1,33 +1,24 @@
 ---
-title: Betik eylemleri, Azure'ı kullanarak HDInsight kümelerini özelleştirin
+title: Betik eylemlerini kullanarak Azure HDInsight kümelerinizi özelleştirebilirsiniz.
 description: Özel bileşenler betik eylemlerini kullanarak Linux tabanlı HDInsight kümelerine ekleyin. Betik eylemleri, küme yapılandırmasını özelleştirebilir veya ek hizmetler ve yardımcı programları Hue, Solr ve r gibi eklemek için kullanılan Bash betikleridir
-services: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: hrasheed
-ms.openlocfilehash: 80c2d25fa24acff92a462f0289259792f217fbfd
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.date: 04/02/2019
+ms.openlocfilehash: fe0fec082ace997a3bd66ca7c7575ce8dce3be1a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361702"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885579"
 ---
-# <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>Betik eylemlerini kullanarak Linux tabanlı HDInsight kümeleri özelleştirme
+# <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Betik eylemlerini kullanarak Azure HDInsight kümelerinizi özelleştirebilirsiniz.
 
 Azure HDInsight sağlar adlı bir yapılandırma yöntemi **betik eylemlerini** küme özelleştirmek için özel komut dosyaları çağırır. Bu betikler, ek bileşenler yükleme ve yapılandırma ayarlarını değiştirmek için kullanılır. Betik eylemleri, küme oluşturma sırasında veya sonrasında kullanılabilir.
 
-> [!IMPORTANT]  
-> Zaten çalışan bir kümede betik eylemleri kullanma olanağı, yalnızca Linux tabanlı HDInsight kümeleri için kullanılabilir.
->
-> Linux üzerinde HDInsight sürüm 3.4 veya üzeri kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight Windows emeklilik](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 Betik eylemleri, bir HDInsight uygulaması olarak Azure Marketi'nde ayrıca yayımlanabilir. HDInsight uygulamaları hakkında daha fazla bilgi için bkz. [HDInsight uygulama Azure Marketi'nde yayımlama](hdinsight-apps-publish-applications.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="permissions"></a>İzinler
 
@@ -225,7 +216,9 @@ Bu örnekte, aşağıdaki kodu kullanarak betik eylemi eklenir:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Azure PowerShell üzerinden küme oluşturma sırasında bir betik eylemi kullanın
 
-Bu bölümde, kullandığınız [Ekle AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet'ini küme özelleştirme betikleri çağırma. Başlamadan önce yükleme ve Azure PowerShell yapılandırma emin olun. HDInsight PowerShell cmdlet'lerini çalıştırmak için bir iş istasyonu yapılandırma hakkında daha fazla bilgi için bkz: [genel bakış, Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+Bu bölümde, kullandığınız [Ekle AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet'ini küme özelleştirme betikleri çağırma. Başlamadan önce yükleme ve Azure PowerShell yapılandırma emin olun. Bu PowerShell komutları kullanmak için ihtiyacınız [AZ modül](https://docs.microsoft.com/powershell/azure/overview).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Aşağıdaki betik, PowerShell kullanarak bir küme oluştururken bir betik eylemi uygulanacak gösterilmektedir:
 
@@ -277,7 +270,7 @@ Git [Azure portalında](https://portal.azure.com):
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Betik eylemi çalıştıran bir kümeye Azure Powershell'den uygulayın.
 
-Başlamadan önce yükleme ve Azure PowerShell yapılandırma emin olun. HDInsight PowerShell cmdlet'lerini çalıştırmak için bir iş istasyonu yapılandırma hakkında daha fazla bilgi için bkz: [genel bakış, Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+Bu PowerShell komutları kullanmak için ihtiyacınız [AZ modül](https://docs.microsoft.com/powershell/azure/overview).
 
 Aşağıdaki örnek bir betik eylemi çalıştıran bir kümeye uygulama işlemini gösterir:
 

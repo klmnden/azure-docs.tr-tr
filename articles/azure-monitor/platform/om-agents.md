@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 2768a23c217052a342538b67ec59868e25fd4914
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 19ae3322d26447cf7c7dd94d06f073ccf013738e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793824"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878367"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Operations Manager'ı Azure İzleyicisi ile bağlantı
 
@@ -70,7 +70,7 @@ Azure İzleyici ile iletişim kurmak Operations Manager Aracısı, yönetim sunu
 |\*.ods.opinsights.azure.com| 443 |Yes|  
 |\*.oms.opinsights.azure.com| 443|Yes|  
 |\*.blob.core.windows.net| 443|Yes|  
-|\*.azure-automation.net| 443|Yes|  
+|\*.azure-automation.net| 443|Evet|  
 |**Yönetim sunucusu**|||  
 |\*.service.opinsights.azure.com| 443||  
 |\*.blob.core.windows.net| 443| Yes|  
@@ -220,8 +220,8 @@ Artık Operations Manager yönetim grubunuzda Log Analytics çalışma alanı ar
     > Devam etmeden önce adında Advisor veya IntelligencePack terimi bulunan hiçbir özel yönetim paketiniz olmadığını doğrulayın; aksi takdirde, aşağıdaki adımları o paketleri de yönetim grubundan siler.
     > 
 
-1. Komut kabuğu istemcisine `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue` yazın
-1. Sonra `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue` yazın
+1. Komut kabuğu istemiyle yazın `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+1. Sonraki türü `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 1. Diğer System Center Advisor yönetim paketlerinde bağımlılığı olan kalan yönetim paketlerini kaldırmak için, daha önce TechNet Betik Merkezi'nden indirmiş olduğunuz *RecursiveRemove.ps1* betiğini kullanın.  
  
     > [!NOTE]
@@ -345,7 +345,7 @@ Artık Operations Manager yönetim grubunuzda Log Analytics çalışma alanı ar
 Yönetim grubunuza bir Log Analytics çalışma alanı yeniden bağlanmayı üzerinde planlıyorsanız, gelecekte yeniden içeri aktarmak ihtiyacınız `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` Yönetim Paketi dosyası. Ortamınıza dağıtılan System Center Operations Manager sürümüne bağlı olarak bu dosyayı aşağıdaki konumda bulabilirsiniz:
 
 * System Center 2016 - Operations Manager ve üstü için kaynak medyada `\ManagementPacks` klasörünün altında.
-* Yönetim grubunuza uygulanan en son güncelleştirme dağıtımından. Kaynak klasör Operations Manager 2012 için ` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` klasörüdür ve 2012 R2 için `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups` altında yer alır.
+* Yönetim grubunuza uygulanan en son güncelleştirme dağıtımından. Operations Manager 2012 için kaynak klasördür `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` ve 2012 R2 için bulunur `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

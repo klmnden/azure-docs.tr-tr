@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: cc0f452cf9dc27354124437acc8d9a7c99fa80f4
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 577a047fb88208d7e14e8ba06a1b9e7e87c5ef91
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065197"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884252"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Hızlı Başlangıç: Azure Logic Apps - Azure portalı ile ilk otomatik iş akışınızı oluşturun
 
@@ -71,8 +71,8 @@ Sonra, yeni bir RSS akışı öğesi göründüğünde tetiklenen bir [tetikleyi
 
    | Özellik | Değer | Açıklama | 
    |----------|-------|-------------| 
-   | **RSS akışının URL'si** | ```http://feeds.reuters.com/reuters/topNews``` | İzlemek istediğiniz RSS akışının bağlantısı | 
-   | **Aralık** | 1 | Denetimler arasında beklenecek aralık sayısı | 
+   | **RSS akışı URL'si** | ```http://feeds.reuters.com/reuters/topNews``` | İzlemek istediğiniz RSS akışının bağlantısı | 
+   | **Interval** | 1 | Denetimler arasında beklenecek aralık sayısı | 
    | **Sıklık** | Dakika | Denetimler arası her aralık için zaman birimi  | 
    |||| 
 
@@ -114,7 +114,7 @@ Mantıksal uygulamanız çalışıyor ancak RSS akışını kontrol etme dışı
       Görüntülenen **Dinamik içerik ekle** listesini şimdilik yoksayın. 
       Bazı düzenleme kutularının içine tıkladığınızda bu liste görünür ve önceki adımdan iş akışınıza girdi olarak ekleyebileceğiniz tüm kullanılabilir parametreleri gösterir. 
 
-   2. **Konu** kutusuna, sonuna bir boşluk koyarak şu metni girin: ```New RSS item: ```
+   2. **Konu** kutusuna, sonuna bir boşluk koyarak şu metni girin: ```New RSS item:```
 
       ![E-posta konusunu girin](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
  
@@ -139,7 +139,7 @@ Mantıksal uygulamanız çalışıyor ancak RSS akışını kontrol etme dışı
       | Özellik | Açıklama | 
       |----------|-------------| 
       | **Akış başlığı** | Öğenin başlığı | 
-      | **Akış yayımlanma zamanı** | Öğenin yayımlandığı tarih ve saat | 
+      | **Akışın yayımlandığı gün** | Öğenin yayımlandığı tarih ve saat | 
       | **Birincil akış bağlantısı** | Öğenin URL'si | 
       ||| 
    

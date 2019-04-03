@@ -3,21 +3,21 @@ title: 'Java SDK: Azure Data Lake depolama Gen1 gerçekleştirilen dosya sistemi
 description: Dosya sistemi işlemleri Data Lake depolama Gen1 gibi gerçekleştirmek için kullanım Azure Data Lake depolama Gen1 Java SDK, klasörleri, vb. oluşturun.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: e84e84aac3aca0458dea4f30f6b0e222aafd9d44
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530305"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883556"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Azure Data Lake depolama Gen1 Java SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemleri
 > [!div class="op_single_selector"]
@@ -209,7 +209,7 @@ Aşağıdaki kod parçacığında, dosyaları ve klasörleri yinelemeli olarak b
 2. Komut satırından çalıştırabileceğiniz tek başına bir jar oluşturmak için jar’ı [Maven derleme eklentisini](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html) kullanarak dahil edilen tüm bağımlılıklarla birlikte derleyin. Bulunan pom.xml, [github'daki örnek kaynak kodda](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) bir örnek içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Java SDK için JavaDoc’u keşfedin](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-* [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
+* [Java için Javadoc'u keşfedin SDK'sı](https://azure.github.io/azure-data-lake-store-java/javadoc/)
+* [Data Lake depolama Gen1 verileri güvenli hale getirme](data-lake-store-secure-data.md)
 
 

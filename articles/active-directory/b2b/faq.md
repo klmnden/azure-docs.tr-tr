@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 10/29/2018
+ms.date: 04/02/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 860a059f57578965045ff8e7f404c3b072df03a1
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6cb7296ea4acfbf90d94b8f94a644b8a382b033b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293830"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877372"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B işbirliği hakkında SSS
 
@@ -48,7 +48,7 @@ Dışlanacak belirli iş ortakları, sonra da, seçebilmeniz için bu özelliği
 Bir kuruluş ardından Davetleri Gönder B2B işbirliği kullanıcıları ekleyin ve onları gerektiği gibi uygulamalara sağlamak isteyebilirsiniz. B2B işbirliği davet API ekleme iş akışı özelleştirmek için kullanabilirsiniz.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Konuk kullanıcılar Exchange Genel adres listesinde görünür yapmak?
-Evet. Konuk nesneleri, varsayılan olarak, kuruluşunuzun genel adres listesinde görünmez, ancak onları görünür yapmak için Azure Active Directory PowerShell kullanabilirsiniz. Bkz: **Konuk nesneler genel adres listesinde görünür yapabilirsiniz?** içinde [Konuk erişimi Office 365 gruplarında](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ).
+Evet. Konuk nesneleri kuruluşunuzun genel adres listesi (GAL) varsayılan olarak görünmez, ancak onları görünür yapmak için Azure Active Directory PowerShell kullanabilirsiniz. Bkz: [Konuk nesneler genel adres listesinde görünür yapabilirsiniz?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#can-i-make-guest-objects-visible-in-the-global-address-list)
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>Konuk kullanıcı sınırlı yönetici duruma getirebilirsiniz?
 Kesinlikle. Daha fazla bilgi için [bir role Konuk kullanıcı ekleme](add-guest-to-role.md).

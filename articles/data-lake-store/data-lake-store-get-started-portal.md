@@ -3,19 +3,19 @@ title: Azure portalı kullanarak Azure Data Lake depolama Gen1 ile çalışmaya 
 description: Bir Azure Data Lake depolama Gen1 hesabı oluşturmak ve Data Lake depolama Gen1 hesabında temel işlemleri gerçekleştirmek için Azure portalını kullanın.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: a99d8a265cdc72b6bd1dd45ab670f514d828f808
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: twooley
+ms.openlocfilehash: e021d8c056028c03ac71d2a27c9128272f374da6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58005691"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883590"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Azure Data Lake depolama Gen1 ile çalışmaya başlama Azure portalını kullanarak
 
@@ -124,7 +124,7 @@ Bir Data Lake depolama Gen1 hesabı, Data Lake depolama Gen1 dikey penceresinden
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Büyük veri gereksinimleri için Azure Data Lake depolama Gen1 kullanın](data-lake-store-data-scenarios.md) 
-* [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
+* [Data Lake depolama Gen1 verileri güvenli hale getirme](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics'i Data Lake depolama Gen1 ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight ile Data Lake depolama Gen1 kullanın](data-lake-store-hdinsight-hadoop-use-portal.md)
 

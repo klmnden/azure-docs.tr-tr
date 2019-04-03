@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 7fb4c68d10478a7c8af62262b3fa4633eaac9d2b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 69df9eff85d96c9cc6ca7fa1d3aabd2c54fae416
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660417"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884729"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Konuk tarafından yürütülebilir birden çok uygulama dağıtma
 Bu makalede, paketleyin ve birden fazla Konuk yürütülebilir dosyaları Azure Service Fabric'e dağıtma gösterilmektedir. Oluşturmak ve tek bir Service Fabric paket dağıtımı için okuma nasıl için [Konuk yürütülebilir dosyası, Service Fabric'e dağıtma](service-fabric-deploy-existing-app.md).
@@ -33,7 +33,7 @@ Visual Studio, birden fazla Konuk yürütülebilir dosyaları içeren uygulama p
 * [İki Konuk yürütülebilir dosyalar (C# ve nodejs) iletişim REST kullanarak Adlandırma Hizmeti örnek](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>El ile birden fazla konuk tarafından yürütülebilir uygulama paketi
-Alternatif olarak el ile Konuk yürütülebilir dosyası paketleyebilirsiniz. El ile paketleme için bu makalede bulunabilir Service Fabric paketleme aracı kullanır. [ http://aka.ms/servicefabricpacktool ](https://aka.ms/servicefabricpacktool).
+Alternatif olarak el ile Konuk yürütülebilir dosyası paketleyebilirsiniz. El ile paketleme için bu makalede bulunabilir Service Fabric paketleme aracı kullanır. [ https://aka.ms/servicefabricpacktool ](https://aka.ms/servicefabricpacktool).
 
 ### <a name="packaging-the-nodejs-application"></a>Node.js uygulaması paketleme
 Bu makalede, Node.js, Service Fabric kümesindeki düğümlere yüklenmedi varsayılır. Sonuç olarak node.js uygulamanızı paketleme önce kök dizinine Node.exe eklemeniz gerekir. Dizin yapısı (Express web çerçevesini ve Jade şablon altyapısı kullanılarak) Node.js uygulaması, aşağıdaki gibi görünmelidir:

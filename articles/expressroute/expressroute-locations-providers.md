@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2019
+ms.date: 04/02/2019
 ms.author: pareshmu
-ms.openlocfilehash: 8a137919bfd3cf330586c3a4d5c9df18916e41e6
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: e4ddd4bb435b472e6837862e49856c7b98011467
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629783"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878544"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute ortakları ve eşleme konumları
 
 > [!div class="op_single_selector"]
-> * [Sağlayıcıya Göre Konumlar](expressroute-locations.md)
-> * [Konuma Göre Sağlayıcılar](expressroute-locations-providers.md)
+> * [Sağlayıcıya göre konumlar](expressroute-locations.md)
+> * [Konuma göre sağlayıcılar](expressroute-locations-providers.md)
 
 
 Bu makaledeki tablolar ExpressRoute bağlantı sağlayıcıları, ExpressRoute coğrafi kapsamı, ExpressRoute üzerinden desteklenen Microsoft bulut hizmetleri ve ExpressRoute Sistem Tümleştiricileri (SIs) hakkında bilgi sağlar.
@@ -40,9 +40,9 @@ Coğrafi bölge içindeki en az bir ExpressRoute konumuna bağlanırsanız coğr
 ### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Bir coğrafi bölge içindeki Azure bölgeler ile ExpressRoute konumları arasında eşleme
 Aşağıdaki tablo, coğrafi bölge içindeki Azure bölgeler ile ExpressRoute konumları arasında yapılan eşlemeyi sağlar.
 
-| **Jeopolitik bölge** | **Bölge** | **Azure bölgeleri** | **ExpressRoute konumları** |
+| **Coğrafi bölge** | **Bölge** | **Azure bölgeleri** | **ExpressRoute konumları** |
 | --- | --- | --- | --- |
-| **Australia Government** | 1 | Avustralya Orta, Avustralya Orta 2 |Kanberra, Kanberra2 |
+| **Avustralya Devleti** | 1 | Avustralya Orta, Avustralya Orta 2 |Kanberra, Kanberra2 |
 | **Avrupa** | 1 |Fransa Orta, Fransa Güney, Kuzey Avrupa, Batı Avrupa, UK Batı, UK Güney |Amsterdam, Amsterdam2, Dublin, Londra, London2, Marsilya'daki, newport(Galler), Paris, Zürih |
 | **Kuzey Amerika** | 1 |Doğu ABD, Batı ABD, Doğu ABD 2, Batı ABD 2, Orta ABD, Orta Güney ABD, Orta Kuzey ABD, Batı Orta ABD, Orta Kanada, Doğu Kanada |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silikon vadisi, Washington DC, Washington DC2, Montreal, Quebec City, Toronto |
 | **Asya** | 2 |Doğu Asya, Güneydoğu Asya |Hong Kong, Kuala Lumpur, Singapur, singapur2 Taipei |
@@ -56,7 +56,7 @@ Aşağıdaki tablo, coğrafi bölge içindeki Azure bölgeler ile ExpressRoute k
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Ulusal bulutlar için bölgeler ve coğrafi sınırlar
 Aşağıdaki tablo ulusal bulutlar için bölgeler ve coğrafi sınırlar hakkında bilgi sağlar.
 
-| **Jeopolitik bölge** | **Azure bölgeleri** | **ExpressRoute konumları** |
+| **Coğrafi bölge** | **Azure bölgeleri** | **ExpressRoute konumları** |
 | --- | --- | --- |
 | **US Government bulutu** |US Gov Arizona, US Gov Iowa, US Gov Teksas, US Gov Virginia, US DoD Orta, US DoD Doğu  |Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silikon Vadisi, Washington DC |
 | **Çin Doğu** |Çin Doğu, Çin Doğu2 |Şangay, Shanghai2 |
@@ -71,14 +71,14 @@ Aşağıdaki tabloda bağlantı konumları ve her konum için hizmet sağlayıc�
 
 
 ### <a name="production-azure"></a>Üretim Azure
-| **Konum** | **Eşdüzey Hizmet Sağlama Konumu Sahibi** | **Hizmet Sağlayıcılar** |
+| **Konum** | **Eşleme konumu sahibi** | **Hizmet Sağlayıcılar** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
 | **Amsterdam2** | Interxion | DE-CIX Interxion |
 | **Atlanta** | Equinix | Equinix, Megaport |
 | **Busan** |LG CNS | LG CNS |
 | **Kanberra** | CDC | CDC |
-| **Kanberra2** | CDC | CDC |
+| **Canberra2** | CDC | CDC |
 | **Cape Town** | Teraco | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Chennai** | Tata Communications | Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chennai2** | Airtel | Airtel |
@@ -89,16 +89,16 @@ Aşağıdaki tabloda bağlantı konumları ve her konum için hizmet sağlayıc�
 | **Hong Kong** | Equinix | Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Johannesburg** | Teraco | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Kuala Lumpur** | TIME dotCom | TIME dotCom |
-| **Las Vegas** | Switch | CenturyLink Cloud Connect, Megaport |
+| **Las Vegas** | Anahtar | CenturyLink Cloud Connect, Megaport |
 | **Londra** | Equinix | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
-| **London2** | Telehouse | Equinix
+| **London2** | Telehouse | IX Reach, Equinix |
 | **Los Angeles** | CoreSite | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
-| **Marsilya** |Interxion | Interxion |
+| **Marseille** |Interxion | Interxion |
 | **Melbourne** | NextDC | AARNet, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation |
 | **Miami** | Equinix | C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montreal** | Cologix | Bell Canada, Cologix, Telus, Zayo |
 | **Mumbai** | Tata Communications | Global CloudXchange (GCX), Sify, Tata Communications, Vodafone Idea |
-| **Mumbai2** | Airtel | Airtel, Sify, Vodafone Idea |
+| **Bombay2** | Airtel | Airtel, Sify, Vodafone Idea |
 | **New York** | Equinix | CenturyLink Cloud Connect, Coresite, Equinix, InterCloud, Megaport, Zayo |
 | **Newport(Galler)** | Next Generation Data | İngiliz Telekom, 3. düzey iletişimleri, yeni nesil veriler |
 | **Osaka** | Equinix | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
@@ -124,7 +124,7 @@ Aşağıdaki tabloda bağlantı konumları ve her konum için hizmet sağlayıc�
 
 ### <a name="national-cloud-environments"></a>Ulusal bulut ortamları
 
-### <a name="us-government-cloud"></a>US Government bulutu
+### <a name="us-government-cloud"></a>ABD bulutu
 | **Konum** | **Hizmet Sağlayıcılar** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
@@ -141,7 +141,7 @@ Aşağıdaki tabloda bağlantı konumları ve her konum için hizmet sağlayıc�
 | --- | --- |
 | **Pekin** |China Telecom |
 | **Beijing2** | GDS |
-| **Şangay** |China Telecom |
+| **Shanghai** |China Telecom |
 | **Shanghai2** | GDS |
 
 Daha fazla bilgi için bkz. [Çin’de ExpressRoute](http://www.windowsazure.cn/home/features/expressroute/)
@@ -200,7 +200,7 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 ## <a name="expressroute-system-integrators"></a>ExpressRoute sistem tümleştiricileri
 İhtiyaçlarınıza uyan özel bağlantıyı etkinleştirme ağınızın ölçeğine bağlı olarak zorlu olabilir. ExpressRoute’a yönelik ekleme işleminde size yardımcı olmak üzere aşağıdaki tabloda listelenen herhangi bir sistem tümleştirici ile çalışabilirsiniz.
 
-| **Continent** | **Sistem tümleştiricileri** |
+| **Kıta** | **Sistem tümleştiriciler** |
 | --- | --- |
 | **Asya** |Avanade Inc., OneAs1a |
 | **Avustralya** | Ensyst, IT Consultancy, MOQdigital, Vigilant.IT |

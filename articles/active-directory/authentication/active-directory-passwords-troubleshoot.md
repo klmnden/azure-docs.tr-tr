@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81519a9452bf578c2640b547b2102b8e162e2878
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 8f4f13a8b03f3ddba91fb4c4b69f550e1e88a491
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369794"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885086"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Self Servis parola sıfırlama sorunlarını giderme
 
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) Self Servis parola sıfırlama (SSPR) ile ilgi
 
 ## <a name="troubleshoot-self-service-password-reset-errors-that-a-user-might-see"></a>Bir kullanıcının görebileceği Self Servis parola sıfırlama hatalarını giderme
 
-| Hata | Ayrıntılar | Teknik Ayrıntılar |
+| Hata | Ayrıntılar | Teknik ayrıntılar |
 | --- | --- | --- |
 | TenantSSPRFlagDisabled 9 = | Yöneticinizin parola sıfırlamayı kuruluşunuz için devre dışı bıraktığından şu anda parolanızı sıfırlayamazsınız. özür dileriz. Bu durumu çözmek için gerçekleştirebileceğiniz başka bir eylem yoktur. Lütfen yöneticinize başvurarak bu özelliği etkinleştirmesini isteyin. Daha fazla bilgi için bkz. [Yardım, Azure AD parolamı unuttum](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password#common-problems-and-their-solutions). | SSPR_0009: Parola sıfırlama, yönetici tarafından etkinleştirilmedi algıladık. Lütfen yöneticinize başvurarak parola sıfırlamayı kuruluşunuz için etkinleştirmesini isteyin. |
 | WritebackNotEnabled 10 = |Yöneticiniz kuruluşunuz için gerekli bir hizmeti etkinleştirilmemiş olduğundan şu anda parolanızı sıfırlayamazsınız. özür dileriz. Bu durumu çözmek için gerçekleştirebileceğiniz başka bir eylem yoktur. Lütfen yöneticinize başvurarak kuruluşunuzun yapılandırmasını denetlemesini isteyin. Bu gerekli hizmet hakkında daha fazla bilgi için bkz: [parola geri yazmayı yapılandırmayla](howto-sspr-writeback.md). | SSPR_0010: Bu parola geri yazma etkinleştirilmediğinden algıladık. Lütfen yöneticinize başvurarak parola geri yazmayı etkinleştirmesini isteyin. |
@@ -75,7 +75,7 @@ Azure Active Directory (Azure AD) Self Servis parola sıfırlama (SSPR) ile ilgi
 | Kullanıcı telefon numarasını doğrulanırken bir hata görür. | Girdiğiniz telefon numarası dosya çubuğunda telefon numarası eşleşmiyor Bu hata oluşur. Kullanıcı parola sıfırlama için telefon tabanlı bir yöntemini kullanmayı denediğinizde alan ve ülke kodu da dahil olmak üzere tam telefon numarasını girdiğinden emin olun. |
 | İstek işlenirken bir hata yoktur. | Tarafından birçok sorunlar buna neden olabilir, ancak genellikle bu hata bir hizmet kesintisi veya bir yapılandırma sorunu neden olur. Bu hatayı görürseniz ve sorunların, işletmenizi etkilemeden Ek Yardım için Microsoft desteğine başvurun. |
 | Şirket içi İlkesi ihlali | Parola, şirket içi Active Directory parola ilkesini karşılamıyor. |
-| Parola belirsiz İlkesi uyumlu değil | Kullanılan parola yasaklı parola listesinde görünür ve kullanılamaz. |
+| Parola belirsiz İlkesi uyumlu değil | Kullanılan parola görünür [parola listesine Yasaklanmış](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad#how-are-passwords-evaluated) ve kullanılamaz. |
 
 ## <a name="troubleshoot-password-writeback"></a>Parola geri yazma sorunlarını giderme
 
@@ -285,14 +285,14 @@ Düzgün bir şekilde yardımcı olması için bir servis talebi açılırken m�
 
 Aşağıdaki makaleler Azure AD aracılığıyla parola sıfırlama hakkında daha fazla bilgi sağlar:
 
-* [SSPR’yi başarılı bir şekilde nasıl piyasaya çıkarabilirim?](howto-sspr-deployment.md)
-* [Parolanızı sıfırlama veya değiştirme](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Sspr'yi başarılı bir sunum nasıl tamamlamak?](howto-sspr-deployment.md)
+* [Sıfırlama veya parolanızı değiştirme](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Self servis parola sıfırlama için kaydolma](../user-help/active-directory-passwords-reset-register.md)
-* [Lisansla ilgili bir sorunuz mu var?](concept-sspr-licensing.md)
-* [SSPR hangi verileri kullanır ve kullanıcılarınız için hangi verileri doldurmanız gerekir?](howto-sspr-authenticationdata.md)
-* [Kullanıcılar hangi kimlik doğrulama yöntemlerini kullanabilir?](concept-sspr-howitworks.md#authentication-methods)
+* [Lisans bir sorunuz var mı?](concept-sspr-licensing.md)
+* [SSPR tarafından kullanılan verileri ve hangi verilerin, kullanıcılarınız için doldurmanız gerekir?](howto-sspr-authenticationdata.md)
+* [Kimlik doğrulama yöntemleri, kullanıcılara kullanılabilir mi?](concept-sspr-howitworks.md#authentication-methods)
 * [SSPR ile kullanılabilen ilke seçenekleri nelerdir?](concept-sspr-policy.md)
 * [Parola geri yazma nedir ve neden önemlidir?](howto-sspr-writeback.md)
-* [SSPR’de etkinliği nasıl bildirebilirim?](howto-sspr-reporting.md)
-* [SSPR’deki tüm seçenekler nelerdir ve ne anlama gelir?](concept-sspr-howitworks.md)
-* [Başka bir yerde ele alınmayan bir sorum var](active-directory-passwords-faq.md)
+* [Sspr'de etkinliği nasıl bildirebilirim?](howto-sspr-reporting.md)
+* [Tüm SSPR seçenekler nelerdir ve ne anlama gelir?](concept-sspr-howitworks.md)
+* [Başka bir yerde ele değil bir sorum var](active-directory-passwords-faq.md)

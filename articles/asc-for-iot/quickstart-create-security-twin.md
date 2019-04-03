@@ -1,25 +1,25 @@
 ---
 title: Azure Güvenlik Merkezi için bir güvenlik modül ikizi IOT Önizleme için oluşturun | Microsoft Docs
 description: Azure Güvenlik Merkezi IOT modül ikizi kullanmak için IOT için ASC ile oluşturmayı öğrenin.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: c782692e-1284-4c54-9d76-567bc13787cc
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 93b6aa6fe133953025cd504e0486a51c4a3d5e04
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 16b5525973b93bc6b073c50c0c657dcbb4679040
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758378"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862225"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Hızlı Başlangıç: Bir azureiotsecurity modül ikizi oluşturma
 
@@ -67,7 +67,7 @@ Bir güvenlik modül ikizi belirli bir cihaz için olup olmadığını doğrulam
 
 1. Azure IOT hub'ına, seçin **IOT cihazları** gelen **gezginler** menüsü.    
 1. Cihaz kimliği girin veya bir seçenek belirleyin **sorgu cihazı alanına** tıklatıp **sorgu cihazları**. 
-    ![Sorgu cihazlar](./media/quickstart/verify-security-module-twin.png)
+    ![Cihazları sorgulama](./media/quickstart/verify-security-module-twin.png)
 1. Cihazı seçin veya çift cihaz ayrıntıları sayfasına açmak için tıklayın. 
 1. Seçin **modülü kimlikleri** menüsünde ve varlığını onaylamak **azureiotsecurity** cihazla ilişkilendirilmiş modülü kimlikleri listesinde modülü. 
     ![Bir cihazla ilişkili modüller](./media/quickstart/verify-security-module-twin-3.png)

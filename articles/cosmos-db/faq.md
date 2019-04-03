@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: c344e8c2d0ad62b394792201ab52bb37413012f8
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259916"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881050"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB'de farklı API'ler ile ilgili sık sorulan sorular
 
@@ -201,7 +201,7 @@ Evet. [Azure Cosmos DB öykünücüsü'nü](local-emulator.md) bir Cosmos DB hiz
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Neden uzun kayan nokta belgeye portalında Veri Gezgini görüntülendiğinde yuvarlanmış değerler.
 
-Bu JavaScript sınırlamasıdır. JavaScript IEEE 754 belirtildiği gibi çift duyarlıklı kayan nokta biçimi numaraları kullanır ve sayı - arasında güvenli bir şekilde içerebileceği (253 - 1) ve 253-1 (yani, 9007199254740991) yalnızca.
+Bu JavaScript sınırlamasıdır. JavaScript IEEE 754 belirtildiği gibi çift duyarlıklı kayan nokta biçimi numaraları kullanır ve sayı - arasında güvenli bir şekilde içerebileceği (2<sup>53</sup> -1) ve 2<sup>53</sup>-1 (yani, 9007199254740991) yalnızca.
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Burada izinleri nesne hiyerarşisinde izin veriliyor mu?
 
@@ -292,7 +292,7 @@ Bu farklılıklar, projeniz için bir sorun varsa, kişi [ askcosmosdb@microsoft
 
 Geri bildiriminiz aşağıdaki yollardan biriyle paylaşabilirsiniz:
 
-* [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
+* [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Yığın Taşması](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Yığın taşması soru programlama için idealdir. Sorunuzu olduğundan emin olun [konuyla](https://stackoverflow.com/help/on-topic) ve [soru işaretini kaldırın ve yanıt verilemeyen yapmak mümkün olduğunca çok ayrıntı sağlamak](https://stackoverflow.com/help/how-to-ask).
 

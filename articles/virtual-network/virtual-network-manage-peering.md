@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial;anavin
-ms.openlocfilehash: 28783b61a9361d97c151294140819249c9a100c2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e0a5674d434d997d04bfd42ca0e0863c11046d69
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875229"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882912"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Oluşturma, değiştirme veya bir sanal ağ eşlemesini Sil
 
@@ -45,17 +45,16 @@ Bir eşleme oluşturmadan önce gereksinimler ve kısıtlamalar ile hakkında bi
 
 1. Azure portalının üst kısmındaki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünmesini, onu seçin. Seçmeyin **sanal ağlar (Klasik)** Klasik dağıtım modeliyle dağıtılan sanal ağ eşlemesi oluşturulamıyor gibi listede görünüp görünmediğine.
 2. Sanal ağ eşleme oluşturmak istediğiniz listeyi seçin.
-3. Sanal ağlar listesinden eşleme oluşturmak istediğiniz sanal ağı seçin.
-4. Altında **ayarları**seçin **eşlemeler**.
-5. **+ Ekle** öğesini seçin. 
-6. <a name="add-peering"></a>Aşağıdaki ayarları için değerleri seçin veya girin:
+3. Altında **ayarları**seçin **eşlemeler**.
+4. **+ Ekle** öğesini seçin. 
+5. <a name="add-peering"></a>Aşağıdaki ayarları için değerleri seçin veya girin:
     - **Adı:** Eşleme adı, sanal ağ içinde benzersiz olmalıdır.
     - **Sanal ağ dağıtım modeli:** Eşlemek istediğiniz sanal ağı üzerinden dağıtılan hangi dağıtım modelini seçin.
     - **Kaynak Kimliğimi biliyorum:** Eşlemek istediğiniz sanal ağı okuma erişiminiz varsa, bu onay kutusunu işaretlemeden bırakın. Sanal ağ veya eşlemek istediğiniz aboneliği okuma erişimi yoksa, bu kutuyu işaretleyin. İçinde eşlemek istediğiniz sanal ağın tam kaynak Kimliğini girin **kaynak kimliği** kutusu işaretlendiğinde görünen kutusu. Kaynak Kimliği girdiğiniz aynı var olan bir sanal ağ için olmalıdır veya [farklı desteklenen](#requirements-and-constraints) Azure [bölge](https://azure.microsoft.com/regions) bu sanal ağ. Tam kaynak kimliği için /subscriptions/ benzer<Id>/resourceGroups/ < resource-group-name > /providers/Microsoft.Network/virtualNetworks/ < sanal ağ-adı >. Bir sanal ağ için bir sanal ağ özelliklerini görüntüleyerek, kaynak Kimliğini alabilirsiniz. Bir sanal ağ özelliklerini öğrenmek için bkz. [sanal ağlarını yönetme](manage-virtual-network.md#view-virtual-networks-and-settings). Abonelik gelen eşleme oluşturduğunuz sanal ağ ile abonelik değerinden farklı bir Azure Active Directory kiracısı ile ilişkili ise, önce bir kullanıcı her bir kiracı ekleyin bir [Konuk kullanıcı](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) karşı kiracıdaki.
     - **Abonelik:** Seçin [abonelik](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) eşlemek istediğiniz sanal ağ. Bir veya daha fazla abonelik hesabınızın okuma erişimi kaç aboneliğe sahip bağlı olarak listelenir. İşaretlediyseniz **kaynak kimliği** onay kutusu, bu ayar kullanılamaz.
     - **Sanal ağ:** Eşlemek istediğiniz sanal ağı seçin. İki Azure dağıtım modeliyle oluşturulan bir sanal ağı seçebilirsiniz. Farklı bir bölgede bir sanal ağ seçmek istiyorsanız, bir sanal ağda seçmelisiniz bir [bölge desteklenen](#cross-region). Sanal ağ listede görünür olması için okuma erişimi olmalıdır. Bir sanal ağ listelenir, ancak gri, sanal ağın adres alanı, bu sanal ağın adres alanıyla çakışıyor olabilir. Sanal ağ adres alanları, bir çakışma varsa, bunlar eşlenemez. İşaretlediyseniz **kaynak kimliği** onay kutusu, bu ayar kullanılamaz.
     - **Sanal ağ erişimine izin ver:** Seçin **etkin** iki sanal ağ arasındaki iletişimi etkinleştirmek istiyorsanız (varsayılan). Sanal ağlar arası iletişimin etkinleştirilmesi, aynı sanal ağa bağlıyken olarak birbiriyle aynı bant genişliği ve gecikme süresi ile iletişim kurmak için iki sanal ağ için bağlı kaynaklar sağlar. İki sanal ağ kaynakları arasındaki tüm iletişimi Azure özel ağdır. **VirtualNetwork** eşlenen sanal ağ ve sanal ağın ağ güvenlik grupları için hizmet etiketi kapsar. Ağ güvenlik grubu hizmet etiketleri hakkında daha fazla bilgi için bkz: [ağ güvenlik gruplarına genel bakış](security-overview.md#service-tags). Seçin **devre dışı bırakılmış** eşlenmiş sanal ağa akışına istemiyorsanız. Seçtiğiniz **devre dışı bırakılmış** başka bir sanal ağ ile sanal ağ eşlendikten, ancak bazen iki sanal ağ arasındaki trafik akışını devre dışı bırakmak istiyorsanız. Etkinleştirme/devre dışı bırakma silip yeniden eşlemeler oluşturarak değerinden daha kullanışlı bulabilirsiniz. Bu ayar devre dışı bırakıldığında, trafik eşlenmiş sanal ağlar akış değil.
-    - **İletilen trafiğe izin ver:** Trafiğe izin vermek için bu kutuyu *iletilen* (sanal ağdan kaynaklanan olmadı) bir sanal ağda ağ sanal Gereci tarafından bu sanal ağa bir eşlemesi üzerinden flow'a. Örneğin, 1, Spoke2 ve Hub'ı adlı üç sanal ağları göz önünde bulundurun. Her bir uç sanal ağ ile merkez sanal ağ arasında bir eşleme var, ancak bağlı sanal ağlar arasında eşleme yok. Bir ağ sanal Gereci Hub sanal ağında dağıtılan ve kullanıcı tanımlı yollar, ağ sanal Gereci üzerinden alt ağlar arasında trafiği yönlendirebilirsiniz her uç sanal ağ için uygulanır. Her bir uç sanal ağ ile merkez sanal ağ arasında eşleme için bu onay kutusu işaretli değilse, hub'ı, sanal ağlar arasındaki trafik yönlendirme için trafiği ağlı sanal ağlar akış değil. Bu özellik etkinleştirme eşlemesi üzerinden iletilen trafiğe izin verirken, herhangi bir kullanıcı tanımlı yollar veya ağ sanal Gereçleri oluşturmaz. Kullanıcı tanımlı yollar ve ağ sanal Gereçleri ayrı olarak oluşturulur. Hakkında bilgi edinin [kullanıcı tanımlı yollar](virtual-networks-udr-overview.md#user-defined). Bir Azure VPN ağ geçidi üzerinden sanal ağlar arasındaki trafiği iletilirse, bu ayarı işaretleyin gerek yoktur.
+    - **İletilen trafiğe izin ver:** Trafiğe izin vermek için bu kutuyu *iletilen* (sanal ağdan kaynaklanan olmadı) bir sanal ağda ağ sanal Gereci tarafından bu sanal ağa bir eşlemesi üzerinden flow'a. Örneğin, 1, Spoke2 ve Hub'ı adlı üç sanal ağları göz önünde bulundurun. Her bir uç sanal ağ ile merkez sanal ağ arasında bir eşleme var, ancak bağlı sanal ağlar arasında eşleme yok. Bir ağ sanal Gereci Hub sanal ağında dağıtılan ve kullanıcı tanımlı yollar, ağ sanal Gereci üzerinden alt ağlar arasında trafiği yönlendirebilirsiniz her uç sanal ağ için uygulanır. Her bir uç sanal ağ ile merkez sanal ağ arasında eşleme için bu onay kutusu işaretli değilse, hub sanal ağlar arasındaki trafik yönlendirme değil çünkü trafiği ağlı sanal ağlar akış değil. Bu özellik etkinleştirme eşlemesi üzerinden iletilen trafiğe izin verirken, herhangi bir kullanıcı tanımlı yollar veya ağ sanal Gereçleri oluşturmaz. Kullanıcı tanımlı yollar ve ağ sanal Gereçleri ayrı olarak oluşturulur. Hakkında bilgi edinin [kullanıcı tanımlı yollar](virtual-networks-udr-overview.md#user-defined). Bir Azure VPN ağ geçidi üzerinden sanal ağlar arasındaki trafiği iletilirse, bu ayarı işaretleyin gerek yoktur.
     - **Ağ geçidi aktarımına izin ver:** Bu sanal ağa bağlı bir sanal ağ geçidi varsa, bu onay kutusunu işaretleyin ve eşlenen sanal ağ geçidinden akış gelen trafiğe izin vermek istiyor. Örneğin, bu sanal ağa bir sanal ağ geçidi üzerinden şirket içi ağa bağlı olabilir. Ağ geçidi bir ExpressRoute veya VPN ağ geçidi olabilir. Bu kutunun işaretlenmesi, bu sanal ağdan şirket içi ağa bağlı ağ geçidi üzerinden akmasını eşlenmiş sanal ağa gelen trafiğe izin verir. Bu kutuyu işaretlerseniz, eşlenen sanal ağ, yapılandırılmış bir ağ geçidi olamaz. Eşlenen sanal ağda bulunması gerekir **uzak ağ geçitlerini kullan** onay kutusunu seçili ayarlarken diğer sanal ağdan bu sanal ağa eşleme ayarlama. Bırakırsanız bu kutu işaretli (varsayılan), eşlenen sanal ağ hala akışlar, bu sanal ağa trafiği, ancak bu sanal ağa bağlı bir sanal ağ geçidi üzerinden geçirilemez. Ağ geçidi, bir sanal ağ (Resource Manager) (Klasik) bir sanal ağ arasında eşleme durumda, sanal ağ (Resource Manager) olması gerekir. Farklı bölgelerdeki sanal ağları eşleme varsa bu seçeneği etkinleştirilemiyor.
 
        Bir şirket içi ağ trafiği iletmek ek olarak, ağ geçidi, sanal ağlar birbiriyle eşlenmesi gerek olmadan sanal ağ ile eşlenmiş sanal ağlar arasındaki ağ trafiğini VPN ağ geçidi iletebilir. Trafiği iletmek için bir VPN ağ geçidi'ni kullanarak, bir VPN ağ geçidi bir hub'ı kullanmak istediğiniz gerektiğinde kullanışlıdır (için açıklanan merkez ve uç örneğe bakın **iletilen trafiğe izin ver**) olmayan ağlı sanal ağlar arasında trafiği yönlendirmek için sanal ağ birbirleri ile eşlenmiş. Aktarım sırasında bir ağ geçidi kullanımına izin verme hakkında daha fazla bilgi için bkz: [sanal ağ eşlemesi bir VPN ağ geçidi geçişinin yapılandırma](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bu senaryoda, sonraki atlama türü olarak sanal ağ geçidini belirten kullanıcı tanımlı yollar uygulanması gerekir. Hakkında bilgi edinin [kullanıcı tanımlı yollar](virtual-networks-udr-overview.md#user-defined). Kullanıcı tanımlı bir yol, sonraki atlama türü olarak yalnızca bir VPN ağ geçidi belirtebilirsiniz, kullanıcı tanımlı bir yol sonraki atlama türü olarak ExpressRoute ağ geçidi belirtemezsiniz. Farklı bölgelerdeki sanal ağları eşleme varsa bu seçeneği etkinleştirilemiyor.
@@ -65,7 +64,7 @@ Bir eşleme oluşturmadan önce gereksinimler ve kısıtlamalar ile hakkında bi
 
         Sanal ağınızda yapılandırılan bir ağ geçidi zaten varsa, uzak ağ geçitlerini kullanamazsınız. Farklı bölgelerdeki sanal ağları eşleme varsa bu seçeneği etkinleştirilemiyor. Bir ağ geçidi için bir geçiş kullanma hakkında daha fazla bilgi edinmek için [sanal ağ eşlemesi bir VPN ağ geçidi geçişinin yapılandırma](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-7. Seçin **Tamam** seçtiğiniz sanal ağ eşlemesi eklemek için.
+6. Seçin **Tamam** seçtiğiniz sanal ağ eşlemesi eklemek için.
 
 Farklı Abonelikteki sanal ağlar ile dağıtım modelleri arasında eşleme uygulamak için adım adım yönergeler için bkz: [sonraki adımlar](#next-steps).
 
@@ -80,13 +79,12 @@ Bir eşleme değiştirmeden önce gereksinimler ve kısıtlamalar ile hakkında 
 
 1. Portalın üst kısmındaki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünmesini, onu seçin. Seçmeyin **sanal ağlar (Klasik)** Klasik dağıtım modeliyle dağıtılan sanal ağ eşlemesi oluşturulamıyor gibi listede görünüp görünmediğine.
 2. Sanal ağ eşleme ayarlarını değiştirmek için istediğiniz listeyi seçin.
-3. Sanal ağlar listesinden eşleme ayarlarını değiştirmek için istediğiniz sanal ağı seçin.
-4. Altında **ayarları**seçin **eşlemeler**.
-5. Eşleme için ayarlarını görüntülemek veya değiştirmek istiyorsanız seçin.
-6. Uygun ayarını değiştirin. Her bir ayar için seçenekleri hakkında bilgi edinin [6. adım](#add-peering) bir eşleme oluştur.
-7. **Kaydet**’i seçin.
+3. Altında **ayarları**seçin **eşlemeler**.
+4. Eşleme için ayarlarını görüntülemek veya değiştirmek istiyorsanız seçin.
+5. Uygun ayarını değiştirin. Her bir ayar için seçenekleri hakkında bilgi edinin [5. adım](#add-peering) bir eşleme oluştur.
+6. **Kaydet**’i seçin.
 
-**Komutları**
+**Komutlar**
 
 - **Azure CLI**: [az ağ vnet eşleme listesi](/cli/azure/network/vnet/peering) bir sanal ağ için liste eşlemeleri için [az network vnet eşleme show](/cli/azure/network/vnet/peering) ayarları bir özel eşdüzey hizmet sağlama için gösterilecek ve [az ağ sanal ağ eşleme güncelleştirme](/cli/azure/network/vnet/peering) eşleme ayarları değiştirmek için. |
 - **PowerShell**: [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) görünümü eşleme ayarları alınamadı ve [kümesi AzVirtualNetworkPeering](/powershell/module/az.network/set-azvirtualnetworkpeering) ayarlarını değiştirmek için.
@@ -101,12 +99,11 @@ Sanal ağlar, bazen kurmak istiyor, ancak her zaman bir eşdüzey hizmet sağlam
 
 1. Portalın üst kısmındaki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünmesini, onu seçin. Seçmeyin **sanal ağlar (Klasik)** Klasik dağıtım modeliyle dağıtılan sanal ağ eşlemesi oluşturulamıyor gibi listede görünüp görünmediğine.
 2. Sanal ağ eşleme silmek istediğiniz listeyi seçin.
-3. Sanal ağlar listesinden eşleme silmek istediğiniz sanal ağı seçin.
-4. Altında **ayarları**seçin **eşlemeler**.
-5. Silmek istediğiniz eşlemesi sağdaki, seçin **...** seçin **Sil**, ardından **Evet** ilk sanal ağdan eşlemesini silmek için.
-6. Eşlemedeki diğer sanal ağ eşlemesini silmek için önceki adımları tamamlayın.
+3. Altında **ayarları**seçin **eşlemeler**.
+4. Silmek istediğiniz eşlemesi sağdaki, seçin **...** seçin **Sil**, ardından **Evet** ilk sanal ağdan eşlemesini silmek için.
+5. Eşlemedeki diğer sanal ağ eşlemesini silmek için önceki adımları tamamlayın.
 
-**Komutları**
+**Komutlar**
 
 - **Azure CLI**: [az ağ vnet eşleme Sil](/cli/azure/network/vnet/peering)
 - **PowerShell**: [Remove-AzVirtualNetworkPeering](/powershell/module/az.network/remove-azvirtualnetworkpeering)
@@ -160,9 +157,9 @@ Hesabınızı önceki rollerden biri atanmamışsa, atanmalıdır bir [özel rol
   |Azure dağıtım modeli             | Abonelik  |
   |---------                          |---------|
   |Her ikisi de Resource Manager              |[Aynı](tutorial-connect-virtual-networks-portal.md)|
-  |                                   |[Farklı](create-peering-different-subscriptions.md)|
+  |                                   |[Fark](create-peering-different-subscriptions.md)|
   |Biri Resource Manager, diğeri klasik  |[Aynı](create-peering-different-deployment-models.md)|
-  |                                   |[Farklı](create-peering-different-deployment-models-subscriptions.md)|
+  |                                   |[Fark](create-peering-different-deployment-models-subscriptions.md)|
 
 - [Merkez ve uç ağ topolojisi](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json) oluşturmayı öğrenin
 - Kullanarak bir sanal ağ eşlemesi oluşturma [PowerShell](powershell-samples.md) veya [Azure CLI](cli-samples.md) örnek komut dosyaları veya Azure kullanarak [Resource Manager şablonları](template-samples.md)

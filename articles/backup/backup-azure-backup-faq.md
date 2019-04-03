@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 420c81f6206c777efc303924d81763f5984aba4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0981f4d5d9d5fcb243fc7ead6f4b529c096935d0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993404"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885885"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - sık sorulan sorular
 Bu makalede, Azure Backup hizmeti hakkında sık sorulan sorular yanıtlanmaktadır.
@@ -40,7 +40,7 @@ Hayır. Bir kurtarma Hizmetleri kasası, yalnızca depolanan yedeklemelere önce
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Bir kurtarma Hizmetleri kasasına yedeklenen sanal makineler için bir öğe düzeyinde geri yükleme (ILR) yapabilirim?
 - ILR Azure VM yedeklemesinde yedeklenen Azure Vm'leri için desteklenir. Daha fazla bilgi edinmek, [makale](backup-azure-restore-files-from-vm.md)
-- ILR şirket içi vm'leri Azure backup sunucusu veya System Center DPM tarafından yedeklenen çevrimiçi kurtarma noktaları için desteklenmiyor.
+- Çevrimiçi kurtarma noktaları, şirket içi Vm'leri Azure backup sunucusu veya System Center DPM tarafından yedeklenen için ILR desteklenmiyor.
 
 
 ## <a name="azure-backup-agent"></a>Azure Backup aracısı
@@ -93,7 +93,7 @@ Evet.
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Yedekleme için desteklenen işletim sistemleri?
 Azure Backup, dosyaları ve Azure Backup sunucusu ve DPM tarafından korunan uygulamalar ve klasörleri yedeklemek için bu işletim sistemlerini destekler.
 
-**OS** | **SKU** | **Ayrıntılar**
+**İşletim Sistemi** | **SKU** | **Ayrıntılar**
 --- | --- | ---
 İş istasyonu | |
 Windows 10 64 bit | Enterprise, Pro, Home | Makineler en son hizmet paketleri ve güncelleştirmeler çalıştırıyor olmalıdır.

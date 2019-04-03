@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8cfcf9c2f008abb571347e32f2be190dc51901e3
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 252c84bce2b70f6931593fe9410abe6cc146b5bb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563839"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880704"
 ---
 # <a name="onboarding-requirements"></a>Ekleme gereksinimleri
 
@@ -62,7 +62,7 @@ Başvurmak için uyumluluk matrisi HLI bellenim/DRIVER sürümleri ve işletim s
 > Bu noktada Type II birimleri yalnızca SLES 12 SP2 işletim sistemi sürümü desteklenmiyor. 
 
 
-**Veritabanı**
+**Database**
 
 - Lisanslar ve yazılım yükleme bileşenleri için SAP HANA (platform veya enterprise edition).
 

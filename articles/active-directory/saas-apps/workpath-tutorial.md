@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad9a0d832bed2f4e67f4a87d72b773eaa587e700
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2e8b334998983684d50c4faddceb03a0f30fd257
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208392"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878171"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Öğretici: Workpath ile Azure Active Directory Tümleştirme
 
@@ -121,7 +121,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve W
 
     ![Çoklu oturum açmayı yapılandırın](./media/workpath-tutorial/tutorial_workpath_url1.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<subdomain>.workpath.com/ `
+    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<subdomain>.workpath.com/`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si, tanımlayıcı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Workpath Destek ekibine](https://help.workpath.com) bu değerleri almak için.
@@ -246,7 +246,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

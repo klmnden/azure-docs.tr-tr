@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: ab3963ba8efc23d8f21c104361e0d3369ab5ea10
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 382e342f2144bcc6eeedafd74790bb442b8f9308
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772562"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884253"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Azure'da Pivotal Cloud Foundry küme oluşturma
 
@@ -72,11 +72,11 @@ Daha fazla bilgi için [azure'da Windows ile SSH anahtarlarını kullanma](https
 
 5. Hizmet sorumlunuzu izni rolünü katkıda bulunan olarak ayarlayın.
 
-    `az role assignment create --assignee “{enter-your-homepage}” --role “Contributor” `
+    `az role assignment create --assignee “{enter-your-homepage}” --role “Contributor”`
 
     Ya da kullanabilirsiniz
 
-    `az role assignment create --assignee {service-principal-name} --role “Contributor” `
+    `az role assignment create --assignee {service-principal-name} --role “Contributor”`
 
     ![Hizmet sorumlusu rol ataması](media/deploy/svc-princ.png )
 

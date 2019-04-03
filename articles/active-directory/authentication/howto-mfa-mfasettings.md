@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f622be53297a9d091a62a1239f022bbd4fb71347
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311773"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886004"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-Factor Authentication ayarlarını yapılandırma
 
@@ -34,10 +34,10 @@ Bu ayarlardan bazıları, MFA sunucusu, Azure mfa'yı veya her ikisi de uygulan�
 | ------- | ----------- |
 | Hesap kilitleme | Geçici olarak kilitleme hesaplar çok faktörlü kimlik doğrulaması hizmeti varsa çok fazla satırda kimlik doğrulama girişimlerini reddedildi. Bu özellik, yalnızca kimlik doğrulaması için PIN giren kullanıcılar için geçerlidir. (MFA sunucusu) |
 | [Kullanıcı engelle/engelini kaldır](#block-and-unblock-users) | MFA sunucusu (şirket içi) belirli kullanıcılar multi-Factor Authentication istekleri almak mümkün olmasını engellemek için kullanılır. Engellenen kullanıcılar için kimlik doğrulama girişimleri otomatik olarak reddedilir. Kullanıcı engellendikten andan itibaren 90 gün boyunca engellenmiş kalır. |
-| [Sahtekarlık Uyarısı](#fraud-alert) | Kullanıcının MFA sunucusundan gelen istekleri doğrulama raporu yeteneğini ilgili ayarları yapılandırın. |
+| [Sahtekarlık uyarısı](#fraud-alert) | Doğrulama istekleri raporlamak için kullanıcıların özelliğiyle ilgili ayarları yapılandırın |
 | Bildirimler | MFA sunucusu olay bildirimlerini etkinleştirin. |
 | [OATH belirteçleri](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Bulut tabanlı Azure mfa'yı ortamlarında, kullanıcıların OATH belirteçlerini yönetmek için kullanılır. |
-| [Telefon araması ayarları](#phone-call-settings) | Telefon aramaları ve Bulut ve şirket içi ortamlar için tebrikler ilgili ayarları yapılandırın. |
+| [Telefon görüşmesi ayarları](#phone-call-settings) | Telefon aramaları ve Bulut ve şirket içi ortamlar için tebrikler ilgili ayarları yapılandırın. |
 | Sağlayıcılar | Hesabınızla ilişkili bu var olan tüm kimlik doğrulama sağlayıcılarını gösterir. 1 Eylül 2018'den itibaren yeni kimlik doğrulama sağlayıcıları oluşturulmayabilir |
 
 ## <a name="manage-mfa-server"></a>MFA Sunucusunu yönet
@@ -47,7 +47,7 @@ Bu bölümde MFA sunucusu için yalnızca ayarlarıdır.
 | Özellik | Açıklama |
 | ------- | ----------- |
 | Sunucu ayarları | MFA Sunucusu'nu indirme ve ortamınızı başlatmak için etkinleştirme kimlik bilgileri oluştur |
-| [Bir kerelik atlama](#one-time-bypass) | Sınırlı bir süre için iki aşamalı doğrulama gerçekleştirmeden kimlik doğrulama açmasına izin verin. |
+| [Bir kerelik geçiş](#one-time-bypass) | Sınırlı bir süre için iki aşamalı doğrulama gerçekleştirmeden kimlik doğrulama açmasına izin verin. |
 | [Önbelleğe alma kuralları](#caching-rules) |  Önbelleğe alma, öncelikli olarak VPN gibi şirket içi sistemler, ilk isteği hala devam ederken birden fazla doğrulama isteği gönderdiğinizde kullanılır. Bu özellik, kullanıcı ilk doğrulama devam ediyor başarılı olduktan sonra otomatik olarak başarılı olması sonraki istekleri sağlar. |
 | Sunucu durumu | Sürüm, durum, IP ve son iletişim saat ve tarih dahil olmak üzere şirket içi MFA sunucularınızın durumunu görürsünüz. |
 
@@ -57,7 +57,7 @@ Burada kullanılabilen raporlama, MFA sunucusu (şirket içi) için özeldir. Az
 
 ## <a name="block-and-unblock-users"></a>Engelleme ve kullanıcıların engelini kaldırma
 
-Kullanım _engelleme ve kullanıcıların engelini kaldırma_ kullanıcılar kimlik doğrulama isteklerini almasını önlemek için özellik. Engellenen kullanıcılar için kimlik doğrulama girişimleri otomatik olarak reddedilir. Kullanıcı engellendikten andan itibaren 90 gün boyunca engellenmiş kalır. Bu özellik, MFA sunucusu (şirket içi) için özeldir.
+Kullanım _engelleme ve kullanıcıların engelini kaldırma_ kullanıcılar kimlik doğrulama isteklerini almasını önlemek için özellik. Engellenen kullanıcılar için kimlik doğrulama girişimleri otomatik olarak reddedilir. Kullanıcı engellendikten andan itibaren 90 gün boyunca engellenmiş kalır.
 
 ### <a name="block-a-user"></a>Kullanıcıları engelle
 
@@ -77,7 +77,7 @@ Kullanım _engelleme ve kullanıcıların engelini kaldırma_ kullanıcılar kim
 
 ## <a name="fraud-alert"></a>Sahtekarlık uyarısı
 
-Yapılandırma _sahtekarlık Uyarısı_ böylece kullanıcılarınız, kullanıcıların kaynaklara erişmeye sahte çalışır bildirebilirsiniz özelliği. Kullanıcıların sahtekarlık denemeleri mobil uygulamasını kullanarak ya da telefon numaraları bildirebilirsiniz. Bu özellik, MFA sunucusu (şirket içi) için özeldir.
+Yapılandırma _sahtekarlık Uyarısı_ böylece kullanıcılarınız, kullanıcıların kaynaklara erişmeye sahte çalışır bildirebilirsiniz özelliği. Kullanıcıların sahtekarlık denemeleri mobil uygulamasını kullanarak ya da telefon numaraları bildirebilirsiniz.
 
 ### <a name="turn-on-fraud-alerts"></a>Dolandırıcılık uyarılarını Aç
 

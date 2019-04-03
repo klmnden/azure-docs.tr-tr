@@ -3,19 +3,19 @@ title: Data Lake depolama Gen1 içeren veri senaryoları | Microsoft Docs
 description: Hangi veri kullanarak araçları ve farklı senaryoları alınan, işlenen, indirilen ve Data Lake depolama Gen1 (daha önce Azure Data Lake Store da bilinir) olarak görselleştirilir anlama
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: 64c7985508ed7f03b32340cbb2c78de61242f7e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: twooley
+ms.openlocfilehash: 0b16154edbda4bedfd4e9b680ba4311e7a235212
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984288"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878766"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Azure Data Lake depolama Gen1 büyük veri gereksinimleri için kullanma
 
@@ -78,7 +78,7 @@ Web sunucusu günlüğü verilerini karşıya yükleme ve ayrıca başka türden
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Şirket içi veya Iaas Hadoop kümeleri depolanan veri
 HDFS kullanarak makinede yerel olarak mevcut Hadoop kümelerindeki büyük miktarlarda verinin depolanabilir. Hadoop kümeleri, bir şirket içi dağıtımda olabilir veya bir Azure Iaas kümesinde içinde olabilir. Bu tür veri için Azure Data Lake depolama Gen1 tek seferlik bir yaklaşım veya yinelenen bir şekilde kopyalamak için gereksinimleri olabilir. Bunu başarmak için kullanabileceğiniz çeşitli seçenek vardır. Alternatifleri ve ilişkili dezavantajlarına listesi aşağıda verilmiştir.
 
-| Yaklaşım | Ayrıntılar | Avantajları | Dikkat edilmesi gerekenler |
+| Yaklaşım | Ayrıntılar | Yararları | Dikkat edilmesi gerekenler |
 | --- | --- | --- | --- |
 | Azure Data Lake depolama Gen1 doğrudan Hadoop kümelerdeki veri kopyalamak için Azure Data Factory (ADF) kullanın |[ADF HDFS veri kaynağı olarak destekler.](../data-factory/connector-hdfs.md) |ADF HDFS ve birinci sınıf için uçtan uca yönetim ve izleme için kullanıma hazır destek sağlar. |Veri Yönetimi ağ geçidi şirket içinde dağıtılabilir veya Iaas küme gerektirir |
 | Verilerin Hadoop'tan dosyaları olarak dışarı aktarın. Ardından uygun mekanizma kullanılarak Azure Data Lake depolama Gen1 dosyaları kopyalayın. |Azure Data Lake depolama Gen1 kullanmaya dosyalarını kopyalayabilirsiniz: <ul><li>[Windows işletim sistemi için Azure PowerShell](data-lake-store-get-started-powershell.md)</li><li>[Azure CLI](data-lake-store-get-started-cli-2.0.md)</li><li>Her Data Lake depolama Gen1 SDK'sını kullanarak özel uygulama</li></ul> |Başlamak hızlı. Özelleştirilmiş karşıya yükleme yapabilirsiniz |Çok adımlı işlem birden çok teknoloji içerir. Yönetim ve İzleme Araçları'nın özelleştirilmiş yapısı gereği zaman içinde bir mücadele haline şekilde büyür |

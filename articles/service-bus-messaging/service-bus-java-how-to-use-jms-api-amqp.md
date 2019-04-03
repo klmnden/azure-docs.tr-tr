@@ -1,5 +1,5 @@
 ---
-title: AMQP 1.0 ile Java Service Bus API'sini kullanma | Microsoft Docs
+title: AMQP 1.0 ile Java JMS Service Bus API'sini kullanma | Microsoft Docs
 description: Advanced Message Queuing Protocol (AMQP) 1.0 ile Azure Service Bus ile Java mesaj hizmeti (JMS) kullanma
 services: service-bus-messaging
 documentationcenter: java
@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 2cba3744180a257638aca202d44fa433a5e1a2bc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a7e4282a176794fe885049173ba56ce2461cd6fa
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453414"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885562"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Hizmet veri yolu AMQP 1.0 ile Java mesaj hizmeti (JMS) API kullanma
 Advanced Message Queuing Protocol (AMQP) 1.0 sağlam, platformlar arası Mesajlaşma uygulamaları oluşturmak için kullanabileceğiniz bir verimli, güvenilir, hat düzeyinde bir Mesajlaşma protokolüdür.
@@ -381,7 +381,7 @@ Bu nasıl yapılır kılavuzunda AMQP 1.0 ve popüler JMS API kullanarak Service
 Hizmet veri yolu AMQP 1.0 .NET, C, Python ve PHP dahil olmak üzere diğer dillerden de kullanabilirsiniz. Bu farklı diller kullanılarak oluşturulan bileşenleri, iletileri güvenilir bir şekilde gönderip alır ve hizmet veri yolunda AMQP 1.0 kullanarak tam uygunlukta destekler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure hizmet veri yolu AMQP 1.0 desteği](service-bus-amqp-overview.md)
+* [Azure Hizmet Veri Yolunda AMQP 1.0 desteği](service-bus-amqp-overview.md)
 * [Hizmet veri yolu .NET API ile AMQP 1.0 kullanma](service-bus-dotnet-advanced-message-queuing.md)
 * [Hizmet veri yolu AMQP 1.0 Geliştirici Kılavuzu](service-bus-amqp-dotnet.md)
 * [Service Bus kuyrukları ile çalışmaya başlama](service-bus-dotnet-get-started-with-queues.md)

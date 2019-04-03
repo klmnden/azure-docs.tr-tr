@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/26/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: d71a566d5c6dc5505b4bd939e294f8428e9a5b93
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 2ae5cd0fd177f64bed5ed0705207c6a3e81a1b24
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312918"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878205"
 ---
-# <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>Hızlı Başlangıç: Bilgisayar işleme SDK'sını kullanarak metni ayıklayın veC#
+# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>Hızlı Başlangıç: Görüntü işleme kullanarak resimlerdeki el yazısı metinleri ayıklamak C# SDK'sı
 
 Bu hızlı başlangıçta, el yazısı veya yazdırılan metin için bilgisayar işleme SDK'sını kullanarak bir görüntüden ayıklayacaktır C#. İsterseniz, bu kılavuzdaki kod tam bir örnek uygulamadan olarak indirebilirsiniz [Bilişsel hizmetler Csharp görüntü](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) github deposu.
 
@@ -37,7 +37,7 @@ Bu hızlı başlangıçta, el yazısı veya yazdırılan metin için bilgisayar 
     1. Menüde **Araçlar**’a tıklayın, **NuGet Paket Yöneticisi**’ni ve ardından **Çözüm için NuGet Paketlerini Yönet**’i seçin.
     1. **Gözat** sekmesine tıklayın ve **Arama** kutusuna "Microsoft.Azure.CognitiveServices.Vision.ComputerVision" yazın.
     1. Görüntülendiğinde **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** öğesini seçin ve projenizin adının yanındaki onay kutusuna tıklayıp **Yükle**’ye tıklayın.
-1. `Program.cs` öğesini aşağıdaki kodla değiştirin. `RecognizeTextAsync` ve `RecognizeTextInStreamAsync` metotları sırasıyla uzak ve yerel görüntüler için [Metin Tanıma API’sini](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) sarmalar. `GetTextOperationResultAsync` metodu [Metin Tanıma İşlemi Sonuçlarını Alma API'sini](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) sarmalar.
+1. `Program.cs` öğesini aşağıdaki kodla değiştirin. `BatchReadFileAsync` Ve `BatchReadFileInStreamAsync` yöntemleri kaydırma [Batch okuma API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) uzak ve yerel görüntüler için sırasıyla. `GetReadOperationResultAsync` Yöntemi sarar [alma okuma işlemi sonuç API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d).
 
     ```csharp
     using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
@@ -52,7 +52,7 @@ Bu hızlı başlangıçta, el yazısı veya yazdırılan metin için bilgisayar 
         class Program
         {
             // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-            private const string subscriptionKey = "<SubscriptionKey>";
+            private const string subscriptionKey = "<Subscription key>";
 
             // For printed text, change to TextRecognitionMode.Printed
             private const TextRecognitionMode textRecognitionMode =
@@ -62,9 +62,7 @@ Bu hızlı başlangıçta, el yazısı veya yazdırılan metin için bilgisayar 
             private const string localImagePath = @"<LocalImage>";
 
             private const string remoteImageUrl =
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" +
-                "Cursive_Writing_on_Notebook_paper.jpg/" +
-                "800px-Cursive_Writing_on_Notebook_paper.jpg";
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Cursive_Writing_on_Notebook_paper.jpg/800px-Cursive_Writing_on_Notebook_paper.jpg";
 
             private const int numberOfCharsInOperationId = 36;
 
@@ -78,12 +76,12 @@ Bu hızlı başlangıçta, el yazısı veya yazdırılan metin için bilgisayar 
                 // keys. For example, if you got your subscription keys from westus,
                 // replace "westcentralus" with "westus".
                 //
-                // Free trial subscription keys are generated in the "westus"
+                // Free trial subscription keys are generated in the westcentralus
                 // region. If you use a free trial subscription key, you shouldn't
                 // need to change the region.
 
                 // Specify the Azure region
-                computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
+                computerVision.Endpoint = "https://westus.api.cognitive.microsoft.com";
 
                 Console.WriteLine("Images being analyzed ...");
                 var t1 = ExtractRemoteTextAsync(computerVision, remoteImageUrl);
@@ -94,7 +92,7 @@ Bu hızlı başlangıçta, el yazısı veya yazdırılan metin için bilgisayar 
                 Console.ReadLine();
             }
 
-            // Recognize text from a remote image
+            // Read text from a remote image
             private static async Task ExtractRemoteTextAsync(
                 ComputerVisionClient computerVision, string imageUrl)
             {
@@ -105,9 +103,9 @@ Bu hızlı başlangıçta, el yazısı veya yazdırılan metin için bilgisayar 
                     return;
                 }
 
-                // Start the async process to recognize the text
-                RecognizeTextHeaders textHeaders =
-                    await computerVision.RecognizeTextAsync(
+                // Start the async process to read the text
+                BatchReadFileHeaders textHeaders =
+                    await computerVision.BatchReadFileAsync(
                         imageUrl, textRecognitionMode);
 
                 await GetTextAsync(computerVision, textHeaders.OperationLocation);
@@ -127,8 +125,8 @@ Bu hızlı başlangıçta, el yazısı veya yazdırılan metin için bilgisayar 
                 using (Stream imageStream = File.OpenRead(imagePath))
                 {
                     // Start the async process to recognize the text
-                    RecognizeTextInStreamHeaders textHeaders =
-                        await computerVision.RecognizeTextInStreamAsync(
+                    BatchReadFileInStreamHeaders textHeaders =
+                        await computerVision.BatchReadFileInStreamAsync(
                             imageStream, textRecognitionMode);
 
                     await GetTextAsync(computerVision, textHeaders.OperationLocation);
@@ -145,8 +143,8 @@ Bu hızlı başlangıçta, el yazısı veya yazdırılan metin için bilgisayar 
                     operationLocation.Length - numberOfCharsInOperationId);
 
                 Console.WriteLine("\nCalling GetHandwritingRecognitionOperationResultAsync()");
-                TextOperationResult result =
-                    await computerVision.GetTextOperationResultAsync(operationId);
+                ReadOperationResult result =
+                    await computerVision.GetReadOperationResultAsync(operationId);
 
                 // Wait for the operation to complete
                 int i = 0;
@@ -158,15 +156,18 @@ Bu hızlı başlangıçta, el yazısı veya yazdırılan metin için bilgisayar 
                         "Server status: {0}, waiting {1} seconds...", result.Status, i);
                     await Task.Delay(1000);
 
-                    result = await computerVision.GetTextOperationResultAsync(operationId);
+                    result = await computerVision.GetReadOperationResultAsync(operationId);
                 }
 
                 // Display the results
                 Console.WriteLine();
-                var lines = result.RecognitionResult.Lines;
-                foreach (Line line in lines)
+                var recResults = result.RecognitionResults;
+                foreach (TextRecognitionResult recResult in recResults)
                 {
-                    Console.WriteLine(line.Text);
+                    foreach (Line line in recResult.Lines)
+                    {
+                        Console.WriteLine(line.Text);
+                    }
                 }
                 Console.WriteLine();
             }
@@ -180,7 +181,6 @@ Bu hızlı başlangıçta, el yazısı veya yazdırılan metin için bilgisayar 
 1. `<LocalImage>` değerini yerel görüntünün yolu ve dosya adıyla değiştirin.
 1. İsteğe bağlı olarak, `remoteImageUrl` öğesini farklı bir görüntüye ayarlayın.
 1. Programı çalıştırın.
-
 
 ## <a name="examine-the-response"></a>Yanıtı inceleme
 
@@ -205,4 +205,4 @@ Bkz: [hızlı başlangıç: El yazısı metinleri - REST, ayıklamak C# ](../Qui
 Görüntü analiz etmek, ünlüleri ve önemli yerleri algılamak, küçük resim oluşturmak ve yazdırılan ve el yazısı metinleri ayıklamak için kullanılan Görüntü İşleme API'lerini keşfedin.
 
 > [!div class="nextstepaction"]
-> [Görüntü İşleme API'lerini keşfedin](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Görüntü işleme API'leri keşfedin](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

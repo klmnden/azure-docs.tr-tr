@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 9267360394568f0f9259a3c818b21f4e585fd958
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7e80455a2b83c034bea2fbdf774e5a175aed51a4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543738"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885749"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Eşleme veri akışı ifade oluşturucusu
 
@@ -51,7 +51,7 @@ Tek satır ve çok satırlı açıklama söz dizimi kullanarak, ifadeleri için 
 
 ## <a name="regular-expressions"></a>Normal İfadeler
 
-Azure Data Factory, veri akışı ifade dili [tam başvuru belgelerine](https://aka.ms/dataflowexpressions), normal ifade söz dizimi dahil işlevleri sağlar. Normal ifade işlevlerine kullanırken, ters eğik çizgi yorumlamak ifade oluşturucu deneyecek (\) kaçış karakter dizisi olarak. Ters eğik çizgi normal ifadeniz kullanırken ya da tüm normal ifade dalgalanmasındaki içine ` ` veya çift ters eğik çizgi kullanın.
+Azure Data Factory, veri akışı ifade dili [tam başvuru belgelerine](https://aka.ms/dataflowexpressions), normal ifade söz dizimi dahil işlevleri sağlar. Normal ifade işlevlerine kullanırken, ters eğik çizgi yorumlamak ifade oluşturucu deneyecek (\\) olarak bir kaçış karakteri dizisi. Ters eğik çizgi normal ifadeniz kullanırken ya da tüm normal ifade dalgalanmasındaki alın (\`) veya çift ters eğik çizgi kullanın.
 
 Saat döngüsü kullanarak örneği
 

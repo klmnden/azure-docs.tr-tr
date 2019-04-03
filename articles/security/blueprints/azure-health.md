@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 5f23435a43d139ecb9f20e5036124f175b1830c9
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 70721b8bfbecaf554a9502b9ec3417fc8e561b3f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225374"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885953"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure güvenlik ve uyumluluk planı - HIPAA/HITRUST sağlık verileri ve yapay ZEKA
 
@@ -156,7 +156,7 @@ Alex'ın şirket içi ağ yönetme yükü azaltmak ve yönetim maliyetlerini aza
 
 **Data Scientist -- Debra**
 
-*E-posta: Debra\_DataScientist*
+*E-posta: Gamze\_DataScientist*
 
 Gamze, hasta Öngörüler sağlamak için tıbbi kayıtları analiz modelleri oluşturma ve kullanarak sorumlu olur. Gamze, kendi modeller oluşturmak için SQL ve R istatistik programlama dilini kullanır.
 
@@ -202,7 +202,7 @@ Bu bölümde, için ana hatlarıyla belirtilen şema yerleşik güvenlik önleml
 ### <a name="azure-active-directory-and-role-based-access-control-rbac"></a>Azure Active Directory ve rol tabanlı erişim denetimi (RBAC)
 
 
-**Kimlik doğrulaması:**
+**Kimlik Doğrulama:**
 
 -   [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) Microsoft\'s çok kiracılı bulut tabanlı dizin ve kimlik yönetimi hizmetidir. Çözüm için tüm kullanıcılar Azure Active SQL veritabanına erişen kullanıcılar dahil olmak üzere Directory'de oluşturuldu.
 
@@ -295,7 +295,7 @@ Veri depolama alanı elde etmek için ortak bir API şema hızlı sağlık birli
 
 Çözüm, Azure Event Grid, tek bir hizmet sağlanması, herhangi bir kaynaktan herhangi bir hedefe tüm olayları yönlendirmenizi sağlayan için destekler:
 
--   [Güvenlik ve kimlik doğrulama](/azure/event-grid/security-authentication)
+-   [Güvenlik ve kimlik doğrulaması](/azure/event-grid/security-authentication)
 
 -   [Rol tabanlı erişim denetimi](/azure/event-grid/security-authentication#management-access-control) için anahtarlar oluşturma Olay Aboneliklerini listeleme ve yenilerini oluşturmak gibi çeşitli yönetim işlemlerini
 

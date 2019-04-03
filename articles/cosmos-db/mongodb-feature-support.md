@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 795002d450505b9103f1815a8b03c8d546bddde8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 168b5cdf4f65992bad886352921e9aaff6d5b09c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119471"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885796"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>Azure Cosmos DB'nin MongoDB API'si: desteklenen özellikleri ve söz dizimi
 
@@ -214,22 +214,22 @@ Desteklenen işleçler, bunların kullanımıyla ilgili örneklerle birlikte aş
 
 İşleç | Örnek |
 --- | --- |
-$eq | ``` { "Volcano Name": { $eq: "Rainier" } } ``` |
-$gt | ``` { "Elevation": { $gt: 4000 } } ``` |
-$gte | ``` { "Elevation": { $gte: 4392 } } ``` |
-$lt | ``` { "Elevation": { $lt: 5000 } } ``` |
-$lte | ``` { "Elevation": { $lte: 5000 } } ``` |
-$ne | ``` { "Elevation": { $ne: 1 } } ``` |
-$in | ``` { "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } } ``` |
-$nin | ``` { "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } } ``` |
-$or | ``` { $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |
-$and | ``` { $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |
-$not | ``` { "Elevation": { $not: { $gt: 5000 } } } ```|
-$nor | ``` { $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] } ``` |
-$exists | ``` { "Status": { $exists: true } } ```|
-$type | ``` { "Status": { $type: "string" } } ```|
-$mod | ``` { "Elevation": { $mod: [ 4, 0 ] } } ``` |
-$regex | ``` { "Volcano Name": { $regex: "^Rain"} } ```|
+$eq | `{ "Volcano Name": { $eq: "Rainier" } }` |  | -
+$gt | `{ "Elevation": { $gt: 4000 } }` |  | -
+$gte | `{ "Elevation": { $gte: 4392 } }` |  | -
+$lt | `{ "Elevation": { $lt: 5000 } }` |  | -
+$lte | `{ "Elevation": { $lte: 5000 } }` | | -
+$ne | `{ "Elevation": { $ne: 1 } }` |  | -
+$in | `{ "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } }` |  | -
+$nin | `{ "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } }` | | -
+$or | `{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
+$and | `{ $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
+$not | `{ "Elevation": { $not: { $gt: 5000 } } }`|  | -
+$nor | `{ $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] }` |  | -
+$exists | `{ "Status": { $exists: true } }`|  | -
+$type | `{ "Status": { $type: "string" } }`|  | -
+$mod | `{ "Elevation": { $mod: [ 4, 0 ] } }` |  | -
+$regex | `{ "Volcano Name": { $regex: "^Rain"} }`|  | -
 
 ### <a name="notes"></a>Notlar
 
