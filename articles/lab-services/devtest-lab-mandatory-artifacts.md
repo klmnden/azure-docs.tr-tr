@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: spelluru
-ms.openlocfilehash: a739b958ad60e39c38e81ce887edf68349340bb0
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 090236ec3647c7c3e38eb862780a615f854e952b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285842"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905809"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Azure DevTest Labs'de laboratuvarınız için zorunlu yapıtları belirtin
 Laboratuvar sahibi olarak, laboratuvar'da oluşturulan her makineye uygulanan zorunlu yapıtları belirtebilirsiniz. Her makine şirket ağınıza bağlanması laboratuvarınızda istediğiniz senaryoyu düşünün. Bu durumda, her bir laboratuvar kullanıcı, kendi makine şirket etki alanına bağlı olduğundan emin olmak için sanal makine oluşturma sırasında bir etki alanı birleşim yapıya eklemeniz gerekir. Diğer bir deyişle, Laboratuvar kullanıcıları aslında bunlar, makinede zorunlu yapıları uygulamak unutmanız durumunda bir makine yeniden oluşturmanız gerekir. Laboratuvar sahibi olarak, etki alanı birleşim yapıya laboratuvarınızda zorunlu bir yapıt yapın. Bu adımı her makine şirket ağına ve zaman ve çaba Laboratuvar kullanıcılarınız için kaydetme bağlı olduğundan emin olur.
@@ -27,7 +27,7 @@ Zorunlu diğer yapıları, takım projenizin kullandığı ortak bir araç veya 
  
 Parametresi olmayan yapılar zorunlu çıktığı haliyle desteklenir. Laboratuvar kullanıcınızın Laboratuvar oluşturma ve bu nedenle VM oluşturma işlemini basit hale getirme sırasında ek parametreler girin gerekmez. 
 
-## <a name="specify-mandatory-artifacts"></a>Zorunlu yapıtları belirtin
+## <a name="specify-mandatory-artifacts"></a>Zorunlu yapıtları belirtme
 Windows ve Linux makineler için zorunlu yapıtları ayrı ayrı seçebilirsiniz. Ayrıca, bunları uygulanacak istediğiniz düzene bağlı olarak bu yapıtları yeniden sıralayabilirsiniz. 
 
 1. Laboratuvarınızın giriş sayfasında, seçin **yapılandırması ve ilkelerini** altında **ayarları**. 

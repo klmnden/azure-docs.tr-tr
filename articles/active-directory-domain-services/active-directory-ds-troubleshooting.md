@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ergreenl
-ms.openlocfilehash: 963ee7e952e566952a80903a739b093dbd9f0c21
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 48831767f72dd1b978fad5b0a9a8f2c7a11ec89d
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184198"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893121"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD etki alanı Hizmetleri - sorun giderme kılavuzu
 Bu makalede, ayarlama veya Azure Active Directory (AD) etki alanı Hizmetleri yönetme karşılaşabileceğiniz sorunları için sorun giderme ipuçları sağlar.
@@ -30,17 +30,17 @@ Bu bölümde Azure AD Domain Services dizininiz için etkinleştirmeye çalışt
 
 Karşılaştığınız hata iletisine karşılık gelen sorun giderme adımları seçin.
 
-| **Hata iletisi** | **Çözümleme** |
+| **Hata İletisi** | **Çözüm** |
 | --- |:--- |
-| *Contoso100.com adı bu ağda zaten kullanımda. Kullanımda olmayan bir ad belirtin.* |[Sanal ağdaki etki alanı adı çakışması](active-directory-ds-troubleshooting.md#domain-name-conflict) |
-| *Domain Services bu Azure AD kiracısında etkinleştirilemedi. Hizmetin, 'Azure AD Domain Services Sync' adlı uygulama üzerinde yeterli izinleri yok. 'Azure AD Domain Services Sync' adlı uygulamayı silin ve ardından Azure AD kiracınız için Domain Services’ı etkinleştirmeyi deneyin.* |[Etki Alanı Hizmetleri, Azure AD Domain Services Sync uygulama için yeterli izinlere sahip değil](active-directory-ds-troubleshooting.md#inadequate-permissions) |
-| *Domain Services bu Azure AD kiracısında etkinleştirilemedi. Azure AD kiracınızdaki Domain Services uygulamasının, Etki Alanı Hizmetlerini etkinleştirmek için gereken izinleri yok. Uygulama tanımlayıcısı d87dcbc6-a371-462e-88e3-28ad15ec4e64 olan uygulamayı silin ve Azure AD kiracınızda Domain Services’ı etkinleştirmeyi deneyin.* |[Kiracınızda Domain Services uygulamasının düzgün şekilde yapılandırılmamış](active-directory-ds-troubleshooting.md#invalid-configuration) |
-| *Domain Services bu Azure AD kiracısında etkinleştirilemedi. Azure AD kiracınızda Microsoft Azure AD uygulaması devre dışı bırakıldı. Uygulama tanımlayıcısı 00000002-0000-0000-c000-000000000000 olan uygulamayı etkinleştirin ve Azure AD kiracınızda Domain Services’ı etkinleştirmeyi deneyin.* |[Azure AD kiracınızda Microsoft Graph uygulaması devre dışı bırakıldı](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
+| *Contoso100.com adı bu ağda zaten kullanılıyor. Kullanımda olmayan bir ad belirtin.* |[Sanal ağdaki etki alanı adı çakışması](active-directory-ds-troubleshooting.md#domain-name-conflict) |
+| *Etki Alanı Hizmetleri, bu Azure AD kiracısında etkinleştirilemedi. Hizmetin, 'Azure AD Domain Services Sync' adlı uygulama üzerinde yeterli izinleri yok. 'Azure AD Domain Services Sync' adlı uygulamayı silin ve ardından Azure AD kiracınızda Domain Services'ı etkinleştirmeyi deneyin.* |[Etki Alanı Hizmetleri, Azure AD Domain Services Sync uygulama için yeterli izinlere sahip değil](active-directory-ds-troubleshooting.md#inadequate-permissions) |
+| *Etki Alanı Hizmetleri, bu Azure AD kiracısında etkinleştirilemedi. Azure AD kiracınızdaki Domain Services uygulamasının, Etki Alanı Hizmetlerini etkinleştirmek için gereken izinleri yok. Uygulama tanımlayıcısı d87dcbc6-a371-462e-88e3-28ad15ec4e64 olan uygulamayı silin ve ardından Azure AD kiracınızda Domain Services'ı etkinleştirmeyi deneyin.* |[Kiracınızda Domain Services uygulamasının düzgün şekilde yapılandırılmamış](active-directory-ds-troubleshooting.md#invalid-configuration) |
+| *Etki Alanı Hizmetleri, bu Azure AD kiracısında etkinleştirilemedi. Azure AD kiracınızda Microsoft Azure AD uygulaması devre dışı bırakıldı. Uygulama tanımlayıcısı 00000002-0000-0000-c000-000000000000 olan uygulamayı etkinleştirin ve ardından Azure AD kiracınızda Domain Services'ı etkinleştirmeyi deneyin.* |[Azure AD kiracınızda Microsoft Graph uygulaması devre dışı bırakıldı](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
 
 ### <a name="domain-name-conflict"></a>Etki alanı adı çakışması
 **Hata iletisi:**
 
-*Contoso100.com adı bu ağda zaten kullanımda. Kullanımda olmayan bir ad belirtin.*
+*Contoso100.com adı bu ağda zaten kullanılıyor. Kullanımda olmayan bir ad belirtin.*
 
 **Düzeltme:**
 
@@ -51,7 +51,7 @@ Bu hata, bu sanal ağ üzerinde etki alanı adı için ad çakışmalarını kay
 ### <a name="inadequate-permissions"></a>Yetersiz izinler
 **Hata iletisi:**
 
-*Domain Services bu Azure AD kiracısında etkinleştirilemedi. Hizmetin, 'Azure AD Domain Services Sync' adlı uygulama üzerinde yeterli izinleri yok. 'Azure AD Domain Services Sync' adlı uygulamayı silin ve ardından Azure AD kiracınız için Domain Services’ı etkinleştirmeyi deneyin.*
+*Etki Alanı Hizmetleri, bu Azure AD kiracısında etkinleştirilemedi. Hizmetin, 'Azure AD Domain Services Sync' adlı uygulama üzerinde yeterli izinleri yok. 'Azure AD Domain Services Sync' adlı uygulamayı silin ve ardından Azure AD kiracınızda Domain Services'ı etkinleştirmeyi deneyin.*
 
 **Düzeltme:**
 
@@ -67,7 +67,7 @@ Uygulama varsa uygulamanın varlığını denetlemek ve bunu silmek için aşağ
 ### <a name="invalid-configuration"></a>Geçersiz yapılandırma
 **Hata iletisi:**
 
-*Domain Services bu Azure AD kiracısında etkinleştirilemedi. Azure AD kiracınızdaki Domain Services uygulamasının, Etki Alanı Hizmetlerini etkinleştirmek için gereken izinleri yok. Uygulama tanımlayıcısı d87dcbc6-a371-462e-88e3-28ad15ec4e64 olan uygulamayı silin ve Azure AD kiracınızda Domain Services’ı etkinleştirmeyi deneyin.*
+*Etki Alanı Hizmetleri, bu Azure AD kiracısında etkinleştirilemedi. Azure AD kiracınızdaki Domain Services uygulamasının, Etki Alanı Hizmetlerini etkinleştirmek için gereken izinleri yok. Uygulama tanımlayıcısı d87dcbc6-a371-462e-88e3-28ad15ec4e64 olan uygulamayı silin ve ardından Azure AD kiracınızda Domain Services'ı etkinleştirmeyi deneyin.*
 
 **Düzeltme:**
 
@@ -157,7 +157,7 @@ Azure AD kullanıcı nesnelerinin yanlışlıkla silinmesine karşı sizi korur.
 
 Kullanıcı hesabının bir kullanıcı hesabı aynı UPN ile Azure AD dizininizde yeniden oluşturmanız bile yönetilen etki alanınıza, devre dışı durumda kalır. Kullanıcı hesabının yönetilen etki alanınızdan kaldırmak için Azure AD kiracınızdan onu zorla silinecek gerekir.
 
-Kullanıcı, kullanıcı hesabının tam olarak yönetilen etki alanınızdan kaldırmak için Azure AD kiracınızdan kalıcı olarak sil. Kullanım `Remove-MsolUser` PowerShell cmdlet'iyle `-RemoveFromRecycleBin` seçeneği, bu konuda açıklandığı gibi [MSDN makalesi](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+Kullanıcı, kullanıcı hesabının tam olarak yönetilen etki alanınızdan kaldırmak için Azure AD kiracınızdan kalıcı olarak sil. Kullanım `Remove-MsolUser` PowerShell cmdlet'iyle `-RemoveFromRecycleBin` seçeneği, bu konuda açıklandığı gibi [MSDN makalesi](/previous-versions/azure/dn194132(v=azure.100)).
 
 
 ## <a name="contact-us"></a>Bizimle iletişim kurun

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d0a32f45326eb307bc31d10f4efb842d811a38c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7c6d8fbe54d89fc587c8841b8983d7fdcba29b7d
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842523"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916471"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows karma Runbook çalışanı dağıtma
 
@@ -134,9 +134,9 @@ Yükleme hakkında ayrıntılı bilgi almak için kullandığınız **-Verbose**
 
 Runbook'lar, etkinlikler ve Azure Otomasyonu ortamınızda yüklü modülleri'nde tanımlanan cmdlet'leri herhangi birini kullanabilirsiniz. El ile yüklemeniz gerekir, böylece bu modüller, şirket içi bilgisayarlara otomatik olarak dağıtılmaz. Varsayılan olarak yüklenir ve Azure otomasyonu için tüm Azure Hizmetleri ve etkinlikleri cmdlet'leri için erişim sağlayan Azure modülü istisnadır.
 
-Karma Runbook çalışanı özelliğini birincil amacı, yerel kaynakları yönetmek için olduğundan, büyük olasılıkla bu kaynakları destekleyen modül yüklemeniz gerekir. Windows PowerShell modülleri yükleme hakkında daha fazla bilgi için bkz. [modülleri yükleme](https://msdn.microsoft.com/library/dd878350.aspx). 
+Karma Runbook çalışanı özelliğini birincil amacı, yerel kaynakları yönetmek için olduğundan, büyük olasılıkla bu kaynakları destekleyen modül yüklemeniz gerekir. Windows PowerShell modülleri yükleme hakkında daha fazla bilgi için bkz. [modülleri yükleme](/powershell/developer/windows-powershell). 
 
-Yüklü modülleri tarafından başvurulan bir konumda olmalıdır **PSModulePath** ortam değişkeni böylece karma çalışanı bunları otomatik olarak aktarabilirsiniz. Daha fazla bilgi için [PSModulePath yükleme yolunu değiştirmek](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
+Yüklü modülleri tarafından başvurulan bir konumda olmalıdır **PSModulePath** ortam değişkeni böylece karma çalışanı bunları otomatik olarak aktarabilirsiniz. Daha fazla bilgi için [PSModulePath yükleme yolunu değiştirmek](/powershell/developer/windows-powershell).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

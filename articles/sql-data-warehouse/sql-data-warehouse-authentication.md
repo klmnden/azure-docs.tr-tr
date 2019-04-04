@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 04/12/2018
+ms.date: 04/02/2019
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ab439566da38a537534fc10e70058ab57005ce22
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a3bed9df5b62ce7f2f3df7046357dc4f2458575c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183807"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917915"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>Azure SQL veri ambarı için kimlik doğrulaması
 Azure SQL veri ambarı'na, Azure Active Directory (AAD) veya SQL Server kimlik doğrulamasını kullanarak kimlik doğrulaması yapmayı öğrenin.
@@ -56,7 +56,7 @@ Azure Active Directory avantajları şunlardır:
 * Parolaları, tümleşik Windows kimlik doğrulaması ve diğer Azure Active Directory tarafından desteklenen kimlik doğrulama etkinleştirerek ortadan kaldırır.
 * Veritabanı düzeyinde kimlikleri doğrulamak için veritabanı kullanıcıları yer alan kullanır.
 * SQL veri ambarı'na bağlanan uygulamalar için belirteç tabanlı kimlik doğrulamasını destekler.
-* Active Directory Evrensel kimlik doğrulaması aracılığıyla çok faktörlü kimlik doğrulaması için SQL Server Management Studio destekler. Multi-Factor Authentication açıklaması için bkz: [SQL veritabanı ve SQL veri ambarı ile Azure AD MFA için SSMS desteği](../sql-database/sql-database-ssms-mfa-authentication.md).
+* Active Directory Evrensel kimlik doğrulaması aracılığıyla destekler multi-Factor authentication da dahil olmak üzere çeşitli araçları için [SQL Server Management Studio](../sql-database/sql-database-ssms-mfa-authentication.md) ve [SQL Server veri Araçları](https://docs.microsoft.com/sql/ssdt/azure-active-directory?toc=/azure/sql-data-warehouse/toc.json).
 
 > [!NOTE]
 > Azure Active Directory hala yeni ve bazı sınırlamalar vardır. Azure Active Directory ortamınız için uygun olmasını sağlamak için bkz: [Azure AD özellikleri ve sınırlamaları][Azure AD features and limitations], özellikle ek hususlar.

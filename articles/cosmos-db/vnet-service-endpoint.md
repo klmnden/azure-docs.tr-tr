@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 4e609bf6d96fa9cc3f2dc179157ecd27178608f9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 672c62c440708f8e949d67d545bee2179c6066b2
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860372"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894944"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Azure Cosmos DB'den sanal ağları (VNet) erişim
 
@@ -54,6 +54,9 @@ NSG kuralları bağlantısı için ve bir alt ağdaki sanal ağ ile sınırlamak
 
 ### <a name="are-service-endpoints-available-for-all-vnets"></a>Hizmet uç noktaları tüm sanal ağları için kullanılabilir mi?
 Hayır, yalnızca Azure Resource Manager sanal ağları etkin hizmet bitiş noktası olabilir. Klasik sanal ağ hizmet uç noktaları desteklemez.
+
+### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Olabilir miyim "Kabul et bağlantılarından genel Azure veri merkezlerinin içinde" Azure Cosmos DB için hizmet uç noktası erişimi etkinleştirildiğinde?  
+Azure Data factory, Azure Search veya tüm hizmet gibi diğer Azure birinci taraf tarafından erişilecek, Azure Cosmos DB hesabı istediğinizde Hizmetleri yalnızca bu gereklidir belirli bir Azure bölgesine dağıtılır.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

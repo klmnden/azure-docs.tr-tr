@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 09988009712f9312eb97d5c32dc8991ec5b2f1f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 54bc6bc105dab2831df6e48a64a6f766582a3fb9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251359"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917569"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack gizli Döndür
 
@@ -102,7 +102,7 @@ Aşağıdaki yönergeleri kullanarak gizli döndürmeye çalışıyor, bu uyarı
     > [!Note] 
     > 1811 öncesi sürümleri için uzantı ana bilgisayar sertifikaları eklemek için gizli dizileri döndürmek gerekmez. Bu makaledeki yönergeleri izlemelidir [hazırlamak için Azure Stack için uzantısı konağı](azure-stack-extension-host-prepare.md) uzantısı ana bilgisayar sertifikaları eklemek için.
 
-2. İşleçler, açın ve Azure Stack gizli dizilerinin dönüşü sırasında otomatik olarak Kapat uyarılar görebilirsiniz.  Bu davranış beklenir ve uyarıların yoksayılabilir.  İşleçler, bu uyarılar geçerliliğini çalıştırarak doğrulayabilirsiniz **Test AzureStack**.  İzlemek için SCOM kullanma işleçleri için bir sistem bakım moduna alma, Azure Stack sistemleri bu uyarılar ITSM sistemlerine erişmesini engeller ancak Azure Stack sistemi ulaşılamaz hale gelirse uyaracak şekilde devam eder.
+2. Operatörler Azure Stack gizli dizilerinin rotasyonu sırasında uyarıların açıldığını ve otomatik olarak kapatıldığını görebilir.  Bu davranış beklenir ve uyarıların yoksayılabilir.  İşleçler, bu uyarılar geçerliliğini çalıştırarak doğrulayabilirsiniz **Test AzureStack**.  İzlemek için SCOM kullanma işleçleri için bir sistem bakım moduna alma, Azure Stack sistemleri bu uyarılar ITSM sistemlerine erişmesini engeller ancak Azure Stack sistemi ulaşılamaz hale gelirse uyaracak şekilde devam eder.
 
 3. Herhangi bir bakım işlemleri, kullanıcılara bildirin. Normal bakım pencereleri, çalışma saatleri sırasında mümkün olduğunca, zamanlayın. Bakım işlemleri, kullanıcı iş yükleri hem portal işlemlerini etkileyebilir.
 
@@ -122,7 +122,7 @@ Aşağıdaki yönergeleri kullanarak gizli döndürmeye çalışıyor, bu uyarı
 > **.\Certificates\AAD** veya ***.\Certificates\ADFS*** Azure Stack için kullanılan kimlik sağlayıcınız bağlı olarak
 >
 > Klasör yapınız biten dayanıklılığı olduğu **AAD** veya **ADFS** klasör ve tüm alt dizinler olan bu yapı içinde; aksi takdirde, **Başlat-SecretRotation**ile gelir:
-> ```PowerShell
+> ```powershell
 > Cannot bind argument to parameter 'Path' because it is null.
 > + CategoryInfo          : InvalidData: (:) [Test-Certificate], ParameterBindingValidationException
 > + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Test-Certificate
@@ -147,7 +147,7 @@ Dış gizli anahtarları döndürmek için:
 1. Yeni oluşturulan içinde **\Certificates\\\<Identityprovider >** öncesi adımlarda oluşturulan dizin, dizin yapısına göre değiştirme dış sertifikalar yeni kümesini yerleştirin Zorunlu sertifikaları bölümünde belirtilen biçim [Azure Stack PKI sertifikası gereksinimleri](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 
     AAD kimlik sağlayıcısı için klasör yapısı örneği:
-    ```PowerShell
+    ```powershell
         <ShareName>
         │   │
         │   ├───Certificates
@@ -209,7 +209,7 @@ Dış gizli anahtarları döndürmek için:
     > [!Note]
     > Gizli anahtar döndürme başarısız olursa hata iletisindeki yönergeleri izleyin ve yeniden çalıştırın **başlangıç SecretRotation** ile **-yeniden** parametresi.
 
-    ```PowerShell
+    ```powershell
     Start-SecretRotation -ReRun
     ```
     Gizli anahtar döndürme hataları yaşıyorsanız desteğe başvurun yinelenir.
@@ -220,7 +220,7 @@ Dış gizli anahtarları döndürmek için:
 
 Aşağıdaki PowerShell örneği, cmdlet'leri ve parametreleri dizilerinizin döndürmek için çalıştırılacak gösterir.
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -256,7 +256,7 @@ Gizli anahtar döndürme işlemi başarıyla tamamlandığında, Konsolunuzda g�
     > [!Note]
     > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **–Internal** and **-ReRun** parameters.  
 
-```PowerShell
+```powershell
 Start-SecretRotation -Internal -ReRun
 ```
 
@@ -270,25 +270,25 @@ Bir Azure Stack sisteminin gizli dizileri döndürür. Yalnızca Azure Stack ayr
 
 #### <a name="for-external-secret-rotation"></a>Dış gizli dönüş
 
-```PowerShell
+```powershell
 Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
 ```
 
 #### <a name="for-internal-secret-rotation"></a>İç gizli dönüş
 
-```PowerShell
+```powershell
 Start-SecretRotation [-Internal]  
 ```
 
 #### <a name="for-external-secret-rotation-rerun"></a>Dış gizli dönüş yeniden çalıştırın
 
-```PowerShell
+```powershell
 Start-SecretRotation [-ReRun]
 ```
 
 #### <a name="for-internal-secret-rotation-rerun"></a>İç gizli dönüş yeniden çalıştırın
 
-```PowerShell
+```powershell
 Start-SecretRotation [-ReRun] [-Internal]
 ```
 
@@ -298,11 +298,11 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 ### <a name="parameters"></a>Parametreler
 
-| Parametre | Type | Gereklidir | Konum | Varsayılan | Açıklama |
+| Parametre | Type | Gerekli | Konum | Varsayılan | Açıklama |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | Dize  | False  | adlı  | None  | Fileshare yolu **\Certificates** tüm dış içeren dizin ağ uç noktası sertifikaları. Yalnızca dış gizli anahtarları döndürürken gereklidir. Son dizin olmalıdır **\Certificates**. |
+| PfxFilesPath | String  | False  | adlı  | None  | Fileshare yolu **\Certificates** tüm dış içeren dizin ağ uç noktası sertifikaları. Yalnızca dış gizli anahtarları döndürürken gereklidir. Son dizin olmalıdır **\Certificates**. |
 | CertificatePassword | SecureString | False  | adlı  | None  | -PfXFilesPath sağlanan tüm sertifikalar için parola. Dış gizli anahtarları Döndürülmüş olduğunda PfxFilesPath sağlanıyorsa değer gereklidir. |
-| İç | Dize | False | adlı | None | İç bayrağı, iç altyapı gizli dizileri döndürmek Azure Stack operatörü istediği zaman kullanılmalıdır. |
+| İç | String | False | adlı | None | İç bayrağı, iç altyapı gizli dizileri döndürmek Azure Stack operatörü istediği zaman kullanılmalıdır. |
 | PathAccessCredential | PSCredential | False  | adlı  | None  | PowerShell kimlik bilgilerini dosya paylaşımını **\Certificates** tüm dış içeren dizin ağ uç noktası sertifikaları. Yalnızca dış gizli anahtarları döndürürken gereklidir.  |
 | ReRun | SwitchParameter | False  | adlı  | None  | Gizli anahtar döndürme, başarısız bir girişimden sonra reattempted herhangi bir zamanda yeniden kullanılması gerekir. |
 
@@ -312,7 +312,7 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 Bu, Azure Stack ile çalıştırılmalıdır [ayrıcalıklı uç nokta ortamdaki](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
-```PowerShell
+```powershell
 PS C:\> Start-SecretRotation -Internal
 ```
 
@@ -320,7 +320,7 @@ Bu komut tüm Azure Stack iç ağa kullanıma sunulan altyapı gizli dizileri d�
 
 #### <a name="rotate-only-external-infrastructure-secrets"></a>Gizli dizileri dış altyapı Döndür  
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -346,7 +346,7 @@ Bu komut, Azure yığını'nın dış ağ altyapı uç noktaları için kullanı
 >
 > **Gelen *1811 +* hem de iç döndürülemiyor ve daha fazla harici sertifika!!!**
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -369,11 +369,11 @@ Bu komut tüm Azure Stack iç ağa kullanıma sunulan altyapı gizli dizileri ve
 
 Temel Kart Yönetim denetleyicisine (BMC) fiziksel sunucularınızı durumunu izler. Özellikleri ve kullanıcı hesabı adı ve parola BMC'nin güncelleştirme yönergeler orijinal ekipman üreticisi (OEM) donanım satıcınıza göre değişir. Parolalarınızı Azure Stack bileşenlerin düzenli olarak güncelleştirmeniz gerekir.
 
-1. Azure Stack fiziksel sunucularda BMC, OEM yönergelerini izleyerek güncelleştirin. Kullanıcı hesabı adı ve parola, ortamınızdaki her BMC için aynı olmalıdır.
+1. Azure Stack fiziksel sunucularda BMC, OEM yönergelerini izleyerek güncelleştirin. Kullanıcı adı ve parola, ortamınızdaki her BMC için aynı olmalıdır. Not BMC kullanıcı adları 16 karakterden uzun olamaz.
 2. Ayrıcalıklı bir uç nokta, Azure Stack oturumunu açın. Yönergeler için [Azure Stack'te ayrıcalıklı uç noktayı kullanarak](azure-stack-privileged-endpoint.md).
 3. Sonra bir PowerShell istemi için değişti **[IP adresi veya ERCS VM adı]: PS >** veya **[azs-ercs01]: PS >** çalıştırabileceğiniz bir ortam, bağlı olarak `Set-BmcCredential` çalıştırarak `Invoke-Command`. Ayrıcalıklı uç nokta oturum değişkeni, bir parametre olarak geçiriyoruz. Örneğin:
 
-    ```PowerShell
+    ```powershell
     # Interactive Version
     $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPCreds = Get-Credential "<Domain>\CloudAdmin" -Message "PEP Credentials"
@@ -391,7 +391,7 @@ Temel Kart Yönetim denetleyicisine (BMC) fiziksel sunucularınızı durumunu iz
 
     Kod satırları parolalarıyla statik PowerShell sürümünü de kullanabilirsiniz:
 
-    ```PowerShell
+    ```powershell
     # Static Version
     $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPUser = "<Privileged Endpoint user for example Domain\CloudAdmin>"

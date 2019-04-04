@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: d7547ecf387e070efe788ba5f8582076388f422a
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984212"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895824"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Bilişsel hizmetler dil anlama uygulamayla oluşturmaya yönelik en iyi uygulamalar
 LUIS uygulamanızı oluşturmak için yazma işleminin hızlandırılmasının uygulamayı kullanın. 
@@ -122,12 +122,12 @@ Daha fazla bilgi için:
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Etkin öğrenme için Öner özelliğinden yararlanın
 
-Kullanım [etkin olarak öğrenmeye](luis-how-to-review-endoint-utt.md)'s **gözden geçirin, konuşma uç noktası** hedefleri için daha fazla örnek konuşma eklemek yerine düzenli olarak. Uygulamayı sürekli olarak konuşma uç noktası almak için bu listeyi artan ve değiştirme.
+Kullanım [etkin olarak öğrenmeye](luis-how-to-review-endpoint-utterances.md)'s **gözden geçirin, konuşma uç noktası** hedefleri için daha fazla örnek konuşma eklemek yerine düzenli olarak. Uygulamayı sürekli olarak konuşma uç noktası almak için bu listeyi artan ve değiştirme.
 
 Daha fazla bilgi için:
 * Kavram: [Etkin öğrenme konuşma uç noktası inceleyerek etkinleştirmek için kavramları](luis-concept-review-endpoint-utterances.md)
 * Öğretici: [Öğretici: Konuşma uç noktası inceleyerek emin değilseniz Öngörüler Düzelt](luis-tutorial-review-endpoint-utterances.md)
-* Nasıl yapılır: [LUIS portalında konuşma uç noktası İnceleme](luis-how-to-review-endoint-utt.md)
+* Nasıl yapılır: [LUIS portalında konuşma uç noktası İnceleme](luis-how-to-review-endpoint-utterances.md)
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Uygulamanızın performansını izleyin
 

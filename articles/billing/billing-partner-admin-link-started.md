@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 5a03805fc055583f1f965854d4da3ae6b0c90e20
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 9fb689a2a6e2c1c309d22836e88a63662fed9832
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444886"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904840"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure hesaplarınızdan bir iş ortağı kimliği Bağla
 
 Bir iş ortağı olarak, müşterilerle yaşadığımız arasında etkisi izleyebilirsiniz. Bir müşterinin kaynaklarını yönetmek için kullanılan hesaplara, iş ortağı Kimliğinizi bağlayabilirsiniz.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-access-from-your-customer"></a>Müşteriden erişin
 
@@ -57,9 +59,8 @@ Müşterinin kaynaklarına erişiminiz olduğunda, kullanıcı kimliği veya hiz
 2. Müşterinin Kiracı Kullanıcı hesabını veya hizmet sorumlusu ile oturum açın. Daha fazla bilgi için [oturum PowerShell ile oturum açma](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
  
    ```azurepowershell-interactive
-    C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
    ```
-
 
 3. İçin yeni iş ortağı kimliği Bağla İş ortağı kimliği [Microsoft iş ortağı ağı](https://partner.microsoft.com/) kuruluşunuz için kimliği.
 

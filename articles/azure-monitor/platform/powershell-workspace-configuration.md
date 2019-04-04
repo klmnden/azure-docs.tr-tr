@@ -8,18 +8,16 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: richrund
-ms.openlocfilehash: f37c8290defa5e7c9baa3b705393aba376936fd8
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 5c348adea0847929b37d1b61f024859b1d634fe7
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539386"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903412"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>PowerShell kullanarak Azure İzleyici'de log Analytics çalışma alanını yönetme
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Kullanabileceğiniz [Log Analytics PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) bir Log Analytics çalışma alanına Azure İzleyici'de bir komut satırından veya betik bir parçası olarak çeşitli işlevleri gerçekleştirmek için.  PowerShell ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
+Kullanabileceğiniz [Log Analytics PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/az.operationalinsights/) bir Log Analytics çalışma alanına Azure İzleyici'de bir komut satırından veya betik bir parçası olarak çeşitli işlevleri gerçekleştirmek için.  PowerShell ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
 
 * Çalışma alanı oluşturma
 * Çözüm Ekle Kaldır
@@ -33,10 +31,12 @@ Kullanabileceğiniz [Log Analytics PowerShell cmdlet'leri](https://docs.microsof
 * Bir Azure sanal makinesi için log analytics aracısını ekleme
 * Azure Tanılama'yı kullanarak toplanan dizin verileri log analytics'e yapılandırın
 
-Bu makalede, Powershell'den gerçekleştirebileceğiniz işlevlerin bazılarını göstermeyi iki kod örneği sağlanmıştır.  Başvurabilirsiniz [Log Analytics PowerShell cmdlet başvurusu](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) diğer işlevleri için.
+Bu makalede, Powershell'den gerçekleştirebileceğiniz işlevlerin bazılarını göstermeyi iki kod örneği sağlanmıştır.  Başvurabilirsiniz [Log Analytics PowerShell cmdlet başvurusu](https://docs.microsoft.com/powershell/module/az.operationalinsights/) diğer işlevleri için.
 
 > [!NOTE]
 > Log Analytics, daha önce yer alan cmdlet'ler kullanılan adı, bu yüzden operasyonel İçgörüler olarak adlandırılıyordu.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu örnekler, sürüm 1.0.0 ile veya Az.OperationalInsights modülün daha sonra çalışır.
@@ -272,5 +272,5 @@ Remove-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resourc
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Log Analytics PowerShell cmdlet'leri gözden](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) Log analytics'in bir yapılandırma için PowerShell kullanma hakkında ek bilgi için.
+* [Log Analytics PowerShell cmdlet'leri gözden](https://docs.microsoft.com/powershell/module/az.operationalinsights/) Log analytics'in bir yapılandırma için PowerShell kullanma hakkında ek bilgi için.
 

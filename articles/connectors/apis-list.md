@@ -1,5 +1,5 @@
 ---
-title: Azure Logic Apps için Bağlayıcılar | Microsoft Docs
+title: Azure Logic Apps için bağlayıcılar
 description: Yerleşik, yönetilen, şirket içi, tümleştirme hesabı ve kurumsal bağlayıcılar dahil olmak üzere Azure Logic Apps için bağlayıcılar ile iş akışlarını otomatikleştirin
 services: logic-apps
 ms.service: logic-apps
@@ -9,25 +9,27 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: b320696a56855baaa4af10177d25dfe9973ee73a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635450"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895892"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps için bağlayıcılar
 
-Azure Logic Apps ile otomatik iş akışları oluşturduğunuzda bağlayıcılar bütünleyici yürütün. Logic apps bağlayıcıları kullanarak, şirket içi için Özellikler'i genişletin ve bulut uygulamaları oluşturun ve zaten sahip veri görevleri gerçekleştirmek için. 
+Bağlayıcılar hızlı erişim Azure Logic Apps'ten olayları, veri ve eylemleri için diğer uygulamaları, hizmetleri, sistemleri, protokoller ve platformlar arasında sağlar. Logic apps bağlayıcıları kullanarak, özellikleri oluşturan ve zaten sahip verilerle görevleri gerçekleştirmek Bulut ve şirket içi uygulamalarınız için genişletin.
 
-Logic Apps teklifler while [~ 200'den fazla bağlayıcı](https://docs.microsoft.com/connectors), başarıyla binlerce uygulama ve milyonlarca yürütme işlemi tarafından veri ve bilgi işlem için kullanılan popüler ve yaygın olarak kullanılan bağlayıcılar bu makalede açıklanır. Bağlayıcılar, yerleşik olanları veya yönetilen bağlayıcılar olarak kullanılabilir. 
+Logic Apps teklifler while [~ 200'den fazla bağlayıcı](https://docs.microsoft.com/connectors), başarıyla binlerce uygulama ve milyonlarca yürütme işlemi tarafından veri ve bilgi işlem için kullanılan popüler ve yaygın olarak kullanılan bağlayıcılar bu makalede açıklanır. Sayfaları altında başvurusu gibi sınırları, tetikleyiciler ve Eylemler Bağlayıcısı'nı gözden geçirin, bağlayıcılar ve bağlayıcıların başvuru bilgileri tam listesini bulmak için [bağlayıcılara genel bakış](https://docs.microsoft.com/connectors). Ayrıca, daha fazla bilgi edinin [tetikleyiciler ve Eylemler](#triggers-actions).
 
 > [!NOTE]
-> Bağlayıcılar ve Eylemler, herhangi bir tetikleyici ve sınırları gibi her bir bağlayıcının başvuru bilgileri tam listesi için tam listesi altında bulabilirsiniz [bağlayıcılara genel bakış](https://docs.microsoft.com/connectors).
+> Bir hizmet ya da bağlayıcı yok API ile tümleştirmek için doğrudan bir protokol gibi HTTP üzerinden hizmet çağrısı veya oluşturma bir [özel bağlayıcı](#custom).
 
-* [**Yerleşik olanları**](#built-ins): Bu yerleşik Eylemler ve tetikleyiciler Yardım özel zamanlamalara göre çalıştırın mantıksal uygulamalar oluşturma alma isteklerine yanıt ve Azure arama diğer uç noktalar ile iletişim İşlevler, Azure API Apps (Web uygulamaları), kendi API'leri, yönetilen ve Azure API Management ve iç içe geçmiş mantıksal istekleri alabilecek uygulamaları yayımladınız. Ayrıca yerleşik kullanabileceğiniz yardımcı eylemleri düzenlemek ve mantıksal uygulamanızın iş akışı denetim ve ayrıca verileri ile çalışma.
+Bağlayıcılar, yerleşik tetikleyiciler ve Eylemler veya yönetilen bağlayıcılar olarak kullanılabilir:
 
-* **Yönetilen Bağlayıcılar**: tetikleyiciler ve Eylemler diğer hizmetlerinize ve sistemlerinize erişmek için bu bağlayıcılar sağlar. Bazı bağlayıcılar için öncelikle Azure Logic Apps tarafından yönetilen bir bağlantı oluşturmanız gerekir. Yönetilen bağlayıcılar, bu gruplar halinde düzenlenmiştir:
+* [**Yerleşik olanları**](#built-ins): Bu yerleşik Eylemler ve Tetikleyiciler "Azure Logic Apps ve Yardım özel zamanlamalara göre çalıştırın, diğer uç noktalar ile iletişim kurmak, alabilir ve isteklere yanıt ve Azure işlevleri, Azure API Apps (Web uygulamaları), kendi API çağrısı, mantıksal uygulamalar oluşturmak için yerel" Yönetilen ve yayımlanan ile Azure API Management ve istekleri alabilecek iç içe mantıksal uygulamalar. Ayrıca yerleşik kullanabileceğiniz yardımcı eylemleri düzenlemek ve mantıksal uygulamanızın iş akışı denetim ve ayrıca verileri ile çalışma.
+
+* **Yönetilen Bağlayıcılar**: Bu bağlayıcılar, dağıtılan ve Microsoft tarafından yönetilen, tetikleyiciler ve Eylemler diğer hizmetleri ve sistemleri gibi Office 365, Azure Blob Depolama, SQL Server, Salesforce ve daha fazla erişim sağlar. Bazı bağlayıcılar için önce Azure Logic Apps tarafından yönetilen bir bağlantı oluşturmanız gerekir. Yönetilen bağlayıcılar, bu gruplar halinde düzenlenmiştir:
 
   |   |   |
   |---|---|
@@ -40,12 +42,12 @@ Logic Apps teklifler while [~ 200'den fazla bağlayıcı](https://docs.microsoft
   Örneğin, Microsoft BizTalk Server kullanıyorsanız, logic apps için bağlanabilir ve kullanarak, BizTalk Server ile iletişim [BizTalk Server Bağlayıcısı](#on-premises-connectors). 
   Genişletme veya kullanarak, logic apps BizTalk benzeri işlemleri gerçekleştirmesi [tümleştirme hesabı bağlayıcıları](#integration-account-connectors). 
 
-> [!NOTE] 
+> [!NOTE]
 > Bağlayıcılar ve Eylemler ve Swagger açıklaması tarafından tanımlanan, hiçbir tetikleyici artı herhangi bir sınırlama gibi her bir bağlayıcının başvuru bilgileri tam listesi için tam listesi altında bulabilirsiniz [bağlayıcılara genel bakış](/connectors/). Fiyatlandırma bilgileri için bkz: [Logic Apps fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/logic-apps/) ve [Logic Apps fiyatlandırma modeli](../logic-apps/logic-apps-pricing.md). 
 
 <a name="built-ins"></a>
 
-## <a name="built-ins"></a>Yerleşik öğeler
+## <a name="built-ins"></a>Yerleşik olanları
 
 Logic Apps yerleşik Tetikleyiciler sağlar ve zamanlama tabanlı iş akışları oluşturmak için diğer uygulamaları ve Hizmetleri, denetim akışı, logic apps ile iletişim kurmak ve yönetmek veya verileri işlemek logic apps eylemleri yardımcı. 
 
@@ -74,9 +76,9 @@ Veri çıktıları ve bunların biçimleri ile çalışmak için yerleşik eylem
 
 |   |   | 
 |---|---| 
-| [![Yerleşik simgeyi][data-operations-icon]<br/>**veri işlemleri**][data-operations-doc] | Veri işlemlerini gerçekleştirin: <p>- **Compose**: tek bir çıkış çeşitli türleri ile birden çok giriş oluşturun. <br>- **CSV tablosu oluşturma**: JSON nesneleri olan bir dizi virgülle ayrılmış değer (CSV) tablosu oluşturun. <br>- **HTML tablosu oluşturma**: bir dizi JSON nesnesi içeren bir HTML tablosu oluşturun. <br>- **Filtre dizisi**: ölçütlerinizi karşılayan öğeleri başka bir dizide bir dizi oluşturun. <br>- **Birleştirme**: bir dizeyi bir dizideki tüm öğeler oluşturmak ve öğelerin belirtilen sınırlayıcıyı ile ayırın. <br>- **JSON Ayrıştır**: Bu özellikler, iş akışında kullanabilmeniz için kullanıcı dostu belirteçleri özellikleri ve değerlerini json'da içerik oluşturun. <br>- **Seçin**: öğeler veya başka bir dizideki değerleri dönüştürme ve öğelerle eşleme için belirtilen özellikleri JSON nesneleriyle bir dizi oluşturun. | 
-| ![Yerleşik simgesi][date-time-icon]<br/>**Tarih saat** | Zaman damgalı işlemleri gerçekleştirin: <p>- **Saate Ekle**: zaman damgası için belirtilen birim sayısını ekleyin. <br>- **Saat dilimini Dönüştür**: bir zaman damgasını kaynak saat diliminden hedef saat dilimine Dönüştür. <br>- **Geçerli saati**: geçerli zaman damgasını dize olarak döndürür. <br>- **Gelecekteki saat Al**: yanı sıra belirtilen zaman birimi geçerli zaman damgasını döndürür. <br>- **Geçmişteki saati Al**: belirtilen zaman birimi eksi geçerli zaman damgasını döndürür. <br>- **Saatten çıkar**: zaman damgası saat birimleri sayısı çıkarın. |
-| [![Yerleşik simgeyi][variables-icon]<br/>**değişkenleri**][variables-doc] | Değişkenleri ile işlemleri gerçekleştirin: <p>- **Dizi değişkenine Ekle**: dizi değişkeni tarafından depolanan son öğenin değeri koyun. <br>- **Dize değişkenine Ekle**: bir değişkeni tarafından depolanan bir dizedeki son karakter olarak değer Ekle. <br>- **Değişkeni Azalt**: bir değişken bir sabit değere göre azaltın. <br>- **Artış değişkeni**: bir değişken bir sabit değere göre artırın. <br>- **Değişkeni başlatmak**: bir değişken oluşturun ve başlangıç değeri ve veri türü bildirin. <br>- **Değişken Ayarla**: farklı bir değer var olan bir değişkene atayın. |
+| [![Yerleşik simgeyi][data-operations-icon]<br/>**veri işlemleri**][data-operations-doc] | Veri işlemlerini gerçekleştirin: <p>- **Compose**: Tek bir çıkış çeşitli türleri ile birden çok giriş oluşturun. <br>- **CSV tablosu oluşturma**: Bir dizi JSON nesnesi içeren bir virgülle ayrılmış değer (CSV) tablo oluşturun. <br>- **HTML tablosu oluşturma**: Bir dizi JSON nesnesi içeren bir HTML tablosu oluşturun. <br>- **Filtre dizisi**: Ölçütlerinizi karşılayan öğeleri başka bir dizide bir dizi oluşturun. <br>- **Birleştirme**: Bir dizideki tüm öğeler bir dize oluşturma ve bu öğeler belirtilen bir sınırlayıcı ile ayırın. <br>- **JSON Ayrıştır**: Bu özellikler, iş akışında kullanabilmeniz için kullanıcı dostu belirteçleri özelliklerini ve değerlerini JSON içeriği oluşturun. <br>- **Seçin**: Bir dizi, öğeleri veya başka bir dizideki değerleri dönüştürme ve öğelerle eşleme için belirtilen özellikleri JSON nesneleriyle oluşturun. | 
+| ![Yerleşik simgesi][date-time-icon]<br/>**Tarih/Saat** | Zaman damgalı işlemleri gerçekleştirin: <p>- **Saate Ekle**: Bir zaman damgası için belirtilen birim sayısını ekleyin. <br>- **Saat dilimini Dönüştür**: Bir zaman damgasını kaynak saat diliminden hedef saat dilimine dönüştürür. <br>- **Geçerli saati**: Geçerli zaman damgasını dize olarak döndürür. <br>- **Gelecekteki saat Al**: Yanı sıra belirtilen zaman birimi geçerli zaman damgasını döndürür. <br>- **Geçmişteki saati Al**: Belirtilen zaman birimi eksi geçerli zaman damgasını döndürür. <br>- **Saatten çıkar**: Bir zaman damgası saat birimleri sayısı çıkarın. |
+| [![Yerleşik simgeyi][variables-icon]<br/>**değişkenleri**][variables-doc] | Değişkenleri ile işlemleri gerçekleştirin: <p>- **Dizi değişkenine Ekle**: Bir dizi değişkeni tarafından depolanan son öğe olarak değer Ekle. <br>- **Dize değişkenine Ekle**: Bir değişkeni tarafından depolanan bir dizedeki son karakter olarak değer Ekle. <br>- **Değişkeni Azalt**: Bir değişken bir sabit değere göre azaltın. <br>- **Artış değişkeni**: Bir değişken bir sabit değere göre artırın. <br>- **Değişkeni başlatmak**: Bir değişken oluşturun ve başlangıç değeri ve veri türü bildirin. <br>- **Değişken Ayarla**: Farklı bir değer var olan bir değişkene atayın. |
 |  |  | 
 
 <a name="managed-api-connectors"></a>
@@ -131,25 +133,36 @@ Logic apps, Kurumsal sistemleri, SAP ve IBM MQ gibi erişebilirsiniz:
 | [![API simgesi][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API simgesi][sap-icon]<br/>**SAP**][sap-connector-doc] |
 ||| 
 
-## <a name="more-about-triggers-and-actions"></a>Tetikleyiciler ve eylemler hakkında daha fazla
+<a name="triggers-actions"></a>
 
-Bazı bağlayıcılar sağlar *Tetikleyicileri* , bildirim mantıksal uygulamanızı belirli olaylar meydana geldiğinde. Bu nedenle bu olaylar meydana geldiğinde, tetikleyici oluşturur ve mantıksal uygulamanızın bir örneğini çalıştıran. Örneğin, FTP Bağlayıcısı bir dosya güncelleştirildiğinde, mantıksal uygulamanızı başlatan bir "bir dosya değiştirildiğinde veya eklendiğinde" tetikleyici sağlar. 
+## <a name="triggers-and-actions---more-info"></a>Tetikleyiciler ve Eylemler - daha fazla bilgi
 
-Mantıksal uygulamalar, bu tür Tetikleyiciler sağlar:  
+Bağlayıcılar sağlayabilir *Tetikleyicileri*, *eylemleri*, veya her ikisini de. A *tetikleyici* genellikle tetikleyici ve çalışan mantıksal uygulamanızı başlatan olay belirtme, herhangi bir mantıksal uygulama ilk adımdır. Örneğin, FTP Bağlayıcısı "bir dosya değiştirildiğinde veya eklendiğinde" mantıksal uygulamanızı başlatan bir tetikleyici vardır. Bazı tetikleyiciler belirtilen olay veya verileri düzenli aralıklarla denetleyin ve sonra belirtilen olay veya veri algıladığınızda yangın. Diğer Tetikleyiciler bekleyin, ancak zaman belirli bir olay meydana instantly veya yeni veriler kullanılabilir olduğunda. Tetikleyiciler, ayrıca mantıksal uygulamanız tüm gerekli veri geçirin. Mantıksal uygulamanızı okuyabilir ve iş akışı genelinde bu verileri kullanın.
+Örneğin, bir tetikleyici Twitter Bağlayıcısı sahip "Yeni bir tweet, geçen bir tweet gönderildiğinde" mantıksal uygulamanızın iş akışınıza içerik. 
 
-* *Yoklama Tetikleyicileri*: Bu Tetikleyiciler yeni veriler için belirtilen sıklıkta ve denetimleri hizmetinizi yoklar. 
+Azure Logic Apps bir tetikleyici sonra mantıksal uygulamanızın bir örneğini oluşturur ve çalışmaya başladıktan *eylemleri* mantıksal uygulamanızın iş akışında. Tetikleyici izleyin ve mantıksal uygulamanızın iş akışında görevlerini gerçekleştirme adımları eylemlerdir. Örneğin, müşteri verilerini bir SQL veritabanı'ndan alır bir mantıksal uygulama oluşturma ve sonraki eylemlerde bu verisi işleme. 
 
-  Yeni veriler kullanılabilir olduğunda, mantıksal uygulamanızın yeni bir örneğini oluşturulur ve giriş olarak geçirilen verilerle çalışır. 
+Azure Logic Apps sağlayan Tetikleyicileri genel türleri şunlardır:
 
-* *Anında iletme Tetikleyicileri*: Bu Tetikleyiciler yeni verileri bir uç noktada bir olayın meydana gelmesine oluşturan ve sonra mantıksal uygulamanızın yeni bir örneğini çalıştıran dinler.
+* *Yinelenme tetikleyicisini*: Bu tetikleyici, belirtilen bir zamanlamaya göre çalışır ve belirli bir hizmet veya sistem ile sıkı bir şekilde ilişkili değildir.
 
-* *Yinelenme tetikleyicisini*: Bu tetikleyici oluşturur ve belirtilen bir zamanlamaya göre mantıksal uygulamanızın bir örneğini çalıştırır.
+* *Yoklama tetikleyici*: Bu tetikleyici, belirli bir hizmet veya sistem olup belirli bir olayın veya yeni veriler için denetleme belirli bir zamanlamaya göre düzenli aralıklarla yoklar. Yeni veriler kullanılabilir veya belirli bir olayın gerçekleştiği, tetikleyici oluşturur ve giriş olarak geçirilen verileri hemen kullanabileceğiniz mantıksal uygulamanızın yeni bir örneğini çalıştırır.
 
-Bağlayıcılar ayrıca sağlar *eylemleri* mantıksal uygulamanızın iş akışında görevler gerçekleştirir. Örneğin, mantıksal uygulamanız verileri okumak ve mantıksal uygulamanızın daha sonraki adımlarda bu verileri kullanın. Özellikle, mantıksal uygulamanızı bir SQL veritabanından müşteri verilerini bulun ve bu verileri daha sonra mantıksal uygulamanızın iş akışı işlemi. 
+* *Tetikleyici anında iletme*: Bu tetikleyiciyi bekler ve bir olayın meydana gelmesine veya yeni veriler için dinler. Yeni veriler kullanılabilir olduğunda veya olay meydana geldiğinde, tetikleyici oluşturur ve giriş olarak geçirilen verileri hemen kullanabileceğiniz mantıksal uygulamanızın yeni bir örneğini çalıştırır.
 
-Tetikleyiciler ve eylemler hakkında daha fazla bilgi için bkz. [bağlayıcılara genel bakış](connectors-overview.md). 
+<a name="custom"></a>
 
-## <a name="custom-apis-and-connectors"></a>Özel API'ler ve Bağlayıcılarla 
+## <a name="connector-configuration"></a>Bağlayıcı yapılandırması
+
+Her bağlayıcı'nın tetikleyiciler ve Eylemler kendi özelliklerini yapılandırmanıza olanak sağlar. Çok sayıda bağlayıcı ayrıca ilk oluşturmanızı gerektirir bir *bağlantı* hedef hizmet veya sistem için ve mantıksal uygulamanızda bir tetikleyici veya eylemi kullanmadan önce kimlik doğrulama bilgilerini veya diğer yapılandırma ayrıntılarını sağlayın. Örneğin, bir Twitter hesabıyla verilerine erişmek için veya sizin adınıza gönderilecek bir bağlantı yetkilendirmeniz gerekir. 
+
+Bağlantı oluşturma OAuth kullanan bağlayıcıları için Office 365, Salesforce veya erişim belirtecinizin burada şifrelenir ve güvenli bir şekilde Azure bir gizli dizi deposu içinde depolanan GitHub gibi hizmete imzalama anlamına gelir. FTP ve SQL gibi diğer bağlayıcıları sunucu adresi, kullanıcı adı ve parola gibi yapılandırma ayrıntılarını içeren bir bağlantı gerektirir. Bu bağlantı yapılandırma ayrıntılarını da şifrelenir ve güvenli bir şekilde depolanır. 
+
+Bu hizmet veya sistem izin verdiği sürece bağlantıları hedef hizmet veya sistem için erişebilirsiniz. Office 365 ve Dynamics gibi Azure Active Directory (AD) OAuth bağlantıları kullanan Hizmetleri için erişim belirteçleri Azure Logic Apps süresiz olarak yeniler. Diğer hizmetler ne kadar süreyle Azure Logic Apps bir belirteç yenileme olmadan kullanarak sınırları sokabilirsiniz. Genel olarak, bazı eylemler parolanızı değiştirme gibi tüm erişim belirteçlerini geçersiz kılar.
+
+<a name="custom"></a>
+
+## <a name="custom-apis-and-connectors"></a>Özel API'ler ve Bağlayıcılarla
 
 Özel kod çalıştıran veya bağlayıcı olarak kullanılamayan API'leri çağırmak için Logic Apps platformunu genişletebilirsiniz [özel API Apps oluşturarak](../logic-apps/logic-apps-create-api-app.md). Ayrıca [özel bağlayıcılar oluşturma](../logic-apps/custom-connector-overview.md) için *herhangi* REST veya bu API'lerle Azure aboneliğinizdeki herhangi bir mantıksal uygulama için kullanılabilir hale getirmek SOAP tabanlı API'ler.
 Özel API Apps veya bağlayıcıları herkesin Azure'da kullanması genel hale getirmek için [bağlayıcıları Microsoft sertifikası için gönderme](../logic-apps/custom-connector-submit-certification.md).
@@ -160,12 +173,10 @@ Tetikleyiciler ve eylemler hakkında daha fazla bilgi için bkz. [bağlayıcıla
 
 * Gönderin veya Azure Logic Apps ve bağlayıcıları için fikirleri oylamak için şurayı ziyaret edin [Logic Apps kullanıcı geri bildirim sitesinde](https://aka.ms/logicapps-wish).
 
-* Önemli olan makaleler veya düşündüğünüz ayrıntıları eksik belgeleri misiniz? Yanıt Evet ise, var olan makaleyi ekleyerek veya kendi yardımcı olabilir. Belgeler açık kaynaklıdır ve Github'da barındırılır. Azure belgelerine ait başlama [GitHub deposu](https://github.com/Microsoft/azure-docs). 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Bulma [bağlayıcılar tam listesi](https://docs.microsoft.com/connectors)
-* [İlk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [İlk mantıksal uygulamanızı oluşturun](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Logic apps için özel bağlayıcılar oluşturma](https://docs.microsoft.com/connectors/custom-connectors/)
 * [Mantıksal uygulamalar için özel API’ler oluşturma](../logic-apps/logic-apps-create-api-app.md)
 

@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 4c9c4bce0b63bd6d45522e2e069d1ae884916e09
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 17da540bd6077b8e045f125fd3cf13dc0e043000
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172408"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882048"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Azure Stack'te ek ölçek birimi düğümleri Ekle
 
@@ -75,7 +75,7 @@ Kullanım **yeni AzsScaleUnitNodeObject** cmdlet'i bir düğüm eklemek için.
 Değerleri değiştirmek için aşağıdaki PowerShell betiklerine herhangi birini kullanmadan önce *düğüm adları* ve *IP adresleri* , Azure Stack ortamınıza değerlerle.
 
   > [!Note]  
-  > Bir düğüm adlandırırken adı 15 karakterden uzun tutmanız gerekir. Ayrıca, bir boşluk veya şu karakterlerden herhangi birini içeriyorsa bir ad kullanamazsınız: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`,` }`, `_`.
+  > Bir düğüm adlandırırken adı 15 karakterden uzun tutmanız gerekir. Ayrıca, bir boşluk veya şu karakterlerden herhangi birini içeriyorsa bir ad kullanamazsınız: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
 
 **Bir düğüm ekleyin:**
   ```powershell

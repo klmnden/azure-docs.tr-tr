@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: hrasheed
-ms.openlocfilehash: b7e0dba70d7f3a201c5f3491f0bc906977fbf229
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 399a6bcb6e0bfd0edaddca471ba2c8e0802d3394
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886460"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904789"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Azure İzleyici'yi kullanın, HDInsight kümelerinizi izlemek için günlükleri
 
-HDInsight Hadoop küme işlemleri izlemek Azure İzleyici günlüklerini etkinleştirme ve bir Hdınsight izleme çözümünü ekleme konusunda bilgi edinin.
+HDInsight Hadoop küme işlemleri izlemek Azure İzleyici günlüklerini etkinleştirme ve bir HDInsight izleme çözümünü ekleme konusunda bilgi edinin.
 
 [Azure İzleyici günlüklerine](../log-analytics/log-analytics-overview.md) bulut izler ve şirket içi Ortamlarınızdaki kullanılabilirliği ve performansı korumak için Azure İzleyici'de bir hizmettir. Birden fazla kaynak arasında analiz sağlamak üzere bulut ve şirket içi ortamlarınızdaki kaynaklar ile diğer izleme araçları tarafından oluşturulan verileri toplar.
 

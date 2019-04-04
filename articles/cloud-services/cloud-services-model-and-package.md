@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 7e43a32a415e58925bda5195b3943afca315f9be
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238191"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917320"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Bulut hizmeti modeli ve nasıl paketi nedir?
 Bir bulut hizmeti, üç bileşenlerini hizmet tanımı oluşturulur *(.csdef)*, hizmet yapılandırma *(.cscfg)* ve bir hizmet paketi *(.cspkg)*. Her iki **ServiceDefinition.csdef** ve **ServiceConfig.cscfg** dosyaları XML tabanlı ve topluca model adlı bulut hizmeti ve nasıl yapılandırıldığını; yapısını açıklar. **ServicePackage.cspkg** oluşturulduğu bir zip dosyası **ServiceDefinition.csdef** ve diğerlerinin yanı sıra ikili tabanlı tüm gerekli bağımlılıkları içerir. Azure hem de bulut hizmeti oluşturur **ServicePackage.cspkg** ve **ServiceConfig.cscfg**.
@@ -39,7 +39,7 @@ Azure'da bulut hizmeti çalışır duruma geçtikten sonra üzerinden yeniden ya
 <a name="csdef"></a>
 
 ## <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
-**ServiceDefinition.csdef** dosyasını bir bulut hizmeti yapılandırmak için Azure tarafından kullanılan ayarları belirtir. [Azure Hizmet tanım düzenini (.csdef dosyası)](https://msdn.microsoft.com/library/azure/ee758711.aspx) Hizmet tanım dosyası için izin verilen biçimini sağlar. Aşağıdaki örnek Web ve çalışan rolleri için tanımlanan ayarları gösterilir:
+**ServiceDefinition.csdef** dosyasını bir bulut hizmeti yapılandırmak için Azure tarafından kullanılan ayarları belirtir. [Azure Hizmet tanım düzenini (.csdef dosyası)](/previous-versions/azure/reference/ee758711(v=azure.100)) Hizmet tanım dosyası için izin verilen biçimini sağlar. Aşağıdaki örnek Web ve çalışan rolleri için tanımlanan ayarları gösterilir:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -90,9 +90,9 @@ Azure'da bulut hizmeti çalışır duruma geçtikten sonra üzerinden yeniden ya
 </ServiceDefinition>
 ```
 
-Başvurabilirsiniz [Hizmet tanım düzenini](https://msdn.microsoft.com/library/azure/ee758711.aspx) bir daha iyi burada kullanılan XML Şeması anlamak için ancak burada, bazı öğeleri hızlı bir açıklaması:
+Başvurabilirsiniz [Hizmet tanım düzenini](/previous-versions/azure/reference/ee758711(v=azure.100)) bir daha iyi burada kullanılan XML Şeması anlamak için ancak burada, bazı öğeleri hızlı bir açıklaması:
 
-**Siteleri**  
+**Siteler**  
 IIS7'de barındırılan Web siteleri veya web uygulamaları için tanımları içerir.
 
 **InputEndpoints**  
@@ -119,7 +119,7 @@ Rol başlatıldığında çalıştırılan görevleri içerir. Görevler, .cmd v
 <a name="cscfg"></a>
 
 ## <a name="serviceconfigurationcscfg"></a>ServiceConfiguration.cscfg
-Bulut hizmetiniz için ayarları yapılandırma değerleri belirlenir **ServiceConfiguration.cscfg** dosya. Bu dosya her rol için dağıtmak istediğiniz örnek sayısını belirtin. Hizmet tanımı dosyasında tanımlanan yapılandırma ayarları için değerleri hizmet yapılandırma dosyasına eklenir. Bulut hizmeti ile ilişkili olan herhangi bir yönetim sertifika parmak izleri de dosyasına eklenir. [Azure hizmet yapılandırma şemasına (.cscfg dosyası)](https://msdn.microsoft.com/library/azure/ee758710.aspx) hizmet yapılandırma dosyası için izin verilen biçimini sağlar.
+Bulut hizmetiniz için ayarları yapılandırma değerleri belirlenir **ServiceConfiguration.cscfg** dosya. Bu dosya her rol için dağıtmak istediğiniz örnek sayısını belirtin. Hizmet tanımı dosyasında tanımlanan yapılandırma ayarları için değerleri hizmet yapılandırma dosyasına eklenir. Bulut hizmeti ile ilişkili olan herhangi bir yönetim sertifika parmak izleri de dosyasına eklenir. [Azure hizmet yapılandırma şemasına (.cscfg dosyası)](/previous-versions/azure/reference/ee758710(v=azure.100)) hizmet yapılandırma dosyası için izin verilen biçimini sağlar.
 
 Hizmet yapılandırma dosyası uygulama ile birlikte paketlenmiştir değil, ancak ayrı bir dosya olarak azure'a yüklenir ve bulut hizmeti yapılandırmak için kullanılır. Bulut hizmetinizi yeniden dağıtmaya gerek kalmadan yeni hizmet yapılandırma dosyasını karşıya yükleyebilirsiniz. Bulut hizmet çalışırken, bulut hizmeti için yapılandırma değerlerini değiştirilebilir. Aşağıdaki örnek, Web ve çalışan rolleri için tanımlanan yapılandırma ayarlarını gösterir:
 
@@ -141,9 +141,9 @@ Hizmet yapılandırma dosyası uygulama ile birlikte paketlenmiştir değil, anc
 </ServiceConfiguration>
 ```
 
-Başvurabilirsiniz [hizmet yapılandırma şeması](https://msdn.microsoft.com/library/azure/ee758710.aspx) burada kullanılan XML şemasını anlama daha iyi, ancak öğeleri hızlı bir açıklaması aşağıda verilmiştir:
+Başvurabilirsiniz [hizmet yapılandırma şeması](/previous-versions/azure/reference/ee758710(v=azure.100)) burada kullanılan XML şemasını anlama daha iyi, ancak öğeleri hızlı bir açıklaması aşağıda verilmiştir:
 
-**Örnekleri**  
+**Örnekler**  
 Çalışan rolü örneklerinin sayısını yapılandırır. Bulut hizmetinizin potansiyel olarak yükseltmeler sırasında kullanılamaz hale gelmesini önlemek için web'e yönelik rollerinizin birden fazla örneğini dağıtmanız önerilir. Birden fazla örneğine dağıtarak, yönergeleri için karşıladığınızdan [Azure işlem hizmet düzeyi sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/), Internet'e yönelik rolleri, iki için % 99,95 harici bağlantı garanti eder veya daha fazla rol örnekleri bir hizmet için dağıtıldı.
 
 **ConfigurationSettings**  
@@ -208,11 +208,11 @@ Hizmet çevrimdışı duruma getirmeden Azure üzerinde çalışırken, bulut hi
   Bir rol örneği çevrimdışı olduğunda, yalnızca bir sertifika güncelleştirebilirsiniz. Bir sertifika eklenir, silinmiş veya rol örneği çevrimiçi durumdayken değiştirildi, Azure düzgün bir şekilde örneği çevrimdışı bir sertifikayı güncelleştirmek ve değişiklik tamamlandıktan sonra yeniden çevrimiçi duruma getirmek için alır.
 
 ### <a name="handling-configuration-changes-with-service-runtime-events"></a>Yapılandırma değişiklikleri ile hizmet çalışma zamanı olaylarını işleme
-[Azure çalışma zamanı kitaplığı](https://msdn.microsoft.com/library/azure/mt419365.aspx) içerir [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx) ad alanı bir rolden Azure ortamı ile etkileşim kurmaya yönelik sınıflar sağlar. [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) sınıfı önce ve sonra bir yapılandırma değişikliği başlatan aşağıdaki olaylar tanımlar:
+[Azure çalışma zamanı kitaplığı](/previous-versions/azure/reference/mt419365(v=azure.100)) içerir [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee741722(v=azure.100)) ad alanı bir rolden Azure ortamı ile etkileşim kurmaya yönelik sınıflar sağlar. [RoleEnvironment](/previous-versions/azure/reference/ee773173(v=azure.100)) sınıfı önce ve sonra bir yapılandırma değişikliği başlatan aşağıdaki olaylar tanımlar:
 
-* **[Değiştirme](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx) olay**  
+* **[Değiştirme](/previous-versions/azure/reference/ee758134(v=azure.100)) olay**  
   Bu yapılandırma değişikliğini bir rol rol örnekleri gerekirse almak için bir fırsat vermek belirtilen bir örneğini uygulanmadan önce oluşur.
-* **[Değiştirilen](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) olay**  
+* **[Değiştirilen](/previous-versions/azure/reference/ee758129(v=azure.100)) olay**  
   Belirtilen bir rol örneği için yapılandırma değişiklik uygulandıktan sonra gerçekleşir.
 
 > [!NOTE]

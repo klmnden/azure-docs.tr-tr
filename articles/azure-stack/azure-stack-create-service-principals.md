@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 12/18/2018
 ms.author: sethm
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 3c36bca12a16a796a964c4447b47265eecd756be
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0f5a4dc76830740d69547a01ce40b5e10cf4a74b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809257"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499417"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Uygulamalara Azure Stack erişimi sağlama
 
@@ -89,11 +89,11 @@ AD FS yönetimi ile ilgili görevler sorumluları hizmeti.
 | Type | Eylem |
 | --- | --- |
 | AD FS sertifikası | [Oluşturma](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate) |
-| AD FS sertifikası | [Güncelleştirme](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-AD-FS) |
-| AD FS sertifikası | [Kaldır](azure-stack-create-service-principals.md#remove-a-service-principal-for-AD-FS) |
+| AD FS sertifikası | [Güncelleştirme](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-ad-fs) |
+| AD FS sertifikası | [Kaldır](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
 | AD FS istemci gizli anahtarı | [Oluşturma](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
 | AD FS istemci gizli anahtarı | [Güncelleştirme](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
-| AD FS istemci gizli anahtarı | [Kaldır](azure-stack-create-service-principals.md##remove-a-service-principal-for-AD-FS) |
+| AD FS istemci gizli anahtarı | [Kaldır](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
 
 ### <a name="create-a-service-principal-using-a-certificate"></a>Bir sertifika kullanarak bir hizmet sorumlusu oluşturma
 
@@ -124,7 +124,7 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
 
 1. Yükseltilmiş bir Windows PowerShell oturumu açın ve aşağıdaki cmdlet'leri çalıştırın:
 
-   ```PowerShell  
+   ```powershell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
     $Creds = Get-Credential
 
@@ -173,7 +173,7 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
    > [!Note]  
    > Kendinden imzalı bir sertifika kullanarak oluşturulabilir doğrulama amacıyla aşağıdaki örnekteki:
 
-   ```PowerShell  
+   ```powershell  
    $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
    ```
 
@@ -254,7 +254,7 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
 
 1. Yükseltilmiş bir Windows PowerShell oturumu açın ve aşağıdaki cmdlet'leri çalıştırın:
 
-     ```PowerShell  
+     ```powershell  
       # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
      $Creds = Get-Credential
 
@@ -272,7 +272,7 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
 
 2. Cmdlet'leri çalıştırdıktan sonra Kabuk SPN kullanmak için gerekli ayrıntıları görüntüler. İstemci gizli anahtarı sakladığınızdan emin olun.
 
-     ```PowerShell  
+     ```powershell  
      ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
      ClientId              : 8e0ffd12-26c8-4178-a74b-f26bd28db601
      Thumbprint            : 
@@ -304,7 +304,7 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
 
 1. Yükseltilmiş bir Windows PowerShell oturumu açın ve aşağıdaki cmdlet'leri çalıştırın:
 
-     ```PowerShell  
+     ```powershell  
           # Creating a PSSession to the ERCS PrivilegedEndpoint
           $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
@@ -318,7 +318,7 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
 
 2. Otomasyon tamamlandıktan sonra yeni oluşturulan gizli dizi SPN kimlik doğrulaması için gerekli görüntüler. Yeni gizli sakladığınızdan emin olun.
 
-     ```PowerShell  
+     ```powershell  
           ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2120
           ClientId              :  
           Thumbprint            : 

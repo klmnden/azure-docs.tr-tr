@@ -10,16 +10,16 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: pafarley
-ms.openlocfilehash: 23db6f889e2ca4266b7e3566c18cf9a85d4062a8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 16844f60f03e2bf488450797f43915462df08064
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517564"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904925"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Azure Bilişsel hizmetler görüntü işleme için Python SDK'sı
 
-Görüntü İşleme hizmeti geliştiricilerin görüntü işlemeye ve bilgi döndürmeye yönelik gelişmiş algoritmalara erişmesini sağlar. Bilgisayar işleme algoritmaları, görüntü içeriğini ilgilendiğiniz görsel özelliklere bağlı olarak, farklı şekillerde analiz edin. 
+Görüntü İşleme hizmeti geliştiricilerin görüntü işlemeye ve bilgi döndürmeye yönelik gelişmiş algoritmalara erişmesini sağlar. Bilgisayar işleme algoritmaları, görüntü içeriğini ilgilendiğiniz görsel özelliklere bağlı olarak, farklı şekillerde analiz edin.
 
 * [Resim çözümleme](#analyze-an-image)
 * [Konu etki alanı listesini alma](#get-subject-domain-list)
@@ -38,23 +38,23 @@ Daha fazla belgelerini mi arıyorsunuz?
 ## <a name="prerequisites"></a>Önkoşullar
 
 * [Python 3.6 +][python]
-* Ücretsiz [görüntü işleme anahtarı] [ computervision_resource] ve ilişkili bölge. Örneğini oluşturduğunuzda bu değerlere ihtiyacınız olur [ComputerVisionAPI] [ ref_computervisionclient] istemci nesnesi. Bu değerleri almak için aşağıdaki yöntemlerden birini kullanın. 
+* Ücretsiz [görüntü işleme anahtarı] [ computervision_resource] ve ilişkili uç noktası. Örneğini oluşturduğunuzda bu değerlere ihtiyacınız olur [ComputerVisionClient] [ ref_computervisionclient] istemci nesnesi. Bu değerleri almak için aşağıdaki yöntemlerden birini kullanın.
 
 ### <a name="if-you-dont-have-an-azure-subscription"></a>Bir Azure aboneliğiniz yoksa
 
-Ücretsiz bir anahtar ile 7 gün için geçerli oluşturma **[deneyin] [ computervision_resource]** deneyimi için görüntü işleme hizmeti. Anahtarı oluştururken anahtar ve bölge adını kopyalayın. Bunun için gerekir [istemcisi oluşturma](#create-client).
+Ücretsiz bir anahtar ile 7 gün için geçerli oluşturma **[deneyin] [ computervision_resource]** deneyimi için görüntü işleme hizmeti. Anahtar oluşturulduğunda, anahtarını ve uç nokta adı kopyalayın. Bunun için gerekir [istemcisi oluşturma](#create-client).
 
 Anahtar oluşturulduktan sonra aşağıdakilere dikkat edin:
 
-* Anahtar değerini: biçimi ile 32 karakter dizesi `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` 
-* Anahtar bölgesi: uç nokta URL'sinin alt etki alanı https://**westcentralus**. api.cognitive.microsoft.com
+* Anahtar değerini: biçimi ile 32 karakter dizesi `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
+* Anahtar uç noktası: taban uç nokta URL'si https://westcentralus.api.cognitive.microsoft.com
 
 ### <a name="if-you-have-an-azure-subscription"></a>Bir Azure aboneliğiniz varsa
 
-Aboneliğinizde bir kaynak oluşturmak için en kolay yöntem aşağıdaki kullanmaktır [Azure CLI] [ azure_cli] komutu. Bu, birçok bilişsel hizmetler kullanılabilir bir Bilişsel hizmet anahtarı oluşturur. Seçim yapması _mevcut_ kaynak grubu adı, örneğin, "cogserv-grubum" ve yeni bilgisayar işleme kaynak adı, "my-bilgisayar-işleme-kaynak gibi". 
+Aboneliğinizde bir kaynak oluşturmak için en kolay yöntem aşağıdaki kullanmaktır [Azure CLI] [ azure_cli] komutu. Bu, birçok bilişsel hizmetler kullanılabilir bir Bilişsel hizmet anahtarı oluşturur. Seçim yapması _mevcut_ kaynak grubu adı, örneğin, "cogserv-grubum" ve yeni bilgisayar işleme kaynak adı, "my-bilgisayar-işleme-kaynak gibi".
 
 ```Bash
-RES_REGION=westeurope 
+RES_REGION=westeurope
 RES_GROUP=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 
@@ -92,31 +92,31 @@ pip install azure-cognitiveservices-vision-computervision
 
 ## <a name="authentication"></a>Authentication
 
-Görüntü işleme kaynağınızı oluşturduktan sonra ihtiyacınız kendi **bölge**, diğeri kendi **hesap anahtarları** istemci nesnesi örneklemek için.
+Görüntü işleme kaynağınızı oluşturduktan sonra ihtiyacınız kendi **uç nokta**, diğeri kendi **hesap anahtarları** istemci nesnesi örneklemek için.
 
-Örneği oluşturmak için bu değerleri kullanabilirsiniz [ComputerVisionAPI] [ ref_computervisionclient] istemci nesnesi. 
+Örneği oluşturmak için bu değerleri kullanabilirsiniz [ComputerVisionClient] [ ref_computervisionclient] istemci nesnesi.
 
 Örneğin, Bash terminal ortam değişkenlerini ayarlamak için kullanın:
 
 ```Bash
-ACCOUNT_REGION=<resourcegroup-name>
+ACCOUNT_ENDPOINT=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 ```
 
-### <a name="for-azure-subscription-users-get-credentials-for-key-and-region"></a>Azure abonelik kullanıcıları için anahtar ve bölgenize yönelik kimlik bilgilerini alma
+### <a name="for-azure-subscription-users-get-credentials-for-key-and-endpoint"></a>Azure abonelik kullanıcıları için anahtarını ve uç noktası için kimlik bilgilerini alma
 
-Bölge ve anahtar anımsamıyorsanız bulmak için aşağıdaki yöntemi kullanabilirsiniz. Bir anahtar ve bölge oluşturmanız gerekiyorsa, yöntemi için kullanabileceğiniz [Azure abonelik sahipleri](#if-you-have-an-azure-subscription) veya [kullanıcıların bir Azure aboneliği olmadan](#if-you-dont-have-an-azure-subscription).
+Uç noktasını ve anahtarı anımsamıyorsanız bulmak için aşağıdaki yöntemi kullanabilirsiniz. Bir anahtarı ve uç noktası oluşturmanız gerekiyorsa, yöntemi için kullanabileceğiniz [Azure abonelik sahipleri](#if-you-have-an-azure-subscription) veya [kullanıcıların bir Azure aboneliği olmadan](#if-you-dont-have-an-azure-subscription).
 
-Kullanım [Azure CLI] [ cloud_shell] görüntü işleme hesabıyla iki ortam değişkenleri doldurmak için aşağıdaki kod parçacığında **bölge** ve kendi **anahtarları**(Ayrıca bu değerleri bulabilirsiniz [Azure portalında][azure_portal]). Kod parçacığı, Bash kabuğunda biçimlendirilir.
+Kullanım [Azure CLI] [ cloud_shell] görüntü işleme hesabıyla iki ortam değişkenleri doldurmak için aşağıdaki kod parçacığında **uç nokta** ve kendi **anahtarları**(Ayrıca bu değerleri bulabilirsiniz [Azure portalında][azure_portal]). Kod parçacığı, Bash kabuğunda biçimlendirilir.
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 
-export ACCOUNT_REGION=$(az cognitiveservices account show \
+export ACCOUNT_ENDPOINT=$(az cognitiveservices account show \
     --resource-group $RES_GROUP \
     --name $ACCT_NAME \
-    --query location \
+    --query endpoint \
     --output tsv)
 
 export ACCOUNT_KEY=$(az cognitiveservices account keys list \
@@ -129,28 +129,28 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
 
 ### <a name="create-client"></a>İstemcisi oluşturma
 
-Ortam değişkenlerinden bölge ve anahtarını alın ardından oluşturma [ComputerVisionAPI] [ ref_computervisionclient] istemci nesnesi.  
+Ortam değişkenlerinden uç noktasını ve anahtarı alın ardından oluşturma [ComputerVisionClient] [ ref_computervisionclient] istemci nesnesi.
 
 ```Python
-from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
+from azure.cognitiveservices.vision.computervision import ComputerVisionClient
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-# Get region and key from environment variables
+# Get endpoint and key from environment variables
 import os
-region = os.environ['ACCOUNT_REGION']
+endpoint = os.environ['ACCOUNT_ENDPOINT']
 key = os.environ['ACCOUNT_KEY']
 
 # Set credentials
 credentials = CognitiveServicesCredentials(key)
 
 # Create client
-client = ComputerVisionAPI(region, credentials)
+client = ComputerVisionClient(endpoint, credentials)
 ```
 
 ## <a name="examples"></a>Örnekler
 
-Gereksinim duyduğunuz bir [ComputerVisionAPI] [ ref_computervisionclient] aşağıdaki görevlerden herhangi birini kullanmadan önce istemci nesnesi.
+Gereksinim duyduğunuz bir [ComputerVisionClient] [ ref_computervisionclient] aşağıdaki görevlerden herhangi birini kullanmadan önce istemci nesnesi.
 
 ### <a name="analyze-an-image"></a>Resim çözümleme
 
@@ -178,7 +178,7 @@ for x in models.models_property:
 
 ### <a name="analyze-an-image-by-domain"></a>Etki alanına göre bir resmi çözümleme
 
-Bir görüntü ile konu etki alanına göre analiz edebilirsiniz [ `analyze_image_by_domain` ] [ ref_computervisionclient_analyze_image_by_domain]. Alma [desteklenen konu etki alanları listesi](#get-subject-domain-list) doğru etki alanı adını kullanmak için.  
+Bir görüntü ile konu etki alanına göre analiz edebilirsiniz [ `analyze_image_by_domain` ] [ ref_computervisionclient_analyze_image_by_domain]. Alma [desteklenen konu etki alanları listesi](#get-subject-domain-list) doğru etki alanı adını kullanmak için.
 
 ```Python
 # type of prediction
@@ -216,7 +216,7 @@ for caption in analysis.captions:
 
 ### <a name="get-text-from-image"></a>Görüntüden SMS alın
 
-Bir görüntüden herhangi bir el yazısı veya yazılı metni alabilirsiniz. Bu iki SDK çağrıları gerektirir: [ `recognize_text` ] [ ref_computervisionclient_recognize_text] ve [ `get_text_operation_result` ] [ ref_computervisionclient_get_text_operation_result]. Recognize_text çağrı zaman uyumsuzdur. İlk çağrısı tamamlandı, denetlenecek ihtiyacınız get_text_operation_result arama sonuçlarında [ `TextOperationStatusCodes` ] [ ref_computervision_model_textoperationstatuscodes] metin verileri ayıklama önce. Sonuçları metin için sınırlama kutusu koordinatları yanı sıra metni içerir. 
+Bir görüntüden herhangi bir el yazısı veya yazılı metni alabilirsiniz. Bu iki SDK çağrıları gerektirir: [ `recognize_text` ] [ ref_computervisionclient_recognize_text] ve [ `get_text_operation_result` ] [ ref_computervisionclient_get_text_operation_result]. Recognize_text çağrı zaman uyumsuzdur. İlk çağrısı tamamlandı, denetlenecek ihtiyacınız get_text_operation_result arama sonuçlarında [ `TextOperationStatusCodes` ] [ ref_computervision_model_textoperationstatuscodes] metin verileri ayıklama önce. Sonuçları metin için sınırlama kutusu koordinatları yanı sıra metni içerir.
 
 ```Python
 # import models
@@ -238,13 +238,14 @@ idLocation = len(operationLocation) - numberOfCharsInOperationId
 operationId = operationLocation[idLocation:]
 
 # SDK call
-while result.status in ['NotStarted', 'Running']:
-    time.sleep(1)
+while True:
     result = client.get_text_operation_result(operationId)
+    if result.status not in ['NotStarted', 'Running']:
+        break
+    time.sleep(1)
 
 # Get data
 if result.status == TextOperationStatusCodes.succeeded:
-
     for line in result.recognition_result.lines:
         print(line.text)
         print(line.bounding_box)
@@ -252,13 +253,13 @@ if result.status == TextOperationStatusCodes.succeeded:
 
 ### <a name="generate-thumbnail"></a>Küçük resim oluşturma
 
-Küçük resmi (JPG) ile görüntü oluşturabilirsiniz [ `generate_thumbnail` ] [ ref_computervisionclient_generate_thumbnail]. Küçük resim özgün görüntü olarak aynı oranlarını olması gerekmez. 
+Küçük resmi (JPG) ile görüntü oluşturabilirsiniz [ `generate_thumbnail` ] [ ref_computervisionclient_generate_thumbnail]. Küçük resim özgün görüntü olarak aynı oranlarını olması gerekmez.
 
 Yükleme **Pillow** Bu örneği kullanmak için:
 
 ```bash
 pip install Pillow
-``` 
+```
 
 Paket aşağıdaki kod örneğinde Pillow yüklendikten sonra küçük resim görüntüsünü oluşturmak için kullanın.
 
@@ -285,7 +286,7 @@ image.save('thumbnail.jpg')
 
 ### <a name="general"></a>Genel
 
-Ne zaman etkileşim [ComputerVisionAPI] [ ref_computervisionclient] Python SDK'sını kullanarak istemci nesnesi [ `ComputerVisionErrorException` ] [ ref_computervision_computervisionerrorexception] için kullanılan sınıfı hataları döndürür. Hizmet tarafından döndürülen hataları için REST API istekleri döndürülen HTTP durum kodları karşılık gelir.
+Ne zaman etkileşim [ComputerVisionClient] [ ref_computervisionclient] Python SDK'sını kullanarak istemci nesnesi [ `ComputerVisionErrorException` ] [ ref_computervision_computervisionerrorexception] sınıfı kullanılır hatalarını döndürmek için. Hizmet tarafından döndürülen hataları için REST API istekleri döndürülen HTTP durum kodları karşılık gelir.
 
 Örneğin, geçersiz bir anahtara sahip bir resmi çözümleme denerseniz bir `401` hata döndürülür. Aşağıdaki kod parçacığında [hata] [ ref_httpfailure] istisnayı ve hatayla ilgili ek bilgileri görüntüleyerek düzgün bir şekilde ele alınır.
 
@@ -304,14 +305,14 @@ try:
         print(caption.confidence)
 except HTTPFailure as e:
     if e.status_code == 401:
-        print("Error unauthorized. Make sure your key and region are correct.")
+        print("Error unauthorized. Make sure your key and endpoint are correct.")
     else:
         raise
 ```
 
 ### <a name="handle-transient-errors-with-retries"></a>Yeniden deneme ile geçici hata işleme
 
-İle çalışırken [ComputerVisionAPI] [ ref_computervisionclient] istemci, geçici hatalar nedeniyle çalıştırdığınızca [oran sınırları] [ computervision_request_units] zorunlu Hizmet veya ağ kesintileri gibi diğer geçici sorunlar. Bu tür hataları işleme hakkında daha fazla bilgi için bkz: [yeniden deneme düzeni] [ azure_pattern_retry] bulut tasarımı desenleri Kılavuzu ve ilgili [devre kesici düzeni] [azure_pattern_circuit_breaker].
+İle çalışırken [ComputerVisionClient] [ ref_computervisionclient] istemci, geçici hatalar nedeniyle çalıştırdığınızca [oran sınırları] [ computervision_request_units] Hizmet veya ağ kesintileri gibi diğer geçici sorunlar tarafından zorunlu tutulur. Bu tür hataları işleme hakkında daha fazla bilgi için bkz: [yeniden deneme düzeni] [ azure_pattern_retry] bulut tasarımı desenleri Kılavuzu ve ilgili [devre kesici düzeni] [azure_pattern_circuit_breaker].
 
 ### <a name="more-sample-code"></a>Daha fazla örnek kod
 

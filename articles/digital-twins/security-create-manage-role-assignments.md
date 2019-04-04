@@ -9,16 +9,19 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
-ms.openlocfilehash: 725f95797de0a4d4e6240be4d42cf8a196d94889
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118600"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905316"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Oluşturma ve Azure dijital İkizlerini rol atamalarını yönetme
 
 Azure dijital İkizlerini kullanır rol tabanlı erişim denetimi ([RBAC](./security-role-based-access-control.md)) kaynaklara erişimi yönetmek için.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="role-assignments-overview"></a>Rol atamaları genel bakış
 
@@ -36,13 +39,13 @@ Her rol ataması aşağıdaki tanımına uyan:
 
 Aşağıdaki tabloda her bir öznitelik açıklanmaktadır:
 
-| Öznitelik | Ad | Gereklidir | Tür | Açıklama |
+| Öznitelik | Ad | Gerekli | Tür | Açıklama |
 | --- | --- | --- | --- | --- |
-| Rol Kimliği | Rol tanımı tanımlayıcısı | Evet | Dize | İstenen rol atama benzersiz kimliği. Rol tanımları ve bunların tanımlayıcısı sistem API sorgulama veya aşağıdaki tabloda gözden geçirme bulun. |
-| objectId | Nesne tanımlayıcısı | Evet | Dize | Bir Azure Active Directory Kimliğini, hizmet sorumlusu nesne kimliği veya etki alanı adı. Hangi veya rol ataması atandığı. Rol ataması, ilişkili türüne göre biçimlendirilmelidir. İçin `DomainName` objectIdType, nesne kimliği ile başlamalıdır `“@”` karakter. |
-| objectIdType | Nesne tanımlayıcı türü | Evet | Dize | Nesne tanımlayıcısı kullanılan tür. Bkz: **ObjectIdTypes desteklenen** aşağıda. |
-| yol | Alan yolu | Evet | Dize | Tam erişim yolu `Space` nesne. `/{Guid}/{Guid}` bunun bir örneğidir. Tanımlayıcı için tüm grafı rol ataması gerekiyorsa belirtin `"/"`. Bu karakteri kök belirler ancak kullanımı önerilmez. Her zaman ilkesine en düşük öncelik ilkesini uygulayın. |
-| Kiracı kimliği | Kiracı tanımlayıcısı | Değişir | Dize | Çoğu durumda, bir Azure Active Directory Kiracı kimliği İçin izin verilmeyen `DeviceId` ve `TenantId` ObjectIdTypes. Gerekli `UserId` ve `ServicePrincipalId` ObjectIdTypes. DomainName ObjectIdType için isteğe bağlı. |
+| Rol Kimliği | Rol tanımı tanımlayıcısı | Evet | String | İstenen rol atama benzersiz kimliği. Rol tanımları ve bunların tanımlayıcısı sistem API sorgulama veya aşağıdaki tabloda gözden geçirme bulun. |
+| objectId | Nesne tanımlayıcısı | Evet | String | Bir Azure Active Directory Kimliğini, hizmet sorumlusu nesne kimliği veya etki alanı adı. Hangi veya rol ataması atandığı. Rol ataması, ilişkili türüne göre biçimlendirilmelidir. İçin `DomainName` objectIdType, nesne kimliği ile başlamalıdır `“@”` karakter. |
+| objectIdType | Nesne tanımlayıcı türü | Evet | String | Nesne tanımlayıcısı kullanılan tür. Bkz: **ObjectIdTypes desteklenen** aşağıda. |
+| yol | Alan yolu | Evet | String | Tam erişim yolu `Space` nesne. `/{Guid}/{Guid}` bunun bir örneğidir. Tanımlayıcı için tüm grafı rol ataması gerekiyorsa belirtin `"/"`. Bu karakteri kök belirler ancak kullanımı önerilmez. Her zaman ilkesine en düşük öncelik ilkesini uygulayın. |
+| Kiracı kimliği | Kiracı tanımlayıcısı | Değişir | String | Çoğu durumda, bir Azure Active Directory Kiracı kimliği İçin izin verilmeyen `DeviceId` ve `TenantId` ObjectIdTypes. Gerekli `UserId` ve `ServicePrincipalId` ObjectIdTypes. DomainName ObjectIdType için isteğe bağlı. |
 
 ### <a name="supported-role-definition-identifiers"></a>Desteklenen rol tanımı tanımlayıcıları
 
@@ -83,8 +86,8 @@ Uygulama Kimliğinizi, Azure Active Directory'de sağlanır. Ve hakkında daha f
 Uygulama Kimliğini aldıktan sonra aşağıdaki PowerShell komutlarını çalıştırın:
 
 ```shell
-Login-AzureRmAccount
-Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
+Login-AzAccount
+Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
 ```
 
 Bir kullanıcıyla **yönetici** rol ardından atayabilirsiniz alan Yönetici rolü için bir kullanıcı kimliği doğrulanmış bir HTTP POST isteği URL'sini sağlayarak:
@@ -162,10 +165,10 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 
 | **Parametre değeri** | **Gerekli** |  **Tür** |  **Açıklama** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  True | Dize |   UserId objectIdType için objectID. |
-| YOUR_PATH | True | Dize |   Erişimi denetlemek için seçilen yolu. |
-| YOUR_ACCESS_TYPE |  True | Dize |   Denetlenecek erişim türü. |
-| YOUR_RESOURCE_TYPE | True | Dize |  Denetlenecek kaynak. |
+| YOUR_USER_ID |  True | String |   UserId objectIdType için objectID. |
+| YOUR_PATH | True | String |   Erişimi denetlemek için seçilen yolu. |
+| YOUR_ACCESS_TYPE |  True | String |   Denetlenecek erişim türü. |
+| YOUR_RESOURCE_TYPE | True | String |  Denetlenecek kaynak. |
 
 Başarılı bir isteği bir Boole değeri döndürür `true` veya `false` erişim türü için belirtilen yol ve kaynak kullanıcıya atanmış olup olmadığını belirtmek için.
 

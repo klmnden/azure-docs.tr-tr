@@ -1,21 +1,18 @@
 ---
-title: Micro odak Kurumsal Geliştirici 4.0 azure'da Micro odak CICS BankDemo ' ayarlama | Microsoft Docs
-description: Micro odak BankDemo uygulamayı Micro odak Enterprise Server ve kurumsal Geliştirici kullanmayı öğrenmek için Azure üzerinde çalıştırın.
-services: virtual-machines-linux
-documentationcenter: ''
-author: njray
-manager: edprice
-editor: edprice
-tags: ''
-keywords: ''
-ms.openlocfilehash: 733649c2b7f27ec5e80cb77adba708a158fb2c22
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+title: Micro odak Kurumsal Geliştirici 4.0 Azure sanal Makineler'de Micro odak CICS BankDemo ' ayarlayın
+description: Azure sanal makinelerinde (VM'ler) Micro odak Enterprise Server ve kurumsal Geliştirici kullanmayı öğrenmek için Micro odak BankDemo uygulamayı çalıştırın.
+author: sread
+ms.date: 04/02/2019
+ms.topic: article
+ms.service: multiple
+ms.openlocfilehash: be94cf0367f93f14249239fce5e09c8635a01136
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099476"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892492"
 ---
-# <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-in-azure"></a>Micro odak Kurumsal Geliştirici 4.0 azure'da Micro odak CICS BankDemo ' ayarlayın
+# <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Micro odak Kurumsal Geliştirici 4.0 azure'da Micro odak CICS BankDemo ' ayarlayın
 
 Micro odak Enterprise Server 4.0 ve Azure üzerinde Kurumsal Geliştirici 4.0 ayarladığınızda, IBM z/OS iş yüklerinin dağıtımı test edebilirsiniz. Bu makalede CICS BankDemo, Enterprise Developer ile birlikte gelen bir örnek uygulamanın nasıl gösterir.
 
@@ -23,7 +20,7 @@ CICS müşteri bilgileri, denetim sistemi birçok çevrimiçi ana bilgisayar uyg
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Bir VM ile [Kurumsal Geliştirici](set-up-micro-focus-on-azure.md). Enterprise Developer Enterprise Server Geliştirme ve test amaçları için eksiksiz bir örnek üzerindeki olduğunu aklınızda bulundurun. Kurumsal demo için kullanılan sunucu örneğinin budur.
+- Bir VM ile [Kurumsal Geliştirici](set-up-micro-focus-azure.md). Enterprise Developer Enterprise Server Geliştirme ve test amaçları için eksiksiz bir örnek üzerindeki olduğunu aklınızda bulundurun. Kurumsal demo için kullanılan sunucu örneğinin budur.
 
 - [SQL Server Express 2017 sürümü](https://www.microsoft.com/sql-server/sql-server-editions-express). İndirin ve kurumsal Geliştirici VM'ye yükleyin. Kuruluş Sunucusu CICS bölgelerin yönetimi için bir veritabanı gerektirir ve BankDemo uygulama ayrıca BANKDEMO adlı bir SQL Server veritabanı kullanır. Bu Tanıtım, her iki veritabanı için SQL Server Express kullandığınızı varsayar. Yükleme sırasında temel Yükleme'yi seçin.
 
@@ -269,9 +266,10 @@ Gerçekleştirmeniz gereken son Rumba, 3270 öykünücüsü kullanarak bir 3270 
 
 Tebrikler! Micro odak kuruluş sunucusu kullanarak Azure'da bir CICS uygulaması şimdi çalışıyor.
 
-## <a name="learn-more"></a>Daha fazla bilgi edinin
+## <a name="next-steps"></a>Sonraki adımlar
 
+- [Kuruluş sunucusu, Azure üzerinde Docker kapsayıcılarında çalıştırın](run-enterprise-server-container.md)
 - [Ana bilgisayar geçişi - Portal](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
-- [Sanal Makineler](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
+- [Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 - [Sorun giderme](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
-- [Azure'a geçiş için ana bilgisayar demystifying](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)
+- [Ana bilgisayardan Azure’a geçişi daha iyi anlama](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: d500e26f5701e59dacfd5f09f6eaf88c5ced74e6
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648529"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918731"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure ayrılmış VM örnekleri ile bulunmayan yazılım maliyetleri
 
-Bir Azure hibrit kullanım teklifi, ayrılmış sanal makine örneklerine sahip değilseniz, aşağıdaki bölümlerde listelenen yazılım ölçümleri için ücretlendirilirsiniz.
+Bir Azure hibrit avantajı, ayrılmış sanal makine örneklerine sahip değilseniz, aşağıdaki bölümde listelenen yazılım ölçümleri için ücretlendirilir.
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Windows yazılım ölçümleri rezervasyon maliyeti dahil değildir
 
@@ -66,18 +66,18 @@ Bir Azure hibrit kullanım teklifi, ayrılmış sanal makine örneklerine sahip 
 
 ## <a name="rates-for-azure-meters"></a>Azure ölçümleri ücretleri
 
-Bu ölçümlerin her birinin maliyeti Azure RateCard API aracılığıyla elde edebilirsiniz. Bir azure ölçüm için ücretler alma hakkında daha fazla bilgi için bkz [almak için kullanılan bir Azure aboneliğinde kaynakları fiyat ve meta veri bilgileri](https://msdn.microsoft.com/library/azure/mt219004).
+Bu ölçümlerin her birinin maliyeti Azure RateCard API aracılığıyla elde edebilirsiniz. Bir azure ölçüm için ücretler alma hakkında daha fazla bilgi için bkz [almak için kullanılan bir Azure aboneliğinde kaynakları fiyat ve meta veri bilgileri](/previous-versions/azure/reference/mt219004(v=azure.100)).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure için ayırma hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
 - [Azure için ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
-- [Azure Ayrılmış VM Örnekleri ile Sanal Makinelere ön ödeme yapma](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure için ayırmaları yönetme](billing-manage-reserved-vm-instance.md)
 - [Ayırma indirimi nasıl uygulanacağını anlama](billing-understand-vm-reservation-charges.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bize ulaşın
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

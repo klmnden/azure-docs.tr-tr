@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: f9bf23094f47f5c200f7a02f81a8e185f469c580
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516978"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893461"
 ---
 # <a name="upload-and-index-your-videos"></a>Videolarınızı karşıya yükleme ve dizinleme  
 
@@ -85,9 +85,9 @@ Müşterinin (bir POST isteği kullanılarak) aşağıdaki olaylar hakkında bil
 
 Ham veya dış kayıtlar arka plan gürültüsü içeriyorsa bu parametreyi kullanın. Bu parametre, dizinleme işlemini yapılandırmak için kullanılır. Aşağıdaki değerleri belirtebilirsiniz:
 
-- `Default`: Ses ve videoyu kullanarak öngörüler ayıklayın ve bunları dizinleyin
-- `AudioOnly`: Yalnızca ses kullanarak (videoyu yok sayarak) öngörüler ayıklayın ve bunları dizinleyin
-- `DefaultWithNoiseReduction`: Ses akışına gürültü azaltma algoritmaları uygulayarak ses ve videodan öngörüler ayıklayın ve bunları dizinleyin
+- `Default` – Dizin ve ses ve video hem kullanarak Öngörüler ayıklayın
+- `AudioOnly` – Dizin ve ses yalnızca (göz ardı video) kullanarak Öngörüler ayıklayın
+- `DefaultWithNoiseReduction` – Dizin ve ses akışı gürültü azaltma algoritmalar uygularken ses hem video içgörüleri ayıklayın
 
 Fiyat, seçilen dizinleme seçeneğine bağlıdır.  
 
@@ -175,7 +175,7 @@ public async Task Sample()
     var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
     var uploadResult = await uploadRequestResult.Content.ReadAsStringAsync();
 
-    // get the video id from the upload result
+    // get the video ID from the upload result
     string videoId = JsonConvert.DeserializeObject<dynamic>(uploadResult)["id"];
     Debug.WriteLine("Uploaded");
     Debug.WriteLine("Video ID:");
@@ -290,4 +290,4 @@ Upload işlemi aşağıdaki tabloda listelenen durum kodlarını döndürebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[v2 API'si tarafından üretilen Azure Microsoft Video Indexer çıktısını inceleme](video-indexer-output-json-v2.md)
+[API tarafından üretilen Azure Video dizinleyici çıktısını İnceleme](video-indexer-output-json-v2.md)

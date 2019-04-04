@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: cf8a36145ebf5d5dabf8c539d4f245e1d4b209f0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 78ee24280600d336d394819d33762d8cf6278858
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886446"
+ms.locfileid: "58891489"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Özel görüntü ile bir sınıflandırıcı oluşturma
 
@@ -125,9 +125,7 @@ Tahmin çağrısı ile yüksek olasılık eşiği yorumlama eğilimlidir yüksek
 
 ## <a name="manage-training-iterations"></a>Eğitim yinelemelerini yönetme
 
-Her zaman sınıflandırıcınızı eğitmek, yeni oluşturduğunuz _yineleme_ kendi güncelleştirilmiş performans ölçümleri ile. Tüm yinelemelerinizi'nın sol bölmesinde görüntüleyebileceğiniz **performans** sekmesi. Bunlardan birini seçtiğinizde bunu yapma seçeneğiniz vardır _varsayılan yineleme_ tıklayarak **varsayılan yap** üstünde düğme. _Varsayılan yineleme_ tahmin API aracılığıyla sorguladığınızda, varsayılan olarak kullanılacak modelidir (bir uygulamadan örneği için). Güncelleştirilecek reddetmeniz durumunda _varsayılan yineleme_, uygulamanızın geçerli davranışını; etkilemeden modelinizi eğitmek devam edebilirsiniz ve ardından, geliştirilmiş modeliyle memnun olduğunuzda, varsayılan güncelleştirebilirsiniz.
-
-Sol bölmede, ayrıca bulacaksınız **Sil** düğmesi, eski ise, bir yineleme silmek için kullanabilirsiniz. Bir yineleme sildiğinizde, benzersiz olarak onunla ilişkili tüm görüntüleri silin.
+Her zaman sınıflandırıcınızı eğitmek, yeni oluşturduğunuz _yineleme_ kendi güncelleştirilmiş performans ölçümleri ile. Tüm yinelemelerinizi'nın sol bölmesinde görüntüleyebileceğiniz **performans** sekmesi. Sol bölmede, ayrıca bulacaksınız **Sil** düğmesi, eski ise, bir yineleme silmek için kullanabilirsiniz. Bir yineleme sildiğinizde, benzersiz olarak onunla ilişkili tüm görüntüleri silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

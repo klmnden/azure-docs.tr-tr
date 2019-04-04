@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 1f96c47e993e9b3d123972aba8eefc54b1d5cdfa
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 56c75840ca3114af40a2c843e2107f850bbff51a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652680"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905979"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Geliştirilmiş yedeği almak ve performansı Azure Backup anında geri yükleme özelliğine sahip geri yükleme
 
@@ -28,6 +28,7 @@ Yeni model anlık geri yüklemek için aşağıdaki özellik geliştirmeleri sa�
 * Standart SSD disk yanı sıra diskleri HDD standart ve Premium SSD diskleri destekler.
 *   Yönetilmeyen bir sanal makinenin özgün depolama hesaplarına (disk başına), kullanma yeteneğini geri yüklerken. Depolama hesabı arasında dağıtılmış diskleri VM olsa bile bu özelliği var. Çok çeşitli sanal makine yapılandırmaları için geri yükleme işlemlerini hızlandırır.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-new-in-this-feature"></a>Bu özelliği yenilikler nelerdir?
 
@@ -74,9 +75,9 @@ Azure portalında, eklenen bir alan gördüğünüz **VM yedekleme İlkesi** alt
 > Az Powershell'den sürüm 1.6.0 ve sonraki sürümlerde, PowerShell kullanarak ilkesinde anında geri yükleme anlık görüntü saklama süresi güncelleştirebilirsiniz.
 
 ```powershell
-PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+PS C:\> $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+PS C:\> Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 Her ilke için varsayılan anlık görüntü saklama 2 gün olarak ayarlanır. Kullanıcı, en az 1 ve en fazla 5 gün değeri değiştirebilirsiniz. Haftalık ilkeleri için anlık görüntü saklama 5 gün için sabit.
 

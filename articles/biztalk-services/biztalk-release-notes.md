@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: a82035bfbed109d6521131d8c730bef04030c94f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 92fc8e9edfc745ae89c2b4d44e193566292d4f08
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093550"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918884"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk Hizmetleri için sürüm notları
 
@@ -30,7 +30,7 @@ ms.locfileid: "58093550"
 Microsoft Azure BizTalk Hizmetleri için sürüm notları, bu sürümdeki bilinen sorunları içerir.
 
 ## <a name="whats-new-in-the-november-update-of-biztalk-services"></a>BizTalk Services'ın Kasım güncelleştirmesindeki yenilikler
-* Bekleme sırasında şifreleme BizTalk Hizmetleri portalında etkinleştirilebilir. Bkz: [etkinleştirme BizTalk Hizmetleri portalında bekleyen şifreleme](https://msdn.microsoft.com/library/azure/dn874052.aspx).
+* Bekleme sırasında şifreleme BizTalk Hizmetleri portalında etkinleştirilebilir. Bkz: [etkinleştirme BizTalk Hizmetleri portalında bekleyen şifreleme](/previous-versions/azure/dn874052(v=azure.100)).
 
 ## <a name="update-history"></a>Güncelleştirme geçmişi
 ### <a name="october-update"></a>Ekim güncelleştirme
@@ -39,14 +39,14 @@ Microsoft Azure BizTalk Hizmetleri için sürüm notları, bu sürümdeki biline
   * **Senaryo**: Azure Active Directory'de bir kurumsal hesap kullanarak BizTalk hizmeti dağıtım kayıtlı (gibi user@fabrikam.com veya user@contoso.com). Bu senaryoda, yalnızca Azure Active Directory kullanıcıları aynı kuruluş içindeki BizTalk Hizmetleri portalını kullanarak BizTalk hizmeti yönetebilir. Bir Microsoft hesabı kullanılamaz.  
 * BizTalk Hizmetleri Portalı'nda, BizTalk hizmeti oluşturduğunuzda, otomatik olarak kaydedilir.
   * **Senaryo**: BizTalk hizmeti oluşturma, Azure'da oturum açın ve ardından **Yönet** ilk kez. BizTalk Hizmetleri portalında oturum açtığında, BizTalk hizmeti otomatik olarak kaydeder ve dağıtımlarınız için hazırdır.  
-    Bkz: [kaydetme ve BizTalk bir BizTalk hizmeti dağıtımını Güncelleştirme Hizmetleri portalı](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
+    Bkz: [kaydetme ve BizTalk bir BizTalk hizmeti dağıtımını Güncelleştirme Hizmetleri portalı](/previous-versions/azure/hh689837(v=azure.100)).  
 
 ### <a name="august-14-update"></a>14 Ağustos güncelleştirme
-* Sözleşme ve ayırma-ticari ortak sözleşmeleri ve köprüleri köprüsü, BizTalk Services Portalı'nda artık birbirinden ayrılmıştır. Artık sözleşmeleri ve köprüleri ayrı olarak oluşturduğunuz ve çalışma zamanında köprüleri, EDI iletisi değerlere göre bir sözleşmesinin çözümleyin. Bkz: [Azure BizTalk Services oluşturma sözleşmelerde](https://msdn.microsoft.com/library/azure/hh689908.aspx), [BizTalk Hizmetleri portalını kullanarak bir EDI köprüsü oluşturma](https://msdn.microsoft.com/library/azure/dn793986.aspx), [BizTalk Hizmetleri portalını kullanarak bir AS2 köprüsü oluşturma](https://msdn.microsoft.com/library/azure/dn793993.aspx)ve [ Nasıl köprüleri zamanında sözleşmeleri çözümlemezseniz?](https://msdn.microsoft.com/library/azure/dn794001.aspx)  
+* Sözleşme ve ayırma-ticari ortak sözleşmeleri ve köprüleri köprüsü, BizTalk Services Portalı'nda artık birbirinden ayrılmıştır. Artık sözleşmeleri ve köprüleri ayrı olarak oluşturduğunuz ve çalışma zamanında köprüleri, EDI iletisi değerlere göre bir sözleşmesinin çözümleyin. Bkz: [Azure BizTalk Services oluşturma sözleşmelerde](/previous-versions/azure/hh689908(v=azure.100)), [BizTalk Hizmetleri portalını kullanarak bir EDI köprüsü oluşturma](/previous-versions/azure/dn793986(v=azure.100)), [BizTalk Hizmetleri portalını kullanarak bir AS2 köprüsü oluşturma](/previous-versions/azure/dn793993(v=azure.100))ve [ Nasıl köprüleri zamanında sözleşmeleri çözümlemezseniz?](/previous-versions/azure/dn794001(v=azure.100))  
 * Anlaşmaları için şablonlar oluşturma seçeneğini kullanımdan kaldırılmıştır.  
-* Gönderme tarafı sözleşme, artık her şema için farklı bir sınırlayıcı kümesi belirtebilirsiniz. Bu yapılandırma, gönderme tarafı sözleşmesi Protokolü Ayarları altında belirtilir. Daha fazla bilgi için [Oluştur X12 bir Azure BizTalk Services'da sözleşme](https://msdn.microsoft.com/library/azure/hh689847.aspx) ve [Azure BizTalk Services hizmetinde bir EDIFACT sözleşmesi oluşturun](https://msdn.microsoft.com/library/azure/dn606267.aspx). İki yeni varlıklar, aynı amaçla TPM OM API için de eklenir. Bkz: [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) ve [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
-* Türetilen türler dahil olmak üzere standart XSD yapıları artık desteklenmektedir. Bkz [kullanım standart XSD oluşturur, eşlemelerinde](https://msdn.microsoft.com/library/azure/dn793987.aspx) ve [kullanım türetilmiş türlerini eşleme senaryolar ve örnekler](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
-* AS2 ileti imzalama için yeni MIC algoritmaları ve yeni şifreleme algoritmaları destekler. Bkz: [Azure BizTalk Services hizmetinde bir AS2 sözleşmesi oluşturma](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
+* Gönderme tarafı sözleşme, artık her şema için farklı bir sınırlayıcı kümesi belirtebilirsiniz. Bu yapılandırma, gönderme tarafı sözleşmesi Protokolü Ayarları altında belirtilir. Daha fazla bilgi için [Oluştur X12 bir Azure BizTalk Services'da sözleşme](/previous-versions/azure/hh689847(v=azure.100)) ve [Azure BizTalk Services hizmetinde bir EDIFACT sözleşmesi oluşturun](/previous-versions/azure/dn606267(v=azure.100)). İki yeni varlıklar, aynı amaçla TPM OM API için de eklenir. Bkz: [X12DelimiterOverrides](/previous-versions/azure/dn798749(v=azure.100)) ve [EDIFACTDelimiterOverride](/previous-versions/azure/dn798748(v=azure.100)).  
+* Türetilen türler dahil olmak üzere standart XSD yapıları artık desteklenmektedir. Bkz [kullanım standart XSD oluşturur, eşlemelerinde](/previous-versions/azure/dn793987(v=azure.100)) ve [kullanım türetilmiş türlerini eşleme senaryolar ve örnekler](/previous-versions/azure/).  
+* AS2 ileti imzalama için yeni MIC algoritmaları ve yeni şifreleme algoritmaları destekler. Bkz: [Azure BizTalk Services hizmetinde bir AS2 sözleşmesi oluşturma](/previous-versions/azure/hh689890(v=azure.100)).  
 
 ## <a name="known-issues"></a>Bilinen Sorunlar
 
@@ -85,7 +85,7 @@ Geçici çözüm olarak, belirtilen URL önce işaretini temizlemeniz gerekir **
 
 ### <a name="tracking-in-biztalk-services-portal"></a>BizTalk Hizmetleri portalında izleme
 İzleme olayları, en fazla EDI ileti işleme ve herhangi bir ilişki yakalanır. Bir ileti dışında Protokolü aşama başarısız olursa izleme başarılı olarak gösterilir. Bu durumda günlük bölümünde bakın **ayrıntıları** sütununda **izleme** hata ayrıntıları.
-X12 ayarları gönderip ([Oluştur X12 bir Azure BizTalk Services'da sözleşme](https://msdn.microsoft.com/library/azure/hh689847.aspx)) protokolü sahneye çıkarak bilgileri sağlayın.  
+X12 ayarları gönderip ([Oluştur X12 bir Azure BizTalk Services'da sözleşme](/previous-versions/azure/hh689847(v=azure.100))) protokolü sahneye çıkarak bilgileri sağlayın.  
 
 ### <a name="update-agreement"></a>Güncelleştirme Sözleşmesi
 BizTalk Hizmetleri portalında, bir anlaşma yapılandırıldığında bir kimliğinin niteleyicisi değiştirmenizi sağlar. Bu, tutarsız özelliklerinde neden olabilir. Örneğin, ZZ:1234567 ve ZZ:7654321 Niteleyici'ı kullanarak bir sözleşme yok. BizTalk Hizmetleri portalını profili ayarlarında ZZ:1234567 01:ChangedValue olacak şekilde değiştirin. Sözleşme açın ve 01:ChangedValue ZZ:1234567 yerine görüntülenir.
@@ -109,7 +109,8 @@ Aşağıdaki sırayla bir senaryoyu düşünün:
 * .Bcs dosyasını (Visual Studio sekmede kapatarak) değişiklikleri kaydetmeden kapatın.  
 * .Bcs dosyayı yeniden Çözüm Gezgini'nden açın.  
   İlişkili .bridgeconfig dosyanın belirtilen yeni ad olsa da varlık adının tasarım yüzeyinde hala eski adı olduğunu göreceksiniz. Köprü yapılandırmasının köprüsü bileşen çift tıklayarak açmayı denerseniz, aşağıdaki hatayı alıyorsunuz:  
-  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist` Bu senaryoyu uygulamaya önlemek için BizTalk hizmeti projesini varlıklarda yeniden adlandırdıktan sonra değişiklikleri kaydettiğinizden emin olun.  
+  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist`
+  Bu senaryoyu uygulamaya önlemek için BizTalk hizmeti projesini varlıklarda yeniden adlandırdıktan sonra değişiklikleri kaydettiğinizden emin olun.  
   
 ### <a name="biztalk-service-project-builds-successfully-even-if-an-artifact-has-been-excluded-from-a-visual-studio-project"></a>Visual Studio projesinden bir yapıt çıkarılmıştır bile BizTalk hizmeti projesini başarıyla oluşturur
 Visual Studio projesinden hariç tutmak ve (örneğin, bir istek iletisi türü belirterek), yapı köprü yapılandırmasında içerir veya BizTalk hizmeti projeye bir yapıtı (örneğin, bir XSD dosyası) eklediğiniz bir senaryoyu düşünün. Silinen yapı konumundaki Visual Studio projesinde burada eklenmiştir aynı disk üzerinde mevcut olduğu sürece böyle bir durumda, proje oluşturma herhangi bir hata vermeyiz.
@@ -224,5 +225,5 @@ BizTalk Hizmetleri Önizleme abonelikte dağıtılmış bir XML köprüsü sahip
 Bu belge boyunca 'Köprüsü' ve 'işlem hattı' terim birbirlerinin yerine kullanılır. Her ikisi de aslında, BizTalk Services üzerinde dağıtılmış ileti işleme birimi, aynı anlama gelir.  
 
 ### <a name="concepts"></a>Kavramlar
-[BizTalk Hizmetleri](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
+[BizTalk Services](/previous-versions/azure/hh689864(v=azure.100))   
 

@@ -1,17 +1,11 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1d6daf9805737294fb5bf0e9f4e48a3c7cfbb98e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731846"
 documentType: LandingData
 title: Translator Metin Çevirisi Belgeleri
 metadata:
-  title: Translator Metin Çevirisi Belgeleri - Hızlı Başlangıçlar, Öğreticiler, API Başvuruları - Azure Bilişsel Hizmetler | Microsoft Docs
+  title: 'Translator Metin Çevirisi Belgeleri - Hızlı Başlangıçlar, Öğreticiler, API Başvuruları - Azure Bilişsel Hizmetler | Microsoft Docs'
   description: Metinleri birden fazla dile çevirmek için Translator Metin Çevirisi’ni kullanmayı öğrenin.
   services: cognitive-services
-  author: Jann-Skotdal
+  author: v-pawal
   manager: Chris.Wendt
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
@@ -20,87 +14,87 @@ metadata:
   ms.date: 02/21/2019
   ms.author: v-jansko
 abstract:
-  description: Translator Metin Çevirisi, basit bir REST API çağrısı üzerinden neredeyse gerçek zamanlı bir şekilde metin çevirisi yapmak için kullanabileceğiniz bulut tabanlı bir makine çevirisi hizmetidir. Modern nöral makine çevirisi teknolojisini kullanan bu API, istatistiksel makine çevirisi teknolojisi de sunar. Özel Çevirmen, Translator Metin Çevirisi API’sinin nöral çeviri sistemleri oluşturmanıza olanak sağlayan bir uzantısıdır. Özelleştirilmiş çeviri sistemi, Translator Metin Çevirisi API’si veya <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/"> Microsoft Konuşma Hizmetleri</a> ile metin çevirisi yapmak için kullanılabilir. Hem nöral hem de istatistiksel makine çevirisinde desteklenen dillerin listesi için lütfen bkz. <a href="languages.md">Desteklenen diller</a>.
+  description: 'Translator Metin Çevirisi, basit bir REST API çağrısı üzerinden neredeyse gerçek zamanlı bir şekilde metin çevirisi yapmak için kullanabileceğiniz bulut tabanlı bir makine çevirisi hizmetidir. Modern nöral makine çevirisi teknolojisini kullanan bu API, istatistiksel makine çevirisi teknolojisi de sunar. Özel Çevirmen, Translator Metin Çevirisi API’sinin nöral çeviri sistemleri oluşturmanıza olanak sağlayan bir uzantısıdır. Özelleştirilmiş çeviri sistemi, Translator Metin Çevirisi API’si veya <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/"> Microsoft Konuşma Hizmetleri</a> ile metin çevirisi yapmak için kullanılabilir. Hem nöral hem de istatistiksel makine çevirisinde desteklenen dillerin listesi için lütfen bkz. <a href="languages.md">Desteklenen diller</a>.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/translator/translator-info-overview
+            html: <p>Translator Metin Çevirisi API’si hakkında bilgi edinin</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Translator Metin Çevirisi API’si nedir?
+          - href: /azure/cognitive-services/translator/custom-translator/overview
+            html: <p>Özel Çevirmen hakkında bilgi edinin</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Özel Çevirmen nedir?
+          - href: /azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
+            html: <p>Özel Çevirmen’i nasıl kullanmaya başlayacağınızı öğrenin</p>
+            image:
+              src: ../media/index/i_get-started.svg
+            title: Özel Çevirmen hızlı başlangıç
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - href: /azure/cognitive-services/translator/translator-info-overview
-      html: <p>Translator Metin Çevirisi API’si hakkında bilgi edinin</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: Translator Metin Çevirisi API’si nedir?
-    - href: /azure/cognitive-services/translator/custom-translator/overview
-      html: <p>Özel Çevirmen hakkında bilgi edinin</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: Özel Çevirmen nedir?
-    - href: /azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
-      html: <p>Özel Çevirmen’i nasıl kullanmaya başlayacağınızı öğrenin</p>
-      image:
-        src: ../media/index/i_get-started.svg
-      title: Özel Çevirmen hızlı başlangıç
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: "Translator Metin Çevirisi API'sini kullanmaya başlama:"
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/logo_csharp.svg
-      title: C#
-    - image:
-        src: media/index/logo_java.svg
-      title: Java
-    - image:
-        src: media/index/logo_nodejs.svg
-      title: Node.js
-    - image:
-        src: media/index/logo_python.svg
-      title: Python
-    - image:
-        src: media/index/logo_go.svg
-      title: Başlayın
-    rows:
-    - title: Metni bir dilden başka bir dile çevirin
-      values:
-      - href: quickstart-csharp-translate
-      - href: quickstart-java-translate
-      - href: quickstart-nodejs-translate
-      - href: quickstart-python-translate
-      - href: quickstart-go-translate
-    - title: Metni bir betikten başka bir betiğe dönüştürün
-      values:
-      - href: quickstart-csharp-transliterate
-      - href: quickstart-java-transliterate
-      - href: quickstart-nodejs-transliterate
-      - href: quickstart-python-transliterate
-      - href: quickstart-go-transliterate
-    - title: Metnin dilini tanımlayın
-      values:
-      - href: quickstart-csharp-detect
-      - href: quickstart-java-detect
-      - href: quickstart-nodejs-detect
-      - href: quickstart-python-detect
-      - href: quickstart-go-detect
-    - title: Alternatif çeviri ve kullanım örnekleri edinin
-      values:
-      - href: quickstart-csharp-dictionary
-      - href: quickstart-java-dictionary
-      - href: quickstart-nodejs-dictionary
-      - href: quickstart-python-dictionary
-      - href: quickstart-go-dictionary
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: 'Translator Metin Çevirisi API’si kullanarak uygulama geliştirmeyi öğrenin:'
-  - type: paragraph
-    text: <a href="tutorial-wpf-translation-csharp.md">Translator Metin Çevirisi için C# kullanarak bir WPF uygulaması yazma</a>
-- title: Başvuru
-  items:
-  - type: paragraph
-    text: <p><a href="reference/v3-0-reference.md">API Başvurusu</a></p>
+      - type: paragraph
+        text: 'Translator Metin Çevirisi API''sini kullanmaya başlama:'
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/logo_csharp.svg
+            title: 'C#'
+          - image:
+              src: media/index/logo_java.svg
+            title: Java
+          - image:
+              src: media/index/logo_nodejs.svg
+            title: Node.js
+          - image:
+              src: media/index/logo_python.svg
+            title: Python
+          - image:
+              src: media/index/logo_go.svg
+            title: Başlayın
+        rows:
+          - title: Metni bir dilden başka bir dile çevirin
+            values:
+              - href: quickstart-csharp-translate
+              - href: quickstart-java-translate
+              - href: quickstart-nodejs-translate
+              - href: quickstart-python-translate
+              - href: quickstart-go-translate
+          - title: Metni bir betikten başka bir betiğe dönüştürün
+            values:
+              - href: quickstart-csharp-transliterate
+              - href: quickstart-java-transliterate
+              - href: quickstart-nodejs-transliterate
+              - href: quickstart-python-transliterate
+              - href: quickstart-go-transliterate
+          - title: Metnin dilini tanımlayın
+            values:
+              - href: quickstart-csharp-detect
+              - href: quickstart-java-detect
+              - href: quickstart-nodejs-detect
+              - href: quickstart-python-detect
+              - href: quickstart-go-detect
+          - title: Alternatif çeviri ve kullanım örnekleri edinin
+            values:
+              - href: quickstart-csharp-dictionary
+              - href: quickstart-java-dictionary
+              - href: quickstart-nodejs-dictionary
+              - href: quickstart-python-dictionary
+              - href: quickstart-go-dictionary
+  - title: Adım Adım Öğreticiler
+    items:
+      - type: paragraph
+        text: 'Translator Metin Çevirisi API’si kullanarak uygulama geliştirmeyi öğrenin:'
+      - type: paragraph
+        text: '<a href="tutorial-wpf-translation-csharp.md">Translator Metin Çevirisi için C# kullanarak bir WPF uygulaması yazma</a>'
+  - title: Başvuru
+    items:
+      - type: paragraph
+        text: <p><a href="reference/v3-0-reference.md">API Başvurusu</a></p>

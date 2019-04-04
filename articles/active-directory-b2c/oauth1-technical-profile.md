@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C, özel bir ilkede OAuth1 teknik profil tanımlama | Microsoft Docs
+title: Azure Active Directory B2C, özel bir ilkede OAuth1 teknik profili tanımlama | Microsoft Docs
 description: Azure Active Directory B2C, özel bir ilkede OAuth1 teknik profili tanımlayın.
 services: active-directory-b2c
 author: davidmu1
@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 08fb0baf85b09b4804c83617dbae9ae9c69f0224
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 86de73394d96d1122abce44504d2b0fd99a01841
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162744"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915791"
 ---
-# <a name="define-a-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Bir Azure Active Directory B2C özel ilke OAuth1 teknik profil tanımlama
+# <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>OAuth1 teknik profili, bir Azure Active Directory B2C özel ilke tanımlayın
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

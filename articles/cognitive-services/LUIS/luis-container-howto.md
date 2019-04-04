@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: b7788cc6854b477e8aab9e9df82ed2b54a3bdfe2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: ca9b08cdccd43a093ca8b5001d3e30be0e5258b5
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884576"
+ms.locfileid: "58894687"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Yükleme ve LUIS docker kapsayıcılarını çalıştırın
  
@@ -81,7 +81,7 @@ Kapsayıcı açıldığında [ana bilgisayar](#the-host-computer), kapsayıcı i
 1. [Kapsayıcıyı çalıştırmak](##run-the-container-with-docker-run), gerekli olan _giriş bağlama_ ve faturalama ayarları. Daha fazla [örnekler](luis-container-configuration.md#example-docker-run-commands) , `docker run` komutu kullanılabilir. 
 1. [Kapsayıcının tahmini uç nokta sorgulama](#query-the-containers-prediction-endpoint). 
 1. Kapsayıcıyla işiniz bittiğinde [uç nokta günlükleri içeri aktarma](#import-the-endpoint-logs-for-active-learning) çıktısı LUIS Portalı'nda bağlama ve [Durdur](#stop-the-container) kapsayıcı.
-1. Kullanım LUIS portal'ın [etkin olarak öğrenmeye](luis-how-to-review-endoint-utt.md) üzerinde **gözden geçirin, konuşma uç noktası** uygulama geliştirmek için sayfa.
+1. Kullanım LUIS portal'ın [etkin olarak öğrenmeye](luis-how-to-review-endpoint-utterances.md) üzerinde **gözden geçirin, konuşma uç noktası** uygulama geliştirmek için sayfa.
 
 Kapsayıcı içinde çalışan uygulama değiştirilemez. İçinde kapsayıcı uygulamada değişiklik sipariş, hizmet LUIS kullanarak uygulamayı değiştirmeniz gerekir [LUIS](https://www.luis.ai) portalı veya kullanım LUIS [yazma API'leri](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f). Ardından eğitmek ve/veya yayımlama, ardından yeni bir paket indirip kapsayıcı yeniden çalıştırın.
 
@@ -268,7 +268,7 @@ Sorgu parametrelerini yapılandırma nasıl ve ne sorgu yanıtına döndürülü
 |`timezoneOffset`|number|TimezoneOffset sağlar [saat dilimini değiştirme](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) önceden oluşturulmuş varlık datetimeV2 tarafından kullanılır.|
 |`verbose`|boole|Tüm amaçlar ve ayarlandığında puanlarını döndürür true. Yalnızca üst hedefini döndüren varsayılan false değeridir.|
 |`staging`|boole|Ortam sonuçları, hazırlama alanından döndürür sorgu ayarlamak true. |
-|`log`|boole|Sorgular, daha sonra için kullanılabilir günlükleri [etkin olarak öğrenmeye](luis-how-to-review-endoint-utt.md). Varsayılan değer True'dur.|
+|`log`|boole|Sorgular, daha sonra için kullanılabilir günlükleri [etkin olarak öğrenmeye](luis-how-to-review-endpoint-utterances.md). Varsayılan değer True'dur.|
 
 ### <a name="query-published-app"></a>Sorgu yayımlanan uygulama
 

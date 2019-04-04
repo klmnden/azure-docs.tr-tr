@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 34e6ce7f3b38dfd583aa557d2f1d7340ea444da9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984858"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916742"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Azure İzleyicisi'ni (Önizleme) Map uygulama bileşenleri anlamak için VM'ler için kullanma
 Windows ve Linux ortamınızı Azure İzleyici ile iki şekilde VM'ler için doğrudan bir sanal makineden veya Azure İzleyici'den VM grupları arasında gösterilebilir azure'da çalışan sanal makineler üzerinde bulunan uygulama bileşenlerini görüntüleme. 
@@ -43,7 +43,7 @@ Sağ tarafında bölmesinin, tıklayarak **günlüğü olaylarını** odak nokta
 
 ![Özellikler bölmesinde günlük arama listesi](./media/vminsights-maps/properties-pane-logs-01.png)
 
-Kapat *günlükleri** ve geri dönüp **özellikleri** bölmesi ve select **uyarılar** durumu ölçütlerini VM'den için oluşturulan uyarılar görünümü uyarılar için. Harita, seçili zaman aralığında sonra seçtiğiniz sunucu için tetiklenen uyarılar gösterilecek Azure uyarıları ile entegre olur. Sunucu, geçerli bir uyarı ve makine uyarılar bölmesinde uyarılar listeler bir simge görüntüler. 
+Kapat **günlükleri** ve geri dönüp **özellikleri** bölmesi ve select **uyarılar** durumu ölçütlerini VM'den için oluşturulan uyarılar görünümü uyarılar için. Harita, seçili zaman aralığında sonra seçtiğiniz sunucu için tetiklenen uyarılar gösterilecek Azure uyarıları ile entegre olur. Sunucu, geçerli bir uyarı ve makine uyarılar bölmesinde uyarılar listeler bir simge görüntüler. 
 
 ![Özellikler bölmesinde makine uyarıları](./media/vminsights-maps/properties-pane-alerts-01.png)
 

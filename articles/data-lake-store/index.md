@@ -1,16 +1,22 @@
 ---
-title: 'Azure Data Lake Storage Gen1 Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
-description: 'Her boyutta, türde ve alma hızındaki veriler üzerinde analiz gerçekleştirmek üzere hiper ölçekli, Hadoop ile uyumlu bir veri gölü deposu ayarlama, yönetme ve depoya erişme hakkında bilgi edinin.'
+title: Azure Data Lake Storage Gen1 Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+description: Her boyutta, türde ve alma hızındaki veriler üzerinde analiz gerçekleştirmek üzere hiper ölçekli, Hadoop ile uyumlu bir veri gölü deposu ayarlama, yönetme ve depoya erişme hakkında bilgi edinin.
 services: data-lake-store
 author: twooley
 manager: twooley
 layout: LandingPage
-ms.assetid: null
+ms.assetid: ''
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
+ms.openlocfilehash: 24d6f41e2415d9a8a6113135bf11c98b1e19f1f7
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904670"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Azure Data Lake Storage Gen1 Belgeleri
 
@@ -175,7 +181,7 @@ Azure Data Lake Storage Gen1'i (eski adıyla Azure Data Lake Store) kullanarak h
                 <div class="card">
                     <div class="cardText">
                         <h3>Komut Satırı</h3>
-                        <p><a href="/powershell/module/azurerm.datalakestore/">PowerShell</a></p>
+                        <p><a href="/powershell/module/az.datalakestore/">PowerShell</a></p>
                         <p><a href="/cli/azure/dls">Azure CLI</a></p>
                     </div>
                 </div>

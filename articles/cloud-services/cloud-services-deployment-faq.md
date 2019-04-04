@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: adaed4c7af1d325f85d6fc349ac9a4faf73c1169
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 08d74f866fe28a4c424ba504795b4a22f09785ca
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078831"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916266"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services dağıtım sorunları: Sık sorulan sorular (SSS)
 
@@ -70,7 +70,7 @@ Bulut hizmeti Azure Resource Manager modeliyle doğrudan uyumlu olmayan bir Klas
  
 - REST API aracılığıyla dağıtma.
 
-    Hizmet Yönetimi REST API'si dağıttığınızda, blob depolama, hem Klasik hem de Azure Resource Manager depolama hesabı ile çalışması için bir SAS URL'sini belirterek sınırlamayı alabilir. 'PackageUrl' özelliği hakkında daha fazla bilgiyi [burada](https://msdn.microsoft.com/library/azure/ee460813.aspx).
+    Hizmet Yönetimi REST API'si dağıttığınızda, blob depolama, hem Klasik hem de Azure Resource Manager depolama hesabı ile çalışması için bir SAS URL'sini belirterek sınırlamayı alabilir. 'PackageUrl' özelliği hakkında daha fazla bilgiyi [burada](/previous-versions/azure/reference/ee460813(v=azure.100)).
   
 - Aracılığıyla dağıtma [Azure portalında](https://portal.azure.com).
 

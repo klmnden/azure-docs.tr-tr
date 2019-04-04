@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 2479db2abcb578eb380655346582392770606b39
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552189"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892838"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>İstek ve yanıt bileşenleri ile çalışmaya başlama
 Mantıksal uygulama içinde istek ve yanıt bileşenleriyle, olaylar için gerçek zamanlı olarak yanıt verebilirsiniz.
@@ -34,7 +34,8 @@ Mantıksal uygulama içinde istek ve yanıt bileşenleriyle, olaylar için gerç
 İstek ve yanıt eylemleri bir mantıksal uygulama çalıştırmasında kullanmaya başlamak için bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-request-trigger"></a>HTTP isteği tetikleyicisini kullanma
-Bir tetikleyici bir mantıksal uygulamada tanımlanan iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](connectors-overview.md).
+Bir tetikleyici bir mantıksal uygulamada tanımlanan iş akışını başlatmak için kullanılan bir olaydır. 
+[Tetikleyiciler hakkında daha fazla bilgi](../connectors/apis-list.md).
 
 Mantıksal Uygulama Tasarımcısı'nda bir HTTP isteği ayarlamak nasıl bir örnek dizisi aşağıda verilmiştir.
 
@@ -91,7 +92,7 @@ Gelen HTTP isteği tetikleyicisinden için giriş alanını verilmiştir.
 
 <br>
 
-**Çıkış Ayrıntıları**
+**Çıkış ayrıntıları**
 
 İstek için çıkış ayrıntıları aşağıda verilmiştir.
 

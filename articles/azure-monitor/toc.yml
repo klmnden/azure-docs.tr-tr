@@ -64,17 +64,17 @@ items:
     href: azure-management.md
   - name: Sürekli izleme
     href: continuous-monitoring.md
-  - name: Günlük verilerini analiz etme
+  - name: Veri platformu
     items:
-    - name: Günlük sorguları
-      href: log-query/log-query-overview.md
-    - name: Günlük sorgulama portalları
-      href: log-query/portals.md
-  - name: Verileri izleme
+    - name: Genel Bakış
+      href: platform/data-platform.md
+    - name: Ölçümler
+      href: platform/data-platform-metrics.md
+    - name: Günlükler
+      href: platform/data-platform-logs.md
+  - name: Veri kaynakları
     items:
-    - name: Ölçümler ve günlükler
-      href: platform/data-collection.md
-    - name: Veri kaynakları
+    - name: Veri kaynaklarının özeti
       href: platform/data-sources.md
     - name: Azure veri kaynakları
       href: platform/data-sources-reference.md
@@ -86,14 +86,20 @@ items:
       href: platform/data-ingestion-time.md
     - name: Ölçüm deposu için özel ölçümler
       href: platform/metrics-custom-overview.md
-    - name: Veri güvenliği
-      items:
-      - name: Günlük verileri
-        href: platform/data-security.md
-      - name: Kişisel günlük verilerini işleme
-        href: platform/personal-data-mgmt.md
-      - name: Uygulama verilerini toplama, bekletme ve depolama
-        href: app/data-retention-privacy.md
+  - name: Günlük verilerini analiz etme
+    items:
+    - name: Günlük sorguları
+      href: log-query/log-query-overview.md
+    - name: Günlük sorgulama portalları
+      href: log-query/portals.md
+  - name: Veri güvenliği
+    items:
+    - name: Günlük verileri
+      href: platform/data-security.md
+    - name: Kişisel günlük verilerini işleme
+      href: platform/personal-data-mgmt.md
+    - name: Uygulama verilerini toplama, bekletme ve depolama
+      href: app/data-retention-privacy.md
   - name: Insights
     items:
     - name: Application Insights
@@ -128,6 +134,8 @@ items:
       href: platform/alerts-unified-log.md
     - name: Etkinlik günlüğü uyarıları
       href: platform/activity-log-alerts.md
+    - name: Ortak uyarı şeması
+      href: platform/alerts-common-schema.md
   - name: Verileri görselleştirme
     href: visualizations.md
   - name: İş ortağı tümleştirmeleri
@@ -180,8 +188,6 @@ items:
           href: learn/quick-create-workspace-posh.md
       - name: Çalışma alanını silme
         href: platform/delete-workspace.md
-      - name: Çalışma Alanını Yönetme
-        href: platform/manage-access.md
       - name: Hizmet sağlayıcılarına yönelik tasarım
         href: platform/service-providers.md
   - name: Veri toplama
@@ -341,6 +347,8 @@ items:
           href: app/annotations.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
+        - name: Anlık Görüntü Hata Ayıklayıcı
+          href: app/snapshot-debugger.md
       - name: Java uygulamaları
         items:
         - name: Web uygulamaları
@@ -434,6 +442,8 @@ items:
         href: platform/collect-azure-metrics-logs.md
       - name: Azure depolama biriminden tanılama veya günlük verileri
         href: platform/azure-storage-iis-table.md
+      - name: Azure PaaS kaynakları
+        href: platform/collect-azurepass-posh.md
       - name: Özel veri kaynaklarını ilişkilendirme
         href: app/custom-data-correlation.md
     - name: Özel verileri toplama
@@ -460,10 +470,10 @@ items:
         href: platform/archive-diagnostic-logs.md
       - name: Tanılama günlüklerini depolama
         href: platform/diagnostic-logs-stream-log-store.md
-      - name: Azure kaynak verilerini Olay Hub'ına aktarma
-        href: platform/stream-monitoring-data-event-hubs.md
       - name: Etkinlik günlüğünün Event Hubs’a akışını sağlama
         href: platform/activity-logs-stream-event-hubs.md
+      - name: Günlükleri ve ölçümleri olay hub'ına gönderme
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: Tanılama günlüklerini olay hub'ına gönderme
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: Uygulama verilerini Log Analytics'e gönderme
@@ -650,9 +660,8 @@ items:
   - name: Verileri görselleştirme
     items:
     - name: Görünümler
+      href: platform/view-designer.md
       items:
-      - name: Görünüm Tasarımcısı
-        href: platform/view-designer.md
       - name: Kutucuk başvurusu
         href: platform/view-designer-tiles.md
       - name: Görselleştirme bölümü başvurusu
@@ -807,6 +816,8 @@ items:
           href: platform/action-groups.md
         - name: Web kancası şeması hakkında bilgi edinme
           href: platform/activity-log-alerts-webhook.md
+        - name: Ortak uyarı şeması tanımları
+          href: platform/alerts-common-schema-definitions.md
         - name: SMS uyarısı davranışı
           href: platform/alerts-sms-behavior.md
         - name: Uyarı hızı sınırlama
@@ -978,9 +989,9 @@ items:
   - name: Azure PowerShell
     items:
     - name: İzleme
-      href: /powershell/module/azurerm.insights
+      href: /powershell/module/az.applicationinsights
     - name: Günlükler
-      href: /powershell/module/azurerm.operationalinsights
+      href: /powershell/module/az.operationalinsights
   - name: REST API
     items:
     - name: İzleme
@@ -1056,9 +1067,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Kod örnekleri
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 48ea888b5c21bc2c689d93684b4dbae7eaee1ed8
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 9c0f17f113b7940f83e3d3b5b2161fe9f88c01ac
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629425"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886650"

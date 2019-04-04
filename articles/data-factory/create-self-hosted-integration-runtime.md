@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6ab5ee923cc439901149a26d7af4b57f9933ee19
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838808"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905894"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri sağlamak üzere Azure Data Factory kullanan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -53,7 +53,7 @@ Kendinden konak IR ile kopyalamak için adımların özeti için üst düzey ver
 ![Yüksek düzey genel bakış](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. Veri Geliştirici PowerShell cmdlet'ini kullanarak bir şirket içinde barındırılan tümleştirme çalışma zamanı içinde bir Azure data factory oluşturur. Şu anda, Azure portalı, bu özelliği desteklemez.
-2. Veri geliştirici bir şirket içi veri deposu için bağlı hizmet, veri depolarında bağlanmak için kullanması gereken şirket içinde barındırılan tümleştirme çalışma zamanı örneğini belirterek oluşturur. Bağlı hizmet oluşturma işleminin bir parçası olarak, veri geliştiricisi (şu anda desteklenmiyor) kimlik bilgileri Yöneticisi uygulama kimlik doğrulama türleri ve kimlik bilgilerini ayarlamak için kullanır. Kimlik bilgileri Yöneticisi uygulaması, bağlantı ve kimlik bilgilerini kaydetmek için şirket içinde barındırılan tümleştirme çalışma zamanı'nı test etmek için veri deposuyla iletişim kurar.
+2. Veri geliştirici bir şirket içi veri deposu için bağlı hizmet, veri depolarında bağlanmak için kullanması gereken şirket içinde barındırılan tümleştirme çalışma zamanı örneğini belirterek oluşturur.
 3. Şirket içinde barındırılan Integration runtime düğümü, Windows Data Protection uygulama programlama arabirimi (DPAPI) kullanarak kimlik bilgilerini şifreler ve kimlik bilgilerini yerel olarak kaydeder. Yüksek kullanılabilirlik için birden çok düğüm ayarlarsanız, kimlik bilgilerini diğer düğümler arasında daha fazla eşitlenir. Her düğümü DPAPI kullanarak kimlik bilgilerini şifreler ve bunları yerel olarak depolar. Kimlik bilgisi eşitlemesi veri geliştiriciler için saydamdır ve şirket içinde barındırılan IR tarafından ele alınır    
 4. Data Factory hizmetinin zamanlama ve işleri yönetimi için şirket içinde barındırılan tümleştirme çalışma zamanı ile iletişim kuran bir *denetim kanalı* paylaşılan bir Azure Service Bus kuyruğu kullanan. Bir etkinliği işinin çalıştırılması gerektiğinde, Data Factory istekle birlikte tüm kimlik bilgilerini (kimlik bilgileri zaten şirket içinde barındırılan tümleştirme çalışma zamanını depolanmaz durumda) kuyruğa alır. Şirket içinde barındırılan tümleştirme çalışma zamanı işi kuyruğa yoklama sonra başlatıyor.
 5. Şirket içinde barındırılan tümleştirme çalışma zamanı verileri bulut depolamaya veya tam tersi veri işlem hattında kopyalama etkinliği nasıl yapılandırıldığına bağlı olarak bir şirket içi depolama alanından kopyalar. Bu adım için şirket içinde barındırılan tümleştirme çalışma zamanı doğrudan Azure Blob Depolama gibi bulut tabanlı depolama hizmetleriyle güvenli (HTTPS) bir kanal üzerinden iletişim kurar.
@@ -329,7 +329,7 @@ Aşağıdaki ayarlara benzer hatalarla karşılaşırsanız, kendi kimliğini do
     ```
 
 ### <a name="enabling-remote-access-from-an-intranet"></a>Bir Intranet'ten uzaktan erişimi etkinleştirme  
-Şirket içinde barındırılan tümleştirme çalışma zamanının yüklendiği dışındaki başka bir makineden (ağ) kimlik bilgilerini şifrelemek için PowerShell veya kimlik bilgileri Yöneticisi uygulaması kullanıyorsanız etkinleştirebilirsiniz **Intranet'tenuzaktanerişim**seçeneği. PowerShell veya aynı makinede kimlik bilgilerini şifrelemek için kimlik bilgileri Yöneticisi uygulaması, şirket içinde barındırılan tümleştirme çalışma zamanının yüklü olduğu çalıştırırsanız, etkinleştiremezsiniz **Intranet'ten uzaktan erişim**.
+Şirket içinde barındırılan tümleştirme çalışma zamanının yüklendiği dışındaki başka bir makineden (ağ) kimlik bilgilerini şifrelemek için PowerShell kullanıyorsanız, etkinleştirebilirsiniz **Intranet'ten uzaktan erişim** seçeneği. Şirket içinde barındırılan tümleştirme çalışma zamanının yüklü olduğu aynı makinede kimlik bilgilerini şifrelemek için PowerShell çalıştırırsanız, etkinleştiremezsiniz **Intranet'ten uzaktan erişim**.
 
 Etkinleştirmeniz gereken **Intranet'ten uzaktan erişim** yüksek kullanılabilirlik ve ölçeklenebilirlik için başka bir düğüm eklemeden önce.  
 
@@ -339,9 +339,7 @@ Bir üçüncü taraf güvenlik duvarı kullanıyorsanız, bağlantı noktası 80
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-```
-> [!NOTE]
-> Kimlik bilgileri Yöneticisi uygulaması henüz Azure Data Factory V2 kimlik bilgilerini şifrelemek için kullanılabilir değil.  
+``` 
 
 Şirket içinde barındırılan tümleştirme çalışma zamanı makinesinde 8060 bağlantı noktası açık değil seçerseniz, veri deposu kimlik bilgilerini yapılandırmak için kimlik bilgilerini ayarlama uygulama dışında mekanizmaları kullanın. Örneğin, kullanabileceğiniz **yeni AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet'i.
 

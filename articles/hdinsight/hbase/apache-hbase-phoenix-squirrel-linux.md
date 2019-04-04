@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6dee4ac7cb863a08e9046b16189e7f4a7b04b810
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 38f86bd19c85440fbad0e7fd56a3dd9ba836c7b8
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201679"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903311"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>HDInsight kümelerinde Linux tabanlı Apache HBase ile Apache Phoenix kullanma
 Nasıl kullanacağınızı öğrenin [Apache Phoenix](https://phoenix.apache.org/) Azure HDInsight ve SQLLine kullanma. Phoenix hakkında daha fazla bilgi için bkz: [Apache Phoenix 15 dakika veya daha az](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Phoenix dilbilgisi için bkz: [Apache Phoenix Dilbilgisi](https://phoenix.apache.org/language/index.html).
@@ -47,7 +47,7 @@ Bir HBase kümesi için bağlandığınızda birine bağlanması gereken [Apache
 
 2. SSH SQLLine çalıştırmak için aşağıdaki komutları kullanın:
 
-        cd /usr/hdp/current/phoenix/bin
+        cd /usr/hdp/current/phoenix-client/bin
         ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
 3. Bir HBase tablosu oluşturmayı ve bazı verileri eklemek için aşağıdaki komutları çalıştırın:
 

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 04/02/2019
 ms.author: magoedte
-ms.openlocfilehash: 38236cba6af46df2701bb0128fe9d78e95aa6ec7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 987d28470b8a848755cdd7d1264ba7f7f66544df
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076828"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918952"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM'ler (Önizleme) için Azure İzleyici ile Azure sanal makinelerinizin durumunu anlama
 Azure İzleme alanı ayrı ayrı bir spesifik rol ya da görev gerçekleştiren birden çok hizmet içerir, ancak bir Azure sanal makinelerinde barındırılan işletim sistemi ayrıntılı sistem durumu açısından sağlama kullanılabilir değildi.  Azure İzleyicisi'ni kullanarak için farklı koşullar izleyebilir olsa da model ve sistem durumunu temel bileşenler veya genel sanal makine durumunu temsil eden için tasarlanmış değildi.  VM sistem durumu özelliği için Azure İzleyici ile proaktif olarak Windows veya Linux konuk işletim sistemi ile anahtar bileşenleri ve bu durumunu ölçmek nasıl belirten ölçütleri ilişkilerini temsil eden bir model performansını ve kullanılabilirliğini izler bileşenleri ve iyi durumda olmayan bir koşul algılandığında sizi uyarır.  
@@ -28,23 +28,6 @@ Azure VM genel sistem durumunu görüntüleme ve işletim sistemi temel Vm'leri 
 Bu makalede hızlı bir şekilde değerlendirmek, araştırmanıza ve algılanan sistem durumu sorunları gidermek nasıl anlamanıza yardımcı olur.
 
 VM'ler için Azure İzleyici yapılandırma hakkında daha fazla bilgi için bkz: [VM'ler için Azure İzleyici'ı etkinleştirme](vminsights-onboard.md).
-
-> [!NOTE]
-> Başlangıç tarihi: 11 Şubat 2019 sistem tanılama deneyimi yeni bir sistem durumu modeli sürümüne bugün olduğunuzda, görünür olan Vm'leri sistem durumu özelliği için geçerli sistem durumu modeli Azure İzleyici'de geçiş başlayacağız. Bu güncelleştirme, sistem durumu toplaması işleme performansını geliştirir ve sistem durumu tanılama Görünümü'nde sunulan daraltılmış sistem durumu modeli içerir. 
-> 
-> Yeni sistem durumu modeli ile daha hızlı ve sonuç olarak, sistem durumunu daha az gecikme süresiyle istenen veya hedeflenen durumuna üst güncelleştirmeleri varlık başına üst düzey durumu ölçütlerini için alt sistem durumu ölçütlerin toplaması olacaktır. Sistem durumu ölçütleri altında hala filtreleyebilirsiniz **performans** ve **kullanılabilirlik** ya da kategori görünümünde seçmek için önceki sekme tabanlı yöntemi farklı kategorileri.
-> 
-> Sistem durumu tanılama deneyimi hakkında daha fazla ayrıntı için lütfen sistem tanılama bakın [bölümü](#health-diagnostics) bu makaledeki. 
-> 
-> Bu güncelleştirme aşağıdaki iyileştirir: 
-> 
-> - Düşük gecikme süresiyle işleme sistem durumu toplaması  
-> - Daha hızlı sağlık durumu değişikliklerinde üzerinde uyarı 
-> - Sistem durumu toplu sanal makine görünümünde tüm sanal makineler için daha hızlı güncelleştirme 
-> 
-> Bugün Azure İzleyici sistem durumu özelliği ile sanal makineleri için sunulan tüm işlevlerin gerileme vardır.
-> 
-> Bu değişikliğin sonucu olarak iki sistem tanılama deneyimlerinde etkilenen - durum değişikliği geçmişi sıfırlanır ve durumu ölçütlerini için önceki durum değişikliklerini gözden geçirme için sistem durumu tanılama sayfası durum değişikliği sütununda kullanılabilir olmaz. Herhangi bir geçmiş verilerin ilgileniyorsanız, sistem durumu ölçütlerini verileri ve karşılık gelen durum değişikliklerini görüntüsü başvuru için uygulayabileceğiniz sonra kritik VM görev. 
 
 ## <a name="monitoring-configuration-details"></a>İzleme Yapılandırma Ayrıntıları
 Bu bölümde, Azure Windows ve Linux sanal makinelerini izlemek için tanımlanan varsayılan sistem durumu ölçütlerini özetlenmektedir. Tüm sistem durumu ölçütlerini, sağlıksız koşul karşılandığında uyarı önceden yapılandırılmış. 
@@ -70,7 +53,7 @@ Bu bölümde, Azure Windows ve Linux sanal makinelerini izlemek için tanımlana
 - Toplam yüzde bant kullanılan
 - Yüzde bant kullanılan yazma
 - Kullanımdaki kaydedilmiş bellek yüzdesi
-- Fiziksel Disk yüzde boşta kalma süresi
+- Disk yüzde boşta kalma süresi
 - DHCP istemci hizmeti durumu
 - DNS İstemcisi hizmeti durumu
 - RPC hizmeti durumu
@@ -89,10 +72,7 @@ Bu bölümde, Azure Windows ve Linux sanal makinelerini izlemek için tanımlana
 - Mantıksal Disk % boş alan
 - Mantıksal Disk % boş Inode'ları
 - Ağ bağdaştırıcısı durumu
-- İşlemci yüzde DPC Zamanı
-- İşlemci yüzde işlemci zamanı
 - Toplam yüzde işlemci zamanı
-- Toplam yüzde DPC Zamanı
 - İşletim sistemi kullanılabilir megabayt belleği
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın

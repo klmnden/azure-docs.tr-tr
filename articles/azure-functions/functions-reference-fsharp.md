@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: e7e4e898142d6f9d1a93e91c1f1476ff81fc7d3c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 981ffce34c56f4becee2ed0c72da72baa220e395
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734668"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894364"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure işlevleri F# Geliştirici Başvurusu
 
@@ -115,7 +115,7 @@ let Run(req: HttpRequestMessage) =
 ```
 
 ## <a name="cancellation-token"></a>İptal belirteci
-İşleviniz kapatma düzgün biçimde işlemesi gerekiyorsa verebilirsiniz bir [ `CancellationToken` ](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) bağımsız değişken. Bu ile birleştirilebilir `async`, örneğin:
+İşleviniz kapatma düzgün biçimde işlemesi gerekiyorsa verebilirsiniz bir [ `CancellationToken` ](/dotnet/api/system.threading.cancellationtoken) bağımsız değişken. Bu ile birleştirilebilir `async`, örneğin:
 
 ```fsharp
 let Run(req: HttpRequestMessage, token: CancellationToken)
@@ -166,7 +166,7 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 
 Aşağıdaki derlemeleri Azure işlevleri barındırma ortamı tarafından otomatik olarak eklenir:
 
-* `mscorlib`,
+* `mscorlib`, 
 * `System`
 * `System.Core`
 * `System.Xml`
@@ -294,7 +294,7 @@ Yollar sağlar `#load` yönerge olan göreli konumunu, `.fsx` dosya.
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [F#Kılavuzu](/dotnet/articles/fsharp/index)
-* [Azure İşlevleri için En İyi Uygulamalar](functions-best-practices.md)
+* [Azure işlevleri için en iyi uygulamalar](functions-best-practices.md)
 * [Azure İşlevleri geliştirici başvurusu](functions-reference.md)
 * [Azure işlevleri Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md)
 * [Azure işlevlerini test etme](functions-test-a-function.md)

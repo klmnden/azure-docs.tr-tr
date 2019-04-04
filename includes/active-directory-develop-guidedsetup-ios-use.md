@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: d5a38d19541e59e0e2815362c0181a8e317a5d0f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: b7883de410a1fd281a154a792dd45132c08f0c03
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203533"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891131"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Microsoft Graph API'si için bir belirteç almak için Microsoft kimlik doğrulama kitaplığı (MSAL) kullanma
 
@@ -215,7 +215,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
 
 Sonuç olarak, `acquireTokenSilent` – örneğin kullanıcı oturumunuz veya başka bir cihazda parolasını değiştirdiğinden başarısız olur. MSAL etkileşimli bir eylem gerektirerek sorun çözülebilir, harekete algıladığında bir `MSALErrorCode.interactionRequired` özel durum. Uygulamanız, bu özel durumun iki şekilde işleyebilir:
 
-1. Karşı çağrı yapmak `acquireToken` hemen sonuçlanır kullanıcının oturum açmasını isteyen içinde. Bu düzen, genellikle çevrimiçi uygulamalarda kullanılır olduğunda çevrimdışı içerik uygulamada kullanıcı için kullanılabilir. Bu Kılavuzlu kurulum tarafından oluşturulan örnek uygulama bu deseni kullanır: uygulamayı yürütme eylemi ilk zamanında görebilirsiniz. Hiçbir kullanıcı, uygulamayı her zamankinden kullanıldığından `applicationContext.allAccounts().first` null bir değer içerir ve bir ` MSALErrorCode.interactionRequired ` özel durumu oluşturulur. Ardından kod çağırarak özel durumu işleyen `acquireToken` kullanıcının oturum açmasını isteyen içinde elde edilen.
+1. Karşı çağrı yapmak `acquireToken` hemen sonuçlanır kullanıcının oturum açmasını isteyen içinde. Bu düzen, genellikle çevrimiçi uygulamalarda kullanılır olduğunda çevrimdışı içerik uygulamada kullanıcı için kullanılabilir. Bu Kılavuzlu kurulum tarafından oluşturulan örnek uygulama bu deseni kullanır: uygulamayı yürütme eylemi ilk zamanında görebilirsiniz. Hiçbir kullanıcı, uygulamayı her zamankinden kullanıldığından `applicationContext.allAccounts().first` null bir değer içerir ve bir `MSALErrorCode.interactionRequired` özel durumu oluşturulur. Ardından kod çağırarak özel durumu işleyen `acquireToken` kullanıcının oturum açmasını isteyen içinde elde edilen.
 
 2. Uygulamaları bir etkileşimli oturum açma kullanıcı oturum açmak için doğru zamanda seçebilir ya da uygulama yeniden deneyebilir gerekli olan, kullanıcı için bir görsel gösterimi de yapabilir `acquireTokenSilent` daha sonra. Bu genellikle kullanılan kullanıcı uygulamanın diğer işlevleri kesintiye olmadan kullanabilir - Örneğin, çevrimdışı içeriği uygulamada kullanılabilir olduğunda. Bu durumda, kullanıcı, korumalı kaynağa erişmeye veya güncel olmayan bilgileri yenilemek için oturum açmak istedikleri veya uygulamanızı yeniden denemeye karar verebilirsiniz karar verebilir `acquireTokenSilent` ağ zaman geri geçici olarak kullanılamaz durumda olmasından sonra.
 

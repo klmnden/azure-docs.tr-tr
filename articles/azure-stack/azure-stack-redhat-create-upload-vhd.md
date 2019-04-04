@@ -3,7 +3,7 @@ title: Oluşturma ve Azure Stack'te kullanmak için Red Hat Enterprise Linux VHD
 description: Oluşturma ve bir Azure sanal bir Red Hat Linux işletim sistemi içeren sabit disk (VHD) yükleme öğrenin.
 services: azure-stack
 documentationcenter: ''
-author: JeffGoldner
+author: mattbriggs
 manager: BradleyB
 editor: ''
 tags: ''
@@ -13,15 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
-ms.author: jeffgo
+ms.date: 03/28/2019
+ms.author: mabrigg
+ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: ad0419cee3fc5c838d6d81adf9040432b9feaf07
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e287a6f436b51f55d9a5aa59dbbe2a195015c292
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242238"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883133"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Azure Stack için Red Hat tabanlı bir sanal makine hazırlama
 
@@ -100,6 +101,13 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
 
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```
+
+1. Durdur ve cloud-init kaldırın:
+
+    ```bash
+    systemctl stop cloud-init
+    yum remove cloud-init
     ```
 
 1. SSH sunucusu yüklü ve, genellikle varsayılan önyükleme sırasında başlatılacak şekilde yapılandırılmış emin olun. Değiştirme `/etc/ssh/sshd_config` aşağıdaki satırı dahil etmek için:
@@ -246,15 +254,17 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
     dracut -f -v
     ```
 
-1. Cloud-init kaldırın:
+1. Durdur ve cloud-init kaldırın:
 
     ```bash
+    systemctl stop cloud-init
     yum remove cloud-init
     ```
 
 1. SSH sunucusu yüklü ve önyükleme sırasında başlatılacak şekilde yapılandırılmış olduğundan emin olun:
 
     ```bash
+    systemctl stop cloud-init
     systemctl enable sshd
     ```
 
@@ -265,22 +275,55 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
     ClientAliveInterval 180
     ```
 
-1. WALinuxAgent paket `WALinuxAgent-<version>`, Red Hat ek özellikler deposuna gönderildi. Ek özellikler depo, aşağıdaki komutu çalıştırarak etkinleştirin:
+1. Azure Stack için özel bir vhd oluştururken, bir derleme 1903 önce çalışan Azure Stack ortamlarında WALinuxAgent sürüm 2.2.20 2.2.35.1 (her iki özel) arasındaki çalışmıyor aklınızda bulundurun. Bu sorunu çözmek için 1901/1902 düzeltmeyi veya ikinci yarısında hiç bu bölümündeki yönergeleri izleyin. 
+
+Bir Azure Stack derleme 1903 çalıştırıyorsanız (veya üzeri) veya 1901/1902 düzeltmesi, Redhat ek özellikler depodan WALinuxAgent paketini indirme şu şekilde:
+    
+   WALinuxAgent paket `WALinuxAgent-<version>`, Red Hat ek özellikler deposuna gönderildi. Ek özellikler depo, aşağıdaki komutu çalıştırarak etkinleştirin:
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. Azure Linux Aracısı, aşağıdaki komutu çalıştırarak yükleyin:
+   Azure Linux Aracısı, aşağıdaki komutu çalıştırarak yükleyin:
 
     ```bash
     yum install WALinuxAgent
     ```
 
-    Waagent hizmeti etkinleştirin:
+   Waagent hizmeti etkinleştirin:
 
     ```bash
     systemctl enable waagent.service
+    ```
+    
+    
+Azure Stack derleme 1903 önce çalışan ve 1901/1902 düzeltme uygulanmamış, ardından WALinuxAgent indirmek için bu yönergeleri izleyin:
+    
+   a.   Setuptools indirin
+    ```bash
+    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+    tar xzf setuptools-7.0.tar.gz
+    cd setuptools-7.0
+    ```
+   b. İndirin ve github'ımızı aracısından en son sürümünü açın. Bir örnek burada biz "2.2.36" indirme budur github deposundan sürümü.
+    ```bash
+    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.36.zip
+    unzip v2.2.36.zip
+    cd WALinuxAgent-2.2.36
+    ```
+    c. Install setup.py
+    ```bash
+    sudo python setup.py install
+    ```
+    d. Restart waagent
+    ```bash
+    sudo systemctl restart waagent
+    ```
+    e. Test if the agent version matches the one your downloaded. For this example, it should be 2.2.36.
+    
+    ```bash
+    waagent -version
     ```
 
 1. İşletim sistemi diski üzerinde takas alanı oluşturabilirsiniz.
@@ -420,6 +463,13 @@ Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsa
 
     ```bash
     dracut -f -v
+    ```
+
+1. Durdur ve cloud-init kaldırın:
+
+    ```bash
+    systemctl stop cloud-init
+    yum remove cloud-init
     ```
 
 1. SSH sunucusu yüklü ve önyükleme sırasında başlatılacak şekilde yapılandırılmış emin olun. Bu genellikle varsayılan ayardır. Değiştirme `/etc/ssh/sshd_config` aşağıdaki satırı dahil etmek için:
@@ -581,6 +631,10 @@ Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsa
     Install latest repo update
     yum update -y
 
+    Stop and Uninstall cloud-init
+    systemctl stop cloud-init
+    yum remove cloud-init
+    
     Enable extras repo
     subscription-manager repos --enable=rhel-7-server-extras-rpms
 
@@ -657,15 +711,15 @@ Bu sorunu çözmek için initramfs Hyper-V modüllerini ekleyin ve yeniden oluş
 
 Düzen `/etc/dracut.conf`ve aşağıdaki içeriği ekleyin:
 
-    ```sh
-    add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
-    ```
+```sh
+add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+```
 
 İnitramfs yeniden oluşturun:
 
-    ```bash
-    dracut -f -v
-    ```
+```bash
+dracut -f -v
+```
 
 Daha fazla bilgi için [initramfs yeniden](https://access.redhat.com/solutions/1958).
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: de737f20147e8208dd18388eedcac11583c8cb97
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403400"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891812"
 ---
 # <a name="data-box-edge-security-and-data-protection"></a>Veri kutusu kenar güvenlik ve veri koruması
 
@@ -35,6 +35,7 @@ Veri kutusu Edge/veri kutusu ağ geçidi hizmeti, Microsoft Azure'da barındır�
 
 - Veri kutusu Edge/veri kutusu ağ geçidi hizmeti erişim, kuruluşunuzun bir Kurumsal Anlaşma (EA) veya Bulut çözümü sağlayıcısı (CSP) aboneliği olmasını gerektirir. Daha fazla bilgi için Git [bir Azure aboneliği için kaydolun](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/)!
 - Management hizmetiniz Azure'da barındırıldığı için Azure güvenlik özellikleri tarafından korunur. Microsoft Azure tarafından sağlanan güvenlik özellikleri hakkında daha fazla bilgi için [Microsoft Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/security/)’ne gidin.
+- SDK yönetim işlemleri için şifreleme anahtarı, Data Box Edge için yok / altında veri kutusu ağ geçidi kaynak **cihaz özelliklerini**. Yalnızca kaynak Graph API için izinleriniz varsa, şifreleme anahtarını görüntüleyebilirsiniz.
 
 ## <a name="data-box-edge-device-protection"></a>Veri kutusu Edge cihaz koruma
 
@@ -44,7 +45,8 @@ Veri kutusu sınır cihazı, yerel olarak işleme ve sonra bunu Azure'a göndere
 - Her zaman bir cihaz parola korumalı.
 - Kilitli aygıttır. Cihaz BMC ve BIOS BIOS sınırlı kullanıcı erişimi ile parola korumalı.
 - Güvenli Önyükleme etkin.
-- Windows Defender'ı cihaz koruyucusu çalıştırır. Device Guard, yalnızca kod bütünlüğü ilkelerinizde tanımladığınız güvenilen uygulamaları çalıştıracak olanak tanır. 
+- Windows Defender'ı cihaz koruyucusu çalıştırır. Device Guard, yalnızca kod bütünlüğü ilkelerinizde tanımladığınız güvenilen uygulamaları çalıştıracak olanak tanır.
+- Cihazı kilitlemek için kullanılan kapağın içinde bir anahtarı yok. Biz cihaz yapılandırdıktan sonra kapak açık önerilir. Anahtarını bulun ve sonra cihaz kuyruğun bulunan veri diskleri için herhangi bir yetkisiz erişimi önlemek için kapak kilitleyin.
 
 ### <a name="protect-the-device-via-activation-key"></a>Cihaz etkinleştirme anahtarı aracılığıyla koruma
 

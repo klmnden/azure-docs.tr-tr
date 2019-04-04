@@ -10,15 +10,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: d055b6775c9c788ecbb3a868055fa2402a537a83
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6b80e73dec7d0e03823a8aa2867ee91bfb68f560
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231181"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893648"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Cortana Intelligence çözüm şablonu enerji tahmini talebi teknik Kılavuzu
-## <a name="overview"></a>**Genel Bakış**
+## **<a name="overview"></a>Genel Bakış**
 Çözüm şablonları, Cortana Intelligence Suite üzerine bir E2E tanıtım oluşturma sürecini hızlandırmak için tasarlanmıştır. Dağıtılan şablon, gerekli bir Cortana Intelligence bileşeni aboneliğinizle sağlar ve arasında ilişkiler oluşturabilirsiniz. Örnek verilerle bir veri benzetimi uygulamasından oluşturulan veri işlem hattı de sağlar. Sağlanan bağlantıdan veri simülatör'ü indirin ve yerel makinenize yükleyin, simülatör kullanma yönergesi için readme.txt dosyasına bakın. Simülatör oluşturulan verileri, veri işlem hattı ve ardından Power BI panosunda görselleştirilebilir makine öğrenme tahmin, oluşturma başlangıç hydrates.
 
 Çözüm şablonu bulunabilir [burada](https://gallery.cortanaintelligence.com/SolutionTemplate/Demand-Forecasting-for-Energy-1)
@@ -27,13 +27,13 @@ Dağıtım işlemi, çözüm kimlik bilgilerini ayarlamak için birkaç adım si
 
 Bu belgenin amacı, bu çözüm şablonunda bir parçası olarak, aboneliğinizdeki sağlanan farklı bileşenleri ve başvuru mimarisini açıklar sağlamaktır. Belge ayrıca veri kazanılan sizden ınsights/Öngörüler görebilmeniz için kendi gerçek verileri içeren örnek verileri değiştirme hakkında konuşuyor. Ayrıca, belge hakkında konuşuyor kendi verilerinizle çözümü özelleştirmek istiyorsanız değiştirilmesi gereken çözüm şablonunun bölümlerine. Sonunda Power BI panosu için bu çözüm şablonu oluşturmak yönergeler sağlanır.
 
-## <a name="details"></a>**Ayrıntılar**
+## **<a name="details"></a>Ayrıntılar**
 ![](media/cortana-analytics-technical-guide-demand-forecast/ca-topologies-energy-forecasting.png)
 
 ### <a name="architecture-explained"></a>Açıklanan mimarisi
 Çözüm dağıtılırken, Cortana Analytics suite'te çeşitli Azure hizmetlerini etkinleştirilir (diğer bir deyişle, olay hub'ı, Stream Analytics, HDInsight, Data Factory, Machine Learning *vb.*). Mimari diyagramı, yüksek düzeyde, Talep tahmini enerji çözüm şablonu için baştan sona nasıl oluşturulur gösterir. Bu hizmetler, bunlar üzerinde çözümün dağıtımı ile oluşturulan çözüm şablonu diyagramı tıklayarak araştırabilirsiniz. Aşağıdaki bölümlerde, her parça açıklanmaktadır.
 
-## <a name="data-source-and-ingestion"></a>**Veri kaynağı ve alma**
+## **<a name="data-source-and-ingestion"></a>Veri kaynağı ve alma**
 ### <a name="synthetic-data-source"></a>Yapay veri kaynağı
 Bu şablon için kullanılan veri kaynağı indirip yerel olarak başarılı dağıtımdan sonra çalıştırma bir masaüstü uygulaması oluşturulur. İndirin ve enerji tahmini veri simülatörü adlı çözüm şablonu diyagram üzerinde ilk düğüm seçtiğinizde özelliklerini çubuğunda bu uygulamayı yüklemek için yönergeleri bulabilirsiniz. Bu uygulama akışları [Azure olay hub'ı](#azure-event-hub) hizmeti ile veri noktaları veya çözüm akışının kalanında kullanılan olayları.
 
@@ -42,7 +42,7 @@ Yalnızca, bilgisayarınızda yürütülürken olay oluşturma uygulamasını Az
 ### <a name="azure-event-hub"></a>Azure Olay Hub'ı
 [Azure olay hub'ı](https://azure.microsoft.com/services/event-hubs/) alıcısı açıklanan yapay veri kaynağı tarafından sağlanan girdiyi bir hizmettir.
 
-## <a name="data-preparation-and-analysis"></a>**Veri hazırlama ve analiz**
+## **<a name="data-preparation-and-analysis"></a>Veri hazırlama ve analiz**
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) neredeyse giriş akışında gerçek zamanlı analizler sağlamak için kullanılan hizmet [Azure olay hub'ı](#azure-event-hub) hizmet ve sonuçları yayımlama bir [Power BI](https://powerbi.microsoft.com)Pano yanı sıra için gelen tüm ham etkinlikleri arşivleme [Azure depolama](https://azure.microsoft.com/services/storage/) hizmet tarafından daha sonra işlenmek [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) hizmeti.
 
@@ -52,15 +52,15 @@ Azure HDInsight hizmeti çalıştırmak için kullanılan [Hive](https://blogs.m
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) hizmeti (Azure Data Factory tarafından düzenlenir) kullanılan alınan girişlere belirli bir bölgenin gelecekteki enerji tüketimini tahmin oluşturmak için.
 
-## <a name="data-publishing"></a>**Veri yayımlama**
+## **<a name="data-publishing"></a>Veri yayımlama**
 ### <a name="azure-sql-database-service"></a>Azure SQL veritabanı hizmeti
 [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) hizmet depolamak için kullanılır (Azure Data Factory tarafından yönetilir) içinde kullanılan Azure Machine Learning hizmeti tarafından alınan Öngörüler [Power BI](https://powerbi.microsoft.com) Pano.
 
-## <a name="data-consumption"></a>**Veri tüketimi**
+## **<a name="data-consumption"></a>Veri Tüketimi**
 ### <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com) hizmet tarafından sağlanan toplamalar içeren bir panoyu göstermek için kullanılan [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) isteğe yanı sıra hizmet tahmin sonuçları depolanan [Azure SQL Veritabanı](https://azure.microsoft.com/services/sql-database/) üretilen kullanarak [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) hizmeti. Power BI panosu için bu çözüm şablonu oluşturmak yönergeler için aşağıdaki bölümüne bakın.
 
-## <a name="how-to-bring-in-your-own-data"></a>**Nasıl kendi verilerinizi getirin**
+## **<a name="how-to-bring-in-your-own-data"></a>Nasıl kendi verilerinizi getirin**
 Bu bölümde, kendi verilerinizi Azure'a taşımalarına olanak açıklar ve hangi alanlarda değişiklikler bu mimariye Getir verileri gerektirir.
 
 İhtiyacınız olan tüm veri kümelerinde bu çözüm şablonu için kullanılan veri kümesinin eşleştiğini düşüktür. Verilerinizi ve gereksinimleri anlama kendi verilerle çalışmak için bu şablonu nasıl değiştirileceği içinde çok önemlidir. Varsa yeni Azure Machine Learning hizmeti için bir giriş örnekte kullanarak alabilirsiniz [ilk denemenizi oluşturma](machine-learning/studio/create-experiment.md).
@@ -106,40 +106,40 @@ Bu fabrikada ardışık düzen beş içeren [Hive](https://blogs.msdn.com/b/bigd
 
 Benzer şekilde [Azure Stream Analytics](#azure-stream-analytics-1) sorgular [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) gelen veri biçimi hakkında örtük bilgiye sahip değildir komut dosyaları, değiştirilmesi bu sorgular veri biçimi ve göregerekir[özellik Mühendisliği](machine-learning/team-data-science-process/create-features.md) gereksinimleri.
 
-#### <a name="aggregatedemanddatato1hrpipeline"></a>*AggregateDemandDataTo1HrPipeline*
-Bu [işlem hattı](data-factory/concepts-pipelines-activities.md) - tek bir etkinlik içeren bir [Hdınsighthive](data-factory/transform-data-using-hadoop-hive.md) etkinliğini kullanarak bir [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) çalıştırılan bir [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) komut dosyası için toplam akış içinde talep verilerini 10 saniyede saatlik bölge düzeyi için alt istasyon düzeyi ve koymak [Azure depolama](https://azure.microsoft.com/services/storage/) Azure Stream Analytics işi.
+#### *<a name="aggregatedemanddatato1hrpipeline"></a>AggregateDemandDataTo1HrPipeline*
+Bu [işlem hattı](data-factory/concepts-pipelines-activities.md) - tek bir etkinlik içeren bir [Hdınsighthive](data-factory/transform-data-using-hadoop-hive.md) etkinliğini kullanarak bir [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) çalıştırılan bir [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) komut dosyası için toplam akış içinde talep verilerini 10 saniyede saatlik bölge düzeyi için alt istasyon düzeyi ve koymak [Azure depolama](https://azure.microsoft.com/services/storage/) Azure Stream Analytics işi.
 
 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) bölümleme bu görev için betik ***AggregateDemandRegion1Hr.hql***
 
-#### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
+#### *<a name="loadhistorydemanddatapipeline"></a>LoadHistoryDemandDataPipeline*
 Bu [işlem hattı](data-factory/concepts-pipelines-activities.md) iki etkinlik içerir:
 
-* [Hdınsighthive](data-factory/transform-data-using-hadoop-hive.md) etkinliğini kullanarak bir [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) saatlik bölge düzeyi için alt istasyon düzeyi saatlik geçmiş talep verilerini toplamak ve Azure Stream sırasında Azure Depolama'da koymak için bir Hive betiği çalıştırır Analytics işi
-* [Kopyalama](https://msdn.microsoft.com/library/azure/dn835035.aspx) çözüm şablonu yüklemesinin bir parçası sağlanan Azure SQL veritabanı, Azure Storage blobundan toplanmış veri taşıyan bir etkinlik.
+* [Hdınsighthive](data-factory/transform-data-using-hadoop-hive.md) etkinliğini kullanarak bir [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) saatlik bölge düzeyi için alt istasyon düzeyi saatlik geçmiş talep verilerini toplamak ve Azure Stream sırasında Azure Depolama'da koymak için bir Hive betiği çalıştırır Analytics işi
+* [Kopyalama](/previous-versions/azure/dn835035(v=azure.100)) çözüm şablonu yüklemesinin bir parçası sağlanan Azure SQL veritabanı, Azure Storage blobundan toplanmış veri taşıyan bir etkinlik.
 
 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) bu görev için betik ***AggregateDemandHistoryRegion.hql***.
 
-#### <a name="mlscoringregionxpipeline"></a>*MLScoringRegionXPipeline*
+#### *<a name="mlscoringregionxpipeline"></a>MLScoringRegionXPipeline*
 Bunlar [işlem hatları](data-factory/concepts-pipelines-activities.md) çeşitli etkinlikleri içerir ve son sonucu olan bu çözüm şablonuyla ilişkili Azure Machine Learning denemesi puanlanmış tahminleri. Bunlar, her biri farklı RegionID ADF işlem hattı ve hive betiğinin her bölge için geçirilen tarafından gerçekleştirilen farklı bölgede yalnızca işler dışında neredeyse aynıdır.  
 Bu işlem hattında etkinlikleri şunlardır:
 
-* [Hdınsighthive](data-factory/transform-data-using-hadoop-hive.md) etkinliğini kullanarak bir [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) toplamalar gerçekleştirmek ve özellik Mühendisliği için Azure Machine Learning denemesi gereken bir Hive betiği çalıştırır. Bu görev için Hive betiklerini ilgili ***PrepareMLInputRegionX.hql***.
-* [Kopyalama](https://msdn.microsoft.com/library/azure/dn835035.aspx) sonuçlardan taşıyan bir etkinlik [Hdınsighthive](data-factory/transform-data-using-hadoop-hive.md) etkinliğe göre erişimi olan tek bir Azure depolama blobu [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) etkinlik.
-* [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) tek bir Azure depolama blobunda koyulmuş sonuçları sonuçlanır Azure Machine Learning denemesi çağıran etkinlik.
+* [Hdınsighthive](data-factory/transform-data-using-hadoop-hive.md) etkinliğini kullanarak bir [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) toplamalar gerçekleştirmek ve özellik Mühendisliği için Azure Machine Learning denemesi gereken bir Hive betiği çalıştırır. Bu görev için Hive betiklerini ilgili ***PrepareMLInputRegionX.hql***.
+* [Kopyalama](/previous-versions/azure/dn835035(v=azure.100)) sonuçlardan taşıyan bir etkinlik [Hdınsighthive](data-factory/transform-data-using-hadoop-hive.md) etkinliğe göre erişimi olan tek bir Azure depolama blobu [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) etkinlik.
+* [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) tek bir Azure depolama blobunda koyulmuş sonuçları sonuçlanır Azure Machine Learning denemesi çağıran etkinlik.
 
-#### <a name="copyscoredresultregionxpipeline"></a>*CopyScoredResultRegionXPipeline*
-Bu [işlem hattı](data-factory/concepts-pipelines-activities.md) - tek bir etkinlik içeren bir [kopyalama](https://msdn.microsoft.com/library/azure/dn835035.aspx) Azure Machine Learning denemesi sonuçlarını ilgili taşıyan bir etkinlik ***MLScoringRegionXPipeline***çözüm şablonu yüklemesinin bir parçası sağlanan Azure SQL veritabanı.
+#### *<a name="copyscoredresultregionxpipeline"></a>CopyScoredResultRegionXPipeline*
+Bu [işlem hattı](data-factory/concepts-pipelines-activities.md) - tek bir etkinlik içeren bir [kopyalama](/previous-versions/azure/dn835035(v=azure.100)) Azure Machine Learning denemesi sonuçlarını ilgili taşıyan bir etkinlik ***MLScoringRegionXPipeline***çözüm şablonu yüklemesinin bir parçası sağlanan Azure SQL veritabanı.
 
-#### <a name="copyaggdemandpipeline"></a>*CopyAggDemandPipeline*
-Bu [işlem hattı](data-factory/concepts-pipelines-activities.md) - tek bir etkinlik içeren bir [kopyalama](https://msdn.microsoft.com/library/azure/dn835035.aspx) toplanmış sürekli isteğe bağlı verileri taşıyan bir etkinlik ***LoadHistoryDemandDataPipeline*** Azure SQL'e Çözüm şablonu yüklemesinin bir parçası sağlanan veritabanı.
+#### *<a name="copyaggdemandpipeline"></a>CopyAggDemandPipeline*
+Bu [işlem hattı](data-factory/concepts-pipelines-activities.md) - tek bir etkinlik içeren bir [kopyalama](/previous-versions/azure/dn835035(v=azure.100)) toplanmış sürekli isteğe bağlı verileri taşıyan bir etkinlik ***LoadHistoryDemandDataPipeline*** Azure SQL'e Çözüm şablonu yüklemesinin bir parçası sağlanan veritabanı.
 
-#### <a name="copyregiondatapipeline-copysubstationdatapipeline-copytopologydatapipeline"></a>*CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
-Bu [işlem hattı](data-factory/concepts-pipelines-activities.md) - tek bir etkinlik içeren bir [kopyalama](https://msdn.microsoft.com/library/azure/dn835035.aspx) Azure Storage blobuna çözüm şablonunun bir parçası yüklenen bölge/alt istasyon/Topologygeo başvuru verilerini taşıyan bir etkinlik Yükleme için çözüm şablonu yüklemesinin bir parçası sağlanan Azure SQL veritabanı.
+#### *<a name="copyregiondatapipeline-copysubstationdatapipeline-copytopologydatapipeline"></a>CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
+Bu [işlem hattı](data-factory/concepts-pipelines-activities.md) - tek bir etkinlik içeren bir [kopyalama](/previous-versions/azure/dn835035(v=azure.100)) Azure Storage blobuna çözüm şablonunun bir parçası yüklenen bölge/alt istasyon/Topologygeo başvuru verilerini taşıyan bir etkinlik Yükleme için çözüm şablonu yüklemesinin bir parçası sağlanan Azure SQL veritabanı.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) öngörü talebin bölgesinin Bu çözüm şablonu sağlar, kullanılan denemeler yapın. Denemeyi tüketilen veri kümesi için özeldir ve bu nedenle, değişiklik ya da değiştirme duruma verilere belirli gerektirir.
 
-## <a name="monitor-progress"></a>**İlerlemeyi İzle**
+## **<a name="monitor-progress"></a>İlerlemeyi İzle**
 Veri oluşturucuyu başlatıldıktan sonra işlem hattı hydrated başlar ve eylem aşağıdaki komutlar veri fabrikası tarafından verilen içine başlatılmadan çözümünüzü farklı bileşenlerini başlatın. İşlem hattını izlemek iki yolu vardır.
 
 1. Azure Blob depolama alanındaki verilerin denetleyin.
@@ -154,7 +154,7 @@ Veri oluşturucuyu başlatıldıktan sonra işlem hattı hydrated başlar ve eyl
 
     Ham gelen verileri izlemek için Power BI sık kullanılan yol pano ayarlayabilirsiniz. Lütfen "Power BI Panosu" bölümündeki yönergeleri izleyin.
 
-## <a name="power-bi-dashboard"></a>**Power BI Panosu**
+## **<a name="power-bi-dashboard"></a>Power BI Panosu**
 ### <a name="overview"></a>Genel Bakış
 Bu bölümde, Azure machine learning (Durgun yol) sonuçlarını tahmin yanı sıra Azure akış analizi (etkin yol), gerçek zamanlı verileri görselleştirmek için Power BI Panosu ayarlama açıklar.
 
@@ -164,7 +164,7 @@ Aşağıdaki adımları, Çözüm dağıtımı sırasında oluşturulan Stream A
 1. Power BI çıkışına Azure Stream Analytics (ASA) ekleyin.
 
    * Bölümündeki yönergeleri gerek [Azure Stream Analytics ve Power BI: Bir akış verilerini gerçek zamanlı görünürlük gerçek zamanlı analiz Panosu](stream-analytics/stream-analytics-power-bi-dashboard.md) çıktısını Azure Stream Analytics işinizi Power BI panonuz olarak ayarlamak için.
-   * Stream analytics işinde bulun, [Azure portalında](https://portal.azure.com). İş adı olması gerekir: YourSolutionName + "streamingjob" + rastgele sayı + "asapbi" (yani demostreamingjob123456asapbi).
+   * Stream analytics işinde bulun, [Azure portalında](https://portal.azure.com). İş adı olması gerekir: YourSolutionName+"streamingjob"+random number+"asapbi" (i.e. demostreamingjob123456asapbi).
    * ASA işi için bir Power BI çıkışına ekleyin. Ayarlama **çıkış diğer adı** olarak **'PBIoutput'**. Ayarlama, **veri kümesi adı** ve **tablo adı** olarak **'EnergyStreamData'**. Çıkış ekledikten sonra tıklayın **"Başlat"** Stream Analytics işi başlatmak için sayfanın alt kısmındaki. Bir onay iletisi (örneğin, "Başlangıç stream analytics başarılı myteststreamingjob12345asablob iş") almanız gerekir.
 2. Oturum [çevrimiçi Power BI](https://www.powerbi.com)
 
@@ -224,14 +224,14 @@ Durgun yoldaki veri işlem hattı, her bölgenin talep tahminini temel hedeftir.
    * Genişletin **yenilemeyi zamanla** bölümü. "Verilerinizi güncel tutun" etkinleştirin.
    * Gereksinimlerinize göre yenileme zamanlayabilirsiniz. Daha fazla bilgi için bkz: [Power BI'da veri yenileme](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
 
-## <a name="how-to-delete-your-solution"></a>**Çözümünüzü silme**
+## **<a name="how-to-delete-your-solution"></a>Çözümünüzü silme**
 Veri oluşturucuyu çalışan yüksek maliyetler doğurur gibi aktif çözümü kullanarak veri oluşturucuyu durdurduğunuzdan emin olun. Bunu kullanmıyorsanız çözümü silin. Çözümünüzü silme çözümü dağıttığınızda, aboneliğinizde sağlanan tüm bileşenleri siler. Çözümü silmek için çözüm Şablonu Sil tıklayın ve sol bölmedeki çözümü adına tıklayın.
 
-## <a name="cost-estimation-tools"></a>**Maliyet tahmini araçları**
+## **<a name="cost-estimation-tools"></a>Maliyet tahmini araçları**
 İlgili enerji için çözüm şablonu aboneliğinizde çalıştırılan Talep tahmini toplam maliyetleri daha iyi anlamanıza yardımcı olması aşağıdaki iki araçlar mevcuttur:
 
 * [Microsoft Azure maliyet tahmin Aracı (çevrimiçi)](https://azure.microsoft.com/pricing/calculator/)
 * [Microsoft Azure maliyet tahmin Aracı (Masaüstü)](https://www.microsoft.com/download/details.aspx?id=43376)
 
-## <a name="acknowledgements"></a>**Onayları**
+## **<a name="acknowledgements"></a>Bildirimler**
 Bu makalede, veri uzmanı Yijing Chen ve Microsoft'ta Qiu Min yazılım mühendisi tarafından yazıldı.

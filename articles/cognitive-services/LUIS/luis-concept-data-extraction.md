@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 3d9c2a694562977c2a012d9faa9c282c6b8fff9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 76f8fed8d185598d62eef5a412fda2c3fd1317bd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099840"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893988"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>Amaç ve varlıkları veri ayıklama
 LUIS, bir kullanıcının doğal dil konuşma bilgi almak için sağlar. Bilgiler bir program, uygulama veya sohbet Robotu eyleme kullanılabilmesi için bir şekilde ayıklanır. Aşağıdaki bölümlerde, hangi verilerin hedefleri ve JSON örneklerini varlıklarla döndürülür öğrenin.
@@ -432,13 +432,13 @@ Bir ad, harf ve sözcükler neredeyse her bir birleşimi olabilir çünkü bir u
 [PersonName](luis-reference-prebuilt-person.md) ve [GeographyV2](luis-reference-prebuilt-geographyV2.md) varlıklar bazı durumlarda kullanılabilir [dil kültür](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Kişilerin adları
-Kişi adı, dil ve kültür bağlı olarak bazı küçük biçimi olabilir. Hiyerarşik bir varlık ile ilk ve son adları alt öğe olarak veya tek bir varlığın adı ve Soyadı rolleriyle kullanın. Hiçbiri dahil olmak üzere tüm hedefleri arasında farklı kısımlarını farklı uzunluktaki konuşma ve konuşma utterance içinde adı ve Soyadı kullanan örnekler vermeniz hedefi sağlayın. [Gözden geçirme](luis-how-to-review-endoint-utt.md) doğru şekilde tahmin değil herhangi bir adı etiketlemek için düzenli olarak konuşma uç noktası.
+Kişi adı, dil ve kültür bağlı olarak bazı küçük biçimi olabilir. Hiyerarşik bir varlık ile ilk ve son adları alt öğe olarak veya tek bir varlığın adı ve Soyadı rolleriyle kullanın. Hiçbiri dahil olmak üzere tüm hedefleri arasında farklı kısımlarını farklı uzunluktaki konuşma ve konuşma utterance içinde adı ve Soyadı kullanan örnekler vermeniz hedefi sağlayın. [Gözden geçirme](luis-how-to-review-endpoint-utterances.md) doğru şekilde tahmin değil herhangi bir adı etiketlemek için düzenli olarak konuşma uç noktası.
 
 ### <a name="names-of-places"></a>Basamak adları
-Konum adlarını ayarlayın ve şehir, ilçeler, durumları, bölgeler ve ülke gibi bilinen. Uygulamanızı bilinen birtakım konumları kullanıyorsa, bir liste varlığı göz önünde bulundurun. Adları yerleştirmek bulmanız gerekiyorsa, basit bir varlık oluşturun ve çeşitli örnekler sağlar. Yer adlarına hangi yerde adları görünümlü uygulamanızda güçlendirmek için ifade listesi ekleyin. [Gözden geçirme](luis-how-to-review-endoint-utt.md) doğru şekilde tahmin değil herhangi bir adı etiketlemek için düzenli olarak konuşma uç noktası.
+Konum adlarını ayarlayın ve şehir, ilçeler, durumları, bölgeler ve ülke gibi bilinen. Uygulamanızı bilinen birtakım konumları kullanıyorsa, bir liste varlığı göz önünde bulundurun. Adları yerleştirmek bulmanız gerekiyorsa, basit bir varlık oluşturun ve çeşitli örnekler sağlar. Yer adlarına hangi yerde adları görünümlü uygulamanızda güçlendirmek için ifade listesi ekleyin. [Gözden geçirme](luis-how-to-review-endpoint-utterances.md) doğru şekilde tahmin değil herhangi bir adı etiketlemek için düzenli olarak konuşma uç noktası.
 
 ### <a name="new-and-emerging-names"></a>Yeni ve geliştirilmekte olan adları
-Bazı uygulamalar, ürünleri veya şirketler gibi yeni ve geliştirilmekte olan adlarını bulmak gerekir. Bu tür adları veri ayıklama en zor türüdür. Basit bir varlık ile başlamalı ve bir ifade listesi ekleyin. [Gözden geçirme](luis-how-to-review-endoint-utt.md) doğru şekilde tahmin değil herhangi bir adı etiketlemek için düzenli olarak konuşma uç noktası.
+Bazı uygulamalar, ürünleri veya şirketler gibi yeni ve geliştirilmekte olan adlarını bulmak gerekir. Bu tür adları veri ayıklama en zor türüdür. Basit bir varlık ile başlamalı ve bir ifade listesi ekleyin. [Gözden geçirme](luis-how-to-review-endpoint-utterances.md) doğru şekilde tahmin değil herhangi bir adı etiketlemek için düzenli olarak konuşma uç noktası.
 
 ## <a name="pattern-roles-data"></a>Desen rolleri veri
 Roller, varlık bağlamsal fark vardır.

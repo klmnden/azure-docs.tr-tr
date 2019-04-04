@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 2a41316eadb43145628d6c625935c751bfbc6ad6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b885098ff0efeb4d723cbaaac46fbb57cb40f2ea
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531537"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918833"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>CDN dosya sıkıştırma sorunlarını giderme
 Bu makale ile ilgili sorunları gidermenize yardımcı olur. [CDN dosya sıkıştırma](cdn-improve-performance.md).
@@ -116,6 +116,6 @@ Sıkıştırma için uygun olması için bir dosya aşağıdaki boyut gereksinim
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>İstek için kaynak sunucuda denetleyin bir **aracılığıyla** üstbilgisi
 **Aracılığıyla** HTTP üst bilgisi, istek bir proxy sunucusu tarafından geçirilen web sunucusuna gösterir.  Varsayılan olarak Microsoft IIS web sunucuları sıkıştırma yanıtları istek içerdiğinde bir **aracılığıyla** başlığı.  Bu davranışı geçersiz kılmak için aşağıdakileri gerçekleştirin:
 
-* **IIS 6**: [HcNoCompressionForProxies ayarlama IIS Metabase özelliklerinde = "FALSE"](https://msdn.microsoft.com/library/ms525390.aspx)
+* **IIS 6**: [HcNoCompressionForProxies ayarlama IIS Metabase özelliklerinde = "FALSE"](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
 * **IIS 7 ve üstü**: [Hem **noCompressionForHttp10** ve **noCompressionForProxies** false sunucu yapılandırması](http://www.iis.net/configreference/system.webserver/httpcompression)
 

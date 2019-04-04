@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/03/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.custom: mvc
-ms.openlocfilehash: 4ab04fc69d29d9bb5386261f6453b2f47bfd66bc
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 04/03/2019
+ms.custom: ''
+ms.openlocfilehash: 437e55b1a2907418fe47f418245431fa1c882b80
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446333"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915700"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Azure Stack işlem kapasitesi planlama
 [Azure Stack üzerinde desteklenen VM boyutları](./user/azure-stack-vm-sizes.md) Azure'da desteklediği bir alt kümesidir. Azure kaynak sınırları boyunca operasyonda ekstra tüketimi kaynakların (yerel ve hizmet düzeyi sunucusu) önlemek için birçok vektörleri uygular. Diğer kiracıların kaynakları overconsume, Kiracı kullanımı için bazı limitler izlenmesi olmadan Kiracı deneyimleri düşer. Sanal makineden ağ çıkışı için Azure sınırlamaları eşleşen bant genişliği sınırlaması Azure Stack'te yerinde vardır. Depolama kaynakları için depolama IOPS limitlerine depolama erişimi için kiracılar tarafından temel operasyonda ekstra tüketimi kaynak önlemek için Azure Stack üzerinde uygulanmıştır.  
@@ -45,7 +45,7 @@ Kiracı VM yerleştirme için kullanılabilir toplam ve kullanılabilir bellek h
 
   VM yerleştirme için kullanılabilir bellek VM - Azure Stack altyapısını yükü çalıştırarak kullanılan toplam sunucu belleği – dayanıklılık ayırma – bellek = <sup>1</sup>
 
-  Dayanıklılık ayırma H + R = * (N-1) + V * (N-2)
+  Dayanıklılık ayırma H + R = * ((N-1) * Y) + V * (N-2)
 
 > Konumlar:
 > - H = tek sunucu bellek boyutu
@@ -53,7 +53,7 @@ Kiracı VM yerleştirme için kullanılabilir toplam ve kullanılabilir bellek h
 > - R yükü işletim sistemi için işletim sistemi ayrılmış =<sup>2</sup>
 > - V ölçek birimindeki en büyük VM =
 
-  <sup>1</sup> azure Stack altyapısının yükü 208 GB =
+  <sup>1</sup> azure Stack altyapısının yükü 230 GB =
 
   <sup>2</sup> ek yükü için işletim sistemi ayrılmış = %15 düğüm bellek. İşletim sistemi ayrılmış değeri, tahmini bir değerdir ve genel işletim sistemi ek yükü ve sunucu üzerinde fiziksel bellek kapasitesi göre değişiklik gösterir.
 

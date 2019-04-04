@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: c7bfa8351a2599ff8616364a093cd6154e90830c
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 88a66cae00bcd1256f6c3ad76a04d1333d1db9db
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850868"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917099"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Azure portalı ile Çoklu bit hızına sahip akışlar oluşturmak üzere Media Services'i kullanarak canlı akış gerçekleştirme  
 > [!div class="op_single_selector"]
@@ -42,6 +42,8 @@ Yaygın canlı akış uygulamaları oluşturmak için gerekli olan genel adımla
 > Canlı bir etkinlik için önerilen en uzun süre şu anda 8 saattir. Daha uzun bir süre için bir Kanal çalıştırmanız gerekiyorsa lütfen amslived@microsoft.com adresine başvurun.
 
 1. Bilgisayara bir video kamera bağlayın. <br/>Kurulum fikir edinmek için kullanıma [basit ve taşınabilir olay video dişli Kurulum]( https://link.medium.com/KNTtiN6IeT).
+
+    Bir kamera erişimi yoksa gibi araçlar [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) kullanılabilir bir canlı akış video dosyasından oluşturur.
 1. Başlatın ve bir şu protokollerin birinde tek bit hızlı akış çıktısı alınabilen bir şirket içi Canlı Kodlayıcı yapılandırın: RTMP veya kesintisiz akış. Daha fazla bilgi için bkz. [Azure Media Services RTMP Desteği ve Gerçek Zamanlı Kodlayıcılar](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Ayrıca, bu bloguna göz atın: [Üretim OBS ile canlı akış](https://link.medium.com/ttuwHpaJeT).
 
     Bu adım, Kanalınızı oluşturduktan sonra da gerçekleştirilebilir.

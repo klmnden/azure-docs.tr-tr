@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: aec6282daadc61b4e1bcf6bbaf1266d9bc98cdac
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895807"
+---
 <!--save a copy of this file to your local repo. It's important that you follow the naming conventions by starting with the service name, and use lowercase only for the file name. See "file-names-and-locations.md" under the "contributor-guide" folder in your repo.
 
 Info to help you use the template are enclosed in the Markdown comments using the caret, hyphen, dash syntax. Delete these from your file.
@@ -13,7 +21,7 @@ Pay attention to spacing and indents. They affect formatting.
 # <a name="use-azure-powershell-to-task"></a>[Görev] için Azure PowerShell'i kullanma
 Bu makalede, Azure modülü hem Azure Resource Manager modülüyle komutları kullanarak [Görev], işlemini göstermektedir. Bu yeni komutlar yanı sıra mevcut betikleri için yeni komutlar geçirme öğrenmenize yardımcı olmak için tasarlanmıştır.
 
-## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>Önkoşul: Azure PowerShell en güncel sürümünü yükleyin.
+## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>Önkoşul: En güncel Azure PowerShell sürümünü yükleyin
 En az henüz yapmadıysanız, yerel bilgisayarınızda Azure PowerShell [sürüm numarası] sürümü yükleyin. Önceki bir sürümünü kullanıyorsanız, bu makalede açıklanan Azure Resource Manager cmdlet'leri olmaz. Ayrıntılar için bkz.
 
 * [Azure PowerShell'i yükleme ve yapılandırma işlemini](install-configure-powershell.md) Azure PowerShell ayarlama ayarlama hakkında yönergeler için.
@@ -97,5 +105,5 @@ $FriendlyName"<Describe value>"
     [link text](https://azure.microsoft.com/pricing/details/virtual-machines/)-->
 
 <!--use this for URLs outside of ACOM. Be sure to locale, and if you're linking to the Azure library on MSDN, include the '/azure/' part of the URL-->
-[Sanal makineler belgeleri](https://msdn.microsoft.com/library/azure/jj156003.aspx)
+[Sanal makineler belgeleri](/previous-versions/azure/jj156003(v=azure.100))
 

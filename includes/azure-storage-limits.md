@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 01d84914682d40b97c3d480a753c8b966cf61acc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dccc967e7899d8cc9c4bde6829d6fc44f9cba4e0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553974"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891127"
 ---
 Aşağıdaki tabloda, Azure depolama için varsayılan sınırlara açıklanmaktadır. *Giriş* sınırı bir depolama hesabına gönderilen istekleri gelen tüm verilere başvurur. *Çıkış* sınırı tüm verileri bir depolama hesabından alınan yanıtlardan başvuruyor.
 
 | Kaynak | Varsayılan limit |
 | --- | --- |
-| Standart ve Premium hesapları içeren bir abonelik başına bölgeye göre depolama hesabı sayısı | 250 |
+| Standart ve premium hesapları dahil olmak üzere, abonelik başına bölgeye göre depolama hesabı sayısı | 250 |
 | En fazla depolama hesabı kapasitesi | 2 PB Amerika ve Avrupa'da, 500 UK içeren TB için diğer tüm bölgeler için |
 | Blob kapsayıcıları, blobları, dosya paylaşımları, tablolar, kuyruklar, varlıklar veya depolama hesabı başına ileti sayısı | Sınırsız |
 | İstek hızı üst sınırı<sup>1</sup> depolama hesabı başına | saniyede 20.000 istekleri |

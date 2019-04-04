@@ -12,21 +12,21 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 30a16c2a8b82ff4b32b95b14937166b94aba06b5
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: f94d731fd7b9a9fa85ae42d22949c7ca4024aabe
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726966"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904364"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Sorguları izleme ve iş yükü performansı artırmak otomatik ayarlamayı etkinleştirme
 
 Azure SQL veritabanı, sürekli olarak izler, sorgularınızı ve İş yükünüzün performansını gerçekleştirdiğiniz eylemi tanımlayan bir otomatik olarak yönetilen veri hizmetidir. Yapabilir önerileri gözden geçirin ve el ile uygulayabilirsiniz veya Azure SQL veritabanı, otomatik düzeltici eylemler uygulayın sağlar - bu olarak bilinir **otomatik ayarlama modu**.
 
-Sunucu veya veritabanı düzeyinde aracılığıyla otomatik ayarlama etkinleştirilebilir [Azure portalında](sql-database-automatic-tuning-enable.md#azure-portal), [REST API](sql-database-automatic-tuning-enable.md#rest-api) çağrıları ve [T-SQL](sql-database-automatic-tuning-enable.md#t-sql) komutları.
+Sunucu veya veritabanı düzeyinde aracılığıyla otomatik ayarlama etkinleştirilebilir [Azure portalında](sql-database-automatic-tuning-enable.md#azure-portal), [REST API](sql-database-automatic-tuning-enable.md#rest-api) çağrıları ve [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) komutları.
 
 > [!NOTE]
-> Yönetilen örnek için desteklenen seçeneği FORCE_LAST_GOOD_PLAN aracılığıyla yapılandırılabilir [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) yalnızca. Portal yapılandırma temel ve bu makalede açıklanan otomatik dizin ayarlama seçenekleri yönetilen örneği için geçerli değildir.
+> Yönetilen örnek için desteklenen seçeneği FORCE_LAST_GOOD_PLAN aracılığıyla yapılandırılabilir [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) yalnızca. Portal yapılandırma temel ve bu makalede açıklanan otomatik dizin ayarlama seçenekleri yönetilen örneği için geçerli değildir.
 
 > [!NOTE]
 > ARM (Azure Resource Manager) şablon aracılığıyla otomatik ayarlama seçeneklerini yapılandırma şu anda desteklenmiyor.

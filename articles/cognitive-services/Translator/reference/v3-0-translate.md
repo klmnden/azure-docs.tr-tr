@@ -3,19 +3,19 @@ title: Translator metin çevirisi API'si Çevir yöntemi
 titleSuffix: Azure Cognitive Services
 description: Translator metin API'si Çevir yöntemi kullanın.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 4f6c420ab76462818fb17308d062cc9d881af7df
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8533a5b2a974af3bd426e9b70ba298534b0365f7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091044"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917524"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator metin çevirisi API'si 3.0: Translate
 
@@ -97,7 +97,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   <th width="20%">Üst bilgiler</th>
   <th>Açıklama</th>
   <tr>
-    <td>_Bir yetkilendirme_<br/>_Üst bilgi_</td>
+    <td>_Bir yetkilendirme_<br/>_üst bilgi_</td>
     <td><em>Gerekli istek üst bilgisi</em>.<br/>Bkz: [kimlik doğrulaması için kullanılabilir seçenekler](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -233,7 +233,7 @@ Bir hata oluşursa, isteği ayrıca JSON hata yanıtı döndürür. 3 haneli HTT
 
 Bu örnek, tek bir cümleden İngilizce için Basitleştirilmiş Çince Çevir gösterilmektedir.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# [<a name="curl"></a>Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -259,7 +259,7 @@ Yanıt gövdesi aşağıdaki gibidir:
 
 Bu örnek, tek bir cümleden İngilizce için Basitleştirilmiş Çince Çevir gösterilmektedir. İstek giriş dili belirtmiyor. Kaynak dili otomatik algılama yerine kullanılır.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# [<a name="curl"></a>Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -285,7 +285,7 @@ Yanıt, önceki örnekte yanıt olarak benzerdir. Yanıt, ayrıca otomatik dil a
 
 Şimdi önceki örnekte alfabeye ekleyerek genişletin. Aşağıdaki isteği Latin kodda yazılmış bir Çince ister.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# [<a name="curl"></a>Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -316,7 +316,7 @@ Yanıt gövdesi aşağıdaki gibidir:
 
 Aynı anda birden çok dizeyi çevirme istek gövdesinde bir dizeler dizisi belirtme sorunudur.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# [<a name="curl"></a>Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
@@ -345,7 +345,7 @@ Yanıt gövdesi aşağıdaki gibidir:
 
 Bu örnek, bir istek çeşitli dillerde aynı girişi Çevir gösterilmektedir.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# [<a name="curl"></a>Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -403,7 +403,7 @@ Kaynak metin küfür varlığını bakılmaksızın çevirisini küfür girmeyi 
 
 Örneğin:
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# [<a name="curl"></a>Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
@@ -425,7 +425,7 @@ Bu döndürür:
 
 Karşılaştırın:
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# [<a name="curl"></a>Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
@@ -456,7 +456,7 @@ Bir HTML sayfasından içerik biçimlendirmeyi içeren içeriği veya bir XML be
 
 Bir örnek istek göstermek için aşağıda verilmiştir.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# [<a name="curl"></a>Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
@@ -480,7 +480,7 @@ Yanıt.:
 
 Hizalama bilgilerini almak için belirtin `includeAlignment=true` üzerinde sorgu dizesi.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# [<a name="curl"></a>Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation.'}]"
@@ -518,7 +518,7 @@ Aşağıdaki kısıtlamalara dikkat edin:
 
 Kaynak metni ve çevrilen metni tümce uzunluğu hakkında bilgi almak için bu seçeneği belirtin `includeSentenceLength=true` üzerinde sorgu dizesi.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# [<a name="curl"></a>Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"

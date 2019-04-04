@@ -2,25 +2,18 @@
 title: İçeri aktarma ve Azure CLI kullanarak Azure DNS'ye bir etki alanı bölgesi dosyası dışarı | Microsoft Docs
 description: İçeri aktarma ve Azure CLI kullanarak Azure DNS ile DNS bölge dosyasını dışarı aktarma hakkında bilgi edinin
 services: dns
-documentationcenter: na
 author: vhorne
-manager: timlt
-ms.assetid: f5797782-3005-4663-a488-ac0089809010
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 4/3/2019
 ms.author: victorh
-ms.openlocfilehash: d41ad3232fef57d1008f1e15d5d7d5ee1e106e9b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 25445415141372e1f231549c5b8f8575a89363c6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312661"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905418"
 ---
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Azure CLI kullanarak DNS bölge dosyasını içeri ve dışarı 
+# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Azure CLI kullanarak DNS bölge dosyasını içeri ve dışarı
 
 Bu makalede, alma ve Azure CLI kullanarak Azure DNS için DNS bölge dosyalarının verme konusunda yol göstermektedir.
 
@@ -32,7 +25,6 @@ Azure DNS, alma ve Azure komut satırı arabirimi (CLI) kullanarak bölge dosyal
 
 Azure CLI'yı Azure hizmetlerini yönetmek için kullanılan bir platformlar arası komut satırı aracıdır. Windows, Mac ve Linux platformlarını için kullanılabilir [Azure indirme sayfası](https://azure.microsoft.com/downloads/). Platformlar arası destek, içeri aktarma ve bölge dosyalarını dışarı aktarmak için önemlidir çünkü en sık kullanılan adı sunucu yazılımı [bağlama](https://www.isc.org/downloads/bind/), genellikle Linux üzerinde çalışır.
 
-
 ## <a name="obtain-your-existing-dns-zone-file"></a>Var olan, DNS bölge dosyasını edinin
 
 Azure DNS ile DNS bölge dosyasını içeri aktarmadan önce bölge dosyasının bir kopyasını elde etmek gerekir. DNS bölgesi şu anda barındırıldığı üzerindeki bu dosyanın kaynağına bağlıdır.
@@ -40,14 +32,6 @@ Azure DNS ile DNS bölge dosyasını içeri aktarmadan önce bölge dosyasının
 * DNS bölgenizi (örneğin, etki alanı kayıt şirketi, özel DNS barındırma sağlayıcısı veya diğer bulut sağlayıcısı) bir iş ortağı hizmeti tarafından barındırılıyorsa, bu hizmetin DNS bölge dosyasını indirme olanağı sağlamanız gerekir.
 * DNS bölgenizi Windows DNS üzerinde barındırılıyorsa, bölge dosyaları için varsayılan klasördür **%systemroot%\system32\dns**. Her bölge dosyasının tam yolunu da gösterir **genel** DNS konsolunun sekmesi.
 * DNS bölgenizi bağlama kullanarak tarafından barındırılıyorsa, her bölge için bölgesi dosyasının konumu bağlama yapılandırma dosyasında belirtilen **named.conf**.
-
-> [!NOTE]
-> Bölge dosyalarının Godaddy'den indirilen, biraz standart olmayan bir biçime sahip. Azure DNS'yi bu bölge dosyalarının içeri aktarmadan önce bunu düzeltmeniz gerekir.
->
-> RDATA her DNS kaydının DNS adları tam olarak nitelenmiş adlar belirtildi, ancak bir sonlandırıcı yok "." Bu göreli adlar diğer DNS sistemleri tarafından yorumlanan anlamına gelir. Sonlandırma eklenecek bölge dosyasını düzenlemeniz gerekir "." Azure DNS'yi almadan önce kendi adları için.
->
-> Örneğin, "www 3600 CNAME contoso.com içindeki" CNAME kaydı "CNAME contoso.com 3600 www." değiştirilmelidir
-> (bir sonlandırma ile ".").
 
 ## <a name="import-a-dns-zone-file-into-azure-dns"></a>Azure DNS ile DNS bölge dosyasını içeri aktarma
 
@@ -88,7 +72,6 @@ Değerler:
 * `<zone file name>` Bölge dosyasını içeri aktarılacak yol/adıdır.
 
 Bu ada sahip bir bölge kaynak grubunda mevcut değilse sizin için oluşturulur. Bölge zaten varsa, içeri aktarılan kayıt kümeleri mevcut kayıt kümeleri ile birleştirilir. 
-
 
 ### <a name="step-1-import-a-zone-file"></a>1. Adım Bölge dosyasını içeri aktarma
 
@@ -191,3 +174,9 @@ Mevcut Azure DNS bölgesi dışarı aktarmak için **contoso.com** kaynak grubun
 ```
 az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
 ```
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* Bilgi edinmek için nasıl [kayıt kümeleri ve kayıtları yönetmek](dns-getstarted-create-recordset-cli.md) DNS bölgenizdeki.
+
+* Bilgi edinmek için nasıl [etki alanınızı Azure DNS'ye devretme](dns-domain-delegation.md).

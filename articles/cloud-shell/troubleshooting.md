@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: ad389cfaa92ad487fad8b7ecb6feac40324572f0
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: eb7deacc068661ca9a4f473ee2d36b7d4464c81c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100576"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905520"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Sorun giderme & sınırlamaları Azure Cloud Shell
 
 Azure Cloud shell'de sorunları gidermek için bilinen çözümleri şunlardır:
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-troubleshooting"></a>Genel sorun giderme
 
@@ -74,7 +76,7 @@ Azure Cloud shell'de sorunları gidermek için bilinen çözümleri şunlardır:
 > Azure Vm'leri bir genel IP adresi'e yönelik olmalıdır.
 
 - **Ayrıntılar**: WinRM için varsayılan Windows Güvenlik Duvarı ayarları nedeniyle kullanıcı aşağıdaki hatayı görebilirsiniz: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Çözüm**:  Çalıştırma `Enable-AzureRmVMPSRemoting` tüm yönlerini hedef makinede PowerShell uzaktan iletişimini etkinleştirmek için.
+- **Çözüm**:  Çalıştırma `Enable-AzVMPSRemoting` tüm yönlerini hedef makinede PowerShell uzaktan iletişimini etkinleştirmek için.
 
 ### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir` Azure sürücüsü sonucunda güncelleştirmez.
 

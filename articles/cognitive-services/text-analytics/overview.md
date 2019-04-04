@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 03/01/2019
 ms.author: aahi
-ms.openlocfilehash: f79700d3b57623693bf1d0d62dd9ab171df464fb
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 59763b1146986b9920b87152101fd1dcdb00fece
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882524"
+ms.locfileid: "58904772"
 ---
 # <a name="what-is-text-analytics-api"></a>Metin analizi API'si nedir?
 
@@ -77,7 +77,7 @@ Tüm Metin Analizi API'si uç noktaları ham metin verisi kabul eder. Her belge 
 | İsteğin tamamının maksimum boyutu | 1 MB |
 | Bir istekte bulunabilecek maksimum belge sayısı | 1000 belge |
 
-Hız sınırını dakika ikinci ve 1000 çağrı başına 100 çağrılarıdır. Tek bir çağrıda daha fazla belge (en fazla 1000 belge) gönderebilirsiniz.
+Dakika başına ikinci ve 1000 istek başına 100 istek oranı sınırlıdır. Çok sayıda (en fazla 1000 belge) tek bir çağrı belgelerde gönderebilirsiniz.
 
 ## <a name="unicode-encoding"></a>Unicode kodlama
 

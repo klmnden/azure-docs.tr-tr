@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 2fd74262d9c1b4a751df5d836f98bf89d31dbdc2
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540440"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905996"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Toplama ve Azure İzleyici'de Log Analytics çalışma alanında Azure etkinlik günlüklerini çözümleme
 
@@ -31,7 +31,7 @@ Etkinlik günlüğü'nü kullanarak belirleyebilirsiniz *ne*, *kimin*, ve *oldu�
 Azure etkinlik günlüklerini Log Analytics çalışma alanına bağlandığınızda, şunları yapabilirsiniz:
 
 - Önceden tanımlanmış görünümleri ile etkinlik günlüklerini çözümleme
-- Analiz ve arama ve etkinlik günlüklerinden birden çok Azure aboneliği
+- Analiz edin ve birden çok Azure aboneliklerinden gelen etkinlik günlüklerinde arama yapma
 - Etkinlik günlüklerini 90 günden daha uzun süre tutmak<sup>1</sup>
 - Etkinlik günlükleri ile diğer Azure bağıntısını platform ve uygulama verileri
 - Duruma göre toplanmış işletim etkinliklerini bakın

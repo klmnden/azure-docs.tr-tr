@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 1afb864d34cce74cca787e0c9488560622cf0f7e
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 6147616156bc192ffd8d38ddcc636734d8d5179c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632623"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915977"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-swift"></a>Oluşturma ve Swift içinde Azure uzamsal bağlayıcılarını kullanarak yer işaretleri bulun
 
@@ -280,7 +280,7 @@ Daha fazla bilgi edinin [anchorLocated](https://docs.microsoft.com/objectivec/ap
             // This anchor has already been reported and is being tracked
             break
         case ASALocateAnchorStatus.notLocatedAnchorDoesNotExist:
-            // The anchor was deleted or never exited in the first place
+            // The anchor was deleted or never existed in the first place
             // Drop it, or show UI to ask user to anchor the content anew
             break
         case ASALocateAnchorStatus.notLocated:

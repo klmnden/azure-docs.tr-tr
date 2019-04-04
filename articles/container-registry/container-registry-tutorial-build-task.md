@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 763ff0d5f619d2808fb06c05d5b266160b3a7069
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5aa637938433eb1f906f0a4d81038cec0d6c6dcc
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868574"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893019"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Öğretici: Kaynak kodu işlerseniz kapsayıcı görüntü bulutta oluşturmayı otomatikleştirme
 
@@ -52,7 +52,7 @@ ACR Görevleri şu an için aşağıdaki tetikleyicileri desteklemektedir:
 * Git deposuna işleme
 * Temel görüntü güncelleştirme
 
-Bu öğreticide, ACR görev oluşturur ve bir Dockerfile içinde belirtilen tek bir kapsayıcı görüntüsü iter. ACR görevleri de çalıştırabilir [çok adımlı görevler](container-registry-tasks-multi-step.md) (Önizleme aşamasında), bir YAML kullanarak dosya oluşturun, gönderin ve isteğe bağlı olarak birden çok kapsayıcı test adımları tanımlayın.
+Bu öğreticide, ACR görev oluşturur ve bir Dockerfile içinde belirtilen tek bir kapsayıcı görüntüsü iter. ACR görevleri de çalıştırabilir [çok adımlı görevler](container-registry-tasks-multi-step.md), oluşturmak için adımları tanımlamak için bir YAML dosyası kullanarak anında iletme ve isteğe bağlı olarak birden çok kapsayıcı test edin.
 
 ## <a name="create-a-build-task"></a>Derleme görevi oluşturma
 
@@ -319,7 +319,7 @@ da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59
 Bu öğreticide, bir Git deposuna kaynak kodu işlediğinizde Azure’da kapsayıcı görüntü derlemelerini otomatik olarak tetiklemek üzere bir görev kullanmayı öğrendiniz. Bir kapsayıcı görüntüsünün temel görüntüsü güncelleştirildiğinde derlemeleri tetikleyen görevler oluşturmak için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Temel görüntü güncelleştirmesi ile derlemeleri otomatikleştirme](container-registry-tutorial-base-image-update.md)
+> [Temel görüntü güncelleştirme derlemeleri otomatikleştirme](container-registry-tutorial-base-image-update.md)
 
 <!-- LINKS - External -->
 [sample-repo]: https://github.com/Azure-Samples/acr-build-helloworld-node

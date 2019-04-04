@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4d2701f078a26c22f52aebd0ef562dd60eaca923
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4c04d9dbaf0065f2e68182c9ad84181845dee3e9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097983"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905333"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IOT Central uygulamanızı (Node.js) genel istemci uygulamaya bağlama
 
@@ -28,11 +28,11 @@ Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
 ## <a name="create-a-device-template"></a>Bir cihaz şablonu oluşturma
 
-Azure IOT Central uygulamanızda aşağıdaki ölçümleri ve cihaz özellikleri tanımlanan cihaz şablonuyla gerekir:
+Azure IOT Central uygulamanızda aşağıdaki ölçümler, cihaz özelliklerini, ayarlarını ve komutları ile bir cihaz şablonu gerekir:
 
 ### <a name="telemetry-measurements"></a>Telemetri ölçümleri
 
-Aşağıdaki telemetriyi ekleme **ölçümleri** sayfası:
+Aşağıdaki telemetri ekleyin **ölçümleri** sayfası:
 
 | Görünen Ad | Alan Adı  | Birimler | Min | Maks | Ondalık Basamak Sayısı |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
@@ -41,48 +41,48 @@ Aşağıdaki telemetriyi ekleme **ölçümleri** sayfası:
 | Basınç     | basınç    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
->   Veri telemetri ölçü bir kayan türüdür nokta sayısı.
+> Veri telemetri ölçü bir kayan türüdür nokta sayısı.
 
 Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. İlgili cihaz kod özellik adları alan adları eşleşmiyorsa, telemetri uygulamada görüntülenemiyor.
 
 ### <a name="state-measurements"></a>Durum ölçümleri
 
-Şu durumda ekleme **ölçümleri** sayfası:
+Aşağıdaki durum eklemek **ölçümleri** sayfası:
 
 | Görünen Ad | Alan Adı  | Değer 1 | Görünen Ad | Değer 2 | Görünen Ad |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
 | Fan Modu     | fanmode     | 1       | Çalışıyor      | 0       | Durduruldu      |
 
 > [!NOTE]
->   Veri türü durumu ölçümü dizedir.
+> Veri türü durumu ölçümü dizedir.
 
 Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. İlgili cihaz kod özellik adları alan adları eşleşmiyorsa, uygulama durumu görüntülenemiyor.
 
 ### <a name="event-measurements"></a>Olay ölçümleri
 
-Aşağıdaki olayın ekleme **ölçümleri** sayfası:
+Aşağıdaki olay eklemek **ölçümleri** sayfası:
 
 | Görünen Ad | Alan Adı  | Severity |
 | ------------ | ----------- | -------- |
 | Elektriği  | overheat    | Hata    |
 
 > [!NOTE]
->   Veri türü olay ölçümü dizedir.
+> Veri türü olay ölçümü dizedir.
 
 ### <a name="device-properties"></a>Cihaz özellikleri
 
-Aşağıdaki cihaz özelliklerinde ekleme **özellikleri sayfasında**:
+Aşağıdaki cihaz özelliklerini ekleyin **özellikleri** sayfası:
 
 | Görünen Ad        | Alan Adı        | Veri türü |
 | ------------------- | ----------------- | --------- |
 | Seri Numarası       | serialNumber      | metin      |
 | Cihaz üreticisi | üretici      | metin      |
 
-Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. İlgili cihaz kod özellik adları alan adları eşleşmiyorsa, uygulama cihaz özellik değeri gösterilemiyor.
+Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. İlgili cihaz kod özellik adları alan adları eşleşmiyorsa, uygulama özellikleri görüntülenemiyor.
 
 ### <a name="settings"></a>Ayarlar
 
-Aşağıdaki **numarası** ayarlarında **Ayarları sayfası**:
+Aşağıdaki **numarası** ayarlarını **ayarları** sayfası:
 
 | Görünen Ad    | Alan Adı     | Birimler | Ondalık sayı | Min | Maks  | İlk |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
@@ -91,9 +91,27 @@ Aşağıdaki **numarası** ayarlarında **Ayarları sayfası**:
 
 Cihaz şablona tabloda gösterildiği gibi tam olarak alan adı girin. İlgili cihaz kod özellik adları alan adları eşleşmiyorsa, cihaz ayarı değerini alamaz.
 
+### <a name="commands"></a>Komutlar
+
+Aşağıdaki komutu ekleyin **komutları** sayfası:
+
+| Görünen Ad    | Alan Adı     | Varsayılan Zaman Aşımı | Veri Türü |
+| --------------- | -------------- | --------------- | --------- |
+| Geri sayım       | geri sayım      | 30              | number    |
+
+Aşağıdaki giriş alanını geri sayım komutu ekleyin:
+
+| Görünen Ad    | Alan Adı     | Veri Türü | Değer |
+| --------------- | -------------- | --------- | ----- |
+| Gelen sayısı      | countFrom      | number    | 10    |
+
+Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. İlgili cihaz kod özellik adları alan adları eşleşmiyorsa, cihaz komut işlenemiyor.
+
 ## <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
-Azure IOT Central uygulamanızı oluşturun ve cihaz bağlantı dizesini not edin cihaz şablonundan gerçek bir cihaz ekleyin. IOT Central bir Node.js uygulaması bağlanma ile ilgili adım adım yönergeler için bkz. [uygulamasından gerçek cihaz bağlantı dizesi oluştur](tutorial-add-device.md#generate-connection-string) ve [istemci kodu hazırlama](tutorial-add-device.md#prepare-the-client-code) öğreticilerde > Bir cihaz ekleyin.
+Azure IOT Central uygulamanızda, önceki bölümde oluşturduğunuz cihaz şablonu gerçek bir cihaz ekleyin.
+
+İçin "bir cihaz eklemek" öğreticideki yönergeleri izleyin [gerçek bir cihaz için bir bağlantı dizesi oluştur](tutorial-add-device.md#generate-connection-string). Aşağıdaki bölümde bu bağlantı dizesini kullanabilirsiniz:
 
 ### <a name="create-a-nodejs-application"></a>Node.js uygulaması oluşturma
 
@@ -129,12 +147,9 @@ Aşağıdaki adımları uygulamaya eklenen gerçek cihaz uygulayan bir istemci u
     var client = clientFromConnectionString(connectionString);
     ```
 
-    > [!NOTE]
-    > Azure IOT Central değiştiğinden Azure IOT Hub cihazı sağlama hizmeti (DPS) kullanarak tüm cihaz bağlantıları için bu yönergeleri izleyin [cihaz bağlantı dizesini alma](concepts-connectivity.md#get-a-connection-string) ve bu öğreticinin geri kalanını ile devam edin. Daha fazla yardım için ayrıntılı yönergeleri kümesi de bulabilirsiniz [istemci kodu hazırlama](tutorial-add-device.md#prepare-the-client-code) öğreticilerde > bir cihaz ekleyin.
+    Yer tutucu güncelleştirme `{your device connection string}` ile [cihaz bağlantı dizesini](tutorial-add-device.md#generate-connection-string). Bu örnekte, başlatma `targetTemperature` sıfır olarak cihazdaki geçerli okuma veya cihaz ikizinde arasında bir değer kullanabilirsiniz.
 
-    Yer tutucu güncelleştirme `{your device connection string}` cihaz bağlantı dizesiyle. Bu örnekte biz başlatmak `targetTemperature` sıfır olarak, isteğe bağlı olarak bir CİHAZDAN geçerli okuma veya değeri cihaz ikizinden alabilir. 
-
-1. Telemetri, durum ve olay ölçümleri, Azure IOT Central uygulamasına göndermek için dosyasına aşağıdaki işlevi ekleyin:
+1. Telemetri, durum ve olay ölçümler, Azure IOT Central uygulamasına göndermek için dosyasına aşağıdaki işlevi ekleyin:
 
     ```javascript
     // Send device measurements.
@@ -143,9 +158,9 @@ Aşağıdaki adımları uygulamaya eklenen gerçek cihaz uygulayan bir istemci u
       var humidity = 70 + (Math.random() * 10);
       var pressure = 90 + (Math.random() * 5);
       var fanmode = 0;
-      var data = JSON.stringify({ 
-        temperature: temperature, 
-        humidity: humidity, 
+      var data = JSON.stringify({
+        temperature: temperature,
+        humidity: humidity,
         pressure: pressure,
         fanmode: (temperature > 25) ? "1" : "0",
         overheat: (temperature > 35) ? "ER123" : undefined });
@@ -159,13 +174,9 @@ Aşağıdaki adımları uygulamaya eklenen gerçek cihaz uygulayan bir istemci u
 1. Cihaz özellikleri, Azure IOT Central uygulamasına göndermek için dosyanıza aşağıdaki işlevi ekleyin:
 
     ```javascript
-    // Send device properties.
-    function sendDeviceProperties(twin) {
-      var properties = {
-        serialNumber: '123-ABC',
-        manufacturer: 'Contoso'
-      };
-      twin.properties.reported.update(properties, (err) => console.log(`Sent device properties; ` +
+    // Send device reported properties.
+    function sendDeviceProperties(twin, properties) {
+      twin.properties.reported.update(properties, (err) => console.log(`Sent device properties: ${JSON.stringify(properties)}; ` +
         (err ? `error: ${err.toString()}` : `status: success`)));
     }
     ```
@@ -223,7 +234,41 @@ Aşağıdaki adımları uygulamaya eklenen gerçek cihaz uygulayan bir istemci u
     }
     ```
 
-1. Azure IOT Central için bağlantıyı tamamlamak ve istemci kodu işlevlerde bağlama için aşağıdakileri ekleyin:
+1. IOT Central uygulamadan gönderilen bir geri sayım komutunu işlemek için aşağıdaki kodu ekleyin:
+
+    ```javascript
+    // Handle countdown command
+    function onCountdown(request, response) {
+      console.log('Received call to countdown');
+
+      var countFrom = (typeof(request.payload.countFrom) === 'number' && request.payload.countFrom < 100) ? request.payload.countFrom : 10;
+
+      response.send(200, (err) => {
+        if (err) {
+          console.error('Unable to send method response: ' + err.toString());
+        } else {
+          client.getTwin((err, twin) => {
+            function doCountdown(){
+              if ( countFrom >= 0 ) {
+                var patch = {
+                  countdown:{
+                    value: countFrom
+                  }
+                };
+                sendDeviceProperties(twin, patch);
+                countFrom--;
+                setTimeout(doCountdown, 2000 );
+              }
+            }
+
+            doCountdown();
+          });
+        }
+      });
+    }
+    ```
+
+1. Azure IoT Central bağlantısını tamamlamak ve istemci kodundaki işlevleri bağlamak için aşağıdaki kodu ekleyin:
 
     ```javascript
     // Handle device connection to Azure IoT Central.
@@ -232,6 +277,9 @@ Aşağıdaki adımları uygulamaya eklenen gerçek cihaz uygulayan bir istemci u
         console.log(`Device could not connect to Azure IoT Central: ${err.toString()}`);
       } else {
         console.log('Device successfully connected to Azure IoT Central');
+
+        // Create handler for countdown command
+        client.onDeviceMethod('countdown', onCountdown);
 
         // Send telemetry measurements to Azure IoT Central every 1 second.
         setInterval(sendTelemetry, 1000);
@@ -242,7 +290,12 @@ Aşağıdaki adımları uygulamaya eklenen gerçek cihaz uygulayan bir istemci u
             console.log(`Error getting device twin: ${err.toString()}`);
           } else {
             // Send device properties once on device start up.
-            sendDeviceProperties(twin);
+            var properties = {
+              serialNumber: '123-ABC',
+              manufacturer: 'Contoso'
+            };
+            sendDeviceProperties(twin, properties);
+
             // Apply device settings and handle changes to device settings.
             handleSettings(twin);
           }
@@ -268,16 +321,18 @@ Azure IOT Central, uygulamanızdaki bir operatör olarak, gerçek cihazınız i�
 
     ![Telemetri görüntüleme](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Cihazınızın gönderen cihazın özellik değerlerini görüntülemek **özellikleri** sayfası. Bağlantı başarılı olursa cihaz özellikleri kutucukları güncelleştirmesi.
+* Cihazınızın gönderen cihazın özellik değerlerini görüntülemek **özellikleri** sayfası. Cihaz bağlandığında cihaz özelliği kutucuk güncelleştirme:
 
     ![Cihaz özelliklerini görüntüleme](media/howto-connect-nodejs/viewproperties.png)
 
-* Fan hız ve hedef sıcaklık gelen ayarlamak **ayarları** sayfası. Bağlantı başarılı olursa ayarları değerlerini eşitleyin.
+* Fan hız ve hedef sıcaklık gelen ayarlamak **ayarları** sayfası:
 
     ![Fan hızı ayarlama](media/howto-connect-nodejs/setfanspeed.png)
 
+* Geri sayım komutunu çağırın **komutları** sayfası:
+
+    ![Geri sayım komuta çağrı](media/howto-connect-nodejs/callcountdown.png)
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Genel bir Node.js istemcisi, Azure IOT Central uygulamasına bağlanmak öğrendiniz, önerilen sonraki adımlar şunlardır:
-* [Raspberry Pi'yi hazırlama ve bağlama](howto-connect-raspberry-pi-python.md)
-<!-- Next how-tos in the sequence -->
+Genel bir Node.js istemcisi, Azure IOT Central uygulamasına bağlanmak öğrendiniz, önerilen sonraki adıma öğrenmektir nasıl [hazırlayın ve Raspberry Pi'yi bağlanma](howto-connect-raspberry-pi-python.md).

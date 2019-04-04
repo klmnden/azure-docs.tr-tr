@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: f2fc187518070bf199a3959889afd1ede4ef5b77
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 89b48175d7707458cd92916f6b26e298163a7416
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660733"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915940"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>İşletim sistemi ve framework ACR görevlerle düzeltme eki uygulama otomatikleştirin
 
@@ -27,7 +27,7 @@ Derleme ve kapsayıcı görüntüleri ACR görevlerle dört yöntemle test edin:
 * [Hızlı görev](#quick-task): Oluşturun ve yerel bir Docker altyapısının yüklemesine gerek kalmadan Azure içinde kapsayıcı görüntüleri isteğe bağlı olarak gönderin. Düşünme `docker build`, `docker push` bulutta. Yerel kaynak kodu veya bir Git deposu oluşturun.
 * [Kaynak kod işlemesinde derleme](#automatic-build-on-source-code-commit): Bir Git deposuna kod işlendiğinde bir kapsayıcı görüntüsü derleme otomatik olarak tetikleyin.
 * [Temel görüntü güncelleştirme derleme](#automate-os-and-framework-patching): Bu görüntünün temel görüntü güncelleştirme sırasında bir kapsayıcı görüntü derlemesi tetikleyin.
-* [Çok adımlı görevler](#multi-step-tasks-preview) (Önizleme): Görüntü oluşturma, kapsayıcıları komutları çalıştırın ve bir registry'ye görüntüleri gönderme çok adımlı görevler tanımlayın. İsteğe bağlı görev yürütme ACR görevleri bu önizleme özelliğini destekler ve paralel görüntüsü derleme, test ve işlemleri gönderin.
+* [Çok adımlı görevler](#multi-step-tasks): Görüntü oluşturma, kapsayıcıları komutları çalıştırın ve bir registry'ye görüntüleri gönderme çok adımlı görevler tanımlayın. Bu özellik ACR görevleri destekler isteğe bağlı görev yürütme ve paralel görüntüsü derleme, test ve itme işlemleri.
 
 ## <a name="quick-task"></a>Hızlı görev
 
@@ -36,6 +36,8 @@ Derleme ve kapsayıcı görüntüleri ACR görevlerle dört yöntemle test edin:
 Kodunuzun ilk satırını göndermeden önce kod, ACR Görevler'ın [hızlı görev](container-registry-tutorial-quick-task.md) özelliği, kapsayıcı görüntünüzü boşaltma tarafından bir tümleşik geliştirme deneyimi için Azure yapılar sağlayabilir. Hızlı Görevler ile otomatikleştirilmiş derleme tanımları ve kodunuzu uygulamadan önce olası sorunları catch doğrulayabilirsiniz.
 
 Tanıdık kullanarak `docker build` biçimi [az acr build] [ az-acr-build] Azure CLI komutu alır bir *bağlam* (oluşturmak için dosya kümesini), bu ACR görevler gönderir ve varsayılan olarak, oluşturulan görüntüyü tamamlandıktan sonra kayıt defterine gönderir.
+
+Hızlı Başlangıç için bir giriş için bkz [derleme ve çalıştırma bir kapsayıcı görüntüsü](container-registry-quickstart-task-cli.md) Azure Container Registry'de.  
 
 Aşağıdaki tabloda, ACR görevleri için desteklenen içerik konumları bazı örnekler gösterilmektedir:
 
@@ -76,9 +78,9 @@ Bir kapsayıcı görüntüsü oluşturduğunda ACR görevleri temel görüntü b
 > [!NOTE]
 > Temel görüntü yalnızca hem temel sınıfını hem uygulama görüntüleri aynı Azure container Registry'de bulunabilir veya temel bir genel Docker Hub deposundaki bulunduğu tetikleyici yapılar güncelleştirir.
 
-## <a name="multi-step-tasks-preview"></a>Çok adımlı görevler (önizleme)
+## <a name="multi-step-tasks"></a>Çok adımlı görevler
 
-Çok adımlı görevler, bir önizleme özelliği, ACR görevleri adım tabanlı görev tanımı ve derleme, test etme ve bulutta kapsayıcı görüntülerini düzeltme eki uygulama için yürütme sağlar. Görev adımları, tek tek kapsayıcı derleme ve gönderme işlemlerini tanımlar. Ayrıca, her adımın kapsayıcıyı kendi yürütme ortamı olarak kullanmasıyla bir veya daha fazla kapsayıcının yürütülmesini de tanımlayabilirler.
+Çok adımlı görevler adım tabanlı görev tanımı ve yürütme için oluşturma, test etme ve bulutta düzeltme eki uygulama kapsayıcı görüntüleri sağlar. Görev adımları, tek tek kapsayıcı derleme ve gönderme işlemlerini tanımlar. Ayrıca, her adımın kapsayıcıyı kendi yürütme ortamı olarak kullanmasıyla bir veya daha fazla kapsayıcının yürütülmesini de tanımlayabilirler.
 
 Örneğin, aşağıdaki otomatik hale getiren çok adımlı görev oluşturabilirsiniz:
 
@@ -93,15 +95,12 @@ Bir kapsayıcı görüntüsü oluşturduğunda ACR görevleri temel görüntü b
 
 Çok adımlı görevler hakkında bilgi edinin [ACR görevleri çok adımlı derleme, test ve düzeltme eki görevleri çalıştırmak](container-registry-tasks-multi-step.md).
 
-> [!IMPORTANT]
-> ACR görevleri çok adımlı görev özelliği şu anda Önizleme aşamasındadır. Önizlemeler, [ek kullanım koşullarını][terms-of-use] kabul etmeniz şartıyla kullanımınıza sunulur. Bu özellik bazı yönleri genel kullanıma (GA) açılmadan önce değişebilir
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 İşletim sistemi ve bulutta kapsayıcı görüntülerinizi oluşturarak düzeltme eki uygulama çerçevesi otomatikleştirmek hazır olduğunuzda, üç bölümden ACR görevleri öğretici serisini denetleyin.
 
 > [!div class="nextstepaction"]
-> [Azure Container Registry Görevleri ile bulutta kapsayıcı görüntüleri derleme](container-registry-tutorial-quick-task.md)
+> [Azure kapsayıcı kayıt defteri görevler ile bulutta kapsayıcı görüntüleri oluşturma](container-registry-tutorial-quick-task.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

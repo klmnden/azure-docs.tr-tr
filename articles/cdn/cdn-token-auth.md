@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 6ff7b018cea8bedd93d3c9aef3b3250ecf5251b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 75d6fb063a6cb5336a4d9945bf6a79a65ed25d40
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123734"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918901"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Azure CDN varlıkları belirteç kimlik doğrulaması ile güvenli hale getirme
 
@@ -33,7 +33,7 @@ Belirteç kimlik doğrulaması varlıklar yetkisiz istemcilerine hizmet veren Az
 
 Belirteç kimlik doğrulaması istekleri ayrı tutma istek sahibinin hakkında bilgi kodlanmış belirteci bir değer içermesi için istekleri gerektirerek tarafından güvenilen bir site oluşturulur doğrular. Yalnızca kodlanmış bilgileri gereksinimlerini karşılıyorsa içerik bir istek sahibine sunulur; Aksi takdirde istek reddedilir. Bir veya daha fazla aşağıdaki parametreleri kullanarak gereksinimleri ayarlayabilirsiniz:
 
-- Ülke: İzin verme veya reddetme tarafından belirtilen ülke kaynaklanan istekler kendi [ülke kodu](https://msdn.microsoft.com/library/mt761717.aspx).
+- Ülke: İzin verme veya reddetme tarafından belirtilen ülke kaynaklanan istekler kendi [ülke kodu](/previous-versions/azure/mt761717(v=azure.100)).
 - URL: Belirtilen varlık veya yol ile eşleşen istekleri izin verir.
 - Ana bilgisayar: İzin ver veya istek üst bilgisinde belirtilen konakların kullanan isteklerini reddedin.
 - Başvuran: İzin ver veya belirtilen başvuran isteği reddet.
@@ -120,7 +120,7 @@ Aşağıdaki akış çizelgesi, CDN uç noktasında belirteci kimlik doğrulamas
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Yalnızca bir veya daha fazla belirtilen ülkelerden kökenli isteklerine izin verir. Diğer tüm ülkelerden kaynaklanan istekler reddedilir. İki harfli kullanın [3166 ISO ülke kodu](https://msdn.microsoft.com/library/mt761717.aspx) her bir ülkede ve her biri bir virgül ile ayırın; boşluk eklemeyin. Örneğin, yalnızca Amerika Birleşik Devletleri ve Fransa erişim izin vermek istiyorsanız, girin `US,FR`.</td>
+      >    <td>Yalnızca bir veya daha fazla belirtilen ülkelerden kökenli isteklerine izin verir. Diğer tüm ülkelerden kaynaklanan istekler reddedilir. İki harfli kullanın [3166 ISO ülke kodu](/previous-versions/azure/mt761717(v=azure.100)) her bir ülkede ve her biri bir virgül ile ayırın; boşluk eklemeyin. Örneğin, yalnızca Amerika Birleşik Devletleri ve Fransa erişim izin vermek istiyorsanız, girin `US,FR`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 

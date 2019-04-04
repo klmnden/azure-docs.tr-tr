@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
-ms.openlocfilehash: 471a7e3704f10674c8a1d9bdf26df5f0aaf8519b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f6efec64b4e6659b822b76e0fd7f9cc71a164094
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093315"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917762"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Azure CDN içeriğini ülkeye göre kısıtlama
 
@@ -48,15 +48,15 @@ Tüm dosyaları ile bir ileri eğik çizgi (/) veya dizin yolları belirterek be
 */*                                 
 */Photos/*     
 */Photos Strasbourg /*     
-*/Photos/Strasbourg/City.PNG*
+*/Photos/Strasbourg/city.png*
 
 ### <a name="define-the-type-of-action"></a>Eylemin türünü tanımlayın
 
 Gelen **eylem** listesinden **izin** veya **blok**: 
 
-- **İzin**: yalnızca belirtilen ülkelerinden kullanıcılara özyinelemeli yolundan istenen varlıklara erişimi verilir.
+- **İzin**: Yalnızca belirtilen ülke kullanıcılardan özyinelemeli yolundan istenen varlıklara erişmesine izin verilir.
 
-- **Blok**: belirtilen ülke kullanıcılardan özyinelemeli yolundan istenen varlıklara erişim engellenir. Ardından bu konumda için diğer ülke filtreleme seçeneği yapılandırıldıysa, diğer tüm kullanıcıların erişimine izin verilir.
+- **Blok**: Belirtilen ülke kullanıcılardan özyinelemeli yolundan istenen varlıklara erişimi reddedilir. Ardından bu konumda için diğer ülke filtreleme seçeneği yapılandırıldıysa, diğer tüm kullanıcıların erişimine izin verilir.
 
 Yolun engelleme gibi bir coğrafi filtreleme kuralı */fotoğraflar/Strasbourg/* aşağıdaki dosyalar filtrelenir:     
 *http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
@@ -110,5 +110,5 @@ Kural silmek için listeden seçin **coğrafi filtreleme** sayfasında ve ardın
 
 * Yalnızca bir kural aynı göreli yol uygulanabilir. Diğer bir deyişle, aynı göreli yolunu işaret eden birden fazla ülke filtre oluşturulamıyor. Ancak, bir klasör ülke filtreleri özyinelemeli olduğundan, birden fazla ülke filtre olabilir. Diğer bir deyişle, önceden yapılandırılmış bir klasörün bir alt farklı ülke filtre atanabilir.
 
-* Coğrafi filtreleme özelliği ülke kodları ülkelerin içinden bir isteği izin verilen veya engellenen için güvenli bir dizin tanımlamak için kullanır. Aynı ülke kodları çoğunu Akamai ve Verizon'dan profillerini desteklese de, bazı farklar vardır. Daha fazla bilgi için [Azure CDN ülke kodları](https://msdn.microsoft.com/library/mt761717.aspx). 
+* Coğrafi filtreleme özelliği ülke kodları ülkelerin içinden bir isteği izin verilen veya engellenen için güvenli bir dizin tanımlamak için kullanır. Aynı ülke kodları çoğunu Akamai ve Verizon'dan profillerini desteklese de, bazı farklar vardır. Daha fazla bilgi için [Azure CDN ülke kodları](/previous-versions/azure/mt761717(v=azure.100)). 
 

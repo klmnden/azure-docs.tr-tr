@@ -9,17 +9,14 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 41c665a2a1aec56cc07d5465742d01e41e6adfff
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: d915058e13f3c5287bdb037a1600e7f0a09da436
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443577"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895673"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Öğretici: Video Indexer API'sini kullanma
-
-> [!Note]
-> Video Indexer V1 API, 1 Ağustos 2018'de kullanım dışı bırakıldı. Artık, Video Indexer v2 API kullanılmalıdır. <br/>Video Indexer v2 API'leri ile geliştirme çalışmaları yapmak için [buradaki](https://api-portal.videoindexer.ai/) yönergelere bakın. 
 
 Video Indexer, Microsoft tarafından sunulan ses ve videoya yönelik çeşitli yapay zeka (AI) teknolojilerini tümleşik tek bir hizmette birleştirerek geliştirme faaliyetlerini kolaylaştırır. API'ler, geliştiricilerin bulut platformunun ölçek, küresel erişim, kullanılabilirlik veya güvenilirliği üzerinde düşünmeye gerek kalmadan Medya yapay zeka teknolojilerini kullanmaya odaklanmasına olanak sağlayacak şekilde tasarlanmıştır. API'yi kullanarak dosyalarınızı karşıya yükleyebilir, ayrıntılı video içgörüleri edinebilir, uygulamanıza eklemek amacıyla içgörü ve yürütücü pencere öğelerinin URL'lerini alabilir ve başka görevleri yerine getirebilirsiniz.
 
@@ -211,7 +208,7 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-- [Video Indexer’a genel bakış](video-indexer-overview.md)
+- [Video Indexer genel bakış](video-indexer-overview.md)
 - [Bölgeler](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 
 ## <a name="next-steps"></a>Sonraki adımlar

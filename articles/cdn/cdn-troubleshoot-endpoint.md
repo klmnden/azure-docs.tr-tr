@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 8c1e463378cc2c1ba3fdc0bcf91f800f634cc5f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 66ee211856bb451caad7af02103aa306d76e8f97
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077131"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916283"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Bir 404 durum kodu döndüren bir Azure CDN uç noktası sorunlarını giderme
 Bu makalede, 404 HTTP yanıtı durum kodları iade Azure Content Delivery Network (CDN) uç noktaları ile ilgili sorunları giderme sağlar.
@@ -76,7 +76,7 @@ Denetleme, **HTTP** ve **HTTPS bağlantı noktaları**. Çoğu durumda, 80 ve 44
 Daha önce test kaynak dosyası için http URL'sini ancak varsayalım:\//www.contoso.com:8080/file.txt. Not *: 8080* hostname segmentin sonuna bölümü. Sayı www web sunucusuna bağlanmak için bağlantı noktası 8080 kullanılacak tarayıcı bildirir\.contoso.com, bu nedenle gereken girin *8080* içinde **HTTP bağlantı noktası** alan. Yalnızca hangi bağlantı noktası uç noktanın kaynaktan bilgi almak için kullanır. Bu bağlantı noktası ayarlarını etkileyen dikkat edin önemlidir.
 
 > [!NOTE]
-> **Azure CDN standart Akamai** uç noktaları kaynakları için tam TCP bağlantı noktası aralığına izin vermez.  İzin verilmeyen kaynak bağlantı noktalarının listesi için bkz. [Akamai'den Azure CDN İzin Verilen Kaynak Bağlantı Noktaları](https://msdn.microsoft.com/library/mt757337.aspx).  
+> **Azure CDN standart Akamai** uç noktaları kaynakları için tam TCP bağlantı noktası aralığına izin vermez.  İzin verilmeyen kaynak bağlantı noktalarının listesi için bkz. [Akamai'den Azure CDN İzin Verilen Kaynak Bağlantı Noktaları](/previous-versions/azure/mt757337(v=azure.100)).  
 > 
 > 
 

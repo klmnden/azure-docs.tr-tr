@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: aed7d4fedd4781eac8c127744e5fe93fb054b99d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369726"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894466"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding'i sık sorulan sorular (SSS)
 
@@ -88,7 +88,7 @@ Bkz: [Azure Active Directory kaynaklarını](luis-how-to-collaborate.md#azure-ac
 
 Beklenmeyen sorgu tahmin sonuçlarını yayımlanan model durumuna dayanır. Model düzeltmek için modeli değiştirmek için eğitme ve yeniden yayımlayın. 
 
-Model düzeltme ile başlayan [etkin olarak öğrenmeye](luis-how-to-review-endoint-utt.md).
+Model düzeltme ile başlayan [etkin olarak öğrenmeye](luis-how-to-review-endpoint-utterances.md).
 
 Güncelleştirerek belirleyici eğitim kaldırabilirsiniz [uygulama sürümü ayarları API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) tüm eğitim verilerini kullanmak için.
 
@@ -298,7 +298,7 @@ Ek yazma [API yolları](https://github.com/Azure-Samples/cognitive-services-lang
 Videolar:
 * [Azure Friday Build 2018'e en: Bilişsel hizmetler - dil (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
 * [Derleme 2018 AI Show - Language Understanding hizmeti ile yenilikler nelerdir?](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Build 2018 Session - Bot zekası, Konuşma Özellikleri ve NLU en iyi uygulamaları](https://channel9.msdn.com/events/Build/2018/BRK3208)
+* [Build 2018 oturumunu - robot zekası, konuşma tanıma özellikleri ve NLU en iyi uygulamalar](https://channel9.msdn.com/events/Build/2018/BRK3208)
 * [Build 2018'e - LUIS güncelleştirmeleri](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 Projeler:

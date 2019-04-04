@@ -7,18 +7,21 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: d75eb87bff812589e4d3a3a14079ddaaf368a588
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259780"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904874"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB'de tanılama günlüğüne kaydetme 
 
 Bir veya daha fazla Azure Cosmos DB veritabanı kullanmaya başladıktan sonra izlemek isteyebilirsiniz nasıl ve ne zaman veritabanlarınızı erişilir. Bu makalede Azure platformunda kullanılabilir günlükleri genel bir bakış sağlar. İzleme günlüklerini göndermek amacıyla tanılama günlüğü etkinleştirme hakkında bilgi edinin [Azure depolama](https://azure.microsoft.com/services/storage/), akış günlüklerine nasıl [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)ve günlükleri dışarı aktarma [Azure İzleyicigünlüğekaydeder](https://azure.microsoft.com/services/log-analytics/).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="logs-available-in-azure"></a>Azure'da kullanılabilen günlükleri
 
@@ -132,7 +135,7 @@ Azure PowerShell'i zaten yüklemiş olduğunuz ve sürümü PowerShell konsolunu
 Bir Azure PowerShell oturumu başlatın ve aşağıdaki komutla Azure hesabınızda oturum açın:  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Açılır tarayıcı penceresinde Azure hesabı kullanıcı adınızı ve parolanızı girin. Azure PowerShell tüm birinciyi kullanır, varsayılan olarak ve bu hesapla ilişkili abonelikleri alır.
@@ -140,13 +143,13 @@ Açılır tarayıcı penceresinde Azure hesabı kullanıcı adınızı ve parola
 Birden fazla aboneliğiniz varsa, Azure anahtar kasanızı oluşturmak için kullanılan belirli bir aboneliğe belirtmeniz gerekebilir. Hesabınız için abonelikleri görmek için aşağıdaki komutu yazın:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Sonra oturum açtığınızdan Azure Cosmos DB hesabıyla ilişkili aboneliği belirtmek için aşağıdaki komutu yazın:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -162,7 +165,7 @@ Bu öğreticide günlükleriniz için var olan bir depolama hesabı kullanabilir
 Bu öğreticide, yönetim kolaylığı açısından ek aynı kaynak grubunda Azure Cosmos DB veritabanı içeren bir kullanırız. Kendi değerlerinizi yerleştirin **ContosoResourceGroup**, **contosocosmosdblogs**, ve **Orta Kuzey ABD** uygunsa parametreleri:
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
+$sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup `
 -Name contosocosmosdblogs -Type Standard_LRS -Location 'North Central US'
 ```
 
@@ -175,15 +178,15 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
 Azure Cosmos DB hesap adınızı adlı bir değişken ayarlamak **hesabı**burada **ResourceName** Azure Cosmos DB hesabının adıdır.
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName ContosoResourceGroup `
+$account = Get-AzResource -ResourceGroupName ContosoResourceGroup `
 -ResourceName contosocosmosdb -ResourceType "Microsoft.DocumentDb/databaseAccounts"
 ```
 
 ### <a id="enable"></a>Günlüğe kaydetmeyi etkinleştirme
-Azure Cosmos DB için günlük kaydını etkinleştirmek için `Set-AzureRmDiagnosticSetting` cmdlet'iyle yeni depolama hesabı ve Azure Cosmos DB hesabı için günlük kaydını etkinleştirmek için bir kategori için değişkenleri. Aşağıdaki komutu çalıştırın ve ayarlama **-etkin** bayrak **$true**:
+Azure Cosmos DB için günlük kaydını etkinleştirmek için `Set-AzDiagnosticSetting` cmdlet'iyle yeni depolama hesabı ve Azure Cosmos DB hesabı için günlük kaydını etkinleştirmek için bir kategori için değişkenleri. Aşağıdaki komutu çalıştırın ve ayarlama **-etkin** bayrak **$true**:
 
 ```powershell
-Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
+Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
 ```
 
 Komut çıktısı, aşağıdaki örneğe benzemelidir:
@@ -221,7 +224,7 @@ Komut çıktısı, günlüğe kaydetme, veritabanı için artık etkin ve depola
 İsteğe bağlı olarak, eski günlüklerin otomatik olarak silinmesi gerektiğini günlükleriniz için bekletme ilkesi de ayarlayabilirsiniz. Örneğin, bekletme ilkesi ile ayarlamak **- RetentionEnabled** bayrağı ayarlanmış **$true**. Ayarlama **- Retentionındays** parametresi **90** böylece 90 günden eski olan günlükler otomatik olarak silinir.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
  -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests`
   -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -238,7 +241,7 @@ Azure Cosmos DB için günlüklerini **DataPlaneRequests** kategori depolanır *
 Tüm bu kapsayıcıdaki blobları listelemek için şunu yazın:
 
 ```powershell
-Get-AzureStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 Komut çıktısı, aşağıdaki örneğe benzemelidir:
@@ -273,13 +276,13 @@ New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
 Ardından tüm blobların listesini alın:  
 
 ```powershell
-$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
-Bu listede kanal `Get-AzureStorageBlobContent` blobları hedef klasöre yüklemek için komutu:
+Bu listede kanal `Get-AzStorageBlobContent` blobları hedef klasöre yüklemek için komutu:
 
 ```powershell
-$blobs | Get-AzureStorageBlobContent `
+$blobs | Get-AzStorageBlobContent `
  -Destination 'C:\Users\username\ContosoCosmosDBLogs'
 ```
 
@@ -290,27 +293,27 @@ Blobları seçmeli olarak indirmek için jokerleri kullanın. Örneğin:
 * Birden çok veritabanına sahip ve tek veritabanı adlı günlükleri indirmek istiyorsanız **CONTOSOCOSMOSDB3**, komutu kullanın:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/DATABASEACCOUNTS/CONTOSOCOSMOSDB3
     ```
 
 * Birden çok kaynak grupları ve yalnızca bir kaynak grubu için günlük indirmek isterseniz varsa komutunu `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
     -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
     ```
 * Temmuz 2017'in ay için tüm günlükleri indirmek isterseniz, komutunu `-Blob '*/year=2017/m=07/*'`:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/year=2017/m=07/*'
     ```
 
 Ayrıca, aşağıdaki komutları çalıştırabilirsiniz:
 
-* Veritabanı kaynağınızın tanılama ayarlarının durumunu sorgulamak için komutunu `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`.
-* Günlük kaydını devre dışı bırakmak için **DataPlaneRequests** veritabanı hesabı kaynağınızın kategorisini kullanın komutu `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`.
+* Veritabanı kaynağınızın tanılama ayarlarının durumunu sorgulamak için komutunu `Get-AzDiagnosticSetting -ResourceId $account.ResourceId`.
+* Günlük kaydını devre dışı bırakmak için **DataPlaneRequests** veritabanı hesabı kaynağınızın kategorisini kullanın komutu `Set-AzDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`.
 
 
 Bu sorguları her döndürülen BLOB'ları metin olarak depolandığını ve aşağıdaki kodda gösterildiği gibi bir JSON blobu olarak biçimlendirilmiş:
@@ -437,11 +440,11 @@ Aşağıdaki tabloda, her günlük girişinin içeriğini açıklar.
 
 | Azure depolama alanı veya özelliği | Azure İzleyici özelliği günlüğe kaydeder. | Açıklama |
 | --- | --- | --- |
-| **saat** | **TimeGenerated** | Tarih ve saat (UTC) işlemi oluştuğunda. |
+| **time** | **TimeGenerated** | Tarih ve saat (UTC) işlemi oluştuğunda. |
 | **resourceId** | **Kaynak** | Azure Cosmos DB hesabı için Günlükleri etkinleştirildi.|
-| **Kategori** | **Kategori** | Azure Cosmos DB günlükleri **DataPlaneRequests** yalnızca bir değerdir. |
-| **OperationName** | **OperationName** | İşlemin adı. Bu değer, aşağıdaki işlemlerden birini olabilir: Oluşturma, güncelleştirme, okuma, ReadFeed, Sil, Değiştir, yürütün, SqlQuery, sorgu, JSQuery, Head, HeadFeed veya Upsert.   |
-| **Özellikleri** | yok | Bu alanın içeriğini izleyen satırları açıklanmaktadır. |
+| **category** | **Kategori** | Azure Cosmos DB günlükleri **DataPlaneRequests** yalnızca bir değerdir. |
+| **operationName** | **OperationName** | İşlemin adı. Bu değer, aşağıdaki işlemlerden birini olabilir: Oluşturma, güncelleştirme, okuma, ReadFeed, Sil, Değiştir, yürütün, SqlQuery, sorgu, JSQuery, Head, HeadFeed veya Upsert.   |
+| **properties** | yok | Bu alanın içeriğini izleyen satırları açıklanmaktadır. |
 | **activityId** | **activityId_g** | Oturum işlemi için benzersiz GUID. |
 | **UserAgent** | **userAgent_s** | İsteği gerçekleştiren istemcinin kullanıcı aracısı belirten bir dize. Biçimdir {kullanıcı aracısı adı} / {version}.|
 | **requestResourceType** | **requestResourceType_s** | Erişilen kaynak türü. Bu değer, aşağıdaki kaynak türlerinden herhangi birinde olabilir: Veritabanı, kapsayıcı, belge, ek, kullanıcı, izin, StoredProcedure, tetikleyici, UserDefinedFunction veya teklif. |
@@ -450,7 +453,7 @@ Aşağıdaki tabloda, her günlük girişinin içeriğini açıklar.
 | **clientIpAddress** | **clientIpAddress_s** | İstemcinin IP adresi. |
 | **requestCharge** | **requestCharge_s** | İşlem tarafından kullanılan RU sayısı |
 | **collectionRid** | **collectionId_s** | Koleksiyon için benzersiz kimliği.|
-| **Süresi** | **duration_s** | Saat döngüsü içindeki işlem süresi. |
+| **süre** | **duration_s** | Saat döngüsü içindeki işlem süresi. |
 | **requestLength** | **requestLength_s** | İstek, bayt cinsinden uzunluğu. |
 | **responseLength** | **responseLength_s** | Yanıtın bayt cinsinden uzunluğu.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Bu değer boş olduğunda [kaynak belirteçleri](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) kimlik doğrulaması için kullanılır. Değer, kullanıcının kaynak Kimliğini işaret eder. |

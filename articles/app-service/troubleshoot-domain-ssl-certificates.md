@@ -15,18 +15,21 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c316176094f6d9b8b45b812acaad04ad37f4bce2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8ae6c9d5238f2853a12c20edfd3dba6d3f529b2c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449137"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905826"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Etki alanı ve Azure App Service SSL sertifikası sorunlarını giderme
 
 Bu makalede, Azure App Service'te web uygulamalarınız için bir etki alanı veya SSL sertifikası yapılandırdığınızda karşılaşabileceğiniz genel sorunları listeler. Ayrıca, bu sorunlar için olası nedenler ve çözümler açıklanmaktadır.
 
 Bu makalede herhangi bir noktada daha fazla yardıma ihtiyacınız olursa, üzerinde Azure uzmanlarıyla iletişime geçebilirsiniz [MSDN ve Stack Overflow forumları](https://azure.microsoft.com/support/forums/). Alternatif olarak, bir Azure destek olayına dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) seçip **destek al**.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="certificate-problems"></a>Sertifika sorunları
 
@@ -314,7 +317,7 @@ Evet. Özel etki alanları ve SSL dikey penceresinde Azure portalında erişim, 
 
 **Başka bir abonelik için bir etki alanı bir abonelikten aktarabilirim?**
 
-Başka bir abonelik/kaynak grubu için kullanılacak bir etki alanı taşıyabilirsiniz [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource) PowerShell cmdlet'i.
+Başka bir abonelik/kaynak grubu için kullanılacak bir etki alanı taşıyabilirsiniz [taşıma AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) PowerShell cmdlet'i.
 
 **Şu anda bir Azure App Service uygulamasına sahip değilseniz özel etki alanım nasıl yönetebilirim?**
 

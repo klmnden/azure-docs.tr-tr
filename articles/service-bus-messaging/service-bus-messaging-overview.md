@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 06f1cdccc135d8f025d6256a12d47a97c92dbee8
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: dd73fd8105de2a5fd24ffa8ad5db85da5e52228c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579351"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918850"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus nedir?
 
@@ -119,13 +119,13 @@ Service Bus, aşağıdaki Azure hizmetleriyle tam olarak tümleşiktir:
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
 - [İşlevler](https://azure.microsoft.com/services/functions/) 
 - [Dynamics 365](https://dynamics.microsoft.com)
-- [Akış Analizi](https://azure.microsoft.com/services/stream-analytics/)
+- [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
  
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Service Bus mesajlaşmasını kullanmaya başlamak için aşağıdaki makalelere bakın:
 
-* [Azure mesajlaşma hizmetlerini karşılaştırma](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
+* [Azure Mesajlaşma hizmetlerini karşılaştırma](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
 * Azure Service Bus [Standart ve Premium](https://azure.microsoft.com/pricing/details/service-bus/) katmanları ve bunların fiyatlandırması hakkında daha fazla bilgi edinin
-* [Azure Service Bus Premium katmanının performansı ve gecikme süresi](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/)
+* [Performansı ve gecikme süresi Azure Service Bus Premium katmanı](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722)
 * [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md) ve [JMS](service-bus-java-how-to-use-jms-api-amqp.md) hızlı başlangıçlarını deneyin

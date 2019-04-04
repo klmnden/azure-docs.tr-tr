@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a516f99af05ba3f3bb7ab98d3def123a488e0d9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0f380aa9f2efc1ae9636b7704f7eb75004bb71f9
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075910"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895063"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API’sini kullanma
 
 >[!NOTE]
-> Kullanmalısınız [Azure AD Graph API'si](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview?f=255&MSPPError=-2147217396) kullanıcıların bir Azure AD B2C dizini yönetmek için. Bu, Microsoft Graph API'den farklıdır. [Burada](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/) daha fazla bilgi edinin.
+> Kullanmalısınız [Azure AD Graph API'si](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-operations-overview) kullanıcıların bir Azure AD B2C dizini yönetmek için. Bu, Microsoft Graph API'den farklıdır. [Burada](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/) daha fazla bilgi edinin.
 
 Azure Active Directory (Azure AD) B2C kiracıları, çok büyük olma eğilimindedir. Bu, birçok genel kiracı yönetim görevlerini programlı bir şekilde gerçekleştirilmesi gerektiği anlamına gelir. Kullanıcı Yönetimi birincil örnektir. Var olan bir kullanıcı deposu B2C kiracısına geçirmeniz gerekebilir. Kullanıcı kayıt sayfasında, kendi ana bilgisayar ve kullanıcı hesaplarını arka planda, Azure AD B2C dizini oluşturmak isteyebilirsiniz. Bu tür görevleri oluşturabilir, okuyabilir, güncelleştirebilir olanağına sahip olmalıdır ve kullanıcı hesapları silebilirsiniz. Azure AD Graph API'sini kullanarak bu görevler gerçekleştirebilirsiniz.
 
@@ -239,7 +239,7 @@ Content-Length: 338
 }
 ```
 
-Bu isteği bu özelliklerin çoğu, tüketici kullanıcılar oluşturmak için gereklidir. Daha fazla bilgi edinmek için tıklayın [burada](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser). Unutmayın `//` açıklamaları çizim için dahil edilmiştir. Bunları, gerçek bir istekte içermez.
+Bu isteği bu özelliklerin çoğu, tüketici kullanıcılar oluşturmak için gereklidir. Daha fazla bilgi edinmek için tıklayın [burada](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser). Unutmayın `//` açıklamaları çizim için dahil edilmiştir. Bunları, gerçek bir istekte içermez.
 
 İstek görmek için aşağıdaki komutlardan birini çalıştırın:
 
@@ -248,7 +248,7 @@ B2C Create-User ..\..\..\usertemplate-email.json
 B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-`Create-User` Komutun giriş parametresi olarak bir .json dosyası alabilir. Bu, bir kullanıcı nesnesi JSON gösterimini içerir. Örnek kodda iki örnek .json dosyaları vardır: `usertemplate-email.json` ve `usertemplate-username.json`. Bu dosyalar, gereksinimlerinize uyacak şekilde değiştirebilirsiniz. Yukarıdaki gerekli alanlara ek olarak, bu dosyalarda kullanabileceğiniz çeşitli isteğe bağlı alanları dahil edilir. İsteğe bağlı alanları hakkında ayrıntılı bilgi bulunabilir [Azure AD Graph API varlık başvurusu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity).
+`Create-User` Komutun giriş parametresi olarak bir .json dosyası alabilir. Bu, bir kullanıcı nesnesi JSON gösterimini içerir. Örnek kodda iki örnek .json dosyaları vardır: `usertemplate-email.json` ve `usertemplate-username.json`. Bu dosyalar, gereksinimlerinize uyacak şekilde değiştirebilirsiniz. Yukarıdaki gerekli alanlara ek olarak, bu dosyalarda kullanabileceğiniz çeşitli isteğe bağlı alanları dahil edilir. İsteğe bağlı alanları hakkında ayrıntılı bilgi bulunabilir [Azure AD Graph API varlık başvurusu](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity).
 
 POST isteğini nasıl oluşturulur gördüğünüz `B2CGraphClient.SendGraphPostRequest(...)`.
 
@@ -257,7 +257,7 @@ POST isteğini nasıl oluşturulur gördüğünüz `B2CGraphClient.SendGraphPost
 * Bu JSON kullanıcı nesnesi istek gövdesinde içerir.
 
 > [!NOTE]
-> Varolan bir kullanıcı mağazadan geçirmek istediğiniz hesapları daha düşük bir parola gücünü varsa [Azure AD B2C tarafından zorlanan güçlü parola gücü](https://msdn.microsoft.com/library/azure/jj943764.aspx), güçlü parola kullanma gereksinimini devre dışı bırakabilirsiniz `DisableStrongPassword` değerini `passwordPolicies` özelliği. Örneğin, yukarıdaki gibi sağlanan oluşturma kullanıcı isteğini değiştirebilirsiniz: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
+> Varolan bir kullanıcı mağazadan geçirmek istediğiniz hesapları daha düşük bir parola gücünü varsa [Azure AD B2C tarafından zorlanan güçlü parola gücü](/previous-versions/azure/jj943764(v=azure.100)), güçlü parola kullanma gereksinimini devre dışı bırakabilirsiniz `DisableStrongPassword` değerini `passwordPolicies` özelliği. Örneğin, yukarıdaki gibi sağlanan oluşturma kullanıcı isteğini değiştirebilirsiniz: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
 > 
 > 
 
@@ -317,7 +317,7 @@ B2C Delete-User <object-id-of-user>
 
 İnceleme `B2CGraphClient.SendGraphDeleteRequest(...)` bu isteği gönderme konusunda ayrıntılar için yöntemi.
 
-Kullanıcı Yönetimi ek olarak Azure AD Graph API'si ile başka birçok eylemi gerçekleştirebilirsiniz. [Azure AD Graph API Başvurusu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) örnek istekler yanı sıra her bir eylem hakkında ayrıntılı bilgi sağlar.
+Kullanıcı Yönetimi ek olarak Azure AD Graph API'si ile başka birçok eylemi gerçekleştirebilirsiniz. [Azure AD Graph API Başvurusu](/previous-versions/azure/ad/graph/api/api-catalog) örnek istekler yanı sıra her bir eylem hakkında ayrıntılı bilgi sağlar.
 
 ## <a name="use-custom-attributes"></a>Özel öznitelikler kullanma
 Çoğu tüketici uygulamaları, herhangi bir türde özel kullanıcı profili bilgilerini depolamak gerekir. Bunu yapmanın bir yolu, özel bir öznitelik B2C kiracınızda tanımlamaktır. Ardından, bu öznitelik bir kullanıcı nesnesi üzerinde diğer herhangi bir özelliği kabul aynı şekilde davranabilirsiniz. Özniteliği güncelleştirme, öznitelik Sil, özniteliği tarafından sorgu, öznitelik oturum belirteçleri ve daha fazlasını talep olarak gönder.

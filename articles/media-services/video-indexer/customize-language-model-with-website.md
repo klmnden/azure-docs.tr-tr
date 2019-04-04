@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: be0b930c99bb14c34e395efce494e8d7372719b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7b81b53c03104023823bef75beb4ac6077feede7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998206"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918697"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Video Indexer Web sitesiyle bir dil modelini özelleştirin
 
@@ -116,6 +116,34 @@ Dil modeli hesabınızdan silmek için tıklayın **...**  dil modeli sağ taraf
 Bu silme işlemi geri alınamaz olduğunu belirten yeni bir pencere getirir. Tıklayın **Sil** yeni pencerede seçeneği.
 
 Dil modeli, bu eylem hesabınızdan tamamen kaldırır. Videoyu yeniden dizine kadar silinen dil modelini kullanan herhangi bir video aynı dizin tutar. Videoyu yeniden dizine eklerseniz, yeni bir dil modeli videoyu atayabilirsiniz. Aksi takdirde, Video Indexer videoyu yeniden dizine kendi varsayılan modelini kullanır. 
+
+## <a name="customize-language-models-by-correcting-transcripts"></a>Dökümler düzelterek dil Modellerinizi özelleştirin
+
+Video Indexer, videoların döküm için gerçek düzeltmeleri kullanıcı temelli modelleri olun dilinin otomatik özelleştirmeyi destekler.
+
+1. Bir döküm yapmak için hesap videolarınızı düzenlemek istediğiniz videoyu açın. Seçin **zaman çizelgesi** sekmesi.
+
+    ![Dil modelini özelleştirin](./media/customize-language-model/timeline.png)
+1. Döküm transkripti düzenlemek için Kalem simgesine tıklayın. 
+
+    ![Dil modelini özelleştirin](./media/customize-language-model/edits.png)
+
+    Video Indexer, sizin tarafınızdan videonuzun transkripsiyonu düzeltilmiş ve bunları otomatik olarak ekler "döküm düzenlemeleri" adlı bir metin dosyasına tüm satırları yakalar. Bu düzenlemeler, bu video dizine eklemek için kullanılan belirli bir dil modeli yeniden eğitme için kullanılır. 
+    
+    Bu video dizine eklenirken, dil modeli belirtmediyseniz, bu video için tüm düzenlemeleri video içinde algılanan dilin hesabı uyarlamaları adlı varsayılan dil modeli içinde depolanır. 
+    
+    İçin aynı satırda birden çok düzenlemeler yapıldı durumunda, yalnızca son sürümü düzeltilmiş satır dil modeli güncelleştirmek için kullanılır.  
+    
+    > [!NOTE]
+    > Yalnızca metin düzeltmeleri özelleştirme için kullanılır. Başka bir deyişle, gerçek sözcüklerin (örneğin, noktalama işaretleri veya alanları) içermeyen düzeltmeleri dahil edilmez. 
+    
+1. İçerik modeli Özelleştirme sayfasında dil sekmesinde göstermek döküm düzeltmeleri görürsünüz.
+
+    ![Dil modelini özelleştirin](./media/customize-language-model/customize.png)
+
+   Her dil Modellerinizi "Kimden"döküm düzenlemeleri dosyayı aramak için açmak için tıklayın. 
+
+    ![Transkript düzenlemelerinden](./media/customize-language-model/from-transcript-edits.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 55b4cf6e621bc1e5bd3d8ba4718e5714ea652c27
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 71ba1266c3a6a1f063f1af4ab37a5f29752c62f0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58111489"
+ms.locfileid: "58896168"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure işlevleri C# Geliştirici Başvurusu
 
@@ -131,7 +131,7 @@ public static class BindingExpressionsExample
 
 Derleme işlemi oluşturur bir *function.json* derleme klasörü işlevi klasöründe bir dosya. Daha önce belirtildiği gibi bu dosyayı doğrudan düzenlenmesi için tasarlanmamıştır. Bağlama yapılandırması değiştiremez veya bu dosyayı düzenleyerek işlevi devre dışı bırakın. 
 
-Bu dosyanın amacı için kullanmak üzere ölçeği denetleyicisini bilgileri sağlamaktır [kararları tüketim planında ölçeklendirme](functions-scale.md#how-the-consumption-plan-works). Bu nedenle, dosya yalnızca Tetikleyici bilgileri, giriş veya çıktı bağlaması var.
+Bu dosyanın amacı için kullanmak üzere ölçeği denetleyicisini bilgileri sağlamaktır [kararları tüketim planında ölçeklendirme](functions-scale.md#how-the-consumption-and-premium-plans-work). Bu nedenle, dosya yalnızca Tetikleyici bilgileri, giriş veya çıktı bağlaması var.
 
 Oluşturulan *function.json* dosya içeren bir `configurationSource` çalışma zamanı bağlamaları için .NET öznitelikleri kullanmak için bildiren özelliği yerine *function.json* yapılandırma. Bir örneği aşağıda verilmiştir:
 
@@ -274,7 +274,7 @@ Kullanamazsınız `out` zaman uyumsuz işlevleri parametreleri. Çıkış bağla
 
 ## <a name="cancellation-tokens"></a>İptal belirteçleri
 
-Bir işlev kabul edebilen bir [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) işlev sona erdirilecek olduğunda kodunuzu bildirmek işletim sistemi sağlayan parametresi. Bu bildirim, işlev beklenmedik bir şekilde verileri tutarsız bir durumda bırakır şekilde sonlandırmaz emin olmak için kullanabilirsiniz.
+Bir işlev kabul edebilen bir [CancellationToken](/dotnet/api/system.threading.cancellationtoken) işlev sona erdirilecek olduğunda kodunuzu bildirmek işletim sistemi sağlayan parametresi. Bu bildirim, işlev beklenmedik bir şekilde verileri tutarsız bir durumda bırakır şekilde sonlandırmaz emin olmak için kullanabilirsiniz.
 
 Aşağıdaki örnek, yaklaşan işlevi sonlandırma için nasıl kontrol edileceğini gösterir.
 
@@ -369,7 +369,7 @@ public static class IBinderExample
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) tanımlar [depolama blobu](functions-bindings-storage-blob.md) giriş veya çıktı bağlaması ve [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) desteklenen çıkış bağlama türü.
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) tanımlar [depolama blobu](functions-bindings-storage-blob.md) giriş veya çıktı bağlaması ve [TextWriter](/dotnet/api/system.io.textwriter) desteklenen çıkış bağlama türü.
 
 ### <a name="multiple-attribute-example"></a>Birden çok öznitelik örneği
 

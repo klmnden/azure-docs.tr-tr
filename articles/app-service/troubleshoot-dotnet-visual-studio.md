@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 03bafcdbf6890573d1d2855e2b47520d0111fe13
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67fba7a921868d0e5720216208cff7c298c926f6
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996781"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895022"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio kullanarak Azure App Service'te uygulama sorunlarını giderme
 ## <a name="overview"></a>Genel Bakış
@@ -35,7 +35,7 @@ Bu öğreticide, bir uygulamada hata ayıklama yardımcı olmak için Visual Stu
 * Görüntüleme dahil olmak üzere, web sunucusu günlükleri, ayrıntılı hata iletileri ve başarısız istek izlemeyi.
 * Tanılama günlükleri için bir Azure depolama hesabı ve bunları görüntülemek göndermek nasıl.
 
-Visual Studio Ultimate varsa, ayrıca kullanabileceğiniz [IntelliTrace](https://msdn.microsoft.com/library/vstudio/dd264915.aspx) hata ayıklama. Bu öğreticide IntelliTrace kapsamında değildir.
+Visual Studio Ultimate varsa, ayrıca kullanabileceğiniz [IntelliTrace](/visualstudio/debugger/intellitrace) hata ayıklama. Bu öğreticide IntelliTrace kapsamında değildir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğretici geliştirme ortamı, web projesi ve içinde ayarladığınız App Service uygulaması çalışır [Azure App Service'te bir ASP.NET uygulaması oluşturma](app-service-web-get-started-dotnet-framework.md). WebJobs bölümleri için içinde oluşturduğunuz uygulamayı gerekir [Azure WebJobs SDK ile çalışmaya başlama][GetStartedWJ].
@@ -252,14 +252,14 @@ Uzaktan hata ayıklama yalnızca sürekli WebJobs ile çalışır. Zamanlanmış
 ```
 * Hata ayıklayıcının hata ayıklamak istediğiniz kodda ilerleyebilmeniz değil olduğunu fark ederseniz, yalnızca kendi kodum ayarı değiştirmeniz gerekebilir.  Daha fazla bilgi için [yalnızca kendi kodum, Visual Studio kullanarak kullanıcı kodunda hata ayıklama Artırılmayacağını](https://docs.microsoft.com/visualstudio/debugger/just-my-code).
 * Uzaktan hata ayıklama özelliği etkinleştirmeniz ve 48 saat sonra özelliği otomatik olarak devre dışı Zamanlayıcı sunucuda başlar. Bu 48 saatlik sınırın, güvenlik ve Performans nedeniyle meydana gelir. Bu gibi durumlarda, özellik kolayca istediğiniz geri çok defa kapatabilirsiniz. Değil etkin bir şekilde ayıklarken devre dışı bırakılması önerilir.
-* Bu gibi durumlarda, hata ayıklayıcı el ile herhangi bir işlem için yalnızca uygulama işlemi (w3wp.exe) ekleyebilirsiniz. Visual Studio'da hata ayıklama modu kullanma hakkında daha fazla bilgi için bkz. [Visual Studio'da hata ayıklama](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
+* Bu gibi durumlarda, hata ayıklayıcı el ile herhangi bir işlem için yalnızca uygulama işlemi (w3wp.exe) ekleyebilirsiniz. Visual Studio'da hata ayıklama modu kullanma hakkında daha fazla bilgi için bkz. [Visual Studio'da hata ayıklama](/visualstudio/debugger/debugging-in-visual-studio).
 
 ## <a name="logsoverview"></a>Tanılama günlüklerine genel bakış
 Bir App Service uygulamasında çalışan bir ASP.NET uygulama günlükleri aşağıdaki türlerini oluşturabilirsiniz:
 
 * **Uygulama izleme günlükleri**<br/>
-  Yöntemleri çağırarak bu günlükleri uygulamanın oluşturur [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx) sınıfı.
-* **Web sunucusu günlükleri**<br/>
+  Yöntemleri çağırarak bu günlükleri uygulamanın oluşturur [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) sınıfı.
+* **Web sunucu günlükleri**<br/>
   Web sunucusu, uygulamayı her HTTP isteği için bir günlük girişi oluşturur.
 * **Ayrıntılı hata iletisi günlükleri**<br/>
   Web sunucusu, bazı ek bilgiler başarısız HTTP isteklerini (durum kodu 400 veya üzeri neden istek) ile bir HTML sayfası oluşturur.
@@ -633,7 +633,7 @@ Belirli bir sorun giderme sorunuz konusunda yardım için şu forumlarından bir
 * [StackOverflow.com](https://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Visual Studio'da Hata Ayıklama
-Visual Studio'da hata ayıklama modu kullanma hakkında daha fazla bilgi için bkz. [Visual Studio'da hata ayıklama](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) ve [Visual Studio 2010 ile hata ayıklama ipuçları](https://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+Visual Studio'da hata ayıklama modu kullanma hakkında daha fazla bilgi için bkz. [Visual Studio'da hata ayıklama](/visualstudio/debugger/debugging-in-visual-studio) ve [Visual Studio 2010 ile hata ayıklama ipuçları](https://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
 
 ### <a name="remote-debugging-in-azure"></a>Uzaktan Azure'da hata ayıklama
 App Service uygulamaları ve WebJobs için uzaktan hata ayıklama hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
@@ -650,14 +650,14 @@ Internet'te ASP.NET izleme için hiçbir eksiksiz ve güncel tanıtımları vard
 
 * [İzleme ve Telemetri (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
   E-kitap bölümü Azure bulut uygulamalarında izleme önerileri sunulur.
-* [ASP.NET izleme](https://msdn.microsoft.com/library/ms972204.aspx)<br/>
+* [ASP.NET izleme](/previous-versions/dotnet/articles/ms972204(v=msdn.10))<br/>
   Eski ancak yine de konuya temel bir giriş için iyi bir kaynaktır.
-* [İzleme dinleyicileri](https://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
-  İzleme dinleyicileri hakkında bilgi ancak bahsetmek değil [WebPageTraceListener](https://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
-* [İzlenecek yol: ASP.NET izleme System.Diagnostics izleme ile tümleştirme](https://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
+* [İzleme dinleyicileri](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
+  İzleme dinleyicileri hakkında bilgi ancak bahsetmek değil [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
+* [Çözüm: ASP.NET izleme System.Diagnostics izleme ile tümleştirme](/previous-versions/b0ectfxd(v=vs.140))<br/>
   Bu makalede ayrıca eski, ancak tanıtım makalede ele alınmamıştır bazı ek bilgiler içerir.
 * [ASP.NET MVC Razor görünümleri izleme](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-  Razor görünümleri izleme yanı sıra, post, ayrıca bir MVC uygulamasındaki tüm işlenmeyen özel durumları günlüğe kaydetmek için bir hata filtre oluşturmak nasıl açıklar. Tüm işlenmemiş özel bir Web Forms uygulaması'nda oturum hakkında daha fazla bilgi için Global.asax örneğe bakın [tam bir örnek için hata işleyicilerini](https://msdn.microsoft.com/library/bb397417.aspx) MSDN'de. MVC veya Web Forms etkinleştirilmesi için işleme de varsayılan çerçeve sağlar ancak belirli özel durumları günlüğe kaydetmek istiyorsanız, catch ve aşağıdaki örnekte olduğu gibi yeniden oluşturma:
+  Razor görünümleri izleme yanı sıra, post, ayrıca bir MVC uygulamasındaki tüm işlenmeyen özel durumları günlüğe kaydetmek için bir hata filtre oluşturmak nasıl açıklar. Tüm işlenmemiş özel bir Web Forms uygulaması'nda oturum hakkında daha fazla bilgi için Global.asax örneğe bakın [tam bir örnek için hata işleyicilerini](/previous-versions/bb397417(v=vs.140)) MSDN'de. MVC veya Web Forms etkinleştirilmesi için işleme de varsayılan çerçeve sağlar ancak belirli özel durumları günlüğe kaydetmek istiyorsanız, catch ve aşağıdaki örnekte olduğu gibi yeniden oluşturma:
 
 ``` c#
 try

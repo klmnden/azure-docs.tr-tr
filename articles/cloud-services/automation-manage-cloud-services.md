@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
-ms.openlocfilehash: 40e91b4ba7ee62976b49975769bd1d1e656525f2
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: b3660901c86dd644369e6d1913e825cbd5ea316b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54328877"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918476"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Azure Cloud Services, Azure Otomasyonu ile yönetme
 Bu kılavuzda Azure Otomasyonu ve nasıl bunu Azure bulut hizmetlerinizde yönetimini basitleştirmek için kullanılabileceğini başlatacaktır.
@@ -32,7 +32,7 @@ Azure Otomasyonu, kuruluşunuz büyüdükçe, gereksinimlerinizi karşılayacak 
 Alt işlemsel yük ve boş BT / iş kazandıran işe odaklanmak için DevOps personeli, Azure Otomasyonu tarafından otomatik olarak çalıştırılmak için bulut Yönetimi görevlerinizi taşıyarak değer.
 
 ## <a name="how-can-azure-automation-help-manage-azure-cloud-services"></a>Azure Otomasyonu Azure bulut hizmetlerini yönetmenize nasıl yardımcı olabilir?
-Azure bulut Hizmetleri yönetilen Azure Automation'da kullanılabilen PowerShell cmdlet'lerini kullanarak [Azure PowerShell Araçları](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Otomasyonu bu bulut hizmeti PowerShell cmdlet'leri kullanılabilir yepyeni sahiptir; böylece tüm hizmet içinde bulut hizmeti yönetim görevlerini gerçekleştirebilirsiniz. Ayrıca, Azure automation'da bu cmdlet'ler Azure Hizmetleri ve 3. taraf sistemleri arasında karmaşık görevleri otomatikleştirmek için diğer Azure Hizmetleri için cmdlet'leri eşleşebileceğini denetleyebilmesi.
+Azure bulut Hizmetleri yönetilen Azure Automation'da kullanılabilen PowerShell cmdlet'lerini kullanarak [Azure PowerShell Araçları](/powershell/). Azure Otomasyonu bu bulut hizmeti PowerShell cmdlet'leri kullanılabilir yepyeni sahiptir; böylece tüm hizmet içinde bulut hizmeti yönetim görevlerini gerçekleştirebilirsiniz. Ayrıca, Azure automation'da bu cmdlet'ler Azure Hizmetleri ve 3. taraf sistemleri arasında karmaşık görevleri otomatikleştirmek için diğer Azure Hizmetleri için cmdlet'leri eşleşebileceğini denetleyebilmesi.
 
 Azure Otomasyonu, Azure bulut hizmetlerini yönetmek için bazı örnek kullanımları şunlardır:
 
@@ -42,6 +42,6 @@ Azure Otomasyonu, Azure bulut hizmetlerini yönetmek için bazı örnek kullanı
 ## <a name="next-steps"></a>Sonraki Adımlar
 Azure Otomasyonu ve nasıl Azure bulut hizmetlerini yönetmek için kullanılmadan ilişkin temel bilgileri öğrendiğinize göre Azure Otomasyonu hakkında daha fazla bilgi için bu bağlantıları izleyin.
 
-* [Azure Otomasyonu'na genel bakış](../automation/automation-intro.md)
+* [Azure Otomasyonu’na Genel Bakış](../automation/automation-intro.md)
 * [İlk runbook’um](../automation/automation-first-runbook-graphical.md)
 * [Azure Otomasyonu öğrenme Haritası](https://azure.microsoft.com/documentation/learning-paths/automation/)

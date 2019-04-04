@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 01c3e9c82959629dc3e43fb6b0833d4dbb05e0aa
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 67f72c5b396bc935f7bec34bc8a52f63131649b1
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823017"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904483"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux (Microsoft.OSTCExtensions.DSCForLinux) için DSC uzantısı
 
@@ -67,7 +67,7 @@ Tüm desteklenen ortak yapılandırma parametreleri şunlardır:
 * `ConfigurationModeFrequencyMins`: (isteğe bağlı, int) DSC yapılandırmasını istenen durumda olmasını sağlar ne sıklıkla (dakika cinsinden) belirtir.
 
 > [!NOTE]
-> Sürüm < 2.3 kullanıyorsanız, mode parametresi ExtensionAction aynıdır. Modu aşırı yüklenmiş bir terim gibi görünüyor. Bu nedenle, Karışıklığı önlemek için ExtensionAction ve sonraki sürümlerde 2.3 sürümü olarak kullanılıyor. Geriye dönük uyumluluk için uzantı modu hem de ExtensionAction destekler. 
+> Sürüm < 2.3 kullanıyorsanız, mode parametresi ExtensionAction aynıdır. Aşırı yüklenmiş bir terim olacak şekilde modu gibi görünüyor. Bu nedenle, Karışıklığı önlemek için ExtensionAction ve sonraki sürümlerde 2.3 sürümü olarak kullanılıyor. Geriye dönük uyumluluk için uzantı modu hem de ExtensionAction destekler. 
 >
 
 ### <a name="12-protected-configuration"></a>1.2 korumalı yapılandırma

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sogup
-ms.openlocfilehash: 0bc1ab0586d1a591464711fb0652f81fb082e6c3
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 7745f986c6e9ba22258f51f9329444b8232762e1
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199253"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905775"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Azure abonelik ve kaynak gruplarında (sınırlı genel Önizleme) bir kurtarma Hizmetleri kasası Taşı
 
@@ -21,6 +21,8 @@ Bu makalede, Azure abonelikleri genelinde veya başka bir kaynak grubuna aynı a
 
 > [!NOTE]
 > Bir kurtarma Hizmetleri kasasını ve ilişkili kaynakları farklı bir kaynak grubuna taşımak için gerekir [kaynak abonelik kaydetme](#register-the-source-subscription-to-move-your-recovery-services-vault).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites-for-moving-a-vault"></a>Bir kasa taşımak için Önkoşullar
 
@@ -50,24 +52,24 @@ Kaynak aboneliği kaydetmek için **taşıma** kurtarma Hizmetleri kasasına, Po
 1. Azure hesabınızda oturum açma
 
    ```
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
 2. Kaydetmek istediğiniz aboneliği seçin
 
    ```
-   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+   Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
    ```
 3. Bu aboneliği Kaydet
 
    ```
-   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   Register-AzProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
    ```
 
 4. Komutunu çalıştırın
 
    ```
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices
    ```
 
 Abonelik taşıma işlemi Azure portal veya PowerShell kullanarak başlamadan önce Güvenilenler listesine eklenmek 30 dakika bekleyin.
@@ -137,18 +139,18 @@ Bir kurtarma Hizmetleri kasasını ve ilişkili kaynakları farklı bir aboneli�
 
 ## <a name="use-powershell-to-move-a-vault"></a>Bir kasa taşımak için PowerShell kullanma
 
-Kurtarma Hizmetleri kasası için başka bir kaynak grubuna taşımak için kullanın `Move-AzureRMResource` cmdlet'i. `Move-AzureRMResource` Kaynak adı ve kaynak türü gerektirir. Hem de alabilirsiniz `Get-AzureRmRecoveryServicesVault` cmdlet'i.
+Kurtarma Hizmetleri kasası için başka bir kaynak grubuna taşımak için kullanın `Move-AzResource` cmdlet'i. `Move-AzResource` Kaynak adı ve kaynak türü gerektirir. Hem de alabilirsiniz `Get-AzRecoveryServicesVault` cmdlet'i.
 
 ```
 $destinationRG = "<destinationResourceGroupName>"
-$vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
-Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+$vault = Get-AzRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
+Move-AzResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 Kaynakları farklı aboneliğe taşımak dahil `-DestinationSubscriptionId` parametresi.
 
 ```
-Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+Move-AzResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 Yukarıdaki cmdlet'lerinden yürütüldükten sonra belirtilen kaynakları taşımak istediğiniz onaylayın istenir. Tür **Y** onaylamak için. Doğrulama başarılı olduktan sonra kaynak taşır.

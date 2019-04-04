@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 11/07/2018
-ms.openlocfilehash: 96b6b4866b17e15f544a10124d07e651d747b58b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 04/03/2019
+ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306451"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916181"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>ADO.NET 4.5 için 1433 dışındaki bağlantı noktaları
 
@@ -43,11 +43,11 @@ Sırası aşağıdaki gibidir:
 
 1. ADO.NET 4.5 (veya üzeri), kısa bir Azure bulut etkileşim başlatır ve dinamik olarak tanımlanan bağlantı noktası numarasını alır.
 
-   * Dinamik olarak tanımlanan bağlantı noktası numarası 11000 11999 veya 14000 14999 aralığıdır.
+   * 11000 11999 aralığında dinamik olarak tanımlanan bağlantı noktası numarasıdır.
 2. ADO.NET ardından SQL veritabanı sunucusuna doğrudan hiçbir Ara yazılımla arasında bağlanır.
 3. Sorgular, doğrudan veritabanına gönderilir ve sonuçları doğrudan istemciye döndürülür.
 
-Bağlantı noktası aralıkları 11000 11999 ve 14000 14999 Azure İstemci makinenizde SQL veritabanı ile ADO.NET 4.5 istemci etkileşimleri kullanılabilir bırakılır emin olun.
+Bağlantı noktası aralıklarını 11000 11999 Azure İstemci makinenizde SQL veritabanı ile ADO.NET 4.5 istemci etkileşimleri kullanılabilir bırakılır emin olun.
 
 * Özellikle, bağlantı noktaları aralığındaki herhangi diğer giden blockers boş olmalıdır.
 * Azure vm'nizdeki **Gelişmiş Güvenlik Özellikli Windows Güvenlik Duvarı** bağlantı noktası ayarlarını denetler.
@@ -82,7 +82,7 @@ Bu bölümde, ürün sürümleri başvuran adlar açıklar. Ayrıca, bazı eşle
 * Azure SQL veritabanı V12 yeniden yönlendirmesi aracılığıyla bağlanma https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
 * [TDS Protokolü sürüm listesi](http://www.freetds.org/userguide/tdshistory.htm)
-* [SQL veritabanı geliştirmeye genel bakış](sql-database-develop-overview.md)
+* [SQL Veritabanı Geliştirmeye Genel Bakış](sql-database-develop-overview.md)
 * [Azure SQL veritabanı güvenlik duvarı](sql-database-firewall-configure.md)
 * [Nasıl yapılır: SQL Veritabanı’nda güvenlik duvarı ayarlarını yapılandırma](sql-database-configure-firewall-settings.md)
 

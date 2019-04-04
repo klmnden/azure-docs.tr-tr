@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: ee64b4cbfd024c91b226736bc8cac0b9b33f964e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170403"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918561"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Azure CDN ile SAS kullanma
 
@@ -89,7 +89,8 @@ Bu seçenek yalnızca kullanılabilir **verizon'dan Azure CDN Premium** profille
    ![Kural - sol CDN URL yeniden yazma](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
    ![CDN URL yeniden yazma kuralı - sağ](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-2. Yeni kuralın etkin hale geldikten sonra herkes, URL'de bir SAS belirteci olup olmadığını kullanıyorsanız bağımsız olarak CDN uç noktasında belirtilen kapsayıcıdaki dosyalara erişebilirsiniz. Biçim şu şekildedir: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. Yeni kuralın etkin hale geldikten sonra herkes, URL'de bir SAS belirteci olup olmadığını kullanıyorsanız bağımsız olarak CDN uç noktasında belirtilen kapsayıcıdaki dosyalara erişebilirsiniz. Biçim şu şekildedir:
+   `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Örneğin:   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
@@ -137,7 +138,7 @@ Azure CDN, SAS parametreleri için Azure CDN görünür olmadığından, bunlar�
 | --- | --- |
 | Başlatma | Azure CDN blob dosyasına erişmek için başlayabilirsiniz süre. Saat nedeniyle (bir saat sinyal farklı bileşenleri için farklı zamanlarda geldiğinde) eğriltmek, varlık hemen kullanılabilir olmasını istiyorsanız, daha önce 15 dakika seçin. |
 | Bitiş | Saat sonra Azure CDN blob dosyası artık erişemez. Daha önce Azure cdn'de önbelleğe alınan dosyalar hala erişilebilir. Dosya süre sonu zamanı denetlemek için Azure CDN güvenlik belirteci üzerinde güncel uygun sona erme saati ayarlamak veya varlık temizleme. |
-| İzin verilen IP adresleri | İsteğe bağlı. Kullanıyorsanız **verizon'dan Azure CDN**, tanımlanan aralıklar için bu parametreyi ayarlayın [Azure CDN from Verizon uç sunucu IP aralıkları](https://msdn.microsoft.com/library/mt757330.aspx). Kullanıyorsanız **akamai'den Azure CDN**, IP adreslerini statik olduğundan IP aralıkları parametresi ayarlanamıyor.|
+| İzin verilen IP adresleri | İsteğe bağlı. Kullanıyorsanız **verizon'dan Azure CDN**, tanımlanan aralıklar için bu parametreyi ayarlayın [Azure CDN from Verizon uç sunucu IP aralıkları](/azure/cdn/cdn-pop-list-api). Kullanıyorsanız **akamai'den Azure CDN**, IP adreslerini statik olduğundan IP aralıkları parametresi ayarlanamıyor.|
 | İzin verilen protokoller | Hesap SAS'si ile yapılan bir istek için izin verilen protokoller:. HTTPS ayarı önerilir.|
 
 ## <a name="next-steps"></a>Sonraki adımlar

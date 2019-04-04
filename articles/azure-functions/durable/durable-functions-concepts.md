@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e5be81efcd655f1f0361d8c00d978a81c3e6caa5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e54fe17e80382348bcf463624043f7922a29d1c1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443428"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892764"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Dayanıklı işlevler desenleri ve teknik kavramlar (Azure işlevleri)
 
@@ -415,7 +415,7 @@ Dayanıklı görev Framework dağıtıcı yeniden yürütme davranışı nedeniy
 
 Dayanıklı işlevler uzantısını yürütme geçmişi durumu ve tetikleyici işlevi yürütme kalıcı hale getirmek için Azure depolama blobları, tablolar ve Kuyruklar kullanır. İşlev uygulamasının varsayılan depolama hesabı kullanabilir veya ayrı bir depolama hesabı yapılandırabilirsiniz. Depolama aktarım hızı sınırlara göre ayrı bir hesap isteyebilirsiniz. Orchestrator kodları bu depolama hesaplarında varlıklarla etkileşim kurmaz. Dayanıklı görev Framework varlıkları doğrudan uygulama ayrıntısı yönetir.
 
-Orchestrator işlevleri, etkinlik işlevlerini zamanlayabilir ve yanıtlarını iç iletileri aracılığıyla alırsınız. Bir işlev uygulaması Azure işlevleri tüketim planında çalıştığında [Azure işlevleri ölçek denetleyicisi](../functions-scale.md#how-the-consumption-plan-works) bu kuyruklar izler. Yeni bilgi işlem örnekleri, gerektikçe eklenir. Ölçeği birden çok VM için bir düzenleyici işlevi orchestrator işlev çağrıları birkaç farklı Vm'lere çalışabilecek etkinlik işlevlerini sırasında bir VM üzerinde çalışabilir. Dayanıklı işlevler ölçek davranış hakkında daha fazla bilgi için bkz. [performansı ve ölçeği](durable-functions-perf-and-scale.md).
+Orchestrator işlevleri, etkinlik işlevlerini zamanlayabilir ve yanıtlarını iç iletileri aracılığıyla alırsınız. Bir işlev uygulaması Azure işlevleri tüketim planında çalıştığında [Azure işlevleri ölçek denetleyicisi](../functions-scale.md#how-the-consumption-and-premium-plans-work) bu kuyruklar izler. Yeni bilgi işlem örnekleri, gerektikçe eklenir. Ölçeği birden çok VM için bir düzenleyici işlevi orchestrator işlev çağrıları birkaç farklı Vm'lere çalışabilecek etkinlik işlevlerini sırasında bir VM üzerinde çalışabilir. Dayanıklı işlevler ölçek davranış hakkında daha fazla bilgi için bkz. [performansı ve ölçeği](durable-functions-perf-and-scale.md).
 
 Orchestrator hesapları için yürütme geçmişini tablo Depolama'da saklanır. Belirli bir VM örneği rehydrates olduğunda, orchestrator yerel durumunu yeniden oluşturmak için tablo Depolama'yı yürütme geçmişini getirir. Geçmiş tablo depolamada kullanılabilir olması için kullanışlı bir açısını araçlarını gibi kullanabileceğiniz olan [Azure Depolama Gezgini](../../vs-azure-tools-storage-manage-with-storage-explorer.md) , düzenlemeleri geçmişini görmek için.
 

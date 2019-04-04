@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 18e65fc51f99aa19162daa3f6e5b9b7012214f64
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 347ea75673336574f7517f2f7d0c802b0ed16560
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765552"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918306"
 ---
 # <a name="hybrid-connections-overview"></a>Karma Bağlantılara genel bakış
 
@@ -94,8 +94,8 @@ Aşağıdaki TCP bağlantı noktaları Karma Bağlantılar tarafından kullanıl
 [Karma Bağlantıları oluşturma ve yönetme](integration-hybrid-connection-create-manage.md)
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-[Microsoft Azure’da BizTalk hizmetlerinin yönetilmesi için REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
-[BizTalk Services: Sürümler grafiği](biztalk-editions-feature-chart.md)  
+[Microsoft azure'da BizTalk hizmetlerinin yönetilmesi için REST API](/previous-versions/azure/reference/dn232347(v=azure.100))  
+[BizTalk Services: Sürümler Grafiği](biztalk-editions-feature-chart.md)  
 [BizTalk Hizmeti oluşturma](biztalk-provision-services.md)  
 [BizTalk Services: Pano, İzleyici ve ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md)  
 

@@ -1,6 +1,6 @@
 ---
-title: Logic apps içinde bir gecikme ekleme | Microsoft Docs
-description: Gecikme ve gecikme genel bakış-Eylemler ve bunların Azure mantıksal uygulama ile nasıl kullanılacağını kadar.
+title: Logic apps'te bir gecikme Ekle | Microsoft Docs
+description: Gecikmeli ve Gecikmeli genel bakış-Eylemler ve bunların Azure mantıksal uygulaması ile nasıl kullanılacağını kadar.
 services: ''
 documentationcenter: ''
 author: jeffhollan
@@ -15,63 +15,65 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 6cde5b8ba8d770a07199816286b666e952394de1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 15e581454b60319ab734f2fa5faf0d90e0a7c8bf
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27963681"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893733"
 ---
-# <a name="get-started-with-the-delay-and-delay-until-actions"></a>Gecikme ve gecikme kullanmaya başlama-Eylemler kadar
-Gecikme kullanarak ve "gecikme-kadar" Eylemler, iş akışı senaryoları tamamlayabilirsiniz.
+# <a name="get-started-with-the-delay-and-delay-until-actions"></a>Gecikmeli ve Gecikmeli kullanmaya başlama-Eylemler kadar
+Gecikme süresini kullanarak ve "gecikme-kadar" Eylemler, iş akışı senaryoları tamamlayabilirsiniz.
 
 Örneğin, şunları yapabilirsiniz:
 
-* Bir durum güncelleştirmesi e-posta göndermek için bir hafta kadar bekleyin.
-* Bir HTTP çağrısıyla sonucu alma ve sürdürme önce tamamlanması zaman olana kadar iş akışı gecikme.
+* Durum güncelleştirmesi e-posta göndermek için bir hafta kadar bekleyin.
+* İş akışı, HTTP çağrısı sonucu alma ve sürdürme önce tamamlanması zaman sahip oluncaya kadar gecikme.
 
-Bir mantıksal uygulama gecikme eylem kullanmaya başlamak için bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Bir mantıksal uygulamada gecikme eylemi kullanmaya başlamak için bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="use-the-delay-actions"></a>Gecikme eylemlerini kullanın
-Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](connectors-overview.md).
+## <a name="use-the-delay-actions"></a>Gecikmeli eylemleri kullanın
 
-Bir mantıksal uygulama gecikme adımını kullanmak nasıl bir örnek sırası şöyledir:
+Bir eylem mantıksal uygulamada tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. 
+[Eylemler hakkında daha fazla bilgi](../connectors/apis-list.md).
 
-1. Bir tetikleyici ekledikten sonra tıklatın **yeni adım** bir eylem eklemek için.
-2. Arama **gecikme** gecikme eylemleri getirmek için. Bu örnekte, biz seçecektir **gecikme**.
+Gecikme adım bir mantıksal uygulamada kullanma konusunda bir örnek sırası şöyledir:
+
+1. Bir tetikleyici ekledikten sonra tıklayın **yeni adım** eylem ekleme.
+2. Arama **gecikme** gecikme eylemleri getirilecek. Bu örnekte, seçeceğiz **gecikme**.
    
-    ![Gecikme Eylemler](./media/connectors-native-delay/using-action-1.png)
-3. Gecikme yapılandırmak için eylem özelliklerinden herhangi birini tamamlayın.
+    ![Gecikmeli eylemleri](./media/connectors-native-delay/using-action-1.png)
+3. Gecikmesini yapılandırmak için eylem özelliklerinden herhangi birini tamamlayın.
    
     ![Gecikme yapılandırma](./media/connectors-native-delay/using-action-2.png)
-4. Tıklatın **kaydetmek** yayımlama ve mantıksal uygulama etkinleştirin.
+4. Tıklayın **Kaydet** yayımlama ve mantıksal uygulama etkinleştirin.
 
 ## <a name="action-details"></a>Eylem ayrıntıları
-Yineleme tetikleyici yapılandırılabilir aşağıdaki özelliklere sahiptir.
+Yinelenme tetikleyicisini yapılandırılabilen aşağıdaki özelliklere sahiptir.
 
 ### <a name="delay-action"></a>Gecikme eylemi
-Bu eylem çalıştırmak için belirli bir zaman aralığı geciktirir.
-A * gerekli bir alan olduğu anlamına gelir.
+Bu eylem çalıştırmak için belirli bir süre erteler.
+A * gerekli alan olduğu anlamına gelir.
 
 | Görünen ad | Özellik adı | Açıklama |
 | --- | --- | --- |
-| Sayısı * |sayı |Gecikme süresi birim sayısı |
-| Birim * |Birim |Zaman birimi: `Second`, `Minute`, `Hour`, veya`Day` |
+| Sayısı * |count |Gecikme zaman birimlerinin sayısı |
+| Unit* |birim |Zaman birimi: `Second`, `Minute`, `Hour`, veya `Day` |
 
 <br>
 
 ### <a name="delay-until-action"></a>Gecikme-eylem kadar
-Bu eylem Çalıştır belirtilen bir tarih/saat kadar geciktirir.
-A * gerekli bir alan olduğu anlamına gelir.
+Bu eylem, belirtilen bir tarih/saat kadar çalıştırma geciktirir.
+A * gerekli alan olduğu anlamına gelir.
 
 | Görünen ad | Özellik adı | Açıklama |
 | --- | --- | --- |
 | Yıl * |timestamp |(GMT) kadar gecikme yıl |
-| Ay * |timestamp |(GMT) kadar gecikme ay |
-| Gün * |timestamp |(GMT) kadar gecikme gün |
+| Month* |timestamp |(GMT) kadar gecikme ay |
+| Gün * |timestamp |(GMT) kadar gecikme bir gün |
 
 <br>
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi, platform deneyin ve [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Logic apps diğer kullanılabilir bağlayıcılar bakarak keşfedebilirsiniz bizim [API'leri listesi](apis-list.md).
+Şimdi, platformu deneyin ve [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Diğer bağlayıcıları logic apps'teki bakarak keşfedebilirsiniz bizim [API listesi](apis-list.md).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6601eba90f3c3644d418ddd0a74746e1a12bcbd3
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 59bfa83ab3432adb7a4df5112367f87014a0b292
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007788"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917626"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Yapılandırma ve bulut hizmeti için başlangıç görevleri çalıştırma
 Başlangıç görevleri rol başlamadan önce işlemleri gerçekleştirmek için kullanabilirsiniz. Gerçekleştirmek isteyebileceğiniz işlemler, bir bileşeni yükleniyor, COM bileşenleri kaydediliyor, kayıt defteri anahtarlarını ayarlamak veya uzun süre çalışan bir işlem başlatılıyor içerir.
@@ -50,13 +50,13 @@ Azure rol başlatma yordamda listeler:
    * **Arka plan** ve **ön plan** görevler için başlangıç görevi başlatılacağı zaman uyumsuz olarak, paralel.  
      
      > [!WARNING]
-     > Role özgü verileri kullanılabilir olmaması IIS tam olarak başlangıç görevi aşamasında başlatma işlemi sırasında yapılandırılmamış olabilir. Role özgü veri gerektiren başlangıç görevleri kullanması gereken [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
+     > Role özgü verileri kullanılabilir olmaması IIS tam olarak başlangıç görevi aşamasında başlatma işlemi sırasında yapılandırılmamış olabilir. Role özgü veri gerektiren başlangıç görevleri kullanması gereken [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)).
      > 
      > 
 3. Rolü ana bilgisayar işlemi başlatılır ve sitesi IIS içinde oluşturulur.
-4. [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) yöntemi çağrılır.
+4. [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) yöntemi çağrılır.
 5. Örnek olarak işaretlenmiş **hazır** ve trafiği örneğine yönlendirilir.
-6. [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) yöntemi çağrılır.
+6. [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](/previous-versions/azure/reference/ee772746(v=azure.100)) yöntemi çağrılır.
 
 ## <a name="example-of-a-startup-task"></a>Başlangıç görevi örneği
 Başlangıç görevleri tanımlanmış [ServiceDefinition.csdef] dosyasındaki **görev** öğesi. **CommandLine** özniteliği belirtir başlangıç toplu dosya ya da konsol komutunun parametrelerinin ve adının **executionContext** özniteliği belirtir başlangıç görevinin ayrıcalık düzeyi ve **taskType** özniteliği, görevin nasıl yürütülecek belirtir.
@@ -128,13 +128,13 @@ Aşağıdaki özniteliklerini açıklayan **görev** öğesinde [ServiceDefiniti
 ## <a name="environment-variables"></a>Ortam değişkenleri
 Ortam değişkenleri, başlangıç görevine eklenmesi bilgi geçirmek için bir yoludur. Örneğin, içeren bir program yüklemek için blob veya rolünüz kullanacağı bağlantı noktası numaralarını ve başlangıç göreviniz özellikleri denetlemek için ayarları yol yerleştirebilirsiniz.
 
-Başlangıç görevleri için ortam değişkenlerini iki çeşit vardır; statik değişkenler ve ortam değişkenlerini göre üyelerinde [RoleEnvironment] sınıfı. Hem bulunan [ortam] bölümünü [ServiceDefinition.csdef] dosya ve her iki kullanımı [Değişkeni] öğesi ve **adı** özniteliği.
+Başlangıç görevleri için ortam değişkenlerini iki çeşit vardır; statik değişkenler ve ortam değişkenlerini göre üyelerinde [RoleEnvironment] sınıfı. Hem bulunan [ortam] bölümünü [ServiceDefinition.csdef] dosya ve her iki kullanımı [değişken] öğesi ve **adı** özniteliği.
 
-Statik ortam değişkenlerini kullanan **değer** özniteliği [Değişkeni] öğesi. Yukarıdaki örnekte ortam değişkenini oluşturur **MyVersionNumber** statik değeri olan "**1.0.0.0**". Başka bir örnek oluşturmak olacaktır bir **StagingOrProduction** değerleri el ile ayarlayabileceğiniz ortam değişkeni "**hazırlama**"veya"**üretim**" gerçekleştirmek için farklı başlatma eylemleri değerini temel alarak **StagingOrProduction** ortam değişkeni.
+Statik ortam değişkenlerini kullanan **değer** özniteliği [değişken] öğesi. Yukarıdaki örnekte ortam değişkenini oluşturur **MyVersionNumber** statik değeri olan "**1.0.0.0**". Başka bir örnek oluşturmak olacaktır bir **StagingOrProduction** değerleri el ile ayarlayabileceğiniz ortam değişkeni "**hazırlama**"veya"**üretim**" gerçekleştirmek için farklı başlatma eylemleri değerini temel alarak **StagingOrProduction** ortam değişkeni.
 
-Ortam değişkenlerini RoleEnvironment sınıfın üyelerinde tabanlı kullanmayın **değer** özniteliği [Değişkeni] öğesi. Bunun yerine, [RoleInstanceValue] uygun alt öğesi **XPath** öznitelik değeri, belirli bir üye üzerinde temel bir ortam değişkenini oluşturmak için kullanılan [RoleEnvironment] sınıfı. Değerleri **XPath** çeşitli erişmek için öznitelik [RoleEnvironment] değerleri bulunabilir [burada](cloud-services-role-config-xpath.md).
+Ortam değişkenlerini RoleEnvironment sınıfın üyelerinde tabanlı kullanmayın **değer** özniteliği [değişken] öğesi. Bunun yerine, [RoleInstanceValue] uygun alt öğesi **XPath** öznitelik değeri, belirli bir üye üzerinde temel bir ortam değişkenini oluşturmak için kullanılan [ RoleEnvironment] sınıfı. Değerleri **XPath** çeşitli erişmek için öznitelik [RoleEnvironment] değerleri bulunabilir [burada](cloud-services-role-config-xpath.md).
 
-Örneğin, bir ortam değişkenini oluşturmak için "**true**" işlem öykünücüsünde örnek çalışırken ve "**false**" bulutta çalışırken, aşağıdaki kullanması [Değişkeni] ve [RoleInstanceValue] öğeleri:
+Örneğin, bir ortam değişkenini oluşturmak için "**true**" işlem öykünücüsünde örnek çalışırken ve "**false**" bulutta çalışırken, aşağıdaki kullanması [değişkeni ] ve [RoleInstanceValue] öğeleri:
 
 ```xml
 <Startup>
@@ -163,8 +163,8 @@ Bazı gerçekleştirmeyi öğreneceksiniz [genel başlangıç görevleri](cloud-
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
 [Görev]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Başlangıç]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
-[Çalışma zamanı]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
+[Çalışma Zamanı]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Ortam]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Değişkeni]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Değişken]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx

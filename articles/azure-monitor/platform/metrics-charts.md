@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b52e7c0de2d834c793bb30fa35bd53b45aaebe5d
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 08ae74bcd9ee0a7cf5e0fb6d38758b1429c39145
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848871"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916351"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure İzleyici ölçüm Gezgini
 
@@ -76,11 +76,33 @@ Boyutlarla ölçümleri gösteren grafikler için filtre uygulayabilirsiniz. "İ
 
 5. Aynı grafikleri birden fazla filtre uygulamak için 1-4 arası adımları tekrarlayabilirsiniz.
 
+## <a name="multiple-metrics-and-charts"></a>Birden çok ölçüm ve grafikler
+
+Çoklu ölçümler çizim veya aynı anda birden çok ölçüm grafikleri Göster grafikleri de oluşturabilirsiniz. Bu işlev sağlar:
+
+- başka bir performanstaki ilgili ölçümleri aynı grafikte bir değeri görmek için ilgili
+- farklı ölçü yakın ölçümlerini görüntüle
+- görsel olarak toplama ve birden çok kaynaklardan ölçümleri karşılaştırın
+
+Örneğin, 5 depolama hesapları kullandığınız ve bunlar arasında tüketilen toplam ne kadar alan öğrenmek istiyorsanız, tek tek ve tüm değerlerin toplamını belirli noktalarda süresini gösterir (Yığılmış) alan grafiği oluşturabilirsiniz.
+
+### <a name="multiple-metrics-on-a-chart"></a>Grafikte birden çok ölçümleri
+
+İlk olarak, [yeni bir grafik oluşturun](#create-a-new-chart). Tıklayın **ölçüm Ekle** ve aynı grafiğe başka bir ölçüm eklemek için adımları yineleyin.
+
+### <a name="multiple-charts"></a>Birden fazla grafiği
+
+Tıklayın **Ekle grafik** ve farklı bir ölçümü ile başka bir grafik oluşturun.
+
+### <a name="order-or-delete-multiple-charts"></a>Sipariş veya birden fazla Grafiği Sil
+
+Sipariş ya da birden fazla grafiği silmek için üç noktayı tıklayın ( **...**  ) grafik menüsünü açın ve uygun menü öğesi, sembol **Yukarı Taşı**, **Aşağı Taşı**, veya **Sil**.
+
 ## <a name="apply-splitting-to-a-chart"></a>Bir grafiği bölme Uygula
 
-Bir ölçüm bölme ölçütü: ölçüm karşılaştırma birbirleriyle nasıl farklı parçalarını görselleştirmek için boyut ve boyutun harici segmentleriyle. 
+Bir ölçüm bölme ölçütü: ölçüm karşılaştırma birbirleriyle nasıl farklı parçalarını görselleştirmek için boyut ve boyutun harici segmentleriyle.
 
-### <a name="to-apply-splitting"></a>Bölme uygulamak için
+### <a name="apply-splitting"></a>Bölme uygula
 
 1. Tıklayarak **uygulamak bölme** grafiğin üstünde.
  

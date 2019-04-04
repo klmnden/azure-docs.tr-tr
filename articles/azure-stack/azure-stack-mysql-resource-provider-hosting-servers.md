@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/26/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 68e8bfa16c56b8c864ac99cdf6c19243bc7e881c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8cffcc938a247a2b08ff53b128560e1ab5e1653a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101899"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499786"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>MySQL kaynak sağlayıcı barındırma sunucuları ekleme
 
@@ -90,16 +90,19 @@ En iyi uygulama, bir SKU tüm barındırma sunucuları aynı kaynak ve performan
 
 SKU'ları, belirli kullanıcılara veya gruplara atanamaz.
 
-SKU'ları portalda görünür olması için bir saat sürebilir. SKU tamamen oluşturulana kadar kullanıcılar bir veritabanı oluşturulamıyor.
+Bir SKU düzenlemek için şuraya gidin: **tüm hizmetleri** > **MySQL bağdaştırıcısı** > **SKU'ları**. SKU'ları değiştirmek, gerekli değişiklikleri yapın ve tıklayın seçin **Kaydet** değişiklikleri kaydedin. 
 
-Bir SKU düzenlemek için şuraya gidin: **tüm hizmetleri** > **MySQL bağdaştırıcısı** > **SKU'ları**. SKU'ları değiştirmek, gerekli değişiklikleri yapın ve tıklayın seçin **Kaydet** değişiklikleri kaydedin. Artık gerekli olmadığında bir SKU silmek için Git **tüm hizmetleri** > **MySQL bağdaştırıcısı** > **SKU'ları**. SKU adı sağ tıklayıp **Sil** silmek için.
+Artık gerekli olmadığında bir SKU silmek için Git **tüm hizmetleri** > **MySQL bağdaştırıcısı** > **SKU'ları**. SKU adı sağ tıklayıp **Sil** silmek için.
 
-> [!TIP]
-> Düzenleyebilir veya MySQL kaynak sağlayıcısı kotaları aynı konumda silin.
+> [!IMPORTANT]
+> Bu Kullanıcı Portalı'nda kullanılabilir olması yeni SKU'lara bir saate kadar sürebilir.
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>MySQL veritabanı sunucularını, kullanıcılar için kullanılabilir yap
 
 Planlar ve teklifler MySQL veritabanı sunucularını kullanıcıları için kullanılabilir hale getirmek oluşturun. Microsoft.MySqlAdapter hizmet planına ekleyin ve bir yeni kota oluştur. MySQL veritabanlarının boyutunu sınırlama izin vermez.
+
+> [!IMPORTANT]
+> Uygulamanın, Kullanıcı Portalı'nda veya değiştirilmiş bir kota uygulanmadan önce kullanılabilir olması için yeni kotalar iki saate kadar sürebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

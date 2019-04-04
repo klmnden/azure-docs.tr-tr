@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 6dc3fb97c912aa9ac66e3d40a8a0318a6938905c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ee86b9aa2d920668cf036f3e8f8634e9289e8913
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230300"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916878"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: Yedekleme ve Geri Yükleme
 
@@ -34,7 +34,7 @@ Azure BizTalk Services yedekleme ve geri yükleme özelliklerini içerir.
 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-* Yedekleme ve geri yükleme için tüm sürümlerinde kullanılabilir olmayabilir. Bkz: [BizTalk Services: sürümler grafiği](biztalk-editions-feature-chart.md).
+* Yedekleme ve geri yükleme için tüm sürümlerinde kullanılabilir olmayabilir. Bkz: [BizTalk Services: Sürümler grafiği](biztalk-editions-feature-chart.md).
 * Yedekleme içeriği aynı BizTalk hizmeti veya yeni bir BizTalk hizmetine geri yüklenebilir. BizTalk hizmeti aynı adı kullanarak geri yüklemek için mevcut BizTalk hizmeti silinmesi gerekir ve ad kullanılabilir olmalıdır. BizTalk hizmeti sildikten sonra istiyordu kullanılabilir olması için aynı adı çok uzun zaman alabilir. Kullanılabilir olması için aynı adı bekleyemiyorsanız, ardından yeni bir BizTalk hizmetine geri yükleyin.
 * BizTalk Hizmetleri aynı sürümü veya daha yüksek bir sürüme geri yüklenebilir. BizTalk Hizmetleri, daha düşük bir sürüme geri yükleme, yedeklemenin ne zaman alındığı gelen desteklenmiyor.
   
@@ -46,10 +46,10 @@ Azure BizTalk Services yedekleme ve geri yükleme özelliklerini içerir.
 * İsteğe bağlı: BizTalk Hizmetleri portalında herhangi bir yönetim işlemini durdurun.
 
 ## <a name="create-a-backup"></a>Yedekleme oluşturma
-Bir yedekleme herhangi bir zamanda geçen ve tamamen sizin tarafınızdan denetlenir. Bir yedekleme oluşturmak için kullanın [azure'da BizTalk Services'ı yönetmek için REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx).
+Bir yedekleme herhangi bir zamanda geçen ve tamamen sizin tarafınızdan denetlenir. Bir yedekleme oluşturmak için kullanın [azure'da BizTalk Services'ı yönetmek için REST API](/previous-versions/azure/reference/dn232347(v=azure.100)).
 
 ## <a name="restore"></a>Geri Yükleme
-Bir yedeklemeyi geri yüklemek için kullanmak [azure'da BizTalk Services'ı yönetmek için REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx).
+Bir yedeklemeyi geri yüklemek için kullanmak [azure'da BizTalk Services'ı yönetmek için REST API](/previous-versions/azure/reference/dn232347(v=azure.100)).
 
 ### <a name="postrestore"></a>Bir yedekleme geri yükledikten sonra
 BizTalk hizmeti her zaman içinde geri bir **askıya alındı** durumu. Bu durumda, yeni ortam dahil olmak üzere işlevsel hale gelmeden önce herhangi bir yapılandırma değişikliği yapabilirsiniz:
@@ -138,11 +138,11 @@ Azure BizTalk hizmetleri oluşturmak için Git [BizTalk Services: Sağlama](http
 * [BizTalk hizmeti yedekleme](https://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [BizTalk hizmeti yedekten geri yükleyin.](https://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [BizTalk Services: Geliştirici, temel, standart ve Premium sürümler grafiği](https://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: sağlama](https://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [BizTalk Services: Durum Grafiğini hazırlama](https://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk Services: Sağlama](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: Durum grafiğini hazırlama](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [BizTalk Services: Pano, İzleyici ve ölçek sekmeleri](https://go.microsoft.com/fwlink/p/?LinkID=302281)
 * [BizTalk Services: Azaltma](https://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [BizTalk Services: Verenin Adı ve Verenin Anahtarı](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [BizTalk Services: Verenin adı ve verenin anahtarı](https://go.microsoft.com/fwlink/p/?LinkID=303941)
 * [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png

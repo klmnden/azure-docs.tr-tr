@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: magattus
-ms.openlocfilehash: a3777533fc967e1974b99375496dd3777fa9fb3a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 76e7817be81a97c8d1a0b9ca2fea8378c3c733e1
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093859"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916488"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Bir Azure CDN uç noktasını temizleme
 ## <a name="overview"></a>Genel Bakış
@@ -52,12 +52,12 @@ Bu öğreticide, bir uç nokta tüm kenar düğümlerinden varlıkları temizlem
    > 
    > 
 4. Kenar düğümlerinden temizlemek istediğiniz hangi varlıkları seçin.  Tüm varlıkları silmek isterseniz tıklayın **Tümünü Temizle** onay kutusu.  Aksi takdirde her varlık, temizlemek istediğiniz yolu yazın **yolu** metin. Yolu aşağıdaki biçimleri desteklenir.
-    1. **Tek URL Temizleme**: temizleme tek varlığı ile veya olmadan dosya uzantısı, örneğin, tam bir URL belirterek`/pictures/strasbourg.png`; `/pictures/strasbourg`
-    2. **Joker Temizleme**: yıldız işareti (\*) joker karakter olarak kullanılabilir. Tüm klasörleri, alt klasörler ve dosyaları bir uç nokta altında Temizleme `/*` tüm alt klasörleri ve klasör belirterek belirli bir klasör altındaki dosyalar ardında yer alan yolu ya da Temizleme `/*`, örneğin,`/pictures/*`.  Unutmayın. Bu joker temizleme Azure CDN from Akamai tarafından şu anda desteklenmiyor. 
-    3. **Kök etki alanı Temizleme**: kök yolda "/" ile uç nokta temizleme.
+    1. **Tek URL Temizleme**: Tek bir varlık ile veya olmadan dosya uzantısı, örneğin, tam bir URL belirterek Temizleme`/pictures/strasbourg.png`; `/pictures/strasbourg`
+    2. **Joker Temizleme**: Yıldız işareti (\*) joker karakter olarak kullanılabilir. Tüm klasörleri, alt klasörler ve dosyaları bir uç nokta altında Temizleme `/*` tüm alt klasörleri ve klasör belirterek belirli bir klasör altındaki dosyalar ardında yer alan yolu ya da Temizleme `/*`, örneğin,`/pictures/*`.  Unutmayın. Bu joker temizleme Azure CDN from Akamai tarafından şu anda desteklenmiyor. 
+    3. **Kök etki alanı Temizleme**: Kök yolda "/" ile uç nokta temizleme.
    
    > [!TIP]
-   > Yolları için temizleme belirtilmelidir ve aşağıdaki uyan bir göreli URL olmalıdır [normal ifade](https://msdn.microsoft.com/library/az24scfc.aspx). **Tümünü Temizle** ve **joker Temizleme** desteklenmeyen **akamai'den Azure CDN** şu anda.
+   > Yolları için temizleme belirtilmelidir ve aşağıdaki uyan bir göreli URL olmalıdır [normal ifade](/dotnet/standard/base-types/regular-expression-language-quick-reference). **Tümünü Temizle** ve **joker Temizleme** desteklenmeyen **akamai'den Azure CDN** şu anda.
    > > Tek URL temizleme `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
    > > Sorgu dizesi `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
    > > Joker Temizleme `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`. 
@@ -75,5 +75,5 @@ Bu öğreticide, bir uç nokta tüm kenar düğümlerinden varlıkları temizlem
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Azure CDN uç noktasında varlıkları önceden yükleme](cdn-preload-endpoint.md)
-* [Azure CDN REST API Başvurusu - temizlemek veya bir uç nokta önceden yükleme](https://msdn.microsoft.com/library/mt634451.aspx)
+* [Azure CDN REST API Başvurusu - temizlemek veya bir uç nokta önceden yükleme](/rest/api/cdn/endpoints)
 

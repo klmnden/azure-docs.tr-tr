@@ -16,16 +16,16 @@ ms.date: 01/09/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 7f44e8c2c4587ecfdb3bd5eb4304789674da96f3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e0101aebadcaef71f35c72b54f9126e69cff0f61
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252022"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882844"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>MySQL kaynak sağlayıcısı 1.1.33.0 sürüm notları
 
-*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Şunlara uygulanır Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Bu sürüm notları geliştirmeleri ve MySQL kaynak sağlayıcı sürümü 1.1.33.0 bilinen sorunları açıklar.
 
@@ -50,7 +50,8 @@ Azure Stack MySQL kaynak Sağlayıcısı'nın bu sürümü, aşağıdaki gelişt
 
 - **TLS 1.2 etkin değilse önceki MySQL kaynak sağlayıcısı (1.1.30.0) dağıtımı başarısız**. MySQL kaynak sağlayıcısı 1.1.33.0 TLS 1.2 kaynak sağlayıcısı güncelleştiriliyor veya gizli anahtarları döndürme kaynak sağlayıcısı dağıtırken etkinleştirmek için güncelleştirildi. 
 
-- **MySQL kaynak sağlayıcısı gizli döndürme başarısız**. Aşağıdaki hata kodunu gizli dizileri döndürürken kaynaklanan sorun düzeltildi: ` New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **MySQL kaynak sağlayıcısı gizli döndürme başarısız**. Aşağıdaki hata kodunu gizli dizileri döndürürken kaynaklanan sorun düzeltildi:
+`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
 ## <a name="known-issues"></a>Bilinen sorunlar 
 

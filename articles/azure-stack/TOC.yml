@@ -4,21 +4,21 @@ items:
 - name: Genel Bakış
   items:
   - name: Azure Stack nedir?
-    href: azure-stack-poc.md
-  - name: Önemli özellikler ve kavramlar
-    href: azure-stack-key-features.md
+    href: azure-stack-overview.md
+  - name: Azure ekosistemi ile karşılaştırma
+    href: compare-azure-azure-stack.md
   - name: Sürüm notları
     items:
     - name: Son güncelleştirmeler
       href: azure-stack-servicing-policy.md
+    - name: 1903 güncelleştirme
+      href: azure-stack-update-1903.md
     - name: 1902 güncelleştirme
       href: azure-stack-update-1902.md
     - name: 1901 güncelleştirme
       href: azure-stack-update-1901.md
     - name: 1811 güncelleştirme
       href: azure-stack-update-1811.md
-    - name: 1809 güncelleştirme
-      href: azure-stack-update-1809.md
 - name: Hızlı Başlangıçlar
   items:
   - name: Yönetim portalını kullanın
@@ -115,12 +115,12 @@ items:
         href: azure-stack-integrate-security.md
       - name: Cihazı denetleme
         href: azure-stack-integrate-physical-device-auditing.md
-  - name: Yönetim temel bilgileri
-    href: azure-stack-manage-basics.md
 - name: Nasıl yapılır kılavuzları
   items:
   - name: Azure yığını'nı yönetme
     items:
+    - name: Yönetim temel bilgileri
+      href: azure-stack-manage-basics.md
     - name: Telemetri koleksiyonunu yapılandırma
       href: azure-stack-telemetry.md
     - name: Azure Stack kaydetme
@@ -233,6 +233,8 @@ items:
       href: azure-stack-redhat-create-upload-vhd.md
     - name: Bir Kubernetes kümesi sunar.
       href: azure-stack-solution-template-kubernetes-cluster-add.md
+    - name: Siteden siteye VPN bağlantısı oluşturma
+      href: azure-stack-create-vpn-connection-one-node.md
   - name: Hizmet sunma
     href: azure-stack-offer-services-overview.md
   - name: PaaS olarak SQL teklifi
@@ -403,9 +405,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Eğitim ve sertifika
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: f2ea6b4ae7ff49d3263805460a30e5d407f7c0e6
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: a0c5682428d740bd109411333f13849c0e74d88e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338369"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906319"

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: e58a62761284e0671c0083d41f5dde4c13b32fe2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 35c30ec97d4c033a687204b926d2f686c52be069
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108265"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916034"
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services: İşlem günlüklerini kullanarak sorun giderme
 
@@ -31,8 +31,8 @@ ms.locfileid: "58108265"
 İşlem günlükleri, BizTalk hizmetleri de dahil olmak üzere Azure hizmetleriniz üzerinde gerçekleştirilen işlemlerin sayısına geçmiş günlükleri görüntülemenize olanak tanıyan bir Yönetim Hizmetleri özelliğidir. Bu, BizTalk hizmeti aboneliğinizi 180 gün öncesine varan yönetim işlemlerini ilgili geçmiş verileri görüntülemesine olanak sağlar.
 
 > [!NOTE]
-> Bu özellik yalnızca günlükleri gibi hizmet başlatıldığı, BizTalk Hizmetleri, yönetim işlemleri için desteklenen en fazla vb. yakalar. Bu işlemler kullanılarak izlenir [BizTalk hizmeti REST API'leri](https://msdn.microsoft.com/library/azure/dn232347.aspx). Yönetim Hizmetleri kullanılarak izlenir işlemleri tam bir listesi için bkz. [Operations izlenen kullanarak Azure Yönetim Hizmetleri](#bizops).<br/><br/>
-> Bu, BizTalk hizmeti çalışma zamanı (örneğin, iletiyi. Köprüsü ve benzeri tarafından işlenen) ilgili etkinlikleri için günlüklere yakalamaz. Bu günlükleri görüntülemek için izleme görünümünden BizTalk Hizmetleri portalını kullanın. Daha fazla bilgi için [izleme iletileri](https://msdn.microsoft.com/library/azure/hh949805.aspx).
+> Bu özellik yalnızca günlükleri gibi hizmet başlatıldığı, BizTalk Hizmetleri, yönetim işlemleri için desteklenen en fazla vb. yakalar. Bu işlemler kullanılarak izlenir [BizTalk hizmeti REST API'leri](/previous-versions/azure/reference/dn232347(v=azure.100)). Yönetim Hizmetleri kullanılarak izlenir işlemleri tam bir listesi için bkz. [Operations izlenen kullanarak Azure Yönetim Hizmetleri](#bizops).<br/><br/>
+> Bu, BizTalk hizmeti çalışma zamanı (örneğin, iletiyi. Köprüsü ve benzeri tarafından işlenen) ilgili etkinlikleri için günlüklere yakalamaz. Bu günlükleri görüntülemek için izleme görünümünden BizTalk Hizmetleri portalını kullanın. Daha fazla bilgi için [izleme iletileri](/previous-versions/azure/hh949805(v=azure.100)).
 > 
 > 
 

@@ -3,17 +3,17 @@ title: Azure IOT Central uygulamanızı DevKit cihaz bağlayın | Microsoft Docs
 description: Bir cihaz geliştirici olarak, Azure IOT Central uygulamanıza MXChip IOT DevKit cihaz bağlanmayı öğreneceksiniz.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/05/2019
+ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 44af0ccab45f1335d9dfec06287303a34391eded
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3055bf4be024065bcd8db9cf523de93a5ab6b22b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113206"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905945"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın
 
@@ -21,45 +21,47 @@ Bu makalede, Microsoft Azure IOT Central uygulamanıza MXChip IOT DevKit (DevKit
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
+Bu makaledeki adımları tamamlayabilmeniz için aşağıdaki kaynakları gerekir:
 
 1. Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central.md).
 1. Bir DevKit cihaz. DevKit cihaz satın almak için ziyaret [MXChip IOT DevKit](http://mxchip.com/az3166).
 
 ## <a name="sample-devkits-application"></a>Örnek Devkits uygulaması
 
-Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **MXChip** cihaz şablonu aşağıdaki özelliklere sahip:
+Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **MXChip** aşağıdaki cihaz özelliklerini tanımlayan cihaz şablonu:
 
-- Cihaz için ölçüler içeren telemetri **nem**, **sıcaklık**, **baskısı**, **Magnetometer** (ölçülür boyunca X, Y, Z ekseni), **ivme ölçer** (ölçülen X, Y, Z ekseni) ve **jiroskop** (X, Y ölçülür Z ekseni).
-- Bir örnek ölçüm için içeren durumu **cihaz durumu**.
-- Olay ölçümü ile bir **B düğmesi basılı** olay. 
-- Ayarları gösteren **voltaj**, **geçerli**, **fanı hızı**ve bir **IR** Aç/Kapat.
-- Cihaz özelliği içeren özellik **sayı öldürmüş** ve **cihaz konumu** olarak de location özelliği olan bir **üretilen içinde** bulut özelliği. 
+- Telemetri ölçümleri için **nem**, **sıcaklık**, **baskısı**, **Magnetometer** (ölçülen X, Y, Z ekseni), **İvme ölçer** (X, Y ölçülür Z ekseni), ve **jiroskop** (ölçülen X, Y, Z ekseni).
+- Ölçüm için durum **cihaz durumu**.
+- Olay ölçümü için **B düğmesi basılı**.
+- Ayarları **voltaj**, **geçerli**, **fanı hızı**ve bir **IR** Aç/Kapat.
+- Cihaz özellikleri **sayı öldürmüş** ve **cihaz konumu**, location özelliği olduğu.
+- Bulut özelliği **üretilen içinde**.
+- Komutları **Yankı** ve **geri sayım**. Gerçek bir cihaz aldığında bir **Yankı** komutu, bunu göstermektedir gönderilen değeri cihazın ekranı. Gerçek bir cihaz aldığında bir **geri sayım** komutu, bir desen LED başlatıldıkları ve cihaz geri sayım değerleri IOT Central için geri gönderir.
 
 Yapılandırması hakkında tam Ayrıntılar için bkz [MXChip cihaz şablonu ayrıntıları](#mxchip-device-template-details)
 
-
 ## <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
-Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **MXChip** cihaz şablonu ve cihaz bağlantı ayrıntılarını not yap (**kapsam kimliği, cihaz kimliği ve birincil anahtarınızı**).
+### <a name="get-your-device-connection-details"></a>Cihazınızı bağlantı ayrıntılarını Al
+
+Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **MXChip** cihaz şablonu ve cihaz bağlantı ayrıntılarını not olun: **Kapsam kimliği, cihaz kimliği ve birincil anahtar**:
 
 1. Ekleme bir **gerçek cihaz** Device Explorer seçin **+ yeni > gerçek** gerçek bir cihaz eklemek için.
 
-   * Cihaz kimliğini girebilir **<span style="color:Red">(küçük harf olması gerekir)</span>** veya önerilen cihaz kimliğini kullanması
-   * Cihaz adını girin veya önerilen adı kullanın
+    * Bir küçük harf girin **cihaz kimliği**, veya önerilen **cihaz kimliği**.
+    * Girin bir **cihaz adı**, ya da önerilen adı kullanın
 
-     ![Cihaz Ekleme](media/howto-connect-devkit/add-device.png)
+    ![Cihaz Ekleme](media/howto-connect-devkit/add-device.png)
 
-1. Bağlantı ayrıntıları gibi almak **kapsam kimliği, cihaz kimliği ve birincil anahtarınızı** seçerek eklenen bir cihazı için **Connect** cihaz sayfasında.
+1. Cihaz bağlantı ayrıntılarını almak için **kapsam kimliği**, **cihaz kimliği**, ve **birincil anahtar**seçin **Connect** cihaz sayfasında.
 
     ![Bağlantı ayrıntıları](media/howto-connect-devkit/device-connect.png)
 
-1. DevKit cihazı hazırlama gibi geçici olarak internet'ten bağlantıları kesilir gibi bu ayrıntıları kaydetmeyi unutmayın.
+1. Bağlantı ayrıntılarını not edin. Sonraki adımda DevKit Cihazınızı hazırlarken geçici olarak internet'ten kesilirse.
 
 ### <a name="prepare-the-devkit-device"></a>DevKit cihazı hazırlama
 
-> [!NOTE]
-> Cihaz daha önce kullandınız ve kimlik bilgileri depolanır ve farklı bir WiFi ağına, bağlantı dizesi veya telemetri ölçüm kullanacak şekilde cihazı yeniden yapılandırmak istediğiniz Wi-Fi varsa, her ikisi de basın **A** ve **B** Pano üzerinde aynı anda düğmeler. Bu işe yaramazsa, basın **sıfırlama** düğmesine tıklayın ve yeniden deneyin.
+Farklı bir WiFi ağına, bağlantı dizesi veya telemetri ölçüm kullanacak şekilde yapılandırmak için cihaz ve isterseniz daha önce kullandınız, her ikisi de basın **A** ve **B** aynı anda düğmeleri. Bu işe yaramazsa, basın **sıfırlama** düğmesine tıklayın ve yeniden deneyin.
 
 #### <a name="to-prepare-the-devkit-device"></a>DevKit cihazı hazırlamak için
 
@@ -81,25 +83,24 @@ Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **MXChip** cihaz �
 
 1. Cihaz erişim noktası (AP) modunda sunulmuştur. Bu Wi-Fi erişim noktasına, bilgisayar veya mobil CİHAZDAN bağlanabilirsiniz.
 
-1. Cihazın ekranda gösterilen Wi-Fi ağ adı için bilgisayar, telefon veya tablet bağlanın. Bu ağa bağlanmak, internet erişimi yok. Bu durum beklenir ve cihaz yapılandırırken yalnızca kısa bir süre için bu ağa bağlıyken.
+1. Cihazın ekranda gösterilen Wi-Fi ağ adı için bilgisayar, telefon veya tablet bağlanın. Bu ağa bağlanırken internet erişiminiz yok. Bu durum beklenir ve cihaz yapılandırırken yalnızca kısa bir süre için bu ağ bağlandınız.
 
 1. Web tarayıcınızı açın ve gidin [ http://192.168.0.1/start ](http://192.168.0.1/start). Aşağıdaki web sayfasında görüntüler:
 
     ![Cihaz yapılandırma sayfası](media/howto-connect-devkit/configpage.png)
 
-    Web sayfasında: 
-    - Wi-Fi ağınıza adını ekleyin 
+    Web sayfasında girin:
+    - Wi-Fi ağ adı
     - Wi-Fi ağ parolanızı
-    - PIN LCD cihazda gösterilen kodu 
-    - bağlantı ayrıntıları **kapsam kimliği, cihaz kimliği ve birincil anahtarınızı** cihazınızın (, zaten kaydettiğiniz bu adımları izleyerek)      
-    - Tüm mevcut telemetri ölçümleri seçin! 
+    - Cihazın ekranda gösterilen PIN kodu
+    - Bağlantı ayrıntıları **kapsam kimliği**, **cihaz kimliği**, ve **birincil anahtar** cihazınızın (, zaten kaydettiğiniz bu adımları izleyerek)
+    - Tüm mevcut telemetri ölçümleri seçin
 
 1. Seçtiğiniz sonra **cihazı yapılandırma**, bu sayfayı görürsünüz:
 
     ![Yapılandırılmış cihaz](media/howto-connect-devkit/deviceconfigured.png)
 
 1. Tuşuna **sıfırlama** Cihazınızda düğmesi.
-
 
 ## <a name="view-the-telemetry"></a>Telemetri görüntüleme
 
@@ -110,9 +111,9 @@ DevKit cihaz yeniden başlatıldığında, cihaz ekranı gösterilmektedir:
 * İstenen özellik alınan sayısı ve gönderilen bildirilen özellikler sayısı.
 
 > [!NOTE]
-> Cihaz cihaz bağlantı denetimi sırasında döngü olması görünüyorsa *bloke* IOT Central, ve *Engellemeyi Kaldır* uygulamaya bağlanabilmesi için cihaz.
+> Aygıt bağlanmayı denediğinde döngüsü görünüyorsa, cihaz olup olmadığını kontrol edin **bloke** IOT Central, ve **Engellemeyi Kaldır** uygulamaya bağlanabilmesi için cihaz.
 
-Cihaz artırma gönderilen bildirilen özellikler sayısını sallayın. Rastgele bir sayı olarak cihazın gönderdiği **sayı öldürmüş** cihaz özelliği.
+Bildirilen özellik göndermek için cihazı sallayın. Rastgele bir sayı olarak cihazın gönderdiği **sayı öldürmüş** cihaz özelliği.
 
 Bildirilen özellik değerleri ve telemetri ölçümleri görüntüleyebilir ve ayarlarını Azure IOT Central yapılandırma:
 
@@ -132,10 +133,13 @@ Bildirilen özellik değerleri ve telemetri ölçümleri görüntüleyebilir ve 
 
     ![Cihaz ayarlarını görüntüle](media/howto-connect-devkit/devicesettingsnew.png)
 
+1. Üzerinde **komutları** sayfasında çağırabilirsiniz **Yankı** ve **geri sayım** komutları:
+
+    ![Çağrı komutları](media/howto-connect-devkit/devicecommands.png)
+
 1. Üzerinde **Pano** sayfası, harita konumu görebilirsiniz
 
     ![Cihaz panoyu görüntüle](media/howto-connect-devkit/devicedashboardnew.png)
-
 
 ## <a name="download-the-source-code"></a>Kaynak kodunu indirebilir
 
@@ -147,30 +151,38 @@ Kaynak kodu indirmek için Masaüstü makinenizde aşağıdaki komutu çalışt�
 git clone https://github.com/Azure/iot-central-firmware
 ```
 
-Önceki komut kaynak kodu olarak adlandırılan bir klasöre indirir. `iot-central-firmware`. 
+Önceki komut kaynak kodu olarak adlandırılan bir klasöre indirir. `iot-central-firmware`.
 
 > [!NOTE]
 > Varsa **git** yüklü geliştirme ortamınızda buradan indirebilirsiniz [ https://git-scm.com/download ](https://git-scm.com/download).
 
 ## <a name="review-the-code"></a>Kodu gözden geçirin
 
-Açmak için geliştirme ortamınızı hazırladığınız bağlandığınızda yüklendi ve Visual Studio Code'u, `AZ3166` klasöründe `iot-central-firmware` klasörü: 
+Açmak için Visual Studio Code'u kullanın `MXCHIP/mxchip_advanced` klasöründe `iot-central-firmware` klasörü:
 
 ![Visual Studio Code](media/howto-connect-devkit/vscodeview.png)
 
-Telemetri için Azure IOT Central uygulamasına nasıl gönderileceğini görmek için **main_telemetry.cpp** kaynak klasördeki bir dosya.
+Telemetri için Azure IOT Central uygulamasına nasıl gönderileceğini görmek için **telemetry.cpp** dosyası `src` klasörü:
 
-İşlev `buildTelemetryPayload` sensörlerden alınan verilerin cihazda kullanarak JSON telemetri yükü oluşturur.
+- İşlev `TelemetryController::buildTelemetryPayload` sensörlerden alınan verilerin cihazda kullanarak JSON telemetri yükü oluşturur.
 
-İşlev `sendTelemetryPayload` çağrıları `sendTelemetry` içinde **iotHubClient.cpp** JSON yükü, Azure IOT Central, uygulamanız tarafından kullanılan IOT Hub'ına göndermek için.
+- İşlev `TelemetryController::sendTelemetryPayload` çağrıları `sendTelemetry` içinde **AzureIOTClient.cpp** JSON yükü, Azure IOT Central, uygulamanız tarafından kullanılan IOT Hub'ına göndermek için.
 
-Özellik değerleri için Azure IOT Central uygulamasına nasıl bildirildiğini görmek için **main_telemetry.cpp** kaynak klasördeki bir dosya.
+Özellik değerleri için Azure IOT Central uygulamasına nasıl bildirildiğini görmek için **telemetry.cpp** dosyası `src` klasörü:
 
-İşlev `telemetryLoop` gönderir **doubleTap** ivme ölçer, bir çift dokunarak algıladığında özelliği bildirdi. Kullandığı `sendReportedProperty` işlevi **iotHubClient.cpp** kaynak dosyası.
+- İşlev `TelemetryController::loop` gönderir **konumu** özelliği her 30 saniyede yaklaşık bildirdi. Kullandığı `sendReportedProperty` işlevi **AzureIOTClient.cpp** kaynak dosyası.
 
-Kodda **iotHubClient.cpp** kaynak dosyası kullanan işlevlerden [ Microsoft Azure IOT SDK'ları ve kitaplıkları c](https://github.com/Azure/azure-iot-sdk-c) IOT hub'ı ile etkileşim kurmak için.
+- İşlev `TelemetryController::loop` gönderir **dieNumber** cihaz ivme ölçer, bir çift dokunarak algıladığında özelliği bildirdi. Kullandığı `sendReportedProperty` işlevi **AzureIOTClient.cpp** kaynak dosyası.
 
-Değiştirmek için derleme ve örnek kod, cihazınıza karşıya yükleme hakkında daha fazla bilgi için bkz. **readme.md** dosyası `AZ3166` klasör.
+Cihaz IOT Central uygulamadan çağrılan komutları nasıl yanıt verdiğini görmek için **registeredMethodHandlers.cpp** dosyası `src` klasörü:
+
+- **DmEcho** işlevidir işleyicisi **Yankı** komutu. Bu gösterir **displayedValue** cihazın ekranındaki yükteki Dosyalanan.
+
+- **DmCountdown** işlevidir işleyicisi **geri sayım** komutu. Bu cihazın LED rengini değiştirir ve bildirilen özellik geri sayım değeri IOT Central uygulamasına geri göndermek için kullanır. Bildirilen özellik komut aynı ada sahip. İşlev kullanır `sendReportedProperty` işlevi **AzureIOTClient.cpp** kaynak dosyası.
+
+Kodda **AzureIOTClient.cpp** kaynak dosyası kullanan işlevlerden [Microsoft Azure IOT SDK'ları ve kitaplıkları c](https://github.com/Azure/azure-iot-sdk-c) IOT hub'ı ile etkileşim kurmak için.
+
+Değiştirmek için derleme ve örnek kod, cihazınıza karşıya yükleme hakkında daha fazla bilgi için bkz. **readme.md** dosyası `MXCHIP/mxchip_advanced` klasör.
 
 ## <a name="mxchip-device-template-details"></a>MXChip cihaz şablonu ayrıntıları
 
@@ -178,7 +190,7 @@ Değiştirmek için derleme ve örnek kod, cihazınıza karşıya yükleme hakk�
 
 ### <a name="measurements"></a>Ölçümler
 
-#### <a name="telemetry"></a>Telemetri 
+#### <a name="telemetry"></a>Telemetri
 
 | Alan adı     | Birimler  | Minimum | Maksimum | Ondalık basamak sayısı |
 | -------------- | ------ | ------- | ------- | -------------- |
@@ -194,7 +206,6 @@ Değiştirmek için derleme ve örnek kod, cihazınıza karşıya yükleme hakk�
 | gyroscopeX     | MDP'ler   | -2000   | 2000    | 0              |
 | gyroscopeY     | MDP'ler   | -2000   | 2000    | 0              |
 | gyroscopeZ     | MDP'ler   | -2000   | 2000    | 0              |
-
 
 #### <a name="states"></a>Durumlar 
 | Ad          | Görünen ad   | NORMAL | UYARI | DANGER | 
@@ -230,10 +241,13 @@ Geçiş ayarları
 | Cihaz özelliği | Cihaz konumu   | location  | location    |
 | Metin            | İçinde üretilen     | manufacturedIn   | Yok       |
 
+### <a name="commands"></a>Komutlar
 
+| Görünen ad | Alan adı | Dönüş türü | Giriş alanının görünen adı | Giriş alan adı | Giriş alanı türü |
+| ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
+| echo         | echo       | metin        | görüntülenecek değer         | displayedValue   | metin             |
+| Geri sayım    | geri sayım  | number      | Gelen sayısı               | countFrom        | number           |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure IOT Central uygulamanıza DevKit cihaz bağlayamama öğrendiniz, önerilen sonraki adımlar şunlardır:
-
-* [Raspberry Pi'yi hazırlama ve bağlama](howto-connect-raspberry-pi-python.md)
+Azure IOT Central uygulamanıza DevKit cihaz bağlayamama öğrendiniz, önerilen sonraki adım olarak [hazırlama ve Raspberry Pi'yi bağlanın](howto-connect-raspberry-pi-python.md).

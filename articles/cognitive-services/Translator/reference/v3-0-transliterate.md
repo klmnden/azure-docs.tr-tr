@@ -3,19 +3,19 @@ title: Translator metin çevirisi API'si alfabeye yöntemi
 titlesuffix: Azure Cognitive Services
 description: Translator metin API'si alfabeye yöntemi kullanın.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: a0fcd7159be075f0e311e9a242d389dca62f4a37
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 97a2318b7aa3591193108a8a061a15ec5692fac5
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859632"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918629"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator metin çevirisi API'si 3.0: Transliterate
 
@@ -60,7 +60,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   <th width="20%">Üst bilgiler</th>
   <th>Açıklama</th>
   <tr>
-    <td>_Bir yetkilendirme_<br/>_Üst bilgi_</td>
+    <td>_Bir yetkilendirme_<br/>_üst bilgi_</td>
     <td>*Gerekli istek üst bilgisi*.<br/>Bkz: [kimlik doğrulaması için kullanılabilir seçenekler](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -165,7 +165,7 @@ Bir hata oluşursa, isteği ayrıca JSON hata yanıtı döndürür. 3 haneli HTT
 
 Aşağıdaki örnek, iki Japonca dizenin Japonca Romanized dönüştürme gösterilmektedir.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# [<a name="curl"></a>Curl](#tab/curl)
 
 Bu örnekte istek için JSON yükü:
 

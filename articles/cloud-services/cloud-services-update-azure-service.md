@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 2f5a82fac18ab34bfa9d6b46f553227ed44a994a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008102"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917235"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Bir bulut hizmeti güncelleştirme
 
@@ -28,7 +28,7 @@ Kendi rolleri ve konuk işletim sistemi, gibi bir bulut hizmeti güncelleştirme
 ## <a name="update-an-azure-service"></a>Bir Azure hizmeti güncelleştirmesi
 Azure rol örneklerinizin yükseltme etki alanları (UD) adı verilen mantıksal gruplamalarda düzenler. Yükseltme etki alanları (UD), grup olarak güncelleştirilen rol örneği mantıksal kümeleridir.  Bir bulut Azure güncelleştirmeleri bir UD trafik devam etmek için diğer UD örnekleri sağlayan bir anda hizmeti.
 
-Yükseltme etki alanlarının varsayılan sayısı 5'tir. Hizmet tanım dosyası (.csdef) upgradeDomainCount özniteliği dahil olmak üzere farklı bir yükseltme etki alanlarının sayısını belirtebilirsiniz. UpgradeDomainCount özniteliği hakkında daha fazla bilgi için bkz. [WebRole şeması](https://msdn.microsoft.com/library/azure/gg557553.aspx) veya [WorkerRole şeması](https://msdn.microsoft.com/library/azure/gg557552.aspx).
+Yükseltme etki alanlarının varsayılan sayısı 5'tir. Hizmet tanım dosyası (.csdef) upgradeDomainCount özniteliği dahil olmak üzere farklı bir yükseltme etki alanlarının sayısını belirtebilirsiniz. UpgradeDomainCount özniteliği hakkında daha fazla bilgi için bkz. [WebRole şeması](/previous-versions/azure/reference/gg557553(v=azure.100)) veya [WorkerRole şeması](/previous-versions/azure/reference/gg557552(v=azure.100)).
 
 Azure, hizmetinizde bir veya daha fazla rolün bir yerinde güncelleştirme gerçekleştirdiğinizde, ait oldukları yükseltme etki alanına göre rol örneklerinin kümesini güncelleştirir. Azure güncelleştirmeleri, bunları getirilmesi güncelleştirme durdurma belirli bir yükseltme etki alanındaki – tüm çevrimiçi – geri ardından sonraki etki alanına oturum taşır. Yalnızca geçerli yükseltme etki alanında çalışan örnekleri durdurarak Azure bir güncelleştirme çalışan hizmet olabildiğince az etkileyerek olduğunda emin olur. Daha fazla bilgi için [nasıl güncelleştirme geçer](#howanupgradeproceeds) bu makalenin ilerleyen bölümlerinde.
 
@@ -82,7 +82,7 @@ Aşağıdaki öğeler, güncelleştirme sırasında desteklenmez:
 * Yükseltme etki alanı sayısı değiştiriliyor.
 * Yerel kaynakların boyutu kısaltır.
 
-Diğer güncelleştirmeler yerel kaynak boyutu azaltma gibi hizmet tanımı yapıyorsanız VIP takas güncelleştirme yerine gerçekleştirmeniz gerekir. Daha fazla bilgi için [takas dağıtım](https://msdn.microsoft.com/library/azure/ee460814.aspx).
+Diğer güncelleştirmeler yerel kaynak boyutu azaltma gibi hizmet tanımı yapıyorsanız VIP takas güncelleştirme yerine gerçekleştirmeniz gerekir. Daha fazla bilgi için [takas dağıtım](/previous-versions/azure/reference/ee460814(v=azure.100)).
 
 <a name="howanupgradeproceeds"></a>
 
@@ -121,7 +121,7 @@ Tek Örnekli bir hizmeti yükseltilirken kapalı kalma süresini en aza indirmek
 <a name="RollbackofanUpdate"></a>
 
 ## <a name="rollback-of-an-update"></a>Bir güncelleştirme geri alma
-Azure hizmetlerini güncelleştirme sırasında bir hizmet üzerinde ek işlemler tarafından Azure yapı denetleyicisi ilk güncelleştirme isteğini kabul edildikten sonra başlatmak vererek yönetme esnekliği sağlar. Bir geri alma yalnızca bir güncelleştirme olduğunda (yapılandırma değişikliği) gerçekleştirilebilir veya yükseltme zamanı **sürüyor** dağıtımda durum. Bir güncelleştirme veya yükseltme henüz yeni sürüme güncelleştirilmemiş hizmetini en az bir örnek var olduğu sürece devam ediyor olarak kabul edilir. Bir geri alma izin verilip verilmediğini test etmek için tarafından döndürülen RollbackAllowed bayrak değerini kontrol edin [alma dağıtım](https://msdn.microsoft.com/library/azure/ee460804.aspx) ve [bulut hizmeti özelliklerini almak](https://msdn.microsoft.com/library/azure/ee460806.aspx) işlemleri ayarlanır true.
+Azure hizmetlerini güncelleştirme sırasında bir hizmet üzerinde ek işlemler tarafından Azure yapı denetleyicisi ilk güncelleştirme isteğini kabul edildikten sonra başlatmak vererek yönetme esnekliği sağlar. Bir geri alma yalnızca bir güncelleştirme olduğunda (yapılandırma değişikliği) gerçekleştirilebilir veya yükseltme zamanı **sürüyor** dağıtımda durum. Bir güncelleştirme veya yükseltme henüz yeni sürüme güncelleştirilmemiş hizmetini en az bir örnek var olduğu sürece devam ediyor olarak kabul edilir. Bir geri alma izin verilip verilmediğini test etmek için tarafından döndürülen RollbackAllowed bayrak değerini kontrol edin [alma dağıtım](/previous-versions/azure/reference/ee460804(v=azure.100)) ve [bulut hizmeti özelliklerini almak](/previous-versions/azure/reference/ee460806(v=azure.100)) işlemleri ayarlanır true.
 
 > [!NOTE]
 > Yalnızca geri alma çağırmak için mantıklı bir **yerinde** güncelleştirmek ya da hizmetiniz bir tüm çalışan örneği diğeriyle VIP takas yükseltmeleri hatalarıyla ilgili olduğundan yükseltme.
@@ -135,13 +135,13 @@ Geri alma devam eden güncelleştirme dağıtımda aşağıdaki etkileri göster
 
 Bu, işlevsel olarak aşağıdaki özellikler tarafından sağlanır:
 
-* [Geri alma güncelleştirmesi veya yükseltme](https://msdn.microsoft.com/library/azure/hh403977.aspx) yapılandırma güncelleştirmesinde çağrılabilen bir işlemi (çağırarak tetiklenen [dağıtım yapılandırmasını değiştirme](https://msdn.microsoft.com/library/azure/ee460809.aspx)) veya yükseltme (çağırarak tetiklenen [ Yükseltme dağıtımı](https://msdn.microsoft.com/library/azure/ee460793.aspx)) var olduğu sürece en az bir örnek hizmetinde henüz yeni sürüme güncelleştirilmemiş.
-* Yanıt gövdesi bir parçası olarak döndürülen kilitli öğeyi ve RollbackAllowed öğesi [alma dağıtım](https://msdn.microsoft.com/library/azure/ee460804.aspx) ve [bulut hizmeti özelliklerini almak](https://msdn.microsoft.com/library/azure/ee460806.aspx) işlemleri:
+* [Geri alma güncelleştirmesi veya yükseltme](/previous-versions/azure/reference/hh403977(v=azure.100)) yapılandırma güncelleştirmesinde çağrılabilen bir işlemi (çağırarak tetiklenen [dağıtım yapılandırmasını değiştirme](/previous-versions/azure/reference/ee460809(v=azure.100))) veya yükseltme (çağırarak tetiklenen [ Yükseltme dağıtımı](/previous-versions/azure/reference/ee460793(v=azure.100))) var olduğu sürece en az bir örnek hizmetinde henüz yeni sürüme güncelleştirilmemiş.
+* Yanıt gövdesi bir parçası olarak döndürülen kilitli öğeyi ve RollbackAllowed öğesi [alma dağıtım](/previous-versions/azure/reference/ee460804(v=azure.100)) ve [bulut hizmeti özelliklerini almak](/previous-versions/azure/reference/ee460806(v=azure.100)) işlemleri:
 
   1. Kilitli öğeyi mutating bir işlemi belirli bir dağıtım üzerinde çağrılabilir Algıla sağlar.
-  2. RollbackAllowed öğesi algılama sağlar [geri alma güncelleştirmesi veya yükseltme](https://msdn.microsoft.com/library/azure/hh403977.aspx) üzerinde belirli bir dağıtım işlemi çağrılabilir.
+  2. RollbackAllowed öğesi algılama sağlar [geri alma güncelleştirmesi veya yükseltme](/previous-versions/azure/reference/hh403977(v=azure.100)) üzerinde belirli bir dağıtım işlemi çağrılabilir.
 
-  Bir geri alma işlemi gerçekleştirmek için kilitli hem RollbackAllowed öğeleri denetleme gerekmez. RollbackAllowed ayarlandığını doğrulamak için eklerini true. Bu yöntemler kümesine istek üst bilgisini kullanarak çağrılır, bu öğeleri yalnızca döndürülür "x-ms-version: 2011-10-01" veya sonraki bir sürümü. Sürüm üstbilgileri hakkında daha fazla bilgi için bkz. [Hizmet Yönetimi sürümü oluşturma](https://msdn.microsoft.com/library/azure/gg592580.aspx).
+  Bir geri alma işlemi gerçekleştirmek için kilitli hem RollbackAllowed öğeleri denetleme gerekmez. RollbackAllowed ayarlandığını doğrulamak için eklerini true. Bu yöntemler kümesine istek üst bilgisini kullanarak çağrılır, bu öğeleri yalnızca döndürülür "x-ms-version: 2011-10-01 "veya sonraki bir sürümü. Sürüm üstbilgileri hakkında daha fazla bilgi için bkz. [Hizmet Yönetimi sürümü oluşturma](/previous-versions/azure/gg592580(v=azure.100)).
 
 Bazı durumlarda bir geri alma bir güncelleştirme olduğunda veya yükseltme desteklenmiyor, bunlar şu şekildedir:
 
@@ -149,9 +149,9 @@ Bazı durumlarda bir geri alma bir güncelleştirme olduğunda veya yükseltme d
 * Kota sınırlamalarını - güncelleştirme ölçeği azaltma işlemi artık çalışmayabilir olduysa geri alma işlemi tamamlamak için yeterli işlem kotası vardır. Her Azure aboneliği, bu aboneliğe ait tüm barındırılan hizmetler tarafından kullanılabilecek çekirdek sayısını belirten, kendisiyle ilişkili bir kota vardır. Belirli bir güncelleştirme işlemin geri aboneliğiniz kota sonra bu yana koyabilirsiniz, bir geri alma etkin değil.
 * Yarış durumu - ilk güncelleştirme Tamamlandı durumunda geri almanın mümkün değildir.
 
-Kullanıyorsanız, bir güncelleştirme geri alma ne zaman yararlı olabilir, bir örnek verilmiştir [yükseltme dağıtımı](https://msdn.microsoft.com/library/azure/ee460793.aspx) Azure ana yerinde yükseltme sırasında hizmet barındırılan hızı denetlemek için el ile modu işleminde piyasaya sunuluyor.
+Kullanıyorsanız, bir güncelleştirme geri alma ne zaman yararlı olabilir, bir örnek verilmiştir [yükseltme dağıtımı](/previous-versions/azure/reference/ee460793(v=azure.100)) Azure ana yerinde yükseltme sırasında hizmet barındırılan hızı denetlemek için el ile modu işleminde piyasaya sunuluyor.
 
-Yükseltme dağıtımı sırasında çağırmanızı [yükseltme dağıtımı](https://msdn.microsoft.com/library/azure/ee460793.aspx) el ile modunda ve yükseltme etki alanları gitmeye başlayabilirsiniz. Yükseltme, izleme gibi belirli bir noktada, Not incelemeniz ilk yükseltme etki alanlarında bazı rol örneklerini yanıt veremez duruma, çağırabilirsiniz [geri alma güncelleştirmesi veya yükseltme](https://msdn.microsoft.com/library/azure/hh403977.aspx) bırakır, dağıtım işlemi henüz yükseltme örneklere ve geri alma örnekleri, bir önceki hizmet paketi ve yapılandırması için yükseltilmiş olduğu.
+Yükseltme dağıtımı sırasında çağırmanızı [yükseltme dağıtımı](/previous-versions/azure/reference/ee460793(v=azure.100)) el ile modunda ve yükseltme etki alanları gitmeye başlayabilirsiniz. Yükseltme, izleme gibi belirli bir noktada, Not incelemeniz ilk yükseltme etki alanlarında bazı rol örneklerini yanıt veremez duruma, çağırabilirsiniz [geri alma güncelleştirmesi veya yükseltme](/previous-versions/azure/reference/hh403977(v=azure.100)) bırakır, dağıtım işlemi henüz yükseltme örneklere ve geri alma örnekleri, bir önceki hizmet paketi ve yapılandırması için yükseltilmiş olduğu.
 
 <a name="multiplemutatingoperations"></a>
 
@@ -162,11 +162,11 @@ Azure yapı denetleyicisi tarafından güncelleştirmek veya hizmeti yükseltmek
 
 İlk güncelleştirme devam ederken, ikinci bir güncelleştirme işlemi başlatılıyor, benzer şekilde geri alma işlemi gerçekleştirir. İkinci güncelleştirmeyi otomatik modundaysa, ilk yükseltme etki alanı büyük olasılıkla zaman içinde aynı noktada çevrimdışı olan birden fazla yükseltme etki alanlarının örneklerine baştaki hemen yükseltilir.
 
-Mutating işlem aşağıdaki gibidir: [dağıtım yapılandırmasını değiştirme](https://msdn.microsoft.com/library/azure/ee460809.aspx), [yükseltme dağıtımı](https://msdn.microsoft.com/library/azure/ee460793.aspx), [güncelleştirme dağıtım durumu](https://msdn.microsoft.com/library/azure/ee460808.aspx), [dağıtımı Sil ](https://msdn.microsoft.com/library/azure/ee460815.aspx), ve [geri alma güncelleştirmesi veya yükseltmesi](https://msdn.microsoft.com/library/azure/hh403977.aspx).
+Mutating işlem aşağıdaki gibidir: [Dağıtım Yapılandırması değiştirme](/previous-versions/azure/reference/ee460809(v=azure.100)), [dağıtım yükseltme](/previous-versions/azure/reference/ee460793(v=azure.100)), [güncelleştirme dağıtım durumu](/previous-versions/azure/reference/ee460808(v=azure.100)), [dağıtımı Sil](/previous-versions/azure/reference/ee460815(v=azure.100)), ve [geri alma Güncelleştirme veya yükseltme](/previous-versions/azure/reference/hh403977(v=azure.100)).
 
-İki işlem [alma dağıtım](https://msdn.microsoft.com/library/azure/ee460804.aspx) ve [bulut hizmeti özelliklerini almak](https://msdn.microsoft.com/library/azure/ee460806.aspx), mutating bir işlemi belirli bir dağıtım üzerinde çağrılabilir olup olmadığını belirlemek için denetlenen kilitli bayrağı döndürür.
+İki işlem [alma dağıtım](/previous-versions/azure/reference/ee460804(v=azure.100)) ve [bulut hizmeti özelliklerini almak](/previous-versions/azure/reference/ee460806(v=azure.100)), mutating bir işlemi belirli bir dağıtım üzerinde çağrılabilir olup olmadığını belirlemek için denetlenen kilitli bayrağı döndürür.
 
-Kilitli bayrağı döndüren sürümü bu yöntemleri çağırmak için istek üst bilgisini ayarlayın gerekir "x-ms-version: 2011-10-01" veya bir sonraki. Sürüm üstbilgileri hakkında daha fazla bilgi için bkz. [Hizmet Yönetimi sürümü oluşturma](https://msdn.microsoft.com/library/azure/gg592580.aspx).
+Kilitli bayrağı döndüren sürümü bu yöntemleri çağırmak için istek üst bilgisini ayarlayın gerekir "x-ms-version: 2011-10-01 "veya bir sonraki. Sürüm üstbilgileri hakkında daha fazla bilgi için bkz. [Hizmet Yönetimi sürümü oluşturma](/previous-versions/azure/gg592580(v=azure.100)).
 
 <a name="distributiondfroles"></a>
 
@@ -188,5 +188,5 @@ Aşağıdaki diyagramda, nasıl iki rol içeren bir hizmet dağıtılmış iki y
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Cloud Services nasıl yönetilir?](cloud-services-how-to-manage-portal.md)  
-[Bulut hizmetleri nasıl izlenir?](cloud-services-how-to-monitor.md)  
-[Cloud Services’ı Yapılandırma](cloud-services-how-to-configure-portal.md)  
+[Bulut Hizmetlerini İzleme](cloud-services-how-to-monitor.md)  
+[Bulut Hizmetleri Yapılandırma](cloud-services-how-to-configure-portal.md)  

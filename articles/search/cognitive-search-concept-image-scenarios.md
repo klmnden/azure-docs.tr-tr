@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9e4b9d8cf3300f977824f95aeb14a614d8897abd
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: f1491d6b87816dfc70e94e01653567bda101d045
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430276"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916980"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Bilişsel arama senaryolarda görüntülerdeki bilgileri işleme ve ayıklama nasıl
 
@@ -34,7 +34,7 @@ Görüntü normalleştirmeyi kapatamazsınız. Görüntüleri yineleme beceriler
 
 | Yapılandırma parametresi | Açıklama |
 |--------------------|-------------|
-| imageAction   | Katıştırılmış görüntüler veya görüntü dosyaları karşılaştığında, hiçbir işlem yapılmadı "none" ayarlayın. <br/>Belge kırma bir parçası olarak bir dizi normalleştirilmiş görüntüleri oluşturmak için "generateNormalizedImages için" ayarlayın.<br/>Veri kaynağınızdaki PDF için bir çıkış görüntüye her sayfanın burada işlenir normalleştirilmiş görüntüleri bir dizi oluşturmak için "generateNormalizedImagePerPage için" ayarlayın.  İşlevselliğini PDF olmayan dosya türleri için "generateNormalizedImages" ile aynıdır.<br/>"None" olmayan herhangi bir seçenek için görüntü içinde kullanıma sunulacak *normalized_images* alan. <br/>"None". varsayılan değer Bu yapılandırma yalnızca "dataToExtract" "contentAndMetadata" olarak ayarlandığında veri kaynakları, blob testlerinizle ilgili olabilecek |
+| imageAction   | Katıştırılmış görüntüler veya görüntü dosyaları karşılaştığında, hiçbir işlem yapılmadı "none" ayarlayın. <br/>Belge kırma bir parçası olarak bir dizi normalleştirilmiş görüntüleri oluşturmak için "generateNormalizedImages için" ayarlayın.<br/>Veri kaynağınızdaki PDF için bir çıkış görüntüye her sayfanın burada işlenir normalleştirilmiş görüntüleri bir dizi oluşturmak için "generateNormalizedImagePerPage için" ayarlayın.  İşlevselliğini PDF olmayan dosya türleri için "generateNormalizedImages" ile aynıdır.<br/>"None" olmayan herhangi bir seçenek için görüntü içinde kullanıma sunulacak *normalized_images* alan. <br/>"None". varsayılan değer Bu yapılandırma yalnızca "dataToExtract" "contentAndMetadata" olarak ayarlandığında veri kaynakları, blob testlerinizle ilgili olabilecek <br/>En fazla 1000 görüntülerin belirli bir belgeden ayıklanır. Bir belgede 1000'den fazla görüntü varsa, ilk 1000 ayıklanır ve bir uyarı oluşturulur. |
 |  normalizedImageMaxWidth | Oluşturulan normalleştirilmiş görüntüleri için en büyük genişliği (piksel cinsinden). Varsayılan değer 2000'dir.|
 |  normalizedImageMaxHeight | Oluşturulan normalleştirilmiş görüntüleri için en fazla yükseklik (piksel cinsinden). Varsayılan değer 2000'dir.|
 

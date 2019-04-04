@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c475fc4d958044413ae7566c027c0e796f1d699a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 27ba1a1b5fbc0c7533da3634ec8a435468704c33
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486402"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906098"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure depolama güvenlik duvarlarını ve sanal ağları yapılandırma
 
@@ -241,7 +241,7 @@ Her Depolama hesabı ile birleştirilebilir, 100'e kadar IP ağ kurallarını de
 
 Depolama hesabınıza bir IP ağ kuralı ile şirket içi ağlarınızı erişim vermek için internet'e yönelik ağınız tarafından kullanılan IP adreslerini tanımlamanız gerekir. Yardım için ağ yöneticinize başvurun.
 
-Kullanabileceğiniz [ExpressRoute](/azure/expressroute/expressroute-introduction) ağınızı bir Azure ağına bağlanmak için. Burada, her bağlantı hattı iki genel IP adresi ile yapılandırılır. Microsoft Edge bulunabilir ve kullanma [Azure genel eşdüzey hizmet sağlama](/azure/expressroute/expressroute-circuit-peerings) Azure depolama gibi Microsoft Services'a bağlanmak için. Azure depolama ile iletişime izin vermek için genel IP adresleri, bağlantı hatları için IP ağ kuralları oluşturun. ExpressRoute bağlantı hattı'nın genel IP adreslerinizi bulmak için [ExpressRoute ile bir destek bileti açın](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) Azure portal aracılığıyla.
+Kullanıyorsanız [ExpressRoute](/azure/expressroute/expressroute-introduction) şirket içinden ortak eşleme veya Microsoft eşlemesi için kullanılan NAT IP adreslerini tanımlamanız gerekecek. Ortak eşleme için, her bir ExpressRoute varsayılan olarak bağlantı hattında trafik Microsoft Azure omurga ağına girdiğinde Azure hizmet trafiğine uygulanan iki NAT IP adresi kullanılır. Microsoft eşlemesi için, kullanılan NAT IP adresleri müşteri tarafından sağlanır veya hizmet sağlayıcısı tarafından sağlanır. Hizmet kaynaklarınıza erişime izin vermek için, bu genel IP adreslerine kaynak IP güvenlik duvarı ayarında izin vermeniz gerekir. Ortak eşleme ExpressRoute bağlantı hattı IP adreslerinizi bulmak için Azure portalında [ExpressRoute ile bir destek bileti açın](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). [ExpressRoute genel ve Microsoft eşlemesi için NAT](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering) hakkında daha fazla bilgi edinin.
 
 ### <a name="managing-ip-network-rules"></a>IP ağ kurallarını yönetme
 

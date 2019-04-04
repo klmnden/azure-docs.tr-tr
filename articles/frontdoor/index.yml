@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 19e9bbafa1c560e7fa28be9945bc13cb0e342edc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388570"
 documentType: LandingData
-title: Azure Front Door Service Belgeleri (Önizleme)
+title: Azure Front Door Service Belgeleri
 metadata:
-  title: Azure Front Door Service Belgeleri (Önizleme)
-  meta.description: Azure Front Door Service provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
+  title: Azure Front Door Service Belgeleri
+  meta.description: 'Azure Front Door Service provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.'
   services: frontdoor
   author: dlepow
   ms.service: frontdoor
@@ -17,35 +11,35 @@ metadata:
   ms.date: 9/14/2018
   ms.author: danlep
 abstract:
-  description: Azure Front Door Service global web uygulamalarınızın hızlı bir şekilde sunulmasına yönelik ölçeklenebilir ve güvenli bir başlangıç noktasıdır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle Front Door kullanmayı öğrenin.
+  description: 'Azure Front Door Service global web uygulamalarınızın hızlı bir şekilde sunulmasına yönelik ölçeklenebilir ve güvenli bir başlangıç noktasıdır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle Front Door kullanmayı öğrenin.'
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: Yüksek oranda kullanılabilir global web uygulaması için Front Door hizmetini kullanın.
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure Portal
-      href: quickstart-create-front-door.md
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: Azure Front Door Service'i ihtiyaçlarınıza uygun şekilde yapılandırmayı öğrenin.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Yüksek oranda kullanılabilir global web uygulaması için Front Door hizmetini kullanın.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Azure Portal
+            href: quickstart-create-front-door.md
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="front-door-custom-domain.md">Front Door hizmetine özel etki alanı ekleyin</a>
-    - html: <a href="front-door-custom-domain-https.md">Özel bir etki alanı için HTTPS'yi etkinleştirme</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Azure Front Door Service'i ihtiyaçlarınıza uygun şekilde yapılandırmayı öğrenin.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="front-door-custom-domain.md">Front Door hizmetine özel etki alanı ekleyin</a>
+          - html: <a href="front-door-custom-domain-https.md">Özel bir etki alanı için HTTPS'yi etkinleştirme</a>
+  - title: Başvuru
     items:
-    - title: Komut Satırı
-      html: <p><a href="/cli/azure/ext/front-door">Azure CLI</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2020942">Azure PowerShell</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/frontdoor">REST API</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Komut Satırı
+            html: '<p><a href="/cli/azure/ext/front-door">Azure CLI</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2020942">Azure PowerShell</a></p>'
+          - title: REST
+            html: <p><a href="/rest/api/frontdoor">REST API</a></p>

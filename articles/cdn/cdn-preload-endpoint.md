@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: magattus
-ms.openlocfilehash: d2dc8ad1e4b7e429dc758a96e49aa4825ae108e5
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 0d34985c8d83e8adad43aeec36ead939d8b22132
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091326"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918374"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Azure CDN uç noktasında varlıkları önceden yükleme
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -49,7 +49,7 @@ Bu öğreticide, tüm Azure CDN kenar düğümlerine önbelleğe alınmış içe
    > [!TIP]
    > Daha fazla metin girerek başlattıktan sonra **içerik yolu** birden çok varlık listesini oluşturmanıza izin vermek için metin kutuları görüntülenir. Varlıklar listeden silmek için üç nokta (...) düğmesini seçip **Sil**.
    > 
-   > Her içerik yolu aşağıdaki uygun bir göreli URL olmalıdır [normal ifadeler](https://msdn.microsoft.com/library/az24scfc.aspx):  
+   > Her içerik yolu aşağıdaki uygun bir göreli URL olmalıdır [normal ifadeler](/dotnet/standard/base-types/regular-expression-language-quick-reference):  
    > - Tek bir dosya yolu yükle: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
    > - Sorgu dizesi tek bir dosyayı yükle: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
@@ -68,6 +68,6 @@ Bu öğreticide, tüm Azure CDN kenar düğümlerine önbelleğe alınmış içe
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Bir Azure CDN uç noktasını temizleme](cdn-purge-endpoint.md)
-* [Azure CDN REST API Başvurusu: önceden, bir uç nokta içerik yükleme](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
-* [Azure CDN REST API Başvurusu: bir uç noktasından içerik temizleme](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
+* [Azure CDN REST API Başvurusu: Uç noktasında içeriği önceden yükleme](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
+* [Azure CDN REST API Başvurusu: Bir uç noktasından içerik temizleme](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
 

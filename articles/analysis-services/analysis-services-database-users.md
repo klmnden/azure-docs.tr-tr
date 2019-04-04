@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d7ba922d66bf97dbd8173b0d5466a7e55a41f6b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993182"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891693"
 ---
 # <a name="manage-database-roles-and-users"></a>Veritabanı rolleri ve kullanıcıları yönetme
 
@@ -26,7 +26,7 @@ Rol izinleri şunlardır:
 *  **İşlem** -kullanıcılar bağlanmak ve veritabanını işlem işlemleri ve model veritabanı verileri analiz edin.
 *  **Okuma** -kullanıcıların bağlanın ve model veritabanı verileri analiz etmek için bir istemci uygulamasını kullanabilir.
 
-Bir tablosal model projesi oluştururken, rolleri oluşturma ve SSDT'de Rol Yöneticisi'ni kullanarak bu rollere kullanıcılar veya gruplar ekleyin. Bir sunucuya dağıtıldığında, SSMS, kullandığınız [Analiz Hizmetleri PowerShell cmdlet'leri](https://msdn.microsoft.com/library/hh758425.aspx), veya [Tablosal Model betik dili](https://msdn.microsoft.com/library/mt614797.aspx) roller veya kullanıcı üyeleri eklemek veya kaldırmak için (TMSL).
+Bir tablosal model projesi oluştururken, rolleri oluşturma ve SSDT'de Rol Yöneticisi'ni kullanarak bu rollere kullanıcılar veya gruplar ekleyin. Bir sunucuya dağıtıldığında, SSMS, kullandığınız [Analiz Hizmetleri PowerShell cmdlet'leri](/sql/analysis-services/powershell/analysis-services-powershell-reference), veya [Tablosal Model betik dili](https://msdn.microsoft.com/library/mt614797.aspx) roller veya kullanıcı üyeleri eklemek veya kaldırmak için (TMSL).
 
 > [!NOTE]
 > Güvenlik grupları olmalıdır `MailEnabled` özelliğini `True`.
@@ -45,7 +45,7 @@ Bir tablosal model projesi oluştururken, rolleri oluşturma ve SSDT'de Rol Yön
   
     |İzin|Açıklama|  
     |----------------|-----------------|  
-    |**Yok.**|Üyeleri model şeması değiştirilemez ve verileri sorgulayamaz.|  
+    |**None**|Üyeleri model şeması değiştirilemez ve verileri sorgulayamaz.|  
     |**Okuma**|Üyeler (satır filtreleri temel alarak) verileri sorgulayabilirsiniz ancak model şeması değiştiremezsiniz.|  
     |**Okuma ve işleme**|Üye verileri (bağlı olarak satır düzeyi filtreleri) ve çalıştırma işlemi ve işlemin tüm işlemleri sorgulayabilirsiniz ancak model şeması değiştirilemez.|  
     |**İşlem**|Üye işlemi ve işlemin tüm işlemleri de çalıştırabilirsiniz. Model şeması değiştirilemez ve verileri sorgulayamaz.|  
@@ -120,13 +120,13 @@ Bu örnekte, dış B2B kullanıcısı ve grubu SalesBI veritabanı için Okuma i
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>PowerShell kullanarak rolleri ve kullanıcıları ekleme
 
-[SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) göreve özel veritabanı yönetimi cmdlet'leri ve bir Tablosal Model betik dili (TMSL) sorgu veya betik kabul genel amaçlı Invoke-ASCmd cmdlet'i modülü sağlar. Aşağıdaki cmdlet, veritabanı rolleri ve kullanıcıları yönetmek için kullanılır.
+[SqlServer](/sql/analysis-services/powershell/analysis-services-powershell-reference) göreve özel veritabanı yönetimi cmdlet'leri ve bir Tablosal Model betik dili (TMSL) sorgu veya betik kabul genel amaçlı Invoke-ASCmd cmdlet'i modülü sağlar. Aşağıdaki cmdlet, veritabanı rolleri ve kullanıcıları yönetmek için kullanılır.
   
 |Cmdlet|Açıklama|
 |------------|-----------------| 
-|[RoleMember ekleyin](https://msdn.microsoft.com/library/hh510167.aspx)|Üye veritabanı rolüne ekleyin.| 
-|[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Üye veritabanı rolden kaldırma.|   
-|[Çağırma ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|TMSL betiğini yürütün.|
+|[RoleMember ekleyin](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Üye veritabanı rolüne ekleyin.| 
+|[Remove-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Üye veritabanı rolden kaldırma.|   
+|[Çağırma ASCmd](/sql/analysis-services/powershell/analysis-services-powershell-reference)|TMSL betiğini yürütün.|
 
 ## <a name="row-filters"></a>Satır filtreleri  
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: ef07def377b74fb74d57372f471efcf48fcf7aa2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bbaf651233d4cebad3f45e5cf3823bcaf6ce38b6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881104"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905792"
 ---
 # <a name="how-application-gateway-works"></a>Uygulama ağ geçidi nasıl çalışır?
 
@@ -36,7 +36,7 @@ Bir arka uç sunucusuna belirlendikten sonra uygulama ağ geçidi yapılandırma
 
 İç uygulama ağ geçidi, yalnızca özel IP adresine sahiptir. İç uygulama ağ geçidi DNS adını, özel IP adresini dahili olarak çözülebilir. Bu nedenle, iç yük Dengeleyiciler uygulama ağ geçidi için yalnızca sanal ağdan sanal ağa erişimi olan istemcilerden gelen istekleri yönlendirebilirsiniz.
 
-Yol, hem Internet'e yönelik hem de iç uygulama ağ geçidine Not istekleri arka uç havuzu kaynağınızı özel bir IP adresi, VM'nin NIC yapılandırması veya dahili olarak çözümlenebilir bir adres içeriyorsa ve özel IP adresleri kullanarak, arka uç sunucuları için arka uç havuzu genel bir uç nokta, uygulama ağ geçidi tarafından sunucuya ulaşmak için ön uç genel IP kullanır. Ön uç genel IP adresi hazırlamadıysanız biri için giden dış bağlantı atanır.
+Arka uç havuzu dahili olarak çözülebilir FQDN veya özel bir IP adresi varsa, uygulama ağ geçidi isteği örneği özel IP adreslerini kullanarak arka uç sunucusuna yönlendirir. Application Gateway, arka uç havuzu, dış uç noktası veya harici olarak çözülebilir FQDN içeriyorsa, istek ön uç genel IP adresini kullanarak arka uç sunucusuna yönlendirir. DNS çözümlemesi bir özel DNS bölgesi veya özel bir DNS sunucusu yapılandırdıysanız temel veya Azure DNS tarafından sağlanan varsayılan alır. Ön uç genel IP adresi hazırlamadıysanız biri için giden dış bağlantı atanır.
 
 ### <a name="modifications-to-the-request"></a>İstek yapılan değişiklikler
 

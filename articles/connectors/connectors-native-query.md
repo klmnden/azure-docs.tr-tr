@@ -1,5 +1,5 @@
 ---
-title: Logic apps içinde sorgu eylemi ekleme | Microsoft Docs
+title: Logic apps'te sorgu eylemi ekleyin | Microsoft Docs
 description: Filtre dizisi gibi eylemleri gerçekleştirmek için sorgu eylemi genel bakış.
 services: ''
 documentationcenter: ''
@@ -15,71 +15,72 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: 05dd4ae3c4ee439d66401a3f5595f9104051f8ee
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27962654"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893576"
 ---
 # <a name="get-started-with-the-query-action"></a>Sorgu eylemi ile çalışmaya başlama
-Sorgu eylemini kullanarak, toplu işleri ve iş akışları için gerçekleştirmek için diziler ile çalışabilirsiniz:
+Sorgu eylemi kullanarak, toplu işleri ve iş akışlarına gerçekleştirmek için dizileri ile çalışabilirsiniz:
 
-* Tüm yüksek öncelikli kayıtları için bir görev veritabanından oluşturun.
-* Bir Azure blob e-postalara tüm PDF ekleri kaydedin.
+* Tüm yüksek öncelikli kayıt için bir görev, bir veritabanından oluşturun.
+* Bir Azure blob içinde e-postalar için tüm PDF ekleri kaydedin.
 
-Sorgu eylemi bir mantıksal uygulama kullanmaya başlamak için bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Bir mantıksal uygulama çalıştırmasında sorgu eylemi ile çalışmaya başlamak için bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Sorgu eylemi kullanın
-Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](connectors-overview.md).  
+Bir eylem mantıksal uygulamada tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. 
+[Eylemler hakkında daha fazla bilgi](../connectors/apis-list.md).  
 
-Sorgu eylemi, şu anda Tasarımcısı'nda gösterilen filtre dizisi adlı bir işlem yok. Bu, bir dizi sorgulamak ve filtrelenmiş sonuç kümesi dönmek sağlar.
+Sorgu eylemi şu anda Tasarımcısı'nda sunulan filtre dizisi olarak adlandırılan tek bir işlem yok. Bu, bir dizi sorgu ve bir filtre uygulanmış bir sonuç kümesinin dönmesini sağlar.
 
-İşte nasıl bir mantıksal uygulama ekleyebilirsiniz:
+İşte nasıl bir mantıksal uygulama çalıştırmasında ekleyebilirsiniz:
 
 1. Seçin **yeni adım** düğmesi.
 2. Seçin **Eylem Ekle**.
-3. Eylem arama kutusuna yazın **filtre** listesine **filtre dizisi** eylem.
+3. Eylem arama kutusuna **filtre** listesine **filtre dizisi** eylem.
    
     ![Sorgu eylemi seçin](./media/connectors-native-query/using-action-1.png)
-4. Filtre uygulamak için bir dizi seçin. (Aşağıdaki ekran görüntüsünde bir Twitter Arama sonuçlarından dizisi gösterir.)
-5. Her bir öğede değerlendirmek için bir koşul oluşturun. (Aşağıdaki ekran görüntüsünde tweet'leri 100'den fazla followers olan kullanıcılardan filtreler.)
+4. Filtre uygulamak için bir dizi seçin. (Aşağıdaki ekran görüntüsünde bir Twitter arama sonuçlarını dizisini gösterir.)
+5. Her bir öğede değerlendirmek için bir koşul oluşturun. (Aşağıdaki ekran görüntüsünde, 100'den fazla Takipçisi olan kullanıcılardan gelen tweetleri filtreler.)
    
-    ![Sorgu eylemi tamamlamak](./media/connectors-native-query/using-action-2.png)
+    ![Sorgu eylemi tamamlayın](./media/connectors-native-query/using-action-2.png)
    
-    Eylem filtresi gereksinimlerini karşılaması sonuçlarını içeren yeni bir dizi çıkarır.
-6. Kaydetmek için araç sol üst köşesindeki tıklayın ve mantıksal uygulamanızı kaydetmek yayımlama hem (etkinleştirin).
+    Eylem filtresi gereksinimleri karşılayan sonuçları içeren yeni bir dizi çıkarır.
+6. Kaydetmek için araç çubuğunun sol üst köşesindeki tıklayın ve mantıksal uygulamanızı kaydetmek yayımlama hem (etkinleştir).
 
-\*Bir HTTP uç noktası çağrılmadan ve JSON yanıtını alma kullanın _ayrıştırma JSON_ eylem JSON yanıtı ayrıştırılamadı. Bu adım olmadan _filtre dizisi_ yalnızca gövde görebilir ve JSON yükü yapısını anlamak değil.
+\* Bir HTTP uç noktasını çağırmak ve bir JSON yanıtı alma, kullanmanız _JSON Ayrıştır_ eylemi JSON yanıtı ayrıştıramadı. Bu adım olmadan _filtre dizisi_ yalnızca gövdesi görebilir ve JSON yükü yapısını anlamak değil.
 
 ## <a name="query-action"></a>Sorgu eylemi
-Aşağıda, bu bağlayıcıyı destekler eylemi için Ayrıntılar verilmiştir. Bağlayıcısı bir olası eylem vardır.
+Bu bağlayıcıyı destekler eylemini ilgili ayrıntıları aşağıda verilmiştir. Bağlayıcısı, olası bir eylem vardır.
 
 | Eylem | Açıklama |
 | --- | --- |
-| Diziyi filtrele |Dizideki her öğe için bir koşulu değerlendirir ve sonuçları döndürür |
+| Diziyi filtrele |Bir dizideki her öğe için bir koşulu değerlendirir ve sonuçları döndürür |
 
 ## <a name="action-details"></a>Eylem ayrıntıları
-Sorgu eylemi bir olası eylemiyle birlikte gelir. Aşağıdaki tablolar, eylem ve eylem kullanımıyla ilişkili karşılık gelen çıkış ayrıntıları için gerekli ve isteğe bağlı giriş alanlarının açıklamaktadır.
+Sorgu eylemi olası tek bir eylem ile birlikte gelir. Aşağıdaki tablolar, gerekli ve isteğe bağlı giriş alanları için eylem ve eylemini kullanarak ile ilişkilendirilmiş ilgili çıkış ayrıntılarını açıklar.
 
 ### <a name="filter-array"></a>Diziyi filtrele
-HTTP giden isteğinde eylemi için girdi alanlarının verilmiştir.
-A * gerekli bir alan olduğu anlamına gelir.
+Giden HTTP isteği yapan eylem için giriş alanlarını verilmiştir.
+A * gerekli alan olduğu anlamına gelir.
 
 | Görünen ad | Özellik adı | Açıklama |
 | --- | --- | --- |
-| Gelen * |başlangıç |Dizinin filtre uygulamak için |
-| Koşul * |Burada |Her öğe için değerlendirmek için koşulun |
+| Gelen * |başlangıç |Filtrelenecek dizi |
+| Koşul * |nereye |Her öğe için değerlendirilecek koşulu |
 
 <br>
 
 ### <a name="output-details"></a>Çıkış ayrıntıları
-HTTP yanıtı için çıkış ayrıntıları verilmiştir.
+HTTP yanıtının çıkış ayrıntılarını aşağıda verilmiştir.
 
 | Özellik adı | Veri türü | Açıklama |
 | --- | --- | --- |
-| Filtrelenmiş dizisi |array |Her filtre uygulanmış bir sonucu için bir nesne içeren bir dizi |
+| Filtrelenmiş bir dizi |array |Her filtre uygulanmış bir sonuç için bir nesne içeren bir dizi |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi, platform deneyin ve [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Logic apps diğer kullanılabilir bağlayıcılar bakarak keşfedebilirsiniz bizim [API'leri listesi](apis-list.md).
+Şimdi, platformu deneyin ve [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Diğer bağlayıcıları logic apps'teki bakarak keşfedebilirsiniz bizim [API listesi](apis-list.md).
 

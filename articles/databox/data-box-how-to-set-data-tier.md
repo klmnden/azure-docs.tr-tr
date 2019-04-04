@@ -8,18 +8,21 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: bb1d6c5bd51fcfe35127c2f6d8dd6a80b727c45f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 44fa81ddf6b0892c6d900fd065589b3d6ac5a0bd
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517156"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905571"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Uygun Azure depolama blob katmanı veri göndermek için Azure Data Box'ı kullanma
 
 Azure Data Box, yüksek miktarda verilerden oluşan özel depolama cihazı sevk tarafından Azure'a taşır. Veri cihazla'kurmak doldurun ve döndürün. Data Box verileri, depolama hesabıyla ilişkili bir varsayılan katman yüklenir. Ardından, verileri başka bir depolama katmanı taşıyabilirsiniz.
 
 Bu makale, Data Box tarafından karşıya yüklenen verileri sık erişimli, soğuk veya arşiv blob katmanı için nasıl taşınabilir açıklar.  
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="choose-the-correct-storage-tier-for-your-data"></a>Verileriniz için doğru depolama katmanı seçme
 
@@ -58,7 +61,7 @@ Aşağıdaki adımlarda, arşiv için Azure PowerShell Betiği kullanarak blob k
 
 2. Azure PowerShell oturum açın. 
 
-   `Login-AzureRmAccount`  
+   `Login-AzAccount`  
 
 3. Depolama hesabı, erişim anahtarı, kapsayıcı ve depolama bağlam değişkenleri tanımlayın.
 
@@ -66,12 +69,12 @@ Aşağıdaki adımlarda, arşiv için Azure PowerShell Betiği kullanarak blob k
     $StorageAccountName = "<enter account name>"
     $StorageAccountKey = "<enter account key>"
     $ContainerName = "<enter container name>"
-    $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
     ```
 
 4. Tüm blobları kapsayıcıda alın.
 
-    `$blobs = Get-AzureStorageBlob -Container "<enter container name>" -Context $ctx`
+    `$blobs = Get-AzStorageBlob -Container "<enter container name>" -Context $ctx`
  
 5. Arşiv kapsayıcıdaki tüm blobların katmanını ayarlayın.
 
@@ -91,7 +94,7 @@ Aşağıdaki adımlarda, arşiv için Azure PowerShell Betiği kullanarak blob k
     Major  Minor  Build  Revision
     -----  -----  -----  --------
     5      1      17763  134
-    PS C:\WINDOWS\system32> Login-AzureRmAccount
+    PS C:\WINDOWS\system32> Login-AzAccount
 
     Account          : gus@contoso.com
     SubscriptionName : MySubscription
@@ -102,8 +105,8 @@ Aşağıdaki adımlarda, arşiv için Azure PowerShell Betiği kullanarak blob k
     PS C:\WINDOWS\system32> $StorageAccountName = "mygpv2storacct"
     PS C:\WINDOWS\system32> $StorageAccountKey = "mystorageacctkey"
     PS C:\WINDOWS\system32> $ContainerName = "test"
-    PS C:\WINDOWS\system32> $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
-    PS C:\WINDOWS\system32> $blobs = Get-AzureStorageBlob -Container "test" -Context $ctx
+    PS C:\WINDOWS\system32> $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    PS C:\WINDOWS\system32> $blobs = Get-AzStorageBlob -Container "test" -Context $ctx
     PS C:\WINDOWS\system32> Foreach ($blob in $blobs) {
     >> $blob.ICloudBlob.SetStandardBlobTier("Archive")
     >> }

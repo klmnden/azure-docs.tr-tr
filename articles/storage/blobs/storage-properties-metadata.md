@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 2641e1653e14a7c101d95b02b8a5af71ceb9fdc6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398183"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916589"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Özellikler ile meta verileri ayarlama ve alma
 
@@ -20,15 +20,14 @@ Azure depolama desteği Sistem özellikleri ve kullanıcı tanımlı meta verile
 
 * **Sistem Özellikleri**: Sistem özellikleri her depolama kaynakta yok. Bunlardan bazıları okunabilir veya başkalarının salt okunur olsa ayarlayın. Perde bazı sistem özellikleri standart belirli HTTP üstbilgilerine karşılık gelir. Azure depolama istemci kitaplıkları sizin için bu özellikleri korur.
 
-* **Kullanıcı tanımlı meta veriler**: kullanıcı tanımlı meta veriler için bir Azure depolama kaynağı belirttiğiniz bir veya daha fazla ad-değer çiftleri oluşur. Meta veri kaynağı olan ek değerleri depolamak için kullanabilirsiniz. Meta veri değerlerini kendi yalnızca amaçlıdır ve kaynak nasıl davranacağını etkilemez.
+* **Kullanıcı tanımlı meta veriler**: Kullanıcı tanımlı meta veriler için bir Azure depolama kaynağı belirttiğiniz bir veya daha fazla ad-değer çiftleri içerir. Meta veri kaynağı olan ek değerleri depolamak için kullanabilirsiniz. Meta veri değerlerini kendi yalnızca amaçlıdır ve kaynak nasıl davranacağını etkilemez.
 
 Depolama kaynak için özellik ve meta verileri değerlerini alma iki adımlı bir işlemdir. Bu değerleri okumak önce siz açıkça bunları çağırarak getirmelisiniz **FetchAttributes** veya **FetchAttributesAsync** yöntemi. Aradığınız varsa istisnadır **EXISTS** veya **ExistsAsync** kaynakta yöntemi. Bu yöntemi çağırdığınızda, Azure Storage'a uygun çağrı **FetchAttributes** kapsar yöntem çağrısı bir parçası olarak **EXISTS** yöntemi.
 
 > [!IMPORTANT]
 > Özellik veya meta veri değerlerini depolama kaynağı değil doldurulduğunu fark ederseniz, sonra kodunuzun çağrı yaptığını denetleyin **FetchAttributes** veya **FetchAttributesAsync** yöntemi.
 >
-> Meta veri adı/değer çiftleri yalnızca ASCII karakterleri içerebilir. Meta veri adı/değer çiftleri geçerli bir HTTP üst bilgileri ve bu nedenle tüm kısıtlamaları HTTP üst bilgilerini yöneten uyması gerekir. URL kodlaması veya adlarını ve değerlerini içeren ASCII olmayan karakterler için Base64 kodlaması kullanmanız önerilir.
->
+> Meta veri adı/değer çiftleri geçerli bir HTTP üst bilgileri ve bu nedenle tüm kısıtlamaları HTTP üst bilgilerini yöneten uymanız gerekir. Meta veri adlarının geçerli bir HTTP üst bilgi adları olmalıdır, yalnızca ASCII karakterler içerebilir ve olarak büyük küçük harf duyarsız olarak değerlendirilmelidir. ASCII olmayan karakterler içeren bir meta veri değer Base64 kodlamalı veya URL olarak kodlanmış olması gerekir.
 
 ## <a name="setting-and-retrieving-properties"></a>Ayar ve özellikleri alınıyor
 Özellik değerlerini almak için arama **FetchAttributesAsync** yöntemi blob veya kapsayıcı özelliklerini doldurmak için değerleri sonra okuyun.

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 973a82e97bc9770c30e791512b13e4c57a4c5bca
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 4d29602581531e9e42edbf4e00eca810757a8a99
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116907"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895741"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Batch örnek konuşma bir dizi testi
 
@@ -100,7 +100,7 @@ Yeşil grafikte iki bölümlerini beklenen tahmin ile eşleşmedi.
 
 Test LUIS uygulamanızı doğru amaç ve varlıkları tanımıyor gösteriyorsa, daha fazla konuşma etiketleme ya da özellikler ekleyerek LUIS uygulamanızın performansını artırmak için çalışabilir. 
 
-* [LUIS ile önerilen konuşma etiket](luis-how-to-review-endoint-utt.md) 
+* [LUIS ile önerilen konuşma etiket](luis-how-to-review-endpoint-utterances.md) 
 * [LUIS uygulamanızın performansını artırmak için özellikleri kullanın](luis-how-to-add-features.md) 
 * [Bu öğreticiyle test toplu anlama](luis-tutorial-batch-testing.md)
 * [Batch kavramları test öğrenin](luis-concept-batch-test.md).

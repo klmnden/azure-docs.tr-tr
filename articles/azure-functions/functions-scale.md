@@ -1,31 +1,31 @@
 ---
 title: Azure işlevleri'ni ölçeklendirme ve barındırma | Microsoft Docs
-description: Azure işlevleri tüketim planı ve App Service planı arasında seçim yapma hakkında bilgi edinin.
+description: Azure işlevleri tüketim planı ile Premium planı arasında seçim yapma hakkında bilgi edinin.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-keywords: Azure işlevleri, İşlevler, tüketim planı, app service planı, olay işleme, Web kancaları, dinamik işlem, sunucusuz mimari
+keywords: Azure işlevleri, İşlevler, tüketim planı, premium planı, olay işleme, Web kancaları, dinamik işlem, sunucusuz mimari
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/28/2019
+ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17df4415166c71f49c6b2534289b2c1f79cb6174
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f09fded38e384126a8dfdbe567ce4a3ebd5b1af4
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117260"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893597"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure işlevlerini ölçeklendirme ve barındırma
 
-Azure İşlevleri iki farklı modda çalışır: Tüketim planı ve Azure App Service planı. Kodunuzu çalıştırırken tüketim planı otomatik olarak bilgi işlem gücü ayırır. Uygulamanız, gerektiğinde yükü işlemek için ölçeği ve kod çalışmadığı zamanlarda ölçeği. Boş Vm'leri için kullandıkları kadar ödemeyi veya yedek kapasite önceden gerekmez.
+Azure işlevleri iki farklı planlarında çalıştırır: Tüketim planı ve Premium planı (genel Önizleme). Kodunuzu çalıştırırken tüketim planı, işlem gücünü otomatik olarak ekler. Uygulamanız, gerektiğinde yükü işlemek için ölçeği ve kod çalışmayı durdurduğunda ölçeği. Boş Vm'leri için kullandıkları kadar ödemeyi veya yedek kapasite önceden gerekmez.  Premium planı, ayrıca otomatik olarak ölçeklendirin ve kodunuzun çalıştığı zaman ek işlem gücü ekleyin.  Premium planı, premium bilgi işlem örnekleri, örnekleri süresiz olarak sıcak tutmak olanağı ve sanal ağ bağlantısı gibi ek özellikler ile birlikte gelir.  Mevcut bir App Service planı varsa, bunları içinde işlev uygulamalarınızı da çalıştırabilirsiniz.
 
 > [!NOTE]  
-> Linux için tüketim planı [genel önizlemeye sunuldu](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/).
+> Her ikisi de [Premium planı](https://azure.microsoft.com/blog/uncompromised-serverless-scale-for-enterprise-workloads-with-the-azure-functions-premium-plan/preview/) ve [Linux için tüketim planı](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) şu anda Önizleme aşamasındadır.
 
 Azure işlevleri ile ilgili bilgi sahibi değilseniz bkz [Azure işlevlerine genel bakış](functions-overview.md).
 
@@ -33,42 +33,62 @@ Bir işlev uygulaması oluşturduğunuzda uygulama barındırma planı işlevler
 
 * Barındırma örnekleri kullanıma nasıl ölçeklendirilir.
 * Her konak için kullanılabilir kaynaklar.
+* Örnek özellikleri, sanal ağa bağlantı ister.
 
-> [!IMPORTANT]
-> İşlev uygulaması oluşturma sırasında barındırma planı türünü seçmeniz gerekir. Daha sonra değiştiremezsiniz.
-
-Bir App Service planında, farklı kaynaklarının miktarını ayırmak için Katmanlar arasında ölçeklendirebilirsiniz. Azure işlevleri, tüketim planında, tüm kaynak ayırma otomatik olarak işler. 
+> [!NOTE]
+> İşlev uygulaması kaynak plan özelliğini değiştirerek tüketim ve Premium planlar arasında geçiş yapabilirsiniz.
 
 ## <a name="consumption-plan"></a>Tüketim planı
 
-Bir tüketim planı kullanırken, Azure işlevleri konak örneklerini dinamik olarak eklenir ve gelen olayların sayısına dayalı kaldırıldı. Bu sunucusuz planı otomatik olarak ölçeklenen ve yalnızca işlevlerinizin çalıştırırken işlem kaynakları için ücretlendirilirsiniz. Bir tüketim planında bir işlev yürütmeye yapılandırılabilir bir süre sonunda zaman aşımına uğradı.
+Tüketim planı kullanırken, Azure işlevleri konak örneklerini dinamik olarak eklenir ve gelen olayların sayısına dayalı kaldırıldı. Bu sunucusuz planı otomatik olarak ölçeklenen ve yalnızca işlevlerinizin çalıştırırken işlem kaynakları için ücretlendirilirsiniz. Bir tüketim planında bir işlev yürütmeye yapılandırılabilir bir süre sonunda zaman aşımına uğradı.
 
-Faturalandırma, yürütme, yürütme süresini ve kullanılan bellek sayısına göre belirlenmektedir. Faturalandırma, bir işlev uygulaması içindeki tüm işlevleri üzerinden toplanır. Daha fazla bilgi için [Azure işlevleri fiyatlandırması sayfası].
+Faturalandırma, yürütme, yürütme süresini ve kullanılan bellek sayısına göre belirlenmektedir. Faturalandırma, bir işlev uygulaması içindeki tüm işlevleri üzerinden toplanır. Daha fazla bilgi için [Azure fiyatlandırma sayfasını işlevleri].
 
 Tüketim planı barındırma planı varsayılandır ve aşağıdaki avantajları sunar:
 
 * Yalnızca işlevlerinizin çalışırken için ödeme yaparsınız.
 * Otomatik ölçeklendirme, hatta yüksek dönemleri sırasında yük.
 
-## <a name="app-service-plan"></a>App Service planı
+## <a name="premium-plan-public-preview"></a>Premium planı (genel Önizleme)
 
-Adanmış App Service planında işlev uygulamalarınızı ayrılmış sanal makineler üzerinde temel, standart, Premium ve yalıtılmış SKU'ları, diğer App Service uygulamalarını aynı olduğu çalıştırın. Özel VM'ler işlevleri konak olabilir anlamına gelir, işlev uygulaması için ayrılan [her zaman çalışır durumda](#always-on). App Service planları Linux desteği.
+Premium planı kullanırken, Azure işlevleri konak örneklerini hızlı bir şekilde eklendi ve tüketim planı gibi gelen olay sayısı temel alınarak kaldırılır.  Ancak, Premium plan ayrıca sunar:
 
-Aşağıdaki durumlarda bir App Service planı göz önünde bulundurun:
+* Tüm hazırlıksız başlatma önlemek için her zaman sıcak örnekleri.
+* Sanal ağa bağlantı.
+* Sınırsız yürütme süresi.
+* Premium örnek boyutları (tek çekirdek, iki çekirdekli ve dört çekirdek örnekleri).
+* Tahmin edilebilir fiyatlandırma seçenekleri.
+* Birden fazla işlev uygulaması ile planları için yüksek yoğunluklu uygulama ayırma.
 
-* Diğer App Service örneği zaten çalışıyor var olan ve az kullanılan sanal makine var.
+Bu seçenekler nasıl yapılandırabileceğiniz hakkında daha fazla bilgi bulunabilir [Azure işlevleri premium planı](functions-premium-plan.md).
+
+Yürütme ve tüketilen bellek başına faturalama yerine çekirdek saniyeleri ve gerekli ve ayrılmış örnekler kullanılan GB saniye sayısını göre faturalandırılır.  En az bir örnek, her zaman, bu nedenle vardır (yürütme sayısı ne olursa olsun) etkin plan başına sabit bir aylık maliyeti sıcak olması gereklidir.
+
+Azure işlevleri premium planı aşağıdaki durumlar göz önünde bulundurun:
 * İşlev uygulamalarınızı sürekli olarak veya sürekli olarak neredeyse çalıştırın. Bu durumda, bir App Service planı daha uygun maliyetli olabilir.
 * Tüketim planı üzerinde sağlanan değerinden daha fazla CPU veya bellek seçenekleri ihtiyacınız vardır.
 * Kodunuzu daha uzun çalıştırması gereken [izin verilen en uzun yürütme süresi](#timeout) tüketim planı üzerinde.
 * App Service planı, App Service ortamı VNET/VPN bağlantısı ve büyük VM boyutları için destek gibi şirket yalnızca kullanılabilen özellikleri gerektirir.
+
+> [!NOTE]
+> Premium planı önizlemesi şu anda Windows altyapısı aracılığıyla, .NET, düğümü veya Java çalışan işlevleri destekler.
+
+JavaScript işlevleri bir Premium planı üzerinde çalışırken, daha az Vcpu olan örneği seçmeniz gerekir. Daha fazla bilgi için [tek çekirdekli Premium planı seçin](functions-reference-node.md#considerations-for-javascript-functions).  
+
+## <a name="app-service-plan"></a>App Service planı
+
+İşlev uygulamalarınızı aynı adanmış VM'ler (temel, standart, Premium ve yalıtılmış SKU'ları) diğer App Service uygulamaları olarak da çalıştırabilirsiniz. App Service planları Linux desteği.
+
+Aşağıdaki durumlarda bir App Service planı göz önünde bulundurun:
+
+* Diğer App Service örneği zaten çalışıyor var olan ve az kullanılan sanal makine var.
 * Linux üzerinde işlev uygulamanızı çalıştırmak istediğiniz veya özel bir görüntüyü işlevlerinizi çalıştırılacağı istiyorsunuz.
 
-Bir VM sayısını yürütme, yürütme süresini ve kullanılan bellek maliyetinden ayırır. Sonuç olarak, kullandığınız en fazla tahsis VM örneği maliyetini ödeme olmaz. App Service planı nasıl çalıştığı hakkında daha fazla ayrıntı için bkz. [Azure App Service planlarına ayrıntılı genel bakış](../app-service/overview-hosting-plans.md). 
+Web apps gibi diğer App Service kaynakları için yaptığınız gibi aynı bir App Service planı içinde işlev uygulamaları için ücret ödersiniz. App Service planı nasıl çalıştığı hakkında daha fazla ayrıntı için bkz. [Azure App Service planlarına ayrıntılı genel bakış](../app-service/overview-hosting-plans.md). 
 
 Bir App Service planı, el ile daha fazla VM örneği ekleyerek genişletebilir veya otomatik ölçeklendirmeyi etkinleştirebilirsiniz. Daha fazla bilgi için [örnek sayısını elle veya otomatik olarak ölçeklendirme](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Ayrıca farklı bir App Service planı seçerek ölçeğini artırabilirsiniz. Daha fazla bilgi için [azure'da uygulamanın ölçeğini](../app-service/web-sites-scale.md). 
 
-JavaScript işlevleri bir App Service planı üzerinde çalışırken, daha az Vcpu olan bir planı seçmeniz gerekir. Daha fazla bilgi için [seçin tek çekirdekli App Service planları](functions-reference-node.md#choose-single-vcpu-app-service-plans).  
-
+JavaScript işlevleri bir App Service planı üzerinde çalışırken, daha az Vcpu olan bir planı seçmeniz gerekir. Daha fazla bilgi için [seçin tek çekirdekli App Service planları](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 
 ### <a name="always-on"></a> Her zaman açık
@@ -90,26 +110,26 @@ appServicePlanId=$(az functionapp show --name <my_function_app_name> --resource-
 az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
 ```  
 
-Bu komutun çıktısı olduğunda `dynamic`, tüketim planında, işlev uygulamasının aynısıdır. Diğer tüm değerler bir App Service planı katmanı gösterir.
+Bu komutun çıktısı olduğunda `dynamic`, tüketim planında, işlev uygulamasının aynısıdır. Bu komutun çıktısı olduğunda `ElasticPremium`, işlev uygulamanızı Premium plandır.  Diğer tüm değerler bir App Service planı katmanı gösterir.
 
 Hatta Always On özellikli ile tek tek işlevler için kullanılacak yürütme zaman aşımı tarafından denetlenir `functionTimeout` ayarı [host.json](functions-host-json.md#functiontimeout) proje dosyası.
 
 ## <a name="storage-account-requirements"></a>Depolama hesabı gereksinimleri
 
-Tüketim planı ya bir App Service planı üzerinde bir işlev uygulaması, Azure Blob, kuyruk, dosya ve tablo Depolama'yı destekleyen genel bir Azure depolama hesabı gerektirir. İşlevler Tetikleyicileri yönetme ve işlev yürütmelerini günlüğe kaydetme gibi işlemler için Azure depolama alanında kullanır, ancak bazı depolama hesapları kuyrukları ve tabloları desteklemez nedeni budur. (Premium depolama dahil) yalnızca blob depolama hesapları ve bölgesel olarak yedekli depolama çoğaltması ile genel amaçlı depolama hesapları dahil, bu hesaplar filtrelenmiş varolan genişletme **depolama hesabı** bir işlev uygulaması oluşturduğunuzda seçim.
+Herhangi bir plan üzerinde bir işlev uygulaması, Azure Blob, kuyruk, dosya ve tablo depolamayı destekleyen genel bir Azure depolama hesabı gerektirir. İşlevler Tetikleyicileri yönetme ve işlev yürütmelerini günlüğe kaydetme gibi işlemler için Azure depolama alanında kullanan, ancak bazı depolama hesapları kuyrukları ve tabloları desteklemez nedeni budur. (Premium depolama dahil) yalnızca blob depolama hesapları ve bölgesel olarak yedekli depolama çoğaltması ile genel amaçlı depolama hesapları dahil, bu hesaplar filtrelenmiş varolan genişletme **depolama hesabı** bir işlev uygulaması oluşturduğunuzda seçim.
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
 Depolama hesabı türleri hakkında daha fazla bilgi için bkz: [Azure depolama hizmetlerine giriş](../storage/common/storage-introduction.md#azure-storage-services).
 
-## <a name="how-the-consumption-plan-works"></a>Tüketim planı nasıl çalışır?
+## <a name="how-the-consumption-and-premium-plans-work"></a>Tüketim ve premium planları nasıl çalışır
 
-Tüketim planında ölçek denetleyicisi otomatik olarak CPU ve bellek kaynakları işlevleri konağının işlevleri üzerinde tetiklenen olayların sayısına dayalı olarak ek örnekleri ekleyerek ölçeklendirir. Her bir örneğini işlevleri konak 1,5 GB bellekle sınırlıdır.  Konak bir örneği ve ölçek içinde bir işlev uygulaması paylaşımı kaynaktaki tüm İşlevler, aynı anda anlamına gelir, bir işlev uygulaması örneğidir. Tüketim planı paylaşan işlev uygulamaları birbirinden bağımsız olarak ölçeklenir.  
+Tüketim ve premium planları, Ölçek Denetleyicisi işlevleri konağının işlevleri üzerinde tetiklenen olayların sayısına dayalı olarak ek örnekleri ekleyerek CPU ve bellek kaynakları otomatik olarak ölçeklendirir. Tüketim planı işlevleri ana bilgisayarda her örneği için 1,5 GB bellek ve 1 sınırlıdır CPU.  Aynı anda bir örneği ve ölçek içinde bir işlev uygulaması paylaşımı kaynaktaki tüm işlevleri anlamı olan tüm işlev uygulaması, konak örneğidir. Tüketim planı paylaşan işlev uygulamaları birbirinden bağımsız olarak ölçeklenir.  Premium planına plan boyutunuzu kullanılabilir bellek ve CPU tüm uygulamalar için bu plandaki örneğine belirler.  
 
-Tüketim barındırma planını kullandığınızda, işlev kod dosyaları işlevin ana depolama hesabındaki Azure dosya paylaşımlarını depolanır. İşlev uygulamasının ana depolama hesabını sildiğinizde, işlev kod dosyaları silinir ve kurtarılamaz.
+İşlev kod dosyaları, işlevin ana depolama hesabındaki Azure dosya paylaşımları üzerinde depolanır. İşlev uygulamasının ana depolama hesabını sildiğinizde, işlev kod dosyaları silinir ve kurtarılamaz.
 
 > [!NOTE]
-> Blob tetikleyicisi bir tüketim planında kullanırken, olabilir bir 10 dakikaya kadar yeni BLOB'ları işleme. Bu gecikme, bir işlev uygulaması boşta geçti oluşur. İşlev uygulaması çalışmaya başladıktan sonra BLOB'ları hemen işlenir. Bu soğuk başlangıç gecikmeyi önlemek için bir App Service planıyla kullanmak **Always On** etkin veya Event Grid tetikleyicisinin kullanın. Daha fazla bilgi için [blob tetikleyicisi bağlama başvurusu makalesinde](functions-bindings-storage-blob.md#trigger).
+> Blob tetikleyicisi bir tüketim planında kullanırken, olabilir bir 10 dakikaya kadar yeni BLOB'ları işleme. Bu gecikme, bir işlev uygulaması boşta geçti oluşur. İşlev uygulaması çalışmaya başladıktan sonra BLOB'ları hemen işlenir. Bu soğuk başlangıç gecikmeyi önlemek için Premium planı kullanın veya kullanmak [Event Grid tetikleyicisinin](functions-bindings-event-grid.md). Daha fazla bilgi için [blob tetikleyicisi bağlama başvurusu makalesinde](functions-bindings-storage-blob.md#trigger).
 
 ### <a name="runtime-scaling"></a>Çalışma zamanı ölçeklendirme
 
@@ -129,7 +149,7 @@ Azure işlevleri kullanan adlı bir bileşen *ölçek denetleyicisi* olayların�
 
 Ayrıca farklı ölçeklendirme limitleri yanı sıra aşağıda belgelenmiş farklı tetikleyicilere sahip olabilir:
 
-* [Olay Hub’ı](functions-bindings-event-hubs.md#trigger---scaling)
+* [Olay Hub'ı](functions-bindings-event-hubs.md#trigger---scaling)
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>En iyi yöntemler ve ölçeklenebilir uygulamaları için desenler
 
@@ -137,9 +157,11 @@ Birçok yönden ne kadar iyi Bu, ana bilgisayar yapılandırması, çalışma za
 
 ### <a name="billing-model"></a>Faturalandırma modeli
 
-Tüketim planı üzerinde ayrıntılı olarak açıklanan için faturalama [Azure işlevleri fiyatlandırması sayfası]. Kullanım işlevi uygulama düzeyinde toplanır ve işlev kodunu yürütülen zaman sayar. Faturalandırma birimler şunlardır:
+Tüketim planı üzerinde ayrıntılı olarak açıklanan için faturalama [Azure fiyatlandırma sayfasını işlevleri]. Kullanım işlevi uygulama düzeyinde toplanır ve işlev kodunu yürütülen zaman sayar. Faturalandırma birimler şunlardır:
 
 * **Kaynak tüketimi, gigabayt saniye (GB-s) cinsinden**. Bellek boyutu ve yürütme zamanı içinde bir işlev uygulaması tüm işlevler için bir birleşimi olarak hesaplanır. 
 * **Yürütme**. Bir işlev, yanıt olarak bir olay tetikleyicisi yürütülür her zaman sayılır.
+
+Kullanışlı sorgular ve tüketim faturanızı anlama konusunda bilgi bulunabilir [fatura SSS](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
 
 [Azure işlevleri fiyatlandırması sayfası]: https://azure.microsoft.com/pricing/details/functions

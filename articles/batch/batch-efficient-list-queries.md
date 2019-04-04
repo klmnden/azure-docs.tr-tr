@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: fc873f68be3e7aad67980ec2e8ee0b2e473777ec
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ff3e95a603b8f9a188c7839578cd12287935de90
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537910"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918544"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Sorguları listesi Batch kaynaklarını verimli bir şekilde oluşturun
 
@@ -89,7 +89,7 @@ Genişletme dizesi belirli bilgileri elde etmek için gereken API çağrısı sa
 * Bu örnekte, dize genişletin listedeki her öğe için istatistik bilgilerini döndürülmesi gerektiğini belirtir: `stats`.
 
 > [!NOTE]
-> Üç sorgu dizesi türlerinden herhangi birini oluştururken (filtreleme, seçin ve genişletin) özellik adlarını ve çalışması, REST API öğesi karşılıkları eşleştiğinden emin olun. Örneğin, .NET ile çalışıyorsanız [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) sınıfı belirtmelisiniz **durumu** yerine **durumu**, .NET özelliğinin olsa bile [ CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). .NET ve REST API'lerinin arasında özellik eşlemeleri için aşağıdaki tabloya bakın.
+> Üç sorgu dizesi türlerinden herhangi birini oluştururken (filtreleme, seçin ve genişletin) özellik adlarını ve çalışması, REST API öğesi karşılıkları eşleştiğinden emin olun. Örneğin, .NET ile çalışıyorsanız [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask) sınıfı belirtmelisiniz **durumu** yerine **durumu**, .NET özelliğinin olsa bile [ CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask.state). .NET ve REST API'lerinin arasında özellik eşlemeleri için aşağıdaki tabloya bakın.
 > 
 > 
 
@@ -110,7 +110,7 @@ Genişletme dizesi belirli bilgileri elde etmek için gereken API çağrısı sa
 * [ODATADetailLevel][odata].[ SelectClause][odata_select]: Her bir öğeyle döndürülen hangi özellik değerlerini belirtin.
 * [ODATADetailLevel][odata].[ ExpandClause][odata_expand]: Her öğe için ayrı çağrılar yerine tek bir API çağrısı içindeki tüm öğeler için verileri alır.
 
-Aşağıdaki kod parçacığı havuzları belirli bir dizi istatistiklerini için Batch hizmetini verimli bir şekilde sorgulamak için Batch .NET API kullanır. Bu senaryoda hem test hem de üretim havuzuna toplu kullanıcı sahiptir. "Test" ile test havuzu kimliklerini ön eki ve ürün havuzu kimlikleri "üretim" öneki. Kod parçacığında *myBatchClient* düzgün başlatılmadı örneğidir [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) sınıfı.
+Aşağıdaki kod parçacığı havuzları belirli bir dizi istatistiklerini için Batch hizmetini verimli bir şekilde sorgulamak için Batch .NET API kullanır. Bu senaryoda hem test hem de üretim havuzuna toplu kullanıcı sahiptir. "Test" ile test havuzu kimliklerini ön eki ve ürün havuzu kimlikleri "üretim" öneki. Kod parçacığında *myBatchClient* düzgün başlatılmadı örneğidir [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient#microsoft_azure_batch_batchclient) sınıfı.
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -139,7 +139,7 @@ List<CloudPool> testPools =
 ```
 
 > [!TIP]
-> Örneği [ODATADetailLevel] [ odata] seçim ile yapılandırılmış ve genişletme yan tümceleri de geçirilebilir uygun Get yöntemleri gibi [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx), döndürülen veri miktarını sınırlamak için.
+> Örneği [ODATADetailLevel] [ odata] seçim ile yapılandırılmış ve genişletme yan tümceleri de geçirilebilir uygun Get yöntemleri gibi [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), döndürülen veri miktarını sınırlamak için.
 > 
 > 
 
@@ -179,7 +179,7 @@ Filtre, özellik adları seçin ve dizeleri genişletin *gerekir* REST API karş
 ## <a name="example-construct-a-filter-string"></a>Örnek: bir filtre dizesi oluşturun
 İçin bir filtre dizesi oluşturmak zaman [ODATADetailLevel.FilterClause][odata_filter], yukarıdaki tabloda "Eşlemeleri için filtre dizelerinde" altında karşılık gelen bulma REST API belgeleri sayfasına bakın gerçekleştirmek istediğiniz listeleme işlemi. Bu sayfadaki ilk çok satırlı tabloda filtrelenebilir özelliklerini ve bunların desteklenen işleçleri bulabilirsiniz. Çıkış kodu sıfır olmayan tüm görevleri almak istiyorsanız, örneğin, bu satır üzerinde [işi ile ilişkili görevleri listeleyin] [ rest_list_tasks] izin verilen işleçler ve ilgili özellik dize belirtir:
 
-| Özellik | İzin verilen işlemleri | Tür |
+| Özellik | İzin verilen işlemleri | Type |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -190,7 +190,7 @@ Bu nedenle, sıfır olmayan çıkış kodu ile tüm görevleri listelemek için 
 ## <a name="example-construct-a-select-string"></a>Örnek: select bir dize oluşturur.
 Oluşturmak için [ODATADetailLevel.SelectClause][odata_select], yukarıdaki tabloda "Select dizeleri eşlemeleri" altında başvurun ve listeleme varlık türü için karşılık gelen REST API sayfasına gidin. Bu sayfada ilk çok satırlı tablodaki seçilebilir özelliklerini ve bunların desteklenen işleçleri bulabilirsiniz. Yalnızca kimliği ve her görev bir liste için komut satırı almak istiyorsanız, örneğin, bu satırlar geçerli tabloda üzerinde bulursunuz [bir görev hakkında bilgi alma][rest_get_task]:
 
-| Özellik | Tür | Notlar |
+| Özellik | Type | Notlar |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |
@@ -246,7 +246,7 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 [Eşzamanlı düğüm görevleri ile Azure toplu işlem kaynak kullanımını en üst düzeye](batch-parallel-node-tasks.md) başka bir makalede Batch uygulama performansı ile ilişkilidir. İş yüklerinin bazı türleri üzerinde Paralel Görevler yürütülürken avantaj elde edebileceği büyük--ancak daha az--işlem düğümleri. Kullanıma [Örnek senaryo](batch-parallel-node-tasks.md#example-scenario) makalede bu tür bir senaryonun hakkında ayrıntılı bilgi için.
 
 
-[api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch?view=azure-dotnet
+[api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: https://docs.microsoft.com/rest/api/batchservice/
 [batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics

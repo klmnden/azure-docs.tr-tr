@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6f686ff40805050b6da05a1971aeabb367da96d7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: cdffa8e138062a91bd1876ac6e44728c47d9cdd7
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190862"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893189"
 ---
 # <a name="monitor-server-metrics"></a>Sunucu ölçümlerini izleme
 
@@ -51,7 +51,7 @@ Hangi ölçümleri izleme senaryonuz için en iyi olduğunu belirlemek için bu 
 |CleanerMemoryNonshrinkable|Bellek: Temizleyici belleği daraltılamaz|Bayt|Ortalama|Tarafından arka plan Temizleyicisi kapsamında olmayan bayt cinsinden bellek miktarı.|
 |CleanerMemoryShrinkable|Bellek: Temizleyici belleği daraltılabilir|Bayt|Ortalama|Tarafından arka plan Temizleyicisi temizleme bayt cinsinden bellek miktarı.|
 |MemoryLimitHard|Bellek: Bellek sınırı sabit|Bayt|Ortalama|Yapılandırma dosyasından sabit bellek sınırı.|
-|Memoryhighlimit değeri|Bellek: Bellek sınırı yüksek|Bayt|Ortalama|Yapılandırma dosyasından yüksek bellek sınırı.|
+|MemoryLimitHigh|Bellek: Bellek sınırı yüksek|Bayt|Ortalama|Yapılandırma dosyasından yüksek bellek sınırı.|
 |MemoryLimitLow|Bellek: Bellek sınırı düşük|Bayt|Ortalama|Yapılandırma dosyasından düşük bellek sınırı.|
 |MemoryLimitVertiPaq|Bellek: Bellek sınırı VertiPaq|Bayt|Ortalama|Yapılandırma dosyasından bellek içi sınır.|
 |MemoryUsage|Bellek: Bellek Kullanımı|Bayt|Ortalama|Temizleyici bellek fiyatı hesaplanırken kullanılan sunucu işlemi bellek kullanımı. Process\PrivateBytes artı eşlenmiş veya altyapısı bellek sınırını aşan bellek içi analiz altyapısı (VertiPaq) tarafından ayrılan bir bellek yok sayılıyor, bellekle eşlenen verilerin boyutunu sayaç eşittir.|
@@ -87,4 +87,4 @@ Hangi ölçümleri izleme senaryonuz için en iyi olduğunu belirlemek için bu 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Microsoft Azure'da izleme](../monitoring-and-diagnostics/monitoring-overview.md)   
 [Microsoft azure'da ölçümleri](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
-[Azure İzleyici REST API de ölçümleri](https://msdn.microsoft.com/library/azure/dn931930.aspx)
+[Azure İzleyici REST API de ölçümleri](/rest/api/monitor/metrics)

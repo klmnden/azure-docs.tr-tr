@@ -3,19 +3,19 @@ title: İşbirliğine dayalı Translation Framework (CTF) raporlama - Translator
 titlesuffix: Azure Cognitive Services
 description: İşbirliğine dayalı Translation Framework (CTF) raporlama kullanma
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a2f8a9c5ceaac6209391df17f4ec08027991382b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123428"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917405"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Collaborative Translation Framework (CTF) raporlamasını kullanma
 
@@ -53,7 +53,7 @@ Bu yöntemler sağlar:
 
 Bu yöntem, kullanıcı tarafından oluşturulan çevirileri sayısını alır. Bu çeviri sayıları kullanıcı, minRating ve maxRating İstek parametreleri için uriPrefix göre gruplandırılmış listesini sağlar.
 
-**Söz dizimi**
+**Sözdizimi**
 
 > [!div class="tabbedCodeSnippets"]
 > ```cs
@@ -124,7 +124,7 @@ Dizi sonuç kümesini içeren **UserTranslationCount**. Her UserTranslationCount
 
 Bu yöntem, kullanıcı tarafından oluşturulan çevirileri alır. Çevirileri uriPrefix tarafından, kullanıcı, minRating ve maxRating istek parametrelerini gruplandırılmış sağlar.
 
-**Söz dizimi**
+**Sözdizimi**
 
 > [!div class="tabbedCodeSnippets"]
 > ```cs

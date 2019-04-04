@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50349d008e3c2a7a8a09fd3e2d9e96097acc0c9e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 18b575b74c80499f2ddd6648bf051b5245077d2f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855827"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906149"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Öğretici: Jamf Pro ile Azure Active Directory Tümleştirme
 
@@ -160,11 +160,11 @@ Azure AD çoklu oturum açma Jamf Pro ile yapılandırmak için aşağıdaki ad�
 
     ![Jamf Pro yapılandırması](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-    a. Seçin **diğer** bir seçeneği olarak **kimlik SAĞLAYICISI** açılır.
+    a. Seçin **diğer** bir seçenek olarak **kimlik SAĞLAYICISI** açılır.
 
     b. İçinde **diğer SAĞLAYICISI** metin girin **Azure AD'ye**.
 
-    c. Seçin **meta veri URL'si** bir seçeneği olarak **kimlik SAĞLAYICISI meta veri kaynağı** açılır ve aşağıdaki metin kutusuna yapıştırın **uygulama Federasyon meta verileri URL'sini** değeri Azure portaldan kopyaladığınız.
+    c. Seçin **meta veri URL'si** bir seçenek olarak **kimlik SAĞLAYICISI meta veri kaynağı** açılır ve aşağıdaki metin kutusuna yapıştırın **uygulama Federasyon meta verileri URL'sini** değeri hangi Azure portaldan kopyaladığınız.
 
     d. Kopyalama **varlık kimliği** yapıştırın ve değer **tanımlayıcı (varlık kimliği)** metin kutusunda **Jamf Pro etki alanı ve URL'ler** bölümü Azure portalı.
 
@@ -276,6 +276,6 @@ Erişim paneli Jamf Pro kutucuğa tıkladığınızda, size otomatik olarak SSO'
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

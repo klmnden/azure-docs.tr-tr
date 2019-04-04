@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7542909df336555e17aea9b0e680879b25dc17f
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58791754"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892747"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bilinen sorunlar ve sorun giderme Azure Machine Learning hizmeti
 
@@ -50,7 +50,7 @@ Gözlemlerseniz, `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died
 
 ## <a name="automated-machine-learning"></a>Otomatik makine öğrenimi
 
-Tensor Flow otomatik makine öğrenimi tensor flow sürümü 1.13 şu anda desteklemiyor. Bu yükleme, Paket bağımlılıklarını çalışmayı durdurmasına neden olur. Gelecekteki bir sürümde bu durumu düzeltmek için çalışıyoruz. 
+Tensor Flow otomatik makine öğrenimi tensor flow sürümü 1.13 şu anda desteklemiyor. Bu sürümü yüklemeden Paket bağımlılıklarını çalışmayı durdurmasına neden olur. Gelecekteki bir sürümde bu sorunu düzeltmek için çalışıyoruz. 
 
 
 ## <a name="databricks"></a>Databricks
@@ -96,7 +96,7 @@ Kullandığınızda, bu hatayı görürseniz, machine learning otomatik:
 
 1. Ayırma ve ardından, not defterinizin kümeye yeniden bağlayın. 
 
-Bu sorunu çözmezse, kümeyi yeniden başlatmayı deneyin.
+Bu adımlar sorunu gidermezse, kümeyi yeniden başlatmayı deneyin.
 
 ## <a name="azure-portal"></a>Azure portal
 
@@ -104,7 +104,7 @@ Doğrudan paylaşım bağlantısı SDK veya portalından çalışma alanınızda
 
 ## <a name="diagnostic-logs"></a>Tanılama günlükleri
 
-Bazen Yardım isteme, tanılama bilgilerini sağlarsanız, yararlı olabilir. Bazı günlüklerini görmek için ziyaret [Azure portalında](https://portal.azure.com) ve seçin ve çalışma alanı **çalışma alanı > deneme > çalıştırın > günlükleri**.
+Bazen Yardım isteme, tanılama bilgilerini sağlarsanız, yararlı olabilir. Bazı günlüklerini görmek için ziyaret edin [Azure portalında](https://portal.azure.com) ve seçin ve çalışma alanı **çalışma alanı > deneme > Çalıştır > günlükleri**.
 
 ## <a name="resource-quotas"></a>Kaynak kotaları
 
@@ -123,7 +123,3 @@ Uzak bir işten işlem hedefi bir yönetim işlemi gerçekleştirirseniz, aşağ
 ```
 
 Örneğin, oluşturma veya uzaktan yürütme için gönderilen bir ML ardışık işlem hedefi iliştirilmeye çalışırsanız hata alırsınız.
-
-## <a name="get-more-support"></a>Daha fazla destek alın
-
-Destek isteği gönderin ve teknik destek, forumlar ve diğer Yardım alın. [Daha fazla bilgi edinin...](support-for-aml-services.md)

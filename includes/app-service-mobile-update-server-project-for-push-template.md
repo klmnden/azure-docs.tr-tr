@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 0e7118ff6a2860351a7bfa38637f1d767b0f4a2d
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: c664b089f316255fabc4c8dc36b291d7d63e6280
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42817436"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891118"
 ---
 Bu bölümde, yeni bir öğe eklendiğinde bir anında iletme bildirimi göndermek için mevcut Mobile Apps arka uç projesi içinde kod güncelleştirin. Bu işlem tarafından desteklenen [şablon](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) platformlar arası sağlayan Azure Notification Hubs'ın özellik gönderir. Çeşitli istemcilere şablonlarını kullanarak anında iletme bildirimleri için kaydedilir ve tüm istemci platformları için tek bir evrensel anında iletme alabilirsiniz.
 
@@ -82,7 +82,7 @@ Arka uç proje türünüzü eşleşen aşağıdaki yordamlardan birini&mdash;ya 
 
     table.insert(function (context) {
     // For more information about the Notification Hubs JavaScript SDK,
-    // see http://aka.ms/nodejshubs.
+    // see https://aka.ms/nodejshubs.
     logger.info('Running TodoItem.insert');
 
     // Define the template payload.

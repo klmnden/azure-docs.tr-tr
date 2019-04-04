@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 19f41256866b42962be36bbb97f5f6d3c06d7fed
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6d8ad71894444b3759e506c50244b592ac1f8aac
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976571"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904721"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure’da olağanüstü durum kurtarma tatbikatı çalıştırma 
 
@@ -42,7 +42,7 @@ Bu yordamda, bir kurtarma planı için bir yük devretme testi çalıştırma a�
     - Site kurtarma denemeleri oluşturmak için bir alt ağ ile aynı ada ve aynı IP adresine sağlanan Vm'leri test **işlem ve ağ** VM ayarları.
     - Aynı ada sahip bir alt ağ, yük devretme testi için kullanılan Azure sanal ağında kullanılabilir değilse, sonra test sanal makine ağdaki ilk alt alfabetik olarak oluşturulur.
     - Aynı IP adresi alt ağda kullanılabilir durumda değilse, VM alt ağ içindeki başka bir kullanılabilir IP adresi alır. [Daha fazla bilgi edinin](#create-a-network-for-test-failover).
-4. Azure'a devretmek ve veri şifrelemesi etkin olduğunda, buna **şifreleme anahtarı**, sağlayıcı yüklemesi sırasında şifreleme etkin olduğunda verilmiş sertifikayı seçin. Bu adımı yoksayabilirsiniz şifreleme etkin değil.
+4. Azure'a devretmek ve veri şifrelemesi etkin olduğunda, buna **şifreleme anahtarı**, sağlayıcı yüklemesi sırasında şifreleme etkin olduğunda verilmiş sertifikayı seçin. Şifreleme etkin değilse, bu adımı yoksayabilirsiniz.
 5. Yük devretme işleminin ilerleyişini izlemek **işleri** sekmesi. Azure portalında test çoğaltma makinesi görebilmeniz gerekir.
 6. Azure VM ile RDP bağlantısı başlatmak için şunları yapmanız [genel IP adresi ekleme](https://aka.ms/addpublicip) devredilen VM'nin ağ arabiriminde.
 7. Her şeyin beklendiği gibi çalıştığından, tıklayın **yük devretme testini Temizle**. Bu, yük devretme testi sırasında oluşturulan sanal makineleri siler.
@@ -68,7 +68,7 @@ Aşağıdaki senaryolarda, yük devretme tamamlanması genellikle yaklaşık 8-1
 * Fiziksel sunucuları olarak korunan Hyper-V VM
 * VMware VM burada aşağıdaki sürücüleri önyükleme sürücüleri değildir:
     * storvsc
-    * VMBus
+    * vmbus
     * storflt
     * intelide
     * Atapi

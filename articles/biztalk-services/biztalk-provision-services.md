@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 05327c05594d38caf5e3d54f8a13eaaaac3588ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f5ffd1a9d0e7ff515b0819bb678bf0263f53e0d2
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097449"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918782"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Azure portalını kullanarak BizTalk Services oluşturma
 
@@ -40,7 +40,7 @@ BizTalk Hizmeti durumunu bağlı olarak, bazı tamamlanamayan işlemler vardır.
 ## <a name="post-provisioning-steps"></a>Hazırlama sonrası adımlar
 * [Sertifikayı yerel bir bilgisayara yükleme](#InstallCert)
 * [Üretime hazır sertifikayı ekleme](#AddCert)
-* [Access Control ad alanını alma](#ACS)
+* [Erişim Denetimi ad alanını alma](#ACS)
 
 #### <a name="InstallCert"></a>Sertifikayı yerel bir bilgisayara yükleme
 
@@ -59,24 +59,24 @@ Visual Studio’dan BizTalk Hizmeti projesini dağıttığınızda, Erişim Dene
 Erişim Denetimi değerleri herhangi bir uygulamayla birlikte kullanılabilir. Azure BizTalk Services oluşturulduğunda, bu Erişim Denetimi ad alanı kimlik doğrulamasını BizTalk hizmeti dağıtımınızla denetler. Aboneliğinizi değiştirmek veya ad alanını yönetmek isterseniz, sol bölmedeki **ACTIVE DIRECTORY**’yi, sonra da ad alanınızı seçin. Görev çubuğu seçeneklerinizi listeler.
 
 **Yönet**’e tıklanması Erişim Denetimi Yönetim Portalı’nı açar. Erişim Denetimi Yönetim Portalı'nda, BizTalk hizmeti **hizmet kimliklerini** kullanır:  
-![Access Control Yönetim Portalı’nda ACS Hizmet Kimlikleri][ACSServiceIdentities]
+![Erişim Denetimi Yönetim Portalı’nda ACS Hizmet Kimlikleri][ACSServiceIdentities]
 
 Erişim Denetimi hizmeti kimliği, uygulamaların veya istemcilerin Erişim Denetimi’yle doğrudan kimlik doğrulaması yapmasını ve belirteç almasını sağlayan bir dizi kimlik bilgisidir.
 
 > [!IMPORTANT]
-> BizTalk Hizmeti varsayılan hizmet kimliği ve **Parola** değeri için **Sahip**’i kullanır. Parola değeri yerine Simetrik Anahtar değeri kullanırsanız aşağıdaki hata oluşabilir.<br/><br/>*Belirtilen kimlik bilgileriyle Access Control Yönetim Hizmeti hesabına bağlanılamadı*
+> BizTalk Hizmeti varsayılan hizmet kimliği ve **Parola** değeri için **Sahip**’i kullanır. Parola değeri yerine Simetrik Anahtar değeri kullanırsanız aşağıdaki hata oluşabilir.<br/><br/>*Belirtilen kimlik bilgileriyle Erişim Denetimi Yönetim Hizmeti hesabına bağlanılamadı*
 > 
 > 
 
-[ACS Ad Alanınızı Yönetme](https://msdn.microsoft.com/library/azure/hh674478.aspx) bazı kılavuzları ve önerileri listeler.
+[ACS Ad Alanınızı Yönetme](/previous-versions/azure/azure-services/hh674478(v=azure.100)) bazı kılavuzları ve önerileri listeler.
 
 ## <a name="requirements-explained"></a>Açıklanan gereksinimler
 Bu gereksinimler Ücretsiz Sürüm için geçerli değildir.
 
 <table border="1">
 <tr bgcolor="FAF9F9">
-        <td><strong>Ne gerekiyor?</strong></td>
-        <td><strong>Neden gerekiyor?</strong></td>
+        <td><strong>Ne gerekiyor</strong></td>
+        <td><strong>Neden gerekiyor</strong></td>
 </tr>
 <tr>
 <td>Azure aboneliği</td>
@@ -93,7 +93,7 @@ Azure hesabında birden fazla abonelik olabilir ve izni olan herkes tarafından 
 <br/><br/>
 BizTalk Hizmeti oluşturduğunuzda, mevcut Azure SQL Sunucusu, Azure SQL Database kullanırsınız ya da otomatik olarak yeni bir Sunucu veya SQL Database oluşturursunuz.
 <br/><br/>
-SQL Database ölçeği otomatik olarak yapılandırılır. Genellikle, varsayılan ölçek BizTalk hizmeti için yeterlidir. Ölçeğin değiştirilmesi fiyatı etkiler. Bkz. <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930"> Azure SQL Veritabanı'nda Hesaplar ve Faturalar</a>
+SQL Database ölçeği otomatik olarak yapılandırılır. Genellikle, varsayılan ölçek BizTalk hizmeti için yeterlidir. Ölçeğin değiştirilmesi fiyatı etkiler. Bkz: <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930"> Azure SQL veritabanı'nda hesaplar ve faturalar</a>
 <br/><br/>
 <strong>Notlar</strong>
 <br/>
@@ -168,9 +168,9 @@ Karma Bağlantılar Azure web sitesine veya Azure mobil hizmetinden SQL Sunucusu
 BizTalk hizmeti oluşturulduktan sonra farklı bilgilenmeli [BizTalk Services: Pano, İzleyici ve ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md). BizTalk Hizmeti uygulamalarınız için hazır. Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [BizTalk Services: Sürümler grafiği](biztalk-editions-feature-chart.md)<br/>
+* [BizTalk Services: Sürümler Grafiği](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk Services: Durum grafiği](biztalk-service-state-chart.md)<br/>
-* [BizTalk Services: Yedekleme ve geri yükleme](biztalk-backup-restore.md)<br/>
+* [BizTalk Services: Yedekleme ve Geri Yükleme](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: Azaltma](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: Verenin adı ve verenin anahtarı](biztalk-issuer-name-issuer-key.md)<br/>
 * [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>

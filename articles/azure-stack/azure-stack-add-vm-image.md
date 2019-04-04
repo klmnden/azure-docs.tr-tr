@@ -1,6 +1,6 @@
 ---
-title: Azure Stack'te bir VM görüntüsüne ekleyip | Microsoft Docs
-description: Kuruluşunuzun özel Windows veya Linux VM görüntüsünü kullanmak kiracılar için ekleyip yeniden açın.
+title: Azure Stack'e sanal makine görüntüsü ekleme | Microsoft Docs
+description: Bir VM görüntüsü ekleme veya bir görüntü için kuruluşunuzun özel Windows veya Linux VM görüntüsü kullanmak kiracılar için kaldırın.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: ccf3beaacd15ad7d3e9177614bb62b0050bd8d5c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9e20abfde8a4524b00e60651bbe71135d357a237
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109180"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881469"
 ---
-# <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Azure Stack'te bir sanal makine görüntüsü kullanılabilmesini
+# <a name="add-a-vm-image-to-offer-in-azure-stack"></a>Azure Stack'te teklif için bir VM görüntüsü ekleme
 
-*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Şunlara uygulanır Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure Stack'te, sanal makine görüntüleri kullanıcılarınıza sunabileceğiniz. Bu görüntüler, Azure Resource Manager şablonları tarafından kullanılabilir. Ayrıca bunları Azure Market Arabirimine bir Market öğesi ekleyebilirsiniz. Bir resim formu genel Azure Marketi ya da kendi özel görüntünüzü kullanın. Görüntü portalı veya Windows PowerShell kullanılarak eklenebilir.
+Azure Stack'te kullanıcılarınız için kullanılabilir hale getirmek için Market'te bir sanal makine (VM) görüntüsü ekleyebilirsiniz. Azure Stack için Azure Resource Manager şablonlarını kullanarak VM görüntüleri ekleyebilirsiniz. Bir Market öğesi Azure Market UI'da VM görüntüleri de ekleyebilirsiniz. Küresel Azure Market'te bir görüntüden ya da kendi özel VM görüntüsü kullanın. Yönetim Portalı veya Windows PowerShell kullanarak VM görüntüsü ekleyebilirsiniz.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Portal üzerinden bir VM görüntüsü ekleme
 
@@ -83,7 +83,7 @@ Görüntüleri bir blob depolama URI'si başvurulmak üzere kurabilmesi gerekir.
 
 3. PowerShell ile yükseltilmiş istemi açın ve çalıştırın:
 
-   ```PowerShell  
+   ```powershell
     Add-AzsPlatformimage -publisher "<publisher>" `
       -offer "<offer>" `
       -sku "<sku>" `
@@ -93,23 +93,23 @@ Görüntüleri bir blob depolama URI'si başvurulmak üzere kurabilmesi gerekir.
    ```
 
    **Ekle AzsPlatformimage** cmdlet'i, VM görüntüsünün başvurmak için Azure Resource Manager şablonları tarafından kullanılan değerleri belirtir. Değerler şunlardır:
-   - **publisher**  
-     Örneğin, `Canonical`  
+   - **Yayımcı**  
+     Örneğin: `Canonical`  
      Bunlar görüntüsünü dağıtırken, kullanıcıların bir VM görüntüsü Yayımcı adı kesimi. Bir örnek **Microsoft**. Bu alanda bir boşluk veya diğer özel karakterleri dahil değildir.  
    - **Teklif**  
-     Örneğin, `UbuntuServer`  
+     Örneğin: `UbuntuServer`  
      Kullanıcı VM görüntüsü dağıttıklarında kullanan bir VM görüntüsü teklif adı kesimi. Bir örnek **WindowsServer**. Bu alanda bir boşluk veya diğer özel karakterleri dahil değildir.  
    - **sku**  
-     Örneğin, `14.04.3-LTS`  
+     Örneğin: `14.04.3-LTS`  
      Kullanıcı VM görüntüsü dağıttıklarında kullanan bir VM görüntüsü SKU adı kesimi. Bir örnek **Datacenter2016**. Bu alanda bir boşluk veya diğer özel karakterleri dahil değildir.  
-   - **Sürüm**  
-     Örneğin, `1.0.0`  
+   - **version**  
+     Örneğin: `1.0.0`  
      Kullanıcı VM görüntüsü dağıttıklarında kullanan bir VM görüntüsü sürümü. Bu sürüm biçimindedir *\#.\#.\#*. Bir örnek **1.0.0**. Bu alanda bir boşluk veya diğer özel karakterleri dahil değildir.  
    - **osType**  
-     Örneğin, `Linux`  
+     Örneğin: `Linux`  
      Görüntünün osType olmalıdır **Windows** veya **Linux**.  
    - **OSUri**  
-     Örneğin, `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
+     Örneğin: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
      Belirtebileceğiniz bir blob depolama URI'si için bir `osDisk`.  
 
      PowerShell başvurusu için daha fazla bilgi için bkz. [Ekle AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet'i ve [yeni DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet'i.
@@ -118,7 +118,7 @@ Görüntüleri bir blob depolama URI'si başvurulmak üzere kurabilmesi gerekir.
  
 1. [Azure Stack için PowerShell yükleme](azure-stack-powershell-install.md).
 
-   ```PowerShell  
+   ```powershell
     # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
     Add-AzureRMEnvironment `
       -Name "AzureStackAdmin" `
@@ -139,7 +139,7 @@ Görüntüleri bir blob depolama URI'si başvurulmak üzere kurabilmesi gerekir.
 
 2. Kullanıyorsanız **Active Directory Federasyon Hizmetleri**, aşağıdaki cmdlet'i kullanın:
 
-   ```PowerShell
+   ```powershell
    # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
    $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
@@ -158,7 +158,7 @@ Görüntüleri bir blob depolama URI'si başvurulmak üzere kurabilmesi gerekir.
 
 5. (VHDX değil) VHD biçiminde bir Windows veya Linux işletim sistemi görüntüsü hazırlama, görüntünün depolama hesabınıza yükleyin ve burada VM görüntüsü PowerShell tarafından alınabilir URİ'sini Al.  
 
-   ```PowerShell  
+   ```powershell
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
@@ -166,14 +166,14 @@ Görüntüleri bir blob depolama URI'si başvurulmak üzere kurabilmesi gerekir.
 
 6. (İsteğe bağlı) Veri diskleri bir dizi VM görüntüsü bir parçası olarak karşıya yükleyebilirsiniz. New-DataDiskObject cmdlet'ini kullanarak, veri diskleri oluşturun. Yükseltilmiş isteminden PowerShell'i açın ve çalıştırın:
 
-   ```PowerShell  
+   ```powershell
     New-DataDiskObject -Lun 2 `
     -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
    ```
 
 7. PowerShell ile yükseltilmiş istemi açın ve çalıştırın:
 
-   ```PowerShell  
+   ```powershell
     Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"
    ```
 
@@ -189,7 +189,7 @@ Karşıya yüklediğiniz sanal makine görüntüsü, artık gerektiğinde, aşa�
 
 3. PowerShell ile yükseltilmiş istemi açın ve çalıştırın:
 
-   ```PowerShell  
+   ```powershell  
    Remove-AzsPlatformImage `
     -publisher "<publisher>" `
     -offer "<offer>" `
@@ -197,17 +197,17 @@ Karşıya yüklediğiniz sanal makine görüntüsü, artık gerektiğinde, aşa�
     -version "<version>" `
    ```
    **Remove-AzsPlatformImage** cmdlet'i, VM görüntüsünün başvurmak için Azure Resource Manager şablonları tarafından kullanılan değerleri belirtir. Değerler şunlardır:
-   - **publisher**  
-     Örneğin, `Canonical`  
+   - **Yayımcı**  
+     Örneğin: `Canonical`  
      Bunlar görüntüsünü dağıtırken, kullanıcıların bir VM görüntüsü Yayımcı adı kesimi. Bir örnek **Microsoft**. Bu alanda bir boşluk veya diğer özel karakterleri dahil değildir.  
    - **Teklif**  
-     Örneğin, `UbuntuServer`  
+     Örneğin: `UbuntuServer`  
      Kullanıcı VM görüntüsü dağıttıklarında kullanan bir VM görüntüsü teklif adı kesimi. Bir örnek **WindowsServer**. Bu alanda bir boşluk veya diğer özel karakterleri dahil değildir.  
    - **sku**  
-     Örneğin, `14.04.3-LTS`  
+     Örneğin: `14.04.3-LTS`  
      Kullanıcı VM görüntüsü dağıttıklarında kullanan bir VM görüntüsü SKU adı kesimi. Bir örnek **Datacenter2016**. Bu alanda bir boşluk veya diğer özel karakterleri dahil değildir.  
-   - **Sürüm**  
-     Örneğin, `1.0.0`  
+   - **version**  
+     Örneğin: `1.0.0`  
      Kullanıcı VM görüntüsü dağıttıklarında kullanan bir VM görüntüsü sürümü. Bu sürüm biçimindedir *\#.\#.\#*. Bir örnek **1.0.0**. Bu alanda bir boşluk veya diğer özel karakterleri dahil değildir.  
     
      Remove-AzsPlatformImage cmdlet'i hakkında daha fazla bilgi için bkz. Microsoft PowerShell [Azure Stack operatörü modülü belgeleri](https://docs.microsoft.com/powershell/module/).

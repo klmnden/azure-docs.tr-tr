@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 348321592fc32f7dd77447c7217c7142f7ad9bd4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cc2a0177525013736445db5fd1befa478dc9b9b8
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226949"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916861"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Cloud service dağıtım sorunlarını giderme
 Azure'a bir bulut hizmeti uygulama paketini dağıttığınızda, dağıtımdan hakkında bilgi edinebilirsiniz **özellikleri** bölmesinde Azure portalında. Bulut hizmeti sorunları gidermenize yardımcı olması için bu bölmede ayrıntılarını kullanabilirsiniz ve, bu bilgiler Azure desteği için yeni bir destek isteği açma sağlayabilirsiniz.
@@ -52,7 +52,7 @@ Azure sorun düğümleri algılar ve bu nedenle rol örnekleri için yeni düğ�
 Roller ayrıca kabaca ayda bir kez ana bilgisayar işletim sistemi ve konuk işletim sistemi güncelleştirmeleri sırasında geri dönüşüm.  
 Daha fazla bilgi için bkz. blog gönderisine [rol örneği yeniden nedeniyle işletim sistemi yükseltmeleri](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
 
-## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Sorun: Ben olamaz bir VIP takası yapmak ve bir hata alıyorum
+## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Sorun: Ben bir VIP takası yapmak ve bir hata alıyorum
 Dağıtım güncelleştirme devam ediyor durumunda bir VIP takası izin verilmez. Dağıtım güncelleştirmeleri otomatik olarak gerçekleşebilir olduğunda:
 
 * Yeni konuk işletim sistemi kullanılabilir ve otomatik güncelleştirmeler için yapılandırılır.
@@ -74,7 +74,7 @@ Bu sorunu gidermeye ilişkin daha fazla bilgi için blog gönderisine bakın [Az
 1. Azure portalında rol örneğine tıklayın.
 2. İçinde **özellikleri** bölmesinde Azure portal'ın, sorununuzu çözmek için aşağıdaki koşulları göz önünde bulundurun:
    * Rol örneği yakın zamanda durursa (değerini kontrol edebilirsiniz **durdurma sayısı**), dağıtım güncelleştiriliyor. Rol örneği kendi üzerinde çalışmayı sürdürür, görmek için bekleyin.
-   * Rol örneği ise **meşgul**, uygulama kodunuz için denetleyin [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) olayı işlenir. Ekleme veya bu olayı işleyen kod düzeltme gerekebilir.
+   * Rol örneği ise **meşgul**, uygulama kodunuz için denetleyin [StatusCheck](/previous-versions/azure/reference/ee758135(v=azure.100)) olayı işlenir. Ekleme veya bu olayı işleyen kod düzeltme gerekebilir.
    * Tanılama verilerine gidin ve sorun giderme senaryoları blog gönderisinde [Azure PaaS işlem Tanılama verileri](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 > [!WARNING]

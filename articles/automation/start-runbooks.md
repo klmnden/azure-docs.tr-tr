@@ -9,23 +9,23 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cf1d36458bab867e35fa23ae702a6f6f45d8dc60
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: b065b611c923c4a28dc79c390ffb56ed97b316fd
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620589"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918459"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Azure Automation'da bir runbook başlatın
 
 Aşağıdaki tabloda kendi belirli senaryonuza en uygun Azure automation'da bir runbook başlatma yöntemi belirlemenize yardımcı olur. Bu makale, Azure portalı ve Windows PowerShell ile bir runbook başlatma hakkında bilgi içerir. Aşağıdaki bağlantılardan erişebileceğiniz diğer belgeler diğer yöntemler hakkında ayrıntılı bilgi sağlanır.
 
-| **Yöntem** | **Özellikleri** |
+| **Yöntem** | **Özellikler** |
 | --- | --- |
 | [Azure portal](#start-a-runbook-with-the-azure-portal) |<li>En basit yöntem etkileşimli kullanıcı arabirimi.<br> <li>Basit parametre değerlerini sağlamak için formu.<br> <li>İş durumu kolayca izleyin.<br> <li>Azure oturum ile kimliği doğrulanmış erişim içinde. |
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Windows PowerShell cmdlet'lerle komut satırından çağırın.<br> <li>Birden çok adım ile otomatik çözüm eklenebilir.<br> <li>İstek kimliği doğrulanır ve sertifika veya OAuth kullanıcı asıl / hizmet sorumlusu.<br> <li>Basit ve karmaşık parametre değerlerini sağlayın.<br> <li>İş durumu izleyin.<br> <li>PowerShell cmdlet'leri desteklemek için gereken istemci. |
 | [Azure Otomasyonu API](/rest/api/automation/) |<li>En esnek yöntem, ancak ayrıca en karmaşık.<br> <li>HTTP isteği yapabilen herhangi özel kodu çağırın.<br> <li>İstek doğrulanmış sertifika veya Oauth kullanıcı asıl / hizmet sorumlusu.<br> <li>Basit ve karmaşık parametre değerlerini sağlayın. *API kullanarak bir Python runbook'u arıyoruz, JSON yükü seri hale getirilmelidir.*<br> <li>İş durumu izleyin. |
-| [Web kancaları](automation-webhooks.md) |<li>Tek HTTP isteğinden runbook'u başlatın.<br> <li>Güvenlik belirteci URL ile kimlik doğrulaması.<br> <li>İstemci Web kancasını oluşturduğunuzda belirtilen parametre değerleri geçersiz kılamaz. Runbook ile HTTP istek ayrıntılarını doldurulur tek bir parametre tanımlayabilirsiniz.<br> <li>Web kancası URL'si ile iş durumunu izlemek için özelliği yok. |
+| [Web Kancaları](automation-webhooks.md) |<li>Tek HTTP isteğinden runbook'u başlatın.<br> <li>Güvenlik belirteci URL ile kimlik doğrulaması.<br> <li>İstemci Web kancasını oluşturduğunuzda belirtilen parametre değerleri geçersiz kılamaz. Runbook ile HTTP istek ayrıntılarını doldurulur tek bir parametre tanımlayabilirsiniz.<br> <li>Web kancası URL'si ile iş durumunu izlemek için özelliği yok. |
 | [Azure uyarıya yanıt](../log-analytics/log-analytics-alerts.md) |<li>Azure uyarıya yanıt olarak bir runbook'u başlatın.<br> <li>Runbook ve sizi uyarmak için bağlantısı için Web kancası yapılandırın.<br> <li>Güvenlik belirteci URL ile kimlik doğrulaması. |
 | [Zamanlama](automation-schedules.md) |<li>Otomatik olarak saatlik, günlük, haftalık veya aylık zamanlamaya göre runbook'u başlatın.<br> <li>Azure portalı, PowerShell cmdlet'leri ve Azure API aracılığıyla zamanlama işleyin.<br> <li>Zamanlama ile kullanılacak parametre değerlerini sağlayın. |
 | [Başka bir Runbook'tan](automation-child-runbooks.md) |<li>Bir runbook başka bir runbook'taki bir etkinlik olarak kullanın.<br> <li>Birden çok runbook'ları tarafından kullanılan işlevselliği için kullanışlıdır.<br> <li>Alt runbook parametre değerlerini sağlayın ve çıkış üst runbook'ta kullanın. |
@@ -84,7 +84,7 @@ Azure Otomasyonu web hizmeti, aşağıdaki bölümlerde açıklandığı gibi be
 
 ### <a name="named-values"></a>Adlandırılmış değerler
 
-Veri türü [object] parametresi olan sonra görünen değerlerin bir listesini buna göndermek için şu JSON biçimini kullanabilirsiniz: *{Name1: 'Value1', Name2: 'Value2', Name3: 'Value3'}*. Bu değerler basit türler olmalıdır. Runbook parametre olarak alan bir [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) her görünen değere karşılık gelen özelliklerle birlikte.
+Veri türü [object] parametresi olan sonra görünen değerlerin bir listesini buna göndermek için şu JSON biçimini kullanabilirsiniz: *{Name1: 'Value1', Name2: 'Value2', Name3: 'Value3'}*. Bu değerler basit türler olmalıdır. Runbook parametre olarak alan bir [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) her görünen değere karşılık gelen özelliklerle birlikte.
 
 Kullanıcı adlı bir parametreyi kabul eden aşağıdaki sınama runbook'unu göz önünde bulundurun.
 

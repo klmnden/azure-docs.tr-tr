@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 901c844ecbfbbe68163c70b12cc061eae0f75d5a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ed5df09d492bbf6123e76f73717a1738a23a066c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860482"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893716"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Öğretici: Oluşturun ve kapsayıcı görüntülerini Azure Container kayıt defteri görevler ile bulutta dağıtın
 
@@ -30,7 +30,7 @@ Dizinin birinci bölümü olan bu öğreticide şunları öğreneceksiniz:
 > * Azure’da kapsayıcı görüntüsü derleme
 > * Azure Container Instances‘a kapsayıcı dağıtma
 
-Sonraki öğreticilerde, ACR Görevlerini kod işleme ve temel görüntü güncelleştirmesi üzerindeki otomatik kapsayıcı görüntüsü derlemelerine yönelik görevler için kullanmayı öğreneceksiniz. ACR görevleri de çalıştırabilir [çok adımlı görevler](container-registry-tasks-multi-step.md) (Önizleme aşamasında), bir YAML kullanarak dosya oluşturun, gönderin ve isteğe bağlı olarak birden çok kapsayıcı test adımları tanımlayın.
+Sonraki öğreticilerde, ACR Görevlerini kod işleme ve temel görüntü güncelleştirmesi üzerindeki otomatik kapsayıcı görüntüsü derlemelerine yönelik görevler için kullanmayı öğreneceksiniz. ACR görevleri de çalıştırabilir [çok adımlı görevler](container-registry-tasks-multi-step.md), oluşturmak için adımları tanımlamak için bir YAML dosyası kullanarak anında iletme ve isteğe bağlı olarak birden çok kapsayıcı test edin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -312,7 +312,7 @@ az ad sp delete --id http://$ACR_NAME-pull
 Hızlı bir görev ile iç döngünüzü test ettikten sonra, kaynak kodunu bir Git deposuna işlediğinizde kapsayıcı görüntüsü derlemelerini tetikleyecek bir **derleme görevi** yapılandırın:
 
 > [!div class="nextstepaction"]
-> [Görevlerle otomatik derlemeler tetikleme](container-registry-tutorial-build-task.md)
+> [Otomatik tetikleyici görevlerle oluşturur](container-registry-tutorial-build-task.md)
 
 <!-- LINKS - External -->
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip

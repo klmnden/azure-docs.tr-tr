@@ -1,7 +1,7 @@
 ---
 title: v1-v2 API'si geçişi
 titleSuffix: Azure Cognitive Services
-description: Sürüm 1 uç noktası ve yazma dili anlama API'leri kullanım dışı bırakılmıştır. Sürüm 2 uç nokta ve yazma API'leri geçirme anlamak için bu kılavuzu kullanın.
+description: Sürüm 1 uç noktası ve konuşma tanıma API'leri yazma kullanım dışı bırakılmıştır. Sürüm 2 uç nokta ve yazma API'leri geçirme anlamak için bu kılavuzu kullanın.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 7496142b1c762ce0a7afa96a1a94dd3026351cc9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9eb73db6f641d3a5f5bb82901bd12ea291eada58
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087933"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894090"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 için LUIS uygulamaları v2 Geçiş Kılavuzu
 Sürüm 1 [uç nokta](https://aka.ms/v1-endpoint-api-docs) ve [yazma](https://aka.ms/v1-authoring-api-docs) API'leri kullanım dışı bırakılmıştır. 2. sürüme geçirme anlamak için bu kılavuzu kullanın [uç nokta](https://aka.ms/luis-endpoint-apis) ve [yazma](https://aka.ms/luis-authoring-apis) API'leri. 
@@ -134,7 +134,7 @@ LUIS meta verileri döndürmek API'leri yeni adları vardır.
 
 
 ## <a name="sample-renamed-to-suggest"></a>"Önermek için" "Örnek" olarak yeniden adlandırıldı
-LUIS önerir mevcut konuşma [konuşma uç noktası](luis-how-to-review-endoint-utt.md) modeli geliştirmek. Önceki sürümde bu taşıyordu **örnek**. Yeni sürüm için örnek adı değiştirilirse **Öner**. Bu adlandırılır **[gözden geçirin, konuşma uç noktası](luis-how-to-review-endoint-utt.md)** LUIS Web sitesinde.
+LUIS önerir mevcut konuşma [konuşma uç noktası](luis-how-to-review-endpoint-utterances.md) modeli geliştirmek. Önceki sürümde bu taşıyordu **örnek**. Yeni sürüm için örnek adı değiştirilirse **Öner**. Bu adlandırılır **[gözden geçirin, konuşma uç noktası](luis-how-to-review-endpoint-utterances.md)** LUIS Web sitesinde.
 
 | version | yol |
 |--|--|

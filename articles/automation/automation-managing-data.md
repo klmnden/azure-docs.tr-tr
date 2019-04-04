@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3e217e0e3367c6e1200567f589749fec9e626da8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5f9cd5edfb360da507320306314e67ac61503132
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817465"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916844"
 ---
 # <a name="managing-azure-automation-data"></a>Azure Otomasyonu verilerini yönetme
 Bu makale, bir Azure Otomasyonu ortamı yönetmek için birden çok konuları içerir.
@@ -45,17 +45,17 @@ Ancak, uzun bir süre saklamak istiyorsanız iş günlüklerini Azure İzleyici 
 Microsoft azure'da bir Otomasyon hesabı sildiğinizde, hesaptaki tüm nesnelere runbook'ları, modüller, yapılandırmaları, ayarları, işleri ve varlıkları dahil olmak üzere silinir. Nesneleri, hesap silindikten sonra kurtarılamaz.  Otomasyon hesabınızın içeriğini silmeden önce yedeklemek için aşağıdaki bilgileri kullanabilirsiniz. 
 
 ### <a name="runbooks"></a>Runbook'lar
-Azure portalını kullanarak komut dosyaları için runbook'larınızı dışa aktarabilirsiniz veya [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) Windows PowerShell cmdlet'i.  Bu komut dosyaları başka bir Otomasyon hesabına bölümünde açıklandığı gibi içeri aktarılabilir [oluşturma veya bir Runbook'u içeri aktarma](https://msdn.microsoft.com/library/dn643637.aspx).
+Azure portalını kullanarak komut dosyaları için runbook'larınızı dışa aktarabilirsiniz veya [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) Windows PowerShell cmdlet'i.  Bu komut dosyaları başka bir Otomasyon hesabına bölümünde açıklandığı gibi içeri aktarılabilir [oluşturma veya bir Runbook'u içeri aktarma](/previous-versions/azure/dn643637(v=azure.100)).
 
 ### <a name="integration-modules"></a>Tümleştirme modülleri
 Azure Otomasyonu tümleştirme modülleri dışarı aktaramazsınız.  Otomasyon hesabı dışında kullanılabilir emin olmanız gerekir.
 
 ### <a name="assets"></a>Varlıklar
-Dışarı aktaramadığınız [varlıklar](https://msdn.microsoft.com/library/dn939988.aspx) Azure Otomasyonu öğesinden.  Azure portalını kullanarak, değişkenleri, kimlik bilgileri, sertifikalar, bağlantılar ve zamanlamaları ayrıntılarını not almanız gerekir.  Başka bir automation'a içeri aktardığınız runbook'lar tarafından kullanılan tüm varlıkları el ile oluşturmanız gerekir.
+Dışarı aktaramadığınız [varlıklar](/previous-versions/azure/dn939988(v=azure.100)) Azure Otomasyonu öğesinden.  Azure portalını kullanarak, değişkenleri, kimlik bilgileri, sertifikalar, bağlantılar ve zamanlamaları ayrıntılarını not almanız gerekir.  Başka bir automation'a içeri aktardığınız runbook'lar tarafından kullanılan tüm varlıkları el ile oluşturmanız gerekir.
 
 Kullanabileceğiniz [Azure cmdlet'lerini](https://docs.microsoft.com/powershell/module/azurerm.automation#automation) ayrıntılarını şifrelenmemiş varlıkları ve kaydetmek ya da ileride kullanılmak üzere alın veya eşdeğer varlıklar başka bir Otomasyon hesabı oluşturun.
 
-Şifrelenmiş değişkenler veya cmdlet'lerini kullanarak kimlik bilgilerinin parola alanı değeri alınamıyor.  Bu değerleri tanımadığınız sonra bir runbook kullanarak alabilirsiniz [Get-AutomationVariable](https://msdn.microsoft.com/library/dn940012.aspx) ve [Get-AutomationPSCredential](https://msdn.microsoft.com/library/dn940015.aspx) etkinlikler.
+Şifrelenmiş değişkenler veya cmdlet'lerini kullanarak kimlik bilgilerinin parola alanı değeri alınamıyor.  Bu değerleri tanımadığınız sonra bir runbook kullanarak alabilirsiniz [Get-AutomationVariable](/previous-versions/azure/dn940012(v=azure.100)) ve [Get-AutomationPSCredential](/previous-versions/azure/dn940015(v=azure.100)) etkinlikler.
 
 Azure Otomasyonu sertifika dışarı aktaramazsınız.  Sertifikalarını Azure dışında kullanılabilir olduğundan emin olmanız gerekir.
 

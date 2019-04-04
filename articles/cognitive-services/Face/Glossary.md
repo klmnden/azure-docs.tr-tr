@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: d627c3c4419affa0d71cdb23df945c96d9fd7585
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: bd4285a2d0f882b8c766563f2304031f1f6e2898
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652442"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904806"
 ---
 # <a name="glossary"></a>Sözlük
 
@@ -63,7 +63,7 @@ Duygu tanıma biridir [yüz öznitelikleri](#attributes). Sorgulandığında, du
 
 Daha fazla bilgi için başvuru belgelerine bakın: [Yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-## <a name="f"></a>C
+## <a name="f"></a>F
 
 #### <a name="face"></a>Yüz
 
@@ -133,7 +133,7 @@ Cinsiyet biridir [öznitelikleri](#attributes) kullanılabilir dikdörtgenlerini
 
 Daha fazla bilgi için başvuru belgelerine bakın: [Yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-#### <a name="grouping"></a>Gruplandırma
+#### <a name="grouping"></a>Gruplama
 
 Yüz gruplama yüz benzerlikler göre yüz koleksiyonu gruplandırmasıdır. Yüz tanıma koleksiyonları istek yüz kimliği koleksiyonlar gösterilir. Gruplandırma sonucu olarak, benzer yüzlerden olarak gruplanmış [grupları](#groups), ve herhangi bir yüz için benzer olmayan yüzleri kullanmak istemiyor grup olarak birlikte birleştirilir. En fazla bir tane olduğunu [kullanmak istemiyor grubu](#messy-group) gruplandırma sonuç.
 
@@ -207,7 +207,7 @@ LargePersonGroup kimliği olan bir tanımlayıcı olarak kullanılan bir kullan�
 
 Daha fazla bilgi için başvuru belgelerine bakın: [LargePersonGroup - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e).
 
-## <a name="m"></a>Milyon
+## <a name="m"></a>M
 
 #### <a name="messy-group"></a>İşleyerek grubu
 
@@ -233,13 +233,13 @@ Daha fazla bilgi için başvuru belgelerine bakın: [LargePersonGroup - oluştur
 
 #### <a name="persistedface"></a>PersistedFace
 
-PersistedFace, yüz tanıma API'si, bir veri yapısıdır. PersistedFace PersistedFace kimliği yanı sıra adı ve kullanıcı verileri gibi diğer öznitelikleri ile birlikte gelir.
+PersistedFace, yüz tanıma API'si, bir veri yapısıdır. PersistedFace ile birlikte gelen bir [PersistedFace kimliği](#persisted-face-id), yanı sıra adı ve kullanıcı verileri gibi diğer öznitelikleri.
 
 Daha fazla bilgi için başvuru belgelerine bakın: [LargeFaceList - yüz tanıma Ekle](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - yüz Ekle](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup kişi - yüz tanıma eklemek](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [PersonGroup kişi - yüz tanıma eklemek](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
-#### <a name="person-id"></a>Kişinin kimliği
+#### <a name="persisted-face-id"></a>Kalıcı yüz kimliği
 
-Kişinin kimliği üretilir olduğunda bir [PersistedFace](#persistedface) başarıyla oluşturuldu. Bu bir yüz temsil eden bir dize oluşturulur [yüz tanıma API'si](#face-api).
+Face ID kalıcı oluşturulduğunda bir [PersistedFace](#persistedface) başarıyla oluşturuldu. Bu bir yüz temsil eden bir dize oluşturulur [yüz tanıma API'si](#face-api).
 
 Daha fazla bilgi için başvuru belgelerine bakın: [LargeFaceList - yüz tanıma Ekle](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - yüz Ekle](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup kişi - yüz tanıma eklemek](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [PersonGroup kişi - yüz tanıma eklemek](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
@@ -295,7 +295,7 @@ Gülümseme Gönder, biridir [öznitelikleri](#attributes) kullanılabilir dikd�
 
 Daha fazla bilgi için başvuru belgelerine bakın: [Yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-#### <a name="snapshot"></a>Anlık görüntü
+#### <a name="snapshot"></a>Anlık Görüntü
 
 Anlık görüntü belirli yüz veri türleri için geçici bir uzak depolamadır. Pano verileri bir abonelikten diğerine kopyalamak için bir tür olarak işlev görür. İlk kullanıcı "verilerin bir anlık görüntüsünü kaynak aboneliği alır" ve ardından ", hedef abonelikte yeni bir veri nesnesi uygulandıkları". 
 
@@ -311,7 +311,7 @@ Daha fazla bilgi için başvuru belgelerine bakın: [LargeFaceList - eğitme](ht
 
 Abonelik anahtarı herhangi bir yüz tanıma API'sini çağırmak için bir sorgu dizesi parametresi belirtmeniz gereken bir dizedir. Microsoft Bilişsel Hizmetleri portalında oturum açtıktan sonra abonelik anahtarını Aboneliklerim sayfasında bulunabilir. Her bir aboneliği ile ilişkili iki anahtar olacaktır: bir birincil anahtar ve ikincil bir anahtar. Her ikisi de aynı şekilde API'yi çağırmak için kullanılabilir. Abonelik anahtarları güvenli tutmak gereken ve Abonelik anahtarları Aboneliklerim sayfasından dilediğiniz zaman yeniden oluşturabilirsiniz.
 
-## <a name="t"></a>P
+## <a name="t"></a>T
 
 #### <a name="train-largefacelistlargepersongrouppersongroup"></a>Train (LargeFaceList/LargePersonGroup/PersonGroup)
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Stack'te desteklenen sanal makine boyutları | Microsoft Docs
-description: Azure stack'teki desteklenen VM boyutları için başvuru.
+description: Azure stack'teki desteklenen sanal makine boyutları için başvuru.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,26 +10,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0188de6d3a29034ec00999b2e07cab6ddb911631
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 79d18f938dc51bb7eec62120e8bc6743cb2840c4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176268"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886480"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack'te desteklenen sanal makine boyutları
 
-*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Şunlara uygulanır Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Bu makalede, Azure Stack'te kullanılabilir sanal makine (VM) boyutları listeler.
+Bu makalede, Azure Stack'te kullanılabilir sanal makine boyutlarını listeler.
 
-Disk IOPS (giriş/çıkış işlem / saniye) Azure Stack'te bir VM boyutu diskin türünü yerine işlevidir. Bu SSD veya HDD, disk türünü seçmenize bakılmaksızın Standard_Fs serisi VM için tek bir ek veri diski IOPS sınırı 2300 IOPS anlamına gelir. IOPS sınır uygulanmaz gürültücü Komşuları için üst sınır (maksimum olası) olur. Belirli bir VM boyutuna erişmenizi sağlayacak IOPS bir güvencesi değil.
+Disk IOPS (giriş/çıkış işlem / saniye) Azure Stack üzerinde sanal makine (VM) boyutu diskin türünü yerine bir işlevdir. Bu SSD veya HDD, disk türünü seçmenize bakılmaksızın Standard_Fs serisi VM için tek bir ek veri diski IOPS sınırı 2300 IOPS anlamına gelir. IOPS sınır uygulanmaz gürültücü Komşuları için üst sınır (maksimum olası) olur. Belirli bir VM boyutuna erişmenizi sağlayacak IOPS bir güvencesi değil.
 
-## <a name="general-purpose"></a>Genel amaçlı
+## <a name="virtual-machine-general-purpose"></a>Genel amaçlı sanal makine
 
 Dengeli CPU / bellek oranı genel amaçlı bir VM boyutları sunar. Test ve geliştirme, küçük ve orta büyüklükte veri tabanları ve düşük, orta düzey trafiğe sahip web sunucuları için kullanılırlar. Her veri diski hariç temel A serisi, premium VM boyutları için 2300 IOPS ' dir. Temel A veri disk boyutu 500 IOPS ' dir.
 
@@ -74,9 +74,9 @@ Dengeli CPU / bellek oranı genel amaçlı bir VM boyutları sunar. Test ve geli
 ### <a name="d-series"></a>D Serisi
 |Boyut     |Sanal işlemci     |Bellek (GiB) | Geçici depolama alanı (GiB)  | En yüksek işletim sistemi disk aktarım hızı (IOPS) | Maksimum geçici depolama aktarım hızı (IOPS) | Maksimum veri diski / aktarım hızı (IOPS) | En fazla NIC |
 |----------------|----|----|-----|----|------|------------|---------|
-|**İşler için standart_d1** |1   |3,5 |50   |500 |3000  |4/4x500   |1 |
+|**Standard_D1** |1   |3,5 |50   |500 |3000  |4/4x500   |1 |
 |**Standard_D2** |2   |7   |100  |500 |6000  |8/8x500   |2 |
-|**İşler için standart_d3** |4   |14  |200  |500 |12000 |16/16x500 |4 |
+|**Standard_D3** |4   |14  |200  |500 |12000 |16/16x500 |4 |
 |**Standard_D4** |8   |28  |400  |500 |24000 |32/32x500 |8 |
 
 
@@ -113,11 +113,11 @@ Dengeli CPU / bellek oranı genel amaçlı bir VM boyutları sunar. Test ve geli
 
 |Boyut     |Sanal işlemci     |Bellek (GiB) | Geçici depolama alanı (GiB)  | En yüksek işletim sistemi disk aktarım hızı (IOPS) | Maksimum geçici depolama aktarım hızı (IOPS) | Maksimum veri diski / aktarım hızı (IOPS) | En fazla NIC |
 |-----------------|----|----|-----|----|------|------------|---------|
-|**İşler için standart_f1**  |1   |2   |16   |500 |3000  |4/4x500   |2 |
-|**İşler için standart_f2**  |2   |4   |32   |500 |6000  |8/8x500   |2 |
-|**İşler için standart_f4**  |4   |8   |64   |500 |12000 |16/16x500 |4 |
-|**İşler için standart_f8**  |8   |16  |128  |500 |24000 |32/32x500 |8 |
-|**İşler için standart_f16** |16  |32  |256  |500 |48000 |64 / 64 x 500 |8 |
+|**Standard_F1**  |1   |2   |16   |500 |3000  |4/4x500   |2 |
+|**Standard_F2**  |2   |4   |32   |500 |6000  |8/8x500   |2 |
+|**Standard_F4**  |4   |8   |64   |500 |12000 |16/16x500 |4 |
+|**Standard_F8**  |8   |16  |128  |500 |24000 |32/32x500 |8 |
+|**Standard_F16** |16  |32  |256  |500 |48000 |64 / 64 x 500 |8 |
 
 
 ### <a name="fs-series"></a>Fs serisi
@@ -152,10 +152,10 @@ Belleği en iyi duruma getirilmiş VM boyutları, ilişkisel veritabanı sunucul
 ### <a name="mo-d"></a>D serisi
 |Boyut     |Sanal işlemci     |Bellek (GiB) | Geçici depolama alanı (GiB)  | En yüksek işletim sistemi disk aktarım hızı (IOPS) | Maksimum geçici depolama aktarım hızı (IOPS) | Maksimum veri diski / aktarım hızı (IOPS) | En fazla NIC |
 |------------------|---|----|----|--------|------|------------|---------|
-|**İşler için standart_d11**  |2  |14  |100 |500     |6000  |8/8x500   |2 |
-|**İşler için standart_d12**  |4  |28  |200 |500     |12000 |16/16x500 |4 |
+|**Standard_D11**  |2  |14  |100 |500     |6000  |8/8x500   |2 |
+|**Standard_D12**  |4  |28  |200 |500     |12000 |16/16x500 |4 |
 |**Standard_D13**  |8  |56  |400 |500     |24000 |32/32x500 |8 |
-|**İşler için standart_d14**  |16 |112 |800 |500     |48000 |64 / 64 x 500 |8 |
+|**Standard_D14**  |16 |112 |800 |500     |48000 |64 / 64 x 500 |8 |
 
 ### <a name="mo-ds"></a>DS serisi
 |Boyut     |Sanal işlemci     |Bellek (GiB) | Geçici depolama alanı (GiB)  | En yüksek işletim sistemi disk aktarım hızı (IOPS) | Maksimum geçici depolama aktarım hızı (IOPS) | Maksimum veri diski / aktarım hızı (IOPS) | En fazla NIC |
@@ -169,9 +169,9 @@ Belleği en iyi duruma getirilmiş VM boyutları, ilişkisel veritabanı sunucul
 |Boyut     |Sanal işlemci     |Bellek (GiB) | Geçici depolama alanı (GiB)  | En yüksek işletim sistemi disk aktarım hızı (IOPS) | Maksimum geçici depolama aktarım hızı (IOPS) | Maksimum veri diski / aktarım hızı (IOPS) | En fazla NIC |
 |--------------------|----|----|-----|----|-------|-------------|---------|
 |**Standard_D11_v2** |2   |14  |100  |500 |6000   |8/8x500    |2 |
-|**İşler için standart_d12_v2** |4   |28  |200  |500 |12000  |16/16x500  |4 |
+|**Standard_D12_v2** |4   |28  |200  |500 |12000  |16/16x500  |4 |
 |**Standard_D13_v2** |8   |56  |400  |500 |24000  |32/32x500  |8 |
-|**İşler için standart_d14_v2** |16  |112 |800  |500 |48000  |64 / 64 x 500  |8 |
+|**Standard_D14_v2** |16  |112 |800  |500 |48000  |64 / 64 x 500  |8 |
 
 
 ### <a name="mo-dsv2"></a>DSv2 serisi

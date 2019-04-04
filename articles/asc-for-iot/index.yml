@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6a2d2825e382a6cda8a1fc04fd223e700cf8d284
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757336"
 documentType: LandingData
 title: IoT için Azure Güvenlik Merkezi Önizleme Belgeleri
 metadata:
-  title: IoT için Azure Güvenlik Merkezi Önizleme Belgeleri - Öğreticiler, Hızlı Başlangıçlar | Microsoft Docs
+  title: 'IoT için Azure Güvenlik Merkezi Önizleme Belgeleri - Öğreticiler, Hızlı Başlangıçlar | Microsoft Docs'
   meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
-  services: ascforiot
+  services: asc-for-iot
   author: mlottner
   manager: barbkess
   ms.service: ascforiot
@@ -20,48 +14,48 @@ metadata:
   ms.date: 03/26/19
   ms.author: barbkess
 abstract:
-  description: IoT için Azure Güvenlik Merkezi (ASC) Önizleme sürümünü kullanarak, siber güvenliğe yönelik mevcut görüntüleme olanaklarınızı IoT çözümünüzün tamamını kapsayacak biçimde genişletin. Azure ile ilişkili tüm kaynaklarınızın güvenliğine panoramik bir bakış elde edin. Hızlı dağıtım seçenekleri ve IoT Hub modül ikizleriyle eksiksiz tümleştirme olanakları sayesinde geniş özelleştirme seçenekleri elde edersiniz ve mevcut cihaz yönetimi araçlarınızla kolayca tümleştirebilirsiniz. 
+  description: "IoT için Azure Güvenlik Merkezi (ASC) Önizleme sürümünü kullanarak, siber güvenliğe yönelik mevcut görüntüleme olanaklarınızı IoT çözümünüzün tamamını kapsayacak biçimde genişletin. Azure ile ilişkili tüm kaynaklarınızın güvenliğine panoramik bir bakış elde edin. Hızlı dağıtım seçenekleri ve IoT Hub modül ikizleriyle eksiksiz tümleştirme olanakları sayesinde geniş özelleştirme seçenekleri elde edersiniz ve mevcut cihaz yönetimi araçlarınızla kolayca tümleştirebilirsiniz.\_"
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: IoT Hub’ınızı IoT için ASC ile birlikte kullanmayı, IoT için ASC aracılarını yüklemeyi, verilerinize ve olası tehditlere yönelik görünürlük elde etmeyi öğrenin.
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        src: media/index/deploy.svg
-      text: IoT için ASC’yi etkinleştirme
-      href: /azure/asc-for-iot/quickstart-onboard-iot-hub
-    - image:
-        src: media/index/get-started.svg
-      text: IoT için ASC’yi kullanmaya başlama
-      href: /azure/asc-for-iot/getting-started
-- title: Nasıl yapılır kılavuzları
-  items:
-  - type: paragraph
-    text: Güvenlik ilkelerini tanımlamayı, cihazlarınızı kötü amaçlı etkinliklere karşı korumayı ve güvenlik uyarıları ile olaylara yanıt vermeyi öğrenin.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'IoT Hub’ınızı IoT için ASC ile birlikte kullanmayı, IoT için ASC aracılarını yüklemeyi, verilerinize ve olası tehditlere yönelik görünürlük elde etmeyi öğrenin.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/deploy.svg
+            text: IoT için ASC’yi etkinleştirme
+            href: /azure/asc-for-iot/quickstart-onboard-iot-hub
+          - image:
+              src: media/index/get-started.svg
+            text: IoT için ASC’yi kullanmaya başlama
+            href: /azure/asc-for-iot/getting-started
+  - title: Nasıl yapılır kılavuzları
     items:
-    - html: <a href="/azure/asc-for-iot/how-to-investigate-device">IoT için ASC ile tehdit algılama</a>
-- title: Microsoft Learn ile becerilerinizi geliştirin
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: 'Güvenlik ilkelerini tanımlamayı, cihazlarınızı kötü amaçlı etkinliklere karşı korumayı ve güvenlik uyarıları ile olaylara yanıt vermeyi öğrenin.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/asc-for-iot/how-to-investigate-device">IoT için ASC ile tehdit algılama</a>
+  - title: Microsoft Learn ile becerilerinizi geliştirin
     items:
-    - title: Azure'da güvenliğe giriş
-      href: https://docs.microsoft.com/learn/azure
-      image:
-        src: media/index/tutorial.svg
-        href: https://docs.microsoft.com/learn/azure
-  - type: paragraph
-    text: <a href="/learn/browse/?term=security">Daha fazla etkileşimli öğrenme içeriği...</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure'da güvenliğe giriş
+            href: 'https://docs.microsoft.com/learn/azure'
+            image:
+              src: media/index/tutorial.svg
+              href: 'https://docs.microsoft.com/learn/azure'
+      - type: paragraph
+        text: <a href="/learn/browse/?term=security">Daha fazla etkileşimli öğrenme içeriği...</a>
+  - title: Başvuru
     items:
-    - html: <a href="https://azure.microsoft.com/updates/?product=iotsecurity">Hizmet güncelleştirmeleri</a>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - html: '<a href="https://azure.microsoft.com/updates/?product=iotsecurity">Hizmet güncelleştirmeleri</a>'

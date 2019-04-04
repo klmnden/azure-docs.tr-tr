@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 0a0eb9586e78442947138831dd774298906aaf9c
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 851673de4a711f5eb64228233ea7703ef86bfa7b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993086"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500211"
 ---
 # <a name="app-service-on-azure-stack-update-5-release-notes"></a>Güncelleştirme 5 sürüm notları Azure Stack üzerinde App Service'e
 
@@ -59,11 +59,14 @@ Azure Stack güncelleştirme 5 üzerinde Azure App Service, aşağıdaki gelişt
 
 - Güncelleştirmeleri **App Service Kiracı, yönetici, İşlevler portalları ve Kudu Araçları**. Azure Stack portalı SDK sürümü ile tutarlı.
 
+- Güncelleştirmeleri **Azure işlevleri çalışma zamanı** için **v1.0.12205**.
+
 - Güncelleştirmeleri **Kudu Araçları** işletim müşteriler için stil ve işlevselliği ile ilgili sorunları gidermek için **bağlantısı kesildi** Azure Stack. 
 
 - Güvenilirlik ve sık karşılaşılan sorunları daha kolay tanılanması etkinleştirme hata geliştirmek için çekirdek hizmet güncelleştirmeleri.
 
 - **Aşağıdaki uygulama çerçeveleri ve araçları güncelleştirmeleri**:
+  - Ek ASP.NET Core 2.1.6 ve 2.2.0
   - Eklenen NodeJS 10.14.1
   - Eklenen NPM 6.4.1
   - Güncelleştirilmiş Kudu 79.20129.3767 için

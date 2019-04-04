@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 584b9d67808e75222d832f045e5d3f93fbb326ae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d659262195fef0cc6871bac409dd5914b70f401
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105099"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916130"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Karma Bağlantıları Oluşturma ve Yönetme
 
@@ -50,7 +50,7 @@ Bu konu, aşağıdaki adımları listeler.
 > 
 
 ## <a name="CreateHybridConnection"></a>Karma bağlantı oluşturma
-Karma bağlantı oluşturulabilir [Azure App Service karma bağlantılar](../app-service/app-service-hybrid-connections.md) **veya** kullanarak [BizTalk Services REST API'leri](https://msdn.microsoft.com/library/azure/dn232347.aspx). 
+Karma bağlantı oluşturulabilir [Azure App Service karma bağlantılar](../app-service/app-service-hybrid-connections.md) **veya** kullanarak [BizTalk Services REST API'leri](/previous-versions/azure/reference/dn232347(v=azure.100)). 
 
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
@@ -114,12 +114,12 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 Kopyalandıktan sonra ilkeyi değiştirmek için Grup İlkesi Düzenleyicisi'ni kullanabilirsiniz.
 
-## <a name="next"></a>İleri
-[Karma bağlantılara genel bakış](integration-hybrid-connection-overview.md)
+## <a name="next"></a>Sonraki
+[Karma Bağlantıya Genel Bakış](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-[Microsoft Azure’da BizTalk hizmetlerinin yönetilmesi için REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
-[BizTalk Services: Sürümler grafiği](biztalk-editions-feature-chart.md)  
+[Microsoft azure'da BizTalk hizmetlerinin yönetilmesi için REST API](/previous-versions/azure/reference/dn232347(v=azure.100))  
+[BizTalk Services: Sürümler Grafiği](biztalk-editions-feature-chart.md)  
 [BizTalk Hizmeti oluşturma](biztalk-provision-services.md)  
 [BizTalk Services: Pano, İzleyici ve ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md)
 

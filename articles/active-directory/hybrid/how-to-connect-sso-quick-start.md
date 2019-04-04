@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 345c97a19f789bb3d850df000824d4c23989a81f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4b56aeb4fb0c902d3c824c58d2ac589c5f1fb01b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086828"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894774"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı başlangıç
 
@@ -93,7 +93,10 @@ Sorunsuz çoklu oturum açma doğru etkinleştirdiğinizden emin doğrulamak iç
 ![Azure portalı: Azure AD Connect bölmesi](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> Sorunsuz çoklu oturum açma adlı bir bilgisayar hesabı oluşturur `AZUREADSSOACC` (temsil eden Azure AD) şirket içi AD ormanındaki Active Directory (AD) içinde. Bu bilgisayar hesabı, özelliğin çalışması için gereklidir. Pass--Hash ve kimlik bilgisi Hırsızlıklarını azaltma mimarileri, şirket içi ortamınızda kullanıyorsanız, emin `AZUREADSSOACC` bilgisayar hesabı bitmiyor karantina kapsayıcısında. Bilgisayar kapsayıcısında bilgisayar hesabını oluşturmak için gerekli değişiklikleri yapın. Sorunsuz çoklu oturum açma Azure AD Connect Sihirbazı'nın başarıyla etkinleştirildikten sonra Taşı `AZUREADSSOACC` bilgisayar hesabı için bir kuruluş birimi (burada diğer bilgisayar hesapları yönetilen, yanlışlıkla silinmediğinden emin olmak için OU).
+> Sorunsuz çoklu oturum açma adlı bir bilgisayar hesabı oluşturur `AZUREADSSOACC` şirket içi AD ormanındaki Active Directory (AD) içinde. `AZUREADSSOACC` Bilgisayar hesabını güvenlik nedenleriyle kesin korunması gerekir. Yalnızca Domain Admins bilgisayar hesabını yönetmek görebilmeniz gerekir. Bilgisayar hesabının Kerberos temsilcisi seçmeyi devre dışı emin olun. Bilgisayar hesabı, bir kuruluş birimi (yanlışlıkla silinmekten güvenli oldukları OU) Store.
+
+>[!NOTE]
+> Pass--Hash ve kimlik bilgisi Hırsızlıklarını azaltma mimarileri, şirket içi ortamınızda kullanıyorsanız, emin olmak için gerekli değişiklikleri yapmanızı `AZUREADSSOACC` bilgisayar hesabı bitmiyor karantina kapsayıcısında. 
 
 ## <a name="step-3-roll-out-the-feature"></a>3. Adım: Özelliği kullanıma alma
 

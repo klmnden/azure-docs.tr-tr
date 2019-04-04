@@ -1,6 +1,6 @@
 ---
 title: Azure CDN gerçek zamanlı uyarılar | Microsoft Docs
-description: Microsoft Azure CDN gerçek zamanlı uyarılar. Gerçek zamanlı uyarılar CDN profilinizi uç noktalardan performansını hakkında bildirimler sağlayın.
+description: Microsoft Azure cdn'de gerçek zamanlı uyarılar. Gerçek zamanlı uyarılar, performansı CDN profilinizde uç noktaları ile ilgili bildirimler sağlar.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,86 +14,86 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 51dce1680be5f5f4387c2ba02827195bcdbe9b48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e20161147aa16456e31aff2bd3cc6337c3690e89
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23843157"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917864"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Microsoft Azure cdn'de gerçek zamanlı uyarılar
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu belgede, Microsoft Azure cdn'de gerçek zamanlı uyarılar açıklanmaktadır. Bu işlevselliği performansı CDN profilinize uç noktaları ile ilgili gerçek zamanlı bildirimler sağlar.  E-posta veya temel HTTP uyarılar ayarlayabilirsiniz:
+Bu belgede, Microsoft Azure cdn'de gerçek zamanlı uyarılar açıklanmaktadır. Bu işlev, performansı CDN profilinizde uç noktaları ile ilgili gerçek zamanlı bildirimler sağlar.  E-posta veya HTTP göre uyarılar ayarlayabilirsiniz:
 
 * Bant Genişliği
 * Durum kodları
 * Önbellek durumları
 * Bağlantılar
 
-## <a name="creating-a-real-time-alert"></a>Gerçek zamanlı uyarı oluşturma
-1. İçinde [Azure portal](https://portal.azure.com), CDN profilinize gidin.
+## <a name="creating-a-real-time-alert"></a>Gerçek zamanlı uyarı oluşturuluyor
+1. İçinde [Azure portalında](https://portal.azure.com), CDN profilinize gidin.
    
     ![CDN profili](./media/cdn-real-time-alerts/cdn-profile-blade.png)
 1. CDN profili dikey penceresinden tıklayın **Yönet** düğmesi.
    
     ![CDN profili Yönet düğmesi](./media/cdn-real-time-alerts/cdn-manage-btn.png)
    
-    CDN Yönetim Portalı'nı açar.
-3. Üzerine gelerek **Analytics** sekmesini ve ardından üzerine gelerek **gerçek zamanlı İstatistikler** çıkma.  Tıklayın **gerçek zamanlı uyarılar**.
+    CDN yönetim portalına açılır.
+3. Üzerine **Analytics** sekmesine ve ardından üzerine **gerçek zamanlı istatistikleri** açılır öğesi.  Tıklayarak **gerçek zamanlı uyarılar**.
    
-    ![CDN Yönetim Portalı](./media/cdn-real-time-alerts/cdn-premium-portal.png)
+    ![CDN yönetim portalına](./media/cdn-real-time-alerts/cdn-premium-portal.png)
    
-    Var olan uyarı yapılandırmaları (varsa) listesi görüntülenir.
-4. Tıklatın **eklemek uyarı** düğmesi.
+    Mevcut uyarı yapılandırmalarını (varsa) listesi görüntülenir.
+4. Tıklayın **ekleme uyarı** düğmesi.
    
-    ![Uyarı düğme ekleme](./media/cdn-real-time-alerts/cdn-add-alert.png)
+    ![Uyarı düğmesi ekleme](./media/cdn-real-time-alerts/cdn-add-alert.png)
    
     Yeni bir uyarı oluşturmak için bir form görüntülenir.
    
     ![Yeni uyarı formu](./media/cdn-real-time-alerts/cdn-new-alert.png)
-5. Bu uyarı etkin olmasını istiyorsanız tıkladığınızda **kaydetmek**, kontrol **uyarı etkin** onay kutusu.
-6. Uyarınız içinde için açıklayıcı bir ad girin **adı** alan.
-7. İçinde **medya türü** açılan listesinde, select **HTTP büyük nesne**.
+5. Bu uyarı etkin olmasını istiyorsanız tıkladığınızda **Kaydet**, kontrol **etkin uyarı** onay kutusu.
+6. İçinde bir uyarı için açıklayıcı bir ad girin **adı** alan.
+7. İçinde **medya türü** açılır menüsünde, select **HTTP büyük nesne**.
    
-    ![HTTP büyük seçili nesne medya türüyle](./media/cdn-real-time-alerts/cdn-http-large.png)
+    ![Seçili HTTP büyük nesne medya türüyle](./media/cdn-real-time-alerts/cdn-http-large.png)
    
    > [!IMPORTANT]
-   > Seçmelisiniz **HTTP büyük nesne** olarak **medya türü**.  Ve diğer seçenekleri tarafından kullanılmaz **verizon'dan Azure CDN**.  Seçilecek hatası **HTTP büyük nesne** Uyarınız asla tetiklenmez neden olur.
+   > Seçmelisiniz **HTTP büyük nesne** olarak **medya türü**.  Diğer seçeneklerden tarafından kullanılmaz **verizon'dan Azure CDN**.  Seçilecek hatası **HTTP büyük nesne** hiçbir zaman tetiklenmesi uyarıyı neden olur.
    > 
    > 
 8. Oluşturma bir **ifade** seçerek izlemek için bir **ölçüm**, **işleci**, ve **tetikleyen değer**.
    
-   * İçin **ölçüm**, izlenen istediğiniz koşulu seçin.  **Bant genişliği Mbps** saniye başına megabit olarak bant genişliği kullanım miktarı.  **Toplam Bağlantı** kenar sunucularımızda eşzamanlı HTTP bağlantı sayısıdır.  Çeşitli önbellek durumları ve durum kodları tanımları için bkz: [Azure CDN önbellek durum kodları](https://msdn.microsoft.com/library/mt759237.aspx) ve [Azure CDN HTTP durum kodları](https://msdn.microsoft.com/library/mt759238.aspx)
-   * **İşleç** ölçüm ve tetikleyici değer arasında bir ilişki kurar matematiksel işlecidir.
-   * **Tetikleyen değer** bir bildirim gönderilmeden önce karşılanması gereken eşik değeridir.
+   * İçin **ölçüm**, izlenen istediğiniz koşul türünü seçin.  **Bant genişliği MB/sn** saniye başına megabit cinsinden bant genişliği kullanım miktarı.  **Toplam Bağlantı** edge sunucularımızı eşzamanlı HTTP bağlantı noktasının numarasıdır.  Çeşitli önbellek durumları ve durum kodları tanımları için bkz: [Azure CDN önbelleğe durum kodları](/previous-versions/azure/mt759237(v=azure.100)) ve [Azure CDN HTTP durum kodları](/previous-versions/azure/mt759238(v=azure.100))
+   * **İşleç** ölçüm tetikleyicisi değeri arasındaki bir ilişki kurar matematik işlecidir.
+   * **Tetikleyen değer** bildirim gönderilmeden önce karşılanması gereken eşik değeri şudur:.
      
-     Aşağıdaki örnekte, 404 durum kodları sayısı 25'den büyük olduğunda bir bildirim gönderilir oluşturulan ifadeyi belirtir.
+     Aşağıdaki örnekte, 404 durum kodları sayısı 25 ' büyük olduğunda bir bildirim gönderilir oluşturulan ifadeyi belirtir.
      
-     ![Gerçek zamanlı uyarı örnek bir ifade](./media/cdn-real-time-alerts/cdn-expression.png)
-9. İçin **aralığı**, hesaplanan ifadenin ne sıklıkta istediğiniz girin.
-10. İçinde **bildirim** açılan listesinde, ne zaman ifade doğruysa bildirilmesini istediğinizi seçin.
+     ![Gerçek zamanlı uyarı örnek ifade](./media/cdn-real-time-alerts/cdn-expression.png)
+9. İçin **aralığı**, değerlendirilen ifade ne sıklıkta istediğiniz girin.
+10. İçinde **üzerinde bildirim** açılır, ifade true olduğunda bildirim almak istediğiniz zaman seçin.
     
-    * **Koşul başlangıç** belirtilen koşulu ilk algılandığında bir bildirim gönderildiğini gösterir.
-    * **Koşul son** belirtilen koşulu artık algılandığında bir bildirim gönderildiğini gösterir. Bu bildirim, yalnızca belirtilen koşulu oluştuğunu bizim ağ sistem izleme saptadıktan sonra tetiklenebilir.
-    * **Sürekli** bir bildirim her zaman ağ sistem izleme belirtilen koşulu algılar gönderilen gösterir. Ağ Sistem izleme için belirtilen koşul aralık başına yalnızca bir kez denetler aklınızda bulundurun.
-    * **Koşul başlangıç ve bitiş** bir bildirim ilk kez belirtilen koşulu algılanır ve bir kez daha zaman koşul artık algılandığında gönderildiğini gösterir.
-1. E-posta ile bildirim almak istiyorsanız, denetleme **e-posta ile bildir** onay kutusu.  
+    * **Koşul başlangıç** belirten bir koşul algılandığında bir bildirim gönderilir.
+    * **Koşul son** belirtilen koşulun artık algılandığında bildirim gönderileceğini gösterir. Bu bildirim, yalnızca belirtilen koşulu oluştuğunu sistem izleme ağımız saptadıktan sonra tetiklenebilir.
+    * **Sürekli** bildirim her zaman ağ sistem izleme belirtilen koşulu algılar gönderileceğini gösterir. Ağ izleme sistemi belirli koşula aralığı başına yalnızca bir kez denetler aklınızda bulundurun.
+    * **Koşul başlangıç ve bitiş** belirten bir bildirim ilk kez belirtilen koşulu algılanır ve bir kez daha, koşul artık algılandığında gönderilir.
+1. E-posta ile bildirim almak istiyorsanız işaretleyin **e-postayla bildirim** onay kutusu.  
     
     ![E-posta formu tarafından bildir](./media/cdn-real-time-alerts/cdn-notify-email.png)
     
-    İçinde **için** alanında, istediğiniz yere bildirimleri gönderdiğiniz e-posta adresi girin. İçin **konu** ve **gövde**, varsayılan bırakabilir veya kullanarak iletiyi özelleştirebilir **kullanılabilir anahtar sözcükleri** ileti gönderildiğinde uyarı verileri dinamik olarak eklemek için liste.
+    İçinde **için** bildirimleri istediğiniz gönderdiğiniz e-posta adresi girin. İçin **konu** ve **gövdesi**varsayılan bırakabilir veya kullanarak iletiyi özelleştirebilir **kullanılabilir anahtar sözcükler** uyarı verileri dinamik olarak eklemek için liste olduğunda ileti gönderilir.
     
     > [!NOTE]
-    > E-posta bildirimi tıklatarak sınayabilirsiniz **Test bildirimi** uyarı yapılandırma kaydedildikten sonra ancak yalnızca düğme.
+    > E-posta bildirimi tıklayarak sınayabilirsiniz **Test bildirim** uyarı yapılandırması kaydedildikten sonra ancak yalnızca düğme.
     > 
     > 
-12. Bir web sunucusuna gönderilen bildirimler istiyorsanız işaretleyin **HTTP Post tarafından bildirim** onay kutusu.
+12. Bir web sunucusuna gönderilecek bildirimler istiyorsanız işaretleyin **HTTP Post ile bildirim** onay kutusu.
     
-    ![HTTP Post formuyla bildir](./media/cdn-real-time-alerts/cdn-notify-http.png)
+    ![HTTP Post formunda bildir](./media/cdn-real-time-alerts/cdn-notify-http.png)
     
-    İçinde **Url** alan, HTTP iletisi istediğiniz gönderilen URL'yi girin. İçinde **üstbilgileri** metin kutusuna, istekte gönderilmek üzere HTTP üst bilgilerini girin.  İçin **gövde**, kullanarak iletiyi özelleştirebilir **kullanılabilir anahtar sözcükleri** ileti gönderildiğinde uyarı verileri dinamik olarak eklemek için liste.  **Üstbilgileri** ve **gövde** varsayılan olarak aşağıdaki örneğe benzer bir XML yükü:
+    İçinde **Url** , HTTP iletisi istediğiniz gönderilen URL'yi girin. İçinde **üstbilgileri** metin isteğinde gönderilecek HTTP üst bilgilerini girin.  İçin **gövdesi**, kullanılarak ileti özelleştirebilir **kullanılabilir anahtar sözcükler** ileti gönderildiğinde uyarı verileri dinamik olarak eklemek için liste.  **Üstbilgileri** ve **gövdesi** varsayılan olarak aşağıdaki örneğe benzer bir XML yükünü:
     
     ```
     <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
@@ -102,13 +102,13 @@ Bu belgede, Microsoft Azure cdn'de gerçek zamanlı uyarılar açıklanmaktadır
     ```
     
     > [!NOTE]
-    > HTTP Post bildirim tıklatarak sınayabilirsiniz **Test bildirimi** uyarı yapılandırma kaydedildikten sonra ancak yalnızca düğme.
+    > HTTP Post bildirime tıklayarak sınayabilirsiniz **Test bildirim** uyarı yapılandırması kaydedildikten sonra ancak yalnızca düğme.
     > 
     > 
-13. Tıklatın **kaydetmek** uyarı yapılandırmanızı kaydetmek için düğmesini.  İşaretlendiğinde, **uyarı etkin** 5. adımda Uyarınız şimdi etkindir.
+13. Tıklayın **Kaydet** uyarı yapılandırmanızı kaydetmek için düğme.  İşaretlediyseniz **etkin uyarı** 5. adımda Uyarınız artık etkindir.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* Analiz [Azure CDN içindeki gerçek zamanlı İstatistikler](cdn-real-time-stats.md)
-* Dıg ile daha derin [Gelişmiş HTTP raporları](cdn-advanced-http-reports.md)
+* Analiz [Azure cdn'de gerçek zamanlı İstatistikler](cdn-real-time-stats.md)
+* İle daha derine inin [Gelişmiş HTTP raporları](cdn-advanced-http-reports.md)
 * Analiz [kullanım desenleri](cdn-analyze-usage-patterns.md)
 

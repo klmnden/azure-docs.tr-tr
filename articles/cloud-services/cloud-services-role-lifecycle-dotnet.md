@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 56f7b5e3b303ce68868f15528d1ec200919b52aa
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 13f500b32bb85bdc0f84b812ef4ef9188a257771
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001567"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916317"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>.NET’te Web veya Çalışan rolünün yaşam döngüsünü özelleştirme
-Bir çalışan rolü oluşturduğunuzda, genişletilen [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) , geçersiz kılmak olanak tanıyan yöntemler sağlar sınıfını yaşam döngüsü olaylarını yanıtlama. Web rolleri için bu sınıf, isteğe bağlı yaşam döngüsü olaylarını yanıtlamak için kullanmalısınız.
+Bir çalışan rolü oluşturduğunuzda, genişletilen [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) , geçersiz kılmak olanak tanıyan yöntemler sağlar sınıfını yaşam döngüsü olaylarını yanıtlama. Web rolleri için bu sınıf, isteğe bağlı yaşam döngüsü olaylarını yanıtlamak için kullanmalısınız.
 
 ## <a name="extend-the-roleentrypoint-class"></a>RoleEntryPoint sınıfını genişletir
-[RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) sınıfı, Azure tarafından çağrılan yöntemler içerir, bu **başlar**, **çalıştıran**, veya **durdurur** bir web veya çalışan rolü. İsteğe bağlı olarak rol başlatma, yürütme iş parçacığını rolün veya rol kapatma dizileriyle yönetmek için bu yöntemleri geçersiz kılabilirsiniz. 
+[RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) sınıfı, Azure tarafından çağrılan yöntemler içerir, bu **başlar**, **çalıştıran**, veya **durdurur** bir web veya çalışan rolü. İsteğe bağlı olarak rol başlatma, yürütme iş parçacığını rolün veya rol kapatma dizileriyle yönetmek için bu yöntemleri geçersiz kılabilirsiniz. 
 
 Genişletirken **RoleEntryPoint**, aşağıdaki yöntemlerden birini davranışları farkında olmalıdır:
 
-* [OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) ve [OnStop](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) yöntemleri dönmek mümkündür bir Boole değeri döndürür **false** bu yöntemlerden.
+* [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) ve [OnStop](/previous-versions/azure/reference/ee772844(v=azure.100)) yöntemleri dönmek mümkündür bir Boole değeri döndürür **false** bu yöntemlerden.
   
    Kodunuzu döndürürse **false**rolü işlem beklenmedik şekilde sonlandırıldı, hiçbir kapatma dizisi çalıştırmadan yerinde olabilir. Genel olarak, geri dönmekten kaçının **false** gelen **OnStart** yöntemi.
 * Tüm Yakalanmayan Özel durum bir aşırı yüklemesini içinde bir **RoleEntryPoint** yöntemi işlenmeyen bir özel durum kabul edilir.
   
-   Yaşam döngüsü yöntemlerinden biri içinde bir özel durum oluşursa, Azure oluşturacağı [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) olay ve işlem sonlandırılır. Rolünüz çevrimdışı alındıktan sonra Azure tarafından başlatılır. İşlenmeyen özel durum oluştuğunda [durdurma](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx) değil olayı oluşturulur ve **OnStop** yöntemi çağrılmadı.
+   Yaşam döngüsü yöntemlerinden biri içinde bir özel durum oluşursa, Azure oluşturacağı [UnhandledException](/dotnet/api/system.appdomain.unhandledexception) olay ve işlem sonlandırılır. Rolünüz çevrimdışı alındıktan sonra Azure tarafından başlatılır. İşlenmeyen özel durum oluştuğunda [durdurma](/previous-versions/azure/reference/ee758136(v=azure.100)) değil olayı oluşturulur ve **OnStop** yöntemi çağrılmadı.
 
-Rolünüz başlamıyor veya başlatılıyor, meşgul ve durdurma durumları arasında geri dönüştürme, kodunuzu rolü her zaman yeniden yaşam döngüsü olaylarını biri içinde işlenmeyen bir özel durum atma. Bu durumda [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) özel durumun nedenini belirlemek ve uygun şekilde işlemesi için olay. Rolünüz de gelen döndürüyor olabilir [çalıştırma](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) yöntemi rolün yeniden neden olur. Dağıtım durumları hakkında daha fazla bilgi için bkz: [yaygın sorunlar, neden rollerine geri dönüşüm](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Rolünüz başlamıyor veya başlatılıyor, meşgul ve durdurma durumları arasında geri dönüştürme, kodunuzu rolü her zaman yeniden yaşam döngüsü olaylarını biri içinde işlenmeyen bir özel durum atma. Bu durumda [UnhandledException](/dotnet/api/system.appdomain.unhandledexception) özel durumun nedenini belirlemek ve uygun şekilde işlemesi için olay. Rolünüz de gelen döndürüyor olabilir [çalıştırma](/previous-versions/azure/reference/ee772746(v=azure.100)) yöntemi rolün yeniden neden olur. Dağıtım durumları hakkında daha fazla bilgi için bkz: [yaygın sorunlar, neden rollerine geri dönüşüm](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
 > [!NOTE]
 > Kullanıyorsanız **Microsoft Visual Studio için Azure Araçları** genişletmek otomatik olarak rolü proje şablonları, uygulama geliştirmek için **RoleEntryPoint** sınıfı, içinde  *WebRole.cs* ve *WorkerRole.cs* dosyaları.

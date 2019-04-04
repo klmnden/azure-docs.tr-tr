@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5217f21449efeb2086770f040fb781765ea819eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 813ab2a349ba843e9f41675234e395470bef9740
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083946"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58896134"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sorunsuz çoklu oturum açma: Ayrıntılı Teknik İnceleme
 
@@ -39,15 +39,12 @@ Bu bölüm, üç bölümü vardır:
 
 Sorunsuz çoklu oturum açma etkin gösterildiği gibi Azure AD Connect kullanarak [burada](how-to-connect-sso-quick-start.md). Bu özellik etkinleştirilirken, aşağıdaki adımlar oluşur:
 
-- Adlı bir bilgisayar hesabı `AZUREADSSOACC` (Azure AD temsil eden), şirket içi Active Directory (AD) her AD ormanında oluşturulur.
-- Bilgisayar hesabının Kerberos şifre çözme anahtarı güvenli bir şekilde Azure AD ile paylaşılır. Birden fazla AD ormanına varsa, her biri kendi Kerberos şifre çözme anahtarı gerekir.
-- Ayrıca, Azure AD oturum açma sırasında kullanılan iki URL temsil etmek için iki Kerberos hizmet asıl adı (SPN) oluşturulur.
-
->[!NOTE]
-> (Azure AD Connect kullanarak) Azure AD ile eşitleyebilir ve olan kullanıcılar için sorunsuz SSO istediğiniz her AD ormanında bilgisayar hesabını ve Kerberos SPN'ler oluşturulur. Taşıma `AZUREADSSOACC` bilgisayar hesabı için bir kuruluş birimi (aynı şekilde yönetilir ve silinmediğinden emin olmak için diğer bilgisayar hesapları depolandığı OU).
+- Bir bilgisayar hesabı (`AZUREADSSOACC`) şirket içi (Azure AD Connect kullanarak) Azure AD ile eşitlemek için her AD ormanında Active Directory (AD) oluşturulur.
+- Ayrıca, bir Kerberos hizmet asıl adı (SPN) sayısı, Azure AD oturum açma işlemi sırasında kullanılacak oluşturulur.
+- Bilgisayar hesabının Kerberos şifre çözme anahtarı güvenli bir şekilde Azure AD ile paylaşılır. Birden fazla AD ormanına varsa, her bir bilgisayar hesabının kendi benzersiz Kerberos şifre çözme anahtarı gerekir.
 
 >[!IMPORTANT]
->Yüksek oranda olmasını öneririz, [Kerberos şifre çözme anahtarını başa döndürmek](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) , `AZUREADSSOACC` en az 30 günde bir bilgisayar hesabı.
+> `AZUREADSSOACC` Bilgisayar hesabını güvenlik nedenleriyle kesin korunması gerekir. Yalnızca Domain Admins bilgisayar hesabını yönetmek görebilmeniz gerekir. Bilgisayar hesabının Kerberos temsilcisi seçmeyi devre dışı emin olun. Bilgisayar hesabı, bir kuruluş birimi (yanlışlıkla silinmekten güvenli oldukları OU) Store. Bilgisayar hesabının Kerberos şifre çözme anahtarı da hassas olarak düşünülmelidir. Yüksek oranda olmasını öneririz, [Kerberos şifre çözme anahtarını başa döndürmek](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) , `AZUREADSSOACC` en az 30 günde bir bilgisayar hesabı.
 
 Kurulum tamamlandıktan sonra sorunsuz çoklu oturum açma herhangi diğer tümleşik Windows kimlik doğrulaması (IWA) kullanan oturum aynı şekilde çalışır.
 

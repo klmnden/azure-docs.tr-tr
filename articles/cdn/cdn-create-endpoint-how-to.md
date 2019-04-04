@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: a3fd85d1dbcba769f47e537e0231f63110752492
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ba25bef75bc21eea2b0c3a57599a3b9ddd3164e0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093689"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916827"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Bir Azure CDN uç noktası oluşturma
-Bu makalede oluşturmak için ayarları açıklar bir [Azure Content Delivery Network (CDN)](cdn-overview.md) var olan bir CDN profilinde uç noktası. Bir profil ve uç nokta oluşturduktan sonra müşterilerinize içerik sunmaya başlayabilirsiniz. Bir profil ve uç nokta oluşturma Hızlı Başlangıç için bkz: [hızlı başlangıç: bir Azure CDN profili ve uç noktası oluşturma](cdn-create-new-endpoint.md).
+Bu makalede oluşturmak için ayarları açıklar bir [Azure Content Delivery Network (CDN)](cdn-overview.md) var olan bir CDN profilinde uç noktası. Bir profil ve uç nokta oluşturduktan sonra müşterilerinize içerik sunmaya başlayabilirsiniz. Bir profil ve uç nokta oluşturma Hızlı Başlangıç için bkz: [hızlı başlangıç: Bir Azure CDN profili ve uç noktası oluşturma](cdn-create-new-endpoint.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bir CDN uç noktası oluşturmadan önce bir veya daha fazla CDN uç noktası içerebilir en az bir CDN profili oluşturmuş olmanız gerekir. CDN uç noktalarınızı internet etki alanı, web uygulaması veya başka ölçütlere göre düzenlemek için birden çok profil kullanabilirsiniz. CDN fiyatlandırması CDN profili düzeyinde uygulandığından, Azure CDN fiyatlandırma katmanları karışımını kullanmak istiyorsanız birden çok CDN profili oluşturmanız gerekir. Bir CDN profili oluşturmak için bkz: [yeni bir CDN profili oluşturmak](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
@@ -67,7 +67,7 @@ Azure hesabınızla [Azure portalında](https://portal.azure.com) oturum açın.
    > [!NOTE]
    > **Kaynak bağlantı noktası** yalnızca uç nokta kullanır kaynak sunucudan bilgi almak için bağlantı noktası değeri belirler. Uç noktanın kendisi, **Kaynak bağlantı noktası** değerinden bağımsız olarak, yalnızca varsayılan HTTP ve HTTPS bağlantı noktalarındaki (80 ve 443) uç istemciler tarafından kullanılabilir.  
    > 
-   > **Akamai'den Azure CDN** profillerindeki uç noktalar, kaynak bağlantı noktaları için tam TCP bağlantı noktası aralığına izin vermez. İzin verilmeyen kaynak bağlantı noktalarının listesi için bkz. [Akamai'den Azure CDN İzin Verilen Kaynak Bağlantı Noktaları](https://msdn.microsoft.com/library/mt757337.aspx).  
+   > **Akamai'den Azure CDN** profillerindeki uç noktalar, kaynak bağlantı noktaları için tam TCP bağlantı noktası aralığına izin vermez. İzin verilmeyen kaynak bağlantı noktalarının listesi için bkz. [Akamai'den Azure CDN İzin Verilen Kaynak Bağlantı Noktaları](/previous-versions/azure/mt757337(v=azure.100)).  
    > 
    > Azure CDN özel etki alanları için HTTPS desteği üzerinde desteklenmiyor **akamai'den Azure CDN** ürünleri. Daha fazla bilgi için bkz. [Azure CDN özel etki alanı üzerinde HTTPS'yi yapılandırma](cdn-custom-ssl.md).
     
@@ -84,7 +84,7 @@ Azure hesabınızla [Azure portalında](https://portal.azure.com) oturum açın.
     - **Azure CDN standart Akamai** profilleri:
        - [**Genel web teslimatı**](cdn-optimization-overview.md#general-web-delivery)
        - [**Genel medya akışı**](cdn-optimization-overview.md#general-media-streaming)
-       - [**İsteğe bağlı medya video**](cdn-optimization-overview.md#video-on-demand-media-streaming)
+       - [**İsteğe bağlı video medya akışı**](cdn-optimization-overview.md#video-on-demand-media-streaming)
        - [**Büyük dosya indirme**](cdn-optimization-overview.md#large-file-download)
        - [**Dinamik site hızlandırma**](cdn-optimization-overview.md#dynamic-site-acceleration)
 

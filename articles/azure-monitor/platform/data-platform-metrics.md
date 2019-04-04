@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 487f70e4055f16c56092f2f970d2a34238e7febe
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 1027398a1a7f790adedf6c7eebed44a8db501b8a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851994"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905044"
 ---
 # <a name="metrics-in-azure-monitor"></a>Azure İzleyicisi'nde ölçümler
 
@@ -39,7 +39,7 @@ Aşağıdaki tabloda, ölçüm verilerini Azure İzleyici'de kullanabileceğiniz
 | Uyarı | Yapılandırma bir [ölçüm uyarısı kuralının](alerts-metric.md) bildirim gönderen veya alan [eylemi otomatik](action-groups.md) ölçüm değeri bir eşiği aştığında zaman. |
 | Otomatikleştirme |  Kullanım [otomatik ölçeklendirme](autoscale-overview.md) artırabilir veya azaltabilirsiniz bir Eşiği aşan bir ölçüm değeri temel alarak kaynakları. |
 | Dışarı Aktarma | [Rota ölçümleri günlüklerine](diagnostic-logs-stream-log-store.md) Azure İzleyici ölçümleri verileri birlikte Azure İzleyici günlüklerine verileri analiz etmek ve ölçüm değerleri 93 günden daha uzun süre saklamak için.<br>Stream için ölçümleri bir [olay hub'ı](stream-monitoring-data-event-hubs.md) dış sisteme yönlendirmek. |
-| Al | Erişim ölçüm değerleri kullanarak bir komut satırı [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0)<br>Ölçüm değerleri kullanarak özel uygulama erişimi [REST API](rest-api-walkthrough.md).<br>Erişim ölçüm değerleri kullanarak bir komut satırı [CLI](/azure/monitor/metrics). |
+| Al | Erişim ölçüm değerleri kullanarak bir komut satırı [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Ölçüm değerleri kullanarak özel uygulama erişimi [REST API](rest-api-walkthrough.md).<br>Erişim ölçüm değerleri kullanarak bir komut satırı [CLI](/azure/monitor/metrics). |
 | Arşiv | [Arşiv](..//learn/tutorial-archive-data.md) kaynağınızın denetim ya da çevrimdışı raporlamaya uyumluluk, performans veya sistem durumu geçmişi. |
 
 

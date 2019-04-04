@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: de61443da41f1015b2890e9052f38e25d3bed86a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551985"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893410"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>HTTP + Swagger REST uç noktalarına çağrı Azure Logic Apps Bağlayıcısı
 
@@ -28,7 +28,7 @@ Bağlayıcılarla mantıksal uygulamalar oluşturma konusunda bilgi almak için 
 
 HTTP + Swagger tetikleyin ve aynı iş eylemi [HTTP eylemi](connectors-native-http.md) ancak API yapısı ve çıkışları göstererek Logic App Tasarımcısı'nda daha iyi bir deneyim sunmak [Swagger meta verileri](https://swagger.io). HTTP da kullanabileceğinizi + bir tetikleyici olarak Swagger Bağlayıcısı. Yoklama tetikleyici uygulamak istiyorsanız, açıklanan yoklama desenler izleyen [logic apps'ten diğer API'leri, hizmetleri ve sistemleri çağırmak için özel API'ler oluşturma](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-Daha fazla bilgi edinin [mantıksal uygulama Tetikleyicileri ve eylemleri](connectors-overview.md).
+Daha fazla bilgi edinin [mantıksal uygulama Tetikleyicileri ve eylemleri](../connectors/apis-list.md).
 
 Kullanım HTTP + Swagger işlem bir eylem olarak bir mantıksal uygulama bir iş akışında ilişkin bir örnek aşağıda verilmiştir.
 
@@ -68,18 +68,18 @@ Oluşturma, yapılandırma ve Azure Depolama'da Swagger belgeleri depolamak içi
 
    `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`
 
-## <a name="technical-details"></a>Teknik Ayrıntılar
+## <a name="technical-details"></a>Teknik ayrıntılar
 Tetikleyiciler ve Eylemler ile ilgili ayrıntıları aşağıda verilmiştir, bu da HTTP + Swagger Bağlayıcısı destekler.
 
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger Tetikleyicileri
-Bir tetikleyici bir mantıksal uygulamada tanımlanan iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi edinin.](connectors-overview.md) HTTP + Swagger Bağlayıcısı, bir tetikleyici vardır.
+Bir tetikleyici bir mantıksal uygulamada tanımlanan iş akışını başlatmak için kullanılan bir olaydır. HTTP + Swagger Bağlayıcısı, bir tetikleyici vardır. [Tetikleyiciler hakkında daha fazla bilgi](../connectors/apis-list.md).
 
 | Tetikleyici | Açıklama |
 | --- | --- |
 | HTTP + Swagger |HTTP çağrısı ve yanıt içeriği döndürür |
 
 ## <a name="http--swagger-actions"></a>HTTP + Swagger eylemleri
-Bir eylem mantıksal uygulamada tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi edinin.](connectors-overview.md) HTTP + Swagger Bağlayıcısı olası bir eylem vardır.
+Bir eylem mantıksal uygulamada tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. HTTP + Swagger Bağlayıcısı olası bir eylem vardır. [Eylemler hakkında daha fazla bilgi](../connectors/apis-list.md).
 
 | Eylem | Açıklama |
 | --- | --- |
@@ -100,7 +100,7 @@ Bir yıldız işareti (*) gerekli bir alan anlamına gelir.
 | Gövde |body |HTTP istek gövdesi. |
 | Authentication |kimlik doğrulaması |İstek için kullanılacak kimlik doğrulaması. Daha fazla bilgi için [HTTP Bağlayıcısı](connectors-native-http.md#authentication). |
 
-**Çıkış Ayrıntıları**
+**Çıkış ayrıntıları**
 
 HTTP yanıtı
 
@@ -123,8 +123,7 @@ HTTP yanıtı
 | 404 |Bulunamadı |
 | 500 |İç sunucu hatası. Bilinmeyen bir hata oluştu. |
 
-- - -
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Mantıksal uygulama oluşturun.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Diğer bağlayıcıları bulma](apis-list.md)

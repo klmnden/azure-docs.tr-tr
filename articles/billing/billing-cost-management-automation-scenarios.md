@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 8b42361e7b94bf017dde4eaec882f9fed4d42ed6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862004"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918527"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Faturalandırma ve maliyet yönetimi için Otomasyon senaryoları
 
@@ -80,9 +80,9 @@ Doğrudan Web ve kurumsal müşterilere belirtilenler dışında tüm aşağıda
 
 -   [Kullanım ayrıntılarını API](https://docs.microsoft.com/rest/api/consumption/usagedetails): Tüm Azure kaynaklarına gider ve kullanım bilgilerini Microsoft'tan alın. Şu anda bir kez günde ölçüm başına yayılan kullanım ayrıntı kaydı biçiminde bilgilerdir. Tüm kaynaklar arasında maliyetleri eklemek veya belirli kaynaklarla ilgili maliyetleri/kullanım araştırmak için bilgileri kullanabilirsiniz.
 
--   [RateCard API'si](https://msdn.microsoft.com/library/azure/mt219005.aspx): Web Direct müşterisiyseniz ölçüm fiyatlar alabilirsiniz. Ardından kaynak kullanım bilgilerinizi döndürülen bilgileri el ile beklenen faturanıza yansıyan tutarı hesaplamak için kullanabilirsiniz. 
+-   [RateCard API'si](/previous-versions/azure/reference/mt219005(v=azure.100)): Web Direct müşterisiyseniz ölçüm fiyatlar alabilirsiniz. Ardından kaynak kullanım bilgilerinizi döndürülen bilgileri el ile beklenen faturanıza yansıyan tutarı hesaplamak için kullanabilirsiniz. 
 
--   [Kullanım API'si derecelendirilmemiş](https://msdn.microsoft.com/library/azure/mt219003.aspx): Azure, tüm ölçüm/şarj yapmadan önce ham kullanım bilgilerini alın.
+-   [Kullanım API'si derecelendirilmemiş](/previous-versions/azure/reference/mt219003(v=azure.100)): Azure, tüm ölçüm/şarj yapmadan önce ham kullanım bilgilerini alın.
 
 ### <a name="billing"></a>Faturalandırma
 -   [Faturalama dönemleri API](https://docs.microsoft.com/rest/api/billing/billingperiods): ' % S'fatura kimlikleri bu süre için birlikte analiz etmek için bir faturalandırma döneminde belirleyin. Fatura kimlikleri faturaları API ile kullanabilirsiniz.
@@ -121,7 +121,7 @@ Bu API'ler, tamamen farklı veri sağlayın:
    - Ön ödemeli parasal taahhüt kullanımı için hesap değişiklikleri
    - Azure tarafından bulunan kullanım farklılıklarını hesaba değişiklikleri
 
-- [Kullanım API'si](https://msdn.microsoft.com/library/Mt219003.aspx) aracılığıyla azure'da sistem ölçümünü maliyet geçirmeden önce ham Azure kullanım bilgileri sağlar. Bu veriler, Azure Ücretli sonra Ölçüm sistemi görülür kullanımı veya ücret tutarı ile herhangi bir ilişki olmayabilir.
+- [Kullanım API'si](/previous-versions/azure/reference/mt219003(v=azure.100)) aracılığıyla azure'da sistem ölçümünü maliyet geçirmeden önce ham Azure kullanım bilgileri sağlar. Bu veriler, Azure Ücretli sonra Ölçüm sistemi görülür kullanımı veya ücret tutarı ile herhangi bir ilişki olmayabilir.
 
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>Fatura API kullanım ayrıntılarını API'si arasındaki fark nedir?
 Bu API'leri, aynı verileri farklı bir görünümünü sağlar:
@@ -135,7 +135,7 @@ Benzer veri kümeleri bu API'ler sağlar, ancak farklı Hedef Kitleleri vardır:
 
 - [Fiyat listesi API'si](https://docs.microsoft.com/rest/api/consumption/pricesheet) özel fiyatlandırma için kurumsal bir müşterinin anlaşması sağlar.
 
-- [RateCard API'si](https://msdn.microsoft.com/library/mt219005.aspx) genel kullanıma yönelik fiyatlandırma geçerlidir Web Direct müşterilerine sağlar.
+- [RateCard API'si](/previous-versions/azure/reference/mt219005(v=azure.100)) genel kullanıma yönelik fiyatlandırma geçerlidir Web Direct müşterilerine sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

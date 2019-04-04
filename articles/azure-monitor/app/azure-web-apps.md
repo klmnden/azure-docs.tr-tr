@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 9d121146924eb153227e35d608a3c6c33aae31a1
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 0c6be20bfb2a6f15335564a1aa98dc0ac88e3507
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862616"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905843"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service performansını izleme
 
@@ -22,6 +22,9 @@ ms.locfileid: "58862616"
 
 > [!NOTE]
 > Bir Application Insights site uzantısı aracılığıyla el ile ekleme **geliştirme araçları** > **uzantıları** kullanım dışı bırakılmıştır. Uzantının en son kararlı sürüm sunulmuştur [önceden](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) App Service görüntünün bir parçası olarak. Dosyalar bulunur `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` ve kararlı her sürümde otomatik olarak güncelleştirilir. İzlemeyi etkinleştirmek için aracı tabanlı yönergeleri izlerseniz aşağıda bunu otomatik olarak kullanım dışı uzantı sizin için kaldırılır.
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="enable-application-insights"></a>Application Insights'ı etkinleştirme
 
@@ -283,12 +286,12 @@ Bir örneği aşağıda verilmiştir tüm örneklerinin yerine `AppMonitoredSite
 Uygulaması PowerShell aracılığıyla izlemeyi etkinleştirmek için yalnızca temel uygulama ayarlarının değiştirilmesi gerekir. "AppMonitoredSite" kaynak grubunda "AppMonitoredRG" adlı bir Web sitesi için uygulama izleme sağlayan bir örnek aşağıda verilmiştir ve için "012345678-abcd-ef01-2345-6789abcd" izleme anahtarını gönderilecek verileri yapılandırır.
 
 ```powershell
-$app = Get-AzureRmWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
+$app = Get-AzWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
 $newAppSettings = @{} # case-insensitive hash map
 $app.SiteConfig.AppSettings | %{$newAppSettings[$_.Name] = $_.Value} #preserve non Application Insights Application settings.
 $newAppSettings["APPINSIGHTS_INSTRUMENTATIONKEY"] = "012345678-abcd-ef01-2345-6789abcd"; # enable the ApplicationInsightsAgent
 $newAppSettings["ApplicationInsightsAgent_EXTENSION_VERSION"] = "~2"; # enable the ApplicationInsightsAgent
-$app = Set-AzureRmWebApp -AppSettings $newAppSettings -ResourceGroupName $app.ResourceGroup -Name $app.Name -ErrorAction Stop
+$app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.ResourceGroup -Name $app.Name -ErrorAction Stop
 ```
 
 ## <a name="upgrade-monitoring-extensionagent"></a>İzleme uzantısı/aracıyı yükseltme

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: b2e87b2855ac1d76fe2ad544c17c33bfa14f635a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4ca26c7b8fbfebbce8cfcb9915a7db12e5ad2352
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812387"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918680"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure Cloud Services sertifikalarına genel bakış
 Sertifikalar Azure'da bulut Hizmetleri için kullanılır ([hizmet sertifikaları](#what-are-service-certificates)) ve yönetim API'si ile kimlik doğrulaması ([yönetim sertifikaları](#what-are-management-certificates)). Bu konu nasıl hem sertifika türleri için genel bir bakış sağlar için [oluşturma](#create) ve Azure'a dağıtın.
@@ -69,7 +69,7 @@ Bunlar bu ayarlara bağlı olarak, kendinden imzalı bir sertifika oluşturmak i
 Windows, sertifikayı oluşturmak için iki kolay yolu vardır `makecert.exe` yardımcı programı veya IIS.
 
 ### <a name="makecertexe"></a>Makecert.exe
-Bu yardımcı programı, kullanım dışı bırakıldı ve artık burada belirtilmiştir. Daha fazla bilgi için [bu MSDN makalesinde](https://msdn.microsoft.com/library/windows/desktop/aa386968).
+Bu yardımcı programı, kullanım dışı bırakıldı ve artık burada belirtilmiştir. Daha fazla bilgi için [bu MSDN makalesinde](/windows/desktop/SecCrypto/makecert).
 
 ### <a name="powershell"></a>PowerShell
 ```powershell

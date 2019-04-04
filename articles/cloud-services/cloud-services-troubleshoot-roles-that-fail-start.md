@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: a73559e233f647d5bf0812a5acdf5e19f05b0858
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255430"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918425"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Başlatmak için Cloud Service rolleri için sorun giderme
 İşte bazı yaygın sorunlar ve çözümleri başlatmak için rolleri Azure Cloud Services'a ilgili.
@@ -76,7 +76,7 @@ Bir Web sitesine yönlendirir, artık daha açık hata iletileri döndürülür:
 
 * '/' Uygulamasında sunucu hatası.
 * Açıklama: Geçerli web isteği yürütülmesi sırasında işlenmeyen bir özel durum oluştu. Yığın izleme hatası ve kodda kaynaklandığı daha fazla bilgi için lütfen inceleyin.
-* Özel durum ayrıntıları: System.IO.FIleNotFoundException: dosya veya derleme yüklenemedi ' Microsoft.WindowsAzure.StorageClient, sürümü 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35 =' veya bağımlılıklarından biri. Sistem belirtilen dosyayı bulamıyor.
+* Özel durum ayrıntıları: System.IO.FIleNotFoundException: Dosya veya derleme yüklenemedi ' Microsoft.WindowsAzure.StorageClient, sürümü 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35 =' veya bağımlılıklarından biri. Sistem belirtilen dosyayı bulamıyor.
 
 Örneğin:
 
@@ -96,7 +96,7 @@ Tanılama bu yöntemi kullanarak en iyi sonuçlar için bir bilgisayarı veya Wi
 7. Rol başladığında, Internet Explorer'da ayrıntılı hata bilgileri görürsünüz. Daha fazla sorunu tanılamak için standart Windows sorun giderme araçları da kullanabilirsiniz.
 
 ## <a name="diagnose-issues-by-using-intellitrace"></a>IntelliTrace kullanarak sorunları tanılayın
-Çalışan ve .NET Framework 4 kullanan web rolleri için kullanabileceğiniz [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), Microsoft Visual Studio Enterprise'da kullanılabilir olduğu.
+Çalışan ve .NET Framework 4 kullanan web rolleri için kullanabileceğiniz [IntelliTrace](/visualstudio/debugger/intellitrace), Microsoft Visual Studio Enterprise'da kullanılabilir olduğu.
 
 Etkin IntelliTrace ile hizmeti dağıtmak için aşağıdaki adımları izleyin:
 

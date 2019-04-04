@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 4c4b5491bba072ba22ec20e164b7315691877a22
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b20fa7a1f43369cde85c2535637eec7ceb1d3c29
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42059199"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918340"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>PowerShell kullanarak Azure bulut hizmetlerinde tanılamayı etkinleştirme
 Uygulama günlükleri gibi Tanılama verileri toplayabilirsiniz performans sayaçları vb. Azure tanılama uzantısını kullanarak bir bulut hizmetinden. Bu makalede, PowerShell kullanarak bir bulut hizmeti için Azure tanılama uzantısını etkinleştirmeyi açıklar.  Bkz: [Azure PowerShell'i yükleme ve yapılandırma konusunda](/powershell/azure/overview) Bu makale için gereken önkoşulları için.
@@ -136,5 +136,5 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * Sorunlarını gidermek için Azure tanılama ve diğer teknikleri kullanma ile ilgili ek kılavuzlar için bkz: [Azure bulut Hizmetleri ve sanal Makineler'de tanılamayı etkinleştirme](cloud-services-dotnet-diagnostics.md).
-* [Tanılama yapılandırma şeması](https://msdn.microsoft.com/library/azure/dn782207.aspx) tanılama uzantısı için çeşitli xml yapılandırma seçeneklerini açıklar.
+* [Tanılama yapılandırma şeması](/azure/azure-monitor/platform/diagnostics-extension-schema-1dot2) tanılama uzantısı için çeşitli xml yapılandırma seçeneklerini açıklar.
 * Sanal makineler için tanılama uzantısını etkinleştirme hakkında bilgi için bkz: [izleme ve tanılama Azure Resource Manager şablonu kullanarak bir Windows sanal makinesi oluşturma](../virtual-machines/windows/extensions-diagnostics-template.md)

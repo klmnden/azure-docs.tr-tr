@@ -14,17 +14,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 1b2009b54c7f436667c316b7ca002314bc966a1b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f7fc11af8cd2574271b26f7dec62072692685672
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531938"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916810"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Azure Blob Depolama alanında Azure CDN kullanım süresini yönetme
 > [!div class="op_single_selector"]
 > * [Azure web içeriği](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Azure Blob Depolama](cdn-manage-expiration-of-blob-content.md)
+> * [Azure Blob depolama](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
@@ -114,7 +114,7 @@ $blob.ICloudBlob.SetProperties()
 >
 
 ## <a name="setting-cache-control-headers-by-using-net"></a>.NET kullanarak Cache-Control üst bilgileri ayarlama
-Bir blobun belirtmek için `Cache-Control` .NET kodu, kullanım kullanarak üstbilgi [.NET için Azure depolama istemci Kitaplığı](../storage/blobs/storage-dotnet-how-to-use-blobs.md) ayarlanacak [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) özelliği.
+Bir blobun belirtmek için `Cache-Control` .NET kodu, kullanım kullanarak üstbilgi [.NET için Azure depolama istemci Kitaplığı](../storage/blobs/storage-dotnet-how-to-use-blobs.md) ayarlanacak [CloudBlob.Properties.CacheControl](/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol#Microsoft_WindowsAzure_Storage_Blob_BlobProperties_CacheControl) özelliği.
 
 Örneğin:
 
@@ -163,18 +163,18 @@ Güncelleştirilecek *CacheControl* Azure Depolama Gezgini ile blob özelliği:
 ![Azure Depolama Gezgini özellikleri](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Azure Komut Satırı Arabirimi
-İle [Azure komut satırı arabirimi](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) (CLI), Azure blob kaynaklarını komut satırından yönetebilirsiniz. Azure CLI ile bir blob karşıya yüklediğinizde, cache-control üst bilgisi ayarlamak için ayarlayın *cacheControl* kullanarak özellik `-p` geçin. Aşağıdaki örnekte, TTL değerini bir saat (3600 saniye) ayarlamak gösterilmektedir:
+İle [Azure komut satırı arabirimi](https://docs.microsoft.com/cli/azure) (CLI), Azure blob kaynaklarını komut satırından yönetebilirsiniz. Azure CLI ile bir blob karşıya yüklediğinizde, cache-control üst bilgisi ayarlamak için ayarlayın *cacheControl* kullanarak özellik `-p` geçin. Aşağıdaki örnekte, TTL değerini bir saat (3600 saniye) ayarlamak gösterilmektedir:
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>
 ```
 
 ### <a name="azure-storage-services-rest-api"></a>Azure depolama hizmetleri REST API'si
-Kullanabileceğiniz [Azure depolama hizmetleri REST API'si](https://msdn.microsoft.com/library/azure/dd179355.aspx) açıkça ayarlamak için *x-ms-blob-cache-control* istek üzerine aşağıdaki işlemleri kullanarak özelliği:
+Kullanabileceğiniz [Azure depolama hizmetleri REST API'si](/rest/api/storageservices/) açıkça ayarlamak için *x-ms-blob-cache-control* istek üzerine aşağıdaki işlemleri kullanarak özelliği:
   
-   - [Put Blob](https://msdn.microsoft.com/library/azure/dd179451.aspx)
-   - [Engelleme listesi yerleştirin](https://msdn.microsoft.com/library/azure/dd179467.aspx)
-   - [Blob özelliklerini ayarlama](https://msdn.microsoft.com/library/azure/ee691966.aspx)
+   - [Put Blob](/rest/api/storageservices/Put-Blob)
+   - [Engelleme listesi yerleştirin](/rest/api/storageservices/Put-Block-List)
+   - [Blob özelliklerini ayarlama](/rest/api/storageservices/Set-Blob-Properties)
 
 ## <a name="testing-the-cache-control-header"></a>Cache-Control üst bilgisi test etme
 Bloblarınızın TTL ayarlarını kolayca doğrulayabilirsiniz. Tarayıcınızın ile [Geliştirici Araçları](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), blobunuza içeren test `Cache-Control` yanıtı üstbilgisi. Gibi bir araç kullanabilirsiniz [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), veya [Fiddler](https://www.telerik.com/fiddler) yanıt üstbilgileri incelemek üzere.
