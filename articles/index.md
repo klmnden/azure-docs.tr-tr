@@ -2,10 +2,16 @@
 layout: HubPage
 hide_bc: true
 title: Microsoft Azure Belgeleri
-description: 'Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar oluşturmayı ve yönetmeyi öğrenin. Belge, örnek kod, öğretici ve çok daha fazlasını edinin.'
+description: Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar oluşturmayı ve yönetmeyi öğrenin. Belge, örnek kod, öğretici ve çok daha fazlasını edinin.
 ms.topic: hub-page
 featureFlags:
-  - clicktale
+- clicktale
+ms.openlocfilehash: 97fd2ffd22f4a4c883d284a2d2db060cd1c2121c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878681"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -164,7 +170,7 @@ Node.js</a>
                                                     <li>
                                                         <a class="barLink" href="/go/azure/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt="">
-Go</a>
+Başlayın</a>
                                                     </li>
                                                 </ul></td></tr></table>
                                                <h4>Uygulama Modelleri</h4>
@@ -1619,6 +1625,12 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                                 <p>Azure Sentinel</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/asc-for-iot/">
+                                                <img src="media/index/asc-for-iot.svg" alt="" />
+                                                <p>IoT için Azure Güvenlik Merkezi</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Kimlik</h3>
                                     <ul>
@@ -2737,7 +2749,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#mobile">Mobil</a>
+                        <a href="#mobile">Cep telefonu</a>
                         <ul id="mobile" class="cardsA">
                             <li>
                                 <a href="/azure/app-service-mobile">
@@ -4843,6 +4855,25 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/asc-for-iot/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/asc-for-iot.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT için Azure Güvenlik Merkezi</h3>
+                                                    <p>IoT çözümünüzde güvenlik yönetimini birleştirmeyi ve gelişmiş tehdit korumasını etkinleştirmeyi öğrenin</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -5907,7 +5938,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                 </ul>
             </li>
              <li>
-                <a href="#sdkstools">SDK’lar/Araçlar</a>
+                <a href="#sdkstools">SDK'lar/Araçlar</a>
                 <ul id="sdkstools">
                     <li>
                         <a href="#sdkstools-all">tümü</a>
@@ -5930,7 +5961,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                                 <h3>
 .NET Geliştiricileri için Azure </h3>
                                                 <p>
-                                                    <a href="/dotnet/azure">Kullanmaya başlayın</a>
+                                                    <a href="/dotnet/azure">başlarken</a>
                                                 </p>
                                                 <p>
                                                     <a href="/dotnet/api/overview/azure/?view=azure-dotnet">API başvurusu</a>
@@ -5953,7 +5984,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                                 <h3>
 Python Geliştiricileri için Azure </h3>
                                                 <p>
-                                                    <a href="/python/azure">Kullanmaya başlayın</a>
+                                                    <a href="/python/azure">başlarken</a>
                                                 </p>
                                                 <p>
                                                     <a href="/python/api/overview/azure/">API başvurusu</a>
@@ -5976,7 +6007,7 @@ Python Geliştiricileri için Azure </h3>
                                                 <h3>
 Node.js Geliştiricileri için Azure </h3>
                                                 <p>
-                                                    <a href="/javascript/azure/">Kullanmaya başlayın</a>
+                                                    <a href="/javascript/azure/">başlarken</a>
                                                 </p>
                                                 <p>
                                                     <a href="/javascript/api/overview/azure/">API başvurusu</a>
@@ -5999,7 +6030,7 @@ Node.js Geliştiricileri için Azure </h3>
                                                 <h3>
 Java Geliştiricileri için Azure </h3>
                                                 <p>
-                                                    <a href="/java/azure">Kullanmaya başlayın</a>
+                                                    <a href="/java/azure">başlarken</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api">API başvurusu</a>
@@ -6022,7 +6053,7 @@ Java Geliştiricileri için Azure </h3>
                                                 <h3>
 Go Geliştiricileri için Azure </h3>
                                                 <p>
-                                                    <a href="/go/azure/">Kullanmaya başlayın</a>
+                                                    <a href="/go/azure/">başlarken</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">API Başvurusu</a>
@@ -6070,7 +6101,7 @@ Azure REST API'leri </h3>
                                                 <h3>
 Azure CLI </h3>
                                                 <p>
-                                                    <a href="/cli/azure">Kullanmaya başlayın</a>
+                                                    <a href="/cli/azure">Başlarken</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure/reference-index">Başvuru</a>
@@ -6092,7 +6123,7 @@ Azure CLI </h3>
                                             <div class="cardText">
                                                 <h3>Azure PowerShell</h3>
                                                 <p>
-                                                    <a href="/powershell/azure/get-started-azureps">Kullanmaya başlayın</a>
+                                                    <a href="/powershell/azure/get-started-azureps">Başlarken</a>
                                                 </p>
                                                 <p>
                                                     <a href="/powershell/azure/overview">Başvuru</a>
@@ -6121,10 +6152,10 @@ Azure CLI </h3>
                                                     <a href="/visualstudio/azure/">Visual Studio</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=navigation+cta&utm_content=download+vs2017">Windows için indirin</a>
+                                                    <a href="https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=navigation+cta&utm_content=download+vs2017">Windows için indirme</a>
                                                 </p>
                                                  <p>
-                                                    <a href="https://visualstudio.microsoft.com/vs/mac/">Mac için indirin</a>
+                                                    <a href="https://visualstudio.microsoft.com/vs/mac/">Mac için indirme</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6177,10 +6208,10 @@ Docker </h3>
                                                     <a href="/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Docker için Visual Studio Araçları</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017">Visual Studio için indirin</a>
+                                                    <a href="https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017">Visual Studio için indirme</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Visual Studio Code için indirin</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Visual Studio Code için indirme</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Azure DevOps için indirme</a>
@@ -6283,16 +6314,16 @@ Azure Resource Manager </h3>
                                                     <a href="https://storageexplorer.com">Depolama Gezgini</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Kullanmaya başlayın</a>
+                                                    <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Başlarken</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=722418">Linux için indirin</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=722418">Linux için indirme</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708342">Mac için indirin</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708342">Mac için indirme</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708343">Windows için indirin</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708343">Windows için indirme</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6312,16 +6343,16 @@ Azure Resource Manager </h3>
                                                 <h3>
 Service Fabric SDK’sı ve Araçları </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started">Windows için indirin</a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started">Windows için indirme</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux">Linux için indirin</a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux">Linux için indirme</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac">Mac OS X indirin</a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac">Mac OS X indirme</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Service Fabric CLI’sını indirin</a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Service Fabric CLI’yı indirme </a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6368,7 +6399,7 @@ SQL Araçları </h3>
                                                 <h3>
 Azure Dev Spaces </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces">Kullanmaya başlayın</a>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces">başlarken</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore">.NET Core ve VS Code için indirme</a>

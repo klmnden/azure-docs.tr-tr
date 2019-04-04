@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: aa62db0948ffa036b37736477b872d694d14836b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762624"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917485"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services ve ASP.NET kullanmaya başlama
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğreticide ASP.NET MVC ön ucuyla çok katmanlı bir .NET uygulaması oluşturma ve bir [Azure bulut hizmetine](cloud-services-choose-me.md) dağıtma işlemi gösterilmektedir. Uygulama [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279), [Azure Blob hizmeti](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) ve [Azure Queue hizmeti](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) kullanır. MSDN Kod Galerisi’nden [Visual Studio projesini](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) indirebilirsiniz.
+Bu öğreticide ASP.NET MVC ön ucuyla çok katmanlı bir .NET uygulaması oluşturma ve bir [Azure bulut hizmetine](cloud-services-choose-me.md) dağıtma işlemi gösterilmektedir. Uygulama [Azure SQL Database](/previous-versions/azure/ee336279(v=azure.100)), [Azure Blob hizmeti](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) ve [Azure Queue hizmeti](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) kullanır. MSDN Kod Galerisi’nden [Visual Studio projesini](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) indirebilirsiniz.
 
 Öğreticide, uygulamayı yerel olarak oluşturup çalıştırma, Azure’a dağıtma ve bulutta çalıştırmanın yanı sıra sıfırdan oluşturma işlemleri de gösterilmektedir. Tercih ederseniz sıfırdan oluşturmaya başlayabilir ve ardından test ve dağıtım adımlarını gerçekleştirebilirsiniz.
 
@@ -81,7 +81,7 @@ Bir kullanıcı görüntü yüklediğinde bir web rolünde çalışan ön uç g�
 6. Visual Studio 2015 veya sonraki bir sürümü kullanıyorsanız ContosoAdsWeb projesinin uygulama *Web.config* dosyasında SQL Server bağlantı dizesini ve ContosoAdsCloudService projesinin *ServiceConfiguration.Local.cscfg* dosyasını değiştirin. Her iki örnekte de "(localdb)\v11.0" seçeneğini "(localdb)\MSSQLLocalDB" olarak değiştirin.
 7. Uygulamayı çalıştırmak için CTRL+F5'e basın.
 
-    Bir bulut hizmeti projesini yerel olarak çalıştırdığınızda Visual Studio, Azure *işlem öykünücüsü* ve Azure *depolama öykünücüsünü* otomatik olarak çağırır. İşlem öykünücüsü, web rolü ve çalışan rolü ortamlarını benzetmek için bilgisayarınızın kaynaklarını kullanır. Depolama öykünücüsü Azure bulut depolamayı benzetmek için bir [SQL Server Express LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) veritabanı kullanır.
+    Bir bulut hizmeti projesini yerel olarak çalıştırdığınızda Visual Studio, Azure *işlem öykünücüsü* ve Azure *depolama öykünücüsünü* otomatik olarak çağırır. İşlem öykünücüsü, web rolü ve çalışan rolü ortamlarını benzetmek için bilgisayarınızın kaynaklarını kullanır. Depolama öykünücüsü Azure bulut depolamayı benzetmek için bir [SQL Server Express LocalDB](/sql/database-engine/configure-windows/sql-server-2016-express-localdb) veritabanı kullanır.
 
     Bir bulut hizmeti projesini ilk kez çalıştırdığınızda öykünücülerin başlatılması yaklaşık bir dakika sürer. Öykünücü başlatma tamamlandığında varsayılan tarayıcıda uygulama giriş sayfası açılır.
 
@@ -178,7 +178,7 @@ Gerçek bir uygulamada genellikle uygulama verilerine karşı günlük verileri 
 
     Bulut hizmeti ve depolama hesabı farklı veri merkezlerinde (farklı bölgelerde) olduğunda gecikme artar ve veri merkezinin dışındaki bant genişliği için sizden ücret alınır. Bir veri merkezi içinde bant genişliği ücretsizdir.
 
-    Azure benzeşim grupları bir veri merkezinde bulunan kaynaklar arasındaki uzaklığı en aza indirmeye yönelik bir mekanizma sağlar. Bu öğretici benzeşim gruplarını kullanmaz. Daha fazla bilgi için bkz. [Azure’da Benzeşim Grubu Oluşturma](https://msdn.microsoft.com/library/azure/gg715317.aspx).
+    Azure benzeşim grupları bir veri merkezinde bulunan kaynaklar arasındaki uzaklığı en aza indirmeye yönelik bir mekanizma sağlar. Bu öğretici benzeşim gruplarını kullanmaz. Daha fazla bilgi için bkz. [Azure’da Benzeşim Grubu Oluşturma](/previous-versions/azure/reference/gg715317(v=azure.100)).
 7. **Oluştur**’a tıklayın.
 
     ![Yeni depolama hesabı](./media/cloud-services-dotnet-get-started/newstorage.png)
@@ -549,7 +549,7 @@ queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSec
 imagesQueue = queueClient.GetQueueReference("images");
 ```
 
-Denetleyici kodlarının birçoğu bir DbContext sınıfı kullanarak Entity Framework veri modeli ile çalışmak için tipiktir. Dosyayı karşıya yükleyen ve blob depolama alanına kaydeden HttpPost `Create` yöntemi bunun bir istisnasıdır. Model bağlayıcı, yönteme bir [HttpPostedFileBase](https://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) nesnesi sağlar.
+Denetleyici kodlarının birçoğu bir DbContext sınıfı kullanarak Entity Framework veri modeli ile çalışmak için tipiktir. Dosyayı karşıya yükleyen ve blob depolama alanına kaydeden HttpPost `Create` yöntemi bunun bir istisnasıdır. Model bağlayıcı, yönteme bir [HttpPostedFileBase](/dotnet/api/system.web.httppostedfilebase) nesnesi sağlar.
 
 ```csharp
 [HttpPost]
@@ -703,7 +703,7 @@ Döngünün her yinelemesinden sonra herhangi bir kuyruk iletisi bulunmazsa prog
 
 Bazı durumlarda bir kuyruk iletisinin içeriği işlemede hataya neden olur. Buna *zehir iletisi* adı verilir ve bir hatayı günlüğe kaydedip döngüyü yeniden başlatırsanız bu iletiyi sonu gelmez bir şekilde işlemeye çalışabilirsiniz.  Bu nedenle, yakalama bloğu uygulamanın geçerli iletiyi işlemeyi kaç kez denediğini denetleyen bir if deyimi içerir ve 5’ten fazla kez denediyse ileti kuyruktan silinir.
 
-Bir kuyruk iletisi bulunduğunda `ProcessQueueMessage` çağrılır.
+`ProcessQueueMessage` bir kuyruk iletisi bulunduğunda çağrılır.
 
 ```csharp
 private void ProcessQueueMessage(CloudQueueMessage msg)
@@ -776,6 +776,6 @@ Azure Storage’da en iyi yöntemler ve yaklaşımlar hakkında bir tanıtım i�
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Azure Cloud Services bölüm 1: Giriş](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Cloud Services nasıl yönetilir?](cloud-services-how-to-manage-portal.md)
-* [Azure Depolama](https://docs.microsoft.com/azure/storage/)
+* [ Cloud Services nasıl yönetilir](cloud-services-how-to-manage-portal.md)
+* [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Bulut hizmeti sağlayıcısı seçme](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

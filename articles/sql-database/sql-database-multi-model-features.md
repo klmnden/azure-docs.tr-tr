@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: f3bb6fa93a96adcd2c1995b6874aa0b36b2ce320
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884532"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892475"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL veritabanı çok modelli özellikleri
 
@@ -29,7 +29,7 @@ Azure SQL veritabanı, çeşitli genel amaçlı uygulamalar için en iyi durumda
 Azure SQL veritabanı çok modelli özellikleri aşağıdaki durumlarda kullanmayı düşünmeniz gerekir:
 - Bazı bilgiler varsa veya NoSQL modelleri ve sizin için daha iyi uyacak yapıları ayrı bir NoSQL veritabanı kullanmak istemiyorsanız.
 - Verilerinizi çoğunu ilişkisel modeli için uygundur ve bazı bölümlerini bir NoSQL verilerinizi modellemek gerekir.
-- Zengin Transact-SQL dili de sorgulanması ve çözümlenmesi ilişkisel ve NoSQL veri yararlanın ve çeşitli araçları ve SQL dilini kullanabilir uygulamalara ile tümleştirmek istediğiniz.
+- Zengin Transact-SQL dili de sorgulanması ve çözümlenmesi ilişkisel ve NoSQL veri yararlanın ve çeşitli araçları ve SQL dil kullanan uygulamalar ile tümleştirmek istediğiniz.
 - Veritabanı özellikleri gibi uygulamak istediğiniz [bellek içi teknolojileri](sql-database-in-memory.md) , analiz performansını artırmak veya NoSQL veri strucutres işleme [işlemsel çoğaltma](sql-database-managed-instance-transactional-replication.md) veya [okunabilir çoğaltma](sql-database-read-scale-out.md) üzerinde başka bir yerde verilerinizi bir kopyasını oluşturun ve birincil veritabanından analitik bazı iş yüklerini boşaltma.
 
 ## <a name="overview"></a>Genel Bakış

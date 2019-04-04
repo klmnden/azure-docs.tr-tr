@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 57a97d76a864a644426296cf24401b2210709d39
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 5ddae616f81052e005210310e2d28b1bc10512ab
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805814"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906217"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
@@ -1432,11 +1432,11 @@ Var olan bir kişi grubun adı ve userData güncelleştirin. İstek gövdesinde 
 > | Eylem | Microsoft.ContainerService/managedClusters/resetServicePrincipalProfile/action | Yönetilen bir kümesinin hizmet sorumlusu profili Sıfırla |
 > | Eylem | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | Kümenin yükseltme profilini alır |
 > | Eylem | Microsoft.ContainerService/managedClusters/write | Yeni bir yönetilen küme oluşturur veya mevcut bir yönetilen kümeyi güncelleştirir |
-> | Eylem | Microsoft.ContainerService/openShiftClusters/delete | Open Shift küme silme |
+> | Eylem | Microsoft.ContainerService/openShiftClusters/delete | Bir Open Shift küme silme |
 > | Eylem | Microsoft.ContainerService/openShiftClusters/read | Bir Open Shift kümesi Al |
 > | Eylem | Microsoft.ContainerService/openShiftClusters/write | Yeni bir açık üst karakter kümesi oluşturur veya mevcut olanı güncelleştirir |
-> | Eylem | Microsoft.ContainerService/openShiftManagedClusters/delete | Open Shift yönetilen küme silme |
-> | Eylem | Microsoft.ContainerService/openShiftManagedClusters/read | Open Shift yönetilen kümesi Al |
+> | Eylem | Microsoft.ContainerService/openShiftManagedClusters/delete | Bir Open Shift yönetilen küme silme |
+> | Eylem | Microsoft.ContainerService/openShiftManagedClusters/read | Bir Open Shift yönetilen kümesi Al |
 > | Eylem | Microsoft.ContainerService/openShiftManagedClusters/write | Yeni bir açık Shift yönetilen kümesi oluşturur veya mevcut olanı güncelleştirir |
 > | Eylem | Microsoft.ContainerService/operations/read | Microsoft.ContainerService kaynak sağlayıcısında bulunan işlemleri listeler |
 > | Eylem | Microsoft.ContainerService/register/action | Aboneliği Microsoft.ContainerService kaynak sağlayıcısına kaydeder |
@@ -4190,7 +4190,7 @@ Var olan bir kişi grubun adı ve userData güncelleştirin. İstek gövdesinde 
 > | Eylem | Microsoft.PolicyInsights/remediations/listDeployments/read | Bir ilke düzeltmesi için gereken dağıtımları listeler. |
 > | Eylem | Microsoft.PolicyInsights/remediations/read | İlke düzeltmeleri alın. |
 > | Eylem | Microsoft.PolicyInsights/remediations/write | İlke düzeltmeleri oluşturun veya güncelleştirin. |
-> | Eylem | Microsoft.PolicyInsights/unregister/action | İlke görüşleri kaynak sağlayıcısını kaydını siler. |
+> | Eylem | Microsoft.PolicyInsights/unregister/action | İlke içgörüleri kaynak sağlayıcısından kaydı siler. |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 

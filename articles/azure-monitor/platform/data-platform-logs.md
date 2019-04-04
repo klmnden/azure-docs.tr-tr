@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: 990aad4df05a9cc765baa965da2293d51a19e705
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: a7271aa3faf438b42319f8c2c297c6e39baab92e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58852031"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904160"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure İzleyici'deki günlükler
 
@@ -46,7 +46,7 @@ Aşağıdaki tabloda, Azure İzleyici'de günlüklerini kullanabileceğiniz fark
 | Çözümleme | Kullanım [Log Analytics](../log-query/get-started-portal.md) yazmak için Azure portalında [oturum sorguları](../log-query/log-query-overview.md) ve güçlü veri Gezgini analiz altyapısı kullanarak günlük verileri etkileşimli olarak çözümlemek.<br>Kullanım [Application Insights analitik Konsolu](../app/analytics.md) günlük sorguları yazma ve Application ınsights'tan günlük verileri etkileşimli olarak çözümlemek için Azure portalında. |
 | Görselleştirme | Sabitleme, tablolar veya grafikler için çizilir sorgu sonuçlarını bir [Azure panosuna](../../azure-portal/azure-portal-dashboards.md).<br>Oluşturma bir [çalışma kitabı](../app/usage-workbooks.md) birden çok etkileşimli bir rapordaki veri kümesi ile birleştirilecek. <br>Sorgu sonuçlarını dışarı aktarma [Power BI](powerbi.md) farklı görselleştirme kullanın ve Azure dışındaki kullanıcılarla paylaşmak için.<br>Sorgu sonuçlarını dışarı aktarma [Grafana](grafana-plugin.md) kendi yönelik Kompozit yararlanın ve diğer veri kaynaklarıyla birleştirmek için.|
 | Uyarı | Yapılandırma bir [günlük uyarı kuralı](alerts-log.md) bildirim gönderen veya alan [eylemi otomatik](action-groups.md) zaman sorgunun sonuçlarını eşleşen belirli bir sonuç.<br>Yapılandırma bir [ölçüm uyarısı kuralının](alerts-metric-logs.md) ölçümler olarak ayıklanan belirli günlük veri günlükleri ile ilgili. |
-| Al | Erişim günlüğü sorgu sonuçlarına kullanılarak bir komut satırından [Azure CLI](/azure/ext/log-analytics/monitor/log-analytics).<br>Erişim günlüğü sorgu sonuçlarına kullanılarak bir komut satırından [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1).<br>Günlük sorgu sonuçlarını kullanarak bir özel uygulama erişimi [REST API](https://dev.loganalytics.io/). |
+| Al | Erişim günlüğü sorgu sonuçlarına kullanılarak bir komut satırından [Azure CLI](/azure/ext/log-analytics/monitor/log-analytics).<br>Erişim günlüğü sorgu sonuçlarına kullanılarak bir komut satırından [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Günlük sorgu sonuçlarını kullanarak bir özel uygulama erişimi [REST API](https://dev.loganalytics.io/). |
 | Dışarı Aktarma | Günlük verilerini almak ve kullanarak bir dış konuma kopyalamak için bir iş akışı derleme [Logic Apps](~/articles/logic-apps/index.yml). |
 
 

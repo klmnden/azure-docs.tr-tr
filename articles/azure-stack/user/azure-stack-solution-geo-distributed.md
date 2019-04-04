@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 3df5bd177dfd88e74a8dbc72dd1966a18a61d0f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2c2b0d022c81dffe5e98932c22b9707eb10b7e63
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860593"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481731"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile coğrafi olarak dağıtılmış bir uygulama çözümü oluşturma
 
@@ -472,7 +472,7 @@ Birleştirilmiş SSL sertifikası, sertifika tarafından oluşturulan özel anah
 
 Bir özel anahtar dosyası OpenSSL oluşturulur. Sertifikayı PFX dosyasına aktarmak için yer tutucuları değiştirerek aşağıdaki komutu çalıştırın. *< private-key-dosyası >* ve *< birleştirilmiş-sertifika-dosyası >* özel anahtar yollarla ve birleştirilmiş Sertifika dosyası.
 
-```PowerShell
+```powershell
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
 ```
 
