@@ -1,12 +1,18 @@
 ---
 title: Azure Hizmet Durumu | Microsoft Docs
-description: 'Azure Hizmet Durumu, Azure hizmetlerindeki sorunlardan etkilendiğiniz durumlar için kişiselleştirilmiş rehberlik ve destek sağlayan bir deneyim paketidir.'
+description: Azure Hizmet Durumu, Azure hizmetlerindeki sorunlardan etkilendiğiniz durumlar için kişiselleştirilmiş rehberlik ve destek sağlayan bir deneyim paketidir.
 author: stephbaron
 layout: LandingPage
 ms.service: service-health
 ms.topic: landing-page
 ms.date: 03/4/2019
 ms.author: stbaron
+ms.openlocfilehash: cf7084b569e2c90337e475beb9f49563214941d2
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496711"
 ---
 # <a name="azure-service-health-documentation"></a>Azure Hizmet Durumu Belgeleri
 

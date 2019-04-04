@@ -1,6 +1,6 @@
 ---
-title: 'Azure Analysis Services Belgeleri - Öğreticiler, API Başvurusu'
-description: 'Bulutta Analysis Services ile veri modellemesi ayarlamayı öğrenin. Belgelerde, tablosal verileri kullanarak kurumsal BI çözümü oluşturmaya ilişkin bilgiler sunulmuştur.'
+title: Azure Analysis Services Belgeleri - Öğreticiler, API Başvurusu
+description: Bulutta Analysis Services ile veri modellemesi ayarlamayı öğrenin. Belgelerde, tablosal verileri kullanarak kurumsal BI çözümü oluşturmaya ilişkin bilgiler sunulmuştur.
 services: analysis-services
 author: minewiskan
 ms.author: owend
@@ -8,6 +8,12 @@ layout: LandingPage
 ms.service: azure-analysis-services
 ms.topic: landing-page
 ms.date: 02/14/2018
+ms.openlocfilehash: ec3c45961ac92a505ee565373474ce3dc2fbabcc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106976"
 ---
 # <a name="analysis-services-documentation"></a>Analysis Services Belgeleri
 

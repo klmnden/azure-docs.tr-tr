@@ -1,19 +1,24 @@
 ---
 layout: LandingPage
 title: Azure faturalama ve maliyet yönetimi belgeleri | Microsoft Docs
-description: 'Azure faturalandırmanızı anlamayı, kullanımı ve maliyetleri yönetmeyi ve izlemeyi, ayrıca hesabınızla aboneliklerinizi yönetmeyi öğrenin.'
+description: Azure faturalandırmanızı anlamayı, kullanımı ve maliyetleri yönetmeyi ve izlemeyi, ayrıca hesabınızla aboneliklerinizi yönetmeyi öğrenin.
 services: billing
 author: cwatson-cat
 manager: dougeby
-ms.assetid: null
+ms.assetid: ''
 ms.service: billing
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 02/19/2019
 ms.author: banders
+ms.openlocfilehash: e150525b6f5fd1814f13595fbd4ea7e3bccde4fc
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446724"
 ---
-
 # <a name="azure-billing-and-cost-management-documentation"></a>Azure faturalama ve maliyet yönetimi belgeleri
 
 Azure faturalandırmanızı anlamayı, kullanımı ve maliyetleri izlemeyi, ayrıca hesabınızla aboneliklerinizi yönetmeyi öğrenin.
