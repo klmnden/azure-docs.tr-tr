@@ -14,16 +14,16 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 4e92f2aeec21ccef5a6a553b17e099d54de7266a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4385e982b2a1da52ae55acf50c601108863c452a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774346"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905962"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Azure Stack depolama için veri aktarım araçları kullanın
 
-*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Şunlara uygulanır Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Microsoft Azure Stack diskler, bloblar, tablolar, kuyruklar ve hesap yönetimi işlevleri için depolama hizmetleri sunmaktadır. Yönetmek veya için veya Azure Stack depolama alanından verileri taşımak istiyorsanız, bir dizi Azure storage araçları kullanabilirsiniz. Bu makalede, kullanılabilen araçlara genel bakış sağlar.
 
@@ -71,7 +71,7 @@ AzCopy yardımcı programını iki sürümü vardır: Windows ve Linux üzerinde
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Veri aktarımı için AzCopy komut örnekleri
 
-Aşağıdaki örnekler ve Azure Stack bloblarından veri kopyalamak için tipik senaryoları izleyin. Daha fazla bilgi için bkz. [Windows üzerinde AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) ve [Linux üzerinde AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
+Aşağıdaki örnekler ve Azure Stack bloblarından veri kopyalamak için tipik senaryoları izleyin. Daha fazla bilgi için bkz. [Windows üzerinde AzCopy](../../storage/common/storage-use-azcopy.md) ve [Linux üzerinde AzCopy](../../storage/common/storage-use-azcopy-linux.md).
 
 ### <a name="download-all-blobs-to-a-local-disk"></a>Tüm blobları yerel diskinize indirin
 
@@ -156,7 +156,7 @@ Bu örnek, başarıyla sahip olduğunuzu varsayar [Azure Stack için PowerShell 
    > [!NOTE]
    > Bu betik için kök dizininde çalıştırılması gereken **AzureStack_Tools**.
 
-```PowerShell  
+```powershell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name
@@ -264,7 +264,7 @@ Bu betiği çalıştırmadan önce başarıyla için bağlanabilir ve hedef Azur
 2. Betiğin değişkenleri yapılandırma ayarlarınızı yansıtacak şekilde güncelleştirin.
 3. Gerekli değişkenleri güncelleştirdikten sonra komut dosyasını kaydedin ve düzenleyicinizi çıkın. Sonraki adımlarda betiğinizi adlı varsayılır **my_storage_sample.sh**.
 4. Gerekirse, betiği şu yürütülebilir, şekilde işaretle: `chmod +x my_storage_sample.sh`
-5. Bu betiği yürütün. Örneğin, Bash hizmetinde: `./my_storage_sample.sh`
+5. Bu betiği yürütün. Örneğin, Bash içinde: `./my_storage_sample.sh`
 
 ```azurecli
 #!/bin/bash

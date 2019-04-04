@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 720f4433c1e7b0d271e5729236f439c92a84687e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: a67cbd3bfca478a45e12adeb0bf119b891866718
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884661"
+ms.locfileid: "58905248"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure veri kutusu Edge sistem gereksinimleri
 
@@ -80,15 +80,23 @@ Veri kutusu liberally çoğu zaman sabit IP adreslerinin, Edge temel giden trafi
 
 ### <a name="url-patterns-for-compute-feature"></a>İşlem özelliği için URL desenleri
 
-| URL deseni                      | Bileşen veya işlevi                     |   |
-|----------------------------------|---------------------------------------------|---|
-| `https://mcr.microsoft.com`<br></br>https://\*.cdn.mscr.io | Microsoft kapsayıcı kayıt defteri (gerekli)               |   |
-| https://\*.azurecr.io                     | Kişisel ve üçüncü taraf kapsayıcı kayıt defterleri (isteğe bağlı) |   |
-| https://\*.azure devices.net              | IOT hub'ı erişim (gerekli)                             |   |
+| URL deseni                      | Bileşen veya işlevi                     |   
+|----------------------------------|---------------------------------------------|
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft kapsayıcı kayıt defteri (gerekli)               |
+| https://\*.azurecr.io                     | Kişisel ve üçüncü taraf kapsayıcı kayıt defterleri (isteğe bağlı) | 
+| https://\*.azure devices.net              | IOT hub'ı erişim (gerekli)                             | 
 
-### <a name="url-patterns-for-azure-government"></a>Azure kamu için URL desenleri
+### <a name="url-patterns-for-gateway-for-azure-government"></a>Azure Kamu'ya yönelik ağ geçidi için URL desenleri
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
+
+### <a name="url-patterns-for-compute-for-azure-government"></a>İşlem, Azure kamu için URL desenleri
+
+| URL deseni                      | Bileşen veya işlevi                     |  
+|----------------------------------|---------------------------------------------|
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft kapsayıcı kayıt defteri (gerekli)               |
+| https://\*.azure devices.us              | IOT hub'ı erişim (gerekli)           |
+| https://\*.azurecr.us                    | Kişisel ve üçüncü taraf kapsayıcı kayıt defterleri (isteğe bağlı) | 
 
 ## <a name="internet-bandwidth"></a>Internet bant genişliği
 

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 079fe74ec11570b26cbba93e4aba26d7359bef20
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 30d578f130985548c431dea8b68ee291325b5c99
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402380"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893233"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Azure işlevleri'nde bağlantıları yönetme
 
@@ -23,7 +23,7 @@ Bir işlev uygulaması işlevlerde kaynakları paylaşır. Bu paylaşılan kayna
 
 Bir işlev uygulaması kısmen çalıştığı için kullanılabilir bağlantı sayısı sınırlı bir [korumalı ortamda](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Korumalı alan kodunuza uygular kısıtlamaları biri bir [(şu anda 600 etkin bağlantıları ve 1.200 toplam bağlantıları) bağlantı sayısı için üst sınır](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) örnek başına. Bu sınıra ulaştığınızda, İşlevler çalışma zamanı şu iletiyle bir günlük oluşturur: `Host thresholds exceeded: Connections`.
 
-Örnek başına sınırdır.  Zaman [ölçek denetleyicisi ekler işlevi uygulama örneği](functions-scale.md#how-the-consumption-plan-works) daha fazla isteklerini işlemek için her örnek, bir bağımsız bağlantı sınırı vardır. Genel bağlantı sınırı yoktur ve tüm etkin örnekler arasında 600'den çok fazla etkin bağlantılar olabilir anlamına gelir.
+Örnek başına sınırdır.  Zaman [ölçek denetleyicisi ekler işlevi uygulama örneği](functions-scale.md#how-the-consumption-and-premium-plans-work) daha fazla isteklerini işlemek için her örnek, bir bağımsız bağlantı sınırı vardır. Genel bağlantı sınırı yoktur ve tüm etkin örnekler arasında 600'den çok fazla etkin bağlantılar olabilir anlamına gelir.
 
 ## <a name="static-clients"></a>Statik istemciler
 

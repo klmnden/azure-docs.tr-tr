@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d0e20e9c8e248b446b7b938ae4180ffb546d823
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: d30fe326ef677ca4543534d57dd306ed2a660300
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517615"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895571"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim için en iyi uygulamalar
 
@@ -46,11 +46,11 @@ Yeni bir ilke oluşturduğunuzda, hiçbir kullanıcıları, grupları, uygulamal
 İlkenizi çalışır hale getirmek için yapılandırmanız gerekir:
 
 
-|Nesne           | Nasıl                                  | Neden|
-|:--            | :--                                  | :-- |
-|**Bulut uygulamaları** |Bir veya daha fazla uygulama seçin.  | Nasıl yetkili kullanıcıların denetim sağlamak için koşullu erişim ilkesi amacı olan bulut uygulamalarına erişebilirsiniz.|
+| Nesne           | Nasıl                                  | Neden |
+| :--            | :--                                  | :-- |
+| **Bulut uygulamaları** |Bir veya daha fazla uygulama seçin.  | Nasıl yetkili kullanıcıların denetim sağlamak için koşullu erişim ilkesi amacı olan bulut uygulamalarına erişebilirsiniz.|
 | **Kullanıcılar ve gruplar** | En az bir kullanıcı veya seçili bulut uygulamalarınıza erişimi için yetkilendirilmiş bir grup seçin. | Asla tetiklenmez, hiçbir atanan kullanıcıların ve grupların sahip bir koşullu erişim ilkesi. |
-| **Erişim denetimleri** | En az bir erişim denetimi seçin. | Koşullarınızda sağlanırsa, ilke işlemciniz ne yapılacağını bilmesi gerekir.|
+| **Erişim denetimleri** | En az bir erişim denetimi seçin. | Koşullarınızda sağlanırsa, ilke işlemciniz ne yapılacağını bilmesi gerekir. |
 
 
 
@@ -111,6 +111,13 @@ Her oturum açma, Azure Active Directory, tüm ilkeleri değerlendirir ve kullan
 
 Evet, Exchange ActiveSync koşullu erişim ilkesinde kullanabilirsiniz.
 
+### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Nasıl koşullu erişim ile Office 365 uygulamalarını yapılandırmamız gerekir mi?
+
+Office 365 uygulamalarını birbirlerine bağlanış olduğundan, yaygın olarak atama birlikte ilkeler oluştururken kullanılan uygulamaları öneririz.
+
+Ortak birbirine bağlı uygulamalar, Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online ve Office 365 Yammer içerir.
+
+Bir oturum ya da görev başında denetimli erişimi olduğunda, çok faktörlü kimlik doğrulaması gibi Kullanıcı etkileşimlerine gerektiren ilkeleri için önemlidir. Bunu yapmazsanız, kullanıcılar uygulama içindeki bazı görevleri tamamlamak mümkün olmayacaktır. Örneğin, SharePoint erişmek için yönetilmeyen cihazlardaki ancak e-posta için çok faktörlü kimlik doğrulaması gerektiriyorsa, kendi e-posta ile çalışan kullanıcılar bir ileti için SharePoint dosya eklemek mümkün olmayacaktır. Daha fazla bilgi makalesinde bulunabilir [Hizmet bağımlılıkları Azure Active Directory koşullu erişim nedir?](service-dependencies.md).
 
 
 

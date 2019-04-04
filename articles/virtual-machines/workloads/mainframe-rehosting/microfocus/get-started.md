@@ -1,19 +1,17 @@
 ---
 title: Azure üzerinde mikro odak geliştirme ve test ortamları | Microsoft Docs
 description: Micro odak çözümlerini kullanarak Azure sanal makinelerinde (VM'ler) IBM z/OS ana iş yüklerinizi yeniden barındırın.
-services: virtual-machines-linux
-documentationcenter: ''
 author: njray
-manager: edprice
-editor: edprice
-tags: ''
-keywords: ''
-ms.openlocfilehash: 23a650698f8484e3ed8f033331693484c2e02fac
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.author: sread
+ms.date: 04/02/2019
+ms.topic: article
+ms.service: multiple
+ms.openlocfilehash: d83b4c89d0f37e2217974d6d1ed32ac73d8fa4df
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739848"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893785"
 ---
 # <a name="micro-focus-devtest-environments-on-azure"></a>Azure üzerinde mikro odak geliştirme ve test ortamları
 
@@ -25,5 +23,6 @@ Micro odak sunar yeniden barındırma geliştirme ve test mevcut COBOL ve PL gen
 
 **Sonraki adımlar**
 
-- [Micro odak Enterprise Server 4.0 ve kurumsal Geliştirici 4.0 Azure'a yükleme](./set-up-micro-focus-on-azure.md)
+- [Micro odak Enterprise Server 4.0 ve kurumsal Geliştirici 4.0 Azure'a yükleme](./set-up-micro-focus-azure.md)
 - [Micro odak Kurumsal Geliştirici 4.0 azure'da Micro odak CICS BankDemo ' ayarlayın](./demo.md)
+- [Kuruluş sunucusu, Azure üzerinde Docker kapsayıcılarında çalıştırın](./run-enterprise-server-container.md)

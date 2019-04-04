@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bd4c024e14e70b5937d85e9917340d25f552096d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 629a97048ceba4ac02e3aa1dd59310980e5a0c95
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110877"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894175"
 ---
-# <a name="install-and-configure-an-on-premises-data-gateway"></a>Yükleme ve bir şirket içi veri ağ geçidi yapılandırma
+# <a name="install-and-configure-an-on-premises-data-gateway"></a>Şirket içi veri ağ geçidini yükleme ve yapılandırma
 
 Aynı bölgede bir veya daha fazla Azure Analysis Services sunucusu şirket içi veri kaynaklarına bağlanmak için bir şirket içi veri ağ geçidi gereklidir. Ağ geçidi hakkında daha fazla bilgi için bkz. [şirket içi veri ağ geçidi](analysis-services-gateway.md).
 
@@ -40,7 +40,7 @@ Aynı bölgede bir veya daha fazla Azure Analysis Services sunucusu şirket içi
 * Ağ geçidi üzerinde kalır ve uyku moduna geçmeyecek bir bilgisayara yükleyin.
 * Ağ geçidi, kablosuz ağa bağlı bir bilgisayarda yüklemeyin. Performans yayınladıklarını.
 * Ağ geçidini yüklerken, bilgisayarınızda oturum açmadıysanız kullanıcı hesabı günlük hizmeti ayrıcalıklar olmalıdır. Yükleme tamamlandığında, şirket içi veri ağ geçidi hizmeti bir hizmet olarak oturum açma için NT servıce\pbıegwservice hesabını kullanır. Kurulum tamamlandıktan sonra farklı bir hesap kurulumu sırasında veya hizmetleri belirtilebilir. Olun Grup İlkesi ayarları ile yüklerken oturumunuz hesabı hem seçtiğiniz hizmet hesabı, günlük hizmet ayrıcalıklarına sahip izin verin.
-* Azure'da oturum aç sahip bir hesap için aynı Azure AD'de [Kiracı](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) aboneliğinde ağ geçidi kaydettirmekte olduğunuz. Azure B2B yüklerken ve bir ağ geçidi kaydediliyor (konuk) hesapları desteklenmez.
+* Azure'da oturum aç sahip bir hesap için aynı Azure AD'de [Kiracı](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant) aboneliğinde ağ geçidi kaydettirmekte olduğunuz. Azure B2B yüklerken ve bir ağ geçidi kaydediliyor (konuk) hesapları desteklenmez.
 * Veri kaynakları, bir Azure sanal ağ (VNet) varsa, yapılandırmalısınız [AlwaysUseGateway](analysis-services-vnet-gateway.md) sunucu özelliği.
 * Burada açıklanan (Birleşik) ağ geçidi, Azure Almanya bölgelerinde desteklenmez. Bunun yerine, **Azure Analysis Services için ayrılmış şirket içi ağ geçidi**, sunucunuzun yüklü **Hızlı Başlangıç** portalında. 
 

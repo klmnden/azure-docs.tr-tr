@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 1a192f5cbd0fb5a4dcb911f40753efcbd996a418
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: b104f2578938997ff12778d65f08cca226d9a445
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793853"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892339"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk nedir?
 
@@ -42,7 +42,7 @@ Diskler Microsoft BitLocker sürücü şifrelemesi ile şifrelenir ve şifreleme
 A. Azure'a aktarmak istediğiniz 40 TB (veya daha az) boyutunda veriniz varsa Data Box Disklerinden faydalanabilirsiniz.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>S. Data Box Disklerinin maliyeti nedir?
-A. Veri kutusu disk fiyatı üzerinden daha fazla bilgi için Git [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
+A. Veri kutusu disk fiyatı üzerinden daha fazla bilgi için Git [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/databox/disk/).
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>S. Data Box Disklerini nasıl edinebilirim? 
 A.  Azure veri kutusu diskleri edinmek için Azure portalında oturum açın ve Data Box Siparişiniz için diskleri oluşturun. İletişim bilgilerinizi ve bildirim ayrıntılarını girin. Sipariş verdikten sonra kullanılabilirlik durumuna göre diskler 10 gün içinde gönderilir.
@@ -129,8 +129,8 @@ A. Data Box Disk ile kullanılabilir araç takımı üç araçları içerir:
  - **Veri kutusu Disk bölünmüş kopyalama aracı**: Birden çok disk kullanırken, bu aracı kullanın ve bölünmesi ve tüm disklerde kopyalanan gereken büyük bir veri kümeniz mevcut. Bu araç şu anda Windows için kullanılabilir. Bu araç, yönetilen disklerle desteklenmiyor. Bu araç ayrıca veri kopyalar doğrular, bu nedenle bu aracı kullanırken doğrulama adımını atlayabilirsiniz.
 
 Araç takımını hem de Windows ve Linux için kullanılabilir. Araç takımı buradan indirebilirsiniz:
-- [Windows için Data Box Disk araç takımını indirin](https://aka.ms/databoxdisktoolswin) 
-- [Linux için Data Box Disk araç takımını indirin](https://aka.ms/databoxdisktoolslinux)
+- [Data Box Disk araç takımını, Windows için indirin](https://aka.ms/databoxdisktoolswin) 
+- [Data Box Disk araç takımı Linux için indirin](https://aka.ms/databoxdisktoolslinux)
  
   ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>S. Azure dosyaları'na verileri aktarmak ve ardından verileri Azure dosya eşitleme ile kullanmak için Data Box Disk kullanabilir miyim? 
   A. Azure dosyaları Data Box Disk ile desteklenir ancak Azure dosya eşitleme ile iyi çalışmaz. Azure dosya eşitleme ile dosya verilerini kullanılıyorsa, meta veriler korunmaz.

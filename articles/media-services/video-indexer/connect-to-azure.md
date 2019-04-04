@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: juliako
-ms.openlocfilehash: 55828ea2235e42920a5179846d81711b1ada5dc2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: affa6f9a808543401b7d57812c7d2bef4324a83c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763682"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894226"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure'a bağlı bir Video Indexer hesabı oluşturun
 
@@ -60,7 +60,7 @@ Arama **Microsoft.Media** ve **Microsoft.EventGrid**. Durumda değil "Kaydedildi
 
 1. [Video Indexer](https://www.videoindexer.ai/) web sitesine gidip oturum açın.
 
-2. Tıklayarak **Azure'a bağlanma** düğmesi:
+2. Tıklayarak **yeni hesap oluşturma** düğmesi:
 
     ![Azure'a bağlanma](./media/create-account/connect-to-azure.png)
 
@@ -90,9 +90,7 @@ Arama **Microsoft.Media** ve **Microsoft.EventGrid**. Durumda değil "Kaydedildi
 
     ![Yeni hesap](./media/create-account/new-account.png)
 
-7. Yeni hesabınıza gidin:
-
-    ![Video Indexer hesabınız](./media/create-account/vi-account.png)
+7. Yeni hesabınıza gidin
 
 ## <a name="connect-to-azure-manually-advanced-option"></a>El ile Azure'a bağlanabilirsiniz (Gelişmiş Seçenekler)
 

@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: ad9e22668d0f6d994ad0fce7b207b5849dfa27e9
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 199843be72df473ae501eaf6bd47dce41b079c94
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651252"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906115"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>DNS kayıtlarını ve Azure PowerShell kullanarak Azure DNS kayıt kümelerini yönetme
 
@@ -33,9 +33,9 @@ Bu makalede, Azure PowerShell kullanarak DNS bölgenizin DNS kayıtlarını yön
 
 Bu makaledeki örneklerde varsayılmaktadır [, oturum açtığınız, Azure PowerShell yüklenmiş ve DNS bölgesi oluşturduğunuz](dns-operations-dnszones.md).
 
-## <a name="introduction"></a>Giriş
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="introduction"></a>Giriş
 
 Azure DNS’de DNS kayıtlarını oluşturmadan önce Azure DNS’nin DNS kayıtlarını DNS kayıt kümeleri şeklinde nasıl düzenlediğini kavramanız gerekir.
 
@@ -398,4 +398,4 @@ Daha fazla bilgi edinin [bölgelerini ve kayıtlarını Azure DNS'de](dns-zones-
 <br>
 Bilgi nasıl [bölgeleri ve kayıtlarını koruma](dns-protect-zones-recordsets.md) Azure DNS kullanırken.
 <br>
-Gözden geçirme [Azure DNS PowerShell başvuru belgeleri](/powershell/module/azurerm.dns).
+Gözden geçirme [Azure DNS PowerShell başvuru belgeleri](/powershell/module/az.dns).

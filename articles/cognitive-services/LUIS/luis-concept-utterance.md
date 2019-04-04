@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ae3a2788a0d5451736433a6338a71eda3d0ad9ca
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2fd3416824189007bfdbe55d30907d9cb56f87ca
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984367"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895131"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>LUIS uygulamanızı iyi konuşma neler olduğunu anlama
 
@@ -72,7 +72,7 @@ Modelin her yinelemede konuşma büyük bir miktarını eklemeyin. Konuşma 15 m
 
 LUIS, etkin LUIS model yazarı tarafından dikkatli bir şekilde seçili olan konuşma modelleriyle oluşturur. Karışıklık getirdiği için çok fazla Konuşma ekleme önemli değildir.  
 
-Ardından birkaç Konuşma ile başlatmak iyidir [konuşma uç noktası gözden](luis-how-to-review-endoint-utt.md) doğru hedefi tahmin ve varlık ayıklama için.
+Ardından birkaç Konuşma ile başlatmak iyidir [konuşma uç noktası gözden](luis-how-to-review-endpoint-utterances.md) doğru hedefi tahmin ve varlık ayıklama için.
 
 ## <a name="punctuation-marks"></a>Noktalama işaretleri
 
@@ -88,11 +88,11 @@ Eğitim genellikle belirleyici: utterance tahmin sürümleri veya uygulamalar ar
 
 ## <a name="testing-utterances"></a>Konuşma test etme 
 
-Geliştiriciler, konuşma göndererek gerçek trafiği ile kendi LUIS uygulama testi başlamalıdır [tahmin uç nokta](luis-how-to-azure-subscription.md) URL'si. Bu konuşma ile varlıkları ve hedefleri performansını artırmak için kullanılan [gözden geçirin, konuşma](luis-how-to-review-endoint-utt.md). Testler bölmesinde test LUIS Web sitesi ile gönderilen uç noktası aracılığıyla gönderilmez ve bu nedenle etkin olarak öğrenmeye katkıda bulunmuyor. 
+Geliştiriciler, konuşma göndererek gerçek trafiği ile kendi LUIS uygulama testi başlamalıdır [tahmin uç nokta](luis-how-to-azure-subscription.md) URL'si. Bu konuşma ile varlıkları ve hedefleri performansını artırmak için kullanılan [gözden geçirin, konuşma](luis-how-to-review-endpoint-utterances.md). Testler bölmesinde test LUIS Web sitesi ile gönderilen uç noktası aracılığıyla gönderilmez ve bu nedenle etkin olarak öğrenmeye katkıda bulunmuyor. 
 
 ## <a name="review-utterances"></a>Konuşma gözden geçirin
 
-Modelinizi eğitilen, yayımlanmış ve alıcı sonra [uç nokta](luis-glossary.md#endpoint) sorgular [konuşma gözden](luis-how-to-review-endoint-utt.md) LUIS tarafından önerilen. LUIS hedefi veya varlık için düşük puanlar olan konuşma uç noktası seçer. 
+Modelinizi eğitilen, yayımlanmış ve alıcı sonra [uç nokta](luis-glossary.md#endpoint) sorgular [konuşma gözden](luis-how-to-review-endpoint-utterances.md) LUIS tarafından önerilen. LUIS hedefi veya varlık için düşük puanlar olan konuşma uç noktası seçer. 
 
 ## <a name="best-practices"></a>En iyi uygulamalar
 

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 81401d95b9c40f16a6e593d61b79f5c2d647c0c5
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518839"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895216"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli bir arka plan işlemleri için Azure Web işleri SDK'sını kullanma
 
@@ -130,7 +130,7 @@ static void Main()
 
 Sürüm 3. *x*, bağlantı sınırı varsayılan olarak sonsuz bağlantıları. Bazı nedenlerden dolayı bu sınırı değiştirmek istiyorsanız, kullanabileceğiniz [ `MaxConnectionsPerServer` ](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) özelliği [ `WinHttpHandler` ](/dotnet/api/system.net.http.winhttphandler) sınıfı.
 
-Sürüm 2'de. *x*, kullanarak bir konak için eş zamanlı bağlantı sayısını denetleme [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) API. 2. *x*, WebJobs konağınız başlatmadan önce bu varsayılan 2 değerini artırmanız gerekir.
+Sürüm 2'de. *x*, kullanarak bir konak için eş zamanlı bağlantı sayısını denetleme [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. 2. *x*, WebJobs konağınız başlatmadan önce bu varsayılan 2 değerini artırmanız gerekir.
 
 Bir işlevden kullanarak yaptığınız tüm giden HTTP isteklerini `HttpClient` akışına `ServicePointManager`. İçinde ayarlanan değere ulaştığında `DefaultConnectionLimit`, `ServicePointManager` göndermeden önce sıraya alma isteği başlatır. Varsayalım, `DefaultConnectionLimit` 2 ve, kod yapar 1.000 HTTP isteği ayarlayın. Başlangıçta, yalnızca iki isteği için işletim sistemi aracılığıyla izin verilir. Diğer 998 kuyruğa oluncaya kadar bunları yer. Yani, `HttpClient` istek yaptığınız göründüğünden, zaman aşımı olabilir, ancak istek hedef sunucuya işletim sistemi tarafından hiçbir zaman gönderildi. Anlamlı yaramadı davranışını görebilirsiniz: yerel `HttpClient` bir isteğin tamamlanması için 10 saniye sürecek ancak hizmetinizi 200 ms içinde her istek döndürüyor. 
 
@@ -811,7 +811,7 @@ Kod zaman uyumsuz işlevleri hakkında daha fazla bilgi için bkz. [Azure işlev
 
 İptal belirteçleri işlemek nasıl hakkında daha fazla bilgi için Azure işlevleri belgelerinde bakın [iptal belirteçleri ve normal şekilde kapatılmasını](../azure-functions/functions-dotnet-class-library.md#cancellation-tokens).
 
-## <a name="multiple-instances"></a>Birden çok örneği
+## <a name="multiple-instances"></a>Birden çok örnek
 
 Web uygulamanız birden çok örnek üzerinde çalışıyorsa, sürekli bir WebJob Tetikleyiciler için dinleme ve işlevleri çağırma her örneğinde çalışır. Çeşitli tetikleyici bağlamaları verimli bir şekilde iş örnekleri arasında işbirliği içinde paylaşmak için tasarlanmış daha fazla örnekleri için ölçek genişletme tanır; böylece, daha fazla yükü işlemek için.
 

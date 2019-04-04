@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 01fce9813299465767bdaed7f3c2939813cfab87
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "56339502"
+ms.locfileid: "58891899"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure işlevleri Geliştirici Kılavuzu
 Azure işlevleri'nde belirli işlevleri birkaç temel teknik kavramlar ve bileşenler, dil veya kullandığınız bağlama bağımsız olarak paylaşın. Belirtilen dil veya bağlama için belirli ayrıntıları öğrenme moduna kullanmaya başlamadan önce bunların tümüne uygulanan bu genel bakışta aracılığıyla okuduğunuzdan emin olun.
@@ -75,7 +75,7 @@ Yukarıdaki varsayılan (ve önerilen) bir işlev uygulaması için klasör yap�
 Azure portalda yerleşik işlevler Düzenleyicisi, kodunuzu güncelleştirmenizi sağlar ve *function.json* doğrudan satır içi dosya. VS Code gibi bir yerel geliştirme aracını kullanmak için en iyi - Bu, yalnızca küçük değişiklikler veya kavram kanıtları için önerilir.
 
 ## <a name="parallel-execution"></a>Paralel yürütme
-Birden çok tetikleyici olayı işlevi tek iş parçacıklı çalışma zamanı bunları işleyebileceğinden daha hızlı ortaya çıktığında, çalışma zamanı içinde birden çok kez paralel işlevi çağırabilir.  Bir işlev uygulaması kullanıyorsanız [tüketim barındırma planı](functions-scale.md#how-the-consumption-plan-works), işlev uygulamasını otomatik olarak ölçeği.  Her işlev uygulaması örneğini uygulama tüketim planı veya normal barındırma çalıştığına [App Service barındırma planında](../app-service/overview-hosting-plans.md), birden çok iş parçacığı kullanarak paralel eş zamanlı işlev çağrılarını işleyebilir.  Eş zamanlı işlev çağrılarını her işlev uygulaması örnek sayısı kullanılan tetikleyici ve bunun yanı sıra diğer işlevleri içinde işlev uygulaması tarafından kullanılan kaynakları türüne göre değişir.
+Birden çok tetikleyici olayı işlevi tek iş parçacıklı çalışma zamanı bunları işleyebileceğinden daha hızlı ortaya çıktığında, çalışma zamanı içinde birden çok kez paralel işlevi çağırabilir.  Bir işlev uygulaması kullanıyorsanız [tüketim barındırma planı](functions-scale.md#how-the-consumption-and-premium-plans-work), işlev uygulamasını otomatik olarak ölçeği.  Her işlev uygulaması örneğini uygulama tüketim planı veya normal barındırma çalıştığına [App Service barındırma planında](../app-service/overview-hosting-plans.md), birden çok iş parçacığı kullanarak paralel eş zamanlı işlev çağrılarını işleyebilir.  Eş zamanlı işlev çağrılarını her işlev uygulaması örnek sayısı kullanılan tetikleyici ve bunun yanı sıra diğer işlevleri içinde işlev uygulaması tarafından kullanılan kaynakları türüne göre değişir.
 
 ## <a name="functions-runtime-versioning"></a>İşlevler çalışma zamanı sürümü oluşturma
 

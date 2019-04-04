@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e21f7a67b11caf0180959de68d698f0ff4a1af1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a7a2866952d5e66e24770b81e69039d733fdd2a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371868"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894602"
 ---
 # <a name="what-are-authentication-methods"></a>Kimlik doğrulama yöntemleri nelerdir?
 
-Azure AD Self Servis parola sıfırlama (SSPR) ve multi-Factor Authentication (MFA), kimin ilişkili özellikleri kullanırken olduğunuzu doğrulamak için kimlik doğrulama yöntemleri veya güvenlik bilgisi olarak bilinen ek bilgi için isteyebilir.
+Azure multi-Factor Authentication ve Self Servis parola için kimlik doğrulama yöntemlerini seçme yöneticinin sıfırlama (SSPR) gibi birden çok kimlik doğrulama yöntemlerini kaydedin açmasına gerektiren önerilir. Bir kimlik doğrulama yöntemi, bir kullanıcı için kullanılabilir olmadığı durumlarda, başka bir yöntem ile kimlik doğrulaması seçebilirsiniz.
 
-Yöneticiler kullanıcıların SSPR MFA ve kimlik doğrulama yöntemlerini kullanılabilir ilkesi tanımlayabilirsiniz. Bazı kimlik doğrulama yöntemleri için tüm özellikler kullanılamayabilir.
+Yöneticiler kullanıcıların SSPR MFA ve kimlik doğrulama yöntemlerini kullanılabilir ilkesi tanımlayabilirsiniz. Bazı kimlik doğrulama yöntemleri için tüm özellikler kullanılamayabilir. Yapılandırma hakkında daha fazla bilgi için ilkelerinizi makalelerine bakın [Self Servis parola sıfırlama başarıyla sunma](howto-sspr-deployment.md) ve [bulut tabanlı bir Azure multi-Factor Authentication'ı planlama](howto-mfa-getstarted.md)
 
 Microsoft, birine erişiminizin olmadığı durumda birden çok kimlik doğrulama yöntemleri, gerekli en az sayıda seçmek için Yöneticiler etkin kullanıcılar önerir.
 

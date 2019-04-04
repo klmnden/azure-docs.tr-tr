@@ -3,19 +3,19 @@ title: Çeviri özelleştirme - Translator metin çevirisi API'si
 titlesuffix: Azure Cognitive Services
 description: Microsoft Translator hub'ı tercih edilen terimleri ve stil kullanarak kendi makine çevirisi sistem oluşturmak için kullanın.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: e66387a904f0026eb862178b19fd1b005212d674
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b9a182da0ce03bf3964b6da30f1ed68de38c8141
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124023"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918238"
 ---
 # <a name="customize-your-text-translations"></a>Metin çevirilerinizi özelleştirin
 
@@ -47,14 +47,14 @@ Mevcut verileri temel alan özelleştirme çeşitli düzeyleri hakkında daha fa
 
 ## <a name="custom-translator-versus-hub"></a>Özel Translator Hub karşılaştırması
 
-|   | **Hub** | **Özel Translator**|
+|   | **Merkez** | **Özel Çevirmen**|
 |:-----|:----:|:----:|
 |Özelleştirme özelliği durumu   | Genel Erişilebilirlik  | Genel Erişilebilirlik |
 | Metin çevirisi API'si sürümü  | Yalnızca v2   | Yalnızca v3 |
 | SMT özelleştirme | Evet   | Hayır |
 | NMT özelleştirme | Hayır    | Evet |
 | Yeni birleşik konuşma Hizmetleri özelleştirme | Hayır    | Evet |
-| [İzleme yok](https://www.aka.ms/notrace) | Evet  | Evet |
+| [İzleme Yok](https://www.aka.ms/notrace) | Evet  | Evet |
 
 ## <a name="collaborative-translations-framework"></a>İşbirliğine dayalı çevirileri Framework
 

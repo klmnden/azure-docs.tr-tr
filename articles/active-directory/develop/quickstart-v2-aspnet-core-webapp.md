@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/03/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fed62dfc3f7e7dc974fb709261e363f26ce97c51
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 0fa2e38a680e8590a89131717136a7960c1d3680
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200999"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903599"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET Core web uygulamasına ekleme
 
@@ -40,7 +40,7 @@ Bu hızlı başlangıçta, ASP.NET Core web uygulaması kişisel hesapların nas
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>1. seçenek: Kaydet ve otomatik Uygulamanızı yapılandırmak ve ardından, kod örneğini indirin
 >
-> 1. Git [Azure Portalı - Uygulama kayıtları (Önizleme)](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
+> 1. Git [Azure Portalı - Uygulama kayıtları](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
 > 1. Uygulamanız için bir ad girin ve **Kaydet**'i seçin.
 > 1. Yönergeleri izleyerek yeni uygulamanızı tek tıkla indirin ve otomatik olarak yapılandırın.
 >
@@ -51,7 +51,8 @@ Bu hızlı başlangıçta, ASP.NET Core web uygulaması kişisel hesapların nas
 >
 > 1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
 > 1. Hesabınız size birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu istediğiniz Azure AD kiracısına ayarlayın.
-> 1. Sol taraftaki gezinti bölmesinde **Azure Active Directory** hizmetini seçin ve ardından **Uygulama kayıtları (Önizleme)** > **Yeni kayıt** seçeneğini belirleyin.
+> 1. Geliştiriciler için Microsoft identity platformuna gidin [uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) sayfası.
+> 1. Seçin **yeni kayıt**.
 > 1. **Uygulama kaydet** sayfası göründüğünde uygulamanızın kayıt bilgilerini girin:
 >    - **Ad** alanına uygulama kullanıcılarına gösterilecek anlamlı bir uygulama adı girin, örneğin `AspNetCore-Quickstart`.
 >    - İçinde **yanıt URL'si**, ekleme `https://localhost:44321/`seçip **kaydetme**.
@@ -65,20 +66,20 @@ Bu hızlı başlangıçta, ASP.NET Core web uygulaması kişisel hesapların nas
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1. Adım: Uygulamanızı Azure portalında yapılandırma
 > Yanıt URL'si olarak eklemek gereken çalışmak bu hızlı başlangıç için kod örneği için `https://localhost:44321/` ve `https://localhost:44321/signin-oidc`, oturum kapatma URL'si olarak ekleme `https://localhost:44321/signout-oidc`ve istek kimliği belirteçleri yetkilendirme uç noktası tarafından verilmesi.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Bu değişikliği benim için yap]()
+> > [Benim için bu değişiklik yapın]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Zaten yapılandırılmış](media/quickstart-v2-aspnet-webapp/green-check.png) Uygulamanız bu özniteliklerle yapılandırılmış.
+> > ![Önceden yapılandırılmış](media/quickstart-v2-aspnet-webapp/green-check.png) uygulamanız bu öznitelikleri ile yapılandırılır.
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>2. Adım: ASP.NET Core projenizi indirin
 
-- [Visual Studio 2017 çözümünü indirme](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+- [Visual Studio 2017 çözümü indirin](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>3. Adım: Visual Studio projenizi yapılandırın
 
 1. Örneğin, bir yerel klasör Kök klasörde - zip dosyasını ayıklayın **C:\Azure-Samples**
 1. Visual Studio 2017 kullanırsanız, (isteğe bağlı) Visual Studio içinde çözümü açın.
-1. Düzen **appsettings.json** dosya. Bulma `ClientId` değiştirin `Enter_the_Application_Id_here` ile **uygulama (istemci) kimliği** yeni kaydettiğiniz uygulamayı değeri. 
+1. Düzen **appsettings.json** dosya. Bulma `ClientId` ve değerini güncelleştirin `ClientId` ile **uygulama (istemci) kimliği** yeni kaydettiğiniz uygulamayı değeri. 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
@@ -90,8 +91,8 @@ Bu hızlı başlangıçta, ASP.NET Core web uygulaması kişisel hesapların nas
 > - `Enter_the_Application_Id_here` -olan **uygulama (istemci) kimliği** Azure Portalı'nda kayıtlı uygulama için. Bulabilirsiniz **uygulama (istemci) kimliği** uygulamasının **genel bakış** sayfası.
 > - `Enter_the_Tenant_Info_Here` -şunlardan biridir:
 >   - Uygulamanız destekliyorsa **hesapları yalnızca kuruluş bu dizinde**, bu değeri ile değiştirin **Kiracı kimliği** veya **Kiracı adı** (örneğin, contoso.microsoft.com)
->   - Uygulamanız **Herhangi bir kuruluş dizinindeki hesaplar** yaklaşımını destekliyorsa bu değeri `organizations` ile değiştirin
->   - Uygulamanız **Tüm Microsoft hesabı kullanıcıları** yaklaşımını destekliyorsa bu değeri `common` ile değiştirin
+>   - Uygulamanız destekliyorsa **herhangi bir kuruluş dizini hesaplarında**, bu değeri ile değiştirin `organizations`
+>   - Uygulamanız destekliyorsa **tüm Microsoft hesabı kullanıcılarını**, bu değeri ile değiştirin `common`
 >
 > > [!TIP]
 > > **Uygulama (istemci) Kimliği**, **Dizin (kiracı) Kimliği** ve **Desteklenen hesap türleri** değerlerini bulmak için Azure portalında uygulamanın **Genel bakış** sayfasına gidin.

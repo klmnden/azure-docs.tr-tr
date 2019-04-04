@@ -16,12 +16,12 @@ ms.workload: billing
 ms.date: 5/10/2018
 ms.author: erikre
 ms.custom: seodec18
-ms.openlocfilehash: cd1688cd9d3d19242800b04e7e29c8875879cffc
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 99772579fd28b0880d497abb038fb25fd2a6139e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351584"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918221"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Azure faturalandırma API'lerini program aracılığıyla Azure kullanımınızı öngörü almak için kullanın
 Azure faturalandırma API'lerini kullanımı ve kaynak veri çekmek üzere, tercih edilen veri analizi araçları kullanın. Azure Kaynak Kullanımı ve RateCard API'leri maliyetlerinizi doğru tahmin etmenize ve yönetmenize yardımcı olabilir. API'ler, bir kaynak sağlayıcısı ve Azure Resource Manager tarafından kullanıma sunulan API'ler ailesinin bir parçası olarak uygulanır.  
@@ -36,7 +36,7 @@ Bir kez [katılımı tam](billing-manage-access.md#opt-in), önizleme sürümün
 > Bu özellik, ilk önizleme sürümünde olan ve geriye dönük uyumsuz değişiklikler tabi olabilir. Şu anda, kullanılabilir belirli abonelik teklif (Kurumsal Anlaşma, CSP, desteklenmeyen AIO) ve Azure Almanya değildir.
 
 ## <a name="azure-resource-usage-api-preview"></a>Azure kaynak kullanım API'si (Önizleme)
-Azure kullanan [kaynak kullanım API'si](https://msdn.microsoft.com/library/azure/mt219003) tahmini Azure kullanım verilerinizi almak için. API içerir:
+Azure kullanan [kaynak kullanım API'si](/previous-versions/azure/reference/mt219003(v=azure.100)) tahmini Azure kullanım verilerinizi almak için. API içerir:
 
 * **Azure rol tabanlı erişim denetimi** -yapılandırma erişim ilkeleri [Azure portalında](https://portal.azure.com) aracılığıyla veya [Azure PowerShell cmdlet'lerini](/powershell/azure/overview) hangi kullanıcılar ve uygulamalar erişebilir belirtmek için Aboneliğin kullanım verileri. Çağıranlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Arayanın belirli bir Azure aboneliği için kullanım verilerine erişim elde etmek için faturalandırma okuyucusu, okuyucu, sahibi veya katkıda bulunan rolüne ekleyin.
 * **Saatlik veya günlük toplamalar** - çağıranlar olup Azure kullanım verilerini saatlik istedikleri demetlerine belirtebilirsiniz veya günlük demetlerine. Varsayılan günlük.
@@ -45,7 +45,7 @@ Azure kullanan [kaynak kullanım API'si](https://msdn.microsoft.com/library/azur
 * **Farklı bir teklif türleri için kullanım** – kullanım verilerini, teklif türleri gibi Kullandıkça Öde, MSDN, parasal taahhüt, parasal kredi ve EA, kullanılabilir dışında [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-invoice#retrieve-usage-data-for-a-specific-subscription).
 
 ## <a name="azure-resource-ratecard-api-preview"></a>Azure kaynak RateCard API'si (Önizleme)
-Kullanım [Azure kaynak RateCard API'si](https://msdn.microsoft.com/library/azure/mt219005) kullanılabilir Azure kaynaklarını ve tahmini fiyatlandırma bilgileri için her bir listesini almak için. API içerir:
+Kullanım [Azure kaynak RateCard API'si](/previous-versions/azure/reference/mt219005(v=azure.100)) kullanılabilir Azure kaynaklarını ve tahmini fiyatlandırma bilgileri için her bir listesini almak için. API içerir:
 
 * **Azure rol tabanlı erişim denetimi** -erişim ilkelerinizi yapılandırın [Azure portalında](https://portal.azure.com) aracılığıyla veya [Azure PowerShell cmdlet'lerini](/powershell/azure/overview) hangi kullanıcılar ve uygulamalar erişebilir belirtmek için RateCard verileri. Çağıranlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Arayanın belirli bir Azure aboneliği için kullanım verilerine erişim elde etmek için okuyucu, sahibi veya katkıda bulunan rolüne ekleyin.
 * **Kullandıkça Öde, MSDN, parasal taahhüt ve parasal kredi teklifleri için destek (EA ve [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) desteklenmiyor)** -bu API, Azure teklifi düzeyinde fiyat bilgileri sağlar.  Bu API'yi çağıran kaynak ayrıntıları ve fiyatları almak için teklif bilgilerini geçmesi gerekir. EA teklifler kayıt tarifelerine özelleştirdiğiniz çünkü EA fiyatlandırması sağlamak şu anda kaydedemiyoruz.

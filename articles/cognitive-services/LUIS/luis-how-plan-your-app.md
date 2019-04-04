@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: d0c5ba41bc636479407e7580fa686fe1bba91612
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9d54cff81f39f41b60800e9b33f3b4da1a735d85
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873208"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893444"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Konu etki alanı, amaçlarını ve varlıkları LUIS uygulamanızı planlama
 
@@ -49,7 +49,7 @@ Uygulamanızda kullanmak için hangi varlıkları belirlerken, farklı nesne tü
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Uygulamanız, yayımlanan eğitildi ve konuşma uç noktası alır sonra tahmin geliştirmelerle uygulamak planlama [etkin olarak öğrenmeye](luis-how-to-review-endoint-utt.md), [tümcecik listeleri](luis-concept-feature.md), ve [desenleri](luis-concept-patterns.md). 
+Uygulamanız, yayımlanan eğitildi ve konuşma uç noktası alır sonra tahmin geliştirmelerle uygulamak planlama [etkin olarak öğrenmeye](luis-how-to-review-endpoint-utterances.md), [tümcecik listeleri](luis-concept-feature.md), ve [desenleri](luis-concept-patterns.md). 
 
 
 * Bkz: [Language Understanding Intelligent Services (LUIS) ilk uygulamanızı oluşturma](luis-get-started-create-app.md) LUIS uygulaması oluşturma Hızlı Kılavuz.

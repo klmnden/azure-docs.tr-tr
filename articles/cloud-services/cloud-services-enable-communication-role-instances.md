@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 4adc6ef6e7dd445eea3fd567072a995e3ac07dda
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539641"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918170"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Azure rol örnekleri için iletişimi etkinleştirin
 Bulut hizmeti rolleri, iç ve dış bağlantıları iletişim kurar. Dış bağlantılar denir **giriş uç noktaları** iç bağlantı olarak adlandırılır ancak **iç uç nokta**. Bu konu nasıl değiştirileceğini açıklar [servicedefinition](cloud-services-model-and-package.md#csdef) uç noktalar oluşturmak için.
 
 ## <a name="input-endpoint"></a>Giriş uç noktası
-Giriş uç noktası dışındaki bir bağlantı noktasına göstermek istediğinizde kullanılır. Protokol türü ve ardından her iki iç ve dış bağlantı noktaları için uç noktası için geçerli uç nokta bağlantı noktası belirtin. İsterseniz, farklı bir iç bağlantı uç noktası için belirtebileceğiniz [yerel bağlantı noktası](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) özniteliği.
+Giriş uç noktası dışındaki bir bağlantı noktasına göstermek istediğinizde kullanılır. Protokol türü ve ardından her iki iç ve dış bağlantı noktaları için uç noktası için geçerli uç nokta bağlantı noktası belirtin. İsterseniz, farklı bir iç bağlantı uç noktası için belirtebileceğiniz [yerel bağlantı noktası](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) özniteliği.
 
 Giriş uç noktası şu protokolden kullanabilirsiniz: **http, https, tcp, udp**.
 
@@ -96,7 +96,7 @@ Azure yönetilen kitaplık çalışma zamanında iletişim kurmak rol örnekleri
 > 
 > 
 
-Kullanabileceğiniz [örnekleri](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) bir rolün örnekleri almak için özellik. İlk olarak [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) geçerli rol örneği için bir başvuru döndürmeyi ve daha sonra [rol](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) rolü bir başvuru döndürmek için özellik.
+Kullanabileceğiniz [örnekleri](/previous-versions/azure/reference/ee741904(v=azure.100)) bir rolün örnekleri almak için özellik. İlk olarak [CurrentRoleInstance](/previous-versions/azure/reference/ee741907(v=azure.100)) geçerli rol örneği için bir başvuru döndürmeyi ve daha sonra [rol](/previous-versions/azure/reference/ee741918(v=azure.100)) rolü bir başvuru döndürmek için özellik.
 
 .NET SDK'sı aracılığıyla programlı olarak bir rol örneği bağlandığınızda, uç nokta bilgileri erişmek oldukça kolaydır. Örneğin, bir özel rol ortamı için zaten bağlandıktan sonra bu kod ile belirli bir uç nokta bağlantı noktası alabilirsiniz:
 
@@ -111,7 +111,7 @@ int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].
 > 
 > 
 
-Bir rol örneğinde bir iç uç nokta bağlantı noktası numarasını belirlemek için kullanabileceğiniz [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) dönmesini uç nokta adlarını ve karşılık gelen IP içeren bir sözlük nesnesi adresleri ve bağlantı noktaları. [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) özelliği, belirtilen bir uç noktası için bağlantı noktası ve IP adresi döndürür. **PublicIPEndpoint** özelliği, bir yük dengeli uç noktası için bağlantı noktasını döndürür. IP adresi bölümü **PublicIPEndpoint** özelliği kullanılmaz.
+Bir rol örneğinde bir iç uç nokta bağlantı noktası numarasını belirlemek için kullanabileceğiniz [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) dönmesini uç nokta adlarını ve karşılık gelen IP içeren bir sözlük nesnesi adresleri ve bağlantı noktaları. [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) özelliği, belirtilen bir uç noktası için bağlantı noktası ve IP adresi döndürür. **PublicIPEndpoint** özelliği, bir yük dengeli uç noktası için bağlantı noktasını döndürür. IP adresi bölümü **PublicIPEndpoint** özelliği kullanılmaz.
 
 Rol örnekleri yinelenen bir örnek aşağıda verilmiştir.
 
@@ -368,7 +368,7 @@ Yalnızca gelen ağ trafiğine izin verecek **WebRole1** için **WorkerRole1**, 
 </ServiceDefinition>
 ```
 
-Yukarıda kullanılan öğeler için bir XML Şeması Başvurusu bulunabilir [burada](https://msdn.microsoft.com/library/azure/gg557551.aspx).
+Yukarıda kullanılan öğeler için bir XML Şeması Başvurusu bulunabilir [burada](/previous-versions/azure/reference/gg557551(v=azure.100)).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bulut hizmeti hakkında daha fazla bilgiyi [model](cloud-services-model-and-package.md).

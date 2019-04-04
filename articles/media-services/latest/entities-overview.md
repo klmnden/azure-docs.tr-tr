@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6bf0efd6994315d56e7b1b2447ffed9154cf5ee5
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: a5ab0b25a2a2db764854982b1a6801ce4f857dda
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804879"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891965"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>V3 API'ler Media Services ile geliştirme
 
@@ -47,7 +47,7 @@ Bkz: [içerik anahtarı ilkesi - .NET edinme](get-content-key-policy-dotnet-howt
 
 Sahip olarak işaretlenen işlemler `x-ms-long-running-operation` Azure Media Services [dosyaları swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) uzun süren işlemlere. 
 
-Azure zaman uyumsuz işlemleri izleme hakkında daha fazla ayrıntı için bkz: [zaman uyumsuz işlemler](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)
+Azure zaman uyumsuz işlemleri izleme hakkında daha fazla ayrıntı için bkz: [zaman uyumsuz işlemler](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
 
 Media Services, aşağıdaki uzun süre çalışan işlemler bulunur:
 
@@ -65,7 +65,6 @@ Media Services, aşağıdaki uzun süre çalışan işlemler bulunur:
 * StreamingEndpoint Başlat
 * StreamingEndpoint Durdur
 * Ölçek StreamingEndpoint
-
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Media Services varlıkların filtreleme, sıralama, sayfalama
 
@@ -356,4 +355,4 @@ Aşağıdaki tabloda bu seçeneklerin nasıl uygulanabilir gösterilmektedir [d�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bir dosyayı akışa alma](stream-files-dotnet-quickstart.md)
+[Bir dosya Stream](stream-files-dotnet-quickstart.md)

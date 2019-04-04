@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: bf5143c3c0c75bc37f6981c6d995339e41baa4c4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f872c61ad0597d2307cd244668fdfc258f7a45cb
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112114"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895695"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure kimlik yönetimi ve erişim en iyi güvenlik denetimi
 
@@ -116,7 +116,7 @@ Seçeneklerinizi ve Avantajlarınızı iki aşamalı doğrulamayı etkinleştirm
 **Seçenek 1**: [Kullanıcı durumunu değiştirerek çok faktörlü kimlik doğrulamasını etkinleştirme](../active-directory/authentication/howto-mfa-userstates.md).   
 **Avantajı**: Bu, iki aşamalı doğrulama gerektirme geleneksel yöntemidir. Her ikisi de çalıştığını [Azure multi-Factor Authentication Bulut ve Azure multi-Factor Authentication sunucusu](../active-directory/authentication/concept-mfa-whichversion.md). Bu yöntemi kullanarak oturum açtıklarında her açtığınızda iki aşamalı doğrulamayı gerçekleştirmek üzere kullanıcıların gerektirir ve koşullu erişim ilkeleri geçersiz kılar.
 
-**Seçenek 2**: [Multi-Factor Authentication'ı ile koşullu erişim ilkesini etkinleştir](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
+**Seçenek 2**: [Multi-Factor Authentication'ı ile koşullu erişim ilkesini etkinleştir](../active-directory/authentication/howto-mfa-getstarted.md).
 **Avantajı**: Bu seçeneği kullanarak belirli koşullar altında iki aşamalı doğrulama iste sağlar [koşullu erişim](../active-directory/active-directory-conditional-access-azure-portal.md). Belirli koşullar, kullanıcı oturum açma farklı konumlar, güvenilmeyen cihazlar ya da riskli uygulamalar olabilir. İki aşamalı doğrulamayı gerekli olduğu belirli koşullar tanımlayarak sabit bir önlemeye kullanıcı deneyimi olabilir, kullanıcılarınız için isteyen kaçınmanızı sağlar.
 
 Kullanıcılarınız için iki aşamalı doğrulamayı etkinleştirmek için en esnek yolu budur. Koşullu erişim ilkesini etkinleştirme yalnızca bulutta Azure multi-Factor Authentication için geçerlidir ve Azure AD premium özelliğidir. Bu yöntemde hakkında daha fazla bilgi bulabilirsiniz [Azure multi-Factor Authentication'ı bulut tabanlı dağıtım](../active-directory/authentication/howto-mfa-getstarted.md).

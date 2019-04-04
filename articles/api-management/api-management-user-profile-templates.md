@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 77b704e9359e582664bad8e08e9389cfac8eaca7
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121405"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903769"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API Yönetimi'nde kullanıcının profil şablonları
 Azure API Management içeriklerini yapılandıran bir dizi kullanarak Geliştirici portal sayfalarının içeriğini özelleştirme becerisi sunuyor. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) söz dizimi ve tercih ettiğiniz düzenleyiciyi gibi [tasarımcılarına yönelik DotLiquid](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [karakter Kaynakları](api-management-template-resources.md#glyphs), ve [sayfasında denetimleri](api-management-page-controls.md), sayfaların içeriğini bu şablonları kullanarak dilediğiniz şekilde yapılandırmak için harika esnekliğine sahip olursunuz.  
@@ -106,17 +106,17 @@ Azure API Management içeriklerini yapılandıran bir dizi kullanarak Geliştiri
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|FirstName|dize|Geçerli kullanıcının adı.|  
-|Soyadı|dize|Geçerli kullanıcının soyadı.|  
-|Şirket adı|dize|Geçerli kullanıcının şirket adı.|  
-|addresserEmail|dize|Geçerli kullanıcının e-posta adresi.|  
-|developersUsageStatisticsLinkk|dize|Geçerli kullanıcı için Analytics görüntülemek için göreli URL'si.|  
-|abonelik|Koleksiyonu [abonelik](api-management-template-data-model-reference.md#Subscription) varlıklar.|Geçerli kullanıcı için abonelikler.|  
-|uygulamalar|Koleksiyonu [uygulama](api-management-template-data-model-reference.md#Application) varlıklar.|Geçerli kullanıcının uygulamalar.|  
-|changePasswordUrl|dize|Geçerli kullanıcının parolasını değiştirmek için göreli URL'si.|  
-|changeNameOrEmailUrl|dize|Geçerli kullanıcı için e-posta ve adını değiştirmek için göreli URL'si.|  
-|canChangePassword|boole|Olup geçerli kullanıcının parolasını değiştirebilirsiniz.|  
-|isSystemUser|boole|Geçerli kullanıcının, yerleşik birine üye olup [grupları](api-management-key-concepts.md#groups).|  
+|`firstName`|string|Geçerli kullanıcının adı.|  
+|`lastName`|string|Geçerli kullanıcının soyadı.|  
+|`companyName`|string|Geçerli kullanıcının şirket adı.|  
+|`addresserEmail`|string|Geçerli kullanıcının e-posta adresi.|  
+|`developersUsageStatisticsLink`|string|Geçerli kullanıcı için Analytics görüntülemek için göreli URL'si.|  
+|`subscriptions`|Koleksiyonu [abonelik](api-management-template-data-model-reference.md#Subscription) varlıklar.|Geçerli kullanıcı için abonelikler.|  
+|`applications`|Koleksiyonu [uygulama](api-management-template-data-model-reference.md#Application) varlıklar.|Geçerli kullanıcının uygulamalar.|  
+|`changePasswordUrl`|string|Geçerli kullanıcının parolasını değiştirmek için göreli URL'si.|  
+|`changeNameOrEmailUrl`|string|Geçerli kullanıcı için e-posta ve adını değiştirmek için göreli URL'si.|  
+|`canChangePassword`|boole|Olup geçerli kullanıcının parolasını değiştirebilirsiniz.|  
+|`isSystemUser`|boole|Geçerli kullanıcının, yerleşik birine üye olup [grupları](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   
@@ -327,17 +327,17 @@ Azure API Management içeriklerini yapılandıran bir dizi kullanarak Geliştiri
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|FirstName|dize|Geçerli kullanıcının adı.|  
-|Soyadı|dize|Geçerli kullanıcının soyadı.|  
-|Şirket adı|dize|Geçerli kullanıcının şirket adı.|  
-|addresserEmail|dize|Geçerli kullanıcının e-posta adresi.|  
-|developersUsageStatisticsLinkk|dize|Geçerli kullanıcı için Analytics görüntülemek için göreli URL'si.|  
-|abonelik|Koleksiyonu [abonelik](api-management-template-data-model-reference.md#Subscription) varlıklar.|Geçerli kullanıcı için abonelikler.|  
-|uygulamalar|Koleksiyonu [uygulama](api-management-template-data-model-reference.md#Application) varlıklar.|Geçerli kullanıcının uygulamalar.|  
-|changePasswordUrl|dize|Geçerli kullanıcının parolasını değiştirmek için göreli URL'si.|  
-|changeNameOrEmailUrl|dize|Geçerli kullanıcı için e-posta ve adını değiştirmek için göreli URL'si.|  
-|canChangePassword|boole|Olup geçerli kullanıcının parolasını değiştirebilirsiniz.|  
-|isSystemUser|boole|Geçerli kullanıcının, yerleşik birine üye olup [grupları](api-management-key-concepts.md#groups).|  
+|`firstName`|string|Geçerli kullanıcının adı.|  
+|`lastName`|string|Geçerli kullanıcının soyadı.|  
+|`companyName`|string|Geçerli kullanıcının şirket adı.|  
+|`addresserEmail`|string|Geçerli kullanıcının e-posta adresi.|  
+|`developersUsageStatisticsLink`|string|Geçerli kullanıcı için Analytics görüntülemek için göreli URL'si.|  
+|`subscriptions`|Koleksiyonu [abonelik](api-management-template-data-model-reference.md#Subscription) varlıklar.|Geçerli kullanıcı için abonelikler.|  
+|`applications`|Koleksiyonu [uygulama](api-management-template-data-model-reference.md#Application) varlıklar.|Geçerli kullanıcının uygulamalar.|  
+|`changePasswordUrl`|string|Geçerli kullanıcının parolasını değiştirmek için göreli URL'si.|  
+|`changeNameOrEmailUrl`|string|Geçerli kullanıcı için e-posta ve adını değiştirmek için göreli URL'si.|  
+|`canChangePassword`|boole|Olup geçerli kullanıcının parolasını değiştirebilirsiniz.|  
+|`isSystemUser`|boole|Geçerli kullanıcının, yerleşik birine üye olup [grupları](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   
@@ -490,17 +490,17 @@ Azure API Management içeriklerini yapılandıran bir dizi kullanarak Geliştiri
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|FirstName|dize|Geçerli kullanıcının adı.|  
-|Soyadı|dize|Geçerli kullanıcının soyadı.|  
-|Şirket adı|dize|Geçerli kullanıcının şirket adı.|  
-|addresserEmail|dize|Geçerli kullanıcının e-posta adresi.|  
-|developersUsageStatisticsLinkk|dize|Geçerli kullanıcı için Analytics görüntülemek için göreli URL'si.|  
-|abonelik|Koleksiyonu [abonelik](api-management-template-data-model-reference.md#Subscription) varlıklar.|Geçerli kullanıcı için abonelikler.|  
-|uygulamalar|Koleksiyonu [uygulama](api-management-template-data-model-reference.md#Application) varlıklar.|Geçerli kullanıcının uygulamalar.|  
-|changePasswordUrl|dize|Geçerli kullanıcının parolasını değiştirmek için göreli URL'si.|  
-|changeNameOrEmailUrl|dize|Geçerli kullanıcı için e-posta ve adını değiştirmek için göreli URL'si.|  
-|canChangePassword|boole|Olup geçerli kullanıcının parolasını değiştirebilirsiniz.|  
-|isSystemUser|boole|Geçerli kullanıcının, yerleşik birine üye olup [grupları](api-management-key-concepts.md#groups).|  
+|`firstName`|string|Geçerli kullanıcının adı.|  
+|`lastName`|string|Geçerli kullanıcının soyadı.|  
+|`companyName`|string|Geçerli kullanıcının şirket adı.|  
+|`addresserEmail`|string|Geçerli kullanıcının e-posta adresi.|  
+|`developersUsageStatisticsLink`|string|Geçerli kullanıcı için Analytics görüntülemek için göreli URL'si.|  
+|`subscriptions`|Koleksiyonu [abonelik](api-management-template-data-model-reference.md#Subscription) varlıklar.|Geçerli kullanıcı için abonelikler.|  
+|`applications`|Koleksiyonu [uygulama](api-management-template-data-model-reference.md#Application) varlıklar.|Geçerli kullanıcının uygulamalar.|  
+|`changePasswordUrl`|string|Geçerli kullanıcının parolasını değiştirmek için göreli URL'si.|  
+|`changeNameOrEmailUrl`|string|Geçerli kullanıcı için e-posta ve adını değiştirmek için göreli URL'si.|  
+|`canChangePassword`|boole|Olup geçerli kullanıcının parolasını değiştirebilirsiniz.|  
+|`isSystemUser`|boole|Geçerli kullanıcının, yerleşik birine üye olup [grupları](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   

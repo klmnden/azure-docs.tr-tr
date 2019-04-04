@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 4/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: c64bf11a5e0d95e2896bb717d4069f9b0d7ea721
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570003"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892237"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>IoT Edge üzerinde Azure Stream Analytics
  
@@ -44,12 +44,14 @@ ASA, edge işleri aygıtlara dağıtmak için IOT hub'ı kullanır. Hakkında da
 
 ### <a name="installation-instructions"></a>Yükleme yönergeleri
 Üst düzey adımlar aşağıdaki tabloda açıklanmıştır. Daha fazla ayrıntı, aşağıdaki bölümlerde verilmiştir.
+
 |      |Adım   | Notlar   |
 | ---   | ---   |  ---      |
 | 1   | **Bir depolama kapsayıcısı oluşturma**   | Depolama kapsayıcıları, IOT cihazlarınızı, burada erişilebilmelerini iş tanımınızı kaydetmek için kullanılır. <br>  Herhangi bir mevcut depolama kapsayıcısını yeniden kullanabilirsiniz.     |
 | 2   | **ASA edge işi oluşturma**   |  Select yeni bir iş oluşturma **Edge** olarak **barındırma ortamı**. <br> Bu işlerin buluttan oluşturulan ve yönetilen ve kendi IOT Edge cihazlarında çalıştırın.     |
 | 3   | **IOT Edge ortamınızda aygıtlarınızın Kurulumu**   | Yönergeler için [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) veya [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Aygıtlarınızın IOT Edge üzerinde ASA dağıtma**   |  ASA işi tanımı, daha önce oluşturduğunuz depolama kapsayıcısına dışarı aktarılır.       |
+
 İzleyebileceğiniz [Bu adım adım öğretici](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) ilk IOT Edge üzerinde ASA işiniz dağıtılacak. Aşağıdaki videoda bir Stream Analytics işi bir IOT edge Cihazınızda çalıştırmak üzere işlemlerini anlamanıza yardımcı olması:  
 
 
@@ -142,7 +144,7 @@ Bu örnek aşağıdaki yolları tanımlar:
 
 ## <a name="technical-information"></a>Teknik bilgiler
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Bulut işlerine kıyasla IOT Edge işleri için geçerli sınırlamalar
-Eşlik sahip olmaktır IOT Edge işleri ve bulut işleri arasında. Çoğu SQL sorgu dil özellikleri zaten desteklenir.
+Eşlik sahip olmaktır IOT Edge işleri ve bulut işleri arasında. SQL sorgu dil özelliklerinin çoğu hem bulut hem de IOT Edge üzerinde aynı mantığı çalıştırılacak etkinleştirme desteklenir.
 Ancak aşağıdaki özellikleri, edge işleri için henüz desteklenmiyor:
 * Kullanıcı tanımlı işlevler (UDF) JavaScript içinde. UDF kullanılabilir [ C# IOT Edge işleri için](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (Önizleme).
 * Kullanıcı tanımlı toplamlarda (UDA).
@@ -150,14 +152,6 @@ Ancak aşağıdaki özellikleri, edge işleri için henüz desteklenmiyor:
 * Tek bir adımda 14'ten fazla toplamaları kullanma.
 * Giriş/Çıkış AVRO biçimi. Şu anda yalnızca CSV ve JSON desteklenir.
 * Aşağıdaki SQL işleçleri:
-    * Jeo-uzamsal işleçleri:
-        * CreatePoint
-        * CreatePolygon
-        * CreateLineString
-        * ST_DISTANCE
-        * ST_WITHIN
-        * ST_OVERLAPS
-        * ST_INTERSECTS
     * BÖLÜMÜ
     * GetMetadataPropertyValue
 

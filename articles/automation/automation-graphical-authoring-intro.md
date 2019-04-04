@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d637436721ff464f58e41069bb00746fcd82410
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427245"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918153"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure Otomasyonu'nda yazma grafik
 
@@ -48,7 +48,7 @@ Seçtiğiniz kitaplık denetimidir [etkinlikleri](#activities) runbook uygulaman
 |:--- |:--- |
 | Cmdlet'ler |Runbook'ta kullanılabilecek tüm cmdlet'leri içerir. Cmdlet modülü tarafından düzenlenir. Tüm otomasyon hesabınızda yüklü modülleri mevcuttur. |
 | Runbook'lar |Runbook'ları, Otomasyon hesabınızda içerir. Bu runbook'ları, tuvalin alt runbook'lar olarak kullanılacak eklenebilir. Yalnızca düzenlenmekte olan runbook olarak aynı temel türündeki runbook'lar gösterilir. Grafik PowerShell iş akışı runbook'ları için yalnızca PowerShell iş akışı tabanlı runbook'ları gösterilmekte iken için grafik runbook'ları yalnızca PowerShell tabanlı runbook'ları gösterilir. |
-| Varlıklar |İçerir [Otomasyon varlıklarından](https://msdn.microsoft.com/library/dn939988.aspx) Otomasyon hesabınızda, bir runbook'ta kullanılabilir. Bir varlığı bir runbook'a eklediğinizde, seçili varlığı alır bir iş akışı etkinlik ekler. Değişken varlıklar söz konusu olduğunda, bir değişkeni almak veya değişkeni ayarlamak için bir etkinlik eklenip eklenmeyeceğini seçebilirsiniz. |
+| Varlıklar |İçerir [Otomasyon varlıklarından](/previous-versions/azure/dn939988(v=azure.100)) Otomasyon hesabınızda, bir runbook'ta kullanılabilir. Bir varlığı bir runbook'a eklediğinizde, seçili varlığı alır bir iş akışı etkinlik ekler. Değişken varlıklar söz konusu olduğunda, bir değişkeni almak veya değişkeni ayarlamak için bir etkinlik eklenip eklenmeyeceğini seçebilirsiniz. |
 | Runbook denetimi |Geçerli bir runbook'ta kullanılabilir runbook denetimi etkinlikleri içerir. A *birleşim* birden çok girdiyi alır ve iş akışı devam etmeden önce tüm tamamlanana kadar bekler. A *kod* etkinlik çalıştırmalarını PowerShell ya da PowerShell iş akışı kodu grafik runbook türüne bağlı olarak bir veya daha fazla satır. Bu etkinlik diğer etkinlikler ile elde etmek zor işlevleri veya özel kod için kullanabilirsiniz. |
 
 ### <a name="configuration-control"></a>Yapılandırma denetimi
@@ -249,7 +249,7 @@ Aşağıdaki örnek, bir sanal makine kümesi, bu makinelere uygulanacak düzelt
 
 Hedef etkinlik bağlantıları geri kendi kaynak etkinliği veya sonunda kaynağına bağlantıları geri başka bir etkinlik olduğunda bir döngüsü elde edilir. Döngüleri grafik yazma şu anda izin verilmiyor. Bir döngü runbook'unuz varsa düzgün şekilde kaydeder ancak çalıştığında bir hata alır.
 
-![Döngüsü](media/automation-graphical-authoring-intro/runbook-cycle.png)
+![Aralıklı](media/automation-graphical-authoring-intro/runbook-cycle.png)
 
 ### <a name="sharing-data-between-activities"></a>Etkinlikler arasında veri paylaşımı
 
@@ -326,7 +326,7 @@ Her giriş parametresi, aşağıdaki tabloda özellikleri tarafından tanımlan�
 |:--- |:--- |
 | Ad |Parametrenin benzersiz adı. Bu, yalnızca alfa sayısal karakterler içerebilir ve boşluk içeremez. |
 | Açıklama |Giriş parametresi için isteğe bağlı bir açıklama. |
-| Tür |Veri türü için parametre değeri bekleniyor. Azure portalında uygun bir denetim için her parametresinin veri türü için giriş isterken sağlar. |
+| Type |Veri türü için parametre değeri bekleniyor. Azure portalında uygun bir denetim için her parametresinin veri türü için giriş isterken sağlar. |
 | Zorunlu |Parametresi için bir değer sağlanmalıdır olup olmadığını belirtir. Tanımlanan varsayılan değeri olmayan zorunlu her parametre için bir değer belirtmezseniz, runbook başlatılamıyor. |
 | Varsayılan Değer |Bir sağlanmazsa, parametresi için hangi değerin kullanıldığını belirtir. Bu Null ya da belirli bir değer olabilir. |
 

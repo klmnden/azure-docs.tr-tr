@@ -7,21 +7,26 @@ author: anikaz
 manager: johndeu
 ms.service: media-services
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 03/19/2019
 ms.author: anzaman
-ms.openlocfilehash: 073cff22f17f496c2ff85cfbf716751dfea1e03e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: b491120639421d85d2fbb1a0efb2b6dd09ec1d4c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285028"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893903"
 ---
 # <a name="customize-a-person-model-in-video-indexer"></a>Video Indexer bir kişi model özelleştirme
 
+Video Indexer, videolarınızdaki ünlü tanıma destekler. Ünlü tanıma özelliği, yaklaşık IMDB Wikipedia ve üst LinkedIn öğrenilenler gibi sık istenen bir veri kaynağına göre bir milyon yüzleri kapsar. Video Indexer tarafından tanınmayan yüzleri yine de algılandı ancak bırakılır adlandırılmamış. Müşteriler, özel kişi modelleri oluşturabilir ve Video Indexer'ın varsayılan olarak tanınmıyorsunuz yüz tanımaya etkinleştirin. Müşteriler, bu kişi modeli kişinin yüz tanıma, resim dosyalarıyla bir kişinin adını eşleştirerek oluşturabilirsiniz.  
 
-Video Indexer, video içeriği için yüz algılama ve ünlü tanıma destekler. Ünlü tanıma özelliği IMDB Wikipedia ve üst LinkedIn öğrenilenler gibi sık istenen bir veri kaynağına göre yaklaşık 1.000.000 yüzleri kapsar. Ünlü tanıma özelliği tarafından tanınmayan yüz algılandı; Ancak, sol adlandırılmamış. Video Indexer için videonuzu karşıya yükleyin ve geri sonuçlar alma sonra geri dönün ve değil tanındı yüzleri adlandırın. Bir ada sahip bir yüz etiket sonra adı ve yüz hesabınızın kişi modele eklenir. Video Indexer, ardından bu yüz gelecekteki videoları ve son videolar algılar.
+Farklı kullanım örnekleri için hesabınızı oluşturabilmesine olanak sağlar, hesap başına birden çok kişi modeller oluşturmak airdrop yararlı olabilir. Örneğin, farklı kanallar sıralanacak hesabınızda içeriği geliyorsa, her kanal için ayrı bir kişi model oluşturmak isteyebilirsiniz. 
 
-Aşağıdaki konularda açıklandığı bir video hesabınızda, algılanan yüzeylere düzenlemek için Video Indexer Web sitesi veya API kullanın:
+> [!NOTE]
+> Her bir kişi modeli 1 milyona kadar kişi destekler ve her hesap 50 kişi modelleri sınırı vardır. 
 
-- [Kişi modeli API'lerini kullanarak özelleştirme](customize-person-model-with-api.md)
-- [Kişi modeli Web sitesini kullanarak özelleştirme](customize-person-model-with-website.md)
+Bir model oluşturulduktan sonra karşıya yükleme/dizin ya da bir video ölçeklemek belirli bir kişi modelin model kimliği sağlayarak kullanabilirsiniz. Video için yeni bir yüz eğitim, video ile ilişkilendirildi belirli özel model güncelleştirir. 
+
+Birden çok kişi modeli desteği gerekmiyorsa, bir kişinin karşıya yükleme/dizin oluşturma veya yeniden dizin oluşturmaya videonuza model kimliği atamayın. Bu durumda, Video Indexer, hesabınızdaki varsayılan Kişi modelini kullanır. 
+
+Video Indexer Web sitesi bulunan bir videoyu algılanan yüzeylere düzenlemek ve hesabınızı özel birden çok kişi modeli yönetmek için açıklandığı gibi kullanabileceğiniz [bir Web sitesini kullanarak bir kişi model özelleştirme](customize-person-model-with-website.md) konu. Bölümünde anlatıldığı gibi API de kullanabilirsiniz [API'leri kullanarak bir kişi model özelleştirme](customize-person-model-with-api.md).

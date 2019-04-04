@@ -8,18 +8,21 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b474d3579a7c20c190a427f503d97ec7471a1b12
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 42d3bd2285574b4416ec06af13006353880a7ca5
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091163"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903531"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Hızlı Başlangıç: Azure Application Gateway - Azure portalı ile doğrudan web trafiği
 
 Bu hızlı başlangıçta bir uygulama ağ geçidi oluşturmak için Azure portalını kullanmayı gösterir.  Uygulama ağ geçidi oluşturduktan sonra düzgün çalıştığından emin olmak için test edin. Azure Application Gateway ile bağlantı noktalarına dinleyicileri atama, kuralları oluşturma ve arka uç havuzu için kaynak ekleme, uygulama web trafiği belirli kaynaklara doğrudan. Basitleştirmek amacıyla, bu makalede bir genel ön uç IP ile basit bir Kurulum, konağa tek bir sitede bu uygulama ağ geçidinde temel dinleyiciyi arka uç havuzunu ve temel istek yönlendirme kuralı için kullanılan iki sanal makine kullanılmaktadır.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
@@ -123,7 +126,7 @@ Bu örnekte biz yalnızca Azure uygulama ağ geçidi başarıyla oluşturuldu do
 2. Sanal makineye IIS yüklemek için aşağıdaki komutu çalıştırın: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -134,7 +137,7 @@ Bu örnekte biz yalnızca Azure uygulama ağ geçidi başarıyla oluşturuldu do
       -Location EastUS
     ```
 
-3. İkinci sanal makine oluşturma ve daha önce tamamladığınız adımları kullanarak IIS yükleyin. Kullanım *myVM2* ve sanal makine adı için **VMName** ayarıyla **Set-AzureRmVMExtension** cmdlet'i.
+3. İkinci sanal makine oluşturma ve daha önce tamamladığınız adımları kullanarak IIS yükleyin. Kullanım *myVM2* ve sanal makine adı için **VMName** ayarıyla **kümesi AzVMExtension** cmdlet'i.
 
 ### <a name="add-backend-servers-to-backend-pool"></a>Arka uç sunucularının arka uç havuzu Ekle
 
@@ -174,4 +177,4 @@ Kaynak grubunu kaldırmak için:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Azure CLI kullanarak bir uygulama ağ geçidi ile web trafiğini yönetme](./tutorial-manage-web-traffic-cli.md)
+> [Azure CLI kullanarak bir uygulama ağ geçidi ile Web trafiğini yönetme](./tutorial-manage-web-traffic-cli.md)

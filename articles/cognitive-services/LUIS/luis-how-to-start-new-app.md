@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/28/2019
 ms.author: diberry
-ms.openlocfilehash: 0acb844b8b10ff210985dfcd8c96f15da6669356
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 72c4f23f47e0a2c6d9a96dbbe36716bc3ab665f1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337485"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891438"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>LUIS portalda yeni bir LUIS uygulaması oluşturma
 Çeşitli şekillerde LUIS uygulaması oluşturmak için vardır. Bir LUIS uygulaması oluşturabileceğiniz [LUIS](https://www.luis.ai) portal ya da yazma LUIS aracılığıyla [API'leri](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -66,6 +66,17 @@ ms.locfileid: "58337485"
 Olası hatalar şunlardır: 
 
 * Bu ada sahip bir uygulama zaten var. Uygulamayı yeniden içeri aktarın ve ayarlama **isteğe bağlı adı** yeni bir ad. 
+
+## <a name="export-app"></a>Uygulamayı dışarı aktarma
+
+1. Üzerinde **uygulamalarım** sayfasında **alma yeni uygulama**.
+1. İçinde **alma yeni uygulama** iletişim kutusunda LUIS uygulaması tanımlayan JSON dosyasını seçin.
+
+## <a name="delete-app"></a>Uygulamayı silme
+
+1. Üzerinde **uygulamalarım** sayfasında, uygulama satırının sonundaki üç noktaya (...) seçin.
+1. Seçin **Sil** menüsünde.
+1. Seçin **Tamam** onay penceresinde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

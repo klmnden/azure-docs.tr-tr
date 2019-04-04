@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 785948c78b2b8205c4bebe2d68b62f6de7254d94
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 3004f073100b45de25655fc6dee6a96c90612c46
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863143"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905212"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri
 
@@ -64,14 +64,14 @@ Aşağıdaki tanılama telemetrisi toplamak için Azure SQL veritabanı ve örne
 | :------------------- | ----- | ----- |
 | [Tüm ölçümleri](#all-metrics): DTU/CPU yüzdesi, DTU/CPU sınırı, fiziksel içeren veri okuma yüzdesi, günlük yazma ve yüzde başarılı/başarısız/engellenen güvenlik duvarı bağlantıları, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi ve XTP depolama yüzdesi. | Evet | Hayır |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): CPU kullanımı gibi çalışma zamanı istatistikleri sorgu ve sorgu süresi istatistikleri hakkında bilgi içerir. | Evet | Evet |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics): CPU, günlük ve KİLİTLEME gibi (ne sorgularınızın beklenen) sorgu bekleme istatistikleri hakkında bilgi içerir. | Evet | Evet |
-| [Hataları](#errors-dataset): Veritabanında SQL hatalar hakkında bilgi içerir. | Evet | Evet |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Ne kadar süre bekleyin farklı türlerde bekleyen veritabanı harcanan bilgilerini içerir. | Evet | Hayır |
-| [Zaman aşımları](#time-outs-dataset): Veritabanında zaman aşımları hakkındaki bilgileri içerir. | Evet | Hayır |
-| [Blokları](#blockings-dataset): Veritabanı olaylarını engelleme hakkında bilgi içerir. | Evet | Hayır |
-| [Kilitlenmeler](#deadlocks-dataset): Veritabanında kilitlenme olaylar hakkında bilgi içerir. | Evet | Hayır |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): Sorgu bekleme istatistikleri (ne sorgularınızın beklenen) hakkında bilgi içeren gibi CPU, günlük ve KİLİTLEME olan. | Evet | Evet |
+| [Hataları](#errors-dataset): Bir veritabanında SQL hatalar hakkında bilgi içerir. | Evet | Evet |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Ne kadar süre ilgili farklı bekleme türleri üzerinde bekleyen bir veritabanı harcanan bilgiler içerir. | Evet | Hayır |
+| [Zaman aşımları](#time-outs-dataset): Bir veritabanı zaman aşımları hakkındaki bilgileri içerir. | Evet | Hayır |
+| [Blokları](#blockings-dataset): Bir veritabanı etkinlikleri engelleme hakkında bilgi içerir. | Evet | Hayır |
+| [Kilitlenmeler](#deadlocks-dataset): Bir veritabanında kilitlenme olaylar hakkında bilgi içerir. | Evet | Hayır |
 | [AutomaticTuning](#automatic-tuning-dataset): Veritabanı otomatik ayarlama önerileri hakkında bilgi içerir. | Evet | Hayır |
-| [SQLInsights](#intelligent-insights-dataset): Akıllı Öngörüler performans içerir. Daha fazla bilgi için bkz. [Intelligent Insights](sql-database-intelligent-insights.md). | Evet | Evet |
+| [SQLInsights](#intelligent-insights-dataset): Bir veritabanı için performans akıllı Öngörüler içerir. Daha fazla bilgi için bkz. [Intelligent Insights](sql-database-intelligent-insights.md). | Evet | Evet |
 
 > [!IMPORTANT]
 > Elastik havuzlar ve yönetilen örnekleri kendi ayrı tanılama telemetrisi içerdikleri veritabanlarından var. Bu, aşağıda açıklandığı gibi tanılama telemetrisi bu kaynakların her biri, için ayrı olarak yapılandırıldığı şekilde dikkat edin önemlidir.

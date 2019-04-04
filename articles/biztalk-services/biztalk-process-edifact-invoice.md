@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 5eb9740bdd0543556265f54a1a37b632f79ac861
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7093be36e34785d4153c257d411128efe463dee1
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550131"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918969"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Öğretici: Azure BizTalk Services’ı kullanarak EDIFACT faturalarını işleme
 
@@ -55,9 +55,9 @@ Bu iş senaryosu için Microsoft Azure BizTalk Hizmetleri ile sağlanan özellik
 Bu senaryoyu tamamlamak için Service Bus kuyruklarını fatura Contoso için Northwind gönderip bildirim Northwind kullanırız. Bu kuyruklar bir indirme olarak kullanılabilir ve kullanılabilir örnek paket içerisine dâhil istemci uygulaması kullanılarak oluşturulabilir Bu öğreticinin bir parçası olarak.  
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Service Bus ad alanı olmalıdır. Bir ad alanı oluşturma ile ilgili yönergeler için bkz: [nasıl yapılır: Oluşturma veya değiştirme bir Service Bus hizmeti Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Bize sağlanan, bir Service Bus ad alanı zaten sahip olduğunuzu varsaymaktadır adlı **edifactbts**.
+* Service Bus ad alanı olmalıdır. Bir ad alanı oluşturma ile ilgili yönergeler için bkz: [nasıl yapılır: Oluşturma veya değiştirme bir Service Bus hizmeti Namespace](/previous-versions/azure/azure-services/hh674478(v=azure.100)). Bize sağlanan, bir Service Bus ad alanı zaten sahip olduğunuzu varsaymaktadır adlı **edifactbts**.
 * Bir BizTalk Hizmetleri aboneliğinizin olması gerekir. Bu öğreticide, bize adlı bir BizTalk Services aboneliği sahip olduğunuz varsayılır **contosowabs**.
-* BizTalk Hizmetleri portalında BizTalk Hizmetleri aboneliğinizi kaydedin. Yönergeler için [BizTalk Hizmetleri portalında BizTalk hizmet dağıtımı kaydediliyor](https://msdn.microsoft.com/library/hh689837.aspx)
+* BizTalk Hizmetleri portalında BizTalk Hizmetleri aboneliğinizi kaydedin. Yönergeler için [BizTalk Hizmetleri portalında BizTalk hizmet dağıtımı kaydediliyor](/previous-versions/azure/hh689837(v=azure.100))
 * Visual Studio yüklü olmalıdır.
 * BizTalk Services SDK'sı yüklü olması gerekir. SDK'sından indirebilirsiniz [https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 

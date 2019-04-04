@@ -8,18 +8,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 43947413f061ec8b366392b676e848ebf5e6484e
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 994ccf292a4215624d4222fe13ca9ac25c863368
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570122"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895875"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Stream Analytics yönetilen kimlikleri (Önizleme) kullanarak Azure Data Lake depolama Gen1 için kimlik doğrulaması
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Stream Analytics yönetilen kimlik kullanarak Azure Data Lake depolama Gen1 için kimlik doğrulaması
 
 Azure Stream Analytics, Azure Data Lake Storage (ADLS) Gen1 çıktıyla yönetilen kimlik doğrulama destekler. Kimlik Azure Active Directory içinde belirli bir Stream Analytics işi temsil eden kayıtlı bir yönetilen uygulama ve hedeflenen kaynak kimliğini doğrulamak için kullanılabilir. Yönetilen kimlik parola değişikliklerini veya 90 günde gerçekleşen kullanıcı belirteci süre sonu nedeniyle yeniden kimlik doğrulamaya zorlayabilir gerek gibi kullanıcı tabanlı kimlik doğrulama yöntemlerini sınırlamaları ortadan kaldırır. Ayrıca, yönetilen kimlikleri, Azure Data Lake depolama Gen1 output Stream Analytics işi dağıtımlarının Otomasyonu ile yardımcı olur.
-
-Ziyaret [Azure Stream analytics'te sekiz yeni özellikler](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blog gönderisi için yeni özellikler hakkında daha fazla Bu önizleme sürümü ve okuma için kaydolun.
 
 Bu makalede yönetilen kimlik veren bir Azure Data Lake depolama Gen1 Azure portalı, Azure Resource Manager şablon dağıtımı ve Azure Stream Analytics araçları için Visual Studio için Azure Stream Analytics işi için etkinleştirmek için üç yol gösterir.
 
@@ -27,11 +25,11 @@ Bu makalede yönetilen kimlik veren bir Azure Data Lake depolama Gen1 Azure port
 
 ## <a name="azure-portal"></a>Azure portal
 
-1. Yeni bir Stream Analytics işi oluşturma veya var olan bir işi, Azure portalında açarak başlatın. Ekranın sol tarafında bulunan menü çubuğundan seçin **yönetilen kimliği (Önizleme)** altında bulunan **yapılandırma**.
+1. Yeni bir Stream Analytics işi oluşturma veya var olan bir işi, Azure portalında açarak başlatın. Ekranın sol tarafında bulunan menü çubuğundan seçin **yönetilen kimliği** altında bulunan **yapılandırma**.
 
-   ![Stream Analytics yönetilen kimlik Önizleme yapılandırın](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
+   ![Stream Analytics yönetilen kimlik yapılandırma](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. Seçin **kullanım sistem tarafından atanan yönetilen kimliği (Önizleme)** penceresinden sağ tarafta görüntülenir. Tıklayın **Kaydet** kimliğini Azure Active Directory'de Stream Analytics işi için bir hizmet sorumlusu için. Yeni oluşturulan kimlik yaşam döngüsünü Azure tarafından yönetilir. Stream Analytics işi silindiğinde, ilişkili kimlik (diğer bir deyişle, hizmet sorumlusu), Azure tarafından otomatik olarak silinir.
+2. Seçin **yönetilen kimliği kullanma sistem tarafından atanan** penceresinden sağ tarafta görüntülenir. Tıklayın **Kaydet** kimliğini Azure Active Directory'de Stream Analytics işi için bir hizmet sorumlusu için. Yeni oluşturulan kimlik yaşam döngüsünü Azure tarafından yönetilir. Stream Analytics işi silindiğinde, ilişkili kimlik (diğer bir deyişle, hizmet sorumlusu), Azure tarafından otomatik olarak silinir.
 
    Yapılandırma kaydedilirken, hizmet sorumlusu nesne kimliği (OID) asıl aşağıda gösterildiği gibi kimlik olarak listelenir:
 
@@ -39,7 +37,7 @@ Bu makalede yönetilen kimlik veren bir Azure Data Lake depolama Gen1 Azure port
  
    Hizmet sorumlusu, Stream Analytics işiyle aynı ada sahip. Örneğin, işinizin adı ise **MyASAJob**, oluşturulan hizmet sorumlusu adını da olduğu **MyASAJob**.
 
-3. Kimlik doğrulama modu açılır ve select ADLS Gen1 çıkış havuzu, çıkış Özellikler penceresinde tıklayın **yönetilen kimliği (Önizleme)**.
+3. Kimlik doğrulama modu açılır ve select ADLS Gen1 çıkış havuzu, çıkış Özellikler penceresinde tıklayın ** yönetilen kimliği **.
 
 4. Kalan özellikleri doldurun. ADLS çıktı oluşturma hakkında daha fazla bilgi edinmek için [stream analytics ile Data lake Store çıktı oluşturma](../data-lake-store/data-lake-store-stream-analytics.md). İşlemi tamamladığınızda, tıklayın **Kaydet**.
 

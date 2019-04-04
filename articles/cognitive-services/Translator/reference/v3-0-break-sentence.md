@@ -3,19 +3,19 @@ title: Translator metin çevirisi API'si BreakSentence yöntemi
 titlesuffix: Azure Cognitive Services
 description: Translator metin API'si BreakSentence yöntemi kullanın.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 8aa726d8a00e76c1b4311140a433e6c7e476dc50
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3a9c2ae0eee3e282dddff812da2fed07787328b7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884911"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916300"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator metin çevirisi API'si 3.0: BreakSentence
 
@@ -45,7 +45,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
     <td>*İsteğe bağlı bir sorgu parametresi*.<br/>Dil etiketi giriş metni dili tanımlama. Bir kod belirtilmezse otomatik dil algılama uygulanır.</td>
   </tr>
   <tr>
-    <td>komut dosyası</td>
+    <td>script</td>
     <td>*İsteğe bağlı bir sorgu parametresi*.<br/>Giriş metni kullanılan komut dosyası tanımlayan komut dosyası etiketi. Bir komut dosyası belirtilmezse, varsayılan komut dosyası dili kabul edilir.</td>
   </tr>
 </table> 
@@ -56,7 +56,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   <th width="20%">Üst bilgiler</th>
   <th>Açıklama</th>
   <tr>
-    <td>_Bir yetkilendirme_<br/>_Üst bilgi_</td>
+    <td>_Bir yetkilendirme_<br/>_üst bilgi_</td>
     <td>*Gerekli istek üst bilgisi*.<br/>Bkz: [kimlik doğrulaması için kullanılabilir seçenekler](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -172,7 +172,7 @@ Bir hata oluşursa, isteği ayrıca JSON hata yanıtı döndürür. 3 haneli HTT
 
 Aşağıdaki örnek, tek bir cümle için cümle sınırları edinme gösterir. Cümlenin dil hizmeti tarafından otomatik olarak algılanır.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# [<a name="curl"></a>Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"

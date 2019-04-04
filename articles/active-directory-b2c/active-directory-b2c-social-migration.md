@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a1ecc4de9475e735cd17286826c1d8cea05904ab
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 12b464d9b6bd09acb9c93ab1de0ba178f28a778a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089361"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894910"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Kullanıcıları sosyal kimlikleriyle geçirme
 Kimlik sağlayıcınız Azure AD B2C'ye geçirmek planlama yaparken, sosyal medya kimliklerinden kullanıcıları geçirme gerekebilir. Bu makalede, aşağıdakiler gibi mevcut sosyal kimlikleri hesapları geçirme açıklanmaktadır: Azure AD B2C'ye Facebook ve LinkedIn, Microsoft ve Google hesapları. Bu geçiş daha az yaygın olan ancak bu makale Federasyon kimlikleri için de geçerlidir.
@@ -63,7 +63,7 @@ Aşağıdaki listede, bir kullanıcı oluşturduğunuzda, gerekli olan özellikl
 * **userIdentities** -sosyal belirten bir veya daha fazla Userıdentity kayıtları hesap türü ve sosyal kimlik sağlayıcısından alınan benzersiz kullanıcı tanımlayıcısı.
 * [isteğe bağlı] **otherMails** - yalnızca sosyal hesap kullanıcının e-posta adresleri 
 
-Daha fazla bilgi için bkz. [Graph API Başvurusu](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
+Daha fazla bilgi için bkz. [Graph API Başvurusu](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## <a name="migrate-social-account-only"></a>Sosyal hesap (yalnızca) geçirme
 Yerel hesap kimlik bilgileri olmadan yalnızca sosyal hesap oluşturmak için. Graph API'si için HTTPS POST isteği gönderin. İstek gövdesi, oluşturulacak sosyal hesap kullanıcı özelliklerini içerir. En azından gerekli özelliklerini belirtmeniz gerekir. 

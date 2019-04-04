@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 03/25/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 0d0b3b38fe39e32c6a3c7c39de5cbed4f7400d92
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d78b10edd005a593b4ebe4f34ca2280ccdfdaa04
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58435901"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918918"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Azure CDN ürün özelliklerini karşılaştırın
 
@@ -35,10 +35,10 @@ Aşağıdaki tabloda her ürünle birlikte sunulan özellikler karşılaştırı
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dinamik site hızlandırma - nesneleri önceden getirme](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
 | [Genel web teslimatı iyileştirmesi](https://docs.microsoft.com/azure/cdn/cdn-optimization-overview#general-web-delivery)  | **&#x2713;** | **&#x2713;**, Ortalama dosyanızın boyutu 10 MB'den küçükse, bu en iyi duruma getirme türünü seçin  | **&#x2713;** |  **&#x2713;** |
 | [Video akışı iyileştirmesi](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization)  | Genel Web teslimatı | **&#x2713;**  | Genel Web teslimatı |  Genel Web teslimatı |
-| [Büyük dosyaları iyileştirme](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization)  | Genel Web teslimatı | **&#x2713;**, Ortalama dosyanızın boyutu 10 MB'den daha büyük ise, bu en iyi duruma getirme türünü seçin   | Genel Web teslimatı |  Genel Web teslimatı |
+| [Büyük dosya iyileştirmesi](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization)  | Genel Web teslimatı | **&#x2713;**, Ortalama dosyanızın boyutu 10 MB'den daha büyük ise, bu en iyi duruma getirme türünü seçin   | Genel Web teslimatı |  Genel Web teslimatı |
 | En iyi duruma getirme türünü değiştir | |**&#x2713;** | | |
 | Kaynak bağlantı noktası |Tüm TCP bağlantı noktaları |[İzin verilen kaynak bağlantı noktaları](https://docs.microsoft.com/previous-versions/azure/mt757337(v%3Dazure.100)#allowed-origin-ports) |Tüm TCP bağlantı noktaları |Tüm TCP bağlantı noktaları |
-| [Genel sunucu yük dengelemesi (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Genel sunucu Yük Dengelemesi (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Hızlı temizleme](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;**, Tüm temizleme ve joker temizleme desteklenmiyor Azure CDN from Akamai tarafından şu anda |**&#x2713;** |**&#x2713;** |
 | [Varlık önceden yükleme](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
 | Önbellek/üst bilgi ayarları ([önbelleğe alma](cdn-caching-rules.md) kullanılarak)  |  |**&#x2713;** |**&#x2713;** | |
@@ -46,7 +46,7 @@ Aşağıdaki tabloda her ürünle birlikte sunulan özellikler karşılaştırı
 | Önbellek/üstbilgi ayarları ([kurallar altyapısı](cdn-rules-engine.md) kullanılarak)  |  | | |**&#x2713;** |
 | URL yeniden yönlendirme/yeniden yazma (kullanarak [kurallar altyapısı](cdn-rules-engine.md))  |  | | |**&#x2713;** |
 | Mobil cihaz kuralları ([kurallar altyapısı](cdn-rules-engine.md) kullanılarak)  |  | | |**&#x2713;** |
-| [Sorgu dizesini önbelleğe alma](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Sorgu dizesi önbelleğe alma](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 ikili yığını | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 desteği](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 ||||
@@ -57,20 +57,20 @@ Aşağıdaki tabloda her ürünle birlikte sunulan özellikler karşılaştırı
 | [Coğrafi filtreleme](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Belirteç kimlik doğrulaması](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 
 | [DDOS koruması](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Kendi sertifikanızı getirme](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates) |**&#x2713;** |  |  |  |
+| [Kendi sertifikanızı Getir](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates) |**&#x2713;** |  |  |  |
 ||||
 | **Analiz ve raporlama** | **Standart Microsoft** | **Standart Akamai** | **Standart Verizon** | **Premium Verizon** | 
 | [Azure tanılama günlükleri](cdn-azure-diagnostic-logs.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Verizon'dan alınan çekirdek raporlar](cdn-analyze-usage-patterns.md)  |  | |**&#x2713;** |**&#x2713;** |
+| [Verizon’dan alınan çekirdek raporlar](cdn-analyze-usage-patterns.md)  |  | |**&#x2713;** |**&#x2713;** |
 | [Verizon özel raporları](cdn-verizon-custom-reports.md)  |  | |**&#x2713;** |**&#x2713;** |
 | [Gelişmiş HTTP raporları](cdn-advanced-http-reports.md)  |  | | |**&#x2713;** |
 | [Gerçek zamanlı istatistikler](cdn-real-time-stats.md)  |  | | |**&#x2713;** |
-| [Uç düğümü performansı](cdn-edge-performance.md)  |  | | |**&#x2713;** |
+| [Kenar düğümü performansını](cdn-edge-performance.md)  |  | | |**&#x2713;** |
 | [Gerçek zamanlı uyarılar](cdn-real-time-alerts.md)  |  | | |**&#x2713;** |
 ||||
 | **Kullanım kolaylığı** | **Standart Microsoft** | **Standart Akamai** | **Standart Verizon** | **Premium Verizon** | 
 | [Depolama](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md) ve [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) gibi Azure hizmetleriyle kolay tümleştirme  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md), veya [PowerShell](cdn-manage-powershell.md) aracılığıyla yönetim  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [REST API](/rest/api/cdn/), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md), veya [PowerShell](cdn-manage-powershell.md) aracılığıyla yönetim  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Sıkıştırma için MIME türleri](https://docs.microsoft.com/azure/cdn/cdn-improve-performance)  |Yalnızca varsayılan |Yapılandırılabilir |Yapılandırılabilir  |Yapılandırılabilir  |
 | Sıkıştırma Kodlamaları  |GZIP, brotli |Gzip |gzip, deflate, bzıp2, brotili  |gzip, deflate, bzıp2, brotili  |
 

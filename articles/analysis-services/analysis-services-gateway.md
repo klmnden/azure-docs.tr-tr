@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3f87a4c520327f1a13a48c70502b6737c0aa9b3a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630980"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58896032"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Şirket içi veri ağ geçidi ile şirket içi veri kaynaklarına bağlanma
 Şirket içi veri ağ geçidi, şirket içi veri kaynakları ile bulutta, Azure Analysis Services sunucuları arasında güvenli veri aktarımı sağlar. Aynı bölgede birden fazla Azure Analysis Services sunucuları ile çalışma ek olarak, ağ geçidinin en son sürümünü de Azure Logic Apps, Power BI, Power Apps ve Microsoft Flow ile çalışır. Tek bir ağ geçidi ile aynı abonelik ve aynı bölgede birden çok hizmet ilişkilendirebilirsiniz. 
 
 Ağ geçidi ile Kurulum ilk kez alma dört kısımlı bir işlemdir:
 
-- **İndirme ve çalıştırma kurulum** -Bu adım, kuruluşunuzdaki bir bilgisayarda bir ağ geçidi hizmetini yükler. Ayrıca bir hesap kullanarak Azure'da oturum, [kiracının](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD. Azure B2B (konuk) hesapları desteklenmez.
+- **İndirme ve çalıştırma kurulum** -Bu adım, kuruluşunuzdaki bir bilgisayarda bir ağ geçidi hizmetini yükler. Ayrıca bir hesap kullanarak Azure'da oturum, [kiracının](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant) Azure AD. Azure B2B (konuk) hesapları desteklenmez.
 
 - **Ağ geçidi kaydetme** - Bu adımda, bir ad belirtin ve kurtarma anahtarı, ağ geçidiniz için ve ağ geçidinizin ağ geçidi bulut hizmeti ile kaydetme, bir bölge seçin. Ağ geçidi kaynağı herhangi bir bölgede kaydedilebilir, ancak, Analysis Services sunucuları aynı bölgede olması önerilir. 
 
@@ -63,16 +63,16 @@ Ağ Geçidi tarafından kullanılan tam etki alanı adları şunlardır:
 
 | Etki alanı adları | Giden bağlantı noktaları | Açıklama |
 | --- | --- | --- |
-| *. powerbi.com |80 |Yükleyiciyi indirmek için kullanılan HTTP. |
-| *. powerbi.com |443 |HTTPS |
+| *.powerbi.com |80 |Yükleyiciyi indirmek için kullanılan HTTP. |
+| *.powerbi.com |443 |HTTPS |
 | *. analysis.windows.net |443 |HTTPS |
-| *. login.windows.net |443 |HTTPS |
+| *.login.windows.net |443 |HTTPS |
 | *.servicebus.windows.net |5671-5672 |Gelişmiş ileti sıraya alma Protokolü (AMQP) |
 | *.servicebus.windows.net |443, 9350-9354 |Dinleyiciler (erişim denetimi belirtecinin alınması için 443 gerekir) TCP üzerinden Service Bus geçişi hakkında |
 | *.frontend.clouddatahub.net |443 |HTTPS |
 | *. core.windows.net |443 |HTTPS |
 | login.microsoftonline.com |443 |HTTPS |
-| *. msftncsi.com |443 |Power BI hizmeti tarafından ağ geçidine erişilemiyorsa internet bağlantısını test etmek için kullanılır. |
+| *.msftncsi.com |443 |Power BI hizmeti tarafından ağ geçidine erişilemiyorsa internet bağlantısını test etmek için kullanılır. |
 | *.microsoftonline-p.com |443 |Yapılandırmasına bağlı olarak kimlik doğrulaması için kullanılır. |
 
 ### <a name="force-https"></a>Azure Service Bus ile HTTPS iletişimini zorlama

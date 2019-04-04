@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 371d15f59c091f7ac38d36bfe3de5f4b31e4482c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 40c5444a54f4e483a9dcacb958c18f66da45019a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629626"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906132"
 ---
 # <a name="application-gateway-configuration-overview"></a>Uygulama ağ geçidi yapılandırmasına genel bakış
 
@@ -21,6 +21,9 @@ Azure Application Gateway, farklı senaryolar için çeşitli şekillerde yapıl
 ![Uygulama ağ geçidi bileşenleri akış çizelgesi](./media/configuration-overview/configuration-overview1.png)
 
 Bu görüntüde üç dinleyicisi olan bir uygulama gösterilmiştir. Çok siteli dinleyicileri için ilk iki olan `http://acme.com/*` ve `http://fabrikam.com/*`sırasıyla. Her ikisi de 80 numaralı bağlantı noktasında dinler. Üçüncü uçtan uca Güvenli Yuva Katmanı (SSL) sonlandırma içeren temel bir dinleyici olduğundan.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -136,11 +139,11 @@ Bkz: [SSL sonlandırma için desteklenen sertifika](https://docs.microsoft.com/a
 HTTP/2 protokolü desteği, yalnızca uygulama ağ geçidi dinleyicileri bağlanan istemciler için kullanılabilir. HTTP/1.1 arka uç sunucu havuzlarına iletişimdir. Varsayılan olarak, HTTP/2 desteği devre dışıdır. Aşağıdaki Azure PowerShell kod parçacığı, bunu etkinleştirmek gösterilmektedir:
 
 ```azurepowershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 
 $gw.EnableHttp2 = $true
 
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 #### <a name="websocket-support"></a>WebSocket desteği
@@ -262,11 +265,11 @@ Application Gateway, HTTP ve HTTPS yönlendirme istekleri arka uç sunucuları i
 
 Bu ayar ile HTTPS dinleyicisinin destekler birleştirilmiş [uçtan uca SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Bu hassas verileri arka uca şifrelenmiş güvenli bir şekilde aktarmanıza olanak sağlar. Her arka uç sunucusunda uçtan uca SSL etkin olan arka uç havuzundaki bir sertifikayla güvenli iletişime izin verecek şekilde yapılandırılması gerekir.
 
-### <a name="port"></a>Bağlantı Noktası
+### <a name="port"></a>Bağlantı noktası
 
 Bu ayar, burada trafiği arka uç sunucuları uygulama ağ geçidinden dinleme bağlantı noktasını belirtir. 1 ile 65535 arasında değişen bağlantı noktaları yapılandırabilirsiniz.
 
-### <a name="request-timeout"></a>İstek zaman aşımı
+### <a name="request-timeout"></a>İstek zaman aşımına uğradı
 
 Bu ayar application gateway arka uç havuzundan "bağlantı zaman aşımına uğradı" hata iletisi döndürmeden önce yanıt almayı bekleyeceği saniye sayısıdır.
 
@@ -330,7 +333,7 @@ Arka uç üyeleri dört tür için bir arka uç havuzu işaret edebilir: belirli
 
 Arka uç havuzunu oluşturduktan sonra bir veya daha fazla istek yönlendirme kuralı ile ilişkilendirmeniz gerekir. Application gateway'iniz sistem durumu araştırmaları her arka uç havuzu için de yapılandırmanız gerekir. Bir istek yönlendirme kuralı koşulu karşılandığında, uygulama ağ geçidi trafiği (sistem durumu araştırmalarının tarafından belirlendiği şekilde) karşılık gelen arka uç havuzunda iyi durumda sunucularına iletir.
 
-## <a name="health-probes"></a>Durum araştırmaları
+## <a name="health-probes"></a>Sistem durumu araştırmaları
 
 Varsayılan olarak, arka uçtaki tüm kaynakların bir uygulama ağ geçidi izler. Ancak daha fazla denetime sistem durumu izleme almak her arka uç HTTP ayarı için özel bir araştırma oluşturma öneririz. Özel bir araştırma yapılandırmanız öğrenmek için bkz. [özel durum yoklama ayarları](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings).
 

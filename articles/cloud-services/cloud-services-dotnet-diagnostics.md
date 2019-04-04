@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 017461d5b73bb48ce61678fbbd795026cef60bc1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ba69a5aaffb39c26731ffd209587a8c8223b032a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536859"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915366"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Azure bulut hizmetlerinde Azure tanılamayı etkinleştirme
 Bkz: [Azure tanılama genel bakış](../azure-diagnostics.md) arka plan Azure tanılama.
@@ -191,7 +191,7 @@ Visual Studio **Sunucu Gezgini**, wadexample depolama hesabına gidin. Bulut hiz
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## <a name="configuration-file-schema"></a>Yapılandırma dosyası şeması
-Tanılama yapılandırma dosyası, tanılama aracısını başladığında tanılama yapılandırma ayarları başlatmak üzere kullanılan değerleri tanımlar. Bkz: [en son şema başvurusu](https://msdn.microsoft.com/library/azure/mt634524.aspx) için geçerli değerler ve örnekler.
+Tanılama yapılandırma dosyası, tanılama aracısını başladığında tanılama yapılandırma ayarları başlatmak üzere kullanılan değerleri tanımlar. Bkz: [en son şema başvurusu](/azure/azure-monitor/platform/diagnostics-extension-schema) için geçerli değerler ve örnekler.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 Sorun varsa, bkz: [Azure tanılama sorunlarını giderme](../azure-diagnostics-troubleshooting.md) ortak sorunları ile ilgili Yardım için.

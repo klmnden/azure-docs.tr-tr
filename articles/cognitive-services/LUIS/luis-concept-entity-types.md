@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: efe50533a03551a673583265e107263d79cff90a
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 6e37466145af58a52a86a08a2a873e406c99b9e5
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418695"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895554"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Varlık türleri ve bunların amacıyla LUIS
 
@@ -96,7 +96,7 @@ Varlık ayıklandıktan sonra varlık verilerini bilgilerin tek bir birim olarak
 |||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Normal ifade**](#regular-expression-entity)|Metin eşleştirilecek normal ifade kullanır.|
 |✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Basit**](#simple-entity)|Tek bir kavram sözcük veya tümcecik olarak içerir.|
 
-Yalnızca makine öğrenilen varlıklar, her amaç için örnek konuşma işaretlenmesi gerekir. Varlıkları en iyi şekilde çalıştığı aracılığıyla test edildiğinde makine öğrenilen [uç nokta sorguları](luis-concept-test.md#endpoint-testing) ve [konuşma uç noktası gözden geçirme](luis-how-to-review-endoint-utt.md). 
+Yalnızca makine öğrenilen varlıklar, her amaç için örnek konuşma işaretlenmesi gerekir. Varlıkları en iyi şekilde çalıştığı aracılığıyla test edildiğinde makine öğrenilen [uç nokta sorguları](luis-concept-test.md#endpoint-testing) ve [konuşma uç noktası gözden geçirme](luis-how-to-review-endpoint-utterances.md). 
 
 Pattern.Any varlıklar olarak işaretlenmesi gerekir [deseni](luis-how-to-model-intent-pattern.md) şablon örnekleri, amaç kullanıcı örnekleri. 
 

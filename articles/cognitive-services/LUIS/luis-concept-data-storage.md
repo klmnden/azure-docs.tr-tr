@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 03/28/2019
 ms.author: diberry
-ms.openlocfilehash: 05a2bd5334fe2836a96bd9437121252fe6ef6eff
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a1093c2a6303b453a17a52058303913de5ecfa8d
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882327"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893206"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Veri depolama ve Bilişsel hizmetler Language Understanding (LUIS) kaldırılması
 LUIS anahtarı ile belirtilen bölgeyi karşılık gelen bir Azure veri deposunda şifrelenmiş verileri depolar. Bu veriler 30 gün boyunca saklanır. 
@@ -24,13 +24,33 @@ LUIS anahtarı ile belirtilen bölgeyi karşılık gelen bir Azure veri deposund
 ## <a name="export-and-delete-app"></a>Dışarı aktarma ve uygulamayı Sil
 Kullanıcılar üzerinde tam denetime sahip [verme](luis-how-to-start-new-app.md#export-app) ve [silme](luis-how-to-start-new-app.md#delete-app) uygulama. 
 
-## <a name="utterances-in-an-intent"></a>Bir hedefi olarak konuşma
+## <a name="utterances"></a>Konuşmalar
+
+Konuşma iki farklı yerde depolanabilir. 
+
+* Sırasında **yazma işlemi**, konuşma oluşturulur ve amaca depolanır. Konuşma amacı, başarılı bir LUIS uygulaması için gereklidir. Uygulama yayımlanır ve son nokta isteğinin sorgu dizesi, uç noktasında sorguları alır sonra `log=false`, uç nokta utterance depolanıp depolanmayacağını belirler. Uç nokta depolanırsa, bulunan etkin olarak öğrenmeye konuşma bir parçası haline gelir **derleme** Portalı'nın bölümü, **gözden geçirin, konuşma uç noktası** bölümü. 
+* Olduğunda, **konuşma uç noktası gözden**ve bir amaç için bir utterance ekleyin, utterance artık gözden geçirilmesi için uç nokta konuşma bir parçası olarak depolanır. Bu uygulamanın amaçları için eklenir. 
+
+<a name="utterances-in-an-intent"></a>
+
+### <a name="delete-example-utterances-from-an-intent"></a>Örnek konuşma bir amacından Sil
 Eğitim için kullanılan örnek konuşma Sil [LUIS](luis-reference-regions.md). LUIS uygulamanızdan bir örnek utterance silerseniz, LUIS web hizmetinden kaldırılır ve dışarı aktarma için kullanılamaz.
 
-## <a name="utterances-in-review"></a>Konuşma incelemesindeki
-Konuşma içinde LUIS önerir kullanıcı konuşma listesinden silebilirsiniz  **[gözden geçirme endpoint konuşma sayfası](luis-how-to-review-endoint-utt.md)**. Konuşma bu listeden silme önerilmesini engelliyor, ancak bunları günlüklerinden silmez.
+<a name="utterances-in-review"></a>
 
-## <a name="accounts"></a>Hesaplar
+### <a name="delete-utterances-in-review-from-active-learning"></a>Konuşma incelemesindeki gelen etkin olarak öğrenmeye Sil
+
+Konuşma içinde LUIS önerir kullanıcı konuşma listesinden silebilirsiniz  **[gözden geçirme endpoint konuşma sayfası](luis-how-to-review-endpoint-utterances.md)**. Konuşma bu listeden silme önerilmesini engelliyor, ancak bunları günlüklerinden silmez.
+
+Etkin öğrenme konuşma istemiyorsanız yapabilecekleriniz [etkin olarak öğrenmeye devre dışı](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Etkin öğrenme devre dışı bırakma günlüğünü de devre dışı bırakır.
+
+### <a name="disable-logging-utterances"></a>Günlüğe kaydetme konuşma devre dışı bırak
+[Etkin öğrenme devre dışı bırakma](luis-how-to-review-endpoint-utterances.md#disable-active-learning) olan günlüğü devre dışı bırakır.
+
+
+<a name="accounts"></a>
+
+## <a name="delete-an-account"></a>Hesap silme
 Bir hesabı silerseniz, tüm uygulamalar, kendi örnek konuşma ve günlükleri birlikte silinir. Hesabın önce 60 gün boyunca veriler korunur ve veriler kalıcı olarak silinir.
 
 Hesap silme, kullanılabilir **ayarları** sayfası. Hesabınızın adını almak için sağ üst gezinti çubuğunda seçin **ayarları** sayfası.

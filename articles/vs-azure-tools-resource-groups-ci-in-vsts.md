@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: d7859572b090913db13fe9bb7f3ed67619fe5521
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456355"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894158"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Azure DevOps hizmetlerinde, Azure kaynak grubu dağıtım projeleri kullanarak sürekli tümleştirme
 Azure şablonu dağıtmak için çeşitli aşamalarda görevleri gerçekleştirin: Azure yapı, Test, Kopyala (aynı zamanda "Hazırlama" olarak adlandırılır) ve şablonu dağıtın. Azure DevOps hizmetler için şablonları dağıtmak için iki farklı yolu vardır. Her iki yöntem de aynı sonuçları sağlar, bu nedenle, iş akışınızı en uygun olanı seçin.
@@ -37,7 +37,7 @@ Bu makalede, iki seçenek de gösterilmektedir. İlk seçenek, geliştiricilere 
 * Uygulama ikili dosyalarını
 
 ### <a name="nested-templates-and-configuration-scripts"></a>İç içe geçmiş şablonlar ve yapılandırma betiklerini
-Visual Studio tarafından sağlanan şablonları kullandığınızda (veya Visual Studio kod parçacıklarıyla yerleşik), PowerShell betiğini yapıtlar yalnızca aşamaları, ayrıca farklı dağıtımlar için kaynaklar için URI'yi parametreleştiren. Betik daha sonra yapıtları azure'da güvenli bir kapsayıcıya kopyalar, bu kapsayıcı için bir SaS belirteci oluşturur ve ardından şablon dağıtımı bu bilgileri geçirir. Bkz: [şablon dağıtımı oluşturma](https://msdn.microsoft.com/library/azure/dn790564.aspx) iç içe geçmiş Şablonlar hakkında daha fazla bilgi edinmek için.  Azure DevOps Hizmetleri'nde görevleri kullanırken, şablon dağıtımınız için uygun görevleri seçin ve gerekirse, parametre değerlerini şablon dağıtımı için hazırlama adımdan geçirmek gerekir.
+Visual Studio tarafından sağlanan şablonları kullandığınızda (veya Visual Studio kod parçacıklarıyla yerleşik), PowerShell betiğini yapıtlar yalnızca aşamaları, ayrıca farklı dağıtımlar için kaynaklar için URI'yi parametreleştiren. Betik daha sonra yapıtları azure'da güvenli bir kapsayıcıya kopyalar, bu kapsayıcı için bir SaS belirteci oluşturur ve ardından şablon dağıtımı bu bilgileri geçirir. Bkz: [şablon dağıtımı oluşturma](/previous-versions/azure/reference/dn790564(v=azure.100)) iç içe geçmiş Şablonlar hakkında daha fazla bilgi edinmek için.  Azure DevOps Hizmetleri'nde görevleri kullanırken, şablon dağıtımınız için uygun görevleri seçin ve gerekirse, parametre değerlerini şablon dağıtımı için hazırlama adımdan geçirmek gerekir.
 
 ## <a name="set-up-continuous-deployment-in-azure-pipelines"></a>Azure işlem hatları, sürekli dağıtım ayarlama
 PowerShell Betiği, Azure işlem hatlarında çağırmak için derleme işlem hattı güncelleştirmeniz gerekiyor. Kısaca, adımlar şunlardır: 

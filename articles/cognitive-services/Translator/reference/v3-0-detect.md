@@ -3,19 +3,19 @@ title: Translator metin çevirisi API'si algılama yöntemi
 titlesuffix: Azure Cognitive Services
 description: Translator metin API'si algılama yöntemini kullanın.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 57b82bf65ccf002173df90fe19db444d1c087905
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a552fece120d7978825a685960bf4faf65aba783
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857898"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916674"
 ---
 # <a name="translator-text-api-30-detect"></a>Translator metin çevirisi API'si 3.0: Detect
 
@@ -48,7 +48,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   <th width="20%">Üst bilgiler</th>
   <th>Açıklama</th>
   <tr>
-    <td>_Bir yetkilendirme_<br/>_Üst bilgi_</td>
+    <td>_Bir yetkilendirme_<br/>_üst bilgi_</td>
     <td>*Gerekli istek üst bilgisi*.<br/>Bkz: [kimlik doğrulaması için kullanılabilir seçenekler](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -176,7 +176,7 @@ Bir hata oluşursa, isteği ayrıca JSON hata yanıtı döndürür. 3 haneli HTT
 
 Aşağıdaki örnekte, metin çevirisi için desteklenen dilleri alınacak gösterilmektedir.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# [<a name="curl"></a>Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"

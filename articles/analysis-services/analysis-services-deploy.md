@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a9f3dfba4c79b2369e99b95c13557557ed930c24
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: b9740d74a25964286ea92b4238684db81a64c9e2
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188598"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893614"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Visual Studio üzerinden model dağıtma
 
@@ -24,7 +24,7 @@ Azure aboneliğinizde bir sunucu oluşturduktan sonra, aboneliğinize bir tablo 
 Başlamak için gerekli olanlar:
 
 * Azure’da **Analysis Services sunucusu**. Daha fazla bilgi için bkz. [Azure Analysis Services sunucusu oluşturma](analysis-services-create-server.md).
-* SSDT’deki **tablosal model projesi** ya da 1200 veya üzeri uyumluluk düzeyine sahip mevcut bir tablosal model. Daha önce hiç oluşturmadınız mı? [Adventure Works İnternet satışı tablosal modelleme öğreticisini](https://msdn.microsoft.com/library/hh231691.aspx) deneyin.
+* SSDT’deki **tablosal model projesi** ya da 1200 veya üzeri uyumluluk düzeyine sahip mevcut bir tablosal model. Daha önce hiç oluşturmadınız mı? [Adventure Works İnternet satışı tablosal modelleme öğreticisini](/sql/analysis-services/tabular-modeling-adventure-works-tutorial) deneyin.
 * **Şirket içi ağ geçidi** - Bir veya daha fazla veri kaynağı kuruluşunuzun ağında şirket içi olarak bulunuyorsa bir [Şirket içi veri ağ geçidi](analysis-services-gateway.md) yüklemeniz gerekir. Ağ geçidi, buluttaki sunucunuzun modeldeki verileri işlemek ve yenilemek üzere şirket içi veri kaynaklarınıza bağlanması için gereklidir.
 
 > [!TIP]

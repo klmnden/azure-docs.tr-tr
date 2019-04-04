@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3a88c29739faca33794ce10de895c0439f007532
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 51d168474fd593dd537a25c0434e240a426c2cbf
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294238"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918357"
 ---
 # <a name="scaling-media-processing-overview"></a>Genel Bakış medya işlemeyi ölçeklendirme 
 Bu sayfa hakkında genel bakış ve neden medya işlemeyi ölçeklendirme sağlar. 
@@ -48,7 +48,7 @@ Aşağıdaki tabloda farklı kodlama hızlarını arasında seçim yaparken bir 
 
 ## <a name="billing"></a>Faturalandırma
 
-Medya Ayrılmış Birimlerinin fiili olarak kullanıldığı dakika sayısı üzerinden ücretlendirilirsiniz. Ayrıntılı bir açıklaması için SSS bölümüne bakın. [Media Services fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/) sayfası.   
+Medya ayrılmış birimi sağlanan dakika sayısına, hesabınızdaki üzerinden ücretlendirilirsiniz. Bu bağımsız olarak mı ortaya çıkar hesabınızda çalışan herhangi bir işi vardır. Ayrıntılı bir açıklaması için SSS bölümüne bakın. [Media Services fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/) sayfası.   
 
 ## <a name="quotas-and-limitations"></a>Kotalar ve sınırlamalar
 Kotalar ve sınırlamalar ve Destek bileti açmak nasıl hakkında daha fazla bilgi için bkz. [kotaları ve sınırlamaları](media-services-quotas-and-limitations.md).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5379586355ece98af6295236d6cbd09cb31c742b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 838c76e6a383b61ff465f3ed7506af34c8cd01d4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38454473"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916623"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN ile geliştirmeye başlama
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "38454473"
 > 
 > 
 
-Kullanabileceğiniz [.NET için Azure CDN Kitaplığı](https://msdn.microsoft.com/library/mt657769.aspx) oluşturma ve CDN profili ve uç noktaları yönetimini otomatikleştirmek için.  Bu öğreticide, birkaç kullanılabilir işlemleri gösteren basit bir .NET konsol uygulaması oluşturulmasını adım adım göstermektedir.  Bu öğreticide, ayrıntılı olarak .NET için Azure CDN kitaplığı tüm yönlerini açıklamak için tasarlanmamıştır.
+Kullanabileceğiniz [.NET için Azure CDN Kitaplığı](/dotnet/api/overview/azure/cdn) oluşturma ve CDN profili ve uç noktaları yönetimini otomatikleştirmek için.  Bu öğreticide, birkaç kullanılabilir işlemleri gösteren basit bir .NET konsol uygulaması oluşturulmasını adım adım göstermektedir.  Bu öğreticide, ayrıntılı olarak .NET için Azure CDN kitaplığı tüm yönlerini açıklamak için tasarlanmamıştır.
 
 Bu öğreticiyi tamamlamak için Visual Studio 2015 ihtiyacınız vardır.  [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) ücretsiz olarak indirebilirsiniz.
 
@@ -155,7 +155,7 @@ Yazılan programımız temel yapısını geçelim.
 
 Temel yapısını programımız yazılır, çağıran yöntemleri oluşturmanız gerekir `Main` yöntemi.
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+## <a name="authentication"></a>Authentication
 Azure CDN Yönetim kitaplığı kullanabiliriz önce bizim hizmet sorumlusu kimlik doğrulaması ve kimlik doğrulama belirteci almak ihtiyacımız var.  Bu yöntem, belirteci almak için ADAL kullanır.
 
 ```csharp
@@ -338,7 +338,7 @@ Biz, programın geri kalanını çalıştırmak için istemleri ardından doğru
 ## <a name="next-steps"></a>Sonraki Adımlar
 Bu kılavuz, tamamlanan projeden görmek için [örneği indirin](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
 
-.NET için Azure CDN Yönetim kitaplığı hakkındaki ek belgeleri bulmak için görüntüleme [MSDN başvuru](https://msdn.microsoft.com/library/mt657769.aspx).
+.NET için Azure CDN Yönetim kitaplığı hakkındaki ek belgeleri bulmak için görüntüleme [MSDN başvuru](/dotnet/api/overview/azure/cdn).
 
 CDN kaynaklarınızı yönetmek [PowerShell](cdn-manage-powershell.md).
 

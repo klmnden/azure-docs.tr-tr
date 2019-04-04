@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: b2b6da1739aa97f69f5744905564f638309a587f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ac0e4e9019a35d3fdb35c0b7af9cb1289f4bceeb
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854331"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895459"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>ACR görevleri çok adımlı derleme, test ve düzeltme eki görevleri Çalıştır
 
@@ -32,8 +32,6 @@ ms.locfileid: "51854331"
 
 Tüm adımlar, Azure, Azure'un işlem kaynakları için iş boşaltma ve altyapı yönetiminden boşaltma içinde gerçekleştirilir. Azure kapsayıcı kayıt defterinizde yanı sıra, yalnızca kullandığınız kaynaklar için ödeme yaparsınız. Fiyatlandırma hakkında daha fazla bilgi için bkz. **kapsayıcı derleme** konusundaki [Azure Container Registry fiyatlandırma][pricing].
 
-> [!IMPORTANT]
-> Bu özellik şu anda önizleme sürümündedir. Önizlemeler, [ek kullanım koşullarını][terms-of-use] kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
 
 ## <a name="common-task-scenarios"></a>Görev senaryoları
 
@@ -50,13 +48,13 @@ Tüm adımlar, Azure, Azure'un işlem kaynakları için iş boşaltma ve altyap�
 ACR görevleri çok adımlı bir görevde bir YAML dosyası içinde bir dizi olarak tanımlanır. Her adım, bir veya daha fazla önceki adımları başarıyla tamamlandığında bağımlılıkları belirtebilirsiniz. Aşağıdaki görev adım türleri kullanılabilir:
 
 * [`build`](container-registry-tasks-reference-yaml.md#build): Tanıdık kullanarak bir veya daha fazla kapsayıcı görüntüleri oluşturma `docker build` söz dizimi, paralel veya seri.
-* [`push`](container-registry-tasks-reference-yaml.md#push): Bir kapsayıcı kayıt defterine görüntü anında iletme yerleşik. Azure Container Registry gibi özel kayıt defterleri, genel Docker hub'ı olarak desteklenir.
-* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Bir işlev içinde çalışan görev bağlamı olarak çalışabilir, bir kapsayıcı çalıştırın. Kapsayıcının parametreler geçirebilir `[ENTRYPOINT]`ve env gibi özellikleri belirtin, ayırma ve diğer tanıdık `docker run` parametreleri. `cmd` Adım türü, birim ve işlevsel test, eş zamanlı kapsayıcı yürütme ile etkinleştirir.
+* [`push`](container-registry-tasks-reference-yaml.md#push): Yerleşik görüntüleri bir kapsayıcı kayıt defterine gönderin. Azure Container Registry gibi özel kayıt defterleri, genel Docker hub'ı olarak desteklenir.
+* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Çalışan görev bağlamında bir işlevi olarak çalışabilir, bir kapsayıcı çalıştırın. Kapsayıcının parametreler geçirebilir `[ENTRYPOINT]`ve env gibi özellikleri belirtin, ayırma ve diğer tanıdık `docker run` parametreleri. `cmd` Adım türü, birim ve işlevsel test, eş zamanlı kapsayıcı yürütme ile etkinleştirir.
 
 Aşağıdaki kod parçacıkları, bu görev adımı türlerini birleştirme işlemini göstermektedir. Çok adımlı görevler olarak bir Dockerfile tek bir görüntü oluşturma ve benzer bir YAML dosyası ile kayıt defterine gönderme gibi basit olabilir:
 
-```yaml
-version: 1.0-preview-1
+```yml
+version: v1.0.0
 steps:
   - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
@@ -64,8 +62,8 @@ steps:
 
 Veya daha karmaşık, derleme için adımları içeren kurgusal bu çok adımlı tanımı gibi test, helm paket ve helm (kapsayıcı kayıt defteri ve Helm deposu yapılandırması gösterilmez) dağıtın:
 
-```yaml
-version: 1.0-preview-1
+```yml
+version: v1.0.0
 steps:
   - id: build-web
     build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
@@ -150,14 +148,6 @@ Run ID: yd14 was successful after 19s
 ```
 
 Git işleme veya temel görüntü güncelleştirme otomatik derlemeler hakkında daha fazla bilgi için bkz. [görüntü derlemeleri otomatikleştirme](container-registry-tutorial-build-task.md) ve [temel görüntü güncelleştirme derlemeleri](container-registry-tutorial-base-image-update.md) öğretici makaleleriyle.
-
-## <a name="preview-feedback"></a>Önizleme geri bildirim
-
-ACR görevleri çok adımlı görev özelliği Önizleme aşamasında olduğu sürece, geri bildirim sağlamaya davet ediyoruz. Birçok geri bildirim kanalları kullanılabilir:
-
-* [Sorunları](https://aka.ms/acr/issues) - var olan hataları ve sorunları görüntüleyin ve yenilerini oturum
-* [UserVoice](https://aka.ms/acr/uservoice) -oy var olan özellik istekleri veya yeni istek oluşturun
-* [Tartışma](https://aka.ms/acr/feedback) -Azure Container Registry tartışmasında Stack Overflow toplulukla etkileşim kurun
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

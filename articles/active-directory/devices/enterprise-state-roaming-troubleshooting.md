@@ -19,16 +19,18 @@ ms.author: joflore
 ms.reviewer: tanning
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 728a67513bd66b6c39d1f366789172ee2963f6cc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cce60769ffae399062a50e1b2c28c1cd6e49a47e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517479"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904262"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal durumda Dolaşım ayarları sorunlarını giderme
 
 Bu konu, Kurumsal durumda Dolaşım ile ilgili sorunları tanılayın ve sorunlarını giderme hakkında bilgi sağlar ve bilinen sorunların bir listesini sağlar.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="preliminary-steps-for-troubleshooting"></a>Sorun giderme için başlangıç adımları 
 
