@@ -4,11 +4,11 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/01/2019
-ms.openlocfilehash: d62eabc0c61bfeaf9761e51d7fb07436d861d5dc
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 6d17cce487e2f0cdda71ca8473bcca5a1e5edec8
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473253"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919381"
 ---
-Olmalıdır bir [Bilişsel hizmetler API hesabı](../articles/cognitive-services/cognitive-services-apis-create-account.md) Anomali algılayıcısı API'sine erişim ile. Azure aboneliğiniz yoksa ücretsiz olarak [hesap oluşturabilirsiniz](https://azure.microsoft.com/try/cognitive-services/). Abonelik anahtarınızı alabilirsiniz [Azure portalında](../articles/cognitive-services/cognitive-services-apis-create-account.md#access-your-resource) hesabınızı oluşturduktan sonra veya [Azure Web sitesi](https://azure.microsoft.com/try/cognitive-services/my-apis) sonra ücretsiz deneme sürümü etkinleştiriliyor.
+Olmalıdır bir [Bilişsel hizmetler API hesabı](../articles/cognitive-services/cognitive-services-apis-create-account.md) Anomali algılayıcısı API'sine erişim ile. Azure aboneliğiniz yoksa ücretsiz olarak [hesap oluşturabilirsiniz](https://azure.microsoft.com/try/cognitive-services/). Abonelik anahtarınızı alabilirsiniz [Azure portalında](../articles/cognitive-services/cognitive-services-apis-create-account.md#access-your-resource) hesabınızı oluşturduktan sonra.

@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 3dfb87e5f6c231831cd9c007b19ad001e1fce326
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b6a859f1104be8650b95ac789f3da606fb1b70f6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403196"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486691"
 ---
 # <a name="validate-azure-identity"></a>Azure kimlik doğrulama
 
@@ -85,7 +85,7 @@ Aşağıdaki Önkoşullar gereklidir:
 
 4. Aracı çalıştırıldıktan sonra çıkışını gözden geçirin. Durumu doğrulamak **Tamam** yükleme gereksinimleri için. Başarılı bir doğrulama şu resimdeki gibi görünür:
 
-   ```shell
+   ```powershell
    Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
    Starting Azure Identity Validation
 
@@ -119,7 +119,7 @@ Aşağıdaki örnekler, yaygın doğrulama hataları hakkında rehberlik sağlar
 
 ### <a name="expired-or-temporary-password"></a>Süresi dolmuş veya geçici parola
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -145,9 +145,9 @@ Login-AzureRMAccount
 
 Alternatif olarak, oturumu [Azure portalında](https://portal.azure.com) gibi hesap sahibini ve kullanıcı parolasını değiştirmeye zorlanır.
 
-### <a name="unknown-user-type"></a>Bilinmeyen kullanıcı türü
-
-```shell
+### <a name="unknown-user-type"></a>Bilinmeyen kullanıcı türü 
+ 
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -173,7 +173,7 @@ Login-AzureRmAccount –EnvironmentName AzureChinaCloud
 
 ### <a name="account-is-not-an-administrator"></a>Hesap bir yönetici değil
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -197,6 +197,6 @@ Azure Stack etki alanı adının birincil etki alanı adı olmasını gerektirir
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-[Azure kaydı doğrula](azure-stack-validate-registration.md)  
+[Azure kaydını doğrulama](azure-stack-validate-registration.md)  
 [Hazırlık raporunu görüntüle](azure-stack-validation-report.md)  
 [Genel Azure Stack tümleştirme konuları](azure-stack-datacenter-integration.md)  

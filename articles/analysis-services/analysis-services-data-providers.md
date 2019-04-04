@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bc8fae8f1278babd8c4c7402d86700ad78e3cb9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bfd488828d9c96461cb371b35bb0a0cb24fff373
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897427"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891948"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Azure Analysis Services'a bağlanmak için istemci kitaplıkları
 
@@ -66,7 +66,7 @@ Power BI Desktop ve Excel gibi Microsoft istemci uygulamaları, istemci kitaplı
 
  ADOMD.NET Analysis Services veri sorgulamak için kullanılan bir yönetilen veri istemci kitaplığıdır. Yüklü ve araçları ve istemci uygulamaları tarafından kullanılan. 
   
- Bir veritabanına bağlanırken, tüm üç kitaplıkları için bağlantı dizesi özellikleri benzerdir. Neredeyse tüm bağlantı dizesi kullanarak için ADOMD.NET tanımlamak [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://msdn.microsoft.com/library/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring.aspx) AMO ve Analysis Services OLE DB sağlayıcısı (MSOLAP) için de çalışır. Daha fazla bilgi için bkz. [bağlantı dizesi özellikleri &#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services).  
+ Bir veritabanına bağlanırken, tüm üç kitaplıkları için bağlantı dizesi özellikleri benzerdir. Neredeyse tüm bağlantı dizesi kullanarak için ADOMD.NET tanımlamak [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString) AMO ve Analysis Services OLE DB sağlayıcısı (MSOLAP) için de çalışır. Daha fazla bilgi için bkz. [bağlantı dizesi özellikleri &#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services).  
 
   
 ##  <a name="bkmk_LibUpdate"></a> İstemci kitaplığı sürümü belirleme   

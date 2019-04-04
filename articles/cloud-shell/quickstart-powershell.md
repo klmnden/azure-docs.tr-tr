@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 5b4f9715e47483fa64840c521620bec79f3041cd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1fc9883e0ea35c384c3bfc83e76b8eded48cbcba
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106415"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905078"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Hızlı Başlangıç için Azure Cloud shell'de PowerShell
 
@@ -267,7 +267,7 @@ Sunucular veya VM'ler SSH kullanarak kimlik doğrulaması için Cloud Shell'de o
 
 ### <a name="using-ssh"></a>SSH kullanma
 
-Yönergeleri izleyerek [burada](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) AzureRM cmdlet'leri kullanarak yeni bir VM yapılandırması oluşturmak için.
+Yönergeleri izleyerek [burada](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) Azure PowerShell cmdlet'lerini kullanarak yeni bir VM yapılandırması oluşturmak için.
 Çağırmadan önce içine `New-AzVM` dağıtımı devre dışı istiyorsanız SSH ortak anahtarı VM yapılandırmasına ekleyin.
 Yeni oluşturulan VM içindeki ortak anahtar içerecek `~\.ssh\authorized_keys` konumu, böylelikle sanal makineye SSH oturumu kimlik bilgisi gerektirmeyen etkinleştirme.
 
@@ -292,7 +292,7 @@ ssh azureuser@MyVM.Domain.Com
 
 Altında `Azure` sürücü, tip `Get-AzCommand` bağlam özgü Azure komutları almak için.
 
-Alternatif olarak, her zaman kullanabilirsiniz `Get-Command *azurerm* -Module AzureRM.*` kullanılabilir Azure komutları bulunacak.
+Alternatif olarak, her zaman kullanabilirsiniz `Get-Command *az* -Module Az.*` kullanılabilir Azure komutları bulunacak.
 
 ## <a name="install-custom-modules"></a>Özel modüller yükleme
 

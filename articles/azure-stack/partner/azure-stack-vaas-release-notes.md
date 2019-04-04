@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 96325d7c21ccf7d93deaafbad974009004030157
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eefd39c751bdbd9ed9c8f3b9112fee1ddbffb9a0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091996"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486946"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Hizmet olarak doğrulama için sürüm notları
 
@@ -61,7 +61,7 @@ OEM güncelleştirme adıma aldıktan sonra Azure Stack aylık güncelleştirme 
 
     `Install-VaaSPrerequisites` artık bulut Yöneticisi kimlik bilgilerini gerektirir. Bu cmdlet en son sürümünü çalıştırıyorsanız bkz [aracısını indirme ve yükleme](azure-stack-vaas-local-agent.md#download-and-install-the-agent) önkoşulları yüklemek için yeniden düzenlenen komutlar için. Komutlar şunlardır:
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
     Install-VaaSPrerequisites -AadTenantId $AadTenantId `
@@ -78,7 +78,7 @@ OEM güncelleştirme adıma aldıktan sonra Azure Stack aylık güncelleştirme 
 
     `Install-VaaSPrerequisites` Şimdi paket doğrulaması sırasında bir soruna yönelik olarak bulut Yöneticisi kimlik bilgileri gerektirir. Adresindeki belgelere [aracısını indirme ve yükleme](azure-stack-vaas-local-agent.md#download-and-install-the-agent) şununla güncelleştirildi:
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     $CloudAdminCreds = New-Object System.Management.Automation.PSCredential "<cloudAdminDomain\username>", (ConvertTo-SecureString "<cloudAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force

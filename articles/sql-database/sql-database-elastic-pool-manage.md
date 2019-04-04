@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 45769a2285965395d113f026f0ffc171873a5a99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e3f3a2260ba877c94262c12f5a999c6b7bdf5cd1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842609"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892407"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Azure SQL veritabanı elastik havuzları oluşturma ve yönetme
 
@@ -93,7 +93,7 @@ Oluşturma ve veritabanlarını taşıma mevcut elastik havuzlar için ya da Tra
 | --- | --- |
 |[Veritabanı (Azure SQL veritabanı) oluşturma](/sql/t-sql/statements/create-database-azure-sql-database)|Mevcut havuzlardan veya tek bir veritabanı olarak yeni bir veritabanı oluşturur. Yeni bir veritabanı oluşturmak için ana veritabanına bağlı olmanız gerekir.|
 | [ALTER DATABASE (Azure SQL veritabanı)](/sql/t-sql/statements/alter-database-azure-sql-database) |Bir veritabanı içine, dışı ya da elastik havuzlar arasında taşıyın.|
-|[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Bir veritabanını siler.|
+|[Veritabanı (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Bir veritabanını siler.|
 |[sys.elastic_pool_resource_stats (Azure SQL veritabanı)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Tüm elastik havuzlar için kaynak kullanım istatistikleri, SQL veritabanı sunucusu döndürür. Her bir elastik havuz için her 15 saniyede penceresi (dakika başına dört satır) raporlama için bir satır yok. Bu CPU, GÇ, günlük, depolama alanı tüketimi ve eş zamanlı istek/oturum kullanımı havuzdaki tüm veritabanları tarafından içerir.|
 |[sys.database_service_objectives (Azure SQL veritabanı)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Edition (hizmet katmanı), hizmet hedefi (fiyatlandırma katmanı) ve elastik havuz adı varsa, Azure SQL veritabanına veya bir Azure SQL veri ambarı için döndürür. Azure SQL veritabanı sunucusu ana veritabanında oturum açtıysanız, tüm veritabanlarında bilgileri döndürür. Azure SQL veri ambarı için ana veritabanına bağlı olmanız gerekir.|
 
@@ -118,6 +118,5 @@ SQL veritabanı elastik havuzları ve havuza alınan veritabanları oluşturmak 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Video için bkz. [Azure SQL veritabanı elastiklik özellikleriyle ilgili Microsoft Virtual Academy video dersi](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * Esnek havuzları kullanan SaaS uygulamalarının tasarım desenleri hakkında daha fazla bilgi edinmek için bkz. [Azure SQL Database kullanan Çok Kiracılı SaaS Uygulamaları için Tasarım Desenleri](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 * Esnek havuzları kullanan bir SaaS öğretici için bkz. [Wingtip SaaS uygulamasına giriş](sql-database-wtp-overview.md).

@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 58be7b6dc9eeeadd69fe82f1dc03d959aa94f9c8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb2c01052b8dc5fe346196a64e3fcbf7d1b69c2b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088443"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485759"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack üzerinde App Service ile çalışmaya başlamadan önce
 
@@ -61,7 +61,7 @@ Ayrıcalıklı uç noktada Azure Stack tümleşik sistemi veya Azure Stack Geli�
 
 Aşağıdaki PowerShell komutunu çalıştırdığınızda, AzureStack\CloudAdmin için ayrıcalıklı uç noktasını ve kimlik bilgilerini sağlamanız gerekir.
 
-```PowerShell
+```powershell
     Get-AzureStackRootCert.ps1
 ```
 
@@ -353,7 +353,7 @@ Yöneticiler, SSO için yapılandırmanız gerekir:
 13. Seçin **ayarları**.
 14. Seçin **gerekli izinler** > **izinleri verin** > **Evet**.
 
-```PowerShell
+```powershell
     Create-AADIdentityApp.ps1
 ```
 
@@ -389,7 +389,7 @@ Yöneticiler, SSO için yapılandırmanız gerekir:
 5. İçinde **kimlik bilgisi** penceresinde, AD FS bulut yönetici hesabı ve parola girin. **Tamam**’ı seçin.
 6. Sertifika dosyası yolu ve sertifika parolasını sağlayın [daha önce oluşturduğunuz sertifika](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started). Varsayılan olarak bu adım için oluşturulan sertifika **sso.appservice.local.azurestack.external.pfx**.
 
-```PowerShell
+```powershell
     Create-ADFSIdentityApp.ps1
 ```
 

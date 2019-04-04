@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/26/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 1cef0010464671982109b8dc4bc94e6925eaf825
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1b9c7f00c8ec8408547620111634470d455334c8
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210535"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499242"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL kaynak sağlayıcısı için barındırma sunucuları ekleme
 
@@ -186,14 +186,19 @@ SKU'ları, belirli kullanıcılara veya gruplara atanamaz.
 
 SKU'ları portalda görünür olması için bir saat sürebilir. SKU tamamen oluşturulana kadar kullanıcılar bir veritabanı oluşturulamıyor.
 
-Bir SKU düzenlemek için şuraya gidin: **tüm hizmetleri** > **SQL bağdaştırıcısı** > **SKU'ları**. SKU'ları değiştirmek, gerekli değişiklikleri yapın ve tıklayın seçin **Kaydet** değişiklikleri kaydedin. Artık gerekli olmadığında bir SKU silmek için Git **tüm hizmetleri** > **SQL bağdaştırıcısı** > **SKU'ları**. SKU adı sağ tıklayıp **Sil** silmek için.
+Bir SKU düzenlemek için şuraya gidin: **tüm hizmetleri** > **SQL bağdaştırıcısı** > **SKU'ları**. SKU'ları değiştirmek, gerekli değişiklikleri yapın ve tıklayın seçin **Kaydet** değişiklikleri kaydedin. 
 
-> [!TIP]
-> Düzenleyebilir veya aynı konumdaki SQL kaynak sağlayıcısı kotaları Sil.
+Artık gerekli olmadığında bir SKU silmek için Git **tüm hizmetleri** > **SQL bağdaştırıcısı** > **SKU'ları**. SKU adı sağ tıklayıp **Sil** silmek için.
+
+> [!IMPORTANT]
+> Bu Kullanıcı Portalı'nda kullanılabilir olması yeni SKU'lara bir saate kadar sürebilir.
 
 ## <a name="make-sql-databases-available-to-users"></a>SQL veritabanları kullanıcılar için kullanılabilir yap
 
 Planlar ve teklifler SQL veritabanları kullanıcılar için kullanılabilir hale getirmek için oluşturun. Ekleme **Microsoft.SqlAdapter** hizmet planına ve bir yeni kota oluştur.
+
+> [!IMPORTANT]
+> Uygulamanın, Kullanıcı Portalı'nda veya değiştirilmiş bir kota uygulanmadan önce kullanılabilir olması için yeni kotalar iki saate kadar sürebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

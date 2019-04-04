@@ -16,16 +16,16 @@ ms.date: 01/09/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 4b9b91c17a9199c7890d17a2b721ce0803e6bd6c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ae5a824fbd96a9a76eb18811a46bfc17afa15073
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243343"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879361"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>SQL kaynak sağlayıcısı 1.1.33.0 sürüm notları
 
-*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Şunlara uygulanır Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Bu sürüm notları, yenilikleri ve bilinen sorunların SQL kaynak sağlayıcısı sürüm 1.1.33.0 açıklar.
 
@@ -50,7 +50,8 @@ Azure Stack SQL kaynak Sağlayıcısı'nın bu sürümü, aşağıdaki geliştir
 
 - **TLS 1.2 etkinleştirilmemişse, önceki SQL kaynak sağlayıcısı (1.1.30.0) dağıtımı başarısız**. SQL kaynak sağlayıcısı 1.1.33.0 TLS 1.2 kaynak sağlayıcısı güncelleştiriliyor veya gizli anahtarları döndürme kaynak sağlayıcısı dağıtırken etkinleştirmek için güncelleştirildi. 
 
-- **SQL kaynak sağlayıcısı gizli döndürme başarısız**. Aşağıdaki hata kodunu gizli dizileri döndürürken kaynaklanan sorun düzeltildi: ` New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **SQL kaynak sağlayıcısı gizli döndürme başarısız**. Aşağıdaki hata kodunu gizli dizileri döndürürken kaynaklanan sorun düzeltildi:
+`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
 ## <a name="known-issues"></a>Bilinen sorunlar 
 

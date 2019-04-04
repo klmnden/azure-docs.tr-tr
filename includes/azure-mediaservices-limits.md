@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: e7243c1f0c0bc26b2e77a060b5def6e204835235
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b275a86f8fd35c43865fd920d1bfc9994a796a9c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554231"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919384"
 ---
 >[!NOTE]
 >Sabit olmayan kaynaklar için kotalar bir artış istemek için bir destek bileti açın. Daha yüksek sınırlar elde etmek için ek Azure Media Services hesapları oluşturmayın.
@@ -39,7 +39,7 @@ ms.locfileid: "57554231"
 
 1 Nisan 2017 itibarıyla, hesabınızdaki 90 günden eski olan tüm iş kayıtları otomatik olarak kendi ilişkili görev kayıtlarıyla birlikte silinir. Toplam kayıt sayısı üst kota sınırının altında olsa bile, otomatik silme işlemi gerçekleşir. İş ve görev bilgilerini arşivlemeniz için açıklanan kodu kullanın [Media Services .NET SDK'sı ile varlıkları yönetme](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
-<sup>3</sup>listesi iş varlıklarına isteğinde bulunduğunda, istek başına en fazla 1.000 işleri döndürülür. Gönderilen tüm işleri izlemek, üst kullanın veya sorguları açıklandığı atlamak için [OData sorgu seçeneklerinde](https://msdn.microsoft.com/library/gg309461.aspx).
+<sup>3</sup>listesi iş varlıklarına isteğinde bulunduğunda, istek başına en fazla 1.000 işleri döndürülür. Gönderilen tüm işleri izlemek, üst kullanın veya sorguları açıklandığı atlamak için [OData sorgu seçeneklerinde](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
 
 <sup>4</sup>bulucular kullanıcı başına erişim denetimini yönetmek için tasarlanan değildir. Bireysel kullanıcılara farklı erişim hakları vermek için digital rights management (DRM) çözümleri kullanın. Daha fazla bilgi için [Azure Media Services ile içeriğinizi korumanıza](../articles/media-services/previous/media-services-content-protection-overview.md).
 

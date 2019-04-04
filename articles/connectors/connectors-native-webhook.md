@@ -11,12 +11,12 @@ ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
-ms.openlocfilehash: c0985df445ae34795d5287144d4664755cc006da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182124"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895588"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Web kancaları ve Azure Logic Apps kullanarak olay-tabanlı iş akışları veya Eylemler oluşturma
 
@@ -29,7 +29,7 @@ Daha fazla bilgi edinin [destekleyen bir Web kancasını özel API oluşturma](.
 
 ## <a name="use-the-webhook-trigger"></a>Web kancası tetikleyicisini kullanma
 
-A [ *tetikleyici* ](connectors-overview.md) bir mantıksal uygulama iş akışı başlatan olaylardır. Web kancası tetikleyici yeni öğeler için yoklama hangi bağımlı olmayan olay tabanlı. Ne zaman bir Web kancası tetikleyici ile mantıksal uygulamanızı kaydetmeniz veya etkin devre dışı olarak gelen mantıksal uygulamanızı değiştirdiğinizde, Web kancası tetikleyicisine *abone* belirtilen hizmet ya da kaydederek uç noktası bir *geriçağırmaURL'si* hizmet veya uç nokta. Tetikleyici sonra gerektiği gibi mantıksal uygulamayı çalıştırmak için bu URL'yi kullanır. Gibi [istek tetikleyicisi](connectors-native-reqres.md), beklenen olay durumda hemen mantıksal uygulama başlatılır. Tetikleyici *abonelikten çıkma* tetikleyiciyi kaldırın ve mantıksal uygulamanızı kaydedin veya mantıksal uygulamanızdan etkinken devre dışı olarak değiştirdiğinizde.
+A [ *tetikleyici* ](../connectors/apis-list.md) bir mantıksal uygulama iş akışı başlatan olaylardır. Web kancası tetikleyici yeni öğeler için yoklama hangi bağımlı olmayan olay tabanlı. Ne zaman bir Web kancası tetikleyici ile mantıksal uygulamanızı kaydetmeniz veya etkin devre dışı olarak gelen mantıksal uygulamanızı değiştirdiğinizde, Web kancası tetikleyicisine *abone* belirtilen hizmet ya da kaydederek uç noktası bir *geriçağırmaURL'si* hizmet veya uç nokta. Tetikleyici sonra gerektiği gibi mantıksal uygulamayı çalıştırmak için bu URL'yi kullanır. Gibi [istek tetikleyicisi](connectors-native-reqres.md), beklenen olay durumda hemen mantıksal uygulama başlatılır. Tetikleyici *abonelikten çıkma* tetikleyiciyi kaldırın ve mantıksal uygulamanızı kaydedin veya mantıksal uygulamanızdan etkinken devre dışı olarak değiştirdiğinizde.
 
 HTTP tetikleyicisi mantıksal Uygulama Tasarımcısı'nda ayarlama gösteren bir örnek aşağıda verilmiştir. Zaten dağıtmış olan veya izleyen bir API erişme adımlarda varsayılır [Web kancası abone olma ve logic apps'te deseni aboneliği](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). 
 
@@ -48,7 +48,7 @@ HTTP tetikleyicisi mantıksal Uygulama Tasarımcısı'nda ayarlama gösteren bir
 
 ## <a name="use-the-webhook-action"></a>Web kancası eylemi kullanın
 
-Bir [ *eylem* ](connectors-overview.md) bir tanımlanan işlemi ve mantıksal uygulamanızın iş akışı tarafından Çalıştır. Mantıksal uygulama bir Web kancası eylemi, bu eylem çalıştırıldığında *abone* belirtilen hizmet ya da kaydederek uç noktası bir *geri çağırma URL'si* hizmet veya uç nokta. Web kancası eylemi ardından aramaları çalıştıran logic app sürdürür önce URL'yi hizmet kadar bekler. Mantıksal uygulama hizmet veya uç noktası bu gibi durumlarda aboneliğini iptal eder: 
+Bir [ *eylem* ](../connectors/apis-list.md) bir tanımlanan işlemi ve mantıksal uygulamanızın iş akışı tarafından Çalıştır. Mantıksal uygulama bir Web kancası eylemi, bu eylem çalıştırıldığında *abone* belirtilen hizmet ya da kaydederek uç noktası bir *geri çağırma URL'si* hizmet veya uç nokta. Web kancası eylemi ardından aramaları çalıştıran logic app sürdürür önce URL'yi hizmet kadar bekler. Mantıksal uygulama hizmet veya uç noktası bu gibi durumlarda aboneliğini iptal eder: 
 
 * Web kancası eylemi başarıyla tamamlandığında
 * Bir yanıtı beklenirken mantıksal uygulama çalıştırması iptal edilirse
@@ -76,7 +76,7 @@ Mantıksal Uygulama Tasarımcısı'nda bir Web kancası eylemi ayarlama göstere
 
 4. Tıklayın **Kaydet** mantıksal uygulamayı yayımlamak için.
 
-## <a name="technical-details"></a>Teknik Ayrıntılar
+## <a name="technical-details"></a>Teknik ayrıntılar
 
 Daha fazla ayrıntı aşağıdadır tetikleyiciler ve eylemler hakkında bu Web kancası destekler.
 
@@ -154,5 +154,5 @@ Web kancası isteği
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Mantıksal uygulama oluşturun.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Diğer bağlayıcıları bulma](apis-list.md)

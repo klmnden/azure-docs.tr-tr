@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory B2C özel ilkeleri kullanmaya başlama | Microsoft Docs
-description: Azure Active Directory B2C özel ilkeleri kullanmaya başlama konusunda.
+title: Özel ilkeleri - Azure Active Directory B2C kullanmaya başlama | Microsoft Docs
+description: Azure Active Directory B2C özel ilkeleri kullanmaya başlama hakkında bilgi edinin.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 04/03/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d4105aab80add8556bcbe79c9c6e8dd7743b25b7
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: b414529d7756812f1e1e16d2d0184c8472c0c55f
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298748"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916759"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C özel ilkeleri kullanmaya başlama
 
@@ -25,12 +25,13 @@ ms.locfileid: "55298748"
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Zaten yoksa, yapmanız [bir Azure AD B2C kiracısı oluşturmayı](tutorial-create-tenant.md) Azure aboneliğinize bağlı.
+- Zaten yoksa, yapmanız [bir Azure AD B2C kiracısı oluşturmayı](tutorial-create-tenant.md) Azure aboneliğinize bağlı.
+- [Uygulamanızı kaydetmek](tutorial-register-applications.md) kiracıdaki Azure AD B2C ile iletişim kurabilmesi için oluşturduğunuz.
 
 ## <a name="add-signing-and-encryption-keys"></a>İmzalama ve şifreleme anahtarları Ekle
 
 1. [Azure portalda](https://portal.azure.com/) Azure AD B2C kiracınızın genel yöneticisi olarak oturum açın.
-2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme. 
+2. Azure AD B2C kiracınızı içeren dizine kullandığınızdan emin olun. Tıklayın **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme. 
 3. Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin.
 4. Genel bakış sayfasında **kimlik deneyimi çerçevesi - PREVIEW**.
 
@@ -59,11 +60,11 @@ Zaten bir [Facebook uygulama gizli anahtarı](active-directory-b2c-setup-fb-app.
 1. Seçin **ilke anahtarları** seçip **Ekle**.
 2. İçin **seçenekleri**, seçin `Manual`.
 3. İçin **adı**, girin `FacebookSecret`. Önek `B2C_1A_` otomatik olarak eklenebilir.
-4. İçinde **gizli**, Facebook gizli developers.facebook.com girin veya `0` yer tutucu olarak. Uygulama Kimliği gizli dizi budur.
+4. İçinde **gizli**, Facebook gizli developers.facebook.com girin veya `0` yer tutucu olarak. Bu değer, gizli olmayan uygulama kimliği.
 5. İçin **anahtar kullanımı**seçin **imza**.
 6. **Oluştur**’a tıklayın.
 
-## <a name="register-applications"></a>Uygulamaları kaydetme
+## <a name="register-identity-experience-framework-applications"></a>Kimlik deneyimi çerçevesi uygulamaları kaydetme
 
 Azure AD B2C, kaydolma ve kullanıcıların oturum açma için kullanılan iki yeni uygulama kaydetmenizi gerektirir: IdentityExperienceFramework (bir web uygulaması) ve temsilci atanmış izin IdentityExperienceFramework uygulamasından ile ProxyIdentityExperienceFramework (yerel uygulama). Yerel hesaplar yalnızca kiracınızda mevcut. Kullanıcılarınızı benzersiz e-posta adresi/parola bileşimi ile Kiracı kayıtlı uygulamalarınıza erişmek için kaydolun.
 
@@ -85,8 +86,7 @@ Azure AD B2C, kaydolma ve kullanıcıların oturum açma için kullanılan iki y
 4. İçin **yeniden yönlendirme URI'si**, girin `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`burada `yourtenant` Azure AD B2C kiracınızın.
 5. **Oluştur**’a tıklayın. Oluşturulduktan sonra uygulama kimliği kopyalayın ve daha sonra kullanmak üzere kaydedin.
 6. Ayarlar sayfasında, seçin **gerekli izinler**ve ardından **Ekle**.
-7. **Bir API seçin**'i belirleyin.
-8. Arayın ve seçin **IdentityExperienceFramework**ve ardından **seçin**.
+7. Seçin **bir API seçin**, arayın ve seçin **IdentityExperienceFramework**ve ardından **seçin**.
 9. Yanındaki onay kutusunu işaretleyin **erişim IdentityExperienceFramework**, tıklayın **seçin**ve ardından **Bitti**.
 10. Seçin **izinler**, seçerek onaylayın **Evet**.
 
@@ -131,12 +131,11 @@ Uygulama kimlikleri uzantıları dosyaya ekleyin *TrustFrameworkExtensions.xml*.
 
 ## <a name="test-the-custom-policy"></a>Özel bir ilkeyi test etme
 
-1. Özel ilkeler sayfasında, seçin **B2C_1A_signup_signin**. 
-2. Seçin **Şimdi Çalıştır**.
-
-3. Bir e-posta adresi kullanarak kaydolma olması gerekir.
-
-4. Aynı doğru yapılandırmasına sahip olduğunu onaylamak için hesabınızla oturum açın.
+1. Özel ilkeler sayfasında, seçin **B2C_1A_signup_signin**.
+2. İçin **uygulama seçin** özel ilke genel bakış sayfasında adlı web uygulamasını seçin *webapp1* daha önce kaydettiğiniz. Emin olun **yanıt URL'si** olduğu `https://jwt.ms`.
+3. Seçin **Şimdi Çalıştır**.
+4. Bir e-posta adresi kullanarak kaydolma olması gerekir.
+5. Aynı doğru yapılandırmasına sahip olduğunu onaylamak için hesabınızla oturum açın.
 
 ## <a name="add-facebook-as-an-identity-provider"></a>Facebook kimlik sağlayıcısı olarak Ekle
 

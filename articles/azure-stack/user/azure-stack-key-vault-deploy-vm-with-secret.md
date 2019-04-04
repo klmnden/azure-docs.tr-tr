@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 30ebccd6bee26900ac01f7f4d17993e24c9db745
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3318e52b29723eaa08d8c3a4fba18e278e6cfe9c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779258"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487762"
 ---
 # <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Azure Stack Key Vault'ta depolanan bir güvenli parola kullanarak bir sanal makine oluşturun
 
@@ -53,7 +53,7 @@ Aşağıdaki adımlar, bir anahtar Kasası'nda depolanan parola alarak sanal mak
 
 Aşağıdaki betik, bir anahtar kasası oluşturulur ve bir parola anahtar kasasında gizli dizi olarak depolar. Kullanım `-EnabledForDeployment` anahtar kasası oluşturulurken parametre. Bu parametre, anahtar kasası Azure Resource Manager şablonlarından başvurulabilir emin olur.
 
-```PowerShell
+```powershell
 
 $vaultName = "contosovault"
 $resourceGroup = "contosovaultrg"
@@ -118,7 +118,7 @@ KeyVault URI'si secretName, ortamınıza göre sanal makine değerlerinin adminU
 
 Şimdi aşağıdaki PowerShell betiğini kullanarak şablonu dağıtın:
 
-```PowerShell  
+```powershell  
 New-AzureRmResourceGroupDeployment `
   -Name KVPwdDeployment `
   -ResourceGroupName $resourceGroup `

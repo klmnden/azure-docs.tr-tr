@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 04/02/2019
 ms.author: magoedte
-ms.openlocfilehash: 677fec21b7491398da5e4958441e5405e0c10e0e
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 5fdee4edce0301a5a4524725879f599b0a2e3532
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745682"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916708"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>VM'ler (Önizleme) için Azure İzleyici ile ilgili bilinen sorunlar
 
@@ -31,7 +31,6 @@ Aşağıda sistem durumu özelliğinin geçerli sürümle bilinen sorunlar veril
 - Bir Azure VM kaldırılması veya silinmesi durumunda süre için VM liste görünümünde görüntülenir. Ayrıca, kaldırıldı veya silinmiş bir VM'nin durumunu'ı tıklatarak açılır **sistem tanılama** görüntüleyin ve sonra bir yükleme döngüsü başlatır. Silinen sanal Makinenin adını seçerek, bir VM silinip silinmediğini belirten ileti ile bir bölme açılır.
 - Portalı veya iş yükü İzleyicisi API bunları hemen güncelleştirebilir olsa bile bir eşiği güncelleştirme gibi yapılandırma değişiklikleri, 30 dakika kadar yararlanın. 
 - Sistem durumu tanılama güncelleştirmeleri diğer görünümlerle daha hızlı karşılaşırsınız. Bunlar arasında geçiş yaptığınızda bilgileri gecikebilir. 
-- Vm'lerini kapatılıyor, güncelleştirmeleri durumu ölçütlerini bazıları *kritik* ve başkalarına *sağlıklı*. Net VM durumu olarak görüntülenen *kritik*.
 - Linux VM'ler için tek bir VM görünüm durumu ölçütlerini listeleme sayfanın başlığını kullanıcı tanımlı VM adı yerine bir VM'nin tüm etki alanı adı vardır. 
 - Desteklenen yöntemlerden birini kullanarak bir VM için izlemeyi devre dışı bırakın ve yeniden dağıtmayı deneyin sonra aynı çalışma alanında dağıtmanız gerekir. Farklı bir çalışma alanı ve bu VM için sistem durumunu görüntülemek için try seçerseniz, tutarsız davranış gösterebilir.
 - Windows için toplam CPU kullanımı durumu ölçütü gösterir bir eşik *eşit değil* **4**anlamı CPU kullanımı % 95'den büyük ve sistem sırası uzunluğu 15'ten büyükse. Bu sistem durumu ölçütü Bu önizleme sürümünde yapılandırılabilir değildir.  

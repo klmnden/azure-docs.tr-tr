@@ -14,12 +14,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 519046081a7f9778fb430daa0cd418cf9863a2b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 21167366ff3af2bb360c33eaae9d591020bf11a5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57975636"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487592"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack'te Azure CLI ile API Sürüm profillerini kullanma
 
@@ -95,13 +95,13 @@ Azure CLI ve bilgisayarınızda yüklü diğer bağımlı kitaplıkların sürü
 
 2. PIP yükseltin. PIP, Python için bir paket yöneticisidir. Bir komut istemi veya yükseltilmiş bir PowerShell istemi açın ve aşağıdaki komutu yazın:
 
-    ```PowerShell  
+    ```powershell  
     python -m pip install --upgrade pip
     ```
 
 3. Yükleme **certifi** modülü. [Certifi](https://pypi.org/project/certifi/) bir modül ve TLS konakları kimliğini doğrularken SSL sertifikaları güvenilirliğini doğrulamak için kök sertifikalar koleksiyonu. Bir komut istemi veya yükseltilmiş bir PowerShell istemi açın ve aşağıdaki komutu yazın:
 
-    ```PowerShell
+    ```powershell
     pip install certifi
     ```
 
@@ -157,7 +157,7 @@ Azure Stack CA kök sertifikasına güvenmek için mevcut Python sertifikayı ek
 
 1. Makinenizde sertifika konumu bulun. Konum, Python yüklediğiniz bağlı olarak değişiklik gösterebilir. Bir komut istemi veya yükseltilmiş bir PowerShell istemi açın ve aşağıdaki komutu yazın:
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 
@@ -277,7 +277,7 @@ ASDK kullanıyorsanız, CA kök sertifikasını uzak makinenizdeki güven gereki
 
 1. Makinenizde sertifika konumu bulun. Konum, Python yüklediğiniz bağlı olarak değişiklik gösterebilir. Bir komut istemi veya yükseltilmiş bir PowerShell istemi açın ve aşağıdaki komutu yazın:
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 

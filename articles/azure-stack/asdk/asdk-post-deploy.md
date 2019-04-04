@@ -16,12 +16,12 @@ ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: b1b11dc27b279173ede4498ca353aea4018ea8f9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7699c9279138aedfdcfe63fb42e65ad102ac92c9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102443"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652476"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK yükleme sonrası yapılandırma görevleri
 
@@ -48,14 +48,14 @@ En son Azure Stack PowerShell modülü ile veya ASDK konak bilgisayara Internet 
 
 - Azure Stack 1901 veya sonraki bir sürümü:
 
-    ```PowerShell
+    ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Install-Module AzureRM -RequiredVersion 2.4.0
-    Install-Module -Name AzureStack -RequiredVersion 1.7.0
+    Install-Module -Name AzureStack -RequiredVersion 1.7.1
     ```
 
     > [!Note]  
-    > Azure Stack Modül sürümü 1.7.0 bölünmesi farklıdır. Azure yığını geçirme 1.6.0 Lütfen başvurmak için [Geçiş Kılavuzu](https://aka.ms/azspshmigration170).
+    > Azure Stack modülü sürüm 1.7.1 bölünmesi farklıdır. Azure yığını geçirme 1.6.0 Lütfen başvurmak için [Geçiş Kılavuzu](https://aka.ms/azspshmigration171).
 
   - Azure Stack 1811:
 
@@ -87,7 +87,7 @@ En son Azure Stack PowerShell modülü ile veya ASDK konak bilgisayara Internet 
 
 - **İnternet bağlantısı olmadan** ASDK ana bilgisayar. Bağlantısı kesilmiş bir senaryoda, PowerShell modüllerine aşağıdaki PowerShell komutlarını kullanarak internet bağlantısı olan bir makineye indirmeniz gerekir:
 
-  ```PowerShell
+  ```powershell
   $Path = "<Path that is used to save the packages>"
 
   Save-Package `
@@ -99,7 +99,7 @@ En son Azure Stack PowerShell modülü ile veya ASDK konak bilgisayara Internet 
 
   Ardından, indirilen paketler ASDK bilgisayara kopyalayın ve varsayılan depo konumu kaydetmek ve bu depodan AzureRM ve AzureStack modüllerini yükleyin:
 
-    ```PowerShell  
+    ```powershell  
     $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
     $RepoName = "MyNuGetSource"
 
@@ -114,7 +114,7 @@ En son Azure Stack PowerShell modülü ile veya ASDK konak bilgisayara Internet 
 
 [AzureStack Araçları](https://github.com/Azure/AzureStack-Tools) yönetme ve dağıtma kaynakları Azure Stack için PowerShell modülleri barındıran bir GitHub deposudur. Bu araçları edinmek için GitHub deposunu kopyalayın veya AzureStack Araçlar klasörüne aşağıdaki komutu çalıştırarak yükleyebilirsiniz:
 
-  ```PowerShell
+  ```powershell
   # Change directory to the root directory.
   cd \
 

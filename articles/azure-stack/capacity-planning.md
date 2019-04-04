@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/29/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: 3d825a0f8a23380b4d9cf453076ab4b18ee67831
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.lastreviewed: 03/29/2019
+ms.openlocfilehash: e4678b445dce5b337fb7d51e1b938adb944b4440
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095526"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648733"
 ---
 # <a name="azure-stack-capacity-planning"></a>Azure Stack kapasite planlaması
 Azure Stack çözümünü değerlendirirken, genel ve Azure Stack bulut kapasite üzerinde doğrudan etkisi donanım yapılandırma seçeneğiniz vardır. Bunlar, CPU, bellek yoğunluğu, depolama yapılandırması ve genel çözüm ölçek veya sunucu sayısını Klasik seçimlerdir. Geleneksel bir sanallaştırma çözümü, kullanılabilir kapasitesini belirlemek için bu bileşenlerin basit aritmetik geçerli değildir. Azure Stack altyapısını veya yönetim bileşenleri çözüm içinde barındırmak için geliştirilmiştir ilk neden olmasıdır. Çözümün kapasite bazıları ayrılır, dayanıklılık desteklemek üzere ikinci sebebi; Kiracı iş yüklerini bir kesintiyi en aza indirmek için bir yol çözümün yazılım güncelleştiriliyor.
@@ -34,25 +34,11 @@ Azure Stack çözümünü hiper yakınsanmış küme bilgi işlem, ağ ve depola
 
 Azure Stack çözümünü aşırı sağlanmış yalnızca fiziksel kaynak sunucu bellektir. Diğer kaynakları, CPU çekirdekleri, ağ bant genişliği ve depolama kapasitesi, kullanılabilir kaynakları en iyi kullanılmasını sağlamak için overprovisioned. Bir çözüm için mevcut kapasiteyi hesaplama sırasında fiziksel sunucu belleği ana katkıda bulunur. Diğer kaynakların kullanımını, açıdan oranı mümkündür'ı Anlama ve hangi hedeflenen iş yükü için kabul edilebilir olacağını ' dir.
 
-Yaklaşık 28 VM'ler, Azure yığını'nın altyapı barındırmak ve 208 GB bellek ve 124 sanal çekirdek yaklaşık toplam kullanmak için kullanılır.  Bu VM sayısı için gerekçe, güvenlik, ölçeklenebilirlik, Bakım ve düzeltme eki gereksinimlerini karşılamak için gerekli hizmet ayrımı karşılamak sağlamaktır. Bunlar geliştirilen gibi bu iç hizmet yapısı yeni altyapı hizmetleri için gelecekteki giriş sağlar.
+Yaklaşık 30 VM'ler, Azure yığını'nın altyapı barındırmak ve toplam olarak, 230 GB bellek ve 140 sanal çekirdek yaklaşık kullanmak için kullanılır. Bu VM sayısı için gerekçe, güvenlik, ölçeklenebilirlik, Bakım ve düzeltme eki gereksinimlerini karşılamak için gerekli hizmet ayrımı karşılamak sağlamaktır. Bunlar geliştirilen gibi bu iç hizmet yapısı yeni altyapı hizmetleri için gelecekteki giriş sağlar.
 
 Otomatik güncelleştirmeyi tüm fiziksel sunucu ve altyapı yazılım bileşenlerini veya düzeltme eki ve güncelleştirme, altyapı ve kullanıcı VM'i desteklemek için yerleşimi ölçek birimi, tüm bellek kaynaklarını tüketir değil. Toplam miktarı azure'daki tüm sunucularda bir ölçek birimi, çözümün dayanıklılık gereksinimlerini desteklemek üzere ayrılmamış olacaktır. Fiziksel sunucu Windows Server görüntüsü güncelleştirildiğinde, sunucunun Windows Server görüntülerini güncelleştirildiği sırada Örneğin, sunucu üzerinde barındırılan sanal makineler başka bir yerde içinde ölçek birimi taşınır. Güncelleştirme tamamlandığında, sunucu yeniden ve iş yüklerini hizmet vermek için döndürdü. Hedef Azure Stack çözümünün güncelleştirme ve düzeltme eki için barındırılan sanal makineleri durdurmak için gereken kaçınmaktır. Bu hedefe ulaşmak da en az bir sunucunun bellek kapasitesi izin vermek için sanal makineler ölçek birimi içinde hareketini ayrılmamış. Bu yerleştirme ve taşıma altyapı Vm'lere hem kullanıcı ya da Kiracı Azure Stack çözümün adına oluşturulan sanal makineler için geçerlidir. Değişen bellek gereksinimleri sanal makineniz olduğunda gereken VM taşıma desteklemek için ayrılmış bellek miktarı nedeniyle yerleştirme zorlukları tek bir sunucunun kapasitesinden daha fazla olacak şekilde son uygulama sonuçları olur. Bellek kullanımı kategorisinde ek yük Windows Server örneğinin olmasıdır. Her sunucu için temel işletim sistemi örneği, işletim sistemini ve Hyper-V tarafından barındırılan sanal makinelerin her yönetmede kullanılan belleğin yanı sıra kendi sanal belleği tabloları için bellek tüketir.
 
-Kapasite hesaplamalarıyla ilişkin ayrıntılı bir açıklaması Bu bölümde daha sonra yaradığını. Bu giriş, çözüm boyutları değişen kullanılabilir kapasite anlaşılmasına yardımcı olması için aşağıdaki örnekler sağlanır. Bu tahminleri ve Kiracı üretim ortamı yüklemeleri için doğru olmayabilir VM bellek kullanımı hakkında varsayımlar sonucunda. Bu tablo için standart D2 Azure VM boyutu kullanılır. Standart D2 Azure sanal makineler, 2 sanal CPU ve 7 GB bellek ile tanımlanır.
-
-|     |Sunucu kapasitesini|| Ölçek biriminin kapasitesi|  |  |||
-|-----|-----|-----|-----|-----|-----|-----|-----|
-|     | Bellek | CPU Çekirdekleri | Sunucu sayısı | Bellek | CPU Çekirdekleri | Kiracı VM'ler<sup>1</sup>     | / Çekirdek oranına<sup>2</sup>    |
-|Örnek 1|256 GB|28|4|1024 GB| 112 | 54 |4:3|
-|Örnek 2|512 GB|28|4|2024 GB|112|144|4:1|
-|Örnek 3|384 GB|28|12|4608 GB|336|432|3:1|
-|     |     |     |     |     |     |     |     |
-
-> <sup>1</sup> standart D2 VM'ler.
-> 
-> <sup>2</sup> sanal çekirdek/fiziksel çekirdek oranı.
-
-Yukarıda belirtildiği gibi VM kapasitesi kullanılabilir belleğe göre belirlenir. Sanal çekirdek fiziksel çekirdek oranları için sürece çözümü daha fazla sayıda fiziksel çekirdek (başka bir CPU seçilir) ile oluşturulmuş olan VM yoğunluğunu kullanılabilir CPU kapasitesi nasıl değiştireceğini exemplify. Aynı depolama kapasitesi ve depolama önbellek kapasitesi geçerlidir.
+VM kapasitesi kullanılabilir belleğe göre belirlenir. Sanal çekirdek fiziksel çekirdek oranları için sürece çözümü daha fazla sayıda fiziksel çekirdek (başka bir CPU seçilir) ile oluşturulmuş olan VM yoğunluğunu kullanılabilir CPU kapasitesi nasıl değiştireceğini exemplify. Aynı depolama kapasitesi ve depolama önbellek kapasitesi geçerlidir.
 
 VM yoğunluğunu yukarıdaki örnekleri yalnızca açıklama amaçlıdır. Destek hesaplamalarda başka karmaşıklık yoktur. Daha fazla kapasite planlaması seçimleri ve elde edilen ve kullanılabilir kapasiteyi anlamak için Microsoft ile iletişim veya çözüm iş ortağı gereklidir.
 

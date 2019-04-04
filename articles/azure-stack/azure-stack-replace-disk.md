@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 4fb2a398baa306cf9303284526bb43cd7f778441
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a66217641c833061d4626b7d393fd3cdd0fd56cc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734634"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483618"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Azure stack'teki fiziksel disk değiştirme
 
@@ -55,20 +55,20 @@ Disk değiştirdikten sonra Azure Stack, otomatik olarak yeni disk bulur ve sana
  Disk değiştirdikten sonra sanal disk sistem durumunu izleyebilir ve ayrıcalıklı uç nokta kullanarak işin ilerleme durumunu onarın. Ayrıcalıklı uç noktasına ağ bağlantısı olan herhangi bir bilgisayardan aşağıdaki adımları izleyin.
 
 1. Bir Windows PowerShell oturumu açın ve ayrıcalıklı uç noktasına bağlanın.
-    ```PowerShell
+    ```powershell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
     ``` 
   
 2. Sanal disk durumunu görüntülemek için aşağıdaki komutu çalıştırın:
-    ```PowerShell
+    ```powershell
         Get-VirtualDisk -CimSession s-cluster
     ```
    ![PowerShell Get-VirtualDisk komutunun çıktısı](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
 3. Geçerli depolama iş durumunu görüntülemek için aşağıdaki komutu çalıştırın:
-    ```PowerShell
+    ```powershell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ```
       ![PowerShell Get-StorageJob komutunun çıktısı](media/azure-stack-replace-disk/GetStorageJobOutput.png)
@@ -76,6 +76,6 @@ Disk değiştirdikten sonra Azure Stack, otomatik olarak yeni disk bulur ve sana
 ## <a name="troubleshoot-virtual-disk-repair"></a>Sanal disk onarım sorunlarını giderme
 
 Sanal disk onarma, işi takılan, olarak gösterilir ve işi yeniden başlatmak için aşağıdaki komutu çalıştırın:
-  ```PowerShell
+  ```powershell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
   ``` 

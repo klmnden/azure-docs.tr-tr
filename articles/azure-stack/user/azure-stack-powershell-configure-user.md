@@ -15,12 +15,12 @@ ms.date: 03/15/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: ab23013d8de61e13013aa4cd735be04e1e3213c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b8f2e3ebfa7187b6695fbd291c7baf0a9ba3b712
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119947"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485790"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>PowerShell ile Azure Stack için kullanıcı olarak bağlanma
 
@@ -50,7 +50,7 @@ Aşağıdaki komut dosyası değişkenleri, Azure Stack yapılandırmasından de
 
 ## <a name="connect-with-azure-ad"></a>Azure AD'ye bağlanma
 
-```PowerShell  
+```powershell  
     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
     # Set your tenant name
     $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
@@ -64,7 +64,7 @@ Aşağıdaki komut dosyası değişkenleri, Azure Stack yapılandırmasından de
 
 ## <a name="connect-with-ad-fs"></a>AD FS ile bağlanma
 
-  ```PowerShell  
+  ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack instance
   Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
@@ -76,7 +76,7 @@ Aşağıdaki komut dosyası değişkenleri, Azure Stack yapılandırmasından de
 
 Kaynak sağlayıcıları için portal üzerinden dağıtılan herhangi bir kaynağa sahip olmayan yeni kullanıcı aboneliklerini otomatik olarak kayıtlı değil. Aşağıdaki betiği çalıştırarak, bir kaynak sağlayıcısı açıkça kaydedebilirsiniz:
 
-```PowerShell  
+```powershell  
 foreach($s in (Get-AzureRmSubscription)) {
         Select-AzureRmSubscription -SubscriptionId $s.SubscriptionId | Out-Null
         Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
@@ -88,7 +88,7 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -F
 
 Her şeyi kendinizi, Azure Stack'te kaynakları oluşturmak için PowerShell kullanarak bağlantıyı test edin. Bir test olarak bir uygulama için bir kaynak grubu oluşturun ve bir sanal makine ekleyin. "MyResourceGroup" adlı bir kaynak grubu oluşturmak için aşağıdaki komutu çalıştırın:
 
-```PowerShell  
+```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 

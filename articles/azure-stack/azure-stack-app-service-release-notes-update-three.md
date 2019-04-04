@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 765701188de6375a5dfe0c9a6c04afe1ee9f6740
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5ea711d3d4ffff72279e745290c1c8d9d854298e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886448"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447501"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Güncelleştirme 3 sürüm notları Azure Stack üzerinde App Service'e
 
@@ -55,6 +55,8 @@ Azure Stack güncelleştirme 3'te Azure App Service, aşağıdaki geliştirmeler
 - Yeni ortam parametresi hedefleme AAD bölgelere yardımcı olmak için oluşturma AADIdentityApp Yardımcısı komut dosyasına eklendi.
 
 - Güncelleştirmeleri **App Service Kiracı, yönetici, İşlevler portalları ve Kudu Araçları**. Azure Stack portalı SDK sürümü ile tutarlı.
+
+- Güncelleştirmeleri **Azure işlevleri çalışma zamanı** için **v1.0.11820**.
 
 - Güvenilirlik ve sık karşılaşılan sorunları daha kolay tanılanması etkinleştirme hata geliştirmek için çekirdek hizmet güncelleştirmeleri.
 

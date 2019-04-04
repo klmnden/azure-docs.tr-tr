@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: ec3952f2bb0b4180f5c72d948d1835a903152f0d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181835"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916668"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Bulut hizmeti genel başlangıç görevleri
 Bu makalede, bulut hizmetinizin gerçekleştirmek isteyebileceğiniz genel başlangıç görevleri bazı örnekler sağlar. Başlangıç görevleri rol başlamadan önce işlemleri gerçekleştirmek için kullanabilirsiniz. Gerçekleştirmek isteyebileceğiniz işlemler, bir bileşeni yükleniyor, COM bileşenleri kaydediliyor, kayıt defteri anahtarlarını ayarlamak veya uzun süre çalışan bir işlem başlatılıyor içerir. 
@@ -68,12 +68,12 @@ Ancak, kullanımında dikkat edilmesi gereken birkaç nokta vardır *AppCmd.exe*
 
 Denetlemek için iyi bir uygulamadır **errorlevel** arama sonra *AppCmd.exe*, çağrısını sarmalamak durumunda ne yapacaklarını kolay olduğu *AppCmd.exe* ile bir *.cmd* dosya. Bilinen bir algılama **errorlevel** yanıt, bunu yoksayabilir, veya geri geçirin.
 
-Tarafından döndürülen errorlevel *AppCmd.exe* wınerror dosyasında listelenen ve üzerinde görülebilir [MSDN](https://msdn.microsoft.com/library/windows/desktop/ms681382.aspx).
+Tarafından döndürülen errorlevel *AppCmd.exe* wınerror dosyasında listelenen ve üzerinde görülebilir [MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
 
 ### <a name="example-of-managing-the-error-level"></a>Örnek hata düzeyini yönetme
 Bu örnek için JSON için bir sıkıştırma bölümü ve bir sıkıştırma giriş ekler *Web.config* dosyasıyla hata işleme ve günlüğe kaydetme.
 
-İlgili bölümleri [ServiceDefinition.csdef] dosya burada gösterilen, ayar içeren [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) özniteliğini `elevated` vermek *AppCmd.exe* ayarlarını değiştirmek için yeterli izinlere *Web.config* dosyası:
+İlgili bölümleri [ServiceDefinition.csdef] dosya burada gösterilen, ayar içeren [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#Task) özniteliğini `elevated` vermek *AppCmd.exe* ayarlarını değiştirmek için yeterli izinlere *Web.config* dosyası:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -293,7 +293,7 @@ REM   Exit the batch file with ERRORLEVEL 0.
 EXIT /b 0
 ```
 
-Azure SDK'sından kullanarak yerel depolama klasörüne erişebilecek [GetLocalResource](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) yöntemi.
+Azure SDK'sından kullanarak yerel depolama klasörüne erişebilecek [GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)) yöntemi.
 
 ```csharp
 string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource("StartupLocalStorage").RootPath;
@@ -511,10 +511,10 @@ Hakkında daha fazla bilgi [görevleri](cloud-services-startup-tasks.md) çalı�
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Ortam]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Değişkeni]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Değişken]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[Uç noktaları]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[Uç Noktalar]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue

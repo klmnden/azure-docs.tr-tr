@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 47cc7d9f09b7fb22cf99ad010f1dc75e6388c314
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 23cc0f03c41801de944eb9938d4cd15896d1745e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731929"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482190"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Azure Stack için uzantısı konağı için hazırlama
 
@@ -47,13 +47,13 @@ Azure Stack hazırlık Denetleyicisi Aracı'nı sertifika imzalama isteği için
 1. Yükseltilmiş izin donanım yaşam döngüsü konağında veya Azure Stack yönetim iş istasyonu ile PowerShell'i açın.
 2. Azure Stack hazırlık Denetleyicisi aracı yüklemek için aşağıdaki cmdlet'i çalıştırın.
 
-    ```PowerShell  
+    ```powershell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
 3. Gerekli bir klasör yapısını oluşturmak için aşağıdaki betiği çalıştırın:
 
-    ```PowerShell  
+    ```powershell  
     New-Item C:\Certificates -ItemType Directory
 
     $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal', 'Admin extension host', 'Public extension host'
@@ -69,7 +69,7 @@ Azure Stack hazırlık Denetleyicisi Aracı'nı sertifika imzalama isteği için
 4. Azure Stack'te kullanmakta olduğunuz, mevcut sertifikaları uygun dizinleri yerleştirin. Örneğin, **yönetici ARM** içindeki sertifika `Arm Admin` klasör. Ve ardından yeni oluşturulan barındırma sertifikaları koymak `Admin extension host` ve `Public extension host` dizinleri.
 5. Sertifika denetimi başlatmak için aşağıdaki cmdlet'i çalıştırın:
 
-    ```PowerShell  
+    ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
@@ -86,7 +86,7 @@ Sonraki adımlar için Azure Stack ayrıcalıklı uç noktasına bağlanabilir b
 2. Sonraki komut dosyası blokları yürütmek için PowerShell ISE'yi açın
 3. Uç noktayı barındıran yönetim sertifikası alın.
 
-    ```PowerShell  
+    ```powershell  
 
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 
@@ -104,7 +104,7 @@ Sonraki adımlar için Azure Stack ayrıcalıklı uç noktasına bağlanabilir b
     }
     ```
 4. Barındırma uç noktası için sertifika alın.
-    ```PowerShell  
+    ```powershell  
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 
     $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -142,7 +142,7 @@ Makale [Azure Stack'i veri merkezi tümleştirmesi - uç noktalarını yayımlam
 
 Duvarınızda yayımlanması için gereken iki yeni uç nokta vardır. Ayrılmış IP'ler genel VIP havuzundan Azure yığınınızı çalıştırmalısınız aşağıdaki kodu kullanarak alınabilir [ayrıcalıklı uç nokta ortamdaki](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -173,7 +173,7 @@ Remove-PSSession -Session $PEPSession
 
 #### <a name="sample-output"></a>Örnek çıktı
 
-```PowerShell
+```powershell
 Can access AZS DNS
 The IP for the Admin Extension Host is: *.adminhosting.\<region>.\<fqdn> - is: xxx.xxx.xxx.xxx
 The Record to be added in the DNS zone: Type A, Name: *.adminhosting.\<region>.\<fqdn>, Value: xxx.xxx.xxx.xxx

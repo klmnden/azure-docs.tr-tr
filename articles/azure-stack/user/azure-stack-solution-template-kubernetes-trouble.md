@@ -1,6 +1,6 @@
 ---
-title: Azure Stack, Kubernetes dağıtımı sorunlarını giderme | Microsoft Docs
-description: Azure Stack, Kubernetes dağıtımı sorunlarını gidermeyi öğrenin.
+title: Azure Stack'te Kubernetes dağıtımı sorunlarını giderme | Microsoft Docs
+description: Azure Stack'te Kubernetes dağıtımı sorunlarını gidermeyi öğrenin.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,30 +11,30 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 03/20/2019
+ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 9af4b7a622bfb47d44c3da0edcece8c9528b08c4
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2a9eccfa109292b7d142092f69f4a664b0ff8f20
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361549"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878137"
 ---
-# <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Azure Stack, Kubernetes dağıtımı sorunlarını giderme
+# <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Azure Stack için Kubernetes dağıtımı sorunlarını giderme
 
-*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Şunlara uygulanır Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 > [!Note]  
 > Azure Stack'te Kubernetes önizlemeye sunuldu. Azure Stack bağlantısı kesilmiş senaryo preview tarafından şu anda desteklenmiyor.
 
 Aşağıdaki makalede Kubernetes kümeniz sorun giderme sırasında arar. Dağıtım uyarıyı gözden geçirin ve dağıtımınızın durumunu dağıtım için gerekli öğeler tarafından gözden geçirin. Azure Stack veya Linux sanal makineleri barındıran Kubernetes dağıtım günlüklerini toplamak gerekebilir. Bir yönetim uç noktasından günlükleri almak için Azure Stack yöneticinizle birlikte çalışmak gerekebilir.
 
-## <a name="overview-of-deployment"></a>Dağıtıma genel bakış
+## <a name="overview-of-kubernetes-deployment"></a>Kubernetes dağıtımına genel bakış
 
 Kümenizi sorunlarını gidermeye başlamadan önce Azure Stack Kubernetes Küme dağıtımı işlemi gözden geçirmek isteyebilirsiniz. Dağıtım, sanal makineler oluşturmak ve kümeniz için ACS altyapısı yüklemek için bir Azure Resource Manager çözüm şablonu kullanır.
 
-### <a name="deployment-workflow"></a>Dağıtım iş akışı
+### <a name="kubernetes-deployment-workflow"></a>Kubernetes dağıtımı iş akışı
 
 Küme dağıtımı için genel süreç Aşağıdaki diyagramda gösterilmektedir.
 
@@ -85,7 +85,7 @@ Küme dağıtımı için genel süreç Aşağıdaki diyagramda gösterilmektedir
 
 Kubernetes kümenizi destekleyen sanal makinelere günlüklerini toplayabilir. Ayrıca dağıtım günlüğünü gözden geçirebilirsiniz. Azure Stack, kullanılacağını ve Azure yığından dağıtımınızla ilgili günlüklerini almak için gereken sürümünü doğrulamak için Azure Stack yöneticinizle konuşun gerekebilir.
 
-1. Gözden geçirme [dağıtım durumu](#review-deployment-status) ve [günlüklerini](#get-logs-from-a-vm) ana düğüm Kubernetes kümenize öğesinden.
+1. Gözden geçirme [dağıtım durumu](#review-deployment-status) ve ana düğüm Kubernetes kümenize günlüklerini almak.
 2. Azure Stack en son sürümünü kullandığınızdan emin olun. Hangi sürümü kullandığınızdan emin değilseniz, Azure Stack yöneticinize başvurun.
 3.  VM oluşturma dosyalarınızı gözden geçirin. Aşağıdaki sorunları vardı:  
     - Ortak anahtar geçersiz olabilir. Oluşturduğunuz anahtarı gözden geçirin.  
@@ -172,4 +172,4 @@ Toplamak ve küme günlükleri indirmek için aşağıdaki adımları izleyin:
 
 [Bir Kubernetes kümesi Market'te (Azure Stack operatörü için) ekleyin.](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
-[Azure'da Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
+[Azure’da Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

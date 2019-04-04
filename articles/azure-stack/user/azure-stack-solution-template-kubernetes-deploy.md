@@ -1,6 +1,6 @@
 ---
-title: Kubernetes için Azure Stack dağıtma | Microsoft Docs
-description: Kubernetes için Azure Stack dağıtmayı öğrenin.
+title: Azure Stack kapsayıcıları için Kubernetes dağıtımı | Microsoft Docs
+description: Kapsayıcıları Azure Stack ile kullanmak için Kubernetes dağıtmayı öğrenin.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,19 +15,19 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6b00f63fac0110a8964270b9cbcad5330ac44645
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 77275ec274a9c76918874007cfe564eea09e6de5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986252"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877202"
 ---
-# <a name="deploy-kubernetes-to-azure-stack"></a>Kubernetes için Azure Stack dağıtma
+# <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Kapsayıcıları Azure Stack ile kullanmak için Kubernetes dağıtma
 
-*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Şunlara uygulanır Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 > [!Note]  
-> Azure Stack'te Kubernetes önizlemeye sunuldu. Azure Stack bağlantısı kesilmiş senaryo preview tarafından şu anda desteklenmiyor.
+> Azure Stack'te Kubernetes önizlemeye sunuldu. Azure Stack'i bağlantısız senaryo preview tarafından şu anda desteklenmiyor.
 
 Dağıtma ve kaynakları Kubernetes için tek ve eşgüdümlü bir işlemle ayarlamak için bu makaledeki adımları izleyebilirsiniz. Bir Azure Resource Manager çözüm şablonu adımları kullanın. , Azure Stack yüklemesi hakkında gerekli bilgileri toplamak için şablonu oluşturun ve ardından, buluta dağıtın. Azure Stack şablon genel Azure'da sunulan aynı yönetilen AKS hizmeti kullanmaz.
 
@@ -43,7 +43,7 @@ Kubernetes için kullanabilirsiniz:
 
 Yalnızca kümenizi destekleyen düğümleri tarafından gerekli bilgi işlem kullanımı için ücret ödersiniz. Daha fazla bilgi için [kullanım ve faturalandırma Azure Stack'te](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 
-## <a name="deploy-kubernetes"></a>Kubernetes dağıtma
+## <a name="deploy-kubernetes-to-use-containers"></a>Kubernetes'in kapsayıcıları dağıtma
 
 Azure Stack'te bir Kubernetes kümesi dağıtma adımları, kimlik yönetimi hizmetiniz bağlı olacaktır. Azure Stack yüklemenizin tarafından kullanılan kimlik yönetimi çözümü doğrulayın. Kimlik Yönetimi hizmetinizi doğrulamak için Azure Stack yöneticinize başvurun.
 
@@ -69,4 +69,4 @@ Ayrıca bulabilirsiniz **Helm** paket Yöneticisini Yükleme ve kümenize uygula
 
 [Kubernetes için Azure Active Directory Federasyon Hizmetleri'nde (AD FS) kullanarak yığını dağıtma](azure-stack-solution-template-kubernetes-adfs.md)
 
-[Azure'da Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
+[Azure’da Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack sanal Makineler'de SQL Server için en iyi performans
-description: Microsoft Azure Stack sanal Makineler'de SQL Server performansını iyileştirmek için en iyi uygulamalar sağlanır.
+title: SQL Server en iyi yöntemleri kullanın ve Azure Stack sanal makineler'de performansı artırmak için | Microsoft Docs
+description: Bu makalede, performansı artırmak ve Azure Stack Vm'lerde SQL Server en iyi duruma getirmek için SQL server en iyi uygulamalar sağlanır.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7981df6aa1e08688bdbe3b18629450b996f7609e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 03a354a7d670033fa86ebbb094710a836b6219c4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123411"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879073"
 ---
-# <a name="optimize-sql-server-performance"></a>SQL Server performansı en iyi duruma getirme
+# <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Azure stack'teki performansını iyileştirmek için SQL server en iyi uygulamalar
 
-Bu makalede, Microsoft Azure Stack sanal makineler'de SQL Server performansını iyileştirmek için yönergeler sağlar. Azure Stack sanal makineler'de SQL Server çalıştıran, aynı veritabanı performans ayarlama seçenekleri bir şirket içi sunucu ortamında SQL Server için geçerli kullanın. Azure Stack bulut ilişkisel bir veritabanında performansını birçok faktöre bağlıdır. Bir sanal makine boyutu ailesi ve veri disklerinin yapılandırması faktörler aşağıda verilmiştir.
+Bu makalede, SQL Server en iyi duruma getirmek ve performansını Microsoft Azure Stack sanal makineler'de SQL server en iyi uygulamalar sağlanır. Azure Stack sanal makineler'de SQL Server çalıştıran, aynı veritabanı performans ayarlama seçenekleri bir şirket içi sunucu ortamında SQL Server için geçerli kullanın. Azure Stack bulut ilişkisel bir veritabanında performansını birçok faktöre bağlıdır. Bir sanal makine boyutu ailesi ve veri disklerinin yapılandırması faktörler aşağıda verilmiştir.
 
 SQL Server görüntülerini oluştururken [Azure Stack portalında sanal makinelerinizi sağlamayı göz önünde bulundurun](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Azure Stack Yönetici portalında Market yönetimden SQL Iaas uzantısı'nı indirin ve kendi seçtiğiniz SQL sanal makinenin sanal sabit diskleri (VHD'ler) indirin. Bunlar, SQL2014SP2 SQL2016SP1 ve SQL2017 içerir.
 
@@ -37,7 +37,8 @@ Başlama *en iyi* Azure Stack sanal makinelerde SQL Server için performansı, b
 > [!NOTE]  
 > Performans rehberi için SQL Server için Azure sanal makineler'de, başvurmak [bu makalede](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
 
-## <a name="before-you-begin"></a>Başlamadan önce
+## <a name="checklist-for-sql-server-best-practices"></a>SQL server en iyi uygulamaları denetim listesi
+
 Azure Stack sanal makinelerde SQL Server'ın en iyi performans için aşağıdaki denetim listesi verilmiştir:
 
 
@@ -112,7 +113,7 @@ Her veri diski maksimum veri diski başına en fazla 2,300 IOPS sağladığında
 
        Örneğin, aşağıdaki PowerShell yeni bir depolama havuzu oluşturur ve ayırma boyutu 64 KB ile 2 sütun sayısını ayarlayın:
 
-       ```PowerShell  
+       ```powershell  
        $PoolCount = Get-PhysicalDisk -CanPool $True
        $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 

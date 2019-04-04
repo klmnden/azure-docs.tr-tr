@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 6cddb513249b424ef0df2ed2d1b5609de17c0744
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a5fe2d9b295a72b8e2e3adb7e5cffd5a98c03070
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894045"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487524"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Azure Stack genel bakış güncelleştirmelerini yönetme
 
@@ -29,7 +29,7 @@ Azure Stack tümleşik sistemleri genellikle için Microsoft güncelleştirme pa
 
 Her bir sürümü Microsoft yazılım güncelleştirmeleri bir tek güncelleştirme paketi olarak gelir. Azure Stack operatör olarak içeri aktarabilirsiniz, yükleme ve yükleme ilerleme durumunu bu İzleyici, yönetici portalından paketleri güncelleştirin. 
 
-Özgün ekipman üreticisi (OEM) donanım satıcınıza güncelleştirmeler, sürücü ve bellenim güncelleştirmeleri gibi da serbest bırakır. Bu güncelleştirmeleri OEM donanım satıcınız tarafından ayrı paketler halinde dağıtılır, ancak bunlar içeri aktarılır, yüklü ve aynı şekilde güncelleştirme paketlerini güncelleştirme paketlerini içe, yüklenmesi ve yönetilen Microsoft tarafından yönetilen
+Özgün ekipman üreticisi (OEM) donanım satıcınıza güncelleştirmeler, sürücü ve bellenim güncelleştirmeleri gibi da serbest bırakır. OEM donanım satıcınız tarafından ayrı paketler halinde teslim edilen bu güncelleştirmeler, Microsoft tarafından yayımlanan güncelleştirme paketleri ile aynı şekilde içeri aktarılır, yüklenir ve yönetilir.
 
 Sisteminizi desteği altında tutmak için Azure Stack belirli sürüm düzeyi için güncelleştirilmiş tutmanız gerekir. Gözden geçirmenizi emin [Azure Stack hizmet İlkesi](azure-stack-servicing-policy.md).
 
@@ -48,7 +48,7 @@ Herhangi bir bakım işlemi kullanıcılara bildirmek ve, normal bakım pencerel
 
 - Bu güncelleştirme yüklemesi başlamadan önce çalıştırması [Test AzureStack](azure-stack-diagnostic-test.md) bulunan tüm çalışma sorunlarını çözün ve Azure Stack durumunu doğrulamak için aşağıdaki parametreleri, tüm uyarılar ve hatalar dahil olmak üzere. Ayrıca etkin Uyarıları gözden geçirin ve eylemi gerektiren tüm çözümleyin.  
 
-  ```PowerShell
+  ```powershell
   Test-AzureStack -Group UpdateReadiness
   ``` 
 
@@ -71,7 +71,7 @@ Güncelleştirme kutucuğu, Azure yığını'nın geçerli sürümü gösterir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Stack hizmet İlkesi](azure-stack-servicing-policy.md) 
+- [Azure Stack hizmet ilkesi](azure-stack-servicing-policy.md) 
 - [Azure stack'teki bölge Yönetimi](azure-stack-region-management.md)     
 
 

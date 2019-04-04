@@ -14,12 +14,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 0ebd17eca363d7fc02daeb851bb24b8d1d307efc
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: bd5e5a3b6fa72698f04969219b1db3cdb0bde3a5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339610"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486708"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure Stack, Azure ExpressRoute kullanarak Azure'a bağlanma
 
@@ -232,7 +232,7 @@ Windows Server sanal makine (AzS-BGPNAT01) yönlendirme ve Uzaktan Erişim Hizme
 1. Azure Stack ana bilgisayar yönetici hesabınızla oturum açın.
 1. Kopyalayın ve aşağıdaki PowerShell betiğini düzenleyin. Değiştirin `your administrator password` yönetici parolası ve yükseltilmiş bir PowerShell ıse'de betik çalıştırın. Bu betik döndürür, **dış BGPNAT adresi**.
 
-   ```PowerShell
+   ```powershell
    cd \AzureStack-Tools-master\connect
    Import-Module .\AzureStack.Connect.psm1
    $Password = ConvertTo-SecureString "your administrator password" `
@@ -250,7 +250,7 @@ Windows Server sanal makine (AzS-BGPNAT01) yönlendirme ve Uzaktan Erişim Hizme
 
    Yükseltilmiş bir PowerShell ISE'den aşağıdaki betiği çalıştırın:
 
-   ```PowerShell
+   ```powershell
    $ExtBgpNat = 'External BGPNAT address'
    $IntBgpNat = 'Internal IP address'
 
@@ -599,7 +599,7 @@ Aşağıdaki çalıştırılabilen ping testleri gerçekleştirin:
 
 Varsayılan olarak, Windows Server 2016 güvenlik duvarı üzerinden gelen ICMP paketleri izin vermez. Çalıştırılabilen ping testleri için kullandığınız her sanal makine için gelen ICMP paketleri izin vermeniz gerekir. ICMP için bir güvenlik duvarı kuralı oluşturmak için yükseltilmiş bir PowerShell penceresinde aşağıdaki cmdlet'i çalıştırın:
 
-```PowerShell
+```powershell
 # Create ICMP firewall rule.
 New-NetFirewallRule `
   –DisplayName “Allow ICMPv4-In” `

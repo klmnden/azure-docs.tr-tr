@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 1c59f092957704c44b5cda012aa7c471fdaa3275
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 314304e75ce0f2586f41b71a889fa0185501b845
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763376"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622017"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Depolama Gezgini'ni Azure Stack aboneliğine veya bir depolama hesabına bağlama
 
@@ -49,25 +49,27 @@ Dışarı aktarın ve sonra Azure Stack sertifika için ASDK alın. Tümleşik s
 
 1. Açık `mmc.exe` bir Azure Stack ana makinesi veya Azure Stack VPN bağlantısı olan yerel makine üzerinde. 
 
-2. İçinde **dosya**seçin **Ekle/Kaldır ek bileşenini**ve ardından eklemek **sertifikaları** yönetmek için **kullanıcı hesabım**.
+2. İçinde **dosya**seçin **Ekle/Kaldır ek bileşenini**. Seçin **sertifikaları** kullanılabilir ek bileşenler de. 
 
-3.  Altında **konsol kökü\sertifikalı (yerel bilgisayar) \Trusted kök sertifika Yetkilileri\Sertifikalar**. Bulma **AzureStackSelfSignedRootCert**.
+3. Seçin **bilgisayar hesabı**ve ardından **sonraki**. Seçin **yerel bilgisayar**ve ardından **son**.
+
+4.  Altında **konsol kökü\sertifikalı (yerel bilgisayar) \Trusted kök sertifika Yetkilileri\Sertifikalar**. Bulma **AzureStackSelfSignedRootCert**.
 
     ![mmc.exe dosyası ile Azure Stack kök sertifikasını yükleme](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
-4. Sertifikaya sağ tıklayın, **tüm görevler** > **dışarı**ve ardından olan sertifikayı dışarı aktarmak için yönergeleri izleyin **Base-64 ile kodlanmış X.509 (. CER)**.
+5. Sertifikaya sağ tıklayın, **tüm görevler** > **dışarı**ve ardından olan sertifikayı dışarı aktarmak için yönergeleri izleyin **Base-64 ile kodlanmış X.509 (. CER)**.
 
     Dışarı aktarılan sertifika sonraki adımda kullanılır.
 
-5. Depolama Gezgini'ni başlatın ve görürseniz **Azure Storage'a Bağlan** iletişim kutusunda, iptal edin.
+6. Depolama Gezgini'ni başlatın ve görürseniz **Azure Storage'a Bağlan** iletişim kutusunda, iptal edin.
 
-6. Üzerinde **Düzenle** menüsünde **SSL sertifikaları**ve ardından **sertifikaları içeri aktar**. Dosya seçici iletişim kutusunu kullanarak, önceki adımda dışarı aktardığınız sertifikayı açın.
+7. Üzerinde **Düzenle** menüsünde **SSL sertifikaları**ve ardından **sertifikaları içeri aktar**. Dosya seçici iletişim kutusunu kullanarak, önceki adımda dışarı aktardığınız sertifikayı açın.
 
     Sertifikayı içeri aktardıktan sonra Depolama Gezgini'ni yeniden başlatmanız istenir.
 
     ![Depolama Gezgini'ne sertifikayı içe aktarın](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-7. Depolama Gezgini'ni yeniden başlatıldıktan sonra seçin **Düzenle** menü ve olmadığını görmek için onay **hedef Azure Stack** seçilir. Aksi takdirde seçin **hedef Azure Stack**ve etkili olması için Depolama Gezgini'ni yeniden başlatın. Bu yapılandırma, Azure Stack ortamınıza uyum için gereklidir.
+8. Depolama Gezgini'ni yeniden başlatıldıktan sonra seçin **Düzenle** menü ve olmadığını görmek için onay **hedef Azure Stack API'leri** seçilir. Aksi takdirde seçin **hedef Azure Stack**ve etkili olması için Depolama Gezgini'ni yeniden başlatın. Bu yapılandırma, Azure Stack ortamınıza uyum için gereklidir.
 
     ![Hedef Azure Stack’in seçili olduğundan emin olun](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
@@ -82,7 +84,7 @@ Depolama Gezgini, bir Azure Active Directory (Azure AD) hesaba ait bir Azure Sta
 
     ![Azure Stack hesabı ekleme](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. Azure depolama iletişim kutusu, Bağlan altında **Azure ortamı**seçin **Azure** veya **Azure Çin**, kullanılan Azure Stack hesabı bağlıdır, seçin **Oturum** en az bir etkin Azure Stack aboneliğiyle ilişkili Azure Stack hesabıyla oturum açmak için.
+3. Azure depolama iletişim kutusu, Bağlan altında **Azure ortamı**seçin **Azure**, **Azure Çin**, **Azure Almanya**,  **Azure ABD kamu**, veya **yeni ortam Ekle**, kullanılan Azure Stack hesabı bağlıdır. Seçin **oturum** en az bir etkin Azure Stack aboneliğiyle ilişkili Azure Stack hesabıyla oturum açmak için.
 
     ![Azure depolamaya bağlanma](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 

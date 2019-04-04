@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: e02a09bdc8bd80b93f7fa33632c32a75c1d705bd
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.lastreviewed: 03/27/2019
+ms.openlocfilehash: 00eb4fc3eb0b2e7120208e6318bf35fc2cc6f188
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226870"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649416"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 güncelleştirme
 
@@ -56,18 +56,20 @@ Azure Stack düzeltmeleri yalnızca Azure Stack tümleşik sistemleri için geç
 
 ### <a name="azure-stack-hotfixes"></a>Azure Stack düzeltmeler
 
+Zaten sahip olduğunuz 1901 ve tüm düzeltmeler yüklü değil henüz yapabilecekleriniz [1902 doğrudan yükleme](azure-stack-update-1902.md), ilk 1901 düzeltmenin.
+
 - **1809**: [KB 4481548 – Azure Stack düzeltme 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**: Geçerli düzeltme yok.
-- **1901**: [KB 4481548 – Azure Stack düzeltme 1.1901.2.103](https://support.microsoft.com/help/4494720)
+- **1901**: [KB 4495662 – Azure Stack düzeltme 1.1901.3.105](https://support.microsoft.com/help/4495662)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 > [!IMPORTANT]
-> - Yükleme [en son Azure Stack düzeltme](#azure-stack-hotfixes) 1901 için güncelleştirmeden önce 1811 (varsa) için.
+> Yükleme [en son Azure Stack düzeltme](#azure-stack-hotfixes) 1901 için güncelleştirmeden önce 1811 (varsa) için. Zaten sahip olduğunuz 1901 ve düzeltmeleri henüz yüklemediyseniz, 1901 düzeltme yüklemeden 1902 doğrudan yükleyebilirsiniz.
 
 - Bu güncelleştirme yüklemesi başlamadan önce çalıştırması [Test AzureStack](azure-stack-diagnostic-test.md) bulunan tüm çalışma sorunlarını çözün ve Azure Stack durumunu doğrulamak için aşağıdaki parametreleri, tüm uyarılar ve hatalar dahil olmak üzere. Ayrıca etkin Uyarıları gözden geçirin ve eylemi gerektiren tüm çözümleyin:
 
-    ```PowerShell
+    ```powershell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
@@ -93,7 +95,7 @@ Bu güncelleştirme, aşağıdaki yeni özellikleri ve Azure Stack için gelişt
    * **AzureRm.Insights**  
          AzureRm toplama modülü artık içerir zaten yayımlanmış sürüm 5.1.5 destekleyen **api sürümü 2018-01-01** ölçümler, ölçüm tanımlarını kaynak türleri için.
 
-- **AzureStack 1.7.0** bu önemli bir değişiklik bırakın. Hataya neden olan değişikliklerin ayrıntıları için bkz. https://aka.ms/azspshmigration170
+- **AzureStack 1.7.1** bu önemli bir değişiklik bırakın. Hataya neden olan değişikliklerin ayrıntıları için bkz. https://aka.ms/azspshmigration171
    * **Azs.Backup.Admin Modülü**  
          Yeni değişiklik: Sertifika tabanlı şifreleme modundaki değişiklikleri yedekleme. Simetrik anahtarlar için destek kullanım dışı bırakıldı.  
    * **Azs.Fabric.Admin Modülü**  
@@ -117,9 +119,6 @@ Güncelleştirilmiş modüller için başvuru incelemesi için bkz: [Azure Stack
 
 - <!-- 3235634 – IS, ASDK -->
   İçeren boyutlarıyla dağıtma hangi VM'ler içinde bir sorun düzeltildi bir **v2** soneki; Örneğin, **işler için standart_a2_v2**, gerekli olarak sonekini belirten **işler için standart_a2_v2** () küçük harf v). Küresel Azure sayesinde, artık kullanabilirsiniz gibi **işler için standart_a2_v2** (Büyük Harf V).
-
-<!-- 2869209 – IS, ASDK --> 
-- Kullanırken bir sorun düzeltildi [Ekle AzsPlatformImage cmdlet'i](/powershell/module/azs.compute.admin/add-azsplatformimage), hangi kullanmanız gerekiyordu, **- OsUri** parametre olarak depolama hesabı URI'si disk nereye yüklenir. Yerel disk yolu artık de kullanabilirsiniz.
 
 <!--  2795678 – IS, ASDK --> 
 - Bir premium VM boyutu (DS, Ds_v2, FS, FSv2) sanal makineleri (VM'ler) oluşturmak için portalı kullanıldığında bir uyarı üreten bir sorun düzeltildi. VM bir standart depolama hesabı oluşturulur. Bu işlevsellik, IOPS ve faturalandırma etkilemeyen olsa da, uyarı düzeltilmiştir.

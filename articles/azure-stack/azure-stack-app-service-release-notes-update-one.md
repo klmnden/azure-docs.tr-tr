@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: 99b4134f8f2d6ed2f521a7f488c33e06c0f436bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d75467da01f0672bb735e01cbd6d7634cdf843e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58165837"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445256"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Güncelleştirme 1 sürüm notları Azure Stack üzerinde App Service'e
 
@@ -56,6 +56,8 @@ Azure Stack güncelleştirme 1 üzerinde Azure App Service, aşağıdaki gelişt
 - **Mevcut bir sanal ağ içinde dağıtma** -müşteriler artık olarak var olan bir sanal ağ içinde Azure Stack üzerinde App Service'e dağıtabilirsiniz. Mevcut bir sanal ağ dağıtma müşterilerin SQL Server ve dosya sunucusu, Azure App Service için özel bağlantı noktaları üzerinden gerekli bağlanmasını sağlar. Dağıtım sırasında ancak mevcut bir sanal ağ içinde dağıtmak için müşteriler seçebilir [App Service tarafından kullanılacak alt ağ oluşturmanız gerekir](azure-stack-app-service-before-you-get-started.md#virtual-network) dağıtımından önce.
 
 - Güncelleştirmeleri **App Service Kiracı, yönetici, İşlevler portalları ve Kudu Araçları**. Azure Stack portalı SDK sürümü ile tutarlı.
+
+- Güncelleştirmeleri **Azure işlevleri çalışma zamanı** için **v1.0.11388**.
 
 - **Aşağıdaki uygulama çerçeveleri ve araçları güncelleştirmeleri**:
     - Eklenen **.NET Core 2.0** desteği
@@ -203,13 +205,13 @@ Bu sürümde site yuvası takas ayrılır. İşlevselliğini geri yüklemek içi
 
 Mevcut bir sanal ağ ve dosya sunucunuza bağlanmak için bir dahili IP adresine dağıtmayı seçerseniz, çalışan alt ağ ve dosya sunucusu arasında SMB trafiği etkinleştirme bir giden güvenlik kuralı eklemeniz gerekir. Bunu yapmak için Yönetim Portalı'nda WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
 
-- Kaynak: Herhangi
+- Kaynak: Herhangi biri
 - Kaynak bağlantı noktası aralığı: *
 - Hedef: IP Adresleri
 - Hedef IP adresi aralığı: Dosya sunucusu için IP aralığı
 - Hedef bağlantı noktası aralığı: 445
 - Protokol: TCP
-- Eylem: İzin ver
+- Eylem: İzin Ver
 - Önceliği: 700
 - Ad: Outbound_Allow_SMB445
 

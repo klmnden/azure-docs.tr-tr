@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 7e11da971e86b605e3e17b07ebcdab97eef5b957
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bdb46a5e11b26f04d008160fa5a782050211b56e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122952"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484382"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Kubernetes kullanarak Active Directory Federasyon Hizmetleri Azure Stack'e dağıtma
 
@@ -85,7 +85,7 @@ AD FS kimlik çözümünüz olarak kullanırken hizmet sorumlunuzu ayarlamak iç
 
    - Yükseltilmiş bir İstemi ile PowerShell'i açın ve [Azure Stack'e bağlanma](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Değerlerinizi güncelleştirilmiş parametrelerle birlikte aşağıdaki betiği çalıştırın:
 
-     ```PowerShell  
+   ```powershell  
        $armEndpoint="<Azure Resource Manager Endpoint>"
        $subscriptionId="<Your Subscription ID>"
        $username="<your user name >"
@@ -126,7 +126,7 @@ AD FS kimlik çözümünüz olarak kullanırken hizmet sorumlunuzu ayarlamak iç
 
    - Yükseltilmiş bir İstemi ile PowerShell'i açın ve [Azure Stack'e bağlanma](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Değerlerinizi güncelleştirilmiş parametrelerle birlikte aşağıdaki betiği çalıştırın:
 
-     ```PowerShell  
+    ```powershell
         
      # upload the pfx to key vault
      $tempPFXFilePath = "<certificate path>"

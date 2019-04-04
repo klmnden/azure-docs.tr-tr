@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e8473ece2ed08798836dc66067e1ce042924f469
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: df12639aaafaf3df7ae2b755d635d4fba83d846e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431264"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905105"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Dayanıklı işlevler Web işleri çalıştırma
 
@@ -218,50 +218,60 @@ Bu bölüm, nasıl çalıştırılacağı hakkında genel bakış sağlar. [kodu
 
 ## <a name="webjobs-sdk-3x"></a>Web işleri SDK'sı 3.x
 
-Bu makalede, WebJobs SDK 2.x projeyi geliştirmek açıklanmaktadır. WebJobs SDK 3.x proje geliştiriyorsanız, bu bölümde, farklar anlamanıza yardımcı olur.
+Bu makalede, WebJobs SDK 2.x projeyi geliştirmek açıklanmaktadır. Geliştiriyorsanız bir [WebJobs SDK 3.x](../../app-service/webjobs-sdk-get-started.md) proje, bu bölümde, farkları olur.
 
 Tanıtılan ana değişiklik .NET Core, .NET Framework yerine kullanılır. WebJobs SDK 3.x projesi oluşturmak için yönergeler bu özel durumları ile aynıdır:
 
-1. .NET Core konsol uygulaması oluşturacaksınız. Visual Studio **yeni proje** iletişim kutusunda **.NET Core** > **konsol uygulaması (.NET Core)**. Proje dosyasını belirten `TargetFramework` olduğu `netcoreapp2.0`.
+1. .NET Core konsol uygulaması oluşturacaksınız. Visual Studio **yeni proje** iletişim kutusunda **.NET Core** > **konsol uygulaması (.NET Core)**. Proje dosyasını belirten `TargetFramework` olduğu `netcoreapp2.x`.
 
-1. Yayım öncesi bir sürümü Web işleri SDK'yı seçin şu paketlerin 3.x:
+1. Web işleri SDK'sı sürümünü seçin şu paketlerin 3.x:
 
     * `Microsoft.Azure.WebJobs.Extensions`
+    * `Microsoft.Azure.WebJobs.Extensions.Storage`
     * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-1. Depolama bağlantı dizesini ve Application Insights izleme anahtarını bir *appsettings.json* kullanarak .NET Core framework yapılandırma dosyası. Değişiklik `Main` Bunu yapmak için yöntemi kodu. Bir örneği aşağıda verilmiştir:
+1. Depolama bağlantı dizesini ve Application Insights izleme anahtarını ayarlayın bir *appsettings.json* kullanarak .NET Core framework yapılandırma dosyası. Bir örneği aşağıda verilmiştir:
+
+    ```json
+        {
+            "AzureWebJobsStorage": "<replace with storage connection string>",
+            "APPINSIGHTS_INSTRUMENTATIONKEY": "<replace with Application Insights instrumentation key>"
+        }
+    ```
+
+1. Değişiklik `Main` Bunu yapmak için yöntemi kodu. Bir örneği aşağıda verilmiştir:
 
    ```cs
    static void Main(string[] args)
    {
-       var builder = new ConfigurationBuilder()
-           .SetBasePath(Directory.GetCurrentDirectory())
-           .AddJsonFile("appsettings.json");
+        var hostBuilder = new HostBuilder()
+            .ConfigureWebJobs(config =>
+            {
+                config.AddAzureStorageCoreServices();
+                config.AddAzureStorage();
+                config.AddTimers();
+                config.AddDurableTask(options =>
+                {
+                    options.HubName = "MyTaskHub";
+                    options.AzureStorageConnectionStringName = "AzureWebJobsStorage";
+                });
+            })
+            .ConfigureLogging((context, logging) =>
+            {
+                logging.AddConsole();
+                logging.AddApplicationInsights(config =>
+                {
+                    config.InstrumentationKey = context.Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"];
+                });
+            })
+            .UseConsoleLifetime();
 
-       var appSettingsConfig = builder.Build();
+        var host = hostBuilder.Build();
 
-       using (var loggerFactory = new LoggerFactory())
-       {
-           var config = new JobHostConfiguration();
-
-           config.DashboardConnectionString = "";
-           config.StorageConnectionString =
-               appSettingsConfig.GetConnectionString("AzureWebJobsStorage");
-           var instrumentationKey =
-               appSettingsConfig["APPINSIGHTS_INSTRUMENTATIONKEY"];
-
-           config.LoggerFactory = loggerFactory
-               .AddApplicationInsights(instrumentationKey, null)
-               .AddConsole();
-
-           config.UseTimers();
-           config.UseDurableTask(new DurableTaskExtension
-           {
-               HubName = "MyTaskHub",
-           });
-           var host = new JobHost(config);
-           host.RunAndBlock();
-       }
+        using (host)
+        {
+            host.Run();
+        }
    }
    ```
 

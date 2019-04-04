@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: c5d4f67e9c1e4e983133675c440b8c5b64183227
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 664c8b659152a370d7fb31907b6cdbcd414dce31
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58852018"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905112"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP'yi performans Azure Vm'leri için ayarlama
 
@@ -128,7 +128,7 @@ Geçerli Azure 1350 bayt ve 1400 tünel arabiriminde MTU TCP MSS clamping ayarla
 
 #### <a name="latency-and-round-trip-time"></a>Gecikme süresi ve gidiş dönüş süresi
 
-Ağ gecikmesi ışık hızını fiber optik ağ üzerinden yönetilir. Gerçeğidir, TCP ağ verimliliği de etkili bir şekilde yönetilen (pratik üst sınırlar) nedeniyle gidiş dönüş süresi'nın (RTT) olan iki ağ aygıtları arasında.
+Ağ gecikmesi ışık hızını fiber optik ağ üzerinden yönetilir. Gerçeğidir, TCP ağ verimliliği etkili bir şekilde yönetilen (pratik üst sınırlar) ayrıca iki ağ cihazları gidiş dönüş süresi (RTT) nedeniyle olur.
 
 | | | | |
 |-|-|-|-|
@@ -343,7 +343,7 @@ Aşağıdaki ek bilgiler bulunabilir:
 
 - [Expressroute ağ performansıyla ilgili sorunları giderme](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
 
-- [Sanal ağa yönelik VPN aktarım hızını doğrulama](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-validate-throughput-to-vnet)
+- [Bir sanal ağa yönelik VPN aktarım hızını doğrulama](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-validate-throughput-to-vnet)
 
 ### <a name="detect-inefficient-tcp-behaviors"></a>Verimsiz TCP davranışlarını algılayın
 

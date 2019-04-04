@@ -15,12 +15,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: dc146c6e8877a99570aab25d198ba365abbe7c86
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4dc4c9d4d936bbcf626884c5c90e16f640f268a0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078185"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487779"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack kaydı
 Azure Market öğelerini indirme ve ticaret verileri Microsoft'a raporlamaya ayarlamak için Azure ile Azure Stack geliştirme Seti'ni (ASDK) yüklemenizi kaydedebilirsiniz. Kayıt, Pazar dağıtımı da dahil olmak üzere tam Azure Stack işlevleri desteklemek için gereklidir. Kayıt, Market dağıtım ve kullanım raporlama gibi önemli Azure Stack işlevselliğini test etmek etkinleştirmek için gereklidir. Azure Stack kaydettikten sonra kullanım için Azure ticaret bildirilir. Kayıt için kullanılan abonelik altında görebilirsiniz. Ancak ASDK kullanıcılar bunlar rapor tüm kullanımlar için ücretlendirilmezsiniz.
@@ -32,7 +32,7 @@ Azure Stack PowerShell yüklü ve açıklandığı gibi Azure Stack araçları i
 
 Ayrıca, PowerShell dil modunu ayarlamanız gerekir **FullLanguageMode** ASDK Azure ile kaydetmek için kullanılan bilgisayarda. Geçerli dil modunu tam, yükseltilmiş bir PowerShell penceresi açın ve aşağıdaki PowerShell komutlarını çalıştırmak için ayarlandığını doğrulamak için:
 
-```PowerShell  
+```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
@@ -50,7 +50,7 @@ Azure ile ASDK kaydetmek için aşağıdaki adımları izleyin.
 
 2. Azure ile ASDK yüklemenizi kaydetmek için aşağıdaki PowerShell komutlarını çalıştırın. Hem Azure faturalandırma abonelik Kimliğinizi hem de yerel ASDK yükleme için oturum açmanız. Azure faturalandırma bir abonelik kimliği yok henüz yapabilecekleriniz [buradan ücretsiz bir Azure hesabı oluşturun](https://azure.microsoft.com/free/?b=17.06). Azure aboneliğinize ücret ödemeden Azure Stack kaydetme artmasına neden olur.<br><br>Programını çalıştırdığınızda, kayıt için benzersiz bir ad ayarlayın **kümesi AzsRegistration** cmdlet'i. **RegistrationName** parametresinin varsayılan değeri **AzureStackRegistration**. Azure Stack birden fazla örneğinde aynı adı kullanın, ancak komut başarısız olur.
 
-    ```PowerShell  
+    ```powershell  
     # Add the Azure cloud subscription environment name. 
     # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
     Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -89,7 +89,7 @@ Azure Stack bağlantısı kesilmiş bir ortamda (internet bağlantısı olmayan)
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Azure Stack ortamından bir kayıt belirtecinizi almak
 ASDK konak bilgisayarda, yönetici olarak PowerShell'i başlatın ve gidin **kayıt** klasöründe **AzureStack araçları ana** Azure Stack araçları yüklendiğinde oluşturulan dizin. İçeri aktarmak için aşağıdaki PowerShell komutlarını kullanın **RegisterWithAzure.psm1** modülü ve ardından **Get-AzsRegistrationToken** kayıt belirtecinizi almak için cmdlet:  
 
-   ```PowerShell  
+   ```powershell  
    # Import the registration module that was downloaded with the GitHub tools
    Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
@@ -110,7 +110,7 @@ Bu kayıt belirtecinizi kullanmak için İnternet'e bağlı bir bilgisayara kayd
 ### <a name="connect-to-azure-and-register"></a>Azure ve kayıt bağlanma
 Internet'e bağlı bilgisayara kullanmak aşağıdaki PowerShell komutlarını içeri aktarmak için **RegisterWithAzure.psm1** modülü ve ardından **Register-AzsEnvironment** cmdlet'i ile kullanarak Azure kaydetmek için Yeni oluşturduğunuz kaydı belirtecini ve benzersiz kayıt adı:  
 
-  ```PowerShell  
+  ```powershell  
   # Add the Azure cloud subscription environment name. 
   # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
   Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -134,7 +134,7 @@ Internet'e bağlı bilgisayara kullanmak aşağıdaki PowerShell komutlarını i
 
 Alternatif olarak, **Get-Content** kayıt belirtecinizi içeren bir dosyaya işaret edecek şekilde cmdlet:
 
-  ```PowerShell  
+  ```powershell  
   # Add the Azure cloud subscription environment name. 
   # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
   Add-AzureRmAccount -EnvironmentName "<environment name>"

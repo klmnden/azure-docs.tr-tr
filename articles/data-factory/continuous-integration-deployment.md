@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: 5f5a9ef689fefd5683f7b6f1ebc9b2193ce020e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2edd4e28a0dd67be3c06159bce2e968d681b7f70
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995778"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905265"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Sürekli tümleştirme ve teslim (CI/CD) Azure Data factory'de
 
@@ -24,11 +24,11 @@ Sürekli tümleştirme, sistemi, yapılan her değişikliği testin uygulamadır
 
 Azure Data Factory için sürekli tümleştirme ve teslim taşıma Data Factory işlem hatları (geliştirme, test ve üretim) bir ortamdan diğerine gösterir. Sürekli tümleştirme ve teslim yapmak için Azure Resource Manager şablonları ile tümleştirme Data Factory kullanıcı Arabirimi kullanabilirsiniz. Data Factory kullanıcı arabirimini seçtiğinizde bir Resource Manager şablonu oluşturabilir **ARM şablonu** seçenekleri. Seçtiğinizde, **dışarı ARM şablonu**, portalda Resource Manager şablonu için veri fabrikasını ve tüm bağlantı dizeleri ve diğer parametreleri içeren bir yapılandırma dosyası oluşturur. Ardından, bir yapılandırma dosyası her bir ortamda (geliştirme, test ve üretim) oluşturmanız gerekir. Ana Resource Manager şablon dosyası tüm ortamlar için aynı kalır.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Dokuz dakikalık bir giriş ve bu özelliği için şu videoyu izleyin:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-a-resource-manager-template-for-each-environment"></a>Her ortam için bir Resource Manager şablonu oluşturma
 Seçin **dışarı ARM şablonu** geliştirme ortamında veri fabrikanızın Resource Manager şablonunu dışarı aktarmak için.

@@ -15,12 +15,12 @@ ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 277af6f139e815f46894f5b8df82a1d92ef573d1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c957812271d2ddd6639672d862026b30cfd19661
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537142"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804522"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Azure Stack'e Linux görüntüleri ekleme
 
@@ -38,7 +38,7 @@ Bu görüntüler için sık sık güncelleştirme olduğunu unutmayın, bu neden
 
 Mümkün olduğunda, Market hazırlanan ve Azure Stack için test yönetimi aracılığıyla sağlanan görüntülerin indirin.
 
-Azure Linux Aracısı (genellikle adlı `WALinuxAgent` veya `walinuxagent`) gereklidir ve aracıyı'nin tüm sürümleri Azure Stack'te çalışır. Kendi görüntünüzü oluşturursanız, en son sürümünü WALA veya sürüm 2.2.20 kullanmanız gerekir. Azure Stack üzerinde çalışmıyor 2.2.20 2.2.35.1 (dışlamalı) arasındaki sürümleri unutmayın. Unutmayın [cloud-init](https://cloud-init.io/) Azure Stack üzerinde şu anda desteklenmiyor.
+Azure Linux Aracısı (genellikle adlı `WALinuxAgent` veya `walinuxagent`) gereklidir ve aracıyı'nin tüm sürümleri Azure Stack'te çalışır. Kendi görüntünüzü oluşturursanız, en son sürümünü WALA veya sürüm 2.2.20 kullanmanız gerekir. Azure Stack üzerinde çalışmıyor 2.2.20 2.2.35.1 (dışlamalı) arasındaki sürümleri unutmayın. Aracı sürümleri 2.2.20 2.2.35.1 arasındaki kullanmak için lütfen 1901 düzeltme/1902 düzeltmeyi veya Azure Stack 1903 sürümüne (veya üzeri) güncelleştirin. Unutmayın [cloud-init](https://cloud-init.io/) Azure Stack üzerinde şu anda desteklenmiyor.
 
 Aşağıdaki yönergeleri kullanarak kendi Linux görüntünüzü hazırlayabilirsiniz:
 

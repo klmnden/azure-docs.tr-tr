@@ -15,12 +15,12 @@ ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 24c500251c8e91b7542c5c9d3e77676205c88c1f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cd7e66961a0b9a80150a3d3e132efd29485cdb66
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090976"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483157"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure stack'teki ölçek birimi düğüm eylemleri
 
@@ -85,7 +85,7 @@ Bu eylem, genellikle bir düğüm askıda ve artık isteklerine yanıt verip old
 
 Durdurma eylemi çalıştırmak için yükseltilmiş bir PowerShell istemi açın ve aşağıdaki cmdlet'i çalıştırın:
 
-```PowerShell  
+```powershell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -99,7 +99,7 @@ Daha fazla bilgi için [Stop-AzsScaleUnitNode](https://docs.microsoft.com/powers
  
 Başlangıç eylemi çalıştırmak için yükseltilmiş bir PowerShell istemi açın ve aşağıdaki cmdlet'i çalıştırın:
 
-```PowerShell  
+```powershell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -118,7 +118,7 @@ Bu eylem, genellikle bir düğümün tamamını değiştirme gibi parçaların a
 
 Boşaltma eylemi çalıştırmak için yükseltilmiş bir PowerShell istemi açın ve aşağıdaki cmdlet'i çalıştırın:
 
-```PowerShell  
+```powershell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -130,7 +130,7 @@ Daha fazla bilgi için [devre dışı bırak AzsScaleUnitNode](https://docs.micr
 
 Sürdürme eylemi çalıştırmak için yükseltilmiş bir PowerShell istemi açın ve aşağıdaki cmdlet'i çalıştırın:
 
-```PowerShell  
+```powershell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -149,7 +149,7 @@ Onarım işlemi çalıştırdığınızda, BMC IP adresini belirtmeniz gerekir.
 
 Onarım işlemi çalıştırmak için yükseltilmiş bir PowerShell istemi açın ve aşağıdaki cmdlet'i çalıştırın:
 
-  ```PowerShell
+  ```powershell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ```
 
@@ -163,7 +163,7 @@ Kapatma işlemi başarısız olursa, deneme [boşaltma](#drain) işlemi kapatma 
 
 Kapatma eylemi çalıştırmak için yükseltilmiş bir PowerShell istemi açın ve aşağıdaki cmdlet'i çalıştırın:
 
-  ```PowerShell
+  ```powershell
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 

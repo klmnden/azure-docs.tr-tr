@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: d775fff16380ebe08159123aa9e6084055a5be8d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 73ceb0a92b97e90b1fdb0c5562d623505e86b870
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877576"
+ms.locfileid: "58891594"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer pencere öğeleri uygulamalarınıza ekleyin
 
@@ -30,7 +30,7 @@ Pencere öğesi temel URL, sürüm 2 ile başlayarak, hesabın bölgesine içeri
 
 |Ad|Tanım|Açıklama|
 |---|---|---|
-|widgets|Virgülle ayrılmış dizeler|İşlemek istediğiniz öngörüleri denetlemenize olanak sağlar. <br/>Örnek: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` yalnızca kişiler ve markalarla ilgili kullanıcı arabirimi içgörülerini işler<br/>Mevcut seçenekler: people (kişiler), keywords (anahtar sözcükler), annotations (ek açıklamalar), brands (markalar), sentiments (yaklaşımlar), transcript (transkript), search (arama).<br/>version=2’de URL aracılığıyla desteklenmez<br/><br/>**Not:** **Pencere öğeleri** , URL param desteklenmiyor **sürüm 2 =** kullanılır. |
+|widgets|Virgülle ayrılmış dizeler|İşlemek istediğiniz öngörüleri denetlemenize olanak sağlar. <br/>Örnek: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` yalnızca kişiler ve markalarla ilgili kullanıcı arabirimi içgörülerini işler<br/>Mevcut seçenekler: people (kişiler), keywords (anahtar sözcükler), annotations (ek açıklamalar), brands (markalar), sentiments (yaklaşımlar), transcript (transkript), search (arama).<br/>version=2’de URL aracılığıyla desteklenmez<br/><br/>**Not:** Pencere öğeleri URL parametre 2 sürümünde desteklenmiyor. |
 
 ### <a name="player-widget"></a>Yürütücü pencere öğesi
 
@@ -254,4 +254,4 @@ Otomatik oynatma: Yürütücü varsayılan olarak videoyu oynatmaya başlar. Vid
 
 Video Indexer içgörülerini görüntüleme ve düzenleme hakkında bilgi edinmek için [bu](video-indexer-view-edit.md) makaleye bakın.
 
-Ayrıca, [Video Indexer codepen’ine](https://codepen.io/videoindexer/pen/eGxebZ) göz atın.
+Ayrıca, kullanıma [Video Indexer CodePen](https://codepen.io/videoindexer/pen/eGxebZ).

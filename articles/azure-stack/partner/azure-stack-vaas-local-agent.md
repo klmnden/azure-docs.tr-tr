@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 09b8556a83dec286ce8d67fa5fd6d27e027325bf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: cfea454b20b010148eba063ec724e55134944ac3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769225"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482938"
 ---
 # <a name="deploy-the-local-agent"></a>Yerel aracı dağıtma
 
@@ -57,7 +57,7 @@ Makinenizde aşağıdaki ölçütleri karşıladığından emin olun:
 1. Testleri çalıştırmak için kullanacağınız makinede yükseltilmiş isteminde Windows PowerShell'i açın.
 2. Yerel aracı indirmek için aşağıdaki komutu çalıştırın:
 
-    ```PowerShell
+    ```powershell
     Invoke-WebRequest -Uri "https://storage.azurestackvalidation.com/packages/Microsoft.VaaSOnPrem.TaskEngineHost.latest.nupkg" -outfile "OnPremAgent.zip"
     Expand-Archive -Path ".\OnPremAgent.zip" -DestinationPath VaaSOnPremAgent -Force
     Set-Location VaaSOnPremAgent\lib\net46
@@ -65,7 +65,7 @@ Makinenizde aşağıdaki ölçütleri karşıladığından emin olun:
 
 3. Yerel aracı bağımlılıkları yüklemek için aşağıdaki komutu çalıştırın:
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
     Install-VaaSPrerequisites -AadTenantId $AadTenantId `
@@ -113,14 +113,15 @@ Uzak operations testleri çalıştırın. Testleri çalıştıran makine Azure S
 
 2. Şu komutu çalıştırın:
 
-    ```PowerShell
+    ```powershell
     .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u <VaaSUserId> -t <VaaSTenantId>
     ```
 
       **Parametreler**  
+
     | Parametre | Açıklama |
     | --- | --- |
-    | VaaSUserId | Kullanıcı kimliği kullanılan VaaS portalda oturum açmak için (örneğin, UserName@Contoso.com) |
+    | VaaSUserId | Kullanıcı kimliği kullanılan VaaS portalda oturum açmak için (örneğin, kullanıcı adı\@Contoso.com) |
     | VaaSTenantId | Azure hesabı için Azure AD Kiracı kimlik doğrulama hizmet olarak kayıtlı. |
 
     > [!Note]  

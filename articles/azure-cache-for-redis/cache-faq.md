@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: yegu
-ms.openlocfilehash: ddeaec9adc28fa5037a0fc01363e3ad6b78ceeef
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234365"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895605"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Redis için Azure Önbelleği SSS
 Sık sorulan sorular, desenleri ve en iyi yanıtları Azure önbelleği için Redis için öğrenin.
@@ -80,7 +80,7 @@ Bu bölümdeki SSS'leri ortak izleme ve sorun giderme soruları kapsar. İzleme 
 * [Neden istemcim önbellekten kesildi?](#why-was-my-client-disconnected-from-the-cache)
 
 ## <a name="prior-cache-offering-faqs"></a>Önceki önbellek teklifi hakkında SSS
-* [Hangi Azure önbellek teklifi bana uygundur?](#which-azure-cache-offering-is-right-for-me)
+* [Hangi Azure Önbellek teklifi bana uygundur?](#which-azure-cache-offering-is-right-for-me)
 
 ### <a name="what-is-azure-cache-for-redis"></a>Azure önbelleği için Redis nedir?
 Azure önbelleği için Redis popüler açık kaynak yazılım tabanlı [Redis](https://redis.io/). Güvenli ve adanmış bir Azure önbelleği için Redis, Microsoft tarafından yönetilir ve azure'daki herhangi bir uygulamadan erişilebilir için erişmenizi sağlar. Daha ayrıntılı bir genel bakış için bkz. [Azure önbelleği için Redis](https://azure.microsoft.com/services/cache/) Azure.com'daki ürün sayfası.
@@ -392,7 +392,7 @@ Bu ayarı yapılandırmak nasıl:
   > Bu yapılandırma öğesinde belirtilen değer bir *çekirdek başına* ayarı. 4 çekirdekli makine olması ve minIOThreads ayarınızı zamanında 200 olmasını istiyorsanız, örneğin, kullanacağınız `<processModel minIoThreads="50"/>`.
   >
 
-* ASP.NET dışında ve kullanmak, Azure Web siteleri global.asax [ThreadPool.SetMinThreads (...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
+* ASP.NET dışında ve kullanmak, Azure Web siteleri global.asax [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) API.
 
   > [!NOTE]
   > Bu API tarafından belirtilen değere tam AppDomain etkileyen genel bir ayardır. 4 çekirdekli makine olması ve CPU başına 50 minWorkerThreads ve minIOThreads çalışma zamanı sırasında ayarlamak istediğiniz ThreadPool.SetMinThreads (200, 200) kullanmanız gerekir.
@@ -402,9 +402,9 @@ Bu ayarı yapılandırmak nasıl:
 ### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>StackExchange.Redis kullanırken istemcide daha fazla iş üretmek sunucu GC etkinleştir
 Etkinleştirme sunucusu GC istemci en iyi duruma getirmek ve StackExchange.Redis kullanırken daha iyi performans ve aktarım hızı sağlar. Sunucusu GC ve nasıl etkinleştirileceği konusunda daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Sunucu GC etkinleştirmek için](https://msdn.microsoft.com/library/ms229357.aspx)
-* [Atık Toplamanın Temelleri](https://msdn.microsoft.com/library/ee787088.aspx)
-* [Çöp toplama ve performans](https://msdn.microsoft.com/library/ee851764.aspx)
+* [Sunucu GC etkinleştirmek için](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
+* [Çöp toplamanın temelleri](/dotnet/standard/garbage-collection/fundamentals)
+* [Çöp toplama ve performans](/dotnet/standard/garbage-collection/performance)
 
 
 ### <a name="performance-considerations-around-connections"></a>Bağlantıları etrafında performansla ilgili önemli noktalar
@@ -469,11 +469,11 @@ Redis için Azure önbelleği ile çalışmaya başlama hakkında daha fazla bil
 ### <a name="managed-cache-service"></a>Yönetilen önbellek hizmeti
 [Önbellek hizmeti 30 Kasım 2016 devre dışı bırakılan yönetilen.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-Arşivlenmiş belgeler görüntülemek için bkz: [arşivlenmiş yönetilen önbellek hizmeti belgeleri](https://msdn.microsoft.com/library/azure/dn386094.aspx).
+Arşivlenmiş belgeler görüntülemek için bkz: [arşivlenmiş yönetilen önbellek hizmeti belgeleri](/previous-versions/azure/azure-services/dn386094(v=azure.100)).
 
 ### <a name="in-role-cache"></a>Rol İçi Önbellek
 [Rol içi önbellek 30 Kasım 2016 devre dışı bırakılan.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-Arşivlenmiş belgeler görüntülemek için bkz: [arşivlenmiş rol içi önbellek belgeleri](https://msdn.microsoft.com/library/azure/dn386103.aspx).
+Arşivlenmiş belgeler görüntülemek için bkz: [arşivlenmiş rol içi önbellek belgeleri](/previous-versions/azure/azure-services/dn386103(v=azure.100)).
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx

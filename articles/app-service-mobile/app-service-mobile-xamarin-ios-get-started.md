@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: aaa7db14f3afe8eec000e14c7f5a9db032b87fe0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 03fb286bd24bb12f3a1e508627a2de156e185568
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765943"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892441"
 ---
 # <a name="create-a-xamarinios-app"></a>Yeni bir Xamarin.iOS uygulaması oluşturma
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -33,8 +33,8 @@ Bu öğreticiyi tamamlamak, Azure App Service’de Mobile Apps özelliğini kull
 Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
 
 * Etkin bir Azure hesabı. Hesabınız yoksa Azure deneme sürümü için kaydolun ve deneme süreniz bittikten sonra bile kullanmaya devam edebileceğiniz 10 ücretsiz mobil uygulama edinin. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
-* Xamarin ile Visual Studio. Yönergeler için bkz. [Visual Studio ve Xamarin için Kurulum ve Yükleme](https://msdn.microsoft.com/library/mt613162.aspx).
-* Xcode v7.0 veya daha sonraki sürümü ve Xamarin Studio Community yüklü bir Mac. Bkz. [Visual Studio ve Xamarin için kurulum ve yükleme](https://msdn.microsoft.com/library/mt613162.aspx) ve [Mac kullanıcıları için kurulum, yükleme ve doğrulamalar](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
+* Xamarin ile Visual Studio. Yönergeler için bkz. [Visual Studio ve Xamarin için Kurulum ve Yükleme](/visualstudio/cross-platform/setup-and-install).
+* Xcode v7.0 veya daha sonraki sürümü ve Xamarin Studio Community yüklü bir Mac. Bkz. [Visual Studio ve Xamarin için kurulum ve yükleme](/visualstudio/cross-platform/setup-and-install) ve [Mac kullanıcıları için kurulum, yükleme ve doğrulamalar](/visualstudio/cross-platform/setup-install-and-verifications-for-mac-users) (MSDN).
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Azure Mobil Uygulama arka ucu oluşturma
 Mobil Uygulama arka ucu oluşturmak için bu adımları izleyin.
@@ -71,10 +71,10 @@ Sunucu projesini Node.js veya .NET arka ucunu kullanacak şekilde yapılandırma
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Uygulamanıza Çevrimdışı Eşitleme ekleme](app-service-mobile-xamarin-ios-get-started-offline-data.md)
+* [Uygulamanıza çevrimdışı eşitleme özelliği ekleyin](app-service-mobile-xamarin-ios-get-started-offline-data.md)
 * [Uygulamanıza kimlik doğrulaması ekleme](app-service-mobile-xamarin-ios-get-started-users.md)
 * [Xamarin.Android uygulamanıza anında iletme bildirimleri ekleme](app-service-mobile-xamarin-ios-get-started-push.md)
-* [Azure Mobile Apps için yönetilen istemciyi kullanma](app-service-mobile-dotnet-how-to-use-client-library.md)
+* [Azure Mobile Apps için yönetilen istemci kullanma](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]:#getting-started

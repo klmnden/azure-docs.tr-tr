@@ -15,18 +15,18 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 9eb2e8ddde13783eabf3d82173e6a2fa75ec2b06
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ef75b161bcdb9e1b9658612b783dff46d1fa2502
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082679"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484347"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Azure Stack'te ayrıcalıklı uç noktası kullanma
 
 *Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure Stack operatörü, Yönetici portalı, PowerShell veya Azure Resource Manager API'leri en günlük yönetim görevleri için kullanmanız gerekir. Ancak, bazı yaygın işlemlerin daha az kullanmanız gerekir *ayrıcalıklı uç nokta* (CESARETLENDİRİCİ). Gerekli bir görevi gerçekleştirmenize yardımcı olması için yeterli özellikleriyle sağlayan önceden yapılandırılmış bir uzak PowerShell konsolunu CESARETLENDİRİCİ var. Uç nokta kullanan [PowerShell JEA (yeterli yönetim)](https://docs.microsoft.com/powershell/jea/overview) yalnızca sınırlı bir dizi cmdlet kullanıma sunmak için. Düşük ayrıcalıklı hesap CESARETLENDİRİCİ erişmek ve kısıtlı bir cmdlet kümesi çağırmak için kullanılır. Hiç yönetici hesabı gereklidir. Ek güvenlik için komut dosyası izin verilmez.
+Azure Stack operatörü olarak, gündelik yönetim görevlerinin çoğunda yönetici portalını, PowerShell'i veya Azure Resource Manager API'lerini kullanmanız gerekir. Ancak, bazı yaygın işlemlerin daha az kullanmanız gerekir *ayrıcalıklı uç nokta* (CESARETLENDİRİCİ). Gerekli bir görevi gerçekleştirmenize yardımcı olması için yeterli özellikleriyle sağlayan önceden yapılandırılmış bir uzak PowerShell konsolunu CESARETLENDİRİCİ var. Uç nokta kullanan [PowerShell JEA (yeterli yönetim)](https://docs.microsoft.com/powershell/jea/overview) yalnızca sınırlı bir dizi cmdlet kullanıma sunmak için. Düşük ayrıcalıklı hesap CESARETLENDİRİCİ erişmek ve kısıtlı bir cmdlet kümesi çağırmak için kullanılır. Hiç yönetici hesabı gereklidir. Ek güvenlik için komut dosyası izin verilmez.
 
 CESARETLENDİRİCİ aşağıdaki gibi görevleri gerçekleştirmek için kullanabilirsiniz:
 
@@ -53,7 +53,7 @@ Tümleşik bir sistem için bu yordama başlamadan önce IP adresi veya DNS arac
 
     - Tümleşik bir sistemde CESARETLENDİRİCİ donanım yaşam döngüsü konak veya ayrıcalıklı erişim iş istasyonu çalışan sağlamlaştırılmış sanal makinede güvenilir bir konak olarak eklemek için yükseltilmiş bir Windows PowerShell oturumunda aşağıdaki komutu çalıştırın.
 
-      ```PowerShell
+      ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - ASDK çalıştırıyorsanız, Geliştirme Seti ana bilgisayara oturum açın.
@@ -61,7 +61,7 @@ Tümleşik bir sistem için bu yordama başlamadan önce IP adresi veya DNS arac
 2. Sağlamlaştırılmış donanım yaşam döngüsü konak veya ayrıcalıklı erişim iş istasyonu üzerinde çalışan sanal makinenin üzerinde bir Windows PowerShell oturumu açın. CESARETLENDİRİCİ sanal makinede uzaktan oturum oluşturmak için aşağıdaki komutları çalıştırın:
  
    - Tümleşik bir sistem üzerinde:
-     ```PowerShell
+     ```powershell
        $cred = Get-Credential
 
        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
@@ -70,7 +70,7 @@ Tümleşik bir sistem için bu yordama başlamadan önce IP adresi veya DNS arac
      `ComputerName` Parametresi, IP adresi veya DNS adını CESARETLENDİRİCİ barındıran sanal makinelerden birinde olabilir. 
    - ASDK çalıştırıyorsanız:
      
-     ```PowerShell
+     ```powershell
        $cred = Get-Credential
 
        Enter-PSSession -ComputerName azs-ercs01 `
@@ -113,7 +113,7 @@ Yukarıda belirtildiği gibi CESARETLENDİRİCİ olduğu bir [PowerShell JEA](ht
 
 Bu nedenle, örneğin, belirli bir cmdlet için parametrelerin listesini almak için aşağıdaki komutu çalıştırın:
 
-```PowerShell
+```powershell
     Get-Command <cmdlet_name> -Syntax
 ```
 
@@ -125,7 +125,7 @@ Yerel makinenizde CESARETLENDİRİCİ oturumun içeri aktarmak için aşağıdak
 
     -Tümleşik bir sistem üzerinde CESARETLENDİRİCİ donanım yaşam döngüsü konak veya ayrıcalıklı erişim iş istasyonu çalışan sağlamlaştırılmış sanal makinede güvenilir bir konak olarak eklemek için yükseltilmiş bir Windows PowerShell oturumunda aşağıdaki komutu çalıştırın.
 
-      ```PowerShell
+      ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - ASDK çalıştırıyorsanız, Geliştirme Seti ana bilgisayara oturum açın.
@@ -133,7 +133,7 @@ Yerel makinenizde CESARETLENDİRİCİ oturumun içeri aktarmak için aşağıdak
 2. Sağlamlaştırılmış donanım yaşam döngüsü konak veya ayrıcalıklı erişim iş istasyonu üzerinde çalışan sanal makinenin üzerinde bir Windows PowerShell oturumu açın. CESARETLENDİRİCİ sanal makinede uzaktan oturum oluşturmak için aşağıdaki komutları çalıştırın:
  
    - Tümleşik bir sistem üzerinde:
-     ```PowerShell
+     ```powershell
        $cred = Get-Credential
 
        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
@@ -142,7 +142,7 @@ Yerel makinenizde CESARETLENDİRİCİ oturumun içeri aktarmak için aşağıdak
      `ComputerName` Parametresi, IP adresi veya DNS adını CESARETLENDİRİCİ barındıran sanal makinelerden birinde olabilir. 
    - ASDK çalıştırıyorsanız:
      
-     ```PowerShell
+     ```powershell
       $cred = Get-Credential
 
       $session = New-PSSession -ComputerName azs-ercs01 `
@@ -154,7 +154,7 @@ Yerel makinenizde CESARETLENDİRİCİ oturumun içeri aktarmak için aşağıdak
      - **Parola**: AzureStackAdmin etki alanı yönetici hesabı için yükleme sırasında sağlanan parolanın aynısını girin.
 
 3. Yerel makinenize CESARETLENDİRİCİ oturumun içeri aktarma
-    ```PowerShell 
+    ```powershell 
         Import-PSSession $session
     ```
 4. Şimdi, sekme tamamlamayı kullanma ve her zaman olduğu gibi tüm işlevleri ve CESARETLENDİRİCİ cmdlet'lerin yerel PowerShell oturumunuzda üzerinde Azure Stack güvenlik duruşunu azaltmayı olmadan komut gerçekleştirebilirsiniz. Keyfini çıkarın!

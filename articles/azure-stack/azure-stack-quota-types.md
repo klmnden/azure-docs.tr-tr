@@ -12,22 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 848b2a0c912a00a2185d7e4b7b8d8446bc1f6aca
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349714"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497186"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure stack'teki kota türleri
 
 *Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-[Kotalar](azure-stack-plan-offer-quota-overview.md#plans) kaynaklara kullanıcı aboneliği sağlama veya tüketen sınırlarını tanımlayın. Örneğin, bir kota en fazla beş VM oluşturmak bir kullanıcı izin verebilir. Her kaynak kendi tip kotalar olabilir.
+[Kotalar](azure-stack-plan-offer-quota-overview.md#plans) kaynaklara kullanıcı aboneliği sağlama veya tüketen sınırlarını tanımlayın. Örneğin bir kullanıcının en fazla beş VM oluşturmasına izin veren bir kota oluşturabilirsiniz. Her kaynak için farklı kota türleri kullanabilirsiniz.
+
+> [!IMPORTANT]
+> Uygulamanın, Kullanıcı Portalı'nda veya değiştirilmiş bir kota uygulanmadan önce kullanılabilir olması için yeni kotalar iki saate kadar sürebilir.
 
 ## <a name="compute-quota-types"></a>Kota türleri işlem
 
@@ -41,9 +44,9 @@ ms.locfileid: "58349714"
 | Premium yönetilen disk maksimum kapasite (GB cinsinden) | 2048 | Premium kapasite üst sınırı bu konumda oluşturulan disklerini yönetilen. |
 
 > [!NOTE]  
-> Yönetilmeyen disk (sayfa blobları) parolalarınızdan kapasitesini yönetilen disk kota ayrı, depolama kota ayarlanması gerekir.
+> Hizmetin maksimum kapasitesi yönetilmeyen disk (sayfa blobları), yönetilen disk kotada ayrıdır. Bu değer ayarlayabilirsiniz **depolama kotalarını**.
 
-## <a name="storage-quota-types"></a>Depolama kota türleri 
+## <a name="storage-quota-types"></a>Depolama kota türleri
 
 | **Öğesi** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
@@ -51,13 +54,13 @@ ms.locfileid: "58349714"
 | Toplam depolama hesabı sayısı |20 |Bu konumda bir abonelik oluşturduğunuz depolama hesabı sayısı. |
 
 > [!NOTE]  
-> Uygulamanın, iki depolama kotası uygulanmadan önce saate kadar sürebilir. Yönetilen disk kapasitesini en toplam depolama alanı kotadan ayrı olduğundan, işlem kota ayarlanması gerekir.
+> Hizmetin maksimum kapasitesi yönetilen diskler, toplam depolama alanı kotada ayrıdır. Bu değer ayarlayabilirsiniz **işlem kotaları**.
 
 ## <a name="network-quota-types"></a>Ağ kota türleri
 
 | **Öğesi** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
-| En büyük ortak IP'ler |50 |Bu konumda abonelik oluşturup oluşturamayacağını genel IP'ler maksimum sayısı. |
+| En büyük ortak IP'ler |50 |Bu konumda bir abonelik oluşturduğunuz genel IP adresleri maksimum sayısı. |
 | En yüksek sanal ağlar |50 |Bu konumda bir abonelik oluşturan sanal ağlar maksimum sayısı. |
 | En fazla sanal ağ geçitleri |1 |Bu konumda bir abonelik oluşturan, sanal ağ geçitleri (VPN ağ geçitleri) sayısı. |
 | En fazla ağ bağlantıları |2 |Bu konumdaki tüm sanal ağ geçitleri arasında abonelik oluşturup oluşturamayacağını olan ağ bağlantıları (Noktadan noktaya veya siteden siteye) sayısı. |

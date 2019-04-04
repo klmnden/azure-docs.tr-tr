@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/26/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 10/12/2018
-ms.openlocfilehash: 0de021f4666da805eab8faba527f7c5322c39e9d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9d495087a0b3db5bba3b00fa9d0d40c91e5e9244
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763461"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497866"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Plan, teklif, kota ve aboneliğe genel bakış
 
@@ -47,11 +47,14 @@ Teklif oluşturduktan sonra kullanıcılarınızın teklif sağlar Hizmetleri ve
 
 ## <a name="plans"></a>Planlar
 
-Bir veya daha fazla hizmet gruplandırmalarını planları oluşturulabilir. Azure Stack operatör olarak, [planları oluşturun](azure-stack-create-plan.md) kullanıcılarınıza sunmak için. Buna karşılık, kullanıcılarınızın içerirler hizmetler ve planlar kullanılacak Teklifleriniz için abone olun. Planları oluştururken, kota ayarlamak, temel planlarınızı tanımlayabilirsiniz ve isteğe bağlı eklenti planları dahil etmeyi düşünün emin olun.
+Planlar, bir veya birden fazla hizmetten oluşan gruplardır. Azure Stack operatör olarak, [planları oluşturun](azure-stack-create-plan.md) kullanıcılarınıza sunmak için. Böylece kullanıcılarınız tekliflerinize abone olarak, bu tekliflerin içerdiği planları ve hizmetleri kullanabilir. Planları oluştururken, kota ayarlamak, temel planlarınızı tanımlayabilirsiniz ve isteğe bağlı eklenti planları dahil etmeyi düşünün emin olun.
 
 ### <a name="quotas"></a>Kotalar
 
 Bulut kapasitenizi yönetmenize yardımcı olmak için kullanabileceğiniz önceden yapılandırılmış *kotalar*, veya bir plandaki her hizmet için yeni bir kota oluşturun. Kotalar bir kullanıcı aboneliği sağlama veya tüketen üst kaynak sınırlarını tanımlayın. Örneğin, bir kota beş adede kadar sanal makineler (VM'ler) oluşturmak bir kullanıcı izin verebilir.
+
+> [!IMPORTANT]
+> Uygulamanın, Kullanıcı Portalı'nda veya değiştirilmiş bir kota uygulanmadan önce kullanılabilir olması için yeni kotalar iki saate kadar sürebilir.
 
 Bölgeye göre kotalarını yapılandırabilirsiniz. Örneğin, bir bölge için bilgi işlem hizmetleri sağlayan bir plan kota iki VM olabilir.
 

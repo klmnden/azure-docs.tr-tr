@@ -51,16 +51,12 @@ items:
     href: getting-started-improving-your-classifier.md
   - name: Tahmin API’sini kullanma
     href: use-prediction-api.md
-  - name: Modelleri dışarı aktarma
-    items:
-    - name: Modelinizi mobil cihaza dışarı aktarma
-      href: export-your-model.md
-    - name: ONNX modelini Windows ML ile kullanma
-      href: custom-vision-onnx-windows-ml.md
-    - name: Python’da TensorFlow modelini çalıştırma
-      href: export-model-python.md
-  - name: REST API’sini kullanarak model derleme
-    href: rest-api-tutorial.md
+  - name: Modelinizi mobil cihaza dışarı aktarma
+    href: export-your-model.md
+  - name: ONNX modelini Windows ML ile kullanma
+    href: custom-vision-onnx-windows-ml.md
+  - name: Python’da TensorFlow modelini çalıştırma
+    href: export-model-python.md
   - name: Hesap verilerini dışarı aktarma veya silme
     href: ./export-delete-data.md
   - name: Sınırlı Deneme projenizi Azure’a taşıma
@@ -101,9 +97,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Sürüm Notları
     href: release-notes.md
-ms.openlocfilehash: 98708f7c3ad2f9547e7dde9f4cf9fc7696ed7ca0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: b8c74c7f14e8f2b5f96004121d276f207a041dbd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886718"
+ms.locfileid: "58893560"
