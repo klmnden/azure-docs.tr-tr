@@ -135,8 +135,10 @@ items:
         href: devtest-lab-add-vm.md
       - name: Talep edilebilir VM’ler oluşturma ve yönetme
         href: devtest-lab-add-claimable-vm.md
-      - name: Azure CLI ile VM oluşturma ve yönetme
+      - name: Azure CLI kullanarak VM oluşturma ve yönetme
         href: devtest-lab-vmcli.md
+      - name: Azure PowerShell kullanarak VM oluşturma
+        href: devtest-lab-vm-powershell.md
       - name: Resource Manager şablonundan VM oluşturma
         href: devtest-lab-use-resource-manager-template.md
       - name: Bir VM’yi yeniden başlatma
@@ -277,9 +279,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Sık sorulan sorular
       href: devtest-lab-faq.md
-ms.openlocfilehash: bee44d9ce7378bd48960c47ed9be9c7f53e23110
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 0b8c70629d17ed93b67a746fadfe66944d9489c9
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886684"
+ms.locfileid: "58894449"
