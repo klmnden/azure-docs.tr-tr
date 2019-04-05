@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 543c19d41cee55a309b5345af4f811c60b82a613
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5e5a8d46f67553cc10bd9cdb31cf64511858948f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178983"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046504"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B işbirliği Davetiyesi kullanımı
 
@@ -56,7 +56,7 @@ Kiracı Yöneticisi olarak, kuruluşunuzun gizlilik bildirimini oluşturmak içi
 
 ## <a name="terms-of-use"></a>Kullanım koşulları
 
-Kullanım koşullarını kullanım Özelliği Azure AD koşullarını kullanarak ilk alma işlemi sırasında Konuk kullanıcıya sunabilir. Azure Active Directory'de altında bu özelliği erişebileceğiniz **Yönet** > **kuruluş ilişkileri** > **kullanım koşullarını** veya altında **Güvenlik** > **koşullu erişim** > **kullanım koşullarını**. Ayrıntılar için bkz [kullanım Özelliği Azure AD kullanım koşulları](../governance/active-directory-tou.md).
+Kullanım koşullarını kullanım Özelliği Azure AD koşullarını kullanarak ilk alma işlemi sırasında Konuk kullanıcıya sunabilir. Azure Active Directory'de altında bu özelliği erişebileceğiniz **Yönet** > **kuruluş ilişkileri** > **kullanım koşullarını** veya altında **Güvenlik** > **koşullu erişim** > **kullanım koşullarını**. Ayrıntılar için bkz [kullanım Özelliği Azure AD kullanım koşulları](../conditional-access/terms-of-use.md).
 
 ![Yeni Kullanım Koşulları'nı gösteren ekran görüntüsü](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 

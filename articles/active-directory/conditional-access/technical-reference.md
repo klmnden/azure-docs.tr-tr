@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f2334497c6329ee335c529e1490a2f966f51dff
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: fc09c8d8e284fc81a26097a7c1a58732539029c6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891727"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051131"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -120,8 +120,8 @@ Bu ayar tüm tarayıcılarla çalışır. Ancak, bir cihaz uyumlu gereksinim gib
 | Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
 | Windows 8 / 8.1        | Internet Explorer, Chrome                     |
 | Windows 7              | Internet Explorer, Chrome                     |
-| iOS                    | Safari, Intune yönetilen tarayıcı                |
-| Android                | Chrome, Intune yönetilen tarayıcı                |
+| iOS                    | Safari, Microsoft Edge, Intune yönetilen tarayıcı |
+| Android                | Chrome, Microsoft Edge, Intune yönetilen tarayıcı |
 | Windows Phone          | Microsoft Edge, Internet Explorer             |
 | Windows Server 2016    | Microsoft Edge, Internet Explorer             |
 | Windows Server 2016    | Chrome                                        |

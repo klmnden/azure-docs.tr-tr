@@ -13,18 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 68fd33dc3e9def11f72b7aec14f83f86b8bb74d0
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: fb3300a45f905eb57fcc4880269e4a9bed9dac0c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749724"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045994"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Azure anahtar kasası anahtar döndürme ve denetleme ile ayarlama
 
 ## <a name="introduction"></a>Giriş
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Bir anahtar kasası oluşturduktan sonra anahtarları ve parolaları saklamak için kullanmaya başlayabilirsiniz. Uygulamalarınız artık anahtarları veya gizli kalıcı hale getirmek gerekmez ancak bunları gerektiği şekilde kasadan talep edebilir. Bir anahtar kasasına bir anahtar ve gizli dizi Yönetimi kapsamını ayarlama açılır uygulamanızın davranışını etkilemeden, anahtarları ve gizli anahtarları güncelleştirme sağlar.
 
@@ -39,6 +37,8 @@ Bu makalede açıklanmaktadır:
 
 > [!NOTE]
 > Bu makalede, anahtar kasanıza ilk kurulumu ayrıntılı olarak açıklayan değil. Bu bilgi için bkz. [Azure anahtar kasası nedir?](key-vault-overview.md). Platformlar arası komut satırı arabirimi yönergeleri için bkz: [yönetmek için Azure CLI kullanarak Key Vault](key-vault-manage-with-cli2.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="set-up-key-vault"></a>Anahtar Kasası ayarlama
 
@@ -166,6 +166,9 @@ Uygulamanızı çalıştırdığınızda, artık olmalısınız Azure Active Dir
 
 ## <a name="key-rotation-using-azure-automation"></a>Azure Otomasyonu ile anahtar döndürme
 
+> [!IMPORTANT]
+> Azure Otomasyonu runbook'ları, yine de kullanılmasını gerektirir `AzureRM` modülü.
+
 Değerlerin Key Vault gizli dizileri depolamak için bir dönüş stratejisi ayarlamak artık hazırsınız. Gizli dizileri çeşitli yollarla döndürülebilir:
 
 - El ile işleminin bir parçası
@@ -210,7 +213,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Connect-AzAccount `
+    Connect-AzureRmAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -235,12 +238,12 @@ $VaultName = <keyVaultName>
 $SecretName = <keyVaultSecretName>
 
 #Key name. For example key1 or key2 for the storage account
-New-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
-$SAKeys = Get-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzureRmKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 Düzenleyicisi bölmesinde seçin **Test bölmesi** kodunuzu test etmek için. Hatasız betik çalıştıktan sonra seçebileceğiniz **Yayımla**, ve ardından runbook yapılandırma bölmesinde runbook için bir zamanlama uygulayabilirsiniz.

@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7872a43d5000ddb1ba581f76358c8001902ab56b
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e4e2f564de254c2aea779b30286183d0a4e17db6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579725"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045493"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD kimlik yönetimi nedir?
 
@@ -56,7 +56,7 @@ Genellikle, BT temsilciler erişmek için iş karar mekanizmalarına onay kararl
 
 Kuruluşlar otomatik hale getirmenizi teknolojileri aracılığıyla erişim yaşam döngüsü işlemi gibi [dinamik gruplar](../users-groups-roles/groups-dynamic-membership.md), kullanıcı için sağlama ile bağlı [SaaS uygulamaları](../saas-apps/tutorial-list.md) veya [SCIMiletümleşikuygulamaları](../manage-apps/use-scim-to-provision-users-and-groups.md).  Kuruluşlar da denetleyebilirsiniz hangi [konuk kullanıcıların şirket içi uygulamalara erişiminin](../b2b/hybrid-cloud-to-on-premises.md).  Bu erişim hakları can sonra yinelenen kullanarak düzenli olarak gözden geçirilmesi [Azure AD erişim gözden geçirmeleri](access-reviews-overview.md).
 
-Bir kullanıcı, uygulamaları erişmeye çalıştığında Azure AD'ye zorlar [koşullu erişim](/azure/active-directory/conditional-access/) ilkeleri. Örneğin, koşullu erişim ilkelerini görüntüleme dahil edebilirsiniz bir [kullanım koşullarını](active-directory-tou.md) ve [kullanıcı sağlayarak bu koşulları kabul](../conditional-access/require-tou.md) uygulamaya erişebilmeleri için önce.
+Bir kullanıcı, uygulamaları erişmeye çalıştığında Azure AD'ye zorlar [koşullu erişim](/azure/active-directory/conditional-access/) ilkeleri. Örneğin, koşullu erişim ilkelerini görüntüleme dahil edebilirsiniz bir [kullanım koşullarını](../conditional-access/terms-of-use.md) ve [kullanıcı sağlayarak bu koşulları kabul](../conditional-access/require-tou.md) uygulamaya erişebilmeleri için önce.
 
 ## <a name="privileged-access-lifecycle"></a>Ayrıcalıklı erişim yaşam döngüsü
 
@@ -69,7 +69,7 @@ Azure AD Privileged Identity Management (PIM) uyarlanmış ek denetimler sağlar
 Mükemmel bir çözüm ya da her müşteri için öneri olsa da aşağıdaki yapılandırmalar daha güvenli ve üretken bir iş gücü sağlamak için Microsoft öneriyor hangi temel ilkeleri bir kılavuz sağlar.
 
 - [Kimlik ve cihaz erişim yapılandırmaları](/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [Ayrıcalıklı erişimin güvenliğini sağlama](../users-groups-roles/directory-admin-roles-secure.md)
+- [Ayrıcalıklı erişim güvenliğini sağlama](../users-groups-roles/directory-admin-roles-secure.md)
 
 
 ### <a name="access-reviews"></a>Erişim gözden geçirmeleri
@@ -81,7 +81,7 @@ Mükemmel bir çözüm ya da her müşteri için öneri olsa da aşağıdaki yap
 
 ### <a name="terms-of-use"></a>Kullanım koşulları
 
-- [Kullanım koşulları ile ne yapabilirim?](active-directory-tou.md)
+- [Kullanım Koşulları ile ne yapabilirim?](../conditional-access/terms-of-use.md)
 
 ### <a name="privileged-identity-management"></a>Ayrıcalıklı kimlik yönetimi
 

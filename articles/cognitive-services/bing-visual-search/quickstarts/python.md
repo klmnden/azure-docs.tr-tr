@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 5/16/2018
+ms.date: 4/02/2019
 ms.author: scottwhi
-ms.openlocfilehash: 873da64592c2c2e925d8731d4b1154db95bed31d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7ec37b4c3bdeb924b3e35dbcb5d07a478611f631
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863236"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047135"
 ---
-# <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>Hızlı Başlangıç: İlk Bing görsel arama sorgunuzda Python
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-python"></a>Hızlı Başlangıç: Bing görsel arama REST API'si ve Python kullanarak görüntü Öngörüler elde edin
 
-Bu hızlı başlangıçta, ilk Bing görsel arama API'sine çağrı yapmak ve arama sonuçlarını görüntülemek için kullanın. Bu basit bir JavaScript uygulama API için bir görüntüyü karşıya yükler ve bu konuda döndürülen bilgileri görüntüler. Bu uygulamanın, JavaScript'te yazılmış olsa da çoğu programlama dilleri ile uyumlu bir RESTful Web hizmeti API'dir.
+Bu hızlı başlangıçta, ilk sonuçlarını görüntülemek ve Bing görsel arama API'sine çağrı yapmak için kullanın. Bu Python uygulaması, API için bir görüntüyü karşıya yükler ve döndürdüğü bilgileri görüntüler. Bu uygulama Python'da yazılmıştır ancak çoğu programlama dilleri ile uyumlu bir RESTful Web hizmeti API'dir.
 
-Yerel bir görüntüyü karşıya yüklenirken gönderme form verisi içerik düzeni üstbilgisini içermelidir. `name` parametresi, "image" olarak, `filename` parametresi ise herhangi bir dize olarak ayarlanmalıdır. Formun içerikleri, görüntünün ikili verisidir. Karşıya yükleyebileceğiniz maksimum görüntü boyutu 1 MB’tır.
+Yerel bir görüntüyü karşıya yüklediğinizde, form verilerini içermelidir `Content-Disposition` başlığı. Ayarlamanız gerekir, `name` "image" ve parametre ayarlayabilirsiniz `filename` herhangi bir dize parametresi. Form içeriğini görüntünün ikili verileri içerir. Karşıya yüklediğiniz en yüksek görüntü boyutu 1 MB'dir.
 
 ```
 --boundary_1234-abcd
@@ -36,18 +36,17 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 * [Python 3.x](https://www.python.org/)
 
-
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="initialize-the-application"></a>Uygulamayı Başlat
 
-1. Sık kullandığınız IDE veya düzenleyici yeni bir Python dosyası oluşturun ve aşağıdaki içeri aktarma deyimini ekleyin.
+1. Sık kullandığınız IDE veya düzenleyici yeni bir Python dosyası oluşturun ve aşağıdakini ekleyin `import` deyimi:
 
     ```python
     import requests, json
     ```
 
-2. Abonelik anahtarınız, uç noktayı ve görüntünün karşıya yüklemekte yolu için değişkenler oluşturun.
+2. Abonelik anahtarınız, uç noktayı ve görüntünün karşıya yüklemekte yolu için değişkenler oluşturun:
 
     ```python
 
@@ -56,13 +55,13 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     imagePath = 'your-image-path'
     ```
 
-3. İsteklerinizi üst bilgi bilgileri tutmak için bir sözlük nesnesi oluşturun. Abonelik anahtarınızı dizeye bağlama `Ocp-Apim-Subscription-Key`, aşağıda gösterildiği gibi.
+3. İsteğiniz ait üst bilgi bilgileri tutmak için bir sözlük nesnesi oluşturun. Abonelik anahtarınızı dizeye bağlama `Ocp-Apim-Subscription-Key`, aşağıda gösterildiği gibi:
 
     ```python
     HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
     ```
 
-4. Başka bir sözlük açılır ve isteği gönderdiğinizde karşıya görüntünüzü içerecek şekilde oluşturun. 
+4. Başka bir sözlük açılır ve isteği gönderdiğinizde karşıya görüntünüzü içerecek şekilde oluşturun:
 
     ```python
     file = {'image' : ('myfile', open(imagePath, 'rb'))}
@@ -70,7 +69,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 ## <a name="parse-the-json-response"></a>JSON yanıtı ayrıştırılamadı
 
-1. Adlı bir yöntem oluşturma `print_json()` API yanıtında alıp JSON'ı yazdırmak için.
+1. Adlı bir yöntem oluşturma `print_json()` API yanıtında alıp JSON'ı yazdırmak için:
 
     ```python
     def print_json(obj):
@@ -80,7 +79,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 ## <a name="send-the-request"></a>İsteği Gönder
 
-1. Kullanım `requests.post()` Bing görsel arama API'sine bir istek gönderebilirsiniz. Dize, uç nokta, başlığı ve dosya bilgileri içerir. Yazdırma `response.json()` ile `print_json()`
+1. Kullanım `requests.post()` Bing görsel arama API'sine bir istek gönderebilirsiniz. Dize, uç nokta, başlığı ve dosya bilgileri içerir. Yazdırma `response.json()` ile `print_json()`:
 
     ```python
     try:
@@ -95,4 +94,4 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bir özel arama web uygulaması derleme](../tutorial-bing-visual-search-single-page-app.md)
+> [Görsel arama tek sayfa web uygulaması oluşturma](../tutorial-bing-visual-search-single-page-app.md)

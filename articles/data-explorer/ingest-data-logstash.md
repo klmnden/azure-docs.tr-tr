@@ -1,19 +1,18 @@
 ---
 title: 'Hızlı Başlangıç: Azure Veri Gezgini Logstash verileri alma'
 description: Bu hızlı başlangıçta, Azure veri Gezgini'nde Logstash içine (yükle) verilerin alımı öğrenin
-services: data-explorer
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 1/14/2019
-ms.openlocfilehash: a5b4917e0d73378b908739a8fc8c0744c70dd1e9
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 01/14/2019
+ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754660"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046419"
 ---
 # <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Hızlı Başlangıç: Azure Veri Gezgini Logstash verileri alma
 
@@ -109,11 +108,11 @@ output {
 
 | Parametre Adı | Açıklama |
 | --- | --- |
-| **Yolu** | Logstash eklentisi, Azure veri Gezgini'ne göndermeden önce geçici dosyaları olayları yazar. Bu parametre, dosyaları burada yazılmış bir yol ve dosya döndürme karşıya yükleme Azure Veri Gezgini hizmetine tetiklemek bir zaman ifadesi içerir.|
+| **yol** | Logstash eklentisi, Azure veri Gezgini'ne göndermeden önce geçici dosyaları olayları yazar. Bu parametre, dosyaları burada yazılmış bir yol ve dosya döndürme karşıya yükleme Azure Veri Gezgini hizmetine tetiklemek bir zaman ifadesi içerir.|
 | **ingest_url** | Kusto uç noktası alma ile ilgili iletişim için.|
 | **app_id**, **app_key**, ve **app_tenant**| Azure veri Gezgini'ne bağlanmak için gereken kimlik bilgileri. Alma ayrıcalıklarına sahip bir uygulama kullanma emin olun. |
-| **Veritabanı**| Olayları yerleştirmek için veritabanı adı. |
-| **Tablo** | Olayları yerleştirmek için hedef tablo adı. |
+| **veritabanı**| Olayları yerleştirmek için veritabanı adı. |
+| **tablo** | Olayları yerleştirmek için hedef tablo adı. |
 | **Eşleme** | Eşleme, gelen olay json dizesi (hangi sütuna hangi özelliğinin gider tanımlar) doğru satır biçime eşleştirmek için kullanılır. |
 
 ## <a name="run-logstash"></a>Logstash çalıştırın

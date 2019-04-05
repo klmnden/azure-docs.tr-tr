@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 6e1a9b2fd34d915716225c6a1bda6e0371a510a9
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 67eb01ad596393c9095d72670e61b8c09776c588
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438844"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049243"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure'dan Azure'a çoğaltma Mobility hizmetini otomatik güncelleştirme
 
@@ -21,6 +21,9 @@ Azure Site Recovery aylık bir yayın temposudur sorunları giderin ve yenilerin
 
 Belirtildiği gibi [Azure'dan Azure'a olağanüstü durum kurtarma mimarisi](azure-to-azure-architecture.md), Mobility hizmeti, tüm Azure sanal makinelerinde için çoğaltma etkin olan, Vm'leri bir Azure bölgesinden diğerine çoğaltılırken (VM'ler) yüklenir. Otomatik güncelleştirmeleri kullandığınızda her yeni sürümü Mobility hizmeti uzantısı güncelleştirir.
  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="how-automatic-updates-work"></a>Otomatik Güncelleştirmeler çalışma
 
 Güncelleştirmelerini yönetmek için Site Recovery kullandığınızda, genel bir runbook (Azure Hizmetleri tarafından kullanılan) kasa ile aynı abonelikte oluşturulan bir Otomasyon hesabı aracılığıyla dağıtır. Her bir kasa bir Otomasyon hesabı kullanır. Runbook her VM için etkin otomatik güncelleştirmeleri bir kasa içinde olup olmadığını denetler ve daha yeni bir sürüm varsa, Mobility hizmeti uzantısı yükseltir.
@@ -342,7 +345,7 @@ $JobsFailedToStart = 0
 $JobsTimedOut = 0
 $Header = @{}
 
-$AzureRMProfile = Get-Module -ListAvailable -Name AzureRM.Profile | Select Name, Version, Path
+$AzureRMProfile = Get-Module -ListAvailable -Name Az.Accounts | Select Name, Version, Path
 $AzureRmProfileModulePath = Split-Path -Parent $AzureRMProfile.Path
 Add-Type -Path (Join-Path $AzureRmProfileModulePath "Microsoft.IdentityModel.Clients.ActiveDirectory.dll")
 

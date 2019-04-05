@@ -8,29 +8,29 @@ manager: rosh
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 4/02/2019
 ms.author: rosh
-ms.openlocfilehash: 68dd71687e18243a112df0c2568af5b2b6d0d687
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a0d7c1611f7c6851d98fea734dfdbd3940b59b89
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340992"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048028"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>Hızlı Başlangıç: Bing görsel arama REST API'si ve Git kullanarak görüntü Öngörüler elde edin
 
-Bu hızlı başlangıçta, Bing görsel arama API'sine çağrı ve sonuçları görüntülemek için Go programlama dili kullanır. Bir Post İsteği API uç noktasına yönelik bir görüntüyü karşıya yükler. Sonuçlar URL'leri ve görüntüleri karşıya yüklenen görüntüyü benzer hakkında açıklayıcı bilgiler içerir.
+Bu hızlı başlangıçta, Bing görsel arama API'sine çağrı ve sonuçları görüntülemek için Go programlama dili kullanır. Bir POST isteği API uç noktasına yönelik bir görüntüyü karşıya yükler. Sonuçlar URL'leri ve görüntüleri karşıya yüklenen görüntüyü benzer hakkında açıklayıcı bilgiler içerir.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 * Yükleme [Git ikili dosyaları](https://golang.org/dl/).
-* Git-çıktısının derin güzel yazıcı sonuçlarının bir görüntü için kullanışlıdır.
-    * Bu kitaplığı yükleyin: `$ go get -u https://github.com/davecgh/go-spew`.
+* Git-çıktısının derin güzel yazıcı sonuçları görüntülemek için kullanılır. Git-çıktısının ile yükleyebileceğiniz `$ go get -u https://github.com/davecgh/go-spew` komutu.
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="project-and-libraries"></a>Proje ve kitaplıkları
 
-Yeni bir Git proje, IDE'niz veya düzenleyicinizle oluşturun. Ardından içeri `net/http` istekleri `ioutil` yanıt okumak için ve `encoding/json` JSON metnini sonuçları işlemek için. `go-spew` Kitaplığı JSON sonuçlarını ayrıştırmak için kullanılır. 
+Go projesi, IDE'niz veya düzenleyicinizle oluşturun. Ardından içeri `net/http` istekleri `ioutil` yanıt okumak için ve `encoding/json` JSON metnini sonuçları işlemek için. `go-spew` Kitaplığı JSON sonuçlarını ayrıştırmak için kullanılır.
 
 ```
 package main
@@ -52,7 +52,7 @@ import (
 
 ## <a name="struct-to-format-results"></a>Yapı sonuçlarını biçimlendirmek için
 
-`BingAnswer` Yapı çok düzeyli ve oldukça karmaşık JSON yanıtta döndürülen veriler biçimlendirir.  Aşağıdaki uygulama bazı temel bilgiler ele alınmaktadır.
+`BingAnswer` Yapısı çok düzeyli ve karmaşık JSON yanıtta döndürülen veriler biçimlendirir. Aşağıdaki uygulama bazı temel bilgileri içerir:
 
 ```
 type BingAnswer struct {
@@ -109,7 +109,7 @@ type BingAnswer struct {
 
 ## <a name="main-function-and-variables"></a>Main işlevi ve değişkenler  
 
-Aşağıdaki kod ana işlevini bildirir ve gerekli değişkenleri atar. Uç noktasının geçerli olduğunu doğrulayın ve `token` değerini Azure hesabınızdan geçerli bir abonelik anahtarı ile değiştirin.  `batchNumber` Olan baştaki ve sondaki gönderme verisi sınırları için gerekli bir GUID.  `fileName` Değişken Post için resim dosyası tanımlar.  Aşağıdaki bölümlerde, kodun Ayrıntılar açıklanmaktadır.
+Aşağıdaki kod ana işlevini bildirir ve gerekli değişkenleri atar. Uç noktasının geçerli olduğunu doğrulayın ve `token` değerini Azure hesabınızdan geçerli bir abonelik anahtarı ile değiştirin. `batchNumber` Olan baştaki ve sondaki gönderme verisi sınırları için gerekli bir GUID. `fileName` Değişken POST için resim dosyası tanımlar. Aşağıdaki bölümlerde, kodun Ayrıntılar açıklanmaktadır:
 
 ```
 func main() {
@@ -157,9 +157,9 @@ func main() {
 
 ```
 
-## <a name="boundaries-of-post-body"></a>Post gövdesini sınırları
+## <a name="boundaries-of-post-body"></a>POST gövdesini sınırları
 
-Görsel arama uç noktasına bir Post isteği gönderme verisi kapsayan baştaki ve sondaki sınırları gerektirir.  Önde gelen sınır içerik türü tanımlayıcısı bir toplu iş sayı içeren `Content-Disposition: form-data; name="image"; filename=`, artı gönderisinin görüntüsünün dosya adı.  Sondaki sınır yalnızca batch sayısıdır.  Bu işlevler dahil edilmeyen `main` blok.
+Görsel arama uç noktasına bir POST isteği gönderme verisi kapsayan baştaki ve sondaki sınırları gerektirir. Önde gelen sınır içerik türü tanımlayıcısı bir toplu iş sayı içeren `Content-Disposition: form-data; name="image"; filename=`, artı gönderisinin görüntüsünün dosya adı. Sondaki sınır yalnızca batch sayısıdır. Bu işlevler dahil edilmeyen `main` engelle:
 
 ```
 func BuildFormDataStart(batNum string, fileName string) string{
@@ -176,9 +176,9 @@ func BuildFormDataEnd(batNum string) string{
 }
 
 ```
-## <a name="add-image-bytes-to-post-body"></a>Post gövdesini görüntü baytları Ekle
+## <a name="add-image-bytes-to-post-body"></a>POST gövdesini görüntü baytları Ekle
 
-Bu kod kesimi resim verilerini içeren bir Post isteği oluşturur. 
+Bu kod kesimi resim verilerini içeren bir POST isteği oluşturur:
 
 ```
 func createRequestBody(fileName string, batchNumber string) (*bytes.Buffer, string) {
@@ -207,7 +207,7 @@ func createRequestBody(fileName string, batchNumber string) (*bytes.Buffer, stri
 
 ## <a name="send-the-request"></a>İsteği Gönder
 
-Aşağıdaki kod, istek gönderir ve sonuçları okur.
+Aşağıdaki kod, istek gönderir ve sonuçları okur:
 
 ```
 resp, err := client.Do(req)
@@ -226,7 +226,7 @@ resp, err := client.Do(req)
 
 ## <a name="handle-the-response"></a>Yanıtı işleme
 
-`Unmarshall` İşlevi, görsel arama API'si tarafından döndürülen JSON metninde bilgileri ayıklar.  `go-spew` Güzel yazıcı sonuçlarını görüntüler.
+`Unmarshall` İşlevi, görsel arama API'si tarafından döndürülen JSON metninde bilgileri ayıklar. `go-spew` Güzel yazıcı sonuçları görüntüler:
 
 ```
     // Create a new answer.  
@@ -249,7 +249,7 @@ resp, err := client.Do(req)
 
 ## <a name="results"></a>Sonuçlar
 
-Sonuçlar, Post gövdesinde yer alan uyarı görüntüye benzer görüntülerin belirlenmesi.  Yararlı alanlar `WebSearchUrl` ve `Name`.
+Sonuçlar, POST gövdesinde yer alan uyarı görüntüye benzer görüntülerin belirlenmesi. Yararlı alanlar `WebSearchUrl` ve `Name`:
 
 ```
     Value: ([]struct { WebSearchUrl string "json:\"webSearchUrl\""; Name string "json:\"name\"" }) (len=66 cap=94) {
@@ -287,5 +287,5 @@ Sonuçlar, Post gövdesinde yer alan uyarı görüntüye benzer görüntülerin 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing görsel arama nedir](../overview.md)
-> [Git hızlı Bing Web araması](../../Bing-Web-Search/quickstarts/go.md)
+> [Bing görsel arama API'si nedir? ](../overview.md) 
+>  [Git hızlı Bing Web araması](../../Bing-Web-Search/quickstarts/go.md)

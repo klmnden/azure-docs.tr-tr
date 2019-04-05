@@ -3,17 +3,17 @@ title: Azure IOT protokolü ağ geçidini | Microsoft Docs
 description: IOT Hub ile IOT Hub tarafından yerel olarak desteklenmeyen protokolleri hub'ınıza bağlanmak için özellikleri ve protokol desteği cihazlarını etkinleştirmek için genişletmek için bir Azure IOT protokolü ağ geçidini kullanma
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.openlocfilehash: 91d61ffecc0e5345d02db88af73aee4586f7099e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: ecce53420a92713ad2dcfcc7e0fed9fc226b1d52
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009860"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046436"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>IOT hub'ı için ek protokol desteği
 Azure IOT Hub, yerel olarak MQTT, AMQP ve HTTPS protokolleri üzerinden iletişimi destekler. Bazı durumlarda, cihazlar veya alan ağ geçitleri aşağıdaki standart protokollerden birini kullanın ve gerekli Protokolü uyarlama mümkün olmayabilir. Böyle durumlarda, özel bir ağ geçidi kullanabilirsiniz. Özel bir ağ geçidi, IOT hub'ı gelen ve giden trafiği köprüleme ile IOT Hub uç noktaları için protokol uyarlama sağlar. Kullanabileceğiniz [Azure IOT protokolü ağ geçidini](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) Protokolü uyarlama için IOT hub'ı etkinleştirmek için özel bir ağ geçidi olarak.

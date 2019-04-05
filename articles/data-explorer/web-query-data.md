@@ -1,19 +1,18 @@
 ---
 title: "Hızlı Başlangıç: Azure veri Gezgini'nde verileri Sorgulama"
 description: Bu hızlı başlangıçta Azure Veri Gezgini'ndeki verileri sorgulamayı ve paylaşmayı öğreneceksiniz.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 1774ae943dc96e07837a3cd155b5980ff732ceb4
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6b371cf9aeb55a92fc72357ad7dc6b2cbddcc058
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756146"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050569"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer"></a>Hızlı Başlangıç: Azure veri Gezgini'nde verileri Sorgulama
 
@@ -193,4 +192,4 @@ Bu hızlı başlangıçta herhangi bir kaynak oluşturmadınız ancak kümelerde
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Azure Veri Gezgini için sorgu yazma](write-queries.md)
+> [Azure Veri Gezgini için sorguları yazma](write-queries.md)

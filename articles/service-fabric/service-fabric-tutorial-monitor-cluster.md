@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/13/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 62ab98d2279380df33657967c55bf7fb4d36da43
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 9838c6e31e3bb7031d98e615fd96049f22dd8d30
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662457"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045654"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Öğretici: Azure'da bir Service Fabric kümesini izleme
 
@@ -42,12 +42,15 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > * [Bir kümenin çalışma zamanını yükseltme](service-fabric-tutorial-upgrade-cluster.md)
 > * [Küme silme](service-fabric-tutorial-delete-cluster.md)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce:
 
 * Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
-* [Azure Powershell modülü sürüm 4.1 veya üzerini](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) ya da [Azure CLI](/cli/azure/install-azure-cli)'yı yükleyin.
+* Yükleme [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) veya [Azure CLI](/cli/azure/install-azure-cli).
 * Güvenli oluşturma [Windows kümesi](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 
 * Kurulum [tanılama koleksiyonu](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor) küme için
 * Etkinleştirme [Eventstore'a hizmet](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor) kümedeki
@@ -491,7 +494,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 Ardından, bir kümenin ölçeğini öğrenmek için aşağıdaki öğreticiye geçin.
 > [!div class="nextstepaction"]
-> [Küme ölçeklendirme](service-fabric-tutorial-scale-cluster.md)
+> [Kümeyi ölçeklendirme](service-fabric-tutorial-scale-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
 [template]: https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json

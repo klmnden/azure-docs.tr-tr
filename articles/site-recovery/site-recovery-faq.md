@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/18/2019
 ms.author: raynew
-ms.openlocfilehash: 018368d28dd34787046ae655a98527aede28603f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 231533f9609a4cf8cc11bedf88aafdfd37d1cb7e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313377"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050127"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: sık sorulan sorular (SSS)
 Bu makalede, Azure Site Recovery hakkında sık sorulan sorular özetlenmektedir. 
@@ -36,9 +36,9 @@ Evet, desteklenen Azure Vm'lerinin Azure bölgeleri arasında çoğaltabilirsini
 ### <a name="what-do-i-need-in-hyper-v-to-orchestrate-replication-with-site-recovery"></a>Hangi Hyper-V Site Recovery ile çoğaltmayı düzenlemek için ihtiyacım var?
 Hyper-V ana bilgisayar sunucusu için sahip olmanız gerekenler dağıtım senaryosuna bağlıdır. Aşağıdaki makalelerden Hyper-V önkoşullarını inceleyin:
 
-* [Hyper-V Vm'lerini (VMM olmadan) Azure'a çoğaltma](site-recovery-hyper-v-site-to-azure.md)
-* [Hyper-V Vm'lerini (VMM ile) Azure'a çoğaltma](site-recovery-vmm-to-azure.md)
-* [Hyper-V Vm'lerini ikincil bir veri merkezine çoğaltma](site-recovery-vmm-to-vmm.md)
+* [Hyper-V VM'lerini (VMM olmadan) Azure'a çoğaltma](site-recovery-hyper-v-site-to-azure.md)
+* [Hyper-V VM'lerini (VMM ile) Azure'a çoğaltma](site-recovery-vmm-to-azure.md)
+* [Hyper-V sanal makinelerini ikincil veri merkezine çoğaltma](site-recovery-vmm-to-vmm.md)
 * Hakkında bilgi edinin ikincil veri merkezine çoğaltma yapıyorsanız [Hyper-V Vm'leri için desteklenen konuk işletim sistemleri](https://technet.microsoft.com/library/mt126277.aspx).
 * Azure'a çoğaltma yapıyorsanız Site Recovery tüm konuk işletim sistemlerini destekler [Azure tarafından desteklenen](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 
@@ -143,7 +143,7 @@ Evet. Daha fazla dağıtım makalelerinde bant genişliği azaltma hakkında:
 
 ## <a name="failover"></a>Yük devretme
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>Nasıl miyim üzerinden Azure'a geçemiyorum, yük devretme sonrasında Azure sanal makinelerini erişim sağlanır?
-Azure VM'lerine güvenli bir İnternet bağlantısı, siteden siteye VPN veya Azure ExpressRoute üzerinden erişebilirsiniz. Bağlanmak için etmenizi hazırlamanız gerekir. [Daha fazla bilgi](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+Azure VM'lerine güvenli bir İnternet bağlantısı, siteden siteye VPN veya Azure ExpressRoute üzerinden erişebilirsiniz. Bağlanmak için etmenizi hazırlamanız gerekir. [Daha fazla bilgi edinin](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 
 ### <a name="if-i-fail-over-to-azure-how-does-azure-make-sure-my-data-is-resilient"></a>Verilerim dayanıklı ise miyim nasıl Azure emin Azure'a yük?
@@ -153,7 +153,7 @@ Azure esneklik için tasarlanmıştır. Gerekirse site Kurtarma zaten ikincil bi
 İkincil siteden planlanmamış bir yük devretme tetikleyebilirsiniz. Bu yük devretme işlemini gerçekleştirmek için Site Recovery'nin birincil siteye bağlanması gerekmez.
 
 ### <a name="is-failover-automatic"></a>Yük devretme işlemi otomatik midir?
-Yük devretme işlemi otomatik değildir. Portaldaki tek tıklamayla yük devretme başlatın veya kullanabileceğiniz [Site Recovery PowerShell](/powershell/module/azurerm.siterecovery) bir yük devretmeyi tetiklemek için. İlk duruma döndürmeden, Site Recovery portalında basit bir işlemdir.
+Yük devretme işlemi otomatik değildir. Portaldaki tek tıklamayla yük devretme başlatın veya kullanabileceğiniz [Site Recovery PowerShell](/powershell/module/az.recoveryservices) bir yük devretmeyi tetiklemek için. İlk duruma döndürmeden, Site Recovery portalında basit bir işlemdir.
 
 Otomatik hale getirmek için, bir sanal makine hatasını algılamak için şirket içi Orchestrator veya Operations Manager'ı kullanın ve ardından SDK'sını kullanarak yük devretmeyi tetiklersiniz.
 

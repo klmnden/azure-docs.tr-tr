@@ -9,16 +9,18 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 7f6baec8fee2b046949e2d88b5fff7bb5db9b40b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662423"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045842"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Öğretici: 2. Kısım - yönlendirilmiş iletileri görüntüleyin
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="rules-for-routing-the-messages"></a>İleti yönlendirme kuralları
 
@@ -28,11 +30,11 @@ Bu ileti yönlendirme için kurallar şunlardır; Bunlar bu öğreticinin 1 ayar
 |------|------|
 |level="storage" |Azure Depolama'ya yazın.|
 |level="critical" |Service Bus kuyruğuna yazın. Mantıksal Uygulama iletiyi kuyruktan alır ve Office 365 kullanarak iletiyi e-postayla gönderir.|
-|varsayılan |Power BI'ı kullanarak bu verileri görüntüleyin.|
+|default |Power BI'ı kullanarak bu verileri görüntüleyin.|
 
 Şimdi iletileri hub'ına ileti göndermek için bir uygulamayı çalıştırmayı yönlendirilir ve yönlendirme eylemini bkz kaynakları oluşturun.
 
-## <a name="create-a-logic-app"></a>Mantıksal Uygulama Oluştur  
+## <a name="create-a-logic-app"></a>Mantıksal Uygulama oluşturma  
 
 Service Bus kuyruğu kritik olarak belirlenmiş iletileri almak için kullanılacaktır. Service Bus kuyruğunu izlemek ve kuyruğa ileti eklendiğinde bir e-posta göndermek için bir Mantıksal uygulama ayarlayın.
 
@@ -280,10 +282,10 @@ az group delete --name $resourceGroup
 
 ### <a name="use-powershell-to-clean-up-resources"></a>Kaynakları temizlemek için PowerShell kullanma
 
-Kaynak grubunu kaldırmak için [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) komutunu kullanın. `$resourceGroup` ayarlandı **ContosoResources** Bu öğreticinin geri başında.
+Kaynak grubunu kaldırmak için [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) komutu. `$resourceGroup` ayarlandı **ContosoResources** Bu öğreticinin geri başında.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

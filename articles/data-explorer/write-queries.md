@@ -1,19 +1,18 @@
 ---
 title: Azure Veri Gezgini için sorguları yazma
 description: Bu nasıl yapılır makalesinde Azure Veri Gezgini için temel ve daha gelişmiş sorguları gerçekleştirmeyi öğrenin.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8afb829f806ab55a069ded9cb7198f66368e8720
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6a764c5051aad9123c605ae51807117ef75a7047
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758701"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048495"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Azure Veri Gezgini için sorguları yazma
 

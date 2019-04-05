@@ -1,19 +1,18 @@
 ---
-title: "Hızlı Başlangıç: Power BI'a aktarılan bir sorgu kullanarak verileri Görselleştir"
+title: "Hızlı Başlangıç: İçeri aktarılan bir sorgu Power BI ile Azure veri Gezgini'nde verileri Görselleştirme "
 description: "Bu hızlı başlangıçta, Power bı'da verileri görselleştirmek için üç seçenekten birini kullanmayı öğrenin: Azure veri Gezgini'nde bir sorgu alma."
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 3251ae9f39ea38eac6887df3072257e1e8e88306
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d14de1f25cc432cb2a9fed2149bd0870aa3ce16a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756102"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050607"
 ---
 # <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>Hızlı Başlangıç: Power BI'a aktarılan bir sorgu kullanarak verileri Görselleştir
 

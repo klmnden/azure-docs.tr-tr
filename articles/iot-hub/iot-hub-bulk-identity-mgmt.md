@@ -7,15 +7,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
-ms.author: robin.shahan
-ms.openlocfilehash: 5ef34fb039d35ff714e249a6ac107e6ec615093e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010999"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049981"
 ---
-# <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Toplu, IOT Hub cihaz kimliklerini yönetme
+# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>İçeri ve dışarı aktarma IOT Hub cihaz kimliklerinin toplu
 
 Her IOT hub cihaz başına kaynak hizmeti oluşturmak için kullanabileceğiniz bir kimlik kayıt defteri sahiptir. Kimlik kayıt defteri, cihaz'e yönelik uç noktalarına erişimi denetlemenize olanak sağlar. Bu makalede, alma ve cihaz kimliklerinin toplu gelen bir kimlik kayıt defteri ve dışarı aktarma açıklanır.
 
@@ -257,10 +257,10 @@ Tek bir önceki işlemleri herhangi bir birleşimini gerçekleştirebilir **Impo
 | --- | --- |
 | **createOrUpdate** |Bir cihaz belirtilen mevcut değilse **kimliği**, yeni kaydedilir. <br/>Cihaz zaten varsa var olan bir bilgi olmadan regard için sağlanan giriş verileriyle yazılır **ETag** değeri. <br> Kullanıcı, cihaz verileriyle birlikte ikizi veri isteğe bağlı olarak belirtebilirsiniz. İkizinin etag, belirtilmişse, cihazın etag'den bağımsız olarak işlenir. Bir mevcut ikizinin etag uyuşmazlığı varsa, hata günlük dosyasına yazılır. |
 | **oluşturmaya** |Bir cihaz belirtilen mevcut değilse **kimliği**, yeni kaydedilir. <br/>Cihaz zaten varsa, hata günlük dosyasına yazılır. <br> Kullanıcı, cihaz verileriyle birlikte ikizi veri isteğe bağlı olarak belirtebilirsiniz. İkizinin etag, belirtilmişse, cihazın etag'den bağımsız olarak işlenir. Bir mevcut ikizinin etag uyuşmazlığı varsa, hata günlük dosyasına yazılır. |
-| **Güncelleştirme** |Bir cihaz zaten belirtilen varsa **kimliği**, var olan bir bilgi olmadan regard için sağlanan giriş verileriyle yazılır **ETag** değeri. <br/>Cihaz mevcut değilse bir hata için günlük dosyasına yazılır. |
+| **update** |Bir cihaz zaten belirtilen varsa **kimliği**, var olan bir bilgi olmadan regard için sağlanan giriş verileriyle yazılır **ETag** değeri. <br/>Cihaz mevcut değilse bir hata için günlük dosyasına yazılır. |
 | **updateIfMatchETag** |Bir cihaz zaten belirtilen varsa **kimliği**, mevcut bilgi ancak varsa sağlanan giriş verileriyle üzerine bir **ETag** eşleşmesi. <br/>Cihaz mevcut değilse bir hata için günlük dosyasına yazılır. <br/>Varsa bir **ETag** uyuşmazlığı, bir hata için günlük dosyasına yazılır. |
 | **createOrUpdateIfMatchETag** |Bir cihaz belirtilen mevcut değilse **kimliği**, yeni kaydedilir. <br/>Cihaz zaten varsa, varsa var olan bilgi ile sağlanan giriş veri yazılır bir **ETag** eşleşmesi. <br/>Varsa bir **ETag** uyuşmazlığı, bir hata için günlük dosyasına yazılır. <br> Kullanıcı, cihaz verileriyle birlikte ikizi veri isteğe bağlı olarak belirtebilirsiniz. İkizinin etag, belirtilmişse, cihazın etag'den bağımsız olarak işlenir. Bir mevcut ikizinin etag uyuşmazlığı varsa, hata günlük dosyasına yazılır. |
-| **sil** |Bir cihaz zaten belirtilen varsa **kimliği**, olmadan regard için silinmiş **ETag** değeri. <br/>Cihaz mevcut değilse bir hata için günlük dosyasına yazılır. |
+| **delete** |Bir cihaz zaten belirtilen varsa **kimliği**, olmadan regard için silinmiş **ETag** değeri. <br/>Cihaz mevcut değilse bir hata için günlük dosyasına yazılır. |
 | **deleteIfMatchETag** |Bir cihaz zaten belirtilen varsa **kimliği**, yalnızca silinmiş bir **ETag** eşleşmesi. Cihaz mevcut değilse bir hata için günlük dosyasına yazılır. <br/>ETag uyumsuzluğu varsa, hata günlük dosyasına yazılır. |
 
 > [!NOTE]

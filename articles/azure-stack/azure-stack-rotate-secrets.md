@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 54bc6bc105dab2831df6e48a64a6f766582a3fb9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 55bb83015cee6476a10424f32b51eb9eb29db0da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917569"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050263"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack gizli Döndür
 
@@ -63,13 +63,13 @@ Azure Stack ile dış sertifikalar bir yeni sertifika yetkilisi (CA) öğesinden
 
 |Yüklü sertifika CA|CA için döndürmek için|Desteklenen|Azure Stack sürümleri desteklenir|
 |-----|-----|-----|-----|
-|Gelen otomatik olarak imzalanan|Kuruluş|Desteklenmiyor||
+|Gelen otomatik olarak imzalanan|Kuruluş|Desteklenen|1903 ve sonrası|
 |Gelen otomatik olarak imzalanan|Kendinden imzalı|Desteklenmiyor||
 |Gelen otomatik olarak imzalanan|Ortak<sup>*</sup>|Desteklenen|1803 ve sonrası|
-|Kuruluştan|Kuruluş|Dağıtım sırasında kullanılan CA aynı kurumsal müşterilerin kullandığı sürece desteklenir|1803 ve sonrası|
+|Kuruluştan|Kuruluş|Destekleniyor. 1803 1903 öğesinden: dağıtım sırasında kullanılan CA aynı kurumsal müşterilerin kullandığı sürece desteklenir|1803 ve sonrası|
 |Kuruluştan|Kendinden imzalı|Desteklenmiyor||
 |Kuruluştan|Ortak<sup>*</sup>|Desteklenen|1803 ve sonrası|
-|Genel kullanıma<sup>*</sup>|Kuruluş|Desteklenmiyor|1803 ve sonrası|
+|Genel kullanıma<sup>*</sup>|Kuruluş|Desteklenen|1903 ve sonrası|
 |Genel kullanıma<sup>*</sup>|Kendinden imzalı|Desteklenmiyor||
 |Genel kullanıma<sup>*</sup>|Ortak<sup>*</sup>|Desteklenen|1803 ve sonrası|
 

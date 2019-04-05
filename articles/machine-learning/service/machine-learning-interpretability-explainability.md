@@ -1,5 +1,5 @@
 ---
-title: Model interpretability
+title: Model yorumlanabilirliği
 titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning Interpretability SDK'sı neden modelinizi tahminlerde açıklamak için kullanmayı öğrenin. Bu eğitim ve çıkarım sırasında nasıl modelinizi tahminlerde anlamak için kullanılabilir.
 services: machine-learning
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 03/27/2019
-ms.openlocfilehash: 1cd5f48e8e0e74dfa04465993246e5d68840a783
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.date: 04/04/2019
+ms.openlocfilehash: f72923b80751f16ece128ced209679bbc325226c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58919733"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051810"
 ---
 # <a name="azure-machine-learning-interpretability-sdk"></a>Azure Machine Learning Interpretability SDK'sı
 
-Modelinizi tahmin neden ulaşan açıklayacağınızı öğrenin kolaylaştırır. Azure Machine Learning Interpretability SDK'sı, aşağıdaki nedenlerle önemlidir modelinizi açıklayan olanak sağlar:
+Bu makalede, neden modelinizi tahmin yapılan açıklamak nasıl öğreneceksiniz, Azure Machine Learning Interpretability SDK'sını kullanarak yapılır. Modelinizi açıklamak için aşağıdaki nedenlerle önemlidir:
 
 * Müşteriler ve proje katılımcılarının bilmek isteyeceğiniz **Öngörüler güveniyorsanız modelinizi yapar**.
 * Öğrenmek istediğiniz bir veri bilimi insanı **ilgili öngörüleri bulmak için bir modeli sorgulama**. Araçlar hakkında bilgiye dayalı kararlar da ihtiyacınız **modelinizi nasıl**.
@@ -27,16 +27,10 @@ Modelinizi tahmin neden ulaşan açıklayacağınızı öğrenin kolaylaştırı
 
 Machine learning interpretability makine öğrenimi geliştirme döngüsü iki aşamada önemlidir: **eğitim** zaman ve **çıkarım** zaman:
 
-* Sırasında **eğitim**: Bir modelin çıkış güven oluşturmak için proje katılımcılarına açıklamak için interpretability araçları, model tasarımcılar ve değerlendiricilerini gerektirir. İnterpretability araçları modelde hata ayıklama sağlar:
-
-    * Davranışını hedefleriniz ve amaçlarınız diliyle eşleşiyor mu?
-    * Bunu ağırlıklı?
-
+* Sırasında **eğitim**: Bir modelin çıkış güven oluşturmak için proje katılımcılarına açıklamak için interpretability araçları, model tasarımcılar ve değerlendiricilerini gerektirir. Bunlar ayrıca modelde hata ayıklama ve olup kendi hedefleri davranışı eşleşen hakkında kararlar model Öngörüler gerekir. Son olarak, modeli olmayan ağırlıklı emin olmak gerekir.
 * Sırasında **çıkarım**: Öngörüler modelinizi kullanan kişilere explainable olması gerekir. Örneğin, neden modeli bir kredisinin Reddet veya tahmin yatırım Portföy daha yüksek risk taşır?
 
-Azure Machine Learning Interpretability SDK'sı teknolojileri içerir. Microsoft tarafından geliştirilen ve üçüncü taraf kitaplıklar (örneğin, Şekil ve KÜF) kanıtlanmış. Tümleşik kitaplıklar arasında ortak bir API sağlar ve Azure Machine Learning hizmetleriyle tümleştirilir. 
-
-Bu SDK'sını kullanarak, makine öğrenimi modelleri açıklayabilir **genel olarak tüm veriler üzerinde**, veya **yerel olarak belirli bir veri noktasında** kullanımı kolay ve ölçeklenebilir bir şekilde-ürünü teknolojilerini kullanarak.
+Azure Machine Learning Interpretability SDK'sı teknolojileri içerir. Microsoft tarafından geliştirilen ve üçüncü taraf kitaplıklar (örneğin, Şekil ve KÜF) kanıtlanmış. SDK'sı arasında tümleşik kitaplıkları ortak bir API oluşturur ve Azure Machine Learning hizmetlerini birleştirir. Bu SDK'sını kullanarak, makine öğrenimi modelleri açıklayabilir **genel olarak tüm veriler üzerinde**, veya **yerel olarak belirli bir veri noktasında** kullanımı kolay ve ölçeklenebilir bir şekilde-ürünü teknolojilerini kullanarak.
 
 ## <a name="how-does-it-work"></a>Nasıl çalışır?
 
@@ -48,11 +42,7 @@ Azure Machine Learning Interpretability bir model, tahmin nasıl kolaylaştırd�
 
 * Genel/yerel göreli özellik önem derecesi
 * Genel/yerel özellik ve tahmin ilişkisi
-* Etkileşimli görselleştirmeler için:
-
-    * Tahminler
-    * Özellik ve tahmin ilişkileri
-    * Genel ve yerel olarak göreli özellik önem değerleri
+* Öngörüler gösteren etkileşimli görselleştirmeler özellik ve tahmin ilişki ve göreli önemi değerleri küresel ve yerel özelliği
 
 ## <a name="architecture"></a>Mimari
 
@@ -114,11 +104,7 @@ Açıklama işlevleri modelleri hem de işlem hatları girdi olarak kabul edin. 
 
 ### <a name="local-and-remote-compute-target"></a>Yerel ve uzak işlem hedefi
 
-Machine Learning Interpretability SDK'sı, hem yerel ve uzak işlem hedefleri ile çalışacak şekilde tasarlanmıştır. 
-
-* Çalıştırırsanız **yerel olarak**, SDK, tüm Azure Hizmetleri bağlantı kurmaz.
-
-* Çalıştırırsanız **uzaktan**, Azure Machine Learning çalıştırma geçmişi Hizmetleri içinde işlemle ilgili bilgileri günlüğe kaydedilir. Bu bilgiler açtıktan sonra raporlar ve görselleştirmeler Açıklama'dan Azure Machine Learning çalışma alanı Portalı'nda kullanıcı analizi için kullanıma hazırdır.
+Machine Learning Interpretability SDK'sı, hem yerel ve uzak işlem hedefleri ile çalışacak şekilde tasarlanmıştır. SDK işlevleri yerel olarak çalıştırırsanız, tüm Azure Hizmetleri iletişim kurmaz. Azure Machine Learning çalıştırma geçmişi Hizmetleri Açıklama bilgisi oturum ve Azure Machine Learning işlem açıklaması uzaktan çalıştırabilirsiniz. Bu bilgiler açtıktan sonra raporlar ve görselleştirmeler Açıklama'dan Azure Machine Learning çalışma alanı Portalı'nda kullanıcı analizi için kullanıma hazırdır.
 
 ## <a name="train-and-explain-locally"></a>Eğitim ve yerel olarak açıklayın
 
@@ -138,9 +124,7 @@ Machine Learning Interpretability SDK'sı, hem yerel ve uzak işlem hedefleri il
     model = clf.fit(x_train, y_train)
     ```
 
-2. Açıklama çağırın. Bir açıklama nesnesi örneği oluşturulurken model ve eğitim verileri geçirin. İsteğe bağlı olarak, ilgi çekici özellik geçirebilirsiniz. Sınıflandırma kullanıyorsanız, çıkış sınıf adları geçirin.
-
-    Aşağıdaki örnek, bir açıklama nesnesini kullanarak oluşturmak gösterilmiştir [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), ve `LimeExplainer` yerel olarak. `TabularExplainer` altında üç explainers birini çağırma (`TreeExplainer`, `DeepExplainer`, veya `KernelExplainer`) ve kullanım durumunuz için en uygun olanına otomatik olarak seçme. Bununla birlikte, her biri kendi üç temel explainers doğrudan çağırabilir.
+2. Açıklama çağırın: Açıklama nesneyi başlatmak için model, eğitim verileri, ilgi alanı (isteğe bağlı) ve çıkış sınıf adları özelliklerini geçirmek gereken (varsa sınıflandırma) için açıklama. Şöyle bir açıklama nesnesini kullanarak örneği oluşturmak [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), ve `LimeExplainer` yerel olarak. `TabularExplainer` altında üç explainers birini çağırma (`TreeExplainer`, `DeepExplainer`, veya `KernelExplainer`) ve kullanım durumunuz için en uygun olanına otomatik olarak seçme. Bununla birlikte, her biri kendi üç temel explainers doğrudan çağırabilir.
 
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
@@ -213,7 +197,7 @@ Azure Machine Learning hizmeti tarafından desteklenen çeşitli işlem hedefler
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-2. Çalıştıran bir eğitim göndermek için adımları izleyin. [işlem hedeflerine yönelik model eğitiminin ayarlama](how-to-set-up-training-targets.md#amlcompute) makalesi. Bir Azure Machine Learning işlem hedefi oluşturmak için adımları uygulayın ve ardından bir eğitim çalıştırma gönderin.
+2. Yönergeleri takip edin [işlem hedeflerine yönelik model eğitiminin ayarlama](how-to-set-up-training-targets.md#amlcompute) bir Azure Machine Learning işlem, işlem hedefi olarak ayarlayın ve eğitim çalıştırmanız gönderme hakkında bilgi edinmek için.
 
 3. Yerel Jupyter not defterine açıklama indirin. 
 

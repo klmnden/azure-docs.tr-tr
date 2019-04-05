@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 78ca1d7ceb9086e0d589f904b24b967d36b079a0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895622"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046079"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Modelinizi tahmin API'sini kullanma
 
@@ -45,7 +45,7 @@ Modelinizi yayımlandıktan sonra seçerek gerekli bilgileri alabileceğiniz __t
 ![Performans Sekmesi tahmin URL değeri için bir resim dosyası ve tahmin anahtar değer kullanarak çevreleyen kırmızı bir dikdörtgen gösterilir.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
-> __Tahmin anahtar__ içinde bulunabilir [Azure portalı](https://portal.azure.com) özel görüntü işleme Azure kaynak altında projenizle ilişkili sayfası __anahtarları__ dikey penceresi.
+> __Tahmin anahtar__ içinde bulunabilir [Azure portalında](https://portal.azure.com) özel görüntü işleme Azure kaynak altında projenizle ilişkili sayfası __anahtarları__ dikey penceresi.
 
 Bu kılavuzda, yerel görüntüyü kullanın, böylece altında URL'yi kopyalayın **bir resim dosyası varsa** geçici bir konuma. Buna karşılık gelen kopyalama __tahmin anahtar__ değeri de.
 

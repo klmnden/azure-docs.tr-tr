@@ -16,29 +16,32 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0b6baec08470754c04aaa0bea2a3e6defe7fd91f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 895e29d9855372e418ad5ebf2a3949dc01ddb8de
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117872"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050501"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Görünüm belirli konumlar üzerinden Azure bölgeleri için göreli gecikme
 
 Bu öğreticide, Azure'ı kullanmayı öğrenin [Ağ İzleyicisi](network-watcher-monitoring-overview.md) uygulamanızı dağıtmak veya hizmetinizi için hangi Azure bölgesi karar vermenize yardımcı olacak hizmet, demografik, kullanıcıya dayanarak. Ayrıca, Azure hizmet sağlayıcılarının bağlantıları değerlendirmek için kullanabilirsiniz.  
         
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="create-a-network-watcher"></a>Ağ İzleyicisi oluşturma
 
 En az bir Azure Ağ İzleyicisi zaten olup olmadığını [bölge](https://azure.microsoft.com/regions), bu bölümdeki görevlerde atlayabilirsiniz. Ağ İzleyicisi için bir kaynak grubu oluşturun. Bu örnekte, Doğu ABD bölgesinde bir kaynak grubu oluşturulur, ancak herhangi bir Azure bölgesinde bir kaynak grubu oluşturabilirsiniz.
 
 ```powershell
-New-AzureRmResourceGroup -Name NetworkWatcherRG -Location eastus
+New-AzResourceGroup -Name NetworkWatcherRG -Location eastus
 ```
 
 Ağ İzleyicisi oluşturun. En az bir Azure bölgesinde oluşturulan bir Ağ İzleyicisi olması gerekir. Bu örnekte, bir Ağ İzleyicisi, Doğu ABD Azure bölgesi oluşturulur.
 
 ```powershell
-New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location eastus
+New-AzNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location eastus
 ```
 
 ## <a name="compare-relative-network-latencies-to-a-single-azure-region-from-a-specific-location"></a>Göreli ağ gecikmeleri tek bir Azure bölgesine belirli bir konumdan karşılaştırın.
@@ -46,7 +49,7 @@ New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName Network
 Hizmet sağlayıcılarını değerlendirmelerine ve sorun giderme "site yavaş gibi" bir sorun rapor etme bir kullanıcı belirli bir konumdan bir hizmet dağıtıldığı azure bölgesi. Örneğin, aşağıdaki komut, Amerika Birleşik Devletleri'nde bulunan Washington eyaleti aralık 2017 13-15 arasında Batı ABD 2 Azure bölgesi arasındaki ortalama göreli Internet hizmet sağlayıcısı gecikmeleri döndürür:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityReport `
+Get-AzNetworkWatcherReachabilityReport `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
   -Location "West US 2" `
@@ -109,7 +112,7 @@ Döndürülen çıktıda değeri **puanı** bölgeler ve sağlayıcılar arasın
 Eğer, belirli bir konuma kullanarak belirli bir Azure bölgesi arasındaki göreli gecikme belirtmek yerine `-Location`göreli gecikme süreleri için tüm Azure bölgelerinde belirli bir fiziksel konumdan belirlemek istediğinizi, çok bunu yapabilirsiniz. Örneğin, aşağıdaki komut, kullanıcılarınızın birincil içeren Washington eyaletinin bulunan Comcast kullanıcılar ise bir hizmeti dağıtmak için hangi azure bölgesi değerlendirmenize yardımcı olur:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityReport `
+Get-AzNetworkWatcherReachabilityReport `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
   -Provider "Comcast Cable Communications, LLC - ASN 7922" `
@@ -127,7 +130,7 @@ Get-AzureRmNetworkWatcherReachabilityReport `
 Veriler, belirli Internet hizmet sağlayıcıları, ülke, eyalet ve şehir için kullanılabilir. Tüm kullanılabilir Internet hizmet sağlayıcıları, ülke, eyalet ve, verileri görüntüleyebilirsiniz, şehirlere listesini görüntülemek için aşağıdaki komutu girin:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
+Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
 Veriler, yalnızca ülke, eyalet ve şehir önceki komutu tarafından döndürülen için kullanılabilir. Önceki komutta var olan bir Ağ İzleyicisi belirtmenizi gerektirir. Belirtilen örnek *NetworkWatcher_eastus* adlı bir kaynak grubundaki Ağ İzleyicisi *NetworkWatcherRG*, ancak herhangi bir mevcut Ağ İzleyicisi belirtebilirsiniz. Var olan bir Ağ İzleyicisi yoksa, oluşturun, görevleri tamamlama tarafından [Ağ İzleyicisi oluşturma](#create-a-network-watcher). 
@@ -135,7 +138,7 @@ Veriler, yalnızca ülke, eyalet ve şehir önceki komutu tarafından döndürü
 Önceki komutu çalıştırdıktan sonra için geçerli değerleri belirtilerek döndürülen çıkışı filtreleyebilirsiniz **Ülke**, **durumu**, ve **Şehir**, isterseniz.  Örneğin, Amerika Birleşik Devletleri'nde Seattle, Washington'da kullanılabilir Internet hizmet sağlayıcıları listesini görüntülemek için aşağıdaki komutu girin:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityProvidersList `
+Get-AzNetworkWatcherReachabilityProvidersList `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
   -City Seattle `

@@ -12,31 +12,33 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: c15dc83929aeaf6811f4d19bfca462abfacf4014
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 796bea3c64ef7fc03367707461d13e0ea2514b8b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892464"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051766"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Nasıl kullanıcı kaydı ve ürün aboneliği temsilcisi seçin
-Temsilci Geliştirici oturum-içinde açma/kaydolma ve abonelik sınıfını yerleşik işlevleri kullanarak Geliştirici portalında ürünlere işleme için mevcut Web sitenizi kullanmanıza olanak tanır. Bu kullanıcı verileri ve doğrulama adımları, özel bir şekilde gerçekleştirmek, Web sitesi sağlar.
+
+Temsilci seçme, kaydolun / oturum açma Geliştirici işleme için mevcut Web sitenizi kullanın ve Geliştirici Portalı'nda yerleşik işlevleri kullanarak farklı ürünlere, abonelik sağlar. Bu kullanıcı verileri ve doğrulama adımları, özel bir şekilde gerçekleştirmek, Web sitesi sağlar.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="delegate-signin-up"> </a>Geliştirici oturum açma ve kaydolma temsilcisi seçme
-Oturum açma ve kaydolma mevcut Web sitenize Geliştirici temsilci seçmek için API Management Geliştirici portalından başlatılan bu tür bir istek için giriş noktası görevi gören, sitenizi bir özel temsilci seçme uç nokta oluşturmak gerekir.
+## <a name="delegate-signin-up"> </a>Geliştirici için temsilci seçme, oturum açın ve kaydolun
+
+Geliştirici oturum açma temsilci ve mevcut Web sitenize kaydolmak için sitenizde bir özel temsilci seçme uç nokta oluşturmanız gerekir. API Management Geliştirici portalından başlatılan bu tür bir istek için giriş noktası olarak hareket edecek gerekir.
 
 Son iş akışı şu şekilde olacaktır:
 
-1. API Management Geliştirici portalında oturum açma veya kaydolma bağlantıya tıklar Geliştirici
+1. Geliştirici tıklamayla oturum açma veya kaydolma bağlantısını API Management Geliştirici Portalı
 2. Tarayıcı temsilci seçme uç noktaya yönlendirilir
-3. Temsilci seçme uç nokta iade yönlendirir veya ya da kaydolma, oturum açmak için kullanıcı isteyen kullanıcı Arabirimi sunar.
+3. Temsilci seçme uç nokta iade yönlendirir veya oturum açma veya kaydolma için anın kullanıcı Arabirimi sunar.
 4. Başarı durumunda, kullanıcı bunlar başlangıcı API Management Geliştirici Portalı sayfasına geri yönlendirilir
 
-Başlamak için şimdi ilk kurulum API yönlendirmek için yönetim, temsilci seçme uç nokta ister. API Management yayımcı Portalı'nda tıklayarak **güvenlik** ve ardından **temsilci** sekmesi. 'Oturum açma ve kaydolma temsilcisi' etkinleştirmek için onay kutusuna tıklayın.
+Başlamak için şimdi ilk kurulum API yönlendirmek için yönetim, temsilci seçme uç nokta ister. API Management yayımcı Portalı'nda tıklayarak **güvenlik** ve ardından **temsilci** sekmesi. 'Temsilci oturum açma ve kaydolma' etkinleştirmek için onay kutusuna tıklayın.
 
 ![Temsilci seçme sayfası][api-management-delegation-signin-up]
 
@@ -54,7 +56,7 @@ Oluşturmak için ihtiyacınız artık **temsilci seçme uç nokta**. Bir dizi e
     Sorgu parametreleri için oturum açma / servis talebini oturum:
    
    * **işlem**: ne tür bir temsilci istek olduğu - olabilir tanımlayan **Signın** bu durumda
-   * **returnUrl**: kullanıcı bir oturum açma veya kaydolma bağlantısını tıklattığınız sayfasının URL'si
+   * **returnUrl**: kullanıcısının, bir oturum açma tıklanan veya bağlantıyı oluşturan oturum sayfasının URL'si
    * **Salt**: güvenlik karma hesaplama için kullanılan özel bir anahtar güvenlik değerinin dize
    * **Sig**: karma kendi karşılaştırma için kullanılacak bir hesaplanan güvenlik karma hesaplanır
 2. İstek Azure API Management'ı (isteğe bağlı, ancak yüksek düzeyde güvenlik için önerilen) geldiğini doğrulayın
@@ -65,12 +67,12 @@ Oluşturmak için ihtiyacınız artık **temsilci seçme uç nokta**. Bir dizi e
      > 
      > 
    * Yukarıda hesaplanan karma değerini karşılaştırmak **sig** sorgu parametresi. İki karmalar eşleşiyorsa, sonraki adıma geçmek, aksi takdirde isteği reddeder.
-3. Oturum, / oturum-artırma isteği aldığını onaylayın: **işlemi** sorgu parametresi ayarlanacak "**Signın**".
-4. Kullanıcı oturum açma veya kaydolma ile kullanıcı arabirimini sunar.
-5. Kullanıcı imza, karşılık gelen bir hesap için API Yönetimi'nde oluşturmanız gerekir. [Bir kullanıcı oluşturun] API Management REST API ile. Bunun yapılması, kullanıcı kimliği için aynı kullanıcı deponuzda olduğundan veya takip bir kimlik olarak ayarlandığından emin olun.
+3. Oturum açma isteği alma / kaydolma doğrulayın: **işlemi** sorgu parametresi ayarlanacak "**Signın**".
+4. Kullanıcı oturum açma veya kaydolma için kullanıcı Arabirimi ile var
+5. Kullanıcı imza, karşılık gelen bir hesap için API Yönetimi'nde oluşturmanız gerekir. [Bir kullanıcı oluşturma] API Management REST API ile. Bunun yapılması, kullanıcı kimliği, kullanıcı deposu ile aynı değer veya takip bir kimlik olarak ayarlandığından emin olun.
 6. Ne zaman kullanıcının başarıyla kimliği:
    
-   * [bir çoklu oturum açma (SSO) belirteci iste] API Management REST API aracılığıyla
+   * [bir çoklu oturum açma (SSO) belirteci istemek] API Management REST API aracılığıyla
    * API çağrısından alınan SSO URL'sine returnUrl sorgu parametresi ekleyin:
      
      > Örneğin, https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
@@ -92,21 +94,20 @@ Hesap yönetimi işlemleri için aşağıdaki sorgu parametreleri geçmesi gerek
 * **Sig**: karma kendi karşılaştırma için kullanılacak bir hesaplanan güvenlik karma hesaplanır
 
 ## <a name="delegate-product-subscription"> </a>Ürün aboneliği temsilcisi seçme
-Ürün aboneliği temsilcisi seçme, benzer şekilde kullanıcı oturum açma/artırma için temsilci seçme için çalışır. Son iş akışı şu şekilde olacaktır:
+Ürün aboneliği temsilcisi seçme, benzer şekilde kullanıcı oturumu açma/artırma için temsilci seçme için çalışır. Son iş akışı şu şekilde olacaktır:
 
-1. Geliştirici bir ürün API Management Geliştirici Portalı'nda seçer ve abone ol düğmesine tıklaması
-2. Tarayıcı temsilci seçme uç noktaya yönlendirilir
-3. Temsilci seçme uç nokta gerekli ürün aboneliği adımları gerçekleştirir: Bu size bağlıdır ve başka bir sayfaya ek sorular sormak veya basitçe bilgileri depolamak ve herhangi bir kullanıcı eylemi gerektirmeyen fatura bilgi istemek için yeniden yönlendirme dahildir
+1. Geliştirici, bir ürün API Management Geliştirici Portalı'nda seçer ve abone ol düğmesine tıklar.
+2. Tarayıcı, temsilci seçme uç noktaya yönlendirilir.
+3. Temsilci seçme uç nokta gerekli ürün aboneliği adımları gerçekleştirir. Bu adımları tasarlamak için size aittir. Bunlar, başka bir sayfaya ek sorular sormak veya basitçe bilgileri depolamak ve herhangi bir kullanıcı eylemi gerektirmeyen fatura bilgi istemek için yeniden yönlendirme içerebilir.
 
 İşlevselliğini etkinleştirmek için **temsilci** sayfasında **ürün aboneliği temsilcisi**.
 
-Temsilci seçme uç nokta aşağıdaki eylemleri gerçekleştirir emin olun:
+Ardından, temsilci seçme uç nokta aşağıdaki eylemleri yapar emin olun:
 
 1. Bir isteği şu biçimde alırsınız:
    
    > *http:\/{operation} /www.yourwebsite.com/apimdelegation?operation= & ProductID {abone olmak için product} = & UserID {isteği yapan kullanıcı} = & karmalaştırılır {dize} = & sig = {string}*
-   > 
-   > 
+   >
    
     Ürün aboneliği çalışması için sorgu parametreleri:
    
@@ -115,9 +116,11 @@ Temsilci seçme uç nokta aşağıdaki eylemleri gerçekleştirir emin olun:
      * "Aboneliği iptal et": bir kullanıcının bir ürünü kaldırma isteği
      * "Yenile": isteği aboneliğini (örneğin, süresi dolan)
    * **ProductID**: kullanıcının istenen abone olmak için ürün kimliği
-   * **UserId**: istek yapılan kendisi için kullanıcının kimliği.
+   * **Subscriptionıd**: üzerinde *Unsubscribe* ve *yenileme* -ürün aboneliği kimliği
+   * **UserId**: istek için yapılan kullanıcının kimliği.
    * **Salt**: güvenlik karma hesaplama için kullanılan özel bir anahtar güvenlik değerinin dize
    * **Sig**: karma kendi karşılaştırma için kullanılacak bir hesaplanan güvenlik karma hesaplanır
+
 2. İstek Azure API Management'ı (isteğe bağlı, ancak yüksek düzeyde güvenlik için önerilen) geldiğini doğrulayın
    
    * Temel bir dizenin bir HMAC SHA512 işlem **ProductID**, **UserID**, ve **salt** sorgu parametreleri:
@@ -126,11 +129,17 @@ Temsilci seçme uç nokta aşağıdaki eylemleri gerçekleştirir emin olun:
      > 
      > 
    * Yukarıda hesaplanan karma değerini karşılaştırmak **sig** sorgu parametresi. İki karmalar eşleşiyorsa, sonraki adıma geçmek, aksi takdirde isteği reddeder.
-3. İçinde istenen işlem türüne göre herhangi bir ürün aboneliği işlem gerçekleştirmemeli **işlemi** - Örneğin, faturalandırma, başka sorularınız varsa, vs.
-4. Kullanıcı tarafından API Management ürününe başarıyla abone olmadan, tarafındaki ürün kullanıcıya üzerinde abone [Ürün aboneliği için REST API çağırma].
+3. Ürün aboneliği içinde istenen işlem türüne göre işlem **işlemi** - Örneğin, faturalandırma, başka sorularınız varsa, vs.
+4. Kullanıcı tarafından API Management ürününe başarıyla abone olmadan, tarafındaki ürün kullanıcıya üzerinde abone [REST API'sini çağırmak için ürün aboneliği].
 
 ## <a name="delegate-example-code"> </a> Örnek kod
-Bu kod örnekleri biçimde nasıl yararlanılabileceğini göstermek *temsilci seçme doğrulama anahtarı*, geçirilen geçerliliğini kanıtlama ardından imzayı doğrulamak için kullanılan bir HMAC, oluşturmak için yayımcı portalı, temsilci ekranın ayarlanır returnUrl. ProductID ve düğümündedir kullanıcı kimliği için aynı kodu çalışır.
+
+Bu kod örnekleri Göster nasıl için:
+
+* Ele *temsilci seçme doğrulama anahtarı*, yayımcı portalında temsilci ekranın ayarlayın
+* Geçirilen returnUrl geçerliliğini kanıtlama ardından imzayı doğrulamak için kullanılan bir HMAC, oluşturun.
+
+ProductID ve düğümündedir kullanıcı kimliği için aynı kodu çalışır.
 
 **C#kod returnUrl karmasını oluşturmak için**
 
@@ -173,12 +182,12 @@ Temsilci seçme hakkında daha fazla bilgi için aşağıdaki videoya bakın:
 > 
 > 
 
-[Delegating developer sign-in and sign-up]: #delegate-signin-up
+[Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
 [bir çoklu oturum açma (SSO) belirteci iste]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [Bir kullanıcı oluşturun]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
 [Ürün aboneliği için REST API çağırma]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
 [Next steps]: #next-steps
-[aşağıda sağlanan kod örneği]: #delegate-example-code
+[Aşağıda sağlanan kod örneği]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 

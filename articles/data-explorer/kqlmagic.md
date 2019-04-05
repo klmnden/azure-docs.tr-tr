@@ -1,21 +1,20 @@
 ---
-title: Jupyter not defteri ve Kqlmagic kullanarak verileri analiz etme
-description: Bu konuda Jupyter not defteri ve KQLmagic kullanarak verileri analiz yapmayı gösterir.
-services: data-explorer
+title: Azure veri Gezgini'nde verileri analiz için Jupyter not defteri kullanın
+description: Bu konuda bir Jupyter not defteri ve Kqlmagic uzantısını kullanarak Azure veri Gezgini'nde verilerini nasıl çözümleyeceğinizi gösterilmektedir.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 0e7d6148297dd4208374d9900e10564ac4052c67
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 896a5d13279c15f0035f214da3d5a7d7e6f1861f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756209"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045074"
 ---
-# <a name="analyze-data-using-jupyter-notebook-and-kql-magic"></a>Jupyter not defteri ve KQL Sihri kullanarak verileri analiz etme
+# <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Azure veri Gezgini'nde verileri çözümlemek için bir Jupyter not defteri ve Kqlmagic uzantısı kullanma
 
 Jupyter not defteri oluşturmak ve Canlı kod, denklemleri, görselleştirmeler ve anlatım metnini içeren belgeleri paylaşmak olanak tanıyan bir açık kaynaklı web uygulamasıdır. Kullanım, veri temizleme ve dönüştürme, sayısal bir simülasyon, modelleme, veri Görselleştirme ve makine öğrenimi içerir.
 [Jupyter not defteri](https://jupyter.org/) ek komutlar destekleyerek çekirdek yeteneklerini genişletmek Sihirli işlevleri destekler. KQL Sihirli Kusto dil sorguları yerel olarak çalıştırabilmeniz için Jupyter not defteri Python çekirdek yeteneklerini genişleten bir komuttur. Sorgulamak ve tümleşik Plot.ly kitaplığı ile zengin kullanarak verileri görselleştirmek için Python ve Kusto sorgu dilini kolayca birleştirebilirsiniz `render` komutları. Sorguları çalıştırmak için veri kaynakları desteklenir. Bu veri kaynakları, Azure Veri Gezgini, Azure İzleyici günlüklerine yanı sıra günlük ve telemetri verilerini, hızlı ve yüksek düzeyde ölçeklenebilir veri keşif hizmeti ve Application Insights ekleyin. KQL Sihirli Azure not defterleri, Jupyter Laboratuvar ve Visual Studio kod Jupyter uzantısı ile de çalışır.

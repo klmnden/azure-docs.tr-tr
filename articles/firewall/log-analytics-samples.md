@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 2/15/2019
 ms.author: victorh
-ms.openlocfilehash: 21309060b7b4a93d798c444bd96bc21c62693a54
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3f329d3dd4af1faef8f77d08db655cc7d6ef79fd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534012"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051827"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Azure güvenlik duvarı log analytics örnekleri
 
@@ -40,7 +40,7 @@ Ve ağ kuralı günlük verileri için:
 
 ![Ağ kuralı günlük verileri]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Azure güvenlik duvarı günlükleri aşağıdaki AzureDiagnostics verileri kategorisiyle olarak **AzureFirewallApplicationRule** veya **AzureFirewallApplicationRule**. Ayrıntılarını içeren veri msg_s alanında depolanır. Kullanarak [ayrıştırma](https://docs.microsoft.com/azure/kusto/query/parseoperator) biz ayıklamak çeşitli ilgi çekici özellikler msg_s alanından işleci. Aşağıdaki sorgular hem kategorileri için bilgiler ayıklayın.
+Azure güvenlik duvarı günlükleri aşağıdaki AzureDiagnostics verileri kategorisiyle olarak **AzureFirewallApplicationRule** veya **AzureFirewallNetworkRule**. Ayrıntılarını içeren veri msg_s alanında depolanır. Kullanarak [ayrıştırma](https://docs.microsoft.com/azure/kusto/query/parseoperator) biz ayıklamak çeşitli ilgi çekici özellikler msg_s alanından işleci. Aşağıdaki sorgular hem kategorileri için bilgiler ayıklayın.
 
 ## <a name="application-rules-log-data-query"></a>Uygulama kuralları günlük veri sorgusu
 

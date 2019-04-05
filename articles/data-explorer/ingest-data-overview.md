@@ -1,19 +1,18 @@
 ---
 title: Azure Veri Gezgini veri alımı
 description: Azure veri Gezgini'nde (yükle) veri alabilen farklı yolları hakkında bilgi edinin
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 2/18/2019
-ms.openlocfilehash: e2dd67b7b8e7eaac1b823c044fe3d345ce7e8c7b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 02/18/2019
+ms.openlocfilehash: 6c9cb7282ba9d99ea643bbd023d876b8fbe3904c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755765"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045603"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure Veri Gezgini veri alımı
 
@@ -69,7 +68,7 @@ Kusto istemci alma ve verileri sorgulamak için kullanılan SDK'sı sunar:
 
 * [Java SDK](/azure/kusto/api/java/kusto-java-client-library)
 
-* [Düğüm SDK'sı](/azure/kusto/api/node/kusto-node-client-library)
+* [Node SDK](/azure/kusto/api/node/kusto-node-client-library)
 
 * [REST API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/27/2019
 ms.author: juliako
-ms.openlocfilehash: b951da73006731b38b265dc3a2f542e670f9fbf6
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 70e28377b19b682f2191e0a8fb95792101fa8ec7
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621745"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045690"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2'den v3 taşımak için Geçiş Kılavuzu
 
@@ -29,10 +29,10 @@ Bu makalede, Azure Media Services v3 sürümünde yapılan değişiklikleri aç�
 Bugün üzerine geliştirilen bir video hizmeti varsa [eski Media Services v2 API'leri](../previous/media-services-overview.md), aşağıdaki yönergeleri ve v3 API'ler için geçirmeden önce konuları gözden geçirmeniz gerekir. Çok sayıda avantaj ve geliştirici deneyimi ve Media Services'ın özellikleri geliştiren yeni özellikler v3 API vardır. Ancak, olarak adlandırılan aşımı [bilinen sorunlar](#known-issues) bölümünde bu makalede, korunmasından da API sürümleri arasındaki değişiklikleri nedeniyle. Bu sayfa, medya Hizmetleri ekibi v3 API'ler için devam eden bir iyileşme ve sürümler arasındaki boşlukları adresleri korunacaktır. 
 
 > [!NOTE]
-> Şu anda Azure portalında v3 kaynakları yönetmek için kullanamazsınız. Kullanım [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), veya desteklenen biri [SDK'ları](developers-guide.md).
+> Şu anda, v3 kaynaklarını yönetmek için Azure portalını kullanamıyorsunuz. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) veya desteklenen [SDK'lardan](developers-guide.md) birini kullanın.
 
 ## <a name="benefits-of-media-services-v3"></a>Avantajları medya Hizmetleri v3
-
+  
 ### <a name="api-is-more-approachable"></a>API daha ulaşılabilir
 
 *  v3, Azure Resource Manager'da yerleşik olan yönetim ve işlem işlevselliğini kullanıma sunan, birleşik bir API yüzeyini temel alır. Azure Resource Manager şablonları oluşturmak ve dönüştürmeler, akış uç noktalarını, Canlı olayları ve daha fazla dağıtmak için kullanılabilir.
@@ -105,7 +105,7 @@ Aşağıdaki tabloda, v2 ve v3 sık karşılaşılan senaryolara yönelik kod fa
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 
-* Şu anda Azure portalında v3 kaynakları yönetmek için kullanamazsınız. Kullanım [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, desteklenen Sdk'lardan birini veya.
+* Şu anda, v3 kaynaklarını yönetmek için Azure portalını kullanamıyorsunuz. Kullanım [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, desteklenen Sdk'lardan birini veya.
 * Eşzamanlılık ve işlerinizin performansını, özellikle olanları Video veya ses analizi içeren denetlemek için hesabınızdaki medya ayrılmış birimi (MRU) sağlamak gerekir. Daha fazla bilgi için bkz. [Medya İşlemeyi Ölçeklendirme](../previous/media-services-scale-media-processing-overview.md). MRU kullanarak yönetebileceğiniz [CLI 2.0 için Media Services v3](media-reserved-units-cli-how-to.md)kullanarak [Azure portalında](../previous/media-services-portal-scale-media-processing.md), veya bu adı kullanıyor [v2 API'leri](../previous/media-services-dotnet-encoding-units.md). Media Services v2 veya v3 kullanıp kullanmadığınızı MRU, sağlama için gereken API.
 * Media Services, API v2 API'si tarafından yönetilemez v3 ile oluşturduğunuz varlıkları.  
 * V3 API'ler aracılığıyla v2 API ile oluşturulan varlıkları yönetmek için önerilmez. Varlıkları iki sürümde uyumsuz hale farklar örnekleri aşağıda verilmiştir:   

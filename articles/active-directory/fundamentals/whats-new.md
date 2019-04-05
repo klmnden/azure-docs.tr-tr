@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5077f09cba3548b03045011a7b8f16844156de55
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 7cd3286d51154c9c1dd53a2f87dd8a97999d064a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757634"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046708"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
@@ -157,7 +157,7 @@ Yöneticilerin yanlışlıkla kendilerini yapılandırılmış koşullu erişim 
 **Hizmet kategorisi:** Kullanım Koşulları  
 **Ürün özelliği:** İdare
 
-Nasıl gözden geçirin ve bir mobil cihazda kullanım koşullarını kabul edersiniz geliştirmeye yardımcı olmak için mevcut koşullarımızı kullanımı deneyimleri güncelleştirdik. Artık yakınlaştırma ve uzaklaştırma, geri dönün bilgilerini indirerek ve köprüler seçin. Güncellenmiş kullanım koşulları hakkında daha fazla bilgi için bkz: [kullanım özelliği, Azure Active Directory koşulları](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#what-terms-of-use-looks-like-for-users).
+Nasıl gözden geçirin ve bir mobil cihazda kullanım koşullarını kabul edersiniz geliştirmeye yardımcı olmak için mevcut koşullarımızı kullanımı deneyimleri güncelleştirdik. Artık yakınlaştırma ve uzaklaştırma, geri dönün bilgilerini indirerek ve köprüler seçin. Güncellenmiş kullanım koşulları hakkında daha fazla bilgi için bkz: [kullanım özelliği, Azure Active Directory koşulları](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#what-terms-of-use-looks-like-for-users).
 
 ---
 
@@ -534,7 +534,7 @@ Alın ve bu zaman damgasından kullanma hakkında daha fazla bilgi için bkz. [n
  
 Yöneticiler şimdi Aç **kullanıcıların her cihazda kabul etmesini zorunlu tut** kiracınızda kullandıkları her bir cihazdaki kullanım koşullarınızı kabul etmelerini zorunlu hale getirin.
 
-Daha fazla bilgi için [cihaz başına kullanım özelliği, Azure Active Directory koşulları bölümünü kullanım koşullarını](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#per-device-terms-of-use).
+Daha fazla bilgi için [cihaz başına kullanım özelliği, Azure Active Directory koşulları bölümünü kullanım koşullarını](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use).
 
 ---
 
@@ -547,7 +547,7 @@ Daha fazla bilgi için [cihaz başına kullanım özelliği, Azure Active Direct
 
 Yöneticiler şimdi Aç **sona onayları** kullanım koşullarını hale getirme seçeneği süresi dolacak tüm kullanıcılarınız, belirtilen yinelenme çizelgesine dayalıdır. Zamanlama, BI aylık, üç aylık dönem veya aylık olarak yıllık olabilir. Kullanım koşullarını süresi dolduktan sonra kullanıcıların yeniden kabul etmesini gerektirmek gerekir.
 
-Daha fazla bilgi için [kullanım özelliği, Azure Active Directory koşulları kullanım bölümünü ekleme koşullarını](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#add-terms-of-use).
+Daha fazla bilgi için [kullanım özelliği, Azure Active Directory koşulları kullanım bölümünü ekleme koşullarını](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
 
 ---
 
@@ -559,7 +559,7 @@ Daha fazla bilgi için [kullanım özelliği, Azure Active Directory koşulları
 
 Yöneticiler artık bir süre belirtin, kullanıcı kullanım koşullarını artırmasını gerekir. Örneğin, Yöneticiler, kullanıcılar her 90 günde Kullanım Koşulları'nı artırmasını gerekir belirtebilirsiniz.
 
-Daha fazla bilgi için [kullanım özelliği, Azure Active Directory koşulları kullanım bölümünü ekleme koşullarını](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#add-terms-of-use).
+Daha fazla bilgi için [kullanım özelliği, Azure Active Directory koşulları kullanım bölümünü ekleme koşullarını](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
  
 ---
 

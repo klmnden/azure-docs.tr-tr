@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894158"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047339"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Azure DevOps hizmetlerinde, Azure kaynak grubu dağıtım projeleri kullanarak sürekli tümleştirme
 Azure şablonu dağıtmak için çeşitli aşamalarda görevleri gerçekleştirin: Azure yapı, Test, Kopyala (aynı zamanda "Hazırlama" olarak adlandırılır) ve şablonu dağıtın. Azure DevOps hizmetler için şablonları dağıtmak için iki farklı yolu vardır. Her iki yöntem de aynı sonuçları sağlar, bu nedenle, iş akışınızı en uygun olanı seçin.
@@ -28,6 +28,8 @@ Azure şablonu dağıtmak için çeşitli aşamalarda görevleri gerçekleştiri
 2. Birden çok Azure DevOps Hizmetleri derleme adımları, her bir aşama görevi gerçekleştiren ekleyin.
 
 Bu makalede, iki seçenek de gösterilmektedir. İlk seçenek, geliştiricilere Visual Studio ve yaşam döngüsü boyunca sağlayan tutarlılık tarafından kullanılan aynı komut dosyasını kullanarak avantajına sahiptir. İkinci seçenek, yerleşik bir komut dosyası için uygun bir alternatif sunar. Her iki yordam Azure DevOps hizmetlerine işaretli bir Visual Studio dağıtım projesi zaten sahip olduğunuz varsayılır.
+
+[!INCLUDE [updated-for-az](../includes/updated-for-az.md)]
 
 ## <a name="copy-artifacts-to-azure"></a>Yapıtları Azure'a kopyalama
 Şablon dağıtımı için gerekli olan herhangi bir yapı varsa senaryodan bağımsız olarak, Azure Resource Manager erişim kendisine vermeniz gerekir. Bu yapılar, dosyaları gibi dahil edebilirsiniz:
@@ -87,7 +89,7 @@ Aşağıdaki yordamları, Azure DevOps Services projenizde PowerShell Betiği ç
       
       PowerShell betikleri için kullanın:
       
-      `Get-AzureRmSubscription`
+      `Get-AzSubscription`
       
       Azure CLI için şunu kullanın:
       

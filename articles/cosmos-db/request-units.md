@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: rimman
-ms.openlocfilehash: 850c8af3e3dd696ce0e84b9c553d6f1617deb3de
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 72ec8332a3363d5336fb84b3390d5e44ced0b2e5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762982"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047336"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>İstek birimleri Azure cosmos DB
 
@@ -71,6 +71,7 @@ RU sayısını sağlamak için saniyede tahmin ederken aşağıdaki etmenleri di
 * Kullanma hakkında daha fazla bilgi edinin [genel olarak sağlanan aktarım hızını ölçeklendirme](scaling-throughput.md).
 * Bilgi edinmek için nasıl [bir Azure Cosmos kapsayıcısında aktarım hızını sağlama](how-to-provision-container-throughput.md).
 * Bilgi edinmek için nasıl [bir Azure Cosmos veritabanı sağlama aktarım hızını](how-to-provision-database-throughput.md).
+* Bilgi edinmek için nasıl [istek birimi ücreti bulmak için bir işlem](find-request-unit-charge.md).
 * Bilgi edinmek için nasıl [Azure Cosmos DB'de sağlanan aktarım hızı gerçekleştirerek](optimize-cost-throughput.md).
 * Bilgi edinmek için nasıl [okuma ve yazma işlemleri Azure Cosmos DB'de maliyetini en iyi duruma getirme](optimize-cost-reads-writes.md).
 * Bilgi edinmek için nasıl [sorgu gerçekleştirerek Azure Cosmos DB'de](optimize-cost-queries.md).

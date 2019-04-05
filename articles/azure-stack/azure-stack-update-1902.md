@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/03/2019
-ms.openlocfilehash: 5971692b3e6447bc790b2e34cf84eae66979f7f5
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.lastreviewed: 04/05/2019
+ms.openlocfilehash: befb5370dce5b9b7617370f0b14d471dfeb35437
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862089"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051691"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 güncelleştirme
 
@@ -64,6 +64,8 @@ Azure Stack düzeltmeleri yalnızca Azure Stack tümleşik sistemleri için geç
     ```powershell
     Test-AzureStack -Include AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
+
+  Varsa `AzsControlPlane` parametresi, dahil edilen zaman **Test AzureStack** olan yürütüldü,'nde aşağıdaki hatayı görürsünüz **Test AzureStack** çıktı: **BAŞARISIZ Azure Stack denetim düzlemi Web siteleri özeti**. Bu belirli hatayı güvenle yok sayabilirsiniz.
 
 - Azure Stack System Center Operations Manager (SCOM) tarafından yönetildiğinde güncelleştirdiğinizden emin olun [Microsoft Azure Stack için Yönetim Paketi](https://www.microsoft.com/download/details.aspx?id=55184) sürümüne 1.0.3.11 1902 uygulamadan önce.
 

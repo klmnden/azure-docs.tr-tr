@@ -14,19 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: ea10e83e8a5963c1ea0073179c15b1c2f3230805
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 601a3f273a8da9100d24dfdbd13bd598b0e48884
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615230"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051572"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Azure Ağ İzleyicisi örnek oluşturma
 
 Ağ İzleyicisi, koşulları ağ senaryosu düzeyinde, azure'a veya azure'dan izlemenizi ve tanılamanızı sağlayan bölgesel bir hizmettir. İzleme senaryosu düzeyinde bir uçtan uca ağ düzeyinde görünüm, sorunları tanılamak sağlar. Ağ Tanılama ve görselleştirme araçları Ağ İzleyicisi ile kullanılabilen anlamanıza, tanılamanıza ve ağınıza azure'da Öngörüler elde etmeye yardımcı olur. Ağ İzleyicisi, bir Ağ İzleyicisi kaynağı oluşturulmasını etkinleştirilir. Bu kaynak, Ağ İzleyicisi becerilerinden olanak tanır.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="network-watcher-is-automatically-enabled"></a>Ağ İzleyicisi otomatik olarak etkinleştirildi.
-Oluşturun veya aboneliğinizdeki sanal ağ güncelleştirmesi, sanal ağınızın bölgede Ağ İzleyicisi otomatik olarak etkinleştirilecektir. Otomatik olarak Ağ İzleyicisi'ni etkinleştirmek için ilgili ücrete veya kaynaklar için herhangi bir etkisi yoktur.
+Oluşturun veya aboneliğinizdeki sanal ağ güncelleştirmesi, sanal ağınızın bölgede Ağ İzleyicisi otomatik olarak etkinleştirilecektir. Ağ İzleyicisi’nin otomatik olarak etkinleştirilmesi sırasında kaynaklarınız veya bu hizmete ilişkin ücretler etkilenmez.
 
 #### <a name="opt-out-of-network-watcher-automatic-enablement"></a>Ağ İzleyicisi otomatik etkinleştirme, çevirme
 Ağ İzleyicisi otomatik etkinleştirme dışında bırakmak isterseniz, aşağıdaki komutları çalıştırarak bunu yapabilirsiniz:
@@ -35,8 +38,8 @@ Ağ İzleyicisi otomatik etkinleştirme dışında bırakmak isterseniz, aşağ�
 > Ağ İzleyicisi otomatik etkinleştirmeyi tercih eden-out kalıcı bir değişikliktir. Sonra çevirme, olmadan katılımı olamaz [destekle iletişim kurarak](https://azure.microsoft.com/support/options/)
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
-Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ```azurecli-interactive
@@ -63,7 +66,7 @@ Bir Ağ İzleyicisi örneği ve kaynak grubu adını özelleştirmek istiyorsan�
 Ağ İzleyicisi bir örneğini oluşturmak için aşağıdaki örneği çalıştırın:
 
 ```powershell
-New-AzureRmNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
+New-AzNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
 ```
 
 ## <a name="create-a-network-watcher-with-the-azure-cli"></a>Azure CLI ile bir Ağ İzleyicisi oluşturma

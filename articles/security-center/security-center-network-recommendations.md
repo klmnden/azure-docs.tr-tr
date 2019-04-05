@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 04/05/2019
 ms.author: monhaber
-ms.openlocfilehash: cca1962e5146300cc376fab4bcb1bf0876acec6c
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 3d9658a6b7501714a6aad0e8eaa30ce587284bfe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863160"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046216"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde ağ kaynaklarınızı koruma
 Azure Güvenlik Merkezi, ağ güvenliği için en iyi uygulamalar, Azure kaynaklarınızın güvenlik durumunu sürekli olarak analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde sağlamlaştırmak ve kaynaklarınızı korumak için gerekli denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur.
@@ -30,9 +30,10 @@ Bu makalede bir ağ güvenlik açısından Azure kaynaklarınıza uygulama öner
 > **Ağ** sayfa, Azure kaynak durumu hakkında ayrıntılı bir inceleme ağ açısından sağlar. Uyarlamalı ağ denetimleri ve ağ eşlemesi Azure Güvenlik Merkezi standart katmanı için yalnızca kullanılabilir. [Ücretsiz katmanı kullanırsanız, düğmeyi tıklatabilirsiniz **eski ağ iletişimini görüntüle** ve ağ kaynağı önerileri almak](#legacy-networking).
 >
 
-**Ağ** dikey penceresinde derin yapabilecekleriniz bölümleri genel bir bakış sağlar derinlerine, ağ kaynaklarınızın sağlığı hakkında daha fazla bilgi edinin:
+**Ağ** sayfası için ayrıntılı bölümlere genel bir bakış sağlar derinlerine, ağ kaynaklarınızın sağlığı hakkında daha fazla bilgi edinin:
 
 - Ağ eşlemesi (yalnızca Azure Güvenlik Merkezi standart katmanı)
+- Uyarlamalı Ağ Sağlamlaştırma
 - Ağ güvenlik önerileri.
 - Eski **ağ** dikey (önceki ağ dikey) 
  

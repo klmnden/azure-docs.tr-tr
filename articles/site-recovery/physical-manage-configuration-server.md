@@ -7,16 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 325cd0d2f52405ae1cbf463f6335c8738317ea1f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878715"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050144"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Fiziksel sunucu olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
 
 Kullanırken bir şirket içi yapılandırma sunucusu ayarlama [Azure Site Recovery](site-recovery-overview.md) fiziksel sunucularını azure'a olağanüstü durum kurtarma hizmeti. Yapılandırma sunucusu, şirket içi makinelerin ve Azure arasındaki iletişimi düzenler ve veri çoğaltma işlemlerini yönetir. Bu makalede dağıtıldıktan sonra yapılandırma sunucusunu yönetmek için ortak görevler özetlenir.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -265,28 +267,28 @@ Sunucuyu aşağıdaki gibi yükseltin:
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Silme veya kaydını iptal yapılandırma sunucusunu (PowerShell)
 
-1. [Yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) Azure PowerShell Modülü
+1. [Yükleme](https://docs.microsoft.com/powershell/azure/install-Az-ps) Azure PowerShell Modülü
 2. Komutunu kullanarak Azure hesabınızda oturum açın
     
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 3. Kasa altında mevcut olan aboneliği seçin
 
-     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+     `Get-AzSubscription –SubscriptionName <your subscription name> | Select-AzSubscription`
 3.  Artık, kasa bağlamını ayarlayın
     
     ```powershell
-    $Vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $Vault
+    $Vault = Get-AzRecoveryServicesVault -Name <name of your vault>
+    Set-AzSiteRecoveryVaultSettings -ARSVault $Vault
     ```
 4. Yapılandırma sunucunuzu seçin Al
 
-    `$Fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$Fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. Yapılandırma sunucusunu silme
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force]`
+    `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> **-Force** Remove-AzureRmSiteRecoveryFabric seçeneğinde, yapılandırma sunucusunun kaldırılması/silinmesini zorlamak için kullanılabilir.
+> **-Force** Remove-AzSiteRecoveryFabric seçeneğinde, yapılandırma sunucusunun kaldırılması/silinmesini zorlamak için kullanılabilir.
 
 ## <a name="renew-ssl-certificates"></a>SSL sertifikalarını yenileme
 Mobility hizmeti, işlem sunucusu ve ona bağlı olan ana hedef sunucusu etkinliklerini düzenleyen bir yerleşik web sunucusuna yapılandırma sunucusu vardır. Web sunucusu istemcilerin kimliğini doğrulamak için bir SSL sertifikası kullanır. Sertifika, üç yıl sonra süresi dolar ve herhangi bir zamanda yenilenebilir.

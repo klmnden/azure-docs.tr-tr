@@ -1,19 +1,18 @@
 ---
 title: Azure Veri Gezgini nedir?
 description: Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve üst düzeyde ölçeklenebilir veri keşfetme hizmetidir.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: e3a669c547b33e5f13da43bc3ce851a2f24783f5
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 02b239922f481240341225ea68d8d0ee7492c48b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755995"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044183"
 ---
 # <a name="what-is-azure-data-explorer"></a>Azure Veri Gezgini nedir?
 
@@ -67,7 +66,7 @@ Azure Veri Gezgini ve onun sorgu dili ile ilgili geri bildirimlerinizi şu adres
   - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-data-explorer)
   - [Microsoft Teknoloji Topluluğu](https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto)
   - [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto)
-- [User Voice'te ürün önerilerinde bulunun](https://aka.ms/AzureDataExplorer.UserVoice)
+- [Ürün önerileri User Voice olun](https://aka.ms/AzureDataExplorer.UserVoice)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

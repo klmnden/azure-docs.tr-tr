@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 87499c1b71e243fe976e436b525e0150689d3aa1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486079"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051198"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Olağanüstü durum kurtarma ve depolama hesabı yük devretme (Önizleme) Azure Depolama'daki
 
@@ -22,6 +22,9 @@ Microsoft Azure hizmetlerini her zaman kullanılabilir olmasını sağlamak çal
 Azure depolama hesabı yük devretme (Önizleme), coğrafi olarak yedekli depolama hesapları için destekler. Hesap yük devretme ile birincil uç noktaya kullanılamaz duruma gelirse, depolama hesabınız için yük devretme işlemini başlatabilirsiniz. Depolama hesabınızın birincil uç nokta olacak ikincil uç nokta yük devretme güncelleştirir. Yük devretme işlemi tamamlandıktan sonra istemciler yeni birincil uç nokta yazma başlayabilirsiniz.
 
 Bu makalede, kavramlar açıklanır ve işlem bir hesabı yük devretme ile ilgili ve müşteri etkisi en az miktarda ile kurtarma için depolama hesabınızın hazırlama anlatılmaktadır. Azure portal veya PowerShell içinde bir hesap yük devretme başlatma hakkında bilgi edinmek için bkz: [hesabı yük devretme (Önizleme) başlatın](storage-initiate-account-failover.md).
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="choose-the-right-redundancy-option"></a>Doğru olarak yedeklilik seçeneği seçin
 
@@ -122,14 +125,14 @@ Hesap yük devretme, GRS veya RA-GRS ile Azure Resource Manager dağıtımların
 Önizlemeye kaydolmak için PowerShell'de aşağıdaki komutları çalıştırın. Köşeli ayraçlar içindeki yer tutucusunu kendi abonelik kimliği ile değiştirdiğinizden emin olun:
 
 ```powershell
-Connect-AzureRmAccount -SubscriptionId <subscription-id>
-Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Connect-AzAccount -SubscriptionId <subscription-id>
+Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 Bu önizleme için onay almak için 1-2 gün sürebilir. Kaydınızı onaylandığını doğrulamak için aşağıdaki komutu çalıştırın:
 
 ```powershell
-Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 ### <a name="additional-considerations"></a>Diğer konular 
@@ -177,5 +180,5 @@ Bir bölge önemli bir olağanüstü durum nedeniyle kayıp olduğu olağanüst�
 ## <a name="see-also"></a>Ayrıca bkz.
 
 * [Bir hesap yük devretme (Önizleme) başlatın](storage-initiate-account-failover.md)
-* [RA-GRS’yi kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama](storage-designing-ha-apps-with-ragrs.md)
+* [RA-GRS'yi kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama](storage-designing-ha-apps-with-ragrs.md)
 * [Öğretici: Blob Depolama ile yüksek oranda kullanılabilir bir uygulama oluşturun](../blobs/storage-create-geo-redundant-storage.md) 

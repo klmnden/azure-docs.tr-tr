@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 64a1693907dbf144aa34f5c35ae925af74d2cb34
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 65948b1de3a972687e738b011acf3542073db277
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803239"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046999"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Trafik analizi hakkında sık sorulan sorular
 
 Bu makale Azure Ağ İzleyicisi'nde trafik analizi hakkında sık sorulan soruların birçoğu tek bir yerde toplar.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-are-the-prerequisites-to-use-traffic-analytics"></a>Trafik analizi kullanmak için Önkoşullar nelerdir?
 
@@ -51,11 +54,11 @@ Hesabınızı trafik Analizi'ni etkinleştirmek için aşağıdakilerden birini 
         
 Bir abonelik için bir kullanıcıya atanan rollerin denetlemek için:
 
-1. Azure'a kullanarak oturum açın **Login-AzureRmAccount**. 
+1. Azure'a kullanarak oturum açın **oturum açma AzAccount**. 
 
-2. Gerekli olan abonelik kullanarak seçme **Select-AzureRmSubscription**. 
+2. Gerekli olan abonelik kullanarak seçme **seçin AzSubscription**. 
 
-3. Belirli bir kullanıcıya atanmış olan tüm rolleri listelemek için kullanın **Get-AzureRmRoleAssignment - SignInName [kullanıcı e-postası] - IncludeClassicAdministrators**. 
+3. Belirli bir kullanıcıya atanmış olan tüm rolleri listelemek için kullanın **AzRoleAssignment Get - SignInName [kullanıcı e-postası] - IncludeClassicAdministrators**. 
 
 Herhangi bir çıktı görmediğinizden, komutları çalıştırmak için erişim elde etmek için ilgili abonelik yöneticisine başvurun. Daha fazla ayrıntı için [rol tabanlı erişim denetimini Azure PowerShell ile yönetme](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
@@ -139,8 +142,8 @@ Sorun devam ederse lütfen desteğe başvurun.
 Düzgün çalışması için günlük akışı Microsoft.ınsights sağlayıcısına kayıtlı olması gerekir. Microsoft.Insights sağlayıcısı, aboneliğiniz için kayıtlı olup olmadığını emin değilseniz değiştirin *xxxxx-xxxxx-xxxxxx-xxxx* aşağıdaki komut, powershell'den aşağıdaki komutları çalıştırın:
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Çözüm yapılandırdım. Neden hiçbir şey Panoda görüyorum değil mi?
@@ -170,7 +173,7 @@ Kaynak bilgileri Panoda gördüğünüz; Ancak, hiçbir akış ile ilgili istati
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>PowerShell kullanarak trafik analizi yapılandırabilir miyim veya Azure Resource Manager şablonu veya istemci?
 
-Trafik analizi sürümünden 6.2.1 başlayarak Windows PowerShell kullanarak yapılandırabilirsiniz. Akış günlüğe kaydetme ve trafik analizi için belirli bir NSG kümesi cmdlet'ini kullanarak yapılandırmak için bkz. [kümesi AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog). İçin belirli bir NSG akış günlüğe kaydetme ve trafik analizi durumu almak için bkz. [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus).
+Trafik analizi sürümünden 6.2.1 başlayarak Windows PowerShell kullanarak yapılandırabilirsiniz. Akış günlüğe kaydetme ve trafik analizi için belirli bir NSG kümesi cmdlet'ini kullanarak yapılandırmak için bkz. [kümesi AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). İçin belirli bir NSG akış günlüğe kaydetme ve trafik analizi durumu almak için bkz. [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Şu anda, trafik analizi yapılandırmak için bir Azure Resource Manager şablonu kullanamazsınız.
 

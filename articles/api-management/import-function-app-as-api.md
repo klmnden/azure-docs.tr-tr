@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: e86bd797774448d8e4821ff02d358d420a099442
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: fe6a008a6cbd2ca4e8aedeeca6d96cc00f6b29d1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810788"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046062"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Azure İşlev Uygulamalarını Azure API Management'a API olarak aktarma
 
@@ -69,7 +69,7 @@ Bir Azure İşlev Uygulamasından yeni API oluşturmak için aşağıdaki adıml
     ![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
-    > Yalnızca HTTP tetikleyicisine dayalı ve yetkilendirme düzeyi *Anonim* veya *İşlev* olarak ayarlanmış olan İşlevleri içeri aktarabilirsiniz.
+    > Yalnızca HTTP tetikleyicisine dayalı ve yetkilendirme düzeyi *Anonim* veya *İşlev* olarak ayarlanmış olan İşlevleri içeri aktarabilirsiniz. Şu anda Linux işlevi uygulamaları desteklenmez.
 
 7. **Tam** görünümüne geçiş yapın ve yeni API’nize **Ürün** atayın. Gerekirse, önceden doldurulmuş diğer alanları düzenleyin.
 
@@ -111,11 +111,14 @@ Azure İşlev Uygulamasını var olan bir API'ye eklemek için aşağıdaki adı
 
     ![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/append-04.png)
 
-## <a name="function-app-import-keys"></a> Oluşturulan Azure İşlev Uygulaması ana bilgisayar anahtarı
+## <a name="authorization"></a> Yetkilendirme
 
 Bir Azure İşlev Uygulaması içeri aktarıldığında aşağıdakiler otomatik olarak oluşturulur:
-* İşlev Uygulamasında apim-{*Azure API Management hizmet örneğinizin adı*} adlı bir ana bilgisayar anahtarı,
-* Azure API Management örneğinde, oluşturulan ana bilgisayar anahtarını içeren, {*Azure İşlev Uygulaması örneğinin adı*}-key adlı bir adlandırılmış değer.
+
+* İşlev uygulaması ile apim - ad içinde ana bilgisayar anahtarı {*Azure API Management hizmet örneği adınızı*},
+* Azure API Management örneği içindeki değeri adı olan {*, Azure işlev uygulaması örneği adı*}-oluşturulan ana bilgisayar anahtarı içeren anahtar.
+
+4 Nisan 2019'den sonra oluşturulan API için ana bilgisayar anahtarı HTTP isteklerini API Yönetimi'nden bir üst işlev uygulamasına geçirilir. Daha eski API'lar ana bilgisayar anahtarı olarak geçirmek [bir sorgu parametresi](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Bu davranış aracılığıyla değiştirilebilir `PATCH Backend` [REST API çağrısı](https://docs.microsoft.com/rest/api/apimanagement/backend/update#backendcredentialscontract) üzerinde *arka uç* işlev uygulaması ile ilişkili varlık.
 
 > [!WARNING]
 > Azure İşlev Uygulaması ana bilgisayar anahtarının veya Azure API Management adlandırılmış değerinin kaldırılması veya değiştirilmesi, hizmetler arasındaki iletişimin kopmasına neden olur. Değerler otomatik olarak eşitlenmez.
@@ -181,4 +184,4 @@ API’leri test etmek için geliştirici portalından da işlem çağırabilirsi
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Yayımlanan API’yi dönüştürme ve koruma](transform-api.md)
+> [Dönüştürme ve yayımlanan API'yi koruma](transform-api.md)

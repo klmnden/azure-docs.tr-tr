@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 5e879395e034813f954d1046e4a69e21534f3968
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077165"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051179"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure BT operatörleri için Başlarken
 
@@ -169,7 +169,7 @@ Oluşturma, yönetme ve Azure portalını kullanarak silme kaynaklara ek olarak,
 
 #### <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell, Azure'ı yönetmek için cmdlet'ler sağlayan modüller kümesidir. Cmdlet'ler, oluşturmak, yönetmek ve Azure hizmetlerini kaldırmak için kullanabilirsiniz. Cmdlet'ler yardımcı olabilecek tutarlı, tekrarlanabilir ve El değmeden dağıtımlarını elde edebilirsiniz. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/azurerm/install-azurerm-ps).
+Azure PowerShell, Azure'ı yönetmek için cmdlet'ler sağlayan modüller kümesidir. Cmdlet'ler, oluşturmak, yönetmek ve Azure hizmetlerini kaldırmak için kullanabilirsiniz. Cmdlet'ler yardımcı olabilecek tutarlı, tekrarlanabilir ve El değmeden dağıtımlarını elde edebilirsiniz. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-Az-ps).
 
 #### <a name="azure-command-line-interface"></a>Azure komut satırı arabirimi
 
@@ -477,7 +477,7 @@ Bir sanal ağı dağıtmak için birkaç seçenek vardır.
 
 - [PowerShell](../../virtual-network/quick-create-powershell.md)
 
-- [Komut satırı arabirimi (CLI)](../../virtual-network/quick-create-cli.md)
+- [Komut Satırı Arabirimi (CLI)](../../virtual-network/quick-create-cli.md)
 
 - Azure Resource Manager şablonları
 
@@ -491,5 +491,5 @@ Bir ağ güvenlik grubu kullanarak güvenli bir Azure sanal ağları yardımcı 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Bir Windows VM oluşturma](../../virtual-machines/windows/quick-create-portal.md)
+- [Windows VM oluşturma](../../virtual-machines/windows/quick-create-portal.md)
 - [Linux VM oluşturma](../../virtual-machines/linux/quick-create-portal.md)

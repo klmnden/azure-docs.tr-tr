@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 5d1b2718b360a55d9b1510bcfcb2ddb6492e2830
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e2ffda3141462d19557af3af26c117ee505c40ab
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436757"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047356"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Askıya alma ve mesajlaşma varlıkları (devre dışı bırak) yeniden etkinleştirme
 
@@ -34,6 +34,8 @@ Portalda, **özellikleri** ilgili varlığın bölüm sağlar durumunu değişti
 
 Portal, yalnızca tamamen kuyrukları devre dışı bırakma verir. Ayrıca gönderme devre dışı bırakma ve alma işlemleri ayrı olarak Service Bus'ı kullanarak [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API'ler .NET Framework SDK veya Azure CLI veya Azure PowerShell ile Azure Resource Manager şablonu ile.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="suspension-states"></a>Askıya alma durumları
 
 Bir kuyruk için ayarlanabilir durumlar şunlardır:
@@ -48,11 +50,11 @@ Abonelikler ve konular, yalnızca **etkin** ve **devre dışı bırakılmış** 
 [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) numaralandırması da bir dizi yalnızca sistem tarafından ayarlanabilir geçiş durumları tanımlar. Bir kuyruk devre dışı bırakmak için PowerShell komutunu aşağıdaki örnekte gösterilmiştir. Ayarı yeniden etkinleştirme komut eşdeğer `Status` için **etkin**.
 
 ```powershell
-$q = Get-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
+$q = Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
 
 $q.Status = "Disabled"
 
-Set-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
+Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

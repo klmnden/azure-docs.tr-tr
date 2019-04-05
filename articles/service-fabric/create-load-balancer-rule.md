@@ -14,18 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
-ms.openlocfilehash: 526e70fe8548b23f08a2c85e8a59bdc2c25199b4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d95d2802398a61b948ff6c59fb3eab0e1ddddbc5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660952"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051674"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Service Fabric kümesi için bağlantı noktalarını açma
 
 Azure Service Fabric kümenizle dağıtılan yük dengeleyici trafiği bir düğümde çalışan uygulamanıza yönlendirir. Farklı bir bağlantı noktası kullanacak şekilde değiştirirseniz, bu bağlantı noktasını kullanıma sunma (veya farklı bir bağlantı noktası route gerekir) Azure yük dengeleyicide.
 
 Service Fabric kümenizi Azure'a dağıtıldığında, bir yük dengeleyici sizin için otomatik olarak oluşturuldu. Bir yük dengeleyici yoksa bkz [bir Internet'e yönelik Yük Dengeleyiciyi yapılandırma](../load-balancer/load-balancer-get-started-internet-portal.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configure-service-fabric"></a>Service fabric yapılandırın
 
@@ -42,7 +45,7 @@ Bir yük dengeleyici kuralı oluşturmak için aşağıdaki bilgileri toplamak g
 - Dış bağlantı noktası.
 - İç bağlantı noktası.
 
-## <a name="azure-cli"></a>Azure CLI'si
+## <a name="azure-cli"></a>Azure CLI
 Yalnızca tek bir komutu ile bir yük dengeleyici kuralı oluşturmak için gereken **Azure CLI**. Her iki yeni bir kural oluşturmak için yük dengeleyici ve kaynak grubunun adını bilmeniz yeterlidir.
 
 >[!NOTE]
@@ -82,14 +85,14 @@ PowerShell, Azure CLI'yı biraz daha karmaşık bir işlemdir. Bir kural oluştu
 >[!NOTE]
 >Yük Dengeleyici adını belirlemek gerekiyorsa, hızlı bir şekilde tüm yük dengeleyicileri ve ilişkili kaynak grupları listesini almak için bu komutu kullanın.
 >
->`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
+>`Get-AzLoadBalancer | Select Name, ResourceGroupName`
 
 ```powershell
 # Get the load balancer
-$lb = Get-AzureRmLoadBalancer -Name LB-svcfab3 -ResourceGroupName svcfab_cli
+$lb = Get-AzLoadBalancer -Name LB-svcfab3 -ResourceGroupName svcfab_cli
 
 # Create the rule based on information from the load balancer.
-$lbrule = New-AzureRmLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -FrontendPort 39990 -BackendPort 40009 `
+$lbrule = New-AzLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -FrontendPort 39990 -BackendPort 40009 `
                                             -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
                                             -BackendAddressPool  $lb.BackendAddressPools[0] `
                                             -Probe $lb.Probes[0]
@@ -98,14 +101,14 @@ $lbrule = New-AzureRmLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -Fr
 $lb.LoadBalancingRules.Add($lbrule)
 
 # Update the load balancer on Azure
-$lb | Set-AzureRmLoadBalancer
+$lb | Set-AzLoadBalancer
 ```
 
-İlgili `New-AzureRmLoadBalancerRuleConfig` komutu `-FrontendPort` yük dengeleyici kullanıma sunar, dış bağlantılar için bağlantı noktasını temsil eder ve `-BackendPort` service fabric uygulaması için dinlediği bağlantı noktasını temsil eder.
+İlgili `New-AzLoadBalancerRuleConfig` komutu `-FrontendPort` yük dengeleyici kullanıma sunar, dış bağlantılar için bağlantı noktasını temsil eder ve `-BackendPort` service fabric uygulaması için dinlediği bağlantı noktasını temsil eder.
 
 >[!NOTE]
 >PowerShell ile bir yük dengeleyici oluşturma hakkında daha fazla bilgi için bkz. [PowerShell ile bir yük dengeleyici oluşturma](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi edinin [Service Fabric'te ağ](service-fabric-patterns-networking.md).
+Daha fazla bilgi edinin [Service Fabric'te ağ](service-fabric-patterns-networking.md)fabric desenleri networking.md .rvice).

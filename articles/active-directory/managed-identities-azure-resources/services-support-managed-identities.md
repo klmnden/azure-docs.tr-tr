@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5592ee7f3c4b5f55785100ceff09659aa437cb6
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d524f5f58e7381dd89f36c5d2821e6911ed9ec15
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578586"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045466"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure kaynakları için yönetilen kimlikleri destekleyen hizmetler
 
@@ -177,7 +177,7 @@ Azure Resource Manager'a erişimi yapılandırmak için aşağıdaki listeye bak
 | Azure Almanya |  `https://vault.microsoftazure.de` | Kullanılabilir |
 | Azure Çin 21Vianet | `https://vault.azure.cn` | Kullanılabilir |
 
-## <a name="azure-data-lake"></a>Azure Data Lake 
+### <a name="azure-data-lake"></a>Azure Data Lake 
 
 | Bulut | Kaynak kimliği | Durum |
 |--------|------------|--------|
@@ -186,7 +186,7 @@ Azure Resource Manager'a erişimi yapılandırmak için aşağıdaki listeye bak
 | Azure Almanya |   | Yok |
 | Azure Çin 21Vianet |  | Yok |
 
-## <a name="azure-sql"></a>Azure SQL 
+### <a name="azure-sql"></a>Azure SQL 
 
 | Bulut | Kaynak kimliği | Durum |
 |--------|------------|--------|
@@ -195,7 +195,7 @@ Azure Resource Manager'a erişimi yapılandırmak için aşağıdaki listeye bak
 | Azure Almanya | `https://database.cloudapi.de/` | Kullanılabilir |
 | Azure Çin 21Vianet | `https://database.chinacloudapi.cn/` | Kullanılabilir |
 
-## <a name="azure-event-hubs"></a>Azure Event Hubs
+### <a name="azure-event-hubs"></a>Azure Event Hubs
 
 | Bulut | Kaynak kimliği | Durum |
 |--------|------------|--------|
@@ -204,7 +204,7 @@ Azure Resource Manager'a erişimi yapılandırmak için aşağıdaki listeye bak
 | Azure Almanya |   | Yok |
 | Azure Çin 21Vianet |  | Yok |
 
-## <a name="azure-service-bus"></a>Azure Service Bus
+### <a name="azure-service-bus"></a>Azure Service Bus
 
 | Bulut | Kaynak kimliği | Durum |
 |--------|------------|--------|
@@ -213,7 +213,7 @@ Azure Resource Manager'a erişimi yapılandırmak için aşağıdaki listeye bak
 | Azure Almanya |   | Yok |
 | Azure Çin 21Vianet |  | Yok |
 
-## <a name="azure-storage"></a>Azure Storage
+### <a name="azure-storage"></a>Azure Storage
 
 | Bulut | Kaynak kimliği | Durum |
 |--------|------------|--------|

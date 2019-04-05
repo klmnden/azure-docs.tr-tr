@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: de5419bbfa5a364cb570651fd4d57d7560e4aafd
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: afa89fc90552c7ccba1fcea0945ee223d0096be4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663443"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047526"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource Manager şablonlarını kullanarak kaynak sistem durumu uyarılarını yapılandırma
 
@@ -22,30 +22,32 @@ Azure kaynaklarınızın geçerli ve geçmiş sistem durumu hakkında bilgilendi
 > [!NOTE]
 > Kaynak sistem durumu uyarıları, şu anda Önizleme aşamasındadır.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu sayfadaki yönergeleri izleyerek için birkaç önceden ayarlamalar yapmanız gerekir:
 
-1. Yüklemeniz gereken [Azure PowerShell Modülü](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (`AzureRm`)
+1. Yüklemeniz gereken [Azure PowerShell Modülü](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 2. Şunları yapmanız [oluşturmak veya bir eylem grubu yeniden](../azure-monitor/platform/action-groups.md) size bildirecek şekilde yapılandırılmış
 
 ## <a name="instructions"></a>Yönergeler
 1. PowerShell kullanarak Azure'da hesabınızı kullanarak oturum açın ve etkileşim kurmak istediğiniz aboneliği seçin
 
-        Login-AzureRmAccount
-        Select-AzureRmSubscription -Subscription <subscriptionId>
+        Login-AzAccount
+        Select-AzSubscription -Subscription <subscriptionId>
 
-    > Kullanabileceğiniz `Get-AzureRmSubscription` abonelikleri listelemek için erişiminiz olması.
+    > Kullanabileceğiniz `Get-AzSubscription` abonelikleri listelemek için erişiminiz olması.
 
 2. Bulun ve tam Azure Resource Manager Kimliğini kaydetmek için eylem grubu
 
-        (Get-AzureRmActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
+        (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
 3. Oluşturmak ve kaydetmek için kaynak durumu uyarı olarak Resource Manager şablonu `resourcehealthalert.json` ([aşağıdaki ayrıntılara göz atın](#resource-manager-template-for-resource-health-alerts))
 
 4. Bu şablonu kullanarak yeni bir Azure Resource Manager dağıtım oluştur
 
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
+        New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
 
 5. Uyarı adı ve eylem grubu kaynağı daha önce kopyaladığınız kimliği yazın istenir:
 
@@ -162,7 +164,7 @@ Ve kaynak düzeyi kapsam için kapsam bölümü şöyle görünmelidir:
 ],
 ```
 
-Örneğin, `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
+Örneğin: `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
 
 > Azure Portalı'na gidin ve URL'de bu dizesini almak için Azure kaynağınıza görüntülerken bakın.
 

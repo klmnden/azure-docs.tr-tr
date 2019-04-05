@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: fec72a4fac6baa3869928c0203aeb29e53ce5ea4
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 6df44531e8879783bba6b49a0db44f87af71fb5f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648478"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050518"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Hızlı Başlangıç: Uygulama yapılandırması ile bir Java Spring uygulaması oluşturma
 
@@ -54,11 +54,7 @@ Bu hızlı başlangıç yapmak için desteklenen bir yükleme [Java Development 
 
 4. **Oluştur**’u seçin. Dağıtımın tamamlanması birkaç dakika sürebilir.
 
-5. Dağıtım tamamlandıktan sonra seçin **ayarları** > **erişim anahtarlarını**. Bir ya da birincil salt okunur veya birincil salt okunur anahtar bağlantı dizesini not edin. Bu bağlantı dizesi daha sonra oluşturduğunuz uygulama yapılandırma deposu ile iletişim kurmak için uygulamanızı yapılandırmak için kullanırsınız. Bağlantı dizesi aşağıdaki biçime sahiptir:
-
-        Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>
-
-    Uygulamanızın tüm dize kullanın.
+5. Dağıtım tamamlandıktan sonra seçin **ayarları** > **erişim anahtarlarını**. Bir ya da birincil salt okunur veya birincil salt okunur anahtar bağlantı dizesini not edin. Bu bağlantı dizesi daha sonra oluşturduğunuz uygulama yapılandırma deposu ile iletişim kurmak için uygulamanızı yapılandırmak için kullanırsınız.
 
 6. Seçin **anahtar/değer Gezgini** > **+ Oluştur** aşağıdaki anahtar-değer çiftlerini eklemek için:
 
@@ -72,7 +68,7 @@ Bu hızlı başlangıç yapmak için desteklenen bir yükleme [Java Development 
 
 Kullandığınız [Initializr](https://start.spring.io/) yeni bir Spring Boot proje oluşturmaktır.
 
-1. konumuna gözatın <https://start.spring.io/>.
+1. <https://start.spring.io/> adresine gidin.
 
 2. Aşağıdaki seçenekleri belirtin:
 

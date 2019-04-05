@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 71e71b417f12b58fc03c581826c0e5c2412e684b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c7bfd36bb4e36b10487edbbaa40421f067c9ed3e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876655"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048767"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Uyarılar ve Azure işlevleri ile öngörülü ağ izleme için paket yakalamayı kullanma
 
@@ -33,9 +33,12 @@ Ağ İzleyicisi'ni kullanarak, uyarı ve işlevlerden içinde Azure ekosistemi t
 
 ![Senaryo][scenario]
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Önkoşullar
 
-* En son sürümünü [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+* En son sürümünü [Azure PowerShell](/powershell/azure/install-Az-ps).
 * Ağ İzleyicisi'nin var olan bir örneği. Zaten yoksa, [Ağ İzleyicisi bir örneğini oluşturmak](network-watcher-create.md).
 * Ağ İzleyicisi ile aynı bölgede mevcut bir sanal makine [Windows uzantısı](../virtual-machines/windows/extensions-nwa.md) veya [Linux sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md).
 
@@ -88,7 +91,7 @@ Bu senaryo, şunları yapar:
     |**Ayar** | **Değer** | **Ayrıntılar** |
     |---|---|---|
     |**Senaryo**|Deneysel|Senaryo türü|
-    |**İşlevinizi adlandırın**|AlertPacketCapturePowerShell|İşlevin adı|
+    |**İşlevinizi adlandırma**|AlertPacketCapturePowerShell|İşlevin adı|
     |**Yetkilendirme düzeyi**|İşlev|Yetkilendirme düzeyi işlevi|
 
 ![Örnek işlevleri][functions1]
@@ -105,16 +108,16 @@ Ağ İzleyicisi PowerShell cmdlet'lerini kullanmak için işlev uygulaması içi
 1. Yerel makinenizde yüklü en son Azure PowerShell modülleri, aşağıdaki PowerShell komutunu çalıştırın:
 
     ```powershell
-    (Get-Module AzureRM.Network).Path
+    (Get-Module Az.Network).Path
     ```
 
     Bu örnek, Azure PowerShell modüllerini yerel yolunu sağlar. Bu klasör, bir sonraki adımda kullanılır. Bu senaryoda kullanılan modülleri şunlardır:
 
-   * AzureRM.Network
+   * Az.Network
 
-   * AzureRM.Profile
+   * Az.Accounts
 
-   * AzureRM.Resources
+   * Az.Resources
 
      ![PowerShell klasörleri][functions5]
 
@@ -128,17 +131,17 @@ Ağ İzleyicisi PowerShell cmdlet'lerini kullanmak için işlev uygulaması içi
 
     ![Klasör ve alt klasörleri][functions3]
 
-    * AzureRM.Network
+    * Az.Network
 
-    * AzureRM.Profile
+    * Az.Accounts
 
-    * AzureRM.Resources
+    * Az.Resources
 
-1. Sağ **AzureRM.Network** alt klasöre tıklayın ve ardından **dosyaları karşıya yükle**. 
+1. Sağ **Az.Network** alt klasöre tıklayın ve ardından **dosyaları karşıya yükle**. 
 
-6. Azure modüllerinizi gidin. Yerel **AzureRM.Network** klasörü, klasördeki tüm dosyaları seçin. Sonra **Tamam**’ı seçin. 
+6. Azure modüllerinizi gidin. Yerel **Az.Network** klasörü, klasördeki tüm dosyaları seçin. Sonra **Tamam**’ı seçin. 
 
-7. Bu adımı yineleyin **AzureRM.Profile** ve **AzureRM.Resources**.
+7. Bu adımı yineleyin **Az.Accounts** ve **Az.Resources**.
 
     ![Dosyaları karşıya yükleme][functions6]
 
@@ -196,10 +199,10 @@ Azure Active Directory'de bir uygulamanın uygulama kimliği istemci kimliğidir
 1. Bir uygulamayı kullanmak için zaten sahip değilseniz, bir uygulama oluşturmak için aşağıdaki örneği çalıştırın.
 
     ```powershell
-    $app = New-AzureRmADApplication -DisplayName "ExampleAutomationAccount_MF" -HomePage "https://exampleapp.com" -IdentifierUris "https://exampleapp1.com/ExampleFunctionsAccount" -Password "<same password as defined earlier>"
-    New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
+    $app = New-AzADApplication -DisplayName "ExampleAutomationAccount_MF" -HomePage "https://exampleapp.com" -IdentifierUris "https://exampleapp1.com/ExampleFunctionsAccount" -Password "<same password as defined earlier>"
+    New-AzADServicePrincipal -ApplicationId $app.ApplicationId
     Start-Sleep 15
-    New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $app.ApplicationId
+    New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $app.ApplicationId
     ```
 
    > [!NOTE]
@@ -218,7 +221,7 @@ Azure Active Directory'de bir uygulamanın uygulama kimliği istemci kimliğidir
 Aşağıdaki PowerShell örneğini çalıştırarak Kiracı Kimliğini alın:
 
 ```powershell
-(Get-AzureRmSubscription -SubscriptionName "<subscriptionName>").TenantId
+(Get-AzSubscription -SubscriptionName "<subscriptionName>").TenantId
 ```
 
 #### <a name="azurecredpassword"></a>AzureCredPassword
@@ -266,9 +269,9 @@ Aşağıdaki örnek işlev kullanılabilecek PowerShell kodudur. Değerler için
 
 ```powershell
             #Import Azure PowerShell modules required to make calls to Network Watcher
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Profile\AzureRM.Profile.psd1" -Global
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Network\AzureRM.Network.psd1" -Global
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Resources\AzureRM.Resources.psd1" -Global
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Accounts\Az.Accounts.psd1" -Global
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Network\Az.Network.psd1" -Global
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Resources\Az.Resources.psd1" -Global
 
             #Process alert request body
             $requestBody = Get-Content $req -Raw | ConvertFrom-Json
@@ -290,7 +293,7 @@ Aşağıdaki örnek işlev kullanılabilecek PowerShell kodudur. Değerler için
             #Authentication
             $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
             $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
-            Connect-AzureRmAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
+            Connect-AzAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
 
 
             #Get the VM that fired the alert
@@ -302,22 +305,22 @@ Aşağıdaki örnek işlev kullanılabilecek PowerShell kodudur. Değerler için
                 Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
 
                 #Get the Network Watcher in the VM's region
-                $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
-                $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+                $nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
+                $networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
                 #Get existing packetCaptures
-                $packetCaptures = Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
+                $packetCaptures = Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
 
                 #Remove existing packet capture created by the function (if it exists)
                 $packetCaptures | %{if($_.Name -eq $packetCaptureName)
                 { 
-                    Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
+                    Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
                 }}
 
                 #Initiate packet capture on the VM that fired the alert
-                if ((Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
+                if ((Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
                     echo "Initiating Packet Capture"
-                    New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
+                    New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
                     Out-File -Encoding Ascii -FilePath $res -inputObject "Packet Capture created on ${requestBody.context.resourceID}"
                 }
             } 
@@ -349,7 +352,7 @@ Varolan bir sanal makineye gidin ve ardından bir uyarı kuralı ekleyin. Uyarı
   |**Koşul**|Büyüktür| Ölçüm değerlendirilirken kullanılacak koşul.|
   |**Eşik**|100| Uyarıyı tetikleyen ölçüm değeri. Bu değer, ortamınız için geçerli bir değere ayarlanmalıdır.|
   |**Dönem**|Son beş dakika boyunca| Ölçüm eşiğine aramak süreniz belirler.|
-  |**Web kancası**|[işlev uygulamasından Web kancası URL'si]| Web kancası URL'si önceki adımlarda oluşturulan işlev uygulamasından.|
+  |**Web Kancası**|[işlev uygulamasından Web kancası URL'si]| Web kancası URL'si önceki adımlarda oluşturulan işlev uygulamasından.|
 
 > [!NOTE]
 > Varsayılan olarak TCP segmentleri ölçüm etkin değil. Ek ölçümler ederek etkinleştirme hakkında daha fazla bilgi [izleme ve tanılamayı etkinleştirme](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).

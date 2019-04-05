@@ -7,16 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 441b58e60bf8dfd5f164ac24d746b9791158ade2
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 69b8e1c533747d1bade69949911ea43f299f49e9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58420125"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59043817"
 ---
 # <a name="manage-mobility-agent-on-protected-machines"></a>Mobility Aracısı korunan makinelere yönetme
 
 VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için Azure Site Recovery kullandığınızda sunucunuzda mobility aracınızı ayarlayın. Mobility Aracısı, korunan makinenin, yapılandırma sunucusu/genişleme işlem sunucusu arasındaki iletişimi düzenler ve veri çoğaltma işlemlerini yönetir. Bu makalede dağıtıldıktan sonra mobility aracısını yönetmek için ortak görevler özetlenir.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="update-mobility-service-from-azure-portal"></a>Azure portalından mobility hizmetini güncelleştirme
 
@@ -37,7 +40,7 @@ VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma i�
 Power shell cmdlet'i aracılığıyla bir sunucu üzerinde Mobility hizmetini yükseltme betiği aşağıdaki kullanın
 
 ```azurepowershell
-Update-AzureRmRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
+Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
 ```
 
 ## <a name="update-account-used-for-push-installation-of-mobility-service"></a>Mobility hizmeti gönderme yüklemesi için kullanılan hesabı güncelleştirme

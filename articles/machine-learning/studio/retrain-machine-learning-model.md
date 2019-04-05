@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: ea73c16687d393cd1e61c4aee83fbf74cc4ae9a7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 903f2700ad127c9bcc69e69ee125ba62fccf52e0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108129"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051640"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Yeniden eğitme ve makine öğrenme modeli dağıtma
 
@@ -28,6 +28,8 @@ Yeniden eğitme ve bir machine learning yeni web hizmeti dağıtmak için aşağ
 1. Dağıtım bir **web hizmetini yeniden eğitme**
 1. Kullanarak yeni bir modeli eğitmek, **web hizmetini yeniden eğitme**
 1. Mevcut güncelleştirme **Tahmine dayalı denemeye** yeni modeli kullanmak için
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="deploy-the-retraining-web-service"></a>Yeniden eğitme web hizmetini dağıtma
 
@@ -130,15 +132,15 @@ Kaydet *BaseLocation*, *RelativeLocation*, ve *SasBlobToken* çıkış sonuçlar
 
 ### <a name="sign-in-to-azure-resource-manager"></a>Azure Resource Manager'a oturum açın
 
-İlk olarak, Azure hesabınıza PowerShell ortamında kullanarak oturum açın [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet'i.
+İlk olarak, Azure hesabınıza PowerShell ortamında kullanarak oturum açın [Connect AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet'i.
 
 ### <a name="get-the-web-service-definition-object"></a>Web hizmet tanımı nesnesini alın
 
-Ardından, Web hizmeti tanımı nesnesi çağırarak alın [Get-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/get-azurermmlwebservice) cmdlet'i.
+Ardından, Web hizmeti tanımı nesnesi çağırarak alın [Get-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservice) cmdlet'i.
 
-    $wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+    $wsd = Get-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
-Mevcut bir web hizmetini kaynak grubu adını belirlemek için aboneliğinizde web hizmetleri görüntülemek için herhangi bir parametre olmadan Get-AzureRmMlWebService cmdlet'ini çalıştırın. Web hizmeti bulun ve ardından, web hizmeti kimliğini arayın Kaynak grubu adını dördüncü kimliği hemen sonra öğedir *resourceGroups* öğesi. Aşağıdaki örnekte kaynak grubu adı varsayılan MachineLearning SouthCentralUS ' dir.
+Mevcut bir web hizmetini kaynak grubu adını belirlemek için aboneliğinizde web hizmetleri görüntülemek için herhangi bir parametre olmadan Get-AzMlWebService cmdlet'ini çalıştırın. Web hizmeti bulun ve ardından, web hizmeti kimliğini arayın Kaynak grubu adını dördüncü kimliği hemen sonra öğedir *resourceGroups* öğesi. Aşağıdaki örnekte kaynak grubu adı varsayılan MachineLearning SouthCentralUS ' dir.
 
     Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
     Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
@@ -153,9 +155,9 @@ Alternatif olarak, mevcut bir web hizmetini kaynak grubu adını belirlemek içi
 
 ### <a name="export-the-web-service-definition-object-as-json"></a>Web servis tanımı nesnesi, JSON olarak dışarı aktarma
 
-Yeni eğitilen modelini kullanmak için eğitilen model tanımı değiştirmek için önce kullanmalısınız [dışarı aktarma AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice) JSON biçiminde bir dosyaya vermek için cmdlet'i.
+Yeni eğitilen modelini kullanmak için eğitilen model tanımı değiştirmek için önce kullanmalısınız [dışarı aktarma AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) JSON biçiminde bir dosyaya vermek için cmdlet'i.
 
-    Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
+    Export-AzMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
 ### <a name="update-the-reference-to-the-ilearner-blob"></a>Güncelleştirme ilearner blob başvurusu
 
@@ -176,15 +178,15 @@ Yeni eğitilen modelini kullanmak için eğitilen model tanımı değiştirmek i
 
 ### <a name="import-the-json-into-a-web-service-definition-object"></a>JSON bir Web hizmeti tanımının nesnesine içe aktarın.
 
-Kullanma [alma AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/import-azurermmlwebservice) değiştirilmiş bir JSON dosyası predicative denemeyi güncelleştirmeniz kullanabileceğiniz geri bir Web hizmeti tanımının nesnesine dönüştürmek için cmdlet'i.
+Kullanma [alma AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/import-azmlwebservice) değiştirilmiş bir JSON dosyası predicative denemeyi güncelleştirmeniz kullanabileceğiniz geri bir Web hizmeti tanımının nesnesine dönüştürmek için cmdlet'i.
 
-    $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
+    $wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 ### <a name="update-the-web-service"></a>Web hizmetini güncelleştirmek
 
-Son olarak, [güncelleştirme AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/update-azurermmlwebservice) Tahmine dayalı denemeye güncelleştirmek için cmdlet.
+Son olarak, [güncelleştirme AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/update-azmlwebservice) Tahmine dayalı denemeye güncelleştirmek için cmdlet.
 
-    Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+    Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

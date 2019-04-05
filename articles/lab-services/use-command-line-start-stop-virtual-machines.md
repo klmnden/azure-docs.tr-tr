@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 9b7df83b710bac0b37ac28c432f63a47ddda21d1
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 51c45fdb0c96e84d3f37f485279aa805361f3818
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440047"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051215"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Azure DevTest Labs sanal makineleri durdurmak ve başlatmak için komut satırı araçlarını kullanma
 Bu makalede başlatmak veya sanal makineler'de Azure DevTest labs'deki bir laboratuvara durdurmak için Azure PowerShell veya Azure CLI kullanma işlemini gösterir. Bu işlemleri otomatikleştirmek için PowerShell/CLI betiklerini oluşturabilirsiniz. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Genel Bakış
 Azure DevTest Labs, hızlı, kolay ve yalın geliştirme ve test ortamları oluşturmak için kullanılan bir yoldur. Bu maliyet yönetmek, hızlı bir şekilde Vm'leri sağlayın ve en aza indirmek, atık sağlar.  Azure portalında Vm'leri otomatik olarak belirli zamanlarda durdurmak ve başlatmak Laboratuvar yapılandırma olanak tanıyan yerleşik özellikler mevcuttur. 
@@ -32,7 +34,7 @@ Ancak, bazı senaryolarda, sanal makinelerin PowerShell/CLI betiklerin durdurmay
 - Bu bir CI/CD iş akışı içinde bir görev olarak akışın başından itibaren başlatmak, makineler oluşturdukça Vm'leri kullanın, makineleri veya altyapıyı test edin ve ardından işlemi tamamlandığında, sanal makineleri durdurmak için kullanın. Buna örnek olarak Azure DevTest Labs ile özel görüntü Fabrika olacaktır.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Aşağıdaki PowerShell betiğini bir laboratuvarda VM başlatır. [Çağırma AzureRmResourceAction](/powershell/module/azurerm.resources/invoke-azurermresourceaction?view=azurermps-6.13.0) birincil odak noktası için bu betiği. **ResourceId** parametredir Laboratuvar içinde VM için tam kaynak kimliği. **Eylem** parametredir nerede **Başlat** veya **Durdur** seçenekleri, ihtiyacınız olan şey bağlı olarak ayarlanır.
+Aşağıdaki PowerShell betiğini bir laboratuvarda VM başlatır. [Çağırma AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azurermps-6.13.0) birincil odak noktası için bu betiği. **ResourceId** parametredir Laboratuvar içinde VM için tam kaynak kimliği. **Eylem** parametredir nerede **Başlat** veya **Durdur** seçenekleri, ihtiyacınız olan şey bağlı olarak ayarlanır.
 
 ```powershell
 # The id of the subscription
@@ -48,17 +50,17 @@ $vMToStart = "vmname"
 $vmAction = "Start"
 
 # Select the Azure subscription
-Select-AzureRMSubscription -SubscriptionId $subscriptionId
+Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Get the lab information
 if ($(Get-Module -Name AzureRM).Version.Major -eq 6) {
-    $devTestLab = Get-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' -Name $devTestLabName
+    $devTestLab = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -Name $devTestLabName
 } else {
-    $devTestLab = Find-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $devTestLabName
+    $devTestLab = Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $devTestLabName
 }
 
 # Start the VM and return a succeeded or failed status
-$returnStatus = Invoke-AzureRmResourceAction `
+$returnStatus = Invoke-AzResourceAction `
                     -ResourceId "$($devTestLab.ResourceId)/virtualmachines/$vMToStart" `
                     -Action $vmAction `
                     -Force

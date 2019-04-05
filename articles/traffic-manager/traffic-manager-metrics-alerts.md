@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: 0bce0d407246ceab05c3951dc976884dd6f15b08
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: c251cc851b34f708a2150d3b0444f235d2bc50d6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200199"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045313"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager ölçümleri ve Uyarıları
 
@@ -58,7 +58,7 @@ Bu ölçüm tüm ölçümler (Şekil 3) durumunu temsil eden bir toplam değer o
 
 *Şekil 4: Uç nokta durum ölçümlerinin Bölünmüş Görünüm*
 
-Bu ölçümleri aracılığıyla tüketebileceği [Azure İzleyici hizmeti](../azure-monitor/platform/metrics-supported.md)ın portal [REST API](https://docs.microsoft.com/rest/api/monitor/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), ve [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights), veya Traffic Manager'ın portal deneyimi ölçümleri bölümü.
+Bu ölçümleri aracılığıyla tüketebileceği [Azure İzleyici hizmeti](../azure-monitor/platform/metrics-supported.md)ın portal [REST API](https://docs.microsoft.com/rest/api/monitor/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), ve [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights), veya Traffic Manager'ın portal deneyimi ölçümleri bölümü.
 
 ## <a name="alerts-on-traffic-manager-metrics"></a>Traffic Manager ölçümler ile ilgili uyarılar
 Azure İzleyici, işleme ve trafik Yöneticisi'nden ölçümü görüntüleniyor ek olarak, yapılandırmak ve bu ölçümleri ile ilişkili uyarıları almak müşterilerin sağlar. Bu ölçümler gerçekleşmesi bir uyarı için karşılanması gereken koşullar gerekenler, ne sıklıkta bu koşullara izlenmesi gereken ve nasıl uyarılar size gönderilmesi gereken seçebilirsiniz. Daha fazla bilgi için [Azure İzleyici uyarılarına belgeleri](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).

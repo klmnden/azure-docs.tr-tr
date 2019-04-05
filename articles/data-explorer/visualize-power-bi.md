@@ -1,19 +1,18 @@
 ---
 title: "Öğretici: Azure Power BI veri Gezgini'nde verileri görselleştirin"
 description: Bu öğreticide Power BI ile Azure Veri Gezgini'ne bağlanmayı ve verilerinizi görselleştirmeyi öğreneceksiniz.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: f253911c1830e606dd47b64aaea1f17cb3478cd5
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 70a06b75db9ff49222c2de4aa78519b32d863478
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757747"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049889"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Öğretici: Azure Power BI veri Gezgini'nde verileri görselleştirin
 
@@ -34,7 +33,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bu öğreticiyi tamamlamak için Azure ve Power BI aboneliklerine ek olarak aşağıdakilere ihtiyacınız vardır:
 
-* [Test kümesi ve veritabanı](create-cluster-database-portal.md)
+* [Bir test kümesi ve veritabanı](create-cluster-database-portal.md)
 
 * [Örnek verileri StormEvents](ingest-sample-data.md). [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 

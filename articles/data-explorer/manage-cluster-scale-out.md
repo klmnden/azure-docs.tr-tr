@@ -1,19 +1,18 @@
 ---
-title: Değişen talepleri karşılamak için ölçekleme Azure Veri Gezgini küme
+title: Değişen talepleri karşılamak için bir Azure Veri Gezgini kümedeki ölçeklendirin
 description: Ölçeği genişletme ve ölçeklendirmek için adımlar bu makalede bir Azure Veri Gezgini kümesinde göre değişen isteğe bağlı.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 9b54bf182f23eceb47c392059ff52c04bf0a8aed
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ab4ced6695e6066098dd5ff7348528deedfc0e1b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755080"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044243"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Küme değişen talepleri karşılamak için genişleme yönetme
 
@@ -45,10 +44,10 @@ Aşağıdaki grafikte, sonraki birkaç adım akışı gösterilmektedir. Daha fa
     | --- | --- |
     | **Zaman toplama** | Gibi bir toplama ölçütü seçin **ortalama**. |
     | **Ölçüm adı** | Ölçeklendirme işlemi, aşağıdakiler gibi temel alınmasını istediğiniz ölçümü seçin **önbellek kullanımı**. |
-    | **Zaman dilimi İstatistiği** | Arasında seçim **ortalama**, **Minimum**, **maksimum**, ve **toplam**. |
-    | **İşleci** | Uygun bir seçeneği gibi belirleyin **büyüktür veya eşittir**. |
+    | **Zaman dilimi istatistiği** | Arasında seçim **ortalama**, **Minimum**, **maksimum**, ve **toplam**. |
+    | **İşleç** | Uygun bir seçeneği gibi belirleyin **büyüktür veya eşittir**. |
     | **Eşik** | Uygun bir değer seçin. Örneğin, önbellek kullanımı için yüzde 80'i iyi bir başlangıç noktası ' dir. |
-    | **Süre (dakika cinsinden)** | Uygun miktarda bir sistemin geri ölçümleri hesaplanırken aramak saati seçin. Varsayılan 10 dakika ile başlayın. |
+    | **Süre (dakika)** | Uygun miktarda bir sistemin geri ölçümleri hesaplanırken aramak saati seçin. Varsayılan 10 dakika ile başlayın. |
     |  |  |
 
     **Eylem**
@@ -57,7 +56,7 @@ Aşağıdaki grafikte, sonraki birkaç adım akışı gösterilmektedir. Daha fa
     | --- | --- |
     | **İşlem** | Ölçeklendirme veya ölçeği genişletmek için uygun seçeneği belirleyin. |
     | **Örnek sayısı** | Düğümleri veya örneklerini eklemek veya bir ölçüm koşul karşılandığında kaldırmak istiyorsanız sayısını seçin. |
-    | **Seyrek erişimli (dakika)** | Ölçek işlemleri arasında beklenecek bir uygun zaman aralığı seçin. Varsayılan beş dakika ile başlayın. |
+    | **Soğuma (dakika)** | Ölçek işlemleri arasında beklenecek bir uygun zaman aralığı seçin. Varsayılan beş dakika ile başlayın. |
     |  |  |
 
 1. **Add (Ekle)** seçeneğini belirleyin.
@@ -66,8 +65,8 @@ Aşağıdaki grafikte, sonraki birkaç adım akışı gösterilmektedir. Daha fa
 
     | Ayar | Açıklama ve değer |
     | --- | --- |
-    | **En az** | Kümenizi aşağıdaki bağımsız olarak kullanımı Ölçekle örnek sayısı. |
-    | **En fazla** | Kümenizi yukarıdaki kullanımı bağımsız olarak ölçeklendirme olmaz örnek sayısı. |
+    | **Minimum** | Kümenizi aşağıdaki bağımsız olarak kullanımı Ölçekle örnek sayısı. |
+    | **Maksimum** | Kümenizi yukarıdaki kullanımı bağımsız olarak ölçeklendirme olmaz örnek sayısı. |
     | **Varsayılan** | Varsayılan örnek sayısı. Kaynak ölçümlerin okunmasıyla ile ilgili sorun varsa, bu ayar kullanılır. |
     |  |  |
 

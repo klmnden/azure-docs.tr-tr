@@ -8,18 +8,18 @@ manager: rosh
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 2/27/2019
+ms.date: 4/02/2019
 ms.author: rosh
-ms.openlocfilehash: 6b7685f837cabf7ec659311c54f8c168981e4777
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8c350b5c2d945ed48566f549ab85844fc14625dc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544725"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049295"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Hızlı Başlangıç: Bing görsel arama REST API'si ve Ruby kullanarak görüntü Öngörüler elde edin
 
-Bu hızlı başlangıçta, Bing görsel arama çağırmak ve sonuçları görüntülemek için Ruby programlama dilini kullanır. Bir Post İsteği API uç noktasına yönelik bir görüntüyü karşıya yükler. Sonuçlar URL'leri ve görüntüleri karşıya yüklenen görüntüyü benzer hakkında açıklayıcı bilgiler içerir.
+Bu hızlı başlangıçta, Bing görsel arama çağırmak ve sonuçları görüntülemek için Ruby programlama dilini kullanır. Bir POST isteği API uç noktasına yönelik bir görüntüyü karşıya yükler. Sonuçlar URL'leri ve görüntüleri karşıya yüklenen görüntüyü benzer hakkında açıklayıcı bilgiler içerir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -32,7 +32,7 @@ Bu Hızlı Başlangıç'ı çalıştırmak için:
 
 ## <a name="project-and-required-modules"></a>Proje ve gerekli modülleri
 
-Yeni bir Ruby projesi, IDE'niz veya düzenleyicinizle oluşturun. İçeri aktarma `net/http`, `uri` , ve `json` JSON metnini sonuçları işlemek için. `base64` Kitaplık, dosya adı dizesi olarak kodlamak için kullanılır. 
+Yeni bir Ruby projesi, IDE'niz veya düzenleyicinizle oluşturun. İçeri aktarma `net/http`, `uri` , ve `json` JSON metnini sonuçları işlemek için. `base64` Kitaplık, dosya adı dizesi olarak kodlamak için kullanılır: 
 
 ```
 require 'net/https'
@@ -44,7 +44,7 @@ require 'base64'
 
 ## <a name="define-variables"></a>Değişkenleri tanımlama
 
-Aşağıdaki kod gereken değişkenleri atar. Uç nokta doğru olduğundan emin olun ve değiştirme `accessKey` Azure hesabınızdan bir abonelik anahtarı değeri.  `batchNumber` Olan baştaki ve sondaki gönderme verisi sınırları için gerekli bir GUID.  `fileName` Değişken Post için resim dosyası tanımlar.  `if` Bir geçerli abonelik anahtarı için testleri engelleyin.
+Aşağıdaki kod gereken değişkenleri atar. Uç nokta doğru olduğundan emin olun ve değiştirme `accessKey` Azure hesabınızdan bir abonelik anahtarı değeri.  `batchNumber` Olan baştaki ve sondaki gönderme verisi sınırları için gerekli bir GUID.  `fileName` Değişken POST için resim dosyası tanımlar.  `if` Bir geçerli abonelik anahtarı için testleri engelleyin.
 
 ```
 accessKey = "ACCESS-KEY"
@@ -61,9 +61,9 @@ end
 
 ```
 
-## <a name="form-data-for-post-request"></a>Form verileri için Post İsteği
+## <a name="form-data-for-post-request"></a>Form verileri için POST isteği
 
-Post için görüntü verilerini, baştaki ve sondaki sınırları içine alınır.  Aşağıdaki işlevleri sınırları ayarlayın.
+POST için görüntü verilerini, baştaki ve sondaki sınırları içine alınır. Aşağıdaki işlevleri sınırlar ayarlayın:
 
 ```
 def BuildFormDataStart(batNum, fileName)
@@ -74,10 +74,9 @@ end
 def BuildFormDataEnd(batNum)
     return "\r\n\r\n" + "--batch_" + batNum + "--" + "\r\n"
 end
-
 ```
 
-Ardından uç nokta URI'si ve Post gövdesini içeren bir dizi oluşturun.  Başlangıç sınır diziye yüklemek için önceki işlevini kullanın. Görüntü dosyası diziye okuyun. Ardından, uç sınır diziye okuyun. 
+Ardından, uç nokta URI'si ve POST gövdesini içeren bir dizi oluşturun.  Başlangıç sınır diziye yüklemek için önceki işlevini kullanın. Görüntü dosyası diziye okuyun. Ardından, uç sınır diziye okuyun:
 
 ```
 uri = URI(uri + path)
@@ -91,12 +90,11 @@ post_body << BuildFormDataStart(batchNumber, fileName)
 post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
 
 post_body << BuildFormDataEnd(batchNumber)
-
 ```
 
 ## <a name="create-the-http-request"></a>HTTP isteği oluştur
 
-Ayarlama `Ocp-Apim-Subscription-Key` başlığı.  İsteği oluşturma.  Ardından, üst bilgi ve içerik türü atayın.  İstek için daha önce oluşturduğunuz Post gövdesini katılın.
+Ayarlama `Ocp-Apim-Subscription-Key` başlığı.  İsteği oluşturma. Ardından, üst bilgi ve içerik türü atayın. İstek için daha önce oluşturduğunuz POST gövdesini Katıl:
 
 ```
 header = {'Ocp-Apim-Subscription-Key': accessKey}
@@ -110,7 +108,7 @@ request.body = post_body.join
 
 ## <a name="request-and-response"></a>İstek ve yanıt
 
-Ruby isteği gönderir ve yanıtı aşağıdaki kod satırını alır.
+Ruby isteği gönderir ve yanıtı aşağıdaki kod satırını alır:
 
 ```
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -121,7 +119,7 @@ end
 
 ## <a name="print-the-results"></a>Sonuçları yazdırma
 
-Yanıt üst bilgilerini yazdırır. Ardından, çıktıyı biçimlendirmek için JSON kitaplığını kullanın.
+Yanıt Üstbilgileri yazdırma ve JSON kitaplık çıktıyı biçimlendirmek için kullanın:
 
 ```
 puts "\nRelevant Headers:\n\n"
@@ -138,7 +136,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ## <a name="results"></a>Sonuçlar
 
-Aşağıdaki JSON çıktısının bir segmenttir.
+Aşağıdaki JSON çıktısını bir parçası olan:
 
 ```
 Relevant Headers:
@@ -287,4 +285,4 @@ JSON Response:
 
 > [!div class="nextstepaction"]
 > [Bing görsel arama genel bakış](../overview.md)
-> [özel arama web uygulaması derleme](../tutorial-bing-visual-search-single-page-app.md)
+> [görsel arama tek sayfa web uygulaması derleme](../tutorial-bing-visual-search-single-page-app.md)

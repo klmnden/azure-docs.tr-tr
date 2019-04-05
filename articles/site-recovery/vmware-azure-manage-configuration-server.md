@@ -7,16 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: 93e05390d28b9e9998d84935417121696d2963cc
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: c23f3ec9c85bb3997380d83c097f2690b91c1f4f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877236"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049706"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>VMware VM'LERİNDE olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
 
 Kullanırken bir şirket içi yapılandırma sunucusu ayarlama [Azure Site Recovery](site-recovery-overview.md) VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için. Yapılandırma sunucusu arasındaki iletişimi düzenler şirket içi VMware ve Azure ve veri çoğaltma işlemlerini yönetir. Bu makalede dağıtıldıktan sonra yapılandırma sunucusunu yönetmek için ortak görevler özetlenir.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="access-configuration-server"></a>Erişimi yapılandırma sunucusu
 
@@ -234,28 +237,28 @@ ProxyPassword="Password"
 
 İsteğe bağlı olarak, PowerShell kullanarak yapılandırma sunucusunu silebilirsiniz.
 
-1. [Yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) Azure PowerShell modülü.
+1. [Yükleme](https://docs.microsoft.com/powershell/azure/install-Az-ps) Azure PowerShell modülü.
 2. Bu komutu kullanarak Azure hesabınızda oturum açın:
 
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 3. Kasa aboneliğini seçin.
 
-     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+     `Get-AzSubscription –SubscriptionName <your subscription name> | Select-AzSubscription`
 3.  Kasa bağlamını ayarlayın.
 
     ```
-    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    $vault = Get-AzRecoveryServicesVault -Name <name of your vault>
+    Set-AzSiteRecoveryVaultSettings -ARSVault $vault
     ```
 4. Yapılandırma sunucusunu alır.
 
-    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. Yapılandırma sunucusu silme.
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force]`
+    `Remove-AzSiteRecoveryFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
-> Kullanabileceğiniz **-Force** AzureRmSiteRecoveryFabric Kaldır seçeneği için yapılandırma sunucusunu zorla silme işlemi.
+> Kullanabileceğiniz **-Force** AzSiteRecoveryFabric Kaldır seçeneği için yapılandırma sunucusunu zorla silme işlemi.
 
 ## <a name="generate-configuration-server-passphrase"></a>Yapılandırma sunucusu parolası oluşturma
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: ac4351bd2e125c922cb3044c1d06298b3ad6de97
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f00c816f34978ee2f14f16ee9882860750d0e658
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805066"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051895"
 ---
 # <a name="traffic-analytics"></a>Trafik Analizi
 
@@ -28,6 +28,9 @@ Trafik analizi, bulut ağlarındaki kullanıcı ve uygulama etkinliğiniz görü
 - Güvenlik tehditleri belirleyin ve açık bağlantı noktaları, internet erişimi ve sanal ağları standart dışı bağlanmak makineleri (VM) çalışan uygulamalar gibi bilgileri ile ağınızın güvenliğini sağlayın.
 - Azure bölgeleri ve performans ve kapasite kendi ağ dağıtımınıza en iyi duruma getirmek için internet üzerinden trafik akış desenlerini anlayın.
 - Ağınızda başarısız bağlantılar için önde gelen ağ yanlış yapılandırmalarını saptayın.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="why-traffic-analytics"></a>Neden analiz trafiği?
 
@@ -133,7 +136,7 @@ Trafiğini analiz etmek için var olan bir Ağ İzleyicisi olması gerekir veya 
 Trafik analizi kullanabilmeniz için ağ kaynak sağlayıcısı yeniden kaydetmeniz gerekir. Tıklayın **deneyin** Azure Cloud Shell'i açmak için aşağıdaki kodu kutusuna. Cloud Shell, Azure aboneliğinizin, içine otomatik olarak günlüğe kaydeder. Cloud Shell açıldıktan sonra ağ kaynağı sağlayıcı yeniden kaydetmek için aşağıdaki komutu girin:
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
+Register-AzResourceProvider -ProviderNamespace "Microsoft.Network"
 ```
 
 ### <a name="select-a-network-security-group"></a>Bir ağ güvenlik grubu seçin
@@ -153,13 +156,13 @@ Akış günlüğü ayarları etkinleştirmeden önce aşağıdaki görevleri tam
 Aboneliğiniz için henüz kayıtlı değilse Azure Insights sağlayıcısını kaydedin:
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights
+Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
 Henüz yoksa, oturum açtığında NSG akış depolamak için bir Azure depolama hesabı, bir depolama hesabı oluşturmanız gerekir. Aşağıdaki komutla bir depolama hesabı oluşturabilirsiniz. Komutu çalıştırmadan önce değiştirin `<replace-with-your-unique-storage-account-name>` 3-24 karakter uzunluğunda, tüm Azure konumlarında benzersiz olan bir ada sahip yalnızca sayı ve küçük harfler kullanarak. Kaynak grubu adı, gerekirse de değiştirebilirsiniz.
 
 ```azurepowershell-interactive
-New-AzureRmStorageAccount `
+New-AzStorageAccount `
   -Location westcentralus `
   -Name <replace-with-your-unique-storage-account-name> `
   -ResourceGroupName myResourceGroup `
@@ -182,7 +185,7 @@ Aşağıdaki seçenekler, resimde gösterildiği gibi seçin:
 
 Trafik analizi için etkinleştirmek istediğiniz diğer tüm Nsg'ler için önceki adımı yineleyin. Akış günlükleri verilerini çalışma alanına gönderilir, böylece yerel kanunlarınız ve düzenlemelerinizle ülkenizde veri depolama çalışma alanının bulunduğu bölgede izin emin olun.
 
-Trafik analizi kullanarak da yapılandırabilirsiniz [kümesi AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) AzureRm PowerShell modülü sürüm 6.2.1 PowerShell cmdlet'inde veya üzeri. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü sürümü bulmak için. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps).
+Trafik analizi kullanarak da yapılandırabilirsiniz [kümesi AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) Azure PowerShell'in PowerShell cmdlet'i. Çalıştırma `Get-Module -ListAvailable Az` yüklü sürümü bulmak için. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-Az-ps).
 
 ## <a name="view-traffic-analytics"></a>Trafik analizi görüntüle
 

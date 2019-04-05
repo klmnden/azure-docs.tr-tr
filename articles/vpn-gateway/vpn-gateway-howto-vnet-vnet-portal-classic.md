@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6924d4eca52bfab8c90e7787bb8849b47df064db
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e323a8d71bbffd1d29ad793dff7b5b4a072b6979
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112271"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046131"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Bir VNet-VNet bağlantısı (Klasik) yapılandırma
 
@@ -32,13 +32,15 @@ Bu makalede, sanal ağlar arasında bir VPN gateway bağlantısı oluşturmanız
 > * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Azure portal (klasik)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Farklı dağıtım modellerini bağlama - Azure portalı](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Azure portalını (Klasik)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Farklı dağıtım modelleri - Azure portal'ı bağlama](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Farklı dağıtım modellerini bağlama - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
 
 ![Vnet'ten Vnet'e bağlantı diyagramı](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="about-vnet-to-vnet-connections"></a>Sanal Ağdan Sanal Ağa bağlantıları hakkında
 
@@ -52,7 +54,7 @@ Vnet'ler farklı Aboneliklerde ve farklı bölgelerde olabilir. Sanal ağ, sanal
 
 Sanal ağları aşağıdaki sebeplerden dolayı bağlamak isteyebilirsiniz:
 
-* **Çapraz bölge coğrafi artıklığı ve coğrafi-durum**
+* **Çapraz bölgede coğrafi yedeklilik ve iletişim durumu**
 
   * Kendi coğrafi çoğaltma veya eşitlemenizi, güvenli bağlantıyla İnternet’te uç noktalara gitmeden ayarlayabilirsiniz.
   * Azure Load Balancer ve Microsoft veya üçüncü taraf Kümeleme Teknolojisi coğrafi yedeklilik ile yüksek oranda kullanılabilir iş yükü birden çok Azure bölgeleri arasında ayarlayabilirsiniz. Buna önemli bir örnek olarak SQL Always On ile birden fazla Azure bölgesine yayılan Kullanılabilirlik Grupları’nı birlikte kurmak verilebilir.
@@ -219,19 +221,19 @@ Aşağıdaki adımlarda, Azure hesabınıza bağlanın ve indirip bağlantılar�
 2. PowerShell konsolunuzu yükseltilmiş haklarla açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
    Hesapla ilişkili abonelikleri kontrol edin.
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 
    Birden fazla aboneliğiniz varsa, kullanmak istediğiniz aboneliği seçin.
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
    Ardından, Azure aboneliğiniz için PowerShell Klasik dağıtım modeli için eklemek için aşağıdaki cmdlet'i kullanın.

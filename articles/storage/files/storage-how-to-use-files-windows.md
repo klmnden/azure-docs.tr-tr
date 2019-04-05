@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 2bf323b34c5a5301094bdecdc9fa705fe9077320
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 315bad5c4ffc3d5e8909c86cb8de703e9cb941b0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482139"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048852"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Azure dosya paylaşımını Windows'da kullanma
 [Azure Dosyaları](storage-files-introduction.md), Microsoft’un kullanımı kolay bulut dosya sistemidir. Azure dosya paylaşımları, Windows ve Windows Server’da sorunsuz bir şekilde kullanılabilir. Bu makalede Azure dosya paylaşımını Windows ve Windows Server ile kullanma konusunda dikkat edilmesi gerekenler anlatılmaktadır.
@@ -40,6 +40,9 @@ Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azu
 > [!Note]  
 > Her zaman Windows sürümünüz için en yeni KB’yi almanızı öneririz.
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Önkoşullar 
 * **Depolama hesabı adı**: Bir Azure dosya paylaşımını bağlayabilmeniz için depolama hesabınızın adı gerekir.
 
@@ -47,13 +50,13 @@ Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azu
 
 * **Bağlantı noktası 445'in açık olduğundan emin olun**: SMB protokolü TCP bağlantı noktası 445'in açık olmasını gerektirir; bağlantı noktası 445 engellenirse bağlantıları başarısız olur. `Test-NetConnection` cmdlet'ini kullanarak 445 numaralı bağlantı noktasının güvenlik duvarınız tarafından engellenip engellenmediğini görebilirsiniz. Hakkında bilgi edinebilirsiniz [engellenen geçici çözüm için çeşitli yollar burada 445 bağlantı noktası](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
-    Aşağıdaki PowerShell kodunda AzureRM PowerShell modülünü yüklediğiniz varsayılır. Daha fazla bilgi için bkz. [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-az-ps). `<your-storage-account-name>` ile `<your-resource-group-name>` yerine depolama hesabınızla ilgili bilgileri yazmayı unutmayın.
+    Aşağıdaki PowerShell kod varsayar Azure PowerShell Modülü yüklü, sahip olduğunuz bkz [Azure PowerShell modülü yükleme](https://docs.microsoft.com/powershell/azure/install-az-ps) daha fazla bilgi için. `<your-storage-account-name>` ile `<your-resource-group-name>` yerine depolama hesabınızla ilgili bilgileri yazmayı unutmayın.
 
     ```powershell
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
     # already logged in.
     $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
@@ -222,7 +225,7 @@ Belirli bir anlık görüntüyü açmak için **Aç**'ı seçebilirsiniz.
 
 #### <a name="restore-from-a-previous-version"></a>Önceki sürümü geri yükleme
 Anlık görüntü oluşturma zamanındaki dizin içeriğinin tamamını özgün konuma yinelemeli bir şekilde kopyalamak için **Geri yükle**'yi seçin.
- ![Uyarı iletisindeki geri yükleme düğmesi](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
+ ![Geri Yükle düğmesi uyarı iletisi](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>Windows/Windows Server'ı güvenli hale getirme
 Windows'da Azure dosya paylaşımını bağlamak için 445 numaralı bağlantı noktasının erişilebilir olması gerekir. Çoğu kuruluş SMB 1 kaynaklı güvenlik riskleri nedeniyle 445 numaralı bağlantı noktasını engeller. CIFS (Ortak Internet Dosya Sistemi) olarak da bilinen SMB 1, Windows ve Windows Server'da bulunan eski bir dosya sistemi protokolüdür. SMB 1 eski, verimsiz ve hepsinden önemlisi güvenli olmayan bir protokoldür. Neyse ki Azure Dosyalar SMB 1 protokolünü desteklemez ve desteklenen tüm Windows ve Windows Server sürümlerinde SMB 1 protokolünü kaldırmak veya devre dışı bırakmak mümkündür. Azure dosya paylaşımlarını üretim ortamında kullanmaya başlamadan önce SMB 1 istemcisini ve sunucusunu mutlaka kaldırmanızı ve devre dışı bırakmanızı [öneririz](https://aka.ms/stopusingsmb1).
@@ -295,13 +298,13 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 Bu kayıt defteri anahtarını oluşturduktan sonra SMB 1'i devre dışı bırakmak için sunucunuzu yeniden başlatmanız gerekir.
 
 ### <a name="smb-resources"></a>SMB kaynakları
-- [SMB 1'i kullanmayı durdurma](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
-- [SMB 1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
-- [DSCEA ile ortamınızda SMB 1'i keşfetme](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
-- [SMB 1'i Grup İlkesi ile devre dışı bırakma](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
+- [SMB 1 kullanmayı durdurma](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
+- [SMB 1 ürün Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
+- [Ortamınızda DSCEA ile SMB 1 keşfedin](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
+- [SMB 1 Grup İlkesi aracılığıyla devre dışı bırakma](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Dosyaları hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın:
-- [Azure Dosyaları dağıtımını planlama](storage-files-planning.md)
+- [Azure Dosyaları dağıtımı planlama](storage-files-planning.md)
 - [SSS](../storage-files-faq.md)
-- [Windows’da sorun giderme](storage-troubleshoot-windows-file-connection-problems.md)      
+- [Windows üzerinde sorun giderme](storage-troubleshoot-windows-file-connection-problems.md)      

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4bebbda528f7ed6d7bee6ce77c744c6349d0bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d81797f0d1e7f72842c3a5a127756b99bdc93992
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190900"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047815"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Öğretici: EDigitalResearch ile Azure Active Directory Tümleştirme
 
@@ -89,7 +89,7 @@ Yapılandırma ve Azure AD çoklu oturum açma eDigitalResearch ile test etmek i
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[EDigitalResearch test kullanıcısı oluşturma](#create-a-edigitalresearch-test-user)**  - Britta Simon kullanıcı Azure AD gösterimini bağlı eDigitalResearch içinde bir karşılığı vardır.
+1. **[Bir eDigitalResearch test kullanıcısı oluşturma](#create-an-edigitalresearch-test-user)**  - Britta Simon kullanıcı Azure AD gösterimini bağlı eDigitalResearch içinde bir karşılığı vardır.
 1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  yapılandırma çalışıp çalışmadığını doğrulayın.
 
@@ -169,7 +169,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     d. **Oluştur**’a tıklayın.
   
-### <a name="create-a-edigitalresearch-test-user"></a>EDigitalResearch test kullanıcısı oluşturma
+### <a name="create-an-edigitalresearch-test-user"></a>Bir eDigitalResearch test kullanıcısı oluşturma
 
 Bu bölümün amacı eDigitalResearch Britta Simon adlı bir kullanıcı oluşturmaktır. 
 
@@ -218,7 +218,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

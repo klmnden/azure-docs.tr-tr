@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: da11d4977cc998c9fccb3628a44e45db95c7d977
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9b1dee8ea43d01825449cb6010fbfa62e4715cff
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759645"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047271"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Mevcut bir projeyi OPC İkizi dağıtma
 
@@ -30,10 +30,7 @@ Bir çekirdek modülünün gözetmen kimliktir. Gözetmen, karşılık gelen OPC
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-> [!NOTE]
-> Not: AzureRM modülünü bağımlılık, dağıtım şu anda yalnızca Windows üzerinde desteklenir.
-
-PowerShell sahip olduğunuzdan emin olun ve [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-1.1.0) yüklü uzantıları.   Henüz yapmadıysanız, bu GitHub deposunu kopyalayın.  Bir komut istemi veya terminal açın ve çalıştırın:
+PowerShell sahip olduğunuzdan emin olun ve [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) yüklü uzantıları.   Henüz yapmadıysanız, bu GitHub deposunu kopyalayın.  Bir komut istemi veya terminal açın ve çalıştırın:
 
 ```bash
 git clone --recursive https://github.com/Azure/azure-iiot-components 
@@ -143,4 +140,4 @@ AAD kiracısı'kullanılacak.
 Mevcut bir projeyi OPC İkizi dağıtmayı öğrendiniz, önerilen sonraki adım aşağıda verilmiştir:
 
 > [!div class="nextstepaction"]
-> [OPC istemci ve OPC PLC güvenli iletişim ](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [OPC İstemcisi ile OPC PLC'nin güvenli iletişimi ](howto-opc-vault-deploy-existing-client-plc-communication.md)

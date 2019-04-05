@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: pbutlerm
-ms.openlocfilehash: da3e7e44ed1ad0698392ba1afcb59887ffbc53fe
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 6f1a93c3d3059e612d8c309b263e263dbb84c67f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639953"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050110"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Bir sanal makine teklifi için teknik varlıkları oluşturma
 
@@ -37,6 +37,7 @@ VM işletim sistemi, VM boyutu, açmak için bağlantı noktası yapılandırman
 > [!IMPORTANT]
 > *Yeni bir görüntü sürümü sayısı disk değiştirmeyin.* Görüntüde veri diskleri yeniden yapılandırmanız gerekir, yeni bir SKU'ya tanımlayın. Farklı disk sayısı olan yeni bir görüntü sürümü yayımlama, yeni dağıtım çözümleri Azure Resource Manager şablonları ve diğer senaryolar ile otomatik ölçeklendirme, otomatik dağıtım durumlarda yeni görüntü sürümünü temel bozucu olası sahip olur.
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="fundamental-technical-knowledge"></a>Temel teknik bilgiler
 
@@ -58,9 +59,9 @@ Ayrıca, aşağıdaki araçları, geliştirme ortamınızı eklemenizi öneririz
 
 -   [Azure Depolama Gezgini](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
-    *   Uzantı: [Azure Resource Manager araçları](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-    *   Uzantı: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-    *   Uzantı: [JSON Prettify](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+    *   Dahili Hat: [Azure Resource Manager araçları](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *   Dahili Hat: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+    *   Dahili Hat: [JSON prettify](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
 Ayrıca araçlar da gözden geçirme öneririz [Azure Geliştirici Araçları](https://azure.microsoft.com/tools/) sayfası ve Visual Studio kullanıyorsanız [Visual Studio Market](https://marketplace.visualstudio.com/).
 

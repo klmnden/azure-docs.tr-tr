@@ -14,17 +14,18 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d800d2a9c4eced2fa347658ecbb5b7a97031d997
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6ee3e2b452dedbf791bdc05bbc81b07531e1f075
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838706"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049322"
 ---
 # <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>Azure Market'ten sanal makine dağıtma
 
 Bu makalede, Azure PowerShell betiğini kullanarak bir Azure Market'teki önceden yapılandırılmış bir sanal makine (VM) dağıtmak açıklanmaktadır.  Bu betik, VM üzerindeki WinRM HTTP ve HTTPS uç noktaları da kullanıma sunar.  Azure anahtar Kasası'na yüklenen sertifika açıklandığı gibi sahip olduğunuz komut dosyası gerektirir [sertifikaları oluşturmak için Azure anahtar kasası](./cpp-create-key-vault-cert.md). 
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="vm-deployment-template"></a>VM Dağıtım Şablonu
 
@@ -53,7 +54,7 @@ Aşağıdaki Azure PowerShell Betiği düzenleyin ve belirtilen Azure Market san
 
 ```powershell
 
-New-AzureRmResourceGroupDeployment -Name "dplvm$postfix" -ResourceGroupName "$rgName" -TemplateUri "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-winrm-keyvault-windows/azuredeploy.json" -newStorageAccountName "test$postfix" -dnsNameForPublicIP $vmName -adminUserName "isv" -adminPassword $pwd -vmSize "Standard_A2" -vmName $vmName -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id 
+New-AzResourceGroupDeployment -Name "dplvm$postfix" -ResourceGroupName "$rgName" -TemplateUri "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-winrm-keyvault-windows/azuredeploy.json" -newStorageAccountName "test$postfix" -dnsNameForPublicIP $vmName -adminUserName "isv" -adminPassword $pwd -vmSize "Standard_A2" -vmName $vmName -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id 
 
 ```
 

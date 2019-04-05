@@ -1,19 +1,18 @@
 ---
 title: Azure Veri Gezgini ODBC ile bağlanma
 description: Bu nasıl yapılır makalesinde bir Azure Veri Gezgini ODBC bağlantı kurmanız sonra Tableau ile verileri görselleştirme için bu bağlantıyı kullanmak hakkında bilgi edinin.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 0ec1c2f4fc412ca6c81e179d0ad22f781b896357
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d01c825e50e30e3545a0d47e432835c658d677af
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757617"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59043890"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Azure Veri Gezgini ODBC ile bağlanma
 
@@ -101,6 +100,6 @@ ODBC yapılandırma bitirdikten sonra örnek verileri Tableau getirebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure Veri Gezgini için sorgu yazma](write-queries.md)
+[Azure Veri Gezgini için sorguları yazma](write-queries.md)
 
 [Öğretici: Azure Power BI veri Gezgini'nde verileri görselleştirin](visualize-power-bi.md)

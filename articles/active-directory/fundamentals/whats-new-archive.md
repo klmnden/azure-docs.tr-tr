@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50b49ce05eb3309f5b21761dc55ab17a1a18f7cc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f6fe7b2cefdd29f0497bbc18e969a77ac295ba42
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670940"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051963"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Yenilikler için arşiv? Azure Active Directory'de
 
@@ -86,7 +86,7 @@ Bu bir katılım genel önizlemesidir. Yöneticilerin yeni deneyimi (istenirse) 
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Uygulama Proxy'si  
-**Ürün özelliği:** Access Control
+**Ürün özelliği:** Erişim Denetimi
 
 Çağrılan, bir yeni ayar yoktur **azaltmaya** uygulamalarınızdaki uygulama proxy'si. Bu ayar, her iki uygulama ara sunucusu erişim ve oturum tanımlama bilgileri HTTP yanıt üst bilgisinde HTTPOnly bayrağı dahil olmak üzere, erişim tanımlama bilgisine istemci tarafı komut dosyasından durduruluyor ve daha da kopyalama gibi eylemleri engelleyen ek güvenlik sağlamaya yardımcı olur veya tanımlama bilgisi değiştiriliyor. Bu bayrak daha önce kullanılmamış olsa da, tanımlama bilgilerinizi her zaman silinmiş şifrelenir ve aktarılan yanlış değişikliklere karşı korumaya yardımcı olmak için bir SSL bağlantısı kullanma.
 
@@ -138,7 +138,7 @@ Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile Sa
 
 **Türü:** Değişen özellik  
 **Hizmet kategorisi:** Uygulama Proxy'si  
-**Ürün özelliği:** Access Control
+**Ürün özelliği:** Erişim Denetimi
 
 Bizim güncelleştirmesi ile Openıd Connect bizim ön kimlik doğrulama protokolü için OAuth 2.0 kodu verme protokolü, artık Tableau uygulaması Ara sunucusu ile kullanılacak tüm ek yapılandırma adımları gerekir. Bu protokol değişiklik uygulama proxy'si, JavaScript ve HTML etiketleri yaygın olarak desteklenen HTTP yönlendirmeleri kullanarak daha modern uygulamalar daha iyi destek de yardımcı olur.
 
@@ -187,7 +187,7 @@ Bir örnek, bazı yeni e-posta tasarımları ve daha fazla bilgi için bkz [e-po
 ### <a name="azure-ad-activity-logs-are-now-available-through-azure-monitor"></a>Azure AD Etkinlik Günlükleri artık Azure İzleyici'de kullanılabilir
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Raporlanıyor  
+**Hizmet kategorisi:** Raporlama  
 **Ürün özelliği:** İzleme ve Raporlama
 
 Azure AD etkinlik günlüklerini Azure İzleyicisi'ni (Azure'nın platform genelinde izleme hizmeti) için genel önizlemede kullanıma sunulmuştur. Azure İzleyici, uzun süreli saklama ve bu geliştirmeler yanı sıra sorunsuz tümleştirme sunar:
@@ -205,7 +205,7 @@ Blogumuzu bu yeni özellikler hakkında daha fazla bilgi için bkz. [Azure AD et
 ### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Koşullu erişim bilgileri Azure AD oturum açma raporuna eklendi
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Raporlanıyor  
+**Hizmet kategorisi:** Raporlama  
 **Ürün özelliği:** Kimlik Güvenliği ve Koruması
  
 Bu güncelleştirme, hangi ilkelerin ilke sonucu ile birlikte bir kullanıcı oturum açtığı zaman değerlendirilen görmenize olanak tanır. Ayrıca, rapor artık eski protokol trafiğini belirleyebilmeniz kullanıcı tarafından kullanılan istemci uygulaması türünü içerir. Rapor girişleri kullanıcıya yönelik hata iletisinde bulunabilir ve belirleme ve giderme eşleşen oturum açma isteği için kullanılan bir bağıntı kimliği için artık aranabilir.
@@ -215,7 +215,7 @@ Bu güncelleştirme, hangi ilkelerin ilke sonucu ile birlikte bir kullanıcı ot
 ### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Oturum açma etkinlik günlükleri ile eski kimlik doğrulamalarını görüntüleyin
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Raporlanıyor  
+**Hizmet kategorisi:** Raporlama  
 **Ürün özelliği:** İzleme ve Raporlama
  
 Sunulmasıyla birlikte **istemci uygulaması** alan oturum açma etkinlik günlükleri, eski kimlik doğrulama kullanarak müşterilerin can artık bkz: kullanıcılar. Müşteriler, oturum açma MS Graph API'sini kullanarak bu bilgilere erişmek mümkün olacaktır veya oturum açma kullanabileceğiniz Azure AD'ye portalda etkinlik günlükleri **istemci uygulaması** üzerinde eski kimlik doğrulamaları filtrelemek için denetimi. Daha fazla ayrıntı için belgeleri gözden geçirin.
@@ -365,7 +365,7 @@ Mobil uygulama bildirimi, parolanızı sıfırlamak için iki yöntem gerektiren
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Değişiklik bildirimi: Azure AD etkinlik günlüklerini API'sini kullanarak uygulamalar için Temsilcili yetkilendirme akışı güvenlik düzeltme
 
 **Türü:** Değişiklik planı  
-**Hizmet kategorisi:** Raporlanıyor  
+**Hizmet kategorisi:** Raporlama  
 **Ürün özelliği:** İzleme ve Raporlama
 
 Bizim daha güçlü güvenlik zorlama nedeniyle, şu izinleri erişmek için Temsilcili yetkilendirme akışı kullanan uygulamalar için değişiklik vardı [Azure AD etkinlik günlüklerini API'lerini](https://aka.ms/aadreportsapi). Bu değişiklik tarafından ortaya çıkar **26 Haziran 2018'e**.
@@ -389,7 +389,7 @@ Daha fazla bilgi için [izinleri verin](https://docs.microsoft.com/azure/active-
 ### <a name="configure-tls-settings-to-connect-to-azure-ad-services-for-pci-dss-compliance"></a>PCI DSS uyumluluğu için Azure AD Hizmetleri bağlanmak için TLS ayarlarını yapılandırma
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** YOK  
+**Hizmet kategorisi:** Yok  
 **Ürün özelliği:** Platform
 
 Aktarım Katmanı Güvenliği (TLS) arasında iki iletişim kuran uygulamaları gizlilik ve veri bütünlüğü sağlar ve Günümüzde kullanılan en yaygın olarak dağıtılan güvenlik protokolü bir protokoldür.
@@ -443,7 +443,7 @@ Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile Sa
 ### <a name="azure-ad-password-protection-is-available-in-public-preview"></a>Azure AD parola koruması genel önizlemeye sunuldu
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Identity Protection  
+**Hizmet kategorisi:** Kimlik Koruması  
 **Ürün özelliği:** Kullanıcı Kimlik Doğrulaması
 
 Ortamınızdaki parolalar kolayca tahmin gidermeye yardımcı olması için Azure AD parola koruması kullanın. Bu parolalar ortadan güvenliğinin aşılması riskine karşı bir saldırı parola ilaç türü riskini azaltmak için yardımcı olur.
@@ -466,7 +466,7 @@ Azure AD parola koruması hakkında daha fazla bilgi için bkz. [yanlış parola
 
 Kullanım koşulları (ToU) oluşturma sırasında "tüm konuklar" ve "tüm uygulamalar" için yeni koşullu erişim ilkesi şablonu da oluşturulur. Bu yeni bir ilke şablonu oluşturma ve zorlama işlemi konuklar için hızlandırma, yeni oluşturulan ToU geçerlidir.
 
-Daha fazla bilgi için [kullanım özelliği, Azure Active Directory koşulları](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Daha fazla bilgi için [kullanım özelliği, Azure Active Directory koşulları](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -478,7 +478,7 @@ Daha fazla bilgi için [kullanım özelliği, Azure Active Directory koşulları
 
 Kullanım koşulları (ToU) oluşturma sırasında ayrıca yeni bir "özel" koşullu erişim ilkesi şablonu oluşturulur. Bu yeni bir ilke şablonu ToU oluşturmanızı ve el ile portal üzerinden gitmek zorunda kalmadan koşullu erişim ilkesi oluşturma dikey penceresine hemen Git sağlar.
 
-Daha fazla bilgi için [kullanım özelliği, Azure Active Directory koşulları](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Daha fazla bilgi için [kullanım özelliği, Azure Active Directory koşulları](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -498,7 +498,7 @@ MFA Dağıtım Kılavuzu'nu görüntülemek için Git [kimlik dağıtım kılavu
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Kurumsal Uygulamalar  
-**Ürün özelliği:** Access Control
+**Ürün özelliği:** Erişim Denetimi
 
 Yöneticiler, artık genel yönetici rolü atama olmadan uygulama yönetim görevlerini devredebilirsiniz. Yeni rol ve özellikleri şunlardır:
 
@@ -611,7 +611,7 @@ Erişim gözden geçirmesi grupları ve uygulamaları şu anda genel kullanımda
 ### <a name="azure-ad-activity-logs-sign-ins-and-audit-are-now-available-through-ms-graph"></a>MS Graph ile Azure AD etkinlik günlüklerini (oturum açma işlemleri ve Denetim) artık kullanılabilir
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Raporlanıyor  
+**Hizmet kategorisi:** Raporlama  
 **Ürün özelliği:** İzleme ve Raporlama
  
 Oturum açma işlemleri ve Denetim günlükleri'nı içeren azure AD etkinlik günlüklerini MS Graph üzerinden kullanıma sunulmuştur. Biz bu günlüklerine erişmek için MS Graph ile iki bitiş noktası kullanıma sunması. Kullanıma sunduğumuz [belgeleri](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal) programlı erişim için Azure AD raporlama kullanmaya başlamak için API'leri. 
@@ -727,7 +727,7 @@ SAML tabanlı SSO uygulamaları yapılandırırken, yapılandırma sayfasında t
 Daha fazla bilgi için bkz.
 
 - [Azure Active Directory uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açmayı yapılandırma](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
-- [Azure Active Directory'de uygulamalar için SAML tabanlı çoklu oturum açma hata ayıklama](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
+- [Azure Active Directory'de SAML tabanlı çoklu oturum açma uygulamaları için hata ayıklama](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
 
 ---
  
@@ -739,7 +739,7 @@ Daha fazla bilgi için bkz.
  
 Yöneticiler artık belirli bir ToU'ı seçin ve ToU ve hangi, tarih yer aldığı onay tüm kullanıcılar görür.
 
-Daha fazla bilgi için [Azure AD kullanım koşulları özelliği](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Daha fazla bilgi için [Azure AD kullanım koşulları özelliği](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
  
@@ -782,7 +782,7 @@ Daha fazla bilgi için [Azure Active Directory Uygulama galerisinde bulunmayan u
 
 Azure AD kullanım koşulları, genel Önizleme için kullanıma sunuldu taşıdık.
 
-Daha fazla bilgi için [Azure AD kullanım koşulları özelliği](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Daha fazla bilgi için [Azure AD kullanım koşulları özelliği](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -884,7 +884,7 @@ Bazı kullanıcılar, SAML tabanlı çoklu oturum açma için yapılandırılmı
 Daha fazla bilgi için bkz.
 
 - [Federasyon çoklu oturum açma için Azure Active Directory'de sertifikaları yönetme](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
-- [Azure Active Directory portalındaki denetim etkinlik raporları](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
+- [Azure Active Directory portalındaki denetim etkinliği raporları](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
  
 ---
  
@@ -926,7 +926,7 @@ Daha fazla bilgi için bkz.
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Uygulama Proxy'si  
-**Ürün özelliği:** Access Control
+**Ürün özelliği:** Erişim Denetimi
  
 Uygulama proxy'si cmdlet'leri için desteği Powershell GA modülünde sunuldu! Bu Powershell modülleri - daha fazla bir yıl, bazı cmdlet'ler hale gelirse çalışmayı durdurabilir güncel gerektirir. 
 
@@ -1038,7 +1038,7 @@ Daha fazla bilgi için bkz. [Workday kullanıcı özniteliklerinin listesi özel
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Grup Yönetimi  
-**Ürün özelliği:** İş birliği
+**Ürün özelliği:** İş Birliği
  
 Üyelik bir gruba nasıl yönetilir değiştirmek mümkündür. Bu gruba varolan herhangi bir başvuruyu hala geçerli olduğundan sistemde aynı grubu adını ve Kimliğini tutmak istediğinizde kullanışlıdır. Yeni grup oluşturma, bu başvuruları güncelleştirilmesi gerekir.
 Bu işlevselliği desteklemek için Azure AD yönetim merkezini güncelleştirdik. Şimdi, müşterilerin var olan grupları dinamik üyelik atanan üyelik ve tersi dönüştürebilirsiniz. Mevcut PowerShell cmdlet'leri de yine kullanılabilir durumdadır.
@@ -1115,7 +1115,7 @@ Bu raporların nasıl kullanılacağı hakkında daha fazla bilgi için bkz. [Az
 ### <a name="use-report-reader-role-non-admin-role-to-view-azure-ad-activity-reports"></a>Azure AD Etkinlik raporlarını görüntülemek için "Rapor okuyucu" rolünü (yönetici olmayan rol) kullanın
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Raporlanıyor  
+**Hizmet kategorisi:** Raporlama  
 **Ürün özelliği:** İzleme ve Raporlama
 
 Yönetici olmayan rollerin Azure AD etkinlik erişmesini etkinleştirmek için müşterilerin geri bildirim parçası günlükleri gibi erişim oturum açma ve Azure portalı yanı sıra Graph Apı'lerimizi kullanarak içinde denetim etkinliği için "Rapor okuyucu" rolündeki kullanıcılar için özelliğini etkinleştirdik. 
@@ -1215,7 +1215,7 @@ Azure AD Connect, Azure AD arasında ve Windows Server Active Directory ve LDAP 
 
 Bu sürüm aşağıdaki güncelleştirmeleri ve değişiklikleri sahiptir:
 
-**Giderilen sorunlar**
+**Düzeltilen sorunlar**
 
 - Sonraki sayfaya geçiş yaparken bölüm filtreleme sayfası için arka plan görevleri zamanlama penceresi düzeltmesi.
 
@@ -1311,7 +1311,7 @@ Azure AD uygulama galerisinde uygulamanızı listeleme hakkında daha fazla bilg
 ### <a name="sign-in-with-additional-risk-detected"></a>Ek risk algılandı bilgilerinizle oturum açın
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Identity Protection  
+**Hizmet kategorisi:** Kimlik Koruması  
 **Ürün özelliği:** Kimlik Güvenliği ve Koruması
 
 Algılanan risk olayı için alma öngörü için Azure AD aboneliğiniz bağlıdır. Azure AD Premium P2 sürümü ile temel alınan tüm algılamalar hakkında en ayrıntılı bilgileri alın.
@@ -1376,7 +1376,7 @@ MFA yapılandırması, şu konumdadır: **Azure Active Directory \> MFA sunucusu
 ### <a name="deprecate-azure-ad-reports"></a>Azure AD raporlar kullanımdan kaldırma
 
 **Türü:** Kullanım Dışı  
-**Hizmet kategorisi:** Raporlanıyor  
+**Hizmet kategorisi:** Raporlama  
 **Ürün özelliği:** Kimlik Yaşam Döngüsü Yönetimi  
 
 
@@ -1414,7 +1414,7 @@ Artık erişim Masası'na gidin ve daha önce kabul ettiğiniz kullanım koşull
 
 4. Kullanım koşullarını gözden geçirebilir, kabul edildi. 
 
-Daha fazla bilgi için [kullanım özelliği (Önizleme) Azure AD kullanım koşulları](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Daha fazla bilgi için [kullanım özelliği (Önizleme) Azure AD kullanım koşulları](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
  
 ---
  
@@ -1454,7 +1454,7 @@ Yöneticiler için bir seçenek, kullanıcıların koşulları kabul etmeden ön
 
 Şunlardan birini seçin **üzerinde** veya **kapalı** kullanıcıların kullanım koşullarını genişletmesini gerekli kıl için. **Üzerinde** ayarı kabul etmeden önce kullanım koşullarını görüntülemek kullanıcıların gerektirir.
 
-Daha fazla bilgi için [kullanım özelliği (Önizleme) Azure AD kullanım koşulları](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Daha fazla bilgi için [kullanım özelliği (Önizleme) Azure AD kullanım koşulları](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
  
 ---
 
@@ -1665,7 +1665,7 @@ Artık içerir (hariç macOS cihaz platformu koşul olarak Azure AD koşullu eri
 
 Daha fazla bilgi için bkz.
 
-- [Intune ile macOS cihazları için cihaz uyumluluğu ilkesi oluşturma](https://aka.ms/macoscompliancepolicy)
+- [Intune ile macOS cihazları için cihaz uyumluluk ilkesi oluşturma](https://aka.ms/macoscompliancepolicy)
 - [Azure AD'de koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
  
 ---
@@ -1673,7 +1673,7 @@ Daha fazla bilgi için bkz.
 ### <a name="network-policy-server-extension-for-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication için ağ ilkesi sunucusu uzantısı 
 
 **Türü:** Yeni özellik    
-**Hizmet kategorisi:**  Çok faktörlü kimlik doğrulaması  
+**Hizmet kategorisi:**  Multi-factor authentication  
 **Ürün özelliği:** Kullanıcı kimlik doğrulaması
 
 Azure multi-Factor Authentication için ağ ilkesi sunucusu uzantısı, mevcut sunucularınızda kullanarak bulut tabanlı çok faktörlü kimlik doğrulama özellikleri kimlik doğrulama altyapınızı ekler. Ağ İlkesi Sunucusu uzantısı ile mevcut kimlik doğrulama akışınıza telefon araması, SMS mesajı ve telefon uygulaması doğrulama ekleyebilirsiniz. Yükleme, yapılandırma ve yeni sunuculara bakım gerekmez. 
@@ -1752,7 +1752,7 @@ Temel alınan gerçek zamanlı algılama, kullanıcı oturum açtığı her zama
 ### <a name="deprecate-azure-ad-reports"></a>Azure AD raporlar kullanımdan kaldırma
 
 **Türü:** Değişiklik planı  
-**Hizmet kategorisi:** Raporlanıyor  
+**Hizmet kategorisi:** Raporlama  
 **Ürün özelliği:** Kimlik Yaşam Döngüsü Yönetimi  
 
 Azure portalı ile sağlar:
@@ -1779,7 +1779,7 @@ Bir hizmet sorunu nedeniyle bu işlevselliği geçici olarak devre dışı bıra
 ### <a name="new-multi-factor-authentication-features"></a>Yeni çok faktörlü kimlik doğrulaması özellikleri
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Çok faktörlü kimlik doğrulaması  
+**Hizmet kategorisi:** Multi-factor authentication  
 **Ürün özelliği:** Kimlik güvenliği ve koruması  
 
 Çok faktörlü kimlik doğrulaması (MFA), kuruluşunuzun koruma önemli bir parçasıdır. Kimlik bilgileri daha Uyarlamalı ve deneyimi daha sorunsuz hale getirmek için aşağıdaki özellikleri eklendi: 
@@ -1807,7 +1807,7 @@ Azure AD kullanım koşulları aşağıdaki senaryolarda kullanabilirsiniz:
 - Belirli kullanıcı özniteliklerine (doktorlarla nurses karşılaştırması gibi) ya da yurtiçi ve uluslararası çalışanlara, dinamik gruplar tarafından yapılan temel kullanım koşulları
 - Salesforce gibi yüksek etkili iş uygulamaları erişmek için belirli kullanım koşulları
 
-Daha fazla bilgi için [Azure AD kullanım koşulları](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Daha fazla bilgi için [Azure AD kullanım koşulları](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -1829,10 +1829,10 @@ Daha fazla bilgi için [Azure kaynakları için Privileged Identity Management](
 
 ---
 
-### <a name="access-reviews"></a>Erişim incelemeleri
+### <a name="access-reviews"></a>Erişim gözden geçirmeleri
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Erişim incelemeleri  
+**Hizmet kategorisi:** Erişim gözden geçirmeleri  
 **Ürün özelliği:** Uyumluluk  
 
 Kuruluşların grup üyeliklerini ve kurumsal uygulamalara erişimi etkili bir şekilde yönetmek için erişim gözden geçirmeleri (Önizleme) kullanabilirsiniz: 

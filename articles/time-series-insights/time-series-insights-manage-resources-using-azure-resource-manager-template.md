@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: fe348daa4613e0b515244686e48ed63a41991d81
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 79751dc0de8817c940355e8b64652014b1c67c35
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009378"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045909"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanarak Time Series Insights kaynakları oluşturma
 
@@ -38,6 +38,9 @@ Resource Manager şablonu bir kaynak grubunda altyapı ve kaynakların yapıland
 - [Microsoft.TimeSeriesInsights kaynak türleri](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 [201-timeseriesinsights-ortam-ile-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) Hızlı Başlangıç şablonu, Github'da yayımlanır. Bu şablon, bir zaman serisi görüşleri ortamı, Event Hub'ındaki olayları kullanma ve erişim ortamın verilerine erişim izni ilkeleri için yapılandırılmış bir alt olay kaynağı oluşturur. Mevcut bir olay hub'ı belirtilmezse, bir dağıtım ile oluşturulur.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>PowerShell kullanarak yerel olarak hızlı başlangıç şablonu dağıtma
 
@@ -110,8 +113,8 @@ Bir parametre dosyası oluşturmak için kopyalama [201-timeseriesinsights-ortam
    | eventSourceDisplayName | Araç veya kullanıcı arabirimi yerine olay kaynağı adını göstermek için isteğe bağlı bir kolay ad. |
    | eventSourceTimestampPropertyName | Olay kaynağının zaman damgası kullanılacak olay özelliği. TimestampPropertyName için bir değer belirtilmezse veya null veya boş dize belirtilirse, olay oluşturulma zamanı kullanılır. |
    | eventSourceKeyName | Time Series Insights hizmetinin, olay hub'ına bağlanmak için kullanacağı bir paylaşılan erişim anahtarı adı. |
-   | accessPolicyReaderObjectIds | Nesne kimlikleri bir kullanıcı ya da ortam okuyucu erişimi olması gereken Azure AD uygulamaları listesi. Hizmet sorumlusu nesne kimliği çağrılarak alınabilir **Get-AzureRMADUser** veya **Get-AzureRMADServicePrincipal** cmdlet'leri. Azure AD grupları için bir erişim ilkesi oluşturma henüz desteklenmiyor. |
-   | accessPolicyContributorObjectIds | Nesne kimlikleri bir kullanıcı ya da ortam katkıda bulunan erişimi olması gereken Azure AD uygulamaları listesi. Hizmet sorumlusu nesne kimliği çağrılarak alınabilir **Get-AzureRMADUser** veya **Get-AzureRMADServicePrincipal** cmdlet'leri. Azure AD grupları için bir erişim ilkesi oluşturma henüz desteklenmiyor. |
+   | accessPolicyReaderObjectIds | Nesne kimlikleri bir kullanıcı ya da ortam okuyucu erişimi olması gereken Azure AD uygulamaları listesi. Hizmet sorumlusu nesne kimliği çağrılarak alınabilir **Get-AzADUser** veya **Get-AzADServicePrincipal** cmdlet'leri. Azure AD grupları için bir erişim ilkesi oluşturma henüz desteklenmiyor. |
+   | accessPolicyContributorObjectIds | Nesne kimlikleri bir kullanıcı ya da ortam katkıda bulunan erişimi olması gereken Azure AD uygulamaları listesi. Hizmet sorumlusu nesne kimliği çağrılarak alınabilir **Get-AzADUser** veya **Get-AzADServicePrincipal** cmdlet'leri. Azure AD grupları için bir erişim ilkesi oluşturma henüz desteklenmiyor. |
 
 Örneğin, aşağıdaki parametre dosyasını ortamı ve var olan bir olay hub'ından olayları yazan olay kaynağını oluşturmak için kullanılacak. Ayrıca, katkıda bulunan bir ortama erişim iki erişim ilkesi oluşturur.
 
@@ -155,27 +158,27 @@ Daha fazla bilgi için [parametreleri](../azure-resource-manager/resource-group-
 Bir PowerShell isteminden aşağıdaki komutu çalıştırın:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Azure hesabınızda oturum açmak için istenir. Oturum açtıktan sonra kullanılabilir aboneliklerinizi görüntülemek için aşağıdaki komutu çalıştırın:
 
 ```powershell
-Get-AzureRMSubscription
+Get-AzSubscription
 ```
 
 Bu komut, kullanılabilir Azure abonelikleri listesini döndürür. Aşağıdaki komutu çalıştırarak geçerli oturum için bir abonelik seçin. Değiştirin `<YourSubscriptionId>` ile kullanmak istediğiniz Azure abonelik GUİD'i:
 
 ```powershell
-Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
+Set-AzContext -SubscriptionID <YourSubscriptionId>
 ```
 
 ### <a name="set-the-resource-group"></a>Kaynak grubu
 
-Mevcut bir kaynak grubu, yeni bir kaynak grubu oluşturun yoksa **New-AzureRmResourceGroup** komutu. Kullanmak istediğiniz konum ve kaynak grubu adını sağlayın. Örneğin:
+Mevcut bir kaynak grubu, yeni bir kaynak grubu oluşturun yoksa **yeni AzResourceGroup** komutu. Kullanmak istediğiniz konum ve kaynak grubu adını sağlayın. Örneğin:
 
 ```powershell
-New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
+New-AzResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
 Başarılı olursa, yeni kaynak grubunun bir özeti gösterilir.
@@ -190,38 +193,38 @@ ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 
 ### <a name="test-the-deployment"></a>Dağıtımı test etme
 
-Çalıştırarak dağıtımınızı doğrulama `Test-AzureRmResourceGroupDeployment` cmdlet'i. Tam dağıtım yürütülürken gibi test etme ve dağıtım parametreleri belirtin.
+Çalıştırarak dağıtımınızı doğrulama `Test-AzResourceGroupDeployment` cmdlet'i. Tam dağıtım yürütülürken gibi test etme ve dağıtım parametreleri belirtin.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
+Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
 ```
 
 ### <a name="create-the-deployment"></a>Dağıtım oluşturma
 
-Yeni dağıtım oluşturmak için çalıştırılması `New-AzureRmResourceGroupDeployment` cmdlet'ini ve istendiğinde gerekli parametreleri belirtin. Kaynak grubunuzu ve yolu veya URL adı şablon dosyasına dağıtımınız için bir ad parametreleri içerir. Varsa **modu** parametresi belirtilmezse, varsayılan değerini **artımlı** kullanılır. Daha fazla bilgi için [artımlı ve tam dağıtımları](../azure-resource-manager/deployment-modes.md).
+Yeni dağıtım oluşturmak için çalıştırılması `New-AzResourceGroupDeployment` cmdlet'ini ve istendiğinde gerekli parametreleri belirtin. Kaynak grubunuzu ve yolu veya URL adı şablon dosyasına dağıtımınız için bir ad parametreleri içerir. Varsa **modu** parametresi belirtilmezse, varsayılan değerini **artımlı** kullanılır. Daha fazla bilgi için [artımlı ve tam dağıtımları](../azure-resource-manager/deployment-modes.md).
 
 Aşağıdaki komutu PowerShell penceresine beş gerekli parametrelerin ister:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
 ```
 
 Bunun yerine bir parametre dosyası belirtmek için aşağıdaki komutu kullanın:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
 ```
 
 Dağıtım cmdlet'ini çalıştırdığınızda, satır içi parametreleri kullanabilirsiniz. Komutu aşağıdaki gibidir:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
 Çalıştırılacak bir [tam](../azure-resource-manager/deployment-modes.md) dağıtımı, **modu** parametresi **tam**:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ## <a name="verify-the-deployment"></a>Dağıtımı doğrulama

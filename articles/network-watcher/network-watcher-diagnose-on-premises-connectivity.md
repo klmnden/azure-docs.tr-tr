@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: f5c4f8d2c9cec4372ef5de70485d45ab33e022de
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 323e5d63b5f8566d570dfd47323fcf12f7c6b28b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099405"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051589"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>VPN ağ geçitleri üzerinden şirket içi bağlantıyı tanılama
 
 Azure VPN ağ geçidi, şirket içi ağınız ile Azure sanal ağınız arasında güvenli bir bağlantı için gereken adres karma çözüm oluşturmak amacıyla sağlar. Gereksinimlerinizi benzersiz olduğundan, bu nedenle şirket içi VPN cihazının seçenektir. Azure şu anda destekler [birkaç VPN cihazları](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) , sürekli doğrulanır cihaz satıcılarıyla iş ortaklığı. Cihaza özgü yapılandırma ayarlarını, şirket içi VPN Cihazınızı yapılandırmadan önce gözden geçirin. Benzer şekilde, Azure VPN ağ geçidi kümesi ile yapılandırılmış [IPSec parametreleri desteklenen](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) bağlantıları kurmak için kullanılır. Şu anda Azure VPN gateway'den belirli bir birleşimi IPSec parametreleri bir yolu yoktur. Şirket içi ve Azure arasında başarılı bir bağlantı kurmak için şirket içi VPN cihaz ayarları, Azure VPN Gateway tarafından belirlenen IPSec parametreleri uygun olmalıdır. Ayarlar doğru var ise bağlantı kaybı ve şimdiye kadar bu sorunları gidermek Önemsiz değildi ve genellikle belirlemek ve sorunu gidermek için saat sürüyordu.
 
 Azure Ağ İzleyicisi ile sorun giderme özelliği, ağ geçidi ve bağlantılarıyla sorunları tanılayın ve dakikalar içinde sorunu düzeltmek için bilinçli bir karar vermeniz için yeterli bilgiye sahip.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>Senaryo
 
@@ -57,7 +60,7 @@ Bu sorunları gidermek daha zordur ve kök nedenleri genellikle anlaşılamayaca
 
 ## <a name="troubleshooting-using-azure-network-watcher"></a>Azure Ağ İzleyicisi'ni kullanarak sorun giderme
 
-Bağlantınızı tanılamak için Azure PowerShell'i bağlayın ve başlatma `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet'i. Bu cmdlet, kullanımıyla ilgili ayrıntılar bulabilirsiniz [sorun giderme sanal ağ geçidini ve bağlantıları - PowerShell](network-watcher-troubleshoot-manage-powershell.md). Bu cmdlet tamamlanması birkaç dakika sürebilir.
+Bağlantınızı tanılamak için Azure PowerShell'i bağlayın ve başlatma `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet'i. Bu cmdlet, kullanımıyla ilgili ayrıntılar bulabilirsiniz [sorun giderme sanal ağ geçidini ve bağlantıları - PowerShell](network-watcher-troubleshoot-manage-powershell.md). Bu cmdlet tamamlanması birkaç dakika sürebilir.
 
 Cmdlet tamamlandıktan sonra cmdlet günlükleri ve sorun hakkında ayrıntılı bilgi almak belirtilen depolama konumuna gidebilirsiniz. Azure Ağ İzleyicisi aşağıdaki günlük dosyalarını içeren bir zip klasörünü oluşturur:
 
@@ -104,10 +107,10 @@ Azure Ağ İzleyicisi sorun giderme tanılayın ve basit bir PowerShell cmdlet'i
 | ConnectionIsMarkedDisconnected | Bağlantı "bağlantısız" olarak işaretlendi |Hayır|
 | ConnectionNotConfiguredOnGateway | Temel alınan hizmete yapılandırılmış bağlantı yok. | Evet |
 | ConnectionMarkedStandby | Temel alınan hizmete yedek olarak işaretlenir.| Evet|
-| Kimlik Doğrulaması | Önceden paylaşılan anahtarı uyuşmazlığı. | Evet|
+| Authentication | Önceden paylaşılan anahtarı uyuşmazlığı. | Evet|
 | PeerReachability | Eş Ağ Geçidi erişilebilir değil. | Evet|
 | IkePolicyMismatch | Eş Ağ geçidi, Azure tarafından desteklenen IKE ilkeleri vardır. | Evet|
-| WfpParse hata | WFP günlük ayrıştırılırken bir hata oluştu. |Evet|
+| WfpParse Error | WFP günlük ayrıştırılırken bir hata oluştu. |Evet|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

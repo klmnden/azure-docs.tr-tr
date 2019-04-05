@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: b3ec0616a7f022a104a20589f3281262b2717e35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b99132cceb8981a93a8f1c10ccc488d5806f7254
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014107"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050986"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Öğretici: Bir ön kapısı özel etki alanı üzerinde HTTPS yapılandırma
 
@@ -40,6 +40,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > - Kendi sertifikanızı, başka bir deyişle özel bir SSL sertifikasını kullanma
 > - Etki alanını doğrulama
 > - Özel etki alanınızda HTTPS protokolünü devre dışı bırakma
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -86,11 +89,11 @@ HTTPS özelliğini etkinleştirmek için kendi sertifikanızı kullanabilirsiniz
 
 Azure Front Door Service hizmet sorumlusunu PowerShell aracılığıyla Azure Active Directory’nize uygulama olarak kaydedin.
 
-1. Gerekirse yerel makinenizdeki PowerShell’de [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0)’i yükleyin.
+1. Gerekirse yerel makinenizdeki PowerShell’de [Azure PowerShell](/powershell/azure/install-az-ps)’i yükleyin.
 
 2. PowerShell’de aşağıdaki komutu çalıştırın:
 
-     `New-AzureRmADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
+     `New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
 
 #### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>Anahtar kasanıza Azure Front Door Service erişimi verme
  
@@ -238,7 +241,7 @@ Aşağıdaki tabloda, HTTPS’yi devre dışı bıraktığınızda oluşan işle
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-1. *Sertifika sağlayıcısı kimdir ve ne tür bir sertifika kullanılır?*
+1. *Sertifika Sağlayıcısı kimdir ve ne tür bir sertifika kullanılır?*
 
     Özel etki alanınız için Digicert tarafından sağlanan ayrılmış/tek bir sertifika kullanılır. 
 
@@ -246,15 +249,15 @@ Aşağıdaki tabloda, HTTPS’yi devre dışı bıraktığınızda oluşan işle
 
     Azure Front Door Service SNI TLS/SSL kullanır.
 
-3. *DigiCert’ten etki alanı doğrulama e-postası almazsam ne olur?*
+3. *Peki miyim etki alanı doğrulama e-postası almazsam?*
 
     Özel etki alanınız için doğrudan uç nokta ana bilgisayar adına işaret eden bir CNAME girişiniz varsa (ve afdverify alt etki alanı adını kullanmıyorsanız) etki alanı doğrulama e-postası almazsınız. Doğrulama otomatik olarak gerçekleşir. Ancak CNAME girişiniz yoksa ve e-postayı 24 saat içinde almazsanız Microsoft destek ekibine başvurun.
 
-4. *Ayrılmış sertifika kullanmak, SAN sertifikasından daha mı güvenlidir?*
+4. *Ayrılmış sertifika az güvenli bir SAN sertifikası kullanıyor mu?*
     
     SAN sertifikası, ayrılmış sertifika ile aynı şifreleme ve güvenlik standartlarını uygular. Verilen tüm SSL sertifikaları, gelişmiş sunucu güvenliği için SHA-256 standardını kullanır.
 
-5. *DNS sağlayıcım ile Sertifika Yetkilisi Yetkilendirme kaydı kullanmam gerekir mi?*
+5. *DNS sağlayıcım ile sertifika yetkilisi yetkilendirme kaydı gerekiyor mu?*
 
     Hayır, Sertifika Yetkilisi Yetkilendirme kaydı şu anda gerekli değildir. Ancak, varsa, geçerli CA olarak DigiCert’i içermelidir.
 

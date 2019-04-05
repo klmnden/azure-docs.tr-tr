@@ -3,17 +3,17 @@ title: Azure IOT hub'ı işleri anlama | Microsoft Docs
 description: Geliştirici Kılavuzu - birden fazla cihazda çalıştırılacak işleri zamanlama, IOT hub'ınıza bağlı. İşler, etiketler ve istenen özelliklerini güncelleştirmek ve birden fazla cihazda doğrudan metotları çağırma.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.openlocfilehash: c2b05b1854b4f1d7ee4ac65ebe635330ba8c604e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: aacb0ab69dad45f9ca7655daaae0c2acff0403f5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011373"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044381"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Birden fazla cihazda işleri zamanlama
 
@@ -115,13 +115,13 @@ Aşağıdaki liste, sorgulanırken işleri veya iş sonuçları için kullanıla
 
 | Özellik | Açıklama |
 | --- | --- |
-| **jobId** |Uygulama için İş Kimliği sağlanmadı. |
+| **iş kimliği** |Uygulama için İş Kimliği sağlanmadı. |
 | **startTime** |Uygulama, işin başlangıç saati (ISO 8601) sağlanır. |
 | **endTime** |IOT Hub, iş tamamlandığında (ISO 8601) tarihi sağlanır. Yalnızca iş 'Tamamlandı' durumuna ulaştıktan sonra geçerli. |
 | **type** |İşleri türleri: |
 | | **scheduledUpdateTwin**: Bir dizi istenen özellikleri veya etiketleri güncelleştirmek için kullanılan bir proje. |
 | | **scheduledDeviceMethod**: Cihaz ikizlerini kümesi üzerinde bir cihaz yöntemini çağırmak için kullanılan bir proje. |
-| **Durumu** |İşin geçerli durumu. Durum için olası değerler: |
+| **durum** |İşin geçerli durumu. Durum için olası değerler: |
 | | **Bekleyen**: Zamanlanmış ve iş hizmeti tarafından işlenmek üzere bekleniyor. |
 | | **Zamanlanmış**: Gelecekteki bir zamanı için zamanlandı. |
 | | **Çalışan**: Şu anda etkin iş. |

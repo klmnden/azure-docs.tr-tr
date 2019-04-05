@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: troubleshooting
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a6d5d7b3ab83c8e405c6866562b4095434b9acff
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 20b8dbcae36555baf3913ab160575a631e204dd9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539029"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049436"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Bing resim arama API'si hakkında sık sorulan sorular (SSS)
 
@@ -25,11 +25,11 @@ Kavramları, kod ve Bing resim arama API'si için Azure üzerinde Microsoft Bili
 
 Aşağıdaki üst bilgiler, Bing resim arama API'si alınan yanıtları oluşabilir.
 
-|||
-|-|-|
-|`X-MSEdge-ClientID`|Bing kullanıcıya atanmış benzersiz kimliği|
-|`BingAPIs-Market`|İsteği gerçekleştirmek için kullanılan Pazar|
-|`BingAPIs-TraceId`|Bu istek (desteği gibi) için Bing API'si sunucusundaki günlük girişi|
+| `Attribute`         | `Description` |
+| ------------------- | ------------- |
+| `X-MSEdge-ClientID` |Bing kullanıcıya atanmış benzersiz kimliği |
+| `BingAPIs-Market`   |İsteği gerçekleştirmek için kullanılan Pazar |
+| `BingAPIs-TraceId`  |Bu istek (desteği gibi) için Bing API'si sunucusundaki günlük girişi |
 
 İstemci kimliği kalıcı hale getirmek ve sonraki istekleri ile döndürmek özellikle önemlidir. Bunu yaptığınızda, arama, arama sonuçlarını sıralamasını bağlamını geçmiş kullanın ve tutarlı bir kullanıcı deneyimi de sağlar.
 
@@ -65,4 +65,4 @@ Eksik bir özellik veya işlev hakkında sorunuz var mı? İsteme veya bunun iç
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
- [Yığın taşması: Bilişsel hizmetler](https://stackoverflow.com/questions/tagged/bing-api)
+ [Yığın taşması: Bilişsel Hizmetler](https://stackoverflow.com/questions/tagged/bing-api)

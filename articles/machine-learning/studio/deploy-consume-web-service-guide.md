@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 592bf638cf0be26182dfdb28ac5a0c8345a7a250
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ad58b914c22c112a83c18a7c0377b567424e4efd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116716"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046028"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio Web Hizmetleri: Dağıtım ve kullanım
 
@@ -36,7 +36,7 @@ Aşağıdaki bağlantılar, yeni bir web hizmeti dağıtma hakkında genel bilgi
 * İle bir web hizmeti oluşturma ve dağıtma konusunda tam bir kılavuz için başlangıç [öğretici 1: Kredi riskini tahmin](tutorial-part1-credit-risk.md).
 * Bir web hizmetini dağıtma belirli örnekler için bkz:
 
-  * [Öğretici 3: Kredi riski model dağıtma](tutorial-part3-credit-risk-deploy.md)
+  * [3. Öğretici: Kredi riski model dağıtma](tutorial-part3-credit-risk-deploy.md)
   * [Bir web hizmetini birden fazla bölgeye dağıtma](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Web Hizmetleri kaynak sağlayıcı API'leri (Azure Resource Manager API'leri)
@@ -49,7 +49,7 @@ Web hizmetleri için Azure Machine Learning Studio kaynak sağlayıcısı REST A
 
 Azure Machine Learning Studio web hizmetleri kaynak sağlayıcı, PowerShell cmdlet'lerini kullanarak, dağıtım ve Yönetim web hizmetleri sağlar.
 
-Cmdlet'leri kullanmak için önce Azure hesabınıza PowerShell ortamında kullanarak oturum açmalısınız [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet'i. Resource Manager temel alan PowerShell komutlarını çağıran nasıl aralıklarıyla bkz [Azure PowerShell kullanarak Azure Resource Manager ile](../../azure-resource-manager/manage-resources-powershell.md).
+Cmdlet'leri kullanmak için önce Azure hesabınıza PowerShell ortamında kullanarak oturum açmalısınız [Connect AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet'i. Resource Manager temel alan PowerShell komutlarını çağıran nasıl aralıklarıyla bkz [Azure PowerShell kullanarak Azure Resource Manager ile](../../azure-resource-manager/manage-resources-powershell.md).
 
 Tahmine dayalı denemenizi dışarı aktarmak için kullanın [Bu örnek kod](https://github.com/ritwik20/AzureML-WebServices). Koddan .exe dosyasını oluşturduktan sonra şunu yazabilirsiniz:
 
@@ -78,7 +78,7 @@ Bir örneği aşağıda verilmiştir:
 
 Ek ayrıntılar için örnek kod ve aşağıdaki makalelere bakın:
 
-* [Azure Machine Learning Studio cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.machinelearning) MSDN'de başvurusu
+* [Azure Machine Learning Studio cmdlet'leri](https://docs.microsoft.com/powershell/module/az.machinelearning) MSDN'de başvurusu
 * Örnek [izlenecek](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) github'da
 
 ## <a name="consume-the-web-services"></a>Web hizmetlerini kullanma
@@ -88,8 +88,8 @@ Ek ayrıntılar için örnek kod ve aşağıdaki makalelere bakın:
 Azure Machine Learning Web Hizmetleri portalında web hizmetini test edebilirsiniz. Toplu yürütme hizmeti (BES) arabirimleri ve bu istek-yanıt hizmeti (RRS) test içerir.
 
 * [Yeni bir web hizmeti dağıtma](publish-a-machine-learning-web-service.md)
-* [Bir Azure Machine Learning web hizmetini dağıtma](publish-a-machine-learning-web-service.md)
-* [Öğretici 3: Kredi riski model dağıtma](tutorial-part3-credit-risk-deploy.md)
+* [Azure Machine Learning web hizmeti dağıtma](publish-a-machine-learning-web-service.md)
+* [3. Öğretici: Kredi riski model dağıtma](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>Excel'den
 

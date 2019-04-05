@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: da027e492633ba3e4da912c2c45b2432fd217576
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: c3ef6ff73366ae3017e1126de16153195576a1a8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802972"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048718"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure kaynaklarınızın uyumluluk verilerini al
 
@@ -30,7 +30,7 @@ Uyumluluk üzerinde yöntemleri bakarak önce uyumluluk bilgilerini güncelleşt
 > [!WARNING]
 > Uyumluluk durumu olarak bildirildiğinden, **kayıtlı**, doğrulayın **Microsoft.policyınsights** kaynak sağlayıcısı kaydedildikten ve kullanıcı uygun rol tabanlı erişim denetimi ( Bölümünde anlatıldığı gibi RBAC) izinlerinin [Azure İlkesi'nde RBAC](../overview.md#rbac-permissions-in-azure-policy).
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>Değerlendirme Tetikleyicileri
 
@@ -57,7 +57,7 @@ Bir abonelik veya kaynak grubu için bir değerlendirme taraması, REST API ça�
 Her bir REST API URI'sinde kendi değerlerinizle değiştirmeniz gereken değişkenler bulunur:
 
 - `{YourRG}` -Kaynak grubunuzun adıyla değiştirin
-- `{subscriptionId}` - Abonelik kimliğinizle değiştirin
+- `{subscriptionId}` -Abonelik Kimliğinizle değiştirin.
 
 Tarama, bir abonelik veya kaynak grubundaki kaynakların değerlendirme destekler. Bir tarama kapsama göre bir REST API'sini kullanmaya başlama **POST** komutunu aşağıdaki URI yapıları kullanarak:
 

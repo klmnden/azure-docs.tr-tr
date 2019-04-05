@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: feea57122d805ae065278458f90afbc960221a9d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d5aa09f3ff899766e6eb6d1784e4417f7b48eac0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670260"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049906"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric ağ desenleri
 Azure Service Fabric kümenizi Azure diğer ağ özelliklerini tümleştirebilirsiniz. Bu makalede, biz, aşağıdaki özellikleri kullanırsınız kümeleri oluşturma işlemini gösterir:
@@ -34,6 +34,9 @@ Service Fabric, standart sanal makine ölçek kümesinde çalışır. Bir sanal 
 Service Fabric yönlerinden biri de diğer ağ özelliklerini benzersizdir. [Azure portalında](https://portal.azure.com) dahili olarak bir küme düğümleri ve uygulamalar hakkında bilgi almak için çağırmak için Service Fabric kaynak sağlayıcısını kullanır. Service Fabric kaynak sağlayıcısı yönetim uç noktasında HTTP ağ geçidi bağlantı noktası (varsayılan olarak, 19080 bağlantı noktası) ortak olarak erişilebilen gelen erişim gerektirir. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) kümenizi yönetmek için yönetim uç noktasını kullanır. Service Fabric kaynak sağlayıcısı bu bağlantı noktası bilgileri kümeniz, sorgulama için Azure portalında görüntülemek için de kullanır. 
 
 Bağlantı noktası 19080 Service Fabric kaynak Sağlayıcısı'ndan erişilebilir durumda değilse, bir ileti ister *düğümleri Nebyl Nalezen* portalda görünür ve düğüm ve uygulama listenize boş görünür. Azure portalında kümenizin görmek istiyorsanız, yük dengeleyicinizin genel IP adresi kullanıma sunması gerekir ve ağ güvenlik grubunuzu gelen bağlantı noktası 19080 trafiğe izin vermeniz gerekir. Kurulumunuzu bu gereksinimleri karşılamıyorsa, Azure portalında kümenizin durumunu görüntülemez.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="templates"></a>Şablonlar
 
@@ -51,7 +54,7 @@ Aşağıdaki örnekte, biz ExistingRG-vnet adlı bir sanal ağınız ile başlay
 Genellikle bir statik genel IP adresi atandığı VM veya Vm'leri ayrı olarak yönetilen ayrılmış bir kaynak ' dir. (Kendisi Service Fabric küme kaynağı grubuna karşılık olarak), ayrılmış bir ağ kaynak grubuna sağlanır. Aynı gruptaki ExistingRG kaynak, Azure portalında veya PowerShell kullanarak staticIP1 adlı statik genel IP adresi oluşturun:
 
 ```powershell
-PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
+PS C:\Users\user> New-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
 
 Name                     : staticIP1
 ResourceGroupName        : ExistingRG
@@ -166,8 +169,8 @@ Bu makaledeki örneklerde, Service Fabric template.json kullanırız. Küme olu�
 6. Şablonu dağıtın:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location westus
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
+    New-AzResourceGroup -Name sfnetworkingexistingvnet -Location westus
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
     Dağıtımdan sonra sanal ağınızı yeni içermelidir ölçek kümesinin Vm'leri. Sanal makine ölçek kümesi düğüm türü, var olan sanal ağ ve alt göstermelidir. Sanal ağda zaten olan bir sanal Makineye erişmek için Uzak Masaüstü Protokolü (RDP) kullanabilirsiniz ve yeni ölçek ping Vm'leri ayarlayın:
@@ -276,13 +279,13 @@ Başka bir örnek için bkz: [, Service Fabric'e özgü değildir](https://githu
 8. Şablonu dağıtın:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingstaticip -Location westus
+    New-AzResourceGroup -Name sfnetworkingstaticip -Location westus
 
-    $staticip = Get-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
+    $staticip = Get-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
 
     $staticip
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
     ```
 
 Dağıtımdan sonra Yük dengeleyicinizin genel statik IP adresi başka bir kaynak grubundan bağlı olduğunu görebilirsiniz. Service Fabric istemci bağlantısı uç noktası ve [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) DNS FQDN uç noktasına statik IP adresi.
@@ -378,9 +381,9 @@ Bu senaryo, bir yalnızca iç yük dengeleyiciyle varsayılan Service Fabric şa
 7. Şablonu dağıtın:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
 
 Dağıtımdan sonra Yük dengeleyicinizin 10.0.0.250 statik özel IP adresini kullanır. Bu aynı sanal ağdaki başka bir makine varsa, iç ağa gidebilirsiniz [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) uç noktası. Yük dengeleyicinin arkasındaki düğümlerinden biri için bağlandığını unutmayın.
@@ -595,9 +598,15 @@ Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başla
 7. Şablonu dağıtın:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternalexternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternalexternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    ```
+
+Dağıtımdan sonra kaynak grubunda iki yük Dengeleyiciler görebilirsiniz. Yük Dengeleyiciler göz atarsanız, genel bir IP adresi atanmış genel IP adresi ve yönetim uç noktalarını (bağlantı noktaları 19000 ve 19080) görebilirsiniz. İç yük dengeleyiciye atanan statik iç IP adresi ve uygulama uç noktası (bağlantı noktası 80) de görebilirsiniz. Her iki yük Dengeleyiciler, aynı sanal makine ölçek kümesi arka uç havuzunu kullanın.
+
+## <a name="next-steps"></a>Sonraki adımlar
+[Küme oluşturma](service-fabric-cluster-creation-via-arm.md) ternalLB.json
     ```
 
 Dağıtımdan sonra kaynak grubunda iki yük Dengeleyiciler görebilirsiniz. Yük Dengeleyiciler göz atarsanız, genel bir IP adresi atanmış genel IP adresi ve yönetim uç noktalarını (bağlantı noktaları 19000 ve 19080) görebilirsiniz. İç yük dengeleyiciye atanan statik iç IP adresi ve uygulama uç noktası (bağlantı noktası 80) de görebilirsiniz. Her iki yük Dengeleyiciler, aynı sanal makine ölçek kümesi arka uç havuzunu kullanın.

@@ -15,18 +15,21 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a206b6027054522a2bbbe1cc847adf9bb7f765e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 32d7aff33f89a8e1948c5715345ec40af91b0ce9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447648"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048512"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Öğretici: Azure depolama bir SAS kimlik bilgisi erişmek için bir Linux VM sistem tarafından atanan kimliği kullanın.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Bu öğreticide depolama alanı Paylaşılan Erişim İmzası (SAS) kimlik bilgilerini almak üzere bir Linux sanal makinesi (VM) için sistem tarafından atanan yönetilen bir kimliği nasıl kullanacağınız gösterilmektedir. Özellikle, bir [Hizmet SAS kimlik bilgileri](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+
+> [!NOTE]
+> Bu öğreticide oluşturulan SAS anahtarı kısıtlı/VM'ye bağlı değil olmalı. Hariç tutulan
 
 Hizmet SAS, bir hesap erişim anahtarı göstermeden sınırlı bir süre boyunca ve belirli bir hizmet için (bizim durumumuzda blob hizmeti) depolama hesabında yer alan nesnelere sınırlı erişim vermeye olanağı tanır. Depolama işlemleri yaparken, örneğin Depolama SDK'sını kullanırken SAS kimlik bilgilerini olağan şekilde kullanabilirsiniz. Bu öğreticide, Azure Depolama CLI kullanarak bir blobu karşıya yükleme ve indirme işlemini göstereceğiz. Şunları öğrenirsiniz:
 

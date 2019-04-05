@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 0372f34d5e58361d460465a9ddf4b6eed79a49f0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9d7162eca3c2979b1dd333bdaf95c7c43e875b9d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474828"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049158"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Öğretici: Windows dosya sunucularını Azure Dosya Eşitleme ile genişletme
 
@@ -28,6 +28,8 @@ Bu makalede, Azure dosya eşitleme'yi kullanarak bir Windows server depolama kap
 > * Sunucu uç noktası oluşturma
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
@@ -181,7 +183,7 @@ Ardından, Windows Server 2016 Datacenter VM sunucuda Azure PowerShell modülün
 1. Şu komutu çalıştırın:
 
    ```powershell
-   Install-Module -Name AzureRm
+   Install-Module -Name Az
    ```
 
    > [!NOTE]
@@ -200,7 +202,7 @@ Ardından, Windows Server 2016 Datacenter VM sunucuda Azure PowerShell modülün
 
 1. Yanıt **Evet** veya **Tümüne Evet** yüklemeye devam etmek için.
 
-`AzureRM` modülü, Azure PowerShell cmdlet’leri için toplu bir modüldür. Bu modülü yüklediğinizde kullanılabilir durumdaki tüm Azure Resource Manager modülleri indirilir ve cmdlet’leri kullanıma sunulur.
+`Az` modülü, Azure PowerShell cmdlet’leri için toplu bir modüldür. Bu modülü yüklediğinizde kullanılabilir durumdaki tüm Azure Resource Manager modülleri indirilir ve cmdlet’leri kullanıma sunulur.
 
 Bu noktada, Öğretici için ortamınızı ayarlama. Depolama eşitleme hizmeti dağıtmaya hazırsınız.
 
@@ -306,9 +308,9 @@ Sunucu uç noktası, kayıtlı bir sunucudaki belirli bir konuma temsil eder. Ö
    | ----- | ----- |
    | Değer | Açıklama |
    | **Kayıtlı sunucu** | Oluşturduğunuz sunucunun adı. Kullanım *afsvm101918* Bu öğretici için. |
-   | **Path** | Oluşturduğunuz sürücü Windows Server yolu. Kullanım *f:\filestosync* bu öğreticideki. |
-   | **Bulutta Katmanlama** | Bu öğretici için devre dışı bırakın. |
-   | **Birim Boş Alanı** | Bu öğretici için boş bırakın. |
+   | **Yol** | Oluşturduğunuz sürücü Windows Server yolu. Kullanım *f:\filestosync* bu öğreticideki. |
+   | **Bulut katmanlaması** | Bu öğretici için devre dışı bırakın. |
+   | **Birim boş alanı** | Bu öğretici için boş bırakın. |
 
 1. **Oluştur**’u seçin.
 
@@ -325,4 +327,4 @@ Dosyalarınız artık Azure dosya paylaşımında ve Windows Server’da eşitle
 Bu öğreticide, Azure dosya eşitleme'yi kullanarak bir Windows server depolama kapasitesini genişletmek için temel adımlarını öğrendiniz. Bir Azure dosya eşitleme dağıtımı planlama bir daha kapsamlı bakış için bkz:
 
 > [!div class="nextstepaction"]
-> [Azure Dosya Eşitleme dağıtımı planlama](./storage-sync-files-planning.md)
+> [Azure dosya eşitleme dağıtımı planlama](./storage-sync-files-planning.md)

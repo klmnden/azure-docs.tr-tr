@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 77519c57c9a603ae0eff46d248ff15432d0404fa
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a2f55a65d88b499384fc961c3d6a479bac804ba8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485408"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051538"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Sanal Makine güvenlik REST API kullanarak güvenlik grubu görünümünü çözümleme
 
@@ -29,6 +29,9 @@ ms.locfileid: "58485408"
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 Güvenlik grubu görünümü bir sanal makineye uygulanan yapılandırılmış ve etkin ağ güvenlik kuralları döndürür. Bu yetenek, Denetim ve ağ güvenlik grupları ve trafiği okunuyor emin olmak için bir VM üzerinde yapılandırılan kurallardan tanılamak kullanışlıdır doğru bir şekilde izin verilen veya reddedilen. Bu makalede, biz, REST API kullanarak bir sanal makine için etkili ve uygulanan güvenlik kuralları nasıl alınacağını göstermektedir
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -50,7 +53,7 @@ armclient login
 
 Aşağıdaki kod, sanal machineThe döndürmek için aşağıdaki betiği çalıştırın değişkenleri gerekir:
 
-- **Subscriptionıd** -abonelik kimliği ile de alınabilir **Get-AzureRMSubscription** cmdlet'i.
+- **Subscriptionıd** -abonelik kimliği ile de alınabilir **Get-AzSubscription** cmdlet'i.
 - **resourceGroupName** -sanal makine içeren bir kaynak grubu adı.
 
 ```powershell

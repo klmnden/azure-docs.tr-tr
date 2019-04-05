@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/13/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 5ef143fe2021a9f705bf61b579e8251b2946b042
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668101"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050015"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Öğretici: Windows çalıştıran bir Azure sanal ağına Service Fabric kümesine dağıtma
 
@@ -50,13 +50,16 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > * [Bir kümenin çalışma zamanını yükseltme](service-fabric-tutorial-upgrade-cluster.md)
 > * [Küme silme](service-fabric-tutorial-delete-cluster.md)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce:
 
 * Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 * Yükleme [Service Fabric SDK'sını ve PowerShell Modülü](service-fabric-get-started.md).
-* Yükleme [Azure Powershell modülü sürüm 4.1 veya üzerini](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+* Yükleme [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 * Temel kavramlarını gözden [Azure kümeleri](service-fabric-azure-clusters-overview.md).
 * [Plan ve hazırlık](service-fabric-cluster-azure-deployment-preparation.md) bir küme dağıtımları için.
 
@@ -77,7 +80,7 @@ Bu şablon, bir sanal ağ ve ağ güvenlik grubu yedi sanal makinelerin ve üç 
 
 * Üç düğüm türleri.
 * (Şablon parametrelerinde yapılandırılabilir) birincil düğüm türündeki beş düğüme ve diğer iki düğüm türlerinin her bir düğümü.
-* İşletim sistemi: Kapsayıcılar (şablon parametrelerinde yapılandırılabilir) ile Windows Server 2016 Datacenter.
+* İşletim Sistemi: Kapsayıcılar (şablon parametrelerinde yapılandırılabilir) ile Windows Server 2016 Datacenter.
 * Sertifika (şablon parametrelerinde yapılandırılabilir) güvenli.
 * [Ters proxy](service-fabric-reverseproxy.md) etkinleştirilir.
 * [DNS hizmeti](service-fabric-dnsservice.md) etkinleştirilir.
@@ -156,7 +159,7 @@ Varsayılan olarak, [Windows Defender virüsten koruma programı](/windows/secur
 |adminUserName|vmadmin| Küme VM’leri için yönetici kullanıcı adı. [VM kullanıcı adı gereksinimleri](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
 |adminPassword|Password#1234| Küme VM’leri için yönetici parolası. [VM için parola gereksinimlerini](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
 |clusterName|mysfcluster123| Kümenin adı. Yalnızca harf ve sayı içerebilir. Uzunluğu 3 ile 23 karakter arasında olmalıdır.|
-|konum|southcentralus| Kümenin konumu. |
+|location|southcentralus| Kümenin konumu. |
 |certificateThumbprint|| <p>Otomatik olarak imzalanan bir sertifika oluşturuluyor veya sertifika dosyası sağlanıyorsa değer boş olmalıdır.</p><p>Daha önce bir anahtar kasasına yüklenmiş mevcut bir sertifikayı kullanmak için sertifika SHA1 parmak izi değerini girin. Örneğin: "6190390162C988701DB5676EB81083EA608DCCF3".</p> |
 |certificateUrlValue|| <p>Otomatik olarak imzalanan bir sertifika oluşturuluyor veya sertifika dosyası sağlanıyorsa değer boş olmalıdır. </p><p>Daha önce bir anahtar kasasına yüklenmiş mevcut bir sertifikayı kullanmak için sertifika URL’sini girin. Örneğin, "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Otomatik olarak imzalanan bir sertifika oluşturuluyor veya sertifika dosyası sağlanıyorsa değer boş olmalıdır.</p><p>Daha önce bir anahtar kasasına yüklenmiş mevcut bir sertifikayı kullanmak için kaynak kasa değerini girin. Örneğin: "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
@@ -611,7 +614,7 @@ Bu makalede şablonda küme sertifikayı belirlemek için sertifika parmak izini
 
 ### <a name="create-a-cluster-by-using-an-existing-certificate"></a>Mevcut bir sertifikayı kullanarak küme oluşturma
 
-Aşağıdaki betik, [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet’ini ve bir şablonu kullanarak Azure’da yeni bir küme dağıtır. Cmdlet tarafından Azure'da yeni bir anahtar kasası oluşturulur ve sertifikanız karşıya yüklenir.
+Aşağıdaki betik [yeni AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) cmdlet'i ve azure'da yeni bir kümeye dağıtmak için bir şablon. Cmdlet tarafından Azure'da yeni bir anahtar kasası oluşturulur ve sertifikanız karşıya yüklenir.
 
 ```powershell
 # Variables.
@@ -626,22 +629,22 @@ $vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
 # Sign in to your Azure account and select your subscription
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 
 # Create a new resource group for your deployment, and give it a name and a location.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+New-AzServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
 -ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateFile $certpath
 ```
 
 ### <a name="create-a-cluster-by-using-a-new-self-signed-certificate"></a>Yeni, otomatik olarak imzalanan bir sertifika kullanarak küme oluşturma
 
-Aşağıdaki betik, [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet’ini ve bir şablonu kullanarak Azure’da yeni bir küme dağıtır. Cmdlet tarafından Azure'da yeni bir anahtar kasası oluşturulur, yeni bir otomatik olarak imzalanan sertifika anahtar Kasası'na ekler ve yerel olarak sertifika dosyasını indirir.
+Aşağıdaki betik [yeni AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) cmdlet'i ve azure'da yeni bir kümeye dağıtmak için bir şablon. Cmdlet tarafından Azure'da yeni bir anahtar kasası oluşturulur, yeni bir otomatik olarak imzalanan sertifika anahtar Kasası'na ekler ve yerel olarak sertifika dosyasını indirir.
 
 ```powershell
 # Variables.
@@ -657,15 +660,15 @@ $vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
 # Sign in to your Azure account and select your subscription
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 
 # Create a new resource group for your deployment, and give it a name and a location.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+New-AzServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
 -ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateSubjectName $subname
 

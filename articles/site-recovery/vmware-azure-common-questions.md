@@ -8,17 +8,16 @@ services: site-recovery
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: cdb8fe5deb71c014f7e0af01d070e5004d8c9994
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 4237e259d1ba9cb826d89eba212b6931d933626d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418803"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051929"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
 Bu makalede, şirket içi VMware vm'lerinin olağanüstü durum kurtarma Azure'a dağıtırken görüyoruz yaygın soruların yanıtları sağlanır. Bu makaleyi okuduktan sonra sorularınız varsa gönderin [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
-
 
 ## <a name="general"></a>Genel
 ### <a name="how-is-site-recovery-priced"></a>Site Recovery nasıl fiyatlandırılır?
@@ -284,8 +283,8 @@ Yükleyicileri tutulur **%ProgramData%\ASR\home\svsystems\pushinstallsvc\reposit
 ### <a name="what-access-does-site-recovery-need-to-vmware-servers"></a>Hangi erişim Site Recovery, VMware sunucuları için ihtiyaç duyuyor mu?
 Site Recovery aşağıdakiler için VMware sunucularına erişmesi gerekir:
 
-- Yapılandırma sunucusunu ve diğer şirket içi Site Recovery bileşenlerini çalıştıran bir VMware VM ayarlayın. [Daha fazla bilgi](vmware-azure-deploy-configuration-server.md)
-- Otomatik olarak VM için çoğaltma keşfedin. Otomatik bulma için bir hesap hazırlama hakkında bilgi edinin. [Daha fazla bilgi](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery)
+- Yapılandırma sunucusunu ve diğer şirket içi Site Recovery bileşenlerini çalıştıran bir VMware VM ayarlayın. [Daha fazla bilgi edinin](vmware-azure-deploy-configuration-server.md)
+- Otomatik olarak VM için çoğaltma keşfedin. Otomatik bulma için bir hesap hazırlama hakkında bilgi edinin. [Daha fazla bilgi edinin](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery)
 
 
 ### <a name="what-access-does-site-recovery-need-to-vmware-vms"></a>Hangi erişim Site Recovery, VMware Vm'lerinde gerekiyor mu?
@@ -317,13 +316,13 @@ Evet, hem şifreleme-aktarım sırasında ve [azure'da şifreleme](https://docs.
 VMware-Azure arası için kullanabileceğiniz en eski kurtarma noktası değer 72 saattir.
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>Yük devretme sonrasında Azure Vm'lerini nasıl erişebilirim?
-Yük devretme sonrasında Azure Vm'lerini güvenli bir Internet bağlantısı üzerinden, siteden siteye VPN üzerinden veya Azure ExpressRoute üzerinden erişebilirsiniz. Bağlanmak için etmenizi hazırlamanız gerekir. [Daha fazla bilgi](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+Yük devretme sonrasında Azure Vm'lerini güvenli bir Internet bağlantısı üzerinden, siteden siteye VPN üzerinden veya Azure ExpressRoute üzerinden erişebilirsiniz. Bağlanmak için etmenizi hazırlamanız gerekir. [Daha fazla bilgi edinin](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 ### <a name="is-failed-over-data-resilient"></a>Dayanıklı veriler üzerinde başarısız oldu?
 Azure esneklik için tasarlanmıştır. Site kurtarma, ikincil bir Azure veri merkezi, Azure SLA'sı uygun olarak yük devretme için tasarlanmıştır. Yük devretme işlemi gerçekleştiğinde, kasanız için seçtiğiniz aynı coğrafi bölgede kasaları kalır ve biz meta verilerinizi emin olun.
 
 ### <a name="is-failover-automatic"></a>Yük devretme işlemi otomatik midir?
-[Yük devretme](site-recovery-failover.md) otomatik değildir. Portaldaki tek tıklamayla yük devretme başlatın veya kullanabileceğiniz [PowerShell](/powershell/module/azurerm.siterecovery) bir yük devretmeyi tetiklemek için.
+[Yük devretme](site-recovery-failover.md) otomatik değildir. Portaldaki tek tıklamayla yük devretme başlatın veya kullanabileceğiniz [PowerShell](/powershell/module/az.recoveryservices) bir yük devretmeyi tetiklemek için.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>Ben, farklı bir konuma başarısız olabilir?
 Evet, Azure'a yük devretmesi, ilkinin kullanılamıyorsa farklı bir konuma başarısız olabilir. [Daha fazla bilgi edinin](concepts-types-of-failback.md#alternate-location-recovery-alr).

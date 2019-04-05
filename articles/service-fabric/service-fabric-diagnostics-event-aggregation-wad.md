@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: f886de9160b52b8a4e3ee8beaf2e22022a097666
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d49104c1d1402969917de63e22bd41e7489a08c7
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662797"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046305"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Olay toplama ve Windows Azure Tanılama'yı kullanarak koleksiyon
 > [!div class="op_single_selector"]
@@ -31,6 +31,9 @@ ms.locfileid: "58662797"
 Bir Azure Service Fabric kümesi çalıştırırken, merkezi bir konumda tüm düğümlerden günlükleri toplamak için iyi bir fikirdir. Günlükleri sahip merkezi bir konumda, kümenizdeki sorunları veya uygulamalar ve hizmetler, kümede çalışan sorunları gidermek ve çözümlemenize yardımcı olur.
 
 Karşıya yükleme ve günlükleri toplamak için bir yolu, günlükleri, Azure Depolama'ya yükler ve ayrıca Azure Application Insights veya olay hub'larına günlükleri gönderme seçeneği olan Windows Azure tanılama (WAD) uzantısı kullanmaktır. Olayları depolamadan okuyun ve bunları bir analiz platformu ürün gibi yerleştirmek için bir dış işlem kullanabilirsiniz [Azure İzleyici günlükleri](../log-analytics/log-analytics-service-fabric.md) veya başka bir günlük ayrıştırma çözümü.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makalede aşağıdaki araçları kullanılır:
@@ -71,7 +74,7 @@ Kaynak Yöneticisi'ni kullanarak bir küme oluşturmak için tam bir Resource Ma
 
 Resource Manager şablonu tanılama ayarı görmek için azuredeploy.json dosyasını açın ve arama **IaaSDiagnostics**. Bu şablonu kullanarak bir küme oluşturmak için Seç **azure'a Dağıt** düğmesini önceki bağlantıda kullanılabilir.
 
-Alternatif olarak, sizi Resource Manager örneği indirin, değişiklik yapmak ve kullanarak bir küme ile değiştirilmiş şablonu oluşturma `New-AzureRmResourceGroupDeployment` Azure PowerShell penceresinde komutu. Komutu içinde geçirdiğiniz parametreler için aşağıdaki kodu bakın. PowerShell kullanarak bir kaynak grubu dağıtma hakkında ayrıntılı bilgi için bkz [Azure Resource Manager şablonu ile bir kaynak grubu dağıtma](../azure-resource-manager/resource-group-template-deploy.md).
+Alternatif olarak, sizi Resource Manager örneği indirin, değişiklik yapmak ve kullanarak bir küme ile değiştirilmiş şablonu oluşturma `New-AzResourceGroupDeployment` Azure PowerShell penceresinde komutu. Komutu içinde geçirdiğiniz parametreler için aşağıdaki kodu bakın. PowerShell kullanarak bir kaynak grubu dağıtma hakkında ayrıntılı bilgi için bkz [Azure Resource Manager şablonu ile bir kaynak grubu dağıtma](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>Tanılama uzantısını mevcut bir kümeye ekleme
 Dağıtılan tanılama sahip olmayan var olan bir kümeniz varsa ekleyin veya küme şablonu güncelleştirebilir. Daha önce açıklandığı gibi portaldan şablonu indirin veya mevcut kümeyi oluşturmak için kullanılan Resource Manager şablonunu değiştirin. Aşağıdaki görevleri gerçekleştirerek template.json dosyasını değiştirin:
@@ -269,7 +272,7 @@ Etkinleştirmek için **temel işlevsel kanal** gürültü, en az miktarda ile k
 
 Tanılama günlüklerini toplama, olduğunuz hakkında dağıtmak için gerçekleştirmenizi aynı yeni bir uygulamasını temsil eden yeni EventSource kanaldan güncelleştirmek için varolan bir tanılama kurulumu için daha önce açıklanan adımları küme.
 
-Güncelleştirme `EtwEventSourceProviderConfiguration` yapılandırma uygulamadan önce yeni bir EventSource kanalları kullanarak güncelleştirmek için giriş eklemek için template.json dosyasını bölümünde `New-AzureRmResourceGroupDeployment` PowerShell komutu. Olay kaynağının adını, Visual Studio tarafından oluşturulan ServiceEventSource.cs dosyası kodunuzda bir parçası olarak tanımlanır.
+Güncelleştirme `EtwEventSourceProviderConfiguration` yapılandırma uygulamadan önce yeni bir EventSource kanalları kullanarak güncelleştirmek için giriş eklemek için template.json dosyasını bölümünde `New-AzResourceGroupDeployment` PowerShell komutu. Olay kaynağının adını, Visual Studio tarafından oluşturulan ServiceEventSource.cs dosyası kodunuzda bir parçası olarak tanımlanır.
 
 Örneğin, olay kaynağınızı Eventsource My adlandırılmışsa Eventsource My olayların MyDestinationTableName adlı bir tabloya yerleştirmek için aşağıdaki kodu ekleyin.
 
@@ -346,5 +349,7 @@ Azure tanılama doğru şekilde yapılandırdıktan sonra ETW ve EventSource gü
 >Şu anda filtreleyin veya tabloya gönderilen olayların temizleme işlemi yapamazsınız. Olayları tablodan kaldırmak için bir işlem uygulamayıp, tablonun büyümeye devam edecektir. Şu anda çalışan bir veri temizleme hizmeti örneği yok [izleme örnek](https://github.com/Azure-Samples/service-fabric-watchdog-service), ve bir 30 veya 90 günlük süre günlükleri depolamak için geçerli bir nedeniniz yoksa kendiniz için bir tane de yazma önerilir.
 
 * [Tanılama uzantısını kullanarak performans sayaçlarını veya günlük toplamayı öğrenin](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Olay analizi ve Application Insights ile Görselleştirme](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Olay çözümleme ve görselleştirme ile Azure izleme günlükleri](service-fabric-diagnostics-event-analysis-oms.md)
 * [Olay analizi ve Application Insights ile Görselleştirme](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Olay çözümleme ve görselleştirme ile Azure izleme günlükleri](service-fabric-diagnostics-event-analysis-oms.md)

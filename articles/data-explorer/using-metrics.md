@@ -1,19 +1,18 @@
 ---
 title: Azure Veri Gezgini performansını, sistem durumu ve kullanım ölçümleri ile izleme
 description: Kümenin performans, durumunu ve kullanımını izlemek için Azure Veri Gezgini ölçümleri'ni kullanmayı öğrenin.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.openlocfilehash: 5252ca8898439b63a8819f6abfd634de0786932b
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: a9c9f4d827d21c374bebba9d39e33b0bcad8a83e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851935"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050626"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Azure Veri Gezgini performansını, sistem durumu ve kullanım ölçümleri ile izleme
 
@@ -43,15 +42,15 @@ Azure Veri Gezgini kümenizi seçin **ölçümleri** ölçümleri bölmesini aç
 
     **Ölçüm** | **Birim** | **Toplama** | **Ölçüm tanımı**
     |---|---|---|---|
-    | Önbellek kullanımı | Yüzde | AVG, Max, Min | Gerekli önbellek boyutu (göre tanımlanmış önbellek İlkesi) ve toplam önbellek boyutu (toplam boyutunu verilen kullanıcı etkinliklerine SSD) kümesi arasındaki oran. Bir ortalama önbellek kullanımı % 80 veya daha küçük bir küme için sürdürülebilir bir durumdur. Ortalama önbellek kullanımı % 80'in ise, kümenin olmalıdır [yukarı ölçeklendirilemez](manage-cluster-scale-up.md) fiyatlandırma katmanı için bir depolama için iyileştirilmiş veya [ölçeği](manage-cluster-scale-out.md) daha fazla örnek için. Alternatif olarak, önbellek İlkesi (daha az gün önbellekte) uyarlayın. Önbellek kullanımı % 100 üzerinde ise, önbelleğe alma ilkesine göre önbelleğe veri boyutu büyüktür, önbellek kümesinde toplam boyutu. |
-    | CPU | Yüzde | AVG, Max, Min | Toplam CPU kullanılan ve tüm kümede kullanılabilir CPU arasındaki oran. Bir ortalama CPU % 80 veya daha küçük bir küme için sürdürülebilir. En fazla CPU veriyi işlemek için ek işlem kaynak yok anlamına gelir % 100 değeri. Bir küme iyi değil, engellenen belirli CPU'ları olup olmadığını belirlemek için CPU en büyük değerini kontrol edin. |
-    | (Event Hubs için) işlenen olaylar | Sayı | Max, Min, TOPLA | Toplam olay sayısı olay hub'ları tarafından gönderilen ve küme tarafından alındı. Reddedilen olaylar ve küme altyapısı tarafından kabul edilen olaylar olayların ayrılır. |
-    | Alma gecikmesi | Saniye | AVG, Max, Min | Sorgu için hazır olana kadar veri kümesinde alındığı zamandan alınan veri gecikme süresi. Alma gecikmesi saniye cinsinden ölçülür. Alma gecikme süresini alımı senaryoya bağlıdır. |
-    | Alma sonucu | Sayı | Sayı | Başarısız ve başarılı alma işlemlerinin toplam sayısı. Kullanım **bölme uygulamak** başarı demet oluşturma ve sonuçları başarısız.|
-    | Alımı kullanımı | Yüzde | AVG, Max, Min | Veri alımı için kullanılan gerçek kaynakları ve kapasitesini ilke alımı yapmak için ayrılan toplam kaynaklar arasındaki oran. Varsayılan kapasite en fazla 512 eşzamanlı alımı işlemlerini veya %75 alım yatırım küme kaynaklarının ilkesidir. Ortalama alımı kullanımı % 80 veya daha küçük bir küme için sürdürülebilir bir durumdur. En fazla alımı kullanımı alma sırası neden olabilir ve tüm küme alma özelliği kullanılır yani % 100 değeri. |
-    | Alma birim (MB cinsinden) | Sayı | Max, Min, TOPLA | Veri kümesine (MB cinsinden) alınan toplam boyutu. Alınan veri sıkıştırma önce MB sayısının birimleridir. |
+    | Önbellek kullanımı | Yüzde | AVG, Max, Min | Ayrılmış önbellek kaynakları ve küme tarafından kullanılmakta yüzdesi. Önbellek için tanımlanmış önbellek ilkesini göre kullanıcı etkinliğini ayrılan SSD boyutunu ifade eder. Bir ortalama önbellek kullanımı % 80 veya daha küçük bir küme için sürdürülebilir bir durumdur. Ortalama önbellek kullanımı % 80'in ise, kümenin olmalıdır [yukarı ölçeklendirilemez](manage-cluster-scale-up.md) fiyatlandırma katmanı için bir depolama için iyileştirilmiş veya [ölçeği](manage-cluster-scale-out.md) daha fazla örnek için. Alternatif olarak, önbellek İlkesi (daha az gün önbellekte) uyarlayın. Önbellek kullanımı % 100 üzerinde ise, önbelleğe alma ilkesine göre önbelleğe veri boyutu büyüktür, önbellek kümesinde toplam boyutu. |
+    | CPU | Yüzde | AVG, Max, Min | Ayrılmış işlem kaynakları şu anda kümedeki makineler tarafından kullanım yüzdesi. Bir ortalama CPU % 80 veya daha küçük bir küme için sürdürülebilir. En fazla CPU veriyi işlemek için ek işlem kaynak yok anlamına gelir % 100 değeri. Bir küme de değil gerçekleştirirken, engellenen belirli CPU'ları olup olmadığını belirlemek için CPU en büyük değerini denetleyin. |
+    | (Event Hubs için) işlenen olaylar | Sayı | Max, Min, TOPLA | Toplam olay sayısı, event hubs'dan okumayı ve küme tarafından işlenebilir. Reddedilen olaylar ve küme altyapısı tarafından kabul edilen olaylar olayların ayrılır. |
+    | Alma gecikmesi | Saniye | AVG, Max, Min | Sorgu için hazır olana kadar veri kümesinde alındığı zamandan içe alınan veri gecikme süresi. Alma gecikme süresini alımı senaryoya bağlıdır. |
+    | Alma sonucu | Sayı | Sayı | Başarısız ve başarılı alma işlemlerinin toplam sayısı. Kullanım **bölme uygulamak** başarı demet oluşturma ve boyutları analiz sonuçları başarısız (**değer** > **durumu**).|
+    | Alımı kullanımı | Yüzde | AVG, Max, Min | Ayrılan, alımı gerçekleştirmek için kapasite ilkesinde toplam kaynaklardan veri almak için kullanılan gerçek kaynakları yüzdesi. Varsayılan kapasite en fazla 512 eşzamanlı alımı işlemlerini veya %75 alım yatırım küme kaynaklarının ilkesidir. Ortalama alımı kullanımı % 80 veya daha küçük bir küme için sürdürülebilir bir durumdur. En büyük değerini alma kullanımı alma sırası neden olabilir ve tüm küme alma özelliği kullanılır yani % 100 ' dir. |
+    | Alma birim (MB cinsinden) | Sayı | Max, Min, TOPLA | Veri (MB cinsinden) kümeye sıkıştırmadan önce alınan toplam boyutu. |
     | Canlı | Sayı | Ortalama | Kümenin yanıtlama izler. Tamamen esnek bir küme 1 değerini döndürür ve 0 engellenen veya bağlantısı kesilmiş bir küme döndürür. |
-    | Sorgu süresi | Saniye | Sayısı, ortalama, Min, Max, TOPLA | Sorgu sonuçları alınana kadar toplam süresi. |
+    | Sorgu süresi | Saniye | Sayısı, ortalama, Min, Max, TOPLA | Toplam sorgu sonuçları alınana kadar süre (ağ gecikmesini içermez). |
     | | | |
 
     Ek bilgi ilgili [desteklenen Azure Veri Gezgini küme ölçümleri](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)

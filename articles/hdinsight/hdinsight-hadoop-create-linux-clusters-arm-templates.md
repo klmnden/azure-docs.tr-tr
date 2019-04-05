@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.openlocfilehash: e3757e94dcd8ccc39613b9a6fff8bf491812866a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224218"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044989"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager şablonlarını kullanarak HDInsight Apache Hadoop kümelerini oluşturun
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -40,7 +40,7 @@ HDInsight şablon örneği bulabilirsiniz [Azure hızlı başlangıç şablonlar
 
 Resource Manager şablonları hakkında daha fazla bilgi için aşağıdaki makaleleri ve örnekler bakın:
 
-* [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure Resource Manager Şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Azure Resource Manager şablonları ile uygulama dağıtma](../azure-resource-manager/resource-group-template-deploy.md)
 * [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions) şablon başvurusu
 * [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)

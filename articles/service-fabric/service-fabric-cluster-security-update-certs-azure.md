@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 534335b15d61d1e411ec2e7fb96123eb4701878e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315290"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050246"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure'da bir Service Fabric küme için sertifikaları kaldırın veya ekleyin
 Service Fabric'ın X.509 sertifikaları nasıl kullandığı hakkında bilgilenmeli ve hakkında bilgi sahibi olmanız önerilir [küme güvenliği senaryoları](service-fabric-cluster-security.md). Anlamanız gerekir bir küme sertifikası ve devam etmeden önce ne için kullanılır.
@@ -33,6 +33,9 @@ Service fabric küme oluşturma sırasında istemci sertifikalarının yanı sı
 > 
 > 
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Portalı kullanarak bir ikincil küme sertifikası ekleme
 Azure portalı üzerinden kullanmak Azure powershell ikincil küme sertifikası eklenemiyor. İşlem, bu belgede daha sonra ana hatlarıyla açıklanmıştır.
 
@@ -45,7 +48,7 @@ Ardından amacınızla birincil olarak işaretlenmiş sertifikayı kaldırmak i�
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Resource Manager Powershell kullanarak bir ikincil sertifika Ekle
 > [!TIP]
-> Artık daha iyi ve daha kolay şekilde kullanarak bir ikincil sertifika eklemek [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet'i. Bu bölümdeki adımları izlemeden gerek yoktur.  Ayrıca, ilk olarak oluşturmak ve kullanırken kümeyi dağıtmak için kullanılan şablon gerekmeyen [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet'i.
+> Artık daha iyi ve daha kolay şekilde kullanarak bir ikincil sertifika eklemek [Ekle AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet'i. Bu bölümdeki adımları izlemeden gerek yoktur.  Ayrıca, ilk olarak oluşturmak ve kullanırken kümeyi dağıtmak için kullanılan şablon gerekmeyen [Ekle AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet'i.
 
 Bu adımları Resource Manager nasıl çalışır ile ilgili bilgi sahibi olduğunuz ve Resource Manager şablonu kullanarak en az bir Service Fabric kümesi dağıttıysanız ve kullanışlı kümeyi oluşturmak için kullanılan şablonu varsayılır. JSON kullanarak memnun olduğunuz varsayılır.
 
@@ -195,19 +198,19 @@ Resource Manager şablonu parametreniz dosya düzenleme, secCertificateThumbprin
 - Azure hesabınızda oturum açın ve belirli bir azure aboneliğini seçin. Bu, birden fazla azure aboneliğinize erişimi olan yeni başlayanlar için önemli bir adımdır.
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId <Subscription ID> 
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId <Subscription ID> 
 
 ```
 
 Şablonu dağıtmadan önce test edin. Kümenizi şu anda dağıtılmış olan aynı kaynak grubunu kullanın.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
+Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 
 ```
 
-Şablon, kaynak grubuna dağıtın. Kümenizi şu anda dağıtılmış olan aynı kaynak grubunu kullanın. New-AzureRmResourceGroupDeployment komutu çalıştırın. Varsayılan değer olduğundan modu belirtmek gerekmez **artımlı**.
+Şablon, kaynak grubuna dağıtın. Kümenizi şu anda dağıtılmış olan aynı kaynak grubunu kullanın. New-AzResourceGroupDeployment komutu çalıştırın. Varsayılan değer olduğundan modu belirtmek gerekmez **artımlı**.
 
 > [!NOTE]
 > Modu için tam olarak ayarlarsanız, şablonunuzda bulunmayan kaynaklar yanlışlıkla silebilirsiniz. Bu nedenle bu senaryoda kullanmayın.
@@ -215,7 +218,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName <Resource Group that your
 > 
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 ```
 
 Aynı PowerShell doldurulmuş bir örnek aşağıda verilmiştir.
@@ -225,7 +228,7 @@ $ResourceGroup2 = "chackosecure5"
 $TemplateFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure_Step2.json"
 $TemplateParmFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure.parameters_Step2.json"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
+New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
 
 ```
 

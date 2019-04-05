@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/18/2019
-ms.openlocfilehash: d259fd5fc8c60837c6b6110eb751360227d70836
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: d685b06b95af42f07449cc84e70220dd1a4afa9f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338437"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051793"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure SQL veritabanı için Azure Stream Analytics çıkışı
 
@@ -29,7 +29,7 @@ Azure Stream analytics'te SQL çıkış seçeneği olarak paralel yazılmasını
 - **Bölümleme devral** – bölümleme düzeni önceki bir sorgu adımına veya giriş devralan bu SQL çıktı yapılandırma seçeneği sağlar. Bu etkinleştirildiğinde, disk tabanlı tablo için yazma ve sahip bir [tam olarak paralel](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) , işiniz için topoloji beklediğiniz daha iyi aktarım hızı görmek. Bu bölümleme zaten otomatik olarak için diğer birçok olur [çıkarır](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). Tablo (TABLOCK) kilitleme de bu seçenekle yapılan toplu eklemeler için devre dışı.
 
 > [!NOTE] 
-> 8'den fazla giriş bölümler olduğunda, bölümleme düzeni giriş devralan uygun bir seçim olmayabilir. Bu üst sınırı, bir tek bir kimlik sütunu ve kümelenmiş bir dizin olan bir tabloda gözlemlendi. Şema ve dizinleri, tercih ettiğiniz bağlı olarak, uygulamanızın gözlemler farklılık gösterebilir.
+> 8'den fazla giriş bölümler olduğunda, bölümleme düzeni giriş devralan uygun bir seçim olmayabilir. Bu üst sınırı, bir tek bir kimlik sütunu ve kümelenmiş bir dizin olan bir tabloda gözlemlendi. Bu durumda, kullanmayı [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) açıkça çıkış yazıcılar sayısını belirtmek için sorgu, 8. Şema ve dizinleri, tercih ettiğiniz bağlı olarak, uygulamanızın gözlemler farklılık gösterebilir.
 
 - **Yığın boyutu** -SQL çıkış yapılandırması hedef tablo/iş yükünüz doğası hakkında temel bir Azure Stream Analytics SQL çıkışında en yüksek toplu iş boyutu belirtmenize olanak verir. Toplu iş boyutu en fazla gönderilen her toplu ile kayıt sayısı işlem Ekle ' dir. Kümelenmiş columnstore dizinlerinde toplu etrafında boyutları [100 bin cinsinden](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) daha fazla paralelleştirme, en az günlüğe kaydetme ve en iyi duruma getirme kilitleme için izin verilir. Daha yüksek toplu iş boyutu toplu ekleme sırasında kilit azaltımı tetikleyebilir disk tabanlı tablolarda, 10 K (varsayılan) veya alt çözümünüz için en iyi olabilir.
 

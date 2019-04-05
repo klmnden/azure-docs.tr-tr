@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: eb98fc2da95f1aa2b7294d09ec2a3145bdb5c789
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a9cddf3f8091115f7cd39999e8c52d87ead4af07
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112747"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044337"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Bir Azure sanal ağ topolojisini görüntüleme
 
 Bu makalede, Microsoft Azure sanal ağı ve kaynakları arasındaki ilişkiler kaynakların nasıl öğrenin. Örneğin, bir sanal ağ alt ağları içerir. Alt ağlar, Azure sanal makineler (VM) gibi kaynakları içerir. VM'ler, bir veya daha fazla ağ arabirimine sahip. Her alt ağ bir ağ güvenlik grubu ve ilişkili bir yol tablosu olabilir. Azure Ağ İzleyicisi topolojisi yeteneğini tüm kaynakları bir sanal ağ kaynaklara bir sanal ağ ve kaynakları arasındaki ilişkiler ilişkili kaynakları görüntülemek sağlar.
 
 Kullanabileceğiniz [Azure portalında](#azure-portal), [Azure CLI](#azure-cli), veya [PowerShell](#powershell) bir topolojiyi görüntülemek için.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name = "azure-portal"></a>Azure portalı - topolojisini görüntüleme
 
@@ -85,38 +87,38 @@ Kullandığınız hesabın gerekli olmalıdır [izinleri](required-rbac-permissi
 
 İzleyen adımları komutları çalıştırabilirsiniz:
 - Azure Cloud shell'de seçerek, **deneyin** üst sağında herhangi bir komutu. Azure Cloud Shell'i yüklenmiştir ve Kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmış yaygın Azure Araçları ücretsiz bir etkileşimli kabuktur.
-- PowerShell kullanarak bilgisayarınızdan çalıştırarak. PowerShell bilgisayarınızdan çalıştırırsanız, bu makaledeki adımlarda sürümü 5.7.0 gerekir veya üzeri AzureRm modülü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+- PowerShell kullanarak bilgisayarınızdan çalıştırarak. PowerShell kullanarak bilgisayarınızdan çalıştırırsanız, bu makalede Azure PowerShell gerektirir. `Az` modülü. Yüklü sürümü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-Az-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzAccount` komutunu da çalıştırmanız gerekir.
 
 Kullandığınız hesabın gerekli olmalıdır [izinleri](required-rbac-permissions.md).
 
-1. Bir topoloji için oluşturmak istediğiniz sanal ağ ile aynı bölgede Ağ İzleyicisi zaten varsa, 3. adımına geçin. Ağ İzleyicisi ile içerecek bir kaynak grubu oluşturma [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). Aşağıdaki örnekte kaynak grubu oluşturulmaktadır *eastus* bölgesi:
+1. Bir topoloji için oluşturmak istediğiniz sanal ağ ile aynı bölgede Ağ İzleyicisi zaten varsa, 3. adımına geçin. Ağ İzleyicisi ile içerecek bir kaynak grubu oluşturma [yeni AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). Aşağıdaki örnekte kaynak grubu oluşturulmaktadır *eastus* bölgesi:
 
     ```azurepowershell-interactive
-    New-AzureRmResourceGroup -Name NetworkWatcherRG -Location EastUS
+    New-AzResourceGroup -Name NetworkWatcherRG -Location EastUS
     ```
 
-2. Ağ İzleyicisi ile oluşturma [yeni AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher). Aşağıdaki örnekte eastus bölgede Ağ İzleyicisi oluşturur:
+2. Ağ İzleyicisi ile oluşturma [yeni AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher). Aşağıdaki örnekte eastus bölgede Ağ İzleyicisi oluşturur:
 
     ```azurepowershell-interactive
-    New-AzureRmNetworkWatcher `
+    New-AzNetworkWatcher `
       -Name NetworkWatcher_eastus `
       -ResourceGroupName NetworkWatcherRG
     ```
 
-3. Ağ İzleyicisi örneğiyle almak [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher). Aşağıdaki örnek, Doğu ABD bölgesinde bir Ağ İzleyicisi alır:
+3. Ağ İzleyicisi örneğiyle almak [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher). Aşağıdaki örnek, Doğu ABD bölgesinde bir Ağ İzleyicisi alır:
 
     ```azurepowershell-interactive
-    $nw = Get-AzurermResource `
+    $nw = Get-AzResource `
       | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "EastUS" }
-    $networkWatcher = Get-AzureRmNetworkWatcher `
+    $networkWatcher = Get-AzNetworkWatcher `
       -Name $nw.Name `
       -ResourceGroupName $nw.ResourceGroupName
     ```
 
-4. Bir topoloji ile alma [Get-AzureRmNetworkWatcherTopology](/powershell/module/azurerm.network/get-azurermnetworkwatchertopology). Aşağıdaki örnekte adlı kaynak grubunda bir sanal ağ için bir topolojiyi alır *MyResourceGroup*:
+4. Bir topoloji ile alma [Get-AzNetworkWatcherTopology](/powershell/module/az.network/get-aznetworkwatchertopology). Aşağıdaki örnekte adlı kaynak grubunda bir sanal ağ için bir topolojiyi alır *MyResourceGroup*:
 
     ```azurepowershell-interactive
-    Get-AzureRmNetworkWatcherTopology `
+    Get-AzNetworkWatcherTopology `
       -NetworkWatcher $networkWatcher `
       -TargetResourceGroupName MyResourceGroup
     ```

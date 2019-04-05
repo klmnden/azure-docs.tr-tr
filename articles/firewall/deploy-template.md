@@ -8,12 +8,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
-ms.openlocfilehash: a15ffa23b64f944d8b2c088113bcc29443ce6873
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: e0fbec8b22993345114d8d6642e42095191d0b37
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038968"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046283"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Azure bir şablon kullanarak Güvenlik Duvarı'nı dağıtma
 
@@ -24,6 +24,9 @@ Güvenlik Duvarı yer *AzureFirewallSubnet* alt ağ ve bir uygulama kuralı kole
 Kullanıcı tanımlı bir yol, gelen ağ trafiğini işaret *ServersSubnet* alt ağ ve güvenlik duvarında burada güvenlik duvarı kuralları uygulanır.
 
 Azure Güvenlik Duvarı hakkında daha fazla bilgi için bkz: [dağıtma ve Azure Azure portalını kullanarak güvenlik duvarı yapılandırma](tutorial-firewall-deploy-portal.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-the-template-to-deploy-azure-firewall"></a>Azure güvenlik duvarı dağıtmak için şablonu kullanın
 
@@ -56,10 +59,10 @@ Bir Güvenlik Duvarı'nda bir şablon özelliklerini ve JSON söz dizimi hakkın
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık ihtiyacınız olduğunda, kaynak grubu, güvenlik duvarı ve tüm ilgili kaynakları çalıştırarak kaldırabilirsiniz [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) PowerShell komutu. Adlı bir kaynak grubunu kaldırmak için *MyResourceGroup*çalıştırın: 
+Artık ihtiyacınız olduğunda, kaynak grubu, güvenlik duvarı ve tüm ilgili kaynakları çalıştırarak kaldırabilirsiniz [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) PowerShell komutu. Adlı bir kaynak grubunu kaldırmak için *MyResourceGroup*çalıştırın: 
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name MyResourceGroup
+Remove-AzResourceGroup -Name MyResourceGroup
 ```
 Öğretici izleme güvenlik duvarı oturum devam etmeyi planlıyorsanız kaynak grubu ve güvenlik duvarı henüz kaldırmayın. 
 

@@ -1,19 +1,18 @@
 ---
-title: "Hızlı Başlangıç: Power BI'da bir SQL sorgusunu kullanarak verileri Görselleştir"
+title: "Hızlı Başlangıç: Power BI'da bir SQL sorgusunu kullanarak Azure veri Gezgini'nde verileri görselleştirin"
 description: "Bu hızlı başlangıçta, Power bı'da verileri görselleştirmek için üç seçenekten birini kullanmayı öğrenin: Azure Veri Gezgini kümesine göre bir SQL sorgusu."
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: f41bd1dcd354d75788569f5c1f24a50c604b5737
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4a3a688adaae8fe66c336617cdd0a4807f16ec68
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756348"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045516"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Hızlı Başlangıç: Power BI için Azure Veri Gezgini Bağlayıcısı'nı kullanarak verileri Görselleştir
 
@@ -51,7 +50,7 @@ Azure Veri Gezgini ile genellikle yerel sorgu dili kullanır, ancak burada kulla
 
     **Ayar** | **Değer** | **Alan açıklaması**
     |---|---|---|
-    | Sunucu | *help.kusto.windows.net* | Yardım kümesi URL'sini (olmadan *https://*). Diğer kümeler için URL biçimindedir  *\<ClusterName\>.\< Bölge\>. kusto.windows.net*. |
+    | Sunucu | *help.kusto.Windows.NET* | Yardım kümesi URL'sini (olmadan *https://*). Diğer kümeler için URL biçimindedir  *\<ClusterName\>.\< Bölge\>. kusto.windows.net*. |
     | Database | *Örnekler* | Bağlanmakta olduğunuz kümesi üzerinde barındırılan örnek veritabanı. |
     | Veri bağlantısı modu | *İçeri Aktarma* | Power BI veri aldığında veya doğrudan veri kaynağına bağlanan belirler. Bu bağlayıcıyı kullanarak, iki seçenekten birini kullanabilirsiniz. |
     | Komut zaman aşımı | Boş bırakın | Bir zaman aşımı hatası fırlatmadan önce ne kadar sorgusu çalıştırır. |

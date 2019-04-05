@@ -6,15 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 01/06/2019
+ms.date: 04/04/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 1fa9eaa5f4ba399622e0b8889ab722e4a4e130a0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7f501bf8496d1293a45c15908d4f2b21b6ed01d2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770485"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045414"
 ---
 # <a name="what-is-azure-event-grid"></a>Azure Event Grid nedir?
 
@@ -114,13 +114,13 @@ Azure Event Grid, olay başına ödeme fiyatlandırma modeli kullanır, bu neden
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Depolama Blobu olaylarını yönlendirme](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
+* [Blob Depolama olaylarını yönlendirme](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
   Event Grid kullanarak depolama blobu olaylarına yanıt verin.
-* [Özel olay oluşturma ve özel olaylara abone olma](custom-event-quickstart.md)  
+* [Oluşturma ve özel olaylara abone](custom-event-quickstart.md)  
   Azure Event Grid hızlı başlangıcını kullanarak hemen giriş yapın ve kendi özel olaylarınızı herhangi bir uç noktaya göndermeye başlayın.
-* [Olay İşleyicisi olarak Logic Apps kullanma](monitor-virtual-machine-changes-event-grid-logic-app.md)  
+* [Bir olay işleyicisi Logic Apps kullanarak](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   Event Grid tarafından gönderilen olaylara yanıt vermek üzere Logic Apps kullanarak uygulama derleme öğreticisi.
-* [Veri ambarına büyük veri akışı yapma](event-grid-event-hubs-integration.md)  
+* [Büyük verileri bir veri ambarına akışla aktarma](event-grid-event-hubs-integration.md)  
   Azure İşlevleri’ni kullanarak Event Hubs’dan SQL Veri Ambarı’na veri akışı yapan öğretici.
-* [Event Grid REST API başvurusu](/rest/api/eventgrid)  
+* [Event Grid REST API Başvurusu](/rest/api/eventgrid)  
   Olay Aboneliklerini yönetmek için başvuru içeriği sağlar Yönlendirme ve filtreleme.

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: a35e65237a3f4278e9154daddff328887d9f36ef
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4f5fbbb9d06f9fcb8858625b57957fc18c5c1f1f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997379"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046920"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak ağları arasında bir iletişim sorununu tanılama
 
@@ -33,10 +33,13 @@ Sanal ağ geçidi, bir Azure sanal ağını şirket içine ya da diğer sanal a�
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Önkoşullar
 
 VPN tanılamayı kullanmak için çalışır durumda bir VPN ağ geçidinizin olması gerekir. Tanılamak için mevcut bir VPN ağ geçidiniz yoksa, bir [PowerShell betiği](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) kullanarak bir tane dağıtabilirsiniz. PowerShell betiğini şuradan çalıştırabilirsiniz:
-- **Yerel bir PowerShell yüklemesinden**: Betik, AzureRM PowerShell modülü sürüm 5.7.0 gerektirir veya üzeri. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse bkz. [Azure PowerShell yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+- **Yerel bir PowerShell yüklemesinden**: Azure PowerShell Betiği gerektirir `Az` modülü. Yüklü sürümü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yükseltmeniz gerekirse bkz. [Azure PowerShell yükleme](/powershell/azure/install-Az-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzAccount` komutunu da çalıştırmanız gerekir.
 - **Azure Cloud Shell'i**: [Azure Cloud Shell](https://shell.azure.com/powershell) PowerShell sürümünün yüklü ve yapılandırılmış, en son sürümünün ve Azure'a kaydeder.
 
 Betiğin bir VPN ağ geçidi oluşturması yaklaşık bir saat sürer. Kalan adımlarda, tanılamakta olduğunuz ağ geçidinin bu betikle dağıtılan ağ geçidi olduğu varsayılır. Bunun yerine kendi mevcut ağ geçidinizi tanılarsanız sonuçlarınız farklılık gösterir.
@@ -112,4 +115,4 @@ VPN ağ geçidini [önkoşullar](#prerequisites) bölümündeki betiği kullanar
 Bu öğreticide, sanal ağ geçidi ile bir sorunu tanılama hakkında bilgi edindiniz. Anormallikleri gözden geçirebilmek için bir VM ile ağ iletişimini günlüğe kaydetmek isteyebilirsiniz. Nasıl yapılacağını öğrenmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Bir VM’ye gelen ve VM’den giden ağ trafiğini günlüğe kaydetme](network-watcher-nsg-flow-logging-portal.md)
+> [Bir VM'ye gelen ve giden ağ trafiğini günlüğe kaydetme](network-watcher-nsg-flow-logging-portal.md)

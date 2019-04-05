@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 3530dbfe15f6dbdf481df70de6d03979750aa38e
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 3a34af77a2806ceb56e939e2b153f2e68bba61cd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352111"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048945"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Özel görüntü işleme hizmeti için terimler sözlüğü
 
@@ -32,7 +32,6 @@ Bir proje oluşturduğunuzda, bu proje için "etki alanı" seçin. Etki alanı b
 - **Gıda etki alanı.** Bir restoran menüsünde görür çanakları için en iyi duruma getirilmiş. Bunu tek tek Meyve veya et tanınması için iyi hale getirilmiş değil. Genel etki alanı, tek tek MEYVELERİ veya et fotoğraflarını sınıflandırma istiyorsanız, bu amaç için kullanın.
 - **Yer işareti etki alanı.** Tanınabilir için yer işareti, doğal ve yapay en iyi duruma getirilmiş. Yer işareti biraz, önündeki taşıyor kişi grubu tarafından engellendiği bile yer işareti fotoğraf açıkça görünür olduğunda, bu etki alanı en iyi şekilde çalışır.
 - **Perakende etki alanı.** Sınıflandırma görüntüleri bir alışveriş katalog veya alışveriş Web sitesi için en iyi duruma getirilmiş. Ardından, yüksek duyarlık sınıflandırmak elbiselerini, pants, gömlekler vb. istiyorsanız, perakende etki alanını kullanın.
-- **Yetişkinlere yönelik etki alanı.** Yetişkin olmayan içerik yetişkinlere yönelik içeriğe arasında daha iyi tanımlamak için en iyi duruma getirilmiş. Örneğin, görüntüleri bathing cins insanların engellemek istiyorsanız, bu etki alanı, bunu yapmak için özel bir sınıflandırıcı oluşturmanıza olanak sağlar.
 - **Genel etki alanı.** Çok çeşitli görüntü sınıflandırma görevleri için de uygundur.
 
 Tarafından üretilen modellerini **compact etki alanları** ile yineleme dışarı aktarma işlevi dışarı aktarılabilir. Mobil cihazlarda gerçek zamanlı sınıflandırma kısıtlamaları için iyileştirilmiştir. Sıkıştırılmış bir etki alanı ile oluşturulan sınıflandırıcılar biraz daha az doğru eğitim verilerini aynı miktarda sahip standart bir etki alanı. Artırabilen bunlar gerçek zamanlı yerel olarak çalıştırılacak küçük olmasıdır. 

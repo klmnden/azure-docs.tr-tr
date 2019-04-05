@@ -3,29 +3,29 @@ title: Azure IOT Hub cihazı sağlama hizmeti için çıkış için cihaz kavram
 description: Cihaz kavramları Azure IOT Hub cihazı sağlama hizmeti için çıkış açıklar
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/14/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: f52e2a1095c329aabf44a846a644cc05548d4df3
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+manager: philmea
+ms.openlocfilehash: fa8cb29f145c7658227f93d08a990c98563a0cfc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712288"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050858"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>IOT Hub cihaz çıkış kavramları
 
 Bir IOT çözümünü yaşam döngüsü boyunca, cihazlar IOT hub'ları arasında taşımak için yaygındır. Bu taşıma nedenleri, aşağıdaki senaryolar şunları içerebilir:
 
-* **Coğrafi konum / GeoLatency**: bir cihaz konumlar arasında hareket ettikçe, ağ gecikmesi cihaz sağlayarak geliştirilmiştir daha yakın bir IOT hub'ına geçirilen.
+* **Coğrafi konum / GeoLatency**: Bir cihaz konumlar arasında hareket ettikçe, ağ gecikmesi cihaz sağlayarak geliştirilmiştir daha yakın bir IOT hub'ına geçirilen.
 
-* **Çok kiracılılık**: bir cihaz aynı IOT çözüm içinde kullanılabilir ve bir yeni müşteri veya müşteri siteye yeniden atandı. Bu yeni müşteri, farklı bir IOT hub'ı kullanarak hizmet.
+* **Çok kiracılılık**: Bir cihaz aynı IOT çözüm içinde kullanılabilir ve bir yeni müşteri veya müşteri siteye yeniden atandı. Bu yeni müşteri, farklı bir IOT hub'ı kullanarak hizmet.
 
-* **Çözüm değişiklik**: bir cihaz yeni veya güncelleştirilmiş bir IOT çözüm taşınmış. Yeniden atama, diğer arka uç bileşenlerine bağlı yeni bir IOT hub ile iletişim kurmak için cihaz gerektirebilir.
+* **Çözüm değişiklik**: Bir cihaz yeni veya güncelleştirilmiş bir IOT çözüm taşınmış. Yeniden atama, diğer arka uç bileşenlerine bağlı yeni bir IOT hub ile iletişim kurmak için cihaz gerektirebilir.
 
-* **Karantina**: Çözüm değişiklik benzer. Tehlikeye gerçekleştiriyor, bir cihaz veya güncel olmayan yalnızca bir IOT hub'ına atanabilmelerine güncelleştirin ve uyumluluk geri dönebilirsiniz. Cihazın düzgün sonra ana hub'a geçiş yaptı.
+* **Karantina**: Bir çözüm değişiklik benzer. Tehlikeye gerçekleştiriyor, bir cihaz veya güncel olmayan yalnızca bir IOT hub'ına atanabilmelerine güncelleştirin ve uyumluluk geri dönebilirsiniz. Cihazın düzgün sonra ana hub'a geçiş yaptı.
 
 Cihaz sağlama hizmeti adresleri içinde desteği, bu ihtiyaçları çıkış. Cihazlar için yeni IOT hub cihaz kayıt girişi üzerinde yapılandırılan reprovisioning İlkesi göre otomatik olarak atanabilir.
 
@@ -51,17 +51,17 @@ Bir cihaz IOT hub'ları arasında hareket ettikçe senaryoya bağlı olarak ayr�
 
 Senaryoya bağlı olarak bir cihazı genellikle bir isteği bir sağlama hizmeti örneğine yeniden başlatmada gönderir. Ayrıca isteğe bağlı olarak sağlama el ile tetiklemek için bir yöntem de destekler. Bir kayıt girişi reprovisioning ilke, cihaz sağlama hizmeti örneği bu istekleri sağlama nasıl işleyeceğini belirler. İlke ayrıca, cihaz durumu verilerini çıkış sırasında geçirilmesinin gerekip gerekmediğini belirler. Bireysel kayıtlar ve kayıt grupları için aynı ilkeleri kullanılabilir:
 
-* **Yeniden sağlama ve veri geçişi**: Bu ilke yeni kayıt girdileri için varsayılandır. Bu ilke, cihaz kayıt girişi ile ilişkili (1) yeni bir istek gönderdiğinde eylemi gerçekleştirir. Kayıt girdisi yapılandırmasına bağlı olarak, cihazın başka bir IOT hub'ına atanabilir. İlk IOT hub ile cihaz kaydı, cihaz IOT hub'ları değişiyorsa kaldırılacak. Bu ilk IOT hub'ından güncelleştirilmiş cihaz durum bilgilerini yeni IOT hub (2) üzerinden geçirilir. Geçiş sırasında cihazın durumu olarak raporlanır **atama**.
+* **Yeniden sağlama ve veri geçişi**: Bu ilke, yeni bir kayıt girdileri için varsayılandır. Bu ilke, cihaz kayıt girişi ile ilişkili (1) yeni bir istek gönderdiğinde eylemi gerçekleştirir. Kayıt girdisi yapılandırmasına bağlı olarak, cihazın başka bir IOT hub'ına atanabilir. İlk IOT hub ile cihaz kaydı, cihaz IOT hub'ları değişiyorsa kaldırılacak. Bu ilk IOT hub'ından güncelleştirilmiş cihaz durum bilgilerini yeni IOT hub (2) üzerinden geçirilir. Geçiş sırasında cihazın durumu olarak raporlanır **atama**.
 
     ![Cihaz sağlama hizmeti sağlama](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
-* **Yeniden sağlama ve ilk yapılandırmaya Sıfırla**: kayıt girişi ile ilişkili cihazlara yeni sağlama isteği (1) gönderdiğinizde bu ilke eylemi alır. Kayıt girdisi yapılandırmasına bağlı olarak, cihazın başka bir IOT hub'ına atanabilir. İlk IOT hub ile cihaz kaydı, cihaz IOT hub'ları değişiyorsa kaldırılacak. Cihaz sağlanırken sağlama hizmeti örneği alınan ilk yapılandırma verileri, yeni IOT hub (2) sağlanır. Geçiş sırasında cihazın durumu olarak raporlanır **atama**.
+* **Yeniden sağlama ve ilk yapılandırmaya Sıfırla**: Bu ilke, cihaz kayıt girişi ile ilişkili yeni bir sağlama isteği (1) gönderdiğinizde eylemi gerçekleştirir. Kayıt girdisi yapılandırmasına bağlı olarak, cihazın başka bir IOT hub'ına atanabilir. İlk IOT hub ile cihaz kaydı, cihaz IOT hub'ları değişiyorsa kaldırılacak. Cihaz sağlanırken sağlama hizmeti örneği alınan ilk yapılandırma verileri, yeni IOT hub (2) sağlanır. Geçiş sırasında cihazın durumu olarak raporlanır **atama**.
 
     Bu ilke genellikle, IOT hub'ları değiştirmeden Fabrika için kullanılır.
 
     ![Cihaz sağlama hizmeti sağlama](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
-* **Hiçbir zaman yeniden sağlanması**: cihaz hiçbir zaman farklı bir hub'a yeniden atandı. Bu ilke, geriye dönük uyumluluğu yönetmek için sağlanır.
+* **Hiçbir zaman yeniden sağlanması**: Cihaz, farklı bir hub'ına hiçbir zaman atanır. Bu ilke, geriye dönük uyumluluğu yönetmek için sağlanır.
 
 ### <a name="managing-backwards-compatibility"></a>Geriye dönük uyumluluk yönetme
 

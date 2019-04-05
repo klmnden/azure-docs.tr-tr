@@ -11,16 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 2b480df0100690a7a5064044d435a34845516fa6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2ce2e2b35d731c3edfed931d158b420e66ed5620
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442112"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045756"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Traffic Manager'ı yönetmek için PowerShell kullanma
 
 Azure Resource Manager, Azure Hizmetleri için tercih edilen Yönetim arabirimidir. Azure Traffic Manager profilleri, Azure Resource Manager tabanlı API'ler ve araçlar kullanılarak yönetilebilir.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="resource-model"></a>Kaynak modeli
 
@@ -36,7 +38,7 @@ Traffic Manager profillerine 'TrafficManagerProfiles' türünde bir kaynak taraf
 
 Bu yönergeler, Microsoft Azure PowerShell kullanırsınız. Aşağıdaki makalede, Azure PowerShell'i yükleme ve yapılandırma açıklanmaktadır.
 
-* [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview)
+* [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview)
 
 Bu makaledeki örnekler, mevcut bir kaynak grubunu sahip olduğunuzu varsaymaktadır. Aşağıdaki komutu kullanarak bir kaynak grubu oluşturabilirsiniz:
 
@@ -253,10 +255,10 @@ Bu değişiklikler, uç nokta veya profili kaynakları alma/güncelleştirme/aya
 
 ### <a name="example-1-enabling-and-disabling-a-traffic-manager-profile"></a>Örnek 1: Traffic Manager profili devre dışı bırakma ve etkinleştirme
 
-Traffic Manager profili etkinleştirmek için `Enable-AzureRmTrafficManagerProfile`. Profil, bir profil nesnesi kullanılarak belirtilebilir. Profili nesnesini kullanarak veya işlem hattı aracılığıyla geçirilebilir '-TrafficManagerProfile' parametresi. Bu örnekte, biz profili tarafından profil ve kaynak grubu adı belirtin.
+Traffic Manager profili etkinleştirmek için `Enable-AzTrafficManagerProfile`. Profil, bir profil nesnesi kullanılarak belirtilebilir. Profili nesnesini kullanarak veya işlem hattı aracılığıyla geçirilebilir '-TrafficManagerProfile' parametresi. Bu örnekte, biz profili tarafından profil ve kaynak grubu adı belirtin.
 
 ```powershell
-Enable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+Enable-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
 ```
 
 Traffic Manager profili devre dışı bırakmak için:
@@ -269,13 +271,13 @@ Devre dışı bırakma AzTrafficManagerProfile cmdlet'i, onay ister. Bu istemi k
 
 ### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>Örnek 2: Traffic Manager uç noktası devre dışı bırakma ve etkinleştirme
 
-Traffic Manager uç noktasını etkinleştirmek için `Enable-AzureRmTrafficManagerEndpoint`. Uç nokta belirtmenin iki yolu vardır.
+Traffic Manager uç noktasını etkinleştirmek için `Enable-AzTrafficManagerEndpoint`. Uç nokta belirtmenin iki yolu vardır.
 
 1. İşlem hattı geçirilen bir TrafficManagerEndpoint nesnesi veya kullanılarak '-TrafficManagerEndpoint' parametresi
 2. Uç nokta adı, uç nokta türü, profil adı ve kaynak grubu adını kullanarak:
 
 ```powershell
-Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
+Enable-AzTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
 ```
 
 Benzer şekilde, bir Traffic Manager uç noktası devre dışı bırakmak için:

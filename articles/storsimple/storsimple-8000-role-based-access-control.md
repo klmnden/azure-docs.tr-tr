@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: be0c1611856a1fa68d20696c32b5fadcd8572004
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793620"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049481"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>StorSimple için rol tabanlı erişim denetimi
 
 Bu makalede, Azure rol tabanlı Access Control (RBAC), StorSimple cihazınız için nasıl kullanılabileceğini ilgili kısa bir açıklama sağlar. RBAC, Azure için ayrıntılı erişim yönetimi sunar. RBAC, herkesin vermek yerine işlerini yapmak için StorSimple kullanıcılara erişimi yalnızca doğru miktarda sınırsız erişimi vermek için kullanın. Azure'da erişim yönetimini temel bilgileri hakkında daha fazla bilgi için bkz. [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](../role-based-access-control/overview.md).
 
 Bu makale, daha sonra Azure portalında ya da güncelleştirme 3.0 çalıştıran StorSimple 8000 serisi cihazlar için geçerlidir.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="rbac-roles-for-storsimple"></a>RBAC rolleri için StorSimple
 
@@ -46,14 +48,14 @@ Aşağıdaki örnekte, biz yerleşik rolü ile Başlat **okuyucu** tüm kaynak k
 
 2. Azure'da oturum açın.
 
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 
 3. Okuyucu rolü, bilgisayarınızda bir JSON şablon olarak dışarı aktarın.
 
     ```powershell
-    Get-AzureRMRoleDefinition -Name "Reader"
+    Get-AzRoleDefinition -Name "Reader"
 
-    Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+    Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
 4. JSON dosyasını Visual Studio'da açın. Tipik bir RBAC rolü üç ana bölümden oluşur gördüğünüz **eylemleri**, **NotActions**, ve **AssignableScopes**.
@@ -62,7 +64,7 @@ Aşağıdaki örnekte, biz yerleşik rolü ile Başlat **okuyucu** tüm kaynak k
 
     Tüm kaynak sağlayıcıları kullanılabilir ve kaydedilen aboneliğinizdeki görmek için PowerShell kullanın.
 
-    `Get-AzureRMResourceProvider`
+    `Get-AzResourceProvider`
 
     Ayrıca, kaynak sağlayıcıları yönetmek tüm kullanılabilir için PowerShell cmdlet'lerini de denetleyebilirsiniz.
 
@@ -102,7 +104,7 @@ Aşağıdaki örnekte, biz yerleşik rolü ile Başlat **okuyucu** tüm kaynak k
 
 6. Özel bir RBAC rolü ortamına geri alın.
 
-    `New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"`
+    `New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"`
 
 
 Bu rol artık rolleri listesinde görünmelidir **erişim denetimi** dikey penceresi.
@@ -114,7 +116,7 @@ Daha fazla bilgi için Git [özel roller](../role-based-access-control/custom-ro
 ### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>Örnek çıktı PowerShell aracılığıyla özel rol oluşturma
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ```Output
@@ -127,7 +129,7 @@ CurrentStorageAccount :
 ```
 
 ```powershell
-Get-AzureRMRoleDefinition -Name "Reader"
+Get-AzRoleDefinition -Name "Reader"
 ```
 
 ```Output
@@ -141,8 +143,8 @@ AssignableScopes : {/}
 ```
 
 ```powershell
-Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
-New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"
+Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"
 ```
 
 ```Output

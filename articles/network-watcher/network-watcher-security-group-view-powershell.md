@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 9cc06e97730ac846e8aa42c2cee77dfe17be99bb
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: b22dd2dcf575362b96d150ef98148076f4ec631f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089655"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047594"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>PowerShell kullanarak bir güvenlik grubu görünümü ile sanal makine güvenlik analiz edin
 
@@ -30,9 +30,12 @@ ms.locfileid: "39089655"
 
 Güvenlik grubu görünümü bir sanal makineye uygulanan yapılandırılmış ve etkin ağ güvenlik kuralları döndürür. Bu yetenek, Denetim ve ağ güvenlik grupları ve trafiği okunuyor emin olmak için bir VM üzerinde yapılandırılan kurallardan tanılamak kullanışlıdır doğru bir şekilde izin verilen veya reddedilen. Bu makalede, PowerShell kullanarak bir sanal makine için yapılandırılmış ve etkili güvenlik kuralları alma gösteriyoruz
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu senaryoda, çalıştırdığınız `Get-AzureRmNetworkWatcherSecurityGroupView` güvenlik kuralı bilgileri almak için cmdlet'i.
+Bu senaryoda, çalıştırdığınız `Get-AzNetworkWatcherSecurityGroupView` güvenlik kuralı bilgileri almak için cmdlet'i.
 
 Bu senaryo, zaten uyguladığınız adımları varsayar [Ağ İzleyicisi oluşturma](network-watcher-create.md) Ağ İzleyicisi oluşturmak için.
 
@@ -42,19 +45,19 @@ Bu makalede ele alınan senaryo, belirli bir sanal makine için yapılandırılm
 
 ## <a name="retrieve-network-watcher"></a>Ağ İzleyicisi alınamıyor
 
-Ağ İzleyicisi örneğini almak için ilk adımdır bakın. Bu değişkenin geçirilen `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet'i.
+Ağ İzleyicisi örneğini almak için ilk adımdır bakın. Bu değişkenin geçirilen `Get-AzNetworkWatcherSecurityGroupView` cmdlet'i.
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 ```
 
 ## <a name="get-a-vm"></a>VM Al
 
-Bir sanal makine çalıştırmak için gerekli olan `Get-AzureRmNetworkWatcherSecurityGroupView` karşı cmdlet'i. Aşağıdaki örnek, bir sanal makine nesnesini alır.
+Bir sanal makine çalıştırmak için gerekli olan `Get-AzNetworkWatcherSecurityGroupView` karşı cmdlet'i. Aşağıdaki örnek, bir sanal makine nesnesini alır.
 
 ```powershell
-$VM = Get-AzurermVM -ResourceGroupName testrg -Name testvm1
+$VM = Get-AzVM -ResourceGroupName testrg -Name testvm1
 ```
 
 ## <a name="retrieve-security-group-view"></a>Güvenlik grubu görünümünü Al
@@ -62,7 +65,7 @@ $VM = Get-AzurermVM -ResourceGroupName testrg -Name testvm1
 Sonraki adım, güvenlik grubu görünümü sonucu almasını sağlamaktır.
 
 ```powershell
-$secgroup = Get-AzureRmNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
+$secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
 ```
 
 ## <a name="viewing-the-results"></a>Sonuçları görüntüleme

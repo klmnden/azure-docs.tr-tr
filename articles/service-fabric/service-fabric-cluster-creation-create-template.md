@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: ddfd8ce14ca20c7094fa927aeafc36ae53271499
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 2fdea1f088dd6eabdf7d72342c837d976133a1bc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665517"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046203"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Bir Service Fabric kümesine Resource Manager şablonu oluşturma
 
@@ -28,6 +28,9 @@ Bir [Azure Service Fabric kümesi](service-fabric-deploy-anywhere.md) bir ağa b
 Küme güvenliği, kümenin ilk ayarlanır ve daha sonra değiştirilemez yapılandırılır. Salt okunur bir küme ayarı önce [Service Fabric kümesi güvenlik senaryoları][service-fabric-cluster-security]. Azure'da Service Fabric kullanımları x509 güvenli kümenize ve onun uç noktaları, istemcilerin kimliğini doğrulamak için sertifika ve şifrelersiniz. Ayrıca, Azure Active Directory Yönetim uç noktalarına erişimi güvenli hale getirmek için tavsiye edilir. Azure AD kiracılar ve kullanıcılar küme oluşturmadan önce oluşturulmalıdır.  Daha fazla bilgi için okuma [istemcilerin kimliğini doğrulamak için Azure AD'yi ayarlarken ayarlamak](service-fabric-cluster-creation-setup-aad.md).
 
 Üretim iş yüklerini çalıştırmak için bir üretim kümesini dağıtmadan önce öncelikle mutlaka okuyun [üretim hazırlık denetim](service-fabric-production-readiness-checklist.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-the-resource-manager-template"></a>Resource Manager şablonu oluşturma
 Örnek Resource Manager şablonları kullanılabilir [github'daki Azure örnekleri](https://github.com/Azure-Samples/service-fabric-cluster-templates). Bu şablonlar, küme şablonunuza için başlangıç noktası olarak kullanılabilir.
@@ -242,13 +245,13 @@ RM modülleri, Azure AD yapılandırmasının oluşturma yeteneği yoktur için 
 Resource Manager şablonunuzu bir parametre dosyasıyla test etmek için aşağıdaki PowerShell komutunu kullanın:
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
+Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
 Bir sorunla karşılaşırsanız ve şifreli iletileri alma durumunda, kullanın, ardından "-Debug" seçeneği olarak.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
+Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
 Aşağıdaki diyagram, Azure AD yapılandırma ve anahtar kasası Resource Manager şablonunuzu nerelerde gösterir.

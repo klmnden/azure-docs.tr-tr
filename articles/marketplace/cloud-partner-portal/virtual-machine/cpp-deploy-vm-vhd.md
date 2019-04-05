@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a5b4e0465e83dec5620954998db329e7902fb59c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106058"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046691"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Vhd'lerinizden VM dağıtma
 
@@ -32,13 +32,14 @@ VM görüntüleri hakkında daha fazla bilgi edinmek için şu blog gönderileri
 - [VM görüntüsü](https://azure.microsoft.com/blog/vm-image-blog-post/)
 - [VM görüntüsü PowerShell 'Nasıl yapılır'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisite-install-the-necessary-tools"></a>Önkoşul: gerekli araçları yükleyin
 
 Zaten yapmadıysanız, Azure PowerShell ve Azure CLI aşağıdaki yönergeleri kullanarak yükleyin:
 
-- [PowerShellGet ile Windows üzerindeki Azure PowerShell'i yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
-- [Azure CLI 2.0’ı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Azure PowerShell'i yükleme](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+- [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
 ## <a name="deployment-steps"></a>Dağıtım adımları
@@ -76,7 +77,7 @@ Sanal makinenizin dağıtıldıktan sonra hazır olduğunuz [VM görüntünüzü
    | VM Adı                     | Yeni bir VM adı                                                           |
    | Sanal ağ adı        | Sanal makine tarafından kullanılan sanal ağ adı                                   |
    | NIC adı                    | Sanal ağ çalıştıran ağ arabirim kartı adı               |
-   | VHD URL'Sİ                     | İşletim sistemi diski VHD URL'si tamamlayın                                                     |
+   | VHD URL'si                     | İşletim sistemi diski VHD URL'si tamamlayın                                                     |
    |  |  |
             
 1. Bu değerleri sizin sağlamanız sonra tıklayın **satın alma**. 

@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: f5eefd1d3fa26738729d98e60d8a56cd8d33d86c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084887"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051946"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>StorSimple üzerinde barındırılan dosya paylaşımları için Azure Site Recovery kullanarak otomatik olağanüstü durum kurtarma çözümü
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="overview"></a>Genel Bakış
 Microsoft Azure StorSimple, yaygın olarak ilişkilendirilen dosya paylaşımları ile yapılandırılmamış verileri karmaşıklığını ele alan bir hibrit bulut depolaması çözümü ' dir. StorSimple şirket içi depolama ve bulut depolama alanı üzerinden şirket içi çözüm ve otomatik olarak katmanları verileri bir uzantısı olarak bulut depolama kullanır. Yerel ile tümleşik veri koruması ve bulut anlık görüntüleri, sprawling bir depolama altyapısı ihtiyacını ortadan kaldırır.
 
@@ -167,7 +170,7 @@ Dosya paylaşımlarının yük devretme işlemini otomatikleştirmek ASR'deki bi
    
 1. Otomasyon hesabı'nda tıklatın **değişkenleri** &gt; **değişken Ekle** ve aşağıdaki değişkenleri ekleyin. Bu varlıklar şifrelemeyi seçebilirsiniz. Bu kurtarma planı belirli değişkenlerdir. Kurtarma planı, değişkenlerinizi TestPlan StorSimRegKey, TestPlan-AzureSubscriptionName olması ve benzeri sonraki adımda oluşturacağınız TestPlan, adıdır.
 
-   - **BaseUrl**: Azure bulut Kaynak Yöneticisi URL'si. Kullanarak başlayın **Get-AzureRmEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet'i.
+   - **BaseUrl**: Azure bulut Kaynak Yöneticisi URL'si. Kullanarak başlayın **Get-AzEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet'i.
    - * RecoveryPlanName ***- ResourceGroupName**: Resource Manager Grup StorSimple kaynak vardır.
    - * RecoveryPlanName ***- ManagerName**: StorSimple cihazı olan StorSimple kaynağıdır.
    - * RecoveryPlanName ***- DeviceName**: Devredilecek olan StorSimple cihaz.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 01efbd928630b491419f6231007590c4f0fb0b22
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 267b2c375ef9672c8e5bd7cb8280b4dd40dbcd0d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888494"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045552"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>PowerShell kullanarak Azure Ağ İzleyicisi ile paket yakalamayı yönetme
 
@@ -38,6 +38,9 @@ Bu makalede paket yakalaması için şu anda kullanılabilir olan farklı yönet
 - [**bir paket yakalamasını Sil**](#delete-a-packet-capture)
 - [**Paket yakalaması indirin**](#download-a-packet-capture)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="before-you-begin"></a>Başlamadan önce
 
 Bu makalede, aşağıdaki kaynaklara sahip olduğunu varsayar:
@@ -54,33 +57,33 @@ Bu makalede, aşağıdaki kaynaklara sahip olduğunu varsayar:
 ### <a name="step-1"></a>1. Adım
 
 ```powershell
-$VM = Get-AzureRmVM -ResourceGroupName testrg -Name VM1
+$VM = Get-AzVM -ResourceGroupName testrg -Name VM1
 ```
 
 ### <a name="step-2"></a>2. Adım
 
-Aşağıdaki örnek çalıştırmak için gerekli uzantı bilgileri alır. `Set-AzureRmVMExtension` cmdlet'i. Bu cmdlet, paket Yakalama aracı Konuk sanal makineye yükler.
+Aşağıdaki örnek çalıştırmak için gerekli uzantı bilgileri alır. `Set-AzVMExtension` cmdlet'i. Bu cmdlet, paket Yakalama aracı Konuk sanal makineye yükler.
 
 > [!NOTE]
-> `Set-AzureRmVMExtension` Cmdlet'inin tamamlanması birkaç dakika sürebilir.
+> `Set-AzVMExtension` Cmdlet'inin tamamlanması birkaç dakika sürebilir.
 
 Windows sanal makineler için:
 
 ```powershell
-$AzureNetworkWatcherExtension = Get-AzureRmVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentWindows -Version 1.4.585.2
+$AzureNetworkWatcherExtension = Get-AzVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentWindows -Version 1.4.585.2
 $ExtensionName = "AzureNetworkWatcherExtension"
-Set-AzureRmVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
+Set-AzVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
 ```
 
 Linux sanal makineleri için:
 
 ```powershell
-$AzureNetworkWatcherExtension = Get-AzureRmVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentLinux -Version 1.4.13.0
+$AzureNetworkWatcherExtension = Get-AzVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentLinux -Version 1.4.13.0
 $ExtensionName = "AzureNetworkWatcherExtension"
-Set-AzureRmVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
+Set-AzVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
 ```
 
-Aşağıdaki örnek, başarılı bir yanıt çalıştırdıktan sonra `Set-AzureRmVMExtension` cmdlet'i.
+Aşağıdaki örnek, başarılı bir yanıt çalıştırdıktan sonra `Set-AzVMExtension` cmdlet'i.
 
 ```
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
@@ -90,13 +93,13 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ### <a name="step-3"></a>3. Adım
 
-Aracısının yüklü olduğundan emin olmak için çalıştırmanız `Get-AzureRmVMExtension` cmdlet'i ve sanal makine adı ve uzantı adı geçirin.
+Aracısının yüklü olduğundan emin olmak için çalıştırmanız `Get-AzVMExtension` cmdlet'i ve sanal makine adı ve uzantı adı geçirin.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName $VM.ResourceGroupName  -VMName $VM.Name -Name $ExtensionName
+Get-AzVMExtension -ResourceGroupName $VM.ResourceGroupName  -VMName $VM.Name -Name $ExtensionName
 ```
 
-Aşağıdaki örnek bir yanıt çalışmasını örneğidir. `Get-AzureRmVMExtension`
+Aşağıdaki örnek bir yanıt çalışmasını örneğidir. `Get-AzVMExtension`
 
 ```
 ResourceGroupName       : testrg
@@ -124,11 +127,11 @@ Yukarıdaki adımlar tamamlandıktan sonra paket yakalama Aracısı sanal makine
 
 ### <a name="step-1"></a>1. Adım
 
-Ağ İzleyicisi örneğini almak için sonraki adımdır bakın. Bu değişkenin geçirilen `New-AzureRmNetworkWatcherPacketCapture` 4. adımda cmdlet'i.
+Ağ İzleyicisi örneğini almak için sonraki adımdır bakın. Bu değişkenin geçirilen `New-AzNetworkWatcherPacketCapture` 4. adımda cmdlet'i.
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName  
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName  
 ```
 
 ### <a name="step-2"></a>2. Adım
@@ -136,7 +139,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 Bir depolama hesabı alın. Bu depolama hesabı, paket yakalama dosyasını depolamak için kullanılır.
 
 ```powershell
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName testrg -Name testrgsa123
+$storageAccount = Get-AzStorageAccount -ResourceGroupName testrg -Name testrgsa123
 ```
 
 ### <a name="step-3"></a>3. Adım
@@ -144,8 +147,8 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName testrg -Name test
 Paket yakalaması tarafından depolanan verileri sınırlamak için filtreleri kullanılabilir. Aşağıdaki örnek, iki filtreleri ayarlar.  Bir filtre, 20, 80 ve 443 numaralı hedef bağlantı noktalarına giden TCP trafiğine yalnızca yerel IP 10.0.0.3 toplar.  İkinci filtre yalnızca UDP trafiğini toplar.
 
 ```powershell
-$filter1 = New-AzureRmPacketCaptureFilterConfig -Protocol TCP -RemoteIPAddress "1.1.1.1-255.255.255.255" -LocalIPAddress "10.0.0.3" -LocalPort "1-65535" -RemotePort "20;80;443"
-$filter2 = New-AzureRmPacketCaptureFilterConfig -Protocol UDP
+$filter1 = New-AzPacketCaptureFilterConfig -Protocol TCP -RemoteIPAddress "1.1.1.1-255.255.255.255" -LocalIPAddress "10.0.0.3" -LocalPort "1-65535" -RemotePort "20;80;443"
+$filter2 = New-AzPacketCaptureFilterConfig -Protocol UDP
 ```
 
 > [!NOTE]
@@ -153,13 +156,13 @@ $filter2 = New-AzureRmPacketCaptureFilterConfig -Protocol UDP
 
 ### <a name="step-4"></a>4. Adım
 
-Çalıştırma `New-AzureRmNetworkWatcherPacketCapture` gerekli değerler geçirerek paket yakalama işlemini başlatmak için cmdlet, önceki adımlarda alınır.
+Çalıştırma `New-AzNetworkWatcherPacketCapture` gerekli değerler geçirerek paket yakalama işlemini başlatmak için cmdlet, önceki adımlarda alınır.
 ```powershell
 
-New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName "PacketCaptureTest" -StorageAccountId $storageAccount.id -TimeLimitInSeconds 60 -Filter $filter1, $filter2
+New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName "PacketCaptureTest" -StorageAccountId $storageAccount.id -TimeLimitInSeconds 60 -Filter $filter1, $filter2
 ```
 
-Aşağıdaki örnek, beklenen çıktıyı çalışmasını `New-AzureRmNetworkWatcherPacketCapture` cmdlet'i.
+Aşağıdaki örnek, beklenen çıktıyı çalışmasını `New-AzNetworkWatcherPacketCapture` cmdlet'i.
 
 ```
 Name                    : PacketCaptureTest
@@ -199,13 +202,13 @@ Filters                 : [
 
 ## <a name="get-a-packet-capture"></a>Paket yakalaması Al
 
-Çalışan `Get-AzureRmNetworkWatcherPacketCapture` cmdlet'i, şu anda çalışan veya tamamlanmış bir paket yakalaması durumunu alır.
+Çalışan `Get-AzNetworkWatcherPacketCapture` cmdlet'i, şu anda çalışan veya tamamlanmış bir paket yakalaması durumunu alır.
 
 ```powershell
-Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
+Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
 ```
 
-Aşağıdaki örnek çıktısı, `Get-AzureRmNetworkWatcherPacketCapture` cmdlet'i. Yakalama işlemi tamamlandıktan sonra aşağıdaki örnekte bulunur. PacketCaptureStatus değeri, stopreason & TimeExceeded ile durdurulur. Bu değer, paket yakalaması başarılı oldu ve kendi zamanı çalıştırdığınız gösterir.
+Aşağıdaki örnek çıktısı, `Get-AzNetworkWatcherPacketCapture` cmdlet'i. Yakalama işlemi tamamlandıktan sonra aşağıdaki örnekte bulunur. PacketCaptureStatus değeri, stopreason & TimeExceeded ile durdurulur. Bu değer, paket yakalaması başarılı oldu ve kendi zamanı çalıştırdığınız gösterir.
 ```
 Name                    : PacketCaptureTest
 Id                      : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatcher
@@ -246,10 +249,10 @@ PacketCaptureError      : []
 
 ## <a name="stop-a-packet-capture"></a>Paket Yakalamayı Durdur
 
-Çalıştırarak `Stop-AzureRmNetworkWatcherPacketCapture` yakalama oturumu, sürüyorsa cmdlet'i durduruldu.
+Çalıştırarak `Stop-AzNetworkWatcherPacketCapture` yakalama oturumu, sürüyorsa cmdlet'i durduruldu.
 
 ```powershell
-Stop-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
+Stop-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
 ```
 
 > [!NOTE]
@@ -258,7 +261,7 @@ Stop-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketC
 ## <a name="delete-a-packet-capture"></a>bir paket yakalamasını Sil
 
 ```powershell
-Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
+Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
 ```
 
 > [!NOTE]

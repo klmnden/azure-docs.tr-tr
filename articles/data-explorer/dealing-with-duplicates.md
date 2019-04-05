@@ -1,21 +1,20 @@
 ---
-title: Yinelenen verilerle ilgilenme
-description: Bu konuda yinelenen verilerle başa çıkmak için çeşitli yollar gösterir.
-services: data-explorer
+title: Azure veri Gezgini'nde yinelenen veri işleme
+description: Bu konuda, Azure Veri Gezgini'ni kullanarak, yinelenen veri ile ilgilenmeniz çeşitli yaklaşımlar gösterilmektedir.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 7a9ccd5139168393019a70aafb9b7b705ca25919
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756369"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045790"
 ---
-# <a name="deal-with-duplicate-data"></a>Yinelenen verilerle ilgilenme
+# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Azure veri Gezgini'nde yinelenen veri işleme
 
 Cihazlar bulut için veri gönderen bir yerel veri önbelleği korur. Veri boyutu bağlı olarak yerel önbellek verileri için gün veya hatta aylar depoluyor. Analitik veritabanlarınızı önbelleğe alınmış verileri de yeniden göndermeniz ve analitik veritabanında veri çoğaltma neden yapıyor cihazlardan korumak istiyorsunuz. Bu konuda, bu tür senaryolar için yinelenen veri işleme için en iyi uygulamalar açıklanmaktadır.
 
@@ -123,4 +122,4 @@ Veri çoğaltma, birden çok yolla işlenebilir. Seçenekler, işletmeniz için 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Azure Veri Gezgini için sorgu yazma](write-queries.md)
+> [Azure Veri Gezgini için sorguları yazma](write-queries.md)

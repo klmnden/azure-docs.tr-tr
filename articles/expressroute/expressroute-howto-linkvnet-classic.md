@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: bab38b98fa1f39691dfdeaf0b0492a2e3ed0df93
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 21676ff329613f792d6570713f044bb7440e58d4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116869"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045376"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>PowerShell (Klasik) kullanarak bir ExpressRoute bağlantı hattına bir sanal ağı bağlama
 > [!div class="op_single_selector"]
@@ -21,7 +21,7 @@ ms.locfileid: "58116869"
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [Video - Azure portalı](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
-> * [PowerShell (klasik)](expressroute-howto-linkvnet-classic.md)
+> * [PowerShell (Klasik)](expressroute-howto-linkvnet-classic.md)
 >
 
 Bu makalede, sanal ağlar (Vnet'ler) PowerShell kullanarak Azure ExpressRoute devreleri için bağlantı yardımcı olur. En fazla dört ExpressRoute bağlantı hatları için tek bir sanal ağa bağlanabilir. Adımlar bu makalede, bağlandığınız her ExpressRoute bağlantı hattı için yeni bir bağlantı oluşturmak için kullanın. ExpressRoute bağlantı hatları, aynı abonelik, farklı Aboneliklerde veya her ikisinin bir karışımı olabilir. Bu makale Klasik dağıtım modeli kullanılarak oluşturulan sanal ağlar için geçerlidir.
@@ -33,6 +33,9 @@ En fazla 10 sanal ağları ExpressRoute devresine bağlayabilirsiniz. Tüm sanal
 **Azure dağıtım modelleri hakkında**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configuration-prerequisites"></a>Yapılandırma önkoşulları
 
@@ -61,17 +64,17 @@ Azure hesabınızda oturum açmak için aşağıdaki örnekleri kullanın:
 1. PowerShell konsolunuzu yükseltilmiş haklarla açın ve hesabınıza bağlanın.
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 2. Hesapla ilişkili abonelikleri kontrol edin.
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 3. Birden fazla aboneliğiniz varsa, kullanmak istediğiniz aboneliği seçin.
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
 4. Ardından, Azure aboneliğiniz için PowerShell Klasik dağıtım modeli için eklemek için aşağıdaki cmdlet'i kullanın.

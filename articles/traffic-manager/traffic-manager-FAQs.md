@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: c26117bf298d5fe7fd8a14e0aa2b14834e412328
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6086c182763885b62f28ab093be2a7f3f8282b8a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009935"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046317"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager'ın sık sorulan sorular (SSS)
 
@@ -309,7 +309,7 @@ Azure Resource Manager, bu kaynak grubunda dağıtılan kaynakların varsayılan
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Her uç noktasının geçerli durumunu nasıl belirlerim?
 
-Genel profil ek olarak her uç nokta izleme geçerli durumunu Azure portalında görüntülenir. Bu bilgiler ayrıca trafiği izleyici aracılığıyla kullanılabilir [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager), ve [platformlar arası Azure CLI'yı](../cli-install-nodejs.md).
+Genel profil ek olarak her uç nokta izleme geçerli durumunu Azure portalında görüntülenir. Bu bilgiler ayrıca trafiği izleyici aracılığıyla kullanılabilir [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/az.trafficmanager), ve [platformlar arası Azure CLI'yı](../cli-install-nodejs.md).
 
 Azure İzleyici, uç noktalarınızın sistem durumunu izleyebilir ve bunları görsel bir temsilini görmek için de kullanabilirsiniz. Azure İzleyicisi'ni kullanma hakkında daha fazla bilgi için bkz. [Azure izleme belgeleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
@@ -449,7 +449,7 @@ Traffic Manager ad sunucularıyla profil hiyerarşisindeki her DNS sorgusu işle
 
 Aşağıdaki tabloda iç içe uç noktası için durum denetimleri Traffic Manager davranışı açıklanmaktadır.
 
-| Alt profil İzleyicisi durumu | Üst uç noktası İzleyicisi durumu | Notes |
+| Alt profil İzleyicisi durumu | Üst uç noktası İzleyicisi durumu | Notlar |
 | --- | --- | --- |
 | Devre dışı. Alt profili devre dışı bırakıldı. |Durduruldu |Üst uç nokta durumu durduruldu, devre dışı. Devre dışı durumunu belirten üst profilde uç noktayı devre dışı bıraktığınız ayrılmıştır. |
 | Düzeyi düşürülmüş. En az bir alt profili bitiş noktasına Degraded durumda. |Çevrimiçi: alt profildeki çevrimiçi uç noktaların sayısını en az MinChildEndpoints değeridir.<BR>CheckingEndpoint: alt profildeki çevrimiçi artı CheckingEndpoint uç noktaların sayısını en az MinChildEndpoints değeridir.<BR>Düzeyi düşürülmüş: Aksi takdirde. |Trafiği bir uç noktaya durumu CheckingEndpoint yönlendirilir. MinChildEndpoints çok yüksek olarak ayarlanırsa, uç nokta her zaman düşer. |

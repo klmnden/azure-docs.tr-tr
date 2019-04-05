@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 49a703164b302443d8b50ba950cf23b8601cb599
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 614c3e1831680fff50058cd5192449f8e6e28179
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480711"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049805"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Paket yakalama işlemlerini Azure REST API'sini kullanarak Azure Ağ İzleyicisi ile yönetme
 
@@ -39,6 +39,9 @@ Bu makalede paket yakalaması için şu anda kullanılabilir olan farklı yönet
 - [**Paket Yakalamayı Başlat**](#start-packet-capture)
 - [**Paket Yakalamayı Durdur**](#stop-packet-capture)
 - [**bir paket yakalamasını Sil**](#delete-packet-capture)
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -60,7 +63,7 @@ Bir sanal makine döndürmek için aşağıdaki betiği çalıştırın. Bu bilg
 
 Aşağıdaki kodu, değişkenleri gerekir:
 
-- **Subscriptionıd** -abonelik kimliği ile de alınabilir **Get-AzureRMSubscription** cmdlet'i.
+- **Subscriptionıd** -abonelik kimliği ile de alınabilir **Get-AzSubscription** cmdlet'i.
 - **resourceGroupName** -sanal makine içeren bir kaynak grubu adı.
 
 ```powershell

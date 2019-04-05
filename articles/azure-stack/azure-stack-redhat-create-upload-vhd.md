@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 04/03/2019
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: e287a6f436b51f55d9a5aa59dbbe2a195015c292
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 728839accbce80ece6795e098d5d2855320fab06
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883133"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006669"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Azure Stack için Red Hat tabanlı bir sanal makine hazırlama
 
@@ -264,7 +264,6 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
 1. SSH sunucusu yüklü ve önyükleme sırasında başlatılacak şekilde yapılandırılmış olduğundan emin olun:
 
     ```bash
-    systemctl stop cloud-init
     systemctl enable sshd
     ```
 
@@ -277,7 +276,7 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
 
 1. Azure Stack için özel bir vhd oluştururken, bir derleme 1903 önce çalışan Azure Stack ortamlarında WALinuxAgent sürüm 2.2.20 2.2.35.1 (her iki özel) arasındaki çalışmıyor aklınızda bulundurun. Bu sorunu çözmek için 1901/1902 düzeltmeyi veya ikinci yarısında hiç bu bölümündeki yönergeleri izleyin. 
 
-Bir Azure Stack derleme 1903 çalıştırıyorsanız (veya üzeri) veya 1901/1902 düzeltmesi, Redhat ek özellikler depodan WALinuxAgent paketini indirme şu şekilde:
+    Bir Azure Stack derleme 1903 çalıştırıyorsanız (veya üzeri) veya 1901/1902 düzeltmesi, Redhat ek özellikler depodan WALinuxAgent paketini indirme şu şekilde:
     
    WALinuxAgent paket `WALinuxAgent-<version>`, Red Hat ek özellikler deposuna gönderildi. Ek özellikler depo, aşağıdaki komutu çalıştırarak etkinleştirin:
 
@@ -298,7 +297,7 @@ Bir Azure Stack derleme 1903 çalıştırıyorsanız (veya üzeri) veya 1901/190
     ```
     
     
-Azure Stack derleme 1903 önce çalışan ve 1901/1902 düzeltme uygulanmamış, ardından WALinuxAgent indirmek için bu yönergeleri izleyin:
+    Azure Stack derleme 1903 önce çalışan ve 1901/1902 düzeltme uygulanmamış, ardından WALinuxAgent indirmek için bu yönergeleri izleyin:
     
    a.   Setuptools indirin
     ```bash
@@ -312,15 +311,15 @@ Azure Stack derleme 1903 önce çalışan ve 1901/1902 düzeltme uygulanmamış,
     unzip v2.2.36.zip
     cd WALinuxAgent-2.2.36
     ```
-    c. Install setup.py
+    c. Setup.PY dosyasını yükleyin
     ```bash
     sudo python setup.py install
     ```
-    d. Restart waagent
+    d. Waagent yeniden başlatın
     ```bash
     sudo systemctl restart waagent
     ```
-    e. Test if the agent version matches the one your downloaded. For this example, it should be 2.2.36.
+    e. Aracı sürümü bir, indirilen eşleşiyorsa, test edin. Bu örnekte, 2.2.36 olmalıdır.
     
     ```bash
     waagent -version

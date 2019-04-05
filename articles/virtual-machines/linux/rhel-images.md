@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/18/2019
 ms.author: borisb
-ms.openlocfilehash: d42349de4324428103ccca3ef270ceb9109ca0c7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fb3c0e46324a22bdd95bf7d93c28e69c195927e8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011672"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045431"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Azure'da Red Hat Enterprise Linux görüntüleri
 Bu makalede Azure Market'te kendi adlandırma ve saklama ilkeleri ile birlikte kullanılabilir Red Hat Enterprise Linux (RHEL) görüntüler.
@@ -65,7 +65,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 ### <a name="current-naming-convention"></a>Geçerli adlandırma kuralları
 Şu anda yayımlanan RHEL görüntüleri tüm Kullandıkça Öde modeli kullanır ve bağlı [azure'da Red Hat Update Infrastructure'a (RHUI)](https://aka.ms/rhui-update). RHUI bir tasarım sınırlamaları nedeniyle, RHEL 7 ailesi görüntüler için yeni bir adlandırma kuralı tarafından benimsenmiştir. Şu anda ailesi adlandırma değiştirilmediği RHEL 6.
 
-Aslında sınırlamasıdır olduğunda olmayan-Seçici `yum update` karşı bir VM çalıştırma RHUI bağlı RHEL sürüm en son geçerli ailesindeki güncelleştirilir. Daha fazla bilgi için [bu bağlantıyı](https://aka.ms/rhui-udate). Sağlanan bir RHEL 7.2 görüntüsü RHEL 7.6 sonra bir güncelleştirme olduğunda bu içinde karışıklığa neden olabilir. Gerekli sürümü açıkça belirterek örneklerde gösterildiği gibi daha eski bir görüntüden sağlayabilirsiniz. Gerekli sürümü yeni bir RHEL 7 görüntüsü sağlanırken belirtilmezse, en son görüntü sağlanır.
+Aslında sınırlamasıdır olduğunda olmayan-Seçici `yum update` karşı bir VM çalıştırma RHUI bağlı RHEL sürüm en son geçerli ailesindeki güncelleştirilir. Daha fazla bilgi için [bu bağlantıyı](https://aka.ms/rhui-update). Sağlanan bir RHEL 7.2 görüntüsü RHEL 7.6 sonra bir güncelleştirme olduğunda bu içinde karışıklığa neden olabilir. Gerekli sürümü açıkça belirterek örneklerde gösterildiği gibi daha eski bir görüntüden sağlayabilirsiniz. Gerekli sürümü yeni bir RHEL 7 görüntüsü sağlanırken belirtilmezse, en son görüntü sağlanır.
 
 >[!NOTE]
 > Görüntü SAP kümesi için RHEL, RHEL sürüm sabit kalır. Bu nedenle, kendi adlandırma kuralı belirli bir sürümü SKU'da içerir.
