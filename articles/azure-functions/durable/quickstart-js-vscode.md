@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 4ee1c9edf8cb10cae1a8a6e1c15f9bcf6e9a8ff8
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 266859c1d2076354dbd4f8f09adf0bea084b90f9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359468"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049690"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>JavaScript'te dayanıklı ilk işlevinizi oluşturma
 
-*Dayanıklı işlevler* uzantısıdır [Azure işlevleri](../functions-overview.md) durum bilgisi olan işlevleri, sunucusuz bir ortamda yazmanızı sağlayan. Uzantı durumu ve kontrol noktaları yeniden sizin yerinize yönetir.
+*Dayanıklı işlevler* uzantısıdır [Azure işlevleri](../functions-overview.md) durum bilgisi olan işlevleri, sunucusuz bir ortamda yazmanızı sağlayan. Uzantı sizin için durumu, denetim noktalarını ve yeniden başlatmaları yönetir.
 
 Bu makalede, yerel olarak oluşturma ve dayanıklı bir "Merhaba Dünya" işlevi test etmek için Visual Studio kod Azure işlevleri uzantısını kullanmayı öğrenin.  Bu işlev, düzenlemek ve diğer işlevlere yapılan çağrıları zincir. Ardından işlev kodunu Azure’da yayımlayacaksınız.
 
@@ -125,7 +125,29 @@ Azure İşlevleri Temel Araçları, Azure İşlevleri projenizi yerel geliştirm
 
 5. Bir aracı gibi kullanarak [Postman](https://www.getpostman.com/) veya [cURL](https://curl.haxx.se/), URL uç noktasına bir HTTP POST isteği gönderin.
 
-6. Hata ayıklamayı durdurmak için VS Code'da Shift + F1 tuşuna basın.
+    Yanıt, dayanıklı düzenleme bize bildirdiğiniz HTTP işlevi ilk sonuç başarıyla başlatıldı.  Bunu henüz düzenleme nihai sonucu değil.  Yanıt birkaç faydalı URL'leri içeriyor.  Şimdilik, şimdi orchestration durumunu sorgulayın.
+
+6. URL değerini kopyalayın `statusQueryGetUri`, tarayıcının adres çubuğuna yapıştırın ve isteği yürütün.
+
+    İstek orchestration örneği durumu için sorgular. Aşağıdaki gibi görünür nihai bir yanıt almanız gerekir.  Bu bize örneği tamamlandı ve çıktılar veya dayanıklı işlevinin sonuçlarını içeren gösterir.
+
+    ```json
+    {
+        "instanceId": "d495cb0ac10d4e13b22729c37e335190",
+        "runtimeStatus": "Completed",
+        "input": null,
+        "customStatus": null,
+        "output": [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ],
+        "createdTime": "2018-11-08T07:07:40Z",
+        "lastUpdatedTime": "2018-11-08T07:07:52Z"
+    }
+    ```
+
+7. Hata ayıklamayı durdurmak için basın **Shift + F5 tuşlarına basarak** VS code'da.
 
 İşlevin yerel bilgisayarınızda düzgün çalıştığını doğruladıktan sonra, projeyi Azure'da yayımlamanın zamanı gelmiştir.
 

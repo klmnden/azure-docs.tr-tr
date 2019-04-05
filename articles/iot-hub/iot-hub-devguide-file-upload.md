@@ -3,17 +3,17 @@ title: Azure IOT hub'ı dosya karşıya yükleme anlama | Microsoft Docs
 description: Geliştirici Kılavuzu - karşıya yükleme yönetmek için IOT Hub'ın karşıya dosya yükleme özelliğiyle bir CİHAZDAN bir Azure depolama blob kapsayıcısına dosyaları kullanın.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 7678c50cbda0ea112c737e8230586081efe61081
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 217d348eacab30b90e06fe805d9cdb0cf32349ac
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008568"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050739"
 ---
 # <a name="upload-files-with-iot-hub"></a>IOT Hub ile dosyaları karşıya yükleme
 

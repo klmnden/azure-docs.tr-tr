@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 34a967640ec039727e8947e865eeff1f5fef4649
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: afeaccd798204ab0973be87ea36c275e1d633403
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758594"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051555"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Hızlı Başlangıç: Windows kapsayıcıları Service Fabric'e dağıtma
 
@@ -36,6 +36,9 @@ Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 * İletişimi yapılandırma
 * Service Fabric uygulamasını oluşturma ve paketleme
 * Kapsayıcı uygulamasını Azure’a dağıtma
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -95,7 +98,7 @@ Aşağıdaki örnek betik bir X.509 sertifikasıyla sağlanan beş düğümlü b
 
 Gerekli olursa, bulunan yönergeleri kullanarak Azure PowerShell'i yükleme [Azure PowerShell kılavuzunda](/powershell/azure/overview).
 
-Çalıştırma PowerShell'de aşağıdaki betiği çalıştırmadan önce `Connect-AzureRmAccount` Azure ile bir bağlantı oluşturmak için.
+Çalıştırma PowerShell'de aşağıdaki betiği çalıştırmadan önce `Connect-AzAccount` Azure ile bir bağlantı oluşturmak için.
 
 Açık ve Pano için aşağıdaki betiği kopyalayın **Windows PowerShell ISE**.  İçeriği boş Untitled1.ps1 penceresine yapıştırın. Betikteki değişkenlerin değerleri sağlayın: `subscriptionId`, `certpwd`, `certfolder`, `adminuser`, `adminpwd`vb.  Belirttiğiniz için dizin `certfolder` betiği çalıştırmadan önce mevcut olması gerekir.
 
