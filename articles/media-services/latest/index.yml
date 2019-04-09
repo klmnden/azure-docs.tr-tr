@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3d20316903efde516ec99b0a548449297bdf1419
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805117"
 documentType: LandingData
 title: Azure Media Services v3 Belgeleri
 metadata:
-  document_id: 
-  title: Azure Media Services v3 Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
-  description: Media Services ile talep üzerine akış yapma, canlı yayın gerçekleştirme ve videolarınızı analiz etme hakkında bilgi edinin. Öğreticiler, API başvuruları ve daha fazlası.
+  document_id: null
+  title: 'Azure Media Services v3 Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
+  description: 'Media Services v3 ile içeriği kodlayıp paketleme, talep üzerine video akışı yapma, canlı yayın gerçekleştirme ve videolarınızı analiz etme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, güvenli bir biçimde milyonlarca kullanıcıya ölçeklendirilebilen, isteğe bağlı ve canlı video veya ses akışları sağlama ile ilgili bilgiler içerir.'
   services: media-services
   author: Juliako
   manager: femila
@@ -21,114 +15,114 @@ metadata:
   ms.date: 03/20/2019
   ms.author: juliako
 abstract:
-  description: Media Services v3 ile içeriği kodlayıp paketleme, talep üzerine video akışı yapma, canlı yayın gerçekleştirme ve videolarınızı analiz etme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, güvenli bir biçimde milyonlarca kullanıcıya ölçeklendirilebilen, isteğe bağlı ve canlı video veya ses akışları sağlama ile ilgili bilgiler içerir. <br/> SDK’lar <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI Belirtimlerine (Swagger)</a> dayanır.
+  description: 'Media Services v3 ile içeriği kodlayıp paketleme, talep üzerine video akışı yapma, canlı yayın gerçekleştirme ve videolarınızı analiz etme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, güvenli bir biçimde milyonlarca kullanıcıya ölçeklendirilebilen, isteğe bağlı ve canlı video veya ses akışları sağlama ile ilgili bilgiler içerir. <br/> SDK’lar <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI Belirtimlerine (Swagger)</a> dayanır.'
 sections:
-- title: 
-  items:
-  - type: list
-    style: cards
-    className: cardImageOuter
+  - title: null
     items:
-    - title: Kavramları öğrenin
-      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Bulutta karşıya yükleme ve depolama</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Kodlama</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">İzleme</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Medya analizi</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Paketleme</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Koruma</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Canlı akış</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Yürütücü istemcileri</a></p>
-    - title: v3 API ile geliştirme
-      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">SDK'larla geliştirmeye başlama</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">REST ile geliştirme</a></p>
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: 'Bir Media Services hesabı oluşturma, videolarınızı kodlamaya başlama ve Azure Media Player’ı kullanarak yürütme hakkında bilgi edinin:'
-  - type: list
-    style: icon48
+      - type: list
+        style: cards
+        className: cardImageOuter
+        items:
+          - title: Kavramları öğrenin
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Bulutta karşıya yükleme ve depolama</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encoding</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">İzleme</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Medya analizi</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Paketleme</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Koruma</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Canlı Akış</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Yürütücü istemcileri</a></p>'
+          - title: v3 API ile geliştirme
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">SDK''larla geliştirmeye başlama</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">REST ile geliştirme</a></p>'
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        src: media/index/dotnet.svg
-      text: .NET ile kodlama ve akış yapma
-      href: /azure/media-services/latest/stream-files-dotnet-quickstart
-    - image:
-        src: media/index/cli.svg
-      text: CLI ile kodlama ve akış yapma
-      href: /azure/media-services/latest/stream-files-cli-quickstart
-    - image:
-        src: media/index/logo_nodejs.svg
-      text: Node.js ile kodlama ve akış yapma
-      href: /azure/media-services/latest/stream-files-nodejs-quickstart
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: 'Media Services v3 ile isteğe bağlı dosya akışı yapma, canlı yayın gerçekleştirme ve videolarınızı analiz etme hakkında bilgi edinin:'
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 1
+      - type: paragraph
+        text: 'Bir Media Services hesabı oluşturmayı öğrenip kodlamaya, paketlemeye ve videolarınızı akışla aktarmaya başlayın:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/dotnet.svg
+            text: .NET ile kodlama ve akış yapma
+            href: /azure/media-services/latest/stream-files-dotnet-quickstart
+          - image:
+              src: media/index/cli.svg
+            text: CLI ile kodlama ve akış yapma
+            href: /azure/media-services/latest/stream-files-cli-quickstart
+          - image:
+              src: media/index/logo_nodejs.svg
+            text: Node.js ile kodlama ve akış yapma
+            href: /azure/media-services/latest/stream-files-nodejs-quickstart
+  - title: Adım Adım Öğreticiler
     items:
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>Öğretici yerel bir video dosyasını karşıya yükler, dosyayı kodlar ve kodlanmış içeriğin akışını yapar.<p/>
-      href: /azure/media-services/latest/stream-files-tutorial-with-api
-      title: Karşıya yüklenen dosyayı kodlama ve video akışı yapma
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>Öğreticide canlı olayın nasıl ayarlanacağı açıklanır. Ardından geçiş türünde bir canlı olay oluşturmak için .NET'in nasıl kullanıldığı gösterilir.</p>
-      href: /azure/media-services/latest/stream-live-tutorial-with-api
-      title: Canlı yayın yapma
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>Bu öğreticide Azure Media Services API'siyle videoları analiz etme işlemi gösterilir.</p>
-      href: /azure/media-services/latest/analyze-videos-tutorial-with-api
-      title: Videonuzu analiz etme
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>İçeriğinizi AES-128 ile dinamik olarak şifrelemek için Media Services API'lerini yapılandırmayı ve kullanmayı öğrenin.</p>
-      href: /azure/media-services/latest/protect-with-aes128
-      title: AES-128 ile dinamik olarak şifreleme
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>İçeriğinizi birden çok DRM (PlayReady, Widevine ve FairPlay) ile dinamik olarak şifrelemek için Media Services API'lerini yapılandırmayı ve kullanmayı öğrenin.</p>
-      href: /azure/media-services/latest/protect-with-drm
-      title: Birden çok DRM ile dinamik olarak şifreleme
-    - image:
-        src: media/index/rest.svg
-      html: <p>Öğreticide URL temelinde uzak dosyayı kodlama ve video akışı yapma işlemleri gösterilir.</p>
-      href: /azure/media-services/latest/stream-files-tutorial-with-rest
-      title: Uzak dosyayı kodlama ve video akışı yapma
-- title: Örnekler
-  items:
-  - type: paragraph
-    text: "Aşağıdaki GitHub örneklerinde, API'leri kullanarak Media Services v3 ile video akışı yapma, canlı yayın gerçekleştirme ve videolarınızı analiz etme işlemleri gösterilir:"
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Öğreticiler size, isteğe bağlı ve canlı videoları güvenli, tam zamanında paketlemeyi ve tümleşik Azure CDN’nin gücüyle ölçeklendirmeyi gösterir:'
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 1
+        items:
+          - image:
+              src: media/index/dotnet.svg
+            html: '<p>Öğretici yerel bir video dosyasını karşıya yükler, dosyayı kodlar ve kodlanmış içeriğin akışını yapar.<p/>'
+            href: /azure/media-services/latest/stream-files-tutorial-with-api
+            title: Karşıya yüklenen dosyayı kodlama ve video akışı yapma
+          - image:
+              src: media/index/dotnet.svg
+            html: <p>Öğreticide canlı olayın nasıl ayarlanacağı açıklanır. Ardından geçiş türünde bir canlı olay oluşturmak için .NET'in nasıl kullanıldığı gösterilir.</p>
+            href: /azure/media-services/latest/stream-live-tutorial-with-api
+            title: Canlı yayın yapma
+          - image:
+              src: media/index/dotnet.svg
+            html: <p>Bu öğreticide Azure Media Services API'siyle videoları analiz etme işlemi gösterilir.</p>
+            href: /azure/media-services/latest/analyze-videos-tutorial-with-api
+            title: Videonuzu analiz etme
+          - image:
+              src: media/index/dotnet.svg
+            html: <p>İçeriğinizi AES-128 ile dinamik olarak şifrelemek için Media Services API'lerini yapılandırmayı ve kullanmayı öğrenin.</p>
+            href: /azure/media-services/latest/protect-with-aes128
+            title: AES-128 ile dinamik olarak şifreleme
+          - image:
+              src: media/index/dotnet.svg
+            html: '<p>İçeriğinizi birden çok DRM (PlayReady, Widevine ve FairPlay) ile dinamik olarak şifrelemek için Media Services API''lerini yapılandırmayı ve kullanmayı öğrenin.</p>'
+            href: /azure/media-services/latest/protect-with-drm
+            title: Birden çok DRM ile dinamik olarak şifreleme
+          - image:
+              src: media/index/rest.svg
+            html: <p>Öğreticide URL temelinde uzak dosyayı kodlama ve video akışı yapma işlemleri gösterilir.</p>
+            href: /azure/media-services/latest/stream-files-tutorial-with-rest
+            title: Uzak dosyayı kodlama ve video akışı yapma
+  - title: Örnekler
     items:
-    - image:
-        src: media/index/cli.svg
-      text: Azure CLI
-      href: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services
-    - image:
-        src: media/index/rest.svg
-      text: Postman ile REST
-      href: https://github.com/Azure-Samples/media-services-v3-rest-postman
-    - image:
-        src: media/index/logo_dotnet_core.svg
-      text: Visual Studio Code ile .NET Core
-      href: https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials
-    - image:
-        src: media/index/dotnet.svg
-      text: Visual Studio ile .NET
-      href: https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials
-    - image:
-        src: media/index/logo_nodejs.svg
-      text: Node .js
-      href: https://github.com/Azure-Samples/media-services-v3-node-tutorials
-- title: Başvuru
-  items:
-  - type: paragraph
-    text: ''
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Aşağıdaki GitHub örneklerinde, API''leri kullanarak Media Services v3 ile video akışı yapma, canlı yayın gerçekleştirme ve videolarınızı analiz etme işlemleri gösterilir:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/cli.svg
+            text: Azure CLI
+            href: 'https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services'
+          - image:
+              src: media/index/rest.svg
+            text: Postman ile REST
+            href: 'https://github.com/Azure-Samples/media-services-v3-rest-postman'
+          - image:
+              src: media/index/logo_dotnet_core.svg
+            text: Visual Studio Code ile .NET Core
+            href: 'https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials'
+          - image:
+              src: media/index/dotnet.svg
+            text: Visual Studio ile .NET
+            href: 'https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials'
+          - image:
+              src: media/index/logo_nodejs.svg
+            text: Node .js
+            href: 'https://github.com/Azure-Samples/media-services-v3-node-tutorials'
+  - title: Başvuru
     items:
-    - html: <a href="https://aka.ms/ams-v3-cli-ref">Azure CLI</a>
-    - html: <a href="https://aka.ms/ams-v3-rest-ref">REST</a>
-    - html: <a href="https://aka.ms/ams-v3-dotnet-ref">.NET</a>
-    - html: <a href="https://aka.ms/ams-v3-java-ref">Java</a>
-    - html: <a href="https://aka.ms/ams-v3-python-ref">Python</a>
-    - html: <a href="https://aka.ms/ams-v3-nodejs-ref">Node.js</a>
+      - type: paragraph
+        text: ''
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: '<a href="https://aka.ms/ams-v3-cli-ref">Azure CLI</a>'
+          - html: '<a href="https://aka.ms/ams-v3-rest-ref">REST</a>'
+          - html: '<a href="https://aka.ms/ams-v3-dotnet-ref">.NET</a>'
+          - html: '<a href="https://aka.ms/ams-v3-java-ref">Java</a>'
+          - html: '<a href="https://aka.ms/ams-v3-python-ref">Python</a>'
+          - html: '<a href="https://aka.ms/ams-v3-nodejs-ref">Node.js</a>'

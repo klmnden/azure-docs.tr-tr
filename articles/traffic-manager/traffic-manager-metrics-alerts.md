@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: c251cc851b34f708a2150d3b0444f235d2bc50d6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 1c0c48efc7abf4b810e92b5cd04d1538577c71d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045313"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268295"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager ölçümleri ve Uyarıları
 
@@ -65,4 +65,4 @@ Azure İzleyici, işleme ve trafik Yöneticisi'nden ölçümü görüntüleniyor
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Daha fazla bilgi edinin [Azure İzleyici hizmeti](../azure-monitor/platform/metrics-supported.md)
-- Bilgi edinmek için nasıl [Azure İzleyicisi'ni kullanarak bir grafik oluşturma](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)
+- Bilgi edinmek için nasıl [Azure İzleyicisi'ni kullanarak bir grafik oluşturma](../azure-monitor/platform/metrics-getting-started.md#create-your-first-metric-chart)

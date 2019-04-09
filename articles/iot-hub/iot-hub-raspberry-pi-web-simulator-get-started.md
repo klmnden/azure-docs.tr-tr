@@ -1,21 +1,21 @@
 ---
 title: Bulut (Node.js) - Azure IOT hub'a bağlanma Raspberry Pi web simülatörü Raspberry Pi'yi simülasyonu | Microsoft Docs
 description: Raspberry Pi, Azure bulutuna veri göndermek için Azure IOT Hub ile Raspberry Pi web simülatörü bağlanın.
-author: rangv
-manager: ''
+author: wesmc7777
+manager: philmea
 keywords: raspberry pi simülatör, azure IOT raspberry pi, raspberry pi IOT hub, bulut verilerini raspberry pi göndermek, buluta raspberry pi
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
-ms.author: rangv
-ms.openlocfilehash: 3f8fbf571efafe22d7d0c5ccfd71dded381ba6fb
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.author: wesmc
+ms.openlocfilehash: 58e05ba4fb2e362147f7ca28d83440ddabb6ef38
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847206"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267744"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Raspberry Pi çevrimiçi simülatör (Node.js) Azure IOT hub'a bağlama
 

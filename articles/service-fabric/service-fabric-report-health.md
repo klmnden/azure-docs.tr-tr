@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 06fedddffd51dc22b45e8ae6e415ad139346c5b6
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670396"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058620"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Özel Service Fabric durum raporları ekleme
 Azure Service Fabric tanıtır bir [sistem durumu modeli](service-fabric-health-introduction.md) sağlıksız küme ve belirli varlıkların uygulama koşullara bayrağı için tasarlanmıştır. Sistem durumu modeli kullanan **sistem durumu raporlayıcıları** (sistem bileşenleri ve watchdogs). , Kolay ve hızlı tanılama ve onarma hedeftir. Sistem durumu hakkında ön düşünmek beklemeleri gerekir. Özellikle bayrağı sorunların kök yakın yardımcı olabilir, sistem durumu etkileyebilecek herhangi bir koşul, bildirilmelidir. Sistem durumu bilgileri, hata ayıklama ve araştırma zaman ve çaba kaydedebilirsiniz. Hizmet bulutta ölçekte çalışır duruma geldikten sonra yararlılığı özellikle Temizle (özel veya Azure).
@@ -55,18 +55,18 @@ Bir kez tasarım işaretlenmemiştir raporlama sistem, sistem durumu raporların
 > 
 
 ## <a name="health-client"></a>İstemci sistem durumu
-Sistem durumu raporlarının sistem durumu deposu fabric istemci içinde bulunduğu bir sistem durumu istemcisi üzerinden gönderilir. Sistem durumu istemci aşağıdaki ayarlarla yapılandırılabilir:
+Sistem durumu raporlarının sistem durumu Yöneticisi doku istemci içinde bulunduğu bir sistem durumu istemcisi üzerinden gönderilir. Sağlık Yöneticisi raporları health store içinde kaydeder. Sistem durumu istemci aşağıdaki ayarlarla yapılandırılabilir:
 
-* **HealthReportSendInterval**: Rapor istemciye eklenen zaman ve saat arasındaki gecikme, sistem durumu Mağazası'na gönderilir. Batch raporları için bir ileti gönderilmesi yerine tek bir ileti her rapor için kullanılır. Toplu işleme performansını geliştirir. Varsayılan: 30 saniye.
-* **HealthReportRetrySendInterval**: Başlangıçtan birikmiş sağlık durumu istemci beşe aralığı için sistem durumu deposu bildirir. Varsayılan: 30 saniye.
-* **HealthOperationTimeout**: Zaman aşımı süresi sistem durumu deposu için gönderilen bir raporu ileti. Bir ileti zaman aşımına uğrarsa, raporun işlenen sistem durumu deposu doğrulayana kadar sistem durumu istemci bunu yeniden dener. Varsayılan: iki dakika.
+* **HealthReportSendInterval**: Rapor istemciye eklenen zaman ve saat arasındaki gecikme, sistem durumu Yöneticisi için gönderilir. Batch raporları için bir ileti gönderilmesi yerine tek bir ileti her rapor için kullanılır. Toplu işleme performansını geliştirir. Varsayılan: 30 saniye.
+* **HealthReportRetrySendInterval**: Başlangıçtan birikmiş sağlık durumu istemci beşe aralığı için sistem durumu Yöneticisi bildirir. Varsayılan: 30 saniye, en düşük: 1 saniye.
+* **HealthOperationTimeout**: Sağlık Yöneticisi için gönderilen bir raporu ileti için zaman aşımı süresi. Bir ileti zaman aşımına uğrarsa, rapor işlenen sistem durumu Yöneticisi onaylayana kadar durum istemci, yeniden dener. Varsayılan: iki dakika.
 
 > [!NOTE]
-> Raporları toplu işlendiğinde fabric istemci en az için Canlı tutulmalıdır HealthReportSendInterval bunlar gönderildiğinden emin olmak için. İleti kaybolur veya sistem durumu deposu geçici hatalar nedeniyle uygulanamıyor, doku istemci artık canlı tutulmalıdır yeniden denemek için bir fırsat vermek için.
+> Raporları toplu işlendiğinde fabric istemci en az için Canlı tutulmalıdır HealthReportSendInterval bunlar gönderildiğinden emin olmak için. İleti kaybolur veya sistem durumu Yöneticisi geçici hatalar nedeniyle uygulanamıyor, doku istemci artık canlı tutulmalıdır yeniden denemek için bir fırsat vermek için.
 > 
 > 
 
-İstemcide arabelleğe alma raporları benzersizliğini dikkate alır. Örneğin, belirli bir hatalı muhabir saniye başına 100 raporları aynı varlığın aynı özellikte yapıyorsa, raporlar en son sürümle değiştirilir. En fazla bir tür rapor istemci kuyrukta var. Toplu işleme yapılandırılmışsa, sistem durumu deposuna gönderilen raporların gönderme aralığı başına yalnızca bir tane sayısıdır. Bu rapor, varlığın en güncel durumu yansıtır son eklenen rapor eder.
+İstemcide arabelleğe alma raporları benzersizliğini dikkate alır. Örneğin, belirli bir hatalı muhabir saniye başına 100 raporları aynı varlığın aynı özellikte yapıyorsa, raporlar en son sürümle değiştirilir. En fazla bir tür rapor istemci kuyrukta var. Toplu işleme yapılandırılmışsa, sistem durumu Yöneticisi için gönderilen raporların gönderme aralığı başına yalnızca bir tane sayısıdır. Bu rapor, varlığın en güncel durumu yansıtır son eklenen rapor eder.
 Yapılandırma parametrelerini belirtin, `FabricClient` geçirerek oluşturulan [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) sistem durumu ile ilgili girdiler için istenen değerleri.
 
 Aşağıdaki örnek, bir doku istemci oluşturur ve eklenen raporları gönderilmesi gerektiğini belirtir. Zaman aşımları ve yeniden denenebilir bir hata, yeniden denemeler 40 saniyede gerçekleşir.

@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: a4d1a54e94b3228c64352bf08cd8cc69820a5e2d
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 3225ae919e221935b6d8a52e20d943d2178f6a47
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500058"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056863"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Bir sembol katmanı haritaya eklemek
 
-Bu makalede, bir harita üzerinde bir sembol katmanı olarak bir veri kaynağından veri noktası nasıl işleyebilen gösterilmektedir. Sembol katmanları WebGL kullanılarak işlenir ve HTML işaretçileri daha önemli ölçüde daha fazla veri noktası destekler, ancak geleneksel CSS ve HTML öğeleri için stil desteklemez.  
+Bu makalede, bir harita üzerinde bir sembol katmanı olarak bir veri kaynağından veri noktası nasıl işleyebilen gösterilmektedir. Sembol katmanları WebGL kullanılarak işlenir ve noktaları HTML işaretçileri daha çok daha büyük kümeleri destekleyen ancak geleneksel CSS ve HTML öğeleri için stil desteklemez.  
 
 > [!TIP]
-> Sembol katmanları varsayılan olarak, bir veri kaynağındaki tüm geometriler koordinatlarını işlemez. Özellikleri ayarlama katmanı yalnızca noktası geometri işler gibi sınırlamak için `filter` katmana özelliği `['==', '$type', 'Point']`
+> Sembol katmanları varsayılan olarak, bir veri kaynağındaki tüm geometriler koordinatlarını işlemez. Özellikleri ayarlama katmanı yalnızca noktası geometri işler gibi sınırlamak için `filter` katmana özelliği `['==', ['geometry-type'], 'Point']` veya `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` MultiPoint özellikleri de dahil etmek istiyorsanız.
 
 ## <a name="add-a-symbol-layer"></a>Sembol katmanı ekleme
 
@@ -34,14 +34,14 @@ Yukarıdaki kod ilk bloğu bir harita nesnesi oluşturur. Gördüğünüz [bir h
 
 Üçüncü blok kod oluşturur bir [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) ve noktanın koordinatları üzerine fare tıklatın şeklin sınıfını kullanarak güncelleştirmeleri [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) yöntemi.
 
-A [sembol katman](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) sarmalanmış noktası tabanlı veri işleme için metin veya simge kullanan [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) harita üzerinde simgeler olarak.  Veri kaynağı, click olay dinleyicisi ve sembol katmanı oluşturulur ve eşlemesine eklenen [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) işlev eşlemesi tam olarak yüklendikten sonra noktası görüntülendiğinden emin olun.
+A [sembol katman](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) sarmalanmış noktası tabanlı veri işleme için metin veya simge kullanan [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) harita üzerinde simgeler olarak.  Veri kaynağı, click olay dinleyicisi ve sembol katmanı oluşturulur ve eşlemesine eklenen `ready` [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) noktası yüklenir ve erişilecek hazır sonra eşleme görüntülendiğinden emin olmak için işlevi.
 
 > [!TIP]
 > Varsayılan olarak, performans için çakışan sembolleri gizleyerek sembol katmanları simgeleri işleme iyileştirin. Gizli sembolleri yakınlaştırma gibi görünebilir. Bu özellik devre dışı bırakın ve her zaman tüm sembolleri işlemek için ayarlanmış `allowOverlap` özelliği `iconOptions` seçenekleri `true`.
 
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Özel bir simge için simge katman ekleyin
 
-Sembol katmanları, WebGL kullanılarak işlenir. Simge görüntüleri gibi tüm bu kaynaklar olarak WebGL bağlamına yüklü olması gerekir. Bu örnek bir özel sembol simgesi eşleme kaynakları ekleme ve harita üzerinde özel bir simge ile veri noktası oluşturmak için kullanın gösterir. `textField` Sembol katmanın özelliği belirtilmesi bir ifade gerektirir. Bu durumda, sıcaklık özelliği noktası özelliğinin metin değeri olarak işlenecek istiyoruz. Bu ifade ile sağlanabilir: `['get', 'temperature']`. 
+Sembol katmanları, WebGL kullanılarak işlenir. Simge görüntüleri gibi tüm bu kaynaklar olarak WebGL bağlamına yüklü olması gerekir. Bu örnek, kaynak eşleme için özel bir simge eklemek ve harita üzerinde özel bir simge ile veri noktası oluşturmak için kullanmak nasıl gösterir. `textField` Sembol katmanın özelliği belirtilmesi bir ifade gerektirir. Bu durumda, sıcaklık özelliği oluşturmak istiyoruz, ancak bir sayı olduğundan, bir dizeye dönüştürülecek gerekiyor. Buna ek olarak "° F" eklenecek istiyoruz. Bir ifade, bunu yapmak için kullanılabilir; `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
 
 <br/>
 
@@ -76,13 +76,13 @@ Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi e
 Daha fazla kod örneği, eşlenir eklemek için aşağıdaki makalelere bakın:
 
 > [!div class="nextstepaction"]
-> [Açılan pencere Ekle](./map-add-popup.md)
+> [Açılır pencere ekleme](./map-add-popup.md)
 
 > [!div class="nextstepaction"]
 > [Şekil ekleme](./map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Kabarcık katmanı Ekle](./map-add-bubble-layer.md)
+> [Baloncuk katmanı ekleme](./map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
 > [HTML oluşturucular ekleme](./map-add-bubble-layer.md)

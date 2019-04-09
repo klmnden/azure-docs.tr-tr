@@ -19,7 +19,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/30/2019
+ms.date: 04/02/2019
 ms.author:
 - rimayber
 - dgoddard
@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 664c8b659152a370d7fb31907b6cdbcd414dce31
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.openlocfilehash: 6d53b8fe46997f6b4f915bfb14a64d69b22cc5d4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905112"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057838"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP'yi performans Azure Vm'leri için ayarlama
 
@@ -141,7 +141,7 @@ Bu tabloda, iki konum arasında doğrusal uzaklık gösterilmektedir ancak ağla
 
 Standart bir değeri 200 yayma hızı için kullanılabilir - 1 milisaniye cinsinden uzaklık ölçümleri açık olarak geçen bir değerdir.
 
-Örnekte New York için San Francisco, doğrusal 4,148 km mesafe bulunur. Minimum RTT = 2 * (4,148 / 20). Eşitlik çıktısı, milisaniye cinsinden belirtilir.
+Örnekte New York için San Francisco, doğrusal 4,148 km mesafe bulunur. Minimum RTT = 2 * (4,148 / 200). Eşitlik çıktısı, milisaniye cinsinden belirtilir.
 
 Aralarındaki en küçük uzaklığı ile hedefler seçmek için en mantıklı seçenektir gerekli, en yüksek ağ performansı, sabit bir gerçeklik fiziksel uzaklığı iki konum arasında olduğu gibi. Ürüne, tasarım kararlarını sanal ağ içinde trafiği yolunu iyileştirmek ve gecikme süresini azaltmak için yapılabilir. Bu sanal ağ konuları ağ tasarımı konuları bölümünde açıklanmıştır.
 
@@ -350,3 +350,7 @@ Aşağıdaki ek bilgiler bulunabilir:
 Azure müşterileri, TCP paketleri TCP bayrakları (SACK DUP ACK, yeniden aktarım ve hızlı yeniden) ile ağ performansı sorunlarını gösterebilecek paket yakalamaları görebilirsiniz. Bu paketleri, özellikle ağ verimsizlikleri paket kaybı sonucu olarak belirtin. Ancak paket kaybı Azure performans sorunları nedeniyle olmak zorunda değildir. Performans sorunlarını, uygulama, işletim sistemi veya doğrudan Azure platformuna ilgili olabilir değil diğer sorunlar olabilir. Ayrıca, bazı aktarım veya bir ağ üzerinde yinelenen ack'lerini gösteriyor normal – TCP protokolleri güvenilir olarak oluşturulmuş dikkat etmek önemlidir. Ayrıca, aşırı olmadıkları sürece bu TCP paketleri paket yakalaması kanıtı mutlaka bir sistemle ilgili ağ sorun olduğu anlamına gelmez.
 
 Ancak, bu açıkça bu paket türlerinin göstergelerden TCP aktarım hızı – diğer bölümlerinde açıklanan nedenlerle en yüksek performansı elde değil olduğundan belirtilen.
+
+## <a name="next-steps"></a>Sonraki Adımlar
+
+TCP/IP'yi Azure Vm'leri için performans ayarlama Bahsettiğimiz, sonraki adımlar [diğer sanal ağı planlama](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) konuları veya [bağlanma ve sanal ağları yapılandırma hakkında daha fazla bilgi](https://docs.microsoft.com/en-us/azure/virtual-network/).

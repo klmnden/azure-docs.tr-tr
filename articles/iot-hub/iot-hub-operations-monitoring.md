@@ -8,19 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
-ms.openlocfilehash: d839e2e9922ac68af3aea37884e8b2f72b80b0e7
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791588"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258122"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IOT Hub işlemlerini (kullanım dışı) izleme
 
 IOT Hub işlemlerini izleme, gerçek zamanlı IOT hub'ınızdaki işlemlerin durumunu izlemenize olanak sağlar. IOT Hub olaylarını birkaç işlem kategorisi izler. Olay işleme için IOT hub'ınızın bir uç nokta için bir veya daha fazla kategorilerden göndermeye içine seçebilirsiniz. Hatalar için verileri izlemek veya veri modellerini daha karmaşık bir işlem ayarlayın.
 
 >[!NOTE]
->IOT hub'ı **işlem izleme kullanım dışıdır ve IOT hub'ı 10 Mart 2019 tarihinde kaldırılmıştır**. İşlemleri ve IOT Hub'ın sistem durumu izleme için bkz: [Azure IOT Hub durumunu izleyin ve sorunları hızla tanılayın][lnk-monitor]. Kullanımdan kaldırma zaman çizelgesini hakkında daha fazla bilgi için bkz: [Azure IOT çözümlerinizi Azure İzleyici ve Azure kaynak durumu izleme][lnk-blog-announcement].
+>IOT hub'ı **işlem izleme kullanım dışıdır ve IOT hub'ı 10 Mart 2019 tarihinde kaldırılmıştır**. İşlemleri ve IOT Hub'ın sistem durumu izleme için bkz: [Azure IOT Hub durumunu izleyin ve sorunları hızla tanılayın](iot-hub-monitor-resource-health.md). Kullanımdan kaldırma zaman çizelgesini hakkında daha fazla bilgi için bkz: [Azure IOT çözümlerinizi Azure İzleyici ve Azure kaynak durumu izleme](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 IOT hub'ı altı olayların kategorilerini izler:
 
@@ -36,15 +36,15 @@ IOT hub'ı altı olayların kategorilerini izler:
 
 ## <a name="how-to-enable-operations-monitoring"></a>İşlemleri izleme olanağı tanıma
 
-1. IOT hub oluşturun. IOT hub'ı oluşturma hakkında yönergeler bulabilirsiniz [Başlarken] [ lnk-get-started] Kılavuzu.
+1. IOT hub oluşturun. IOT hub'ı oluşturma hakkında yönergeler bulabilirsiniz [Başlarken](quickstart-send-telemetry-dotnet.md) Kılavuzu.
 
-1. IOT hub'ın dikey penceresini açın. Burada, tıklayın **işlem izleme**.
+2. IOT hub'ın dikey penceresini açın. Burada, tıklayın **işlem izleme**.
 
-    ![Yapılandırma portalında izleme erişim işlemleri][1]
+    ![Yapılandırma portalında izleme erişim işlemleri](./media/iot-hub-operations-monitoring/enable-OM-1.png)
 
-1. İzleyin ve ardından istediğiniz izleme kategorileri seçin **Kaydet**. Olayları listelenen Event Hub ile uyumlu uç noktasından okumak için kullanılabilir **izleme ayarlarını**. IOT Hub uç nokta adı verilen `messages/operationsmonitoringevents`.
+3. İzleyin ve ardından istediğiniz izleme kategorileri seçin **Kaydet**. Olayları listelenen Event Hub ile uyumlu uç noktasından okumak için kullanılabilir **izleme ayarlarını**. IOT Hub uç nokta adı verilen `messages/operationsmonitoringevents`.
 
-    ![IOT hub'ınızda izleme işlemlerini yapılandırma][2]
+    ![IOT hub'ınızda izleme işlemlerini yapılandırma](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 
 > [!NOTE]
 > Seçme **ayrıntılı** için izleme **bağlantıları** kategori ek tanılama iletileri oluşturmak için IOT Hub neden olur. Diğer tüm kategorileri için **ayrıntılı** değişiklikleri IOT hub'ı bilgi miktarını ayarlama her hata iletisi içerir.
@@ -96,7 +96,7 @@ Cihaz telemetrisi kategorisi, IOT hub ve telemetri ardışık düzene ilgili hat
 }
 ```
 
-### <a name="cloud-to-device-commands"></a>Buluttan cihaza komutlar
+### <a name="cloud-to-device-commands"></a>Bulut-cihaz komutları
 
 Bulut-cihaz komutlarını kategorisi, IOT hub ve bulut-cihaz ileti işlem hattına ilgili hataları izler. Bu kategori, (örneğin, yetkisiz gönderen) bulut buluttan cihaza iletileri gönderme (örneğin, teslimat sayısı aşıldı) bulut-cihaz iletilerini alma ve (geri bildirim süresi gibi) bulut-cihaz ileti geri bildirim alan olduğunda oluşan hataları içerir. Bu kategori, bulut buluttan cihaza iletinin başarıyla teslim edildi, yanlış bir bulut-cihaz iletiyi işleyen bir CİHAZDAN hataları yakalamaz.
 
@@ -145,7 +145,9 @@ Bağlantıları kategorisi cihazları bağlayın veya bir IOT hub'ından kesin o
 Dosya karşıya yükleme kategorisi, IOT hub ve dosya karşıya yükleme işlevselliği ile ilgili hataları izler. Bu kategori içerir:
 
 * Ne zaman süresi dolmadan önce tamamlanan bir karşıya yükleme hub'a bir cihaz bildirir gibi SAS URI'si ile oluşan hatalar.
+
 * Cihaz tarafından bildirilen karşıya yükleme başarısız oldu.
+
 * Bir dosya depolama alanında, IOT hub'ı bildirim iletisi oluşturulurken bulunmadığında, oluşan hataları.
 
 Bu kategori, cihazın depolama için bir dosya yüklenirken doğrudan ortaya çıkan hataları yakalayamaz.
@@ -188,31 +190,31 @@ Bu kategori, cihazın depolama için bir dosya yüklenirken doğrudan ortaya ç�
 
 ## <a name="connect-to-the-monitoring-endpoint"></a>İzleme uç noktasına bağlanma
 
-IOT hub'ınızı izleme uç noktada bir Event Hub ile uyumlu uç noktadır. İzleme iletileri Bu uç noktasından okumak için Event Hubs ile çalışan herhangi bir mekanizma kullanabilirsiniz. Aşağıdaki örnek, bir yüksek işleme dağıtımına uygun olmayan temel bir okuyucu oluşturur. Event Hubs'dan iletilerin nasıl işleneceği hakkında daha fazla bilgi için [Event Hubs ile Çalışmaya Başlama][lnk-eventhubs-tutorial] öğreticisine bakın.
+IOT hub'ınızı izleme uç noktada bir Event Hub ile uyumlu uç noktadır. İzleme iletileri Bu uç noktasından okumak için Event Hubs ile çalışan herhangi bir mekanizma kullanabilirsiniz. Aşağıdaki örnek, bir yüksek işleme dağıtımına uygun olmayan temel bir okuyucu oluşturur. İletilerin nasıl işleneceği Event hubs hakkında daha fazla bilgi için bkz: [Event Hubs ile çalışmaya başlama](../event-hubs/event-hubs-csharp-ephcs-getstarted.md) öğretici.
 
 İzleme uç noktaya bağlanmak için bir bağlantı dizesi ve uç nokta adı gerekir. Aşağıdaki adımlar Portalı'nda gerekli değerleri nasıl gösterir:
 
 1. Portalda, IOT hub'ı kaynak dikey pencerenize gidin.
 
-1. Seçin **işlem izleme**ve Not **Event Hub ile uyumlu adı** ve **Event Hub ile uyumlu uç nokta** değerleri:
+2. Seçin **işlem izleme**ve Not **Event Hub ile uyumlu adı** ve **Event Hub ile uyumlu uç nokta** değerleri:
 
-    ![Event Hub ile uyumlu uç nokta değerleri][img-endpoints]
+    ![Event Hub ile uyumlu uç nokta değerleri](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-1. Seçin **paylaşılan erişim ilkeleri**, ardından **hizmet**. Not **birincil anahtar** değeri:
+3. Seçin **paylaşılan erişim ilkeleri**, ardından **hizmet**. Not **birincil anahtar** değeri:
 
-    ![Hizmet paylaşılan erişim ilkesi birincil anahtarı][img-service-key]
+    ![Hizmet paylaşılan erişim ilkesi birincil anahtarı](./media/iot-hub-operations-monitoring/service-key.png)
 
 Aşağıdaki C# kod örneği, Visual Studio'dan alınmış **Windows Klasik Masaüstü** C# konsol uygulaması. Proje **WindowsAzure.ServiceBus** NuGet paketi yüklü.
 
 * Bağlantı dizesi yer tutucusunu kullanan bir bağlantı dizesiyle değiştirin **Event Hub ile uyumlu uç nokta** ve hizmet **birincil anahtar** daha önce aşağıdaki örnekte gösterildiği gibi değerleri:
 
-    ```cs
+    ```csharp
     "Endpoint={your Event Hub-compatible endpoint};SharedAccessKeyName=service;SharedAccessKey={your service primary key value}"
     ```
 
 * İzleme uç noktası adı tutucusuyla değiştirin **Event Hub ile uyumlu adı** daha önce değer.
 
-```cs
+```csharp
 class Program
 {
     static string connectionString = "{your monitoring endpoint connection string}";
@@ -263,24 +265,9 @@ class Program
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Daha fazla IOT Hub'ın özelliklerini keşfetmek için bkz:
 
-* [IOT Hub Geliştirici Kılavuzu][lnk-devguide]
-* [Azure IOT Edge ile sınır cihazlarına Al dağıtma][lnk-iotedge]
+* [IOT Hub Geliştirici Kılavuzu](iot-hub-devguide.md)
 
-<!-- Links and images -->
-[1]: media/iot-hub-operations-monitoring/enable-OM-1.png
-[2]: media/iot-hub-operations-monitoring/enable-OM-2.png
-[img-endpoints]: media/iot-hub-operations-monitoring/monitoring-endpoint.png
-[img-service-key]: media/iot-hub-operations-monitoring/service-key.png
-
-[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
-[lnk-monitor]: iot-hub-monitor-resource-health.md
-[lnk-get-started]: quickstart-send-telemetry-dotnet.md
-[lnk-diagnostic-metrics]: iot-hub-metrics.md
-[lnk-scaling]: iot-hub-scaling.md
-[lnk-dr]: iot-hub-ha-dr.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
+* [Yapay ZEKA, Azure IOT Edge ile uç cihazlarına dağıtma](../iot-edge/tutorial-simulate-device-linux.md)

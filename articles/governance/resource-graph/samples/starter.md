@@ -1,20 +1,19 @@
 ---
 title: Başlangıç sorgu örnekleri
 description: Bazı başlangıç çalıştırmak için Azure Kaynak Grafiği kullanın, kaynaklar,'sıralama sayım kaynaklar dahil olmak üzere veya belirli bir etikete göre sorgular.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 04/04/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fd945b5fd9f26cc65c5b049406831228a3d5f327
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 2ba48e2a21bdee0c5698bdfa314dd3bf462c1c7e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338725"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267778"
 ---
 # <a name="starter-resource-graph-queries"></a>Başlangıç Kaynak Grafiği sorguları
 
@@ -23,16 +22,16 @@ Azure Kaynak Grafiği ile sorguları anlamanın il adımı, [Sorgu Dili](../conc
 Aşağıdaki başlangıç sorgularını inceleyeceğiz:
 
 > [!div class="checklist"]
-> - [Azure kaynaklarını sayma](#count-resources)
-> - [Ada göre sıralanmış kaynakları listeleme](#list-resources)
-> - [Tüm sanal makineleri ada göre azalan düzende sıralı olarak gösterme](#show-vms)
-> - [Ada ve işletim sistemi türüne göre ilk beş sanal makineyi gösterme](#show-sorted)
-> - [Sanal makineleri işletim sistemi türüne göre sayma](#count-os)
+> - [Sayısı Azure kaynakları](#count-resources)
+> - [Ada göre sıralanmış listesini kaynakları](#list-resources)
+> - [Azalan düzende ada göre sıralanmış tüm sanal makineleri Göster](#show-vms)
+> - [İlk beş sanal makine adı ve bunların işletim sistemi türüne göre göster](#show-sorted)
+> - [Sanal makine işletim sistemi türüne göre Say](#count-os)
 > - [Depolama içeren kaynakları göster](#show-storage)
-> - [Tüm genel IP adreslerini listele](#list-publicip)
-> - [Aboneliğe göre yapılandırılmış IP adreslerine sahip kaynakları sayma](#count-resources-by-ip)
-> - [Belirli bir etiket değerine sahip kaynakları listeleme](#list-tag)
-> - [Belirli bir değerine sahip tüm depolama hesaplarını listeleme](#list-specific-tag)
+> - [Tüm genel IP adresleri listesi](#list-publicip)
+> - [Aboneliğe göre yapılandırılmış IP adreslerine sahip kaynakları sayar](#count-resources-by-ip)
+> - [Belirli bir etiket değeri olan kaynakları listelemek](#list-tag)
+> - [Belirli bir etiket değerine sahip tüm depolama hesaplarını listeleme](#list-specific-tag)
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free) oluşturun.
 
@@ -95,7 +94,7 @@ Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Co
 
 ## <a name="show-sorted"></a>Ada ve işletim sistemi türüne göre ilk beş sanal makineyi gösterme
 
-Bu sorgu `limit`’i yalnızca ada göre sıralanmış beş eşleşen kaydı almak için kullanır. Azure kaynağının türü `Microsoft.Compute/virtualMachines`’dir. `project`, Azure Kaynak Grafiği’ne hangi özelliklerin dahil edileceğini bildirir.
+Bu sorgu `limit`’i yalnızca ada göre sıralanmış beş eşleşen kaydı almak için kullanır. Azure kaynağının türü `Microsoft.Compute/virtualMachines`’dir. `project` Azure kaynak Graph dahil etmek için hangi özelliklerin söyler.
 
 ```Query
 where type =~ 'Microsoft.Compute/virtualMachines'
@@ -167,20 +166,22 @@ Search-AzGraph -Query "where type contains 'storage' | distinct type"
 ## <a name="list-publicip"></a>Tüm genel IP adreslerini listele
 
 Önceki sorguya benzer şekilde, **publicIPAddresses** sözcüğünü içeren bir tür olan her şeyi bulun.
-Bu sorgu, **properties.ipAddress**’in null olduğu sonuçları hariç tutmak, yalnızca **properties.ipAddress** döndürmek ve sonuçları en üst 100’e göre `limit` yapmak için o desende genişler. Seçtiğiniz kabuğa bağlı olarak tırnak işaretlerinin dışına çıkmanız gerekebilir.
+Bu sorgu sonuçları yalnızca dahil etmek için bu düzeni genişletir. burada **properties.ipAddress**
+`isnotempty`yalnızca döndürülmesini **properties.ipAddress**ve `limit` üst sonuçları
+100. Seçtiğiniz kabuğa bağlı olarak tırnak işaretlerinin dışına çıkmanız gerekebilir.
 
 ```Query
-where type contains 'publicIPAddresses' and properties.ipAddress != ''
+where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
 | project properties.ipAddress
 | limit 100
 ```
 
 ```azurecli-interactive
-az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
+az graph query -q "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
 ## <a name="count-resources-by-ip"></a>Aboneliğe göre yapılandırılmış IP adreslerine sahip kaynakları sayma
@@ -188,16 +189,16 @@ Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ip
 Önceki örnek sorguyu kullanarak ve `summarize` ile `count()` ekleyerek, yapılandırılmış IP adreslerine sahip kaynakların aboneliğe göre listesini elde edebiliriz.
 
 ```Query
-where type contains 'publicIPAddresses' and properties.ipAddress != ''
+where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
 | summarize count () by subscriptionId
 ```
 
 ```azurecli-interactive
-az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
+az graph query -q "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
 ## <a name="list-tag"></a>Belirli bir etiket değerine sahip kaynakları listeleme

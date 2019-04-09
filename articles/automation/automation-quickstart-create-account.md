@@ -4,17 +4,17 @@ description: Azure Otomasyonu hesabı oluşturmayı ve runbook çalıştırmayı
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 01/15/2019
+ms.date: 04/04/2019
 ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 5fd29c47f87dc65d67961224d1e2c103871d4b06
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7f7905a4b09e685ad98a1663333aa32bc1d7ae90
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592460"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009521"
 ---
 # <a name="create-an-azure-automation-account"></a>Azure Otomasyonu hesabı oluşturma
 
@@ -61,14 +61,10 @@ https://portal.azure.com adresinden Azure'da oturum açın
 
 1. **İş durumu**, **Çalışıyor** olarak değiştikten sonra runbook işi çıktısını görüntülemek için **Çıktı** veya **Tüm Günlükler**'e tıklayın. Bu öğretici runbook'u için çıktıda Azure kaynaklarınızın listesi yer alır.
 
-## <a name="clean-up-resources"></a>Kaynakları temizleme
-
-Artık gerekli olmadığında kaynak grubunu, Otomasyon hesabını ve tüm ilişkili kaynakları silin. Bunu yapmak için Otomasyon hesabı için kaynak grubunu seçip **Sil**'e tıklayın.
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu hızlı başlangıçta bir Otomasyon hesabı dağıttınız, runbook işi başlattınız ve iş sonuçlarını görüntülediniz. Azure Otomasyonu hakkında daha fazla bilgi edinmek için ilk runbook'unuzu oluşturmanızı sağlayacak hızlı başlangıç sayfasına gidin.
 
 > [!div class="nextstepaction"]
-> [Otomasyon Hızlı Başlangıcı - Runbook Oluşturma](./automation-quickstart-create-runbook.md)
+> [Otomasyon hızlı başlangıcı - Runbook oluşturma](./automation-quickstart-create-runbook.md)
 

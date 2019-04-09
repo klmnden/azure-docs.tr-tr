@@ -2,19 +2,18 @@
 title: Azure IOT hub'ı modül kimlik ve modül ikizi ile (Python) kullanmaya başlayın | Microsoft Docs
 description: Modül kimliği oluşturma ve Python için IOT SDK'ları kullanarak modül ikizi güncelleştirme hakkında bilgi edinin.
 author: chrissie926
-manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 1d7c8d8a02358b4eb9f52f1a9bd04b797fcd934f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cb6ddbab2fd4cb21ef547d116652f7ea9e63607f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110809"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258156"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Python arka ucu ile Python cihaz IOT hub'ı modül kimlik ve modül ikizi ile çalışmaya başlama
 
@@ -25,23 +24,26 @@ ms.locfileid: "58110809"
 Bu öğreticinin sonunda iki Python uygulamaları vardır:
 
 * Cihaz ve modül istemcilerinizi bağlamak için bir cihaz kimliği, bir modül kimliği ve ilişkili güvenlik anahtarı oluşturan **CreateIdentities**.
+
 * Güncelleştirilmiş modül ikizi tarafından raporlanan özelliklerini IoT Hub’ınıza gönderen **UpdateModuleTwinReportedProperties**.
 
 > [!NOTE]
-> Hem cihazlarınızda hem de çözüm arka ucunuzda çalıştırılacak uygulamalar oluşturmak için kullanabileceğiniz Azure IoT SDK'ları hakkında bilgi için bkz. [Azure IoT SDK'ları][lnk-hub-sdks].
+> Cihazlar ve çözüm arka ucunuz çalıştırılacak hem uygulamalar oluşturmak için kullanabileceğiniz Azure IOT SDK'ları hakkında daha fazla bilgi için bkz. [Azure IOT SDK'ları](iot-hub-devguide-sdks.md).
 >
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* Etkin bir Azure hesabı. (Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.)
+* Etkin bir Azure hesabı. (Hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.)
+
 * IOT hub'ı.
+
 * Son yükleme [Python SDK'sı](https://github.com/Azure/azure-iot-sdk-python).
 
 IoT hub'ınızı oluşturdunuz ve bu öğreticinin geri kalanını tamamlamak için gereken ana bilgisayar adı ve IoT Hub bağlantı dizesine sahipsiniz.
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Bir cihaz kimliği ve bir modül kimliği, IOT hub'ı oluşturma
 
-Bu bölümde, IOT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği ve bir modül kimliği oluşturan bir Python uygulaması oluşturun. Kimlik kayıt defterinde girişi olmayan bir cihaz veya modül, IoT hub'ına bağlanamaz. Daha fazla bilgi için [IoT Hub geliştirici kılavuzunun][lnk-devguide-identity] "Kimlik kayıt defteri" bölümüne bakın. Bu konsol uygulamasını çalıştırdığınızda, hem cihaz hem de modül için benzersiz bir kimlik ve anahtar oluşturur. Cihazınız ve modülünüz, IoT Hub’ına cihazdan buluta iletileri gönderdiğinde kendisini tanımlamak için bu değerleri kullanır. Kimlikler büyük/küçük harfe duyarlıdır.
+Bu bölümde, IOT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği ve bir modül kimliği oluşturan bir Python uygulaması oluşturun. Kimlik kayıt defterinde girişi olmayan bir cihaz veya modül, IoT hub'ına bağlanamaz. Daha fazla bilgi için "Kimlik kayıt defteri" bölümüne bakın. [IOT Hub Geliştirici kılavuzunun](iot-hub-devguide-identity-registry.md). Bu konsol uygulamasını çalıştırdığınızda, hem cihaz hem de modül için benzersiz bir kimlik ve anahtar oluşturur. Cihazınız ve modülünüz, IoT Hub’ına cihazdan buluta iletileri gönderdiğinde kendisini tanımlamak için bu değerleri kullanır. Kimlikler büyük/küçük harfe duyarlıdır.
 
 Python dosyanıza aşağıdaki kodu ekleyin:
 
@@ -78,18 +80,18 @@ except KeyboardInterrupt:
 Bu uygulama Kimliğine sahip bir cihaz kimliği oluşturan **myFirstDevice** ve Kimliğe sahip bir modül kimliği **myFirstModule** cihaz altında **myFirstDevice**. (Bu modül kimliği, kimlik kayıt defterinde zaten varsa, kod yalnızca mevcut modül bilgilerini alır.) Bu durumda uygulama, bu kimliğin birincil anahtarını görüntüler. IoT hub'ınıza bağlanmak için sanal modül uygulamasında bu anahtarı kullanırsınız.
 
 > [!NOTE]
-> IoT Hub kimlik kayıt defteri yalnızca IoT hub'ına güvenli erişim sağlamak amacıyla cihaz ve modül kimliklerini depolar. Kimlik kayıt defteri, cihaz kimliklerini ve anahtarlarını güvenlik kimlik bilgileri olarak kullanmak için depolar. Kimlik kayıt defterinin her cihaz için depoladığı etkin/devre dışı bayrağını kullanarak, ilgili cihaza erişimi devre dışı bırakabilirsiniz. Uygulamanızın cihaza özgü diğer meta verileri depolaması gerekiyorsa uygulamaya özgü bir depo kullanması gerekir. Modül kimlikleri için etkin/devre dışı bayrağı yoktur. Daha fazla bilgi için bkz. [IoT Hub geliştirici kılavuzu][lnk-devguide-identity].
+> IoT Hub kimlik kayıt defteri yalnızca IoT hub'ına güvenli erişim sağlamak amacıyla cihaz ve modül kimliklerini depolar. Kimlik kayıt defteri, cihaz kimliklerini ve anahtarlarını güvenlik kimlik bilgileri olarak kullanmak için depolar. Kimlik kayıt defterinin her cihaz için depoladığı etkin/devre dışı bayrağını kullanarak, ilgili cihaza erişimi devre dışı bırakabilirsiniz. Uygulamanızın cihaza özgü diğer meta verileri depolaması gerekiyorsa uygulamaya özgü bir depo kullanması gerekir. Modül kimlikleri için etkin/devre dışı bayrağı yoktur. Daha fazla bilgi için [IOT Hub Geliştirici kılavuzunun](iot-hub-devguide-identity-registry.md).
 >
 
 ## <a name="update-the-module-twin-using-python-device-sdk"></a>Python cihaz SDK'sını kullanarak modül ikizi güncelleştir
 
 Bu bölümde, oluşturduğunuz bir Python uygulamasını sanal Cihazınızda modül ikizi güncelleştirmeleri bildirilen özellikler.
 
-1. **Modül bağlantı dizenizi alma** -- [Azure portalında][lnk-portal] oturum açarsanız bunu yapabilirsiniz. IoT Hub’ınıza gidin ve IoT Cihazları’na tıklayın. Bul myFirstDevice, açık myFirstModule göreceksiniz başarıyla oluşturuldu. Modül bağlantı dizesini kopyalayın. Sonraki adımda gerekecektir.
+1. **Modülü bağlantı dizenizi alma** --için oturum açıldığında şimdi [Azure portalında](https://portal.azure.com/). IoT Hub’ınıza gidin ve IoT Cihazları’na tıklayın. Bul myFirstDevice, açık myFirstModule göreceksiniz başarıyla oluşturuldu. Modül bağlantı dizesini kopyalayın. Sonraki adımda gerekecektir.
 
-   ![Azure portalı modül ayrıntısı][15]
+   ![Azure portalı modül ayrıntısı](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 
-1. **UpdateModuleTwinReportedProperties uygulaması oluşturma** aşağıdaki `using` deyimleri en üstündeki **Program.cs** dosyası:
+2. **UpdateModuleTwinReportedProperties uygulaması oluşturma** aşağıdaki `using` deyimleri en üstündeki **Program.cs** dosyası:
 
     ```python
     import sys
@@ -121,7 +123,7 @@ Bu bölümde, oluşturduğunuz bir Python uygulamasını sanal Cihazınızda mod
         print ( "IoTHubRegistryManager sample stopped" )
     ```
 
-Bu kod örneği, AMQP protokolüyle raporlanan özellikleri güncelleştirme ve modül ikizini alma işlemini nasıl yapacağınızı gösterir. 
+Bu kod örneği, AMQP protokolüyle raporlanan özellikleri güncelleştirme ve modül ikizini alma işlemini nasıl yapacağınızı gösterir.
 
 ## <a name="get-updates-on-the-device-side"></a>Güncelleştirmeleri cihaz tarafında Al
 
@@ -159,23 +161,10 @@ except KeyboardInterrupt:
     print ( "module client sample stopped" )
 ```
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 IoT Hub’ı kullanmaya başlamak ve diğer IoT senaryolarını keşfetmek için bkz:
 
-* [Cihaz yönetimini kullanmaya başlama][lnk-device-management]
-* [IoT Edge ile çalışmaya başlama][lnk-iot-edge]
+* [Cihaz yönetimi ile çalışmaya başlama](iot-hub-node-node-device-management-get-started.md)
 
-
-<!-- Images. -->
-[15]:./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
-<!-- Links -->
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-portal]: https://portal.azure.com/
-
-[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
-[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+* [IOT Edge'i kullanmaya başlama](../iot-edge/tutorial-simulate-device-linux.md)

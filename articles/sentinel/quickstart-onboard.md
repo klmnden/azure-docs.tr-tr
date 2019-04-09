@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/12/2019
 ms.author: rkarlin
-ms.openlocfilehash: b6ea852c9a1bb8ea6eb51df310aab97e9b10d48e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: c055b3d9dec2e2538a7dc7ac0eb707c97313d0d6
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399691"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006596"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Yerleşik Azure Sentinel Önizleme
 
@@ -36,21 +36,19 @@ Veri kaynaklarınızı bağlandıktan sonra verilerinizi temel alan ınsights y�
 
 ## <a name="global-prerequisites"></a>Genel Önkoşullar
 
-- Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+- Etkin Azure, yoksa, aboneliği, oluşturun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) başlamadan önce.
 
 - Log Analytics çalışma alanı. Bilgi edinmek için nasıl [Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md)
 
-- Kiracınız için katkıda bulunan izinleri Azure Gözcü etkinleştirmek için
-
-- Kiracı genel veya güvenlik yöneticisi izinleri
- 
+    - Bağlı Azure Gözcü için kaynak grubuna katkıda bulunan izinleri
+    - Azure Gözcü etkinleştirmek için kaynak grubuna katkıda bulunan izinleri 
 
 ## Azure Sentinel etkinleştir <a name="enable"></a>
 
 1. Azure portalına gidin.
 2. Azure Gözcü oluşturulduğu, aboneliğin seçildiğinden emin olun. 
 3. Azure Sentinel arayın. 
-   ![Arama](./media/quickstart-onboard/search-product.png)
+   ![ara](./media/quickstart-onboard/search-product.png)
 
 1. Tıklayın **+ Ekle**.
 1. Kullanma veya yeni bir tane oluşturmak istediğiniz çalışma alanını seçin. Birden fazla çalışma alanına Azure Gözcü çalıştırabilirsiniz, ancak veriler, tek bir çalışma alanına yalıtılır.

@@ -4,15 +4,15 @@ description: Azure Geçişi hizmetine genel bir bakış sağlar.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 04/04/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9f1d127405046400e2a92ffc5ab695d287e297bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: e0249535813c6b8d652775f68a696d8c25ead5a1
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894978"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058450"
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -32,7 +32,7 @@ Azure Geçişi şunları yapmanıza yardımcı olur:
 - Azure sanal makinelerine geçiş için yalnızca şirket içi VMware sanal makinelerini (VM) değerlendirebilirsiniz. VMware sanal makineleri, vCenter Server (sürüm 5.5, 6.0, 6.5 veya 6.7) tarafından yönetilmelidir.
 - Destek sunuluyor çalışırken ilgileniyorsanız Hyper-V şu anda önizlemede üretim desteği için lütfen kaydolun [burada.](https://aka.ms/migratefuture)
 - Fiziksel sunucuları değerlendirme için yararlanabileceğiniz bizim [iş ortağı Araçları](https://azure.microsoft.com/migration/partners/).
-- Tek keşifte en fazla 1500 sanal makine ve tek projede en fazla 1500 sanal makine bulabilirsiniz. Ayrıca tek değerlendirmede en fazla 1500 sanal makineyi değerlendirebilirsiniz.
+- Tek keşifte ve tek projede en fazla 1500 sanal makineleri bulabilir. Tek bir gereç kullanılarak tek bir projede en fazla 10.000 VMware Vm'lerinin bulunmasını sağlayan bir önizleme sürümünü kullanıma sunuyoruz, deniyorsanız düşünüyorsanız, lütfen kaydolun [burada.](https://aka.ms/migratefuture)
 - Daha büyük bir ortam keşfetmek istiyorsanız keşfi bölüp birden fazla proje oluşturabilirsiniz. [Daha fazla bilgi edinin](how-to-scale-assessment.md). Azure Geçişi, abonelik başına 20’ye kadar projeyi destekler.
 - Azure Geçişi yalnızca yönetilen disklerin geçiş değerlendirmesini destekler.
 -  Bu gibi durumlarda, Azure geçişi projesini yalnızca aşağıdaki coğrafyalardaki oluşturabilirsiniz. Bu ancak diğer değerlendirmeler oluşturup oluşturamayacağınız kısıtlamaz Azure konumları hedefleyin.

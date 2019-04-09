@@ -12,27 +12,22 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: reference
-ms.date: 02/27/2019
+ms.date: 03/28/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 5c25d6703fe631a401994039200539156cc7b4de
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4908233280c69a37ea470eed2ef077cb220a7930
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579470"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009743"
 ---
-# <a name="saas-fulfillment-apis-version-1"></a>SaaS yerine getirme API sürümü 1
+# <a name="saas-fulfillment-apis-version-1--deprecated"></a>SaaS yerine getirme API sürümü 1 (kullanım dışı)
 
-Bu makalede, API'leri ile SaaS teklifi oluşturmak açıklanmaktadır. API'leri, seçili Azure üzerinden satış varsa, SaaS teklifinizle aboneliklere izin vermek için gereklidir.  
+Bu makalede, API'leri ile SaaS teklifi oluşturmak açıklanmaktadır. API uç noktaları, REST yöntemleri ve oluşan sahip satmak, seçili Azure SaaS teklifinizle aboneliklere izin vermek için gereklidir.  
 
 > [!WARNING]
-> SaaS yerine getirme API bu ilk sürümünde kullanım dışı; Bunun yerine, [SaaS yerine getirme API V2](./cpp-saas-fulfillment-api-v2.md).
-
-
-Bu makalede, iki bölüme ayrılır:
-
--   Bir SaaS hizmeti ve Azure Market arasında hizmetten hizmete kimlik doğrulaması
--   API yöntemleri ve uç noktaları
+> SaaS yerine getirme API bu ilk sürümünde kullanım dışı; Bunun yerine, [SaaS yerine getirme API V2](./cpp-saas-fulfillment-api-v2.md).  Bu API, yalnızca mevcut yayımcıların Hizmet şu anda sağlanıyor. 
 
 Aşağıdaki API, SaaS hizmetinizin Azure ile tümleştirmenize yardımcı olmak için verilmiştir:
 
@@ -41,112 +36,11 @@ Aşağıdaki API, SaaS hizmetinizin Azure ile tümleştirmenize yardımcı olmak
 -   Dönüştür
 -   Abonelikten çık
 
-Bu API'leri kullanıldığında ve yeni bir müşteri abonelik akışı aşağıdaki diyagramda gösterilmiştir:
 
-![SaaS API'si akışı sunar.](./media/saas-offer-publish-api-flow-v1.png)
-
-
-## <a name="service-to-service-authentication-between-saas-service-and-azure-marketplace"></a>Azure Market SaaS hizmeti arasındaki hizmeti kimlik doğrulama hizmeti
-
-Azure, SaaS hizmeti sunan, son kullanıcılar için kimlik doğrulaması tüm kısıtlamalar uygulamaz. Ancak, Azure Market API'leri ile iletişim kurulurken SaaS hizmetine söz konusu olduğunda, kimlik doğrulaması Azure Active Directory (Azure AD) uygulama bağlamında gerçekleştirilir.
-
-Aşağıdaki bölümde, Azure AD uygulaması oluşturmayı açıklar.
-
-
-### <a name="register-an-azure-ad-application"></a>Azure AD uygulaması kaydedin
-
-Azure AD'nin özelliklerini kullanmak isteyen her uygulama önce bir Azure AD kiracısı olarak kaydedilmelidir. Azure AD'ye nerede, bir kullanıcının kimliği doğrulandıktan sonra yanıtların gönderileceği URL URL gibi uygulamanızın ayrıntılarını vererek kayıt işlemini içerir uygulama ve benzeri tanımlayan URI.
-
-Azure portalını kullanarak yeni bir uygulamayı kaydetmek için aşağıdaki adımları gerçekleştirin:
-
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Hesabınız birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınıza tıklayın ve portal oturumunuzda kullanmak istediğiniz kiracıyı belirleyin.
-3. Sol gezinti bölmesinden **Azure Active Directory** hizmeti ye **uygulama kayıtları**, tıklatıp **yeni uygulama kaydı**.
-
-   ![SaaS AD uygulama kayıtları](./media/saas-offer-app-registration-v1.png)
-
-4. Uygulama Oluştur sayfasında girin\'s kayıt bilgileri:
-   - **Ad**: Anlamlı uygulama adı girin
-   - **Uygulama türü**: 
-     - Bir cihaza yerel olarak yüklenen [istemci uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) için **Yerel**'i seçin. Bu ayar OAuth ortak [yerel istemcileri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) için kullanılır.
-     - Seçin **Web uygulaması / API** için [istemci uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) ve [kaynak/API uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) güvenli bir sunucuya yüklenir. Bu ayar, OAuth gizli kullanılır [web istemcileri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) ve genel [kullanıcı aracı tabanlı istemciler](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
-     Aynı uygulama gerek bir istemciyi, gerekse kaynağı/API'yi sunabilir.
-   - **Oturum açma URL'si**: Web uygulaması/API uygulamaları için uygulamanızın temel URL'si sağlayın. Örneğin, **http:\//localhost:31544** yerel makinenizde çalışan bir web uygulaması URL'si olabilir. Kullanıcılar, bir web istemci uygulamasına oturum açmak için bu URL'yi daha sonra kullanmanız gerekir.
-   - **Yeniden yönlendirme URI'si**: Yerel uygulamaları için Azure AD'nin belirteç yanıtlarını döndürmek için kullanılan URI girin. Uygulamanıza özgü bir değer girin, örneğin **http:\//MyFirstAADApp**.
-
-     ![SaaS AD uygulama kayıtları](./media/saas-offer-app-registration-v1-2.png)
-
-     Web uygulamaları veya yerel uygulamalar için belirli örnekler için hızlı başlangıç kullanıma destekli bölmesinin Başlarken bölümünde kullanılabilir ayarlar [Azure AD Geliştirici Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-
-5. Tamamladığınızda **Oluştur**’a tıklayın. Azure AD uygulamanız ve sizin için benzersiz bir uygulama kimliği atar\'re uygulamanıza geçen\'s ana kayıt sayfası. Web uygulaması ya da yerel uygulama olmasına bağlı olarak uygulamanıza ek özellikler eklemek için değişik seçenekler sunulur.
-
->[!Note]
->Varsayılan olarak, yeni kaydettiğiniz uygulamayı, uygulamanız için oturum açmak için aynı kiracıda yalnızca kullanıcılar izin verecek şekilde yapılandırılır.
-
-<a name="api-methods-and-endpoints"></a>API yöntemleri ve uç noktaları
--------------------------
+## <a name="api-methods-and-endpoints"></a>API yöntemleri ve uç noktaları
 
 Aşağıdaki bölümlerde, API yöntemleri ve bir SaaS teklifi için abonelikleri etkinleştirmek için kullanılabilir uç noktalar açıklanmaktadır.
 
-### <a name="get-a-token-based-on-the-azure-ad-app"></a>Azure AD uygulama tabanlı bir belirteç Al
-
-HTTP yöntemi
-
-`GET`
-
-*İstek URL'si*
-
-**https://login.microsoftonline.com/*{Tenantıd}*/oauth2/belirteç**
-
-*URI parametresi*
-
-|  **Parametre adı**  | **Gerekli**  | **Açıklama**                               |
-|  ------------------  | ------------- | --------------------------------------------- |
-| Kiracı kimliği             | True          | Kayıtlı uygulama AAD Kiracı kimliği   |
-|  |  |  |
-
-
-*İstek üstbilgisi*
-
-|  **Üst bilgi adı**  | **Gerekli** |  **Açıklama**                                   |
-|  --------------   | ------------ |  ------------------------------------------------- |
-|  Content-Type     | True         | İstekle ilişkili içerik türü. Varsayılan değer `application/x-www-form-urlencoded` şeklindedir.  |
-|  |  |  |
-
-
-*İstek gövdesi*
-
-| **Özellik adı**   | **Gerekli** |  **Açıklama**                                                          |
-| -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  Grant_type         | True         | İzin verme türü. Varsayılan değer `client_credentials` şeklindedir.                    |
-|  Client_id          | True         |  Azure AD uygulama ile ilişkili istemci/uygulama tanımlayıcısı.                  |
-|  client_secret      | True         |  Azure AD uygulama ile ilişkili parola.                               |
-|  Kaynak           | True         |  Belirtecin istendiği hedef kaynak. Varsayılan değer `62d94f6c-d599-489b-a797-3e10e42fbe22` şeklindedir. |
-|  |  |  |
-
-
-*Yanıt*
-
-|  **Ad**  | **Tür**       |  **Açıklama**    |
-| ---------- | -------------  | ------------------- |
-| 200 TAMAM    | TokenResponse  | İstek başarılı   |
-|  |  |  |
-
-*TokenResponse*
-
-Örnek yanıt belirteci:
-
-``` json
-  {
-      "token_type": "Bearer",
-      "expires_in": "3600",
-      "ext_expires_in": "0",
-      "expires_on": "15251…",
-      "not_before": "15251…",
-      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
-      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
-  }               
-```
 
 ### <a name="marketplace-api-endpoint-and-api-version"></a>Market API uç noktası ve API sürümü
 
@@ -167,13 +61,13 @@ Bir kullanıcı, bir ISV Web sitesine yönlendirilir, sorgu parametrelerinde bir
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=2017-04-15**
 
-|  **Parametre adı** |     **Açıklama**                                      |
+|  **Parametre Adı** |     **Açıklama**                                      |
 |  ------------------ |     ---------------------------------------------------- |
 |  API sürümü        |  Bu istek için kullanılacak işlem sürümü.   |
 |  |  |
 
 
-*Üst Bilgiler*
+*Üst bilgiler*
 
 | **Üstbilgi anahtarı**     | **Gerekli** | **Açıklama**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
@@ -185,7 +79,7 @@ Bir kullanıcı, bir ISV Web sitesine yönlendirilir, sorgu parametrelerinde bir
 |  |  |  |
   
 
-*Yanıt gövdesi*
+*Yanıt Gövdesi*
 
 ``` json
 {
@@ -207,7 +101,7 @@ Bir kullanıcı, bir ISV Web sitesine yönlendirilir, sorgu parametrelerinde bir
 
 *Yanıt kodları*
 
-| **HTTP durum kodu** | **Hata kodu**     | **Açıklama**                                                                         |
+| **HTTP durum kodu** | **Hata Kodu**     | **Açıklama**                                                                         |
 |----------------------|--------------------| --------------------------------------------------------------------------------------- |
 | 200                  | `OK`                 | Belirteç başarıyla çözümlendi.                                                            |
 | 400                  | `BadRequest`         | Ya da, üst bilgiler eksik veya geçersiz bir API sürümü belirtilen gereklidir. Belirteci hatalı biçimlendirilmiş ya da süresi dolmuş ya da belirteç olduğu için çözümlenemedi (belirteç yalnızca bir kez oluşturulan 1 saat boyunca geçerlidir). |
@@ -223,7 +117,7 @@ Bir kullanıcı, bir ISV Web sitesine yönlendirilir, sorgu parametrelerinde bir
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Evet          | İstek istemciden alınan kimliği.                                                                   |
 | x-ms-bağıntı kimliği | Evet          | Bağıntı kimliği istemci tarafından aksi durumda bu değer iletilmezse server bağıntı kimliğidir.                   |
-| x-ms-etkinlik kimliği    | Evet          | Hizmet isteği izlemek için benzersiz bir dize değeri. Bu, tüm Mutabakatları için kullanılır. |
+| x-ms-etkinlik kimliği    | Evet          | Hizmet isteği izlemek için benzersiz bir dize değeri. Bu kimlik tüm Mutabakatları için kullanılır. |
 | Yeniden deneme sonrasında        | Hayır           | Bu değer yalnızca bir 429 yanıtı için ayarlanır.                                                                   |
 |  |  |  |
 
@@ -234,15 +128,15 @@ Abone uç noktası bir SaaS hizmetine belirli bir plan için bir abonelik başla
 
 **PUT**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
-| **Parametre adı**  | **Açıklama**                                       |
+| **Parametre Adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | Belirteç çözmek API aracılığıyla çözdükten sonra elde edilen saas abonelik benzersiz kimliği.                              |
+| subscriptionId      | Benzersiz kimliği, SaaS çözmek API aracılığıyla belirteç çözdükten sonra elde edilen abonelik.                              |
 | API sürümü         | Bu istek için kullanılacak işlem sürümü. |
 |  |  |
 
-*Üst Bilgiler*
+*Üst bilgiler*
 
 |  **Üstbilgi anahtarı**        | **Gerekli** |  **Açıklama**                                                  |
 | ------------------     | ------------ | --------------------------------------------------------------------------------------- |
@@ -269,7 +163,7 @@ Abone uç noktası bir SaaS hizmetine belirli bir plan için bir abonelik başla
 
 *Yanıt kodları*
 
-| **HTTP durum kodu** | **Hata kodu**     | **Açıklama**                                                           |
+| **HTTP durum kodu** | **Hata Kodu**     | **Açıklama**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | SaaS abonelik etkinleştirme için belirli bir plan aldı.                   |
 | 400                  | `BadRequest`         | Ya da üst bilgileri eksik olan veya JSON gövdesi yanlış biçimlendirilmiş gereklidir. |
@@ -297,17 +191,17 @@ Abone uç noktası bir SaaS hizmetine belirli bir plan için bir abonelik başla
 
 Değişiklik uç noktası şu anda abone planlarına dönüştürmek için yeni bir plan izin verir.
 
-**DÜZELTME EKİ**
+**PATCH**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
-| **Parametre adı**  | **Açıklama**                                       |
+| **Parametre Adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | Abonelik kimliği, SaaS.                              |
 | API sürümü         | Bu istek için kullanılacak işlem sürümü. |
 |  |  |
 
-*Üst Bilgiler*
+*Üst bilgiler*
 
 | **Üstbilgi anahtarı**          | **Gerekli** | **Açıklama**                                                                                                                                                                                                                  |
 |-------------------------|--------------|---------------------------------------------------------------------------------------------------------------------|
@@ -333,7 +227,7 @@ Değişiklik uç noktası şu anda abone planlarına dönüştürmek için yeni 
 
 *Yanıt kodları*
 
-| **HTTP durum kodu** | **Hata kodu**     | **Açıklama**                                                           |
+| **HTTP durum kodu** | **Hata Kodu**     | **Açıklama**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | SaaS abonelik etkinleştirme için belirli bir plan aldı.                   |
 | 400                  | `BadRequest`         | Ya da üst bilgileri eksik olan veya JSON gövdesi yanlış biçimlendirilmiş gereklidir. |
@@ -363,15 +257,15 @@ Abone uç noktası silme eylemini belirtilen kimliğe sahip bir aboneliği silme
 
 **DELETE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
-| **Parametre adı**  | **Açıklama**                                       |
+| **Parametre Adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | Abonelik kimliği, SaaS.                              |
 | API sürümü         | Bu istek için kullanılacak işlem sürümü. |
 |  |  |
 
-*Üst Bilgiler*
+*Üst bilgiler*
 
 | **Üstbilgi anahtarı**     | **Gerekli** | **Açıklama**                                                                                                                                                                                                                  |
 |--------------------|--------------| ----------------------------------------------------------|
@@ -382,7 +276,7 @@ Abone uç noktası silme eylemini belirtilen kimliğe sahip bir aboneliği silme
 
 *Yanıt kodları*
 
-| **HTTP durum kodu** | **Hata kodu**     | **Açıklama**                                                           |
+| **HTTP durum kodu** | **Hata Kodu**     | **Açıklama**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | SaaS abonelik etkinleştirme için belirli bir plan aldı.                   |
 | 400                  | `BadRequest`         | Ya da üst bilgileri eksik olan veya JSON gövdesi yanlış biçimlendirilmiş gereklidir. |
@@ -413,15 +307,15 @@ Bu uç noktayı (abonelik/Aboneliği Kaldır/Değiştir planı) bir tetiklenen z
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/*{Operationıd}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/*{operationId}*?api-version=2017-04-15**
 
-| **Parametre adı**  | **Açıklama**                                       |
+| **Parametre Adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
 | operationId         | Tetiklenen işlem benzersiz kimliği.                |
 | API sürümü         | Bu istek için kullanılacak işlem sürümü. |
 |  |  |
 
-*Üst Bilgiler*
+*Üst bilgiler*
 
 | **Üstbilgi anahtarı**     | **Gerekli** | **Açıklama**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -430,7 +324,7 @@ Bu uç noktayı (abonelik/Aboneliği Kaldır/Değiştir planı) bir tetiklenen z
 | Yetkilendirme      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
 |  |  |  | 
 
-*Yanıt gövdesi*
+*Yanıt Gövdesi*
 
 ```json
 {
@@ -453,7 +347,7 @@ Bu uç noktayı (abonelik/Aboneliği Kaldır/Değiştir planı) bir tetiklenen z
 
 *Yanıt kodları*
 
-| **HTTP durum kodu** | **Hata kodu**     | **Açıklama**                                                              |
+| **HTTP durum kodu** | **Hata Kodu**     | **Açıklama**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | Get isteği başarıyla çözümlendi ve yanıt gövdesi içerir.    |
 | 400                  | `BadRequest`         | Ya da, üst bilgiler eksik veya geçersiz bir API sürümü belirtildi gereklidir. |
@@ -481,15 +375,15 @@ Get eylemini abone uç noktası ile belirtilen kaynak tanımlayıcı bir aboneli
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
-| **Parametre adı**  | **Açıklama**                                       |
+| **Parametre Adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | Abonelik kimliği, SaaS.                              |
 | API sürümü         | Bu istek için kullanılacak işlem sürümü. |
 |  |  |
 
-*Üst Bilgiler*
+*Üst bilgiler*
 
 | **Üstbilgi anahtarı**     | **Gerekli** | **Açıklama**                                                                                           |
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
@@ -498,7 +392,7 @@ Get eylemini abone uç noktası ile belirtilen kaynak tanımlayıcı bir aboneli
 | Yetkilendirme      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                                                                    |
 |  |  |  |
 
-*Yanıt gövdesi*
+*Yanıt Gövdesi*
 
 ```json
 {
@@ -525,7 +419,7 @@ Get eylemini abone uç noktası ile belirtilen kaynak tanımlayıcı bir aboneli
 
 *Yanıt kodları*
 
-| **HTTP durum kodu** | **Hata kodu**     | **Açıklama**                                                              |
+| **HTTP durum kodu** | **Hata Kodu**     | **Açıklama**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | Get isteği başarıyla çözümlendi ve yanıt gövdesi içerir.    |
 | 400                  | `BadRequest`         | Ya da, üst bilgiler eksik veya geçersiz bir API sürümü belirtildi gereklidir. |
@@ -556,12 +450,12 @@ Abonelik uç noktasında alma işlemi ISV tüm abonelikler için tüm teklifleri
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2017-04-15**
 
-| **Parametre adı**  | **Açıklama**                                       |
+| **Parametre Adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
 | API sürümü         | Bu istek için kullanılacak işlem sürümü. |
 |  |  |
 
-*Üst Bilgiler*
+*Üst bilgiler*
 
 | **Üstbilgi anahtarı**     | **Gerekli** | **Açıklama**                                           |
 |--------------------|--------------|-----------------------------------------------------------|
@@ -570,7 +464,7 @@ Abonelik uç noktasında alma işlemi ISV tüm abonelikler için tüm teklifleri
 | Yetkilendirme      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
 |  |  |  |
 
-*Yanıt gövdesi*
+*Yanıt Gövdesi*
 
 ```json
 {
@@ -597,7 +491,7 @@ Abonelik uç noktasında alma işlemi ISV tüm abonelikler için tüm teklifleri
 
 *Yanıt kodları*
 
-| **HTTP durum kodu** | **Hata kodu**     | **Açıklama**                                                              |
+| **HTTP durum kodu** | **Hata Kodu**     | **Açıklama**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | Get isteği başarıyla çözümlendi ve yanıt gövdesi içerir.    |
 | 400                  | `BadRequest`         | Ya da, üst bilgiler eksik veya geçersiz bir API sürümü belirtildi gereklidir. |

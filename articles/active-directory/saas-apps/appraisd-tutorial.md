@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd7d1e3511bf74650ddc9dca1cf77c2b7c297c96
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f1beb825eda7e4d6a59810aada7063863b48d8ec
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861511"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260910"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>Öğretici: Appraisd ile Azure Active Directory Tümleştirme
 
@@ -161,7 +161,7 @@ Azure AD çoklu oturum açma ile Appraisd yapılandırmak için aşağıdaki ad�
 
 1. Farklı bir web tarayıcı penceresinde Appraisd için bir güvenlik yöneticisi olarak oturum açın.
 
-2. Üst sayfanın sağ tıklayın **ayarları** simgesine ve ardından gidin **yapılandırma**.
+2. Üst sayfanın sağ tıklayın **ayarları** simgesine ve ardından gidin **yapılandırma**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
@@ -173,9 +173,9 @@ Azure AD çoklu oturum açma ile Appraisd yapılandırmak için aşağıdaki ad�
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
-    a. Kopyalama **varsayılan geçiş durumu** yapıştırın ve değer **geçiş durumu** metin kutusunda **temel SAML yapılandırma** Azure portalında.
+    a. Kopyalama **varsayılan geçiş durumu** yapıştırın ve değer **geçiş durumu** metin kutusunda **temel SAML yapılandırma** Azure portalında.
 
-    b. Kopyalama **hizmet tarafından başlatılan oturum açma URL'si** yapıştırın ve değer **oturum açma URL'si** metin kutusunda **temel SAML yapılandırma** Azure portalında.
+    b. Kopyalama **hizmet tarafından başlatılan oturum açma URL'si** yapıştırın ve değer **oturum açma URL'si** metin kutusunda **temel SAML yapılandırma** Azure portalında.
 
 5. Altında aynı sayfayı aşağı kaydırın **kullanıcıları tanımlama**, aşağıdaki adımları gerçekleştirin:
 
@@ -185,7 +185,7 @@ Azure AD çoklu oturum açma ile Appraisd yapılandırmak için aşağıdaki ad�
 
     b. İçinde **kimlik sağlayıcısını veren URL'si** metin değerini yapıştırın **Azure Ad tanımlayıcısı**, Azure portal'ı seçin ve kopyalanan **Kaydet**.
 
-    c. Not Defteri'nde, Azure portalından indirdiğiniz base-64 kodlanmış sertifika açın, içeriğini kopyalayın ve ardından yapıştırın **X.509 sertifikası** kutusuna ve tıklatın **Kaydet**.
+    c. Not Defteri'nde, Azure portalından indirdiğiniz base-64 kodlanmış sertifika açın, içeriğini kopyalayın ve ardından yapıştırın **X.509 sertifikası** kutusuna ve tıklatın **Kaydet**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -246,11 +246,11 @@ Azure AD etkinleştirmek için Appraisd için kullanıcıların oturum bunların
 
 1. İçin Appraisd bir güvenlik yöneticisi olarak oturum açın.
 
-2. Üst sayfanın sağ tıklayın **ayarları** simgesine ve ardından gidin **Yönetim Merkezi**.
+2. Üst sayfanın sağ tıklayın **ayarları** simgesine ve ardından gidin **Yönetim Merkezi**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
-3. Sayfanın üst kısmındaki araç çubuğunda **kişiler**, ardından gidin **yeni kullanıcı ekleme**.
+3. Sayfanın üst kısmındaki araç çubuğunda **kişiler**, ardından gidin **yeni kullanıcı ekleme**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 
@@ -276,6 +276,6 @@ Erişim paneli Appraisd kutucuğa tıkladığınızda, size otomatik olarak SSO'
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

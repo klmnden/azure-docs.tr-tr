@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 16ac5684d519dc41326ada4afd1bb2965a738070
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: b43532ade35e4e01573abbd3f47d009beadd9c60
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405003"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267727"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Azure Data Factory kullanarak verileri veya Azure dosya Depolama'ya kopyalayın
 
@@ -50,6 +50,9 @@ Azure dosya depolama bağlı hizmeti için aşağıdaki özellikleri destekler:
 >[!IMPORTANT]
 > - Azure tümleştirme çalışma zamanı, açıkça kullanarak Azure dosya depolama alanına veri kopyalamak için [Azure IR oluşturma](create-azure-integration-runtime.md#create-azure-ir) aşağıdaki örnek olarak, dosya depolama ve bağlı hizmette ilişkilendirme konumu ile.
 > - Azure dışındaki şirket içinde barındırılan Integration Runtime'ı kullanarak Azure dosya depolama / için veri kopyalamak için yerel ağınızdaki giden TCP bağlantı noktası 445'i açmak unutmayın.
+
+>[!TIP]
+>Yazma için ADF kullanıcı arabirimini kullanarak, hangi underneath türü oluşturur, bağlı hizmet oluşturmak için "Azure dosya depolama" belirli bir giriş bulabilirsiniz `FileServer` nesne.
 
 **Örnek:**
 

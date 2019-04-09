@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 04/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d7084a42f64234cff4e5e2742ed3d27a3fd00e1e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652306"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010422"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Azure Search'te kaynak tüketimi ve sorgu etkinliğini İzle
 
@@ -60,10 +60,10 @@ Aşağıdaki tabloda, günlükleri depolamak ve geniş kapsamlı hizmet işlemle
 
 | Kaynak | Kullanıldığı yerler |
 |----------|----------|
-| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Günlüğe kaydedilen olayları ve sorgu ölçümleri temel bir Aşağıda, şemaların uygulamanızda kullanıcı olayları ile ilişkili. Bu hesaba, uygulama kodu tarafından gönderilen istekleri filtrelemenize aksine, kullanıcı tarafından başlatılan arama eşleştirme olaylarını kullanıcı eylemleri veya sinyalleri alan tek bir çözümdür. Bu yaklaşımı kullanmak için kopyalama-izleme kodu, kaynak dosyaları için Application Insights için rota bilgi içine yapıştırın. Daha fazla bilgi için [arama trafiği analizi](search-traffic-analytics.md). |
-| [Azure İzleyici günlükleri](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Günlüğe kaydedilen olayları sorgu ölçümleri temel bir aşağıdaki şemalar. Olaylar, Log Analytics çalışma alanına kaydedilir. Günlük kaydından ayrıntılı bilgi almak için bir çalışma alanı karşı sorgular çalıştırabilirsiniz. Daha fazla bilgi için [Azure İzleyici günlüklerine ile çalışmaya başlama](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Blob depolama](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Günlüğe kaydedilen olayları sorgu ölçümleri temel bir aşağıdaki şemalar. Olayları günlüğe bir Blob kapsayıcısına ve JSON dosyalarında depolanan. Dosya içeriğini görüntülemek için JSON düzenleyicisini kullanın.|
-| [Olay Hub’ı](https://docs.microsoft.com/azure/event-hubs/) | Günlüğe kaydedilen olayları ve bu makalede anlatıldığı şemaları dayalı sorgu ölçümleri. Bu, çok büyük günlükleri için bir alternatif veri toplama hizmeti olarak seçin. |
+| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Günlüğe kaydedilen olayları ve aşağıdaki şemalarını temel alan, sorgu ölçümleri uygulamanızda kullanıcı olayları ile ilişkili. Bu hesaba, uygulama kodu tarafından gönderilen istekleri filtrelemenize aksine, kullanıcı tarafından başlatılan arama eşleştirme olaylarını kullanıcı eylemleri veya sinyalleri alan tek bir çözümdür. Bu yaklaşımı kullanmak için kopyalama-izleme kodu, kaynak dosyaları için Application Insights için rota bilgi içine yapıştırın. Daha fazla bilgi için [arama trafiği analizi](search-traffic-analytics.md). |
+| [Azure İzleyici günlükleri](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Günlüğe kaydedilen olayları ve şemalarına göre sorgu ölçümleri. Olaylar, Log Analytics çalışma alanına kaydedilir. Günlük kaydından ayrıntılı bilgi almak için bir çalışma alanı karşı sorgular çalıştırabilirsiniz. Daha fazla bilgi için [Azure İzleyici günlüklerine ile çalışmaya başlama](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Blob depolama](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Günlüğe kaydedilen olayları ve şemalarına göre sorgu ölçümleri. Olayları günlüğe bir Blob kapsayıcısına ve JSON dosyalarında depolanan. Dosya içeriğini görüntülemek için JSON düzenleyicisini kullanın.|
+| [Olay Hub'ı](https://docs.microsoft.com/azure/event-hubs/) | Günlüğe kaydedilen olayları ve bu makalede anlatıldığı şemaları dayalı sorgu ölçümleri. Bu, çok büyük günlükleri için bir alternatif veri toplama hizmeti olarak seçin. |
 
 Ürününü, yaşam süresi Azure aboneliğinize ücretsiz olarak deneyebilirsiniz böylece hem Azure İzleyici günlüklerine hem de Blob Depolama ücretsiz paylaşılan hizmet olarak kullanılabilir. Application Insights, uygulama veri boyutu altında belirli sınırları olduğu sürece kaydolun ve ücretsiz (bkz [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/monitor/) Ayrıntılar için).
 
@@ -96,7 +96,7 @@ Profili kaydedin, sonra günlük kaydı etkindir. Kapsayıcılar, yalnızca bir 
 * ınsights günlükleri operationlogs: arama trafiği günlükleri
 * ınsights ölçümleri pt1m: ölçümler için
 
-Kapsayıcılar, Blob Depolama alanında görünmesi için önce bir saat sürer. Kapsayıcı başına saatlik bir blob yok. 
+**Kapsayıcılar, Blob Depolama alanında görünmesi için önce bir saat sürer. Kapsayıcı başına saatlik bir blob yok.**
 
 Kullanabileceğiniz [Visual Studio Code](#download-and-open-in-visual-studio-code) veya dosyaları görüntülemek için başka bir JSON Düzenleyicisi. 
 
@@ -114,7 +114,7 @@ Arama hizmeti trafik günlüklerinizin içeren BLOB'ları, bu bölümde açıkla
 | time |datetime |"2018-12-07T00:00:43.6872559Z" |İşlemin zaman damgası |
 | resourceId |dize |"/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>VARSAYILAN/RESOURCEGROUPS/SAĞLAYICILARI /<br/> MICROSOFT. ARAMA/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
 | operationName |dize |"Query.Search" |İşlem adı |
-| operationVersion |dize |"2017-11-11" |Kullanılan api-version |
+| operationVersion |string |"2017-11-11" |Kullanılan api-version |
 | category |dize |"OperationLogs" |Sabit |
 | resultType |dize |"Başarılı" |Olası değerler: Başarı veya başarısızlık |
 | resultSignature |int |200 |HTTP Sonuç kodu |
@@ -126,7 +126,7 @@ Arama hizmeti trafik günlüklerinizin içeren BLOB'ları, bu bölümde açıkla
 | Ad | Tür | Örnek | Notlar |
 | --- | --- | --- | --- |
 | Açıklama |dize |"/İndexes('content')/docs Al" |İşlemin bitiş noktası |
-| Sorgu |dize |"?search=AzureSearch&$count=true&api-version=2017-11-11" |Sorgu parametreleri |
+| Sorgu |string |"?search=AzureSearch&$count=true&api-version=2017-11-11" |Sorgu parametreleri |
 | Belgeler |int |42 |İşlenen belge sayısı |
 | indexName |dize |"testindex" |İşlemle ilişkili dizinin adı |
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 813ab2a349ba843e9f41675234e395470bef9740
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 788b03bb55abdc3040df8c5317f1f55738ebb023
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896134"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268373"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sorunsuz çoklu oturum açma: Ayrıntılı Teknik İnceleme
 
@@ -44,7 +44,7 @@ Sorunsuz çoklu oturum açma etkin gösterildiği gibi Azure AD Connect kullanar
 - Bilgisayar hesabının Kerberos şifre çözme anahtarı güvenli bir şekilde Azure AD ile paylaşılır. Birden fazla AD ormanına varsa, her bir bilgisayar hesabının kendi benzersiz Kerberos şifre çözme anahtarı gerekir.
 
 >[!IMPORTANT]
-> `AZUREADSSOACC` Bilgisayar hesabını güvenlik nedenleriyle kesin korunması gerekir. Yalnızca Domain Admins bilgisayar hesabını yönetmek görebilmeniz gerekir. Bilgisayar hesabının Kerberos temsilcisi seçmeyi devre dışı emin olun. Bilgisayar hesabı, bir kuruluş birimi (yanlışlıkla silinmekten güvenli oldukları OU) Store. Bilgisayar hesabının Kerberos şifre çözme anahtarı da hassas olarak düşünülmelidir. Yüksek oranda olmasını öneririz, [Kerberos şifre çözme anahtarını başa döndürmek](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) , `AZUREADSSOACC` en az 30 günde bir bilgisayar hesabı.
+> `AZUREADSSOACC` Bilgisayar hesabını güvenlik nedenleriyle kesin korunması gerekir. Yalnızca Domain Admins bilgisayar hesabını yönetmek görebilmeniz gerekir. Bilgisayar hesabının Kerberos temsilcisi seçmeyi devre dışı emin olun. Bilgisayar hesabının bir kuruluş birimi (OU) içinde yanlışlıkla silinmekten güvenli olduğu ve yalnızca etki alanı yöneticileri erişimi Store. Bilgisayar hesabının Kerberos şifre çözme anahtarı da hassas olarak düşünülmelidir. Yüksek oranda olmasını öneririz, [Kerberos şifre çözme anahtarını başa döndürmek](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) , `AZUREADSSOACC` en az 30 günde bir bilgisayar hesabı.
 
 Kurulum tamamlandıktan sonra sorunsuz çoklu oturum açma herhangi diğer tümleşik Windows kimlik doğrulaması (IWA) kullanan oturum aynı şekilde çalışır.
 

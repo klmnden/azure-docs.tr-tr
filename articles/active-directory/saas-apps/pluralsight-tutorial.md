@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: b2d8d98fb9c953ef8063bf2081201f7d9bdf3649
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4904e98556f5d4a033b178bfdc4305714a80e07e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57874992"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257884"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Öğretici: Pluralsight ile Azure Active Directory Tümleştirme
 
@@ -116,7 +116,7 @@ Pluralsight ile Azure AD çoklu oturum açmayı yapılandırmak için aşağıda
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve yanıt URL'si ile güncelleştirin. İlgili kişi [Pluralsight istemci Destek ekibine](mailto:support@pluralsight.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
 5. Pluralsight uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
-    ![Görüntü](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
     >[!NOTE]
     >Ayrıca ekleyebilirsiniz **"Benzersiz kimliği"** EmployeeID veya başka bir şey gibi kuruluşunuz için uygun uygun değere sahip bir öznitelik. Ayrıca bu gerekli öznitelik olmadığını unutmayın; Ancak, benzersiz bir kullanıcıyı tanımlamak için ekleyebilirsiniz.
@@ -218,9 +218,9 @@ Erişim panelinde Pluralsight kutucuğa tıkladığınızda, otomatik olarak SSO
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

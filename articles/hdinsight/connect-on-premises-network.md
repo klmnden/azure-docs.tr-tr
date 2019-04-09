@@ -1,19 +1,19 @@
 ---
-title: HDInsight - Azure HDInsight şirket içi ağa bağlanma
+title: Azure HDInsight, şirket içi ağınıza bağlama
 description: Azure sanal ağ'daki bir HDInsight kümesi oluşturma ve sonra şirket içi ağınıza bağlanma hakkında bilgi edinin. Özel bir DNS sunucusu kullanarak HDInsight ile şirket içi ağınız arasında ad çözümlemesine yapılandırmayı öğrenin.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/28/2018
-ms.author: hrasheed
-ms.openlocfilehash: 56ca9615bed8d5570d73c44a25ffcec28311b013
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.date: 04/04/2019
+ms.openlocfilehash: 52fe8c05101f9647549acec276f0bdb9fa52d1c7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361362"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256813"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>HDInsight’ı şirket içi ağınıza bağlama
 
@@ -24,20 +24,11 @@ Azure sanal ağları ve VPN ağ geçidi kullanarak şirket içi ağınıza HDIns
 * HDInsight için internet erişimi kısıtlamak için ağ güvenlik gruplarını yapılandırma.
 * Sanal ağda HDInsight tarafından sağlanan bağlantı noktaları.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="create-the-virtual-network-configuration"></a>Sanal ağ yapılandırması oluşturun
-
-Bir Azure sanal şirket içi ağınıza bağlı ağ oluşturma hakkında bilgi edinmek için aşağıdaki belgeleri kullanın:
-    
-* [Azure portalını kullanma](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-* [Azure PowerShell’i kullanma](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-* [Azure CLI’yi kullanma](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-
-## <a name="configure-name-resolution"></a>Ad çözümlemesini yapılandırma
+## <a name="overview"></a>Genel Bakış
 
 HDInsight ve kaynakları adıyla iletişim kurması için birleştirilmiş ağdaki izin vermek için aşağıdaki eylemleri gerçekleştirmeniz gerekir:
 
+* Azure sanal ağı oluşturun.
 * Özel bir DNS sunucusu, Azure sanal ağ oluşturun.
 * Azure yinelemeli çözümleyici varsayılan yerine özel bir DNS sunucusu kullanmak için sanal ağ yapılandırın.
 * Özel DNS sunucusu ve şirket içi DNS sunucunuz arasında iletim yapılandırın.
@@ -51,25 +42,34 @@ Aşağıdaki diyagramda, yeşil satırlar sanal ağın DNS son eki ile biten kay
 
 ![Bu belgede kullanılan yapılandırma DNS istekleri nasıl çözüleceğini diyagramı](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
 
-### <a name="create-a-custom-dns-server"></a>Özel bir DNS sunucusu oluşturma
+## <a name="prerequisites"></a>Önkoşullar
 
-> [!IMPORTANT]
+* Bir SSH istemcisi. Daha fazla bilgi için [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](./hdinsight-hadoop-linux-use-ssh-unix.md).
+* PowerShell kullanarak, ihtiyacınız olacak [AZ modül](https://docs.microsoft.com/powershell/azure/overview).
+* Kullanmak isteyen eğitimcilere ve Azure CLI'yi henüz yüklemediyseniz, bkz: [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+## <a name="create-virtual-network-configuration"></a>Sanal ağ yapılandırması oluşturun
+
+Bir Azure sanal şirket içi ağınıza bağlı ağ oluşturma hakkında bilgi edinmek için aşağıdaki belgeleri kullanın:
+
+* [Azure portalını kullanma](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Azure PowerShell’i kullanma](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+* [Azure CLI’yı kullanma](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+
+## <a name="create-custom-dns-server"></a>Özel DNS sunucusu oluşturma
+
+> [!IMPORTANT]  
 > Oluşturun ve HDInsight sanal ağa yüklemeden önce DNS sunucusu yapılandırmanız gerekir.
 
-Bu adımları kullanın [Azure portalında](https://portal.azure.com) bir Azure sanal makine oluşturmak için. Bir sanal makine oluşturmak diğer yolları için bkz. [VM oluşturma - Azure CLI](../virtual-machines/linux/quick-create-cli.md) ve [VM oluşturma - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md).  Kullanan bir Linux VM oluşturmak için [bağlama](https://www.isc.org/downloads/bind/) DNS yazılım, aşağıdaki adımları kullanın:
+Bu adımları kullanın [Azure portalında](https://portal.azure.com) bir Azure sanal makine oluşturmak için. Bir sanal makine oluşturmak diğer yolları için bkz. [VM oluşturma - Azure CLI](../virtual-machines/linux/quick-create-cli.md) ve [VM oluşturma - Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md).  Kullanan bir Linux VM oluşturmak için [bağlama](https://www.isc.org/downloads/bind/) DNS yazılım, aşağıdaki adımları kullanın:
 
+1. [Azure Portal](https://portal.azure.com) oturum açın.
   
-1. [Azure Portal](https://portal.azure.com)’da oturum açın.
-  
-1. Sol menüden **+ kaynak Oluştur**.
- 
-1. Seçin **işlem**.
-
-1. Seçin **Ubuntu Server 18.04 LTS**.<br />  
+2. Sol menüden gidin **+ kaynak Oluştur** > **işlem** > **Ubuntu Server 18.04 LTS**.
 
     ![Bir Ubuntu sanal makinesi oluşturma](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-1. Gelen __Temelleri__ sekmesinde, aşağıdaki bilgileri girin:  
+3. Gelen __Temelleri__ sekmesinde, aşağıdaki bilgileri girin:  
   
     | Alan | Değer |
     | --- | --- |
@@ -78,57 +78,46 @@ Bu adımları kullanın [Azure portalında](https://portal.azure.com) bir Azure 
     |Sanal makine adı | Bu sanal makine tanımlayan bir kolay ad girin. Bu örnekte **DNSProxy**.|
     |Bölge | Aynı bölgede daha önce oluşturduğunuz sanal ağı seçin.  Tüm VM boyutları, tüm bölgelerde kullanılabilir.  |
     |Kullanılabilirlik seçenekleri |  İstenen, kullanılabilirlik düzeyini seçin.  Azure, kullanılabilirlik ve dayanıklılık için uygulamalarınızı yönetmek için seçenekleri sunar.  Çoğaltılmış VM'lerin kullanılabilirlik bölgelerinde veya kullanılabilirlik kümeleri, veri merkezi kesintilerine ve Bakım olayları uygulamalarınızı ve verilerinizi korumak amacıyla kullanılacak çözümünüzü tasarlama. Bu örnekte **gerekli altyapı artıklık**. |
-    |Görüntü | Temel işletim sistemi veya VM için uygulamayı seçin.  Bu örnekte, en küçük ve en düşük Maliyeti seçeneğini belirleyin. |
-    |Kimlik doğrulaması türü | __Parola__ veya __SSH ortak anahtarı__: SSH hesabı için kimlik doğrulama yöntemi. Daha güvenli oldukları gibi ortak anahtarları kullanmanızı öneririz. Bu örnek, bir ortak anahtar kullanır.  Daha fazla bilgi için [Linux VM'ler için SSH anahtarları oluşturma ve kullanma](../virtual-machines/linux/mac-create-ssh-keys.md) belge.|
+    |Görüntü | Bırakılacak **Ubuntu Server 18.04 LTS**. |
+    |Kimlik doğrulaması türü | __Parola__ veya __SSH ortak anahtarı__: SSH hesabı için kimlik doğrulama yöntemi. Daha güvenli oldukları gibi ortak anahtarları kullanmanızı öneririz. Bu örnekte **parola**.  Daha fazla bilgi için [Linux VM'ler için SSH anahtarları oluşturma ve kullanma](../virtual-machines/linux/mac-create-ssh-keys.md) belge.|
     |Kullanıcı adı |VM için yönetici kullanıcı adı girin.  Bu örnekte **sshuser**.|
     |Parola veya SSH ortak anahtarı | Seçiminiz için kullanılabilir alanın belirlenir **kimlik doğrulama türü**.  Uygun değeri girin.|
-    |||
+    |Ortak gelen bağlantı noktası|Seçin **Seçili bağlantı noktalarına izin**. Ardından **SSH (22)** gelen **gelen bağlantı noktalarını seçin** aşağı açılan listesi.|
 
     ![Sanal makine temel yapılandırma](./media/connect-on-premises-network/vm-basics.png)
 
     Diğer girişler varsayılan değerlerinde bırakın ve ardından **ağ** sekmesi.
 
-1. Gelen **ağ** sekmesinde, aşağıdaki bilgileri girin: 
+4. Gelen **ağ** sekmesinde, aşağıdaki bilgileri girin:
 
     | Alan | Değer |
     | --- | --- |
     |Sanal ağ | Daha önce oluşturduğunuz sanal ağı seçin.|
     |Alt ağ | Daha önce oluşturduğunuz sanal ağ için varsayılan alt ağ seçin. Yapmak __değil__ VPN ağ geçidi tarafından kullanılan alt ağ seçin.|
-    |Genel IP | Otomatik olarak doldurulan değeri kullanın.  |
+    |Genel IP | Paneldeki değerini kullanın.  |
 
     ![Sanal ağ ayarları](./media/connect-on-premises-network/virtual-network-settings.png)
 
     Diğer girişler varsayılan değerlerinde bırakın ve ardından **gözden geçir + Oluştur**.
 
-1. Gelen **gözden geçir + Oluştur** sekmesinde **Oluştur** sanal makine oluşturmak için.
- 
+5. Gelen **gözden geçir + Oluştur** sekmesinde **Oluştur** sanal makine oluşturmak için.
 
 ### <a name="review-ip-addresses"></a>IP adreslerini gözden geçirin
 Sanal makine oluşturulduktan sonra alacak bir **dağıtım başarılı** bildirimi bir **kaynağa Git** düğmesi.  Seçin **kaynağa Git** yeni sanal makinenize gidin.  Yeni bir sanal makine için varsayılan görünümünden ilişkili IP adreslerini belirlemek için aşağıdaki adımları izleyin:
 
-1. Gelen **ayarları**seçin **özellikleri**. 
+1. Gelen **ayarları**seçin **özellikleri**.
 
-1. Değerlerini Not **genel IP adresi/DNS ad ETİKETİ** ve **özel IP adresi** daha sonra kullanmak için.
+2. Değerlerini Not **genel IP adresi/DNS ad ETİKETİ** ve **özel IP adresi** daha sonra kullanmak için.
 
    ![Genel ve özel IP adresleri](./media/connect-on-premises-network/vm-ip-addresses.png)
 
 ### <a name="install-and-configure-bind-dns-software"></a>Yükleme ve bağlama (DNS yazılım) yapılandırma
 
-1. Bağlanmak için SSH kullanın __genel IP adresi__ sanal makinenin. Aşağıdaki örnek bir sanal makinenin 40.68.254.142 bağlanır:
+1. Bağlanmak için SSH kullanın __genel IP adresi__ sanal makinenin. Değiştirin `sshuser` ile sanal makine oluştururken belirttiğiniz SSH kullanıcı hesabı. Aşağıdaki örnek bir sanal makinenin 40.68.254.142 bağlanır:
 
     ```bash
     ssh sshuser@40.68.254.142
     ```
-
-    Değiştirin `sshuser` ile kümeyi oluştururken belirttiğiniz SSH kullanıcı hesabı.
-
-    > [!NOTE]  
-    > Bir elde etmek için çeşitli yollar vardır `ssh` yardımcı programı. Linux, Unix ve macOS üzerinde işletim sisteminin bir parçası olarak sağlanır. Windows kullanıyorsanız, aşağıdaki seçeneklerden birini göz önünde bulundurun:
-    >
-    > * [Azure Cloud Shell](../cloud-shell/quickstart.md)
-    > * [Windows 10 üzerinde ubuntu'da bash](https://msdn.microsoft.com/commandline/wsl/about)
-    > * [Git)https://git-scm.com/)](https://git-scm.com/)
-    > * [OpenSSH)https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
 
 2. Bağlama yüklemek için SSH oturumunda aşağıdaki komutları kullanın:
 
@@ -184,7 +173,9 @@ Sanal makine oluşturulduktan sonra alacak bir **dağıtım başarılı** bildir
 
     Bu komut, aşağıdaki metne benzer bir değer döndürür:
 
-        dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
+    ```output
+    dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
+    ```
 
     `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` Metin __DNS soneki__ bu sanal ağ için. Bu değeri kaydedin çünkü daha sonra kullanılacaktır.
 
@@ -227,32 +218,32 @@ Sanal makine oluşturulduktan sonra alacak bir **dağıtım başarılı** bildir
 
     Yanıt aşağıdaki metne benzer görünür:
 
-        Server:         10.0.0.4
-        Address:        10.0.0.4#53
+    ```output
+    Server:         10.0.0.4
+    Address:        10.0.0.4#53
 
-        Non-authoritative answer:
-        Name:   dns.mynetwork.net
-        Address: 192.168.0.4
+    Non-authoritative answer:
+    Name:   dns.mynetwork.net
+    Address: 192.168.0.4
+    ```
 
-### <a name="configure-the-virtual-network-to-use-the-custom-dns-server"></a>Sanal ağ özel DNS sunucusunu kullanacak şekilde yapılandırma
+## <a name="configure-virtual-network-to-use-the-custom-dns-server"></a>Sanal ağ özel DNS sunucusunu kullanacak şekilde yapılandırma
 
 Özel DNS sunucusu yerine Azure özyinelemeli çözümleyici kullanılacak sanal ağı yapılandırmak için aşağıdaki adımları kullanın. [Azure portalında](https://portal.azure.com):
 
-1. Sol menüden **tüm hizmetleri**.  
+1. Sol menüden gidin **tüm hizmetleri** > **ağ** > **sanal ağları**.
 
-1. Altında **ağ**seçin **sanal ağları**.  
+2. Sanal ağınıza, sanal ağınız için varsayılan görünüm açılır listesinden seçin.  
 
-1. Sanal ağınıza, sanal ağınız için varsayılan görünüm açılır listesinden seçin.  
+3. Varsayılan görünümünden altında **ayarları**seçin **DNS sunucuları**.  
 
-1. Varsayılan görünümünden altında **ayarları**seçin **DNS sunucuları**.  
+4. Seçin __özel__girin **özel IP adresi** özel DNS sunucusu.   
 
-1. Seçin __özel__girin **özel IP adresi** özel DNS sunucusu.   
-
-1. __Kaydet__’i seçin.  <br />  
+5. __Kaydet__’i seçin.  <br />  
 
     ![Ağ için özel DNS sunucusunu ayarlayın](./media/connect-on-premises-network/configure-custom-dns.png)
 
-### <a name="configure-the-on-premises-dns-server"></a>Şirket içi DNS sunucusunu yapılandırma
+## <a name="configure-on-premises-dns-server"></a>Şirket içi DNS sunucusunu yapılandırma
 
 Önceki bölümde, özel DNS sunucusunu şirket içi DNS sunucusu, istekleri iletmek üzere yapılandırılmış. Ardından, özel DNS sunucu isteklerini iletmek için şirket içi DNS sunucusu yapılandırmanız gerekir.
 
@@ -300,14 +291,13 @@ Azure PowerShell veya Azure CLI kullanarak Nsg oluşturma örneği için bkz: [g
 
 İçindeki adımları kullanın [Azure portalını kullanarak bir HDInsight kümesi oluşturma](./hdinsight-hadoop-create-linux-clusters-portal.md) bir HDInsight kümesi oluşturmak için belge.
 
-> [!WARNING]
+> [!WARNING]  
 > * Küme oluşturma sırasında sanal ağınızın bulunduğu konumu seçmeniz gerekir.
->
 > * İçinde __Gelişmiş ayarlar__ bölümü yapılandırmasına, daha önce oluşturduğunuz alt ağ ve sanal ağ seçmelisiniz.
 
 ## <a name="connecting-to-hdinsight"></a>HDInsight için bağlanma
 
-HDInsight üzerinde çoğu belgeleri, internet üzerinden kümeye erişim sahibi olduğunuzu varsayar. Örneğin, https://CLUSTERNAME.azurehdinsight.net konumundaki kümeye bağlanabildiğiniz kabul edilir. Bu adres, internet'ten erişimi kısıtlamak için Nsg veya Udr'ler kullandıysanız, kullanılabilir olmayan ortak ağ geçidi kullanır.
+HDInsight üzerinde çoğu belgeleri, internet üzerinden kümeye erişim sahibi olduğunuzu varsayar. Örneğin, `https://CLUSTERNAME.azurehdinsight.net` konumundaki kümeye bağlanabildiğiniz kabul edilir. Bu adres, internet'ten erişimi kısıtlamak için Nsg veya Udr'ler kullandıysanız, kullanılabilir olmayan ortak ağ geçidi kullanır.
 
 Ayrıca bazı belgelerde başvuran `headnodehost` bir SSH oturumundan kümeye bağlanırken. Bu adres, yalnızca bir küme içindeki düğümler kullanılabilir olduğundan ve sanal ağ üzerinden bağlanan istemciler üzerinde kullanılamaz.
 

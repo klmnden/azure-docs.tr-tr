@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0c61db5e34ba58bb767b0bda773a54c8e65cd404
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 88305e5d877f5bc3cc7ebb116f69b0f49f162b79
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991810"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056240"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Azure - dağıtıma genel bakış için Avere vFXT
 
@@ -32,14 +32,6 @@ Tüm adımlar bir genel bakış aşağıda verilmiştir.
 1. Önkoşulları yapılandırma 
 
    VM oluşturmadan önce Avere vFXT proje için yeni bir abonelik oluşturun, aboneliğin sahipliğini yapılandırmalı, kotalar denetleyin ve gereken ve Avere vFXT yazılımlarının kullanımı için koşulları kabul artışı isteyebilir. Okuma [Avere vFXT oluşturmak için hazırlık](avere-vfxt-prereqs.md) ayrıntılı yönergeler için.
-
-1. Küme düğümleri için bir erişim rolü oluşturun
-
-   Azure kullanan [rol tabanlı erişim denetimi](../role-based-access-control/index.yml) küme düğümü sanal makinelerin belirli görevleri gerçekleştirmek için yetkilendirmek üzere (RBAC). Örneğin, küme düğümleri için atama yapabilir veya diğer küme düğümleri için IP adreslerini yeniden atamak gerekir. Kümeyi oluşturmadan önce bunları yeterli izin veren bir rol tanımlamanız gerekir.
-
-   Okuma [küme düğümü erişim rolünü oluşturma](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) yönergeler için.
-
-   Küme denetleyici de erişim rolünü kullanır, ancak kendi oluşturmak yerine varsayılan rol sahibi kabul edebilir. Küme denetleyicisi için özel bir rol oluşturmak istiyorsanız, okuma [özelleştirilmiş denetleyicisi erişim rolünü](avere-vfxt-controller-role.md). 
 
 1. Avere vFXT kümesi oluşturma 
 

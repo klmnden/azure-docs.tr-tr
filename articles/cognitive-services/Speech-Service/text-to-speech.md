@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 1edc2587ef8680f60082bf6271b73d30184f331b
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 52f74bb3cb9e460fc5c572079355f47b4b0bf0a3
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521253"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010456"
 ---
 # <a name="what-is-text-to-speech"></a>Metin okuma nedir?
 
@@ -38,7 +38,7 @@ Bu tabloda metin okuma için temel özellikleri listelenmektedir:
 
 | Kullanım örneği | SDK | REST |
 |----------|-----|------|
-| Metni konuşmaya dönüştürün. | Hayır | Evet |
+| Metni konuşmaya dönüştürün. | Evet | Evet |
 | Veri kümeleri için ses uyarlama karşıya yükleyin. | Hayır | Evet\* |
 | Oluşturun ve ses yazı tipi modelleri yönetin. | Hayır | Evet\* |
 | Oluşturun ve ses yazı tipi dağıtımları yönetin. | Hayır | Evet\* |
@@ -54,23 +54,30 @@ Bu tabloda metin okuma için temel özellikleri listelenmektedir:
 
 Hızlı başlangıçlar, kodu 10 dakikadan kısa bir süre içinde çalıştırmak için tasarlanmış sunuyoruz. Bu tablo, metin okuma Hızlı başlangıçlar dile göre düzenlenmiş bir listesini içerir.
 
-| Hızlı Başlangıç | Platform | API başvurusu |
+| Hızlı Başlangıç (REST) | Platform | API başvurusu |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Göz atma](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Pencere, macOS, Linux | [Göz atma](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Python](quickstart-python-text-to-speech.md) | Pencere, macOS, Linux | [Göz atma](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Göz at](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Pencere, macOS, Linux | [Göz at](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Pencere, macOS, Linux | [Göz at](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+
+| Hızlı Başlangıç (SDK) | Platform | API başvurusu |
+|------------|----------|---------------|
+| [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Göz at](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Göz at](https://aka.ms/csspeech/cppref) |
+| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Göz at](https://aka.ms/csspeech/cppref) |
 
 ## <a name="sample-code"></a>Örnek kod
 
 Metin okuma için örnek kod, Github'da kullanılabilir. Bu örnekler, en popüler programlama dillerinden metinden konuşmaya dönüştürme kapsar.
 
 * [Metin okuma örnekleri (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Metin okuma örnekleri (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 
 ## <a name="reference-docs"></a>Başvuru belgeleri
 
 * [Konuşma SDK'sı](speech-sdk-reference.md)
-* [Konuşma cihaz SDK'sı](speech-devices-sdk.md)
-* [REST API: Konuşma metin](rest-speech-to-text.md)
+* [Konuşma Cihazları SDK’sı](speech-devices-sdk.md)
+* [REST API: Konuşmayı metne dönüştürme](rest-speech-to-text.md)
 * [REST API: Metin okuma](rest-text-to-speech.md)
 * [REST API: Batch tanıma ve özelleştirme](https://westus.cris.ai/swagger/ui/index)
 

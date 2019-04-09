@@ -2,22 +2,22 @@
 author: msmbaldwin
 ms.service: service-fabric
 ms.topic: include
-ms.date: 01/31/2019
+ms.date: 04/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 179d87a0c1af587148f1b5ffa2cad8085ef0886f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 41a8d6c2812b0fbd1d7e2fd4fd88a4343b52714f
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306835"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007267"
 ---
 ## <a name="preventative"></a>Preventative
 
 | Güvenlik özniteliği | Evet/Hayır | Notlar |
 |---|---|--|
-| Bekleme sırasında şifreleme:<ul><li>Sunucu tarafı şifrelemesi</li><li>Müşteri tarafından yönetilen anahtarlarla sunucu tarafı şifrelemesi</li><li>Diğer şifreleme özellikleri (örneğin, istemci tarafı, her zaman şifreli, vb.)</ul>| Evet | Müşteri, küme ve küme oluşturulan sanal makine (VM) ölçek kümesi üstlenir. Azure disk şifrelemesi, VM ölçek kümesinde etkinleştirilebilir. |
+| Bekleme sırasında şifreleme:<ul><li>Sunucu tarafı şifrelemesi</li><li>Müşteri tarafından yönetilen anahtarlarla sunucu tarafı şifrelemesi</li><li>Diğer şifreleme özellikleri (örneğin, istemci tarafı, her zaman şifreli, vb.)</ul>| Evet | Müşteri, küme ve küme oluşturulan sanal makine (VM) ölçek kümesi üstlenir. Sanal makine ölçek kümesinde Azure disk şifrelemesi etkin hale getirilebilir. |
 | Aktarım sırasında şifreleme:<ul><li>Express route şifreleme</li><li>Vnet şifreleme</li><li>VNet-VNet şifreleme</ul>| Evet |  |
-| Şifreleme anahtarı işleme (CMK, BYOK, vb.)| Evet | Müşteri, küme ve küme oluşturulan sanal makine (VM) ölçek kümesi üstlenir. Azure disk şifrelemesi, VM ölçek kümesinde etkinleştirilebilir. |
+| Şifreleme anahtarı işleme (CMK, BYOK, vb.)| Evet | Müşteri, küme ve küme oluşturulan sanal makine (VM) ölçek kümesi üstlenir. Sanal makine ölçek kümesinde Azure disk şifrelemesi etkin hale getirilebilir. |
 | Sütun düzeyinde şifrelemeyi (Azure Veri Hizmetleri)| Yok |  |
 | Şifrelenmiş API çağrıları| Evet | Service Fabric API çağrıları, Azure Resource Manager üzerinden yapılır. Geçerli bir JSON web token (JWT) gereklidir. |
 
@@ -34,7 +34,7 @@ ms.locfileid: "56306835"
 
 | Güvenlik özniteliği | Evet/Hayır | Notlar|
 |---|---|--|
-| Azure izleme desteği (Log analytics, App ınsights vb.)| Evet | Azure ve üçüncü taraf desteği izleme kullanarak. |
+| Azure izleme desteği (Log analytics, Application ınsights, vb.)| Evet | Azure ve üçüncü taraf desteği izleme kullanıyor. |
 
 ## <a name="iam-support"></a>IAM desteği
 
@@ -55,5 +55,5 @@ ms.locfileid: "56306835"
 
 | Güvenlik özniteliği | Evet/Hayır | Notlar|
 |---|---|--|
-| Yapılandırma yönetimi desteği (sürüm oluşturma, yapılandırma vb.)| Evet | Hizmet yapılandırması, oluşturulan ve dağıtılan kullanarak Azure'da dağıtın. (Uygulama ve çalışma zamanı) kullanarak Azure yapı tutulan kodudur.
+| Yapılandırma yönetimi desteği (sürüm yapılandırması, vs.)| Evet | Hizmet yapılandırması, oluşturulan ve dağıtılan kullanarak Azure'da dağıtın. (Uygulama ve çalışma zamanı) kullanarak Azure yapı tutulan kodudur.
  |

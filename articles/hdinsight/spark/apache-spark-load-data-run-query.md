@@ -8,13 +8,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
-ms.date: 11/06/2018
-ms.openlocfilehash: ddcde2956da774e687c1e587649e65b79003bf3a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.date: 04/03/2019
+ms.openlocfilehash: 18f5d34e50a4ed4ed82a3ceb4740d594ce4bd78d
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448995"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058229"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Öğretici: Verileri yüklemek ve Azure HDInsight, Apache Spark kümesinde sorguları çalıştırma
 
@@ -24,8 +24,6 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
 > * Bir csv dosyasından dataframe oluşturma
 > * Dataframe üzerinde sorgular çalıştırma
-
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -38,7 +36,11 @@ Uygulamalar dataframe'leri doğrudan Azure Depolama veya Azure Data Lake Storage
 ![Etkileşimli Spark SQL sorgusu için verilerin anlık görüntüsü](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Etkileşimli Spark SQL sorgusu için verilerin anlık görüntüsü")
 
 
-1. Ön koşullar bölümünde oluşturduğunuz Jupyter not defterini açın.
+1. Önkoşullar bölümünde oluşturduğunuz Jupyter not defterini açın ve PySpark ile yeni bir not defteri oluşturun.
+
+    > [!NOTE]  
+    > PySpark çekirdeği kullanılarak not defteri oluşturmak için, ilk kod hücresini çalıştırdığınızda sizin için otomatik olarak `spark` oturumu oluşturulur. Belirtik şekilde bir oturum oluşturmanız gerekmez.
+
 2. Aşağıdaki kodu, not defterindeki boş bir koda yapıştırın ve sonra kodu çalıştırmak için **SHIFT + ENTER** tuşlarına basın. Kod, bu senaryo için gerekli olan türleri içeri aktarır:
 
     ```python
@@ -58,10 +60,6 @@ Uygulamalar dataframe'leri doğrudan Azure Depolama veya Azure Data Lake Storage
     csvFile.write.saveAsTable("hvac")
     ```
 
-    > [!NOTE]  
-    > PySpark çekirdeği kullanılarak not defteri oluşturmak için, ilk kod hücresini çalıştırdığınızda sizin için otomatik olarak `spark` oturumu oluşturulur. Belirtik şekilde bir oturum oluşturmanız gerekmez.
-
-
 ## <a name="run-queries-on-the-dataframe"></a>Dataframe üzerinde sorgular çalıştırma
 
 Tablo oluşturulduktan sonra veriler üzerinde etkileşimli bir sorgu çalıştırabilirsiniz.
@@ -77,13 +75,13 @@ Tablo oluşturulduktan sonra veriler üzerinde etkileşimli bir sorgu çalışt�
 
      ![Etkileşimli Spark sorgu sonucunun tablo çıktısı](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Table output of interactive Spark query result")
 
-3. Sonuçları diğer görselleştirmelerde de görebilirsiniz. Aynı çıktı için bir alan grafiği görmek için **Alan**’ı seçin ve sonra gösterildiği gibi diğer değerleri ayarlayın.
+2. Sonuçları diğer görselleştirmelerde de görebilirsiniz. Aynı çıktı için bir alan grafiği görmek için **Alan**’ı seçin ve sonra gösterildiği gibi diğer değerleri ayarlayın.
 
     ![Etkileşimli Spark sorgu sonucunun alan grafiği](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Area graph of interactive Spark query result")
 
-10. Not defterindeki **Dosya** menüsünden **Kaydet ve Denetim Noktası**’nı seçin. 
+3. Not Defteri menü çubuğundan gidin **dosya** > **kaydetme ve denetim noktası**.
 
-11. [Sonraki öğreticiyi](apache-spark-use-bi-tools.md) şimdi başlatıyorsanız, not defterini açık bırakın. Aksi takdirde, küme kaynaklarını serbest bırakmak için Not defterini kapatmanız: gelen **dosya** not defterini seçin menüsündeki **Kapat ve Durdur**.
+4. [Sonraki öğreticiyi](apache-spark-use-bi-tools.md) şimdi başlatıyorsanız, not defterini açık bırakın. Aksi takdirde, küme kaynaklarını serbest bırakmak için Not defterini kapatmanız: Not Defteri menü çubuğundan gidin **dosya** >  **Kapat ve Durdur**.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -98,11 +96,10 @@ Kaynak grubu adını seçerek de kaynak grubu sayfasını açabilir ve sonra **K
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
-
-* Bir Apache Spark dataframe oluşturun.
-* Dataframe’e karşı Spark SQL’i çalıştırma.
+> [!div class="checklist"]
+> * Bir Apache Spark dataframe oluşturun.
+> * Dataframe’e karşı Spark SQL’i çalıştırma.
 
 Power BI gibi bir BI analiz aracı Apache Spark, kayıtlı verileri nasıl çekilebilir görmek için sonraki makaleye ilerleyin. 
 > [!div class="nextstepaction"]
 > [BI araçlarını kullanarak verileri analiz etme](apache-spark-use-bi-tools.md)
-

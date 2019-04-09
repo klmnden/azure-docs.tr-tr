@@ -2,23 +2,21 @@
 title: Program aracılığıyla Azure Enterprise abonelikleri oluşturma | Microsoft Docs
 description: Ek Azure Enterprise veya Kurumsal geliştirme ve Test abonelikleri program aracılığıyla oluşturmayı öğrenin.
 services: azure-resource-manager
-author: adpick
-manager: adpick
-editor: ''
+author: tfitzmac
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2018
-ms.author: adpick
-ms.openlocfilehash: 1b772fdbda8e58db9414e09ef3ef7c98fc9f86b8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 04/05/2019
+ms.author: tomfitz
+ms.openlocfilehash: 93df0c196d78a4685ff82108354b82a07d67695d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486988"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256932"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Program aracılığıyla Azure Kurumsal abonelikler (Önizleme) oluşturma
 
@@ -30,9 +28,9 @@ Bu API, bir Azure aboneliği oluşturduğunuzda, söz konusu abonelik altında M
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bir sahibi veya katkıda bulunan rolü altında abonelikler oluşturmak istediğiniz kayıt hesabı olması gerekir. Bu roller almanın iki yolu vardır:
+Bir sahip rolü altında abonelikler oluşturmak istediğiniz kayıt hesabı olması gerekir. Bu roller almanın iki yolu vardır:
 
-* Kayıt Yöneticisi [bir hesap sahibi olun](https://ea.azure.com/helpdocs/addNewAccount) (oturum açma gereklidir) kayıt hesabı sahibi olmasını sağlar. El ile bir ilk aboneliklerini oluşturması için aldığınız davet e-postadaki yönergeleri izleyin. Hesap sahipliğini doğrulamak ve el ile bir sonraki adıma devam etmeden önce bir ilk EA aboneliği oluşturun. Yalnızca ekleme hesap kaydı için yeterli değildir.
+* Kayıt Yöneticisi [bir hesap sahibi olun](https://ea.azure.com/helpdocs/addNewAccount) (oturum açma gereklidir) getiren, kayıt hesabı sahibi. El ile bir ilk aboneliklerini oluşturması için aldığınız davet e-postadaki yönergeleri izleyin. Hesap sahipliğini doğrulamak ve el ile bir sonraki adıma devam etmeden önce bir ilk EA aboneliği oluşturun. Yalnızca ekleme hesap kaydı için yeterli değildir.
 
 * Mevcut bir kayıt hesabı sahibi olabilir [size erişim vermesini](grant-access-to-create-subscription.md). Benzer şekilde, EA aboneliği oluşturmak için bir hizmet sorumlusu adını kullanmak istiyorsanız gerekir [bu hizmet sorumlusunun abonelikleri oluşturma yetkisi](grant-access-to-create-subscription.md).
 
@@ -42,7 +40,7 @@ Azure hesap kaydını ilişki için bir hesap sahibi olarak bir Azure EA kayıt 
 
 Aşağıdaki komutları çalıştırmak için hesap sahibinin için oturum açmanız gerekir *giriş dizini*, varsayılan olarak abonelik oluşturduğunuz dizine olduğu.
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+# [<a name="rest"></a>REST](#tab/rest)
 
 Tüm kayıt hesaplarını listelemek için istek:
 
@@ -75,7 +73,7 @@ Azure, erişiminiz olan tüm kayıt hesaplarının listesi ile yanıt verir:
 }
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 
 Kullanım [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) erişiminiz olan tüm kayıt hesaplarını listelemek için kullanın.
 
@@ -91,7 +89,7 @@ ObjectId                               | PrincipalName
 4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# [<a name="azure-cli"></a>Azure CLI](#tab/azure-cli)
 
 Kullanım [az fatura kayıt hesabı listesi](https://aka.ms/EASubCreationPublicPreviewCLI) erişiminiz olan tüm kayıt hesaplarını listelemek için komutu.
 
@@ -132,7 +130,7 @@ Kullanım `principalName` özelliği için faturalandırılmaya abonelikleri ist
 
 Aşağıdaki örnekte adlı abonelik oluşturma isteği oluşturur *geliştirme ekibi abonelik* ve abonelik teklifi *MS-AZR - 0017P* (normal EA). Kayıt hesabı `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (yer tutucu değerini, bu değeri olduğu bir GUID), kayıt hesabı olduğu için SignUpEngineering@contoso.com. Ayrıca isteğe bağlı olarak iki kullanıcı abonelik için RBAC sahip olarak ekler.
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+# [<a name="rest"></a>REST](#tab/rest)
 
 Kullanım `id` , `enrollmentAccount` yolunda abonelik oluşturma isteği.
 
@@ -161,7 +159,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 Yanıtta ulaşırsınız bir `subscriptionOperation` izleme nesnesi. Abonelik oluşturma işlemi bittikten sonra `subscriptionOperation` nesne döndürmesine bir `subscriptionLink` abonelik kimliğine sahip nesne
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 
 Bu önizleme modülü kullanmak için çalıştırarak yükleyin `Install-Module Az.Subscription -AllowPrerelease` ilk. Emin olmak için `-AllowPrerelease` çalıştığı PowerShellGet yeni bir sürümünü yükleme [PowerShellGet modülü Al](/powershell/gallery/installing-psget).
 
@@ -182,7 +180,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 
 Tüm parametreler tam listesini görmek için bkz: [yeni AzSubscription](/powershell/module/az.subscription.preview).
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# [<a name="azure-cli"></a>Azure CLI](#tab/azure-cli)
 
 Bu önizleme uzantısını kullanacak şekilde çalıştırarak yükleyin `az extension add --name subscription` ilk.
 

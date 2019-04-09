@@ -1,7 +1,7 @@
 ---
-title: PowerShell ve REST API - Azure Search kullanarak dizin sorgulama oluşturma ve yükleme
-description: Oluşturma, yüklemek ve PowerShell, Invoke-RestMethod ve Azure Search REST API'sini kullanarak dizin sorgulama.
-ms.date: 03/15/2019
+title: 'Hızlı Başlangıç: PowerShell ve REST API - Azure Search kullanarak dizin sorgulama oluşturma ve yükleme'
+description: PowerShell'in kullanarak dizin sorgulama oluşturma ve yükleme Invoke-RestMethod ve Azure Search REST API'si.
+ms.date: 04/08/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 9e1b6fc0dc4e6a6c2c191960fa061c810e3a2e79
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2deba4bf941d561fcef7c2dff804646732e7ce24
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372123"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268033"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Hızlı Başlangıç: PowerShell ve REST API kullanarak Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
@@ -29,19 +29,23 @@ Bu makalede size bir Azure Search sorgulama oluşturma ve yükleme işleminde si
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu Hızlı Başlangıç için ücretsiz bir hizmet kullanabilirsiniz. Diğer Önkoşullar aşağıdaki öğeleri ekleyin.
+Bu hızlı başlangıçta, aşağıdaki hizmetler ve Araçlar kullanılır. 
+
+[Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu Hızlı Başlangıç için ücretsiz bir hizmet kullanabilirsiniz. 
 
 [PowerShell 5.1 veya üstü](https://github.com/PowerShell/PowerShell)kullanarak [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) sıralı ve etkileşimli adımlar.
 
-Yönetici ve URL uç noktasını alın, arama hizmetinizin api anahtarı. İkisini de içeren bir arama hizmeti oluşturulur. Bu nedenle aboneliğinize Azure Search hizmetini eklediyseniz gerekli bilgileri almak için aşağıdaki adımları izleyin:
+## <a name="get-a-key-and-url"></a>Bir anahtarı ve URL alma
 
-1. Azure portalında arama hizmetinizin **genel bakış** sayfa olduğunda URL'yi alın. Örnek uç nokta https gibi görünebilir:\//my-service-name.search.windows.net.
+REST çağrıları için her istekte hizmet URL'sinin ve bir erişim anahtarının iletilmesi gerekir. İkisini de içeren bir arama hizmeti oluşturulur. Bu nedenle aboneliğinize Azure Search hizmetini eklediyseniz gerekli bilgileri almak için aşağıdaki adımları izleyin:
+
+1. [Azure portalında oturum açın](https://portal.azure.com/)ve arama hizmetinizdeki **genel bakış** sayfa olduğunda URL'yi alın. Örnek uç nokta `https://mydemo.search.windows.net` şeklinde görünebilir.
 
 2. İçinde **ayarları** > **anahtarları**, hizmette tam haklarına yönelik bir yönetici anahtarını alın. Bir gece yarısında gerektiği durumlarda iş sürekliliği için sağlanan iki birbirinin yerine yönetici anahtarı mevcuttur. Ekleme, değiştirme ve silme nesneler için istekleri birincil veya ikincil anahtar kullanabilirsiniz.
 
-   ![Bir HTTP uç noktası ve erişim anahtarını alma](media/search-fiddler/get-url-key.png "bir HTTP uç noktası ve erişim anahtarını alma")
+![Bir HTTP uç noktası ve erişim anahtarını alma](media/search-fiddler/get-url-key.png "bir HTTP uç noktası ve erişim anahtarını alma")
 
-   Tüm istekleri hizmete gönderilen her istekte bir API anahtarı gerektirir. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
+Tüm istekleri hizmete gönderilen her istekte bir API anahtarı gerektirir. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
 
 ## <a name="connect-to-azure-search"></a>Azure Search'e Bağlan
 

@@ -1,5 +1,5 @@
 ---
-title: Oluşturun, görüntüleyin ve yönetin günlük uyarıları Azure İzleyicisi'ni kullanma
+title: Oluşturun, görüntüleyin ve yönetin günlük uyarıları kullanarak Azure İzleyici | Microsoft Docs
 description: Azure İzleyici, yazar, görüntüleyin ve azure'da günlük uyarı kuralları yönetmek için kullanın.
 author: msvijayn
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: f26c8e670855513995463ffaaf7e49a8e00e35fa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d3285a6b2aa09dd78bbb63c384bd1f65c17034ff
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57873800"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006941"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetme
 
@@ -23,10 +23,10 @@ Bu makalede, Azure portalı içinden uyarıları arabirimini kullanarak günlük
 - Ölçütleri: Belirli bir koşulu veya mantıksal, sinyalin görülen, tetikleyici
 - Eylem: Bir bildirim - bir alıcıya belirli çağrı gönderilen, SMS, Web kancası vb. e-posta.
 
-Terim **günlük uyarıları** dayalı özel sorgu olduğu sinyal uyarılarını açıklamak için [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) veya [Application Insights](../../azure-monitor/app/analytics.md). Daha fazla ilgili işlevler, terminolojisi ve türlerden öğrenin [günlük uyarıları - genel bakış](../../azure-monitor/platform/alerts-unified-log.md).
+Terim **günlük uyarıları** günlük sorguda olduğu sinyal uyarılarını açıklamak için bir [Log Analytics çalışma alanı](../learn/tutorial-viewdata.md) veya [Application Insights](../app/analytics.md). Daha fazla ilgili işlevler, terminolojisi ve türlerden öğrenin [günlük uyarıları - genel bakış](alerts-unified-log.md).
 
 > [!NOTE]
-> Popüler günlük verilerini [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) şimdi de Azure İzleyici ölçüm platformda kullanılabilir. Ayrıntılar görünümü için [günlükleri için ölçüm Uyarısı](../../azure-monitor/platform/alerts-metric-logs.md)
+> Popüler günlük verilerini [bir Log Analytics çalışma alanı](../../azure-monitor/learn/tutorial-viewdata.md) şimdi de Azure İzleyici ölçüm platformda kullanılabilir. Ayrıntılar görünümü için [günlükleri için ölçüm Uyarısı](alerts-metric-logs.md)
 
 ## <a name="managing-log-alerts-from-the-azure-portal"></a>Azure portalından günlük uyarıları yönetme
 
@@ -58,7 +58,7 @@ Ayrıntılı sonraki Azure portal arabirimi kullanarak günlük uyarıları kull
 
    > [!NOTE]
    > 
-   > Liste sinyal türü - analytics sorgusuna alma uyarılar **günlük (kayıtlı sorgu)**, çizimde görüldüğü gibi. Böylece kullanıcılar Analytics sorgunuzda mükemmel ve gelecekte kullanılmak üzere uyarılar - kaydetmek daha fazla ayrıntı bulunabilir sorgu kaydetme kullanarak [log analytics'te günlük arama özelliğini kullanarak](../../azure-monitor/log-query/log-query-overview.md) veya [application ınsights'ta paylaşılan sorgu Analytics](../../azure-monitor/log-query/log-query-overview.md).
+   > Liste sinyal türü - analytics sorgusuna alma uyarılar **günlük (kayıtlı sorgu)**, çizimde görüldüğü gibi. Böylece kullanıcılar Analytics sorgunuzda mükemmel ve gelecekte kullanılmak üzere uyarılar - kaydetmek daha fazla ayrıntı bulunabilir sorgu kaydetme kullanarak [Azure İzleyici'de günlük sorgusu kullanarak](../log-query/log-query-overview.md) veya [application ınsights analytics paylaşılan sorgu ](../log-query/log-query-overview.md).
 
 1. *Günlük uyarıları*: İçinde bu onay kutusu seçildiğinde, uyarı için sorgu belirtilebilir **arama sorgusu** sorgu söz dizimi yanlışsa alanda hata kırmızı renkte görüntülenir; alan. Sorgu Sözdizimi doğruysa - başvuru için belirtilen sorgu geçmiş veri son altı saat zaman penceresinden geçen hafta için ince seçeneğiyle bir grafik olarak gösterilir.
 
@@ -126,12 +126,12 @@ Kullanıcılar ayrıca kendi analytics sorgunuzda kesin [günlük analizi](../lo
 Azure İzleyici'de günlüğü uyarılarına kaynak türüyle ilişkili `Microsoft.Insights/scheduledQueryRules/`. Bu kaynak türü hakkında daha fazla bilgi için bkz. [Azure İzleyici - zamanlanmış sorgu kuralları API Başvurusu](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Application Insights veya Log Analytics için günlük uyarıları, kullanılarak oluşturulan [zamanlanmış sorgu kuralları API'si](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
 > [!NOTE]
-> Log Analytics için günlük uyarıları da eski kullanılarak yönetilebilir [Log Analytics uyarı API](../../azure-monitor/platform/api-alerts.md) ve eski şablonları [Log Analytics kayıtlı aramaları ve Uyarıları](../../azure-monitor/insights/solutions-resources-searches-alerts.md) de. Varsayılan olarak burada ayrıntıları yeni ScheduledQueryRules API'sini kullanarak daha fazla bilgi için bkz. [geçiş yapmak için yeni bir API için Log Analytics uyarılarını](alerts-log-api-switch.md).
+> Log Analytics için günlük uyarıları da eski kullanılarak yönetilebilir [Log Analytics uyarı API](api-alerts.md) ve eski şablonları [Log Analytics kayıtlı aramaları ve Uyarıları](../insights/solutions-resources-searches-alerts.md) de. Varsayılan olarak burada ayrıntıları yeni ScheduledQueryRules API'sini kullanarak daha fazla bilgi için bkz. [geçiş yapmak için yeni bir API için Log Analytics uyarılarını](alerts-log-api-switch.md).
 
 
 ### <a name="sample-log-alert-creation-using-azure-resource-template"></a>Azure kaynak şablonu kullanarak örnek günlük uyarısı oluşturma
 
-Bir yapıdır aşağıdaki [zamanlanmış sorgu kuralı oluşturma](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) temel, standart günlük arama sorgusu kullanarak kaynak şablonu [sonuçları türü günlük uyarı sayısı](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules), değişkenleri olarak örnek veri kümesiyle.
+Bir yapıdır aşağıdaki [zamanlanmış sorgu kuralı oluşturma](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) temel, standart günlük arama sorgusu kullanarak kaynak şablonu [sonuçları türü günlük uyarı sayısı](alerts-unified-log.md#number-of-results-alert-rules), değişkenleri olarak örnek veri kümesiyle.
 
 ```json
 {
@@ -316,7 +316,7 @@ Azure İzleyici - zamanlanmış sorgu kuralları API] (https://docs.microsoft.co
 
 
 > [!NOTE]
-> Log Analytics için günlük uyarıları da eski kullanılarak yönetilebilir [Log Analytics uyarı API](../../azure-monitor/platform/api-alerts.md) ve eski şablonları [Log Analytics kayıtlı aramaları ve Uyarıları](../../azure-monitor/insights/solutions-resources-searches-alerts.md) de. Varsayılan olarak burada ayrıntıları yeni ScheduledQueryRules API'sini kullanarak daha fazla bilgi için bkz. [geçiş yapmak için yeni bir API için Log Analytics uyarılarını](alerts-log-api-switch.md).
+> Log Analytics için günlük uyarıları da eski kullanılarak yönetilebilir [Log Analytics uyarı API](api-alerts.md) ve eski şablonları [Log Analytics kayıtlı aramaları ve Uyarıları](../insights/solutions-resources-searches-alerts.md) de. Varsayılan olarak burada ayrıntıları yeni ScheduledQueryRules API'sini kullanarak daha fazla bilgi için bkz. [geçiş yapmak için yeni bir API için Log Analytics uyarılarını](alerts-log-api-switch.md).
 
 Günlük uyarıları şu anda adanmış PowerShell veya CLI komutları şu anda yoktur; ancak aşağıda gösterildiği gibi Azure Resource Manager PowerShell cmdlet'i kaynak şablonu (sampleScheduledQueryRule.json) daha önce gösterilen örnek için kaynak şablonu bölümünde kullanılabilir:
 
@@ -335,4 +335,4 @@ On successful operation, 201 will be returned to state new alert rule creation o
 * Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
 * Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
 * Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
-* Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+* Learn more about [log queries](../log-query/log-query-overview.md).

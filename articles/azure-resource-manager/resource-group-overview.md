@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/04/2019
+ms.date: 04/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 115b1fcd1b1e878a9b4a7efdf6f24d7391945619
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: d4af11f5956d548ec25eb0dd9b553e2cf56b195f
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409866"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058552"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager genel bakış
 
@@ -84,6 +84,8 @@ Kaynak gruplarınızı tanımlarken göz önüne almanız gereken bazı önemli 
 * Bir kaynak diğer kaynak gruplarındaki kaynaklarla etkileşim kurabilir. İki kaynak ilişkili olmasına karşın aynı yaşam döngüsünü paylaşmadığında (örneğin, bir veritabanına bağlanan web uygulamaları) bu etkileşim yaygın olarak görülür.
 
 Bir kaynak grubu oluştururken bu kaynak grubu için bir konum belirtmeniz gerekir. "Bir kaynak grubu için neden konum gerekli olsun? Ayrıca kaynaklar kaynak grubundan farklı konumlarda olabiliyorsa kaynak grubu konumu neden önemli olsun?" diye soruyor olabilirsiniz Kaynak grubu, kaynaklarla ilgili meta verileri depolar. Bu nedenle, kaynak grubu için bir konum belirttiğinizde meta verilerin nereye depolanacağını belirtirsiniz. Uyumluluk nedeniyle verilerinizin belirli bir bölgeye depolandığından emin olmanız gerekebilir.
+
+Kaynak grubunun bölge geçici olarak kullanılamıyorsa, kaynak grubundaki kaynaklar meta veriler kullanılamaz durumda olduğundan güncelleştirilemiyor. Diğer bölgelerdeki kaynaklara beklendiği gibi çalışmaya devam eder ancak bunları güncelleştirilemiyor. Riski en aza indirmek için aynı bölgede kaynak grubu ve kaynakları bulun.
 
 ## <a name="resource-providers"></a>Kaynak sağlayıcıları
 

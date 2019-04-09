@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9ce1bb6df0a4c062ee41d2a58adf1b7fc93d9805
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 896553890252572e4b5524d047893953b78a4ba1
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286253"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010100"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk şifrelemesi önkoşulları
 
@@ -29,7 +29,7 @@ Ele alınan desteklenen senaryolar için Azure Iaas sanal makinelerinde Azure Di
 ## <a name="bkmk_OSs"></a> Desteklenen işletim sistemleri
 Azure Disk şifrelemesi, aşağıdaki işletim sistemlerinde desteklenir:
 
-- Windows Server sürümleri: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 ve Windows Server 2016.
+- Windows Server sürümleri: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 ve Windows Azure galerisinde bulunan büyük sürümleri.
   - Windows Server 2008 R2 için .NET Framework 4.5, azure'daki şifreleme etkinleştirmeden önce yüklü olması gerekir. Windows Update ile isteğe bağlı bir güncelleştirme Windows Server 2008 R2 x64 tabanlı sistemler için Microsoft .NET Framework 4.5.2'yi yükleme ([KB2901983](https://support.microsoft.com/kb/2901983)).    
 - Windows istemci sürümleri: Windows 8 istemcisi ve Windows 10 istemcisi.
 - Azure Disk şifrelemesi yalnızca Windows'da desteklenmektedir belirli Azure Galerisi'nde Linux sunucusu dağıtımları ve sürümleri dayalıdır. Şu anda desteklenen sürümlerin listesi için başvurmak [Azure Disk şifrelemesi hakkında SSS](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).

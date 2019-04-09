@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d35c33a45f2ce23dabfba20bbd902c058e3033d3
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: 42a7eee37d993e5f9245374adbfd133344797eff
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540474"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058178"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Azure Haritalar’ı kullanarak yakınlardaki ilgi çekici noktaları arama
 
@@ -138,8 +138,8 @@ Harita Denetimi API’si, Haritalar’ı web uygulamanızla kolayca tümleştirm
 5. `GetMap` işlevinde haritanın başlatıldığı bölümün altına aşağıdaki JavaScript kodunu ekleyin.
 
     ```JavaScript
-    //Wait until the map resources are loaded.
-    map.events.add('load', function() {
+    //Wait until the map resources are ready.
+    map.events.add('ready', function() {
 
         //Create a data source and add it to the map.
         datasource = new atlas.source.DataSource();
@@ -161,7 +161,7 @@ Harita Denetimi API’si, Haritalar’ı web uygulamanızla kolayca tümleştirm
     });
     ```
 
-   Kaynak eşleme tam yüklü olduğunda, bu kod kesimi içinde eşlemesine eklenen yük olay ateşlenir. Harita yükleme olayı işleyicisinde sonuç verilerin depolanacağı bir veri kaynağı oluşturulur. Bir simge katmanı oluşturulur ve veri kaynağına eklenir. Bu katman, veri kaynağındaki sonuç verilerin nasıl işleneceğini belirtir. Bu örnekte sonuç koordinatlarının üzerinde ortalanmış olan ve diğer simgelerin çakışmasına izin verilen koyu mavi yuvarlak raptiye simgesi şeklindedir. Harita katmanları için sonuç katmanı eklendi.
+   Bu kod kesimi içinde bir `ready` olay kaynak eşleme yüklendikten ve erişilecek eşleme hazır olduğunda ateşlenir eşlemesine eklenir. Haritadaki `ready` olay işleyicisi, bir veri kaynağı sonuç verilerini depolamak için oluşturulur. Bir simge katmanı oluşturulur ve veri kaynağına eklenir. Bu katman, veri kaynağındaki sonuç verilerin nasıl işleneceğini belirtir. Bu örnekte sonuç koordinatlarının üzerinde ortalanmış olan ve diğer simgelerin çakışmasına izin verilen koyu mavi yuvarlak raptiye simgesi şeklindedir. Harita katmanları için sonuç katmanı eklendi.
 
 <a id="usesearch"></a>
 
@@ -171,7 +171,7 @@ Bu bölümde, haritalar işlemi gösterilir [arama API'si](https://docs.microsof
 
 ### <a name="service-module"></a>Hizmet Modülü
 
-1. Olay işleyici eşlemesinde yüklenemiyor, aşağıdaki Javascript kodunu ekleyerek arama hizmeti URL'si oluşturun.
+1. Haritadaki `ready` olay işleyicisi aşağıdaki Javascript kodunu ekleyerek arama hizmeti URL'si oluşturun.
 
     ```JavaScript
    // Use SubscriptionKeyCredential with a subscription key
@@ -229,7 +229,7 @@ Bu noktada MapSearch sayfası, belirsiz arama sorgusundan döndürülen ilgi çe
 
 Şu ana kadar oluşturduğumuz harita, arama sonuçları için yalnızca boylam/enlem verilerine bakar. Ancak Haritalar Arama hizmetinin döndürdüğü işlenmemiş JSON’a bakarsanız, bunun ad ve açık adres de dahil olmak üzere her bir benzin istasyonuyla ilgili ek bilgiler içerdiğini görürsünüz. Etkileşimli açılır kutularla haritada bu verilere yer verebilirsiniz.
 
-1. Belirsiz arama hizmetini sorgulamak için harita yükleme olayı işleyicisinde kodun sonrasına aşağıdaki kod satırlarını ekleyin. Bu kod bir açılır pencere örneği oluşturur ve simge katmanına fare ile üzerine gelindiğinde gerçekleştirilecek bir olay ekler.
+1. Aşağıdaki kod satırlarını haritada ekleme `ready` belirsiz arama hizmeti sorgulamak için kodu sonra olay işleyicisi. Bu kod bir açılır pencere örneği oluşturur ve simge katmanına fare ile üzerine gelindiğinde gerçekleştirilecek bir olay ekler.
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.
@@ -282,9 +282,9 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 Bu öğreticiye ait kod örneğine şuradan erişebilirsiniz:
 
-> [Azure Haritalar ile konum arama](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
+> [Azure Haritalar ile arama konumu](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
 
-[Burada canlı örneği inceleyin](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+[Burada Canlı örnek bakın](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 Sonraki öğreticide, iki konum arasındaki bir yolun nasıl görüntüleneceği gösterilmektedir.
 

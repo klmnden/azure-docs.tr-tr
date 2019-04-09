@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: bc91b052d3d69924af9afeb012c0ebb5be01dfbf
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: MT
+ms.openlocfilehash: be9205fdf7fec0661d7382ed0d1bedf47487b15e
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745563"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058059"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Avere vFXT kümesini yönetme
 
@@ -98,7 +98,7 @@ Aşağıdaki değerleri sağlayın:
 * Küme için ve aynı küme yoksa Ağ ve depolama kaynakları için kaynak grubu adı
 * Küme konumu
 * Küme ağı ve alt ağ 
-* Küme düğümü erişim rolü 
+* Küme düğümü erişim rolünü (yerleşik rolü kullanmak [Avere işleci](../role-based-access-control/built-in-roles.md#avere-operator))
 * Küme yönetim IP adresi ve yönetici parolası 
 * (1, 2 veya 3) eklemek için düğüm sayısı
 * Düğüm örnek türü ve önbellek boyutu değerleri 
@@ -113,7 +113,7 @@ Prototip kullanmıyorsanız, yukarıda açıklanan bilgiler dahil olmak üzere t
    --add-nodes --nodes NODE_COUNT \
    --management-address CLUSTER_IP --admin-password ADMIN_PASSWORD \
    --instance-type TYPE --node-cache-size SIZE \
-   --azure-role ROLE_NAME \
+   --azure-role "Avere Operator" \
    --log ~/vfxt.log
 ```
 

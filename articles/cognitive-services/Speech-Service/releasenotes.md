@@ -8,17 +8,45 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 4/3/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 7f54507fdfd21c9402e04eb867710a774f9e6bb3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 13d43a3810bc07cede2a49760f122157de86c44d
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57856099"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010167"
 ---
 # <a name="release-notes"></a>Sürüm notları
+
+## <a name="speech-sdk-140-2019-april-release"></a>SDK'sı 1.4.0 konuşma: 2019 Nisan sürüm
+
+**Yeni Özellikler** 
+
+* SDK'sı, artık bir beta sürümü metin okuma hizmet destekler. Windows ve Linux C++ masaüstünden desteklenen C#ve Java. Daha fazla bilgi olup olmadığını kontrol edin [metin okuma genel bakış](text-to-speech.md#get-started-with-text-to-speech).
+* SDK, artık akışı giriş dosyalarını MP3 ve geçerli/Ogg ses dosyaları destekler. Bu özellik yalnızca C++ Linux'ta kullanılabilir ve C# ve şu anda beta sürümünde olan (daha fazla ayrıntı [burada](how-to-use-compressed-audio-input-streams.md)).
+* Java, .NET core Speech SDK'sı C++ ve Objective-C macOS destek elde. MacOS için Objective-C desteği şu anda beta sürümünde olan.
+* iOS: İOS (Objective-C) Speech SDK'sı artık ayrıca bir CocoaPod yayımlanır.
+* JavaScript: Varsayılan olmayan mikrofon olarak bir giriş cihazının desteği.
+* JavaScript: Node.js için proxy desteği.
+
+**Örnekler**
+
+* Konuşma SDK'yı macOS üzerinde Objective-C ve C++ ile kullanma örnekleri eklenmiştir.
+* Metin okuma hizmeti kullanımını gösteren örnekleri eklenmiştir.
+
+**Geliştirmeleri / değiştirir**
+
+* Python: Ek özellikler tanıma sonuçlarının aracılığıyla artık sunulur `properties` özelliği.
+* Ek geliştirme ve hata ayıklama desteği SDK günlüğe kaydetme ve tanılama bilgileri bir günlük dosyasına yönlendirip (daha fazla ayrıntı [burada](how-to-use-logging.md)).
+* JavaScript: Ses işleme performansını iyileştirin.
+
+**Hata düzeltmeleri**
+
+* Mac/iOS: Konuşma hizmeti için bir bağlantı kurulamadı için uzun bekleme neden olan bir hata düzeltildi.
+* Python: hata işleme Python geri çağırmaları bağımsız değişkenleri için geliştirin.
+* JavaScript: Konuşma raporlama sabit durumu yanlış RequestSession üzerinde sona erdi.
 
 ## <a name="speech-sdk-131-2019-february-refresh"></a>SDK'sı 1.3.1 konuşma: Şubat 2019 yenileme
 
@@ -177,7 +205,7 @@ Güvenilirlik geliştirmeleri ve hata düzeltmeleri:
 * İOS üzerinde Objective-C için destek. Kullanıma sunduğumuz [iOS Objective-C hızlı](quickstart-objectivec-ios.md).
 * Tarayıcıda JavaScript desteği. Kullanıma sunduğumuz [JavaScript hızlı](quickstart-js-browser.md).
 
-**Bozucu değişiklikler**
+**Yeni değişiklikler**
 
 * Bu sürümle birlikte, birkaç önemli değişiklikler yapılmıştır.
   Lütfen denetleyin [bu sayfayı](https://aka.ms/csspeech/breakingchanges_1_0_0) Ayrıntılar için.
@@ -196,7 +224,7 @@ Güvenilirlik geliştirmeleri ve hata düzeltmeleri:
 
 * Ek hata bağlantı hatalarıyla ilgili ayrıntılı bilgi kullanıma sunar.
 
-**Bozucu değişiklikler**
+**Yeni değişiklikler**
 
 * Java (Android) üzerinde `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` işlevi artık bir yol parametresi gerektirir. Artık bir yolu, tüm desteklenen platformlarda otomatik olarak algılanır.
 * Özelliğin get erişimcisine `EndpointUrl` Java ve C# ' kaldırıldı.
@@ -225,7 +253,7 @@ Güvenilirlik geliştirmeleri ve hata düzeltmeleri:
 * Tanıma işleminin sonucu daha fazla alan içeriyor. Ses başına ve süresi (hem de saat döngüsü) ve tanınan metin tanıma durumu, örneğin, temsil eden ek değerler uzaklığı `InitialSilenceTimeout` ve `InitialBabbleTimeout`.
 * AuthorizationToken factory örnekleri oluşturmak için destek.
 
-**Bozucu değişiklikler**
+**Yeni değişiklikler**
 
 * Tanıma olayları: Hata olayı birleştirilmiş NoMatch olay türü.
 * SpeechOutputFormat C#, C++ ile uyumlu kalmak için OutputFormat olarak değiştirildi.

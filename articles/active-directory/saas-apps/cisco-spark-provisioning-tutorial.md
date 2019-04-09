@@ -8,25 +8,24 @@ writer: zhchia
 manager: beatrizd
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 03/27/2019
 ms.author: v-wingf
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fd7145be5f82a90acced0f02e35f6c8880dbcad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 77dab6ad0480bc1565c219766d17211995dcfc20
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120406"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056954"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Öğretici: Cisco Spark için otomatik kullanıcı hazırlama yapılandırın
 
-
 Bu öğreticinin amacı, Cisco Spark ve Azure Active Directory (Azure AD) Azure AD yapılandırmak için sağlama ve sağlamasını Cisco Spark kullanıcılara otomatik olarak gerçekleştirilecek adımları göstermektir.
-
 
 > [!NOTE]
 > Bu öğreticide, Azure AD kullanıcı sağlama hizmeti üzerinde oluşturulmuş bir bağlayıcı açıklanmaktadır. Bu hizmet yapar, nasıl çalıştığını ve sık sorulan sorular önemli ayrıntılar için bkz. [otomatik kullanıcı hazırlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına](../manage-apps/user-provisioning.md).
@@ -35,40 +34,34 @@ Bu öğreticinin amacı, Cisco Spark ve Azure Active Directory (Azure AD) Azure 
 
 Bu öğreticide özetlenen senaryo, aşağıdaki önkoşulları zaten sahip olduğunuzu varsayar:
 
-*   Azure AD kiracısı
-*   Bir Cisco Spark Kiracı
-*   Cisco Spark yönetici izinlerine sahip bir kullanıcı hesabı
-
+* Azure AD kiracısı
+* Bir Cisco Spark Kiracı
+* Cisco Spark yönetici izinlerine sahip bir kullanıcı hesabı
 
 > [!NOTE]
 > Azure AD tümleştirmesi sağlama dayanan [Cisco Spark Webservice](https://developer.webex.com/getting-started.html), Cisco Spark takımlar için kullanılabildiği.
 
 ## <a name="adding-cisco-spark-from-the-gallery"></a>Cisco Spark galeri ekleme
+
 Azure AD ile otomatik kullanıcı hazırlama için Cisco Spark yapılandırmadan önce Cisco Spark Azure AD uygulama galerisinden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Azure AD uygulama galerisinden Cisco Spark eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, üzerinde sol gezinti bölmesinde, tıklayarak **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar** > **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar bölümü][2]
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-3. Cisco Spark eklemek için tıklatın **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-4. Arama kutusuna **Cisco Spark**.
+4. Arama kutusuna **Cisco Spark**seçin **Cisco Spark** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Cisco Spark sağlama](./media/cisco-spark-provisioning-tutorial/AppSearch.png)
-
-5. Sonuçlar panelinde seçin **Cisco Spark**ve ardından **Ekle** düğmesini Cisco Spark SaaS uygulamaları listenize ekleyin.
-
-    ![Cisco Spark sağlama](./media/cisco-spark-provisioning-tutorial/AppSearchResults.png)
-
-    ![Cisco Spark sağlama](./media/cisco-spark-provisioning-tutorial/AppCreation.png)
+    ![Sonuç listesinde Cisco Spark](common/search-new-app.png)
 
 ## <a name="assigning-users-to-cisco-spark"></a>Cisco Spark için kullanıcı atama
 
@@ -76,27 +69,27 @@ Azure Active Directory "atamaları" adlı bir kavram, hangi kullanıcıların se
 
 Yapılandırma ve otomatik kullanıcı hazırlama etkinleştirmeden önce hangi kullanıcıların Azure AD'de Cisco Spark erişmesi karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek bu kullanıcılar için Cisco Spark atayabilirsiniz:
 
-*   [Kurumsal bir uygulamayı kullanıcı veya grup atama](../manage-apps/assign-user-or-group-access-portal.md)
+* [Kurumsal bir uygulamayı kullanıcı veya grup atama](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-cisco-spark"></a>Cisco Spark için kullanıcı atama önemli ipuçları
 
-*   Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmasını otomatik kullanıcı test etmek için Cisco Spark'a atanır. Ek kullanıcılar daha sonra atanabilir.
+* Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmasını otomatik kullanıcı test etmek için Cisco Spark'a atanır. Ek kullanıcılar daha sonra atanabilir.
 
-*   Cisco Spark için kullanıcı atama, atama iletişim kutusunda (varsa) geçerli bir uygulamaya özgü rolü seçmeniz gerekir. Kullanıcılarla **varsayılan erişim** rol sağlamasından dışlanır.
+* Cisco Spark için kullanıcı atama, atama iletişim kutusunda (varsa) geçerli bir uygulamaya özgü rolü seçmeniz gerekir. Kullanıcılarla **varsayılan erişim** rol sağlamasından dışlanır.
 
 ## <a name="configuring-automatic-user-provisioning-to-cisco-spark"></a>Cisco Spark için otomatik kullanıcı sağlamayı yapılandırma
 
 Bu bölümde oluşturmak, güncelleştirmek ve kullanıcıların Azure AD'de kullanıcı atamaları temel alınarak Cisco Spark devre dışı bırakmak için Azure AD sağlama hizmeti yapılandırmak için gereken adımları size kılavuzluk eder.
 
-
 ### <a name="to-configure-automatic-user-provisioning-for-cisco-spark-in-azure-ad"></a>Azure AD'de Cisco Spark için otomatik kullanıcı hazırlama yapılandırmak için:
 
+1. Oturum [Azure portalında](https://portal.azure.com) seçip **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Cisco Spark**.
 
-1. Oturum [Azure portalında](https://portal.azure.com) ve **Azure Active Directory > Kurumsal uygulamalar > tüm uygulamaları**.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-2. Cisco Spark, SaaS uygulamaları listesinden seçin.
+2. Uygulamalar listesinde **Cisco Spark**.
 
-    ![Cisco Spark sağlama](./media/cisco-spark-provisioning-tutorial/Successcenter2.png)
+    ![Uygulamalar listesini Cisco Spark bağlantıdaki](common/all-applications.png)
 
 3. Seçin **sağlama** sekmesi.
 
@@ -108,19 +101,27 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcıların Azure AD'de kul
 
 5. Altında **yönetici kimlik bilgileri** giriş bölümünde **Kiracı URL'si**, ve **gizli belirteç** Cisco Spark'ın hesabının.
 
-    *   İçinde **Kiracı URL'si** alan, Cisco Spark SCIM API URL'si biçimi alır kiracınız için doldurma `https://api.ciscospark.com/v1/scim/[Tenant ID]/`burada `[Tenant ID]` 6. adımda açıklandığı gibi bir alfasayısal bir dize özelliğidir.
+    ![Cisco Spark sağlama](./media/cisco-spark-provisioning-tutorial/secrettoken1.png)
 
-    *   İçinde **gizli belirteç** alan, 6. adımda açıklandığı gibi gizli belirteç doldurun.
+    * İçinde **Kiracı URL'si** alan, Cisco Spark SCIM API URL'si biçimi alır kiracınız için doldurma `https://api.ciscospark.com/v1/scim/[Tenant ID]/`burada `[Tenant ID]` 6. adımda açıklandığı gibi bir alfasayısal bir dize özelliğidir.
 
-1. **Kiracı kimliği** ve **gizli belirteç** Cisco Spark için hesap açılarak bulunabilir [Cisco Spark Geliştirici sitesi](https://developer.webex.com/) Yönetici hesabınızla. -Bir kez günlüğe kaydedilir
+    * İçinde **gizli belirteç** alan, 6. adımda açıklandığı gibi gizli belirteç doldurun.
+
+6. **Kiracı kimliği** ve **gizli belirteç** Cisco Spark için hesap açılarak bulunabilir [Cisco Spark Geliştirici sitesi](https://developer.webex.com/) Yönetici hesabınızla. -Bir kez günlüğe kaydedilir
+
    * Git [Başlarken sayfası](https://developer.webex.com/getting-started.html)
+
    * Ekranı aşağı kaydırarak [kimlik doğrulaması bölümü](https://developer.webex.com/getting-started.html#authentication)
-     ![Cisco Spark kimlik doğrulama belirteci](./media/cisco-spark-provisioning-tutorial/SecretToken.png)
+  
+    ![Cisco Spark kimlik doğrulama belirteci](./media/cisco-spark-provisioning-tutorial/SecretToken.png)
+
    * Alfasayısal dize kutusunda, **gizli belirteç**. Bu belirteç Panoya Kopyala
+
    * Git [alma My kendi Ayrıntıları sayfası](https://developer.webex.com/endpoint-people-me-get.html)
        * Test modu açık olduğundan emin olun
        * Ardından bir boşluk "Bearer" sözcüğünü yazın ve sonra gizli belirteç yetkilendirme alanına yapıştırabilirsiniz ![Cisco Spark kimlik doğrulama belirteci](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png)
        * Çalıştır'a tıklayın
+
    * Yanıt metni sağa içinde **Kiracı kimliği** "Orgıd" görünür:
 
      ```json
@@ -136,7 +137,7 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcıların Azure AD'de kul
      }
      ```
 
-1. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD, Cisco Spark'a bağlanabilirsiniz. Bağlantı başarısız olursa, Cisco Spark hesabının yönetici izinlerine sahip olun ve yeniden deneyin.
+7. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD, Cisco Spark'a bağlanabilirsiniz. Bağlantı başarısız olursa, Cisco Spark hesabının yönetici izinlerine sahip olun ve yeniden deneyin.
 
     ![Cisco Spark sağlama](./media/cisco-spark-provisioning-tutorial/TestConnection.png)
 
@@ -168,7 +169,6 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcıların Azure AD'de kul
 
     ![Cisco Spark sağlama](./media/cisco-spark-provisioning-tutorial/Save.png)
 
-
 Bu işlem, tüm kullanıcıların ilk eşitleme başlar ve/veya tanımlı gruplar **kapsam** içinde **ayarları** bölümü. İlk eşitleme yaklaşık 40 dakikada Azure AD sağlama hizmeti çalışıyor sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve sağlama hizmeti Cisco Spark üzerinde Azure AD tarafından gerçekleştirilen tüm eylemler açıklayan Etkinlik Raporu sağlama için bağlantıları izleyin.
 
 Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
@@ -180,8 +180,7 @@ Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [he
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Kullanıcı hesabı, kurumsal uygulamalar için sağlamayı yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
-
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

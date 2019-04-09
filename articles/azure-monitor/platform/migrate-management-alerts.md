@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 4d82cc59eb1098451a263957aa028b66996bb072
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307199"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006799"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Azure uyarıları yönetim olayları etkinlik günlüğü uyarılarına geçirme
 
@@ -104,7 +104,7 @@ Yeni Etkinlik günlüğü uyarısı oluşturmak için şunlardan birini yapabili
 * İzleyin [kılavuzumuza Azure portalında uyarı oluşturma](../../azure-monitor/platform/activity-log-alerts.md)
 * Bilgi edinmek için nasıl [Resource Manager şablonu kullanarak bir uyarı oluştur](../../azure-monitor/platform/alerts-activity-log.md)
  
-Daha önce oluşturduğunuz yönetim olayları ile ilgili uyarılar, etkinlik günlüğü uyarılarına otomatik olarak geçirilmez. Şu anda yapılandırdıysanız ve bunları el ile etkinlik günlüğü uyarısı yeniden Yönetimi olayları ile ilgili uyarılar listelemek için yukarıdaki PowerShell Betiği kullanmanız gerekir. Bu yönetim olayları ile ilgili uyarılar artık Azure aboneliğinizde görünür olacak 1 Ekim önce yapılmalıdır. Azure uyarıları, Azure İzleyici ölçüm uyarıları, Application Insights uyarıları ve Log Analytics uyarılarını gibi diğer türleri, bu değişiklikten etkilenmez. Herhangi bir sorunuz varsa aşağıdaki yorumları gönderin.
+Daha önce oluşturduğunuz yönetim olayları ile ilgili uyarılar, etkinlik günlüğü uyarılarına otomatik olarak geçirilmez. Şu anda yapılandırdıysanız ve bunları el ile etkinlik günlüğü uyarısı yeniden Yönetimi olayları ile ilgili uyarılar listelemek için yukarıdaki PowerShell Betiği kullanmanız gerekir. Bu yönetim olayları ile ilgili uyarılar artık Azure aboneliğinizde görünür olacak 1 Ekim önce yapılmalıdır. Azure uyarıları, Azure İzleyici ölçüm uyarıları, Application Insights uyarıları ve günlük araması uyarılar gibi diğer türleri, bu değişiklikten etkilenmez. Herhangi bir sorunuz varsa aşağıdaki yorumları gönderin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 5d802bbf9766e7b85a739d9a14e8c790fee1b9fc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 571ab38dd52d83f1391b555bc4dfc8c091f1fd1b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855810"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256711"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Öğretici: Mindflash ile Azure Active Directory Tümleştirme
 
@@ -204,7 +204,7 @@ Mindflash açarken Azure AD kullanıcılarının etkinleştirmek için bunların
     
     c. İçinde **e-posta** metin kutusuna **e-posta adresi** olarak kullanıcı **BrittaSimon\@contoso.com**.
 
-    b. **Ekle**'yi tıklatın.
+    b. **Ekle**'ye tıklayın.
 
 >[!NOTE]
 >Herhangi diğer Mindflash kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri için AAD kullanıcı hesapları sağlamak Mindflash tarafından sağlanan. 
@@ -218,9 +218,9 @@ Erişim paneli Mindflash kutucuğa tıkladığınızda, size otomatik olarak SSO
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

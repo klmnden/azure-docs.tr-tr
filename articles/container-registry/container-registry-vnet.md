@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 0a4d9f355a5cdc92bab4491c08677042c42986cb
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 15b67218b129b5e017e67651587c389af412d7a1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517938"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268441"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Bir Azure sanal ağ veya güvenlik duvarı kurallarını kullanarak bir Azure container registry'ye erişimi kısıtlama
 
@@ -29,6 +29,8 @@ Bu makalede, Azure container registry erişimi sınırlamak için ağ erişim ku
 * Yalnızca bir **Premium** kapsayıcı kayıt defteri ağ erişim kuralları ile yapılandırılabilir. Kayıt defteri hizmet katmanları hakkında daha fazla bilgi için bkz: [Azure Container Registry SKU'ları](container-registry-skus.md). 
 
 * Yalnızca bir [Azure Kubernetes hizmeti](../aks/intro-kubernetes.md) küme veya Azure [sanal makine](../virtual-machines/linux/overview.md) konak olarak bir sanal ağ içindeki bir kapsayıcı kayıt defterine erişim için kullanılabilir. *Azure Container Instances gibi diğer Azure Hizmetleri şu anda desteklenmemektedir.*
+
+* [ACR görevleri](container-registry-tasks-overview.md) operations dağıtılan bir sanal ağ için bir kapsayıcı kayıt defterinde şu anda desteklenmez.
 
 * Her kayıt, en fazla 100 sanal ağ kuralları destekler.
 

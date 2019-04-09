@@ -1,7 +1,7 @@
 ---
 title: Soru-cevap Robotu - Azure robot hizmeti - soru-cevap Oluşturucu
 titleSuffix: Azure Cognitive Services
-description: Bu öğretici Azure portalında Azure Bot hizmeti v3 ile soru-cevap bot oluşturma sürecinde kılavuzluk eder.
+description: Yayımlama sayfasında var olan bir Bilgi Bankası için soru-cevap sohbet Robotu oluşturun. Bu bot, Bot Framework SDK v4 kullanır. Bot oluşturmak için kod yazmanız gerekmez, tüm kod size sağlanır.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
@@ -9,101 +9,80 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/08/2019
 ms.author: tulasim
-ms.openlocfilehash: 218103f2c75ec1016a997c259767ccd011191fab
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879620"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263885"
 ---
-# <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Öğretici: Azure ile soru-cevap Robotu oluşturun Bot hizmeti v3
+# <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Öğretici: Azure ile soru-cevap Robotu oluşturun v4 Bot hizmeti
 
-Bu öğreticide, Azure robot hizmeti v3 ile bir soru-cevap Robotu oluştururken size yol gösteren [Azure portalında](https://portal.azure.com) herhangi bir kod yazmadan. Yayımlanmış bir Bilgi Bankası (KB) bağlanan bir bot için robot uygulama ayarlarını değiştirme olarak kadar kolaydır. 
-
-> [!Note] 
-> Bu konuda Bot SDK'sı için 3 sürümüdür. Sürüm 4 bulabilirsiniz [burada](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs). 
+Gelen bir soru-cevap sohbet Robotu oluşturun **Yayımla** var olan bir Bilgi Bankası için sayfa. Bu bot, Bot Framework SDK v4 kullanır. Bot oluşturmak için kod yazmanız gerekmez, tüm kod size sağlanır.
 
 **Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Soru-cevap Oluşturucu şablonu ile bir Azure Bot hizmeti oluşturma
+> * Azure Bot hizmeti var olan bir Bilgi Bankası oluşturma
 > * Kod çalışıp çalışmadığını denetlemek için bot ile sohbet edin 
-> * İçin robot, yayımlanan KB bağlanma
-> * Bir soru ile bot test
-
-Bu makale için serbest soru-cevap Oluşturucu kullanabilirsiniz [hizmet](../how-to/set-up-qnamaker-service-azure.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğretici için yayımlanan Bilgi Bankası olması gerekir. Biri yoksa adımları [Bilgi Bankası oluşturma](../How-To/create-knowledge-base.md) sorular ve cevaplar ile soru-cevap Oluşturucu hizmetini oluşturmak için.
+Bu öğretici için yayımlanan Bilgi Bankası olması gerekir. Biri yoksa adımları [oluştur ve KB gelen yanıt](create-publish-query-in-portal.md) sorular ve cevaplar ile soru-cevap Oluşturucu Bilgi Bankası oluşturmak için öğretici.
+
+<a name="create-a-knowledge-base-bot"></a>
 
 ## <a name="create-a-qna-bot"></a>Soru-cevap Robotu oluşturun
 
-1. Azure portalda **Kaynak oluştur**’u seçin.
+Bilgi Bankası için bir istemci uygulaması olarak bir bot oluşturulabilir. 
 
-    ![bot hizmeti oluşturma](../media/qnamaker-tutorials-create-bot/bot-service-creation.png)
+1. Soru-cevap Oluşturucu Portalı'nda Git **Yayımla** sayfasında ve, Bilgi Bankası yayımlama. Seçin **Bot oluşturma**. 
 
-2. Arama kutusuna arama **Web App Botu**.
+    ![Soru-cevap Oluşturucu Portalı'nda yayımlama sayfasına gidin ve kendi Bilgi Bankası yayımlama. Bot Oluştur'u seçin.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
 
-    ![bot hizmeti seçimi](../media/qnamaker-tutorials-create-bot/bot-service-selection.png)
+    Azure portal ile bot oluşturma yapılandırma açar.
 
-3. **Robot Hizmeti**'nde gerekli bilgileri sağlayın:
+1.  Bot oluşturma ayarlarını girin:
 
-    - Ayarlama **uygulama adı** botunuzun kişinin adı. Botunuzun (örneğin, mynotesbot.azurewebsites.net) buluta dağıtıldığında alt etki alanı adı kullanılır.
-    - Abonelik, kaynak grubu, App service planı ve konumu seçin.
+    |Ayar|Değer|Amaç|
+    |--|--|--|
+    |Robot adı|`my-tutorial-kb-bot`|Azure kaynağı adı için robot budur.|
+    |Abonelik|Amaç bakın.|Aynı abonelik, soru-cevap Oluşturucu kaynakları oluşturmak için kullanılan seçin.|
+    |Kaynak grubu|`my-tutorial-rg`|Tüm bot ile ilgili Azure kaynakları için kullanılan kaynak grubu.|
+    |Konum|`west us`|Botun Azure kaynak konumu.|
+    |Fiyatlandırma katmanı|`F0`|Ücretsiz katmanı için Azure bot hizmeti.|
+    |Uygulama adı|`my-tutorial-kb-bot-app`|Bu yalnızca botunuzun desteklemek için bir web uygulamasıdır. Soru-cevap Oluşturucu hizmetinizi kullanır bu aynı uygulama adı olmamalıdır. Soru-cevap Oluşturucu'nın web uygulamasını başka bir kaynakla desteklenmiyor.|
+    |SDK dil|C#|Bot framework SDK'sı tarafından kullanılan temel programlama dili budur. Seçenekleriniz şunlardır C# veya Node.js.|
+    |Soru-cevap kimlik doğrulama anahtarı|**Değiştirme**|Bu değer sizin için doldurulur.|
+    |App service planı/konumu|**Değiştirme**|Bu öğretici için konum önemli değildir.|
+    |Azure Storage|**Değiştirme**|Konuşma verileri Azure depolama tablolarında depolanır.|
+    |Application Insights|**Değiştirme**|Günlük kaydı Application Insights'a gönderilir.|
+    |Microsoft uygulama kimliği|**Değiştirme**|Active directory kullanıcı adı ve parola gereklidir.|
 
-4. V3 şablonlarını kullanmak için SDK'sı sürümünü seçin **SDK v3** ve SDK'sı dilini **C#** veya **Node.js**.
+    ![Bilgi Bankası bot bu ayarlarla oluşturun.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base.png)
 
-    ![bot sdk ayarları](../media/qnamaker-tutorials-create-bot/bot-v3.png)
+    Birkaç dakika bot oluşturma işlemi bildirimi başarılı sonuç raporlar kadar bekleyin.
 
-5. Seçin **soru ve yanıt** şablonu için robot şablon alanını, ardından seçerek şablonu ayarlarını kaydedin **seçin**.
-
-    ![bot hizmeti şablonunu Seçimi Kaydet](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
-
-6. Ayarlarınızı gözden geçirin ve ardından **Oluştur**. Bu, oluşturur ve bot hizmeti ile Azure'a dağıtır.
-
-    ![bot oluşturma](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
-
-7. Bot hizmeti dağıtıldığını doğrulayın.
-
-    - Seçin **bildirimleri** (Azure portalının üst kenarı bulunan zil simgesi). Bildirim değiştirilecek **dağıtım başlatıldı** için **dağıtım başarılı**.
-    - Bildirim değişiklikler yapıldıktan sonra **dağıtım başarılı**seçin **kaynağa Git** bu bildirim.
+<a name="test-the-bot"></a>
 
 ## <a name="chat-with-the-bot"></a>Bot ile sohbet edin
 
-Seçme **kaynağa Git** botun kaynağı alır.
+1. Azure portalında yeni bot kaynak gelen bildirim açın. 
 
-Seçin **Test Web sohbeti** Web Chat bölmesinde açmak için. "Hi" Web Chat içinde yazın.
+    ![Azure portalında yeni bot kaynak gelen bildirim açın.](../media/qnamaker-tutorials-create-bot/azure-portal-notifications.png)
 
-![Soru-cevap Robotu web Sohbeti](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat.PNG)
+1. Gelen **Bot Yönetim**seçin **Test Web sohbeti** girin: `How large can my KB be?`. Bot ile yanıt verir: 
 
-Bot yanıt veren "Lütfen QnAKnowledgebaseId ve QnASubscriptionKey uygulama ayarlarında kümesi. Bu yanıt, soru-cevap Robotu bir ileti aldı ancak henüz ilişkili soru-cevap Oluşturucu Bilgi Bankası olduğunu onaylar. 
 
-## <a name="connect-your-qna-maker-knowledge-base-to-the-bot"></a>Soru-cevap Oluşturucu Bankası için robot bağlanma
+    `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment)for more details.`
 
-1. Açık **uygulama ayarları** ve düzenleme **QnAKnowledgebaseId**, **QnAAuthKey**ve **QnAEndpointHostName** içeren alanlar soru-cevap Oluşturucu bankanızı değerleri.
 
-    ![Uygulama ayarları](../media/qnamaker-tutorials-create-bot/application-settings.PNG)
+    ![Yeni Bilgi Bankası bot test edin.](../media/qnamaker-tutorial-create-publish-query-in-portal/test-bot-in-web-chat-in-azure-portal.png)
 
-1. Soru-cevap Oluşturucu Portalı'nda, Bilgi Bankası Ayarlar sekmesinde, Bilgi Bankası kimliği, ana bilgisayar URL'si ve uç noktası anahtarı alın.
-
-   - Oturum [soru-cevap Oluşturucu](https://qnamaker.ai)
-   - Bilgi Bankası'na gidin
-   - Seçin **ayarları** sekmesi
-   - **Yayımlama** bunu yapmadıysanız bilgi bankanızı,
-
-     ![Soru-cevap Oluşturucu değerleri](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
-
-## <a name="test-the-bot"></a>Bot test
-
-Azure portalında **Test Web sohbeti içinde** bot test etmek için. 
-
-![Soru-cevap Oluşturucu Robotu](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat-response.PNG)
-
-Soru-cevap Botunuzun, Bilgi Bankası yanıtlar.
+    Azure bot hakkında daha fazla bilgi için bkz: [soruları yanıtlamak için kullanım soru-cevap Oluşturucu](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)
 
 ## <a name="related-to-qna-maker-bots"></a>Soru-cevap Oluşturucu botlar için ilgili
 
@@ -113,7 +92,11 @@ Soru-cevap Botunuzun, Bilgi Bankası yanıtlar.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu öğreticinin bot ile işiniz bittiğinde, Azure portalında bot kaldırın. Bot hizmetleri şunlardır:
+Bu öğreticinin bot ile işiniz bittiğinde, Azure portalında bot kaldırın. 
+
+Yeni bir kaynak grubu botun kaynaklar oluşturduysanız, kaynak grubunu silin. 
+
+Yeni bir kaynak grubu oluşturmadıysanız, bot ile ilişkili kaynakları bulmak gerekir. Bot ve bot uygulaması adına göre aramak için en kolay yolu olan. Bot kaynakları şunlardır:
 
 * App Service planı
 * Arama hizmeti

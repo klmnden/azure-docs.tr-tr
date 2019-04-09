@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2c6f3d88aae99c419b2507f421cc4dfebb2c022b
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 1d7874d7c8d04e3d3565cdfe2e52e49c538b3091
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100219"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009810"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de parola karmaşıklık gereksinimlerini yapılandırma
 
@@ -23,7 +23,7 @@ Azure Active Directory (Azure AD) B2C, bir hesabı oluştururken bir son kullan�
 
 ## <a name="password-rule-enforcement"></a>Parola kural zorlama
 
-Kaydolma sırasında veya parola sıfırlama, bir son kullanıcı sağlaması gerekir karmaşıklığı kurallarına uyan bir parola. Parola karmaşıklığı kurallarına kullanıcı akışı uygulanır. Bir kullanıcı akışı kaydolma while sırasında başka bir kullanıcı akışı sekiz karakter dizesi kayıt sırasında gerektiren dört basamaklı bir PIN gerekli olması mümkündür. Örneğin, farklı bir parola karmaşıklık kullanıcı akışı yetişkinler alt öğe için kullanabilir.
+Kaydolma sırasında veya parola sıfırlama, bir son kullanıcı sağlaması gerekir karmaşıklığı kurallarına uyan bir parola. Parola karmaşıklığı kurallarına kullanıcı akışı uygulanır. Bir kullanıcı akışı kaydolma while sırasında başka bir kullanıcı akışı sekiz karakter dizisi kayıt sırasında gerektiren dört basamaklı bir PIN gerekli olması mümkündür. Örneğin, farklı bir parola karmaşıklık kullanıcı akışı yetişkinler alt öğe için kullanabilir.
 
 Parola karmaşıklığını hiç oturum açma sırasında zorlanır. Kullanıcıların hiçbir zaman oturum açma sırasında geçerli karmaşıklık gereksinimini karşılamadığı için parola değiştirmesi istenir.
 

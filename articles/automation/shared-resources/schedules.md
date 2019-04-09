@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/22/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d99c6b419ee201be50e74849cd95a332845f5b73
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 483f9092d29fc40937ed9d54510269af2af30872
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623176"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008655"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Azure Otomasyonu’nda runbook zamanlama
 
@@ -156,6 +156,9 @@ Bir zamanlama devre dışı bıraktığınızda, artık bağlı herhangi bir run
 1. Azure portalında Otomasyon hesabınızı seçin **zamanlamaları** bölümünde **paylaşılan kaynakları** soldaki.
 2. Ayrıntılar bölmesinde açmak için bir zamanlama adına tıklayın.
 3. Değişiklik **etkin** için **Hayır**.
+
+> [!NOTE]
+> Geçmişteki bir başlangıç saatine sahip bir zamanlama devre dışı bırakmak isterseniz, bunu kaydetmeden önce zaman gelecekte için başlangıç tarihini değiştirmeniz gerekir.
 
 ### <a name="to-disable-a-schedule-with-powershell"></a>PowerShell ile bir zamanlama devre dışı bırakmak için
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 62a4493204fdc09dbd48b1463e5558fabf9c7c40
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 5c41456f1cf661fd372a565885c9196593c894ee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918051"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267915"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator metin API'si, dil ve bölge desteği
 
@@ -33,7 +33,10 @@ Translator metin çevirisi API'si için metin çevirisi için aşağıdaki dille
 * Sinir varsayılan: Varsayılan çeviri sinir sistemidir. İlgili parametreyi kullanın `category=smt` Microsoft Translator hub'ı ile kullanmak için istatistiksel sistemine erişebilir.
 * Sinir yalnızca: Yalnızca sinirsel çeviri kullanılabilir.
 
-**Translator API v3** V3 Translator API'si, varsayılan olarak sinir ve istatistiksel sistemleri bulunan ve yalnızca sinir sistemi bulunmayan mevcut olduğunda. Özel Translator sinirsel dillerle yalnızca kullanılabilir. [Özel Translator şu anda kullanılabilen dilleri görüntülemek](#customization).
+**Translator API v3** V3 Translator API'si, varsayılan olarak sinir ve istatistiksel sistemleri bulunan ve yalnızca sinir sistemi bulunmayan mevcut olduğunda. 
+
+> [!NOTE]
+> Şu anda özel Translator sinirsel dillerin bir alt kullanılabilir ve daha yavaş yavaş ekliyoruz. [Özel Translator şu anda kullanılabilen dilleri görüntülemek](#customization).
 
 |Dil|  Dil kodu|  V2 API'Sİ| V3 API|
 |:-----|:-----:|:-----|:-----|

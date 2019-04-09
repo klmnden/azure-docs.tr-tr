@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 9fb689a2a6e2c1c309d22836e88a63662fed9832
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: ecbdf182fe2da7413e6d27ef5775dbaa7ad60806
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904840"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270192"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure hesaplarınızdan bir iş ortağı kimliği Bağla
 
@@ -151,9 +151,9 @@ Adresindeki etkileyen gelir raporlama bulabilirsiniz [My öngörüleri Panosu](h
 
 Aşağıdaki nedenlerden dolayı raporlarında müşteri göremiyorum
 
-1. Bağlı kullanıcı hesabı sahip olmadığı [rol tabanlı erişim ](https://docs.microsoft.com/azure/role-based-access-control/overview) herhangi bir müşteri Azure abonelik veya kaynak.
+1. Bağlı kullanıcı hesabı sahip olmadığı [rol tabanlı erişim](https://docs.microsoft.com/azure/role-based-access-control/overview) herhangi bir müşteri Azure abonelik veya kaynak.
 
-2. Kullanıcının sahip olduğu Azure aboneliğini [rol tabanlı erişim ](https://docs.microsoft.com/azure/role-based-access-control/overview) erişimi tüm kullanım yok.
+2. Kullanıcının sahip olduğu Azure aboneliğini [rol tabanlı erişim](https://docs.microsoft.com/azure/role-based-access-control/overview) erişimi tüm kullanım yok.
 
 **İş ortağı kimliği ile Azure Stack çalışır bağlantı mu?**
 

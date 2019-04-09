@@ -3,18 +3,18 @@ title: Performans - Azure HDInsight için Spark işlerini en iyi duruma getirme
 description: Spark kümeleri, en iyi performans için ortak stratejiler gösterilmektedir.
 services: hdinsight
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.openlocfilehash: d1eeedfd91dfe1d4a174a3cbed2c0db826a8d5ab
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: MT
+ms.date: 04/03/2019
+ms.openlocfilehash: b846b19d180bf19a0d023a9cd0b92393132f47d4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117869"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058637"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Apache Spark işlerini iyileştirme
 
@@ -60,8 +60,9 @@ Yeni bir Spark kümesi oluşturduğunuzda, kümenin varsayılan depolama alanı 
 
 | Store türü | Dosya Sistemi | Hız | Geçici | Kullanım Örnekleri |
 | --- | --- | --- | --- | --- |
-| Azure Blob Depolama | **wasb:**//url/ | **Standart** | Evet | Geçici küme |
-| Azure Data Lake Storage | **Adl:**//url/ | **Daha hızlı** | Evet | Geçici küme |
+| Azure Blob Depolama | **wasb [s]:**//url/ | **Standart** | Evet | Geçici küme |
+| Azure Data Lake depolama Gen 2| **abfs [s]:**//url/ | **Daha Hızlı** | Evet | Geçici küme |
+| Azure Data Lake Storage Gen 1| **Adl:**//url/ | **Daha Hızlı** | Evet | Geçici küme |
 | Yerel HDFS | **hdfs:**//url/ | **Hızlı** | Hayır | Etkileşimli 7/24 küme |
 
 ## <a name="use-the-cache"></a>Önbellek kullanma
@@ -215,6 +216,6 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 * [Azure HDInsight üzerinde çalışan Apache Spark işlerinde hata ayıklama](apache-spark-job-debugging.md)
 * [HDInsight üzerinde Apache Spark kümesi kaynaklarını yönetme](apache-spark-resource-manager.md)
 * [Uzak bir Apache Spark kümesine göndermek için Apache Spark REST API kullanma](apache-spark-livy-rest-interface.md)
-* [Apache Spark'ı ayarlama](https://spark.apache.org/docs/latest/tuning.html)
+* [Tuning Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
 * [Bu nedenle gerçekten ayarlamak için Apache Spark işleri nasıl çalışır](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Kryo seri hale getirme](https://github.com/EsotericSoftware/kryo)

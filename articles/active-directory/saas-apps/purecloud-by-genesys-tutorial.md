@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d1cc7735b8caa952a5ab7695d3e1f35b03fec1bb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 764ad8f1ca19238e1986d1d187d19c405963a832
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890687"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267404"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>Öğretici: Azure Active Directory tarafından Genesys PureCloud ile tümleştirmesi
 
@@ -140,20 +140,20 @@ Azure AD çoklu oturum açma PureCloud Genesys tarafından ile yapılandırmak i
 
 6. PureCloud Genesys uygulama tarafından özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekliyor. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
 
-    ![görüntü](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 7. Yukarıdaki için ayrıca PureCloud Genesys uygulama tarafından SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
 
     | Ad | Kaynak özniteliği|
     | ---------------| --------------- |
-    | E-posta | User.userprinicipalname |
+    | Email | User.userprinicipalname |
     | OrganizationName | `Your organization name` |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![görüntü](common/new-save-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![görüntü](common/new-attribute-details.png)
+    ![image](common/new-attribute-details.png)
 
     b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 
@@ -203,7 +203,7 @@ Azure AD çoklu oturum açma PureCloud Genesys tarafından ile yapılandırmak i
 
     ![Çoklu oturum açmayı yapılandırın](./media/purecloud-by-genesys-tutorial/configure06.png)
 
-    e. **Kaydet**'e tıklayın.   
+    e. **Kaydet**’e tıklayın   
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
@@ -290,9 +290,9 @@ PureCloud tarafından erişim panelinde Genesys kutucuğa tıkladığınızda, s
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

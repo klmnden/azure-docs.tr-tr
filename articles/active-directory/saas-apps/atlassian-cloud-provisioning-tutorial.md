@@ -13,75 +13,70 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2019
+ms.date: 03/27/2019
 ms.author: v-ant
-ms.openlocfilehash: ff6a111663df5d7e7f4f517446084ef75b009e59
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f4e76121f7815702270d6601413ff7a4c2c25839
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092710"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056988"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Öğretici: Atlassian bulut için otomatik kullanıcı hazırlama yapılandırın
 
-Bu öğreticinin amacı otomatik olarak sağlamak ve kullanıcılara ve/veya gruplara Atlassian bulut sağlamasını için Atlassian Bulut ve Azure Active Directory (Azure AD) Azure AD yapılandırmak için gerçekleştirilmesi gereken adımlar göstermektir. 
+Bu öğreticinin amacı otomatik olarak sağlamak ve kullanıcılara ve/veya gruplara Atlassian bulut sağlamasını için Atlassian Bulut ve Azure Active Directory (Azure AD) Azure AD yapılandırmak için gerçekleştirilmesi gereken adımlar göstermektir.
 
 > [!NOTE]
 > Bu öğreticide, Azure AD kullanıcı sağlama hizmeti üzerinde oluşturulmuş bir bağlayıcı açıklanmaktadır. Bu hizmet yapar, nasıl çalıştığını ve sık sorulan sorular önemli ayrıntılar için bkz. [otomatik kullanıcı hazırlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına](../manage-apps/user-provisioning.md).
-> 
+>
 > Bu bağlayıcı, şu anda genel Önizleme aşamasındadır. Genel Microsoft Azure için kullanım koşulları Önizleme özellikleri hakkında daha fazla bilgi için bkz. [ek kullanım koşulları, Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide özetlenen senaryo, aşağıdaki önkoşulları zaten sahip olduğunuzu varsayar:
 
-*   Azure AD kiracısı
-*   [Atlassian bulut Kiracı](https://www.atlassian.com/licensing/cloud)
-*   Yönetici izinlerine sahip bir kullanıcı hesabı Atlassian bulutta.
+* Azure AD kiracısı
+* [Atlassian bulut Kiracı](https://www.atlassian.com/licensing/cloud)
+* Yönetici izinlerine sahip bir kullanıcı hesabı Atlassian bulutta.
 
 > [!NOTE]
 > Azure AD tümleştirmesi sağlama dayanan **Atlassian bulut SCIM API**, Atlassian Bulutu takımlara kullanılabildiği.
 
-## <a name="adding-atlassian-cloud-from-the-gallery"></a>Atlassian bulut galeri ekleme
+## <a name="add-atlassian-cloud-from-the-gallery"></a>Atlassian bulut Galeriden Ekle
+
 Atlassian bulut için otomatik kullanıcı hazırlama Azure AD'ye yapılandırmadan önce Atlassian bulut Azure AD uygulama galerisinden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Azure AD uygulama galerisinden Atlassian bulut eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, üzerinde sol gezinti bölmesinde, tıklayarak **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde seçin **Azure Active Directory**.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar** > **tüm uygulamaları**.
+2. Git **kurumsal uygulamalar**ve ardından **tüm uygulamaları**.
 
-    ![Kurumsal uygulamalar bölümü][2]
-    
-3. Atlassian bulut eklemek için tıklatın **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Yeni Uygulama düğmesi][3]
+3. Yeni bir uygulama eklemek için seçin **yeni uygulama** bölmenin üstünde düğme.
 
-4. Arama kutusuna **Atlassian bulut**.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Atlassian bulut sağlama](./media/atlassian-cloud-provisioning-tutorial/app-search.png)
+4. Arama kutusuna **Atlassian bulut**seçin **Atlassian bulut** sonuçlar paneli ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-5. Sonuçlar panelinde seçin **Atlassian bulut**ve ardından **Ekle** düğmesini Atlassian bulut SaaS uygulamaları listenize ekleyin.
-
-    ![Atlassian bulut sağlama](./media/atlassian-cloud-provisioning-tutorial/app-create.png)
-
-    ![Atlassian bulut sağlama](./media/atlassian-cloud-provisioning-tutorial/app-instance.png)
+    ![Sonuç listesinde Atlassian bulut](common/search-new-app.png)
 
 ## <a name="assigning-users-to-atlassian-cloud"></a>Atlassian buluta kullanıcıları atama
 
-Azure Active Directory "atamaları" adlı bir kavram, hangi kullanıcıların seçilen uygulamalara erişimi alması belirlemek için kullanır. Otomatik kullanıcı hazırlama bağlamında, yalnızca kullanıcı ve/veya "Azure AD'de bir uygulama için atandı" grupları eşitlenir. 
+Azure Active Directory kullanan adlı bir kavram *atamaları* hangi kullanıcıların seçilen uygulamalara erişimi alması belirlemek için. Otomatik kullanıcı hazırlama bağlamında, yalnızca kullanıcı ve/veya Azure AD'de bir uygulamaya atanan gruplar eşitlenir.
 
 Yapılandırma ve otomatik kullanıcı hazırlama etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD'de grupları Atlassian bulut erişmesi karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek Atlassian buluta bu kullanıcılara ve/veya grupları atayabilirsiniz:
 
-*   [Kurumsal bir uygulamayı kullanıcı veya grup atama](../manage-apps/assign-user-or-group-access-portal.md)
+* [Kurumsal bir uygulamayı kullanıcı veya grup atama](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-atlassian-cloud"></a>Kullanıcılar, Atlassian buluta atamak için önemli ipuçları
 
-*   Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmasını otomatik kullanıcı test etmek için Atlassian buluta atanır. Ek kullanıcılar ve/veya grupları daha sonra atanabilir.
+* Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmasını otomatik kullanıcı test etmek için Atlassian buluta atanır. Ek kullanıcılar ve/veya grupları daha sonra atanabilir.
 
-*   Atlassian buluta kullanıcı atama, atama iletişim kutusunda (varsa) geçerli bir uygulamaya özgü rolü seçmeniz gerekir. Kullanıcılarla **varsayılan erişim** rol sağlamasından dışlanır.
+* Atlassian buluta kullanıcı atama, atama iletişim kutusunda (varsa) geçerli bir uygulamaya özgü rolü seçmeniz gerekir. Kullanıcılarla **varsayılan erişim** rol sağlamasından dışlanır.
 
 ## <a name="configuring-automatic-user-provisioning-to-atlassian-cloud"></a>Atlassian bulut için otomatik kullanıcı sağlamayı yapılandırma 
 
@@ -92,14 +87,16 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 
 ### <a name="to-configure-automatic-user-provisioning-for-atlassian-cloud-in-azure-ad"></a>Azure AD'de Atlassian bulut için otomatik kullanıcı hazırlama yapılandırmak için:
 
-1. Oturum [Azure portalında](https://portal.azure.com) ve **Azure Active Directory > Kurumsal uygulamalar > tüm uygulamaları**.
+1. Oturum [Azure portalında](https://portal.azure.com) seçip **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Atlassian bulut**.
 
-2. Atlassian bulut SaaS uygulamaları listesinden seçin.
- 
-    ![Atlassian bulut sağlama](./media/atlassian-cloud-provisioning-tutorial/application-instance-search.png)
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
+2. Uygulamalar listesinde **Atlassian bulut**.
+
+    ![Uygulamalar listesinde Atlassian bulut bağlantısı](common/all-applications.png)
 
 3. Seçin **sağlama** sekmesi.
-    
+
     ![Atlassian bulut sağlama](./media/atlassian-cloud-provisioning-tutorial/provisioning-tab.png)
 
 4. Ayarlama **hazırlama modu** için **otomatik**.
@@ -108,20 +105,20 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 
 5. Altında **yönetici kimlik bilgileri** giriş bölümünde **Kiracı URL'si** ve **gizli belirteç** Atlassian bulutun hesabının. Bu değerleri örnekleri şunlardır:
 
-   * İçinde **Kiracı URL'si** alanında, adım 6'da açıklandığı gibi Atlassian aldığınız özel Kiracı uç noktası doldurun. Örneğin: **https://api.atlassian.com/scim/directory/{directoryId}**
+   * İçinde **Kiracı URL'si** alanında, adım 6'da açıklandığı gibi Atlassian aldığınız özel Kiracı uç noktası doldurun. Örneğin: `https://api.atlassian.com/scim/directory/{directoryId}`.
 
    * İçinde **gizli belirteç** alanında, adım 6'da açıklandığı gibi gizli belirteç doldurun.
 
 6. Gidin [Atlassian kuruluş yöneticisi](https://admin.atlassian.com) **> Kullanıcı sağlamayı** tıklayın **belirteç oluşturma**. Kopyalama **dizini temel URL'si** ve **taşıyıcı belirteci** için **Kiracı URL'si** ve **gizli belirteç** sırasıyla alanları.
 
     ![Atlassian sağlama bulut](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![Atlassian bulut sağlama](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png)
-    
+
     ![Atlassian bulut sağlama](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
 
 7. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD, Atlassian buluta bağlanabilirsiniz. Bağlantı başarısız olursa, Atlassian bulut hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
 
     ![Atlassian bulut sağlama](./media/atlassian-cloud-provisioning-tutorial/test-connection.png)
-    
+
 8. İçinde **bildirim e-posta** alanında, bir kişi veya grubun ve sağlama hata bildirimleri almak - onay e-posta adresi girin **birhataoluşursa,bire-postabildirimigönder**.
 
     ![Atlassian bulut sağlama](./media/atlassian-cloud-provisioning-tutorial/notification.png)
@@ -158,7 +155,6 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 
     ![Atlassian bulut sağlama](./media/atlassian-cloud-provisioning-tutorial/save.png)
 
-
 Bu işlem, tüm kullanıcıların ilk eşitleme başlar ve/veya tanımlı gruplar **kapsam** içinde **ayarları** bölümü. İlk eşitleme yaklaşık 40 dakikada Azure AD sağlama hizmeti çalışıyor sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve sağlama hizmeti Atlassian bulut üzerinde Azure AD tarafından gerçekleştirilen tüm eylemler açıklayan Etkinlik Raporu sağlama için bağlantıları izleyin.
 
 Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
@@ -172,7 +168,7 @@ Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [he
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Kullanıcı hesabı, kurumsal uygulamalar için sağlamayı yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

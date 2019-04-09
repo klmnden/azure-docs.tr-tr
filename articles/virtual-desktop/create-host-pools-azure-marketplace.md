@@ -5,16 +5,16 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: cc404c84bf855ab6e49d13207f40b9faa32cdbb2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f539a71fccca116ee031781df855ec55158eb63a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399880"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257459"
 ---
-# <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Öğretici: Azure Marketi ile konak havuz oluşturma
+# <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Öğretici: Azure Market ile ana bilgisayar havuzu oluşturma
 
 Ana bilgisayar havuzları, Windows sanal masaüstü Önizleme Kiracı ortamlar içinde bir veya daha fazla aynı sanal makinelerden oluşan bir koleksiyondur. Her konak havuzu, fiziksel masaüstünde yaptıkları gibi kullanıcı etkileşim kurabilir bir uygulama grubu içerebilir.
 
@@ -116,6 +116,9 @@ Geçerli desteklenen istemciler şunlardır:
 
 - [Windows 7 ve Windows 10 için Uzak Masaüstü İstemcisi](connect-windows-7-and-10.md)
 - [Windows sanal masaüstü web istemcisi](connect-web.md)
+
+>[!IMPORTANT]
+>Güvenliğini sağlamaya yardımcı olmak için azure'da Windows sanal masaüstü ortamınızı Vm'lerinizde gelen bağlantı noktası 3389 açmayın öneririz. Windows sanal masaüstü açık bir konak havuzun Vm'leri erişmek kullanıcılar için 3389 numaralı gelen bağlantı noktası gerektirmez. Sorun giderme amacıyla 3389 numaralı bağlantı noktası açmanız gerekiyorsa, kullanmanızı öneririz [tam zamanında VM erişimi](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

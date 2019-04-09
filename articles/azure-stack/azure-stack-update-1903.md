@@ -16,12 +16,12 @@ ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: a62c4dced78ef75588ef0fcc90e56bd6969c15a9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 218af82d2385632e7e7a0e77060c5deb758d1e83
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2019
-ms.locfileid: "59048818"
+ms.locfileid: "59057062"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 güncelleştirme
 
@@ -156,6 +156,9 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
    - Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin. [bu makalede](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
 
 - Bir Ubuntu 18.04 etkinleştirilmiş SSH yetkilendirme ile oluşturulan VM, oturum açmak için SSH anahtarları kullanmak izin vermez. Geçici bir çözüm olarak VM erişimi Linux uzantısı için SSH anahtarları sağladıktan sonra uygulamak için kullanmak veya parola tabanlı kimlik doğrulaması kullanın.
+
+- Azure Stack artık 2.2.20 sürümden daha yüksek bir Windows Azure Linux aracıları desteklemektedir. Bu destek 1901 ve 1902 düzeltmenin bir parçası olan ve müşterilerin Azure ve Azure Stack arasında tutarlı linux görüntüleri tutmak olanak tanır.
+
 
 - Bir donanım yaşam döngüsü ana bilgisayar (HLH) yoksa: Grup İlkesi ayarlamak zorunda 1902 derlemeden önce **Bilgisayar Yapılandırması\Windows Ayarları\Güvenlik Ayarları\Yerel İlkeler\Güvenlik Seçenekleri** için **Gönder NTLM'yi – NTLMv2 oturum güvenliği anlaşması kullanırsanız**. 1902 yapıdan beri olarak bırakmalısınız **tanımlanmamış** veya ayarlayın **yalnızca Gönder NTLMv2 yanıtı** (varsayılan değer olmayan). Aksi halde, bir PowerShell uzak oturumu oluşturmanız mümkün olmayacaktır ve göreceğiniz bir **erişim reddedildi** hata:
 

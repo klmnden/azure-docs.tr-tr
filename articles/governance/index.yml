@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 985f620caaa329b48b00d6ce586e7dcefbf5869d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341242"
 documentType: LandingData
 title: Azure Yönetimi - Governance
 metadata:
   title: Azure Yönetimi - Governance
   description: Özel tasarımlar ve kurallar ile ortamınızı tutarlı bir şekilde yönetmek ve uyumluluk açısından denetlemek için kullanabileceğiniz kavramlar ve Azure hizmetleri hakkında bilgi edinin.
-  services: governance
   author: DCtheGeek
   manager: carmonm
   ms.service: governance
@@ -18,58 +11,58 @@ metadata:
   ms.date: 09/18/2018
   ms.author: dacoulte
 abstract:
-  description: Azure Governance, farklı Azure kaynaklarınızı tüm ölçeklerde yönetmenizi sağlayan kavramlardan ve hizmetlerden oluşan bir koleksiyondur. Bu hizmetler aboneliklerinizi mantıksal bir şekilde düzenlemenizi ve yapılandırmanızı, yeniden kullanılabilir ve yerel Azure kaynak paketleri oluşturup dağıtmanızı, kaynaklarınızı tanımlama, denetleme ve düzeltme gibi birçok işlem gerçekleştirmenizi sağlar. Bu kavramlar ve hizmetler hakkında daha fazla bilgi edinmek ve bunları ortamınızda etkinleştirmek ve kullanmak için yapmanız gerekenleri öğrenmek için bu sayfayı kullanın.
+  description: 'Azure Governance, farklı Azure kaynaklarınızı tüm ölçeklerde yönetmenizi sağlayan kavramlardan ve hizmetlerden oluşan bir koleksiyondur. Bu hizmetler aboneliklerinizi mantıksal bir şekilde düzenlemenizi ve yapılandırmanızı, yeniden kullanılabilir ve yerel Azure kaynak paketleri oluşturup dağıtmanızı, kaynaklarınızı tanımlama, denetleme ve düzeltme gibi birçok işlem gerçekleştirmenizi sağlar. Bu kavramlar ve hizmetler hakkında daha fazla bilgi edinmek ve bunları ortamınızda etkinleştirmek ve kullanmak için yapmanız gerekenleri öğrenmek için bu sayfayı kullanın.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 225
       src: ./media/video.png
       width: 250
-    title: Azure Governance ile kaynaklar üzerinde hız ve denetim elde edin (1:47)
-    href: https://www.youtube.com/watch?v=MhGbKjlmuRs
+    title: 'Azure Governance ile kaynaklar üzerinde hız ve denetim elde edin (1:47)'
+    href: 'https://www.youtube.com/watch?v=MhGbKjlmuRs'
     width: 250
 sections:
-- title: Bileşenler ve Hizmetler
-- items:
-  - type: list
-    style: cards
-    className: cardsD
-    columns: 2
-    items:
-    - href: ./management-groups/overview
-      html: <p>Aboneliklerinizi gruplamayı ve diğer Governance hizmetlerinin yapılandırılmış bir şekilde dağıtılmasını destekleyen mantıksal bir hiyerarşi halinde düzenlemeyi öğrenin.<br /></p>
-      image:
-        alt: Yönetim Grupları
-        src: ./media/management-groups-illustration.svg
-      title: Yönetim Grupları
-    - href: ./resource-graph/
-      html: <p>Güçlü bir komut satırı aracı (Azure CLI ve Azure PowerShell destekler) kullanarak Azure kaynaklarınızla ilgili karmaşık bilgileri hızlıca sorgulayın. Geniş ölçekteki kaynakları keşfetmek için karmaşık ve yinelemeli betikler kullanmanızı gerektiren bilgileri hızlıca bulun ve kullanıma sunun.</p>
-      image:
-        alt: Kaynak Grafiği
-        src: ./media/resource-graph-illustration.svg
-      title: Kaynak Grafiği
-    - href: ./policy/
-      html: <p>Ortamınızdaki kaynaklar için standartlar belirleyin ve bunları uygulayın. İstenmeyen kaynakların oluşturulmasını önleyin, yeni kaynakları ek öğelerle geliştirin ve ortamınızdaki kaynakları denetleyip düzeltin.</p>
-      image:
-        alt: İlke
-        src: ./media/policy-illustration.svg
-      title: İlke
-    - href: ./blueprints/
-      html: <p>Tutarlı ve tekrarlanabilir ortamlar oluşturmak için aboneliklere dinamik olarak dağıtılabilecek yerel Azure <i>yapıt</i> (kaynak grupları, ilkeler, rol atamaları, Resource Manager şablonları ve diğerleri) paketi oluşturun.</p>
-      image:
-        alt: Şemalar
-        src: ./media/blueprints-illustration.svg
-      title: Şemalar
-- title: Uygulamalar
-- items:
-  - type: list
-    style: cards
-    className: cardsZ
-    columns: 3
-    items:
-    - href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-      html: <p>Eskiden kuruluşlar, altyapıdan yazılıma kadar tüm teknoloji düzeylerinin sahipliğini ve sorumluluğunu üstlenirdi. Şimdi ise bulut, kuruluşların kaynakları gerektiği şekilde sağlayıp kullanarak teknolojiden yararlanma biçiminde dönüşüm gerçekleştirme fırsatı sunuyor.</p>
-      title: Kurumsal Bulut Benimsemesi
-    - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-      html: <p>İş gruplarının ve geliştiricilerin kendi hedeflerine hızlıca ulaşmasını önlemeden yöneticilerin iş yüklerinin kuruluşun minimum yönetim gereksinimlerini karşıladığından emin olmasını sağlar.<br /><br /></p>
-      title: Kurumsal İskele
+  - title: Bileşenler ve Hizmetler
+  - items:
+      - type: list
+        style: cards
+        className: cardsD
+        columns: 2
+        items:
+          - href: ./management-groups/overview
+            html: <p>Aboneliklerinizi gruplamayı ve diğer Governance hizmetlerinin yapılandırılmış bir şekilde dağıtılmasını destekleyen mantıksal bir hiyerarşi halinde düzenlemeyi öğrenin.<br /></p>
+            image:
+              alt: Yönetim Grupları
+              src: ./media/management-groups-illustration.svg
+            title: Yönetim Grupları
+          - href: ./resource-graph/
+            html: <p>Güçlü bir komut satırı aracı (Azure CLI ve Azure PowerShell destekler) kullanarak Azure kaynaklarınızla ilgili karmaşık bilgileri hızlıca sorgulayın. Geniş ölçekteki kaynakları keşfetmek için karmaşık ve yinelemeli betikler kullanmanızı gerektiren bilgileri hızlıca bulun ve kullanıma sunun.</p>
+            image:
+              alt: Kaynak Grafiği
+              src: ./media/resource-graph-illustration.svg
+            title: Kaynak Grafiği
+          - href: ./policy/
+            html: '<p>Ortamınızdaki kaynaklar için standartlar belirleyin ve bunları uygulayın. İstenmeyen kaynakların oluşturulmasını önleyin, yeni kaynakları ek öğelerle geliştirin ve ortamınızdaki kaynakları denetleyip düzeltin.</p>'
+            image:
+              alt: İlke
+              src: ./media/policy-illustration.svg
+            title: İlke
+          - href: ./blueprints/
+            html: '<p>Tutarlı ve tekrarlanabilir ortamlar oluşturmak için aboneliklere dinamik olarak dağıtılabilecek yerel Azure <i>yapıt</i> (kaynak grupları, ilkeler, rol atamaları, Resource Manager şablonları ve diğerleri) paketi oluşturun.</p>'
+            image:
+              alt: Şemalar
+              src: ./media/blueprints-illustration.svg
+            title: Şemalar
+  - title: Uygulamalar
+  - items:
+      - type: list
+        style: cards
+        className: cardsZ
+        columns: 3
+        items:
+          - href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
+            html: '<p>Eskiden kuruluşlar, altyapıdan yazılıma kadar tüm teknoloji düzeylerinin sahipliğini ve sorumluluğunu üstlenirdi. Şimdi ise bulut, kuruluşların kaynakları gerektiği şekilde sağlayıp kullanarak teknolojiden yararlanma biçiminde dönüşüm gerçekleştirme fırsatı sunuyor.</p>'
+            title: Kurumsal Bulut Benimsemesi
+          - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
+            html: <p>İş gruplarının ve geliştiricilerin kendi hedeflerine hızlıca ulaşmasını önlemeden yöneticilerin iş yüklerinin kuruluşun minimum yönetim gereksinimlerini karşıladığından emin olmasını sağlar.<br /><br /></p>
+            title: Kurumsal İskele

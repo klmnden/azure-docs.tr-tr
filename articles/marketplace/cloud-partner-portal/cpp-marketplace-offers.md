@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: fd51a9f70d60219a9429ff66d6f1d404391f6fb0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f537a43f5d4d0431e1659daa258e0c1453f2295b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446718"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010592"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure ve AppSource Market teklifleri
 
@@ -56,11 +56,11 @@ Tarafından desteklenen geçerli teklif türleri aşağıdaki tabloda [bulut iş
 | [Danışmanlık hizmeti](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | Her ikisi de | Microsoft ile nitelenen danışmanlar özel etki alanı hizmetlerini Azure Market veya Appsource'ta listeleyebilirsiniz.  Uzmanlara sorunlarını değerlendirme oluşturma ve doğru çözümleri dağıtma müşterilerin kendi iş hedeflerinize ulaşmanızı yardımcı olur.  |
 | [Kapsayıcı](./containers/cpp-containers-offer.md)  | Azure | Kubernetes tabanlı bir hizmet veya Azure Container Instances olarak sağlanan bir Docker kapsayıcı görüntüsü çözümüdür. |
 | [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Bu Kurumsal Kaynak planlama (ERP) genişleten paketi ve iş yönetim sistemi. |
-| [Dynamics 365 müşteri katılımı için](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Bu müşteri genişleten bir paketi, satış, hizmet, proje hizmeti ve alan hizmet modülleri aracılığıyla kaynak yönetimi (CRM) sistemi.  |
-| [Finans ve operasyon için Dynamics 365](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Bu Kurumsal Kaynak planlama (ERP) hizmeti bu Gelişmiş destekler Finans, işlemler, üretim ve tedarik zinciri yönetimi genişleten bir paket. |
-| [IOT Edge Modülü](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Bir IOT Edge cihazında çalıştırılır ve Docker ile uyumlu kapsayıcısı.  Bu, özel kod, diğer Azure Hizmetleri ve 3. taraf hizmetleri kullanan küçük hesaplama modüller içerir. |
-| [Power BI uygulaması](./power-bi/cpp-power-bi-offer.md) | AppSource | Veri akışlarını raporlar ve panolar ortak veri depolama biriminde bulunan verilere bağlanmak için kullandığı bir paket. |
-| [SaaS uygulama](./saas-app/cpp-saas-offer.md) | Azure | Hangi kullanıcıların Azure Active Directory'den yararlanır özelleştirilmiş bir arabirim oturum açın bir yayımcı tarafından yönetilen bir hizmet olarak yazılım abonelikte çözümüdür. |
+| [Müşteri Etkileşimi için Dynamics 365](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Bu müşteri genişleten bir paket kaynak yönetimi (CRM) sistemi, satış, hizmet, proje hizmeti ve alan hizmeti modülleri  |
+| [Finans ve operasyon için Dynamics 365](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Bu Kurumsal Kaynak planlama (ERP) hizmeti bu Gelişmiş destekler Finans, işlemler, üretim ve tedarik zinciri yönetimi genişleten bir paket |
+| [IoT Edge modülü](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Bir IOT Edge cihazında çalıştırılır ve Docker ile uyumlu kapsayıcısı.  Bu, özel kod, diğer Azure Hizmetleri ve 3. taraf hizmetleri kullanan küçük hesaplama modüller içerir. |
+| [Power BI uygulaması](./power-bi/cpp-power-bi-offer.md) | AppSource | Veri kümeleri, raporlar ve panolar da dahil olmak üzere özelleştirilebilir Power BI içerik paketleri bir Power BI uygulaması |
+| [SaaS uygulama](./saas-app/cpp-saas-offer.md) | Azure | Hangi kullanıcıların Azure Active Directory kullanan özelleştirilmiş bir arabirim oturum açın bir yayımcı tarafından yönetilen bir hizmet olarak yazılım abonelikte çözümüdür. |
 | [Sanal makine](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | Çözüm, müşterinin hizmet aboneliği dağıtılan tek bir sanal makine içinde yer alır.  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |
 
@@ -69,4 +69,4 @@ Daha fazla bilgi için [yayımlama Kılavuzu'nu teklif türüne göre](../publis
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Market teklifleri ve ortak teknik öznitelikler ve varlıklar konusunda gerçekleştirebileceğiniz genel işlemler hakkında bilgi edineceksiniz [Yönetme Teklifler](./manage-offers/cpp-manage-offers.md).
+Market teklifleri ve ortak teknik öznitelikler ve varlıklar makaledeki gerçekleştirebileceğiniz genel işlemler hakkında bilgi edineceksiniz [Yönetme Teklifler](./manage-offers/cpp-manage-offers.md).

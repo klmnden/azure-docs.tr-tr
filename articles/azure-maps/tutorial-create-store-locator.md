@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6e43c607c2dc67054bde7689d50e495a59e6b659
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 61fdaec79e563ba4d87e73b22aba52a5c3f8251b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540865"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270812"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Azure haritalar'ı kullanarak bir depolama Bulucu
 
@@ -132,14 +132,14 @@ Kullanıcı arabirimi oluşturmak için kodu ekleyin. *index.html*:
 1. Azure haritalar web denetimi JavaScript ve CSS dosyalarındaki başvuruları ekleyin:
 
     ```HTML
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
 1. Azure haritalar Hizmetleri modülüne bir başvuru ekleyin. Azure haritalar REST Hizmetleri sarmalar ve kullanımı kolay javascript'teki yaptığına bir JavaScript kitaplığı modülüdür. Modül, arama işlevselliği destekleyen için kullanışlıdır.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
     ```
 
 1. Başvuruları Ekle *index.js* ve *index.css*:
@@ -454,7 +454,7 @@ Bu noktada, her şeyi kullanıcı arabiriminin ayarlanır. Şimdi, yüklemek ve 
         //Wait until the map resources are ready.
         map.events.add('ready', function() {
 
-        //Add your post-map load functionality.
+            //Add your post-map load functionality.
 
         });
     }
@@ -516,7 +516,7 @@ Bu noktada, her şeyi kullanıcı arabiriminin ayarlanır. Şimdi, yüklemek ve 
     window.onload = initialize;
     ```
 
-1. Haritanın içinde `load` olay dinleyicisi, yakınlaştırma denetimi ve arama alanının görüntülemek için bir HTML işaret ekleyin.
+1. Haritanın içinde `ready` olay dinleyicisi, yakınlaştırma denetimi ve arama alanının görüntülemek için bir HTML işaret ekleyin.
 
     ```JavaScript
     //Add a zoom control to the map.
@@ -533,7 +533,7 @@ Bu noktada, her şeyi kullanıcı arabiriminin ayarlanır. Şimdi, yüklemek ve 
     map.markers.add(centerMarker);
     ```
 
-1. Haritanın içinde `load` olay dinleyicisi, bir veri kaynağı ekleyin. Sonra veri kümesi yüklenemedi ve bir çağrı yapın. Veri kaynağında kümeleme etkinleştirin. Verileri kaynak grupları noktaları bir kümede birlikte çakışan kümeleme. Kümeler ayrı kullanıcı olarak tek tek noktaları halinde yakınlaştırır. Bu deneyimi daha akıcı bir kullanıcının yaptığı ve performansı artırır.
+1. Haritanın içinde `ready` olay dinleyicisi, bir veri kaynağı ekleyin. Sonra veri kümesi yüklenemedi ve bir çağrı yapın. Veri kaynağında kümeleme etkinleştirin. Verileri kaynak grupları noktaları bir kümede birlikte çakışan kümeleme. Kümeler ayrı kullanıcı olarak tek tek noktaları halinde yakınlaştırır. Bu deneyimi daha akıcı bir kullanıcının yaptığı ve performansı artırır.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -548,7 +548,7 @@ Bu noktada, her şeyi kullanıcı arabiriminin ayarlanır. Şimdi, yüklemek ve 
     loadStoreData();
     ```
 
-1. Haritanın kümesinde yükledikten sonra `load` katmanları verileri işlemek için bir dizi olay dinleyicisi tanımlayın. Kabarcık katman, kümelenmiş veri noktaları işlemek için kullanılır. Bir sembol katman, her kümede Kabarcık katmanının noktalarının sayısını işlemek için kullanılır. İkinci bir sembol katmanı harita üzerinde tek tek konumları için özel bir simge oluşturur.
+1. Haritanın kümesinde yükledikten sonra `ready` katmanları verileri işlemek için bir dizi olay dinleyicisi tanımlayın. Kabarcık katman, kümelenmiş veri noktaları işlemek için kullanılır. Bir sembol katman, her kümede Kabarcık katmanının noktalarının sayısını işlemek için kullanılır. İkinci bir sembol katmanı harita üzerinde tek tek konumları için özel bir simge oluşturur.
 
    Ekleme `mouseover` ve `mouseout` kullanıcı bir küme veya harita üzerinde simge üzerine geldiğinde fare imlecini değiştirmek için Kabarcık ve simge katmanlarını olayları. Ekleme bir `click` küme Kabarcık katmana olay. Bu `click` olay iki düzeyi haritada yakınlaştırıldığını ve kullanıcı herhangi bir küme seçtiğinde harita üzerinde bir küme ortalar. Ekleme bir `click` simgesi katmana olay. Bu `click` olay, bir kullanıcı bir tek konum simgeyi seçtiğinde bir kahve Dükkanı ayrıntılarını gösteren bir açılır pencere görüntüler. Haritaya harita Taşıma tamamlandığında izlemek için bir olay ekleyin. Bu olayı tetikler, liste bölmesi öğeleri güncelleştirin.  
 
@@ -959,7 +959,7 @@ Bu öğreticiye ait kod örneğine şuradan erişebilirsiniz:
 
 > [Azure haritalar'ı kullanarak bir depolama Bulucu](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
 
-[Burada canlı örneği inceleyin](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
+[Burada Canlı örnek bakın](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
 
 Azure Haritalar'ın kapsamı ve özellikleri hakkında daha fazla bilgi edinmek için:
 
@@ -969,4 +969,7 @@ Azure Haritalar'ın kapsamı ve özellikleri hakkında daha fazla bilgi edinmek 
 Daha fazla kod örneği ve etkileşimli bir kodlama deneyimi için:
 
 > [!div class="nextstepaction"]
-> [Harita denetimini kullanma](how-to-use-map-control.md)
+> [Harita Denetimi'ni kullanma](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]
+> [Veri odaklı stili ifadeleri kullanma](data-driven-style-expressions-web-sdk.md)

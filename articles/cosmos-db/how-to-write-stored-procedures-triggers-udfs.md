@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9f890a8468eaa22fbfce326fc16afe545fd515d6
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339321"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268437"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Azure Cosmos DB'de saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler yazma
 
@@ -279,7 +279,7 @@ function updateMetadataCallback(err, items, responseOptions) {
 }
 ```
 
-Dikkat edilecek önemli olan bir Azure Cosmos DB Tetikleyicileri işlem tabanlı olarak yürütülmesi şeydir. Bu sonrası Tetikleyici oluşturma Azure Cosmos DB öğe tarafından kullanılan aynı işlemin bir parçası olarak çalışır. Bu nedenle, sonrası tetikleyici yürütülürken bir özel durum alırsanız, örneğin, meta veri öğesini güncelleştiremiyor tüm işlem başarısız olur ve geri alınır. Bu nedenle Azure Cosmos DB öğesi oluşturulur ve bir özel durum döndürdü.
+Dikkat edilecek önemli olan bir Azure Cosmos DB Tetikleyicileri işlem tabanlı olarak yürütülmesi şeydir. Temel alınan öğe için aynı işlemin bir parçası olarak sonrası tetikleyici çalıştırır. Tüm işlem sonrası tetikleyici yürütme sırasında bir özel durumla başarısız olur. Herhangi bir şey kabul edilen geri alınacak ve bir özel durum döndürdü.
 
 Kaydolun ve öncesi bir tetikleyici çağırmak nasıl bir örnekleri için bkz: [öncesi Tetikleyicileri](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) ve [sonrası Tetikleyicileri](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) makaleler. 
 

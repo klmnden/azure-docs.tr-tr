@@ -11,20 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2018
+ms.date: 04/08/2019
 ms.author: celested
 ms.reviewer: tomfitz
+ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a8311e359b5afa84020227de309e8b153a7ccda
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: ee12cb2a0fdd4547ffae8dfce4fddee03167e539
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238071"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257425"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Nasıl yapılır: Bir Azure AD uygulaması ve kaynaklara erişebilen hizmet sorumlusu oluşturmak için portalı kullanma
 
-Erişim ya da kaynakları değiştirmek için gereken kodu varsa, uygulama için bir kimlik oluşturabilirsiniz. Bu kimlik, hizmet sorumlusu olarak bilinir. Ardından, hizmet sorumlusuna gerekli izinleri atayabilirsiniz. Bu makalede hizmet sorumlusu oluşturmak için portalı kullanmayı gösterir. Tek kiracılı bir uygulama yalnızca bir kuruluş içinde çalıştırmak için uygulamayı nerede yöneliktir odaklanır. Genellikle tek kiracılı uygulamalar kuruluşunuzda çalışan satır iş kolu uygulamaları için kullanırsınız.
+Bu makalede yeni bir Azure Active Directory uygulaması ve hizmet sorumlusu, rol tabanlı erişim denetimi ile kullanılabilir oluşturma işlemini gösterir. Erişim ya da kaynakları değiştirmek için gereken kodu varsa, uygulama için bir kimlik oluşturabilirsiniz. Bu kimlik, hizmet sorumlusu olarak bilinir. Ardından, hizmet sorumlusuna gerekli izinleri atayabilirsiniz. Bu makalede hizmet sorumlusu oluşturmak için portalı kullanmayı gösterir. Tek kiracılı bir uygulama yalnızca bir kuruluş içinde çalıştırmak için uygulamayı nerede yöneliktir odaklanır. Genellikle tek kiracılı uygulamalar kuruluşunuzda çalışan satır iş kolu uygulamaları için kullanırsınız.
 
 > [!IMPORTANT]
 > Bir hizmet sorumlusu oluşturmak yerine, uygulama kimliğiniz için Azure kaynakları için yönetilen kimliklerle göz önünde bulundurun. Kodunuzu Yönetilen kimlikleri ve Azure Active Directory (Azure AD) kimlik doğrulamasını destekleyen erişimleri kaynak destekleyen bir hizmeti çalıştıran yönetilen kimlikleri sizin için daha iyi bir seçenek vardır. Hangi şu anda, Destek Hizmetleri dahil olmak üzere, Azure kaynakları için yönetilen kimlikler hakkında daha fazla bilgi için bkz. [Azure kaynakları için yönetilen kimlikleri nedir?](../managed-identities-azure-resources/overview.md).

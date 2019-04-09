@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1dda3e379a9dcec9dc48d741c107ee352c4f2033
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404646"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057158"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Azure için Avere vFXT hakkında SSS
 
@@ -200,6 +200,14 @@ Gecikmeye duyarlı ortamlar için 1 GB/sn ile bir minimum bağlantı hızı fibe
 
 Hayır, en iyi yöntemler güvenli bir ağ ortamında yapılacak Avere vFXT yöneliktir.  
 
+### <a name="can-i-restrict-internet-access-from-my-clusters-virtual-network"></a>My kümenin sanal ağdan internet erişiminin kısıtlandığı? 
+
+Genel olarak, ek güvenlik gerektiğinde sanal ağınızda yapılandırabilirsiniz, ancak bazı kısıtlamalar ile küme işlemi engelleyebilir.
+
+Açıkça AzureConnectors ve AzureCloud erişim izin veren kuralları da eklemediğiniz sürece, ağınızdan giden internet erişimi kısıtlama sorunlara küme için neden olur. Bu durumda açıklanan [ek belgeleri github'da](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+
+Bölümünde anlatıldığı gibi özelleştirilmiş güvenlik konusunda yardım için desteğe başvurun [sisteminizle Yardım Al](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
+
 ## <a name="technical-back-end-storage-core-filers"></a>Teknik: Arka uç depolama (çekirdek filtrelerin)
 
 ### <a name="how-many-core-filers-does-a-single-avere-vfxt-environment-support"></a>Kaç tane çekirdek filtrelerin tek bir Avere vFXT ortam destekliyor mu?
@@ -281,6 +289,6 @@ Azure için Avere vFXT ile çalışmaya başlamak için planlama ve kendi sistem
 * [Avere vFXT sisteminizi planlama](avere-vfxt-deploy-plan.md)
 * [Dağıtıma genel bakış](avere-vfxt-deploy-overview.md)
 * [Bir Avere vFXT kümesi oluşturmak hazırlama](avere-vfxt-prereqs.md)
-* [Avere vFXT kümesini dağıtma](avere-vfxt-deploy.md)
+* [Avere vFXT kümesi dağıtma](avere-vfxt-deploy.md)
 
 Avere vFXT için kullanım örnekleri ve özellikleri hakkında daha fazla bilgi edinmek için şurayı ziyaret edin [Avere vFXT Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).

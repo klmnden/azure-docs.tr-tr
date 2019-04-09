@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 04/8/2019
 ms.custom: seodec18
-ms.openlocfilehash: 994ccf292a4215624d4222fe13ca9ac25c863368
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 9eb66a9000c9add0718c6edf6674a26ce8e479b3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895875"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257986"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Stream Analytics yönetilen kimlik kullanarak Azure Data Lake depolama Gen1 için kimlik doğrulaması
 
@@ -71,7 +71,7 @@ Bu makalede yönetilen kimlik veren bir Azure Data Lake depolama Gen1 Azure port
 
    ![Stream Analytics işi yapılandırma yönetilen kimlikleri](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. Kimlik doğrulama modu açılır ve select ADLS Gen1 çıkış havuzu, çıkış Özellikler penceresinde tıklayın **yönetilen kimliği (Önizleme)**.
+2. Kimlik doğrulama modu açılır ve select ADLS Gen1 çıkış havuzu, çıkış Özellikler penceresinde tıklayın ** yönetilen kimliği **.
 
    ![ADLS yönetilen kimlik çıkışı](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 

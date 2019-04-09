@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e734ebb2032a5354e8701129b6a8ad913837bb52
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881050"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010626"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB'de farklı API'ler ile ilgili sık sorulan sorular
 
@@ -95,8 +95,9 @@ Azure Cosmos DB'yi deneyin abonelikler için aşağıdaki koşullar geçerlidir:
 * MongoDB hesabı için abonelik başına en fazla üç koleksiyonu.
 * 10 GB depolama kapasitesi.
 * Aşağıdaki genel çoğaltma kullanılabilir [Azure bölgeleri](https://azure.microsoft.com/regions/): Orta ABD, Kuzey Avrupa ve Güneydoğu Asya
-* En fazla aktarım hızı 5 K RU/sn.
-* Abonelikleri, 24 saat sonra süresi dolacak ve en fazla toplam 48 saat için genişletilebilir.
+* En fazla aktarım hızı 5 K RU/zaman kapsayıcı düzeyinde sağlanan sn.
+* En yüksek aktarım hızı 20 bin RU/veritabanı düzeyinde sağlarken sn.
+* Abonelikleri 30 gün sonra süresi dolacak ve en fazla toplam 31 gün için genişletilebilir.
 * Azure Cosmos DB'yi deneyin hesapları için Azure destek bileti oluşturulamıyor; Bununla birlikte, mevcut destek planları ile aboneleri için destek sağlanır.
 
 ## <a name="set-up-azure-cosmos-db"></a>Azure Cosmos DB'yi yedekleyin ayarlayın

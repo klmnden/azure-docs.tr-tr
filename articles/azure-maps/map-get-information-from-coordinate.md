@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9ab6d9708843cda492795b92b6fb5f58bd7a9154
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 50f906a9d8a0dc19f5eb47bef4cb68f4703f020f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571431"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256065"
 ---
 # <a name="get-information-from-a-coordinate"></a>Bir koordinattan bilgi alma
 
@@ -29,11 +29,11 @@ Ters adresi arama yapmak için iki yol vardır. Bir yolu Sorgulanacak [Azure har
 
 Yukarıdaki kodda, ilk kod bloğunu bir harita nesnesi oluşturur ve bir abonelik anahtarı kullanmak için kimlik doğrulama mekanizması ayarlar. Gördüğünüz [bir harita oluşturmak](./map-create.md) yönergeler için.
 
-İkinci kod bloğunu oluşturur bir **SubscriptionKeyCredentialPolicy** abonelik anahtarını Azure haritalar için HTTP isteklerinde kimlik doğrulaması için. Ardından **atlas.service.MapsURL.newPipeline()** alır **SubscriptionKeyCredential** ilke ve oluşturan bir [işlem hattı](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) örneği. **SearchURL** Azure haritalar için URL'yi temsil [arama](https://docs.microsoft.com/rest/api/maps/search) operations.
+İkinci kod bloğunu oluşturur bir `SubscriptionKeyCredentialPolicy` abonelik anahtarını Azure haritalar için HTTP isteklerinde kimlik doğrulaması için. Ardından `atlas.service.MapsURL.newPipeline()` alır `SubscriptionKeyCredential` ilke ve oluşturan bir [işlem hattı](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) örneği. `searchURL` Azure haritalar için URL'yi temsil [arama](https://docs.microsoft.com/rest/api/maps/search) operations.
 
 Üçüncü kod bloğunu bir işaretçiye fare imlecini stilini güncelleştirir ve oluşturur bir [açılan](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) nesne. Gördüğünüz [harita üzerinde bir açılır pencere ekleme](./map-add-popup.md) yönergeler için.
 
-Dördüncü kod bloğunu bir fare tıklaması ekler [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Tetiklendiğinde, Tıklatılan noktadan koordinatlarını bir arama sorgusu oluşturur. Ardından hizmet modülün kullanır [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-) sorgu yöntemine [arama adres ters API alma](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) koordinatları adresi için. Kullanarak bir GeoJSON özellik koleksiyonundan yanıt ayıklanır **geojson.getFeatures()** yöntemi.
+Dördüncü kod bloğunu bir fare tıklaması ekler [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Tetiklendiğinde, Tıklatılan noktadan koordinatlarını bir arama sorgusu oluşturur. Ardından hizmet modülün kullanır [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-) sorgu yöntemine [arama adres ters API alma](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) koordinatları adresi için. Kullanarak bir GeoJSON özellik koleksiyonundan yanıt ayıklanır `geojson.getFeatures()` yöntemi.
 
 Beşinci kod bloğunu HTML açılan içerik tıklandı koordinat konumu yanıt adresini görüntülemek için ayarlar.
 
@@ -59,7 +59,7 @@ Yukarıdaki kodda, ilk kod bloğunu bir harita nesnesi oluşturur ve bir aboneli
 Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi edinin:
 
 > [!div class="nextstepaction"]
-> [Harita](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Eşleme](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [Açılan menüsü](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
@@ -67,7 +67,7 @@ Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi e
 Tam kod örnekleri için aşağıdaki makalelere bakın:
 
 > [!div class="nextstepaction"]
-> [Yönergeleri A'dan B'ye yönleri gösterme](./map-route.md)
+> [A'dan B'ye yönleri gösterme](./map-route.md)
 
 > [!div class="nextstepaction"]
 > [Trafiği gösterme](./map-show-traffic.md)

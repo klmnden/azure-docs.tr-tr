@@ -3,15 +3,15 @@ title: Değiştirme, silme veya - Azure idare, yönetim gruplarınızı yönetme
 description: Görüntüleme, tutmak, güncelleştirme ve Yönetim Grup hiyerarşiniz silme hakkında bilgi edinin.
 author: rthorn17
 ms.service: azure-resource-manager
-ms.date: 02/20/2019
+ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: f75686d19a468983a6b0ce68eb4a456e00c90eeb
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.openlocfilehash: 58f8b3346ddd250736e09966b7c36e570b62bb10
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881061"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057753"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Yönetim gruplarıyla kaynaklarınızı yönetin
 
@@ -34,6 +34,8 @@ Portal, PowerShell veya Azure CLI kullanarak yönetim grubu adını değiştireb
 1. Seçin **tüm hizmetleri** > **Yönetim grupları**.
 
 1. Yeniden adlandırmak istediğiniz yönetim grubunu seçin.
+
+1. Seçin **ayrıntıları**.
 
 1. Seçin **grubu Yeniden Adlandır** sayfanın üstündeki seçeneği.
 
@@ -80,6 +82,8 @@ Bir yönetim grubunu silmek için aşağıdaki gereksinimler karşılanmalıdır
 1. Seçin **tüm hizmetleri** > **Yönetim grupları**.
 
 1. Silmek istediğiniz yönetim grubunu seçin.
+
+1. Seçin **ayrıntıları**.
 
 1. Seçin **Sil**
 

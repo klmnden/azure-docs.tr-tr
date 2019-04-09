@@ -5,15 +5,15 @@ services: cosmos-db
 author: roygara
 ms.service: cosmos-db
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 04/04/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
-ms.openlocfilehash: bb8f0fd98296d0cc4de1596480988b154a731d41
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: c5491683a74321e370044cd6eb270cc34bbbce6a
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540236"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056417"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure PowerShell ile Azure tablo depolama işlemleri 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -32,7 +32,7 @@ Bu nasıl yapılır makalesi, yaygın Azure tablo depolama işlemleri kapsar. A�
 
 Bu nasıl yapılır makalesi işiniz bittiğinde, kolayca, bu nedenle yeni bir kaynak grubunda yeni bir Azure depolama hesabı oluşturma işlemini gösterir. Bunun yerine mevcut bir depolama hesabını kullanmayı tercih ediyorsanız, bunun yerine bunu yapabilirsiniz.
 
-Az PowerShell modülleri örneği gerektirir `Az.Storage (1.1.3 or greater)` ve `Az.Resources (1.2.0 or greater)`. Bir PowerShell penceresinde çalıştırın `Get-Module -ListAvailable Az*` sürümü bulmak için. Hiçbir şey görüntülenmez veya yükseltme için ihtiyacınız [Azure PowerShell modülü yükleme](/powershell/azure/install-az-ps).
+Az PowerShell modülleri örneği gerektirir `Az.Storage (1.1.0 or greater)` ve `Az.Resources (1.2.0 or greater)`. Bir PowerShell penceresinde çalıştırın `Get-Module -ListAvailable Az*` sürümü bulmak için. Hiçbir şey görüntülenmez veya yükseltme için ihtiyacınız [Azure PowerShell modülü yükleme](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > Powershell'den Azure bu özelliği kullanarak olması gerekir `Az` Modülü yüklü. AzureRmStorageTable'nın geçerli sürümü eski AzureRM modülü ile uyumlu değil.
@@ -158,7 +158,7 @@ Nasıl yapılır bu makalede PowerShell ile yaygın Azure tablo depolama işleml
 
 Daha fazla bilgi için aşağıdaki makalelere bakın.
 
-* [Depolama PowerShell cmdlet’leri](/powershell/module/az.storage#storage)
+* [Depolama PowerShell cmdlet'leri](/powershell/module/az.storage#storage)
 
 * [Azure PowerShell - AzureRmStorageTable PS modülü v2.0 tablolardan ile çalışma](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
 

@@ -10,16 +10,17 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: e8e2bd34ebb5b789bb3e9ba4a419ab424d3fdf5a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 97a3f00bcb5b1a0fb3f499657044b9d83f5b08d7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550698"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010388"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Konuşma SDK'sı ile bir ses giriş cihazını seçin
 
-Bu makalede bir sisteme bağlı ses cihazları kimliklerini almak nasıl ses girişi seçmek için bir API Speech SDK'sı sürümünü 1.3.0 tanıtır.
+Speech SDK'sı sürümünü 1.3.0 ses girişi seçmek için bir API sunar.
+Bu makalede, bir sisteme bağlı ses cihazları kimliklerini almak açıklar.
 Bunlar ardından Speech SDK'sı üzerinden ses cihazı yapılandırarak kullanılabilir `AudioConfig` nesnesi:
 
 ```C++
@@ -42,8 +43,11 @@ audioConfig = AudioConfiguration.FromMicrophoneInput("<device id>");
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
 
-> [!NOTE]
-> Bu işlevsellik henüz JavaScript'ten kullanılamaz.
+```JavaScript
+audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
+```
+>[!Note]
+> Mikrofon kullanım çalıştıran node.js'de JavaScript için kullanılabilir değildir.
 
 ## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>Ses cihazı kimliklerine göre Windows Masaüstü uygulamaları için
 
@@ -367,6 +371,10 @@ Ancak, uygulama SDK'sını kullanarak üzerinden ses yönlendirmeyi etkileyebili
 ```
 
 Konuşma özellikli bir uygulama için bir Bluetooth kulaklık kullanımını etkinleştirir.
+
+## <a name="audio-device-ids-in-javascript"></a>Ses cihazı JavaScript kimlikleri
+
+JavaScript içinde [MediaDevices.enumerateDevices()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) yöntemi, ortam aygıtları listeleme ve geçirmek için bir cihaz kimliği bulmak için kullanılabilir `fromMicrophone(...)`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

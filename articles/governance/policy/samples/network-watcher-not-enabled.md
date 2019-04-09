@@ -1,19 +1,18 @@
 ---
 title: Örnek - bölge için Ağ İzleyicisi etkin değilse denetim
 description: Belirtilen bir bölgede Ağ İzleyicisi etkin değilse, bu örnek ilke tanımını denetimleri
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 841f1ad3e22c40e05489bb590caee64ec50466b8
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 7614b000f69eb74c83084aec0849a2741c82cd5a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58800950"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268271"
 ---
 # <a name="sample---audit-if-network-watcher-is-not-enabled-for-region"></a>Örnek - bölge için Ağ İzleyicisi etkin değilse denetim
 
@@ -29,7 +28,7 @@ Bu ilke, belirli bir bölge için Ağ İzleyicisi etkinleştirilmediğinde denet
 
 ## <a name="deploy-with-the-portal"></a>Portal ile dağıtma
 
-[![İlke örneği Azure'a dağıtma](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Faudit-network-watcher-existence%2Fazurepolicy.json)
+[![DAzure İlkesi örneğe aşamasıyla](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Faudit-network-watcher-existence%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>PowerShell ile dağıtma
 

@@ -9,21 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 895f6ce728ce608184bf6f68be3b73d5dc384d79
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: MT
+ms.openlocfilehash: 7f1379bbd3a52b364efc5e4c47612e645fa119ed
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892517"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057005"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Kabarcık katmanı haritaya eklemek
 
 Bu makalede bir haritada Kabarcık katmanı olarak bir veri kaynağından veri noktası nasıl oluşturabileceği açıklanır. Kabarcık katmanları noktaları sabit piksel RADIUS ile harita üzerinde daireler olarak işleyin. 
 
 > [!TIP]
-> Kabarcık katmanları varsayılan olarak, bir veri kaynağındaki tüm geometriler koordinatlarını işlenir. Özellikleri ayarlama katmanı yalnızca noktası geometri işler gibi sınırlamak için `filter` katmana özelliği `['==', '$type', 'Point']`
+> Kabarcık katmanları varsayılan olarak, bir veri kaynağındaki tüm geometriler koordinatlarını işlenir. Özellikleri ayarlama katmanı yalnızca noktası geometri işler gibi sınırlamak için `filter` katmana özelliği `['==', ['geometry-type'], 'Point']` veya `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` MultiPoint özellikleri de dahil etmek istiyorsanız.
 
-## <a name="add-a-bubble-layer"></a>Kabarcık katmanı Ekle
+## <a name="add-a-bubble-layer"></a>Baloncuk katmanı ekleme
 
 <iframe height='500' scrolling='no' title='BubbleLayer veri kaynağı' src='//codepen.io/azuremaps/embed/mzqaKB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Kalem bkz <a href='https://codepen.io/azuremaps/pen/mzqaKB/'>BubbleLayer DataSource</a> Azure haritalar tarafından (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) üzerinde <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -73,4 +73,4 @@ Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi e
 Daha fazla kod örneği, eşlenir eklemek için aşağıdaki makalelere bakın:
 
 > [!div class="nextstepaction"]
-> [Sembol katmanı Ekle](./map-add-pin.md)
+> [Sembol katmanı ekleme](./map-add-pin.md)

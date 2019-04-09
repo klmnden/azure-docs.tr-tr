@@ -12,32 +12,33 @@ ms.date: 03/12/2019
 ms.author: celested
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84f1b7c9461d2eba5e13be8b15b2cbcc62715c23
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.openlocfilehash: 0357b7f421da753f102d2f05eaf8021cfc74aa2c
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792047"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057203"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için çoklu oturum açma
+
 Kullanıcılar uygulamalara, Azure Active Directory'de (Azure AD) oturum çoklu oturum açma (SSO) güvenlik ve kolaylık ekler. Bu makalede tek oturum açma yöntemleri açıklar ve uygulamalarınızı yapılandırırken en uygun SSO yöntemi seçmenize yardımcı olur.
 
-- **Çoklu oturum açma ile**, kullanıcıların etki alanına katılmış cihazlara erişmek için bir hesap ile bir kez oturum şirket kaynakları, yazılım olarak hizmet (SaaS) uygulamaları ve web uygulamaları. Kullanıcı, oturum açtıktan sonra Office 365 portalında veya Azure AD MyApps erişim paneli uygulamaları başlatabilir. Yöneticiler kullanıcı hesabı yönetimini merkezden gerçekleştirin ve otomatik olarak ekleyebilir veya grup üyeliğine dayalı uygulamalara kullanıcı erişimini kaldırabilirsiniz. 
+- **Çoklu oturum açma ile**, kullanıcıların etki alanına katılmış cihazlara erişmek için bir hesap ile bir kez oturum şirket kaynakları, yazılım olarak hizmet (SaaS) uygulamaları ve web uygulamaları. Kullanıcı, oturum açtıktan sonra Office 365 portalında veya Azure AD MyApps erişim paneli uygulamaları başlatabilir. Yöneticiler kullanıcı hesabı yönetimini merkezden gerçekleştirin ve otomatik olarak ekleyebilir veya grup üyeliğine dayalı uygulamalara kullanıcı erişimini kaldırabilirsiniz.
 
 - **Çoklu oturum açma olmadan**, kullanıcılar uygulamaya özgü hatırlamak ve her uygulama için oturum açın. Office 365 kutusu ve Salesforce gibi her bir uygulama için kullanıcı hesaplarını oluşturmak için BT personeli gerekir. Kullanıcıların parolalarını unutmayın yanı sıra her bir uygulama için oturum açmak için kullanacağınız gerekir.
 
 ## <a name="choosing-a-single-sign-on-method"></a>Tek bir oturum açma yöntemi seçme
 
-Bir uygulama için çoklu oturum açmayı yapılandırmak için birkaç yolu vardır. Tek bir oturum açma yöntemini seçme uygulama kimlik doğrulaması için nasıl yapılandırıldığına bağlıdır. 
+Bir uygulama için çoklu oturum açmayı yapılandırmak için birkaç yolu vardır. Tek bir oturum açma yöntemini seçme uygulama kimlik doğrulaması için nasıl yapılandırıldığına bağlıdır.
 
 - Bulut uygulamaları için çoklu oturum açmayı Openıd Connect, OAuth, SAML, parola tabanlı, bağlantılı veya devre dışı yöntemler kullanabilirsiniz. 
 - Şirket içi uygulamaları, parola tabanlı, tümleşik Windows kimlik doğrulaması, çoklu oturum açma için üst bilgi tabanlı, bağlantılı veya devre dışı yöntemleri kullanabilir. Uygulamalar, uygulama proxy'si için yapılandırıldığında, şirket içi seçenekler çalışır.
 
-Bu akış, hangi çoklu oturum açma yöntemi, sizin durumunuz için en iyi olduğuna karar vermenize yardımcı olur. 
+Bu akış, hangi çoklu oturum açma yöntemi, sizin durumunuz için en iyi olduğuna karar vermenize yardımcı olur.
 
-![Çoklu oturum açma yöntemi seçin](./media/what-is-single-sign-on/choose-single-sign-on-method-updated.png)
+![Çoklu oturum açma yöntemi seçin](./media/what-is-single-sign-on/choose-single-sign-on-method-040419.png)
 
-Aşağıdaki tabloda, tek oturum açma yöntemleri özetler ve daha fazla ayrıntı için bağlantılar. 
+Aşağıdaki tabloda, tek oturum açma yöntemleri özetler ve daha fazla ayrıntı için bağlantılar.
 
 | Çoklu oturum açma yöntemi | Uygulama türleri | Kullanılması gereken durumlar |
 | :------ | :------- | :----- |
@@ -46,7 +47,7 @@ Aşağıdaki tabloda, tek oturum açma yöntemleri özetler ve daha fazla ayrın
 | [Parola tabanlı](#password-based-sso) | Bulut ve şirket içi | Uygulama, kullanıcı adı ve parola ile kimlik doğrulamasını gerçekleştirdiğinde parola tabanlı seçin. Parola tabanlı çoklu oturum açma güvenli uygulama parola depolama ve bir web tarayıcısı uzantısı veya mobil uygulama kullanarak yeniden yürütme sağlar. Bu yöntem, uygulama tarafından sağlanan mevcut oturum açma işlemi kullanır, ancak yönetici parolaları yönetmek etkinleştirir. |
 | [Bağlı](#linked-sso) | Bulut ve şirket içi | Uygulama için çoklu oturum açmayı başka bir kimlik sağlayıcı hizmetine de yapılandırıldığında bağlı çoklu oturum açma seçin. Bu seçenek varsayılan olarak, uygulamayı çoklu oturum açma eklemez. Ancak, uygulamanın tek Active Directory Federasyon Hizmetleri gibi başka bir hizmet kullanılarak uygulanan oturum zaten olabilir.|
 | [Devre dışı](#disabled-sso) | Bulut ve şirket içi | Uygulama için çoklu oturum açmayı yapılandırılmaya hazır değilken, devre dışı çoklu oturum açma seçin. Kullanıcıların, bunlar bu uygulamayı başlatmak her seferinde kullanıcı adı ve parola girmeniz gerekir.|
-| [Tümleşik Windows kimlik doğrulaması (IWA)](#integrated-windows-authentication-iwa-sso) | yalnızca şirket içi | IWA çoklu oturum açma kullanan uygulamalar için seçin [tümleşik Windows kimlik doğrulaması (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), veya talep kullanan uygulamalar. IWA için uygulama kullanıcıların kimliğini doğrulamak için Kerberos Kısıtlı temsilci (KCD) uygulama ara sunucusu bağlayıcıları kullanın. | 
+| [Tümleşik Windows Kimlik Doğrulaması (IWA)](#integrated-windows-authentication-iwa-sso) | yalnızca şirket içi | IWA çoklu oturum açma kullanan uygulamalar için seçin [tümleşik Windows kimlik doğrulaması (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), veya talep kullanan uygulamalar. IWA için uygulama kullanıcıların kimliğini doğrulamak için Kerberos Kısıtlı temsilci (KCD) uygulama ara sunucusu bağlayıcıları kullanın. | 
 | [Üst bilgi tabanlı](#header-based-sso) | yalnızca şirket içi | Uygulama için kimlik doğrulama üst bilgileri kullandığında üst bilgi tabanlı çoklu oturum açma kullanın. Üst bilgi tabanlı çoklu oturum açma Azure AD için PingAccess gerektirir. Uygulama Ara sunucusu kullanıcının kimliğini doğrulamak için Azure AD kullanır ve ardından bağlayıcı hizmetini üzerinden geçen trafik geçirir.  | 
 
 ## <a name="openid-connect-and-oauth"></a>Openıd Connect ve OAuth
