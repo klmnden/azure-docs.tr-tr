@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/17/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8d3bc70b467cabfc5d45c51b79b43d2942d558ae
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885736"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264038"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Portalda Azure Search hizmeti oluşturma
 
@@ -22,7 +22,7 @@ Azure arama, bir arama deneyimi özel uygulamalarda takın için kullanılan tek
 
 Bu makalede, bir Azure Search kaynağı oluşturmayı öğrenin [Azure portalında](https://portal.azure.com/).
 
-[![Animasyonlu GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
+[![A[hareketli GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 PowerShell’i mi tercih ediyorsunuz? Azure Resource Manager [hizmet şablonunu](https://azure.microsoft.com/resources/templates/101-azure-search-create/) kullanın. Başlama konusunda yardım için bkz: [PowerShell ile Azure Search yönetme](search-manage-powershell.md).
 
@@ -71,7 +71,7 @@ Tek bir grup olarak birleştirip olmayan ya da mevcut kaynak gruplarını ilgisi
 
 Azure hizmeti olarak Azure Search, dünyanın dört bir yanındaki veri merkezlerinde barındırılabilir. [Fiyatlar gösterebileceğini](https://azure.microsoft.com/pricing/details/search/) coğrafyaya göre.
 
-Bilişsel arama kullanmayı planlıyorsanız seçin bir [Özellik kullanılabilirliği bölgeyle](cognitive-search-quickstart-blob.md#supported-regions).
+Bir Azure'da yer alan içeriği sıralıyorsanız hizmeti (Azure depolama, Azure Cosmos DB, Azure SQL veritabanı), bant genişliği ücretlerden kaçınmak için verilerinizi aynı bölgede Azure Search hizmetinizi oluşturun. Hizmetler aynı bölgede çalışırken giden veriler için herhangi bir ücreti yoktur.
 
 ## <a name="select-a-pricing-tier-sku"></a>Fiyatlandırma katmanı (SKU) seçme
 

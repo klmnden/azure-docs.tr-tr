@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: aa4fff24620ffd74393d549f1888bdf0e1cb0224
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773588"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264429"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Oluşturma, yapılandırma ve elastik işleri Yönet
 
@@ -76,6 +76,8 @@ Hedef veritabanı grubunun boyutuna ve bir işin istenen yürütme süresine (e�
 
 Bir SQL elastik havuzundaki veritabanları üzerinde iş çalıştırılması sırasında kaynakların aşırı yüklenmesini önlemek için işler aynı anda üzerinde çalışılabilecek veritabanı sayısını sınırlayacak şekilde yapılandırılabilir.
 
+Üzerinde çalıştığı ayarlayarak bir iş eş zamanlı veritabanlarının sayısını ayarlayın `sp_add_jobstep` saklı yordamı'nın `@max_parallelism` T-SQL, parametre veya `Add-AzSqlElasticJobStep -MaxParallelism` PowerShell'de.
+
 ## <a name="best-practices-for-creating-jobs"></a>İş oluşturmak için en iyi deneyimler
 
 ### <a name="idempotent-scripts"></a>Bir kez etkili betikler
@@ -96,5 +98,5 @@ Benzer şekilde bir betiğin mantıksal olarak test ederek ve bulduğu sonuçlar
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [PowerShell’i kullanarak Elastik İşler oluşturma ve yönetme](elastic-jobs-powershell.md)
-- [Transact-SQL (T-SQL) kullanarak Elastik İşler oluşturma ve yönetme](elastic-jobs-tsql.md)
+- [PowerShell kullanarak elastik işler oluşturma ve yönetme](elastic-jobs-powershell.md)
+- [Transact-SQL (T-SQL) kullanarak esnek işler oluşturma ve yönetme](elastic-jobs-tsql.md)

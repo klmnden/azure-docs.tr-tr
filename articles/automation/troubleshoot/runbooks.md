@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 84db71f8dabfb7557b5efbc06e024c43e654b56d
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f93f6c8891ba9f7407310a8f09387e97f5c1f578
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805083"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267353"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook'ları ile hatalarını giderme
 
@@ -137,7 +137,7 @@ Azure Klasik dağıtım modeli cmdlet'leriyle bir sertifikayı kullanmak için b
 
 #### <a name="issue"></a>Sorun
 
-Bir childrunbook ile çağrılırken aşağıdaki hata iletisini `-Wait` anahtar ve çıkış akışına içerir ve nesne:
+Bir alt runbook ile çağrılırken aşağıdaki hata iletisini `-Wait` anahtar ve çıkış akışına içerir ve nesne:
 
 ```error
 Object reference not set to an instance of an object
@@ -483,6 +483,29 @@ Bu hatayı çözmek için iki yolu vardır:
 
 * Runbook'u düzenleme ve iş akışları, kendisini çıkaran derlemeninkinden sayısını azaltın.
 * Cmdlet çalışırken alınacak akış sayısını azaltın. Bu davranış takip etmek için belirleyebileceğiniz `-Stream Output` parametresi `Get-AzureRmAutomationJobOutput` almak için cmdlet'i yalnızca çıkış akışlarına. 
+
+### <a name="cannot-invoke-method"></a>Senaryo: PowerShell iş şu hatayla başarısız oluyor: Yöntemi çağrılamaz
+
+#### <a name="issue"></a>Sorun
+
+Azure'da çalışan bir runbook'ta PowerShell iş başlatma sırasında şu hata iletisini alıyorsunuz:
+
+```error
+Exception was thrown - Cannot invoke method. Method invocation is supported only on core types in this language mode.
+```
+
+#### <a name="cause"></a>Nedeni
+
+Bir runbook işi Azure'da çalışan bir PowerShell başlattığınızda bu hata oluşabilir. Runbook'ları bir Azure'da çalıştırdığınız için bu davranış oluşabilir korumalı alan çalışmayabilir [tam dil modu](/powershell/module/microsoft.powershell.core/about/about_language_modes)).
+
+#### <a name="resolution"></a>Çözüm
+
+Bu hatayı çözmek için iki yolu vardır:
+
+* Yerine `Start-Job`, kullanın `Start-AzureRmAutomationRunbook` bir runbook başlatmak için
+* Bu hata iletisini runbook'unuz varsa çalıştırın bir karma Runbook çalışanı üzerinde
+
+Bu davranış ve diğer davranışlarını Azure Otomasyonu runbook'ları hakkında daha fazla bilgi için bkz: [Runbook davranışı](../automation-runbook-execution.md#runbook-behavior).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
