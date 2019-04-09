@@ -7,18 +7,24 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 359d75f10f95b0e41ccd9a869d49247355f0d5d0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f456cfec82a315a2be877a52e4f3f1850b992736
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123190"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274549"
 ---
-# <a name="troubleshoot-application-gateway-with-app-service--redirection-to-app-services-url"></a>App Service ile Application Gateway’de sorun giderme: App Service’in URL’sine yeniden yönlendirme
+# <a name="troubleshoot-application-gateway-with-app-service"></a>App Service uygulama ağ geçidiyle ilgili sorunları giderme
 
- Application Gateway, App Service'nın URL Burada sunulan ile yeniden yönlendirme sorunları tanılamak ve gidermek öğrenin.
+Uygulama ağ geçidi ve arka uç sunucusu olarak App Service ile karşılaşılan sorunları tanılamak ve gidermek öğrenin.
 
 ## <a name="overview"></a>Genel Bakış
+
+Bu makalede, aşağıdaki sorunların nasıl giderileceği öğreneceksiniz:
+
+> [!div class="checklist"]
+> * App Service'nın URL yeniden yönlendirme olduğunda tarayıcıda kullanıma
+> * App Service'nın ARRAffinity tanımlama bilgisinin etki alanı, özgün ana bilgisayar yerine App Service ana bilgisayar adı (example.azurewebsites.net) ayarlayın.
 
 App Service Application Gateway, arka uç havuzundaki'e yönelik bir genel yapılandırma ve uygulama kodunuzda yapılandırılmış bir yeniden yönlendirme varsa, uygulama ağ geçidi eriştiğinizde, görebilirsiniz, uygulamayı doğrudan tarayıcı tarafından yönlendirilir Hizmet URL'si.
 
@@ -29,10 +35,12 @@ Bu sorun, aşağıdaki ana nedenlerden ötürü oluşabilir:
 - Application Gateway HTTP ayarlarında "Arka uç adresi alanından konak adı seçin" anahtar etkinleştirdiniz.
 - Kayıtlı uygulama hizmetiniz ile özel etki alanınız yok.
 
+Ayrıca, uygulama hizmetleri, Application Gateway'in arkasında kullanıyorsanız ve özel bir etki alanı Application Gateway'e erişmek için kullandığınız zaman, App Service tarafından ayarlanmış ARRAffinity tanımlama bilgisinin etki alanı değeri "example.azurewebsites.net" etki alanı adı taşıyacağı görebilirsiniz. De tanımlama bilgisi etki alanının olması için özgün ana bilgisayar adı istiyorsanız, bu makaledeki çözümü izleyin.
+
 ## <a name="sample-configuration"></a>Örnek yapılandırma
 
 - HTTP dinleyicisi: Temel veya çok siteli
-- Arka uç adres havuzu: Uygulama Hizmeti
+- Arka uç adres havuzu: App Service
 - HTTP ayarları: "Ana bilgisayar adı arka uç adresi etkin seçin"
 - Araştırması: "Ana bilgisayar adını HTTP ayarlarından etkin seçin"
 
@@ -94,6 +102,16 @@ Bunu başarmak için özel bir etki alanına sahip ve Aşağıda sözü edilen s
 - Özel araştırma arka uç HTTP ayarları için yeniden ilişkilendirin ve arka uç sistem durumu sağlıklı olup olmadığını doğrulayın.
 
 - Bunu yaptıktan sonra artık aynı ana bilgisayar adı "www.contoso.com" uygulama ağ geçidi için App Service İleri ve aynı ana bilgisayar adına yeniden yönlendirme gerçekleşir. Örnek istek ve yanıt üst bilgileri aşağıdaki kontrol edebilirsiniz.
+
+Mevcut bir kurulumu için PowerShell kullanarak yukarıda anlatılan adımları uygulamak için aşağıdaki örnek PowerShell Betiği izleyin. Nasıl - PickHostname anahtarlar araştırma ve HTTP ayarları yapılandırmasını kullandık olmayan unutmayın.
+
+```azurepowershell-interactive
+$gw=Get-AzApplicationGateway -Name AppGw1 -ResourceGroupName AppGwRG
+Set-AzApplicationGatewayProbeConfig -ApplicationGateway $gw -Name AppServiceProbe -Protocol Http -HostName "example.azurewebsites.net" -Path "/" -Interval 30 -Timeout 30 -UnhealthyThreshold 3
+$probe=Get-AzApplicationGatewayProbeConfig -Name AppServiceProbe -ApplicationGateway $gw
+Set-AzApplicationGatewayBackendHttpSettings -Name appgwhttpsettings -ApplicationGateway $gw -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 30
+Set-AzApplicationGateway -ApplicationGateway $gw
+```
   ```
   ## Request headers to Application Gateway:
 

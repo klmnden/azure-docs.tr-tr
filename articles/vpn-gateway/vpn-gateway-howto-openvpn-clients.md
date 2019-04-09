@@ -7,16 +7,16 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 1/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: f7288202eb6dd66aee0bb38bb3611e8b319b50f2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d1e57e623e3e95f3d71e895c49c928f00aa0ad46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010549"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274681"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Azure VPN ağ geçidi (Önizleme) için OpenVPN istemcilerini yapılandırma
 
-Bu makalede OpenVPN istemcileri yapılandırmanıza yardımcı olur.
+Bu makalede, yapılandırmanıza yardımcı olur. **OpenVPN® Protokolü** istemciler.
 
 > [!IMPORTANT]
 > Bu genel önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılmamalıdır. Belirli özellikler desteklenmiyor olabilir, kısıtlı yeteneklere sahip olabilir veya tüm Azure konumlarında mevcut olmayabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -49,7 +49,7 @@ VPN ağ geçidiniz OpenVPN yapılandırma adımları tamamladığınızdan emin 
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Açık *profileinfo.txt* Defteri'nde. Özel anahtarı almak için metni seçin (dahil olmak üzere ve arasında) "---BEGIN PRIVATE KEY---" ve "---BEGIN PRIVATE KEY---" ve kopyalayın.
+8. Açık *profileinfo.txt* Defteri'nde. Özel anahtarı almak için metni seçin (dahil olmak üzere ve arasında) "---BEGIN PRIVATE KEY---" ve "---END PRIVATE KEY---" ve kopyalayın.
 9. Vpnconfig.ovpn dosyasını Not Defteri'nde dönün ve bu bölümü bulun. Arasındaki her şeyi değiştirerek bir özel anahtarı yapıştırın ve "anahtar" ve "/ anahtar".
 
    ```
@@ -109,7 +109,7 @@ VPN ağ geçidiniz OpenVPN yapılandırma adımları tamamladığınızdan emin 
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Profileinfo.txt bir metin düzenleyicisinde açın. Özel anahtarı almak için de dahil olmak üzere ve "---Başlangıç arasında özel anahtarı---" metin seçin ve "---BEGIN PRIVATE KEY---" ve kopyalayın.
+8. Profileinfo.txt bir metin düzenleyicisinde açın. Özel anahtarı almak için de dahil olmak üzere ve "---Başlangıç arasında özel anahtarı---" metin seçin ve "---END PRIVATE KEY---" ve kopyalayın.
 
 9. Vpnconfig.ovpn dosyasını bir metin düzenleyicisinde açın ve bu bölümü bulun. Arasındaki her şeyi değiştirerek bir özel anahtarı yapıştırın ve "anahtar" ve "/ anahtar".
 
@@ -138,4 +138,6 @@ VPN ağ geçidiniz OpenVPN yapılandırma adımları tamamladığınızdan emin 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Başka bir vnet (üretim) kaynaklara erişebilmesi için VPN istemcileri istiyorsanız, ardından ilgili yönergeleri uygulayın [VNet-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) vnet-vnet bağlantı kurmak için makaleyi. Ağ geçitleriniz ve bağlantılarınızı üzerinde BGP etkinleştirdiğinizden emin olun, aksi takdirde trafik değil akar.
+Başka bir VNet (üretim) kaynaklara erişebilmesi için VPN istemcileri istiyorsanız, ardından ilgili yönergeleri uygulayın [VNet-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) vnet-vnet bağlantı kurmak için makaleyi. Ağ geçitleriniz ve bağlantılarınızı üzerinde BGP etkinleştirdiğinizden emin olun, aksi takdirde trafik değil akar.
+
+**"OpenVPN" OpenVPN Inc.'in ticari markasıdır.**

@@ -5,17 +5,17 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: include
-ms.date: 12/13/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: f907e8c0d10c2972bde852192883e7268f78baaa
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: d28244d75da540948093c775ffc525a80e362526
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387803"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59286856"
 ---
-Azure veri merkezi için paket göndermeye FedEx, UPS veya DHL kullanılabilir. 
+Azure veri merkezi için paket göndermeye FedEx, UPS veya DHL kullanılabilir. FedEx/DHL dışındaki bir taşıyıcı kullanmak istiyorsanız, Azure veri kutusu işlemleri ekibi ile iletişime geçin `adbops@microsoft.com`
 
 - Geçerli bir FedEx, UPS veya DHL taşıyıcı sağlayan Microsoft sürücüleri geri gönderin için kullanacağı hesap. 
     

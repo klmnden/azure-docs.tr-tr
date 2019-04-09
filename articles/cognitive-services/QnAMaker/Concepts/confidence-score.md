@@ -1,6 +1,6 @@
 ---
-title: Güvenilirlik puanı - Microsoft Bilişsel hizmetler | Microsoft Docs
-titleSuffix: Azure
+title: Güvenilirlik puanı - soru-cevap Oluşturucu
+titleSuffix: Azure Cognitive Services
 description: Güvenilirlik puanı güvenle yanıt verilen kullanıcı sorgusu için doğru eşleşme olduğunu gösterir.
 services: cognitive-services
 author: tulasim88
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/05/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: bf254d661f7819114d34631359aaecb97e9d0e0d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 97c44c9285ec7a29827361111599db37bc6a86f3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403745"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282585"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Soru-cevap Oluşturucu Bilgi Bankası güvenilirlik puanı
 Kullanıcı sorgusu karşı Bilgi Bankası eşleştiğinde, soru-cevap Oluşturucu bir güven puanı yanı sıra ilgili yanıt verir. Bu puanı güvenle yanıt verilen kullanıcı sorgusu için doğru eşleşme olduğunu gösterir. 
@@ -66,7 +66,7 @@ Birden çok yanıtı benzer bir güvenilirlik puanı varsa, sorgu çok geneldir 
 
 
 ## <a name="confidence-score-differences"></a>Güvenilirlik puanı farkları
-İçeriği aynı olsa bile bir yanıt güvenilirlik puanı negligibly test ve Bilgi Bankası yayımlanmış sürümü arasında değişebilir. Test ve yayımlanan Bilgi Bankası içeriğini bulunur farklı Azure Search dizinlerini olmasıdır. Bilgi Bankası yayımladığınızda, bilgi bankanızı soru ve yanıt içeriğini taşır test dizini Azure Search'te bir üretim dizini. Bkz. nasıl [yayımlama](../How-To/publish-knowledge-base.md) işlemi çalışır.
+İçeriği aynı olsa bile bir yanıt güvenilirlik puanı negligibly test ve Bilgi Bankası yayımlanmış sürümü arasında değişebilir. Test ve yayımlanan Bilgi Bankası içeriğini bulunur farklı Azure Search dizinlerini olmasıdır. Bilgi Bankası yayımladığınızda, bilgi bankanızı soru ve yanıt içeriğini taşır test dizini Azure Search'te bir üretim dizini. Bkz. nasıl [yayımlama](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) işlemi çalışır.
 
 Bilgi Bankası farklı bölgelerde varsa, her bölgede Azure Search dizinini kullanır. Farklı bir dizin kullanıldığından, puanları tam olarak aynı olmayacaktır. 
 

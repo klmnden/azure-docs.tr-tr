@@ -2,18 +2,18 @@
 title: AzCopy v10 kullanarak verileri Azure Depolama'ya taşıma veya kopyalama (Önizleme) | Microsoft Docs
 description: AzCopy v10 kullanın ya da blob, veri gölü ve dosya içeriği veri taşınacak veya kopyalanacak (Önizleme) komut satırı yardımcı programı. Yerel dosyaları Azure depolama alanına veri kopyalama veya içinde veya depolama hesapları arasında verileri kopyalayabilirsiniz. Kolayca verilerinizi Azure Depolama'ya geçirin.
 services: storage
-author: artemuwka
+author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 02/24/2019
-ms.author: artemuwka
+ms.date: 04/05/2019
+ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: ad3e96af95d952956af02acfd87d6d317bc29ed0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ffd448db86c8658619da5339cd34eb9dba7e05ce
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574986"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278437"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>AzCopy v10 ile veri aktarımı (Önizleme)
 
@@ -24,6 +24,7 @@ AzCopy v10 olduğu için veya Microsoft Azure Blob ve dosya depolama alanından 
 - Azure Blob Depolama veya dosya sistemleri eşitler. Kullanım `azcopy sync <source> <destination>`. Artımlı kopyalama senaryoları için idealdir.
 - Azure Data Lake depolama Gen2 API'leri destekler. Kullanım `myaccount.dfs.core.windows.net` olarak Data Lake depolama Gen2 API'leri çağırmak için bir URI.
 - Tüm bir hesabı (yalnızca Blob hizmeti) başka bir hesaba kopyalamayı destekler.
+- Bir Amazon Web Services S3 demetini veri kopyalamayı destekler.
 - Yeni kullanan [URL'den blok yerleştirme](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) hesaba kopyalama desteklemek için API'leri. Veri aktarımı aktarımı istemcisine gerekli değilse bu yana hızlıdır.
 - Listeler veya belirli bir yolda dosyalar ve bloblar kaldırır.
 - Joker karakter düzenleri, yol ve dışlama bayrakları--destekler.
@@ -79,8 +80,8 @@ AzCopy v10, kendi kendine belgelenmiş bir söz dizimine sahiptir. Azure Active 
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/container"
 
 # Examples if you're using SAS tokens to authenticate:
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?sastoken" --recursive=true
-.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?sastoken"
+.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?st=2019-04-05T04%3A10%3A00Z&se=2019-04-13T04%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=Qdihej%2Bsbg4AiuyLVyQZklm9pSuVGzX27qJ508wi6Es%3D" --recursive=true
+.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?st=2019-04-05T04%3A10%3A00Z&se=2019-04-13T04%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=Qdihej%2Bsbg4AiuyLVyQZklm9pSuVGzX27qJ508wi6Es%3D"
 ```
 
 İşte nasıl kullanılabilir komutların bir listesini alabilirsiniz:
@@ -135,16 +136,16 @@ Kaynaktan hedefe veri aktarmayı Kopyala komutunu kullanın. Kaynak veya hedef y
 .\azcopy cp <source path> <destination path> --<flag-name>=<flag-value>
 ```
 
-Aşağıdaki komutu klasörü altındaki tüm dosyaları yükler `C:\local\path` yinelemeli olarak kapsayıcıya `mycontainer1`, oluşturma `path` kapsayıcısında dizin:
+Aşağıdaki komutu klasörü altındaki tüm dosyaları yükler `C:\local\path` yinelemeli olarak kapsayıcıya `mycontainer1`, oluşturma `path` kapsayıcısında dizin. Zaman `--put-md5` bayrağı sağlandığında, AzCopy hesaplar ve her bir dosyanın md5 karma değerini depolar `Content-md5` daha sonra kullanmak için karşılık gelen BLOB özelliği.
 
 ```azcopy
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
+.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true --put-md5
 ```
 
 Aşağıdaki komutu klasörü altındaki tüm dosyaları yükler `C:\local\path` (olmadan alt dizinleri içinde recursing) kapsayıcıya `mycontainer1`:
 
 ```azcopy
-.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --put-md5
 ```
 
 Daha fazla örnek bulmak için aşağıdaki komutu kullanın:
@@ -153,21 +154,27 @@ Daha fazla örnek bulmak için aşağıdaki komutu kullanın:
 .\azcopy cp -h
 ```
 
-## <a name="copy-data-between-two-storage-accounts"></a>İki depolama hesabı arasında veri kopyalama
+## <a name="copy-blob-data-between-two-storage-accounts"></a>İki depolama hesapları arasında BLOB veri kopyalama
 
 İki depolama hesabı arasında veri kopyalama kullanan [URL'den blok yerleştirme](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API ve istemcinin ağ bant genişliği kullanmaz. AzCopy, yalnızca kopyalama işlemi düzenler ancak iki Azure depolama sunucular arasında doğrudan veri kopyalanır. Bu seçenek şu anda yalnızca Blob Depolama için kullanılabilir.
 
-İki depolama hesabı arasında veri kopyalamak için aşağıdaki komutu kullanın:
+Tüm iki depolama hesapları arasında Blob veri kopyalamak için aşağıdaki komutu kullanın:
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
 
-> [!NOTE]
-> Bu komut tüm blob kapsayıcılarını listeleme ve bunları hedef hesabına kopyalayın. Şu anda yalnızca blok bloblarını iki depolama hesabı arasında kopyalama AzCopy v10 destekler. Bu, diğer tüm depolama hesabı nesnelerin (BLOB'lar, sayfa blobları, dosyalar, tablolar ve Kuyruklar ekleme gibi) atlar.
+Başka bir Blob kapsayıcıya bir Blob kapsayıcısı kopyalamak için aşağıdaki komutu kullanın:
+```azcopy
+.\azcopy cp "https://myaccount.blob.core.windows.net/mycontainer/<sastoken>" "https://myotheraccount.blob.core.windows.net/mycontainer/<sastoken>" --recursive=true
+```
 
 ## <a name="copy-a-vhd-image-to-a-storage-account"></a>Bir depolama hesabına VHD görüntüsü kopyalayın
 
-AzCopy v10 varsayılan olarak, blok bloblarınızdan veri yükler. Ancak, bir kaynak dosyası varsa, bir `.vhd` uzantısı, AzCopy v10 varsayılan sayfa blobu karşıya yükleme için. Şu anda bu eylemi yapılandırılabilir değildir.
+AzCopy varsayılan olarak, blok bloblarınızdan veri yükler. Ekleme Blobları ve sayfa Blobları bayrağını kullanırken dosyaları karşıya yüklemek için `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
+
+```azcopy
+.\azcopy cp "C:\local\path\mydisk.vhd" "https://myotheraccount.blob.core.windows.net/mycontainer/mydisk.vhd<sastoken>" --blob-type=PageBlob
+```
 
 ## <a name="sync-incremental-copy-and-delete-blob-storage-only"></a>Eşitleme: artımlı kopyalar ve siler (yalnızca Blob Depolama)
 
@@ -192,6 +199,30 @@ Ayrıca, bir blob kapsayıcısına bir yerel dosya sistemi aşağı eşitleyebil
 ```
 
 Bu komut, üzerinde son değiştirilen zaman damgaları göre hedef kaynağa artımlı olarak eşitler. AzCopy v10 ekleyin ya da kaynak dosya silme, aynı hedef yapar. Silme işleminden önce AzCopy onaylamanızı ister.
+
+## <a name="copy-data-from-amazon-web-services-aws-s3"></a>Amazon Web Services (AWS) S3'ten veri kopyalama
+
+Bir AWS S3 demetini ile kimlik doğrulamak için aşağıdaki ortam değişkenlerini ayarlayın:
+
+```
+# For Windows:
+set AWS_ACCESS_KEY_ID=<your AWS access key>
+set AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+# For Linux:
+export AWS_ACCESS_KEY_ID=<your AWS access key>
+export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+# For MacOS
+export AWS_ACCESS_KEY_ID=<your AWS access key>
+export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+```
+
+Bir Blob kapsayıcıya demet kopyalamak için aşağıdaki komutu yürütün:
+
+```
+.\azcopy cp "https://s3.amazonaws.com/mybucket" "https://myaccount.blob.core.windows.net/mycontainer?<sastoken>" --recursive
+```
+
+AWS S3, AzCopy kullanarak veri kopyalama hakkında daha fazla ayrıntı görmek için sayfayı [burada](https://github.com/Azure/azure-storage-azcopy/wiki/Copy-from-AWS-S3).
 
 ## <a name="advanced-configuration"></a>Gelişmiş yapılandırma
 
@@ -277,10 +308,11 @@ Aktarımları durumuna göre filtre uygulamak için aşağıdaki komutu kullanı
 .\azcopy jobs show <job-id> --with-status=Failed
 ```
 
-Başarısız/iptal bir işi sürdürmek için aşağıdaki komutu kullanın. Bu komut, SAS belirteci ile birlikte tanımlayıcısını kullanır. Güvenlik nedeniyle kalıcı değildir:
+Başarısız/iptal bir işi sürdürmek için aşağıdaki komutu kullanın. Güvenlik nedeniyle kalıcı değil olarak bu komut tanımlayıcısını SAS belirteci ile birlikte kullanır:
 
 ```azcopy
-.\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
+.\azcopy jobs resume <jobid> --source-sas="<sastokenhere>"
+.\azcopy jobs resume <jobid> --destination-sas="<sastokenhere>"
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

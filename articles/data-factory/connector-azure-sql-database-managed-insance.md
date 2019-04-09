@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 782027f19d4e82f26fc1265f25b86223386d7182
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903394"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272215"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL veritabanı yönetilen örneği gelen ve giden veri kopyalama
 
@@ -282,7 +282,7 @@ Azure SQL veritabanı yönetilen örneği için verileri kopyalamak için kopyal
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği havuz öğesinin type özelliği ayarlanmalıdır **SqlSink**. | Evet. |
-| writeBatchSize |Bu özellik, arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler.<br/>Tamsayılar için satır sayısı izin verilen değerler. |Hayır (varsayılan: 10,000). |
+| writeBatchSize |SQL tablosuna ekler için satır sayısı **toplu iş başına**.<br/>Tamsayılar için satır sayısı izin verilen değerler. |Hayır (varsayılan: 10,000). |
 | writeBatchTimeout |Bu özellik toplu ekleme işlemi zaman aşımına uğramadan önce tamamlanması için bekleme süresini belirtir.<br/>Zaman aralığı için izin verilen değerler. Bir örnek verilmiştir "00: 30:00," 30 dakika olduğu. |Hayır. |
 | preCopyScript |Bu özellik, yönetilen örneğe veri yazılmadan önce yürütmek kopyalama etkinliği için bir SQL sorgusu belirtir. Ayrıca, kopya çalıştırma başına yalnızca bir kez çağrılır. Önceden verileri temizlemek için bu özelliği kullanabilirsiniz. |Hayır. |
 | sqlWriterStoredProcedureName |Bu ad, kaynak verileri hedef tabloya uygulanacağını tanımlayan bir saklı yordam içindir. Yordamları kendi iş mantığınızı kullanarak upsert eder veya dönüşümler gerçekleştirmenin örnekleridir. <br/><br/>Bu saklı yordam *toplu iş çağrılan*. Yalnızca bir kez çalıştırır ve kaynak verileri, örneğin, silmek veya kesmek için hiçbir şey sahip bir işlem yapmak için `preCopyScript` özelliği. |Hayır. |
@@ -438,9 +438,9 @@ Verileri Azure SQL veritabanı yönetilen örneğine kopyalandığında bir sakl
 
 Yerleşik kopyalama mekanizmaları amaca hizmet yoksa, bir saklı yordamı kullanabilirsiniz. Upsert (güncelleştirme + INSERT) ya da ek işlem kaynak verilerin hedef tablodaki son ekleme önce yapılması gerektiğinde genellikle kullanılır. Ek işlem ek değerler ve birden çok tablolara ekleme bakarak sütunları, birleştirme gibi görevleri içerebilir.
 
-Aşağıdaki örnek, yönetilen örneğinde bir tabloya bir upsert yapmak için bir saklı yordam kullanmayı gösterir. Örnek giriş verileri ve havuz "Pazarlama" tablosunda üç sütun olduğunu varsayar: Profileıd, durum ve kategorisi. Profileıd sütuna göre upsert gerçekleştirin ve yalnızca belirli bir kategori için geçerlidir.
+Aşağıdaki örnek, bir saklı yordamı SQL Server veritabanındaki bir tabloya bir upsert yapmak için nasıl kullanılacağını gösterir. Varsayılır, giriş veri ve havuz **pazarlama** her tablo üç sütun vardır: **Profileıd**, **durumu**, ve **kategori**. Temel upsert yapmak **Profileıd** sütun ve yalnızca belirli bir kategori için uygulayın.
 
-**Çıktı veri kümesi**
+**Çıktı veri kümesi:** "tableName" depolanmış yordamınızdaki (saklı yordam betiği aşağıya bakın) aynı tabloda tür parametre adı olmalıdır.
 
 ```json
 {
@@ -459,7 +459,7 @@ Aşağıdaki örnek, yönetilen örneğinde bir tabloya bir upsert yapmak için 
 }
 ```
 
-SqlSink bölümü, bir kopyalama etkinliği gibi tanımlayın:
+Tanımlama **SQL havuz** gibi kopyalama etkinliği bölümü.
 
 ```json
 "sink": {
@@ -474,7 +474,7 @@ SqlSink bölümü, bir kopyalama etkinliği gibi tanımlayın:
 }
 ```
 
-Veritabanınızda, aynı ada sahip bir saklı yordam SqlWriterStoredProcedureName tanımlayın. Belirtilen kaynak gelen giriş verilerinin işler ve çıkış tablosuna birleştirir. Tablo türünde saklı yordam parametre adı veri kümesinde tanımlanan "TableName"değeri ile aynıdır.
+Veritabanınızda, aynı ada sahip bir saklı yordam tanımlamak **SqlWriterStoredProcedureName**. Belirtilen kaynak gelen giriş verilerinin işler ve çıkış tablosuna birleştirir. Tablo türünde saklı yordam parametre adı aynı olmalıdır **tableName** kümesinde tanımlanan.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

@@ -1,74 +1,68 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 11d07f33a4f5e268ff2f0ac2966bde40a63a7529
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776829"
 documentType: LandingData
 title: Azure Notebooks Belgeleri
 metadata:
-  title: Azure Notebooks Belgeleri - Hızlı Başlangıçlar, Öğreticiler, Kılavuzlar | Microsoft Docs
-  description: Barındırılan Azure Notebooks hizmeti aracılığıyla Jupyter not defterlerini oluşturmayı, çalıştırmayı ve paylaşmayı öğrenin.
+  title: 'Azure Notebooks Belgeleri - Hızlı Başlangıçlar, Öğreticiler, Kılavuzlar | Microsoft Docs'
+  description: 'Barındırılan Azure Notebooks hizmeti aracılığıyla Jupyter not defterlerini oluşturmayı, çalıştırmayı ve paylaşmayı öğrenin.'
   services: notebooks
   author: kraigb
   manager: douge
-  ms.service: azure
+  ms.service: azure-notebooks
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 12/04/2018
   ms.author: kraigb
 abstract:
-  description: Azure Notebooks, yükleme yapmadan Jupyter not defterlerini geliştirmeye ve çalıştırmaya yönelik, ücretsiz ve barındırılan bir hizmettir. Jupyter (eski adı IPython) Markdown metinlerini, yürütülebilir kodu (Python, R ve F#), kalıcı verileri, grafikleri ve görselleştirmeleri kolayca not defteri olarak adlandırılan tek, paylaşılabilir bir tuvalde birleştirmenizi sağlayan bir açık kaynak projesidir.
+  description: 'Azure Notebooks, yükleme yapmadan Jupyter not defterlerini geliştirmeye ve çalıştırmaya yönelik, ücretsiz ve barındırılan bir hizmettir. Jupyter (eski adı IPython) Markdown metinlerini, yürütülebilir kodu (Python, R ve F#), kalıcı verileri, grafikleri ve görselleştirmeleri kolayca not defteri olarak adlandırılan tek, paylaşılabilir bir tuvalde birleştirmenizi sağlayan bir açık kaynak projesidir.'
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: Bu hızlı başlangıç ipuçlarını inceleyerek Azure Notebooks ile çalışmayı öğrenin.
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - href: /azure/notebooks/quickstart-create-share-jupyter-notebook
-      html: <p>Azure Notebooks'da bir Jupyter not defteri oluşturmayı, çalıştırmayı ve sonra da bu not defterini diğerleriyle paylaşmayı öğrenin.</p>
-      image:
-        src: media/index/Azure_AddNotebook.svg
-      title: Not defteri oluşturma ve paylaşma
-    - href: /azure/notebooks/quickstart-clone-jupyter-notebook
-      html: <p>GitHub deposundan Jupyter not defterini kopyalamayı ve bunu Azure Notebooks hesabınızda çalıştırmayı öğrenin.</p>
-      image:
-        src: media/index/Azure_ClonePage.svg
-      title: Not defterini kopyalama
-    - href: /azure/notebooks/quickstart-migrate-local-jupyter-notebook
-      html: <p>Yerel bilgisayardan veya web URL'sinden bir Jupyter not defterini Azure Notebooks'a aktarmayı, sonra da işbirliği için bu not defterini paylaşmayı öğrenin.</p>
-      image:
-        src: media/index/Azure_MigrateNotebook.svg
-      title: Yerel Jupyter not defterini geçirme
-    - href: /azure/notebooks/quickstart-create-jupyter-notebook-project-environment
-      html: <p>Belirli bir yüklü paket kümesi ve başlangıç betiğiyle Azure Notebooks projesini yapılandırmayı öğrenin.</p>
-      image:
-        src: media/index/Azure_CustomEnvironment.svg
-      title: Özel bir ortamla proje oluşturma
-    - href: /azure/notebooks/quickstart-sign-in-azure-notebooks
-      html: <p>Azure Notebooks'da oturum açmayı ve bir kullanıcı kimliği ayarlamayı öğrenin. Bu, kaydedilmiş projelere ve başkalarıyla paylaşılan not defterlerine erişebilmenize olanak sağlar.</p>
-      image:
-        src: media/index/Azure_UserAccount.svg
-      title: Oturum açma ve kullanıcı kimliği ayarlama
-- title: Adım Adım Öğreticiler
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: Bu hızlı başlangıç ipuçlarını inceleyerek Azure Notebooks ile çalışmayı öğrenin.
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: /azure/notebooks/quickstart-create-share-jupyter-notebook
+            html: '<p>Azure Notebooks''da bir Jupyter not defteri oluşturmayı, çalıştırmayı ve sonra da bu not defterini diğerleriyle paylaşmayı öğrenin.</p>'
+            image:
+              src: media/index/Azure_AddNotebook.svg
+            title: Not defteri oluşturma ve paylaşma
+          - href: /azure/notebooks/quickstart-clone-jupyter-notebook
+            html: <p>GitHub deposundan Jupyter not defterini kopyalamayı ve bunu Azure Notebooks hesabınızda çalıştırmayı öğrenin.</p>
+            image:
+              src: media/index/Azure_ClonePage.svg
+            title: Not defterini kopyalama
+          - href: /azure/notebooks/quickstart-migrate-local-jupyter-notebook
+            html: '<p>Yerel bilgisayardan veya web URL''sinden bir Jupyter not defterini Azure Notebooks''a aktarmayı, sonra da işbirliği için bu not defterini paylaşmayı öğrenin.</p>'
+            image:
+              src: media/index/Azure_MigrateNotebook.svg
+            title: Yerel Jupyter not defterini geçirme
+          - href: /azure/notebooks/quickstart-create-jupyter-notebook-project-environment
+            html: <p>Belirli bir yüklü paket kümesi ve başlangıç betiğiyle Azure Notebooks projesini yapılandırmayı öğrenin.</p>
+            image:
+              src: media/index/Azure_CustomEnvironment.svg
+            title: Özel bir ortamla proje oluşturma
+          - href: /azure/notebooks/quickstart-sign-in-azure-notebooks
+            html: '<p>Azure Notebooks''da oturum açmayı ve bir kullanıcı kimliği ayarlamayı öğrenin. Bu, kaydedilmiş projelere ve başkalarıyla paylaşılan not defterlerine erişebilmenize olanak sağlar.</p>'
+            image:
+              src: media/index/Azure_UserAccount.svg
+            title: Oturum açma ve kullanıcı kimliği ayarlama
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="/azure/notebooks/tutorial-create-run-jupyter-notebook">Baştan sona bir not defteri oluşturmayı öğrenin.</a>
-- title: Örnekler
-  items:
-  - type: paragraph
-    text: 'Notebooks ile çalışmak için aşağıdaki örnekleri kullanın:'
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/notebooks/tutorial-create-run-jupyter-notebook">Baştan sona bir not defteri oluşturmayı öğrenin.</a>
+  - title: Örnekler
     items:
-    - html: <a href="/azure/notebooks/azure-notebooks-samples">Örnek Jupyter not defterleri</a>
+      - type: paragraph
+        text: 'Notebooks ile çalışmak için aşağıdaki örnekleri kullanın:'
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/notebooks/azure-notebooks-samples">Örnek Jupyter not defterleri</a>

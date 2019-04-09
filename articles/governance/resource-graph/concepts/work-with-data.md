@@ -1,19 +1,18 @@
 ---
 title: Büyük veri kümeleriyle çalışma
 description: Ve büyük veri kümeleri ile Azure kaynak Graph çalışırken öğrenin.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 40aa8ca0ebfcc8eb5b686143960af1441768622a
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 729e9fe749212942c6dc18fc7d6301934e7dd184
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058400"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262474"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Büyük bir Azure kaynak veri kümeleri ile çalışma
 

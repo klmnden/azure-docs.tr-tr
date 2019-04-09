@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 98cc6ee2428523b93b42fca73daadc118103b7d7
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5a4b7514005da9e9a998dba014fa0ea6c014397a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667493"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268526"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core Service Fabric güvenilir hizmetler
 
@@ -473,7 +473,7 @@ Internet'e açık olduğunda, durum bilgisi olmayan hizmet bir yük dengeleyici 
 | --- | --- | --- |
 | Web sunucusu | Kestrel'i | Windows ve Linux'ta desteklenen kestrel tercih edilen web sunucusudur. |
 | Bağlantı noktası yapılandırması | statik | İyi bilinen bir statik bağlantı noktası olarak yapılandırılmalıdır `Endpoints` yapılandırmasını ServiceManifest.xml, örneğin HTTP için 80 veya HTTPS için 443'tür. |
-| ServiceFabricIntegrationOptions | Hiçbiri | `ServiceFabricIntegrationOptions.None` Benzersiz bir tanımlayıcı için gelen istekleri doğrulamak hizmet çalışmaz, Service Fabric tümleştirme ara yazılımı yapılandırırken seçeneği kullanılmalıdır. Uygulamanızın dış kullanıcıları ara yazılım tarafından kullanılan benzersiz tanımlayıcı bilgiler oynatacaklarını bilmez. |
+| ServiceFabricIntegrationOptions | None | `ServiceFabricIntegrationOptions.None` Benzersiz bir tanımlayıcı için gelen istekleri doğrulamak hizmet çalışmaz, Service Fabric tümleştirme ara yazılımı yapılandırırken seçeneği kullanılmalıdır. Uygulamanızın dış kullanıcıları ara yazılım tarafından kullanılan benzersiz tanımlayıcı bilgiler oynatacaklarını bilmez. |
 | Örnek Sayısı | -1 | Böylece yük dengeleyiciden trafiği alması tüm düğümlerde örneği kullanılabilir tipik kullanım durumlarında ayarı örnek sayısı "-1" olarak ayarlanması gerekir. |
 
 Birden çok harici olarak kullanıma sunulan hizmetlere aynı dizi düğümü paylaşıyorsanız, HttpSys benzersiz ancak kararlı bir URL yolu ile kullanılabilir. Bu, IWebHost yapılandırılırken belirtilen URL değiştirerek gerçekleştirilebilir. Bunun için HttpSys yalnızca geçerli olmadığını unutmayın.
@@ -499,7 +499,7 @@ Yalnızca gelen küme içinde çağrılan durum bilgisi olmayan hizmetler ve bir
 | Web sunucusu | Kestrel'i | HttpSys iç durum bilgisi olmayan hizmetler için kullanılabilir ancak Kestrel bir konak paylaşmak birden çok hizmeti örneği izin vermek için önerilen sunucusudur.  |
 | Bağlantı noktası yapılandırması | dinamik olarak atanan | Durum bilgisi olan bir hizmet birden çok kopyasını, ana bilgisayar işlemi veya ana bilgisayar işletim sistemi paylaşabilir ve bu nedenle benzersiz bağlantı noktası gerekir. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Dinamik bağlantı noktası atama ile bu ayar, daha önce açıklanan hatalı kimlik sorununu önler. |
-| Instancecount | hiçbiri | Ayarlama örneği sayısı hizmeti çalıştırmak gerekli olarak herhangi bir değere ayarlanabilir. |
+| Instancecount | herhangi biri | Ayarlama örneği sayısı hizmeti çalıştırmak gerekli olarak herhangi bir değere ayarlanabilir. |
 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Yalnızca iç durum bilgisi olan ASP.NET Core hizmeti
 Yalnızca gelen küme içinde çağrılan durum bilgisi olan hizmetler, birden çok hizmet arasında işbirliği sağlamak için dinamik olarak atanan bağlantı noktası kullanmanız gerekir. Aşağıdaki yapılandırmayı öneririz:
@@ -511,7 +511,7 @@ Yalnızca gelen küme içinde çağrılan durum bilgisi olan hizmetler, birden �
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Dinamik bağlantı noktası atama ile bu ayar, daha önce açıklanan hatalı kimlik sorununu önler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Visual Studio'yu kullanarak Service Fabric uygulamanızda hata ayıklama](service-fabric-debugging-your-application.md)
+[Visual Studio kullanarak Service Fabric uygulamanızı hata ayıklama](service-fabric-debugging-your-application.md)
 
 <!--Image references-->
 [0]:./media/service-fabric-reliable-services-communication-aspnetcore/webhost-standalone.png

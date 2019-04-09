@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cd3286d51154c9c1dd53a2f87dd8a97999d064a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: e5d85d1f211a4cc0307cca6d631a4bf286d3e576
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046708"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271824"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
@@ -39,7 +39,39 @@ Bu sayfaya ay güncelleştirilir, böylece bunu düzenli olarak tekrar ziyaret. 
 
 ---
 
+## <a name="april-2019"></a>Nisan 2019
+
+### <a name="increased-security-using-the-app-protection-based-conditional-access-policy-in-azure-ad-public-preview"></a>Uygulama koruma tabanlı koşullu erişim ilkesi, Azure AD'de (genel Önizleme) kullanarak daha yüksek güvenlik
+
+**Türü:** Yeni özellik  
+**Hizmet kategorisi:** Koşullu Erişim  
+**Ürün özelliği:** Kimlik Güvenliği ve Koruması
+
+Uygulama koruma tabanlı koşullu erişim artık kullanılabilir kullanarak **uygulama koruması gerektiren** ilkesi. Bu yeni ilkenin önlemek için yardımcı olarak, kuruluşunuzun güvenliğini artırmaya yardımcı olur:
+
+- Kullanıcılar Microsoft Intune lisansı olmadan uygulamalara erişim sağlamasını.
+
+- Bir Microsoft Intune uygulama koruma ilkesini almak çözememesi kullanıcılar.
+
+- Yapılandırılmış bir Intune uygulama koruma İlkesi olmadan uygulamalara erişim sağlamasını kullanıcılar.
+
+Daha fazla bilgi için [koşullu erişim ile bulut uygulaması erişimi için uygulama koruma ilkesini zorunlu kılma](https://docs.microsoft.com/azure/active-directory/conditional-access/app-protection-based-conditional-access).
+
+---
+
 ## <a name="march-2019"></a>Mart 2019
+
+### <a name="new-support-for-azure-ad-single-sign-on-and-conditional-access-in-microsoft-edge-public-preview"></a>Yeni Azure AD çoklu oturum açma ve koşullu erişimi Microsoft edge'de (genel Önizleme) desteği
+
+**Türü:** Yeni özellik  
+**Hizmet kategorisi:** Koşullu Erişim  
+**Ürün özelliği:** Kimlik Güvenliği ve Koruması
+
+Azure AD çoklu oturum açma ve koşullu erişim için yeni destek sağlamak da dahil, Microsoft Edge için sunduğumuz Azure AD desteğini geliştirdik. Microsoft Intune Managed Browser'ı daha önce kullandıysanız, artık Microsoft Edge yerine kullanabilirsiniz.
+
+Ayarlama ve koşullu erişim kullanarak uygulamaları ve cihazları yönetme hakkında daha fazla bilgi için bkz. [gerektiren yönetilen cihazlar için koşullu erişim ile bulut uygulaması erişimi](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/require-managed-devices) ve [gerektiren onaylı istemci uygulamalarını bulut için Koşullu erişimle uygulama](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/app-based-conditional-access). Microsoft Edge ile Microsoft Intune ilkeleri kullanarak erişimi yönetme hakkında daha fazla bilgi için bkz. [Intune ilkeyle korunan bir tarayıcı kullanarak Internet erişimini yönetme](https://docs.microsoft.com/en-us/intune/app-configuration-managed-browser).
+
+---
 
 ### <a name="identity-experience-framework-and-custom-policy-support-in-azure-active-directory-b2c-is-now-available-ga"></a>Kimlik deneyimi çerçevesi ve özel ilke Azure Active Directory B2C'de desteği kullanıma (GA) sunuldu
 

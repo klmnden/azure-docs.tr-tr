@@ -4,7 +4,6 @@ title: Azure İlkesi hizmeti belgeleri
 metadata:
   title: 'Azure İlkesi Belgeleri - Öğreticiler, API Başvurusu'
   description: 'Azure İlkesi, kaynaklarınıza yönelik kuralları ve etkileri zorunlu kılan ilke tanımları ile BT sorunlarını yönetip önlemenize yardımcı olur. Azure İlkesi kullandığınızda kaynaklarınız, kurumsal standartlarınız ve hizmet düzeyi sözleşmeleriniz ile uyumlu kalır.'
-  services: azure-policy
   author: DCtheGeek
   manager: carmonm
   ms.service: azure-policy

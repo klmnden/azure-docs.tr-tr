@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c010a7bcd2d811b31d9c2d05e81cce5dc85c2ce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118604"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262559"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile yayımlanan uygulamalar için sabit kodlanmış bağlantıları yeniden yönlendirin
 
@@ -81,6 +81,31 @@ Bağlantı çevirisi özelliğini yalnızca bir uygulamanın gövdesindeki kod e
 
 - **İç göreli bağlantıları** bir yerel dosya yapısı içinde bir paylaşılan kaynak noktasına gibi sağladığı `/claims/claims.html`. Bu bağlantılar otomatik olarak uygulama proxy'si aracılığıyla yayımlandığından ve ile veya olmadan bağlantı çeviri devam uygulamalar çalışır. 
 - **Sabit kodlanmış iç bağlantıları** gibi diğer şirket içi uygulamalara `http://expenses` ya da dosyalar gibi yayımlanan `http://expenses/logo.jpg`. Bağlantı çevirisi özelliğini sabit kodlanmış iç bağlantılarında çalışır ve bunları üzerinden geçmek üzere uzak kullanıcıların gereken dış URL'leri işaret edecek şekilde değiştirir.
+
+Uygulama proxy'si için ekleme bağlantısı çeviri destekler HTML kod etiketlerinin tam listesi:
+* a
+* Ses
+* temel
+* Düğme
+* div
+* Katıştır
+* Formu
+* Çerçeve
+* HEAD
+* html
+* iframe
+* görüntü
+* giriş
+* bağlantı
+* MenuItem
+* Meta
+* object
+* script
+* source
+* İzleme
+* video
+
+Ayrıca, CSS içinde URL özniteliğini de çevrilir.
 
 ### <a name="how-do-apps-link-to-each-other"></a>Uygulamaları birbirleriyle nasıl bağlantı kurarım?
 

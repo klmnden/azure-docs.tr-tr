@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: b567f5e74737c6020a3dd08484354383d45ecb7d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: ed8884462030e10625f332b182bd900e833f34f4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361898"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272742"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Data Lake depolama Gen1 Azure HDInsight kümeleri ile kullanma
 
@@ -43,6 +43,7 @@ HDInsight kümeleri Data Lake depolama Gen1 iki şekilde kullanabilir:
 
 | HDInsight küme türü | Varsayılan depolama alanı olarak Data Lake depolama Gen1 | Ek depolama alanı olarak Data Lake depolama Gen1| Notlar |
 |------------------------|------------------------------------|---------------------------------------|------|
+| HDInsight sürüm 4.0 | Hayır | Hayır |ADLS Gen1 HDInsight 4.0 ile desteklenmiyor |
 | HDInsight sürümü 3.6 | Evet | Evet | HBase dışında|
 | HDInsight sürümü 3.5 | Evet | Evet | HBase dışında|
 | HDInsight sürümü 3.4 | Hayır | Evet | |
@@ -59,8 +60,8 @@ Ek depolama hesabı Data Lake depolama Gen1 kullanarak, performans veya okuma ve
 
 HDInsight ile varsayılan depolama alanı olarak Data Lake depolama Gen1 dağıtıldığında, kümeyle ilişkili dosyalar depolanan `adl://mydatalakestore/<cluster_root_path>/`burada `<cluster_root_path>` Data Lake Store içinde oluşturduğunuz klasörün adıdır. Her küme için kök yolu belirterek, birden fazla küme için aynı Data Lake Storage hesabını kullanabilirsiniz. Bunu yaptığınızda şöyle bir durum olabilir:
 
-* Cluster1 `adl://mydatalakestore/cluster1storage` yolunu kullanabilir.
-* Cluster2 `adl://mydatalakestore/cluster2storage` yolunu kullanabilir.
+* Küme1 yolunu kullanabilir. `adl://mydatalakestore/cluster1storage`
+* Cluster2 yolunu kullanabilir. `adl://mydatalakestore/cluster2storage`
 
 Her iki hesabın aynısını Data Lake depolama Gen1 kullandığına dikkat edin **mydatalakestore**. Her küme Data Lake Store içinde kendi kök dosya sistemine erişebilir. Özellikle Azure portalı dağıtımı deneyimi sizden kök yol olarak **/clusters/\<clustername>** gibi bir klasör adı kullanmanızı ister.
 

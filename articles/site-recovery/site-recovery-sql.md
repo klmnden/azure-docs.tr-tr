@@ -6,16 +6,16 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 2d141a330b6b6c5fc102dd70ae1d6b3b01283d19
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 67526eddd19c5869aa54432f963d9b80396f878d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444880"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270991"
 ---
-# <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server için olağanüstü durum kurtarmayı ayarlayın 
+# <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server için olağanüstü durum kurtarmayı ayarlayın
 
 Bu makalede, SQL Server iş sürekliliği ve olağanüstü durum kurtarma (BCDR) teknolojilerini bir birleşimini kullanarak bir uygulama SQL Server arka ucunu korumak açıklanır ve [Azure Site Recovery](site-recovery-overview.md).
 
@@ -30,7 +30,7 @@ SharePoint, Dynamics ve SAP, veri hizmetlerini uygulamak amacıyla gibi uygulama
 * **Örneği (FCI üzerinde her zaman) SQL Server Yük devretme**: Windows Yük devretme kümesinde paylaşılan diskleri ile örnekli SQL Server çalıştıran iki veya daha fazla düğüm yapılandırılır. Bir düğüm kapalı ise, küme SQL Server başka bir örneğine devredebilir. Bu kurulum, genellikle bir birincil sitede yüksek kullanılabilirlik uygulamak için kullanılır. Bu dağıtım hatası ya da kesinti paylaşılan depolama katmanında karşı korumaz. İSCSI, fiber kanal veya paylaşılan vhdx'i kullanarak paylaşılan bir disk uygulanabilir.
 * **SQL Always On kullanılabilirlik grupları**: İki veya daha fazla düğüm hiçbir şey küme, zaman uyumlu çoğaltma ve otomatik yük devretme ile bir kullanılabilirlik grubunda yapılandırılmış SQL Server veritabanları ile paylaşılan olarak ayarlanır.
 
- Bu makalede, uzak bir site veritabanını kurtarmak için aşağıdaki yerel SQL olağanüstü durum kurtarma teknolojilerden yararlanır:
+  Bu makalede, uzak bir site veritabanını kurtarmak için aşağıdaki yerel SQL olağanüstü durum kurtarma teknolojilerden yararlanır:
 
 * SQL Always On kullanılabilirlik SQL Server 2012 veya 2014 Enterprise sürümleri için olağanüstü durum kurtarma sağlamak için grupları.
 * SQL veritabanı yüksek güvenilirlik modunda, SQL Server 2008 R2 veya SQL Server Standard sürümü (tüm sürümler) için yansıtma.
@@ -40,12 +40,12 @@ SharePoint, Dynamics ve SAP, veri hizmetlerini uygulamak amacıyla gibi uygulama
 ### <a name="supported-scenarios"></a>Desteklenen senaryolar
 Site Recovery, SQL Server tabloda özetlendiği gibi koruyabilir.
 
-**Senaryo** | **İkincil bir siteye** | **Azure’a**
+**Senaryo** | **İkincil siteye** | **Azure’a**
 --- | --- | ---
-**Hyper-V** | Evet | Evet
-**VMware** | Evet | Evet
-**Fiziksel sunucu** | Evet | Evet
-**Azure**|NA| Evet
+**Hyper-V** | Yes | Yes
+**VMware** | Yes | Yes
+**Fiziksel sunucu** | Yes | Evet
+**Azure** |NA| Evet
 
 ### <a name="supported-sql-server-versions"></a>Desteklenen SQL Server sürümleri
 Bu SQL Server sürümleri için desteklenen senaryolar desteklenir:
@@ -73,11 +73,11 @@ Bu tablo, Site Recovery ile SQL Server BCDR teknolojileriyle tümleştirme için
 | **Sürüm** | **Sürüm** | **Dağıtım** | **Şirket içinden şirket içi** | **Şirket içinden Azure** |
 | --- | --- | --- | --- | --- |
 | SQL Server 2016, 2014 veya 2012 |Enterprise |Yük devretme kümesi örneği |Always On kullanılabilirlik grupları |Always On kullanılabilirlik grupları |
-|| Enterprise |Always On kullanılabilirlik grupları için yüksek kullanılabilirlik |Always On kullanılabilirlik grupları |Always On kullanılabilirlik grupları | |
-|| Standart |Yük devretme kümesi örneği (FCI) |Site Recovery çoğaltma ile yerel yansıtma |Site Recovery çoğaltma ile yerel yansıtma | |
-|| Kurumsal veya standart |Tek Başına |Site Recovery çoğaltması |Site Recovery çoğaltması | |
+|| Enterprise |Always On kullanılabilirlik grupları için yüksek kullanılabilirlik |Always On kullanılabilirlik grupları |Always On kullanılabilirlik grupları |
+|| Standart |Yük devretme kümesi örneği (FCI) |Site Recovery çoğaltma ile yerel yansıtma |Site Recovery çoğaltma ile yerel yansıtma |
+|| Kurumsal veya standart |Tek Başına |Site Recovery çoğaltması |Site Recovery çoğaltması |
 | SQL Server 2008 R2 veya 2008 |Kurumsal veya standart |Yük devretme kümesi örneği (FCI) |Site Recovery çoğaltma ile yerel yansıtma |Site Recovery çoğaltma ile yerel yansıtma |
-|| Kurumsal veya standart |Tek Başına |Site Recovery çoğaltması |Site Recovery çoğaltması | |
+|| Kurumsal veya standart |Tek Başına |Site Recovery çoğaltması |Site Recovery çoğaltması |
 | SQL Server (tüm sürümler) |Kurumsal veya standart |Yük devretme kümesi örneği - DTC uygulama |Site Recovery çoğaltması |Desteklenmiyor |
 
 ## <a name="deployment-prerequisites"></a>Dağıtım önkoşulları
@@ -101,7 +101,7 @@ Yapmanız gerekenler şu şekildedir:
 
 1. Betikleri Azure Otomasyon hesabınızda içeri aktarın. Bu betikleri SQL kullanılabilirlik grubu yük devretme içeren içinde bir [Resource Manager sanal makinesi](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) ve [Klasik sanal makine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1).
 
-    [![Azure’a dağıtma](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![Dazure'a aşamasıyla](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 
 1. ASR SQL FailoverAG kurtarma planının ilk grup bir ön eylem ekleyin.
@@ -179,7 +179,7 @@ SQL Server Standard edition veya SQL Server 2008 R2 çalıştıran bir küme iç
 * Dağıtılmış işlemler uygulamayı kullanıyorsa, dağıttığınız öneririz [Site Recovery SAN çoğaltması ile](site-recovery-vmm-san.md) için bir Hyper-V ortamına veya [VMware VMware/fiziksel sunucuya](site-recovery-vmware-to-vmware.md) VMware ortamı için.
 * DTC olmayan uygulamalar için yerel yüksek güvenilirlik DB yansıtma yararlanarak bir tek başına sunucu olarak kümeyi kurtarmak için yukarıdaki yaklaşımı kullanın.
 
-### <a name="on-premises-to-azure"></a>Şirket içinden Azure'a
+### <a name="on-premises-to-azure"></a>Şirket içinden azure'a
 
 Site Recovery, Konuk sunmaz Azure'a çoğaltırken küme desteği. SQL Server, Standard edition için düşük maliyetli olağanüstü durum kurtarma çözümü de sağlamaz. Bu senaryoda, bir tek başına SQL Server şirket içi SQL Server kümesini koruma ve Azure'da kurtarma öneririz.
 

@@ -10,12 +10,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: ae9f2cbdd659b7eaf3558717be19f324e803d906
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 8f852fe67443193ad19cb9bd57e0fd2294f3c817
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522341"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266044"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL veri ambarı sürüm notları
 
@@ -27,7 +27,7 @@ Bu makalede yeni özellikler ve geliştirmeler son sürümlerinde özetlenir [Az
 | --- | --- |
 |**İş yükü önem Önizleme için kullanıma sunuldu**|İş yükü önem, veri mühendisleri istekleri sınıflandırmak için önem kullanma olanağı sunar. Yüksek önem derecesi isteklerle Sla'lara uymaya yardımcı olan Hızlı kaynaklarına erişimi sağlanır.  Daha az kaynak ile paylaşılan bir ortamda SLA gereksinimlerini karşılamak yüksek iş değerini iş iş yükü önem verir.<br/><br/>İş yükü önemi hakkında daha fazla bilgi için bkz. [sınıflandırma](sql-data-warehouse-workload-classification.md) ve [önem](sql-data-warehouse-workload-importance.md) genel bakış makalelerini belgelerinde. Kullanıma [iş YÜKÜ SINIFLANDIRICI oluşturma](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) belge de.<br/><br/>İş yükü önem nasıl gerçekleştirildiğini görmek videoları aşağıda:<br/>[İş yükü yönetimi kavramları](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[İş yükü yönetimi senaryoları](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**TOPLAMA GÖRE GRUPLANDIR**|PAKETİ bir desteklenen GROUP BY seçeneği Azure veri ambarı'nda sunulmuştur.   Grup tarafından dökümü her bir sütun ifadeleri bileşimi için bir grup oluşturur. GROUP BY ayrıca "sonuçları alt toplamları ve genel toplamları toplanan". Bunu yapmak için hangi grupları ve aggregation(s) oluşturduğu sütun ifadeleri sayısını azaltarak, soldan sağa taşır.  Sütun sırasını toplama çıkış etkiler ve sonuç kümesinde satır sayısını etkileyebilir.<br/><br/>Grup tarafından toplama hakkında daha fazla bilgi için bkz [GROUP BY (Transact-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest)
-|**Kullanılan DWU ve CPU portal ölçümleri için geliştirilmiş doğruluğuna**|SQL veri ambarı, Azure portalında ölçüm doğruluğu önemli ölçüde geliştirir.  Bu sürüm, iş yükünüz tüm işlem düğümleri arasında düzgün bir şekilde yansıtmak için CPU ve kullanılan DWU ölçüm tanımı için bir düzeltme içerir.|
+|**Kullanılan DWU ve CPU portal ölçümleri için geliştirilmiş doğruluğuna**|SQL veri ambarı, Azure portalında ölçüm doğruluğu önemli ölçüde geliştirir.  Bu sürüm, iş yükünüz tüm işlem düğümleri arasında düzgün bir şekilde yansıtmak için CPU ve kullanılan DWU ölçüm tanımı için bir düzeltme içerir. Bu düzeltme önce ölçüm değerleri undereported. Kullanılan DWU artış ve Azure portalda CPU ölçümlerini görmek bekler. |
 |**Ek T-SQL desteği**|SQL veri ambarı için T-SQL dil yüzey alanı için destek içerecek şekilde genişletildi:<br/>&bull; &nbsp; [FORMAT (Transact-SQL)](/sql/t-sql/functions/format-transact-sql)<br/>&bull; &nbsp;    [STRING_ESCAPE (Transact-SQL)](/sql/t-sql/functions/string-escape-transact-sql)<br/>&bull; &nbsp; [STRING_SPLIT (Transact-SQL)](/sql/t-sql/functions/string-split-transact-sql)<br/>&bull; &nbsp; [TRANSLATE (Transact-SQL)](/sql/t-sql/functions/translate-transact-sql)<br/>&bull; &nbsp; [TRIM (Transact-SQL)](/sql/t-sql/functions/trim-transact-sql)
 | | |
 
@@ -93,8 +93,8 @@ Bu makalede yeni özellikler ve geliştirmeler son sürümlerinde özetlenir [Az
 
 - [Blog - Azure SQL veri ambarı](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - [Müşteri Danışma Ekibi blogları](https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/)
-- [Müşteri başarı hikayeleri](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
+- [Başarı hikayeleri](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Stack Overflow forumu](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)
 - [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
-- [Azure sözlüğü](../azure-glossary-cloud-terminology.md)
+- [Azure sözlüğünü](../azure-glossary-cloud-terminology.md)

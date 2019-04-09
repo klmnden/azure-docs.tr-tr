@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 154e0dcefab6d5bcdfc9532ba4258d09593f0970
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 28d8c077f106f12812f7ed710217febd24d81efc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311148"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267166"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure veri fabrikasında kopyalama etkinliği
 
@@ -54,14 +54,15 @@ Kopyalama etkinliği, verileri bir kaynaktan havuza kopyalamak için aşağıdak
 
 Kopyalama etkinliği için kullanabileceğiniz **olarak dosya kopyalama-olan** içinde çalışması verilerin kopyalandığı verimli bir şekilde tüm serileştirme/seri kaldırma, iki dosya tabanlı veri depoları arasında.
 
-Kopyalama etkinliği, okuma ve yazma belirtilen biçimde dosyalara da destekler: **Metin, JSON, Avro, ORC ve Parquet**ve sıkıştırma codec **GZip, Deflate, Bzıp2 ve ZipDeflate** desteklenir. Bkz: [desteklenen dosya ve sıkıştırma biçimleri](supported-file-formats-and-compression-codecs.md) ayrıntılarla.
+Kopyalama etkinliği, okuma ve yazma belirtilen biçimde dosyalara da destekler: **Metin, JSON, Avro, ORC ve Parquet**, sıkıştırma ve decompresing dosyalarınıza aşağıdaki codec bileşenleri ile: **GZip, Deflate, Bzıp2 ve ZipDeflate**. Bkz: [desteklenen dosya ve sıkıştırma biçimleri](supported-file-formats-and-compression-codecs.md) ayrıntılarla.
 
 Örneğin, aşağıdaki kopyalama etkinlikleri yapabilirsiniz:
 
-* Şirket içi SQL Server verileri kopyalayın ve Azure Data Lake Store için ORC biçiminde yazmak.
+* Şirket içi SQL Server verileri kopyalayın ve Azure Data Lake depolama Gen2 Parquet biçiminde yazmak.
 * Dosyaları (CSV) metin biçiminde şirket içi dosya sisteminden kopyalama ve Azure Blob Avro biçiminde yazmak.
-* Şirket içi dosya sisteminden sıkıştırılmış dosyaları kopyalayın ve ardından land Azure Data Lake Store için açılamadı.
+* Şirket içi dosya sisteminden sıkıştırılmış dosyaları kopyalayın ve sonra Azure Data Lake depolama Gen2'ye land açılamadı.
 * Verileri Azure Blobundan GZip sıkıştırılmış metni (CSV) biçiminde kopyalayın ve Azure SQL veritabanı'na yazın.
+* Ve daha fazla çoğunlukla serileştirme/seri durumundan çıkarma veya sıkıştırma/açma gerekir.
 
 ## <a name="supported-regions"></a>Desteklenen bölgeler
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11846ca2a323da5889f444024767df4803a48a51
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: b91af553c402cc1cb241e51e2bb2289bf45b1825
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892220"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269036"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Bulut tabanlı bir Azure multi-Factor Authentication'ı planlama
 
@@ -60,8 +60,14 @@ Azure multi-Factor Authentication ile koşullu erişim ilkelerini zorlayarak da�
 * Uyumlu cihaz
 * Hibrit Azure AD'ye katılmış
 * Onaylı istemci uygulaması
+ 
+
+Özelleştirilebilir Posterler ve e-posta şablonları kuruluşunuz için çok faktörlü kimlik doğrulaması almak için [dağıtım malzemeleri multi factor authentication] kullanın. (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
+
+## <a name="enable-multi-factor-authentication-with-conditional-access"></a>Koşullu erişim ile çok faktörlü kimlik doğrulamasını etkinleştirme
 
 Koşullu erişim ilkeleri zorunlu tutmanıza gerek ilk oturum açma sırasında bir önemli güvenlik önlemleri kaydı tamamlamak kaydolmamış kullanıcılar kayıt.
+
 
 [Azure AD kimlik koruması](../identity-protection/howto-configure-risk-policies.md) bir kayıt ilkesi için hem otomatik risk algılama ve düzeltme ilkeleri Azure multi-Factor Authentication hikayeye katkıda bulunur. İlkeleri güvenliği aşılmış kimlik kesilmeyen parola değişikliklerini zorlamak için oluşturduğunuz veya bir oturum açma aşağıdaki riskli bulunduğu zaman MFA gerektirecek [olayları](../reports-monitoring/concept-risk-events.md):
 

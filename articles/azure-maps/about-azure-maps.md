@@ -9,18 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 023f5ed43453d7fb20dec5d91651230aa8fb4370
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 944a111ac0c31e755b3991f9ea101ba652c676d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571312"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268781"
 ---
 # <a name="what-is-azure-maps"></a>Azure Haritalar nedir?
 
-Azure haritalar, doğru web ve mobil uygulamalara coğrafi bağlam kullanılabilir en yeni eşleme verileri tarafından Temizle, Jeo-uzamsal hizmetler koleksiyonudur. Azure haritalar, işleme için REST API'lerini oluşur **haritalar** birden çok stilleri ve uydu tanımayı **arama** adresler, yerler ve ilgi; dünyanın dört bir yanındaki noktaları için **Yönlendirme** noktadan noktaya, multipoint, multipoint iyileştirme, isochrone, ticari araç, trafiği etkileyen ve yönlendirme; en iyi şekilde görüntüleme matris trafik akışını ve olayları breed; aracılığıyla kullanıcı konumunu oluşturma **Coğrafi konum**; ve konuma dönüştürme **saat dilimlerini**, yanı, zamanı bir konumda getiriliyor. Ayrıca, Azure haritalar hizmetleri sunar **bölge sınırlaması**, harita **veri** barındırma konum bilgilerini Azure; depolama - ve **uzamsal Operations** konum Jeo-uzamsal analiz aracılığıyla gösterimi. Azure haritalar Hizmetleri doğrudan REST API veya ya da aracılığıyla kullanılabilir bizim sağlam **Web SDK'sı** veya **Android SDK'sı**. Bu araçlar, geliştiricilerin hızlı bir şekilde geliştirin ve konum bilgilerini Azure bulutunun içinden Azure çözümlerinden tümleştirin ölçek çözümleri sağlar. Kaydolmak için ücretsiz [Azure haritalar hesabı](https://azure.microsoft.com/services/azure-maps/) bugüne, başlangıç geliştirme!
+Azure haritalar, doğru web ve mobil uygulamalara coğrafi bağlam kullanılabilir en yeni eşleme verileri tarafından Temizle, Jeo-uzamsal hizmetler koleksiyonudur. Azure haritalar, işleme için REST API'lerini oluşur **haritalar** birden çok stilleri ve uydu tanımayı **arama** adresler, yerler ve ilgi; dünyanın dört bir yanındaki noktaları için **Yönlendirme** noktadan noktaya, multipoint, multipoint iyileştirme, isochrone, ticari araç, trafiği etkileyen ve yönlendirme, trafik akışını sektör lideri ve olayları görüntüleme; oluşturma kullanıcı konumu Matrisi aracılığıyla **coğrafi konum**; ve konuma dönüştürme **saat dilimlerini**, yanı, zamanı bir konumda getiriliyor. Ayrıca, Azure haritalar hizmetleri sunar **bölge sınırlaması**, harita **veri** barındırma konum bilgilerini Azure; depolama - ve **uzamsal Operations** konum Jeo-uzamsal analiz aracılığıyla gösterimi. Azure haritalar Hizmetleri doğrudan REST API veya ya da aracılığıyla kullanılabilir bizim sağlam **Web SDK'sı** veya **Android SDK'sı**. Bu araçlar, geliştiricilerin hızlı bir şekilde geliştirin ve konum bilgilerini Azure bulutunun içinden Azure çözümlerinden tümleştirin ölçek çözümleri sağlar. Kaydolmak için ücretsiz [Azure haritalar hesabı](https://azure.microsoft.com/services/azure-maps/) bugüne, başlangıç geliştirme!
 
 Aşağıdaki videoda Azure Haritalar ayrıntılı olarak açıklanır:
+
+<br/>
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
@@ -95,7 +97,7 @@ Bu hizmetle ilgili ayrıntılar için [Azure Haritalar Saat Dilimi API'leri](htt
 Trafik hizmeti, geliştiricilerin trafik verilerine ihtiyaç duyan web ve mobil platform uygulamaları geliştirmeleri için tasarlanmış bir web hizmeti paketidir. Hizmet, iki tür veri sağlar:
 
 * Trafik akışı: Ağ üzerindeki tüm ana yollar için gerçek zamanlı hız ve seyahat süresi bilgileri.
-* Trafik olayları: Yol ağı üzerindeki trafik sıkışıklıklarının ve olaylarının doğru bir görünümü.
+* Trafik olayları - trafik sıkışıklıklarının ve olaylarının yol ağı hakkında güncel bir görünüm.
 
 ![Azure Haritalar Trafiği](media/about-azure-maps/Introduction_Traffic.png)
 
@@ -121,7 +123,7 @@ Azure Haritalar anahtar tabanlı bir kimlik doğrulama düzeni kullanır. Hesab�
 
 ## <a name="supported-regions"></a>Desteklenen bölgeler
 
-Azure Haritalar API'si şu anda aşağıdaki ülkeler dışında tüm ülkelerde kullanılabilir:
+Azure haritalar API'si şu anda aşağıdaki alt bölgeler dışındaki tüm ülkelerde kullanılabilir:
 
 * Arjantin
 * Çin
@@ -130,16 +132,16 @@ Azure Haritalar API'si şu anda aşağıdaki ülkeler dışında tüm ülkelerde
 * Pakistan
 * Güney Kore
 
-Geçerli IP adresinizin konumunun yukarıdaki desteklenmeyen ülkelerden birinde olmadığını doğrulayın.
+Geçerli IP adresinizi konumunu yukarıdaki desteklenmeyen ülkelerden birinde olmadığını doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure Haritalar'ın yeni özellikleriyle ilgili daha fazla bilgi için:
 
 > [!div class="nextstepaction"]
-> [Yol Matrisi, İzokronlar, IP araması ve daha fazlası](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
+> [Rota matrisi, İzokron, IP araması ve daha fazlası](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
 
-Hizmeti tanıtan bir örnek uygulamayı denemek için devam edin:
+Azure haritalar kullanan örnek uygulamayı deneyin:
 
 > [!div class="nextstepaction"]
-> [Bir demo etkileşimli arama haritası başlatma](quick-demo-map-app.md)
+> [Hızlı Başlangıç: Web uygulaması oluşturma](quick-demo-map-app.md)

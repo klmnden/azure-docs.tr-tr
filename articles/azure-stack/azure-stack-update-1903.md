@@ -16,12 +16,12 @@ ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: 218af82d2385632e7e7a0e77060c5deb758d1e83
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.openlocfilehash: 0448f583743f9e5b3f8fd6de3a85b05e16bff126
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057062"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269155"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 güncelleştirme
 
@@ -208,6 +208,10 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>Syslog 
+- Syslog yapılandırmasını yapılandırmasına ve iletilen durdurmak için syslog iletileri kaybetmenize syslog istemcisinde kaynaklanan bir güncelleştirme döngüsü boyunca kalıcı olmaz. Bu sorun, syslog istemci (1809) genel kullanım tüm Azure Stack sürümleri için geçerlidir.
+Geçici çözüm, Azure Stack güncelleştirme uygulandıktan sonra syslog istemci yeniden sağlamaktır.
 
 ## <a name="download-the-update"></a>Güncelleştirmeyi indirin
 

@@ -4,7 +4,6 @@ title: Azure Kaynak Grafı hizmeti belgeleri
 metadata:
   title: 'Azure Kaynak Grafiği Belgeleri - Öğreticiler, API Başvurusu'
   description: 'Azure Kaynak Grafiği, büyük ölçekteki kaynaklarda karmaşık sorgular çalıştırılmasını sağlayan bir Azure hizmetidir.'
-  services: resource-graph
   author: DCtheGeek
   manager: carmonm
   ms.service: resource-graph

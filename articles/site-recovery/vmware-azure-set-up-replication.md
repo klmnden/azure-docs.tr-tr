@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 18dc7ea513d1e3787dbd38b1ab687be607a79f8b
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
+ms.openlocfilehash: b60d8a8fb9b9300a6914ad33b2f760fb5adde3b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006805"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278233"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Yapılandırma ve Azure'da VMware olağanüstü durum kurtarma için çoğaltma ilkeleri yönetme
 Bu makalede, Azure'da VMware Vm'lerini olduğunuz çoğalttığınızda, çoğaltma ilkesi yapılandırma kullanarak [Azure Site Recovery](site-recovery-overview.md).
@@ -20,7 +20,7 @@ Bu makalede, Azure'da VMware Vm'lerini olduğunuz çoğalttığınızda, çoğal
 ## <a name="create-a-policy"></a>İlke oluştur
 
 1. **Yönet** > **Site Recovery Altyapısı**’nı seçin.
-2. İçinde **VMware ve fiziksel makineler**seçin **çoğaltma ilkeleri**. 
+2. İçinde **VMware ve fiziksel makineler**seçin **çoğaltma ilkeleri**.
 3. Tıklayın **+ Çoğaltma İlkesi**, ilke adı belirtin.
 4. **RPO eşiği** bölümünde RPO limitini belirtin. Sürekli çoğaltma Bu limiti aşarsa uyarılar oluşturulur.
 5. **Kurtarma noktası bekletme** kısmında, her kurtarma noktası için bekletme süresini saat cinsinden belirtin. Korumalı makineler, bekletme penceresi içindeki herhangi bir noktaya kurtarılabilir. Premium depolama alanına çoğaltılan makineler için 24 saate kadar bekletme desteklenir. 72 saat için standart depolama desteklenir.
@@ -29,7 +29,7 @@ Bu makalede, Azure'da VMware Vm'lerini olduğunuz çoğalttığınızda, çoğal
 
 Bir çoğaltma ilkesi oluşturduğunuzda, eşleşen bir yeniden çalışma çoğaltma ilkesi otomatik olarak, "yeniden çalışma" soneki ile oluşturulur. İlkeyi oluşturduktan sonra bunu seçerek düzenleyebilirsiniz > **ayarlarını Düzenle**.
 
-## <a name="associate-a-configuration-server"></a>Yapılandırma sunucusunu ilişkilendirme 
+## <a name="associate-a-configuration-server"></a>Yapılandırma sunucusunu ilişkilendirme
 
 Çoğaltma İlkesi, şirket içi yapılandırma sunucusu ile ilişkilendirin.
 

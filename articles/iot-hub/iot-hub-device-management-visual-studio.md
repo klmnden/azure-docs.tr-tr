@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: xshi
-ms.openlocfilehash: f0cb740f04970aeed4342511a046862f05aaa736
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 87a0847f5d42e014f3b2691c96446892176b481b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108205"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269580"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Cloud Explorer Visual Studio için Azure IOT Hub cihaz yönetimi için kullanın.
 
-![Uçtan uca diyagramı](media/iot-hub-get-started-e2e-diagram/2.png)
+![Uçtan uca diyagramı](media/iot-hub-device-management-visual-studio/iot-e2e-simple.png)
 
 [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) Azure kaynaklarınızı görüntüleyin, özelliklerini inceleme ve Visual Studio temel Geliştirici eylemler gerçekleştirmek olanak tanıyan kullanışlı bir Visual Studio uzantısıdır. Bu, çeşitli görevleri gerçekleştirmek için kullanabileceğiniz yönetim seçenekleri ile birlikte gelir.
 
@@ -35,7 +35,7 @@ Cihaz çiftleri, cihaz durumu bilgilerini (meta veriler, yapılandırmalar ve ko
 
 ## <a name="what-you-learn"></a>Öğrenecekleriniz
 
-Geliştirme makinenizde çeşitli yönetim seçenekleri ile Visual Studio için Cloud Explorer kullanarak bilgi edinin.
+Cloud Explorer ile çeşitli yönetim seçenekleri geliştirme makinenizde Visual Studio için kullanmayı öğrenin.
 
 ## <a name="what-you-do"></a>Neler
 
@@ -43,8 +43,8 @@ Cloud Explorer, Visual Studio için çeşitli yönetim seçenekler ile Çalışt
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
-- Etkin bir Azure aboneliği.
-- Azure IOT Hub, aboneliğiniz altında.
+- Etkin bir Azure aboneliği
+- Azure IOT Hub, aboneliğiniz altında
 - Microsoft Visual Studio 2017 güncelleştirme 8 veya üzeri
 - Cloud Explorer bileşeni (Azure iş yükü ile varsayılan olarak seçilidir) Visual Studio Yükleyicisi'nden
 

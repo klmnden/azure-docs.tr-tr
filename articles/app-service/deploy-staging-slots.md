@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 4b5b7cf3a00e21b9904f72a98d5f24264bb0ecbc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484296"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266214"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service ortamlarında hazırlık ayarlama
 <a name="Overview"></a>
@@ -84,7 +84,12 @@ Başka bir dağıtım yuvasından yapılandırma kopyaladığınızda, kopyalana
 * İzleme ve tanılama ayarları
 * Ortak Sertifikalar
 * WebJobs içeriği
-* Karma bağlantılar
+* Karma bağlantılar *
+* VNet tümleştirmesi *
+* Hizmet uç noktalarını *
+* Azure CDN *
+
+Özellikleri ile işaretlenmiş bir * yuvaya Yapışkan yapılacak planlanmaktadır. 
 
 **Takas olmayan ayarlarını**:
 
@@ -93,10 +98,15 @@ Başka bir dağıtım yuvasından yapılandırma kopyaladığınızda, kopyalana
 * Özel sertifikaları ve SSL bağlamaları
 * Ölçek ayarları
 * WebJobs zamanlayıcılar
+* IP kısıtlamaları
+* Her Zaman Açık
+* Protokol ayarları (HTTP**S**, TLS sürümü, istemci sertifikaları)
+* Tanılama günlüğü ayarları
+* CORS
 
-<!-- VNET, IP restrictions, CORS, hybrid connections? -->
+<!-- VNET and hybrid connections not yet sticky to slot -->
 
-(Takas değil) belirli yuvada için bir uygulama ayarı veya bağlantı dizesini yapılandırmak için gidin **uygulama ayarları** sayfasında bu yuva için ve ardından **yuva ayarı** kutusunun yapılandırma öğeleri yuvada. Yuva olarak belirli bir yapılandırma öğesi işaretleme, App Service swappable değil olduğunu bildirir.
+(Takas değil) belirli yuvada için bir uygulama ayarı veya bağlantı dizesini yapılandırmak için gidin **uygulama ayarları** sayfasında bu yuva için ve ardından **yuva ayarı** kutusunun yapılandırma öğeleri yuvada. Yuva olarak belirli bir yapılandırma öğesi işaretleme, App Service swappable değil olduğunu bildirir. 
 
 ![Yuva ayarı](./media/web-sites-staged-publishing/SlotSetting.png)
 

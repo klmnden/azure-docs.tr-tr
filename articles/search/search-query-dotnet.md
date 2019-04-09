@@ -9,12 +9,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.openlocfilehash: 6bb170a5f3353288ab9c393e01b7a0902361913b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 1194407122123797c2564c96ac452b9582b017a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287018"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264956"
 ---
 # <a name="quickstart-3---query-an-azure-search-index-in-c"></a>Hızlı Başlangıç: 3 - Azure Search dizini sorgulamaC#
 
@@ -34,7 +34,7 @@ Belgeler için salt okunur erişim için kullanılan bir sorgu anahtarı edinin.
 ## <a name="create-a-client"></a>Bir istemci oluşturma
 Bir örneğini oluşturmak `SearchIndexClient` salt okunur erişim için bir sorgu anahtarı verebilir böylece sınıfı (üzerine ağır basıp basmadığını yazma erişim haklarını aksine `SearchServiceClient` Önceki derste kullanılan).
 
-Bu sınıfın birkaç oluşturucusu vardır. Arama hizmeti adınızı, dizin adı istediğinizi alır ve bir [ `SearchCredentials` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials?view=azure-dotnet) nesnesini parametre olarak. `SearchCredentials`, api anahtarınızı sarmalar.
+Bu sınıfın birkaç oluşturucusu vardır. Arama hizmeti adınızı, dizin adı istediğinizi alır ve bir [ `SearchCredentials` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials?view=azure-dotnet) nesnesini parametre olarak. `SearchCredentials` api anahtarınızı sarmalar.
 
 Aşağıdaki kod yeni bir oluşturur `SearchIndexClient` arama hizmeti adına ve uygulamanın yapılandırma dosyasında depolanan API anahtarı için değerleri kullanarak "hotels" dizini için (`appsettings.json` durumunda [örnek uygulama](https://aka.ms/search-dotnet-howto)):
 
@@ -157,4 +157,4 @@ Yukarıdaki örnek kod, arama sonuçlarını çıkarmak için konsolu kullanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bunu henüz yapmadıysanız örnek kodu inceleyin [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) github'da ile birlikte [bir .NET uygulamasından Azure Search kullanma ](search-howto-dotnet-sdk.md) daha ayrıntılı örnek kod açıklamaları için. 
+Bunu henüz yapmadıysanız örnek kodu inceleyin [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) github'da ile birlikte [bir .NET uygulamasından Azure Search kullanma](search-howto-dotnet-sdk.md) daha ayrıntılı örnek kod açıklamaları için. 

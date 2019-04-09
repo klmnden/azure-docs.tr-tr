@@ -1,25 +1,25 @@
 ---
 title: Azure Cosmos DB'de dizin türleri
 description: Azure Cosmos DB'de dizin türlerine genel bakış
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 3/13/2019
-ms.author: mjbrown
-ms.openlocfilehash: 56c0fcb24ac5d255c6a36bcffd327df76f459963
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/08/2019
+ms.author: rimman
+ms.openlocfilehash: 5e7ee7c0bdfd0cff6be182e6d087cc264910e440
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990547"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271569"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Azure Cosmos DB'de dizin türleri
 
-Yolu için dizin oluşturma ilkesini yapılandırdığınız birden çok seçenek vardır. Her yol için bir veya daha fazla dizin tanımları belirtebilirsiniz:
+Yolu için dizin oluşturma ilkesini yapılandırırken birden çok seçenek vardır. Her yol için bir veya daha fazla dizin tanımları belirtebilirsiniz:
 
 - **Veri türü:** Dize, sayı, nokta, çokgen veya LineString (yol başına veri türü başına yalnızca bir girdi içerebilir).
 
-- **Dizin türü:** Aralık (eşitlik, aralığı veya ORDER BY sorguları) veya uzamsal (uzamsal sorgular).
+- **Dizin türü:** Aralık (için eşitlik, aralığı veya ORDER BY sorguları) veya uzamsal (için uzamsal sorgular için).
 
 - **Duyarlık:** Bir aralık için en yüksek duyarlık değeri -1, aynı zamanda varsayılan değer olan dizinidir.
 
@@ -27,7 +27,7 @@ Yolu için dizin oluşturma ilkesini yapılandırdığınız birden çok seçene
 
 Azure Cosmos DB, dize veya sayı veri türleri için yapılandırılmış her yolun veya her ikisi de aralık dizini destekler.
 
-- **Aralık dizini** verimli eşitlik sorguları, birleştirme sorgular, aralık sorguları destekler (kullanarak >, <>, =, < =,! =) ve ORDER BY sorgular. ORDER By sorguları varsayılan olarak, ayrıca maksimum dizin duyarlık (-1) gerektirir. Veri türü dize veya sayı olabilir.
+- **Aralık dizini** verimli eşitlik sorguları, birleştirme sorgular, aralık sorguları destekler (kullanarak >, <>, =, < =,! =) ve ORDER BY sorgular. ORDER BY sorguları, varsayılan olarak, maksimum dizin duyarlık (-1) de gerektirir. Veri türü dize veya sayı olabilir.
 
 - **Uzamsal dizin** destekler verimli uzamsal (içinde ve uzaklık) sorgular. Veri türü, nokta, çokgen veya LineString olabilir. Azure Cosmos DB, nokta, çokgen veya LineString veri türleri için belirtilebilir her yol için uzamsal dizin türü de destekler. Değer belirtilen yolda gibi geçerli bir GeoJSON parçası olmalıdır {"type": "Nokta", "koordinatları": [0.0, 10.0]}. Azure Cosmos DB, otomatik dizin oluşturma noktası Çokgen ve LineString veri türlerini destekler.
 
@@ -42,14 +42,14 @@ Uzaysal dizinler, hizmet için kullanılabilir ve aralık sorguların örnekleri
 
 - Sinyal bir tarama sorgu böyle bir durumda, varsayılan olarak, hizmet vermek gerekli olabilir herhangi kesinlik aralığı dizin yok ise sorgularla işleçler gibi aralığı için bir hata döndürülür > =.
 
-- "X-ms-documentdb-enable-tarama" üst bilgisinde REST API veya "EnableScanInQuery" istek seçeneği .NET SDK'sı kullanarak olmadan bir aralık dizini aralık sorguları gerçekleştirilebilir. Azure Cosmos DB dizine göre filtrelemek için kullanabileceğiniz sorgusunda herhangi bir filtre varsa, hata döndürülür.
+- Aralık sorguları gerçekleştirilebilir olmadan bir aralık dizini kullanarak **x-ms-documentdb-enable-tarama** üst bilgisinde REST API veya **EnableScanInQuery** seçeneği .NET SDK kullanarak istek. Azure Cosmos DB dizine göre filtrelemek için kullanabileceğiniz sorgusunda herhangi bir filtre varsa, hata döndürülür.
 
-- Uzamsal dizin veya dizinden sunulabilen diğer filtrelerle değilse, varsayılan olarak, uzamsal sorgular için bir hata döndürülür. Bir tarama sorgularını x-ms-documentdb-enable-tarama veya EnableScanInQuery kullanarak gerçekleştirilebilir.
+- Uzamsal dizin veya dizinden sunulabilen diğer filtrelerle değilse, varsayılan olarak, uzamsal sorgular için bir hata döndürülür. Sorgularını kullanarak bir tarama gerçekleştirilebilir **x-ms-documentdb-enable-tarama** veya **EnableScanInQuery**.
 
 ## <a name="index-precision"></a>Dizin duyarlık
 
 > [!NOTE]
-> Azure Cosmos kapsayıcıları, en yüksek duyarlık value(-1) dışında özel dizin kesinliği artık gerektiren yeni bir dizin düzenini destekler. Bu yöntemle yolları ile verilen duyarlık her zaman dizine eklenir. Dizin oluşturma ilkesi duyarlık değeri belirtirseniz, kapsayıcılar bir CRUD istekleri duyarlık değeri sessizce yoksayar ve kapsayıcı yanıttan yalnızca en yüksek duyarlık value(-1) içerir.  Tüm yeni Cosmos kapsayıcılar, varsayılan olarak yeni dizin düzeni kullanın.
+> Azure Cosmos kapsayıcıları, en yüksek duyarlık değeri (-1) dışında bir özel dizine duyarlık artık gerektiren yeni bir dizin düzenini destekler. Bu yöntemle yolları ile verilen duyarlık her zaman dizine eklenir. Dizin oluşturma ilkesi duyarlık değeri belirtirseniz, kapsayıcılar bir CRUD istekleri duyarlık değeri sessizce yoksayar ve kapsayıcı yanıttan yalnızca en yüksek duyarlık değeri (-1) içerir.  Tüm yeni Cosmos kapsayıcılar, varsayılan olarak yeni bir dizin düzeni kullanın.
 
 - Dizin duyarlık dizin depolama yükü ve sorgu performansı arasında bir denge sağlamak için kullanabilirsiniz. Sayılar için varsayılan duyarlık yapılandırma-1 (maksimum) kullanmanızı öneririz. Sayı 8 baytlık JSON olduğundan, bu 8 baytlık bir yapılandırmaya eşdeğerdir. Bazı aralıklar dahilinde değerleri aynı eşleyin anlamına gelir, duyarlığı, 1 ile 7 arasında gibi daha düşük bir değer seçme giriş dizini. Bu nedenle, dizin depolama alanı azaltabilir, ancak sorgu yürütme daha fazla öğe işlemek zorunda kalabilirsiniz. Sonuç olarak, daha fazla aktarım hızı/RU tüketir.
 

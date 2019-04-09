@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3482a5516e0a044716ac38e7a60a9a8484f73245
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 6afe76aca388f1f6bd479f53eb4e18cc62c10584
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056223"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268679"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Azure haritalar'ı kullanarak bir etkileşimli arama eşlemesi oluşturma
 
@@ -73,12 +73,12 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 Bu hızlı başlangıçta, Azure haritalar hesabınızda oluşturduğunuz ve bir tanıtım uygulaması oluşturdunuz. Azure haritalar hakkında bilgi edinmek için aşağıdaki öğreticilere göz atın:
 
 > [!div class="nextstepaction"]
-> [Azure haritalar'ı kullanarak ilgi noktalarını arama](./tutorial-search-location.md)
+> [Azure haritalar'ı kullanarak ilgi noktalarını arama](tutorial-search-location.md)
 
 Daha fazla kod örnekleri ve etkileşimli bir kodlama deneyimi için bu kılavuzlara bakın:
 
 > [!div class="nextstepaction"]
-> [Azure haritalar arama hizmetini kullanarak bir adres Bul](./how-to-search-for-address.md)
+> [Azure haritalar arama hizmetini kullanarak bir adres Bul](how-to-search-for-address.md)
 
 > [!div class="nextstepaction"]
-> [Azure haritalar harita denetimini kullanma](./how-to-use-map-control.md)
+> [Azure haritalar harita denetimini kullanma](how-to-use-map-control.md)

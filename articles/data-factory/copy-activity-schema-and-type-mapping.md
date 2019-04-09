@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c2f58a3510699cdf74e3150d3ad5882929f4f05b
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358720"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267132"
 ---
-# <a name="schema-mapping-in-copy-activity"></a>Kopyalama etkinliğindeki şema eşleme
+# <a name="schema-mapping-in-copy-activity"></a>Kopyalama etkinliğinde şema eşleme
 Bu makalede Azure Data Factory kopyalama etkinliği, şema eşleme ve veri türü eşlemesi veri kaynağı verilerden nasıl yaptığını açıklar, veri kopyalama yürütün.
 
 ## <a name="column-mapping"></a>Sütun eşleme
@@ -147,7 +147,7 @@ Söz dizimini kullanıyorsanız `"columnMappings": "UserId: MyUserId, Group: MyG
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği Çeviricisi öğesinin type özelliği ayarlanmalıdır: **TabularTranslator** | Evet |
-| schemaMapping | Anahtar-değer çiftleri tablo yan eşleme ilişkisindeki hiyerarşik tarafına temsil eden koleksiyonu.<br/>- **Anahtar:** tanımlanan veri kümesi yapısında tablosal veri sütununun adı.<br/>- **Değer:** ayıklayın ve eşlemek her bir alan için JSON yolu ifadesini. Kök nesne altındaki alanlar için root $ ile, `collectionReference` özelliği tarafından seçilen dizinin içindeki alanlar için ise dizi öğesiyle başlayın.  | Evet |
+| schemaMapping | Eşleme ilişki temsil eden anahtar-değer çiftleri koleksiyonu **yan havuz için kaynak taraftan**.<br/>- **Anahtar:** kaynak temsil eder. İçin **tablo kaynağı**, tanımlanan veri kümesi yapısı için; sütun adı belirtin **hiyerarşik kaynak**, ayıklayın ve eşlemek her bir alan için JSON yolu ifadesini belirtin.<br/>- **Değer:** havuz temsil eder. İçin **tablo havuz**, tanımlanan veri kümesi yapısı için; sütun adı belirtin **hiyerarşik havuz**, ayıklayın ve eşlemek her bir alan için JSON yolu ifadesini belirtin. <br/> Kök nesne altındaki alanlar için hiyerarşik veriler söz konusu olduğunda JSON yolu root $ ile başlar; tarafından seçilen dizinin içindeki alanlar için `collectionReference` özelliği, JSON yolu dizi öğeden başlar.  | Evet |
 | collectionReference | Yineleme ve veri nesneleri ayıklamak istiyorsanız **bir dizi alanındaki** nesne başına daha fazla satır arası uygulamak için o dizinin JSON yolunu belirtmek için dönüştürme ve aynı deseni. Bu özellik yalnızca hiyerarşik veri kaynağı olduğunda desteklenir. | Hayır |
 
 **Örnek: SQL Mongodb'den kopyalayın:**
@@ -228,18 +228,18 @@ Her bir bağlayıcı konuda "Veri eşleme türü" bölümündeki geçiş türü 
 
 Data Factory, aşağıdaki geçici veri türlerini destekler: Tür bilgilerini yapılandırırken değerleri belirtebilirsiniz [dataset yapısını](concepts-datasets-linked-services.md#dataset-structure) yapılandırma:
 
-* Bayt]
+* Byte[]
 * Boole
 * Tarih saat
 * Datetimeoffset
-* Onluk
-* çift
+* Decimal
+* Double
 * Guid
 * Int16
 * Int32
 * Int64
-* Tek
-* Dize
+* Single
+* String
 * Timespan
 
 ### <a name="explicit-data-type-conversion"></a>Açık veri türü dönüşümü
@@ -255,8 +255,8 @@ Aynı sütunda farklı kaynak ve havuz sahip olduğunda sabit şema ile Örneği
 
 * Uygulama [açık veri türü dönüştürme](#explicit-data-type-conversion) (girdi veri kümesi) kopyalama sırasında dosya kaynakları için
 * Uygulama [açık sütun eşlemesi](#explicit-column-mapping) (her ikisi de girdi ve çıktı veri kümesi) kopyalama sırasında
-* Dynamics 365 / CRM kaynaktan (girdi veri kümesi) kopyalama
-* Kaynak JSON dosyaları (çıktı veri kümesi) olmadığında Cosmos DB'ye iç içe geçmiş nesne olarak kopyalama
+* Dynamics 365/CRM kaynağından kopyalama (giriş veri kümesi)
+* Kaynak JSON dosyası olmadığında içi içe nesne olarak Cosmos DB'ye kopyalama (çıkış veri kümesi)
 
 Senaryolarda, veri kümesi "yapı" önerilen:
 

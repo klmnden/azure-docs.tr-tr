@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 030/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 4b3cba7e7656ea13a6e7b36be4cb2fef99893867
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 15e4cf484ae38268c59781101256d64ef85e72ef
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439337"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283044"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Kodunuzu Azure işlevleri'nde test stratejileri
 
@@ -253,6 +253,8 @@ Bu sınıfta uygulanır üyeleri şunlardır:
 
 - **Timer_should_log_message**: Bu test örneği oluşturur `ListLogger` ve Zamanlayıcı işleve geçirir. İşlevi çalıştırıldığında, günlük, beklenen bir ileti mevcut olduğundan emin olmak için denetlenir.
 
+Uygulama ayarları, testlerinizi erişmek istiyorsanız, kullanabileceğiniz [System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
+
 ### <a name="run-tests"></a>Testleri çalıştırma
 
 Testleri çalıştırmak için gidin **Test Gezgini** tıklatıp **çalıştırması**.
@@ -375,6 +377,6 @@ Ardından, test ve basın bir kesme noktası ayarlamak **F5**.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 İşlevleriniz için otomatik testler yazmak öğrendiniz, bu kaynakları ile devam edin:
-- [El ile olmayan HTTP ile tetiklenen bir işlev çalıştırın](./functions-manually-run-non-http.md)
+- [HTTP ile tetiklenmeyen bir işlevi el ile çalıştırma](./functions-manually-run-non-http.md)
 - [Azure işlevleri hata işleme](./functions-bindings-error-pages.md)
 - [Azure işlevi olay Kılavuzu tetikleyicisi yerel hata ayıklama](./functions-debug-event-grid-trigger-local.md)

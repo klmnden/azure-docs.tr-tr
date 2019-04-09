@@ -16,12 +16,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 51ab999880dd3bfd453b0e6c2d20d8d6f9a0e093
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6d3cb99a55ae5eb8276391f22675a88e8b3d072
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660128"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276448"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack ortak anahtar altyapısı sertifika gereksinimleri
 
@@ -38,7 +38,7 @@ Azure Stack, küçük bir Azure Stack hizmetlerinin ve büyük olasılıkla Kira
 Aşağıdaki listede, Azure Stack dağıtmak için gerekli sertifika gereksinimleri açıklanmaktadır: 
 - Bir iç sertifika yetkilisi veya bir ortak sertifika yetkilisi sertifikalarını verilmesi gerekir. Bir ortak sertifika yetkilisi kullandıysanız, temel işletim sistemi görüntüsü Microsoft güvenilir kök yetkilisi programının bir parçası olarak eklenmelidir. Tam listesini burada bulabilirsiniz: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
 - Azure Stack altyapınızı, sertifika yetkilisinin sertifika iptal listesi (CRL) konumuna sertifikada yayımlanan ağ erişimi olması gerekir. Bu CRL bir http uç noktası olmalıdır
-- Sertifikaları döndürürken sertifikaları ya da dağıtım ya da yukarıdaki tüm ortak sertifika yetkilisinden verilen sertifikaları imzalamak için kullanılan aynı iç sertifika yetkilisinden verilen olmalıdır
+- Sertifikaları döndürürken öncesi 1903 derlemeleri, ya da dağıtım ya da yukarıdaki tüm ortak sertifika yetkilisinden verilen sertifikaları imzalamak için kullanılan aynı iç sertifika yetkilisinden verilen sertifikaların olması gerekir. 1903 & sonraki sertifikalar için herhangi bir kuruluş veya genel bir sertifika yetkilisi tarafından verilebilir.
 - Otomatik olarak imzalanan sertifikaların kullanılması desteklenmiyor
 - Azure Stack dağıtımı ve döndürme yapabilirsiniz veya tüm ad alanları sertifikanın konu adı ve konu alternatif adı (SAN) alanlarını kapsayan tek bir sertifikayı kullanın ya da kullanabilirsiniz, aşağıdaki ad alanlarının her biri için tek tek sertifikaları kullanmak için plan hizmetleri gerektirir. Her iki yaklaşım gibi gerekli olduğu bitiş noktası için joker karakterler kullanarak gerektiren **KeyVault** ve **KeyVaultInternal**. 
 - Sertifikanın PFX şifreleme 3DES olmalıdır. 
@@ -86,8 +86,8 @@ Azure Stack Azure AD dağıtım modunu kullanarak dağıtırsanız, yalnızca ö
 
 |Dağıtım klasörü|Gerekli bir sertifika konusu ve konu alternatif adları (SAN)|Kapsam (bölge başına)|Alt etki alanı ad alanı|
 |-----|-----|-----|-----|
-|ADFS|ADFS.  *&lt;bölge >.&lt; FQDN >*<br>(SSL sertifikası)|ADFS|*&lt;bölge >. &lt;fqdn >*|
-|Graf|Grafiği.  *&lt;bölge >.&lt; FQDN >*<br>(SSL sertifikası)|Graf|*&lt;bölge >. &lt;fqdn >*|
+|ADFS|ADFS.  *&lt;bölge >.&lt; FQDN >*<br>(SSL sertifikası)|ADFS|*&lt;region>.&lt;fqdn>*|
+|Graf|Grafiği.  *&lt;bölge >.&lt; FQDN >*<br>(SSL sertifikası)|Graf|*&lt;region>.&lt;fqdn>*|
 |
 
 > [!IMPORTANT]

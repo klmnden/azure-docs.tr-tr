@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 8041e7e02b117b8938f0f7c18da2d57c31dddb34
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 0a24228f1437fbb23c11070b3e99cea60489c071
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482273"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265002"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Azure Stack'te bir Service Fabric kümesine dağıtma
 
@@ -46,7 +46,7 @@ Service Fabric kümesine dağıtmak için aşağıdakiler gereklidir:
 
 1. **Aşağıdaki öğeler Azure Stack Market'te kullanılabilir olmalıdır:**
     - **Windows Server 2016** – kümeyi oluşturmak için Windows Server 2016 görüntüsü şablonu kullanır.  
-    - **Müşteri betik uzantısını** -Microsoft gelen sanal makine uzantısı.  
+    - **Özel betik uzantısı** -Microsoft gelen sanal makine uzantısı.  
     - **PowerShell istenen aşama yapılandırma** -Microsoft gelen sanal makine uzantısı.
 
 

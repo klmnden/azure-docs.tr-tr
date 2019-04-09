@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 01/15/2019
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 11bcfa1b4719d6def5bfc4a6a189bd2b58896b5b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 8c5347b412475b86222acabb76b88baaceb7645a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334320"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59291809"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Hızlı başlangıçlar ve öğreticiler
 
@@ -29,25 +29,24 @@ Kaynak yöneticisi şablonları geliştirmeyi öğrenmek için aşağıdaki hız
 
     |Unvan|Açıklama|
     |------|-----|
-    |[Azure portal’ı kullanma](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)|Portalı kullanarak bir şablon oluşturma ve düzenleme ve şablon dağıtma işlemini anlayın.|
-    |[Visual Studio Code kullanma](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Şablonlar oluşturmak ve düzenlemek için Visual Studio Code ve şablon dağıtmak için Azure Cloud Shell kullanma.|
-    |[Visual Studio kullanma](../articles/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Şablonlar oluşturmak, düzenlemek ve dağıtmak için Visual Studio kullanma.|
+    |[Azure portalı kullanma](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)|Portalı kullanarak bir şablon oluşturma ve düzenleme ve şablon dağıtma işlemini anlayın.|
+    |[Visual Studio Code'u kullanma](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Şablonlar oluşturmak ve düzenlemek için Visual Studio Code ve şablon dağıtmak için Azure Cloud Shell kullanma.|
+    |[Visual Studio'yu kullanma](../articles/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Şablonlar oluşturmak, düzenlemek ve dağıtmak için Visual Studio kullanma.|
 
 - Öğreticiler
 
     |Unvan|Açıklama|
     |------|-----|
-    |[Şablon başvurusunda yararlanma](../articles/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)|Şablon geliştirmek için şablon başvuru belgelerini kullanın. Öğreticide depolama hesabı şemasını bulacak ve şifrelenmiş bir depolama hesabı oluşturmak için bu bilgileri kullanacaksınız.|
+    |[Şablon başvurusunu kullanma](../articles/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)|Şablon geliştirmek için şablon başvuru belgelerini kullanın. Öğreticide depolama hesabı şemasını bulacak ve şifrelenmiş bir depolama hesabı oluşturmak için bu bilgileri kullanacaksınız.|
     |[Birden çok örnek oluşturma](../articles/azure-resource-manager/resource-manager-tutorial-create-multiple-instances.md)|Birden çok Azure kaynağı örneği oluşturma. Öğreticide birden fazla depolama hesabı örneği oluşturacaksınız.|
-    |[Kaynakları taşıma](../articles/azure-resource-manager/resource-manager-tutorial-move-resources.md)|Kaynakları bir kaynak grubundan başka bir kaynak grubuna taşıyın. Öğreticide, iki kaynak grubu ve bir depolama hesabı oluşturmak için var olan bir şablonu çalıştırın ve ardından depolama hesabı başka bir kaynak grubuna taşımak için bir Azure PowerShell cmdlet'ini çalıştırın.|
-    |[Kaynak dağıtım sırasını belirleme](../articles/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources.md)|Kaynak bağımlılıklarını tanımlayın. Öğreticide bir sanal ağ, bir sanal makine ve bağımlı Azure kaynakları oluşturacaksınız. Bağımlılıkların nasıl tanımlandığını öğreneceksiniz.|
+    |[Kaynak dağıtım sırasını ayarlama](../articles/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources.md)|Kaynak bağımlılıklarını tanımlayın. Öğreticide bir sanal ağ, bir sanal makine ve bağımlı Azure kaynakları oluşturacaksınız. Bağımlılıkların nasıl tanımlandığını öğreneceksiniz.|
     |[Koşulları kullanma](../articles/azure-resource-manager/resource-manager-tutorial-use-conditions.md)|Kaynakları bazı parametre değerlerine göre dağıtma. Öğreticide, bir parametre değerine göre yeni bir depolama hesabı oluşturmak veya mevcut bir depolama hesabını kullanmak için bir şablon tanımlayacaksınız.|
-    |[Anahtar kasasını tümleştirme](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|Azure Key Vault'tan gizli anahtarlar/parolalar alma. Öğreticide bir sanal makine oluşturacaksınız.  Sanal makine yönetici parolası bir Key Vault'tan alınır.|
+    |[Anahtar kasası tümleştirme](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|Azure Key Vault'tan gizli anahtarlar/parolalar alma. Öğreticide bir sanal makine oluşturacaksınız.  Sanal makine yönetici parolası bir Key Vault'tan alınır.|
     |[Bağlı şablonlar oluşturma](../articles/azure-resource-manager/resource-manager-tutorial-create-linked-templates.md)|Şablon modülleştirme ve bir şablondan başka şablonları çağırma. Öğreticide bir sanal ağ, bir sanal makine ve bağımlı kaynakları oluşturacaksınız.  Bağımlı depolama hesabı, bağlantılı bir şablonda tanımlanır. |
-    |[Sanal makine uzantılarını dağıtma](../articles/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)|Uzantıları kullanarak dağıtım sonrası görevlerini gerçekleştirin. Öğreticide, bir müşteri betik uzantısını sanal makine üzerinde web sunucusu yüklemek için dağıtın. |
-    |[SQL uzantıları dağıtma](../articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md)|Uzantıları kullanarak dağıtım sonrası görevlerini gerçekleştirin. Öğreticide, bir müşteri betik uzantısını sanal makine üzerinde web sunucusu yüklemek için dağıtın. |
-    |[Yapıtları güvenliğini sağlama](../articles/azure-resource-manager/resource-manager-tutorial-secure-artifacts.md)|Dağıtımı tamamlamak için gereken yapıtları güvenli hale getirin. Öğreticide dağıtma SQL uzantıları öğreticide kullanılan yapıt güvenli hale getirmeyi öğrenin. |
-    |[Güvenli dağıtım uygulamaları kullanma](../articles/azure-resource-manager/deployment-manager-tutorial.md)|Azure Dağıtım Yöneticisi'ni kullanma. |
+    |[Sanal makine uzantıları dağıtma](../articles/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)|Uzantıları kullanarak dağıtım sonrası görevlerini gerçekleştirin. Öğreticide, bir müşteri betik uzantısını sanal makine üzerinde web sunucusu yüklemek için dağıtın. |
+    |[SQL uzantılarını dağıtma](../articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md)|Uzantıları kullanarak dağıtım sonrası görevlerini gerçekleştirin. Öğreticide, bir müşteri betik uzantısını sanal makine üzerinde web sunucusu yüklemek için dağıtın. |
+    |[Güvenli yapıtlar](../articles/azure-resource-manager/resource-manager-tutorial-secure-artifacts.md)|Dağıtımı tamamlamak için gereken yapıtları güvenli hale getirin. Öğreticide dağıtma SQL uzantıları öğreticide kullanılan yapıt güvenli hale getirmeyi öğrenin. |
+    |[Güvenli dağıtım uygulamalarını kullanma](../articles/azure-resource-manager/deployment-manager-tutorial.md)|Azure Dağıtım Yöneticisi'ni kullanma. |
     |[Öğretici: Resource Manager şablon dağıtımları sorunlarını giderme](../articles/azure-resource-manager/resource-manager-tutorial-troubleshoot.md)|Şablonu dağıtım sorunlarını giderme.|
 
 Bu öğreticiler ana Resource Manager şablonu geliştirme kavramları hakkında bilgi için ayrı ayrı veya bir dizi olarak kullanılabilir.

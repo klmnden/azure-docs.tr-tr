@@ -11,16 +11,16 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.date: 04/08/2019
 ms.author: magoedte
-ms.openlocfilehash: 987d28470b8a848755cdd7d1264ba7f7f66544df
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 4c330e36210e97172c8f06bbfc3850210e200777
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918952"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260349"
 ---
-# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM'ler (Önizleme) için Azure İzleyici ile Azure sanal makinelerinizin durumunu anlama
+# <a name="understand-the-health-of-your-azure-virtual-machines"></a>Azure sanal makinelerinizin durumunu anlama 
 Azure İzleme alanı ayrı ayrı bir spesifik rol ya da görev gerçekleştiren birden çok hizmet içerir, ancak bir Azure sanal makinelerinde barındırılan işletim sistemi ayrıntılı sistem durumu açısından sağlama kullanılabilir değildi.  Azure İzleyicisi'ni kullanarak için farklı koşullar izleyebilir olsa da model ve sistem durumunu temel bileşenler veya genel sanal makine durumunu temsil eden için tasarlanmış değildi.  VM sistem durumu özelliği için Azure İzleyici ile proaktif olarak Windows veya Linux konuk işletim sistemi ile anahtar bileşenleri ve bu durumunu ölçmek nasıl belirten ölçütleri ilişkilerini temsil eden bir model performansını ve kullanılabilirliğini izler bileşenleri ve iyi durumda olmayan bir koşul algılandığında sizi uyarır.  
 
 Azure VM genel sistem durumunu görüntüleme ve işletim sistemi temel Vm'leri sistem durumu, sanal makineden doğrudan veya Azure İzleyici kaynak grubunun içindeki tüm sanal makineleri için Azure İzleyici ile iki yönlerden gösterilebilir.
@@ -92,16 +92,16 @@ Bir VM için tanımlanan sistem durumları aşağıdaki tabloda açıklanmışt�
 
 |Simge |Sağlık durumu |Anlamı |
 |-----|-------------|------------|
-| |Sorunsuz |VM için algılanan bir sorun olmadığını gösteren tanımlanan sistem durumu koşulları içinde ve gerektiği gibi çalıştığını sistem durumunu iyi durumda. Üst döküm İzleyicisi söz konusu olduğunda, sistem durumu dökümü yapar artırma ve alt best-case veya iki katına durumunu yansıtır.|
-| |Kritik |Sistem durumu, bir veya daha fazla kritik sorunlar, normal işlevlerin geri yüklenmesi için ele alınması gereken göstergelerinin algılandığını belirten tanımlanan sistem durumu koşulu içinde değilse önemlidir. Üst döküm İzleyicisi söz konusu olduğunda, sistem durumu dökümü yapar artırma ve alt best-case veya iki katına durumunu yansıtır.|
-| |Uyarı |Sistem durumu uyarı burada gösterir tanımlanan sistem durumu koşulu, iki eşikleri arasında olup olmadığını bir *uyarı* durumu ve diğer gösteren bir *kritik* (üç sağlık durumu eşikleri için durumu yapılandırılabilir), veya ne zaman kritik olmayan bir sorun algılandığında çözümlenmedi, kritik sorunlarına neden. Söz konusu olduğunda bir üst döküm İzleyicisi, bir veya daha alt bir uyarı durumunda, ardından üst yansıtır *uyarı* durumu. İçinde bir alt varsa bir *kritik* ve başka bir alt bir *uyarı* durumu, üst toplama sistem durumu gösterilir *kritik*.|
+| |Sorunsuz |VM için algılanan bir sorun olmadığını gösteren tanımlanan sistem durumu koşulları içinde ve gerektiği gibi çalıştığını sistem durumunu iyi durumda. Üst döküm İzleyicisi ile sistem durumu dökümü yapar artırma ve alt best-case veya iki katına durumunu yansıtır.|
+| |Kritik |Sistem durumu, bir veya daha fazla kritik sorunlar, normal işlevlerin geri yüklenmesi için ele alınması gereken göstergelerinin algılandığını belirten tanımlanan sistem durumu koşulu içinde değilse önemlidir. Üst döküm İzleyicisi ile sistem durumu dökümü yapar artırma ve alt best-case veya iki katına durumunu yansıtır.|
+| |Uyarı |Sistem durumu uyarı burada gösterir tanımlanan sistem durumu koşulu, iki eşikleri arasında olup olmadığını bir *uyarı* durumu ve diğer gösteren bir *kritik* (üç sağlık durumu eşikleri için durumu yapılandırılabilir), veya ne zaman kritik olmayan bir sorun algılandığında çözümlenmedi, kritik sorunlarına neden. İle bir üst döküm İzleyicisi, bir veya daha alt bir uyarı durumunda, ardından üst yansıtır *uyarı* durumu. İçinde bir alt varsa bir *kritik* ve başka bir alt bir *uyarı* durumu, üst toplama sistem durumu gösterilir *kritik*.|
 | |Bilinmeyen |Sistem durumu konusu bir *bilinmeyen* pek çok nedenden dolayı sistem durumu gibi hesaplanamıyor olduğunda durumu verileri, hizmeti başlatılmamış toplamak kullanabilirsiniz. Bu sistem durumu yapılandırılabilir değildir.| 
 
 Seçme **görüntüleme durumu tanılama** VM, ilişkili durumu ölçütlerini, durum değişikliklerini ve diğer önemli sorunları VM'le ilgili bileşenler izlenerek karşılaşıldı tüm bileşenlerini gösteren bir sayfa açar. Daha fazla bilgi için [sistem tanılama](#health-diagnostics). 
 
 Altında **bileşen sistem durumu** bölümü, tablo gösterir sistem durumu toplaması durumunu özellikle bu alanların sistem durumu ölçütlerini tarafından izlenen birincil performans kategorileri **CPU**,  **Bellek**, **Disk**, ve **ağ**.  Bileşenleri herhangi birini seçerek, tüm yönlerini söz konusu bileşen ve her birinin kendi sistem durumu izleme tek tek sistem durumu ölçütü listeleyen bir sayfa açılır.  
 
-Sistem durumu Windows işletim sistemini çalıştıran bir Azure VM'den erişirken, en çok kullanılan 5 çekirdek Windows Hizmetleri sistem durumunu gösterilen bölümü altında **çekirdek sistem durumu Hizmetleri**.  Hizmetlerden herhangi birini seçtiğinizde, söz konusu bileşen ve sistem durumunu izleme durumu ölçütlerini listelendiği bir sayfa açılır.  Sistem durumu ölçütlerini adına tıklayarak özellik bölmesi açılır ve burada tanımlanan karşılık gelen bir Azure İzleyici uyarı durumu ölçütlerini varsa dahil olmak üzere yapılandırma ayrıntılarını gözden geçirebilirsiniz. Daha fazla bilgi için bkz. [sistem durumu tanılama ve çalışma durumu ölçütlerini](#health-diagnostics).  
+Sistem durumu Windows işletim sistemini çalıştıran bir Azure VM'den erişirken üst sistem durumunu beş Hizmetleri bölümünün altında gösterilen Windows çekirdek **çekirdek sistem durumu Hizmetleri**.  Hizmetlerden herhangi birini seçtiğinizde, söz konusu bileşen ve sistem durumunu izleme durumu ölçütlerini listelendiği bir sayfa açılır.  Sistem durumu ölçütlerini adına tıklayarak özellik bölmesi açılır ve burada tanımlanan karşılık gelen bir Azure İzleyici uyarı durumu ölçütlerini varsa dahil olmak üzere yapılandırma ayrıntılarını gözden geçirebilirsiniz. Daha fazla bilgi için bkz. [sistem durumu tanılama ve çalışma durumu ölçütlerini](#health-diagnostics).  
 
 ## <a name="aggregate-virtual-machine-perspective"></a>Toplam sanal makine perspektifi
 Portalı Gezinti listeden bir kaynak grubundaki tüm sanal makinelerinizin için sistem durumu toplama görüntülemek için seçin **Azure İzleyici** seçip **sanal makineler (Önizleme)**.  
@@ -133,7 +133,7 @@ Bir sanal makine adına tıklayarak VM liste görünümünde açılır **sistem 
 
 ![Seçili Azure sanal makinesinin VM öngörüleri](./media/vminsights-health/vminsights-directvm-health.png)
 
-Burada, bir toplama gösterir **sistem durumu** sanal makine için ve **uyarılar**, temsil eden sistem durumu için sağlıksız için sistem durumu değiştiğinde harekete geçirilen VM sistem durumu Uyarıları önem derecesine göre kategorilere ayrılmış bir Sistem durumu ölçütleri.  Seçme **kritik durumdaki VM'ler** bir kritik sağlık durumunda bir veya daha fazla VM'lerin listesini içeren bir sayfa açılır.  Listedeki Vm'lerden birinin göstermek için durumunu tıklayarak **sistem tanılama** VM görünümü.  Burada, hangi durumu ölçütlerini yansıtan çıkış bir sistem durumu sorunu bulabilirsiniz. Zaman **sistem tanılama** sayfası açıldığında, VM ve bunların ilişkili sistem durumu ölçütlerini geçerli bir sağlık durumundaki tüm bileşenleri gösterir.  Başvurmak [sistem durumu tanı](#health-diagnostics) ayrıntılı bilgi için.  
+Burada, bir toplama gösterir **sistem durumu** sanal makine için ve **uyarılar**, temsil eden sistem durumu için sağlıksız için sistem durumu değiştiğinde harekete geçirilen VM sistem durumu Uyarıları önem derecesine göre kategorilere ayrılmış bir Sistem durumu ölçütleri.  Seçme **kritik durumdaki VM'ler** bir kritik sağlık durumunda bir veya daha fazla VM'lerin listesini içeren bir sayfa açılır.  Listedeki Vm'lerden birinin göstermek için durumunu tıklayarak **sistem tanılama** VM görünümü.  Burada, hangi durumu ölçütlerini yansıtan çıkış bir sistem durumu sorunu bulabilirsiniz. Zaman **sistem tanılama** sayfası açıldığında, VM ve bunların ilişkili sistem durumu ölçütlerini geçerli bir sağlık durumundaki tüm bileşenleri gösterir. Daha fazla bilgi için [sistem durumu tanı](#health-diagnostics).  
 
 Seçme **tüm sistem durumu ölçütlerini görüntülemek** bu özellik ile kullanılabilir tüm sistem durumu ölçütlerini listesini gösteren bir sayfa açar.  Bilgileri daha fazla bağlı olarak aşağıdaki seçenekleri filtrelenebilir:
 
@@ -164,7 +164,7 @@ Sistem durumu tanılama sistem durumu bilgilerini şu kategorilere göre düzenl
 * Kullanılabilirlik
 * Performans
  
-Mantıksal disk, CPU gibi belirli bir bileşen için tanımlanan tüm sistem durumu ölçütlerini vs. Ayrıca, İzleyici kategorisini eklentisini yanındaki görülebilir **durumu ölçütlerini** sütun.  
+Mantıksal disk gibi belirli bir bileşen için tanımlanan tüm sistem durumu ölçütlerini CPU, vb. bir filtreleme olmadan (yani bir tüm görünümü tüm ölçütlerin) iki kategorilerindeki görüntülenebilir veya sonuçları seçerken iki kategoriye göre filtrelemek **kullanılabilirlik**  veya **performans** seçenekleri sayfasında. Buna ek olarak, ölçüt kategorisini eklentisini yanındaki görülebilir **durumu ölçütlerini** sütun. Ölçütler eşleşmiyor, seçilen kategori, ileti gösterecektir **seçilen kategori için sistem durumu ölçütü yok** içinde **durumu ölçütlerini** sütun.  
 
 Durumu ölçütlerini durumunu tanımlanan dört durumun – biri tarafından *kritik*, *uyarı*, *sağlıklı*, ve *bilinmeyen*. İlk üç eşik değerleri kullanarak izleyicilerin değiştirebileceğiniz anlamına gelir, yapılandırılabilir [iş yükü İzleyicisi API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Bilinmeyen* yapılandırılabilir ve belirli senaryolar için ayrılmış değil.  
 
@@ -190,7 +190,7 @@ Sistem durumu tanılama sayfası merkezi sütunda **durumu ölçütlerini** süt
 
 Sistem durumu ölçüt bir varlık, vb. durum Eşiği değeri olabilecek bazı ölçütleri ile izlenen örnek sağlığını ölçer. Bir sistem durumu ölçütü, daha önce açıklandığı gibi iki veya üç yapılandırılabilir sağlık durumu eşikleri sahiptir. Belirli bir noktada, sistem durumu ölçütü potansiyel durumlarının sadece birinde olabilir. 
 
-Bir hedef genel durumunu her sistem durumu modeli içerisinde belirlenen sistem durumu ölçütlerini sistem durumuna göre belirlenir. Bu hedefte doğrudan hedeflenen durumu ölçütlerini durumu ölçütlerini hedef toplama sistem durumu ölçütü aracılığıyla çalışırken bileşenleri hedeflenmiş bir birleşimi olacaktır. Bu hiyerarşi gösterilmiştir **durumu ölçütlerini** sistem tanılama sayfası bölümü. Sistem durumu Toplama İlkesi toplama durumu ölçütlerini yapılandırmasının bir parçasıdır (varsayılan ayarı *en kötü,*). Bölümü altında bu özelliği bir parçası olarak çalışan sistem durumu ölçütlerini varsayılan kümesini listesini bulabilirsiniz [izleme yapılandırma ayrıntılarını](#monitoring-configuration-details).  
+Bir hedef genel durumunu her sistem durumu modeli içerisinde belirlenen sistem durumu ölçütlerini sistem durumuna göre belirlenir. Hedefte doğrudan hedeflenen durumu ölçütlerini durumu ölçütlerini hedef toplama sistem durumu ölçütü aracılığıyla çalışırken bileşenleri hedeflenmiş bir birleşimidir. Bu hiyerarşi gösterilmiştir **durumu ölçütlerini** sistem tanılama sayfası bölümü. Sistem durumu Toplama İlkesi toplama durumu ölçütlerini yapılandırmasının bir parçasıdır (varsayılan ayarı *en kötü,*). Bölümü altında bu özelliği bir parçası olarak çalışan sistem durumu ölçütlerini varsayılan kümesini listesini bulabilirsiniz [izleme yapılandırma ayrıntılarını](#monitoring-configuration-details).  
 
 **Birim** sistem durumu ölçüt türü yapılandırmalarını kadar doğru ve seçme elips bağlantısına tıklayarak değiştirilmiş olabilir **ayrıntıları göster** yapılandırma bölmesini açmak için. 
 
@@ -256,6 +256,64 @@ Bu görünümde, sayfanın üst kısmındaki açılan menüler, değerleri seçe
 ![Seçilen bir uyarının uyarı ayrıntıları bölmesine](./media/vminsights-health/alert-details-pane-01.png)
 
 Uyarı durumu da değiştirilebilir bir veya birden çok uyarı için bunları seçip ardından seçerek **durumunu değiştir** gelen **tüm uyarıları** sayfasında sol üst köşesinde. Üzerinde **uyarı durumunu değiştir** durumlardan biriyle seçtiğiniz bölmesi ekleme değişiklik açıklamasını **açıklama** alan ve ardından **Tamam** değişikliklerinizi işleyebilirsiniz. Bilgiler doğrulanır ve değişiklikler uygulanır, ancak altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde.  
+
+### <a name="configure-alerts"></a>Uyarı yapılandırma
+Belirli yönetim görevleri Azure portaldan yönetilemez ve kullanarak gerçekleştirilecek olan uyarı [Azure İzleyici REST API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Bu avantajlar şunlardır:
+
+- Bir uyarı durumu ölçütlerini için devre dışı bırakma veya etkinleştirme 
+- Sistem durumu ölçütlerini uyarılar için bildirimleri ayarlama 
+
+Her örnekte kullanılan yaklaşım kullanarak [ARMClient](https://github.com/projectkudu/armclient) Windows makinenizde. Bu yöntem ile ilgili bilgi sahibi değilseniz bkz [kullanarak ARMClient](../platform/rest-api-walkthrough.md#use-armclient).  
+
+#### <a name="enable-or-disable-alert-rule"></a>Etkinleştirmek ya da uyarı kuralı devre dışı bırak
+
+Etkinleştirme veya sistem durumu ölçütlerini özelliği gibi belirli bir sistem ölçütleri için uyarı kuralı devre dışı *alertGeneration* ya da değeriyle değiştirilmesi gereken **devre dışı bırakılmış** veya **etkin**. Tanımlamak için *Monitorıd* belirli sistem durumu ölçütü, aşağıdaki örnekte bu ölçütleri değeri için sorgulama yapmayı gösterir **LogicalDisk\Avg Disk başına saniye aktarım**.
+
+1. Bir terminal penceresinde şunu yazın **armclient.exe oturum açma**. Bunun yapılması Azure'da oturum açmanız istenir.
+
+2. Belirli bir sanal makinede etkin tüm sistem durumu ölçütü almak ve değerini belirlemek için aşağıdaki komutu yazın *Monitorıd* özelliği. 
+
+    ```
+    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”
+    ```
+
+    Aşağıdaki örnek, bu komutun çıktısı gösterir. Değerini not *Monitorıd* kırmızıyla vurgulanır. Bu değer nerede Kimliğini durumu ölçütlerini belirtin ve bir uyarı oluşturmak için kendi özelliğini değiştirmek ihtiyacımız sonraki adım için gereklidir.
+
+    ![Örnek durumu ölçütlerini için İzleyici kimliği alınıyor](./media/vminsights-health/get-monitor-identifier-01.png)
+
+3. Değiştirmek için aşağıdaki komutu yazın *alertGeneration* özelliği.
+
+    ```
+    armclient patch subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors/Microsoft_LogicalDisk_AvgDiskSecPerTransfer?api-version=2018-08-31-preview 1-preview "{'properties':{'alertGeneration':'Disabled'}}"
+    ```   
+
+4. 2. adımda özelliğinin değeri ayarı doğrulamak için kullanılan GET komutu yazın **devre dışı bırakılmış**.  
+
+#### <a name="associate-action-group-with-health-criteria"></a>Eylem grubu durumu ölçütlerini ile ilişkilendirme
+
+VM sistem durumu için Azure İzleyici, uyarılar oluşturulduğunda SMS ve e-posta bildirimleri destekleyen durumu ölçütlerini olduğunda sağlıksız. Bildirimleri yapılandırmak için SMS veya e-posta bildirimleri göndermek için yapılandırıldığı eylem grubu adını not gerekir. 
+
+>[!NOTE]
+>Bu eylem izlenen her bir VM karşı yapılması için bir bildirim almak istediğiniz gerekiyor.
+
+1. Bir terminal penceresinde şunu yazın **armclient.exe oturum açma**. Bunun yapılması Azure'da oturum açmanız istenir.
+
+2. Bir eylem grubu uyarı kuralları ile ilişkilendirmek için aşağıdaki komutu yazın.
+ 
+    ```
+    $payload = "{'properties':{'ActionGroupResourceIds':['/subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/microsoft.insights/actionGroups/actiongroupName']}}" 
+    armclient PUT https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/notificationSettings/default?api-version=2018-08-31-preview $payload
+    ```
+
+3. Özellik değerini doğrulamak için **actionGroupResourceIds** başarıyla güncelleştirildi, aşağıdaki komutu yazın.
+
+    ```
+    armclient GET "subscriptions/subscriptionName/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/notificationSettings?api-version=2018-08-31-preview"
+    ```
+
+    Çıkış şuna benzemelidir:
+    
+    ![Get notificationSettings örnek çıktısı](./media/vminsights-health/get-notification-config-status.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Performans sorunlarını ve Vm'leri performansınızı ile genel kullanımı belirlemek için bkz: [Azure VM performansını görüntüleme](vminsights-performance.md), ya da bulunan Uygulama bağımlılıklarını görüntülemek için bkz: [Vm'leri harita görünümü Azure İzleyici](vminsights-maps.md). 

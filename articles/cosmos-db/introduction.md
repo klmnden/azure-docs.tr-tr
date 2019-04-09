@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB’ye giriş
 description: Azure Cosmos DB hakkında bilgi edinin. Bu genel olarak dağıtılan çok modelli veritabanı; düşük gecikme süresi, esnek ölçeklenebilirlik, yüksek kullanılabilirlik için oluşturulmuştur ve NoSQL verileri için yerel destek sunar.
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 03/18/2019
-ms.author: sngun
-ms.openlocfilehash: eec94217cc62f74a5075412aafcf85bf67346bf4
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.date: 04/08/2019
+ms.author: rimman
+ms.openlocfilehash: a965db4334e88d032f767bd7b855dea6f3ff174f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294374"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280953"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB’ye hoş geldiniz
 
@@ -22,7 +22,7 @@ Azure Cosmos DB, Microsoft'un Global olarak dağıtılmış çok modelli veritab
 [Azure Cosmos DB’yi ücretsiz olarak](https://azure.microsoft.com/try/cosmosdb/) bir Azure aboneliği olmadan, ücretsiz ve herhangi bir taahhütte bulunmadan deneyebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB’yi ücretsiz olarak deneyin](https://azure.microsoft.com/try/cosmosdb/)
+> [Azure Cosmos DB’yi Ücretsiz deneyin](https://azure.microsoft.com/try/cosmosdb/)
 
 ![Azure Cosmos DB, Microsoft'un esnek ölçek genişletme, garantili düşük gecikme süresi, beş tutarlılık modeli ve kapsamlı SLA garantisi ile genel olarak dağıtılmış veritabanı hizmetidir](./media/introduction/azure-cosmos-db.png)
 
@@ -97,11 +97,11 @@ Cosmos DB hakkında daha fazla temel kavramları [anahtar teslim küresel dağı
 
 Dört hızlı başlangıçtan biriyle Azure Cosmos DB kullanmaya başlayın:
 
-* [Azure Cosmos DB SQL API’yi kullanmaya başlama](create-sql-api-dotnet.md)
+* [Azure Cosmos DB SQL API'yi kullanmaya başlama](create-sql-api-dotnet.md)
 * [MongoDB için Azure Cosmos DB'nin API'sini kullanmaya başlama](create-mongodb-nodejs.md)
-* [Azure Cosmos DB Cassandra API’yi kullanmaya başlama](create-cassandra-dotnet.md)
-* [Azure Cosmos DB Graph API’yi kullanmaya başlama](create-graph-dotnet.md)
-* [Azure Cosmos DB Tablo API’yi kullanmaya başlama](create-table-dotnet.md)
+* [Azure Cosmos DB Cassandra API'yi kullanmaya başlama](create-cassandra-dotnet.md)
+* [Azure Cosmos DB Gremlin API'si ile çalışmaya başlama](create-graph-dotnet.md)
+* [Azure Cosmos DB tablo API'si ile çalışmaya başlama](create-table-dotnet.md)
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB’yi ücretsiz deneyin](https://azure.microsoft.com/try/cosmosdb/)

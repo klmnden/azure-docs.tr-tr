@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/07/2019
 ms.author: juliako
-ms.openlocfilehash: 552c3fa81a213d0be32c5498cde5a50fb44291d0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892586"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280222"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>API tarafından üretilen Video dizinleyici çıktısını İnceleme
 
@@ -79,7 +79,7 @@ Bu bölümde, içgörüler özetini gösterir.
 |privacyMode|Döküm şu modlardan birine sahip olabilir: **Özel**, **genel**. **Genel** -video herkes hesabınızı ve videoya bir bağlantı olan herkes tarafından görülebilir. **Özel** -video hesabınızdaki herkes tarafından da görülebilir.|
 |süre|Bir öngörü gerçekleştiği zaman açıklayan bir süresini içerir. Saniyeler içinde süresidir.|
 |thumbnailVideoId|Küçük resim alınmış videonun kimliği.
-|thumbnailId|Video küçük resim kimliği. Get-küçük resim gerçek küçük resim alma çağrısı (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) thumbnailVideoId ve thumbnailId geçirin.|
+|thumbnailId|Video küçük resim kimliği. Gerçek küçük resim alma, çağrısı [Get-küçük resim](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) thumbnailVideoId ve thumbnailId geçirin.|
 |yüzleri|Sıfır veya daha fazla yüzleri içerebilir. Daha ayrıntılı bilgi için bkz. [yüzleri](#faces).|
 |anahtar sözcükler|Sıfır veya daha fazla anahtar sözcükler içerebilir. Daha ayrıntılı bilgi için bkz. [anahtar sözcükleri](#keywords).|
 |yaklaşımlar|Sıfır veya daha fazla yaklaşımları içerebilir. Daha ayrıntılı bilgi için bkz. [yaklaşımları](#sentiments).|
@@ -106,7 +106,7 @@ Bu bölümde, içgörüler özetini gösterir.
 |meta veriler|(Kullanıcı tarafından belirtilmişse) videonun dış meta verileri.|
 |isAdult|Video el ile inceleme ve yetişkinlere yönelik bir video olarak tanımlanmış olup olmadığını gösterir.|
 |görüşler|Insights nesne. Daha fazla bilgi için [ınsights](#insights).|
-|thumbnailId|Video küçük resim kimliği. Get-küçük resim gerçek küçük resim çağrı almak için (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) ve video kimliği ve thumbnailId geçirin.|
+|thumbnailId|Video küçük resim kimliği. Küçük resim gerçek çağrısını almak için [Get-küçük resim](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) ve video kimliği ve thumbnailId geçirin.|
 |publishedUrl|Video akışı için bir url.|
 |publishedUrlProxy|Videodan (Apple cihazlar için) akış URL'si.|
 |viewToken|Video akışı için bir kısa süreli görünümü belirteci.|

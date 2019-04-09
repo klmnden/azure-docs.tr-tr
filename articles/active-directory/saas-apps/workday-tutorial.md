@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 9bcc74e395746ae82867d915ea37962bf8880a3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8451fd692409933803f5f8023f1e1161c3a97daf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857190"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278540"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Öğretici: Workday ile Azure Active Directory Tümleştirme
 
@@ -120,7 +120,7 @@ Azure AD çoklu oturum açma Workday ile yapılandırmak için aşağıdaki adı
 
 6. Workday uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Varsayılan öznitelikler listesinde aşağıdaki ekran görüntüsünde gösterilmektedir oysa **NameIdentifier** ile eşlenmiş **user.userprincipalname**. Workday uygulama bekliyor **NameIdentifier** ile eşlenecek **user.mail**, **UPN** vb. tıklayarak özellik eşlemesi düzenlemek gereken şekilde **Düzenle**  simgesi ve değişiklik öznitelik eşlemesi.
 
-    ![görüntü](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
     > [!NOTE]
     > Burada şu varsayılan UPN (user.userprincipalname) ile ad kimliği eşlediğiniz. SSO, başarılı çalışma için gerçek kullanıcı kimliği, Workday hesabınızdaki (e-postanıza, UPN vb.) ad kimliği eşlemeniz gerekir.
@@ -215,7 +215,7 @@ Azure AD çoklu oturum açma Workday ile yapılandırmak için aşağıdaki adı
 
     e.  İçinde **sertifika** metin kutusu, panonuzun içeriğini yapıştırın.
 
-    f.  **Tamam**'ı tıklatın.
+    f.  **Tamam** düğmesine tıklayın.
 
 7. Aşağıdaki adımları gerçekleştirin:
 
@@ -229,7 +229,7 @@ Azure AD çoklu oturum açma Workday ile yapılandırmak için aşağıdaki adı
 
     ![Kimlik doğrulaması istek imzası yöntemi](./media/workday-tutorial/WorkdaySSOConfiguration.png "kimlik doğrulaması istek imzası yöntemi") 
 
-    d. **Tamam**'ı tıklatın.
+    d. **Tamam** düğmesine tıklayın.
 
     ![TAMAM](./media/workday-tutorial/IC782933.png "TAMAM")
 
@@ -299,9 +299,9 @@ Erişim paneli Workday kutucuğa tıkladığınızda, size otomatik olarak SSO'y
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

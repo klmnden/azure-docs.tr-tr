@@ -10,27 +10,22 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8bb601ac5c1ed8e9ca6d2027fe1b774a938e1f0a
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: ade0444110dbb23e762a869dc79805872c0f0bf0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58362414"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281140"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için kendi notebook sunucusu kullanma
 
-Bu makalede, kendi notebook sunucusu oturum kodu çalıştırmak için kullandığınız [Azure Machine Learning hizmeti çalışma alanında](concept-azure-machine-learning-architecture.md). Çalışma alanı, denemeler, eğitmek ve Machine Learning ile makine öğrenimi modelleri dağıtmak için kullandığınız bulutta temel taşıdır.
+Değer'de oturum açması kodu çalıştırmak için kendi notebook sunucusu kullanın [Azure Machine Learning hizmeti çalışma alanında](concept-azure-machine-learning-architecture.md). Çalışma alanı, denemeler, eğitmek ve Machine Learning ile makine öğrenimi modelleri dağıtmak için kullandığınız bulutta temel taşıdır.
 
-Bu hızlı başlangıçta Python ortamınızı ve Jupyter Notebook sunucusu kullanılır. Yükleme ile bir hızlı başlangıç için bkz: [hızlı başlangıç: Azure Machine Learning'i kullanmaya başlamak için bir bulut tabanlı bir not defteri sunucusu kullan](quickstart-run-cloud-notebook.md) 
+Bu hızlı başlangıçta Python ortamınızı ve Jupyter Notebook sunucusu kullanılır. SDK yükleme ile bir hızlı başlangıç için bkz: [hızlı başlangıç: Azure Machine Learning'i kullanmaya başlamak için bir bulut tabanlı bir not defteri sunucusu kullan](quickstart-run-cloud-notebook.md) 
 
 Bu hızlı başlangıç videosu görüntüleyin:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
-
-Bu hızlı başlangıçta:
-
-* Çalışma alanına değer kaydeden bir kod yazma.
-* Günlüğe kaydedilen değerleri çalışma alanınızda görüntüleme.
 
 Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree) bugün.
 
@@ -61,7 +56,7 @@ Bir betik oluşturabilir veya çalışma alanı yapılandırma dosyanız ile ayn
 print(run.get_portal_url())
 ```
 
-Bağlantıyı kullanarak Azure portala kaydedilen değerleri tarayıcınızda görüntüleyebilirsiniz.
+Bu kodu tarayıcınızda Azure portalında oturum değerleri görüntülemek için kullanabileceğiniz bir bağlantıyı döndürür.
 
 ![Azure portalında oturum değerleri](./media/quickstart-run-local-notebook/logged-values.png)
 

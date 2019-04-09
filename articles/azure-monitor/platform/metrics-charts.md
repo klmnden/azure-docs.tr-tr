@@ -1,6 +1,6 @@
 ---
-title: Azure İzleyici ölçüm Gezgini
-description: Azure İzleyici ölçüm Gezgini'nde yeni özellikler hakkında bilgi edinin
+title: Gelişmiş özelliklerini Azure ölçüm Gezgini
+description: Azure İzleyici ölçüm Gezgini'ni gelişmiş özellikler hakkında bilgi edinin
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,51 +8,46 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 08ae74bcd9ee0a7cf5e0fb6d38758b1429c39145
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916351"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271688"
 ---
-# <a name="azure-monitor-metrics-explorer"></a>Azure İzleyici ölçüm Gezgini
+# <a name="advanced-features-of-azure-metrics-explorer"></a>Gelişmiş özelliklerini Azure ölçüm Gezgini
 
-Azure İzleyici ölçüm Gezgini'ni çizim grafikleri, görsel olarak eğilimleri ilişkilendirme ve ani araştırma sağlar ve düşüşler ölçümleri değerleri Microsoft Azure portalının bir bileşenidir. Ölçüm Gezgini çeşitli performans ve Azure'da barındırılan veya Azure izleme hizmetleri tarafından izlenen altyapı ve uygulamalar ile kullanılabilirlik sorunları araştırma için bir temel başlangıç noktasıdır.
+> [!NOTE]
+> Bu makalede, ölçüm Gezgini temel özellikleri hakkında bilgi sahibi olduğunuz varsayılır. Yeni bir kullanıcıysanız ve ölçüm ilk grafiğinizi oluşturun, bkz öğrenmek istiyorsanız [Azure ölçüm Gezgini ile çalışmaya başlama](metrics-getting-started.md).
 
 ## <a name="metrics-in-azure"></a>Azure ölçümleri
 
 [Azure İzleyicisi'nde ölçümler](data-platform-metrics.md) ölçülen değerleri ve toplanan ve zaman içinde depolanmış olan sayıları dizi. Standart (veya "platformu") ölçüm ve özel ölçüm vardır. Standart ölçümler, Azure platformu tarafından kendisi sağlanır. Standart ölçümler, Azure kaynaklarınızın durumunu ve kullanım istatistikleri yansıtır. Özel ölçüm kullanarak uygulamalarınızı tarafından Azure'a gönderilir ancak [özel olaylar ve ölçümler için Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [Windows Azure tanılama (WAD) uzantısı](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), ya da [Azure REST API izleme](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
-## <a name="create-a-new-chart"></a>Yeni bir grafik oluşturun
+## <a name="create-views-with-multiple-metrics-and-charts"></a>Birden çok ölçüm ve grafikler ile görünümlerini oluşturma
 
-1. Azure portalını açın
-2. Yeni Git **İzleyici** sekmesine tıklayın ve ardından **ölçümleri**.
+Birden çok ölçüm satırı çizim veya aynı anda birden çok ölçüm grafikleri Göster grafikler oluşturabilirsiniz. Bu işlev sağlar:
 
-   ![Ölçümler görüntüsü](./media/metrics-charts/00001.png)
+- başka bir performanstaki ilgili ölçümleri aynı grafikte bir değeri görmek için ilgili
+- farklı ölçü yakın ölçümlerini görüntüle
+- görsel olarak toplama ve birden çok kaynaklardan ölçümleri karşılaştırın
 
-3. **Ölçüm Seçici** otomatik olarak sizin için açık olacaktır. Bir kaynağı kendi ilgili ölçümleri görüntülemek için listeden seçin. Yalnızca kaynakları ölçümlerle listesinde gösterilir.
+Örneğin, 5 depolama hesapları kullandığınız ve bunlar arasında tüketilen toplam ne kadar alan öğrenmek istiyorsanız, tek tek ve tüm değerlerin toplamını belirli noktalarda süresini gösterir (Yığılmış) alan grafiği oluşturabilirsiniz.
 
-   ![Ölçümler görüntüsü](./media/metrics-charts/00002.png)
+### <a name="multiple-metrics-on-the-same-chart"></a>Birden çok ölçümleri aynı grafikte
 
-   > [!NOTE]
-   >Ölçüm Gezgini çeken kaynakları Portal ayarlarında seçili abonelikler genelinde kullanıma birden fazla Azure aboneliğiniz varsa, filtre tarafından abonelik listesi ->. Değiştirmek için ekranın en üstünde Portal ayarları dişli simgesine tıklayın ve kullanmak istediğiniz abonelikleri seçin.
-
-4. Bir ölçüm seçmeden önce bazı kaynak türleri için (depolama hesabı ve sanal makineler), seçmelisiniz bir **Namespace**. Her ad alanı, bu ad alanına ve diğer ad alanları için ilgili ölçümleri kendi kümesini gerçekleştirir.
-
-   Örneğin, her bir Azure depolama alt Servisleri "BLOB", "Files", "Kuyrukları" ve tüm bölümleri depolama hesabının "Tablo" için ölçüler vardır. Ancak, "kuyruk mesaj sayısı" ölçüm doğal olarak "Sırası" subservice ve tüm diğer depolama hesabı alt servisleri için geçerlidir.
-
-   ![Ölçümler görüntüsü](./media/metrics-charts/00003.png)
-
-5. Listeden bir ölçüm seçin. İstediğiniz ölçümü kısmi adını biliyorsanız, kullanılabilir ölçümler filtrelenmiş bir listesini görmek için yazmak başlayabilirsiniz:
-
-   ![Ölçümler görüntüsü](./media/metrics-charts/00004.png)
-
-6. Bir ölçüm seçildiğinde, grafik, seçilen ölçüm için varsayılan toplama ile işlenir. Bu noktada yalnızca liste kutusundan tıklayabilirsiniz **ölçümleri Seçici** kapatmak için. Ayrıca isteğe bağlı olarak farklı bir toplama için grafiği geçiş yapabilirsiniz. Bazı ölçümler için toplama geçişi grafikte görmek istediğiniz değer seçmenize olanak sağlar. Örneğin, ortalama, minimum ve maksimum değerleri arasında geçiş yapabilirsiniz. 
-
-7. Tıklayarak **ölçüm Ekle** ve 3-6 adımları yinelemekten daha fazla ölçümleri aynı grafikte ekleyebilirsiniz.
+İlk olarak, [yeni bir grafik oluşturun](metrics-getting-started.md#create-your-first-metric-chart). Tıklayın **ölçüm Ekle** ve aynı grafiğe başka bir ölçüm eklemek için adımları yineleyin.
 
    > [!NOTE]
    > Genellikle, bir grafikte ölçümleri farklı ölçü (yani "milisaniye" ve "kilobayt") veya önemli ölçüde farklı ölçeklendirme ile sahip istemezsiniz. Bunun yerine, birden çok grafik kullanmayı düşünün. Ölçüm Gezgini'nde birden çok grafik oluşturmak için Hesap Ekle düğmesine tıklayın.
+
+### <a name="multiple-charts"></a>Birden fazla grafiği
+
+Tıklayın **Ekle grafik** ve farklı bir ölçümü ile başka bir grafik oluşturun.
+
+### <a name="order-or-delete-multiple-charts"></a>Sipariş veya birden fazla Grafiği Sil
+
+Sipariş ya da birden fazla grafiği silmek için üç noktayı tıklayın ( **...**  ) grafik menüsünü açın ve uygun menü öğesi, sembol **Yukarı Taşı**, **Aşağı Taşı**, veya **Sil**.
 
 ## <a name="apply-filters-to-charts"></a>Grafikler için filtre uygulayın
 
@@ -76,27 +71,7 @@ Boyutlarla ölçümleri gösteren grafikler için filtre uygulayabilirsiniz. "İ
 
 5. Aynı grafikleri birden fazla filtre uygulamak için 1-4 arası adımları tekrarlayabilirsiniz.
 
-## <a name="multiple-metrics-and-charts"></a>Birden çok ölçüm ve grafikler
 
-Çoklu ölçümler çizim veya aynı anda birden çok ölçüm grafikleri Göster grafikleri de oluşturabilirsiniz. Bu işlev sağlar:
-
-- başka bir performanstaki ilgili ölçümleri aynı grafikte bir değeri görmek için ilgili
-- farklı ölçü yakın ölçümlerini görüntüle
-- görsel olarak toplama ve birden çok kaynaklardan ölçümleri karşılaştırın
-
-Örneğin, 5 depolama hesapları kullandığınız ve bunlar arasında tüketilen toplam ne kadar alan öğrenmek istiyorsanız, tek tek ve tüm değerlerin toplamını belirli noktalarda süresini gösterir (Yığılmış) alan grafiği oluşturabilirsiniz.
-
-### <a name="multiple-metrics-on-a-chart"></a>Grafikte birden çok ölçümleri
-
-İlk olarak, [yeni bir grafik oluşturun](#create-a-new-chart). Tıklayın **ölçüm Ekle** ve aynı grafiğe başka bir ölçüm eklemek için adımları yineleyin.
-
-### <a name="multiple-charts"></a>Birden fazla grafiği
-
-Tıklayın **Ekle grafik** ve farklı bir ölçümü ile başka bir grafik oluşturun.
-
-### <a name="order-or-delete-multiple-charts"></a>Sipariş veya birden fazla Grafiği Sil
-
-Sipariş ya da birden fazla grafiği silmek için üç noktayı tıklayın ( **...**  ) grafik menüsünü açın ve uygun menü öğesi, sembol **Yukarı Taşı**, **Aşağı Taşı**, veya **Sil**.
 
 ## <a name="apply-splitting-to-a-chart"></a>Bir grafiği bölme Uygula
 

@@ -1,19 +1,18 @@
 ---
 title: Şema kaynak kilitleriyle yeni kaynakları koruma
 description: Salt okunur Azure Blueprint kaynak kilitleri nasıl kullanacağınızı öğrenin ve dağıtılan kaynakları yeni korunacak silmeyin.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: f39d59ef7ab3f555637aef69b301a0e77c00fc24
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: d315fb5fe3ce7844946e6a9405a9a5f6a0be8b9d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629226"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272283"
 ---
 # <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Yeni kaynaklar Azure Blueprint kaynak kilitleri ile koruma
 
@@ -130,7 +129,7 @@ Bir kez **yayımlama başarılı tanımı blueprint** portal bildirimi görünü
 
 1. Blueprint ataması için parametre değerlerini sağlayın:
 
-   - Temel Ayarlar
+   - Temel Bilgiler
 
      - **Abonelikleri**: Bir veya daha fazla yönetim grubuna olduğunuz Abonelikleri, şema tanımına kaydedilmiş seçin. Birden fazla aboneliğiniz seçerseniz, bir atama için her girdiğiniz parametreleri kullanarak oluşturulur.
      - **Ödev adı**: Şema tanımını adını temel alarak, önceden doldurulmuş adıdır. Bu atama kilitleme yeni kaynak grubunu temsil etmek için bu nedenle atama adı değiştirmek istiyoruz _atama kilitli storageaccount TestingBPLocks_.
@@ -152,8 +151,8 @@ Bir kez **yayımlama başarılı tanımı blueprint** portal bildirimi görünü
 
      |Yapıt adı|Yapıt türü|Parametre adı|Değer|Açıklama|
      |-|-|-|-|-|
-     |RGtoLock kaynak grubu|Kaynak grup|Ad|TestingBPLocks|Blueprint kilitleri uygulamak için yeni kaynak grubunun adını tanımlar.|
-     |RGtoLock kaynak grubu|Kaynak grup|Konum|Batı ABD 2|Blueprint kilitleri uygulamak için yeni kaynak grubunun konumunu tanımlar.|
+     |RGtoLock kaynak grubu|Kaynak grubu|Ad|TestingBPLocks|Blueprint kilitleri uygulamak için yeni kaynak grubunun adını tanımlar.|
+     |RGtoLock kaynak grubu|Kaynak grubu|Konum|Batı ABD 2|Blueprint kilitleri uygulamak için yeni kaynak grubunun konumunu tanımlar.|
      |StorageAccount|Resource Manager şablonu|storageAccountType (depolama hesabı)|Standard_GRS|Depolama SKU'SU'ı seçin. Varsayılan değer _Standard_LRS_.|
 
 1. Tüm parametreler girildikten sonra seçin **atama** sayfanın alt kısmındaki.

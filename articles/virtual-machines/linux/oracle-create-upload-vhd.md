@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: c2c02283518bab0723b7bc815f034c4324c944e1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ecd30d30434d91893102ce6ec0df21daa84b677c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232904"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276874"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Azure için Oracle Linux sanal makinesi hazırlama
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,9 +37,9 @@ Bu makalede, bir sanal sabit disk için Oracle Linux işletim sistemi zaten yük
 * NUMA'yı Linux çekirdeği sürümlerinde 2.6.37 aşağıdaki hata nedeniyle daha büyük VM boyutları için desteklenmiyor. Bu sorun öncelikle Yukarı Akış kullanan dağıtımlar etkiler Red Hat 2.6.32 çekirdek. Azure Linux aracısını (waagent) el ile yüklenmesini otomatik olarak NUMA Linux çekirdeğinin GRUB yapılandırmasında devre dışı bırakır. Aşağıdaki adımlarda bunu hakkında daha fazla bilgi bulunabilir.
 * İşletim sistemi diski üzerinde takas bölümü yapılandırmayın. Linux Aracısı, geçici kaynak diski üzerinde takas dosyası oluşturmak için yapılandırılabilir.  Aşağıdaki adımlarda bunu hakkında daha fazla bilgi bulunabilir.
 * Tüm VHD'leri azure'da bir sanal Boyut 1 MB ile uyumlu olması gerekir. Ham bir diskten VHD'ye dönüştürme yaparken ham disk boyutu 1 MB dönüştürmeden önce bir çok olduğundan emin olmalısınız. Bkz: [Linux yükleme notları](create-upload-generic.md#general-linux-installation-notes) daha fazla bilgi için.
-* Emin olun `Addons` depo etkinleştirilir. Dosyayı düzenlemek `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) veya `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux), satır değiştirip `enabled=0` için `enabled=1` altında **[ol6_addons]** veya **[ol7_addons]** bu dosyadaki.
+* Emin olun `Addons` depo etkinleştirilir. Dosyayı düzenlemek `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) veya `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7) satır değiştirip `enabled=0` için `enabled=1` altında **[ol6_addons]** veya **[ol7_addons]** bu dosyadaki.
 
-## <a name="oracle-linux-64"></a>Oracle Linux 6.4 +
+## <a name="oracle-linux-64"></a>Oracle Linux 6.4+
 Azure'da çalıştırmak sanal makine için işletim sistemi belirli yapılandırma adımları tamamlamanız gerekir.
 
 1. Hyper-V Yöneticisi'nin Orta bölmede sanal makineyi seçin.
@@ -48,7 +48,7 @@ Azure'da çalıştırmak sanal makine için işletim sistemi belirli yapılandı
    
         # sudo rpm -e --nodeps NetworkManager
    
-    **Not:** paket zaten yüklü değilse, bu komut bir hata iletisiyle başarısız olur. Bu beklenen bir durumdur.
+    **Not:** Bu komut, paket zaten yüklü değilse, bir hata iletisiyle başarısız olur. Bu beklenen bir durumdur.
 4. Adlı bir dosya oluşturun **ağ** içinde `/etc/sysconfig/` aşağıdaki metni içeren dizini:
    
         NETWORKING=yes
@@ -108,7 +108,7 @@ Azure'da çalıştırmak sanal makine için işletim sistemi belirli yapılandı
 14. Tıklayın **eylem -> kapatma aşağı** Hyper-V Yöneticisi'nde. Linux VHD'nizi artık Azure'a yüklenmek hazırdır.
 
 - - -
-## <a name="oracle-linux-70"></a>Oracle Linux 7.0 +
+## <a name="oracle-linux-70"></a>Oracle Linux 7.0+
 **Oracle Linux 7 değişiklikleri**
 
 Azure için Oracle Linux 7 sanal Makine'yi hazırlama çok benzeyen Oracle Linux 6, ancak önemli bazı önemli farklılıklar vardır:

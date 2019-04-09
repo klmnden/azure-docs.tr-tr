@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 7f1379bbd3a52b364efc5e4c47612e645fa119ed
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: f2c4c6b8655d5efb993a2dedf536000ac94328c2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057005"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281497"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Kabarcık katmanı haritaya eklemek
 
@@ -73,4 +73,7 @@ Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi e
 Daha fazla kod örneği, eşlenir eklemek için aşağıdaki makalelere bakın:
 
 > [!div class="nextstepaction"]
-> [Sembol katmanı ekleme](./map-add-pin.md)
+> [Sembol katmanı ekleme](map-add-pin.md)
+
+> [!div class="nextstepaction"]
+> [Veri odaklı stili ifadeleri kullanma](data-driven-style-expressions-web-sdk.md)

@@ -28,308 +28,341 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 6d53b8fe46997f6b4f915bfb14a64d69b22cc5d4
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 60424edc8e617aca55777d019e6a0f9409f7ca28
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057838"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276533"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP'yi performans Azure Vm'leri için ayarlama
 
-Bu makalenin amacı, ortak TCP/IP'yi performans ayarlama teknikleri ve Microsoft Azure üzerinde çalışan sanal makineler için kendi konuları ele sağlamaktır. İlk kavramları temel bir anlayışa sahip ve bunların nasıl belirleyebileceğinizi'ı tartışmak önemlidir.
+Bu makalede, yaygın TCP/IP'yi performans ayarlama teknikleri ve bunları Azure'da çalışan sanal makineler için kullanırken dikkat etmeniz gerekenler açıklanmaktadır. Bu teknikler temel bir bakış sağlar ve bunların nasıl belirleyebileceğinizi keşfedin.
 
 ## <a name="common-tcpip-tuning-techniques"></a>Ortak TCP/IP'yi ayar teknikleri
 
-### <a name="mtu-fragmentation-and-large-send-offload-lso"></a>MTU parçalanma ve Büyük Gönderme Boşaltması (LSO)
+### <a name="mtu-fragmentation-and-large-send-offload"></a>MTU parçalanma ve büyük gönderme boşaltması
 
-#### <a name="explanation-of-mtu"></a>MTU açıklaması
+#### <a name="mtu"></a>MTU
 
-En fazla iletim birimi (MTU) bir ağ arabirimi üzerinden gönderilen bayt cinsinden belirtilen en büyük boyutunu (paket) çerçevesidir. MTU yapılandırılabilir bir ayar ve Azure Vm'lerinde MTU kullanılan varsayılan değer ve çoğu ağ cihazları varsayılan ayarı küresel olarak 1500 bayttır.
+En fazla iletim birimi (MTU) bir ağ arabirimi üzerinden gönderilen bayt cinsinden belirtilen en büyük boyutunu (paket) çerçevesidir. MTU yapılandırılabilir bir ayardır. Varsayılan Azure Vm'lerinde MTU kullanıldığını ve 1.500 bayt küresel olarak çoğu ağ cihazları varsayılan ayarı.
 
-#### <a name="explanation-of-fragmentation"></a>Parçalanma açıklaması
+#### <a name="fragmentation"></a>Parçalanma
 
-Parçalanma, bir ağ arabiriminin MTU'su aşan bir paket gönderildiğinde gerçekleşir. TCP/IP yığınının paket bir MTU arabirimler için uygun daha küçük parçalara (parça) çalışmamasına neden olur. Parçalanma IP katmanında gerçekleşir ve temel alınan protokoldeki (örneğin, TCP) bağımsızdır. 2000 baytlık bir paket 1500 bir MTU ile bir ağ arabirimi üzerinden gönderildiğinde, ardından bunu bir 1500 baytlık bir paket ve 500 baytlık bir paket halinde ayrılır.
+Parçalanma, bir ağ arabiriminin MTU'su aşan bir paket gönderildiğinde gerçekleşir. TCP/IP yığınının paket bir arabirimin MTU için uygun daha küçük parçalara (parça) çalışmamasına neden olur. Parçalanma IP katmanında gerçekleşir ve temel alınan protokoldeki (örneğin, TCP) bağımsızdır. 2.000 baytlık bir paket 1.500 bir MTU ile bir ağ arabirimi üzerinden gönderildiğinde, paket 1.500 baytlık bir paket ve 500 baytlık bir paket halinde ayrılır.
 
-Ağ cihazları arasındaki kaynak ve hedef yolda MTU aşan paketler veya paket daha küçük parçalara parçalara seçeneğiniz vardır.
+Ağ cihazları arasındaki kaynak ve hedef yolda MTU ya da daha küçük parçalara paket parçalara ya da açılan paket olabilir.
 
-#### <a name="the-dont-fragment-df-bit-in-an-ip-packet"></a>"Yoksa parça (DF)" bit IP paketi
+#### <a name="the-dont-fragment-bit-in-an-ip-packet"></a>Bir IP paketi içinde bit parçalara ayırma
 
-IP Protokolü üst bilgisindeki bir bayrak parçalama bittir. DF bit ayarlandığında, gönderen ve alıcı arasındaki yolu ara ağ cihazlarında paketin parçası olmayan gösterir. Neden bu bit ayarlanabilir birçok neden vardır (bir örnek için aşağıdaki yol bulma bölümüne bakın). Ne zaman bir ağ aygıtı parçalama bit kümesi içeren bir paket alır ve bu paket cihazları arabirimi MTU aşıyor, daha sonra cihazın paket bırakın ve bir "ICMP parçalanma gerekli" paketi özgün kaynağına göndermek standart davranıştır Paket.
+IP Protokolü üst bilgisindeki bir bayrak yoksa parça (DF) bittir. DF bit gönderen ve alıcı arasındaki yolu ağ cihazlarında paketin parçası olmayan gösterir. Bu bit çeşitli nedenlerle ayarlayabilirsiniz. (Bir örnek için bu makalenin "Yol MTU'su bulma" bölümüne bakın.) Bir ağ aygıtı parçalama bit kümesi içeren bir paket alır ve bu paket cihazın arabirimi MTU aşıyor, standart davranışlarını paket bırakmak için cihazdır. Cihaz, ICMP parçalanma gerekli iletisine paketin özgün kaynağına gönderir.
 
 #### <a name="performance-implications-of-fragmentation"></a>Parçalanma performans etkileri
 
-Parçalanma, olumsuz etkileri olabilir. CPU/bellek parçalanması etkisini ve paketlerin yeniden performans etkisi için temel nedenlerinden biridir. Bir ağ aygıtının bir paket gerektiğinde parçalanma gerçekleştirmek için CPU/bellek kaynakları tahsis gerekecektir. Aynı durum, paket birleştirildiği oluşturulmadığında gerekir. Ağ aygıtı, onları özgün pakete yeniden birleştirmek şekilde alındığında kadar tüm parçaları depolamanız gerekir. Bu işlemi parçalanma/yeniden birleştirme gecikmesi parçalanma/yeniden birleştirme işlemi nedeniyle da neden olabilir.
+Parçalanma, olumsuz etkileri olabilir. CPU/bellek parçalanması etkisini ve paketlerin yeniden performans üzerindeki etkisi için temel nedenlerinden biridir. Bir ağ aygıtının bir paket gerektiğinde parçalanma gerçekleştirmek için CPU/bellek kaynakları tahsis gerekecektir.
 
-Diğer olası olumsuz olduğu çıkarımında parçalanma, parçalanmış paketlere sıralamaya gelebilir ' dir. Çıkış sırası paketleri, belirli bir türdeki ağ cihazları daha sonra yeniden iletilmek için tüm paket gerektirir olan bozuk paketler - neden olabilir. Ağ güvenlik duvarları gibi güvenlik cihazları parçaları silmek için tipik senaryolar içerir veya bir ağ cihazını alma zaman arabelleği tükendi. Bir ağ cihazını alma arabelleği tükendi, bir ağ aygıtı parçalanmış paketini yeniden birleştirmek çalışıyor, ancak paket reassume ve depolamak için bir kaynak yok.
+Paket birleştirildiği aynı olur. Ağ aygıtı için onları özgün pakete yeniden birleştirmek alındığında kadar tüm parçaları depolamak vardır. Bu işlemi parçalanmasına ve yeniden gecikme da neden olabilir.
 
-Parçalanma farklı ağlar Internet üzerinden bağlanmak için gerekli olduğu için parçalanma bir negatif işlemi ancak destek algılanan.
+Diğer olası olumsuz olduğu çıkarımında parçalanma, parçalanmış paketlere sıralamaya gelebilir ' dir. Bazı ağ aygıtları türleri paketleri sıralamaya alındığında bunları bırakabilir. Bu durum oluştuğunda tüm paket da yeniden iletilemez gerekir.
+
+Parça genellikle ağ güvenlik duvarları gibi güvenlik cihazlar tarafından bırakılan veya bir ağ cihazını alma zaman arabelleği tükendi. Bir ağ cihazını alma arabelleği tükendi, bir ağ aygıtı parçalanmış paketini yeniden birleştirmek çalışıyor, ancak paket reassume ve depolamak için bir kaynak yok.
+
+Parçalanma farklı ağlar internet üzerinden bağlanırken gereklidir için parçalanma bir negatif işlemi ancak destek görülebilir.
 
 #### <a name="benefits-and-consequences-of-modifying-the-mtu"></a>Avantajları ve sonuçları MTU değiştirme
 
-Genel deyim olarak MTU artan daha verimli bir ağ oluşturabilirsiniz. Aktarılan her paketi, orijinal pakete eklenen ek üstbilgi bilgilerini içerir. Daha fazla paket yükü daha fazla üstbilgi anlamına gelir ve sonuç olarak ağ verimli değildir.
+Genel olarak bakıldığında, MTU artırarak daha verimli bir ağ oluşturabilirsiniz. Aktarılan her paketi, orijinal pakete eklenen üstbilgi bilgilerini içerir. Daha fazla paket parçalanmasını oluşturduğu zaman, yükü daha fazla üst bilgisi yoktur ve ağ daha az verimli sağlar.
 
-Örneğin, Ethernet başlık boyutu 14 bayt artı çerçeve tutarlılığını sağlamak için bir 4 baytlık çerçeve denetleme dizisi (FCS) ' dir. Bir 2000 baytlık paket gönderilir, ardından 18 bayt Ethernet yük eklenir ağda. Paket 1500 baytlık bir paket ve 500 baytlık bir paket halinde parçalanmışsa, her paket Ethernet üstbilgisinin - 18 bayt veya 36 bayt olacaktır. Tek 2000 baytlık bir paket, yalnızca bir Ethernet üstbilgisi 18 bayt gerekir ancak.
+Bir örnek aşağıda verilmiştir. Ethernet başlık boyutu 14 bayt artı çerçeve tutarlılığı sağlamak için bir 4 baytlık çerçeve onay dizisi ' dir. Bir bayt 2.000 paket gönderildiğinde, Ethernet yük 18 bayt ağda eklenir. Paket 1.500 baytlık bir paket ve 500 baytlık bir paket halinde parçalanmışsa, her paket Ethernet üstbilgisinin 36 bayt toplam 18 bayt olacaktır.
 
-Kendi içinde MTU artırma mutlaka daha verimli bir ağ oluşturmayacağını dikkat edin önemlidir. Bir uygulamanın yalnızca 500 baytlık paketleri gönderirse, MTU 1500 veya 9000 bayt olup aynı üstbilgi yükü bulunur. Daha fazla olacak şekilde ağ için sırayla verimli, ardından bunu da MTU göre daha büyük paket boyutları kullanmanız gerekir.
+MTU artan daha verimli bir ağ mutlaka oluşturmaz unutmayın. Uygulamanın yalnızca 500 baytlık paketleri gönderirse, aynı üstbilgi yükü MTU 1.500 veya 9000 bayt olup sunulacaktır. Ağ yalnızca MTU tarafından etkilenen paket daha büyük boyutlar kullanıyorsa daha verimli olur.
 
 #### <a name="azure-and-vm-mtu"></a>Azure ve VM MTU
 
-Azure Vm'leri için MTU varsayılan 1500 bayttır. Azure sanal ağ yığınının paket 1400 bayt parçalara dener. Ancak, "Parçalara ayırma" bit IP üstbilgisinde olarak ayarlandığında Azure sanal ağ yığınını 2006 bayt paketler sağlar.
+Azure Vm'leri için MTU varsayılan 1500 bayttır. Azure sanal ağ yığınının paket 1,400 bayt parçalara dener. Ancak parçalama bit IP üstbilgisinde olarak ayarlandığında sanal ağ yığınının paket 2,006 bayt izin verir.
 
-Bu parçalama Vm'leri bir MTU 1500 varken 1400 bayt paketlerini parçacık. çünkü Azure sanal ağ yığınını kendiliğinden verimsizdir yaptığından değil dikkat edin önemlidir. Gerçekte, ağ paketlerinin büyük bir yüzdesini 1400 veya 1500 bayt daha küçük olmasıdır.
+Vm'leri bir MTU 1.500 olsa bile paketler 1,400 bayt parçalarla ilgili olduğundan, sanal ağ yığınını kendiliğinden verimsiz olmadığını unutmayın. Ağ paketlerinin büyük bir yüzdesini 1,400 veya 1.500 bayttan çok daha küçük.
 
 #### <a name="azure-and-fragmentation"></a>Azure ve parçalanma
 
-Azure'nın sanal ağ yığınını, Bugün "Out of sipariş parçaları" kendi özgün parçalanmış sırada ulşamasını yoksa parçalanmış paketlere anlamı - bırakmak için yapılandırılır. Bu paketler, öncelikli olarak Kasım FragmentStack adlı 2018'de duyurulan ağ güvenlik açığı nedeniyle bırakıldı.
+Sanal ağ yığınının "sıralamaya parçaları," diğer bir deyişle, kendi özgün parçalanmış sırada ulşamasını yoksa parçalanmış paketlere bırakmak ayarlayın. Kasım FragmentStack adlı 2018'de duyurulan çoğunlukla bir ağ güvenlik açığı nedeniyle bu paketler bırakılır.
 
-Bir Linux çekirdeğinin parçalanmış IPv4 ve IPv6 paketlerini yeniden birleştirilmesinden işlenme üründe FragmentSmack olur. Bir uzak saldırgan bu zayıf hedef sistem üzerinde daha yüksek CPU ve hizmet reddine neden tetikleyici pahalı parça yeniden birleştirme işlemleri için kullanabilir.
+Bir Linux çekirdeğinin parçalanmış IPv4 ve IPv6 paketlerini yeniden birleştirilmesinden işlenme üründe FragmentSmack olur. Bir uzak saldırgan bu zayıf hedef sistem üzerinde daha yüksek CPU ve hizmet reddine neden olabilir tetikleyici pahalı parça yeniden birleştirme işlemleri için kullanabilir.
 
 #### <a name="tune-the-mtu"></a>MTU ayarlama
 
-Azure sanal makineler, yalnızca başka bir işletim sistemi yapılandırılabilir MTU destekler. Ancak, Azure içinde oluşur ve yukarıdaki ayrıntılı parçalanma MTU yapılandırırken dikkate alınmalıdır.
+Diğer bir işletim sisteminde yaptığınız gibi bir Azure VM MTU yapılandırabilirsiniz. Ancak, yukarıda açıklanan azure'da oluşan parçalanma dikkate almanız gereken zaman, yapılandırmakta olduğunuz bir MTU.
 
-Azure, müşterilerin kendi VM MTU artırmak için önerilir değil. Bu tartışma, nasıl Azure MTU uygular ve bugün parçalanma gerçekleştirir ayrıntılı olarak açıklayan yöneliktir.
+VM MTU artırmak için müşterilerin öneririz yok. Bu tartışma, nasıl Azure MTU uygular ve parçalanma gerçekleştirir ayrıntılarını açıklamak için tasarlanmıştır.
 
 > [!IMPORTANT]
->MTU artırma performansını artırmak için gösterilmez ve uygulama performansı üzerinde olumsuz bir etkiye sahip olabilir.
+>MTU artırılması, performansı artırmak için bilinen değildir ve uygulama performansı üzerinde olumsuz bir etkiye sahip olabilir.
 >
 >
 
-#### <a name="large-send-offload-lso"></a>Büyük Gönderme Boşaltması (LSO)
+#### <a name="large-send-offload"></a>Büyük Gönderme Boşaltması
 
-Büyük Gönderme Boşaltması (LSO) ayrılmasını paketlerin Ethernet bağdaştırıcısına boşaltarak, ağ performansını iyileştirebilir. Etkin LSO ile TCP/IP yığınının büyük bir TCP paket oluşturma ve ardından iletmeden önce segment için Ethernet bağdaştırıcısına gönderin. MTU için uygun ve bu işlem donanım gerçekleştirildiği Ethernet arabirimi yük boşaltma paketi boyutları halinde paketler kesimlere gelen CPU boşaltabilirsiniz LSO faydası olur. LSO avantajları hakkında daha fazla bilgi bulunabilir [performans Microsoft ağ bağdaştırıcısı belgelerinde](https://docs.microsoft.com/windows-hardware/drivers/network/performance-in-network-adapters#supporting-large-send-offload-lso).
+Büyük Gönderme Boşaltması (LSO) ayrılmasını paketlerin Ethernet bağdaştırıcısına boşaltarak, ağ performansını iyileştirebilir. LSO etkinleştirildiğinde, TCP/IP yığınının bir TCP paket oluşturur ve Ethernet Bağdaştırıcısı iletmeden önce segment için gönderir. MTU için uygun ve bu işlem donanım gerçekleştirildiği Ethernet arabirimi yük boşaltma boyutları halinde paketler kesimlere gelen CPU boşaltabilirsiniz LSO faydası olur. LSO avantajları hakkında daha fazla bilgi için bkz: [destekleyen büyük gönderme boşaltması](https://docs.microsoft.com/windows-hardware/drivers/network/performance-in-network-adapters#supporting-large-send-offload-lso).
 
-LSO etkinleştirildiğinde, Azure müşterilerine gerçekleştirme paket yakaladığında büyük çerçeve boyutları görebilirsiniz. Bu büyük çerçeve boyutları, bazı müşteriler bu parçalanma veya MTU olmadığında kullanılan bir jumbo neden olabilir. LSO ile daha büyük bir TCP paketi oluşturmak için TCP/IP'yi yığınına daha büyük bir MSS ethernet bağdaştırıcısını tanıtabilirsiniz. Tüm bu segmentlere ayrılmamış çerçeve için Ethernet bağdaştırıcısını ardından iletilir ve VM üzerinde gerçekleştirilen bir paket yakalama içinde görünür olur. Ancak, paketi çok sayıda küçük çerçevelere Ethernet bağdaştırıcının MTU göre Ethernet bağdaştırıcısı tarafından ayrılır.
+LSO Etkin olduğunda, paket yakalamaları gerçekleştirdikleri Azure müşterilerine büyük çerçeve boyutları görebilirsiniz. Bu büyük çerçeve boyutları parçalanma oluşan düşünme bazı müşteriler veya olmadığında büyük MTU kullanılmakta olduğunu neden olabilir. LSO ile daha büyük bir en büyük kesim boyutu (MSS) daha büyük bir TCP paketi oluşturmak için TCP/IP yığınının Ethernet bağdaştırıcısını tanıtabilirsiniz. Tüm bu segmentlere ayrılmamış çerçeve için Ethernet bağdaştırıcısını ardından iletilir ve VM üzerinde gerçekleştirilen bir paket yakalama içinde görünür olur. Ancak, paketi çok sayıda küçük çerçevelere Ethernet bağdaştırıcının MTU göre bir Ethernet bağdaştırıcısı tarafından ayrılır.
 
-### <a name="tcpmss-window-scaling-and-pmtud"></a>TCP/MSS pencere ölçeklendirme ve GEÇİŞİNİ
+### <a name="tcp-mss-window-scaling-and-pmtud"></a>Pencere TCP MSS ölçeklendirme ve GEÇİŞİNİ
 
-#### <a name="explanation-of-tcp-mss"></a>TCP MSS açıklaması
+#### <a name="tcp-maximum-segment-size"></a>TCP en büyük kesim boyutu
 
-TCP en büyük kesim boyutu (MSS), TCP paketlerinin parçalanma önlemek için en çok TCP kesimini boyutunu ayarlamak için hedeflenen bir ayardır. İşletim sistemleri MSS MSS genellikle ayarlayacak MTU - = IP & TCP üstbilgi boyutu (her 20 bayt veya toplam 40 bayt). Bu nedenle bir arabirim 1500 bir MTU ile bir MSS 1460, olacaktır. MSS ancak yapılandırılabilir değildir.
+TCP en büyük kesim boyutu (MSS) TCP paketlerinin parçalanma önler TCP kesimini boyutunu sınırlayan bir ayardır. İşletim sistemleri, genellikle MSS ayarlamak için bu formülü kullanır:
 
-TCP oturumu kaynak ve hedef arasında ayarlandığında, bu ayar TCP üç yönlü anlaşma kabul edilmiş. Her iki tarafında da MSS değer gönderin ve iki alt TCP bağlantısı için kullanılır.
+`MSS = MTU - (IP header size + TCP header size)`
 
-Azure VPN Gateway de dahil olmak üzere VPN ağ geçitleri gibi ara ağ cihazları, en iyi ağ performansını sağlamak için kaynak ve hedef bağımsız MTU ayarlamak için sahipsiniz. Bu nedenle, tek başına bir hedef ve kaynak MTU tek faktör, gerçek MSS değeri değil unutulmamalıdır.
+IP üstbilgisi ve TCP üstbilgi 20 bayt veya 40 bayt toplam markalarıdır. Bu nedenle bir arabirim 1.500 bir MTU ile bir MSS 1,460, olacaktır. Ancak MSS yapılandırılabilir.
 
-#### <a name="explanation-of-path-mtu-discovery-pmtud"></a>Yol MTU'su bulma (GEÇİŞİNİ) açıklaması
+TCP oturumu bir kaynak ve hedef arasında ayarlandığında, bu ayar TCP üç yönlü anlaşma kabul edilmiş. Her iki tarafında da MSS değer gönderin ve iki alt TCP bağlantısı için kullanılır.
 
-MSS görüştü, ancak diğer ağ cihazları arasındaki kaynak ve hedef yolda olarak kullanılan gerçek MSS kaynak ve hedef daha küçük bir MTU değere sahip olabilir göstermeyebilir. Bu durumda, MTU paket küçük olan cihaz paket bırakma ve geri kendi MTU içeren bir Internet Denetim İletisi Protokolü (ICMP) parçalanma (Tür 3, kod 4) gerekli iletisi gönderin. Kaynak ana bilgisayar, uygun şekilde kendi yol MTU azaltmak bu ICMP iletisini sağlar. İşleme, yol MTU'su bulma verilir.
+Kaynak ve hedef MTU MSS değeri belirlemek yalnızca faktörleri olmayan göz önünde bulundurun. Azure VPN Gateway de dahil olmak üzere VPN ağ geçitleri gibi ara ağ cihazları, en iyi ağ performansını sağlamak için kaynak ve hedef bağımsız olarak MTU ayarlayabilirsiniz.
 
-GEÇİŞİNİ işlemi kendiliğinden verimsizdir ve ağ performansı için olası etkilere sahiptir. Ardından ağ yollarını MTU aşan paket gönderildiğinde, bu paketleri ile daha düşük bir MSS yeniden gerekir. Gönderen MSS düşürün ve sürekli olarak ihtiyacı gönderici bilmez sonra ICMP parçalanma gerekli paket, belki de bir ağ Güvenlik Duvarı'nda (genellikle GEÇİŞİNİ kara delik adlandırılır), yol nedeniyle almazsa, paketi yeniden iletirken. Bu nedenle, Azure VM MTU artırma önermemekteyiz.
+#### <a name="path-mtu-discovery"></a>Yol MTU'su bulma
 
-#### <a name="vpn-considerations-with-mtu"></a>MTU ile VPN ilgili önemli noktalar
+MSS görüştü, ancak kullanılabilir gerçek MSS belirtemez. Bu durum, diğer ağ cihazları arasındaki kaynak ve hedef yolda kaynak ve hedef daha küçük bir MTU değere sahip olabilir çünkü. Bu durumda, MTU paket küçük olan cihaz paket kaldıracağız. Cihaz, ICMP parçalanma gerekiyor (Tür 3, kod 4) kendi MTU içeren bir ileti geri gönderir. Kaynak ana bilgisayar, uygun şekilde kendi yol MTU azaltmak bu ICMP iletisini sağlar. İşleme, yol MTU'su bulma (GEÇİŞİNİ) denir.
 
-Kapsülleme (örneğin, IPSec VPN'ler) gerçekleştiren Vm'leri kullanan müşteriler, paket boyutu ve MTU başka etkileri olabilir. VPN'leri ek üst bilgilere böylece paketi boyutunu artırmayı ve daha küçük bir MSS gerektiren özgün pakete eklenecek ekleyin.
+GEÇİŞİNİ işlem verimsizdir ve ağ performansı etkiler. Paketler, ağ yolu MTU aşan gönderildiğinde paketleri ile daha düşük bir MSS da yeniden iletilemez gerekir. Gönderen parçalanma ICMP gerekiyor, belki de yolda bir ağ güvenlik duvarı nedeniyle iletisi değil, (genellikle olarak adlandırılan bir *GEÇİŞİNİ kara delik*), gönderen ihtiyaç duyduğu MSS düşürün ve sürekli olarak bilmez. paketi yeniden iletirken. Azure VM MTU artırma önermemekteyiz nedeni budur.
 
-Geçerli Azure 1350 bayt ve 1400 tünel arabiriminde MTU TCP MSS clamping ayarlamak için önerilir. Daha fazla bilgi şu adreste bulunabilir: [VPN cihazları ve IPSec/IKE parametreleri sayfası](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
+#### <a name="vpn-and-mtu"></a>VPN ve MTU
+
+Kapsülleme (örneğin, IPSec VPN'ler) gerçekleştiren VM'ler kullanıyorsanız, paket boyutu ve MTU ile ilgili bazı ek hususlar vardır. Paket boyutunu artırır ve daha küçük bir MSS gerektirir VPN'ler paketleri, daha fazla üst bilgileri ekleyin.
+
+Azure için TCP MSS 1.350 bayt clamping ayarlayın ve 1.400 MTU arabirimine tünel öneririz. Daha fazla bilgi için [VPN cihazları ve IPSec/IKE parametreleri sayfası](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
 
 ### <a name="latency-round-trip-time-and-tcp-window-scaling"></a>Gecikme süresi, gidiş-dönüş süresi ve TCP pencere ölçeklendirme
 
 #### <a name="latency-and-round-trip-time"></a>Gecikme süresi ve gidiş dönüş süresi
 
-Ağ gecikmesi ışık hızını fiber optik ağ üzerinden yönetilir. Gerçeğidir, TCP ağ verimliliği etkili bir şekilde yönetilen (pratik üst sınırlar) ayrıca iki ağ cihazları gidiş dönüş süresi (RTT) nedeniyle olur.
+Ağ gecikmesi ışık hızını fiber optik ağ üzerinden yönetilir. Ağ aktarım hızı TCP da verimli bir şekilde iki ağ cihazları arasındaki gidiş dönüş süresini (RTT) tabidir.
 
 | | | | |
 |-|-|-|-|
-|Yol|Uzaklık|Tek yönlü zaman|Gidiş dönüş süresini (RTT)|
+|**Yol**|**Uzaklık**|**Tek yönlü zaman**|**RTT**|
 |New York to San Francisco|4,148 km|21 ms|42 ms|
 |Londra'ya New York|5,585 km|28 ms|56 ms|
 |Sidney için New York|15,993 km|80 ms|160 ms|
 
-Bu tabloda, iki konum arasında doğrusal uzaklık gösterilmektedir ancak ağlarda uzaklık genellikle doğrusal uzaklığı uzun olur. En düşük RTT ışık hızına göre yönetilen olarak hesaplamak için basit bir formül: en düşük RTT = 2 * (mesafeyi kilometre / yayılmasını hızlandırmak).
+Bu tablo, iki konum arasında doğrusal uzaklığını gösterir. Ağlarda uzaklığı doğrusal uzaklık genellikle büyük/küçük harf uzundur. En düşük RTT ışık hızına göre yönetilen olarak hesaplamak için basit bir formül şu şekildedir:
 
-Standart bir değeri 200 yayma hızı için kullanılabilir - 1 milisaniye cinsinden uzaklık ölçümleri açık olarak geçen bir değerdir.
+`minimum RTT = 2 * (Distance in kilometers / Speed of propagation)`
 
-Örnekte New York için San Francisco, doğrusal 4,148 km mesafe bulunur. Minimum RTT = 2 * (4,148 / 200). Eşitlik çıktısı, milisaniye cinsinden belirtilir.
+200 yayma hızı için kullanabilirsiniz. Uzaklık ölçümleri, ışık 1 milisaniye cinsinden geçen budur.
 
-Aralarındaki en küçük uzaklığı ile hedefler seçmek için en mantıklı seçenektir gerekli, en yüksek ağ performansı, sabit bir gerçeklik fiziksel uzaklığı iki konum arasında olduğu gibi. Ürüne, tasarım kararlarını sanal ağ içinde trafiği yolunu iyileştirmek ve gecikme süresini azaltmak için yapılabilir. Bu sanal ağ konuları ağ tasarımı konuları bölümünde açıklanmıştır.
+New York San Francisco için örnek olarak alalım. Düz çizgi uzaklık 4,148 km ' dir. Bu değer eşitliğe takma, biz aşağıdaki alın:
+
+`Minimum RTT = 2 * (4,148 / 200)`
+
+Çıkış Denklemin milisaniye cinsindendir.
+
+En iyi ağ performansı elde etmek istiyorsanız, bunlar arasında uzaklıklı hedefleri mantıksal seçeneği seçmektir. Ayrıca, trafiği yolunu iyileştirmek ve gecikme süresini azaltmak amacıyla sanal ağınızda tasarlamanız gerekir. Daha fazla bilgi için bu makalenin "Ağ tasarımları" bölümüne bakın.
 
 #### <a name="latency-and-round-trip-time-effects-on-tcp"></a>TCP gecikme süresi ve gidiş dönüş süresi etkileri
 
-Gidiş dönüş süresini (RTT) en yüksek TCP Aktarım doğrudan etkisi vardır. TCP protokolü pencere boyutunu kavramı vardır. Pencere boyutu en fazla gönderen alıcıdan bildirim almanız önce bir TCP bağlantı üzerinden gönderilen trafiği miktarıdır. Ardından alıcıdan alındı almanız önce TCP MSS 1460 ayarlanır ve TCP pencere boyutu 65535 ayarlanırsa gönderen 45 paketleri gönderebilirsiniz. Bildirim gönderen ileteceğini sonra alınmazsa. Bu örnekte, TCP pencere boyutu / TCP MSS gönderilen paketlerin =. Veya 65535 / 1460 yuvarlanır en çok 45.
+Gidiş dönüş süresi en fazla TCP işleme doğrudan etkisi vardır. TCP protokolünde *pencere boyutunu* maksimum gönderen alıcıdan bildirim alması gereken önce bir TCP bağlantı üzerinden gönderilen trafik miktarı. TCP MSS 1,460 için ayarlanır ve TCP pencere boyutu için 65.535 gönderen alıcıdan bildirim almak sahip önce 45 paketleri gönderebilirsiniz. Bildirim gönderen katılmaz, verileri kurtarmasını. Formül şudur:
 
-Bu "için onay bekleniyor" durumu, bir güvenilir teslim verileri oluşturmak için bir mekanizma ne TCP aktarım hızını etkilemek RTT'ne etkili bir şekilde neden olur. Uzun süre için bildirim gönderen bekler, uzun, ayrıca daha fazla veri göndermeden önce beklemeniz gerekir.
+`TCP window size / TCP MSS = packets sent`
 
-En fazla aktarım hızı, tek bir TCP bağlantısı hesaplama formülü aşağıdaki gibidir: Pencere boyutu / (RTT, milisaniye cinsinden gecikme süresi / 1000) en fazla bayt/saniye =. Aşağıdaki tabloda megabayt cinsinden, okunabilmesi için biçimlendirilmiştir ve en fazla megabayt gösteren ikinci verimini tek bir TCP bağlantı başına /.
+Bu örnekte, 65.535 / 1,460 yuvarlanır en çok 45.
 
-| | | | |
-|-|-|-|-|
-|TCP pencere boyutu bayt cinsinden|RTT gecikme süresi<br/>Milisaniye cinsinden|Maksimum<br/>İkinci işleme başına megabayt|Maksimum<br/> Megabit / ikinci aktarım hızı|
-|65535|1|65.54|524.29|
-|65535|30|2.18|17.48|
-|65535|60|1.09|8.74|
-|65535|90|.73|5.83|
-|65535|120|.55|4.37|
+Verileri güvenilir teslim emin olmak için bir mekanizma bu "için onay bekleniyor" durumu, TCP aktarım hızını etkilemek RTT ne neden olur. Uzun süre için bildirim gönderen bekler, artık daha fazla veri göndermeden önce beklemeniz gerekir.
 
-Paket kaybı ise, zaten gönderdiği verileri gönderen edinceye sırada ardından, TCP bağlantısı en fazla üretilen iş azaltır.
+Tek bir TCP bağlantı maksimum aktarım hızını hesapladığı için formül şudur:
 
-#### <a name="explanation-of-tcp-window-scaling"></a>TCP pencere ölçeklendirme açıklaması
+`Window size / (RTT latency in milliseconds / 1,000) = maximum bytes/second`
 
-TCP pencere ölçeklendirme TCP penceresi daha fazla veri sağlayan bir onay istenmeden önce gönderilecek boyutunu dinamik olarak artıran bir kavramdır. Bir bildirim gerektirilmediği sırada önceki örneğimizde 45 paketler gönderilir. Sayı, önce bir bildirim artırılır, gönderilen paketlerin, daha sonra TCP en fazla aktarım hızı da bir gönderen için onayı bekliyor sayısını azaltarak artırılır.
-
-TCP aktarım hızı, bir basit aşağıdaki tabloda gösterilmiştir:
+Bu tabloda, en fazla megabayt gösterilmektedir / ikinci verimini tek bir TCP bağlantı başına. (Okunabilirlik açısından, megabayt kullanılır ölçü için.)
 
 | | | | |
 |-|-|-|-|
-|TCP pencere boyutu<br/>Bayt|Milisaniye cinsinden RTT gecikme süresi|Maksimum<br/>İkinci işleme başına megabayt|Maksimum<br/> Megabit / ikinci aktarım hızı|
-|65535|30|2.18|17.48|
+|**TCP pencere boyutu (bayt)**|**RTT gecikmesi (ms)**|**En fazla megabayt/saniye aktarım hızı**|**En fazla megabit/saniye aktarım hızı**|
+|65,535|1|65.54|524.29|
+|65,535|30|2.18|17.48|
+|65,535|60|1.09|8.74|
+|65,535|90|.73|5.83|
+|65,535|120|.55|4.37|
+
+Paket kayıpsa zaten gönderdiği verileri gönderen edinceye sırada en yüksek aktarım TCP bağlantısı indirim uygulanacaktır.
+
+#### <a name="tcp-window-scaling"></a>TCP pencere ölçeklendirme
+
+TCP pencere ölçeklendirme bir onay istenmeden önce gönderilecek daha fazla veri izin vermek için TCP pencere boyutunu dinamik olarak artıran bir tekniktir. Bir bildirim gerektirilmediği sırada önceki örnekte, 45 paketler gönderilir. Önce bir bildirim gerekli gönderilebilir paketlerin sayısını artırmak için bir gönderici TCP maksimum aktarım hızını artıran onayı bekliyor sayısını azaltma.
+
+Bu tabloda, bu ilişkilerin gösterilmektedir:
+
+| | | | |
+|-|-|-|-|
+|**TCP pencere boyutu (bayt)**|**RTT gecikmesi (ms)**|**En fazla megabayt/saniye aktarım hızı**|**En fazla megabit/saniye aktarım hızı**|
+|65,535|30|2.18|17.48|
 |131,070|30|4.37|34.95|
 |262,140|30|8.74|69.91|
 |524,280|30|17.48|139.81|
 
-Ancak, TCP üst bilgisi için TCP pencere boyutu yalnızca 2 bayt uzunluğunda 65535 alma penceresi için en yüksek değer olduğu anlamına gelir değerdir. En fazla pencere boyutunu artırmak için bir TCP penceresi ölçek faktörü kullanıma sunulmuştur.
+Ancak TCP pencere boyutu için TCP üstbilgi değeri yalnızca 2 bayt uzunluğunda 65.535 alma penceresi için en yüksek değer olduğu anlamına gelir. En fazla pencere boyutunu artırmak için TCP penceresi ölçek faktörü kullanıma sunulmuştur.
 
-Ölçek faktörü de bir işletim sisteminde yapılandırılmış bir ayardır. TCP pencere boyutu kullanarak ölçek Etkenler hesaplama formülü aşağıdaki gibidir: TCP pencere boyutu = TCP pencere boyutu bayt cinsinden \* (2 ^ Ölçeklendirme çarpanı). Pencere ölçek faktörü 3 ve pencere boyutunu 65535 ise, hesaplama aşağıdaki gibidir: 65535 \* (2 ^ 3) = 262,140 bayt. Bir ölçek faktörü 14, sonuçları bir TCP pencere boyutu 14 (izin verilen en büyük uzaklık) ve ardından TCP pencere boyutu 1,073,725,440 bayt (8,5 Gigabit) olacaktır.
+Ölçek faktörü Ayrıca, bir işletim sisteminde yapılandırabileceğiniz bir ayardır. TCP pencere boyutu ölçek Etkenler kullanarak hesaplama formülü aşağıdadır:
+
+`TCP window size = TCP window size in bytes \* (2^scale factor)`
+
+3 ve 65.535 pencere boyutu penceresi ölçek faktörü hesaplaması şu şekildedir:
+
+`65,535 \* (2^3) = 262,140 bytes`
+
+Bir ölçek faktörü 14 sonuçlarının bir TCP pencere boyutu 14 (izin verilen en büyük uzaklık). TCP pencere boyutu 1,073,725,440 bayt (8,5 Gigabit) olacaktır.
 
 #### <a name="support-for-tcp-window-scaling"></a>TCP pencere ölçeklendirme desteği
 
-Windows üzerinde farklı bir ölçekleme faktörü ayarlama özelliğini sahip bir bağlantı türü ayrı - bağlantılar (veri merkezi, internet ve benzeri) birkaç sınıfı vardır. Get-NetTCPConnection powershell komutuyla penceresi ölçeklendirme bağlantı sınıflandırma görebilirsiniz.
+Windows, farklı bağlantı türleri için farklı bir ölçekleme faktörü ayarlayabilirsiniz. (Veri merkezi, internet ve benzeri bağlantılarının sınıfları içerir.) Kullandığınız `Get-NetTCPConnection` PowerShell komutu, bağlantı türü ölçeklendirme penceresini görüntülemek için:
 
 ```powershell
 Get-NetTCPConnection
 ```
 
-Get-NetTCPSetting powershell komutuyla her bir sınıfın değerleri görebilirsiniz.
+Kullanabileceğiniz `Get-NetTCPSetting` PowerShell komutunu her sınıf değerlerini görüntülemek için:
 
 ```powershell
 Get-NetTCPSetting
 ```
 
-İlk TCP pencere boyutu ve TCP Ölçeklendirme çarpanı içinde Windows kümesi NetTCPSetting powershell komutu ayarlanabilir. Daha fazla bilgi şu adreste bulunabilir: [NetTCPSetting ayarlama sayfası](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps)
+Kullanarak Windows ilk TCP pencere boyutu ve TCP Ölçeklendirme çarpanı ayarlayabilirsiniz `Set-NetTCPSetting` PowerShell komutu. Daha fazla bilgi için [kümesi NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
 
 ```powershell
 Set-NetTCPSetting
 ```
 
-AutoTuningLevel etkin TCP ayarlarını aşağıdaki gibidir.
+Etkin TCP ayarlarını bunlar `AutoTuningLevel`:
 
 | | | | |
 |-|-|-|-|
-|AutoTuningLevel|Ölçeklendirme çarpanı|Ölçeklendirme çarpanı|Formülü<br/>en fazla pencere boyutunu Hesapla|
+|**AutoTuningLevel**|**Ölçeklendirme çarpanı**|**Ölçeklendirme çarpanı**|**Formülü<br/>en fazla pencere boyutunu Hesapla**|
 |Devre dışı|None|None|Pencere boyutu|
 |Kısıtlı|4|2^4|Pencere boyutu * (2 ^ 4)|
 |Yüksek oranda kısıtlanmış|2|2^2|Pencere boyutu * (2 ^ 2)|
 |Normal|8|2^8|Pencere boyutu * (2 ^ 8)|
 |Deneysel|14|2^14|Pencere boyutu * (2 ^ 14)|
 
-Bu ayarlar büyük olasılıkla TCP performans üzerindeki etkisi olsa da, Azure, denetimin dışında kalan Internet üzerinden diğer birçok faktörü TCP performansını da etkileyebilir unutulmamalıdır.
+Bu ayarlar, büyük olasılıkla TCP performans üzerindeki etkisi, ancak diğer birçok faktörü Azure, denetimin dışında kalan Internet üzerinden TCP performansını da etkileyebilir akılda tutulması yöneliktir.
 
 #### <a name="increase-mtu-size"></a>MTU boyutunu artırın
 
-"Daha büyük bir MTU daha büyük bir MSS oluşturucusunu MTU artırma TCP performansını artırabilir" mantıksal bir soru mu? Basit çözüm değildir büyük olasılıkla –. Açıklandığı gibi Artıları ve eksileri paket boyutu için yalnızca TCP trafiği için geçerli olan vardır. Etkileyen en önemli olan faktör, yukarıda açıklandığı gibi TCP aktarım hızı performansı TCP pencere boyutu, paket kaybı ve RTT ' dir.
+Daha büyük bir MTU daha büyük bir MSS anlamına gelir çünkü MTU TCP performansını artırmak olup olmadığını merak ediyor. Olmayabilir. Artıları ve eksileri yalnızca TCP trafiği paket boyutu için vardır. Daha önce bahsedildiği gibi TCP işleme performansını etkileyen en önemli olan faktör TCP pencere boyutu, paket kaybı ve RTT ' dir.
 
 > [!IMPORTANT]
-> Azure, Azure müşterilerine sanal makinelerde varsayılan MTU değer değiştirme önermez.
+> Azure müşterileri sanal makinelerde varsayılan MTU değer değiştirme önerilmemektedir.
 >
 >
 
 ### <a name="accelerated-networking-and-receive-side-scaling"></a>Hızlandırılmış ağ iletişimi ve Alma Tarafı Ölçeklendirmesi
 
-#### <a name="accelerated-networking"></a>Hızlandırılmış Ağ
+#### <a name="accelerated-networking"></a>Hızlandırılmış ağ iletişimi
 
-Sanal makine ağ işlevleri, VM Konuk hem hiper yönetici/konak yoğun CPU geçmişte bırakılıyordu. Ana bilgisayar üzerinden transits her paket, CPU - tüm sanal ağ kapsülleme/de-capsulation dahil olmak üzere ana bilgisayar tarafından yazılımda işlenir. Bu nedenle, daha fazla trafik, konak ve ardından yüksek CPU yükü gider. Ve ana bilgisayar CPU diğer işlemleri yapılması meşgul ise, ardından, ayrıca ağ aktarım hızı ve gecikme süresini etkiler. Hızlandırılmış ağ ile bu sorun giderilmiştir.
+Sanal makine ağ işlevleri, VM Konuk hem hiper yönetici/konak yoğun CPU geçmişte bırakılıyordu. Ana bilgisayar üzerinden transits her paket, CPU, tüm sanal ağ yalıtma ve kapsüllemeyi açma işlemi dahil olmak üzere ana bilgisayar tarafından yazılımda işlenir. Yüksek CPU, daha fazla trafik, ana bilgisayar üzerinden doğru şekilde yükleyin. Ve ana bilgisayar CPU diğer işlemleri ile meşgul ise, bu da ağ aktarım hızı ve gecikme süresini etkiler. Azure hızlandırılmış ağ ile bu sorunu giderir.
 
-Hızlandırılmış ağ, Azure'nın şirket içi programlanabilir donanım ve SR-IOV gibi teknolojiler aracılığıyla tutarlı çok düşük ağ gecikme süresi sağlar. Taşıyarak Azure'nın yazılım tanımlı ağ yığınının çoğunun kapalı CPU ve döngüleri, daha az yük VM'de koyma, değişim ve tutarsızlık gecikme süresi azaltma son kullanıcı uygulamaları tarafından kazanılır FPGA tabanlı SmartNICs işlem. Diğer bir deyişle, performans, daha fazla belirlenebilen olabilir.
+Hızlandırılmış ağ, şirket içi programlanabilir donanım Azure'dan ve SR-IOV gibi teknolojileri aracılığıyla tutarlı ultralow ağ gecikmesini sağlar. Hızlandırılmış ağ iletişimi çok Azure yazılım tanımlı ağ yığınının çoğunun FPGA tabanlı SmartNICs içine CPU'ları kapatıp taşır. Bu değişiklik, daha az yük değişimi ve tutarsızlık gecikme süresi azaltma, VM'de yerleştiren işlem döngüsünü geri kazanmak son kullanıcı uygulamaları sağlar. Diğer bir deyişle, performans, daha fazla belirlenebilen olabilir.
 
-Hızlandırılmış ağ performans geliştirmeleri, Konuk VM konağı atlayıp bir konağın SmartNIC ile doğrudan bir datapath kurmak vererek ulaşır. Hızlandırılmış ağ avantajları şunlardır:
+Hızlandırılmış ağ, Konuk VM konağı atlayıp bir konağın SmartNIC ile doğrudan bir datapath kurmak vererek performansını artırır. Hızlandırılmış ağ bazı avantajları şunlardır:
 
-- **Daha düşük gecikme süresi / daha yüksek paket / saniye (pps)**: Sanal anahtar datapath kaldırılıyor ana bilgisayar ilke işleme için paketler için harcadığınız zamanı kaldırır ve sanal makine içinde işlenebilecek paketlerin sayısını artırır.
+- **Daha düşük gecikme süresi / daha yüksek paket / saniye (pps)**: Sanal anahtar datapath kaldırılıyor paketleri içinde ana bilgisayar ilke işleme için harcadığınız zamanı ortadan kaldırır ve VM ile işlenebilen paketlerin sayısını artırır.
 
-- **Değişimi azaltılmış**: Sanal anahtar işleme uygulanması gereken ilke miktarını ve işleme yapılıyor CPU iş yüküne bağlıdır. İlke zorlaması için donanım yük boşaltma, konak VM iletişim ve tüm yazılım kesmelerini ve bağlam anahtarları kaldırılıyor doğrudan VM paketleri sunarak bu değişkenlik kaldırır.
+- **Değişimi azaltılmış**: Sanal anahtar işleme uygulanması gereken ilke miktarını ve işleme yapılıyor CPU iş yüküne bağlıdır. İlke zorlaması için donanım yük boşaltma, konak VM iletişim ve tüm yazılım kesmelerini ve bağlam anahtarları ortadan doğrudan sanal Makineye, paketleri sunarak bu değişkenlik kaldırır.
 
 - **Düşük CPU kullanımı**: Konakta sanal anahtar atlayarak ağ trafiğini işlemek için daha az CPU kullanımına neden olur.
 
-Hızlandırılmış ağ, VM başına temelinde açıkça etkinleştirilmelidir. Hızlandırılmış ağ bir VM'de etkinleştirmek için yönergeleri [sayfası hızlandırılmış ağ ile bir Linux sanal makinesi oluşturma](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+Hızlandırılmış ağ kullanmak için açık bir şekilde uygulanabilir her VM'de etkinleştirmeniz gerekir. Bkz: [hızlandırılmış ağ ile bir Linux sanal makinesi oluşturma](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) yönergeler için.
 
-#### <a name="receive-side-scaling-rss"></a>Alma Tarafı Ölçeklendirmesi (RSS)
+#### <a name="receive-side-scaling"></a>Alma Tarafı Ölçeklendirmesi
 
-Alma Tarafı Ölçeklendirmesi dağıtarak, ağ trafiğinin alma daha verimli bir şekilde dağıtan bir ağ sürücüsü teknoloji alma işlemi birden çok CPU'lar arasında birden çok işlemcili sistemde olduğundan. Basit bir deyişle, RSS, tüm kullanılabilir CPU'ların yerine yalnızca bir tane kullandığından alınan trafik büyük bir miktarını işlemek bir sistem sağlar. RSS daha teknik bir tartışma şu yolda bulunabilir: [giriş sayfasına Alma Tarafı Ölçeklendirmesi](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
+Alma Tarafı ölçeklendirme (RSS) dağıtarak, ağ trafiğinin alma daha verimli bir şekilde dağıtan bir ağ sürücüsü teknoloji alma işlemi birden çok CPU işlemcili bir sistemi olduğundan. Basit bir deyişle, RSS, tüm kullanılabilir CPU'ların yerine yalnızca bir tane kullandığından daha alınan trafiğini işlemek bir sistem sağlar. RSS daha fazla teknik bilgi için bkz. [Alma Tarafı Ölçeklendirmesi giriş](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
 
-RSS, bir VM'de hızlandırılmış ağ etkin olduğunda en yüksek performansı elde etmek için gereklidir. Olabilir avantajları hızlandırılmış ağ etkin olmayan VM'ler üzerinde RSS kullanma. RSS etkin ve bunu etkinleştirmek için yapılandırma bulunabilir belirlemek nasıl bir genel bakış [İyileştir ağ aktarım hızı için Azure sanal makineler sayfasındaki](http://aka.ms/FastVM).
+Bir VM'de hızlandırılmış ağ etkin olduğunda en iyi performansı elde etmek, RSS etkinleştirmeniz gerekir. RSS accelerated networking kullanmayan Vm'leri üzerinde avantajları da sağlayabilir. RSS etkin olup olmadığını belirleme ve nasıl etkinleştirileceği konusunda genel bakış için bkz: [Azure sanal makineleri için ağ verimini en iyi duruma getir](http://aka.ms/FastVM).
 
-### <a name="tcp-time-wait-and-time-wait-assassination"></a>Assassination TCP bekleme süresi ve saat bekleyin
+### <a name="tcp-timewait-and-timewait-assassination"></a>TCP TIME_WAIT ve TIME_WAIT assassination
 
-Ağ ve uygulama performansını etkileyen başka bir yaygın sorun TCP bekleme süresi bir ayardır. Açma ve kapatma ya da bir istemci veya sunucu (kaynak IP:Source bağlantı noktası + hedef IP:Destination bağlantı noktası), TCP, normal işlem sırasında olarak çok sayıda yuva meşgul Vm'leri üzerinde belirli bir yuva bir süre bekleme durumunda önemli bir süre boyunca kalabilirsiniz. Bu "bekleme süresi" durumu kapatmadan önce bir yuvada teslim edilecek herhangi bir ek veriyi izin vermek için yöneliktir. Bu nedenle, TCP/IP'yi yığınları genellikle yeniden bir yuva sessizce istemcilerin TCP SYN paketi bırakarak engelle.
+TCP TIME_WAIT ağ ve uygulama performansını etkileyen başka bir ortak ayarıdır. Açma ve istemciler veya sunucular (kaynak IP:Source bağlantı noktası + hedef IP:Destination bağlantı noktası), TCP normal işlem sırasında olarak çok sayıda yuva kapatma meşgul Vm'leri üzerinde belirli bir yuva TIME_WAIT durumda uzun bir süredir kalabilirsiniz. TIME_WAIT durumunda bir yuvada kapatmadan önce teslim edilecek herhangi bir ek veriyi izin vermek için tasarlanmıştır. Bu nedenle TCP/IP'yi yığınları genellikle yeniden bir yuva sessizce istemcinin TCP SYN paketi bırakarak engelle.
 
-Bu zaman bir yuva bekleme durumuna yapılandırılabilir, ancak 30 saniyeden 240 saniye olarak değişiklik gösterebilir zaman miktarıdır. Yuva sınırlı bir kaynak olan ve belirli bir zamanda kullanılabilir yuva sayısını yapılandırılabilir (genellikle kaynaklandığını yaklaşık 30.000 olası yuva sayısı). Sessizce bırakılan TCP SYN paketleri gibi bu sayı bitmeye yaklaştıkça, veya istemciler ve sunucular eşleşmeyen bir saat bekleyin ayarları varsa ve bir VM zaman bekleme durumuna yuvası yeniden dener, yeni bağlantılar başarısız olur.
+Bir yuva TIME_WAIT içinde olduğu süre miktarını yapılandırılabilir. 30 saniyeden 240 saniye olarak değişiklik gösterebilir. Yuva sınırlı bir kaynaktır ve belirli bir zamanda kullanılabilir yuva sayısını yapılandırılabilir. (Kullanılabilir yuva genellikle yaklaşık 30.000 sayısıdır.) Kullanılabilir yuva tüketilen veya istemciler ve sunucular eşleşmeyen TIME_WAIT ayarları varsa ve bir VM TIME_WAIT durumundaki bir yuva yeniden dener, yeni bağlantılar, TCP SYN sessizce Bırakılan paketleri başarısız olur.
 
-Genellikle bağlantı noktası aralığı giden yuva hem de TCP bekleme süresi ayarları ve yuva yeniden kullanmak için değeri içinde TCP/IP yığınının bir işletim sisteminin yapılandırılabilir. Bu numaraları değiştirme potansiyel olarak ölçeklenebilirliği artırabilirsiniz ancak senaryoya bağlı olarak birlikte çalışabilirlik sorunlarını neden olabilirdi ve dikkatli değiştirilmelidir.
+Giden yuva için bağlantı noktası aralığı değeri içinde bir işletim sisteminin TCP/IP yığınının genellikle yapılandırılabilir. Aynı şeyi TCP TIME_WAIT ayarları ve yuva yeniden kullanımı için geçerlidir. Bu numaraları değiştirme, potansiyel olarak ölçeklenebilirliği artırabilir. Ancak, duruma bağlı olarak bu değişiklikleri birlikte çalışabilirlik sorunlarına neden olabileceği. Bu değerleri değiştirirseniz dikkatli olmanız gerekir.
 
-Saat bekleyin Assassination adlı bir özellik sınırlaması ölçeklendirme bunu ele almak için kullanıma sunulmuştur. Yeni bağlantının IP paketi sıra numarasına önceki bağlantıdan son paket sırası sayısını aştığında gibi belirli senaryolar altında kullanılabilmeleri yuva saat bekleyin Assassination sağlar. Bu durumda, işletim sisteminin yeni bir bağlantı kurulması izin verir (yeni SYN ACK kabul eder) ve zorla süre bekleme durumu önceki bağlantıyı kapatın. Bu özellik azure'daki Windows sanal makinelerinde bugün desteklenir ve diğer VM'lerin içinde desteği ile ilgili işletim sistemi satıcıları Azure müşterileri tarafından incelenmesi gerekiyor.
+TIME_WAIT assassination ölçeklendirme bu sınırlama ele almak için kullanabilirsiniz. TIME_WAIT assassination gibi bazı durumlarda, yeni bağlantının IP paketi sıra numarasına önceki bağlantıdan son paket sırası sayısını aştığında kullanılabilmeleri yuva sağlar. Bu durumda, işletim sisteminin yeni bir bağlantı kurulması izin verir (yeni SYN/ACK kabul eder) ve zorla TIME_WAIT durumdaydı önceki bağlantıyı kapatın. Bu özellik, azure'da Windows sanal makinelerinde desteklenir. Diğer Vm'leri de desteği hakkında bilgi edinmek için işletim sistemi satıcıyla birlikte denetleyin.
 
-TCP bekleme süresi ayarları ve kaynak bağlantı noktası aralığı yapılandırma belgeler şu adreste [ağ performansını artırma sayfasına değiştirilebilir ayarları](https://docs.microsoft.com/biztalk/technical-guides/settings-that-can-be-modified-to-improve-network-performance).
+TCP TIME_WAIT ayarları ve kaynak bağlantı noktası aralığı yapılandırma hakkında bilgi edinmek için [ağ performansını artırmak için değiştirilebilir ayarları](https://docs.microsoft.com/biztalk/technical-guides/settings-that-can-be-modified-to-improve-network-performance).
 
-## <a name="virtual-network-factors-that-can-affect-performance"></a>Sanal ağ faktörleri performansını etkileyebilir
+## <a name="virtual-network-factors-that-can-affect-performance"></a>Performansı etkileyen faktörleri sanal ağ
 
 ### <a name="vm-maximum-outbound-throughput"></a>VM en fazla giden işleme
 
-Azure, çeşitli VM boyutları ve türleri, her performans özelliklerini farklı bir karışımını sunar. Ağ aktarım hızı (veya bant genişliği) megabit (Mbps) cinsinden bir performans özelliği var. Paylaşılan donanımda barındırılan sanal makineler için ağ kapasitesi oldukça aynı donanımı paylaşımı sanal makineler arasında paylaşılması gerekir. Büyük sanal makinelerin daha küçük sanal makineler görece daha fazla bant genişliği ayrılır.
+Azure, çeşitli VM boyutları ve türleri, her performans özelliklerini farklı bir karışımını sağlar. Ağ aktarım hızı (veya bant genişliği), bu özelliklerin biri olan megabit (Mbps) cinsinden ölçülür. Paylaşılan donanımda barındırılan sanal makineler için ağ kapasitesi oldukça aynı donanımı kullanarak sanal makineler arasında paylaşılması gerekir. Büyük sanal makinelerin daha küçük sanal makineler daha fazla bant genişliği ayrılır.
 
-Her sanal makineye ayrılan ağ bant genişliği, çıkış (giden) trafiğine, sanal makineden ölçülür. Tüm ağ trafiğini sanal makineyi bırakmak doğru ayrılmış sınır, hedef bağımsız olarak sayılır. Örneğin, bir sanal makine bir 1000 MB/sn sınırı varsa, aynı sanal ağda ya da Azure dışındaki başka bir sanal makineye giden trafiği hedeflenen olup bu sınırı geçerlidir.
-Giriş yok ölçülen veya doğrudan sınırlı. Ancak, gelen verileri işlemek için bir sanal makinenin becerisini etkileyebilir, CPU ve depolama limitleri gibi diğer faktörlere de vardır.
+Her sanal makineye ayrılan ağ bant genişliği, çıkış (giden) trafiğine, sanal makineden ölçülür. Tüm ağ trafiğini sanal makineyi bırakmak doğru ayrılmış sınır, hedef bağımsız olarak sayılır. Örneğin, bir sanal makine bir 1000 MB/sn sınırı varsa, aynı sanal ağda veya bir Azure dışındaki başka bir sanal makineye giden trafiği hedeflenen olup bu sınırı geçerlidir.
 
-Hızlandırılmış ağ gecikme süresi, aktarım hızı ve CPU kullanımı gibi ağ performansını iyileştirmek için tasarlanmış bir özelliktir. Hızlandırılmış ağ, sanal makinenin aktarım hızını artırabilir, ancak sanal makinenin en fazla bant genişliği ayrılan yalnızca, bunu yapabilirsiniz.
+Giriş yok ölçülen veya doğrudan sınırlı. Ancak, gelen verileri işlemek için bir sanal makinenin yeteneğini etkileyebilir CPU ve depolama limitleri gibi diğer etkenler vardır.
 
-Azure sanal makineleri, Mayıs ancak birkaç, ağ arabirimleri bağlı olması gerekir. Bir sanal makineye ayrılan bant genişliği giden tüm trafiği bir sanal makineye bağlı tüm ağ arabirimleri arasında toplamıdır. Diğer bir deyişle, kaç ağ arabirimleri için sanal makineye bağlı bağımsız olarak sanal makine başına ayrılan bant olur.
- 
-Giden beklenen aktarım hızıyla ve her sanal makine boyutu tarafından desteklenen ağ arabirimlerinin sayısını ayrıntılı burada. En yüksek aktarım görmek için genel amaçlı gibi bir türü seçin sonra boyutu serisi Dv2 serisi gibi elde edilen sayfasında seçin. Her bir seri olan bir tablo, belirtimleri başlıklı, en fazla NIC son sütunda ağ ile / beklenen ağ performansı (Mbps).
+Hızlandırılmış ağ gecikme süresi, aktarım hızı ve CPU kullanımı dahil olmak üzere ağ performansı artırmak için tasarlanmıştır. Hızlandırılmış ağ, sanal makinenin aktarım hızını artırabilir, ancak bunu, yalnızca sanal makinenin ayrılmış bant genişliği kadar yapabilirsiniz.
 
-Aktarım hızı sınırı, sanal makine için geçerlidir. Aktarım hızı, aşağıdaki faktörlerden etkilenmez:
+Azure sanal makineler, kendilerine iliştirilmiş en az bir ağ arabirimine sahiptir. Bunlar, çeşitli olabilir. Bir sanal makineye ayrılan bant genişliği giden tüm trafiği makineye bağlı tüm ağ arabirimleri arasında toplamıdır. Diğer bir deyişle, makineye bağlı ağ arabirimleri kaç bakılmaksızın her sanal makine olarak, bant genişliği ayrılır.
 
-- **Ağ arabirimleri sayısı**: Bant genişliği sınırı, sanal makineden giden tüm trafik toplu.
+Giden beklenen aktarım hızıyla ve her sanal makine boyutu tarafından desteklenen ağ arabirimlerinin sayısı ayrıntılı olarak [boyutları için Windows azure'da sanal makineler](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). En yüksek aktarım görmek için bir tür gibi seçin **genel amaçlı**ve ardından (örneğin, "Dv2 serisi") elde edilen sayfa boyutu seriyle ilgili bölümü bulun. Her bir seri olarak adlandırılmıştır son sütunda ağ özellikleri sağlayan bir tablo yok "maks NIC / beklenen ağ bant genişliği (MB/sn)."
 
-- **Hızlandırılmış**: Özellik yayımlanan sınırını elde etmeye yardımcı olabilir ancak sınırı değiştirmez.
+Aktarım hızı sınırı, sanal makine için geçerlidir. Aktarım hızı bu faktörlerden etkilenir değil:
+
+- **Ağ arabirimleri sayısı**: Bant genişliği sınırını sanal makineden giden tüm trafiği toplamı için geçerlidir.
+
+- **Hızlandırılmış**: Bu özellik yayımlanan sınırını elde etmeye yardımcı olabilir ancak bu sınırı değiştirmez.
 
 - **Trafiği hedef**: Tüm hedeflere giden sınırında sayılır.
 
 - **Protokol**: Tüm protokoller üzerinden giden tüm trafiği, sınırında sayılır.
 
-A [VM türü başına en yüksek bant genişliği, tablo, bu sayfasını ziyaret ederek bulunabilir](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) ve üzerinde kendi VM türü. Her türü sayfasında, bir tablo en fazla NIC ve beklenen maksimum ağ bant genişliğini gösterir.
-
-VM ağ bant genişliği hakkında daha fazla bilgi şu adreste bulunabilir: [sanal makine ağ bant genişliği](http://aka.ms/AzureBandwidth).
+Daha fazla bilgi için [sanal makine ağ bant genişliği](http://aka.ms/AzureBandwidth).
 
 ### <a name="internet-performance-considerations"></a>Internet performansla ilgili önemli noktalar
 
-Bu makalede anlatıldığı gibi faktörleri İnternet'e ve Azure'nın denetimin dışında kalan ağ performansını etkileyebilir. Bu faktörler şunlardır:
+Bu makalede anlatıldığı gibi faktörleri İnternet'e ve Azure'nın denetimin dışında kalan ağ performansını etkileyebilir. Bu faktörlerin bazıları şunlardır:
 
-- **Gecikme süresi**: İki hedefler arasında gidiş dönüş süresi Ara ağlardaki trafiği "kısa" uzaklık yolu mümkün ve yetersiz eşleme yollarındaki alma değil sorunları etkilenebilir
+- **Gecikme süresi**: İki hedefler arasında gidiş dönüş süresi Ara ağlardaki sorunları, uzaklık yolu "kısa" tepkilerden faydalanamamış olursunuz trafiği ve yetersiz eşleme yollarındaki tarafından etkilenebilir.
 
-- **Paket kaybı**: Paket kaybı oluşabilir, Ağ Tıkanıklığı, fiziksel yol sorunlarını ve ağ cihazları altında gerçekleştirme
+- **Paket kaybı**: Paket kaybı, Ağ Tıkanıklığı, fiziksel yol sorunlarını ve yeterli performansa sahip olmayan ağ cihazları tarafından kaynaklanabilir.
 
-- **MTU boyutu/parçalanma**: Yol boyunca parçalanma için veri alma veya düzensiz, gelen paketlerin teslim paketlerinin etkileyebilir gecikmelere neden olabilir
+- **MTU boyutu/parçalanma**: Yol boyunca parçalanma paketlerin teslim etkileyebilecek gecikmeleri veri alma veya düzensiz, gelen paketlerin neden olabilir.
 
-Traceroute, ağ performans özellikleri boyunca her bir kaynak ve hedef aygıt arasında ağ yolu (örneğin, paket kaybı ve gecikme) ölçmek için iyi bir araçtır.
+Traceroute, ağ performans özellikleri boyunca kaynak cihaz ile hedef aygıt arasındaki her ağ yolu (örneğin, paket kaybı ve gecikme) ölçmek için iyi bir araçtır.
 
 ### <a name="network-design-considerations"></a>Ağ tasarımı konuları
 
-Yukarıdaki konuları yanı sıra, bir sanal ağ topolojisini sanal ağ performansını etkileyebilir. Veri toplama merkezleri trafiği küresel olarak tek bir hub sanal ağ için ağ gecikme süresi sunar ve böylece genel ağ performansı efekt Örneğin, bir merkez ve uç tasarım. Benzer şekilde, ağ trafiğini geçtiği ağ cihazların sayısını, toplam gecikme süresi etkileyebilir. Trafiği bir bileşen ağ sanal Gereci ve Hub sanal gereç Internet'i yapılandırmamız önce geçen, örneğin, hub ve bağlı bileşen tasarımında, daha sonra gecikme süresi ağ sanal Gereçleri ile tanıtılabilir.
+Bu makalede ele alınan konular yanı sıra, bir sanal ağ topolojisi ağ performansını etkileyebilir. Örneğin, veri toplama merkezleri genel olarak tek hub sanal ağa trafiği bir merkez ve uç tasarıma genel ağ performansı etkileyecek olan ağ gecikmesi başlatacaktır.
+
+Ağ trafiğini geçtiği ağ aygıtlarının sayısını, toplam gecikme süresi olarak da etkileyebilir. Örneğin, internet'e ' i yapılandırmamız önce uç ağ sanal Gereci ve hub sanal Gereci aracılığıyla trafiği başarılı olursa bir merkez ve uç tasarımında, gecikme süresi ağ sanal Gereçleri çıkarabilir.
 
 ### <a name="azure-regions-virtual-networks-and-latency"></a>Azure bölgeleri, sanal ağlar ve gecikme süresi
 
-Azure bölgeleri genel bir coğrafi bölge içinde bulunan birden çok veri merkezinde oluşur. Bu veri merkezleri, diğer her yanındaki fiziksel olarak olmayabilir ve bazı durumlarda kadar 10 kilometre tarafından ayrılmış. Azure'nın fiziksel veri merkezi ağı üzerinde bir mantıksal katmana sanal ağdır ve sanal ağ, veri merkezinde herhangi belirli ağ topolojisi göstermez. Örneğin, bir VM ve VM B aynı sanal ağ ve alt olan ancak farklı raflar içinde satır veya hatta veri merkezleri olabilir. Bunlar, fiber optik kablo ayak veya kilometre fiber optik kablo ayrılmış. Bu gerçekte, farklı sanal makineler arasında değişken gecikme (birkaç milisaniye fark) neden olabilir.
+Azure bölgeleri genel bir coğrafi bölge içinde bulunan birden çok veri merkezinde oluşur. Birbirinin yanına bu veri merkezleri fiziksel olarak olmayabilir. Bazı durumlarda kadar 10 kilometre tarafından ayrılmış. Azure fiziksel veri merkezi ağ üzerinde bir mantıksal katmana sanal ağdır. Bir sanal ağ, veri merkezindeki herhangi belirli ağ topolojisi kapsıyor değil.
 
-Bu coğrafi yerleştirme ve bu nedenle iki VM arasında gecikme süresi ile kullanılabilirlik kümeleri ve kullanılabilirlik bölgeleri yapılandırmasını etkileyen, ancak, bölgeye özgü ve genellikle etkileyen bir bölgedeki veri merkezleri arasında daha fazla mesafe Veri Merkezi bölgesi topolojisinde.
+Örneğin, aynı sanal ağ ve alt ağ olan iki sanal makine farklı raflar, satır veya hatta veri merkezleri içinde olabilir. Bunlar, veya kilometre fiber optik kablo, fiber optik kablo ayak tarafından ayrılmış. Bu farklılığa farklı sanal makineler arasında değişken gecikme (birkaç milisaniye fark) neden olabilirdi.
+
+Coğrafi yerleşim VM'lerin yanı sıra, iki sanal makine arasındaki olası ortaya çıkan gecikme kullanılabilirlik alanları ve kullanılabilirlik kümelerini yapılandırma tarafından etkilenebilir. Ancak bölgeye özgü ve öncelikli olarak etkileyen bölgedeki veri merkezi topolojiye göre bir bölgedeki veri merkezleri arasındaki uzaklık.
 
 ### <a name="source-nat-port-exhaustion"></a>Kaynak NAT bağlantı noktası tükenmesi
 
-Azure'da bir dağıtımı, Azure genel Internet ve/veya genel IP alanı dışında uç noktaları ile iletişim kurabilir. Örneği bu giden bağlantı başlattığında, Azure genel IP adresi için özel IP adresini dinamik olarak eşler. Bu eşleme oluşturulduktan sonra dönüş trafiği giden bu kaynaklı akış için Ayrıca özel IP adresini akışı geldiği ulaşabilirsiniz.
+Azure'da bir dağıtımı, Azure üzerinde genel internet ve/veya genel IP alanı içinde dışındaki uç noktaları ile iletişim kurabilir. Örneği bir giden bağlantı başlattığında, Azure genel IP adresi için özel IP adresini dinamik olarak eşler. Bu eşleme Azure oluşturduktan sonra giden kaynaklı akış için dönüş trafiği da özel IP adresini akışı geldiği ulaşabilirsiniz.
 
-Giden her bağlantı için Azure Load Balancer Bu eşleme belirli bir süre için sürdürmeniz gerekir. Azure ile çok kiracılı yapısı, bu eşleme için her giden akış her VM için koruma, kaynak kullanımı yoğun olabilir. Bu nedenle, ayarlayın ve Azure sanal ağ yapılandırmasına bağlı olarak bir sınırı yoktur. Veya daha kesin olarak - belirtilen bir Azure sanal makinesi yalnızca belirli sayıda giden bağlantılar belirli bir zamanda yapabilirsiniz. Bu sınırları tükendi, Azure VM yapmasını herhangi bir ek giden bağlantı engellenir.
+Giden her bağlantı için belirli bir süre için bu eşleme korumak Azure Load Balancer gerekir. Çok kiracılı Azure yapısı ile bu eşleme için her giden akış her VM için koruma kaynak yoğunluğu olabilir. Bu nedenle ayarlayın ve Azure sanal ağ yapılandırmasına bağlı olarak bir sınırı yoktur. Ya da daha kesin olarak söylemek için bir Azure sanal makinesi yalnızca giden bağlantılar belirli sayıda belirli bir zamanda yapabilir. Bu sınırlar ulaşıldığında, VM fazla giden bağlantı yapmanız mümkün olmayacaktır.
 
-Bu, ancak yapılandırılabilir, davranıştır. Hakkında daha fazla bilgi için [SNAT ve SNAT bağlantı noktası tükenmesi], bkz: [bu makalede](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections).
+Ancak bu yapılandırılabilir, davranıştır. SNAT ve SNAT hakkında daha fazla bilgi için bağlantı noktası tükenmesi, bkz: [bu makalede](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections).
 
 ## <a name="measure-network-performance-on-azure"></a>Azure'da ölçü ağ performansı
 
-Performans üst sınırlar bu makalede bir dizi ağ gecikmesine ilişkili / gidiş dönüş süresini (RTT) iki VM arasında. Bu bölümde, gecikme süresi/RTT, hem de TCP performans ve VM ağ performansını test etme için bazı öneriler sağlar. Yukarıda açıklanan TCP/IP'yi & ağ değerler ayarlanmış ve aşağıda açıklanan teknikleri kullanarak performansı test. Gecikme süresi, MTU MSS ve pencere boyutunu değerlerini yukarıda listelenen hesaplamalarında kullanılabilir ve teorik bir üst sınırlar test sırasında gözlemlenen gerçek değerleri karşılaştırılabilir.
+Performans üst sınırlar bu makalede bir dizi ağ gecikme süresini ilişkili / gidiş dönüş süresini (RTT) iki VM arasında. Bu bölümde, gecikme süresi/RTT test etme ve TCP performans ve VM ağ performansını test etme için bazı öneriler sağlar. Ayar yapabilirsiniz ve performans testi Bu bölümde açıklanan teknikleri kullanarak daha önce açıklanan TCP/IP'yi ve ağ değerleri. Gecikme süresi, MTU, MSS ve pencere boyutunu değerlerini daha önce sağlanan hesaplamalar eklenebilecek ve test sırasında gözlemleyin gerçek değerlere teorik bir üst sınırlar karşılaştırın.
 
 ### <a name="measure-round-trip-time-and-packet-loss"></a>Ölçü gidiş dönüş süresi ve paket kaybı
 
-TCP performans yoğun RTT ve paket kaybı kullanır. Ölçüm RTT ve paket kaybı için en basit yolu, Windows ve Linux'taki ping yardımcı kullanıyor. Ping çıktısını bir kaynak ve hedef olarak paket kaybı arasındaki en düşük/en yüksek/ortalama gecikme süresi gösterilir. Ping, varsayılan olarak ICMP protokolünü kullanır. TCP RTT test etmek için ardından PsPing kullanılabilir. PsPing hakkında daha fazla bilgi edinilebilir [bu bağlantıyı](https://docs.microsoft.com/sysinternals/downloads/psping).
+TCP performans yoğun RTT ve paket kaybı kullanır. Windows ve Linux'taki PING yardımcı RTT ve paket kaybı ölçmek için en kolay yolunu sağlar. PING çıktısı, kaynak ve hedef arasında en düşük/en yüksek/ortalama gecikme süresi gösterilir. Paket kaybı de gösterilir. PING, varsayılan olarak ICMP protokolünü kullanır. PsPing TCP RTT test etmek için kullanabilirsiniz. Daha fazla bilgi için [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping).
 
 ### <a name="measure-actual-throughput-of-a-tcp-connection"></a>TCP bağlantısı gerçek aktarım hızı ölçümü
 
-NTttcp bir Linux veya Windows VM TCP performansını test etmek için kullanılan bir araçtır. Çeşitli TCP ayarları tweaked ve avantajları NTttcp kullanarak test. Aşağıdaki bağlantılarda NTttcp hakkında daha fazla bilgi bulunabilir.
+NTttcp, Linux veya Windows VM TCP performansını test etmek için kullanılan bir araçtır. Çeşitli TCP ayarlarını değiştirin ve ardından avantajları NTttcp kullanarak test. Daha fazla bilgi için şu kaynaklara bakın:
 
 - [Bant genişliği/aktarım hızı (NTttcp) test etme](https://aka.ms/TestNetworkThroughput)
 
@@ -337,9 +370,9 @@ NTttcp bir Linux veya Windows VM TCP performansını test etmek için kullanıla
 
 ### <a name="measure-actual-bandwidth-of-a-virtual-machine"></a>Ölçü, bir sanal makinenin gerçek bant genişliği
 
-Farklı VM türleri, hızlandırılmış ağ ve benzeri, performans testi, Linux ve Windows üzerinde de kullanılabilir olan Iperf adında bir araç kullanılarak sınanabilir. Iperf, TCP veya UDP, genel ağ performansını test etmek için kullanabilirsiniz. Iperf kullanarak TCP performans testleri (gecikme süresi, RTT ve benzeri) Bu makalede ele alınan faktörler tarafından etkilenir. Bu nedenle, UDP, yalnızca en yüksek aktarım hızı testi için daha iyi sonuçlara neden olabilir.
+Ağ hızlandırılmış farklı VM türleri performansını test etme ve böyle devam, iPerf adında bir araç kullanarak. iPerf ayrıca Linux ve Windows üzerinde kullanılabilir. iPerf, TCP veya UDP, genel ağ performansını test etmek için kullanabilirsiniz. iPerf TCP performans testleri (örneğin, gecikme süresi ve RTT) Bu makalede ele alınan faktörler tarafından etkilenir. Bu nedenle yalnızca en yüksek aktarım test etmek isterseniz UDP daha iyi sonuçlara neden.
 
-Aşağıdaki ek bilgiler bulunabilir:
+Daha fazla bilgi için şu makalelere bakın:
 
 - [Expressroute ağ performansıyla ilgili sorunları giderme](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
 
@@ -347,10 +380,12 @@ Aşağıdaki ek bilgiler bulunabilir:
 
 ### <a name="detect-inefficient-tcp-behaviors"></a>Verimsiz TCP davranışlarını algılayın
 
-Azure müşterileri, TCP paketleri TCP bayrakları (SACK DUP ACK, yeniden aktarım ve hızlı yeniden) ile ağ performansı sorunlarını gösterebilecek paket yakalamaları görebilirsiniz. Bu paketleri, özellikle ağ verimsizlikleri paket kaybı sonucu olarak belirtin. Ancak paket kaybı Azure performans sorunları nedeniyle olmak zorunda değildir. Performans sorunlarını, uygulama, işletim sistemi veya doğrudan Azure platformuna ilgili olabilir değil diğer sorunlar olabilir. Ayrıca, bazı aktarım veya bir ağ üzerinde yinelenen ack'lerini gösteriyor normal – TCP protokolleri güvenilir olarak oluşturulmuş dikkat etmek önemlidir. Ayrıca, aşırı olmadıkları sürece bu TCP paketleri paket yakalaması kanıtı mutlaka bir sistemle ilgili ağ sorun olduğu anlamına gelmez.
+Paket yakalamaları TCP paketleri ağ performansı sorunlarını gösterebilecek olan TCP bayrakları (SACK DUP ACK, yeniden aktarım ve hızlı yeniden) ile Azure müşterileri görebilirsiniz. Bu paketler, paket kaybına neden ağ verimsizlikleri özellikle gösterir. Ancak paket kaybı Azure performans sorunlar nedeniyle olmak zorunda değildir. Performans sorunlarını, uygulama sorunlarını, işletim sistemi sorunları veya doğrudan Azure platformuna ilgili olabilir değil diğer sorunları sonucu olabilir.
 
-Ancak, bu açıkça bu paket türlerinin göstergelerden TCP aktarım hızı – diğer bölümlerinde açıklanan nedenlerle en yüksek performansı elde değil olduğundan belirtilen.
+Ayrıca, bazı aktarım ve yinelenen ack'lerini gösteriyor normal bir ağda olduğunu aklınızda bulundurun. TCP protokolleri, güvenilir olarak oluşturulmuştur. Aşırı oldukları sürece bu TCP paketleri paket yakalaması kanıtı mutlaka bir sistemle ilgili bir ağ sorunu göstermiyor.
 
-## <a name="next-steps"></a>Sonraki Adımlar
+Yine de bu paket TCP aktarım hızı bu makalenin diğer bölümlerinde açıklanan nedenlerle, en yüksek performansı elde etmek değil göstergelerden türleridir.
 
-TCP/IP'yi Azure Vm'leri için performans ayarlama Bahsettiğimiz, sonraki adımlar [diğer sanal ağı planlama](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) konuları veya [bağlanma ve sanal ağları yapılandırma hakkında daha fazla bilgi](https://docs.microsoft.com/en-us/azure/virtual-network/).
+## <a name="next-steps"></a>Sonraki adımlar
+
+TCP/IP'yi Azure Vm'leri için performans ayarlama hakkında öğrendiğinize göre diğer değerlendirmeler hakkında bilgi edinmek isteyebilirsiniz [sanal ağları planlama](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) veya [bağlanma ve sanal ağları yapılandırma hakkında daha fazla bilgi edinin ](https://docs.microsoft.com/en-us/azure/virtual-network/).

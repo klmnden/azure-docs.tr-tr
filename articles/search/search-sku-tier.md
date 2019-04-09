@@ -7,19 +7,21 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 523c99436eb49f1658a5d4c56d64248adccc5c3a
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: da8c8adacfead598a8dec6280cf3518fb7b31f49
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621281"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270963"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure arama için bir fiyatlandırma katmanı seçin
 
-Azure Search'te bir [kaynak oluşturulduğu](search-create-service-portal.md) fiyatlandırma katmanı veya hizmet ömrü boyunca sabit SKU. Katmanlar **ücretsiz**, **temel**, **standart**, veya **depolama için iyileştirilmiş**.  **Standart** ve **depolama için iyileştirilmiş** çeşitli yapılandırmaları ve kapasiteler içinde kullanılabilir. Çoğu müşteri başlayın **ücretsiz** katmanı için değerlendirme ve geliştirme ile üretim dağıtımları için daha yüksek Ücretli katmanlardan birine ölçeğine geçin. Üzerindeki tüm Hızlı başlangıçlar ve öğreticilerle tamamlayabilirsiniz **ücretsiz** katmanı, kaynak kullanımı yoğun bilişsel arama için dahil olmak üzere.
+Azure Search'te bir [kaynak oluşturulduğu](search-create-service-portal.md) fiyatlandırma katmanı veya hizmet ömrü boyunca sabit SKU. Katmanlar **ücretsiz**, **temel**, **standart**, veya **depolama için iyileştirilmiş**.  **Standart** ve **depolama için iyileştirilmiş** çeşitli yapılandırmaları ve kapasiteler içinde kullanılabilir. 
+
+Çoğu müşteri başlayın **ücretsiz** katmanı için değerlendirme ve geliştirme ile üretim dağıtımları için daha yüksek Ücretli katmanlardan birine ölçeğine geçin. Üzerindeki tüm Hızlı başlangıçlar ve öğreticilerle tamamlayabilirsiniz **ücretsiz** katmanı, kaynak kullanımı yoğun bilişsel arama için dahil olmak üzere.
 
 > [!NOTE]
 > Depolama için iyileştirilmiş hizmet katmanları şu an geri bildirim toplamak amacıyla test ve deneme amaçları için indirimli fiyatlandırma önizleme olarak kullanılabilir. Bu katmanları genel olarak kullanılabilir olduğunda son fiyatlandırma daha sonra duyurulacaktır. Biz, üretim uygulamaları için bu katmanları kullanan karşı önerin.
@@ -29,7 +31,7 @@ Katmanları hizmeti (yerine özellikleri) barındıran donanım özellikleri yan
 + Oluşturabileceğiniz dizin sayısı
 + Boyutuna ve hızına bölümleri (fiziksel depolama)
 
-Tüm katmanları olsa da dahil olmak üzere **ücretsiz** katman, genellikle özellik eşliği teklif daha büyük iş yükleri, daha yüksek katmanlara yönelik gereksinimleri dikte. Örneğin, [bilişsel arama](cognitive-search-concept-intro.md) dizin sahip uzun süre çalışan becerileri, zaman aşımı ücretsiz bir hizmet veri kümesini küçük özelleştirmede sürece.
+Tüm katmanları olsa da dahil olmak üzere **ücretsiz** katman, genellikle özellik eşliği teklif daha büyük iş yükleri, daha yüksek katmanlara yönelik gereksinimleri dikte. Örneğin, [Bilişsel hizmetler ile yapay ZEKA dizin](cognitive-search-concept-intro.md) veri kümesini küçük özelleştirmede sürece uzun süre çalışan becerileri ücretsiz bir hizmet o zaman aşımına sahip.
 
 > [!NOTE] 
 > Özellik eşliği istisnası [dizin oluşturucular](search-indexer-overview.md), hangi S3HD üzerinde mevcut değildir.
@@ -53,7 +55,7 @@ Aşağıdaki tabloda kullanılabilir Katmanlar listelenmektedir. Katman bilgiler
 |Depolama için iyileştirilmiş 2 (L2) | 2 TB/bölüm (hizmet başına en fazla 24 TB) |
 
 > [!NOTE] 
-> Depolama için iyileştirilmiş katmanlar, daha düşük bir fiyatla TB başına standart katmanların değerinden daha büyük depolama kapasitesi sunar.  Birincil artırabilen uygulamanıza özel gereksinimler için doğrulamalıdır daha yüksek sorgu gecikme olur.  Bu katmanının performans değerlendirmeleri hakkında daha fazla bilgi için bkz: [performans ve iyileştirme konuları](search-performance-optimization.md).
+> Depolama için iyileştirilmiş katmanlar, daha düşük bir fiyatla TB başına standart katmanların değerinden daha büyük depolama kapasitesi sunar. Birincil artırabilen uygulamanıza özel gereksinimler için doğrulamalıdır daha yüksek sorgu gecikme olur.  Bu katmanının performans değerlendirmeleri hakkında daha fazla bilgi için bkz: [performans ve iyileştirme konuları](search-performance-optimization.md).
 >
 
 ## <a name="how-billing-works"></a>Faturalandırma nasıl çalışır?
@@ -70,17 +72,27 @@ Aşağıdaki ekran görüntüsünde, ücretsiz, temel ve S1 için birim fiyatlan
 
 Eklentiyi ilk ücret Ek çoğaltmalar ve bölümler var. En düşük yapılandırmayı her biri, bu nedenle bir arama hizmeti bir çoğaltma ve bölüm gerektirir. En düşük, çoğaltmalar ve bölümler birbirinden bağımsız olarak ekleyin. Örneğin, yalnızca çoğaltmalar veya bölümler yalnızca ekleyebilirsiniz. 
 
-Ek çoğaltmalar ve bölümler ücretlendirilir göre bir [formül](#search-units). Maliyetleri (maliyet double'birden fazla kapasite Katlama) doğrusal değildir. Formül Works ilişkin bir örnek için bkz. ["çoğaltmalar ve bölümler tahsis etme"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+Ek çoğaltmalar ve bölümler ücretlendirilir göre bir [formül](#search-units). Maliyetleri (maliyet double'birden fazla kapasite Katlama) doğrusal değildir. Formül Works ilişkin bir örnek için bkz. ["çoğaltmalar ve bölümler tahsis etme"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
 ### <a name="2-data-egress-charges-during-indexing"></a>2. Dizin oluşturma sırasında veri çıkış ücretleri
 
-Bir Azure SQL veritabanı veya Cosmos DB veri kaynağından veri çekme sırasında bu kaynaklar için fatura işlemde yönelik ücretleri görürsünüz. Bu ücretler Azure Search ölçümleri değildir ancak Azure SQL veritabanı veya Azure Cosmos DB veri çekmek için dizin oluşturucular kullanıyorsanız, faturanızda o ücreti görürsünüz çünkü bunlar aşağıda belirtilmiştir.
+Kullanım [Azure Search dizin oluşturucularında](search-indexer-overview.md) faturalama etkisi Hizmetleri yerleştirildiği bağlı olarak neden olabilir. Tamamen verilerinizi aynı bölgede Azure Search Hizmeti oluşturursanız, veri çıkış ücretlerini ortadan kaldırabilir.
+
++ Herhangi bir Azure hizmeti için gelen tüm veriler için ücretlendirme olmayacaktır.
+
++ Azure Search giden tüm veriler için ücretlendirme olmayacaktır.
+
++ Veri ve SQL DB, Cosmos, Blob Depolama giden dosyalar için herhangi bir ücret (Azure Search gelen) tüm hizmetleri aynı bölgede yer almasıdır.
+
++ Depolama ve Azure Search, farklı bölgelerde bulunuyorsa ücretleri giden veri veya dosya için geçerlidir.
+
+Azure bölgeleri arasında veri yönlendirme, faturada bu kaynakları için bant genişliği ücretlerini görürsünüz. Bu ücretler, Azure Search faturanıza parçası değildir, ancak dizin oluşturucular veri veya dosya kablo üzerinden çekmek için kullanıyorsanız, bu ücretsiz olarak genel faturanızı görürsünüz çünkü bunlar aşağıda belirtilmiştir.
+
+Dizin oluşturucular kullanmıyorsanız, bant genişliği ücretlendirme yoktur. 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. Yapay ZEKA-zenginleştirilmiş Bilişsel hizmetler kullanarak dizin oluşturma
 
-İçin [bilişsel arama](cognitive-search-concept-intro.md) yalnızca görüntü ayıklama belge çözme sırasında belgelerinizden ayıklanan resimlerinin sayısı üzerinden faturalandırılır. Metin ayıklama şu anda ücretsiz olarak kullanılabilir. Diğer zenginleştirmelerinin temel alarak [yerleşik bilişsel beceriler](cognitive-search-predefined-skills.md) bir Bilişsel hizmetler kaynağı göre faturalandırılır. Bilişsel hizmetler kullanarak doğrudan görev gerçekleştirilen gibi zenginleştirmelerinin aynı oranda faturalandırılır.
-
-Kullanmıyorsanız, [bilişsel arama](cognitive-search-concept-intro.md) veya [Azure Search dizin oluşturucularında](search-indexer-overview.md), çoğaltmalar ve bölümler normal dizin oluşturma ve sorgu iş yükleri için etkin kullanımda yalnızca maliyetlerinizi ilgilidir.
+İçin [Bilişsel hizmetler ile yapay ZEKA dizin](cognitive-search-concept-intro.md) yalnızca görüntü ayıklama belge çözme sırasında belgelerinizden ayıklanan resimlerinin sayısı üzerinden faturalandırılır. Metin ayıklama şu anda ücretsiz olarak kullanılabilir. Doğal dil işleme gibi diğer zenginleştirmelerinin dayalı [yerleşik bilişsel beceriler](cognitive-search-predefined-skills.md) bir Bilişsel hizmetler kaynağı göre faturalandırılır. Bilişsel hizmetler kullanarak doğrudan görev gerçekleştirilen gibi zenginleştirmelerinin aynı oranda faturalandırılır.
 
 <a name="search-units"></a>
 

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 04/02/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 3d4b0b143b41daca376aecc64cf734fadcc94faa
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 557757fc4d99fe57ad545e9d2eebcce61ddb3a8f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226581"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268730"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Azure kullanılabilirlik alanları nedir?
 Kullanılabilirlik alanları, veri merkezi arızasına karşı uygulamalarınızı ve verilerinizi koruyan sunan bir yüksek kullanılabilirlik olur. Kullanılabilirlik, bir Azure bölgesi içinde benzersiz fiziksel konumlara bölgeleridir. Her bölge, soğutma ve ağ bağımsız güç ile donatılmış bir veya daha fazla veri merkezlerinden oluşur. Dayanıklılık sağlamak için üç ayrı bölge etkinleştirilmiş tüm bölgelerde en az yoktur. Bir bölge içinde kullanılabilirlik alanlarının fiziksel olarak ayrılması, uygulamaları ve verileri veri merkezi arızasına karşı korur. Bölgesel olarak yedekli Hizmetleri, uygulamaları ve verileri tek-noktaları-ın-arızasına karşı korumak için kullanılabilirlik alanları genelinde çoğaltın. Kullanılabilirlik alanları ile Azure, sektördeki en iyi % 99,99 VM çalışma SLA'sı sunar. [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
@@ -45,6 +45,7 @@ Azure üzerinde kapsamlı iş sürekliliği elde etmek için uygulama mimarinizi
 - Fransa Orta
 - Kuzey Avrupa
 - Güneydoğu Asya 
+- UK Güney&#42;
 - Batı Avrupa
 - Batı ABD 2
 
@@ -57,8 +58,8 @@ Kullanılabilirlik alanlarını destekleyen Azure Hizmetleri'nin şunlardır:
 - Windows Sanal Makineleri
 - Sanal Makine Ölçek Kümeleri
 - Yönetilen Diskler
-- Load Balancer
-- Genel IP adresi
+- Standart Load Balancer&#42;
+- Standart genel IP adresi&#42;
 - Alanlar arası yedekli depolama
 
 - SQL Veritabanı
@@ -68,6 +69,8 @@ Kullanılabilirlik alanlarını destekleyen Azure Hizmetleri'nin şunlardır:
 - ExpressRoute
 - Uygulama ağ geçidi (Önizleme)
 
+&#42;Birleşik Krallık Güney bölgesinde 25 Mart 2019'den önce oluşturulan kaynakları, bölgesel olarak yedekli olmasını yakında dönüştürülür. 25 Mart 2019'den sonra oluşturulan kaynakları hemen bölgesel olarak yedekli olacaktır.
+
 ## <a name="services-resiliency"></a>Hizmetleri dayanıklılık
 Tüm Azure Yönetim Hizmetleri bölge düzeyinde hatalardan dayanıklı olacak şekilde tasarlanmış. Bir bölgenin tamamını hatasına karşılaştırıldığında daha küçük bir hata RADIUS hataları spektrumu içinde bir bölgede bir veya daha fazla kullanılabilirlik alanı hataları var. Azure Yönetim Hizmetleri bölge içinde bölge düzeyinde bir hata veya başka bir Azure bölgesine geri alabilirsiniz. Azure kullanılabilirlik alanları genelinde bir bölgede dağıtılan müşteri kaynakların etkileyen hataları önlemek için bir bölge içinde bir anda alanlardan birini kritik bakım gerçekleştirir.
 
@@ -76,12 +79,13 @@ Bir kullanılabilirlik alanında dağıtılan sanal makineler için hiçbir ek �
 
 
 ## <a name="get-started-with-availability-zones"></a>Kullanılabilirlik alanları ile çalışmaya başlama
-- [Sanal makine oluşturun](../virtual-machines/windows/create-portal-availability-zone.md)
+- [Sanal makine oluşturma](../virtual-machines/windows/create-portal-availability-zone.md)
 - [PowerShell kullanarak yönetilen Disk ekleme](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Bölge yedekli sanal makine ölçek kümesi oluşturma](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 - [Sanal makineleri ile bölgesel olarak yedekli bir ön uç bir Standard Load Balancer'ı kullanarak bölgeler arasında Yük Dengelemesi](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 - [Bölgesel bir ön uç ile bir Standard Load Balancer'ı kullanarak bir bölge içerisindeki Vm'lerde Yük Dengeleme](../load-balancer/load-balancer-standard-public-zonal-cli.md)
-- [Alanlar arası yedekli depolama](../storage/common/storage-redundancy-zrs.md)
+- [Alanlar arası yedekli depolama
+](../storage/common/storage-redundancy-zrs.md)
 - [SQL Veritabanı](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 - [Event Hubs coğrafi olağanüstü durum kurtarma](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Service Bus coğrafi olağanüstü durum kurtarma](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
@@ -89,4 +93,4 @@ Bir kullanılabilirlik alanında dağıtılan sanal makineler için hiçbir ek �
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Hızlı Başlangıç şablonları](https://aka.ms/azqs)
+- [Hızlı başlangıç şablonları](https://aka.ms/azqs)

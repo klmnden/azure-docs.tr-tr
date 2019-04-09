@@ -1,7 +1,6 @@
 ---
 title: Uyumlu olmayan kaynakları düzeltme
 description: Bu yöntem Azure İlkesi'nde ilkelerine uyumlu olmayan kaynakları düzeltme size kılavuzluk eder.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: e86553e789fc9879ea4a6326b08d893fe24c8ac8
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: fe06e7081e4e3691aeb054985f9f2f3f6dc7d19e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802567"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283452"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure İlkesi ile uyumlu olmayan kaynakları Düzelt
 

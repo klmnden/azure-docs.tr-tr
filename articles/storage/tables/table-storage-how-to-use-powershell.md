@@ -5,15 +5,15 @@ services: cosmos-db
 author: roygara
 ms.service: cosmos-db
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
-ms.openlocfilehash: c5491683a74321e370044cd6eb270cc34bbbce6a
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 840c2793928816c6346e2039a38678585f8e0bc7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056417"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273133"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure PowerShell ile Azure tablo depolama işlemleri 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -35,13 +35,16 @@ Bu nasıl yapılır makalesi işiniz bittiğinde, kolayca, bu nedenle yeni bir k
 Az PowerShell modülleri örneği gerektirir `Az.Storage (1.1.0 or greater)` ve `Az.Resources (1.2.0 or greater)`. Bir PowerShell penceresinde çalıştırın `Get-Module -ListAvailable Az*` sürümü bulmak için. Hiçbir şey görüntülenmez veya yükseltme için ihtiyacınız [Azure PowerShell modülü yükleme](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> Powershell'den Azure bu özelliği kullanarak olması gerekir `Az` Modülü yüklü. AzureRmStorageTable'nın geçerli sürümü eski AzureRM modülü ile uyumlu değil.
+> Powershell'den Azure bu özelliği kullanarak olması gerekir `Az` Modülü yüklü. Geçerli sürümü `AzTable` eski AzureRM modülü ile uyumlu değil.
 > İzleyin [son yükleme Az modülünü yükleme yönergelerini](/powershell/azure/install-az-ps) gerekirse.
 
-Azure PowerShell yüklenmiş veya güncelleştirildikten sonra modülünü yükleme **AzureRmStorageTable**, bunları yönetmek için komutlar vardır. Bu modülü yüklemek için PowerShell'i yönetici olarak çalıştırıp kullanım çalıştırmak **Install-Module** komutu.
+Azure PowerShell yüklenmiş veya güncelleştirildikten sonra modülünü yükleme **AzTable**, bunları yönetmek için komutlar vardır. Bu modülü yüklemek için PowerShell'i yönetici olarak çalıştırıp kullanım çalıştırmak **Install-Module** komutu.
+
+> [!IMPORTANT]
+> Biz yine de yayımlanıyor eski adla aynı bu modül için modülü adı uyumluluk nedenlerinden `AzureRmStorageTables` PowerShell galerisinde. Bu belge, yeni adı yalnızca başvurur.
 
 ```powershell
-Install-Module AzureRmStorageTable
+Install-Module AzTable
 ```
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
@@ -115,9 +118,9 @@ $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 ## <a name="reference-cloudtable-property-of-a-specific-table"></a>Belirli bir tablonun başvuru CloudTable özelliği
 
 > [!IMPORTANT]
-> İle çalışırken CloudTable kullanımını zorunlu **AzureRmStorageTable** PowerShell modülü. Çağrı **Get-AzTableTable** bu nesneye bir başvuru almak için komutu. Zaten yoksa, bu komut ayrıca tablo oluşturur.
+> İle çalışırken CloudTable kullanımını zorunlu **AzTable** PowerShell modülü. Çağrı **Get-AzTableTable** bu nesneye bir başvuru almak için komutu. Zaten yoksa, bu komut ayrıca tablo oluşturur.
 
-Kullanarak bir tablo üzerinde işlemler gerçekleştirmeye **AzureRmStorageTable**, belirli bir tablonun CloudTable özelliğine başvuru gerekir.
+Kullanarak bir tablo üzerinde işlemler gerçekleştirmeye **AzTable**, belirli bir tablonun CloudTable özelliğine başvuru gerekir.
 
 ```powershell
 $cloudTable = (Get-AzStorageTable –Name $tableName –Context $ctx).CloudTable
@@ -160,6 +163,6 @@ Daha fazla bilgi için aşağıdaki makalelere bakın.
 
 * [Depolama PowerShell cmdlet'leri](/powershell/module/az.storage#storage)
 
-* [Azure PowerShell - AzureRmStorageTable PS modülü v2.0 tablolardan ile çalışma](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
+* [Azure PowerShell - AzureRmStorageTable/AzTable PS modülü v2.0 tablolardan ile çalışma](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
 
 * [Microsoft Azure Depolama Gezgini](../../vs-azure-tools-storage-manage-with-storage-explorer.md), Microsoft’un Windows, macOS ve Linux üzerinde Azure Depolama verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.

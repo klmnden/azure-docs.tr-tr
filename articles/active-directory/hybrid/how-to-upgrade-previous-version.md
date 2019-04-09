@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/18/2018
+ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa21b1054fa6860a8acc5d6971f75e1d74c889f7
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193764"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267047"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Önceki bir sürümden en son sürüme yükseltme
 Bu konuda, Azure Active Directory (Azure AD) Connect yüklemenizi en son sürüme yükseltmek için kullanabileceğiniz farklı yöntemler açıklanır. Kendi Azure AD Connect'in sürümlerinde geçerli tutmanızı öneririz. Ayrıca adımlarda kullandığınız [Swing geçişi](#swing-migration) bölümünde önemli bir yapılandırma değişikliği yaptığınızda.
+
+>[!NOTE]
+> Şu anda Azure AD Connect sürümünden geçerli sürümüne yükseltmek için desteklenir. Ad eşitleme veya DirSync yerinde yükseltmeler desteklenmez ve swing geçişi gereklidir.  Dirsync'ten yükseltme yapmaya istiyorsanız bkz [Azure AD eşitleme aracından (DirSync) yükseltme](how-to-dirsync-upgrade-get-started.md) veya [Swing geçişi](#swing-migration) bölümü.  </br>Uygulamada, son derece eski sürümlerini kullanan müşteriler, doğrudan Azure AD Connect'e ilgili sorunlarla karşılaşabilirsiniz. Yıllardır, üretimde olan sunucuları genellikle birkaç düzeltme eki uygulanmış olan ve bunların tümü için katılması.  12-18 ay içinde yükseltilmemiş müşteriler swing yükseltme genellikle dikkate almanız gereken yerine gibi en koruyucu ve az riskli seçenek budur.
 
 Dirsync'ten yükseltme yapmaya istiyorsanız bkz [Azure AD eşitleme aracından (DirSync) yükseltme](how-to-dirsync-upgrade-get-started.md) yerine.
 

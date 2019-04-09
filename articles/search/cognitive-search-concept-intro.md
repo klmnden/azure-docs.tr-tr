@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 03/17/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 187e40716bc55f71623ef758722eb58d27651d4d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: c421d99f1071c7a38cfe315cc3054136f81598e0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882513"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265977"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>"Bilişsel arama" Azure Search nedir?
 
@@ -99,6 +99,8 @@ Dizinler, alanların özniteliklerini tanımlayan bir dizin şemasını oluştur
 + [Hızlı Başlangıç (portal)](cognitive-search-quickstart-blob.md)
 + [Öğretici (HTTP istek)](cognitive-search-tutorial-blob.md)
 + [Örnek özel becerileri (C#)](cognitive-search-create-custom-skill-example.md)
+
+Öğrenme amacıyla ücretsiz hizmeti öneririz, ancak bu ücretsiz işlem sayısı günde 20 belgelere sınırlı olduğunu unutmayın. Hızlı Başlangıç ve öğretici bir gün içinde çalıştırmak için daha küçük bir dosya kullanın (10 belgeleri) her iki alıştırmalarda sığacak şekilde ayarlayın.
 
 **3. Adım: Gözden geçirme (yalnızca REST) API'si**
 

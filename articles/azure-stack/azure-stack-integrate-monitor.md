@@ -15,12 +15,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 520319fb21dce3cf4f3cc1b36c52657cf9eb24e7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 77dda80e538c8b742a96e7b7f81abe8650ee6b5d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904007"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257306"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Dış izleme çözümü, Azure Stack ile tümleştirin
 
@@ -30,7 +30,7 @@ Azure Stack altyapısını dış izleme için Azure Stack yazılımı, fiziksel 
 - Fiziksel bilgisayar sistem durumu ve uyarı bilgilerini temel kart yönetim denetleyicileri (Bmc'ler) aracılığıyla kullanılabilir hale getirir.
 - Fiziksel ağ aygıtlarının durumunu ve uyarı bilgileri SNMP protokolü aracılığıyla kullanılabilir hale getirebilirsiniz.
 
-Her Azure Stack çözüm donanım yaşam döngüsü konak ile birlikte gelir. Bu konak fiziksel sunucuları ve ağ cihazlarını izleme yazılımı orijinal ekipman üreticisi (OEM) donanım satıcısının çalıştırır. İsterseniz, bu çözümleri izleme atlamak ve doğrudan veri merkezinizde mevcut izleme çözümleriyle tümleştirin.
+Her Azure Stack çözüm donanım yaşam döngüsü konak ile birlikte gelir. Bu konak fiziksel sunucuları ve ağ cihazlarını izleme yazılımı orijinal ekipman üreticisi (OEM) donanım satıcısının çalıştırır. Lütfen izleme çözümleri, veri merkezinizdeki mevcut izleme çözümleriyle tümleştirilebilir, OEM sağlayıcınıza başvurun.
 
 > [!IMPORTANT]
 > Kullandığınız dış izleme çözümü aracısız olması gerekir. Azure Stack bileşenleri içindeki üçüncü taraf aracılar yükleyemezsiniz.
@@ -40,7 +40,7 @@ Aşağıdaki diyagramda bir Azure Stack tümleşik sistemi, donanım yaşam dön
 ![Azure Stack, izleme ve bilet oluşturma çözümü arasındaki trafiği gösteren diyagram.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
 > [!NOTE]
-> Fiziksel sunucuları ve ağ cihazları ile doğrudan dış Monitoring Integration değil izin ve erişim denetim listeleri tarafından (ACL'ler) etkin bir şekilde engellendi. 
+> Fiziksel sunucuları ile doğrudan dış Monitoring Integration değil izin ve erişim denetim listeleri tarafından (ACL'ler) etkin bir şekilde engellendi.  Dış izleme tümleştirmesiyle doğrudan fiziksel ağ aygıtlarını desteklenmiyor, lütfen bu özelliği etkinleştirmek nasıl OEM sağlayıcınızla denetleyin.
 
 Bu makalede, Azure Stack, System Center Operations Manager ve Nagios gibi dış izleme çözümleriyle tümleştirmek açıklanmaktadır. Ayrıca uyarılarla PowerShell kullanarak veya REST API çağrıları üzerinden programlı bir şekilde çalışmanın nasıl içerir.
 

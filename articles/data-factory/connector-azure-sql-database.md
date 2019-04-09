@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: e9efe96490ea1c9351d87b5b2477474ef68fbda9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d0ecf6a48735ec2ba1623f97d4760d230a6e6fbf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875246"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266330"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL veritabanı'ndan ya da veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -65,7 +65,7 @@ Farklı kimlik doğrulama türleri için sırasıyla önkoşulları ve JSON örn
 
 - [SQL kimlik doğrulaması](#sql-authentication)
 - [Azure AD uygulama belirteci kimlik doğrulaması: Hizmet sorumlusu](#service-principal-authentication)
-- [Azure AD uygulama belirteci kimlik doğrulaması: Azure kaynakları için yönetilen kimlikleri](#managed-identity)
+- [Azure AD uygulama belirteci kimlik doğrulaması: Azure kaynakları için yönetilen kimlikler](#managed-identity)
 
 >[!TIP]
 >Hata olarak "UserErrorFailedToConnectToSqlServer" hata koduyla isabet ve gibi ileti "veritabanı için oturum sınırı xxx ve üst sınırına ulaşıldı.", ekleme `Pooling=false` bağlantı dizesi ve yeniden deneyin.
@@ -373,7 +373,7 @@ Azure SQL veritabanı'na veri kopyalamak için ayarlanmış **türü** özelliğ
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** kopyalama etkinliği havuz özelliği ayarlanmalıdır **SqlSink**. | Evet |
-| writeBatchSize | Arabellek boyutu ulaştığında veri SQL tablosuna ekler **writeBatchSize**.<br/> İzin verilen değer **tamsayı** (satır sayısı). | Hayır. Varsayılan 10000'dir. |
+| writeBatchSize | SQL tablosuna ekler için satır sayısı **toplu iş başına**.<br/> İzin verilen değer **tamsayı** (satır sayısı). | Hayır. Varsayılan 10000'dir. |
 | writeBatchTimeout | Batch için bekleme süresi, işlemin zaman aşımına uğramadan önce tamamlanmasını ekleyin.<br/> İzin verilen değer **timespan**. Örnek: "00: 30:00" (30 dakika). | Hayır |
 | preCopyScript | Azure SQL veritabanı'na veri yazılmadan önce çalıştırmak kopyalama etkinliği için bir SQL sorgusunu belirtin. Bu yalnızca bir kez çalıştır kopyalama çağrılır. Önceden yüklenmiş ve verileri temizlemek için bu özelliği kullanın. | Hayır |
 | sqlWriterStoredProcedureName | Kaynak verileri hedef tabloya uygulanacağını tanımlayan saklı yordamın adı. Upsert eder misiniz veya tarafından dönüştürmek için bir örnek verilmiştir, kendi iş mantığınızı kullanarak. <br/><br/>Bu saklı yordam **toplu iş çağrılan**. Yalnızca bir kez çalıştırın ve kaynak verilerle ilgisi yoktur işlemleri için `preCopyScript` özelliği. Örnek işlemler silmeden ve kesin. | Hayır |
@@ -535,7 +535,7 @@ Yerleşik kopyalama mekanizmaları amaca hizmet yoksa, bir saklı yordamı kulla
 
 Aşağıdaki örnek, Azure SQL veritabanındaki bir tabloya bir upsert yapmak için bir saklı yordam kullanmayı gösterir. Varsayılır, giriş veri ve havuz **pazarlama** her tablo üç sütun vardır: **Profileıd**, **durumu**, ve **kategori**. Temel upsert yapmak **Profileıd** sütun ve yalnızca belirli bir kategori için uygulayın.
 
-#### <a name="output-dataset"></a>Çıktı veri kümesi
+**Çıktı veri kümesi:** "tableName" depolanmış yordamınızdaki (saklı yordam betiği aşağıya bakın) aynı tabloda tür parametre adı olmalıdır.
 
 ```json
 {
@@ -554,7 +554,7 @@ Aşağıdaki örnek, Azure SQL veritabanındaki bir tabloya bir upsert yapmak i�
 }
 ```
 
-Tanımlama **SqlSink** kopyalama etkinliği bölümünde:
+Tanımlama **SQL havuz** gibi kopyalama etkinliği bölümü.
 
 ```json
 "sink": {

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f733b2c9bcd8dc8ad8c068c465e1beda00b45d28
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 31c6c1258b6d20eb2d2802cf23244cb59df682c0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471020"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281276"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Platformlar ve araçlar için veri bilimi projeleri
 
@@ -44,7 +44,7 @@ Veri bilimi sanal makinesi hem Windows hem de Linux, Microsoft tarafından sunul
 - Windows için Power BI desktop
 - SQL Server 2016 Developer Edition Windows / Linux üzerinde Postgres
 
-Ayrıca **ML ve AI Araçları** CNTK (Microsoft gelen bir açık kaynak derin öğrenme araç), xgboost, mxnet ve Vowpal Wabbit gibi.
+Ayrıca **ML ve AI Araçları** xgboost, mxnet ve Vowpal Wabbit gibi.
 
 Şu anda DSVM kullanılabilir **Windows** ve **Linux CentOS** işletim sistemleri. Üzerinde yürütmek için planlama veri bilimi projeleri gereksinimlerine göre DSVM (CPU çekirdek sayısı) ve bellek boyutunu seçin. 
 

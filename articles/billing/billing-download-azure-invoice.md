@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 82755f01cc881703eeefb6415b2e8e87e50fba60
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652391"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264072"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Microsoft Azure faturanızı görüntüleme ve indirme
 
@@ -127,7 +127,7 @@ Bir faturayı görmemenizin birden fazla nedeni olabilir:
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi erişiminizi kontrol edin
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bize ulaşın
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 
@@ -135,15 +135,15 @@ Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](
 
 Fatura ve ücretleri hakkında daha fazla bilgi için bkz:
 
-- [Microsoft Azure kullanım ve Ücret görüntülemenize ve indirmenize](billing-download-azure-daily-usage.md)
-- [Microsoft Azure için faturanızı anlayın](billing-understand-your-bill.md)
+- [Microsoft Azure kullanımınızı ve ücretleri görüntüleme ve indirme](billing-download-azure-daily-usage.md)
+- [Microsoft Azure faturanızı anlama](billing-understand-your-bill.md)
 - [Azure faturanızla ilgili koşulları anlama](billing-understand-your-invoice.md)
 - [Şirket koşulları anlama, Microsoft Azure ayrıntılı kullanım](billing-understand-your-usage.md)
 - [Kuruluşunuzun Azure fiyatlandırmayı görüntüleyin](billing-ea-pricing.md)
 
 Microsoft Müşteri sözleşmesi varsa, bkz:
 
-- [Faturadaki fatura profiliniz için ücretlerini anlama ](billing-mca-understand-your-bill.md)
+- [Faturadaki fatura profiliniz için ücretlerini anlama](billing-mca-understand-your-bill.md)
 - [Fatura profiliniz için fatura ilgili koşulları anlama](billing-mca-understand-your-invoice.md)
 - [Azure kullanım ve Ücret dosya fatura profiliniz için anlama](billing-mca-understand-your-usage.md)
 - [Görüntüleyin ve fatura profiliniz için vergi belgelerini indirin](billing-mca-download-tax-document.md)

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52a782831f0f017423faef7610f984b2ea87e445
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6faf023d36ea40e3694161ee0cfc8aac7c5652fa
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898474"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277944"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Öğretici: HackerOne ile Azure Active Directory Tümleştirme
 
@@ -145,9 +145,9 @@ Azure AD çoklu oturum açma ile HackerOne yapılandırmak için aşağıdaki ad
 
     a. İçinde **e-posta etki alanı** metin kaydedilmiş bir etki alanı yazın.
 
-    b. İçinde  **üzerinde çoklu oturum URL'si** metin kutuları, değerini yapıştırın **oturum açma URL'si** , Azure Portalı'ndan kopyaladığınız.
+    b. İçinde **üzerinde çoklu oturum URL'si** metin kutuları, değerini yapıştırın **oturum açma URL'si** , Azure Portalı'ndan kopyaladığınız.
 
-    c. İndirilen açın **sertifika dosyası** Azure portalından Defteri'ne içeriğini sizin panoya kopyalayın ve yapıştırın kendisine **X509 sertifika**  metin.
+    c. İndirilen açın **sertifika dosyası** Azure portalından Defteri'ne içeriğini sizin panoya kopyalayın ve yapıştırın kendisine **X509 sertifika** metin.
 
     d. **Kaydet**’e tıklayın.
 
@@ -224,6 +224,6 @@ Erişim paneli HackerOne kutucuğa tıkladığınızda, size otomatik olarak SSO
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

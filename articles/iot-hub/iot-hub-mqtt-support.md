@@ -8,18 +8,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: d6f03202b18cee537763daf0ac9bfe777239c229
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 5c879b050fad0ac8c6467ffa29d9aee398f57aa2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540950"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276873"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Ve MQTT protokolünü kullanarak IOT hub ile iletişim
 
 IOT hub'ı kullanarak IOT Hub cihaz uç noktaları ile iletişim kurmak cihazları sağlar:
 
-* [MQTT v3.1.1] [ lnk-mqtt-org] 8883 numaralı bağlantı noktasında
+* [MQTT v3.1.1](https://mqtt.org/) 8883 numaralı bağlantı noktasında
 * Bağlantı noktası 443 üzerinden WebSocket üzerinden MQTT v3.1.1.
 
 IOT hub'ı, tam özellikli bir MQTT aracı değildir ve MQTT v3.1.1 standardında belirtilen tüm davranışları desteklemez. Bu makalede, cihazlar IOT Hub ile iletişim kurmak için MQTT davranışları desteklenen nasıl kullanabileceğinizi açıklar.
@@ -30,14 +30,14 @@ IOT Hub ile tüm cihaz iletişimi TLS/SSL kullanarak güvenli hale getirilmelidi
 
 ## <a name="connecting-to-iot-hub"></a>IOT hub'ına bağlama
 
-Bir cihaz ve MQTT protokolünü kullanarak bir IOT hub'ı bağlanmak için kullanabilirsiniz:
+Bir cihaz, aşağıdaki seçeneklerden herhangi birini kullanarak bir IOT hub'a bağlanmaya ve MQTT protokolünü kullanabilirsiniz.
 
-* Ya da kitaplıkları [Azure IOT SDK'ları][lnk-device-sdks].
-* Veya doğrudan ve MQTT protokolünü.
+* Kitaplıklarında [Azure IOT SDK'ları](https://github.com/Azure/azure-iot-sdks).
+* Ve MQTT protokolünü doğrudan.
 
 ## <a name="using-the-device-sdks"></a>Cihaz SDK'ları kullanma
 
-[Cihaz SDK'ları] [ lnk-device-sdks] destekleyen ve MQTT protokolünü Java, Node.js, C, C# ve Python için kullanılabilir. Cihaz SDK'ları, bir IOT hub'ına bağlantı kurmak için standart IOT Hub bağlantı dizesini kullanın. MQTT protokolünü kullanmak için istemci protocol parametresi ayarlanmalıdır **MQTT**. Varsayılan olarak, bir IOT Hub SDK'ları cihazı bağlamak **CleanSession** bayrağı ayarlanmış **0** ve **QoS 1** IOT hub ile ileti değişimi için.
+[Cihaz SDK'ları](https://github.com/Azure/azure-iot-sdks) destekleyen ve MQTT protokolünü Java, Node.js, C, kullanılabilir C#ve Python. Cihaz SDK'ları, bir IOT hub'ına bağlantı kurmak için standart IOT Hub bağlantı dizesini kullanın. MQTT protokolünü kullanmak için istemci protocol parametresi ayarlanmalıdır **MQTT**. Varsayılan olarak, bir IOT Hub SDK'ları cihazı bağlamak **CleanSession** bayrağı ayarlanmış **0** ve **QoS 1** IOT hub ile ileti değişimi için.
 
 Cihaz SDK'ları bir cihaz IOT hub'a bağlandığında, cihazın IOT hub ile ileti alışverişi sağlayan yöntemler sağlar.
 
@@ -45,24 +45,25 @@ Aşağıdaki tabloda, desteklenen her dil için kod örnekleri bağlantıların�
 
 | Dil | Protocol parametresi |
 | --- | --- |
-| [Node.js][lnk-sample-node] |azure-iot-device-mqtt |
-| [Java][lnk-sample-java] |IotHubClientProtocol.MQTT |
-| [C][lnk-sample-c] |MQTT_Protocol |
-| [C#][lnk-sample-csharp] |TransportType.Mqtt |
-| [Python][lnk-sample-python] |IoTHubTransportProvider.MQTT |
+| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) |azure-iot-device-mqtt |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol.MQTT |
+| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) |MQTT_Protocol |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType.Mqtt |
+| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples) |IoTHubTransportProvider.MQTT |
 
 ### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>Bir cihaz uygulaması için MQTT AMQP geçiş
 
-Kullanıyorsanız [cihaz SDK'ları][lnk-device-sdks], için MQTT, AMQP kullanarak geçiş daha önce belirtildiği gibi istemci Başlatma Protokolü parametreyi değiştirmeyi gerektirir.
+Kullanıyorsanız [cihaz SDK'ları](https://github.com/Azure/azure-iot-sdks), için MQTT, AMQP kullanarak geçiş daha önce belirtildiği gibi istemci Başlatma Protokolü parametreyi değiştirmeyi gerektirir.
 
 Bunun yapılması, aşağıdaki öğeleri denetlemek emin olun:
 
 * AMQP MQTT bağlantıyı sonlandırır birçok koşulları için hataları döndürür. Sonuç olarak, özel durum işleme mantığı, bazı değişiklikler gerektirebilir.
-* MQTT desteği içermez *Reddet* alındığında operations [bulut-cihaz iletilerini][lnk-messaging]. Arka uç uygulamanızın cihaz uygulamasından bir yanıt almanız gerekiyorsa, kullanmayı [doğrudan yöntemler][lnk-methods].
+
+* MQTT desteği içermez *Reddet* alındığında operations [bulut-cihaz iletilerini](iot-hub-devguide-messaging.md). Arka uç uygulamanızın cihaz uygulamasından bir yanıt almanız gerekiyorsa, kullanmayı [doğrudan yöntemler](iot-hub-devguide-direct-methods.md).
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Ve MQTT protokolünü kullanarak doğrudan (bir cihaz)
 
-Bir cihaz, cihaz SDK'ları kullanamıyorsanız, bağlantı noktası 8883 ve MQTT protokolünü kullanarak genel cihaz uç noktalarına yine de bağlanabilir. İçinde **CONNECT** paket cihaz, aşağıdaki değerleri kullanmalıdır:
+Bir cihaz, cihaz SDK'ları kullanamıyorsanız, bağlantı noktası 8883 ve MQTT protokolünü kullanarak genel cihaz uç noktalarına yine de bağlanabilir. İçinde **CONNECT** paket, cihaz, aşağıdaki değerleri kullanmanız gerekir:
 
 * İçin **ClientID** alan, kullanın **DeviceID**.
 
@@ -77,33 +78,39 @@ Bir cihaz, cihaz SDK'ları kullanamıyorsanız, bağlantı noktası 8883 ve MQTT
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
   > [!NOTE]
-  > X.509 sertifika kimlik doğrulaması kullanıyorsanız, SAS belirteci parola gerekli değildir. Daha fazla bilgi için [Azure IOT hub'ınızdaki X.509 güvenliği][lnk-x509]
+  > X.509 sertifika kimlik doğrulaması kullanıyorsanız, SAS belirteci parola gerekli değildir. Daha fazla bilgi için [Azure IOT hub'ınızdaki X.509 güvenliği](iot-hub-security-x509-get-started.md)
 
-  Cihaz bölümünü SAS belirteçleri oluşturmak nasıl hakkında daha fazla bilgi için bkz. [kullanarak IOT Hub güvenlik belirteçleri][lnk-sas-tokens].
+  Cihaz bölümünü SAS belirteçleri oluşturmak nasıl hakkında daha fazla bilgi için bkz. [kullanarak IOT Hub güvenlik belirteçleri](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  Test ederken, platformlar arası de kullanabilirsiniz [Visual Studio Code için Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) veya [Device Explorer] [ lnk-device-explorer] aracını hızlı bir şekilde kopyalamak bir SAS belirteci oluşturmak için ve kendi koda yapıştırın:
+  Test ederken, platformlar arası de kullanabilirsiniz [Visual Studio Code için Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) veya [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) aracını hızla kendi kodu kopyalayıp bir SAS belirteci oluşturmak için:
 
 Azure IOT araçları için:
 
-  1. Genişletin **AZURE IOT HUB CİHAZLARI** Visual Studio Code, sol alt köşedeki sekmesi.
-  2. Cihazınızı sağ tıklayıp **oluşturmak SAS belirteci için cihaz**.
-  3. Ayarlama **süre sonu** 'Enter' tuşuna basın.
-  4. SAS belirteci oluşturulur ve panoya kopyalandı.
+1. Genişletin **AZURE IOT HUB CİHAZLARI** Visual Studio Code, sol alt köşedeki sekmesi.
+  
+2. Cihazınızı sağ tıklayıp **oluşturmak SAS belirteci için cihaz**.
+  
+3. Ayarlama **süre sonu** 'Enter' tuşuna basın.
+  
+4. SAS belirteci oluşturulur ve panoya kopyalandı.
 
 Device Explorer için:
 
-  1. Git **Yönetim** sekmesinde **Device Explorer**.
-  2. Tıklayın **SAS belirteci** (üst, sağ).
-  3. Üzerinde **SASTokenForm**, Cihazınızı seçin **DeviceID** açılır. Ayarlama, **TTL**.
-  4. Tıklayın **Oluştur** belirtecinizi oluşturmak için.
+1. Git **Yönetim** sekmesinde **Device Explorer**.
 
-     Oluşturulan SAS belirteci aşağıdaki yapıya sahiptir:
+2. Tıklayın **SAS belirteci** (üst, sağ).
 
-     `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
+3. Üzerinde **SASTokenForm**, Cihazınızı seçin **DeviceID** açılır. Ayarlama, **TTL**.
 
-     Bir parçası olarak kullanmak için bu belirteci **parola** MQTT kullanarak bağlanmak için gereken alan:
+4. Tıklayın **Oluştur** belirtecinizi oluşturmak için.
 
-     `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
+   Oluşturulan SAS belirteci aşağıdaki yapıya sahiptir:
+
+   `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
+
+   Bir parçası olarak kullanmak için bu belirteci **parola** MQTT kullanarak bağlanmak için gereken alan:
+
+   `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
 
 MQTT için bağlanın ve paketleri kesmek, IOT Hub üzerinde bir olayın sorunlarını **izleme işlemleri** kanal. Bu olay, bağlantı sorunlarını gidermenize yardımcı olabilecek ek bilgiler vardır.
 
@@ -112,20 +119,26 @@ Cihaz uygulamasını belirtebilirsiniz bir **olacak** içinde ileti **CONNECT** 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Ve MQTT protokolünü kullanarak doğrudan (bir modül olarak)
 
 Bir modül kimliği kullanarak MQTT IOT hub'a bağlanan cihaza benzer (açıklanan [yukarıda](#using-the-mqtt-protocol-directly-as-a-device)) ancak aşağıdakileri kullanmanız gerekir:
+
 * İstemci kimliği ayarlayın `{device_id}/{module_id}`.
+
 * Kullanıcı adı ve parola ile kimlik doğrulaması ayarlarsanız kullanıcı `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30` ve parolanızı modülü kimliğiyle ilişkili bir SAS belirteci kullanabilir.
+
 * Kullanım `devices/{device_id}/modules/{module_id}/messages/events/` yayımlama telemetrisi için konu olarak.
+
 * Kullanım `devices/{device_id}/modules/{module_id}/messages/events/` WILL konu olarak.
+
 * İkiz GET ve düzeltme eki konuları, modülleri ve cihazlar için aynıdır.
+
 * İkiz durum konu, modülleri ve cihazlar için aynıdır.
 
 ### <a name="tlsssl-configuration"></a>TLS/SSL yapılandırması
 
 Kullanılacak MQTT protokolünü doğrudan istemcinizi *gerekir* TLS/SSL üzerinden. Bu adımı atlayın girişimleri bağlantı hataları ile başarısız olur.
 
-TLS bağlantı kurulabilmesi için indirme ve DigiCert Baltimore kök sertifikasının başvuru gerekebilir. Bu bağlantının güvenliğini sağlamak için Azure kullanan bir sertifikadır. Bu sertifikanın bulabilirsiniz [Azure-iot-sdk-c] [ lnk-sdk-c-certs] depo. Bu sertifikalar hakkında daha fazla bilgi bulunabilir [Digicert'in Web sitesi][lnk-digicert-root-certs].
+TLS bağlantı kurulabilmesi için indirme ve DigiCert Baltimore kök sertifikasının başvuru gerekebilir. Bu bağlantının güvenliğini sağlamak için Azure kullanan bir sertifikadır. Bu sertifikanın bulabilirsiniz [Azure-iot-sdk-c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) depo. Bu sertifikalar hakkında daha fazla bilgi bulunabilir [Digicert'in Web sitesi](https://www.digicert.com/digicert-root-certificates.htm).
 
-Bunu Python sürümünü kullanarak uygulamaya ilişkin bir örnek [Paho MQTT Kitaplığı] [ lnk-paho] Eclipse Foundation tarafından aşağıdaki gibi görünebilir.
+Bunu Python sürümünü kullanarak uygulamaya ilişkin bir örnek [Paho MQTT Kitaplığı](https://pypi.python.org/pypi/paho-mqtt) Eclipse Foundation tarafından aşağıdaki gibi görünebilir.
 
 İlk olarak, komut satırı ortamınızdan Paho kitaplığını yükleyin:
 
@@ -136,8 +149,11 @@ pip install paho-mqtt
 Ardından, istemci bir Python betiği uygulayın. Yer tutucuları şu şekilde değiştirin:
 
 * `<local path to digicert.cer>` DigiCert Baltimore kök sertifikasını içeren bir yerel dosya yoludur. Sertifika bilgileri kopyalayarak bu dosyayı oluşturabilirsiniz [certs.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) satırları c için Azure IOT SDK'sı dahil `-----BEGIN CERTIFICATE-----` ve `-----END CERTIFICATE-----`, kaldırma `"` başlangıcına ve her bir satır sonu işareti ve kaldırma `\r\n` her satırın sonunda bir karakter.
+
 * `<device id from device registry>` bir cihaz IOT hub'ınıza eklediğiniz kimliğidir.
+
 * `<generated SAS token>` Bu makalede daha önce açıklandığı gibi oluşturduğunuz cihaz için bir SAS belirteci ' dir.
+
 * `<iot hub name>` IOT hub'ınızın adıdır.
 
 ```python
@@ -182,15 +198,17 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 ```
 
 > [!NOTE]
-> Bu `{property_bag}` öğe aynı kodlama için sorgu dizelerine HTTPS protokolünü kullanır.
+> Bu `{property_bag}` öğe HTTPS protokolünü sorgu dizelerine aynı kodlamayı kullanır.
 
 IOT hub'ı uygulamaya özel davranışların bir listesi verilmiştir:
 
 * QoS 2 iletileri IOT hub'ı desteklemez. Bir cihaz uygulaması içeren bir ileti yayımlar, **QoS 2**, IOT Hub ağ bağlantıyı kapatır.
+
 * IOT hub'ı tut iletileri devam etmez. Bir CİHAZDAN bir ileti ile gönderilen **TUT** bayrağı, IOT hub'ı ekler 1 olarak ayarlayın **x-opt-korumak** iletisi uygulama özelliği. Bu durumda, tut ileti kalıcı yerine IOT hub'ı arka uç uygulamasına geçirir.
+
 * IOT Hub, cihaz başına bir etkin MQTT bağlantısı yalnızca destekler. Herhangi bir yeni MQTT bağlantısı cihaz kimliği aynı adına, IOT Hub'ın var olan bağlantıyı kesmek neden olur.
 
-Daha fazla bilgi için [Geliştirici Kılavuzu Mesajlaşma][lnk-messaging].
+Daha fazla bilgi için [Geliştirici Kılavuzu Mesajlaşma](iot-hub-devguide-messaging.md).
 
 ### <a name="receiving-cloud-to-device-messages"></a>Bulut-cihaz iletilerini alma
 
@@ -206,7 +224,7 @@ Bir konu ile bir cihaz uygulaması zaman aboneliği **QoS 2**, IOT hub'ı en faz
 
 Bir cihaz ilk olarak, abone `$iothub/twin/res/#`, işlemin yanıt almak için. Ardından, konuya boş bir ileti gönderir `$iothub/twin/GET/?$rid={request id}`, için doldurulmuş bir değerle **istek kimliği**. Hizmet ardından konuyla ilgili cihaz ikizi verileri içeren bir yanıt iletisi gönderir `$iothub/twin/res/{status}/?$rid={request id}`, aynı kullanarak **istek kimliği** istek olarak.
 
-İstek Kimliği olarak başına herhangi bir ileti özellik değeri için geçerli bir değer olabilir [IOT Hub Geliştirici Kılavuzu Mesajlaşma][lnk-messaging], ve durum bir tamsayı olarak doğrulandı.
+İstek Kimliği olarak başına herhangi bir ileti özellik değeri için geçerli bir değer olabilir [IOT Hub Geliştirici Kılavuzu Mesajlaşma](iot-hub-devguide-messaging.md), ve durum bir tamsayı olarak doğrulandı.
 
 Yanıt gövdesi, yanıtı aşağıda gösterildiği gibi özellikler bölümü cihaz çiftinin içerir:
 
@@ -229,10 +247,10 @@ Olası durum kodları şunlardır:
 |Durum | Açıklama |
 | ----- | ----------- |
 | 204 | Başarılı (içerik yok döndürülür) |
-| 429 | Olarak başına (daraltılmış) çok fazla istek [IOT Hub'ın azaltma][lnk-quotas] |
+| 429 | Olarak başına (daraltılmış) çok fazla istek [IOT Hub'ın azaltma](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Sunucu hataları |
 
-Daha fazla bilgi için [cihaz ikizlerini Geliştirici Kılavuzu][lnk-devguide-twin].
+Daha fazla bilgi için [cihaz ikizlerini Geliştirici Kılavuzu](iot-hub-devguide-device-twins.md).
 
 ### <a name="update-device-twins-reported-properties"></a>Cihaz ikizinin bildirilen özellikleri güncelleştirmek
 
@@ -242,9 +260,9 @@ Bir cihaz tarafından bildirilen özellikleri IOT hub'daki cihaz ikizinde günce
 
 1. Bir cihaz ilk abone olmalısınız `$iothub/twin/res/#` IOT Hub'ından işlemin yanıtlar almak için konu.
 
-1. Bir cihaz için cihaz ikizi güncelleştirme içeren bir ileti gönderir `$iothub/twin/PATCH/properties/reported/?$rid={request id}` konu. Bu iletiyi içeren bir **istek kimliği** değeri.
+2. Bir cihaz için cihaz ikizi güncelleştirme içeren bir ileti gönderir `$iothub/twin/PATCH/properties/reported/?$rid={request id}` konu. Bu iletiyi içeren bir **istek kimliği** değeri.
 
-1. Hizmet ardından konu bildirilen özellikler koleksiyonunda yeni ETag değeri içeren bir yanıt iletisi gönderir `$iothub/twin/res/{status}/?$rid={request id}`. Bu yanıt iletisiyle ndedir **istek kimliği** istek olarak.
+3. Hizmet ardından konu bildirilen özellikler koleksiyonunda yeni ETag değeri içeren bir yanıt iletisi gönderir `$iothub/twin/res/{status}/?$rid={request id}`. Bu yanıt iletisiyle ndedir **istek kimliği** istek olarak.
 
 İstek iletisi gövdesi, bildirilen özellikleri için yeni değerler içeren bir JSON belgesini içerir. JSON belgesini içindeki her üyenin güncelleştirir veya cihaz ikizinin belgede karşılık gelen bir üye ekleyin. Ayarlanmış bir üye `null`, üyeyi içeren nesneyi siler. Örneğin:
 
@@ -261,10 +279,11 @@ Olası durum kodları şunlardır:
 | ----- | ----------- |
 | 200 | Başarılı |
 | 400 | Hatalı istek. Hatalı biçimlendirilmiş JSON |
-| 429 | Olarak başına (daraltılmış) çok fazla istek [IOT Hub'ın azaltma][lnk-quotas] |
+| 429 | Olarak başına (daraltılmış) çok fazla istek [IOT Hub'ın azaltma](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Sunucu hataları |
 
 Python kodu aşağıdaki kod parçacığında, gösterir ikiz özellikler güncelleştirme işlemi MQTT (Paho MQTT istemci kullanarak) bildirilen:
+
 ```python
 from paho.mqtt import client as mqtt
 
@@ -278,7 +297,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_repor
 
 İkizinin başarılı olduktan sonra bildirilen özellikler güncelleştirme işlemi yukarıdaki, IOT Hub'ından yayın ileti konusuna sahip olur: `$iothub/twin/res/204/?$rid=1&$version=6`burada `204` başarının, durum kodu `$rid=1` istek Kimliğine karşılık gelen kodda, cihaz tarafından sağlanan ve `$version` güncelleştirmesinden sonra cihaz ikizlerini bildirilen özellikler bölümünü sürümüne karşılık gelir.
 
-Daha fazla bilgi için [cihaz ikizlerini Geliştirici Kılavuzu][lnk-devguide-twin].
+Daha fazla bilgi için [cihaz ikizlerini Geliştirici Kılavuzu](iot-hub-devguide-device-twins.md).
 
 ### <a name="receiving-desired-properties-update-notifications"></a>İstenen özellikleri güncelleştirme bildirimlerini alma
 
@@ -295,9 +314,9 @@ Bir cihaz bağlandığında, IOT hub'ı bildirim konuya gönderir. `$iothub/twin
 Özellik güncelleştirmeleri, olduğu gibi `null` değerleri, JSON nesne üyesi silindiğini anlamına gelir. Ayrıca, `$version` ikizinin istenen özellikleri bölümünde yeni sürümünü gösterir.
 
 > [!IMPORTANT]
-> Yalnızca cihazları bağlı IOT hub'ı değişiklik bildirimleri oluşturur. Uygulamak emin [cihaz yeniden akış] [ lnk-devguide-twin-reconnection] istenen özellikleri IOT Hub cihaz uygulaması arasında eşitlenmiş tutmak için.
+> Yalnızca cihazları bağlı IOT hub'ı değişiklik bildirimleri oluşturur. Uygulamak emin [cihaz yeniden akış](iot-hub-devguide-device-twins.md#device-reconnection-flow) istenen özellikleri IOT Hub cihaz uygulaması arasında eşitlenmiş tutmak için.
 
-Daha fazla bilgi için [cihaz ikizlerini Geliştirici Kılavuzu][lnk-devguide-twin].
+Daha fazla bilgi için [cihaz ikizlerini Geliştirici Kılavuzu](iot-hub-devguide-device-twins.md).
 
 ### <a name="respond-to-a-direct-method"></a>Doğrudan bir yönteme yanıt
 
@@ -305,54 +324,24 @@ Daha fazla bilgi için [cihaz ikizlerini Geliştirici Kılavuzu][lnk-devguide-tw
 
 Cihaz yanıt vermek için konuya geçerli JSON veya boş gövdesi olan bir ileti gönderir `$iothub/methods/res/{status}/?$rid={request id}`. Bu iletideki **istek kimliği** bir istek iletisi eşleşmelidir ve **durumu** bir tamsayı olmalıdır.
 
-Daha fazla bilgi için [yöntemi Geliştirici Kılavuzu doğrudan][lnk-methods].
+Daha fazla bilgi için [yöntemi Geliştirici Kılavuzu doğrudan](iot-hub-devguide-direct-methods.md).
 
 ### <a name="additional-considerations"></a>Diğer konular
 
-Son yaparken, bulut tarafındaki MQTT protokolünü davranışını özelleştirmek gerekiyorsa gözden geçirmeniz gereken [Azure IOT protokolü ağ geçidini][lnk-azure-protocol-gateway]. Bu yazılım, yüksek performanslı özel protokolü ağ geçidini dağıtmak için IOT hub'ı ile doğrudan arabirim sağlar. Azure IOT protokolü ağ geçidini brownfield MQTT dağıtımları uyum sağlamak için cihaz protokolü veya diğer özel protokoller özelleştirmenize olanak sağlar. Bu yaklaşım, ancak çalıştırın ve bir özel protokol ağ geçidi çalışması gerektirir.
+Son yaparken, bulut tarafındaki MQTT protokolünü davranışını özelleştirmek gerekiyorsa gözden geçirmeniz gereken [Azure IOT protokolü ağ geçidini](iot-hub-protocol-gateway.md). Bu yazılım, yüksek performanslı özel protokolü ağ geçidini dağıtmak için IOT hub'ı ile doğrudan arabirim sağlar. Azure IOT protokolü ağ geçidini brownfield MQTT dağıtımları uyum sağlamak için cihaz protokolü veya diğer özel protokoller özelleştirmenize olanak sağlar. Bu yaklaşım, ancak çalıştırın ve bir özel protokol ağ geçidi çalışması gerektirir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ve MQTT protokolünü hakkında daha fazla bilgi için bkz: [MQTT belgeleri][lnk-mqtt-docs].
+Ve MQTT protokolünü hakkında daha fazla bilgi için bkz: [MQTT belgeleri](https://mqtt.org/documentation).
 
 IOT Hub dağıtımınızı planlama hakkında daha fazla bilgi için bkz:
 
-* [Azure IOT için sertifikalı cihaz Kataloğu][lnk-devices]
-* [Ek protokol desteği][lnk-protocols]
-* [Event Hubs ile karşılaştırma][lnk-compare]
-* [Ölçeklendirme, HA ve DR][lnk-scaling]
+* [IoT için Azure Sertifikalı cihaz kataloğu](https://catalog.azureiotsolutions.com/)
+* [Ek protokol desteği](iot-hub-protocol-gateway.md)
+* [Event Hubs ile karşılaştırma](iot-hub-compare-event-hubs.md)
+* [Ölçeklendirme, HA ve DR](iot-hub-scaling.md)
 
 Daha fazla IOT Hub'ın özelliklerini keşfetmek için bkz:
 
-* [IOT Hub Geliştirici Kılavuzu][lnk-devguide]
-* [Azure IOT Edge ile sınır cihazlarına Al dağıtma][lnk-iotedge]
-
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
-[lnk-mqtt-org]: https://mqtt.org/
-[lnk-mqtt-docs]: https://mqtt.org/documentation
-[lnk-sample-node]: https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js
-[lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java
-[lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm
-[lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples
-[lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
-[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-sas-tokens]: iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
-[lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
-
-[lnk-devices]: https://catalog.azureiotsolutions.com/
-[lnk-protocols]: iot-hub-protocol-gateway.md
-[lnk-compare]: iot-hub-compare-event-hubs.md
-[lnk-scaling]: iot-hub-scaling.md
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-x509]: iot-hub-security-x509-get-started.md
-
-[lnk-methods]: iot-hub-devguide-direct-methods.md
-[lnk-messaging]: iot-hub-devguide-messaging.md
-
-[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-devguide-twin-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
-[lnk-devguide-twin]: iot-hub-devguide-device-twins.md
-[lnk-sdk-c-certs]: https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c
-[lnk-digicert-root-certs]: https://www.digicert.com/digicert-root-certificates.htm
-[lnk-paho]: https://pypi.python.org/pypi/paho-mqtt
+* [IOT Hub Geliştirici Kılavuzu](iot-hub-devguide.md)
+* [Yapay ZEKA, Azure IOT Edge ile uç cihazlarına dağıtma](../iot-edge/tutorial-simulate-device-linux.md)

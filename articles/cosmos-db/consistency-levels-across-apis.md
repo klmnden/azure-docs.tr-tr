@@ -1,18 +1,18 @@
 ---
 title: Tutarlılık düzeyleri ve Azure Cosmos DB API’leri
 description: Azure Cosmos DB API'leri arasında tutarlılık düzeylerini anlama.
-author: markjbrown
-ms.author: mjbrown
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 04/08/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 902303a8f55f4494e0cc6c21b0438e41437c0567
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 7a8617ae2b01fc89a4c957b8610164a2b53a16f5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620674"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274782"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Tutarlılık düzeyleri ve Azure Cosmos DB API’leri
 
@@ -33,7 +33,7 @@ AzureCosmos DB, Apache Cassandra yerel olarak tam olarak tanımlanmış tutarlı
 
 Aşağıdaki tabloda, nasıl yerel Cassandra tutarlılık düzeyleri için Azure Cosmos DB tutarlılık düzeyleri Cassandra API'si kullanılırken eşlendiğine gösterilmektedir:  
 
-[ ![Cassandra tutarlılık modeli eşleme](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
+[![Cassandra tutarlılık modeli eşleme](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
 ## <a id="mongo-mapping"></a>MongoDB ve Azure Cosmos DB tutarlılık düzeyleri arasında eşleme
 
@@ -51,7 +51,7 @@ MongoDB için Azure Cosmos DB'nin API'sini kullanırken:
 
 Aşağıdaki tabloda, nasıl yerel MongoDB yazma/kaygıları okuma gösterilmektedir. Azure Cosmos DB'nin MongoDB kullanarak, Azure Cosmos tutarlılık düzeylerine eşlenir:
 
-[ ![MongoDB tutarlılık modeli eşleme](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
+[![MongoDB tutarlılık modeli eşleme](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

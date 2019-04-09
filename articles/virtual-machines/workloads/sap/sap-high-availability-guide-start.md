@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5ceab083077231fd856bb0f267717afdb9556d3
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 7de46a534ea7920bcae4a5b2a3316117f090a7bf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667064"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265075"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure sanal makineleri SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -196,7 +196,7 @@ Bu makale serisi, kapsar:
     > SAP tesislerinize için Azure Resource Manager dağıtım modeli kullanmanız önerilir. Klasik dağıtım modelinde kullanılabilir olmayan birçok avantaj sunar. Azure hakkında daha fazla bilgi [dağıtım modelleri][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
     >
 * SAP üzerinde yüksek kullanılabilirlik:
-  * ![Windows][Logo_Windows]**Windows**kullanarak **Windows Server Yük devretme kümesi (WSFC)**
+  * ![Windows][Logo_Windows]**Windows**kullanarak **Windows Server Yük devretme kümesi (WSFC)** 
   * ![Linux][Logo_Linux] **Linux**kullanarak **Linux küme Framework**
 
 Bu makalelerde, SAP Central Services'in (ASCS/SCS) ve veritabanı yönetim sistemi (DBMS) gibi başarısız (SPOF) bileşenleri tek noktası korunmasına nasıl yardımcı olacağını öğrenin. Ayrıca, azure'da SAP uygulama sunucusu gibi yedekli bileşenler hakkında bilgi.
@@ -228,7 +228,7 @@ Her ikisi de makale kapsar ![Windows][Logo_Windows] **Windows** ve ![Linux][Logo
 
 * ![RHEL][Logo_Linux] [rhel GlusterFS hazırlama Azure altyapısı - SAP ASCS/SCS yüksek kullanılabilirlik için ayarlayın][high-availability-guide-rhel-glusterfs]
 
-* ![RHEL][Logo_Linux] [SLES RHEL üzerinde Pacemaker hazırlama Azure altyapısı - SAP ASCS/SCS yüksek kullanılabilirlik için ayarlayın ][high-availability-guide-rhel-pacemaker]
+* ![RHEL][Logo_Linux] [SLES RHEL üzerinde Pacemaker hazırlama Azure altyapısı - SAP ASCS/SCS yüksek kullanılabilirlik için ayarlayın][high-availability-guide-rhel-pacemaker]
 
 ## <a name="installation-of-an-sap-netweaver-high-availability-system-in-azure"></a>Azure'da SAP NetWeaver yüksek kullanılabilirlik sistemin yükleme
 

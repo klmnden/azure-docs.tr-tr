@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 4ba94187cb014256d63e80cb23defc5099aac52d
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 444269aa7ca2b0a82b78e8437b7884ef8833c665
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445555"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279797"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory kullanarak birden çok tabloyu toplu olarak kopyalama
 Bu öğreticide **Azure SQL Veritabanından Azure SQL Veri Ambarı'na birkaç tabloyu kopyalama** işlemi gösterilmektedir. Aynı düzeni diğer kopyalama senaryolarında da uygulayabilirsiniz. Örneğin, SQL Server/Oracle’dan Azure SQL Veritabanı/Veri Ambarı/Azure Blob’a tablo kopyalama, Blob’dan Azure SQL Veritabanı tablolarına farklı yollar kopyalama.
@@ -215,7 +215,7 @@ Bu öğreticide, iki işlem hattı oluşturacaksınız: **Iterateandcopysqltable
 * Kopyalanacak tabloların listesini almak için Azure SQL Veritabanı sistem tablosunu arar.
 * Gerçek veri kopyalamayı yapmak için **IterateAndCopySQLTables** işlem hattını tetikler.
 
-**GetTableListAndTriggerCopyData**, parametre olarak bir tablo listesi alır. Listedeki her bir tablo için verileri hazırlanmış kopya ve PolyBase kullanarak Azure SQL Veritabanından Azure SQL Veri Ambarına kopyalar.
+**Iterateandcopysqltables** Tablo listesini bir parametre olarak alır. Listedeki her bir tablo için verileri hazırlanmış kopya ve PolyBase kullanarak Azure SQL Veritabanından Azure SQL Veri Ambarına kopyalar.
 
 ### <a name="create-the-pipeline-iterateandcopysqltables"></a>IterateAndCopySQLTables işlem hattını oluşturma
 
@@ -418,4 +418,4 @@ Bu öğreticide aşağıdaki adımları gerçekleştirdiniz:
 
 Kaynaktan hedefe verileri artımlı olarak koppyalama hakkında bilgi edinmek için aşağıdaki öğreticiye geçin:
 > [!div class="nextstepaction"]
->[Veri artımlı olarak kopyalama](tutorial-incremental-copy-portal.md)
+>[Verileri artımlı olarak kopyalama](tutorial-incremental-copy-portal.md)

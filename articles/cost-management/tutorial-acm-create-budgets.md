@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: e6e20db39be8a6e60833bf5c4f9b6a34a9ead461
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 22a95ce506a7f906604cc65d08a04b7f761bb4c2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013045"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273592"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Öğretici: Oluşturma ve Azure bütçelerini yönetin
 
@@ -63,7 +63,9 @@ Bütçe oluşturduktan sonra bunlar geçerli bunlara karşı harcamalarınızı 
 
 ![Azure portalında gösterilen yönetim bütçelerini maliyeti](./media/tutorial-acm-create-budgets/budgets01.png)
 
-İçinde **Oluştur bütçe** penceresinde bir bütçe adı ve bütçe miktarı girin. Ardından, bir aylık, üç aylık, veya yıllık süresi seçin. Ardından, bir bitiş tarihi seçin. Bütçe en az bir maliyet eşiği (% bütçe) ve karşılık gelen e-posta adresi gerektirir. İsteğe bağlı olarak, en fazla beş eşikleri ve tek bir bütçe içinde beş e-posta adresi ekleyebilirsiniz. Bütçe eşiği karşılandığında, e-posta bildirimleri normal olarak sekiz saatten kısa bir süre içinde alınır. Bildirimleri hakkında daha fazla bilgi için bkz. [kullanım maliyeti uyarılar](cost-mgt-alerts-monitor-usage-spending.md).
+İçinde **Oluştur bütçe** penceresinde bir bütçe adı ve bütçe miktarı girin. Ardından, bir aylık, üç aylık veya yıllık süresi seçin<sup>1</sup>. Ardından, bir bitiş tarihi seçin. Bütçe en az bir maliyet eşiği (% bütçe) ve karşılık gelen e-posta adresi gerektirir. İsteğe bağlı olarak, en fazla beş eşikleri ve tek bir bütçe içinde beş e-posta adresi ekleyebilirsiniz. Bütçe eşiği karşılandığında, e-posta bildirimleri normal olarak sekiz saatten kısa bir süre içinde alınır. Bildirimleri hakkında daha fazla bilgi için bkz. [kullanım maliyeti uyarılar](cost-mgt-alerts-monitor-usage-spending.md).
+
+<sup>1</sup> Kullandıkça Öde, MSDN veya Visual Studio müşteri varsa bir abonelik için fatura fatura döneminize Takvim ayı için yeteri kadar. Abonelikler ve bu demet içinde kalan kaynak grupları için faturanızı veya takvim ayı hizalanmış bir bütçe oluşturabilirsiniz. Faturanızı hizalanmış bir bütçe oluşturmak için bir faturalandırma ayı, faturalandırma üç aylık dönem veya oluşturma zamanında faturalandırma yıl sıfırlama süresini seçin. Takvim ayına göre bir bütçe oluşturmak için aylık, üç aylık veya yıllık olacak şekilde oluşturulma zamanında bir sıfırlama süresini seçin.
 
 4.500 için aylık bir bütçe oluşturma örneği aşağıda verilmiştir. %90 bütçenin ulaşıldığında bir e-posta uyarısı oluşturulan.
 

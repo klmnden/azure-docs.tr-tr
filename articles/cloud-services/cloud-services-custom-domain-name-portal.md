@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 814ae0e79ac24d5b645c4bf107287ab1b8326ff4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121630"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267155"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Azure bulut hizmeti için bir özel etki alanı adı yapılandırma
 Azure bulut hizmeti oluşturma zaman, bir alt etki alanı için atar **cloudapp.net**. Bulut hizmetinizin "contoso" ise, örneğin, kullanıcılarınız gibi bir URL uygulamanıza erişmek mümkün olacaktır http://contoso.cloudapp.net. Azure Ayrıca, sanal bir IP adresi atar.
@@ -64,11 +64,11 @@ CNAME kaydı oluşturmak için yeni bir giriş DNS tablosunda özel etki alanın
 
 1. Bulmak için aşağıdaki yöntemlerden birini kullanın **. cloudapp.net** , bulut hizmetine atanan etki alanı adı.
 
-   * Oturum açma [Azure portal], bulut hizmetinizi seçin, bakmak **Essentials** bölümüne ve ardından bulun **Site URL'si** girişi.
+   * Oturum açma [Azure portalında], bulut hizmetinizi seçin, bakmak **genel bakış** bölümüne ve ardından bulun **Site URL'si** girişi.
 
        ![site URL'si gösteren Hızlı Bakış bölümü][csurl]
 
-       **VEYA**
+       **OR**
    * Yükleme ve yapılandırma [Azure Powershell](/powershell/azure/overview)ve ardından aşağıdaki komutu kullanın:
 
        ```powershell
@@ -97,11 +97,11 @@ Bir A kaydı oluşturmak için sanal IP adresi bulut hizmetinizin bulmalıdır. 
 
 1. Bulut hizmetinizin IP adresini almak için aşağıdaki yöntemlerden birini kullanın.
 
-   * Oturum açma [Azure portal], bulut hizmetinizi seçin, bakmak **Essentials** bölümüne ve ardından bulun **genel IP adresleri** girişi.
+   * Oturum açma [Azure portalında], bulut hizmetinizi seçin, bakmak **genel bakış** bölümüne ve ardından bulun **genel IP adresleri** girişi.
 
        ![Hızlı Bakış bölümünde VIP gösteriliyor][vip]
 
-       **VEYA**
+       **OR**
    * Yükleme ve yapılandırma [Azure Powershell](/powershell/azure/overview)ve ardından aşağıdaki komutu kullanın:
 
        ```powershell

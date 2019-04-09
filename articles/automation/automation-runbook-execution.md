@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/03/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9d4661f6c975265ec710b29a8a05cc7ef41b4011
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 0445643d3aae0e4e072e7fa8e3a73dc8973e84a5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057430"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268509"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure automation'da Runbook yürütme
 
@@ -51,6 +51,8 @@ Azure automation'daki Runbook'lar çalışma zamanı üzerinde bir korumalı ala
 ## <a name="runbook-behavior"></a>Runbook davranışı
 
 Runbook'ları yürütmesine içinde tanımlanan mantık göre. Bir runbook kesintiye uğrarsa, runbook başına yeniden başlatır. Bu davranış, burada geçici bir sorun varsa yeniden başlatılmadan destekledikleri bir şekilde yazılması için runbook'ları gerektirir.
+
+Bir Runbook'tan başlatılan PowerShell işleri çalıştıran bir Azure sanal tam dil modunda çalışmayabilir. PowerShell dil modları hakkında daha fazla bilgi için bkz. [PowerShell dil modları](/powershell/module/microsoft.powershell.core/about/about_language_modes). Azure Otomasyon işleri ile etkileşim kurmak hakkında ek ayrıntılar için bkz. [PowerShell ile iş durumunu alma](#retrieving-job-status-using-powershell)
 
 ### <a name="creating-resources"></a>Kaynakları oluşturma
 

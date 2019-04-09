@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 1/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8dea667b15471accd4fc8b09d0ff1eb7aa5daed5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2cd2d328d33744854bc525e5ecf1dfa3b6e4bcc8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403702"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275451"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Yönetin, dağıtın ve modeller Azure Machine Learning hizmeti ile izleme
 
@@ -33,7 +33,7 @@ Dağıtım iş akışı, aşağıdaki adımları içerir:
 
 Her adım, bağımsız olarak veya tek dağıtım komutun bir parçası olarak gerçekleştirilebilir. Ayrıca, dağıtımı ile tümleştirebilirsiniz bir **CI/CD iş akışı** Bu grafikte gösterildiği gibi.
 
-[!['Azure Machine Learning sürekli tümleştirme/sürekli dağıtım (CI/CD) döngüsü'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[!['Azure Machine Learning sürekli tümleştirme/sürekli dağıtım (CI/CD) döngüsü '](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## <a name="step-1-register-model"></a>1. Adım: Modeli kaydetme
 
@@ -63,7 +63,9 @@ Görüntü ayrıca günlüğe kaydetme ve izleme için SDK bileşenleri içerir.
 Azure Machine Learning en popüler çerçeveleri destekler, ancak genel pıp'in yüklü olan herhangi bir çerçeveyi çalışabilir.
 
 Bu nedenle çalışma alanınızı oluştururken diğer birçok diğer Azure kaynakları bu çalışma alanı tarafından kullanıldı.
-Görüntüyü oluşturmak için kullanılan tüm nesneler, çalışma alanınızda Azure depolama hesabında depolanır. Ek meta veri etiketleri, görüntü oluştururken sağlayabilir. Meta veri etiketleri de görüntü kayıt depolanır ve görüntünüzü bulmak için sorgulanabilir.
+Varsayılan görüntü oluşturmak için kullanılan tüm nesneler, çalışma alanınızda Azure depolama hesabında depolanır. Ek meta veri etiketleri, görüntü oluştururken sağlayabilir. Meta veri etiketleri de görüntü kayıt depolanır ve görüntünüzü bulmak için sorgulanabilir.
+
+Azure Container Registry'ye yüklendi ve Azure Machine Learning hizmeti tarafından kullanılan özel görüntüler de kullanabilirsiniz.
 
 Daha fazla bilgi için bkz. configure ve görüntü bölümünü kaydetmek [modelleri dağıtma](how-to-deploy-and-where.md#configureimage).
 
@@ -73,7 +75,7 @@ Buluta veya uç cihazlarında kayıtlı görüntülerini dağıtabilirsiniz. Da�
 
 Web hizmeti dağıtımları da aranabilir. Örneğin, belirli bir model veya görüntü tüm dağıtımları için arama yapabilirsiniz.
 
-[![Çıkarım hedefleri](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![Inferencing hedefleri](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 Aşağıdaki dağıtım hedefleri bulutta görüntülerinizi dağıtabilirsiniz:
 

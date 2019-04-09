@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 20ca4b9d347b9dc01e3b890fcf3758fb2fb135b9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ccc1f94b9411a158b5c60509e09bd3edc0a61640
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486147"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277604"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -177,7 +177,7 @@ Bir düzenleme adımı türü `ClaimsProviderSelection` veya `CombinedSignInAndS
 
 ### <a name="claimsproviderselection-example"></a>ClaimsProviderSelection örneği
 
-Aşağıdaki düzenleme adımı, Facebook, bağlantı, Twitter, Google veya yerel bir hesap kullanarak, oturum açma kullanıcı seçebilir. Kullanıcı sosyal kimlik sağlayıcıları seçerse, belirtilen seçili talep değişimi ile ikinci düzenleme adımı yürütür `TargetClaimsExchangeId` özniteliği. İkinci düzenleme adımı kullanıcıyı oturum açma işlemini tamamlamak için sosyal kimlik sağlayıcısı yönlendirir. Kullanıcının yerel hesabı ile oturum açmayı seçerse, Azure AD B2C aynı düzenleme adımı (aynı kaydolma sayfası veya oturum açma sayfası) kalır ve ikinci düzenleme adımı atlar.
+Aşağıdaki düzenleme adımı, Facebook, LinkedIn, Twitter, Google veya yerel bir hesap açın, oturum açmak kullanıcı seçebilir. Kullanıcı sosyal kimlik sağlayıcıları seçerse, belirtilen seçili talep değişimi ile ikinci düzenleme adımı yürütür `TargetClaimsExchangeId` özniteliği. İkinci düzenleme adımı kullanıcıyı oturum açma işlemini tamamlamak için sosyal kimlik sağlayıcısı yönlendirir. Kullanıcının yerel hesabı ile oturum açmayı seçerse, Azure AD B2C aynı düzenleme adımı (aynı kaydolma sayfası veya oturum açma sayfası) kalır ve ikinci düzenleme adımı atlar.
 
 ```XML
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">

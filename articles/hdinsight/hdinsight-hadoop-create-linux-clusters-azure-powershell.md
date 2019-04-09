@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 264b4737974010baffd82b38275a8fe56163e1f2
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 30154c55e60b7150257729c9bc90ee07a561e08e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361447"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264548"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Linux tabanlı kümeler Azure PowerShell kullanarak HDInsight oluşturma
 
@@ -71,7 +71,7 @@ Bir HDInsight yapılandırma nesnesi kullanarak da oluşturabilirsiniz `New-AzHD
 
 Aşağıdaki betiği HDInsight küme türü üzerinde bir R Server'ı yapılandırmak için bir yapılandırma nesnesi oluşturur. Kenar düğümünde RStudio ve ek bir depolama hesabı yapılandırmasını sağlar.
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-99)]
 
 > [!WARNING]  
 > HDInsight kümesinden farklı bir konumda bir depolama hesabının kullanılması desteklenmez. Bu örnek kullanırken, sunucu ile aynı konumda ek depolama hesabı oluşturun.
@@ -97,7 +97,7 @@ Bir HDInsight kümesi başarıyla oluşturdunuz, bir küme ile çalışmanıza �
 
 * [Apache Hive, HDInsight ile kullanma](hadoop/hdinsight-use-hive.md)
 * [Apache Pig, HDInsight ile kullanma](hadoop/hdinsight-use-pig.md)
-* [HDInsight ile MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
+* [HDInsight ile MapReduce uygulamasını kullanma](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase kümeleri
 
@@ -112,7 +112,7 @@ Bir HDInsight kümesi başarıyla oluşturdunuz, bir küme ile çalışmanıza �
 
 ### <a name="apache-spark-clusters"></a>Apache Spark kümeleri
 
-* [Scala kullanarak tek başına uygulama oluşturma](spark/apache-spark-create-standalone-application.md)
+* [Scala kullanarak bağımsız uygulama oluşturma](spark/apache-spark-create-standalone-application.md)
 * [Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](spark/apache-spark-livy-rest-interface.md)
 * [Apache Spark ile BI: BI araçları ile HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](spark/apache-spark-use-bi-tools.md)
 * [Apache Spark Machine Learning ile: Gıda denetimi sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](spark/apache-spark-machine-learning-mllib-ipython.md)

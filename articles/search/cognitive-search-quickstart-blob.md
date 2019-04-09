@@ -1,26 +1,26 @@
 ---
-title: Yapay ZEKA destekli Azure portalı - Azure Search dizini oluşturmak için bilişsel arama işlem hattı oluşturma
-description: Örnek veriler kullanılarak Azure portalında veri ayıklama, doğal dil ve görüntü işleme becerileri örneği.
+title: 'Hızlı Başlangıç: Azure portal - Azure Search, yapay ZEKA destekli bir dizin oluşturun'
+description: Veri ayıklama, doğal dil ve görüntü işleme becerileri portalında bir Azure Search dizin oluşturma, Azure portalını kullanarak ve örnek veriler.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 03/17/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f00df841f81ea5c7aa1fd53309b00487602e5143
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 161d3ff3e00f7e9e979527533f6b8ac365c41490
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200640"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265024"
 ---
-# <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Hızlı Başlangıç: Bilişsel arama yetenekleri ve örnek verileri kullanarak işlem hattı oluşturma
+# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-and-sample-data"></a>Hızlı Başlangıç: Bilişsel beceriler ve örnek verileri kullanarak bir yapay ZEKA dizinleme işlem hattı oluşturma
 
-Bilişsel arama (önizleme), Azure Search dizin oluşturma işlem hattına veri ayıklama, doğal dil işleme (NLP) ve görüntü işleme becerileri ekleyerek aranamayan veya yapılandırılmamış içeriği daha aranabilir hale getirir. 
+Azure arama ile tümleştirilir [Bilişsel Hizmetler](https://azure.microsoft.com/services/cognitive-services/)unsearchable veya yapılandırılmamış içerik yapmanın, bir Azure Search dizini oluşturma ardışık düzeni içerik ayıklama, doğal dil işlemeyi (NLP) ve görüntü işleme yetenekleri ekleme aranabilir. 
 
-Bilişsel arama işlem hattı tümleşir [Bilişsel hizmetler kaynakları](https://azure.microsoft.com/services/cognitive-services/) - gibi [OCR](cognitive-search-skill-ocr.md), [dil algılama](cognitive-search-skill-language-detection.md), [varlık tanıma](cognitive-search-skill-entity-recognition.md)- bir dizin oluşturma işlemine. Bilişsel hizmetler, yapay ZEKA algoritması, temel Azure Search'te tam metin araması çözümlerinde, yapılar ve kullanılabilir metinsel içeriği döndüren kaynak verilerdeki desenleri, özellikleri ve özelliklerini bulmak için kullanılır.
+Birçok Bilişsel hizmetler kaynakları - gibi [OCR](cognitive-search-skill-ocr.md), [dil algılama](cognitive-search-skill-language-detection.md), [varlık tanıma](cognitive-search-skill-entity-recognition.md) - dizileri dizin bir işleme iliştirilebilir. Bilişsel hizmetler, yapay ZEKA algoritması, temel Azure Search'te tam metin araması çözümlerinde, yapılar ve kullanılabilir metinsel içeriği döndüren kaynak verilerdeki desenleri, özellikleri ve özelliklerini bulmak için kullanılır.
 
 Bu hızlı başlangıçta, ilk zenginleştirme hattınızı oluşturma [Azure portalında](https://portal.azure.com) tek satırlık bir kod yazmadan önce:
 
@@ -30,63 +30,28 @@ Bu hızlı başlangıçta, ilk zenginleştirme hattınızı oluşturma [Azure po
 > * Sihirbazı çalıştırma (bir varlık becerisi, kişileri, konumu ve kuruluşları algılar)
 > * Kullanım [ **arama Gezgini** ](search-explorer.md) zenginleştirilmiş verileri sorgulamak için
 
-## <a name="supported-regions"></a> Desteklenen bölgeler
+Bu hızlı başlangıçta ücretsiz hizmet üzerinde çalışır, ancak ücretsiz işlem sayısı günde 20 belgeleri sınırlıdır. Bu hızlı başlangıçta, aynı gün içinde birden çok kez çalıştırmak istiyorsanız, daha fazla çalıştırma sığacak şekilde ayarlamak daha küçük bir dosya kullanın.
 
-Bilişsel Hizmetler aracılığıyla yapay ZEKA zenginleştirilmiş dizinleme tüm Azure Search bölgelerde kullanılabilir.
+> [!NOTE]
+> İşlem, daha fazla belgelerin eklenmesi veya daha fazla yapay ZEKA algoritmalarının ekleme sıklığı artırarak kapsamı genişletin gibi Faturalanabilir bir Bilişsel hizmetler kaynağı eklemek gerekir. API'leri, Bilişsel hizmetler ve Azure Search'te belge çözme aşamasının bir parçası olarak görüntü ayıklama çağırırken ücretler tahakkuk. Metin ayıklama belgelerden için ücretlendirme yoktur.
+>
+> Yerleşik yetenek yürütülmesi sırasında mevcut ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Görüntü ayıklama fiyatlandırma üzerinden ücretlendirilir Önizleme fiyatlandırması üzerinde açıklandığı [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400). [Daha fazla bilgi](cognitive-search-attach-cognitive-services.md) edinin.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-> [!NOTE]
-> 21 aralık 2018 tarihinden itibaren Bilişsel hizmetler kaynağı bir Azure Search beceri kümesi ile ilişkilendirmek mümkün olmayacak. Bu beceri yürütmesi için ücretlendirme başlatmak için bize izin verir. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için başlayacağız. Belgelerden metin ayıklama işlemi ek masraf olmadan sağlanmaya devam edecektir.
->
-> Var olan konumunda yerleşik yetenek yürütülmesini ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Görüntü ayıklama fiyatlandırma Önizleme fiyatıyla ücretlendirilirsiniz ve üzerinde açıklanmıştır [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400). [Daha fazla bilgi](cognitive-search-attach-cognitive-services.md) edinin.
-
 ## <a name="prerequisites"></a>Önkoşullar
 
-[“Bilişsel arama nedir?”](cognitive-search-concept-intro.md) zenginleştirme mimarisi ve bileşenleri sunar. 
+[Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu Hızlı Başlangıç için ücretsiz bir hizmet kullanabilirsiniz.
 
-Bu senaryoda özel olarak Azure hizmetleri kullanılır. İhtiyaç duyduğunuz hizmetleri oluşturma, hazırlığın bir parçasını oluşturur.
+[Bilişsel Hizmetler](https://azure.microsoft.com/services/cognitive-services/) yapay ZEKA sağlar. Bu hızlı başlangıçta, bu kaynakları satır içi, işlem hattı belirtirken ekleme adımlarını içerir. Hesaplarını önceden ayarlamak gerekli değildir.
 
-+ [Azure Blob Depolama](https://azure.microsoft.com/services/storage/blobs/) kaynak verileri sağlar
-+ [Bilişsel Hizmetler](https://azure.microsoft.com/services/cognitive-services/) (oluşturabileceğiniz bu kaynakları satır içi, işlem hattı belirtirken) yapay ZEKA sağlar
-+ [Azure Search'ü](https://azure.microsoft.com/services/search/) özel apps'te kullanılmak üzere zenginleştirilmiş dizinleme işlem hattına ve zengin serbest biçimli metin arama deneyimi sağlar.
-
-### <a name="set-up-azure-search"></a>Azure Search ayarlama
-
-İlk olarak, Azure Search hizmetine kaydolun. 
-
-1. Oturum [Azure portalında](https://portal.azure.com) Azure hesabınızı kullanarak.
-
-1. **Kaynak oluştur**’a tıklayın, Azure Search’ü arayın ve **Oluştur**’a tıklayın. İlk kez bir arama hizmeti ayarlıyorsanız ve daha fazla yardıma ihtiyacınız varsa bkz. [Portalda Azure Search hizmeti oluşturma](search-create-service-portal.md).
-
-   ![Pano portalı](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Portalda Azure Search hizmeti oluşturma")
-
-1. Kaynak grubu için bu hızlı başlangıçta oluşturduğunuz tüm kaynakları içeren yeni bir kaynak grubu oluşturun. Böylece, hızlı başlangıcı tamamladıktan sonra kaynakları temizlemeniz kolaylaşır.
-
-1. Konum için aşağıdakilerden birini seçin [desteklenen bölgeler](#supported-regions) bilişsel arama için.
-
-1. Fiyatlandırma katmanı için, **Ücretsiz** bir hizmet oluşturarak öğreticileri ve hızlı başlangıçları tamamlayabilirsiniz. Kendi verilerinizi kullanarak daha ayrıntılı araştırma yapmak için **Temel** veya **Standart** gibi bir [ücretli hizmet](https://azure.microsoft.com/pricing/details/search/) oluşturun. 
-
-   Ücretsiz hizmet; 3 dizin, 16 MB maksimum blob boyutu ve 2 dizinleme dakikası ile sınırlıdır ve bu da bilişsel aramanın tüm yeteneklerini uygulamak için yeterli değildir. Farklı katmanlara ilişkin sınırları gözden geçirmek için bkz. [Hizmet Sınırları](search-limits-quotas-capacity.md).
-
-   ![Portaldaki hizmet tanımı sayfası](./media/cognitive-search-tutorial-blob/create-search-service2.png "Portaldaki hizmet tanımı sayfası")
-
-   > [!NOTE]
-   > Bilişsel arama genel önizleme aşamasındadır. Beceri kümesi yürütme şu anda ücretsiz katman da dahil olmak üzere tüm katmanlarda kullanılabilir. Ücretli bir Bilişsel hizmetler kaynağı ilişkilendirmeden zenginleştirmelerinin sınırlı sayıda gerçekleştirmek mümkün olacaktır. [Daha fazla bilgi](cognitive-search-attach-cognitive-services.md) edinin.
-
-1. Hizmet bilgilerine hızlı erişim için hizmeti panoya sabitleyin.
-
-   ![Portaldaki hizmet tanımı sayfası](./media/cognitive-search-tutorial-blob/create-search-service3.png "Portaldaki hizmet tanımı sayfası")
+Azure Hizmetleri dizinleme işlem hattına yönelik girişleri sağlamanız gerekir. Tarafından desteklenen herhangi bir veri kaynağını kullanabilen [Azure Search dizin oluşturucularında](search-indexer-overview.md) dışında Azure tablo depolama, desteklenmeyen AI dizinleme. Bu hızlı başlangıçta kullanılmaktadır [Azure Blob Depolama](https://azure.microsoft.com/services/storage/blobs/) kaynak veri dosyaları için kapsayıcı olarak. 
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Azure Blob hizmetini ayarlama ve örnek veriler yükleme
 
-Zenginleştirme işlem hattı, [Azure Search dizin oluşturucuları](search-indexer-overview.md) tarafından desteklenen Azure veri kaynaklarından çekme işlemi yapar. Azure tablo depolaması için bilişsel arama desteklenmediğini unutmayın. Bu alıştırmada, birden çok içerik türünü göstermek için blob depolama kullanırız.
-
 1. Farklı türlerden oluşan küçük bir dosya kümesini içeren [örnek verileri indirin](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). 
 
-1. Azure Blob Depolama için kaydolun, depolama hesabı oluşturma, Blob Hizmetleri sayfalarını açın ve bir kapsayıcı oluşturun. 
-
-1. Genel erişim düzeyini ayarlayın, kapsayıcıdaki **kapsayıcı (kapsayıcılar ve bloblar için anonim okuma erişimi)**. Daha fazla bilgi için ["bir kapsayıcı oluşturma" bölümünde](../storage/blobs/storage-unstructured-search.md#create-a-container) içinde *yapılandırılmamış verileri arama* öğretici.
+1. [Azure Blob Depolama için kaydolun](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), depolama hesabı oluşturma, Blob Hizmetleri sayfalarını açın ve bir kapsayıcı oluşturun.  Azure Search ile aynı bölgede depolama hesabı oluşturun.
 
 1. Oluşturduğunuz kapsayıcıya tıklayın **karşıya** önceki bir adımda indirdiğiniz örnek dosyalarını karşıya yüklemek için.
 

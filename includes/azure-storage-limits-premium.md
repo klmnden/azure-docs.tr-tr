@@ -8,20 +8,33 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e3d2466f05028a963256dbcc052c46650857836d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 1cb353d22e39447d7aeb723b5506ac0209cf74d8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372722"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59287111"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Premium performans blok blob depolama
 
-Premium performans blok blob depolama hesabı, daha küçük, kilobayt aralığı, nesneleri kullanan uygulamalar için optimize edilmiştir. Çok yüksek işlem hızları ya da tutarlı düşük gecikme süreli depolama gerektiren uygulamalar için idealdir. Premium performans blok blobu depolama ile uygulamalarınızı ölçeklendirmek için tasarlanmıştır. Yüz binlerce saniye başına istek sayısı veya depolama kapasitesi petabaytlarca gerektiren uygulamaları dağıtmayı planlıyorsanız, Lütfen bir destek isteği göndererek bizimle [Azure portalında](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Premium performans blok blob depolama hesabı, daha küçük, kilobayt aralığı, nesneleri kullanan uygulamalar için optimize edilmiştir. Yüksek işlem hızları ya da tutarlı düşük gecikme süreli depolama gerektiren uygulamalar için idealdir. Premium performans blok blobu depolama ile uygulamalarınızı ölçeklendirmek için tasarlanmıştır. Yüz binlerce saniye başına istek sayısı veya depolama kapasitesi petabaytlarca gerektiren uygulamaları dağıtmayı planlıyorsanız, Lütfen bir destek isteği göndererek bizimle [Azure portalında](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+### <a name="premium-performance-filestorage-preview"></a>Premium performans dosya deposundan (Önizleme)
+
+Premium dosyalar adlı bir benzersiz depolama hesabı kullanmak **dosya (Önizleme) deposundan**. Bu hesap türü yüksek IOPS sahip iş yükleri, yüksek aktarım hızı ile tutarlı düşük gecikme süresi için tasarlanmıştır. Premium dosya depolama, sağlanan paylaşım boyutu ile ölçeklendirilir.
+
+|Alan  |Hedef  |
+|---------|---------|
+|Maksimum boyut     |5 TiB (genel Önizleme), 100 TiB (sınırlı genel Önizleme)     |
+|Paylaşımlar   |Sınırsız  |
+|IOPS     |100.000 (sınırlı genel Önizleme)    |
+|Bant Genişliği|5 GB/sn     |
+
+ Ölçek hedefleri için Premium dosya paylaşmak için bkz: [Premium dosyaları ölçeklendirme hedeflerini](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) bölümü.
 
 ### <a name="premium-performance-page-blob-storage"></a>Premium performans sayfa blob depolama
 
-Premium performans için aşağıdaki ölçeklenebilirlik hedefleri genel amaçlı v1 veya v2 depolama hesabı vardır:
+Premium performans, genel amaçlı v1 veya v2 depolama hesaplarının aşağıdaki ölçeklenebilirlik hedefleri vardır:
 
 | Toplam hesabı kapasitesi                            | Yerel olarak yedekli depolama hesabı için toplam bant genişliği                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |

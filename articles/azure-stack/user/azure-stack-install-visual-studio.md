@@ -12,22 +12,22 @@ ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/08/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 274240aab54f27f36734516026e9feebf64ae4b5
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: da17d114c1ffb920fbaae85a6cdcbc35a66631a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248121"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258003"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>Visual Studio'yu yükleyin ve Azure Stack'e bağlanma
 
-*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Şunlara uygulanır Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Visual Studio yazma ve Azure Resource Manager'ı dağıtmak için kullanabileceğiniz [şablonları](azure-stack-arm-templates.md) Azure Stack için. Bu makaledeki adımlarda, Visual Studio yüklenmesinde size yol [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), veya Azure Stack ile kullanmayı planlıyorsanız bir dış bilgisayara [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+Visual Studio yazma ve Azure Resource Manager'ı dağıtmak için kullanabileceğiniz [şablonları](azure-stack-arm-templates.md) Azure Stack için. Bu makaledeki adımlarda Visual Studio yükleme açıklayan [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), veya Azure Stack ile kullanmayı planlıyorsanız bir dış bilgisayara [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
 ## <a name="install-visual-studio"></a>Visual Studio yükleme
 
@@ -39,9 +39,9 @@ Visual Studio yazma ve Azure Resource Manager'ı dağıtmak için kullanabilece�
 
 4. Kaldırma **Microsoft Azure PowerShell** Azure SDK'ın bir parçası olarak yüklenir.
 
-    ![Ekran görüntüsü, Webpı yükleme adımları](./media/azure-stack-install-visual-studio/image1.png) 
+    ![Ekran görüntüsü, Webpı yükleme adımları](./media/azure-stack-install-visual-studio/image1.png)
 
-5. [Azure Stack için PowerShell yükleme](azure-stack-powershell-install.md)
+5. [Azure Stack için PowerShell'i yükleme](azure-stack-powershell-install.md)
 
 6. Yükleme tamamlandıktan sonra işletim sistemi yeniden başlatın.
 
@@ -65,9 +65,7 @@ Oturum açtıktan sonra [şablonları dağıtma](azure-stack-deploy-template-vis
 
 3. Genişletin **ortam** içinde **Gezinti bölmesinde** seçip **hesapları**.
 
-4. Seçin **Ekle**ve kullanıcı Azure Resource Manager uç noktasını girin.  
-  Azure Stack Geliştirme Seti için URL'dir: `https://management.local.azurestack/external`.  
-  Azure Stack tümleşik sistemleri için URL'si şudur: `https://management.[Region}.[External FQDN]`.
+4. Seçin **Ekle**ve kullanıcı Azure Resource Manager uç noktasını girin. Azure Stack Geliştirme Seti için URL'dir: `https://management.local.azurestack/external`.  Azure Stack tümleşik sistemleri için URL'si şudur: `https://management.[Region}.[External FQDN]`.
 
     ![X](./media/azure-stack-install-visual-studio/image5.png)
 
@@ -79,7 +77,7 @@ Oturum açtıktan sonra [şablonları dağıtma](azure-stack-deploy-template-vis
 
 6. Seçin **Cloud Explorer** gelen **görünümü** menüsü.
 
-1. Seçin **hesabı Ekle** ve AD FS kimlik bilgilerinizle oturum açın.  
+7. Seçin **hesabı Ekle** ve AD FS kimlik bilgilerinizle oturum açın.  
 
     ![Cloud Explorer](./media/azure-stack-install-visual-studio/image7.png)
 
@@ -87,9 +85,9 @@ Oturum açtıktan sonra [şablonları dağıtma](azure-stack-deploy-template-vis
 
     ![Cloud Explorer](./media/azure-stack-install-visual-studio/image8.png)
 
-8. Var olan kaynakları, kaynak grupları göz atarak veya şablonları dağıtma.
+8. Var olan kaynakları, kaynak grupları göz atın veya şablonları dağıtma.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
- - Visual Studio hakkında daha fazla bilgiyi [yan yana](https://msdn.microsoft.com/library/ms246609.aspx) diğer Visual Studio sürümleriyle birlikte.
- - [Şablonları Azure Stack için geliştirme](azure-stack-develop-templates.md).
+- Visual Studio hakkında daha fazla bilgiyi [yan yana](/visualstudio/install/install-visual-studio-versions-side-by-side) diğer Visual Studio sürümleriyle birlikte.
+- [Şablonları Azure Stack için geliştirme](azure-stack-develop-templates.md).

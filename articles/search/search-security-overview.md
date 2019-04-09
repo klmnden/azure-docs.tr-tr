@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/18/2019
+ms.date: 04/06/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c0f824e2be0215192ca4ca1a722e814cbf299b7a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342431"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269563"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Azure Search'teki güvenlik ve veri gizliliği
 
@@ -31,7 +31,7 @@ Azure Search'ü sertifika aşağıdaki standartları, olarak [Haziran 2018'de du
 + [Sağlık Sigortası Taşınabilirlik ve Sorumluluk Yasası (HIPAA)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
 + [GxP (21 CFR Kısım 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
 + [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
-+ [PCI DSS düzey 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
++ [PCI DSS Düzey 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
 + [Avustralya IRAP Sınıflandırılmamış DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
 Standartlara uyum genel kullanıma sunulan özellikleri için geçerlidir. Önizleme özellikleri, genel kullanılabilirliğe geçiş ve katı standartlar gereksinimlerine sahip çözümler kullanılmamalıdır onaylanır. Uyumluluk sertifikası belirtilmiştir [Microsoft Azure genel bakış Uyumluluk](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) ve [Güven Merkezi](https://www.microsoft.com/en-us/trustcenter). 
@@ -58,6 +58,8 @@ Kullanılabilir Azure genelinde birden fazla güvenlik mekanizmasıdır ve bu ne
 
 Tüm Azure Hizmetleri, erişim düzeylerini sürekli olarak tüm hizmetler arasında ayarlamak için rol tabanlı erişim denetimlerine (RBAC) destekler. Hizmet durumunu görüntüleyerek herhangi bir rol, üyelerine kullanılabilir ise, yönetici anahtarı gibi hassas verilerin görüntüleme sahibi ve katkıda bulunan rollerine sınırlıdır. RBAC, sahibi, katkıda bulunan ve okuyucu rolleri sağlar. Varsayılan olarak, tüm hizmet yöneticileri sahip rolünün üyesidir.
 
+<a name="service-access-and-authentication"></a>
+
 ## <a name="service-access-and-authentication"></a>Hizmet erişim ve kimlik doğrulaması
 
 Azure Search, Azure platformunun güvenlik önlemlerinin devralır, ancak aynı zamanda kendi anahtar tabanlı kimlik doğrulamasını sağlar. Bir API anahtarı, rastgele oluşturulmuş bir sayı ile harflerden oluşan bir dizedir. (Yönetici veya sorgu) anahtar türünü erişim düzeyini belirler. Geçerli bir anahtar teslimini kavram isteği güvenilir bir varlıktan kaynağı olarak kabul edilir. 
@@ -65,11 +67,11 @@ Azure Search, Azure platformunun güvenlik önlemlerinin devralır, ancak aynı 
 Erişim anahtarları iki tür tarafından etkin arama hizmetinize iki düzeyi vardır:
 
 * Yönetici erişimi (hizmetinde herhangi bir okuma-yazma işlemi için geçerli)
-* Sorgulama erişimi (geçerli dizin sorguları gibi salt okunur işlemler için)
+* Sorgulama erişimi (belge koleksiyonu dizin sorguları gibi salt okunur işlemler için geçerli)
 
-*Yönetici anahtarları* hizmet sağlanması oluşturulur. Olarak belirlenen iki yönetici anahtarı mevcuttur *birincil* ve *ikincil* bunları tutmak düz, ancak aslında bunlar değiştirilebilir. Böylece, bir hizmete erişimi kaybetmeden dönebileceğinizden her hizmetin iki yönetici anahtarı vardır. İki yönetici anahtarı yeniden oluşturabilirsiniz ancak yönetici toplam anahtar sayısı için ekleyemezsiniz. İki yönetici anahtarı arama hizmeti başına en fazla yoktur.
+*Yönetici anahtarları* hizmet sağlanması oluşturulur. Olarak belirlenen iki yönetici anahtarı mevcuttur *birincil* ve *ikincil* bunları tutmak düz, ancak aslında bunlar değiştirilebilir. Böylece, bir hizmete erişimi kaybetmeden dönebileceğinizden her hizmetin iki yönetici anahtarı vardır. Yapabilecekleriniz [regenerate yönetici anahtarını](search-security-api-keys.md#regenerate-admin-keys) düzenli aralıklarla Azure güvenlik en iyi uygulamalar, ancak ekleyemiyor toplam yönetici anahtar sayısı. İki yönetici anahtarı arama hizmeti başına en fazla vardır.
 
-*Sorgu anahtarlarına* gerektiğinde oluşturulur ve arama doğrudan çağıran istemci uygulamalar için tasarlanmıştır. En çok 50 sorgu anahtarları oluşturabilirsiniz. Uygulama kodunda hizmeti salt okunur erişime izin vermek için arama URL'sini ve bir sorgu api anahtarını belirtin. Uygulama kodunuz aynı zamanda uygulamanız tarafından kullanılan dizinini belirtir. Uç nokta, salt okunur erişim için bir API anahtarı ve bir hedef dizin birlikte, istemci uygulamanızın bağlantı kapsamı ve erişim düzeyini tanımlayın.
+*Sorgu anahtarlarına* gerektiğinde oluşturulur ve sorguları göndermek istemci uygulamaları için tasarlanmıştır. En çok 50 sorgu anahtarları oluşturabilirsiniz. Uygulama kodunda, belirli bir dizinini belge koleksiyonu salt okunur erişime izin vermek için arama URL'sini ve bir sorgu api anahtarını belirtin. Uç nokta, salt okunur erişim için bir API anahtarı ve bir hedef dizin birlikte, istemci uygulamanızın bağlantı kapsamı ve erişim düzeyini tanımlayın.
 
 Her istekte zorunlu bir anahtar, bir işlem ve bir nesne her isteğin burada oluşur, kimlik doğrulaması gereklidir. Birbirine zincirlenmiş, iki izin düzeyleri (tam veya salt okunur) artı (örneğin, bir dizin üzerinde sorgu işlemi) bağlam hizmet işlemleri üzerinde tam spektrumlu güvenlik sağlamak için yeterlidir. Anahtarları hakkında daha fazla bilgi için bkz. [oluştur ve api anahtarlarını yönetebilirsiniz](search-security-api-keys.md).
 
@@ -83,17 +85,11 @@ Yönetici ve geliştirici erişimini dizinler için protokole: her ikisini de ol
 
 Dizin düzeyinde güvenlik sınırları gerektiren çoklu müşteri mimarisi çözümleri için bu tür çözümler genellikle dizin yalıtım işlemek için hangi müşteriler kullanmak, bir orta katman içerir. Çok kiracılı bir kullanım örneği hakkında daha fazla bilgi için bkz: [çok kiracılı SaaS uygulamaları ve Azure Search için Tasarım Düzenleri](search-modeling-multitenant-saas-applications.md).
 
-## <a name="admin-access-from-client-apps"></a>İstemci uygulamalardan yönetici erişimi
+## <a name="admin-access"></a>Yönetici erişimi
 
-Azure arama yönetimi REST API'si, Azure Resource Manager'ın bir uzantısıdır ve bağımlılıklarını paylaşır. Bu nedenle, Active Directory, Azure Search Hizmeti Yönetimi için bir önkoşuldur. İstemci kodundan tüm yönetimsel istekler Resource Manager istek ulaşmadan önce Azure Active Directory'yi kullanarak kimlik doğrulaması gerekir.
+[Rol tabanlı erişim (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) denetimlere hizmet ve içeriği üzerinde erişim sahip olup olmadığını belirler. Bir Azure Search hizmet sahibi veya katkıda bulunanı olduğunuz, portal veya PowerShell kullanabilirsiniz **Az.Search** modülü oluşturmak, güncelleştirmek veya hizmette nesneleri silin. Ayrıca [Azure arama yönetimi REST API'si](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
-Azure Search Hizmeti uç noktası, dizin oluşturma (Azure Search Hizmeti REST API'si) ya da Search belgeleri (Azure Search Hizmeti REST API'si) gibi veri istekler istek üst bilgisinde bir API anahtarı kullanın.
-
-Uygulama kodunuz, hizmet yönetim işlemleri ve bunun yanı sıra arama dizinleri veya belgeler üzerinde veri işlemleri işliyorsa, kodunuzda iki kimlik doğrulama yaklaşımını uygulamak: Azure Search ve Active Directory kimlik doğrulaması için yerel erişim anahtarı Resource Manager tarafından istenen yöntemi. 
-
-Azure Search'te bir istek yapılandırılması hakkında daha fazla bilgi için bkz: [Azure arama hizmeti REST](https://docs.microsoft.com/rest/api/searchservice/). Resource Manager için kimlik doğrulama gereksinimleri hakkında daha fazla bilgi için bkz. [aboneliklere erişmek için Kaynak Yöneticisi'ni kullanın kimlik doğrulama API'si](../azure-resource-manager/resource-manager-api-authentication.md).
-
-## <a name="user-access-to-index-content"></a>Dizin içeriğe kullanıcı erişimi
+## <a name="user-access"></a>Kullanıcı erişimi
 
 Varsayılan olarak, dizin kullanıcı erişimini erişim anahtarını temel sorgu isteği tarafından belirlenir. Çoğu geliştirici oluşturma ve atama [ *sorgu anahtarlarına* ](search-security-api-keys.md) istemci-tarafı arama istekleri için. Bir sorgu anahtarı dizini içindeki tüm içeriği okuma erişimi verir.
 

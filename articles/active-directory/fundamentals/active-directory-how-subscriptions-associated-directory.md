@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8c5cb04c17e508409e67f0441daee4bc44c29d5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 3322e49c6fdc590b785806f67b5081700bf8b37b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285015"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264905"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory kiracınız için Azure aboneliği ekleme veya ilişkilendirme
 
@@ -30,6 +30,8 @@ Tüm kullanıcılarınızın sahip tek bir *giriş* kimlik doğrulaması için d
 
 > [!Important]
 > Farklı bir dizin rolleri kullanarak atanmış kullanıcılar için bir abonelik ilişkilendirdiğinizde [rol tabanlı erişim denetimi (RBAC)](../../role-based-access-control/role-assignments-portal.md) erişimlerini kaybedeceklerdir. Klasik abonelik yöneticileri (Hizmet Yöneticisi ve ortak Yöneticiler) da erişimi kaybedersiniz.
+> 
+> Ayrıca, Azure Kubernetes Service (AKS) kümenizi farklı bir aboneliğe taşınmasını ya da yeni bir kiracı için küme sahip olan abonelik taşıma işlevselliği kayıp rol atamaları ve hizmet sorumluları hakları nedeniyle kümenin neden olur. AKS hakkında daha fazla bilgi için bkz: [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -67,15 +69,16 @@ Tüm kullanıcılarınızın sahip tek bir *giriş* kimlik doğrulaması için d
 
     ![Örnek bilgileri içeren dizin değiştirici sayfası](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-Abonelik faturalandırma sahipliğini etkilemez abonelik dizininin değiştirilmesi bir hizmet düzeyi işlemi olduğundan. Hesap Yöneticisi hala Hizmet Yöneticisi'nden değiştirebilirsiniz [hesap Merkezi](https://account.azure.com/subscriptions). Özgün dizini silmek için abonelik faturalandırma sahipliğini için yeni bir hesap yöneticisine aktarmanız gerekir Faturalandırma sahipliğini aktarma hakkında daha fazla bilgi için bkz. [Bir Azure aboneliğinin sahipliğini başka bir hesaba aktarma](../../billing/billing-subscription-transfer.md). 
+Abonelik faturalandırma sahipliğini etkilemez abonelik dizininin değiştirilmesi bir hizmet düzeyi işlemi olduğundan. Hesap Yöneticisi hala Hizmet Yöneticisi'nden değiştirebilirsiniz [hesap Merkezi](https://account.azure.com/subscriptions). Özgün dizini silmek için abonelik faturalandırma sahipliğini için yeni bir hesap yöneticisine aktarmanız gerekir Faturalandırma sahipliğini aktarma hakkında daha fazla bilgi için bkz. [Bir Azure aboneliğinin sahipliğini başka bir hesaba aktarma](../../billing/billing-subscription-transfer.md).
 
 ## <a name="post-association-steps"></a>İlişkilendirme sonrası yönergeleri
-
 Abonelik farklı bir dizine ilişkilendirdikten sonra işlemlerini sürdürmek için gerçekleştirmesi gereken ek adımlar olabilir.
 
 1. Tüm anahtar kasalarını varsa, anahtar kasası Kiracı kimliğini değiştirme Daha fazla bilgi için [abonelik taşıma işlemi sonrasında anahtar kasası Kiracı Kimliğini değiştirme](../../key-vault/key-vault-subscription-move-fix.md).
 
-1. Bu aboneliği kullanarak bir Azure Stack kayıtlıysanız, yeniden kaydetmeniz gerekir. Daha fazla bilgi için [kaydetme Azure Stack Azure ile](../../azure-stack/azure-stack-registration.md).
+2. Bu aboneliği kullanarak bir Azure Stack kayıtlıysanız, yeniden kaydetmeniz gerekir. Daha fazla bilgi için [kaydetme Azure Stack Azure ile](../../azure-stack/azure-stack-registration.md).
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

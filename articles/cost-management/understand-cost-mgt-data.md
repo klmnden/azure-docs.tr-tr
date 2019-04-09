@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/04/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 0defb1a8572cc3adad48dbcdb27a04e366fc3e60
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 1fc04ee953ea53f96adfd1e85c9a616c62268ade
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046795"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282993"
 ---
 # <a name="understand-cost-management-data"></a>Maliyet Yönetimi verilerini anlama
 
@@ -31,8 +31,8 @@ Aşağıdaki bilgiler, şu anda desteklenen gösterir [Microsoft Azure'un sundu�
 | **Azure Kamu** | Azure kamu Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
 | **Kurumsal Anlaşma (EA)** | Kurumsal Geliştirme ve Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
 | **Kurumsal Anlaşma (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
-| **Microsoft Müşteri Sözleşmesi** | [Microsoft Azure Planı](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017G |
-| **Microsoft Müşteri Sözleşmesi** | [Geliştirme ve Test için Microsoft Azure Planı](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | MS-AZR-0148G |
+| **Microsoft Müşteri Sözleşmesi** | [Microsoft Azure Planı](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | Yok |
+| **Microsoft Müşteri Sözleşmesi** | [Geliştirme ve Test için Microsoft Azure Planı](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | Yok |
 | **Microsoft Geliştirici Ağı (MSDN)** | [MSDN Platformları](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
 | **Kullandıkça Öde** | [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
 | **Kullandıkça Öde** | [Kullandıkça Öde Geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
@@ -80,20 +80,21 @@ Aşağıdaki tablolarda, maliyet Yönetimi'nde değil ya da eklenmiştir. Bu ver
 | **Dahil** | **Dahil değil** |
 | --- | --- |
 | Azure hizmet kullanımı<sup>1</sup> | Rezervasyon satın alma – daha fazla bilgi için [Otomasyon Azure ayırma için API'leri](../billing/billing-reservation-apis.md). |
-| Market teklifini kullanımı | Market satın alımları – daha fazla bilgi için [üçüncü taraf hizmet ücretlerini](../billing/billing-understand-your-azure-marketplace-charges.md). |
+| Market kullanım teklifi<sup>2</sup> | Market satın alımları – daha fazla bilgi için [üçüncü taraf hizmet ücretlerini](../billing/billing-understand-your-azure-marketplace-charges.md). |
 |   | Destek ücretleri - daha fazla bilgi için bkz: [fatura açıklanan terimleri](../billing/billing-understand-your-invoice.md). |
 |   | Vergi - daha fazla bilgi için [fatura açıklanan terimleri](../billing/billing-understand-your-invoice.md). |
 |   | Krediler - daha fazla bilgi için [fatura açıklanan terimleri](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> azure hizmet kullanımı üzerinde ayırma temel alır ve fiyatlarını görüştü.
+<sup>2</sup> Market kullanım teklifi, Kullandıkça Öde için MSDN, kullanılabilir değil ve Visual Studio, şu anda sunar.
 
 **Meta Veriler**
 
 | **Dahil** | **Dahil değil** |
 | --- | --- |
-| Kaynak etiketleri<sup>2</sup> | kaynak grubu etiketleri |
+| Kaynak etiketleri<sup>3</sup> | kaynak grubu etiketleri |
 
-<sup>2</sup> kaynak etiketleri kullanım her hizmetinden yayıldığını olarak uygulanır ve geçmiş kullanımı için geriye dönük olarak kullanılamaz.
+<sup>3</sup> kaynak etiketleri kullanım her hizmetinden yayıldığını olarak uygulanır ve geçmiş kullanımı için geriye dönük olarak kullanılamaz.
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Derecelendirilmiş kullanım Veri Yenileme zamanlaması
 

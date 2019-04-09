@@ -6,21 +6,22 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 62d0392f-37d4-436e-9aff-22f4e5b83623
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2018
+ms.date: 03/28/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b51f8d9329bc86320501183d7dba7735fb369fa5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ca43b62e66e3a736aa52fdd10fe36e635daba245
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092387"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058025"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Samanage yapılandırın
 
@@ -33,39 +34,34 @@ Bu öğreticinin amacı otomatik olarak sağlamak ve kullanıcılara ve/veya gru
 
 Bu öğreticide özetlenen senaryo, aşağıdaki sahip olduğunuz varsayılır:
 
-*   Azure AD kiracısı
-*   A [Samanage Kiracı](https://www.samanage.com/pricing/) profesyonel paket
-*   Samanage yönetici izinlerine sahip bir kullanıcı hesabı
+* Azure AD kiracısı
+* A [Samanage Kiracı](https://www.samanage.com/pricing/) profesyonel paket
+* Samanage yönetici izinlerine sahip bir kullanıcı hesabı
 
 > [!NOTE]
 > Azure AD tümleştirmesi sağlama dayanan [Samanage Rest API](https://www.samanage.com/api/), profesyonel paket sahip hesaplar için Samanage geliştiricilerin kullanımına olduğu.
 
 ## <a name="adding-samanage-from-the-gallery"></a>Galeriden Samanage ekleme
+
 Otomatik kullanıcı hazırlama ile Azure AD için Samanage yapılandırmadan önce Samanage Azure AD uygulama Galerisi yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Azure AD uygulama galerisinden Samanage eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, üzerinde sol gezinti bölmesinde, tıklayarak **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar** > **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar bölümü][2]
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-3. Samanage eklemek için tıklatın **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-4. Arama kutusuna **Samanage**.
+4. Arama kutusuna **Samanage**seçin **Samanage** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Samanage sağlama](./media/samanage-provisioning-tutorial/AppSearch.png)
-
-5. Sonuçlar panelinde seçin **Samanage**ve ardından **Ekle** düğmesini Samanage SaaS uygulamaları listenize ekleyin.
-
-    ![Samanage sağlama](./media/samanage-provisioning-tutorial/AppSearchResults.png)
-
-    ![Samanage sağlama](./media/samanage-provisioning-tutorial/AppCreation.png)
+    ![Sonuç listesinde Samanage](common/search-new-app.png)
 
 ## <a name="assigning-users-to-samanage"></a>Samanage için kullanıcı atama
 
@@ -92,11 +88,13 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 
 ### <a name="to-configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>Azure AD'de Samanage için otomatik kullanıcı hazırlama yapılandırmak için:
 
-1. Oturum [Azure portalında](https://portal.azure.com) ve **Azure Active Directory > Kurumsal uygulamalar > tüm uygulamaları**.
+1. Oturum [Azure portalında](https://portal.azure.com) seçip **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Samanage**.
 
-2. Samanage SaaS uygulamaları listesinden seçin.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Samanage sağlama](./media/samanage-provisioning-tutorial/AppInstanceSearch.png)
+2. Uygulamalar listesinde **Samanage**.
+
+    ![Uygulamalar listesinde Samanage bağlantı](common/all-applications.png)
 
 3. Seçin **sağlama** sekmesi.
 
@@ -164,7 +162,7 @@ Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [he
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Kullanıcı hesabı, kurumsal uygulamalar için sağlamayı yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

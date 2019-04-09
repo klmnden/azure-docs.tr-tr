@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: fcb6f564c97632e4d62f7f052ec5ecc35a9e479a
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: e51313bbed21459de9f717edd123887caed18f4b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011254"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279361"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Anlama ve Azure IOT Hub SDK'ları kullanın
 
@@ -59,6 +59,7 @@ C (ANSI C - C99) için Azure IOT Hub cihazı SDK'sı:
 * [Modül başvurusu](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)
 * [Diğer platformlar için C SDK'sı taşıma](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
 * [Geliştirici belgeleri](https://github.com/Azure/azure-iot-sdk-c/tree/master/doc) çapraz derleme, farklı platformlarda çalışmaya başlama hakkında bilgi için vs.
+* [Azure IOT Hub C SDK'sı kaynak tüketimi bilgilerini](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md)
 
 Java için Azure IOT Hub cihazı SDK'sı: 
 

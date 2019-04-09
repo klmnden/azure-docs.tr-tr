@@ -1,7 +1,7 @@
 ---
 title: Oluşturun, yayımlayın, soru-cevap oluşturucu içinde yanıt
 titleSuffix: Azure Cognitive Services
-description: Bu portal tabanlı öğretici, program aracılığıyla bilgi bankası oluşturup yayımlama ve bunu kullanarak soruları cevaplama adımlarını göstermektedir.
+description: Genel bir web tabanlı SSS gelen soruları ve yanıtları ile yeni Bilgi Bankası oluşturun. Kaydedin, eğitmek ve Bilgi Bankası yayımlama. Bilgi Bankası yayımlandıktan sonra bir soru gönderin ve CURL komutu ile bir yanıt alırsınız. Ardından bir bot oluşturulabilir ve bot ile aynı soruyu test edin.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 12/17/2018
+ms.date: 04/08/2019
 ms.author: diberry
-ms.openlocfilehash: 6f79614e4b1ec660d2ec5c8aee40924908cf8f5c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884134"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266962"
 ---
-# <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Öğretici: Bilgi Bankası sonra soruyu yanıtlama soru-cevap Oluşturucu portalı üzerinden oluşturma
+# <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Öğretici: Soru-cevap Oluşturucu Portalı'ndan Bilgi Bankası oluşturma
 
-Bu öğretici, bilgi bankası oluşturup yayımlama ve bunu kullanarak soruları cevaplama adımlarını göstermektedir.
+Genel bir web tabanlı SSS gelen soruları ve yanıtları ile yeni Bilgi Bankası oluşturun. Kaydedin, eğitmek ve Bilgi Bankası yayımlama. Bilgi Bankası yayımlandıktan sonra bir soru gönderin ve Curl komutu ile bir yanıt alırsınız. Ardından bir bot oluşturulabilir ve bot ile aynı soruyu test edin. 
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz: 
 
@@ -29,6 +29,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Bilgi bankasını gözden geçirme, kaydetme ve eğitme
 > * Bilgi bankasını yayımlama
 > * Curl kullanarak bilgi bankasını sorgulama
+> * Bir bot oluşturun
 > 
 > [!NOTE]
 > Bu öğreticide programlı sürümü eksiksiz bir çözüm ile kullanıma hazır [ **Azure-Samples/bilişsel-services-qnamaker-csharp** GitHub deposu](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
@@ -51,7 +52,7 @@ Bu öğretici için var olan bir [Soru-Cevap Oluşturma hizmetini](../How-To/set
 
     |Ayar|Amaç|
     |--|--|
-    |Microsoft Azure Directory Kimliği|_Microsoft Azure Directory Kimliğiniz_, Azure portal ve Soru-Cevap Oluşturma portalında oturum açmak için kullandığınız hesapla ilişkilendirilmiştir. |
+    |Microsoft Azure Directory Kimliği|_Microsoft Azure dizin kimliği_ Azure portalı ve soru-cevap Oluşturucu portalı oturum açmak için kullandığınız hesap ile ilişkilidir. |
     |Azure Aboneliği adı|Soru-Cevap Oluşturma kaynağını oluşturduğunuz fatura hesabıdır.|
     |Azure Soru-Cevap Oluşturma Hizmeti|Var olan Soru-Cevap Oluşturma kaynağınızdır.|
 
@@ -99,7 +100,9 @@ Bilgi bankası yayımlandıktan sonra uç nokta görüntülenir
 
 ![Yayımlama Sayfası uç noktası ayarları](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
-## <a name="use-curl-to-query-for-an-faq-answer"></a>Curl kullanarak SSS cevabı sorgulama
+Bu kapatmayın **Yayımla** sayfasında, bu öğreticinin ilerleyen bölümlerinde bir bot oluşturulabilir için kullanacağı. 
+
+## <a name="use-curl-to-query-for-an-faq-answer"></a>SSS yanıt sorgulamak için Curl kullanma
 
 1. **Curl** sekmesini seçin. 
 
@@ -109,7 +112,7 @@ Bilgi bankası yayımlandıktan sonra uç nokta görüntülenir
 
 1. `<Your question>` yerine `How large can my KB be?` yazın. Bu ifade `How large a knowledge base can I create?` sorusuna yakındır ancak tam olarak aynısı değildir. Soru-Cevap Oluşturma, doğal dil işleme süreçlerini kullanarak iki sorunun aynı olduğunu belirler.     
 
-1. CURL komutunu yürütün ve puanla cevabı içeren JSON cevabını alın. 
+1. Curl komutunu yürütün ve puan ve yanıt dahil olmak üzere JSON yanıtı alırsınız. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -133,11 +136,11 @@ Bilgi bankası yayımlandıktan sonra uç nokta görüntülenir
 
     Soru-Cevap Oluşturma, %42,81 puanla cevaptan emin sayılır.  
 
-## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Curl kullanarak genel konuşma sorgulama
+## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Curl sorguya Chit sohbet yanıt için kullanın.
 
-1. Curl özellikli bir terminalde `How large can my KB be?` yerine `Thank you` gibi kullanıcının bot sohbetini sonlandırmak için kullandığı bir ifade yazın.   
+1. Curl özellikli terminalde değiştirin `How large can my KB be?` kullanıcıdan bir bot konuşma sonu ifadesiyle gibi `Thank you`.   
 
-1. CURL komutunu yürütün ve puanla cevabı içeren JSON cevabını alın. 
+1. Curl komutunu yürütün ve puan ve yanıt dahil olmak üzere JSON yanıtı alırsınız. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -173,13 +176,13 @@ Bilgi bankası yayımlandıktan sonra uç nokta görüntülenir
 
     `Thank you` sorusu bir genel konuşma sorusuyla tam olarak eşleştiği için Soru-Cevap Oluşturma tam olarak emindir ve 100 puan döndürür. Soru-cevap Oluşturucu, ayrıca tüm ilgili sorular ve bunun yanı sıra Chit sohbet meta veri etiketi bilgileri içeren bir meta veri özelliği döndürdü.  
 
-## <a name="use-curl-to-query-for-the-default-answer"></a>Curl kullanarak varsayılan cevap sorgulama
+## <a name="use-curl-to-query-for-the-default-answer"></a>Varsayılan yanıt sorgulamak için Curl kullanma
 
 Soru-Cevap Oluşturma hizmeti, cevap veremediği sorular için varsayılan cevabı kullanır. Bu cevap Azure portalda yapılandırılır. 
 
 1. Curl özellikli terminalde `Thank you` yerine `x` yazın. 
 
-1. CURL komutunu yürütün ve puanla cevabı içeren JSON cevabını alın. 
+1. Curl komutunu yürütün ve puan ve yanıt dahil olmak üzere JSON yanıtı alırsınız. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -197,15 +200,25 @@ Soru-Cevap Oluşturma hizmeti, cevap veremediği sorular için varsayılan cevab
     }
     ```
     
-    Soru-Cevap Oluşturma hizmeti sıfır güven ifade eden 0 puanının yanı sıra varsayılan cevabı döndürür. 
+    Soru-cevap Oluşturucu puanı, döndürülen `0`, hiçbir güven anlamına gelir, ancak aynı zamanda varsayılan yanıt döndürdü. 
+
+## <a name="create-a-knowledge-base-bot"></a>Bilgi Bankası bot oluşturma
+
+Daha fazla bilgi için [bu Bilgi Bankası ile Sohbet Robotu oluşturun](create-qna-bot.md).
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Bilgi Bankası bot ile işiniz bittiğinde, kaynak grubunu kaldırma `my-tutorial-rg`bot işlemde oluşturulan tüm Azure kaynakları kaldırmak için.
+
+Bilgi Bankası, soru-cevap Oluşturucu Portalı'nda ile işiniz bittiğinde seçin **My bilgi bankalarından**, Bilgi Bankası'ı seçin **My öğretici kb**, ardından söz konusu satırdaki sağ uçta Sil simgesini seçin.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Desteklenen dosya biçimleri hakkında daha fazla bilgi için bkz. [Desteklenen veri kaynakları](../Concepts/data-sources-supported.md). 
+Daha fazla bilgi için [desteklenen veri kaynakları](../Concepts/data-sources-supported.md) destek dosya biçimleri hakkında daha fazla bilgi için. 
 
 Genel konuşma [kişilikleri](../Concepts/best-practices.md#chit-chat) hakkında daha fazla bilgi edinin.
 
 Varsayılan cevap hakkında daha fazla bilgi için bkz. [Eşleşme bulunamadı](../Concepts/confidence-score.md#no-match-found). 
 
 > [!div class="nextstepaction"]
-> [Bilgi Bankası kavramları](../Concepts/knowledge-base.md)
+> [Bu Bilgi Bankası ile Sohbet Robotu oluşturun](create-qna-bot.md)

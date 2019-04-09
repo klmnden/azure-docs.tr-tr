@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: a1357e92b868f85556fc4d665eb475abd095fece
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399988"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278488"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Öğretici: Azure veri kutusu Edge yükleyin
 
@@ -90,7 +90,9 @@ Bir standart 19 inç rafa cihaza yüklenmesi gerekir. Raf üstü için aşağıd
 
 - Başlamadan önce güvenliği, çevre ve yasal bilgiler Kitapçığı güvenlik yönergeleri okuyun. Bu Kitapçığı cihazla sevk.
 - Rails raf muhafaza alt kısmına yakın ayrılan alana yükleme başlar.
-- Tooled parmaklık bağlama yapılandırma için sekiz Vida sağlamanız gerekir: #10-32, #12-24, #M5 veya #M6. Baş Vida çapı 10 mm'lik küçüktür (0,4") olmalıdır.
+- Tooled parmaklık bağlama yapılandırması için:
+    -  Sekiz Vida sağlamanız gereken: #10-32, #12-24, #M5 veya #M6. Baş Vida çapı 10 mm'lik küçüktür (0,4") olmalıdır.
+    -  Düz Eğimli tornavida ihtiyacınız vardır.
 
 ### <a name="identify-the-rail-kit-contents"></a>Parmaklık Seti içeriği tanımlayın
 
@@ -102,6 +104,9 @@ Parmaklık Seti bütünleştirilmiş kod yükleme için bileşenleri bulun:
 
 ### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Yükleme ve kaldırma alet rails (kare delik veya yuvarlak delik raflar)
 
+> [!TIP]
+> Bu seçenek alet çünkü yüklemek ve rails akıtılmamış kare kaldırın veya raflar açıklarına yuvarlamak için araçları gerektirmez.
+
 1. Etiketli sol ve sağ parmaklık son parçaları konumlandırma **ön** içe bakan ve boşluklar dikey raf çıkıntıları ön tarafındaki bilgisayar lisansı için her uç parça yönlendirmek.
 2. Her alt ve üst boşluklar son parçası, istenen U alanları hizalayın.
 3. Parmaklık arka ucunu kadar tam lisans dikey raf Flanş ve Mandal tıklama yerine etkileşim kurun. Getirin ve ön uç parça dikey raf Flanş üzerinde bilgisayar lisansı için bu adımları yineleyin.
@@ -110,6 +115,9 @@ Parmaklık Seti bütünleştirilmiş kod yükleme için bileşenleri bulun:
 ![Yükleme ve alet rails kaldırma](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Yükleme ve kaldırma tooled rails (zincir delik raflar)
+
+> [!TIP]
+> Bu seçenek, bir aracı gerektirdiğinden tooled (_düz Eğimli tornavida_) yükleme ve sunucu rafları iş parçacıklı yuvarlak açıklarına içine rails kaldırın.
 
 1. PIN'ler ön ve arka düz Eğimli tornavida kullanarak montaj kaldırın.
 2. Çekme ve bağlama noktalarından kaldırılacak parmaklık Mandal yarı mamullerden döndürün.
@@ -152,7 +160,7 @@ NOT: Slam tutma ile donatılmış olmayan sistemler için bu yordamın 3. adım�
 
 1. Dış CMA köşeli ayraçlar iç hem de raf çıkıntıları tarafında bulun.
 2. Kabloları yavaşça, bunları, alınan paket sistem bağlayıcıları için sağ ve sol temizleyin.
-3. İş parçacığı üzerinde dış CMA köşeli ayraçlar sistem kablo paketleri güvenliğini sağlamak için her iki tarafında tooled yuvaları üzerinden kanca ve döngü straps.
+3. Dış CMA köşeli ayraçlar sistem kablo paketleri güvenliğini sağlamak için her iki tarafında üzerinde yuvaları üzerinden kanca ve döngü straps iş parçacığı.
 
 
 ![Kabloları yönlendirme](./media/data-box-edge-deploy-install/routing-cables.png)

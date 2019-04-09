@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.openlocfilehash: 21408f87c4446ebad4092cb982179c7d78ea9e32
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.date: 04/05/2019
+ms.openlocfilehash: b5e0336a290090ed6bd7f5af508e691677780a80
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847752"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265297"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Oluşturma ve Azure CLI üzerinden salt okunur çoğaltmalar yönetme
 
@@ -44,7 +44,7 @@ Bu adımlar, genel amaçlı veya bellek için iyileştirilmiş katmanlarındaki 
 
 ## <a name="create-a-read-replica"></a>Salt okunur bir çoğaltma oluşturma
 
-`az mysql server replica create` Komut takip eden parametreleri gerektiriyor:
+[Az postgres server çoğaltma oluşturma](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) komut takip eden parametreleri gerektiriyor:
 
 | Ayar | Örnek değer | Açıklama  |
 | --- | --- | --- |
@@ -64,14 +64,14 @@ Ayarlamadıysanız `azure.replication_support` parametresi **çoğaltma** üzeri
 > Bir ana sunucu yapılandırması için yeni değerleri güncelleştirilmeden önce çoğaltma yapılandırması eşit veya daha fazla değerlerle güncelleştirin. Bu eylem, çoğaltma ana dala yapılan değişiklikler ile koruyabilirsiniz sağlar.
 
 ## <a name="list-replicas"></a>Liste çoğaltmalar
-Ana sunucu çoğaltmalarını listesini görüntüleyebilirsiniz.
+Ana sunucu çoğaltmalarını listesini kullanarak görüntüleyebileceğiniz [az postgres server çoğaltma listesi](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list) komutu.
 
 ```azurecli-interactive
-az postgres server replica stop --server-name mydemoserver --resource-group myresourcegroup 
+az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ## <a name="stop-replication-to-a-replica-server"></a>Bir çoğaltma sunucusu için çoğaltma durdurma
-Bir ana sunucu ve bir salt okunur çoğaltma arasında çoğaltmayı durdurabilirsiniz.
+Bir ana sunucu ve bir salt okunur çoğaltma arasında çoğaltmayı kullanarak durdurabilirsiniz [az postgres server çoğaltma durdurma](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) komutu.
 
 Çoğaltma için ana sunucu ve salt okunur bir çoğaltması durdurduktan sonra geri alınamaz. Salt okunur çoğaltma hem okuma hem de yazma işlemleri destekleyen bir tek başına sunucuya olur. Tek başına sunucu ile bir çoğaltma yeniden yapılamıyor.
 
@@ -80,7 +80,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ## <a name="delete-a-master-or-replica-server"></a>Bir ana veya çoğaltma sunucusu silme
-Bir ana veya çoğaltma sunucusu silmek için bir PostgreSQL sunucusu için Azure veritabanı başına silmek için aynı komutunu kullanabilirsiniz. 
+Bir ana veya çoğaltma sunucusu silmek için kullandığınız [az postgres server delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete) komutu.
 
 Ana sunucu sildiğinizde tüm salt okunur çoğaltmalar için çoğaltma durdurulur. Salt okunur çoğaltmaların artık hem okuma hem de yazma işlemlerini destekleyen tek başına sunucuları olur.
 

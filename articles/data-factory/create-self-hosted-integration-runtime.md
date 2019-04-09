@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 6ab5ee923cc439901149a26d7af4b57f9933ee19
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 7fd4fd65b48c199527d9172b7cea89010c962f5b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905894"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261046"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri sağlamak üzere Azure Data Factory kullanan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -39,7 +39,9 @@ Bu belgede nasıl oluşturabileceğinizi ve şirket içinde barındırılan IR y
 3. Kimlik doğrulama anahtarı almak ve şirket içinde barındırılan tümleştirme çalışma zamanı anahtarı ile kaydedin. PowerShell örneği aşağıda verilmiştir:
 
     ```powershell
-    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+
+    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+
     ```
 
 ## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Bir Azure Resource Manager şablonu (Otomasyonu) kullanarak bir Azure sanal makinesinde kendinden konak IR ayarlama
@@ -110,7 +112,7 @@ Kendinden konak IR ile kopyalamak için adımların özeti için üst düzey ver
 
 
 ## <a name="high-availability-and-scalability"></a>Yüksek kullanılabilirlik ve ölçeklenebilirlik
-Şirket içinde barındırılan tümleştirme çalışma zamanının birden çok şirket içi makine ile ilişkili olabilir. Bu makineler, düğüm olarak adlandırılır. Bir şirket içinde barındırılan tümleştirme çalışma zamanı ile ilişkili en fazla dört düğümünüz olabilir. Mantıksal bir ağ geçidi için birden çok düğüm (yüklü bir ağ geçidi ile şirket içi makineler) sahip avantajları şunlardır:
+Şirket içinde barındırılan tümleştirme çalışma zamanı, birden çok şirket içi makine veya azure'da sanal makineler ile ilişkilendirilebilir. Bu makineler, düğüm olarak adlandırılır. Bir şirket içinde barındırılan tümleştirme çalışma zamanı ile ilişkili en fazla dört düğümünüz olabilir. Mantıksal bir ağ geçidi için birden çok düğüm (yüklü bir ağ geçidi ile şirket içi makineler) sahip avantajları şunlardır:
 * BT'nin tek, büyük veri çözümü veya Bulut veri tümleştirme en fazla dört düğüm ile sürekliliğini sağlama, Azure Data Factory ile bir hata noktası artık kullanıcının bu nedenle şirket içinde barındırılan tümleştirme çalışma zamanı yüksek kullanılabilirlik.
 * Geliştirilmiş performans ve aktarım hızını şirket içi ve bulut arasında veri taşıma sırasında veri depoları. Daha fazla bilgi edinin [performans karşılaştırmalar](copy-activity-performance.md).
 

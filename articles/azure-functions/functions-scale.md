@@ -13,19 +13,19 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f09fded38e384126a8dfdbe567ce4a3ebd5b1af4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893597"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266951"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure işlevlerini ölçeklendirme ve barındırma
 
 Azure işlevleri iki farklı planlarında çalıştırır: Tüketim planı ve Premium planı (genel Önizleme). Kodunuzu çalıştırırken tüketim planı, işlem gücünü otomatik olarak ekler. Uygulamanız, gerektiğinde yükü işlemek için ölçeği ve kod çalışmayı durdurduğunda ölçeği. Boş Vm'leri için kullandıkları kadar ödemeyi veya yedek kapasite önceden gerekmez.  Premium planı, ayrıca otomatik olarak ölçeklendirin ve kodunuzun çalıştığı zaman ek işlem gücü ekleyin.  Premium planı, premium bilgi işlem örnekleri, örnekleri süresiz olarak sıcak tutmak olanağı ve sanal ağ bağlantısı gibi ek özellikler ile birlikte gelir.  Mevcut bir App Service planı varsa, bunları içinde işlev uygulamalarınızı da çalıştırabilirsiniz.
 
 > [!NOTE]  
-> Her ikisi de [Premium planı](https://azure.microsoft.com/blog/uncompromised-serverless-scale-for-enterprise-workloads-with-the-azure-functions-premium-plan/preview/) ve [Linux için tüketim planı](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) şu anda Önizleme aşamasındadır.
+> Her ikisi de [Premium planı](https://aka.ms/functions-premiumplan) ve [Linux için tüketim planı](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) şu anda Önizleme aşamasındadır.
 
 Azure işlevleri ile ilgili bilgi sahibi değilseniz bkz [Azure işlevlerine genel bakış](functions-overview.md).
 

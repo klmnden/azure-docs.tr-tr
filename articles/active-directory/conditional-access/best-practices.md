@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d30fe326ef677ca4543534d57dd306ed2a660300
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: eafc379a65fda1ed64c6afee1427e704558b1ee6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895571"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261555"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim için en iyi uygulamalar
 
@@ -138,6 +138,7 @@ Ortamınızda, aşağıdaki yapılandırmaları kaçınmanız gerekir:
 
 - **Etki alanına katılmayı gerektirecek** - Bu ilke bloğu erişimi de olan etki alanına katılmış bir cihaz henüz yoksa, kuruluşunuzdaki tüm kullanıcılar için erişimi engellemek için olası.
 
+- **Uygulama koruma İlkesi gerekli** - Bu ilke bloğu erişimi Intune İlkesi yoksa, kuruluşunuzdaki tüm kullanıcılar için erişimi engellemek için olası da sahip. Intune uygulama koruma ilkesi olan bir istemci uygulama olmadan yöneticisiyseniz, bu ilke uygulamasına Intune ve Azure gibi portalların geri alınmasını engeller.
 
 **Tüm kullanıcılar, tüm bulut uygulamaları, tüm cihaz platformları için:**
 
