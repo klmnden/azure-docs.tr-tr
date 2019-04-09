@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 2b63eea7b8562a6972aecef02395d734d1c2655f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d504e3abe148f1f607d8ee359e182832ec7d19f6
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883874"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010320"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Speech SDK'sı kullanarak Linux üzerinde c++ konuşma tanıma
 
@@ -31,7 +31,7 @@ Bu hızlı başlangıcı tamamlamak için bir konuşma Hizmetleri abonelik anaht
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.3.1`.
+Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.4.0`.
 
 Linux için Konuşma SDK'sı, gerek 64 bit gerekse 32 bit uygulamalar derlemek için kullanılabilir. Gerekli kitaplıklar ve üst bilgi dosyaları, tar dosyasından olarak indirilebilir https://aka.ms/csspeech/linuxbinary.
 

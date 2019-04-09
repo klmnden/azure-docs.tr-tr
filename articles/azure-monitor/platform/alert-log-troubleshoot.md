@@ -1,5 +1,5 @@
 ---
-title: Azure İzleyicisi'nde sorun giderme günlük uyarıları
+title: Azure İzleyici'de günlüğü uyarılarına sorunlarını giderme | Microsoft Docs
 description: Sık karşılaşılan sorunlar, hataları ve çözümleme için günlük uyarı kuralları azure'da.
 author: msvijayn
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 56d76cd43b63a389569ae39c1e987a5fccbb9793
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: aa42e8975432de8ca489cf9b1b6dd509c9fb01c1
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429455"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005298"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Azure İzleyicisi'nde sorun giderme günlük uyarıları  
 
@@ -21,7 +21,7 @@ ms.locfileid: "54429455"
 
 Bu makalede, Azure İzleyici'de günlük uyarıları ayarlama sırasında görülen yaygın sorunların nasıl giderileceğini gösterir. Ayrıca, çözümler işlevselliği veya günlük uyarıları yapılandırma ile ilgili sık sorulan soruların yanıtlarını sağlar. 
 
-Terim **günlük uyarıları** yangın özel bir sorgunun bağlı uyarılar açıklar [Log Analytics](../learn/tutorial-viewdata.md) veya [Application Insights](../../azure-monitor/app/analytics.md). Daha fazla ilgili işlevler, terminolojisi ve türlerinde öğrenin [günlük uyarıları - genel bakış](../platform/alerts-unified-log.md).
+Terim **günlük uyarıları** yangın günlük sorguda bağlı uyarılar açıklar bir [Log Analytics çalışma alanı](../learn/tutorial-viewdata.md) veya [Application Insights](../../azure-monitor/app/analytics.md). Daha fazla ilgili işlevler, terminolojisi ve türlerinde öğrenin [günlük uyarıları - genel bakış](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > Bu makalede, Azure portal'ı gösterdiğinde durumları ve uyarı kuralını tetikleyen ve ilişkili bir eylem grupları tarafından gerçekleştirilen bir bildirim dikkate almaz. Böyle durumlarda, ayrıntıları bu makalede şirket edinmek [Eylem grupları](../platform/action-groups.md).
@@ -33,7 +33,7 @@ Terim **günlük uyarıları** yangın özel bir sorgunun bağlı uyarılar aç�
 
 ### <a name="data-ingestion-time-for-logs"></a>Günlükler için veri alım zamanı
 
-Günlük uyarı düzenli aralıklarla çalışan temel sorgunuzu [Log Analytics](../learn/tutorial-viewdata.md) veya [Application Insights](../../azure-monitor/app/analytics.md). Log Analytics, binlerce müşteri çeşitli kaynaklardan gelen verileri terabayta kadar dünya genelindeki işlediğinden, hizmet için değişen gecikme süresini saldırılara açıktır. Daha fazla bilgi için bkz. [Log Analytics’te veri alımı süresi](../platform/data-ingestion-time.md).
+Günlük uyarı düzenli aralıklarla çalışan temel sorgunuzu [Log Analytics](../learn/tutorial-viewdata.md) veya [Application Insights](../../azure-monitor/app/analytics.md). Azure İzleyici, binlerce müşteri çeşitli kaynaklardan gelen verileri terabayta kadar dünya genelindeki işlediğinden, hizmet için değişen gecikme süresini saldırılara açıktır. Daha fazla bilgi için [veri alımı zaman Azure İzleyici günlüklerine](../platform/data-ingestion-time.md).
 
 Veri alımı gecikme gidermek için sistem bekler ve uyarı sorgusu, gerekli verileri değil henüz alınır bulursa, birden çok kez yeniden dener. Sistem ayarlamak üssel olarak artan bir bekleme süresi vardır. Bunlar geciktirmek için veriyi kullanılabilir olduktan sonra günlük uyarı yalnızca Tetikleyiciler yavaş günlük verisi alımı nedeniyle olabilir. 
 
@@ -84,7 +84,7 @@ Ayrıntılı sonraki bazı yaygın nedenler neden olan bir yapılandırılmış 
 
 ### <a name="alert-triggered-by-partial-data"></a>Kısmi veriler tarafından tetiklenen uyarı
 
-Log Analytics ve Application Insights'ı destekleyen analiz alımı gecikmeleri ve işleme tabi olan; hangi nedeniyle sağlanan günlük uyarı sorgusu çalıştırıldığında - zaman olabilir bir servis talebi almalarının hiçbir veri ya da yalnızca mevcut olan bazı veriler. Daha fazla bilgi için bkz. [Log Analytics’te veri alımı süresi](../platform/data-ingestion-time.md).
+Log Analytics ve Application Insights'ı destekleyen analiz alımı gecikmeleri ve işleme tabi olan; hangi nedeniyle sağlanan günlük uyarı sorgusu çalıştırıldığında - zaman olabilir bir servis talebi almalarının hiçbir veri ya da yalnızca mevcut olan bazı veriler. Daha fazla bilgi için [Azure İzleyici'de veri alma süresini oturum](../platform/data-ingestion-time.md).
 
 Uyarı kuralı nasıl yapılandırıldığına bağlı olarak olabilir yanlış firing varsa yok veya kısmi veri günlüklerinde uyarı yürütme zamanında. Bu gibi durumlarda, size uyarı sorgusu veya yapılandırma değiştirmenizi önerin. 
 
@@ -100,4 +100,4 @@ Log analytics sorgu uyarılara ilişkin mantığı sağlar. Analytics sorgusu, �
 
 - Hakkında bilgi edinin [oturum uyarılar Azure uyarıları](../platform/alerts-unified-log.md)
 - Daha fazla bilgi edinin [Application Insights](../../azure-monitor/app/analytics.md)
-- Daha fazla bilgi edinin [Log Analytics](../../log-analytics/log-analytics-overview.md)
+- Daha fazla bilgi edinin [oturum sorguları](../log-query/log-query-overview.md)

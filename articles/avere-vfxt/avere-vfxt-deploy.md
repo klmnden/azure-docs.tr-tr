@@ -4,14 +4,14 @@ description: Azure'da Avere vFXT kümesi dağıtma adımları
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/05/2019
 ms.author: v-erkell
-ms.openlocfilehash: 7dbfc39075bb42b1ec13823849eb769e117ddd4a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 7ded66c29f12b8f68746726ca6c126bffbc51f0d
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409695"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056614"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT kümesini dağıtma
 
@@ -28,21 +28,20 @@ Bu belgedeki yönergeleri uyguladıktan sonra bir sanal ağ, bir alt ağ, bir de
 
 Oluşturma şablonu kullanmadan önce şu önkoşulların giderdik emin olun:  
 
-1. [Yeni Abonelik](avere-vfxt-prereqs.md#create-a-new-subscription)
+1. [Yeni abonelik](avere-vfxt-prereqs.md#create-a-new-subscription)
 1. [Abonelik sahibi izinleri](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Kota vFXT kümesi için](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Özel erişim rolleri](avere-vfxt-prereqs.md#create-access-roles) -küme düğümlerine atamak için rol tabanlı erişim denetimine rol oluşturmanız gerekir. Ayrıca küme denetleyicisi için özel erişim rol oluşturma seçeneğiniz vardır, ancak çoğu kullanıcı için bir kaynak grubu sahibi karşılık gelen denetleyicisi ayrıcalıklar verir varsayılan sahip rolü götürür. Okuma [Azure kaynakları için yerleşik roller](../role-based-access-control/built-in-roles.md#owner) daha fazla ayrıntı için.
 1. [(Gerekirse) depolama hizmet uç noktası](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) - için gerekli kullanarak mevcut bir sanal ağ ve blob depolama oluşturma dağıtır
 
 Küme dağıtım adımları ve planlama hakkında daha fazla bilgi için okuma [Avere vFXT sisteminizi planlama](avere-vfxt-deploy-plan.md) ve [dağıtımına genel bakış](avere-vfxt-deploy-overview.md).
 
 ## <a name="create-the-avere-vfxt-for-azure"></a>Azure için Avere vFXT oluşturma
 
-Oluşturma şablonu Azure portalında erişim için Avere arama ve seçme "Avere vFXT ARM dağıtım". 
+Azure portalında oluşturma şablonu Avere için arama ve "Avere vFXT Azure ARM şablonu için" seçerek erişebilirsiniz. 
 
-!["Yeni > Market > her şey" ekmek Azure portalıyla gösteren tarayıcı penceresinde kalbimdeki. İçinde her şey sayfa, arama alanına "avere" terimi ve ikinci sonuç yok "Avere vFXT ARM dağıtım" vurgulamak için kırmızı renkle.](media/avere-vfxt-template-choose.png)
+!["Yeni > Market > her şey" ekmek Azure portalıyla gösteren tarayıcı penceresinde kalbimdeki. Her şeyi sayfasında, arama alanına sahip terimi "avere" ve "Avere vFXT Azure ARM şablonu için" ikinci sonucu özetlenen vurgulamak için kırmızı renkte.](media/avere-vfxt-template-choose.png)
 
-Sayfadaki Avere vFXT ARM dağıtım ayrıntıları okuduktan sonra tıklayın **Oluştur** başlamak için. 
+Azure ARM şablonu sayfasının Avere vFXT ayrıntıları okuduktan sonra tıklayın **Oluştur** başlamak için. 
 
 ![Dağıtım şablonu gösteren'ın ilk sayfasında ile Azure Market](media/avere-vfxt-deploy-first.png)
 
@@ -69,14 +68,6 @@ Aşağıdaki bilgileri doldurun:
 
 * **Parola** veya **SSH ortak anahtarı** -seçtiğiniz kimlik doğrulaması türüne bağlı olarak, RSA ortak anahtarını veya sonraki alanları bir parola sağlamalısınız. Bu kimlik bilgisi, daha önce sağlanan kullanıcı adı ile kullanılır.
 
-* **Rol Kimliği Avere küme oluşturma** -küme denetleyici için erişim denetimi rolü belirtmek için bu alanı kullanın. Varsayılan değer: yerleşik rolü [sahibi](../role-based-access-control/built-in-roles.md#owner). Küme kaynağı grubuna küme denetleyici için sahip ayrıcalıkları kısıtlanır. 
-
-  Rolüne karşılık gelen genel benzersiz tanımlayıcısını kullanmanız gerekir. Varsayılan değer (sahibi) 8e3af657-a8ff-443 c-a75c-2fe8c4bcb635 bir GUID'dir. Özel bir rol için GUID'i bulmak için bu komutu kullanın: 
-
-  ```azurecli
-  az role definition list --query '[*].{roleName:roleName, name:name}' -o table --name 'YOUR ROLE NAME'
-  ```
-
 * **Abonelik** -Avere vFXT için aboneliği seçin. 
 
 * **Kaynak grubu** - Avere vFXT kümesi için mevcut bir boş bir kaynak grubunu seçin veya "Yeni Oluştur" a tıklayın ve yeni bir kaynak grubu adı girin. 
@@ -97,10 +88,6 @@ Dağıtım şablonu ikinci sayfasında, küme boyutu, düğüm türü, önbellek
 * **Avere vFXT küme düğümü sayısını** -kümede kullanmak için düğüm sayısını seçin. En az üç düğüm olmalıdır ve en fazla on iki. 
 
 * **Küme yönetim parolası** -küme yönetimi için bir parola oluşturun. Bu parola kullanıcı adını kullanılacak ```admin``` küme Denetim Masası'na kümesini izlemek için ve ayarlarını yapılandırmak için oturum açmak için.
-
-* **Avere küme işlemleri rolünü** -küme düğümleri için erişim denetimi rolü adını belirtin. Bu gerekli bir adım olarak oluşturulan özel bir roldür. 
-
-  Örnekte açıklandığı [küme düğümü erişim rolünü oluşturma](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) dosyası olarak kaydeder ```avere-operator.json``` ve karşılık gelen rol adı ```avere-operator```.
 
 * **Avere vFXT küme adı** -küme benzersiz bir ad verin. 
 
@@ -138,7 +125,7 @@ Sayfa üç yapılandırma özetler ve parametrelerini doğrular. Doğrulama baş
 
 ![Üçüncü sayfasında, dağıtım şablonu - doğrulama](media/avere-vfxt-deploy-3.png)
 
-Dört sayfasında tıklayın **Oluştur** koşullarını kabul edin ve Azure kümesine için Avere vFXT oluşturma düğmesi. 
+Dört sayfasında, gerekli tüm iletişim bilgileri girin ve tıklayın **Oluştur** koşullarını kabul edin ve Azure kümesine için Avere vFXT oluşturma düğmesi. 
 
 ![Dağıtım şablonu - hüküm ve koşullar, dördüncü sayfasında düğme oluşturma](media/avere-vfxt-deploy-4.png)
 

@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: c5fabf37ecc97f8edea437f1628949e45aefde77
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755699"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010558"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Kimlik doğrulaması ve Azure Logic apps'te yönetilen kimliklerle kaynaklara erişin
 
@@ -114,7 +114,7 @@ Azure mantıksal uygulamanızı oluşturduğunda, bu mantıksal uygulamanın iş
 | Özellik | Değer | Açıklama | 
 |----------|-------|-------------|
 | **Principalıd** | <*Sorumlu Kimliği*> | Mantıksal uygulama Azure AD kiracısını ve bazen temsil eden bir genel benzersiz tanıtıcısı (GUID), bir "nesne kimliği" görünür veya `objectID` | 
-| **tenantId** | <*Azure AD Kiracı kimliği*> | Bir genel benzersiz tanımlayıcı (mantıksal uygulama şimdi üyesi olduğu Azure AD kiracısı temsil eden GUID). Azure AD kiracısı içinde hizmet sorumlusu mantıksal uygulama örneği ile aynı ada sahiptir. | 
+| **Kiracı kimliği** | <*Azure AD Kiracı kimliği*> | Bir genel benzersiz tanımlayıcı (mantıksal uygulama şimdi üyesi olduğu Azure AD kiracısı temsil eden GUID). Azure AD kiracısı içinde hizmet sorumlusu mantıksal uygulama örneği ile aynı ada sahiptir. | 
 ||| 
 
 <a name="access-other-resources"></a>
@@ -158,7 +158,7 @@ Mantıksal uygulamanız ile ayarladıktan sonra sistem tarafından atanan kimli�
    İçinde **URI** kutusunda, ilgili Azure hizmeti için uç nokta URL'sini girin. 
    Azure Resource Manager kullanıyorsanız, bu nedenle, bu değer girin **URI** özelliği:
 
-   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version-2016-06-01`
+   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
 
 1. HTTP eylemi seçin **Gelişmiş Seçenekleri Göster**.
 

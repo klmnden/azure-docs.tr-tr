@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 04af92f21cecaa832e857a7017b67f815f6ab685
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.openlocfilehash: 352833b12c00abbefcf7016d27dfb580ee25e450
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417981"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056750"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT oluşturmaya hazırlanma
 
@@ -30,23 +30,16 @@ Azure portalında yeni bir Azure aboneliği oluşturmak için:
 
 ## <a name="configure-subscription-owner-permissions"></a>Abonelik sahibi izinlerini yapılandırma
 
-Abonelik için sahip izinlerine sahip bir kullanıcı vFXT küme oluşturmanız gerekir. Diğerlerinin yanı sıra bu eylemler için abonelik sahibi izinler gerekir:
+Abonelik için sahip izinlerine sahip bir kullanıcı vFXT küme oluşturmanız gerekir. Yazılım hizmet koşullarını kabul edin ve diğer eylemleri gerçekleştirmek için abonelik sahibi izinleri gereklidir. 
 
-* Avere vFXT koşulları kabul edin
-* Küme düğümü erişim rolü oluşturma 
+Bir Azure kümesi için bir Avere vFTX oluşturmak sahip olmayan izin bazı geçici çözüm senaryolar vardır. Bu senaryolar, kaynakları kısıtlayarak ve ek roller oluşturucusuna atama içerir. Her iki durumda, abonelik sahibi de gerekir [Avere vFXT yazılım koşullarını kabul](#accept-software-terms) önceden. 
 
-VFXT oluşturan kullanıcılar için sahip erişimi vermek istemiyorsanız iki geçici çözüm vardır:
-
-* Bu koşullar karşılanıyorsa, bir kaynak grubu sahibi bir küme oluşturabilirsiniz:
-
-  * Abonelik sahibi gerekir [Avere vFXT yazılım koşullarını kabul](#accept-software-terms) ve [küme düğümü erişim rolünü oluşturma](#create-the-cluster-node-access-role). 
-  * Kaynak grubu içinde dağıtılmış olması gereken tüm Avere vFXT kaynaklar dahil olmak üzere:
-    * Küme Denetleyicisi
-    * Küme düğümleri
-    * Blob depolama
-    * Ağ öğelerini
+| Senaryo | Kısıtlamalar | Avere vFXT kümeyi oluşturmak için gerekli erişim rolleri | 
+|----------|--------|-------|
+| Kaynak Grubu Yöneticisi | Sanal ağ, küme denetleyici ve küme düğümleri kaynak grubu içinde oluşturulmalıdır | [Kullanıcı erişimi Yöneticisi](../role-based-access-control/built-in-roles.md#user-access-administrator) ve [katkıda bulunan](../role-based-access-control/built-in-roles.md#contributor) rolleri, hem de kapsamlı için hedef kaynak grubu | 
+| Dış sanal ağ | Küme düğümlerini ve küme denetleyicisi kaynak grubu içinde oluşturulur ancak farklı bir kaynak grubu mevcut bir sanal ağda kullanılan | (1) [kullanıcı erişimi Yöneticisi](../role-based-access-control/built-in-roles.md#user-access-administrator) ve [katkıda bulunan](../role-based-access-control/built-in-roles.md#contributor) vFXT kaynak grubu; ve (2) için kapsamlı rolleri [sanal makine Katılımcısı](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [kullanıcı erişimi Yönetici](../role-based-access-control/built-in-roles.md#user-access-administrator), ve [Avere katkıda bulunan](../role-based-access-control/built-in-roles.md#avere-contributor) VNET kaynak grubunun kapsamında rolleri. |
  
-* Hiçbir sahip ayrıcalıklarına sahip bir kullanıcı ayrıcalıkları kullanıcıya atamak için rol tabanlı erişim denetimi (RBAC) önceden kullanarak vFXT kümeleri oluşturabilirsiniz. Bu yöntem, bu kullanıcılara önemli izinleri verir. [Bu makalede](avere-vfxt-non-owner.md) sahipleri olmayan kümeleri oluşturma yetkisi vermek için bir erişim rolünün nasıl oluşturulacağını açıklar.
+İçinde anlatıldığı gibi bir özel rol tabanlı erişim denetimi (RBAC) rolüne önceden oluşturup ayrıcalıkları, kullanıcıya atamak için alternatif olan [bu makalede](avere-vfxt-non-owner.md). Bu yöntem, bu kullanıcılara önemli izinleri verir. 
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Kota vFXT kümesi için
 
@@ -83,75 +76,6 @@ Yazılımı önceden koşulları kabul etmek için:
    ```azurecli
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
    ```
-
-## <a name="create-access-roles"></a>Erişim rolleri oluşturma 
-
-[Rol tabanlı erişim denetimi](../role-based-access-control/index.yml) (RBAC) vFXT küme denetleyici ve küme düğümlerini gerekli görevler gerçekleştirme yetkisi verir.
-
-* Küme denetleyicisi oluşturmak ve kümeyi oluşturmak için Vm'leri değiştirmek için izniniz gerekiyor. 
-
-* Azure kaynak özelliklerini tek tek vFXT düğümleri gibi şeyleri yapmanıza gerek okuma, depolama alanını yönet ve diğer düğümlere ağ arabirimi ayarları normal küme işlemi bir parçası olarak denetim.
-
-Avere vFXT kümenizi oluşturmadan önce küme düğümleri ile kullanılacak özel bir rol tanımlamanız gerekir. 
-
-Küme denetleyici için varsayılan rol şablondan kabul edebilir. Varsayılan Küme Denetleyicisi kaynak grubu sahibi ayrıcalıklar verir. Denetleyici için özel bir rol oluşturmak isterseniz, bkz. [özelleştirilmiş denetleyicisi erişim rolünü](avere-vfxt-controller-role.md).
-
-> [!NOTE] 
-> Yalnızca abonelik sahibi veya sahibi veya kullanıcı erişimi Yöneticisi rolüne sahip bir kullanıcı rolleri oluşturabilir. Rolleri önceden oluşturulabilir.  
-
-### <a name="create-the-cluster-node-access-role"></a>Küme düğümü erişim rolü oluşturma
-
-<!-- caution - this header is linked to in the template so don't change it unless you can change that -->
-
-Azure kümesine için Avere vFXT oluşturabilmeniz için önce küme düğümü rolünü oluşturmanız gerekir.
-
-> [!TIP] 
-> Microsoft iç kullanıcılar yerine çalışırken "Avere küme çalışma zamanını operatörü" adlı varolan bir rolünü oluşturmak için kullanmanız gerekir. 
-
-1. Bu dosya kopyalayın. Abonelik Kimliğinizi AssignableScopes satır ekleyin.
-
-   (Bu dosyanın geçerli sürümü github.com/Azure/Avere deposu olarak depolanan [AvereOperator.txt](https://github.com/Azure/Avere/blob/master/src/vfxt/src/roles/AvereOperator.txt).)  
-
-   ```json
-   {
-      "AssignableScopes": [
-          "/subscriptions/PUT_YOUR_SUBSCRIPTION_ID_HERE"
-      ],
-      "Name": "Avere Operator",
-      "IsCustom": "true",
-      "Description": "Used by the Avere vFXT cluster to manage the cluster",
-      "NotActions": [],
-      "Actions": [
-          "Microsoft.Compute/virtualMachines/read",
-          "Microsoft.Network/networkInterfaces/read",
-          "Microsoft.Network/networkInterfaces/write",
-          "Microsoft.Network/virtualNetworks/read",
-          "Microsoft.Network/virtualNetworks/subnets/read",
-          "Microsoft.Network/virtualNetworks/subnets/join/action",
-          "Microsoft.Network/networkSecurityGroups/join/action",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/write"
-      ],
-      "DataActions": [
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
-      ]
-   }
-   ```
-
-1. Dosyayı Farklı Kaydet ``avere-operator.json`` veya benzer bir akılda kalıcı bir dosya adı. 
-
-
-1. Bir Azure Cloud shell ve abonelik Kimliğiniz ile oturum açın (açıklanan [bu belgenin daha öncesinde](#accept-software-terms)). Rolü oluşturmak için bu komutu kullanın:
-
-   ```bash
-   az role definition create --role-definition /avere-operator.json
-   ```
-
-Rol adı, kümeyi oluştururken kullanılır. Bu örnekte, addır ``avere-operator``.
 
 ## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>(Gerekirse) kullanarak sanal ağınızdaki bir depolama hizmet uç noktası oluşturma
 

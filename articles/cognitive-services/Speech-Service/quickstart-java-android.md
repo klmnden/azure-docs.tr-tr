@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 9458f052258993ee598ddfbca262faf8f6cb4ab9
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 690656449fdb86c200a8978f0e17db562e4abbca
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258556"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009187"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Speech SDK'sı kullanarak Android'de Java konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Bu makalede, Konuşmayı metne dönüştürme özelliği Android Bilişsel hizmetler konuşma SDK'sı kullanmaya yönelik bir Java uygulaması geliştirme öğreneceksiniz.
-Uygulama, Microsoft Bilişsel hizmetler konuşma SDK Maven paketini, sürüm 1.3.1 ve Android Studio 3.1 temel alır.
+Uygulama, konuşma SDK Maven paketini, sürüm 1.4.0 ve Android Studio 3.3 temel alır.
 Konuşma SDK’sı şu anda 32/64 bit ARM işlemcilerine sahip Android cihazlarıyla ve Intel x86/x64 uyumlu işlemcilerle uyumludur.
 
 > [!NOTE]
@@ -38,27 +38,19 @@ Bu hızlı başlangıcı tamamlamak için bir konuşma Hizmetleri abonelik anaht
 
     ![Android Studio Hoş Geldiniz penceresinin ekran görüntüsü](media/sdk/qs-java-android-01-start-new-android-studio-project.png)
 
-1. **Yeni Proje Oluştur** sihirbazı görüntülenir. **Android Projesi Oluştur** ekranında **uygulama adı** olarak **Quickstart**, **şirket etki alanı** olarak da **samples.speech.cognitiveservices.microsoft.com** girin ve bir proje dizini seçin. C++ ve Kotlin onay kutularını boş bırakın ve **İleri**’yi seçin.
+1. **Projenizi seçin** Sihirbazı görüntülenirse, seçin **telefon ve Tablet** ve **boş etkinlik** etkinlik seçimi kutusunda. **İleri**’yi seçin.
 
-   ![Yeni Proje Oluştur sihirbazının ekran görüntüsü](media/sdk/qs-java-android-02-create-android-project.png)
+   ![Ekran görüntüsü Proje Sihirbazı'nı seçin](media/sdk/qs-java-android-02-target-android-devices.png)
 
-1. **Hedef Android Cihazları** ekranında yalnızca **Telefon ve Tablet**’i seçin. Altındaki aşağı açılan listesinde seçin **API 23: Android 6.0 (Marshmallow)** seçip **sonraki**.
+1. İçinde **Nakonfigurovat projekt** ekranında, girin **hızlı** olarak **adı**, **samples.speech.cognitiveservices.microsoft.com** olarak **Paket adı**, proje dizini seçin. İçin **en düşük API düzeyi** çekme **API 23: Android 6.0 (Marshmallow)**, diğer tüm onay kutularının işaretli ve select bırakın **son**.
 
-   ![Yeni Proje Oluştur sihirbazının ekran görüntüsü](media/sdk/qs-java-android-03-target-android-devices.png)
-
-1. **Mobil Cihaza Etkinlik Ekle** ekranında **Boş Etkinlik**’i seçin ve **İleri**’ye tıklayın.
-
-   ![Yeni Proje Oluştur sihirbazının ekran görüntüsü](media/sdk/qs-java-android-04-add-an-activity-to-mobile.png)
-
-1. **Etkinlik Yapılandır** ekranında etkinlik adı olarak **MainActivity**’yi, düzen adı olarak da **activity\_main**’i kullanın. Her iki onay kutusunu da işaretleyin ve **Son**’u seçin.
-
-   ![Yeni Proje Oluştur sihirbazının ekran görüntüsü](media/sdk/qs-java-android-05-configure-activity.png)
+   ![Proje Sihirbazı'nı yapılandırma ekran görüntüsü](media/sdk/qs-java-android-03-create-android-project.png)
 
 Android Studio’nun yeni Android projenizi hazırlaması biraz zaman alır. Daha sonra, projenizi yapılandırarak Konuşma SDK’sı hakkında bilgi edinmesini ve Java 8’i kullanmasını sağlayın.
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.3.1`.
+Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.4.0`.
 
 Android Speech SDK'sı olarak paketlenmiş bir [AAR (Android kitaplık)](https://developer.android.com/studio/projects/android-library), gerekli kitaplıkları ve Android gerekli izinleri içerir.
 Https Maven deponun barındırılan:\//csspeechstorage.blob.core.windows.net/maven/.
@@ -73,7 +65,7 @@ Konuşma SDK’sını kullanmak için projenizi ayarlayın. Android Studio menü
 
    ![Proje Yapısı penceresinin ekran görüntüsü](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Açılan pencerede Android için Konuşma SDK’mızın adını ve sürümünü (`com.microsoft.cognitiveservices.speech:client-sdk:1.3.1`) girin. Sonra **Tamam**’ı seçin.
+1. Açılan pencerede Android için Konuşma SDK’mızın adını ve sürümünü (`com.microsoft.cognitiveservices.speech:client-sdk:1.4.0`) girin. Sonra **Tamam**’ı seçin.
    Artık, aşağıda gösterildiği gibi Konuşma SDK’sı bağımlılıklar listesine eklenmiş olmalıdır:
 
    ![Proje Yapısı penceresinin ekran görüntüsü](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
@@ -100,16 +92,9 @@ Uygulama için temel bir kullanıcı arabirimi oluşturacağız. Ana etkinliğin
 
 Metin ve grafik temsilini kullanıcı Arabirimi artık şöyle görünmelidir:
 
-<table>
-<tr>
-<td valign="top">
 ![](media/sdk/qs-java-android-11-gui.png)
-</td>
-<td valign="top">
+
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/res/layout/activity_main.xml)]
-</td>
-</tr>
-</table>
 
 ## <a name="add-sample-code"></a>Örnek kod ekleme
 

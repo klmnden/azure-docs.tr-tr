@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: bdb89a89713c093768de3e40eda2bcbb6a311b2b
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: MT
+ms.date: 04/04/2019
+ms.openlocfilehash: dfa5d4cb2d782f1466329300157a64fd17765460
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960892"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057175"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Veritabanı'nda iş sürekliliğine genel bakış
 
@@ -53,13 +53,17 @@ Ardından, SQL veritabanı yüksek kullanılabilirlik mimarisi ile gibi işlenem
 
 Her özellik, tahmini kurtarma süresi (ERT) ve son işlemler için olası veri kaybı açısından farklı özelliklere sahiptir. Bu seçenekleri kavradıktan sonra aralarından birini seçebilir ve çoğu senaryoda farklı durumlar için birden fazlasını birlikte kullanabilirsiniz. İş sürekliliği planınızı geliştirirken, uygulamanın kesintiden sonra tamamen kurtarır önce kabul edilebilen maksimum süre anlamanız gerekir. Uygulamanın tamamen kurtarmak için gereken süre, Kurtarma süresi hedefi (RTO) bilinir. Ayrıca uygulama edilebilecek son veri güncelleştirmelerinin (zaman aralığı) maksimum süreyi anlamanız gereken kesintiden sonra kurtarılırken. Zaman dilimi kaybetmeyi göze güncelleştirmeleri, kurtarma noktası hedefi (RPO) bilinir.
 
-Aşağıdaki tabloda, her hizmet katmanı için üç yaygın senaryo için ERT ve RPO değerleri karşılaştırılmaktadır.
+Aşağıdaki tabloda, her hizmet katmanı için en yaygın senaryolar için ERT ve RPO değerleri karşılaştırılmaktadır.
 
 | Özellik | Temel | Standart | Premium | Genel Amaçlı | İş Açısından Kritik
 | --- | --- | --- | --- |--- |--- |
 | Yedekten belirli bir noktaya geri yükleme |Herhangi bir yedi gün içinde nokta geri yükleme |35 gün içinde herhangi bir geri yükleme noktasına |35 gün içinde herhangi bir geri yükleme noktasına |Yapılandırılan süre (en fazla 35 gün) içinde herhangi bir geri yükleme noktası|Yapılandırılan süre (en fazla 35 gün) içinde herhangi bir geri yükleme noktası|
 | Coğrafi çoğaltmalı yedeklerden coğrafi geri yükleme |ERT < 12 sa.<br> RPO < 1 saat |ERT < 12 sa.<br>RPO < 1 saat |ERT < 12 sa.<br>RPO < 1 saat |ERT < 12 sa.<br>RPO < 1 saat|ERT < 12 sa.<br>RPO < 1 saat|
 | Otomatik yük devretme grupları |RTO 1 saat =<br>RPO < 5 sn |RTO 1 saat =<br>RPO < 5 s |RTO 1 saat =<br>RPO < 5 s |RTO 1 saat =<br>RPO < 5 s|RTO 1 saat =<br>RPO < 5 s|
+| Elle yapılan veritabanı yük devretme |ERT = 30 s<br>RPO < 5 sn |ERT = 30 s<br>RPO < 5 s |ERT = 30 s<br>RPO < 5 s |ERT = 30 s<br>RPO < 5 s|ERT = 30 s<br>RPO < 5 s|
+
+> [!NOTE]
+> *Elle yapılan veritabanı yük devretme* , coğrafi olarak çoğaltılmış ikincil kullanarak tek bir veritabanının yük devretme başvurduğu [planlanmamış modu](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities).
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Sunucunun var olan bir veritabanını kurtarma
 
@@ -84,7 +88,7 @@ Daha hızlı veri kurtarmaya ihtiyacınız varsa, [etkin coğrafi çoğaltma](sq
 
 - Seçeneklerden biri, veri merkezi kesintisi sona erdiğinde veritabanınızın çevrimdışı olmasını beklemektir. Bu, veritabanının çevrimdışı olmasının kabul edilebildiği uygulamalar için geçerlidir. Örnek olarak üzerinde sürekli çalışma yapmadığınız bir geliştirme projesi veya ücretsiz deneme sürümü verilebilir. Bir veri merkezinde bir kesinti varsa, böylece veritabanınızı bir süredir ihtiyacınız yoksa bu seçenek yalnızca çalışır, kesinti ne kadar sürebilecek, bilmezsiniz.
 - Bir veritabanını kullanarak herhangi bir Azure bölgesi içinde herhangi bir sunucuda geri yüklemek için başka bir seçenektir [coğrafi olarak yedekli veritabanı yedeklemeleri](sql-database-recovery-using-backups.md#geo-restore) (coğrafi geri yükleme). Coğrafi geri yükleme, coğrafi olarak yedekli bir yedeklemesini, kaynağı olarak kullanır ve veritabanı veya veri merkezinde bir kesinti nedeniyle erişilemez durumda olsa bile bir veritabanını kurtarmak için kullanılabilir.
-- Son olarak, kullanarak ya da coğrafi çoğaltmalar yapılandırdıysanız kesintiden hızla kurtarabilirsiniz [etkin coğrafi çoğaltma](sql-database-active-geo-replication.md) veya [otomatik yük devretme grubu](sql-database-auto-failover-group.md) veritabanını veya veritabanlarını için. Bu teknolojilerin dilediğiniz bağlı olarak, el ile veya otomatik yük devretme kullanabilirsiniz. Yük devretme kendisi yalnızca birkaç saniye sürer ancak hizmet etkinleştirmek için en az 1 saat sürer. Bu, yük devretme kesinti ölçek tarafından karardır emin olmak gereklidir. Ayrıca, yük devretme zaman uyumsuz çoğaltma niteliği nedeniyle küçük veri kaybına neden olabilir. Ayrıntılar için bu makalenin otomatik yük devretme RTO ve RPO tabloya bakın.
+- Son olarak, coğrafi-ikincil kullanarak yapılandırdıysanız, kesinti hızla kurtarabilirsiniz [etkin coğrafi çoğaltma](sql-database-active-geo-replication.md) veya [otomatik yük devretme grubu](sql-database-auto-failover-group.md) veritabanını veya veritabanlarını için. Bu teknolojilerin dilediğiniz bağlı olarak, el ile veya otomatik yük devretme kullanabilirsiniz. Yük devretme kendisi yalnızca birkaç saniye sürer ancak hizmet etkinleştirmek için en az 1 saat sürer. Bu, yük devretme kesinti ölçek tarafından karardır emin olmak gereklidir. Ayrıca, yük devretme zaman uyumsuz çoğaltma niteliği nedeniyle küçük veri kaybına neden olabilir. Ayrıntılar için bu makalenin otomatik yük devretme RTO ve RPO tabloya bakın.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
@@ -116,7 +120,7 @@ Ayrıca, düzgün bir şekilde uygulamalarınıza ek süre bir yük devretme vey
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>Coğrafi çoğaltmalı ikincil veritabanına yük devretme
 
-Kurtarma sisteminizde etkin coğrafi çoğaltma ve otomatik yük devretme grupları kullanıyorsanız, otomatik yük devretme ilkesini yapılandırma veya kullanma [el ile yük devretme](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Yük devretme başlatıldıktan sonra yeni birincil veritabanı haline ve yeni işlemleri kaydetmeye ve sorguları - henüz çoğaltılan veriler için en düşük düzeyde veri kaybıyla yanıtlamak için hazır ikincil neden olur. Yük devretme işlemini tasarlama hakkında daha fazla bilgi için bkz: [bulutta olağanüstü durum kurtarma için uygulama tasarlama](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Kurtarma sisteminizde etkin coğrafi çoğaltma veya otomatik yük devretme grupları kullanıyorsanız, otomatik yük devretme ilkesini yapılandırma veya kullanma [el ile planlanmamış yük devretme](sql-database-active-geo-replication-portal.md#initiate-a-failover). Yük devretme başlatıldıktan sonra yeni birincil veritabanı haline ve yeni işlemleri kaydetmeye ve sorguları - henüz çoğaltılan veriler için en düşük düzeyde veri kaybıyla yanıtlamak için hazır ikincil neden olur. Yük devretme işlemini tasarlama hakkında daha fazla bilgi için bkz: [bulutta olağanüstü durum kurtarma için uygulama tasarlama](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
 > Veri Merkezi tekrar çevrimiçi olduğunda eski seçimlerine otomatik olarak yeni birincil siteye yeniden bağlayın ve ikincil veritabanları olur. Özgün bölgesiyle birincil arka dışında yeniden konumlandırmakta gerekiyorsa, planlanmış bir yük devretmeyi el ile başlatabilir (yeniden çalışma).

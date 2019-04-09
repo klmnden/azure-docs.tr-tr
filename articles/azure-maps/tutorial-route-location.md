@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5c5465562c1af3dbd3fcaff2031149e510a43cfd
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: 87ad3b8984907b5f5b889c36c2406f07cbeb242b
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540746"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056784"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Azure Haritalar’ı kullanarak ilgi çekici noktaya yönlendirme
 
@@ -109,8 +109,8 @@ Bu öğreticide rota başlangıcı ve bitişi için bir simge ve rota yolu için
 1. Eşleme başlatılıyor sonra aşağıdaki JavaScript kodunu ekleyin.
 
     ```JavaScript
-    //Wait until the map resources have fully loaded.
-    map.events.add('load', function() {
+    //Wait until the map resources are ready.
+    map.events.add('ready', function() {
 
         //Create a data source and add it to the map.
         datasource = new atlas.source.DataSource();
@@ -121,8 +121,7 @@ Bu öğreticide rota başlangıcı ve bitişi için bir simge ve rota yolu için
             strokeColor: '#2272B9',
             strokeWidth: 5,
             lineJoin: 'round',
-            lineCap: 'round',
-            filter: ['==', '$type', 'LineString']
+            lineCap: 'round'
         }), 'labels');
 
         //Add a layer for rendering point data.
@@ -135,14 +134,14 @@ Bu öğreticide rota başlangıcı ve bitişi için bir simge ve rota yolu için
                 textField: ['get', 'title'],
                 offset: [0, 1.2]
             },
-            filter: ['==', '$type', 'Point']
+            filter: ['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']] //Only render Point or MultiPoints in this layer.
         }));
     });
     ```
-
-    Haritaya, harita kaynakları tamamen yüklendikten sonra harekete geçirilecek bir yükleme olayı eklenir. Harita yükleme olayı işleyicisinde rota çizgisine ek olarak başlangıç ve bitiş noktalarını depolamak için bir veri kaynağı oluşturulur. Çizgi katmanı oluşturulur ve rota satırın nasıl işlenir tanımlamak için veri kaynağına bağlı. Rota satır içinde gölge mavi genişliği 5 pikselden ve yuvarlak çizgi birleştirme ve büyük harfler ile işlenir. Bu katmanın yalnızca GeoJSON LineString verilerini işlemesini sağlamak için bir filtre eklenir. Katman haritaya eklenirken bu katmanın harita etiketlerinin altında işlenmesi gerektiğini belirten `'labels'` değerine sahip ikinci bir parametre geçirilir. Bu parametre, rota çizgisinin yol etiketlerini kapatmamasını sağlar. Bir simge katmanı oluşturulur ve veri kaynağına eklenir. Bu katman, başlangıç ve bitiş noktalarının nasıl işleneceğini belirtir. Bu durumda her bir nokta nesnesinin özelliklerinden simge görüntüsünü ve metin etiketi bilgilerini almak için ifadeler eklenmiştir.
-
-2. Bu öğretici için başlangıç noktası Microsoft yerleşkesindeki ve uç noktası gaz istasyonu Seattle'olarak ayarlayın. Harita yükleme olayı işleyicisinde aşağıdaki kodu ekleyin.
+    
+    MAPS `ready` olay işleyicisi, bir veri kaynağı yol satır yanı sıra, başlangıç ve bitiş noktalarını depolamak için oluşturulur. Bir çizgi katmanı oluşturulup veri kaynağına eklenir ve rota çizgisinin nasıl işleneceği tanımlanır. Rota çizgisi mavi renkli olarak 5 piksel genişliğinde işlenecek ve birleşim yerleri ile bitiş uçları yuvarlatılacaktır. Katman haritaya eklenirken bu katmanın harita etiketlerinin altında işlenmesi gerektiğini belirten `'labels'` değerine sahip ikinci bir parametre geçirilir. Bu parametre, rota çizgisinin yol etiketlerini kapatmamasını sağlar. Bir simge katmanı oluşturulur ve veri kaynağına eklenir. Bu katman, başlangıç ve bitiş noktalarının nasıl işleneceğini belirtir. Bu durumda her bir nokta nesnesinin özelliklerinden simge görüntüsünü ve metin etiketi bilgilerini almak için ifadeler eklenmiştir. 
+    
+2. Bu öğretici için başlangıç noktası olarak Microsoft’u ve bitiş noktası olarak Seattle’da bir benzin istasyonunu ayarlayın. MAPS `ready` olay işleyicisine aşağıdaki kodu ekleyin.
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end points of the route.
@@ -175,7 +174,7 @@ Bu öğreticide rota başlangıcı ve bitişi için bir simge ve rota yolu için
 
 ## <a name="get-directions"></a>Yol tarifini alma
 
-Bu bölümde Azure haritalar rota hizmeti API uç noktası için belirtilen başlangıç noktasından yol bulmak için nasıl kullanılacağını gösterir. Yönlendirme hizmeti, iki konum arasındaki *en hızlı*, *en kısa*, *ekonomik* veya *heyecan verici* yolları planlamak için API’ler sağlar. Ayrıca, Azure’ın geçmişe ait kapsamlı trafik veritabanını kullanarak herhangi bir gün ve saat için yol süresini tahmin eder. Böylece kullanıcıların ileri bir tarih için yol tarifi alabilmesini sağlar. Daha fazla bilgi için bkz. [Yol tariflerini alma](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Aşağıdaki işlevlerin harita tamamen yüklendikten sonra yüklendiğinden emin olmak için tümü **map load eventListener** içine eklenmelidir.
+Bu bölümde Azure haritalar rota hizmeti API uç noktası için belirtilen başlangıç noktasından yol bulmak için nasıl kullanılacağını gösterir. Yönlendirme hizmeti, iki konum arasındaki *en hızlı*, *en kısa*, *ekonomik* veya *heyecan verici* yolları planlamak için API’ler sağlar. Ayrıca, Azure’ın geçmişe ait kapsamlı trafik veritabanını kullanarak herhangi bir gün ve saat için yol süresini tahmin eder. Böylece kullanıcıların ileri bir tarih için yol tarifi alabilmesini sağlar. Daha fazla bilgi için bkz. [Yol tariflerini alma](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Aşağıdaki işlevler tüm eklenmelidir **eşleme hazır eventListener içinde** kaynak eşleme erişilecek hazır olduktan sonra Yük emin olmak için.
 
 1. GetMap işlevinde, aşağıdaki Javascript kodunu ekleyin.
 
@@ -221,11 +220,11 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 Bu öğreticiye ait kod örneğine şuradan erişebilirsiniz:
 
-> [Azure Haritalar ile yol bulma](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
+> [Azure Haritalar ile yol](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
 
-[Burada canlı örneği inceleyin](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
+[Bu örnek burada Canlı bakın](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
 
 Sonraki öğreticide, seyahat modu veya kargo türü gibi kısıtlamalarla bir yol sorgusu oluşturma ve aynı harita üzerinde birden fazla yolu görüntüleme işlemleri gösterilmektedir.
 
 > [!div class="nextstepaction"]
-> [Farklı seyahat modları için yolları bulma](./tutorial-prioritized-routes.md)
+> [Farklı ulaşım yöntemleri için yol bulma](./tutorial-prioritized-routes.md)

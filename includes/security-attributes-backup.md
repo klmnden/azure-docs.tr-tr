@@ -2,14 +2,14 @@
 author: msmbaldwin
 ms.service: backup
 ms.topic: include
-ms.date: 01/31/2019
+ms.date: 03/15/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5a4cc3ea822c5613fc7a50b8e370d6846b683721
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 85d1e4d4909422b82ed38e688e3a62ca53c3430a
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513515"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007229"
 ---
 ## <a name="preventative"></a>Preventative
 
@@ -34,14 +34,14 @@ ms.locfileid: "55513515"
 
 | Güvenlik özniteliği | Evet/Hayır | Notlar|
 |---|---|--|
-| Azure izleme desteği (Log analytics, App ınsights vb.)| Evet | Log Analytics, tanılama günlükleri desteklenir. Bkz. İzleyici Azure Yedekleme'de korunan Log Analytics kullanarak iş yüklerini (https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) daha fazla bilgi için. |
+| Azure izleme desteği (Log analytics, Application ınsights, vb.)| Evet | Log Analytics, tanılama günlükleri desteklenir. Bkz. İzleyici Azure Yedekleme'de korunan Log Analytics kullanarak iş yüklerini (https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) daha fazla bilgi için. |
 
 ## <a name="iam-support"></a>IAM desteği
 
 | Güvenlik özniteliği | Evet/Hayır | Notlar|
 |---|---|--|
 | Erişim yönetimi - kimlik doğrulama| Evet | Azure Active Directory aracılığıyla kimlik doğrulaması şeklindedir. |
-| Erişim Yönetimi - yetkilendirme| Evet | Müşteri oluşturuldu ve yerleşik RBAC rolleri kullanılır. Azure Backup kurtarma noktaları yönetmek için Use role-based erişim denetimi (https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault) daha fazla bilgi için. |
+| Erişim Yönetimi - yetkilendirme| Evet | Müşteri oluşturuldu ve yerleşik RBAC rolleri kullanılır. Azure Backup kurtarma noktaları yönetmek için Use role-based erişim denetimi (/ azure/yedekleme/yedekleme-rbac-rs-kasa) daha fazla bilgi için. |
 
 
 ## <a name="audit-trail"></a>Denetim Kaydı
@@ -55,4 +55,4 @@ ms.locfileid: "55513515"
 
 | Güvenlik özniteliği | Evet/Hayır | Notlar|
 |---|---|--|
-| Yapılandırma yönetimi desteği (sürüm oluşturma, yapılandırma vb.)| Evet|  |
+| Yapılandırma yönetimi desteği (sürüm yapılandırması, vs.)| Evet|  |

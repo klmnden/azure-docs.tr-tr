@@ -1,7 +1,7 @@
 ---
 title: 'Hızlı Başlangıç: Java (Windows, Linux) - konuşma Hizmetleri konuşma tanıma'
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, öğreneceksiniz yakalar ve bilgisayarınızın mikrofondan gelen kullanıcı konuşma dönüştürür basit bir Java uygulaması oluşturma.
+description: Bu hızlı başlangıçta, yakalar ve bilgisayarınızın mikrofondan gelen kullanıcı konuşma dönüştürür basit bir Java uygulaması oluşturulacağını öğreneceksiniz.
 services: cognitive-services
 author: fmegen
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 83d6c430d0973d4b45fcfc40bbb93ae283d1133d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: fe565d63e72b5ec2798dde03ba4f4bd9ff4f48a7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447591"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009408"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Hızlı Başlangıç: Java Speech SDK'sı ile Konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Bu makalede, [Konuşma SDK'sı](speech-sdk.md) kullanarak bir Java konsol uygulaması oluşturacaksınız. Bilgisayarınızın mikrofonundan gerçek zamanlı olarak konuşmayı metne dönüştüreceksiniz. Uygulama konuşma SDK Maven paketini ve Windows 64-bit veya 64-bit Ubuntu Linux 16.04 Eclipse Java IDE (v4.8) ile oluşturulmuş / 18.04. 64 bit Java 8 çalışma zamanı ortamında (JRE) çalışır.
+Bu makalede, [Konuşma SDK'sı](speech-sdk.md) kullanarak bir Java konsol uygulaması oluşturacaksınız. Bilgisayarınızın mikrofonundan gerçek zamanlı olarak konuşmayı metne dönüştüreceksiniz. Konuşma SDK Maven paketini ve 64-bit Windows üzerinde Eclipse Java IDE (v4.8) ile oluşturulan uygulama 64-bit Ubuntu Linux 16.04 / 18.04 veya macOS 10.13 veya üzeri. 64 bit Java 8 çalışma zamanı ortamında (JRE) çalışır.
 
 > [!NOTE]
 > Konuşma Cihazları SDK’sı ve Roobo cihazı için bkz. [Konuşma Cihazları SDK’sı](speech-devices-sdk.md).
@@ -30,7 +30,7 @@ Bu makalede, [Konuşma SDK'sı](speech-sdk.md) kullanarak bir Java konsol uygula
 
 Bu hızlı başlangıç şunları gerektirir:
 
-* İşletim Sistemi: Windows (64-bit) veya Ubuntu Linux 16.04/18.04 (64-bit)
+* İşletim Sistemi: (64-bit) Windows, Ubuntu Linux 16.04/18.04 (64-bit) ve macOS 10.13 veya üzeri
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) veya [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Konuşma hizmeti için bir Azure aboneliği anahtarı. [Ücretsiz edinin](get-started.md).
@@ -42,7 +42,7 @@ sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
-Windows (64-bit) çalıştırıyorsanız, lütfen Microsoft Visual C++ yeniden dağıtılabilir platformunuz için yüklediğinizden emin olun.
+Windows (64-bit) çalıştırıyorsanız, Microsoft Visual C++ yeniden dağıtılabilir platformunuz için yüklediğinizden emin olun.
 * [Microsoft Visual C++ için Visual Studio 2017 yeniden dağıtılabilir'i indirin](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 

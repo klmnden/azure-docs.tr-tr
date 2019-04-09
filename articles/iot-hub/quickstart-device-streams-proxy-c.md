@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 539357c9dcfaaffa551b4be08427a51d9e92475f
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 78aa8653385a126cf40e851332d50eac4c293390
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484778"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005995"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>Hızlı Başlangıç: SSH/C Ara sunucu uygulamasını (Önizleme) kullanarak IOT Hub cihaz akışları üzerinden RDP
 
@@ -28,6 +28,7 @@ Microsoft Azure IOT Hub cihaz akışları olarak şu anda destekleyen bir [öniz
 Bu belgede, cihaz akışları aracılığıyla SSH trafiği (22 numaralı bağlantı noktasını kullanarak) tünel Kurulumu açıklanmaktadır. RDP trafiği için Kurulum benzer ve basit bir yapılandırma değişikliği gerektiriyor. Cihaz akışlar, uygulama ve protokolü belirsiz olduğundan, mevcut Hızlı Başlangıç (iletişim bağlantı noktalarını değiştirerek) değiştirilebilir uygulama trafiği diğer türleri uyum sağlamak için.
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
+
 Aşağıdaki şekilde, cihaz ve hizmet yerel proxy programları SSH istemcisi ve SSH arka plan işlemleri arasında uçtan uca bağlantı nasıl etkinleştirir, Kurulum gösterilmektedir. Genel Önizleme süresince C SDK'sı cihaz tarafında yalnızca cihaz akışlarını destekler. Sonuç olarak, bu hızlı başlangıçta, yalnızca cihaz yerel ara sunucu uygulamasını çalıştırmak için yönergeleri kapsar. İçinde kullanılabilir olan eşlik eden bir hizmet yerel ara sunucu uygulamasını çalıştırmalısınız [ C# hızlı](./quickstart-device-streams-proxy-csharp.md) veya [Node.js Hızlı Başlangıç](./quickstart-device-streams-proxy-nodejs.md) Kılavuzlar.
 
 ![Alternatif metin](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg "yerel ara Kurulumu")
@@ -56,6 +57,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 * [Visual Studio 2017](https://www.visualstudio.com/vs/)’yi ['C++ ile masaüstü geliştirme'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) iş yükü etkinleştirilmiş şekilde yükleyin.
 * En son [Git](https://git-scm.com/download/) sürümünü yükleyin.
+* Microsoft Azure IOT uzantısı için Azure CLI Cloud Shell Örneğinize eklemek için aşağıdaki komutu çalıştırın. IOT uzantısı, Azure CLI için IOT Hub, IOT Edge ve IOT cihaz sağlama hizmeti (DPS) belirli komutları ekler.
+
+   ```azurecli-interactive
+   az extension add --name azure-cli-iot-ext
+   ```
 
 ## <a name="prepare-the-development-environment"></a>Geliştirme ortamını hazırlama
 
@@ -126,14 +132,13 @@ Bu hızlı başlangıçta, [C için Azure IoT cihaz SDK](iot-hub-device-sdk-c-in
 
 Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu bölümde, bir simülasyon cihazını kaydetmek için [IoT uzantısı](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) ile Azure Cloud Shell'i kullanacaksınız.
 
-1. Aşağıdaki komutları Azure Cloud Shell'de çalıştırarak IoT Hub CLI uzantısını ekleyin ve cihaz kimliğini oluşturun. 
+1. Cihaz kimliği oluşturmak için Azure Cloud Shell'de aşağıdaki komutu çalıştırın.
 
    **YourIoTHubName**: Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.
 
    **Cihazım**: Bu, kayıtlı bir cihaz için verilen addır. Cihazım gösterildiği gibi kullanın. Cihazınız için farklı bir ad seçerseniz bu makalenin geri kalan bölümünde aynı adı kullanmanız ve örnek uygulamaları çalıştırmadan önce bunlarda da cihaz adını güncelleştirmeniz gerekir.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 

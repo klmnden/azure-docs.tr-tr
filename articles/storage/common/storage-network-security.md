@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 27ba1a1b5fbc0c7533da3634ec8a435468704c33
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.openlocfilehash: 6d6ca1fe1256f1571079027ebd299492bfa62f41
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906098"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057396"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure depolama güvenlik duvarlarını ve sanal ağları yapılandırma
 
@@ -350,13 +350,14 @@ Etkinleştirirseniz **izin güvenilen Microsoft Hizmetleri...**  özel durum, a�
 |Hizmet|Kaynak sağlayıcı adı|Amaç|
 |:------|:---------------------|:------|
 |Azure Backup|Microsoft.Backup|Yedekleme ve geri yüklemeler yönetilmeyen diskler, IAAS sanal makinelerde çalıştırır. (yönetilen diskler için gerekli değildir). [Daha fazla bilgi edinin](/azure/backup/backup-introduction-to-azure-backup).|
-|Azure Site Recovery|Microsoft.SiteRecovery |Olağanüstü durum kurtarma, Azure Iaas sanal makineler için çoğaltma etkinleştirerek yapılandırın. Güvenlik Duvarı etkin önbellek depolama hesabı veya kaynak depolama hesabı veya hedef depolama hesabı kullanıyorsanız, bu gereklidir.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
-|Azure DevTest Labs|Microsoft.DevTestLab|Özel görüntü oluşturma ve yapıt yükleme. [Daha fazla bilgi edinin](/azure/devtest-lab/devtest-lab-overview).|
 |Azure Data Box|Microsoft.DataBox|Data Box'ı kullanarak azure'a veri aktarımını sağlar. [Daha fazla bilgi edinin](/azure/databox/data-box-overview).|
+|Azure DevTest Labs|Microsoft.DevTestLab|Özel görüntü oluşturma ve yapıt yükleme. [Daha fazla bilgi edinin](/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|BLOB Depolama olayı yayımlamayı etkinleştirme ve depolama kuyrukları yayımlamak Event Grid sağlar. Hakkında bilgi edinin [blob depolama olayları](/azure/event-grid/event-sources) ve [sıralara yayımlama](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Event Hubs yakalama ile verileri arşivleme. [Daha fazla bilgi edinin](/azure/event-hubs/event-hubs-capture-overview).|
-|Azure Ağı|Microsoft.Networking|Store ve ağ trafik günlüklerini analiz edin. [Daha fazla bilgi edinin](/azure/network-watcher/network-watcher-packet-capture-overview).|
+|Azure HDInsight|Microsoft.HDInsight|Yeni bir HDInsight kümesinin varsayılan dosya sistemi ilk içeriğini sağlayın. [Daha fazla bilgi edinin](https://azure.microsoft.com/en-us/blog/enhance-hdinsight-security-with-service-endpoints/).|
 |Azure İzleyici|Microsoft.Insights|İzleme verilerinin bir güvenli depolama hesabına yazma sağlayan [daha fazla bilgi edinin](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
+|Azure Ağı|Microsoft.Networking|Store ve ağ trafik günlüklerini analiz edin. [Daha fazla bilgi edinin](/azure/network-watcher/network-watcher-packet-capture-overview).|
+|Azure Site Recovery|Microsoft.SiteRecovery |Olağanüstü durum kurtarma, Azure Iaas sanal makineler için çoğaltma etkinleştirerek yapılandırın. Güvenlik Duvarı etkin önbellek depolama hesabı veya kaynak depolama hesabı veya hedef depolama hesabı kullanıyorsanız, bu gereklidir.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
 |Azure SQL Veri Ambarı|Microsoft.Sql|İçeri aktarma sağlar ve PolyBase kullanarak senaryolar dışarı aktarın. [Daha fazla bilgi edinin](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 
 ### <a name="storage-analytics-data-access"></a>Depolama analizi veri erişimi

@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f35de1865f2e02331b8455bbdce92e8fe2f9a1b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: a763b2516f88e8c92efc321db50dc15881f54c9b
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210484"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057855"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Asana yapılandırın
 
@@ -32,16 +32,16 @@ Bu öğreticinin amacı Asana ve Azure Active Directory (Azure AD) otomatik olar
 
 Bu öğreticide özetlenen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
-*   Azure AD kiracısı
-*   Bir Asana kiracısı ile bir [Kurumsal](https://www.asana.com/pricing) planlayabilir ya da daha iyi etkin 
-*   Asana'da yönetici izinlerine sahip bir kullanıcı hesabı 
+* Azure AD kiracısı
+* Bir Asana kiracısı ile bir [Kurumsal](https://www.asana.com/pricing) planlayabilir ya da daha iyi etkin
+* Asana'da yönetici izinlerine sahip bir kullanıcı hesabı
 
-> [!NOTE] 
+> [!NOTE]
 > Azure AD tümleştirmesi sağlama dayanır [Asana API](https://asana.com/developers/api-reference/users), olduğu için Asana kullanılabilir.
 
 ## <a name="assign-users-to-asana"></a>Kullanıcı için Asana atama
 
-Azure AD "atamaları" adlı bir kavram, hangi kullanıcıların seçilen uygulamalara erişimi alması belirlemek için kullanır. Otomatik kullanıcı hesabı sağlama bağlamında, yalnızca Azure AD'de bir uygulamaya atanan kullanıcılar eşitlenir. 
+Azure AD kullanan adlı bir kavram *atamaları* hangi kullanıcıların seçilen uygulamalara erişimi alması belirlemek için. Otomatik kullanıcı hesabı sağlama bağlamında, yalnızca Azure AD'de bir uygulamaya atanan kullanıcılar eşitlenir.
 
 Yapılandırıp sağlama hizmetini etkinleştirmeden önce hangi kullanıcıların Azure AD'de Asana uygulamanıza erişmeniz karar vermeniz gerekir. Ardından Buradaki yönergeleri izleyerek bu kullanıcılar için Asana uygulamanızı atayabilirsiniz:
 
@@ -51,7 +51,7 @@ Yapılandırıp sağlama hizmetini etkinleştirmeden önce hangi kullanıcılar�
 
 Tek bir atamanızı öneririz Asana sağlama yapılandırmayı test etmek için Azure AD kullanıcısı. Ek kullanıcılar daha sonra atanabilir.
 
-## <a name="configure-user-provisioning-to-asana"></a>İçin Asana kullanıcı sağlamayı yapılandırma 
+## <a name="configure-user-provisioning-to-asana"></a>İçin Asana kullanıcı sağlamayı yapılandırma
 
 Bu bölümde, Azure AD sağlama API'si Asana kullanıcı hesabına bağlama size yol gösterir. Sağlama hizmeti oluşturmak, güncelleştirmek ve Azure AD'de kullanıcı atamaları temel alınarak asana atanan kullanıcı hesaplarını devre dışı bırakmak için de yapılandırmanız.
 
@@ -86,7 +86,7 @@ Bu bölümde, Azure AD sağlama API'si Asana kullanıcı hesabına bağlama size
 
 1. Bir kişi veya sağlama hata bildirimleri almak istediğiniz gruba e-posta adresini girin **bildirim e-posta**. Altındaki onay kutusunu seçin.
 
-1. **Kaydet**’i seçin. 
+1. **Kaydet**’i seçin.
 
 1. Altında **eşlemeleri** bölümünden **eşitleme Azure Active Directory Kullanıcıları için Asana**.
 
@@ -94,7 +94,7 @@ Bu bölümde, Azure AD sağlama API'si Asana kullanıcı hesabına bağlama size
 
 1. Azure AD hizmeti için Asana, sağlamayı etkinleştirmek için **ayarları** bölümünde **sağlama durumu** için **üzerinde**.
 
-1. **Kaydet**’i seçin. 
+1. **Kaydet**’i seçin.
 
 Asana'da atanmış tüm kullanıcılar için ilk eşitleme başlar. Şimdi **kullanıcılar** bölümü. İlk eşitleme hizmeti çalışıyor sürece yaklaşık 40 dakikada oluşan sonraki eşitlemeler uzun sürer. Kullanım **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve etkinlik günlüklerini sağlama için bağlantıları izleyin. Denetim günlüklerini Asana uygulamanızdan sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır.
 
@@ -103,5 +103,5 @@ Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [he
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Kullanıcı, kurumsal uygulamalar için hesabı hazırlamayı yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 * [Çoklu oturum açmayı yapılandırma](asana-tutorial.md)

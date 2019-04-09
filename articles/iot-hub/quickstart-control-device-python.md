@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/26/2019
-ms.openlocfilehash: ce3bf98a5f31f18c6759b202d53d8a1ced46296e
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 58b4acb3ebfc1ff22c04dafb3063f197d2866311
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519672"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005835"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Hızlı Başlangıç: Bir IOT hub'ına (Python) bağlı cihazı denetleme
 
@@ -51,6 +51,12 @@ python --version
 python3 --version
 ```
 
+Microsoft Azure IOT uzantısı için Azure CLI Cloud Shell Örneğinize eklemek için aşağıdaki komutu çalıştırın. IOT uzantısı, Azure CLI için IOT Hub, IOT Edge ve IOT cihaz sağlama hizmeti (DPS) belirli komutları ekler.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
 Örnek Python projesini önceden indirmediyseniz https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip adresinden indirip ZIP arşivini ayıklayın.
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
@@ -65,14 +71,13 @@ python3 --version
 
 Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu hızlı başlangıçta Azure Cloud Shell kullanarak bir simülasyon cihazı kaydedeceksiniz.
 
-1. Aşağıdaki komutları Azure Cloud Shell'de çalıştırarak IoT Hub CLI uzantısını ekleyin ve cihaz kimliğini oluşturun. 
+1. Cihaz kimliği oluşturmak için Azure Cloud Shell'de aşağıdaki komutu çalıştırın.
 
     **YourIoTHubName** : Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adı ile değiştirin.
 
     **MyPythonDevice** : Bu, kayıtlı bir cihaz için verilen addır. Gösterilen MyPythonDevice değerini kullanın. Cihazınız için farklı bir ad seçerseniz bu makalenin geri kalan bölümünde aynı adı kullanmanız ve örnek uygulamaları çalıştırmadan önce bunlarda da cihaz adını güncelleştirmeniz gerekir.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyPythonDevice
     ```
 

@@ -7,15 +7,15 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/20/2018
+ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: a89df98224634c08c84cb059eb58e64e3c7febf7
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: MT
+ms.openlocfilehash: 928cb790bd97270870618534a73316bba5eeb070
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801275"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057447"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Kaynak kuruluşta ve Yönetim için Yönetim grupları oluşturma
 
@@ -41,7 +41,7 @@ Portal, PowerShell veya Azure CLI kullanarak, yönetim grubu oluşturabilirsiniz
 
 1. Yönetim grubu kimliği alanını doldurun.
 
-   - **Yönetim grubu Tanıtıcısı** bu yönetim grubunda komutları göndermek için kullanılan dizini benzersiz tanımlayıcısı. Bu Azure sistem genelinde bu grubu tanımlamak için kullanılan bu tanımlayıcıyı oluşturulduktan sonra düzenlenemez.
+   - **Yönetim grubu Tanıtıcısı** bu yönetim grubunda komutları göndermek için kullanılan dizini benzersiz tanımlayıcısı. Bu tanımlayıcı, Azure sistem genelinde bu grubu tanımlamak için kullanılan oluşturulduktan sonra düzenlenebilir değildir. [Kök yönetim grubu](index.md#root-management-group-for-each-directory) Azure Active Directory kimliği olan bir kimliği ile otomatik olarak oluşturulur Diğer tüm Yönetim grupları için benzersiz bir kimliği atayın
    - Görünen ad alanı, Azure portalında görüntülenen addır. Yönetim oluştururken ayrı görünen ad isteğe bağlı bir alan olan Grup ve herhangi bir zamanda değiştirilebilir.  
 
    ![Yeni bir yönetim grubu oluşturmak için seçenekler bölmesi](./media/create_context_menu.png)  
@@ -78,8 +78,8 @@ az account management-group create --name 'Contoso'
 
 Yönetim grupları hakkında daha fazla bilgi almak için bkz.:
 
-- [Azure kaynaklarını düzenlemek için yönetim grupları oluşturma](create.md)
-- [Yönetim gruplarınızı değiştirme, silme veya yönetme](manage.md)
-- [Azure PowerShell Kaynak Modülünde yönetim gruplarını gözden geçirme](/powershell/module/az.resources#resources)
-- [REST API'de yönetim gruplarını gözden geçirme](/rest/api/resources/managementgroups)
-- [Azure CLI'de yönetim gruplarını gözden geçirme](/cli/azure/account/management-group)
+- [Azure kaynaklarını düzenlemek için Yönetim grupları oluşturma](create.md)
+- [Değiştirme, silme veya yönetim gruplarınızı yönetme](manage.md)
+- [Azure PowerShell kaynakları modülündeki Yönetim gruplarını gözden geçirin](/powershell/module/az.resources#resources)
+- [REST API Yönetim gruplarını gözden geçirin](/rest/api/resources/managementgroups)
+- [Azure CLI'de Yönetim gruplarını gözden geçirin](/cli/azure/account/management-group)

@@ -1,6 +1,6 @@
 ---
 title: Azure SQL veritabanı ve SQL veri ambarı için Azure trafiği yönlendiren | Microsoft Docs
-description: Bu belge, Azure SQL veritabanı ve SQL veri ambarı bağlantı mimariden veya azure'daki açıklar Azure dışında.
+description: Bu belge, veritabanı bağlantıları veya azure'daki Azcure SQL onnectivity mimarisini açıklar. Azure dışında.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,34 +12,16 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/03/2019
-ms.openlocfilehash: 619893ad42664f8d37fff5e61b8560f6c6d83e23
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918612"
+ms.locfileid: "59006783"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL bağlantı mimarisi
 
 Bu makalede, Azure SQL Örneğiniz için trafiği farklı bileşenleri işlevi nasıl Azure SQL veritabanı ve SQL veri ambarı bağlantı mimarisi de açıklanmaktadır. İçinden Azure bağlanan istemcileri ve Azure dışında bağlanırken istemcileri ile Azure SQL veritabanı veya SQL veri ambarı ağ trafiğini yönlendirmek için bu bağlantı bileşenleri işlevi. Bu makalede ayrıca bağlantı nasıl gerçekleştirildiğini değiştirmek için kod örnekleri ve varsayılan bağlantı ayarlarını değiştirmek için ilgili konuları sağlar.
-
-> [!IMPORTANT]
-> **[Gelecek değişiklik] Azure SQL sunucuları için hizmet uç noktası bağlantıları için bir `Default` bağlantı davranış değişiklikleri `Redirect`.**
-> Müşterilerin yeni sunucular ve varolanları bağlantı türü ile açıkça (tercih) yeniden yönlendirme veya Proxy bağlantı mimarilerini bağlı olarak ayarlama oluşturmak için önerilir.
->
-> Bu değişikliğin sonucu olarak mevcut ortamlarda bozucu bir hizmet uç noktası üzerinden bağlantı engellemek için aşağıdakileri yapın telemetri kullanırız:
->
-> - Değiştirilmeden önce hizmet uç noktaları aracılığıyla erişilen biz algılayan sunucular için şu bağlantı türüne çevirin `Proxy`.
-> - Diğer tüm sunucular için şu bağlantıyı değiştirmek türü moduna geçiş yapılamaz için `Redirect`.
->
-> Hizmet uç noktası kullanıcılar yine de aşağıdaki senaryolarda etkilenebilir:
->
-> - Bizim telemetri uygulamalarla ilgili bilgileri yakalamak yaramadı şekilde uygulama mevcut bir sunucuyu seyrek bağlanır
-> - Otomatik dağıtım logic hizmet uç noktası bağlantıları için varsayılan davranışı olduğunu varsayarsak SQL veritabanı sunucusu oluşturur. `Proxy`
->
-> Azure SQL sunucusuna bağlantılara hizmet uç noktası kurulamadı ve bu değişiklikten etkilenen suspecting, bağlantı türü açıkça değerine ayarlandığını doğrulayın `Redirect`. Bu durumda, Sql ait tüm Azure IP adreslerine bölgedeki VM Güvenlik duvarı kuralları ve ağ güvenlik grupları (NSG) açmanız gerekir [hizmet etiketi](../virtual-network/security-overview.md#service-tags) 11000 11999 bağlantı noktaları. Bu, sizin için bir seçenek değilse, sunucu açıkça geçiş `Proxy`.
-> [!NOTE]
-> Bu konu, tek veritabanları ve elastik havuzlar, SQL veri ambarı veritabanları, MySQL için Azure veritabanı, MariaDB için Azure veritabanı ve PostgreSQL için Azure veritabanı'nı barındıran Azure SQL veritabanı sunucuları için geçerlidir. Kolaylık olması için SQL veritabanı, MySQL, MariaDB için Azure veritabanı ve PostgreSQL için Azure veritabanı için SQL veritabanı, SQL veri ambarı, Azure veritabanı terimi kullanılmaktadır.
 
 ## <a name="connectivity-architecture"></a>Bağlantı mimarisi
 

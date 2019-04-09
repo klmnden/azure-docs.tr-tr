@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: ee08f5e15180a618d1a9c48b7d59b9e1f8bc90ae
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: e93a81f2c081daa58a37b1e2823d7bf0cc5a6361
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329124"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883127"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Dil anlama Docker kapsayıcıları yapılandırın 
 
 **Language Understanding** (LUIS) kapsayıcı çalışma zamanı ortamı kullanarak yapılandırılmış `docker run` komut bağımsız değişkenleri. LUIS birkaç isteğe bağlı ayarları ile birlikte gerekli birkaç ayar vardır. Birkaç [örnekler](#example-docker-run-commands) komutu kullanılabilir. Giriş kapsayıcısı özgü ayarlar şunlardır [bağlama ayarları](#mount-settings) ve fatura ayarlar. 
-
-Kapsayıcı ayarları [hiyerarşik](#hierarchical-settings) ve ayarlanabilir [ortam değişkenlerini](#environment-variable-settings) ya da docker [komut satırı bağımsız değişkenleri](#command-line-argument-settings).
 
 ## <a name="configuration-settings"></a>Yapılandırma ayarları
 
@@ -32,12 +30,12 @@ Bu kapsayıcı, aşağıdaki yapılandırma ayarları vardır:
 |--|--|--|
 |Evet|[ApiKey](#apikey-setting)|Fatura bilgileri izlemek için kullanılır.|
 |Hayır|[ApplicationInsights](#applicationinsights-setting)|Eklemenizi sağlayan [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) kapsayıcınızı telemetri desteği.|
-|Evet|[Billing](#billing-setting)|Azure'daki hizmet kaynağının uç nokta URI'sini belirtir.|
+|Evet|[Faturalandırma](#billing-setting)|Azure'daki hizmet kaynağının uç nokta URI'sini belirtir.|
 |Evet|[Eula](#eula-setting)| Kapsayıcı lisansını kabul ettiğinizi gösterir.|
 |Hayır|[Fluentd](#fluentd-settings)|Günlük yazma ve isteğe bağlı olarak ölçüm verileri Fluentd sunucusuna.|
 |Hayır|[HTTP Ara sunucusu](#http-proxy-credentials-settings)|Bir HTTP Proxy'si Giden istekleri yapmak için yapılandırın.|
-|Hayır|[Logging](#logging-settings)|Kapsayıcınız için ASP.NET Core günlük kaydı desteği sunar. |
-|Evet|[Mounts](#mount-settings)|Ana bilgisayardaki verileri okuyup kapsayıcıya, kapsayıcıdaki verileri okuyup ana bilgisayara yazar.|
+|Hayır|[Günlüğe kaydetme](#logging-settings)|Kapsayıcınız için ASP.NET Core günlük kaydı desteği sunar. |
+|Evet|[Bağlar](#mount-settings)|Ana bilgisayardaki verileri okuyup kapsayıcıya, kapsayıcıdaki verileri okuyup ana bilgisayara yazar.|
 
 > [!IMPORTANT]
 > [ `ApiKey` ](#apikey-setting), [ `Billing` ](#billing-setting), Ve [ `Eula` ](#eula-setting) ayarları birlikte kullanılır ve bunları; Aksi takdirde, tüm üç için geçerli değerler sağlamanız gerekir kapsayıcınızı başlatılamıyor. Bir kapsayıcı örneği oluşturmak için bu yapılandırma ayarlarını kullanma hakkında daha fazla bilgi için bkz. [faturalama](luis-container-howto.md#billing).
@@ -103,11 +101,6 @@ Aşağıdaki tabloda, desteklenen ayarları açıklanmaktadır.
 |Evet| `Input` | Dize | Giriş bağlama hedefi. Varsayılan değer `/input` şeklindedir. LUIS paket dosyalarının konumunu budur. <br><br>Örnek:<br>`--mount type=bind,src=c:\input,target=/input`|
 |Hayır| `Output` | Dize | Çıkış bağlama hedefi. Varsayılan değer `/output` şeklindedir. Bu günlükler konumdur. Bu, LUIS sorgu ve kapsayıcı günlükleri içerir. <br><br>Örnek:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="hierarchical-settings"></a>Hiyerarşik ayarları
-
-[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
-
-
 ## <a name="example-docker-run-commands"></a>Örnek docker komutlarını çalıştırın
 
 Aşağıdaki örnekler, yazma ve kullanma göstermek için yapılandırma ayarlarını kullanır. `docker run` komutları.  Kapsayıcıyı çalıştıran sonra dek çalıştırmaya devam [Durdur](luis-container-howto.md#stop-the-container) bu.
@@ -160,7 +153,7 @@ ApiKey={ENDPOINT_KEY}
 InstrumentationKey={INSTRUMENTATION_KEY}
 ```
 
-### <a name="logging-example-with-command-line-arguments"></a>Komut satırı bağımsız değişkenleri ile günlük örnek
+### <a name="logging-example"></a>Günlük örnek 
 
 Aşağıdaki komut günlüğe kaydetme düzeyini ayarlar `Logging:Console:LogLevel`, günlüğe kaydetme düzeyini yapılandırmak için [ `Information` ](https://msdn.microsoft.com). 
 
@@ -172,22 +165,7 @@ mcr.microsoft.com/azure-cognitive-services/luis:latest \
 Eula=accept \
 Billing={BILLING_ENDPOINT} \
 ApiKey={ENDPOINT_KEY} \
-Logging:Console:LogLevel=Information
-```
-
-### <a name="logging-example-with-environment-variable"></a>Günlük örnek ortam değişkeni
-
-Adlandırılmış bir ortam değişkeni aşağıdaki komutları kullanma `Logging:Console:LogLevel` günlüğe kaydetme düzeyini yapılandırmak için [ `Information` ](https://msdn.microsoft.com). 
-
-```bash
-SET Logging:Console:LogLevel=Information
-docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis:latest \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
-ApiKey={APPLICATION_ID} \
+Logging:Console:LogLevel:Default=Information
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

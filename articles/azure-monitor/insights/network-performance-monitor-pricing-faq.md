@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: d2d1ca3e41de36d423de24fdbade8c17507642b5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 77cacd7f94d8ddd92fcd7383d2d0a7929734eaeb
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734309"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005922"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure Ağ Performansı İzleyicisi için fiyatlandırma değişiklikleri
 
@@ -38,7 +38,7 @@ Aşağıdaki bölümlerde, NPM bileşenleri için fiyatlandırma değişiklikler
 
 NPM faturalandırması kullanım ve iki bileşenden tüketimini temel:
 * **Düğümleri**: Tüm yapay işlemler, kaynaklanan ve düğümler sonlandırın. Düğümleri de aracıları veya Microsoft Yönetim aracıları adlandırılır.
-* **Veri**: Çeşitli ağ testlerin sonuçları, Azure Log Analytics deposunda depolanır.
+* **Veri**: Çeşitli ağ testlerin sonuçlarını Log Analytics çalışma alanında depolanır.
 
 Eski modelde, fatura düğüm sayısını ve oluşturulan veri hacmine bağlı olarak hesaplandı. 
 
@@ -63,7 +63,7 @@ Tüm ay boyunca tek alt ağ bağlantısını izleme maliyeti için bkz. [Ping a�
 
 **Performans İzleyicisi oluşturan veri ücretleri nelerdir?**
 
-Alımı (Log Analytics, işleme ve dizin oluşturma için veri yükleme) için ücret kullanılabilir [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/log-analytics/) veri alımı bölümünde Log Analytics için. Veri saklama (diğer bir deyişle, veriler ilk aydan sonra müşterinin seçeneği tutulur) ücreti de kullanılabilir [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/log-analytics/), veri saklama bölümünde.
+Alımı (Log Analytics çalışma alanında işleme ve dizin oluşturma Azure İzleyici, veri yükleme) için ücret kullanılabilir [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/log-analytics/) veri alımı bölümünde Log Analytics için. Veri saklama (diğer bir deyişle, veriler ilk aydan sonra müşterinin seçeneği tutulur) ücreti de kullanılabilir [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/log-analytics/), veri saklama bölümünde.
 
 
 ## <a name="expressroute-monitor"></a>ExpressRoute İzleyicisi

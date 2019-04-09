@@ -4,16 +4,16 @@ description: Ve büyük veri kümeleri ile Azure kaynak Graph çalışırken ö�
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ef61314ae124668fc8970e6d68a0f927bdf771bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: 40aa8ca0ebfcc8eb5b686143960af1441768622a
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889044"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058400"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Büyük bir Azure kaynak veri kümeleri ile çalışma
 
@@ -63,7 +63,7 @@ Search-AzGraph -Query "project name | order by name asc" -Skip 10
 
 ## <a name="paging-results"></a>Disk belleği sonuçları
 
-Bir sonuç kümesi işleme kayıtlarını içeren daha küçük kümelerine ayırmak gerekli olduğunda veya bir sonuç kümesi değeri izin verilen üst sınırı aşacağından _5000_ kayıtların döndürüleceği, disk belleği kullanın. [REST API](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** kümesine parçalanmış sonuçlarının belirtmek için değerler sunar: **resultTruncated** ve **$skipToken** .
+Bir sonuç kümesi işleme kayıtlarını içeren daha küçük kümelerine ayırmak gerekli olduğunda veya bir sonuç kümesi değeri izin verilen üst sınırı aşacağından _1000_ kayıtların döndürüleceği, disk belleği kullanın. [REST API](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** kümesine parçalanmış sonuçlarının belirtmek için değerler sunar: **resultTruncated** ve **$skipToken** .
 **resultTruncated** ek kayıtlar varsa tüketici değil yanıtta döndürülen bildiren bir Boole değeri. Bu durum da olabilir ne zaman tanımlanan **sayısı** özelliği küçüktür **totalRecords** özelliği. **totalRecords** kaç sorguyla eşleşen kayıt tanımlar.
 
 Zaman **resultTruncated** olduğu **true**, **$skipToken** özelliği, yanıt olarak ayarlanır. Bu değer aynı sorgu ve abonelik değerlerle sonraki sorguyla eşleşen kayıt kümesini almak için kullanılır.

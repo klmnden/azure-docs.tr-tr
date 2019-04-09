@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 71b87f975d856e20bd3934258c50be54e06254ef
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: cd2895378f713749b3a1d0ac01986b728ceafd2b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666401"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009012"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric'e genel bakış
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur. Service Fabric ayrıca bulut yerel uygulamalarını geliştirme ve yönetme sürecinde karşılaşılan başlıca sorunların giderilmesini de sağlar. Geliştiriciler ve yöneticiler, karmaşık altyapı sorunlarını çözmeye çalışmak yerine görev açısından kritik, zorlu iş yüklerini uygulamaya odaklanabilir. Service Fabric, bu iş yüklerinin ölçeklenebilir, güvenilir ve yönetilebilir olmasını sağlar. Service Fabric, kapsayıcılarda çalıştırılan 1. katman bulut ölçeğindeki bu kurumsal sınıf uygulamaları oluşturmak ve yönetmek için tasarlanan yeni nesil bir platformdur.
@@ -29,7 +29,7 @@ Bu kısa videoda Service Fabric ve mikro hizmetler tanıtılır:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 ## <a name="compliance"></a>Uyumluluk
-Azure Service Fabric kaynak sağlayıcısı, tüm Azure bölgelerinde kullanılabilir durumdadır ve Azure olan tüm uyumluluk sertifikaları ile uyumludur; Buna aşağıdakiler dahildir: SOC ve ISO, PCI DSS, HIPPA ve GDRP. Lütfen uyumluluk sertifikaları tam listesi için aşağıdakileri inceleyin: [Uyumluluk teklifi](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
+Azure Service Fabric kaynak sağlayıcısı, tüm Azure bölgelerinde kullanılabilir durumdadır ve Azure olan tüm uyumluluk sertifikaları ile uyumludur; Buna aşağıdakiler dahildir: SOC ve ISO, PCI DSS, HIPAA ve GDRP. Lütfen uyumluluk sertifikaları tam listesi için aşağıdakileri inceleyin: [Uyumluluk teklifi](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## <a name="applications-composed-of-microservices"></a>Mikro hizmetlerden oluşturulmuş uygulamalar 
 Service Fabric, makinenin küme olarak adlandırılan bir paylaşılan havuzunda yüksek yoğunlukta çalışan mikro hizmetlerden oluşturulmuş, ölçeklendirilebilir ve güvenilir uygulamalar oluşturmanıza ve bunları yönetmenize olanak tanır. Dağıtılmış, ölçeklendirilebilir, durum bilgisi olmayan, durum bilgisi olan ve kapsayıcılarda çalıştırılan mikro hizmetler oluşturmak için gelişmiş, basit bir çalışma zamanı sağlar. Ayrıca, kapsayıcılı hizmetler de dahil olmak üzere dağıtılan uygulamaları sağlamak, dağıtmak, izlemek, yükseltmek/yama uygulamak ve silmek için kapsamlı uygulama yönetim özellikleri de sağlar.
@@ -91,7 +91,7 @@ Service Fabric kullanarak:
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar
 * Daha fazla bilgi için:
-  * [Uygulamaları oluşturmak için neden mikro hizmetler yaklaşımı öneriliyor?](service-fabric-overview-microservices.md)
+  * [Neden mikro hizmetler yaklaşımı uygulamaları oluşturmak için?](service-fabric-overview-microservices.md)
   * [Terminolojiye genel bakış](service-fabric-technical-overview.md)
 * [Windows dağıtım ortamınızı](service-fabric-get-started.md) ayarlama  
 * [Linux dağıtım ortamınızı](service-fabric-get-started-linux.md) ayarlama

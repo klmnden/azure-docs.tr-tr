@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 9b04ca359a0c71a04e762452fa33345201f37e84
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9f48303396d1ecd03fdffd2c6ab1e0c122615a21
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124329"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005735"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
 Web uygulamanızı veya web sitenizi herhangi bir sunucuya dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemeye yönelik testler ayarlayabilirsiniz. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), dünyanın her yerindeki noktalarından uygulamanıza düzenli aralıklarla web istekleri gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
@@ -92,7 +92,7 @@ Web oturumu kaydetmek için Visual Studio Enterprise kullanın.
 
     ![Visual Studio Enterprise sürümünde, Web Performansı ve Yük Testi şablonundan bir proje oluşturun.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
-   * *Web Performansı ve Yük Testi şablonunu görmüyor musunuz?* - Visual Studio Enterprise’ı kapatın. **Visual Studio Yükleyicisi**’ni açarak Visual Studio Enterprise yüklemesini değiştirin. **Tek Bileşenler** altında **Web Performansı ve yük testi araçları**’nı seçin.
+   * *Web performansı ve yük testi şablonunu görmüyor musunuz?* - Visual Studio Enterprise’ı kapatın. **Visual Studio Yükleyicisi**’ni açarak Visual Studio Enterprise yüklemesini değiştirin. **Tek Bileşenler** altında **Web Performansı ve yük testi araçları**’nı seçin.
 
 2. .webtest dosyasını açın ve kaydı başlatın.
 
@@ -167,7 +167,7 @@ Belirli bir testin ve/veya konumun eğilimlerini analiz etmek için test adına 
 
 ## <a name="edit"></a> Testleri inceleme ve düzenleme
 
-Ayrıntılar sekmesinden üç nokta en sağdaki düzenlemek, geçici olarak devre dışı bırakın, silin veya web testini indir belirli bir test seçin.
+Ayrıntılar sekmesinden üç nokta en sağdaki düzenlemek, geçici olarak devre dışı bırakın, silin veya web testini indir belirli bir test seçin. Bu, yapılandırma değişikliklerinin yayılması için 20 dakikaya kadar sürebilir.
 
 Seçin **test ayrıntılarını görüntüleme** , dağılım grafiğinde noktalara ve belirli test konumu ayrıntıları görmek için belirli bir test.
 
@@ -335,14 +335,14 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 
     Bu iki terim birbirlerinin yerine kullanılabilir. Kullanılabilirlik testleri, çok adımlı web testlerine ek olarak tek URL ping testlerini de içeren daha genel bir terimdir.
     
-* *Kullanılabilirlik testlerini, güvenlik duvarının arkasında çalışan kendi iç sunucumuzda kullanmak istiyorum.*
+* *Kullanılabilirlik testlerini, güvenlik duvarının arkasında çalışan kendi dahili sunucumuzda kullanmayı tercih ediyorum.*
 
     İki olası çözümü vardır:
     
     * Güvenlik duvarınızı, [Web testi aracılarımızın IP adreslerinden](../../azure-monitor/app/ip-addresses.md) gelen isteklere izin verecek şekilde yapılandırın.
     * İç sunucunuzu düzenli olarak test etmek için kendi kodunuzu yazın. Kodu, güvenlik duvarınızın arkasındaki bir test sunucusunda arka plan işlemi olarak çalıştırın. Test işleminiz, temel SDK paketindeki [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API’sini kullanarak sonuçları Application Insights’a gönderebilir. Bunun için test sunucunuzun Application Insights alım uç noktası ile giden bağlantısının olması gerekir, ancak bu, gelen isteklere izin vermeye göre çok daha küçük bir güvenlik riski oluşturur. Sonuçlar kullanılabilirlik web testi dikey pencerelerinde görünür, ancak Analytics, Search ve Ölçüm Gezgini’nde kullanılabilirlik sonuçları olarak görüntülenir.
 
-* *Çok adımlı web testi karşıya yüklenemiyor*
+* *Çok adımlı web testi yüklenemiyor*
 
     Bu durum bazı nedenler:
     * 300 K boyut sınırı vardır.
@@ -350,11 +350,11 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
     * Başka web testlerine başvurular desteklenmez.
     * Veri kaynakları desteklenmez.
 
-* *Çok adımlı testim tamamlanmıyor*
+* *Çok adımlı testim tamamlanmadı*
 
     Test başına 100 istek sınırı var. Ayrıca, iki dakikadan uzun çalışırsa test durduruldu.
 
-* *İstemci sertifikalarıyla testi nasıl çalıştırırım?*
+* *İstemci sertifikasıyla testi nasıl çalıştırırım?*
 
     Üzgünüz, bunu desteklemiyoruz.
 

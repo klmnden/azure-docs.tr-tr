@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: f7d1c5bc54d909d1a948123839d95e1ee1158a5c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 4410dd9e61fe5b585ca5b245dbf33dbf8c38e701
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444830"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010235"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Otomatik ölçeklendirme ve bölgesel olarak yedekli bir uygulama ağ geçidi (genel Önizleme)
 
@@ -29,6 +29,9 @@ Uygulama ağ geçidi ve Web uygulaması Güvenlik Duvarı (WAF) artık performan
 > Otomatik ölçeklendirme yapan ve alanlar arası yedekli uygulama ağ geçidi SKU'su şu anda genel önizleme aşamasındadır. Bu önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
+
+> [!NOTE]
+> Otomatik ölçeklendirme ve bölgesel olarak yedekli bir uygulama ağ geçidi SKU'su artık destekliyor [varsayılan durum araştırması](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) otomatik olarak kendi arka uç havuzundaki tüm kaynakların durumunu izleyin ve herhangi bir kaynak havuzundan iyi durumda olmadığı kabul kaldırın. Varsayılan sistem durumu araştırması süre sonundan sonra otomatik olarak özel araştırma yapılandırmaların ayarlamasını yapmadığınızı tüm bu arka uçları için yapılandırılmış. Daha fazla bilgi için bkz. [sistem durumu araştırmalarının application Gateway'i](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>SKU v1 ve v2 SKU arasında özellik karşılaştırması
 

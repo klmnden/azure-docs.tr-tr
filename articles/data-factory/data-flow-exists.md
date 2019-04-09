@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 18d8a0e231e8b4dbe33911dd6267966674366904
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6ce27ba699ae766ed4d2428f67d91379464bb9f1
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734498"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006143"
 ---
 # <a name="azure-data-factory-mapping-data-flow-exists-transformation"></a>Azure veri fabrikası veri akışı eşleme dönüştürme var
 
@@ -25,3 +25,10 @@ EXISTS dönüşümü durdurur veya veri akışına satır sağlayan dönüştür
 Veri akışı Stream 2 karşı Stream 1 değerlerinden karşılaştırabilmek için mevcut ikinci kaynağı seçin.
 
 Kaynak 1'den ve kaynak değerleri EXISTS veya yok denetlemek istediğiniz 2 sütun seçin.
+
+## <a name="multiple-exists-conditions"></a>Birden çok koşul var.
+
+Sütun koşullarınız Exsits için her satırının yanındaki bulursunuz bir + oturum kullanılabilir üzerine geldiğinizde satır ulaşın. Bu, mevcut koşulları için birden çok satır eklemek olanak tanır.
+
+## <a name="next-steps"></a>Sonraki adımlar
+

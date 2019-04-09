@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: ffd5f4baf3bbd2b7f0fe90272f896e438a30a35f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d36737e6007f247777689e2afa9f47b3ad5bf107
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079239"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006665"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-applications-preview"></a>Hızlı Başlangıç: IOT Hub cihaz üzerinde SSH/RDP kullanarak akışları C# proxy uygulamaları (Önizleme)
 
@@ -26,7 +26,6 @@ Microsoft Azure IOT Hub cihaz akışları olarak şu anda destekleyen bir [öniz
 [IOT Hub cihaz akışları](./iot-hub-device-streams-overview.md) güvenli ve güvenlik duvarı uyumlu bir şekilde iletişim kurmak hizmet ve cihaz uygulamalarınıza izin verin. Bu Hızlı Başlangıç Kılavuzu, iki içerir C# istemci/sunucu uygulama trafiği (örneğin, SSH ve RDP), IOT hub'ı aracılığıyla kurulan bir cihaz akış üzerinden gönderilen olanak sağlayan program. Bkz: [burada](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) Kurulum genel bakış.
 
 İlk kurulum için SSH (22 numaralı bağlantı noktasını kullanarak) açıklanmaktadır. Biz, ardından Kurulum'ın bağlantı noktası için RDP değiştirme açıklanmaktadır. Cihaz akışlar, uygulama ve protokolü belirsiz olduğundan, aynı örnek uygulama trafiği diğer türleri uyum sağlayacak şekilde değiştirilebilir. Bu genellikle yalnızca hedeflenen uygulama tarafından kullanılan iletişim bağlantı noktasını değiştirerek içerir.
-
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
@@ -66,8 +65,13 @@ Aşağıdaki komutu kullanarak geliştirme makinenizde geçerli C# sürümünü 
 dotnet --version
 ```
 
-https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip adresinden örnek C# projesini indirin ve ZIP arşivini ayıklayın.
+Microsoft Azure IOT uzantısı için Azure CLI Cloud Shell Örneğinize eklemek için aşağıdaki komutu çalıştırın. IOT uzantısı, Azure CLI için IOT Hub, IOT Edge ve IOT cihaz sağlama hizmeti (DPS) belirli komutları ekler.
 
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
+https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip adresinden örnek C# projesini indirin ve ZIP arşivini ayıklayın.
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
@@ -77,14 +81,13 @@ https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip adr
 
 Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu hızlı başlangıçta Azure Cloud Shell kullanarak bir simülasyon cihazı kaydedeceksiniz.
 
-1. Aşağıdaki komutları Azure Cloud Shell'de çalıştırarak IoT Hub CLI uzantısını ekleyin ve cihaz kimliğini oluşturun. 
+1. Cihaz kimliği oluşturmak için Azure Cloud Shell'de aşağıdaki komutu çalıştırın.
 
    **YourIoTHubName**: Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.
 
    **Cihazım**: Bu, kayıtlı bir cihaz için verilen addır. Cihazım gösterildiği gibi kullanın. Cihazınız için farklı bir ad seçerseniz bu makalenin geri kalan bölümünde aynı adı kullanmanız ve örnek uygulamaları çalıştırmadan önce bunlarda da cihaz adını güncelleştirmeniz gerekir.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 

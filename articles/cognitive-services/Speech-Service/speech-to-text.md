@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 6400e3d3fa7f0317ff927f2931e705365a450770
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9e6bc1264e668ba5c6593ce36e721f54e685c391
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520675"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008501"
 ---
 # <a name="what-is-speech-to-text"></a>Konuşmayı metne nedir?
 
@@ -51,17 +51,17 @@ Hızlı başlangıçlar, en popüler programlama dillerinden, her, kodu 10 dakik
 
 | Hızlı Başlangıç | Platform | API başvurusu |
 |------------|----------|---------------|
-| [C#, .NET Core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) | Windows | [Göz atma](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) | Windows | [Göz atma](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-uwp) | Windows | [Göz atma](https://aka.ms/csspeech/csharpref) |
-| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) | Windows | [Göz atma](https://aka.ms/csspeech/cppref)|
-| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) | Linux | [Göz atma](https://aka.ms/csspeech/cppref) |
-| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [Göz atma](https://aka.ms/csspeech/javaref) |
-| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows, Linux | [Göz atma](https://aka.ms/csspeech/javaref) |
-| [JavaScript tarayıcı](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-browser) | Tarayıcı, Windows, Linux, macOS | [Göz atma](https://aka.ms/AA434tv) |
-| [JavaScript, Node.js](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-node) | Windows, Linux, macOS | [Göz atma](https://aka.ms/AA434tv) |
-| [Objective-C](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-objectivec-ios) | iOS | [Göz atma](https://aka.ms/csspeech/objectivecref) |
-| [Python](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python) | Windows, Linux, macOS | [Göz atma](https://aka.ms/AA434tr)  |
+| [C#, .NET Core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) | Windows | [Göz at](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET Framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) | Windows | [Göz at](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-uwp) | Windows | [Göz at](https://aka.ms/csspeech/csharpref) |
+| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) | Windows | [Göz at](https://aka.ms/csspeech/cppref)|
+| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) | Linux | [Göz at](https://aka.ms/csspeech/cppref) |
+| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [Göz at](https://aka.ms/csspeech/javaref) |
+| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows, Linux | [Göz at](https://aka.ms/csspeech/javaref) |
+| [JavaScript tarayıcı](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-browser) | Tarayıcı, Windows, Linux, macOS | [Göz at](https://aka.ms/AA434tv) |
+| [JavaScript, Node.js](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-node) | Windows, Linux, macOS | [Göz at](https://aka.ms/AA434tv) |
+| [Objective-C](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-objectivec-ios) | iOS | [Göz at](https://aka.ms/csspeech/objectivecref) |
+| [Python](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python) | Windows, Linux, macOS | [Göz at](https://aka.ms/AA434tr)  |
 
 Konuşmayı metne REST hizmeti kullanmayı tercih ederseniz bkz [REST API'leri](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
@@ -102,8 +102,8 @@ Uygulamalar, Araçlar ya da ürünler Bing konuşma API'leri veya özel konuşma
 ## <a name="reference-docs"></a>Başvuru belgeleri
 
 * [Konuşma SDK'sı](speech-sdk-reference.md)
-* [Konuşma cihaz SDK'sı](speech-devices-sdk.md)
-* [REST API: Konuşma metin](rest-speech-to-text.md)
+* [Konuşma Cihazları SDK’sı](speech-devices-sdk.md)
+* [REST API: Konuşmayı metne dönüştürme](rest-speech-to-text.md)
 * [REST API: Metin okuma](rest-text-to-speech.md)
 * [REST API: Batch tanıma ve özelleştirme](https://westus.cris.ai/swagger/ui/index)
 

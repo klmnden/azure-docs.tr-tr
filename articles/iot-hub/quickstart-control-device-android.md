@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: b7a46fab296fa8d585f1ae70dcf278e6686cca64
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e3b0c0703cb46087db38121055117b50f97ad03f
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520607"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006582"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Hızlı Başlangıç: Bir IOT hub'ına (Android) bağlı cihazı denetleme
 
@@ -35,13 +35,17 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-
 * Android Studio'da https://developer.android.com/studio/. Android Studio yükleme hakkında daha fazla bilgi için bkz. [android yükleme](https://developer.android.com/studio/install).
 
 * Android SDK 27 bu makaledeki örnek tarafından kullanılır.
 
-* İki örnek uygulama, bu hızlı başlangıç ile gereklidir: [Cihaz SDK'sı örnek Android uygulama](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) ve [hizmeti SDK'sı örnek Android uygulama](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample). Bu örneklerin her ikisi de GitHub azure-IOT-samples-java havuzda bir parçasıdır. İndirin veya kopyalayın [azure-IOT-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) depo.
+* Microsoft Azure IOT uzantısı için Azure CLI Cloud Shell Örneğinize eklemek için aşağıdaki komutu çalıştırın. IOT uzantısı, Azure CLI için IOT Hub, IOT Edge ve IOT cihaz sağlama hizmeti (DPS) belirli komutları ekler.
 
+   ```azurecli-interactive
+   az extension add --name azure-cli-iot-ext
+   ```
+
+* İki örnek uygulama, bu hızlı başlangıç ile gereklidir: [Cihaz SDK'sı örnek Android uygulama](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) ve [hizmeti SDK'sı örnek Android uygulama](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample). Bu örneklerin her ikisi de GitHub azure-IOT-samples-java havuzda bir parçasıdır. İndirin veya kopyalayın [azure-IOT-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) depo.
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
@@ -55,14 +59,13 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu hızlı başlangıçta Azure Cloud Shell kullanarak bir simülasyon cihazı kaydedeceksiniz.
 
-1. Aşağıdaki komutları Azure Cloud Shell'de çalıştırarak IoT Hub CLI uzantısını ekleyin ve cihaz kimliğini oluşturun.
+1. Cihaz kimliği oluşturmak için Azure Cloud Shell'de aşağıdaki komutu çalıştırın.
 
    **YourIoTHubName**: Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adı ile değiştirin.
 
    **MyAndroidDevice**: Bu değer için kayıtlı cihaza verilen addır. MyAndroidDevice gösterildiği gibi kullanın. Cihazınız için farklı bir ad seçerseniz, bu makalenin tamamında bu adı kullanın ve bunları çalıştırmadan önce örnek uygulamalar, cihaz adını güncelleştirmek gerekebilir.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create \
       --hub-name YourIoTHubName --device-id MyAndroidDevice
     ```

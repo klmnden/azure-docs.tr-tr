@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5e7994ba5fcd3efa061f56d7ee77f796bab16708
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 3482a5516e0a044716ac38e7a60a9a8484f73245
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449322"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056223"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Azure haritalar'ı kullanarak bir etkileşimli arama eşlemesi oluşturma
 
@@ -49,7 +49,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 1. [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html) dosyasının içeriklerini indirin veya kopyalayın.
 2. Bu dosyanın içeriği yerel kaydetmek **AzureMapDemo.html**. Bir metin düzenleyicisinde açın.
-3. Arama dizesi için `<insert-key>`. Yerine konacak **birincil anahtar** değerini ise önceki bölümden.
+3. Arama dizesi için `<Your Azure Maps Key>`. Yerine konacak **birincil anahtar** değerini ise önceki bölümden.
 
 ## <a name="open-the-application"></a>Uygulamayı açma
 
@@ -70,7 +70,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, Azure haritalar hesabınızda oluşturduğunuz ve bir tanıtım uygulaması oluşturdunuz. Azure haritalar API'leri kullanarak kendi uygulamanızı oluşturmayı öğrenmek için aşağıdaki öğreticiye geçin:
+Bu hızlı başlangıçta, Azure haritalar hesabınızda oluşturduğunuz ve bir tanıtım uygulaması oluşturdunuz. Azure haritalar hakkında bilgi edinmek için aşağıdaki öğreticilere göz atın:
 
 > [!div class="nextstepaction"]
 > [Azure haritalar'ı kullanarak ilgi noktalarını arama](./tutorial-search-location.md)

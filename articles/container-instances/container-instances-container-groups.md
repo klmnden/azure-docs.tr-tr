@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8724bd7e13b0d8607ad5a6814b27c8c06681f331
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f4bbea8acd447a731cf5c56f9876baf9183735ea
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202019"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005538"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container ınstances'da kapsayıcı grupları
 
@@ -41,7 +41,9 @@ Bu örnek kapsayıcı grubu:
 
 ## <a name="deployment"></a>Dağıtım
 
-Çok kapsayıcılı bir grup dağıtmak için iki ortak yollar şunlardır: kullanan bir [Resource Manager şablonu] [ resource-manager template] veya [YAML dosyası][yaml-file]. Resource Manager şablonu, ek Azure hizmet kaynakları dağıtmak ihtiyacınız olduğunda kullanın (örneğin, bir [Azure dosyaları paylaşım][azure-files]) kapsayıcı örnekleri dağıttığınız zaman. Container Instances dağıtımınızda olduğunda YAML formatın daha kısa niteliği nedeniyle bir YAML dosyası önerilir.
+Çok kapsayıcılı bir grup dağıtmak için iki ortak yollar şunlardır: kullanan bir [Resource Manager şablonu] [ resource-manager template] veya [YAML dosyası][yaml-file]. Ek Azure hizmet kaynakları dağıtmak için ihtiyacınız olduğunda Resource Manager şablonu önerilir (örneğin, bir [Azure dosyaları paylaşım][azure-files]) kapsayıcı örnekleri dağıttığınızda. Container Instances dağıtımınızda olduğunda YAML formatın daha kısa niteliği nedeniyle bir YAML dosyası önerilir.
+
+Bir kapsayıcı grubun yapılandırmayı korumak için yapılandırmayı bir YAML dosyası için Azure CLI komutunu kullanarak dışa aktarabilirsiniz [az container dışarı aktarma][az-container-export]. Dışarı aktarma "yapılandırma" kod olarak sürüm denetiminde kapsayıcı grubu yapılandırmalarınızı depolamanıza olanak tanır Veya yeni bir YAML yapılandırmasında geliştirirken dışarı aktarılan dosya başlangıç noktası olarak kullanın.
 
 ## <a name="resource-allocation"></a>Kaynak ayırma
 
@@ -110,3 +112,4 @@ Azure Resource Manager şablonu ile bir çok kapsayıcılı kapsayıcı grubu da
 [azure-files]: container-instances-volume-azure-files.md
 [virtual-network]: container-instances-vnet.md
 [gpus]: container-instances-gpu.md
+[az-container-export]: /cli/azure/container#az-container-export

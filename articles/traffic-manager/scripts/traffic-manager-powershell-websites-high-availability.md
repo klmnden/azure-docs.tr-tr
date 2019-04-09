@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: kumud
-ms.openlocfilehash: 4991be7ecb252001245a0bcde8551d8432b0794b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: db84de194832180b8e153cf6aa7e6c9fab5e6d61
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998510"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010184"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-powershell"></a>Azure PowerShell kullanarak uygulamaların yüksek kullanılabilirlik için trafiği yönlendirme
 
@@ -51,12 +51,12 @@ Bu betik bir kaynak grubu, web uygulaması, traffic manager profili ve tüm ilgi
 
 | Komut | Notlar |
 |---|---|
-| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)  | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [Yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)  | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [Yeni AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | App Service planı oluşturur. Azure web uygulamanız için bir sunucu grubu gibi budur. |
-| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | App Service planı içinde bir Azure web uygulaması oluşturur. |
+| [Yeni AzWebApp](/powershell/module/az.websites/new-azwebapp) | App Service planı içinde bir Azure web uygulaması oluşturur. |
 | [Set-AzResource](/powershell/module/az.resources/new-azresource) | App Service planı içinde bir Azure web uygulaması oluşturur. |
-| [Yeni AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) | Bir Azure Traffic Manager profili oluşturur. |
-| [Yeni AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) | Bir Azure Traffic Manager profiline bir uç nokta ekler. |
+| [New-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) | Bir Azure Traffic Manager profili oluşturur. |
+| [Yeni AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) | Azure Traffic Manager profiline bir uç nokta ekler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

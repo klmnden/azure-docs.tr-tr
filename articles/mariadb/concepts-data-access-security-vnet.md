@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: fdf2d3aeea32beba0b8e95c1816a80140d7cf6be
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5a4e6819eeff2a2c8efaf3807c38cc06f7c35002
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958924"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006697"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Sanal ağ hizmet uç noktaları ve kuralları için Azure veritabanı, MariaDB için kullanın.
 
@@ -105,6 +105,8 @@ Kullanma seçeneğiniz [rol tabanlı erişim denetimi (RBAC)] [ rbac-what-is-813
 ## <a name="limitations"></a>Sınırlamalar
 
 MariaDB için Azure veritabanı için sanal ağ kuralları özelliği aşağıdaki sınırlamalara sahiptir:
+
+- Bir Web uygulaması, bir VNet/alt ağ içinde bir özel IP eşlenebilir. Hizmet uç noktaları belirtilen VNet/alt ağ üzerinde etkin olsa bile, bir Azure genel IP kaynağı, bir VNet/alt ağ kaynak sunucuya Web uygulamasından bağlantıları gerekir. Sanal ağ güvenlik duvarı kuralları olan bir sunucuyu bir Web uygulamasından bağlantıyı etkinleştirmek için sunucu sunucusuna erişmek için izin Azure Hizmetleri gerekir.
 
 - MariaDB için Azure veritabanı için Güvenlik Duvarı'nda, her sanal ağ kuralı bir alt ağ başvuruyor. Bu başvurulan tüm alt ağlara MariaDB için Azure veritabanını barındıran aynı coğrafi bölgede barındırılması gerekir.
 

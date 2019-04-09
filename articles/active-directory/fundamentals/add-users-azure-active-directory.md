@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cda9f976a7680a1338584e4308426683de82a79
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: c1bac4d2c0f236b8fca611c7391846abdb782796
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802131"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009606"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Ekleme veya Azure Active Directory kullanarak kullanıcı silme
 Yeni kullanıcı ekleme veya var olan kullanıcılar Azure Active Directory (Azure AD) kuruluşunuzdan silin.
@@ -47,7 +47,7 @@ Azure Active Directory portalı kullanarak yeni bir kullanıcı oluşturabilir.
 
    - **Gruplar.** İsteğe bağlı olarak, bir veya daha fazla mevcut gruplara kullanıcı ekleyebilirsiniz. Ayrıca, kullanıcı gruplarına daha sonra ekleyebilirsiniz. Kullanıcı grupları ekleme hakkında daha fazla bilgi için bkz. [temel bir grup oluşturma ve üye ekleme](active-directory-groups-create-azure-portal.md).
 
-   - **Dizin rolü.** Kullanıcıyı eklemek isteğe bağlı olarak, bir Azure AD Yönetici rolü. Kullanıcı Azure AD'de genel yönetici veya bir veya daha fazla sınırlı yönetici rolleri atayabilir. Rol atama hakkında daha fazla bilgi için bkz. [kullanıcılara roller atama](active-directory-users-assign-role-azure-portal.md).
+   - **Dizin rolü.** İsteğe bağlı olarak, bir Azure AD Yönetici rolüne kullanıcı ekleyebilirsiniz. Kullanıcı Azure AD'de genel yönetici veya bir veya daha fazla sınırlı yönetici rolleri atayabilir. Rol atama hakkında daha fazla bilgi için bkz. [kullanıcılara roller atama](active-directory-users-assign-role-azure-portal.md).
 
 4. Sağlanan otomatik olarak oluşturulan parola kopyalama **parola** kutusu. İlk oturum açma işlemi için bu parolayı kullanıcıya vermeniz gerekir.
 

@@ -7,35 +7,40 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/12/2019
-ms.openlocfilehash: fb1d724907c09e2eb77930f5a235336ca8cd3a25
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/03/2019
+ms.openlocfilehash: 9bc3e4132919e5fc5baadc78841e66efd3c34bcd
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886856"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005951"
 ---
 # <a name="how-to-start-an-azure-stream-analytics-job"></a>Azure Stream Analytics işi başlatma
 
 Azure portalı, Visual Studio ve PowerShell kullanarak Azure Stream Analytics işinizi başlayabilirsiniz. Bir işi başlattığınızda bir zaman çıkış oluşturmaya başlamak iş için seçin. Her Azure portalı, Visual Studio ve PowerShell başlangıç saati ayarlamak için farklı yöntemler vardır. Bu yöntemleri aşağıda tanımlanmıştır.
 
+## <a name="start-options"></a>Başlatma seçenekleri
+Bir işi başlatmak üç aşağıdaki seçenekler kullanılabilir. Aşağıda belirtilen her zaman içinde belirtilenlerden olduğunu unutmayın [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics). TIMESTAMP BY belirtilmediği takdirde geliş saati kullanılacaktır.
+* **Artık**: İş başlatıldığında aynı akışı çıkış olayı başlangıç noktası sağlar. Zamana bağlı bir işleç kullanılıyorsa (örneğin zaman penceresi, bekleme veya BİRLEŞMEDE), Azure Stream Analytics otomatik olarak görünür geri veri kaynağındaki giriş. Örneğin, "Şimdi" bir iş başlatabilirsiniz ve sorgunuzu bir 5 dakika atlayan pencere kullanıyorsa, Azure Stream Analytics 5 dakika önce giriş verilerini arama.
+İlk olası çıkış olayı eşit veya daha fazla geçerli bir zaman damgası var ve mantıksal olarak çıktı edilebilir tüm giriş olayları hesaba için ASA garanti eder. Örneğin, hiçbir kısmi pencereli toplamlar oluşturulur. Bu her zaman tam toplanmış değerdir.
+
+* **Özel**: Çıkış başlangıç noktası seçebilirsiniz. Benzer şekilde **artık** zamana bağlı bir işleç kullanılıyorsa seçeneği, Azure Stream Analytics bu saatten önce verileri otomatik olarak okuyup 
+
+* **Son durdurulduğunda**. Bu seçenek, işi daha önce başlatıldı, ancak el ile durduruldu veya başarısız olduğunda kullanılabilir. Bu seçenek belirlendiğinde Azure Stream Analytics işi hiçbir veri kaybı, bu nedenle yeniden başlatmak için son çıkış saati kullanır. Zamana bağlı bir işleç kullanılıyorsa, benzer şekilde önceki seçenekleri için Azure Stream Analytics otomatik olarak bu saatten önce verileri okur. Giriş bölümlerini farklı zaman olabileceği tüm bölümlerin erken durdurma saati kullanılır, bunun sonucunda bazı yinelemeler çıktısında görülebilir. Hakkında daha fazla bilgi tam olarak-bir kez işlenmesini sayfasında kullanılabilir [olay teslimat Garantileriyle](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics).
+
+
 ## <a name="azure-portal"></a>Azure portal
 
 Azure portal ve select işinize gidin **Başlat** genel bakış sayfasında. Seçin bir **iş çıkışı başlangıç zamanı** seçip **Başlat**.
 
-Üç seçenek için **iş çıkışı başlangıç zamanı**: *Artık*, *özel*, ve *son durdurulduğunda*. Seçme *artık* şu anda işini başlatır. Seçme *özel* geçmiş veya gelecek başlamak iş için özel bir zaman ayarlamanıza olanak tanır. Durdurulan bir işi veri kaybetmeksizin sürdürmek için seçin *son durdurulduğunda*.
+İçin seçeneklerden birini **iş çıkışı başlangıç zamanı**. Seçenekler *artık*, *özel*, ve daha önce iş çalıştırılırsa, *son durdurulduğunda*. Bu seçenekler hakkında daha fazla bilgi için yukarıya bakın.
 
 ## <a name="visual-studio"></a>Visual Studio
 
 Proje Görünümü'nde işi başlatmak için yeşil ok düğmesini seçin. Ayarlama **iş çıkışı başlangıç modu** seçip **Başlat**. İş durumu değişir **çalıştıran**.
 
-Üç seçenek için **iş çıkışı başlangıç modu**: *JobStartTime*, *CustomTime*, ve *LastOutputEventTime*. Bu özellik yoksa, varsayılan değer *JobStartTime*.
+Üç seçenek için **iş çıkışı başlangıç modu**: *JobStartTime*, *CustomTime*, ve *LastOutputEventTime*. Bu özellik yoksa, varsayılan değer *JobStartTime*. Bu seçenekler hakkında daha fazla bilgi için yukarıya bakın.
 
-*JobStartTime* iş başlatıldığında aynı akışı çıkış olayı başlangıç noktası sağlar.
-
-*CustomTime* çıkış belirtilen özel bir zaman başlar *OutputStartTime* parametresi.
-
-*LastOutputEventTime* son olayın aynı çıkış zamanı çıkış olay akışının başlangıç noktası sağlar.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -48,13 +53,7 @@ Start-AzStreamAnalyticsJob `
   -OutputStartMode 'JobStartTime'
 ```
 
-Üç seçenek için **OutputStartMode**: *JobStartTime*, *CustomTime*, ve *LastOutputEventTime*. Bu özellik yoksa, varsayılan değer *JobStartTime*.
-
-*JobStartTime* iş başlatıldığında aynı akışı çıkış olayı başlangıç noktası sağlar.
-
-*CustomTime* çıkış belirtilen özel bir zaman başlar *OutputStartTime* parametresi.
-
-*LastOutputEventTime* son olayın aynı çıkış zamanı çıkış olay akışının başlangıç noktası sağlar.
+Üç seçenek için **OutputStartMode**: *JobStartTime*, *CustomTime*, ve *LastOutputEventTime*. Bu özellik yoksa, varsayılan değer *JobStartTime*. Bu seçenekler hakkında daha fazla bilgi için yukarıya bakın.
 
 Daha fazla bilgi için `Start-AzStreamAnalyitcsJob` cmdlet'i, Görünüm [başlangıç AzStreamAnalyticsJob başvuru](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob).
 

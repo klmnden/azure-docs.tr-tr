@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: raynew
-ms.openlocfilehash: 199f9508b599e2f946404446a23e9608bb969ba7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 7f24e027edd5de0eecd97e5c7c19126c9ac34301
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649467"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006937"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için destek matrisi
 
@@ -33,7 +33,7 @@ Fiziksel sunucular | Şirket içi Windows/Linux fiziksel sunucuları azure'a ço
 **Sunucu** | **Gereksinimler** | **Ayrıntılar**
 --- | --- | ---
 VMware | vCenter Server 6.7 6.5, 6.0 veya 5.5 veya vSphere 6.7, 6.5, 6.0 veya 5.5 | Bir vCenter sunucusu kullanmanızı öneririz.<br/><br/> VSphere konaklarını ve vCenter sunucularını işlem sunucusu aynı ağda bulunan öneririz. İşlem sunucusu bileşenleri çalıştırır yapılandırma sunucusunda bir adanmış işlem sunucusu ayarlamadıysanız ayarlamadığınız sürece bu yapılandırma sunucusunu, ayarladığınız ağ olur.
-Fiziksel | YOK
+Fiziksel | Yok
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery yapılandırma sunucusu
 
@@ -54,7 +54,7 @@ Grup İlkeleri| Etkinleştirme: <br/> -Komut istemine erişimi engelleyin. <br/>
 IIS | Emin olun:<br/><br/> -Önceden var olan bir varsayılan Web sitesi yok <br/> -Etkinleştir [anonim kimlik doğrulaması](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> -Etkinleştir [Fastcgı](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) ayarı  <br/> -Önceden var olan Web sitesi/uygulama bağlantı noktası 443 üzerinde dinleme yok<br/>
 NIC türü | VMXNET3 (VMware VM olarak dağıtıldığında)
 IP adresi türü | Statik
-Bağlantı noktaları | denetim kanalı düzenleme için kullanılan 443)<br/>Veri taşıma için kullanılan 9443
+Bağlantı Noktaları | denetim kanalı düzenleme için kullanılan 443)<br/>Veri taşıma için kullanılan 9443
 
 ## <a name="replicated-machines"></a>Çoğaltılan makineler
 
@@ -96,7 +96,7 @@ Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR],[9.22][9.22 UR],[9.23][9.23 UR] | 3.1
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 çekirdeği sürümlerinde desteklenir.
 
-**Yayın** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
+**Yayınla** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | [9.23][9.23 UR] | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.101-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.79-default için |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | [9.22][9.22 UR] | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.72-default için |
@@ -105,10 +105,10 @@ SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | [9.20][9.20 UR] | SP1 3.12.49-1
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux dosya sistemleri/Konuk depolama
 
-**Bileşen** | **Destekleniyor**
+**Bileşen** | **Desteklenen**
 --- | ---
 Dosya sistemleri | ext3, ext4, XFS
-Birim Yöneticisi | Önce [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM2 desteklenir. <br/> 2. LVM'yi veri diskleri için desteklenir. <br/> 3. Azure sanal makineler yalnızca tek bir işletim sistemi diski var.<br/><br/>Gelen [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) LVM ve LVM2 ve sonraki sürümlerde desteklenir.
+Birim Yöneticisi | Önce [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM'yi desteklenir. <br/> 2. makinesiyse LVM birimde desteklenmez. <br/> 3. Birden çok işletim sistemi diskleri desteklenmez.<br/><br/>Gelen [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) makinesiyse LVM üzerinde ve sonraki sürümlerde desteklenir. Birden çok işletim sistemi diskleri desteklenmez.
 Parasanallaştırılmış depolama cihazları | Parasanallaştırılmış sürücüler tarafından dışarı aktarılan cihazlar desteklenmez.
 Birden fazla kuyruk blok g/ç cihazları | Desteklenmiyor.
 HP CCISS depolama denetleyicisi ile fiziksel sunucuları | Desteklenmiyor.
@@ -127,7 +127,7 @@ Boş alanı gereksinimleri | 2 GB/root bölümdeki <br/><br/> Yükleme klasörü
 
 ## <a name="network"></a>Ağ
 
-**Bileşen** | **Destekleniyor**
+**Bileşen** | **Desteklenen**
 --- | ---
 Konak ağı NIC grubu oluşturma | VMware Vm'leri için desteklenmiyor. <br/><br/>Fiziksel makine için çoğaltma desteklenmiyor.
 Konak ağ VLAN | Evet.
@@ -143,7 +143,7 @@ Konuk/sunucu ağ birden çok NIC | Evet.
 
 ## <a name="azure-vm-network-after-failover"></a>Azure VM ağı (sonra Yük devretme)
 
-**Bileşen** | **Destekleniyor**
+**Bileşen** | **Desteklenen**
 --- | ---
 Azure ExpressRoute | Evet
 ILB | Evet
@@ -156,8 +156,8 @@ Kaynak IP adresini koruma | Evet
 Azure sanal ağ hizmet uç noktaları<br/> | Evet
 Hızlandırılmış Ağ | Hayır
 
-## <a name="storage"></a>Depolama alanı
-**Bileşen** | **Destekleniyor**
+## <a name="storage"></a>Depolama
+**Bileşen** | **Desteklenen**
 --- | ---
 Dinamik disk | İşlemi sistem diski temel disk olması gerekir. <br/><br/>Veri diskleri dinamik diskleri olabilir.
 Docker disk yapılandırması | Hayır
@@ -187,11 +187,12 @@ Konuk/sunucu çok yollu (MPIO) | Hayır
 >
 > - Azure'a geçiş desteklenir. Şirket içi VMware sitesinde yeniden çalışma desteklenmez.
 > - Sunucu işletim sistemi diskinde dörtten fazla bölümler olmamalıdır.
+> - Yalnızca NTFS desteklenmiyor
 > - Mobility hizmeti sürümü 9.13 veya üstü gerektirir.
 
-## <a name="azure-storage"></a>Azure depolama
+## <a name="azure-storage"></a>Azure Storage
 
-**Bileşen** | **Destekleniyor**
+**Bileşen** | **Desteklenen**
 --- | ---
 Yerel olarak yedekli depolama | Evet
 Coğrafi olarak yedekli depolama | Evet
@@ -207,7 +208,7 @@ Genel amaçlı v2 depolama hesaplarının (sık erişimli ve seyrek erişimli Ka
 
 ## <a name="azure-compute"></a>Azure işlem
 
-**Özelliği** | **Destekleniyor**
+**Özellik** | **Desteklenen**
 --- | ---
 Kullanılabilirlik kümeleri | Evet
 Kullanılabilirlik alanları | Hayır
@@ -236,7 +237,7 @@ VM adı | 1 63 karakter.<br/><br/> Harfler, sayılar ve kısa çizgilerden oluş
 
 Aşağıdaki tablo, Azure Site Recovery sınırlarını sağlar. Bu limitler yaptığımız testleri temel alsa da mümkün olan tüm uygulama G/Ç birleşimlerini kapsamamaktadır. Gerçek sonuçlar, uygulamanızın G/Ç karışımına göre değişebilir. En iyi sonuçlar için kesinlikle öneririz [dağıtım Planlayıcısı aracını çalıştırma](site-recovery-deployment-planner.md) ve uygulamanın gerçek performans görüntüsünü elde etmek üzere kapsamlı uygulama testleri bir test yük devretmesi göndererek gerçekleştirin.
 
-**Çoğaltma depolama hedefi** | **Ortalama kaynak disk G/Ç boyutu** |**Ortalama kaynak disk veri değişim sıklığı** | **Günlük toplam kaynak disk veri değişim sıklığı**
+**Çoğaltma depolama hedefi** | **Ortalama kaynak disk g/ç boyutu** |**Ortalama kaynak disk veri değişim sıklığı** | **Günlük toplam kaynak disk veri değişim sıklığı**
 ---|---|---|---
 Standart depolama | 8 KB | 2 MB/sn | Disk başına 168 GB
 Premium P10 veya P15 disk | 8 KB  | 2 MB/sn | Disk başına 168 GB
@@ -255,7 +256,7 @@ Bunlar yüzde 30 G/Ç çakışmasını varsayan ortalama sayılardır. Site Reco
 
 ## <a name="vault-tasks"></a>Kasa görevleri
 
-**Eylem** | **Destekleniyor**
+**Eylem** | **Desteklenen**
 --- | ---
 Kasa kaynak grupları arasında taşıma<br/><br/> İçinde ve arasında abonelikler | Hayır
 Depolama, ağ, Azure Vm'leri kaynak grupları arasında taşıma<br/><br/> İçinde ve arasında abonelikler | Hayır

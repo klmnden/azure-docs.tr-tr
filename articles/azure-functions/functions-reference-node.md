@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: d9de47ad83f37fa976c3816a0cb2e3e3beaa5472
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 9ef7dd7603b93f6b15988cc4cca089f0486eb3b0
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437586"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010125"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 
@@ -141,7 +141,7 @@ Giriş, Azure işlevleri'nde iki kategoriye ayrılmıştır: Tetikleyici girişi
 
 Veri (Bu yöntemleri birleştirmek yok) aşağıdaki yollardan biriyle bir çıkış bağlamaları atayabilirsiniz:
 
-- **_[Birden çok çıkış için önerilen]_  Döndüren bir nesne.** İşlev döndüren zaman uyumsuz/Promise kullanıyorsanız, bir nesne ile atanan çıktı verilerini döndürebilir. Aşağıdaki örnekte çıkış bağlamaları "httpResponse" ve "queueOutput" olarak adlandırılan *function.json*.
+- **_[Birden çok çıkış için önerilen]_  Döndüren bir nesne.** İşlev döndüren bir zaman uyumsuz/Promise kullanıyorsanız, bir nesne ile atanan çıktı verilerini döndürebilir. Aşağıdaki örnekte çıkış bağlamaları "httpResponse" ve "queueOutput" olarak adlandırılan *function.json*.
 
   ```javascript
   module.exports = async function(context) {
@@ -350,12 +350,12 @@ HTTP ve Web kancası Tetikleyicileri ve bağlamaları, HTTP iletileri temsil etm
 
 | Özellik      | Açıklama                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _Gövde_        | İstek gövdesini içeren bir nesne.               |
+| _body_        | İstek gövdesini içeren bir nesne.               |
 | _Üst bilgileri_     | İstek üst bilgilerini içeren bir nesne.                   |
-| _Yöntemi_      | İsteğin HTTP yöntemi.                                |
+| _method_      | İsteğin HTTP yöntemi.                                |
 | _originalUrl_ | İsteğin URL'si.                                        |
 | _params_      | İstek yönlendirme parametrelerini içeren bir nesne. |
-| _Sorgu_       | Sorgu parametrelerini içeren bir nesne.                  |
+| _sorgu_       | Sorgu parametrelerini içeren bir nesne.                  |
 | _rawBody_     | Dize olarak iletinin gövdesi.                           |
 
 
@@ -365,10 +365,10 @@ HTTP ve Web kancası Tetikleyicileri ve bağlamaları, HTTP iletileri temsil etm
 
 | Özellik  | Açıklama                                               |
 | --------- | --------------------------------------------------------- |
-| _Gövde_    | Yanıtın gövdesini içeren bir nesne.         |
+| _body_    | Yanıtın gövdesini içeren bir nesne.         |
 | _Üst bilgileri_ | Yanıt üst bilgilerini içeren bir nesne.             |
 | _isRaw_   | Biçimlendirme yanıt atlanır gösterir.    |
-| _Durumu_  | Yanıtın HTTP durum kodu.                     |
+| _durum_  | Yanıtın HTTP durum kodu.                     |
 
 ### <a name="accessing-the-request-and-response"></a>İstek ve yanıt erişme 
 

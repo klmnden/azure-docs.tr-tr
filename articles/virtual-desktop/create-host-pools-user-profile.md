@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/04/2019
 ms.author: helohr
-ms.openlocfilehash: af4147de06f9fb7c856dfd93dc186f1a6e83ffff
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: a7e2f3c95819c6ab6d2e63e5c7a2f62649ebd15c
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58628995"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056104"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Ana bilgisayar havuzu için kullanıcı profili paylaşımı ayarlama
 
-Windows sanal masaüstü Önizleme hizmeti önerilen kullanıcı profili çözümü FSLogix profili kapsayıcılar sunar. Kullanıcı profili diski (UPD) çözümü kullanımı önerilmemektedir ve Windows sanal masaüstü gelecek sürümlerde kaldırılacak.
+Windows sanal masaüstü Önizleme hizmeti önerilen kullanıcı profili çözümü FSLogix profili kapsayıcılar sunar. Kullanım dışı olacak kullanıcı profili diski (UPD) çözümünü kullanarak gelecek sürümlerinde Windows sanal masaüstünün önerilmemektedir.
 
 Bu bölümde bir ana makine havuzu için bir FSLogix profili kapsayıcı paylaşım kurma bildirir. FSLogix ilgili genel belgeler için bkz. [FSLogix site](https://docs.fslogix.com/).
 
@@ -40,12 +40,12 @@ Sanal makineyi oluşturduktan sonra aşağıdaki işlemleri yaparak etki alanın
 
 Kullanıcı profilleri için dosya paylaşımı olarak görev yapacak bir sanal makine hazırlama hakkında genel yönergeler şunlardır:
 
-1. Oturum ana bilgisayarı sanal makinelere katılmak bir [Active Directory güvenlik grubu](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Bu güvenlik grubu, yeni oluşturduğunuz dosya paylaşımı sanal makine oturumu ana bilgisayar sanal makinelere kimliğini doğrulamak için kullanılır.
+1. Windows sanal masaüstü Active Directory Kullanıcıları için ekleme bir [Active Directory güvenlik grubu](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Bu güvenlik grubu, yeni oluşturduğunuz dosya paylaşımı sanal makineye Windows sanal masaüstü kullanıcıların kimliğini doğrulamak için kullanılır.
 2. [Dosya Paylaşımı sanal makineye bağlanma](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
 3. Dosya Paylaşımı sanal makinede, üzerinde bir klasör oluşturun. **C sürücüsüne** profili paylaşımı olarak kullanılacak.
 4. Yeni klasöre sağ tıklayın, **özellikleri**seçin **paylaşım**, ardından **Gelişmiş paylaşım...** .
 5. Seçin **bu klasörü paylaş**seçin **izinler...** , ardından **Ekle...** .
-6. Oturumu konak sanal makinelerin eklediğiniz için güvenlik grubu arayın, ardından bu gruba sahip olduğundan emin olun **tam denetim**.
+6. Windows Sanal Masaüstü Kullanıcıları eklediğiniz için güvenlik grubu arayın, ardından bu gruba sahip olduğundan emin olun **tam denetim**.
 7. Güvenlik grubuna ekledikten sonra klasöre sağ tıklayın, **özellikleri**seçin **paylaşım**, ardından aşağı kopyalayın **ağ yolu** için daha sonra kullanmak üzere.
 
 İzinler hakkında daha fazla bilgi için bkz. [FSLogix belgeleri](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
@@ -56,17 +56,13 @@ Sanal makineler ile FSLogix yazılım yapılandırmak için aşağıdaki ana hav
 
 1. [Sanal makineye bağlanma](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) sanal makine oluştururken sağladığınız kimlik.
 2. Bir internet tarayıcısı başlatın ve gidin [bu bağlantıyı](https://go.microsoft.com/fwlink/?linkid=2084562) FSLogix aracısını indirmek için. Windows sanal masaüstü genel Önizleme kapsamında FSLogix yazılım etkinleştirmek için bir lisans anahtarı alırsınız. Anahtar FSLogix aracı .zip dosyasına dahil LicenseKey.txt dosyasıdır.
-3. FSLogix aracıyı yükleyin.
+3. Ya da gidin \\ \\Win32\\sürüm veya \\ \\X64\\.zip dosyası ve çalışma sürümde **FSLogixAppsSetup** FSLogix aracıyı yüklemek için.
 4. Gidin **Program dosyaları** > **FSLogix** > **uygulamaları** yüklü bir aracıyı onaylamak için.
-5. Başlat menüsünden çalıştırmak **RegEdit** yönetici olarak. Gidin **bilgisayar\\HKEY_LOCAL_MACHINE\\yazılım\\FSLogix\\profilleri**
-6. Aşağıdaki değerleri oluşturun:
+5. Başlat menüsünden çalıştırmak **RegEdit** yönetici olarak. Gidin **bilgisayar\\HKEY_LOCAL_MACHINE\\yazılım\\FSLogix**.
+6. Adlı bir anahtar oluşturun **profilleri**.
+7. Profilleri anahtarı için aşağıdaki değerleri oluşturun:
 
 | Ad                | Type               | Veri/değer                        |
 |---------------------|--------------------|-----------------------------------|
 | Etkin             | DWORD              | 1                                 |
-| VHDLocations        | Çok dizeli değer | "Dosya paylaşımı için ağ yolu" |
-| VolumeType          | String             | VHDX                              |
-| SizeInMBs           | DWORD              | "profil boyutu tamsayı"     |
-| Isdynamic           | DWORD              | 1                                 |
-| LockedRetryCount    | DWORD              | 1                                 |
-| LockedRetryInterval | DWORD              | 0                                 |
+| VHDLocations        | Çok dizeli değer | "Dosya paylaşımı için ağ yolu"     |

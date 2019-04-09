@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 45c8f83ce814d5fa8b6d9cde29e59e4628534522
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522010"
 documentType: LandingData
-title: Video Indexer Belgeleri
+title: Azure Media Services Video Indexer Belgeleri
 metadata:
-  document_id: 
-  title: Video Indexer Belgeleri | Microsoft Docs
+  document_id: null
+  title: Azure Media Services Video Indexer Belgeleri | Microsoft Docs
   meta.description: Learn about Video Indexer.
   services: media-services
   author: juliako
@@ -21,38 +15,38 @@ metadata:
   ms.date: 03/11/2019
   ms.author: juliako
 abstract:
-  description: Azure Video Indexer; Azure Media Analytics, Azure Search, Bilişsel Hizmetler (Yüz Tanıma API'si, Microsoft Translator, Görüntü İşleme API'si ve Özel Konuşma Tanıma Hizmeti gibi) ve temel alınarak oluşturulmuş bir bulut uygulamasıdır. Video Indexer’ın görüntülü ve sesli modellerini kullanarak videolarınızdan içgörü ayıklamanıza olanak sağlar.<br/>Video Indexer’ı ve Media Services çözümleyicisinin önceden belirlenmiş ayarlarını hangi durumlarda kullanacağınızı anlamak için <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">karşılaştırma belgesine</a> bakın.
+  description: 'Azure Media Services Video Indexer ürünü Azure Media Analytics, Azure Search, Bilişsel Hizmetler (Yüz Tanıma API''si, Microsoft Translator, Görüntü İşleme API''si ve Özel Konuşma Tanıma Hizmeti gibi) temel alınarak oluşturulmuş bir bulut uygulamasıdır. Video Indexer’ın görüntülü ve sesli modellerini kullanarak videolarınızdan içgörü ayıklamanıza olanak sağlar.<br/>Video Indexer’ı ve Media Services çözümleyicisinin önceden belirlenmiş ayarlarını hangi durumlarda kullanacağınızı anlamak için <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">karşılaştırma belgesine</a> bakın.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: video-indexer-overview.md
+            html: '<p>Video Indexer, medya yapay zeka teknolojilerini bir araya getirerek videolardan içgörü ayıklamayı kolaylaştırır.</p>'
+            image:
+              src: media/index/AMSIcons-media_servicesV3.svg
+            title: Azure Media Services Video Indexer nedir?
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - href: video-indexer-overview.md
-      html: <p>Video Indexer, medya yapay zeka teknolojilerini bir araya getirerek videolardan içgörü ayıklamayı kolaylaştırır.</p>
-      image:
-        src: media/index/AMSIcons-media_servicesV3.svg
-      title: Video Indexer nedir?
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: 'Video Indexer web sitesinde oturum açma ve ilk videonuzu karşıya yükleme:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Video Indexer web sitesinde oturum açma ve ilk videonuzu karşıya yükleme:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/AMSIcons-media_analytics.svg
+            text: İçgörü ayıklama
+            href: /azure/media-services/video-indexer/video-indexer-get-started
+  - title: Adım Adım Öğreticiler
     items:
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: İçgörü ayıklama
-      href: /azure/media-services/video-indexer/video-indexer-get-started
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: 'Video Indexer API’sini kullanarak videolarınızdan içgörü ayıklamayı öğrenin:'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: İçgörü ayıklama
-      href: /azure/media-services/video-indexer/video-indexer-use-apis
+      - type: paragraph
+        text: 'Video Indexer API’sini kullanarak videolarınızdan içgörü ayıklamayı öğrenin:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/AMSIcons-media_analytics.svg
+            text: İçgörü ayıklama
+            href: /azure/media-services/video-indexer/video-indexer-use-apis

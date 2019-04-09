@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: 1a35d1cbd49a55b0c25f5e2b993358130589c125
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ea50506df53bfd586656d0030be4536d9d3b907d
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444642"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010150"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Azure tablo depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -537,7 +537,7 @@ Bölümünde belirtildiği gibi [bir tabloya bir varlık ekleme](#add-an-entity-
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Örneği bir **TableQuery** sorguda belirten nesnesini **burada** yan tümcesi. Kullanarak **CustomerEntity** sınıf ve bu bölümde sunulan veri [tabloya bir varlık ekleme](#add-a-batch-of-entities-to-a-table), aşağıdaki kod parçacığı tüm varlıklar için tabloyu sorgular nerede  **PartitionKey** (müşterinin son adı) "Smith" değerine sahip:
+1. Örneği bir **TableQuery** sorguda belirten nesnesini **burada** yan tümcesi. Kullanarak **CustomerEntity** sınıf ve bu bölümde sunulan veri [tabloya bir varlık ekleme](#add-a-batch-of-entities-to-a-table), aşağıdaki kod parçacığı tüm varlıklar için tabloyu sorgular nerede **PartitionKey**  (müşterinin son adı) "Smith" değerine sahip:
 
     ```csharp
     TableQuery<CustomerEntity> query = 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: d35918659acb899e43f76e94168abcba080aa006
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1c80395880c556138313ebfd9af1610ace946c8a
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452139"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006760"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Ağ Performansı İzleyicisi çözüm azure'da
 
@@ -59,7 +59,7 @@ ExpressRoute İzleyicisi kullanılabilir için desteklenen bölgeler listesi [be
 
 ### <a name="install-and-configure-agents"></a>Aracıları yükleme ve yapılandırma 
 
-Temel işlemler, aracıları yüklemek için kullanmak [Azure Log analytics'e bağlanma Windows bilgisayarları](../../azure-monitor/platform/agent-windows.md) ve [Log Analytics için Operations Manager'ı bağlama](../../azure-monitor/platform/om-agents.md).
+Temel işlemler, aracıları yüklemek için kullanmak [Azure İzleyici bağlanmak Windows bilgisayarlara](../platform/agent-windows.md) ve [Azure İzleyici için Operations Manager'ı bağlama](../platform/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Aracılarının nasıl yükleneceği 
 
@@ -101,7 +101,7 @@ Ağ Performansı İzleyicisi yapay işlemler, kaynak ve hedef aracılar arası a
 
 ### <a name="configure-the-solution"></a>Çözümü yapılandırma 
 
-1. Çalışma alanınızdan Ağ Performansı İzleyicisi çözüm ekleme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Açıklanan işlemi ayrıca kullanabileceğiniz [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../../azure-monitor/insights/solutions.md). 
+1. Çalışma alanınızdan Ağ Performansı İzleyicisi çözüm ekleme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Açıklanan işlemi ayrıca kullanabileceğiniz [Azure İzleyici'yi ekleyin çözüm galeri'sinden](../../azure-monitor/insights/solutions.md). 
 2. Log Analytics çalışma alanınızın açın ve seçin **genel bakış** Döşe. 
 3. Seçin **Ağ Performansı İzleyicisi** döşeme iletinin *çözüm ek yapılandırma gerektirir*.
 
@@ -168,7 +168,7 @@ Veri toplama yöntemleri ve Ağ Performansı İzleyicisi için verileri nasıl t
  
 
  
-Çözüm yapay işlemler, ağ durumunu değerlendirmek için kullanır. Log Analytics aracılarını ağ exchange TCP veya ICMP Yankı çeşitli noktalarında birbiriyle yüklü. Aracıları TCP veya ICMP Yankı kullanıp izlemek için seçtiğiniz protokolde bağlıdır. İşlem sırasında aracılar varsa gidiş dönüş süresi ve paket kaybı öğrenin. Düzenli olarak, her bir aracı ayrıca diğer aracılara test edilmelidir ağdaki tüm çeşitli yollarını bulmak için bir izleme yolu yapar. Bu verileri kullanarak, aracıları ağ gecikme süresi ve paket kaybı rakamları çıkarabilir. Testler, her beş saniyede bir yinelenir. Log Analytics hizmetine ıntune'ye yüklenmeden önce veriler yaklaşık üç dakika Aracılar tarafından toplanır.
+Çözüm yapay işlemler, ağ durumunu değerlendirmek için kullanır. Log Analytics aracılarını ağ exchange TCP veya ICMP Yankı çeşitli noktalarında birbiriyle yüklü. Aracıları TCP veya ICMP Yankı kullanıp izlemek için seçtiğiniz protokolde bağlıdır. İşlem sırasında aracılar varsa gidiş dönüş süresi ve paket kaybı öğrenin. Düzenli olarak, her bir aracı ayrıca diğer aracılara test edilmelidir ağdaki tüm çeşitli yollarını bulmak için bir izleme yolu yapar. Bu verileri kullanarak, aracıları ağ gecikme süresi ve paket kaybı rakamları çıkarabilir. Testler, her beş saniyede bir yinelenir. Azure İzleyici'de Log Analytics çalışma alanına ıntune'ye yüklenmeden önce veriler yaklaşık üç dakika Aracılar tarafından toplanır.
 
 
 
@@ -241,9 +241,9 @@ Haritada gösterilen topolojisi Katman 3 topolojisi ve Katman 2 cihazları ve ba
 ![Topoloji Haritası](media/network-performance-monitor/topology-map.png)
  
 
-## <a name="log-analytics-search"></a>Log Analytics arama 
+## <a name="log-queries-in-azure-monitor"></a>Azure İzleyici'de günlük sorguları
 
-Ağ Performansı İzleyicisi Panosu aracılığıyla kullanıma sunulan grafik ve detaya gitme sayfaları tüm verileri yerel olarak kullanılabilir ayrıca [Log Analytics arama](../../azure-monitor/log-query/log-query-overview.md). Depoda etkileşimli veri analizi gerçekleştirmek ve farklı kaynaklardaki verileri ilişkilendirin. Ayrıca özel uyarılar ve görünümler oluşturma ve verileri, Excel, Power BI veya paylaşılabilir bağlantı verin.  **Ortak sorgular** panosunda yer alan kendi sorgular ve raporlar oluşturmak için başlangıç noktası olarak kullanabileceğiniz bazı yararlı sorgular sahiptir. 
+Ağ Performansı İzleyicisi Panosu aracılığıyla kullanıma sunulan grafik ve detaya gitme sayfaları tüm verileri yerel olarak kullanılabilir ayrıca [oturum sorguları](../log-query/log-query-overview.md). Depoda etkileşimli veri analizi gerçekleştirmek ve farklı kaynaklardaki verileri ilişkilendirin. Ayrıca özel uyarılar ve görünümler oluşturma ve verileri, Excel, Power BI veya paylaşılabilir bağlantı verin.  **Ortak sorgular** panosunda yer alan kendi sorgular ve raporlar oluşturmak için başlangıç noktası olarak kullanabileceğiniz bazı yararlı sorgular sahiptir. 
 
 ## <a name="alerts"></a>Uyarılar
 
@@ -251,7 +251,7 @@ Ağ Performansı İzleyicisi uyarı yeteneklerini kullanır [Azure İzleyici](ht
 
 Tüm bildirimler kullanılarak yönetilir yani [Eylem grupları](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
-Log Analytics aracılığıyla bir uyarı oluşturan bir NPM kullanıcı varsa: 
+Aracılığıyla LAzure İzleyici bir uyarı oluşturan bir NPM kullanıcı varsa: 
 1. Azure Portalı'na yönlendireceği bir bağlantı görürsünüz. Portala erişmek için tıklayın.
 2. Ağ Performansı İzleyicisi çözüm kutucuğa tıklayın. 
 3. Gezinme yapılandırmak için.  

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f60b9002f939cbf4c3a0ecfb78b358598713ea1c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.openlocfilehash: 13361bb73043e83a0162e86604f048b98eb1c3a0
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881639"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009640"
 ---
 # <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Öğretici: Bilişsel hizmetler API'leri çağırmak bir Azure Search dizini oluşturma ardışık düzen (Önizleme)
 
@@ -438,7 +438,7 @@ api-key: [api-key]
 Content-Type: application/json
 ```
 
-Bu çalışmadaki diğer içerik, dil, anahtar tümceler ve kuruluşlar alanları için yineleyin. Virgülle ayrılmış bir liste kullanarak `$select` aracılığıyla birden fazla alan döndürebilirsiniz.
+Ek alanlar için işlemi tekrarlayın: içeriği, languageCode, keyPhrases ve bu alıştırmada kuruluşlar. Virgülle ayrılmış bir liste kullanarak `$select` aracılığıyla birden fazla alan döndürebilirsiniz.
 
 Sorgu dizesinin karmaşıklık ve uzunluğuna bağlı olarak GET veya POST dizesini kullanabilirsiniz. Daha fazla bilgi için bkz. [REST API kullanarak sorgu](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bc3e2955049188b0794367d5391762f5eb50b1c0
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
-ms.translationtype: MT
+ms.openlocfilehash: c0d659d983e62cd2a85c0d6768c54e5a1d9e9217
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850184"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005786"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure'da bir SQL Server sanal makinesi için lisanslama modelini değiştirme
 Bu makalede yeni kullanarak Azure'da bir SQL Server sanal makine için lisans modeli değiştirmek nasıl SQL VM kaynak sağlayıcısı - **Microsoft.SqlVirtualMachine**. İki sanal makine (VM) için model barındıran SQL Server - Kullandıkça Öde, lisanslama ve kendi lisansınızı getirin (BYOL). Ve artık, PowerShell veya Azure CLI kullanarak kullanan SQL Server VM'nize hangi lisans modeli değiştirebilirsiniz. 
@@ -35,12 +35,17 @@ Bu makalede yeni kullanarak Azure'da bir SQL Server sanal makine için lisans mo
 
 ## <a name="remarks"></a>Açıklamalar
 
- - Lisanslama modelini dönüştürme imkanı yalnızca kullandıkça öde SQL Server VM görüntüsünü kullanmaya başladığınızda sunulur. Portaldan kendi lisansını getir görüntüsüyle başlamanız durumunda ilgili görüntüyü kullandıkça öde modeline dönüştüremezsiniz.
  - CSP müşterileri, öncelikle bir Kullandıkça Öde VM dağıtarak ve ardından getirin-kendi lisansını için dönüştürme AHB avantajı kullanabilir. 
- - Şu anda bu özellik yalnızca genel bulut yüklemeleri için etkindir.
  - Özel bir SQL Server VM görüntüsü kaynak sağlayıcısı ile kaydederken, lisans türü = 'AHUB' olarak belirtin. Lisans bırakarak boş olarak yazın ya da 'PAYG' belirtilmesi, kayıt başarısız olmasına neden olur. 
+ 
+## <a name="limitations"></a>Sınırlamalar
+
+ - Lisanslama modelini dönüştürme imkanı yalnızca kullandıkça öde SQL Server VM görüntüsünü kullanmaya başladığınızda sunulur. Portaldan kendi lisansını getir görüntüsüyle başlamanız durumunda ilgili görüntüyü kullandıkça öde modeline dönüştüremezsiniz.
+  - Şu anda lisanslama modelini değiştirme yalnızca Resource Manager modeli kullanılarak dağıtılan sanal makineler için desteklenir. Klasik modeli kullanarak dağıtılan Vm'leri desteklenmiyor. 
+   - Şu anda bir lisanslama modeli değiştirmek, yalnızca genel bulut yüklemeleri için etkindir.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 SQL VM kaynak sağlayıcısı SQL Iaas uzantısı gerektirir. Bu nedenle, ile SQL VM kaynak sağlayıcısı yararlanmaya devam etmek için aşağıdakiler gerekir:
 - Bir [Azure aboneliği](https://azure.microsoft.com/free/).
 - [Yazılım Güvencesi](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). 

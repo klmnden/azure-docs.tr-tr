@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: b633c6a8ccbf9f29b93314bb9391215031d523eb
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: 208370884d89a7a2585f320c037284d6657732db
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893070"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010609"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
 
@@ -288,10 +288,9 @@ Daha fazla bilgi için [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/sta
     - Sıra okuyucusu desteklenmez.  
     - Komut kabuğu henüz desteklenmiyor.
   - Yönetilen örnek (örneğin, ağ paylaşımları üzerinden robocopy) dış kaynaklara erişemez.  
-  - PowerShell henüz desteklenmiyor.
   - Analysis Services desteklenmez.
 - Bildirimleri kısmen desteklenir.
-- E-posta bildirimi desteklenir, bir veritabanı posta profili yapılandırma gerektirir. Yalnızca bir veritabanı posta profili olabilir ve çağrılması gerekir `AzureManagedInstance_dbmail_profile` genel önizlemeye sunuldu (geçici sınırlama).  
+- E-posta bildirimi desteklenir, bir veritabanı posta profili yapılandırma gerektirir. SQL Aracısı, yalnızca bir veritabanı posta profili kullanabilir ve çağrılması gerekir `AzureManagedInstance_dbmail_profile`.  
   - Çağrı desteklenmiyor.  
   - NetSend desteklenmez.
   - Uyarılar henüz desteklenmemektedir.
@@ -432,10 +431,7 @@ Sınırlamalar:
 - `.BAK` birden fazla yedekleme kümesi içeren dosyalar geri yüklenemiyor.
 - `.BAK` birden çok günlük dosyalarını içeren dosyalar geri yüklenemiyor.
 - Geri yükleme başarısız olur .bak içeriyorsa `FILESTREAM` veri.
-- Şu anda etkin bellek içi nesneleri olan veritabanlarını içeren bir yedekleme geri yüklenemez.  
-- Burada belirli bir noktada bellek içi nesneler şu anda var olan veritabanlarını içeren yedekleri geri yüklenemez.
-- Şu anda salt okunur modda veritabanlarını içeren yedekleri geri yüklenemez. Bu sınırlama kısa süre içinde kaldırılacak.
-
+- Genel amaçlı örneği üzerinde active bellek içi nesneler, veritabanlarını içeren yedekleri geri yüklenemez.  
 Restore deyimleri hakkında daha fazla bilgi için bkz. [geri deyimleri](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### <a name="service-broker"></a>Hizmet Aracısı
@@ -485,6 +481,8 @@ Yönetilen örnek geri yükleyemiyor [içerdiği veritabanları](https://docs.mi
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Küçük veritabanı dosyalarıyla aşan depolama alanı
 
+`CREATE DATABASE `, `ALTER DATABASE ADD FILE`, ve `RESTORE DATABASE` deyimleri örneği Azure depolama sınırına ulaşıp ulaşamadığını nedeniyle başarısız olabilir.
+
 Yönetilen her bir genel amaçlı örneği 35 TB depolama alanı Azure Premium Disk alanı için ayrılmış olan ve her veritabanını ayrı bir fiziksel diskte yerleştirilir. Disk boyutları 128 GB, 256 GB, 512 GB, 1 TB veya 4 TB olabilir. Diskte kullanılmayan alan değil ücretlendirilir, ancak Azure Premium Disk boyutları toplam 35 TB aşamaz. Bazı durumlarda, yönetilen örneğe 8 TB toplam gerekmeyen 35 TB Azure sınırlama nedeniyle iç parçalanma depolama boyutu aşabilir.
 
 Örneğin, yönetilen bir genel amaçlı örneği bir olabilir bir 4 TB diskine yerleştirilen boyutu ve ayrı 128 GB diskler üzerinde yerleştirilen 248 dosyaları (her 1 GB boyutunda) 1,2 TB dosya. Bu örnekte:
@@ -514,9 +512,13 @@ SQL Server Management Studio (SSMS) ve SQL Server veri Araçları (SSDT), yönet
 
 Çeşitli sistem görünümleri, performans sayaçları, hata iletileri, Xevent'ler ve hata günlüğü girişleri gerçek veritabanı adları yerine GUID veritabanı tanımlayıcıları görüntüler. Bunlar gerçek veritabanı adları ile gelecekte değiştirilmesi çünkü bu GUID tanımlayıcılarını güvenmeyin.
 
+### <a name="database-mail"></a>Veritabanı posta
+
+`@query` parametresinde [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) yordamı çalışmaz.
+
 ### <a name="database-mail-profile"></a>Veritabanı posta profili
 
-SQL aracısı tarafından kullanılan veritabanı posta profili çağrılmalıdır `AzureManagedInstance_dbmail_profile`.
+SQL aracısı tarafından kullanılan veritabanı posta profili çağrılmalıdır `AzureManagedInstance_dbmail_profile`. Diğer veritabanı posta profili adları ile ilgili bir kısıtlama yoktur.
 
 ### <a name="error-logs-are-not-persisted"></a>Kalıcı olmayan hata günlükleri
 

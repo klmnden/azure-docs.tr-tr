@@ -7,12 +7,12 @@ manager: jhubbard
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: aef55660d07c8923a82baf7f8b6320abf3ccdd1d
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 37cc8192cc5934cf967ad9b9c62614d0b4503fb4
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430225"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006609"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Sanal ağ hizmet uç noktaları ve kuralları için Azure veritabanı için MySQL kullanır.
 
@@ -107,6 +107,8 @@ Kullanma seçeneğiniz [rol tabanlı erişim denetimi (RBAC)] [ rbac-what-is-813
 ## <a name="limitations"></a>Sınırlamalar
 
 MySQL için Azure veritabanı için sanal ağ kuralları özelliği aşağıdaki sınırlamalara sahiptir:
+
+- Bir Web uygulaması, bir VNet/alt ağ içinde bir özel IP eşlenebilir. Hizmet uç noktaları belirtilen VNet/alt ağ üzerinde etkin olsa bile, bir Azure genel IP kaynağı, bir VNet/alt ağ kaynak sunucuya Web uygulamasından bağlantıları gerekir. Sanal ağ güvenlik duvarı kuralları olan bir sunucuyu bir Web uygulamasından bağlantıyı etkinleştirmek için sunucu sunucusuna erişmek için izin Azure Hizmetleri gerekir.
 
 - MySQL için Azure veritabanı için Güvenlik Duvarı'nda, her sanal ağ kuralı bir alt ağ başvuruyor. Bu başvurulan tüm alt ağlar, MySQL için Azure veritabanını barındıran aynı coğrafi bölgede barındırılması gerekir.
 

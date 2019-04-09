@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: e74b9b5c8347c7348c4da27b80d00daa091b826f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: a5350befd8d0fb1582606554314d909f7fec04c5
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521102"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058773"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -133,6 +133,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmet
 * Azure veritabanı geçişi
 * Azure Databricks
 * Azure Güvenlik Duvarı
+* Azure Kubernetes Hizmeti (AKS)
 * Azure Geçişi
 * Azure NetApp Files
 * Sertifikalar - App Service sertifikaları taşınabilir, ancak karşıya yüklenen Sertifikalar [sınırlamaları](#app-service-limitations).
@@ -143,7 +144,6 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmet
 * Geliştirme alanları
 * Dynamics LCS
 * ExpressRoute
-* Kubernetes Service
 * Lab Services'i - sınıf Laboratuvarlarını bir yeni kaynak grubuna veya aboneliğe taşınamaz. DevTest Labs, yeni bir kaynak grubu ile aynı abonelikte ancak değil, abonelikler arasında taşınabilir.
 * Yönetilen Uygulamalar
 * Microsoft Genomiks
@@ -361,7 +361,7 @@ Bir kaynağı taşımadan önce yapmanız gereken bazı önemli adımlar vardır
 
    Kaynak ve hedef abonelikler için Kiracı kimlikleri aynı değilse, Kiracı kimlikleri karşılaştırmak için aşağıdaki yöntemleri kullanın:
 
-   * [Azure aboneliğinin sahipliğini başka bir hesaba devretme](../billing/billing-subscription-transfer.md)
+   * [Azure aboneliğinin sahipliğini başka bir hesaba aktarma](../billing/billing-subscription-transfer.md)
    * [Azure Active Directory'ye bir Azure aboneliğini ekleme veya ilişkilendirme](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. Hedef abonelik, taşınan kaynağın kaynak sağlayıcısına kayıtlı olmalıdır. Belirten bir hata alırsanız, **kaynak türü için abonelik kayıtlı değil**. Abonelik bu kaynak türü ile hiçbir zaman kullanılmış, ancak yeni bir abonelik için bir kaynak taşıma sırasında şu hatayla karşılaşabilirsiniz.

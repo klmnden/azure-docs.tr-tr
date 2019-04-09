@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: danlep
-ms.openlocfilehash: bf9f2be8a0854a6968f3be6bfdaf3a59fc81dc76
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 3d73d05c64f4b4867c69a15089c19ab8c320b9a8
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57728957"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006469"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Azure Container Instances için Azure Resource Manager şablonları
 
@@ -20,14 +20,14 @@ Aşağıdaki örnek şablonları çeşitli yapılandırmalarda kapsayıcı örne
 
 Dağıtım seçenekleri için bkz. [dağıtım](#deployment) bölümü. Azure Container Instances kendi şablonlarınızı oluşturmak istiyorsanız [Resource Manager şablon başvurusu] [ ref] ayrıntıları şablon biçimi ve kullanılabilir özellikler.
 
-## <a name="sample-templates"></a>Örnek şablonları
+## <a name="sample-templates"></a>Örnek şablonlar
 
 | | |
 |-|-|
 | **Uygulamalar** ||
-| [Wordpress][app-wp] | Bir WordPress Web sitesi ve MySQL veritabanı içinde bir kapsayıcı örneği oluşturur. MySQL veritabanı ve WordPress sitesi içeriği bir Azure dosyaları için kalıcı paylaşın. |
+| [WordPress][app-wp] | Bir kapsayıcı grubunda bir WordPress Web sitesi ve MySQL veritabanı oluşturur. MySQL veritabanı ve WordPress sitesi içeriği bir Azure dosyaları için kalıcı paylaşın. Ayrıca, ortak ağ erişimini WordPress kullanıma sunmak için bir uygulama ağ geçidi oluşturur. |
 | [SQL Server ve IIS ile MS NAV][app-nav] | Tek bir Windows kapsayıcısı ile tam özellikli ve kendi başına bir Dynamics NAV dağıtır / Dynamics 365 Business Central ortam. |
-| **Birimleri** ||
+| **Birimler** ||
 | [emptyDir][vol-emptydir] | EmptyDir birimi paylaşan iki Linux kapsayıcıları dağıtır. |
 | [GitRepo][vol-gitrepo] | GitHub deposuna kopyalar ve bir birim olarak bağlar bir Linux kapsayıcı dağıtır. |
 | [Gizli anahtarı][vol-secret] | Gizli bir birim takılı bir PFX sertifikası ile bir Linux kapsayıcı dağıtır. |

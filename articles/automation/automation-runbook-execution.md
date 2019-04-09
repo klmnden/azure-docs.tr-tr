@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/18/2019
+ms.date: 04/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dbb50ba703221c28576b4c3614c77bbac7eeabb9
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 9d4661f6c975265ec710b29a8a05cc7ef41b4011
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519128"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057430"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure automation'da Runbook yürütme
 
@@ -43,7 +43,7 @@ Azure automation'daki Runbook'lar çalışma zamanı üzerinde bir korumalı ala
 |Bir dosya veya klasör bir runbook ile izleme|Karma Runbook Çalışanı|Kullanım bir [İzleyici görevi](automation-watchers-tutorial.md) bir karma Runbook çalışanı üzerinde|
 |Yoğun kaynak betiği|Karma Runbook Çalışanı| Azure sanal sahip [kaynaklarını bir sınırlama](../azure-subscription-service-limits.md#automation-limits)|
 |Belirli gereksinimlerine modüllerini kullanma| Karma Runbook Çalışanı|Bazı örnekler şunlardır:</br> **WinSCP** -winscp.exe bağımlılığı </br> **Iısadministration** -IIS etkinleştirilmesi gerekiyor|
-|Yükleyici gerektiren bir modülünü yükleme|Karma Runbook Çalışanı|Modüller için korumalı alan xcopyable olmalıdır|
+|Yükleyici gerektiren bir modülünü yükleme|Karma Runbook Çalışanı|Modüller için korumalı alan copiable olmalıdır|
 |Runbook'ları veya 4.7.2 farklı .NET Framework gerektiren modülleri kullanma|Karma Runbook Çalışanı|Otomasyon korumalı alanları, .NET Framework 4.7.2 sahip ve yükseltme yolu yoktur|
 |Yetki yükseltmesi gerektiren betikleri|Karma Runbook Çalışanı|Sanal yükseltme izin vermez. Bunu çözmek için bir karma Runbook çalışanı kullanmak ve UAC ve kullanım Kapat `Invoke-Command` komutu çalıştıran gerektirdiğinde yükseltme|
 |WMI erişmesi betikleriniz|Karma Runbook Çalışanı|Bulut sanal çalışan işleri [WMI erişim izniniz yok](#device-and-application-characteristics)|
@@ -246,9 +246,9 @@ Bir runbook işlerini görüntülemek için aşağıdaki adımları kullanabilir
 3. Seçili runbook sayfasında tıklayın **işleri** Döşe.
 4. İşleri listesinde birine tıklayın ve runbook işi Ayrıntıları sayfasında ayrıntılarını ve çıktısını görüntüleyebilirsiniz.
 
-## <a name="retrieving-job-status-using-windows-powershell"></a>Windows PowerShell kullanarak iş durumunu alma
+## <a name="retrieving-job-status-using-powershell"></a>PowerShell kullanarak iş durumunu alma
 
-Kullanabileceğiniz [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) işi oluşturulan bir runbook'u ve belirli bir işin ayrıntılarını alabilirsiniz. Windows PowerShell ile bir runbook başlatırsanız [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook), sonuçtaki işi verir. Kullanım [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) işin çıktısını bir işi almak için.
+Kullanabileceğiniz [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) işi oluşturulan bir runbook'u ve belirli bir işin ayrıntılarını alabilirsiniz. PowerShell ile bir runbook başlatırsanız [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook), sonuçtaki işi verir. Kullanım [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) işin çıktısını bir işi almak için.
 
 Aşağıdaki örnek komutlar örnek bir runbook'un son işini alıp, runbook parametreleri ve iş çıktısını için sağlanan değerler durumunu görüntüleyin.
 
@@ -285,11 +285,30 @@ Kişi veya runbook'u başlatan hesabı gibi diğer ayrıntıları Otomasyon hesa
 
 ```powershell-interactive
 $SubID = "00000000-0000-0000-0000-000000000000"
-$rg = "ResourceGroup01"
-$AutomationAccount = "MyAutomationAccount"
-$JobResourceID = "/subscriptions/$subid/resourcegroups/$rg/providers/Microsoft.Automation/automationAccounts/$AutomationAccount/jobs"
+$AutomationResourceGroupName = "MyResourceGroup"
+$AutomationAccountName = "MyAutomationAccount"
+$RunbookName = "MyRunbook"
+$StartTime = (Get-Date).AddDays(-1)
+$JobActivityLogs = Get-AzureRmLog -ResourceGroupName $AutomationResourceGroupName -StartTime $StartTime `
+                                | Where-Object {$_.Authorization.Action -eq "Microsoft.Automation/automationAccounts/jobs/write"}
 
-Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
+$JobInfo = @{}
+foreach ($log in $JobActivityLogs)
+{
+    # Get job resource
+    $JobResource = Get-AzureRmResource -ResourceId $log.ResourceId
+
+    if ($JobInfo[$log.SubmissionTimestamp] -eq $null -and $JobResource.Properties.runbook.name -eq $RunbookName)
+    { 
+        # Get runbook
+        $Runbook = Get-AzureRmAutomationJob -ResourceGroupName $AutomationResourceGroupName -AutomationAccountName $AutomationAccountName `
+                                            -Id $JobResource.Properties.jobId | ? {$_.RunbookName -eq $RunbookName}
+
+        # Add job information to hash table
+        $JobInfo.Add($log.SubmissionTimestamp, @($Runbook.RunbookName,$Log.Caller, $JobResource.Properties.jobId))
+    }
+}
+$JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 ```
 
 ## <a name="fair-share"></a>Orta paylaşımı

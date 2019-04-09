@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 0a06293a648460694bbe222f36f81bea2d6acdac
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a418966ce72876d58d39b939ecb7dd5a05e41b9b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841183"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008995"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK'sını kullanarak bir tarayıcıda JavaScript dilinde konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Bu makalede, konuşmayı metne dönüştürmek için Bilişsel Hizmetler Konuşma SDK’sının JavaScript bağlamasını kullanarak bir web sitesi oluşturmayı öğreneceksiniz.
-Uygulama üzerindeki Microsoft Bilişsel hizmetler konuşma SDK bağlıdır ([indirme sürümü 1.3.0](https://aka.ms/csspeech/jsbrowserpackage)).
+Uygulama üzerindeki konuşma SDK için JavaScript temel alır ([indirme sürümü 1.4.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Konuşma tanıma hizmeti için bir abonelik anahtarı. Bkz: [konuşma Hizmetleri ücretsiz olarak deneyin](get-started.md).
 * Çalışan bir mikrofon ile bir PC veya Mac.
 * Bir metin düzenleyici.
-* Chrome ya da Microsoft Edge’in güncel bir sürümü.
+* Chrome, Microsoft Edge veya Safari geçerli sürümü.
 * İsteğe bağlı olarak, PHP betiklerini barındırmayı destekleyen bir web sunucusu.
 
 ## <a name="create-a-new-website-folder"></a>Yeni bir Web sitesi klasörü oluşturma
@@ -52,7 +52,7 @@ Klasörde `index.html` adlı yeni bir dosya oluşturun ve bu dosyayı bir metin 
    ```html
    <html>
    <head>
-      <title>Microsoft Cognitive Service Speech SDK JavaScript Quickstart</title>
+      <title>Speech SDK JavaScript Quickstart</title>
    </head>
    <body>
     <!-- UI code goes here -->
@@ -98,6 +98,10 @@ Bu şekilde, abonelik anahtarınız hiçbir zaman sunucunuzdan çıkmaz ve kulla
 ## <a name="build-and-run-the-sample-locally"></a>Örneği yerel olarak derleyin ve çalıştırın
 
 Uygulamayı başlatmak için, index.html dosyasına çift tıklayın veya index.html dosyasını sık kullandığınız web tarayıcısıyla açın. Abonelik anahtarınızı ve [bölgenizi](regions.md) girmenize ve mikrofonu kullanarak bir tanıma tetiklemenize olanak sağlayan basit bir GUI sunar.
+
+> [!NOTE]
+> Bu yöntem, Safari tarayıcısı üzerinde çalışmaz.
+> Safari, örnek web sayfasının bir web sunucusunda barındırılması gerekiyor; Safari Web siteleri mikrofonu kullanmak için bir yerel dosyasından yüklenen izin vermez.
 
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>Web sunucusu aracılığıyla örnek derleme ve çalıştırma
 

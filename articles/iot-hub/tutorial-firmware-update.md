@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2019
 ms.custom: mvc
-ms.openlocfilehash: faccebbd00b4ee9c8ecc257722ab87f0494d9466
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1418a9815e155a0c491fc65b16307fa2755bd964
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116699"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008911"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Öğretici: Cihaz üretici yazılımı güncelleştirme işlemini uygulayın
 
@@ -100,7 +100,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ## <a name="start-the-firmware-update"></a>Cihaz yazılımı güncelleştirmesini başlatma
 
-**devicetype** etiketine sahip tüm soğutucularda cihaz yazılımı güncelleştirme işlemini başlatmak için arka uç uygulamasında bir [otomatik cihaz yönetimi yapılandırması](iot-hub-auto-device-config.md#create-a-configuration) oluşturursunuz. Bu bölümde şunları nasıl yapabileceğinizi öğrenirsiniz:
+**devicetype** etiketine sahip tüm soğutucularda cihaz yazılımı güncelleştirme işlemini başlatmak için arka uç uygulamasında bir [otomatik cihaz yönetimi yapılandırması](iot-hub-automatic-device-management.md#create-a-configuration) oluşturursunuz. Bu bölümde şunları nasıl yapabileceğinizi öğrenirsiniz:
 
 * Arka uç uygulamasından yapılandırma oluşturma.
 * İşi tamamlanana kadar izleme.
@@ -115,10 +115,10 @@ Arka uç uygulaması şu yapılandırmayı oluşturur:
 
 Yapılandırma şu bölümlerden oluşur:
 
-* `content`, seçilen cihazlara gönderilen cihaz yazılımının istenen özelliklerini belirtir.
-* `metrics`, cihaz yazılımı güncelleştirmesinin durumunu bildiren sorguları belirtir.
-* `targetCondition`, cihaz yazılımı güncelleştirmesini alacak cihazları seçer.
-* `priorty`, bu yapılandırmanın diğer yapılandırmalara göre önceliğini belirler.
+* `content` Seçili cihazlara gönderilen istenen bellenim özelliklerini belirtir.
+* `metrics` üretici yazılımı güncelleştirme durumunu, bu raporu çalıştırmak için sorguları belirtir.
+* `targetCondition` üretici yazılımı güncelleştirmesini alacak cihazların seçer.
+* `priorty` Bu yapılandırma göreli önceliğini diğer yapılandırmalar için ayarlar.
 
 Arka uç uygulaması, istenen özellikleri ayarlayacak yapılandırmayı oluşturmak için aşağıdaki kodu kullanır:
 
@@ -209,4 +209,4 @@ az group delete --name tutorial-iot-hub-rg
 Bu öğreticide bağlı cihazlarınıza, cihaz yazılımı güncelleştirme işlemi uygulamayı öğrendiniz. Cihaz bağlantısını test etmek için Azure IOT hub'ı portal araçları ve Azure CLI komutlarını kullanma hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [IoT hub’ınızla bağlantıyı test etmek için bir sanal cihaz kullanma](tutorial-connectivity.md)
+> [IOT hub'ınızla bağlantıyı test etmek için sanal cihaz kullanma](tutorial-connectivity.md)

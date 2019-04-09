@@ -11,20 +11,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 82ae0ef72bb4f546a1f946f3127aa5d74bec3c3b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: d22da92355616c208c7616b4b0e8c26b7f9e7006
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957768"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058048"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Azure API Management hizmet örneği birden çok Azure bölgesine dağıtma
 
 Azure API yönetimi, istenen Azure bölgeleri arasında herhangi bir sayı tek bir Azure API management hizmeti dağıtmak API yayımcılarının sağlayan çok bölgeli dağıtım destekler. Bu durum, istek tarafından algılanan gecikme API tüketicilerini coğrafi olarak dağıtılan ve tek bir bölge çevrimdışı olması durumunda da hizmet kullanılabilirliği artırır azaltmaya yardımcı olur.
 
-Yeni bir Azure API Management hizmeti başlangıçta yalnızca bir tane içeriyor [birim] [ unit] tek bir Azure bölgesinde, birincil bölge. Ek bölgeler Azure Portalı aracılığıyla kolayca eklenebilir. Bir API Management ağ geçidi sunucusu, her bir bölgeye dağıtılır ve arama trafiği en yakın ağ geçidine yönlendirilir. Bir bölgeyi çevrimdışı olması durumunda, trafiği otomatik olarak sonraki en yakın ağ geçidine yönlendirilir.
+Yeni bir Azure API Management hizmeti başlangıçta yalnızca bir tane içeriyor [birim] [ unit] tek bir Azure bölgesinde, birincil bölge. Ek bölgeler Azure Portalı aracılığıyla kolayca eklenebilir. Bir API Management ağ geçidi sunucusu, her bir bölgeye dağıtılır ve çağrı trafik, gecikme süresi açısından en yakın ağ geçidine yönlendirilir. Bir bölgeyi çevrimdışı olması durumunda, trafiği otomatik olarak sonraki en yakın ağ geçidine yönlendirilir.
 
 > [!NOTE]
 > Azure API Management, yalnızca API ağ geçidi bileşenini bölgeler arasında çoğaltır. Hizmet Yönetimi bileşeni, yalnızca birincil bölgede barındırılır. Birincil bölgede kesinti olması durumunda, bir Azure API Management hizmet örneği için yapılandırma değişikliklerini uygulama ayarları veya ilkeleri güncelleştirmeleri dahil olmak üzere - yapılamaz.
@@ -105,6 +105,20 @@ Coğrafi dağıtım, sisteminizin tam olarak yararlanmak için Azure API Managem
         </on-error>
     </policies>
     ```
+
+> [!TIP]
+> Ayrıca, arka uç Hizmetleri ile ön [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)doğrudan API çağrıları için Traffic Manager ve bunu otomatik olarak Yönlendirme çözmek olanak tanır.
+
+## <a name="custom-routing"> </a>Özel API Management için bölgesel ağ geçidi yönlendirme kullanın
+
+API Management istekleri için bir bölge yönlendiren *ağ geçidi* göre [en düşük gecikme](../traffic-manager/traffic-manager-routing-methods.md#performance). API Management bu ayarı geçersiz kılmak mümkün olmasa da, kendi Traffic Manager ile özel yönlendirme kuralları kullanabilirsiniz.
+
+1. Kendi uzantınızı oluşturun [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/).
+1. Özel bir etki alanı kullanıyorsanız [Traffic Manager ile kullanmayı](../traffic-manager/traffic-manager-point-internet-domain.md) API Management hizmeti yerine.
+1. [API Management bölgesel uç noktaları Traffic Manager'da yapılandırma](../traffic-manager/traffic-manager-manage-endpoints.md). Bölgesel uç noktaları URL desene uyar `https://<service-name>-<region>-01.regional.azure-api.net`, örneğin `https://contoso-westus2-01.regional.azure-api.net`.
+1. [API Management bölgesel durum uç noktaları Traffic Manager'da yapılandırma](../traffic-manager/traffic-manager-monitoring.md). Bölgesel durum uç noktaları URL desene uyar `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`, örneğin `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
+1. Belirtin [yönlendirme yöntemini](../traffic-manager/traffic-manager-routing-methods.md) Traffic Manager'ın.
+
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
 

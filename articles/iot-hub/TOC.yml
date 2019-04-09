@@ -298,13 +298,13 @@ items:
       href: iot-hub-distributed-tracing.md
     - name: IP filtrelemeyi yapılandırma
       href: iot-hub-ip-filtering.md
-    - name: Cihazları ölçekli olarak yapılandırma
+    - name: Uygun ölçekte otomatik cihaz yönetimi
       items:
       - name: Azure portalı kullanma
-        href: iot-hub-auto-device-config.md
+        href: iot-hub-automatic-device-management.md
       - name: Azure CLI kullanma
-        href: iot-hub-auto-device-config-cli.md
-    - name: IoT cihazlarını toplu yönetme
+        href: iot-hub-automatic-device-management-cli.md
+    - name: IoT cihazlarını toplu içeri ve dışarı aktarma
       href: iot-hub-bulk-identity-mgmt.md
   - name: Gerçek cihaz kullanma
     items:
@@ -457,9 +457,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 1360a16f6b8fe786eb933de991e45f9f6d0ce825
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: d1aa4f75ce01f4169418f54fc19dfca6588fb751
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630742"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010711"

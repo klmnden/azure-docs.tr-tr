@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: c4b178cc7e0604f38e4da25452a3bad01f8145de
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858159"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008847"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Azure'da bir coğrafi yapay zeka sanal makinesi sağlama 
 
@@ -42,7 +42,7 @@ Coğrafi AI veri bilimi sanal makinesi örneğini oluşturmak için bir yordam �
 
 1. Sanal makine üzerinde listeleme gidin [Azure portalında](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows).
 2. Seçin **Oluştur** Sihirbazı'na alınması için alt kısımdaki düğmesi.
-![create-geo-ai-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
+![Oluştur-geo-AI-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
 3. Coğrafi-DSVM oluşturma için kullanılan sihirbaz gerektirir **girişleri** her biri için **dört adımı** bu şekilde sağ tarafındaki numaralandırılır. Bu adımların her biri yapılandırmak için gerekli girişleri şunlardır:
 
 
@@ -87,7 +87,7 @@ Aksi takdirde, yeni Arcgıs hesabı ve lisans için kaydolun veya alma bir [ücr
 
 ![Arcgıs ücretsiz deneme](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-Kayıt bir herhangi bir ücretli veya ücretsiz bir deneme Arcgıs hesabı oluşturduktan sonra Arcgıs Pro hesabınız için yönergeleri izleyerek yetkilendirebilirsiniz [Arcgıs Pro belgeleri ile çalışmaya başlama](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
+Herhangi bir ücretli veya ücretsiz deneme Arcgıs hesabı için kaydolduktan sonra Arcgıs Pro hesabınız için yönergeleri izleyerek yetkilendirebilirsiniz [Arcgıs Pro ile çalışmaya başlama](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 
 Arcgıs Pro masaüstüne Arcgıs hesabınızla oturum açtıktan sonra yüklü olan ve VM Jeo-uzamsal analiz ve makine öğrenimi projeleri için yapılandırılan veri bilimi araçlarını kullanmaya başlamak hazırsınız.
 

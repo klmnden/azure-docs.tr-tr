@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15b37c4845526227799173b09f468701954fc7b5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 6ecbac8af86c3c2c76b7710eb61f71481b86291b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449309"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009879"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Azure kaynakları için yönetilen kimlikleri bir şablonu kullanarak bir Azure sanal makine ölçek üzerinde yapılandırma
 
@@ -60,7 +60,7 @@ Belirlediğiniz seçeneğe bakılmaksızın, şablon söz dizimi ilk dağıtım�
 
 Bu bölümde, etkinleştirin ve bir Azure Resource Manager şablonu kullanarak sistem tarafından atanan yönetilen kimliği devre dışı.
 
-### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-a-existing-virtual-machine-scale-set"></a>Sistem tarafından atanan kimliği oluşturma sırasında bir sanal makine ölçek kümesi ya da mevcut bir sanal makine ölçek kümesi oluşturma yönetilen etkinleştir
+### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-an-existing-virtual-machine-scale-set"></a>Sistem tarafından atanan kimliği oluşturma sırasında bir sanal makine ölçek kümesi ya da mevcut bir sanal makine ölçek kümesi oluşturma yönetilen etkinleştir
 
 1. Azure'da yerel olarak veya Azure portalında oturum açın, sanal makine ölçek kümesi içeren Azure aboneliği ile ilişkili olan bir hesap kullanın.
 2. Sistem tarafından atanan bir yönetilen kimlik etkinleştirmek için şablon bir düzenleyiciye yüklenemedi, bulun `Microsoft.Compute/virtualMachinesScaleSets` kaynaklar içinde ilgi kaynak bölümü ve ekleme `identity` özelliği aynı düzeyde `"type": "Microsoft.Compute/virtualMachinesScaleSets"` özelliği. Aşağıdaki sözdizimini kullanın:

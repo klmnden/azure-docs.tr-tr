@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 2520f05c83cb5b727c8cdae1602b39320de4b99d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ee0be31b10c86651fa36577ad0dffccc3dc7bf59
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094931"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009280"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Hızlı Başlangıç: Speech SDK'sı kullanarak iOS Objective-C, konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Bu makalede, kayıtlı konuşmayı metne dönüştürme ile bir ses dosyasının dökümünü almak için Bilişsel Hizmetler Konuşma SDK’sını kullanarak iOS içinde bir Objective-C uygulaması oluşturmayı öğreneceksiniz.
+Bu makalede, Objective-C konuşma mikrofon veya kaydedilmiş sesli bir dosyadan metin özelliği, Bilişsel hizmetler konuşma SDK'sı kullanarak bir iOS uygulaması oluşturma konusunda bilgi edinin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -29,16 +29,16 @@ Başlamadan önce önkoşullarının listesi aşağıda verilmiştir:
 
 * A [abonelik anahtarı](get-started.md) konuşma hizmeti
 * Bir macOS makineyle [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) veya üzeri
-* Hedef iOS sürüm 11.4 veya sonraki sürümünü ayarlayın
+* Hedef sürüm iOS 9.3 veya üzerini ayarlayın
 
 ## <a name="get-the-speech-sdk-for-ios"></a>iOS için Konuşma SDK’sını alın
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.3.1`.
+Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.4.0`.
 
-Mac ve iOS için Bilişsel Hizmetler Konuşma SDK’sı şu anda bir Cocoa Framework olarak dağıtılmaktadır.
-https://aka.ms/csspeech/iosbinary konumundan indirilebilir. Dosyayı giriş dizininize indirin.
+Bilişsel hizmetler konuşma SDK'sı iOS için şu anda bir Cocoa çerçeve dağıtılır.
+Dan indirilebilir [burada](https://aka.ms/csspeech/iosbinary). Dosyayı giriş dizininize indirin.
 
 ## <a name="create-an-xcode-project"></a>Xcode Projesi oluşturma
 
@@ -52,16 +52,16 @@ Takip eden iletişim kutularında, aşağıdaki seçimleri yapın:
     1. Zaten bir Apple geliştirici hesabınız varsa uygun bir kuruluş adı ve kuruluş tanımlayıcısı girin. Test amacıyla, `testorg` gibi herhangi bir ad seçebilirsiniz. Uygulamayı imzalamak için uygun bir sağlama profili gerekir. Başvurmak [Apple Geliştirici sitesine](https://developer.apple.com/) Ayrıntılar için.
     1. Proje dili olarak Objective-C seçildiğinden emin olun.
     1. Testler ve temel veriler için tüm onay kutularını devre dışı bırakın.
-    ![Proje Ayarları](media/sdk/qs-objectivec-project-settings.png)
+    ![Proje ayarları](media/sdk/qs-objectivec-project-settings.png)
 1. Proje dizini seçin
     1. Projeyi yerleştirmek için giriş dizininizi seçin. Bu, oluşturur bir `helloworld` dizin giriş dizininizde Xcode projesi için tüm dosyaları içerir.
     1. Bu örnek için Git deposu oluşturmayı devre dışı bırakın.
     1. *Proje Ayarları*’nda SDK yollarını ayarlayın.
         1. İçinde **genel** sekmesinde altında **katıştırılmış ikili dosyalar** üst bilgi bir çerçeve SDK'sı kitaplığı ekleyin: **Katıştırılmış ikili dosyalar ekleme** > **diğer Ekle...**  > Giriş dizinine gidin ve dosyayı seçin `MicrosoftCognitiveServicesSpeech.framework`. Bu SDK'sı kitaplığı üstbilgiye ekler **bağlı çerçeve ve kitaplıklar** otomatik olarak.
-        ![Eklenen Çerçeve](media/sdk/qs-objectivec-framework.png)
+        ![Eklenen Framework](media/sdk/qs-objectivec-framework.png)
         1. **Derleme Ayarları** sekmesine gidin ve **Tümü** ayarını etkinleştirin.
         1. `$(SRCROOT)/..` dizinini **Arama Yolları** başlığı altında *Çerçeve Arama Yolları*’na ekleyin.
-        ![Çerçeve Arama Yolu ayarı](media/sdk/qs-objectivec-framework-search-paths.png)
+        ![Çerçeve arama yolu ayarını](media/sdk/qs-objectivec-framework-search-paths.png)
 
 ## <a name="set-up-the-ui"></a>Kullanıcı arabirimini ayarlama
 
@@ -103,3 +103,4 @@ Otomatik olarak oluşturulan XML şu kodla değiştirin:
 
 > [!div class="nextstepaction"]
 > [GitHub üzerinde Objective-C örneklerini keşfedin](https://aka.ms/csspeech/samples)
+

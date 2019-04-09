@@ -7,23 +7,23 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 9fb3cdd4b4b809e45180cd95b8fe930cce86826e
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 43d289f2688bbf4927ee244d6ae9992782bf380e
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498817"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009827"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Örnek: Önerileriniz veya otomatik tamamlama, Azure Search uygulamanıza ekleyin
 
-Bu örnekte, nasıl kullanılacağını öğrenin [önerileri](https://docs.microsoft.com/rest/api/searchservice/suggestions) ve [otomatik tamamlama](https://docs.microsoft.com/rest/api/searchservice/autocomplete) arama---yazarken Davranışları destekleyen güçlü bir arama kutusu oluşturmak için.
+Bu makalede, kullanmayı öğrenin [önerileri](https://docs.microsoft.com/rest/api/searchservice/suggestions) ve [otomatik tamamlama](https://docs.microsoft.com/rest/api/searchservice/autocomplete) arama---yazarken Davranışları destekleyen güçlü bir arama kutusu oluşturmak için.
 
-+ *Öneriler* her öneri şu ana kadar yazdığınız eşleşen dizinden tek bir sonuç olduğu türü olarak oluşturulan önerilen sonuçların bir listesi verilmiştir. 
++ *Öneriler* önerilen sonuç her öneri şu ana kadar yazdığınız eşleşen dizinden tek bir sonuç olduğu türü olarak oluşturulur. 
 
-+ *Otomatik Tamamlama*, [bir önizleme özelliği](search-api-preview.md), "sözcük veya bir kullanıcı şu anda yazarak tümcecik tamamlandıktan". Önerileriniz gibi bir tamamlanmış sözcük veya tümcecik dizinde eşleşmeyi predicated. 
++ *Otomatik Tamamlama*, [bir önizleme özelliği](search-api-preview.md), "sözcük veya bir kullanıcı şu anda yazarak tümcecik tamamlandıktan". Sonuçları döndürmek yerine, bir sorgu sonuçları döndürmek için sonra yürütebilir tamamlar. Önerileriniz gibi bir tamamlanmış sözcük veya tümcecik sorguda bir eşleşen dizini içindeki predicated. Hizmet, dizin sıfır sonuçları döndüren sorgular sunmak olmaz.
 
 İndirme ve örnek kodu çalıştırma **DotNetHowToAutocomplete** bu özellikler değerlendirilemedi. Örnek kod ile doldurulmuş önceden oluşturulmuş bir dizin hedefleyen [NYCJobs tanıtım verileri](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). NYCJobs dizini içeren bir [öneri aracı yapısı](index-add-suggesters.md), öneri veya otomatik tamamlama kullanma gereksinimi olan. Bir korumalı alan hizmette barındırılan hazırlanmış dizini kullanabilir veya [kendi dizininizi doldurmak](#configure-app) NYCJobs örnek çözümde bir veri yükleyici kullanılarak. 
 
@@ -89,7 +89,7 @@ $(function () {
 });
 ```
 
-Yukarıdaki kodu tarayıcıda Otomatik Tamamla "example1a" giriş kutusuna jQuery kullanıcı Arabirimi yapılandırmak için sayfa yükleme çalışır.  `minLength: 3`, önerilerin yalnızca arama kutusuna en az üç karakter girildiğinde gösterilmesini sağlar.  Kaynak değeri önemlidir:
+Yukarıdaki kodu tarayıcıda Otomatik Tamamla "example1a" giriş kutusuna jQuery kullanıcı Arabirimi yapılandırmak için sayfa yükleme çalışır.  `minLength: 3` Arama kutusuna en az üç karakter olduğunda önerileri yalnızca gösterilmesini sağlar.  Kaynak değeri önemlidir:
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",
@@ -156,7 +156,7 @@ $(function () {
 });
 ```
 
-## <a name="c-version"></a>C#Sürüm
+## <a name="c-example"></a>C# örneği
 
 Biz web sayfası için JavaScript kodunu gözden geçirdikten sonra göz atalım C# gerçekte Azure Search .NET SDK'sını kullanarak eşleşmeler alır denetleyicisi sunucu tarafı kodu.
 
@@ -229,9 +229,11 @@ Otomatik Tamamlama işlevi arama terimi girişleri alır. Yöntemi oluşturur bi
 
 Sayfadaki diğer örnekler, isabet vurgulama eklemek için aynı deseni ve istemci tarafı önbelleğe alma otomatik tamamlama sonuçlarını desteklemek için modelleri izleyin. Her birini gözden geçirerek nasıl çalıştıklarını ve arama deneyiminizde nasıl kullanabileceğinizi görebilirsiniz.
 
-## <a name="javascript-version-with-rest"></a>REST ile JavaScript sürümü
+## <a name="javascript-example"></a>JavaScript örneği
 
-JavaScript uygulaması için açık **IndexJavaScript.cshtml**. JQuery kullanıcı Arabirimi Otomatik Tamamlama işlevi ayrıca arama kutusuna arama terimi girişleri toplamak için kullanılır ve eşleşme önerilen veya koşulları tamamlandı almak için Azure Search için zaman uyumsuz çağrı yapmaya dikkat edin. 
+Bir Javascript uygulamasını otomatik tamamlama ve öneriler işlemi ve dizini belirtmek için kaynak olarak bir URI kullanarak REST API'sini çağırır. 
+
+JavaScript uygulamasını gözden geçirmek için açık **IndexJavaScript.cshtml**. JQuery kullanıcı Arabirimi Otomatik Tamamlama işlevi ayrıca arama kutusuna arama terimi girişleri toplamak için kullanılır ve eşleşme önerilen veya koşulları tamamlandı almak için Azure Search için zaman uyumsuz çağrı yapmaya dikkat edin. 
 
 İlk örneğin JavaScript koduna bakalım:
 

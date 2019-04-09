@@ -12,18 +12,22 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 03/26/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 6084687f54be265e88e6755e7d082da7c32eda1b
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: c7da46984d592abc6ed97d7490fde732bf26b0ba
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349527"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009454"
 ---
-# <a name="saas-fulfillment-apis"></a>SaaS yerine getirme API'leri
+# <a name="saas-fulfillment-apis"></a>SaaS gerçekleştirme API'leri
 
-SaaS yerine getirme API'si, bağımsız yazılım satıcılarına (ISV) Azure Market ile SaaS uygulamalarını tümleştirme sağlar. Bu API, tüm etkin ticaret kanallarında katılmak ISV uygulamaları sağlar: doğrudan, iş ortağı destekli (satıcı) ve alan öncülüğünde.  Bu API, Azure Marketi'nde transactable SaaS sunar olmasa listeleme için gereklidir.
+SaaS yerine getirme API'leri, bağımsız yazılım satıcılarına (ISV) Azure Market ile SaaS uygulamalarını tümleştirme sağlar. Bu API'leri ISV uygulamaları tüm ticari etkin kanallarında katılmayı etkinleştir: doğrudan, iş ortağı destekli (satıcı) ve alan öncülüğünde.  Bir gereksinim transactable SaaS tekliflerini Azure Marketi'nde listeleme değildirler.
+
+> [!WARNING]
+> Bu API'ın geçerli sürümü, sürüm 2 olan tüm yeni SaaS için kullanılmalıdır sunar.  API sürümü 1 kullanım dışıdır ve mevcut teklifler desteklemek üzere saklanır.
+
 
 ## <a name="business-model-support"></a>İş modeli desteği
 
@@ -37,4 +41,4 @@ Bu API aşağıdaki iş modeli özelliklerini destekler; Şunları yapabilirsini
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu arabirim, geliştirme için kullanın: [SaaS yerine getirme API sürüm 2](./cpp-saas-fulfillment-api-v2.md).
+Zaten yapmadıysanız, SaaS uygulamanızı kaydetme [Azure portalında](https://ms.portal.azure.com) açıklandığı şekilde [bir Azure AD uygulaması kaydedin](./cpp-saas-registration.md).  Ardından, geliştirme için en güncel sürümü bu arabirimin kullanın: [SaaS yerine getirme API sürüm 2](./cpp-saas-fulfillment-api-v2.md).

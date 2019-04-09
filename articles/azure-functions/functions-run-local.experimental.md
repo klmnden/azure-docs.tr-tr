@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
-ms.openlocfilehash: a5acc65609b7d8387eca0ec4e091bf823d9d1d67
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: dcd6d907fec3d7f2cc0c8d5c06fdec28125154c1
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402703"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009555"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -217,7 +217,7 @@ Uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları
 
 Depolama öykünücüsü için geliştirme kullanırken, bile, bir gerçek depolama bağlantısı ile test etmek isteyebilirsiniz. Zaten olduğunu varsayarsak [bir depolama hesabı oluşturmuş](../storage/common/storage-create-storage-account.md), geçerli bir depolama bağlantı dizesi aşağıdaki yollardan biriyle alabilirsiniz:
 
-+ Gelen [Azure portal]. Depolama hesabınıza, select gidin **erişim anahtarları** içinde **ayarları**, birini kopyalayın **bağlantı dizesi** değerleri.
++ Gelen [Azure portalında]. Depolama hesabınıza, select gidin **erişim anahtarları** içinde **ayarları**, birini kopyalayın **bağlantı dizesi** değerleri.
 
   ![Bağlantı dizesini Azure portalından kopyalayın.](./media/functions-run-local/copy-storage-connection-portal.png)
 
@@ -431,7 +431,7 @@ func azure functionapp publish <FunctionAppName>
 
 Bu komut var olan işlev uygulamanızı Azure'a yayımlar. Bir hata oluşursa, `<FunctionAppName>` aboneliğinizde mevcut değil. Komut istemi veya terminal penceresinde Azure CLI kullanarak bir işlev uygulaması oluşturmak nasıl öğrenmek için bkz. [sunucusuz yürütme için bir işlev uygulaması oluşturma](./scripts/functions-cli-create-serverless.md).
 
-`publish` Komut işlevleri proje dizininin içeriğini yükler. Dosyaları yerel olarak silerseniz `publish` komut silinmez Azure'dan. Kullanarak Azure dosyaları silebilirsiniz [Kudu aracı](functions-how-to-use-azure-function-app-settings.md#kudu) içinde [Azure portal].
+`publish` Komut işlevleri proje dizininin içeriğini yükler. Dosyaları yerel olarak silerseniz `publish` komut silinmez Azure'dan. Kullanarak Azure dosyaları silebilirsiniz [Kudu aracı](functions-how-to-use-azure-function-app-settings.md#kudu) içinde [Azure portalında].
 
 >[!IMPORTANT]
 > Azure portalında bir işlev uygulaması oluşturduğunuzda, bu sürüm kullanır 2.x varsayılan olarak işlev çalışma zamanı. İşlev uygulaması kullanım sürümü yapmak için 1.x çalışma zamanı'ndaki yönergeleri izleyin [sürümünde çalışmasını 1.x](functions-versions.md#creating-1x-apps).

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: a67cbd3bfca478a45e12adeb0bf119b891866718
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905248"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006352"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure veri kutusu Edge sistem gereksinimleri
 
@@ -101,6 +101,37 @@ Veri kutusu liberally çoğu zaman sabit IP adreslerinin, Edge temel giden trafi
 ## <a name="internet-bandwidth"></a>Internet bant genişliği
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
+
+## <a name="compute-sizing-considerations"></a>Boyutlandırma konuları işlem
+
+Deneyiminizi geliştirmeye ve çözümünüzü test etmeye çalışırken, veri kutusu Edge Cihazınızda yeterli kapasite yoktur ve cihazınızın en iyi performans elde emin olmak için kullanın.
+
+Dikkate almanız gereken faktörler aşağıda verilmiştir:
+
+- **Kapsayıcı özellikleri** -aşağıdaki hakkında düşünün.
+
+    - İş yükünüzü kaç kapsayıcının misiniz? Çok sayıda birkaç kaynak yoğunluklu değerler ve basit bir kapsayıcı olabilir.
+    - Bunlar kullandığı kaynakları nelerdir ve bu kapsayıcılar için ayrılan kaynaklar nelerdir?
+    - Kaç tane katmanları kapsayıcılarınızı paylaşma?
+    - Kullanılmayan kapsayıcı var mı? Durdurulmuş bir kapsayıcı yine de disk alanı kaplar.
+    - Kapsayıcılarınızı hangi dilde yazılmış?
+- **İşlenen verilerin boyutunu** -ne kadar veri kapsayıcılarınızı olacak işleniyor olabilir? Bu veriler, disk alanı kullanacak veya bellekte veriler işlenir?
+- **Beklenen performansı** -çözümünüzü istenen performans özellikleri nelerdir? 
+
+Anlama ve çözümünüzün performansını geliştirmek için kullanabilirsiniz:
+
+- Azure portalında işlem ölçümleri. Veri kutusu Edge kaynağınıza gidin ve ardından Git **İzleme > ölçümleri**. Bakmak **işlem Edge - bellek kullanımı** ve **işlem Edge - CPU yüzdesi** kullanılabilir kaynakları anlamak için ve nasıl kaynaklar.
+- İzleme komutları gibi cihazın PowerShell arabirimi üzerinden kullanılabilir:
+
+    - `dkr` kapsayıcılarda Canlı akışı kaynak kullanım istatistiklerini almak için istatistikleri. Komut, CPU, bellek kullanımı, bellek sınırını ve ağ GÇ ölçümleri destekliyor.
+    - `dkr system df` kullanılan disk alanı miktarı ile ilgili bilgi almak için. 
+    - `dkr image [prune]` kullanılmayan görüntülerini temizleyin ve yer kazanmak için.
+    - `dkr ps --size` çalışan kapsayıcıya yaklaşık boyutunu görüntülemek için. 
+
+    Kullanılabilir komutlar hakkında daha fazla bilgi için Git [izleme ve sorun giderme işlem modülleri](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
+
+Son olarak, veri kümenize çözümünüzü doğrulamak ve üretimde dağıtmadan önce veri kutusu Edge performansını ölçme emin olun.
+
 
 ## <a name="next-step"></a>Sonraki adım
 

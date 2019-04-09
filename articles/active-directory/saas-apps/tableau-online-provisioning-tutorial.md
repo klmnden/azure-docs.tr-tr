@@ -6,21 +6,22 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 0be9c435-f9a1-484d-8059-e578d5797d8e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ed8bae32cb8d0680b1f9aa66f26407c3313ea06
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f732eebd410a6b52a21a46925a29bf4676f7c8cb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077828"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057498"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Öğretici: Tableau çevrimiçi yapılandırmak için otomatik kullanıcı hazırlama
 
@@ -45,27 +46,21 @@ Tableau çevrimiçi Azure AD ile otomatik kullanıcı hazırlama için yapıland
 
 **Azure AD uygulama galerisinden Tableau çevrimiçi eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, üzerinde sol gezinti bölmesinde, tıklayarak **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar** > **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar bölümü][2]
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-3. Tableau çevrimiçi eklemek için tıklatın **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-4. Arama kutusuna **Tableau çevrimiçi**.
+4. Arama kutusuna **Tableau çevrimiçi**seçin **Tableau çevrimiçi** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/AppSearch.png)
-
-5. Sonuçlar panelinde seçin **Tableau çevrimiçi**ve ardından **Ekle** düğmesini Tableau çevrimiçi SaaS uygulamaları listenize ekleyin.
-
-    ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/AppSearchResults.png)
-
-    ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/AppCreation.png)
+    ![Sonuç listesinde tableau çevrimiçi](common/search-new-app.png)
 
 ## <a name="assigning-users-to-tableau-online"></a>Kullanıcıları için çevrimiçi Tableau atama
 
@@ -90,11 +85,13 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılara ve/veya Tableau i
 
 ### <a name="to-configure-automatic-user-provisioning-for-tableau-online-in-azure-ad"></a>Azure AD'de Tableau Online için otomatik kullanıcı hazırlama yapılandırmak için:
 
-1. Oturum [Azure portalında](https://portal.azure.com) ve **Azure Active Directory > Kurumsal uygulamalar > tüm uygulamaları**.
+1. Oturum [Azure portalında](https://portal.azure.com) seçip **kurumsal uygulamalar**seçin **tüm uygulamalar**, ardından **Tableau çevrimiçi**.
 
-2. Tableau çevrimiçi SaaS uygulamaları listesinden seçin.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/AppInstanceSearch.png)
+2. Uygulamalar listesinde **Tableau çevrimiçi**.
+
+    ![Uygulamalar listesinde Tableau çevrimiçi bağlantı](common/all-applications.png)
 
 3. Seçin **sağlama** sekmesi.
 
@@ -116,13 +113,16 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılara ve/veya Tableau i
 
 6. Çevrimiçi Tableau değerlerini yönetici hesabınızda oturum açtıktan sonra **etki alanı** ve **içerik URL'si** yönetici sayfasına URL'den ayıklanabilir.
 
-    *   **Etki alanı** Tableau çevrimiçi için hesap URL'sinin bu bölümünden kopyalanabilir: ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
+    * **Etki alanı** Tableau çevrimiçi için hesap URL'sinin bu bölümünden kopyalanabilir:
 
-    *   **İçerik URL'si** Tableau çevrimiçi için hesap sayfasından Bu bölüm kopyalanabilir ve hesap kurulumu sırasında tanımlanan bir değer. Bu örnekte, "contoso" değeridir: ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
+        ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
+
+    * **İçerik URL'si** Tableau çevrimiçi için hesap sayfasından Bu bölüm kopyalanabilir ve hesap kurulumu sırasında tanımlanan bir değer. Bu örnekte, "contoso" değeridir:
+
+        ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
 
         > [!NOTE]
-        > **Etki alanı** burada gösterilen farklı olabilir. 
-
+        > **Etki alanı** burada gösterilen farklı olabilir.
 
 7. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD Tableau Online'a bağlayabilirsiniz. Bağlantı başarısız olursa, Tableau Online hesabınızın yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
 
@@ -132,35 +132,35 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılara ve/veya Tableau i
 
     ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/EmailNotification.png)
 
-10. **Kaydet**’e tıklayın.
+9. **Kaydet**’e tıklayın.
 
-11. Altında **eşlemeleri** bölümünden **eşitleme Azure Active Directory Kullanıcıları için Tableau**.
+10. Altında **eşlemeleri** bölümünden **eşitleme Azure Active Directory Kullanıcıları için Tableau**.
 
     ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/UserMappings.png)
 
-12. Tableau çevrimiçi Azure AD'den eşitlenen kullanıcı özniteliklerini gözden **eşleme özniteliği** bölümü. Seçilen öznitelikler **eşleşen** özellikleri, kullanıcı hesaplarını Tableau çevrimiçi güncelleştirme işlemleri eşleştirmek için kullanılır. Seçin **Kaydet** düğmesine değişiklikleri uygulayın.
+11. Tableau çevrimiçi Azure AD'den eşitlenen kullanıcı özniteliklerini gözden **eşleme özniteliği** bölümü. Seçilen öznitelikler **eşleşen** özellikleri, kullanıcı hesaplarını Tableau çevrimiçi güncelleştirme işlemleri eşleştirmek için kullanılır. Seçin **Kaydet** düğmesine değişiklikleri uygulayın.
 
     ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/UserAttributeMapping.png)
 
-13. Altında **eşlemeleri** bölümünden **eşitleme Azure Active Directory gruplarına Tableau**.
+12. Altında **eşlemeleri** bölümünden **eşitleme Azure Active Directory gruplarına Tableau**.
 
     ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/GroupMappings.png)
 
-14. Tableau çevrimiçi Azure AD'den eşitlenen grup öznitelikleri gözden **eşleme özniteliği** bölümü. Seçilen öznitelikler **eşleşen** özellikleri, kullanıcı hesaplarını Tableau çevrimiçi güncelleştirme işlemleri eşleştirmek için kullanılır. Seçin **Kaydet** düğmesine değişiklikleri uygulayın.
+13. Tableau çevrimiçi Azure AD'den eşitlenen grup öznitelikleri gözden **eşleme özniteliği** bölümü. Seçilen öznitelikler **eşleşen** özellikleri, kullanıcı hesaplarını Tableau çevrimiçi güncelleştirme işlemleri eşleştirmek için kullanılır. Seçin **Kaydet** düğmesine değişiklikleri uygulayın.
 
     ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/GroupAttributeMapping.png)
 
-15. Kapsam belirleme filtrelerini yapılandırmak için aşağıdaki yönergelere bakın [Scoping filtre öğretici](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Kapsam belirleme filtrelerini yapılandırmak için aşağıdaki yönergelere bakın [Scoping filtre öğretici](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-16. Azure AD sağlama hizmeti için Tableau çevrimiçi etkinleştirmek için değiştirin **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü.
+15. Azure AD sağlama hizmeti için Tableau çevrimiçi etkinleştirmek için değiştirin **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü.
 
     ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/ProvisioningStatus.png)
 
-17. Kullanıcılara ve/veya istediğiniz grupları Tableau çevrimiçi sağlamak için istenen değerleri seçerek tanımlamak **kapsam** içinde **ayarları** bölümü.
+16. Kullanıcılara ve/veya istediğiniz grupları Tableau çevrimiçi sağlamak için istenen değerleri seçerek tanımlamak **kapsam** içinde **ayarları** bölümü.
 
     ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/ScopeSync.png)
 
-18. Sağlama için hazır olduğunuzda, tıklayın **Kaydet**.
+17. Sağlama için hazır olduğunuzda, tıklayın **Kaydet**.
 
     ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/SaveProvisioning.png)
 
@@ -171,8 +171,7 @@ Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [he
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Kullanıcı hesabı, kurumsal uygulamalar için sağlamayı yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
-
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 63adb354d51caa8f01df8bf05c85257c75b5fe41
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877835"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009776"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB'de sağlanan aktarım hızı maliyeti iyileştirin
 
@@ -33,7 +33,7 @@ Sağlanan aktarım hızı stratejisi olarak karar vermek için bazı yönergeler
 
 1. Birkaç düzine Azure Cosmos kapsayıcılar içerir ve aktarım hızı bazılarını veya tümünü arasında paylaşmak istiyorsunuz. 
 
-2. Iaas tarafından barındırılan sanal makineleri veya şirket içinde NoSQL veya Azure Cosmos DB için ilişkisel veritabanları gibi çalışması için tasarlanmış tek kiracılı veritabanı geçiriliyor. Birçok tabloları/koleksiyon/graflar ve, varsa biçimde denetlenmesini herhangi bir değişiklik veri modelinizi istediğiniz değil. Unutmayın, veri modelinizi bir şirket içi veritabanından geçirilirken değil güncelleştiriyorsanız, Azure Cosmos DB tarafından sunulan avantajlardan bazıları tehlikeye gerekebilir. Veri modelinizi performans açısından en iyi şekilde yararlanmak ve maliyetleri iyileştirmek için her zaman reaccess önerilir. 
+2. Iaas tarafından barındırılan sanal makineleri veya şirket içinde NoSQL veya Azure Cosmos DB için ilişkisel veritabanları gibi çalışması için tasarlanmış tek kiracılı veritabanı geçiriliyor. Veri modelinizi değişiklik yapmak birçok tabloları/koleksiyon/graflar ve, varsa istemezsiniz. Unutmayın, veri modelinizi bir şirket içi veritabanından geçirilirken değil güncelleştiriyorsanız, Azure Cosmos DB tarafından sunulan avantajlardan bazıları tehlikeye gerekebilir. Veri modelinizi performans açısından en iyi şekilde yararlanmak ve maliyetleri iyileştirmek için her zaman reaccess önerilir. 
 
 3. Planlanmamış iş yükleri ve veritabanı düzeyinde iş yükünde beklenmeyen depo için tabi havuza alınmış aktarım hızı da artış devralarak istiyorsunuz. 
 

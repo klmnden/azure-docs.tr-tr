@@ -4,18 +4,21 @@ description: Azure geçişi hizmetini kullanarak şirket içi makinelerin çok s
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: 8a2ea64d32194ff06378e3227b260c4f10d53175
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ae84313cd750e3d6c7eb9443ec59095dec9c632e
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116682"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057481"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Büyük bir VMware ortamını bulma ve değerlendirme
 
-Azure geçişi, proje başına 1500 makineyi sınırı vardır, bu makalede kullanarak çok sayıda şirket içi sanal makineleri (VM'ler) değerlendirmek nasıl [Azure geçişi](migrate-overview.md).   
+Azure geçişi, proje başına 1500 makineyi sınırı vardır, bu makalede kullanarak çok sayıda şirket içi sanal makineleri (VM'ler) değerlendirmek nasıl [Azure geçişi](migrate-overview.md).
+
+> [!NOTE]
+> Tek bir gereç kullanılarak tek bir projede en fazla 10.000 VMware Vm'lerinin bulunmasını sağlayan bir önizleme sürümünü kullanıma sunuyoruz, deniyorsanız düşünüyorsanız, lütfen kaydolun [burada.](https://aka.ms/migratefuture)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -155,7 +158,7 @@ OVA dosyasını dağıtmadan önce güvenli olup olmadığını denetleyin:
 
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-   Örnek kullanım: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+   Örnek Kullanım: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
 3. Oluşturulan karma aşağıdaki ayarları eşleştiğinden emin olun.
 
@@ -284,7 +287,7 @@ Toplayıcı gerecini seçili sanal makineler hakkında aşağıdaki yapılandır
 
 Toplayıcı gerecini 20 saniyelik bir aralıkta ESXi konağından her VM için aşağıdaki performans sayaçlarını toplar. Bu sayaçlardan vCenter sayaçları ve terminolojiyi ortalama diyor olsa da, 20 saniye örnekleri gerçek zamanlı sayaçları. Gereç ardından pay en yüksek değeri 20 saniye örnekleri seçerek boyunca 15 dakikada bir tek veri noktası oluşturmak için 20 saniye örnekleri yukarı ve Azure'a gönderir. VM'ler için performans verilerini iki saat sonra keşif devreye girdi portalda kullanılabilir hale gelmeden başlatır. İçin en az doğru doğru boyutlandırma önerilerini almak için Değerlendirmeler performans tabanlı oluşturmadan önce bir gün beklemeniz önerilir. Anında sonuç elde etmek için arıyorsanız, boyutlandırma ölçütü ile değerlendirmeler oluşturabilirsiniz *şirket içi olarak* hangi değil dikkate alınır doğru boyutlandırma için performans verileri.
 
-**Counter** |  **Etki değerlendirmesi**
+**Sayaç** |  **Etki değerlendirmesi**
 --- | ---
 cpu.usage.average | Önerilen VM boyutu ve maliyet  
 mem.Usage.average | Önerilen VM boyutu ve maliyet  

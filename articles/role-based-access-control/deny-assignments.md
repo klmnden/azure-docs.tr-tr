@@ -15,12 +15,12 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: fff213c8d1a408bf96e385f2097a5ef30dcc05d2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992107"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006732"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Anlamak Azure kaynakları için atamaları Reddet
 
@@ -59,9 +59,9 @@ Bu makalede nasıl atamaları tanımlanmış reddet.
 İçin destek Reddet atamaları **tanımlı asıl** tanıtılmıştır. Bu asıl tüm kullanıcıları, grupları, hizmet sorumluları ve yönetilen bir Azure AD dizini kimliklerini temsil eder. Sorumlu Kimliği bir GUID sıfır ise `00000000-0000-0000-0000-000000000000` ve asıl tür `SystemDefined`, sorumlu, tüm ilkeleri temsil eder. `SystemDefined` birleştirilebilir `ExcludePrincipals` bazı kullanıcılar hariç tüm ilkeleri reddetmek için. `SystemDefined` şu kısıtlamalara tabidir:
 
 - Yalnızca kullanılan `Principals` ve kullanılamaz `ExcludePrincipals`.
-- `Principals[i].Type` ayarlanmalıdır `SystemDefined`.
+- `Principals[i].Type` Ayarlanmalıdır `SystemDefined`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [REST API kullanarak Azure kaynakları için atamaları izin verilmeyenler listesi](deny-assignments-rest.md)
+* [Azure portalını kullanarak Azure kaynakları için atamaları görünümü Reddet](deny-assignments-portal.md)
 * [Azure kaynakları için rol tanımları anlama](role-definitions.md)

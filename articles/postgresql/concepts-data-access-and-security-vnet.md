@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: f5c42b73b0452392cdd2a06619722b3f7de2cc27
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 83d16071cbcac4199db9f3757121f9811db49727
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417491"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006342"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Sanal ağ hizmet uç noktaları ve kuralları için PostgreSQL için Azure veritabanı kullanın.
 
@@ -106,6 +106,8 @@ Kullanma seçeneğiniz [rol tabanlı erişim denetimi (RBAC)] [ rbac-what-is-813
 ## <a name="limitations"></a>Sınırlamalar
 
 PostgreSQL için Azure veritabanı için sanal ağ kuralları özelliği aşağıdaki sınırlamalara sahiptir:
+
+- Bir Web uygulaması, bir VNet/alt ağ içinde bir özel IP eşlenebilir. Hizmet uç noktaları belirtilen VNet/alt ağ üzerinde etkin olsa bile, bir Azure genel IP kaynağı, bir VNet/alt ağ kaynak sunucuya Web uygulamasından bağlantıları gerekir. Sanal ağ güvenlik duvarı kuralları olan bir sunucuyu bir Web uygulamasından bağlantıyı etkinleştirmek için sunucu sunucusuna erişmek için izin Azure Hizmetleri gerekir.
 
 - PostgreSQL için Azure veritabanı için Güvenlik Duvarı'nda, her sanal ağ kuralı bir alt ağ başvuruyor. Bu başvurulan tüm alt ağlar, PostgreSQL için Azure veritabanını barındıran aynı coğrafi bölgede barındırılması gerekir.
 

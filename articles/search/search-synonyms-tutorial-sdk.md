@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: cb0d04e46834530c8fea29ef79a2156caabeeeff
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f9cadfcf0c027f4aec4f9d4928872709ee7d3e99
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202376"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008984"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>Örnek: Azure Search için eş anlamlı sözcükler eklemeC#
 
@@ -36,9 +36,9 @@ Birden çok eş anlamlı eşlemi oluşturabilir, bunları bir dizin için kullan
 Öğretici gereksinimleri şunları içerir:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure Search hizmeti](search-create-service-portal.md)
+* [Azure arama hizmeti](search-create-service-portal.md)
 * [Microsoft.Azure.Search .NET kitaplığı](https://aka.ms/search-sdk)
-* [Bir .NET Uygulamasından Azure Search kullanma](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+* [Bir .NET uygulamasından Azure Search kullanma](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -175,4 +175,4 @@ Azure Search Hizmeti içeren kaynak grubunu silerek bir örnektir sonra temizlem
 Bu örnekte gösterilen [eş anlamlılar REST API](https://aka.ms/rgm6rq) içinde C# kod eşleme kurallarını gönderin ve bir sorgu üzerindeki eş anlamlı eşlemi'ı çağırın. [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) ve [REST API](https://docs.microsoft.com/rest/api/searchservice/) başvuru belgelerinde daha fazla bilgi bulabilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Azure Search’te eş anlamlıları kullanma](search-synonyms.md)
+> [Azure Search'te eş anlamlıları kullanma](search-synonyms.md)
