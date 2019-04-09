@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c9ef471ca1536f928ca5ae2fe4f55e8e2b3424
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4b94004aa4b4834be80c13a044fcf7eb0023b6f7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878426"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259873"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory erişim belirteçleri
 
@@ -173,14 +173,14 @@ Azure AD tarafından verilen belirteçlere RSA 256 gibi sektörde standart asime
 
 Herhangi belirli bir noktada, Azure AD, belirli bir dizi ortak-özel anahtar çifti herhangi birini kullanarak bir id_token oturum açabilirsiniz. Uygulamanızın bu anahtar değişiklikleri otomatik olarak işlemek için yazılmış olması gerekir böylece azure AD'ye anahtarlarını düzenli aralıklarla, olası kümesini döndürür. 24 saatte bir Azure AD tarafından kullanılan ortak anahtarlar için güncelleştirmeleri denetlemek için makul bir sıklığıdır.
 
-Konumundaki Openıd Connect meta veri belgesi kullanarak imzayı doğrulamak gereken imzalama anahtar verileri elde edebilirsiniz:
+Kullanarak imzayı doğrulamak gereken imzalama anahtar verileri elde edebilir [Openıd Connect meta veri belgesi](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document) adresinde yer alan:
 
 ```
-https://login.microsoftonline.com/common/.well-known/openid-configuration
+https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> Bu deneyin [URL](https://login.microsoftonline.com/common/.well-known/openid-configuration) bir tarayıcıda!
+> Bu deneyin [URL](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) bir tarayıcıda!
 
 Bu meta veri belgesi:
 
@@ -190,7 +190,9 @@ Bu meta veri belgesi:
 > [!NOTE]
 > Her ikisi de v1.0 uç noktanın döndürdüğü `x5t` ve `kid` talepleri yalnızca v2.0 uç noktası ile yanıtlar sırada `kid` talep. Bundan sonra kullanılması önerilir `kid` belirtecinizi doğrulamak talep.
 
-Bu belgenin kapsamı dışında olan imzası doğrulama gerçekleştiriliyor - birçok açık kaynak kitaplıkları, gerekirse, bunu yapmanıza yardımcı olmak için kullanılabilir.
+Bu belgenin kapsamı dışında olan imzası doğrulama gerçekleştiriliyor - birçok açık kaynak kitaplıkları, gerekirse, bunu yapmanıza yardımcı olmak için kullanılabilir.  Ancak, bir belirteç imzalama anahtarı özel standartlarına - uzantı imzalama Microsoft Identity platformu vardır.  
+
+Uygulamanızı kullanarak sonucunda özel İmzalama anahtarları varsa [talep eşleme](active-directory-claims-mapping.md) gerekir ekleme özelliği, bir `appid` sorgu parametresi almak üzere uygulama Kimliğini içeren bir `jwks_uri` uygulamanıza işaret eden projenin imzalama özellikli anahtarı doğrulama için kullanılan bilgiler. Örneğin: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` içeren bir `jwks_uri` , `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ### <a name="claims-based-authorization"></a>Talep tabanlı yetkilendirme
 

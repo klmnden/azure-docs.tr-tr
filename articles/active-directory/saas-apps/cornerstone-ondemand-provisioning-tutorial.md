@@ -13,21 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/27/2019
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a24945cae273e072d3be314a66248674e25fe287
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 9d17a3c81784d56c6fcad7c7608559abf732882a
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198873"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057940"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için temel taşıdır OnDemand yapılandırın
 
-
 Bu öğreticinin amacı otomatik olarak sağlamak ve kullanıcılara ve/veya temel taşıdır OnDemand gruplarına sağlamasını için dönüm OnDemand ve Azure Active Directory (Azure AD) Azure AD yapılandırmak için gerçekleştirilmesi gereken adımlar göstermektir.
-
 
 > [!NOTE]
 > Bu öğreticide, Azure AD kullanıcı sağlama hizmeti üzerinde oluşturulmuş bir bağlayıcı açıklanmaktadır. Bu hizmet yapar, nasıl çalıştığını ve sık sorulan sorular önemli ayrıntılar için bkz. [otomatik kullanıcı hazırlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına](../manage-apps/user-provisioning.md).
@@ -36,68 +34,62 @@ Bu öğreticinin amacı otomatik olarak sağlamak ve kullanıcılara ve/veya tem
 
 Bu öğreticide özetlenen senaryo, aşağıdaki önkoşulları zaten sahip olduğunuzu varsayar:
 
-*   Azure AD kiracısı
-*   Temel taşıdır OnDemand Kiracı
-*   Temel taşıdır OnDemand yönetici izinlerine sahip bir kullanıcı hesabı
-
+* Azure AD kiracısı
+* Temel taşıdır OnDemand Kiracı
+* Temel taşıdır OnDemand yönetici izinlerine sahip bir kullanıcı hesabı
 
 > [!NOTE]
 > Azure AD tümleştirmesi sağlama dayanan [dönüm OnDemand Webservice](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_-_Summary_of_Web_Services_v20151106.pdf), temel taşıdır OnDemand takımlar için kullanılabildiği.
 
 ## <a name="adding-cornerstone-ondemand-from-the-gallery"></a>Galeriden dönüm OnDemand ekleme
+
 Azure AD ile otomatik kullanıcı hazırlama için temel taşıdır OnDemand yapılandırmadan önce temel taşıdır OnDemand Azure AD uygulama galerisinden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Azure AD uygulama galerisinden dönüm OnDemand eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, üzerinde sol gezinti bölmesinde, tıklayarak **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar** > **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar bölümü][2]
-    
-3. Temel taşıdır OnDemand eklemek için tıklatın **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Yeni Uygulama düğmesi][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-4. Arama kutusuna **dönüm OnDemand**.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![OnDemand dönüm sağlama](./media/cornerstone-ondemand-provisioning-tutorial/AppSearch.png)
+4. Arama kutusuna **dönüm OnDemand**seçin **dönüm OnDemand** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-5. Sonuçlar panelinde seçin **dönüm OnDemand**ve ardından **Ekle** düğmesini dönüm OnDemand SaaS uygulamaları listenize ekleyin.
-
-    ![OnDemand dönüm sağlama](./media/cornerstone-ondemand-provisioning-tutorial/AppSearchResults.png)
-
-    ![OnDemand dönüm sağlama](./media/cornerstone-ondemand-provisioning-tutorial/AppCreation.png)
+    ![Sonuç listesinde dönüm OnDemand](common/search-new-app.png)
 
 ## <a name="assigning-users-to-cornerstone-ondemand"></a>Temel taşıdır OnDemand için kullanıcı atama
 
-Azure Active Directory "atamaları" adlı bir kavram, hangi kullanıcıların seçilen uygulamalara erişimi alması belirlemek için kullanır. Otomatik kullanıcı hazırlama bağlamında, yalnızca kullanıcı ve/veya "Azure AD'de bir uygulama için atandı" grupları eşitlenir. 
+Azure Active Directory "atamaları" adlı bir kavram, hangi kullanıcıların seçilen uygulamalara erişimi alması belirlemek için kullanır. Otomatik kullanıcı hazırlama bağlamında, yalnızca kullanıcı ve/veya "Azure AD'de bir uygulama için atandı" grupları eşitlenir.
 
 Yapılandırma ve otomatik kullanıcı hazırlama etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD'de grupları dönüm OnDemand erişmesi karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek dönüm OnDemand için bu kullanıcılara ve/veya grupları atayabilirsiniz:
 
-*   [Kurumsal bir uygulamayı kullanıcı veya grup atama](../manage-apps/assign-user-or-group-access-portal.md)
+* [Kurumsal bir uygulamayı kullanıcı veya grup atama](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-cornerstone-ondemand"></a>Kullanıcılar için dönüm OnDemand atamak için önemli ipuçları
 
-*   Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmasını otomatik kullanıcı test etmek için dönüm OnDemand atanır. Ek kullanıcılar ve/veya grupları daha sonra atanabilir.
+* Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmasını otomatik kullanıcı test etmek için dönüm OnDemand atanır. Ek kullanıcılar ve/veya grupları daha sonra atanabilir.
 
-*   Bir kullanıcı için dönüm OnDemand atarken, (varsa) geçerli bir uygulamaya özgü rol ataması iletişim kutusunda seçmeniz gerekir. Kullanıcılarla **varsayılan erişim** rol sağlamasından dışlanır.
+* Bir kullanıcı için dönüm OnDemand atarken, (varsa) geçerli bir uygulamaya özgü rol ataması iletişim kutusunda seçmeniz gerekir. Kullanıcılarla **varsayılan erişim** rol sağlamasından dışlanır.
 
 ## <a name="configuring-automatic-user-provisioning-to-cornerstone-ondemand"></a>Temel taşıdır OnDemand için otomatik kullanıcı sağlamayı yapılandırma
 
 Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılara ve/veya Azure AD'de kullanıcı ve/veya grup atamalarını tabanlı dönüm OnDemand gruplarında devre dışı bırakmak için Azure AD sağlama hizmeti yapılandırmak için gereken adımları size kılavuzluk eder.
 
-
 ### <a name="to-configure-automatic-user-provisioning-for-cornerstone-ondemand-in-azure-ad"></a>Azure AD'de dönüm OnDemand için otomatik kullanıcı hazırlama yapılandırmak için:
 
+1. Oturum [Azure portalında](https://portal.azure.com) seçip **kurumsal uygulamalar**seçin **tüm uygulamalar**, ardından **dönüm OnDemand**.
 
-1. Oturum [Azure portalında](https://portal.azure.com) ve **Azure Active Directory > Kurumsal uygulamalar > tüm uygulamaları**.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-2. Temel taşıdır OnDemand SaaS uygulamaları listesinden seçin.
- 
-    ![OnDemand dönüm sağlama](./media/cornerstone-ondemand-provisioning-tutorial/Successcenter2.png)
+2. Uygulamalar listesinde **dönüm OnDemand**.
+
+    ![Uygulamalar listesinde dönüm OnDemand bağlantı](common/all-applications.png)
 
 3. Seçin **sağlama** sekmesi.
 
@@ -109,11 +101,11 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılara ve/veya Azure AD'
 
 5. Altında **yönetici kimlik bilgileri** giriş bölümünde **yönetici kullanıcı adı**, **yönetici parolası**, ve **etki alanı** dönüm OnDemand's, hesabı.
 
-    *   İçinde **yönetici kullanıcı adı** alan, yönetici hesabının dönüm OnDemand kiracınıza etki alanı\kullanıcı adı doldurun. Örnek: contoso\admin.
+    * İçinde **yönetici kullanıcı adı** alan, yönetici hesabının dönüm OnDemand kiracınıza etki alanı\kullanıcı adı doldurun. Örnek: contoso\admin.
 
-    *   İçinde **yönetici parolası** alan, yönetici kullanıcı adı için karşılık gelen parola doldurun.
+    * İçinde **yönetici parolası** alan, yönetici kullanıcı adı için karşılık gelen parola doldurun.
 
-    *   İçinde **etki alanı** alanında, temel taşıdır OnDemand Kiracı Web hizmeti URL'sini doldurma. Örnek: Hizmet şu konumdadır `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`, Contoso etki alanı için `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. Web hizmeti URL'si alma hakkında daha fazla bilgi için bkz. [burada](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
+    * İçinde **etki alanı** alanında, temel taşıdır OnDemand Kiracı Web hizmeti URL'sini doldurma. Örnek: Hizmet şu konumdadır `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`, Contoso etki alanı için `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. Web hizmeti URL'si alma hakkında daha fazla bilgi için bkz. [burada](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
 
 6. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD için dönüm OnDemand bağlanabilirsiniz. Bağlantı başarısız olursa, temel taşıdır OnDemand hesabının yönetici izinlerine sahip olun ve yeniden deneyin.
 
@@ -147,21 +139,20 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılara ve/veya Azure AD'
 
     ![OnDemand dönüm sağlama](./media/cornerstone-ondemand-provisioning-tutorial/Save.png)
 
-
 Bu işlem, tüm kullanıcıların ilk eşitleme başlar ve/veya tanımlı gruplar **kapsam** içinde **ayarları** bölümü. İlk eşitleme yaklaşık 40 dakikada Azure AD sağlama hizmeti çalışıyor sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Azure AD temel taşıdır OnDemand hizmette sağlama tarafından gerçekleştirilen tüm eylemler açıklayan Etkinlik Raporu sağlama için bağlantıları izleyin.
 
 Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
+
 ## <a name="connector-limitations"></a>Bağlayıcı sınırlamaları
 
 * Temel taşıdır OnDemand **konumu** özniteliği dönüm OnDemand portalında rollerine karşılık gelen bir değer bekliyor. Geçerli listesini **konumu** değerler elde edilebilir giderek **kullanıcı kaydını Düzenle > kuruluş yapısı > Konum** dönüm OnDemand portalında.
+
     ![Kullanıcıyı Düzenle dönüm OnDemand sağlama](./media/cornerstone-ondemand-provisioning-tutorial/UserEdit.png) ![konumu sağlama dönüm OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/UserPosition.png) ![dönüm OnDemand konumları listesi sağlama](./media/cornerstone-ondemand-provisioning-tutorial/PostionId.png)
-    
+
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Kullanıcı hesabı, kurumsal uygulamalar için sağlamayı yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
-
-
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

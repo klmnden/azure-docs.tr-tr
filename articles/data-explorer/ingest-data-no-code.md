@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 03/14/2019
-ms.openlocfilehash: 7006c6dcfb149247a066b850f59da626b2826e31
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/07/2019
+ms.openlocfilehash: 9f4b7ee0dcc87ca03fd051be0dacedf0912b5320
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051912"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262916"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Öğretici: Azure veri Gezgini'nde verileri tek satırlık bir kod olmadan alma
 
@@ -209,12 +209,12 @@ Etkinlik günlükleri veri tablosuna eşlemek için aşağıdaki sorguyu kullan�
 
 #### <a name="activity-log-data-update-policy"></a>Etkinlik günlüğü verileri ilkesini güncelleştirme
 
-1. Oluşturma bir [işlevi](/azure/kusto/management/functions) , genişletir. etkinlik günlüğü kayıtlarını koleksiyonunu böylece koleksiyondaki her değer ayrı bir satır alır. Kullanım [ `mvexpand` ](/azure/kusto/query/mvexpandoperator) işleci:
+1. Oluşturma bir [işlevi](/azure/kusto/management/functions) , genişletir. etkinlik günlüğü kayıtlarını koleksiyonunu böylece koleksiyondaki her değer ayrı bir satır alır. Kullanım [ `mv-expand` ](/azure/kusto/query/mvexpandoperator) işleci:
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
         ActivityLogsRawRecords
-        | mvexpand events = Records
+        | mv-expand events = Records
         | project
             Timestamp = todatetime(events["time"]),
             ResourceId = tostring(events["resourceId"]),
@@ -238,11 +238,11 @@ Etkinlik günlükleri veri tablosuna eşlemek için aşağıdaki sorguyu kullan�
 
 #### <a name="diagnostic-log-data-update-policy"></a>Tanılama günlük verilerini ilkesini güncelleştirme
 
-1. Oluşturma bir [işlevi](/azure/kusto/management/functions) , genişleyen tanılama günlük kayıtları koleksiyonu böylece koleksiyondaki her değer ayrı bir satır alır. Kullanım [ `mvexpand` ](/azure/kusto/query/mvexpandoperator) işleci:
+1. Oluşturma bir [işlevi](/azure/kusto/management/functions) , genişleyen tanılama günlük kayıtları koleksiyonu böylece koleksiyondaki her değer ayrı bir satır alır. Kullanım [ `mv-expand` ](/azure/kusto/query/mvexpandoperator) işleci:
      ```kusto
     .create function DiagnosticLogRecordsExpand() {
         DiagnosticLogsRawRecords
-        | mvexpand events = Records
+        | mv-expand events = Records
         | project
             Timestamp = todatetime(events["time"]),
             ResourceId = tostring(events["resourceId"]),

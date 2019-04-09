@@ -7,12 +7,12 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: c66323a430e86053627577b40f66b3f4be11c74f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ca73ed314b254f9f73833bb2c4311f03f62508f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535657"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264208"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Hızlı Başlangıç: SignalR JavaScript kullanarak hizmeti ve Azure işlevleri ile sohbet odası oluşturamadı.
 
@@ -50,7 +50,7 @@ Azure hesabınızla Azure portalında <https://portal.azure.com/> sayfasında ot
 
     ![SignalR Hizmeti Oluşturma](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. Kod editörünüzde kopyalanan deponun *chat/src/javascript* klasörünü açın.
+1. Kod düzenleyicisinde açın *src/sohbet/javascript* kopyalanmış bir depoda klasör.
 
 1. *local.settings.sample.json* dosyasını *local.settings.json* olarak yeniden adlandırın.
 
@@ -61,7 +61,7 @@ Azure hesabınızla Azure portalında <https://portal.azure.com/> sayfasında ot
     - **negotiate** - Geçerli bağlantı bilgileri döndürmek için *SignalRConnectionInfo* giriş bağlamasını kullanır.
     - **messages** - İstek gövdesinde bir sohbet iletisi alır ve iletiyi bağlı olan tüm istemci uygulamalara yaymak için *SignalR* çıkış bağlamasını kullanır.
 
-1. Terminalde *src/sohbet/javascript* klasöründe olduğunuzdan emin olun. Azure İşlevleri Çekirdek Araçlarını kullanarak uygulamayı çalıştırmak için gereken uzantıları yükleyin.
+1. Terminalde, içinde olduğundan emin olun *src/sohbet/javascript* klasör. Azure İşlevleri Çekirdek Araçlarını kullanarak uygulamayı çalıştırmak için gereken uzantıları yükleyin.
 
     ```bash
     func extensions install
@@ -84,4 +84,4 @@ Azure hesabınızla Azure portalında <https://portal.azure.com/> sayfasında ot
 Bu hızlı başlangıçta, oluşturulan ve gerçek zamanlı bir sunucusuz uygulama VS Code'da çalıştı. Bir sonraki adımda Azure İşlevlerini nasıl VS Code’dan dağıtacağınızı öğrenin.
 
 > [!div class="nextstepaction"]
-> [VS Code ile Azure İşlevlerini dağıtma](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
+> [VS Code ile Azure işlevleri'ni dağıtma](https://code.visualstudio.com/tutorials/functions-extension/getting-started)

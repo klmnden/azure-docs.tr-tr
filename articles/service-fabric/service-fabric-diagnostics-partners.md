@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
-ms.openlocfilehash: e9bfb835a1dea240573c21ccbbe13088561851ab
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: c2f953c98e41291951f07556bd0cd441d2793d1d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661420"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259142"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Azure Service Fabric izleme iş ortakları
 
@@ -45,6 +45,9 @@ Yeni Relic da Service Fabric uygulamaları ile tümleşen başka bir uygulama pe
 
 ELK yığını, açık kaynaklı teknolojiler topluluğudur: Elasticsearch, Logstash ve kibana'yı. Bunları birlikte kullanarak toplamak, depolamak ve Service Fabric izleme ve tanılama verilerini analiz edin. Bir öğretici için Service Fabric yerel Java uygulamalarıyla bunun nasıl yapılacağını sahibiz [burada](service-fabric-tutorial-java-elk.md). 
 
+## <a name="humio"></a>Humio
+
+Humio uygulamalardan ve Service Fabric bulutta veya şirket içi gerçek zamanlı olaylardan günlükleri toplayabilir, bir günlük koleksiyonu hizmetidir. Canlı observability yanı sıra Humio ınsights Tanılama'ya toplamak ve görüntülemek için teknoloji analiz ve görselleştirme özellikleri sunar. Humio uygun maliyetli fiyatlandırma planları sahip ve için oluşturulmuştur, korurken ölçek hızlı gölge. Ayrıca Service Fabric platform olaylarına ve uygulama telemetrisini ile doğrudan tümleşir. Daha fazla bilgi edinebilirsiniz Humio ve Service Fabric tümleştirmesi hakkında [burada](https://github.com/humio/service-fabric-humio).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

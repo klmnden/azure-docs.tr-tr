@@ -1,7 +1,7 @@
 ---
-title: 'Hızlı Başlangıç: Konuşma tanıma C# (.NET Core Windows) - konuşma Hizmetleri'
+title: 'Hızlı Başlangıç: Konuşma tanıma C# (.NET Core) - konuşma Hizmetleri'
 titleSuffix: Azure Cognitive Services
-description: İçinde Konuşma tanımayı öğrenmesine C# Speech SDK'sı kullanarak Windows üzerinde .NET Core altında
+description: İçinde Konuşma tanımayı öğrenmesine C# altındaki Windows veya Speech SDK'sı kullanarak macOS üzerinde .NET Core
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 13d5d5b57c4c52b213f3c369244348b00a49332b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 938efe79d4f9f0b9003fcf83196df80d71d16e75
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895632"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009436"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Hızlı Başlangıç: .NET Core için Speech SDK'sı ile Konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Bu makalede Bilişsel Hizmetler[Konuşma SDK'sı](speech-sdk.md)'nı kullanarak Windows'da .NET Core için bir C# konsol uygulaması oluşturacaksınız. Bilgisayarınızın mikrofonundan gerçek zamanda konuşmayı metne dönüştüreceksiniz. Uygulama [Konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017 (herhangi bir sürüm) ile geliştirilmiştir.
+Bu makalede, oluşturduğunuz bir C# Bilişsel hizmetler kullanarak uygulama Windows veya macOS üzerinde .NET Core konsol [Speech SDK'sı](speech-sdk.md). Bilgisayarınızın mikrofonundan gerçek zamanlı olarak konuşmayı metne dönüştüreceksiniz. Uygulama [Konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017 (herhangi bir sürüm) ile geliştirilmiştir.
 
 > [!NOTE]
 > .NET Core, [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) teknik özelliklerini gerçekleştiren açık kaynaklı, platformlar arası bir .NET platformudur.
@@ -32,7 +32,7 @@ Bu hızlı başlangıcı tamamlamak için bir konuşma Hizmetleri abonelik anaht
 
 Bu hızlı başlangıç şunları gerektirir:
 
-* [.NET Core SDK](https://dotnet.microsoft.com/download)
+* [.NET core SDK'sı](https://dotnet.microsoft.com/download)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 * Konuşma hizmeti için bir Azure aboneliği anahtarı. [Ücretsiz edinin](get-started.md).
 

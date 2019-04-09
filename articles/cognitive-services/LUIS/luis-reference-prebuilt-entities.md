@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/05/2019
 ms.author: diberry
-ms.openlocfilehash: c418e15dbe133d94c081db2b925fa390307c240f
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 96157511c0255774a64c0f64a333fe88a37f80d6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905061"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261437"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Varlıkları aracılığıyla LUIS modelinize kültürün başına
 
@@ -110,12 +110,12 @@ Aşağıdaki varlıkların desteklenir:
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    ✔   | 
 [Boyut](luis-reference-prebuilt-dimension.md):<br>birim<br>Alan<br>ağırlığı<br>bilgi (örn: bit/bayt)<br>uzunluk (örn: ölçüm)<br>Hız (örn: mil saat başına)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
-[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [Anahtar cümlesi](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Sayı](luis-reference-prebuilt-number.md)   |    ✔   |  
 [Sıra](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Yüzde](luis-reference-prebuilt-percentage.md)   |    ✔   | 
-[PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
+[PersonName](luis-reference-prebuilt-person.md)   |   -   | 
 [Telefon numarası](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Sıcaklık](luis-reference-prebuilt-temperature.md):<br>Fahrenhayt<br>Kelvin<br>rankine<br>delisle<br>Celsius   |    ✔   | 
 [URL'si](luis-reference-prebuilt-url.md)   |    ✔   |

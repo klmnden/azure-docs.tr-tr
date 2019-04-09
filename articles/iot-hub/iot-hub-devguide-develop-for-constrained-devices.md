@@ -7,16 +7,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: yizhon
-ms.openlocfilehash: 683f3ca88c349fef31f9647566dbed8a840f94dd
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451740"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261403"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Azure IOT C SDK'sını kullanarak kısıtlanmış cihazlar için geliştirme
 
 Azure IOT Hub C SDK'sı, C'de ANSI çeşitli platformlarda küçük disk ve bellek Ayak izi ile çalışmak için uygun hale getiren (C99) yazılır. Önerilen RAM Miktarı, en az 64 KB olmakla birlikte kullanılan protokol, açılan bağlantı sayısını, olarak hedeflenen platformun tam bellek Ayak izi bağlıdır.
+> [!NOTE]
+> * Azure IOT C SDK'sı ile geliştirmeye yardımcı olmak için kaynak tüketimi bilgilerini düzenli olarak yayımlar.  Lütfen bizim [GitHub deposu](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md) ve en son Kıyaslama gözden geçirin.
+>
 
 C SDK'sı MBED apt-get ve NuGet paket formundan kullanıma sunulmuştur. Kısıtlanmış cihazları hedeflemek için hedef platform için yerel SDK'sını derleme isteyebilirsiniz. Bu belge, C SDK'sını kullanarak ayak izini daraltmak için belirli özellikleri kaldırmayı gösterilmiştir [cmake](https://cmake.org/). Ayrıca, bu belge, programlama modellerini kısıtlanmış cihazları ile çalışmak için en iyi ele alınmaktadır.
 
@@ -30,7 +33,7 @@ Kısıtlanmış cihazlar için C SDK'sı oluşturun.
 
 ### <a name="remove-additional-protocol-libraries"></a>Ek protokol kitaplıkları kaldırın
 
-C SDK'sı beş protokolünü bugün destekler: MQTT, WebSocket AMQPs, WebSocket ve HTTPS üzerinden AMQP üzerinden MQTT. Çoğu senaryoda bir istemci üzerinde çalışan bir veya iki protokolleri gerektirir, bu nedenle SDK'sından kullanmadığınız Protokolü kitaplığı kaldırabilirsiniz. Senaryonuz bulunabilir için uygun bir iletişim protokolü seçme hakkında ek bilgi [bir IOT Hub iletişim protokolü seçme](iot-hub-devguide-protocols.md). Örneğin, MQTT kısıtlanmış cihazlar için genellikle daha uygun olan basit bir protokoldür.
+C SDK'yı bugün beş protokollerini destekler: MQTT, WebSocket AMQPs, WebSocket ve HTTPS üzerinden AMQP üzerinden MQTT. Çoğu senaryoda bir istemci üzerinde çalışan bir veya iki protokolleri gerektirir, bu nedenle SDK'sından kullanmadığınız Protokolü kitaplığı kaldırabilirsiniz. Senaryonuz bulunabilir için uygun bir iletişim protokolü seçme hakkında ek bilgi [bir IOT Hub iletişim protokolü seçme](iot-hub-devguide-protocols.md). Örneğin, MQTT kısıtlanmış cihazlar için genellikle daha uygun olan basit bir protokoldür.
 
 AMQP ve HTTP kitaplıkları aşağıdaki cmake komutunu kullanarak kaldırabilirsiniz:
 

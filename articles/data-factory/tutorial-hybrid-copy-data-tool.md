@@ -3,20 +3,20 @@ title: Azure Veri Kopyalama aracını kullanarak şirket içi verileri kopyalama
 description: Şirket içi bir SQL Server veritabanındaki verileri Azure Blob depolamaya kopyalamak için bir Azure veri fabrikası oluşturun ve Veri Kopyalama aracını kullanın.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: 01/04/2018
-ms.author: jingwang
-ms.openlocfilehash: 3569d39b8e4668894e44507dfdd0e20297028290
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.date: 04/09/2018
+ms.author: abnarain
+ms.openlocfilehash: 26bc6861602cae349c8ebaafefe070c119a93e87
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226513"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261536"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Veri Kopyalama aracını kullanarak şirket içi bir SQL Server veritabanındaki verileri Azure Blob depolamaya kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -205,21 +205,19 @@ Bu bölümde, Blob depolama alanınızda **adftutorial** adlı bir blob kapsayı
 
 1. **İleri**’yi seçin.
 
-       ![](./media/tutorial-hybrid-copy-data-tool/select-source-linked-service.png)
+   ![](./media/tutorial-hybrid-copy-data-tool/select-source-linked-service.png)
 
 1. **Verilerin kopyalanacağı tabloları seçin veya özel sorgu kullanın** sayfasında, listeden **[dbo].[emp]** tablosunu seçip **İleri**’yi seçin. Veritabanınıza göre diğer tablolardan da seçim yapabilirsiniz.
 
-       ![The Product table selection](./media/tutorial-hybrid-copy-data-tool/select-emp-table.png)
+   ![Ürün tablosu seçimi](./media/tutorial-hybrid-copy-data-tool/select-emp-table.png)
 
 1. **Hedef veri deposu** sayfasında **Yeni bağlantı oluştur**'u seçin
 
-       //image create-new-sink-connection.png
-
-       ![Create Destination linked service](./media/tutorial-hybrid-copy-data-tool/create-new-sink-connection.png)
+   ![Hedefe bağlı hizmet oluşturma](./media/tutorial-hybrid-copy-data-tool/create-new-sink-connection.png)
 
 1. **Yeni Bağlı Hizmet** bölümünde **Azure Blob** arayıp seçin ve **Devam**'a tıklayın. 
 
-       ![Blob storage selection](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
+   ![Blob depolama seçimi](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
 
 1. **Yeni Bağlı Hizmet (Azure Blob Depolama)** iletişim kutusunda aşağıdaki adımları uygulayın: 
 
@@ -231,47 +229,47 @@ Bu bölümde, Blob depolama alanınızda **adftutorial** adlı bir blob kapsayı
 
        d. Select **Next**.
 
-       ![Specify the storage account](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
+   ![Depolama hesabını belirtme](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
 
 1. **Hedef veri deposu** iletişim kutusunda **İleri**'yi seçin. **Bağlantı özellikleri** bölümünde **Azure Blob Depolama** olarak **Azure depolama hizmeti**'ni seçin. **İleri**’yi seçin. 
 
-       ![connection properties](./media/tutorial-hybrid-copy-data-tool/select-connection-properties.png)
+   ![Bağlantı özellikleri](./media/tutorial-hybrid-copy-data-tool/select-connection-properties.png)
 
 1. **Çıkış dosyasını veya klasörünü seçin** iletişim kutusunda, **Klasör yolu** bölümüne **adftutorial/fromonprem** yolunu girin. Ön koşulların bir parçası olarak **adftutorial** kapsayıcısını oluşturdunuz. Çıkış klasörü yoksa (bu örnekte **fromonprem**), Data Factory tarafından otomatik olarak oluşturulur. Ayrıca, **Gözat** düğmesini kullanarak blob depolamaya ve bunun kapsayıcılarına/klasörlerine göz atabilirsiniz. **Dosya adı** bölümünde değer belirtmezseniz varsayılan olarak kaynaktaki ad (bu örnekte **dbo.emp**) kullanılır.
            
-       ![Choose the output file or folder](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
+   ![Çıktı dosyasını veya klasörünü seçin](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
 
 1. **Dosya biçimi ayarları** iletişim kutusunda **İleri**’yi seçin. 
 
-       ![File format settings page](./media/tutorial-hybrid-copy-data-tool/file-format-settings-page.png)
+   ![Dosya biçimi ayarları sayfası](./media/tutorial-hybrid-copy-data-tool/file-format-settings-page.png)
 
 1. **Ayarlar** iletişim kutusunda **İleri**’yi seçin. 
 
-       ![Settings page](./media/tutorial-hybrid-copy-data-tool/settings-page.png)
+   ![Ayarlar sayfası](./media/tutorial-hybrid-copy-data-tool/settings-page.png)
 
 1. **Özet** iletişim kutusunda tüm ayarların değerlerini gözden geçirin ve **İleri**’yi seçin. 
 
-       ![Summary page](./media/tutorial-hybrid-copy-data-tool/summary-page.png)
+   ![Özet sayfası](./media/tutorial-hybrid-copy-data-tool/summary-page.png)
 
 1. **Dağıtım** sayfasında, oluşturduğunuz işlem hattını veya görevi izlemek için **İzleyici**’yi seçin.
 
-       ![Deployment page](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
+   ![Dağıtım sayfası](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
 
 1. **İzleyici** sekmesinde, oluşturduğunuz işlem hattının durumunu görüntüleyebilirsiniz. İşlem hattı çalıştırmasıyla ilişkili etkinlik çalıştırmalarını görüntülemek ve işlem hattını yeniden çalıştırmak için **Eylem** sütunundaki bağlantıları kullanabilirsiniz. 
 
-       ![Monitor pipeline runs](./media/tutorial-hybrid-copy-data-tool/monitor-pipeline-runs.png)
+   ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-hybrid-copy-data-tool/monitor-pipeline-runs.png)
 
 1. İşlem hattı çalıştırmalarıyla ilişkili etkinlik çalıştırmalarını görmek için **Eylemler** sütunundaki **Etkinlik Çalıştırmalarını Görüntüle** bağlantısını seçin. Kopyalama işlemiyle ilgili ayrıntıları görmek için **Eylemler** sütunundaki **Ayrıntılar** bağlantısını (gözlük simgesi) seçin. **İşlem Hattı Çalıştırmaları** görünümüne dönmek için üstteki **İşlem Hatları**'nı seçin.
 
-       ![Monitor activity runs](./media/tutorial-hybrid-copy-data-tool/monitor-activity-runs.png)
+   ![Etkinlik çalıştırmalarını izleme](./media/tutorial-hybrid-copy-data-tool/monitor-activity-runs.png)
 
 1. Çıktı dosyasını **adftutorial** kapsayıcısının **fromonprem** klasöründe gördüğünüzü onaylayın. 
 
-       ![Output blob](./media/tutorial-hybrid-copy-data-tool/output-blob.png)
+   ![Çıktı blobu](./media/tutorial-hybrid-copy-data-tool/output-blob.png)
 
 1. Düzenleyici moduna geçmek için soldaki **Düzenle** sekmesini seçin. Düzenleyiciyi kullanarak araç tarafından oluşturulan bağlı hizmetleri, veri kümelerini ve işlem hatlarını güncelleştirebilirsiniz. Düzenleyicide açılan varlıkla ilişkili JSON kodunu görüntülemek için **Kod**’u seçin. Bu varlıklarım Data Factory kullanıcı arabiriminde nasıl düzenleneceği ile ilgili ayrıntılar için [bu öğreticinin Azure portalı sürümüne](tutorial-copy-data-portal.md) bakın.
 
-       ![Edit tab](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
+   ![Düzenle sekmesi](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

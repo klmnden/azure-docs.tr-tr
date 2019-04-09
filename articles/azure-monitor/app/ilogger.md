@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: ea7f2e730b4963016d221705ba8c9356efffa858
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 9d5e25e0fd00f9c0635009f684e79336d58b7b4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905282"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263773"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>.NET Core ILogger günlükleri ApplicationInsightsLoggerProvider
 
@@ -208,10 +208,10 @@ Eski sağlayıcısı halen kullanılabilse (artık kullanımdan kalkmıştır ve
 1. Önceki sağlayıcı desteği koduk [kapsamları](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). Yeni sağlayıcısında kapsam özellikleri özel özellikler toplanan telemetriyi otomatik olarak eklenir.
 2. Günlükleri artık çok daha önce uygulama başlangıç ardışık düzeninizde yakalanabilir. yani Program ve başlangıç sınıflardan günlükleri artık yakalanabilir.
 3. Yeni sağlayıcı ile filtre framework düzeyinde kendisini gerçekleştirilir. Günlüklerini filtreleme Application Insights sağlayıcısına konsol, hata ayıklama gibi yerleşik sağlayıcılar dahil olmak üzere, diğer sağlayıcılar için tam aynı şekilde yapılabilir ve benzeri. Birden çok sağlayıcı için aynı filtre uygulamak da mümkündür.
-4. [Önerilen](https://github.com/aspnet/Announcements/issues/255) günlük sağlayıcıları etkinleştirmek için Asp.Net Core (2.0 veya sonraki sürümleri) de yoludur ILoggingBuilder genişletme yöntemlerini kullanarak `Program.cs` kendisi.
+4. [Önerilen](https://github.com/aspnet/Announcements/issues/255) günlük sağlayıcıları etkinleştirmek için ASP.NET Core (2.0 veya sonraki sürümleri) de yoludur ILoggingBuilder genişletme yöntemlerini kullanarak `Program.cs` kendisi.
 
 > [!Note]
-Yeni sağlayıcıyı hedefleyen uygulamalar için kullanılabilir `NETSTANDARD2.0` veya üzeri. .NET Core 1.1 gibi eski .NET Core sürümleri, uygulamanızın hedeflediği veya .NET Framework'ü hedefleyen varsa eski sağlayıcı kullanmaya devam edin.
+> Yeni sağlayıcıyı hedefleyen uygulamalar için kullanılabilir `NETSTANDARD2.0` veya üzeri. .NET Core 1.1 gibi eski .NET Core sürümleri, uygulamanızın hedeflediği veya .NET Framework hedeflemesi gerekiyorsa, eski sağlayıcısını kullanmaya devam edin.
 
 ## <a name="console-application"></a>Konsol uygulaması
 

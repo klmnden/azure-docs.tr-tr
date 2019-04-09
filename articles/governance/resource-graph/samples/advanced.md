@@ -1,7 +1,6 @@
 ---
 title: Gelişmiş sorgu örnekleri
 description: VMSS kapasite, kullanılan, tüm etiketleri listeleme gibi bazı gelişmiş sorgular çalıştırmak için Azure kaynak Graph eşleşen sanal makineleri ile normal ifadeler kullanın.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9cb43cfdf930b14449f5c7130df275ef0b8d6484
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9a243dd236a8c499602a9070a7dd61e69541d58d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842626"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256830"
 ---
 # <a name="advanced-resource-graph-queries"></a>Gelişmiş Kaynak Grafiği sorguları
 
@@ -24,8 +23,8 @@ Aşağıdaki gelişmiş sorguları inceleyeceğiz:
 
 > [!div class="checklist"]
 > - [VMSS kapasite ve boyutunu alma](#vmss-capacity)
-> - [Tüm etiket adlarını listeleme](#list-all-tags)
-> - [Normal ifade tarafından eşleştirilen sanal makineler](#vm-regex)
+> - [Tüm etiket adları listesi](#list-all-tags)
+> - [Sanal makineler tarafından regex eşleşmesi](#vm-regex)
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free) oluşturun.
 
@@ -76,14 +75,14 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 Bu sorgu, [normal ifadeyle](/dotnet/standard/base-types/regular-expression-language-quick-reference) (_regex_ olarak bilinir) eşleşen sanal makineleri arar.
 **Eşleşen normal ifade \@**  olan eşleştirmek için normal ifade tanımlamak sağlıyor `^Contoso(.*)[0-9]+$`. Bu normal ifade tanımı şöyle açıklanmıştır:
 
-- `^` - Eşleşme dizenin başında başlamalıdır.
-- `Contoso` - Büyük/küçük harfe duyarlı dize.
-- `(.*)` - Bir alt ifade eşleşmesi:
-  - `.` - Herhangi bir tek karakterle eşleşir (yeni bir satır hariç).
-  - `*` - Önceki öğeyle sıfır veya daha fazla kez eşleşir.
-- `[0-9]` - 0’dan 9’a kadar olan sayılar için karakter grubu eşleşmesi.
-- `+` - Önceki öğeyle bir veya daha fazla kez eşleşir.
-- `$` - Önceki öğenin eşleşmesi dizenin sonunda gerçekleşmelidir.
+- `^` -Eşleşme dizenin başlangıcında başlamalıdır.
+- `Contoso` -Büyük küçük harfe duyarlı dize.
+- `(.*)` -Bir alt eşleşme:
+  - `.` -(Yeni bir satır dışında) herhangi bir tek karakterle eşleşir.
+  - `*` -Önceki öğeyle sıfır veya daha fazla kez eşleşir.
+- `[0-9]` -Sayı 0-9 karakter grubu eşleşme.
+- `+` -Önceki öğeyle en az bir kez eşleşir.
+- `$` -Önceki öğeyle eşleşme dizenin sonunda gerçekleşmelidir.
 
 Ada göre eşleşmeden sonra sorgu, adı ve siparişleri ada göre artan şekilde yansıtır.
 

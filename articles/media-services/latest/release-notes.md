@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: a6746fa193331aff66b8726da1cb3afe49fdc9bf
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: de5432c4e04fb0cfaf0517426fe9ee9da2a57b37
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351573"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058093"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 sürüm notları
 
@@ -30,13 +30,15 @@ ms.locfileid: "58351573"
 ## <a name="known-issues"></a>Bilinen sorunlar
 
 > [!NOTE]
-> Şu anda Azure portalında v3 kaynakları yönetmek için kullanamazsınız. Kullanım [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, desteklenen Sdk'lardan birini veya.
+> Şu anda, v3 kaynaklarını yönetmek için Azure portalını kullanamıyorsunuz. Kullanım [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, desteklenen Sdk'lardan birini veya.
 
 Daha fazla bilgi için [Media Services v2'den v3 taşımak için geçiş kılavuzunu](migrate-from-v2-to-v3.md#known-issues).
 
 ## <a name="march-2019"></a>Mart 2019
 
 Dinamik paketleme artık Dolby Atmos. destekler Daha fazla bilgi için [dinamik paketleme tarafından desteklenen ses codec bileşenleri](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+
+Artık, akış Bulucu için uygulamak varlık veya hesap filtrelerin listesini belirtebilirsiniz. Daha fazla bilgi için [filtreleri ile akış Bulucu ilişkilendirmek](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## <a name="february-2019"></a>Şubat 2019
 

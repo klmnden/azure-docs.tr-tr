@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7354ed8362412c40d52a3895a9b4118eb7c1544
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: abdeb7ce5327db57b8a6ae48fdd8d8c0c81879a7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449388"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258921"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Bir erişim belirteci almak için bir Azure sanal makinesinde Azure kaynakları için yönetilen kimliklerini kullanma 
 
@@ -79,10 +79,11 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `Metadata` | Azure kaynakları için yönetilen kimlik olarak sunucu tarafı istek sahteciliği (SSRF) saldırılara karşı bir risk azaltma gerekli bir HTTP isteği üstbilgisi alanının. Bu değer true", tamamen küçük için" olarak ayarlanmalıdır. |
 | `object_id` | (İsteğe bağlı) Belirteç için istediğiniz yönetilen kimlik object_id belirten bir sorgu dizesi parametresi. Sanal makinenize birden çok kullanıcı tarafından atanan yönetilen kimlik varsa, gerekmez.|
 | `client_id` | (İsteğe bağlı) Belirteç için istediğiniz yönetilen kimlik client_id belirten bir sorgu dizesi parametresi. Sanal makinenize birden çok kullanıcı tarafından atanan yönetilen kimlik varsa, gerekmez.|
+| `mi_res_id` | (İsteğe bağlı) Belirteç için istediğiniz yönetilen kimlik mi_res_id (Azure kaynak kimliği) belirten bir sorgu dizesi parametresi. Sanal makinenize birden çok kullanıcı tarafından atanan yönetilen kimlik varsa, gerekmez. |
 
 VM uzantısı uç noktası Azure kaynakları için yönetilen kimliklerle örnek istek *(Ocak 2019'da kullanımdan kaldırma planlanan)*:
 
-```
+```http
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
 Metadata: true
 ```
@@ -96,10 +97,9 @@ Metadata: true
 | `object_id` | (İsteğe bağlı) Belirteç için istediğiniz yönetilen kimlik object_id belirten bir sorgu dizesi parametresi. Sanal makinenize birden çok kullanıcı tarafından atanan yönetilen kimlik varsa, gerekmez.|
 | `client_id` | (İsteğe bağlı) Belirteç için istediğiniz yönetilen kimlik client_id belirten bir sorgu dizesi parametresi. Sanal makinenize birden çok kullanıcı tarafından atanan yönetilen kimlik varsa, gerekmez.|
 
-
 Örnek yanıt:
 
-```
+```json
 HTTP/1.1 200 OK
 Content-Type: application/json
 {

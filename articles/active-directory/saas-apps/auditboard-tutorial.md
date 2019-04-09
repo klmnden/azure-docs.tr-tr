@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/18/2018
+ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cce100c4e8aa33a9180f5657756b11d6c6e34920
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b5a54fb179b9baac9e72e003b1f9b0c6697ae74b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838876"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258802"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>Öğretici: AuditBoard ile Azure Active Directory Tümleştirme
 
@@ -38,7 +38,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 Azure AD Tümleştirmesi ile AuditBoard yapılandırmak için aşağıdaki öğeler gerekir:
 
-* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
 * Abonelik AuditBoard çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
@@ -67,7 +67,7 @@ Azure AD'de AuditBoard tümleştirmesini yapılandırmak için AuditBoard Galeri
 
 4. Arama kutusuna **AuditBoard**seçin **AuditBoard** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-     ![Sonuç listesinde AuditBoard](common/search-new-app.png)
+    ![Sonuç listesinde AuditBoard](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
@@ -79,8 +79,8 @@ Yapılandırma ve Azure AD çoklu oturum açma AuditBoard ile test etmek için a
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[AuditBoard çoklu oturum açmayı yapılandırma](#configure-auditboard-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[AuditBoard test kullanıcısı oluşturma](#create-auditboard-test-user)**  - kullanıcı Azure AD gösterimini bağlı AuditBoard Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[AuditBoard test kullanıcısı oluşturma](#create-auditboard-test-user)**  - kullanıcı Azure AD gösterimini bağlı AuditBoard Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
@@ -118,7 +118,7 @@ Azure AD çoklu oturum açma ile AuditBoard yapılandırmak için aşağıdaki a
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [AuditBoard istemci Destek ekibine](mailto:support@auditboard.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** ve üzerinde kaydedin, bilgisayar.
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** ve üzerinde kaydedin, bilgisayar.
 
     ![Sertifika indirme bağlantısı](common/copy-metadataurl.png)
 
@@ -126,7 +126,7 @@ Azure AD çoklu oturum açma ile AuditBoard yapılandırmak için aşağıdaki a
 
 Çoklu oturum açmayı yapılandırma **AuditBoard** tarafını göndermek için ihtiyacınız **uygulama Federasyon meta verileri URL'sini** için [AuditBoard Destek ekibine](mailto:support@auditboard.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
@@ -144,8 +144,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
-    Örneğin, BrittaSimon@contoso.com
+    b. İçinde **kullanıcı adı** alan türü `brittasimon\@yourcompanydomain.extension`. Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
@@ -181,7 +180,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için AuditBoard erişim verer
 
 Bu bölümde, Britta Simon AuditBoard içinde adlı bir kullanıcı oluşturun. Çalışmak [AuditBoard Destek ekibine](mailto:support@auditboard.com) AuditBoard platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -191,7 +190,6 @@ Erişim paneli AuditBoard kutucuğa tıkladığınızda, size otomatik olarak SS
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

@@ -1,19 +1,18 @@
 ---
 title: Örnek - uygulama içinde bir Linux VM yüklü değilse denetim
 description: Linux sanal makineleri içinde belirtilen uygulamaları yüklü değilse, bu örnek ilke Konuk yapılandırma girişimi ve tanımları denetim.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 03/18/2019
 ms.author: dacoulte
-ms.openlocfilehash: 8b383ed4a9e13380ec9d9ad2508c5b48b1e23e9e
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: b432d8557c4244d58c23e7b068874dd747f6249f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849262"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256473"
 ---
 # <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>Örneği - Linux sanal makineleri içinde belirtilen uygulamaları yüklü değilse denetim
 
@@ -34,9 +33,9 @@ Bu örnek kullanarak atayabilirsiniz:
 Bu [Konuk yapılandırma](../concepts/guest-configuration.md) girişim oluşur aşağıdaki ilkeleri:
 
 - [Denetim](#audit-definition) -Linux sanal makineleri içinde bir uygulamanın yüklü olduğunu Denetim
-  - KİMLİĞİ: `/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
+  - Kimlik: `/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
 - [Deployıfnotexists](#deployIfNotExists-definition) -Linux sanal makineleri içinde bir uygulamanın yüklü olduğunu denetlemek için dağıtma VM uzantısı
-  - KİMLİĞİ: `/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
+  - Kimlik: `/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
 
 ### <a name="initiative-definition"></a>Girişim tanımı
 
@@ -236,7 +235,7 @@ Betikleri dağıtmak ve kaldırmak için aşağıdaki komutları kullanın. Aşa
 | [Yeni AzPolicyDefinition](/powershell/module/az.resources/New-AzPolicyDefinition) | Azure İlkesi tanım oluşturur. |
 | [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup) | Tek bir kaynak grubunu alır. |
 | [Yeni AzPolicyAssignment](/powershell/module/az.resources/New-AzPolicyAssignment) | Yeni bir Azure İlkesi ataması için bir girişim veya tanımını oluşturur. |
-| [New-AzRoleAssignment](/powershell/module/az.resources/New-AzRoleAssignment) | Mevcut bir rol ataması, belirli sorumlusuna sağlar. |
+| [Yeni AzRoleAssignment](/powershell/module/az.resources/New-AzRoleAssignment) | Mevcut bir rol ataması, belirli sorumlusuna sağlar. |
 | [Remove-AzPolicyAssignment](/powershell/module/az.resources/Remove-AzPolicyAssignment) | Var olan bir Azure İlkesi atamasını kaldırır. |
 | [Remove-AzPolicySetDefinition](/powershell/module/az.resources/Remove-AzPolicySetDefinition) | Girişim kaldırır. |
 | [Remove-AzPolicyDefinition](/powershell/module/az.resources/Remove-AzPolicyDefinition) | Bir tanımı kaldırır. |

@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 3663526dc32b0a607c9fca3d7c76496bfb5566f4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549160"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260757"
 ---
 # <a name="managed-identity-for-data-factory"></a>Data Factory için yönetilen kimlik
 
@@ -46,7 +46,7 @@ Veri fabrikanızın aşağıdaki ilişkili yönetilen bir kimlik yok bulup bulam
 
 - [PowerShell kullanarak yönetilen kimlik oluşturma](#generate-managed-identity-using-powershell)
 - [REST API kullanarak yönetilen kimlik oluşturma](#generate-managed-identity-using-rest-api)
-- Bir Azure Resource Manager şablonu kullanarak bir yönetilen kimlik oluşturma
+- [Bir Azure Resource Manager şablonu kullanarak bir yönetilen kimlik oluşturma](#generate-managed-identity-using-an-azure-resource-manager-template)
 - [Yönetilen kimlik kullanarak SDK oluşturma](#generate-managed-identity-using-sdk)
 
 >[!NOTE]
@@ -156,11 +156,11 @@ Yönetilen kimlik Azure portalından veya programlama yoluyla alabilirsiniz. Aş
 
 ### <a name="retrieve-managed-identity-using-azure-portal"></a>Azure portalını kullanarak yönetilen kimliğini alma
 
-Bulabilirsiniz yönetilen kimlik bilgileri Azure portalından -> data factory'nizi -> Ayarlar -> Özellikler:
+Bulabilirsiniz yönetilen kimlik bilgileri Azure portalından -> data factory'nizi -> Özellikler:
 
-- HİZMET KİMLİĞİ TANIMLAYICISI
-- HİZMET KİMLİĞİ KİRACISI
-- **Hizmet kimliği uygulama kimliği** > Bu değeri kopyalayın
+- Yönetilen Kimlik Nesne Tanımlayıcısı
+- Yönetilen Kimlik Kiracısı
+- **Identity Application kimliği yönetilen** > Bu değeri kopyalayın
 
 ![Yönetilen kimlik alma](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 

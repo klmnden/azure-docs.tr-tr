@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 99e3abb1bedffdb5a7d49c033ebc8b4c46df1c03
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: fc02e830953f8612a077fb219c7fef4e86bc3827
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769292"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263851"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Blob depolama alanından verileri dışarı aktarmak için Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede Azure içeri/dışarı aktarma hizmeti büyük miktarda veriyi Azure Blob depolama alanından güvenli bir şekilde dışarı aktarmak için nasıl kullanılacağını adım adım yönergeler sağlar. Hizmet, Azure veri merkezine boş sürücüleri gönderin gerektirir. Hizmet veri sürücüleri için depolama hesabınızdan verir ve ardından sürücüleri geri gelir.
@@ -25,7 +25,7 @@ Verileri Azure Blob Depolama dışına aktarmak için dışarı aktarma işi olu
 - İçeri/dışarı aktarma hizmeti için kullanılabilir bir etkin Azure Aboneliğim var.
 - En az bir Azure depolama hesabına sahip. Listesine bakın [desteklenen depolama hesapları ve depolama türleri için içeri/dışarı aktarma hizmeti](storage-import-export-requirements.md). Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz. [bir depolama hesabının nasıl oluşturulacağını](storage-quickstart-create-account.md).
 - Diskleri yeterli sayıda [desteklenen türleri](storage-import-export-requirements.md#supported-disks).
-- Bir FedEx/DHL hesabınız vardır.  
+- Bir FedEx/DHL hesabınız vardır. FedEx/DHL dışındaki bir taşıyıcı kullanmak istiyorsanız, Azure veri kutusu işlemleri ekibi ile iletişime geçin `adbops@microsoft.com`. 
     - Hesabın geçerli olmalıdır, Bakiye olmalıdır ve iade sevkiyat özelliklerine sahip olmalı.
     - İzleme numarası için dışarı aktarma işi oluşturur.
     - Her iş ayrı izleme numarası olmalıdır. Birden çok iş aynı izleme numarası ile desteklenmez. 
@@ -82,7 +82,7 @@ Azure portalında bir dışarı aktarma işi oluşturmak için aşağıdaki adı
 
 4. İçinde **iade sevkiyat bilgilerini**:
 
-    - Taşıyıcı açılır listeden seçin.
+    - Taşıyıcı açılır listeden seçin. Bir taşıyıcı FedEx/DHL dışında kullanmak istiyorsanız, açılır listeden var olan bir seçenek seçin. İlgili Azure veri kutusu işlemleri takım konumundaki `adbops@microsoft.com` ile kullanmayı planladığınız taşıyıcı ilgili bilgileri.
     - Bu operatör ile oluşturduğunuz bir geçerli taşıyıcı hesap numarası girin. Microsoft, içeri aktarma işi tamamlandıktan sonra geri için sürücüleri göndermeye bu hesabı kullanır. 
     - Bir tam ve geçerli ilgili kişi adı, telefon, e-posta, posta adresi, şehir, posta, eyalet/il ve ülke/bölge belirtin.
 
@@ -143,7 +143,7 @@ Bu *isteğe bağlı* adım yardımcı dışarı aktarma işi için gerekli sür�
     |--------------------------|-----------------|  
     |**/ LOGDIR:**|İsteğe bağlı. Günlük dizini. Ayrıntılı günlük dosyası bu dizine yazılır. Belirtilmezse, geçerli dizin günlük dizini kullanılır.|  
     |**/sn:**|Gereklidir. Dışarı aktarma işi için depolama hesabı adı.|  
-    |**/SK:**|Yalnızca bir kapsayıcı SAS belirtilmemişse gereklidir. Dışarı aktarma işi için depolama hesabı için hesap anahtarı.|  
+    |**/sk:**|Yalnızca bir kapsayıcı SAS belirtilmemişse gereklidir. Dışarı aktarma işi için depolama hesabı için hesap anahtarı.|  
     |**/csas:**|Yalnızca bir depolama hesabı anahtarı belirtilmemişse gereklidir. Dışarı aktarma işi verilecek blobları listeleme kapsayıcısı SAS.|  
     |**/ ExportBlobListFile:**|Gereklidir. XML yolu içeren blob yollarının listesini dosya veya yol önekleri dışarı aktarılacak bloblar için blob. Kullanılan dosya biçimi `BlobListBlobPath` öğesinde [Put işlemini](/rest/api/storageimportexport/jobs) içeri/dışarı aktarma hizmeti REST API işlemi.|  
     |**/ DriveSize:**|Gereklidir. Bir dışarı aktarma işi için kullanılacak sürücüleri boyutunu *örn*, 500 GB, 1,5 TB.|  

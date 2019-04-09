@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 216ce32997a4114f4f2684b14338b4e36d9afd03
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558014"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257289"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Stream Analytics işinizi Azure Machine Learning işlevleriyle ölçeklendirme
 Stream Analytics işi ayarlama ve bazı örnek veriler üzerinden çalıştırmak için oldukça kolaydır. Daha yüksek veri birimi ile aynı işi çalıştırmak gerektiğinde ne yapmamız gerekir? Stream Analytics işi, ölçeklendirir şekilde yapılandırmak nasıl anlamak bize gerektirir. Bu belgede, Machine Learning işlevleriyle birlikte Stream Analytics işlerini ölçeklendirme özel yönlerini odaklanıyoruz. Genel olarak Stream Analytics işlerini ölçeklendirme hakkında bilgi için bkz [işleri ölçeklendirme](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>Bir Azure Machine Learning işlevi Stream Analytics nedir?
-Bir Machine Learning işlevi Stream analytics'te bir normal işlev çağrısı Stream Analytics sorgu dili gibi kullanılabilir. Ancak, Sahne işlev çağrıları gerçekte Azure Machine Learning Web hizmeti isteği adı verilir. Machine Learning web Hizmetleri, "birden çok satır kısa batch genel performansını artırmak için aynı web hizmeti API çağrısında adlı toplu işleme" destekler. Daha fazla bilgi için [Azure Machine Learning işlevleri Stream analytics'te](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) ve [Azure Machine Learning Web Hizmetleri](../machine-learning/studio/consume-web-services.md).
+Bir Machine Learning işlevi Stream analytics'te bir normal işlev çağrısı Stream Analytics sorgu dili gibi kullanılabilir. Ancak, Sahne işlev çağrıları gerçekte Azure Machine Learning Web hizmeti isteği adı verilir. Machine Learning web Hizmetleri, "birden çok satır kısa batch genel performansını artırmak için aynı web hizmeti API çağrısında adlı toplu işleme" destekler. Daha fazla bilgi için [Azure Machine Learning Web Hizmetleri](../machine-learning/studio/consume-web-services.md).
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Machine Learning işlevleri ile bir Stream Analytics işi yapılandırma
 Machine Learning işlevi Stream Analytics işine ilişkin yapılandırırken dikkate alınması gereken iki parametre, toplu iş boyutu olan Machine Learning işlev çağrıları ve Stream Analytics işi için sağlanan akış birimleri (su) vardır. SUs için uygun değerleri belirlemek için önce bir karar gecikme süresi ve aktarım hızı, diğer bir deyişle, Stream Analytics işi ve aktarım hızı her SU gecikme yapılması gerekir. Ek SUs iş çalıştırma maliyetini artırır ancak SUs her zaman iyi bölümlenmiş bir Stream Analytics sorgusunun verimliliğini artırmak için işe eklenebilir.
@@ -112,7 +112,7 @@ Tam olarak bölümlenmiş bir Stream Analytics sorgusu, örnek olarak kullanılm
 ## <a name="next-steps"></a>Sonraki adımlar
 Stream Analytics hakkında daha fazla bilgi için bkz:
 
-* [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
-* [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
-* [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Akış Analizi Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics'i kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
+* [Azure Stream Analytics işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)

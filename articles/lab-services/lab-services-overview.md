@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 5c53c64c337cb2992b002ee02ceb9aab36e16de4
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: a4ca5cba924a3269f279469f26e68acdb0ad0659
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958754"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257629"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Azure Lab Services’a giriş
 Azure Lab Services, takımınız için bulutta hızlıca bir ortam ayarlamanızı sağlar (örneğin: geliştirme ortamı, test ortamı, sınıf laboratuvarı ortamı). Laboratuvar sahibi laboratuvarı oluşturur, Windows veya Linux sanal makineleri sağlar, gerekli yazılım ve araçları yükler ve laboratuvar kullanıcıları için kullanılabilir hale getirir. Laboratuvar kullanıcıları, laboratuvardaki sanal makinelere (VM) bağlanır ve bunları günlük işleri, kısa süreli projeleri ya da sınıf egzersizleri yapmak için kullanır. Kullanıcılar laboratuvardaki kaynakları kullanmaya başladıktan sonra, laboratuvar yöneticisi birden fazla laboratuvardaki maliyet ve kullanımı analiz edebilir ve kuruluşunuzun veya takımınızın maliyetlerini en iyi duruma getirmeye yönelik kapsayıcı ilkeler ayarlayabilir.
@@ -120,5 +120,5 @@ Aşağıdaki tabloda Azure Lab Services tarafından desteklenen iki laboratuvar 
 
 Aşağıdaki makalelere bakın: 
 
-- [Sınıf Laboratuvarlarını hakkında ](./classroom-labs/classroom-labs-overview.md)
-- [DevTest Labs hakkında](devtest-lab-overview.md)
+- [Sınıf Laboratuvarları Hakkında](./classroom-labs/classroom-labs-overview.md)
+- [DevTest Laboratuvarları Hakkında](devtest-lab-overview.md)

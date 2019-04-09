@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB'de çeşitli tutarlılık düzeyleri için kullanılabilirlik ve performans seçenekleri
 description: Azure Cosmos DB'de çeşitli tutarlılık düzeyleri için kullanılabilirlik ve performans seçenekleri.
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 2/13/2019
-ms.author: mjbrown
+ms.date: 04/08/2019
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: ac5b6e0d44376332e005d30b4a8fcc97021c4eda
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: a76e277bf56861bcaefb5bf7f8b3b3bc03ad1164
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407530"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266435"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Tutarlılık, kullanılabilirlik ve performans dengeleri 
 
@@ -20,9 +20,9 @@ Yüksek kullanılabilirlik, düşük gecikme süresi veya her ikisi için çoğa
 
 Azure Cosmos DB, veri tutarlılığı seçenek yelpazesi olarak ele almaktadır. Bu yaklaşım, güçlü ve nihai tutarlılık iki uç nokta değerinden daha fazla seçenek içerir. İyi tanımlanmış beş tutarlılık spektrumu modellerde arasından seçim yapabilirsiniz. Öğesinden model güçlüden zayıfa doğru şunlardır:
 
-- *Tanımlayıcı*
+- *Güçlü*
 - *Sınırlanmış eskime durumu*
-- *Oturumu*
+- *Oturum*
 - *Tutarlı ön ek*
 - *Nihai*
 

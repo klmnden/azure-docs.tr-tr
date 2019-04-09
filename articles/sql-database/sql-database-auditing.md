@@ -11,13 +11,13 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: a98ec18f2ed38b290d04c3fdc36d9a6ff80a675a
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.date: 04/08/2019
+ms.openlocfilehash: 75c4f531fff02d8dfeed4ca32bbe1da432635765
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407360"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261080"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 
@@ -25,7 +25,7 @@ Azure için Denetim [SQL veritabanı](sql-database-technical-overview.md) ve [SQ
 
 - Mevzuatla uyumluluk, veritabanı etkinliğini anlama ve tutarsızlıklar ve işletme sorunlarını veya şüpheli güvenlik ihlallerini anomalileri kavramanıza yardımcı olur.
 
-- Etkinleştirir ve uyumluluk garanti etmez ancak uyumluluk standardını da kıldığı kolaylaştırır. Azure hakkında daha fazla bilgi bu standartlara uyumluluk programları için bkz: [Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/compliance/).
+- Etkinleştirir ve uyumluluk garanti etmez ancak uyumluluk standardını da kıldığı kolaylaştırır. Azure hakkında daha fazla bilgi bu standartlara uyumluluk programları için bkz: [Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/compliance/) burada bulabilirsiniz SQL veritabanı uyumluluk sertifikaları en güncel listesi.
 
 
 > [!NOTE] 

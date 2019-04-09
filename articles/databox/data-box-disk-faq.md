@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/01/2019
+ms.date: 04/08/2019
 ms.author: alkohli
-ms.openlocfilehash: b104f2578938997ff12778d65f08cca226d9a445
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892339"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258785"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk nedir?
 
@@ -54,7 +54,7 @@ A. Her biri 8 TB boyutunda (7 TB kullanılabilir kapasite) 5 disk için kullanab
 A.  Veri kutusu disk şu anda kullanılabilir olduğu görmek için Git [bölge kullanılabilirliği](data-box-disk-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>S. Data Box Diskleri ile hangi bölgelerde veri depolayabilirim?
-A. Data Box Disk ABD, Kanada, Avustralya ve Batı Avrupa ve Kuzey Avrupa içindeki tüm bölgeler için desteklenir. Yalnızca Azure genel bulut bölgeleri desteklenir. Azure Kamu veya diğer bağımsız bulutlar desteklenmez.
+A. Data Box Disk ABD, Kanada, Avustralya, Batı Avrupa ve Kuzey Avrupa, Kore ve Japonya içindeki tüm bölgeler için desteklenir. Yalnızca Azure genel bulut bölgeleri desteklenir. Azure Kamu veya diğer bağımsız bulutlar desteklenmez.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>S. Data Box Diskleriyle ilgili sorun yaşamam halinde kiminle iletişim kurmam gerekir?
 A. Veri kutusu disk herhangi bir sorun yaşarsanız lütfen [Microsoft Support başvurun](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -132,8 +132,8 @@ Araç takımını hem de Windows ve Linux için kullanılabilir. Araç takımı 
 - [Data Box Disk araç takımını, Windows için indirin](https://aka.ms/databoxdisktoolswin) 
 - [Data Box Disk araç takımı Linux için indirin](https://aka.ms/databoxdisktoolslinux)
  
-  ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>S. Azure dosyaları'na verileri aktarmak ve ardından verileri Azure dosya eşitleme ile kullanmak için Data Box Disk kullanabilir miyim? 
-  A. Azure dosyaları Data Box Disk ile desteklenir ancak Azure dosya eşitleme ile iyi çalışmaz. Azure dosya eşitleme ile dosya verilerini kullanılıyorsa, meta veriler korunmaz.
+### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>S. Azure dosyaları'na verileri aktarmak ve ardından verileri Azure dosya eşitleme ile kullanmak için Data Box Disk kullanabilir miyim? 
+A. Azure dosyaları Data Box Disk ile desteklenir ancak Azure dosya eşitleme ile iyi çalışmaz. Azure dosya eşitleme ile dosya verilerini kullanılıyorsa, meta veriler korunmaz.
 
 
 ## <a name="verify-and-upload"></a>Doğrulama ve yükleme
@@ -166,7 +166,7 @@ A. Önceki siparişinizi kopyalayabilirsiniz. Kopyalama işlemi, bir öncekiyle 
 A. Evet. Verilerinizi Azure'a yüklendi, ancak belirtilen kaynak gruplarıyla yönetilen diskleri görmüyorsanız, veriler geçerli olmadığından olma olasılığı yüksektir. Sayfa blobları blok blobları, Azure dosyaları ve yönetilen diskler geçerli değildi, bunlar aşağıdaki klasöre gitmesi gerekiyordu:
  - Sayfa blobları Git ile başlayan bir blok blob kapsayıcısını *databoxdisk-geçersiz-pb -*.
  - Azure dosyaları ile başlayan bir blok blob kapsayıcısına gidin *databoxdisk-geçersiz-af -*.
- - Yönetilen diskler ile başlayan bir blok blob kapsayıcısı Git *databoxdisk-invliad-md -*.
+ - Yönetilen diskler ile başlayan bir blok blob kapsayıcısı Git *databoxdisk-geçersiz-md -*.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

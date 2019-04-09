@@ -1,19 +1,18 @@
 ---
 title: Örnek - NSG her alt ağda x
 description: Bu örnek ilke tanımını, belirli bir ağ güvenlik grubu ile her bir sanal alt kullanılmasını gerektirir.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 3260ba7ffdce8b5232bc0cc9edf37b0b85fd1527
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: b42ae790005560b403033ea5b98010792c9a3ca4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802210"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263664"
 ---
 # <a name="sample---network-security-group-x-on-every-subnet"></a>Örnek - her alt ağ üzerinde ağ güvenlik grubu x
 
@@ -29,7 +28,7 @@ Bu ilke, her sanal alt ağ ile belirli bir ağ güvenlik grubunun kullanılması
 
 ## <a name="deploy-with-the-portal"></a>Portal ile dağıtma
 
-[![İlke örneği Azure'a dağıtma](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fenforce-nsg-on-subnet%2Fazurepolicy.json)
+[![DAzure İlkesi örneğe aşamasıyla](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fenforce-nsg-on-subnet%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>PowerShell ile dağıtma
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cd9f6112cbca78b323e0a14818b06f891a3f673
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: d58c019cf3d801ce938a4ca6eca70b1606bf4ff6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862896"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264480"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Windows Server Active Directory için Azure AD parola koruması zorlama
 
@@ -31,7 +31,8 @@ Azure AD parola koruması ile bu ilkeleri göz önünde tasarlanmıştır:
 * Active Directory şema değişiklik büyük/küçük harf gerekmez. Yazılım mevcut Active Directory kullanan **kapsayıcı** ve **serviceConnectionPoint** şema nesneleri.
 * En düşük Active Directory etki alanı veya orman işlevsel düzeyi yok (DFL/FFL) gereklidir.
 * Yazılım oluşturma değil veya koruduğu Active Directory etki alanı hesaplarında gerektirir.
-* Kullanıcı düz metin parolaları, parola doğrulama işlemleri sırasında veya herhangi bir anda etki alanı denetleyicisi bırakmayın.
+* Kullanıcı düz metin parolaları, parola doğrulama işlemleri sırasında veya başka bir zaman etki alanı denetleyicisi hiçbir zaman ayrılmaz.
+* Yazılım, diğer Azure AD özellikleri bağımlı değildir; Örneğin Azure AD parola karma eşitlemesi, ilişkili değildir ve sırada Azure AD parola koruması işlevi için gerekli değildir.
 * Artımlı dağıtım desteklenir, ancak parola ilkesini etki alanı denetleyicisi Aracısı'nı (DC Aracısı) yüklendiği devreye girer. Daha fazla ayrıntı için sonraki bölüme bakın.
 
 ## <a name="incremental-deployment"></a>Artımlı dağıtım
@@ -62,7 +63,7 @@ DC Aracı hizmeti, Azure AD'de yeni bir parola ilkesi yüklenmesi başlatmaktan 
 
 DC aracı hizmetini yeni bir parola ilkesi Azure AD'den aldıktan sonra hizmeti ilke, etki alanı kökünde adanmış bir klasörde depolar. *sysvol* klasör paylaşımı. Diğer etki alanındaki DC aracı hizmetlerden içinde yeni ilkeleri çoğaltma durumunda DC Aracı hizmeti bu klasör de izler.
 
-DC Aracısı her zaman hizmeti başlatma sırasında yeni bir ilke ister. DC Aracı hizmeti başlatıldıktan sonra geçerli yerel olarak kullanılabilir ilke saatlik yaşını denetler. DC aracı İlkesi bir saatten eskiyse yeni bir ilke daha önce açıklandığı gibi Azure AD'den ister. Bir saatten daha eski geçerli ilke yoksa, DC aracı, bu ilkeyi kullanmaya devam eder.
+DC Aracısı her zaman hizmeti başlatma sırasında yeni bir ilke ister. DC Aracı hizmeti başlatıldıktan sonra geçerli yerel olarak kullanılabilir ilke saatlik yaşını denetler. İlkeyi bir saatten eskiyse DC aracıyı yeni bir ilke proxy hizmeti aracılığıyla Azure AD'den daha önce açıklandığı gibi ister. Bir saatten daha eski geçerli ilke yoksa, DC aracı, bu ilkeyi kullanmaya devam eder.
 
 Bir Azure AD parola koruması parola ilkesi indirilir her ilkenin bir kiracınıza özgüdür. Diğer bir deyişle, parola ilkeleri her zaman bir Microsoft Genel yasaklanmış parola listesi ve Kiracı başına özel yasaklanmış parola liste birleşimidir.
 
@@ -77,6 +78,8 @@ Durum bilgisi olmayan proxy'si hizmetidir. Hiçbir zaman ilkeleri önbelleğe al
 DC Aracı hizmeti, bir kullanıcının parolasını değerlendirmek için her zaman en son yerel olarak kullanılabilir parola ilkesi kullanır. Parola, parola ilkesi yok, yerel DC üzerinde kullanılabilir haldeyse, otomatik olarak kabul edilir. Bu durum oluştuğunda, olay iletisi yönetici uyarmak için günlüğe kaydedilir.
 
 Azure AD parola koruması gerçek zamanlı ilke uygulama altyapısı değildir. Ne zaman, Azure AD'de parola ilkesi yapılandırma değişiklik yapıldığında ve ne zaman ulaştığında değiştirmek ve tüm etki alanı denetleyicilerinde zorlanan arasında bir gecikme olabilir.
+
+Azure AD parola koruması, mevcut Active Directory parola ilkeleri, bir değiştirme için bir ek olarak görev yapar. Bu, yüklenebilir diğer 3. taraf parola filtresi DLL'lerin içerir. Active Directory, her zaman parola kabul etmeden önce tüm parola doğrulaması bileşenleri kabul gerektirir.
 
 ## <a name="foresttenant-binding-for-password-protection"></a>Parola koruması için orman/Kiracı bağlama
 

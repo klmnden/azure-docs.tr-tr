@@ -3,7 +3,7 @@ title: Saklı yordam etkinliği ile - Azure SSIS paketi çalıştırmak | Micros
 description: Bu makalede, saklı yordam etkinliği kullanarak bir Azure Data Factory işlem hattı, bir SQL Server Integration Services (SSIS) paketi çalıştırmak açıklar.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: swinarko
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
-ms.author: jingwang
-ms.openlocfilehash: 1cff60e6134e08e4b9e59a9f69ec09700cca1814
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: sawinark
+ms.openlocfilehash: b71a954da746ba04aeaa0797c13bf2c81838179d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098755"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256303"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Azure Data factory'de saklı yordam etkinliği ile bir SSIS paketi çalıştırma
 Bu makalede bir saklı yordam etkinliği kullanarak SSIS paketi bir Azure Data Factory işlem hattında çalıştırmayı öğrenin. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-### <a name="azure-sql-database"></a>Azure SQL Veritabanı 
+### <a name="azure-sql-database"></a>Azure SQL Database 
 Bu makaledeki Kılavuzu, SSIS Kataloğu barındıran Azure SQL veritabanı kullanır. Azure SQL veritabanı yönetilen örneği de kullanabilirsiniz.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Azure SSIS tümleştirme çalışma zamanı oluşturma
@@ -34,7 +34,7 @@ Bir Azure-SSIS tümleştirme çalışma zamanı içinde adım adım yönergeleri
 ## <a name="data-factory-ui-azure-portal"></a>Data Factory kullanıcı Arabirimi (Azure portalı)
 Bu bölümde, bir SSIS paketi çağıran bir saklı yordam etkinliği bir Data Factory işlem hattı oluşturmak için Data Factory kullanıcı arabirimini kullanın.
 
-### <a name="create-a-data-factory"></a>Data factory oluştur
+### <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 İlk adım, Azure portalını kullanarak veri fabrikası oluşturmaktır. 
 
 1. **Microsoft Edge** veya **Google Chrome** web tarayıcısını açın. Şu anda Data Factory kullanıcı arabirimi yalnızca Microsoft Edge ve Google Chrome web tarayıcılarında desteklenmektedir.
@@ -113,7 +113,7 @@ Bu adımda, bir işlem hattı oluşturmak için Data Factory kullanıcı arabiri
     ![İşlem hattını doğrulama](./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png)
 7. Tıklayarak işlem hattını Data Factory'de yayımlamak **tümünü Yayımla** düğmesi. 
 
-    ![Yayımla](./media/how-to-invoke-ssis-package-stored-procedure-activity/publish-all-button.png)    
+    ![Yayımlama](./media/how-to-invoke-ssis-package-stored-procedure-activity/publish-all-button.png)    
 
 ### <a name="run-and-monitor-the-pipeline"></a>Çalıştırın ve işlem hattını izleme
 Bu bölümde, bir işlem hattı çalıştırması tetiklemek ve daha sonra izleyin. 
@@ -151,7 +151,7 @@ Bu bölümde, bir SSIS paketi çağıran bir saklı yordam etkinliği bir Data F
 
 [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-az-ps) konusundaki yönergeleri izleyerek en güncel Azure PowerShell modüllerini yükleyin. 
 
-### <a name="create-a-data-factory"></a>Data factory oluştur
+### <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 Azure-SSIS IR sahip aynı data factory kullanabilir veya ayrı bir veri fabrikası oluşturma. Aşağıdaki yordam bir veri fabrikası oluşturmak için adımları sağlar. Bu veri fabrikasında bir saklı yordam etkinliği ile işlem hattı oluşturma. Saklı yordam etkinliği kullanarak SSIS paketi çalıştırmak için SSISDB veritabanı saklı yordamı yürütür. 
 
 1. Daha sonra PowerShell komutlarında kullanacağınız kaynak grubu adı için bir değişken tanımlayın. Aşağıdaki komut metnini PowerShell'e kopyalayın [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) için çift tırnak içinde bir ad belirtin ve ardından komutu çalıştırın. Örneğin: `"adfrg"`. 

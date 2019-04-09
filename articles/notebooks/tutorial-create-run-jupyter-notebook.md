@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 65bbb5fe-9939-4e8e-8f5b-c197d4be142a
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 8fa873ca1ab20fbd8b3ca4ff57507adf34529246
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d5ccf3e9f35a8d35387962278577333ff92ff02b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903666"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258547"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Öğretici: oluşturma ve Python ile Jupyter not defteri çalıştırma
 
@@ -128,7 +128,7 @@ Hazır veri dosyası ve proje ortam kümesi ile artık oluşturabilir ve not def
 1. Sahip olduğunuz için bir *requirements.txt* dosya ortamı ayarlarınızda göreceğiniz ileti "kapsayıcınızı tamamlanması beklenirken hazırlanıyor." Seçebileceğiniz **Tamam** iletiyi kapatın ve not defterinde; çalışmaya devam etmek için ortamı tamamen ayarlanana kadar kod hücreleri ancak çalıştıramazsınız.
 1. Bir tek boş kodu hücreyi Jupyter arabirimle not defteri varsayılan olarak açılır.
 
-    [![İlk Azure not defterleri yeni bir not defteri görünümü](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![IYeni bir not defteri Azure not defterlerinde nitial görünümünü](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Not Defteri arabirimi turuna katılın
 
@@ -144,7 +144,7 @@ Not Defteri ile çalışmak için komutları (C) A menüsü.
 (F) not defterini güvenilir olup göstergesi (varsayılan değer **güvenilir**).
 (G) not defteri etkinliği göstergesini birlikte çalıştırmak için kullanılan çekirdek.
 
-[![Birincil kullanıcı Arabirimi alanları Jupyter arabirimi](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![PBirincil kullanıcı Arabirimi alanları Jupyter arabiriminin](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter, birincil kullanıcı Arabirimi öğeleri yerleşik turu sağlar. Seçerek Turu Başlat **yardımcı** > **kullanıcı arabirimi Turu** komut ve açılan pencereler tıklayarak.
 
@@ -425,10 +425,10 @@ Ayrıca bkz: [Visual Studio Code - Jupyter Destek](https://code.visualstudio.com
 
 Nasıl yapılır makaleleri:
 
-- [Oluşturma ve projeleri kopyalama](create-clone-jupyter-notebooks.md)
+- [Projeleri oluşturma ve kopyalama](create-clone-jupyter-notebooks.md)
 - [Yapılandırma ve projeleri yönetme](configure-manage-azure-notebooks-projects.md)
 - [İçinde bir not defteri paketleri yükleme](install-packages-jupyter-notebook.md)
-- [Mevcut bir slayt gösterisi](present-jupyter-notebooks-slideshow.md)
-- [Veri dosyaları ile çalışma](work-with-project-data-files.md)
-- [Veri kaynaklarına erişim](access-data-resources-jupyter-notebooks.md)
-- [Azure Machine Learning Hizmetleri kullanma](use-machine-learning-services-jupyter-notebooks.md)
+- [Slayt gösterisi yapma](present-jupyter-notebooks-slideshow.md)
+- [Veri dosyalarıyla çalışma](work-with-project-data-files.md)
+- [Veri kaynaklarına erişme](access-data-resources-jupyter-notebooks.md)
+- [Azure Machine Learning Services'i kullanma](use-machine-learning-services-jupyter-notebooks.md)

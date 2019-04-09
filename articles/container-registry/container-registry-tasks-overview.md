@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: 89b48175d7707458cd92916f6b26e298163a7416
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58915940"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256201"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>İşletim sistemi ve framework ACR görevlerle düzeltme eki uygulama otomatikleştirin
 
@@ -97,10 +97,9 @@ Bir kapsayıcı görüntüsü oluşturduğunda ACR görevleri temel görüntü b
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-İşletim sistemi ve bulutta kapsayıcı görüntülerinizi oluşturarak düzeltme eki uygulama çerçevesi otomatikleştirmek hazır olduğunuzda, üç bölümden ACR görevleri öğretici serisini denetleyin.
+İşletim sistemi ve bulutta kapsayıcı görüntülerinizi oluşturarak framework düzeltme eki uygulama otomatikleştirmek hazır olduğunuzda, üç bölümden denetleyin [ACR görevleri öğretici serisinin](container-registry-tutorial-quick-task.md).
 
-> [!div class="nextstepaction"]
-> [Azure kapsayıcı kayıt defteri görevler ile bulutta kapsayıcı görüntüleri oluşturma](container-registry-tutorial-quick-task.md)
+İsteğe bağlı olarak yükleme [Visual Studio Code için Docker uzantısını](https://code.visualstudio.com/docs/azure/docker) ve [Azure hesabı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) uzantısı, Azure kapsayıcısı kayıt defterleri ile çalışma. Çekme ve bir Azure container registry'ye görüntüleri gönderme veya Visual Studio Code içinde tüm ACR görevler çalıştırabilirsiniz.
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: c1165fcebf8382d30b1be86f102da78ef0a4ac9a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 3b6860c9a84384bfade099fb7c8c8c72281c3593
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244375"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257170"
 ---
 # <a name="set-alerts-in-application-insights"></a>Uygulama anlayışları'nda uyarılar ayarlayın
 [Azure Application Insights] [ start] web uygulamanızdaki performansı ya da kullanım ölçümleri değişikliklere uyarabilir. 
@@ -143,7 +143,7 @@ Bu bölümde, bir sorgu tabanlı özel durum uyarısı ayarlamak nasıl alacağ�
 
 10. Son uyarı ayrıntılarınızı ekleyin (uyarı kuralı adı, açıklaması, önem derecesi). İşiniz bittiğinde tıklayın **uyarı kuralı oluştur** altındaki.
 
-    ![Uyarı ayrıntısı altında uyarı kuralı adınızı yazın, bir açıklama yazın ve bir önem derecesi seçin ](./media/alerts/9alertdetails.png)
+    ![Uyarı ayrıntısı altında uyarı kuralı adınızı yazın, bir açıklama yazın ve bir önem derecesi seçin](./media/alerts/9alertdetails.png)
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Kimin (Klasik) Uyarı bildirimlerini alır?
 
@@ -165,7 +165,7 @@ Yeni uyarı deneyimi/neredeyse gerçek zamanlı uyarılar, rollerine bağlı ola
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Kullanılabilirlik web testleri](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Uyarıları Ayarlama otomatikleştirin](../../azure-monitor/app/powershell-alerts.md)
-* [Proaktif tanılama](../../azure-monitor/app/proactive-diagnostics.md) 
+* [Öngörülü tanılama](../../azure-monitor/app/proactive-diagnostics.md) 
 
 <!--Link references-->
 

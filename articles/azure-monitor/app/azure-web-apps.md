@@ -9,22 +9,19 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0c6be20bfb2a6f15335564a1aa98dc0ac88e3507
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c616b2578f7606ce7df19fdbef16bec8a24428d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905843"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262508"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service performansını izleme
 
 .NET ve .NET Core üzerinde Azure App Services'ta çalışan tabanlı web uygulamaları izlemeyi etkinleştirme artık her zamankinden daha kolaydır. Daha önce el ile bir site uzantısını yüklemek için gereken diğer yandan en son uzantısı/aracı artık varsayılan olarak app service görüntüye oluşturulmuştur. Bu makalede, Application Insights izleme ile etkinleştirme işleminde size yol yanı sıra büyük ölçekli dağıtımlar için işlemini otomatik hale getirmek için başlangıç rehberlik sağlar.
 
 > [!NOTE]
-> Bir Application Insights site uzantısı aracılığıyla el ile ekleme **geliştirme araçları** > **uzantıları** kullanım dışı bırakılmıştır. Uzantının en son kararlı sürüm sunulmuştur [önceden](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) App Service görüntünün bir parçası olarak. Dosyalar bulunur `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` ve kararlı her sürümde otomatik olarak güncelleştirilir. İzlemeyi etkinleştirmek için aracı tabanlı yönergeleri izlerseniz aşağıda bunu otomatik olarak kullanım dışı uzantı sizin için kaldırılır.
-
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> Bir Application Insights site uzantısı aracılığıyla el ile ekleme **geliştirme araçları** > **uzantıları** kullanım dışı bırakılmıştır. Bu uzantı yükleme yöntemi her yeni sürümü için el ile güncelleştirmeler bağımlıdır. Uzantının en son kararlı sürüm sunulmuştur [önceden](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) App Service görüntünün bir parçası olarak. Dosyalar bulunur `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` ve kararlı her sürümde otomatik olarak güncelleştirilir. İzlemeyi etkinleştirmek için aracı tabanlı yönergeleri izlerseniz aşağıda bunu otomatik olarak kullanım dışı uzantı sizin için kaldırılır.
 
 ## <a name="enable-application-insights"></a>Application Insights'ı etkinleştirme
 
@@ -285,6 +282,8 @@ Bir örneği aşağıda verilmiştir tüm örneklerinin yerine `AppMonitoredSite
 
 Uygulaması PowerShell aracılığıyla izlemeyi etkinleştirmek için yalnızca temel uygulama ayarlarının değiştirilmesi gerekir. "AppMonitoredSite" kaynak grubunda "AppMonitoredRG" adlı bir Web sitesi için uygulama izleme sağlayan bir örnek aşağıda verilmiştir ve için "012345678-abcd-ef01-2345-6789abcd" izleme anahtarını gönderilecek verileri yapılandırır.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ```powershell
 $app = Get-AzWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
 $newAppSettings = @{} # case-insensitive hash map
@@ -348,6 +347,7 @@ Aşağıdaki tabloda bu değerlerin anlamları daha ayrıntılı bir açıklama 
 |Sorun değeri|Açıklama|Düzelt
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Bu değer, uzantı SDK'ın bazı yönlerini uygulamada zaten var ve geri alma, algılandığını gösterir. Bir başvuru nedeniyle olabilir `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation`, veya `Microsoft.ApplicationInsights`  | Başvuruları kaldırın. Bu başvurular bazıları varsayılan olarak belirli Visual Studio şablonlardan eklenir ve Visual Studio'nun eski sürümlerini başvuruları ekleyebilir `Microsoft.ApplicationInsights`.
+|`AppAlreadyInstrumented:true` | Uygulamanın .NET Core 2.1 veya 2.2 hedefleme ve başvurduğu [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta-package, Application Insights'ta duruma getirir ve uzantısı geri alma. | Müşteriler üzerinde .NET Core 2.1,2.2 [önerilen](https://github.com/aspnet/Announcements/issues/287) Microsoft.AspNetCore.App meta-package yerine kullanılacak.|
 |`AppAlreadyInstrumented:true` | Bu değer aynı zamanda önceki bir dağıtım uygulama klasöründen yukarıdaki DLL'leri varlığını neden olabilir. | Bu DLL'leri kaldırıldığından emin olmak için uygulama klasörü temizleyin.|
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Bu değer uzantısı başvuruları algılandığını gösterir `Microsoft.AspNet.TelemetryCorrelation` uygulamasının ve geri alma. | Başvuruyu kaldırın.
 |`AppContainsDiagnosticSourceAssembly**:true`|Bu değer uzantısı başvuruları algılandığını gösterir `System.Diagnostics.DiagnosticSource` uygulamasının ve geri alma.| Başvuruyu kaldırın.

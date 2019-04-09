@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: d8d96d929e55bd4423bdb0cd0dd064e275462ce2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 77be9d80d535cced48a39c47695257d4868f698c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445352"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257442"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server’daki birden fazla tablodan Azure SQL veritabanı’na artımlı olarak veri yükleme
 Bu öğreticide, değişim verileri şirket içi SQL Server’daki birden çok tablodan Azure SQL Veritabanına yükleyen bir Azure veri fabrikası işlem hattı oluşturacaksınız.    
@@ -175,6 +175,11 @@ END
 ### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Azure SQL veritabanında veri türleri ve ek saklı yordamlar oluşturma
 SQL veritabanınızda iki saklı yordam ve iki veri türü oluşturmak için aşağıdaki sorguyu çalıştırın. Bunlar, kaynak tablodaki verileri hedef tablolarla birleştirmek için kullanılır.
 
+Yolculuğunuza başlamak kolaylaştırmak için doğrudan bu depolanan bir tablo değişkeni değişim verileri geçirme yordamları kullanın ve ardından bunları hedef depolama alanına birleştirin. "Büyük" bazı delta satırlar (100'den fazla) tablo değişkeninde depolanan bekleniyor değil, dikkatli olun.  
+
+Hedef, geçici bir "Hazırlama" tabloya delta veri kopyalamak için kopyalama etkinliği kullanmanızı ilk depolamak ve ardından kendi saklı yordam tablosu vari kullanmadan oluşturulan hedef deposuna çok sayıda değişim satırları birleştirmek gerekiyorsa öneririz "Hazırlama" tablosundan "son" tabloyu birleştirmek üzere kullanabilirsiniz. 
+
+
 ```sql
 CREATE TYPE DataTypeforCustomerTable AS TABLE(
     PersonID int,
@@ -226,10 +231,9 @@ END
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
 1. **Microsoft Edge** veya **Google Chrome** web tarayıcısını açın. Şu anda Data Factory kullanıcı arabirimi yalnızca Microsoft Edge ve Google Chrome web tarayıcılarında desteklenmektedir.
-1. Sol menüden **kaynak Oluştur** > **veri ve analiz** > **Data Factory**: 
+1. Soldaki menüde **Yeni**, **Veri + Analiz** ve **Data Factory** öğesine tıklayın. 
    
-   ![“Yeni” bölmesinde Data Factory seçimi](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
-
+   ![Yeni->DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
 1. **Yeni veri fabrikası** sayfasında **ad** için **ADFMultiIncCopyTutorialDF** adını girin. 
       
      ![Yeni veri fabrikası sayfası](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory.png)
@@ -271,7 +275,7 @@ END
 1. **Tümleştirme Çalışma Zamanı Kurulumu** penceresinde **Dış işlemlere veri taşıma ve dağıtım etkinlikleri gerçekleştir**’i seçip **İleri**’ye tıklayın. 
 
    ![Tümleştirme çalışma zamanı türünü seçme](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-1. **Özel Ağ** seçeneğini belirleyip **İleri**’ye tıklayın. 
+1. ** Özel Ağ** seçeneğini belirleyip **İleri**’ye tıklayın. 
 
    ![Özel ağı seçin](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 1. **Ad** için **MySelfHostedIR** adını girip **İleri**’ye tıklayın. 
@@ -383,7 +387,7 @@ Bu adımda veri kaynağı, veri hedefi ve eşiğin depolanacağı yeri temsil ed
    ![Havuz Veri Kümesi - bağlantı](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
-   1. ' I tıklattıktan sonra **son**, gördüğünüz  **\@dataset(). SinkTableName** tablo adı.
+ 1. **Son**'a tıkladıktan sonra tablo adı olarak **@dataset().SinkTableName** ifadesini görürsünüz.
    
    ![Havuz Veri Kümesi - bağlantı](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -425,11 +429,11 @@ Bu işlem hattı parametre olarak tablo adları listesini alır. ForEach etkinli
     ![İşlem hattı adı](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-name.png)
 1. **Özellikler** penceresinde aşağıdaki adımları uygulayın: 
 
-   1. **+ Yeni** öğesine tıklayın. 
-   1. **name** parametresi için **tableList** girin. 
-   1. Parametre **türü** olarak **Nesne** seçeneğini belirleyin.
+    1. **+ Yeni** öğesine tıklayın. 
+    1. **name** parametresi için **tableList** girin. 
+    1. Parametre **türü** olarak **Nesne** seçeneğini belirleyin.
 
-      ![İşlem hattı parametreleri](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
+    ![İşlem hattı parametreleri](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
 1. **Etkinlikler** araç kutusunda **Yineleme ve Koşullar**’ı genişletin ve **ForEach** etkinliğini sürükleyerek işlem hattı tasarımcısı yüzeyine bırakın. **Özellikler** penceresinin **Genel** sekmesinde **IterateSQLTables** girin. 
 
     ![ForEach etkinliği - ad](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
@@ -458,69 +462,69 @@ Bu işlem hattı parametre olarak tablo adları listesini alır. ForEach etkinli
     ![İkinci Arama Etkinliği - ad](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-name.png)
 1. **Ayarlar** sekmesine geçin.
 
-     1. **Kaynak Veri Kümesi** için **SourceDataset**’i seçin. 
-     1. **Sorgu Kullan** için **Sorgu**’yu seçin.
-     1. **Sorgu** için aşağıdaki SQL sorgusunu girin.
+    1. **Kaynak Veri Kümesi** için **SourceDataset**’i seçin. 
+    1. **Sorgu Kullan** için **Sorgu**’yu seçin.
+    1. **Sorgu** için aşağıdaki SQL sorgusunu girin.
 
-         ```sql    
-         select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
-         ```
+        ```sql    
+        select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
+        ```
     
-         ![İkinci Arama Etkinliği - ayarlar](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
+        ![İkinci Arama Etkinliği - ayarlar](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
 1. **Etkinlikler** araç kutusundan **Kopyalama** etkinliğini sürükleyip bırakın ve **Ad** için **IncrementalCopyActivity** adını girin. 
 
-     ![Kopyalama Etkinliği - ad](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
+    ![Kopyalama Etkinliği - ad](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
 1. **Arama** etkinliklerini tek tek **Kopyalama** etkinliğine bağlayın. Bağlanmak için **Arama** etkinliğine bağlı **yeşil** kutuyu sürüklemeye başlayın ve **Kopyalama** etkinliğinin üzerine başlayın. Kopyalama etkinliğinin kenarlık rengi **mavi** olduğunda fare düğmesini bırakın.
 
-     ![Arama etkinliklerini Kopyalama etkinliğine bağlama](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
+    ![Arama etkinliklerini Kopyalama etkinliğine bağlama](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
 1. İşlem hattında **Kopyalama** etkinliğini seçin. **Özellikler** penceresinin **Kaynak** sekmesine geçin. 
 
-     1. **Kaynak Veri Kümesi** için **SourceDataset**’i seçin. 
-     1. **Sorgu Kullan** için **Sorgu**’yu seçin. 
-     1. **Sorgu** için aşağıdaki SQL sorgusunu girin.
+    1. **Kaynak Veri Kümesi** için **SourceDataset**’i seçin. 
+    1. **Sorgu Kullan** için **Sorgu**’yu seçin. 
+    1. **Sorgu** için aşağıdaki SQL sorgusunu girin.
 
-         ```sql
-         select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
-         ```
+        ```sql
+        select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
+        ```
 
-         ![Kopyalama Etkinliği - kaynak ayarları](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
+        ![Kopyalama Etkinliği - kaynak ayarları](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
 1. **Havuz** sekmesine geçin ve **Havuz Veri Kümesi** alanı için **SinkDataset**’i seçin. 
         
-     ![Kopyalama Etkinliği - havuz ayarları](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
+    ![Kopyalama Etkinliği - havuz ayarları](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
 1. **Parametreler** sekmesine geçin ve aşağıdaki adımları uygulayın:
 
-     1. **Havuz Saklı Yordam Adı** özelliği için `@{item().StoredProcedureNameForMergeOperation}` adını girin.
-     1. **Havuz Tablo Türü** özelliği için `@{item().TableType}` değerini girin.
-     1. **Havuz Veri Kümesi** bölümünde **SinkTableName** parametresi için `@{item().TABLE_NAME}` değerini girin.
+    1. **Havuz Saklı Yordam Adı** özelliği için `@{item().StoredProcedureNameForMergeOperation}` adını girin.
+    1. **Havuz Tablo Türü** özelliği için `@{item().TableType}` değerini girin.
+    1. **Havuz Veri Kümesi** bölümünde **SinkTableName** parametresi için `@{item().TABLE_NAME}` değerini girin.
 
-         ![Kopyalama Etkinliği - parametreler](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
+        ![Kopyalama Etkinliği - parametreler](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. **Etkinlikler** araç kutusundan **Saklı Yordam** etkinliğini sürükleyerek işlem hattı tasarımcısının yüzeyine bırakın. **Kopyalama** etkinliğini **Saklı Yordam** etkinliğine bağlayın. 
 
-     ![Kopyalama Etkinliği - parametreler](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
+    ![Kopyalama Etkinliği - parametreler](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
 1. İşlem hattında **Saklı Yordam** etkinliğini seçin ve **Özellikler** penceresinin **Genel** sekmesinde **Ad** alanına **StoredProceduretoWriteWatermarkActivity** adını girin. 
 
-     ![Saklı Yordam Etkinliği - ad](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
+    ![Saklı Yordam Etkinliği - ad](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
 1. **SQL Hesabı** sekmesine geçin ve **Bağlı Hizmet** için **AzureSqlDatabaseLinkedService** seçeneğini belirleyin.
 
-     ![Saklı Yordam Etkinliği - SQL Hesabı](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
+    ![Saklı Yordam Etkinliği - SQL Hesabı](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 1. **Saklı Yordam** sekmesine geçin ve aşağıdaki adımları uygulayın:
 
-     1. **Saklı yordam adı** için `usp_write_watermark` öğesini seçin. 
-     1. **Parametreyi içeri aktar**’ı seçin. 
-     1. Parametreler için aşağıdaki değerleri belirtin: 
+    1. **Saklı yordam adı** için `usp_write_watermark` öğesini seçin. 
+    1. **Parametreyi içeri aktar**’ı seçin. 
+    1. Parametreler için aşağıdaki değerleri belirtin: 
 
-         | Ad | Tür | Değer | 
-         | ---- | ---- | ----- |
-         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-         | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | Ad | Tür | Değer | 
+        | ---- | ---- | ----- |
+        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
-         ![Saklı Yordam Etkinliği - saklı yordam ayarları](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
+        ![Saklı Yordam Etkinliği - saklı yordam ayarları](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. Sol bölmede **Yayımla**'ya tıklayın. Bu eylem, oluşturduğunuz varlıkları Data Factory hizmetinde yayımlar. 
 
-     ![Yayımla düğmesi](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
+    ![Yayımla düğmesi](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
 1. **Başarıyla yayımlandı** iletisini görene kadar bekleyin. Bildirimleri görmek için **Bildirimleri Göster** bağlantısına tıklayın. **X** simgesine tıklayarak bildirim penceresini kapatın.
 
-     ![Bildirimleri Göster](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
+    ![Bildirimleri Göster](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
 
  
 ## <a name="run-the-pipeline"></a>İşlem hattını çalıştırma
@@ -739,6 +743,6 @@ Bu öğreticide aşağıdaki adımları gerçekleştirdiniz:
 Azure üzerinde bir Spark kümesi kullanarak veri dönüştürme hakkında bilgi edinmek için aşağıdaki öğreticiye geçin:
 
 > [!div class="nextstepaction"]
->[Değişiklik İzleme teknolojisini kullanarak Azure SQL Veritabanından Azure Blob depolama alanına verileri artımlı olarak yükleme](tutorial-incremental-copy-change-tracking-feature-portal.md)
+>[Verileri artımlı olarak Azure SQL veritabanı'ndan Azure Blob depolama alanına değişiklik izleme teknolojisini kullanarak yükleme](tutorial-incremental-copy-change-tracking-feature-portal.md)
 
 

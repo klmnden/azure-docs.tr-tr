@@ -12,12 +12,12 @@ manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cb7296ea4acfbf90d94b8f94a644b8a382b033b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 98f81edcfa2a9daf5162ff1c7e23025b405092b8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877372"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260400"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B işbirliği hakkında SSS
 
@@ -60,7 +60,7 @@ B2B işbirliği kullanıcıları, sınırlı yönetici veya genel Yönetici rol�
 Evet! Bu ilkeyi yapılandırırken, üyeleri ve Yöneticiler için erişimi yanlışlıkla engelleyen kaçınmak dikkatli olun.
 Konuk kullanıcı erişimini engellemek için [Azure portalında](https://portal.azure.com), Windows Azure Klasik dağıtım modeli API'SİNDE bir koşullu erişim ilkesi kullanın:
 1. Değiştirme **tüm kullanıcılar** yalnızca üyeleri içeren grup.
-   ![UserType eşit Konuk olduğu tüm kullanıcılar grubunu gösteren ekran görüntüsü ](media/faq/modify-all-users-group.png)
+   ![UserType eşit Konuk olduğu tüm kullanıcılar grubunu gösteren ekran görüntüsü](media/faq/modify-all-users-group.png)
 2. Konuk kullanıcıları içeren dinamik bir grup oluşturun.
    ![Yeni bir tüm Konuk kullanıcılar grubu gösteren ekran görüntüsü](media/faq/group-with-guest-users.png)
 3. Bir koşullu erişim ilkesi için konuk kullanıcıları engelle portal erişimini aşağıdaki videoda gösterildiği gibi ayarlayın:

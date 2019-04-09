@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73bb37607af681fcd505706ae99b308024be2c2d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ab329574ef425e8133ac746c185050efcc8bc15a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887434"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261454"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Öğretici: Muhasebesi ile Azure Active Directory Tümleştirme
 
@@ -173,19 +173,19 @@ Azure AD çoklu oturum açma ile muhasebesi yapılandırmak için aşağıdaki a
 
 1. Tarayıcınızda yeni bir sekme açın ve muhasebesi şirketinizin sitesi yönetici olarak oturum açın.
 
-2. Sayfanın üst kısmındaki araç çubuğunda **Kurulum**, ardından gidin **şirket** tıklatıp **özellikleri etkinleştirmek**.
+2. Sayfanın üst kısmındaki araç çubuğunda **Kurulum**, ardından gidin **şirket** tıklatıp **özellikleri etkinleştirmek**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/NetSuite-tutorial/ns-setupsaml.png)
 
-3. Sayfanın ortasında, araç çubuğunda **SuiteCloud**.
+3. Sayfanın ortasında, araç çubuğunda **SuiteCloud**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/NetSuite-tutorial/ns-suitecloud.png)
 
-4. Altında **yönetme kimlik doğrulaması** bölümünden **SAML çoklu oturum açma** muhasebesi SAML çoklu oturum açma seçeneği etkinleştirme.
+4. Altında **yönetme kimlik doğrulaması** bölümünden **SAML çoklu oturum açma** muhasebesi SAML çoklu oturum açma seçeneği etkinleştirme.
 
     ![Çoklu oturum açmayı yapılandırın](./media/NetSuite-tutorial/ns-ticksaml.png)
 
-5. Sayfanın üst kısmındaki araç çubuğunda **Kurulum**.
+5. Sayfanın üst kısmındaki araç çubuğunda **Kurulum**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/NetSuite-tutorial/ns-setup.png)
 
@@ -326,7 +326,7 @@ Erişim paneli muhasebesi kutucuğa tıkladığınızda, size otomatik olarak SS
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

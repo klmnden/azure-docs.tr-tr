@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/27/2019
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36d0985aee53f2a7f701f9bf7887ae26a426b68
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: d2ab7f58c3061044583baf9db73e193966d7d4eb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203752"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058389"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Pingboard yapılandırın
 
@@ -32,11 +32,11 @@ Bu öğreticide otomatik hazırlama ve kullanıcı hesaplarını Azure Active Di
 
 Bu öğreticide özetlenen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
-*   Azure AD kiracısı
-*   Pingboard Kiracı [Pro hesabı](https://pingboard.com/pricing) 
-*   Pingboard yönetici izinlerine sahip bir kullanıcı hesabı 
+* Azure AD kiracısı
+* Pingboard Kiracı [Pro hesabı](https://pingboard.com/pricing)
+* Pingboard yönetici izinlerine sahip bir kullanıcı hesabı
 
-> [!NOTE] 
+> [!NOTE]
 > Azure AD tümleştirmesi sağlama dayanır [Pingboard API](https://pingboard.docs.apiary.io/#), hesabınızda bulunan.
 
 ## <a name="assign-users-to-pingboard"></a>Pingboard için kullanıcı atama
@@ -69,7 +69,7 @@ Bu bölümde, Azure AD sağlama API'si Pingboard kullanıcı hesabına bağlama 
 1. Ayarlama **hazırlama modu** için **otomatik**.
 
     ![Pingboard sağlama](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
-    
+
 1. Altında **yönetici kimlik bilgileri** bölümünde, aşağıdaki adımları kullanın:
 
     a. İçinde **Kiracı URL'si**, girin `https://your_domain.pingboard.com/scim/v2`ve "şöyledir: your_domain" gerçek etki alanınız ile değiştirin.
@@ -86,7 +86,7 @@ Bu bölümde, Azure AD sağlama API'si Pingboard kullanıcı hesabına bağlama 
 
 1. Bir kişi veya sağlama hata bildirimleri almak istediğiniz gruba e-posta adresini girin **bildirim e-posta**. Altındaki onay kutusunu seçin.
 
-1. **Kaydet**’i seçin. 
+1. **Kaydet**’i seçin.
 
 1. Altında **eşlemeleri** bölümünden **eşitleme Azure Active Directory Kullanıcıları Pingboard**.
 
@@ -103,5 +103,5 @@ Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [he
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Kullanıcı, kurumsal uygulamalar için hesabı hazırlamayı yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 * [Çoklu oturum açmayı yapılandırma](pingboard-tutorial.md)

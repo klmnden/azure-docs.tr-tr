@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 5efcc92bc2054dfb66b5fe03ae083c49f924d2ce
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 537450dbc386a94fa5c2e0d9334435dce041a32f
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668203"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057651"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Linux işletim sistemi düzeltme eki
 
@@ -74,7 +74,7 @@ Düzeltme eki düzenleme uygulama küme üzerinde etkinleştirilmesini onarım Y
 
 Azure linux kümeleri silver ve gold dayanıklılık katmanı varsayılan olarak etkin onarım Yöneticisi hizmeti sahiptir. Onarım Yöneticisi hizmetinin etkinleştirilmiş Azure kümelerde varsayılan olarak, Bronz dayanıklılık katmanı yok. Hizmet zaten etkin değilse, Service Fabric Explorer'da Sistem Hizmetleri bölümündeki çalışmasını görebilirsiniz.
 
-##### <a name="azure-portal"></a>Azure portalı
+##### <a name="azure-portal"></a>Azure portal
 Onarım Yöneticisi Azure Portalı'ndan kümesini ayarlama sırasında etkinleştirebilirsiniz. Seçin **onarım Yöneticisi dahil** altındaki **eklenti özellikleri** küme yapılandırmasının zaman.
 ![Azure portalından etkinleştirme onarım Yöneticisi'nin resmi](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
@@ -121,13 +121,13 @@ Ubuntu için [yükseltmeleri katılımsız](https://help.ubuntu.com/community/Au
 
 Uygulamayı yükleme betikleri ile birlikte gelen indirilebilir [arşiv bağlantı](https://go.microsoft.com/fwlink/?linkid=867984).
 
-Uygulama sfpkg biçimde nden indirilebilir [sfpkg bağlantı](https://aka.ms/POA/POA_v2.0.2.sfpkg). Bu için kullanışlı gelir [Azure Resource Manager tabanlı uygulama dağıtımı](service-fabric-application-arm-resource.md).
+Uygulama sfpkg biçimde nden indirilebilir [sfpkg bağlantı](https://aka.ms/POA/POA_v2.0.3.sfpkg). Bu için kullanışlı gelir [Azure Resource Manager tabanlı uygulama dağıtımı](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Uygulamayı yapılandırma
 
 Düzeltme eki düzenleme uygulamanın davranış şekli, gereksinimlerinizi karşılayacak şekilde yapılandırılabilir. Uygulama oluşturma veya güncelleştirme işlemi sırasında uygulama parametresi olarak geçirerek varsayılan değerleri geçersiz. Uygulama parametreleri belirterek sağlanabilir `ApplicationParameter` için `Start-ServiceFabricApplicationUpgrade` veya `New-ServiceFabricApplication` cmdlet'leri.
 
-|**Parametre**        |**Tür**                          | **Ayrıntılar**|
+|**Parametre**        |**Type**                          | **Ayrıntılar**|
 |:-|-|-|
 |MaxResultsToCache    |Uzun                              | Güncelleştirme sonuçları önbelleğe alınması gereken maksimum sayısı. <br>Varsayılan değer: 3000 varsayılarak: <br> -Düğüm sayısı 20'dir. <br> -Bir düğüm / ay üzerinde gerçekleştirilecek güncelleştirme sayısı beştir. <br> -İşlem başına sonuç sayısı 10 olabilir. <br> -Son üç ay için sonuçları depolanması gerekir. |
 |TaskApprovalPolicy   |Sabit listesi <br> {NodeWise, UpgradeDomainWise}                          |Service Fabric küme düğümleri arasında güncelleştirmeleri yüklemek için Düzenleyici hizmeti tarafından kullanılacak olan ilke TaskApprovalPolicy gösterir.<br>                         İzin verilen değerler şunlardır: <br>                                                           <b>NodeWise</b>. Yüklü bir düğümü aynı anda güncelleştirmelerdir. <br>                                                           <b>UpgradeDomainWise</b>. Yüklü bir yükseltme etki alanı aynı anda güncelleştirmelerdir. (En güncelleştirmesi bir yükseltme etki alanına ait olan tüm düğümleri gidebilirsiniz.)
@@ -173,7 +173,8 @@ Kolaylık olması için (Undeploy.ps1) powershell ve bash (Undeploy.sh) betikler
 
 ## <a name="view-the-update-results"></a>Güncelleştirme sonuçları görüntüleyin
 
-Düzeltme eki düzenleme uygulama kullanıcı için geçmiş sonuçlarını görüntülemek için REST API'lerini kullanıma sunar. Aşağıdaki örnek oluşur: ```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
+Düzeltme eki düzenleme uygulama kullanıcı için geçmiş sonuçlarını görüntülemek için REST API'lerini kullanıma sunar. Aşağıdaki örnek oluşur:
+```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
 ```json
 [ 
   { 
@@ -326,7 +327,7 @@ S. **Düzeltme ekini düzenlemeyi uygulama geliştirme kümem (tek düğümlü k
 
 A. Hayır, düzeltme eki düzenleme uygulama düzeltme eki tek düğümlü küme için kullanılamaz. Bu tasarım gereği, olarak sınırlamasıdır [service fabric sistem hizmetlerinin](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) veya herhangi bir müşteri uygulama kapalı kalma süresi karşılaşır ve bu nedenle düzeltme eki uygulama için herhangi bir onarım işi hiçbir zaman onarım Yöneticisi tarafından onaylanan.
 
-## <a name="troubleshooting"></a>Sorun Giderme
+## <a name="troubleshooting"></a>Sorun giderme
 
 ### <a name="a-node-is-not-coming-back-to-up-state"></a>Bir düğüm geri durumu yukarı geliyor değil
 
@@ -373,5 +374,10 @@ Düzeltme eki düzenleme uygulama kullanımını ve performansını izlemek içi
 ### <a name="version-201"></a>Sürüm 2.0.1
 - Son Service Fabric SDK'sını kullanarak uygulamayı yeniden derlenen
 
-### <a name="version-202-latest"></a>Sürüm 2.0.2 (son sürüm)
+### <a name="version-202"></a>Sürüm 2.0.2 
 - Sistem durumu uyarı yeniden başlatma sırasında geride bir sorun düzeltildi.
+
+### <a name="version-203-latest"></a>Sürüm 2.0.3 sürümünü (son sürüm)
+- Düğüm Aracısı arka plan programı hizmeti için CPU kullanımını en fazla %99 işler için standart_d1_v2 VM üzerinde nereye ulaşıldı sorunu düzeltme.
+- Geçerli düğüm adı alt kümesi olan bir ada sahip düğüm olasılığına, düzeltme eki uygulama yaşam döngüsü bir düğümde parametreden sorunu düzeltme. Bu düğümleri, kendi olası düzeltme eki uygulama eksik veya yeniden başlatma beklemede.
+- Bozuk ayarları hizmete geçirildiğinde, nedeniyle düğüm Aracısı arka plan programı kilitlenen tutan bir hata düzeltildi.

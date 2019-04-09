@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: b975b34c638db812d3809bf50d1eccbb651028b5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: e3a27ab15c72289dd28e31d832b81407a66dc754
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448925"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256796"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Azure Data Lake depolama Gen1 verileri Azure Data Factory ile Gen2'ye kopyalayın
 
@@ -34,7 +34,7 @@ Bu makalede Data Factory-veri kopyalama aracını veri kopyalamak için nasıl k
 
 * Azure aboneliği: Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 * Bu verileri Azure Data Lake depolama Gen1 hesabı.
-* Azure depolama hesabı ile Data Lake depolama Gen2'ye etkin: Bir depolama hesabınız yoksa, tıklayın [burada](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) oluşturmak için.
+* Azure depolama hesabı ile Data Lake depolama Gen2'ye etkin: Bir depolama hesabı yoksa [hesap oluşturma](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
@@ -104,7 +104,7 @@ Bu makalede Data Factory-veri kopyalama aracını veri kopyalamak için nasıl k
    
    ![Azure Data Lake depolama Gen2 hesabı belirtin](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
-9. İçinde **çıktı dosyasını veya klasörünü seçin** want **copyfromadlsgen1** çıkış klasörü adı ' nı seçip olarak **sonraki**: 
+9. İçinde **çıktı dosyasını veya klasörünü seçin** want **copyfromadlsgen1** çıkış klasörü adı ' nı seçip olarak **sonraki**. Yoksa ADF kopyalama sırasında karşılık gelen ADLS 2. nesil dosya sistemini ve alt klasör oluşturun.
 
     ![Çıkış klasörü belirtin](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
 

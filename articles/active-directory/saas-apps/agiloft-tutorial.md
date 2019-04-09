@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97419dac33688d24159b35f00f1e9bffbd587497
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2aed12b085557eda4210be9c067f5cdad4cd2d1b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886397"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261777"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Öğretici: Agiloft ile Azure Active Directory Tümleştirme
 
@@ -167,13 +167,13 @@ Azure AD çoklu oturum açma ile Agiloft yapılandırmak için aşağıdaki adı
 
     ![Agiloft yapılandırma](./media/agiloft-tutorial/setup4.png)
 
-    a. İçinde **IDP varlık kimliği / veren** metin değerini yapıştırın **Azure Ad tanımlayıcısı**, hangi Azure Portalı'ndan kopyaladığınız.
+    a. İçinde **IDP varlık kimliği / veren** metin değerini yapıştırın **Azure Ad tanımlayıcısı**, hangi Azure Portalı'ndan kopyaladığınız.
 
-    b. İçinde **Idp'nin oturum açma URL'si** metin değerini yapıştırın **oturum açma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
+    b. İçinde **Idp'nin oturum açma URL'si** metin değerini yapıştırın **oturum açma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
 
-    c. İçinde **IDP oturum kapatma URL'si** metin değerini yapıştırın **oturum kapatma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
+    c. İçinde **IDP oturum kapatma URL'si** metin değerini yapıştırın **oturum kapatma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
 
-    d. Açık, **base-64 kodlamalı sertifika** Azure portalından indirdiğiniz Not Defteri'nde, içeriğini, panoya kopyalayın ve yapıştırın kendisine **IDP sağlanan X.509 Sertifika içeriği**  metin.
+    d. Açık, **base-64 kodlamalı sertifika** Azure portalından indirdiğiniz Not Defteri'nde, içeriğini, panoya kopyalayın ve yapıştırın kendisine **IDP sağlanan X.509 Sertifika içeriği** metin.
 
     e. **Son**'a tıklayın.
 
@@ -242,6 +242,6 @@ Erişim paneli Agiloft kutucuğa tıkladığınızda, size otomatik olarak SSO'y
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

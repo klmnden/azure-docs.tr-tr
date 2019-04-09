@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/22/2018
+ms.date: 04/05/2019
 ms.author: bwren
-ms.openlocfilehash: 6e84344e1c0229d15891bd15a512880da6e20cfe
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0e5b9b43e528b37fd994f9131f145abadb33c53b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110781"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259040"
 ---
 # <a name="viewing-and-analyzing-log-data-in-azure-monitor"></a>Görüntüleme ve Azure İzleyici'de günlük verilerini analiz etme
 Log Analytics, Azure İzleyicisi'nde sorgular oluşturma ve günlük verileri ile çalışma için birincil deneyimidir. Log Analytics bağlantısı açmak **günlükleri** içinde **Azure İzleyici** menüsü. Bu portalı giriş yapın ve onun özelliklerini inceleme [Azure portalında Log Analytics ile çalışmaya başlama](get-started-portal.md).
@@ -39,7 +39,7 @@ Log Analytics, günlük sorguları ile çalışmak için aşağıdaki özellikle
 
 ![Log Analytics](media/portals/log-analytics.png)
 
-### <a name="resource-logs"></a>Kaynak günlükleri
+## <a name="resource-logs"></a>Kaynak günlükleri
 Log Analytics, sanal makineler gibi çeşitli Azure kaynakları ile entegre olur. Azure İzleyicisi'ne geçiş ve kaynak bağlam kaybı olmadan doğrudan kaynağın izleme menüsü üzerinden Log Analytics açabileceğiniz anlamına gelir. **Günlükleri** tüm Azure kaynakları, ancak, farklı kaynaklar için portal menüsünde türleri görünmeye başlayacak için henüz etkinleştirilmedi.
 
 Log Analytics belirli bir kaynaktan açarken, yalnızca o kaynak kayıtlarını günlüğe kaydetmek üzere otomatik olarak kapsamlıdır.   Diğer kayıtlarını içeren bir sorgu yazmak istiyorsanız, Azure İzleyici Menüsü'nden açmak gerekir.
@@ -52,7 +52,7 @@ Aşağıdaki seçenekler henüz Log Analytics kaynak görünümü kullanılamaz:
 - Farklı çalışma / (şu anda değil planlanmış) kaynak için değiştirme
 
 
-### <a name="firewall-requirements"></a>Güvenlik duvarı gereksinimleri
+## <a name="firewall-requirements"></a>Güvenlik duvarı gereksinimleri
 Tarayıcınız Log Analytics'e erişmek için aşağıdaki adresi erişim gerektirir.  Tarayıcınız Azure portalında bir güvenlik duvarı üzerinden erişiyorsanız, bu adresleri erişimi etkinleştirmeniz gerekir.
 
 | Uri | IP | Bağlantı Noktaları |
@@ -60,14 +60,6 @@ Tarayıcınız Log Analytics'e erişmek için aşağıdaki adresi erişim gerekt
 | portal.loganalytics.io | Dinamik | 80,443 |
 | api.loganalytics.io    | Dinamik | 80,443 |
 | docs.loganalytics.io   | Dinamik | 80,443 |
-
-
-## <a name="log-search-classic"></a>Günlük araması (Klasik)
-Günlük araması sorgulamaya ve analiz etmeye Azure İzleyicisi'nde günlük verileri için Azure portalında eski deneyimidir. Yakında kullanımdan kaldırılacak, ancak şu anda hala kullanılabilir. Açık günlük aramasından **günlükleri (Klasik)** Log Analytics menüsünde.
-
-
-
-![Günlük araması](media/portals/log-search-portal.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

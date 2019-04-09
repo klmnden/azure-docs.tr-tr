@@ -1,19 +1,18 @@
 ---
 title: PowerShell ile atamalarını yönetme
 description: Blueprint ataması Az.Blueprint resmi Azure şemaları PowerShell modülü ile yönetmeyi öğrenin.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 47026975a5142760f90a1a5712b532519f969fd7
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: d8eacffe4b792eda5d81051f6aa65caa3292c896
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57995676"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256881"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>PowerShell ile atamalarını yönetme
 
@@ -333,8 +332,8 @@ Remove-AzBlueprintAssignment -InputObject $bpAssignment -SubscriptionId '{subId}
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Hakkında bilgi edinin [blueprint yaşam döngüsü](../concepts/lifecycle.md).
-- Nasıl kullanılacağını anlamak [statik ve dinamik parametreleri](../concepts/parameters.md).
-- Özelleştirme öğrenin [blueprint sıralama sipariş](../concepts/sequencing-order.md).
-- Öğrenin yapmak kullanım [blueprint kaynak kilitleme](../concepts/resource-locking.md).
-- İle bir blueprint ataması sırasında sorunları gidermek [genel sorun giderme](../troubleshoot/general.md).
+- [Şema yaşam döngüsü](../concepts/lifecycle.md) hakkında bilgi edinin.
+- [Statik ve dinamik parametrelerin](../concepts/parameters.md) kullanımını anlayın.
+- [Şema sıralama düzenini](../concepts/sequencing-order.md) özelleştirmeyi öğrenin.
+- [Şema kaynak kilitleme](../concepts/resource-locking.md) özelliğini kullanmayı öğrenin.
+- [Genel sorun giderme](../troubleshoot/general.md) adımlarıyla şema atama sorunlarını giderin.

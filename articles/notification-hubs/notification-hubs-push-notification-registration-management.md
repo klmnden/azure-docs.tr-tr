@@ -13,13 +13,13 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
-ms.date: 01/23/2019
-ms.openlocfilehash: 028e9a2973ed524037f6415d9e802f947458cfa6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/08/2019
+ms.openlocfilehash: 559dd5ecfa4615e42e4f7ac40008e69c9210e2a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58166778"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260468"
 ---
 # <a name="registration-management"></a>Kayıt yönetimi
 
@@ -45,12 +45,12 @@ Bir yükleme geliştirilmiş olan bir anında iletme paketi içeren bir kaydı i
 Yüklemeleri kullanmanın bazı temel avantajları şunlardır:
 
 - Oluşturma veya güncelleştirme yüklemesi tam olarak etkilidir. Bu nedenle tüm yinelenen kayıtları DB'dir olmadan deneyebilirsiniz.
-- Yükleme modeli bireysel bildirim - belirli bir cihazı hedefleyen yapmanız kolaylaştırır. Bir sistem etiketini **"$InstallationId: [InstallationID]"** her bağlı olarak yükleme kaydı otomatik olarak eklenir. Bu nedenle belirli bir cihazdaki herhangi bir ek kodlama yapmak zorunda kalmadan hedeflemek için bu etiket için bir gönderme çağırabilirsiniz.
+- Özel Etiket biçimi yükleme modelini destekler (`$InstallationId:{INSTALLATION_ID}`) söz konusu cihaz için doğrudan bildirim göndererek sağlar. Örneğin, bir yükleme kimliği, uygulamanın kodunu ayarlar `joe93developer` özel bu cihaz için bir geliştirici bu cihaz için bir bildirim gönderirken hedefleyebilirsiniz `$InstallationId:{joe93developer}` etiketi. Bu, ek bir kodlama yapmak zorunda kalmadan belirli bir cihazı hedeflemeniz sağlar.
 - Yüklemelerini kullanarak, kısmi kayıt güncelleştirmeler yapmak de sağlar. PATCH kullanılarak yöntemi ile kısmi güncelleştirme yüklemesinin istenen [JSON-Patch standart](https://tools.ietf.org/html/rfc6902). Kayıt etiketleri güncelleştirmek istediğiniz durumlarda kullanışlıdır. Tüm kayıt çekin ve ardından önceki tüm etiketleri yeniden yeniden gerekmez.
 
 Yüklemesi aşağıdaki özellikleri içerebilir. Yükleme özellikleri hakkında tam listesi için bkz. [oluşturun veya REST API ile yüklemesi üzerine](https://msdn.microsoft.com/library/azure/mt621153.aspx) veya [yükleme özellikleri](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
-```javascript
+```json
 // Example installation format to show some supported properties
 {
     installationId: "",
@@ -101,8 +101,7 @@ Her bir şablon adı, şablon gövdesi ve isteğe bağlı bir etiket kümesine e
 
 Windows Store istemci uygulamalar için ikincil kutucuk bildirimleri göndermek için birincil olanı göndererek ile aynı olur. Bu ayrıca yüklemelerde desteklenir. İkincil kutucuk üzerindeki istemci uygulamanızı SDK şeffaf bir şekilde işleyen farklı bir Channelurı vardır.
 
-Windows Store uygulamanızda SecondaryTiles nesne oluşturmak için kullanılan aynı TileId SecondaryTiles sözlük kullanır.
-Birincil Channelurı gibi ile ikincil kutucuk ChannelUris her an değiştirebilirsiniz. Güncelleştirilen bildirim hub'ında yüklemeleri tutulabilmesi için cihaz bunları ikincil kutucuk geçerli ChannelUris ile yenilemeniz gerekir.
+Windows Store uygulamanızda SecondaryTiles nesne oluşturmak için kullanılan aynı TileId SecondaryTiles sözlük kullanır. Birincil Channelurı gibi ile ikincil kutucuk ChannelUris her an değiştirebilirsiniz. Güncelleştirilen bildirim hub'ında yüklemeleri tutulabilmesi için cihaz bunları ikincil kutucuk geçerli ChannelUris ile yenilemeniz gerekir.
 
 ## <a name="registration-management-from-the-device"></a>Cihaz kayıt yönetimi
 

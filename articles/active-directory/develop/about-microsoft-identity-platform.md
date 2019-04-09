@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f3fcbda160d84e41fd2244a4d58766ae3991e52
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c7b3eee08c036862e6ce9f0c590a596f7b1d3fb0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197666"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258700"
 ---
 # <a name="about-microsoft-identity-platform"></a>Microsoft kimlik platformu hakkında
 
@@ -38,7 +38,7 @@ En son ADAL'ı ve en son MSAL'yi kullanan uygulamalar birbiriyle SSO yapabilecek
 
 Aşağıdaki diyagramda, uygulama kaydı deneyimi, SDK'lar, uç noktalar ve desteklenen kimlikler de dahil olmak üzere, üst düzeyde Microsoft kimlik deneyimi gösterilir.
 
-![Bugün Microsoft kimlik platformu](./media/about-microsoft-identity-platform/microsoft-identity-platform-preview.png)
+![Bugün Microsoft kimlik platformu](./media/about-microsoft-identity-platform/about-microsoft-identity-platform.svg)
 
 Microsoft kimlik platformunun iki uç noktası (v1.0 ve v2.0) ve bu uç noktaları işlemek için iki istemci kitaplığı kümesi vardır. Yeni uygulama geliştirirken, uç noktaların ve kimlik doğrulama kitaplıklarının avantajlarını ve geçerli durumunu göz önünde bulundurun. Ayrıca şunları da dikkate alın:
 
@@ -62,5 +62,5 @@ Microsoft kimlik platformunun iki uç noktası (v1.0 ve v2.0) ve bu uç noktalar
 
 v1.0 ve v2.0 hakkında daha fazla bilgi edinin.
 
-* [v1.0 hakkında](v1-overview.md)
-* [v2.0 hakkında](v2-overview.md)
+* [V1.0 hakkında](v1-overview.md)
+* [v2.0 Hakkında](v2-overview.md)

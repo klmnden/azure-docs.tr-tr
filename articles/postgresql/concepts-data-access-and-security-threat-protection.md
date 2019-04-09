@@ -5,26 +5,25 @@ author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: b01238b0ebfe07b605824a75301165e477bd05e9
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.date: 04/05/2019
+ms.openlocfilehash: 0521283f917d05a56d26503dc6f0af349f1ac1e5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910721"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260332"
 ---
 # <a name="azure-database-for-postgresql-advanced-threat-protection"></a>PostgreSQL için Azure veritabanı Gelişmiş tehdit koruması
 
 PostgreSQL için Azure Veritabanı Gelişmiş Tehdit Koruması, veritabanlarınıza erişme veya bunları kullanma konusunda olağandışı ve potansiyel olarak zararlı girişimleri gösteren anormal etkinlikleri tespit eder.
 
-Tehdit koruması, birleşik bir pakettir Gelişmiş güvenlik özellikleri için Gelişmiş tehdit Koruması (ATP) sunan bir parçasıdır. Gelişmiş tehdit koruması erişilebilen ve aracılığıyla yönetilen [Azure portalında](https://portal.azure.com) ve şu anda Önizleme aşamasındadır.
+> [!NOTE]
+> Gelişmiş tehdit koruması genel önizlemeye sunuldu.
+
+Tehdit koruması, birleşik bir pakettir Gelişmiş güvenlik özellikleri için Gelişmiş tehdit Koruması (ATP) sunan bir parçasıdır. Gelişmiş tehdit koruması erişilebilen ve aracılığıyla yönetilen [Azure portalında](https://portal.azure.com) veya bu adı kullanıyor [REST API](/rest/api/postgresql/serversecurityalertpolicies). Bu özellik, genel amaçlı ve bellek için iyileştirilmiş sunucuları için kullanılabilir.
 
 > [!NOTE]
 > Gelişmiş tehdit Koruması özelliği **değil** aşağıdaki Azure devlet kurumları ve bağımsız bulut bölgelerde kullanılabilir: ABD Devleti Texas, ABD Devleti Arizona, ABD Devleti Iowa, ABD Devleti Virginia, US DoD Doğu, ABD DoD Orta, Almanya Orta, Almanya Kuzey, Doğu Çin, Doğu Çin 2. Lütfen [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/) genel ürün kullanılabilirliği için.
->
-
-> [!NOTE]
-> Bu özellik, PostgreSQL için Azure veritabanı genel amaçlı ve bellek için iyileştirilmiş sunucuları için dağıtıldığı tüm bölgelerde Azure'nın kullanılabilir.
 
 ## <a name="what-is-advanced-threat-protection"></a>Gelişmiş tehdit Koruması nedir?
 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 1/25/2019
+ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f5234674bc41e1f5bfa260dfc32042a3345d9f7
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 3b817346c37ec43fd66d166684f5d51ecb5a9718
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294834"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257340"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-posta bir kerelik geçiş kodu kimlik doğrulama (Önizleme)
 
@@ -26,7 +26,7 @@ ms.locfileid: "58294834"
 | E-posta bir kerelik geçiş kodu bir Azure Active Directory genel Önizleme özelliğidir. Önizlemeler hakkında daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-E-posta bir kerelik geçiş kodu Özelliği Azure AD gibi başka bir yolla, Microsoft hesabı (MSA) veya Google Federasyon doğrulanamayan B2B konuk kullanıcıların kimliğini doğrular. Bir kerelik geçiş kodu ile kimlik doğrulaması, bir Microsoft hesabı oluşturmaya gerek yoktur. Konuk kullanıcı davet redeems veya paylaşılan bir kaynağa erişirken kendi e-posta adresine gönderilen geçici bir kod isteyebilirler. Ardından oturum açarken devam etmek için bu kodu girin.
+Bu makalede, e-posta B2B konuk kullanıcıların bir kerelik geçiş kodu kimlik doğrulamasını etkinleştirmek açıklar. E-posta bir kerelik geçiş kodu Özelliği Azure AD gibi başka bir yolla, Microsoft hesabı (MSA) veya Google Federasyon doğrulanamayan B2B konuk kullanıcıların kimliğini doğrular. Bir kerelik geçiş kodu ile kimlik doğrulaması, bir Microsoft hesabı oluşturmaya gerek yoktur. Konuk kullanıcı davet redeems veya paylaşılan bir kaynağa erişirken kendi e-posta adresine gönderilen geçici bir kod isteyebilirler. Ardından oturum açarken devam etmek için bu kodu girin.
 
 Bu özellik şu anda Önizleme için kullanılabilir (bkz [Önizleme seçim](#opting-in-to-the-preview) aşağıda). Önizlemeden sonra bu özellik varsayılan olarak tüm kiracılar için açık olması.
 

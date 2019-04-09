@@ -1,19 +1,18 @@
 ---
 title: Örnek - ISO 27001 ASE/SQL iş yükü şema - denetim eşleme
 description: Azure İlkesi ve RBAC ISO 27001 App Service ortamı/SQL veritabanı iş yükü şema örnek eşleme denetimi.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
-ms.topic: conceptual
+ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: fb251d71ca9aa20ed06d0a917394097b36322b3c
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 7a760bfe70fa2a83c43a0b41b77ba9bf45e809ca
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802720"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258616"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>ISO 27001 ASE/SQL iş yükü şema örnek denetimi eşleme
 

@@ -17,12 +17,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70fb463b1ac8664838404a7dfcd0380da8f3358d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 92825a9ef84edc30b6b34aa875f8a207c70c8511
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889503"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260944"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS'yi Azure AD Connect Health'i kullanarak izleme
 Aşağıdaki belgeler, AD FS altyapınızın Azure AD Connect Health ile izlenmesine ilişkin belgelerdir. Azure AD Connect’i (Eşitleme) Azure AD Connect Health ile izleme hakkında bilgi için bkz. [Eşitleme için Azure AD Connect Health Kullanma](how-to-connect-health-sync.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](how-to-connect-health-adds.md).
@@ -120,5 +120,5 @@ Raporda şu bilgiler yer alır:
 ## <a name="related-links"></a>İlgili bağlantılar
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Azure AD Connect Health Aracısı Yüklemesi](how-to-connect-health-agent-install.md)
-* [Riskli IP raporu ](how-to-connect-health-adfs-risky-ip.md)
+* [Riskli IP raporu](how-to-connect-health-adfs-risky-ip.md)
 

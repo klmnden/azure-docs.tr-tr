@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed27830aa1f4212e4bc26af8da4febc1b61a76cc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c56970091da74cfc389d60ad91f430fcb64d4bba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175123"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266979"
 ---
 # <a name="v20-protocols---oauth-20-and-openid-connect"></a>v2.0 protokolleri - OAuth 2.0 ve Openıd Connect
 
@@ -41,10 +41,11 @@ Neredeyse tüm OAuth 2.0 ve Openıd Connect akışlar Exchange'de kullanılan d�
 * **Yetkilendirme sunucusu** v2.0 uç nokta ve sorumlu kullanıcının kimliğini sağlamaya yönelik, belirteçleri verme ve kaynaklara erişimi iptal etme ve verme. Yetkilendirme sunucusu kimlik sağlayıcısı olarak da bilinen - onu güvenli bir şekilde kullanıcının bilgileri, bunların erişim ve bir akışta taraflar arasındaki güven ilişkilerinin ile yapmak için herhangi bir şey işler.
 * **Kaynak sahibi** genellikle son kullanıcısıdır. Verilerin sahibi ve üçüncü tarafların, veri veya kaynak erişim izin vermek için güç olan taraftır.
 * **OAuth istemcisi** uygulamanız, kendi uygulama kimliği tarafından belirtilen OAuth istemcisi genellikle son kullanıcının etkileşime taraf ve yetkilendirme sunucusundan belirteçleri ister. İstemci kaynak sahibi tarafından kaynağa erişim izni verilmesi gerekir.
-* **Kaynak sunucusu** kaynağı veya veri bulunduğu olduğu. Güvenler güvenli bir şekilde kimlik doğrulaması ve OAuth istemci yetki vermek için yetkilendirme sunucusu ve taşıyıcı access_tokens bir kaynağa erişim izni sağlamak için kullanır.
+* **Kaynak sunucusu** kaynağı veya veri bulunduğu olduğu. Güvenler güvenli bir şekilde kimlik doğrulaması ve OAuth istemci yetki vermek için yetkilendirme sunucusu ve taşıyıcı erişim belirteçleri, bir kaynağa erişim izni sağlamak için kullanır.
 
 ## <a name="app-registration"></a>Uygulama kaydı
-V2.0 uç noktası kullanan her uygulamanın kayıtlı olmalıdır [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) veya yeni aracılığıyla **uygulama kayıtları (Önizleme)** deneyimini [Azure portalında](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) önce OAuth veya Openıd Connect kullanarak etkileşim kurabilir. Uygulama kayıt işlemi, toplamak ve uygulamanız için bazı değerler atayın:
+
+Hem kişisel ve iş veya Okul hesaplarını almayı isteyen her uygulama, yeni kaydedilmelidir **uygulama kayıtları (Önizleme)** deneyimini [Azure portalında](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) önce bu kullanıcılar oturum açabilir OAuth 2.0 veya Openıd Connect kullanarak. Uygulama kayıt işlemi, toplamak ve uygulamanız için bazı değerler atayın:
 
 * Bir **uygulama kimliği** uygulamanızı benzersiz şekilde tanımlayan
 * A **yeniden yönlendirme URI'si** veya **paket tanımlayıcısı** yanıtları uygulamanıza geri yönlendirmek için kullanılabilir
@@ -68,9 +69,12 @@ Burada `{tenant}` dört farklı değerden birini alabilir:
 | `common` | Kullanıcıların hem kişisel Microsoft hesapları hem de iş/Okul hesapları ile Azure AD uygulamasına oturum açmak için izin verir. |
 | `organizations` | Yalnızca iş/Okul hesabı olan kullanıcılar Azure AD uygulamasına oturum açmak için izin verir. |
 | `consumers` | Kişisel Microsoft hesapları (MSA) uygulamasına oturum açmak için yalnızca bir kullanıcılarla sağlar. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` | Uygulamasına oturum açmak için yalnızca belirli bir Azure ad iş/Okul hesabı olan kullanıcılar Kiracı sağlar. Azure AD Kiracı kolay etki alanı adını veya kiracının GUID tanımlayıcısı kullanılabilir. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Uygulamasına oturum açmak için yalnızca belirli bir Azure ad iş/Okul hesabı olan kullanıcılar Kiracı sağlar. Azure AD Kiracı kolay etki alanı adını veya kiracının GUID tanımlayıcısı kullanılabilir. |
 
 Bu uç noktaları ile etkileşim öğrenmek için bir belirli uygulama türü seçin [protokolleri](#protocols) bölümünde ve daha fazla bilgi için bağlantıları izleyin.
+
+> [!TIP]
+> Kişisel hesaplarında oturum yoksa bile Azure AD'de kayıtlı herhangi bir uygulama, v2.0 uç noktası kullanabilirsiniz.  Bu şekilde, v2.0 için mevcut uygulamaları geçirme ve [MSAL](reference-v2-libraries.md) uygulamanızı yeniden oluşturmadan.  
 
 ## <a name="tokens"></a>Belirteçler
 

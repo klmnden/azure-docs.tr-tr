@@ -4,157 +4,156 @@ description: Azure Active Directory arasındaki Velpic SAML çoklu oturum açmay
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/04/2017
+ms.topic: tutorial
+ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8328fc5582fa9ebe38a23e5916ac0c3127575529
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bed1c201831b1edf4f5c267d2093ada4ba91d7df
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166106"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263324"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Öğretici: Velpic SAML ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Velpic SAML tümleştirme konusunda bilgi edinin.
-
 Azure AD ile Velpic SAML tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Velpic SAML erişimi, Azure AD'de denetleyebilirsiniz
-- Azure AD hesaplarına otomatik olarak imzalanan (çoklu oturum açma) için Velpic SAML açma, kullanıcılarınızın etkinleştirebilirsiniz
-- Bir merkezi konumda - Azure Yönetim Portalı hesaplarınızı yönetebilirsiniz.
+* Velpic SAML erişimi, Azure AD'de kontrol edebilirsiniz.
+* Azure AD hesaplarına otomatik olarak (çoklu oturum açma) için Velpic SAML oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirmesi Velpic SAML ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Bir Velpic SAML çoklu oturum açma etkin aboneliği
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Bu gerekli olmadığı sürece üretim ortamınızı kullanmamanız gerekir.
-- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
+* Abonelik Velpic SAML çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Velpic SAML ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* Velpic SAML destekler **SP** tarafından başlatılan
 
 ## <a name="adding-velpic-saml-from-the-gallery"></a>Galeriden Velpic SAML ekleme
+
 Azure AD'de SAML Velpic tümleştirmesini yapılandırmak için Velpic SAML Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Velpic SAML eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure Yönetim Portalı](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Uygulamalar][2]
-    
-1. Tıklayın **Ekle** iletişim kutusunun üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Uygulamalar][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **Velpic SAML**.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/velpicsaml-tutorial/tutorial_velpicsaml_search.png)
+4. Arama kutusuna **Velpic SAML**seçin **Velpic SAML** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-1. Sonuçlar panelinde seçin **Velpic SAML**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+    ![Sonuç listesinde Velpic SAML](common/search-new-app.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/velpicsaml-tutorial/tutorial_velpicsaml_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
-Bu bölümde, yapılandırmanız ve Velpic SAML ile Azure AD çoklu oturum açmayı test "Britta Simon" adlı bir test kullanıcı tabanlı.
-
-Tek iş için oturum açma için Azure AD ne Velpic SAML karşılık gelen kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Velpic SAML ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
-
-Değerini atayarak bu bağlantı ilişki kurulduktan **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** Velpic SAML içinde.
+Bu bölümde, yapılandırmanız ve Velpic SAML ile Azure AD çoklu oturum açmayı test adlı bir test kullanıcı tabanlı **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının Velpic SAML ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma Velpic SAML ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Velpic SAML test kullanıcısı oluşturma](#creating-a-velpic-saml-test-user)**  - Azure AD gösterimini her için bağlı Velpic SAML Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Velpic SAML çoklu oturum açmayı yapılandırma](#configure-velpic-saml-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Velpic SAML test kullanıcısı oluşturma](#create-velpic-saml-test-user)**  - kullanıcı Azure AD gösterimini bağlı Velpic SAML Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure yönetim portalında etkinleştirin ve Velpic SAML uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma Velpic SAML ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma Velpic SAML ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure Yönetim Portalı'nda üzerinde **Velpic SAML** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Velpic SAML** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda olarak **modu** seçin **SAML tabanlı oturum açma** için çoklu oturum açmayı etkinleştirme.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/velpicsaml-tutorial/tutorial_velpicsaml_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Ayrıntıları girin **Velpic SAML etki alanı ve URL'ler** bölümü -
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/velpicsaml-tutorial/tutorial_velpicsaml_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    a. İçinde **oturum açma URL'si** metin değeri olarak yazın: `https://<sub-domain>.velpicsaml.net`
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    b. İçinde **tanımlayıcı** metin kutusu, yapıştırma **'Çoklu oturum açma URL'si'** değeri `https://auth.velpic.com/saml/v2/<entity-id>/login`
-    
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+
+    ![Velpic SAML etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
+
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<sub-domain>.velpicsaml.net`
+
+    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://auth.velpic.com/saml/v2/<entity-id>/login`
+
     > [!NOTE]
     > Oturum açma URL'si Velpic SAML ekibi tarafından sağlanır ve tanımlayıcı değeri Velpic SAML tarafında SSO eklentisi yapılandırırken kullanılabilecek lütfen unutmayın. Bu değer Velpic SAML uygulama sayfasından kopyalayın ve kopyalayıp buraya yapıştırın gerekir.
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda XML dosyasını kaydedin.
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/velpicsaml-tutorial/tutorial_velpicsaml_certificate.png) 
+    ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-1. Tıklayın **Kaydet** düğmesi.
+6. Üzerinde **Velpic SAML kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/velpicsaml-tutorial/tutorial_general_400.png)
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-1. Velpic SAML yapılandırma bölümünü Velpic SAML yapılandırma oturum açmak için Yapılandır'ı tıklatın. SAML varlık kimliği için hızlı başvuru bölümünden kopyalayın.
+    a. Oturum Açma URL'si:
 
-1. Farklı bir web tarayıcı penceresinde Velpic SAML şirket sitenize yönetici olarak oturum.
+    b. Azure AD Tanımlayıcısı
 
-1. Tıklayarak **Yönet** sekmesini ve Git **tümleştirme** bölümüne tıklayarak gereken **eklentileri** oturum açmak için yeni bir eklenti oluşturmak için.
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-velpic-saml-single-sign-on"></a>Velpic SAML çoklu oturum açmayı yapılandırın
+
+1. Farklı bir web tarayıcı penceresinde Velpic SAML şirket sitenize yönetici olarak oturum açın.
+
+2. Tıklayarak **Yönet** sekmesini ve Git **tümleştirme** bölümüne tıklayarak gereken **eklentileri** oturum açmak için yeni bir eklenti oluşturmak için.
 
     ![Eklentisi](./media/velpicsaml-tutorial/velpic_1.png)
 
-1. Tıklayarak **'Eklentisi Ekle'** düğmesi.
+3. Tıklayarak **'Eklentisi Ekle'** düğmesi.
     
     ![Eklentisi](./media/velpicsaml-tutorial/velpic_2.png)
 
-1. Tıklayarak **SAML** kutucuğuna eklentisini ekleyin sayfasında.
+4. Tıklayarak **SAML** kutucuğuna eklentisini ekleyin sayfasında.
     
     ![Eklentisi](./media/velpicsaml-tutorial/velpic_3.png)
 
-1. Yeni SAML eklentisini adını girin ve tıklayın **'Ekle'** düğmesi.
+5. Yeni SAML eklentisini adını girin ve tıklayın **'Ekle'** düğmesi.
 
     ![Eklentisi](./media/velpicsaml-tutorial/velpic_4.png)
 
-1. Ayrıntılar aşağıdaki gibi girin:
+6. Ayrıntılar aşağıdaki gibi girin:
 
     ![Eklentisi](./media/velpicsaml-tutorial/velpic_5.png)
 
     a. İçinde **adı** metin SAML eklentisini adını yazın.
 
-    b. İçinde **veren URL'si** metin kutusu, yapıştırma **SAML varlık kimliği** , kopyalamanın **yapılandırma oturum açma** Azure portal'ın penceresi.
+    b. İçinde **veren URL'si** metin kutusu, yapıştırma **Azure AD tanımlayıcısı** , kopyalamanın **yapılandırma oturum açma** Azure portal'ın penceresi.
 
     c. İçinde **sağlayıcısı meta verileri yapılandırma** Azure portalından indirilen meta veri XML dosyasını karşıya yükleyin.
 
@@ -164,38 +163,57 @@ Bu bölümde, Azure AD çoklu oturum açma Azure yönetim portalında etkinleşt
     
     f. **Kaydet**’e tıklayın.
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, bir test kullanıcısı Britta Simon adlı Azure Yönetim Portalı'nda oluşturmaktır.
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
-![Azure AD kullanıcısı oluşturun][100]
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-1. İçinde **Azure Yönetim Portalı**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/velpicsaml-tutorial/create_aaduser_01.png) 
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-1. Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar** kullanıcılar listesini görüntüleyin.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/velpicsaml-tutorial/create_aaduser_02.png) 
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. İletişim kutusunun en üstünde tıklayın **Ekle** açmak için **kullanıcı** iletişim.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/velpicsaml-tutorial/create_aaduser_03.png) 
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/velpicsaml-tutorial/create_aaduser_04.png) 
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-    a. İçinde **adı** metin kutusuna **BrittaSimon**.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü `brittasimon@yourcompanydomain.extension`. Örneğin, BrittaSimon@contoso.com
 
-    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
-
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
- 
-### <a name="creating-a-velpic-saml-test-user"></a>Velpic SAML test kullanıcısı oluşturma
+
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+
+Bu bölümde, Azure çoklu oturum açma için SAML Velpic erişim vererek kullanmak Britta Simon etkinleştirin.
+
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Velpic SAML**.
+
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
+2. Uygulamalar listesinde **Velpic SAML**.
+
+    ![Uygulamalar listesinde Velpic SAML bağlantı](common/all-applications.png)
+
+3. Soldaki menüde **kullanıcılar ve gruplar**.
+
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
+
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+
+### <a name="create-velpic-saml-test-user"></a>Velpic SAML test kullanıcısı oluşturma
 
 Bu adım yalnızca zaman sağlama kullanıcı uygulamanın desteklediği gibi genellikle gerekli değildir. Otomatik kullanıcı hazırlama etkin değilse el ile kullanıcı oluşturma aşağıda açıklandığı gibi yapılabilir.
 
@@ -205,53 +223,23 @@ Velpic SAML şirketinizin sitesi yönetici olarak oturum açın ve aşağıdaki 
 
     ![Kullanıcı Ekle](./media/velpicsaml-tutorial/velpic_7.png)
 
-1. Üzerinde **"Yeni kullanıcı oluşturma"** iletişim sayfasında, aşağıdaki adımları gerçekleştirin.
+2. Üzerinde **"Yeni kullanıcı oluşturma"** iletişim sayfasında, aşağıdaki adımları gerçekleştirin.
 
     ![kullanıcı](./media/velpicsaml-tutorial/velpic_8.png)
     
-    a. İçinde **ad** metin Britta simon'un tür ilk adı.
+    a. İçinde **ad** metin Britta ilk tür adı.
 
-    b. İçinde **Soyadı** metin Britta Simon son adını yazın.
+    b. İçinde **Soyadı** metin Simon son adını yazın.
 
     c. İçinde **kullanıcı adı** metin Britta simon'un kullanıcı adını yazın.
 
-    d. İçinde **e-posta** metin Britta Simon hesabı e-posta adresini yazın.
+    d. İçinde **e-posta** metin kutusuna e-posta adresini yazın Brittasimon@contoso.com hesabı.
 
     e. Geri kalan bilgileri isteğe bağlı olduğundan, gerekirse doldurabilirsiniz.
     
-    f. **KAYDET**'e tıklayın.  
+    f. **KAYDET**'e tıklayın.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
-
-Bu bölümde, Azure çoklu oturum açma için SAML Velpic erişim vererek kullanmak Britta Simon etkinleştirin.
-
-![Kullanıcı Ata][200] 
-
-**Britta Simon Velpic SAML için atamak için aşağıdaki adımları gerçekleştirin:**
-
-1. Azure Yönetim Portalı'nda uygulamaları görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
-
-    ![Kullanıcı Ata][201] 
-
-1. Uygulamalar listesinde **Velpic SAML**.
-
-    ![Çoklu oturum açmayı yapılandırın](./media/velpicsaml-tutorial/tutorial_velpicsaml_app.png) 
-
-1. Soldaki menüde **kullanıcılar ve gruplar**.
-
-    ![Kullanıcı Ata][202] 
-
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
-
-    ![Kullanıcı Ata][203]
-
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
-
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
-
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
-### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -261,25 +249,11 @@ Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapıland
 
 1. Tıklayarak **'Oturumu, Azure AD'de oturum'** düğmesini için Velpic Azure AD'ye hesabınızı kullanarak oturum açın.
 
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-## <a name="additional-resources"></a>Ek kaynaklar
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-
-<!--Image references-->
-
-[1]: ./media/velpicsaml-tutorial/tutorial_general_01.png
-[2]: ./media/velpicsaml-tutorial/tutorial_general_02.png
-[3]: ./media/velpicsaml-tutorial/tutorial_general_03.png
-[4]: ./media/velpicsaml-tutorial/tutorial_general_04.png
-
-[100]: ./media/velpicsaml-tutorial/tutorial_general_100.png
-
-[200]: ./media/velpicsaml-tutorial/tutorial_general_200.png
-[201]: ./media/velpicsaml-tutorial/tutorial_general_201.png
-[202]: ./media/velpicsaml-tutorial/tutorial_general_202.png
-[203]: ./media/velpicsaml-tutorial/tutorial_general_203.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

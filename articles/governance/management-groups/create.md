@@ -7,15 +7,15 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 928cb790bd97270870618534a73316bba5eeb070
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 2dd2a6e071533deef47a6482bfb9ed92953864ba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057447"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259827"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Kaynak kuruluşta ve Yönetim için Yönetim grupları oluşturma
 
@@ -50,7 +50,7 @@ Portal, PowerShell veya Azure CLI kullanarak, yönetim grubu oluşturabilirsiniz
 
 ### <a name="create-in-powershell"></a>PowerShell'de oluşturma
 
-PowerShell içinde yeni AzManagementGroup cmdlet'i kullanın:
+PowerShell için şunu kullanın [yeni AzManagementGroup](/powershell/module/az.resources/new-azmanagementgroup) cmdlet'i yeni bir yönetim grubu oluşturun.
 
 ```azurepowershell-interactive
 New-AzManagementGroup -GroupName 'Contoso'
@@ -58,20 +58,39 @@ New-AzManagementGroup -GroupName 'Contoso'
 
 **GroupName** oluşturulan bir benzersiz tanımlayıcısı. Bu kimliği, başka komutlarla bu Grup başvurmak için kullanılır ve daha sonra değiştirilemez.
 
-Azure Portal'ın farklı bir ad göstermek için yönetim grubu istediğinizi varsa, eklersiniz **DisplayName** dizesiyle parametre. Örneğin, bir yönetim grubu, GroupName Contoso ve görünen adı "Contoso grup" ile oluşturmak istediyseniz, aşağıdaki cmdlet'i kullanın:
+Azure Portal'ın farklı bir ad göstermek için yönetim grubu istiyorsanız ekleyin **DisplayName** parametresi. Örneğin, "Contoso grubunun" görünen ad, GroupName Contoso ile bir yönetim grubu oluşturmak için aşağıdaki cmdlet'i kullanın:
 
 ```azurepowershell-interactive
-New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoTenant'
+New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group'
 ```
 
-Kullanım **parentId** parametresi bu yönetim grubu için farklı bir yönetim altına oluşturulabilir.
+Yukarıdaki örneklerde, yeni yönetim grubunun kök yönetim grubu altında oluşturulur. Üst öğe olarak farklı bir yönetim grubu belirtmek için kullanın **parentId** parametresi.
+
+```azurepowershell-interactive
+$parentGroup = Get-AzManagementGroup -GroupName Contoso
+New-AzManagementGroup -GroupName 'ContosoSubGroup' -ParentId $parentGroup.id
+```
 
 ### <a name="create-in-azure-cli"></a>Azure CLI ile oluşturma
 
-Azure CLI, az kullandığınız hesabı yönetim grubu oluşturma komutu.
+Azure CLI için şunu kullanın [az hesap yönetim grubu](/cli/azure/account/management-group?view=azure-cli-latest#az-account-management-group-create) yeni bir yönetim grubu oluşturmak için komutu.
 
 ```azurecli-interactive
-az account management-group create --name 'Contoso'
+az account management-group create --name Contoso
+```
+
+**Adı** oluşturulan bir benzersiz tanımlayıcısı. Bu kimliği, başka komutlarla bu Grup başvurmak için kullanılır ve daha sonra değiştirilemez.
+
+Azure Portal'ın farklı bir ad göstermek için yönetim grubu istiyorsanız ekleyin **görünen ad** parametresi. Örneğin, "Contoso grubunun" görünen ad, GroupName Contoso ile bir yönetim grubu oluşturmak için aşağıdaki komutu kullanın:
+
+```azurecli-interactive
+az account management-group create --name Contoso --display-name 'Contoso Group'
+```
+
+Yukarıdaki örneklerde, yeni yönetim grubunun kök yönetim grubu altında oluşturulur. Üst öğe olarak farklı bir yönetim grubu belirtmek için kullanın **üst** parametre ve bir üst grubun adını belirtin.
+
+```azurecli-interactive
+az account management-group create --name ContosoSubGroup --parent Contoso
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
