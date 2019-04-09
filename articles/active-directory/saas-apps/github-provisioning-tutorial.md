@@ -13,28 +13,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31f10ba0c04ccbd9f52b95c43fea7cc551fe64ee
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: baac3ca65558f2a67a3aecabd4b253f23ea94ad9
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888024"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057532"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için GitHub'ı yapılandırma
 
-
-Bu öğreticinin amacı, GitHub ve Azure AD sağlama ve sağlamasını GitHub Azure AD'den kullanıcı hesaplarına otomatik olarak gerçekleştirmek için gereken adımları Göster sağlamaktır. 
+Bu öğreticinin amacı, GitHub ve Azure AD sağlama ve sağlamasını GitHub Azure AD'den kullanıcı hesaplarına otomatik olarak gerçekleştirmek için gereken adımları Göster sağlamaktır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide özetlenen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
-*   Bir Azure Active directory kiracısı
-*   Oluşturulan bir GitHub kuruluşuna [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), gerektiren [GitHub Enterprise faturalandırma planı](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
-*   GitHub kuruluş yönetici izinlerine sahip bir kullanıcı hesabı
+* Bir Azure Active directory kiracısı
+* Oluşturulan bir GitHub kuruluşuna [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), gerektiren [GitHub Enterprise faturalandırma planı](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
+* GitHub kuruluş yönetici izinlerine sahip bir kullanıcı hesabı
 
 > [!NOTE]
 > Azure AD tümleştirmesi sağlama dayanan [GitHub SCIM API](https://developer.github.com/v3/scim/), kullanılabilir olduğu [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) müşteriler [GitHub Enterprise fatura planı](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) .
@@ -49,21 +48,18 @@ Yapılandırma ve sağlama hizmetini etkinleştirmeden önce hangi kullanıcıla
 
 ### <a name="important-tips-for-assigning-users-to-github"></a>Önemli ipuçları için GitHub kullanıcı atama
 
-*   Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmayı test etmek için GitHub atanır. Ek kullanıcılar ve/veya grupları daha sonra atanabilir.
+* Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmayı test etmek için GitHub atanır. Ek kullanıcılar ve/veya grupları daha sonra atanabilir.
 
-*   Bir kullanıcı için GitHub atarken ya da seçmelisiniz **kullanıcı** rol veya başka bir geçerli uygulamaya özgü rolü (varsa) atama iletişim. **Varsayılan erişim** rolü sağlama için çalışmaz ve bu kullanıcılar atlanır.
+* Bir kullanıcı için GitHub atarken ya da seçmelisiniz **kullanıcı** rol veya başka bir geçerli uygulamaya özgü rolü (varsa) atama iletişim. **Varsayılan erişim** rolü sağlama için çalışmaz ve bu kullanıcılar atlanır.
 
-
-## <a name="configuring-user-provisioning-to-github"></a>GitHub için kullanıcı sağlamayı yapılandırma 
+## <a name="configuring-user-provisioning-to-github"></a>GitHub için kullanıcı sağlamayı yapılandırma
 
 Bu bölümde, Azure AD sağlama API'si GitHub'ın kullanıcı hesabına bağlanma aracılığıyla size yol gösterir ve sağlama hizmeti oluşturmak için yapılandırma güncelleştirmesi ve atanan kullanıcı hesapları Azure AD'de kullanıcı ve Grup atamasına dayalı github'da devre dışı bırak.
 
 > [!TIP]
 > Ayrıca seçtiğiniz etkin SAML tabanlı çoklu oturum açma için GitHub, yönergeleri izleyerek sağlanan [Azure portalında](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlama bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
-
 ### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Otomatik kullanıcı hesabı için GitHub Azure AD'de sağlamayı Yapılandır
-
 
 1. İçinde [Azure portalında](https://portal.azure.com), Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
 
@@ -87,7 +83,7 @@ Bu bölümde, Azure AD sağlama API'si GitHub'ın kullanıcı hesabına bağlanm
 
 8. Bir kişi veya grup sağlama hatası bildirimlerini alması gereken e-posta adresini girin **bildirim e-posta** alan ve "bir hata oluştuğunda e-posta bildirimi gönderin." onay kutusunu işaretleyin
 
-9. **Kaydet**’e tıklayın. 
+9. **Kaydet**’e tıklayın.
 
 10. Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları için GitHub**.
 
@@ -95,17 +91,16 @@ Bu bölümde, Azure AD sağlama API'si GitHub'ın kullanıcı hesabına bağlanm
 
 12. Azure AD sağlama hizmeti için GitHub'ı etkinleştirmek için değiştirin **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü
 
-13. **Kaydet**’e tıklayın. 
+13. **Kaydet**’e tıklayın.
 
 Bu işlem, herhangi bir kullanıcı ve/veya GitHub kullanıcılar ve Gruplar bölümünde atanan grupları ilk eşitleme başlar. İlk eşitleme hizmeti çalışıyor sürece yaklaşık 40 dakikada oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklayan etkinlik günlüklerini sağlama için bağlantıları izleyin.
 
 Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
 
-
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Kullanıcı hesabı, kurumsal uygulamalar için sağlamayı yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

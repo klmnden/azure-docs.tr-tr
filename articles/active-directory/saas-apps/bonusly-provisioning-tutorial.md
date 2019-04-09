@@ -6,21 +6,22 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 879b0ee9-042a-441b-90a7-8c364d62426a
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74c14de0d09006aefb342590f613edb129ab5016
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 4ad0ee590572dbc92e67be9f84ffc65afc3e8473
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173717"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056971"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Bonusly yapılandırın
 
@@ -33,39 +34,34 @@ Bu öğreticinin amacı otomatik olarak sağlamak ve kullanıcılara ve/veya gru
 
 Bu öğreticide özetlenen senaryo, aşağıdaki sahip olduğunuz varsayılır:
 
-*   Azure AD kiracısı
-*   A [Bonusly Kiracı](https://bonus.ly/pricing)
-*   Bonusly yönetici izinlerine sahip bir kullanıcı hesabı
+* Azure AD kiracısı
+* A [Bonusly Kiracı](https://bonus.ly/pricing)
+* Bonusly yönetici izinlerine sahip bir kullanıcı hesabı
 
 > [!NOTE]
 > Azure AD tümleştirmesi sağlama dayanan [Bonusly Rest API](https://bonusly.gelato.io/reference), Bonusly geliştiricilere sunulan olduğu.
 
 ## <a name="adding-bonusly-from-the-gallery"></a>Galeriden Bonusly ekleme
+
 Azure AD ile otomatik kullanıcı hazırlama için Bonusly yapılandırmadan önce Bonusly Azure AD uygulama galerisinden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Azure AD uygulama galerisinden Bonusly eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, üzerinde sol gezinti bölmesinde, tıklayarak **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar** > **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar bölümü][2]
-    
-3. Bonusly eklemek için tıklatın **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Yeni Uygulama düğmesi][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-4. Arama kutusuna **Bonusly**.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Bonusly sağlama](./media/bonusly-provisioning-tutorial/AppSearch.png)
+4. Arama kutusuna **Bonusly**seçin **Bonusly** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-5. Sonuçlar panelinde seçin **Bonusly**ve ardından **Ekle** düğmesini Bonusly SaaS uygulamaları listenize ekleyin.
-
-    ![Bonusly sağlama](./media/bonusly-provisioning-tutorial/AppSearchResults.png)
-
-    ![Bonusly sağlama](./media/bonusly-provisioning-tutorial/AppCreation.png)
+    ![Sonuç listesinde bonusly](common/search-new-app.png)
 
 ## <a name="assigning-users-to-bonusly"></a>Bonusly için kullanıcı atama
 
@@ -73,13 +69,13 @@ Azure Active Directory "atamaları" adlı bir kavram, hangi kullanıcıların se
 
 Yapılandırma ve otomatik kullanıcı hazırlama etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD'de grupları Bonusly erişmesi karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek Bonusly için bu kullanıcılara ve/veya grupları atayabilirsiniz:
 
-*   [Kurumsal bir uygulamayı kullanıcı veya grup atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Kurumsal bir uygulamayı kullanıcı veya grup atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-bonusly"></a>Kullanıcılar için Bonusly atamak için önemli ipuçları
 
-*   Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmasını otomatik kullanıcı test etmek için Bonusly atanır. Ek kullanıcılar ve/veya grupları daha sonra atanabilir.
+* Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmasını otomatik kullanıcı test etmek için Bonusly atanır. Ek kullanıcılar ve/veya grupları daha sonra atanabilir.
 
-*   Bir kullanıcı için Bonusly atarken, (varsa) geçerli bir uygulamaya özgü rol ataması iletişim kutusunda seçmeniz gerekir. Kullanıcılarla **varsayılan erişim** rol sağlamasından dışlanır.
+* Bir kullanıcı için Bonusly atarken, (varsa) geçerli bir uygulamaya özgü rol ataması iletişim kutusunda seçmeniz gerekir. Kullanıcılarla **varsayılan erişim** rol sağlamasından dışlanır.
 
 ## <a name="configuring-automatic-user-provisioning-to-bonusly"></a>Bonusly için otomatik kullanıcı sağlamayı yapılandırma
 
@@ -90,14 +86,16 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 
 ### <a name="to-configure-automatic-user-provisioning-for-bonusly-in-azure-ad"></a>Azure AD'de Bonusly için otomatik kullanıcı hazırlama yapılandırmak için:
 
-1. Oturum [Azure portalında](https://portal.azure.com) ve **Azure Active Directory > Kurumsal uygulamalar > tüm uygulamaları**.
+1. Oturum [Azure portalında](https://portal.azure.com) seçip **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Bonusly**.
 
-2. Bonusly SaaS uygulamaları listesinden seçin.
- 
-    ![Bonusly sağlama](./media/bonusly-provisioning-tutorial/AppInstanceSearch.png)
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
+2. Uygulamalar listesinde **Bonusly**.
+
+    ![Uygulamalar listesinde Bonusly bağlantı](common/all-applications.png)
 
 3. Seçin **sağlama** sekmesi.
-    
+
     ![Bonusly sağlama](./media/bonusly-provisioning-tutorial/ProvisioningTab.png)
 
 4. Ayarlama **hazırlama modu** için **otomatik**.
@@ -105,6 +103,8 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
     ![Bonusly sağlama](./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png)
 
 5. Altında **yönetici kimlik bilgileri** giriş bölümünde **gizli belirteç** adım 6'da açıklandığı gibi Bonusly hesap.
+
+    ![Bonusly sağlama](./media/bonusly-provisioning-tutorial/secrettoken.png)
 
 6. **Gizli belirteç** hesabının bulunduğu için Bonusly **yönetici > Şirket > tümleştirmeler**. İçinde **kodu istiyorsanız** bölümünde, tıklayarak **API > oluşturma yeni API erişim belirteci** yeni bir gizli dizi belirteci oluşturmak için.
 
@@ -123,7 +123,7 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 8. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD için Bonusly bağlanabilirsiniz. Bağlantı başarısız olursa Bonusly hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
 
     ![Bonusly sağlama](./media/bonusly-provisioning-tutorial/TestConnection.png)
-    
+
 9. İçinde **bildirim e-posta** alanında, bir kişi veya grubun ve sağlama hata bildirimleri almak onay e-posta adresi girin **birhataoluşursa,bire-postabildirimigönder**.
 
     ![Bonusly sağlama](./media/bonusly-provisioning-tutorial/EmailNotification.png)
@@ -152,7 +152,6 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 
     ![Bonusly sağlama](./media/bonusly-provisioning-tutorial/SaveProvisioning.png)
 
-
 Bu işlem, tüm kullanıcıların ilk eşitleme başlar ve/veya tanımlı gruplar **kapsam** içinde **ayarları** bölümü. İlk eşitleme yaklaşık 40 dakikada Azure AD sağlama hizmeti çalışıyor sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve sağlama hizmeti Bonusly üzerinde Azure AD tarafından gerçekleştirilen tüm eylemler açıklayan Etkinlik Raporu sağlama için bağlantıları izleyin.
 
 Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
@@ -160,8 +159,7 @@ Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [he
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Kullanıcı hesabı, kurumsal uygulamalar için sağlamayı yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
-
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

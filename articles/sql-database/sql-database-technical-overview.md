@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/29/2019
-ms.openlocfilehash: e71039c84c79c27a372a378144b21f6f724d08d8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.date: 04/08/2019
+ms.openlocfilehash: bd696a003b54face4f95ae426c11840bb8805bee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670844"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273150"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Azure SQL veritabanı hizmeti nedir?
 
@@ -156,7 +156,7 @@ SQL Veritabanı'na çok durumlu tablo değerli işlevler için araya eklemeli y�
 SQL Veritabanı, uygulamanızın çeşitli güvenlik ve uyumluluk gereksinimlerine uygun olmasına yardımcı olmak için bir dizi [yerleşik güvenlik ve uyum özelliğine](sql-database-security-overview.md) sahiptir.
 
 > [!IMPORTANT]
-> Azure SQL veritabanı (tüm dağıtım seçeneklerini) sertifikalıdır bir dizi uyumluluk standardı karşı. Daha fazla bilgi için günceli [SQL Veritabanı uyumluluk sertifikası](https://www.microsoft.com/trustcenter/compliance/complianceofferings) listesine ulaşabileceğiniz [Microsoft Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/) sayfasına bakın.
+> Azure SQL veritabanı (tüm dağıtım seçeneklerini) sertifikalıdır bir dizi uyumluluk standardı karşı. Daha fazla bilgi için [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) burada bulabilirsiniz SQL veritabanı uyumluluk sertifikaları en güncel listesi.
 
 ### <a name="advance-threat-protection"></a>Gelişmiş Tehdit Koruması
 
@@ -176,7 +176,7 @@ Gelişmiş veri güvenliği, Gelişmiş SQL güvenlik özellikleri için birleş
 
 [Denetim](sql-database-auditing.md) veritabanı olaylarını izler ve bir denetim günlüğüne Azure depolama hesabınızdaki yazar. Denetim mevzuatla uyumluluk, veritabanı etkinliğini anlama ve işletme sorunlarını veya şüpheli güvenlik ihlallerini işaret edebilecek farklılıklar ve anormal durumlar hakkında öngörü sahip olmanıza yardımcı olabilir.
 
-### <a name="data-encryption"></a>Veri şifreleme
+### <a name="data-encryption"></a>Veri şifrelemesi
 
 SQL veritabanı ile Hareket halindeki veriler için şifreleme sağlayarak verilerinizi korur [Aktarım Katmanı Güvenliği](https://support.microsoft.com/kb/3135244), ile bekleyen veriler için [saydam veri şifrelemesi](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)ve kullanılmakta olan veriler için [ her zaman şifreli](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
@@ -186,7 +186,7 @@ SQL Veritabanı, [Azure Active Directory tümleştirmesi](sql-database-aad-authe
 
 ### <a name="compliance-certification"></a>Uyumluluk sertifikası
 
-SQL Veritabanı düzenli olarak denetimden geçmektedir ve birden fazla uyumluluk standardı sertifikasına sahiptir. Daha fazla bilgi için günceli [SQL Veritabanı uyumluluk sertifikası](https://azure.microsoft.com/support/trust-center/services/) listesine ulaşabileceğiniz [Microsoft Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/) sayfasına bakın.
+SQL Veritabanı düzenli olarak denetimden geçmektedir ve birden fazla uyumluluk standardı sertifikasına sahiptir. Daha fazla bilgi için [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) burada bulabilirsiniz SQL veritabanı uyumluluk sertifikaları en güncel listesi.
 
 ## <a name="easy-to-use-tools"></a>Kullanımı kolay araçlar
 
@@ -255,10 +255,10 @@ SQL veritabanı müşterilerinin, SQL Server için Azure hibrit avantajı ile il
 - Tek veritabanı ve elastik havuz maliyet karşılaştırmaları ve hesaplayıcıları için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/).
 - Başlamanıza yardımcı olacak şu hızlı başlangıçlara bakın:
 
-  - [Azure portalda SQL veritabanı oluşturma](sql-database-single-database-get-started.md)  
-  - [Azure CLI ile SQL veritabanı oluşturma](sql-database-get-started-cli.md)
-  - [PowerShell ile SQL veritabanı oluşturma](sql-database-get-started-powershell.md)
+  - [Azure portalında SQL veritabanı oluşturma](sql-database-single-database-get-started.md)  
+  - [Azure CLI ile bir SQL veritabanı oluşturma](sql-database-get-started-cli.md)
+  - [PowerShell kullanarak SQL veritabanı oluşturma](sql-database-get-started-powershell.md)
 
 - Azure CLI ve PowerShell örnekleri için bkz.:
-  - [SQL Veritabanı için Azure CLI örnekleri](sql-database-cli-samples.md)
-  - [SQL Veritabanı için Azure PowerShell örnekleri](sql-database-powershell-samples.md)
+  - [SQL veritabanı için Azure CLI örnekleri](sql-database-cli-samples.md)
+  - [SQL veritabanı için Azure PowerShell örnekleri](sql-database-powershell-samples.md)

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 266859c1d2076354dbd4f8f09adf0bea084b90f9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 94906a75d323e3fb6c96f939e4fdcea60877508c
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049690"
+ms.locfileid: "59056308"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>JavaScript'te dayanıklı ilk işlevinizi oluşturma
 
@@ -110,7 +110,9 @@ Artık bir düzenleme ve zincirini birlikte etkinlik işlevleri devre dışı b�
 
 Azure İşlevleri Temel Araçları, Azure İşlevleri projenizi yerel geliştirme bilgisayarınızda çalıştırmanıza olanak sağlar. Visual Studio Code'da ilk kez bir işlev başlattığınızda bu araçları yüklemeniz istenir.  
 
-1. Bir Windows bilgisayarda, Azure depolama öykünücüsü'nü başlatmak ve emin olun **AzureWebJobsStorage** local.settings.json özelliği ayarlandığında `UseDevelopmentStorage=true`. Bir Mac veya Linux bilgisayarda ayarlamalısınız **AzureWebJobsStorage** özelliğini mevcut bir Azure depolama hesabı bağlantı dizesi. Bu makalenin sonraki bölümlerinde'de bir depolama hesabı oluşturun.
+1. Bir Windows bilgisayarda, Azure depolama öykünücüsü'nü başlatmak ve emin olun **AzureWebJobsStorage** local.settings.json özelliği ayarlandığında `UseDevelopmentStorage=true`. 
+
+    Emin olmak için depolama öykünücüsü 5.8 **AzureWebJobsSecretStorageType** local.settings.json özelliği ayarlandığında `files`. Bir Mac veya Linux bilgisayarda ayarlamalısınız **AzureWebJobsStorage** özelliğini mevcut bir Azure depolama hesabı bağlantı dizesi. Bu makalenin sonraki bölümlerinde'de bir depolama hesabı oluşturun.
 
 2. İşlevinizi test etmek için işlev kodunda bir kesme noktası ayarlayın ve işlev uygulaması projesini başlatmak için F5 tuşuna basın. Temel Araçlar’daki çıktı, **Terminal** panelinde görüntülenir. Dayanıklı İşlevler, ilk kez kullanıyorsanız, dayanıklı işlevler uzantısını yüklenir ve yapı birkaç saniye sürebilir.
 

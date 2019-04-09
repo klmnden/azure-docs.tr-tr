@@ -1,21 +1,21 @@
 ---
 title: IOT Hub'ından veri ile Azure Machine Learning kullanarak hava durumu tahmini | Microsoft Docs
 description: IOT hub'ınıza algılayıcıdan toplar sıcaklık ve nem verilere Yağmur olasılığını tahmin etmek için kullanımı Azure Machine Learning bağlı.
-author: rangv
-manager: ''
+author: robinsh
+manager: philmea
 keywords: machine learning hava durumu tahmini
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
-ms.openlocfilehash: 7fdd2a96044acdae223243d751bfcffb7a99da78
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: robinsh
+ms.openlocfilehash: a203018cb1a27c17b9c7162b50a380f9edae2e60
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534268"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273201"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Azure Machine Learning'de, IOT hub'ından sensör verilerini kullanarak hava durumu tahmini
 

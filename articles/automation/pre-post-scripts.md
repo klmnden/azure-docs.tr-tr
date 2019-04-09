@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/01/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc0c516ce9dc3a13474cefc61b6634dbeea0fce0
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
-ms.translationtype: MT
+ms.openlocfilehash: 76cd877380090ccad8b2f7b7dbe79957e0eab5bb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793668"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056686"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Yönetme öncesi ve sonrası betikler (Önizleme)
 
@@ -67,6 +67,23 @@ Ne zaman önceden yapılandırdığınız ve sonrası betikler, runbook zamanlam
 Başka bir nesne türü gerekiyorsa, bunu başka bir runbook'ta kendi mantığınız ile türüne atayabilirsiniz.
 
 Standart runbook parametrelerini ek olarak, ek bir parametre olarak sağlanır. Bu parametre **SoftwareUpdateConfigurationRunContext**. Bu bir JSON dizesi parametresidir ve parametresi önceki veya sonraki betiğinizde tanımlarsanız, bu otomatik olarak güncelleştirme dağıtımından geçirilir. Parametre bir alt güncelleştirme dağıtımı hakkında bilgi içeren tarafından döndürülen bilgilerin [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) aşağıdaki tabloda değişkeninde sağlanan özelliklerini gösterir:
+
+## <a name="stopping-a-deployment"></a>Bir dağıtım durduruluyor
+
+Yapmanız gerekenler öncesi betiği tabanlı bir dağıtım durdurmak istiyorsanız [throw](automation-runbook-execution.md#throw) bir özel durum. Bir özel durum oluşturması beklenmiyor, dağıtım ve son betik çalışmaya devam edecektir. [Örnek runbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) galeride Bunu yapmak nasıl gösterir. Bu runbook'tan bir parçacığı aşağıda verilmiştir.
+
+```powershell
+#In this case, we want to terminate the patch job if any run fails.
+#This logic might not hold for all cases - you might want to allow success as long as at least 1 run succeeds
+foreach($summary in $finalStatus)
+{
+    if ($summary.Type -eq "Error")
+    {
+        #We must throw in order to fail the patch deployment.  
+        throw $summary.Summary
+    }
+}
+```
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext properties
 
@@ -231,6 +248,17 @@ if ($summary.Type -eq "Error")
 }
 ```
 
+## <a name="abort-patch-deployment"></a>Düzeltme eki dağıtımı Durdur
+
+Öncesi betiğinizin hata verirse, dağıtımınızı durdurmak isteyebilirsiniz. Bunu yapmak için [throw](/powershell/module/microsoft.powershell.core/about/about_throw) komut dosyanızda bir hata oluşturur herhangi bir mantık için bir hata.
+
+```powershell
+if (<My custom error logic>)
+{
+    #Throw an error to fail the patch deployment.  
+    throw "There was an error, abort deployment"
+}
+```
 ## <a name="known-issues"></a>Bilinen sorunlar
 
 * Öncesi ve sonrası betikler kullanırken, parametreler için nesneleri veya diziler geçiremezsiniz. Runbook başarısız olur.
@@ -240,5 +268,5 @@ if ($summary.Type -eq "Error")
 Windows sanal makineleriniz için güncelleştirmeleri yönetme konusunda bilgi almak için öğreticiye devam edin.
 
 > [!div class="nextstepaction"]
-> [Azure Windows Vm'leriniz için güncelleştirme ve yamaları yönetmenize](automation-tutorial-update-management.md)
+> [Azure Windows sanal makineleriniz için güncelleştirme ve düzeltme eki yönetimi](automation-tutorial-update-management.md)
 

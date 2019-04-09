@@ -5,21 +5,21 @@ services: container-registry
 author: stevelas
 ms.service: container-registry
 ms.topic: overview
-ms.date: 03/29/2019
+ms.date: 04/03/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 39f643bd66e2a96b0b9b93989d2941a9c30ea7fc
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: ba75d196bdb53fab104ab6c01391e762b4a3841b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894022"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270532"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure'da özel Docker kapsayıcısı kayıt defterlerine giriş
 
 Azure Container Kayıt Defteri, açık kaynak Docker Registry 2.0’ı temel alan bir yönetilen [Docker kayıt defteri](https://docs.docker.com/registry/) hizmetidir. Özel [Docker kapsayıcısı](https://www.docker.com/what-docker) görüntülerinizi depolamak ve yönetmek için Azure kapsayıcısı kayıt defterleri oluşturun ve bunların bakımını yapın.
 
-Azure’da mevcut kapsayıcı geliştirme ve dağıtım işlem hatlarınızla kapsayıcı kayıt defterleri kullanın. Azure Container Registry Oluşturması (ACR Build) kullanarak Azure’da kapsayıcı görüntüleri oluşturun. İsteğe bağlı olarak oluşturun veya kaynak kodu yürütme ve temel görüntü güncelleştirmesi oluşturma tetikleyicileri ile yapıları tamamen otomatik hale getirin.
+Azure kapsayıcı kayıt defterleri, mevcut kapsayıcı geliştirme ve dağıtım işlem hatlarınızla veya kullanın [ACR görevleri](#azure-container-registry-tasks) azure'da kapsayıcı görüntülerini oluşturmak için. İsteğe bağlı olarak oluşturun veya kaynak kodu yürütme ve temel görüntü güncelleştirmesi oluşturma tetikleyicileri ile yapıları tamamen otomatik hale getirin.
 
 Docker ve kapsayıcılarla ilgili arka plan bilgileri için bkz. [Docker’a genel bakış](https://docs.docker.com/engine/docker-overview/).
 
@@ -32,15 +32,17 @@ Azure kapsayıcısı kayıt defterinden çeşitli dağıtım hedeflerine görün
 
 Geliştiriciler bir kapsayıcı geliştirme iş akışı kapsamında bir kapsayıcı kayıt defterine de öğe itebilir. Örneğin, [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) veya [Jenkins](https://jenkins.io/) gibi bir sürekli tümleştirme ve dağıtım aracından bir kapsayıcı kayıt defteri hedeflenebilir.
 
-ACR kendi temel görüntüleri güncelleştirildiğinde uygulama görüntüleri otomatik olarak yeniden derlemek için görevleri yapılandırın. Ekibiniz bir Git deposunda kod yürüttüğünde görüntü oluşturmalarını otomatikleştirmek için ACR Görevlerini kullanın.
+ACR görevleri, kendi temel görüntüleri güncelleştirildiğinde uygulama görüntüleri otomatik olarak yeniden yapılandırma ya da ekibinizin kod bir Git deposuna onayladığında görüntü oluşturmayı otomatikleştirme. Oluşturma, test etme ve bulutta paralel birden çok kapsayıcı görüntülerini düzeltme otomatik hale getirmek için çok adımlı Görevler oluşturun.
+
+Azure, Azure komut satırı arabirimi, Azure portal ve API desteği, Azure kapsayıcısı kayıt defterleri yönetme gibi araçları sağlar. İsteğe bağlı olarak yükleme [Visual Studio Code için Docker uzantısını](https://code.visualstudio.com/docs/azure/docker) ve [Azure hesabı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) uzantısı, Azure kapsayıcısı kayıt defterleri ile çalışma. Çekme ve bir Azure container registry'ye görüntüleri gönderme veya Visual Studio Code içinde tüm ACR görevler çalıştırabilirsiniz.
 
 ## <a name="key-concepts"></a>Önemli kavramlar
 
-* **Kayıt Defteri** - Azure aboneliğinizde bir veya daha fazla kapsayıcı kayıt defteri oluşturun. Kayıt defterleri üç Sku'da kullanılabilir: [Temel, standart ve Premium](container-registry-skus.md), her Web kancası tümleştirmesi, Azure Active Directory ile kayıt defteri kimlik doğrulamasını desteklemek ve silme işlevi. Kapsayıcı görüntülerinizin yerel, kapalı bir ağda depolanmasının avantajlarından yararlanmak için dağıtımlarınızla aynı Azure konumunda bir kayıt defteri oluşturun. Gelişmiş çoğaltma ve kapsayıcı görüntüsü dağıtma senaryoları için Premium kayıt defterlerinin [coğrafi çoğaltma](container-registry-geo-replication.md) özelliğini kullanın. Tam kayıt defteri adı `myregistry.azurecr.io` biçimindedir.
+* **Kayıt Defteri** - Azure aboneliğinizde bir veya daha fazla kapsayıcı kayıt defteri oluşturun. Kayıt defterleri üç Sku'da kullanılabilir: [Temel, standart ve Premium](container-registry-skus.md), Web kancası tümleştirmesi, kayıt defteri kimlik doğrulamasını Azure Active Directory ve silme işlevlerini destekleyen her biri. Kapsayıcı görüntülerinizin yerel, kapalı bir ağda depolanmasının avantajlarından yararlanmak için dağıtımlarınızla aynı Azure konumunda bir kayıt defteri oluşturun. Gelişmiş çoğaltma ve kapsayıcı görüntüsü dağıtma senaryoları için Premium kayıt defterlerinin [coğrafi çoğaltma](container-registry-geo-replication.md) özelliğini kullanın. Tam kayıt defteri adı `myregistry.azurecr.io` biçimindedir.
 
-  [Erişimini](container-registry-authentication.md) kullanarak bir Azure kimlik Azure Active Directory destekli bir kapsayıcı kayıt defterine [hizmet sorumlusu](../active-directory/develop/app-objects-and-service-principals.md), ya sağlanan yönetici hesabı. Azure komut satırı arabirimi ya da standart kullanarak kayıt defterini oturum `docker login` komutu.
+  [Erişimini](container-registry-authentication.md) kullanarak bir Azure kimlik Azure Active Directory destekli bir kapsayıcı kayıt defterine [hizmet sorumlusu](../active-directory/develop/app-objects-and-service-principals.md), ya sağlanan yönetici hesabı. Azure CLI veya standardını kullanarak kayıt defterini oturum `docker login` komutu.
 
-* **Depo** -kapsayıcı görüntüleri grubu depolayan bir veya daha fazla depo bir kayıt defteri içerir. Azure Container Kayıt Defteri, çok düzeyli depo ad alanlarını destekler. Çok düzeyli ad alanlarıyla, belirli bir uygulamayla veya uygulama koleksiyonuyla ilişkili görüntü koleksiyonlarını belirli geliştirme veya işlem ekipleri halinde gruplandırabilirsiniz. Örneğin:
+* **Depo** -bir kayıt defteri sanal aynı ad ancak farklı bir etiket veya özetler ile kapsayıcı görüntüleri grubu olan bir veya birden çok depo içerir. Azure Container Kayıt Defteri, çok düzeyli depo ad alanlarını destekler. Çok düzeyli ad alanlarıyla, belirli bir uygulamayla veya uygulama koleksiyonuyla ilişkili görüntü koleksiyonlarını belirli geliştirme veya işlem ekipleri halinde gruplandırabilirsiniz. Örneğin:
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1` şirket çapında bir görüntüyü temsil eder
   * `myregistry.azurecr.io/warrantydept/dotnet-build` garanti departmanı genelinde paylaşılan .NET uygulamaları oluşturmak için kullanılan bir görüntüyü temsil eder

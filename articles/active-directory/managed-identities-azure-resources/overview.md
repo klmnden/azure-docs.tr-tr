@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cbcab0d287f344d308e3ed51ae47087afae7f9e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: d70dfceb0101c4f6dbd76f3c6b34d85e5255aa72
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449262"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058569"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Azure kaynakları için yönetilen kimlikler nedir?
 
@@ -50,11 +50,20 @@ Aşağıdaki terimler yönetilen kimlikleri, Azure kaynaklarını belgeleri küm
 - **Sistem tarafından atanan yönetilen kimlik** doğrudan bir Azure hizmet örneğinde etkinleştirilir. Kimlik etkinleştirildiğinde Azure, örneğin aboneliğinin güvendiği Azure AD kiracısında örnek için bir kimlik oluşturur. Kimlik oluşturulduktan sonra, kimlik bilgileri örneğe sağlanır. Sistem tarafından atanan kimliğin yaşam döngüsü, içinde etkinleştirildiği Azure hizmet örneğine doğrudan bağlıdır. Örnek silinirse, Azure AD'deki kimlik bilgileri ve kimlik Azure tarafından otomatik olarak temizlenir.
 - **Kullanıcı tarafından atanan yönetilen kimlik**, tek başına bir Azure kaynağı olarak oluşturulur. Bir oluşturma işlemi çerçevesinde, Azure kullanılan abonelik tarafından güvenilen Azure AD kiracısında bir kimlik oluşturur. Kimlik oluşturulduktan sonra, bir veya birden çok Azure hizmet örneğine atanabilir. Kullanıcı tarafından atanan kimliğin yaşam döngüsü, bu kimliğin atandığı Azure hizmet örneklerinin yaşam döngüsünden ayrı olarak yönetilir.
 
-Kodunuzda Azure AD kimlik doğrulamasını destekleyen hizmetler için erişim belirteci istemek üzere yönetilen kimlik kullanılabilir. Hizmet örneği tarafından kullanılan kimlik bilgilerinin dağıtımıyla Azure ilgilenir.
+Dahili olarak, yönetilen özel bir tür yalnızca Azure kaynakları ile kullanılacak kilitlenen hizmet sorumluları Kimlikleridir. Yönetilen kimlik silindiğinde, karşılık gelen hizmet sorumlusu otomatik olarak kaldırılır. 
+
+Kodunuzda Azure AD kimlik doğrulamasını destekleyen hizmetler için erişim belirteci istemek üzere yönetilen kimlik kullanılabilir. Hizmet örneği tarafından kullanılan kimlik bilgilerinin dağıtımıyla Azure ilgilenir. 
 
 Aşağıdaki diyagramda yönetilen hizmet kimliklerinin Azure sanal makineleriyle (VM) nasıl çalıştığı gösterilmektedir:
 
 ![Yönetilen hizmet kimlikleri ve Azure VM’leri](media/overview/msi-vm-vmextension-imds-example.png)
+
+|  Özellik    | Sistem tarafından atanan yönetilen kimlik | Kullanıcı tarafından atanan yönetilen kimlik |
+|------|----------------------------------|--------------------------------|
+| Oluşturma |  Bir Azure kaynağı (örneğin, bir Azure sanal makinesi veya Azure App Service) bir parçası olarak oluşturulan | Tek başına bir Azure kaynağı olarak oluşturuldu |
+| Yaşam döngüsü | Yönetilen kimlik ile oluşturulmuş bir Azure kaynak yaşam döngüsü paylaşıldığı. <br/> Üst kaynak silindiğinde, yönetilen kimlik olarak da silinir. | Bağımsız yaşam döngüsü. <br/> Açıkça silinmelidir. |
+| Azure kaynakları arasında paylaşma | Paylaşılamaz. <br/> Yalnızca tek bir Azure kaynağı ile ilişkili olabilir. | Paylaşılabilir <br/> Aynı kullanıcı tarafından atanan yönetilen kimlik birden fazla Azure kaynak ile ilişkilendirilebilir. |
+| Genel kullanım örnekleri | İçinde tek bir Azure kaynak içeren iş yükleri <br/> İş yükleri bağımsız kimlikleri gerekir. <br/> Örneğin, tek bir sanal makinede çalışan bir uygulama | Birden çok kaynak üzerinde çalışan iş yükleri ve tek bir kimlik paylaşmasını sağlayabilirsiniz. <br/> Hazırlama akışında bir parçası olarak güvenli bir kaynağa öncesi yetkilendirme gerektiren iş yükleri. <br/> Burada kaynakları sık dönüştürülünceye iş yükleri, ancak izinleri tutarlı kalmalıdır. <br/> Örneğin, birden çok sanal makine aynı kaynağa erişmek için gereken yere iş yükü | 
 
 ### <a name="how-a-system-assigned-managed-identity-works-with-an-azure-vm"></a>Sistem tarafından atanmış yönetilen kimliğin Azure VM ile çalışma şekli
 
@@ -109,17 +118,17 @@ Yönetilen kimlikleri Windows VM ile kullanmayı öğrenin:
 * [Azure Data Lake Store’a erişme](tutorial-windows-vm-access-datalake.md)
 * [Azure Resource Manager’a erişme](tutorial-windows-vm-access-arm.md)
 * [Azure SQL’e erişme](tutorial-windows-vm-access-sql.md)
-* [Erişim anahtarı kullanarak Azure Depolama’ya erişme](tutorial-windows-vm-access-storage.md)
-* [Paylaşılan erişim anahtarlarını kullanarak Azure Depolama’ya erişme](tutorial-windows-vm-access-storage-sas.md)
-* [Azure Key Vault ile Azure AD dışı bir kaynağa erişme](tutorial-windows-vm-access-nonaad.md)
+* [Bir erişim anahtarı kullanarak Azure depolama](tutorial-windows-vm-access-storage.md)
+* [Paylaşılan erişim imzalarını kullanarak erişim Azure depolama](tutorial-windows-vm-access-storage-sas.md)
+* [Azure Key Vault ile bir Azure olmayan AD kaynağına erişmek](tutorial-windows-vm-access-nonaad.md)
 
 Yönetilen kimlikleri Linux VM ile kullanmayı öğrenin:
 
 * [Azure Data Lake Store’a erişme](tutorial-linux-vm-access-datalake.md)
 * [Azure Resource Manager’a erişme](tutorial-linux-vm-access-arm.md)
-* [Erişim anahtarı kullanarak Azure Depolama’ya erişme](tutorial-linux-vm-access-storage.md)
-* [Paylaşılan erişim anahtarlarını kullanarak Azure Depolama’ya erişme](tutorial-linux-vm-access-storage-sas.md)
-* [Azure Key Vault ile Azure AD dışı bir kaynağa erişme](tutorial-linux-vm-access-nonaad.md)
+* [Bir erişim anahtarı kullanarak Azure depolama](tutorial-linux-vm-access-storage.md)
+* [Paylaşılan erişim imzalarını kullanarak erişim Azure depolama](tutorial-linux-vm-access-storage-sas.md)
+* [Azure Key Vault ile bir Azure olmayan AD kaynağına erişmek](tutorial-linux-vm-access-nonaad.md)
 
 Yönetilen kimlikleri diğer Azure hizmetleri ile kullanmayı öğrenin:
 
@@ -140,4 +149,4 @@ Azure kaynakları için yönetilen kimlikler, Azure AD kimlik doğrulamasını d
 Azure kaynakları için yönetilen kimlikler özelliğini kullanmaya başlamak için aşağıdaki hızlı başlangıçlardan yararlanın:
 
 * [Resource Manager’a erişmek için Windows VM sistem tarafından atanan yönetilen kimliği kullanma](tutorial-windows-vm-access-arm.md)
-* [Resource Manager’a erişmek için Linux VM sistem tarafından atanan yönetilen kimliği kullanma](tutorial-linux-vm-access-arm.md)
+* [Resource Manager'a erişmek için bir Linux VM sistem tarafından atanan yönetilen kimliği kullanma](tutorial-linux-vm-access-arm.md)

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 1dee51354ba9210e52459dcf7a96695bc3736648
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b4fbfc1d9c9441c6c9f12987de5feb1a90e9f17f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759314"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256388"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>Endüstriyel IOT (Iıot) nedir
 
@@ -28,7 +28,7 @@ Azure IOT OPC UA cihaz Yönetimi (OPC İkizi) ile Fabrika katı makinelere eriş
 ![Endüstriyel IOT genel bakış](media/overview-iot-industrial/overview.png)
 
 > [!NOTE]
-> Azure endüstriyel IOT hizmetleri hakkında daha fazla bilgi için bkz. GitHub [depo ](https://github.com/Azure/azure-iiot-services).
+> Azure endüstriyel IOT hizmetleri hakkında daha fazla bilgi için bkz. GitHub [depo](https://github.com/Azure/azure-iiot-services).
 Azure IOT Edge modüllerinin nasıl çalıştığı ile bilmiyorsanız, aşağıdaki makaleleri ile başlayın:
 - [Azure IoT Edge hakkında](../iot-edge/about-iot-edge.md)
 - [Azure IOT Edge modülleri](../iot-edge/iot-edge-modules.md)
@@ -50,4 +50,4 @@ Azure IOT OPC UA sertifika yönetimi veya OPC kasası, OPC UA genel bulma sunucu
 Endüstriyel IOT ve bileşenlerine giriş vardı, önerilen sonraki adım aşağıda verilmiştir:
 
 > [!div class="nextstepaction"]
-> [OPC İkizi nedir](overview-opc-twin.md)
+> [OPC Twin nedir?](overview-opc-twin.md)

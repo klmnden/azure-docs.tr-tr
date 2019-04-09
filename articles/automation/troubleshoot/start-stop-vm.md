@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/13/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f503d890dcc8ba90a8a4d8bafc09d5fd8b2856e6
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 03bad12b7fcba5a247e05884aa0eb0493163a5c4
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804862"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009793"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Vm'leri başlatma/durdurma sırasında saat çözümü kapatmak sorun giderme
 
@@ -88,7 +88,7 @@ Sorun veya aramak için yerler olası çözümler için aşağıdaki listeyi gö
 
 * VM Başlat/Durdur çözümü bir zamanlama düzgün şekilde yapılandırdınız denetleyin. Bir zamanlamayı yapılandırma konusunda bilgi için bkz: [zamanlamaları](../automation-schedules.md) makalesi.
 
-* Tüm hataları aramak runbook'ları için iş akışları denetleyin. Portalında, Otomasyon hesabınıza gidin ve seçin **işleri** altında **süreç otomasyonu**. Gelen **işleri** işleri aşağıdaki runbook'lar arasından sayfasında bakın:
+* Denetleme [iş akışları](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) tüm hataları aramak için. Portalında, Otomasyon hesabınıza gidin ve seçin **işleri** altında **süreç otomasyonu**. Gelen **işleri** işleri aşağıdaki runbook'lar arasından sayfasında bakın:
 
   * AutoStop_CreateAlert_Child
   * AutoStop_CreateAlert_Parent
@@ -143,6 +143,8 @@ Sorun veya aramak için yerler olası çözümler için aşağıdaki listeyi gö
 
 * VM serbest bırakılıyor veya başlatma bir sorun vardır, bu davranışı VM üzerinde bir sorun neden olabilir. Bazı örnekler veya olası sorunları olan bir hizmet kapanması için çalışırken bir güncelleştirme uygulanan askıda kalır ve daha fazlası). Sanal makine kaynağınıza gidin ve kontrol **etkinlik günlüklerini** günlüklerde hataları olup olmadığını görmek için. Olay günlüklerinde hata olup olmadığını görmek için VM'de oturum açmak deneyebilir. Sanal makinenizin sorun giderme hakkında daha fazla bilgi için bkz [sorun giderme Azure sanal makineler](../../virtual-machines/troubleshooting/index.md)
 
+* Denetleme [iş akışları](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) tüm hataları aramak için. Portalında, Otomasyon hesabınıza gidin ve seçin **işleri** altında **süreç otomasyonu**.
+
 ## <a name="custom-runbook"></a>Senaryo: Başlatma veya durdurma Vm'lerimi özel runbook'um başarısız
 
 ### <a name="issue"></a>Sorun
@@ -155,7 +157,7 @@ Hatanın nedenini birçok şeylerden biri olabilir. Azure portal ve seçin, Otom
 
 ### <a name="resolution"></a>Çözüm
 
-Kullanılması önerilir [saat çözümü Kapat Vm'leri başlatma/durdurma sırasında](../automation-solution-vm-management.md) Vm'leri Azure automation'da durdurmak ve başlatmak. Bu çözüm, Microsoft tarafından yazılmıştır. Özel runbook'ları, Microsoft tarafından desteklenmez. Ziyaret ederek, özel bir runbook için bir çözüm bulabilirsiniz [runbook sorunlarını giderme](runbooks.md) makalesi. Bu makalede, genel rehberlik ve tüm türlerdeki runbook'lar için sorun giderme sağlar.
+Kullanılması önerilir [saat çözümü Kapat Vm'leri başlatma/durdurma sırasında](../automation-solution-vm-management.md) Vm'leri Azure automation'da durdurmak ve başlatmak. Bu çözüm, Microsoft tarafından yazılmıştır. Özel runbook'ları, Microsoft tarafından desteklenmez. Ziyaret ederek, özel bir runbook için bir çözüm bulabilirsiniz [runbook sorunlarını giderme](runbooks.md) makalesi. Bu makalede, genel rehberlik ve tüm türlerdeki runbook'lar için sorun giderme sağlar. Denetleme [iş akışları](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) tüm hataları aramak için. Portalında, Otomasyon hesabınıza gidin ve seçin **işleri** altında **süreç otomasyonu**.
 
 ## <a name="dont-start-stop-in-sequence"></a>Senaryo: Vm'leri başlatma yok veya doğru sırayla durdurma
 
@@ -209,7 +211,7 @@ Bir sorun veya beklenmeyen bir sonuç Vm'leri başlatma/durdurma sırasında bu 
 
 ### <a name="resolution"></a>Çözüm
 
-Birçok hataları gidermek için bunu kaldırıp çözümü güncelleştirecek önerilir. Çözüm güncelleştirme hakkında bilgi edinmek için bkz: [Vm'leri başlatma/durdurma sırasında saat çözümü Kapat güncelleştirme](../automation-solution-vm-management.md#update-the-solution).
+Birçok hataları gidermek için bunu kaldırıp çözümü güncelleştirecek önerilir. Çözüm güncelleştirme hakkında bilgi edinmek için bkz: [Vm'leri başlatma/durdurma sırasında saat çözümü Kapat güncelleştirme](../automation-solution-vm-management.md#update-the-solution). Ayrıca, denetleyebilirsiniz [iş akışları](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) tüm hataları aramak için. Portalında, Otomasyon hesabınıza gidin ve seçin **işleri** altında **süreç otomasyonu**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

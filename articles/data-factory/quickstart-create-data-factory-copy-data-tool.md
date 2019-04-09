@@ -3,20 +3,20 @@ title: Azure Veri Kopyalama aracını kullanarak veri kopyalama | Microsoft Docs
 description: Azure Blob depolama alanındaki bir konumda bulunan verileri başka bir konuma kopyalamak için bir Azure veri fabrikası oluşturun ve Veri Kopyalama aracını kullanın.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
-ms.author: jingwang
-ms.openlocfilehash: 6ff264c079ef5ee18258c3cd136cf441dc33e299
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.author: yexu
+ms.openlocfilehash: a77041b063f043c065df9a2955e9d07b5692f592
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992764"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256269"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Hızlı Başlangıç: Veri Kopyalama aracını kullanarak veri kopyalama
 

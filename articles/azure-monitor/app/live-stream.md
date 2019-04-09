@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: b741528b2770314be7e851f38817611d6908352b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814954"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009974"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Canlı ölçümleri Stream: İzleme ve tanılama 1 saniyelik gecikme süresi
 
@@ -34,9 +34,9 @@ Canlı ölçümler Stream ile şunları yapabilirsiniz:
 * Tüm Windows performans sayacı Canlı izleyin.
 * Kolayca sorunları ve filtresi sunucuya yalnızca tüm KPI/canlı akış sahip bir sunucu tanımlayın.
 
-[![Canlı ölçümler Stream video](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+[![LPAS ölçümleri Stream video](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-Canlı ölçümleri şu anda ASP.NET, ASP.NET Core, Azure işlevleri ve Java uygulamaları için desteklenir.
+Canlı ölçümleri şu anda ASP.NET, ASP.NET Core, Azure işlevleri, Java ve Node.js uygulamaları için desteklenir.
 
 ## <a name="get-started"></a>başlarken
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 01/24/2019
+ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: 1fa15c4420cb1e42fcaa34c56a1b0aef9c4102b1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bafc39e7d9237fc7dd8469e5f9e97adb30355c8f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872467"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257238"
 ---
 # <a name="what-is-qna-maker"></a>Soru-Cevap Oluşturma nedir?
 
@@ -66,13 +66,12 @@ Soru-Cevap Oluşturma mimarisi aşağıdaki iki bileşenden oluşur:
 
 ## <a name="service-highlights"></a>Hizmetle ilgili önemli noktalar
 
-- **Kod yazma** deneyimine ihtiyaç duymadan [SSS botu oluşturma](https://aka.ms/qnamaker-docs-create-faqbot).
+- Eksiksiz bir **Kodsuz** için deneyimi [bir bot oluşturulabilir](../Quickstarts/create-publish-knowledge-base.md#create-a-bot) gelen Bilgi Bankası.
 - **Tahminler için ağ kapasitesi azaltma gerçekleştirilmez**. İşlem sayısı için değil barındırma ve hizmet için ödeme yapın. Daha ayrıntılı bilgi edinmek için [fiyatlandırma sayfasına](https://aka.ms/qnamaker-docs-pricing) bakın.
 - **İstediğinizde ölçeklendirebilirsiniz**. Senaryonuza uygun bileşenlerin ilgili SKU'larını seçin. Soru-Cevap Oluşturma hizmetinizi için [kapasiteyi nasıl belirleyeceğinizi](https://aka.ms/qnamaker-docs-capacity) öğrenin.
-- **Eksiksiz veri uyumluluğu**. Tahmin hizmeti bileşenleri, Azure aboneliğinizde ve uyumluluk sınırları çerçevesinde dağıtılır.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Soru-Cevap Oluşturma hizmeti oluşturma](../how-to/set-up-qnamaker-service-azure.md)
+> [Soru-cevap Oluşturucu hizmeti oluşturma](../how-to/set-up-qnamaker-service-azure.md)

@@ -8,13 +8,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 11/06/2018
-ms.openlocfilehash: 3c40e00d55af49b1b040d3fe706f08af719b2238
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/02/2019
+ms.openlocfilehash: 1e02eaeae4757a9a41ec59be81c3d9510d035232
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112798"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273830"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Öğretici: Apache Kafka akışlar API'si
 
@@ -23,14 +23,13 @@ Apache Kafka akışlar API'si kullanan bir uygulama oluşturun ve HDInsight üze
 Bu öğreticide kullanılan uygulama, akışa alma sözcük sayısıdır. Bir Kafka konusundan metin verilerini okur, tek tek sözcükleri ayıklar ve sonra sözcüğü ve sayıyı başka bir Kafka konusunda depolar.
 
 > [!NOTE]  
-> Kafka akış işleme yapılan genellikle Apache Spark veya Apache Storm kullanma. Kafka 0.10.0 sürümünde (HDInsight 3.5 ve 3.6), Kafka Akışları API’si sunulmuştur. Bu API, girdi ve çıktı konuları arasında veri akışlarını dönüştürmenize olanak sağlar. Bazı durumlarda bu, bir Spark veya Storm akış çözümü oluşturulmasına alternatif olabilir. 
+> Kafka akış işleme yapılan genellikle Apache Spark veya Apache Storm kullanma. Kafka (HDInsight 3.5 ve 3.6), sürüm 1.1.0 Kafka akış API'sini kullanıma sunmuştur. Bu API, girdi ve çıktı konuları arasında veri akışlarını dönüştürmenize olanak sağlar. Bazı durumlarda bu, bir Spark veya Storm akış çözümü oluşturulmasına alternatif olabilir. 
 >
 > Kafka Akışları hakkında daha fazla bilgi için, Apache.org adresindeki [Akışların Tanıtımı](https://kafka.apache.org/10/documentation/streams/) belgelerine bakın.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Geliştirme ortamınızı kurma
 > * Kodu anlama
 > * Uygulama derleme ve dağıtma
 > * Kafka konuları yapılandırma
@@ -42,15 +41,11 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 * Bölümündeki adımları tamamlamanız [Apache Kafka tüketicisi ve Producer API](apache-kafka-producer-consumer-api.md) belge. Bu belgede yer alan adımlarda, bu öğreticide oluşturulan örnek uygulama ve konular kullanılmaktadır.
 
-## <a name="set-up-your-development-environment"></a>Geliştirme ortamınızı kurma
+* [Java Developer Kit (JDK) 8 sürümünü](https://aka.ms/azure-jdks) veya OpenJDK gibi eşdeğeri.
 
-Aşağıdaki bileşenlerin geliştirme ortamınızda yüklü olması gerekir:
+* [Apache Maven](https://maven.apache.org/download.cgi) düzgün [yüklü](https://maven.apache.org/install.html) Apache göre.  Maven derleme sistemi Java projeleri için proje olur.
 
-* [Java JDK 8](https://aka.ms/azure-jdks) veya OpenJDK gibi eşdeğeri.
-
-* [Apache Maven](https://maven.apache.org/)
-
-* Bir SSH istemcisi ve `scp` komutu. Daha fazla bilgi için [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md) belgesine bakın.
+* Bir SSH istemcisi. Daha fazla bilgi için [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="understand-the-code"></a>Kodu anlama
 
@@ -63,7 +58,7 @@ Aşağıdaki bileşenlerin geliştirme ortamınızda yüklü olması gerekir:
 
 `pom.xml` dosyasında aşağıdaki önemli şeyler anlaşılır:
 
-* Bağımlılıklar: Bu proje tarafından sağlanan Kafka akışlar API'si kullanır `kafka-clients` paket. Aşağıdaki XML kodu, bu bağımlılığı tanımlar:
+* Bağımlılıkları: Bu proje tarafından sağlanan Kafka akışlar API'si kullanır `kafka-clients` paket. Aşağıdaki XML kodu, bu bağımlılığı tanımlar:
 
     ```xml
     <!-- Kafka client for producer/consumer operations -->
@@ -135,65 +130,73 @@ public class Stream
 }
 ```
 
-
 ## <a name="build-and-deploy-the-example"></a>Örnek derleme ve dağıtma
 
 Projeyi derlemek ve HDInsight kümesi üzerinde Kafka’nıza dağıtmak için aşağıdaki adımları kullanın:
 
-1. [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) adresinden örnekleri indirin.
+1. Geçerli dizin konumuna ayarlayın `hdinsight-kafka-java-get-started-master\Streaming` dizin geçirin ve ardından aşağıdaki komutu kullanarak bir jar paketi oluşturun:
 
-2. Dizinleri `Streaming` dizinine değiştirin ve sonra aşağıdaki komutu kullanarak bir jar paketi oluşturun:
-
-    ```bash
+    ```cmd
     mvn clean package
     ```
 
     Bu komut, `target/kafka-streaming-1.0-SNAPSHOT.jar` konumunda paketi oluşturur.
 
-3. `kafka-streaming-1.0-SNAPSHOT.jar` dosyasını HDInsight kümenize kopyalamak için aşağıdaki komutu kullanın:
-   
-    ```bash
+2. `sshuser` değerini, kümenizin SSH kullanıcısı ile, `clustername` değerini kümenizin adıyla değiştirin. Kopyalamak için aşağıdaki komutu kullanın `kafka-streaming-1.0-SNAPSHOT.jar` HDInsight kümenize dosya. İstendiğinde, SSH kullanıcı hesabının parolasını girin.
+
+    ```cmd
     scp ./target/kafka-streaming-1.0-SNAPSHOT.jar sshuser@clustername-ssh.azurehdinsight.net:kafka-streaming.jar
     ```
-   
-    `sshuser` değerini, kümenizin SSH kullanıcısı ile, `clustername` değerini kümenizin adıyla değiştirin. İstendiğinde, SSH kullanıcı hesabının parolasını girin. HDInsight ile `scp` kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="create-apache-kafka-topics"></a>Apache Kafka konularını oluşturma
 
-1. Kümeye SSH bağlantısı açmak için aşağıdaki komutu kullanın:
+1. `sshuser` değerini, kümenizin SSH kullanıcısı ile, `CLUSTERNAME` değerini kümenizin adıyla değiştirin. Aşağıdaki komutu girerek küme için bir SSH bağlantısı açın. İstendiğinde, SSH kullanıcı hesabının parolasını girin.
 
     ```bash
-    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    `sshuser` değerini, kümenizin SSH kullanıcısı ile, `clustername` değerini kümenizin adıyla değiştirin. İstendiğinde, SSH kullanıcı hesabının parolasını girin. HDInsight ile `scp` kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
-2. Küme adını bir değişkene kaydedip JSON ayrıştırma yardımcı programını (`jq`) yüklemek için aşağıdaki komutları kullanın. İstendiğinde, Kafka kümesi adını girin:
+2. Yükleme [jq](https://stedolan.github.io/jq/), bir komut satırı JSON işlemcisine giden. Açık SSH bağlantısından yüklemek için komutu girin `jq`:
 
     ```bash
     sudo apt -y install jq
-    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
     ```
 
-3. Kafka aracısı ve Apache Zookeeper konakları almak için aşağıdaki komutları kullanın. İstendiğinde, küme oturum açma (yönetici) hesabı için parolayı girin. İki defa parolanız istenir.
+3. Ortam değişkenlerini ayarlamak. Değiştirin `PASSWORD` ve `CLUSTERNAME` ile küme oturum açma parolasını ve küme adı sırasıyla, sonra komutu girin:
 
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
+    export password='PASSWORD'
+    export clusterNameA='CLUSTERNAME'
     ```
 
-4. Akış işlemi tarafından kullanılan konular oluşturmak için aşağıdaki komutları kullanın:
+4. Büyük küçük harfleri doğru extract küme adı. Küme adı gerçek büyük küçük harfleri, küme nasıl oluşturulduğuna bağlı olarak, beklenenden farklı olabilir. Bu komut gerçek büyük/küçük harf almak, bir değişkende depolayın ve sonra görünen doğru cased adı ve daha önce belirtilen adı. Aşağıdaki komutu girin:
+
+    ```bash
+    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" \
+  	| jq -r '.items[].Clusters.cluster_name')
+    echo $clusterName, $clusterNameA
+    ```
+
+5. Kafka aracısı ve Apache Zookeeper konakları almak için aşağıdaki komutları kullanın. İstendiğinde, küme oturum açma (yönetici) hesabı için parolayı girin. İki defa parolanız istenir.
+
+    ```bash
+    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G \
+    https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER \
+  	| jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`;
+    export KAFKABROKERS=`curl -sS -u admin:$password -G \
+    https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
+  	| jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`;
+    ```
+
+6. Akış işlemi tarafından kullanılan konular oluşturmak için aşağıdaki komutları kullanın:
 
     > [!NOTE]  
     > `test` konusunun zaten mevcut olduğuna dair bir hata alabilirsiniz. Üretici ve Tüketici API’si öğreticisinde oluşturulmuş olabileceğinden bu sorun değildir.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
-
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
-
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic --zookeeper $KAFKAZKHOSTS
-
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
@@ -251,7 +254,16 @@ Projeyi derlemek ve HDInsight kümesi üzerinde Kafka’nıza dağıtmak için a
     > [!NOTE]  
     > `--from-beginning` parametresi, tüketiciyi konuda depolanan kayıtların başında başlayacak şekilde yapılandırır. Her sözcükle karşılaşıldığında sayı artar, bu nedenle konu, artan sayıyla birlikte her sözcük için birden fazla giriş içerir.
 
-7. Üreticiden çıkış yapmak için __Ctrl + C__ tuşlarını kullanın. Uygulamadan ve tüketiciden çıkış yapmak için __Ctrl + C__ tuşlarını kullanmaya devam edin.
+4. Üreticiden çıkış yapmak için __Ctrl + C__ tuşlarını kullanın. Uygulamadan ve tüketiciden çıkış yapmak için __Ctrl + C__ tuşlarını kullanmaya devam edin.
+
+5. Akış işlemi tarafından kullanılan konuları silmek için aşağıdaki komutları kullanın:
+
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic test --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcounts --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic RekeyedIntermediateTopic --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
+    ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

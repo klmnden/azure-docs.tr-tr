@@ -14,16 +14,16 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 21167366ff3af2bb360c33eaae9d591020bf11a5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: fa1731c9361be83949aa794ed8842681bd81d995
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487592"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057787"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack'te Azure CLI ile API Sürüm profillerini kullanma
 
-*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Şunlara uygulanır Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Linux, Mac ve Windows istemci platformlarını Azure Stack geliştirme Seti'ni (ASDK) kaynaklarını yönetmek için Azure komut satırı arabirimi (CLI) yedekleme ayarlamak için bu makaledeki adımları izleyebilirsiniz.
 
@@ -99,7 +99,7 @@ Azure CLI ve bilgisayarınızda yüklü diğer bağımlı kitaplıkların sürü
     python -m pip install --upgrade pip
     ```
 
-3. Yükleme **certifi** modülü. [Certifi](https://pypi.org/project/certifi/) bir modül ve TLS konakları kimliğini doğrularken SSL sertifikaları güvenilirliğini doğrulamak için kök sertifikalar koleksiyonu. Bir komut istemi veya yükseltilmiş bir PowerShell istemi açın ve aşağıdaki komutu yazın:
+3. Yükleme **certifi** modülü. [Certifi](https://pypi.org/project/certifi/) TLS konakları kimliğini doğrularken, SSL sertifikaları güvenilirliğini doğrulamak için bir modül ve kök sertifika koleksiyonunu olduğu. Bir komut istemi veya yükseltilmiş bir PowerShell istemi açın ve aşağıdaki komutu yazın:
 
     ```powershell
     pip install certifi
@@ -139,7 +139,7 @@ Azure CLI ve bilgisayarınızda yüklü diğer bağımlı kitaplıkların sürü
     sudo -H pip3 install --upgrade pip
     ```
 
-3. Yükleme **certifi** modülü. [Certifi](https://pypi.org/project/certifi/) bir modül ve TLS konakları kimliğini doğrularken SSL sertifikaları güvenilirliğini doğrulamak için kök sertifikalar koleksiyonu. Bir komut istemi veya yükseltilmiş bir PowerShell istemi açın ve aşağıdaki komutu yazın:
+3. Yükleme **certifi** modülü. [Certifi](https://pypi.org/project/certifi/) TLS konakları kimliğini doğrularken, SSL sertifikaları güvenilirliğini doğrulamak için bir modül ve kök sertifika koleksiyonunu olduğu. Bir komut istemi veya yükseltilmiş bir PowerShell istemi açın ve aşağıdaki komutu yazın:
 
     ```bash
     pip3 install certifi

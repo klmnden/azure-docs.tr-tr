@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 3212befac60e3677c0b556825560cc548df42969
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990994"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056733"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Avere vFXT sisteminizi planlama
 
@@ -130,6 +130,17 @@ Kümeyi oluştururken küme denetleyicisinde bir genel IP adresi oluşturma veri
 
 * Yeni bir vnet ya da yeni bir alt ağ oluşturmak, küme denetleyicisi bir genel IP adresi atanır.
 * Bir mevcut bir vnet ve alt ağı seçerseniz, küme denetleyicisi özel IP adreslerine sahip olacaktır. 
+
+## <a name="vm-access-roles"></a>VM erişim rolleri 
+
+Azure kullanan [rol tabanlı erişim denetimi](../role-based-access-control/index.yml) küme Vm'leri bazı görevleri gerçekleştirmek üzere yetkilendirmek için (RBAC). Örneğin, küme denetleyicisi oluşturmak ve küme düğümü sanal makineleri yapılandırmak için yetkilendirilmesi gerekiyor. Küme düğümleri atama veya diğer küme düğümleri için IP adresi yeniden atama gerekir.
+
+Azure iki yerleşik role Avere vFXT sanal makineler için kullanılır: 
+
+* Yerleşik rol kümesi denetleyicisi kullanan [Avere katkıda bulunan](../role-based-access-control/built-in-roles.md#avere-contributor). 
+* Küme düğümleri kullanan yerleşik rolü [Avere işleci](../role-based-access-control/built-in-roles.md#avere-operator)
+
+Erişim rolleri Avere vFXT bileşenleri için özelleştirmek gerekiyorsa, kendi Rol tanımlamak ve ardından oluşturuldukları sırada Vm'lere atar. Dağıtım şablonu Azure Market'te kullanamazsınız. Microsoft Müşteri Hizmetleri ve desteği açıklandığı gibi Azure portalında bir bileti açarak başvurun [sisteminizle Yardım Al](avere-vfxt-open-ticket.md). 
 
 ## <a name="next-step-understand-the-deployment-process"></a>Sonraki adım: Dağıtım sürecini anlama
 

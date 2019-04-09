@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 56580454753ae6af60f5f8c51d9504f813f91e97
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: ffd2afd66c108f9eef690d641d9c4cbc85e9d609
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540134"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256099"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure haritalar harita denetimini kullanma
 
@@ -30,8 +30,8 @@ Harita denetimi istemci tarafı Javascript kitaplığını kullanarak bir web sa
     a. Stil sayfası ve komut dosyası başvuruları URL uç noktaları ekleyerek Azure haritalar Web SDK'sı genel barındırılan CDN sürümünü kullanmanız `<head>` öğesi:
 
     ```HTML
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
     b. Alternatif olarak, Azure haritalar Web SDK kaynak kodu kullanarak yerel olarak yükleme [azure haritalar denetimi](https://www.npmjs.com/package/azure-maps-control) NPM paketini ve uygulamanızı barındırın. Bu paket ayrıca TypeScript tanımları içerir.
@@ -102,7 +102,7 @@ Harita denetimi istemci tarafı Javascript kitaplığını kullanarak bir web sa
     </script>
     ```
 
-    Bkz: [Azure Haritalar ile kimlik doğrulaması](azure-maps-authentication.md) daha fazla ayrıntı için.
+    Daha fazla bilgi için [Azure Haritalar ile kimlik doğrulaması](azure-maps-authentication.md) daha fazla ayrıntı için.
 
 6. İsteğe bağlı olarak, şu meta etiketini öğeleri yararlı sayfanıza gidin ekleme bulabilirsiniz:
 
@@ -114,7 +114,7 @@ Harita denetimi istemci tarafı Javascript kitaplığını kullanarak bir web sa
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
 
-7. Hepsini HTML dosyanız aşağıdaki gibi görünmelidir:
+7. Hepsini HTML dosyanızın şu kod gibi görünmelidir:
 
     ```HTML
     <!DOCTYPE html>
@@ -131,8 +131,8 @@ Harita denetimi istemci tarafı Javascript kitaplığını kullanarak bir web sa
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <style>
             html, body {
@@ -164,7 +164,7 @@ Harita denetimi istemci tarafı Javascript kitaplığını kullanarak bir web sa
     </html>
     ```
 
-8. Web tarayıcınızda dosyasını açın ve işlenmiş harita görüntüleyin. Aşağıdaki gibi görünmelidir:
+8. Web tarayıcınızda dosyasını açın ve işlenmiş harita görüntüleyin. Bu, şu kod gibi görünmelidir:
 
     <iframe height="700" style="width: 100%;" scrolling="no" title="Harita Denetimi'ni kullanma" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Kalem bkz <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>harita denetimini kullanma</a> Azure haritalar tarafından (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) üzerinde <a href='https://codepen.io'>CodePen</a>.
@@ -175,9 +175,9 @@ Kalem bkz <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>harita denetimini k
 Oluşturma ve bir haritayla etkileşim kurabilir öğrenin:
 
 > [!div class="nextstepaction"]
-> [Bir eşleme oluşturma](map-create.md)
+> [Harita oluşturma](map-create.md)
 
 Bir eşlem stili hakkında bilgi edinin:
 
 > [!div class="nextstepaction"]
-> [Harita stil seçin](choose-map-style.md)
+> [Harita stili seçme](choose-map-style.md)

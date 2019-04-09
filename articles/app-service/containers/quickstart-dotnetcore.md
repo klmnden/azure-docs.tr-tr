@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: af22473e0c9b56210b720ee5d122d96566689158
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: 43016b3c31a0371f953f758bc7afb53bd1508495
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889724"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056203"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Linux üzerinde App Service'te bir ASP.NET Core uygulaması oluşturma
 
@@ -41,15 +41,15 @@ Mac, Windows veya Linux makinesi kullanarak bu makaledeki adımları izleyebilir
 
 Bu hızlı başlangıcı tamamlamak için:
 
-* <a href="https://git-scm.com/" target="_blank">Git'i yükleyin</a>
-* <a href="https://www.microsoft.com/net/core/" target="_blank">.NET Core’u yükleme</a>
+* <a href="https://git-scm.com/" target="_blank">Git’i yükleme</a>
+* <a href="https://www.microsoft.com/net/core/" target="_blank">.NET Core'u yükleyin</a>
 
 ## <a name="create-the-app-locally"></a>Uygulamayı yerel olarak oluşturma
 
 Makinenizde bir terminal penceresinde, `hellodotnetcore` adlı bir dizin oluşturup geçerli dizin olarak değiştirin.
 
 ```bash
-md hellodotnetcore
+mkdir hellodotnetcore
 cd hellodotnetcore
 ```
 
