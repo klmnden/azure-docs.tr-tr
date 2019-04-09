@@ -1,20 +1,20 @@
 ---
-title: Öğretici, Azure IOT Edge - özel Java modülü oluşturma | Microsoft Docs
+title: Özel Java modülü Öğreticisi - Azure IOT Edge | Microsoft Docs
 description: Bu öğreticide Java koduyla IoT Edge modülü oluşturma ve bir Edge cihazına dağıtma adımları gösterilir.
 services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 9a541f42670b3ccf83331e3e2e9069289bb9b4b3
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3e24894e088f443ca705163c353920e8dd3ff4ca
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224082"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266690"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Öğretici: Bir Java IOT Edge modülü geliştirme ve sanal Cihazınızı dağıtma
 
@@ -36,7 +36,7 @@ Bu öğreticide oluşturacağınız IoT Edge modülü, cihazınız tarafından o
 
 Bir Azure IoT Edge cihazı:
 
-* Hızlı başlangıçlar için adımları izleyerek bir IOT Edge cihazı ayarlayabilirsiniz [Linux](quickstart-linux.md) veya [Windows](quickstart.md).
+* Bir Azure sanal makinesi için hızlı başlangıç adımları izleyerek bir IOT Edge cihazı kullanabilirsiniz [Linux](quickstart-linux.md) veya [Windows cihazları](quickstart.md). 
 * Windows cihazlarda IOT Edge için sürüm 1.0.5 Java modülleri desteklemez. Daha fazla bilgi için [1.0.5 sürüm notları](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Belirli bir sürümünü yükleme adımları için bkz: [IOT Edge güvenlik arka plan programı ve çalışma zamanını güncelleştirme](how-to-update-iot-edge.md).
 
 Bulut kaynakları:
@@ -51,7 +51,7 @@ Geliştirme kaynakları:
 * [Java SE Development Kit 10](https://aka.ms/azure-jdks) ve [`JAVA_HOME` ortam değişkenini](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) JDK yüklemenize göre ayarlama.
 * [Maven](https://maven.apache.org/)
 * [Docker CE](https://docs.docker.com/install/)
-   * Windows cihazında geliştiriyorsanız Docker'ın [Linux kapsayıcılarını kullanacak şekilde yapılandırıldığından](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) emin olun. 
+   * Bir Windows cihazında geliştiriyorsanız, Docker olduğundan emin olun [Linux veya Windows kapsayıcıları kullanacak şekilde yapılandırılmış](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)IOT Edge cihaz işletim sisteminize bağlı olarak. 
 
 
 ## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
@@ -146,8 +146,9 @@ Ortam dosyası, kapsayıcı kayıt defterinizin kimlik bilgilerini depolar ve bu
 7. **MessageCallbackMqtt** öğesinin yürütme metodunu aşağıdaki kodla değiştirin. Modül IoT Edge hub'ından bir MQTT iletisi aldığında bu yöntem çağrılır. Modül ikizi aracılığıyla ayarlanan sıcaklık eşiğinin altındaki sıcaklıkları rapor eden iletileri filtreler.
 
     ```java
+    protected static class MessageCallbackMqtt implements MessageCallback {
         private int counter = 0;
-       @Override
+        @Override
         public IotHubMessageResult execute(Message msg, Object context) {
             this.counter += 1;
  
@@ -173,6 +174,7 @@ Ortam dosyası, kapsayıcı kayıt defterinizin kimlik bilgilerini depolar ve bu
             }
             return IotHubMessageResult.COMPLETE;
         }
+    }
     ```
 
 8. Aşağıdaki iki statik iç sınıfı **App** sınıfına ekleyin. Modül ikizinin istenen özellik değişiklikleri bu sınıfların tempThreshold değişkeni güncelleştirin. Tüm modüllerin, doğrudan buluttan bir modülün içinde çalışan kodu yapılandırmanıza izin veren kendi modül ikizi vardır.
@@ -218,7 +220,7 @@ Ortam dosyası, kapsayıcı kayıt defterinizin kimlik bilgilerini depolar ve bu
 
 11. App.java dosyasını kaydedin.
 
-12. VS Code gezgininde IoT Edge çözüm çalışma alanınızdaki **deployment.template.json** dosyasını açın. Bu dosya, bu durumda dağıtmak için hangi modülü IOT Edge Aracısı söyler **tempSensor** ve **JavaModule**ve bunlar arasında iletileri yönlendirme hakkında IOT Edge hub'ı söyler. Visual Studio Code uzantısı otomatik olarak dağıtım şablonu gerekir, ancak her şeyi çözümünüz için doğru olduğundan emin olun, ilgili bilgilerin çoğunu doldurur: 
+12. VS Code gezgininde IoT Edge çözüm çalışma alanınızdaki **deployment.template.json** dosyasını açın. Bu dosya dağıtmak için hangi modülü IOT Edge Aracısı bildirir ve IOT Edge hub'ı, bunlar arasında iletileri yönlendirmek anlatır. Bu durumda, iki modüllerdir **tempSensor** ve **JavaModule**. Visual Studio Code uzantısı otomatik olarak dağıtım şablonu gerekir, ancak her şeyi çözümünüz için doğru olduğundan emin olun, ilgili bilgilerin çoğunu doldurur: 
 
    1. Varsayılan platform, IOT Edge kümesine **amd64** , VS Code durum çubuğunda anlamına gelir, **JavaModule** görüntünün amd64 sürüme Linux ayarlanır. Durum çubuğunda varsayılan platform değiştirme **amd64** için **arm32v7** veya **windows-amd64** , IOT Edge cihazınızın mimari ise. 
 
@@ -264,7 +266,7 @@ VS Code tümleşik terminalinde etiketle tam kapsayıcı görüntü adresini gö
 >[!TIP]
 >Oluşturun ve gönderin, modül çalışılırken bir hata alırsanız aşağıdaki denetimleri yapın:
 >* Docker kapsayıcı kayıt defterinizin kimlik bilgilerini kullanarak Visual Studio code'da oturum? Bu kimlik bilgilerini Azure portalında oturum açmak için kullandığınız yapılandırılanlardan farklı.
->* Kapsayıcı deponuza doğru mu? Açık **modülleri** > **cmodule** > **module.json** ve bulma **depo** alan. Görüntü deposu gibi görünmelidir  **\<registryname\>.azurecr.io/javamodule**. 
+>* Kapsayıcı deponuza doğru mu? Açık **modülleri** > **JavaModule** > **module.json** ve bulma **depo** alan. Görüntü deposu gibi görünmelidir  **\<registryname\>.azurecr.io/javamodule**. 
 >* Geliştirme makinenizde çalışan kapsayıcılar aynı türde oluşturuyorsunuz? Visual Studio Code için Linux amd64 kapsayıcıları varsayar. Geliştirme makinenizde Windows kapsayıcıları veya Linux arm32v7 kapsayıcıları çalıştırıyorsa, platform şekilde kapsayıcı platformunuzu eşleştirmek için VS Code penceresinin alt kısmındaki mavi durum çubuğunda güncelleştirin.
 
 ## <a name="deploy-and-run-the-solution"></a>Çözümü dağıtma ve çalıştırma
@@ -321,5 +323,5 @@ Geçmeyecekseniz ücret kesilmesini önlemek için yerel yapılandırmalarınız
 Bu öğreticide IoT Edge cihazınız tarafından üretilen ham verileri filtreleme kodunu içeren bir IoT Edge modülü oluşturdunuz. Azure IoT Edge'in verileri iş içgörüsüne çevirmenize yardımcı olabileceği diğer yolları öğrenmek için bir sonraki öğreticiye geçebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [SQL Server veritabanları ile uç cihazlarda veri depolama](tutorial-store-data-sql-server.md)
+> [SQL Server veritabanları ile uçta veri Store](tutorial-store-data-sql-server.md)
 

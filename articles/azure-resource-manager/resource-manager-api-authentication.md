@@ -4,22 +4,20 @@ description: Uygulama diğer Azure aboneliklerine ile tümleştirmek için Azure
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
-manager: timlt
-editor: tysonn
 ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/22/2019
+ms.date: 04/05/2019
 ms.author: dugill
-ms.openlocfilehash: 7e6ce8c4e5e6ff79a8e77708bd76cef6c24cadd3
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: ae405d5dd99a0e2acced924ccccab292b4489cde
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805525"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264344"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Aboneliklere erişmek için Kaynak Yöneticisi'ni kullanın kimlik doğrulama API'si
 
@@ -31,8 +29,6 @@ Uygulamanızı çeşitli şekillerde Resource Manager API'leri erişebilirsiniz:
 2. **Salt uygulama erişim**: daemon Hizmetleri ve zamanlanan işler çalışan uygulamalar için. Uygulamanın kimliğini kaynaklarına doğrudan erişimi verilir. Bu yaklaşım, Azure uzun süreli gözetimsiz (katılımsız) erişmesi gereken uygulamaları için çalışır.
 
 Bu makalede, bu iki yetkilendirme yöntemi kullanan bir uygulama oluşturmak için adım adım yönergeler sağlar. REST API ile her bir adımı nasıl gösterir veya C#. Eksiksiz bir ASP.NET MVC uygulaması kullanılabilir [ https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense ](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-the-web-app-does"></a>Web uygulaması yapar
 
@@ -72,27 +68,9 @@ Bağlı aboneliklerinizi yönetin:
 ## <a name="register-application"></a>Uygulamayı kaydet
 Kodlama başlamadan önce web uygulamanızı Azure Active Directory (AD ile) kaydedin. Uygulama kaydı, Azure AD'de uygulamanız için merkezi bir kimliği oluşturur. Bu, uygulamanız OAuth istemci kimliği ve yanıt URL'leri, uygulamanızın kimlik doğrulaması ve Azure Resource Manager API'lerine erişmek için kullandığı kimlik bilgileri gibi ilgili temel bilgileri tutar. Uygulama kaydı için kullanıcının Microsoft APIs erişirken uygulamanızın çeşitli temsilci izinleri de kaydeder.
 
-Uygulamanız başka bir aboneliğe eriştiğinden, çok kiracılı bir uygulama yapılandırmanız gerekir. Doğrulama geçirmek için Azure Active Directory ile ilişkili bir etki alanı sağlar. Azure Active Directory ile ilişkili etki alanları görmek için portalda oturum açın.
+Uygulamanızı kaydetmek için bkz: [hızlı başlangıç: Microsoft kimlik platformu bir uygulamayı kaydetme](../active-directory/develop/quickstart-register-app.md). Uygulamanıza bir ad verin ve seçin **herhangi bir kuruluş dizini hesaplarında** desteklenen hesap türleri için. Azure Active Directory ile ilişkili bir etki alanı yeniden yönlendirme URL'sini sağlayın.
 
-Aşağıdaki örnek, Azure PowerShell kullanarak uygulamayı kaydetmek gösterilmektedir. Bu komutun çalışması Azure PowerShell'in en son sürümünü (Ağustos 2016) olması gerekir.
-
-```azurepowershell-interactive
-$app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
-```
-
-AD uygulaması oturum açmak için uygulama kimliği ve parolası gerekir. Önceki komuttan döndürülen uygulama kimliği görmek için bu seçeneği kullanın:
-
-```azurepowershell-interactive
-$app.ApplicationId
-```
-
-Aşağıdaki örnek, Azure CLI kullanarak bir uygulamayı kaydetme gösterilmektedir.
-
-```azurecli-interactive
-az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
-```
-
-Sonuç uygulamada kimlik doğrulaması yaparken ihtiyacınız AppID içerir.
+AD uygulaması oturum açmak için uygulama kimliği ve gizli anahtarı gerekir. Uygulama kimliği, uygulama için bir genel bakış görüntülenir. Gizli dizi oluşturma ve API izinleri istemek için bkz: [hızlı başlangıç: Web API'leri erişmek için bir istemci uygulamasını yapılandırmak](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Yeni bir istemci gizli anahtarı sağlayın. API izinleri seçin **Azure Hizmet Yönetimi**. Seçin **temsilci izinleri** ve **user_impersonation**.
 
 ### <a name="optional-configuration---certificate-credential"></a>İsteğe bağlı yapılandırma - sertifika kimlik bilgisi
 Azure AD uygulamaları için de sertifika kimlik bilgilerini destekler: otomatik olarak imzalanan bir sertifika oluşturmak, özel anahtarı tutmak ve Azure AD uygulama kaydınızı için kullanılacak ortak anahtarı ekleyin. Kimlik doğrulaması için uygulamanızı Azure AD'ye özel anahtarınız ile imzalanmış küçük bir yükü gönderir ve Azure AD'ye kaydettiniz ortak anahtar kullanarak imzayı doğrular.

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 87ad3b8984907b5f5b889c36c2406f07cbeb242b
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 8ceb9aefb1e68ceb6030f078aba8b0717cdf9e7c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056784"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260893"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Azure Haritalar’ı kullanarak ilgi çekici noktaya yönlendirme
 
@@ -47,11 +47,11 @@ Aşağıdaki adımlarda, Harita Denetimi API’sinin tümleşik olduğu statik b
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
 
         <script>
             var map, datasource, client;
@@ -83,7 +83,7 @@ Aşağıdaki adımlarda, Harita Denetimi API’sinin tümleşik olduğu statik b
 
     HTML üst bilgisinin Azure Harita Denetimi kitaplığı tarafından barındırılan CSS ve JavaScript kaynak dosyalarını içerdiğine dikkat edin. Sayfanın gövdesinde bulunan ve sayfa yüklendiğinde `GetMap` işlevini çağıracak olan `onload` olayına dikkat edin. Bu işlev, Azure Haritalar API’lerine erişime yönelik satır içi JavaScript kodunu içerir. 
 
-3. `GetMap` işlevine aşağıdaki JavaScript kodunu ekleyin. **\<Azure Haritalar Anahtarınız\>** dizesini, Haritalar hesabınızdan kopyaladığınız birincil anahtarla değiştirin.
+3. `GetMap` işlevine aşağıdaki JavaScript kodunu ekleyin. Dize değiştirin `<Your Azure Maps Key>` haritalar hesabınızdan kopyaladığınız birincil anahtara sahip.
 
     ```JavaScript
    //Instantiate a map object
@@ -96,11 +96,11 @@ Aşağıdaki adımlarda, Harita Denetimi API’sinin tümleşik olduğu statik b
    });
    ```
 
-    Azure Harita Denetimi API’sinin bir bileşeni olan **atlas.Map**, görsel ve etkileşimli bir web haritası için denetim olanağı sunar.
+    Azure Harita Denetimi API’sinin bir bileşeni olan `atlas.Map`, görsel ve etkileşimli bir web haritası için denetim olanağı sunar.
 
 4. Dosyayı kaydedin ve tarayıcınızda açın. Bu noktada, daha fazla geliştirebileceğiniz temel bir haritanız olur.
 
-   ![Temel haritayı görüntüleme](./media/tutorial-route-location/basic-map.png)
+   ![Temel haritayı görüntüleme](media/tutorial-route-location/basic-map.png)
 
 ## <a name="define-how-the-route-will-be-rendered"></a>Rotanın nasıl işleneceğini tanımlama
 
@@ -168,7 +168,7 @@ Bu öğreticide rota başlangıcı ve bitişi için bir simge ve rota yolu için
 
 3. **MapRoute.html** dosyasını kaydedin ve tarayıcınızı yenileyin. Harita üzerinde Seattle artık ortalanır ve başlangıç noktasını işaretleme mavi iğne ve bitiş noktası işaretleme yuvarlak mavi iğne görebilirsiniz.
 
-   ![Başlangıç ve bitiş noktaları işaretlenmiş şekilde haritayı görüntüleme](./media/tutorial-route-location/map-pins.png)
+   ![Başlangıç ve bitiş noktaları işaretlenmiş şekilde haritayı görüntüleme](media/tutorial-route-location/map-pins.png)
 
 <a id="getroute"></a>
 
@@ -189,9 +189,9 @@ Bu bölümde Azure haritalar rota hizmeti API uç noktası için belirtilen baş
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   **SubscriptionKeyCredential** oluşturur bir **SubscriptionKeyCredentialPolicy** abonelik anahtarını Azure haritalar için HTTP isteklerinde kimlik doğrulaması için. **Atlas.service.MapsURL.newPipeline()** alır **SubscriptionKeyCredential** ilke ve oluşturan bir [işlem hattı](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) örneği. **RouteURL** Azure haritalar için URL'yi temsil [rota](https://docs.microsoft.com/rest/api/maps/route) operations.
+   `SubscriptionKeyCredential` Oluşturur bir `SubscriptionKeyCredentialPolicy` abonelik anahtarını Azure haritalar için HTTP isteklerinde kimlik doğrulaması için. `atlas.service.MapsURL.newPipeline()` Alır `SubscriptionKeyCredential` ilke ve oluşturan bir [işlem hattı](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) örneği. `routeURL` Azure haritalar için URL'yi temsil [rota](https://docs.microsoft.com/rest/api/maps/route) operations.
 
-2. Kimlik bilgileri ve URL'yi ayarladıktan sonra başlangıçtan uç noktasına rota oluşturmak için aşağıdaki JavaScript kodunu ekleyin. **RouteURL** isteklerini Azure haritalar rota yönlerinin hesaplamak için hizmet yönlendirir. Kullanarak bir GeoJSON özellik koleksiyonundan yanıt ayıklanır **geojson.getFeatures()** yöntemi ve veri kaynağına eklenir.
+2. Kimlik bilgileri ve URL'yi ayarladıktan sonra başlangıçtan uç noktasına rota oluşturmak için aşağıdaki JavaScript kodunu ekleyin. `routeURL` İsteklerini Azure haritalar rota yönlerinin hesaplamak için hizmet yönlendirir. Kullanarak bir GeoJSON özellik koleksiyonundan yanıt ayıklanır `geojson.getFeatures()` yöntemi ve veri kaynağına eklenir.
 
     ```JavaScript
     //Start and end point input to the routeURL

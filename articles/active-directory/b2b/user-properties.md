@@ -1,27 +1,27 @@
 ---
-title: Azure Active Directory B2B işbirliği kullanıcısı - özelliklerini | Microsoft Docs
-description: Azure Active Directory B2B işbirliği kullanıcı özellikleri yapılandırılabilir
+title: Bir B2B özellikleri Konuk kullanıcı - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory B2B Konuk kullanıcı özelliklerini ve durumları önce ve sonra Davetiyesi kullanımı
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 791dcfadf1db6cae48bee5c926f75e454c88fc55
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 4d4466e4ac7a4e818da6332254e3094eccbaf2b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294663"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257612"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Bir Azure Active Directory B2B işbirliği kullanıcısı özellikleri
 
-UserType bir kullanıcıyla bir Azure Active Directory (Azure AD) işletmeler arası (B2B) işbirliği kullanıcısı olan konuk =. Bu Konuk kullanıcı genellikle bir iş ortağı kuruluştan ve davet etme dizinde ayrıcalıkları varsayılan olarak sınırlıdır.
+Bu makalede, önce ve sonra Davetiyesi kullanımı özellikleri ve Azure Active Directory'de (Azure AD) B2B Konuk kullanıcı nesnenin durumlarını açıklar. UserType bir kullanıcıyla bir Azure AD işletmeler arası (B2B) işbirliği kullanıcısı olan konuk =. Bu Konuk kullanıcı genellikle bir iş ortağı kuruluştan ve davet etme dizinde ayrıcalıkları varsayılan olarak sınırlıdır.
 
 Davet eden bir kuruluşun gereksinimlerine bağlı olarak, bir Azure AD B2B işbirliği kullanıcısı hesabı şu durumlardan birinde olabilir:
 

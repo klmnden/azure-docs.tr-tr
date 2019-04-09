@@ -1,18 +1,18 @@
 ---
-title: Değişen talepleri karşılamak için bir Azure Veri Gezgini kümedeki ölçeklendirin
+title: Bir Azure Veri Gezgini kümesini ölçeklendirme
 description: Ölçeği genişletme ve ölçeklendirmek için adımlar bu makalede bir Azure Veri Gezgini kümesinde göre değişen isteğe bağlı.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 02/18/2019
-ms.openlocfilehash: ab4ced6695e6066098dd5ff7348528deedfc0e1b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/05/2019
+ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044243"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261607"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Küme değişen talepleri karşılamak için genişleme yönetme
 
@@ -22,21 +22,23 @@ Daha iyi bir yaklaşım *ölçek* ekleme ve kaldırma kapasitesini isteğe bağl
 
 Bu makalede, küme ölçek genişletme, otomatik olarak da bilinen ölçeklendirme yönetme gösterilmektedir. Otomatik ölçeklendirme, otomatik olarak önceden tanımlanmış kurallar ve zamanlamaları göre örnek sayısını ölçeklendirmek sağlar. Bu makalede açıklanan Azure portalında kümenizin otomatik ölçeklendirme ayarlarınızı belirtin.
 
-Kümenize gidin. Altında **ayarları**seçin **ölçeğini**. Altında **yapılandırma**seçin **etkinleştirmek otomatik ölçeklendirme**.
+## <a name="steps-to-configure-autoscale"></a>Otomatik ölçeklendirme yapılandırma adımları
 
-![Otomatik ölçeklendirmeyi etkinleştir](media/manage-cluster-scaling/enable-autoscale.png)
+Azure portalında Veri Gezgini küme kaynağınıza gidin. Altında **ayarları** başlığı seçin **ölçeğini**. Üzerinde **yapılandırma** sekmesinde **etkinleştirmek otomatik ölçeklendirme**.
 
-Aşağıdaki grafikte, sonraki birkaç adım akışı gösterilmektedir. Daha fazla ayrıntı Grafiği ' dir.
+   ![Otomatik ölçeklendirmeyi etkinleştir](media/manage-cluster-scaling/enable-autoscale.png)
 
-![Ölçek kuralı](media/manage-cluster-scaling/scale-rule.png)
+Aşağıdaki grafikte, sonraki birkaç adım akışı gösterilmektedir. Daha ayrıntılı bilgi grafiği izleyin.
 
-1. İçinde **otomatik ölçeklendirme ayarı adı** kutusunda, gibi bir ad verin *genişleme: önbellek kullanımı*.
+1. İçinde **otomatik ölçeklendirme ayarı adı** kutusunda, gibi bir ad verin *genişleme: önbellek kullanımı*. 
 
-1. İçin **ölçek modu**seçin **ölçek dayalı bir ölçüme göre**. Bu mod, dinamik ölçeklendirme sağlar. Belirleyebilirsiniz **belirli bir örnek sayısına ölçeklendirin**.
+   ![Ölçek kuralı](media/manage-cluster-scaling/scale-rule.png)
 
-1. Seçin **+ alınabilecek**.
+2. İçin **ölçek modu**seçin **ölçek dayalı bir ölçüme göre**. Bu mod, dinamik ölçeklendirme sağlar. Belirleyebilirsiniz **belirli bir örnek sayısına ölçeklendirin**.
 
-1. İçinde **ölçek kuralı** bölümünde sağ tarafta, her ayar için değerler sağlayın.
+3. Seçin **+ alınabilecek**.
+
+4. İçinde **ölçek kuralı** bölümünde sağ tarafta, her ayar için değerler sağlayın.
 
     **Ölçütler**
 
@@ -44,10 +46,10 @@ Aşağıdaki grafikte, sonraki birkaç adım akışı gösterilmektedir. Daha fa
     | --- | --- |
     | **Zaman toplama** | Gibi bir toplama ölçütü seçin **ortalama**. |
     | **Ölçüm adı** | Ölçeklendirme işlemi, aşağıdakiler gibi temel alınmasını istediğiniz ölçümü seçin **önbellek kullanımı**. |
-    | **Zaman dilimi istatistiği** | Arasında seçim **ortalama**, **Minimum**, **maksimum**, ve **toplam**. |
+    | **Zaman dilimi İstatistiği** | Arasında seçim **ortalama**, **Minimum**, **maksimum**, ve **toplam**. |
     | **İşleç** | Uygun bir seçeneği gibi belirleyin **büyüktür veya eşittir**. |
     | **Eşik** | Uygun bir değer seçin. Örneğin, önbellek kullanımı için yüzde 80'i iyi bir başlangıç noktası ' dir. |
-    | **Süre (dakika)** | Uygun miktarda bir sistemin geri ölçümleri hesaplanırken aramak saati seçin. Varsayılan 10 dakika ile başlayın. |
+    | **Süre (dakika cinsinden)** | Uygun miktarda bir sistemin geri ölçümleri hesaplanırken aramak saati seçin. Varsayılan 10 dakika ile başlayın. |
     |  |  |
 
     **Eylem**
@@ -56,12 +58,12 @@ Aşağıdaki grafikte, sonraki birkaç adım akışı gösterilmektedir. Daha fa
     | --- | --- |
     | **İşlem** | Ölçeklendirme veya ölçeği genişletmek için uygun seçeneği belirleyin. |
     | **Örnek sayısı** | Düğümleri veya örneklerini eklemek veya bir ölçüm koşul karşılandığında kaldırmak istiyorsanız sayısını seçin. |
-    | **Soğuma (dakika)** | Ölçek işlemleri arasında beklenecek bir uygun zaman aralığı seçin. Varsayılan beş dakika ile başlayın. |
+    | **Seyrek erişimli (dakika)** | Ölçek işlemleri arasında beklenecek bir uygun zaman aralığı seçin. Varsayılan beş dakika ile başlayın. |
     |  |  |
 
-1. **Add (Ekle)** seçeneğini belirleyin.
+5. **Add (Ekle)** seçeneğini belirleyin.
 
-1. İçinde **örnek limitleri** bölümünde sol tarafta, her ayar için değerler sağlayın.
+6. İçinde **örnek limitleri** bölümünde sol tarafta, her ayar için değerler sağlayın.
 
     | Ayar | Açıklama ve değer |
     | --- | --- |
@@ -70,10 +72,14 @@ Aşağıdaki grafikte, sonraki birkaç adım akışı gösterilmektedir. Daha fa
     | **Varsayılan** | Varsayılan örnek sayısı. Kaynak ölçümlerin okunmasıyla ile ilgili sorun varsa, bu ayar kullanılır. |
     |  |  |
 
-1. **Kaydet**’i seçin.
+7. **Kaydet**’i seçin.
 
 Bir ölçek genişletme işlemi, Azure Veri Gezgini kümeniz şimdi yapılandırdınız. Bir ölçeklendirme işlemi için başka bir kural ekleyin. Bu yapılandırma, dinamik olarak belirttiğiniz ölçümlere göre kümenizi ölçeklendirme sağlar.
 
 Ayrıca [küme ölçeği artırma yönetme](manage-cluster-scale-up.md) bir küme uygun boyutlandırması için.
 
 Küme ölçeklendirme sorunlarla ilgili yardıma ihtiyacınız varsa [bir destek isteği açın](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) Azure portalında.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+[Azure Veri Gezgini performansını, sistem durumu ve kullanım ölçümleri ile izleme](using-metrics.md)
