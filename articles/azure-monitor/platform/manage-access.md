@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: fd47b5de2226d88b6295cb28713db2a5d251e768
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577255"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276422"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Günlük verilerini ve Azure İzleyici'de çalışma alanlarını yönetme
 Azure İzleyici depoları, temelde verileri ve yapılandırma bilgilerini içeren bir kapsayıcı ve Log Analytics çalışma alanında verilerini günlüğe kaydedebilirsiniz. Verileri günlüğe kaydetmek için erişimi yönetmek için çalışma alanları ile ilgili çeşitli yönetim görevlerini gerçekleştirin. Siz veya kuruluşunuzun diğer üyeleri, IT altyapınızın tümünden veya bir bölümünden toplanan farklı veri kümelerini yönetmek için birden çok çalışma alanı kullanabilirsiniz.
@@ -83,7 +83,7 @@ Bir kullanıcının erişimi olan veri, aşağıdaki tabloda listelenen çoklu f
 | faktörü | Açıklama |
 |:---|:---|
 | [Erişim modu](#access-modes) | Kullanıcının kullandığı yöntem, çalışma alanına erişir.  Kullanılabilir verilerin kapsamını ve uygulanan erişim denetimi modu tanımlar. |
-| [Erişim denetim modu](#access-control-mode) | İzinler çalışma alanı ya da kaynak düzeyinde uygulanır tanımlar için çalışma alanı ayarlama. |
+| [Erişim denetimi modu](#access-control-mode) | İzinler çalışma alanı ya da kaynak düzeyinde uygulanır tanımlar için çalışma alanı ayarlama. |
 | [İzinler](#manage-accounts-and-users) | İzinler, tek tek veya çalışma alanı veya kaynak için kullanıcı gruplarına uygulanır. Hangi verilerin kullanıcı erişimi olacaktır tanımlar. |
 | [Tablo düzeyi RBAC](#table-level-rbac) | İsteğe bağlı ayrıntılı izinler, kullanıcıların erişim modu veya erişim denetim modu bağımsız olarak tüm kullanıcılara uygulanır. Bir kullanıcının hangi veri türlerini tanımlar. |
 
@@ -102,7 +102,6 @@ _Erişim modu_ bir kullanıcı bir Log Analytics çalışma alanı nasıl erişt
 > - Service Fabric
 > - Application Insights
 > - Kapsayıcılar
-> - HTTP veri toplayıcı API'si tarafından oluşturulan özel günlükler
 >
 > Bir sorguyu çalıştırarak günlükleri, kaynak ile düzgün bir şekilde ilişkili ve kayıtları inceleyerek ilgilendiğiniz test edebilirsiniz. Doğru kaynak kimliği ise [_ResourceId](log-standard-properties.md#_resourceid) özelliği, ardından veri kaynağı merkezli sorgular için kullanılabilir.
 

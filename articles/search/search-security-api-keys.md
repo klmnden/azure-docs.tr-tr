@@ -8,14 +8,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/06/2019
 ms.author: heidist
-ms.openlocfilehash: a59451c659effb55a2e16236b359b7601eb31cd4
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 64b07d37ce9267681ccfb5de3c7201586bd85b35
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286610"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273422"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>API anahtarları için Azure Search hizmeti oluşturma ve yönetme
 
@@ -53,30 +53,37 @@ Erişim anahtarlarını portalında veya aracılığıyla edinebilirsiniz [Yöne
 
 ## <a name="create-query-keys"></a>Sorgu anahtarları oluşturma
 
-Sorgu anahtarları, dizin içindeki belgeler için salt okunur erişim için kullanılır. Erişim ve istemci uygulamaları işlemlerinde kısıtlama hizmetinizde arama varlıklarını koruma için gereklidir. Her zaman bir istemci uygulamadan kaynaklanan herhangi bir sorgu için bir yönetici anahtarı yerine sorgu anahtarını kullanın.
+Sorgu anahtarları, belge koleksiyonu hedefleyen işlemleri için dizin içindeki belgeler için salt okunur erişim için kullanılır. Arama, filtreleme ve öneri sorguları bir sorgu anahtarı Süren tüm işlemlerdir. Dizin tanımı veya dizin oluşturucu durumu gibi veri veya nesne tanımları sistem döndüren salt okunur işlemi, bir yönetici anahtarı gerektirir.
+
+Erişim ve istemci uygulamaları işlemlerinde kısıtlama hizmetinizde arama varlıklarını koruma için gereklidir. Her zaman bir istemci uygulamadan kaynaklanan herhangi bir sorgu için bir yönetici anahtarı yerine sorgu anahtarını kullanın.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Liste [arama hizmetleri](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) aboneliğiniz için.
 3. Hizmeti seçin ve genel bakış sayfasında tıklayın **ayarları** >**anahtarları**.
 4. Tıklayın **sorgu anahtarlarını Yönet**.
-5. Zaten hizmetiniz için oluşturulan sorgu kullanın veya en çok 50 yeni sorgu anahtarları oluşturabilir. Varsayılan sorgu anahtarı değil olarak adlandırılır, ancak ek sorgu anahtarları için yönetilebilirlik adlandırılabilir.
+5. Zaten hizmetiniz için oluşturulan sorgu anahtarı kullanın veya en çok 50 yeni sorgu anahtarları oluşturabilir. Varsayılan sorgu anahtarı değil olarak adlandırılır, ancak ek sorgu anahtarları için yönetilebilirlik adlandırılabilir.
 
    ![Oluşturma veya bir sorgu anahtarı kullanma](media/search-security-overview/create-query-key.png) 
-
 
 > [!Note]
 > Sorgu anahtar kullanımını gösteren bir kod örneği bulunabilir [içinde bir Azure Search dizinini sorgulama C# ](search-query-dotnet.md).
 
+<a name="regenerate-admin-keys"></a>
+
 ## <a name="regenerate-admin-keys"></a>Yönetici anahtarları yeniden oluştur
 
-Böylece sürekli erişim için ikincil anahtar kullanımı bir birincil anahtar döndürebilirsiniz her hizmet için iki yönetici anahtarı oluşturulur.
-
-Aynı zamanda birincil ve ikincil anahtarları yeniden oluştur, hizmet işlemleri erişim için iki anahtarı kullanan tüm uygulamaları artık hizmete erişebilir.
+Böylece iş sürekliliği için ikincil anahtarı kullanarak bir birincil anahtar döndürebilirsiniz her hizmet için iki yönetici anahtarı oluşturulur.
 
 1. İçinde **ayarları** >**anahtarları** sayfasında, ikincil anahtarını kopyalayın.
 2. Tüm uygulamalar için ikincil anahtarı kullanmak için API anahtarı ayarlarını güncelleştirin.
 3. Birincil anahtarı yeniden oluştur.
 4. Tüm uygulamaları yeni birincil anahtarı kullanacak şekilde güncelleştirin.
+
+Aynı anda hem anahtarlarını yanlışlıkla yeniden, bu anahtarlar kullanarak tüm istemci isteklerini HTTP 403 Yasak ile başarısız olur. Ancak içerikler silinmez ve siz kalıcı olarak kilitlenip kilitlenmediğini değil. 
+
+Hizmet portalı veya yönetim katmanı erişmeye devam edebilirsiniz ([REST API](https://docs.microsoft.com/rest/api/searchmanagement/), [PowerShell](https://docs.microsoft.com/azure/search/search-manage-powershell), veya Azure Resource Manager). API anahtarları olmasa bile yönetim işlevleri aracılığıyla bir abonelik kimliği değil bir hizmeti API anahtarını operative ve bu nedenle hala kullanılabilir. 
+
+Portalı veya yönetim katmanı aracılığıyla yeni anahtarları oluşturduktan sonra içerik (dizinler, dizin oluşturucular, veri kaynakları, eş anlamlı sözcük eşlemelerini) erişim geri yeni anahtarları ve bu anahtarları isteklerinde sağlar.
 
 ## <a name="secure-api-keys"></a>Api anahtarlarını güvenli hale getirme
 Temel güvenlik, portalı veya Resource Manager arabirimleri (PowerShell veya komut satırı arabirimi) aracılığıyla erişimi kısıtlayarak oldunuz. Belirtildiği gibi abonelik yöneticileri görüntüleyebilir ve tüm API anahtarları yeniden oluştur. Önlem olarak, yönetici anahtarlarına erişimi olanların anlamak için rol atamalarını gözden geçirin.
@@ -91,5 +98,5 @@ Aşağıdaki rollerinin üyeleri görüntüleyebilir ve anahtarları yeniden olu
 ## <a name="see-also"></a>Ayrıca bkz.
 
 + [Azure Search'te rol tabanlı erişim denetimi](search-security-rbac.md)
-+ [PowerShell’i kullanarak yönetme](search-manage-powershell.md) 
++ [PowerShell kullanarak yönetme](search-manage-powershell.md) 
 + [Performans ve iyileştirme makale](search-performance-optimization.md)

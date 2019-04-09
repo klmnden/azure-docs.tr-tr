@@ -1,19 +1,19 @@
 ---
-title: Bir NoSQL veritabanı, belge verilerini modelleme
+title: Azure Cosmos DB'de veri modelleme
 titleSuffix: Azure Cosmos DB
 description: NoSQL veritabanlarında veri modelleme, ilişkisel bir veritabanı ve belge veritabanını veri modelleme arasındaki farklar hakkında bilgi edinin.
-author: aliuy
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: andrl
-ms.custom: seodec18
-ms.openlocfilehash: 5f117d51378f895755b4f5a27fe892d85e12074a
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.date: 04/08/2019
+ms.author: rimman
+ms.custom: rimman
+ms.openlocfilehash: e8581cb130c8b2d7ac044838f0ae922b9b5e86cd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762591"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275700"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB'de modelleme verileri
 

@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: b2f89d3fbb427cc3e14be231d4ffae879e641f2c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9e4e64b99a69e523547bae04146c7460d08bc1df
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554540"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261182"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-java"></a>Hızlı Başlangıç: SignalR Java kullanarak Service ve Azure işlevleri ile sohbet odası oluşturamadı.
 
@@ -64,7 +64,7 @@ Azure hesabınızla Azure portalında <https://portal.azure.com/> sayfasında ot
 
 1. **local.settings.json** dosyasının içinde, bağlantı dizesini **AzureSignalRConnectionString** ayarının değerine yapıştırın. Dosyayı kaydedin.
 
-1. İşlevler içeren ana dosyasını bulunduğunuz *src/main/java/com/function/Functions.java*:
+1. İşlevler içeren ana dosyasını bulunduğunuz *src/chat/java/src/main/java/com/function/Functions.java*:
 
     - **negotiate** - Geçerli bağlantı bilgileri döndürmek için *SignalRConnectionInfo* giriş bağlamasını kullanır.
     - **SendMessage** - istek gövdesinde bir Sohbet iletisi alır ve kullandığı *SignalR* bağlı istemci uygulamaları tüm ileti yayınlamak için çıktı bağlama.

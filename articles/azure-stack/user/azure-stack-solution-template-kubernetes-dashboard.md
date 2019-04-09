@@ -15,16 +15,16 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 4e9df0d413b964b4a14cf9ca48db8b7956b441f9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: fa663cce10a39ef60a0efa5838b81b257fd02b46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482598"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59255946"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Azure Stack'te Kubernetes panosuna erişme 
 
-*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti* 
+*Şunlara uygulanır Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti* 
 > [!Note]   
 > Azure Stack'te Kubernetes önizlemeye sunuldu. Azure Stack bağlantısı kesilmiş senaryo preview tarafından şu anda desteklenmiyor. 
 
@@ -47,7 +47,7 @@ Kubernetes, temel yönetim işlemlerini için kullanabileceğiniz bir web Pano i
 ## <a name="overview-of-steps-to-enable-dashboard"></a>Pano etkinleştirmek için adımlara genel bakış
 
 1.  Kümedeki ana düğüm Kubernetes sertifikaları verilecek. 
-2.  Sertifikaları, yönetim makinenizi Azure Stack'e içeri aktarın.
+2.  Sertifikaları, Azure Stack yönetim makinenizi içeri aktarın.
 2.  Kubernetes web panoyu açın. 
 
 ## <a name="export-certificate-from-the-master"></a>Asıl sertifikasını dışarı aktarma 
@@ -70,7 +70,7 @@ Kümenizde ana düğüm Panosu URL'sini alabilirsiniz.
     ```Bash   
     kubectl cluster-info 
     ``` 
-    URL için panoyu bulun. Örneğin: `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+    URL için panoyu bulun. Örneğin:  `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
 
 6.  Otomatik olarak imzalanan sertifikayı ayıklayın ve PFX biçimine dönüştürün. Şu komutu çalıştırın:
 
@@ -137,4 +137,4 @@ Panoyu kullanabilirsiniz. Kubernetes panosunu hakkında daha fazla bilgi için b
 
 [Bir Kubernetes kümesi Market'te (Azure Stack operatörü için) ekleyin.](../azure-stack-solution-template-kubernetes-cluster-add.md)  
 
-[Azure'da Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)  
+[Azure’da Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)  

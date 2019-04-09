@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3253c26f99c470a256b937844138d8875219cbd1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 35f9a8949f5b51f88b9297890fc5562e7b8dd591
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878049"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273388"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Öğretici: Scout yardımcı olan Azure Active Directory Tümleştirmesi
 
@@ -157,7 +157,7 @@ Azure AD çoklu oturum açma Yardımı Scout ile yapılandırmak için aşağıd
 
     ![Çoklu oturum açmayı yapılandırın](./media/helpscout-tutorial/settings4.png)
 
-    a. İçinde **çoklu oturum açma URL'si** metin değerini yapıştırın **oturum açma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
+    a. İçinde **çoklu oturum açma URL'si** metin değerini yapıştırın **oturum açma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
 
     b. Tıklayın **sertifikasını karşıya yükle** yüklenecek **Certificate(Base64)** Azure portalından indirdiğiniz.
 
@@ -232,6 +232,6 @@ Erişim paneli yardımcı Scout kutucuğa tıkladığınızda, size otomatik ola
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -16,16 +16,16 @@ ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: 00eb4fc3eb0b2e7120208e6318bf35fc2cc6f188
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: bf355aec2a76a42986320a74447860a8baa968ef
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649416"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257411"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 güncelleştirme
 
-*Uygulama hedefi: Azure Stack tümleşik sistemleri*
+*Şunlara uygulanır Azure Stack tümleşik sistemleri*
 
 Bu makalede 1901 güncelleştirme paketinin içeriğini açıklar. Güncelleştirme geliştirmeleri ve düzeltmeleri bu sürümü, Azure Stack için yeni özellikler içerir. Bu makalede ayrıca bu sürümdeki bilinen sorunlara açıklar ve güncelleştirmeyi indirmek için bir bağlantı içerir. Bilinen sorunlar doğrudan güncelleştirme işlemiyle ilgili sorunları ve yapı (yükleme sonrası) ile ayrılır.
 
@@ -86,7 +86,7 @@ Bu güncelleştirme, aşağıdaki yeni özellikleri ve Azure Stack için gelişt
          Hata düzeltmesi - `Import-AzureRmContext` kaydedilen belirteç doğru bir şekilde seri durumdan çıkarılacak.  
    * **AzureRm.Resources**  
          Hata düzeltmesi - `Get-AzureRmResource` sorgu çalışmasına insensitively kaynak türüne göre.  
-   * **Azure.Storage**  
+   * **Azure Depolama**  
          AzureRm toplama modülü artık içerir zaten yayımlanmış sürüm 4.5.0 destekleyen **API Sürüm 2017-07-29**.  
    * **AzureRm.Storage**  
          AzureRm toplama modülü artık içerir zaten yayımlanmış sürüm 5.0.4 destekleyen **API Sürüm 2017-10-01**.  
@@ -102,7 +102,7 @@ Bu güncelleştirme, aşağıdaki yeni özellikleri ve Azure Stack için gelişt
          `Get-AzsInfrastructureVolume` kullanım dışıdır. Yeni cmdlet kullanma `Get-AzsVolume`.  
          `Get-AzsStorageSystem` kullanım dışıdır.  Yeni cmdlet kullanma `Get-AzsStorageSubSystem`.  
          `Get-AzsStoragePool` kullanım dışıdır. `StorageSubSystem` Nesne kapasite özelliği içerir.  
-   * **Azs.Compute.Admin Modülü**  
+   * **Azs.Compute.Admin modülü**  
          Hata düzeltmesi - `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: Çağırma `ConvertTo-PlatformImageObject` yalnızca başarı yolunda.  
          BugFix - `Add-AzsVmExtension`, `Get-AzsVmExtension`: Yalnızca başarı yolunda ConvertTo-VmExtensionObject çağrılıyor.  
    * **Azs.Storage.Admin Modülü**  
@@ -315,6 +315,10 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>Syslog 
+- Syslog yapılandırmasını yapılandırmasına ve iletilen durdurmak için syslog iletileri kaybetmenize syslog istemcisinde kaynaklanan bir güncelleştirme döngüsü boyunca kalıcı olmaz. Bu sorun, syslog istemci (1809) genel kullanım tüm Azure Stack sürümleri için geçerlidir.
+Geçici çözüm, Azure Stack güncelleştirme uygulandıktan sonra syslog istemci yeniden sağlamaktır.
 
 ## <a name="download-the-update"></a>Güncelleştirmeyi indirin
 

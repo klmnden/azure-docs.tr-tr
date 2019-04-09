@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 55bb83015cee6476a10424f32b51eb9eb29db0da
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 22656c66bf5caa275a32ddcaae323fc0ab2b1600
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050263"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271739"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack gizli Döndür
 
@@ -300,11 +300,11 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 | Parametre | Type | Gerekli | Konum | Varsayılan | Açıklama |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | String  | False  | adlı  | None  | Fileshare yolu **\Certificates** tüm dış içeren dizin ağ uç noktası sertifikaları. Yalnızca dış gizli anahtarları döndürürken gereklidir. Son dizin olmalıdır **\Certificates**. |
-| CertificatePassword | SecureString | False  | adlı  | None  | -PfXFilesPath sağlanan tüm sertifikalar için parola. Dış gizli anahtarları Döndürülmüş olduğunda PfxFilesPath sağlanıyorsa değer gereklidir. |
-| İç | String | False | adlı | None | İç bayrağı, iç altyapı gizli dizileri döndürmek Azure Stack operatörü istediği zaman kullanılmalıdır. |
-| PathAccessCredential | PSCredential | False  | adlı  | None  | PowerShell kimlik bilgilerini dosya paylaşımını **\Certificates** tüm dış içeren dizin ağ uç noktası sertifikaları. Yalnızca dış gizli anahtarları döndürürken gereklidir.  |
-| ReRun | SwitchParameter | False  | adlı  | None  | Gizli anahtar döndürme, başarısız bir girişimden sonra reattempted herhangi bir zamanda yeniden kullanılması gerekir. |
+| `PfxFilesPath` | String  | False  | adlı  | None  | Fileshare yolu **\Certificates** tüm dış içeren dizin ağ uç noktası sertifikaları. Yalnızca dış gizli anahtarları döndürürken gereklidir. Son dizin olmalıdır **\Certificates**. |
+| `CertificatePassword` | SecureString | False  | adlı  | None  | -PfXFilesPath sağlanan tüm sertifikalar için parola. Dış gizli anahtarları Döndürülmüş olduğunda PfxFilesPath sağlanıyorsa değer gereklidir. |
+| `Internal` | String | False | adlı | None | İç bayrağı, iç altyapı gizli dizileri döndürmek Azure Stack operatörü istediği zaman kullanılmalıdır. |
+| `PathAccessCredential` | PSCredential | False  | adlı  | None  | PowerShell kimlik bilgilerini dosya paylaşımını **\Certificates** tüm dış içeren dizin ağ uç noktası sertifikaları. Yalnızca dış gizli anahtarları döndürürken gereklidir.  |
+| `ReRun` | SwitchParameter | False  | adlı  | None  | Gizli anahtar döndürme, başarısız bir girişimden sonra reattempted herhangi bir zamanda yeniden kullanılması gerekir. |
 
 ### <a name="examples"></a>Örnekler
 

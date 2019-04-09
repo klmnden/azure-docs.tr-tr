@@ -15,16 +15,16 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 4a8287d7ca4da380ad7c2b1e039ab3058ca07a96
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 416d75b254d0fbe14a0b39e5ae77d09a48e548f6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760282"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271297"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>Azure Stack için depolama altyapısını yönetme
 
-*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Şunlara uygulanır Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Bu makalede, Azure Stack depolama altyapı kaynaklarını işletimsel durumunu ve sistem durumu açıklar. Bu kaynaklar, depolama sürücülerini ve birimleri içerir. Bu konu başlığı altındaki bilgiler, bir sürücü için bir havuz eklenemez gibi çeşitli sorunlarını girişimi sırasında olmada çok yararlı olabilir.
 
@@ -32,7 +32,7 @@ Bu makalede, Azure Stack depolama altyapı kaynaklarını işletimsel durumunu v
 
 ### <a name="drives"></a>Sürücüleri
 
-Azure Stack Windows Server yazılımı ile güçlendirilmiş yüksek performanslı, ölçeklenebilir ve dayanıklı depolama hizmeti sağlamak için depolama özellikleri depolama alanları doğrudan (S2D) ve Windows Server Yük Devretme Kümelemesi, bileşimi ile tanımlanır.
+Windows Server yazılımı tarafından desteklenen, Azure Stack depolama özellikleri depolama alanları doğrudan (S2D) ve bir yüksek performanslı, ölçeklenebilir ve sağlamak için Windows Server Yük Devretme Kümelemesi ve dayanıklı depolama hizmeti ile tanımlar.
 
 Azure Stack tümleşik sistem iş ortakları, çok çeşitli depolama esnekliği de dahil olmak üzere çok sayıda çözüm çeşitlemeleri sunar. Şu anda üç sürücü türleri bir birleşimini seçebilirsiniz: NVMe (geçici olmayan belleği Express), SATA/SSD (katı hal sürücüsü)'ı SAS HDD (Sabit Disk sürücüsü).
 

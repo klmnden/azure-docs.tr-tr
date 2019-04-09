@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: jingwang
-ms.openlocfilehash: d589714be387bdff14d76ccd9417123295a62770
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: aba469081bf1f1aa265a55ffbd683ba19bc41b6e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522018"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263341"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Lake depolama Gen2'ye gelen veya veri kopyalama kullanarak Azure Data Factory
 
@@ -104,7 +104,7 @@ Hizmet sorumlusu kimlik doğrulaması kullanmak için aşağıdaki adımları iz
     - **Havuz olarak**, Depolama Gezgini içinde en az izni **yazma + yürütme** klasörde alt öğeler oluşturmak için izni. Alternatif olarak, erişim denetimi (IAM), en az izni **depolama Blob verileri katkıda bulunan** rol.
 
 >[!NOTE]
->Listeye hesabı düzeyinden başlayan klasör, izni için izin verilen hizmet sorumlusunun ayarlamanız gerekir. **"Yürütme" iznine sahip depolama hesabı** veya IAM izni. Kullandığınızda, bu durum geçerlidir:
+>Listeye klasörleri, hesap düzeyine veya bağlantıyı sınamak için başlatma izni için izin verilen hizmet sorumlusunun ayarlamanız gerekir. **IAM "Yürütme" iznine sahip depolama hesabı**. Kullandığınızda, bu durum geçerlidir:
 >- **Kopyalama aracı veri** Yazar kopyalama işlem hattını için.
 >- **Data Factory kullanıcı arabirimini** bağlantı ve geliştirme sırasında klasörleri gezinme test etmek için. 
 >Hesap düzeyinde izin verme üzerinde kaygısı varsa, bağlantıyı test et ve Giriş yolu el ile yazma sırasında atlayabilirsiniz. Hizmet sorumlusu kopyalanacak uygun ile dosyalarını izni sürece kopyalama etkinliği çalışmaya devam eder.
@@ -158,7 +158,7 @@ Azure kaynakları ile kimlik doğrulaması için yönetilen kimlikleri kullanmak
     - **Havuz olarak**, Depolama Gezgini içinde en az izni **yazma + yürütme** klasörde alt öğeler oluşturmak için izni. Alternatif olarak, erişim denetimi (IAM), en az izni **depolama Blob verileri katkıda bulunan** rol.
 
 >[!NOTE]
->Listeye hesabı düzeyinden başlayan klasör, izni için izin verilen yönetilen kimlik ayarlamanız gerekir. **"Yürütme" iznine sahip depolama hesabı** veya IAM izni. Kullandığınızda, bu durum geçerlidir:
+>Listeye klasörleri, hesap düzeyine veya bağlantıyı sınamak için başlatma izni için izin verilen yönetilen kimlik ayarlamanız gerekir. **IAM "Yürütme" iznine sahip depolama hesabı**. Kullandığınızda, bu durum geçerlidir:
 >- **Kopyalama aracı veri** Yazar kopyalama işlem hattını için.
 >- **Data Factory kullanıcı arabirimini** bağlantı ve geliştirme sırasında klasörleri gezinme test etmek için. 
 >Hesap düzeyinde izin verme üzerinde kaygısı varsa, bağlantıyı test et ve Giriş yolu el ile yazma sırasında atlayabilirsiniz. Yönetilen kimlik kopyalanacak uygun ile dosyalarını izni sürece kopyalama etkinliği çalışmaya devam eder.

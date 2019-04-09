@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ff37184cd8789c5408d02a427080db86de00b7d
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 69440fb99439231cdc046ef48bddfa852c17924c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295462"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271807"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Kimlik doğrulaması ve yetkilendirme hata kodları
 
@@ -58,7 +58,7 @@ Azure Active Directory (Azure AD) güvenlik belirteci Hizmeti'nden (STS) döndü
 | AADSTS50007 | PartnerEncryptionCertificateMissing - bu uygulama için iş ortağı şifreleme sertifikası bulunamadı. [Bir destek bileti açın](../fundamentals/active-directory-troubleshooting-support-howto.md) bu sabit almak için Microsoft ile. |
 | AADSTS50008 | InvalidSamlToken - eksik veya belirteçte SAML onayı. Federasyon sağlayıcınıza başvurun. |
 | AADSTS50010 | AudienceUriValidationFailed - hedef kitle URİ'si hiçbir belirteç Hedef Kitleleri yapılandırıldıktan uygulaması için doğrulama başarısız oldu. |
-| AADSTS50011 | InvalidReplyTo - yanıt adresi eksik, yanlış, veya uygulama için yapılandırılan yanıt adresleriyle eşleşmiyor. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application) sayfasında listelenen çözümü deneyin. Sorunlar görmeye devam ediyorsanız, uygulama sahibi veya uygulama Yöneticisi ile iletişime geçin |
+| AADSTS50011 | InvalidReplyTo - yanıt adresi eksik, yanlış, veya uygulama için yapılandırılan yanıt adresleriyle eşleşmiyor.  Bir çözüm, Azure Active Directory uygulamayı bu yanıt adresi eksik ekleyin veya birisi sizin için bunu Active Directory'de uygulamanızı yönetmek için gerekli izinlere sahip olun.|
 | AADSTS50012 | AuthenticationFailed - kimlik doğrulaması aşağıdaki nedenlerden birinden dolayı başarısız oldu:<ul><li>İmzalama sertifikasının konu adı yetkili değil</li><li>Yetkili bir konu adı için eşleşen bir güvenilir yetkili ilke bulunamadı</li><li>Sertifika zinciri, geçerli değil.</li><li>İmzalama sertifikası geçerli değil</li><li>İlke kiracıda yapılandırılmadı</li><li>İmzalama sertifikasının parmak izi yetkili değil</li><li>İstemci onayı geçersiz bir imza içeriyor.</li></ul> |
 | AADSTS50013 | InvalidAssertion - onaylama geçersiz çeşitli nedenlerle - range-- hatalı biçimlendirilmiş - yenileme belirteci süresi dolmuş sürümü, geçerli bir saat içinde API belirteci veren eşleşmiyor onaylama birincil yenileme belirteci değil. |
 | AADSTS50014 | GuestUserInPendingState - kullanıcının kullanım bir bekleyen durumda. Konuk kullanıcı hesabı henüz tam olarak oluşturulmaz. |
@@ -153,7 +153,7 @@ Azure Active Directory (Azure AD) güvenlik belirteci Hizmeti'nden (STS) döndü
 | AADSTS70007 | UnsupportedResponseMode - uygulama, desteklenmeyen bir değer döndürdü `response_mode` bir belirteç isterken.  |
 | AADSTS70008 | ExpiredOrRevokedGrant - eylemsizlik nedeniyle yenileme belirtecinin süresi doldu. Belirteç XXX verilmiş ve belirli bir süreliğine etkin değil. |
 | AADSTS70011 | Uygulama tarafından istenen kapsam InvalidScope - geçersiz. |
-| AADSTS70012 | MsaServerError - MSA (tüketici) kullanıcı kimlik doğrulaması sırasında sunucu hatası oluştu. Yeniden deneyin. Bu başarısız olmaya devam ederse [bir destek bileti açın](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError - MSA (tüketici) kullanıcı kimlik doğrulaması sırasında sunucu hatası oluştu. Yeniden deneyin. Başarısız olmaya devam ederse [bir destek bileti açın](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending - OAuth 2.0 cihaz akışı hatası. Yetkilendirme beklemede. Cihaz yoklama isteği yeniden deneyecek. |
 | AADSTS70018 | BadVerificationCode - kullanıcı cihazı kod akışı yanlış kullanıcı kodunu yazarak nedeniyle geçersiz doğrulama kodu. Yetkilendirme onaylanmadı. |
 | AADSTS70019 | Doğrulama kodu CodeExpired - süresi. Kullanıcı oturum açma yeniden sahip. |

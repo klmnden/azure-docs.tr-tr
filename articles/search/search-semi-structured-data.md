@@ -1,22 +1,22 @@
 ---
-title: JSON Azure Blob storage'da - Azure Search arama Öğreticisi
-description: Bu öğreticide, Azure Search kullanarak yarı yapılandırılmış Azure blob verilerini aramayı öğreneceksiniz.
+title: 'Öğretici: Yarı strutured verileri JSON bloblarını - Azure Search dizini oluşturma'
+description: Dizin ve Azure Search ve Postman kullanarak yarı yapılandırılmış Azure JSON bloblarını arama hakkında bilgi edinin.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 1c8ce14dd3961eff33a54a14c2bd0b27650d8a50
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 8436bb1fc84d5a944b35cd7b2c9667d2148c0af3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201356"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270481"
 ---
-# <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Öğretici: Azure bulut depolamada yarı yapılandırılmış verileri arama
+# <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Öğretici: Dizin ve yarı yapılandırılmış verileri (JSON blobları) Azure Search'te arama
 
 Azure arama dizin JSON belgeleri ve Azure blob depolama kullanarak dizileri bir [dizin oluşturucu](search-indexer-overview.md) yarı yapılandırılmış verileri okumak nasıl olduğunu bilir. Yarı yapılandırılmış veriler, veriler içindeki içeriği ayıran etiketleri veya işaretleri içerir. Bu tam olarak sıralanması gerekir ve bir alan başına temelinde dizine bir ilişkisel veritabanı şeması gibi bir veri modeli için uyar veri resmi olarak yapılandırılmış, yapılandırılmamış verileri birbirinden ayırır.
 
@@ -33,37 +33,47 @@ Bu öğreticide, [Azure Search REST API'lerini](https://docs.microsoft.com/rest/
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu öğretici için ücretsiz bir hizmet kullanabilirsiniz.
+Bu hızlı başlangıçta, aşağıdaki hizmetleri, araçları ve verileri kullanılır. 
 
-[Bir Azure depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) örnek verileri içerecek şekilde.
+[Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu öğretici için ücretsiz bir hizmet kullanabilirsiniz. 
 
-[Postman kullanma](https://www.getpostman.com/) veya isteklerinizi göndermek için başka bir REST istemcisi. Sonraki bölümde bir HTTP isteği Postman içinde ayarlama yönergeleri sağlanır.
+[Bir Azure depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account), ardından [bir Blob kapsayıcısı oluşturursunuz](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) örnek verileri içerecek şekilde. Bir anahtar ve depolama hesabı adı bağlantı için kullanacağınız için kapsayıcının genel erişim düzeyi, "Kapsayıcı (kapsayıcı için anonim okuma erişimi)" olarak ayarlandığından emin olun.
 
-## <a name="set-up-postman"></a>Postman’i ayarlama
+[Postman masaüstü uygulaması](https://www.getpostman.com/) istek Azure Search'e göndermek için kullanılır.
 
-Postman’i başlatın ve bir HTTP isteği ayarlayın. Bu aracı bilmiyorsanız bkz [Azure Search REST Postman kullanarak API'lerini keşfedin](search-fiddler.md).
+[Deneme json.zip Klinik](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) Bu öğreticide kullanılan verileri içerir. İndirin ve kendi klasörüne bu dosyanın sıkıştırmasını açın. Veri kaynaklanan [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), Bu öğretici json'a dönüştürülmüş.
 
-Bu öğreticideki her çağrı için istek yöntemi "POST" yöntemidir. Üst bilgi anahtarları "Content-type" ve "api-key"dir. Üst bilgi anahtarlarının değerleri sırayla "application/json" ve "yönetici anahtarınız"dır (yönetici anahtarı, arama birincil anahtarınız için yer tutucudur). Gövde, çağrınızın gerçek içeriklerini yerleştirdiğiniz yerdir. Kullandığınız istemciye bağlı olarak, sorgunuzu oluşturma şeklinizde bazı farklılıklar olabilir. Burada temel bilgiler verilmiştir.
+## <a name="get-a-key-and-url"></a>Bir anahtarı ve URL alma
 
-  ![Yarı yapılandırılmış arama](media/search-semi-structured-data/postmanoverview.png)
+REST çağrıları için her istekte hizmet URL'sinin ve bir erişim anahtarının iletilmesi gerekir. İkisini de içeren bir arama hizmeti oluşturulur. Bu nedenle aboneliğinize Azure Search hizmetini eklediyseniz gerekli bilgileri almak için aşağıdaki adımları izleyin:
 
-Bu öğreticide ele alınan REST çağrıları için arama api-key değeriniz gereklidir. Arama hizmetinizin içinde **Anahtarlar** bölümünde api-key değerinizi bulabilirsiniz. Bu api-key, bu öğreticinin sizi yönlendirdiği her API çağrısının üst bilgisinde olmalıdır (önceki ekran görüntüsünde "yönetici anahtarını" bununla değiştirin). Her çağrı için gerekli olduğundan anahtarı saklayın.
+1. [Azure portalında oturum açın](https://portal.azure.com/)ve arama hizmetinizdeki **genel bakış** sayfa olduğunda URL'yi alın. Örnek uç nokta `https://mydemo.search.windows.net` şeklinde görünebilir.
 
-  ![Yarı yapılandırılmış arama](media/search-semi-structured-data/keys.png)
+1. İçinde **ayarları** > **anahtarları**, hizmette tam haklarına yönelik bir yönetici anahtarını alın. Bir gece yarısında gerektiği durumlarda iş sürekliliği için sağlanan iki birbirinin yerine yönetici anahtarı mevcuttur. Ekleme, değiştirme ve silme nesneler için istekleri birincil veya ikincil anahtar kullanabilirsiniz.
+
+![Bir HTTP uç noktası ve erişim anahtarını alma](media/search-fiddler/get-url-key.png "bir HTTP uç noktası ve erişim anahtarını alma")
+
+Tüm istekleri hizmete gönderilen her istekte bir API anahtarı gerektirir. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
 
 ## <a name="prepare-sample-data"></a>Örnek verileri hazırlama
 
-1. **[clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** dosyasını indirip kendi klasörüne ayıklayın. Veri kaynaklanan [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), Bu öğretici json'a dönüştürülmüş.
+1. Sisteminize indirilen örnek verileri bulun.
 
-2. Oturum [Azure portalında](https://portal.azure.com), Azure depolama hesabınıza, açık gidin **veri** kapsayıcı seçeneğine tıklayıp **karşıya**.
+1. [Azure portalında oturum açın](https://portal.azure.com), Blob kapsayıcısını ve Azure depolama hesabına gidin ve tıklayın **karşıya**.
 
-3. **Gelişmiş**’e tıklayın, "clinical-trials-json" değerini girin ve sonra indirdiğiniz tüm JSON dosyalarını karşıya yükleyin.
+1. **Gelişmiş**’e tıklayın, "clinical-trials-json" değerini girin ve sonra indirdiğiniz tüm JSON dosyalarını karşıya yükleyin.
 
   ![Yarı yapılandırılmış arama](media/search-semi-structured-data/clinicalupload.png)
 
 Yükleme tamamlandıktan sonra dosyalar veri kapsayıcısında kendi alt klasöründe görünmelidir.
 
-## <a name="connect-your-search-service-to-your-container"></a>Arama hizmetinizi, kapsayıcınıza bağlama
+## <a name="set-up-postman"></a>Postman’i ayarlama
+
+Postman’i başlatın ve bir HTTP isteği ayarlayın. Bu aracı bilmiyorsanız bkz [Azure Search REST Postman kullanarak API'lerini keşfedin](search-fiddler.md).
+
+Bu öğreticideki her çağrı için istek yöntemi **POST**. Üst bilgi anahtarları "Content-type" ve "api-key"dir. Üst bilgi anahtarlarının değerleri sırayla "application/json" ve "yönetici anahtarınız"dır (yönetici anahtarı, arama birincil anahtarınız için yer tutucudur). Gövde, çağrınızın gerçek içeriklerini yerleştirdiğiniz yerdir. Kullandığınız istemciye bağlı olarak, sorgunuzu oluşturma şeklinizde bazı farklılıklar olabilir. Burada temel bilgiler verilmiştir.
+
+  ![Yarı yapılandırılmış arama](media/search-semi-structured-data/postmanoverview.png)
 
 Arama hizmetinize üç API çağrısı yaparak veri kaynağı, dizin ve dizin oluşturucu oluşturmak için Postman kullanıyoruz. Veri kaynağı, depolama hesabınıza ve JSON verilerinize yönelik bir işaretçi içerir. Arama hizmetiniz, veriler yüklenirken bağlantı kurar.
 
@@ -276,4 +286,4 @@ Bir öğretici tamamlandıktan sonra temizlemenin en hızlı yolu, Azure Search 
 AI destekli algoritmaları dizin oluşturucu işlem hattına ekleyebilirsiniz. Sonraki adım olarak, aşağıdaki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Azure Blob Depolama’da Belgelerin Dizinini Oluşturma](search-howto-indexing-azure-blob-storage.md)
+> [Azure Blob Depolama'da belgelerin dizin oluşturma](search-howto-indexing-azure-blob-storage.md)

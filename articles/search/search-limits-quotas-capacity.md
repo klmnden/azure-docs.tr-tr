@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8a6023c87dd1d68ab76c5c2342cb825e63d2b336
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: c52ac6128ad00d9bb772816d6130f3aedc480138
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620658"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273405"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search'te hizmet sınırları
 En fazla depolama, iş yüklerini ve dizinleri, belgeler, miktarlarını sınırlar ve bağımlı nesneler bağımsız olarak, [Azure Search sağlama](search-create-service-portal.md) adresindeki **ücretsiz**, **temel**,  **Standart**, veya **depolama için iyileştirilmiş** fiyatlandırma katmanları.
@@ -114,7 +114,7 @@ Kaynak Kullanımı Yoğun işlemleri, Azure blob dizin oluşturma veya bilişsel
 | BLOB dizin oluşturucu: en yüksek blob boyutu, MB |16 |16 |128 |256 |256 |Yok  |256 |256 |
 | BLOB dizin oluşturucu: bir blobun ayıkladığınız içeriği en fazla karakter |32,000 |64,000 |4 milyonluk |4 milyonluk |4 milyonluk |Yok |4 milyonluk |4 milyonluk |
 
-<sup>1</sup> blob kaynakları için ve diğer tüm veri kaynakları için 1 dakika dizin oluşturucu en uzun yürütme süresi 3 dakikalık ücretsiz hizmetlere sahip.
+<sup>1</sup> blob kaynakları için ve diğer tüm veri kaynakları için 1 dakika dizin oluşturucu en uzun yürütme süresi 3 dakikalık ücretsiz hizmetlere sahip. Bilişsel Hizmetleri çağıran dizin oluşturma, yapay ZEKA için Ücretsiz Hizmetler bir işlem başarıyla zenginleştirme işlem hattı üzerinden geçen bir belge olarak tanımlandığı günde 20 ücretsiz işlem sınırlıdır.
 
 <sup>2</sup> geç 2017 15 dizinleri, veri kaynağı ve dizin artan bir sınırı oluşturduktan sonra oluşturulan temel Hizmetleri. Daha önce oluşturduğunuz Hizmetleri 5 sahiptir.
 

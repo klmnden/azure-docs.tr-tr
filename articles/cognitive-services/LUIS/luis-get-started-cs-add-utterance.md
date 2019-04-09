@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2018
+ms.date: 04/08/2019
 ms.author: diberry
-ms.openlocfilehash: dd60897d19ef4de7369b2b127c88e778363a387f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e9f8d274d81cdefbf9dfb41708cd537b2d60471a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852288"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273473"
 ---
 # <a name="quickstart-change-model-using-c"></a>Hızlı Başlangıç: Modeli kullanarak değiştirinC#
 
@@ -37,19 +37,19 @@ ms.locfileid: "57852288"
 
 ## <a name="create-quickstart-code"></a>Hızlı başlangıç kodu oluşturma 
 
-Visual Studio'da yeni bir oluşturma **Windows Klasik Masaüstü Konsolu** .NET Framework kullanarak uygulama. 
+Visual Studio'da yeni bir oluşturma **Windows Klasik Masaüstü Konsolu** .NET Framework kullanarak uygulama. Projeyi adlandırın `ConsoleApp1`.
 
 ![Visual Studio proje türü](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 
 ### <a name="add-the-systemweb-dependency"></a>System.Web bağımlılığını ekleyin
 
-Visual Studio projesinde **System.Web** gerekir. Çözüm Gezgini’nde, **Başvurular**’a sağ tıklayın ve **Başvuru Ekle**’yi seçin.
+Visual Studio projesinde **System.Web** gerekir. Çözüm Gezgini'nde sağ **başvuruları** seçip **Başvuru Ekle** derlemeleri bölümünden.
 
 ![System.web başvurusunu ekleyin](./media/luis-quickstart-cs-add-utterance/system.web.png)
 
 ### <a name="add-other-dependencies"></a>Diğer bağımlılıkları ekleyin
 
-Visual Studio projesi için **JsonFormatterPlus** ve **CommandLineParser** gerekir. Çözüm Gezgini'nde **Başvurular**'a sağ tıklayın ve **NuGet Paketlerini Yönet...** öğesini seçin. İki paketi de arayın ve ekleyin. 
+Visual Studio projesi için **JsonFormatterPlus** ve **CommandLineParser** gerekir. Çözüm Gezgini'nde **Başvurular**'a sağ tıklayın ve **NuGet Paketlerini Yönet...** öğesini seçin. Göz atın ve her iki paketlerin bir bölümünü ekleyin. 
 
 ![3. taraf bağımlılıkları ekleme](./media/luis-quickstart-cs-add-utterance/add-dependencies.png)
 
@@ -64,7 +64,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp3
+namespace ConsoleApp1
 {
     class Program
     {
@@ -75,7 +75,7 @@ namespace ConsoleApp3
 }
 ```
 
-Bağımlılıkları ekleyin.
+Bağımlılıkları olan güncelleştirin:
 
    [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=1-11 "Add the dependencies")]
 
@@ -115,7 +115,7 @@ Komut satırı bağımsız değişkenlerini yönetmek için ana kodu ekleyin. **
 
 ### <a name="copy-utterancesjson-to-output-directory"></a>utterances.json dosyasını çıkış dizinine kopyalayın
 
-Çözüm Gezgini'nde `utterances.json` öğesine sağ tıklayıp **Özellikler**'i seçin. Özellikler penceresinde `Content` öğesinin **Derleme Eylemi** ve `Copy Always` öğesinin **Çıkış Dizinine Kopyala** seçeneğini işaretleyin.  
+Çözüm Gezgini'nde ekleme `utterances.json` Solution Explorer'ın Proje adına sağ tıklayarak seçip **Ekle**, ardından seçerek **varolan öğe**. Seçin `utterances.json` dosya. Bu dosyayı projeye ekler. Ardından çıktı yönü eklenmesi gerekir. Sağ `utterances.json` seçip **özellikleri**. Özellikler penceresinde `Content` öğesinin **Derleme Eylemi** ve `Copy Always` öğesinin **Çıkış Dizinine Kopyala** seçeneğini işaretleyin.  
 
 ![JSON dosyasını içerik olarak işaretleme](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 
@@ -128,7 +128,7 @@ Kodu Visual Studio’da derleyin.
 Projenin /bin/Debug dizininde uygulamayı komut satırından çalıştırın. 
 
 ```console
-ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
+ConsoleApp1.exe --add utterances.json --train --status
 ```
 
 Bu komut satırı add utterances API'sini çağırmanın sonuçlarını gösterir. 
@@ -140,4 +140,4 @@ Hızlı başlangıçla işiniz bittiğinde, bu hızlı başlangıçta oluşturul
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"] 
-> [Programlama yoluyla bir LUIS uygulaması oluşturma](luis-tutorial-node-import-utterances-csv.md) 
+> [Program aracılığıyla LUIS uygulaması oluşturma](luis-tutorial-node-import-utterances-csv.md) 

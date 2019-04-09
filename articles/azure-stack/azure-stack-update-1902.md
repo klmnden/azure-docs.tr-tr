@@ -16,12 +16,12 @@ ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: befb5370dce5b9b7617370f0b14d471dfeb35437
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 1cb99bba1fa5c762af57a1ad26d034974ff196a6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051691"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271841"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 güncelleştirme
 
@@ -80,7 +80,7 @@ Azure Stack düzeltmeleri yalnızca Azure Stack tümleşik sistemleri için geç
 - 1902 derleme planlar, teklifler, kotalar ve eklenti planı oluşturmak için Azure Stack Yönetici portalında yeni bir kullanıcı arabirimi sunar. Ekran görüntüleri de dahil daha fazla bilgi için bkz. [planlar, teklifler ve kotalar oluşturma](azure-stack-create-plan.md).
 
 <!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
-- Çalışır durumdaki "Expanding depolama" ölçek birimi durumundan geçiş yaparken, kapasite genişletmesi sırasında güvenilirlik geliştirmeleri düğümünü ekleyin.
+- Kapasite genişletmesi "Expanding depolama" ölçek birimi durumu "Çalışıyor" için geçiş yaparken bir ekleme düğüm işlemi sırasında güvenilirlik geliştirmeleri.
 
 <!--
 1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
@@ -104,9 +104,6 @@ Azure Stack düzeltmeleri yalnızca Azure Stack tümleşik sistemleri için geç
     - Acil Durum Kurtarma Konsolu hizmeti (ERCS) service fabric düğümleri durumunu denetleyin ve bunları gerektiği gibi onarın
     - XRP service fabric düğümleri durumunu denetleyin ve bunları gerektiği gibi onarın
     - Azure tutarlı depolama (ACS) service fabric düğümleri durumunu denetleyin ve bunları gerektiği gibi onarın
-
-<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
-- Çalışır durumdaki "Expanding depolama" ölçek birimi durumundan geçiş yaparken, kapasite genişletmesi sırasında güvenilirlik geliştirmeleri düğümünü ekleyin.    
 
 <!-- 
 1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
@@ -259,6 +256,10 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>Syslog 
+- Syslog yapılandırmasını yapılandırmasına ve iletilen durdurmak için syslog iletileri kaybetmenize syslog istemcisinde kaynaklanan bir güncelleştirme döngüsü boyunca kalıcı olmaz. Bu sorun, syslog istemci (1809) genel kullanım tüm Azure Stack sürümleri için geçerlidir.
+Geçici çözüm, Azure Stack güncelleştirme uygulandıktan sonra syslog istemci yeniden sağlamaktır.
 
 ## <a name="download-the-update"></a>Güncelleştirmeyi indirin
 

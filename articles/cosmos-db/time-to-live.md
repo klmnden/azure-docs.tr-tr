@@ -1,22 +1,22 @@
 ---
 title: Yaşam süresi ile Azure Cosmos DB'de verileri süresi dolacak
 description: TTL ile Microsoft Azure Cosmos DB sistemden bir süre sonra otomatik olarak temizlenir belgeleriniz olanağı sağlar.
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.author: mjbrown
+ms.date: 04/08/2019
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f9dec5b3aeb951316985c965de70a372f55b8225
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 27540c3dfce73788e01f0f8ab0892c733f153fdf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549196"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271280"
 ---
-# <a name="time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB'de yaşam süresi 
+# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB süresi (TTL) 
 
-"Time to Live" veya TTL, Azure Cosmos DB öğeleri belirli bir zaman aralığına sonra otomatik olarak bir kapsayıcıdan silme olanağı sağlar. Varsayılan olarak, zaman kapsayıcı düzeyinde canlı ve geçersiz kılma değeri öğe başına temelinde ayarlayabilirsiniz. Bir kapsayıcı veya bir öğe düzeyinde TTL ayarladıktan sonra Azure Cosmos DB son değiştirme zamanı beri süre sonra otomatik olarak bu öğeleri kaldırır. Saniye cinsinden yaşam süresi değeri yapılandırılır. TTL yapılandırdığınızda, sistem otomatik olarak açıkça istemci uygulaması tarafından verilen bir silme işlemi tersine TTL değere göre süresi dolan öğeleri silin.
+İle **yaşam süresi** veya TTL, Azure Cosmos DB öğeleri belirli bir zaman aralığına sonra otomatik olarak bir kapsayıcıdan silme olanağı sağlar. Varsayılan olarak, zaman kapsayıcı düzeyinde canlı ve geçersiz kılma değeri öğe başına temelinde ayarlayabilirsiniz. Bir kapsayıcı veya bir öğe düzeyinde TTL ayarladıktan sonra Azure Cosmos DB son değiştirme zamanı beri süre sonra otomatik olarak bu öğeleri kaldırır. Saniye cinsinden yaşam süresi değeri yapılandırılır. TTL yapılandırdığınızda, sistem otomatik olarak TTL değeri, istemci uygulama tarafından açıkça verildiği bir silme işlemi gerek kalmadan temelinde süresi dolan öğeleri silin.
 
 ## <a name="time-to-live-for-containers-and-items"></a>Kapsayıcılar ve öğeler için yaşam süresi
 
@@ -26,9 +26,9 @@ Saniye cinsinden yaşam süresi değeri ayarlanır ve bir öğenin son değişti
 
    - Eksikse (veya null olarak ayarlanır) öğeleri olmayan süresi dolmuş otomatik olarak.
 
-   - Mevcut ve değeri ayarlandığında, "-1" sonsuz olarak eşit olup – öğeleri varsayılan olarak dolmasın.
+   - Mevcut ve değeri ayarlandığında, "-1" sonsuza eşittir ve öğeleri varsayılan olarak dolmasın.
 
-   - Öğeleri var ve değeri ayarlandığında, bazı numarasına ("n") – "n" saniye, son değiştirme zamanı sonra süresi dolar.
+   - Mevcut ve değeri ayarlandığında, bazı sayıya *"n"* – öğeleri sona erecek *"n"* sonra son değiştirme zamanı saniye.
 
 2. **Yaşam süresi bir öğe üzerinde** (kullanılarak ayarlanan `ttl`):
 
@@ -38,7 +38,7 @@ Saniye cinsinden yaşam süresi değeri ayarlanır ve bir öğenin son değişti
 
 ## <a name="time-to-live-configurations"></a>Canlı yapılandırmaları süresi
 
-* Bir kapsayıcı TTL 'n' olarak ayarlanırsa, bu kapsayıcı öğeler n saniye sonra sona erecek.  Canlı için -1 (süresinin sona ermediğinden gösteren) olarak ayarlayın, kendi zamanınız öğe ile aynı kapsayıcıda veya bazı öğeler, farklı bir sayıyla ayar yaşam süresini kıldıysanız, bu öğeler süreleri sona ererse yapılandırılmış TTL değerine göre. 
+* TTL ayarlanırsa *"n"* bir kapsayıcı, sonra öğeleri bu kapsayıcı içinde dolacağını *n* saniye.  Canlı için -1 (süresinin sona ermediğinden gösteren) olarak ayarlayın, kendi zamanınız öğe ile aynı kapsayıcıda veya bazı öğeler, farklı bir sayıyla ayar yaşam süresini kıldıysanız, bu öğelerin süresinin üzerinde yapılandırılmış bir TTL değeri kendi temel. 
 
 * TTL bir kapsayıcı ayarlanmazsa, bu kapsayıcı içinde bir öğe yaşam süresini etkiye sahip değildir. 
 

@@ -4,7 +4,6 @@ title: Azure Blueprints hizmeti belgeleri
 metadata:
   title: 'Azure Blueprints Belgeleri - Öğreticiler, API Başvurusu'
   description: 'Azure Blueprints, Azure ortamınızda yapıt oluşturmak, tanımlamak ve dağıtmak için kullanılan bir Azure hizmetidir.'
-  services: blueprints
   author: DCtheGeek
   manager: carmonm
   ms.service: blueprints

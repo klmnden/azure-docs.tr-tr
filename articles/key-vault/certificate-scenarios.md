@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8b56151ae56de44cbab3003743ce6df33ec89612
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 20c05bddddce4c7748e29551fe78d3e5609b2fa5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075638"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275904"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault sertifikalar ile çalışmaya başlama
 Aşağıdaki senaryolardan birkaç Key Vault'un sertifika yönetim hizmeti, ilk sertifikayı anahtar kasanızı oluşturmak için gereken ek adımları dahil olmak üzere birincil kullanımlarını özetler.
@@ -102,6 +102,17 @@ Not - Bu süreçte adım 3.1, tek seferlik bir işlemdir.
 
 -   Ayrıca, kullanıcı içeri aktarma sırasında işlevsel olan ancak hiçbir bilgi alma: Burada belirtilen varsayılan değerleri içerir ilkeyi düzenleyebilir. Örn. veren bilgisi yok  
 
+### <a name="formats-of-import-we-support"></a>İçeri aktarma destekliyoruz biçimleri
+Aşağıdaki içeri aktarma türü PEM dosyası biçimini destekliyoruz. Bir PKCS # kodlanmış 8 aşağıdaki olan şifresiz anahtar ile birlikte tek bir PEM kodlu sertifika
+
+---BAŞLANGIÇ SERTİFİKA------SON SERTİFİKA---
+
+---BAŞLANGIÇ ÖZEL ANAHTARI------SON ÖZEL ANAHTARI---
+
+Sertifika birleştirme işleminde 2 tabanlı PEM biçimleri destekliyoruz. Tek bir PKCS #8 kodlanmış sertifika ya da birleştirebilir veya base64 ile kodlanmış P7B dosyası. ---BAŞLANGIÇ SERTİFİKA------SON SERTİFİKA---
+
+Şu anda EC anahtarları PEM biçiminde desteklemiyoruz.
+
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Key Vault ile iş Birliği yaparak değil bir CA ile bir sertifika oluşturma  
  Bu yöntem, Key Vault'un iş ortaklığı yaptı sağlayıcıları, kuruluşunuz kendi tercih ettiğiniz bir CA ile çalışabilir, yani daha diğer CA'ları ile çalışma sağlar.  
 
@@ -121,4 +132,4 @@ Not - Bu süreçte adım 3.1, tek seferlik bir işlemdir.
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 
-- [Anahtarlar, gizli diziler ve sertifikalar hakkında](about-keys-secrets-and-certificates.md)
+- [Anahtarlar, parolalar ve sertifikalar hakkında](about-keys-secrets-and-certificates.md)

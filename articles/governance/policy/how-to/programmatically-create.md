@@ -1,7 +1,6 @@
 ---
 title: Programlı olarak ilkeler oluşturma ve uyumluluk verilerini görüntüleyin
 description: Bu makalede, program aracılığıyla oluşturma ve Azure ilkesine ilkelerini yönetme gösterilmektedir.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/31/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: e929fd80e87524b62c08a159c457be6f1f21eaad
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ade5d55833f1d63a8d70b6eedb3c3e4bdffe590b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768613"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276499"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programlı olarak ilkeler oluşturma ve uyumluluk verilerini görüntüleyin
 
@@ -253,4 +252,4 @@ Bu makaledeki sorgular ve komutları hakkında daha fazla bilgi için aşağıda
 - [Azure PowerShell modülleri](/powershell/module/az.resources/#policies)
 - [Azure CLI'yı ilke komutları](/cli/azure/policy?view=azure-cli-latest)
 - [İlke görüşleri kaynak sağlayıcısını REST API Başvurusu](/rest/api/policy-insights)
-- [Kaynaklarınızı Azure Yönetim grupları ile düzenleme](../../management-groups/overview.md)
+- [Kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../../management-groups/overview.md)

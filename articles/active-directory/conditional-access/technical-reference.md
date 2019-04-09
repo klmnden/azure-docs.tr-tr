@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc09c8d8e284fc81a26097a7c1a58732539029c6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 3f92001e9d2fd322e858440ef64991b9de856735
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051131"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273048"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -232,6 +232,23 @@ Bu ayar, aşağıdaki istemci uygulamaları için geçerlidir:
 - Onaylı istemci uygulamaları, Intune mobil uygulama yönetimi özelliğini destekler.
 - **Onaylı istemci uygulaması gerektir** gereksinimi:
    - Yalnızca iOS ve Android için destekleyen [cihaz platformu koşul](#device-platform-condition).
+
+## <a name="app-protection-policy-requirement"></a>Uygulama koruma İlkesi gereksinimi 
+
+Koşullu erişim ilkenizi erişim, seçili bulut uygulamaları için kullanılabilir olmadan önce bir uygulama koruma İlkesi işlem istemci uygulamada mevcut olması gerekebilir. 
+
+![Uygulama koruma İlkesi ile erişimi denetleme](./media/technical-reference/22.png)
+
+Bu ayar, aşağıdaki istemci uygulamaları için geçerlidir:
+
+- Microsoft OneDrive
+- Microsoft Outlook
+
+**Açıklamalar**
+
+- Uygulama koruma ilkesi için uygulama koruma İlkesi ile Intune mobil uygulama yönetimi özelliği destekler.
+- **Uygulama koruma İlkesi gerekli** gereksinimleri:
+    - Yalnızca iOS ve Android için destekleyen [cihaz platformu koşul](#device-platform-condition).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

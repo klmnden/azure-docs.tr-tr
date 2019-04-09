@@ -16,16 +16,16 @@ ms.date: 03/11/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 3565bf4c4a19bcf1b136b4cbb781006658865a1c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 58c16b8a102ea27499fc464c209d4ca1c0d4db33
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767218"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264718"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Azure Stack Role-Based erişim denetimi ile kaynaklara erişimi yönetme
 
-*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Şunlara uygulanır Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Azure Stack, rol tabanlı erişim denetimi (RBAC), aynı destekler [erişim yönetimi için güvenlik modeli](https://docs.microsoft.com/azure/role-based-access-control/overview) , Microsoft Azure'ı kullanır. RBAC, kullanıcı, Grup veya uygulama erişimi için abonelik, kaynakları ve hizmetleri yönetmek için kullanabilirsiniz.
 
@@ -40,28 +40,6 @@ Azure Stack, tüm kaynak türleri için uygulayabileceğiniz üç temel rolüne 
 * **Sahibi** kaynaklara erişim dahil her şeyi yönetebilir.
 * **Katkıda bulunan** kaynaklara erişim dışında her şeyi yönetebilir.
 * **Okuyucu** her şeyi görüntüleyebilir ancak değişiklik yapamazsınız.
-
-### <a name="resource-hierarchy-and-inheritance"></a>Kaynak hiyerarşisi ve devralma
-
-Azure Stack aşağıdaki kaynak hiyerarşi vardır:
-
-* Her abonelik bir dizine ait.
-* Her kaynak grubu, tek bir aboneliğe ait.
-* Her kaynak bir kaynak grubuna aittir.
-
-Bir üst kapsamda verdiğiniz erişim alt kapsamların devralınır. Örneğin:
-
-* Abonelik kapsamında bir Azure AD grubu okuyucu rolüne atayın. Bu grubun üyeleri, her kaynak grubu ve kaynak abonelikte görüntüleyebilirsiniz.
-* Kaynak grubu kapsamındaki bir uygulama için katılımcı rolü atar. Uygulama, bu kaynak grubu, ancak diğer kaynak gruplar aboneliği içindeki tüm türlerin kaynakları yönetebilir.
-
-### <a name="assigning-roles"></a>Rol atama
-
-Bir kullanıcı için birden çok rol atayabilirsiniz ve her rol farklı bir kapsam ile ilişkili olabilir. Örneğin:
-
-* Abonelik-1'den ' de TestUser-A okuyucu rolüne atayın.
-* TestVM-1'de TestUser-A sahip rolü atayın.
-
-Azure [rol atamaları](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) makale görüntüleme, atama ve rollerin silinmesine hakkında ayrıntılı bilgi sağlar.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Kaynak hiyerarşisi ve devralma
 

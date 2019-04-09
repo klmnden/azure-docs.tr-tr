@@ -13,12 +13,12 @@ ms.date: 03/28/2019
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e492586f0c70d4cd3013ef8f466afd6bb2bb65ac
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884086"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260315"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Nasıl yapılır: Bir kiracıdaki (Önizleme) belirli bir uygulamayı belirteçlerinde yayılan talep özelleştirme
 
@@ -415,7 +415,7 @@ Seçtiğiniz yönteme bağlı olarak, bir dizi giriş ve çıkışları bekleniy
 
 ### <a name="custom-signing-key"></a>Özel anahtar imzalama
 
-Özel bir imzalama anahtarı etkili bir ilke eşleştirme talepler için hizmet sorumlusu nesnesi atanması gerekir. İlkeden etkilenen verilen tüm belirteçler özel bir imzalama anahtarıyla imzalanır ve uygulamaları belirteçleri kabul edecek şekilde yapılandırılması gerekir imzalama anahtarı ile imzalanmış. Bu belirteçler ilke eşleştirme talep oluşturucusu tarafından değiştirilmiş ve uygulamaları, kötü amaçlı aktörler tarafından oluşturulan ilkeler eşleme talep önler bildirim sağlar.
+Özel bir imzalama anahtarı etkili bir ilke eşleştirme talepler için hizmet sorumlusu nesnesi atanması gerekir. Bu belirteçler ilke eşleştirme talep oluşturucusu tarafından değiştirilmiş ve uygulamaları, kötü amaçlı aktörler tarafından oluşturulan ilkeler eşleme talep önler bildirim sağlar.  Talep eşleme etkin ekleyerek, anahtarları imzalama, belirteç için özel URI kontrol gerekir olan uygulamalara `appid={client_id}` için kendi [Openıd Connect meta veri isteği](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
 
 ### <a name="cross-tenant-scenarios"></a>Kiracılar arası senaryoları
 

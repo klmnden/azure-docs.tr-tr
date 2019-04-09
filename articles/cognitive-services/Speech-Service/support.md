@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: a4c256a6acd8e51986b40e28a6f658f1103ab337
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: c403bca3abf493448265e25316babe20ea9c8544
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877709"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272029"
 ---
 # <a name="support-and-help-options"></a>Destek ve Yardım seçenekleri
 
@@ -23,6 +23,7 @@ Konuşma Hizmetleri işlevselliğinin keşfetmeye yeni başlayan? Uygulamanız i
 
 > [!div class="checklist"]
 > * Yeni gelişmeler hakkında haberdar kalın *Azure Bilişsel Hizmetler*, veya ilgili son haberleri Bul *konuşma hizmeti*.
+> * Sürüm Notları, tüm sürümler için bilgiler içerir.
 > * Sorununuzu topluluk tarafından ele alınan veya zaten uygulamak istediğiniz özelliği için varolan belgeleri varsa görmek için arama yapın.
 > * Tatmin edici bir yanıt bulamazsanız, soru sorabilirsiniz *Stack Overflow*.
 > * Github'da örnekleri biri ile ilgili bir sorun bulursanız, yükseltmek bir *GitHub* sorun.
@@ -31,6 +32,10 @@ Konuşma Hizmetleri işlevselliğinin keşfetmeye yeni başlayan? Uygulamanız i
 ## <a name="stay-informed"></a>Bildirim alın
 
 Bilişsel hizmetler ile ilgili Haberler toplanır [Bilişsel hizmetler blogu](https://azure.microsoft.com/blog/topics/cognitive-services/). Konuşma hizmetleri hakkında en yeni bilgiler için izleme [konuşma Hizmetleri blog](https://azure.microsoft.com/blog/tag/speech-service/).
+
+## <a name="release-notes"></a>Sürüm notları
+
+[Sürüm notlarını]] (https://aka.ms/csspeech/whatsnew) yeni bir sürümü kullanıma hazır olarak güncelleştirilir. Notları yeni özellikler, iyileştirmeler ve hata düzeltmeleri hakkında bilgi içerir.
 
 ## <a name="search"></a>Arama
 
@@ -50,7 +55,7 @@ Burada *{Your arama terimlerini}* arama anahtar sözcüklerinizi olduğu.
 
 Azure müşterileri, oluşturun ve Azure portalında destek isteklerini yönetin.
 
-* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Amerika Birleşik Devletleri kamu için Azure portalı](https://portal.azure.us)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Stack Overflow için bir soru gönderin
@@ -77,7 +82,7 @@ Bir arama ile sorununuzun yanıtını bulamazsanız, yeni Stack Overflow soru g�
 Örnekler, genellikle açık kaynak gönderilir. Sorular ve sorunlar için oluşturma bir *sorunu* ilgili GitHub deposundaki. Bir çekme isteği çok gönderebilirsiniz. Aşağıdaki listede, örnek depoları bağlantılar içeriyor:
 
 * [Konuşma SDK'sı](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [Cihaz SDK'sı](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [Cihazlar SDK’sı](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
 Özellik isteği, bir hata raporu oluşturabilir veya genel bir soru sorun ve en iyi yöntemlerinizi paylaşın. Hata raporları için lütfen sağlanan şablon izleyin:
 

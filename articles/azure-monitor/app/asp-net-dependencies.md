@@ -1,6 +1,6 @@
 ---
 title: Bağımlılık Azure Application Insights izleme | Microsoft Docs
-description: Application Insights ile şirket içi veya Microsoft Azure web uygulamanızın kullanımını, kullanılabilirliğini ve performansını analiz edin.
+description: Kullanım, kullanılabilirlik ve şirket içi veya Microsoft Azure Application Insights ile web uygulaması performansını analiz edin.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4aa18ae791e5fa573eae76d5bdb9c45b9311e6b5
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: c77b5810164aef7508f717a0f75d90cf6cba2089
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888092"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273116"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application ınsights'ı ayarlayın: Bağımlılık izleme
 A *bağımlılık* uygulamanız tarafından çağrılan bir dış bileşen. Bu genellikle adlı HTTP veya bir veritabanı veya dosya sistemi kullanılarak bir hizmettir. [Application Insights](../../azure-monitor/app/app-insights-overview.md) ne sıklıkta bağımlılık çağrı başarısız olur ve uygulama bağımlılıkları için bekleyeceği süreyi ölçer. Belirli çağrıları incelemek ve bunları istekler ve özel durumlar için ilişkilendirebilirsiniz.
@@ -50,7 +50,7 @@ Kısmi bağımlılık bilgileri tarafından otomatik olarak toplanan [Applicatio
 
 ## <a name="where-to-find-dependency-data"></a>Bağımlılık verileri nerede bulunur
 * [Uygulama Haritası](#application-map) komşu bileşenlerini ve uygulama arasındaki bağımlılıkları görselleştirir.
-* [Performans ve tarayıcı hatası dikey pencereleri](#performance-and-failure-blades) sunucu bağımlılık verileri gösterir.
+* [Performans ve tarayıcı hatası dikey pencereleri](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-performance) sunucu bağımlılık verileri gösterir.
 * [Tarayıcılar dikey](#ajax-calls) kullanıcılarınızın tarayıcılarından AJAX çağrılarını gösterir.
 * Bağımlılık çağrılarını denetlemek için yavaş veya başarısız istekleri tıklayın.
 * [Analytics](#analytics) sorgu bağımlılık verileri için kullanılabilir.
@@ -58,7 +58,7 @@ Kısmi bağımlılık bilgileri tarafından otomatik olarak toplanan [Applicatio
 ## <a name="application-map"></a>Uygulama Eşlemesi
 Uygulama Haritası, uygulama bileşenleri arasındaki bağımlılıkları bulmak için bir görsel Yardım olarak görev yapar. Ayrıca, uygulamanızdan alınan telemetri gelen otomatik olarak oluşturulur. Bu örnek AJAX çağrılarını tarayıcı komut dosyaları ve iki dış hizmetlerle sunucu uygulamasından REST çağrılarını gösterir.
 
-![Uygulama Eşlemesi](./media/asp-net-dependencies/08.png)
+![Uygulama Eşlemesi](./media/asp-net-dependencies/cloud-rolename.png)
 
 * **Kutularından gidin** ilgili bağımlılık ve diğer grafikleri.
 * **Harita sabitleme** için [Pano](../../azure-monitor/app/app-insights-dashboards.md), burada da tam işlevsel olmayacaktır.
@@ -66,13 +66,7 @@ Uygulama Haritası, uygulama bileşenleri arasındaki bağımlılıkları bulmak
 [Daha fazla bilgi edinin](../../azure-monitor/app/app-map.md).
 
 ## <a name="performance-and-failure-blades"></a>Performans ve başarısızlık dikey pencereleri
-Sunucu uygulama tarafından yapılan bağımlılık çağrılarına süresi performans dikey penceresini gösterir. Özet grafiği ve çağrı tarafından bölümlenmiş bir tablo yok.
-
-![Performans dikey bağımlılık grafikleri](./media/asp-net-dependencies/dependencies-in-performance-blade.png)
-
-Özet grafikleri ya da Tablo öğelerini ham çağrıları, oluşumunu aramak için tıklayın.
-
-![Bağımlılık çağrısı örnekleri](./media/asp-net-dependencies/dependency-call-instance.png)
+Sunucu uygulama tarafından yapılan bağımlılık çağrılarına süresi performans dikey penceresini gösterir.
 
 **Hata sayısı** gösterilir **hataları** dikey penceresi. Aralık 200-399, ya da bilinmeyen değil tüm dönüş kodlarını hatasıdır.
 
@@ -87,50 +81,9 @@ Tarayıcılar dikey AJAX çağrılarından süresi ve hata oranını gösterir [
 ## <a name="diagnosis"></a> Yavaş istekleri tanılayın
 Her istek olayı, bağımlılık çağrıları, özel durumlar ve uygulamanızı isteği işlerken izlenen gelen diğer olayları ile ilişkilidir. Bu nedenle bazı istekler hatalı gerçekleştiriyorsanız, yavaş bağımlılık yanıtlarının nedeniyle olup olmadığını bulabilirsiniz.
 
-Bu bir örnek atalım.
-
-### <a name="tracing-from-requests-to-dependencies"></a>Bağımlılıklar için gelen istekleri izleme
-Performans dikey penceresini açın ve istekleri kılavuzunun bakın:
-
-![Ortalamalar ve sayıları istekleri listesi](./media/asp-net-dependencies/02-reqs.png)
-
-Üst bir çok uzun sürüyor. Biz süre nerede harcandığını bulup bulamayacağınızı görelim.
-
-Bu satır tek tek istekler olayları görmek için tıklayın:
-
-![İstek örnekleri listesi](./media/asp-net-dependencies/03-instances.png)
-
-Daha fazla inceleyin ve bu isteği ile ilgili uzak bağımlılık çağrıları aşağı kaydırma yapmak için herhangi bir uzun süre çalışan örneğine tıklayın:
-
-![Uzak bağımlılıklara yapılan çağrıları bulmak, olağan dışı süresini tanımlayın](./media/asp-net-dependencies/04-dependencies.png)
-
-Çoğu zaman bu isteği bir yerel hizmete çağrıda harcandığını hizmet verme gibi görünüyor.
-
-Daha fazla bilgi için bu satırı seçin:
-
-![Sabah tanımlamak için Uzak bağımlılık tıklayın](./media/asp-net-dependencies/05-detail.png)
-
-Bu sorunu olduğu gibi görünüyor. Biz sorun hedeflenmiş, biz yalnızca artık bu nedenle neden bu çağrı bu kadar uzun sürüyor bulmanız gerekir.
-
-### <a name="request-timeline"></a>İstek zaman çizelgesi
-Farklı bir durumda, özellikle uzun çağrı yok bağımlılık yoktur. Ancak Zaman Çizelgesi görünümüne geçerek, gecikme iç işlememize oluştuğu görebiliriz:
-
-![Uzak bağımlılıklara yapılan çağrıları bulmak, olağan dışı süresini tanımlayın](./media/asp-net-dependencies/04-1.png)
-
-İlk bağımlılık öğesini çağırdıktan sonra biz neden olan görmek için koda göz atmak böylece büyük bir boşluk olacak şekilde yok görünüyor.
-
 ### <a name="profile-your-live-site"></a>Sitenizin Canlı profil
 
-Hiçbir fikriniz olduğu zaman gider? [Application Insights Profiler'ı](../../azure-monitor/app/profiler.md) HTTP canlı sitenize çağırır ve kodunuzda hangi işlevleri gösterir izlemeleri geçen en uzun süre.
-
-## <a name="failed-requests"></a>Başarısız istekler
-Başarısız istekler başarısız bağımlılık çağrıları ile ilişkili olabilir. Yine, biz aracılığıyla sorunu izlemek için tıklayabilirsiniz.
-
-![Başarısız istekler grafiğe tıklayın](./media/asp-net-dependencies/06-fail.png)
-
-Üzerinden bir örneğini başarısız bir istek için tıklayın ve onun ilişkili olaylarına bakabilirsiniz.
-
-![Bir istek türünü tıklatın, örneği aynı örnek farklı bir görünüm almak için özel durum ayrıntıları almak için tıklayın.](./media/asp-net-dependencies/07-faildetail.png)
+Hiçbir fikriniz olduğu zaman gider? [Application Insights Profiler'ı](../../azure-monitor/app/profiler.md) izlemeleri HTTP canlı sitenize çağırır ve kodunuzda hangi işlevlerin en uzun sürdü gösterir.
 
 ## <a name="analytics"></a>Analiz
 Bağımlılıkları izleyebilirsiniz [Kusto sorgu dili](/azure/kusto/query/). Bazı örnekler aşağıda verilmiştir.
@@ -211,10 +164,6 @@ Aşağıdaki tabloya başvurun ve kayıtlarınızın bağımlılık uygulamanız
 | IIS Express |IIS sunucusu bunun yerine kullanın. |
 | Azure Web Uygulaması |Web uygulaması Denetim Masası'ndaki [Application Insights dikey penceresini açın, web uygulaması Denetim Masası'ndaki](../../azure-monitor/app/azure-web-apps.md) yükleme istenirse seçin. |
 | Azure Cloud Service |[Kullanım başlangıç görevi](../../azure-monitor/app/cloudservices.md) veya [yükleme .NET framework 4.6 +](../../cloud-services/cloud-services-dotnet-install-dotnet.md). |
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Özel durumlar](../../azure-monitor/app/asp-net-exceptions.md)

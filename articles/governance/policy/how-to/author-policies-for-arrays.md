@@ -1,19 +1,18 @@
 ---
 title: Dizi özellikleri Azure kaynakları için yazar ilkeleri
 description: Dizi parametreleri oluşturmak, dizi için kuralları dili ifadeleri oluşturma [*] diğer değerlendirmek ve Azure İlkesi tanım kurallarına var olan bir dizi öğeleri eklemek için öğrenin.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/06/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 62267a4549355212a18654ff9781b2164ba19fa9
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: 38cf6decb8e61768faa9680058f6366e1550ba40
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57864075"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274732"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Dizi özellikleri Azure kaynakları için yazar ilkeleri
 

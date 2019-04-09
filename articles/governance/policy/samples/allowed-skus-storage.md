@@ -1,19 +1,18 @@
 ---
 title: Örnek - SKU'ları depolama hesapları ve sanal makineler için izin verilir.
 description: Bu örnek ilke tanımı, depolama hesapları ve sanal makineler onaylı SKU'ları kullanmanızı gerektirir.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7488231363b0cbf96e25da28751065012754212e
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 088dd8414c93b609326e7cd72828426dcb00fc28
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803793"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274578"
 ---
 # <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>Örnek - SKU'ları depolama hesapları ve sanal makineler için izin verilir.
 
@@ -29,7 +28,7 @@ Bu ilke, depolama hesapları ve sanal makinelerin onaylı SKU’lar kullanmasın
 
 ## <a name="deploy-with-the-portal"></a>Portal ile dağıtma
 
-[![İlke örneği Azure'a dağıtma](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![DAzure İlkesi örneğe aşamasıyla](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>PowerShell ile dağıtma
 

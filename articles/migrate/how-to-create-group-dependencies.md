@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 8387b7e03c867026741801cd0de910bc9da85e92
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
-ms.translationtype: MT
+ms.openlocfilehash: 71f792dd1238b11810abfb6a97ac9e051da2ec45
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407088"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274647"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Grubun bağımlılık eşlemesini kullanarak bir grubu daraltma
 
@@ -132,6 +132,42 @@ Kusto sorguları çalıştırmak için:
 
 [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) Kusto sorguları yazma hakkında. 
 
+## <a name="sample-azure-monitor-logs-queries"></a>Örnek Azure İzleyici sorguları günlüğe kaydeder.
+
+Bağımlılık verileri ayıklamak için kullanabileceğiniz örnek sorgular aşağıda verilmiştir. Tercih edilen veri noktalarınızı ayıklamak için sorguları değiştirebilirsiniz. Kapsamlı bir liste bağımlılık veri kayıtlarının alanların kullanılabilir [burada](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)
+
+### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>Bir küme makinede gelen bağlantıları özetleme
+
+İçin bağlantı ölçümü, VMConnection, tablodaki kayıtları tek tek bir fiziksel ağ bağlantıları temsil etmiyor unutmayın. Birden fazla fiziksel ağ bağlantıları, mantıksal bir bağlantı içinde gruplandırılır. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) VMConnection tek bir mantıksal kayıt içine nasıl fiziksel ağ bağlantısı hakkında veriler toplanır. 
+
+```
+let ips=materialize(ServiceMapComputer_CL
+| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+| mvexpand ips to typeof(string));
+let StartDateTime = datetime(2019-03-25T00:00:00Z);
+let EndDateTime = datetime(2019-03-30T01:00:00Z); 
+VMConnection
+| where Direction == 'inbound' 
+| where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
+| join kind=inner (ips) on $left.DestinationIp == $right.ips
+| summarize sum(LinksEstablished) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
+```
+
+#### <a name="summarize-volume-of-data-sent-and-received-on-inbound-connections-between-a-set-of-machines"></a>Gelen bağlantılar makineler kümesi arasında alınan veri hacmi özetleme
+
+```
+// the machines of interest
+let ips=materialize(ServiceMapComputer_CL
+| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+| mvexpand ips to typeof(string));
+let StartDateTime = datetime(2019-03-25T00:00:00Z);
+let EndDateTime = datetime(2019-03-30T01:00:00Z); 
+VMConnection
+| where Direction == 'inbound' 
+| where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
+| join kind=inner (ips) on $left.DestinationIp == $right.ips
+| summarize sum(BytesSent), sum(BytesReceived) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) bağımlılık görselleştirme hakkında sık sorulan sorular hakkında.

@@ -1,19 +1,18 @@
 ---
 title: Resource Manager şablonu ile bir ilke ataması oluşturma
 description: Bu makalede, uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturmak için Resource Manager şablonu kullanmak için adımları gösterilmektedir.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 354d5aa250449b87345cef17778befddc761fa19
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 3b7ceb07fe874ebc012696f73c21d5c270cb3cee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802516"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269002"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Resource Manager şablonu kullanarak uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturma
 
@@ -38,7 +37,7 @@ Bu hızlı başlangıçta, bir ilke ataması oluşturma ve adlı yerleşik ilke 
 
 1. Aşağıdaki görüntüde Azure portalında oturum açın ve bir şablonu açmak için seçin:
 
-   [![İlke şablonu Azure'a dağıtma](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
+   [![DAzure İlkesi şablonu aşamasıyla](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
 
 1. Seçin veya aşağıdaki değerleri girin:
 

@@ -1,19 +1,19 @@
 ---
 title: Azure IOT Central uygulamanızı Raspberry Pi'yi bağlayın (C#) | Microsoft Docs
-description: Bir cihaz geliştirici olarak C# kullanarak Azure IOT Central uygulamanızı Raspberry Pi'yi bağlanma.
+description: Bir cihaz geliştirici olarak, Azure IOT Central kullanarak uygulama için bir Raspberry Pi bağlanma C#.
 author: viv-liu
 ms.author: viviali
-ms.date: 10/31/2018
+ms.date: 04/05/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 6330e941f3308920ff4d5404663824633484146a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8137f7d167cc697671de99699c6031014d6a966e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108367"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275972"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Raspberry Pi'yi bağlanmak için Azure IOT Central, uygulama (C#)
 
@@ -25,37 +25,34 @@ Bu makalede, Microsoft Azure IOT Central uygulamanıza C# programlama dilini kul
 
 Bu makaledeki adımları tamamlayabilmeniz için aşağıdaki bileşenleri gerekir:
 
-* [.NET core 2](https://www.microsoft.com/net) geliştirme makinenizde yüklü. Bir uygun Kod Düzenleyicisi gibi olmalıdır [Visual Studio Code](https://code.visualstudio.com/).
 * Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central.md).
-* Raspbian işletim sistemi çalıştıran bir Raspberry Pi cihaz.
-
+* Raspbian işletim sistemi çalıştıran bir Raspberry Pi cihaz. Raspberry Pi internet'e bağlanabiliyor olmanız gerekir. Daha fazla bilgi için [Raspberry Pi'yi ayarlama](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
 
 ## <a name="sample-devkits-application"></a>**Örnek Devkits** uygulama
 
-Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Raspberry Pi** cihaz şablonu aşağıdaki özelliklere sahip: 
+Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Raspberry Pi** cihaz şablonu aşağıdaki özelliklere sahip:
 
 - Telemetri, cihaz toplayacak aşağıdaki ölçüleri içerir:
-    - Nem oranı
-    - Sıcaklık
-    - Basınç
-    - Magnetometer (X, Y, Z)
-    - İvme ölçer (X, Y, Z)
-    - Jiroskop (X, Y, Z)
+  - Nem oranı
+  - Sıcaklık
+  - Basınç
+  - Magnetometer (X, Y, Z)
+  - İvme ölçer (X, Y, Z)
+  - Jiroskop (X, Y, Z)
 - Ayarlar
-    - Voltaj
-    - Geçerli
-    - Fan hızı
-    - IR Aç/Kapat.
+  - Voltaj
+  - Geçerli
+  - Fan hızı
+  - IR Aç/Kapat.
 - Özellikler
-    - Numara cihaz özelliği öldürmüş
-    - Konum bulut özelliği
+  - Numara cihaz özelliği öldürmüş
+  - Konum bulut özelliği
 
-Cihaz şablon yapılandırması hakkında tam Ayrıntılar için bkz [Raspberry PI cihaz şablonu ayrıntıları](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
-
+Cihaz şablon yapılandırmasının tam Ayrıntılar için bkz. [Raspberry Pi cihaz şablon ayrıntılarını](#raspberry-pi-device-template-details).
 
 ## <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
-Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **Raspberry Pi** cihaz şablonu ve cihaz bağlantı dizesini Not olun. Daha fazla bilgi için [Azure IOT Central uygulamanıza gerçek bir cihaz eklemek](tutorial-add-device.md).
+Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **Raspberry Pi** cihaz şablonu. Bağlantı ayrıntıları cihazın not edin (**kapsam kimliği**, **cihaz kimliği**, ve **birincil anahtar**). Daha fazla bilgi için [Azure IOT Central uygulamanıza gerçek bir cihaz eklemek](tutorial-add-device.md).
 
 ### <a name="create-your-net-application"></a>.NET uygulamanızı oluşturun
 
@@ -86,7 +83,7 @@ Aşağıdaki adımları tamamlamak için Visual Studio Code kullanabilirsiniz. D
         <RuntimeIdentifiers>win-arm;linux-arm</RuntimeIdentifiers>
       </PropertyGroup>
       <ItemGroup>
-        <PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.5.2" />
+        <PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.19.0" />
       </ItemGroup>
     </Project>
     ```
@@ -272,12 +269,9 @@ Aşağıdaki adımları tamamlamak için Visual Studio Code kullanabilirsiniz. D
 
 ## <a name="run-your-net-application"></a>.NET uygulamanızı çalıştırın
 
-Cihaza özgü bağlantı dizenizi Azure IOT Central ile kimlik doğrulaması bir cihaz için kod ekleyin. Azure IOT Central uygulamanıza gerçek Cihazınızı eklediğinizde, bu bağlantı dizesini Not yaptığınız.
+Cihaza özgü bağlantı dizenizi Azure IOT Central ile kimlik doğrulaması bir cihaz için kod ekleyin. Bu yönergeleri izleyin [cihaz bağlantı dizesini oluşturmak](concepts-connectivity.md#get-a-connection-string) kullanarak **kapsam kimliği**, **cihaz kimliği**, ve **birincil anahtar** , yapılan bir daha önce not edin.
 
-  > [!NOTE]
-   > Azure IOT Central değiştiğinden Azure IOT Hub cihazı sağlama hizmeti (DPS) kullanarak tüm cihaz bağlantıları için bu yönergeleri izleyin [cihaz bağlantı dizesini alma](concepts-connectivity.md#get-a-connection-string) ve bu öğreticinin geri kalanını ile devam edin.
-
-1. Değiştirin `{your device connection string}` içinde **Program.cs** daha önce bağlantı dizesi içeren dosya.
+1. Değiştirin `{your device connection string}` içinde **Program.cs** oluşturduğunuz bağlantı dizesiyle dosya.
 
 1. Komut satırı ortamınızda aşağıdaki komutu çalıştırın:
 
@@ -286,7 +280,7 @@ Cihaza özgü bağlantı dizenizi Azure IOT Central ile kimlik doğrulaması bir
    dotnet publish -r linux-arm
    ```
 
-1. Kopyalama `pisample\bin\Debug\netcoreapp2.0\linux-arm\publish` Raspberry Pi cihazınıza klasör. Kullanabileceğiniz **scp** komut dosyaları, örneğin kopyalamak için:
+1. Kopyalama `pisample\bin\Debug\netcoreapp2.1\linux-arm\publish` Raspberry Pi cihazınıza klasör. Kullanabileceğiniz **scp** komut dosyaları, örneğin kopyalamak için:
 
     ```cmd/sh
     scp -r publish pi@192.168.0.40:publish
@@ -321,8 +315,7 @@ Cihaza özgü bağlantı dizenizi Azure IOT Central ile kimlik doğrulaması bir
 
      ![Raspberry Pi ayar değişikliği alır](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
 
-
-## <a name="raspberry-pi-device-template-details"></a>Raspberry PI cihaz şablonu ayrıntıları
+## <a name="raspberry-pi-device-template-details"></a>Raspberry Pi cihaz şablonu ayrıntıları
 
 Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Raspberry Pi** cihaz şablonu aşağıdaki özelliklere sahip:
 

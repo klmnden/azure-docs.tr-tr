@@ -4,7 +4,6 @@ description: Bu makalede bir Azure SQL veritabanı yönetilen örneği SQL Serve
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
@@ -12,20 +11,17 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 208370884d89a7a2585f320c037284d6657732db
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.custom: seoapril2019
+ms.openlocfilehash: 14e33ec25dd2384607d41e4be6e5a33ebf889cbc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010609"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260502"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
 
-Yönetilen örnek dağıtım seçeneği, şirket içi SQL Server veritabanı altyapısı ile yüksek uyumluluk sağlar. SQL Server veritabanı altyapısı özelliklerin çoğu, yönetilen örneği'nde desteklenir.
-
-![Geçiş](./media/sql-database-managed-instance/migration.png)
-
-Yine de bazı farklılıkları söz dizimi ve davranışı olduğundan, bu makalede özetler ve bu farklar açıklanmaktadır. <a name="Differences"></a>
+Bu makalede özetler ve söz dizimi ve davranış Azure SQL veritabanı yönetilen örneği ve şirket içi SQL Server veritabanı altyapısı arasındaki farklar açıklanmaktadır. <a name="Differences"></a>
 
 - [Kullanılabilirlik](#availability) farklılıkları dahil olmak üzere [her zaman açık](#always-on-availability) ve [yedeklemeleri](#backup),
 - [Güvenlik](#security) farklılıkları dahil olmak üzere [denetim](#auditing), [sertifikaları](#certificates), [kimlik bilgilerini](#credential), [şifreleme sağlayıcıları](#cryptographic-providers), [Oturumları / kullanıcılar](#logins--users), [hizmet anahtarı ve hizmet ana anahtarını](#service-key-and-service-master-key),
@@ -33,6 +29,10 @@ Yine de bazı farklılıkları söz dizimi ve davranışı olduğundan, bu makal
 - [İşlevler](#functionalities) dahil olmak üzere [toplu ekleme/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [dağıtılmış işlemler](#distributed-transactions), [ Genişletilmiş olaylar](#extended-events), [dış kitaplıkları](#external-libraries), [Filestream ve Filetable](#filestream-and-filetable), [anlam tam metin araması](#full-text-semantic-search), [bağlı sunucuları](#linked-servers), [Polybase](#polybase), [çoğaltma](#replication), [geri](#restore-statement), [hizmet Aracısı](#service-broker), [ Saklı yordamlar, İşlevler ve tetikleyiciler](#stored-procedures-functions-triggers),
 - [Yönetilen örnekleri'nde farklı davranışa sahip özellikleri](#Changes)
 - [Geçici sınırlamalar ve bilinen sorunlar](#Issues)
+
+Yönetilen örnek dağıtım seçeneği, şirket içi SQL Server veritabanı altyapısı ile yüksek uyumluluk sağlar. SQL Server veritabanı altyapısı özelliklerin çoğu, yönetilen örneği'nde desteklenir.
+
+![Geçiş](./media/sql-database-managed-instance/migration.png)
 
 ## <a name="availability"></a>Kullanılabilirlik
 
@@ -473,7 +473,7 @@ Aşağıdaki değişkenler, İşlevler ve görünümleri farklı sonuçlar dönd
 
 ### <a name="tempdb-size"></a>TEMPDB boyutu
 
-En büyük dosya boyutu `tempdb` 24 GB/core genel amaçlı katmanı, ondan olamaz. En fazla `tempdb` boyutu iş açısından kritik katmanında Örnek Depolama boyutuyla sınırlıdır. `tempdb` 12 veri dosyalarına veri her zaman ayrılır. Bu maksimum boyutu dosya başına değiştirilemez ve yeni dosyaları eklenebilir `tempdb`. Bazı sorgular, bunlar birden fazla 24 GB'a ihtiyacınız varsa bir hata döndürebilir / içinde çekirdek `tempdb`.
+En büyük dosya boyutu `tempdb` 24 GB/core genel amaçlı katmanında büyük olamaz. En fazla `tempdb` boyutu iş açısından kritik katmanında Örnek Depolama boyutuyla sınırlıdır. `tempdb` 12 veri dosyalarına veri her zaman ayrılır. Bu maksimum boyutu dosya başına değiştirilemez ve yeni dosyaları eklenebilir `tempdb`. Bazı sorgular, bunlar birden fazla 24 GB'a ihtiyacınız varsa bir hata döndürebilir / içinde çekirdek `tempdb`.
 
 ### <a name="cannot-restore-contained-database"></a>Kapsanan veritabanı geri yüklenemiyor
 
@@ -494,7 +494,7 @@ Bunu, belirli bir dağıtım dosyalarının nedeniyle belirli durumda altında g
 
 Bu örnekte, var olan veritabanlarını çalışmaya devam eder ve yeni dosyaları eklenmedi sürece herhangi bir sorun büyüyebilir. Ancak yeni veritabanlarını değil oluşturulabilir veya tüm veritabanlarının toplam boyutu örneği boyutu sınırına ulaştığında değil olsa bile yeni disk sürücüsü için yeterli alan olmadığından geri. Döndürülen hata durumda açık değildir.
 
-Yapabilecekleriniz [kalan dosyaların sayısını belirleme](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) sistem görünümleri kullanma. Erişmeye çalıştığınız deneyin bu sınırı [boş ve DBCC SHRINKFILE deyimini kullanarak daha küçük dosyalar bazılarını silin](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) veya için shitch [yoksa iş açısından kritik katmanında, bu sınırı bulunur](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+Yapabilecekleriniz [kalan dosyaların sayısını belirleme](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) sistem görünümleri kullanma. Erişmeye çalıştığınız deneyin bu sınırı [boş ve DBCC SHRINKFILE deyimini kullanarak daha küçük dosyalar bazılarını silin](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) veya geçiş [yoksa iş açısından kritik katmanında, bu sınırı bulunur](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>SAS anahtarı hatalı yapılandırılması sırasında veritabanı geri yükleme
 

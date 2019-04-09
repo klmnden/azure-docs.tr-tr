@@ -4,7 +4,7 @@ description: Gereksinimler ve ortak veri mimarisi düzenlerine ilişkin çok kir
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
@@ -12,18 +12,18 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: d55d8f8f945e30402cb772c7e26b234e3e460698
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217878"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260553"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Çok kiracılı SaaS veritabanı kiracılı desenleri
 
-Çok kiracılı bir SaaS uygulama tasarlarken, uygulamanızın ihtiyaçlarına en uygun kiracılı model dikkatli seçmeniz gerekir.  Kiracılı model, her kiracının verileri depolama alanına nasıl eşlenir belirler.  Uygulama tasarımı ve Yönetimi kiracılı model tercih ettiğiniz etkiler.  Daha sonra farklı bir modele geçiş bazen maliyetlidir.
+Bu makalede, bir çok kiracılı SaaS uygulaması için kullanılabilen çeşitli kiralama modelleri açıklanmaktadır.
 
-Bu makalede, alternatif kiralama modelleri açıklanmaktadır.
+Çok kiracılı bir SaaS uygulama tasarlarken, uygulamanızın ihtiyaçlarına en uygun kiracılı model dikkatli seçmeniz gerekir.  Kiracılı model, her kiracının verileri depolama alanına nasıl eşlenir belirler.  Uygulama tasarımı ve Yönetimi kiracılı model tercih ettiğiniz etkiler.  Daha sonra farklı bir modele geçiş bazen maliyetlidir.
 
 ## <a name="a-saas-concepts-and-terminology"></a>A. SaaS kavramlar ve terminoloji
 

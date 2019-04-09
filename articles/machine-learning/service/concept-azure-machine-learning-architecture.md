@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9e910fb3bc75c285986871627d875296f1a2a746
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 1cc1b1584fdeb24aaba07f33cc260532c75249a2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577331"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269138"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
 
@@ -66,7 +66,7 @@ Yeni bir çalışma alanı oluşturduğunuzda, çalışma alanı tarafından kul
 
 Çalışma alanının bir taksonomi, aşağıdaki diyagramda gösterilmiştir:
 
-[![Çalışma alanı sınıflandırma](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Workspace sınıflandırma](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>Deneme
 
@@ -80,7 +80,7 @@ En basit haliyle bir girdi alır ve çıktıyı üretir kod parçasını modelid
 
 Bir model, Azure Machine learning'de bir çalıştırma tarafından oluşturulur. Azure Machine Learning dışında eğitilmiş bir modeli de kullanabilirsiniz. Bir Azure Machine Learning hizmeti çalışma alanında bir model kaydedebilirsiniz.
 
-Azure Machine Learning framework bağımsız bir hizmettir. Bir modeli oluşturduğunuzda, Scikit-öğrenme, XGBoost, PyTorch, TensorFlow, Chainer ve Microsoft Cognitive Toolkit (önceki adıyla CNTK da bilinir) gibi tüm popüler makine öğrenmesi çerçeveleri kullanabilirsiniz.
+Azure Machine Learning framework bağımsız bir hizmettir. Bir modeli oluşturduğunuzda, Scikit-öğrenme, XGBoost, PyTorch, TensorFlow ve bağlayıcı gibi tüm popüler makine öğrenmesi çerçeveleri kullanabilirsiniz.
 
 Modeli ilişkin bir örnek için bkz [Öğreticisi: Bir Azure Machine Learning hizmeti ile görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md).
 
@@ -186,6 +186,10 @@ Azure Machine Learning iki tür görüntü oluşturabilirsiniz:
 * **FPGA görüntü**: Azure'da bir alanda programlanabilen geçit dizileri dağıttığınızda kullanılır.
 * **Docker görüntüsü**: FPGA dışındaki hedef işlem dağıttığınızda kullanılır. Azure Container Instances ve Azure Kubernetes Service verilebilir.
 
+Azure Machine Learning hizmeti varsayılan olarak kullanılan bir temel görüntü sağlar. Kendi özel görüntülerinizi de sağlayabilirsiniz.
+
+Daha fazla bilgi için bkz. configure ve görüntü bölümünü kaydetmek [modelleri dağıtma](how-to-deploy-and-where.md#configureimage).
+
 Görüntü oluşturma örneği için bkz: [Azure Container ınstances'da bir görüntü sınıflandırma modeli dağıtma](tutorial-deploy-models-with-aml.md).
 
 ### <a name="image-registry"></a>Görüntü kayıt defteri
@@ -230,5 +234,5 @@ Azure Machine Learning hizmeti ile çalışmaya başlamak için bkz:
 
 * [Azure Machine Learning hizmeti nedir?](overview-what-is-azure-ml.md)
 * [Bir Azure Machine Learning hizmeti çalışma alanı oluşturma](setup-create-workspace.md)
-* [Öğretici: Bir model eğitip](tutorial-train-models-with-aml.md)
+* [Öğretici: Modeli eğitme](tutorial-train-models-with-aml.md)
 * [Resource Manager şablonu ile bir çalışma alanı oluşturma](how-to-create-workspace-template.md)

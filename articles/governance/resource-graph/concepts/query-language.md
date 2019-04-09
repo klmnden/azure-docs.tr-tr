@@ -1,7 +1,6 @@
 ---
 title: Sorgu dil anlama
 description: Kullanılabilir Kusto işleçler ve Azure kaynak grafiği ile kullanılabilir işlevler açıklanmaktadır.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 12/11/2018
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 618445c5b792317d4de4b668e7ea1a186707007c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 08e4f09665a3501073f55b7f5b82bf51cf508ea9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317926"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276686"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure kaynak grafik sorgu dilini anlama
 
@@ -27,7 +26,7 @@ Azure Veri Gezgini için belgelere başlatmak için kaynak graf tarafından kull
 Kaynak Graph'te desteklenen tablosal işleçlerin listesi aşağıda verilmiştir:
 
 - [count](/azure/kusto/query/countoperator)
-- [Farklı](/azure/kusto/query/distinctoperator)
+- [distinct](/azure/kusto/query/distinctoperator)
 - [Genişletme](/azure/kusto/query/extendoperator)
 - [Sınırı](/azure/kusto/query/limitoperator)
 - [Sıralama ölçütü](/azure/kusto/query/orderoperator)
@@ -35,13 +34,13 @@ Kaynak Graph'te desteklenen tablosal işleçlerin listesi aşağıda verilmişti
 - [Proje koyma](/azure/kusto/query/projectawayoperator)
 - [Örnek](/azure/kusto/query/sampleoperator)
 - [örnek farklı](/azure/kusto/query/sampledistinctoperator)
-- [Sıralama ölçütü](/azure/kusto/query/sortoperator)
+- [sıralama ölçütü](/azure/kusto/query/sortoperator)
 - [Özetleme](/azure/kusto/query/summarizeoperator)
 - [sınav zamanı](/azure/kusto/query/takeoperator)
 - [Sayfanın Üstü](/azure/kusto/query/topoperator)
 - [üst iç içe geçmiş](/azure/kusto/query/topnestedoperator)
 - [Top-hitters](/azure/kusto/query/tophittersoperator)
-- [Burada](/azure/kusto/query/whereoperator)
+- [nereye](/azure/kusto/query/whereoperator)
 
 ## <a name="supported-functions"></a>Desteklenen işlevleri
 
@@ -51,7 +50,7 @@ Kaynak Graph'te desteklenen işlevler listesi aşağıda verilmiştir:
 - [buildschema()](/azure/kusto/query/buildschema-aggfunction)
 - [strcat()](/azure/kusto/query/strcatfunction)
 - [isnotempty()](/azure/kusto/query/isnotemptyfunction)
-- [tostring()](/azure/kusto/query/tostringfunction)
+- [ToString()](/azure/kusto/query/tostringfunction)
 - [zip()](/azure/kusto/query/zipfunction)
 
 ## <a name="next-steps"></a>Sonraki adımlar

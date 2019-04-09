@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 71e1f7d85d823add804e8ef5dcb6126cffc21902
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: 2d04cdfb3ec12406e60fcb265966e0271b7220d9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009909"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258071"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Öğretici: Visual Studio kullanarak kopyalama Etkinlikli bir işlem hattı oluşturma
 > [!div class="op_single_selector"]
@@ -374,7 +374,7 @@ Bu öğreticide Azure blob’undan Azure SQL veritabanına veri kopyalamak üzer
 3. İşlem hatları için girdi ve çıktı verilerini açıklayan **veri kümeleri** oluşturuldu.
 4. Kaynak olarak **BlobSource**’u, havuz olarak da **SqlSink**’i kapsayan **Kopyalama Etkinliği**’ne sahip oluşturulan **işlem hattı**. 
 
-Bir HDInsight Hive etkinliği, Azure HDInsight kümesi kullanarak verileri dönüştürmek için kullanma hakkında bilgi için bkz: [ Öğreticisi: Hadoop kümesi kullanarak verileri dönüştürmek için ilk işlem hattınızı](data-factory-build-your-first-pipeline.md).
+Bir HDInsight Hive etkinliği, Azure HDInsight kümesi kullanarak verileri dönüştürmek için kullanma hakkında bilgi için bkz: [Öğreticisi: Hadoop kümesi kullanarak verileri dönüştürmek için ilk işlem hattınızı](data-factory-build-your-first-pipeline.md).
 
 Bir etkinliğin çıkış veri kümesini diğer etkinliğin giriş veri kümesi olarak ayarlayarak iki etkinliği zincirleyebilir, yani bir etkinliği diğerinden sonra çalıştırılmasını sağlayabilirsiniz. Ayrıntılı bilgi için bkz. [Data Factory’de zamanlama ve yürütme](data-factory-scheduling-and-execution.md). 
 

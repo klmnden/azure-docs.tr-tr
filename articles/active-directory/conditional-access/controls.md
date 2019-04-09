@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ceaf472f53c48b17701b14fdf4107045c2e43fdc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521984"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258751"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim erişim denetimleri nelerdir?
 
@@ -58,7 +58,7 @@ Verme denetimleri sayesinde, erişimi tamamen engelleme veya istenen denetimleri
 - Tüm seçilen yerine getirilmesi için denetimleri (*ve*)
 - Seçili tek getirilmesi için denetimi (*veya*)
 
-![Denetim](./media/controls/17.png)
+![Denetim](./media/controls/18.png)
 
 ### <a name="multi-factor-authentication"></a>Multi-factor authentication
 
@@ -76,9 +76,9 @@ Cihaz tabanlı koşullu erişim ilkelerini yapılandırabilirsiniz. Seçilen bul
 
 Cihazınızın uyumlu olarak işaretlenebilir önce Azure AD'ye kayıtlı olması gerekir. Bir cihazı kaydetmek için üç seçeneğiniz vardır: 
 
-- [Azure AD kayıtlı cihazları](../devices/overview.md#azure-ad-registered-devices)
-- [Azure AD'ye katılmış cihazları](../devices/overview.md#azure-ad-joined-devices)  
-- [Hibrit Azure AD'ye katılmış cihazlar](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- [Azure AD kayıtlı cihazlar](../devices/overview.md#azure-ad-registered-devices)
+- [Azure AD’ye katılmış cihazlar](../devices/overview.md#azure-ad-joined-devices)  
+- [Hibrit Azure AD’ye katılmış cihazlar](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 Daha fazla bilgi için [yönetilen cihazlar için koşullu erişim ile bulut uygulaması erişimi zorunlu kılma](require-managed-devices.md).
 
@@ -94,6 +94,18 @@ Daha fazla bilgi için [Azure Active Directory cihaz tabanlı koşullu erişim i
 Kullanabileceğiniz [Intune uygulama koruma ilkeleri](https://docs.microsoft.com/intune/app-protection-policy) tüm mobil cihaz Yönetimi (MDM) çözümünden bağımsız Şirketinizin verilerini korumaya yardımcı olmak için.
 
 Onaylı istemci uygulamaları ile bulut uygulamalarınızı destekleyecek şekilde erişmeyi denediği bir istemci uygulaması gerektirebilir [Intune uygulama koruma ilkeleri](https://docs.microsoft.com/intune/app-protection-policy). Örneğin, erişimi Exchange Online için Outlook uygulamasında kısıtlayabilirsiniz. Onaylı istemci uygulamalarını gerektiren bir koşullu erişim ilkesi de denir [uygulama tabanlı koşullu erişim ilkesi](app-based-conditional-access.md). Desteklenen onaylı istemci uygulamalarının listesi için bkz. [onaylı istemci uygulaması gereksinimi](technical-reference.md#approved-client-app-requirement).
+
+### <a name="app-protection-policy-preview"></a>Uygulama koruma İlkesi (Önizleme)
+
+Çalışanlarınız hem kişisel mobil cihazları ve çalışma görevlerini kullandığından, durumda bile nerede bunlar sizin tarafınızdan yönetilmeyen cihazları kullanarak erişilen şirket verilerini koruma özelliğine sahip olmak isteyebilirsiniz.
+Kullanabileceğiniz [Intune uygulama koruma ilkeleri](https://docs.microsoft.com/intune/app-protection-policy) tüm mobil cihaz Yönetimi (MDM) çözümünden bağımsız Şirketinizin verilerini korumaya yardımcı olmak için.
+
+Uygulama koruma İlkesi ile Azure'a bildirilen istemci uygulamaları için erişimi sınırlayabilirsiniz AD sahip alınan [Intune uygulama koruma ilkeleri](https://docs.microsoft.com/intune/app-protection-policy). Örneğin, erişimi Exchange Online için Intune uygulama koruma ilkesi olan Outlook uygulamasında kısıtlayabilirsiniz. Uygulama koruma İlkesi gerektiren bir koşullu erişim ilkesi de denir [uygulama koruma tabanlı koşullu erişim ilkesi](app-protection-based-conditional-access.md). 
+
+Cihazınızı bir uygulama ilkesi korumalı işaretlenebilir önce Azure AD'ye kayıtlı olması gerekir.
+
+Korumalı istemci uygulamaları, desteklenen ilke listesi için bkz. [uygulama koruma İlkesi gereksinimi](technical-reference.md#app-protection-policy-requirement).
+
 
 ### <a name="terms-of-use"></a>Kullanım Koşulları
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/12/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: c055b3d9dec2e2538a7dc7ac0eb707c97313d0d6
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
+ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006596"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276652"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Yerleşik Azure Sentinel Önizleme
 
@@ -29,7 +29,7 @@ ms.locfileid: "59006596"
 
 Bu hızlı başlangıçta, öğreneceksiniz yerleşik Azure Gözcü öğreneceksiniz. 
 
-Yerleşik Azure Gözcü, ilk veri kaynaklarınıza bağlanması gerekir. Azure Sentinel Microsoft çözümleri, kutunun ve Microsoft tehdit koruması çözümleri, Office 365, Azure AD, Azure ATP dahil olmak üzere, Microsoft 365 kaynakları dahil olmak üzere, gerçek zamanlı tümleştirme sağlayan dışında kullanılabilir bağlayıcılar sayısı ile birlikte sunulur ve Microsoft Cloud App Security ve daha fazlası. Ayrıca, Microsoft olmayan çözümler için daha geniş güvenlik ekosistemine yerleşik bağlayıcılar vardır. Ayrıca ortak olay biçimi, veri kaynaklarınızı Azure Gözcü ile bağlanmak için Syslog veya REST API de kullanabilirsiniz.  
+Yerleşik Azure Gözcü önce Azure Gözcü etkinleştirin ve ardından veri kaynaklarınıza bağlanmak gerekir. Azure Sentinel Microsoft çözümleri, kutunun ve Microsoft tehdit koruması çözümleri, Office 365, Azure AD, Azure ATP dahil olmak üzere, Microsoft 365 kaynakları dahil olmak üzere, gerçek zamanlı tümleştirme sağlayan dışında kullanılabilir bağlayıcılar sayısı ile birlikte sunulur ve Microsoft Cloud App Security ve daha fazlası. Ayrıca, Microsoft olmayan çözümler için daha geniş güvenlik ekosistemine yerleşik bağlayıcılar vardır. Ayrıca ortak olay biçimi, veri kaynaklarınızı Azure Gözcü ile bağlanmak için Syslog veya REST API de kullanabilirsiniz.  
 
 Veri kaynaklarınızı bağlandıktan sonra verilerinizi temel alan ınsights yüzey ustalıkla oluşturulan panoları galerisinden seçin. Bu pano, gereksinimleriniz için kolayca özelleştirilebilir.
 
@@ -40,9 +40,10 @@ Veri kaynaklarınızı bağlandıktan sonra verilerinizi temel alan ınsights y�
 
 - Log Analytics çalışma alanı. Bilgi edinmek için nasıl [Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md)
 
-    - Bağlı Azure Gözcü için kaynak grubuna katkıda bulunan izinleri
-    - Azure Gözcü etkinleştirmek için kaynak grubuna katkıda bulunan izinleri 
-
+-  Azure Gözcü etkinleştirmek için Azure Gözcü çalışma alanının bulunduğu aboneliğe katkıda bulunan izinleri gerekir. 
+- Azure Gözcü kullanmak için çalışma alanının ait olduğu kaynak grubu üzerinde katkıda bulunan veya Görüntüleyici izinleri gerekir.
+- Ek izinler, belirli veri kaynaklarına bağlanmak için gerekli
+ 
 ## Azure Sentinel etkinleştir <a name="enable"></a>
 
 1. Azure portalına gidin.

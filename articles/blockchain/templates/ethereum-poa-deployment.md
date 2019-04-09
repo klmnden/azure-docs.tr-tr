@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: CodyBorn
 ms.author: coborn
-ms.date: 8/2/2018
+ms.date: 04/08/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 5a693fef2f77471f799bec46f149ff19d6edca80
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905928"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274799"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum yetkilisi kavram consortium
 
@@ -279,7 +279,7 @@ Ağ kimliği|Dağıtılan consortium Ethereum ağ ağ kimliği.  Her Ethereum a�
 Yönetici Ethereum adresi|PoA idaresinde katıldığınız için kullanılan hesap adresi Ethereum.  MetaMask Ethereum adresi oluşturmak için kullanmanızı öneririz.|0 x'ile başlayan 42 alfasayısal karakterler|NA
 Gelişmiş Seçenekler|Ethereum ayarları için Gelişmiş Seçenekleri|Etkinleştirmek veya devre dışı|Devre Dışı Bırak
 Genel IP (Gelişmiş Seçenekler = etkin)|VNet ağ geçidinin arkasında ağ dağıtır ve eşleme erişim kaldırır. Bu seçenek belirlenirse, tüm üyeleri uyumlu olacak şekilde sanal ağ geçidi bağlantısı için kullanmanız gerekir.|Genel IP özel VNet|Genel IP
-Block gaz sınırı (Gelişmiş Seçenekler = etkin)|Ağ başlatma bloğu gaz sınırı|Herhangi bir sayısal|50,000,00
+Block gaz sınırı (Gelişmiş Seçenekler = etkin)|Ağ başlatma bloğu gaz sınırı|Herhangi bir sayısal|50000000
 Blok yeniden mühürleme süresi (sn)|Ağ üzerinde hiçbir işlem olduğunda, boş bir blok oluşturulur sıklığı. Yüksek sıklık, artan depolama maliyetlerine ancak daha hızlı finality sahip olur.|Herhangi bir sayısal|15
 İşlem izin anlaşması (Gelişmiş Seçenekler = etkin)|İşlem adının sözleşmesinin ByteCode. Akıllı sözleşme dağıtım ve yürütme için izin verilen liste Ethereum hesapları kısıtlar.|Sözleşme bayt|NA
 

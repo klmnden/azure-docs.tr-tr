@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3225ae919e221935b6d8a52e20d943d2178f6a47
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 2580f1177bf9e6e3a92934f88a5d8ab51894e8d9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056863"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269495"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Bir sembol katmanı haritaya eklemek
 
@@ -76,13 +76,16 @@ Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi e
 Daha fazla kod örneği, eşlenir eklemek için aşağıdaki makalelere bakın:
 
 > [!div class="nextstepaction"]
-> [Açılır pencere ekleme](./map-add-popup.md)
+> [Açılır pencere ekleme](map-add-popup.md)
 
 > [!div class="nextstepaction"]
-> [Şekil ekleme](./map-add-shape.md)
+> [Veri odaklı stili ifadeleri kullanma](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Baloncuk katmanı ekleme](./map-add-bubble-layer.md)
+> [Şekil ekleme](map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [HTML oluşturucular ekleme](./map-add-bubble-layer.md)
+> [Baloncuk katmanı ekleme](map-add-bubble-layer.md)
+
+> [!div class="nextstepaction"]
+> [HTML oluşturucular ekleme](map-add-bubble-layer.md)

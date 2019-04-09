@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 6a764c5051aad9123c605ae51807117ef75a7047
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/07/2019
+ms.openlocfilehash: b1a7e64cf6b85b517bc027d6541d63c9be729734
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59048495"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274644"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Azure Veri Gezgini için sorguları yazma
 
@@ -367,7 +367,7 @@ Aşağıdaki sorgu, son 12 saat boyunca verileri döndürür.
 //The first two lines generate sample data, and the last line uses
 //the ago() operator to get records for last 12 hours.
 print TimeStamp= range(now(-5d), now(), 1h), SomeCounter = range(1,121)
-| mvexpand TimeStamp, SomeCounter
+| mv-expand TimeStamp, SomeCounter
 | where TimeStamp > ago(12h)
 ```
 
@@ -612,11 +612,11 @@ StormEvents
 | project State, FloodReports
 ```
 
-### <a name="mvexpand"></a>mvexpand
+### <a name="mv-expand"></a>MV-genişletin
 
-[**mvexpand**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator): Koleksiyondaki her değer ayrı bir satır alır, böylece birden çok değerli koleksiyonlar dinamik olarak yazılmış bir sütundan genişletir. Genişletilmiş satırdaki diğer tüm sütunlar yinelenir. Makelist tersidir.
+[**mv-expand**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator): Koleksiyondaki her değer ayrı bir satır alır, böylece birden çok değerli koleksiyonlar dinamik olarak yazılmış bir sütundan genişletir. Genişletilmiş satırdaki diğer tüm sütunlar yinelenir. Makelist tersidir.
 
-Aşağıdaki sorguyu örnek veri kümesi oluşturma ve göstermek için kullanarak oluşturur **mvexpand** özellikleri.
+Aşağıdaki sorguyu örnek veri kümesi oluşturma ve göstermek için kullanarak oluşturur **mv-genişletin** özellikleri.
 
 **\[**[**Sorguyu çalıştırmak için tıklayın**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWOQQ6CQAxF9yTcoWGliTcws1MPIFygyk9EKTPpVBTj4Z2BjSz%2f738v7WF06r1vD2xcp%2bCoNq9yHDFYLIsvvW5Q0JybKYCco2omqnyNTxHW7oPFckbwajFZhB%2bIsE1trNZ0gi1dpuRmQ%2baC%2bjuuthS7Fbwvi%2f%2bP8lpGvAMP7Wr3A6BceSu7AAAA)**\]**
 
@@ -626,7 +626,7 @@ let FloodDataSet = StormEvents
 | summarize FloodReports = makeset(StartTime) by State
 | project State, FloodReports;
 FloodDataSet
-| mvexpand FloodReports
+| mv-expand FloodReports
 ```
 
 ### <a name="percentiles"></a>percentiles()
@@ -727,7 +727,7 @@ StormEvents
 | extend row_number = row_number()
 ```
 
-Satır kümesi, ayrıca bir sonuç ise sıralanmış olarak değerlendirilir: **sıralama**, **üst**, veya **aralığı** işleçleri, ardından isteğe bağlı olarak **proje**, **proje koyma**, **genişletmek**, **burada**, **ayrıştırma**, **mvexpand**, veya **ele** işleçleri.
+Satır kümesi, ayrıca bir sonuç ise sıralanmış olarak değerlendirilir: **sıralama**, **üst**, veya **aralığı** işleçleri, ardından isteğe bağlı olarak **proje**, **proje koyma**, **genişletmek**, **burada**, **ayrıştırma**, **mv-genişletin**, veya **ele** işleçleri.
 
 **\[**[**Sorguyu çalıştırmak için tıklayın**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIzi%2fNK9HQVEiqVAguSSxJBcvmF5XABRQSi5NBgqkVJal5KQpF%2beXxeaW5SalFCrZIHA1NAEGimf5iAAAA)**\]**
 
@@ -804,7 +804,7 @@ range _day from _start to _end step 1d
 | extend d = tolong((_day - _start)/1d)
 | extend r = rand()+1
 | extend _users=range(tolong(d*50*r), tolong(d*50*r+100*r-1), 1)
-| mvexpand id=_users to typeof(long) limit 1000000
+| mv-expand id=_users to typeof(long) limit 1000000
 // Calculate DAU/WAU ratio
 | evaluate activity_engagement(['id'], _day, _start, _end, 1d, 7d)
 | project _day, Dau_Wau=activity_ratio*100
@@ -830,7 +830,7 @@ range _day from _start to _end step 1d
 | extend d = tolong((_day - _start)/1d)
 | extend r = rand()+1
 | extend _users=range(tolong(d*50*r), tolong(d*50*r+200*r-1), 1)
-| mvexpand id=_users to typeof(long) limit 1000000
+| mv-expand id=_users to typeof(long) limit 1000000
 | where _day > datetime(2017-01-02)
 | project _day, id
 // Calculate weekly retention rate
@@ -855,7 +855,7 @@ range Day from _start to _end step 1d
 | extend d = tolong((Day - _start)/1d)
 | extend r = rand()+1
 | extend _users=range(tolong(d*50*r), tolong(d*50*r+200*r-1), 1)
-| mvexpand id=_users to typeof(long) limit 1000000
+| mv-expand id=_users to typeof(long) limit 1000000
 // Take only the first week cohort (last parameter)
 | evaluate new_activity_metrics(['id'], Day, _start, _end, 7d, _start)
 | project from_Day, to_Day, retention_rate, churn_rate

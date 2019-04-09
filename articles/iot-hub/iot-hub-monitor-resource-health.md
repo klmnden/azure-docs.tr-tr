@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
-ms.openlocfilehash: 0a230ff1c4d5c6bb36003f07cc1c411f7e2c3629
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241009"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274051"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IOT Hub durumunu izleyin ve sorunları hızla tanılayın
 
-Azure IOT hub'ı uygulayan işletmelerin kaynaklarını güvenilir performans bekler. İşlemlerinizi Kapat bir saatin sürdürmenize yardımcı olmak için IOT hub'ı tam olarak tümleşiktir [Azure İzleyici](../azure-monitor/index.yml) ve [Azure kaynak durumu](../service-health/resource-health-overview.md). IOT çözümlerinizi ve sağlıklı bir durumda çalışır durumda tutmak için ihtiyacınız olan verileri sağlamak için bu iki hizmet çalışır. 
+Azure IOT hub'ı uygulayan işletmelerin kaynaklarını güvenilir performans bekler. İşlemlerinizi Kapat bir saatin sürdürmenize yardımcı olmak için IOT hub'ı tam olarak tümleşiktir [Azure İzleyici](../azure-monitor/index.yml) ve [Azure kaynak durumu](../service-health/resource-health-overview.md). IOT çözümlerinizi ve sağlıklı bir durumda çalışır durumda tutmak için ihtiyacınız olan verileri sağlamak için bu iki hizmet çalışır.
 
 Azure İzleyici, izleme ve günlüğe kaydetme için tüm Azure Hizmetleri tek bir kaynaktır. Özel işleme için Azure İzleyici günlükleri, Event Hubs veya Azure depolama için Azure İzleyici oluşturan tanılama günlüklerini gönderebilirsiniz. Azure İzleyicisi'nin ölçümleri ve tanılama ayarları, kaynaklarınızın performansını görünürlük sağlar. Bilgi edinmek için bu makaleyi okumaya devam edin nasıl [kullanımı Azure İzleyici](#use-azure-monitor) IOT hub'ınızla. 
 
@@ -30,7 +30,7 @@ IOT Hub, IOT kaynaklarınızın durumunu anlamak için kullanabileceğiniz, kend
 
 ## <a name="use-azure-monitor"></a>Azure İzleyici’yi kullanma
 
-Azure İzleyici, Azure kaynakları için IOT hub'ınıza içinde gerçekleşmesi işlemleri izleyebilirsiniz anlamına gelir. tanılama bilgileri sağlar. 
+Azure İzleyici, Azure kaynakları için IOT hub'ınıza içinde gerçekleşmesi işlemleri izleyebilirsiniz anlamına gelir. tanılama bilgileri sağlar.
 
 Azure İzleyicisi'nin tanılama ayarları değiştirir, IOT Hub işlemlerini izleyin. İşlem izleme şu anda kullanıyorsanız, iş akışlarınızı geçirmeniz gerekir. Daha fazla bilgi için [işlem için tanılama ayarları İzleme'ten geçiş](iot-hub-migrate-to-diagnostics-settings.md).
 
@@ -40,7 +40,7 @@ Azure İzleyici izleyen olaylarını ve belirli ölçümleri hakkında daha fazl
 
 ### <a name="understand-the-logs"></a>Günlükleri anlama
 
-Azure İzleyici, IOT Hub'ında gerçekleşen farklı işlem izler. Her kategorinin, bu kategoriye giren olayları nasıl bildirildiğini tanımlayan bir şema vardır. 
+Azure İzleyici, IOT Hub'ında gerçekleşen farklı işlem izler. Her kategorinin, bu kategoriye giren olayları nasıl bildirildiğini tanımlayan bir şema vardır.
 
 #### <a name="connections"></a>Bağlantılar
 
@@ -49,11 +49,10 @@ Bağlantı kategorisi parçaları cihaz bağlayın ve hataları yanı sıra IOT 
 > [!NOTE]
 > Cihaz güvenilir bir bağlantı durumunu denetleme [cihaz sinyal](iot-hub-devguide-identity-registry.md#device-heartbeat).
 
-
 ```json
 {
-    "records": 
-    [
+   "records":
+   [
         {
             "time": " UTC timestamp",
             "resourceId": "Resource Id",
@@ -73,13 +72,13 @@ Bulut-cihaz komutlarını kategorisi, IOT hub ve bulut-cihaz ileti işlem hattı
 
 * (Örneğin, yetkisiz bir gönderenden hatalar), bulut buluttan cihaza iletileri gönderme
 * Bulut-cihaz iletilerini (gibi teslim sayısı aşıldı hataları), alma ve
-* Bulut-cihaz ileti geri bildirim alan (geri bildirim gibi hataları süresi doldu). 
+* Bulut-cihaz ileti geri bildirim alan (geri bildirim gibi hataları süresi doldu).
 
 Bu kategori, bulut buluttan cihaza iletinin başarılı bir şekilde teslim ancak yanlış aygıt tarafından işlenen hataları yakalamaz.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": " UTC timestamp",
@@ -89,7 +88,7 @@ Bu kategori, bulut buluttan cihaza iletinin başarılı bir şekilde teslim anca
             "level": "Error",
             "resultType": "Event status",
             "resultDescription": "MessageDescription",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"messageId\":\"<messageId>\",\"messageSizeInBytes\":\"<messageSize>\",\"protocol\":\"Amqp\",\"deliveryAcknowledgement\":\"<None, NegativeOnly, PositiveOnly, Full>\",\"deliveryCount\":\"0\",\"expiryTime\":\"<timestamp>\",\"timeInSystem\":\"<timeInSystem>\",\"ttl\":<ttl>, \"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\", \"maskedIpAddresss\": \"<maskedIpAddress>\", \"statusCode\": \"4XX\"}",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"messageId\":\"<messageId>\",\"messageSizeInBytes\":\"<messageSize>\",\"protocol\":\"Amqp\",\"deliveryAcknowledgement\":\"<None, NegativeOnly, PositiveOnly, Full>\",\"deliveryCount\":\"0\",\"expiryTime\":\"<timestamp>\",\"timeInSystem\":\"<timeInSystem>\",\"ttl\":<ttl>, \"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\", \"maskedIpAddress\": \"<maskedIpAddress>\", \"statusCode\": \"4XX\"}",
             "location": "Resource location"
         }
     ]
@@ -102,14 +101,14 @@ Cihaz kimlik işlem kategorisi oluşturmak, güncelleştirmek veya IOT hub'ını
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
             "resourceId": "Resource Id",
             "operationName": "get",
             "category": "DeviceIdentityOperations",
-            "level": "Error",    
+            "level": "Error",
             "resultType": "Event status",
             "resultDescription": "MessageDescription",
             "properties": "{\"maskedIpAddress\":\"<maskedIpAddress>\",\"deviceId\":\"<deviceId>\", \"statusCode\":\"4XX\"}",
@@ -131,7 +130,7 @@ Bu kategori, "cihaz telemetrisi" kategorisi altında bildirilen iletilerini kend
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -152,7 +151,7 @@ Cihaz telemetrisi kategorisi, IOT hub ve telemetri ardışık düzene ilgili hat
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -174,14 +173,16 @@ Cihaz telemetrisi kategorisi, IOT hub ve telemetri ardışık düzene ilgili hat
 Dosya karşıya yükleme kategorisi, IOT hub ve dosya karşıya yükleme işlevselliği ile ilgili hataları izler. Bu kategori içerir:
 
 * Ne zaman süresi dolmadan önce tamamlanan bir karşıya yükleme hub'a bir cihaz bildirir gibi SAS URI'si ile oluşan hatalar.
+
 * Cihaz tarafından bildirilen karşıya yükleme başarısız oldu.
+
 * Bir dosya depolama alanında, IOT hub'ı bildirim iletisi oluşturulurken bulunmadığında, oluşan hataları.
 
 Bu kategori, cihazın depolama için bir dosya yüklenirken doğrudan ortaya çıkan hataları yakalayamaz.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -201,11 +202,11 @@ Bu kategori, cihazın depolama için bir dosya yüklenirken doğrudan ortaya ç�
 
 #### <a name="cloud-to-device-twin-operations"></a>Bulut-cihaz ikizi işlemleri
 
-Bulut-cihaz ikizi işlem kategorisi üzerinde cihaz ikizlerini hizmet tarafından başlatılan olayları izler. Bu işlemler get ikizi dahil edebilir, güncelleştirme veya etiketleri, değiştirmek ve güncelleştirme veya istenen özellikleri değiştirin. 
+Bulut-cihaz ikizi işlem kategorisi üzerinde cihaz ikizlerini hizmet tarafından başlatılan olayları izler. Bu işlemler get ikizi dahil edebilir, güncelleştirme veya etiketleri, değiştirmek ve güncelleştirme veya istenen özellikleri değiştirin.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -214,7 +215,7 @@ Bulut-cihaz ikizi işlem kategorisi üzerinde cihaz ikizlerini hizmet tarafında
             "category": "C2DTwinOperations",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\"}", 
+            "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\"}",
             "location": "Resource location"
         }
     ]
@@ -227,7 +228,7 @@ Buluta cihaz ikizi işlem kategorisi üzerinde cihaz çiftlerini cihaz tarafınd
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -236,7 +237,7 @@ Buluta cihaz ikizi işlem kategorisi üzerinde cihaz çiftlerini cihaz tarafınd
             "category": "D2CTwinOperations",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authenticationType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\"}", 
+            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authenticationType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\"}",
             "location": "Resource location"
         }
     ]
@@ -245,11 +246,11 @@ Buluta cihaz ikizi işlem kategorisi üzerinde cihaz çiftlerini cihaz tarafınd
 
 #### <a name="twin-queries"></a>Çifti sorguları
 
-İkizi sorgularını kategorisi sorgu istekleri için bulutta başlatılan cihaz ikizlerini bildirir. 
+İkizi sorgularını kategorisi sorgu istekleri için bulutta başlatılan cihaz ikizlerini bildirir.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -258,7 +259,7 @@ Buluta cihaz ikizi işlem kategorisi üzerinde cihaz çiftlerini cihaz tarafınd
             "category": "TwinQueries",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"query\":\"<twin query>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\",\"pageSize\":\"<pageSize>\", \"continuation\":\"<true, false>\", \"resultSize\":\"<resultSize>\"}", 
+            "properties": "{\"query\":\"<twin query>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\",\"pageSize\":\"<pageSize>\", \"continuation\":\"<true, false>\", \"resultSize\":\"<resultSize>\"}",
             "location": "Resource location"
         }
     ]
@@ -267,11 +268,11 @@ Buluta cihaz ikizi işlem kategorisi üzerinde cihaz çiftlerini cihaz tarafınd
 
 #### <a name="jobs-operations"></a>İş işlemleri
 
-Cihaz ikizlerini güncelleştirin veya birden fazla cihazda doğrudan metotları çağırma iş isteklerini işler işlem kategorisi raporlar. Bu istekler bulutta başlatılır. 
+Cihaz ikizlerini güncelleştirin veya birden fazla cihazda doğrudan metotları çağırma iş isteklerini işler işlem kategorisi raporlar. Bu istekler bulutta başlatılır.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -280,7 +281,7 @@ Cihaz ikizlerini güncelleştirin veya birden fazla cihazda doğrudan metotları
             "category": "JobsOperations",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"jobId\":\"<jobId>\", \"sdkVersion\": \"<sdkVersion>\",\"messageSize\": <messageSize>,\"filter\":\"DeviceId IN ['1414ded9-b445-414d-89b9-e48e8c6285d5']\",\"startTimeUtc\":\"Wednesday, September 13, 2017\",\"duration\":\"0\"}", 
+            "properties": "{\"jobId\":\"<jobId>\", \"sdkVersion\": \"<sdkVersion>\",\"messageSize\": <messageSize>,\"filter\":\"DeviceId IN ['1414ded9-b445-414d-89b9-e48e8c6285d5']\",\"startTimeUtc\":\"Wednesday, September 13, 2017\",\"duration\":\"0\"}",
             "location": "Resource location"
         }
     ]
@@ -289,11 +290,11 @@ Cihaz ikizlerini güncelleştirin veya birden fazla cihazda doğrudan metotları
 
 #### <a name="direct-methods"></a>Doğrudan yöntemler
 
-Doğrudan yöntemler kategoriyi ayrı ayrı cihazlara gönderilen istek-yanıt etkileşimleri izler. Bu istekler bulutta başlatılır. 
+Doğrudan yöntemler kategoriyi ayrı ayrı cihazlara gönderilen istek-yanıt etkileşimleri izler. Bu istekler bulutta başlatılır.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -302,7 +303,7 @@ Doğrudan yöntemler kategoriyi ayrı ayrı cihazlara gönderilen istek-yanıt e
             "category": "DirectMethods",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"deviceId\":<messageSize>, \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
+            "properties": "{\"deviceId\":<messageSize>, \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}",
             "location": "Resource location"
         }
     ]
@@ -313,15 +314,15 @@ Doğrudan yöntemler kategoriyi ayrı ayrı cihazlara gönderilen istek-yanıt e
 
 Dağıtılmış izleme kategorisi izleme bağlamı üstbilgisine iletileri için bağıntı kimlikleri izler. Bu günlükler tam olarak etkinleştirmek için istemci tarafı kod izleyerek güncelleştirilmelidir [analiz ve IOT uygulamaları için uçtan uca IOT hub'ı dağıtılmış izleme (Önizleme) ile tanılama](iot-hub-distributed-tracing.md).
 
-Unutmayın `correlationId` uyan [W3C izleme bağlamı](https://github.com/w3c/trace-context) teklifi, burada içerdiği bir `trace-id` yanı sıra bir `span-id`. 
+Unutmayın `correlationId` uyan [W3C izleme bağlamı](https://github.com/w3c/trace-context) teklifi, burada içerdiği bir `trace-id` yanı sıra bir `span-id`.
 
 ##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>IOT hub'ı D2C (cihaz-bulut) günlükleri
 
-IOT Hub, IOT Hub geçerli izleme özelliklerini içeren bir ileti geldiğinde, bu günlük kaydeder. 
+IOT Hub, IOT Hub geçerli izleme özelliklerini içeren bir ileti geldiğinde, bu günlük kaydeder.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -333,7 +334,7 @@ IOT Hub, IOT Hub geçerli izleme özelliklerini içeren bir ileti geldiğinde, b
             "resultType": "Success",
             "resultDescription":"Receive message success",
             "durationMs": "",
-            "properties": "{\"messageSize\": 1, \"deviceId\":\"<deviceId>\", \"callerLocalTimeUtc\": : \"2017-02-22T03:27:28.633Z\", \"calleeLocalTimeUtc\": \"2017-02-22T03:27:28.687Z\"}", 
+            "properties": "{\"messageSize\": 1, \"deviceId\":\"<deviceId>\", \"callerLocalTimeUtc\": : \"2017-02-22T03:27:28.633Z\", \"calleeLocalTimeUtc\": \"2017-02-22T03:27:28.687Z\"}",
             "location": "Resource location"
         }
     ]
@@ -345,7 +346,7 @@ Burada, `durationMs` hesaplanmaz IOT Hub'ın saati cihaz saatiyle eşitlenmiş o
 | Özellik | Tür | Açıklama |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | Tamsayı | CİHAZDAN buluta ileti bayt cinsinden boyutu |
-| **cihaz kimliği** | ASCII 7 bit alfasayısal karakter dizesi | Cihaz kimliği |
+| **deviceId** | ASCII 7 bit alfasayısal karakter dizesi | Cihaz kimliği |
 | **callerLocalTimeUtc** | UTC zaman damgası | Cihaz yerel saat tarafından belirlendiği şekilde iletinin oluşturma zamanı |
 | **calleeLocalTimeUtc** | UTC zaman damgası | IOT Hub Hizmet tarafı saat tarafından belirlendiği şekilde, IOT Hub'ının geçidinde ileti geliş saati |
 
@@ -355,7 +356,7 @@ Burada, `durationMs` hesaplanmaz IOT Hub'ın saati cihaz saatiyle eşitlenmiş o
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -367,14 +368,14 @@ Burada, `durationMs` hesaplanmaz IOT Hub'ın saati cihaz saatiyle eşitlenmiş o
             "resultType": "Success",
             "resultDescription":"Ingress message success",
             "durationMs": "10",
-            "properties": "{\"isRoutingEnabled\": \"true\", \"parentSpanId\":\"0144d2590aacd909\"}", 
+            "properties": "{\"isRoutingEnabled\": \"true\", \"parentSpanId\":\"0144d2590aacd909\"}",
             "location": "Resource location"
         }
     ]
 }
 ```
 
-İçinde `properties` bölümü, bu günlük iletisi giriş hakkında ek bilgiler içerir
+İçinde `properties` bölümü, bu günlük iletisi giriş hakkında ek bilgiler içerir.
 
 | Özellik | Tür | Açıklama |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
@@ -387,7 +388,7 @@ IOT hub'ı kayıtları bu oturum zaman [yönlendirme](iot-hub-devguide-messages-
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -399,14 +400,14 @@ IOT hub'ı kayıtları bu oturum zaman [yönlendirme](iot-hub-devguide-messages-
             "resultType": "Success",
             "resultDescription":"Egress message success",
             "durationMs": "10",
-            "properties": "{\"endpointType\": \"EventHub\", \"endpointName\": \"myEventHub\", \"parentSpanId\":\"349810a9bbd28730\"}", 
+            "properties": "{\"endpointType\": \"EventHub\", \"endpointName\": \"myEventHub\", \"parentSpanId\":\"349810a9bbd28730\"}",
             "location": "Resource location"
         }
     ]
 }
 ```
 
-İçinde `properties` bölümü, bu günlük iletisi giriş hakkında ek bilgiler içerir
+İçinde `properties` bölümü, bu günlük iletisi giriş hakkında ek bilgiler içerir.
 
 | Özellik | Tür | Açıklama |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
@@ -414,91 +415,92 @@ IOT hub'ı kayıtları bu oturum zaman [yönlendirme](iot-hub-devguide-messages-
 | **EndpointType** | String | Yönlendirme uç noktası türü |
 | **parentSpanId** | String | [Yayılma kimliği](https://w3c.github.io/trace-context/#parent-id) üst iletinin, IOT hub'ı giriş ileti izleme bu durumda olacaktır |
 
-
 ### <a name="read-logs-from-azure-event-hubs"></a>Azure Event hubs'tan günlükleri okuma
 
 Olay günlüğü tanılama ayarları ayarladıktan sonra günlüklerini okumak ve böylece bunları içindeki bilgileri temel alan bir eylem sürebilir uygulamalar oluşturabilirsiniz. Bu örnek kod, bir olay hub'ından günlükleri alır:
 
 ```csharp
-class Program 
+class Program
 { 
-    static string connectionString = "{your AMS eventhub endpoint connection string}"; 
-    static string monitoringEndpointName = "{your AMS event hub endpoint name}"; 
-    static EventHubClient eventHubClient; 
-//This is the Diagnostic Settings schema 
-    class AzureMonitorDiagnosticLog 
-    { 
-        string time { get; set; } 
-        string resourceId { get; set; } 
-        string operationName { get; set; } 
-        string category { get; set; } 
-        string level { get; set; } 
-        string resultType { get; set; } 
-        string resultDescription { get; set; } 
-        string durationMs { get; set; } 
-        string callerIpAddress { get; set; } 
-        string correlationId { get; set; } 
-        string identity { get; set; } 
-        string location { get; set; } 
-        Dictionary<string, string> properties { get; set; } 
-    }; 
-    static void Main(string[] args) 
-    { 
-        Console.WriteLine("Monitoring. Press Enter key to exit.\n"); 
-        eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName); 
-        var d2cPartitions = eventHubClient.GetRuntimeInformationAsync().PartitionIds; 
-        CancellationTokenSource cts = new CancellationTokenSource(); 
-        var tasks = new List<Task>(); 
-        foreach (string partition in d2cPartitions) 
-        { 
-            tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token)); 
-        } 
-        Console.ReadLine(); 
-        Console.WriteLine("Exiting..."); 
-        cts.Cancel(); 
-        Task.WaitAll(tasks.ToArray()); 
-    } 
-    private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct) 
-    { 
-        var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow); 
-        while (true) 
-        { 
-            if (ct.IsCancellationRequested) 
-            { 
-                await eventHubReceiver.CloseAsync(); 
-                break; 
-            } 
-            EventData eventData = await eventHubReceiver.ReceiveAsync(new TimeSpan(0,0,10)); 
-            if (eventData != null) 
-            { 
-                string data = Encoding.UTF8.GetString(eventData.GetBytes()); 
-                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data); 
-                var deserializer = new JavaScriptSerializer(); 
-                //deserialize json data to azure monitor object 
-                AzureMonitorDiagnosticLog message = new JavaScriptSerializer().Deserialize<AzureMonitorDiagnosticLog>(result); 
- 
-            } 
-        } 
-    } 
-} 
+    static string connectionString = "{your AMS eventhub endpoint connection string}";
+    static string monitoringEndpointName = "{your AMS event hub endpoint name}";
+    static EventHubClient eventHubClient;
+    //This is the Diagnostic Settings schema
+    class AzureMonitorDiagnosticLog
+    {
+        string time { get; set; }
+        string resourceId { get; set; }
+        string operationName { get; set; }
+        string category { get; set; }
+        string level { get; set; }
+        string resultType { get; set; }
+        string resultDescription { get; set; }
+        string durationMs { get; set; }
+        string callerIpAddress { get; set; }
+        string correlationId { get; set; }
+        string identity { get; set; }
+        string location { get; set; }
+        Dictionary<string, string> properties { get; set; }
+    };
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Monitoring. Press Enter key to exit.\n");
+        eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName);
+        var d2cPartitions = eventHubClient.GetRuntimeInformationAsync().PartitionIds;
+        CancellationTokenSource cts = new CancellationTokenSource();
+        var tasks = new List<Task>();
+        foreach (string partition in d2cPartitions)
+        {
+            tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token));
+        }
+        Console.ReadLine();
+        Console.WriteLine("Exiting...");
+        cts.Cancel();
+        Task.WaitAll(tasks.ToArray());
+    }
+
+    private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct)
+    {
+        var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow);
+        while (true)
+        {
+            if (ct.IsCancellationRequested)
+            {
+                await eventHubReceiver.CloseAsync();
+                break;
+            }
+            EventData eventData = await eventHubReceiver.ReceiveAsync(new TimeSpan(0,0,10));
+            if (eventData != null)
+            {
+                string data = Encoding.UTF8.GetString(eventData.GetBytes());
+                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data);
+                var deserializer = new JavaScriptSerializer();
+                //deserialize json data to azure monitor object
+                AzureMonitorDiagnosticLog message = new JavaScriptSerializer().Deserialize<AzureMonitorDiagnosticLog>(result);
+            }
+        }
+    }
+}
 ```
 
 ## <a name="use-azure-resource-health"></a>Azure kaynak durumu kullanın
 
-Azure kaynak durumu, IOT hub'ınıza hazır ve çalışır durumda olup olmadığını izlemek için kullanın. Ayrıca, IOT hub'ınızın sağlığını etkileyen bölgesel bir kesinti olup olmadığını öğrenebilirsiniz. Azure IOT Hub'ınıza sistem durumu hakkında belirli diğer ayrıntıları öğrenmek olmasını öneririz, [kullanımı Azure İzleyici](#use-azure-monitor). 
+Azure kaynak durumu, IOT hub'ınıza hazır ve çalışır durumda olup olmadığını izlemek için kullanın. Ayrıca, IOT hub'ınızın sağlığını etkileyen bölgesel bir kesinti olup olmadığını öğrenebilirsiniz. Azure IOT Hub'ınıza sistem durumu hakkında belirli diğer ayrıntıları öğrenmek olmasını öneririz, [kullanımı Azure İzleyici](#use-azure-monitor).
 
 Azure IOT Hub durumu bölge düzeyinde gösterir. Bölgesel bir kesinti IOT hub'ınıza etkiliyorsa olarak sistem durumunu gösteren **bilinmeyen**. Daha fazla bilgi için bkz. [kaynak türleri ve sistem durumu denetimleri bulunan Azure kaynak durumu](../service-health/resource-health-checks-resource-types.md).
 
 IOT hub'ları durumunu denetlemek için şu adımları izleyin:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-1. Gidin **hizmet durumu** > **kaynak durumu**.
-1. Aşağı açılan kutularından aboneliğinizi seçin, ardından seçin **IOT hub'ı** kaynak türü.
+
+2. Gidin **hizmet durumu** > **kaynak durumu**.
+
+3. Aşağı açılan kutularından aboneliğinizi seçin, ardından seçin **IOT hub'ı** kaynak türü.
 
 Sistem Durumu verileri nasıl yorumlayacağınız hakkında daha fazla bilgi için bkz: [Azure kaynak durumu genel bakış](../service-health/resource-health-overview.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [IOT hub'ı ölçüleri anlama](iot-hub-metrics.md)
-- [IOT Uzaktan izleme ve IOT hub ve posta kutusu bağlanan Azure Logic Apps ile bildirimleri](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
-
+* [IOT hub'ı ölçüleri anlama](iot-hub-metrics.md)
+* [IOT Uzaktan izleme ve IOT hub ve posta kutusu bağlanan Azure Logic Apps ile bildirimleri](iot-hub-monitoring-notifications-with-azure-logic-apps.md)

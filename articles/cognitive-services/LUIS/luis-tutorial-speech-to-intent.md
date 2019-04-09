@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 04/08/2018
 ms.author: diberry
-ms.openlocfilehash: 6f775ffaf53019cc50bc38c294b4d5f40c8eca90
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d6173ee25f28aa884513d126c06a8a7c722098d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076760"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273847"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Konuşma hizmeti Language Understanding uygulamanızla tümleştirin
 [Konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) tek bir istek kullanarak ses almanızı ve JSON nesneleriyle LUIS tahmini döndürmenizi sağlar. Bu makalede bir C# projesi indirip Visual Studio'da kullanarak mikrofona konuşacak ve LUIS tahmin bilgilerini alacaksınız. Bu projede Konuşma [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paketi kullanılmaktadır ve bu paket başvuru olarak projeye eklenmiştir. 
@@ -24,7 +24,7 @@ ms.locfileid: "58076760"
 Bu makalede uygulamayı içeri aktarmak için ücretsiz bir [LUIS][LUIS] web sitesi hesabına ihtiyacınız olacak.
 
 ## <a name="create-luis-endpoint-key"></a>LUIS uç nokta anahtarı oluşturma
-Azure portalda bir **Language Understanding** (LUIS) anahtarı [oluşturun](luis-how-to-azure-subscription.md). 
+Azure portalında [oluşturma](luis-how-to-azure-subscription.md) bir **Bilişsel hizmet** LUIS uygulamanızı (LUIS) anahtarı.  
 
 ## <a name="import-human-resources-luis-app"></a>İnsan Kaynakları LUIS uygulamasını içeri aktarma
 İnsan Kaynakları LUIS uygulaması kullanılabilir amacı ve bu makalede konuşma arasındadır [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding) GitHub deposu. [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json) dosyasını indirin, `.json` uzantısıyla kaydedin ve LUIS'e [aktarın](luis-how-to-start-new-app.md#import-new-app). 
@@ -66,7 +66,7 @@ Bu makalede bilgisayarınızdaki ses cihazı kullanılmaktadır. Bu mikrofonlu k
 
 Konuşma SDK'sı başvuru olarak eklenmiştir. 
 
-[![Visual Studio 2017 ekran görüntüleme Microsoft.CognitiveServices.Speech NuGet paketini](./media/luis-tutorial-speech-to-intent/nuget-package.png "görüntüleme Microsoft.CognitiveServices.Speech NuGet paketini Visual Studio 2017 ekran görüntüsü")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![SVisual Studio 2017 Microsoft.CognitiveServices.Speech NuGet paketi görüntüleme creenshot](./media/luis-tutorial-speech-to-intent/nuget-package.png "görüntüleme Microsoft.CognitiveServices.Speech NuGet paketini Visual Studio 2017 ekran görüntüsü")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>C# kodunu değiştirme
 `Program.cs` dosyasını açın ve aşağıdaki değişkenleri değiştirin:
@@ -74,7 +74,7 @@ Konuşma SDK'sı başvuru olarak eklenmiştir.
 |Değişken adı|Amaç|
 |--|--|
 |LUIS_assigned_endpoint_key|Publish (Yayımla) sayfasındaki uç nokta URL'sine atanan abonelik anahtarı değerini gösterir|
-|LUIS_endpoint_key_region|URL'nin ilk alt etki alanını gösterir, örneğin: `westus`|
+|LUIS_endpoint_key_region|Uç nokta URL'SİNİN ilk alt etki alanı için örneğin karşılık gelir `westus`|
 |LUIS_app_ID|Uç nokta URL'si yolunun **apps/** sonrasını gösterir|
 
 `Program.cs` dosyasına İnsan Kaynakları amaçları eşlenmiştir.
@@ -98,6 +98,6 @@ Konuşma SDK'sı, LUIS yanıtının tamamını döndürür.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [LUIS’i bir BOT ile tümleştirme](luis-csharp-tutorial-build-bot-framework-sample.md)
+> [LUIS bir BOT ile tümleştirme](luis-csharp-tutorial-build-bot-framework-sample.md)
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
