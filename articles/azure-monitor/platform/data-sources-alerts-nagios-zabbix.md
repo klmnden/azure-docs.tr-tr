@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: f0f156568eed5a1e8f3296ff7c37df7f050dbc33
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ed6747573edf4c059eb29d28107a22706c52856
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540054"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426198"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Linux için Log Analytics Aracısı'ndan Nagios ve Zabbix'ten Azure İzleyicisi'nde uyarılarını Topla 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -92,15 +92,15 @@ Nagios tarafından toplanan kayıtlarına sahip uyarı bir **türü** , **uyarı
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Tür |*Uyarı* |
-| SourceSystem |*Nagios* |
-| AlertName |Uyarının adı. |
-| AlertDescription | Uyarı açıklaması. |
-| AlertState | Ana bilgisayar ve hizmet durumu.<br><br>Tamam<br>UYARI<br>AYARLAMA<br>AŞAĞI |
-| ana bilgisayar adı | Uyarıyı oluşturan ana bilgisayar adı. |
-| PriorityNumber | Uyarı öncelik düzeyi. |
-| StateType | Uyarı durumu türü.<br><br>YAZILIM - değil yeniden denetlenmesine sorunu.<br>SABİT - olan sorunu belirtilen sayıda yeniden denetlenmesine.  |
-| TimeGenerated |Tarihi ve uyarının oluşturulduğu saat. |
+| `Type` |*Uyarı* |
+| `SourceSystem` |*Nagios* |
+| `AlertName` |Uyarının adı. |
+| `AlertDescription` | Uyarı açıklaması. |
+| `AlertState` | Ana bilgisayar ve hizmet durumu.<br><br>Tamam<br>UYARI<br>AYARLAMA<br>AŞAĞI |
+| `HostName` | Uyarıyı oluşturan ana bilgisayar adı. |
+| `PriorityNumber` | Uyarı öncelik düzeyi. |
+| `StateType` | Uyarı durumu türü.<br><br>YAZILIM - değil yeniden denetlenmesine sorunu.<br>SABİT - olan sorunu belirtilen sayıda yeniden denetlenmesine.  |
+| `TimeGenerated` |Tarihi ve uyarının oluşturulduğu saat. |
 
 
 ### <a name="zabbix-alert-records"></a>Zabbix uyarı kayıtları
@@ -108,17 +108,17 @@ Zabbix tarafından toplanan kayıtlarına sahip uyarı bir **türü** , **uyarı
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Tür |*Uyarı* |
-| SourceSystem |*Zabbix* |
-| AlertName | Uyarının adı. |
-| AlertPriority | Uyarının önem derecesi.<br><br>Sınıflandırılmamış<br>bilgi<br>uyarı<br>ortalama<br>Yüksek<br>Olağanüstü durum  |
-| AlertState | Uyarı durumu.<br><br>0 - durumunun güncel olup.<br>1 - durum bilinmiyor.  |
-| AlertTypeNumber | Birden çok sorun olayı uyarı oluşturabilen olup olmadığını belirtir.<br><br>0 - durumunun güncel olup.<br>1 - durum bilinmiyor.    |
-| Yorumlar | Uyarı için ek açıklamalar. |
-| ana bilgisayar adı | Uyarıyı oluşturan ana bilgisayar adı. |
-| PriorityNumber | Uyarının önem derecesini belirten değer.<br><br>0 - değil olarak sınıflandırılmış<br>1 - bilgiler<br>2 - uyarı<br>3 - ortalama<br>4 - yüksek<br>5 - olağanüstü durum |
-| TimeGenerated |Tarihi ve uyarının oluşturulduğu saat. |
-| TimeLastModified |Tarih ve saat uyarının durumunu en son değiştirildiği. |
+| `Type` |*Uyarı* |
+| `SourceSystem` |*Zabbix* |
+| `AlertName` | Uyarının adı. |
+| `AlertPriority` | Uyarının önem derecesi.<br><br>Sınıflandırılmamış<br>bilgi<br>uyarı<br>ortalama<br>Yüksek<br>Olağanüstü durum  |
+| `AlertState` | Uyarı durumu.<br><br>0 - durumunun güncel olup.<br>1 - durum bilinmiyor.  |
+| `AlertTypeNumber` | Birden çok sorun olayı uyarı oluşturabilen olup olmadığını belirtir.<br><br>0 - durumunun güncel olup.<br>1 - durum bilinmiyor.    |
+| `Comments` | Uyarı için ek açıklamalar. |
+| `HostName` | Uyarıyı oluşturan ana bilgisayar adı. |
+| `PriorityNumber` | Uyarının önem derecesini belirten değer.<br><br>0 - değil olarak sınıflandırılmış<br>1 - bilgiler<br>2 - uyarı<br>3 - ortalama<br>4 - yüksek<br>5 - olağanüstü durum |
+| `TimeGenerated` |Tarihi ve uyarının oluşturulduğu saat. |
+| `TimeLastModified` |Tarih ve saat uyarının durumunu en son değiştirildiği. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

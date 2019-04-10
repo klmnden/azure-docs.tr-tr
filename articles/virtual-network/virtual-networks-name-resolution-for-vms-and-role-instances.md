@@ -4,26 +4,26 @@ titlesuffix: Azure Virtual Network
 description: Azure Iaas, farklı bulut Hizmetleri, Active Directory ve kendi DNS sunucunuzu kullanarak arasında karma çözümler için çözüm senaryoları adlandırın.
 services: virtual-network
 documentationcenter: na
-author: subsarma
+author: rohinkoul
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
-ms.author: subsarma
-ms.openlocfilehash: ea15468722fcf1b9e2649236ef4dd05549d8f460
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.author: rohink
+ms.openlocfilehash: 78c66ac25e9d20d9202236407d42f815879cd3f2
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418746"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426435"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure sanal ağlarda bulunan kaynaklar için ad çözümlemesi
 
 Azure Iaas, PaaS ve karma çözümler barındırmak için nasıl kullanacağınız bağlı olarak, sanal makineleri (VM'ler) ve birbirleri ile iletişim kurmak için bir sanal ağda dağıtılan diğer kaynaklara izin gerekebilir. IP adresleri kullanarak iletişim etkinleştirebilirsiniz olsa da, kolay anımsanacak ve değiştirmeyin adlar kullanmak çok daha kolaydır. 
 
-Etki alanı adları iç IP adreslerine çözümleyebilir sanal ağlara dağıtılan kaynaklara gereksinim duyduğunuzda, bunlar iki yöntemden biri kullanabilirsiniz:
+Sanal ağlara dağıtılan kaynakların etki alanı adlarını iç IP adreslerine çözümlemesi gerektiğinde kullanabileceğini iki yöntem vardır:
 
 * [Azure tarafından sağlanan ad çözümlemesi](#azure-provided-name-resolution)
 * [Ad çözümlemesi kendi DNS sunucunuzu kullanan](#name-resolution-that-uses-your-own-dns-server) (hangi iletmek için Azure tarafından sağlanan DNS sunucularını sorgular)
@@ -34,7 +34,7 @@ Kullandığınız ad çözümlemesi türünü nasıl kaynaklarınızı birbirler
 > Senaryonuza bağlı olarak, genel Önizleme aşamasında olan Azure DNS özel bölgeleri özelliğini kullanmak isteyebilirsiniz. Daha fazla bilgi için bkz. [Azure DNS'yi özel etki alanları için kullanma](../dns/private-dns-overview.md).
 >
 
-| **Senaryo** | **Çözüm** | **Son eki** |
+| **Senaryo** | **Çözüm** | **Sonek** |
 | --- | --- | --- |
 | VM'ler arasında ad çözümlemesine aynı bulut hizmetindeki rol örnekleri aynı sanal ağ veya Azure bulut Hizmetleri bulunur. | [Azure DNS özel bölgeleri](../dns/private-dns-overview.md) veya [Azure tarafından sağlanan ad çözümlemesi](#azure-provided-name-resolution) |Ana bilgisayar adı veya FQDN |
 | Farklı sanal ağlardaki sanal makineleri veya rol örneğini farklı bulut hizmetleri arasında ad çözümlemesine. |[Azure DNS özel bölgeleri](../dns/private-dns-overview.md) veya, müşteri tarafından yönetilen DNS sunucuları (DNS proxy) Azure tarafından çözümlemesi için sanal ağlar arasında sorguları iletme. Bkz: [kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-that-uses-your-own-dns-server). |Yalnızca FQDN |
@@ -43,8 +43,8 @@ Kullandığınız ad çözümlemesi türünü nasıl kaynaklarınızı birbirler
 | Ad çözünürlüğünü App Service Web Apps bir sanal ağdaki VM'ler için farklı bir sanal ağ içinde. |Müşteri tarafından yönetilen DNS sunucuları (DNS proxy) Azure tarafından çözümlemesi için sanal ağlar arasında sorguları iletme. Kendi DNS sunucunuzu kullanarak ad çözümleme konusuna bakın. |Yalnızca FQDN |
 | Sanal makineleri veya rol örneklerini azure'da şirket içi bilgisayar ve hizmet adlarının çözümlenmesini. |DNS sunucuları (şirket içi etki alanı denetleyicisi, yerel salt okunur etki alanı denetleyicisi veya DNS ikincil bölge aktarımlarını, örneğin kullanarak eşitlenen) müşteri tarafından yönetilen. Bkz: [kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-that-uses-your-own-dns-server). |Yalnızca FQDN |
 | Şirket içi bilgisayarlardan Azure konak adı çözümlemesi. |Bir müşteri tarafından yönetilen DNS proxy sunucusu karşılık gelen sanal ağ içinde sorguları, proxy sunucusu sorguları çözümlemesi için Azure'a iletir. Bkz: [kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-that-uses-your-own-dns-server). |Yalnızca FQDN |
-| İç IP'ler için ters DNS. |[Kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-that-uses-your-own-dns-server). |Uygulanamaz |
-| Vm'leri ya da farklı bulut Hizmetleri, sanal ağ içinde yer alan rol örneklerinin arasındaki ad çözümlemesi. |Geçerli değildir. VM'ler ve rol örneğini farklı bulut hizmetleri arasında bağlantı, bir sanal ağ dışında desteklenmiyor. |Uygulanamaz|
+| İç IP'ler için ters DNS. |[Kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-that-uses-your-own-dns-server). |Geçerli değil |
+| Vm'leri ya da farklı bulut Hizmetleri, sanal ağ içinde yer alan rol örneklerinin arasındaki ad çözümlemesi. |Geçerli değildir. VM'ler ve rol örneğini farklı bulut hizmetleri arasında bağlantı, bir sanal ağ dışında desteklenmiyor. |Geçerli değil|
 
 ## <a name="azure-provided-name-resolution"></a>Azure tarafından sağlanan ad çözümlemesi
 
@@ -173,7 +173,7 @@ Azure'a sorguları iletme ihtiyaçlarınıza uygun değil, kendi DNS çözüm sa
 > 
 > 
 
-### <a name="web-apps"></a>Web uygulamaları
+### <a name="web-apps"></a>Web apps
 App Service, Vm'leri aynı sanal ağdaki bir sanal ağa bağlı kullanılarak oluşturulan web uygulamanıza ilişkin ad çözümlemesi gerçekleştiremez gerektiğini varsayalım. Ayarlanmasına ek olarak, bir özel DNS sorguları (sanal IP'SİNDEN (168.63.129.16)), Azure'a ileten DNS ileticisi olan sunucuyu aşağıdaki adımları gerçekleştirin:
 1. Web uygulamanız için sanal ağ tümleştirmesi zaten açıklandığı yapılmaması durumunda etkinleştirme [uygulamanızı bir sanal ağ ile tümleştirme](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Azure portalında web uygulamasını barındırmak için App Service planı seçin **eşitleme ağ** altında **ağ**, **sanal ağ tümleştirmesi**.

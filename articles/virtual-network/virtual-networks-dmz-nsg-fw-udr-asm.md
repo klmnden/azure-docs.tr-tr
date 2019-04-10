@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 104eae7c8d18c32fd5b9b84147df2bf121345c22
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59277433"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426537"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Örnek 3: Ağları bir güvenlik duvarı, UDR ve Nsg'ler ile korunacak bir çevre ağı oluşturma
 
@@ -150,7 +150,7 @@ Bu örnekte, rota tablosunu, kullanıcı tanımlı bir yol ekleyin ve sonra yön
        -RouteTableName $BERouteTableName
    ```
 
-## <a name="ip-forwarding"></a>IP iletimi
+## <a name="ip-forwarding"></a>IP iletme
 
 IP iletimi UDR için yardımcı özelliğidir. Bu ayar bir sanal gereç üzerinde gerecine gönderilmeyen trafiği alma ve ardından bu trafiğin ultimate hedefine iletecek şekilde sağlar.
 
@@ -396,7 +396,7 @@ Bu örnekte tamamlamak için gereken her bir kural ayrıntılarını şunlardır
     > [!TIP]
     > Bu örnekteki kural kullansa `<explicit-dest>` başvuru, güvenlik duvarı yapılandırması genelinde tutarlı bir yaklaşım kullanmanız gerekir. Adlandırılmış bir ağ nesnesine daha kolay okunabilirlik ve desteklenebilirlik için kullanılması önerilir. `<explicit-dest>` Burada yalnızca bir alternatif başvuru yöntemi gösterecek şekilde gösterilmektedir. Yoksa genellikle önerilir, özellikle karmaşık yapılandırmalar için.
 
-* **Giden internet kuralı**: Bu geçişi kural seçilen hedef ağlara geçirilecek herhangi bir kaynak ağa gelen trafiğe izin verir. Barracuda NextGen güvenlik duvarı genellikle bu kuralın "on" varsayılan olarak, ancak devre dışı durumuna sahiptir. Bu kurala erişmek için sağ **etkinleştirme kuralı** komutu. Bu kural kaynak özniteliği için arka uç ve ön uç alt ağları için ağ nesneleri eklemek için ekran görüntüsünde gösterilen kuralı değiştirin. Bu ağ nesneler, bu makalenin önkoşul bölümünde oluşturduğunuz.
+* **Giden internet kuralı**: Bu geçişi kural seçilen hedef ağlara geçirilecek herhangi bir kaynak ağa gelen trafiğe izin verir. Barracuda NextGen güvenlik duvarı genellikle bu kural "on" varsayılan olarak, ancak devre dışı durumuna sahiptir. Bu kurala erişmek için sağ **etkinleştirme kuralı** komutu. Bu kural kaynak özniteliği için arka uç ve ön uç alt ağları için ağ nesneleri eklemek için ekran görüntüsünde gösterilen kuralı değiştirin. Bu ağ nesneler, bu makalenin önkoşul bölümünde oluşturduğunuz.
   
     ![Giden güvenlik duvarı kuralı][14]
 
@@ -635,7 +635,7 @@ Kullanıcı tanımlı değişkenler dosyaları gerektiği gibi değiştirin. Bet
 Kullanıcı tanımlı değişkenler ayarladıktan sonra bu komut dosyasını çalıştırın:
 
 1. Bir Azure aboneliğine Bağlanma
-1. Yeni depolama hesabı oluşturma
+1. Yeni depolama hesabı oluştur
 1. Yeni bir sanal ağ ve ağ yapılandırma dosyasında tanımlanan üç alt ağ oluşturma
 1. Beş sanal makine oluştur: bir güvenlik duvarı ve dört Windows Server Vm'leri
 1. UDR yapılandırın:
@@ -645,7 +645,7 @@ Kullanıcı tanımlı değişkenler ayarladıktan sonra bu komut dosyasını ça
 1. NVA üzerindeki IP iletmeyi etkinleştirin
 1. NSG yapılandırın:
    1. Bir NSG oluşturma
-   1. Kural ekleme
+   1. Kural ekle
    1. NSG için uygun alt ağları bağlama
 
 Bu PowerShell çalıştırma betiği yerel olarak bir internet üzerindeki bilgisayar veya sunucu bağlı.

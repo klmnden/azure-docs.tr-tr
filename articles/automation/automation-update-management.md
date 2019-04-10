@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/02/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1af2117b1d12c98182434705181462fd7c9bebf4
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 39e8c06228381143a6f4975e4d6415799ce16d43
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862956"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426501"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -68,7 +68,7 @@ Birden fazla Log Analytics çalışma alanları (çoklu yönlendirmeyi) ortamın
 
 Aşağıdaki tabloda, desteklenen işletim sistemlerinin bir listesi gösterilir:
 
-|İşletim sistemi  |Notlar  |
+|İşletim sistemi  |Notes  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Destekler, yalnızca değerlendirme güncelleştirin.         |
 |Windows Server 2008 R2 SP1 ve üzeri (dahil olmak üzere Windows Server 2012 ve 2016)    |.NET framework 4.5.1 veya üzeri gereklidir. ([İndirme .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 veya üzeri gereklidir. ([WMF 4.0 indirme](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1, daha fazla güvenilirlik için önerilir.  ([İndirme WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
@@ -565,7 +565,7 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
-## <a name="using-dynamic-groups"></a>Dinamik gruplar (Önizleme) kullanma
+## <a name="using-dynamic-groups"></a>Dinamik gruplar kullanılarak
 
 Güncelleştirme yönetimi, Azure Vm'leri dinamik bir grup güncelleştirme dağıtımları için hedef olanağı sağlar. Bu grupları tanımlanan bir sorgu tarafından bir güncelleştirme dağıtımı başladığında, bu grubun üyelerinin değerlendirilir. Dinamik gruplar, Klasik Vm'leri ile çalışmaz. Sorgunuzu tanımlarken, aşağıdaki öğeler birlikte dinamik Grup doldurmak için kullanılabilir
 

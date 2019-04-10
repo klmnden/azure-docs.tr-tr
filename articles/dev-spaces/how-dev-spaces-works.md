@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: İşlemler, güç Azure geliştirme alanları ve azds.yaml yapılandırma dosyasında nasıl yapılandırılacağı açıklanmaktadır.
 keywords: azds.yaml, Azure geliştirme alanları, geliştirme alanları, Docker, Kubernetes, Azure, AKS, kapsayıcılar, Azure Kubernetes hizmeti
-ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 0c22a6bbc9b75a14085f24a5be955e3482687965
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500568"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361502"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure geliştirme alanları nasıl çalışır ve olan yapılandırılmış
 
@@ -85,10 +85,10 @@ AKS kümenizi hazırlama içerir:
 * Azure geliştirme alanları, küme kullanarak etkinleştirme `az aks use-dev-spaces`
 
 Oluşturma ve Azure Dev alanları için bir AKS kümesi yapılandırma hakkında daha fazla bilgi için Başlarken kılavuzları birine bakın:
-* [Java ile Azure geliştirme alanlarında çalışmaya başlama](get-started-java.md)
-* [Azure geliştirme alanları .NET Core ve Visual Studio ile çalışmaya başlama](get-started-netcore-visualstudio.md)
-* [Azure geliştirme alanlarında .NET Core ile çalışmaya başlama](get-started-netcore.md)
-* [Node.js ile Azure geliştirme alanlarında çalışmaya başlama](get-started-nodejs.md)
+* [Java ile Azure Dev Spaces'da Çalışmaya Başlama](get-started-java.md)
+* [.NET Core ve Visual Studio ile Azure Dev Spaces’ı Kullanmaya Başlama](get-started-netcore-visualstudio.md)
+* [.NET Core ile Azure Dev Spaces'da Çalışmaya Başlama](get-started-netcore.md)
+* [Node.js ile Azure Dev Spaces'da Çalışmaya Başlama](get-started-nodejs.md)
 
 Azure geliştirme alanları AKS kümenizde etkinleştirildiğinde, kümeniz için denetleyici yükler. Denetleyici, küme dışındaki ayrı bir Azure kaynağı ve kaynaklara, kümenizdeki aşağıdakileri yapar:
 

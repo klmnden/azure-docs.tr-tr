@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 7745f986c6e9ba22258f51f9329444b8232762e1
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: f4ab983fbebe9c0219e70fa7bd5742cf1c3a0491
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905775"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361964"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Azure abonelik ve kaynak gruplarında (sınırlı genel Önizleme) bir kurtarma Hizmetleri kasası Taşı
 
@@ -22,7 +22,9 @@ Bu makalede, Azure abonelikleri genelinde veya başka bir kaynak grubuna aynı a
 > [!NOTE]
 > Bir kurtarma Hizmetleri kasasını ve ilişkili kaynakları farklı bir kaynak grubuna taşımak için gerekir [kaynak abonelik kaydetme](#register-the-source-subscription-to-move-your-recovery-services-vault).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="supported-geos"></a>Desteklenen coğrafi bölgeler
+
+Kaynak taşıma kurtarma Hizmetleri kasası desteklenen için Avustralya Doğu, Avustralya Güney Doğu, Kanada Orta, Kanada Doğu, Güneydoğu Asya, Doğu Asya, Orta ABD, Kuzey Orta ABD, Doğu ABD, Doğu ABD 2, Güney Orta Batı Orta ABD, ABD, Orta Batı ABD 2, Batı ABD Orta Hindistan, Güney Hindistan, Japonya Doğu, Japonya Batı, Kore Orta, Kore Güney, Kuzey Avrupa, Batı Avrupa, Güney Afrika Kuzey, Güney Afrika Batı, UK Güney, UK Batı, BAE Orta ve BAE Kuzey.
 
 ## <a name="prerequisites-for-moving-a-vault"></a>Bir kasa taşımak için Önkoşullar
 
@@ -34,12 +36,12 @@ Bu makalede, Azure abonelikleri genelinde veya başka bir kaynak grubuna aynı a
 - Şu anda bir kurtarma Hizmetleri kasası, bölge başına aynı anda taşıyabilirsiniz.
 - VM'yi abonelikler arasında ya da yeni bir kaynak grubu için kurtarma Hizmetleri kasası ile taşınmaz süreleri doluncaya kadar geçerli VM kurtarma noktaları kasaya değişmeden kalır.
 - VM veya Kasayla birlikte taşınır olup olmadığını kasadaki tutulan yedekleme geçmişinden her zaman sanal Makinenin geri yükleyebilirsiniz.
--   Azure Disk şifrelemesi, anahtar kasası ve VM'lerin aynı Azure bölgesindeki ve abonelikte bulunmasını gerektirir.
--   Yönetilen disklere sahip bir sanal makineyi taşımak için bkz [makale](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
--   Klasik modelle dağıtılmış kaynakları taşımak için seçenekler, bir Abonelikteki veya yeni bir aboneliğe kaynakları olup taşıyor bağlı olarak değişir. Daha fazla bilgi için bkz. Bu [makale](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations).
--   Abonelikler arasında ya da yeni bir kaynak grubu için kasa taşındıktan sonra kasa için tanımlanan yedekleme ilkeleri korunur.
--   Şu anda Abonelikleriniz ve kaynak gruplarınız arasında Azure dosyaları, Azure dosya eşitleme veya SQL Iaas Vm'leri de içeren kasa taşıyamazsınız. Bu senaryolar için destek, gelecek sürümlerde eklenecektir.
--   Abonelikler arasında VM yedekleme verilerini içeren bir kasayı taşırsanız, Vm'lerinizin aynı aboneliğe taşıyın ve yedeklemeler devam etmek için aynı hedef kaynak grubu kullanın.<br>
+- Azure Disk şifrelemesi, anahtar kasası ve VM'lerin aynı Azure bölgesindeki ve abonelikte bulunmasını gerektirir.
+- Yönetilen disklere sahip bir sanal makineyi taşımak için bkz [makale](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
+- Klasik modelle dağıtılmış kaynakları taşımak için seçenekler, bir Abonelikteki veya yeni bir aboneliğe kaynakları olup taşıyor bağlı olarak değişir. Daha fazla bilgi için bkz. Bu [makale](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations).
+- Abonelikler arasında ya da yeni bir kaynak grubu için kasa taşındıktan sonra kasa için tanımlanan yedekleme ilkeleri korunur.
+- Şu anda Abonelikleriniz ve kaynak gruplarınız arasında Azure dosyaları, Azure dosya eşitleme veya SQL Iaas Vm'leri de içeren kasa taşıyamazsınız.
+- Abonelikler arasında VM yedekleme verilerini içeren bir kasayı taşırsanız, Vm'lerinizin aynı aboneliğe taşıyın ve yedeklemeler devam etmek için aynı hedef kaynak grubu kullanın.<br>
 
 > [!NOTE]
 >
@@ -52,24 +54,24 @@ Kaynak aboneliği kaydetmek için **taşıma** kurtarma Hizmetleri kasasına, Po
 1. Azure hesabınızda oturum açma
 
    ```
-   Connect-AzAccount
+   Connect-AzureRmAccount
    ```
 
 2. Kaydetmek istediğiniz aboneliği seçin
 
    ```
-   Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
+   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
    ```
 3. Bu aboneliği Kaydet
 
    ```
-   Register-AzProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
    ```
 
 4. Komutunu çalıştırın
 
    ```
-   Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
    ```
 
 Abonelik taşıma işlemi Azure portal veya PowerShell kullanarak başlamadan önce Güvenilenler listesine eklenmek 30 dakika bekleyin.
@@ -139,18 +141,18 @@ Bir kurtarma Hizmetleri kasasını ve ilişkili kaynakları farklı bir aboneli�
 
 ## <a name="use-powershell-to-move-a-vault"></a>Bir kasa taşımak için PowerShell kullanma
 
-Kurtarma Hizmetleri kasası için başka bir kaynak grubuna taşımak için kullanın `Move-AzResource` cmdlet'i. `Move-AzResource` Kaynak adı ve kaynak türü gerektirir. Hem de alabilirsiniz `Get-AzRecoveryServicesVault` cmdlet'i.
+Kurtarma Hizmetleri kasası için başka bir kaynak grubuna taşımak için kullanın `Move-AzureRMResource` cmdlet'i. `Move-AzureRMResource` Kaynak adı ve kaynak türü gerektirir. Hem de alabilirsiniz `Get-AzureRmRecoveryServicesVault` cmdlet'i.
 
 ```
 $destinationRG = "<destinationResourceGroupName>"
-$vault = Get-AzRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
-Move-AzResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+$vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
+Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 Kaynakları farklı aboneliğe taşımak dahil `-DestinationSubscriptionId` parametresi.
 
 ```
-Move-AzResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 Yukarıdaki cmdlet'lerinden yürütüldükten sonra belirtilen kaynakları taşımak istediğiniz onaylayın istenir. Tür **Y** onaylamak için. Doğrulama başarılı olduktan sonra kaynak taşır.

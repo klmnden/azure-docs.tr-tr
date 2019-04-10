@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8e7eee40bed29117d2873393395a852e4b738533
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 201b438601c9929e5ca3d292f9fc3d7b7ff64de8
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793490"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425942"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Öğretici: Azure IoT Central uygulamanıza gerçek bir cihaz ekleme
 
@@ -41,6 +41,8 @@ Başlamadan önce, oluşturucunun Azure IoT Central uygulamasını oluşturmak i
 * [Yeni bir cihaz türü belirleme](tutorial-define-device-type.md) (Gerekli)
 * [Cihazınız için kurallar ve eylemler yapılandırma](tutorial-configure-rules.md) (İsteğe bağlı)
 * [İşlecin görünümlerini özelleştirme](tutorial-customize-operator.md) (İsteğe bağlı)
+
+Yükleme [Node.js](https://nodejs.org/) geliştirme makinenize 8.0.0 sürümü veya sonraki bir sürümü. Çalıştırabileceğiniz `node --version` sürümünüzü denetlemek için komut satırına. Node.js çeşitli işletim sistemleri için kullanılabilir.
 
 ## <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
@@ -92,37 +94,27 @@ Listelenen makaleleri [sonraki adımlar](#next-steps) bölümünde daha ayrınt�
 
 Aşağıdaki adımlar [Node.js](https://nodejs.org/) örneğinin nasıl hazırlanacağını gösterir:
 
-1. Makinenize [Node.js](https://nodejs.org/) sürüm 4.0.x veya üzerini yükleyin. Node.js çeşitli işletim sistemleri için kullanılabilir.
-
-1. Makinenizde `connectedairconditioner` adlı bir klasör oluşturun.
-
-1. Komut satırı ortamınızda, oluşturduğunuz `connectedairconditioner` klasörüne gidin.
-
-1. DPS anahtar oluşturucusunu yüklemek için aşağıdaki komutu kullanın:
-
-    ```cmd/sh
-    npm i -g dps-keygen
-    ```
-
-   [Buradan komut satırı aracı hakkında](https://www.npmjs.com/package/dps-keygen) daha fazla bilgi edinebilirsiniz.
+### <a name="get-the-device-connection-information"></a>Cihaz bağlantı bilgilerini alın
 
 1. Uygulamanızdaki bir cihaz örneğinin bağlantı dizesi, IoT Central tarafından sağlanan cihaz bilgilerine göre oluşturulur.
 
-   IoT Central portalına dönün. Gerçek bağlı klima cihazınızın ekranında **Bağlan**'ı seçin.
+   Gerçek bağlı klima cihazınızın ekranında **Bağlan**'ı seçin.
 
    ![Bağlantı bilgilerini görüntüleme bağlantısını gösteren cihaz sayfası](media/tutorial-add-device/connectionlink.png)
 
-1. Cihaz Bağlantısı sayfasındaki Kapsam Kimliği, Cihaz Kimliği ve Birincil Anahtar değerlerini kopyalayıp bir metin düzenleyiciye yapıştırın ve kaydedin. Bu değerleri bir sonraki adımda kullanacaksınız.
+1. Cihaz bağlantısı sayfasında Not **kapsam kimliği**, **cihaz kimliği** ve **birincil anahtar** değerleri. Bu değerleri bir sonraki adımda kullanacaksınız.
 
    ![Bağlantı ayrıntıları](media/tutorial-add-device/device-connect.png)
 
-1. Komut satırı ortamı geri dönün ve bağlantı dizenizi yürüterek oluşturur:
+### <a name="generate-the-connection-string"></a>Bağlantı dizesi oluştur
 
-    ```cmd/sh
-    dps-keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
-    ```
+[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
 
-   Çıktıyı kopyalayın ve yeni bir dosyaya (örneğin, connection.txt) kaydedin.
+### <a name="prepare-the-nodejs-project"></a>Node.js projesi hazırlama
+
+1. Adlı bir klasör oluşturun `connectedairconditioner` geliştirme makinenizde.
+
+1. Komut satırı ortamınızda, oluşturduğunuz `connectedairconditioner` klasörüne gidin.
 
 1. Node.js projenizi başlatmak için, tüm varsayılanları kabul ederek aşağıdaki komutu çalıştırın:
 
@@ -309,7 +301,7 @@ Aşağıdaki adımlar [Node.js](https://nodejs.org/) örneğinin nasıl hazırla
     var connectionString = '{your device connection string}';
     ```
 
-1. `{your device connection string}` değerini gerçek cihazınızın bağlantı dizesiyle değiştirin. Bağlantı dizesini önceki adımlarda bir metin düzenleyiciye kaydetmiştiniz.
+1. `{your device connection string}` değerini gerçek cihazınızın bağlantı dizesiyle değiştirin. Bir önceki adımda oluşturulan bağlantı dizesi kopyaladığınız.
 
 1. Değişiklikleri **ConnectedAirConditioner.js** dosyasına kaydedin.
 
@@ -367,7 +359,7 @@ Bir operatör olarak, aşağıdakileri yapmayı öğrenebilirsiniz:
 Cihaz geliştiricisi olarak, şunları yapmayı öğrenebilirsiniz:
 
 * [Hazırlama ve DevKit cihazı (C) bağlayın](howto-connect-devkit.md)
-* [Hazırlama ve Raspberry Pi'yi (Python) bağlanma](howto-connect-raspberry-pi-python.md)
-* [Hazırlama ve Raspberry Pi'yi bağlanın (C#)](howto-connect-raspberry-pi-csharp.md)
+* [Raspberry Pi'yi (Python) hazırlama ve bağlama](howto-connect-raspberry-pi-python.md)
+* [Raspberry Pi'yi (C#) hazırlama ve bağlama](howto-connect-raspberry-pi-csharp.md)
 * [Hazırlama ve Windows 10 IOT core cihazı bağlayın (C#)](howto-connect-windowsiotcore.md)
-* [Genel bir Node.js istemcisini Azure IoT Central uygulamanıza bağlama](howto-connect-nodejs.md)
+* [Genel bir Node.js istemcisi, Azure IOT Central uygulamanızı bağlayın](howto-connect-nodejs.md)

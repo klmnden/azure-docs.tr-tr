@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 210043eaaf09fb601fe01c33cc1a53c9146bf859
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 348979a53bff76c85e6d1531bd16cd695145e21b
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848246"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425994"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines’de (Resource Manager) SQL Server için Otomatik Düzeltme Eki Uygulama
 > [!div class="op_single_selector"]
@@ -96,11 +96,6 @@ Mevcut SQL Server sanal makineleri için SQL Server sanal makinenizi seçin. Ard
 İşiniz bittiğinde tıklayın **Tamam** altındaki düğmesine **SQL Server Yapılandırması** yaptığınız değişiklikleri kaydetmek için dikey.
 
 İlk kez otomatik düzeltme eki uygulama etkinleştiriyorsanız, Azure SQL Server Iaas Aracısı arka planda yapılandırır. Bu süre boyunca, Azure portalında, otomatik düzeltme eki uygulama yapılandırıldığını göstermeyebilir. Aracının yüklü için yapılandırılmış birkaç dakika bekleyin. Bundan sonra Azure portalında yeni ayarlarını yansıtır.
-
-> [!NOTE]
-> Şablon kullanarak otomatik düzeltme eki uygulama de yapılandırabilirsiniz. Daha fazla bilgi için [Azure Hızlı Başlangıç şablonu için otomatik düzeltme eki uygulama](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autopatching-update).
-> 
-> 
 
 ## <a name="configuration-with-powershell"></a>PowerShell ile yapılandırma
 SQL VM'nizi sağladıktan sonra otomatik düzeltme eki uygulama yapılandırmak için PowerShell kullanın.

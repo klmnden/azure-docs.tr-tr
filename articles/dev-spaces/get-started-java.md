@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
 manager: mmontwil
-ms.openlocfilehash: 49f3f50cd33d2b3fea1e784fcfc70044c568ba31
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b69a793d1d860bf2f2a4d52a92d4bea5cf903c0c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842422"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426316"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Java ile Azure geliştirme alanlarında çalışmaya başlama
 
@@ -26,15 +26,10 @@ Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 - Kodunuzu bir ekip ortamında verimli bir şekilde geliştirip test edin.
 
 > [!Note]
-> Herhangi bir zamanda **kilitlenirseniz** [Sorun giderme](troubleshooting.md) bölümüne başvurun veya bu sayfada bir yorum paylaşın.
-
-Artık Azure’da Kubernetes tabanlı bir geliştirme ortamı oluşturmaya hazırsınız.
+> **Takılı kalarak,** herhangi bir zamanda bkz [sorun giderme](troubleshooting.md) bölümü.
 
 ## <a name="install-the-azure-cli"></a>Azure CLI'yı yükleme
 Azure Dev Spaces, çok az yerel makine kurulumu gerektirir. Geliştirme ortamı yapılandırmanızın büyük bölümü bulutta depolanır ve diğer kullanıcılarla paylaşılabilir. İlk olarak [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) indirip yükleyin.
-
-> [!IMPORTANT]
-> Azure CLI zaten yüklüyse, 2.0.43 veya üzeri bir sürüm kullandığınızdan emin olun.
 
 ### <a name="sign-in-to-azure-cli"></a>Azure CLI'da oturum açma
 Azure'da oturum açın. Bir terminal penceresine aşağıdaki komutu yazın:
@@ -113,7 +108,7 @@ GitHub deposunu yerel ortamınıza indirmek için https://github.com/Azure/dev-s
     ```
 
 Azure CLI’nin `azds prep` komutu varsayılan ayarlarla Docker ve Kubernetes varlıklarını oluşturur:
-* `./Dockerfile`, uygulamanın kapsayıcı görüntüsünü açıklar, kaynak kodunun nasıl derlendiğini ve kapsayıcının içinde çalıştırıldığını belirtir.
+* `./Dockerfile` uygulamanın kapsayıcı görüntüsü ve kaynak kodu yerleşik olarak bulunur ve kapsayıcı içinde çalışan açıklar.
 * `./charts/webfrontend` altındaki [Helm grafiği](https://docs.helm.sh), kapsayıcının Kubernetes'de nasıl dağıtıldığını açıklar.
 
 Şimdilik bu dosyaların tüm içeriğini anlamanız gerekli değildir. Bununla birlikte, **geliştirme aşamasından üretim aşamasına kadar aynı Kubernetes ve Docker kod yapılandırmalı varlıklarının kullanılabildiğini, bu şekilde farklı ortamlarda daha tutarlı sonuçlar sağlanabildiğini** belirtmek gerekir.
@@ -153,7 +148,7 @@ Tarayıcı penceresinde bu URL'yi açın; web uygulaması yükünü görmelisini
 > Azure Dev Spaces yalnızca kodu Kubernetes’te çalıştırmaya yönelik değildir; aynı zamanda kod değişikliklerinizin buluttaki bir Kubernetes ortamında uygulandığını hızlıca ve yinelenerek görmenizi sağlar.
 
 1. Terminal penceresinde `Ctrl+C` düğmesine basın (`azds up` hizmetini durdurmak için).
-1. `src/main/java/com/ms/sample/webfrontend/Application.java` adlı kod dosyasını açın ve karşılama iletisini düzenleyin: `return "Hello from webfrontend in Azure!";`
+1. Adlı kod dosyasını açın `src/main/java/com/ms/sample/webfrontend/Application.java`ve Karşılama mesajı Düzenle: `return "Hello from webfrontend in Azure!";`
 1. Dosyayı kaydedin.
 1. Terminal penceresinde `azds up` komutunu çalıştırın.
 
@@ -220,7 +215,7 @@ Azure Dev Spaces, her kod düzenlemesi yapıldığında yeni bir kapsayıcı gö
 
 Tarayıcıda web uygulamasını yenileyin. Özel iletinizin kullanıcı arabiriminde görüntülendiğini görürsünüz.
 
-**Artık kod üzerinde hızlıca yineleme ve doğrudan Kubernetes’te hata ayıklamaya yönelik bir yönteminiz var!** Ardından, ikinci bir kapsayıcıyı nasıl oluşturabileceğinizi ve çağırabileceğinizi göreceksiniz.
+**Şimdi hızlı bir şekilde kod üzerinde yineleme ve doğrudan Kubernetes'te hata ayıklama için bir yöntem var!** Ardından, ikinci bir kapsayıcıyı nasıl oluşturabileceğinizi ve çağırabileceğinizi göreceksiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

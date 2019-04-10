@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
-ms.openlocfilehash: acf71ae6f37ab6ea32d9cdd0ac06f297b00fba2e
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: c1690fe6d0ce24bd319b042a3850bbfe487ffcfc
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918578"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426265"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Azure Backup aracısıyla ilgili sorular
 Bu makalede Azure Backup aracısı bileşenlerini kısa süre içinde anlamanıza yardımcı olacak yaygın soruların yanıtları bulunur. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -39,7 +39,7 @@ Aşağıdaki sürücüleri/birimleri yedekleyemezsiniz:
 ### <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>Sunucumdan hangi dosya ve klasör hangi türlerini yedekleyebilirim?<br/>
 Aşağıdaki türler desteklenir:
 
-* Şifreli
+* Şifrelendi
 * Sıkıştırılmış
 * Seyrek
 * Sıkıştırılmış + Seyrek
@@ -68,14 +68,14 @@ Evet. Aracı hizmeti, yedekleme işlemini hazırlarken yinelenenleri kaldırma i
 ### <a name="what-features-of-microsoft-azure-recovery-services-mars-agent-require-net-framework-452-and-higher"></a>Microsoft Azure kurtarma Hizmetleri (MARS) Aracısı'nın hangi özelliklerin .NET framework 4.5.2 gerektirir ve daha yüksek?
 [Anında geri yükleme](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) sağlayan tek tek dosya ve klasörleri geri yükleme özelliği *veri kurtarma* Sihirbazı, .NET Framework 4.5.2 gerektirir veya üzeri.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Yedekle
 ### <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agentbr"></a>Azure Backup aracısı için belirtilen önbellek konumunu nasıl değiştiririm?<br/>
 Önbellek konumunu değiştirmek için aşağıdaki listeyi kullanın.
 
 1. Yükseltilmiş komut isteminde aşağıdaki komutu çalıştırarak Backup altyapısını durdurun:
 
-    ```PS C:\> Net stop obengine``` 
-  
+    ```PS C:\> Net stop obengine```
+
 2. Dosyaları taşımayın. Bunun yerine, önbellek alanı klasörünü yeterli alana sahip farklı bir sürücüye kopyalayın. Yedeklemelerin yeni önbellek alanı ile çalıştığı onaylandıktan sonra özgün önbellek alanı kaldırılabilir.
 3. Aşağıdaki kayıt defteri girdilerini yeni önbellek alanı klasörünün yolu ile güncelleştirin.<br/>
 
@@ -100,7 +100,7 @@ Yedekleme oluşturma yeni önbellek konumunda başarıyla tamamlandıktan sonra,
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Önbellek klasörünün desteklenmeyen herhangi bir özniteliği var mıdır?<br/>
 Aşağıdaki öznitelikler veya bunların bileşimleri, önbellek klasörü için desteklenmez:
 
-* Şifreli
+* Şifrelendi
 * Yinelenenleri kaldırma işlemi uygulanmış
 * Sıkıştırılmış
 * Seyrek
@@ -111,7 +111,14 @@ Aşağıdaki öznitelikler veya bunların bileşimleri, önbellek klasörü içi
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>Backup hizmeti tarafından kullanılan bant genişliği miktarını ayarlamanın bir yolu var mıdır?<br/>
   Evet, bant genişliğini ayarlamak için Backup Aracısı'ndaki **Özellikleri Değiştir** seçeneğini kullanın. Bant genişliği miktarını ve bu bant genişliğini kullanma zamanlarınızı ayarlayabilirsiniz. Adım adım yönergeler için bkz. **[Ağ kapasitesi azaltmayı etkinleştirme](backup-configure-vault.md#enable-network-throttling)**.
 
+## <a name="restore"></a>Geri Yükle
+
+### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Ben bir devam eden geri yükleme işi iptal edersem ne olur?
+Devam eden geri yükleme işi iptal edilirse, geri yükleme işlemi durdurur ve tüm dosyaları iptalden önce geri kalın herhangi düzeyine olmadan yapılandırılmış hedef (özgün veya alternatif konum).
+
+
 ## <a name="manage-backups"></a>Yedekleri yönetme
+
 ### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Azure'a veri yedekleyen bir Windows sunucusunu yeniden adlandırırsam ne olur?<br/>
 Bir sunucuyu yeniden adlandırdığınızda, geçerli olarak yapılandırılmış olan tüm yedeklemeler durdurulur. Sunucunun yeni adını Backup kasasına kaydedin. Yeni adı kasaya kaydettiğinizde, ilk yedekleme işlemi *tam* yedekleme olur. Eski sunucu adıyla kasaya yedeklenen verileri kurtarmanız gerekiyorsa **Veri Kurtarma** sihirbazındaki [**Başka bir sunucu**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) seçeneğini kullanın.
 
@@ -119,7 +126,7 @@ Bir sunucuyu yeniden adlandırdığınızda, geçerli olarak yapılandırılmı�
 Azure Backup aracısı NTFS kullanır. [Dosya yolu uzunluğu belirtimi, Windows API ile sınırlıdır](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). Korumak istediğiniz dosyalar Windows API tarafından izin verilenden daha uzun dosya yollarına sahipse, üst klasörü veya disk sürücüsünü yedekleyin.  
 
 ### <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Azure Backup aracısını kullanan Azure Yedekleme ilkesinin dosya yolunda hangi karakterlere izin verilir? <br>
- Azure Backup aracısı NTFS kullanır. [NTFS destekli karakterleri](/windows/desktop/FileIO/naming-a-file#naming_conventions) dosya belirtiminin bir parçası olarak etkinleştirir. 
- 
+ Azure Backup aracısı NTFS kullanır. [NTFS destekli karakterleri](/windows/desktop/FileIO/naming-a-file#naming_conventions) dosya belirtiminin bir parçası olarak etkinleştirir.
+
 ### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>Bir yedekleme ilkesi zamanlamış olmama karşın "Azure Yedeklemeleri bu sunucu için yapılandırılmamış" uyarısını alıyorum <br/>
 Bu uyarı, yerel sunucuda depolanan yedekleme zamanlaması ayarları, yedekleme kasasında depolanan ayarlarla aynı olmadığında oluşur. Sunucu ya da ayarlar bilinen bir iyi duruma getirilerek kurtarıldığında, yedekleme zamanlamaları eşitlemesini kaybedebilir. Bu uyarıyı alırsanız [yedekleme ilkesini yeniden yapılandırın](backup-azure-manage-windows-server.md) ve ardından yerel sunucuyu Azure ile yeniden eşitlemek için **Run Back Up Now (Yedeklemeyi Şimdi Çalıştır)** işlemini uygulayın.

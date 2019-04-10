@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 213f4313e96638e4d94455be5f16aa3221d35b73
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 0f348e3e7dc2812bf354d1f8ec86330b0742439a
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905690"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361864"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Kaynaklar, roller ve erişim denetimi Application ınsights
 
@@ -48,7 +48,7 @@ Oku ve erişim verilerinizi azure'da güncelleştirmesi denetleyebilirsiniz [App
 
 ## <a name="access"></a> Kaynak grubundaki erişimi denetleme
 
-Uygulamanız için oluşturduğunuz kaynak yanı sıra olduğunu da uyarıları ve web testleri ayrı gizli kaynakları anlamak önemlidir. Aynı eklenmiş [kaynak grubu](#resource-group) uygulamanızla. Ayrıca diğer Azure Hizmetleri orada, Web siteleri veya depolama gibi konumuna.
+Uygulamanız için oluşturduğunuz kaynak yanı sıra olduğunu da uyarıları ve web testleri ayrı gizli kaynakları anlamak önemlidir. Aynı eklenmiş [kaynak grubu](#resource-group) Application Insights kaynağınıza olarak. Ayrıca diğer Azure Hizmetleri orada, Web siteleri veya depolama gibi konumuna.
 
 Bu kaynaklara erişimi denetlemek için bu nedenle önerilir:
 
@@ -77,14 +77,14 @@ Yerleşik rolleri kullanabileceğiniz tüm Azure rol tabanlı erişim denetimi h
 
 ![Ekran görüntüsü, erişim denetim kullanıcı rolü listesi](./media/resources-roles-access-control/0003-user-roles.png)
 
-#### <a name="select-a-role"></a>Rol seçin
+#### <a name="select-a-role"></a>Rol seçme
 
 Uygunsa, biz ilişkili resmi başvuru belgelerinin bağlantısı.
 
 | Rol | Kaynak grubunda |
 | --- | --- |
 | [Sahip](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |Kullanıcı erişim dahil her şeyi değiştirebilir. |
-| [Katılımcı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |Tüm kaynaklar da dahil olmak üzere her şeyi düzenleyebilirsiniz. |
+| [Katkıda Bulunan](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |Tüm kaynaklar da dahil olmak üzere her şeyi düzenleyebilirsiniz. |
 | [Application Insights bileşeni Katılımcısı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Application Insights kaynakları, web testleri ve uyarılar düzenleyebilirsiniz. |
 | [Okuyucu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |Görüntüleyebilir ancak değişikliği yok. |
 | [Application Insights Snapshot Debugger](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | Application Insights Snapshot Debugger özelliklerini kullanma izni verir. Bu role sahip ne katkıda bulunan rolü eklendiğini unutmayın. |

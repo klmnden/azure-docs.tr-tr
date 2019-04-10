@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 294695cceaed39a66a57dcd3a165ca276b6801c6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757958"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426231"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Azure İzleyici'de aracı durumu çözümü
 Aracı durumu çözümü, Azure, tüm aracıların doğrudan Log Analytics çalışma alanını Azure İzleyici'de raporlama anlamanıza yardımcı olur veya yanıt vermeyen olduğu için Azure İzleyici, bağlı bir System Center Operations Manager yönetim grubu ve işletimsel veri gönderiliyor.  Ayrıca, kaç aracının dağıtıldığını, bunların coğrafi olarak nerelere dağıtıldığını da izleyebilir ve Azure’da, diğer bulut ortamlarında ya da şirket içinde dağıtılmış aracıların dağılımından her zaman haberdar olmaya yönelik diğer sorguları gerçekleştirebilirsiniz.    
@@ -51,7 +51,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 | System Center Operations Manager yönetim grubu | Evet | Sinyal olayları 60 saniyede bir yönetim grubuna bildirimde bulunan aracılardan toplanır ve sonra Azure İzleyici iletilir. Azure İzleyici Operations Manager aracılarının doğrudan bir bağlantı gerekli değildir. Sinyal olay verileri yönetim grubundan Log Analytics çalışma alanına iletilir.|
 
 ## <a name="using-the-solution"></a>Çözümü kullanma
-Çözüm, Log Analytics çalışma alanınıza eklediğinizde **aracı sistem durumu** kutucuk, panonuza eklenir. Bu kutucuk, son 24 saat içindeki toplam aracı sayısını ve yanıt vermeyen aracı sayısını gösterir.<br><br> ![Panodaki Aracı Durumu Çözüm kutucuğu](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
+Çözüm, Log Analytics çalışma alanınıza eklediğinizde **aracı sistem durumu** kutucuk, panonuza eklenir. Bu kutucuk, son 24 saat içindeki toplam aracı sayısını ve yanıt vermeyen aracı sayısını gösterir.<br><br> ![Panodaki aracı durumu çözüm kutucuğu](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 **Aracı Durumu** kutucuğuna tıklayarak **Aracı Durumu** panosunu açın.  Pano aşağıdaki tabloda gösterilen sütunları içerir. Her sütunda, ilgili sütunun belirtilen zaman aralığına ilişkin ölçütlerle eşleşen ilk on olay sayılarına göre listelenir. Her sütunun sağ alt tarafındaki **Tümünü görüntüle**’yi seçerek ya da sütun başlığına tıklayarak listenin tamamını sağlayan bir günlük araması çalıştırabilirsiniz.
 
@@ -76,21 +76,21 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 
 | Özellik | Açıklama |
 | --- | --- |
-| Type | *Sinyal*|
-| Kategori | Değer *Doğrudan Aracı*, *SCOM Aracısı* veya *SCOM Yönetim Sunucusu*’dur.|
-| Bilgisayar | Bilgisayar adı.|
-| OSType | Windows veya Linux işletim sistemi.|
-| OSMajorVersion | İşletim sistemi ana sürümü.|
-| OSMinorVersion | İşletim sistemi alt sürümü.|
-| Sürüm | Log Analytics aracısı veya Operations Manager Aracısı sürümü.|
-| SCAgentChannel | Değer *Doğrudan* ve/veya *SCManagementServer*’dır.|
-| IsGatewayInstalled | Log Analytics gateway yüklü değilse, değeri olan *true*, aksi takdirde *false*.|
-| ComputerIP | Bilgisayarın IP adresi.|
-| RemoteIPCountry | Bilgisayarın dağıtıldığı coğrafi konum.|
-| ManagementGroupName | Operations Manager yönetim grubunun adı.|
-| SourceComputerId | Bilgisayarın benzersiz kimliği.|
-| RemoteIPLongitude | Bilgisayarın coğrafi konumunun boylamı.|
-| RemoteIPLatitude | Bilgisayarın coğrafi konumunun enlemi.|
+| `Type` | *Sinyal*|
+| `Category` | Değer *Doğrudan Aracı*, *SCOM Aracısı* veya *SCOM Yönetim Sunucusu*’dur.|
+| `Computer` | Bilgisayar adı.|
+| `OSType` | Windows veya Linux işletim sistemi.|
+| `OSMajorVersion` | İşletim sistemi ana sürümü.|
+| `OSMinorVersion` | İşletim sistemi alt sürümü.|
+| `Version` | Log Analytics aracısı veya Operations Manager Aracısı sürümü.|
+| `SCAgentChannel` | Değer *Doğrudan* ve/veya *SCManagementServer*’dır.|
+| `IsGatewayInstalled` | Log Analytics gateway yüklü değilse, değeri olan *true*, aksi takdirde *false*.|
+| `ComputerIP` | Bilgisayarın IP adresi.|
+| `RemoteIPCountry` | Bilgisayarın dağıtıldığı coğrafi konum.|
+| `ManagementGroupName` | Operations Manager yönetim grubunun adı.|
+| `SourceComputerId` | Bilgisayarın benzersiz kimliği.|
+| `RemoteIPLongitude` | Bilgisayarın coğrafi konumunun boylamı.|
+| `RemoteIPLatitude` | Bilgisayarın coğrafi konumunun enlemi.|
 
 Bir Operations Manager yönetim sunucusuna rapor veren her bir aracı iki sinyal gönderir ve SCAgentChannel özelliğinin değeri hem de içerecektir **doğrudan** ve **SCManagementServer** ne bağlı olarak veri kaynakları ve izleme çözümleri, aboneliğinizde etkinleştirmiş olmanız gerekir. Hatırlayacağınız, veri çözümlerinden ya da gönderilir doğrudan bir Operations Manager yönetim sunucusundan Azure İzleyici ya da aracıda toplanan verilerin hacmi nedeniyle gönderilen doğrudan Aracıdan Azure İzleyici. **SCManagementServer** değerine sahip sinyal olayları için ComputerIP değeri, verileri aslında karşıya yükleyen yönetim sunucusunun IP adresidir.  SCAgentChannel’ın **Doğrudan** olarak ayarlandığı sinyaller için bu adres, aracının genel IP adresidir.  
 

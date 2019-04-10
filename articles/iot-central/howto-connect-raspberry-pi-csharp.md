@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8137f7d167cc697671de99699c6031014d6a966e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 341b4d23664900cdf1f9a209df663ad4e6e96fe4
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275972"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426367"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Raspberry Pi'yi bağlanmak için Azure IOT Central, uygulama (C#)
 
@@ -33,7 +33,7 @@ Bu makaledeki adımları tamamlayabilmeniz için aşağıdaki bileşenleri gerek
 Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Raspberry Pi** cihaz şablonu aşağıdaki özelliklere sahip:
 
 - Telemetri, cihaz toplayacak aşağıdaki ölçüleri içerir:
-  - Nem oranı
+  - Nem
   - Sıcaklık
   - Basınç
   - Magnetometer (X, Y, Z)
@@ -269,7 +269,7 @@ Aşağıdaki adımları tamamlamak için Visual Studio Code kullanabilirsiniz. D
 
 ## <a name="run-your-net-application"></a>.NET uygulamanızı çalıştırın
 
-Cihaza özgü bağlantı dizenizi Azure IOT Central ile kimlik doğrulaması bir cihaz için kod ekleyin. Bu yönergeleri izleyin [cihaz bağlantı dizesini oluşturmak](concepts-connectivity.md#get-a-connection-string) kullanarak **kapsam kimliği**, **cihaz kimliği**, ve **birincil anahtar** , yapılan bir daha önce not edin.
+Cihaza özgü bağlantı dizenizi Azure IOT Central ile kimlik doğrulaması bir cihaz için kod ekleyin. Bu yönergeleri izleyin [cihaz bağlantı dizesini oluşturmak](howto-generate-connection-string.md) kullanarak **kapsam kimliği**, **cihaz kimliği**, ve **birincil anahtar** , yapılan bir daha önce not edin.
 
 1. Değiştirin `{your device connection string}` içinde **Program.cs** oluşturduğunuz bağlantı dizesiyle dosya.
 
@@ -321,7 +321,7 @@ Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Raspber
 
 ### <a name="telemetry-measurements"></a>Telemetri ölçümleri
 
-| Alan adı     | Birimler  | Minimum | Maksimum | Ondalık basamak sayısı |
+| Alan adı     | Birim  | Minimum | Maksimum | Ondalık basamak sayısı |
 | -------------- | ------ | ------- | ------- | -------------- |
 | Nem oranı       | %      | 0       | 100     | 0              |
 | Temp           | °C     | -40     | 120     | 0              |
@@ -340,7 +340,7 @@ Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Raspber
 
 Sayısal ayarları
 
-| Görünen ad | Alan adı | Birimler | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
+| Görünen ad | Alan adı | Birim | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltaj      | setVoltage | Volt | 0              | 0       | 240     | 0       |
 | Geçerli      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
@@ -356,8 +356,8 @@ Geçiş ayarları
 
 | Type            | Görünen ad | Alan adı | Veri türü |
 | --------------- | ------------ | ---------- | --------- |
-| Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
-| Metin            | Konum     | location   | Yok       |
+| Cihaz özelliği | Sayı öldürmüş   | dieNumber  | sayı    |
+| Metin            | Konum     | konum   | YOK       |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

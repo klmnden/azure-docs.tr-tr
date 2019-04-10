@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: cb6826be8f6a9a8caf54a23b0dbc5f3dda7830d6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273983"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361247"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Media Services v3 API'sine - .NET bağlanma
 
@@ -35,7 +35,7 @@ Bu makalede hizmet sorumlusu oturum açma yöntemini kullanarak Azure Media Serv
 1. Gelen **dosya** menüsünde tıklatın **yeni** > **proje**. 
 1. Oluşturma bir **.NET Core** konsol uygulaması.
 
-Bu konuda, örnek uygulamayı hedeflediğinden `netcoreapp2.0`. 'Sürümünden itibaren kullanılabilir olan kullandığı async main', kodda C# 7.1. Bkz. Bu [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) daha fazla ayrıntı için.
+Bu konuda, örnek uygulamayı hedeflediğinden `netcoreapp2.0`. 'Sürümünden itibaren kullanılabilir olan kod kullandığı async main', C# 7.1. Bkz. Bu [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) daha fazla ayrıntı için.
 
 ## <a name="add-required-nuget-packages"></a>Gerekli NuGet paketleri Ekle
 
@@ -223,7 +223,7 @@ namespace ConsoleApp1
 }
 ```
 
-## <a name="see-also"></a>Ayrıca bkz.
+## <a name="next-steps"></a>Sonraki adımlar
 
 - [Öğretici: Karşıya yükleme, kodlama ve akışını videoları - .NET](stream-files-tutorial-with-api.md) 
 - [Öğretici: Stream Canlı Media Services v3 - .NET](stream-live-tutorial-with-api.md)
@@ -237,6 +237,6 @@ namespace ConsoleApp1
 - [Medya Hizmetleri - .NET ile filtre oluşturma](filters-dynamic-manifest-dotnet-howto.md)
 - [Azure işlevler v2 Media Services v3 ile talep üzerine örnekleri video Gelişmiş](https://aka.ms/ams3functions)
 
-## <a name="next-steps"></a>Sonraki adımlar
+## <a name="see-also"></a>Ayrıca bkz.
 
 [.NET başvurusu](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)

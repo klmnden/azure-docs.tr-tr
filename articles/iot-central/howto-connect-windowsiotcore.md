@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 85fba27c856561eb1270e719dcf24b88d2d5a01f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0312e322aea74b3ce9867d09cebc7543da40de5f
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309919"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426248"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızı Windows IOT Core cihazı bağlayın
 
@@ -48,10 +48,7 @@ Ayarlamak için bir Windows IOT Core cihazı Lütfen izleyin, adım adım kılav
 
 ### <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
-Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **Windows IOT Core** cihaz şablonu ve cihaz bağlantı ayrıntılarını not yap (**kapsam kimliği, cihaz kimliği, birincil anahtar**). Daha fazla bilgi için [Azure IOT Central uygulamanıza gerçek bir cihaz eklemek](tutorial-add-device.md).
-
- > [!NOTE]
-   > Azure IOT Central değiştiğinden Azure IOT Hub cihazı sağlama hizmeti (DPS) kullanarak tüm cihaz bağlantıları için bu yönergeleri izleyin [cihaz bağlantı dizesini alma](concepts-connectivity.md#get-a-connection-string) ve bu öğreticinin geri kalanını ile devam edin.
+Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **Windows IOT Core** cihaz şablonu ve cihaz bağlantı ayrıntılarını not yap (**kapsam kimliği, cihaz kimliği, birincil anahtar**). Bu yönergeleri izleyin [cihaz bağlantı dizesini oluşturmak](howto-generate-connection-string.md) kullanarak **kapsam kimliği**, **cihaz kimliği**, ve **birincil anahtar** , yapılan bir daha önce not edin.
 
 ## <a name="prepare-the-windows-10-iot-core-device"></a>Windows 10 IoT Core cihazı hazırlama
 
@@ -67,7 +64,8 @@ Bunu hazırlamak için istemci uygulamasına önceki adımdan gelen Windows 10 I
 
 **Bağlantı dizesini kullanmak istemci uygulaması için cihazda depolanan emin olun.**
 * Masaüstünde, bağlantı dizesini connection.string.iothub adlı bir metin dosyasına kaydedin.
-* Metin dosyası, cihazın belge klasörüne kopyalayın: `[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
+* Metin dosyası, cihazın belge klasörüne kopyalayın:
+`[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
 
 Bunu yaptıktan sonra açmanız gerekir [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) http://[device-IP-address]:8080 içinde herhangi bir tarayıcıda yazarak.
 
@@ -102,7 +100,7 @@ Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Windows
 
 ### <a name="telemetry-measurements"></a>Telemetri ölçümleri
 
-| Alan adı     | Birimler  | Minimum | Maksimum | Ondalık basamak sayısı |
+| Alan adı     | Birim  | Minimum | Maksimum | Ondalık basamak sayısı |
 | -------------- | ------ | ------- | ------- | -------------- |
 | Nem oranı       | %      | 0       | 100     | 0              |
 | Temp           | °C     | -40     | 120     | 0              |
@@ -112,7 +110,7 @@ Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Windows
 
 Sayısal ayarları
 
-| Görünen ad | Alan adı | Birimler | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
+| Görünen ad | Alan adı | Birim | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Fan hızı    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
@@ -121,5 +119,5 @@ Sayısal ayarları
 
 | Type            | Görünen ad | Alan adı | Veri türü |
 | --------------- | ------------ | ---------- | --------- |
-| Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
-| Metin            | Konum     | location   | Yok       |
+| Cihaz özelliği | Sayı öldürmüş   | dieNumber  | sayı    |
+| Metin            | Konum     | konum   | YOK       |

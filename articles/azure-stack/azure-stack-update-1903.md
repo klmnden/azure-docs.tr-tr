@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/10/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/09/2019
-ms.openlocfilehash: 79f61f99050748c93ca4bd17d1849f4cbba7a295
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.lastreviewed: 04/10/2019
+ms.openlocfilehash: f07f81562c604913e633a8d93fa9c7db28a7bf55
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360563"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471486"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 güncelleştirme
 
@@ -97,7 +97,8 @@ Azure Stack düzeltmeleri yalnızca Azure Stack tümleşik sistemleri için geç
 
 - Çalıştırdığınızda [Test AzureStack](azure-stack-diagnostic-test.md), temel kart yönetim denetleyicisi (BMC) bir uyarı iletisi görüntülenir. Bu uyarıyı güvenle yok sayabilirsiniz.
 
-- <!-- 2468613 - IS --> Bu güncelleştirme yüklemesi sırasında başlık uyarılarla görebileceğiniz **hatası – şablon FaultType UserAccounts.New için eksik.** Bu uyarılar güvenle yok sayabilirsiniz. Bu güncelleştirme yüklemesi tamamlandıktan sonra uyarıları otomatik olarak kapanır.
+<!-- 2468613 - IS -->
+- Bu güncelleştirme yüklemesi sırasında başlık uyarılarla görebileceğiniz **hatası – FaultType UserAccounts şablonu. Yeni eksik.** Bu uyarılar güvenle yok sayabilirsiniz. Bu güncelleştirme yüklemesi tamamlandıktan sonra uyarıları otomatik olarak kapanır.
 
 ## <a name="post-update-steps"></a>Güncelleştirme sonrası adımlar
 
@@ -124,10 +125,15 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 - Kullanıcı abonelikleri sonuçlarında yalnız bırakılmış kaynakları siliniyor. Geçici bir çözüm olarak kullanıcı kaynaklar veya kaynak grubunun tamamını silin ve sonra kullanıcı abonelikleri silin.
 
 <!-- 1663805 - IS ASDK --> 
-- Azure Stack portalı kullanarak aboneliğinize izinleri görüntüleyemezsiniz. Geçici çözüm olarak, [izinleri doğrulamak için PowerShell](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
+- Azure Stack portalı kullanarak aboneliğinize izinleri görüntüleyemezsiniz. Geçici çözüm olarak, [izinleri doğrulamak için PowerShell](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 <!-- Daniel 3/28 -->
-- Bir depolama hesabındaki bir bloba gidin ve açmaya çalıştığınızda, Kullanıcı Portalı'nda **erişim ilkesi** Gezinti ağacından sonraki pencereyi yüklenemiyordur.
+- Bir depolama hesabındaki bir bloba gidin ve açmaya çalıştığınızda, Kullanıcı Portalı'nda **erişim ilkesi** Gezinti ağacından sonraki pencereyi yüklenemiyordur. Bu sorunu geçici olarak çözmek için aşağıdaki PowerShell cmdlet'lerini oluşturma, alma, ayarlama ve erişim ilkeleri, sırasıyla silme etkinleştir:
+
+  - [New-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
+  - [Get-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
+  - [Set-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/set-azurestoragecontainerstoredaccesspolicy)
+  - [Remove-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/remove-azurestoragecontainerstoredaccesspolicy)
 
 <!-- Daniel 3/28 -->
 - Kullanıcı portalında bir blobu kullanarak yüklemeye çalıştığınızda **OAuth(preview)** seçeneği, görev bir hata iletisiyle başarısız olur. Bu sorunu geçici olarak çözmek için kullanarak blobu karşıya yükleme **SAS** seçeneği.
@@ -157,23 +163,22 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 - Bir Ubuntu 18.04 etkinleştirilmiş SSH yetkilendirme ile oluşturulan VM, oturum açmak için SSH anahtarları kullanmak izin vermez. Geçici bir çözüm olarak VM erişimi Linux uzantısı için SSH anahtarları sağladıktan sonra uygulamak için kullanmak veya parola tabanlı kimlik doğrulaması kullanın.
 
-- Azure Stack artık 2.2.20 sürümden daha yüksek bir Windows Azure Linux aracıları desteklemektedir. Bu destek 1901 ve 1902 düzeltmenin bir parçası olan ve müşterilerin Azure ve Azure Stack arasında tutarlı linux görüntüleri tutmak olanak tanır.
-
+- Azure Stack artık 2.2.20 sürümden daha yüksek bir Windows Azure Linux aracıları desteklemektedir. Bu destek, 1901 ve 1902 düzeltmeler bir parçası olan ve müşterilerin Azure ve Azure Stack arasında tutarlı Linux görüntüleri tutmak olanak tanır.
 
 - Bir donanım yaşam döngüsü ana bilgisayar (HLH) yoksa: Grup İlkesi ayarlamak zorunda 1902 derlemeden önce **Bilgisayar Yapılandırması\Windows Ayarları\Güvenlik Ayarları\Yerel İlkeler\Güvenlik Seçenekleri** için **Gönder NTLM'yi – NTLMv2 oturum güvenliği anlaşması kullanırsanız**. 1902 yapıdan beri olarak bırakmalısınız **tanımlanmamış** veya ayarlayın **yalnızca Gönder NTLMv2 yanıtı** (varsayılan değer olmayan). Aksi halde, bir PowerShell uzak oturumu oluşturmanız mümkün olmayacaktır ve göreceğiniz bir **erişim reddedildi** hata:
 
-   ```shell
+   ```powershell
    PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
    New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
    about_Remote_Troubleshooting Help topic.
    At line:1 char:12
-   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
+   + $Session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
    +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
       + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
    ```
 
-### <a name="networking"></a>Ağ İletişimi  
+### <a name="networking"></a>Ağ  
 
 <!-- 3239127 - IS, ASDK -->
 - Azure Stack portalında bir VM örneğine iliştirilmiş bir ağ bağdaştırıcısına bağlı bir IP yapılandırması için statik bir IP adresi değiştirdiğinizde bildiren bir uyarı iletisi görürsünüz 
@@ -185,7 +190,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 <!-- 3632798 - IS, ASDK -->
 - Portalda, bir gelen güvenlik kuralı ekleyin ve seçerseniz, **hizmet etiketi** çeşitli seçenekler görüntülenir, kaynak olarak **kaynak etiketi** Azure Stack için kullanılabilir değil bir listesi. Azure Stack'te geçerli yalnızca seçenekleri aşağıdaki gibidir:
 
-  - **İnternet**
+  - **Internet**
   - **VirtualNetwork**
   - **AzureLoadBalancer**
   
@@ -198,7 +203,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 <!-- ### SQL and MySQL-->
 
-### <a name="app-service"></a>Uygulama Hizmeti
+### <a name="app-service"></a>App Service
 
 <!-- 2352906 - IS ASDK --> 
 - İlk Azure işlevinizi aboneliği oluşturmadan önce depolama kaynak sağlayıcısını kaydetmeniz gerekir.

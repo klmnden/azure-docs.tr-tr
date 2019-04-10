@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 55d6f1393f4f180776557ea9a2651064d61c3e06
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 1cf324887a225ecb9ba2cb40176a1f358e40a8e1
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301518"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361982"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Vmware'den azure'a olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısı'nı çalıştırın
 Bu makale, VMware’den Azure’a üretim dağıtımları için Azure Site Recovery Dağıtım Planlayıcısı kullanım kılavuzudur.
@@ -21,7 +21,7 @@ Bu makale, VMware’den Azure’a üretim dağıtımları için Azure Site Recov
 ## <a name="modes-of-running-deployment-planner"></a>Dağıtım planlayıcısını çalıştırma modları
 Komut satırı aracını (ASRDeploymentPlanner.exe) şuradaki dört modun herhangi birinde çalıştırabilirsiniz:
 
-1.  [Profil oluşturma](#profile-vmware-vms)
+1.  [Profil Oluşturma](#profile-vmware-vms)
 2.  [Rapor oluşturma](#generate-report)
 3.  [Aktarım hızı alma](#get-throughput)
 
@@ -81,7 +81,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Protokol| (İsteğe bağlı) vCenter’a bağlanmak için protokol 'http' veya 'https' olarak belirtildi. Varsayılan protokol https’dir.|
 | -StorageAccountName | (İsteğe bağlı) Şirket içinden Azure’a veri çoğaltma için ulaşılabilir aktarım hızını bulmak için depolama hesabı adı. Araç, aktarım hızını hesaplamak için test verilerini bu depolama hesabına yükler. Depolama hesabı Genel amaçlı v1 (GPv1) türünde olmalıdır. |
 | -StorageAccountKey | (İsteğe bağlı) Depolama hesabına erişmek için kullanılan depolama hesabı anahtarı. Azure portalı > Depolama hesapları > <*Depolama hesabı adı*> > Ayarlar > Erişim Anahtarları > Anahtar1 adımlarını izleyin. |
-| -Ortam | (isteğe bağlı) Bu, hedef Azure depolama hesabı ortamınızdır. Şu üç değerden herhangi birini alabilir: AzureCloud,AzureUSGovernment, AzureChinaCloud. Varsayılan seçenek AzureCloud değeridir. Hedef Azure bölgeniz Azure US Government veya Azure China bulutları olduğunda ilgili parametreyi kullanın. |
+| -Ortam | (isteğe bağlı) Bu, hedef Azure depolama hesabı ortamınızdır. Şu üç değerden herhangi birini alabilir: AzureCloud,AzureUSGovernment, AzureChinaCloud. Varsayılan seçenek AzureCloud değeridir. Hedef Azure bölgeniz Azure US Government veya Azure Çin 21Vianet olduğunda ilgili parametreyi kullanın. |
 
 
 VM’lerinizin en az 7 günlük profilinin oluşturulması önerilir. Değişim sıklığı bir ay içinde değişiklik gösteriyorsa, bu sıklığın en yüksek seviyeye ulaştığı hafta sırasında profil oluşturmanız önerilir. En iyi yöntem, daha iyi öneriler almak için 31 günlük profil oluşturmaktır. Profil oluşturma süresi boyunca ASRDeploymentPlanner.exe çalışmaya devam eder. Araç, profil oluşturma süre girdisini gün cinsinden alır. Aracı hızla sınamak veya kavram kanıtı için, birkaç saatlik veya birkaç dakikalık profil oluşturabilirsiniz. İzin verilen en kısa profil oluşturma süresi 30 dakikadır.
@@ -95,7 +95,7 @@ Varsayılan olarak araç, profil ve rapor 1000 VM'yi oluşturmak için yapıland
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Varsayılan ayarlarla, örneğin 1500 VM profili oluşturmak için iki VMList.txt dosyası oluşturun. Biri 1000 VM, diğeri 500 VM ile listelenir. ASR Dağıtım Planlayıcısı’nın iki örneğinden birini VMList1.txt, diğerini VMList2.txt ile çalıştırın. Her iki VMList VM’lerin profil verilerini depolamak için aynı dizin yolunu kullanabilirsiniz.
+Varsayılan ayarlarla, örneğin 1500 VM profili oluşturmak için iki VMList.txt dosyası oluşturun. Biri 1000 VM, diğeri 500 VM ile listelenir. İki örneğinden birini Azure Site Recovery dağıtım Planlayıcısı, birini VMList1.txt ve diğerini vmlist2.txt ile çalıştırın. Her iki VMList VM’lerin profil verilerini depolamak için aynı dizin yolunu kullanabilirsiniz.
 
 Başta aracın raporu oluşturmak üzere çalıştırıldığı sunucunun RAM boyutu olmak üzere donanım yapılandırmasına göre, işlem yetersiz bellek nedeniyle başarısız olabilir. Donanımınız iyiyse, MaxVMsSupported değerini daha yüksek bir değerle değiştirebilirsiniz.  
 
@@ -135,7 +135,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 >* Depolama hesabı adı ve anahtarı geçirildiğinde, araç profil oluşturma işleminin son adımında aktarım hızını ölçer. Profil oluşturma tamamlanmadan önce araç kapatılırsa, aktarım hızı hesaplanmaz. Raporu oluşturmadan önce aktarım hızını bulmak için, komut satırı konsolundan GetThroughput işlemini çalıştırabilirsiniz. Aksi takdirde, oluşturulan rapor aktarım hızı bilgilerini içermez.
 
 
-## <a name="generate-report"></a>Rapor oluşturma
+## <a name="generate-report"></a>Rapor oluştur
 Araç, rapor çıktısı olarak tüm dağıtım önerilerini özetleyen makro özellikli bir Microsoft Excel dosyası (XLSM dosyası) oluşturur. Rapor, DeploymentPlannerReport_<unique numeric identifier>.xlsm olarak adlandırılıp belirtilen dizine yerleştirilir.
 
 >[!NOTE]
@@ -214,7 +214,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 ```
 
 ## <a name="percentile-value-used-for-the-calculation"></a>Hesaplama için kullanılan yüzdelik değer
-**Rapor oluşturulurken, profil oluşturma sırasında toplanan performans ölçümlerinin hangi varsayılan yüzdelik dilim değeri araç tarafından kullanılır?**
+**Bir rapor oluşturduğunda performans ölçümlerinin hangi varsayılan yüzdelik dilim değeri, profil oluşturma sırasında toplanan araç kullanımı mu?**
 
 Aracın, tüm sanal makinelerin profili oluşturulurken toplanan okuma/yazma IOPS, yazma IOPS ve veri değişim sıklığı için varsayılan değeri yüzde 95’lik dilimdir. Bu ölçüm, VM’lerinizin geçici olaylar nedeniyle görebileceği %100’lük dilim artışının, hedef depolama hesabı ve kaynak bant genişliği gereksinimlerini belirlemek için kullanılmamasını sağlar. Örneğin, geçici olay günde bir kez gerçekleştirilen bir yedekleme işi, düzenli aralıklarla yapılan veritabanı dizini oluşturma veya analiz raporu oluşturma etkinliği ya da kısa süreli diğer benzer olaylar olabilir.
 
@@ -226,7 +226,7 @@ Yüzde 95’lik dilim değeri, gerçek iş yükü özelliklerinin gerçek bir re
 ```
 
 ## <a name="growth-factor-considerations"></a>Büyüme faktörü ile ilgili dikkat edilmesi gerekenler
-**Dağıtımları planlarken neden büyüme faktörünü göz önünde bulundurmalıyım?**
+**Dağıtımları planlarken neden büyüme faktörünü de düşünmelisiniz?**
 
 Zaman içindeki kullanımın olası artışı varsayılarak, iş yükü özelliklerinizde büyümenin hesaba katılması önemlidir. Koruma uygulandıktan sonra iş yükü özellikleriniz değişirse, korumayı devre dışı bırakıp yeniden etkinleştirmeden farklı bir depolama hesabına geçiş yapamazsınız.
 
@@ -240,12 +240,12 @@ Büyümeyi dağıtım planlaması sırasında ve varsayılan değer yüzde 30 ik
 
 Oluşturulan Microsoft Excel raporu aşağıdaki bilgileri içerir:
 
-* [Şirket İçi Özeti](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
+* [Şirket içi özeti](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
 * [Öneriler](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
-* [VM<->Depolama Yerleşimi](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
+* [VM <> - depolama yerleşimi](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
 * [Uyumlu VM’ler](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
 * [Uyumsuz VM’ler](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
-* [Maliyet Tahmini](site-recovery-vmware-deployment-planner-cost-estimation.md)
+* [Maliyet tahmini](site-recovery-vmware-deployment-planner-cost-estimation.md)
 
 ![Dağıtım planlayıcısı](media/site-recovery-vmware-deployment-planner-analyze-report/Recommendations-v2a.png)
 
@@ -265,7 +265,7 @@ Bir komut satırı konsolu açın ve Site Recovery dağıtım planlama aracını
 | -StorageAccountName | Şirket içinden Azure’a veri çoğaltma için kullanılan bant genişliğini bulmak için depolama hesabı adı. Araç, kullanılan bant genişliğini bulmak için test verilerini bu depolama hesabına yükler. Depolama hesabı Genel amaçlı v1 (GPv1) türünde olmalıdır.|
 | -StorageAccountKey | Depolama hesabına erişmek için kullanılan depolama hesabı anahtarı. Azure portalı > Depolama hesapları > <*Depolama hesabı adı*> > Ayarlar > Erişim Anahtarları > Anahtar1 (veya klasik depolama hesabı için birincil erişim anahtarı) öğesine gidin. |
 | -VMListFile | Kullanılan bant genişliğini hesaplamak için profili oluşturulacak sanal makinelerin listesini içeren dosya. Dosya yolu mutlak veya göreli olabilir. Bu dosya her satırda bir VM adı/IP adresi içermelidir. Dosyada belirtilen sanal makine adı, vCenter sunucusu/vSphere ESXi ana bilgisayarındaki VM adıyla aynı olmalıdır.<br>Örneğin, VMList.txt dosyası aşağıdaki sanal makineleri içerir:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
-| -Ortam | (isteğe bağlı) Bu, hedef Azure depolama hesabı ortamınızdır. Şu üç değerden herhangi birini alabilir: AzureCloud,AzureUSGovernment, AzureChinaCloud. Varsayılan seçenek AzureCloud değeridir. Hedef Azure bölgeniz Azure US Government veya Azure China bulutları olduğunda ilgili parametreyi kullanın. |
+| -Ortam | (isteğe bağlı) Bu, hedef Azure depolama hesabı ortamınızdır. Şu üç değerden herhangi birini alabilir: AzureCloud,AzureUSGovernment, AzureChinaCloud. Varsayılan seçenek AzureCloud değeridir. Hedef Azure bölgeniz Azure US Government veya Azure Çin 21Vianet olduğunda ilgili parametreyi kullanın. |
 
 Araç, belirtilen dizinde 64 MB’lık birkaç asrvhdfile<#>.vhd (“#” sayıdır) dosyası oluşturur. Araç, aktarım hızını bulmak için dosyaları depolama hesabına yükler. Aktarım hızı ölçüldükten sonra araç tüm dosyaları depolama hesabından ve yerel sunucudan siler. Araç aktarım hızını hesaplarken herhangi bir nedenle sonlandırılırsa, dosyaları depolama alanından veya yerel sunucudan silmez. Bunları el ile silmeniz gerekir.
 

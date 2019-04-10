@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: Carlrab
+ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 6aa8f362f067a4e3e391f435ee849f96abdf752f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: c6a6612390676de26f2f14e23b8040f983493970
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997510"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361370"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Hızlı Başlangıç: Bir Azure SQL veritabanı yönetilen örneği oluşturma
 
@@ -51,7 +51,7 @@ Aşağıdaki adımlar yönetilen örnek oluşturma işlemini göstermektedir.
    |**Harmanlama**|Yönetilen Örneğiniz için kullanmak istediğiniz harmanlama|SQL Server veritabanlarını geçirme varsa, kaynak bir harmanlama kullanarak denetleyin `SELECT SERVERPROPERTY(N'Collation')` ve bu değeri kullanın. Harmanlamalar hakkında daha fazla bilgi için bkz. [sunucu düzeyinde harmanlamaları](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
    |**Konum**|Yönetilen örnek oluşturmak istediğiniz konumu|Bölgeler hakkında daha fazla bilgi için bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/).|
    |**Sanal ağ**|Şunlardan birini seçin **yeni sanal ağ oluştur** veya geçerli sanal ağ ve alt ağ.| Ağ/alt ağ kullanılamıyorsa, zorunluluktur olması [ağ gereksinimlerini karşılamak için değişiklik](sql-database-managed-instance-configure-vnet-subnet.md) önce yeni yönetilen örnek için hedef olarak seçin. Yönetilen örnek için ağ ortamını yapılandırma gereksinimleriyle ilgili daha fazla bilgi için bkz: [yönetilen örnek için bir VNet yapılandırma](sql-database-managed-instance-connectivity-architecture.md). |
-   |**Kaynak grubu**|Yeni veya mevcut bir kaynak grubu|Geçerli kaynak grubu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Kaynak grup**|Yeni veya mevcut bir kaynak grubu|Geçerli kaynak grubu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
 
    ![yönetilen örnek formu](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 

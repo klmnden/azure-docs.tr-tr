@@ -5,17 +5,17 @@ title: Azure İzleyici Application ınsights belgeleri - öğreticiler, API Baş
 description: Azure İzleyici Application Insights, kod düzeyinde ayrıntılı uygulama performansı izleme sağlar.
 services: application-insights
 author: mrbullwinkle
-manager: carmonmills
+manager: carmonm
 ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4bf1ccd3da83900208ab8f15b54ea110b1dbb2f4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 514f0c193dbbca6d8583c9f93feadee3415f163c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244250"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426282"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -79,7 +79,7 @@ ms.locfileid: "56244250"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3>Hızlı Başlangıçlar</h3>
+                                                        <h3>Hızlı girişler</h3>
                                                         <p>
                                                             <a href="./learn/quick-monitor-portal.md">ASP.NET</a><br>
                                                             <a href="./learn/dotnetcore-quick-start.md">ASP.NET Core</a><br>
@@ -91,9 +91,9 @@ ms.locfileid: "56244250"
                                                         <br><br>
                                                         <h3>Öğreticiler</h3>
                                                         <p>
-                                                            <a href="./learn/tutorial-runtime-exceptions.md">Çalışma zamanı özel durumlarını bulma ve tanılama</a><br>
-                                                            <a href="./learn/tutorial-performance.md">Performans sorunlarını bulma ve tanılama</a><br>
-                                                            <a href="./learn/tutorial-alert.md">Uygulama durumunu izleme ve uyarılar gönderme</a><br>
+                                                            <a href="./learn/tutorial-runtime-exceptions.md">Bulma ve çalışma zamanı özel durumları tanılama</a><br>
+                                                            <a href="./learn/tutorial-performance.md">Performans sorunlarını bulup tanılayın</a><br>
+                                                            <a href="./learn/tutorial-alert.md">İzleme ve uyarılar uygulama durumu</a><br>
                                                             <a href="./learn/tutorial-users.md">Kullanıcı davranışını anlayın</a><br>
                                                             <a href="./learn/tutorial-app-dashboards.md">Özel panolar oluşturma</a>
                                                             </p>
@@ -103,13 +103,13 @@ ms.locfileid: "56244250"
                                                             <a href="./app/distributed-tracing.md">Ne izleme dağıtılır?</a><br>
                                                             <a href="./app/opencensus-python.md">Python için OpenCensus</a><br>
                                                             <a href="./app/opencensus-go.md">Go için OpenCensus</a><br>
-                                                            <a href="./app/opencensus-local-forwarder.md">Yerel ileticisi</a>
+                                                            <a href="./app/opencensus-local-forwarder.md">Yerel iletici</a>
                                                             </p>
                                                         <br><br>
                                                         <h3>Otomatik bir akıllı algılama</h3>
                                                         <p>
-                                                            <a href="./app/proactive-failure-diagnostics.md">Hata anormallikleri</a><br>
-                                                            <a href="./app/proactive-performance-diagnostics.md">Performans anormallikleri</a><br>
+                                                            <a href="./app/proactive-failure-diagnostics.md">Hata anomalileri</a><br>
+                                                            <a href="./app/proactive-performance-diagnostics.md">Performans anomalileri</a><br>
                                                             <a href="./app/proactive-trace-severity.md">Performans düşüşünü izleme</a><br>
                                                             <a href="./app/proactive-exception-volume.md">Olağan dışı artışlar özel durumları</a><br>
                                                             <a href="./app/proactive-potential-memory-leak.md">Bellek sızıntıları</a><br>
@@ -144,7 +144,7 @@ ms.locfileid: "56244250"
                                                             <a href="./app/java-filter-telemetry.md">Telemetri filtreleme</a><br>
                                                             <a href="./app/java-trace-logs.md">İzleme günlüğü</a><br>
                                                             <a href="./app/java-agent.md">Bağımlılık izleme için aracı yapılandırma</a><br>
-                                                            <a href="./app/api-custom-events-metrics.md">Özel etkinlikler ve ölçümler</a><br>
+                                                            <a href="./app/api-custom-events-metrics.md">Özel olaylar ve ölçümler</a><br>
                                                             <a href="https://docs.microsoft.com/azure/azure-monitor/app/configuration-with-applicationinsights-config#channel-parameters-java
 ">Yapılandırma .xml</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-Java">Açık kaynak Java SDK'sı GitHub deposu</a>
@@ -155,7 +155,7 @@ ms.locfileid: "56244250"
                                                             <a href="./app/asp-net.md">Ayrıntılı izleme yapılandırması</a><br>
                                                             <a href="./app/monitor-performance-live-website-now.md">Durum İzleyicisi</a><br>
                                                             <a href="./app/azure-web-apps.md">App Service'nın izleme</a><br>
-                                                            <a href="./app/api-custom-events-metrics.md">Özel etkinlikler ve ölçümler</a><br>
+                                                            <a href="./app/api-custom-events-metrics.md">Özel olaylar ve ölçümler</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">Açık kaynak .NET SDK'sı GitHub deposu</a>
                                                         </p>
                                                         <br><br>
@@ -163,21 +163,21 @@ ms.locfileid: "56244250"
                                                         <p>
                                                             <a href="./app/asp-net-core.md">Ayrıntılı izleme yapılandırması</a><br>
                                                             <a href="./app/profiler-aspnetcore-linux.md">ASP.NET Core profil oluşturma</a><br>
-                                                            <a href="./app/api-custom-events-metrics.md">Özel etkinlikler ve ölçümler</a><br>
+                                                            <a href="./app/api-custom-events-metrics.md">Özel olaylar ve ölçümler</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-aspnetcore">Açık kaynak .NET Core SDK'sı GitHub deposu</a>
                                                         </p>
                                                         <br><br>
                                                           <h3>Node.js uygulamaları</h3>
                                                         <p>
                                                             <a href="./app/nodejs.md">Ayrıntılı izleme yapılandırması</a><br>
-                                                            <a href="./app/api-custom-events-metrics.md">Özel etkinlikler ve ölçümler</a><br>
+                                                            <a href="./app/api-custom-events-metrics.md">Özel olaylar ve ölçümler</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-node.js">Kaynak Node.js SDK'sı GitHub deposunu açın</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>Tarayıcı/istemci-tarafı izleme</h3>
                                                         <p>
                                                             <a href="./app/javascript.md">Ayrıntılı izleme yapılandırması</a><br>
-                                                            <a href="./app/api-custom-events-metrics.md">Özel etkinlikler ve ölçümler</a><br>
+                                                            <a href="./app/api-custom-events-metrics.md">Özel olaylar ve ölçümler</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-JS">Kaynak JavaScript SDK'sı GitHub deposunu açın</a><br>
                                                         </p>
                                                     </div>
@@ -199,7 +199,7 @@ ms.locfileid: "56244250"
                                                             <a href="./app/usage-cohorts.md">Kohortlar</a><br>
                                                             <a href="./app/usage-impact.md">Etki</a><br>
                                                             <a href="./app/usage-retention.md">Bekletme</a><br>
-                                                            <a href="./app/usage-flows.md">Kullanıcı akışları</a>
+                                                            <a href="./app/usage-flows.md">Kullanıcı Akışları</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>Gerçek zamanlı izleme<br> Görselleştirme, &amp; analizi</h3>
@@ -220,7 +220,7 @@ ms.locfileid: "56244250"
                                                             <a href="./app/data-retention-privacy.md">Veri toplama, bekletme, &amp; depolama</a><br>
                                                             <a href="./app/resources-roles-access-control.md">Rol tabanlı erişim</a><br>
                                                             <a href="./app/ip-addresses.md">IP adresi &amp; güvenlik duvarı özel durumları</a><br>
-                                                            <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs">Kullanım ve Tahmini maliyetler</a>
+                                                            <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs">Kullanım ve tahmini maliyetler</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>Veri modeli</h3>

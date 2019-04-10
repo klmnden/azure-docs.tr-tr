@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 0fe5b055665ef5a770fba71fdefcfd13b9809e37
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 138913414a8e45084d498a0c7b2e864bc443197f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282279"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59362051"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 güncelleştirme
 
@@ -331,7 +331,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 - Bir Ubuntu 18.04 etkinleştirilmiş SSH yetkilendirme ile oluşturulan VM, oturum açmak için SSH anahtarları kullanmak izin vermez. Geçici bir çözüm olarak VM erişimi Linux uzantısı için SSH anahtarları sağladıktan sonra uygulamak için kullanmak veya parola tabanlı kimlik doğrulaması kullanın.
 
-### <a name="networking"></a>Ağ  
+### <a name="networking"></a>Ağ İletişimi  
 
 <!-- 1766332 - IS ASDK --> 
 - Altında **ağ**, tıklarsanız **VPN ağ geçidi Oluştur** bir VPN bağlantısı kurmak için **ilkesine** bir VPN türü listelenir. Bu seçeneği belirlemeyin. Yalnızca **rota tabanlı** seçeneği Azure Stack'te desteklenir.
@@ -358,7 +358,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 - Portalda, bir gelen güvenlik kuralı ekleyin ve seçerseniz, **hizmet etiketi** çeşitli seçenekler görüntülenir, kaynak olarak **kaynak etiketi** Azure Stack için kullanılabilir değil bir listesi. Azure Stack'te geçerli yalnızca seçenekleri aşağıdaki gibidir:
 
-  - **Internet**
+  - **İnternet**
   - **VirtualNetwork**
   - **AzureLoadBalancer**
   
@@ -379,7 +379,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 <!-- ### SQL and MySQL-->
 
-### <a name="app-service"></a>App Service
+### <a name="app-service"></a>Uygulama Hizmeti
 
 <!-- 2352906 - IS ASDK --> 
 - İlk Azure işlevinizi aboneliği oluşturmadan önce depolama kaynak sağlayıcısını kaydetmeniz gerekir.
@@ -391,9 +391,9 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 <!-- #### Identity -->
 <!-- #### Marketplace -->
 
-### <a name="syslog"></a>Syslog 
-- Syslog yapılandırmasını yapılandırmasına ve iletilen durdurmak için syslog iletileri kaybetmenize syslog istemcisinde kaynaklanan bir güncelleştirme döngüsü boyunca kalıcı olmaz. Bu sorun, syslog istemci (1809) genel kullanım tüm Azure Stack sürümleri için geçerlidir.
-Geçici çözüm, Azure Stack güncelleştirme uygulandıktan sonra syslog istemci yeniden sağlamaktır.
+### <a name="syslog"></a>Syslog
+
+- Syslog yapılandırmasını syslog istemci yapılandırmasını ve iletilen durdurmak için syslog iletileri kaybetmenize neden olan bir güncelleştirme döngüsü boyunca kalıcı olmaz. Bu sorun, syslog istemci (1809) genel kullanım tüm Azure Stack sürümleri için geçerlidir. Bu sorunu çözmek için bir Azure Stack güncelleştirme uygulandıktan sonra syslog istemci yeniden yapılandırın.
 
 ## <a name="download-the-update"></a>Güncelleştirmeyi indirin
 

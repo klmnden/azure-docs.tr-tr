@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: b6785dc06107424344f0a6af775abe9b1c956f70
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2118f137f2c0d32f891a170c3509bceee7ba13ed
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999326"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426146"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Azure İzleyici'de Linux aracıları hakkında toplanan veri topla
 [Toplanan](https://collectd.org/) olduğu bir açık kaynak Linux daemon, düzenli aralıklarla uygulama ve sistem düzeyindeki bilgileri performans ölçümleri toplar. Örnek uygulamalar, Java sanal makinesi (JVM), MySQL sunucusu ve Ngınx içerir. Bu makalede, Azure İzleyici'de toplanan performans veri toplanmasına hakkında bilgi sağlar.
@@ -112,14 +112,14 @@ Linux için Log Analytics aracısını yeni ölçümler ile toplanmış altyapı
 
 | Toplanan ölçüm alan | Azure İzleyici alan |
 |:--|:--|
-| konak | Bilgisayar |
-| Eklentisi | None |
-| plugin_instance | Örnek Adı<br>Varsa **plugin_instance** olduğu *null* ardından InstanceName = "*_Total*" |
-| type | ObjectName |
-| type_instance | CounterName<br>Varsa **type_instance** olduğu *null* ardından CounterName =**boş** |
-| dsnames] | CounterName |
-| dstypes | None |
-| değerler] | Ort |
+| `host` | Bilgisayar |
+| `plugin` | Hiçbiri |
+| `plugin_instance` | Örnek Adı<br>Varsa **plugin_instance** olduğu *null* ardından InstanceName = "*_Total*" |
+| `type` | ObjectName |
+| `type_instance` | CounterName<br>Varsa **type_instance** olduğu *null* ardından CounterName =**boş** |
+| `dsnames[]` | CounterName |
+| `dstypes` | Hiçbiri |
+| `values[]` | Ort |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [oturum sorguları](../log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 

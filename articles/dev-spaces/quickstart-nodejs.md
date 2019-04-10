@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Kapsayıcılar, mikro hizmetler ve azure'da Node.js ile hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: b95090cf59f0ee84e3a81bf87631df54826c050e
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: bc18a06405c0fe620136642a409df576c8e8d8b3
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418576"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361722"
 ---
 # <a name="quickstart-develop-with-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Hızlı Başlangıç: Azure geliştirme alanları kullanarak Kubernetes üzerinde Node.js ile geliştirme
 
@@ -210,4 +210,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 Azure geliştirme alanları, birden çok kapsayıcıya daha karmaşık uygulamalar geliştirmenize nasıl yardımcı olur ve farklı sürümleri ya da farklı alanları kodunuzun dalları birlikte çalışarak işbirliğine dayalı geliştirme nasıl basitleştirebileceğinizi öğrenin.
 
 > [!div class="nextstepaction"]
-> [Birden çok kapsayıcı ve takım geliştirme ile çalışma](multi-service-nodejs.md)
+> [Kapsayıcıları ve takım geliştirme ile çalışma](multi-service-nodejs.md)

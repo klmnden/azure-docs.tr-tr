@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 60424edc8e617aca55777d019e6a0f9409f7ca28
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276533"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426452"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP'yi performans Azure Vm'leri için ayarlama
 
@@ -85,7 +85,7 @@ Vm'leri bir MTU 1.500 olsa bile paketler 1,400 bayt parçalarla ilgili olduğund
 
 #### <a name="azure-and-fragmentation"></a>Azure ve parçalanma
 
-Sanal ağ yığınının "sıralamaya parçaları," diğer bir deyişle, kendi özgün parçalanmış sırada ulşamasını yoksa parçalanmış paketlere bırakmak ayarlayın. Kasım FragmentStack adlı 2018'de duyurulan çoğunlukla bir ağ güvenlik açığı nedeniyle bu paketler bırakılır.
+Sanal ağ yığınının "sıralamaya parçaları," diğer bir deyişle, kendi özgün parçalanmış sırada ulşamasını yoksa parçalanmış paketlere bırakmak ayarlayın. Kasım FragmentSmack adlı 2018'de duyurulan çoğunlukla bir ağ güvenlik açığı nedeniyle bu paketler bırakılır.
 
 Bir Linux çekirdeğinin parçalanmış IPv4 ve IPv6 paketlerini yeniden birleştirilmesinden işlenme üründe FragmentSmack olur. Bir uzak saldırgan bu zayıf hedef sistem üzerinde daha yüksek CPU ve hizmet reddine neden olabilir tetikleyici pahalı parça yeniden birleştirme işlemleri için kullanabilir.
 
@@ -140,7 +140,7 @@ Ağ gecikmesi ışık hızını fiber optik ağ üzerinden yönetilir. Ağ aktar
 
 | | | | |
 |-|-|-|-|
-|**Yol**|**Uzaklık**|**Tek yönlü zaman**|**RTT**|
+|**Rota**|**Uzaklık**|**Tek yönlü zaman**|**RTT**|
 |New York to San Francisco|4,148 km|21 ms|42 ms|
 |Londra'ya New York|5,585 km|28 ms|56 ms|
 |Sidney için New York|15,993 km|80 ms|160 ms|
@@ -237,7 +237,7 @@ Etkin TCP ayarlarını bunlar `AutoTuningLevel`:
 | | | | |
 |-|-|-|-|
 |**AutoTuningLevel**|**Ölçeklendirme çarpanı**|**Ölçeklendirme çarpanı**|**Formülü<br/>en fazla pencere boyutunu Hesapla**|
-|Devre dışı|None|None|Pencere boyutu|
+|Devre dışı|Hiçbiri|Hiçbiri|Pencere boyutu|
 |Kısıtlı|4|2^4|Pencere boyutu * (2 ^ 4)|
 |Yüksek oranda kısıtlanmış|2|2^2|Pencere boyutu * (2 ^ 2)|
 |Normal|8|2^8|Pencere boyutu * (2 ^ 8)|
@@ -256,7 +256,7 @@ Daha büyük bir MTU daha büyük bir MSS anlamına gelir çünkü MTU TCP perfo
 
 ### <a name="accelerated-networking-and-receive-side-scaling"></a>Hızlandırılmış ağ iletişimi ve Alma Tarafı Ölçeklendirmesi
 
-#### <a name="accelerated-networking"></a>Hızlandırılmış ağ iletişimi
+#### <a name="accelerated-networking"></a>Hızlandırılmış ağ
 
 Sanal makine ağ işlevleri, VM Konuk hem hiper yönetici/konak yoğun CPU geçmişte bırakılıyordu. Ana bilgisayar üzerinden transits her paket, CPU, tüm sanal ağ yalıtma ve kapsüllemeyi açma işlemi dahil olmak üzere ana bilgisayar tarafından yazılımda işlenir. Yüksek CPU, daha fazla trafik, ana bilgisayar üzerinden doğru şekilde yükleyin. Ve ana bilgisayar CPU diğer işlemleri ile meşgul ise, bu da ağ aktarım hızı ve gecikme süresini etkiler. Azure hızlandırılmış ağ ile bu sorunu giderir.
 

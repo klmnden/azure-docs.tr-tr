@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 3004f073100b45de25655fc6dee6a96c90612c46
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: f023ab4fe55cf180ac1e3f0634856a528c911746
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905212"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426520"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri
 
@@ -40,9 +40,9 @@ Bu makalede, Azure SQL veritabanları, elastik havuzlar ve yönetilen örnekleri
 
 Etkinleştirin ve aşağıdaki yöntemlerden birini kullanarak, ölçümleri ve tanılama telemetrisi günlüğünü yönetme:
 
-- Azure portal
+- Azure portalı
 - PowerShell
-- Azure CLI
+- Azure CLI'si
 - Azure İzleyici REST API
 - Azure Resource Manager şablonu
 
@@ -50,7 +50,7 @@ Etkinleştirin ve aşağıdaki yöntemlerden birini kullanarak, ölçümleri ve 
 
 - Azure SQL Analytics
 - Azure Event Hubs
-- Azure Storage
+- Azure Depolama
 
 Yeni bir Azure kaynak sağlayın veya mevcut bir kaynağı seçin. Kullanarak bir kaynak seçin sonra **tanılama ayarları** seçeneğinde, veri toplamak için belirtin.
 
@@ -77,9 +77,9 @@ Aşağıdaki tanılama telemetrisi toplamak için Azure SQL veritabanı ve örne
 > Elastik havuzlar ve yönetilen örnekleri kendi ayrı tanılama telemetrisi içerdikleri veritabanlarından var. Bu, aşağıda açıklandığı gibi tanılama telemetrisi bu kaynakların her biri, için ayrı olarak yapılandırıldığı şekilde dikkat edin önemlidir.
 
 > [!NOTE]
-> Güvenlik denetimi ve SQLSecurityAuditEvents günlüklerini veritabanı tanılama ayarları etkinleştirilemez. Denetim günlüğü akışını etkinleştirmek için bkz: [veritabanınız için denetimi ayarlamanız](sql-database-auditing.md#subheading-2), ve [Azure İzleyici günlüklerine ve Azure Event Hubs'a günlükler denetim](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Güvenlik denetimi ve SQLSecurityAuditEvents günlüklerini veritabanı tanılama ayarlarını (ekran üzerinde gösteriliyor olsa da) etkinleştirilemez. Denetim günlüğü akışını etkinleştirmek için bkz: [veritabanınız için denetimi ayarlamanız](sql-database-auditing.md#subheading-2), ve [Azure İzleyici günlüklerine ve Azure Event Hubs'a günlükler denetim](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure portalı
 
 Kullanabileceğiniz **tanılama ayarları** menüsünü her, havuza alınmış, tek veya tanılama telemetrisi akış yapılandırmak için Azure portalında veritabanı örneği. Ayrıca, telemetriyi Tanıla de ayrı olarak veritabanı kapsayıcılar için yapılandırılabilir: elastik havuzları ve yönetilen örnekleri. Tanılama telemetrisi akışını aşağıdaki hedefleri ayarlayabilirsiniz: Azure depolama, Azure Event Hubs ve Azure İzleyici günlükleri.
 
@@ -141,7 +141,7 @@ Tek veya havuza alınmış veritabanları için tanılama telemetrisi akışın�
 1. İzlemek istediğiniz her veritabanı için bu adımları yineleyin.
 
 > [!NOTE]
-> Güvenlik denetimi ve SQLSecurityAuditEvents günlüklerini veritabanı tanılama ayarları etkinleştirilemez. Denetim günlüğü akışını etkinleştirmek için bkz: [veritabanınız için denetimi ayarlamanız](sql-database-auditing.md#subheading-2), ve [Azure İzleyici günlüklerine ve Azure Event Hubs'a günlükler denetim](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Güvenlik denetimi ve SQLSecurityAuditEvents günlüklerini veritabanı tanılama ayarlarını (ekran üzerinde gösteriliyor olsa da) etkinleştirilemez. Denetim günlüğü akışını etkinleştirmek için bkz: [veritabanınız için denetimi ayarlamanız](sql-database-auditing.md#subheading-2), ve [Azure İzleyici günlüklerine ve Azure Event Hubs'a günlükler denetim](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 > [!TIP]
 > İzlemek istediğiniz her Azure SQL veritabanı bu adımları yineleyin.
 
@@ -261,7 +261,7 @@ Birden çok abonelik desteklemek için PowerShell betiğini kullanın. [kaynak �
     ```
    Değiştirin \<Subıd\> abonelik kimliği ile \<RG_NAME\> kaynak grubu adı ile ve \<WS_NAME\> çalışma alanı adı ile.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure CLI'si
 
 Azure CLI kullanarak, ölçümleri ve tanılama günlük kaydını etkinleştirebilirsiniz.
 
@@ -441,8 +441,8 @@ Aşağıdaki tablolarda tüm günlükler için kullanılabilen telemetri ayrınt
 |Kategori|Kategori adı. Her zaman: ResourceUsageStats |
 |Kaynak|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: MANAGEDINSTANCES |
-|SubscriptionId|Veritabanı için abonelik GUID'si |
-|ResourceGroup|Veritabanı için kaynak grubunun adı |
+|Abonelik Kimliği|Veritabanı için abonelik GUID'si |
+|Kaynak Grubu|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Yönetilen örnek adı |
 |ResourceId|Kaynak URI'si |
 |SKU_s|Yönetilen örnek Ürün SKU'su |
@@ -467,8 +467,8 @@ Aşağıdaki tablolarda tüm günlükler için kullanılabilen telemetri ayrınt
 |OperationName|İşlemin adı. Her zaman: QueryStoreRuntimeStatisticsEvent |
 |Kaynak|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
-|SubscriptionId|Veritabanı için abonelik GUID'si |
-|ResourceGroup|Veritabanı için kaynak grubunun adı |
+|Abonelik Kimliği|Veritabanı için abonelik GUID'si |
+|Kaynak Grubu|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
 |ElasticPoolName_s|Varsa veritabanı için elastik havuz adı |
 |DatabaseName_s|Veritabanının adı |
@@ -518,8 +518,8 @@ Daha fazla bilgi edinin [Query Store çalışma zamanı istatistik verileri](htt
 |OperationName|İşlemin adı. Her zaman: QueryStoreWaitStatisticsEvent |
 |Kaynak|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
-|SubscriptionId|Veritabanı için abonelik GUID'si |
-|ResourceGroup|Veritabanı için kaynak grubunun adı |
+|Abonelik Kimliği|Veritabanı için abonelik GUID'si |
+|Kaynak Grubu|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
 |ElasticPoolName_s|Varsa veritabanı için elastik havuz adı |
 |DatabaseName_s|Veritabanının adı |
@@ -556,8 +556,8 @@ Daha fazla bilgi edinin [Query Store bekleme istatistikleri veri](https://docs.m
 |OperationName|İşlemin adı. Her zaman: ErrorEvent |
 |Kaynak|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
-|SubscriptionId|Veritabanı için abonelik GUID'si |
-|ResourceGroup|Veritabanı için kaynak grubunun adı |
+|Abonelik Kimliği|Veritabanı için abonelik GUID'si |
+|Kaynak Grubu|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
 |ElasticPoolName_s|Varsa veritabanı için elastik havuz adı |
 |DatabaseName_s|Veritabanının adı |
@@ -565,7 +565,7 @@ Daha fazla bilgi edinin [Query Store bekleme istatistikleri veri](https://docs.m
 |İleti|Hata iletisi düz metin |
 |user_defined_b|Hata kullanıcı tanımlı bit |
 |error_number_d|Hata kodu |
-|Severity|Hata önem derecesi |
+|Önem Derecesi|Hata önem derecesi |
 |state_d|Hata durumu |
 |query_hash_s|Sorgu karması varsa başarısız sorgu |
 |query_plan_hash_s|Sorgu planı karma varsa başarısız sorgu |
@@ -585,8 +585,8 @@ Daha fazla bilgi edinin [SQL Server hata iletileri](https://msdn.microsoft.com/l
 |OperationName|İşlemin adı. Her zaman: DatabaseWaitStatisticsEvent |
 |Kaynak|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
-|SubscriptionId|Veritabanı için abonelik GUID'si |
-|ResourceGroup|Veritabanı için kaynak grubunun adı |
+|Abonelik Kimliği|Veritabanı için abonelik GUID'si |
+|Kaynak Grubu|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
 |ElasticPoolName_s|Varsa veritabanı için elastik havuz adı |
 |DatabaseName_s|Veritabanının adı |
@@ -614,8 +614,8 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |OperationName|İşlemin adı. Her zaman: TimeoutEvent |
 |Kaynak|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
-|SubscriptionId|Veritabanı için abonelik GUID'si |
-|ResourceGroup|Veritabanı için kaynak grubunun adı |
+|Abonelik Kimliği|Veritabanı için abonelik GUID'si |
+|Kaynak Grubu|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
 |ElasticPoolName_s|Varsa veritabanı için elastik havuz adı |
 |DatabaseName_s|Veritabanının adı |
@@ -637,8 +637,8 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |OperationName|İşlemin adı. Her zaman: BlockEvent |
 |Kaynak|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
-|SubscriptionId|Veritabanı için abonelik GUID'si |
-|ResourceGroup|Veritabanı için kaynak grubunun adı |
+|Abonelik Kimliği|Veritabanı için abonelik GUID'si |
+|Kaynak Grubu|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
 |ElasticPoolName_s|Varsa veritabanı için elastik havuz adı |
 |DatabaseName_s|Veritabanının adı |
@@ -661,8 +661,8 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |OperationName|İşlemin adı. Her zaman: DeadlockEvent |
 |Kaynak|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
-|SubscriptionId|Veritabanı için abonelik GUID'si |
-|ResourceGroup|Veritabanı için kaynak grubunun adı |
+|Abonelik Kimliği|Veritabanı için abonelik GUID'si |
+|Kaynak Grubu|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
 |ElasticPoolName_s|Varsa veritabanı için elastik havuz adı |
 |DatabaseName_s|Veritabanının adı |
@@ -681,8 +681,8 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |Kategori|Kategori adı. Her zaman: AutomaticTuning |
 |Kaynak|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
-|SubscriptionId|Veritabanı için abonelik GUID'si |
-|ResourceGroup|Veritabanı için kaynak grubunun adı |
+|Abonelik Kimliği|Veritabanı için abonelik GUID'si |
+|Kaynak Grubu|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
 |LogicalDatabaseName_s|Veritabanının adı |
 |ElasticPoolName_s|Varsa veritabanı için elastik havuz adı |

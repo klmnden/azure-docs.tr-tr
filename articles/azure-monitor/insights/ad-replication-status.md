@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 100d33bbd888d00ed33a38680df5a777e12fd63e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120814"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425857"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Azure İzleyici ile Active Directory çoğaltma durumunu izleme
 
@@ -44,7 +44,7 @@ Herhangi bir etki alanı denetleyicilerinizin doğrudan Azure İzleyici bağlanm
 3. Bu bilgisayarda, aşağıdaki kayıt defteri anahtarını ayarlayın:<br>Anahtar: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Değer: **IsTarget**<br>Değer verisi: **true**
 
    > [!NOTE]
-   > Bu değişiklikler, yeniden başlatmaya kadar Microsoft Monitoring Agent hizmeti (HealthService.exe) etkili olmaz.
+   > Bu değişiklikler (HealthService.exe) Microsoft Monitoring Agent hizmeti yeniden başlatılana kadar etkili olmaz.
    > ### <a name="install-solution"></a>Çözüm yükleme
    > Açıklanan işlemi izleyin [bir izleme çözümü yükleme](solutions.md#install-a-monitoring-solution) eklemek için **Active Directory çoğaltma durumu** Log Analytics çalışma alanınıza çözüm. Başka bir yapılandırma işlemi gerekmez.
 
@@ -120,32 +120,32 @@ Ayrıca **dışarı** sonuçları Excel'e. Verileri dışarı aktarma, çoğaltm
 
 ## <a name="ad-replication-status-faq"></a>AD çoğaltma durumu ile ilgili SSS
 **S: Ne sıklıkta AD çoğaltma durumu veriler güncelleştirildi mi?**
-C: Bilgiler, beş günde bir güncelleştirilir.
+Y: Bilgiler, beş günde bir güncelleştirilir.
 
 **S: Bu veriler sıklıkla güncelleştirilir yapılandırmak için bir yol var mı?**
-C: Şu anda değil.
+Y: Şu anda değil.
 
 **S: Tüm etki alanı denetleyicilerine my çoğaltma durumunu görmek için Log Analytics çalışma alanıma Ekle gerekiyor mu?**
-C: Hayır, yalnızca bir tek etki alanı denetleyicisi eklenmelidir. Log Analytics çalışma alanınızda birden çok etki alanı denetleyiciniz varsa, bunları tüm veriler Azure İzleyicisi'ne gönderilir.
+Y: Hayır, yalnızca bir tek etki alanı denetleyicisi eklenmelidir. Log Analytics çalışma alanınızda birden çok etki alanı denetleyiciniz varsa, bunları tüm veriler Azure İzleyicisi'ne gönderilir.
 
 **S: Herhangi bir etki alanı denetleyicileri Log Analytics çalışma alanıma Ekle istemiyorum. AD çoğaltma durumu çözümü kullanabilir miyim?**
 
-C: Evet. Etkinleştirmek için bir kayıt defteri anahtarının değerini ayarlayabilirsiniz. Bkz: [etkin olmayan etki alanı denetleyicisi](#enable-non-domain-controller).
+Y: Evet. Etkinleştirmek için bir kayıt defteri anahtarının değerini ayarlayabilirsiniz. Bkz: [etkin olmayan etki alanı denetleyicisi](#enable-non-domain-controller).
 
 **S: Veri koleksiyonu yapan işlemin adı nedir?**
-C: AdvisorAssessment.exe
+Y: AdvisorAssessment.exe
 
 **S: Ne kadar toplanacak veri için sürer?**
-C: Veri Toplama süresi, Active Directory ortamında boyutuna bağlıdır, ancak genellikle 15 dakikadan kısa sürer.
+Y: Veri Toplama süresi, Active Directory ortamında boyutuna bağlıdır, ancak genellikle 15 dakikadan kısa sürer.
 
 **S: Ne tür verilere toplanır?**
-C: Çoğaltma bilgileri LDAP toplanır.
+Y: Çoğaltma bilgileri LDAP toplanır.
 
 **S: Verileri toplandığında yapılandırmak için bir yol var mı?**
-C: Şu anda değil.
+Y: Şu anda değil.
 
 **S: Verileri toplamak hangi izinlerin gerekiyor?**
-C: Active Directory normal kullanıcı izinlerini yeterlidir.
+Y: Active Directory normal kullanıcı izinlerini yeterlidir.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Veri toplama sorunlarını giderme
 Veri toplamak için Log Analytics çalışma alanınıza bağlı için en az bir etki alanı denetleyicisi AD çoğaltma durumu çözüm paketi gerektirir. Bir etki alanı denetleyicisine bağlanmak kadar belirten bir ileti görünür **veri hala toplanmakta olan**.

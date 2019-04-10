@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 776523bb001848e6ecc153f670a96e3143e2ac0d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58006339"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361342"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Azure'a Hyper-V olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısını çalıştırın
 
@@ -98,7 +98,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Password|(İsteğe bağlı) Hyper-V konağına bağlanmak için gereken parola. Bunu bir parametre olarak belirtmezseniz komutu çalıştırdığında belirtmeniz istenir.|
 |-StorageAccountName|(İsteğe bağlı) Şirket içinden Azure’a veri çoğaltma için ulaşılabilir aktarım hızını bulmak için depolama hesabı adı. Araç, aktarım hızını hesaplamak için test verilerini bu depolama hesabına yükler. Depolama hesabı Genel amaçlı v1 (GPv1) türünde olmalıdır.|
 |-StorageAccountKey|(İsteğe bağlı) Depolama hesabına erişmek için kullanılan anahtar. Azure portalı > **Depolama hesapları** > *Depolama hesabı adı* > **Ayarlar** > **Erişim Anahtarları** > **Anahtar1** (veya klasik depolama hesabı için birincil erişim anahtarı) seçeneğine gidin.|
-|-Ortam|(İsteğe bağlı) Azure depolama hesabı için hedef ortamınız. Üç değerlerden biri olabilir: AzureCloud, AzureUSGovernment veya AzureChinaCloud. Varsayılan seçenek AzureCloud değeridir. Hedef bölgeniz Azure ABD Kamu veya Azure Çin olduğunda ilgili parametreyi kullanın.|
+|-Ortam|(İsteğe bağlı) Azure depolama hesabı için hedef ortamınız. Üç değerlerden biri olabilir: AzureCloud, AzureUSGovernment veya AzureChinaCloud. Varsayılan seçenek AzureCloud değeridir. Hedef bölgeniz Azure US Government veya Azure Çin 21Vianet olduğunda ilgili parametreyi kullanın.|
 
 VM’lerinizin en az 7 günlük profilinin oluşturulması önerilir. Değişim sıklığı bir ay içinde değişiklik gösteriyorsa, bu sıklığın en yüksek seviyeye ulaştığı hafta sırasında profil oluşturmanız önerilir. En iyi yöntem, daha iyi bir öneri almak için 31 günlük profil oluşturmaktır. 
 
@@ -254,9 +254,9 @@ Büyümeyi dağıtım planlaması sırasında planlamanız önerilir. Varsayıla
 
 Oluşturulan Microsoft Excel raporu aşağıdaki bilgileri içerir:
 
-* [Şirket içi özet](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
+* [Şirket içi özeti](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
 * [Öneriler](hyper-v-deployment-planner-analyze-report.md#recommendations)
-* [VM depolama yerleşimi](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
+* [VM-depolama yerleşimi](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
 * [Uyumlu VM’ler](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
 * [Uyumsuz VM’ler](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
 * [Şirket içi depolama gereksinimi](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
@@ -283,7 +283,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -StorageAccountName | Şirket içinden Azure’a veri çoğaltma için kullanılan bant genişliğini bulmak için depolama hesabı adı. Araç, kullanılan bant genişliğini bulmak için test verilerini bu depolama hesabına yükler. Depolama hesabı Genel amaçlı v1 (GPv1) türünde olmalıdır.|
 | -StorageAccountKey | Depolama hesabına erişmek için kullanılan depolama hesabı anahtarı. Azure portalı > **Depolama hesapları** > *depolama hesabı adı* > **Ayarlar** > **Erişim Anahtarları** > **Anahtar1** seçeneğine gidin.|
 | -VMListFile | Kullanılan bant genişliğini hesaplamak için profili oluşturulacak sanal makinelerin listesini içeren dosya. Dosya yolu mutlak veya göreli olabilir. Hyper-V için, GetVMList işleminin çıkış dosyası bu dosyadır. El ile hazırlıyorsanız, dosyada bir sunucu adı ya da IP adresi ve sonra VM adı (her satırı \ ile ayrılan) bulunmalıdır. Dosyada belirtilen VM adı, Hyper-V konağındaki VM adıyla aynı olmalıdır.<br><br>**Örnek:** VMList.txt aşağıdaki sanal makineleri içerir:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-Ortam|(İsteğe bağlı) Azure depolama hesabı için hedef ortamınız. Üç değerlerden biri olabilir: AzureCloud, AzureUSGovernment veya AzureChinaCloud. Varsayılan seçenek AzureCloud değeridir. Hedef Azure bölgeniz Azure ABD Kamu veya Azure Çin’deyse ilgili parametreyi kullanın.|
+|-Ortam|(İsteğe bağlı) Azure depolama hesabı için hedef ortamınız. Üç değerlerden biri olabilir: AzureCloud, AzureUSGovernment veya AzureChinaCloud. Varsayılan seçenek AzureCloud değeridir. Hedef Azure bölgeniz Azure US Government veya Azure Çin 21Vianet olduğunda ilgili parametreyi kullanın.|
 
 ### <a name="example"></a>Örnek
 ```

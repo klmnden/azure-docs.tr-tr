@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
-ms.openlocfilehash: a72e02cf7cc85113fe4fb660fdc5e5f0b5f22019
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4c759462d603a35e738f76a505abd04b832afc3f
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903156"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426350"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Azure geliştirme alanları .NET Core ile çalışmaya başlama
 
@@ -25,17 +25,10 @@ Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 - Kodunuzu bir ekip ortamında verimli bir şekilde geliştirip test edin.
 
 > [!Note]
-> Herhangi bir zamanda **kilitlenirseniz** [Sorun giderme](troubleshooting.md) bölümüne başvurun veya bu sayfada bir yorum paylaşın.
-
-Artık Azure’da Kubernetes tabanlı bir geliştirme ortamı oluşturmaya hazırsınız.
+> **Takılı kalarak,** herhangi bir zamanda bkz [sorun giderme](troubleshooting.md) bölümü.
 
 ## <a name="install-the-azure-cli"></a>Azure CLI'yı yükleme
-Azure Dev Spaces, çok az yerel makine kurulumu gerektirir. Geliştirme ortamı yapılandırmanızın büyük bölümü bulutta depolanır ve diğer kullanıcılarla paylaşılabilir. Yerel makineniz Windows, Mac veya Linux çalıştırıyor olabilir. Linux için aşağıdaki dağıtımlar desteklenir: (18.04, 16.04 ve 14.04) ubuntu, Debian 8 ve 9, RHEL 7, Fedora 26 +, CentOS 7, openSUSE 42.2 ve SLES 12.
-
-İlk olarak [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) indirip yükleyin. 
-
-> [!IMPORTANT]
-> Azure CLI zaten yüklüyse, 2.0.43 veya üzeri bir sürüm kullandığınızdan emin olun.
+Azure Dev Spaces, çok az yerel makine kurulumu gerektirir. Geliştirme ortamı yapılandırmanızın büyük bölümü bulutta depolanır ve diğer kullanıcılarla paylaşılabilir. İlk olarak [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) indirip yükleyin.
 
 ### <a name="sign-in-to-azure-cli"></a>Azure CLI'da oturum açma
 Azure'da oturum açın. Bir terminal penceresine aşağıdaki komutu yazın:
@@ -112,7 +105,7 @@ Kopyala veya indir [Azure geliştirme alanları örnek uygulama](https://github.
     ```
 
 Azure CLI’nin `azds prep` komutu varsayılan ayarlarla Docker ve Kubernetes varlıklarını oluşturur:
-* `./Dockerfile`, uygulamanın kapsayıcı görüntüsünü açıklar, kaynak kodunun nasıl derlendiğini ve kapsayıcının içinde çalıştırıldığını belirtir.
+* `./Dockerfile` uygulamanın kapsayıcı görüntüsü ve kaynak kodu yerleşik olarak bulunur ve kapsayıcı içinde çalışan açıklar.
 * `./charts/webfrontend` altındaki [Helm grafiği](https://docs.helm.sh), kapsayıcının Kubernetes'de nasıl dağıtıldığını açıklar.
 
 Şimdilik bu dosyaların tüm içeriğini anlamanız gerekli değildir. Bununla birlikte, **geliştirme aşamasından üretim aşamasına kadar aynı Kubernetes ve Docker kod yapılandırmalı varlıklarının kullanılabildiğini, bu şekilde farklı ortamlarda daha tutarlı sonuçlar sağlanabildiğini** belirtmek gerekir.
@@ -152,7 +145,7 @@ Tarayıcı penceresinde bu URL'yi açın; web uygulaması yükünü görmelisini
 ### <a name="update-a-content-file"></a>İçerik dosyası güncelleştirme
 Azure Dev Spaces yalnızca kodu Kubernetes’te çalıştırmaya yönelik değildir; aynı zamanda kod değişikliklerinizin buluttaki bir Kubernetes ortamında uygulandığını hızlıca ve yinelenerek görmenizi sağlar.
 
-1. `./Views/Home/Index.cshtml` dosyasını bulun ve HTML dosyasında bir düzenleme yapın. Örneğin, `<h2>Application uses</h2>` olan 70. satırı `<h2>Hello k8s in Azure!</h2>` benzeri bir değerle değiştirin.
+1. `./Views/Home/Index.cshtml` dosyasını bulun ve HTML dosyasında bir düzenleme yapın. Değiştirin; Örneğin, okuyan satır 70 `<h2>Application uses</h2>` için aşağıdakine benzer: `<h2>Hello k8s in Azure!</h2>`
 1. Dosyayı kaydedin. Birkaç dakika sonra, Terminal penceresinde çalışan kapsayıcı içindeki bir dosyanın güncelleştirildiğini söyleyen bir ileti göreceksiniz.
 1. Tarayıcınıza gidip sayfayı yenileyin. Web sayfasında güncelleştirilmiş HTML’in gösterildiğini görürsünüz.
 
@@ -162,7 +155,7 @@ Ne oldu? HTML ve CSS gibi içerik dosyalarında düzenleme yapılması için bir
 .NET Core uygulamasının güncelleştirilmiş uygulama ikili dosyalarını yeniden derleyip oluşturması gerektiğinden, kod dosyalarının güncelleştirilmesi biraz daha fazla iş gerektirir.
 
 1. Terminal penceresinde `Ctrl+C` düğmesine basın (`azds up` hizmetini durdurmak için).
-1. `Controllers/HomeController.cs` adlı kod dosyasını açın ve Hakkında sayfasında gösterilen iletiyi düzenleyin: `ViewData["Message"] = "Your application description page.";`
+1. Adlı kod dosyasını açın `Controllers/HomeController.cs`ve hakkında sayfasında görüntülenecek iletiyi düzenleyin: `ViewData["Message"] = "Your application description page.";`
 1. Dosyayı kaydedin.
 1. Terminal penceresinde `azds up` komutunu çalıştırın. 
 
@@ -233,7 +226,7 @@ Azure Dev Spaces, her kod düzenlemesi yapıldığında yeni bir kapsayıcı gö
 
 Tarayıcıda web uygulamasını yenileyin ve Hakkında sayfasına gidin. Özel iletinizin kullanıcı arabiriminde görüntülendiğini görürsünüz.
 
-**Artık kod üzerinde hızlıca yineleme ve doğrudan Kubernetes’te hata ayıklamaya yönelik bir yönteminiz var!** Ardından, ikinci bir kapsayıcıyı nasıl oluşturabileceğinizi ve çağırabileceğinizi göreceksiniz.
+**Şimdi hızlı bir şekilde kod üzerinde yineleme ve doğrudan Kubernetes'te hata ayıklama için bir yöntem var!** Ardından, ikinci bir kapsayıcıyı nasıl oluşturabileceğinizi ve çağırabileceğinizi göreceksiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

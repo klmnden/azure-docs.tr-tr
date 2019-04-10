@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 04/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 5a72c0539cabec3bf4168280c85a2afb92569b25
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234009"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426401"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici ile AKS kümesi performansını anlama 
 Kapsayıcılar için Azure İzleyici ile sistem durumu ve performans grafiklerini doğrudan bir AKS kümesi veya Azure aboneliğindeki tüm AKS kümeleri, iki perspektiften, Azure Kubernetes Service (AKS) kümesinin ve iş yükünü izlemek için kullanabilirsiniz İzleyici. Belirli bir AKS kümesi izlerken Azure Container Instances'a (ACI) görüntüleme olanağı da sağlar.
@@ -62,17 +62,17 @@ Aşağıdaki tabloda, izlenen bir küme çoklu küme görünüm için sağlık d
 | |Durum |Kullanılabilirlik |  
 |-------|-------|-----------------|  
 |**Kullanıcı Pod**| | |  
-| |Sorunsuz |100% |  
+| |Sağlam |100% |  
 | |Uyarı |90 - %99 |  
 | |Kritik |< % 90'dır |  
 | |Bilinmeyen |Son 30 dakika içerisinde bildirilmedi varsa |  
 |**Sistem Pod**| | |  
-| |Sorunsuz |100% |
+| |Sağlam |100% |
 | |Uyarı |Yok |
 | |Kritik |< % 100 |
 | |Bilinmeyen |Son 30 dakika içerisinde bildirilmedi varsa |
-|**Node** | | |
-| |Sorunsuz |> %85 |
+|**Düğüm** | | |
+| |Sağlam |> %85 |
 | |Uyarı |60 - %84 |
 | |Kritik |< % 60 |
 | |Bilinmeyen |Son 30 dakika içerisinde bildirilmedi varsa |
@@ -100,7 +100,34 @@ Performans grafiği dört performans ölçümlerini görüntüler:
 
 Her veri noktası anahtarları yüzdebirlik satırları arasında geçiş yapmak için yukarı/aşağı oka ve grafik geçiş yapmak için sol/sağ ok tuşlarını kullanabilirsiniz.
 
-İçin değiştirdiğinizde **düğümleri**, **denetleyicileri**, ve **kapsayıcıları** sekmesinde, otomatik olarak sağ tarafında sayfasının görüntülenmesini olan özellik bölmesi.  Bu, Kubernetes nesneleri düzenlemek için tanımladığınız etiketleri dahil olmak üzere seçili öğenin özelliklerini gösterir. Tıklayarak **>>** bölmesinde bölmesinde view\hide için bağlantı.  
+Kapsayıcılar için Azure İzleyici, Azure İzleyici ayrıca destekler [ölçüm Gezgini](../platform/metrics-getting-started.md), burada kendi çizim grafikleri, performanstaki oluşturabilir ve eğilimleri araştırın ve panolara sabitleyin. Ölçüm Gezgini'nde ölçümlerinizi temel olarak görselleştirmek için ayarladığınız ölçütler de kullanabilirsiniz bir [ölçüm tabanlı uyarı kuralı](../platform/alerts-metric.md).  
+
+## <a name="view-container-metrics-in-metrics-explorer"></a>Ölçüm Gezgini'nde kapsayıcı ölçümlerini görüntüleme
+Ölçüm Gezgini'nde toplanmış düğümü görüntüleyin ve kapsayıcılar için Azure İzleyici'den kullanım ölçümlerini pod. Ölçüm grafikleri kapsayıcı ölçümlerini görselleştirmek için nasıl kullanılacağını anlamanıza yardımcı olması için ayrıntıları aşağıdaki tabloda özetlenmiştir.
+
+|İsim uzayı | Ölçüm |
+|----------|--------|
+| insights.Container/Nodes | |
+| | cpuUsageMillicores |
+| | cpuUsagePercentage |
+| | memoryRssBytes |
+| | memoryRssPercentage |
+| | memoryWorkingSetBytes |
+| | memoryWorkingSetPercentage |
+| | nodesCount |
+| insights.Container/pods | |
+| | podCount |
+
+Uygulayabileceğiniz [bölme](../platform/metrics-charts.md#apply-splitting-to-a-chart) boyutuna göre görüntülemek ve farklı parçalarını görselleştirmek için bir ölçü birbirine karşılaştırın. Bir düğüm için grafiği kesimleyebilirsiniz *konak* boyut ve bir pod, bunu aşağıdaki boyutlara göre bölme:
+
+* Denetleyici
+* Kubernetes ad alanı
+* Düğüm
+* Aşama
+
+## <a name="analyze-nodes-controllers-and-container-health"></a>Düğümler, denetleyicilere ve kapsayıcı durumunun analiz edin
+
+İçin değiştirdiğinizde **düğümleri**, **denetleyicileri**, ve **kapsayıcıları** sekmesinde, otomatik olarak sağ tarafında sayfasının görüntülenmesini olan özellik bölmesi.  -Seçili öğeyi, özelliklerini, Kubernetes nesneleri düzenlemek için tanımlama etiketleri içeren gösterir. Tıklayarak **>>** bölmesinde bölmesinde view\hide için bağlantı.  
 
 ![Örnek Kubernetes Perspektifler Özellikler bölmesi](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
@@ -133,7 +160,7 @@ Varsayılan olarak, son altı saat üzerinde performans verilerini bağlıdır, 
 
 Çubuk grafiğin üzerine fare zaman **eğilim** sütun, her bir çubuğun gösterir, bağlı olarak ölçüm seçili 15 dakika içinde bir örnek süresi, CPU veya bellek kullanımı. Klavye ile eğilim Grafiği seçtikten sonra ayrı ayrı her bir çubuğun döngüsü ve fareyi üzerine getirme üzerinde olduğu gibi aynı ayrıntılarını almak için Alt + PageUp ya da Alt + PageDown tuşlarını kullanabilirsiniz.
 
-![Çubuk grafik üzerine gelindiğinde kullanılacak örneği eğilimi](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
+![Çubuk grafik üzerine gelindiğinde kullanılacak örnek eğilimi](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
 Sonraki örnekte, - listedeki ilk Not düğüm *aks-nodepool1 -*, değeri **kapsayıcıları** toplu dağıtılan kapsayıcıların toplam sayısı: % 9, olmasıdır.
 
@@ -176,10 +203,10 @@ Denetleyicileri görüntülediğinizde görüntülenen bilgileri aşağıdaki ta
 |--------|-------------|
 | Ad | Denetleyicinin adı.|
 | Durum | Durumu ile çalıştırılması tamamlandığında kapsayıcıları toplama durumunu *Tamam*, *kesildi*, *başarısız* *durduruldu*, veya *Duraklatıldı*. Kapsayıcıyı çalıştıran, ancak durumu ya da düzgün şekilde görüntülenmesini veya aracı tarafından toplanmış değil ve 30 dakikadan fazla yanıt vermedi: durumudur *bilinmeyen*. Ek ayrıntılar durumu simgesinin aşağıdaki tabloda verilmiştir.|
-| Ortalama&nbsp;%, Min&nbsp;en fazla %&nbsp;% 50&nbsp;% 90'ıncı&nbsp;% | Her varlık için yüzdebirlik ve seçili ölçümün ortalama yüzdesi toplama ortalaması. |
-| Ortalama, Min, maks., 50, 90  | Seçilen yüzdelik dilim için kapsayıcı ortalama CPU millicore veya bellek performansını dökümü. Ortalama değer, bir pod için CPU/bellek sınırını zamandan ölçülür. |
+| Ortalama&nbsp;%, Min&nbsp;en fazla %&nbsp;% 50&nbsp;% 90'ıncı&nbsp;% | Her varlık için yüzdebirlik ve seçili ölçümün ortalama yüzdesini ortalama yukarı yuvarlayın. |
+| Ortalama, Min, maks., 50, 90  | Ortalama CPU millicore veya bellek performans seçilen yüzdelik dilim kapsayıcısının bilgi toplamak. Ortalama değer, bir pod için CPU/bellek sınırını zamandan ölçülür. |
 | Kapsayıcılar | Denetleyici veya pod için kapsayıcı toplam sayısı. |
-| Yeniden başlatma | Yeniden başlatma sayısı kapsayıcılardan dökümü. |
+| Yeniden başlatma | Yeniden başlatma sayısını kapsayıcılardan döndürün. |
 | Çalışma Süresi | Kapsayıcı başladıktan sonra süresini temsil eder. |
 | Node | Yalnızca kapsayıcılar ve pod'ları için. Bu, bulunan hangi denetleyicisinin gösterir. | 
 | Eğilim ortalama&nbsp;%, Min&nbsp;en fazla %&nbsp;% 50&nbsp;% 90'ıncı&nbsp;%| Çubuk grafik eğilimini denetleyicinin ortalama yüzdebirlik ölçüm temsil eder. |

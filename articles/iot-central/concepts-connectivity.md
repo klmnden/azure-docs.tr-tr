@@ -3,17 +3,17 @@ title: Cihaz bağlantısı, Azure IOT Central | Microsoft Docs
 description: Bu makalede Azure IOT Central, cihaz bağlantısı ile ilgili temel kavramlar tanıtılmaktadır.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/28/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: e45960363290879af2e72211f5ef31b825461947
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522103"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425976"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IOT Central, cihaz bağlantısı
 
@@ -30,7 +30,7 @@ DPS kullanarak sağlar:
 - Kendi cihazını kimlikleri IOT Central cihazlarını kaydetmek için kullanılacak. Kendi cihaz kimlikleri kullanarak mevcut arka ofis sistemleriyle tümleştirmeyi basitleştirir.
 - Cihazları IOT Central bağlamak için tek, tutarlı şekilde.
 
-Bu nasıl yapılır makalesi aşağıdaki dört kullanım örneklerini açıklar:
+Bu makalede aşağıdaki dört kullanım örnekleri:
 
 1. [SAS kullanarak tek bir cihazı hızlı bir şekilde bağlanın](#connect-a-single-device)
 1. [Cihazları uygun ölçekte SAS kullanarak bağlanma](#connect-devices-at-scale-using-sas)
@@ -39,24 +39,7 @@ Bu nasıl yapılır makalesi aşağıdaki dört kullanım örneklerini açıklar
 
 ## <a name="connect-a-single-device"></a>Tek bir cihazı bağlayın
 
-Bu yaklaşım, IOT Central ile denemeler ya da cihazları test yararlıdır.
-
-SAS kullanarak IOT Central için tek bir cihaz bağlamak için şu adımları izleyin:
-
-1. Gerçek bir cihaz eklemek için gidin **Device Explorer**, cihaz şablonu seçip **+ yeni > gerçek**:
-    - Kendi girin (küçük) **cihaz kimliği** ya da önerilen bir kimlik kullanın
-    - Girin bir **cihaz adı** veya önerilen adı kullanın.
-
-      ![Cihaz Ekleme](media/concepts-connectivity/add-device.png)
-
-1. Cihaz bağlantı bilgilerini almak için seçin **Connect** cihaz sayfasında. Gereksinim duyduğunuz **kapsam kimliği**, **cihaz kimliği**, ve **birincil anahtar** değerleri:
-    - Her IOT Central uygulamasına benzersiz bir sahip [kapsam kimliği](../iot-dps/concepts-device.md#id-scope) DPS tarafından oluşturulur.
-    - [Cihaz kimliği](../iot-dps/concepts-device.md#device-id) benzersiz cihaz kimliği. Cihaz kimliği depolanan [kimlik kayıt defteri](../iot-hub/iot-hub-devguide-identity-registry.md).
-    - **Birincil anahtar** bir SAS belirteci ile IOT Central cihaz için oluşturulan.
-
-      ![Bağlantı ayrıntıları](media/concepts-connectivity/device-connect.png)
-
-Bağlantı bilgilerini bağlanmak ve verileri için IOT, IOT Central uygulamasına göndermek Cihazınızı etkinleştirmek için cihaz kodunuzda kullanın. Cihazlar bağlama hakkında daha fazla bilgi için bkz. [sonraki adımlar](#next-steps).
+Bu yaklaşım, IOT Central ile denemeler ya da cihazları test yararlıdır. Bir cihaz için bağlantı dizesi oluşturmak için IOT Central uygulamanızdan cihaz bağlantı bilgisini kullanın. Ayrıntılı adımlar için bkz. [bir Azure IOT Central uygulamasına bağlanmak için bir cihaz bağlantı dizesi oluşturmak nasıl](howto-generate-connection-string.md).
 
 ## <a name="connect-devices-at-scale-using-sas"></a>Cihazları uygun ölçekte SAS kullanarak bağlanma
 
@@ -169,35 +152,15 @@ Ne zaman gerçek bir cihaz sağlama durumu değişiklikleri, IOT Central uygulam
 
 1. Bir işleç bir cihaz engelleyebilirsiniz. Bir cihaz engellendiğinde, IOT Central uygulamanıza veri gönderemezsiniz. Engellenen cihazlar sağlama durumuna sahip **bloke**. Veri göndermeye devam etmeden önce operatörün cihaz sıfırlamanız gerekir. Bir cihaz sağlama durumunu döndürür önceki değerine, operatörün engellemesinin kaldırıldığı zaman **kayıtlı** veya **sağlanan**.
 
-## <a name="get-a-connection-string"></a>Bir bağlantı dizesi alma
-
-Aşağıdaki adımlar, bir bağlantı dizesi için bir cihazı nasıl alabileceğiniz açıklar:
-
-1. Seçin **Connect** üzerinde **Device Explorer** sayfasına bağlantı ayrıntılarını almak için: **Kapsam kimliği**, **cihaz kimliği**, ve **cihaz birincil anahtar**:
-
-    ![Bağlantı ayrıntıları](media/concepts-connectivity/device-connect.png)
-
-1. Kullanım `dps-keygen` bir bağlantı dizesi oluşturmak için komut satırı yardımcı programı:  Yüklenecek [tuşu Oluşturucu yardımcı programı](https://github.com/Azure/dps-keygen), aşağıdaki komutu çalıştırın:
-
-    ```cmd/sh
-    npm i -g dps-keygen
-    ```
-
-    Bir bağlantı dizesi oluşturmak için aşağıdaki komutu çalıştırın:
-
-    ```cmd/sh
-    dps-keygen -di:<device_id> -dk:<device_key> -si:<scope_id>
-    ```
-
 ## <a name="sdk-support"></a>SDK desteği
 
 Sizin için en kolay yolu Azure cihaz SDK'ları teklif cihazınızın kodunu uygulayın. Aşağıdaki cihaz SDK'ları kullanılabilir:
 
-- [C için Azure IOT SDK](https://github.com/azure/azure-iot-sdk-c)
-- [Python için Azure IOT SDK](https://github.com/azure/azure-iot-sdk-python)
-- [Azure IOT SDK'sı için Node.js](https://github.com/azure/azure-iot-sdk-node)
-- [Java için Azure IOT SDK](https://github.com/azure/azure-iot-sdk-java)
-- [.NET için Azure IOT SDK](https://github.com/azure/azure-iot-sdk-csharp)
+- [C için Azure IoT SDK'sı](https://github.com/azure/azure-iot-sdk-c)
+- [Python için Azure IoT SDK'sı](https://github.com/azure/azure-iot-sdk-python)
+- [Node.js için Azure IoT SDK'sı](https://github.com/azure/azure-iot-sdk-node)
+- [Java için Azure IoT SDK'sı](https://github.com/azure/azure-iot-sdk-java)
+- [.NET için Azure IoT SDK'sı](https://github.com/azure/azure-iot-sdk-csharp)
 
 Her cihaz, cihaz tanımlayan benzersiz bir bağlantı dizesi kullanarak bağlanır. Bir cihaz, yalnızca, kayıtlı olduğu IOT hub'ına bağlanabilir. Azure IOT Central uygulamanızda gerçek bir cihaz oluşturduğunuzda, bağlantı dizesini kullanarak oluşturmak ihtiyacınız olan bilgileri uygulamanın oluşturduğu `dps-keygen`.
 
@@ -218,7 +181,7 @@ Azure IOT Central cihaz özellikleri açın IOT hub'ı özelliklerinden nasıl e
 
 Cihaz SDK'ları kullanma hakkında daha fazla bilgi edinmek için aşağıdaki makalelerden birine örnek kod için bkz:
 
-- [Genel bir Node.js istemcisini Azure IoT Central uygulamanıza bağlama](howto-connect-nodejs.md)
+- [Genel bir Node.js istemcisi, Azure IOT Central uygulamanızı bağlayın](howto-connect-nodejs.md)
 - [Azure IOT Central uygulamanıza bir Raspberry Pi cihazı bağlayın](howto-connect-raspberry-pi-python.md)
 - [Azure IOT Central uygulamanıza Devdiv'e Seti cihaz bağlayamama](howto-connect-devkit.md).
 
@@ -243,6 +206,6 @@ Cihazlar ile Azure IOT Central arasında alınıp verilen tüm veriler şifrelen
 Azure IOT Central, cihaz bağlantısı hakkında öğrendiniz, önerilen sonraki adımlar şunlardır:
 
 - [Hazırlama ve DevKit cihazı bağlayın](howto-connect-devkit.md)
-- [Raspberry Pi'yi hazırlama ve bağlama](howto-connect-raspberry-pi-python.md)
-- [Genel bir Node.js istemcisini Azure IoT Central uygulamanıza bağlama](howto-connect-nodejs.md)
-- [C SDK'SI: Cihaz istemci SDK'sı sağlama](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
+- [Hazırlama ve Raspberry Pi'yi bağlanın](howto-connect-raspberry-pi-python.md)
+- [Genel bir Node.js istemcisi, Azure IOT Central uygulamanızı bağlayın](howto-connect-nodejs.md)
+- [C SDK: Cihaz istemci SDK'sı sağlama](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)

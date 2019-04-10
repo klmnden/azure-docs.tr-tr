@@ -1,7 +1,7 @@
 ---
 title: Python geliştirme ortamını ayarlama
 titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning hizmeti ile çalışırken, bir geliştirme ortamı yapılandırmayı öğrenin. Bu makalede, Conda ortamları kullanma, yapılandırma dosyalarını oluşturma ve kendi bulut tabanlı bir not defteri sunucusu, Jupyter not defterleri, Azure Databricks, Azure not defterleri, IDE, Kod Düzenleyicisi ve veri bilimi sanal makinesi yapılandırma hakkında bilgi edinin.
+description: Azure Machine Learning hizmeti ile çalışırken, bir geliştirme ortamı yapılandırmayı öğrenin. Bu makalede, Conda ortamları kullanma, yapılandırma dosyalarını oluşturma ve Jupyter not defterleri, Azure not defterleri, Azure Databricks, IDE, Kod Düzenleyicisi ve veri bilimi sanal makinesi yapılandırma hakkında bilgi edinin.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4aabf15478a6f8e688ea591832ca325f53144df8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.openlocfilehash: 4ca64071d068f95bf3de2dc9730629b5f475d92e
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263205"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426384"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
@@ -26,7 +26,7 @@ Yalnızca geliştirme ortamınız için Python 3 Anaconda (için yalıtılmış 
 
 Bu makalede aşağıdaki ortamları ve Araçlar üzerinde odaklanır:
 
-* Kendi [bulut tabanlı bir not defteri sunucusu](#workstation): Bir işlem kaynağı, Jupyter not defterlerini çalıştırmak için iş istasyonunda kullanın. Azure Machine Learning SDK'sı zaten yüklü olduğu için bunu kullanmaya başlamak için en kolay yoludur.
+* Azure not defterleri: Azure bulutunda barındırılan Jupyter Notebook hizmeti. Azure Machine Learning SDK'sı zaten yüklü olduğu için bunu kullanmaya başlamak için en kolay yoludur.
 
 * [Veri bilimi sanal makinesi (DSVM)](#dsvm): Veri bilimi iş için tasarlanmış olan ve yalnızca sanal makine örnekleri CPU veya GPU tabanlı örnekler için dağıtılabilir Azure bulutta önceden yapılandırılmış bir geliştirme veya deneme ortamı. Python 3, Conda, Jupyter not defterleri ve Azure Machine Learning SDK'sı zaten yüklü. Sanal makine, öğrenme ve makine öğrenimi çözümleri geliştirmek için çerçeveleri, Araçlar ve düzenleyicileri derin öğrenme popüler makine ile birlikte gelir. Machine learning Azure platformunda için en eksiksiz geliştirme ortamı olabilir.
 
@@ -44,7 +44,7 @@ Python 3 ortam zaten var veya yalnızca SDK'yı yüklemek için temel adımlar i
 
 - Bir Azure Machine Learning hizmeti çalışma alanı. Çalışma alanı oluşturmak için bkz: [bir Azure Machine Learning hizmeti çalışma alanı oluşturma](setup-create-workspace.md).
 
-Bir çalışma alanı kendi ile başlamak için ihtiyacınız olan [bulut tabanlı bir not defteri sunucusu](#workstation), [DSVM](#dsvm), [Azure Databricks](#aml-databricks), veya [Azure not defterleri](#aznotebooks).
+Bir çalışma alanı kullanmaya başlamak için ihtiyacınız olan, [Azure not defterleri](#aznotebooks), [DSVM](#dsvm), veya [Azure Databricks](#aml-databricks).
 
 SDK'sı ortamını yüklemek için [yerel bilgisayar](#local), [Jupyter Notebook sunucusu](#jupyter) veya [Visual Studio Code](#vscode) ayrıca gerekir:
 
@@ -57,15 +57,16 @@ SDK'sı ortamını yüklemek için [yerel bilgisayar](#local), [Jupyter Notebook
 
 - Windows üzerinde bir komut istemi veya Anaconda istemi (Anaconda ve Miniconda ile yüklenen) gerekir.
 
-## <a id="workstation"></a>Kendi bulut tabanlı bir not defteri sunucusu
+## <a id="aznotebooks"></a>Azure Not Defterleri
 
-Azure Machine Learning geliştirmeye başlamanın en kolay yolu için bir Azure Machine Learning çalışma alanınızdaki bir not defteri sunucusu oluşturun.
+[Azure not defterleri](https://notebooks.azure.com) (Önizleme) olan Azure bulutundaki bir etkileşimli bir geliştirme ortamı. Azure Machine Learning ile geliştirmeye başlamak için kolay bir yoludur.
 
 * Azure Machine Learning SDK'sı zaten yüklüdür.
-* İş istasyonu ortamı, çalışma alanı ile çalışmak için otomatik olarak yapılandırılır.
-* Kaynak kullanılabilir ve çalışma alanınızda yönetilebilir.
+* Azure portalında bir Azure Machine Learning hizmeti çalışma alanı oluşturduktan sonra otomatik olarak Azure not defteri ortamınızı çalışma alanı ile çalışacak şekilde yapılandırmak için bir düğmesine tıklayabilirsiniz.
 
-Bulut tabanlı bir not defteri sunucunuz ile geliştirmeye başlamak için bkz: [Azure Machine Learning hizmeti ile çalışmaya başlama](quickstart-run-cloud-notebook.md).
+Kullanım [Azure portalında](https://portal.azure.com) Azure not defterleri ile kullanmaya başlamak için.  Çalışma alanını açın ve **genel bakış** bölümünden **Get Started Azure not defterlerinde**.
+
+Varsayılan olarak, Azure not defterleri veri 1 GB ile 4 GB bellek ile sınırlı olan ücretsiz hizmet katmanı kullanır. Ancak, bu limitleri Azure not defterleri projeye bir veri bilimi sanal makinesi örneği ekleyerek kaldırabilirsiniz. Daha fazla bilgi için [yönetme ve Azure not defterleri projeleri - bilgi işlem katmanı yapılandırma](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).    
 
 
 ## <a id="dsvm"></a>Veri bilimi sanal makinesi
@@ -283,7 +284,7 @@ Oluşturma bir [Databricks kümesine](https://docs.microsoft.com/azure/azure-dat
 
 Bu ayarları kullanın:
 
-| Ayar |Uygulandığı öğe| Değer |
+| Ayar |Şunlara uygulanacaktır:| Değer |
 |----|---|---|
 | Küme adı |her zaman| yourclustername |
 | Databricks Çalışma Zamanı |her zaman| Tüm olmayan ML çalışma zamanı (olmayan ML 4.x, 5.x) |
@@ -359,7 +360,7 @@ Yapılandırma dosyası üç şekilde oluşturabilirsiniz:
 
 * **Dosyayı el ile oluşturmak**: Bu yöntemle, bir metin düzenleyicisi kullanın. Çalışma alanınızda ziyaret ederek yapılandırma dosyasına gidin değerleri bulabilirsiniz [Azure portalında](https://portal.azure.com). Çalışma alanı adı, kaynak grubu ve abonelik kimliği değerleri kopyalayın ve bunları yapılandırma dosyasında kullanın.
 
-     ![Azure portal](./media/how-to-configure-environment/configure.png)
+     ![Azure portalı](./media/how-to-configure-environment/configure.png)
 
 * **Program aracılığıyla dosya oluşturma**: Aşağıdaki kod parçacığında, abonelik kimliği, kaynak grubu ve çalışma alanı adı sağlayarak bir çalışma alanına bağlayın. Ardından çalışma alanı yapılandırması dosyasına kaydeder:
 
@@ -380,16 +381,6 @@ Yapılandırma dosyası üç şekilde oluşturabilirsiniz:
 
     Bu kod yapılandırma dosyasına yazar *aml_config/config.json* dosya.
 
-## <a id="aznotebooks"></a>Azure Not Defterleri
-
-[Azure not defterleri](https://notebooks.azure.com) (Önizleme) olan Azure bulutundaki bir etkileşimli bir geliştirme ortamı. Azure Machine Learning ile geliştirmeye başlamak için kolay bir yoludur.
-
-* Azure Machine Learning SDK'sı zaten yüklüdür.
-* Azure portalında bir Azure Machine Learning hizmeti çalışma alanı oluşturduktan sonra otomatik olarak Azure not defteri ortamınızı çalışma alanı ile çalışacak şekilde yapılandırmak için bir düğmesine tıklayabilirsiniz.
-
-Kullanım [Azure portalında](https://portal.azure.com) Azure not defterleri ile kullanmaya başlamak için.  Çalışma alanını açın ve **genel bakış** bölümünden **Get Started Azure not defterlerinde**.
-
-Varsayılan olarak, Azure not defterleri veri 1 GB ile 4 GB bellek ile sınırlı olan ücretsiz hizmet katmanı kullanır. Ancak, bu limitleri Azure not defterleri projeye bir veri bilimi sanal makinesi örneği ekleyerek kaldırabilirsiniz. Daha fazla bilgi için [yönetme ve Azure not defterleri projeleri - bilgi işlem katmanı yapılandırma](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

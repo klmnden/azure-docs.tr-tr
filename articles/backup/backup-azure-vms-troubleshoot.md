@@ -6,69 +6,196 @@ author: srinathv
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/08/2019
 ms.author: srinathv
-ms.openlocfilehash: b8d1152856935c239a59eb9133aaf48d26a5a8b6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e8b739c7b4dee67273e2f5c500c6d3b05190b3a5
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259958"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361511"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure sanal makine yedekleme sorunlarını giderme
 Aşağıdaki tabloda listelenen bilgilerle Azure Backup kullanarak sırasında karşılaşılan hataları giderebilirsiniz:
 
-| Hata Ayrıntıları | Geçici çözüm |
+## <a name="backup"></a>Yedekle
+
+### <a name="copyingvhdsfrombackupvaulttakinglongtime--copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime-kopyalama yedeklenen verileri kasadan zaman aşımına uğradı
+
+Hata kodu: CopyingVHDsFromBackUpVaultTakingLongTime <br/>
+Hata iletisi: Yedeklenen zaman aşımına uğradı kasasından verileri kopyalama
+
+Bu, geçici depolama hataları veya yetersiz depolama hesabı yedekleme hizmeti için zaman aşımı süresi içinde kasaya veri aktarmak için IOPS nedeniyle gerçekleşebilir. Bunları kullanarak VM yedeklemeyi yapılandırma [en iyi uygulamalar](backup-azure-vms-introduction.md#best-practices) ve yedekleme işlemini yeniden deneyin.
+
+### <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState - VM yedeklemeleri izin veren bir durumda değil.
+
+Hata kodu: UserErrorVmNotInDesirableState <br/>
+Hata iletisi: VM yedeklemeleri izin veren bir durumda değil.<br/>
+
+VM başarısız durumda yedekleme işlemi başarısız oldu. Başarılı yedekleme VM durumu çalışıyor, durduruldu veya durduruldu (serbest bırakıldı) olmalıdır.
+
+* VM arasında geçici bir durumda ise **çalıştıran** ve **kapatma**, bekleme durumu değiştirmek. Ardından, yedekleme işini tetikler.
+*  VM bir Linux VM ve Security-Enhanced Linux çekirdek modülü kullanır, Azure Linux Aracısı yolu dışla **/var/lib/waagent** emin olun ve güvenlik ilkesi yedekleme uzantısı yüklenir.
+
+### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>Bir veya daha fazla bağlama noktası, dosya sistemi ile tutarlı bir anlık görüntü almak üzere sanal dondurma UserErrorFsFreezeFailed - başarısız oldu
+
+Hata kodu: UserErrorFsFreezeFailed <br/>
+Hata iletisi: Bir veya daha fazla bağlama noktası sanal dosya sistemi ile tutarlı bir anlık görüntüsünü almak için dondurulamadı.
+
+* Dosya sistem durumunu kullanarak tüm bağlı cihazları denetleme **tune2fs** Örneğin, komut **tune2fs -l/dev/sdb1 \\** .\| grep **Dosyasistemidurumu**.
+* Kullanarak, dosya sistemi durumu temizlenmedi, cihazları çıkarın **umount** komutu.
+* Bu cihazlarda dosya sistemi tutarlılık denetimi çalıştırmak **fsck** komutu.
+* Cihazları yeniden bağlayın ve yedekleme işlemini yeniden deneyin.</ol>
+
+### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - uzantısı yükleme/işlemi başarısız oldu nedeniyle bir COM + hatası
+
+Hata kodu: ExtensionSnapshotFailedCOM <br/>
+Hata iletisi: COM + hatası nedeniyle anlık görüntü işlemi başarısız oldu
+
+Hata kodu: ExtensionInstallationFailedCOM  <br/>
+Hata iletisi: Uzantı yükleme/işlemi bir COM + hatası nedeniyle başarısız oldu
+
+Hata kodu: ExtensionInstallationFailedMDTC hata iletisi: "COM + Microsoft Distributed Transaction Düzenleyicisi ile konuşamadı uzantısı yükleme işlemi şu hatayla başarısız oldu
+
+Yedekleme işlemi başarısız oldu Windows hizmeti ile ilgili bir sorun nedeniyle **COM + Sistem** uygulama.  Bu sorunu çözmek için şu adımları izleyin:
+
+* Başlangıç/Windows hizmetini yeniden başlatmayı deneyin **COM + System Application** (yükseltilmiş bir komut isteminden **-net Başlat COMSysApp**).
+* Olun **Dağıtılmış İşlem Düzenleyicisi** Hizmetleri olarak çalıştığı **ağ hizmeti** hesabı. Aksi takdirde, çalışacak şekilde değiştirmeniz **ağ hizmeti** hesap ve yeniden **COM + System Application**.
+* Alınamazsa hizmetini yeniden başlatın, ardından yeniden **Dağıtılmış İşlem Düzenleyicisi** izleyerek service aşağıdaki adımları:
+    * MSDTC hizmetini durdurun
+    * Komut istemini (cmd) açın
+    * Komut Çalıştır "msdtc-kaldırma"
+    * Çalıştır komutu "msdtc-yükleyin"
+    * MSDTC hizmetini başlatın
+* Windows hizmeti başlatın **COM + System Application**. Sonra **COM + System Application** başladığında, Azure portalında yedekleme işini tetikler.</ol>
+
+### <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState - anlık görüntü işlemi VSS yazıcılarının hatalı durumda olduğundan başarısız oldu
+
+Hata kodu: ExtensionFailedVssWriterInBadState <br/>
+Hata iletisi: VSS yazıcılarının hatalı durumda olduğundan anlık görüntü işlemi başarısız oldu.
+
+Kötü durumdaki VSS yazıcıları yeniden başlatın. Yükseltilmiş bir komut isteminden çalıştırın ```vssadmin list writers```. Çıktı, tüm VSS yazıcılarının ve bunların durumunu içerir. Her VSS yazıcısının olmayan durumuna sahip **[1] kararlı**, VSS Yazıcı yeniden, yükseltilmiş bir komut isteminden aşağıdaki komutları çalıştırın:
+
+  * ```net stop serviceName```
+  * ```net start serviceName```
+
+### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - yedekleme uzantısı için yapılandırma ayrıştırma hatası
+
+Hata kodu: ExtensionConfigParsingFailure<br/>
+Hata iletisi: Yedekleme uzantısı için yapılandırma ayrıştırılırken hata oluştu.
+
+Bu hata, üzerinde değiştirilen izinler nedeniyle oluşur. **MachineKeys** dizin: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
+Aşağıdaki komutu çalıştırın ve doğrulayın, izinlerini **MachineKeys** directory varsayılan değerleri olan:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
+
+Varsayılan izinler şunlardır:
+* Herkesin: (R, G)
+* BUILTIN\Administrators: (F)
+
+İzinler görürseniz **MachineKeys** varsayılan farklı bir dizin izinlerini düzeltin, sertifikayı silin ve yedeklemeyi tetiklemek için aşağıdaki adımları izleyin:
+
+1. İzinleri düzelt **MachineKeys** dizin. Dizinde Explorer güvenlik özellikleri ve Gelişmiş güvenlik ayarları kullanarak, izinler varsayılan değerlere sıfırlayın. Tüm kullanıcı nesnelerini hariç Varsayılanları dizininden ve emin Kaldır **herkes** izni olan özel erişim gibi:
+
+    * Liste klasörü/veri okuma
+    * Okuma öznitelikleri
+    * Okuma genişletilmiş öznitelikleri
+    * Dosya Oluştur/Veri Yaz
+    * Klasör Oluştur/Veri Ekle
+    * Yazma öznitelikleri
+    * Genişletilmiş öznitelikleri yazma
+    * Okuma izinleri
+2. Tüm sertifikaları sil burada **çıkarılan** Klasik dağıtım modeli veya **Windows Azure CRP sertifika Oluşturucu**:
+    * [Sertifika yerel bilgisayar konsolu açın](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
+    * Altında **kişisel** > **sertifikaları**, tüm sertifikaları sil burada **çıkarılan** Klasik dağıtım modeli veya **Windows Azure CRP Sertifika Oluşturucu**.
+3. VM yedekleme işini tetikler.
+
+### <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState - uzantı durumu yedekleme işlemini desteklemiyor değil
+
+Hata kodu: ExtensionStuckInDeletionState <br/>
+Hata iletisi: Uzantı durumu yedekleme işlemini desteklemiyor değil
+
+Yedekleme işlemi yedekleme uzantısı tutarsız durumu nedeniyle başarısız oldu. Bu sorunu çözmek için şu adımları izleyin:
+
+* Konuk Aracı'nın yüklü olduğundan ve yanıt verdiğinden emin olun
+* Azure portalında **Sanal Makine** > **Tüm Ayarlar** > **Uzantılar**'a gidin
+* VmSnapshot veya VmSnapshotLinux yedekleme uzantısını seçin ve **Kaldır**'a tıklayın
+* Yedekleme uzantısını sildikten sonra yedekleme işlemini yeniden deneyin
+* Sonraki yedekleme işleminde yeni uzantı istenen durumda yüklenecektir
+
+### <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>Bazı bağlı disklerin ExtensionFailedSnapshotLimitReachedError - anlık görüntü işlemi başarısız oldu anlık görüntü sınırı aşıldı
+
+Hata kodu: ExtensionFailedSnapshotLimitReachedError  <br/>
+Hata iletisi: Bazı bağlı diskler için anlık görüntü işlemi başarısız oldu anlık görüntü sınırı aşıldı
+
+Anlık görüntü işlemi başarısız oldu anlık görüntü sınırı bazı bağlı disklerin eşiğini aştı. Tamamlamak aşağıdaki sorun giderme adımlarını ve işlemi yeniden deneyin.
+
+* Disk blobu gerekli olmayan anlık görüntülerini silin. Disk blobu silmek için dikkatli olun, sadece anlık görüntü BLOB'ları silinmesi gerekir.
+* Geçici silme VM disk üzerinde depolama hesapları etkinleştirilirse, geçici silmeyi bekletme süresi herhangi bir noktada izin verilen maksimum değerden mevcut anlık görüntüleridir gibi yapılandırın.
+* Azure Site Recovery yedeklenen VM'yi etkinse, sonra gerçekleştirin aşağıda:
+
+    * Değerini olun **isanysnapshotfailed** /etc/azure/vmbackup.conf false olarak ayarlayın
+    * Azure Site Recovery, yedekleme işlemi çakışmayacak şekilde farklı bir zamanda zamanlayın.
+
+### <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive - anlık görüntü işlemi, VM kaynaklarının yetersizliği nedeniyle başarısız oldu.
+
+Hata kodu: ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
+Hata iletisi: Anlık görüntü işlemi, VM kaynaklarının yetersizliği nedeniyle başarısız oldu.
+
+Anlık görüntü işlemi gerçekleştirilirken ağ çağrılarındaki gecikme nedeniyle sanal makine yedekleme işlemi başarısız. Bu sorunu çözmek için 1. adımı uygulayın. Sorun devam ederse 2. ve 3. adımları deneyin.
+
+**1. adım**: Konak üzerinden anlık görüntü oluşturma
+
+Yükseltilmiş (yönetici) komut isteminden aşağıdaki komutu çalıştırın:
+
+```
+REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
+REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTimeFromHost /t REG_SZ /d True /f
+```
+
+Bu, anlık görüntünün Konuk yerine konak üzerinden alınmasını sağlar. Yedekleme işlemini yeniden deneyin.
+
+**2. adım**: VM (daha az CPU/IOPS vb.) daha az yük altında olduğunda bir süre için yedekleme zamanlamasını değiştirmeyi deneyin
+
+**3. adım**: Deneyin [VM'nin boyutunu artırma](https://azure.microsoft.com/blog/resize-virtual-machines/) ve işlemi yeniden deneyin
+
+### <a name="common-vm-backup-errors"></a>Genel sanal makine yedekleme hataları
+
+| Hata ayrıntıları | Geçici Çözüm |
 | ------ | --- |
-| Sanal makine (VM) artık mevcut olmadığından yedekleme işlemi özel durumu alınamadı: <br>Yedekleme verilerini silmeden sanal makineyi korumayı durdurun. Daha fazla bilgi için [sanal makineleri korumayı durdurun](https://go.microsoft.com/fwlink/?LinkId=808124). |Birincil VM silindiği ancak yedekleme ilkesini yedeklemek için bir VM için yine de görünür. Bu hata oluşuyor. Bu hatayı düzeltmek için aşağıdaki adımları uygulayın: <ol><li> Sanal makine ile aynı ada ve aynı kaynak grubu adı, yeniden oluşturma **bulut hizmeti adı**,<br>**or**</li><li> İle veya olmadan, yedekleme verilerini silmeden sanal makine korumayı durdurun. Daha fazla bilgi için [sanal makineleri korumayı durdurun](https://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
-| Azure sanal makine Aracısı (VM Aracısı), Azure Backup hizmeti ile iletişim kuramıyor: <br>VM'nin ağ bağlantısı olduğundan ve en son VM Aracısı olduğundan emin olun ve çalıştırma. Daha fazla bilgi için [Azure yedekleme sorunlarını giderme hata: Aracı veya uzantı sorunları](https://go.microsoft.com/fwlink/?LinkId=800034). |VM Aracısı ile ilgili bir sorun varsa veya herhangi bir şekilde Azure altyapısı için ağ erişim engellendi, bu hata oluşur. Daha fazla bilgi edinin [VM hata ayıklama anlık görüntüsü sorunları](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup). <br><br>VM Aracısı sorunlarına neden olmaktan değil, VM'yi yeniden başlatın. Hatalı bir VM durumu sorunlarına neden olabilir ve VM'nin yeniden başlatılmasının durumunu sıfırlar. |
+| Hata kodu: 320001<br/> Hata iletisi: VM artık mevcut olmadığından işlem gerçekleştirilemiyor. <br/> <br/> Hata kodu: 400094 <br/> Hata iletisi: Sanal makine yok <br/> <br/>  Bir Azure sanal makinesi bulunamadı.  |Birincil VM silindiği ancak yedekleme ilkesini yedeklemek için bir VM için yine de görünür. Bu hata oluşuyor. Bu hatayı düzeltmek için aşağıdaki adımları uygulayın: <ol><li> Sanal makine ile aynı ada ve aynı kaynak grubu adı, yeniden oluşturma **bulut hizmeti adı**,<br>**veya**</li><li> İle veya olmadan, yedekleme verilerini silmeden sanal makine korumayı durdurun. Daha fazla bilgi için [sanal makineleri korumayı durdurun](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
 | VM başarısız sağlama durumunda olup: <br>VM'yi yeniden başlatın ve VM'nin çalıştığından emin olun veya kapatma. | Uzantı hataları birini VM başarısız sağlama durumu koyarsa bu hata oluşur. Başarısız bir uzantısı varsa, kaldırana uzantılar listesine denetleyin ve sanal makineyi yeniden başlatarak gidin. Tüm uzantıları çalışır durumda olduğundan, VM aracısı hizmetinin çalışıp çalışmadığını denetleyin. Aksi durumda, VM Aracısı hizmetini yeniden başlatın. |
-| Yedekleme, depolama hesabında yeterli boş alan nedeniyle sanal makinenin anlık görüntüsünü kopyalayın alınamadı: <br>Depolama hesabı'nın sanal makineye eklenen premium depolama disklerini mevcut verilere eşit boş alan olduğundan emin olun. | VM yedekleme yığını V1 üzerinde Premium VM'ler için şu anlık görüntü depolama hesabına kopyalayın. Bu adım, bir anlık görüntü üzerinde çalışır, yedekleme yönetim trafiği, premium diskler kullanarak bir uygulama için kullanılabilir IOPS sayısını kısıtlamaz emin olur. <br><br>Yalnızca yüzde 50, toplam depolama hesabı alanının 17,5 TB ayırmanız önerilir. Daha sonra kasa için depolama hesabındaki kopyalanan bu konumdan Azure Backup hizmeti anlık görüntü depolama hesabı ve aktarım veri kopyalayabilirsiniz. |
-| VM aracısı yanıt değil. yedekleme işlemi gerçekleştirilemiyor. |VM Aracısı ile ilgili bir sorun varsa veya herhangi bir şekilde Azure altyapısı için ağ erişim engellendi, bu hata oluşur. Windows Vm'leri için VM aracısı hizmet durumunu services'ı ve aracıyı Denetim Masası'ndaki Programlar görüntülenip denetleyin. <br><br>Deneyin program Denetim Masası'ndan kaldırıp aracı açıklandığı [VM Aracısı](#vm-agent). Aracıyı yeniden yükledikten sonra doğrulamak için geçici bir yedeklemeyi tetikleyin. |
-| Kurtarma Hizmetleri Uzantısı işlemi başarısız oldu: <br>En son VM Aracısı sanal makinede mevcut olduğundan ve VM aracısı hizmetinin çalıştığından emin olun. Yedekleme işlemini yeniden deneyin. Yedekleme işlemi başarısız olursa, Microsoft Support başvurun. |VM aracısının güncel olduğunda bu hata oluşur. VM aracısını güncelleştirmek için sorun giderme Azure sanal makine yedekleme bakın. |
-| Sanal makine yok: <br>Sanal makinenin var olduğundan emin olun veya farklı bir sanal makine seçin. |Birincil VM silindiği ancak yedekleme ilkesini yedeklemek için bir VM için yine de görünür. Bu hata oluşur. Bu hatayı düzeltmek için aşağıdaki adımları uygulayın: <ol><li> Sanal makine ile aynı ada ve aynı kaynak grubu adı, yeniden oluşturma **bulut hizmeti adı**,<br>**or**<br></li><li>Yedekleme verilerini silmeden sanal makineyi korumayı durdurun. Daha fazla bilgi için [sanal makineleri korumayı durdurun](https://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
-| Komut başarısız oldu: <br>Başka bir işlem, bu öğe üzerinde şu anda sürüyor. Önceki işlem tamamlanana kadar bekleyin. Ardından, işlemi yeniden deneyin. |Var olan bir yedekleme işi çalıştığından ve geçerli iş tamamlanana kadar yeni bir iş yeniden başlatılamıyor. |
-| Kurtarma Hizmetleri kasası, zaman aşımına uğradı kopyalama Vhd'lerden: <br>Birkaç dakika sonra işlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun. | Depolama tarafında geçici bir hata varsa veya yedekleme hizmeti yeterli depolama hesabı zaman aşımı süresi içinde Kasası'na veri aktarmak için IOPS almazsa, bu hata oluşur. Takip ettiğinizden emin olun [en iyi uygulamalar, Vm'lerinizin yapılandırırken](backup-azure-vms-introduction.md#best-practices). Yüklü değilse farklı bir depolama hesabı için sanal makinenizin taşıyın ve yedekleme işini yeniden deneyin.|
-| Yedekleme bir iç hatayla başarısız oldu: <br>Birkaç dakika sonra işlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun. |İki nedenden dolayı bu hatayı alırsınız: <ul><li> VM depolama erişmede geçici bir sorun yoktur. Denetleme [Azure durumu site](https://azure.microsoft.com/status/) işlem, depolama veya ağ sorunları bölgesinde olup olmadığını görmek için. Sorun çözümlendikten sonra yedekleme işini yeniden deneyin. <li> Özgün VM silinmiştir ve kurtarma noktası alınamaz. Silinen bir VM için yedekleme verileri tutmak, ancak yedekleme hataları kaldırmak için VM korumasını kaldırın ve verileri korumak için bu seçeneği belirleyin. Bu eylem, zamanlanmış bir yedekleme işi ve yinelenen hata iletileri durdurur. |
-| Yedeklemek için Azure kurtarma Hizmetleri Uzantısı seçili öğeye yüklenemedi: <br>VM Aracısı, Azure kurtarma Hizmetleri uzantısı için bir önkoşuldur. Azure sanal makine Aracısı yükleme ve kayıt işlemi yeniden başlatın. |<ol> <li>VM Aracısı düzgün yüklü olup olmadığını denetleyin. <li>VM yapılandırması bayrağı doğru ayarlandığından emin olun.</ol> VM aracısı ve VM Aracısı yüklemesini doğrulamak nasıl yükleme hakkında daha fazla bilgi edinin. |
-| Uzantı yüklemesi başarısız oldu, hata **COM + Microsoft Dağıtılmış İşlem Düzenleyicisi ile iletişim kuramıyor**. |Bu hata genellikle COM + hizmet çalışmadığından emin anlamına gelir. Bu sorunu çözme konusunda yardım için Microsoft Support başvurun. |
+|Hata kodu: UserErrorBCMPremiumStorageQuotaError<br/> Hata iletisi: Depolama hesabında yeterli boş alan sanal makinenin anlık görüntüsü kopyalanamadı. | VM yedekleme yığını V1 üzerinde Premium VM'ler için şu anlık görüntü depolama hesabına kopyalayın. Bu adım, bir anlık görüntü üzerinde çalışır, yedekleme yönetim trafiği, premium diskler kullanarak bir uygulama için kullanılabilir IOPS sayısını kısıtlamaz emin olur. <br><br>Yalnızca yüzde 50, toplam depolama hesabı alanının 17,5 TB ayırmanız önerilir. Daha sonra kasa için depolama hesabındaki kopyalanan bu konumdan Azure Backup hizmeti anlık görüntü depolama hesabı ve aktarım veri kopyalayabilirsiniz. |
+| Sanal makine çalışmadığından Microsoft Kurtarma Hizmetleri Uzantısı yüklenemedi <br>VM Aracısı, Azure kurtarma Hizmetleri uzantısı için bir önkoşuldur. Azure sanal makine Aracısı yükleme ve kayıt işlemi yeniden başlatın. |<ol> <li>VM Aracısı düzgün yüklü olup olmadığını denetleyin. <li>VM yapılandırması bayrağı doğru ayarlandığından emin olun.</ol> VM aracısı ve VM Aracısı yüklemesini doğrulamak nasıl yükleme hakkında daha fazla bilgi edinin. |
 | Anlık görüntü işlemi başarısız oldu, Birim Gölge Kopyası Hizmeti (VSS) işlemi hata **Bu sürücü BitLocker Sürücü Şifrelemesi tarafından kilitlendi. Denetim Masası'ndan bu sürücünün kilidini açmanız gerekir.** |Sanal makinedeki tüm sürücüleri için BitLocker'ı açın ve VSS sorunun çözülüp çözülmediğine bakın. |
-| VM yedeklemeleri izin veren bir durumda değil. |<ul><li>VM arasında geçici bir durumda ise **çalıştıran** ve **kapatma**, bekleme durumu değiştirmek. Ardından, yedekleme işini tetikler. <li> VM bir Linux VM ve Security-Enhanced Linux çekirdek modülü kullanır, Azure Linux Aracısı yolu dışla **/var/lib/waagent** güvenlik ilkesi ve emin olun, Azure yedekleme uzantısı yüklenir.  |
-| Bir Azure sanal makinesi bulunamadı. |Birincil VM silindiği ancak yedekleme ilkesi için silinen sanal Makinenin yine de görünür. Bu hata oluşur. Aşağıdaki şekilde bu hatayı düzeltmek: <ol><li>Sanal makine ile aynı ada ve aynı kaynak grubu adı, yeniden oluşturma **bulut hizmeti adı**, <br>**or** <li> Yedekleme işleri oluşturulmaz bu nedenle bu VM için korumayı devre dışı bırakın. </ol> |
+| VM yedeklemeleri izin veren bir durumda değil. |<ul><li>VM arasında geçici bir durumda ise **çalıştıran** ve **kapatma**, bekleme durumu değiştirmek. Ardından, yedekleme işini tetikler. <li> VM bir Linux VM ve Security-Enhanced Linux çekirdek modülü kullanır, Azure Linux Aracısı yolu dışla **/var/lib/waagent** emin olun ve güvenlik ilkesi yedekleme uzantısı yüklenir.  |
 | VM Aracısı sanal makinede mevcut değil: <br>Tüm önkoşul ve VM aracısını yükleyin. Ardından, işlemi yeniden başlatın. |Daha fazla bilgi edinin [VM aracısını yükleme ve VM Aracısı yüklemesini doğrulamak nasıl](#vm-agent). |
-| VSS yazıcılarının hatalı durumda olduğundan anlık görüntü işlemi başarısız oldu. |Kötü durumdaki VSS yazıcıları yeniden başlatın. Yükseltilmiş bir komut isteminden çalıştırın ```vssadmin list writers```. Çıktı, tüm VSS yazıcılarının ve bunların durumunu içerir. Her VSS yazıcısının olmayan durumuna sahip **[1] kararlı**, VSS Yazıcı yeniden, yükseltilmiş bir komut isteminden aşağıdaki komutları çalıştırın: <ol><li>```net stop serviceName``` <li> ```net start serviceName```</ol>|
-| Anlık görüntü işlemi, bir yapılandırma ayrıştırma hatası nedeniyle başarısız oldu. |Bu hata, üzerinde değiştirilen izinler nedeniyle oluşur. **MachineKeys** dizin: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**. <br> Aşağıdaki komutu çalıştırın ve doğrulayın, izinleri **MachineKeys** directory varsayılan değerleri şunlardır:<br>**ICACLS %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**. <br><br>Varsayılan izinler şunlardır: <ul><li>Herkesin: (R, G) <li>BUILTIN\Administrators: (F)</ul> İzinler görürseniz **MachineKeys** varsayılan farklı bir dizin izinlerini düzeltin, sertifikayı silin ve yedeklemeyi tetiklemek için aşağıdaki adımları izleyin: <ol><li>İzinleri düzelt **MachineKeys** dizin. Dizinde Explorer güvenlik özellikleri ve Gelişmiş güvenlik ayarları kullanarak, izinler varsayılan değerlere sıfırlayın. Tüm kullanıcı nesnelerini hariç Varsayılanları dizininden ve emin Kaldır **herkes** izni olan özel erişim gibi: <ul><li>Liste klasörü/veri okuma <li>Okuma öznitelikleri <li>Okuma genişletilmiş öznitelikleri <li>Dosya Oluştur/Veri Yaz <li>Klasör Oluştur/Veri Ekle<li>Yazma öznitelikleri<li>Genişletilmiş öznitelikleri yazma<li>Okuma izinleri </ul><li>Tüm sertifikaları sil burada **çıkarılan** Klasik dağıtım modeli veya **Windows Azure CRP sertifika Oluşturucu**:<ol><li>[Sertifika yerel bilgisayar konsolu açın](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).<li>Altında **kişisel** > **sertifikaları**, tüm sertifikaları sil burada **çıkarılan** Klasik dağıtım modeli veya **Windows Azure CRP Sertifika Oluşturucu**.</ol> <li>VM yedekleme işini tetikler. </ol>|
-| Azure Backup hizmeti için yeterli izinlerin Azure anahtar kasası için yedekleme şifrelenmiş sanal makinelerin sahip değil. |Yedekleme hizmeti adımları kullanarak bu izinleri PowerShell'de sağlamak [geri yüklenen diskten VM oluşturma](backup-azure-vms-automation.md). |
-|Anlık görüntü uzantısını yükleme işlemi başarısız oldu, hata **COM + Microsoft Dağıtılmış İşlem Düzenleyicisi ile iletişim kuramıyor**. | Windows hizmeti yükseltilmiş bir komut isteminden başlatmak **COM + System Application**. Bir örnek **net Başlat COMSysApp**. Başlatmak hizmet başarısız olursa, ardından aşağıdaki adımları uygulayın:<ol><li> Hizmetin oturum açma hesabı olduğundan emin olun **Dağıtılmış İşlem Düzenleyicisi** olduğu **ağ hizmeti**. Yüklü değilse, oturum açma hesabına geçemeyeceğinizi **ağ hizmeti** ve hizmeti yeniden başlatın. Başlatmayı denerseniz **COM + System Application**.<li>Varsa **COM + System Application** olmaz başlatın, kaldırma ve hizmeti yüklemek için aşağıdaki adımları **Dağıtılmış İşlem Düzenleyicisi**: <ol><li>MSDTC hizmetini durdurun. <li>Bir komut istemi açın **cmd**. <li>Komutunu çalıştırın ```msdtc -uninstall```. <li>Komutunu çalıştırın ```msdtc -install```. <li>MSDTC hizmetini başlatın. </ol> <li>Windows hizmeti başlatın **COM + System Application**. Sonra **COM + System Application** başladığında, Azure portalında yedekleme işini tetikler.</ol> |
-|  Anlık görüntü işlemi, bir COM + hatası nedeniyle başarısız oldu. | Windows hizmetini yeniden başlatmanızı öneririz **COM + System Application** yükseltilmiş bir komut isteminden **net Başlat COMSysApp**. Sorun devam ederse, VM'yi yeniden başlatın. VM'nin yeniden başlatılmasının yaramazsa deneyin [VMSnapshot uzantısını kaldırma](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout) ve el ile yedekleme tetikleyin. |
 | Yedekleme, bir veya daha fazla bağlama noktaları sanal dosya sistemi tutarlı bir anlık görüntüsünü almak için dondurulamadı. | Aşağıdaki adımları izleyin: <ul><li>Kullanarak tüm bağlı cihazları dosya sistem durumunu kontrol **'tune2fs'** komutu. Bir örnek **tune2fs -l/dev/sdb1 \\** .\| grep **dosya sistemi durumu**. <li>Kendisi için dosya sistemi durumu olmayan temiz kullanarak cihazları çıkarın **'umount'** komutu. <li> Bu cihazlarda dosya sistemi tutarlılık denetimi çalıştırmak **'fsck'** komutu. <li> Cihazları yeniden bağlayın ve yedeklemeyi deneyin.</ol> |
 | Anlık görüntü işlemi, bir güvenli ağ iletişim kanalı oluşturma hatası nedeniyle başarısız oldu. | <ol><li> Kayıt Defteri Düzenleyicisi'ni çalıştırarak açmak **regedit.exe** yükseltilmiş modda. <li> Sisteminizde mevcut .NET Framework'ün tüm sürümler tanımlayın. Kayıt defteri anahtarının hiyerarşisi altında mevcut oldukları **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Kayıt defteri anahtarı mevcut her .NET Framework için aşağıdaki anahtarını ekleyin: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | Visual Studio 2012 için Visual C++ yeniden dağıtılabilir yükleme hatası nedeniyle anlık görüntü işlemi başarısız. | İçin C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion gidin ve vcredist2012_x64 yükleyin. Bu hizmeti yüklemesi sağlayan kayıt defteri anahtar değeri doğru değerine ayarlanmış olduğundan emin olun. Diğer bir deyişle, kayıt defteri anahtarı değerini **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MSIServer** ayarlanır **3** değil **4**. <br><br>Yükleme sorunlarını hala varsa, yükleme hizmeti çalıştırarak yeniden **MSIEXEC/unregister** ardından **MSIEXEC /REGISTER** yükseltilmiş bir komut isteminden.  |
 
 
-## <a name="jobs"></a>İşler
+## <a name="jobs"></a>İşler (Job)
 
-| Hata Ayrıntıları | Geçici çözüm |
+| Hata ayrıntıları | Geçici Çözüm |
 | --- | --- |
-| İptal, bu proje türü için desteklenmez: <br>İş tamamlanana kadar bekleyin. |None |
-| İş, iptal edilebilir bir durumda değil: <br>İş tamamlanana kadar bekleyin. <br>**or**<br> Seçili iş, iptal edilebilir bir durumda değil: <br>İşin tamamlanmasını bekleyin. |Neredeyse tamamlanmış iş olduğundan emin olma olasılığı yüksektir. İş tamamlanana kadar bekleyin.|
+| İptal, bu proje türü için desteklenmez: <br>İş tamamlanana kadar bekleyin. |Hiçbiri |
+| İş, iptal edilebilir bir durumda değil: <br>İş tamamlanana kadar bekleyin. <br>**veya**<br> Seçili iş, iptal edilebilir bir durumda değil: <br>İşin tamamlanmasını bekleyin. |Neredeyse tamamlanmış iş olduğundan emin olma olasılığı yüksektir. İş tamamlanana kadar bekleyin.|
 | Yedekleme, devam eden olmadığından iş iptal edilemiyor: <br>İptal, yalnızca devam eden işler için desteklenir. Devam eden işi iptal etmeyi deneyin. |Bu hata geçici bir durum nedeniyle oluşur. Bir dakika bekleyin ve İptal işlemi yeniden deneyin. |
-| Yedekleme işi iptal edilemedi: <br>İş tamamlanana kadar bekleyin. |None |
+| Yedekleme işi iptal edilemedi: <br>İş tamamlanana kadar bekleyin. |Hiçbiri |
 
-## <a name="restore"></a>Geri Yükleme
+## <a name="restore"></a>Geri Yükle
 
-| Hata Ayrıntıları | Geçici çözüm |
+| Hata ayrıntıları | Geçici Çözüm |
 | --- | --- |
 | Geri yükleme, bir bulut iç hatayla başarısız oldu. |<ol><li>Geri yükleme çalıştığınız bulut hizmeti DNS ayarlarıyla yapılandırılır. Kontrol edebilirsiniz: <br>**$deployment = get-AzureDeployment - ServiceName "ServiceName"-yuvası "Üretim" Get-AzureDns - DnsSettings $deployment. DnsSettings**.<br>Varsa **adresi** DNS ayarlarını yapılandırıldıysa, yapılandırılır.<br> <li>Yapılacak çalıştığınız geri yüklemek bulut hizmeti ile yapılandırılmış **ReservedIP**, ve bulut hizmetindeki var olan VM'ler durdurulmuş durumda. Bir bulut hizmeti aşağıdaki PowerShell cmdlet'lerini kullanarak bir IP ayırdığı denetleyebilirsiniz: **$deployment = Get-AzureDeployment - ServiceName "servicename"-"Üretim" $yuvası DEP Reservedıpname**. <br><li>Bir sanal makineyle aynı bulut hizmetine aşağıdaki özel ağ yapılandırmalarını geri yüklemek çalışıyorsunuz: <ul><li>Sanal makineleri yük dengeleyici yapılandırmasını, iç ve dış altında.<li>Birden çok ayrılmış IP ile sanal makineler. <li>Birden çok NIC içeren sanal makineler. </ul><li>Kullanıcı Arabirimi veya bkz: yeni bir bulut hizmeti seçin [konuları geri](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) özel ağ yapılandırmaları olan VM'ler için.</ol> |
 | Seçilen DNS adı zaten alınmış: <br>Farklı bir DNS adı belirtip yeniden deneyin. |Bu DNS adı genellikle ile biten bulut hizmeti adı başvurduğu **. cloudapp.net**. Bu adın benzersiz olması gerekir. Bu hatayı alırsanız, geri yükleme sırasında farklı bir VM adı seçmeniz gerekir. <br><br> Bu hata, yalnızca Azure portalı kullanıcılarına gösterilir. Yalnızca diskleri geri yükler ve VM'yi oluşturmak değildir çünkü PowerShell aracılığıyla geri yükleme işlemi başarılı olur. Diski geri yükleme işleminden VM açıkça sizin tarafınızdan oluşturulduğunda hata karşılaştığı. |
-| Belirtilen sanal ağ yapılandırması doğru değil: <br>Farklı sanal ağ yapılandırması belirtin ve yeniden deneyin. |None |
-| Belirtilen bulut hizmeti, geri yüklenen sanal makine yapılandırmasını eşleşmeyen bir ayrılmış IP kullanıyor: <br>Ayrılmış IP kullanmıyor farklı bir bulut hizmeti belirtin. Veya geri yükleme için başka bir kurtarma noktası seçin. |None |
-| Bulut hizmetine giriş uç noktaları sayısı sınırına ulaştı: <br>İşlemi farklı bir bulut hizmeti belirterek veya var olan bir uç nokta kullanarak yeniden deneyin. |None |
-| Kurtarma Hizmetleri kasası ve hedef depolama hesabı, iki farklı bölgede şunlardır: <br>Geri yükleme işleminde belirtilen depolama hesabının, Kurtarma Hizmetleri kasasıyla aynı Azure bölgesinde olduğundan emin olun. |None |
-| Geri yükleme işlemi için belirtilen depolama hesabı desteklenmiyor: <br>Yerel olarak yedekli veya coğrafi olarak yedekli çoğaltma ayarlarıyla yalnızca temel veya standart depolama hesapları desteklenmektedir. Desteklenen bir depolama hesabı seçin. |None |
+| Belirtilen sanal ağ yapılandırması doğru değil: <br>Farklı sanal ağ yapılandırması belirtin ve yeniden deneyin. |Hiçbiri |
+| Belirtilen bulut hizmeti, geri yüklenen sanal makine yapılandırmasını eşleşmeyen bir ayrılmış IP kullanıyor: <br>Ayrılmış IP kullanmıyor farklı bir bulut hizmeti belirtin. Veya geri yükleme için başka bir kurtarma noktası seçin. |Hiçbiri |
+| Bulut hizmetine giriş uç noktaları sayısı sınırına ulaştı: <br>İşlemi farklı bir bulut hizmeti belirterek veya var olan bir uç nokta kullanarak yeniden deneyin. |Hiçbiri |
+| Kurtarma Hizmetleri kasası ve hedef depolama hesabı, iki farklı bölgede şunlardır: <br>Geri yükleme işleminde belirtilen depolama hesabının, Kurtarma Hizmetleri kasasıyla aynı Azure bölgesinde olduğundan emin olun. |Hiçbiri |
+| Geri yükleme işlemi için belirtilen depolama hesabı desteklenmiyor: <br>Yerel olarak yedekli veya coğrafi olarak yedekli çoğaltma ayarlarıyla yalnızca temel veya standart depolama hesapları desteklenmektedir. Desteklenen bir depolama hesabı seçin. |Hiçbiri |
 | Çevrimiçi geri yükleme işlemi için belirtilen depolama hesabı türü değil: <br>Geri yükleme işleminde belirtilen depolama hesabı çevrimiçi olduğundan emin olun. |Bu hata, Azure Depolama'daki geçici bir hata nedeniyle veya kesinti nedeniyle gerçekleşebilir. Başka bir depolama hesabı seçin. |
-| Kaynak grubu kotasına ulaşıldı: <br>Bazı kaynak gruplarını, Azure portalından silin veya limitleri artırmak için Azure desteğine başvurun. |None |
-| Seçilen alt ağ yok: <br>Var olan bir alt ağ seçin. |None |
+| Kaynak grubu kotasına ulaşıldı: <br>Bazı kaynak gruplarını, Azure portalından silin veya limitleri artırmak için Azure desteğine başvurun. |Hiçbiri |
+| Seçilen alt ağ yok: <br>Var olan bir alt ağ seçin. |Hiçbiri |
 | Backup hizmeti, aboneliğinizdeki kaynaklara erişmek için yetkiniz yok. |Bu hatayı gidermek için ilk diskleri adımları kullanarak geri [yedeklenen diskleri geri](backup-azure-arm-restore-vms.md#restore-disks). PowerShell adımları kullanın [geri yüklenen diskten VM oluşturma](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## <a name="backup-or-restore-takes-time"></a>Yedekleme veya geri yükleme sürüyor
@@ -124,30 +251,8 @@ VM yedekleme, temel alınan depolama alanı için anlık görüntü komutları v
 - **Dörtten fazla Vm'leri paylaşımı aynı bulut hizmeti arasında birden çok yedekleme İlkesi, VM'ler yayılan**. Yedekleme zamanları, bu nedenle hiçbir dörtten fazla VM yedeklemeleri aynı anda başlatmak kademelendirebilirsiniz. İlkeleri başlangıç zamanlarını en az bir saat olarak ayırmak deneyin.
 - **Yüksek CPU veya bellek VM çalışan**. Yüksek bellek veya CPU kullanımı yüzde 90'dan daha fazla sanal makine çalışıyorsa, anlık görüntü görevi sıraya alındı ve Gecikmeli. Sonunda, zaman aşımına uğrar. Bu sorun ortaya çıkar, isteğe bağlı yedekleme deneyin.
 
-## <a name="troubleshoot-backup-of-encrypted-vms"></a>Şifrelenmiş Vm'leri yedekleme sorunlarını giderme
-
-### <a name="azure-backup-doesnt-have-permissions-for-key-vault-access"></a>Azure yedekleme, anahtar kasası erişim izinleri yok
-- **Hata kodu**: UserErrorKeyVaultPermissionsNotConfigured
-- **Hata iletisi**: Azure Backup hizmeti yedekleme, şifrelenmiş sanal makineleri için yeterli izinlere için Key Vault yok.
-- **Çözüm**: Anahtar Kasası'nda Azure Backup izinleri atamanız [portalı](backup-azure-vms-encryption.md#provide-permissions), veya [PowerShell](backup-azure-vms-automation.md#enable-protection)
-
-### <a name="the-vm-cant-be-restored-because-the-associated-key-vault-doesnt-exist"></a>İlişkili anahtar kasası olmadığından VM geri yüklenemiyor
-- **Çözüm**: Emin olun [bir Key Vault oluşturdunuz](../key-vault/quick-create-portal.md#create-a-vault).
-- **Çözüm**: İzleyin [bu yönergeleri](backup-azure-restore-key-secret.md) bir anahtar ve gizli anahtar Kasası'nda mevcut olmaması durumunda geri yüklemek için.
-
-### <a name="the-vm-cant-be-restored-because-the-associated-key-doesnt-exist"></a>VM ilişkili anahtar mevcut olmadığından geri yüklenemiyor
-- **Hata kodu**: UserErrorKeyVaultKeyDoesNotExist
-- **Hata iletisi**: Bu VM ile ilişkili anahtar mevcut olmadığından bu şifreli VM'yi geri yükleyemezsiniz.
-- **Çözüm**: İzleyin [bu yönergeleri](backup-azure-restore-key-secret.md) bir anahtar ve gizli anahtar Kasası'nda mevcut olmaması durumunda geri yüklemek için.
-
-### <a name="the-vm-cant-be-restored-because-azure-backup-doesnt-have-authorization"></a>Azure Backup yetkilendirme olmadığı için sanal Makineyi geri yüklenemiyor
-- **Hata kodu**: ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed
-- **Hata iletisi**: Yedekleme Hizmeti'nin aboneliğinizdeki kaynaklara erişme yetkisi yok.
-- **Çözüm**: Disklerin, önerildiği gibi geri yükleyin. [Daha fazla bilgi edinin](backup-azure-vms-encryption.md#restore-an-encrypted-vm). 
-
-
-## <a name="networking"></a>Ağ
-Tüm uzantıları gibi Azure Backup uzantısının çalışması için genel internet erişimi olmalıdır. Genel İnternet'e erişim olmaması kendisini çeşitli şekillerde bildirilebilir:
+## <a name="networking"></a>Ağ İletişimi
+Tüm uzantıları gibi yedekleme uzantıları çalışması için genel internet erişimi gerekir. Genel İnternet'e erişim olmaması kendisini çeşitli şekillerde bildirilebilir:
 
 * Uzantı yüklemesi başarısız olabilir.
 * Disk anlık görüntü gibi yedekleme işlemleri başarısız olabilir.

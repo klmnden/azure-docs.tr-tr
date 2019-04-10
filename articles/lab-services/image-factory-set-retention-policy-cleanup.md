@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 5c1465f31c8b5eb15b6fe63ed61a946e3b32d550
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 8190c2043d7d3daae91c93fd3b66126d0941710b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440087"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361855"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Azure DevTest Labs'de bir özel görüntü fabrikası oluşturma
 Bu makale, bir bekletme ilkesi ayarlamak, Fabrika temizleme ve kuruluşunuzdaki tüm diğer DevTest Labs'den eski görüntüleri devre dışı bırakma kapsar. 
@@ -25,9 +25,9 @@ Bu makale, bir bekletme ilkesi ayarlamak, Fabrika temizleme ve kuruluşunuzdaki 
 ## <a name="prerequisites"></a>Önkoşullar
 Devam etmeden önce bu makaleler izlediğinizden emin olun:
 
-- [Bir görüntü fabrikası oluşturma](image-factory-create.md)
-- [Azure DevOps bir görüntü fabrikası çalıştırma](image-factory-set-up-devops-lab.md)
-- [Özel görüntüleri kaydetmek ve dağıtmak için birden çok Laboratuvarları](image-factory-save-distribute-custom-images.md)
+- [Görüntü fabrikası oluşturma](image-factory-create.md)
+- [Azure DevOps’tan bir görüntü fabrikası çalıştırma](image-factory-set-up-devops-lab.md)
+- [Özel görüntüleri birden çok laboratuvara kaydetme ve dağıtma](image-factory-save-distribute-custom-images.md)
 
 Aşağıdaki öğeler zaten koşulların karşılanması:
 
@@ -73,7 +73,7 @@ Yeni bir görüntü factory'nize ekleyerek de basit bir işlemdir. Fabrikanızı
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-1. [Derleme/yayın zamanlama](/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) görüntü Fabrika düzenli aralıklarla çalışacak. Bu, üretici tarafından oluşturulan görüntüleri düzenli aralıklarla yeniler.
+1. [Derleme/yayın zamanlama](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) görüntü Fabrika düzenli aralıklarla çalışacak. Bu, üretici tarafından oluşturulan görüntüleri düzenli aralıklarla yeniler.
 2. Daha fazla altın görüntü fabrikanızın olun. Ayrıca düşünebilirsiniz [yapıtları oluşturma](devtest-lab-artifact-author.md) ek VM Kurulumu görevlerinizi parçalarını betik ve Fabrika görüntülerinizi yapıtları içerir.
-4. Oluşturma bir [ayrı derleme/yayın](/devops/pipelines/overview.md?view=azure-devops-2019) çalıştırılacak **DistributeImages** ayrı olarak komut dosyası. Labs.json için değişiklik ve tüm görüntüleri yeniden yeniden oluşturmak zorunda kalmadan hedef Laboratuvarları için kopyalanan görüntü alma, bu komut dosyasını çalıştırabilirsiniz.
+4. Oluşturma bir [ayrı derleme/yayın](/azure/devops/pipelines/overview.md?view=azure-devops-2019) çalıştırılacak **DistributeImages** ayrı olarak komut dosyası. Labs.json için değişiklik ve tüm görüntüleri yeniden yeniden oluşturmak zorunda kalmadan hedef Laboratuvarları için kopyalanan görüntü alma, bu komut dosyasını çalıştırabilirsiniz.
 

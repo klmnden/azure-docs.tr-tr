@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Kapsayıcılar, mikro hizmetler ve Azure üzerinde Java hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Java, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 26f82427ff06608de39381b4ecc45d318212a8a0
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: c1c039ba8696baff11abed3930998983647f4356
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419022"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425755"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Hızlı Başlangıç: Azure geliştirme alanları kullanarak Kubernetes üzerinde Java ile geliştirme
 
@@ -31,7 +31,7 @@ Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 
 - Azure aboneliği. Hesabınız yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free) oluşturabilirsiniz.
 - [Visual Studio Code'u](https://code.visualstudio.com/download).
--  [Azure geliştirme alanları](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) ve [Azure geliştirme alanları için Java hata ayıklayıcı](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) Visual Studio Code için Uzantılar.
+- [Azure geliştirme alanları](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) ve [Azure geliştirme alanları için Java hata ayıklayıcı](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) Visual Studio Code için Uzantılar.
 - [Yüklü Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 - [Yüklenmiş ve yapılandırılmış maven](https://maven.apache.org).
 
@@ -212,4 +212,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 Azure geliştirme alanları, birden çok kapsayıcıya daha karmaşık uygulamalar geliştirmenize nasıl yardımcı olur ve farklı sürümleri ya da farklı alanları kodunuzun dalları birlikte çalışarak işbirliğine dayalı geliştirme nasıl basitleştirebileceğinizi öğrenin.
 
 > [!div class="nextstepaction"]
-> [Birden çok kapsayıcı ve takım geliştirme ile çalışma](multi-service-java.md)
+> [Kapsayıcıları ve takım geliştirme ile çalışma](multi-service-java.md)

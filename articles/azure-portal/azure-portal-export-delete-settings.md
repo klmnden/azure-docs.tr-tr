@@ -1,48 +1,59 @@
 ---
 title: Azure portal ayarlarını silin veya dışarı | Microsoft Docs
-description: Dışarı aktarma veya kullanıcı ayarlarınızı, özel panolar ve Azure portalında özelleştirmeleri Sil nasıl öğrenin.
+description: Dışarı aktarma veya silebilir, kullanıcı ayarları, özel panolar ve özel ayarları Azure portalında nasıl öğrenin.
 services: azure-portal
 keywords: ''
 author: santhoshsomayajula
-ms.date: 05/18/2018
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
-manager: dougeby
+manager: mtillman
 ms.author: kfollis
-ms.openlocfilehash: 815c2e9d7ec8aef9fe823f8d89304b45c099e812
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: fde7ffbaa3ef4d47eea48302a99948932aeb4f00
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882081"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361961"
 ---
-# <a name="export-or-delete-settings-in-the-azure-portal"></a>Dışarı aktarma veya Azure Portalı'ndaki ayarları Sil
-Dışarı aktarma ve Azure portalı Ayarlar menüsünden aşağıdaki ayarları sil:
-* Azure portalı özel panolar
-* Kullanıcı ayarları sık kullanılan abonelikleri veya dizinleri gibi ve son dizininde günlüğe kaydedilir
-* Temalar ve özelleştirme
+# <a name="export-or-delete-user-settings"></a>Kullanıcı ayarlarını dışarı aktarma veya silme
 
-Dışarı aktarma ve silmeden önce ayarlarınızı gözden geçirin. öneririz. Zaman panoları oluşturmak ve özelleştirmelerinizi rolleriniz için alıcı olabilir.
+Özel bir deneyim oluşturmak için Azure portalında ayarları ve özellikleri kullanabilirsiniz. Özel ayarlarınızla ilgili bilgiler, Azure'da depolanır. Dışarı aktarma veya aşağıdaki kullanıcı verilerini silin:
+
+* Azure portalında özel panolar
+* Sık kullanılan abonelikleri veya dizinleri ve son oturum açtığınız dizin gibi kullanıcı ayarları
+* Temalar ve diğer özel portal ayarları
+
+Silmeden önce ayarlarınızı gözden geçirin ve dışarı aktarmak iyi bir fikirdir. Pano yeniden veya özel ayarlar yineleme zaman alıcı olabilir.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-**Dışarı aktarma veya portal ayarlarınızı Sil**
+## <a name="export-or-delete-your-portal-settings"></a>Dışarı aktarma veya portal ayarlarınızı Sil
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Üstteki portalın sağ seçin **ayarları**.
+2. Portalın üst bilgisindeki seçin **ayarları**.
 
     ![Portal ayarlar dişli simgesini gösteren ekran görüntüsü](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)
+
 3. Seçin **tüm ayarları dışarı aktar** veya **tüm ayarları ve özel panoları Sil**.
 
-    ![Portal ayarlarını dışarı aktarma ve silme gösteren ekran görüntüsü](media/azure-portal-export-delete-settings/azure-portal-export-delete-settings.png)
+    ![Portal gösteren ekran görüntüsü dışarı aktarma ve ayarları Sil](media/azure-portal-export-delete-settings/azure-portal-export-delete-settings.png)
 
-      Aşağıdaki tabloda, bu ayarlar açıklanmaktadır. 
+      Aşağıdaki tabloda, bu eylemleri açıklar.
 
-      | Ayar | Açıklama |
+      | Eylem | Açıklama |
       | --- | --- |
-      | **Tüm ayarları Dışarı Aktar** | Pano temanızı gibi kullanıcı ayarlarınızı içeren bir .json dosyası oluşturur.|
-      | **Tüm ayarları ve özel panoları Sil** | Özel panolar ve diğer kullanıcı özelleştirmelerini portal panosuna yaptığınız tüm bağlantıları siler. |
+      | **Tüm ayarları dışarı aktar** | Renk teması, Sık Kullanılanlar ve özel panolar gibi kullanıcı ayarlarınızı içeren bir .json dosyası oluşturur.|
+      | **Tüm ayarları ve özel panoları sil** | Portala yaptığınız diğer özel ayarları ve özel panoları tüm bağlantıları siler. |
+
+> [!NOTE]
+> Kullanıcı ayarları dinamik doğasını ve verilerin bozulma riskini nedeniyle .json dosyasından ayarlar içeri aktarılamıyor.
+>
+>
 
 
+## <a name="next-steps"></a>Sonraki adımlar
 
+* [Azure panoları oluşturma ve paylaşma](azure-portal-dashboard-share-access.md)
+* [Ekleme, kaldırma ve sık kullanılanları sıralama](azure-portal-add-remove-sort-favorites.md)

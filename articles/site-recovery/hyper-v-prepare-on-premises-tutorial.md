@@ -5,29 +5,37 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 127e970927e8ac1d0cd9b431c0c0175bdc4f5c0b
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e57b629a0007b06af6e37f96e1466e35afafccc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315784"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361895"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Şirket içi Hyper-V sunucularını azure'a olağanüstü durum kurtarmaya hazırlama
 
-Bu öğreticide, Hyper-V Vm'lerini Azure'a olağanüstü durum kurtarma amacıyla çoğaltma istediğinizde, şirket içi Hyper-V altyapınızı hazırlama gösterilmektedir. Hyper-V konakları System Center Virtual Machine Manager (VMM) tarafından yönetilebilir, ancak gerekli değildir.  Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+Bu makalede, şirket içi Hyper-V altyapınızı azure'a, Hyper-Vm'leri olağanüstü durumdan kurtarma kurmak istediğinizde hazırlama kullanarak [Azure Site Recovery](site-recovery-overview.md).
+
+
+Bu, şirket içi Hyper-V Vm'leri için Azure'da olağanüstü durum kurtarma ayarlama gösteren serideki ikinci öğreticidir. İlk öğreticide, biz [Azure bileşenlerini ayarlarsınız](tutorial-prepare-azure.md) Hyper-V olağanüstü durum kurtarma için gerekli.
+
+Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Hyper-V gereksinimleri ve varsa VMM gereksinimleri gözden geçirin.
-> * VMM varsa hazırla
-> * Azure konumları internet erişimini doğrulayın
-> * Azure'a yük devredildikten sonra erişebilmeleri Vm'leri hazırlama
+> * Hyper-V konaklarınız System Center VMM tarafından yönetiliyorsa, Hyper-V gereksinimleri ve VMM gereksinimleri gözden geçirin.
+> * VMM, varsa hazırlayın.
+> * Azure konumları internet erişimini doğrulayın.
+> * Sanal makineleri, azure'a yük devredildikten sonra erişebilmeleri hazırlayın.
 
-Bu, serideki ikinci öğreticidir. Önceki öğreticide açıklandığı gibi [Azure bileşenlerini ayarladığınızdan](tutorial-prepare-azure.md) emin olun.
+> [!NOTE]
+> Öğreticiler bir senaryo için en basit dağıtım yolu gösterir. Mümkün olduğunca varsayılan seçenekleri kullanır ve tüm olası ayarları ve yolları göstermez. Ayrıntılı yönergeler için Site Recovery İçindekiler bölümünde nasıl yapılır makalesine gözden geçirin.
 
+## <a name="before-you-start"></a>Başlamadan önce
 
+Emin hazırladığınız Azure açıklandığı [bu serideki ilk öğreticide](tutorial-prepare-azure.md).
 
 ## <a name="review-requirements-and-prerequisites"></a>Gözden geçirme gereksinimleri ve Önkoşullar
 

@@ -16,12 +16,12 @@ ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: 2005cf4b1929dfe9e520f56308493db7d820226e
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: 93221b8cd30993c4bdfdc84b5d14ac432fa661d3
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361103"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471299"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 güncelleştirme
 
@@ -198,6 +198,14 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 <!-- 1663805 - IS ASDK --> 
 - Azure Stack portalı kullanarak aboneliğinize izinleri görüntüleyemezsiniz. Geçici çözüm olarak, [izinleri doğrulamak için PowerShell](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
 
+<!-- Daniel 3/28 -->
+- Bir depolama hesabındaki bir bloba gidin ve açmaya çalıştığınızda, Kullanıcı Portalı'nda **erişim ilkesi** Gezinti ağacından sonraki pencereyi yüklenemiyordur. Bu sorunu geçici olarak çözmek için aşağıdaki PowerShell cmdlet'lerini oluşturma, alma, ayarlama ve erişim ilkeleri, sırasıyla silme etkinleştir:
+
+  - [New-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
+  - [Get-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
+  - [Set-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/set-azurestoragecontainerstoredaccesspolicy)
+  - [Remove-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/remove-azurestoragecontainerstoredaccesspolicy)
+
 <!-- ### Health and monitoring -->
 
 ### <a name="compute"></a>İşlem
@@ -221,7 +229,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 - Bir Ubuntu 18.04 etkinleştirilmiş SSH yetkilendirme ile oluşturulan VM, oturum açmak için SSH anahtarları kullanmak izin vermez. Geçici bir çözüm olarak VM erişimi Linux uzantısı için SSH anahtarları sağladıktan sonra uygulamak için kullanmak veya parola tabanlı kimlik doğrulaması kullanın.
 
-### <a name="networking"></a>Ağ İletişimi  
+### <a name="networking"></a>Ağ  
 
 <!-- 3239127 - IS, ASDK -->
 - Azure Stack portalında bir VM örneğine iliştirilmiş bir ağ bağdaştırıcısına bağlı bir IP yapılandırması için statik bir IP adresi değiştirdiğinizde bildiren bir uyarı iletisi görürsünüz 
@@ -233,7 +241,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 <!-- 3632798 - IS, ASDK -->
 - Portalda, bir gelen güvenlik kuralı ekleyin ve seçerseniz, **hizmet etiketi** çeşitli seçenekler görüntülenir, kaynak olarak **kaynak etiketi** Azure Stack için kullanılabilir değil bir listesi. Azure Stack'te geçerli yalnızca seçenekleri aşağıdaki gibidir:
 
-  - **İnternet**
+  - **Internet**
   - **VirtualNetwork**
   - **AzureLoadBalancer**
   
@@ -246,7 +254,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 <!-- ### SQL and MySQL-->
 
-### <a name="app-service"></a>Uygulama Hizmeti
+### <a name="app-service"></a>App Service
 
 <!-- 2352906 - IS ASDK --> 
 - İlk Azure işlevinizi aboneliği oluşturmadan önce depolama kaynak sağlayıcısını kaydetmeniz gerekir.

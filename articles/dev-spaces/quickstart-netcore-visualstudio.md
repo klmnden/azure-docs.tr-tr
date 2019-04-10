@@ -13,12 +13,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcıl
 manager: jeconnoc
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 0ae2b264e689270743bc8e4aa5024a4b99eb6626
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 9afca253bd188556ad6a3f6e081fb2eccc4c81cb
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418848"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361263"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Hızlı Başlangıç: Azure geliştirme alanları (Visual Studio 2017) ile Kubernetes üzerinde .NET Core ile geliştirin
 
@@ -56,12 +56,12 @@ Azure portalında AKS kümenizin gelin ve tıklayın *geliştirme alanları*. De
 ## <a name="create-a-new-aspnet-web-app"></a>Yeni bir ASP.NET web uygulaması oluşturma
 
 1. Visual Studio 2017'yi açın.
-1. Yeni bir proje oluşturma.
+1. Yeni bir proje oluşturun.
 1. Seçin *ASP.NET Core Web uygulaması* ve projenizi adlandırın *webfrontend*.
-1. *Tamam* düğmesine tıklayın.
+1. *Tamam*'ı tıklatın.
 1. İstendiğinde, *Web uygulaması (Model-View-Controller)* şablonu için.
 1. Seçin *.NET Core* ve *ASP.NET Core 2.0* en üstünde.
-1. *Tamam* düğmesine tıklayın.
+1. *Tamam*'ı tıklatın.
 
 ## <a name="connect-your-project-to-your-dev-space"></a>Geliştirme alanınıza projenizi bağlama
 
@@ -73,7 +73,7 @@ Azure geliştirme alanları iletişim kutusunda seçin, *abonelik* ve *Azure Kub
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
-Bu işlem, hizmetinize dağıtır *varsayılan* genel olarak erişilebilir bir URL ile geliştirme alanı. Azure Dev Spaces ile çalışacak şekilde yapılandırılmamış bir küme seçerseniz, yapılandırmak isteyip istemediğinizi soran bir ileti görürsünüz. *Tamam* düğmesine tıklayın.
+Bu işlem, hizmetinize dağıtır *varsayılan* genel olarak erişilebilir bir URL ile geliştirme alanı. Azure Dev Spaces ile çalışacak şekilde yapılandırılmamış bir küme seçerseniz, yapılandırmak isteyip istemediğinizi soran bir ileti görürsünüz. *Tamam*'ı tıklatın.
 
 ![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
@@ -130,4 +130,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Birden çok kapsayıcı ve takım geliştirme ile çalışma](multi-service-netcore-visualstudio.md)
+> [Kapsayıcıları ve takım geliştirme ile çalışma](multi-service-netcore-visualstudio.md)
