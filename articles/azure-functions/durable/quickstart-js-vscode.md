@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 94906a75d323e3fb6c96f939e4fdcea60877508c
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: eade9f4e2a956a6542b69e93b0102169ddd32ccf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056308"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281242"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>JavaScript'te dayanıklı ilk işlevinizi oluşturma
 
@@ -127,11 +127,11 @@ Azure İşlevleri Temel Araçları, Azure İşlevleri projenizi yerel geliştirm
 
 5. Bir aracı gibi kullanarak [Postman](https://www.getpostman.com/) veya [cURL](https://curl.haxx.se/), URL uç noktasına bir HTTP POST isteği gönderin.
 
-    Yanıt, dayanıklı düzenleme bize bildirdiğiniz HTTP işlevi ilk sonuç başarıyla başlatıldı.  Bunu henüz düzenleme nihai sonucu değil.  Yanıt birkaç faydalı URL'leri içeriyor.  Şimdilik, şimdi orchestration durumunu sorgulayın.
+   Yanıt, dayanıklı düzenleme bize bildirdiğiniz HTTP işlevi ilk sonuç başarıyla başlatıldı. Bunu henüz düzenleme nihai sonucu değil. Yanıt birkaç faydalı URL'leri içeriyor. Şimdilik, şimdi orchestration durumunu sorgulayın.
 
-6. URL değerini kopyalayın `statusQueryGetUri`, tarayıcının adres çubuğuna yapıştırın ve isteği yürütün.
+6. URL değerini kopyalayın `statusQueryGetUri` tarayıcının adres çubuğuna yapıştırın ve isteği yürütün. Alternatif olarak da GET isteği için Postman'ı kullanmaya devam edebilirsiniz.
 
-    İstek orchestration örneği durumu için sorgular. Aşağıdaki gibi görünür nihai bir yanıt almanız gerekir.  Bu bize örneği tamamlandı ve çıktılar veya dayanıklı işlevinin sonuçlarını içeren gösterir.
+   İstek orchestration örneği durumu için sorgular. Bize gösteren örnek tamamlandı ve çıktılar veya dayanıklı işlevinin sonuçlarını içeren son bir yanıt almanız gerekir. Bunu şu şekilde görünür: 
 
     ```json
     {

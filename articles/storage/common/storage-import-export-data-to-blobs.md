@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c7e78f89883e5cfc3fc8b9088c3ac0b3166682c7
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878188"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283282"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Blob depolama alanına veri aktarmak için Azure içeri/dışarı aktarma hizmeti kullanma
 
@@ -31,7 +31,7 @@ Azure Blob depolama alanına veri aktarmak için içeri aktarma işine oluşturm
 - Çalıştıran bir Windows sistemine sahip bir [desteklenen işletim sistemi sürümü](storage-import-export-requirements.md#supported-operating-systems). 
 - BitLocker Windows sisteminde etkinleştirin. Bkz: [BitLocker'ı etkinleştirme](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 - [' % S'WAImportExport sürüm 1 indirme](https://aka.ms/waiev1) Windows sistem üzerinde. Varsayılan klasöre çıkartın `waimportexportv1`. Örneğin, `C:\WaImportExportV1`.
-- Bir FedEx/DHL hesabınız vardır.  
+- Bir FedEx/DHL hesabınız vardır. FedEx/DHL dışındaki bir taşıyıcı kullanmak istiyorsanız, Azure veri kutusu işlemleri ekibi ile iletişime geçin `adbops@microsoft.com`.  
     - Hesabın geçerli olmalıdır, Bakiye olmalıdır ve iade sevkiyat özelliklerine sahip olmalı.
     - İzleme numarası için dışarı aktarma işi oluşturur.
     - Her iş ayrı izleme numarası olmalıdır. Birden çok iş aynı izleme numarası ile desteklenmez.
@@ -113,7 +113,7 @@ Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları 
 
 4. İçinde **iade sevkiyat bilgilerini**:
 
-   - Taşıyıcı açılır listeden seçin.
+   - Taşıyıcı açılır listeden seçin. Bir taşıyıcı FedEx/DHL dışında kullanmak istiyorsanız, açılır listeden var olan bir seçenek seçin. İlgili Azure veri kutusu işlemleri takım konumundaki `adbops@microsoft.com` ile kullanmayı planladığınız taşıyıcı ilgili bilgileri.
    - Bu operatör ile oluşturduğunuz bir geçerli taşıyıcı hesap numarası girin. Microsoft, içeri aktarma işi tamamlandıktan sonra geri için sürücüleri göndermeye bu hesabı kullanır. Bir hesabı yoksa, oluşturun bir [FedEx](https://www.fedex.com/us/oadr/) veya [DHL](http://www.dhl.com/) taşıyıcı hesap.
    - Bir tam ve geçerli ilgili kişi adı, telefon, e-posta, posta adresi, şehir, posta, eyalet/il ve ülke/bölge belirtin. 
         

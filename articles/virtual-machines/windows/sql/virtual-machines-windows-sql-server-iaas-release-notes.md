@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: c46e2d4e2aa79d1d62d0361763911660349cfbb0
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 23e072369aa8ac6ca6ada5ec185df1a8d7e03c5b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762335"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282551"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server Azure sanal makine sürüm notları
 
@@ -30,8 +30,9 @@ Azure SQL Server'ın yerleşik görüntü ile bir sanal makine dağıtmanıza ol
 
 | Hizmet geliştirmeleri | Ayrıntılar |
 | --- | --- |
-| **Özel görüntü desteklenebilirliği** | Şimdi yükleyebilirsiniz [SQL Iaas uzantısı](virtual-machines-windows-sql-server-agent-extension.md#installation) özel işletim sistemi ve SQL görüntüleri için sunan sınırlı işlevselliğini [esnek lisanslama](virtual-machines-windows-sql-ahb.md). SQL kaynak sağlayıcısı ile özel görüntünüzü kayıt olarak belirttiğinizde lisans türü 'AHUB' Aksi durumda kayıt başarısız olur. Azure portalında SQL yapılandırma dikey penceresi aracılığıyla yönetilebilirlik için özel görüntüler desteklenmiyor.   | 
+| **Özel görüntü desteklenebilirliği** | Şimdi yükleyebilirsiniz [SQL Iaas uzantısı](virtual-machines-windows-sql-server-agent-extension.md#installation) özel işletim sistemi ve SQL görüntüleri için sunan sınırlı işlevselliğini [esnek lisanslama](virtual-machines-windows-sql-ahb.md). SQL kaynak sağlayıcısı ile özel görüntünüzü kayıt olarak belirttiğinizde lisans türü 'AHUB' Aksi durumda kayıt başarısız olur.  | 
 | **Adlandırılmış örnek desteklenebilirliği** | Artık kullanabilir [SQL Iaas uzantısı](virtual-machines-windows-sql-server-agent-extension.md#installation) varsayılan örnek düzgün kaldırılmışsa adlandırılmış bir örnek ile. | 
+| **Portal geliştirme** | Kullanılabilirliği iyileştirmek için SQL Server VM'SİNİN dağıtımı için Azure portalı deneyiminde yenilenmiştir. Daha fazla bilgi için bkz: kısa [Hızlı Başlangıç](quickstart-sql-vm-create-portal.md) ve daha kapsamlı [nasıl yapılır](virtual-machines-windows-portal-sql-server-provision.md) kılavuzda bir SQL Server VM'SİNİN dağıtımı için. |
 | &nbsp; | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Belgeleri geliştirmeleri
@@ -77,7 +78,7 @@ None
 * [Bir SQL Server Windows VM sağlama](virtual-machines-windows-portal-sql-server-provision.md)
 * [Bir veritabanını Azure VM'deki SQL Server'a geçirme](virtual-machines-windows-migrate-sql.md)
 * [Yüksek kullanılabilirlik ve olağanüstü durum kurtarma için Azure sanal makineler'de SQL Server](virtual-machines-windows-sql-high-availability-dr.md)
-* [Azure Sanal Makineler’de SQL Server için performansa yönelik en iyi uygulamalar](virtual-machines-windows-sql-performance.md)
+* [Azure Sanal Makinelerde SQL Server için performansa yönelik en iyi yöntemler](virtual-machines-windows-sql-performance.md)
 * [Azure Sanal Makineler'de SQL Server için Uygulama Desenleri ve Geliştirme Stratejileri](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 **Linux Vm'leri**:
@@ -85,4 +86,4 @@ None
 * [Bir Linux sanal makinesinde SQL Server'a genel bakış](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
 * [Bir SQL Server Linux sanal makinesi sağlama](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 * [SSS (Linux)](../../linux/sql/sql-server-linux-faq.md)
-* [Linux üzerinde SQL Server belgeleri](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [SQL Server Linux belgeleri](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)

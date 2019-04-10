@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: geetha
-ms.openlocfilehash: 99117c96f79dd7d0da388a0e793908f6ffb8ed27
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 893a22fb9f325625707869c8f6571d572b8f6b33
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266453"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358238"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Yedekleme ve şifrelenmiş Azure VM geri yükleme
 
@@ -31,7 +31,7 @@ Azure Backup, şifrelenmiş işletim sistemi/veri disklerini ile Azure Disk şif
 Azure Backup, yedekleme ve aşağıdaki tabloda özetlendiği gibi ADE ve Azure AD uygulaması olmadan kullanarak Azure Vm'leri geri yükleyebilirsiniz.
 
 **VM disk türü** | **ADE (BEK/dm-crypt)** | **ADE ve KEK**
---- | --- | --- 
+--- | --- | ---
 **Yönetilmeyen** | Evet | Evet
 **Yönetilen**  | Evet | Evet
 
@@ -95,14 +95,14 @@ Ayrıca, birkaç bazı durumlarda yapmanız gerekebilecek şey vardır:
 8. Azure Key Vault, kasa sayfada kullanıyorsanız, Azure Backup'ın anahtarlar ve gizli anahtarları Key vault'ta salt okunur erişmesi gereken bir ileti görürsünüz.
 
     - Bu iletiyi alırsanız, hiçbir eylem gerekmiyor.
-    
+
         ![Erişim Tamam](./media/backup-azure-vms-encryption/access-ok.png)
-        
+
     - Bu iletiyi alırsanız açıklandığı izinleri ayarlamak gereken [aşağıdaki yordamı](#provide-permissions).
-    
+
         ![Erişim Uyarısı](./media/backup-azure-vms-encryption/access-warning.png)
 
-9. Tıklayın **yedeklemeyi etkinleştir** kasadaki yedekleme ilkesini dağıtma ve seçili sanal makineler için yedeklemeyi etkinleştirin. 
+9. Tıklayın **yedeklemeyi etkinleştir** kasadaki yedekleme ilkesini dağıtma ve seçili sanal makineler için yedeklemeyi etkinleştirin.
 
 
 ## <a name="trigger-a-backup-job"></a>Bir yedekleme işi tetikleme
@@ -129,18 +129,18 @@ Azure VM ilişkili sanal makinelerin yanı sıra gizli dizileri ve anahtarları 
 1. Azure portalında **tüm hizmetleri**, araması **anahtar kasalarını**.
 2. Yedekleme yapıyorsanız şifrelenmiş VM ile ilişkili anahtar Kasası'nı seçin.
 3. Seçin **erişim ilkeleri** > **yeni Ekle**.
-4. Seçin **Select sorumlusu**, Anahtar'a tıklayın ve **yedekleme Yönetim**. 
+4. Seçin **Select sorumlusu**, Anahtar'a tıklayın ve **yedekleme Yönetim**.
 5. Seçin **Backup yönetim hizmeti** > **seçin**.
 
     ![Yedekleme hizmeti seçimi](./media/backup-azure-vms-encryption/select-backup-service.png)
 
 6. İçinde **Erişim İlkesi Ekle** > **yapılandırma (isteğe bağlı) şablonundan**seçin **Azure Backup**.
     - Gerekli izinler için doldurulmuş **anahtar izinleri** ve **gizli dizi izinleri**.
-    - Sanal makinenizin kullanılarak şifrelendiyse **yalnızca BEK**, seçimini kaldırın **anahtar izinleri** gizli dizileri için izinleri yalnızca gerekli olduğundan. 
+    - Sanal makinenizin kullanılarak şifrelendiyse **yalnızca BEK**, seçimini kaldırın **anahtar izinleri** gizli dizileri için izinleri yalnızca gerekli olduğundan.
 
     ![Azure yedekleme seçimi](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-6. **Tamam** düğmesine tıklayın. **Backup Yönetimi Hizmeti** eklenir **erişim ilkeleri**. 
+6. **Tamam** düğmesine tıklayın. **Backup Yönetimi Hizmeti** eklenir **erişim ilkeleri**.
 
     ![Erişim ilkeleri](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
@@ -159,6 +159,5 @@ Azure VM ilişkili sanal makinelerin yanı sıra gizli dizileri ve anahtarları 
 
 Herhangi bir sorunla karşılaşırsanız, gözden geçirin
 
-- [Sık karşılaşılan](backup-azure-vms-troubleshoot.md#troubleshoot-backup-of-encrypted-vms) , yedekleme ve geri yükleme şifrelenmiş Azure Vm'leri.
-- [Genel](backup-azure-vms-troubleshoot.md) Azure VM verir.
+- [Sık karşılaşılan](backup-azure-vms-troubleshoot.md) , yedekleme ve geri yükleme şifrelenmiş Azure Vm'leri.
 - [Azure VM Aracısı/yedekleme uzantısı](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) sorunları.

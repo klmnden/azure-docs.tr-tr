@@ -12,39 +12,48 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 04/08/2019
 ms.author: kfollis
 ms.custom: accessibility
-ms.openlocfilehash: d9c9c18fb2c20f1b0740a490316826e488049faf
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: fb0b347228fe82725d5246ae9eacdab8dff01257
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881180"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359702"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure portalında klavye kısayolları
-Bu makalede, Azure portalı içinde çalışan klavye kısayolları gösterilmektedir. Bireysel hizmetlerin kendi klavye kısayolları olabilir.
+
+Bu makalede, Azure portalında her yerde çalışan klavye kısayolları listelenmektedir. Bireysel hizmetlerin kendi klavye kısayolları olabilir.
 
 ## <a name="actions"></a>Eylemler
-|Bunu yapmak için |Tuşuna basın |
+
+|Bu işlemi yapma |Tuşuna basın |
 | --- | --- |
-|Yeni kaynak oluşturma|G+N|
-|'Tüm hizmetler' bölmesini Aç|G+B|
-|Kaynak arama|G+/| 
+|Kaynak oluştur|G+N|
+|Açık **tüm hizmetleri**|G+B|
+|Kaynakları, hizmetleri ve belgeleri arayın|G+/|
 |Kaynak menü öğelerini ara|CTRL+/ |
-|Sol bölmede seçili öğeyi Yukarı Taşı |ALT + Shift + Yukarı Ok|
-|Sol bölmede seçili öğeyi aşağı taşı |ALT + Shift + aşağı ok|
+|Seçili sol kenar öğeyi Taşı |ALT + Shift + Yukarı Ok|
+|Seçili sol kenar öğeyi aşağı taşı |ALT + Shift + aşağı ok|
 
 ## <a name="navigation"></a>Gezinme
-|Bunu yapmak için |Tuşuna basın |
+
+|Bu gezinti yapmak için |Tuşuna basın |
 | --- | --- |
 |Odağı komut çubuğuna taşı |G+, |
-|Odağı üst çubuk ve kenar çubuğu arasında değiştir | G+. |
+|Odağı üst ve sol kenar çubuğu arasında Değiştir | G+. |
 
-## <a name="go-to"></a>Git
-|Bunu yapmak için |Tuşuna basın |
+## <a name="go-to"></a>Şuraya gidin:
+
+|Bu konuma Git |Tuşuna basın |
 | --- | --- |
-|Panoya git |G+D |
-|Tüm kaynaklara gidin|G+A |
-|Kaynak gruplarına gidin|G+R |
-|Sol bölmede öğesi bu konumda açın |G+numarası|
+|Git **Panosu** |G+D |
+|Git **tüm kaynaklar**|G+A |
+|Git **kaynak grupları**|G+R |
+|Sol kenar öğesi bu konumda açın |G+numarası|
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+- [Yüksek karşıtlığı açma veya tema değiştirme](azure-portal-change-theme-high-contrast.md)
+- [Desteklenen tarayıcılar ve cihazlar](../azure-preview-portal-supported-browsers-devices.md)

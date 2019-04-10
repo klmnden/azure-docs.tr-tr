@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: a9b3d8a2670a0b4e6bed2d5e9a9b64e597adcb16
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855733"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280545"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Öğretici: Amaçlardan tutun Speech SDK'sı kullanarak konuşma tanımaC#
 
@@ -131,19 +131,21 @@ Daha sonra, `new IntentRecognizer(config)` kullanarak bir amaç tanıyıcı olu�
 
 Şimdi de, `LanguageUnderstandingModel.FromAppId()` kullanarak LUIS app’ten modeli içeri aktarın ve tanıyıcının `AddIntent()` yöntemi aracılığıyla tanınmasını istediğiniz LUIS amaçlarını ekleyin. Bu iki adım, kullanıcıların isteklerinde kullanabileceği sözcükleri belirterek konuşma tanımanın doğruluğunu güçlendirir. Uygulamanızda tümünü tanımanız gerekmiyorsa app amaçlarının tümünü eklemeniz gerekmez.
 
-Amaç eklenmesi için üç bağımsız değişken gerekir: LUIS modeli (yeni oluşturulmuş ve `model` olarak adlandırılmıştır), amaç adı ve amaç kimliği. Kimlik ve ad arasındaki fark aşağıda gösterilmiştir.
+Intents ekleme, üç bağımsız değişken gerektirir: LUIS modeline (oluşturulup oluşturulmadığını ve adlı `model`), hedefi adı ve bir hedefi kimliği Kimlik ve ad arasındaki fark aşağıda gösterilmiştir.
 
-|`AddIntent()` bağımsız değişkeni|Amaç|
+|`AddIntent()` Bağımsız değişken|Amaç|
 |--------|-------|
 |intentName |LUIS app’te tanımlandığı şekliyle amacın adı. LUIS amacı adıyla tam olarak eşleşmelidir.|
 |intentID    |Konuşma SDK’sı tarafından tanınan amaca atanan kimlik. İstediğiniz kimliği kullanabilirsiniz; LUIS app’te tanımlandığı gibi amaç adına karşılık gelmesi gerekmez. Örneğin, aynı kodla birden çok amaç işleniyorsa, bunlar için aynı kimliği kullanabilirsiniz.|
 
-Ev Otomasyonu LUIS app’te iki amaç vardır: biri cihazı açmak, diğeri de cihazı kapatmak içindir. Aşağıdaki satırlar bu amaçları tanıyıcıya ekler; `RecognizeIntentAsync()` yöntemindeki üç `AddIntent` satırını bu kodla değiştirin.
+Giriş Otomasyon LUIS uygulaması iki amacı vardır: biri için bir cihaz ve başka bir cihazın kapatılması için kapatma. Aşağıdaki satırlar bu amaçları tanıyıcıya ekler; `RecognizeIntentAsync()` yöntemindeki üç `AddIntent` satırını bu kodla değiştirin.
 
 ```csharp
 recognizer.AddIntent(model, "HomeAutomation.TurnOff", "off");
 recognizer.AddIntent(model, "HomeAutomation.TurnOn", "on");
 ```
+
+Tek tek amacı eklemek yerine, ayrıca kullanabileceğiniz `AddAllIntents` tüm hedefleri tanıyıcının bir modele eklemek için yöntemi.
 
 ## <a name="start-recognition"></a>Tanımayı başlatma
 
@@ -186,4 +188,4 @@ Samples/csharp/sharedcontent/console klasöründe bu makaledeki kodu bulabilirsi
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Konuşmayı algılama](how-to-recognize-speech-csharp.md)
+> [Konuşma tanıma nasıl](how-to-recognize-speech-csharp.md)

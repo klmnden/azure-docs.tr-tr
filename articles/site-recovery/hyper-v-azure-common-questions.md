@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c4e87e365e11084a7088522f64abef238d04b715
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ce4a6ab24aaa5ed693f8d64782fb025a2ca9ce30
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59271493"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357998"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Sık sorulan sorular - Hyper-V'den Azure'a olağanüstü durum kurtarma
 
@@ -29,6 +29,31 @@ Gözden geçirme [Azure Site Recovery fiyatlandırma](https://azure.microsoft.co
 
 ## <a name="azure"></a>Azure
 
+### <a name="what-do-i-need-in-hyper-v-to-orchestrate-replication-with-site-recovery"></a>Hangi Hyper-V Site Recovery ile çoğaltmayı düzenlemek için ihtiyacım var?
+
+Hyper-V ana bilgisayar sunucusu için sahip olmanız gerekenler dağıtım senaryosuna bağlıdır. Aşağıdaki makalelerden Hyper-V önkoşullarını inceleyin:
+
+* [Hyper-V VM'lerini (VMM olmadan) Azure'a çoğaltma](site-recovery-hyper-v-site-to-azure.md)
+* [Hyper-V VM'lerini (VMM ile) Azure'a çoğaltma](site-recovery-vmm-to-azure.md)
+* [Hyper-V sanal makinelerini ikincil veri merkezine çoğaltma](site-recovery-vmm-to-vmm.md)
+* Hakkında bilgi edinin ikincil veri merkezine çoğaltma yapıyorsanız [Hyper-V Vm'leri için desteklenen konuk işletim sistemleri](https://technet.microsoft.com/library/mt126277.aspx).
+* Azure'a çoğaltma yapıyorsanız Site Recovery tüm konuk işletim sistemlerini destekler [Azure tarafından desteklenen](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
+
+### <a name="can-i-protect-vms-when-hyper-v-is-running-on-a-client-operating-system"></a>Bir istemci işletim sisteminde Hyper-V çalışırken Vm'leri koruyabilir miyim?
+Hayır, VM'lerin desteklenen bir Windows sunucusu makinesinde çalışan Hyper-V ana bilgisayar sunucusunda bulunması gerekir. Bir istemci bilgisayarı korumak gerekiyorsa, bunu bir fiziksel makineye olarak çoğaltabilirsiniz [Azure](site-recovery-vmware-to-azure.md) veya [ikincil veri merkezine](site-recovery-vmware-to-vmware.md).
+
+### <a name="do-hyper-v-hosts-need-to-be-in-vmm-clouds"></a>Hyper-V konakları VMM bulutlarında olması gerekiyor mu?
+Hyper-V Vm'leri üzerinde olmalıdır, ikincil bir veri merkezine çoğaltmak istiyorsanız Hyper-V sunucuları bir VMM bulutunda bulunan barındırır. Azure'a çoğaltmak istiyorsanız, ile veya VMM Bulutları olmadan Vm'lerini çoğaltabilirsiniz. [Daha fazla bilgi edinin](tutorial-hyper-v-to-azure.md) Hyper-V'den azure'a çoğaltma hakkındaki.
+
+
+### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Hyper-V 2.nesil sanal makinelerini Azure'a çoğaltabilir miyim?
+Evet. Site Recovery, 1. kuşak yük devretme sırasında 2. dönüştürür. Yeniden çalışmada, geri kuşak 2 makine dönüştürülür. [Daha fazla bilgi edinin](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+
+
+### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>Tek bir VMM sunucusuna sahip olsam da Site Recovery'yi VMM ile dağıtabilir miyim?
+
+Evet. Ya da sanal makinelerini azure'a VMM bulutundaki Hyper-V sunucularında çoğaltabilirsiniz veya aynı sunucudaki VMM bulutlarının arasında çoğaltabilirsiniz. Şirket içi için şirket içi çoğaltma, hem birincil hem de ikincil sitelerde VMM sunucusuna sahip olmasını öneririz. 
+
 ### <a name="what-do-i-need-in-azure"></a>Azure'da ne yapmalıyım?
 Bir Azure aboneliği, bir kurtarma Hizmetleri kasası, bir depolama hesabı ve sanal ağ gerekir. Kasa, depolama hesabı ve ağ aynı bölgede olması gerekir.
 
@@ -43,7 +68,7 @@ Hayır, Site Recovery çoğaltılan verilere müdahale etmez ve sanal makineleri
 
 Site Recovery, ISO 27001: 2013, 27018, HIPAA, DPA sertifikalı ve SOC2 ile FedRAMP JAB değerlendirmelerini sürecinde olduğundan.
 
-### <a name="can-we-keep-on-premises-metadata-within-a-geographic-regions"></a>Biz şirket içi meta verileri bir coğrafi bölge içinde tutabilir miyim?
+### <a name="can-we-keep-on-premises-metadata-within-a-geographic-region"></a>Biz şirket içi meta verileri bir coğrafi bölge içinde tutabilir miyim?
 Evet. Bir bölgede bir kasası oluşturduğunuzda, tüm meta verilerini o bölgenin coğrafi sınırları içinde kalır Site Recovery tarafından kullanılan emin olun.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery çoğaltma işlemini şifreleyebilir mi?
@@ -70,7 +95,7 @@ Bir veya daha fazla Vm'niz olmalıdır bir veya daha fazla tek başına veya kü
 
 ### <a name="can-i-replicate-vms-located-on-a-hyper-v-cluster"></a>Bir Hyper-V kümesinde yer alan VM'ler çoğaltabilirim?
 
-Evet, Site Recovery, kümelenmiş Hyper-V konakları destekler. Şunlara dikkat edin:
+Evet, Site Recovery, kümelenmiş Hyper-V konakları destekler. Aşağıdakilere dikkat edin:
 
 - Kümenin tüm düğümleri aynı kasaya kayıtlı olması gerekir.
 - Kümedeki tüm Hyper-V konakları VMM kullanmıyorsanız, aynı Hyper-V sitesine eklenmesi gerekir.
@@ -127,7 +152,7 @@ Evet, ExpressRoute Vm'lerini Azure'a çoğaltma için kullanılabilir. Site Reco
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN üzerinden neden çoğaltma yapamaz?
 
-Azure'a çoğalttığınızda, çoğaltma trafiği ortak uç noktalar Azure depolama hesabının ulaştığında, bu nedenle, yalnızca ExpressRoute (genel eşdüzey hizmet sağlama) ile genel internet üzerinden çoğaltma yapabilirsiniz ve VPN çalışmaz. 
+Azure'a çoğalttığınızda, çoğaltma trafiği ortak uç noktalar Azure depolama hesabının ulaşır. Bu nedenle, yalnızca ExpressRoute (genel eşdüzey hizmet sağlama) ile genel internet üzerinden çoğaltma yapabilirsiniz ve VPN çalışmaz. 
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Çoğaltılmış sanal makine gereksinimleri nelerdir?
 
@@ -181,13 +206,13 @@ Site Recovery açıkça herhangi Hyper-V sanal makinesi, çoğaltma için etkinl
    
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>Yük devretme sonrasında Azure Vm'lerini nasıl erişebilirim?
-Yük devretme sonrasında Azure Vm'lerini güvenli bir Internet bağlantısı üzerinden, siteden siteye VPN üzerinden veya Azure ExpressRoute üzerinden erişebilirsiniz. Bağlanmak için etmenizi hazırlamanız gerekir. [Daha fazla bilgi edinin](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+Yük devretme sonrasında Azure Vm'lerini güvenli bir Internet bağlantısı üzerinden, siteden siteye VPN üzerinden veya Azure ExpressRoute üzerinden erişebilirsiniz. Bağlanmak için etmenizi hazırlamanız gerekir. [Daha fazla bilgi](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 ### <a name="is-failed-over-data-resilient"></a>Dayanıklı veriler üzerinde başarısız oldu?
 Azure esneklik için tasarlanmıştır. Site kurtarma, ikincil bir Azure veri merkezi, Azure SLA'sı uygun olarak yük devretme için tasarlanmıştır. Yük devretme işlemi gerçekleştiğinde, kasanız için seçtiğiniz aynı coğrafi bölgede kasaları kalır ve biz meta verilerinizi emin olun.
 
 ### <a name="is-failover-automatic"></a>Yük devretme işlemi otomatik midir?
-[Yük devretme](site-recovery-failover.md) otomatik değildir. Portaldaki tek tıklamayla yük devretme başlatın veya kullanabileceğiniz [PowerShell](/powershell/module/az.siterecovery) bir yük devretmeyi tetiklemek için.
+[Yük devretme](site-recovery-failover.md) otomatik değildir. Portaldaki tek tıklamayla yük devretme başlatın veya kullanabileceğiniz [PowerShell](/powershell/module/az.recoveryservices) bir yük devretmeyi tetiklemek için.
 
 ### <a name="how-do-i-fail-back"></a>Nasıl miyim geri hata veriyor?
 
@@ -199,7 +224,7 @@ Azure esneklik için tasarlanmıştır. Site kurtarma, ikincil bir Azure veri me
     - Tam indirme: Bu seçenekle yük devretme sırasında veri eşitlenir. Bu seçenek, tüm diskin yükler. Hiçbir sağlama toplamları hesaplanır, ancak daha fazla kapalı kalma süresi yoktur çünkü daha hızlıdır. Azure Vm'lerini çoğaltma için biraz zaman çalıştırıyorsunuz veya şirket içi VM silinmişse bu seçeneği kullanın.
 
 2. Aynı sanal makine veya alternatif bir VM başarısız seçeneğini belirleyebilirsiniz. Zaten yoksa Site Recovery VM oluşturması gerektiğini belirtebilirsiniz.
-3. İlk eşitleme tamamlandıktan sonra yük devretmeyi tamamlamak için seçin. Tamamlandıktan sonra her şeyin beklendiği gibi çalıştığını denetlemek için şirket içi VM oturum açabilir. Azure portalında Azure Vm'lerini durduruldu mu olduğunu görebilirsiniz.
+3. İlk eşitleme tamamlandıktan sonra yük devretmeyi tamamlamak için seçin. Tamamlandıktan sonra şirket içi VM'ye her şeyin beklendiği gibi çalıştığını denetlemek için oturum açabilirsiniz. Azure portalında Azure Vm'lerini durduruldu mu olduğunu görebilirsiniz.
 4. Bitirme ve şirket içi sanal makineden yeniden iş yüküne erişmeye başlamak için yük devretmeyi yürütürsünüz.
 5. İş yüklerini geri başarısız olduktan sonra yeniden şirket içi Vm'leri Azure'a çoğaltmak için çoğaltmayı tersine çevirme etkinleştirin.
 

@@ -11,29 +11,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2019
+ms.date: 04/5/2019
 ms.author: banders
-ms.openlocfilehash: 229b5a0948a81c9b5d78dd49f304e7b6891f95ee
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58653255"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281990"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Self Servis değişimleri ve Azure ayırmalar için para iadesi
 
 Azure ayırmalar, gelişen gereksinimlerini karşılamaya yardımcı olmak için esneklik sağlar. Aynı türdeki başka bir ayırma için bir ayırma değiştirebilir. Artık ihtiyacınız kalmadığında en fazla 50.000 ABD Doları, yılda bir ayırma geri ödeme.
+
+Self Servis exchange ve iptal etme yeteneği, ABD kamu Kurumsal Anlaşma müşterileri için kullanılamaz. Kullandıkça Öde ve CSP dahil olmak üzere diğer US Government aboneliği türleri desteklenir.
 
 ## <a name="exchange-an-existing-reserved-instance"></a>Mevcut bir ayrılmış örnek değişimi
 
 Üç hızlı adımda, rezervasyon değiştirebilir [Azure portalında](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 1. Para iadesi ve istediğiniz ayırmaları seçin **Exchange**.  
-    ![Döndürülecek ayırmaları gösteren örnek resim ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
+    ![Döndürülecek ayırmaları gösteren örnek resim](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
 2. Satın almak ve bir miktar yazın, istediğiniz VM ürün seçin. Yeni satın alma toplam dönüş toplam birden fazla olduğundan emin olun. [Satın aldığınız önce doğru boyutta belirlemek](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
-    ![Bir exchange ile satın almak için VM ürün gösteren örnek resim ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
+    ![Bir exchange ile satın almak için VM ürün gösteren örnek resim](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
 3. Gözden geçirin ve işlemi tamamlayın.  
-    ![Bir exchange dönüş tamamlama, satın almak için VM ürün gösteren örnek resim ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
+    ![Bir exchange dönüş tamamlama, satın almak için VM ürün gösteren örnek resim](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
 
 Rezervasyon para iadesi için şuraya gidin: **rezervasyon ayrıntıları** tıklatıp **para iadesi**.
 
@@ -84,7 +86,7 @@ Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](
 
 - Rezervasyon yönetme konusunda bilgi almak için bkz: [Azure ayırmalarını yönetme](billing-manage-reserved-vm-instance.md).
 - Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
-    - [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
+    - [Azure Ayırmaları nedir?](billing-save-compute-costs-reservations.md)
     - [Azure'da ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
     - [Ayırma indirimi nasıl uygulanacağını anlama](billing-understand-vm-reservation-charges.md)
     - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)

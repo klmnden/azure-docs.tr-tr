@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 03f71e4e10b65d9f295e13cdd8bc6881622c523d
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320300"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359037"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Dağıtım Planlayıcısı maliyet tahmini raporu 
 
@@ -56,7 +56,7 @@ Raporun tamamında, gri renkle işaretlenmiş hücreler salt okunurdur. Beyaz h�
 
 **Ağ**: DR gereksinimleri için ExpressRoute ve siteden siteye VPN maliyeti. 
 
-**ASR lisansı**: Tüm uyumlu sanal makineler için Site Recovery lisans maliyeti. Ayrıntılı maliyet analizi tablosuna bir sanal makineyi el ile girdiyseniz, o sanal makine için de Site Recovery lisans maliyeti eklenir.
+**Azure Site Recovery lisansı**: Tüm uyumlu sanal makineler için Site Recovery lisans maliyeti. Ayrıntılı maliyet analizi tablosuna bir sanal makineyi el ile girdiyseniz, o sanal makine için de Site Recovery lisans maliyeti eklenir.
 
 ### <a name="overall-dr-costs-by-states"></a>Durumlara göre genel DR maliyetleri
 Toplam DR maliyetleri, iki farklı duruma göre kategorilere ayrılır: Çoğaltma ve DR tatbikatı.
@@ -109,15 +109,15 @@ Sanal makineleri el ile eklemek için:
 
     a. **VM sayısı**
 
-    b. **IaaS boyutu (Sizin seçiminiz)**
+    b. **Iaas boyutu (sizin seçiminiz)**
 
-    c. **Depolama türü Standart/Premium**
+    c. **Depolama türü standart/Premium**
 
     d. **VM toplam depolama alanı boyutu (GB)**
 
-    e. **Yıllık DR tatbikatları sayısı**
+    e. **Yıllık DR Tatbikatları sayısı**
 
-    f. **Her DR tatbikatının süresi (gün)**
+    f. **Her DR Tatbikatının süresi (gün)**
 
     g. **İşletim Sistemi Türü**
 
@@ -157,7 +157,7 @@ Sanal makineleri el ile eklemek için:
 
 **Toplam DR Tatbikatı maliyeti (ortalama)**: DR tatbikatlarının işlem ve depolama maliyeti.
 
-**ASR lisans maliyeti**: Site Recovery lisansı maliyeti.
+**Azure Site Recovery lisans maliyeti**: Site Recovery lisansı maliyeti.
 
 ## <a name="supported-target-regions"></a>Desteklenen hedef bölgeler
 Site Recovery Dağıtım Planlayıcısı aşağıdaki Azure bölgeleri için maliyet tahmini sağlar. Bölgeniz burada listelenmiyorsa, fiyatlandırması sizin bölgenize yakın olan aşağıdaki bölgelerden birini kullanabilirsiniz:

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop-msft
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 83be636317299adf820a60716866aa35d318d6dc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: dc379f1ee67174cd806840e4244054701d18f0d4
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997371"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357904"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Genel amaçlı hizmet katmanı - Azure SQL veritabanı
 
@@ -26,9 +26,9 @@ ms.locfileid: "55997371"
 
 Azure SQL veritabanı, SQL Server veritabanı altyapısı mimarisi altyapı hataları durumda bile % 99,99 kullanılabilirlik sağlamak üzere bulut ortamı için uyarlanmış dayanır. Azure SQL veritabanı, her biri farklı bir mimari modelleri kullanılan üç hizmet katmanı vardır. Bu hizmet katmanlarıdır:
 
-- Genel amaçlı 
+- Genel amaçlı
 - İş açısından kritik
-- Hiper ölçeklendirme
+- Hiper ölçek
 
 Genel amaçlı hizmet katmanı için Mimari modelini ayrımı işlem ve depolama temel alır. Bu mimari bir model üzerinde yüksek kullanılabilirlik kullanır ve şeffaf bir şekilde veritabanı dosyaları çoğaltır ve temel alınan altyapı hatası durumunda veri kaybı olmadan garanti eder, Azure Blob Depolama güvenilirliğini gerçekleşir.
 

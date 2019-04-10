@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/21/2019
+ms.date: 04/08/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 0dd0474ad1ad360fd82cfdf746d2e9837f74833a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 7d1d38a2e8d3216414ab215f3023d4a188c57120
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108384"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282908"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Öğretici: Azure Data Box Disk geri dönün ve verileri karşıya yükleme azure'a doğrulayın
 
@@ -32,29 +32,115 @@ Başlamadan önce tamamladığınızdan emin olun [Öğreticisi: Veri için Azur
 ## <a name="ship-data-box-disk-back"></a>Data Box Disk'i geri gönderme
 
 1. Veri doğrulama tamamlandıktan sonra diskleri çıkarın. Bağlantı kablolarını çıkarın.
-2. Tüm diskleri ve bağlantı kablolarını kabarcıklı naylona sarın ve bunları sevkiyat kutusuna yerleştirin.
-3. Kutuya yapıştırılmış şeffaf plastik kılıftaki iade sevkiyat etiketini kullanın. Etiket hasar görmüş veya kaybolmuşsa, Azure portalından yeni bir sevkiyat etiketi indirin ve cihaza yapıştırın. **Genel bakış > Sevkiyat etiketi indir** bölümüne gidin.
+2. Tüm diskleri ve bağlantı kablolarını kabarcıklı naylona sarın ve bunları sevkiyat kutusuna yerleştirin. Donatılar eksikse ücretleri uygulanabilir.
+    - İlk sevk gelen paketleme yeniden kullanın.  
+    - İyi güvenli kabarcıklanma sona erdi kullanarak diskleri paketi öneririz.
+    - Kutunun içinde tüm hareketleri azaltmak için snug uygun olduğundan emin olun.
 
-    ![Sevkiyat etiketini indirme](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+Sonraki adımlar, cihazın burada iade ettiğiniz tarafından belirlenir.
 
-    Bu eylem aşağıda gösterildiği gibi bir sevkiyat etiketi indirir.
+### <a name="pick-up-in-us-canada"></a>BİZE, Kanada seçin
 
-    ![Örnek sevkiyat etiketi](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+ABD veya Kanada cihaz döndüren, aşağıdaki adımları uygulayın.
 
-4. Sevkiyat kutusunu mühürleyin ve iade sevkiyat etiketinin görünür olduğundan emin olun.
-5. Cihazı ABD'de iade ediyorsanız UPS ile bir toplama zamanı ayarlayın. Cihazı Avrupa'da DHL ile iade ediyorsanız, DHL'in web sitesini ziyaret edip bir havayolu fatura numarası belirterek toplama isteğinde bulunun. Ülkenin DHL Ekspres web sitesine gidin ve **Kurye Çağırma Rezervasyonu > eİade Sevkiyatı**'nı seçin.
+1. Kutuya yapıştırılmış şeffaf plastik kılıftaki iade sevkiyat etiketini kullanın. Etiket hasar görür veya varsa:
+    - **Genel bakış > Sevkiyat etiketi indir** bölümüne gidin.
+
+        ![Sevkiyat etiketini indirme](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+
+        Bu eylem aşağıda gösterildiği gibi bir sevkiyat etiketi indirir.
+
+        ![Örnek sevkiyat etiketi](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - Cihaz etiketi eklemesi.
+
+2. Sevkiyat kutusunu mühürleyin ve iade sevkiyat etiketinin görünür olduğundan emin olun.
+3. UPS ile bir toplama zamanlayın.
+
+
+### <a name="pick-up-in-europe"></a>Avrupa'da öğrenilip
+
+Cihaz Avrupa'da döndüren, aşağıdaki adımları uygulayın.
+
+1. Kutuya yapıştırılmış şeffaf plastik kılıftaki iade sevkiyat etiketini kullanın. Etiket hasar görür veya varsa:
+    - **Genel bakış > Sevkiyat etiketi indir** bölümüne gidin.
+
+        ![Sevkiyat etiketini indirme](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+
+        Bu eylem aşağıda gösterildiği gibi bir sevkiyat etiketi indirir.
+
+        ![Örnek sevkiyat etiketi](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - Cihaz etiketi eklemesi.
+
+2. Sevkiyat kutusunu mühürleyin ve iade sevkiyat etiketinin görünür olduğundan emin olun.
+3. Cihazı Avrupa'da DHL ile iade ediyorsanız, DHL'in web sitesini ziyaret edip bir havayolu fatura numarası belirterek toplama isteğinde bulunun.
+4. Ülkenin DHL Ekspres web sitesine gidin ve **Kurye Çağırma Rezervasyonu > eİade Sevkiyatı**'nı seçin.
 
     ![İade Sevk irsaliyesi DHL](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     
-    Konşimento numarasını belirtin ve toplama ayarlaması yapmak için **Toplama Zamanlama**'ya tıklayın.
+3. Konşimento numarasını belirtin ve toplama ayarlaması yapmak için **Toplama Zamanlama**'ya tıklayın.
 
       ![Toplamayı zamanlama](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
 
-7. Diskler nakliyeciniz tarafından toplandıktan sonra, portaldaki sipariş durumu **Toplandı** olarak güncelleştirilir. Ayrıca bir takip numarası da görüntülenir.
+### <a name="pick-up-in-asia-pacific-region"></a>Asya Pasifik bölgesinde öğrenilip
 
-    ![Diskler toplandı](media/data-box-disk-deploy-picked-up/data-box-portal-pickedup.png)
+Bu bölge, Japonca, Kore ve Avustralya ile ilgili yönergeleri içerir.
+
+#### <a name="pick-up-in-australia"></a>Avustralya'da öğrenilip
+
+Bir ek güvenlik bildirimi Avustralya'da Azure veri merkezleri vardır. Tüm gelen sevkiyat, Gelişmiş bir bildirim olması gerekir. Avustralya'da alma için aşağıdaki adımları uygulayın.
+
+1. E-posta `adbops@microsoft.com` isteği Sevkiyat Etiketi gelen benzersiz kimliği veya TAU kod için. İstek zaman etiketi almak için planlanan sunulduğundan Ücretlerde en az 3 gün yerleştirin.
+2. E-posta konu olmalıdır - *ters Sevkiyat Etiketi TAU koduyla iste*. E-postada aşağıdaki ayrıntıları eklediğinizden emin olun: 
+
+    - Sipariş adı
+    - Adres
+    - Kişi adı
+
+#### <a name="pick-up-in-japan"></a>Japonya'da öğrenilip
+
+1. Japonya Post Chakubarai'nın dönüş connote eklediğinizden emin olun.
+2. Şirketiniz connote ad ve adres bilgi gönderen bilgilerinizi olarak yazın.
+3. Japonya Post çekme isteği numarasını 0800 0800 111 (ücretsiz arama) arayın. 7 haneli posta kodu alma adresi için arama yapın ve ardından yakın post ofisiniz iletin.
+    - Çekme isteği yönelik uygun zamanları üzerinde ilgili post ofisleri bağlıdır.
+    - Sevkiyat Japonya Post Chakubarai Yu-paketi olduğunu bildirir.
+    - Kullanım Chakubarai connote dahil olduğu.
+4. Japonya Post Chakubarai connote ise dahil değil, e-posta *Quantium çözümleri* adresindeki `Customerservice.JP@quantiumsolutions.com`. *Quantium çözümleri* Japonya Postala toplayın ve connote toplama getirin isteyin ister.
+    - Başvuru göstermek Chakubarai sayısına connote Japonya Post getirecek açıklama sütun.
+    - Teslimat adresi, aşağıda gösterildiği gibi girin:   
+        ```
+        3F N7 Prologis Park Tokyo Ohta, 1-4-3 Tokai Ohta-ku, Tokyo 143-0001
+        Microsoft Service Center c/o Quantium Solutions Japan
+        TEL: 03-5755-0150
+        ```
+
+Chakubarai connote ise eksik, e-posta yoluyla alma isteğinde bulunabilirsiniz. Toplama istemek için aşağıdaki e-posta şablonu kullanın.
+
+```
+To: Customerservice.JP@quantiumsolutions.com
+Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+Body: 
+- Azure Data Box Disk job name：
+- Reference number:  
+- Requested pickup date：mmdd (Select a requested time slot from below).
+    a. 08：00-13：00 
+    b. 13：00-15：00 
+    c. 15：00-17：00 
+    d. 17：00-19：00 
+```
+
+#### <a name="pick-up-in-korea"></a>Kore'de öğrenilip
+
+1. Dönüş connote eklediğinizden emin olun.
+2. Toplama istemek için:
+    1. Çağrı *Quantium Solutions International* hattını 8231 070 1418 office saatleri (10: 00 için 17: 00, Pazartesi-Cuma). Teklif *Microsoft toplama* ve düzenlemek için bir koleksiyon için connote sayısı.  
+    2. Hattı meşgul ise, e-posta `microsoft@rocketparcel.com`, e-posta konusu ile *Microsoft Pickup* ve başvuru olarak connote numarası.
+    3. Courier koleksiyonu için gelmezse, çağrı *Quantium Solutions International* hattı alternatif düzenlemeleri için. 
 
 ## <a name="verify-data-upload-to-azure"></a>Azure'a verilerin yüklendiğini doğrulama
+
+Diskler nakliyeciniz tarafından toplandıktan sonra, portaldaki sipariş durumu **Toplandı** olarak güncelleştirilir. Ayrıca bir takip numarası da görüntülenir.
+
+![Diskler toplandı](media/data-box-disk-deploy-picked-up/data-box-portal-pickedup.png)
 
 Microsoft diski alıp taradığında, iş durumu **Alındı** olarak güncelleştirilir. 
 
@@ -71,7 +157,7 @@ Kaynaktan silmeden önce verilerinizin depolama hesaplarında olduğundan emin o
 - Azure depolama hesabınızda veya hesaplarınızda. Data Box'a veri kopyaladığınızda, türlerine bağlı olarak bu veriler Azure Depolama hesabınızda aşağıdaki yollardan birine yüklenir.
 
   - Blok blobları ve sayfa blobları için: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
-  - Azure Dosyaları için: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+  - Azure dosyaları için: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
     Alternatif olarak Azure portalda Azure depolama hesabınıza gidip oradan ilerleyebilirsiniz.
 
@@ -114,6 +200,6 @@ Bu öğreticide aşağıdaki Azure Data Box Disk konularını öğrendiniz:
 Azure portalı yoluyla Data Box Disk'i yönetmeyi öğrenmek için bir sonraki nasıl yapılır makalesine geçin.
 
 > [!div class="nextstepaction"]
-> [Azure portalını kullanarak Azure Data Box Disk'i yönetme](./data-box-portal-ui-admin.md)
+> [Azure Data Box Disk yönetmek için Azure portalını kullanma](./data-box-portal-ui-admin.md)
 
 

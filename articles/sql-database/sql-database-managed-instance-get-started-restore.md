@@ -9,25 +9,25 @@ ms.devlang: ''
 ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: carlrab, bonova
+ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: e2aa9edcd53aa3881b07e31fcf2312d5173a3a6e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5cf9046a26edae3e6076ee1effe32930f15f4569
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903528"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59356833"
 ---
-# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Hızlı Başlangıç: Bir veritabanı yönetilen örneği'ne geri yükleme 
+# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Hızlı Başlangıç: Bir veritabanı yönetilen örneği'ne geri yükleme
 
-Bu hızlı başlangıçta, SQL Server Management Studio (SSMS) (Wide World Importers - standart yedekleme dosyasını) bir veritabanını geri yüklemek için Azure Blob depolama alanından Azure SQL veritabanı'na kullanacağınız [yönetilen örneği](sql-database-managed-instance.md). 
+Bu hızlı başlangıçta, SQL Server Management Studio (SSMS) (Wide World Importers - standart yedekleme dosyasını) bir veritabanını geri yüklemek için Azure Blob depolama alanından Azure SQL veritabanı'na kullanacağınız [yönetilen örneği](sql-database-managed-instance.md).
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
-> - Kullanarak Azure veritabanı geçiş hizmeti (DMS) geçişi hakkında daha fazla bilgi için bkz. [DMS kullanarak yönetilen örneğe geçiş](../dms/tutorial-sql-server-to-managed-instance.md). 
-> - Çeşitli geçiş yöntemleri hakkında daha fazla bilgi için bkz. [Azure SQL veritabanı yönetilen örneği SQL Server örneği geçiş](sql-database-managed-instance-migrate.md).
+> Kullanarak Azure veritabanı geçiş hizmeti (DMS) geçişi hakkında daha fazla bilgi için bkz. [DMS kullanarak yönetilen örneğe geçiş](../dms/tutorial-sql-server-to-managed-instance.md).
+> Çeşitli geçiş yöntemleri hakkında daha fazla bilgi için bkz. [Azure SQL veritabanı yönetilen örneği SQL Server örneği geçiş](sql-database-managed-instance-migrate.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -36,7 +36,7 @@ Bu hızlı başlangıç:
 - Kaynaklardan kullanan [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md) hızlı başlangıç.
 - Bilgisayarınızda yüklü en son gerektirir [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) yüklü.
 - SSMS yönetilen Örneğinize bağlanmak için kullanılması gerekir. Bağlanmak Bu hızlı başlangıçlara bakın:
-  - [Bir Azure VM'den bir Azure SQL Veritabanı Yönetilen Örneğine bağlanma](sql-database-managed-instance-configure-vm.md)
+  - [Bir Azure VM'den bir Azure SQL veritabanı yönetilen örneğine bağlanın](sql-database-managed-instance-configure-vm.md)
   - [Noktadan siteye bağlantı, şirket içinden Azure SQL veritabanı yönetilen örneği için yapılandırma](sql-database-managed-instance-configure-p2s.md).
 
 > [!NOTE]
@@ -51,9 +51,9 @@ SSMS'de, yönetilen Örneğinize Wide World Importers veritabanını geri yükle
 3. Önceden yapılandırılmış depolama hesabı ve SAS anahtarı kullanan aşağıdaki SQL betiğini çalıştırın [bir kimlik bilgisi oluşturmak](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) yönetilen Örneğinize içinde.
 
    ```sql
-   CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases] 
+   CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
    WITH IDENTITY = 'SHARED ACCESS SIGNATURE'
-   , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D' 
+   , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D'
    ```
 
     ![kimlik bilgisi oluşturma](./media/sql-database-managed-instance-get-started-restore/credential.png)
@@ -61,7 +61,7 @@ SSMS'de, yönetilen Örneğinize Wide World Importers veritabanını geri yükle
 4. Kimlik bilgilerinizi denetlemek için kullandığı aşağıdaki betiği çalıştırın. bir [kapsayıcı](https://azure.microsoft.com/services/container-instances/) bir yedek dosya listesini almak için URL.
 
    ```sql
-   RESTORE FILELISTONLY FROM URL = 
+   RESTORE FILELISTONLY FROM URL =
       'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
    ```
 
@@ -80,13 +80,13 @@ SSMS'de, yönetilen Örneğinize Wide World Importers veritabanını geri yükle
 
    ```sql
    SELECT session_id as SPID, command, a.text AS Query, start_time, percent_complete
-      , dateadd(second,estimated_completion_time/1000, getdate()) as estimated_completion_time 
-   FROM sys.dm_exec_requests r 
-   CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) a 
+      , dateadd(second,estimated_completion_time/1000, getdate()) as estimated_completion_time
+   FROM sys.dm_exec_requests r
+   CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) a
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. Geri yükleme tamamlandığında Nesne Gezgini içinde görüntüleyin. 
+7. Geri yükleme tamamlandığında Nesne Gezgini içinde görüntüleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

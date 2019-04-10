@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 53a0645c42255d5f741d31c411ca70e1e009febc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 6faa585f1ad38eb981e0bbffffef603c4aab0bc8
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661599"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360276"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Öğretici: IOT Hub ileti yönlendirme yapılandırmak için Azure CLI kullanma
 
@@ -147,7 +147,7 @@ Temel kaynaklar ayarlanır, ileti yönlendirme yapılandırabilirsiniz.
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-Yönlendirme bir uç nokta oluşturmak için kullanın [az IOT hub'ı üretim uç noktası oluşturma](/cli/azure/iot/hub/routing-endpoint.md?view=azure-cli-latest#az-iot-hub-routing-endpoint-create). Uç noktası için ileti yolu oluşturmak için kullanın [az IOT hub rotasını oluşturma](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create).
+Yönlendirme bir uç nokta oluşturmak için kullanın [az IOT hub'ı üretim uç noktası oluşturma](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create). Uç noktası için ileti yolu oluşturmak için kullanın [az IOT hub rotasını oluşturma](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create).
 
 ### <a name="route-to-a-storage-account"></a>Bir depolama hesabına yönlendirme
 

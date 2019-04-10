@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 5c4ad5c200bd2e49f3c472d82ad030c6a8f2478d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 6f3177c37a2db03b8821e3e4f5b68c8b1315a016
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918272"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358244"
 ---
 # <a name="sizes-for-cloud-services"></a>Cloud Services boyutları
 Bu konuda sunulan boyutlar ve bulut Hizmeti rol örnekleri (web rolleri ve çalışan rolleri) için seçenekler açıklanmaktadır. Ayrıca, bu kaynakları kullanmayı planlarken dikkat edilmesi gereken dağıtım konuları sağlar. Her boyut, içine girdiğiniz Kimliğine sahip, [Hizmet tanım dosyası](cloud-services-model-and-package.md#csdef). Her boyut için fiyatlar kullanılabilir [bulut Hizmetleri fiyatlandırması](https://azure.microsoft.com/pricing/details/cloud-services/) sayfası.
@@ -205,7 +205,7 @@ Bir Web rol örneği için işler için standart_d2 rol boyutunu ayarlamak için
 
 ## <a name="changing-the-size-of-an-existing-role"></a>Mevcut bir rolü boyutunu değiştirme
 
-İş yükü değişiklikleri veya yeni VM boyutları kullanılabilir doğasını rolünüz boyutunu değiştirmek isteyebilirsiniz. Bunu yapmak için (yukarıda gösterildiği gibi), hizmet tanımı dosyasında VM boyutunu değiştirin, bulut hizmetinizi yeniden paketleyin ve dağıtabilirsiniz. VM boyutları, doğrudan portal veya PowerShell üzerinden değiştirmek mümkün değildir.
+İş yükü değişiklikleri veya yeni VM boyutları kullanılabilir doğasını rolünüz boyutunu değiştirmek isteyebilirsiniz. Bunu yapmak için (yukarıda gösterildiği gibi), hizmet tanımı dosyasında VM boyutunu değiştirin, bulut hizmetinizi yeniden paketleyin ve dağıtabilirsiniz.
 
 >[!TIP]
 > (Örn. farklı VM boyutları farklı ortamlarda rolünüz için kullanmak isteyebilirsiniz. Test ve üretim). Yapmanın bir yolu bu birden fazla hizmet tanımı (.csdef) dosyaları, projenizdeki oluşturmaktır CSPack aracını kullanarak otomatik derleme sırasında'da hizmet paketleri her ortam farklı bulut oluşturun. Öğeleri bir bulut Hizmetleri paketi ve bunların nasıl oluşturulacağı hakkında daha fazla bilgi için bkz: [hizmetleri modeli bulut nedir ve nasıl miyim paketi bunu?](cloud-services-model-and-package.md)

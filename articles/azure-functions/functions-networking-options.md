@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 1/14/2019
 ms.author: alkarche
-ms.openlocfilehash: 8bbc44e7af68f005f30fff143741bc4bfe0adcf2
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 10d7daa6da45c56e20c622fcbca9ee288e737dab
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896645"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358171"
 ---
 # <a name="azure-functions-networking-options"></a>Azure işlevleri ağ seçenekleri
 
@@ -29,7 +29,7 @@ Bu belgede, Azure işlevleri barındırma seçenekleri arasında kullanılabilir
 
 ## <a name="networking-feature-matrix"></a>Özellik matrisi ağ
 
-|                |[Tüketim Planı](functions-scale.md#consumption-plan)|⚠ [Premium planı](functions-scale.md##premium-plan-public-preview)|[App Service Planı](functions-scale.md#app-service-plan)|[App Service Ortamı](../app-service/environment/intro.md)|
+|                |[Tüketim Planı](functions-scale.md#consumption-plan)|⚠ [Premium planı](functions-scale.md##premium-plan-public-preview)|[Uygulama Hizmeti Planı](functions-scale.md#app-service-plan)|[App Service Ortamı](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[**Gelen IP kısıtlamaları**](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
 |[**Sanal Ağ Tümleştirmesi**](#vnet-integration)|❌No|⚠ Evet|✅Yes|✅Yes|
@@ -43,7 +43,8 @@ Bu belgede, Azure işlevleri barındırma seçenekleri arasında kullanılabilir
 
 IP kısıtlamaları sıralı uygulamanıza erişmek için izin verilen IP adreslerini izin verme/reddetme listesi öncelikli tanımlamanızı sağlar. IPv4 ve IPv6 adresleri izin verilenler listesine ekleyebilirsiniz. Bir veya daha fazla olduğunda, örtük olarak reddetmek sonra listenin en sonunda bulunan tüm yoktur. IP kısıtlamaları özelliği, barındırma seçenekleri tüm işlev ile çalışır.
 
-> ! [ÖNEMLİ] Azure portal Düzenleyicisi'ni kullanabilmek için portal, çalışan bir işlev uygulaması doğrudan erişebilir olmalıdır ve portala erişmek için kullandığınız cihazla kendi IP izin verilenler listesinde olmalıdır. Yerinde ağ kısıtlamaları ile herhangi bir özellik erişmeye devam edebilirsiniz **Platform özellikleri** sekmesi.
+> [!NOTE]
+> Azure portal Düzenleyicisi'ni kullanabilmek için portal, çalışan bir işlev uygulaması doğrudan erişebilir olmalıdır ve portala erişmek için kullandığınız cihazla kendi IP izin verilenler listesinde olmalıdır. Yerinde ağ kısıtlamaları ile herhangi bir özellik erişmeye devam edebilirsiniz **Platform özellikleri** sekmesi.
 
 [Buradan daha fazla bilgi edinin](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
 

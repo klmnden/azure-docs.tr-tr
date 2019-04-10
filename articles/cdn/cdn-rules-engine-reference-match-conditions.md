@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 1e17ec48c35a7e01ca87016406fb416a05544b41
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087202"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283486"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN, kural altyapısı eşleşen koşulları 
 Bu makalede ayrıntılı açıklamaları için Azure Content Delivery Network (CDN) kullanılabilir eşleştirme koşulları listeler [kurallar altyapısı](cdn-rules-engine.md).
@@ -37,7 +37,7 @@ Her zaman eşleşme koşulu, tüm istekler için varsayılan bir özellikler kü
 
 Ad | Amaç
 -----|--------
-[Her zaman](#always) | Varsayılan bir özellik kümesi, tüm istekler için geçerlidir.
+[Her Zaman](#always) | Varsayılan bir özellik kümesi, tüm istekler için geçerlidir.
 
 ## <a name="device-match-condition"></a>Cihaz eşleşme koşulu
 
@@ -45,7 +45,7 @@ Cihaz eşleşme koşulu, kendi özelliklerine bağlı olarak bir mobil CİHAZDAN
 
 Ad | Amaç
 -----|--------
-[cihaz](#device) | Kendi özelliklerine bağlı olarak bir mobil CİHAZDAN istekleri tanımlar.
+[Cihaz](#device) | Kendi özelliklerine bağlı olarak bir mobil CİHAZDAN istekleri tanımlar.
 
 ## <a name="location-match-conditions"></a>Konum eşleşme koşulları
 
@@ -71,7 +71,7 @@ Ad | Amaç
 
 Ad | Amaç
 -----|--------
-[İstemci IP adresi](#client-ip-address) | Belirli bir IP adresinden kaynaklanan istekler tanımlar.
+[İstemci IP Adresi](#client-ip-address) | Belirli bir IP adresinden kaynaklanan istekler tanımlar.
 [Tanımlama bilgisi parametresi](#cookie-parameter) | Belirtilen değer için her bir istekle ilişkili tanımlama bilgilerini denetler.
 [Tanımlama bilgisi parametre normal ifade](#cookie-parameter-regex) | Belirtilen normal ifade için her bir istekle ilişkili tanımlama bilgilerini denetler.
 [Edge Cname](#edge-cname) | Belirli bir kenar CNAME noktası istekleri tanımlar.
@@ -92,7 +92,7 @@ Ad | Amaç
 [URL yolu genişletme](#url-path-extension) | Dosya adı uzantılarına göre istekleri tanımlar.
 [URL yol dosyaadı](#url-path-filename) | Dosya adına göre istekleri tanımlar.
 [URL yolu değişmez değeri](#url-path-literal) | Bir isteğin göreli yolu belirtilen değerle karşılaştırır.
-[URL Path Regex](#url-path-regex) | Bir isteğin belirtilen normal ifade için göreli yol karşılaştırır.
+[URL yolu normal ifade](#url-path-regex) | Bir isteğin belirtilen normal ifade için göreli yol karşılaştırır.
 [URL yolu joker karakter](#url-path-wildcard) | Bir isteğin göreli yolu belirtilen desen ile karşılaştırır.
 [URL sorgu değişmez değeri](#url-query-literal) | Bir isteğin sorgu dizesi belirtilen değerle karşılaştırır.
 [URL sorgu parametresi](#url-query-parameter) | Belirtilen desenle eşleşen bir değere ayarlayın belirtilen sorgu dizesi parametresi içeren istekleri tanımlar.
@@ -101,7 +101,7 @@ Ad | Amaç
 
 
 ## <a name="reference-for-rules-engine-match-conditions"></a>Kural altyapısı eşleştirme koşulları için başvuru
-
+<a name="main"></a>
 ---
 ### <a name="always"></a>Her Zaman
 

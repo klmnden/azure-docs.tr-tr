@@ -4,22 +4,20 @@ description: Kullanıcının güncelleştiriliyor veya tüm kullanıcılar ve ro
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 83518825c91cdd727b3d4fb9ecc86d51dea8fc26
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649178"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360448"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Beklenmeyen değişiklikleri önlemek için kaynakları kilitleme 
 
@@ -36,12 +34,32 @@ Bir üst kapsamda bir kilit uyguladığınızda, ilgili kapsam içindeki tüm ka
 
 Rol tabanlı erişim denetimi, tüm kullanıcılar ve roller bir kısıtlama uygulamak yönetim kilitleri kullanın. Kullanıcılar ve roller için izinleri ayarlama bilgi edinmek için [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md).
 
-Resource Manager kilitleri uygulamak gönderilen operations oluşan yönetim düzlemi gerçekleşen işlemlere `https://management.azure.com`. Kilitler nasıl kaynakları kendi işlevleri gerçekleştiren kısıtlama. Kaynak değişiklikleri kısıtlıdır, ancak kaynak işlemleri sınırlı değildir. Örneğin, bir salt okunur kilidi SQL veritabanı, veritabanı silmesini veya engeller, ancak bu oluşturma, güncelleştirme veya silme verilerden veritabanında engellemez. Bu işlemlerin gönderildiği değildir çünkü veri hareketlerini verilen `https://management.azure.com`.
+Resource Manager kilitleri uygulamak gönderilen operations oluşan yönetim düzlemi gerçekleşen işlemlere `https://management.azure.com`. Kilitler nasıl kaynakları kendi işlevleri gerçekleştiren kısıtlama. Kaynak değişiklikleri kısıtlıdır, ancak kaynak işlemleri sınırlı değildir. Örneğin, bir salt okunur kilidi SQL veritabanı, veritabanı silmesini veya engeller. Oluşturma, güncelleştirme ya da veritabanı verilerini silme engellemez. Bu işlemlerin gönderildiği değildir çünkü veri hareketlerini verilen `https://management.azure.com`.
 
 Uygulama **salt okunur** gibi görünen bazı işlemleri operations gerçekten gerekli ek eylemler okunur beklenmeyen sonuçlara neden olabilir. Örneğin, yerleştirme bir **salt okunur** bir depolama hesabı üzerindeki kilidi anahtarları listeleme gelen tüm kullanıcıları engeller. Yazma işlemlerini listenin döndürülen anahtarları için kullanılabilir olmadığından anahtarları işlemi bir POST isteği gerçekleştirilir. Başka bir örnek için yerleştirme bir **salt okunur** bir App Service kaynak kilidi, o etkileşime yazma erişim gerektirdiğinden kaynak dosyalarını görüntüleme Visual Studio sunucu Gezgini'nde engeller.
 
-## <a name="who-can-create-or-delete-locks-in-your-organization"></a>Kimler oluşturabilir ve kuruluşunuzdaki kilitlerini Sil
+## <a name="who-can-create-or-delete-locks"></a>Kimin oluşturabilir veya kilitlerini Sil
 Yönetim kilitlerini Sil ya da oluşturmak için erişimi olmalıdır. `Microsoft.Authorization/*` veya `Microsoft.Authorization/locks/*` eylemler. Yerleşik rollerden yalnızca **Sahip** ve **Kullanııcı Erişiimi Yöneticisi** bu eylemleri kullanabilir.
+
+## <a name="managed-applications-and-locks"></a>Yönetilen uygulamaları ve kilitler
+
+Azure Databricks gibi bazı Azure Hizmetleri kullanın [yönetilen uygulamaları](../managed-applications/overview.md) hizmeti uygulamak için. Bu durumda, hizmet, iki kaynak grubu oluşturur. Bir kaynak grubu hizmetine genel bir bakış içerir ve kilitli değil. Bir kaynak grubu, hizmet için altyapıyı içerir ve kilitli.
+
+Altyapı kaynak grubunu silmek çalışırsanız, kaynak grubu kilitli olduğunu bildiren bir hata alırsınız. Altyapı kaynak grubu için kilit silmeye çalışırsanız, bir sistem uygulaması tarafından sahiplenildiğinden kilit silinemiyor bildiren bir hata alın.
+
+Bunun yerine, altyapı kaynak grubu da siler hizmeti silin.
+
+Yönetilen uygulamalar için dağıttığınız hizmeti seçin.
+
+![Hizmet seçin](./media/resource-group-lock-resources/select-service.png)
+
+Bildirim hizmeti için bir bağlantı içeren bir **yönetilen kaynak grubu**. Bu kaynak grubu, altyapı tutar ve kilitli. Doğrudan silinemez.
+
+![Yönetilen grubunu Göster](./media/resource-group-lock-resources/show-managed-group.png)
+
+Hizmeti kilitli altyapı kaynak grubu da dahil olmak üzere her şeyi silmek için seçin **Sil** hizmeti.
+
+![Hizmeti sil](./media/resource-group-lock-resources/delete-service.png)
 
 ## <a name="portal"></a>Portal
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
@@ -159,7 +177,7 @@ $lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup -ResourceN
 Remove-AzResourceLock -LockId $lockId
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>Azure CLI'si
 
 Kilit dağıtılan kaynaklar ile Azure CLI kullanarak [az lock oluşturma](/cli/azure/lock#az-lock-create) komutu.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory ile tümleştirme | Microsoft Docs
-description: Avantajları ve kaynakları Azure Active Directory ile tümleştirme için bir kılavuz.
+description: Uygulamanızı Azure Active Directory ile tümleştirme avantajlarını öğrenin ve Basitleştirilmiş oturum açma, kimlik yönetimi, çok faktörlü kimlik doğrulaması gibi özelliklere yönelik kaynakları edinin ve erişim denetimi.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/04/2019
+ms.date: 04/08/2019
 ms.author: celested
 ms.reviewer: bryanla
-ms.custom: aaddev
+ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 687b2848dc4bcf4e0c8935795eb66e07c3a5a7bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 726d70c46dca712deaf4846c24976cdabcc49be9
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894636"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359904"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory ile tümleştirme
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure Active Directory (Azure AD), bulut uygulamalarınız için kurumsal düzeyde kimlik yönetimi ile kuruluşlar sağlar. Azure AD tümleştirmesi, kullanıcılarınızın kolaylaştırılmış bir oturum açma deneyimi sağlar ve uygulamanızın BT ilkesine uygun yardımcı olur.
+Bu makalede, uygulamanızı Azure Active Directory (Azure AD) ile tümleştirme avantajlarını öğrenin ve tümleştirme için kaynakları edinin. Azure AD bulut uygulamalarınız için kurumsal düzeyde kimlik yönetimi ile kuruluşlar sağlar. Azure AD tümleştirmesi, kullanıcılarınızın kolaylaştırılmış bir oturum açma deneyimi sağlar ve uygulamanızın BT ilkesine uygun yardımcı olur.
 
 ## <a name="how-to-integrate"></a>Nasıl tümleştirilir
 
@@ -77,7 +77,7 @@ Azure AD ile tümleştirme, ek kod yazmayı gerektirmeyen avantaj sunar.
 
 ### <a name="advanced-security-features"></a>İleri düzey güvenlik özellikleri
 
-**Çok öğeli kimlik doğrulama.**  Azure AD yerel çok faktörlü kimlik doğrulaması sağlar. Böylece bu desteğin kodunu kendiniz gerekmez, BT yöneticileri uygulamanıza erişim için multi-Factor authentication isteyebilir. Daha fazla bilgi edinin [multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
+**Çok faktörlü kimlik doğrulaması.**  Azure AD yerel çok faktörlü kimlik doğrulaması sağlar. Böylece bu desteğin kodunu kendiniz gerekmez, BT yöneticileri uygulamanıza erişim için multi-Factor authentication isteyebilir. Daha fazla bilgi edinin [multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
 **Anormal oturum açma algılama.**  Azure AD, şüpheli etkinlikleri algılamak ve BT yöneticileri olası sorunları bildirmek için makine öğrenimi algoritmaları kullanırken, günde bir milyardan fazla oturum açma işlemlerini işler. Azure AD oturum açma destekleyerek, uygulamanız bu koruma avantajı alır. Daha fazla bilgi edinin [Azure Active Directory erişim raporu görüntüleyen](../active-directory-view-access-usage-reports.md).
 

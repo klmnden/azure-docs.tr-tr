@@ -12,25 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 04/08/2019
 ms.author: sethm
-ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 578ca59b3f00bc1f4e876fd2b007c4b45901f86c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 04/08/2019
+ms.openlocfilehash: 7ca02b35cd8f302b856b2d7fcbfb5bac304f1a00
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782386"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358621"
 ---
 # <a name="a-sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Anahtarlar ve gizli anahtar kasasında depolanan kullanan bir örnek uygulaması
 
-*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Şunlara uygulanır Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Adlandırılmış bir örnek uygulamayı çalıştırmak için bu makaledeki adımları **HelloKeyVault** , anahtarları alır ve gizli diziler bir anahtar kasası Azure Stack'te.
+Örnek uygulamayı çalıştırmak için bu makaledeki adımları **HelloKeyVault** , anahtarları alır ve gizli diziler bir anahtar kasası Azure Stack'te.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure yığını aşağıdaki önkoşulları yükleyebilirsiniz [Geliştirme Seti](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), ya da Eğer bir Windows tabanlı dış istemciden [VPN üzerinden bağlı](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+Aşağıdaki önkoşulları yükleyebileceğiniz [Azure Stack geliştirme Seti'ni](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), ya da Eğer bir Windows tabanlı dış istemciden [VPN üzerinden bağlı](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
 * Yükleme [Azure Stack ile uyumlu Azure PowerShell modüllerini](azure-stack-powershell-install.md).
 * İndirme [Azure Stack ile çalışması için gereken araçları](azure-stack-powershell-download.md).
@@ -44,8 +44,8 @@ Azure yığını aşağıdaki önkoşulları yükleyebilirsiniz [Geliştirme Set
 
 Örnek uygulama için hazırlamak için Azure portalını veya PowerShell'i kullanabilirsiniz. Bu makalede, bir anahtar kasası oluşturma ve PowerShell kullanarak bir uygulamayı kaydetme işlemleri gösterilmektedir.
 
->[!NOTE]
->Varsayılan olarak, PowerShell Betiği Active Directory'de yeni bir uygulama oluşturur. Bununla birlikte, mevcut uygulamalarınızı birini kaydedebilirsiniz.
+> [!NOTE]
+> Varsayılan olarak, PowerShell Betiği Active Directory'de yeni bir uygulama oluşturur. Bununla birlikte, mevcut uygulamalarınızı birini kaydedebilirsiniz.
 
 Aşağıdaki komut dosyasını çalıştırmadan önce değerleri için sağladığınız emin olun `aadTenantName` ve `applicationPassword` değişkenleri. İçin bir değer belirtmezseniz `applicationPassword`, bu betik, rastgele bir parola oluşturur.
 
@@ -55,7 +55,7 @@ $resourceGroupName   = 'myResourceGroup'
 $applicationName     = 'myApp'
 $location            = 'local'
 
-# Password for the application. If not specified, this script will generate a random password during app creation.
+# Password for the application. If not specified, this script generates a random password during app creation.
 $applicationPassword = ''
 
 # Function to generate a random password for the application.
@@ -141,7 +141,7 @@ Aşağıdaki görüntüde, anahtar kasası oluşturmak için kullanılan komut d
 
 ![Anahtar kasası ile erişim tuşları](media/azure-stack-key-vault-sample-app/settingsoutput.png)
 
-Not **VaultUrl**, **AuthClientId**, ve **AuthClientSecret** önceki komut dosyası tarafından döndürülen değer. HelloKeyVault uygulamayı çalıştırmak için şu değerleri kullanın.
+Not **VaultUrl**, **AuthClientId**, ve **AuthClientSecret** önceki komut dosyası tarafından döndürülen değer. Bu değerleri çalıştırmak için kullandığınız **HelloKeyVault** uygulama.
 
 ## <a name="download-and-configure-the-sample-application"></a>İndirme ve örnek uygulamayı yapılandırma
 
@@ -149,30 +149,30 @@ Azure anahtar kasası örneği indirin [anahtar kasası istemci örnekleri](http
 
 Yüklenecek **HelloKeyVault** örnek:
 
-* Gözat **Microsoft.Azure.KeyVault.Samples** > **örnekleri** > **HelloKeyVault** klasör.
-* Açık **HelloKeyVault** Visual Studio'da uygulama.
+1. Gözat **Microsoft.Azure.KeyVault.Samples**, **örnekleri**, **HelloKeyVault** klasör.
+2. Açık **HelloKeyVault** Visual Studio'da uygulama.
 
 ### <a name="configure-the-sample-application"></a>Örnek uygulamayı yapılandırma
 
 Visual Studio'da:
 
-* HelloKeyVault\App.config dosyasını açın ve bulma &lt; **appSettings** &gt; öğesi.
-* Güncelleştirme **VaultUrl**, **AuthClientId**, ve **AuthClientSecret** anahtarlarla anahtar kasası oluşturmak için kullanılan olanlar tarafından döndürülen değerler. Varsayılan olarak, App.config dosyası için bir yer tutucu sahip `AuthCertThumbprint`. Bu yer tutucu ile değiştirin `AuthClientSecret`.
+1. HelloKeyVault\App.config dosyasını açın ve bulma `<appSettings>` öğesi.
+2. Güncelleştirme **VaultUrl**, **AuthClientId**, ve **AuthClientSecret** anahtarlarla anahtar kasası oluşturmak için kullanılan olanlar tarafından döndürülen değerler. Varsayılan olarak, App.config dosyası için bir yer tutucu sahip `AuthCertThumbprint`. Bu yer tutucu ile değiştirin `AuthClientSecret`.
 
-  ![Uygulama ayarları](media/azure-stack-key-vault-sample-app/appconfig.png)
+   ![Uygulama ayarları](media/azure-stack-key-vault-sample-app/appconfig.png)
 
-* Çözümü yeniden derleyin.
+3. Çözümü yeniden derleyin.
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-HelloKeyVault çalıştırdığınızda, uygulamanın Azure AD'ye açar ve sonra anahtar kasasına Azure Stack'te kimliğini doğrulamak için AuthClientSecret belirtecini kullanır.
+Çalıştırdığınızda **HelloKeyVault**, uygulamayı Azure AD'ye oturum açtığında ve ardından kullanır `AuthClientSecret` anahtar kasasına Azure Stack'te kimlik doğrulaması için belirteç.
 
-HelloKeyVault örneğe kullanabilirsiniz:
+Kullanabileceğiniz **HelloKeyVault** için örnek:
 
 * Anahtarları ve gizli anahtarları gibi oluştururken, şifrelemek, Kaydır ve silme temel işlemleri gerçekleştirin.
-* Gibi parametreler `encrypt` ve `decrypt` HelloKeyVault için ve bir anahtar kasasına belirtilen değişiklikleri uygulayın.
+* Gibi parametreler `encrypt` ve `decrypt` için **HelloKeyVault**, bir anahtar kasasına belirtilen değişiklikleri uygularsınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Anahtar Kasası parolası ile VM dağıtma](azure-stack-key-vault-deploy-vm-with-secret.md)
-- [Anahtar kasası sertifikası ile VM dağıtma](azure-stack-key-vault-push-secret-into-vm.md)
+* [Anahtar kasası parolası ile VM dağıtma](azure-stack-key-vault-deploy-vm-with-secret.md)
+* [Anahtar kasası sertifikası ile VM dağıtma](azure-stack-key-vault-push-secret-into-vm.md)

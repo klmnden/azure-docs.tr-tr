@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 27c1481314ba1dd77cdcf229842aeec7de3e4444
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b3e997a37bb5d030d559b6771b2c0e2f74cc62ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117464"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277706"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Azure disk şifrelemesi (ADE) etkinleştirilmiş sanal makineleri başka bir Azure bölgesine çoğaltma
 
@@ -148,7 +148,7 @@ Kullanabileceğiniz [betik](#copy-ade-keys-to-dr-region-using-powershell-script)
 Önceden oluşturulmuş bir anahtar kasası, hedef bölgede seçiyorsunuz yerine, Azure Site Recovery oluşturmak istiyorum. Emin Key vault gerektiriyor yukarıda da belirtildiği gibi izinleri.</br>
 *Örneğin*: Bir kullanıcı, bir anahtar kasası kaynak bölgede varsayalım "ContososourceKeyvault" olan bir VM'yi çoğaltma çalışın.
 Kullanıcının tüm kaynak bölge key vault izni ancak belirliyor koruma sırasında önceden oluşturulmuş bir anahtar kasası "koruması sonra hangi izne sahip olmayan ContosotargetKeyvault", bir hata oluşturur.</br>
-**Nasıl:** Gerekir "Giriş > Keyvaults > ContososourceKeyvault > erişim ilkeleri" yukarıda gösterildiği gibi izinleri ekleyin. 
+**Nasıl:** Gerekir "Giriş > Keyvaults > ContososourceKeyvault > erişim ilkeleri" yukarıda gösterildiği gibi izinleri ekleyin.
 
 **2. neden:** Önceden oluşturulmuş seçtiğiniz izinleri Keyvault decry sahip olmayan hedef bölgedeki pt-şifreleme.
 Önceden oluşturulmuş bir anahtar kasası, hedef bölgede seçiyorsunuz yerine, Azure Site Recovery oluşturmak istiyorum. Kullanıcı sahip olduğundan emin olun anahtarı çok kaynak bölgesi şifrelediğiniz durumunda izinleri şifresini çözme-şifreleme.</br>

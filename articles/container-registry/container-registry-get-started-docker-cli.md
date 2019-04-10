@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 180cbb9c31d14c36679bb84f92b3c9892ee3602d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2cb401dfd68075ff0867ae3f89eee3474000b5de
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011161"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282704"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI’yı kullanarak özel bir Dockler kapsayıcı kayıt defterine ilk görüntünüzü itme
 
@@ -25,7 +25,7 @@ Aşağıdaki adımlarda indirdiğiniz resmi [Nginx görüntüsü](https://store.
 ## <a name="prerequisites"></a>Önkoşullar
 
 * **Azure kapsayıcısı kayıt defteri** -Azure aboneliğinizde bir kapsayıcı kayıt defteri oluşturun. Örneğin, [Azure portalında](container-registry-get-started-portal.md) veya [Azure CLI](container-registry-get-started-azure-cli.md).
-* **Docker CLI** -ayrıca Docker yerel olarak yüklü olması gerekir. Docker herhangi [Macos'ta] [docker-mac], Docker'ı kolayca yapılandırmanızı paketler sağlar [Windows] [docker-windows] veya [Linux] [docker-linux] sistem.
+* **Docker CLI** -ayrıca Docker yerel olarak yüklü olması gerekir. Docker [macOS][docker-mac], [Windows][docker-windows] veya [Linux][docker-linux]'ta Docker'ı kolayca yapılandırmanızı sağlayan paketler sağlar.
 
 ## <a name="log-in-to-a-registry"></a>Kayıt defterinde oturum açma
 
@@ -126,6 +126,14 @@ az acr repository delete --name myregistry --image samples/nginx:latest
 
 Temel bilgileri artık bildiğinize göre defterinizi kullanmaya başlamaya hazırsınız! Örneğin, kayıt defterine kapsayıcı görüntüleri dağıtın:
 
-* [Azure Kubernetes Service'i (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Azure Kubernetes Hizmeti (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
+
+İsteğe bağlı olarak yükleme [Visual Studio Code için Docker uzantısını](https://code.visualstudio.com/docs/azure/docker) ve [Azure hesabı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) uzantısı, Azure kapsayıcısı kayıt defterleri ile çalışma. Çekme ve bir Azure container registry'ye görüntüleri gönderme veya Visual Studio Code içinde tüm ACR görevler çalıştırabilirsiniz.
+
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-windows]: https://docs.docker.com/docker-for-windows/

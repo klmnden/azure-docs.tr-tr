@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: f75236c826584d742fe3163a2fdac29c4030bf66
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 0bd8a7d403ad1fe0f7abb15356cc9c90ed6b3f02
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045807"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359430"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Sık sorulan sorular Service Fabric
 
@@ -136,7 +136,7 @@ Hayır. Düşük öncelikli VM'ler desteklenmez.
 Uygulamanız için KeyVault kimlik doğrulaması için kimlik bilgilerini almak için yol şunlardır:
 
 A. Derleme/paketleme işlemi sırasında uygulamalarınızı, bir sertifika SF uygulamanızın veri pakete çekme ve için KeyVault kimlik doğrulaması için bunu kullanın.
-B. MSI etkin konak sanal makine ölçek kümesi için bir basit PowerShell almak için SetupEntryPoint SF uygulamanız için geliştirebilirsiniz [MSI uç noktasından bir erişim belirteci](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), ardından [KeyVault, gizli dizilerini alma](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzureKeyVaultSecret)
+B. MSI etkin konak sanal makine ölçek kümesi için bir basit PowerShell almak için SetupEntryPoint SF uygulamanız için geliştirebilirsiniz [MSI uç noktasından bir erişim belirteci](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), ardından [KeyVault,gizlidizilerinialma](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Uygulama tasarımı
 

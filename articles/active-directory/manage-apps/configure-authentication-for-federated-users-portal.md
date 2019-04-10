@@ -1,6 +1,6 @@
 ---
 title: Oturum açma için otomatik hızlandırmayı bir giriş bölgesi bulma ilke kullanan bir uygulama için yapılandırma | Microsoft Docs
-description: Açıklayan bir Azure AD kiracısının ne olduğu ve Azure Active Directory aracılığıyla Azure'ı yönetme.
+description: Azure Active Directory kimlik doğrulaması için otomatik hızlandırmayı ve etki alanı ipuçları da dahil olmak üzere, Federasyon kullanıcıları için giriş bölgesi bulma ilke yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -11,19 +11,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2018
+ms.date: 04/08/2019
 ms.author: celested
+ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 333258ef9696e6dbe4aab5b10e815bb84428d425
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d82ccf7c2983051597ff634117be81311c4c78a9
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190271"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360942"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Bir giriş bölgesi bulma ilke kullanarak Azure Active Directory oturum davranışı bir uygulama için yapılandırma
 
-Aşağıdaki belge Federasyon kullanıcıları için Azure Active Directory kimlik doğrulama davranışı yapılandırmak için bir giriş sağlar.   Federasyon etki alanlarındaki kullanıcılar için otomatik hızlandırmayı ve kimlik doğrulama kısıtlamaları yapılandırılmasını kapsar.
+Bu makalede, Federasyon kullanıcıları için Azure Active Directory kimlik doğrulama davranışı yapılandırmak için bir giriş sağlar. Federasyon etki alanlarındaki kullanıcılar için otomatik hızlandırmayı ve kimlik doğrulama kısıtlamaları yapılandırılmasını kapsar.
 
 ## <a name="home-realm-discovery"></a>Giriş Bölgesi Bulma
 Giriş bölgesi bulma (HRD) oturum açma zaman Azure Active Directory'de (bir kullanıcının kimliğini doğrulamak gereken yere belirlemek için Azure AD) sağlayan işlemidir.  Bunlar, bir kullanıcı bir kaynağa erişmek için Azure AD kiracısı veya Azure AD genel oturum açma sayfasında oturum açtığında, kullanıcı adı (UPN) yazın. Azure AD, kullanıcının oturum açmak gereken yere bulmak için kullanır. 
@@ -210,7 +211,7 @@ Gereksinim duyduğunuz **objectID** ilkeyi atamak istediğiniz hizmet sorumlular
 
 Portalı kullanabilirsiniz veya sorgulayabilirsiniz [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ayrıca gidebilirsiniz [Graph Gezgini aracını](https://developer.microsoft.com/graph/graph-explorer) ve oturum açma için Azure AD hesabınız kuruluşunuzun tüm hizmet sorumlularını görmek için. PowerShell kullanıldığı için hizmet sorumlularını ve kimliklerini listelemek için get-azureadserviceprincipal cmdlet'ini cmdlet'ini kullanabilirsiniz.
 
-#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>3. Adım: Hizmet sorumlunuzu ilke atama  
+#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>3. adım: Hizmet sorumlunuzu ilke atama  
 Sonra **objectID** otomatik hızlandırmayı yapılandırmak istediğiniz uygulama hizmet sorumlusu, aşağıdaki komutu çalıştırın. Bu komut, 2. adımda bulduğunuz hizmet sorumlusu ile 1. adımda oluşturduğunuz HRD İlkesi'ni ilişkilendirir.
 
 ``` powershell
@@ -256,7 +257,7 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
-#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>3. Adım: Temizleme İlkesi atandığı hizmet sorumlularını listeleyerek kontrol edin. 
+#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>3. adım: Temizleme İlkesi atandığı hizmet sorumlularını listeleyerek kontrol edin. 
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>

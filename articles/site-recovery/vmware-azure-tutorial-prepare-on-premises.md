@@ -9,32 +9,34 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 739f1a9a3a75123c0273dc958b4ba1fd7231f3c3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 1095a80ba05aa3e0ae6dfcd526db7ffd18fb9d4d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268628"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359377"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Şirket içi VMware sunucularını Azure’a olağanüstü durum kurtarmaya hazırlama
 
-[Azure Site Recovery](site-recovery-overview.md), planlı ve plansız kesintiler sırasında iş uygulamalarınızı çalışır durumda tutarak, iş sürekliliğinize ve olağanüstü durum kurtarma (BCDR) stratejinize katkıda bulunur. Site Recovery, şirket içi makinelerin ve Azure sanal makinelerinin çoğaltma, yük devretme ve kurtarma gibi olağanüstü durum kurtarma işlemlerini yönetir ve düzenler.
+Bu makalede şirket içi VMware sunucularını kullanılarak Azure'a olağanüstü durum kurtarma için hazırlamak üzere nasıl [Azure Site Recovery](site-recovery-overview.md) Hizmetleri. 
 
-- Bu, şirket içi VMware sanal makineleri için Azure’da olağanüstü durum kurtarmanın nasıl ayarlanacağını gösteren serideki ikinci öğreticidir. Birinci öğreticide, VMware olağanüstü durum kurtarma için gerekli [Azure bileşenlerini ayarladık](tutorial-prepare-azure.md).
+Bu, şirket içi VMware sanal makineleri için Azure’da olağanüstü durum kurtarmanın nasıl ayarlanacağını gösteren serideki ikinci öğreticidir. Birinci öğreticide, VMware olağanüstü durum kurtarma için gerekli [Azure bileşenlerini ayarladık](tutorial-prepare-azure.md).
 
 
-> [!NOTE]
-> Öğreticiler, bir senaryo için en basit dağıtım yolunu size göstermek için tasarlanmıştır. Mümkün olduğunca varsayılan seçenekleri kullanır ve tüm olası ayarları ve yolları göstermez. Ayrıntılı yönergeler için ilgili senaryonun **Nasıl Yapılır** bölümüne başvurun.
-
-Bu makalede, Azure Site Recovery kullanarak VMware VM'lerini Azure'a çoğaltmak istediğinizde şirket içi VMware ortamınızı nasıl hazırlayacağınızı gösteriyoruz. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
-> * VM bulmayı otomatikleştirmek için vCenter sunucusunda veya vSphere ESXi ana bilgisayarında bir hesap hazırlama
-> * VMware VM’lerinde Mobility hizmetini otomatik olarak yüklemek için bir hesap hazırlama
-> * VMware sunucu ve VM gereksinimlerini gözden geçirme
-> * Yük devretmeden sonra Azure VM'lerine bağlanmak için hazırlık yapma
+> * VM bulmayı otomatikleştirmek için vCenter sunucusunda veya vSphere ESXi konağına, bir hesap hazırlayın.
+> * VMware vm'lerinde Mobility hizmetini otomatik olarak yüklemek için bir hesap hazırlama.
+> * VMware sunucusu ve sanal makine gereksinimleri ve desteğini gözden geçirin.
+> * Yük devretmeden sonra Azure Vm'lerine bağlanmak hazırlayın.
 
+> [!NOTE]
+> Öğreticiler bir senaryo için en basit dağıtım yolu gösterir. Mümkün olduğunca varsayılan seçenekleri kullanır ve tüm olası ayarları ve yolları göstermez. Ayrıntılı yönergeler için Site Recovery İçindekiler bölümünde nasıl yapılır makalesine gözden geçirin.
 
+## <a name="before-you-start"></a>Başlamadan önce
+
+Emin hazırladığınız Azure açıklandığı [bu serideki ilk öğreticide](tutorial-prepare-azure.md).
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Otomatik bulma için bir hesap hazırlama
 
@@ -107,13 +109,13 @@ Yük devretmeden sonra SSH kullanarak Linux VM’lerine bağlanmak için aşağ�
 
 
 ## <a name="failback-requirements"></a>Yeniden çalışma gereksinimleri
-Yeniden şirket içi için başarısız planlıyorsanız, ayrıca emin olmak ihtiyacınız olan belirli [önkoşulların karşılandığından](vmware-azure-reprotect.md##before-you-begin). Ancak bu önkoşullar VM’lerinizde **olağanüstü durum kurtarmayı etkinleştirmeye başlamak için gerekli değildir** ve Azure’a yük devretme sonrasında da yapılabilir.
+Şirket içi sitede yeniden çalıştırmak planlıyorsanız, bir dizi vardır [yeniden çalışma için Önkoşullar](vmware-azure-reprotect.md##before-you-begin). Bunlar artık hazırlayabilirsiniz, ancak gerek yoktur. Azure'a yük devretme sonra hazırlayabilirsiniz.
 
-## <a name="useful-links"></a>Yararlı bağlantılar
 
-Birden çok VM'yi çoğaltıyorsanız, başlamadan önce bir kapasite ve dağıtım planlamanız gerekir. [Daha fazla bilgi edinin](site-recovery-deployment-planner.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+Olağanüstü durum kurtarmayı ayarlayın. Birden çok VM'yi çoğaltıyorsanız, kapasite planlama.
 > [!div class="nextstepaction"]
-> [VMware Vm'leri için Azure'da olağanüstü durum kurtarmayı ayarlama](vmware-azure-tutorial.md)
+> [VMware Vm'leri için Azure'da olağanüstü durum kurtarma ayarlama](vmware-azure-tutorial.md)
+> [kapasite planlaması gerçekleştirmek](site-recovery-deployment-planner.md).

@@ -1,23 +1,29 @@
 ---
-title: Azure portal - Azure Search kullanarak dizin oluşturma ve sorgulama hızlı başlangıç Öğreticisi
-description: Derleme ve Azure portalında yerleşik örnek veriler ve verileri İçeri Aktarma Sihirbazı'nı kullanarak Azure Search'te ilk dizininizi sorgulama hakkında bilgi edinin.
+title: 'Hızlı Başlangıç: Oluşturma, yüklemek ve Azure portalı - Azure Search dizini sorgulama'
+description: Derleme ve Azure portalında yerleşik örnek veriler ve verileri İçeri Aktarma Sihirbazı'nı kullanarak Azure Search'te ilk dizininizi sorgulama.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 85fc8a42f5220aa8f05495aa260d05ce009884f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137836"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282670"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Hızlı Başlangıç: Azure Search içeri aktarma, dizin oluşturma ve sorgular için yerleşik portal araçlarını kullanma
+> [!div class="op_single_selector"]
+> * [Portal](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Postman](search-fiddler.md)
+> * [C#](search-create-index-dotnet.md)
+>*
 
 Bir hızlı mvc'deki için Azure Search kavramları, Azure portalında yerleşik araçları deneyebilirsiniz. Sihirbazlar ve düzenleyicileri .NET ve REST API'leri ile tam eşlik sağlamaz, ancak hızlı bir şekilde kod gerektirmeyen bir giriş, dakika içinde örnek veriler ilgi çekici sorguları yazma başlayabilirsiniz.
 
@@ -222,7 +228,7 @@ Model filtreleri arama isteklerine dahil edilir. Sağladığınız model değeri
 
 ### <a name="fuzzy-search"></a> Belirsiz aramayı deneme
 
-Varsayılan olarak Seattle bölgesindeki Samammish platosu yerine *samamish* yazılması örneğindeki gibi yazım hatası yapılan sorgu terimleri için normal aramalarda bir eşleşme döndürülmez. Aşağıdaki örnek sonuç döndürmez.
+Varsayılan olarak, sorgu terimleri gibi yazım *samamish* Seattle alanında Sammamish Plato için tipik aramada eşleşen döndüremeyen. Aşağıdaki örnek sonuç döndürmez.
 
 #### <a name="example-misspelled-term-unhandled-searchsamamish"></a>Örnek (yanlış yazılmış terim, işlenmiyor): `search=samamish`
 

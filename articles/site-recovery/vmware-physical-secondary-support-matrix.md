@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 12/31/2018
+ms.date: 04/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2f70a180afcc8eda5d43356c3f4f96b25292c6d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b316d6a8293d9f23eb89e8b6fffedac316759df4
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088936"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360151"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware Vm'lerini ve fiziksel sunucuları ikincil bir siteye olağanüstü durum kurtarma için destek matrisi
 
@@ -55,7 +55,7 @@ Yalnızca Linux makineleri aşağıdaki depolama ile çoğaltılmış olabilir:
 
 ## <a name="network-configuration---hostguest-vm"></a>Ağ yapılandırması - konak/Konuk VM
 
-**Yapılandırma** | **Destekleniyor**  
+**Yapılandırma** | **Desteklenen**  
 --- | --- 
 -Konak NIC ekibi oluşturma | Evet 
 Host - VLAN | Evet 
@@ -68,24 +68,24 @@ Konuk VM Windows/Linux - statik IP adresi | Evet
 Konuk VM - Multi-NIC | Evet
 
 
-## <a name="storage"></a>Depolama
+## <a name="storage"></a>Depolama alanı
 
 ### <a name="host-storage"></a>Konak depolama alanı
 
-**Depolama (ana bilgisayarı)** | **Destekleniyor** 
+**Depolama (ana bilgisayarı)** | **Desteklenen** 
 --- | --- 
 NFS | Evet 
-SMB 3.0 | Yok 
+SMB 3.0 | YOK 
 SAN (İSCSI) | Evet 
 Çok yollu (MPIO) | Evet 
 
 ### <a name="guest-or-physical-server-storage"></a>Konuk veya fiziksel sunucu depolama
 
-**Yapılandırma** | **Destekleniyor** 
+**Yapılandırma** | **Desteklenen** 
 --- | --- 
 VMDK | Evet 
-VHD/VHDX | Yok 
-Gen 2 VM | Yok 
+VHD/VHDX | YOK 
+Gen 2 VM | YOK 
 Küme diski paylaşılan | Evet 
 Şifrelenmiş diski | Hayır 
 UEFI| Evet 
@@ -97,11 +97,11 @@ Bölüştürülmüş bir disk > 1 TB birim<br/><br/> LVM | Evet
 Depolama alanları | Hayır 
 Sık erişimli Ekle/Kaldır disk | Evet 
 Diski hariç tutma | Evet 
-Çok yollu (MPIO) | Yok 
+Çok yollu (MPIO) | YOK 
 
 ## <a name="vaults"></a>Kasalar
 
-**Eylem** | **Destekleniyor** 
+**Eylem** | **Desteklenen** 
 --- | --- 
 Kasa (içinde veya abonelikler arasında) kaynak grupları arasında taşıma | Hayır 
 Depolama, ağ, Azure Vm'leri (içinde veya abonelikler arasında) kaynak grupları arasında taşıma | Hayır 
@@ -110,7 +110,7 @@ Depolama, ağ, Azure Vm'leri (içinde veya abonelikler arasında) kaynak gruplar
 
 Mobility hizmeti, şirket içi VMware sunucularını veya fiziksel sunucuları ve ikincil site arasında çoğaltma düzenler. Çoğaltma ayarlamadan, Mobility hizmetinin ve diğer bileşenlerin en son sürümü kullandığınızdan emin olmanız gerekir.
 
-| **Güncelleştirme** | **Ayrıntılar** |
+| **Güncelleştir** | **Ayrıntılar** |
 | --- | --- |
 |Scout güncelleştirmeleri | Scout güncelleştirmeleri birikmeli özelliktedir. <br/><br/> [Öğrenin ve indirin](vmware-physical-secondary-disaster-recovery.md#updates) Scout Haberleri |
 |Bileşen güncelleştirmeleri | Scout güncelleştirmeleri RX sunucu, yapılandırma sunucusu, işlem ve ana hedef sunucular, vContinuum sunucuları ve korumak istediğiniz kaynak sunucular da dahil olmak üzere tüm bileşenler için güncelleştirmeleri içerir.<br/><br/> [Daha fazla bilgi edinin](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|

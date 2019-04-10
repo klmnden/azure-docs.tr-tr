@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 43406aee8d2e350b82659156bb2837e952fd4a92
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 1e550002948fc1320b8645bf1af635536d524fe6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057045"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282398"
 ---
 # <a name="add-a-shape-to-a-map"></a>Şekil Haritası ekleme
 
@@ -35,7 +35,7 @@ Yukarıdaki kod içindeki kod ilk bloğunu bir harita nesnesi oluşturur. Görd�
 
 İkinci kod bloğu içinde bir veri kaynağı nesnesi kullanılarak oluşturulan [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sınıfı. A [LineString](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.linestring?view=azure-iot-typescript-latest) nesne oluşturulur ve veri kaynağına eklenir.
 
-A [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) işler satır içinde sarmalanmış nesneleri [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Son kod bloğunu oluşturur ve bir çizgi katmanı haritaya ekler. Bir satır katmanında özelliklerini görmek [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). Veri kaynağı ve çizgi katmanı oluşturulur ve eşlemesine eklenen [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) işlev eşlemesi tam olarak yüklendikten sonra satırı görüntülendiğinden emin olun.
+A [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) işler satır içinde sarmalanmış nesneleri [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Son kod bloğunu oluşturur ve bir çizgi katmanı haritaya ekler. Bir satır katmanında özelliklerini görmek [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). Veri kaynağı ve çizgi katmanı oluşturulur ve eşlemesine eklenen [olay işleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) harita tamamen yüklendikten sonra satır görüntülendiğinden emin olmak için.
 
 ### <a name="add-symbols-along-a-line"></a>Bir çizgi simgeleri ekleme
 
@@ -49,7 +49,7 @@ Kalem bkz <a href='https://codepen.io/azuremaps/pen/drBJwX/'>satır boyunca Show
 
 ### <a name="line-stroke-gradient"></a> Bir vuruş gradyan için bir satır ekleyin
 
-Bir satır için bir tek bir vuruş rengi uygulayabilmeniz için olmasının yanı sıra bir satır ile sonraki bir doğru parçası durumundan gösterilecek renkler bir gradyan da doldurabilirsiniz. Örneğin, satır gradyanlar değişiklikleri saat ve uzaklık veya farklı Sıcaklıkların nesnelerin bağlı satır boyunca temsil etmek için kullanılabilir. Bir satır için bu özelliği uygulamak için veri kaynağı olmalıdır `lineMetrics` seçeneğini true olarak ayarlanmış ve bir renk gradyanı ifadesi ardından geçirilebilir `strokeColor` satırı seçeneği. Gradyan fırça darbesi ifade zorunda başvuru `['line-progress']` veri ifadesi, bir ifade hesaplanan satırı ölçümleri sunar.
+Bir satır için bir tek bir vuruş rengi uygulayabilmeniz için olmasının yanı sıra bir satır ile sonraki bir doğru parçası durumundan gösterilecek renkler bir gradyan da doldurabilirsiniz. Örneğin, satır gradyanlar değişiklikleri saat ve uzaklık veya farklı Sıcaklıkların nesnelerin bağlı satır boyunca temsil etmek için kullanılabilir. Bir satır için bu özelliği uygulamak için veri kaynağı olmalıdır `lineMetrics` seçeneğini true olarak ayarlanmış ve bir renk gradyanı ifadesi ardından geçirilebilir `strokeColor` satırı seçeneği. Gradyan fırça darbesi ifade zorunda başvuru `['line-progress']` ifade hesaplanan satırı ölçümleri gösteren veri ifadesi.
 
 <br/>
 
@@ -83,7 +83,7 @@ Yukarıdaki kod, kod bloğunun ilk harita nesnesi oluşturur. Gördüğünüz [b
 
 İkinci kod bloğu içinde bir veri kaynağı nesnesi kullanılarak oluşturulan [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sınıfı. A [Çokgen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon?view=azure-iot-typescript-latest) koordinatları dizisinden oluşturulur ve veri kaynağına eklendi. 
 
-A [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) sarmalanmış veri işler [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) harita üzerinde. Son kod bloğunu oluşturur ve bir Çokgen katmanı haritaya ekler. Bir çokgenin katmanında özelliklerini görmek [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). Veri kaynağı Çokgen katmanı oluşturulur ve eşlemesine eklenen [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) işlevini Çokgen harita tamamen yüklendikten sonra görüntülendiğinden emin olun.
+A [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) sarmalanmış veri işler [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) harita üzerinde. Son kod bloğunu oluşturur ve bir Çokgen katmanı haritaya ekler. Bir çokgenin katmanında özelliklerini görmek [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). Veri kaynağı Çokgen katmanı oluşturulur ve eşlemesine eklenen [olay işleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) Çokgen harita tamamen yüklendikten sonra görüntülendiğinden emin olmak için.
 
 ### <a name="use-a-polygon-and-line-layer-together"></a>Çokgen ve çizgi katmanı birlikte kullanın
 
@@ -98,7 +98,7 @@ Yukarıdaki kod, kod bloğunun ilk harita nesnesi oluşturur. Gördüğünüz [b
 
 A [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) sarmalanmış veri işler [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) harita üzerinde. Bir çokgenin katmanında özelliklerini görmek [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). A [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) satırları dizisidir. Bir satır katmanında özelliklerini görmek [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). Çokgen ve çizgi katmanları üçüncü kod bloğu oluşturur.
 
-Son kod bloğunu haritaya Çokgen ve çizgi katmanları ekler. Veri kaynağı katmanları oluşturulur ve eşlemesine eklenen [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) işlevini Çokgen harita tamamen yüklendikten sonra görüntülendiğinden emin olun.
+Son kod bloğunu haritaya Çokgen ve çizgi katmanları ekler. Veri kaynağı katmanları oluşturulur ve eşlemesine eklenen [olay işleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) Çokgen harita tamamen yüklendikten sonra görüntülendiğinden emin olmak için.
 
 > [!TIP]
 > Varsayılan olarak çizgi katmanları çokgenler yanı sıra veri kaynağındaki satırı koordinatlarını işlenir. Özellikleri ayarlama katmanı yalnızca LineString işler gibi sınırlamak için `filter` katmana özelliği `['==', ['geometry-type'], 'LineString']` veya `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` MultiLineString özellikleri de dahil etmek istiyorsanız.
@@ -126,7 +126,7 @@ Kalem bkz <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>çokgenin dolgu des
 
 ## <a name="add-a-circle-to-the-map"></a>Haritayı bir daire ekleyin
 
-Azure haritalar kullanan bir genişletilmiş belirtildiği gibi daireler için bir tanım sağlayan GeoJSON şema sürümü [burada](extend-geojson.md#circle). Oluşturarak, bir daire harita üzerinde işlenebilecek bir `Point` olan özellik bir `subType` özellik değeriyle `Circle` ve `radius` ölçümleri de radius temsil eden bir sayı olan özelliği. Örneğin:
+Azure haritalar kullanan bir genişletilmiş belirtildiği gibi daireler için bir tanım sağlayan GeoJSON şema sürümü [burada](extend-geojson.md#circle). Oluşturarak, bir daire harita üzerinde işlenebilecek bir `Point` olan özellik bir `subType` özellik değeriyle `"Circle"` ve `radius` ölçümleri de radius temsil eden sayı olan özelliği. Örneğin:
 
 ```javascript
 {
@@ -149,9 +149,9 @@ Azure haritalar Web SDK'sı bunlar dönüştürür `Pooint` içine özellikleri 
 
 Yukarıdaki kod içindeki kod ilk bloğunu bir harita nesnesi oluşturur. Gördüğünüz [bir harita oluşturmak](./map-create.md) yönergeler için.
 
-İkinci kod bloğu içinde bir veri kaynağı nesnesi kullanılarak oluşturulan [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sınıfı. Bir daire olduğu bir [özellik](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) , [noktası](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) ve bir `subType` özellik kümesine "daire" ve `radius` özellik değeri ölçümleri. Bir veri kaynağı için alt dairenin noktası özelliğiyle eklendiğinde, bu, döngüsel bir Çokgen harita içinde dönüştürür.
+İkinci kod bloğu içinde bir veri kaynağı nesnesi kullanılarak oluşturulan [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sınıfı. Bir daire olduğu bir [özellik](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) , [noktası](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) ve bir `subType` özelliğini `"Circle"` ve `radius` ölçümleri özellik değeri. Noktası özelliği ile bir `subType` , `"Circle"` eklenen bir veri kaynağı için döngüsel bir Çokgen harita içinde içine dönüştürülür.
 
-A [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) sarmalanmış veri işler [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) harita üzerinde. Son kod bloğunu oluşturur ve bir Çokgen katmanı haritaya ekler. Bir çokgenin katmanında özelliklerini görmek [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). Veri kaynağı Çokgen katmanı oluşturulur ve eşlemesine eklenen [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) işlev eşlemesi tam olarak yüklendikten sonra dairenin görüntülendiğinden emin olun.
+A [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) sarmalanmış veri işler [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) harita üzerinde. Son kod bloğunu oluşturur ve bir Çokgen katmanı haritaya ekler. Bir çokgenin katmanında özelliklerini görmek [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). Veri kaynağı Çokgen katmanı oluşturulur ve eşlemesine eklenen [olay işleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) daire harita tamamen yüklendikten sonra görüntülendiğinden emin olmak için.
 
 ## <a name="make-a-geometry-easy-to-update"></a>Geometri güncelleştirmek kolay hale getirir
 
@@ -171,14 +171,11 @@ Bir nokta bir [özellik](https://docs.microsoft.com/javascript/api/azure-maps-co
 
 Dördüncü kod bloğu içinde bir veri kaynağı nesnesi kullanılarak oluşturulan [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sınıfı. Noktadan sonra veri kaynağı eklenir.
 
-A [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) sarmalanmış veri işler [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) harita üzerinde. Çokgen katmanı üçüncü kod bloğu oluşturur. Bir çokgenin katmanında özelliklerini görmek [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). Veri kaynağı, click olay dinleyicisi ve Çokgen katmanı oluşturulur ve eşlemesine eklenen [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) işlev eşlemesi tam olarak yüklendikten sonra noktası görüntülendiğinden emin olun.
+A [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) sarmalanmış veri işler [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) harita üzerinde. Çokgen katmanı üçüncü kod bloğu oluşturur. Bir çokgenin katmanında özelliklerini görmek [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). Veri kaynağı ve click olay hanlder Çokgen katmanı oluşturulur ve eşlemesine eklenen [olay işleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) harita tamamen yüklendikten sonra noktası görüntülendiğinden emin olmak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Eşlenir eklemek daha fazla kod örnekleri için aşağıdaki makalelere bakın:
 
 > [!div class="nextstepaction"]
-> [HTML işaretçileri](./map-add-custom-html.md)
-
-> [!div class="nextstepaction"]
-> [Isı haritası katmanı ekleme](./map-add-heat-map-layer.md)
+> [Veri odaklı stili ifadeleri kullanma](data-driven-style-expressions-web-sdk.md)

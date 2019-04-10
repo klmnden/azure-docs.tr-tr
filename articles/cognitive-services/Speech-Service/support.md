@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: c403bca3abf493448265e25316babe20ea9c8544
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272029"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358057"
 ---
 # <a name="support-and-help-options"></a>Destek ve Yardım seçenekleri
 
@@ -35,9 +35,9 @@ Bilişsel hizmetler ile ilgili Haberler toplanır [Bilişsel hizmetler blogu](ht
 
 ## <a name="release-notes"></a>Sürüm notları
 
-[Sürüm notlarını]] (https://aka.ms/csspeech/whatsnew) yeni bir sürümü kullanıma hazır olarak güncelleştirilir. Notları yeni özellikler, iyileştirmeler ve hata düzeltmeleri hakkında bilgi içerir.
+[Sürüm notları](https://aka.ms/csspeech/whatsnew) yeni bir sürümü kullanıma hazır olarak güncelleştirilir. Notları yeni özellikler, iyileştirmeler ve hata düzeltmeleri hakkında bilgi içerir.
 
-## <a name="search"></a>Arama
+## <a name="search"></a>Ara
 
 Belgeler, örnekler, gereksinim duyduğunuz yanıt bulabilir veya yanıtlarını [Stack Overflow](https://www.stackoverflow.com) sorular veya örnekleri.
 
@@ -55,7 +55,7 @@ Burada *{Your arama terimlerini}* arama anahtar sözcüklerinizi olduğu.
 
 Azure müşterileri, oluşturun ve Azure portalında destek isteklerini yönetin.
 
-* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure portalı](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Amerika Birleşik Devletleri kamu için Azure portalı](https://portal.azure.us)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Stack Overflow için bir soru gönderin

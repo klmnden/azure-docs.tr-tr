@@ -7,14 +7,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: f4da0a4672bc50688d0a25bbd2db1f3be984ee8b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 58e360bb355c7faf9608b00dd65b14f27aca4367
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821397"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358058"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Active Directory ve DNS için olağanüstü durum kurtarmayı ayarlayın
 
@@ -106,9 +106,9 @@ Yük devretme testi başlattığınızda, tüm etki alanı denetleyicileri test 
 Windows Server 2012 ile başlayan [ek güvenlik önlemleri, Active Directory etki alanı Hizmetleri (AD DS) içinde yerleşiktir](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). Bu korumalar temel alınan hiper yönetici platformuna destekliyorsa, sanallaştırılmış etki alanı denetleyicilerinde USN geri alma işlemleri korumak **VM-Generationıd**. Azure'un destekledikleri **VM-Generationıd**. Bu nedenle, Windows Server 2012 veya daha sonra Azure sanal makineleri çalıştıran etki alanı denetleyicilerinin bu ek korumalar vardır.
 
 
-Zaman **VM-Generationıd** sıfırlama, **Invocationıd** AD DS veritabanını değerini de sıfırlanır. Ayrıca, RID havuzu atılır ve SYSVOL yetkilendirmesiz olarak işaretlenir. Daha fazla bilgi için [Active Directory Domain Services sanallaştırma giriş](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) ve [güvenli bir şekilde DFSR sanallaştırılma](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
+Zaman **VM-Generationıd** sıfırlama, **Invocationıd** AD DS veritabanını değerini de sıfırlanır. Ayrıca, RID havuzu atılır ve sysvol klasörünü yetkisiz olarak işaretlenir. Daha fazla bilgi için [Active Directory Domain Services sanallaştırma giriş](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) ve [güvenli bir şekilde DFSR sanallaştırılma](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
 
-Azure'a yük devretme neden olabilecek **VM-Generationıd** sıfırlanır. Sıfırlama **VM-Generationıd** etki alanı denetleyicisi sanal makinesini Azure'da başladığında ek korumalarını tetikler. Bu neden bir *önemli gecikmeye* de olan etki alanı denetleyicisi sanal makineye oturum açamaz.
+Azure'a yük devretme neden olabilecek **VM-Generationıd** sıfırlanır. Sıfırlama **VM-Generationıd** etki alanı denetleyicisi sanal makinesini Azure'da başladığında ek korumalarını tetikler. Bu neden bir *önemli gecikmeye* de olan etki alanı denetleyicisi sanal makineye oturum açabilir.
 
 Bu etki alanı denetleyicisi yalnızca bir sınama yük devretme kümesinde kullanıldığından, sanallaştırma korumalarını gerekli değildir. Emin olmak için **VM-Generationıd** etki alanı denetleyicisi sanal makinesini değerini değiştirmez, için aşağıdaki DWORD değerini değiştirebilirsiniz **4** şirket içi etki alanı denetleyicisinde:
 
@@ -128,11 +128,11 @@ Yük devretme testinden sonra sanallaştırma korumaları tetiklenir, bir veya d
 
     ![Çağırma kimliği değişikliği](./media/site-recovery-active-directory/Event1109.png)
 
-* SYSVOL ve NETLOGON paylaşımları kullanılamıyor.
+* Klasör SYSVOL ve NETLOGON paylaşımları kullanılamıyor.
 
-    ![SYSVOL paylaşımı](./media/site-recovery-active-directory/sysvolshare.png)
+    ![Sysvol klasörünü paylaş](./media/site-recovery-active-directory/sysvolshare.png)
 
-    ![NtFrs SYSVOL](./media/site-recovery-active-directory/Event13565.png)
+    ![NtFrs sysvol klasörü](./media/site-recovery-active-directory/Event13565.png)
 
 * DFSR veritabanlarını silinir.
 
@@ -146,7 +146,7 @@ Yük devretme testinden sonra sanallaştırma korumaları tetiklenir, bir veya d
 >
 >
 
-1. Komut isteminde, paylaşılan klasörleri SYSVOL ve NETLOGON olup olmadığını denetlemek için aşağıdaki komutu çalıştırın:
+1. Komut isteminde sysvol ve NETLOGON klasörlerini paylaşılan olup olmadığını denetlemek için aşağıdaki komutu çalıştırın:
 
     `NET SHARE`
 
@@ -166,7 +166,7 @@ Yük devretme testinden sonra sanallaştırma korumaları tetiklenir, bir veya d
     * Önermemekteyiz rağmen [FRS çoğaltma](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), FRS çoğaltma kullanıyorsanız, yetkisiz bir geri yükleme adımlarını izleyin. İşlem açıklanan [dosya çoğaltma hizmeti yeniden başlatmak için BurFlags kayıt defteri anahtarını kullanarak](https://support.microsoft.com/kb/290762).
 
         BurFlags hakkında daha fazla bilgi için blog gönderisine bakın [D2 ve D4: Ne işe yarar? ](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-    * DFSR çoğaltma kullanırsanız, yetkisiz bir geri yükleme adımlarını tamamlayın. İşlem açıklanan [DFSR ile çoğaltılan SYSVOL (örneğin, "D4/D2" FRS için) için yetkilendirmeli ve yetkilendirmesiz bir eşitleme zorla](https://support.microsoft.com/kb/2218556).
+    * DFSR çoğaltma kullanırsanız, yetkisiz bir geri yükleme adımlarını tamamlayın. İşlem açıklanan [DFSR ile çoğaltılan sysvol klasörü (örneğin, "D4/D2" FRS için) için yetkilendirmeli ve yetkilendirmesiz bir eşitlemeyi zorlayarak](https://support.microsoft.com/kb/2218556).
 
         PowerShell işlevleri de kullanabilirsiniz. Daha fazla bilgi için [SYSVOL DFSR yetkili/yetkili olmayan geri yükleme PowerShell işlevleri](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
 

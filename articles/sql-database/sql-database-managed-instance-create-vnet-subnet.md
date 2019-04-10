@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: d2a9c29733c42cf9753ce48b2a37a83fb8dda30d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5e8b385d018482d281153f1cf80f9953cb8c7f06
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993061"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357833"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği için bir sanal ağ oluşturma
 
@@ -35,7 +35,7 @@ Azure SQL veritabanı yönetilen örneği, bir Azure dağıtılmalıdır [sanal 
 >
 > Mevcut bir sanal ağı kullanmayı planlıyorsanız, yönetilen Örneğinize uyum sağlamak için bu ağ yapılandırmasını değiştirmeniz gerekir. Daha fazla bilgi için [yönetilen örneği için bir sanal ağınız değiştirme](sql-database-managed-instance-configure-vnet-subnet.md).
 
-## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
+## <a name="create-a-virtual-network"></a>Sanal ağ oluştur
 
 Oluşturma ve bir sanal ağ yapılandırma en kolay yolu, bir Azure Resource Manager dağıtım şablonu kullanmaktır.
 

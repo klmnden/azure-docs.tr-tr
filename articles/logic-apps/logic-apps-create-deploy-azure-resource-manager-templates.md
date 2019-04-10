@@ -10,20 +10,20 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 7543859a916de97d471db2894887e640db51dfc2
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: bbb10bf0174b6e06e28d171510345ed92b6642d9
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893433"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357115"
 ---
 # <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile mantıksal uygulamaları dağıtma
 
 Mantıksal uygulamanızın dağıtılacağı bir Azure Resource Manager şablonu oluşturduktan sonra şablonunuzu bu yolla dağıtabilirsiniz:
 
-* [Azure portal](#portal)
+* [Azure portalı](#portal)
 * [Azure PowerShell](#powershell)
-* [Azure CLI](#cli)
+* [Azure CLI'si](#cli)
 * [Azure Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 * [Azure DevOps Azure işlem hatları](#azure-pipelines)
 
@@ -68,7 +68,7 @@ New-AzDeployment -Location <location> -TemplateUri https://raw.githubusercontent
 
 * [Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 * [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
-* [`New-AzDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azdeployment)
+* [`New-AzDeployment`](/powershell/module/az.resources/new-azdeployment)
 
 <a name="cli"></a>
 

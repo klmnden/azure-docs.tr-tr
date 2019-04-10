@@ -9,25 +9,25 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f7e31c9e153f25faae9224f04eabf5ca54bb06b4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7db9c6400ac7d235153a59965e34e30d9b809a81
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759228"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359704"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Azure SQL veritabanı nasıl kullanılır
 
 Bu bölümde çeşitli kılavuzları, betikleri ve Azure SQL veritabanınızı yönetip yardımcı olabilecek açıklamalar bulabilirsiniz. Belirli nasıl yapılır kılavuzlarını da bulabilirsiniz [tek veritabanı](sql-database-howto-single-database.md) ve [yönetilen örneği](sql-database-howto-managed-instance.md).
 
-## <a name="load-data"></a>Veri yükleme
+## <a name="load-data"></a>Verileri yükleyin
 
 - [Tek veritabanı veya Azure içinde havuza veritabanı kopyalama](sql-database-copy.md)
-- [Veritabanını BACPAC içeri aktarma](sql-database-import.md)
-- [Bir veritabanını BACPAC için dışarı aktarma](sql-database-export.md)
+- [BACPAC’ten veritabanını içeri aktarma](sql-database-import.md)
+- [Veritabanını BACPAC’e dışarı aktarma](sql-database-export.md)
 - [BCP ile veri yükleme](sql-database-load-from-csv-with-bcp.md)
 - [ADF ile veri yükleme](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 
@@ -35,19 +35,19 @@ Bu bölümde çeşitli kılavuzları, betikleri ve Azure SQL veritabanınızı y
 
 - [SQL Data Sync](sql-database-sync-data.md)
 - [Veri Eşitleme Aracısı](sql-database-data-sync-agent.md)
-- [Şema değişikliklerini çoğaltın](sql-database-update-sync-schema.md)
+- [Şema değişikliklerini çoğaltma](sql-database-update-sync-schema.md)
 - [OMS ile izleme](sql-database-sync-monitor-oms.md)
-- [Data Sync için en iyi uygulamalar](sql-database-best-practices-data-sync.md)
-- [Data Sync sorunlarını giderme](sql-database-troubleshoot-data-sync.md)
+- [Data Sync için en iyi deneyimler](sql-database-best-practices-data-sync.md)
+- [Data Sync’de sorun giderme](sql-database-troubleshoot-data-sync.md)
 
 ## <a name="monitoring-and-tuning"></a>İzleme ve ayarlama
 
 - [El ile ayarlama](sql-database-performance-guidance.md)
-- [Performansını izlemek için Dmv'leri kullanma](sql-database-monitoring-with-dmvs.md)
-- [Sorgu deposu performansını izlemek için kullanın](sql-database-operate-query-store.md)
-- [Intelligent Insights ile performans sorunlarını giderme](sql-database-intelligent-insights-troubleshoot-performance.md)
-- [Akıllı Öngörüler Tanılama Günlüğü kullanın](sql-database-intelligent-insights-use-diagnostics-log.md)
-- [Bellek içi OLTP alanı izleme](sql-database-in-memory-oltp-monitoring.md)
+- [Performansı izlemek için DMV’leri kullanma](sql-database-monitoring-with-dmvs.md)
+- [Performansı izlemek için Sorgu deposunu kullanma](sql-database-operate-query-store.md)
+- [Akıllı İçgörüler ile performans sorunlarını giderme](sql-database-intelligent-insights-troubleshoot-performance.md)
+- [Akıllı İçgörüler tanılama günlüğünü kullanma](sql-database-intelligent-insights-use-diagnostics-log.md)
+- [Bellek İçi OLTP alanını izleme](sql-database-in-memory-oltp-monitoring.md)
 
 ### <a name="extended-events"></a>Genişletilmiş olaylar
 
@@ -61,10 +61,10 @@ Bu bölümde çeşitli kılavuzları, betikleri ve Azure SQL veritabanınızı y
 - [Koşullu erişimi yapılandırma](sql-database-conditional-access.md)
 - [Çok faktörlü AAD kimlik doğrulaması](sql-database-ssms-mfa-authentication.md)
 - [Çok faktörlü kimlik doğrulamasını yapılandırma](sql-database-ssms-mfa-authentication-configure.md)
-- [Zamana bağlı bekletme ilkesini yapılandırma](sql-database-temporal-tables-retention-policy.md)
-- [BYOK ile TDE yapılandırma](transparent-data-encryption-byok-azure-sql-configure.md)
-- [TDE BYOK anahtarlarını döndürme](transparent-data-encryption-byok-azure-sql-key-rotation.md)
-- [TDE koruyucusuna Kaldır](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md)
+- [Zamana bağlı saklama ilkesini yapılandırma](sql-database-temporal-tables-retention-policy.md)
+- [KAG ile TDE Yapılandırması](transparent-data-encryption-byok-azure-sql-configure.md)
+- [TDE KAG anahtarlarını döndürme](transparent-data-encryption-byok-azure-sql-key-rotation.md)
+- [TDE koruyucusunu kaldırma](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md)
 - [Bellek içi OLTP’yi yapılandırma](sql-database-in-memory-oltp-migration.md)
 - [Azure Otomasyonu yapılandırma](sql-database-manage-automation.md)
 
@@ -84,9 +84,9 @@ Bu bölümde çeşitli kılavuzları, betikleri ve Azure SQL veritabanınızı y
 
 ## <a name="design-applications"></a>Uygulamaları tasarlama
 
-- [Olağanüstü durum kurtarma tasarımı](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Elastik havuzlar için Tasarım](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
-- [Uygulama yükseltmeleri için Tasarım](sql-database-manage-application-rolling-upgrade.md)
+- [Olağanüstü durum kurtarmaya yönelik tasarım](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Elastik havuzlara yönelik tasarım](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
+- [Uygulama yükseltmelerine yönelik tasarım](sql-database-manage-application-rolling-upgrade.md)
 
 ### <a name="design-multi-tenant-saas-applications"></a>Çok kiracılı SaaS uygulamaları tasarlama
 

@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 04/05/2019
 ms.author: sogup
-ms.openlocfilehash: 56c75840ca3114af40a2c843e2107f850bbff51a
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 3aceffa719ef8938aa049f126231f8628822566b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905979"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359966"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Geliştirilmiş yedeği almak ve performansı Azure Backup anında geri yükleme özelliğine sahip geri yükleme
 
@@ -23,12 +23,11 @@ ms.locfileid: "58905979"
 Yeni model anlık geri yüklemek için aşağıdaki özellik geliştirmeleri sağlar:
 
 * Veri aktarımı tamamlamak için kasaya beklemeden kurtarma için kullanılabilir olan bir yedekleme işi kapsamında alınan anlık görüntülere kullanabilme özelliği. Bunu geri yüklemeyi tetikleme önce kasaya kopyalamak anlık görüntüler için bekleme süresini azaltır.
-* Varsayılan olarak iki gün için yerel anlık görüntüleri koruyarak yedekleme ve geri yükleme süresi kısalır. Bu varsayılan kasa 1-5 gün arasında herhangi bir değer için yapılandırılabilir.
-* 4 TB'a kadar destekler disk boyutları.
+* Varsayılan olarak iki gün için yerel anlık görüntüleri koruyarak yedekleme ve geri yükleme süresi kısalır. Bu varsayılan anlık görüntü saklama değeri 1 ile 5 gün arasında herhangi bir değer için yapılandırılabilir.
+* 4 TB'a kadar destekler disk boyutları. Azure yedekleme şeritli diskleri desteklemez. Diski yeniden boyutlandırma, Azure Backup tarafından önerilmez.
 * Standart SSD disk yanı sıra diskleri HDD standart ve Premium SSD diskleri destekler.
 *   Yönetilmeyen bir sanal makinenin özgün depolama hesaplarına (disk başına), kullanma yeteneğini geri yüklerken. Depolama hesabı arasında dağıtılmış diskleri VM olsa bile bu özelliği var. Çok çeşitli sanal makine yapılandırmaları için geri yükleme işlemlerini hızlandırır.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-new-in-this-feature"></a>Bu özelliği yenilikler nelerdir?
 
@@ -75,9 +74,9 @@ Azure portalında, eklenen bir alan gördüğünüz **VM yedekleme İlkesi** alt
 > Az Powershell'den sürüm 1.6.0 ve sonraki sürümlerde, PowerShell kullanarak ilkesinde anında geri yükleme anlık görüntü saklama süresi güncelleştirebilirsiniz.
 
 ```powershell
-PS C:\> $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-PS C:\> Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 Her ilke için varsayılan anlık görüntü saklama 2 gün olarak ayarlanır. Kullanıcı, en az 1 ve en fazla 5 gün değeri değiştirebilirsiniz. Haftalık ilkeleri için anlık görüntü saklama 5 gün için sabit.
 

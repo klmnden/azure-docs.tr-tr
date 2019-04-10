@@ -8,16 +8,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlrab, bonova
+ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 14e33ec25dd2384607d41e4be6e5a33ebf889cbc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d84e52878c285ddd66fd799efe8c0f3cd2fc3e31
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260502"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358429"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
 
@@ -46,7 +46,7 @@ Yönetilen örnek dağıtım seçeneği, şirket içi SQL Server veritabanı alt
 - [BIRAKMA KULLANILABİLİRLİK GRUBU](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) yan tümcesi [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) deyimi
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Yedekle
 
 Yönetilen örnek otomatik yedeklemelerini ve tam bir veritabanı oluşturmak için kullanıcıları etkinleştirmek `COPY_ONLY` yedekler. Fark, günlük ve dosya anlık görüntüsü yedekleri desteklenmez.
 
@@ -115,7 +115,7 @@ CREATE CERTIFICATE
 WITH PRIVATE KEY (<private_key_options>)
 ```
 
-### <a name="credential"></a>Kimlik Bilgisi
+### <a name="credential"></a>Kimlik bilgisi
 
 Azure Key Vault ve `SHARED ACCESS SIGNATURE` kimlikleri desteklenir. Windows kullanıcıları desteklenmez.
 
@@ -276,11 +276,11 @@ Daha fazla bilgi için [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/sta
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
 - SQL Aracısı ayarları salt okunur. Yordam `sp_set_agent_properties` yönetilen örneği'nde desteklenmiyor.  
-- İşler
+- İşler (Job)
   - T-SQL iş adımları desteklenir.
   - Şu çoğaltma işleri desteklenir:
     - İşlem günlüğü okuyucusu
-    - Anlık Görüntü
+    - Anlık görüntü
     - Dağıtıcı
   - SSIS iş adımları desteklenir
   - İş adımları diğer türleri şu anda desteklenmez:

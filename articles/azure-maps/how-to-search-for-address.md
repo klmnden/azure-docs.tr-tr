@@ -1,23 +1,30 @@
 ---
 title: Azure haritalar Arama Hizmeti'ni kullanarak bir adres için arama yapma | Microsoft Docs
 description: Azure haritalar Arama Hizmeti'ni kullanarak bir adres arama hakkında bilgi edinin
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/11/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
-ms.openlocfilehash: ba5ea7205a5d0e5fdbadc8a1ba955091ae95b569
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+manager: philmea
+ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875795"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277332"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Azure haritalar arama hizmetini kullanarak bir adres bulma
 
 Haritalar arama hizmeti, adresler, yerler, ilgi alanı, iş dökümleri ve diğer coğrafi bilgileri noktaları için aranacak geliştiriciler için tasarlanmış bir RESTful API'ler kümesidir. Hizmet belirli bir adresi, çapraz olan Sokak, coğrafi özellik veya ilgi çekici (POI) için enlem/boylam atar. Arama sonucunda döndürülen enlem ve boylam değerleri, rota ve trafik akışı gibi diğer haritalar Hizmetleri parametreler olarak kullanılabilir.
+
+Bu makalede, öğreneceksiniz, nasıl yapılır:
+
+* Bir adresi kullanarak arama [belirsiz arama API'si](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+* Özellikler ve koordinatları yanı sıra adres arama
+* Olun bir [ters adresi arama](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) aramak için bir sokak adresi
+* Çapraz Sokak kullanarak arama [arama adresi ters arası Sokak API'si](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
 ## <a name="prerequisites"></a>Önkoşullar
 

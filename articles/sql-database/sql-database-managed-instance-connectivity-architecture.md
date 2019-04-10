@@ -9,17 +9,17 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: f08b22f24dfde41646f56dc1ecd9777f267620ee
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 801294241f399097d363dd8dc2682f158c0bf2cc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651321"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358291"
 ---
-# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL veritabanı yönetilen örneği için bağlantı mimarisi 
+# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL veritabanı yönetilen örneği için bağlantı mimarisi
 
 Bu makalede, Azure SQL veritabanı yönetilen örneği'nde iletişim açıklanmaktadır. Ayrıca, bağlantı mimarisi ve bileşenleri doğrudan yönetilen örnek için trafiği nasıl açıklar.  
 
@@ -117,7 +117,6 @@ Yönetilen örnek sanal ağ içinde ayrılmış bir alt ağ içinde dağıtın. 
 
 > [!IMPORTANT]
 > Gerekli gelen güvenlik kuralları, gelen trafiğe izin verse de _herhangi_ 9000 noktalarındaki kaynak, bu bağlantı noktaları 9003, 1438 1440 ve 1452, yerleşik bir güvenlik duvarı tarafından korunur. Daha fazla bilgi için [yönetim uç nokta adresini belirlemek](sql-database-managed-instance-find-management-endpoint-ip-address.md).
-
 > [!NOTE]
 > Yönetilen örnek işlem çoğaltma kullanma ve herhangi bir örnek veritabanı bir yayımcı ya da bir dağıtıcı olarak kullanıyorsanız, bağlantı noktası 445 (TCP Giden) alt ağ güvenliği kurallarının açın. Bu bağlantı noktası, Azure dosya paylaşımına erişim sağlar.
 

@@ -10,71 +10,71 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cd643185fb4647b19082980edfd333c507aab8a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 0672d90a25bc4c879d28512ab212f98f29efbf3b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266265"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358208"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için bir bulut tabanlı bir not defteri sunucusu kullan
 
-Bir bulut tabanlı bir not defteri sunucusu oluşturmak ve ardından bu değerleri Azure Machine Learning hizmetinde oturum kodu çalıştırmak için kullanın [çalışma](concept-azure-machine-learning-architecture.md). Çalışma alanınızda denemeler, eğitmek ve Machine Learning ile makine öğrenimi modelleri dağıtmak için kullandığınız bulutta temel taşıdır. 
+Bu makalede, Azure Machine Learning hizmetinde oturum kodu çalıştırmak için Azure not defterlerini kullanma [çalışma](concept-azure-machine-learning-architecture.md). Çalışma alanınızda denemeler, eğitmek ve Machine Learning ile makine öğrenimi modelleri dağıtmak için kullandığınız bulutta temel taşıdır. 
 
-Bu hızlı başlangıçta Azure Machine Learning çalıştırmak için gereken Python ortamını ile yapılandırılmış bulut kaynağı, Azure Machine Learning çalışma alanı oluşturma işlemi gösterilmektedir. Bunun yerine ortamınızda kullanmak için bkz: [hızlı başlangıç: Azure Machine Learning'i kullanmaya başlamak için kendi notebook sunucusu kullanmak](quickstart-run-local-notebook.md).  
+Bu hızlı başlangıçta bulut kaynakları kullanılmaktadır ve bu nedenle herhangi bir yükleme yapmanıza gerek yoktur. Bunun yerine ortamınızda kullanmak için bkz: [hızlı başlangıç: Azure Machine Learning'i kullanmaya başlamak için kendi notebook sunucusu kullanmak](quickstart-run-local-notebook.md).  
  
 Bu hızlı başlangıçta, aşağıdaki eylemleri gerçekleştirin:
 
-* İş istasyonu oluşturma
-* İş istasyonunuzda bir Jupyter not defteri sunucusu Başlat
-* Pi ve günlükleri hataları her yinelemede, tahmin kodunu içeren bir not defterini açın.
-* Not Defteri çalıştırma.
-* Oturum hata değerlerini çalışma alanınızda görüntüleyin.  Bu örnek, çalışma alanının betikte oluşturulan bilgileri izlemenize nasıl yardımcı olduğunu gösterir. 
+* Python ile çalışma alanınızda bir Jupyter not defterine bağlanın. Not defterini pi ve günlükleri hataları her yinelemede, tahmin kodunu içerir. 
+* Oturum hata değerlerini çalışma alanınızda görüntüleyin.
 
 Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree) bugün.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisite"></a>Önkoşul
 
 1. [Bir Azure Machine Learning çalışma alanı oluşturma](setup-create-workspace.md#portal) tane yoksa.
 
-1. Çalışma alanınızda açın [Azure portalında](https://portal.azure.com/).  Çalışma alanınızı portalda bulun bilmiyorsanız, bkz. nasıl [çalışma alanınızı bulmak](how-to-manage-workspace.md#view).
+1. Çalışma alanınızda açın [Azure portalında](https://portal.azure.com/).  Bkz. nasıl [çalışma alanınızı bulmak](how-to-manage-workspace.md#view).
 
-## <a name="create-a-workstation"></a>İş istasyonu oluşturma 
+## <a name="use-your-workspace"></a>Çalışma alanınızla kullanmak
 
-Bir not defteri iş istasyonu, Azure Machine Learning hizmeti çalıştırmak için gereken her şeyi ile önceden yapılandırılmış Jupyter Notebook için bulut tabanlı bir platform sunar. Çalışma alanınızdan, Jupyter not defterleri ile çalışmaya başlamak için bu platform oluşturabilirsiniz.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
-1. Azure portalında çalışma sayfasında, seçin **not defteri iş istasyonu** soldaki.
 
-1. Seçin **not defterlerine bir Azure Machine Learning iş istasyonu (Önizleme) oluşturma**
+
+Bir çalışma alanı, makine öğrenimi betiklerini yönetmenize nasıl yardımcı olduğunu öğrenin. Bu bölümde, aşağıdaki adımları uygulayın:
+
+* Azure Notebooks'da bir not defteri açma.
+* Günlüğe kaydedilen bazı değerler oluşturan kodu çalıştırma.
+* Günlüğe kaydedilen değerleri çalışma alanınızda görüntüleme.
+
+Bu örnek, çalışma alanının betikte oluşturulan bilgileri izlemenize nasıl yardımcı olduğunu gösterir. 
+
+### <a name="open-a-notebook"></a>Not defterini açma 
+
+[Azure not defterleri](https://notebooks.azure.com) Machine Learning çalıştırmak için gereken her şeyi ile önceden yapılandırılmış Jupyter not defterleri için ücretsiz bulut platformu sağlar. Çalışma alanınızda, Azure Machine Learning hizmeti çalışma alanında kullanmaya başlamak için bu platform başlatabilirsiniz.
+
+1. Çalışma alanı genel bakış sayfasında **alma başlatıldı Azure not defterleri** ilk denemenizi Azure not defterlerinde denemek için.  Azure not defterleri, ücretsiz bulutta çalıştırmadan Jupyter Notebook sağlayan ayrı bir hizmettir.  Bu bağlantı hizmeti kullandığınızda, çalışma alanınıza bağlanma hakkında bilgi Azure not defterlerinde oluşturduğunuz kitaplığa eklenir.
 
    ![Çalışma alanını keşfedin](./media/quickstart-run-cloud-notebook/explore-aml.png)
 
-1. **Not defteri iş istasyonları** bölüm çalışma alanınızda kullanılabilir tüm bulut tabanlı bir not defteri sunucularının bir listesini gösterir.  Buradan bu kaynakları ve artık gerekli değilse silin. 
+1. Azure Not Defterleri'nda oturum açın.  Azure portalında oturum açmak için kullandığınız hesapla oturum açmanız emin olun. Oturum açabilmeniz için kuruluşunuzda [yönetici onayı](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) gerekli olabilir.
 
-1. Seçin **iş istasyonu eklemek** bir not defteri iş istasyonu oluşturmak için.
+1. Siz oturum açtıktan sonra, yeni bir sekme açılır ve `Clone Library` istemi görüntülenir. Bu kitaplık kopyalama not defterleri ve diğer dosyaları bir dizi Azure not defterleri hesabınızda yükler.  Bu dosyaları Azure Machine Learning yeteneklerini keşfetmenize yardımcı olur.
 
-     ![İş istasyonu Ekle'yi seçin](./media/quickstart-run-cloud-notebook/add-workstation.png)
+1. Onay kutusunu temizleyin **genel** böylece çalışma alanı bilgilerinizi başkalarıyla paylaşmayın.
 
-1. Not Defteri iş istasyonu eklemek bölümünü istasyonunuzu vermek bir **işlem adı** seçip bir **işlem türü**. Ardından **Oluştur**’u seçin.
+1. Seçin **kopya**.
 
-    ![Yeni iş istasyonu oluşturma](media/quickstart-run-cloud-notebook/create-new-workstation.png)
+   ![Bir kitaplık kopyalama](./media/quickstart-run-cloud-notebook/clone.png)
 
-    > [!NOTE]
-    > İş istasyonunuzu oluşturmak için yaklaşık iki dakika sürer. İşiniz bittiğinde durumu "Çalışıyor" güncelleştirmelerini ve Jupyter ve JupyterLab bağlantılar görüntülenir.
+1. Proje durumu durdurulduğunu görüyorsanız tıklayın **ücretsiz bilgisayarda** ücretsiz notebook sunucusu kullanmak için.
 
-## <a name="launch-jupyter-web-interface"></a>Jupyter web arabirimi başlatın
-
-İş istasyonunuzu oluşturulduktan sonra Jupyter web arabirimini açmak için Not Defteri iş istasyonları bölümü kullanın.
-
-* Seçin **Jupyter** veya **Jupyter Laboratuvar** içinde **başlatma** istasyonunuzu için sütun.
-
-    ![Jupyter notebook sunucusu Başlat](./media/quickstart-run-cloud-notebook/start-notebook-server.png)
-
-    Bu, Not Defteri sunucusu başlatır ve yeni bir tarayıcı sekmesinde sunucusu giriş sayfası açılır.  Sunucunuz, Azure Machine Learning hizmeti ile kullanmaya başlamak için kullanabileceğiniz örnek not defterleri gösterir.
+    ![Proje üzerinde ücretsiz işlem çalıştırma](./media/quickstart-run-cloud-notebook/run-project.png)
 
 ### <a name="run-the-notebook"></a>Not defterini çalıştırma
 
-Pi tahminleri ve çalışma alanınıza Hata günlüklerini bir not defteri çalıştırın.
+Bu proje için dosya listesinde, gördüğünüz bir `config.json` dosya. Bu yapılandırma dosyası, çalışma alanı bilgilerini Azure portalında oluşturduğunuz içerir.  Bu dosya bağlanmak ve bilgi çalışma alanınıza eklemek için kodunuzu sağlar.
 
 1. Seçin **01.run experiment.ipynb** not defterini açın.
 
@@ -82,7 +82,9 @@ Pi tahminleri ve çalışma alanınıza Hata günlüklerini bir not defteri çal
 
     ![Çekirdek başlatmak bekle](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
 
-1. Çekirdek başlatıldıktan sonra bir hücre, bir zaman kullanarak çalıştırın **Shift + Enter**. Veya **hücreleri** > **tümünü Çalıştır** tüm not defterlerini çalıştırmak için. Bir yıldız işareti gördüğünüzde (__*__) hücrede yanında hücre hala çalışıyor. Hücredeki kodun çalışması tamamlandığında bir sayı görünür.  
+1. Çekirdek başlatıldıktan sonra bir hücre, bir zaman kullanarak çalıştırın **Shift + Enter**. Veya **hücreleri** > **tümünü Çalıştır** tüm not defterlerini çalıştırmak için. Bir yıldız işareti gördüğünüzde __*__, hücrede yanında hücre hala çalışıyor. Hücredeki kodun çalışması tamamlandığında bir sayı görünür. 
+
+1. Azure aboneliğinizin kimlik doğrulaması yapmak için not defterindeki yönergeleri izleyin.
 
 Not defterinde çalıştıran tüm hücreleri bitirdikten sonra çalışma alanınızda günlüğe kaydedilen değerleri görüntüleyebilirsiniz.
 
@@ -106,16 +108,9 @@ Yaklaşık PI koda rastgele değerler kullandığından, çizimleri farklı değ
 
 Ayrıca, kaynak grubunu korumakla birlikte tek bir çalışma alanını silebilirsiniz. Çalışma alanı özelliklerini görüntülemek ve seçmek **Sil**.
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, aşağıdaki tamamlandı:
-
-* İş istasyonu oluşturma
-* İş istasyonunuzda bir Jupyter not defteri sunucusu Başlat
-* Pi ve günlükleri hataları her yinelemede, tahmin kodunu içeren bir not defterini açın.
-* Not Defteri çalıştırma.
-* Oturum hata değerlerini çalışma alanınızda görüntüleyin.  Bu örnek, çalışma alanının betikte oluşturulan bilgileri izlemenize nasıl yardımcı olduğunu gösterir. 
+Deneme ve model dağıtımı için gerekli kaynakları oluşturdunuz. Ayrıca bir defterde bulunan bazı kodları da çalıştırdınız. Buluttaki çalışma alanınızda bu koddan gelen çalıştırma geçmişini de incelediniz.
 
 Ayrıntılı iş akışı deneyimi için eğitmek ve model dağıtma için Machine Learning öğreticileri izleyin:  
 

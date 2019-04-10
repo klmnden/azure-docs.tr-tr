@@ -1,6 +1,6 @@
 ---
-title: DMZ örnek – ağları bir güvenlik duvarı, UDR ve NSG ile korunacak bir DMZ oluşturmak | Microsoft Docs
-description: Çevre ağı ile bir güvenlik duvarı oluşturma, kullanıcı tanımlı yönlendirme (UDR) ve ağ güvenlik grupları (NSG)
+title: Çevre ağ örnek – çevre ağına bir güvenlik duvarı, UDR ve Nsg'ler oluşan koruma ağlarla | Microsoft Docs
+description: Çevre ağı (DMZ olarak da bilinir) bir güvenlik duvarı, kullanıcı tanımlı yönlendirme (UDR) ve ağ güvenlik grupları (Nsg'ler) ile oluşturun.
 services: virtual-network
 documentationcenter: na
 author: tracsman
@@ -14,101 +14,101 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 9632bd339956aff7558461ed391cdd21c92f06ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 104eae7c8d18c32fd5b9b84147df2bf121345c22
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995179"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277433"
 ---
-# <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Örnek 3: ağları bir güvenlik duvarı, UDR ve NSG ile korunacak bir DMZ oluşturma
+# <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Örnek 3: Ağları bir güvenlik duvarı, UDR ve Nsg'ler ile korunacak bir çevre ağı oluşturma
+
 [Güvenlik sınırı en iyi yöntemler sayfasına geri dönün][HOME]
 
-Bu örnek, bir güvenlik duvarı, dört windows sunucuları, kullanıcı tanımlı yönlendirme, IP iletimi ve ağ güvenlik grupları ile DMZ oluşturma. Bu da her her adımda daha derin bir anlayış sağlamak için ilgili komutları yol gösterir. Ayrıca bir ayrıntılı sağlamak için bir trafik senaryo bölümü yoktur adım adım dmz'deki savunma katmanları ile nasıl trafiği devam eder. Son olarak, test ve deneme ile çeşitli senaryolar için bu ortamı oluşturmak için yönerge ve tam kod başvuruları bölüm yöneliktir. 
+Bu örnekte, oluşturduğunuz bir çevre ağında (DMZ, sivil bölge ve denetimli alt ağ da bilinir). Örneğin, bir güvenlik duvarı, dört Windows sunucuları, kullanıcı tanımlı yönlendirme (UDR), IP iletme ve ağ güvenlik grupları (Nsg'ler) uygular. Bu makalede her her adımda daha derin bir anlayış sağlamak için ilgili komutları gösterilmektedir. Trafik senaryo bölümünde de trafiği çevre ağındaki savunma katmanları ile nasıl devam eder ayrıntılı olarak açıklanmaktadır. Son olarak, başvurular bölümüne, tüm kod ve bu ortamı test edin ve çeşitli senaryolarıyla denemeler oluşturmak için yönergeler içerir.
 
-![UDR NVA ve NSG ile iki yönlü DMZ][1]
+![UDR NVA ve NSG ile iki yönlü çevre ağı][1]
 
-## <a name="environment-setup"></a>Ortam Kurulumu
-Bu örnekte aşağıdakileri içeren bir aboneliği vardır:
+## <a name="environment-setup"></a>Ortam kurulumu
 
-* Üç bulut Hizmetleri: "SecSvc001", "FrontEnd001" ve "BackEnd001"
-* "CorpNetwork" üç alt ağ ile sanal ağ: "SecNet", "Ön uç" ve "Arka uç"
-* Bu örnekte bir güvenlik duvarı bir ağ sanal Gereci SecNet alt ağa bağlı
-* Uygulama bir web sunucusu ("IIS01") temsil eden bir Windows Server
-* Uygulama geri temsil eden iki windows sunucuları sunucuları ("AppVM01", "AppVM02") sona
-* Bir DNS sunucusu ("DNS01") temsil eden bir Windows server
+Bu örnekte bir abonelik aşağıdaki bileşenleri içerir:
 
-Başvurular bölümdeki çoğu yukarıda açıklanan ortam oluşturacak bir PowerShell Betiği yoktur. VM'ler ve sanal ağlar oluşturma örnek komut dosyası tarafından yapılır ancak değil açıklanmıştır ayrıntılı bu belgedeki.
+* Üç bulut Hizmetleri: SecSvc001 FrontEnd001 ve BackEnd001
+* Üç alt ağ ile sanal ağ (CorpNetwork): SecNet, ön uç ve arka uç
+* Bir ağ sanal Gereci: bir güvenlik duvarı SecNet alt ağa bağlı
+* Uygulama web sunucusunu temsil eden bir Windows sunucusu: IIS01
+* Uygulama arka uç sunucuları temsil eden iki Windows sunucuları: AppVM01, AppVM02
+* Bir DNS sunucusunu temsil eden bir Windows sunucusu: DNS01
+
+[Başvurduğu bölüm](#references) burada açıklanan ortam çoğunu oluşturan bir PowerShell Betiği içerir. Bu makalede, aksi halde sanal ağlar ve sanal makineleri (VM'ler) oluşturmaya yönelik ayrıntılı yönergeler vermez.
 
 Ortamı oluşturmak için:
 
-1. References bölümünde dahil ağ yapılandırma xml dosyasını kaydedin (adları, konum ve IP adresleri verilen senaryo eşleşecek şekilde güncelleştirilmiş)
-2. Kullanıcı değişkenleri betiğinde betiğidir karşı (abonelik, hizmet adlarını, vb.) çalıştırılması için ortam eşleşecek şekilde güncelleştirin
-3. PowerShell Betiği yürütün
-
-**Not**: PowerShell betik miktarlara bölge ağ yapılandırma xml dosyasında miktarlara bölge eşleşmelidir.
-
-Betik başarıyla çalıştırıldıktan sonra aşağıdaki betik sonrası adımlar izlenebilir:
-
-1. Güvenlik duvarı kuralları ayarlamak, bu başlıklı aşağıdaki bölümde ele alınmıştır: Güvenlik duvarı kuralı açıklaması.
-2. İsteğe bağlı olarak bu DMZ yapılandırma ile test izin vermek için basit bir web uygulaması ile uygulama sunucusu ve web sunucusu kurmak için iki komut dosyası başvuruları bölümünde bulunur.
-
-Komut kuralları tamamlanması gerekir güvenlik duvarı başarıyla çalıştırıldıktan sonra bunu başlıklı bölümde ele alınmıştır: Güvenlik duvarı kuralları.
-
-## <a name="user-defined-routing-udr"></a>Kullanıcı tanımlı yönlendirme (UDR)
-Varsayılan olarak, aşağıdaki sistem yolları olarak tanımlanır:
-
-        Effective routes : 
-         Address Prefix    Next hop type    Next hop IP address Status   Source     
-         --------------    -------------    ------------------- ------   ------     
-         {10.0.0.0/16}     VNETLocal                            Active   Default    
-         {0.0.0.0/0}       Internet                             Active   Default    
-         {10.0.0.0/8}      Null                                 Active   Default    
-         {100.64.0.0/10}   Null                                 Active   Default    
-         {172.16.0.0/12}   Null                                 Active   Default    
-         {192.168.0.0/16}  Null                                 Active   Default
-
-VNETLocal her zaman sanal ağın (IE, sanal ağdan sanal ağa belirli her VNet nasıl tanımlandığını bağlı olarak değişir), belirli bir ağ için tanımlanan adres ön olur. Kalan sistem rotaları, statik ve yukarıdaki varsayılan.
-
-Öncelik için yollar en uzun ön ek eşleşmesi (LPM) temel yöntem işlenir, bu nedenle en belirli bir yol tablosundaki belirli hedef adresi için uygulanacak.
-
-Bu nedenle 10.0.0.0/16 rota nedeniyle hedefine sanal ağ arasında trafiği (örneğin sunucuya DNS01 10.0.2.4) yerel ağ (10.0.0.0/16) yönlendirilirdi. Diğer bir deyişle, 10.0.2.4 için 10.0.0.0/16 en belirli bir yol 10.0.0.0/8 ve 0.0.0.0/0 de uygulayabilirsiniz, ancak daha az olduğundan belirli kullanıcılar bu trafiği etkilemez olsa bile yoldur. Bu nedenle 10.0.2.4 trafik, yerel sanal ağ'ın bir sonraki atlamaya sahip ve yalnızca hedef yol.
-
-Trafik tasarlandıysa 10.1.1.1 için örneğin, 10.0.0.0/16 rota uygularsanız mıydı, ancak 10.0.0.0/8 en belirgin olur ve bu trafiği olacaktır ("siyah holed") sonraki atlama Null olduğundan bırakıldı. 
-
-Hedef herhangi bir Null ön ekleri veya VNETLocal önekleri uygulanmadı sonra en az belirli izleyin route 0.0.0.0/0 ve Internet'e sonraki atlama olarak ve bu nedenle Azure'nın internet ucuna out yönlendirilmesini.
-
-Rota tablosunda iki özdeş bir önek varsa, yolları "kaynak" özniteliğine dayanarak tercih sırasına göre verilmiştir:
-
-1. "VirtualAppliance" el ile tabloya eklenen kullanıcı tanımlı yol =
-2. "VPNGateway" (BGP) ile karma ağ kullanıldığında, bir dinamik yönlendirme = dinamik Protokolü otomatik olarak eşlenen ağ değişiklikleri yansıtan gibi dinamik ağ protokolü tarafından eklenen, bu yollar zaman içinde değişebilir
-3. "Varsayılan" rota yukarıdaki tabloda gösterildiği gibi sistem yolları, yerel sanal ağ ve statik girdilerini =.
+1. Dahil ağ yapılandırma XML dosyasını kaydedin [başvuru bölümüne](#references). Ad, konum ve eşleşen verilen senaryo için IP adresi ile güncelleştirmeniz gerekir.
+1. Kullanıcı değişkenleri, belirli bir ortama (örneğin, abonelik, hizmet adlarını ve benzeri) eşleşmesi için tam komut güncelleştirin.
+1. PowerShell Betiği yürütün.
 
 > [!NOTE]
-> Giden ve gelen zorlamak için VPN ağ geçitleri trafik bir ağ sanal Gereci (NVA) yönlendirilmesini şirketler arası ve ExpressRoute ile artık kullanıcı tanımlı yönlendirme (UDR) kullanabilirsiniz.
-> 
-> 
+> PowerShell komut dosyasında belirtilen bölge ağ yapılandırma XML dosyasında belirtilen bölge eşleşmelidir.
 
-#### <a name="creating-the-local-routes"></a>Yerel yollar oluşturma
-Bu örnekte, iki yönlendirme tablolarını gereklidir, her biri ön uç ve arka uç alt ağları için. Her tabloda belirtilen alt ağ için uygun statik yollar ile yüklenir. Bu örneğin amacı doğrultusunda, her tablo üç yol vardır:
+Betik başarıyla çalıştırıldıktan sonra aşağıdaki adımları uygulayın:
 
-1. Yerel alt ağ trafiğinin güvenlik duvarını geçmesine izin vermek için yerel alt ağ trafiği hiçbir sonraki atlama ile tanımlanan
-2. Bir sonraki güvenlik duvarı tanımlanan atlama ile sanal ağ trafiği, bu doğrudan yönlendirmek yerel sanal ağ trafiğine izin veren varsayılan kuralı geçersiz kılar
-3. Bir sonraki güvenlik duvarı olarak tanımlanan atlama ile tüm kalan trafiği (0/0)
+1. Güvenlik duvarı kurallarını ayarlayın. Bkz: [güvenlik duvarı kuralları](#firewall-rules) bölümü.
+1. İsteğe bağlı olarak, bu DMZ yapılandırmanın testi izin vermek için bir web uygulamasını oluşturan uygulama sunucusu ve web sunucusu için başvurular bölümünde iki betiklerini kullanın.
 
-Yönlendirme tablolarını oluşturulduktan sonra kendi alt ağlara bağlanır. Ön uç alt ağ için bir kez oluşturulur ve alt ağa bağlı yönlendirme tablosu şu şekilde görünmelidir:
+## <a name="user-defined-routing"></a>Kullanıcı tanımlı yönlendirme
 
-        Effective routes : 
-         Address Prefix    Next hop type    Next hop IP address Status   Source     
-         --------------    -------------    ------------------- ------   ------     
-         {10.0.1.0/24}     VNETLocal                            Active 
-         {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
-         {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
+Varsayılan olarak, aşağıdaki sistem yolları olarak tanımlanır:
 
+    Effective routes :
+     Address Prefix    Next hop type    Next hop IP address Status   Source
+     --------------    -------------    ------------------- ------   ------
+     {10.0.0.0/16}     VNETLocal                            Active   Default
+     {0.0.0.0/0}       internet                             Active   Default
+     {10.0.0.0/8}      Null                                 Active   Default
+     {100.64.0.0/10}   Null                                 Active   Default
+     {172.16.0.0/12}   Null                                 Active   Default
+     {192.168.0.0/16}  Null                                 Active   Default
 
-Bu örnek için aşağıdaki komutları yol tablosu oluşturun, bir kullanıcı tanımlı yol ekleyin ve sonra yönlendirme tablosunu bir alt ağa bağlamak için kullanılır (Not; aşağıda bir dolar işareti ile başlayan herhangi bir öğe (örn: $BESubnet) komut dosyası kullanıcı tanımlı değişkenler Bu belgenin başvurusu bölümü):
+VNETLocal her zaman belirli bir sanal ağ için tanımlanan adres ön şeklindedir. Örneğin, belirli bir sanal ağın nasıl tanımlandığını bağlı olarak sanal ağ için sanal ağdan değişecektir. Kalan sistem yolları statiktir ve varsayılan olarak görüntülenir.
 
-1. İlk temel yönlendirme tablosunun oluşturulması gerekir. Bu kod parçacığı, arka uç alt ağı için bir tablo oluşturulmasını gösterir. Betikte, karşılık gelen bir tablo için ön uç alt ağı da oluşturulur.
+Öncelikli olduğu gibi en uzun ön ek eşleşmesi (LPM) yöntemiyle yollar işlenir. Bu nedenle en belirli bir yol tablosundaki belirli hedef adresi için geçerlidir.
+
+Bu nedenle, bir sunucu gibi DNS01 yönelik trafiği (10.0.2.4) yerel ağ (10.0.0.0/16) nedeniyle 10.0.0.0/16 rota sanal ağ üzerinden yönlendirilir.  10.0.2.4 için 10.0.0.0/16 yol en belirgin yoldur. Bu kural, 0.0.0.0/0 ve 10.0.0.0/8 de ilgili olsa bile geçerlidir. Ancak, daha az belirli kullanıcılar bu trafiği etkilemez. 10.0.2.4 trafiğini yerel sanal ağ için hedefe yönlendirilir, sonraki atlama olarak sahiptir.
+
+Örneğin, 10.0.0.0/16 rota 10.1.1.1 için hedeflenen trafiği için geçerli değildir. Sonraki atlama Null olduğundan 10.0.0.0/8 sistem yolu en belirgin trafik bırakıldı ya da "siyah holed" olur.
+
+Hedef herhangi bir Null ön ekleri veya VNETLocal ön ekler için geçerli değilse, trafiğin az belirli bir yol (0.0.0.0/0) izler. İnternet'e sonraki atlama olarak ve Azure'nın internet ucuna dışında yönlendirilmeden.
+
+Rota tablosunda iki özdeş bir önek varsa, tercih sırasına göre rotanın kaynak öznitelikte dayanır:
+
+1. VirtualAppliance: Bir kullanıcı tanımlı yol tablosu için el ile eklenen.
+1. VPNGateway: Bir dinamik yol (hibrit ağlar ile kullanıldığında BGP) dinamik ağ protokolü tarafından eklendi. Dinamik iletişim kuralı otomatik olarak eşlenen ağ değişiklikleri yansıtan gibi bu yolları zaman içinde değişebilir.
+1. Varsayılan: Sistem yolları, yerel sanal ağ ve statik girdilerini yukarıdaki rota tablosunda gösterilen şekilde.
+
+> [!NOTE]
+> Artık kullanıcı tanımlı yönlendirme (UDR) ExpressRoute ve VPN ağ geçitleri ile giden ve gelen şirketler arası trafik bir ağ sanal Gereci (NVA) yönlendirilmesini zorlamak için kullanabilirsiniz.
+
+### <a name="create-local-routes"></a>Yerel yollar oluşturma
+
+Bu örnek, her biri ön uç ve arka uç alt ağları için iki yönlendirme tablolarını kullanır. Her tabloda belirtilen alt ağ için uygun statik yollar ile yüklenir. Bu örneğin amacı doğrultusunda, her tablo üç yol vardır:
+
+1. Yerel alt ağ trafiği ile tanımlanan herhangi bir sonraki atlama. Bu yol, yerel alt ağ trafiği, güvenlik duvarını geçmesine izin verir.
+2. Güvenlik Duvarı tanımlanan bir sonraki atlama ile sanal ağ trafiği. Bu yol, doğrudan yönlendirmek yerel sanal ağ trafiğine izin veren varsayılan kuralı geçersiz kılar.
+3. Tüm kalan trafiği (0/0) güvenlik duvarı olarak tanımlanan bir sonraki atlama.
+
+Yönlendirme tablolarını oluşturulduktan sonra kendi alt ağlara bağlanır. Ön uç alt ağına yönlendirme tabloda gibi görünmelidir:
+
+    Effective routes :
+     Address Prefix    Next hop type       Next hop IP address  Status   Source
+     --------------    ------------------  -------------------  ------   ------
+     {10.0.1.0/24}     VNETLocal                                Active
+     {10.0.0.0/16}     VirtualAppliance    10.0.0.4             Active
+     {0.0.0.0/0}       VirtualAppliance    10.0.0.4             Active
+
+Bu örnekte, rota tablosunu, kullanıcı tanımlı bir yol ekleyin ve sonra yönlendirme tablosunu bir alt ağa bağlamak için aşağıdaki komutları kullanır. İle başlayan öğeleri `$`, gibi `$BESubnet`, komut dosyası başvurusu bölümündeki kullanıcı tanımlı değişkenler.
+
+1. İlk olarak, temel bir yönlendirme tablosu oluşturun. Aşağıdaki kod parçacığı, arka uç alt ağı için bir tablo oluşturur. Tam komut dosyası ayrıca için ön uç alt ağına karşılık gelen bir tablo oluşturur.
 
    ```powershell
    New-AzureRouteTable -Name $BERouteTableName `
@@ -116,7 +116,7 @@ Bu örnek için aşağıdaki komutları yol tablosu oluşturun, bir kullanıcı 
        -Label "Route table for $BESubnet subnet"
    ```
 
-2. Yol tablosu oluşturulduktan sonra belirli kullanıcı tanımlı yollar eklenebilir. Bu konuda ölçeklendirmesinden, tüm trafik (0.0.0.0/0) (bir değişken $VMIP [0], komut dosyasında sanal gerece oluşturulduğunda atanan IP adresini geçirmek için kullanılır) sanal Gereci aracılığıyla yönlendirilir. Betikte, karşılık gelen bir kural ön uç tabloda da oluşturulur.
+1. Rota tablosunu oluşturduktan sonra belirli kullanıcı tanımlı yollar ekleyebilirsiniz. Aşağıdaki kod parçacığını (0.0.0.0/0) tüm trafiği sanal gereç aracılığıyla yönlendirilir belirtir. Bir değişken `$VMIP[0]` sanal gereç komut dosyasındaki oluşturulduğunda atanan IP adresini geçirmek için kullanılır. Tam betik, ön uç tabloda karşılık gelen kuralı da oluşturur.
 
    ```powershell
    Get-AzureRouteTable $BERouteTableName | `
@@ -125,7 +125,7 @@ Bu örnek için aşağıdaki komutları yol tablosu oluşturun, bir kullanıcı 
        -NextHopIpAddress $VMIP[0]
    ```
 
-3. Yukarıdaki rota girişi, trafiği ağ sanal Gerecinin değil de, doğrudan hedefine yönlendirmek için sanal ağ içindeki izin varsayılan "0.0.0.0/0" yol, ancak hala mevcut varsayılan 10.0.0.0/16 kuralını geçersiz kılar. Doğru izleme kuralı bu davranışı eklenmesi gerekir.
+1. Önceki rota girişi varsayılan "0.0.0.0/0" yolu geçersiz kılar ancak varsayılan 10.0.0.0/16 kural doğrudan hedef ve ağ sanal gerecinin yönlendirmek için sanal ağ içindeki trafik yine de sağlar. Bu davranışı düzeltmek için aşağıdaki kuralı eklemeniz gerekir:
 
    ```powershell
    Get-AzureRouteTable $BERouteTableName | `
@@ -134,7 +134,7 @@ Bu örnek için aşağıdaki komutları yol tablosu oluşturun, bir kullanıcı 
        -NextHopIpAddress $VMIP[0]
    ```
 
-4. Bu noktada yapılacak bir seçenek yoktur. Yukarıdaki iki rotalarla değerlendirmesi, tek bir alt ağ içinde bile trafiği için Güvenlik Duvarı tüm trafiği yönlendirir. Yerel Güvenlik Duvarı müdahalesi olmadan üçüncü yönlendirmek için bir alt ağ trafiğine izin verecek şekilde belirli bir kural eklenebilir ancak bu, istenebilir. Bu rota var. yerel alt ağ yalnızca için herhangi bir adresi destine durumları rota doğrudan (NextHopType VNETLocal =).
+1. Bu noktada, bir seçim yapmanız gerekir. İki önceki kurallar, tek bir alt ağ içinde trafiği de dahil olmak üzere, değerlendirme için Güvenlik Duvarı tüm trafiği yönlendirme. Bu davranış isteyebilirsiniz. Ancak, aksi takdirde, güvenlik duvarı katılımı yerel olarak yönlendirmek için bir alt ağ içinde trafiği izin verebilirsiniz. Üçüncü, doğrudan yerel alt ağ için hedeflenen herhangi bir adresine yönlendiren kuralı ekleyin (NextHopType VNETLocal =).
 
    ```powershell
    Get-AzureRouteTable $BERouteTableName | `
@@ -142,7 +142,7 @@ Bu örnek için aşağıdaki komutları yol tablosu oluşturun, bir kullanıcı 
            -NextHopType VNETLocal
    ```
 
-5. Son olarak, oluşturduğunuz ve bir kullanıcı tanımlı yollar ile doldurulmuş yönlendirme tablosu ile tablo artık bir alt ağa bağlı olmalıdır. Betikte, ön uç yol tablosu ayrıca ön uç alt ağına bağlanır. Arka uç alt ağı için bağlama betiği aşağıda verilmiştir.
+1. Son olarak, yönlendirme tablosu oluşturulur ve kullanıcı tanımlı yollar ile doldurulmuş sonra tabloyu bir alt ağa bağlamak gerekir. Aşağıdaki kod parçacığı, arka uç alt ağı için tablo bağlar. Tam betik, ayrıca ön uç alt ağına ön uç yol tablosuna bağlar.
 
    ```powershell
    Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
@@ -150,38 +150,42 @@ Bu örnek için aşağıdaki komutları yol tablosu oluşturun, bir kullanıcı 
        -RouteTableName $BERouteTableName
    ```
 
-## <a name="ip-forwarding"></a>IP İletimi
-UDR, bir yardımcı özelliği olan IP iletimi. Bu, özellikle gerecine gönderilmiş olan trafiği almasını ve ardından bu trafiğin ultimate hedefine iletmek sağlayan bir sanal gereç üzerinde bir ayardır.
+## <a name="ip-forwarding"></a>IP iletimi
 
-AppVM01 gelen trafiği DNS01 sunucusuna bir istek yapıyorsa örnek olarak, UDR bu güvenlik duvarı route. Etkin IP iletimi ile DNS01 hedef (10.0.2.4) trafiği (10.0.0.4) Gereci tarafından kabul edilen ve ardından kendi (10.0.2.4) ultimate hedef iletilen. Güvenlik Duvarı'sonraki atlama olarak yol tablosuna sahip olsa da güvenlik duvarını etkin IP iletimi, trafiği gereç tarafından kabul edilebiliyordu değil. 
+IP iletimi UDR için yardımcı özelliğidir. Bu ayar bir sanal gereç üzerinde gerecine gönderilmeyen trafiği alma ve ardından bu trafiğin ultimate hedefine iletecek şekilde sağlar.
+
+Örneğin, UDR AppVM01 gelen trafiği DNS01 sunucuya istekte, güvenlik duvarı trafiği yönlendirir. Etkin IP iletimi ile DNS01 hedef (10.0.2.4) trafiği kabul güvenlik duvarı Gereci (10.0.0.4) ve ardından kendi (10.0.2.4) ultimate hedef iletilen. Güvenlik Duvarı'sonraki atlama olarak yol tablosuna sahip olsa da güvenlik duvarını etkin IP iletme olmadan gereç tarafından trafiği kabul edilmiyor.
 
 > [!IMPORTANT]
-> Kullanıcı tanımlı yönlendirme ile birlikte IP iletimini etkinleştirmeniz unutmamak önemlidir.
-> 
-> 
+> Kullanıcı tanımlı yönlendirme ile birlikte IP iletimini etkinleştirmeniz unutmayın.
 
-IP iletimi ayarlama, tek bir komuttur ve VM oluşturma sırasında yapılabilir. Bu örnekte akışına, kod parçacığını kodun sonuna doğru olduğundan ve UDR komutları ile gruplandırılmış:
+IP iletimi tek bir komutla VM oluşturma sırasında etkinleştirilebilir. Güvenlik Duvarı sanal Gereci ve IP iletimini etkinleştirir VM örneği çağırırsınız. Şununla kırmızı öğeleri göz önünde bulundurun `$`gibi `$VMName[0]`, kullanıcı tanımlı değişkenler komut dosyası başvurusu bölümünde bu belgenin. Parantez içine sıfır `[0]`, VM'lerin dizideki ilk VM temsil eder. Örnek betiği değişiklik yapılmadan çalışmak güvenlik duvarı ilk sanal makine (VM 0) olmalıdır. Tam komut dosyasında sonlarında UDR komutlarla ilgili kod parçacığını gruplandırılır.
 
-1. Bu durumda, bir sanal gereç, güvenlik duvarı olan VM örneği çağırın ve IP iletimini etkinleştirmeniz (Not; bir dolar işareti olan kırmızı başlayan herhangi bir öğeyi (örneğin: $VMName[0]) olan bir kullanıcı tanımlı değişken başvuru bölümünde, bu belgenin komut dosyası. "[0], parantez içine sıfır değişiklik olmadan çalışmaya örnek betiği sanal makinelerin dizideki ilk VM temsil eder, güvenlik duvarı ilk sanal makine (VM 0) olması gerekir):
+```powershell
+Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
+    Set-AzureIPForwarding -Enable
+```
 
-    ```powershell
-    Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
-        Set-AzureIPForwarding -Enable
-    ```
+## <a name="network-security-groups"></a>Ağ güvenlik grupları
 
-## <a name="network-security-groups-nsg"></a>Ağ Güvenlik Grupları (NSG)
-Bu örnekte, bir NSG grubu oluşturulan ve ardından tek bir kural ile yüklendi. Bu grup, ardından yalnızca ön uç ve arka uç alt ağlara (SecNet değil) bağlıdır. Aşağıdaki kural bildirimli olarak üretiliyor:
+Bu örnekte, bir ağ güvenlik grubu (NSG) oluşturun ve ardından tek bir kural ile yükler. Örnek, ardından yalnızca ön uç ve arka uç alt ağlara (SecNet değil) NSG'ye bağlar. NSG içinde yük kural aşağıdaki gibidir:
 
-1. Tüm trafik (tüm bağlantı noktaları) İnternet'ten gelen tüm sanal ağa (tüm alt ağlar) reddedildi
+* Tüm trafiği (tüm bağlantı noktaları) İnternet'ten gelen tüm sanal ağ (tüm alt ağlar) reddedildi
 
-Nsg'leri Bu örnekte kullanılan olsa da, cihazın ana amacı el ile gerçekleştirilen bir yanlış yapılandırma karşı savunma ikincil bir katmanı gibidir. Ön uç ya da internet'ten gelen tüm trafiği engellemek istediğimiz veya arka uç alt ağları, trafiği yalnızca SecNet alt ağ güvenlik duvarı üzerinden akışını (ve sonra ise, alt ağ ön uç veya arka uç hizmetine uygun). Ayrıca, UDR kurallarıyla bir yerde ön uç veya arka uç alt ağına yaptı tüm trafik kullanıma Güvenlik Duvarı (UDR) sayesinde yönlendirilmesi. Güvenlik Duvarı bu asimetrik bir akış görür ve giden trafiği bırakmaya. Bu nedenle ön uç ve arka uç alt ağları koruma güvenlik üç katmanı vardır; (1) açık uç nokta FrontEnd001 ve BackEnd001 bulut Hizmetleri, 2) Nsg'ler trafik Internet'ten 3) güvenlik duvarı bırakılıyor asimetrik trafiği engelleme.
+Nsg'leri Bu örnekte kullanılan olsa da, kendi ana amacı el ile gerçekleştirilen bir yanlış yapılandırma karşı savunma ikincil bir katmanı gibidir. İnternet'ten ön uç veya arka uç alt ağları için tüm gelen trafiği engellemek istiyorsunuz. Trafiği yalnızca SecNet alt ağa güvenlik duvarı aracılığıyla sonra yalnızca uygun trafiği ön uç veya arka uç alt ağları açın yönlendirilir akışı. Ayrıca, UDR kuralları ön uç veya arka uç alt ağları güvenlik duvarına ulaştığında tüm trafiği yönlendirme. Güvenlik Duvarı, asimetrik bir akış görür ve giden trafiğini bırakır.
 
-Bu örnekte ağ güvenlik grubu ile ilgili bir ilgi çekici nokta, yalnızca bir kural, aşağıda gösterilen güvenlik alt dahil tüm sanal ağ için internet trafiği reddetmeye yönelik olduğu içermesidir. 
+Üç güvenlik katmanları, ön uç ve arka uç alt ağları koruma:
+
+1. Bulut Hizmetleri ve FrontEnd001 BackEnd001 açık uç nokta yok
+1. Nsg'ler trafik internet'ten Reddet
+1. Güvenlik Duvarı asimetrik trafiğini bırakır
+
+Bu örnekte NSG hakkında ilginç bir noktanın yalnızca bir kural, aşağıda gösterilen içermesidir. Bu kural güvenlik alt ağ da dahil olmak üzere tüm sanal ağ, internet trafiğini reddeder.
 
 ```powershell
 Get-AzureNetworkSecurityGroup -Name $NSGName | `
     Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
-    from the Internet" `
+    from the internet" `
     -Type Inbound -Priority 100 -Action Deny `
     -SourceAddressPrefix INTERNET -SourcePortRange '*' `
     -DestinationAddressPrefix VIRTUAL_NETWORK `
@@ -189,7 +193,7 @@ Get-AzureNetworkSecurityGroup -Name $NSGName | `
     -Protocol *
 ```
 
-NSG yalnızca ön uç ve arka uç alt ağa bağlı olduğundan, kuralın trafiğinde ancak işlenen değil güvenlik alt ağına gelen. Sonuç olarak, NSG, hiçbir zaman güvenlik alt ağa bağlı olduğundan NSG kuralı VNet üzerinde herhangi bir adresi yok Internet trafiğini diyor olsa da, trafiği güvenlik alt ağa akacak.
+NSG yalnızca ön uç ve arka uç alt ağa bağlı olduğundan, kuralın güvenlik alt ağa gelen trafik için uygulanmaz. Sonuç olarak, güvenlik alt ağa trafiği akar.
 
 ```powershell
 Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
@@ -199,55 +203,60 @@ Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
     -SubnetName $BESubnet -VirtualNetworkName $VNetName
 ```
 
-## <a name="firewall-rules"></a>Güvenlik Duvarı Kuralları
-Güvenlik Duvarı'nı, kuralları iletme oluşturulması gerekir. Güvenlik duvarı engelleme veya ileten tüm gelen, giden ve içi-VNet trafiği olduğundan çok sayıda güvenlik duvarı kuralları gerekir. Ayrıca, tüm gelen trafiği, güvenlik hizmeti genel IP adresini (farklı bağlantı noktaları üzerinde) güvenlik duvarı tarafından işlenecek ulaşırsınız. Alt ağlar ' ayarlamadan önce mantıksal akışlarda diyagram için en iyi uygulamadır ve önlemek için güvenlik duvarı kuralları daha sonra yeniden. Aşağıdaki şekil, bu örnek için güvenlik duvarı kurallarını mantıksal bir görünümüdür:
+## <a name="firewall-rules"></a>Güvenlik duvarı kuralları
+
+Güvenlik Duvarı'nı iletme kurallarını oluşturmanız gerekir. Güvenlik Duvarı engeller veya tüm gelen, giden ve intra virtual ağ trafiğini nedeniyle çok sayıda güvenlik duvarı kuralları gerekir. Ayrıca güvenlik hizmeti genel IP adresini (temel, farklı bağlantı noktaları için) gelen tüm trafiği işlemek güvenlik duvarı sahiptir. Daha sonra kurtulabilir için alt ağları ve güvenlik duvarı kurallarını ayarlama önce mantıksal akışlarda diyagram tarafından en iyi izleyin. Aşağıdaki şekil, bu örnek için güvenlik duvarı kurallarını mantıksal bir görünümüdür:
 
 ![Güvenlik duvarı kurallarını mantıksal görünümü][2]
 
 > [!NOTE]
-> Ağ sanal kullanılan Gerecinde bağlı olarak, yönetim bağlantı noktalarına değişir. Barracuda NextGen güvenlik duvarı başvurulan Bu örnekte, bağlantı noktası 22 ve 801 807 kullanır. Lütfen kullanılan cihaz yönetimi için kullanılan bağlantı noktaları bulmak için gereç satıcı belgelerine bakın.
-> 
-> 
+> Yönetim bağlantı noktalarını ağ sanal gerecinin bağlı olarak değişir. Bu örnekte, bağlantı noktası 22 ve 801 807 kullanan bir Barracuda NextGen Firewall gösterilmektedir. Lütfen cihazı yönetmek için tam bağlantı noktalarını bulmak için gereç satıcı belgelerine bakın.
 
 ### <a name="logical-rule-description"></a>Mantıksal kural açıklaması
-Yukarıdaki mantıksal diyagramda, güvenlik alt ağ, Güvenlik Duvarı bu alt ağda yalnızca bir kaynaktır ve bu diyagramda, güvenlik duvarı kuralları ve nasıl mantıksal olarak izin ver veya trafik akışları ve gerçek yönlendirilmiş yol değil Reddet gösteren gösterilmez. Ayrıca, RDP trafiği için daha yüksek seçilen dış bağlantı noktaları aralıklı bağlantı noktaları (8014 – 8026) ve biraz daha kolay okunabilmesi için yerel IP adresi, son iki sekizlik tabanda hizalamak için seçilmiş olan (örneğin yerel sunucu adresi 10.0.1.4 dış bağlantı noktasıyla ilişkilendirildiğinden 8014), ancak daha yüksek bir çakışma olmayan bağlantı noktaları kullanılabilir.
 
-Bu örnekte, kural 7 türleri ihtiyacımız, bu kural türleri aşağıda açıklanmıştır:
+Güvenlik Duvarı bu alt ağda yalnızca kaynak olduğundan, yukarıdaki mantıksal diyagramda güvenlik alt göstermez. Güvenlik duvarı kuralları, bu diyagramda gösterilmiştir nasıl mantıksal olarak izin ver veya Reddet trafik akışları, ancak değil gerçek yol yönlendirilir. Ayrıca, son iki sekizlik tabanda yerel IP adresi ile hizalamak daha kolay okunabilmesi için seçilen daha yüksek aralıklı bağlantı (8014 – 8026) için Uzak Masaüstü Protokolü (RDP) trafiğine seçili dış bağlantı noktaları noktalarıdır. Örneğin, yerel sunucu adresi 10.0.1.4 8014 dış bağlantı noktası ile ilişkilidir. Ancak, daha yüksek çakışmayan bağlantı noktalarını kullanabilirsiniz.
 
-* Dış kuralları (gelen trafik için):
-  1. Güvenlik Duvarı Yönetimi kuralı: Bu uygulama yeniden yönlendirme kuralı trafiği ağ sanal Gereci yönetim bağlantı noktalarına geçirilecek sağlar.
-  2. RDP kuralları (her windows server için): Bu dört kural (her sunucu için bir tane) RDP aracılığıyla tek tek sunucuların yönetimini sağlar. Bu da ağ sanal Gereci'ı kullanılan özelliklerine bağlı olarak tek bir kural halinde paketlenmiş.
-  3. Uygulama trafik kuralları: Ön uç web trafiği için ilk ve ikinci (ör. web sunucusu için veri katmanı) arka uç trafiği için iki uygulama trafik kuralları vardır. Bu kurallar yapılandırmasını (burada sunucularınızın yerleştirilir) ağ mimarisine bağlı ve trafik akışları (hangi yönde trafik akışı ve bağlantı noktalarını kullanılır).
-     * İlk kural, uygulama tarafından sunucuya ulaşmak gerçek uygulama trafiği izin verir. Diğer kurallardan izin verirken, güvenlik, yönetim, vb. için uygulamanın hangi dış kullanıcıları veya hizmetler uygulamaları erişmeye izin kurallardır. Bu örnekte, bağlantı noktası 80 üzerinde bir tek bir web sunucusu olduğundan, bu nedenle bir tek uygulama güvenlik duvarını gelen trafiğe web sunucuları iç IP adresi için dış IP yönlendirilecek. Yeniden yönlendirilen trafik oturumu NAT iç sunucuya vardı.
-     * İkinci uygulama trafiği kuralı AppVM01 sunucu (ancak değil AppVM02) konuşmak Web sunucusu herhangi bir bağlantı noktası izin vermek için arka uç kuralıdır.
-* (İçi-VNet trafiği) iç kurallar
-  1. Giden Internet kuralı için: Bu kural, seçili ağlar için geçirilecek herhangi bir ağa gelen trafiğe izin verir. Bu kural, genellikle varsayılan bir kural zaten güvenlik duvarı, ancak devre dışı durumuna içindir. Bu kural, bu örnek için etkinleştirilmesi gerekir.
-  2. DNS kuralı: Bu kural yalnızca DNS sunucusuna geçirilecek DNS (bağlantı noktası 53) trafiğine izin verir. Arka uca ön uç çoğu trafiği engellenir ve bu ortam için bu kural, DNS özellikle yerel bir alt ağdan sağlar.
-  3. Alt ağ için alt ağ kuralı: Bu kural, ön uç alt (ancak tersine) herhangi bir sunucuya bağlanmak için arka uç alt ağdaki herhangi bir sunucu sağlamaktır.
-* Emniyet kuralı (yukarıdakilerden herhangi biri karşılamıyor trafiği):
-  1. Tüm trafik kuralı Reddet: Bu her zaman son kuralı (öncelik) açısından olmalıdır ve trafik akışları, bu nedenle bu kural tarafından bırakılır önceki kurallardan herhangi birinin eşleştirmek başarısız olur. Bu varsayılan kural ve genellikle etkin, herhangi bir değişiklik genellikle gereklidir.
+Aşağıdaki kural türleri bu örnek için şunlar gereklidir:
+
+* Gelen trafik için dış kuralları:
+  1. Güvenlik Duvarı Yönetimi: trafiği ağ sanal Gereci yönetim bağlantı noktalarına geçmesine izin verir.
+  2. Her windows server için RDP kuralları: RDP aracılığıyla tek tek sunucuların yönetilmesine izin verir.  Ağ sanal Gereci özelliklerine bağlı olarak, bir alana kurallar paket mümkün olabilir.
+  3. Uygulama trafik kuralları: biri ön uç web trafiği, diğeri arka uca trafik (örneğin, veri katmanı için web sunucusu). Bu kurallar yapılandırmasını ağ mimarisi ve trafiği bağlıdır akışlar.
+
+     * İlk kural, uygulama tarafından sunucuya ulaşmak gerçek uygulama trafiğine izin verir. Güvenlik, yönetim ve benzeri kurallarından farklı olarak, uygulama kuralları dış kullanıcıları veya hizmetler uygulamaların erişmesine izin verir. Bu örnekte bunun yerine web sunucusunun iç IP adresine yönlendirmek dış IP adresi için giden trafiği yönlendirmek tek bir güvenlik duvarı uygulama kuralı sağlayan bir tek bir web sunucusu bağlantı noktası 80 ' var. Yeniden yönlendirilen trafik oturumu NAT tarafından iç sunucuya eşlenir.
+     * İkinci uygulama trafiği kural, web sunucusunu AppVM01 sunucuya, ancak AppVM02 sunucuya trafiği yönlendirmek için herhangi bir bağlantı noktası kullanacak şekilde izin vermek için arka uç kuralıdır.
+
+* İç kuralları intra virtual ağ trafiği için:
+  1. Giden internet kuralı: Seçili ağlar için geçirilecek herhangi bir ağa gelen trafiğe izin verir. Bu kural, genellikle varsayılan bir güvenlik duvarı, ancak devre dışı durumuna değerdir. Bu kural Bu örnek için etkinleştirin.
+  2. DNS kuralı: yalnızca DNS sunucusuna geçirilecek DNS (bağlantı noktası 53) trafiğine izin verir. Bu ortam için ön uçtan arka uç çoğu trafik engellenir. Bu kural, tüm yerel alt ağından DNS özellikle sağlar.
+  3. Alt ağ ve alt ağ kuralı: ön uç alt ağı, ancak tersine herhangi bir sunucuya bağlanmak için arka uç alt ağdaki herhangi bir sunucu sağlar.
+
+* Eğer yukarıdaki ölçütlerden birini karşılamıyor trafiği için emniyet kuralı:
+  1. Reddetme tüm trafik kuralı: öncelik açısından her zaman son kuralı. Önceki kurallardan herhangi birinin eşleştirilecek trafik akışı başarısız olursa bu kural, engeller. Varsayılan bir kuraldır. Yaygın olarak etkinleştirilmiş olduğundan, herhangi bir değişiklik gereklidir.
 
 > [!TIP]
-> İkinci uygulama trafik kuralını ve herhangi bir bağlantı noktası en belirli bağlantı noktası bu örnekte gerçek bir senaryo, kolay izin verilir ve adres aralıkları, bu kural saldırı yüzeyini azaltmak için kullanılmalıdır.
-> 
-> 
+> İkinci uygulama trafiği kuralda herhangi bir bağlantı, bu örneği basit tutmak izin verilmez. Gerçek bir senaryoda, bu kural saldırı yüzeyini azaltmak için belirli bir bağlantı noktası ve adres aralıklarının kullanmalısınız.
 
-<br />
 
 > [!IMPORTANT]
-> Yukarıdaki kurallarının tümü oluşturulduktan sonra trafiğe izin veya istediğiniz gibi reddedildi emin olmak için her bir kural önceliklerini gözden geçirilmesi önemlidir. Bu örnekte, öncelik sırasına göre kurallardır. Güvenlik Duvarı yanlış sıralı kuralları nedeniyle dışında kilitlenmesi kolay bir işlemdir. En azından, özel olarak Yönetim güvenlik duvarı kendisi için her zaman mutlak en yüksek öncelikli kuralı olduğundan emin olun.
-> 
-> 
+> Kuralları oluşturduktan sonra trafiğe izin veya istediğiniz gibi reddedildi emin olmak için her bir kural önceliklerini gözden geçirmeniz önemlidir. Bu örnekte, öncelik sırasına göre kurallardır. Dışında bir güvenlik duvarı kuralları hatalı sıralanmış olması durumunda saldırdığında daha kolaydır. Güvenlik duvarını yönetim mutlak en yüksek öncelikli ayarladığınızdan emin olun.
 
 ### <a name="rule-prerequisites"></a>Kural önkoşulları
-Güvenlik Duvarı'nı çalıştıran sanal makine için bir önkoşul ortak uç noktalar şunlardır. Trafiğini işlemek Güvenlik Duvarı için uygun bir ortak Uç noktalara açık olması gerekir. Bu örnekte trafiğin üç tür vardır; Windows sunucuları ve 3) uygulama trafiği denetlemek için RDP trafiği 1) yönetim trafiğini denetimi güvenlik duvarı ve güvenlik duvarı kuralları, 2). Bu üç üst trafik türlerinin güvenlik duvarı kurallarına mantıksal görünümünü yarısını sütunlarıdır.
+
+Ortak Uç noktalara Güvenlik Duvarı'nı çalıştıran sanal makine için gerekli değildir. Güvenlik duvarının trafiği işleyebilir, böylece bu ortak Uç noktalara açık olması gerekir. Bu örnekte trafiğin üç tür vardır:
+
+1. Yönetim trafiği güvenlik duvarı ve güvenlik duvarı kuralları kontrol etmek için
+1. Windows sunucuları denetlemek için RDP trafiği
+1. Uygulama trafiği
+
+Trafik türlerini güvenlik duvarı kuralları mantıksal Yukarıdaki diyagramda üst yarısında görüntülenir.
 
 > [!IMPORTANT]
-> Burada bir anahtar takeway unutmayın sağlamaktır **tüm** trafiği, güvenlik duvarı üzerinden gelen. Bu nedenle IIS01 sunucuya Uzak Masaüstü için ön uç bulut hizmeti ve ön uç alt olmasına rağmen bu sunucuya erişmek için biz RDP için güvenlik duvarında bağlantı noktası 8014 gerekir ve ardından RDP isteği IIS01 RDP Por için dahili olarak yönlendirmek Güvenlik Duvarı'nı izin t. Azure portalının "Bağlan" düğmesi olduğundan IIS01 için doğrudan RDP yol yok (portal görebilirsiniz kadar) işe yaramaz. Başka bir deyişle, İnternet'ten gelen tüm bağlantıları, güvenlik ve bağlantı noktası, örneğin secscv001.cloudapp.net:xxxx (başvurusu dış bağlantı noktası, iç IP ve bağlantı noktası eşlemesi için yukarıdaki diyagramda) olacaktır.
-> 
-> 
+> Unutmayın *tüm* trafiği güvenlik duvarı üzerinden sunulur. IIS01 sunucuya Uzak Masaüstü için güvenlik duvarında bağlantı noktası 8014 bağlanmak ve ardından RDP isteği IIS01 RDP bağlantı noktası için dahili olarak yönlendirmek güvenlik duvarı izin gerekir. Azure portalının **Connect** düğme olduğu için doğrudan RDP yol yok IIS01 portalı görebilirsiniz kadar çalışmaz. Güvenlik hizmeti ve bağlantı noktası (örneğin, secscv001.cloudapp.net:xxxx) için İnternet'ten gelen tüm bağlantılardır. Yukarıdaki diyagramda dış bağlantı noktası ve iç IP ve bağlantı noktası eşlemesi için başvuru.
 
-Bir uç nokta ya da VM oluşturma zamanında açılabilir veya örnek komut dosyasında yapılan ve aşağıda bu kod parçacığında gösterildiği gibi derleme sonrası (Not; herhangi bir dolar işareti öğesi başlayarak (örn: $VMName[$i]) olan bir kullanıcı tanımlı değişken başvuru _Böl içinde komut dosyası Bu belgenin n. Parantez içine "$i" [$i] belirli bir VM'ye sanal dizide dizi sayısını temsil eder):
+Bir uç nokta, bir VM oluşturmak veya derlemeden sonra zaman açabilirsiniz. VM oluşturulduktan sonra örnek komut dosyası ve aşağıdaki kod parçacığı bir uç nokta açın.
+
+Unutmayın, bu öğeler ile başlayan `$`, gibi `$VMName[$i]`, komut dosyası başvurusu bölümündeki kullanıcı tanımlı değişkenler. `[$i]` VM'lerin bir dizideki belirli bir VM'ye dizi sayısını temsil eder.
 
 ```powershell
 Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
@@ -255,43 +264,62 @@ Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
     Update-AzureVM
 ```
 
-Değişkenleri, ancak uç noktalar kullanımı nedeniyle değil açıkça burada gösterilen ancak **yalnızca** güvenlik bulut hizmetinde açılır. Tüm gelen trafiği yönetildiğinden emin olmak için budur (yönlendirilmiş NAT bırakılan içeren) bir güvenlik duvarı tarafından.
+Değil açıkça değişkenler nedeniyle burada gösterilmeden olsa da, yalnızca güvenlik bulut hizmeti bitiş noktası açmanız gerekir. Bu önlem, özel olarak, yönlendirilmiş, NAT tarafından uri'lerini veya bırakılan olup olmadığını Güvenlik Duvarı tüm gelen trafiği işleyen sağlamaya yardımcı olur.
 
-Bir yönetim istemcisi bir güvenlik duvarını yönetmeyi ve gerekli yapılandırmaları oluşturmak için bir bilgisayarda yüklü olması gerekir. Cihazı yönetmek, Güvenlik Duvarı (veya diğer NVA) belgelerinden satıcı bakın. Bu bölümde ve sonraki bölümde, güvenlik duvarı kuralları oluşturma, geri kalanında, güvenlik duvarı yapılandırmasını kendisini satıcıları Yönetimi istemcisi (yani Azure portal veya PowerShell) üzerinden anlatmaktadır.
+Bir yönetim istemcisi bir güvenlik duvarını yönetmeyi ve gerekli yapılandırmaları oluşturmak için bir Bilgisayara yükleyin. Güvenlik duvarınızı veya diğer NVA yönetme hakkında daha fazla bilgi için satıcının belgelerine başvurun. Bu bölümün geri kalanında yanı sıra **güvenlik duvarı kuralları oluşturma** bölümü, güvenlik duvarı yapılandırmasını açıklar. Satıcının yönetim istemci değil Azure portalı veya PowerShell kullanın.
 
-İstemci Yükleme ve bu örnekte kullanılan Barracuda bağlanmak için yönergeler burada bulunabilir: [Barracuda NG yönetici](https://techlib.barracuda.com/NG61/NGAdmin)
+Git [Barracuda NG yönetici](https://techlib.barracuda.com/NG61/NGAdmin) yönetim istemcisini indirin ve Barracuda güvenlik duvarı bağlantı kurmayı öğrenin.
 
-Güvenlik Duvarı üzerine ancak güvenlik duvarı kuralları oluşturmadan önce açtıktan sonra daha kolay kurallar oluşturma yapabileceğiniz iki önkoşul nesne sınıfları vardır; & Ağ hizmeti nesneleri.
+Güvenlik Duvarı açtığınız sonra güvenlik duvarı kuralları oluşturmadan önce ağ ve hizmet nesneleri tanımlar. Bu iki önkoşul nesne sınıfları, kuralları daha kolay oluşturma yapabilirsiniz.
 
-Bu örnekte, üç adlandırılmış ağ nesnelerini tanımlanmış (ön uç alt ağını ve arka uç alt ağı, ayrıca bir DNS sunucusunun IP adresi için ağ nesne için bir) olmalıdır. Adlandırılmış bir ağ oluşturmak için; Barracuda NG yönetici istemci panodan başlayarak, yapılandırma sekmesine gidin, işletimsel yapılandırma bölümünde Ruleset tıklayın, ardından güvenlik duvarı nesneleri menüsü altındaki "Ağ"'a tıklayın ve ardından yeni ağlar düzenleme menüsünü. Ağ nesnesini artık, adı ve önek ekleyerek oluşturulabilir:
+Bu örnekte, üç adlandırılmış ağ nesnelerinin her biri için tanımlayın:
 
-![Bir ön uç ağ nesnesi oluşturun][3]
+* Ön uç alt ağı
+* Arka uç alt ağı
+* DNS sunucusunun IP adresi
 
-Bu adlandırılmış FrontEnd alt ağı oluşturur, arka uç alt ağı için de benzer bir nesne oluşturulmalıdır. Artık alt ağların güvenlik duvarı kuralları ada göre daha kolay başvurulabilir.
+Barracuda NG yönetici istemci panodan adlandırılmış bir ağ oluşturmak için:
+
+1. Git **yapılandırma sekmesinde**.
+1. Seçin **Ruleset** içinde **işletimsel yapılandırma** bölümü
+1. Seçin **ağları** altında **güvenlik duvarı nesneleri** menüsü.
+1. Seçin **yeni** içinde **Düzenle ağları** menüsü.
+1. Ad ve önek ekleyerek ağ nesnesini oluşturun:
+
+   ![Bir ön ed ağ nesnesi oluşturun][3]
+
+Önceki adımlarda, ön uç alt ağı için adlandırılmış bir ağ oluşturun. Benzer bir nesne için de arka uç alt ağı oluşturun. Artık alt ağların güvenlik duvarı kuralları ada göre daha kolay başvurulabilir.
 
 DNS sunucu nesnesi için:
 
 ![Bir DNS sunucusu nesnesi oluşturun][4]
 
-Bu tek IP adresi başvurusu, bir DNS kuralında belgenin ilerleyen bölümlerinde kullanılır.
+Bu tek IP adresi başvurusu bir DNS kuralı belgenin ilerleyen bölümlerinde kullanılır.
 
-İkinci önkoşul nesneleri Hizmetleri nesneleridir. Bu, her sunucu için RDP bağlantı noktaları temsil eder. Mevcut RDP hizmet nesnesi varsayılan RDP bağlantı noktasına bağlı olduğundan 3389, dış bağlantı noktaları (8026 8014) gelen trafiğe izin verecek şekilde yeni hizmetler oluşturulabilir. Yeni bağlantı noktaları, RDP hizmetiniz eklenebilir, ancak tanıtım kolaylığı için her sunucu için tek bir kural oluşturulabilir. Bir sunucu için yeni bir RDP kuralı oluşturmak için; Barracuda NG yönetici istemci panodan başlayarak, yapılandırma sekmesine gidin, kural kümesi, işlem yapılandırma bölümünde tıklayın sonra "Hizmetler" altında güvenlik duvarı nesneleri menüsünü, hizmetlerin listesini kaydırın ve "RDP" hizmetini seçin. Sağ tıklayın ve kopyalama,'ı seçin, sonra sağ tıklayın ve Yapıştır seçin. Düzenlenebilir bir RDP Copy1 hizmet nesnesi artık yoktur. RDP Copy1 sağ tıklayın ve Düzenle, Düzenle hizmet penceresi aşağıda gösterildiği gibi en üstten nesnesi seçin:
+Bir nesne sınıfı, her sunucu için RDP bağlantı noktaları gösteren Hizmetleri nesneleri içerir. Mevcut RDP hizmet nesnesi 3389 varsayılan RDP bağlantı noktasına bağlıdır. Bu nedenle, dış bağlantı noktaları (8026 8014) gelen trafiğe izin verecek şekilde yeni hizmetler oluşturabilirsiniz. Ayrıca, RDP hizmetiniz için yeni bağlantı noktaları ekleyebilirsiniz. Ancak, tanıtım kolaylığı için her sunucu için tek bir kuralı yapabilirsiniz. Barracuda NG yönetici istemci panodan bir sunucu için yeni bir RDP kuralı oluşturmak için:
 
-![Varsayılan RDP kuralının kopyalama][5]
+1. Git **yapılandırma sekmesinde**.
+1. Seçin **Ruleset** içinde **işletimsel yapılandırma** bölümü.
+1. Seçin **Hizmetleri** altında **güvenlik duvarı nesneleri** menüsü.
+1. Hizmetleri ve seçim listesini aşağı kaydırın **RDP**.
+1. Sağ tıklatın ve Kopyala'yı seçin, sonra sağ tıklayıp yapıştırın.
+1. Düzenlenebilir bir RDP Copy1 hizmet nesnesi artık yoktur. Sağ **RDP Copy1** seçip **Düzenle**.
+1. **Hizmet nesnesi Düzenle** burada gösterildiği gibi kadar penceresi açılır:
 
-Değerleri, ardından belirli bir sunucu için RDP hizmeti göstermek için düzenlenebilir. AppVM01 için yeni hizmet adı, açıklama ve dış RDP Şekil 8 şemada kullanılan bağlantı noktasını yansıtmak için yukarıdaki varsayılan RDP kuralının değiştirilmesi gerekir (Not: Bu belirli bir sunucu için kullanılan dış bağlantı noktasına 3389 RDP varsayılan bağlantı noktalarını değiştirilir söz konusu olduğunda AppVM01 8025 dış bağlantı noktası olan) değiştirilen hizmetin aşağıda gösterilmiştir:
+   ![Varsayılan RDP kuralının kopyalama][5]
 
-![AppVM01 kuralı][6]
+1. Belirli bir sunucu için RDP hizmeti göstermek için değerleri düzenleyin. Varsayılan RDP kuralının AppVM01 için yeni bir hizmet yansıtacak şekilde değiştirilmelidir **adı**, **açıklama**ve dış RDP Şekil 8 şemada kullanılan bağlantı noktası. Bu belirli bir sunucu için dış bağlantı noktasına bağlantı noktası 3389 RDP varsayılan değiştirilir aklınızda bulundurun. Örneğin, dış bağlantı AppVM01 için 8025 noktasıdır. Değiştirilen hizmetin kural aşağıda gösterilmiştir:
 
-Geri kalan sunucular için RDP hizmetleri oluşturmak için bu işlemin yinelenmesi gerekir; AppVM02 DNS01 ve IIS01. Bu hizmetler oluşturulmasını kural oluşturma sonraki bölümde daha basit ve daha belirgin yapar.
+   ![AppVM01 kuralı][6]
+
+Geri kalan sunucular için RDP hizmetleri oluşturmak için bu işlemi yineleyin: AppVM02 DNS01 ve IIS01. Bu hizmetler kuralları oluşturmak daha basit ve daha belirgin sonraki bölümde hale getirir.
 
 > [!NOTE]
-> İki nedenden dolayı bir RDP Hizmeti Güvenlik Duvarı için gerekli değildir; (1) ilk VM Güvenlik duvarı olup Linux tabanlı bir görüntü SSH kullanılabilir bağlantı noktası 22 için VM Yönetimi yerine RDP ve (2) bağlantı noktası 22 ve diğer yönetim bağlantı noktalarına iki için yönetim bağlantısına izin vermek için aşağıda açıklanan ilk yönetim kuralında izin verilir.
-> 
-> 
+> RDP yerine VM yönetimi için kullanılan SSH bağlantı noktası 22 için VM Güvenlik Duvarı Linux tabanlı bir görüntü olduğu için bir RDP Hizmeti Güvenlik Duvarı için gerekli değildir. Ayrıca 22 numaralı bağlantı noktası ve diğer iki bağlantı noktası yönetim bağlantısını için izin verilir. Bkz: **Yönetimi Güvenlik Duvarı** sonraki bölümde.
 
 ### <a name="firewall-rules-creation"></a>Güvenlik duvarı kuralları oluşturma
-Bu örnekte kullanılan güvenlik duvarı kuralları üç tür vardır, hepsi farklı simgeleri olur:
+
+Bu örnekte, tüm farklı simgeleri ile kullanılan güvenlik duvarı kuralları üç tür vardır:
 
 Uygulama yeniden yönlendirme kuralı: ![Uygulama yeniden yönlendirme simgesi][7]
 
@@ -299,121 +327,118 @@ Hedef NAT kuralı: ![Hedef NAT simgesi][8]
 
 Geçişi kuralı: ![Geçişi simgesi][9]
 
-Bu kurallar hakkında daha fazla bilgi Barracuda web sitesinde bulunabilir.
+Bu kurallar hakkında daha fazla bilgi Barracuda Web sitesinde bulunabilir.
 
-Aşağıdaki kurallar oluşturun (veya var olan varsayılan kuralları doğrulamak için), Barracuda NG yönetici istemci panodan başlangıç yapılandırma sekmesine gidin, işletimsel yapılandırmada bölümü Ruleset'a tıklayın. Adlı bir kılavuz için "Ana kuralları" Bu Güvenlik Duvarı'nı mevcut etkin ve devre dışı bırakılan kuralları gösterir. Bu kılavuz sağ üst köşesinde küçük yeşil olduğundan "+" düğmesi, yeni bir kural oluşturmak için tıklayın (Not: güvenlik duvarınızı "değişiklikleri kilitlenebilir", görürseniz bir düğme "Kilitle" olarak işaretlenmiş ve oluşturma veya kuralları düzenlemek için "kural kümesi kilidini açmak için" Bu düğmeye tıklayın belirleyemiyoruz ve  düzenlemeye izin ver). Mevcut bir kuralı düzenlemek istiyorsanız, bu kuralı seçin, sağ tıklayın ve kuralı Düzenle'yi seçin.
+Aşağıdaki kurallar oluşturabilir veya var olan varsayılan kuralları doğrulamak için:
 
-Sonra kurallarınızı oluşturulan ve/veya değiştirilmiş, bunlar gerekir güvenlik duvarı gönderilmesine ve etkinleştirildiğinden, Bu yapılmazsa, kural değişikliklerini etkili olmaz. Anında iletme ve etkinleştirme işlemi ayrıntıları kuralı açıklamaları açıklanmıştır.
+1. Barracuda NG yönetici istemci panodan Git **yapılandırma** sekmesi.
+1. İçinde **işletimsel yapılandırma** bölümünden **Ruleset**.
+1. **Ana kuralları** kılavuz var olan active gösterir ve bu güvenlik duvarı kurallarını devre dışı bırakıldı. Yeşili **+** yeni bir kural oluşturmak üzere sağ üst köşedeki içinde. Güvenlik duvarınızı değişikliklere karşı kilitlenmiş olarak işaretlenmiş bir düğme görürsünüz **kilit** ve olamaz kuralları oluşturun veya düzenleyin. Seçin **kilit** düğmesine kural kümesi kilidini açmak ve düzenlenmesine izin verilir. İstediğiniz düzen ve seçmek için bir kurala sağ tıklayın **kuralını Düzenle**.
 
-Bu örnekte tamamlamak için gereken her bir kural ayrıntılarını aşağıda açıklanmıştır:
+Tüm kuralları oluşturduğunuzda veya sonra bunları gönderin güvenlik duvarı ve bunları etkinleştirmek. Aksi takdirde, kural değişiklikler etkili olmayacaktır. Anında iletme ve etkinleştirme işlemi açıklanan [kuralını etkinleştirme](#rule-activation).
 
-* **Güvenlik duvarı kuralı Yönetim**: Bu uygulama yeniden yönlendirme kuralı, bu örnekte bir Barracuda NextGen güvenlik duvarı ağ sanal Gereci yönetim bağlantı noktalarını geçirilecek trafiğine izin verir. Yönetim bağlantı noktalarına 801, 807 ve isteğe bağlı olarak 22'dir. Dış ve iç bağlantı noktalarını (yani hiçbir bağlantı noktası çeviri) aynıdır. Bu kural, Kurulum-MGMT-erişim, bir varsayılan kural ve (Barracuda NextGen güvenlik duvarı sürüm 6.1 içinde) varsayılan olarak etkin.
+Bu örnekte tamamlamak için gereken her bir kural ayrıntılarını şunlardır:
+
+* **Güvenlik Duvarı Yönetimi**: Bu uygulama yeniden yönlendirme kuralı, bu örnekte bir Barracuda NextGen güvenlik duvarı ağ sanal Gereci yönetim bağlantı noktalarını geçirilecek trafiğine izin verir. Yönetim bağlantı noktalarına 801 807 ve isteğe bağlı olarak 22 ' dir. İç ve dış bağlantı noktası, bağlantı noktası çeviri aynıdır. Bu kural, Kurulum-MGMT-erişim denir. Bu varsayılan kural ve varsayılan olarak, Barracuda NextGen güvenlik duvarı, sürüm 6.1 etkin.
   
     ![Güvenlik Duvarı Yönetimi][10]
 
-> [!TIP]
-> Varsa, bu kuralın kaynak adres alanında olduğundan yönetim IP adresi aralıklarını bilinmiyorsa, bu kapsam azaltma da saldırı yüzeyini yönetim bağlantı noktalarına azaltır.
-> 
-> 
+  > [!TIP]
+  > Bu kuralın kaynak adres alanında olduğundan **herhangi**. Yönetim IP adresi aralıklarını bilinmiyorsa, bu kapsam azaltma yönetim bağlantı noktalarına saldırı yüzeyini de azaltır.
 
-* **RDP kuralları**:  Bu hedef NAT kuralları, RDP aracılığıyla tek tek sunucuların yönetimini sağlar.
-  Bu kuralı oluşturmak için gereken dört önemli alanlar şunlardır:
+* **RDP kuralları**:  Bu hedef NAT kuralları, RDP aracılığıyla tek tek sunucuların yönetimini sağlar. Bu kurallar için önemli alanlar şunlardır:
+  * Kaynağı. RDP yerden izin vermek için başvuru kullanın **herhangi** kaynağı alanında.
+  * Hizmeti. Daha önce oluşturduğunuz RDP hizmet nesnesi kullanın: **AppVM01 RDP**. Dış bağlantı noktaları, sunucunun yerel IP adresi ve varsayılan RDP bağlantı noktası 3386 yönlendirin. Bu kuralı AppVM01 RDP erişimi içindir.
+  * Hedef. Yerel bağlantı noktası Güvenlik Duvarı'nı kullanın: **DHCP 1 yerel IP** veya **eth0** statik IP kullanıyorsanız. Bir sıra numarası (eth0, eth1 vb.) ağ aletiniz birden çok yerel arabirimi varsa farklı olabilir. Güvenlik Duvarı göndermek için bu bağlantı noktasını kullanır ve alma bağlantı noktası aynı olabilir. Gerçek yönlendirilmiş hedef bulunduğu **hedef liste** alan.
+  * Yeniden yönlendirme. Sonuç olarak bu trafiğin yönlendirileceği sanal gerece bildirmek için yapılandırın. Basit Yönlendirme IP hedef liste alanında yerleştirmektir. Bağlantı noktası hem de IP adresi NAT yeniden yönlendirmeler ve bağlantı noktası da belirtebilirsiniz. Bir bağlantı noktası belirtmediyseniz, sanal gerecin gelen istek hedef bağlantı noktası kullanır.
+
+    ![RDP Güvenlik Duvarı][11]
+
+    Dört RDP kurallarını oluşturun:
+
+    | Kural Adı | Sunucu | Hizmet | Hedef listesi |
+    | --- | --- | --- | --- |
+    | RDP IIS01 |IIS01 |IIS01 RDP |10.0.1.4:3389 |
+    | RDP DNS01 |DNS01 |DNS01 RDP |10.0.2.4:3389 |
+    | RDP AppVM01 |AppVM01 |AppVM01 RDP |10.0.2.5:3389 |
+    | RDP AppVM02 |AppVM02 |AppVm02 RDP |10.0.2.6:3389 |
+
+  > [!TIP]
+  > Kaynak ve hizmet alanları kapsamını daraltma saldırı yüzeyini de azaltır. İşlevsellik sağlayan en sınırlı kapsamı kullanın.
+
+* **Uygulama trafik kuralları**: İki uygulama trafik kuralları vardır. Ön uç web trafiği biridir. Diğer veri katmanı için web sunucusu gibi arka uca trafik kapsar. Bu kurallar, ağ mimarisine bağlı ve trafik akışları.
   
-  1. RDP yerden başvuru "Tümü" izin vermek için kaynak – kaynak alanında kullanılır.
-  2. Dış bağlantı noktalarını sunucuları yerel IP adresi ve bağlantı noktası (varsayılan RDP bağlantı noktası) 3386 için yeniden yönlendirme, hizmeti –, bu durumda "AppVM01 RDP" daha önce oluşturduğunuz uygun hizmet nesnesi kullanın. Bu kuralı AppVM01 RDP erişimi içindir.
-  3. Hedef – olmalıdır *yerel bağlantı noktası için güvenlik duvarında*, "DHCP 1 yerel IP" ya da statik IP kullanırken, eth0. Bir sıra numarası (eth0, eth1 vb.) ağ aletiniz birden çok yerel arabirimi varsa farklı olabilir. Bu güvenlik duvarı olup göndermeden gelen bağlantı noktasıdır (alıcı bağlantı noktası aynı olabilir), gerçek yönlendirilmiş hedef hedef liste alandır.
-  4. Yeniden yönlendirme – Bu bölümde, sanal gerecin sonuçta bu trafiğin yönlendirileceği söyler. Basit Yönlendirme IP ve bağlantı noktası (isteğe bağlı) hedef listesinin alanında yerleştirmektir. Hiçbir bağlantı noktası kullanılırsa, hedef bağlantı noktası gelen istekte olacaktır (IE çevirisi yok), bir bağlantı noktası belirtilen bağlantı noktası, kullanılan NAT yanı sıra IP adresi de olacaktır.
-     
-     ![RDP Güvenlik Duvarı][11]
-     
-     Toplam dört RDP kuralları oluşturulması gerekir: 
-     
-     | Kural Adı | Sunucu | Hizmet | Hedef listesi |
-     | --- | --- | --- | --- |
-     | RDP IIS01 |IIS01 |IIS01 RDP |10.0.1.4:3389 |
-     | RDP DNS01 |DNS01 |DNS01 RDP |10.0.2.4:3389 |
-     | RDP AppVM01 |AppVM01 |AppVM01 RDP |10.0.2.5:3389 |
-     | RDP AppVM02 |AppVM02 |AppVm02 RDP |10.0.2.6:3389 |
-
-> [!TIP]
-> Kaynak ve hizmet alanların kapsamını daraltmak daraltma saldırı yüzeyini de azaltır. İşlevselliği sağlayacak en sınırlı kapsamı kullanılmalıdır.
-> 
-> 
-
-* **Uygulama trafik kuralları**: Ön uç web trafiği için ilk ve ikinci (ör. web sunucusu için veri katmanı) arka uç trafiği için iki uygulama trafik kuralları vardır. Bu kurallar ağ mimarisine (burada sunucularınızın yerleştirilir) bağlıdır ve trafik akışları (hangi yönde trafik akışı ve bağlantı noktalarını kullanılır).
-  
-    Önce ele alınan web trafiği için ön uç kuralıdır:
+  * Web trafiği için ön uç kuralı:
   
     ![Web güvenlik duvarı][12]
   
-    Bu hedef NAT kuralı, uygulama tarafından sunucuya ulaşmak gerçek uygulama trafiğine izin verir. Diğer kurallardan izin verirken, güvenlik, yönetim, vb. için uygulamanın hangi dış kullanıcıları veya hizmetler uygulamaları erişmeye izin kurallardır. Bu örnekte, bağlantı noktası 80 üzerinde bir tek bir web sunucusu olduğundan, bu nedenle tek uygulama güvenlik duvarını gelen trafiğe web sunucuları iç IP adresi için dış IP yönlendirilecek.
+    Bu hedef NAT kuralı, uygulama tarafından sunucuya ulaşmak gerçek uygulama trafiğine izin verir. Güvenlik, yönetim ve etcetera kurallarından farklı olarak, uygulama kuralları dış kullanıcıları veya hizmetler uygulamaların erişmesine izin verir. Bu örnekte bunun yerine web sunucusunun iç IP adresine yönlendirmek dış IP adresi için giden trafiği yönlendirmek tek bir güvenlik duvarı uygulama kuralı sağlayan bir tek bir web sunucusu bağlantı noktası 80 ' var. Yeniden yönlendirilen trafik oturumu NAT tarafından iç sunucuya eşlenir.
+
+    > [!NOTE]
+    > Atanan bağlantı noktası yok **hedef liste** alan. Bu nedenle, gelen bağlantı noktası 80'i (veya seçili hizmeti için 443) web sunucusu yeniden yönlendirmesi kullanılır. Web sunucusu, 8080 gibi farklı bir bağlantı noktasında dinliyorsa, 10.0.1.4:8080 de bağlantı noktası yönlendirmeye izin vermek için hedef listesi alanın güncelleştirebilirsiniz.
   
-    **Not**: hedef listesinin alanına atanan bağlantı noktası yok, bu nedenle yeniden yönlendirmesi web sunucusunun gelen bağlantı noktası 80'i (veya seçili hizmeti için 443) kullanılacak. Web sunucusu farklı bir bağlantı noktasında dinliyorsa, örneğin 8080 bağlantı noktası, 10.0.1.4:8080 de bağlantı noktası yönlendirmeye izin vermek için hedef listesi alanı güncelleştirilemedi.
-  
-    Sonraki uygulama trafik kuralı AppVM01 sunucu (ancak değil AppVM02) konuşmak Web sunucusu herhangi bir hizmeti izin vermek için arka uç kuralı şöyledir:
+  * Arka uç kuralı AppVM01 sunucu ancak değil AppVM02 aracılığıyla konuşmak web sunucusu sağlar **herhangi** hizmeti:
   
     ![Güvenlik Duvarı AppVM01 kuralı][13]
   
-    Bu geçişi kural her IIS sunucusu AppVM01 ulaşmak için ön uç alt ağda sağlar (IP adresi 10.0.2.5) herhangi bir bağlantı üzerinde web uygulaması tarafından gerekli verilere herhangi bir protokolünü kullanarak.
+    Bu geçişi kural her IIS sunucusu AppVM01 ulaşmak için ön uç alt ağda sağlar (10.0.2.5) veri web uygulaması tarafından erişilebilen herhangi bir protokol kullanarak herhangi bir bağlantı noktasında.
   
-    Bu ekran görüntüsünde bir "\<dest açık\>" hedef alanı 10.0.2.5 hedef olarak belirtmek için kullanılır. Bu şunlardan biri olabilir gösterildiği veya açık adlı ağ (DNS sunucusu için Önkoşullar'da yapıldığı gibi) nesne. Hangi yöntemi kullanılacak Güvenlik Duvarı'nın yöneticisine kalmıştır budur. İlk boş satırda altında 10.0.2.5 açık bir hedef eklemek için çift \<dest açık\> ve açılır pencerede adresini girin.
+    Bu ekran görüntüsünde `<explicit-dest>` kullanılır **hedef** 10.0.2.5 hedef olarak belirtmek için alan. IP adresi aşağıdaki ekran görüntüsünde gösterildiği gibi açıkça belirtebilirsiniz. DNS sunucusu için Önkoşullar gibi adlandırılmış bir ağ nesnesine de kullanabilirsiniz. Güvenlik Duvarı yönetici hangi yöntemin kullanılacağını seçebilirsiniz. İlk boş satırda altında 10.0.2.5 açık bir hedef eklemek için çift `<explicit-dest>` ve açılan iletişim kutusunda adresini girin.
   
-    Bağlantı yöntemi "No SNAT" için ayarlanabilir bu nedenle bu iç trafik olduğundan geçirmek bu kural, NAT gereklidir.
+    İç trafiği işleyen çünkü bu geçişi kuralla NAT gereklidir. Ayarlayabileceğiniz **bağlantı yöntemini** için `No SNAT`.
   
-    **Not**: Bu kural kaynak ağdan herhangi bir kaynağıdır yalnızca olacaksa bir veya web sunucuları, bilinen belirli sayıda ön uç alt ağını bir ağ nesnesine kaynak tüm ön uç alt ağını yerine tam bu IP adreslerini daha özel olarak oluşturulabilir.
+    > [!NOTE]
+    > Varsa yalnızca bu kuralda kaynak ağ ön uç alt ağdaki herhangi bir kaynak olabilir. Mimarinizi web sunucuları, bilinen birtakım belirtiyorsa, tüm ön uç alt ağına yerine tam bu IP adreslerini daha özel olarak bir ağ nesnesine kaynak oluşturabilirsiniz.
 
-> [!TIP]
-> Bu kural hizmeti "Tüm" örnek uygulama kurulumu ve kullanımı kolay hale getirmek için kullanır, bu da Icmpv4 izin verir (ping) içinde tek bir kural. Ancak, bu önerilen bir yöntem değildir. Bağlantı noktaları ve protokoller ("Hizmetler") bu sınırında saldırı yüzeyini azaltmak, uygulama işlemi sağlayan en olası daraltıldığı.
-> 
-> 
+    > [!TIP]
+    > Bu kural hizmetin kullandığı **herhangi** örnek uygulama kurulumu ve kullanımı kolay hale getirmek için. Icmpv4 sağlar (ping) içinde tek bir kural. Ancak, saldırı azaltmak için bu sınırı arasında yüzey bağlantı noktaları ve protokoller Hizmetleri uygulama işlemi sağlayan en küçük olası sınırlama öneririz.
 
-<br />
+    > [!TIP]
+    > Bu örnekteki kural kullansa `<explicit-dest>` başvuru, güvenlik duvarı yapılandırması genelinde tutarlı bir yaklaşım kullanmanız gerekir. Adlandırılmış bir ağ nesnesine daha kolay okunabilirlik ve desteklenebilirlik için kullanılması önerilir. `<explicit-dest>` Burada yalnızca bir alternatif başvuru yöntemi gösterecek şekilde gösterilmektedir. Yoksa genellikle önerilir, özellikle karmaşık yapılandırmalar için.
 
-> [!TIP]
-> Bu kural bir hedef açık başvuru kullanılan gösterir, ancak tutarlı bir yaklaşım güvenlik duvarı yapılandırmasında kullanılması gerekir. Adlandırılmış ağ nesnesi boyunca daha kolay okunabilirlik ve desteklenebilirlik için kullanılması önerilir. Açık-dest burada yalnızca bir alternatif başvuru yöntemi göstermek için kullanılır ve (özellikle karmaşık yapılandırmalar için) genellikle önerilmez.
-> 
-> 
-
-* **Internet kuralı için giden**: Bu geçişi kural seçilen hedef ağlara geçirilecek herhangi bir kaynak ağa gelen trafiğe izin verir. Bu kural, Barracuda NextGen güvenlik duvarı genellikle zaten varsayılan kuralı, ancak devre dışı durumda. Bu kurala sağ tıklayın, etkinleştirme kuralı komut erişebilirsiniz. Burada gösterilen kural, bu kural kaynak özniteliği için bu belgenin önkoşul bölümüne başvurular olarak oluşturulan iki yerel alt ağ eklemek için değiştirildi.
+* **Giden internet kuralı**: Bu geçişi kural seçilen hedef ağlara geçirilecek herhangi bir kaynak ağa gelen trafiğe izin verir. Barracuda NextGen güvenlik duvarı genellikle bu kuralın "on" varsayılan olarak, ancak devre dışı durumuna sahiptir. Bu kurala erişmek için sağ **etkinleştirme kuralı** komutu. Bu kural kaynak özniteliği için arka uç ve ön uç alt ağları için ağ nesneleri eklemek için ekran görüntüsünde gösterilen kuralı değiştirin. Bu ağ nesneler, bu makalenin önkoşul bölümünde oluşturduğunuz.
   
     ![Giden güvenlik duvarı kuralı][14]
-* **DNS kuralı**: Bu geçişi kural yalnızca DNS sunucusuna geçirilecek DNS (bağlantı noktası 53) trafiğine izin verir. Bu kural, arka uca ön uç çoğu trafiği engellenir ve bu ortam için DNS özellikle sağlar.
+
+* **DNS kuralı**: Bu geçişi kural yalnızca DNS sunucusuna geçirilecek DNS (bağlantı noktası 53) trafiğine izin verir. Bu kural, özellikle DNS trafiğe izin veren şekilde bu ortam için ön uçtan arka uç çoğu trafik engellenir.
   
     ![DNS güvenlik duvarı][15]
   
-    **Not**: Bu ekran görüntüsünde, bağlantı yöntemini dahil edilir. Bu kural, iç IP adresi trafik için iç IP için olduğundan, hiçbir NATing gerekli değildir, bu bağlantı yöntemi için bu geçişi kuralı "No SNAT" için ayarlanır.
-* **Alt ağ için alt kural**: Etkin ve herhangi bir sunucu ön uç alt ağda bulunan herhangi bir sunucuya bağlanmak için arka uç alt ağında izin vermek için değiştirilmiş bir varsayılan kural bu geçişi kuralıdır. Bu kural tüm iç trafik olduğundan bağlantı yöntemi için Hayır SNAT ayarlanabilir.
-  
+    > [!NOTE]
+    > **Bağlantı yöntemini** ayarlanır `No SNAT` iç IP iç IP adresi trafiği için bu kural olduğundan ve hiçbir NAT yeniden yönlendirilmesine gereklidir.
+
+* **Alt ağ için alt kural**: Bu varsayılan geçişi kural etkinleştirildi ve ön uç alt ağına herhangi bir sunucuya bağlanmak için arka uç alt ağdaki herhangi bir sunucu izin verecek şekilde değiştirilmelidir. Bu kural yalnızca iç trafik coves böylece **bağlantı yöntemini** ayarlanabilir `No SNAT`.
+
     ![Güvenlik Duvarı içi-sanal ağ kuralı][16]
   
-    **Not**: İki yönlü onay kutusunu işaretli (veya çoğu kurallarında işaretli değil), bu "tek yönlü" kural sağlar, bu kural için önemli budur, ön uç ağ ancak tersine arka uç alt ağından bir bağlantı başlatılabilir. Bu kural, bu onay kutusunu işaretlediyseniz istenmiyorsa, bizim mantıksal diyagramı yönlü trafik etkinleştirebilirsiniz.
-* **Reddetme tüm trafik kuralı**: Bu her zaman son kuralı (öncelik) açısından olmalıdır ve trafik akışları, bu nedenle bu kural tarafından bırakılır önceki kurallardan herhangi birinin eşleştirmek başarısız olur. Bu varsayılan kural ve genellikle etkin, herhangi bir değişiklik genellikle gereklidir. 
+    > [!NOTE]
+    > **Yönlü** onay kutusu seçilmez burada bu kural yalnızca bir yöne uygular. Bir bağlantı, ön uç ağı, ancak tersine arka uç alt ağından başlatılabilir. Bu kural, onay kutusu seçildiyse, bizim mantıksal diyagramda istenmeyen olarak belirttiğiniz yönlü trafik, etkinleştirebilirsiniz.
+
+* **Reddetme tüm trafik kuralı**: Bu kural her zaman öncelikli açısından son bir kural olmalıdır. Trafik akışını önceki kurallardan herhangi birinin eşleşmiyorsa, kuralın kesilmesine neden olur. Herhangi bir değişiklik gerektiği şekilde kural genellikle varsayılan olarak etkinleştirilir.
   
     ![Güvenlik duvarı kuralı Reddet][17]
 
 > [!IMPORTANT]
-> Yukarıdaki kurallarının tümü oluşturulduktan sonra trafiğe izin veya istediğiniz gibi reddedildi emin olmak için her bir kural önceliklerini gözden geçirilmesi önemlidir. Bu örnekte, Barracuda Yönetimi istemcisi'nde kuralları iletme, ana kılavuzunda görünmelidir sırada kurallardır.
-> 
-> 
+> Tüm önceki kurallar oluşturulduktan sonra trafiğe izin verilir veya trafik reddedilir istediğiniz gibi emin olmak için her bir kural önceliklerini gözden geçirin. Bu örnekte, kuralları iletme kuralları, Barracuda yönetim istemcinin ana kılavuz halinde görünmesi gereken sırayla listelenir.
 
 ## <a name="rule-activation"></a>Kural etkinleştirme
-Mantıksal diyagramı belirtimi değiştiren ruleset ile ruleset karşıya için Güvenlik Duvarı'nı ve ardından etkinleştirilmelidir.
+
+Kural mantığı diyagramın belirtimlere için kümesi değiştirdiğiniz sonra güvenlik duvarı kural kümesini yüklemek ve etkinleştirmek gerekir.
 
 ![Güvenlik duvarı kuralını etkinleştirme][18]
 
-Üst sağ köşesindeki management istemcisi içinde düğme kümelerdir. Güvenlik Duvarı değiştirilmiş kuralları göndermek için "Değişiklikleri Gönder" düğmesine tıklayın ve ardından "Etkinleştir" düğmesine tıklayın.
+Yönetim istemcisi pencerenin sağ üst köşesinde arayın ve seçin **değişiklikleri göndermek** değiştirilmiş kuralları için Güvenlik Duvarı'nı yüklemek için. Seçin **etkinleştirme**.
 
-Bu örnek ortam derleme güvenlik duvarı kural kümesi etkinleştirme'yle tamamlanmıştır.
+Güvenlik duvarı kural kümesi etkinleştirdiğinizde, bu örnek ortam tamamlanmıştır.
 
 ## <a name="traffic-scenarios"></a>Trafik senaryoları
+
 > [!IMPORTANT]
-> Bir güvenebileceğinizdir unutmayın olmaktır **tüm** trafiği, güvenlik duvarı üzerinden gelen. Bu nedenle IIS01 sunucuya Uzak Masaüstü için ön uç bulut hizmeti ve ön uç alt olmasına rağmen bu sunucuya erişmek için biz RDP için güvenlik duvarında bağlantı noktası 8014 gerekir ve ardından RDP isteği IIS01 RDP Por için dahili olarak yönlendirmek Güvenlik Duvarı'nı izin t. Azure portalının "Bağlan" düğmesi olduğundan IIS01 için doğrudan RDP yol yok (portal görebilirsiniz kadar) işe yaramaz. Başka bir deyişle, İnternet'ten gelen tüm bağlantıları, güvenlik hizmetleri ve bağlantı noktası, örneğin secscv001.cloudapp.net:xxxx olacaktır.
-> 
-> 
+> Unutmayın *tüm* trafiği güvenlik duvarı üzerinden sunulur. IIS01 sunucuya Uzak Masaüstü için güvenlik duvarında bağlantı noktası 8014 bağlanmak ve ardından RDP isteği IIS01 RDP bağlantı noktası için dahili olarak yönlendirmek güvenlik duvarı izin gerekir. Azure portalının **Connect** düğme olduğu için doğrudan RDP yol yok IIS01 portalı görebilirsiniz kadar çalışmaz. Güvenlik hizmeti ve bağlantı noktası (örneğin, secscv001.cloudapp.net:xxxx) için İnternet'ten gelen tüm bağlantılardır. Yukarıdaki diyagramda dış bağlantı noktası ve iç IP ve bağlantı noktası eşlemesi için başvuru.
 
 Bu senaryolar için aşağıdaki güvenlik duvarı kuralları koşulların karşılanması:
 
-1. Güvenlik Duvarı Yönetimi
+1. Güvenlik Duvarı Yönetimi (FW Mgmt)
 2. RDP için IIS01
 3. RDP için DNS01
 4. RDP için AppVM01
@@ -421,197 +446,215 @@ Bu senaryolar için aşağıdaki güvenlik duvarı kuralları koşulların karş
 6. Web uygulaması trafiğini
 7. AppVM01 uygulama trafiği
 8. İnternet'e giden
-9. DNS01 ön ucu
+9. DNS01 için ön uç
 10. İçi alt ağ trafiği (ön uca arka uç)
 11. Tümünü Reddet
 
-Gerçek güvenlik duvarı kural kümesi, büyük olasılıkla bunlara ek olarak birçok diğer kurallar vardır, verilen herhangi bir güvenlik duvarı kuralları burada listelenenlerden farklı önceliği sayılar da sahip olursunuz. On bu kurallar ve göreli önceliğini bunları arasından arasında ilgi düzeyi sağlamak için bu listeyi ve ilişkili sayılardır. Diğer bir deyişle; Kural numarası 5 olabilir, ancak "Güvenlik duvarı Yönetimi" kuralıdır ve "RDP için DNS01" kuralı amacıyla yapılıyorsa bu liste hizalayın sürece, gerçek güvenlik duvarında "RDP için IIS01" olabilir. Listenin içinde de yardımcı olur aşağıdaki senaryoları kısaltma; izin verme Örneğin "FW kuralı 9 (DNS)". Ayrıca konuyu uzatmamak amacıyla, dört RDP kuralları topluca çağrılır, "RDP kuralları" trafiği senaryo olduğunda RDP'den ilgisiz.
+Bu örnekte olandan daha fazla kural büyük olasılıkla, gerçek güvenlik duvarı kural kümesi gerektirir. Bunlar büyük olasılıkla farklı öncelik numarasına sahip. Bu liste ve ilişkili numaralar birbirlerine göreli önceliklerine için başvurmanız gerekir. Örneğin, "RDP için IIS01" kural numarası 5 ancak onun aşağıdaki "güvenlik duvarı Yönetimi" sürece gerçek güvenlik duvarı kuralı olabilir ve "RDP için DNS01" kuralı, belirlenen amacıyla yapılıyorsa bu liste hizalar. Bu liste, izleyen senaryolar için yönergeler basitleştirmek da yardımcı olur. Örneğin, "güvenlik duvarı kuralı 9 (DNS)." Dört RDP kural "RDP kuralları" toplu olarak adlandırılır unutmayın trafiği senaryo olduğunda RDP'den ilgisiz.
 
-Ayrıca, ağ güvenlik grupları yerinde geri çağırma ön uç ve arka uç alt ağlarda gelen internet trafiği için.
+Ayrıca ağ güvenlik grupları (Nsg'ler) gelen internet trafiği ön uç ve arka uç alt ağlardaki yürürlükte olduğunu hatırlayın.
 
-#### <a name="allowed-internet-to-web-server"></a>(İzin verilir) Web sunucusuna Internet
-1. Internet kullanıcı istekleri HTTP sayfasına SecSvc001.CloudApp.Net (Internet'e yönelik bulut hizmeti)
-2. Bulut hizmeti geçiş trafiği 80 numaralı bağlantı noktasında güvenlik duvarı arabirimine 10.0.0.4:80 açık uç noktası
-3. Güvenlik alt ağına atanmış hiçbir NSG, bunu sistemi NSG kuralları, güvenlik duvarı trafiğe izin vermek
-4. Trafik (10.0.1.4) Güvenlik Duvarı'nın iç IP adresi ile denk gelir.
-5. Güvenlik duvarı kuralı işleme başlar:
-   1. FW kural 1'i (FW Mgmt) değil, uygulamak için sonraki kural taşıma
-   2. FW kuralları 2-5 (RDP kuralları) yok, uygulamak için sonraki kural taşıma
-   3. FW kural 6 (uygulama: Web) uygulamak için trafiğe izin verilir, güvenlik duvarı NAT 10.0.1.4 (IIS01) için
-6. Ön uç alt ağını gelen kuralı işleme başlar:
-   1. NSG kural 1'i (blok Internet) geçerli değildir (Bu trafiği olan NAT güvenlik duvarı tarafından gerekir, böylece kaynak adresi artık güvenlik alt ağda bulunan güvenlik duvarı ve "yerel" trafiği olarak ön uç alt ağ NSG'SİNDE tarafından görülen ve bu nedenle izin), sonraki kural Taşı
-   2. Varsayılan NSG kuralları alt ağ için alt ağ trafiğine izin, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
-7. IIS01 web trafiği, bu isteği alır ve isteği işlemeye başlar.
-8. IIS01 girişimleri AppVM01 arka uç alt ağı üzerinde bir FTP oturumu başlatır
-9. Sonraki atlama güvenlik duvarı, UDR rotaya ön uç alt ağını yapar
-10. Ön uç alt ağı yok giden kuralları, trafiğe izin verilir
-11. Güvenlik duvarı kuralı işleme başlar:
-    1. FW kural 1'i (FW Mgmt) değil, uygulamak için sonraki kural taşıma
-    2. FW Kural 2-5 (RDP kuralları) yok, uygulamak için sonraki kural taşıma
-    3. FW kural 6 (uygulama: Web) değil, uygulamak için sonraki kural Taşı
-    4. FW kural 7 (uygulama: Arka uç) geçerli, güvenlik duvarı 10.0.2.5 (AppVM01) trafiğini trafiğe izin verilir
-12. Arka uç alt ağı gelen kuralı işleme başlar:
-    1. NSG kuralı 1 (blok Internet) değil, uygulamak için sonraki kural taşıma
-    2. Varsayılan NSG kuralları alt ağ için alt ağ trafiğine izin, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
-13. AppVM01 isteği alır ve oturumu başlatır ve yanıtlar
-14. Sonraki atlama güvenlik duvarı, UDR rotaya arka uç alt ağı yapar
-15. Yanıta izin arka uç alt ağı giden hiçbir NSG kuralları olduğundan
-16. Bu yerleşik bir oturum üzerinde trafiği döndürüyor olduğundan güvenlik yanıtı web sunucusu (IIS01) geçer.
-17. Ön uç alt ağını gelen kuralı işleme başlar:
-    1. NSG kuralı 1 (blok Internet) değil, uygulamak için sonraki kural taşıma
-    2. Varsayılan NSG kuralları alt ağ için alt ağ trafiğine izin, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
-18. IIS sunucusu yanıtı alır, AppVM01 ile hareketi tamamlar ve ardından HTTP yanıtı oluşturma tamamlandıktan, bu HTTP yanıtı istek sahibine gönderilir
-19. Yanıta izin verilen ön uç alt ağını giden hiçbir NSG kuralları olduğundan
-20. HTTP yanıtı İsabetleri güvenlik duvarı ve güvenlik duvarı tarafından kabul edilir, çünkü bu yerleşik bir NAT oturum yanıtı
-21. Güvenlik Duvarı yanıt Internet kullanıcı ardından yönlendirir.
-22. Olduğundan Hayır giden NSG kuralları veya UDR atlama yanıta izin verilen ön uç alt ağda bulunan ve Internet kullanıcı web sayfasının alır.
+### <a name="allowed-internet-to-web-server"></a>(İzin verilir) Web sunucusuna Internet
 
-#### <a name="allowed-internet-rdp-to-backend"></a>(İzin verilir) Internet'i arka uca RDP
-1. İnternet üzerinde Sunucu Yöneticisi aracılığıyla SecSvc001.CloudApp.Net:8025 8025 "RDP için AppVM01" güvenlik duvarı kuralı kullanıcı tarafından atanan bağlantı noktası numarasını olduğu, AppVM01 RDP oturumu istekleri
-2. Bulut hizmeti güvenlik duvarı 10.0.0.4:8025 arabirimdeki 8025 bağlantı noktasında trafiği üzerinden açık uç noktasını geçirir
-3. Güvenlik alt ağına atanmış hiçbir NSG, bunu sistemi NSG kuralları, güvenlik duvarı trafiğe izin vermek
-4. Güvenlik duvarı kuralı işleme başlar:
-   1. FW kural 1'i (FW Mgmt) değil, uygulamak için sonraki kural taşıma
-   2. FW Kural 2'de (RDP IIS) değil, uygulamak için sonraki kural taşıma
-   3. FW kural 3 (RDP DNS01) değil, uygulamak için sonraki kural taşıma
-   4. FW kural 4 (RDP AppVM01) uygulamak için trafiğe izin verilir, güvenlik duvarı NAT 10.0.2.5:3386 kendisine (AppVM01 üzerinde RDP noktasına)
-5. Arka uç alt ağı gelen kuralı işleme başlar:
-   1. NSG kural 1'i (blok Internet) geçerli değildir (Bu trafiği olan NAT güvenlik duvarı tarafından gerekir, böylece kaynak adresi artık güvenlik alt ağda bulunan güvenlik duvarı ve "yerel" trafiği olarak arka uç alt ağ NSG'SİNDE tarafından görülen ve bu nedenle izin), sonraki kural Taşı
-   2. Varsayılan NSG kuralları alt ağ için alt ağ trafiğine izin, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
-6. AppVM01 RDP trafiği için dinleme ve yanıtlar
-7. Giden hiçbir NSG kuralları ile varsayılan kuralları uygulanır ve dönüş trafiğine izin verilir
-8. UDR güvenlik duvarı giden trafiği, sonraki atlama olarak yönlendirir.
-9. Bu yerleşik bir oturum üzerinde trafiği döndürüyor olduğundan güvenlik yanıtı internet kullanıcı geçer.
-10. RDP oturumu etkin
-11. AppVM01 kullanıcı adı ve parolasını ister.
+1. İnternet kullanıcı SecSvc001.CloudApp.Net (internet'e yönelik bulut hizmeti) istekler HTTP sayfası.
+1. Bulut hizmeti trafiği üzerinden açık bir uç nokta bağlantı noktası 80 üzerinde 10.0.0.4:80 güvenlik duvarı arabirimde geçirir.
+1. Sistem NSG kuralları güvenlik duvarı izin verecek şekilde hiçbir NSG güvenlik alt ağa atanır.
+1. Trafiği bir dahili IP adresine (10.0.1.4) Güvenlik Duvarı'nın denk gelir.
+1. Güvenlik duvarı kuralı işlemeyi gerçekleştirir:
+   1. Güvenlik Duvarı (FW Mgmt) 1 geçerli değildir. Sonraki kural taşıyın.
+   1. Güvenlik duvarı kuralları 2-5 (RDP kuralları) için geçerli değildir. Sonraki kural taşıyın.
+   1. Güvenlik duvarı kuralı 6 (uygulama: Geçerli Web). Trafiğe izin verilir. Güvenlik Duvarı aracılığıyla NAT 10.0.1.4 (IIS01) trafiği yeniden yönlendirmeler.
+1. Ön uç alt ağına gelen kuralı işlemeyi gerçekleştirir:
+   1. NSG kuralı 1 (blok internet) geçerli değildir. Kaynak adresi artık güvenlik duvarı, bu nedenle NAT aracılığıyla bu trafiğe güvenlik duvarı yönlendirdi. Güvenlik Duvarı güvenlik alt ağda bulunan ve ön uç alt ağına NSG yerel trafiği olarak görünür olduğundan, trafiğe izin verilir. Sonraki kural taşıyın.
+   1. Bu trafiğe izin verilmesi varsayılan NSG kuralları alt ağ ve alt ağ trafiği izin verir. NSG kuralının işlenmesi durdurun.
+1. Web trafiği için IIS01 dinliyor. Bu isteği alır ve isteği işlemeye başlar.
+1. IIS01 AppVM01 arka uç alt ağı üzerinde bir FTP oturumu başlatmak çalışır.
+1. Ön uç alt ağına UDR rotaya güvenlik duvarı, sonraki atlama yapar.
+1. Giden kural yok ön uç alt ağı üzerinde trafiğe izin verilmesi.
+1. Güvenlik duvarı kuralı işleme başlar:
+   1. Güvenlik Duvarı (FW Mgmt) 1 geçerli değildir. Sonraki kural taşıyın.
+   1. Güvenlik duvarı kuralları 2-5 (RDP kuralları) için geçerli değildir. Sonraki kural taşıyın.
+   1. Güvenlik duvarı kuralı 6 (uygulama: Web için) geçerli değildir. Sonraki kural taşıyın.
+   1. Güvenlik duvarı kuralı 7 (uygulama: arka uç) geçerlidir. Trafiğe izin verilir. Güvenlik Duvarı 10.0.2.5 (AppVM01) trafiği iletir.
+1. Arka uç alt ağına gelen kuralı işlemeyi gerçekleştirir:
+    1. NSG kuralı 1 (blok internet) geçerli değildir. Sonraki kural taşıyın.
+    1. Varsayılan NSG kuralları alt ağ ve alt ağ trafiğine izin verin. Trafiğe izin verilir. NSG kuralının işlenmesi durdurun.
+1. AppVM01 isteği aldığında, oturumu başlatır ve yanıt verir.
+1. Arka uç alt ağı UDR rotaya güvenlik duvarı, sonraki atlama yapar.
+1. Giden hiçbir NSG kuralları arka uç alt ağında olduğundan yanıta izin verilmesi.
+1. Yerleşik bir oturum üzerinde trafiği döndürmektir olduğundan, güvenlik yanıtı web sunucusu (IIS01) geçer.
+1. Ön uç alt ağına gelen kuralı işlemeyi gerçekleştirir:
+    1. NSG kuralı 1 (blok internet) geçerli değildir. Sonraki kural taşıyın.
+    1. Bu trafiğe izin verilmesi varsayılan NSG kuralları alt ağ ve alt ağ trafiğine izin. NSG kuralının işlenmesi durdurun.
+1. IIS Sunucu yanıtı alır ve AppVM01 ile hareketi tamamlar. Ardından sunucu HTTP yanıtı oluşturma tamamlandıktan ve istek sahibine gönderir.
+1. Giden hiçbir NSG kuralları ön uç alt ağında olduğundan yanıta izin verilmesi.
+1. HTTP yanıtı, güvenlik duvarı denk gelir. Yerleşik bir NAT oturum yanıt olduğundan, Güvenlik Duvarı'nı da kabul eder.
+1. Güvenlik Duvarı yanıt internet kullanıcı yönlendirir.
+1. Giden NSG kuralları veya yok ön uç alt ağında UDR atlama yanıta izin verilmesi. İnternet kullanıcı web sayfasının alır.
 
-#### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(İzin verilir) DNS sunucusu üzerinde Web sunucusu DNS araması
-1. Bir veri akışı www sunucusu IIS01, gereksinimlerini web\.data.gov ancak adresini çözümlemek gerekiyor.
-2. Ağ yapılandırma için VNet listeleri DNS01 (arka uç alt ağında 10.0.2.4) birincil DNS sunucusu olarak IIS01 DNS01 için DNS isteği gönderir
-3. UDR güvenlik duvarı giden trafiği, sonraki atlama olarak yönlendirir.
-4. Giden hiçbir NSG kuralları ön uç alt ağına bağlı olan, trafiğe izin verilir
-5. Güvenlik duvarı kuralı işleme başlar:
-   1. FW kural 1'i (FW Mgmt) değil, uygulamak için sonraki kural taşıma
-   2. FW Kural 2-5 (RDP kuralları) yok, uygulamak için sonraki kural taşıma
-   3. FW kuralları 6 ve 7 (uygulama kuralları) yoksa uygulama, sonraki kural Taşı
-   4. FW kural 8 (Internet için) değil, uygulama sonraki kural Taşı
-   5. FW kural 9 (DNS) geçerli, güvenlik duvarı 10.0.2.4 (DNS01) trafiğini trafiğe izin verilir
-6. Arka uç alt ağı gelen kuralı işleme başlar:
-   1. NSG kuralı 1 (blok Internet) değil, uygulamak için sonraki kural taşıma
-   2. Varsayılan NSG kuralları alt ağ için alt ağ trafiğine izin, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
-7. DNS sunucusu isteği alır
-8. DNS sunucusu önbelleğe alınmış adresleriniz değil ve bir kök DNS sunucusu internet'te sorar
-9. UDR güvenlik duvarı giden trafiği, sonraki atlama olarak yönlendirir.
-10. Giden hiçbir NSG kuralları arka uç alt ağı üzerinde trafiğe izin verilir
-11. Güvenlik duvarı kuralı işleme başlar:
-    1. FW kural 1'i (FW Mgmt) değil, uygulamak için sonraki kural taşıma
-    2. FW Kural 2-5 (RDP kuralları) yok, uygulamak için sonraki kural taşıma
-    3. FW kuralları 6 ve 7 (uygulama kuralları) yoksa uygulama, sonraki kural Taşı
-    4. FW kural 8 (Internet için) geçerlidir, trafiğe izin verilir, oturumu kök DNS sunucusu Internet'teki kullanıma SNAT kullanmaktır
-12. Bu oturum, Güvenlik Duvarı'ndan başlatıldıktan sonra Internet DNS sunucusu yanıt, yanıt güvenlik duvarı tarafından kabul edilir
-13. Bu yerleşik bir oturum olduğundan, güvenlik duvarı yanıt DNS01 başlatma sunucusuna iletir.
-14. Arka uç alt ağı gelen kuralı işleme başlar:
-    1. NSG kuralı 1 (blok Internet) değil, uygulamak için sonraki kural taşıma
-    2. Varsayılan NSG kuralları alt ağ için alt ağ trafiğine izin, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
-15. DNS sunucusu alır ve yanıtı önbelleğe alır ve ardından geri IIS01 ilk isteğine yanıt verir
-16. Sonraki atlama güvenlik duvarı, UDR rotaya arka uç alt ağı yapar
-17. Arka uç alt ağda mevcut giden hiçbir NSG kuralları trafiğe izin verilir
-18. Bu yerleşik bir oturum için güvenlik duvarında, yanıt, güvenlik duvarı IIS sunucuya geri iletilir
-19. Ön uç alt ağını gelen kuralı işleme başlar:
-    1. Gelen için uygulanan NSG kural yoktur hiçbir NSG kurallarını uygulamak için ön uç alt ağına arka uç alt ağından gelen trafiği
-    2. Trafiğe izin verilmesi bu trafiğe izin alt ağlar arasında trafiğe izin veren varsayılan sistem kuralı
-20. IIS01 DNS01 yanıtı alır
+### <a name="allowed-internet-rdp-to-back-end"></a>(İzin verilir) Arka uca Internet RDP
 
-#### <a name="allowed-backend-server-to-frontend-server"></a>(İzin verilir) Ön uç sunucusu için arka uç sunucusu
+1. İnternet üzerindeki bir sunucu yöneticisi AppVM01 SecSvc001.CloudApp.Net:8025 aracılığıyla bir RDP oturumu ister. 8025 4 (RDP AppVM01) güvenlik duvarı kuralı kullanıcı tarafından atanan bağlantı noktası numarasıdır.
+1. Bulut hizmeti açık uç nokta üzerinden geçen trafik 8025 bağlantı noktasında 10.0.0.4:8025 güvenlik duvarı arabirimde geçirir.
+1. NSG kuralları sistem güvenlik duvarı trafiğe izin vermek için hiçbir NSG güvenlik alt ağa atanır.
+1. Güvenlik duvarı kuralı işlemeyi gerçekleştirir:
+   1. Güvenlik Duvarı (FW Mgmt) 1 geçerli değildir. Sonraki kural taşıyın.
+   1. 2 (RDP IIS) güvenlik duvarı kuralı geçerli değildir. Sonraki kural taşıyın.
+   1. 3 (RDP DNS01) güvenlik duvarı kuralı geçerli değildir. Sonraki kural taşıyın.
+   1. Güvenlik duvarı kuralı 4 (AppVM01 RDP) trafiğine izin verilmesi geçerli. Güvenlik Duvarı, NAT 10.0.2.5:3386 için yeniden yönlendirmeler (AppVM01 üzerinde RDP noktasına).
+1. Arka uç alt ağına gelen kuralı işlemeyi gerçekleştirir:
+   1. NSG kuralı 1 (blok internet) geçerli değildir. Kaynak adresi artık güvenlik alt ağda güvenlik duvarı, bu nedenle bu trafiği aracılığıyla NAT güvenlik duvarı yönlendirdi. Bu arka uç alt ağ NSG'SİNDE tarafından yerel trafiği olarak görülür ve izin verilir. Sonraki kural taşıyın.
+   1. Bu trafiğe izin verilmesi varsayılan NSG kuralları alt ağ ve alt ağ trafiği izin verir. NSG kuralının işlenmesi durdurun.
+1. AppVM01, RDP trafiği için dinleme ve yanıt verir.
+1. Varsayılan kuralları uygulamak için giden hiçbir NSG kuralları vardır. Dönüş trafiğe izin verilir.
+1. UDR, güvenlik duvarı sonraki atlama olarak giden trafiği yönlendirir.
+1. Yerleşik bir oturum üzerinde trafiği döndürmektir olduğundan, güvenlik yanıtı internet kullanıcı geçer.
+1. RDP oturumu etkin.
+1. AppVM01 kullanıcı adı ve parolasını ister.
+
+### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(İzin verilir) Web sunucusu DNS sunucusu DNS araması
+
+1. Web sunucusu IIS01 veri akışı http isteklerini\:\/\/www.data.gov ancak adresini çözümlemek gerekiyor.
+1. Ağ yapılandırması için sanal ağ listeleri DNS01 (arka uç alt ağında 10.0.2.4) birincil DNS sunucusu. IIS01 DNS01 için DNS isteği gönderir.
+1. UDR, güvenlik duvarı sonraki atlama olarak giden trafiği yönlendirir.
+1. Giden hiçbir NSG kuralları ön uç alt ağına bağlanır. Trafiğe izin verilir.
+1. Güvenlik duvarı kuralı işlemeyi gerçekleştirir:
+   1. Güvenlik Duvarı (FW Mgmt) 1 geçerli değildir. Sonraki kural taşıyın.
+   1. 2-5 (RDP kuralları) güvenlik duvarı kuralı uygulanmaz. Sonraki kural taşıyın.
+   1. Güvenlik duvarı kuralları 6 ve 7 (uygulama kuralları) için geçerli değildir. Sonraki kural taşıyın.
+   1. Güvenlik duvarı kuralı 8 (internet için) geçerli değildir. Sonraki kural taşıyın.
+   1. Geçerli güvenlik duvarı kuralı 9 (DNS). Trafiğe izin verilir. Güvenlik Duvarı 10.0.2.4 (DNS01) trafiği iletir.
+1. Arka uç alt ağına gelen kuralı işlemeyi gerçekleştirir:
+   1. NSG kuralı 1 (blok internet) geçerli değildir. Sonraki kural taşıyın.
+   1. Varsayılan NSG kuralları alt ağ ve alt ağ trafiğine izin verin. Trafiğe izin verilir. NSG kuralının işlenmesi durdurun.
+1. DNS sunucusu isteği alır.
+1. DNS sunucusu, önbelleğe alınmış adresleriniz değil ve bir kök DNS sunucusu internet'te sorar.
+1. UDR, güvenlik duvarı giden trafik sonraki atlama olarak yönlendirir.
+1. Var olan trafik için arka uç alt ağdaki giden hiçbir NSG kuralları izin verilir.
+1. Güvenlik duvarı kuralı işlemeyi gerçekleştirir:
+   1. Güvenlik Duvarı (FW Mgmt) 1 geçerli değildir. Sonraki kural taşıyın.
+   1. 2-5 (RDP kuralları) güvenlik duvarı kuralı uygulanmaz. Sonraki kural taşıyın.
+   1. Güvenlik duvarı kuralları 6 ve 7 (uygulama kuralları) için geçerli değildir. Sonraki kural taşıyın.
+   1. Güvenlik duvarı kuralı 8 (internet için) geçerlidir. Trafiğe izin verilir. Oturum SNAT internet kök DNS sunucusuna yönlendirdi.
+1. İnternet DNS sunucusu yanıt verir. Yanıt güvenlik duvarı tarafından kabul edilen biçimde Güvenlik Duvarı'ndan bu oturumu başlatıldı.
+1. Güvenlik Duvarı yanıt DNS01 başlatma sunucusuna iletir. Bu nedenle bu oturumu zaten oluşturulur.
+1. Arka uç alt ağına gelen kuralı işlemeyi gerçekleştirir:
+    1. NSG kuralı 1 (blok internet) geçerli değildir. Sonraki kural taşıyın.
+    1. Varsayılan NSG kuralları alt ağ ve alt ağ trafiği bu trafiğe izin verin. NSG kuralının işlenmesi durdurun.
+1. DNS sunucusu alır ve yanıtı önbelleğe alır ve ardından geri IIS01 ilk isteğine yanıt verir.
+1. Arka uç alt ağı UDR rotaya güvenlik duvarı, sonraki atlama yapar.
+1. Trafiğe izin verilmesi giden hiçbir NSG kuralları arka uç alt ağda mevcut.
+1. Güvenlik Duvarı yanıt IIS sunucusunu yeniden yönlendirmeler şekilde bu oturumu zaten Güvenlik Duvarı'nı oluşturulur.
+1. Ön uç alt ağına gelen kuralı işlemeyi gerçekleştirir:
+    1. Hiçbir NSG kurallarını uygulamak için arka uç alt ağından gelen trafiği ön uç alt ağı için NSG kural yoktur.
+    1. Varsayılan sistem kuralı alt ağlar arasındaki trafiği sağlar. Trafiğe izin verilir.
+1. IIS01 DNS01 yanıtı alır.
+
+### <a name="allowed-back-end-server-to-front-end-server"></a>(İzin verilir) Ön uç sunucusu için arka uç sunucu
+
 1. RDP aracılığıyla AppVM02 oturum açmış bir yönetici, doğrudan windows dosya Gezgini aracılığıyla IIS01 sunucusundan bir dosyayı ister.
-2. Sonraki atlama güvenlik duvarı, UDR rotaya arka uç alt ağı yapar
-3. Yanıta izin arka uç alt ağı giden hiçbir NSG kuralları olduğundan
-4. Güvenlik duvarı kuralı işleme başlar:
-   1. FW kural 1'i (FW Mgmt) değil, uygulamak için sonraki kural taşıma
-   2. FW Kural 2-5 (RDP kuralları) yok, uygulamak için sonraki kural taşıma
-   3. FW kuralları 6 ve 7 (uygulama kuralları) yoksa uygulama, sonraki kural Taşı
-   4. FW kural 8 (Internet için) değil, uygulama sonraki kural Taşı
-   5. FW kural 9 (DNS) değil, uygulamak için sonraki kural taşıma
-   6. FW kural 10 (içi alt ağ) geçerli, trafiğe izin verilir, güvenlik duvarı trafiği için 10.0.1.4 (IIS01) geçirir.
-5. Ön uç alt ağını gelen kuralı işleme başlar:
-   1. NSG kuralı 1 (blok Internet) değil, uygulamak için sonraki kural taşıma
-   2. Varsayılan NSG kuralları alt ağ için alt ağ trafiğine izin, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
-6. Uygun kimlik doğrulaması ve yetkilendirme varsayıldığında, IIS01 isteği kabul eder ve yanıt verir
-7. Sonraki atlama güvenlik duvarı, UDR rotaya ön uç alt ağını yapar
-8. Yanıta izin verilen ön uç alt ağını giden hiçbir NSG kuralları olduğundan
-9. Şu güvenlik duvarı var olan bir oturum olduğundan, bu yanıt izin ve güvenlik duvarı AppVM02 yanıtı döndürür
-10. Arka uç alt ağı gelen kuralı işleme başlar:
-    1. NSG kuralı 1 (blok Internet) değil, uygulamak için sonraki kural taşıma
-    2. Varsayılan NSG kuralları alt ağ için alt ağ trafiğine izin, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
-11. AppVM02 yanıtı alır
+1. Arka uç alt ağı UDR rotaya güvenlik duvarı, sonraki atlama yapar.
+1. Giden hiçbir NSG kuralları arka uç alt ağında olduğundan yanıta izin verilmesi.
+1. Güvenlik duvarı kuralı işlemeyi gerçekleştirir:
+   1. Güvenlik Duvarı (FW Mgmt) 1 geçerli değildir. Sonraki kural taşıyın.
+   1. 2-5 (RDP kuralları) güvenlik duvarı kuralı uygulanmaz. Sonraki kural taşıyın.
+   1. Güvenlik duvarı kuralları 6 ve 7 (uygulama kuralları) için geçerli değildir. Sonraki kural taşıyın.
+   1. Güvenlik duvarı kuralı 8 (internet için) geçerli değildir. Sonraki kural taşıyın.
+   1. 9 (DNS) güvenlik duvarı kuralı geçerli değildir. Sonraki kural taşıyın.
+   1. Geçerli güvenlik duvarı kuralı 10 (içi alt ağ). Trafiğe izin verilir. Güvenlik Duvarı (IIS01) 10.0.1.4 için trafiği geçirir.
+1. Ön uç alt ağına gelen kuralı işleme başlar:
+   1. NSG kuralı 1 (blok internet) değil, uygulamak için sonraki kural taşıma
+   1. Varsayılan NSG kuralları trafiğe izin verilmesi alt ağ ve alt ağ trafiği izin verin. NSG kuralının işlenmesi durdurun.
+1. Uygun kimlik doğrulaması ve yetkilendirme varsayıldığında, IIS01 isteği kabul eder ve yanıt verir.
+1. Ön uç alt ağına UDR rotaya güvenlik duvarı, sonraki atlama yapar.
+1. Giden hiçbir NSG kuralları ön uç alt ağında olduğundan yanıta izin verilmesi.
+1. Bu yanıt izin verilmesi Güvenlik Duvarı'nı bu oturumu zaten mevcut. Güvenlik Duvarı AppVM02 yanıtı döndürür.
+1. Arka uç alt ağına gelen kuralı işlemeyi gerçekleştirir:
+    1. NSG kuralı 1 (blok internet) geçerli değildir. Sonraki kural taşıyın.
+    2. Varsayılan NSG kuralları trafiğe izin verilmesi alt ağ ve alt ağ trafiği izin verin. NSG kuralının işlenmesi durdurun.
+1. AppVM02 yanıtı alır.
 
-#### <a name="denied-internet-direct-to-web-server"></a>(Reddedildi) Web sunucusuna doğrudan Internet
-1. Internet kullanıcı FrontEnd001.CloudApp.Net hizmet aracılığıyla IIS01, web sunucusuna erişmeye çalışır
-2. Açık HTTP trafiği için uç nokta olduğundan bu bulut hizmeti aracılığıyla geçecekse değil ve tarafından sunucuya ulaşmak mıydı
-3. Uç noktaları için herhangi bir nedenle açıksa, ön uç alt ağda NSG (blok Internet) bu trafiği engeller
-4. Son olarak, ön uç alt ağı UDR yol, sonraki atlama olarak güvenlik duvarı, IIS01 tüm giden trafiği gönderir ve Güvenlik Duvarı bu asimetrik trafiği görebilir ve giden yanıt savunma hattı en az üç bağımsız Katmanlar vardır Thus bırak İnternet'e ve yetkisiz/uygunsuz erişimi engelleme, bulut hizmeti aracılığıyla IIS01.
+### <a name="denied-internet-direct-to-web-server"></a>(Reddedildi) Web sunucusuna doğrudan Internet
 
-#### <a name="denied-internet-to-backend-server"></a>(Reddedildi) Internet'e arka uç sunucusu
-1. Internet kullanıcı BackEnd001.CloudApp.Net hizmet aracılığıyla AppVM01 bir dosyaya erişmeye çalışır
-2. Dosya Paylaşımı için açık uç nokta olduğundan bu bulut hizmeti geçecekse değil ve tarafından sunucuya ulaşmak mıydı
-3. Uç noktaları için herhangi bir nedenle açıksa, bu trafiğin NSG (blok Internet) engeller
-4. Son olarak, UDR yol, sonraki atlama olarak güvenlik duvarı, AppVM01 tüm giden trafiği gönderir ve Güvenlik Duvarı bu asimetrik trafiği görebilir ve böylece savunma hattı internet arasındaki en az üç bağımsız Katmanlar vardır giden yanıt bırak ve AppVM01 yetkisiz/uygunsuz erişimi engelleme, bulut hizmeti aracılığıyla.
+1. İnternet kullanıcı FrontEnd001.CloudApp.Net hizmet aracılığıyla IIS01 web sunucusuna erişmeye çalışır.
+1. Vardır; uç nokta açık HTTP trafiği için bu trafik bulut hizmeti aracılığıyla geçmiyor. Bu nedenle. Trafik tarafından sunucuya ulaşmak değil.
+1. Uç noktaları için herhangi bir nedenle açıksa, ön uç alt ağda NSG (blok internet) bu trafiği engeller.
+1. Son olarak, ön uç alt ağına UDR rota tüm giden trafiği IIS01 Güvenlik Duvarı için sonraki atlama olarak gönderir. Güvenlik Duvarı, asimetrik trafiği olarak görür ve giden yanıt bırakır.
 
-#### <a name="denied-frontend-server-to-backend-server"></a>(Reddedildi) Arka uç sunucusu için ön uç sunucusu
-1. IIS01 güvenliğinin aşıldığını ve arka uç alt ağı sunucuları için tararken kötü amaçlı bir kodun çalıştığını varsayar.
-2. Ön uç alt ağı UDR rota tüm giden trafiği IIS01 güvenlik duvarı sonraki atlama olarak gönderir. Bu tehlikeye giren bir VM tarafından değiştirilebilecek bir sorun değildir.
-3. İstek AppVM01 veya trafiğe güvenlik duvarı (FW kuralları 7 ve 9) nedeniyle izin verilmesi DNS araması için DNS sunucusu varsa güvenlik duvarının trafiği işlem. FW kural 11 göre (tüm Reddet) diğer tüm trafik engellenir.
-4. Gelişmiş tehdit algılama, Güvenlik Duvarı'nı etkinleştirildi (da değil kapsanan bu belgede, Gelişmiş tehdit özellikleri belirli ağ aletiniz için satıcının belgelerine bakın), hatta temel iletme kuralı tarafından izin verilecek trafiği Bu konuda bahsedilen belge engelleyen trafiği bilinen imza veya Gelişmiş tehdit kural bayrak desenleri içeriyorsa.
+>Bu nedenle, savunma hattı IIS01 ve internet arasında en az üç bağımsız Katmanlar vardır. Bulut hizmeti yetkisiz veya uygunsuz erişimi engeller.
 
-#### <a name="denied-internet-dns-lookup-on-dns-server"></a>(Reddedildi) DNS sunucusundaki Internet DNS Arama
-1. Internet kullanıcı DNS01 BackEnd001.CloudApp.Net hizmeti aracılığıyla bir iç DNS kaydını arama dener 
-2. DNS trafiği için açık uç nokta olduğundan bu bulut hizmeti aracılığıyla geçecekse değil ve tarafından sunucuya ulaşmak mıydı
-3. Uç noktaları için herhangi bir nedenle açıksa, ön uç alt ağda NSG kuralı (blok Internet) bu trafiği engeller
-4. Son olarak, arka uç alt ağı UDR yol, sonraki atlama olarak güvenlik duvarı, DNS01 tüm giden trafiği gönderir ve Güvenlik Duvarı bu asimetrik trafiği görebilir ve giden yanıt savunma hattı en az üç bağımsız Katmanlar vardır Thus bırak internet ve yetkisiz/uygunsuz erişimi engelleme, bulut hizmeti aracılığıyla DNS01.
+### <a name="denied-internet-to-back-end-server"></a>(Reddedildi) Arka uç sunucusuna Internet
+
+1. Bir dosya çubuğunda AppVM01 BackEnd001.CloudApp.Net hizmet aracılığıyla erişmek bir internet kullanıcı çalışır.
+2. Bulut hizmeti bu isteği geçmiyor için dosya paylaşımı için açık uç nokta yok. Trafik tarafından sunucuya ulaşmak değil.
+3. Uç noktaları için herhangi bir nedenle açıksa, bu trafiğin NSG (blok internet) engeller.
+4. Son olarak, UDR rota tüm giden trafiği AppVM01 Güvenlik Duvarı için sonraki atlama olarak gönderir. Güvenlik Duvarı, asimetrik trafiği olarak görür ve giden yanıt bırakır.
+
+> Bu nedenle, savunma hattı AppVM01 ve internet arasında en az üç bağımsız Katmanlar vardır. Bulut hizmeti yetkisiz veya uygunsuz erişimi engeller.
+
+### <a name="denied-front-end-server-to-back-end-server"></a>(Reddedildi) Arka uç sunucusu için ön uç sunucusu
+
+1. IIS01 güvenliği aşıldığında ve arka uç alt ağı sunucuları için tararken kötü amaçlı kod çalışıyor.
+1. Ön uç alt ağına UDR yol sonraki atlama olarak güvenlik duvarı IIS01 tüm giden trafiği gönderir. Bu yönlendirme güvenliği aşılmış VM değiştirilemiyor.
+1. Güvenlik duvarının trafiği işler. İstek AppVM01 veya DNS sunucusu DNS araması için ise güvenlik duvarı 7 ve 9 güvenlik duvarı kuralları nedeniyle trafik potansiyel olarak sağlayabilir. Diğer tüm trafiği, güvenlik duvarı kuralı 11 (Tümünü Reddet) tarafından engellenir.
+1. Gelişmiş tehdit algılama için güvenlik duvarında etkinleştirirseniz, bilinen imzaları veya Gelişmiş tehdit kural bayrak desenleri içeren trafiği engelleyen. Bu makalede ele alınan temel yönlendirme kurallarına göre trafiğe izin olsa bile bu ölçüyü çalışabilir. Gelişmiş tehdit algılama, bu belgenin kapsamında değildir. Gelişmiş tehdit özellikleri belirli ağ aletiniz için satıcının belgelerine bakın.
+
+### <a name="denied-internet-dns-lookup-on-dns-server"></a>(Reddedildi) DNS sunucusundaki Internet DNS Arama
+
+1. DNS01 BackEnd001.CloudApp.Net hizmeti aracılığıyla bir iç DNS kaydını aramak bir internet kullanıcı çalışır.
+1. DNS trafiği için açık uç nokta olduğundan, bu trafik bulut hizmeti aracılığıyla geçmiyor. Bu sunucunun ulaşmaz.
+1. Ön uç alt ağına NSG kuralı (blok Internet), uç noktaları için herhangi bir nedenle açıksa, bu trafiği engeller.
+1. Son olarak, arka uç alt ağı UDR rota tüm giden trafiği DNS01 Güvenlik Duvarı için sonraki atlama olarak gönderir. Güvenlik Duvarı bu asimetrik trafiği olarak görür ve giden yanıt bırakır.
+
+> Bu nedenle, savunma hattı DNS01 ve internet arasında en az üç bağımsız Katmanlar vardır. Bulut hizmeti yetkisiz veya uygunsuz erişimi engeller.
 
 #### <a name="denied-internet-to-sql-access-through-firewall"></a>(Reddedildi) Internet için güvenlik duvarı üzerinden SQL erişimi
-1. Internet kullanıcı SQL veri SecSvc001.CloudApp.Net (Internet'e yönelik bulut hizmeti) istekleri
-2. SQL için açık uç nokta olduğundan bu bulut hizmeti geçecekse değildir ve güvenlik duvarı ulaşın mıydı
-3. Bazı nedenlerden dolayı SQL uç noktaları açma, güvenlik duvarı kuralı işlemeye başlamak:
-   1. FW kural 1'i (FW Mgmt) değil, uygulamak için sonraki kural taşıma
-   2. FW kuralları 2-5 (RDP kuralları) yok, uygulamak için sonraki kural taşıma
-   3. FW kural 6 ve 7 (uygulama kuralları) yoksa uygulama, sonraki kural Taşı
-   4. FW kural 8 (Internet için) değil, uygulama sonraki kural Taşı
-   5. FW kural 9 (DNS) değil, uygulamak için sonraki kural taşıma
-   6. FW kural 10 (içi alt ağ) değil, uygulamak için sonraki kural Taşı
-   7. FW kural 11 (Tümünü Reddet) geçerli, trafik engellenmiş, Dur kural işleme
+
+1. İnternet kullanıcı SecSvc001.CloudApp.Net internet'e yönelik bulut hizmetinden SQL verileri ister.
+1. Uç nokta için SQL açık var. Bu trafik, bulut hizmeti geçmiyor şekilde. Güvenlik Duvarı ulaşmak değil.
+1. Bazı nedenlerden dolayı SQL uç noktaları açık olması durumunda, güvenlik duvarı kuralı işleme gerçekleştirir:
+   1. Güvenlik Duvarı (FW Mgmt) 1 geçerli değildir. Sonraki kural taşıyın.
+   1. Güvenlik duvarı kuralları 2-5 (RDP kuralları) için geçerli değildir. Sonraki kural taşıyın.
+   1. Güvenlik duvarı kuralları 6 ve 7 (uygulama kuralları) için geçerli değildir. Sonraki kural taşıyın.
+   1. Güvenlik duvarı kuralı 8 (internet için) geçerli değildir. Sonraki kural taşıyın.
+   1. 9 (DNS) güvenlik duvarı kuralı geçerli değildir. Sonraki kural taşıyın.
+   1. 10 (içi alt ağ) güvenlik duvarı kuralı geçerli değildir. Sonraki kural taşıyın.
+   1. Geçerli güvenlik duvarı kuralı 11 (Tümünü Reddet). Trafik engellenir. Kuralı işlemeyi durdur.
 
 ## <a name="references"></a>Başvurular
-### <a name="main-script-and-network-config"></a>Ana komut dosyası ve ağ yapılandırma
-Bir PowerShell komut dosyasında tam komut dosyasını kaydedin. Ağ Yapılandırması "NetworkConf2.xml" adlı bir dosyaya kaydedin.
-Kullanıcı tanımlı değişkenler, gerektiği gibi değiştirin. Betiği çalıştırın ve ardından yukarıdaki güvenlik duvarı kuralı kurulum yönergeleri izleyin.
 
-#### <a name="full-script"></a>Tam betik
-Bu betik, kullanıcı tanımlı değişkenleri esas alarak olur:
+Bu bölüm, aşağıdaki öğeleri içerir:
+
+* Tam komut dosyası. Bir PowerShell komut dosyası kaydedin.
+* Ağ yapılandırması. NetworkConf2.xml adlı bir dosyaya kaydedin.
+
+Kullanıcı tanımlı değişkenler dosyaları gerektiği gibi değiştirin. Betiği çalıştırın ve ardından bu makalenin önceki bölümlerinde listelenen güvenlik duvarı kuralı ayarlama yönergeleri izleyin.
+
+### <a name="full-script"></a>Tam betik
+
+Kullanıcı tanımlı değişkenler ayarladıktan sonra bu komut dosyasını çalıştırın:
 
 1. Bir Azure aboneliğine Bağlanma
-2. Yeni depolama hesabı oluşturma
-3. Yeni bir sanal ağ ve ağ yapılandırma dosyasında tanımlanan üç alt ağ oluşturma
-4. Beş sanal makine oluşturun; Güvenlik Duvarı'nı 1 ve 4 windows server Vm'leri
-5. UDR dahil olmak üzere yapılandırın:
+1. Yeni depolama hesabı oluşturma
+1. Yeni bir sanal ağ ve ağ yapılandırma dosyasında tanımlanan üç alt ağ oluşturma
+1. Beş sanal makine oluştur: bir güvenlik duvarı ve dört Windows Server Vm'leri
+1. UDR yapılandırın:
    1. İki yeni rota tabloları oluşturma
-   2. Yol tablolarına ekleme
-   3. Tablolar için uygun alt ağları bağlama
-6. NVA üzerindeki IP iletmeyi etkinleştirin
-7. NSG dahil olmak üzere yapılandırın:
+   1. Yol tablolarına ekleme
+   1. Tablolar için uygun alt ağları bağlama
+1. NVA üzerindeki IP iletmeyi etkinleştirin
+1. NSG yapılandırın:
    1. Bir NSG oluşturma
-   2. Bir kural ekleme
-   3. NSG için uygun alt ağları bağlama
+   1. Kural ekleme
+   1. NSG için uygun alt ağları bağlama
 
-Bu PowerShell Betiği, bilgisayar veya sunucu bir İnternet'e bağlı yerel olarak çalıştırılmalıdır.
+Bu PowerShell çalıştırma betiği yerel olarak bir internet üzerindeki bilgisayar veya sunucu bağlı.
 
 > [!IMPORTANT]
-> Bu betik çalıştırıldığında, uyarı veya PowerShell'de pop diğer bilgilendirme iletileri olabilir. Yalnızca hata iletileri kırmızı endişeye neden olan.
-> 
-> 
+> Bu komut dosyasını çalıştırdığınızda, uyarı veya bilgilendirme iletileri diğer PowerShell'de açılır. Yalnızca kırmızı hata iletileri endişeye neden olan.
 
 ```powershell
-    <# 
+    <#
      .SYNOPSIS
       Example of DMZ and User Defined Routing in an isolated network (Azure only, no hybrid connections)
 
@@ -759,10 +802,10 @@ Bu PowerShell Betiği, bilgisayar veya sunucu bir İnternet'e bağlı yerel olar
         Select-AzureSubscription -SubscriptionId $subID -Current -ErrorAction Stop
 
       # Create Storage Account
-        If (Test-AzureName -Storage -Name $StorageAccountName) { 
+        If (Test-AzureName -Storage -Name $StorageAccountName) {
             Write-Host "Fatal Error: This storage account name is already in use, please pick a different name." -ForegroundColor Red
             Return}
-        Else {Write-Host "Creating Storage Account" -ForegroundColor Cyan 
+        Else {Write-Host "Creating Storage Account" -ForegroundColor Cyan
               New-AzureStorageAccount -Location $DeploymentLocation -StorageAccountName $StorageAccountName}
 
       # Update Subscription Pointer to New Storage Account
@@ -921,7 +964,7 @@ Bu PowerShell Betiği, bilgisayar veya sunucu bir İnternet'e bağlı yerel olar
       # Assign the NSG to two Subnets
         # The NSG is *not* bound to the Security Subnet. The result
         # is that internet traffic flows only to the Security subnet
-        # since the NSG bound to the Frontend and Backback subnets
+        # since the NSG bound to the FrontEnd and BackEnd subnets
         # will Deny internet traffic to those subnets.
         Write-Host "Binding the NSG to two subnets" -ForegroundColor Cyan
         Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName -SubnetName $FESubnet -VirtualNetworkName $VNetName
@@ -930,7 +973,7 @@ Bu PowerShell Betiği, bilgisayar veya sunucu bir İnternet'e bağlı yerel olar
     # Optional Post-script Manual Configuration
       # Configure Firewall
       # Install Test Web App (Run Post-Build Script on the IIS Server)
-      # Install Backend resource (Run Post-Build Script on the AppVM01)
+      # Install BackEnd resource (Run Post-Build Script on the AppVM01)
       Write-Host
       Write-Host "Build Complete!" -ForegroundColor Green
       Write-Host
@@ -941,11 +984,12 @@ Bu PowerShell Betiği, bilgisayar veya sunucu bir İnternet'e bağlı yerel olar
       Write-Host
 ```
 
-#### <a name="network-config-file"></a>Ağ yapılandırma dosyası
-Güncelleştirilmiş konumu ile bu xml dosyasını kaydedin ve bağlantıyı yukarıdaki betik $NetworkConfigFile değişkeninde bu dosyaya ekleyin.
+### <a name="network-config-file"></a>Ağ yapılandırma dosyası
+
+Bu XML dosyasını güncelleştirilmiş konumu ile kaydedin. Değişiklik `$NetworkConfigFile` kaydedilen ağ yapılandırma dosyasına bağlanmak için tam komut Yukarıdaki değişken.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>
@@ -979,8 +1023,12 @@ Güncelleştirilmiş konumu ile bu xml dosyasını kaydedin ve bağlantıyı yuk
     </NetworkConfiguration>
 ```
 
-#### <a name="sample-application-scripts"></a>Örnek uygulama komut dosyaları
-Bu ve diğer DMZ örnekleri için örnek uygulamayı yüklemek istiyorsanız, aşağıdaki bağlantıda bir sağlanmıştır: [Örnek uygulama betiği][SampleApp]
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bu çevre ağ örneğiyle yardımcı olmak için örnek bir uygulama yükleyebilirsiniz.
+
+> [!div class="nextstepaction"]
+> [Örnek uygulama betiği](./virtual-networks-sample-app.md)
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3design.png "UDR NVA ve NSG ile iki yönlü DMZ"
@@ -1004,4 +1052,3 @@ Bu ve diğer DMZ örnekleri için örnek uygulamayı yüklemek istiyorsanız, a�
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
-[SampleApp]: ./virtual-networks-sample-app.md

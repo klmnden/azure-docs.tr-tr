@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fc6acb211e30af460106acd1c19b61db52f09269
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: ce882ecee25f9570082a978b72a76ca903bfc12f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311891"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279391"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Öğretici: Resource Manager şablonları ile birden çok kaynak örneğini oluşturma
 
@@ -126,14 +126,14 @@ Dağıtım yordamı için Visual Studio Code hızlı başlangıçta [Şablonu da
 
 Üç depolama hesabının tümünü listelemek için --ad parametresini atlayın:
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# [<a name="azure-cli"></a>Azure CLI](#tab/azure-cli)
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -155,7 +155,7 @@ Artık Azure kaynakları gerekli değilse, kaynak grubunu silerek dağıttığı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, birden çok depolama hesabı örneği oluşturmayı öğrendiniz. Sonraki öğreticide, bir kaynak bir kaynak grubundan başka bir kaynak grubuna taşıma konusunda bilgi edinin.
+Bu öğreticide, birden çok depolama hesabı örneği oluşturmayı öğrendiniz.  Bir sonraki öğreticide, birden fazla kaynağa ve birden çok kaynak türüne sahip bir şablon geliştireceksiniz. Bazı kaynakların bağımlı kaynakları vardır.
 
 > [!div class="nextstepaction"]
-> [Kaynakları taşıma](./resource-manager-tutorial-move-resources.md)
+> [Bağımlı kaynaklar oluşturma](./resource-manager-tutorial-create-templates-with-dependent-resources.md)

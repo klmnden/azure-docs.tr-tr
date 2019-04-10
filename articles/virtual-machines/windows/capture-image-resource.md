@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 4e79e0a7d05ef70ae9f7ab2cbb2238c42b2a654b
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: aa1858a27d4df413deb562391251a523c28673ad
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847564"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359169"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure'da bir genelleştirilmiş VM'nin yönetilen görüntüsünü oluşturma
 
@@ -88,7 +88,7 @@ Windows VM'nizi genelleştirmek için şu adımları izleyin:
 
 Doğrudan VM'den görüntü oluşturma, görüntü işletim sistemi diski ve veri diskleri dahil olmak üzere VM ile ilişkili tüm diskleri içerdiğinden sağlar. Bu örnekte, yönetilen diskleri kullanan bir VM'den yönetilen bir görüntü oluşturma işlemi gösterilmektedir.
 
-Başlamadan önce Azure PowerShell modülünün en son sürümüne sahip olduğunuzdan emin olun. Sürümü bulmak için çalıştırın `Get-Module -ListAvailable Az` PowerShell'de. Yükseltmeniz gerekirse bkz [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](/powershell/azure/azurerm/install-az-ps). PowerShell'i yerel olarak çalıştırıyorsanız, çalıştırma `Connect-AzAccount` Azure ile bir bağlantı oluşturmak için.
+Başlamadan önce Azure PowerShell modülünün en son sürümüne sahip olduğunuzdan emin olun. Sürümü bulmak için çalıştırın `Get-Module -ListAvailable Az` PowerShell'de. Yükseltmeniz gerekirse bkz [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](/powershell/azure/install-az-ps). PowerShell'i yerel olarak çalıştırıyorsanız, çalıştırma `Connect-AzAccount` Azure ile bir bağlantı oluşturmak için.
 
 
 > [!NOTE]

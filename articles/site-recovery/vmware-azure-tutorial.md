@@ -6,50 +6,44 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 3/18/2019
+ms.date: 4/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 06d18ccd6f14f0a2b31f579b0ed7250b2c4f0c92
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9e8f450825b7b4ad0402b8976d68bc23c18ce855
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310600"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357869"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Şirket içi VMware VM’leri için Azure’da olağanüstü durum kurtarmayı ayarlama
 
-[Azure Site Recovery](site-recovery-overview.md), planlı ve plansız kesintiler sırasında iş uygulamalarınızı çalışır durumda tutarak, iş sürekliliğinize ve olağanüstü durum kurtarma (BCDR) stratejinize katkıda bulunur. Site Recovery, şirket içi makinelerin ve Azure sanal makinelerinin çoğaltma, yük devretme ve kurtarma gibi olağanüstü durum kurtarma işlemlerini yönetir ve düzenler.
+Bu makalede aracılığıyla Azure'a olağanüstü durum kurtarma için şirket içi VMware Vm'leri için çoğaltmayı etkinleştirme [Azure Site Recovery](site-recovery-overview.md) hizmeti.
 
+Bu, şirket içi VMware Vm'leri için Azure'da olağanüstü durum kurtarma ayarlama gösteren serideki üçüncü öğreticidir. Önceki öğreticide, biz [şirket içi VMware ortamınızı hazırladığınız](vmware-azure-tutorial-prepare-on-premises.md) azure'a olağanüstü durum kurtarma için.
 
-Bu öğretici, Site Recovery özelleştirmesi olmadan temel ayarlarla dağıtma işlemi gösterilmektedir. Daha karmaşık seçenekleri altında nasıl yapılır makaleleri inceleyin.
-
-    - [Yineleme kaynağı](vmware-azure-set-up-source.md) ve [yapılandırma sunucusunu](vmware-azure-deploy-configuration-server.md) ayarlayın.
-    - [Çoğaltma hedefini](vmware-azure-set-up-target.md) ayarlayın.
-    - Bir [çoğaltma ilkesi](vmware-azure-set-up-replication.md) yapılandırın ve [çoğaltmayı etkinleştirin](vmware-azure-enable-replication.md).
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Çoğaltma kaynağını ve hedefini girme.
-> * Şirket içi Azure Site Recovery bileşenleri de dahil olmak üzere kaynak çoğaltma ortamını ve hedef çoğaltma ortamını ayarlayın.
+> * Kaynak çoğaltma ayarları ve şirket içi Site Recovery yapılandırma sunucusu ayarlarsınız.
+> * Çoğaltma hedef ayarlarını yapın.
 > * Bir çoğaltma ilkesi oluşturma.
-> * Sanal makine için çoğaltmayı etkinleştirme.
+> * Bir VMware sanal makine için çoğaltmayı etkinleştirin.
+
+> [!NOTE]
+> Öğreticiler bir senaryo için en basit dağıtım yolu gösterir. Mümkün olduğunca varsayılan seçenekleri kullanır ve tüm olası ayarları ve yolları göstermez. Ayrıntılı yönergeler için Site Recovery İçindekiler bölümünde nasıl yapılır makalesine gözden geçirin.
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
-Başlamadan önce şunların yapılması yararlıdır:
+Önceki öğreticilerde tamamlayın:
+1. Seçtiğiniz emin [Azure yedekleme](tutorial-prepare-azure.md) Azure'da şirket içi VMware olağanüstü durum kurtarma için.
+2. İzleyin [adımları](vmware-azure-tutorial-prepare-on-premises.md) şirket içi VMware dağıtım azure'a olağanüstü durum kurtarma için hazırlamak için.
+3. Bu öğreticide size, tek bir VM'yi çoğaltma gösterilmektedir. Birden çok VMware Vm'sini dağıtıyorsanız, kullanmanız gereken [dağıtım Planlayıcısı aracını](https://aka.ms/asr-deployment-planner). Bu araç hakkında [daha fazla bilgi edinin](site-recovery-deployment-planner.md).
+4. Bu öğreticide bir dizi seçenek farklı yapmak isteyebilirsiniz:
+    - Öğreticide OVA şablon yapılandırma sunucusu VMware VM'sini oluşturmak için kullanılır. Bazı nedenlerden dolayı bu yapamazsanız, izleyin [bu yönergeleri](physical-manage-configuration-server.md) el ile yapılandırma sunucusu ayarlanamıyor.
+    - Bu öğreticide, Site Recovery otomatik olarak indirir ve MySQL yapılandırma sunucusuna yükler. İsterseniz, bunu el ile bunun yerine ayarlayabilirsiniz. [Daha fazla bilgi edinin](vmware-azure-deploy-configuration-server.md#configure-settings).
 
-- Bu olağanüstü durum kurtarma senaryosu için [mimariyi gözden geçirin](vmware-azure-architecture.md).
-- VMware VM’leri için olağanüstü durum kurtarmayı ayarlama hakkında daha ayrıntılı bilgiler için aşağıdaki kaynakları gözden geçirin ve kullanın:
-    - VMware için olağanüstü durum kurtarma hakkında [sık sorulan soruları okuyun](vmware-azure-common-questions.md).
-    - VMware için desteklenen ve zorunlu bileşenleri [öğrenin](vmware-physical-azure-support-matrix.md).
-- Bu öğreticide size, tek bir VM'yi çoğaltma gösterilmektedir. Birden çok VM dağıtımı yapıyorsanız kullanmalısınız [dağıtım Planlayıcısı aracını](https://aka.ms/asr-deployment-planner) dağıtımınızı planlamanıza yardımcı olacak. Bu araç hakkında [daha fazla bilgi edinin](site-recovery-deployment-planner.md).
-
-Ve bu ipuçlarını gözden geçirin:
-- Bu öğreticide, yapılandırma sunucusu VMware sanal makinesi oluşturmak için bir OVA şablonu kullanılmaktadır. Bu, eğer [bu yönergeleri](physical-manage-configuration-server.md) el ile yapılandırma sunucusu ayarlanamıyor.
-- Bu öğreticide, Site Recovery yapılandırma sunucusuna MySQL indirir ve yükler. İsterseniz, bunu el ile bunun yerine ayarlayabilirsiniz. [Daha fazla bilgi edinin](vmware-azure-deploy-configuration-server.md#configure-settings).
-  >Yapılandırma sunucusu şablonunun en son sürümünü doğrudan [Microsoft Yükleme Merkezi](https://aka.ms/asrconfigurationserver)’nden indirebilirsiniz.
-  OVF şablonu ile sağlanan lisans 180 gün boyunca geçerli bir değerlendirme lisanstır. Windows VM'de çalışan gerekli lisansa etkinleştirilmiş olması gerekir. 
 
 
 
@@ -65,15 +59,18 @@ Ve bu ipuçlarını gözden geçirin:
 
 ## <a name="set-up-the-source-environment"></a>Kaynak ortamı ayarlama
 
-Kaynak ortamınız, yüksek oranda kullanılabilir bir tek ihtiyacınız, şirket içi makine ana bilgisayara Site Recovery bileşenlerini şirket içinde. Bileşenler yapılandırma sunucusunu, işlem sunucusunu ve ana hedef sunucuyu içerir:
+Kaynak ortamınız bu şirket içi Site Recovery bileşenlerini barındıracak bir tek, yüksek oranda kullanılabilir şirket içi makine gerekir:
 
-- Yapılandırma sunucusu, şirket içi bileşenler ile Azure arasındaki iletişimleri koordine eder ve veri çoğaltma işlemini yönetir.
-- İşlem sunucusu, çoğaltma ağ geçidi olarak davranır. Bu çoğaltma verilerini alıp; Bu, önbelleğe alma, sıkıştırma ve şifreleme ile iyileştirir; ve Azure'da önbellek depolama hesabı gönderir. İşlem sunucusu aynı zamanda çoğaltmak istediğiniz VM’lere Mobility Hizmetini yükler ve şirket içi VMware VM’lerinin otomatik olarak bulunmasını sağlar.
-- Ana hedef sunucu, Azure'dan yeniden çalışma sırasında çoğaltma verilerini işler.
-
-Yapılandırma sunucusunu yüksek kullanılabilirliğe sahip bir VMware VM olarak ayarlamak için, hazırlanmış bir Open Virtualization Application (OVA) şablonu indirin ve VM’yi oluşturmak üzere şablonu VMware’e aktarın. Yapılandırma sunucusunu ayarladıktan sonra kasaya kaydedin. Kayıt işleminden sonra Site Recovery, şirket içi VMware VM’lerini bulur.
+- **Yapılandırma sunucusu**: Yapılandırma sunucusu yerinde bileşenler ile Azure arasındaki iletişimi düzenler ve veri çoğaltma işlemlerini yönetir.
+- **İşlem sunucusu**: İşlem sunucusu, çoğaltma ağ geçidi olarak davranır. Bu çoğaltma verilerini alıp; önbelleğe alma, sıkıştırma ve şifreleme ile iyileştirir ve Azure önbellek depolama hesabına gönderir. İşlem sunucusu, çoğaltmak istediğiniz Vm'lere Mobility hizmeti aracısı ayrıca yükler ve şirket içi VMware Vm'lerini otomatik olarak bulunmasını gerçekleştirir.
+- **Ana hedef sunucusu**: Ana hedef sunucu, Azure'dan yeniden çalışma sırasında çoğaltma verilerini işler.
 
 
+Bu bileşenlerin tümünü birlikte olarak bilinen tek şirket içi makinelere yüklenen *yapılandırma sunucusu*. VMware olağanüstü durum kurtarma için varsayılan yapılandırma sunucusunu yüksek oranda kullanılabilir bir VMware VM olarak ayarladık. Bunu yapmak için hazırlanmış bir Open Virtualization uygulaması (OVA) şablonu indirin ve şablonu bir VM oluşturmak için Vmware'e aktarın. 
+
+- Yapılandırma sunucusunu en son sürümünü portalda kullanılabilir. Ayrıca doğrudan indirebilirsiniz [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+- Herhangi bir nedenden dolayı OVA şablon bir VM ayarlama için kullanamazsınız, izleyin [bu yönergeleri](physical-manage-configuration-server.md) el ile yapılandırma sunucusu ayarlanamıyor.
+- OVF şablonu ile sağlanan lisans 180 gün boyunca geçerli bir değerlendirme lisanstır. Windows VM'de çalışan gerekli lisansa etkinleştirilmiş olması gerekir. 
 
 
 ### <a name="download-the-vm-template"></a>VM şablonunu indirme
@@ -105,7 +102,7 @@ Yapılandırma sunucusunu yüksek kullanılabilirliğe sahip bir VMware VM olara
 
 ## <a name="add-an-additional-adapter"></a>Ek bağdaştırıcı ekleme
 
-Yapılandırma sunucusuna bir NIC daha eklemek için, ekleme işlemini sunucuyu kasaya kaydetmeden önce gerçekleştirin. Kayıt işleminden sonra ek sunucu eklenemez.
+Yapılandırma sunucusuna Ek NIC eklemek istiyorsanız, sunucuyu kasaya kaydetmeden önce ekleyin. Kayıt işleminden sonra ek sunucu eklenemez.
 
 1. vSphere Client envanterinde VM’ye sağ tıklayın ve **Ayarları Düzenle**’yi seçin.
 2. **Donanım** bölümünde **Ekle** > **Ethernet Bağdaştırıcısı** seçeneğini belirleyin. Sonra **İleri**’yi seçin.
@@ -114,6 +111,8 @@ Yapılandırma sunucusuna bir NIC daha eklemek için, ekleme işlemini sunucuyu 
 
 
 ## <a name="register-the-configuration-server"></a>Yapılandırma sunucusunu kaydetme 
+
+Yapılandırma sunucusunu ayarladıktan sonra kasaya kaydedin.
 
 1. VMWare vSphere Client konsolundan VM’yi açın.
 2. VM’de Windows Server 2016 yükleme deneyimi önyüklemesi yapılır. Lisans sözleşmesini kabul edin ve bir yönetici parolası girin.
@@ -124,7 +123,11 @@ Yapılandırma sunucusuna bir NIC daha eklemek için, ekleme işlemini sunucuyu 
 7. Araç bazı yapılandırma görevleri gerçekleştir ve sonra yeniden başlatılır.
 8. Makinede tekrar oturum açın. Birkaç saniye içinde, Yapılandırma Sunucusu Yönetim Sihirbazı otomatik olarak başlar.
 
+
 ### <a name="configure-settings-and-add-the-vmware-server"></a>Ayarları yapılandırma ve VMware sunucusunu ekleme
+
+Ayarlama ve yapılandırma sunucusunu kaydetme tamamlayın. 
+
 
 1. Yapılandırma sunucusu yönetim Sihirbazı'nda seçin **bağlantı kurma**. Pencerelerden ilk Keşif ve anında iletme kaynak makinede mobility hizmeti yüklemesi için yerleşik bir işlem sunucusunu kullanan NIC'yi seçin ve ardından Azure ile bağlantı için yapılandırma sunucusunu kullanan NIC'yi seçin. Daha sonra **Kaydet**’e tıklayın. Yapılandırıldıktan sonra bu ayarı değiştiremezsiniz.
 2. **Recovery Services kasasını seçin** bölümünde Azure aboneliğinizi, ilgili kaynak grubunu ve kasayı seçin.
@@ -140,7 +143,7 @@ Yapılandırma sunucusuna bir NIC daha eklemek için, ekleme işlemini sunucuyu 
 10. Kayıt bittikten sonra Azure portalında, yapılandırma sunucusunun ve VMware sunucusunun kasadaki **Kaynak** sayfasında listelendiğinden emin olun. Daha sonra hedef ayarlarını yapılandırmak için **Tamam**’ı seçin.
 
 
-Site Recovery, belirtilen ayarları kullanarak VMware sunucularına bağlanır ve VM’leri bulur.
+Yapılandırma sunucusunu kaydettikten sonra Site Recovery belirtilen ayarları kullanarak VMware sunucularına bağlanır ve Vm'leri bulur.
 
 > [!NOTE]
 > Hesap adının portalda görünmesi 15 dakika veya daha fazla sürebilir. Hemen güncelleştirme yapmak için **Yapılandırma Sunucuları** > ***sunucu adı*** > **Sunucuyu Yenile** seçeneğini belirleyin.
@@ -171,7 +174,7 @@ Hedef kaynaklarını seçin ve doğrulayın.
 
 ## <a name="enable-replication"></a>Çoğaltmayı etkinleştirme
 
-Çoğaltmayı etkinleştirme şu şekilde gerçekleştirilebilir:
+Şekilde, sanal makineler için çoğaltmayı etkinleştirin:
 
 1. **Uygulamayı çoğalt** > **Kaynak** seçeneğini belirleyin.
 1. **Kaynak** içinde, **Şirket içi**’ni seçin ve **Kaynak konumu** içinde yapılandırma sunucusunu seçin.
@@ -181,7 +184,7 @@ Hedef kaynaklarını seçin ve doğrulayın.
 1. **Hedef** bölümünde, yükü devredilen VM’leri oluşturmak istediğiniz aboneliği ve kaynak grubunu seçin. Kaynak Yöneticisi dağıtım modelini kullanacağız. 
 1. Yük devretme işleminden sonra oluşturulan Azure VM’lerin bağlandığı Azure ağını ve alt ağını seçin.
 1. Çoğaltmayı etkinleştirdiğiniz tüm VM’lere ağ ayarını uygulamak için **Seçili makineler için şimdi yapılandır**’ı seçin. Makineler için Azure ağını ayrı ayrı seçmek için **Daha sonra yapılandır**'ı seçin.
-1. **Sanal Makineler** > **Sanal makineleri seçin** bölümünde, çoğaltmak istediğiniz her makineyi seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Sonra **Tamam**’ı seçin. Görünüm/herhangi belirli bir sanal makineyi seçmek mümkün değildir, tıklayın [burada](https://aka.ms/doc-plugin-VM-not-showing) sorunu çözmek için.
+1. **Sanal Makineler** > **Sanal makineleri seçin** bölümünde, çoğaltmak istediğiniz her makineyi seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Sonra **Tamam**’ı seçin. Görünüm/herhangi belirli bir sanal makineyi seçmek mümkün değilse [daha fazla bilgi edinin](https://aka.ms/doc-plugin-VM-not-showing) sorunu çözme konusunda.
 1. **Özellikler** > **Özellikleri yapılandırma** bölümünde, Mobility Hizmeti’nin makineye otomatik olarak yüklenmesi için işlem sunucusu tarafından kullanılacak hesabı seçin.
 1. **Çoğaltma ayarları** > **Çoğaltma ayarlarını yapılandırma** bölümünde doğru çoğaltma ilkesinin seçilip seçilmediğini doğrulayın.
 1. **Çoğaltmayı Etkinleştir** seçeneğini belirleyin. Bir VM için çoğaltma etkinleştirildiğinde Site Recovery, Mobility Hizmeti’ni yükler.
@@ -190,6 +193,6 @@ Hedef kaynaklarını seçin ve doğrulayın.
 1. Eklediğiniz VM’leri izlemek için **Configuration Servers** > **Last Contact At** bölümünde VM’lerin son bulunma zamanını kontrol edin. Zamanlanan bulma işlemini beklemeden VM’leri eklemek için yapılandırma sunucusunu vurgulayın (seçmeyin) ve **Yenile**’yi seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
+Çoğaltmayı etkinleştirdikten sonra her şeyin beklendiği gibi çalıştığından emin olmak için bir tatbikatı çalıştırma.
 > [!div class="nextstepaction"]
-> Çoğaltmayı etkinleştirdikten sonra [bir olağanüstü durum kurtarma tatbikatı çalıştırma](site-recovery-test-failover-to-azure.md) her şeyin beklendiği gibi çalıştığından emin olmak için.
+> [Olağanüstü durum kurtarma tatbikatı çalıştırma](site-recovery-test-failover-to-azure.md)

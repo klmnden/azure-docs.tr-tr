@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: 7c01e8132cc8fe8fcc01e468973a273dbfcfad64
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f9387d68139119c13d57ebb135e0c0f5b7bba8ec
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261063"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359039"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL veritabanı güvenlik özelliklerine genel bakış
 
@@ -157,7 +157,7 @@ Daha fazla bilgi için [veri bulma & sınıflandırma ile çalışmaya başlama]
 
 ### <a name="compliance"></a>Uyumluluk
 
-Yukarıdaki özelliklerine ve uygulamanızı Azure SQL veritabanı çeşitli güvenlik gereksinimlerini karşılamasına yardımcı olan işlevselliği ek olarak, düzenli olarak denetimden geçmektedir ve karşı bir dizi uyumluluk standardı için belgelendirilmiştir. Daha fazla bilgi için [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) burada bulabilirsiniz SQL veritabanı uyumluluk sertifikaları en güncel listesi.
+Yukarıdaki özelliklerine ve uygulamanızı Azure SQL veritabanı çeşitli güvenlik gereksinimlerini karşılamasına yardımcı olan işlevselliği ek olarak, düzenli olarak denetimden geçmektedir ve karşı bir dizi uyumluluk standardı için belgelendirilmiştir. Daha fazla bilgi için [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) burada bulabilirsiniz SQL veritabanı uyumluluk sertifikaları en güncel listesi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

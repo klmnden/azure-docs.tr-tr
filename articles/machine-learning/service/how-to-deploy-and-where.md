@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1528b5e92e1952bf85799afd71bd5dac16aedcf4
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: a6ef53d56fa293791658b37b16cbaff94aee6ef3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878307"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280902"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -87,6 +87,8 @@ Dağıtılan modellerinde bir görüntü olarak paketlenir. Görüntü modeli ç
 
 İçin **Azure Container Instance**, **Azure Kubernetes hizmeti**, ve **Azure IOT Edge** dağıtımları [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) sınıfı, bir görüntü yapılandırması oluşturmak için kullanılır. Görüntü yapılandırma, ardından yeni bir Docker görüntüsü oluşturmak için kullanılır.
 
+Görüntü yapılandırması oluştururken kullanabilirsiniz bir __varsayılan görüntü__ Azure Machine Learning hizmeti tarafından sağlanan veya __özel görüntü__ sağladığınız.
+
 Aşağıdaki kod, yeni bir görüntü yapılandırmasının nasıl oluşturulacağını gösterir:
 
 ```python
@@ -112,6 +114,36 @@ Bu örnekte aşağıdaki tabloda açıklanan önemli parametreleri:
 Bir görüntü yapılandırması oluşturma örneği için bkz: [görüntü sınıflandırıcı dağıtma](tutorial-deploy-models-with-aml.md).
 
 Daha fazla bilgi için başvuru belgeleri için bkz. [ContainerImage sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)
+
+### <a id="customimage"></a> Özel görüntü kullanma
+
+Özel bir görüntü kullanırken, görüntünün aşağıdaki gereksinimleri karşılaması gerekir:
+
+* Ubuntu 16.04 veya büyük.
+* Conda 4.5. # veya büyük.
+* Python 3.5. # veya 3.6. #.
+
+Özel görüntü kullanmak için ayarlanmış `base_image` adresine görüntünün görüntü yapılandırmanın özelliği. Aşağıdaki örnek, hem bir genel ve özel Azure kapsayıcısı kayıt defterinden bir görüntüyü kullanmak gösterilmektedir:
+
+```python
+# use an image available in public Container Registry without authentication
+image_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+
+# or, use an image available in a private Container Registry
+image_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
+image_config.base_image_registry.address = "myregistry.azurecr.io"
+image_config.base_image_registry.username = "username"
+image_config.base_image_registry.password = "password"
+```
+
+Bir Azure Container Registry'ye görüntü karşıya daha fazla bilgi için bkz: [özel bir Docker kapsayıcı kayıt defterine ilk görüntünüzü itme](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
+
+Azure Machine Learning işlem modelinizi eğitildi kullanıyorsa __1.0.22 sürüm veya daha büyük__ Azure Machine Learning SDK'sının eğitim sırasında bir görüntü oluşturulur. Aşağıdaki örnek, bu görüntünün nasıl kullanılacağını gösterir:
+
+```python
+# Use an image built during training with SDK 1.0.22 or greater
+image_config.base_image = run.properties["AzureML.DerivedImageName"]
+```
 
 ### <a id="script"></a> Betik yürütme
 
@@ -396,7 +428,7 @@ Project Brainwave kullanarak bir model dağıtımına ilişkin bir kılavuz içi
 
 ## <a name="define-schema"></a>Şema tanımlayın
 
-Özel dekoratörler için kullanılabilir [Openapı](https://swagger.io/docs/specification/about/) belirtimi oluşturma ve giriş web hizmetini dağıtırken, işleme yazın. İçinde `score.py` dosyası, giriş ve/veya oluşturucuda çıktı örneği tanımlanan bir tür nesnelerden biri sağlayın ve türü ve örneği şema otomatik olarak oluşturmak için kullanılır. Aşağıdaki türleri şu anda desteklenir:
+Özel dekoratörler için kullanılabilir [Openapı](https://swagger.io/docs/specification/about/) belirtimi oluşturma ve giriş web hizmetini dağıtırken, işleme yazın. İçinde `score.py` dosyası tanımlanan bir tür nesnelerden biri için girişi ve/veya çıktı oluşturucuda bir örnek sağlar ve türü ve örnek şema otomatik olarak oluşturmak için kullanılır. Aşağıdaki türleri şu anda desteklenir:
 
 * `pandas`
 * `numpy`

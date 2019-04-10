@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 6fe4f391b5337929efc3f6190a925fd1e967cf1c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: e5a34a75c73401c567a0e898a1ce9f85cde96586
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999360"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360510"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Video Indexer API ile bir kişi modeli özelleştirme
 
@@ -50,11 +50,11 @@ Curl istekte aşağıda verilmiştir.
 curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?name={name}&accessToken={accessToken}"
 ```
 
-[Gerekli Parametreler bakın ve test Video Indexer Geliştirici portalını kullanarak](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-PersonModel?).
+[Gerekli Parametreler bakın ve test Video Indexer Geliştirici portalını kullanarak](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?).
 
 ### <a name="request-parameters"></a>İstek parametreleri 
 
-|**Ad**|**Tür**|**Gerekli**|**Açıklama**|
+|**Ad**|**Type**|**Gerekli**|**Açıklama**|
 |---|---|---|---|
 |location|dize|Evet|Çağrı yönlendirileceğini Azure bölgesi. Daha fazla bilgi için [Azure bölgeleri ve Video Indexer](regions.md).|
 |Hesap Kimliği|dize|Evet|Hesap için genel benzersiz tanıtıcısı|
@@ -95,15 +95,15 @@ Curl istekte aşağıda verilmiştir.
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels/{id}?accessToken={accessToken}"
 ```
 
-[Gerekli Parametreler bakın ve test Video Indexer Geliştirici portalını kullanarak](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-PersonModel?).
+[Gerekli Parametreler bakın ve test Video Indexer Geliştirici portalını kullanarak](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?).
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
-|**Ad**|**Tür**|**Gerekli**|**Açıklama**|
+|**Ad**|**Type**|**Gerekli**|**Açıklama**|
 |---|---|---|---|
 |location|dize|Evet|Çağrı yönlendirileceğini Azure bölgesi. Daha fazla bilgi için [Azure bölgeleri ve Video Indexer](regions.md).|
 |Hesap Kimliği|dize|Evet|Hesap için genel benzersiz tanıtıcısı|
-|id|dize|Evet|Kişi model kimliği (kişi modeli oluşturduğunuzda oluşturulur)|
+|kimlik|dize|Evet|Kişi model kimliği (kişi modeli oluşturduğunuzda oluşturulur)|
 |accessToken|dize|Evet|Erişim belirteci (kapsamı olmalıdır [hesap erişim belirteci](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) karşı çağrı kimliğini doğrulamak için. Erişim belirteci 1 saat içinde süresi dolar.|
 
 ### <a name="request-body"></a>İstek gövdesi
@@ -132,11 +132,11 @@ Curl istekte aşağıda verilmiştir.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?accessToken={accessToken}"
 ```
 
-[Gerekli Parametreler bakın ve test Video Indexer Geliştirici portalını kullanarak](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-PersonModels?).
+[Gerekli Parametreler bakın ve test Video Indexer Geliştirici portalını kullanarak](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?).
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
-|**Ad**|**Tür**|**Gerekli**|**Açıklama**|
+|**Ad**|**Type**|**Gerekli**|**Açıklama**|
 |---|---|---|---|
 |location|dize|Evet|Çağrı yönlendirileceğini Azure bölgesi. Daha fazla bilgi için [Azure bölgeleri ve Video Indexer](regions.md).|
 |Hesap Kimliği|dize|Evet|Hesap için genel benzersiz tanıtıcısı|
@@ -187,11 +187,11 @@ Curl istekte aşağıda verilmiştir.
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos/{videoId}/Index/Faces/{faceId}?accessToken={accessToken}&newName={newName}"
 ```
 
-[Gerekli Parametreler bakın ve test Video Indexer Geliştirici portalını kullanarak](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-face?).
+[Gerekli Parametreler bakın ve test Video Indexer Geliştirici portalını kullanarak](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?).
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
-|**Ad**|**Tür**|**Gerekli**|**Açıklama**|
+|**Ad**|**Type**|**Gerekli**|**Açıklama**|
 |---|---|---|---|
 |location|dize|Evet|Çağrı yönlendirileceğini Azure bölgesi. Daha fazla bilgi için [Azure bölgeleri ve Video Indexer](regions.md).|
 |Hesap Kimliği|dize|Evet|Hesap için genel benzersiz tanıtıcısı|

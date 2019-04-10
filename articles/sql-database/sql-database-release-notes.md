@@ -8,18 +8,41 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 04/03/2019
 ms.author: carlrab
-ms.openlocfilehash: 6600a578ba9c73c8a2c71466fd0b008f19058b80
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c63ce51f442c8d7552c382f0e103be443afb9c75
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861307"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360091"
 ---
 # <a name="sql-database-release-notes"></a>SQL veritabanı sürüm notları
 
 Bu makalede, SQL veritabanı hizmeti ve SQL veritabanı belgeleri geliştirmeleri ve yeni özellikleri listeler. SQL veritabanı hizmet geliştirmeleri için Ayrıca bkz: [SQL veritabanı hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=sql-database). Diğer Azure Hizmetleri için geliştirmeler için bkz. [hizmet güncelleştirmeleri](https://azure.microsoft.com/updates).
+
+## <a name="features-in-public-preview"></a>Özellikleri Genel önizlemeye sunuldu
+
+| Özellik | Ayrıntılar |
+| ---| --- |
+| Elastik veritabanı işleri | Bilgi için [oluşturun, yapılandırın ve elastik işleri Yönet](elastic-jobs-overview.md) |
+| Elastik işlemler | [Bulut veritabanlarında dağıtılmış işlemler](sql-database-elastic-transactions-overview.md) |
+| Esnek sorgular | Bilgi için [esnek sorgu genel bakış](sql-database-elastic-query-overview.md) |
+| Çoğaltma ile yönetilen örnekleri |Bilgi için [bir Azure SQL veritabanı yönetilen örnek veritabanında çoğaltmayı yapılandırma](replication-with-sql-database-managed-instance.md)|
+| Örneği harmanlamasıyla yönetilen örnekleri |Bilgi için [kullanım PowerShell'i Azure Resource Manager şablonu ile Azure SQL veritabanı'nda yönetilen örnek oluşturma](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
+| R Hizmetleri / makine öğrenimi ile tek veritabanları ve elastik havuzlar |Bilgi için [Azure SQL veritabanı'nda Machine Learning Hizmetleri](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database)|
+| Tek veritabanları ve elastik havuzlar ile hızlandırılmış veritabanı kurtarma | Bilgi için [hızlandırılmış veritabanı kurtarma](sql-database-accelerated-database-recovery.md)|
+| Veri bulma ve sınıflandırma  |Bilgi için [Azure SQL veritabanı ve SQL veri ambarı veri bulma & sınıflandırma](sql-database-data-discovery-and-classification.md)|
+| Saydam veri şifrelemesi (TDE) ile Getir bilgisayarınızı kendi anahtarını (BYOK) yönetilen örnekleri |Bilgi için [Azure SQL saydam veri şifrelemesi ile Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar: Destek kendi anahtarını Getir](transparent-data-encryption-byok-azure-sql.md)|
+| Bırakılan veritabanı yönetilen örneği ile yeniden oluşturun |Bilgi için [Azure SQL yönetilen örneği'nde bırakılan veritabanlarını yeniden oluşturma](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266)|
+| Yönetilen örnek tehdit algılama |Bilgi için [yapılandırma tehdit algılama, Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance-threat-detection.md)|
+| Tek veritabanları ile hiper ölçekli hizmet katmanları |Bilgi için [hiper ölçekli hizmet katmanı için en fazla 100 TB](sql-database-service-tier-hyperscale.md)|
+| Azure portalındaki sorgu Düzenleyicisi |Bilgi için [bağlanmak ve veri sorgulamak için Azure portalında SQL sorgu Düzenleyicisi'ni kullanın](sql-database-connect-query-portal.md)|
+|Farklı yaklaşık sayısı|Bilgi için [yaklaşık ayrı Say](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)|
+|Toplu iş modu Rowstore (altında uyumluluk düzeyi 150)|Bilgi için [Rowstore toplu iş modu](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)|
+|(Altında uyumluluk düzeyi 150) bellek ataması geri bildirimi (satır modu)|Bilgi için [bellek ataması geri bildirimi (satır modu)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
+|Tablo değişkeni ertelenmiş derleme (altında uyumluluk düzeyi 150)|Bilgi için [tablo değişkeni ertelenmiş derleme](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
+|||
 
 ## <a name="march-2019"></a>Mart 2019
 
@@ -27,7 +50,7 @@ Bu makalede, SQL veritabanı hizmeti ve SQL veritabanı belgeleri geliştirmeler
 
 | Hizmet geliştirmeleri | Ayrıntılar |
 | --- | --- |
-| Çok yakında ||
+| Genel kullanım: Azure SQL Veritabanı için okuma amaçlı ölçeği genişletme desteği | Daha fazla bilgi için [okuma ölçeği genişletme](sql-database-read-scale-out.md)|
 | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Belgeleri geliştirmeleri

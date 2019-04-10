@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: ad58b914c22c112a83c18a7c0377b567424e4efd
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 0a29d763ab54ee716e514df23576e9c3b294d792
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046028"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359634"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio Web Hizmetleri: Dağıtım ve kullanım
 
@@ -49,7 +49,7 @@ Web hizmetleri için Azure Machine Learning Studio kaynak sağlayıcısı REST A
 
 Azure Machine Learning Studio web hizmetleri kaynak sağlayıcı, PowerShell cmdlet'lerini kullanarak, dağıtım ve Yönetim web hizmetleri sağlar.
 
-Cmdlet'leri kullanmak için önce Azure hesabınıza PowerShell ortamında kullanarak oturum açmalısınız [Connect AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet'i. Resource Manager temel alan PowerShell komutlarını çağıran nasıl aralıklarıyla bkz [Azure PowerShell kullanarak Azure Resource Manager ile](../../azure-resource-manager/manage-resources-powershell.md).
+Cmdlet'leri kullanmak için önce Azure hesabınıza PowerShell ortamında kullanarak oturum açmalısınız [Connect AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet'i. Resource Manager temel alan PowerShell komutlarını çağıran nasıl aralıklarıyla bkz [Azure PowerShell kullanarak Azure Resource Manager ile](../../azure-resource-manager/manage-resources-powershell.md).
 
 Tahmine dayalı denemenizi dışarı aktarmak için kullanın [Bu örnek kod](https://github.com/ritwik20/AzureML-WebServices). Koddan .exe dosyasını oluşturduktan sonra şunu yazabilirsiniz:
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058620"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280562"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Özel Service Fabric durum raporları ekleme
 Azure Service Fabric tanıtır bir [sistem durumu modeli](service-fabric-health-introduction.md) sağlıksız küme ve belirli varlıkların uygulama koşullara bayrağı için tasarlanmıştır. Sistem durumu modeli kullanan **sistem durumu raporlayıcıları** (sistem bileşenleri ve watchdogs). , Kolay ve hızlı tanılama ve onarma hedeftir. Sistem durumu hakkında ön düşünmek beklemeleri gerekir. Özellikle bayrağı sorunların kök yakın yardımcı olabilir, sistem durumu etkileyebilecek herhangi bir koşul, bildirilmelidir. Sistem durumu bilgileri, hata ayıklama ve araştırma zaman ve çaba kaydedebilirsiniz. Hizmet bulutta ölçekte çalışır duruma geldikten sonra yararlılığı özellikle Temizle (özel veya Azure).

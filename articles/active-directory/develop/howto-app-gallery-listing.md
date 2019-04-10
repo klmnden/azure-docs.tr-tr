@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2019
+ms.date: 04/08/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
-ms.custom: aaddev
+ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cda09a6b407621e595b0cb8ed9103b1fbbd5cc5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1b5ec950a91f3ed0099873e40c7235a9d59f0cb2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097966"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283588"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Nasıl yapılır: Azure Active Directory uygulama galerisinde uygulamanızı listeleme
+
+Bu makalede, bir Azure AD uygulama galerisinde listeleyin, çoklu oturum açma (SSO) uygulama ve listenin yönetme gösterilmektedir.
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Azure AD uygulama Galerisi nedir?
 

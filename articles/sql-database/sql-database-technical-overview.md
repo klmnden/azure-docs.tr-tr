@@ -8,19 +8,19 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: bd696a003b54face4f95ae426c11840bb8805bee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273150"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358340"
 ---
-# <a name="what-is-azure-sql-database-service"></a>Azure SQL veritabanı hizmeti nedir?
+# <a name="what-is-azure-sql-database-service"></a>Azure SQL veritabanı hizmeti nedir
 
 SQL Veritabanı, Microsoft Azure'da yer alan ve ilişkisel veri, JSON, uzamsal ve XML gibi yapıları destekleyen çok amaçlı ilişkisel veritabanı yönetilen hizmetidir. SQL veritabanı iki farklı satın alma modeli içinde dinamik olarak Ölçeklenebilir performans sunar: sanal çekirdek tabanlı satın alma modeli ve DTU tabanlı satın alma modeli. SQL Veritabanı ayrıca çok büyük ölçekli analitik analiz ve raporlama için [columnstore dizinleri](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) ve raporlama ve çok büyük ölçekli işlemler için [bellek içi OLTP](sql-database-in-memory.md) gibi seçenekler sunar. Microsoft, SQL kod tabanıyla ilgili tüm düzeltme ve güncelleştirme işlerini sorunsuz olarak yaparak altyapı yönetimini tamamen soyutlar.
 
@@ -102,12 +102,12 @@ Performans değerlendirmeleriyle birlikte [yerleşik performans izleme](sql-data
 ## <a name="availability-capabilities"></a>Kullanılabilirlik özellikleri
 
 Geleneksel bir SQL Server ortamında yerel olarak tam (zaman uyumlu olarak tutulan) (AlwaysOn Kullanılabilirlik grupları veya yük devretme kümeleme örnekleri gibi özellikleri kullanarak) verilerin kopyaları karşı korumak için ayarlayın (en az) 2 makine genellikle olurdu bir tek bir makine/bileşen hatası.  Bu, yüksek düzeyde kullanılabilirlik sağlar ancak yok etme veri merkezinizin doğal afetler karşı korumaz.
- 
+
 Olağanüstü durum kurtarma varsayar bir felaket coğrafi olarak olacağını başka bir makine/makineler ile verilerinizin bir kopyasının uzakta kümeniz için yeterli yerelleştirilmiş.  SQL Server Always On kullanılabilirlik zaman uyumsuz modda çalışan grupları bu özellik almak için kullanabilirsiniz.  Açık sorunlar hızına genellikle kişiler uzakta yani olası veri kaybı, planlanmamış yük devretmeler yaptığınızda, bir işlem yapmadan önce gerçekleşen çoğaltmanın bekleyin istemediğiniz anlamına gelir.
 
 Premium ve iş kritik hizmeti veritabanlarında katmanlarını zaten [çok benzer bir şey](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) bir kullanılabilirlik grubunda eşitleme. Daha düşük hizmet katmanlarındaki veritabanları depolama aracılığıyla yedeklilik sağlayan bir [farklı, ancak eşdeğer bir mekanizma](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability). Tek makine hatasına karşı koruyan mantığı yoktur.  Etkin coğrafi çoğaltma özelliği burada tüm bölge yok olağanüstü durum karşı koruma olanağı verir.
 
-Azure kullanılabilirlik alanları, yüksek kullanılabilirlik sorunu Yürüt ' dir.  Tek bir bölgede oluşturma tek bir veri merkezi kesintisi karşı korumak çalışır.  Bu nedenle, güç veya bir yapı için ağ kaybına karşı koruma sağlamak istiyor. SQL Azure bu farklı kopyaya farklı kullanılabilirlik alanlarında yerleştirerek çalışır (farklı binalar, etkili bir şekilde) ve aksi takdirde önceki gibi çalışmaya. 
+Azure kullanılabilirlik alanları, yüksek kullanılabilirlik sorunu Yürüt ' dir.  Tek bir bölgede oluşturma tek bir veri merkezi kesintisi karşı korumak çalışır.  Bu nedenle, güç veya bir yapı için ağ kaybına karşı koruma sağlamak istiyor. SQL Azure bu farklı kopyaya farklı kullanılabilirlik alanlarında yerleştirerek çalışır (farklı binalar, etkili bir şekilde) ve aksi takdirde önceki gibi çalışmaya.
 
 Aslında, Azure'nın sektörde lider % 99,99 kullanılabilirlik hizmet düzeyi sözleşmesi [(SLA)](https://azure.microsoft.com/support/legal/sla/), Microsoft tarafından yönetilen veri merkezlerinden oluşan küresel bir ağı tarafından desteklenen, uygulamanızın 7/24 çalışan uğramamasına yardımcı olur. Azure platformu, tam olarak her veritabanı yöneten ve hiçbir veri kaybı ve yüksek miktarda veri kullanılabilirliği garanti eder. Azure düzeltme eki uygulama, yedekleme, çoğaltma, hata algılama, arka plandaki potansiyel donanım, yazılım veya ağ arızaları, hata giderme, yük devretme, veritabanı yükseltmesi ve diğer bakım görevlerini otomatik olarak gerçekleştirir. Standart kullanılabilirlik düzeyine ulaşmak için işlem ve depolama katmanları ayrılır. Premium kullanılabilirliği, işlem ve depolama performansı için tek bir düğümde tümleştirme ve ardından perde Always On kullanılabilirlik grupları için benzer teknoloji uygulayarak elde edilir. Azure SQL veritabanı yüksek kullanılabilirlik özellikleri tam bir irdelemesi için bkz: [SQL veritabanı kullanılabilirlik](sql-database-high-availability.md). SQL Veritabanı ayrıca aşağıdakiler dahil olmak üzere yerleşik [iş sürekliliği ve global ölçeklenebilirlik](sql-database-business-continuity.md) özelliklerine sahiptir:
 
@@ -156,7 +156,7 @@ SQL Veritabanı'na çok durumlu tablo değerli işlevler için araya eklemeli y�
 SQL Veritabanı, uygulamanızın çeşitli güvenlik ve uyumluluk gereksinimlerine uygun olmasına yardımcı olmak için bir dizi [yerleşik güvenlik ve uyum özelliğine](sql-database-security-overview.md) sahiptir.
 
 > [!IMPORTANT]
-> Azure SQL veritabanı (tüm dağıtım seçeneklerini) sertifikalıdır bir dizi uyumluluk standardı karşı. Daha fazla bilgi için [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) burada bulabilirsiniz SQL veritabanı uyumluluk sertifikaları en güncel listesi.
+> Azure SQL veritabanı (tüm dağıtım seçeneklerini) sertifikalıdır bir dizi uyumluluk standardı karşı. Daha fazla bilgi için [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) burada bulabilirsiniz SQL veritabanı uyumluluk sertifikaları en güncel listesi.
 
 ### <a name="advance-threat-protection"></a>Gelişmiş Tehdit Koruması
 
@@ -176,7 +176,7 @@ Gelişmiş veri güvenliği, Gelişmiş SQL güvenlik özellikleri için birleş
 
 [Denetim](sql-database-auditing.md) veritabanı olaylarını izler ve bir denetim günlüğüne Azure depolama hesabınızdaki yazar. Denetim mevzuatla uyumluluk, veritabanı etkinliğini anlama ve işletme sorunlarını veya şüpheli güvenlik ihlallerini işaret edebilecek farklılıklar ve anormal durumlar hakkında öngörü sahip olmanıza yardımcı olabilir.
 
-### <a name="data-encryption"></a>Veri şifrelemesi
+### <a name="data-encryption"></a>Veri şifreleme
 
 SQL veritabanı ile Hareket halindeki veriler için şifreleme sağlayarak verilerinizi korur [Aktarım Katmanı Güvenliği](https://support.microsoft.com/kb/3135244), ile bekleyen veriler için [saydam veri şifrelemesi](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)ve kullanılmakta olan veriler için [ her zaman şifreli](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
@@ -186,7 +186,7 @@ SQL Veritabanı, [Azure Active Directory tümleştirmesi](sql-database-aad-authe
 
 ### <a name="compliance-certification"></a>Uyumluluk sertifikası
 
-SQL Veritabanı düzenli olarak denetimden geçmektedir ve birden fazla uyumluluk standardı sertifikasına sahiptir. Daha fazla bilgi için [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) burada bulabilirsiniz SQL veritabanı uyumluluk sertifikaları en güncel listesi.
+SQL Veritabanı düzenli olarak denetimden geçmektedir ve birden fazla uyumluluk standardı sertifikasına sahiptir. Daha fazla bilgi için [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) burada bulabilirsiniz SQL veritabanı uyumluluk sertifikaları en güncel listesi.
 
 ## <a name="easy-to-use-tools"></a>Kullanımı kolay araçlar
 
@@ -240,7 +240,6 @@ SQL veritabanı müşterilerinin, SQL Server için Azure hibrit avantajı ile il
 |SQL Server Enterprise Edition çekirdek müşterilerle SA|<li>Genel amaçlı ya da iş açısından kritik SKU'SUNDA taban ücreti ödeyebilirsiniz</li><br><li>1 çekirdek şirket içi genel amaçlı SKU'SUNDA 4 çekirdek =</li><br><li>1 çekirdek şirket içi iş açısından kritik SKU'SUNDA 1 çekirdek =</li>|
 |SQL Server Standard Edition çekirdek müşterilerle SA|<li>Taban fiyatı yalnızca genel amaçlı SKU'SUNDA ödeyebilirsiniz</li><br><li>1 çekirdek şirket içi genel amaçlı SKU'SUNDA 1 çekirdek =</li>|
 |||
-
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>SQL Server mühendislik ekibi ile iletişime geçme
 

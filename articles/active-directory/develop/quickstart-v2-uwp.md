@@ -17,12 +17,12 @@ ms.date: 04/01/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6de55cb9f1f89c9c3cd809294890f63134a26d8
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 3cf4ec48942cbe345b12d2a358afc3dadbe63a96
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793178"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360127"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Hızlı Başlangıç: Evrensel Windows Platformu (UWP) uygulamasından Microsoft Graph API'sini çağırma
 
@@ -64,16 +64,16 @@ Bu hızlı başlangıç, bir Evrensel Windows Platformu (UWP) uygulaması ile ki
 > #### <a name="step-1-configure-your-application"></a>1. Adım: Uygulamanızı yapılandırma
 > Bu hızlı başlangıç kod örneğinin çalışması için **urn:ietf:wg:oauth:2.0:oob** gibi bir yeniden yönlendirme URI’si eklemeniz gerekir.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Bu değişikliği benim için yap]()
+> > [Benim için bu değişiklik yapın]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Zaten yapılandırılmış](media/quickstart-v2-uwp/green-check.png) Uygulamanız bu özniteliklerle yapılandırılmış.
+> > ![Önceden yapılandırılmış](media/quickstart-v2-uwp/green-check.png) uygulamanız bu öznitelikleri ile yapılandırılır.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>2. Adım: Visual Studio projenizi indirin
 
- - [Visual Studio 2017 projesini indirin](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)
+ - [Visual Studio 2017 projenizi indirin](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>3. Adım: Visual Studio projenizi yapılandırın
+#### <a name="step-3-configure-your-visual-studio-project"></a>3. adım: Visual Studio projenizi yapılandırın
 
 1. Zip dosyasını diskin köküne yakın bir yerel klasöre (örneğin **C:\Azure-Samples**) ayıklayın.
 1. Projeyi Visual Studio'da açın.
@@ -86,16 +86,16 @@ Bu hızlı başlangıç, bir Evrensel Windows Platformu (UWP) uygulaması ile ki
 
 > [!div renderon="docs"]
 > Konumlar:
-> - `Enter_the_Application_Id_here` - Kaydettiğiniz uygulamanın Uygulama Kimliği değeridir.
-> - `Enter_the_Tenant_Info_Here` - Aşağıdaki seçeneklerden biridir:
->   - Uygulamanız **Yalnızca kuruluşum** yaklaşımını destekliyorsa bu değeri **Kiracı Kimliği** veya **Kiracı adı** (örneğin, contoso.microsoft.com) ile değiştirin
->   - Uygulamanız **Herhangi bir kuruluş dizinindeki hesaplar** yaklaşımını destekliyorsa bu değeri `organizations` ile değiştirin
->   - Uygulamanız **Tüm Microsoft hesabı kullanıcıları** yaklaşımını destekliyorsa bu değeri `common` ile değiştirin
+> - `Enter_the_Application_Id_here` -kaydettiğiniz uygulama için uygulama kimliği.
+> - `Enter_the_Tenant_Info_Here` -Aşağıdaki seçeneklerden biridir:
+>   - Uygulamanız destekliyorsa **Kuruluşum yalnızca**, bu değeri ile değiştirin **Kiracı kimliği** veya **Kiracı adı** (örneğin, contoso.onmicrosoft.com)
+>   - Uygulamanız destekliyorsa **herhangi bir kuruluş dizini hesaplarında**, bu değeri ile değiştirin `organizations`
+>   - Uygulamanız destekliyorsa **tüm Microsoft hesabı kullanıcılarını**, bu değeri ile değiştirin `common`
 >
 > > [!TIP]
 > > *Uygulama Kimliği*, *Dizin (kiracı) Kimliği* ve *Desteklenen hesap türleri* değerlerini bulmak için **Genel bakış** sayfasına gidin
 
-## <a name="more-information"></a>Daha fazla bilgi
+## <a name="more-information"></a>Daha fazlasını öğrenin
 
 Bu bölümde hızlı başlangıç hakkında daha fazla bilgi verilmektedir.
 
@@ -167,4 +167,4 @@ authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.
 Bu hızlı başlangıcın tam bir açıklamasının da içinde olduğu yeni özellikleri ve uygulamaları oluşturma hakkında eksiksiz adım adım kılavuz için Windows masaüstü öğreticisini deneyin.
 
 > [!div class="nextstepaction"]
-> [UWP - Graph API'si çağırma öğreticisi](tutorial-v2-windows-uwp.md)
+> [UWP - çağrı Graph API'si öğreticisini](tutorial-v2-windows-uwp.md)

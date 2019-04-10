@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB'de veritabanı hesaplarını yönetmeyi öğrenin
 description: Azure Cosmos DB'de veritabanı hesaplarını yönetmeyi öğrenin
-author: christopheranderson
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/17/2018
-ms.author: chrande
-ms.openlocfilehash: 6efa0bab6327022bfe4a1f6d94a6a135cd1f91f3
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.date: 04/08/2019
+ms.author: rimman
+ms.openlocfilehash: b2b5e58ca480aa3abaa0766319977b8d1160ebeb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849061"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283010"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Bir Azure Cosmos hesabı yönetme
 
-Bu makalede, Azure Cosmos DB hesabınızı yönetmek açıklar. Çoklu yönlendirmeyi ayarlayın, ekleme veya bir bölgeyi kaldırabilir, birden fazla yazma bölgesini yapılandırmak ve yük devretme önceliklerini ayarlamak öğrenin. 
+Bu makalede, Azure Cosmos hesabın nasıl yönetileceği açıklanır. Çoklu yönlendirmeyi ayarlayın, ekleme veya bir bölgeyi kaldırabilir, birden fazla yazma bölgesini yapılandırmak ve yük devretme önceliklerini ayarlamak öğreneceksiniz. 
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
@@ -99,9 +99,9 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ### <a id="add-remove-regions-via-portal"></a>Azure portal
 
-1. Azure Cosmos DB hesabınıza gidin ve açmak **verileri genel olarak çoğaltma** menüsü.
+1. Azure Cosmos hesabınıza gidin ve açmak **verileri genel olarak çoğaltma** menüsü.
 
-2. Bölge ekleme için ile harita üzerinde altıgenlerin seçin **+** için istediğiniz bölgeyi karşılık gelen etiket. Bir bölge eklemek için seçin **+ Ekle bölge** seçenek ve açılan menüden bir bölge seçin.
+2. Bölge ekleme için ile harita üzerinde altıgenlerin seçin **+** , istenen bölgelerin karşılık gelen etiket. Alternatif olarak, bir bölge eklemek için seçin **+ Ekle bölge** seçenek ve açılan menüden bir bölge seçin.
 
 3. Bölge kaldırmak için onay işaretleriyle mavi altıgenlerin seçerek bir veya daha fazla bölge eşlemesinden temizleyin. Veya "Çöp" seçin (🗑) sağ taraftaki bölge yanındaki simge.
 
@@ -109,20 +109,20 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
    ![Ekleme veya bölgeler menü Kaldır](./media/how-to-manage-database-account/add-region.png)
 
-Tek bölgeli yazma modunda yazma bölgesi kaldırılamaz. Bu geçerli yazma bölgesine silmeden önce farklı bir bölgeye yük devretme gerekir.
+Tek bir bölgede yazma modu, yazma bölgesi kaldırılamaz. Geçerli yazma bölgesine silmeden önce farklı bir bölgeye yük devretme gerekir.
 
 Ekleyebilir veya en az bir bölge varsa herhangi bir bölgeyi kaldırmak yazma modu, birden çok bölgede.
 
 ### <a id="add-remove-regions-via-cli"></a>Azure CLI
 
 ```bash
-# Given an account created with 1 region like so
+# Create an account with 1 region
 az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations eastus=0
 
-# Add a new region by adding another region to the list
+# Add a region
 az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations eastus=0 westus=1
 
-# Remove a region by removing a region from the list
+# Remove a region
 az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations westus=0
 ```
 
@@ -142,7 +142,7 @@ az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager şablonu
 
-Aşağıdaki JSON kod, bir Azure Resource Manager şablonu örneğidir. Sınırlanmış eskime durumu tutarlılık İlkesi ile bir Azure Cosmos DB hesabı dağıtmak için kullanabilirsiniz. En fazla eskime aralığı 5 saniye olarak ayarlanır. İzin en fazla eski istek sayısını 100 olarak ayarlanır. Resource Manager şablonu biçimini ve söz dizimi hakkında bilgi edinmek için [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Aşağıdaki JSON kodunu örneğidir bir [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) şablonu. Bir Azure Cosmos hesapla dağıtmak için kullanabileceğiniz [sınırlanmış eskime durumu tutarlılık düzeyi](consistency-levels.md). En fazla eskime aralığı 5 saniye olarak ayarlanır. İzin en fazla eski istek sayısını 100 olarak ayarlanır. Resource Manager şablonu biçimini ve söz dizimi hakkında bilgi edinmek için [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ```json
 {
@@ -197,11 +197,11 @@ Aşağıdaki JSON kod, bir Azure Resource Manager şablonu örneğidir. Sınırl
 ```
 
 
-## <a id="manual-failover"></a>Azure Cosmos DB hesabınız için el ile yük devretme etkinleştir
+## <a id="manual-failover"></a>Azure Cosmos hesabınız için el ile yük devretme etkinleştir
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure portal
 
-1. Azure Cosmos DB hesabınıza gidin ve açmak **verileri genel olarak çoğaltma** menüsü.
+1. Azure Cosmos hesabınıza gidin ve açmak **verileri genel olarak çoğaltma** menüsü.
 
 2. Menüsünün üstünde, seçin **el ile yük devretme**.
 
@@ -216,7 +216,7 @@ Aşağıdaki JSON kod, bir Azure Resource Manager şablonu örneğidir. Sınırl
 ### <a id="enable-manual-failover-via-cli"></a>Azure CLI
 
 ```bash
-# Given your account currently has regions with priority like so: eastus=0 westus=1
+# Given your account currently has regions with priority: eastus=0 westus=1
 # Change the priority order to trigger a failover of the write region
 az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations westus=0 eastus=1
 ```
@@ -252,11 +252,11 @@ az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource
 az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover false
 ```
 
-## <a name="set-failover-priorities-for-your-azure-cosmos-db-account"></a>Azure Cosmos DB hesabınız için yük devretme önceliklerini ayarlayın
+## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>Azure Cosmos hesabınız için yük devretme önceliklerini ayarlayın
 
 ### <a id="set-failover-priorities-via-portal"></a>Azure portal
 
-1. Azure Cosmos DB hesabınızdan açın **verileri genel olarak çoğaltma** bölmesi. 
+1. Azure Cosmos hesabınızdan açın **verileri genel olarak çoğaltma** bölmesi. 
 
 2. Bölmenin en üstünde seçin **otomatik yük devretme**.
 
@@ -270,7 +270,7 @@ az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource
 
    ![Otomatik yük devretme portal menüsü](./media/how-to-manage-database-account/automatic-failover.png)
 
-Bu menüde yazma bölgesi değiştirilemiyor. Yazma bölgesini el ile değiştirmek için el ile yük devretme gerçekleştirmeniz gerekir.
+Bu menüden yazma bölgesini değiştiremezsiniz. Yazma bölgesini el ile değiştirmek için el ile yük devretme gerçekleştirmeniz gerekir.
 
 ### <a id="set-failover-priorities-via-cli"></a>Azure CLI
 
@@ -281,8 +281,13 @@ az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resour
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Cosmos DB'deki tutarlılık düzeyleri ve veri çakışmalarını yönetme hakkında bilgi edinin. Aşağıdaki makalelere bakın:
+Bu makaleleri okuyun:
 
-* [Tutarlılık yönetme](how-to-manage-consistency.md)
-* [Bölgeler arasında çakışmalar yönetme](how-to-manage-conflicts.md)
+* [Tutarlılığı yönetme](how-to-manage-consistency.md)
+* [Bölgeler arasındaki çakışmaları yönetme](how-to-manage-conflicts.md)
+* [Genel dağıtım - başlık altında](global-dist-under-the-hood.md)
+* [Çok yöneticili uygulamalarınızda yapılandırma](how-to-multi-master.md)
+* [Birden çok giriş için istemcileri yapılandırma](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Bölge ekleme veya Azure Cosmos DB hesabınızdan kaldırma](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Özel bir çakışma çözümleme ilkesi oluşturma](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 

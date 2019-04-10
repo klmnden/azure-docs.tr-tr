@@ -10,18 +10,18 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: c37e41bce481fff5e172687907cce527c10ae006
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3faa3b0a5cd919752f8b7e4969e3affd668c8077
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225017"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360772"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>İş akışı eylemi yineleyin veya Azure Logic Apps dizilerde işlem döngü oluşturma
 
 Mantıksal uygulamanızda bir dizi işlemek için oluşturabileceğiniz bir ["Foreach" döngüsünü](#foreach-loop). Bu döngü dizideki her öğe üzerinde bir veya daha fazla eylemleri yineler. "Foreach" döngü dizi öğesi sayısına yönelik sınırlar işleme için bkz: [limitler ve yapılandırma](../logic-apps/logic-apps-limits-and-config.md). 
 
-Bir koşul veya bir durum değişikliklerini kadar Eylemler yinelemek için oluşturabileceğiniz bir ["Kadar" döngü](#until-loop). Mantıksal uygulamanız tüm eylemler döngünün içinde çalışır ve ardından koşul veya durumunu denetler. Koşul karşılanırsa, döngü durdurur. Aksi takdirde, döngü tekrarlanır. Bir mantıksal uygulama çalıştırması, Döngülerde "Kadar" sayısı üst sınırı için bkz: [limitler ve yapılandırma](../logic-apps/logic-apps-limits-and-config.md). 
+Bir koşul veya bir durum değişikliklerini kadar Eylemler yinelemek için oluşturabileceğiniz bir ["Kadar" döngü](#until-loop). Mantıksal uygulamanızı ilk tüm eylemler döngünün içinde çalışır ve ardından koşul veya durumunu denetler. Koşul karşılanırsa, döngü durdurur. Aksi takdirde, döngü tekrarlanır. Bir mantıksal uygulama çalıştırması, Döngülerde "Kadar" sayısı üst sınırı için bkz: [limitler ve yapılandırma](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP]
 > Bir dizi alır ve her dizi öğesi için bir iş akışını çalıştırmak istediğiniz bir tetikleyici varsa *debatch* ile bu diziyi [ **SplitOn** özellik tetikleyicisi](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
@@ -154,7 +154,9 @@ Mantıksal uygulamanızın JSON tanımı ile çalışıyorsanız, kullanabilece�
 
 ## <a name="until-loop"></a>Döngü "Kadar"
   
-Bir koşul veya bir durum değişikliklerini kadar Eylemler yinelemek için bu eylemlerin bir "Kadar" döngüde yerleştirin. Bir "Kadar" döngüsünü kullanabileceğiniz bazı yaygın senaryolar şunlardır:
+Çalıştırın ve eylemleri bir koşul veya bir durum değişikliklerini kadar yinelemek için bu eylemlerin bir "Kadar" döngüde yerleştirin. Mantıksal uygulamanızı ilk tüm eylemler döngünün içinde çalışır ve ardından koşul veya durumunu denetler. Koşul karşılanırsa, döngü durdurur. Aksi takdirde, döngü tekrarlanır.
+
+Bir "Kadar" döngüsünü kullanabileceğiniz bazı yaygın senaryolar şunlardır:
 
 * İstediğiniz yanıt elde edene kadar bir uç nokta çağırın.
 
@@ -194,7 +196,7 @@ Bir koşul veya bir durum değişikliklerini kadar Eylemler yinelemek için bu e
    | Özellik | Değer | Açıklama |
    | -------- | ----- | ----------- |
    | **Ad** | Sınır | Değişken adı | 
-   | **Tür** | Tamsayı | Değişkenin veri türü | 
+   | **Type** | Tamsayı | Değişkenin veri türü | 
    | **Değer** | 0 | Değişkeninizin değeri başlıyor | 
    |||| 
 
@@ -234,7 +236,7 @@ Bir koşul veya bir durum değişikliklerini kadar Eylemler yinelemek için bu e
 
       | Özellik | Değer | Açıklama |
       | -------- | ----- | ----------- | 
-      | **Alıcı** | *< e-posta adresi\@etki alanı >* | Alıcının e-posta adresi. Test için kendi e-posta adresinizi kullanın. | 
+      | **Kime** | *< e-posta adresi\@etki alanı >* | Alıcının e-posta adresi. Test için kendi e-posta adresinizi kullanın. | 
       | **Konu** | Geçerli değer "Sınırın" **sınırı** | E-posta konusunu belirtin. Bu örnekte, eklediğinizden emin olun **sınırı** değişkeni. | 
       | **Gövde** | <*email-content*> | E-posta ileti göndermek istediğiniz içeriği belirtin. Bu örnekte, istediğiniz herhangi bir metni girin. | 
       |||| 
@@ -251,8 +253,8 @@ Bir "Kadar" döngü, Bu koşullardan herhangi biri varsa, yürütmeyi durdurun v
 
 | Özellik | Varsayılan değer | Açıklama | 
 | -------- | ------------- | ----------- | 
-| **Sayısı** | 60 | Döngüden çıkılıp önce çalıştırılan döngüler en yüksek sayısı. 60 döngüleri varsayılandır. | 
-| **zaman aşımı** | PT1H | Bir döngü döngü önce çalıştırılacak çoğu süreyi çıkar. Varsayılan bir saattir ve ISO 8601 biçiminde belirtilir. <p>Zaman aşımı değeri her döngü döngüsü için değerlendirilir. Geçerli döngü, döngü içinde herhangi bir işlem zaman aşımı sınırından daha uzun sürerse, bitmez. Ancak, sınır koşulu karşılanmamış çünkü bir sonraki döngüde başlamaz. | 
+| **Sayı** | 60 | Döngüden çıkılıp önce çalıştırılan döngüler en yüksek sayısı. 60 döngüleri varsayılandır. | 
+| **Zaman Aşımı** | PT1H | Bir döngü döngü önce çalıştırılacak çoğu süreyi çıkar. Varsayılan bir saattir ve ISO 8601 biçiminde belirtilir. <p>Zaman aşımı değeri her döngü döngüsü için değerlendirilir. Geçerli döngü, döngü içinde herhangi bir işlem zaman aşımı sınırından daha uzun sürerse, bitmez. Ancak, sınır koşulu karşılanmamış çünkü bir sonraki döngüde başlamaz. | 
 |||| 
 
 Bu varsayılan sınırları değiştirmek için seçin **Gelişmiş Seçenekleri Göster** döngü eylem şeklinde.

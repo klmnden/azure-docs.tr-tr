@@ -6,36 +6,41 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7e85226d15b818dda65600760b3950fab9dd7aaf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b93fb92c9170f3e0fb7bd6ee754dde5df729e299
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312334"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358172"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure’da olağanüstü durum kurtarma tatbikatı çalıştırma
 
-Bu makalede, Azure’da bir yük devretme testi kullanarak şirket içi makine için olağanüstü durum kurtarma tatbikatı çalıştırma işlemi gösterilmektedir. Tatbikat, veri kaybı olmadan çoğaltma stratejinizi doğrular.
+Bu makalede Azure kullanarak şirket içi makine için olağanüstü durum kurtarma tatbikatı gerçekleştirme [Azure Site Recovery](site-recovery-overview.md) hizmeti. Tatbikat, veri kaybı olmadan çoğaltma stratejinizi doğrular.
 
-Bu, şirket içi VMware veya Hyper-V sanal makineleri için Azure’da olağanüstü durum kurtarmanın nasıl ayarlanacağını gösteren serideki dördüncü öğreticidir.
 
-Bu öğreticide, ilk üç öğreticiyi tamamladığınız varsayılır:
-- [Birinci öğreticide](tutorial-prepare-azure.md), VMware olağanüstü durum kurtarma için gerekli Azure bileşenlerini ayarladık.
-- [İkinci öğreticide](vmware-azure-tutorial-prepare-on-premises.md), olağanüstü durum kurtarma için şirket içi bileşenleri hazırladık ve önkoşulları gözden geçirdik.
-- [Üçüncü öğreticide](vmware-azure-tutorial.md), şirket içi VMware sanal makinemiz için çoğaltmayı ayarlayıp etkinleştirdik.
-- Öğreticiler, **bir senaryo için en basit dağıtım yolunu** size göstermek için tasarlanmıştır. Mümkün olduğunca varsayılan seçenekleri kullanır ve tüm olası ayarları ve yolları göstermez. Yük devretme testi adımları hakkında daha ayrıntılı bilgi edinmek istiyorsanız, [Nasıl Yapılır Kılavuzu](site-recovery-test-failover-to-azure.md)’nu okuyun.
+Bu, şirket içi makineler için Azure'da olağanüstü durum kurtarma ayarlama gösteren serideki dördüncü öğreticidir.
 
-Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+Bu öğreticide, bilgi nasıl yapılır:
 
 > [!div class="checklist"]
 > * Yük devretme testi için yalıtılmış bir ağ ayarlama
 > * Yük devretme sonrasında Azure VM'ye bağlanmak için hazırlık yapma
-> * Tek bir makine için yük devretme testi çalıştırma
+> * Tek bir makine için bir yük devretme testi çalıştırın.
 
+> [!NOTE]
+> Öğreticiler bir senaryo için en basit dağıtım yolu gösterir. Mümkün olduğunca varsayılan seçenekleri kullanır ve tüm olası ayarları ve yolları göstermez. Daha ayrıntılı olarak olağanüstü durum kurtarma tatbikatı adımları hakkında bilgi edinmek istiyorsanız [bu makaleyi gözden geçirin](site-recovery-test-failover-to-azure.md).
 
+## <a name="before-you-start"></a>Başlamadan önce
+
+Önceki öğreticilerde tamamlayın:
+
+1. Seçtiğiniz emin [Azure yedekleme](tutorial-prepare-azure.md) azure'a olağanüstü durum kurtarmaya şirket içi VMware Vm'leri, Hyper-V Vm'leri ve fiziksel makineler için.
+2. Şirket içi hazırlama [VMware](vmware-azure-tutorial-prepare-on-premises.md) veya [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) ortamınızı olağanüstü durum kurtarma. Fiziksel sunucular için olağanüstü durum kurtarma ayarlama yoksa gözden [destek matrisi](vmware-physical-secondary-support-matrix.md).
+3. İçin olağanüstü durum kurtarma ayarlama [VMware Vm'lerini](vmware-azure-tutorial.md), [Hyper-V Vm'lerini](hyper-v-azure-tutorial.md), veya [fiziksel makineler](physical-azure-disaster-recovery.md).
+ 
 
 ## <a name="verify-vm-properties"></a>VM özelliklerini doğrulama
 
@@ -76,14 +81,13 @@ Yük devretme testini aşağıdaki gibi çalıştırın:
 
 Bazı senaryolarda yük devretme için sekiz ila on dakikada tamamlanan ek işlem gerekir. VMware Linux makinelerinde, DHCP hizmeti etkinleştirilmemiş VMware VM’lerinde ve storvsc, vmbus, storflt, intelide, atapi önyükleme sürücülerine sahip olmayan VMware VM’lerinde uzun yük devretme testi süreleriyle karşılaşabilirsiniz.
 
-## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Yük devretmeden sonra Azure VM'lerine bağlanmak için hazırlık yapma
+## <a name="connect-after-failover"></a>Yük devretme sonrasında bağlan
 
-Yük devretme sonrasında RDP/SSH kullanarak Azure VM'lerine bağlanmak istiyorsanız [buradaki](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) tabloda özetlenen gereksinimleri izleyin.
-
-Yük devretme sonrasında karşılaştığınız bağlantı sorunlarını gidermek için [burada](site-recovery-failover-to-azure-troubleshoot.md) anlatılan adımları izleyin.
+Yük devretmeden sonra RDP/SSH'yi kullanarak Azure vm'lerine bağlanmak isterseniz [bağlanmak için hazırlık yapma](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover). Yük devretme sonrasında herhangi bir bağlantı sorunla karşılaşırsanız izleyin [sorun giderme](site-recovery-failover-to-azure-troubleshoot.md) Kılavuzu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Şirket içi VMware VM’ler arasında yük devretme ve yeniden çalışma işlemi gerçekleştirme](vmware-azure-tutorial-failover-failback.md).
-> [Şirket içi Hyper-V VM’ler arasında yük devretme ve yeniden çalışma işlemi gerçekleştirme](hyper-v-azure-failover-failback-tutorial.md).
+> [VMware Vm'leri için yük devretme ve yeniden çalışma işlemlerini çalıştırma](vmware-azure-tutorial-failover-failback.md).
+> [Hyper-V Vm'leri için yük devretme ve yeniden çalışma işlemlerini çalıştırma](hyper-v-azure-failover-failback-tutorial.md).
+> [Yük devretme ve yeniden çalışma için fiziksel makineler çalıştırma](physical-to-azure-failover-failback.md)

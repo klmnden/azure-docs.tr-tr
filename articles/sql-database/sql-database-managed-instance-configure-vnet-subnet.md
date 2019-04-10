@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 13038bb7159556b36e82b598732d1f2d497bf314
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c4ff12f0c9adcb9943a6e2426eaf2740ba171e39
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762781"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358837"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği için mevcut bir sanal ağ yapılandırma
 
@@ -25,10 +25,9 @@ Azure SQL veritabanı yönetilen örneği, bir Azure dağıtılmalıdır [sanal 
 
 Aşağıdaki durumlarda birini sizin için geçerliyse, doğrulamak ve bu makalede açıklanan komut dosyası kullanarak ağınıza değiştirin:
 
-* Yine de yapılandırılmamış yeni bir alt ağ var.
-* Alt ağ ile hizalanır emin değilseniz [gereksinimleri](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
-* Alt ağ hala uyduğundan emin kontrol etmek istediğiniz [ağ gereksinimleri](sql-database-managed-instance-connectivity-architecture.md#network-requirements) sonra değişiklikler yaptınız.
-
+- Yine de yapılandırılmamış yeni bir alt ağ var.
+- Alt ağ ile hizalanır emin değilseniz [gereksinimleri](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+- Alt ağ hala uyduğundan emin kontrol etmek istediğiniz [ağ gereksinimleri](sql-database-managed-instance-connectivity-architecture.md#network-requirements) sonra değişiklikler yaptınız.
 
 > [!Note]
 > Yönetilen bir örneği yalnızca Azure Resource Manager dağıtım modeliyle oluşturulan sanal ağlar oluşturabilirsiniz. Klasik dağıtım modeliyle oluşturulan azure sanal ağlar desteklenmez. Yönergeleri izleyerek alt ağ boyutunu hesaplamak [yönetilen örnekler için alt ağ boyutunu belirlemek](sql-database-managed-instance-determine-size-vnet-subnet.md) makalesi. Alt ağ içindeki kaynakları dağıttıktan sonra yeniden boyutlandıramazsınız.

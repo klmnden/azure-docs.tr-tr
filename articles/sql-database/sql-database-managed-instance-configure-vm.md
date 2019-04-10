@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlrab, srbozovi, bonova
+ms.reviewer: sstein, carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 9e1001816e9a4cf62d2e6c84c72aae84428148d0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997910"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360492"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Hızlı Başlangıç: Azure VM, Azure SQL veritabanı yönetilen örneğine bağlanmak için yapılandırın
 
-Bu hızlı SQL Server Management Studio (SSMS) kullanarak bir Azure SQL veritabanı yönetilen örneğine bağlanmak için bir Azure sanal makinesi yapılandırma gösterilmektedir. Noktadan siteye bağlantısı kullanarak bir şirket içi istemci bilgisayarından bağlanmak gösteren bir hızlı başlangıç için bkz: [noktadan siteye bağlantı yapılandırma](sql-database-managed-instance-configure-p2s.md) 
+Bu hızlı SQL Server Management Studio (SSMS) kullanarak bir Azure SQL veritabanı yönetilen örneğine bağlanmak için bir Azure sanal makinesi yapılandırma gösterilmektedir. Noktadan siteye bağlantısı kullanarak bir şirket içi istemci bilgisayarından bağlanmak gösteren bir hızlı başlangıç için bkz: [noktadan siteye bağlantı yapılandırma](sql-database-managed-instance-configure-p2s.md)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -33,7 +33,7 @@ Bu hızlı başlangıçta oluşturulan kaynakları kullanan [bir yönetilen örn
 
 ## <a name="create-a-new-subnet-in-the-managed-instance-vnet"></a>Yönetilen örnek sanal ağda yeni bir alt ağ oluşturma
 
-Bir Azure sanal makinesi yönetilen örneği'ne bağlanabilmesi için aşağıdaki adımları yönetilen örnek sanal ağda yeni bir alt ağ oluşturun. Yönetilen örnek alt yönetilen örnekler için ayrılmıştır. Bu alt ağda Azure sanal makineler gibi diğer tüm kaynakları oluşturulamıyor. 
+Bir Azure sanal makinesi yönetilen örneği'ne bağlanabilmesi için aşağıdaki adımları yönetilen örnek sanal ağda yeni bir alt ağ oluşturun. Yönetilen örnek alt yönetilen örnekler için ayrılmıştır. Bu alt ağda Azure sanal makineler gibi diğer tüm kaynakları oluşturulamıyor.
 
 1. Yönetilen örnek, oluşturduğunuz kaynak grubunu açın [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md) hızlı başlangıç. Sanal ağ için yönetilen örneğinizi seçin.
 
@@ -46,21 +46,21 @@ Bir Azure sanal makinesi yönetilen örneği'ne bağlanabilmesi için aşağıda
 3. Bu tabloda verilen bilgileri kullanarak formunu doldurun:
 
    | Ayar| Önerilen değer | Açıklama |
-   | ---------------- | ----------------- | ----------- | 
+   | ---------------- | ----------------- | ----------- |
    | **Ad** | Geçerli bir ad|Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    | **Adres aralığı (CIDR bloğu)** | Geçerli bir aralık | Bu Hızlı Başlangıç için iyi varsayılan değerdir.|
-   | **Ağ güvenlik grubu** | None | Bu Hızlı Başlangıç için iyi varsayılan değerdir.|
-   | **Yol tablosu** | None | Bu Hızlı Başlangıç için iyi varsayılan değerdir.|
+   | **Ağ güvenlik grubu** | Hiçbiri | Bu Hızlı Başlangıç için iyi varsayılan değerdir.|
+   | **Rota tablosu** | Hiçbiri | Bu Hızlı Başlangıç için iyi varsayılan değerdir.|
    | **Hizmet uç noktaları** | 0 adet seçildi | Bu Hızlı Başlangıç için iyi varsayılan değerdir.|
-   | **Alt ağ temsilci seçme** | None | Bu Hızlı Başlangıç için iyi varsayılan değerdir.|
- 
+   | **Alt ağ temsilcisi** | Hiçbiri | Bu Hızlı Başlangıç için iyi varsayılan değerdir.|
+
    ![İstemci sanal makine için yeni bir yönetilen örnek alt](./media/sql-database-managed-instance-configure-vm/new-subnet.png)
 
 4. Seçin **Tamam** yönetilen örnek sanal ağda bu ek alt ağ oluşturmak için.
 
 ## <a name="create-a-virtual-machine-in-the-new-subnet-in-the-vnet"></a>Sanal ağdaki yeni alt ağ içinde sanal makine oluşturma
 
-Aşağıdaki adımlar yönetilen örneğine bağlanmak için yeni bir alt ağ içinde bir sanal makine oluşturma işlemini gösterir. 
+Aşağıdaki adımlar yönetilen örneğine bağlanmak için yeni bir alt ağ içinde bir sanal makine oluşturma işlemini gösterir.
 
 ## <a name="prepare-the-azure-virtual-machine"></a>Azure sanal makinesi hazırlama
 
@@ -78,11 +78,11 @@ Tüm gerekli araçları ile bir istemci sanal makine oluşturmak için en kolay 
    | ---------------- | ----------------- | ----------- |
    | **Abonelik** | Geçerli bir abonelik | Yeni kaynaklar oluşturma izni olan bir aboneliği olması gerekir. |
    | **Kaynak Grubu** |Belirtilen kaynak grubu [yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md) hızlı başlangıç.|Bu kaynak grubu, sanal ağın bulunduğu bir olmalıdır.|
-   | **Konum** | Kaynak grubu konumu | Bu değer, seçili kaynak grubuna göre doldurulur. | 
+   | **Konum** | Kaynak grubu konumu | Bu değer, seçili kaynak grubuna göre doldurulur. |
    | **Sanal makine adı**  | Geçerli bir ad | Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Yönetici kullanıcı adı**|Herhangi bir geçerli kullanıcı adı|Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Ayrılmış bir sunucu düzeyindeki rolüdür gibi "serveradmin" kullanmayın.<br>Bu kullanıcı adı kullanmak istediğiniz zaman [VM'ye bağlanmak](#connect-to-virtual-machine).| 
+   |**Yönetici Kullanıcı Adı**|Herhangi bir geçerli kullanıcı adı|Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Ayrılmış bir sunucu düzeyindeki rolüdür gibi "serveradmin" kullanmayın.<br>Bu kullanıcı adı kullanmak istediğiniz zaman [VM'ye bağlanmak](#connect-to-virtual-machine).|
    |**Parola**|Geçerli bir parola|Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.<br>Bu parolayı kullanmak istediğiniz zaman [VM'ye bağlanmak](#connect-to-virtual-machine).|
-   | **Sanal makine boyutu** | Herhangi bir geçerli boyut | Bu şablon varsayılan **Standard_B2s** Bu Hızlı Başlangıç için yeterlidir. |
+   | **Sanal Makine Boyutu** | Herhangi bir geçerli boyut | Bu şablon varsayılan **Standard_B2s** Bu Hızlı Başlangıç için yeterlidir. |
    | **Konum**|[resourceGroup () .location].| Bu değeri değiştirmeyin. |
    | **Sanal ağ adı**|Yönetilen örneğin oluşturulacağı sanal ağı.|
    | **Alt ağ adı**|Önceki yordamda oluşturduğunuz alt ağ adı| Yönetilen örnek oluşturduğunuz alt ağ seçmeyin.|
@@ -100,7 +100,7 @@ Tüm gerekli araçları ile bir istemci sanal makine oluşturmak için en kolay 
 > [!IMPORTANT]
 > SQL Server Management Studio'yu yüklemek oluşturma sonrası betikler için zaman vermek için sanal makine oluşturulduktan sonra yaklaşık 15 dakika kadar devam etmeyin.
 
-## <a name="connect-to-virtual-machine"></a>Sanal makineye bağlanma
+## <a name="connect-to-virtual-machine"></a>Sanal makineye bağlanın
 
 Aşağıdaki adımlarda, uzak masaüstü bağlantısı kullanarak yeni oluşturduğunuz sanal makineye bağlanma işlemi gösterilmektedir.
 
@@ -108,31 +108,31 @@ Aşağıdaki adımlarda, uzak masaüstü bağlantısı kullanarak yeni oluşturd
 
     ![VM](./media/sql-database-managed-instance-configure-vm/vm.png)  
 
-2. **Bağlan**’ı seçin. 
-   
-   Genel IP adresi ve bağlantı noktası numarasını sanal makine ile bir Uzak Masaüstü Protokolü dosyasını (.rdp dosyası) formu görüntülenir. 
+2. **Bağlan**’ı seçin.
+
+   Genel IP adresi ve bağlantı noktası numarasını sanal makine ile bir Uzak Masaüstü Protokolü dosyasını (.rdp dosyası) formu görüntülenir.
 
    ![RDP formu](./media/sql-database-managed-instance-configure-vm/rdp.png)  
 
 3. Seçin **RDP dosyasını indir**.
- 
+
    > [!NOTE]
    > Ayrıca, sanal Makinenize bağlanmak için SSH kullanabilirsiniz.
 
 4. Kapat **sanal makineye bağlanma** formu.
-5. VM'nize bağlanmak için indirilen RDP dosyasını açın. 
+5. VM'nize bağlanmak için indirilen RDP dosyasını açın.
 6. Sorulduğunda, **Connect**. Mac bilgisayarlarda, Mac App Store’dan bu [Uzak Masaüstü İstemcisi](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) gibi bir RDP istemcisi indirmeniz gerekir.
 
-6. Kullanıcı adı ve sanal makine oluştururken belirttiğiniz parolayı girin ve ardından **Tamam**.
+7. Kullanıcı adı ve sanal makine oluştururken belirttiğiniz parolayı girin ve ardından **Tamam**.
 
-7. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Seçin **Evet** veya **devam** bağlantıya devam etmek için.
+8. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Seçin **Evet** veya **devam** bağlantıya devam etmek için.
 
 Sunucu Yöneticisi panosunda sanal makinenize bağlandınız.
 
 ## <a name="use-ssms-to-connect-to-the-managed-instance"></a>SSMS, yönetilen örneği'ne bağlanın
 
 1. Sanal makineler'de SQL Server Management Studio (SSMS) açın.
- 
+
    Bu ilk kez SSMS başlatılmış olduğundan yapılandırmasını tamamlamak gereken açmak için birkaç dakika sürer.
 2. İçinde **sunucuya Bağlan** iletişim kutusunda, tam girin **ana bilgisayar adı** yönetilen örneğinizin **sunucu adı** kutusu. Seçin **SQL Server kimlik doğrulaması**kullanıcı adı ve parola sağlayın ve ardından **Connect**.
 

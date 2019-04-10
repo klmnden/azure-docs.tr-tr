@@ -5,23 +5,27 @@ services: azure-portal
 keywords: ''
 author: kfollis
 ms.author: kfollis
-ms.date: 08/24/2017
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: accessibility
-manager: dougeby
-ms.openlocfilehash: 0807921ce304bec6848744b5fc6ec3208e71eca0
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+manager: mtillman
+ms.openlocfilehash: 59824c4a10c50265ea0a15be69755748b87d4a3f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887062"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357831"
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Yüksek karşıtlığı açma veya Azure portalında tema değiştirme
-Daha fazla Karşıtlık gerekir ya da Azure portalında renk düzenini değiştirmek istiyorsanız, değişiklik yapmak için portal ayarları'na gidin. 
+
+Yüksek Karşıtlık ayarlarını Azure portalında okunmasını kolaylaştırmak. Portal arka plan renklerini değiştiren bir tema de seçebilirsiniz.
+
+Daha fazla Karşıtlık gerekir ya da Azure portalında renk düzenini değiştirmek istiyorsanız, değişiklik yapmak için portal ayarları'na gidin.
 
 ## <a name="turn-on-high-contrast"></a>Yüksek karşıtlığı açma
-1. Üst sağında [Azure portalında](https://portal.azure.com)seçin **ayarları**. 
+
+1. Başlığını [Azure portalında](https://portal.azure.com)seçin **ayarları**.
 
     ![Portal ayarlarını dişli simgesini Azure portalında gösteren ekran görüntüsü](./media/azure-portal-change-theme-high-contrast/azure-portal-settings-icon.png)
 1. Seçin **beyaz** veya **siyah**.
@@ -29,15 +33,24 @@ Daha fazla Karşıtlık gerekir ya da Azure portalında renk düzenini değişti
     ![Azure portal ayarlarında yüksek karşıtlık seçeneklerini gösteren ekran görüntüsü](./media/azure-portal-change-theme-high-contrast/azure-portal-highcontrast-options.png)
 1. **Uygula**’yı seçin.
 
+> [!NOTE]
+> Yüksek karşıtlık teması seçin diğer tüm tema seçimlerini geçersiz kılar.
+>
+>
+
 ## <a name="change-theme"></a>Temayı değiştir
-1. Üst sağında [Azure portalında](https://portal.azure.com)seçin **ayarları**.
+
+1. Başlığını [Azure portalında](https://portal.azure.com)seçin **ayarları**.
 
     ![Portal ayarlarını dişli simgesini Azure portalında gösteren ekran görüntüsü](./media/azure-portal-change-theme-high-contrast/azure-portal-settings-icon.png)
+
 1. Bir tema seçin.
 
     ![Azure portal ayarlarında tema seçeneklerini gösteren ekran görüntüsü](./media/azure-portal-change-theme-high-contrast/azure-portal-theme-options.png)
+
 1. **Uygula**’yı seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 - [Azure portalında klavye kısayolları](azure-portal-keyboard-shortcuts.md)
 - [Desteklenen tarayıcılar ve cihazlar](../azure-preview-portal-supported-browsers-devices.md)

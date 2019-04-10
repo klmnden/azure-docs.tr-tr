@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 24391e9e8541f12c434ade837b8f4944711ae375
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58887241"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357397"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Ortamları, Azure DevOps CI/CD işlem hatlarıyla tümleştirin
 Sürekli Tümleştirme (CI) kolayca tümleştirmek amacıyla Azure DevOps (eski adıyla Visual Studio Team Services da bilinir) Hizmetleri yüklü olan Azure DevTest Labs görevlerini uzantısı kullanabileceğiniz / sürekli teslim (CD) derleme-ve-yayın işlem hattı, Azure ile DevTest Labs. Bu uzantıları hızla dağıtmanızı kolaylaştırır bir [ortam](devtest-lab-test-env.md) belirli bir test görevi ve test bittiğinde silin. 
@@ -56,7 +56,7 @@ Dağıtım sonraki aşama, geliştirme veya sınama için kullanılacak ortamı 
 
 1. Yayın tanımında seçin **görev ekleme**.
 2. Üzerinde **görevleri** sekmesinde, bir Azure DevTest Labs ortamı oluşturma görevi ekleyin. Görev aşağıdaki gibi yapılandırın:
-    1. İçin **Azure RM abonelik**, bir bağlantı seçin **kullanılabilir Azure hizmeti bağlantıları** listelemek ya da Azure aboneliğinize daha kısıtlı izinler bağlantı oluşturun. Daha fazla bilgi için [Azure Resource Manager hizmet uç noktası](/devops/pipelines/library/service-endpoints).
+    1. İçin **Azure RM abonelik**, bir bağlantı seçin **kullanılabilir Azure hizmeti bağlantıları** listelemek ya da Azure aboneliğinize daha kısıtlı izinler bağlantı oluşturun. Daha fazla bilgi için [Azure Resource Manager hizmet uç noktası](/azure/devops/pipelines/library/service-endpoints).
 2. İçin **Laboratuvar adı**, daha önce oluşturduğunuz örneğinin adını seçin. *.
 3. İçin **depo adı**, burada Resource Manager şablonu (201) gönderilen için depoyu seçin *.
 4. İçin **şablon adı**, kaydettiğiniz, kaynak kod deposu * için ortam adını seçin. 
@@ -71,7 +71,7 @@ Azure DevTest Labs Örneğinizde dağıtılan ortamı silmek için son aşamadı
 Yayın tanımında seçin **görev ekleme**ve ardından **Dağıt** sekmesinde, ekleme bir **Azure DevTest Labs ortamı silme** görev. Aşağıdaki gibi yapılandırın:
 
 1. Sanal Makineyi silmek için bkz: [Azure DevTest Labs görevlerini](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks):
-    1. İçin **Azure RM abonelik**, bir bağlantı seçin **kullanılabilir Azure hizmeti bağlantıları** listelemek ya da Azure aboneliğinize daha kısıtlı izinler bağlantı oluşturun. Daha fazla bilgi için [Azure Resource Manager hizmet uç noktası](/devops/pipelines/library/service-endpoints).
+    1. İçin **Azure RM abonelik**, bir bağlantı seçin **kullanılabilir Azure hizmeti bağlantıları** listelemek ya da Azure aboneliğinize daha kısıtlı izinler bağlantı oluşturun. Daha fazla bilgi için [Azure Resource Manager hizmet uç noktası](/azure/devops/pipelines/library/service-endpoints).
     2. İçin **Laboratuvar adı**, laboratuvar ortamı bulunduğu seçin.
     3. İçin **ortam adı**, kaldırılacak ortam adını girin.
 2. Yayın tanımı için bir ad girin ve kaydedin.
@@ -80,5 +80,5 @@ Yayın tanımında seçin **görev ekleme**ve ardından **Dağıt** sekmesinde, 
 Aşağıdaki makalelere bakın: 
 - [Resource Manager şablonları ile çoklu VM ortamları oluşturma](devtest-lab-create-environment-from-arm.md).
 - DevTest Labs Otomasyon hızlı başlangıç Resource Manager şablonları [DevTest Labs GitHub deposu](https://github.com/Azure/azure-quickstart-templates).
-- [VSTS sorun giderme sayfası](/devops/pipelines/troubleshooting)
+- [VSTS sorun giderme sayfası](/azure/devops/pipelines/troubleshooting)
 

@@ -1,7 +1,7 @@
 ---
 title: Azure Active Directory koşullu erişim ayarları başvurusu | Microsoft Docs
 description: Desteklenen ayarlar genel bir bakış, Azure Active Directory koşullu erişim ilkesinde alın.
-services: active-directory.
+services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f92001e9d2fd322e858440ef64991b9de856735
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273048"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359006"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -144,7 +144,7 @@ Bu uzantı Chrome tarayıcısına otomatik olarak dağıtmak için aşağıdaki 
 | Yol | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Ad | 1 |
 | Type | REG_SZ (String) |
-| Veriler | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
+| Veri | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
 Chrome için destek **7 ve Windows 8.1**, aşağıdaki kayıt defteri anahtarını oluşturun:
 
@@ -153,7 +153,7 @@ Chrome için destek **7 ve Windows 8.1**, aşağıdaki kayıt defteri anahtarın
 | Yol | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Ad | 1 |
 | Type | REG_SZ (String) |
-| Veriler | {"deseni": "https://device.login.microsoftonline.com","filter": {"ISSUER": {"CN =": "MS-Kuruluş-erişim"}}} |
+| Veri | {"deseni": "https://device.login.microsoftonline.com","filter": {"ISSUER": {"CN =": "MS-Kuruluş-erişim"}}} |
 
 Bu tarayıcılar, cihaz kimlik doğrulaması, cihazın tanımlanması ve bir ilke karşı doğrulandı izin verme desteklemez. Tarayıcı özel modda çalışıyorsa cihaz denetimi başarısız olur.
 
@@ -207,9 +207,9 @@ Bu ayar, aşağıdaki istemci uygulamaları için geçerlidir:
 - Microsoft Excel
 - Microsoft Flow
 - Microsoft Intune Managed Browser
-- Microsoft Invoicing
+- Microsoft faturalama
 - Microsoft Kaizala
-- Microsoft Launcher
+- Microsoft Başlatıcısı
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook

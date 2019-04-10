@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 477a74d7bd0275715222a54800b81c2812da9c77
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 1f645a9c9161fb2fd71b2fd9af9ade65bff0be94
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275615"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361136"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Veri ambarınız için Gen2'ye yükseltme
 
@@ -32,11 +32,11 @@ Aşağıdaki tabloda, bölgeye göre daha düşük 2. nesil işlem katmanını k
 
 | **Bölge** | **Daha düşük Gen2 kullanılabilir** | **Otomatik yükseltmeler başlayın** |
 |:--- |:--- |:--- |
-| Avustralya Doğu |Kullanılabilir |1 Haziran 2019 |
-| Avustralya Güneydoğu |15 Nisan 2019 |1 Mayıs 2019 |
-| Güney Brezilya |15 Mayıs 2019 |\* |
-| Orta Kanada |Kullanılabilir |1 Haziran 2019 |
-| Doğu Kanada |\* |\* |
+| Doğu Avustralya |Kullanılabilir |1 Haziran 2019 |
+| Güney Doğu Avustralya |15 Nisan 2019 |1 Mayıs 2019 |
+| Güney Brezilya |15 Mayıs 2019 |1 Haziran 2019 |
+| Kanada Orta |Kullanılabilir |1 Haziran 2019 |
+| Kanada Doğu |\* |\* |
 | Orta ABD |Kullanılabilir |1 Haziran 2019 |
 | Çin Doğu |\* |\* |
 | Çin Doğu 2 |\* |\* |
@@ -44,22 +44,22 @@ Aşağıdaki tabloda, bölgeye göre daha düşük 2. nesil işlem katmanını k
 | Çin Kuzey 2 |\* |\* |
 | Doğu Asya |Kullanılabilir |1 Haziran 2019 |
 | Doğu ABD |Kullanılabilir |1 Haziran 2019 |
-| Doğu ABD 2 |Kullanılabilir |1 Haziran. 2019 |
-| Fransa Orta |\* |\* |
+| Doğu ABD 2 |Kullanılabilir |1 Haziran 2019 |
+| Fransa Orta |\* |1 Haziran 2019 |
 | Almanya Orta |\* |\* |
 | Almanya Orta Batı |1 Eylül 2019|2 Ocak 2020 |
 | Hindistan Orta |Kullanılabilir |1 Haziran 2019 |
 | Hindistan Güney |15 Nisan 2019 |1 Haziran 2019 |
-| Japonya Doğu |Kullanılabilir |1 Haziran 2019 |
-| Japonya Batı |Kullanılabilir |1 Mayıs 2019 |
+| Doğu Japonya |Kullanılabilir |1 Haziran 2019 |
+| Batı Japonya |Kullanılabilir |1 Mayıs 2019 |
 | Kore Orta |15 Nisan 2019 |1 Haziran 2019 |
 | Kore Güney |15 Nisan 2019 |1 Mayıs 2019 |
-| Orta Kuzey ABD |15 Nisan 2019 |1 Mayıs 2019 |
+| Kuzey Orta ABD |15 Nisan 2019 |1 Mayıs 2019 |
 | Kuzey Avrupa |Kullanılabilir |1 Haziran 2019 |
-| Orta Güney ABD |Kullanılabilir |1 Haziran 2019 |
-| Güneydoğu Asya |Kullanılabilir |1 Haziran 2019 |
-| Birleşik Krallık Güney |15 Nisan 2019 |1 Haziran 2019 |
-| Birleşik Krallık Batı |\*|\* |
+| Güney Orta ABD |Kullanılabilir |1 Haziran 2019 |
+| Güney Doğu Asya |Kullanılabilir |1 Haziran 2019 |
+| BK Güney |15 Nisan 2019 |1 Haziran 2019 |
+| BK Batı |\*|\* |
 | Batı Orta ABD |2 Eylül 2019 |2 Ocak 2020|
 | Batı Avrupa |Kullanılabilir |1 Haziran 2019 |
 | Batı ABD |15 Nisan 2019 |1 Haziran 2019 |

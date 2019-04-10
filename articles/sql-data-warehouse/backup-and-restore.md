@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 14e7d8cfdaa9ac59a5a43881283fac6e2c9ee08f
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58846987"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359019"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Yedekleme ve geri yükleme Azure SQL veri ambarı
 
@@ -25,7 +25,7 @@ Yedekleme ve Azure SQL veri ambarı'nda geri yükleme hakkında bilgi edinin. Ve
 
 A *veri ambarı anlık görüntü* kurtarmak veya önceki bir duruma veri ambarınız kopyalama yararlanabilir bir geri yükleme noktası oluşturur.  SQL Data Warehouse dağıtılmış bir sistemde olduğundan, bir veri ambarı anlık görüntü, Azure depolamada bulunan çok sayıda dosya oluşur. Anlık görüntüler, artımlı değişiklikler, veri ambarında depolanan verilerden yakalar.
 
-A *veri ambarı geri yükleme* varolan bir geri yükleme noktasından oluşturulan yeni veri ambarı veya silinen veri ambarı. Verilerinizi yanlışlıkla Bozulması veya silinmesi durumunda sonra yeniden oluştuğundan, veri ambarını geri yüklemek bir önemli bir iş sürekliliği ve olağanüstü durum kurtarma stratejinize parçasıdır. Veri ambarı veri Ambarınızı test veya geliştirme amacıyla kopyalarını oluşturmak için güçlü bir mekanizma da dağıtılır.  SQL veri ambarı, 20 dakikadan kısa bir süre için tüm veri boyutu gerçekleştirilecek ölçülen aynı bölge içinde hızlı geri yükleme mekanizması kullanır.
+A *veri ambarı geri yükleme* varolan bir geri yükleme noktasından oluşturulan yeni veri ambarı veya silinen veri ambarı. Verilerinizi yanlışlıkla Bozulması veya silinmesi durumunda sonra yeniden oluştuğundan, veri ambarını geri yüklemek bir önemli bir iş sürekliliği ve olağanüstü durum kurtarma stratejinize parçasıdır. Veri ambarı veri Ambarınızı test veya geliştirme amacıyla kopyalarını oluşturmak için güçlü bir mekanizma da dağıtılır.  SQL veri ambarı geri yükleme hızları, kaynak ve hedef veri ambarı konumunu ve veritabanı boyutuna bağlı olarak değişebilir. Aynı bölge içinde ortalama olarak geri yükleme hızları, genellikle yaklaşık 20 dakika alın. 
 
 ## <a name="automatic-restore-points"></a>Otomatik Geri Yükleme Noktaları
 

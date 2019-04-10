@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8f444cebac6ee60fbe65399e3f9c8e05eb033843
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 11fbf14cdeb8d22dbfdf522e1c5838634937f6cb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878222"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282109"
 ---
 # <a name="about-point-to-site-vpn"></a>Noktadan siteye VPN hakkında
 
@@ -22,7 +22,7 @@ Noktadan Siteye (P2S) VPN ağ geçidi bağlantısı, ayrı bir istemci bilgisaya
 
 Noktadan siteye VPN aşağıdaki protokollerden birini kullanarak şunları yapabilirsiniz:
 
-* OpenVPN, SSL/TLS VPN protokolü temel. Bir SSL VPN çözümü, güvenlik duvarları, SSL kullanan TCP bağlantı noktası 443 de çoğu güvenlik duvarı açık olduğundan duvarlarından geçebildiği. OpenVPN, Android, iOS bağlanmak için kullanılabilir (sürüm 11.0 ve üstü), Windows, Linux ve Mac cihazları (OSX sürüm 10.13 ve üstü).
+* **OpenVPN® Protokolü**, SSL/TLS tabanlı VPN protokolü. Bir SSL VPN çözümü, güvenlik duvarları, SSL kullanan TCP bağlantı noktası 443 de çoğu güvenlik duvarı açık olduğundan duvarlarından geçebildiği. OpenVPN, Android, iOS bağlanmak için kullanılabilir (sürüm 11.0 ve üstü), Windows, Linux ve Mac cihazları (OSX sürüm 10.13 ve üstü).
 
 * Yuva Tünel Protokolü (SSTP), bir özel SSL tabanlı VPN Protokolü güvenliğini sağlayın. Bir SSL VPN çözümü, güvenlik duvarları, SSL kullanan TCP bağlantı noktası 443 de çoğu güvenlik duvarı açık olduğundan duvarlarından geçebildiği. SSTP yalnızca Windows cihazlarda desteklenir. Azure, SSTP (Windows 7 ve üzeri) yüklü Windows'ın tüm sürümlerini destekler.
 
@@ -54,7 +54,7 @@ RADIUS sunucusu, AD Sertifika Hizmetleri ile de tümleştirebilirsiniz. Bu RADIU
 Bir RADIUS sunucusu, ayrıca diğer dış kimlik sistemleri ile tümleştirebilirsiniz. Bu, çok faktörlü seçenekleri dahil olmak üzere, P2S VPN için kimlik doğrulama seçenekleri bolca yukarı açar.
 
 >[!NOTE]
->RADIUS kimlik doğrulaması ile OpenVPN protokolü desteklenmiyor.
+>**OpenVPN® Protokolü** RADIUS kimlik doğrulaması ile desteklenmiyor.
 >
 
 ![Noktadan siteye](./media/point-to-site-about/p2s.png "noktadan siteye")
@@ -109,3 +109,5 @@ P2S yapılandırması oldukça birkaç belirli adım gerektirir. Aşağıdaki ma
 * [P2S bağlantısı - RADIUS kimlik doğrulamasını yapılandırma](point-to-site-how-to-radius-ps.md)
 
 * [-Yerel Azure sertifika doğrulaması P2S bağlantısı yapılandırma](vpn-gateway-howto-point-to-site-rm-ps.md)
+
+**"OpenVPN" OpenVPN Inc.'in ticari markasıdır.**

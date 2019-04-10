@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 71f792dd1238b11810abfb6a97ac9e051da2ec45
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 3ee528cc68a2a5637e85dc1d5ef68203916138e7
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59274647"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357182"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Grubun bağımlılık eşlemesini kullanarak bir grubu daraltma
 
@@ -127,14 +127,14 @@ Kusto sorguları çalıştırmak için:
 1. Aracıları yükledikten sonra portal ve tıklayın Git **genel bakış**.
 2. İçinde **genel bakış**Git **Essentials** yanındaki sağlanan çalışma alanı adına tıklayın ve proje bölümünü **OMS çalışma alanı**.
 3. Log Analytics çalışma alanı sayfasında tıklayın **genel** > **günlükleri**.
-4. Azure İzleyici günlüklerine kullanarak bağımlılık veri toplamak üzere sorgunuzu yazın. Bağımlılık verileri toplamak için örnek sorgular kullanılabilir [burada](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Azure İzleyici günlüklerine kullanarak bağımlılık veri toplamak üzere sorgunuzu yazın. Örnek sorgular, sonraki bölümde bulun.
 5. Sorguyu Çalıştır'ı tıklayarak çalıştırın. 
 
 [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) Kusto sorguları yazma hakkında. 
 
 ## <a name="sample-azure-monitor-logs-queries"></a>Örnek Azure İzleyici sorguları günlüğe kaydeder.
 
-Bağımlılık verileri ayıklamak için kullanabileceğiniz örnek sorgular aşağıda verilmiştir. Tercih edilen veri noktalarınızı ayıklamak için sorguları değiştirebilirsiniz. Kapsamlı bir liste bağımlılık veri kayıtlarının alanların kullanılabilir [burada](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)
+Bağımlılık verileri ayıklamak için kullanabileceğiniz örnek sorgular aşağıda verilmiştir. Tercih edilen veri noktalarınızı ayıklamak için sorguları değiştirebilirsiniz. Kapsamlı bir liste bağımlılık veri kayıtlarının alanların kullanılabilir [burada](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). Daha fazla örnek sorguları bulmak [burada](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 
 ### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>Bir küme makinede gelen bağlantıları özetleme
 

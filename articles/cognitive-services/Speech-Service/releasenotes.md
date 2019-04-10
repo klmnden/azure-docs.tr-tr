@@ -8,17 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 4/3/2019
+ms.date: 4/5/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 13d43a3810bc07cede2a49760f122157de86c44d
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: d53019294a255e42c4cf66f59226c9234a5adf73
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010167"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359750"
 ---
 # <a name="release-notes"></a>Sürüm notları
+
+## <a name="speech-sdk-141"></a>Konuşma SDK 1.4.1
+
+Bu yalnızca JavaScript bir sürümdür. Herhangi bir özellik ekledik. Aşağıdaki düzeltmeleri yapıldı:
+
+* Web https proxy aracısı yüklemesini engeller.
 
 ## <a name="speech-sdk-140-2019-april-release"></a>SDK'sı 1.4.0 konuşma: 2019 Nisan sürüm
 
@@ -205,7 +211,7 @@ Güvenilirlik geliştirmeleri ve hata düzeltmeleri:
 * İOS üzerinde Objective-C için destek. Kullanıma sunduğumuz [iOS Objective-C hızlı](quickstart-objectivec-ios.md).
 * Tarayıcıda JavaScript desteği. Kullanıma sunduğumuz [JavaScript hızlı](quickstart-js-browser.md).
 
-**Yeni değişiklikler**
+**Hataya neden olan değişiklikler**
 
 * Bu sürümle birlikte, birkaç önemli değişiklikler yapılmıştır.
   Lütfen denetleyin [bu sayfayı](https://aka.ms/csspeech/breakingchanges_1_0_0) Ayrıntılar için.
@@ -224,7 +230,7 @@ Güvenilirlik geliştirmeleri ve hata düzeltmeleri:
 
 * Ek hata bağlantı hatalarıyla ilgili ayrıntılı bilgi kullanıma sunar.
 
-**Yeni değişiklikler**
+**Hataya neden olan değişiklikler**
 
 * Java (Android) üzerinde `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` işlevi artık bir yol parametresi gerektirir. Artık bir yolu, tüm desteklenen platformlarda otomatik olarak algılanır.
 * Özelliğin get erişimcisine `EndpointUrl` Java ve C# ' kaldırıldı.
@@ -253,7 +259,7 @@ Güvenilirlik geliştirmeleri ve hata düzeltmeleri:
 * Tanıma işleminin sonucu daha fazla alan içeriyor. Ses başına ve süresi (hem de saat döngüsü) ve tanınan metin tanıma durumu, örneğin, temsil eden ek değerler uzaklığı `InitialSilenceTimeout` ve `InitialBabbleTimeout`.
 * AuthorizationToken factory örnekleri oluşturmak için destek.
 
-**Yeni değişiklikler**
+**Hataya neden olan değişiklikler**
 
 * Tanıma olayları: Hata olayı birleştirilmiş NoMatch olay türü.
 * SpeechOutputFormat C#, C++ ile uyumlu kalmak için OutputFormat olarak değiştirildi.

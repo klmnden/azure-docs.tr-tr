@@ -10,19 +10,19 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: 32f96a28e027bfd0e65d934bb47bb98400af459d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: e1b584d38c4583e37b7c47535c836d1fa7d428f1
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360733"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357241"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Otomatik-zaman serisi tahmin modeli eğitme
 
 Bu makalede, otomatik machine learning Azure Machine Learning hizmeti kullanarak zaman serisi tahmin regresyon modelini eğitme öğrenin. Bir tahmin modelli yapılandırma ayarını otomatik makine öğrenimini kullanarak bir standart regresyon modelini benzer, ancak zaman serisi verileri ile çalışmak için bazı yapılandırma seçenekleri ve ön işleme adımları yok. Aşağıdaki örnekler, nasıl göstermek için:
 
 * Zaman serisi model için verileri hazırlama
-* Belirli bir zaman serisi parametrelerinde yapılandırma bir [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) nesnesi
+* Belirli bir zaman serisi parametrelerinde yapılandırma bir [ `AutoMLConfig` ](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) nesnesi
 * Zaman serisi verileri ile Öngörüler çalıştırma
 
 ## <a name="prerequisites"></a>Önkoşullar

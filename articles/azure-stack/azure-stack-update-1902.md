@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: 1cb99bba1fa5c762af57a1ad26d034974ff196a6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2005cf4b1929dfe9e520f56308493db7d820226e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59271841"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361103"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 güncelleştirme
 
@@ -97,13 +97,14 @@ Azure Stack düzeltmeleri yalnızca Azure Stack tümleşik sistemleri için geç
   ```  
   
 - Güncelleştirme işlemi sırasında genel güvenilirlik ve çekirdek altyapı hizmetleri kullanılabilirliğini artırmak için güncelleştirme eylemi planının parçası olarak yerel güncelleştirme kaynak sağlayıcısı algılar ve otomatik genel düzeltmeler gerektiğinde çağırır. Genel düzeltme "onarım" iş akışları içerir:
-    - Altyapı sanal makineleri için uygun olmayan bir durumda olan ve gerektiğinde bunları onarmayı dener denetleniyor 
-    - SQL hizmet sorunları için Denetim planının bir parçası denetleyin ve gerektiğinde bunları onarmaya çalışır
-    - Yazılım yük dengeleyici (SLB) hizmetinin durumunu, Ağ denetleyicisi (NC) bir parçası olarak denetleyin ve gerektiğinde bunları onarmaya çalışır
-    - Ağ denetleyicisi (NC) hizmet durumunu denetleyin ve gerektiğinde onarmaya çalışır
-    - Acil Durum Kurtarma Konsolu hizmeti (ERCS) service fabric düğümleri durumunu denetleyin ve bunları gerektiği gibi onarın
-    - XRP service fabric düğümleri durumunu denetleyin ve bunları gerektiği gibi onarın
-    - Azure tutarlı depolama (ACS) service fabric düğümleri durumunu denetleyin ve bunları gerektiği gibi onarın
+
+  - Altyapı sanal makineleri için uygun olmayan bir durumda olan ve gerektiğinde bunları onarmayı dener denetleniyor.
+  - SQL hizmet sorunları için Denetim planının bir parçası denetleyin ve gerektiğinde bunları onarmaya çalışır.
+  - Yazılım yük dengeleyici (SLB) hizmetinin durumunu, Ağ denetleyicisi (NC) bir parçası olarak denetleyin ve gerektiğinde bunları onarmaya çalışır.
+  - Ağ denetleyicisi (NC) hizmet durumunu denetleyin ve gerektiğinde onarmaya çalışır
+  - Acil Durum Kurtarma Konsolu hizmeti (ERCS) service fabric düğümleri durumunu denetleyin ve bunları gerektiği gibi onarın.
+  - Altyapı rolü durumunu denetleyin ve gerektiğinde onarın.
+  - Azure tutarlı depolama (ACS) service fabric düğümleri durumunu denetleyin ve bunları gerektiği gibi onarın.
 
 <!-- 
 1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
@@ -220,7 +221,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 - Bir Ubuntu 18.04 etkinleştirilmiş SSH yetkilendirme ile oluşturulan VM, oturum açmak için SSH anahtarları kullanmak izin vermez. Geçici bir çözüm olarak VM erişimi Linux uzantısı için SSH anahtarları sağladıktan sonra uygulamak için kullanmak veya parola tabanlı kimlik doğrulaması kullanın.
 
-### <a name="networking"></a>Ağ  
+### <a name="networking"></a>Ağ İletişimi  
 
 <!-- 3239127 - IS, ASDK -->
 - Azure Stack portalında bir VM örneğine iliştirilmiş bir ağ bağdaştırıcısına bağlı bir IP yapılandırması için statik bir IP adresi değiştirdiğinizde bildiren bir uyarı iletisi görürsünüz 
@@ -232,7 +233,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 <!-- 3632798 - IS, ASDK -->
 - Portalda, bir gelen güvenlik kuralı ekleyin ve seçerseniz, **hizmet etiketi** çeşitli seçenekler görüntülenir, kaynak olarak **kaynak etiketi** Azure Stack için kullanılabilir değil bir listesi. Azure Stack'te geçerli yalnızca seçenekleri aşağıdaki gibidir:
 
-  - **Internet**
+  - **İnternet**
   - **VirtualNetwork**
   - **AzureLoadBalancer**
   
@@ -245,7 +246,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 <!-- ### SQL and MySQL-->
 
-### <a name="app-service"></a>App Service
+### <a name="app-service"></a>Uygulama Hizmeti
 
 <!-- 2352906 - IS ASDK --> 
 - İlk Azure işlevinizi aboneliği oluşturmadan önce depolama kaynak sağlayıcısını kaydetmeniz gerekir.
@@ -258,8 +259,8 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 <!-- #### Marketplace -->
 
 ### <a name="syslog"></a>Syslog 
-- Syslog yapılandırmasını yapılandırmasına ve iletilen durdurmak için syslog iletileri kaybetmenize syslog istemcisinde kaynaklanan bir güncelleştirme döngüsü boyunca kalıcı olmaz. Bu sorun, syslog istemci (1809) genel kullanım tüm Azure Stack sürümleri için geçerlidir.
-Geçici çözüm, Azure Stack güncelleştirme uygulandıktan sonra syslog istemci yeniden sağlamaktır.
+
+- Syslog yapılandırmasını syslog istemci yapılandırmasını ve iletilen durdurmak için syslog iletileri kaybetmenize neden olan bir güncelleştirme döngüsü boyunca kalıcı olmaz. Bu sorun, syslog istemci (1809) genel kullanım tüm Azure Stack sürümleri için geçerlidir. Bu sorunu çözmek için bir Azure Stack güncelleştirme uygulandıktan sonra syslog istemci yeniden yapılandırın.
 
 ## <a name="download-the-update"></a>Güncelleştirmeyi indirin
 

@@ -1,23 +1,17 @@
 ---
 title: Azure Application Gateway web uygulaması güvenlik duvarı CRS kural gruplarının ve kuralların
 description: Bu sayfa web uygulaması güvenlik duvarı CRS kural gruplarının ve kuralları hakkında bilgi sağlar.
-documentationcenter: na
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
-ms.workload: infrastructure-services
-ms.date: 4/16/2018
+ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: b45e782984f637f1b084ec757000dde9dd3a5777
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 61ab41eed7703c82c2e5ef2a3b5412a9f56389ba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302051"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279712"
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Sunulan web uygulaması güvenlik duvarı CRS kural gruplarının ve kuralların listesi
 
@@ -37,41 +31,23 @@ Aşağıdaki tablolarda kural gruplarının ve Application Gateway web uygulamas
 
 |RuleId|Açıklama|
 |---|---|
-|911011|Kural 911011|
-|911012|Kural 911012|
 |911100|Yöntemine ilke tarafından izin verilmiyor|
-|911013|Kural 911013|
-|911014|Kural 911014|
-|911015|Kural 911015|
-|911016|Kural 911016|
-|911017|Kural 911017|
-|911018|Kural 911018|
 
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">İSTEK 913 TARAYICI ALGILAMA</p>
 
 |RuleId|Açıklama|
 |---|---|
-|913011|Kural 913011|
-|913012|Kural 913012|
 |913100|Güvenlik tarayıcısı ile ilişkili kullanıcı aracısı bulundu|
 |913110|Güvenlik tarayıcısı ile ilişkili istek üst bilgisi bulunamadı|
 |913120|İstek dosya adı/güvenlik tarayıcısı ile ilişkili bağımsız değişken bulunamadı|
-|913013|Kural 913013|
-|913014|Kural 913014|
 |913101|Betik/genel HTTP istemcisi ile ilişkili kullanıcı aracısı bulundu|
 |913102|Web Gezgin/bot ile ilişkili kullanıcı aracısı bulundu|
-|913015|Kural 913015|
-|913016|Kural 913016|
-|913017|Kural 913017|
-|913018|Kural 913018|
 
 ### <a name="crs920"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
 |RuleId|Açıklama|
 |---|---|
-|920011|Kural 920011|
-|920012|Kural 920012|
 |920100|HTTP isteği geçersiz satır|
 |920130|İstek gövdesi ayrıştırılamadı.|
 |920140|Çok parçalı istek gövdesi, katı bir doğrulama başarısız oldu PE %@{REQBODY_PROCESSOR_ERROR =} BQ %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} DB %@{MULTIPART_DATA_BEFORE} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF % @ {MULTIPART_LF_LINE}     FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED MÜŞTERİYE %@{MULTIPART_INVALID_HEADER_FOLDING IQ %@{MULTIPART_INVALID_QUOTING SM %@{MULTIPART_SEMICOLON_MISSING}}}}|
@@ -102,30 +78,22 @@ Aşağıdaki tablolarda kural gruplarının ve Application Gateway web uygulamas
 |920430|HTTP protokolü sürümünü ilke tarafından izin verilmiyor|
 |920440|URL uzantısına İlkesi tarafından kısıtlanıyor|
 |920450|HTTP üst bilgisi (%@{MATCHED_VAR}) ilkesi tarafından kısıtlanıyor|
-|920013|Kural 920013|
-|920014|Kural 920014|
 |920200|Aralık = çok fazla alan (6 ya da daha fazla)|
 |920201|Aralık = çok fazla alan için pdf isteği (35 veya daha fazla)|
 |920230|Birden çok URL kodlaması algılandı|
 |920300|İstek eksik bir üst bilgisi kabul edin|
 |920271|Geçersiz karakter isteğinde (olmayan yazdırılabilir karakter)|
 |920320|Kullanıcı Aracısı üst bilgisi eksik|
-|920015|Kural 920015|
-|920016|Kural 920016|
 |920272|(Dışında yazdırılabilir karakter ASCII 127 aşağıda) isteğinde geçersiz karakter|
-|920017|Kural 920017|
-|920018|Kural 920018|
 |920202|Aralık = çok fazla alan için pdf isteği (6 ya da daha fazla)|
 |920273|İstek (dışında çok sıkı kümesi) içinde geçersiz karakter|
 |920274|İstek üstbilgilerini (dışında çok sıkı kümesi) içinde geçersiz karakter|
-|920460|Kural 920460|
+|920460|Olağan dışı kaçış karakterleri|
 
 ### <a name="crs921"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
 |RuleId|Açıklama|
 |---|---|
-|921011|Kural 921011|
-|921012|Kural 921012|
 |921100|HTTP isteği kaçakçılığı saldırı.|
 |921110|HTTP isteği kaçakçılığı saldırı|
 |921120|HTTP yanıtı bölme saldırı|
@@ -133,75 +101,43 @@ Aşağıdaki tablolarda kural gruplarının ve Application Gateway web uygulamas
 |921140|HTTP üstbilgisi ekleme saldırısına aracılığıyla üst bilgileri|
 |921150|HTTP üstbilgisi ekleme saldırısına Yükü (CR/LF algılandı) aracılığıyla|
 |921160|HTTP üstbilgisi ekleme saldırısına Yükü (CR/LF ve üst bilgi adı algılandı) aracılığıyla|
-|921013|Kural 921013|
-|921014|Kural 921014|
 |921151|HTTP üstbilgisi ekleme saldırısına Yükü (CR/LF algılandı) aracılığıyla|
-|921015|Kural 921015|
-|921016|Kural 921016|
-|921170|Kural 921170|
+|921170|HTTP parametresi kirliliği|
 |921180|HTTP parametresi kirlilik (% @{TX.1})|
-|921017|Kural 921017|
-|921018|Kural 921018|
 
 ### <a name="crs930"></a> <p x-ms-format-detection="none">İSTEK-930-UYGULAMASI-SALDIRI-LFI</p>
 
 |RuleId|Açıklama|
 |---|---|
-|930011|Kural 930011|
-|930012|Kural 930012|
 |930100|Yol çapraz geçiş saldırısı (/.. /)|
 |930110|Yol çapraz geçiş saldırısı (/.. /)|
 |930120|İşletim sistemi dosya erişim girişimi|
 |930130|Kısıtlanmış dosya erişim denemesi|
-|930013|Kural 930013|
-|930014|Kural 930014|
-|930015|Kural 930015|
-|930016|Kural 930016|
-|930017|Kural 930017|
-|930018|Kural 930018|
 
 ### <a name="crs931"></a> <p x-ms-format-detection="none">İSTEK-931-UYGULAMASI-SALDIRI-RFI</p>
 
 |RuleId|Açıklama|
 |---|---|
-|931011|Kural 931011|
-|931012|Kural 931012|
 |931100|Uzaktan dosya eklemeye (RFI) olası bir saldırı IP adresini kullanarak URL parametresi =|
 |931110|Uzaktan dosya eklemeye (RFI) olası bir saldırı ortak RFI savunmasız kullanılan parametre w/URL yükü =|
 |931120|Olası bir uzak dosya ekleme (RFI) Saldırıcı URL kullanılan yükü w/sondaki soru işareti karakteri (?) =|
-|931013|Kural 931013|
-|931014|Kural 931014|
 |931130|Olası bir uzak dosya ekleme (RFI) Saldırıcı etki başvuru/Link|
-|931015|Kural 931015|
-|931016|Kural 931016|
-|931017|Kural 931017|
-|931018|Kural 931018|
 
 ### <a name="crs932"></a> <p x-ms-format-detection="none">İSTEK-932-UYGULAMASI-SALDIRI-NAK</p>
 
 |RuleId|Açıklama|
 |---|---|
-|932011|Kural 932011|
-|932012|Kural 932012|
 |932120|Uzaktan komut yürütme Windows PowerShell komutunu bulundu =|
 |932130|Uzaktan komut yürütme UNIX Kabuk ifadesi bulundu =|
 |932140|Uzaktan komut yürütme için / komutu BULUNAMAZSA Windows =|
 |932160|Uzaktan komut yürütme = UNIX Kabuk kodu bulundu|
 |932170|Uzaktan komut yürütme Shellshock (CVE-2014-6271) =|
 |932171|Uzaktan komut yürütme Shellshock (CVE-2014-6271) =|
-|932013|Kural 932013|
-|932014|Kural 932014|
-|932015|Kural 932015|
-|932016|Kural 932016|
-|932017|Kural 932017|
-|932018|Kural 932018|
 
 ### <a name="crs933"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
 |RuleId|Açıklama|
 |---|---|
-|933011|Kural 933011|
-|933012|Kural 933012|
 |933100|PHP ekleme saldırısına açma/kapatma etiketi bulundu =|
 |933110|PHP ekleme saldırısına PHP betik dosyasını karşıya yükleme bulundu =|
 |933120|PHP ekleme saldırısına yapılandırma yönergesi bulundu =|
@@ -209,58 +145,42 @@ Aşağıdaki tablolarda kural gruplarının ve Application Gateway web uygulamas
 |933150|PHP ekleme saldırısına = yüksek riskli bir PHP işlevi adı bulunamadı|
 |933160|PHP ekleme saldırısına yüksek riskli PHP işlev çağrısı bulundu =|
 |933180|PHP ekleme saldırısına değişken işlev çağrısı bulundu =|
-|933013|Kural 933013|
-|933014|Kural 933014|
 |933151|PHP ekleme saldırısına = orta riskli PHP işlev adı bulunamadı|
-|933015|Kural 933015|
-|933016|Kural 933016|
 |933131|PHP ekleme saldırısına değişkenleri bulundu =|
 |933161|PHP ekleme saldırısına değeri düşük PHP işlev çağrısı bulundu =|
 |933111|PHP ekleme saldırısına PHP betik dosyasını karşıya yükleme bulundu =|
-|933017|Kural 933017|
-|933018|Kural 933018|
 
 ### <a name="crs941"></a> <p x-ms-format-detection="none">İSTEK-941-UYGULAMASI-SALDIRI-XSS</p>
 
 |RuleId|Açıklama|
 |---|---|
-|941011|Kural 941011|
-|941012|Kural 941012|
 |941100|XSS saldırı algılandığında libinjection aracılığıyla|
 |941110|XSS filtre - kategori 1 = betiği etiketi vektör|
 |941130|XSS filtre - 3 Kategori özniteliği vektör =|
 |941140|XSS filtre - kategori 4 Javascript URI vektör =|
 |941150|XSS filtre - kategori 5 izin verilmeyen HTML özniteliklerini =|
 |941180|Düğüm Doğrulayıcı kara liste anahtar sözcükleri|
-|941190|IE XSS filtreleri - saldırısı algılandı.|
-|941200|IE XSS filtreleri - saldırısı algılandı.|
-|941210|IE XSS filtreleri - saldırısı algılandı.|
-|941220|IE XSS filtreleri - saldırısı algılandı.|
-|941230|IE XSS filtreleri - saldırısı algılandı.|
-|941240|IE XSS filtreleri - saldırısı algılandı.|
-|941260|IE XSS filtreleri - saldırısı algılandı.|
-|941270|IE XSS filtreleri - saldırısı algılandı.|
-|941280|IE XSS filtreleri - saldırısı algılandı.|
-|941290|IE XSS filtreleri - saldırısı algılandı.|
-|941300|IE XSS filtreleri - saldırısı algılandı.|
+|941190|XSS stil sayfaları kullanma|
+|941200|XSS VML çerçevelerini kullanarak|
+|941210|Karıştırılmış Javascript kullanarak XSS|
+|941220|XSS karıştırılmış VB komut dosyası kullanma|
+|941230|Kullanarak XSS 'etiket ekleme'|
+|941240|'İmport' veya 'uygulama' özniteliğini kullanarak XSS|
+|941260|'Meta' etiketini kullanarak XSS|
+|941270|XSS 'link' href ='ı kullanma|
+|941280|'Base' etiketini kullanarak XSS|
+|941290|'Uygulaması' etiketini kullanarak XSS|
+|941300|'Nesnesi' etiketini kullanarak XSS|
 |941310|US-ASCII hatalı kodlama XSS filtre - saldırısı algılandı.|
 |941330|IE XSS filtreleri - saldırısı algılandı.|
 |941340|IE XSS filtreleri - saldırısı algılandı.|
 |941350|UTF-7 kodlama IE XSS - saldırısı algılandı.|
-|941013|Kural 941013|
-|941014|Kural 941014|
 |941320|Olası XSS saldırısı algılandı - HTML etiketi işleyicisi|
-|941015|Kural 941015|
-|941016|Kural 941016|
-|941017|Kural 941017|
-|941018|Kural 941018|
 
 ### <a name="crs942"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
 |RuleId|Açıklama|
 |---|---|
-|942011|Kural 942011|
-|942012|Kural 942012|
 |942100|SQL ekleme saldırısı algılandı libinjection aracılığıyla|
 |942110|SQL ekleme saldırısına: Algılanan test ortak ekleme|
 |942130|SQL ekleme saldırısına: SQL Tautology algılandı.|
@@ -280,35 +200,21 @@ Aşağıdaki tablolarda kural gruplarının ve Application Gateway web uygulamas
 |942350|MySQL UDF ekleme ve diğer veri/yapısı düzenleme algılar çalışır|
 |942360|Birleştirilmiş temel SQL ekleme ve SQLLFI girişimleri algılar.|
 |942370|Klasik SQL ekleme probings 2/2 algılar|
-|942013|Kural 942013|
-|942014|Kural 942014|
 |942150|SQL ekleme saldırısına|
 |942410|SQL ekleme saldırısına|
 |942430|SQL karakter Anomali algılama (args) kısıtlı: özel karakter sayısı aşıldı (12)|
 |942440|SQL açıklama dizisi algılandı.|
 |942450|Belirtilen SQL onaltılık kodlama|
-|942015|Kural 942015|
-|942016|Kural 942016|
 |942251|HAVING eklemelerini algılar|
 |942460|Meta karakter Anomali algılama uyarısı - yinelenen sözcük olmayan karakter|
-|942017|Kural 942017|
-|942018|Kural 942018|
 
 ### <a name="crs943"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
 |RuleId|Açıklama|
 |---|---|
-|943011|Kural 943011|
-|943012|Kural 943012|
 |943100|Olası oturum sabitleme saldırı = tanımlama bilgisi değerleri HTML olarak ayarlama|
 |943110|Olası oturum sabitleme saldırı SessionID parametre adıyla etki alanı kapalı başvuran =|
 |943120|Olası oturum sabitleme saldırı SessionID parametre adıyla hiçbir başvuran =|
-|943013|Kural 943013|
-|943014|Kural 943014|
-|943015|Kural 943015|
-|943016|Kural 943016|
-|943017|Kural 943017|
-|943018|Kural 943018|
 
 ## <a name="owasp229"></a> OWASP_2.2.9
 
@@ -569,5 +475,3 @@ Aşağıdaki tablolarda kural gruplarının ve Application Gateway web uygulamas
 ## <a name="next-steps"></a>Sonraki adımlar
 
 WAF kurallarını ederek devre dışı bırakma işlemleri gerçekleştirmeyi öğreneceksiniz: [WAF kurallarını özelleştirme](application-gateway-customize-waf-rules-portal.md)
-
-[1]: ./media/application-gateway-integration-security-center/figure1.png

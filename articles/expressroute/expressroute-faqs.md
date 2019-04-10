@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e078f838620f633743b27d26ba1218e753ff690e
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: f3f013f2e3090b54846ebba94ef54506275d6311
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259831"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282874"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute SSS
 
@@ -144,7 +144,7 @@ Hizmet sağlayıcınız ExpressRoute iki sitelerdeki sunuyorsa, sağlayıcınız
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Birden çok ExpressRoute bağlantı hatları aynı metro olabilir mi? Ben bunları aynı sanal ağa bağlayabilir miyim?
 
-Evet. Aynı veya farklı hizmet sağlayıcıları ile birden çok ExpressRoute bağlantı hattına sahip olabilir. Birden fazla ExpressRoute eşleme konumlarına metro varsa ve bağlantı hatlarının eşleme farklı konumlarda oluşturulur, aynı sanal ağa bağlayabilirsiniz. Bağlantı hatlarının aynı eşleme konumunda oluşturduysanız, aynı sanal ağa bağlayamazsınız. Azure portalında veya PowerShell/CLI API'sindeki her konum adı bir eşleme konumundan temsil eder. Örneğin, "Singapur" ve "Singapur2" eşleme konumları seçin ve her aynı sanal ağa bağlantı hatları bağlanın. 
+Evet. Aynı veya farklı hizmet sağlayıcıları ile birden çok ExpressRoute bağlantı hattına sahip olabilir. Birden fazla ExpressRoute eşleme konumlarına metro varsa ve bağlantı hatlarının eşleme farklı konumlarda oluşturulur, aynı sanal ağa bağlayabilirsiniz. Eşleme aynı konumda devreler oluşturduysanız, yine de bunları aynı sanal ağ, ancak yalnızca en fazla 4 ExpressRoute bağlantı hatları her eşleme konumunda bağlantı oluşturabilirsiniz. Örneğin, "Singapur" ve "Singapur2" eşleme konumları seçin ve her aynı sanal ağa bağlantı hatları bağlanın. 
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>My sanal ağları ExpressRoute devresine nasıl bağlanabilirim
 

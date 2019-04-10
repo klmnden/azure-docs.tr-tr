@@ -9,34 +9,34 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 02c64fcd51862d8ff9f107adb0ca5cfda5812a88
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0d7920080fd61389741fbe785f5141003bef5251
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567120"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358798"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Azure App Service barındırma planı için ağ yapılandırmayı eşitleyemedi
 
-Bu, olsa da gerçekleşebilir, [uygulamanızı bir Azure sanal ağı ile tümleşik](../app-service/web-sites-integrate-with-vnet.md), yönetilen örnek bağlantı kuramıyor. Ağ yapılandırması, hizmet planınız için bir şey deneyebilirsiniz yenilemektir. 
+Bu, olsa da gerçekleşebilir, [uygulamanızı bir Azure sanal ağı ile tümleşik](../app-service/web-sites-integrate-with-vnet.md), yönetilen örnek bağlantı kuramıyor. Ağ yapılandırması, hizmet planınız için bir şey deneyebilirsiniz yenilemektir.
 
 ## <a name="sync-network-configuration-for-app-service-hosting-plan"></a>App Service barındırma planı için eşitleme ağı yapılandırması
 
 Bunu yapmak için şu adımları uygulayın:  
 
 1. Web apps için App Service planı gidin.
- 
+
    ![App Service planı](./media/sql-database-managed-instance-sync-networking/app-service-plan.png)
 
 2. Tıklayın **ağ** ve ardından **burada Yönet**.
- 
+
    ![Hizmet planını yönetme](./media/sql-database-managed-instance-sync-networking/manage-plan.png)
 
-3. Seçin, **VNet** tıklatıp **eşitleme ağ**. 
- 
+3. Seçin, **VNet** tıklatıp **eşitleme ağ**.
+
    ![ağı Eşitle](./media/sql-database-managed-instance-sync-networking/sync.png)
 
 4. Eşitleme işlemi tamamlanana kadar bekleyin.

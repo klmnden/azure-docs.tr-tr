@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 805de614246028bc75268e83991fa7831b990325
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: bb6ab29f02282a394e3f93e41682ceaec5208b75
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882336"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357626"
 ---
 # <a name="azure-app-service-static-access-restrictions"></a>Azure App Service'e statik erişim kısıtlamaları #
 
@@ -85,3 +85,9 @@ Management.Azure.com/subscriptions/**abonelik kimliği**/resourceGroups/**kaynak
         "name": "allowed access"
       }
     ],
+
+## <a name="function-app-ip-restrictions"></a>İşlev uygulaması IP kısıtlamaları
+
+IP kısıtlamaları, App Service planları ile aynı işlevlere sahip her iki işlev uygulamaları için kullanılabilir. IP kısıtlamaları izin verilmeyen tüm IP'ler için portal Kod Düzenleyicisi'ni devre dışı bıraktığını unutmayın.
+
+[Buradan daha fazla bilgi edinin](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)

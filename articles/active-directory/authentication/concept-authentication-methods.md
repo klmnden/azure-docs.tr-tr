@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7a2866952d5e66e24770b81e69039d733fdd2a1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894602"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360644"
 ---
 # <a name="what-are-authentication-methods"></a>Kimlik doğrulama yöntemleri nelerdir?
 
-Azure multi-Factor Authentication ve Self Servis parola için kimlik doğrulama yöntemlerini seçme yöneticinin sıfırlama (SSPR) gibi birden çok kimlik doğrulama yöntemlerini kaydedin açmasına gerektiren önerilir. Bir kimlik doğrulama yöntemi, bir kullanıcı için kullanılabilir olmadığı durumlarda, başka bir yöntem ile kimlik doğrulaması seçebilirsiniz.
+Azure multi-Factor Authentication ve Self Servis parola sıfırlama (SSPR), birden çok kimlik doğrulama yöntemlerini kaydedin açmasına istemeniz önerilir, yönetici olarak, kimlik doğrulama yöntemlerini seçme. Bir kimlik doğrulama yöntemi, bir kullanıcı için kullanılabilir olmadığı durumlarda, başka bir yöntem ile kimlik doğrulaması seçebilirsiniz.
 
 Yöneticiler kullanıcıların SSPR MFA ve kimlik doğrulama yöntemlerini kullanılabilir ilkesi tanımlayabilirsiniz. Bazı kimlik doğrulama yöntemleri için tüm özellikler kullanılamayabilir. Yapılandırma hakkında daha fazla bilgi için ilkelerinizi makalelerine bakın [Self Servis parola sıfırlama başarıyla sunma](howto-sspr-deployment.md) ve [bulut tabanlı bir Azure multi-Factor Authentication'ı planlama](howto-mfa-getstarted.md)
 
@@ -141,6 +141,9 @@ Microsoft Authenticator uygulaması hesaplara yetkisiz erişimi önlemek ve saht
 
 Kullanımını etkinleştirirseniz, hem bildirim aracılığıyla mobil uygulama ve doğrulama kodu mobil uygulamasından bir bildirim kullanarak Microsoft Authenticator uygulamasını kaydetme kullanıcılar kimliklerini doğrulamak için hem bildirim hem de kodu kullanabilirsiniz.
 
+> [!NOTE]
+> Kuruluşunuzda çalışan veya Çin'e seyahat personeli varsa **mobil uygulama üzerinden bildirim** metodunda **Android cihazları** bu ülkede çalışmaz. Alternatif yöntemler söz konusu kullanıcılar için kullanılabilir yapılması gerekir.
+
 ### <a name="verification-code-from-mobile-app"></a>Mobil uygulamadan alınan doğrulama kodu
 
 Microsoft Authenticator uygulamasını veya diğer üçüncü taraf uygulamaları bir OATH doğrulama kodu oluşturmak için yazılım belirteci olarak kullanılabilir. Kullanıcı kimliğiniz ve parolanızı girdikten sonra oturum açma ekranına uygulama tarafından sağlanan kodu girin. Doğrulama kodu, ikinci bir form kimlik doğrulaması sağlar.
@@ -149,11 +152,11 @@ Microsoft Authenticator uygulamasını veya diğer üçüncü taraf uygulamalar�
 > Ne zaman sıfırlama doğrulama kodu kullanıcıları için kullanılabilecek tek seçenek için bir yöntem gereklidir yalnızca Self Servis parola sıfırlama için **yüksek düzeyde güvenlik sağlamak için**.
 >
 
-Kullanıcılar, en fazla 5 OATH donanım belirteçleri veya kimlik doğrulayıcı uygulamalar herhangi bir zamanda kullanılmak üzere yapılandırılmış Microsoft Authenticator uygulaması gibi bir birleşimi olabilir.
+Kullanıcılar, en fazla beş OATH donanım belirteçleri veya kimlik doğrulayıcı uygulamalar herhangi bir zamanda kullanılmak üzere yapılandırılmış Microsoft Authenticator uygulaması gibi bir birleşimi olabilir.
 
 ## <a name="oath-hardware-tokens-public-preview"></a>OATH donanım belirteçleri (genel Önizleme)
 
-OATH nasıl tek kullanımlık parola (OTP) kodları belirten açık bir standart üretilir. Azure AD 30 saniyelik veya 60 saniye çeşitli OATH-TOTP SHA-1 belirteçleri kullanımını destekler. Müşteriler bu belirteçleri, kendi seçtikleri satıcıdan tedarik. Gizli anahtarları birlikte tüm belirteçlerin uyumlu olmayabilir 128 karakterle sınırlı olduğuna dikkat edin.
+OATH nasıl tek kullanımlık parola (OTP) kodları belirten açık bir standart üretilir. Azure AD 30 saniyelik veya 60 saniye çeşitli OATH-TOTP SHA-1 belirteçleri kullanımını destekler. Müşteriler bu belirteçleri, kendi seçtikleri satıcıdan tedarik. Gizli anahtarları birlikte tüm belirteçlerin uyumlu olmayabilir 128 karakterle sınırlıdır.
 
 ![MFA sunucusu OATH belirteçleri dikey penceresine OATH belirteçlerini karşıya yükleme](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
@@ -175,7 +178,7 @@ CSV dosyasının boyutuna bağlı olarak, bu işlem birkaç dakika sürebilir. T
 
 Hataları giderdikten sonra yönetici ardından her anahtar tıklayarak etkinleştirebilirsiniz **etkinleştirme** etkinleştirilmesi için belirteç ve girmek için OTP belirtecinde güncel olarak görüntülenen.
 
-Kullanıcılar, en fazla 5 OATH donanım belirteçleri veya kimlik doğrulayıcı uygulamalar herhangi bir zamanda kullanılmak üzere yapılandırılmış Microsoft Authenticator uygulaması gibi bir birleşimi olabilir.
+Kullanıcılar, en fazla beş OATH donanım belirteçleri veya kimlik doğrulayıcı uygulamalar herhangi bir zamanda kullanılmak üzere yapılandırılmış Microsoft Authenticator uygulaması gibi bir birleşimi olabilir.
 
 ## <a name="mobile-phone"></a>Cep telefonu
 

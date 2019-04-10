@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/19/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 05a30bee8e6eb0db2e06d6d5a3a7af0d0759fb4c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: fa9b091beacbc98c6939ec0454bd04da2b7561e7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049413"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278709"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Öğretici: Azure'da bir Service Fabric kümesini ölçekleme
 
@@ -75,7 +75,7 @@ Daha fazla bilgi için okuma [küme kapasitesi Kılavuzu](service-fabric-cluster
 
 ## <a name="export-the-template-for-the-resource-group"></a>Kaynak grubu için şablonu dışarı aktarma
 
-Güvenli oluşturduktan sonra [Windows Küme](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ve kaynak grubunuz başarıyla ayarlama kaynak grubu için Resource Manager şablonunu dışarı aktarma. Şablonu dışarı aktarma, şablonun tüm eksiksiz altyapı içerdiğinden kümenin ve onun kaynaklarını gelecekteki dağıtımlar otomatikleştirmenizi sağlar.  Şablonları dışarı aktarma ile ilgili daha fazla bilgi için okuma [Azure portalını kullanarak kaynak gruplarını yönetme Azure Resource Manager](/azure/azure-resource-manager/manage-resource-groups-portal).
+Güvenli oluşturduktan sonra [Windows Küme](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ve kaynak grubunuz başarıyla ayarlama kaynak grubu için Resource Manager şablonunu dışarı aktarma. Şablonu dışarı aktarma, tüm eksiksiz altyapı şablonu içerdiği için küme kaynaklarını ve gelecekteki dağıtımlar otomatikleştirmenizi sağlar.  Şablonları dışarı aktarma ile ilgili daha fazla bilgi için okuma [Azure portalını kullanarak kaynak gruplarını yönetme Azure Resource Manager](/azure/azure-resource-manager/manage-resource-groups-portal).
 
 1. İçinde [Azure portalında](https://portal.azure.com)kümeyi içeren kaynak grubuna gidin (**sfclustertutorialgroup**, bu öğreticiyi takip ediyorsanız). 
 
@@ -815,7 +815,7 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 ```
 
 ## <a name="remove-a-node-type-from-the-cluster"></a>Kümeden bir düğüm türü Kaldır
-Service Fabric kümesi oluşturduktan sonra küme yatay bir düğüm türü (sanal makine ölçek kümesi) ve tüm üst düğümleri kaldırarak ölçeklendirebilirsiniz. Kümedeki herhangi bir zamanda iş yükleri küme üzerinde çalışırken bile ölçeklendirebilirsiniz. Küme ölçekler gibi uygulamalarınızı otomatik olarak da ölçeklendirin.
+Service Fabric kümesi oluşturduktan sonra küme yatay bir düğüm türü (sanal makine ölçek kümesi) ve tüm alt düğümleri kaldırarak ölçeklendirebilirsiniz. Kümedeki herhangi bir zamanda iş yükleri küme üzerinde çalışırken bile ölçeklendirebilirsiniz. Küme ölçekler gibi uygulamalarınızı otomatik olarak da ölçeklendirin.
 
 > [!WARNING]
 > Düğüm türü, bir üretim kümesinden kaldırmak için remove-AzServiceFabricNodeType kullanarak sık kullanılan olarak kullanılması önerilmez. Sanal makine ölçek kümesi kaynak düğüm türü arkasında sildiği tehlikeli bir komuttur. 

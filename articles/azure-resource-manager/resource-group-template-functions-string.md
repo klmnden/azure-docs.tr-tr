@@ -4,22 +4,20 @@ description: Dizelerle çalışma için bir Azure Resource Manager şablonunda k
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 07221e5d93c004a2542adfc3a5374fd75ca34b31
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621423"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278794"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Dize işlevleri için Azure Resource Manager şablonları
 
@@ -35,6 +33,7 @@ Resource Manager, dizeleri ile çalışmak için aşağıdaki işlevleri sunar:
 * [boş](#empty)
 * [endsWith](#endswith)
 * [ilk](#first)
+* [biçim](#format)
 * [GUID](#guid)
 * [indexOf](#indexof)
 * [Son](#last)
@@ -43,17 +42,17 @@ Resource Manager, dizeleri ile çalışmak için aşağıdaki işlevleri sunar:
 * [newGuid](#newguid)
 * [padLeft](#padleft)
 * [Değiştir](#replace)
-* [Atla](#skip)
+* [atla](#skip)
 * [split](#split)
 * [startsWith](#startswith)
-* [dize](#string)
+* [string](#string)
 * [alt dize](#substring)
 * [sınav zamanı](#take)
 * [toLower](#tolower)
 * [toUpper](#toupper)
 * [Kırpma](#trim)
 * [uniqueString](#uniquestring)
-* [URI](#uri)
+* [uri](#uri)
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
 * [utcNow](#utcnow)
@@ -340,7 +339,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | ---- | ---- | ----- |
 | döndürülecek | Dizi | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-## <a name="contains"></a>şunu içerir
+## <a name="contains"></a>içerir
 
 `contains (container, itemToFind)`
 
@@ -714,9 +713,66 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | arrayOutput | String | bir |
 | stringOutput | String | O |
 
+## <a name="format"></a>biçim
+
+`format(formatString, arg1, arg2, ...)`
+
+Giriş değerlerini biçimlendirilmiş bir dize oluşturur.
+
+### <a name="parameters"></a>Parametreler
+
+| Parametre | Gerekli | Tür | Açıklama |
+|:--- |:--- |:--- |:--- |
+| formatString | Evet | string | Bileşik biçimlendirme dizesi. |
+| arg1 | Evet | dize, tamsayı veya Boole değeri | Biçimlendirilen dize içinde değer. |
+| Ek bağımsız değişkenler | Hayır | dize, tamsayı veya Boole değeri | Biçimlendirilen dize içinde için ek değerler. |
+
+### <a name="remarks"></a>Açıklamalar
+
+Şablonunuzda bir dizeyi biçimlendirmek için bu işlevi kullanın. Aynı biçimlendirme seçenekleri kullanan [System.String.Format](/dotnet/api/system.string.format) .NET yöntemi.
+
+### <a name="examples"></a>Örnekler
+
+Aşağıdaki örnek şablonu biçimi işlevinin nasıl kullanılacağını gösterir.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "greeting": {
+            "type": "string",
+            "defaultValue": "Hello"
+        },
+        "name": {
+            "type": "string",
+            "defaultValue": "User"
+        },
+        "numberToFormat": {
+            "type": "int",
+            "defaultValue": 8175133
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "formatTest": {
+            "type": "string",
+            "value": "[format('{0}, {1}. Formatted number: {2:N0}', parameters('greeting'), parameters('name'), parameters('numberToFormat'))]"
+        }
+    }
+}
+```
+
+Önceki örnekte varsayılan değerlere sahip çıktı.
+
+| Ad | Tür | Değer |
+| ---- | ---- | ----- |
+| formatTest | String | Merhaba, kullanıcı. Biçimlendirilen sayı: 8,175,133 |
+
 ## <a name="guid"></a>GUID
 
-`guid (baseString, ...)`
+`guid(baseString, ...)`
 
 Parametre olarak sağlanan değerlere göre genel olarak benzersiz bir tanımlayıcı biçiminde bir değer oluşturur.
 
@@ -731,7 +787,7 @@ Parametre olarak sağlanan değerlere göre genel olarak benzersiz bir tanımlay
 
 Bu işlev, genel olarak benzersiz bir tanımlayıcı biçiminde bir değer oluşturmak ihtiyacınız olduğunda yararlıdır. Sonuç için benzersizlik kapsamını sınırlayan parametre değerlerini sağlayın. Abonelik, kaynak grubu veya dağıtım aşağı benzersiz adı olup olmadığını belirtebilirsiniz.
 
-Döndürülen değer rastgele bir dize, ancak bunun yerine bir karma işlev parametrelerine sonucu değil. 36 karakterden döndürülen değerdir. Genel olarak benzersiz değil. Parametreler üzerinde bu karma değere dayalı olmayan yeni bir GUID oluşturmak için kullanın [newGuid](#newguid) işlevi.
+Döndürülen değer, rastgele bir dize, ancak bunun yerine bir karma işlev parametrelerine sonucu değil. 36 karakterden döndürülen değerdir. Genel olarak benzersiz değil. Parametrelerden biri bu karma değere göre değil, yeni bir GUID oluşturmak için kullanın [newGuid](#newguid) işlevi.
 
 Aşağıdaki örnekler, yaygın olarak kullanılan düzeyleri için benzersiz bir değer oluşturmak için GUID kullanmayı gösterir.
 
@@ -1218,7 +1274,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | firstOutput | String | 1231231234 |
 | secodeOutput | String | 123-123-xxxx |
 
-## <a name="skip"></a>Atla
+## <a name="skip"></a>atla
 
 `skip(originalValue, numberToSkip)`
 
@@ -1609,7 +1665,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
 | arrayOutput | Dizi | ["", "iki"] |
-| stringOutput | String | şurada: |
+| stringOutput | String | açık |
 
 ## <a name="tolower"></a>toLower
 
@@ -1776,7 +1832,7 @@ Parametre olarak sağlanan değerlere göre belirleyici karma dize oluşturur.
 
 Bu işlev, bir kaynak için benzersiz bir ad oluşturmak ihtiyacınız olduğunda yararlıdır. Sonuç için benzersizlik kapsamını sınırlayan parametre değerlerini sağlayın. Abonelik, kaynak grubu veya dağıtım aşağı benzersiz adı olup olmadığını belirtebilirsiniz. 
 
-Döndürülen değer rastgele bir dize, ancak bunun yerine bir karma işlev sonucu değil. 13 karakter döndürülen değerdir. Genel olarak benzersiz değil. Değer bir adlandırma kuralınızın anlamlı bir ad oluşturmak için önekten birleştirmek isteyebilirsiniz. Aşağıdaki örnek, döndürülen değerin biçimi gösterir. Gerçek değeri tarafından sağlanan parametreler değişir.
+Döndürülen değer, rastgele bir dize, ancak bunun yerine bir karma işlev sonucu değil. 13 karakter döndürülen değerdir. Genel olarak benzersiz değil. Değer bir adlandırma kuralınızın anlamlı bir ad oluşturmak için önekten birleştirmek isteyebilirsiniz. Aşağıdaki örnek, döndürülen değerin biçimi gösterir. Gerçek değeri tarafından sağlanan parametreler değişir.
 
     tcvhiyu5h2o5o
 
@@ -1800,7 +1856,7 @@ Benzersiz bir kaynak grubu için dağıtım kapsamına
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-Aşağıdaki örnek, kaynak grubunuzun tabanlı bir depolama hesabı için benzersiz bir ad oluşturma işlemi gösterilmektedir. Kaynak grubu içinde benzersiz şekilde oluşturulmuş olup adı değil.
+Aşağıdaki örnek, kaynak grubunuzun tabanlı bir depolama hesabı için benzersiz bir ad oluşturma işlemi gösterilmektedir. Kaynak grubu içinde benzersiz şekilde oluşturulmuş olup bir adı değil.
 
 ```json
 "resources": [{ 
@@ -1809,7 +1865,7 @@ Aşağıdaki örnek, kaynak grubunuzun tabanlı bir depolama hesabı için benze
     ...
 ```
 
-Her seferinde yeni bir benzersiz ad oluşturmanız gerekiyorsa bir şablonu dağıtmak ve kaynağı güncelleştirmek için hedefi yok, kullanabileceğiniz [utcNow](#utcnow) uniqueString işleviyle. Bir test ortamında bu yaklaşımı kullanabilirsiniz. Bir örnek için bkz. [utcNow](#utcnow).
+Her zaman benzersiz yeni bir ad oluşturmak ihtiyacınız varsa şablon dağıtma ve kaynak güncelleştirme düşünmüyorsanız, kullanabilirsiniz [utcNow](#utcnow) uniqueString işleviyle. Bir test ortamında bu yaklaşımı kullanabilirsiniz. Bir örnek için bkz. [utcNow](#utcnow).
 
 ### <a name="return-value"></a>Dönüş değeri
 
