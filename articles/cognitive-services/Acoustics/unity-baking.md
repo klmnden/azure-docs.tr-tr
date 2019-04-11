@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: f44b6f9ed42770fe830346de08058e33ed68a249
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309651"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470347"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Proje akustik Unity hazırlama Öğreticisi
 Bu öğreticide, Unity projesi akustik ile saklanacağı akustik açıklanmaktadır.
@@ -137,7 +137,7 @@ Görünüm adı, Sahne voxelization ve araştırma noktası yerleştirme depolam
 
 1. **Araştırmaları** bu sayfasını getirmek için kullanılan sekmesini düğmesi
 2. Bu sayfayı kullanarak yapmanız gerekenler kısa bir açıklaması
-3. Bu, bir kaba veya iyi benzetimi çözüm seçmek için kullanın. Kaba daha hızlıdır, ancak belirli Artıları ve eksileri vardır. Bkz: [kaba vs iyi bir çözüm seçme](#Coarse-vs-Fine-Resolution) altındaki ayrıntılar için.
+3. Bu, bir kaba veya iyi benzetimi çözüm seçmek için kullanın. Kaba daha hızlıdır, ancak belirli Artıları ve eksileri vardır. Bkz: [hazırlama çözümleme](bake-resolution.md) altındaki ayrıntılar için.
 4. Konum seçin olduğunda bu alanı kullanarak akustik veri dosyalarını yerleştirilmelidir. Klasör Seçici kullanmak için "..." düğmesine tıklayın. Varsayılan değer **varlıklar/AcousticsData**. Bir **Düzenleyicisi** alt bu konumu altında aynı zamanda oluşturulur. Veri dosyaları hakkında daha fazla bilgi için bkz. [veri dosyalarını](#Data-Files) aşağıda.
 5. Burada sağlanan ön ek kullanarak bu görünüm için veri dosyalarının adlandırılacaktır. "[Sahne adı] Acoustics_" varsayılandır.
 6. Araştırmaları hesapladıktan sonra yukarıdaki denetimleri devre dışı bırakılır. Tıklayın **Temizle** düğmesine hesaplamaları silmek ve denetimleri etkinleştirin; böylelikle yeni ayarlarla yeniden hesaplayın.
@@ -145,21 +145,7 @@ Görünüm adı, Sahne voxelization ve araştırma noktası yerleştirme depolam
 
 Proje akustik'ın bu sürümünde, el ile yerleştirildiğinde araştırmalarla sağlanan otomatik sürecinde yerleştirilmelidir **araştırmaları** sekmesi.
 
-### <a name="Coarse-vs-Fine-Resolution"></a>Ayrıntılı çözümleme kaba seçme
-
-Kaba ve ince çözümleme ayarları arasındaki tek fark, benzetim gerçekleştirildiği sıklığıdır. İnce bir kaba olarak iki kez olarak yüksek sıklıkta kullanır.
-Bu basit görünebilir, ancak birçok etkilerinin akustik benzetim vardır:
-
-* Dalga boyu iki kez olarak ince uzun geneldir ve bu nedenle voxels iki katı kadar büyük.
-* Benzetim zaman kaba bir hazırlama yaklaşık 16 kat daha iyi bir hazırlama hızlandırma voxel boyutu, doğrudan ilgilidir.
-* Portalları (örneğin, kapılar veya windows) voxel boyutundan daha küçük benzetimi yapılabilir. Kaba bir ayar değil benzetimi için daha küçük bu portallar bazılarını neden olabilir; Bu nedenle, bunlar çalışma zamanında ses üzerinden geçmez. Bu voxels görüntüleyerek olup olmadığını görebilirsiniz.
-* Köşe ve kenarlar daha az diffraction alt benzetimi sıklığı sonuçlanır.
-* Ses kaynakları geometri içeren voxels olan "dolu" voxels içinde bulunamıyor - bu ses yok sonuçlanır. Kaba ince ayar kullandığından, daha büyük voxels içinde olmadıkları için ses kaynakları bulmak daha zordur.
-* Daha büyük voxels daha aşağıda gösterildiği gibi portallarda oturum intrude. İyi bir çözüm kullanarak aynı ortaklıklarına ortam hazırlayan ikinci olmakla birlikte ilk görüntü kaba, kullanılarak oluşturuldu. Kırmızı işaretler tarafından belirtildiği gibi ince ayarını kullanarak ortaklıklarına ortam hazırlayan çok daha az giriş yok. Kırmızı çizgi voxel boyutu tarafından tanımlanan etkili akustik portalı olsa da, geometri tarafından tanımlanan aynıdır, mavi bir çizgi ortaklıklarına ortam hazırlayan kullanır. Bu yetkisiz erişim verilen bir durumda nasıl oynatılacağını tamamen geometri nesnelerinizi sahnedeki konumlarını ve boyutu tarafından belirlenir Portal ile nasıl voxels hizaya bağlıdır.
-
-![Kaba voxels kapısı, ekran görüntüsü](media/coarse-voxel-doorway.png)
-
-![İnce voxels kapısı, ekran görüntüsü](media/fine-voxel-doorway.png)
+Bkz: [hazırlama çözümleme](bake-resolution.md) kaba vs hakkında daha fazla ayrıntı için çözüm ince.
 
 ## <a name="bake-your-scene-using-azure-batch"></a>Azure Batch kullanırken görünümünüze hazırlama
 Azure Batch hizmetini kullanarak bulutta bilgi işlem kümesi ile sahneniz hazırlama. Proje akustik Unity eklenti oluşturmak, yönetmek ve bir Azure Batch kümesi için her hazırlama kaldırmak için Azure Batch doğrudan bağlanır. Üzerinde **hazırlama** sekmesinde, Azure kimlik bilgilerinizi girin, bir küme makine türü ve boyut seçin ve tıklayın **hazırlama**.
@@ -210,7 +196,7 @@ Kendi bilgisayarınıza sahneniz hazırlama. Bu, bir Azure Batch hesabı oluştu
 Yükleme ve Docker benzetim işleyen bilgisayarda yapılandırma-
 1. Yükleme [Docker araç takımı](https://www.docker.com/products/docker-desktop).
 2. Docker ayarları başlatın, "Gelişmiş" seçeneğine gidin ve en az 8 GB RAM'e sahip için kaynakları yapılandırma. Daha fazla CPU'ları için Docker ayırabilirsiniz, hazırlama daha hızlı tamamlanır. ![Örnek Docker ayarları görüntüsü](media/docker-settings.png)
-3. "Paylaşılan sürücüler için" gidin ve işleme için kullanılan sürücü için paylaşımı etkinleştirin.![Paylaşılan Docker Screnshot sürücü seçenekleri](media/docker-shared-drives.png)
+3. "Paylaşılan sürücüler için" gidin ve işleme için kullanılan sürücü için paylaşımı etkinleştirin.![Paylaşılan Docker ekran sürücü seçenekleri](media/docker-shared-drives.png)
 
 ### <a name="run-local-bake"></a>Yerel çalışma hazırlama
 1. "Hazırlama yerel Hazırlama" düğmesine tıklayın **hazırlama** sekme ve burada yürütme komut dosyaları ve giriş dosyalarının kaydedileceği klasörü seçin. Ardından hazırlama en düşük donanım gereksinimlerini karşıladığından ve bu makineye klasörüne kopyalayarak Docker yüklü olduğu sürece herhangi bir makinede çalıştırabilirsiniz.

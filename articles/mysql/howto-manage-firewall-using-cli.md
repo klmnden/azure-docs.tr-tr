@@ -6,16 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 870910654101b4d6689b51464f8a29aef41bf9cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/09/2018
+ms.openlocfilehash: dca7d09a5358f5e8b4025dc5e35e4465e21d77a2
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103137"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470942"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Oluşturma ve Azure veritabanı Azure CLI kullanarak MySQL için güvenlik duvarı kurallarını yönetme
-Sunucu düzeyinde güvenlik duvarı kuralları, erişim belirli bir IP adresi veya bir IP adresi aralığı MySQL Server için Azure veritabanı'na yönetme olanağı sağlar. Uygun Azure CLI'si komutlarını kullanarak, oluşturabilir, güncelleştirin, silin, listeleyin ve sunucunuzu yönetmek için güvenlik duvarı kurallarını gösterir. Bir Azure veritabanı için MySQL güvenlik duvarları için bkz: genel bakış [MySQL sunucusu güvenlik duvarı kuralları için Azure veritabanı](./concepts-firewall-rules.md)
+Sunucu düzeyinde güvenlik duvarı kuralları, erişim belirli bir IP adresi veya bir IP adresi aralığı MySQL sunucusu için Azure veritabanı'na yönetmek için kullanılabilir. Uygun Azure CLI'si komutlarını kullanarak, oluşturabilir, güncelleştirin, silin, listeleyin ve sunucunuzu yönetmek için güvenlik duvarı kurallarını gösterir. Bir Azure veritabanı için MySQL güvenlik duvarları için bkz: genel bakış [MySQL sunucusu güvenlik duvarı kuralları için Azure veritabanı](./concepts-firewall-rules.md).
+
+Sanal ağ (VNet) kuralları, sunucunuza erişim güvenliğini sağlamak için de kullanılabilir. Daha fazla bilgi edinin [oluşturma ve yönetme sanal ağ hizmet uç noktaları ve Azure CLI kullanarak kurallar](howto-manage-vnet-using-cli.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 * [Azure CLI’yı yükleyin](https://docs.microsoft.com/cli/azure/install-azure-cli).
@@ -31,7 +33,7 @@ Komutlar:
 - **Göster**: Azure MySQL sunucusu güvenlik duvarı kuralı ayrıntılarının.
 - **Güncelleştirme**: Bir Azure MySQL sunucusu güvenlik duvarı kuralı güncelleştirin.
 
-## <a name="log-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Azure'da oturum açın ve Azure veritabanınızı MySQL sunucuları için listeleme
+## <a name="sign-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Azure'da oturum açın ve Azure veritabanınızı MySQL sunucuları için listeleme
 Azure CLI kullanarak güvenli bir şekilde Azure hesabınızla bağlanmanız **az login** komutu.
 
 1. Komut satırından aşağıdaki komutu çalıştırın:
@@ -42,7 +44,7 @@ Azure CLI kullanarak güvenli bir şekilde Azure hesabınızla bağlanmanız **a
 
 2. Bir web tarayıcısı kullanarak [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin)ve ardından kodu girin.
 
-3. İstendiğinde, Azure kimlik bilgilerinizi kullanarak oturum açın.
+3. İstemde, Azure kimlik bilgilerinizi kullanarak oturum açın.
 
 4. Oturum açma bilgilerinizi yetkilendirildikten sonra konsolda Aboneliklerin listesini yazdırılır. Geçerli bir abonelik kullanmak için ayarlanacak istediğiniz abonelik Kimliğini kopyalayın. Kullanım [az hesabı kümesi](/cli/azure/account#az-account-set) komutu.
     ```azurecli-interactive
@@ -119,3 +121,4 @@ Başarılı olduktan sonra hiçbir çıktı yok. Başarısızlık durumunda, hat
 ## <a name="next-steps"></a>Sonraki adımlar
 - Hakkında daha fazla bilgi edinin [MySQL sunucusu güvenlik duvarı kuralları için Azure veritabanı](./concepts-firewall-rules.md).
 - [Oluşturma ve Azure veritabanı Azure portalını kullanarak MySQL için güvenlik duvarı kurallarını yönetme](./howto-manage-firewall-using-portal.md).
+- Daha fazla güvenli sunucunuz tarafından erişim [oluşturma ve yönetme sanal ağ hizmet uç noktaları ve Azure CLI kullanarak kurallar](howto-manage-vnet-using-cli.md).

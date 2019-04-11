@@ -5,16 +5,18 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 555904642df069e9d87b2286bce23181da0f8184
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/09/2019
+ms.openlocfilehash: cb142e01009efbeaabd5d4e56dbedfe6384c5fc6
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086641"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470806"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Oluşturma ve Azure veritabanı Azure portalını kullanarak PostgreSQL için güvenlik duvarı kurallarını yönetme
-Sunucu düzeyinde güvenlik duvarı kuralları, yöneticilerin belirtilen bir IP adresi veya IP adresi aralığı PostgreSQL sunucusu için Azure veritabanı erişmeye olanak tanır. 
+Sunucu düzeyinde güvenlik duvarı kuralları, bir Azure veritabanı'na PostgreSQL sunucusu için belirtilen bir IP adresi veya IP adresi aralığı erişimi yönetmek için kullanılabilir.
+
+Sanal ağ (VNet) kuralları, sunucunuza erişim güvenliğini sağlamak için de kullanılabilir. Daha fazla bilgi edinin [oluşturma ve yönetme sanal ağ hizmet uç noktaları ve Azure portalını kullanarak kurallar](howto-manage-vnet-using-portal.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu nasıl yapılır kılavuzunda adımlamak için ihtiyacınız vardır:
@@ -34,7 +36,7 @@ Bu nasıl yapılır kılavuzunda adımlamak için ihtiyacınız vardır:
 
    ![Bing arama IP Adresim nedir](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. Ek adres aralıkları ekleyin. PostgreSQL için Azure veritabanı güvenlik duvarı kurallarında, tek bir IP adresi veya adres aralığını belirtebilirsiniz. Tek bir IP adresi için kural sınırlandırmak istiyorsanız, Başlangıç hem bitiş IP'si için aynı adres alanına yazın. Güvenlik duvarını açmak, Yöneticiler, kullanıcılar ve oturum açmak için PostgreSQL sunucusuna herhangi bir veritabanı için geçerli kimlik bilgilerine sahip oldukları uygulamaları sağlar.
+4. Ek adres aralıkları ekleyin. PostgreSQL için Azure veritabanı güvenlik duvarı kurallarında, tek bir IP adresi veya adres aralığını belirtebilirsiniz. Tek bir IP adresi için kural sınırlandırmak istiyorsanız, Başlangıç hem bitiş IP'si için aynı adres alanına yazın. Güvenlik duvarını açmak, Yöneticiler, kullanıcılar ve geçerli kimlik bilgilerine sahip oldukları PostgreSQL sunucusu üzerinde herhangi bir veritabanına erişmek için uygulamaları sağlar.
 
    ![Azure portalı - güvenlik duvarı kuralları](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
@@ -58,4 +60,5 @@ Güvenlik duvarı kurallarını yönetme adımlarını yineleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Benzer şekilde, yazabilirsiniz [oluşturun ve Azure veritabanı Azure CLI kullanarak PostgreSQL için güvenlik duvarı kurallarını yönetme](howto-manage-firewall-using-cli.md).
+- Daha fazla güvenli sunucunuz tarafından erişim [oluşturma ve yönetme sanal ağ hizmet uç noktaları ve Azure portalını kullanarak kurallar](howto-manage-vnet-using-portal.md).
 - PostgreSQL sunucusu için Azure veritabanı bağlanma konusunda yardım için bkz. [PostgreSQL için Azure veritabanı için bağlantı kitaplıkları](concepts-connection-libraries.md).

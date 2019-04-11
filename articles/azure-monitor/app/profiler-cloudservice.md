@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 2e13f1f09fcdfb68a99e705511e3659f1632132e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 93d0f148c1fa3f13e79b28e19527251455a1b65c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895490"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470866"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profil Canlı Application ınsights'la Azure Cloud Services
 
 Ayrıca, bu hizmetler Application Insights Profiler dağıtabilirsiniz:
-* [Azure uygulama hizmeti](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric uygulamaları](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Azure sanal makineleri](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Sanal Makineler](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler Azure tanılama uzantısı ile yüklenir. Profiler'ı yükleyin ve Application Insights kaynağınıza profilleri göndermek için Azure Tanılama'yı yapılandırmak yeterlidir.
 
@@ -33,7 +33,7 @@ Application Insights Profiler Azure tanılama uzantısı ile yüklenir. Profiler
 
 1. Ekleme [Application Insights SDK'sı Azure bulut Hizmetleri](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
-   >**Bulut Hizmetleri için en son sürümünü WAD sevk profil oluşturucu bir hata yoktur.** Profil Oluşturucu bir bulut hizmeti ile kullanmak için yalnızca AI SDK'sı sürüm 2.7.2 kadar destekler. AI SDK'sının daha yeni bir sürümü kullanıyorsanız, 2.7.2 için profil oluşturucuyu kullanmak için dönmeniz gerekir. App Insights SDK'sı sürümünü düşürmek için Visual Studio kullanıyorsanız, çalışma zamanında bir bağlama yeniden yönlendirme hatası alabilirsiniz. Bu durum, yapay ZEKA SDK'sı, ancak eski sürüme düşürme otomatik olarak güncelleştirilmesini değil sonra "2.7.2.0" için "Newversıon" Microsoft.applicationınsights web.config dosyasında ayarlamanız gerekir çünkü.
+    **WAD içinde birlikte gelen bulut Hizmetleri için profil oluşturucu hata düzeltildi.** WAD (1.12.2.0) bulut Hizmetleri için en son sürümünü tüm son sürümleri App Insights SDK'sı ile çalışır. Bulut hizmet konakları WAD otomatik olarak yükseltilir, ancak hemen değildir. Yükseltme zorlamak için hizmetinizi yeniden dağıtın veya düğümü yeniden başlatma.
 
 1. Application Insights ile izleme istekleri:
 

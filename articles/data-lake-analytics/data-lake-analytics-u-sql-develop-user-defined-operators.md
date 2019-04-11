@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 9751801449eebc5d07ca4bbb9b408d9679fef24e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 122a4b6af78a22f74d5057da75767077f8d9b978
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040999"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469633"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>U-SQL kullanıcı tanımlı işleçler (Udo'lar) geliştirin
 Bu makalede, bir U-SQL işi verileri işlemek için kullanıcı tanımlı işleçleri geliştirme açıklar.
@@ -115,7 +115,7 @@ Bu makalede, bir U-SQL işi verileri işlemek için kullanıcı tanımlı işle�
 8. **Çözüm Gezgini**'nden, **Script.usql** öğesine sağ tıklayın ve ardından **Betik Oluştur**'a tıklayın.
 9. **Çözüm Gezgini**'nden, **Script.usql** öğesine sağ tıklayın ve ardından **Betiği Gönder**'e tıklayın.
 10. Azure aboneliğinize bağlanmadıysanız, Azure hesabı kimlik bilgilerinizi girmeniz istenir.
-11. Tıklayın **gönderme**. Gönderim tamamlandığında Sonuçları penceresinde, gönderme işleminin sonuçları ve iş bağlantısı da kullanılabilir.
+11. **Gönder**'e tıklayın. Gönderim tamamlandığında Sonuçları penceresinde, gönderme işleminin sonuçları ve iş bağlantısı da kullanılabilir.
 12. Tıklayın **Yenile** en son iş durumu ve ekranı yenilemek görmek için düğme.
 
 **Çıktıyı görmek için**
@@ -124,5 +124,5 @@ Bu makalede, bir U-SQL işi verileri işlemek için kullanıcı tanımlı işle�
 2. Örnekleri'ni genişletin, çıkışlar genişletin ve ardından çift **sürücüler.csv**.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [U-SQL deyimleri kullanıcı kodu ile genişletme](https://msdn.microsoft.com/library/azure/mt621316.aspx)
+* [U-SQL deyimleri kullanıcı kodu ile genişletme](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
 * [U-SQL uygulamalarını geliştirmek için Visual Studio için Data Lake araçları kullanma](data-lake-analytics-data-lake-tools-get-started.md)

@@ -24,6 +24,14 @@ sections:
               src: media/index/data-catalog.svg
             text: Azure portal
             href: 'https://docs.microsoft.com/azure/data-catalog/data-catalog-get-started'
+  - title: Adım Adım Öğreticiler
+    items:
+      - type: paragraph
+        text: 'Azure Veri Kataloğu’ndaki varlıkları kaydetmeyi, aramayı, yönetmeyi, silmeyi ve bu kaynaklara not eklemeyi öğrenin:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="register-data-assets-tutorial">Azure Veri Kataloğu’ndaki veri varlıklarını kaydetme</a>
   - title: Başvuru
     items:
       - type: list

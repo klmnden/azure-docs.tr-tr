@@ -10,18 +10,18 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 1982f974acd1e9d5e8cae91201f6503eb2ae678a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 47235fa5676acd8de8a7cc0d969b813837faf0af
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898814"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469718"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Bir Azure Data Lake için U-SQL veritabanı geliştirme için U-SQL veritabanı projesi kullanın
 
 U-SQL veritabanı, yapılandırılmamış verileri ve tablolarda yönetilen yapılandırılmış veriler üzerinde yapılandırılmış görünümler sağlar. Ayrıca, yapılandırılmış veri ve özel kod düzenlemek için genel bir meta veri Kataloğu sistemi da sağlar. Bu ilgili nesneler gruplandıran kavramı veritabanıdır.
 
-Daha fazla bilgi edinin [U-SQL veritabanı ve veri tanımlama dili (DDL)](https://msdn.microsoft.com/azure/data-lake-analytics/u-sql/data-definition-language-ddl-statements-u-sql). 
+Daha fazla bilgi edinin [U-SQL veritabanı ve veri tanımlama dili (DDL)](/u-sql/data-definition-language-ddl-statements). 
 
 U-SQL veritabanı projesi geliştirmek, yönetmek ve U-SQL veritabanlarını hızla ve kolayca dağıtma olanağı tanır Visual Studio'da bir proje türüdür.
 

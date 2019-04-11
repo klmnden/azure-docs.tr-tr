@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 544de5a3ac48c12d75f05a1c9adb56f48bb540f4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311580"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470381"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Proje akustik Unreal hazırlama Öğreticisi
 Bu belgede, Unreal Düzenleyici uzantısı kullanarak bir akustik hazırlama gönderme işlemi açıklanmaktadır.
@@ -40,6 +40,8 @@ Akustik modu açtığınızda görüntülenen ilk sekme nesneleri sekmesidir. Ek
 
 Dünya anahat Düzenleyicisi içinde bir veya daha fazla nesne seçin veya kullanın **toplu seçim** belirli bir kategorideki tüm nesnelerin seçmenize yardımcı olması için bölümü. Seçilen nesneler sonra kullanın **etiketleme** seçilen nesneler için istenen etiket uygulamak için bölüm.
 
+Sorun ne varsa **AcousticsGeometry** ya da **AcousticsNavigation** etiketi benzetime yoksayılacak. Yalnızca statik kafesleri nav kafesleri ve ortamlarını desteklenir. Başka bir şey etiketlerseniz göz ardı edilir.
+
 ### <a name="for-reference-the-objects-tab-parts"></a>Başvuru için: Nesneleri sekmesini bölümleri
 
 ![Unreal sekmede akustik nesnelerin ekran görüntüsü](media/unreal-objects-tab-details.png)
@@ -63,9 +65,23 @@ Görünmez çakışma kafesleri gibi akustik Etkilenme şeyleri dahil değildir.
 
 Bir nesnenin Dönüştür araştırma hesaplama zaman (araştırmaları sekmesi aracılığıyla aşağıda) hazırlama sonuçları sabittir. İşaretli nesnelerden herhangi birini sahnede taşıma araştırma hesaplama yineleme ve Sahne rebaking gerektirir.
 
-## <a name="create-or-tag-a-navigation-mesh"></a>Oluşturma veya gezinti kafes etiketi
+### <a name="create-or-tag-a-navigation-mesh"></a>Oluşturma veya gezinti kafes etiketi
 
-Gezinti kafes simülasyonu için araştırma noktaları yerleştirmek için kullanılır. Unreal'ın kullanabileceğiniz [Nav Mesh sınırları birim](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html), ya da kendi gezinti kafes belirtebilirsiniz. En az bir nesne olarak etiketlemeniz gerekir **akustik Gezinti**.
+Gezinti kafes simülasyonu için araştırma noktaları yerleştirmek için kullanılır. Unreal'ın kullanabileceğiniz [Nav Mesh sınırları birim](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html), ya da kendi gezinti kafes belirtebilirsiniz. En az bir nesne olarak etiketlemeniz gerekir **akustik Gezinti**. Unreal'ın gezinti kafes kullanıyorsanız, öncelikle oluşturduktan emin olun.
+
+### <a name="acoustics-volumes"></a>Akustik birimleri ###
+
+Daha fazla, Gelişmiş özelleştirme, gezinti alanlara olun yoktur **akustik birimleri**. **Akustik birimleri** Gezinti kafes yoksay ve dahil etmek için alanları seçmenize olanak sağlayan görünümünüze ekleyebileceğiniz birer aktördür. Aktör değiştirilebilir bir özellik sunan "Ekle" ve "Dışarıda bırak" arasında. "Ekleme" birimleri, yalnızca alanlarının Gezinti kafes içlerindeki olarak kabul edilir ve yok sayılacak bu alanların "Dışarıda bırak" birimleri işaretleyin emin olun. Birimleri "Dışarıda bırak" sonra "Ekle" birimleri her zaman uygulanır. Etikete emin **akustik birimleri** olarak **akustik Gezinti** nesneleri sekmesindeki her zamanki sürecinde. Bu aktörler ***değil*** otomatik olarak etiketlenmiş.
+
+![Unreal özelliklerinde akustik birim ekran görüntüsü](media/unreal-acoustics-volume-properties.png)
+
+Birimleri "Dışarıda bırak" ağırlıklı olarak nereye yerleştirileceğini olmayan araştırmaları için kaynak kullanım sıkılaştırma üzerinde ayrıntılı denetim vermek yöneliktir.
+
+![Dışlama akustik Unreal biriminde ekran görüntüsü](media/unreal-acoustics-volume-exclude.png)
+
+Birimleri "Ekleme" gibi birden çok akustik bölgelere sahneniz bölmeniz istiyorsanız bir Sahne el ile oluşturma bölümlerini için kullanışlıdır. Örneğin, büyük bir Sahne varsa, birçok kilometre kare ve iki üzerinde akustik hazırlama istediğiniz ilgi alanlarına sahip. Sahnedeki iki büyük "Ekle" birimi çizmek ve bunların her biri için ACE dosyaları üretmek teker teker. Ardından, oyun player her kutucuk yaklaştığında uygun ACE dosya yüklemek için tetikleyici birimleri şema çağrıları ile birlikte kullanabilirsiniz.
+
+**Akustik birimleri** yalnızca Gezinti kısıtlamak ve ***değil*** geometrisi. Her araştırma bir "ekleme" içindeki **akustik birim** hala birim dışında tüm gerekli geometri içinde wave benzetimleri yaparken çeker. Bu nedenle, tüm discontinuities kapanması veya bir bölümünden diğerine geçmeden player kaynaklanan diğer akustik olmamalıdır.
 
 ## <a name="select-acoustic-materials"></a>Akustik malzemeleri seçin
 
@@ -87,6 +103,7 @@ Verilen bir malzeme odasında reverberation süresini 0,01 için 0,20 aralığı
 4. Akustik malzeme Sahne malzeme için atanmış olduğunu gösterir. Farklı bir akustik malzeme için Sahne malzeme atamak için bir açılan tıklayın.
 5. Önceki sütununda seçilen malzeme akustik içe alma katsayısı gösterir. Değeri sıfır mükemmel yansıtıcı anlamına gelir (hiçbir içe alma), değeri 1 anlamına gelir mükemmel absorptive (yansıma hiçbir) oluştu. Bu değeri değiştirmek için akustik malzeme (#4. adım) güncelleştirir **özel**.
 
+Malzeme, sahnede değişiklik yaparsanız, sekmeler olarak yansıyan şu değişiklikleri görmek için proje akustik eklentisi anahtarının gerekecektir **malzemeleri** sekmesi.
 
 ## <a name="calculate-and-review-listener-probe-locations"></a>Hesaplamak ve dinleyici sondası konumlarını gözden geçirin
 
@@ -98,7 +115,7 @@ Malzemeleri atadıktan sonra geçiş **araştırmaları** sekmesi.
 
 1. **Araştırmaları** bu sayfasını getirmek için kullanılan sekmesini düğmesi
 2. Bu sayfayı kullanarak yapmanız gerekenler kısa bir açıklaması
-3. Bu, bir kaba veya iyi benzetimi çözüm seçmek için kullanın. Kaba daha hızlıdır, ancak belirli Artıları ve eksileri vardır. Bkz: [kaba bir vs çözümü ince](#Coarse-vs-Fine-Resolution) aşağıdaki Ayrıntılar için.
+3. Bu, bir kaba veya iyi benzetimi çözüm seçmek için kullanın. Kaba daha hızlıdır, ancak belirli Artıları ve eksileri vardır. Bkz: [hazırlama çözümleme](bake-resolution.md) altındaki ayrıntılar için.
 4. Konum seçin olduğunda bu alanı kullanarak akustik veri dosyalarını yerleştirilmelidir. Klasör Seçici kullanmak için "..." düğmesine tıklayın. Veri dosyaları hakkında daha fazla bilgi için bkz. [veri dosyalarını](#Data-Files) aşağıda.
 5. Burada sağlanan ön ek kullanarak bu görünüm için veri dosyalarının adlandırılacaktır. "[Düzeyi adı] _AcousticsData" varsayılandır.
 6. Tıklayın **Calculate** Sahne voxelize için düğme ve araştırma noktası konumu hesaplayın. Makinenizde yerel olarak gerçekleştirilir ve bir hazırlama yapmadan önce yapılmalıdır. Araştırmaları hesaplanan, yukarıdaki denetimleri devre dışı bırakılır ve bu düğme söylemek değiştirecek sonra **Temizle**. Tıklayın **Temizle** düğmesine hesaplamaları silmek ve denetimleri etkinleştirin; böylelikle yeni ayarlarla yeniden hesaplayın.
@@ -147,21 +164,7 @@ Araştırma noktaları player sahnede seyahat beklenen her yerde mevcut olduğun
 
 ![Ekran görüntüsü, akustik Unreal önizlemede araştırmaları](media/unreal-probes-preview.png)
 
-### <a name="Coarse-vs-Fine-Resolution"></a>Kaba vs ayrıntılı çözümleme
-
-Kaba ve ince çözümleme ayarları arasındaki tek fark, benzetim gerçekleştirildiği sıklığıdır. İnce bir kaba olarak iki kez olarak yüksek sıklıkta kullanır.
-Bu basit görünebilir, ancak birçok etkilerinin akustik benzetim vardır:
-
-* Dalga boyu iki kez olarak ince uzun geneldir ve bu nedenle voxels iki katı kadar büyük.
-* Benzetim zaman kaba bir hazırlama yaklaşık 16 kat daha iyi bir hazırlama hızlandırma voxel boyutu, doğrudan ilgilidir.
-* Portalları (örneğin, kapılar veya windows) voxel boyutundan daha küçük benzetimi yapılabilir. Kaba bir ayar değil benzetimi için daha küçük bu portallar bazılarını neden olabilir; Bu nedenle, bunlar çalışma zamanında ses üzerinden geçmez. Bu voxels görüntüleyerek olup olmadığını görebilirsiniz.
-* Köşe ve kenarlar daha az diffraction alt benzetimi sıklığı sonuçlanır.
-* Ses kaynakları geometri içeren voxels olan "dolu" voxels içinde bulunamıyor - bu ses yok sonuçlanır. Bunlar, kaba ince ayar kullanırken olduğundan daha büyük voxels içinde olmadıklarından ses kaynakları yerleştirmek daha zordur.
-* Daha büyük voxels daha aşağıda gösterildiği gibi portallarda oturum intrude. İyi bir çözüm kullanarak aynı ortaklıklarına ortam hazırlayan ikinci olmakla birlikte ilk görüntü kaba, kullanılarak oluşturuldu. Kırmızı işaretler tarafından belirtildiği gibi ince ayarını kullanarak ortaklıklarına ortam hazırlayan çok daha az giriş yok. Kırmızı çizgi voxel boyutu tarafından tanımlanan etkili akustik portalı olsa da, geometri tarafından tanımlanan aynıdır, mavi bir çizgi ortaklıklarına ortam hazırlayan kullanır. Bu yetkisiz erişim verilen bir durumda nasıl oynatılacağını tamamen geometri nesnelerinizi sahnedeki konumlarını ve boyutu tarafından belirlenir Portal ile nasıl voxels hizaya bağlıdır.
-
-![Kaba voxels Unreal içinde bir kapısı doldurma ekran görüntüsü](media/unreal-coarse-bake.png)
-
-![Unreal içinde bir kapısı de ince voxels ekran görüntüsü](media/unreal-fine-bake.png)
+Bkz: [hazırlama çözümleme](bake-resolution.md) kaba vs hakkında daha fazla ayrıntı için çözüm ince.
 
 ## <a name="bake-your-level-using-azure-batch"></a>Azure Batch kullanarak düzeyinizi hazırlama
 

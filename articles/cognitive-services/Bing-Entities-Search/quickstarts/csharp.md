@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 09eed87dce65325a5b3466346b073a0d786bfb89
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d31be245d906ba0405a44d4482272051982c943c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861460"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469157"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Hızlı Başlangıç: Bing varlık arama REST API'si kullanarak bir arama isteği gönderC#
 
@@ -29,7 +29,7 @@ Bu uygulama C# ile yazılmış olmakla birlikte API, çoğu programlama diliyle 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)’nin herhangi bir sürümü.
 * NuGet paketi olarak kullanılabilen [Json.NET](https://www.newtonsoft.com/json) çerçevesi.
     * Visual Studio'da NuGet paketini yüklemek için:
-        1. Çözüm Yöneticisi'nde sağ tıklayın
+        1. Çözüm Gezgini'nde sağ tıklayın
         2. Tıklayın **NuGet paketlerini Yönet...**
         3. Arama **newtonsoft.json** paketini ve yükleme
 
@@ -174,7 +174,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Tek sayfa uygulaması oluşturma](../tutorial-bing-entities-search-single-page-app.md)
+> [Tek sayfalı web uygulaması oluşturma](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Bing varlık arama API'si nedir?](../overview.md )
 * [Bing varlık arama API'si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

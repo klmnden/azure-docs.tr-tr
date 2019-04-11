@@ -9,12 +9,12 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
-ms.openlocfilehash: b70de1e4494bb142da1cad0d0154b5dc7f765983
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9de5c7228944bd0448d9dfa833ef223140ccf0e8
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233365"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469616"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics U-SQL ile çalışmaya başlama
 U-SQL sorgu dili gibi kesinlik temelli izin için C# ile birleştiren bir dil olan verileri dilediğiniz ölçekte işleyin. U-SQL'nin ölçeklenebilir, dağıtılmış sorgu özelliği, Azure SQL veritabanı gibi ilişkisel depoları arasında veri verimli bir şekilde çözümleyebilirsiniz. U-SQL ile yapılandırılmamış verileri okuma sırasında şema uygulama ve Özel mantık ve UDF'ler eklemeden işleyebilir. Ayrıca, U-SQL, uygun ölçekte yürütmek nasıl üzerinde ayrıntılı denetim sağlar genişletilebilirlik içerir. 
@@ -27,7 +27,7 @@ U-SQL sorgu dili gibi kesinlik temelli izin için C# ile birleştiren bir dil ol
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-U-SQL örnekleri bu belgenin üzerinden geçmeden önce okuma ve tamamlamak [öğretici: Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme](data-lake-analytics-data-lake-tools-get-started.md). Bu öğretici, Visual Studio için Azure Data Lake araçları ile U-SQL kullanarak mekanizması açıklanmaktadır.
+U-SQL örnekleri bu belgenin üzerinden geçmeden önce okuma ve tamamlamak [Öğreticisi: Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme](data-lake-analytics-data-lake-tools-get-started.md). Bu öğretici, Visual Studio için Azure Data Lake araçları ile U-SQL kullanarak mekanizması açıklanmaktadır.
 
 ## <a name="your-first-u-sql-script"></a>İlk U-SQL betiğiniz
 
@@ -55,7 +55,7 @@ Bu betik, herhangi bir dönüştürme adımı yok. Adlı bir kaynak dosyasından
 Soru işareti yazın verinin yanında fark `Duration` alan. Anlamına `Duration` alan null olabilir.
 
 ### <a name="key-concepts"></a>Önemli kavramlar
-* **Satır kümesi değişkenleri**: bir satır üretir her sorgu ifadesi bir değişkene atanabilir. U-SQL T-SQL değişken adlandırma desenini izler (`@searchlog`, örneğin) bir komut.
+* **Satır kümesi değişkenleri**: Bir satır üretir her sorgu ifadesi, bir değişkene atanabilir. U-SQL T-SQL değişken adlandırma desenini izler (`@searchlog`, örneğin) bir komut.
 * **AYIKLAMAK** anahtar sözcüğü bir dosyadan verileri okur ve okuma sırasında şema tanımlar. `Extractors.Tsv` Yerleşik bir U-SQL ayıklayıcısı için sekmesinde ayrılmış değer dosyaları olur. Özel ayıklayıcı geliştirebilirsiniz.
 * **Çıkış** veri satır kümesinden bir dosyaya yazar. `Outputters.Csv()` bir virgülle ayrılmış değer dosyası oluşturmak için yerleşik bir U-SQL outputter olur. Özel çıktı geliştirebilirsiniz.
 
@@ -117,7 +117,7 @@ Kullanım **seçin** satır kümeleri dönüştürmek için:
         TO "/output/SearchLog-transform-rowsets.csv"
         USING Outputters.Csv();
 
-WHERE yan tümcesi kullanan bir [C# Boolean ifadesi](https://msdn.microsoft.com/library/6a71f45d.aspx). C# ifade dili kendi ifadeler ve İşlevler yapmak için kullanabilirsiniz. Ayrıca, mantıksal bağlaçlar (Equal) ve disjunctions (ORs) birleştirerek daha karmaşık filtreleme bile gerçekleştirebilirsiniz.
+WHERE yan tümcesi kullanan bir [C# Boolean ifadesi](/dotnet/csharp/language-reference/operators/index). C# ifade dili kendi ifadeler ve İşlevler yapmak için kullanabilirsiniz. Ayrıca, mantıksal bağlaçlar (Equal) ve disjunctions (ORs) birleştirerek daha karmaşık filtreleme bile gerçekleştirebilirsiniz.
 
 Aşağıdaki betiği DateTime.Parse() yöntemi ve bir birlikte kullanır.
 
@@ -222,8 +222,8 @@ U-SQL HAVING tümcesine çıkış HAVING koşulu karşılayan gruplarına kısı
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-Gelişmiş toplama senaryoları için U-SQL başvuru belgelerine bakın [toplama, analiz ve başvuru işlevleri](https://msdn.microsoft.com/library/azure/mt621335.aspx)
+Gelişmiş toplama senaryoları için U-SQL başvuru belgelerine bakın [toplama, analiz ve başvuru işlevleri](/u-sql/built-in-functions)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Microsoft Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md)
-* [Visual Studio için Data Lake araçları kullanarak U-SQL betikleri geliştirme](data-lake-analytics-data-lake-tools-get-started.md)
+* [Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme](data-lake-analytics-data-lake-tools-get-started.md)

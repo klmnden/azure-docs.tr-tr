@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02c12a8cc8163fa70008b21995ddb35aec57dfcf
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579691"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470619"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Gruplara erişimi gözden geçirmek veya Azure AD uygulama erişim gözden geçirmeleri
 
@@ -46,7 +46,7 @@ E-posta yoksa, aşağıdaki adımları izleyerek, beklemedeki erişim gözden ge
 
 1. Sayfanın sağ üst köşesinde yer alan ve adınızla varsayılan kuruluşunuzun gösterildiği kullanıcı simgesine tıklayın. Listede birden fazla kuruluş varsa erişim gözden geçirmesi isteğinde bulunan kuruluşu seçin.
 
-1. Sayfanın sağ tarafında tıklayın **erişim gözden geçirmeleriyle** beklemedeki erişim gözden geçirmeleri listesini görmek için kutucuğu.
+1. Tıklayın **erişim gözden geçirmeleriyle** beklemedeki erişim gözden geçirmeleri listesini görmek için kutucuğu.
 
     Kutucuk yoksa ilgili kuruluş için bekleyen erişim gözden geçirmesi yoktur ve herhangi bir işlem yapmanız gerekmez.
 
@@ -71,11 +71,13 @@ Onaylama veya reddetme erişim iki yolu vardır:
 
 1. Onaylayın veya reddedin sürekli erişimleri karar vermek için kullanıcıların listesini gözden geçirin.
 
-1. Onaylayın veya reddedin her istek için satırın gerçekleştirilecek eylemi belirtmek için penceresini açmak için tıklayın.
+1. Onaylayın veya reddedin her istek için satırın gerçekleştirilecek eylemi belirtmek için bir pencere açmak için tıklayın.
 
 1. Tıklayın **onaylama** veya **Reddet**. Emin değilseniz, tıklayabilirsiniz **bilmiyorum**. Bunun yapılması, kullanıcının kendi erişimi sürdürmek neden olur, ancak seçimi denetim günlüklerinde yansıtılır.
 
     ![Erişim değerlendirmesi gerçekleştirme](./media/perform-access-review/approve-deny.png)
+
+1. Gerekirse, bir neden girin **neden** kutusu.
 
     Erişim gözden geçirmesi Yöneticisi sürekli erişim veya grup üyeliği onaylama için bir neden sağlamanızı gerektirebilir.
 

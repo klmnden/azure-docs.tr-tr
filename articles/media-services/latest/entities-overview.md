@@ -1,6 +1,6 @@
 ---
-title: V3 API'ler - Azure ile geliştirme | Microsoft Docs
-description: Bu makalede, Media Services v3 ile geliştirirken varlıkları ve API'ler için geçerli kurallar açıklanmaktadır.
+title: Filtreleme, sıralama, sayfalama Media Services varlıklarının - Azure | Microsoft Docs
+description: Bu makalede, filtreleme, sıralama, sayfalama Azure Media Services varlıklarının açıklanmaktadır.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,64 +9,17 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a5ab0b25a2a2db764854982b1a6801ce4f857dda
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 28c880e8709074d808a41d9920361eaa2b20ecc4
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891965"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470874"
 ---
-# <a name="developing-with-media-services-v3-apis"></a>V3 API'ler Media Services ile geliştirme
-
-Bu makalede, Media Services v3 ile geliştirirken varlıkları ve API'ler için geçerli kurallar açıklanmaktadır.
-
-## <a name="naming-conventions"></a>Adlandırma kuralları
-
-Azure Media Services v3 kaynaklarının adları (Varlıklar, İşler, Dönüşümler gibi), Azure Resource Manager adlandırma kısıtlamalarına tabidir. Azure Resource Manager uyarınca kaynak adları her zaman benzersizdir. Bu nedenle kaynaklarınızda benzersiz tanıtıcı dizeleri (GUID gibi) kullanabilirsiniz. 
-
-Media Services kaynak adları şu karakterleri içeremez: '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', tek tırnak karakteri veya kontrol karakterleri. Diğer tüm karakterlere izin verilir. Bir kaynağın adı en fazla 260 karakter olabilir. 
-
-Azure Resource Manager adlandırma hakkında daha fazla bilgi için bkz: [Adlandırma gereksinimlerini](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) ve [adlandırma kuralları](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
-
-## <a name="v3-api-design-principles"></a>V3 API tasarım ilkeleri
-
-v3 API’nin temel tasarım ilkelerinden biri API’yi daha güvenli hale getirmektir. v3 API’ler **Get** veya **List** işlemlerinde gizli diziler ve kimlik bilgileri döndürmez. Anahtarlar her zaman null, boş veya yanıttan ayıklanmış olur. Gizli dizileri ve kimlik bilgilerini almak için ayrı bir eylem yöntemi çağırmanız gerekir. Bazı API’ler gizli dizileri alır ve görüntülerken diğer API'lerin bunu yapmaması durumunda, ayrı eylemler farklı RBAC güvenlik izinleri ayarlamanızı sağlar. RBAC kullanarak erişimi yönetme hakkında daha fazla bilgi için bkz. [Erişimi yönetmek için RBAC kullanma](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
-
-Bu örnekleri:
-
-* ContentKey değerler döndüren değil StreamingLocator alın.
-* Kısıtlama anahtarlarını döndürme değil ContentKeyPolicy alın.
-* İşlerin HTTP giriş URL'lerini (imza kaldırmak için) URL'si sorgu dizesi parçasını döndürme değil.
-
-Bkz: [içerik anahtarı ilkesi - .NET edinme](get-content-key-policy-dotnet-howto.md) örnek.
-
-## <a name="long-running-operations"></a>Uzun süre çalışan işlemler
-
-Sahip olarak işaretlenen işlemler `x-ms-long-running-operation` Azure Media Services [dosyaları swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) uzun süren işlemlere. 
-
-Azure zaman uyumsuz işlemleri izleme hakkında daha fazla ayrıntı için bkz: [zaman uyumsuz işlemler](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
-
-Media Services, aşağıdaki uzun süre çalışan işlemler bulunur:
-
-* Livestream oluşturma
-* Livestream güncelleştir
-* Delete LiveEvent
-* Livestream Başlat
-* Livestream Durdur
-* Livestream Sıfırla
-* LiveOutput oluşturma
-* LiveOutput Sil
-* StreamingEndpoint oluşturma
-* Güncelleştirme StreamingEndpoint
-* StreamingEndpoint Sil
-* StreamingEndpoint Başlat
-* StreamingEndpoint Durdur
-* Ölçek StreamingEndpoint
-
-## <a name="filtering-ordering-paging-of-media-services-entities"></a>Media Services varlıkların filtreleme, sıralama, sayfalama
+# <a name="filtering-ordering-paging-of-media-services-entities"></a>Media Services varlıkların filtreleme, sıralama, sayfalama
 
 Media Services Media Services v3 varlıklar için aşağıdaki OData sorgu seçeneklerini destekler: 
 
@@ -86,7 +39,7 @@ Media Services Media Services v3 varlıklar için aşağıdaki OData sorgu seçe
 
 Datetime türü bir varlık özellikleri her zaman UTC biçimindedir.
 
-### <a name="page-results"></a>Sonuçlar sayfası
+## <a name="page-results"></a>Sonuçlar sayfası
 
 Sorgu yanıtına fazla öğe içeriyorsa, hizmet döndürür bir "\@odata.nextLink" sonraki sonuç sayfasını alınacağı özellik. Bu kullanılabilir sonuç kümesinin tamamı aracılığıyla sayfası. Sayfa boyutunu yapılandıramazsınız. Sayfa boyutunu varlık türüne göre değişir. ayrı ayrı bölümlerde ayrıntıları için lütfen okuyun.
 
@@ -95,9 +48,9 @@ Varlıkları oluşturduysanız veya çalışırken disk belleği koleksiyonu ara
 > [!TIP]
 > Koleksiyon listeleme ve belirli bir sayfa bağımlı olmadan her zaman sonraki bağlantısını kullanmanız gerekir.
 
-### <a name="assets"></a>Varlıklar
+## <a name="assets"></a>Varlıklar
 
-#### <a name="filteringordering"></a>Filtreleme ve sıralama
+### <a name="filteringordering"></a>Filtreleme ve sıralama
 
 Aşağıdaki tablo nasıl filtreleme ve sıralama seçenekleri uygulanabilir gösterir [varlık](https://docs.microsoft.com/rest/api/media/assets) özellikleri: 
 
@@ -122,11 +75,11 @@ var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:0
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
 ```
 
-#### <a name="pagination"></a>Sayfalandırma 
+### <a name="pagination"></a>Sayfalandırma 
 
 Sayfalandırma her dört etkin sıralama düzenleri desteklenir. Şu anda, sayfa boyutu 1000'dir.
 
-##### <a name="c-example"></a>C# örneği
+#### <a name="c-example"></a>C# örneği
 
 Aşağıdaki C# örneği, hesaptaki tüm varlıkları aracılığıyla listeleme gösterilmiştir.
 
@@ -140,7 +93,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-##### <a name="rest-example"></a>REST örneği
+#### <a name="rest-example"></a>REST örneği
 
 $Skiptoken kullanıldığı aşağıdaki örneği göz önünde bulundurun. Değiştirdiğiniz emin *amstestaccount* hesap adınız ve küme *api sürümü* en son sürüme değeri.
 
@@ -182,9 +135,9 @@ https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/
 
 Daha fazla diğer örnekler için bkz [varlıklar - liste](https://docs.microsoft.com/rest/api/media/assets/list)
 
-### <a name="content-key-policies"></a>İçerik Anahtar İlkeleri
+## <a name="content-key-policies"></a>İçerik Anahtar İlkeleri
 
-#### <a name="filteringordering"></a>Filtreleme ve sıralama
+### <a name="filteringordering"></a>Filtreleme ve sıralama
 
 Aşağıdaki tabloda bu seçeneklerin nasıl uygulanabilir gösterilmektedir [içerik anahtar ilkeleri](https://docs.microsoft.com/rest/api/media/contentkeypolicies) özellikleri: 
 
@@ -199,7 +152,7 @@ Aşağıdaki tabloda bu seçeneklerin nasıl uygulanabilir gösterilmektedir [i�
 |properties.policyId|Eq, ne||
 |type|||
 
-#### <a name="pagination"></a>Sayfalandırma
+### <a name="pagination"></a>Sayfalandırma
 
 Sayfalandırma her dört etkin sıralama düzenleri desteklenir. Şu anda, sayfa boyutu 10'dur.
 
@@ -217,9 +170,9 @@ while (currentPage.NextPageLink != null)
 
 Diğer örnekler için bkz [içerik anahtar ilkeleri - liste](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
 
-### <a name="jobs"></a>İşler
+## <a name="jobs"></a>İşler
 
-#### <a name="filteringordering"></a>Filtreleme ve sıralama
+### <a name="filteringordering"></a>Filtreleme ve sıralama
 
 Aşağıdaki tabloda bu seçeneklerin nasıl uygulanabilir gösterilmektedir [işleri](https://docs.microsoft.com/rest/api/media/jobs) özellikleri: 
 
@@ -230,8 +183,7 @@ Aşağıdaki tabloda bu seçeneklerin nasıl uygulanabilir gösterilmektedir [i�
 | Properties.Created      | gt, lt, le ge| Artan veya azalan|
 | properties.lastModified | gt, lt, le ge | Artan veya azalan| 
 
-
-#### <a name="pagination"></a>Sayfalandırma
+### <a name="pagination"></a>Sayfalandırma
 
 Sayfalandırma işleri, Media Services v3 sürümünde desteklenir.
 
@@ -265,9 +217,9 @@ while (!exit);
 
 Diğer örnekler için bkz [işler - liste](https://docs.microsoft.com/rest/api/media/jobs/list)
 
-### <a name="streaming-locators"></a>Akış Bulucuları
+## <a name="streaming-locators"></a>Akış Bulucuları
 
-#### <a name="filteringordering"></a>Filtreleme ve sıralama
+### <a name="filteringordering"></a>Filtreleme ve sıralama
 
 Aşağıdaki tabloda bu seçeneklerin StreamingLocator özelliklerine nasıl uygulanabilir gösterilmektedir: 
 
@@ -286,7 +238,7 @@ Aşağıdaki tabloda bu seçeneklerin StreamingLocator özelliklerine nasıl uyg
 |properties.streamingPolicyName |||
 |type   |||
 
-#### <a name="pagination"></a>Sayfalandırma
+### <a name="pagination"></a>Sayfalandırma
 
 Sayfalandırma her dört etkin sıralama düzenleri desteklenir. Şu anda, sayfa boyutu 10'dur.
 
@@ -304,9 +256,9 @@ while (currentPage.NextPageLink != null)
 
 Diğer örnekler için bkz [akış bulucuları - liste](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
 
-### <a name="streaming-policies"></a>Akış İlkeleri
+## <a name="streaming-policies"></a>Akış İlkeleri
 
-#### <a name="filteringordering"></a>Filtreleme ve sıralama
+### <a name="filteringordering"></a>Filtreleme ve sıralama
 
 Aşağıdaki tabloda bu seçeneklerin StreamingPolicy özelliklerine nasıl uygulanabilir gösterilmektedir: 
 
@@ -322,7 +274,7 @@ Aşağıdaki tabloda bu seçeneklerin StreamingPolicy özelliklerine nasıl uygu
 |properties.noEncryption|||
 |type|||
 
-#### <a name="pagination"></a>Sayfalandırma
+### <a name="pagination"></a>Sayfalandırma
 
 Sayfalandırma her dört etkin sıralama düzenleri desteklenir. Şu anda, sayfa boyutu 10'dur.
 
@@ -340,10 +292,9 @@ while (currentPage.NextPageLink != null)
 
 Diğer örnekler için bkz [akış ilkeleri - liste](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
 
+## <a name="transform"></a>Dönüşüm
 
-### <a name="transform"></a>Dönüşüm
-
-#### <a name="filteringordering"></a>Filtreleme ve sıralama
+### <a name="filteringordering"></a>Filtreleme ve sıralama
 
 Aşağıdaki tabloda bu seçeneklerin nasıl uygulanabilir gösterilmektedir [dönüştüren](https://docs.microsoft.com/rest/api/media/transforms) özellikleri: 
 

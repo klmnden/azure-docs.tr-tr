@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: c380f0391c51628b0eb71723a0faf982a4399680
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 9c0283081bd7245b1b886ed82ba03130a7a3bf2c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887769"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470276"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Azure İzleyici'de Görünüm Tasarımcısı kutucukları için başvuru kılavuzu
 Azure İzleyici'de görünüm Tasarımcısını kullanarak, Azure portalında Log Analytics çalışma alanınızdaki veri görselleştirmenize yardımcı olabilecek çeşitli özel görünümler oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir kutucuk ayarlarını bir başvuru kılavuzudur.
@@ -42,6 +42,9 @@ Kullanılabilir Görünüm Tasarımcısı kutucuklar, aşağıdaki tabloda açı
 
 Sonraki bölümlerde, kutucuk türleri ve bunların özelliklerini ayrıntılı açıklanmaktadır.
 
+> [!NOTE]
+> Görünümlerde kutucukları temel [oturum sorguları](../log-query/log-query-overview.md) Log Analytics çalışma alanınızda. Şu anda desteklemediği [çapraz kaynak sorgularını](../log-query/cross-workspace-query.md) uygulama anlayışları'ndan veri alınamadı.
+
 ## <a name="number-tile"></a>Bir sayı kutucuğu
 **Numarası** kutucuk her iki günlük sorgusu ve bir etiket kayıt sayısını görüntüler.
 
@@ -51,7 +54,7 @@ Sonraki bölümlerde, kutucuk türleri ve bunların özelliklerini ayrıntılı 
 |:--- |:--- |
 | Ad |Kutucuğun üst kısmında görüntülenen metin. |
 | Açıklama |Kutucuk adı altında görüntülenen metin. |
-| **kutucuğu** | |
+| **Kutucuk** | |
 | Gösterge |Değerin altında görüntülenen metin. |
 | Sorgu |Sorgu çalıştırılır. Sorgu tarafından döndürülen kayıtları sayısı görüntülenir. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
@@ -69,10 +72,10 @@ Bu kutucuk, her iki farklı günlük sorguları ve bir etiket kayıtları sayıs
 |:--- |:--- |
 | Ad |Kutucuğun üst kısmında görüntülenen metin. |
 | Açıklama |Kutucuk adı altında görüntülenen metin. |
-| **İlk kutucuk** | |
+| **İlk Kutucuk** | |
 | Gösterge |Değerin altında görüntülenen metin. |
 | Sorgu |Sorgu çalıştırılır. Sorgu tarafından döndürülen kayıtları sayısı görüntülenir. |
-| **İkinci kutucuk** | |
+| **İkinci Kutucuk** | |
 | Gösterge |Değerin altında görüntülenen metin. |
 | Sorgu |Sorgu çalıştırılır. Sorgu tarafından döndürülen kayıtları sayısı görüntülenir. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |

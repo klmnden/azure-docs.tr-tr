@@ -17,16 +17,16 @@ ms.workload: na
 ms.date: 03/14/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e6cb875aa686d9e2d0ba7bf51563d3b51b1572a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d6af7106e991f0306ae2fef69129888219a9c0e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094237"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469531"
 ---
 # <a name="upgrade-your-free-trial-or-azure-for-students-starter-subscription-to-pay-as-you-go"></a>Kullandıkça Öde aboneliğine Öğrenciler için ücretsiz deneme sürümü ya da Azure'ı yükseltme
 
-Varsa bir [ücretsiz deneme](https://azure.microsoft.com/free/), Yükseltme yapabileceğiniz bir [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) Azure portalında abonelik. Varsa bir [Öğrenciler için Azure başlangıç](https://azure.microsoft.com/offers/ms-azr-0144p/) aboneliği yükseltebilirsiniz [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) Azure hesap Merkezi'nde.
+Varsa bir [ücretsiz deneme](https://azure.microsoft.com/free/) veya [Öğrenciler için Azure başlangıç](https://azure.microsoft.com/offers/ms-azr-0144p/) aboneliği yükseltebilirsiniz [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) Azure portalında. Azure Öğrenci başlangıç aboneliği olan ve ücretsiz deneme için uygun olan, ücretsiz deneme sürümünden yükseltme yapabilirsiniz.
 
 <a id="freetrial"></a>
 
@@ -35,9 +35,9 @@ Varsa bir [ücretsiz deneme](https://azure.microsoft.com/free/), Yükseltme yapa
 Ücretsiz Deneme aboneliğinden yükseltme yaptığınızda kalan krediniz aboneliği oluşturduğunuz tarihten itibaren 30 gün boyunca korunur. Ayrıca 12 ay boyunca ücretsiz hizmetlere erişmeye devam edebilirsiniz.
 
 1. [Azure portalda](https://portal.azure.com) oturum açma
-1. Arama **maliyet Yönetimi + faturalandırma.**
+1. Arama **abonelikler.**
 
-    ![Arama gösteren ekran görüntüsü](./media/billing-upgrade-azure-subscription/search.png)
+    ![Arama gösteren ekran görüntüsü](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
 
 1. Ücretsiz deneme aboneliğinizi seçin.
 1. Abonelik genel bakış dikey penceresinde **yükseltme abonelik** komut çubuğunda.
@@ -63,15 +63,24 @@ Varsa bir [ücretsiz deneme](https://azure.microsoft.com/free/), Yükseltme yapa
 
 ## <a name="upgrade-your-azure-for-students-starter-subscription-to-pay-as-you-go"></a>Azure Öğrenci başlangıç aboneliği için Kullandıkça Öde aboneliğine yükseltme
 
-1. [Azure Hesap Merkezi](https://account.windowsazure.com/subscriptions)'nde oturum açın.
+Aşağıdaki adımları izlediğinizde, biz size ücretsiz deneme için uygun durumda yükseltme seçeneği sunar.
+
+1. [Azure portalda](https://portal.azure.com) oturum açma
+1. Arama **abonelikler.**
+
+    ![Arama gösteren ekran görüntüsü](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
+
 1. Abonelik Öğrenciler için Azure'ı seçin.
-1. Altında **abonelik durumu**, tıklayın **şimdi yükseltin**.
+1. Abonelik genel bakış dikey penceresinde **yükseltme abonelik** komut çubuğunda.
 
-    ![Yükseltme için Öğrenci gösteren ekran görüntüsü](./media/billing-upgrade-azure-subscription/student-upgrade-button.png)
+    ![Ekran Öğrenciler için Yükselt düğmesini gösterir](./media/billing-upgrade-azure-subscription/student-upgrade-ibiza.png)
 
-1. Aboneliğiniz için bir ad girin.
+1. Kullandıkça Öde aboneliğine yükseltme yapıyorsanız ve bir ödeme yöntemi için aboneliğiniz yoksa, bir eklemeniz istenir.
+1. Kimliğinizi doğrulamak için bir telefon numarası girmeniz gerekebilir.
+1. Aboneliğiniz için bir ad yazın.
+1. Kullandıkça Öde aboneliğine yükseltme yapıyorsanız, aboneliğiniz için bir destek planı seçin. Destek planları hakkında daha fazla bilgi için bkz: [Azure destek planları](https://azure.microsoft.com/us/support/plans/).
 
-1. Tıklayın **şimdi yükseltin**.
+1. Tıklayın **yükseltme**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

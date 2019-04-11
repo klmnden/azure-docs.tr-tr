@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: jowargo
-ms.openlocfilehash: a86c3bd85f9d611787a41754f49ee2475ba33a9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c24fcd5f007b641bb594bb07348491f70c03ea41
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58175797"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469140"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Azure Notification hubs'ı kayıtları toplu halde alma ve verme
 Hangi oluşturmak veya bir bildirim hub'ı kayıtları çok sayıda değiştirmek için gereklidir senaryo vardır. Bu senaryolardan bazıları batch hesaplamaları şu veya bildirim hub'ları kullanmak için mevcut bir anında iletme uygulamasına geçirirken etiketi güncelleştirmelerdir.
@@ -34,7 +34,7 @@ Bu bölümde, aşağıdaki varlıkların olduğunu varsayar:
 
 - Sağlanan bildirim hub.
 - Bir Azure depolama blob kapsayıcısı.
-- Azure depolama ve Azure Service Bus NuGet paket başvuruları.
+- Başvurular [Azure depolama NuGet paketini](https://www.nuget.org/packages/windowsazure.storage/) ve [Notification Hubs NuGet paketini](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/1.0.9).
 
 ### <a name="create-input-file-and-store-it-in-a-blob"></a>Giriş dosyası oluşturma ve blob depolama
 Giriş dosyası kayıtları satır başına bir XML seri hale getirilmiş bir listesini içerir. Aşağıdaki kod örneği, Azure SDK'sını kullanarak, kayıtları seri hale getirmek ve bunları blob kapsayıcısına yüklemek nasıl gösterir.
@@ -132,7 +132,7 @@ Bu dosyalar, batch gelen başarılı ve başarısız işlemlerin listesini içer
 Aşağıdaki örnek kod, bir bildirim hub'ına kayıtları alır.
 
 ```csharp
-using Microsoft.ServiceBus.Notifications;
+using Microsoft.Azure.NotificationHubs;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;
@@ -288,6 +288,6 @@ while(true){
 ## <a name="next-steps"></a>Sonraki adımlar
 Kayıtları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-- [Kayıt Yönetimi](notification-hubs-push-notification-registration-management.md)
+- [Kayıt yönetimi](notification-hubs-push-notification-registration-management.md)
 - [Kayıtlar için etiketler](notification-hubs-tags-segment-push-message.md)
 - [Şablon kayıtları](notification-hubs-templates-cross-platform-push-messages.md)

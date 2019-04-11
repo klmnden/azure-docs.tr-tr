@@ -5,16 +5,18 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: b55f8d44d12fa503a17218db4a5166819024f1aa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.date: 04/09/2018
+ms.openlocfilehash: 017266fd28fb31b4509957560a042abf74314453
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872905"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469463"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Oluşturma ve Azure portalını kullanarak Azure veritabanı için MySQL güvenlik duvarı kurallarını yönetme
-Sunucu düzeyinde güvenlik duvarı kuralları, yöneticilerin belirtilen bir IP adresi veya bir IP adresi aralığı MySQL Server için Azure veritabanı erişmeye olanak tanır. 
+Sunucu düzeyinde güvenlik duvarı kuralları, bir Azure veritabanı'na MySQL sunucusu için belirtilen bir IP adresi veya bir IP adresi aralığı erişimi yönetmek için kullanılabilir. 
+
+Sanal ağ (VNet) kuralları, sunucunuza erişim güvenliğini sağlamak için de kullanılabilir. Daha fazla bilgi edinin [oluşturma ve yönetme sanal ağ hizmet uç noktaları ve Azure portalını kullanarak kurallar](howto-manage-vnet-using-portal.md).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Azure portalında sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma
 
@@ -57,4 +59,5 @@ Güvenlik duvarı kurallarını yönetme adımlarını yineleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Benzer şekilde, yazabilirsiniz [oluşturun ve Azure veritabanı Azure CLI kullanarak MySQL için güvenlik duvarı kurallarını yönetme](howto-manage-firewall-using-cli.md).
-- MySQL sunucusu için Azure veritabanı bağlanma konusunda yardım için bkz [MySQL için Azure veritabanı için bağlantı kitaplıkları](./concepts-connection-libraries.md)
+- Daha fazla güvenli sunucunuz tarafından erişim [oluşturma ve yönetme sanal ağ hizmet uç noktaları ve Azure portalını kullanarak kurallar](howto-manage-vnet-using-portal.md).
+- MySQL sunucusu için Azure veritabanı bağlanma konusunda yardım için bkz [MySQL için Azure veritabanı için bağlantı kitaplıkları](./concepts-connection-libraries.md).

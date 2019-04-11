@@ -36,6 +36,8 @@ items:
   items:
   - name: Cihazları bağlama
     items:
+    - name: Cihaz bağlantı dizesi oluşturma
+      href: howto-generate-connection-string.md
     - name: Node.js (genel) uygulamasını hazırlama ve bağlama
       href: howto-connect-nodejs.md
     - name: MXChip IoT DevKit’i hazırlama ve bağlama
@@ -144,9 +146,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: Desteklenen tarayıcılar
     href: iot-central-supported-browsers.md
-ms.openlocfilehash: 09145448edd42e03b77abde46a120ade1631d6bf
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 277b1ca0a239bddc02ca32d93ca1ffebbf542240
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520743"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425908"

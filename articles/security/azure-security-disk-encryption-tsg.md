@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 48cf0f2e219d141a039f508f0ea948aa5c78b882
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838281"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470704"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk şifrelemesi sorun giderme kılavuzu
 
@@ -49,6 +49,14 @@ VM yeni çekirdeğe yeniden başlatıldıktan sonra yeni çekirdek sürümü kul
 ```
 uname -a
 ```
+
+## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Uzantı sürümleri ve Azure sanal makine aracısını güncelleştir
+
+Azure Disk şifrelemesi işlemleri, Azure sanal makine Aracısı'nın desteklenmeyen sürümleri kullanılarak sanal makine görüntülerinde başarısız olabilir. Daha fazla bilgi için bkz [azure'da sanal makine aracıları için Minimum sürüm desteği](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).  
+
+Microsoft.Azure.Security.AzureDiskEncryption veya Microsoft.Azure.Security.AzureDiskEncryptionForLinux Konuk Aracısı uzantısı doğru sürümünü de gereklidir. Uzantı sürümleri tutulur ve Azure sanal makine Aracısı önkoşullara uyduğunuzdan ve desteklenen bir sanal makine Aracısı sürümü kullanıldığında platform tarafından otomatik olarak güncelleştirilir.
+
+Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux uzantı kullanım dışı bırakıldı ve artık desteklenmiyor.  
 
 ## <a name="unable-to-encrypt-linux-disks"></a>Linux diskleri şifrelenemiyor
 

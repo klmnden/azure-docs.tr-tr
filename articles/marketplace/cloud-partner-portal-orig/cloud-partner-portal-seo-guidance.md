@@ -1,5 +1,5 @@
 ---
-title: Azure Market SEO yayımcı Kılavuzu | Microsoft Docs
+title: Azure Market SEO Kılavuzu | Microsoft Docs
 description: Arama motoru iyileştirmesi (SEO) en üst düzeye konusunda rehberlik yapmaktadır.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,21 +12,23 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 04/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: cacc7c0b269e8006903961049caf3cd7e3bee449
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: da7b59400baa4c964dff71fa1f842fede9d68df1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834345"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469667"
 ---
-<a name="azure-marketplace-seo-publisher-guide"></a>Azure Market SEO yayımcı Kılavuzu
-=======================================
+# <a name="azure-marketplace-seo-guidance"></a>Azure Market SEO Kılavuzu
 
-### <a name="general-explanation-of-algorithm"></a>Genel bir algoritma açıklaması
+Bu makalede, ürününüzün bulunabilirliği arama işlevleri aracılığıyla en üst düzeye çıkarmak açıklanmaktadır [Azure Marketi](https://azuremarketplace.microsoft.com) ve [AppSource](https://appsource.microsoft.com). 
 
-Market için sitenin arama özellikleri destekleyen Azure Search kullanır. Algoritma terimi sıklığı – ters belge sıklığına bağlıdır ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). Standart [Lucene çözümleyici](https://lucene.apache.org/core/) kullanılır.
+
+## <a name="general-explanation-of-algorithm"></a>Genel bir algoritma açıklaması
+
+Microsoft marketleri için sitenin arama özellikleri destekleyen Azure Search kullanır. Algoritma terimi sıklığı – ters belge sıklığına bağlıdır ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). Standart [Lucene çözümleyici](https://lucene.apache.org/core/) kullanılır.
 
 Genel olarak, tüm metin alanları, kategoriler ve sektörler ve ilgi weightage dahil. Uygulamalar tarafından ancak uygulamanızda sık sık kullanılan özelleştirilmiş koşulları arama daha yüksek bir eşleşme puanıyla oluşturur. Bu nedenle "VM" gibi terimler dahil olmak üzere, "Azure arama" çok daha özel ancak küçük avantajı sunar.
 Dikkate alınması gereken en uygun alanları aşağıda verilmiştir.
@@ -42,7 +44,7 @@ Dikkate alınması gereken en uygun alanları aşağıda verilmiştir.
 |  |  |  |
 
 
-### <a name="other-tips"></a>Diğer ipuçları
+## <a name="other-tips"></a>Diğer ipuçları
 
 -   Arama alır yoğun bir kullanıcı etkinliği önerir. Bu, uygulama adı/yayımcısı karşı eşleşme önceliklendirir. Kısa açıklama arama terimi yayımcı/uygulama adı ile tam bir eşleşme olmadığında için anahtar alanı olur.
 -   Belgeleri indirmek için arama weightage içinde yer almaz.

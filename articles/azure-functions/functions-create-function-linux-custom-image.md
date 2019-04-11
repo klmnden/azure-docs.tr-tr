@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 92811110ef44676de487bca1ad2022cb63315c75
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 03e1ec58b0ef3ad50a04f82ced7d20119ab3ef5b
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418066"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470075"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Linux üzerinde özel görüntü kullanarak bir işlev oluşturma
 
@@ -65,7 +65,7 @@ func init MyFunctionProj --docker
 
 İstendiğinde, şu dillerden bir alt çalışma zamanı seçin:
 
-* `dotnet`: yeni bir .NET Core sınıf kitaplığı projesi (.csproj) oluşturur.
+* `dotnet`: bir .NET sınıf kitaplığı proje (.csproj) oluşturur.
 * `node`: bir JavaScript projesi oluşturur.
 * `python`: bir Python projesi oluşturur.
 
@@ -255,6 +255,16 @@ AzureWebJobsStorage=$storageConnectionString
 Artık Azure’da Linux üzerinde çalışan işlevlerinizi test edebilirsiniz.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
+
+## <a name="enable-application-insights"></a>Application Insights'ı etkinleştirme
+
+İşlevlerinizin yürütülmesini izlemek için önerilen yöntem, işlev uygulamanızı Azure Application Insights ile tümleştirerek ' dir. Bu tümleştirme, Azure portalında bir işlev uygulaması oluşturduğunuzda, sizin için varsayılan olarak gerçekleştirilir. Ancak, Azure CLI kullanarak işlev uygulamanızı oluşturmak, işlev uygulamanızı azure'da tümleştirme bitti değil.
+
+İşlev uygulamanız için Application Insights'ı etkinleştirmek için:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+Daha fazla bilgi için bkz. [İzleyici Azure işlevleri](functions-monitoring.md).
 
 ## <a name="enable-continuous-deployment"></a>Sürekli dağıtımı etkinleştirme
 

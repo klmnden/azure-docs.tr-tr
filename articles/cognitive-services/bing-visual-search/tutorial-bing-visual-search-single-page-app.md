@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 04/05/2019
 ms.author: aahi
-ms.openlocfilehash: e06fd7a4b2d072e5528643c2c8517d7545c36ef3
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 084aad5540a2bd56d98e343639a45c16f786e599
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338663"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469106"
 ---
-# <a name="create-a-visual-search-single-page-web-app"></a>Görsel arama tek sayfa web uygulaması oluşturma 
+# <a name="create-a-visual-search-single-page-web-app"></a>Görsel arama tek sayfa web uygulaması oluşturma
 
-Bing görsel arama API'sine Bing.com/images üzerinde gösterilen görüntü ayrıntılarını için benzer bir deneyim sağlar. Görsel Arama ile bir görüntü belirtebilir ve görüntü hakkında görsel olarak benzer görüntüler, alışveriş kaynakları ve görüntüyü içeren web sayfaları gibi içgörüler alabilirsiniz. 
+Bing görsel arama API'si, bir görüntü için ınsights döndürür. Bir görüntüyü karşıya yükleme veya bir URL sağlayın. Insights olan görsel açıdan benzer resimler, alışveriş kaynakları, görüntü ve daha fazlasını içeren Web sayfaları. Bing görsel arama API'si tarafından döndürülen ınsights olanları Bing.com/images üzerinde gösterilen benzerdir.
 
-Bu makalede, Bing resim arama API'si için bir tek sayfalı web uygulamasını genişletmek açıklanmaktadır. Bu öğreticiyi görüntüleyin ya da burada kullanılan kaynak kodu alma hakkında bilgi için bkz: [Öğreticisi: Bing resim arama API'si için bir tek sayfalı uygulama oluşturma](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md). 
+Bu öğreticide, Bing resim arama API'si için bir tek sayfalı web uygulamasını genişletmek açıklanmaktadır. Bu öğreticiyi görüntüleyin ya da burada kullanılan kaynak kodu alma hakkında bilgi için bkz: [Öğreticisi: Bing resim arama API'si için bir tek sayfalı uygulama oluşturma](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md).
 
 (Bing görsel arama API'sine kullanacak şekilde genişlettikten sonra), bu uygulama için tam kaynak kodunu edinilebilir [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
 
@@ -31,7 +31,7 @@ Bu makalede, Bing resim arama API'si için bir tek sayfalı web uygulamasını g
 
 ## <a name="call-the-bing-visual-search-api-and-handle-the-response"></a>Bing görsel arama API'sine çağrı ve yanıt işleme
 
-Bing resim arama Öğreticisi düzenleyin ve sonuna aşağıdaki kodu ekleyin `<script>` öğesi (ve kapatmadan önce `</script>` etiketi). Aşağıdaki kod, görsel arama API'si yanıtı işler, sonuçları yinelenir ve bunları görüntüler.
+Bing resim arama Öğreticisi düzenleyin ve sonuna aşağıdaki kodu ekleyin `<script>` öğesi (ve kapatmadan önce `</script>` etiketi). Aşağıdaki kod, görsel arama API'si yanıtı işler, sonuçları yinelenir ve bunları görüntüler:
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -63,8 +63,7 @@ function handleVisualSearchResponse(){
 }
 ```
 
-Aşağıdaki kodu çağırmak için bir olay dinleyicisi kullanarak bir arama isteği API'sine gönderir `handleVisualSearchResponse()`.
-
+Aşağıdaki kodu çağırmak için bir olay dinleyicisi kullanarak bir arama isteği API'sine gönderir `handleVisualSearchResponse()`:
 
 ```javascript
 function bingVisualSearch(insightsToken){
@@ -83,8 +82,8 @@ function bingVisualSearch(insightsToken){
     let requestBody = startBoundary + newLine;
     requestBody += bodyHeader;
     requestBody += JSON.stringify(postBody) + newLine + newLine;
-    requestBody += endBoundary + newLine;       
-    
+    requestBody += endBoundary + newLine;
+
     let request = new XMLHttpRequest();
 
     try {
@@ -102,7 +101,7 @@ function bingVisualSearch(insightsToken){
 
 ## <a name="capture-insights-token"></a>İçgörü elde etme belirteci
 
-Aşağıdaki kodu ekleyin `searchItemsRenderer` nesne. Bu kod, tıklandığında `bingVisualSearch` işlevini çağıran bir **benzerlerini bulma** bağlantısı ekler. İşlev imageInsightsToken değerini bağımsız değişken olarak alır.
+Aşağıdaki kodu ekleyin `searchItemsRenderer` nesne. Bu kod, tıklandığında `bingVisualSearch` işlevini çağıran bir **benzerlerini bulma** bağlantısı ekler. İşlev alan `imageInsightsToken` bağımsız değişken olarak.
 
 ``` javascript
 html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + "\");'>find similar</a><br>");
@@ -110,7 +109,7 @@ html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + 
 
 ## <a name="display-similar-images"></a>Benzer resimler görüntüleme
 
-Aşağıdaki HTML kodunu 601. satıra ekleyin. Bu işaretleme kodu Bing Görsel Arama API'si çağrısının sonuçlarını görüntülemek için kullanılan bir öğe ekler.
+Aşağıdaki HTML kodunu 601. satıra ekleyin. Bu işaretleme kodu Bing görsel arama API'sine arama sonuçlarını görüntülemek için bir öğe ekler:
 
 ``` html
 <div id="insights">
@@ -124,4 +123,4 @@ Yeni JavaScript kodu ve HTML öğeleri yerleştirildikten sonra arama sonuçlar�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Kırpma ve bir görüntüyü karşıya yükleme](tutorial-visual-search-crop-area-results.md)
+> [Öğretici: Bing görsel arama için SDK ile görüntü kırpmaC#](tutorial-visual-search-crop-area-results.md)

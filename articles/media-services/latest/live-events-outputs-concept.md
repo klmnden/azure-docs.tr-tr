@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: 1d28701dd35b9d80fd52a1f102c53f2d59d63b09
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 00dab8381c26a6331dd325eacd4a550892bd3411
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762363"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469820"
 ---
 # <a name="live-events-and-live-outputs"></a>Canlı Etkinlikler ve Canlı Çıkışlar
 
@@ -127,7 +127,7 @@ Bir kez **canlı olay** başlatır, akış katkı alma, bir önizleme uç noktas
 
 ## <a name="live-event-long-running-operations"></a>Canlı olay uzun süre çalışan işlemleri
 
-Ayrıntılar için bkz [uzun süre çalışan işlemler](entities-overview.md#long-running-operations)
+Ayrıntılar için bkz [uzun süre çalışan işlemler](media-services-apis-overview.md#long-running-operations)
 
 ## <a name="live-outputs"></a>Canlı Çıkışlar
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b36b6e513e382e25f7d7038f49e7467a21686a0f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311739"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470364"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Mevcut NPS altyapınızı Azure multi-Factor Authentication ile tümleştirme
 
@@ -207,6 +207,8 @@ Bu anahtarı oluşturun ve bunu FALSE olarak ekleme, kullanıcılar ve tüm hen�
 
 Sertifika deposu ve özel anahtarı kullanıcıya verilen izinlere sahip olup olmadığını kontrol edin yükleyici tarafından oluşturulan kendinden imzalı bir sertifika arayın **ağ hizmeti**. Sertifikanın bir konu adını taşıyan **CN \<tenantıd\>, OU = Microsoft NPS uzantısı**
 
+Tarafından oluşturulan otomatik olarak imzalanan sertifikalar *AzureMfaNpsExtnConfigSetup.ps1* betiği Ayrıca iki yıllık bir geçerlilik ömrü vardır. Sertifika yüklü olduğu doğrulanıyor, sertifika süresinin sona ermediğini denetlemeniz gerekir.
+
 -------------------------------------------------------------
 
 ### <a name="how-can-i-verify-that-my-client-cert-is-associated-to-my-tenant-in-azure-active-directory"></a>My istemci sertifikası için Azure Active Directory kiracımdaki ilişkili olduğunu nasıl doğrulayabilirim?
@@ -262,6 +264,14 @@ AD Connect'in çalıştığını ve kullanıcının hem Windows Active Directory
 
 NPS uzantısını çalıştıran sunucudan https://adnotifications.windowsazure.com adresine ulaşılabildiğini doğrulayın.
 
+-------------------------------------------------------------
+
+### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>Neden kimlik doğrulaması, geçerli bir sertifika bulunmasına rağmen çalışmıyor?
+
+Önceki bilgisayar sertifikanızın süresi doldu ve oluşturulan yeni bir sertifika, süresi dolmuş sertifikalarını silmeniz gerekir. Süresi dolmuş sertifikaları sorunlarına neden olabilir NPS uzantısı ile başlayan sahip.
+
+Geçerli bir sertifika varsa denetlemek için yerel bilgisayar hesabının sertifika MMC kullanarak Store denetleyin ve sertifika, sona erme tarihi geçmemiş emin olun. Yeni geçerli bir sertifika oluşturmak için adımları bölümünde yeniden çalıştır "[PowerShell betiğini çalıştırma](#run-the-powershell-script)"
+
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>TLS/SSL Protokollerini ve Şifre Paketlerini yönetme
 
 Eski ve daha zayıf şifre paketleri devre dışı bırakılabilir veya kuruluşunuz tarafından gerekli kılınmadıkça kaldırılması önerilir. Bu görevin nasıl gerçekleştirileceği hakkında bilgiler [AD FS için SSL/TLS Protokollerini ve Şifre Paketlerini Yönetme](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) makalesine bakın
@@ -272,4 +282,4 @@ Eski ve daha zayıf şifre paketleri devre dışı bırakılabilir veya kuruluş
 
 - Nasıl tümleştireceğinizi öğrenin [Uzak Masaüstü Ağ Geçidi](howto-mfa-nps-extension-rdg.md) ve [VPN sunucuları](howto-mfa-nps-extension-vpn.md) NPS uzantısını kullanma
 
-- [Azure Multi-Factor Authentication için NPS uzantısından alınan hata iletilerini çözme](howto-mfa-nps-extension-errors.md)
+- [Azure multi-Factor Authentication için NPS uzantısından alınan hata iletilerini çözme](howto-mfa-nps-extension-errors.md)

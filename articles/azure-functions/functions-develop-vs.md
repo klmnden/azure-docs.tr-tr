@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 33ec96b3708bc89f3fbd415f892e0810fc468876
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4e67e91e93ef3a2e2acf88a87b97eaab56ca6479
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58889813"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471044"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio kullanarak Azure işlevleri geliştirme  
 
@@ -80,7 +80,7 @@ Proje şablonu, bir C# projesi oluşturur, yükler `Microsoft.NET.Sdk.Functions`
 
 * **host.json**: İşlevleri konak yapılandırmanıza olanak sağlar. Bu ayarlar hem de yerel olarak ve azure'da çalışırken geçerlidir. Daha fazla bilgi için [host.json başvurusu](functions-host-json.md).
 
-* **Local.Settings.JSON**: İşlevleri yerel olarak çalıştırırken kullanılan ayarları tutar. Bu ayarlar, Azure tarafından kullanılmaz, tarafından kullanılan [Azure işlevleri çekirdek Araçları](functions-run-local.md). Bu dosya, işlevleriniz tarafından gereken değişkenleri uygulama ayarlarını belirtmek için kullanın. Yeni bir öğe ekleme **değerleri** projenizdeki işlevleri bağlamaları gerektirdiği her bağlantı için bir dizi. Daha fazla bilgi için [yerel ayarları dosyası](functions-run-local.md#local-settings-file) Azure işlevleri çekirdek araçları makaledeki.
+* **Local.Settings.JSON**: İşlevleri yerel olarak çalıştırırken kullanılan ayarları tutar. Bu ayarlar, Azure tarafından kullanılmaz, tarafından kullanılan [Azure işlevleri çekirdek Araçları](functions-run-local.md). Bu dosya, işlevleriniz tarafından gerekli ortam değişkenleri uygulama ayarlarını belirtmek için kullanın. Yeni bir öğe ekleme **değerleri** projenizdeki işlevleri bağlamaları gerektirdiği her bağlantı için bir dizi. Daha fazla bilgi için [yerel ayarları dosyası](functions-run-local.md#local-settings-file) Azure işlevleri çekirdek araçları makaledeki.
 
     >[!IMPORTANT]
     >Local.settings.json dosyasında parolaları içerdiğinden, gerekir dışarıda Bu, proje kaynak denetimi. **Çıkış dizinine Kopyala** bu dosyayı her zaman olmalıdır ayarı **yeniyse Kopyala**. 
@@ -207,15 +207,11 @@ Ayrıca şu diğer yöntemlerden birini kullanarak uygulama ayarları yönetebil
 
 ## <a name="monitoring-functions"></a>İzleme işlevleri
 
-Azure Application Insights ile tümleştirerek Azure işlevinizin yürütülmesini izlemek için önerilen yöntem olduğu. Bu tümleştirme, Azure portalında bir işlev uygulaması oluşturduğunuzda, sizin için varsayılan olarak gerçekleştirilir. Ancak, Visual Studio yayımlama sırasında işlev uygulamanızı oluşturmak, işlev uygulamanızı azure'da tümleştirme bitti değil. Bunun yerine, yerleşik sahip günlük kaydı önerilmez.
+İşlevlerinizin yürütülmesini izlemek için önerilen yöntem, işlev uygulamanızı Azure Application Insights ile tümleştirerek ' dir. Bu tümleştirme, Azure portalında bir işlev uygulaması oluşturduğunuzda, sizin için varsayılan olarak gerçekleştirilir. Ancak, Visual Studio yayımlama sırasında işlev uygulamanızı oluşturmak, işlev uygulamanızı azure'da tümleştirme bitti değil.
 
-Azure'da işlev uygulamanız için Application Insights'ı etkinleştirmek için:
+İşlev uygulamanız için Application Insights'ı etkinleştirmek için:
 
-1. Application Insights örneği oluşturma [Azure portalında](https://portal.azure.com) ve kendi izleme anahtarını kopyalayın. Bilgi edinmek için bkz [App Insights kaynağı el ile bağlanmanız](functions-monitoring.md#manually-connect-an-app-insights-resource).  
-
-1. Adlı ayar uygulama ekleme `APPINSIGHTS_INSTRUMENTATIONKEY` açıklandığı gibi Azure işlev uygulaması ayarları [işlev uygulaması ayarları](#function-app-settings). Bu uygulama ayarı, önceki adımda oluşturduğunuz izleme anahtarı bulunur.
-
-1. Kaldırma `AzureWebJobsDashboard` yerleşik günlük kaydetme devre dışı bırakan bir Azure işlev uygulaması uygulama ayarı.  
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 Daha fazla bilgi için bkz. [İzleyici Azure işlevleri](functions-monitoring.md).
 

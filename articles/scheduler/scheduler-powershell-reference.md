@@ -9,12 +9,12 @@ ms.reviewer: klam
 ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: daf960bec0fac5f0c96749c219304bc77a4ba905
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: 4b179c50af8b1ffc4313a49da978f178915ec9cc
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358559"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470823"
 ---
 # <a name="powershell-cmdlets-reference-for-azure-scheduler"></a>Azure Scheduler PowerShell cmdlet'leri başvurusu
 
@@ -23,27 +23,27 @@ ms.locfileid: "59358559"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Scheduler işleri ve iş koleksiyonları oluşturmak ve yönetmek için betikleri oluşturmak için PowerShell cmdlet'lerini kullanabilirsiniz. Bu makalede ana listeler [için Azure Scheduler PowerShell cmdlet'leri](/powershell/module/azurerm.scheduler) kendi başvuru makalelerin bağlantıları ile. Azure aboneliğiniz için Azure PowerShell'i yüklemek için bkz: [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview). Hakkında daha fazla bilgi için [Azure Resource Manager cmdlet'leri](/powershell/azure/overview), bkz: [Azure PowerShell kullanarak Azure Resource Manager ile](../powershell-azure-resource-manager.md).
+Scheduler işleri ve iş koleksiyonları oluşturmak ve yönetmek için betikleri oluşturmak için PowerShell cmdlet'lerini kullanabilirsiniz. Bu makalede, başvuru makalelerin bağlantıları ile Azure Zamanlayıcı için ana PowerShell cmdlet'leri listelenmektedir. Azure aboneliğiniz için Azure PowerShell'i yüklemek için bkz: [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview). Hakkında daha fazla bilgi için [Azure Resource Manager cmdlet'leri](/powershell/azure/overview), bkz: [Azure PowerShell kullanarak Azure Resource Manager ile](../powershell-azure-resource-manager.md).
 
 | Cmdlet | Açıklama |
 |--------|-------------|
-| [AzSchedulerJobCollection devre dışı bırak](/powershell/module/azurerm.scheduler/disable-azschedulerjobcollection) |İş koleksiyonu devre dışı bırakır. |
-| [Enable-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/enable-azschedulerjobcollection) |İş koleksiyonunu etkinleştirir. |
-| [Get-AzSchedulerJob](/powershell/module/azurerm.scheduler/get-azschedulerjob) |Scheduler işleri alır. |
-| [Get-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/get-azschedulerjobcollection) |İş koleksiyonları alır. |
-| [Get-AzSchedulerJobHistory](/powershell/module/azurerm.scheduler/get-azschedulerjobhistory) |İş geçmişini alır. |
-| [Yeni AzSchedulerHttpJob](/powershell/module/azurerm.scheduler/new-azschedulerhttpjob) |Bir HTTP işi oluşturur. |
-| [Yeni AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/new-azschedulerjobcollection) |İş koleksiyonu oluşturur. |
-| [New-AzSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/new-azschedulerservicebusqueuejob) | Bir Service Bus kuyruğu işi oluşturur. |
-| [Yeni AzSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/new-azschedulerservicebustopicjob) |Bir Service Bus konu İş oluşturur. |
-| [Yeni AzSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/new-azschedulerstoragequeuejob) |Bir depolama kuyruğu işi oluşturur. |
-| [Remove-AzSchedulerJob](/powershell/module/azurerm.scheduler/remove-azschedulerjob) |Scheduler işi kaldırır. |
-| [Remove-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/remove-azschedulerjobcollection) |İş koleksiyonu kaldırır. |
-| [Set-AzSchedulerHttpJob](/powershell/module/azurerm.scheduler/set-azschedulerhttpjob) |Bir HTTP Zamanlayıcı işi değiştirir. |
-| [Set-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/set-azschedulerjobcollection) |İş koleksiyonu değiştirir. |
-| [Set-AzSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/set-azschedulerservicebusqueuejob) |Bir Service Bus kuyruğu işi değiştirir. |
-| [Set-AzSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/set-azschedulerservicebustopicjob) |Bir Service Bus konu işi değiştirir. |
-| [Set-AzSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/set-azschedulerstoragequeuejob) |Bir depolama kuyruğu işi değiştirir. |
+| [AzSchedulerJobCollection devre dışı bırak](/powershell/module/azurerm.scheduler/disable-azurermschedulerjobcollection) |İş koleksiyonu devre dışı bırakır. |
+| [Enable-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/enable-azurermschedulerjobcollection) |İş koleksiyonunu etkinleştirir. |
+| [Get-AzSchedulerJob](/powershell/module/azurerm.scheduler/get-azurermschedulerjob) |Scheduler işleri alır. |
+| [Get-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/get-azurermschedulerjobcollection) |İş koleksiyonları alır. |
+| [Get-AzSchedulerJobHistory](/powershell/module/azurerm.scheduler/get-azurermschedulerjobhistory) |İş geçmişini alır. |
+| [Yeni AzSchedulerHttpJob](/powershell/module/azurerm.scheduler/new-azurermschedulerhttpjob) |Bir HTTP işi oluşturur. |
+| [Yeni AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/new-azurermschedulerjobcollection) |İş koleksiyonu oluşturur. |
+| [New-AzSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/new-azurermschedulerservicebusqueuejob) | Bir Service Bus kuyruğu işi oluşturur. |
+| [Yeni AzSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/new-azurermschedulerservicebustopicjob) |Bir Service Bus konu İş oluşturur. |
+| [Yeni AzSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/new-azurermschedulerstoragequeuejob) |Bir depolama kuyruğu işi oluşturur. |
+| [Remove-AzSchedulerJob](/powershell/module/azurerm.scheduler/remove-azurermschedulerjob) |Scheduler işi kaldırır. |
+| [Remove-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/remove-azurermschedulerjobcollection) |İş koleksiyonu kaldırır. |
+| [Set-AzSchedulerHttpJob](/powershell/module/azurerm.scheduler/set-azurermschedulerhttpjob) |Bir HTTP Zamanlayıcı işi değiştirir. |
+| [Set-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/set-azurermschedulerjobcollection) |İş koleksiyonu değiştirir. |
+| [Set-AzSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/set-azurermschedulerservicebusqueuejob) |Bir Service Bus kuyruğu işi değiştirir. |
+| [Set-AzSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/set-azurermschedulerservicebustopicjob) |Bir Service Bus konu işi değiştirir. |
+| [Set-AzSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/set-azurermschedulerstoragequeuejob) |Bir depolama kuyruğu işi değiştirir. |
 ||| 
 
 Daha fazla ayrıntı için bu cmdlet'lerden herhangi birini çalıştırabilirsiniz: 

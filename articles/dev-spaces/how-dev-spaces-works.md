@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: İşlemler, güç Azure geliştirme alanları ve azds.yaml yapılandırma dosyasında nasıl yapılandırılacağı açıklanmaktadır.
 keywords: azds.yaml, Azure geliştirme alanları, geliştirme alanları, Docker, Kubernetes, Azure, AKS, kapsayıcılar, Azure Kubernetes hizmeti
-ms.openlocfilehash: 0c22a6bbc9b75a14085f24a5be955e3482687965
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: 0397a52e8cd838aafe44a35508f8a68caba4c94e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361502"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470908"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure geliştirme alanları nasıl çalışır ve olan yapılandırılmış
 
@@ -96,13 +96,15 @@ Azure geliştirme alanları AKS kümenizde etkinleştirildiğinde, kümeniz içi
 * Tüm Kubernetes ad alanı adlı kaldırır *azds*, varsa ve yeni bir tane oluşturur.
 * Kubernetes Başlatıcı nesne dağıtır.
 
+Ayrıca, diğer Azure geliştirme alanları bileşenleri hizmeti çağrı yapmak için AKS kümenizi kullanan aynı hizmet sorumlusu kullanır.
+
 ![Azure geliştirme alanları küme hazırlama](media/how-dev-spaces-works/prepare-cluster.svg)
 
 Azure geliştirme alanları kullanmak için en az bir geliştirme alanı olmalıdır. Azure geliştirme alanları AKS kümenizi içinde Kubernetes ad alanları için geliştirme alanları kullanır. Bir denetleyici yüklendikten sonra ilk geliştirme alanınızı kullanmak için mevcut bir ad alanı seçin veya yeni bir Kubernetes ad alanı oluşturma ister. Bir ad alanı bir geliştirme boşluk olarak belirlenmişse, denetleyici ekler *azds.io/space=true* geliştirme boşluk olarak tanımlamak için bu ad alanı için etiketi. Kümenizi hazırladıktan sonra ilk geliştirme alanı oluşturun veya belirleyin, varsayılan olarak seçilidir. Bir alan seçildiğinde, Azure geliştirme boşluklarla yeni iş yükleri oluşturmak için kullanılır.
 
 Varsayılan olarak, adlı bir geliştirme alanı denetleyiciyi oluşturur *varsayılan* varolan yükselterek *varsayılan* Kubernetes ad alanı. Yeni geliştirme alanları oluşturmak ve mevcut geliştirme alanları kaldırmak için istemci tarafı Araçları'nı kullanabilirsiniz. Kubernetes, ilgili bir sınırlama nedeniyle *varsayılan* geliştirme alan kaldırılamaz. Denetleyici adlı mevcut tüm Kubernetes ad alanları da kaldırır *azds* ile çakışmalarını önlemek için `azds` istemci tarafı araçları tarafından kullanılan komutu.
 
-Kubernetes Başlatıcı nesne pod'ları üç kapsayıcı ile izleme için dağıtım sırasında eklemesine kullanılır: proxy devspaces kapsayıcı devspaces proxy init kapsayıcı ve devspaces derleme kapsayıcı. **Bu kapsayıcıların üç AKS kümenizde kök erişimi ile çalıştırın.**
+Kubernetes Başlatıcı nesne pod'ları üç kapsayıcı ile izleme için dağıtım sırasında eklemesine kullanılır: proxy devspaces kapsayıcı devspaces proxy init kapsayıcı ve devspaces derleme kapsayıcı. **Bu kapsayıcıların üç AKS kümenizde kök erişimi ile çalıştırın.** Ayrıca, AKS kümenizin diğer Azure geliştirme alanları bileşenleri hizmeti çağrı yapmak için kullandığı aynı hizmet sorumlusu kullanırlar.
 
 ![Azure geliştirme alanları Kubernetes Başlatıcı](media/how-dev-spaces-works/kubernetes-initializer.svg)
 

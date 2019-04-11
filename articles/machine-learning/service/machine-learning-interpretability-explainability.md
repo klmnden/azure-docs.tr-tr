@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 04/04/2019
-ms.openlocfilehash: f72923b80751f16ece128ced209679bbc325226c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/09/2019
+ms.openlocfilehash: fbcafb61ecd69f58bb3c14d1b15f36f1b21f2833
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051810"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469786"
 ---
 # <a name="azure-machine-learning-interpretability-sdk"></a>Azure Machine Learning Interpretability SDK'sı
 
@@ -34,7 +34,7 @@ Azure Machine Learning Interpretability SDK'sı teknolojileri içerir. Microsoft
 
 ## <a name="how-does-it-work"></a>Nasıl çalışır?
 
-Azure Machine Learning Interpretability modelin genel davranış veya belirli bir tahmin anlamak için uygulanabilir. Genel bir açıklama eski çağrılır ve yerel açıklama ikinci çağrılır.
+Azure Machine Learning Interpretability modelin genel davranış veya belirli Öngörüler anlamak için uygulanabilir. Genel bir açıklama eski çağrılır ve yerel açıklama ikinci çağrılır.
 
 Azure Machine Learning Interpretability yöntemleri de yöntemi modeli belirsiz veya belirli model olduğuna göre kategorilere ayrılabilir. Bazı yöntemler, belirli türde modelleri hedefleyin. Örneğin, Şekil'ın ağaç açıklama, yalnızca ağaç tabanlı modelleri için geçerlidir. Bazı yöntemler, model mimic açıklama veya Şekil'ın çekirdek açıklama gibi bir siyah kutu olarak kabul eder. Azure Machine Learning Interpretability SDK, veri kümeleri, model türleri ve kullanım örneklerine dayalı bu farklı yaklaşımların yararlanır.
 
@@ -42,7 +42,6 @@ Azure Machine Learning Interpretability bir model, tahmin nasıl kolaylaştırd�
 
 * Genel/yerel göreli özellik önem derecesi
 * Genel/yerel özellik ve tahmin ilişkisi
-* Öngörüler gösteren etkileşimli görselleştirmeler özellik ve tahmin ilişki ve göreli önemi değerleri küresel ve yerel özelliği
 
 ## <a name="architecture"></a>Mimari
 
@@ -70,11 +69,10 @@ __Explainers doğrudan__ tümleşik kitaplıklarından gelir. Bir ortak API ve �
 * **KÜF açıklama**: KÜF açıklama üzerinde KÜF bağlı olarak, yerel vekil modeller oluşturmak için resim durumu yerel yorumlanabilirinde modeli belirsiz açıklamaları (sarı) algoritması kullanır. Genel temsilci modelleri, tek tek Öngörüler açıklamak için yerel vekil modelleri eğitme konusunda KÜF odaklanır.
 * **Metin açıklama HAN**: HAN metin açıklama hiyerarşik dikkat ağ modeli açıklamalar için belirli bir siyah kutu metin modeli metin verileri almak için kullanır. Size verilen Öğretmen modelinin tahmin edilen çıkış HAN vekil model eğitin. Genel metin topluluğunuza arasında daha fazla eğitim sonra açıklamaları doğruluğunu artırmak için yapabileceğiniz ayarlamalar adım belirli bir belge için ekledik. HAN çift yönlü RNN cümle ve word dikkat iki dikkat katmanlarla kullanır. DNN Öğretmen model üzerinde geliştirilen ve belirli bir belge üzerinde ince ayar sonra word importances dikkat katmanlardan ayıklayabilirsiniz. Zaman de eğitim daha kesin KÜF veya Şekil metni veri ancak daha yüksek maliyetli içinde koşullarını olmasını HAN bulduk. Eğitim süresini geliştirmeleri hala yavaş olmasına rağmen ağ Eldiven word Gömmeleri ile başlatma seçeneği kullanıcı vererek ancak gerçekleştirdik. Uzak bir Azure GPU VM HAN çalıştırarak eğitim süresini önemli ölçüde geliştirilebilir. 'Dikkat ağları hiyerarşik olarak sınıflandırma (Yang et al., 2016) için' HAN uygulamasını açıklanan ([https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf](https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf)).
 
-__Meta explainers__ otomatik olarak uygun bir doğrudan açıklama seçin ve verilen bir modeli ve veri kümelerine göre en iyi açıklama bilgisi oluştur. Meta explainers biz tümleşik geliştirilen veya tüm kitaplıkları (Şekil, açık yeşil, GA2M, benzetme, vb.) yararlanın. SDK'da bulunan meta explainers şunlardır:
+__Meta explainers__ otomatik olarak uygun bir doğrudan açıklama seçin ve verilen bir modeli ve veri kümelerine göre en iyi açıklama bilgisi oluştur. Meta explainers biz tümleşik geliştirilen veya tüm kitaplıkları (Şekil, açık yeşil, benzetme, vb.) yararlanın. SDK'da bulunan meta explainers şunlardır:
 
 * **Tablo açıklama**: Tablosal veri kümeleriyle birlikte kullanılır.
 * **Metin açıklama**: Metin veri kümeleri ile kullanılır.
-* **Görüntü açıklama** görüntü veri kümeleriyle birlikte kullanılır.
 
 Ayrıca çok meta seçme, doğrudan explainers, meta explainers temel alınan kitaplıkları üzerine ek özellikler geliştirmek ve hız ve ölçeklenebilirlik üzerinde doğrudan explainers geliştirin.
 
@@ -90,7 +88,6 @@ Yerleşik zeka `TabularExplainer` ek olarak başka kitaplıklar SDK'sı ile tüm
 
 * **Özetleme başlatma kümesinin**. Açıklama hızını en önemli olduğu durumlarda başlatma veri kümesini özetleyin ve hem genel hem de yerel açıklama hızlandırır küçük bir temsili örnekleri kümesi oluşturur.
 * **Değerlendirme veri kümesi örnekleme**. Kullanıcı çok sayıda değerlendirme örnekleri geçirir, ancak uyumluluğunun değerlendirilebilmesi için bunların tümünün gerçekten gerekli değil, örnekleme parametresi Genel Açıklama hızlandırmak için true olarak ayarlanabilir.
-* **KNN hızlı açıklama**. Açıklama tek Puanlama/tahmin hızlı olması gereken yere durumda KNN yöntemi kullanılabilir. Genel bir açıklama sırasında karşılık gelen top k özelliklerine ve başlatma örnekleri korunur. Her değerlendirme örnek için bir açıklama oluşturmak için KNN yöntemi en benzer örnekten başlatma örneklerini bulmak için kullanılır ve en çok benzer örneğe ait üst-k özellikleri değerlendirme örnek için ilk-k özellikler olarak döndürülür.
 
 Aşağıdaki diyagramda iki doğrudan kümesi meta explainers arasındaki ilişkiyi gösterir.
 
@@ -100,7 +97,7 @@ Aşağıdaki diyagramda iki doğrudan kümesi meta explainers arasındaki ilişk
 
 Python'da veri kümelerinde eğitim görmüş olan herhangi bir model `numpy.array`, `pandas.DataFrame`, `iml.datatypes.DenseData`, veya `scipy.sparse.csr_matrix` biçimi, Machine Learning Interpretability SDK tarafından desteklenir.
 
-Açıklama işlevleri modelleri hem de işlem hatları girdi olarak kabul edin. Bir model sağlanırsa, modelin tahmin işlevi uygulamak zorundadır `predict` veya `predict_proba` Scikit kuralını onaylar. Bir işlem hattı (işlem hattı betiğin adı) sağladıysanız, çalışan işlem hattı betiğin tahmin döndüren açıklama işlevi varsayar.
+Açıklama işlevleri modelleri hem de işlem hatları girdi olarak kabul edin. Bir model sağlanırsa, modelin tahmin işlevi uygulamak zorundadır `predict` veya `predict_proba` Scikit kurala uyan. Bir işlem hattı (işlem hattı betiğin adı) sağladıysanız, çalışan işlem hattı betiğin tahmin döndüren açıklama işlevi varsayar.
 
 ### <a name="local-and-remote-compute-target"></a>Yerel ve uzak işlem hedefi
 
@@ -129,13 +126,12 @@ Machine Learning Interpretability SDK'sı, hem yerel ve uzak işlem hedefleri il
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
+    ```
     or
+    ```python
     from azureml.explain.model.mimic.mimic_explainer import MimicExplainer
     from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
     explainer = MimicExplainer(model, x_train, LGBMExplainableModel, features=breast_cancer_data.feature_names, classes=classes)
-    or
-    from azureml.contrib.explain.model.lime.lime_explainer import LIMEExplainer
-    explainer = LIMEExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     ```
 
 3. Genel özellik önem değerleri alır.
@@ -154,9 +150,16 @@ Machine Learning Interpretability SDK'sı, hem yerel ve uzak işlem hedefleri il
     ```python
     # explain the first data point in the test set
     local_explanation = explainer.explain_local(x_test[0,:])
+    
+    # sorted feature importance values and feature names
+    sorted_local_importance_names = local_explanation.get_ranked_local_names()
+    sorted_local_importance_values = local_explanation.get_ranked_local_values()
+    ```
     or
+    ```python
     # explain the first five data points in the test set
     local_explanation = explainer.explain_local(x_test[0:4,:])
+    
     # sorted feature importance values and feature names
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
     sorted_local_importance_values = local_explanation.get_ranked_local_values()
@@ -172,21 +175,14 @@ Azure Machine Learning hizmeti tarafından desteklenen çeşitli işlem hedefler
     run = Run.get_context()
     client = ExplanationClient.from_run(run)
     
-    breast_cancer_data = load_breast_cancer()
-    X_train, X_test, y_train, y_test = train_test_split(breast_cancer_data.data, breast_cancer_data.target, test_size = 0.2, random_state = 0)
-    data = {
-        "train":{"X": X_train, "y": y_train},        
-        "test":{"X": X_test, "y": y_test}
-    }
-    clf = svm.SVC(gamma=0.001, C=100., probability=True)
-    model = clf.fit(data['train']['X'], data['train']['y'])
-    joblib.dump(value = clf, filename = 'model.pkl')
+    # Train your model here
+
     # explain predictions on your local machine    
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     # explain overall model predictions (global explanation)
-    global_explanation = explainer.explain_global(data["test"]["X"])
+    global_explanation = explainer.explain_global(x_test)
     # explain local data points (individual instances)
-    local_explanation = explainer.explain_local(data["test"]["X"][0,:])
+    local_explanation = explainer.explain_local(x_test[0,:])
     # upload global and local explanation objects to Run History
     upload_model_explanation(run, local_explanation, top_k=2, comment='local explanation: top 2 features')
     # Uploading global model explanation data for storage or visualization in webUX
@@ -200,6 +196,8 @@ Azure Machine Learning hizmeti tarafından desteklenen çeşitli işlem hedefler
 2. Yönergeleri takip edin [işlem hedeflerine yönelik model eğitiminin ayarlama](how-to-set-up-training-targets.md#amlcompute) bir Azure Machine Learning işlem, işlem hedefi olarak ayarlayın ve eğitim çalıştırmanız gönderme hakkında bilgi edinmek için.
 
 3. Yerel Jupyter not defterine açıklama indirin. 
+    > [!IMPORTANT]
+    > Contrib şeyler tam olarak desteklenmiyor. Deneysel işlevlerini olgun haline geldiğinden, ana paket için kademeli olarak taşınır.
 
     ``` python
     from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient
@@ -221,6 +219,6 @@ Azure Machine Learning hizmeti tarafından desteklenen çeşitli işlem hedefler
     print('global importance names: {}'.format(global_importance_names))
     ```
 
-## <a name="next-steps"></a>Sonraki adımlar
+## <a name="next-steps"></a>Sonraki Adımlar
 
 Yukarıdaki yönergeleri gösteren bir Jupyter not defterleri koleksiyonunu görmek için [Azure Machine Learning Interpretability örnek not defterleri](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).

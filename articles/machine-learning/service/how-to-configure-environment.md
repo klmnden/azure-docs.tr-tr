@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ca64071d068f95bf3de2dc9730629b5f475d92e
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
-ms.translationtype: HT
+ms.openlocfilehash: d4866a6863143d2228c556a64c8e75c9f273076e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426384"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469905"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
@@ -284,7 +284,7 @@ Oluşturma bir [Databricks kümesine](https://docs.microsoft.com/azure/azure-dat
 
 Bu ayarları kullanın:
 
-| Ayar |Şunlara uygulanacaktır:| Değer |
+| Ayar |Uygulandığı öğe| Değer |
 |----|---|---|
 | Küme adı |her zaman| yourclustername |
 | Databricks Çalışma Zamanı |her zaman| Tüm olmayan ML çalışma zamanı (olmayan ML 4.x, 5.x) |
@@ -320,8 +320,8 @@ Küme çalışmaya başladıktan sonra [bir kitaplığı oluşturma](https://doc
       
    Ayrıca göz önünde bulundurun:
    + Automl yapılandırmada kullanırken Azure Databricks, lütfen şu parametreleri ekleyin:
-    1. ```max_concurrent_iterations``` Kümenizde çalışan düğümlerinin sayısını temel alır. 
-    2. ```spark_context=sc``` #databricks/spark varsayılan spark bağlamı. 
+        1. ```max_concurrent_iterations``` Kümenizde çalışan düğümlerinin sayısını temel alır. 
+        2. ```spark_context=sc``` Varsayılan spark bağlam üzerinde bağlıdır. 
    + Veya eski bir SDK sürümü varsa, kümenin yüklü libs seçimini kaldırmak ve çöp kutusuna taşınacak. Yeni SDK sürümünü yükleyin ve küme yeniden başlatın. Bir sorun olduğunda bundan sonra ayırma ve kümenizi yeniden bağlayın.
 
 Yükleme başarılı olduysa, içeri aktarılan kitaplık bunlardan biri gibi görünmelidir:
@@ -360,7 +360,7 @@ Yapılandırma dosyası üç şekilde oluşturabilirsiniz:
 
 * **Dosyayı el ile oluşturmak**: Bu yöntemle, bir metin düzenleyicisi kullanın. Çalışma alanınızda ziyaret ederek yapılandırma dosyasına gidin değerleri bulabilirsiniz [Azure portalında](https://portal.azure.com). Çalışma alanı adı, kaynak grubu ve abonelik kimliği değerleri kopyalayın ve bunları yapılandırma dosyasında kullanın.
 
-     ![Azure portalı](./media/how-to-configure-environment/configure.png)
+     ![Azure portal](./media/how-to-configure-environment/configure.png)
 
 * **Program aracılığıyla dosya oluşturma**: Aşağıdaki kod parçacığında, abonelik kimliği, kaynak grubu ve çalışma alanı adı sağlayarak bir çalışma alanına bağlayın. Ardından çalışma alanı yapılandırması dosyasına kaydeder:
 

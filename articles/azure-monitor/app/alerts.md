@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3b6860c9a84384bfade099fb7c8c8c72281c3593
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257170"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469806"
 ---
 # <a name="set-alerts-in-application-insights"></a>Uygulama anlayışları'nda uyarılar ayarlayın
 [Azure Application Insights] [ start] web uygulamanızdaki performansı ya da kullanım ölçümleri değişikliklere uyarabilir. 
@@ -144,6 +144,24 @@ Bu bölümde, bir sorgu tabanlı özel durum uyarısı ayarlamak nasıl alacağ�
 10. Son uyarı ayrıntılarınızı ekleyin (uyarı kuralı adı, açıklaması, önem derecesi). İşiniz bittiğinde tıklayın **uyarı kuralı oluştur** altındaki.
 
     ![Uyarı ayrıntısı altında uyarı kuralı adınızı yazın, bir açıklama yazın ve bir önem derecesi seçin](./media/alerts/9alertdetails.png)
+
+## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Klasik uyarı e-posta bildirim aboneliği nasıl
+
+Bu bölümde uygulandığı **Klasik kullanılabilirlik uyarıları**, **Application Insights ölçüm uyarıları**ve **Klasik hata anomalileri uyarılar**.
+
+Aşağıdakilerden biri geçerliyse bu Klasik uyarılar için e-posta bildirimleri alıyorsunuz:
+
+* E-posta adresinizi, bildirim e-posta alıcıları alanında uyarı kuralı ayarlar listelenir.
+
+* Abonelik için belirli rolleri barındıran kullanıcılara e-posta bildirimleri gönderme seçeneği etkinleştirilir ve ilgili rol, belirli bir Azure aboneliği için basılı tutun.
+
+![Uyarı bildirimi ekran görüntüsü](./media/alerts/alert-notification.png)
+
+Güvenlik ve gizlilik genellikle öneririz, açıkça bildirim alıcılarını Klasik uyarılarınızı için belirttiğiniz daha iyi denetlemek için **bildirim e-posta alıcılarını** alan. Belirli roller bulunduran tüm kullanıcılara bildirin seçeneğini geriye dönük uyumluluk için sağlanır.
+
+Bir belirli uyarı kuralı tarafından oluşturulan e-posta bildirimi aboneliğinizi iptal etmek, e-posta adresinizi kaldırmak **bildirim e-posta alıcılarını** alan.
+
+Belirli roller tüm üyeleri otomatik olarak bilgilendirme seçeneğini devre dışı bırakın ve bunun yerine bu uyarı kuralı için bildirimler bildirim e-posta almak için gereken tüm kullanıcı e-postalar listesi e-posta adresinizi açıkça listelenmemişse öneririz Alıcılar alan.
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Kimin (Klasik) Uyarı bildirimlerini alır?
 

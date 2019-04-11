@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 57bde67ac2259b3847f59f95eaefba9c6fddf13e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316211"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470024"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Proje akustik Unreal/Wwise tasarım Öğreticisi
 Bu öğreticide, Unreal ve Wwise proje akustik için tasarım Kurulum ve iş akışı açıklanır.
@@ -62,11 +62,18 @@ Gerekli aktör mixer Kurulumu normal kuru ve ıslak Wwise içinde yönlendirme d
 ![Ses tasarım yönergeleri için proje akustik gösteren ekran görüntüsü, Wwise Düzenleyicisi](media/voice-design-guidelines.png)
  
 ### <a name="set-up-distance-attenuation-curves"></a>Uzaklık zayıflama eğrileri ayarlayın
-Aktör-kullanarak Karıştırıcılar tarafından kullanılan tüm zayıflama eğrisi olmak proje akustik sahip kullanıcı tanımlı yedek kümesi "veri yolu birimi çıkarmak için." Gönder Wwise yeni oluşturulan zayıflama eğrileri için varsayılan olarak, bunu yapar. Mevcut bir projeyi geçiriyorsanız eğri ayarlarınızı kontrol edin. 
+Aktör-kullanarak Karıştırıcılar tarafından kullanılan tüm zayıflama eğrisi olmak proje akustik sahip kullanıcı tanımlı yedek kümesi "veri yolu birimi çıkarmak için." Gönder Wwise yeni oluşturulan zayıflama eğrileri için varsayılan olarak, bunu yapar. Mevcut bir projeyi geçiriyorsanız eğri ayarlarınızı kontrol edin.
 
 Varsayılan olarak, proje akustik benzetimi player konum etrafındaki bir RADIUS 45 ölçütlerden vardır. Genellikle, zayıflama eğri-200 dB bu uzaklığı geçici olarak ayarlanması önerilir. Bu uzaklık, sabit bir kısıtlaması değil. Bazı Silah benzer için daha büyük bir RADIUS isteyebilirsiniz. Böyle durumlarda, uyarı yalnızca geometrisi 45 m player konumun içinde yer alacak olur. Oyuncu bir odada bulunur ve ses kaynak odası ve 100 milyon dışında ise, bu düzgün occluded. Bir odada kaynaktır ve oyuncu dışına ve 100 milyon ise, bu düzgün occluded gerekmez.
 
 ![Ekran görüntüsü, Wwise zayıflama Eğriler](media/atten-curve.png)
+
+### <a name="post-mixer-equalization"></a>POST Mixer eşitleme ###
+ Yapmak isteyebileceğiniz başka bir şey post mixer dengeleyici eklemektir. Proje akustik veri yolu bir tipik Yankı yolunda (varsayılan Yankı modu) olarak kabul et ve bir filtre üzerinde eşitleme yapmak için yerleştirin. Bu örnek proje akustik Wwise örnek projesinde görebilirsiniz.
+
+![Ekran görüntüsü, Wwise sonrası mixer EQ](media/wwise-post-mixer-eq.png)
+
+Örneğin, yüksek geçişi filtre boomy, kullanışsız Yankı yield yakın alan kayıtları gelen bas işlemek yardımcı olabilir. Daha fazla sonrası hazırlama denetim RTPCs, oyun zamanında Yankı rengini değiştirmek için izin verme aracılığıyla EQ ayarlayarak da elde edebilirsiniz.
 
 ## <a name="set-up-scene-wide-project-acoustics-properties"></a>Sahne genelinde akustik proje özelliklerini ayarlama
 
@@ -80,7 +87,7 @@ Akustik alanı aktör sistem davranışını değiştirmek ve hata ayıklamaya f
 * **Önbellek ölçeklendirme:** akustik sorgular için kullanılan önbellek boyutunu denetler. Daha küçük bir önbellek daha az RAM kullanır, ancak her sorgu için CPU kullanımını artırabilir.
 * **Akustik: etkin** Hızlı bir etkinleştirmek için hata ayıklama denetim / B akustik benzetimi geçiş. Bu denetim, yapılandırmaları sevkiyat içinde göz ardı edilir. Denetim, belirli bir ses hata akustik hesaplamaları veya başka bir sorun Wwise projedeki kaynaklanıyorsa bulmak için yararlıdır.
 * **Uzaklıkları güncelleştirin:** Uzaklık sorgular için önceden oluşturulan akustik bilgileri kullanmak istiyorsanız bu seçeneği kullanın. Bu sorguları ray atamaların benzerdir, ancak önceden hesaplanmış çok daha az CPU şekilde yararlanın. Ayrık yansımalar en yakın yüzeyinden dinleyicisi örnek kullanım içindir. Bu tam olarak yararlanmak için kod veya şemaları sorgu Mesafeler için kullanılacak gerekir.
-* **Çizim istatistikleri:** While UE'ın `stat Acoustics` , CPU bilgileri, bu durum görüntüsü ile yüklü eşleme, RAM kullanımını gösterir ve başka bir durum bilgisi üst ekranın sol sağlayabilir.
+* **Çizim istatistikleri:** While UE'ın `stat Acoustics` , CPU bilgilerle bu durum görüntüsü şu anda yüklü ACE dosyanın RAM kullanımını gösterir ve başka bir durum bilgisi üst ekranın sol sağlayabilir.
 * **Çizim Voxels:** Voxels kapatmak için çalışma zamanı ilişkilendirme sırasında kullanılan voxel kılavuz gösteren dinleyici yer. Bir çalışma zamanı voxel içinde bir verici ise akustik sorguları başarısız olur.
 * **Araştırmalar Çiz:** Bu görünüm için tüm araştırmaları gösterir. Uygulanırsa, yük durumlarına bağlı olarak farklı bir renk olur.
 * **Uzaklıkları Çiz:** Güncelleştirme uzaklıkları etkinleştirilirse, bu dinleyici etrafında quantized yönde dinleyicisi en yakın çalışma yüzeyinde bir kutu gösterir.
@@ -96,6 +103,7 @@ Bu tasarım denetimleri Unreal tek bir ses bileşenine kapsamına eklenir.
 * **Outdoorness ayarlama:** Nasıl dışarıda reverberation olduğunu denetler. 0 yakın değerler daha içeride, 1 yakın daha dışarıda. Bu düzeltmenin eklenebilir, -1 olarak ayarlandığında içeride, zorunlu kılacak şekilde + 1 için ayarlama dışarıda zorlar.
 * **İletim Db:** Bir ek aracılığıyla--wall ses satırı görüş göre uzaklığı zayıflama ile birlikte bu ses yüksekliği ile işleyin.
 * **Uzaklık Warp ıslak oranı:** Hemen yakınında ve daha doğrudan yolunu etkilemeden gibi kaynak reverberation özelliklerini ayarlar.
+* **Başlat menüsünde Yürüt:** Sesi otomatik olarak sahnenin başlangıç çalmak olup olmadığını belirlemek için Değiştir'i tıklatın. Varsayılan olarak etkindir.
 * **Akustik parametreleri göster:** Oyun içi Bileşen en üstünde görünen hata ayıklama bilgileri. (yalnızca. teslimat olmayan yapılandırmalar için)
 
 ## <a name="blueprint-functionality"></a>Blueprint işlevi
