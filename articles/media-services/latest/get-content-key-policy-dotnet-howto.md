@@ -10,24 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/08/2018
+ms.date: 04/09/2019
 ms.author: juliako
-ms.openlocfilehash: 882f4650c0a3d558ee06c96658b779f9f0c76f76
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 49cc2b8c151053377f8f1da0792f10a06695b332
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322508"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471180"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Mevcut ilkeden bir imzalama anahtarı alma
 
-v3 API’nin temel tasarım ilkelerinden biri API’yi daha güvenli hale getirmektir. v3 API’ler **Get** veya **List** işlemlerinde gizli diziler ve kimlik bilgileri döndürmez. Anahtarlar her zaman null, boş veya yanıttan ayıklanmış olur. Gizli dizileri ve kimlik bilgilerini almak için ayrı bir eylem yöntemi çağırmanız gerekir. Bazı API’ler gizli dizileri alır ve görüntülerken diğer API'lerin bunu yapmaması durumunda, ayrı eylemler farklı RBAC güvenlik izinleri ayarlamanızı sağlar. RBAC kullanarak erişimi yönetme hakkında daha fazla bilgi için bkz. [Erişimi yönetmek için RBAC kullanma](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
+v3 API’nin temel tasarım ilkelerinden biri API’yi daha güvenli hale getirmektir. V3 API'ler döndürmeyen parolaları veya kimlik üzerinde **alma** veya **listesi** operations. Anahtarlar her zaman null, boş veya yanıttan ayıklanmış olur. Kullanıcı parolaları veya kimlik bilgilerini almak için ayrı bir eylem yöntemini çağırmak gerekir. **Okuyucu** Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets gibi işlemler çağrılamıyor şekilde rol operations çağrılamıyor. Ayrı Eylemler sahip isterseniz özel bir rol daha ayrıntılı RBAC güvenlik izinleri ayarlamanızı sağlar.
 
-Bunun örnekleri: 
-
-* StreamingLocator’un Get isteği ContentKey değerleri döndürmüyor, 
-* ContentKeyPolicy’nin get isteği kısıtlama anahtarları döndürmüyor, 
-* İşlerin HTTP Giriş URL’lerinde URL’nin sorgu dizesi bölümünü döndürmüyor (imzayı kaldırmak için).
+Daha fazla bilgi için [RBAC ve Media Services hesapları](rbac-overview.md)
 
 Bu makaledeki örnek .NET mevcut ilkeden bir imzalama anahtarı almak için nasıl kullanılacağını gösterir. 
  

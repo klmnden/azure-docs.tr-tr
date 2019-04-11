@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: d3aad8f1b032960786564bbb18f99c260fd72113
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cc2d45aee170517d7e41cbda6d92bc21067732d1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092727"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471724"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application ınsights telemetri bağıntısı
 
@@ -143,7 +143,7 @@ public void ConfigureServices(IServiceCollection services)
 
 | Application Insights                  | OpenTracing                                       |
 |------------------------------------   |-------------------------------------------------  |
-| `Request`, `PageView`                 | `Span` ile `span.kind = server`                  |
+| `Request`,  `PageView`                 | `Span` ile `span.kind = server`                  |
 | `Dependency`                          | `Span` ile `span.kind = client`                  |
 | `Id` ' ın `Request` ve `Dependency`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |
@@ -183,6 +183,11 @@ Başlangıç sürümü 2.4.0-beta1 ile Application Insights SDK kullanan `Diagno
 > Yalnızca Apache HTTPClient yapılan çağrılar bağıntı özelliği için desteklenir. Spring RestTemplate veya Feign kullanıyorsanız, her ikisi de bileşenler ile Apache HTTPClient kullanılabilir.
 
 Mesajlaşma teknolojilerinin (Bu tür Kafka, RabbitMQ veya Azure Service Bus) arasında bağlamı otomatik yayma şu anda desteklenmiyor. Ancak, bu senaryolara el ile kullanarak kod mümkün `trackDependency` ve `trackRequest` API'leri. Bu API'ler, bir bağımlılık telemetrisi olan bir üretici tarafından sıraya bir ileti temsil eder ve bir tüketici tarafından işlenmekte olan bir ileti isteğini temsil eder. Bu durumda, her ikisi de `operation_id` ve `operation_parentId` ileti özelliklerinde yayılır.
+
+### <a name="telemetry-correlation-in-asynchronous-java-application"></a>Zaman uyumsuz bir Java uygulamasında telemetri bağıntısı
+
+Zaman uyumsuz bir Spring Boot uygulaması içinde telemetri bağıntısı kurmak için lütfen izleyin [bu](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications) ayrıntılı makaleyi. Spring'ın izleme bir Rehber sağlanır [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) yanı [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html). 
+
 
 <a name="java-role-name"></a>
 ## <a name="role-name"></a>Rol adı

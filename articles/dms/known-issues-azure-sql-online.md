@@ -10,17 +10,20 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/05/2019
-ms.openlocfilehash: 38a59a3a390977c5a3fd22b185542f5f2ec33d79
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/09/2019
+ms.openlocfilehash: a822e540db87c36358f1a0e34d75e05ed866868d
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091503"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471248"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Bilinen sorunları/geçiş sınırlamalarıyla birlikte Azure SQL DB'ye online geçişleri
 
 Bilinen sorunlar ve çevrimiçi SQL Server'dan Azure SQL veritabanı ile ilgili sınırlamalar aşağıda açıklanmıştır.
+
+> [!IMPORTANT]
+> Azure SQL veritabanı için SQL Server'ın çevrimiçi migrations ile geçiş SQL_variant veri türleri desteklenmiyor.
 
 ### <a name="migration-of-temporal-tables-not-supported"></a>Zamana bağlı tablolarda desteklenmeyen bir geçişini
 
@@ -62,17 +65,20 @@ Daha fazla bilgi için bkz [zamana bağlı tablolarda](https://docs.microsoft.co
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ``` 
 
-   1. Bu tablodan hariç **geçiş ayarlarını yapılandırma** tablolar geçiş için belirttiğiniz dikey penceresinde.
+2. Bu tablodan hariç **geçiş ayarlarını yapılandırma** tablolar geçiş için belirttiğiniz dikey penceresinde.
 
-   1. Geçiş etkinlik yeniden çalıştırın.
+3. Geçiş etkinlik yeniden çalıştırın.
 
 ### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>"Tam veri yüklemesi" veya "artımlı veri eşitleme" sırasında şema etkin tetikleyicilerle çeşitli bütünlüğü ihlali Geçiş hataları
 
 **Geçici çözüm**
+
 1. Aşağıdaki sorguyu kullanarak kaynak veritabanında şu anda etkin olan Tetikleyiciler bulun:
+
      ```
      select * from sys.triggers where is_disabled =0
      ```
+
 2. Tetikleyiciler makalede sağlanan adımları kullanarak, kaynak veritabanı üzerindeki devre dışı [TETİKLEYİCİYİ devre dışı bırak (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
 
 3. Geçiş etkinlik yeniden çalıştırın.
@@ -101,11 +107,11 @@ DMS, kaynak zaman damgası değeri geçirmediğini; Bunun yerine, DMS, hedef tab
 
 DMS kaynak tablosunda depolanan tam zaman damgası değeri geçirmek için gerekiyorsa, mühendislik ekibi ile iletişime geçin [isteyin Azure veritabanı geçişlerini](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
-### <a name="data-migration-errors-do-not-provide-additional-details-on-the-database-detailed-status-blade"></a>Veri Geçiş hataları veritabanı ayrıntılı durum dikey penceresinde ek bilgiler sağlamaz.
+### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>Veri Geçiş hataları ek ayrıntılar veritabanı ayrıntılı durum dikey sağlaması gerekmez.
 
 **Belirti**
 
-Veritabanı ayrıntıları durumu görünümünde Geçiş hataları karşılaştığınızda, seçme **veri geçiş hataları** bağlantı üstteki Şeritte ek ayrıntılar için geçiş hataları belirli değil sağlayabilir.
+Geçiş hataları veritabanları ayrıntıları durumu görünümünde arasında geldiğinizde, seçerek **veri geçiş hataları** bağlantı üstteki Şeritte ek ayrıntılar için geçiş hataları belirli değil sağlayabilir.
 
 ![Veri Geçiş hataları ayrıntıları örnek](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 

@@ -1,7 +1,7 @@
 ---
 title: Başlatmak, izlemek ve python'da eğitim çalıştırmaları iptal etme
 titleSuffix: Azure Machine Learning service
-description: Makine öğrenimi denemelerini düzenlemek ve nasıl başlatılacağını, durum, etiket öğrenin.
+description: Başlat, durumu, etiketi olarak ve makine öğrenimi denemelerini düzenleme hakkında bilgi edinin.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 4/5/2019
-ms.openlocfilehash: 726273024a2da0cea5207c86140f3c31263a208f
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
-ms.translationtype: HT
+ms.date: 04/05/2019
+ms.openlocfilehash: 82df2258116ce55fa440b67ec0a66b106d0d72c7
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426742"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471503"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Başlatmak, izlemek ve python'da eğitim çalıştırmaları iptal etme
 
@@ -47,7 +47,7 @@ Aşağıdakiler gerekir:
 
 <a name="monitor"></a>
 
-## <a name="start-and-status-a-run"></a>Başlangıç ve çalışma durumu
+## <a name="start-a-run-and-set-its-status"></a>Çalıştırma başlatılması ve durumunu ayarla
 
 İçeri aktararak, deneme ayarlama ayarlamak [çalışma](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py), [deneme](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py), [çalıştırma](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py), ve [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) sınıflardan[azureml.core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py) paket.
 
@@ -101,7 +101,7 @@ print("Has it completed?",notebook_run.get_status())
 
 ## <a name="cancel-or-fail-runs"></a>İptal etme veya çalıştırma başarısız
 
- Bir hata olduğuna dikkat edin veya çalıştırma bitiş kullanmak için uzun sürüyor gibi görünüyor. [ `cancel()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) tamamlanmadan önce çalıştırmasını Durdur ve iptal edildi olarak işaretlemek için yöntem.
+ Bir hata olduğuna dikkat edin veya çalıştırma gibi görünüyor son kullanmak için biraz zaman [ `cancel()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) tamamlanmadan önce çalıştırmasını Durdur ve iptal edildi olarak işaretlemek için yöntem.
 
 ```Python
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')

@@ -6,16 +6,18 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.openlocfilehash: f457246b429062625e6542cfdaf00f3526a85209
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/09/2019
+ms.openlocfilehash: 562987b953f0a8a20a917e208f43557bd768c0a0
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083241"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471163"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Oluşturma ve Azure veritabanı Azure CLI kullanarak MariaDB için güvenlik duvarı kurallarını yönetme
-Sunucu düzeyinde güvenlik duvarı kuralları, erişim belirli bir IP adresi veya bir IP adresi aralığı MariaDB sunucusu için Azure veritabanı'na yönetme olanağı sağlar. Uygun Azure CLI'si komutlarını kullanarak, oluşturabilir, güncelleştirin, silin, listeleyin ve sunucunuzu yönetmek için güvenlik duvarı kurallarını gösterir. Bir Azure veritabanı'nın için MariaDB güvenlik duvarları için bkz: genel bakış [MariaDB sunucu güvenlik duvarı kuralları için Azure veritabanı](./concepts-firewall-rules.md)
+Sunucu düzeyinde güvenlik duvarı kuralları, erişim belirli bir IP adresi veya bir IP adresi aralığı MariaDB sunucusu için Azure veritabanı'na yönetmek için kullanılabilir. Uygun Azure CLI'si komutlarını kullanarak, oluşturabilir, güncelleştirin, silin, listeleyin ve sunucunuzu yönetmek için güvenlik duvarı kurallarını gösterir. Bir Azure veritabanı'nın için MariaDB güvenlik duvarları için bkz: genel bakış [MariaDB sunucu güvenlik duvarı kuralları için Azure veritabanı](./concepts-firewall-rules.md).
+
+Sanal ağ (VNet) kuralları, sunucunuza erişim güvenliğini sağlamak için de kullanılabilir. Daha fazla bilgi edinin [oluşturma ve yönetme sanal ağ hizmet uç noktaları ve Azure CLI kullanarak kurallar](howto-manage-vnet-cli.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 * [Azure CLI’yı yükleyin](https://docs.microsoft.com/cli/azure/install-azure-cli).
@@ -31,7 +33,7 @@ Komutlar:
 - **Göster**: Güvenlik duvarı kuralı Azure MariaDB sunucusunun ayrıntılarını göster.
 - **Güncelleştirme**: Bir Azure MariaDB sunucu güvenlik duvarı kuralı güncelleştirin.
 
-## <a name="log-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>Azure'da oturum açın ve MariaDB sunucuları için Azure veritabanınızı listeleme
+## <a name="sign-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>Azure'da oturum açın ve MariaDB sunucuları için Azure veritabanınızı listeleme
 Azure CLI kullanarak güvenli bir şekilde Azure hesabınızla bağlanmanız **az login** komutu.
 
 1. Komut satırından aşağıdaki komutu çalıştırın:
@@ -42,7 +44,7 @@ Azure CLI kullanarak güvenli bir şekilde Azure hesabınızla bağlanmanız **a
 
 2. Bir web tarayıcısı kullanarak [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin)ve ardından kodu girin.
 
-3. İstendiğinde, Azure kimlik bilgilerinizi kullanarak oturum açın.
+3. İstemde, Azure kimlik bilgilerinizi kullanarak oturum açın.
 
 4. Oturum açma bilgilerinizi yetkilendirildikten sonra konsolda Aboneliklerin listesini yazdırılır. Geçerli bir abonelik kullanmak için ayarlanacak istediğiniz abonelik Kimliğini kopyalayın. Kullanım [az hesabı kümesi](/cli/azure/account#az-account-set) komutu.
    ```azurecli-interactive
@@ -119,3 +121,4 @@ Başarılı olduktan sonra hiçbir çıktı yok. Başarısızlık durumunda, hat
 ## <a name="next-steps"></a>Sonraki adımlar
 - Hakkında daha fazla bilgi edinin [MariaDB sunucu güvenlik duvarı kuralları için Azure veritabanı](./concepts-firewall-rules.md).
 - [Oluşturma ve Azure veritabanı Azure portalını kullanarak MariaDB için güvenlik duvarı kurallarını yönetme](./howto-manage-firewall-portal.md).
+- Daha fazla güvenli sunucunuz tarafından erişim [oluşturma ve yönetme sanal ağ hizmet uç noktaları ve Azure CLI kullanarak kurallar](howto-manage-vnet-cli.md).

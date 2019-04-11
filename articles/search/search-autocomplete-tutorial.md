@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 7c06489af7c418a437c2e7a8714c89bee1414c2b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357952"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471741"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Örnek: Önerileriniz veya otomatik tamamlama, Azure Search uygulamanıza ekleyin
 
@@ -107,7 +107,7 @@ Aşağıdaki satırı değiştirin:
 source: "/home/suggest?highlights=false&fuzzy=false&",
 ```
 
-Şu şekilde:
+şu şekilde:
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=true&",
@@ -164,7 +164,7 @@ Açık **HomeController.cs** denetleyicileri dizin altında dosya.
 
 İlk şey yapabilirsiniz adlı sınıfı üst kısmındaki bir yöntemdir `InitSearch`. Bu, Azure Search hizmeti için kimliği doğrulanmış bir HTTP dizini istemcisi oluşturur. Daha fazla bilgi için [bir .NET uygulamasından Azure Search kullanma](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
-41 satırında Öner işlevi dikkat edin. Dayanır [DocumentsOperationsExtensions.Suggest yöntemi](/dotnet/api/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview).
+41 satırında Öner işlevi dikkat edin. Dayanır [DocumentsOperationsExtensions.Suggest yöntemi](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)

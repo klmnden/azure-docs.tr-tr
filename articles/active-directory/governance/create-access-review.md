@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e25af938d09a254abd5d28ca3a5eecca2d3f8f1
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 804efa6e0a39e009e18bbb9dec5ad1638a163597
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576216"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471639"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Grupları bir erişim gözden geçirmesi oluşturma veya uygulamaları Azure ad erişim gözden geçirmeleri
 
@@ -35,13 +35,13 @@ Bu makalede, grubu üyeleri veya uygulama erişimi için bir veya daha fazla eri
 
 ## <a name="create-one-or-more-access-reviews"></a>Bir veya daha fazla erişim gözden geçirmesi oluşturma
 
-1. Oturum açma için Azure portalını ve açık [erişim gözden geçirmeleri sayfasına](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Azure portal ve açık oturum [erişim gözden geçirmeleri sayfasına](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-1. Tıklayın **denetimleri**.
+1. Sol menüde **erişim gözden geçirmeleriyle**.
 
 1. Tıklayın **yeni erişim gözden geçirmesi** yeni bir erişim gözden geçirmesi oluşturma.
 
-    ![Erişim gözden geçirmesi - denetimler](./media/create-access-review/controls.png)
+    ![Erişim gözden geçirmesi - denetimler](./media/create-access-review/access-reviews.png)
 
 1. Erişim gözden geçirmesi adı. İsteğe bağlı olarak, gözden geçirme bir açıklama girin. Ad ve açıklama gözden geçirenlere gösterilmektedir.
 
@@ -51,15 +51,15 @@ Bu makalede, grubu üyeleri veya uygulama erişimi için bir veya daha fazla eri
 
     ![Bir erişim gözden geçirmesi - oluşturma başlangıç ve bitiş tarihleri](./media/create-access-review/start-end-dates.png)
 
-1. Erişim gözden geçirme yineleme yapmak için değiştirme **sıklığı** ayarını **bir kez** için **haftalık**, **aylık**,  **Üç aylık** veya **yıllık**ve **süresi** kaç gün yinelenen serisinin her incelenmesi gereken gözden geçirenler girişten açık tanımlamak için kaydırıcı veya metin kutusu. Örneğin, bir aylık gözden geçirilmek üzere ayarlayabileceğiniz en uzun süre 27 incelemeleri çakışan önlemek için gündür.
+1. Erişim gözden geçirme yineleme yapmak için değiştirme **sıklığı** ayarını **bir kez** için **haftalık**, **aylık**,  **Üç aylık** veya **yıllık**. Kullanım **süresi** kaç gün yinelenen serisinin her incelenmesi gereken gözden geçirenler girişten açık tanımlamak için kaydırıcı veya metin kutusu. Örneğin, bir aylık gözden geçirilmek üzere ayarlayabileceğiniz en uzun süre 27 incelemeleri çakışan önlemek için gündür.
 
 1. Kullanım **son** yinelenen erişim sonlandırma belirtmek için ayarı serisini gözden geçirin. Serinin üç şekilde sonlandırabilirsiniz: süresiz olarak, belirli bir tarihe kadar veya tanımlanan sayıda yineleme tamamlandıktan sonra incelemeleri başlatmak için sürekli olarak çalışmasını. Size, başka bir kullanıcının yönetici veya başka bir genel yönetici serisi oluşturulduktan sonra tarih değiştirerek durdurabilirsiniz **ayarları**, böylece bu tarihte sonlandırır.
 
-1. İçinde **kullanıcılar** bölümünde, gözden geçirme erişen kullanıcıların uygulayacağını belirtin. Erişim gözden geçirmeleri, bir grubun üyesi veya bir uygulamaya atanmış kullanıcılar olabilir. Daha fazla kimin üyeleri (veya uygulamaya atanan), gözden geçirme üyeleri olan tüm kullanıcılar yerine veya uygulamaya olan erişimi gözden geçirme gözden yalnızca konuk kullanıcılar erişim kapsamını belirleyebilirsiniz.
+1. İçinde **kullanıcılar** bölümünde, erişim gözden geçirmesi uygulanacağı kullanıcıları belirtin. Erişim gözden geçirmeleri, bir grubun üyesi veya bir uygulamaya atanmış kullanıcılar olabilir. Daha fazla kimin üyeleri (veya uygulamaya atanan), gözden geçirme üyeleri olan tüm kullanıcılar yerine veya uygulamaya olan erişimi gözden geçirme gözden yalnızca konuk kullanıcılar erişim kapsamını belirleyebilirsiniz.
 
     ![Kullanıcıların erişim gözden geçirmesi - oluştur](./media/create-access-review/users.png)
 
-1. İçinde **grupları** bölümünde, üyeliğini gözden geçirmek istediğiniz bir veya daha fazla grup seçin.
+1. İçinde **grubu** bölümünde, üyeliğini gözden geçirmek istediğiniz bir veya daha fazla grup seçin.
 
     > [!NOTE]
     > Birden fazla Grup seçme, birden çok erişim gözden geçirmeleri oluşturacaksınız. Örneğin, beş grupları seçmek, beş ayrı bir erişim gözden geçirmeleri oluşturacaksınız.
@@ -112,7 +112,9 @@ Bu makalede, grubu üyeleri veya uygulama erişimi için bir veya daha fazla eri
 
 ## <a name="start-the-access-review"></a>Erişim değerlendirmesi başlatma
 
-Erişim gözden geçirmesi ayarları belirttikten sonra tıklayın **Başlat**.
+Erişim gözden geçirmesi ayarları belirttikten sonra tıklayın **Başlat**. Erişim gözden geçirmesi listenizi durumu göstergesi görünür.
+
+![Erişim incelemeleri listesi](./media/create-access-review/access-reviews-list.png)
 
 İnceleme kısa bir süre içinde başladıktan sonra varsayılan olarak, Azure AD için gözden geçirenler bir e-posta gönderir. Erişim gözden geçirmesi tamamlanmalarını bekliyor gözden geçirenlere bildirmek e-posta gönderin, Azure AD almamayı tercih ederseniz unutmayın. Nasıl yapılır yönergeleri Göster [gruplar veya uygulamalar için erişim gözden geçirme](perform-access-review.md). Gözden geçirme kendi erişimini gözden geçirmek, konuklar için ise, bunları nasıl yapılır yönergeleri Göster [grupları ve uygulamaları için erişimi kendiniz için incele](review-your-access.md).
 
@@ -120,13 +122,15 @@ Yalnızca bunlar zaten davetini kabul ettiğiniz, Konuklar, gözden geçirenleri
 
 ## <a name="manage-the-access-review"></a>Erişim gözden geçirmesi yönetme
 
-Gözden geçirenler Azure AD'ye panosunda bulunan kendi incelemeler tamamlandı olarak ilerleme durumunu izleyebilir **erişim gözden geçirmeleriyle** bölümü. Erişim hakları dizine kadar değişen [gözden geçirme tamamlandığında](complete-access-review.md).
+Gözden geçirenler, üzerinde kendi incelemeler tamamlandı olarak ilerleme durumunu izleyebilir **genel bakış** erişim gözden geçirmesi sayfası. Erişim hakları dizine kadar değişen [gözden geçirme tamamlandığında](complete-access-review.md).
+
+![Erişim gözden geçirmeleri ilerleme durumu](./media/create-access-review/overview-progress.png)
 
 Bu tek seferlik bir gözden geçirme ise, ardından yönetici erişim gözden geçirmesi durdurur veya erişim incelemesi süresi bittikten sonra adımları [grupları ve uygulamaları, erişim değerlendirmesi tamamlama](complete-access-review.md) bakın ve sonuçları uygulamak için.  
 
-Erişim gözden geçirmeleri, bir dizi yönetmek için erişim gözden geçirmesinden gidin **denetimleri**, ve zamanlanmış incelemelerde yaklaşan yinelemesi Bul ve bitiş tarihi Düzenle veya kaldıracak ekleme/gözden geçirenler uygun şekilde kaldırma. 
+Bir dizi erişim yönetmek için gözden geçirmeleri erişim gözden gidin ve zamanlanmış incelemelerde yaklaşan yinelemesi Bul ve bitiş tarihi Düzenle veya kaldıracak ekleme/gözden geçirenler uygun şekilde kaldırma.
 
-Tamamlama ayarlarını üzerinde yaptığınız seçimlere bağlı olarak, otomatik olacak uygulama incelemesinin bitiş tarihi veya el ile ne zaman gözden geçirmeyi durdurmak sonra yürütülür. Gözden geçirme durumu tamamlandı uygulama gibi ara durumları arasında değişir ve son durumuna uygulandı. Reddedilen kullanıcılar varsa, Grup üyeliğini veya uygulama ataması birkaç dakika içinde kaldırılmakta olan görmeyi beklemelisiniz.
+Yaptığınız seçimlere göre **tamamlama ayarlarını bağlı**, otomatik olarak Uygula incelemesinin bitiş tarihi veya el ile ne zaman gözden geçirmeyi durdurmak sonra yürütülür. Gözden geçirme durumu değiştirilecek **tamamlandı** gibi ara durumları arasında **uygulama** ve son durumuna **uygulanan**. Reddedilen kullanıcılar varsa, Grup üyeliğini veya uygulama ataması birkaç dakika içinde kaldırılmakta olan görmeyi beklemelisiniz.
 
 ## <a name="create-reviews-via-apis"></a>Gözden geçirmeler API'leri aracılığıyla oluşturma
 

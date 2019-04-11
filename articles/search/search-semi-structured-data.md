@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8436bb1fc84d5a944b35cd7b2c9667d2148c0af3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 4df64595f83bd7280fa781f27f3030eda3729911
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270481"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471469"
 ---
 # <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Öğretici: Dizin ve yarı yapılandırılmış verileri (JSON blobları) Azure Search'te arama
 
@@ -37,7 +37,7 @@ Bu hızlı başlangıçta, aşağıdaki hizmetleri, araçları ve verileri kulla
 
 [Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu öğretici için ücretsiz bir hizmet kullanabilirsiniz. 
 
-[Bir Azure depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account), ardından [bir Blob kapsayıcısı oluşturursunuz](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) örnek verileri içerecek şekilde. Bir anahtar ve depolama hesabı adı bağlantı için kullanacağınız için kapsayıcının genel erişim düzeyi, "Kapsayıcı (kapsayıcı için anonim okuma erişimi)" olarak ayarlandığından emin olun.
+[Bir Azure depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) örnek verileri depolamak için kullanılır.
 
 [Postman masaüstü uygulaması](https://www.getpostman.com/) istek Azure Search'e göndermek için kullanılır.
 
@@ -57,13 +57,19 @@ Tüm istekleri hizmete gönderilen her istekte bir API anahtarı gerektirir. İs
 
 ## <a name="prepare-sample-data"></a>Örnek verileri hazırlama
 
-1. Sisteminize indirilen örnek verileri bulun.
+1. [Azure portalında oturum açın](https://portal.azure.com), Azure depolama hesabınıza gidin, tıklayın **Blobları**ve ardından **+ kapsayıcı**.
 
-1. [Azure portalında oturum açın](https://portal.azure.com), Blob kapsayıcısını ve Azure depolama hesabına gidin ve tıklayın **karşıya**.
+1. [Bir Blob kapsayıcısı oluşturursunuz](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) örnek verileri içerecek şekilde. Bir anahtar ve depolama hesabı adı bağlantı için kullanacağınız için kapsayıcının genel erişim düzeyi, "Kapsayıcı (kapsayıcı için anonim okuma erişimi)" olarak ayarlandığından emin olun.
 
-1. **Gelişmiş**’e tıklayın, "clinical-trials-json" değerini girin ve sonra indirdiğiniz tüm JSON dosyalarını karşıya yükleyin.
+   ![Genel erişim düzeyi ayarlamak](media/search-semi-structured-data/container-public-access-level.png "genel erişim düzeyi ayarlama")
 
-  ![Yarı yapılandırılmış arama](media/search-semi-structured-data/clinicalupload.png)
+1. Kapsayıcıyı oluşturduktan sonra dosyayı açın ve seçin **karşıya** komut çubuğunda.
+
+   ![Komut çubuğunda karşıya](media/search-semi-structured-data/upload-command-bar.png "komut çubuğunda karşıya yükleme")
+
+1. Örnek dosyalarını içeren klasöre gidin. Bunların tümünü seçin ve ardından **karşıya**.
+
+   ![Dosyaları karşıya yükleme](media/search-semi-structured-data/clinicalupload.png "dosyaları karşıya yükle")
 
 Yükleme tamamlandıktan sonra dosyalar veri kapsayıcısında kendi alt klasöründe görünmelidir.
 
@@ -83,20 +89,22 @@ REST istemcinizden aşağıdaki üç API çağrısını yürütün.
 
 ## <a name="create-a-data-source"></a>Veri kaynağı oluşturma
 
-Bir veri kaynağına hangi verilerin dizininin belirten bir Azure Search nesnedir.
+[Veri kaynağı API oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-data-source)hangi verilerin dizininin oluşturulacağını belirtir bir Azure Search nesnesi oluşturur.
 
-Bu çağrının uç noktası: `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. `[service name]` değerini, arama hizmetinizin adıyla değiştirin. Bu çağrı için, depolama hesabınızın adı ve depolama hesabı anahtarınız gereklidir. Depolama hesabı anahtarı, Azure portalında depolama hesabınızın **Erişim Anahtarları** bölümünde bulunur. Aşağıdaki resimde konum gösterilmektedir:
+Bu çağrının uç noktası: `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. `[service name]` değerini, arama hizmetinizin adıyla değiştirin. 
+
+Bu çağrı için istek gövdesi, depolama hesabı, depolama hesabı anahtarı ve blob kapsayıcısı adı adını içermelidir. Depolama hesabı anahtarı, Azure portalında depolama hesabınızın **Erişim Anahtarları** bölümünde bulunur. Aşağıdaki resimde konum gösterilmektedir:
 
   ![Yarı yapılandırılmış arama](media/search-semi-structured-data/storagekeys.png)
 
-Çağrıyı yürütmeden önce çağrınızın gövdesinde `[storage account name]` ve `[storage account key]` değerini değiştirdiğinizden emin olun.
+Değiştirdiğinizden emin olun `[storage account name]`, `[storage account key]`, ve `[blob container name]` çağrıyı yürütmeden önce çağrınızın gövdesinde.
 
 ```json
 {
     "name" : "clinical-trials-json",
     "type" : "azureblob",
     "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=[storage account name];AccountKey=[storage account key];" },
-    "container" : { "name" : "data", "query" : "clinical-trials-json" }
+    "container" : { "name" : "[blob container name]"}
 }
 ```
 
@@ -114,8 +122,8 @@ Yanıt şöyle görünmelidir:
         "connectionString": "DefaultEndpointsProtocol=https;AccountName=[mystorageaccounthere];AccountKey=[[myaccountkeyhere]]];"
     },
     "container": {
-        "name": "data",
-        "query": "clinical-trials-json"
+        "name": "[mycontainernamehere]",
+        "query": null
     },
     "dataChangeDetectionPolicy": null,
     "dataDeletionDetectionPolicy": null
@@ -124,7 +132,7 @@ Yanıt şöyle görünmelidir:
 
 ## <a name="create-an-index"></a>Dizin oluşturma
     
-İkinci API çağrısı, bir Azure Search dizini oluşturur. Dizin, tüm parametreleri ve parametrelerin özniteliklerini belirtir.
+İkinci çağrı [oluşturma dizini API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), Azure Search dizini oluşturma, tüm aranabilir verileri depolar. Dizin, tüm parametreleri ve parametrelerin özniteliklerini belirtir.
 
 Bu çağrının URL’si: `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`. `[service name]` değerini, arama hizmetinizin adıyla değiştirin.
 
@@ -214,7 +222,7 @@ Yanıt şöyle görünmelidir:
 
 ## <a name="create-and-run-an-indexer"></a>Oluşturma ve bir dizin oluşturucuyu çalıştırma
 
-Bir dizin oluşturucu veri kaynağına bağlanır, hedef search dizinine verileri alır ve isteğe bağlı olarak veri yenilemeyi otomatikleştirmek için bir zamanlama sağlar.
+Bir dizin oluşturucu veri kaynağına bağlanır, hedef search dizinine verileri alır ve isteğe bağlı olarak veri yenilemeyi otomatikleştirmek için bir zamanlama sağlar. REST API [dizin oluşturucu oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 Bu çağrının URL’si: `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`. `[service name]` değerini, arama hizmetinizin adıyla değiştirin.
 
@@ -257,7 +265,11 @@ Yanıt şöyle görünmelidir:
 
 ## <a name="search-your-json-files"></a>JSON dosyalarınızı arama
 
-Dizin sorguları artık uygulayabilirsiniz. Bu görev için kullanacağınız [ **arama Gezgini** ](search-explorer.md) portalında.
+İlk belgenin yüklendikten hemen sonra aramayı başlayabilirsiniz. Bu görev için kullanacağınız [ **arama Gezgini** ](search-explorer.md) portalında.
+
+Azure portalında arama hizmeti **genel bakış** sayfasında, oluşturduğunuz dizin Bul **dizinleri** listesi.
+
+Yeni oluşturduğunuz dizin seçtiğinizden emin olun. API sürümü, preview veya genel kullanıma sunulan sürümü olabilir. JSON dizileri dizin oluşturma için yalnızca önizleme gereksinim oluştu.
 
   ![Yapılandırılmamış arama](media/search-semi-structured-data/indexespane.png)
 
@@ -283,7 +295,7 @@ Bir öğretici tamamlandıktan sonra temizlemenin en hızlı yolu, Azure Search 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-AI destekli algoritmaları dizin oluşturucu işlem hattına ekleyebilirsiniz. Sonraki adım olarak, aşağıdaki öğreticiye geçin.
+Bilişsel hizmetler yapay ZEKA destekli algoritmalar bir dizin oluşturucu ardışık düzenine ekleyebilirsiniz. Sonraki adım olarak, aşağıdaki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Azure Blob Depolama'da belgelerin dizin oluşturma](search-howto-indexing-azure-blob-storage.md)
+> [Yapay ZEKA ile dizinleme](cognitive-search-tutorial-blob.md)

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
-ms.openlocfilehash: dcd6d907fec3d7f2cc0c8d5c06fdec28125154c1
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 84c578fdbcfb555bde23d6a9e6f8258259cff8de
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009555"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471292"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -478,6 +478,15 @@ Aşağıdaki özel kapsayıcı dağıtım seçenekleri kullanılabilir:
 | **`--min`**  | İsteğe bağlı olarak, işlev uygulaması örnekleri dağıtmak için en az sayısını ayarlar. |
 | **`--config`** | Bir isteğe bağlı dağıtım yapılandırma dosyası ayarlar. |
 
+## <a name="monitoring-functions"></a>İzleme işlevleri
+
+İşlevlerinizin yürütülmesini izlemek için önerilen yöntem, Azure Application Insights ile tümleştirerek ' dir. Bu tümleştirme, Azure portalında bir işlev uygulaması oluşturduğunuzda, sizin için varsayılan olarak gerçekleştirilir. Ancak, Azure CLI kullanarak işlev uygulamanızı oluşturmak, işlev uygulamanızı azure'da tümleştirme bitti değil.
+
+İşlev uygulamanız için Application Insights'ı etkinleştirmek için:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+Daha fazla bilgi için bkz. [İzleyici Azure işlevleri](functions-monitoring.md).
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure işlevleri çekirdek Araçları [açık kaynak ve GitHub üzerinde barındırılır](https://github.com/azure/azure-functions-cli).  

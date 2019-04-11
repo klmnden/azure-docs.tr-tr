@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: f0f5a4ee5206201cca20e705011126e6cf472a1a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835461"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471095"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL Programlama Kılavuzu
 
@@ -1601,7 +1601,7 @@ CROSS APPLYis used to pass parameters
 new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
-Bir SELECT ifadesinde appliers kullanma hakkında daha fazla bilgi için bkz [seçin, U-SQL seçerek OUTER APPLY ve CROSS APPLY](https://msdn.microsoft.com/library/azure/mt621307.aspx).
+Bir SELECT ifadesinde appliers kullanma hakkında daha fazla bilgi için bkz [seçin, U-SQL seçerek OUTER APPLY ve CROSS APPLY](/u-sql/statements-and-expressions/select/from/select-selecting-from-cross-apply-and-outer-apply).
 
 Kullanıcı tanımlı applier temel sınıf tanımına aşağıdaki gibidir:
 
@@ -1815,7 +1815,7 @@ Combine_Expression :=
     USING_Clause.
 ```
 
-Daha fazla bilgi için [birleştirme ifadesi (U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx).
+Daha fazla bilgi için [birleştirme ifadesi (U-SQL)](/u-sql/statements-and-expressions/combine-expression).
 
 Bir kullanıcı tanımlı Birleştirici tanımlamak için oluşturmamız gerekir `ICombiner` ile arabirim [`SqlUserDefinedCombiner`] özniteliği için bir kullanıcı tanımlı Birleştirici tanım isteğe bağlıdır.
 
@@ -1877,7 +1877,7 @@ Giriş satır kümeleri olarak geçirilir **sol** ve **doğru** `IRowset` arabir
 
 Tarafından önbelleğe alma işlemleri için bir liste oluşturabiliriz\<T\> tür bellek yapısı sonuç olarak bir LINQ Sorgu yürütmesi, özellikle listesi <`IRow`>. Anonim veri türü de numaralandırma sırasında kullanılabilir.
 
-Bkz: [(C#) LINQ sorgularına giriş](https://msdn.microsoft.com/library/bb397906.aspx) LINQ sorguları hakkında daha fazla bilgi ve [IEnumerable\<T\> arabirimi](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) IEnumerablehakkındadahafazlabilgiiçin\<T\> arabirimi.
+Bkz: [(C#) LINQ sorgularına giriş](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries) LINQ sorguları hakkında daha fazla bilgi ve [IEnumerable\<T\> arabirimi](/dotnet/api/system.collections.generic.ienumerable-1) IEnumerablehakkındadahafazlabilgiiçin\<T\> arabirimi.
 
 Gelen gerçek veri değerlerini almak için `IRowset`, Get() yöntemini kullanırız `IRow` arabirimi.
 

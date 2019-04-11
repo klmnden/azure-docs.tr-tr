@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: dd28bc3925b0f07a441c46a26498ef1a14c3e650
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 101c985178b8269b4ff542b94b057330d0c2652a
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510332"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471673"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application ınsights'ı Azure işlevleri için desteklenen özellikler
 
@@ -27,12 +27,12 @@ Azure işlevleri tekliflerini [yerleşik tümleştirme](https://docs.microsoft.c
 
 | Azure İşlevleri                       | V1                | V2 (Ignite 2018)  | 
 |-----------------------------------    |---------------    |------------------ |
-| **Application ınsights'ı .NET SDK'sı**   | **2.5.0**       | **2.7.2**         |
+| **Application ınsights'ı .NET SDK'sı**   | **2.5.0**       | **2.9.1**         |
 | | | | 
 | **Otomatik olarak toplama**        |                 |                   |               
 | &bull; İstekleri                     | Evet             | Evet               | 
 | &bull; Özel durumlar                   | Evet             | Evet               | 
-| &bull; Performans sayaçları         | Evet             |                   |
+| &bull; Performans sayaçları         | Evet             | Evet               |
 | &bull; Bağımlılıkları                   |                   |                   |               
 | &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Evet               | 
 | &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Evet               | 
@@ -65,3 +65,30 @@ Belirttiğiniz özel filtreler ölçütlere geri Application Insights SDK'sı Ca
 ## <a name="sampling"></a>Örnekleme
 
 Azure işlevleri, varsayılan olarak, yapılandırmada örnekleme sağlar. Daha fazla bilgi için [örnekleme yapılandırma](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).
+
+Projeniz el ile telemetri izleme yapmak için Application Insights SDK üzerinde bir bağımlılık alırsa, örnekleme yapılandırmanızı işlevler örnekleme yapılandırmadan farklı ise, garip davranışlar karşılaşabilirsiniz. 
+
+İşlevleri aynı yapılandırmayı kullanmanızı öneririz. İle **işlevler v2**, oluşturucu, bağımlılık ekleme kullanılarak yapılandırmanın alabilirsiniz:
+
+```csharp
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+
+public class Function1 
+{
+
+    private readonly TelemetryClient telemetryClient;
+
+    public Function1(TelemetryConfiguration configuration)
+    {
+        this.telemetryClient = new TelemetryClient(configuration);
+    }
+
+    [FunctionName("Function1")]
+    public async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, ILogger logger)
+    {
+        this.telemetryClient.TrackTrace("C# HTTP trigger function processed a request.");
+    }
+}
+```

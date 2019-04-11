@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: d84e52878c285ddd66fd799efe8c0f3cd2fc3e31
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: 4ceed2fb2b42dc8e09d1a837200652d29838d81b
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358429"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471571"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
 
@@ -46,7 +46,7 @@ Yönetilen örnek dağıtım seçeneği, şirket içi SQL Server veritabanı alt
 - [BIRAKMA KULLANILABİLİRLİK GRUBU](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) yan tümcesi [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) deyimi
 
-### <a name="backup"></a>Yedekle
+### <a name="backup"></a>Backup
 
 Yönetilen örnek otomatik yedeklemelerini ve tam bir veritabanı oluşturmak için kullanıcıları etkinleştirmek `COPY_ONLY` yedekler. Fark, günlük ve dosya anlık görüntüsü yedekleri desteklenmez.
 
@@ -115,7 +115,7 @@ CREATE CERTIFICATE
 WITH PRIVATE KEY (<private_key_options>)
 ```
 
-### <a name="credential"></a>Kimlik bilgisi
+### <a name="credential"></a>Kimlik Bilgisi
 
 Azure Key Vault ve `SHARED ACCESS SIGNATURE` kimlikleri desteklenir. Windows kullanıcıları desteklenmez.
 
@@ -217,7 +217,7 @@ Daha fazla bilgi için [ALTER DATABASE SET PARTNER ve SET WITNESS](https://docs.
 
 - Birden çok günlük dosyası desteklenmez.
 - Bellek içi nesneler genel amaçlı hizmet katmanında desteklenmiyor.  
-- Veritabanı başına en fazla 280 dosyaları olduğunu belirtmek genel amaçlı örneği başına 280 dosyaların bir sınırlama yoktur. Hem verileri hem de günlük dosyaları genel amaçlı katmanı, bu sınırında sayılır. [Kritik iş katmanı, veritabanı başına 32.767 dosyalarını destekler](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+- Veritabanı başına en fazla 280 dosyaları olduğunu belirtmek genel amaçlı örneği başına 280 dosyaların bir sınırlama yoktur. Hem verileri hem de günlük dosyaları genel amaçlı katmanı, bu sınırında sayılır. [Kritik iş katmanı, veritabanı başına 32.767 dosyalarını destekler](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 - Veritabanı dosya akışı verisi içeren dosya grupları içeremez.  Geri yükleme başarısız olur .bak içeriyorsa `FILESTREAM` veri.  
 - Her dosya, Azure Blob depolamada yer alır. G/ç ve dosya başına aktarım hızı, her bir dosya boyutuna bağlıdır.  
 
@@ -276,11 +276,11 @@ Daha fazla bilgi için [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/sta
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
 - SQL Aracısı ayarları salt okunur. Yordam `sp_set_agent_properties` yönetilen örneği'nde desteklenmiyor.  
-- İşler (Job)
+- İşler
   - T-SQL iş adımları desteklenir.
   - Şu çoğaltma işleri desteklenir:
     - İşlem günlüğü okuyucusu
-    - Anlık görüntü
+    - Anlık Görüntü
     - Dağıtıcı
   - SSIS iş adımları desteklenir
   - İş adımları diğer türleri şu anda desteklenmez:
@@ -467,7 +467,6 @@ Aşağıdaki değişkenler, İşlevler ve görünümleri farklı sonuçlar dönd
 - `@@SERVICENAME` SQL Server yönetilen örneği'ne uygulanmaz için hizmet olarak kavramı var olduğundan, NULL döndürür. Bkz: [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
 - `SUSER_ID` desteklenir. Azure AD oturum açma sys.syslogins içinde değilse NULL döndürür. Bkz: [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` desteklenmiyor. (Geçici bilinen sorun) veri yanlış döndürür. Bkz: [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql).
-- `GETDATE()` ve diğer yerleşik tarih/saat işlevleri her zaman UTC saat diliminde saati döndürür. Bkz: [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
 
 ## <a name="Issues"></a> Bilinen sorunlar ve sınırlamalar
 
@@ -494,7 +493,7 @@ Bunu, belirli bir dağıtım dosyalarının nedeniyle belirli durumda altında g
 
 Bu örnekte, var olan veritabanlarını çalışmaya devam eder ve yeni dosyaları eklenmedi sürece herhangi bir sorun büyüyebilir. Ancak yeni veritabanlarını değil oluşturulabilir veya tüm veritabanlarının toplam boyutu örneği boyutu sınırına ulaştığında değil olsa bile yeni disk sürücüsü için yeterli alan olmadığından geri. Döndürülen hata durumda açık değildir.
 
-Yapabilecekleriniz [kalan dosyaların sayısını belirleme](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) sistem görünümleri kullanma. Erişmeye çalıştığınız deneyin bu sınırı [boş ve DBCC SHRINKFILE deyimini kullanarak daha küçük dosyalar bazılarını silin](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) veya geçiş [yoksa iş açısından kritik katmanında, bu sınırı bulunur](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+Yapabilecekleriniz [kalan dosyaların sayısını belirleme](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) sistem görünümleri kullanma. Erişmeye çalıştığınız deneyin bu sınırı [boş ve DBCC SHRINKFILE deyimini kullanarak daha küçük dosyalar bazılarını silin](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) veya geçiş [bu sınırı yok, iş açısından kritik katmanı](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>SAS anahtarı hatalı yapılandırılması sırasında veritabanı geri yükleme
 
@@ -567,11 +566,11 @@ Yönetilen bir örneği ve geçerli örnek süre başvuran bağlı sunucuları/d
 
 **Geçici çözüm**: Bağlam bağlantılarını CLR modülünde mümkün olduğunda kullanın.
 
-### <a name="tde-encrypted-databases-dont-support-user-initiated-backups"></a>TDE şifreli veritabanlarına kullanıcı tarafından başlatılan yedeklemeleri desteklemez.
+### <a name="tde-encrypted-databases-with-service-managed-key-dont-support-user-initiated-backups"></a>Hizmet tarafından yönetilen anahtarla şifrelenmiş TDE veritabanları kullanıcı tarafından başlatılan yedeklemeleri desteklemez.
 
-Kod yürütemez `BACKUP DATABASE ... WITH COPY_ONLY` bir veritabanında saydam veri şifrelemesi (TDE) ile şifrelenir. TDE yedeklemelerinin iç TDE anahtarlarla şifrelenmesini zorlar ve yedeklemeyi geri yükleme olanağınız olmayacaktır anahtarı verilemiyor.
+Kod yürütemez `BACKUP DATABASE ... WITH COPY_ONLY` hizmetle yönetilen şeffaf veri şifrelemesi (TDE ile) şifrelenmiş bir veritabanı. Hizmetle yönetilen TDE yedeklemelerinin iç TDE anahtarla şifrelenmesini zorlar ve yedeklemeyi geri yükleme olanağınız olmayacaktır anahtarı verilemiyor.
 
-**Geçici çözüm**: Otomatik yedeklemeler ve zaman içinde nokta geri yükleme kullanın veya veritabanı şifreleme devre dışı bırakın.
+**Geçici çözüm**: Otomatik yedeklemeler ve zaman içinde nokta geri yükleme veya kullanın [müşteri tarafından yönetilen (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) bunun yerine, veya veritabanı şifreleme devre dışı bırakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 6c96b7139787a3863b3f7a47949d9cdf20cc5021
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c9e6e289fbda3188449ecc71cbc90bed546512e1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855682"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471537"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Etkinleştirme veya Application Insights Profiler ' ı görüntüleme sorunlarını giderme
 
@@ -67,9 +67,15 @@ Portalında bir destek bileti gönderin. Hata iletisindeki bağıntı Kimliğini
 Düzgün çalışması Profiler için:
 * Temel katman web app service planınızın olması gerekir veya üzeri.
 * Web uygulamanızı Application Insights'ın etkin olması gerekir.
-* Web uygulamanızı olmalıdır **appınsıghts_ınstrumentatıonkey** Application Insights SDK'sı tarafından kullanılan aynı izleme anahtarı ile yapılandırılmış uygulama ayarı.
-* Web uygulamanızı olmalıdır **APPINSIGHTS_PROFILERFEATURE_VERSION** uygulama ayarı tanımlanan ve 1.0.0 sürümüne ayarlayın.
-* Web uygulamanızı olmalıdır **DiagnosticServices_EXTENSION_VERSION** tanımlanan uygulama ayarı ve ~ 3'e ayarlanan değer.
+* Web uygulamanız aşağıdaki uygulama ayarlarını sahip olmanız gerekir:
+
+    |Uygulama Ayarı    | Değer    |
+    |---------------|----------|
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey, Application Insights kaynağı    |
+    |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
+
+
 * **ApplicationInsightsProfiler3** webjob çalışıyor olmalıdır. Webjob denetlemek için:
    1. Git [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/).
    1. İçinde **Araçları** menüsünde **Web işleri Panosu'nu**.  
@@ -93,12 +99,13 @@ Profiler'ı yapılandırırken, güncelleştirmeler web uygulamasının Ayarlar 
 1. Ayarlama **.NET Framework sürümünü** için **v4.6**.
 
 1. Ayarlama **her zaman açık** için **üzerinde**.
+1. Bu uygulama ayarları oluşturma:
 
-1. Ekleme **appınsıghts_ınstrumentatıonkey** uygulama ayarı ve değeri SDK'sı tarafından kullanılan aynı izleme anahtarını ayarlayın.
-
-1. Ekleme **APPINSIGHTS_PROFILERFEATURE_VERSION** uygulama ayarı ve 1.0.0 değeri ayarlayın.
-
-1. Ekleme **DiagnosticServices_EXTENSION_VERSION** uygulama ayarı ve yaklaşık 3 değeri ayarlayın.
+    |Uygulama Ayarı    | Değer    |
+    |---------------|----------|
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey, Application Insights kaynağı    |
+    |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 ### <a name="too-many-active-profiling-sessions"></a>Profil oluşturma çok fazla etkin oturumlar
 
@@ -124,7 +131,7 @@ Profiler web uygulamasında sürekli bir webjob olarak çalışır. Web uygulama
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Profiler'ı ve Azure Tanılama ile ilgili sorunları giderme
 
-  >**Bulut Hizmetleri için en son sürümünü WAD sevk profil oluşturucu bir hata yoktur.** Profil Oluşturucu bir bulut hizmeti ile kullanmak için yalnızca AI SDK'sı sürüm 2.7.2 kadar destekler. AI SDK'sının daha yeni bir sürümü kullanıyorsanız, 2.7.2 için profil oluşturucuyu kullanmak için dönmeniz gerekir. App Insights SDK'sı sürümünü düşürmek için Visual Studio kullanıyorsanız, çalışma zamanında bir bağlama yeniden yönlendirme hatası alabilirsiniz. Bu durum, yapay ZEKA SDK'sı, ancak eski sürüme düşürme otomatik olarak güncelleştirilmesini değil sonra "2.7.2.0" için "Newversıon" Microsoft.applicationınsights web.config dosyasında ayarlamanız gerekir çünkü.
+>**WAD içinde birlikte gelen bulut Hizmetleri için profil oluşturucu hata düzeltildi.** WAD (1.12.2.0) bulut Hizmetleri için en son sürümünü tüm son sürümleri App Insights SDK'sı ile çalışır. Bulut hizmet konakları WAD otomatik olarak yükseltilir, ancak hemen değildir. Yükseltme zorlamak için hizmetinizi yeniden dağıtın veya düğümü yeniden başlatma.
 
 Profiler Azure tanılama tarafından doğru şekilde yapılandırılıp yapılandırılmadığını görmek için aşağıdakileri yapın: 
 1. İlk olarak, dağıtılan Azure tanılama yapılandırması içeriğini beklediğiniz olup olmadığını denetleyin. 
