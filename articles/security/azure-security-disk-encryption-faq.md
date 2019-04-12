@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 413ed4a56afad5ced221ba957af9ddb007622b6a
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: d7ccf370ae2f3f9add2b73797e8938d4580d81dd
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470058"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493153"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk şifrelemesi için Iaas Vm'leri SSS
 
@@ -37,11 +37,11 @@ Azure Disk şifrelemesi dahil olmak üzere standart katman sanal makinelerinde k
 
 ## <a name="bkmk_LinuxOSSupport"></a> Hangi Linux dağıtımı, Azure Disk şifrelemesi destekliyor mu?
 
-Azure Disk şifrelemesi, bir alt kümesi üzerinde desteklenir [Azure destekli Linux dağıtımları](../virtual-machines/linux/endorsed-distros.md), kendisini tüm olası dağıtımların bir alt kümesidir.
+Azure Disk şifrelemesi, bir alt kümesi üzerinde desteklenir [Azure destekli Linux dağıtımları](../virtual-machines/linux/endorsed-distros.md), kendisini tüm Linux sunucusu olası dağıtımların bir alt kümesidir.
 
  ![Azure Disk şifrelemesi desteği Venn diyagramı Linux sunucusu dağıtımları](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
 
-Azure tarafından onaylanan değil dağıtımları, Azure Disk şifrelemesi desteklemez ve bu onaylanan, Azure Disk şifrelemesi yalnızca aşağıdaki Linux sunucusu dağıtımları ve sürümleri destekler:
+Azure tarafından onaylanan değil Linux sunucusu dağıtımı, Azure Disk şifrelemesi desteklemez ve içeriğiyle onaylanan, Azure Disk şifrelemesi yalnızca aşağıdaki dağıtımları ve sürümleri destekler:
 
 | Linux dağıtım | Sürüm | Desteklenen şifreleme için birim türü|
 | --- | --- |--- |

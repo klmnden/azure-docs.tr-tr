@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 2d759dbfc9b38aae00dd8c3a51a6c0ee2dbe523f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6338403818259c7263fe66af7d8c8840d98efbcd
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176574"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491279"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Hızlı Başlangıç: Deneyin My endüstriyel IOT cihazları yönetmek için bulut tabanlı bir çözüm
 
@@ -64,7 +64,7 @@ Bağlı Fabrika çözüm hızlandırıcınız görünen sayfasında ilgili bilgi
 
 Varsayılan görünüm, *pano* şeklindedir. Portalın diğer alanlarına gitmek için sayfanın sol tarafındaki menüyü kullanın:
 
-[![Çözüm panosu](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
+[![Szümü Pano](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
 
 Endüstriyel IoT cihazlarınızı yönetmek için panoyu kullanırsınız. Bağlı Fabrika, global fabrika yapılandırmasını göstermek için bir hiyerarşi kullanır. Hiyerarşinin en üst düzeyinde, bir veya daha fazla fabrika içeren kuruluş bulunur. Her fabrika üretim hatlarından ve her üretim hattı da istasyonlardan oluşur. Her düzeyde OEE ve KPI’leri görüntüleyebilir, telemetri için yeni düğümler yayımlayabilir ve alarmlara yanıt verebilirsiniz.
 
@@ -74,13 +74,13 @@ Panoda şunları görebilirsiniz:
 
 **Genel Donanım Verimliliği** paneli, kuruluşun tamamı için veya görüntülediğiniz fabrika/üretim hattı/istasyon için OEE değerlerini gösterir. Bu değer, kurumsal düzeyi bulmak için istasyon görünümünden toplanır. OEE şekli ve bu şekli oluşturan öğeler daha fazla analiz edilebilir.
 
-[![Genel donanım verimliliği](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
+[![Overall donanım verimliliğini](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
 
 OEE, üretimle ilgili operasyonel parametreleri kullanarak üretim sürecinin verimliliğini derecelendirir. OEE, standart ölçü kullanılabilirlik oranı, performans oranı ve kalite oranının çarpılmasıyla hesaplanan bir sektördür: OEE = kullanılabilirlik x performans x kalite.
 
 Hiyerarşi verilerinin herhangi bir düzeyindeki OEE verilerini daha ayrıntılı bir şekilde analiz edebilirsiniz. OEE, kullanılabilirlik, performans veya kalite yüzdesi halkasına tıklayın. Verilerin farklı zamanlardaki görselleştirmelerinin yer aldığı bir bağlam paneli açılır:
 
-[![Genel donanım verimliliği ayrıntıları](./media/quickstart-connected-factory-deploy/oeedetail-inline.png)](./media/quickstart-connected-factory-deploy/oeedetail-expanded.png#lightbox)
+[![Overall donanım verimliliğini ayrıntı](./media/quickstart-connected-factory-deploy/oeedetail-inline.png)](./media/quickstart-connected-factory-deploy/oeedetail-expanded.png#lightbox)
 
 İstediğiniz grafiğe tıklayarak verileri daha ayrıntılı bir şekilde analiz edebilirsiniz.
 
@@ -88,11 +88,11 @@ Hiyerarşi verilerinin herhangi bir düzeyindeki OEE verilerini daha ayrıntıl�
 
 **Temel performans göstergeleri**, kuruluşun tamamında veya görüntülediğiniz fabrika/üretim hattı/istasyonda saatte üretilen birimlerin ve kullanılan enerjinin (kWh) görüntülendiği paneldir. Bu değerler, kurumsal düzeyi bulmak için istasyon görünümünden toplanır.
 
-[![Temel performans göstergeleri](./media/quickstart-connected-factory-deploy/kpis-inline.png)](./media/quickstart-connected-factory-deploy/kpis-expanded.png#lightbox)
+[![Key performans göstergelerini](./media/quickstart-connected-factory-deploy/kpis-inline.png)](./media/quickstart-connected-factory-deploy/kpis-expanded.png#lightbox)
 
 Hiyerarşi verilerinin herhangi bir düzeyindeki KPI verilerini daha ayrıntılı bir şekilde analiz edebilirsiniz. OEE, kullanılabilirlik, performans veya kalite yüzdesi halkasına tıklayın. Verilerin farklı zamanlardaki görselleştirmelerinin yer aldığı bir bağlam paneli açılır:
 
-[![KPI ayrıntıları](./media/quickstart-connected-factory-deploy/kpidetail-inline.png)](./media/quickstart-connected-factory-deploy/kpidetail-expanded.png#lightbox)
+[![KPI ayrıntı](./media/quickstart-connected-factory-deploy/kpidetail-inline.png)](./media/quickstart-connected-factory-deploy/kpidetail-expanded.png#lightbox)
 
 İstediğiniz grafiğe tıklayarak verileri daha ayrıntılı bir şekilde analiz edebilirsiniz.
 
@@ -100,7 +100,7 @@ Hiyerarşi verilerinin herhangi bir düzeyindeki KPI verilerini daha ayrıntıl�
 
 Çözümdeki durumu, konumu ve geçerli üretim yapılandırmasını gösteren bir **fabrika konumları** paneli. Çözüm hızlandırıcısını ilk kez çalıştırdığınızda, panoda sanal fabrikalardan oluşan bir küme görüntülenir. Her üretim hattı benzetimi, benzetimi yapılan görevleri gerçekleştiren ve verileri paylaşan üç gerçek OPC UA sunucusundan oluşur. OPC UA hakkında daha fazla bilgi için bkz. [Bağlı Fabrika SSS](iot-accelerators-faq-cf.md):
 
-[![Fabrika konumları](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
+[![Factory konumları](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
 
 Çözüm hiyerarşisinde gezinebilir ve her düzeydeki OEE ve KPI değerlerini görüntüleyebilirsiniz:
 
@@ -112,19 +112,19 @@ Hiyerarşi verilerinin herhangi bir düzeyindeki KPI verilerini daha ayrıntıl�
 
 1. **EnergyConsumption**'a tıklayın. Değerin farklı zamanlardaki değişimini gösteren grafikler görürsünüz. İstediğiniz grafiğe tıklayarak verileri daha ayrıntılı bir şekilde analiz edebilirsiniz.
 
-[![Enerji tüketimini görüntüleme](./media/quickstart-connected-factory-deploy/explorelocations-inline.png)](./media/quickstart-connected-factory-deploy/explorelocations-expanded.png#lightbox)
+[![Venerji tüketimi görünümü](./media/quickstart-connected-factory-deploy/explorelocations-inline.png)](./media/quickstart-connected-factory-deploy/explorelocations-expanded.png#lightbox)
 
 ### <a name="map"></a>Eşleme
 
 Aboneliğinizin [Bing Haritalar API’sine](iot-accelerators-faq-cf.md) erişimi varsa, *Fabrikalar* haritasında size çözümdeki tüm fabrikaların coğrafi konumu ve durumu gösterilir. Konumun detaylarına gitmek için haritada görüntülenen konumlara tıklayın.
 
-[![Harita](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
+[![MAP](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
 
 ### <a name="alarms"></a>Alarmlar
 
 **Alarmlar** panelinde, raporlanan bir değerin veya hesaplanan OEE/KPI değerinin yapılandırılmış eşiği aşmasından dolayı oluşturulan alarmlar gösterilir. Bu panelde, istasyon düzeyinden kuruluş düzeyine kadar her hiyerarşi düzeyindeki alarmlar görüntülenir. Her alarm açıklama, tarih, saat, konum ve tekrarlanma sayısını içerir:
 
-[![Alarmlar](./media/quickstart-connected-factory-deploy/alarms-inline.png)](./media/quickstart-connected-factory-deploy/alarms-expanded.png#lightbox)
+[![Alarms](./media/quickstart-connected-factory-deploy/alarms-inline.png)](./media/quickstart-connected-factory-deploy/alarms-expanded.png#lightbox)
 
 Panodan alarma neden olan verileri analiz edebilirsiniz. Yöneticiyseniz alarmlar üzerinde şu varsayılan eylemleri gerçekleştirebilirsiniz:
 
@@ -133,11 +133,11 @@ Panodan alarma neden olan verileri analiz edebilirsiniz. Yöneticiyseniz alarmla
 
 Alarmlardan birine tıklayın, **Eylem seçin** açılan menüsünde **Uyarıyı kabul et**'i seçin ve **Uygula**'ya tıklayın:
 
-[![Alarmı kabul et](./media/quickstart-connected-factory-deploy/acknowledge-inline.png)](./media/quickstart-connected-factory-deploy/acknowledge-expanded.png#lightbox)
+[![Acknowledge uyarısı](./media/quickstart-connected-factory-deploy/acknowledge-inline.png)](./media/quickstart-connected-factory-deploy/acknowledge-expanded.png#lightbox)
 
 Alarm verilerini daha fazla çözümlemek için, alarm panelindeki grafiğe tıklayın.
 
-Bu alarmlar, çözüm hızlandırıcısındaki yapılandırma dosyasında belirtilen kurallar tarafından oluşturulur. Bu kurallar, OEE veya KPI rakamları veya OPC UA Düğüm değerleri yapılandırılmış eşiği aştığında alarmlar oluşturur. Bu eşik değerini ayarlayabilirsiniz.
+Bu alarmlar, çözüm hızlandırıcısındaki yapılandırma dosyasında belirtilen kurallar tarafından oluşturulur. Bu kurallar OEE veya KPI rakamları veya OPC UA düğüm değerleri bir eşiğin üstünde olduğunuzda alarmlar oluşturur. Bu eşik değerini ayarlayabilirsiniz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

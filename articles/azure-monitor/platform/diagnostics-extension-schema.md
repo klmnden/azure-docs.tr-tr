@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 92ae1e31a739486871ebff69740f31a495c7b780
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 29091add5cee0934064224c9cca8644b401bd5e4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471659"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493323"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure tanılama uzantısı yapılandırma şeması sürümleri ve geçmişi
 Bu sayfa dizinlerinin Azure tanılama Uzantı Şeması sürümleri, Microsoft Azure SDK'sı bir parçası olarak gönderildiğini.  
@@ -29,7 +29,7 @@ Bu sayfa dizinlerinin Azure tanılama Uzantı Şeması sürümleri, Microsoft Az
 >
 > Bu sayfada, yalnızca bu hizmetlerden biri kullanıyorsanız geçerlidir.
 
-Azure tanılama uzantısı, Azure İzleyici, Application Insights ve Log Analytics gibi diğer Microsoft tanılama ürünleriyle kullanılır. Daha fazla bilgi için [Microsoft izleme araçlarına genel bakış](../../azure-monitor/overview.md).
+Azure tanılama uzantısı, Application Insights ve Log Analytics içeren Azure İzleyici gibi diğer Microsoft tanılama ürünleriyle kullanılır. Daha fazla bilgi için [Microsoft izleme araçlarına genel bakış](../../azure-monitor/overview.md).
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Grafik sevkiyat azure SDK ve tanılama sürümleri  
 

@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 36b9e6c97a10f7608a4faaef005ca4eeb1fc09c6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811537"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492728"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Azure tanılama 1.0 yapılandırma şeması
 > [!NOTE]
 > Azure Tanılama, Azure sanal makineler, sanal makine ölçek kümeleri, Service Fabric ve Cloud Services performans sayaçları ve diğer istatistikleri toplamak için kullanılan bileşendir.  Bu sayfada, yalnızca bu hizmetlerden biri kullanıyorsanız geçerlidir.
 >
 
-Azure Tanılama, Azure İzleyici, Application Insights ve Log Analytics gibi diğer Microsoft tanılama ürünleriyle kullanılır.
+Azure Tanılama, Application Insights ve Log Analytics içeren Azure İzleyici gibi diğer Microsoft tanılama ürünleriyle kullanılır.
 
 Azure tanılama yapılandırma dosyası, tanılama İzleyicisi'ni başlatmak için kullanılan değerleri tanımlar. Bu dosya, Tanılama izleme başladığında tanılama yapılandırma ayarları başlatmak için kullanılır.  
 
@@ -116,7 +116,7 @@ Temel alınan Tanılama Altyapısı tarafından oluşturulan günlükler için a
 |Öznitelik|Type|Açıklama|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|İsteğe bağlı. Belirtilen veriler için kullanılabilen dosya sistemi depolama miktarını belirtir.<br /><br /> Varsayılan değer 0'dır.|  
-|**scheduledTransferLogLevelFilter**|dize|İsteğe bağlı. Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**. Diğer olası değerler **ayrıntılı**, **bilgi**, **uyarı**, **hata**, ve **kritik**.|  
+|**scheduledTransferLogLevelFilter**|string|İsteğe bağlı. Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**. Diğer olası değerler **ayrıntılı**, **bilgi**, **uyarı**, **hata**, ve **kritik**.|  
 |**scheduledTransferPeriod**|süre|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
 
 ## <a name="logs-element"></a>Günlükleri öğesi  
@@ -129,7 +129,7 @@ Temel alınan Tanılama Altyapısı tarafından oluşturulan günlükler için a
 |Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|İsteğe bağlı. Belirtilen veriler için kullanılabilen dosya sistemi depolama miktarını belirtir.<br /><br /> Varsayılan değer 0'dır.|  
-|**scheduledTransferLogLevelFilter**|dize|İsteğe bağlı. Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**. Diğer olası değerler **ayrıntılı**, **bilgi**, **uyarı**, **hata**, ve **kritik**.|  
+|**scheduledTransferLogLevelFilter**|string|İsteğe bağlı. Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**. Diğer olası değerler **ayrıntılı**, **bilgi**, **uyarı**, **hata**, ve **kritik**.|  
 |**scheduledTransferPeriod**|süre|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
 
 ## <a name="directories-element"></a>Dizinleri öğesi  
@@ -154,7 +154,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 |Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
-|**Kapsayıcı**|dize|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
+|**kapsayıcı**|string|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
 |**directoryQuotaInMB**|unsignedInt|İsteğe bağlı. Dizinin en büyük boyutunu megabayt cinsinden belirtir.<br /><br /> Varsayılan değer 0'dır.|  
 
 ## <a name="failedrequestlogs-element"></a>FailedRequestLogs öğesi  
@@ -166,7 +166,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 |Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
-|**Kapsayıcı**|dize|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
+|**kapsayıcı**|string|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
 |**directoryQuotaInMB**|unsignedInt|İsteğe bağlı. Dizinin en büyük boyutunu megabayt cinsinden belirtir.<br /><br /> Varsayılan değer 0'dır.|  
 
 ##  <a name="iislogs-element"></a>IISLogs öğesi  
@@ -178,7 +178,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 |Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
-|**Kapsayıcı**|dize|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
+|**kapsayıcı**|string|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
 |**directoryQuotaInMB**|unsignedInt|İsteğe bağlı. Dizinin en büyük boyutunu megabayt cinsinden belirtir.<br /><br /> Varsayılan değer 0'dır.|  
 
 ## <a name="datasources-element"></a>Veri kaynakları öğesi  
@@ -195,7 +195,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 |Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
-|**Kapsayıcı**|dize|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
+|**kapsayıcı**|string|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
 |**directoryQuotaInMB**|unsignedInt|İsteğe bağlı. Dizinin en büyük boyutunu megabayt cinsinden belirtir.<br /><br /> Varsayılan değer 0'dır.|  
 
 ## <a name="absolute-element"></a>Mutlak öğe  
@@ -207,7 +207,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 |Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
-|**Yolu**|dize|Gereklidir. İzlemek için dizinin mutlak yolu.|  
+|**yol**|string|Gereklidir. İzlemek için dizinin mutlak yolu.|  
 |**expandEnvironment**|boole|Gereklidir. Varsa kümesine **true**, ortam değişkenleri yolun genişletilmiş.|  
 
 ## <a name="localresource-element"></a>LocalResource öğesi  
@@ -219,8 +219,8 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 |Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
-|**Adı**|dize|Gereklidir. İzlenecek dizin içeren yerel kaynak adı.|  
-|**RelativePath**|dize|Gereklidir. İzlemek için yerel kaynak göreli yol.|  
+|**ad**|string|Gereklidir. İzlenecek dizin içeren yerel kaynak adı.|  
+|**RelativePath**|string|Gereklidir. İzlemek için yerel kaynak göreli yol.|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters öğesi  
  Toplanacak performans sayaç yolunu tanımlar.
@@ -244,7 +244,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 |Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
-|**counterSpecifier**|dize|Gereklidir. Toplanacak performans sayacı yolu.|  
+|**counterSpecifier**|string|Gereklidir. Toplanacak performans sayacı yolu.|  
 |**sampleRate**|süre|Gereklidir. Performans sayacının toplanacağını oranı.|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog öğesi  
@@ -257,7 +257,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 |Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|İsteğe bağlı. Belirtilen veriler için kullanılabilen dosya sistemi depolama miktarını belirtir.<br /><br /> Varsayılan değer 0'dır.|  
-|**scheduledTransferLogLevelFilter**|dize|İsteğe bağlı. Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**. Diğer olası değerler **ayrıntılı**, **bilgi**, **uyarı**, **hata**, ve **kritik**.|  
+|**scheduledTransferLogLevelFilter**|string|İsteğe bağlı. Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**. Diğer olası değerler **ayrıntılı**, **bilgi**, **uyarı**, **hata**, ve **kritik**.|  
 |**scheduledTransferPeriod**|süre|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
 
 ## <a name="datasource-element"></a>Veri kaynağı öğesi  
@@ -269,5 +269,5 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 |Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
-|**Adı**|dize|Gereklidir. Toplanacak günlük belirten bir XPath ifadesi.|  
+|**ad**|string|Gereklidir. Toplanacak günlük belirten bir XPath ifadesi.|  
 

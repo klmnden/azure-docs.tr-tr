@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 2/6/2019
+ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celested
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e43123e77a5c1cfb37f51c472420d3d7f2d440c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ef0a4e4a05427b1ed83b017b7a49862596aaf50a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173377"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490920"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Azure portalında Azure Active Directory B2B işbirliği kullanıcıları ekleme
 
-Genel yönetici veya sınırlı yönetici directory rolüne atanan bir kullanıcı, B2B işbirliği kullanıcıları davet etmek için Azure portalını kullanabilirsiniz. Dizin, bir grup veya uygulamanın Konuk kullanıcılar davet edebilirsiniz. Bu yöntemlerin herhangi biriyle bir kullanıcıyı davet sonra davet edilen kullanıcının hesabı Azure Active Directory (Azure AD), bir kullanıcı türü ile eklenir *Konuk*. Konuk kullanıcı daha sonra kaynaklara erişmek için davetini gerekir.
+Dizin sınırlı Yönetici rolüne atanan kullanıcı, B2B işbirliği kullanıcıları davet etmek için Azure portalını kullanabilirsiniz. Dizin, bir grup veya uygulamanın Konuk kullanıcılar davet edebilirsiniz. Bu yöntemlerin herhangi biriyle bir kullanıcıyı davet sonra davet edilen kullanıcının hesabı Azure Active Directory (Azure AD), bir kullanıcı türü ile eklenir *Konuk*. Konuk kullanıcı daha sonra kaynaklara erişmek için davetini gerekir.
 
 Dizinine Konuk kullanıcı ekledikten sonra ya da Konuk kullanıcı doğrudan bağlantısını için paylaşılan bir uygulama gönderebilirsiniz veya Konuk kullanıcı davet e-posta kullanım URL'de tıklayabilirsiniz. Alma işlemi hakkında daha fazla bilgi için bkz. [B2B işbirliği Davetiyesi kullanımı](redemption-experience.md).
 
@@ -31,7 +31,7 @@ Dizinine Konuk kullanıcı ekledikten sonra ya da Konuk kullanıcı doğrudan ba
 
 B2B işbirliği kullanıcıları dizine eklemek için aşağıdaki adımları izleyin:
 
-1. [Azure portalda](https://portal.azure.com) Azure AD yöneticisi olarak oturum açın.
+1. Oturum [Azure portalında](https://portal.azure.com) herhangi birini sınırlı yönetici olan bir kullanıcı dizin rolleri atanmış olarak.
 2. Gezinti bölmesinde seçin **Azure Active Directory**.
 3. **Yönet** bölümünde **Kullanıcılar**’ı seçin.
 4. **Yeni konuk kullanıcı**’yı seçin.

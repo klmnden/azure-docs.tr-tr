@@ -1,5 +1,5 @@
 ---
-title: Azure IOT OPC UA cihaz yönetim bulut bağımlılıkları dağıtma | Microsoft Docs
+title: OPC İkizi bulut bağımlılıkları azure'da dağıtma | Microsoft Docs
 description: OPC İkizi Azure bağımlılıkları dağıtma
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: cdd89293328da47c8e338bb6fca8c7b93dd84f97
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ae9f2b05bfc6ea6315022d04c8d267d916cf282e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759660"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491995"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Yerel geliştirme için bağımlılıklar dağıtma
 
@@ -52,7 +52,7 @@ Dağıtım betiği, AAD uygulamaları Azure Active Directory'ye kaydetmeniz dene
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Mevcut bir projeyi OPC cihaz Yönetimi Hizmetleri başarıyla dağıtıldı, önerilen sonraki adım aşağıda verilmiştir:
+Mevcut bir projeyi OPC İkizi Hizmetleri başarıyla dağıtıldı, önerilen sonraki adım aşağıda verilmiştir:
 
 > [!div class="nextstepaction"]
-> [OPC cihaz yönetim modülleri dağıtma hakkında bilgi edinin](howto-opc-twin-deploy-modules.md)
+> [OPC İkizi modülleri dağıtma hakkında bilgi edinin](howto-opc-twin-deploy-modules.md)

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4df64595f83bd7280fa781f27f3030eda3729911
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 146b19716c1d98a4be0cdabd23f224a88e499c62
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471469"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489236"
 ---
 # <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Öğretici: Dizin ve yarı yapılandırılmış verileri (JSON blobları) Azure Search'te arama
 
@@ -37,9 +37,9 @@ Bu hızlı başlangıçta, aşağıdaki hizmetleri, araçları ve verileri kulla
 
 [Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu öğretici için ücretsiz bir hizmet kullanabilirsiniz. 
 
-[Bir Azure depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) örnek verileri depolamak için kullanılır.
+[Bir Azure depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) örnek verileri depolamak için.
 
-[Postman masaüstü uygulaması](https://www.getpostman.com/) istek Azure Search'e göndermek için kullanılır.
+[Postman masaüstü uygulaması](https://www.getpostman.com/) istekleri Azure Search'e göndermek için.
 
 [Deneme json.zip Klinik](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) Bu öğreticide kullanılan verileri içerir. İndirin ve kendi klasörüne bu dosyanın sıkıştırmasını açın. Veri kaynaklanan [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), Bu öğretici json'a dönüştürülmüş.
 
@@ -295,7 +295,7 @@ Bir öğretici tamamlandıktan sonra temizlemenin en hızlı yolu, Azure Search 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bilişsel hizmetler yapay ZEKA destekli algoritmalar bir dizin oluşturucu ardışık düzenine ekleyebilirsiniz. Sonraki adım olarak, aşağıdaki öğreticiye geçin.
+Çeşitli yaklaşımlar ve JSON bloblarını dizine ekleme için birden çok seçenek vardır. Bir sonraki adım olarak gözden geçirin ve nelerin senaryonuz için en iyi çalıştığını görmek için çeşitli seçenekler test edin.
 
 > [!div class="nextstepaction"]
-> [Yapay ZEKA ile dizinleme](cognitive-search-tutorial-blob.md)
+> [Azure Search Blob Dizin Oluşturucu kullanarak JSON bloblarını dizinleme](search-howto-index-json-blobs.md)

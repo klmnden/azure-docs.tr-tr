@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 12f8b3d9dd461dc5d09d76245aa02f0e1cefc343
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188977"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492097"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Azure İzleyici günlüklerinden VM'ler (Önizleme) için sorgulama
 VM'ler için Azure İzleyici, performans ve bağlantı ölçümü, bilgisayar ve envanter verileri işlemek ve sistem durumu bilgilerini toplar ve Log Analytics çalışma alanına Azure İzleyici'de iletir.  Bu veriler için kullanılabilir [sorgu](../../azure-monitor/log-query/log-query-overview.md) Azure İzleyici'de. Geçiş planlaması kapasite analizi, bulma ve isteğe bağlı performans sorunlarını giderme senaryoları için bu verileri uygulayabilirsiniz.
@@ -125,7 +125,12 @@ Her RemoteIp özelliğinde *VMConnection* tablo bilinen kötü amaçlı etkinli�
 ### <a name="ports"></a>Bağlantı Noktaları 
 Etkin olarak gelen trafiği kabul veya potansiyel olarak trafiği kabul edebilecek, ancak Raporlama zaman penceresi boyunca boşta bağlantı noktaları bir makinede VMBoundPort tabloya yazılır.  
 
-Varsayılan olarak, bu tablo veri yazılmaz. Bu tabloya yazılan veriler için bir e-posta Gönder vminsights@microsoft.com yanı sıra çalışma alanı kimliği ve çalışma alanı bölgesi.   
+>[!NOTE]
+>VM'ler için Azure İzleyici, toplama ve bağlantı noktası verileri aşağıdaki bölgelerde bir Log Analytics çalışma alanında kayıt desteklemez:  
+>- Doğu ABD  
+>- Batı Avrupa
+>
+> Bu verilerin toplanması etkin diğerinde [desteklenen bölgeler](vminsights-onboard.md#log-analytics) VM'ler için Azure İzleyici için. 
 
 Her kayıtta VMBoundPort aşağıdaki alanlara göre tanımlanır: 
 

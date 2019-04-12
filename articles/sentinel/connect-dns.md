@@ -1,6 +1,6 @@
 ---
-title: Azure Önizleme Gözcü DNS verileri toplamayı | Microsoft Docs
-description: Azure Gözcü içinde DNS verilerini nasıl toplayacağınızı öğrenin.
+title: Azure Önizleme Gözcü DNS verilere | Microsoft Docs
+description: Azure Gözcü DNS verileri bağlanmayı öğreneceksiniz.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a7f075b74876ec807d790f3ffbea5dad14163535
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e34db2bdc78eb846cf4885b1ef083fd3b21e21b5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530425"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489751"
 ---
 # <a name="connect-your-domain-name-server"></a>Etki alanı adı server'ınıza bağlanın
 
@@ -29,7 +29,7 @@ ms.locfileid: "57530425"
 
 Tüm etki alanı adı sunucusu (Azure Gözcü için Windows üzerinde çalışan DNS) bağlanabilirsiniz. Bu, DNS makinede bir aracı yükleyerek gerçekleştirilir. DNS kullanarak günlükleri, güvenlik, performans ve işlem ile ilgili Öngörüler kuruluşunuzun DNS altyapısına toplayarak, analiz, bilgi edinebilir ve DNS sunucularından analiz ilişkilendirme ve Denetim günlükleri ve diğer ilgili verileri.
 
-DNS günlük toplama etkinleştirdiğinizde, şunları yapabilirsiniz:
+DNS günlüğü bağlantısını etkinleştirdiğinizde, şunları yapabilirsiniz:
 - Kötü amaçlı etki alanı adlarını çözümlemeye çalışan istemcileri
 - Eski kaynak kayıtları tanımlayın
 - Sık sık sorgulanan etki alanı adlarını ve DNS sık iletişim kuran istemcileri tanımlama
@@ -38,11 +38,11 @@ DNS günlük toplama etkinleştirdiğinizde, şunları yapabilirsiniz:
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
-DNS toplama DNS makinede bir aracı yükleyerek gerçekleştirilir. Aracı olayları DNS'den çeker ve bunları Log Analytics'e geçirir.
+DNS bağlantı DNS makinede bir aracı yükleyerek gerçekleştirilir. Aracı olayları DNS'den çeker ve bunları Log Analytics'e geçirir.
 
 ## <a name="connect-your-dns-appliance"></a>DNS gerecinize bağlanma
 
-1. Gözcü Azure portalında **veri toplama** ve **DNS** Döşe.
+1. Gözcü Azure portalında **veri bağlayıcıları** ve **DNS** Döşe.
 1. DNS makinelerinizi Azure'da varsa:
     1. Tıklayın **indirin ve Windows sanal makineleri için aracıyı yükleme**.
     1. İçinde **sanal makineler** listesinde, istediğiniz Azure Gözcü akışını sağlamak için DNS makine seçin. Bu bir Windows VM olduğundan emin olun.

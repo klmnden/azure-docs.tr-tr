@@ -1,5 +1,5 @@
 ---
-title: Güvenli iletişim OPC istemci ve OPC Azure IOT OPC UA sertifika Yönetimi'ni kullanarak PLC | Microsoft Docs
+title: OPC istemci ve OPC PLC OPC kasa - Azure ile iletişimin güvenliğini sağlama | Microsoft Docs
 description: OPC istemci ve OPC PLC iletişimi kullanarak OPC kasa CA sertifikalarını imzalama tarafından güvenli hale getirin.
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: c437f6db21956d1be5e4f6d3512f325f37ca7308
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 30eedd982fa0536ce45506c159de6d04132e9a14
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759669"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494022"
 ---
 # <a name="secure-the-communication-of-opc-client-and-opc-plc"></a>Güvenli iletişim OPC istemci ve OPC PLC
 
-Azure IOT OPC UA sertifika yönetimi, ayrıca OPC kasası olarak yapılandırabilirsiniz, bir mikro hizmet kaydı, bildiğiniz ve sertifika yaşam döngüsü için OPC UA sunucu ve istemci uygulamalarını bulutta yönetin. Bu makalede OPC kasa CA kullanarak sertifikalarını açarak OPC istemci ve OPC PLC iletişimin güvenliğini gösterilmektedir.
+Kasa OPC yapılandırma, kaydetme ve sertifika yaşam döngüsü OPC UA sunucusu ve istemci uygulamalarını bulutta yönetme bir mikro hizmetidir. Bu makalede OPC kasa CA kullanarak sertifikalarını açarak OPC istemci ve OPC PLC iletişimin güvenliğini gösterilmektedir.
 
 Aşağıdaki Kurulum, OPC istemci OPC PLC bağlantısını test eder. Her iki bileşenin doğru sertifika ile sağlanan değil çünkü varsayılan olarak, bağlantı mümkün değildir. Bir sertifika ile bir OPC UA bileşeni henüz sağlanmadı durumunda, başlangıçta otomatik olarak imzalanan bir sertifika oluşturur. Ancak, sertifika bir sertifika yetkilisi (CA) tarafından imzalanmış ve OPC UA bileşeni yüklü. OPC istemci ve OPC PLC için bunu yaptıktan sonra bağlantının etkin. Aşağıdaki iş akışı işlemi açıklanmaktadır. OPC UA güvenliği hakkında bazı bilgiler bulunabilir [bu belgeyi](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf) teknik incelemesi. OPC UA belirtiminde eksiksiz bilgiler bulunabilir.
 
@@ -59,7 +59,7 @@ opcplc-123456 | [20:51:32 INF] Rejected certificate store contains 0 certs
 ```
 Bildirilen sertifikaları görürseniz, yukarıdaki hazırlama adımları ve docker birimleri silin.
 
-OPC PLC bağlantısı başarısız olduğunu doğrulayın. Çıkış oturum OPC istemci aşağıdaki çıktı görmeniz gerekir:
+OPC PLC bağlantısı başarısız olduğunu doğrulayın. Aşağıdaki çıktı OPC istemci günlük çıktısını görmeniz gerekir:
 
 ```
 opcclient-123456 | [20:51:35 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
@@ -92,7 +92,7 @@ Hatanın nedenini sertifikası güvenilir değil ' dir. Diğer bir deyişle `opc
     
 1. Git [OPC kasa Web sitesi](https://opcvault.azurewebsites.net/).
 
-1. `Register New` seçeneğini belirleyin
+1. Şunu seçin: `Register New`
 
 1. Günlük çıkışları OPC PLC bilgi girin `CreateSigningRequest information` giriş alanlarına alan `Register New OPC UA Application` sayfasında `Server` ApplicationType olarak.
 
@@ -175,7 +175,7 @@ opcplc-123456 | [20:54:39 INF] Rejected certificate store contains 0 certs
 Uygulama sertifikasını veren CA'dır `CN=Azure IoT OPC Vault CA, O=Microsoft Corp.` ve OPC PLC güven de bu CA tarafından imzalanmış tüm sertifikalar.
 
 
-OPC PLC bağlantısı başarıyla oluşturuldu ve OPC istemci OPC PLC verileri okuyabilir doğrulayın. Çıkış oturum OPC istemci aşağıdaki çıktı görmeniz gerekir:
+OPC PLC bağlantısı başarıyla oluşturuldu ve OPC istemci OPC PLC verileri okuyabilir doğrulayın. Aşağıdaki çıktı OPC istemci günlük çıktısını görmeniz gerekir:
 ```
 opcclient-123456 | [20:54:42 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
 opcclient-123456 | [20:54:42 INF] Session successfully created with Id ns=3;i=1085867946.
@@ -189,7 +189,7 @@ opcclient-123456 | [20:54:42 INF] Execute 'OpcClient.OpcTestAction' action on no
 opcclient-123456 | [20:54:42 INF] Action (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258') completed successfully
 opcclient-123456 | [20:54:42 INF] Value (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258'): 10/20/2018 20:54:42
 ```
-Şu çıktıyı görürsünüz, OPC PLC OPC istemci güvenen artık olur ve bunun tersi de geçerlidir her ikisi de sahip olduğu artık CA tarafından otomatik olarak imzalanan sertifikalar ve hem güven hangi nerede sertifikaları bu CA tarafından imzalanmış.
+Bu çıkış görürseniz, OPC PLC ise OPC istemci veya tersine, her ikisi de artık bir CA tarafından imzalanmış sertifikalara sahip ve her ikisi de sertifikaları hangi nerede güven güvenen artık bu CA tarafından imzalanmış.
 
 > [!NOTE] 
 > Biz yalnızca OPC PLC için ilk iki doğrulama adımlarını gösteriyordu ancak olanlar için OPC istemci de doğrulanması gerekir.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c038b899f60a4e04085b2343f2f02be5f7042ebb
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426418"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492323"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Öğretici: Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -44,13 +44,15 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Dış DNS sunucularına erişime izin vermek için ağ kuralı yapılandırma
 > * Güvenlik duvarını test etme
 
+Tercih ederseniz, bu öğreticiyi [Azure PowerShell](deploy-ps.md) kullanarak tamamlayabilirsiniz.
+
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="set-up-the-network"></a>Ağı ayarlama
 
 İlk olarak güvenlik duvarını dağıtmak için gerekli olan kaynakları içerecek bir kaynak grubu oluşturun. Ardından sanal ağı, alt ağları ve test sunucularını oluşturun.
 
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Kaynak grubu, bu öğreticideki tüm kaynakları içerir.
 
@@ -102,7 +104,7 @@ Bir sonraki adımda atlama sunucusu için alt ağlar ve iş yükü sunucuları i
 
    |Ayar  |Değer  |
    |---------|---------|
-   |Kaynak grup     |**Test FW RG**|
+   |Kaynak grubu     |**Test FW RG**|
    |Sanal makine adı     |**SRV atlama**|
    |Bölge     |Önceki ile aynı|
    |Yönetici kullanıcı adı     |**azureuser**|
@@ -123,9 +125,9 @@ Adlı başka bir sanal makineyi yapılandırmak için aşağıdaki tablodaki bil
 
 |Ayar  |Değer  |
 |---------|---------|
-|Alt Ağ|**Workload-SN**|
-|Ortak IP|**Hiçbiri**|
-|Ortak gelen bağlantı noktası|**Hiçbiri**|
+|Alt ağ|**Workload-SN**|
+|Genel IP|**None**|
+|Ortak gelen bağlantı noktası|**None**|
 
 ## <a name="deploy-the-firewall"></a>Güvenlik duvarını dağıtma
 
@@ -139,7 +141,7 @@ Güvenlik duvarını sanal ağa dağıtın.
    |Ayar  |Değer  |
    |---------|---------|
    |Abonelik     |\<aboneliğiniz\>|
-   |Kaynak grup     |**Test FW RG** |
+   |Kaynak grubu     |**Test FW RG** |
    |Ad     |**Test-FW01**|
    |Konum     |Önceden kullandığınız konumu seçin|
    |Bir sanal ağ seçin     |**Var olanı kullan**: **Test FW VN**|
@@ -239,7 +241,7 @@ Bu öğreticide test amacıyla, sunucunun birincil ve ikincil DNS adreslerini ya
 
    Google'nın ana sayfası görmeniz gerekir.
 
-5. konumuna gözatın http://www.microsoft.com.
+5. http://www.microsoft.com adresine gidin.
 
    Güvenlik duvarının engellemesi gerekir.
 

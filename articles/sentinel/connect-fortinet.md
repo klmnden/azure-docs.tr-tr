@@ -1,6 +1,6 @@
 ---
-title: Gözcü Azure önizlemesinde Fortinet veri toplama | Microsoft Docs
-description: Azure Gözcü içinde Fortinet verilerini nasıl toplayacağınızı öğrenin.
+title: Azure Önizleme Gözcü Fortinet verilere | Microsoft Docs
+description: Azure Gözcü için Fortinet veri bağlanmayı öğreneceksiniz.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6c4bfbf67e45284f8f21166543228a821074b3b9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 612e384a2ee5bdc449d22ba469026d38c7469e73
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883225"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492131"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Fortinet gerecinize bağlanma 
 
@@ -42,7 +42,7 @@ Alternatif olarak, aracı vm'sinde başka bir bulut, mevcut bir Azure sanal maki
 
 ### <a name="deploy-the-agent-in-azure"></a>Aracıyı azure'da dağıtın
 
-1. Gözcü Azure portalında **veri toplama** ve gereç türünüzü seçin. 
+1. Gözcü Azure portalında **veri bağlayıcıları** ve gereç türünüzü seçin. 
 
 1. Altında **Linux Syslog aracı Yapılandırması**:
    - Seçin **otomatik dağıtım** yukarıda açıklandığı gibi Azure Gözcü aracıyla birlikte önceden yüklenir ve tüm yapılandırma gerekli içeren yeni bir makine oluşturmak istiyorsanız. Seçin **otomatik dağıtım** tıklatıp **otomatik aracı dağıtımı**. Bu, satın alma sayfasına, otomatik olarak çalışma alanınıza bağlı olduğu adanmış bir VM için götürür. VM bir **standart D2s v3 (2 vcpu, 8 GB bellek)** ve genel bir IP adresi vardır.
@@ -79,7 +79,7 @@ Alternatif olarak, aracı vm'sinde başka bir bulut, mevcut bir Azure sanal maki
 Azure kullanmıyorsanız, adanmış bir Linux sunucusu üzerinde çalıştırmak için Azure Gözcü aracıyı el ile dağıtın.
 
 
-1. Gözcü Azure portalında **veri toplama** ve gereç türünüzü seçin.
+1. Gözcü Azure portalında **veri bağlayıcıları** ve gereç türünüzü seçin.
 1. Altında adanmış bir Linux VM oluşturmak için **Linux Syslog aracı Yapılandırması** seçin **el ile dağıtım**.
    1. Altında **Syslog aracısını indirme ve yükleme**seçin **Azure olmayan Linux makine**. 
    1. İçinde **doğrudan aracı** seçtiğiniz açılır, ekran **Linux için aracıyı** aracıyı indirin veya Linux makinenizde indirmek için şu komutu çalıştırın:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`

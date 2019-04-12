@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 1c80395880c556138313ebfd9af1610ace946c8a
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 465d59ff13982eee8432d7ef97e2f522b0d7125b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006760"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489733"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Ağ Performansı İzleyicisi çözüm azure'da
 
@@ -33,7 +33,7 @@ Ağ Performansı İzleyicisi üç geniş özellikleri sunar:
 
 * [Performans İzleyicisi](network-performance-monitor-performance-monitor.md): Bulut dağıtımları ve şirket içi konumlara arasında ağ bağlantısı izleyebilirsiniz birden çok veri merkezleri ve şube ofislerinde ve görev açısından kritik çok katmanlı uygulamalar veya mikro hizmetler. Kullanıcılar şikayet etmeden önce Performans İzleyicisi ile ağ sorunlarını algılayabilir.
 
-* [Hizmet Bağlantı İzleyicisi](network-performance-monitor-service-endpoint.md): Önem verdiğiniz, yolda hangi altyapıya belirlemek ve burada ağ performans sorunlarını ortaya tanımlamak hizmetlerini kullanıcılarınızdan gelen bağlantıları izleyebilir. Kullanıcılarınızın önce kesintilerden haberdar bilmeniz ve sorunların tam konumu, ağ yola bakın. 
+* [Hizmet Bağlantı İzleyicisi](network-performance-monitor-service-connectivity.md): Önem verdiğiniz, yolda hangi altyapıya belirlemek ve burada ağ performans sorunlarını ortaya tanımlamak hizmetlerini kullanıcılarınızdan gelen bağlantıları izleyebilir. Kullanıcılarınızın önce kesintilerden haberdar bilmeniz ve sorunların tam konumu, ağ yola bakın. 
 
     Bu özellik HTTP, HTTPS, TCP ve ICMP, neredeyse gerçek zamanlı veya geçmişe dönük olarak kullanılabilirlik ve yanıt süresi hizmetinizin izlemek için temel testleri gerçekleştirmenize yardımcı olur. Ağ paket kaybı ve gecikme katkısını da izleyebilirsiniz. Bir ağ topolojisi haritası ile ağ yavaşlamaları ayırabilirsiniz. Ağ yol boyunca her atlama gecikme verileriyle hizmetine düğümden oluşan sorun noktaları belirleyebilirsiniz. Yerleşik testler ile Office 365 ve Dynamics CRM tüm önceden yapılandırma olmadan ağ bağlantısı izleyebilirsiniz. Bu özellik sayesinde, Web siteleri, SaaS uygulamaları, PaaS uygulamalarının ve SQL veritabanları gibi tüm TCP özellikli uç noktası için ağ bağlantısı izleyebilirsiniz.
 
@@ -83,7 +83,7 @@ Ağ Performansı İzleyicisi yapay işlemler, kaynak ve hedef aracılar arası a
     > Betik yalnızca Windows Güvenlik Duvarı yerel olarak yapılandırır. Bir ağ güvenlik duvarınız varsa, Ağ Performansı İzleyicisi tarafından kullanılan TCP bağlantı noktasının giden trafiğe izin verdiğinden emin olun.
 
     >[!NOTE]
-    > Çalıştırmanız gerekmez [EnableRules.ps1](https://aka.ms/npmpowershellscript ) hizmet uç noktası İzleyicisi için PowerShell Betiği.
+    > Çalıştırmanız gerekmez [EnableRules.ps1](https://aka.ms/npmpowershellscript ) Hizmet Bağlantı İzleyicisi için PowerShell Betiği.
 
     
 
@@ -115,7 +115,7 @@ Ağ Performansı İzleyicisi yapay işlemler, kaynak ve hedef aracılar arası a
     
    **Hizmet Bağlantı İzleyicisi**: Office 365 ve Dynamics 365, aracılardan gelen ağ bağlantılarını izlemek için yerleşik önceden yapılandırılmış testler yeteneği sağlar. Bunları yanındaki onay kutularını seçerek izlemek istediğiniz Office 365 ve Dynamics 365 hizmetleri seçin. İzlemek istediğiniz aracılarını seçmek için Seç **aracı Ekle**. Daha sonra ayarlamak için bu özelliği veya istediğiniz kullanmak istemiyorsanız, yoksa hiçbir şey seçip **Kaydet ve devam et**.
 
-   ![Hizmet uç noktası İzleyicisi görüntüle](media/network-performance-monitor/npm-service-endpoint-monitor.png)
+   ![Hizmet Bağlantı İzleyicisi görüntüle](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
    **ExpressRoute İzleyicisi**: Seçin **Şimdi Bul** Azure aboneliğindeki sanal ağlara bağlı özel eşlemeler bu Log Analytics çalışma alanıyla bağlantılı tüm ExpressRoute bulunacak. 
 
@@ -152,7 +152,7 @@ Bunlara bir aracı yüklü tüm düğümleri listelenir **düğümleri** sekmesi
 İstediğiniz özellikleri yapılandırın:
 
 - [Performans İzleyicisi](network-performance-monitor-performance-monitor.md#configuration)
-- [Hizmet uç noktası İzleyicisi](network-performance-monitor-performance-monitor.md#configuration)
+- [Hizmet Bağlantısı İzleyicisi](network-performance-monitor-performance-monitor.md#configuration)
 - [ExpressRoute İzleyicisi](network-performance-monitor-expressroute.md#configuration)
 
  

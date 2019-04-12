@@ -6,13 +6,13 @@ ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: b1cc7d2966572da23a64e4555a0e94b440efa005
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/10/2019
+ms.openlocfilehash: 451eeaf6b30c85371728968d834aa6e34092dbc3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59043982"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491262"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Azure CLI kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma
 
@@ -79,7 +79,7 @@ Sonuç içeriyorsa `provisioningState` ile `Succeeded` değer sonra küme başar
 1. Aşağıdaki komutu kullanarak veritabanınızı oluşturun:
 
     ```azurecli-interactive
-    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period 3650:00:00:00 --hot-cache-period 3650:00:00:00
+    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period P365D --hot-cache-period P31D
     ```
 
    |**Ayar** | **Önerilen değer** | **Alan açıklaması**|
@@ -87,8 +87,8 @@ Sonuç içeriyorsa `provisioningState` ile `Succeeded` değer sonra küme başar
    | Küme adı | *azureclitest* | Veritabanının oluşturulacağı, kümenizin adıdır.|
    | ad | *clidatabase* | Veritabanınızın adı.|
    | resource-group | *testrg* | Kümenin oluşturulacağı kaynak grubu adı. |
-   | Geçici silme süresi | *3650:00:00:00* | Verileri sorgulamak kullanılabilen tutulacak süre miktarı. |
-   | Sık erişimli-cache-süresi | *3650:00:00:00* | Veriler önbellekte tutulacak süre miktarı. |
+   | Geçici silme süresi | *P365D* | Verileri sorgulamak için kullanılabilen tutulacak süreyi belirtir. Bkz: [Bekletme İlkesi](/azure/kusto/concepts/retentionpolicy) daha fazla bilgi için. |
+   | Sık erişimli-cache-süresi | *P31D* | Veriler önbellekte tutulacak süreyi belirtir. Bkz: [önbellek İlkesi](/azure/kusto/concepts/cachepolicy) daha fazla bilgi için. |
 
 1. Oluşturduğunuz veritabanını görmek için aşağıdaki komutu çalıştırın:
 

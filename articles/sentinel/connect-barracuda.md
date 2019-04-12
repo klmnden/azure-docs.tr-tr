@@ -1,6 +1,6 @@
 ---
-title: Gözcü Azure önizlemesinde Barracuda veri toplama | Microsoft Docs
-description: Azure Gözcü, Barracuda verilerini nasıl toplayacağınızı öğrenin.
+title: Azure Önizleme Gözcü Barracuda verilere | Microsoft Docs
+description: Gözcü Azure için Barracuda veri bağlanmayı öğreneceksiniz.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b4d1830e705e1813c8448787e587d720eaf5ddbd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d8e92fd3918230b48449926dcbb7528d919fd96f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574727"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492847"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Barracuda gerecinize bağlanma 
 
@@ -31,11 +31,10 @@ Barracuda Web uygulaması Güvenlik Duvarı (WAF) Bağlayıcısı, Azure panolar
 
 
 > [!NOTE]
-> 
-> - Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
+> Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
 
 ## <a name="configure-and-connect-barracuda-waf"></a>Barracuda WAF bağlayın ve yapılandırın
-Barracuda Web uygulaması güvenlik duvarı, tümleştirme ve günlükleri [ASI] için doğrudan Azure OMS sunucusu aracılığıyla dışarı aktarabilirsiniz.
+Barracuda Web uygulaması güvenlik duvarı, tümleştirme ve doğrudan Azure Gözcü aracılığıyla Azure OMS sunucusu için günlükleri dışarı aktarabilirsiniz.
 1. Git [Barracuda WAF yapılandırması akış](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/), bu parametreleri kullanarak bağlantı kurmak için yönergeleri izleyin:
     - **Çalışma alanı kimliği**: Azure Gözcü Barracuda Bağlayıcısı sayfasından, çalışma alanı kimliği değerini kopyalayın.
     - **Birincil anahtar**: Azure Gözcü Barracuda Bağlayıcısı sayfasından, birincil anahtar değerini kopyalayın.

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
-ms.openlocfilehash: ef313ea631a963aa7893bf15e826e591c9d9cfc3
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1bc8dc822622ee7b16b3e0a31e7b0b66ed7556e6
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619807"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59488414"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Uygulamanızı bir ZIP veya WAR dosyası ile Azure App Service'e dağıtma
 
@@ -31,7 +31,7 @@ Bu ZIP dosyası dağıtım aynı Kudu hizmet bu powers sürekli tümleştirme ta
 - Paket geri yükleme içeren varsayılan yapı işlemi üzerinde etkinleştirmek için seçenek.
 - [Dağıtım özelleştirme](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings)de dahil olmak üzere dağıtım betikleri çalıştırma.  
 - Dağıtım günlükleri. 
-- 512 MB'lık dosya boyutu sınırı.
+- Dosya boyutu sınırı 2048 MB.
 
 Daha fazla bilgi için [Kudu belgeleri](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 

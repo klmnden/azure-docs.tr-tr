@@ -15,7 +15,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: null
   ms.topic: overview
-  ms.date: 01/03/2019
+  ms.date: 04/09/2019
   ms.author: jovanpop
 abstract:
   description: 'Bir Azure SQL veritabanı yönetilen örneğinde bir tam olarak yönetilen SQL Server veritabanı altyapısı Azure bulutunda barındırılan örneğidir. SQL Server veritabanınızı buluta geçirme için en iyi PaaS seçenek budur. Oluşturma ve müşterilerimize hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle yönetilen örneği kullanma hakkında bilgi edinin.'
@@ -78,6 +78,7 @@ sections:
           - html: İle korumalı yönetilen örnekler <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">yerleşik güvenlik duvarı</a>.
           - html: '(Önizleme) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Bırakılan PowerShell kullanarak veritabanlarını yeniden oluşturma</a>'
           - html: 'Coğrafi geri yükleme işlevi etkinleştirir, <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">veritabanınızı PowerShell kullanarak başka bir veri merkezine geri</a>.'
+          - html: '(Önizleme) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Yapılandırma saat dilimi</a> örnek oluşturma sırasında.'
   - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
       - type: paragraph
@@ -90,7 +91,7 @@ sections:
             title: Azure portal
           - image:
               src: media/index/cli.svg
-            title: Azure CLI'si
+            title: Azure CLI
           - image:
               src: media/index/logo_powershell.svg
             title: PowerShell
@@ -155,6 +156,6 @@ sections:
           - title: Bloglar
             html: '<p><a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/tag/managed-instance/">MSDN</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance">Orta</a></p>'
           - title: Sık sorulan sorular
-            html: '<p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">Yığın Taşması</a></p>'
+            html: '<p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">Stack Overflow</a></p>'
           - title: Eğitim malzemeleri
             html: '<p><a href="https://www.microsoft.com/handsonlabs/selfpacedlabs">Uygulamalı laboratuvarlar</a></p><p><a href="https://www.microsoft.com/handsonlabs/instructorledlabs">Yönerge yönetilen Laboratuvarları</a></p>'

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: ae84313cd750e3d6c7eb9443ec59095dec9c632e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59265258"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490646"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Büyük bir VMware ortamını bulma ve değerlendirme
 
@@ -39,20 +39,11 @@ Azure Geçişi’nin, değerlendirme amacıyla VM’leri otomatik olarak bulmas�
 - Ayrıntılar: Kullanıcı veri merkezi düzeyinde atandı ve bu veri merkezindeki tüm nesnelere erişimi var.
 - Erişimi kısıtlamak için Alt nesneye yay ile Erişim yok rolünü alt nesnelere (vSphere konakları, veri depoları, VM’ler ve ağlar) atayın.
 
-Bir kiracı ortamda dağıtıyorsanız, bunu ayarlamak için yöntemlerinden biri aşağıda verilmiştir:
+Çok kiracılı bir ortamda dağıtıyorsanız ve tek bir kiracı için istediğiniz VM'lerin klasöre göre kapsam, Azure Geçişi'ndeki koleksiyon kapsamını belirlerken doğrudan VM klasörü seçemezsiniz. VM'lerin klasöre göre kapsam bulmaya ilişkin yönergeler aşağıda verilmiştir:
 
-1. Her Kiracı ve kullanarak bir kullanıcı oluşturmak [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), belirli bir kiracıya ait tüm sanal makineler için salt okunur izinler atayın. Ardından, bu kimlik bilgilerinin bulma için kullanın. RBAC, karşılık gelen bir vCenter kullanıcı yalnızca kiracıya özgü Vm'leri erişimi olmasını sağlar.
-2. Aşağıdaki örnekte, kullanıcı #1 ve 2 numaralı kullanıcı için açıklandığı gibi farklı Kiracı kullanıcılar için RBAC ayarlayın:
-
-    - İçinde **kullanıcı adı** ve **parola**, Toplayıcının içinde Vm'leri bulmak için kullanacağı salt okunur hesabın kimlik bilgilerini belirtin
-    - Datacenter1 - kullanıcı #1 ve 2 numaralı Kullanıcı salt okunur izinleri verin. Tüm alt nesneleri için bu izinleri, tek VM'ler üzerinde izinler çünkü yay yok.
-
-      - VM1 (Kiracı #1) (salt okunur izni kullanıcı # 1)
-      - VM2 (Kiracı #1) (salt okunur izni kullanıcı # 1)
-      - VM3 (Kiracı #2) (salt okunur izni kullanıcı # 2)
-      - VM4 (Kiracı #2) (salt okunur izni kullanıcı # 2)
-
-   - 1 kullanıcı kimlik bilgilerini kullanarak bulma gerçekleştirirseniz, yalnızca VM1 ve VM2 bulunacaktır.
+1. Kiracı başına bir kullanıcı oluşturmak ve belirli bir kiracıya ait tüm sanal makineler için salt okunur izinler atayın. 
+2. Bu Vm'leri barındırıldığı tüm üst nesnelerin kullanıcı yalnızca okuma erişimi verin. Tüm üst - host, konaklar, küme, klasör kümelerinin klasörü - veri merkezi kadar hiyerarşideki dahil edilecek nesneleridir. Tüm alt nesneleri için izinleri yayılması gerekmez.
+3. Veri merkezi olarak seçerek bulma için kimlik bilgilerini kullan *koleksiyon kapsamı*. Ayarlanan RBAC, karşılık gelen bir vCenter kullanıcı yalnızca kiracıya özgü Vm'leri erişimi olmasını sağlar.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Geçiş projeleri ve bulmaları planlama
 
@@ -97,7 +88,7 @@ Tüm vCenter sunucuları arasında birden fazla vCenter sunucuları ile 1500'den
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Tek bir vcenter Server 1500'den fazla makineler
 
-Tek bir vCenter Server'da 1500'den fazla sanal makineleriniz varsa, birden çok geçiş projelere bulma bölmek gerekir. Bulmaları bölmek için gereç kapsam alanı yararlanın ve konağa, küme, klasör veya bulmak istediğiniz veri merkezinde belirtin. VCenter sunucusu ile 1000 ile de iki klasör varsa, örneğin, VM'ler (Klasör1) ve diğer 800 VM (klasör2), bu klasörleri arasındaki bulmaları bölmek için kapsam alanı kullanabilirsiniz.
+Tek bir vCenter Server'da 1500'den fazla sanal makineleriniz varsa, birden çok geçiş projelere bulma bölmek gerekir. Bulmaları bölmek için gereç kapsam alanı yararlanın ve konak kümesi, ana klasörü, kümeler veya bulmak istediğiniz veri merkezinde klasörü belirtin. VCenter sunucusu ile 1000 ile de iki klasör varsa, örneğin, VM'ler (Klasör1) ve diğer 800 VM (klasör2), bu klasörleri arasındaki bulmaları bölmek için kapsam alanı kullanabilirsiniz.
 
 **Sürekli bulma:** Bu durumda, ilk toplayıcı için iki Toplayıcı Gereçleri, oluşturma, kapsam Klasör1 belirtin ve için ilk geçiş projenizi bağlamak gerekir. Paralel olarak yapabilecekleriniz ikinci Toplayıcı gerecini kullanarak klasör2 bulmayı Başlat ve ikinci geçiş projeye bağlanın.
 

@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Resource Manager aracılığıyla oluşturulan Azure farklı Aboneliklerde bulunan sanal ağlar arasında eşleme bir sanal ağ oluşturmayı öğrenin.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
+author: anavinahar
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: jdial;anavin
-ms.openlocfilehash: 2965f72a1f0532cd9e13d5fa03750cf4ed8bab99
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.date: 04/09/2019
+ms.author: anavin
+ms.openlocfilehash: ff8c866f62e8d795f04491cf249b7dae26c8269c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403477"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492303"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Bir sanal ağ eşleme - oluşturma-Resource Manager, farklı abonelikler
 
@@ -27,9 +27,9 @@ Sanal ağlar aynı veya farklı olup, abonelikleri ve hangi bağlı olarak farkl
 
 |Azure dağıtım modeli  | Azure aboneliği  |
 |--------- |---------|
-|[Her iki kaynak yöneticisi](tutorial-connect-virtual-networks-portal.md) |Aynı|
-|[Bir Resource Manager, diğeri Klasik](create-peering-different-deployment-models.md) |Aynı|
-|[Bir Resource Manager, diğeri Klasik](create-peering-different-deployment-models-subscriptions.md) |Fark|
+|[Her ikisi de Resource Manager](tutorial-connect-virtual-networks-portal.md) |Aynı|
+|[Biri Resource Manager, diğeri klasik](create-peering-different-deployment-models.md) |Aynı|
+|[Biri Resource Manager, diğeri klasik](create-peering-different-deployment-models-subscriptions.md) |Fark|
 
 Bir sanal ağ eşlemesi iki sanal ağı Klasik dağıtım modeliyle dağıtılan arasında oluşturulamıyor. Klasik dağıtım modeliyle her ikisi de oluşturulan sanal ağlar bağlanmanız gerekirse, bir Azure kullanabileceğiniz [VPN ağ geçidi](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal ağları bağlamak için.
 
@@ -39,7 +39,9 @@ Kullanabileceğiniz [Azure portalında](#portal), Azure [komut satırı arabirim
 
 ## <a name="portal"></a>Oluşturma eşleme - Azure portalı
 
-Eşlemek istediğiniz sanal ağlar farklı Azure Active Directory kiracılarıyla ilişkili Aboneliklerdeki varsa, bu makalede CLI ve PowerShell bölümdeki adımları izleyin. Portal, Active Directory kiracıların bilet farklı aboneliklere ait sanal ağları eşleyebilme desteği yok.
+Eşlemek istediğiniz sanal ağlar farklı Azure Active Directory kiracılarıyla ilişkili Aboneliklerdeki varsa, bu makalede CLI ve PowerShell bölümdeki adımları izleyin. Portal, Active Directory kiracıların bilet farklı aboneliklere ait sanal ağları eşleyebilme desteği yok. 
+
+Cloud Shell sınırlamaları abonelikleri ve kiracılar hangi nedeniyle genel farklı Azure Active Directory kiracılarındaki aboneliklere ait sanal ağ arasında VNet eşlemesi veya sanal ağ eşlemesi çalışmaz geçişi içinde olduğuna dikkat edin. PowerShell veya CLI'yı kullanın.
 
 Aşağıdaki adımlar, her abonelik için farklı hesaplar kullanma. İki abonelik için izinleri olan bir hesap kullanıyorsanız, tüm adımlar için aynı hesabı kullanmak, günlük portalından adımları atlayın ve sanal ağlar için başka bir kullanıcı izinleri atama adımlarını atlayın.
 

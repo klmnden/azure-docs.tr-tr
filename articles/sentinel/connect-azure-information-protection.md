@@ -1,6 +1,6 @@
 ---
-title: Gözcü Azure önizlemede Azure Information Protection veri toplama | Microsoft Docs
-description: Gözcü Azure, Azure Information Protection verilerini nasıl toplayacağınızı öğrenin.
+title: Gözcü Azure Önizleme için Azure Information Protection verilere bağlanma | Microsoft Docs
+description: Azure Information Protection verileri Azure Gözcü bağlanmayı öğreneceksiniz.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7c5866d3096823f91a70b28c7c5dd1790e1b3bf8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2f970910e19b3c1ed9d262d356c49848f4248b09
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537176"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489837"
 ---
-# <a name="collect-data-from-azure-information-protection"></a>Azure Information Protection tarafından sağlanan veri toplama
+# <a name="connect-data-from-azure-information-protection"></a>Azure Information Protection'dan veri bağlama
 
 > [!IMPORTANT]
 > Azure Sentinel şu anda genel Önizleme aşamasındadır.
@@ -41,7 +41,7 @@ Azure Information Protection'ı zaten varsa, olduğundan emin olun [ağınızda 
 Azure Information Protection dağıtılan ve veri alma, uyarı verileri kolayca Azure Gözcü aktarılabilir.
 
 
-1. Azure Gözcü içinde seçin **veri toplama** ve ardından **Azure Information Protection** Döşe.
+1. Azure Gözcü içinde seçin **veri bağlayıcıları** ve ardından **Azure Information Protection** Döşe.
 
 2. Git [Azure Information Protection portalı](https://portal.azure.com/?ScannerConfiguration=true&EndpointDiscovery=true#blade/Microsoft_Azure_InformationProtection/DataClassGroupEditBlade/quickstartBlade) 
 

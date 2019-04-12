@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cdd852e56cf966371cda62f89cee62956551f5c0
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9eab8a29db40118f2a15064c52419ecebcd4aecb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313169"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490331"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure’a geçiş için şirket içi VMware VM’lerini bulma ve değerlendirme
 
@@ -98,7 +98,7 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
 1. Dosyayı indirdiğiniz makinede yönetici komut penceresi açın.
 2. OVA’nın karmasını oluşturmak için aşağıdaki komutu çalıştırın:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Örnek kullanım: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - Örnek Kullanım: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Oluşturulan karma bu ayarlara uygun olmalıdır.
 
 #### <a name="continuous-discovery"></a>Sürekli keşif
@@ -194,6 +194,9 @@ Bu model kullanım dışı bırakıldı, var olan cihazları sağlanan için des
     - vCenter sunucusunun adını (FQDN) veya IP adresini belirtin.
     - **Kullanıcı adı** ve **Parola** bölümünde, toplayıcının vCenter sunucusundaki VM’leri bulmak için kullanacağı salt okunur hesabın kimlik bilgilerini belirtin.
     - **Toplama kapsamı**’nda, VM bulma için bir kapsam seçin. Toplayıcı yalnızca belirtilen kapsam içindeki VM’leri bulabilir. Kapsam belirli bir klasör, veri merkezi veya küme olarak ayarlanabilir. Kapsam en fazla 1500 VM’yi içermelidir. Daha büyük bir ortamı nasıl bulabileceğiniz hakkında [daha fazla bilgi edinin](how-to-scale-assessment.md).
+
+       > [!NOTE]
+       > **Toplama kapsamı** yalnızca konakların ve kümelerin klasörleri listeler. Klasörleri sanal makinelerinin doğrudan koleksiyon kapsamı olarak seçilemez. Ancak, tek VM'ler için erişimi olan bir vCenter hesabı kullanarak bulabilir. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/how-to-scale-assessment#set-up-permissions) kapsam VM'lerin bir klasöre nasıl hakkında.
 
 7. **Geçişi projesini belirtin** bölümünde portaldan kopyaladığınız Azure Geçişi proje kimliğini ve anahtarını belirtin. Bu bilgileri kopyalamadıysanız toplayıcı VM’den Azure portalını açın. Projenin **Genel Bakış** sayfasında **Makineleri Bul**’a tıklayın ve değerleri kopyalayın.  
 8. **Toplama ilerleme durumunu izle**’de, keşif durumunu izleyin. Azure Geçişi toplayıcı tarafından toplanan veriler hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector).

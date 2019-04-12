@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 6a9b4fc5479dda58dd024cdf93cbdf4853f9c965
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 38cbd32be30885837d2f98a9e1dd5d967b4938b4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056566"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489820"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>X.509 CA sertifikalarını kullanarak cihaz kimlik doğrulaması
 
@@ -40,7 +40,7 @@ X.509 CA sertifika, cihazlarınızın her biri için sertifikaları zincirine ü
 
 Ayrıca, deneme veya kullanmak için otomatik olarak imzalanan X.509 CA kapalı IOT ağlar oluşturabilirsiniz.
 
-X.509 CA sertifikanızı almak, onun karşılık gelen özel anahtar parolası tuttuğunuzdan emin olun ve korumalı bakılmaksızın her zaman.  Bu, güven X.509 CA kimlik doğrulama güven ilişkisi oluşturmak için gereklidir. 
+X.509 CA sertifikanızı almak, onun karşılık gelen özel anahtar parolası tuttuğunuzdan emin olun ve korumalı bakılmaksızın her zaman.  Bu, güven X.509 CA kimlik doğrulama güven ilişkisi oluşturmak için gereklidir.
 
 Bilgi nasıl [otomatik olarak imzalanan bir sertifika oluşturmak](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), deneme boyunca bu özellik açıklaması için kullanabilirsiniz.
 
@@ -49,6 +49,8 @@ Bilgi nasıl [otomatik olarak imzalanan bir sertifika oluşturmak](https://githu
 X.509 CA sertifikası sahibi olan başka bir ara CA sırayla imzalayabilirsiniz ara CA şifreli olarak oturum açabilir ve bu şekilde kadar son ara CA bu işlem bir cihaz açarak sonlandırır. Art arda bir güven sertifikası zinciri bilinen bir sertifikalar zincirinden oluşur. Gerçek Hayatta bu cihazları imzalama doğru güven temsilci olarak yürütülür. Bu temsilci önemlidir, çünkü şifreli olarak değişken bir gözetim zinciri oluşturur ve imzalama anahtarları paylaşımı önler.
 
 ![img-Generic-CERT-chain-of-Trust](./media/generic-cert-chain-of-trust.png)
+
+(Bir yaprak sertifikası olarak da bilinir) cihaz sertifikası olmalıdır *konu adı* kümesine **cihaz kimliği** Azure IOT Hub'ında IOT cihaz kaydı sırasında kullanıldı. Bu ayar, kimlik doğrulaması için gereklidir.
 
 Buradan edinin nasıl [sertifikası zinciri oluşturmak](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) cihazları açarken bitti olarak.
 

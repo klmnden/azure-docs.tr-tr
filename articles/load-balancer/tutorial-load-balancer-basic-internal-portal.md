@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 6abae32f5d8781735bc6a50dc888fddacbe8d0b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105310"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489323"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Öğretici: Azure portalında bir temel yük dengeleyici ile iç trafik Yük Dengeleme
 
@@ -95,11 +95,10 @@ Portalı kullanarak bir iç temel yük dengeleyici oluşturun. Oluşturduğunuz 
     | Kaynak grubu         | Seçin **Yeni Oluştur** ve türü *MyResourceGroupLB* metin kutusuna.|
     | Ad                   | *myLoadBalancer*                                   |
     | Bölge         | **Batı Avrupa**'yı seçin.                                        |
-    | Type          | Seçin **genel**.                                        |
+    | Type          | Seçin **iç**.                                        |
     | SKU           | **Temel**'i seçin.                          |
     | Sanal ağ           | Seçin *MyVNet*.                          |    
-| Genel IP adresi | **Yeni oluştur**’u seçin. |
-    | Genel IP adresi ataması              | Seçin **statik**.   |
+    | IP adresi ataması              | Seçin **statik**.   |
     | Özel IP adresi|Örneğin sanal ağ ve alt ağ, adres alanında olan bir adres *10.3.0.7*.  |
 
 3. İçinde **gözden geçir + Oluştur** sekmesinde **Oluştur**. 
@@ -266,4 +265,4 @@ Bu öğreticide, temel katmanı iç yük dengeleyici oluşturdunuz. Oluşturduğ
 Ardından, sanal makinelerin kullanılabilirlik alanları genelinde Yük Dengelemesi konusunda bilgi edinin.
 
 > [!div class="nextstepaction"]
-> [Kullanılabilirlik bölgelerindeki VM’lerde yük dengeleme](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Farklı kullanılabilirlik bölgelerindeki VM’lerin yükünü dengeleme](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

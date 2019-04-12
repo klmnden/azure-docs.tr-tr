@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 990991eb1ceb5d74c042b42cfa265c75a073e5ef
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 8eb569e628e598dbfd890c11656a23007f915b45
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670906"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491177"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Öğretici: Otomatik makine öğrenimi, regresyon modeli derler
 
@@ -103,7 +103,7 @@ import os
 
 Mevcut çalışma alanından bir çalışma alanı nesnesi oluşturun. A [çalışma](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) Azure abonelik ve kaynak bilgilerini kabul eden bir sınıftır. Ayrıca, model çalıştırmalarınızı izlemeye yarayan bir bulut kaynağı oluşturur.
 
-`Workspace.from_config()`, **aml_config/config.json** dosyasını okur ve ayrıntıları `ws` adlı nesneye yükler.  Bu öğreticideki kodun kalanında `ws` kullanılır.
+`Workspace.from_config()` Dosya Okuma **aml_config/config.json** ve ayrıntıları adlı bir nesnesine yükler `ws`.  `ws` kod geri kalan aşamalarında, bu öğreticide kullanılır.
 
 Bir çalışma nesnesi oluşturduktan sonra deneme için bir ad belirtin. Oluşturun ve çalışma alanı ile yerel bir dizine kaydedin. Tüm çalıştırmalar geçmişini belirtilen deneme altında ve kaydedilen [Azure portalında](https://portal.azure.com).
 
@@ -136,8 +136,7 @@ import azureml.dataprep as dprep
 
 file_path = os.path.join(os.getcwd(), "dflows.dprep")
 
-package_saved = dprep.Package.open(file_path)
-dflow_prepared = package_saved.dataflows[0]
+dflow_prepared = dprep.Dataflow.open(file_path)
 dflow_prepared.get_profile()
 ```
 
@@ -654,9 +653,9 @@ Deneme parametreyi tanımlayın ve ayarları serilerinin otomatik oluşturulmas�
 |Özellik| Bu öğreticideki değer |Açıklama|
 |----|----|---|
 |**iteration_timeout_minutes**|10|Her yineleme için dakika cinsinden süre. Toplam çalışma zamanı azaltmak için bu değeri azaltın.|
-|**iterations**|30|Yineleme sayısı. Her yinelemede verilerinizle yeni bir machine learning modeli eğitilir. Bu toplam çalıştırma süresi etkileyen birincil bir değerdir.|
+|**Yinelemeler**|30|Yineleme sayısı. Her yinelemede verilerinizle yeni bir machine learning modeli eğitilir. Bu toplam çalıştırma süresi etkileyen birincil bir değerdir.|
 |**primary_metric**| spearman_correlation | İyileştirmek istediğiniz ölçüm. Bu ölçüm temelinde en uygun model seçilir.|
-|**preprocess**| Doğru | Kullanarak **True**, deneme (sayısal, vb. için metin dönüştürme eksik veri işleme) girdi verilerini önceden işlenir|
+|**ön işleme**| True | Kullanarak **True**, deneme (sayısal, vb. için metin dönüştürme eksik veri işleme) girdi verilerini önceden işlenir|
 |**Ayrıntı düzeyi**| logging.INFO | Günlüğe kaydetme düzeyini denetler.|
 |**n_cross_validations**|5|Doğrulama verileri belirtilmediğinde gerçekleştirmek için çapraz doğrulama bölmelerini sayısı.|
 
@@ -775,7 +774,8 @@ rundata
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th: yalnızca-of-type {Dikey Hizala: Orta;}
+<style scoped>
+.dataframe tbody tr th: yalnızca-of-type {Dikey Hizala: Orta;}
 
     .dataframe tbody tr th {
         vertical-align: top;

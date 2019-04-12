@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: be9bde90684b46adef509532eb7b0cc236c5efb1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 950d248d2525f053981c8642ee2d39021b9a0494
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180611"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490368"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Bağlı Fabrika çözüm hızlandırıcısı adım adım kılavuzu
 
@@ -73,7 +73,7 @@ OPC Yayımcı Modülü, istasyonun OPC UA sunucularına bağlanır ve yayımlana
 
 1. Düğüm verilerini JSON biçimine dönüştürür.
 1. JSON şifreler.
-1. JSON OPC UA Pub/Sub iletileri olarak IOT Hub'ına gönderir.
+1. JSON, OPC UA pub/sub iletileri IOT hub'a gönderir.
 
 OPC Yayımcı modülü, yalnızca bir giden https bağlantı noktası (443) gerektirir ve mevcut kuruluş altyapısı ile birlikte çalışabilir.
 
@@ -230,7 +230,7 @@ IoT Hub çözümde aynı zamanda şunları yapar:
 Aşağıdaki makaleleri okuyarak IoT çözümünü kullanmaya başlayabilirsiniz:
 
 * [Azureiotsolutions.com sitesindeki izinler][lnk-permissions]
-* [Bağlı Fabrika çözüm hızlandırıcısı için Windows’da ağ geçidi dağıtma](iot-accelerators-connected-factory-gateway-deployment.md)
+* [Bağlı Fabrika çözüm Hızlandırıcı için Windows veya Linux üzerinde bir ağ geçidi dağıtma](iot-accelerators-connected-factory-gateway-deployment.md)
 * [OPC Publisher başvuru uygulaması](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
 [connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png

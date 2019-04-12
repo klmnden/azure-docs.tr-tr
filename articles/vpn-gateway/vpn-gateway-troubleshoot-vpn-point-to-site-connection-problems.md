@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: genli
-ms.openlocfilehash: 7990a98e0e2d688456db054e3cdfa447e1ed1043
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630460"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492388"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Sorun giderme: Azure noktadan siteye bağlantı sorunları
 
@@ -57,6 +57,35 @@ Bu sorunu çözmek için aşağıdaki adımları izleyin:
 
 > [!NOTE]
 > İstemci sertifikasını içeri aktardığınızda seçmeyin **güçlü özel anahtar korumasını etkinleştir** seçeneği.
+
+## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>Uzak sunucu yanıt vermediği için bilgisayarınızı VPN sunucusu arasında ağ bağlantısı kurulamadı
+
+### <a name="symptom"></a>Belirti
+
+Deneyin ve Windows üzerinde IKEv2'yi kullanarak bir Azure sanal ağı gteway bağlanmak, şu hata iletisiyle karşılaşırsınız:
+
+**Uzak sunucu yanıt vermediği için bilgisayarınızı VPN sunucusu arasında ağ bağlantısı kurulamadı**
+
+### <a name="cause"></a>Nedeni
+ 
+ IKE parçalanma için destek Windows sürümüne sahip değilse sorun ortaya çıkar.
+ 
+### <a name="solution"></a>Çözüm
+
+IKEv2, Windows 10 ve Server 2016’da desteklenir. Ancak IKEv2 kullanmak için güncelleştirmeleri yüklemeli ve yerel bir kayıt defteri anahtar değeri ayarlamalısınız. Windows 10’dan önceki işletim sistemleri desteklenmez ve yalnızca SSTP kullanabilir.
+
+IKEv2 için Windows 10 ve Server 2016’yı hazırlamak için:
+
+1. Güncelleştirmeyi yükleyin.
+
+   | İşletim sistemi sürümü | Tarih | Sayı/Bağlantı |
+   |---|---|---|---|
+   | Windows Server 2016<br>Windows 10 Sürüm 1607 | 17 Ocak 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+   | Windows 10 Sürüm 1703 | 17 Ocak 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+   | Windows 10 sürüm 1709 | 22 Mart 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   |  |  |  |  |
+
+2. Kayıt defteri anahtar değerini ayarlayın. Kayıt defterinde “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD anahtarını oluşturun veya 1 olarak ayarlayın.
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>VPN istemci hatası: Beklenmeyen veya kötü biçimlendirilmiş bir ileti alındı.
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: d8e249a788d80108d46a61f316b795ab04e541a2
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: e72c4b0cf8f77a057ff07f8bce7acae4e834e28d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203545"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502806"
 ---
 ## <a name="setting-up-your-ios-application"></a>İOS uygulamanızı ayarlama
 
@@ -61,7 +61,7 @@ Kopyalama ve yapıştırma aşağıda. Bu komut bir Carthage/kullanıma klasöre
 carthage update
 ```
 
-> Yukarıdaki işlem, indirin ve Microsoft Authentication Library (MSAL) oluşturmak için kullanılır. MSAL alınırken, önbelleğe alma ve Azure Active Directory v2.0 tarafından korunan API'lerine erişmek için kullanılan kullanıcı belirteçleri yenileme işler.
+> Yukarıdaki işlem, indirin ve Microsoft Authentication Library (MSAL) oluşturmak için kullanılır. MSAL alınırken, önbelleğe alma ve Microsoft kimlik platformu tarafından korunan API'lerine erişmek için kullanılan kullanıcı belirteçleri yenileme işler.
 
 ## <a name="add-the-msal-framework-to-your-application"></a>MSAL framework uygulamanıza ekleyin
 

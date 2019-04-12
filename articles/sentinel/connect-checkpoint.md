@@ -1,6 +1,6 @@
 ---
-title: Toplama denetim noktası verileri Azure Gözcü önizlemesinde | Microsoft Docs
-description: Azure Gözcü olarak denetim noktası verilerini nasıl toplayacağınızı öğrenin.
+title: Gözcü Azure Önizleme için denetim noktası verileri bağlayın | Microsoft Docs
+description: Azure Gözcü için denetim noktası verileri bağlanmayı öğreneceksiniz.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1fb4f9165be03a7fc3cd055ef616dcfadb58ac9d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 664b09a8ad0cb7d06019281869e390a465637c00
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58876505"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489185"
 ---
 # <a name="connect-your-check-point-appliance"></a>Denetim noktası gerecinize bağlanma
 
@@ -30,7 +30,7 @@ ms.locfileid: "58876505"
 Azure Gözcü herhangi bir denetim noktası gereç Syslog CEF günlük dosyalarını kaydederek bağlanabilirsiniz. Gözcü Azure ile tümleştirme kolayca analiz ve sorguları kontrol noktasından arasında günlük dosyası verilerini çalıştırmanıza olanak sağlar. CEF verileri Azure Gözcü nasıl alan daha fazla bilgi için bkz: [bağlanma CEF Gereçleri](connect-common-event-format.md).
 
 > [!NOTE]
-> - Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
+> Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
 
 ## <a name="step-1-connect-your-check-point-appliance-using-an-agent"></a>1. Adım: Denetim noktası gerecinize bir aracı kullanarak bağlanma
 
@@ -42,7 +42,7 @@ Alternatif olarak, aracı vm'sinde başka bir bulut, mevcut bir Azure sanal maki
 
 ### <a name="deploy-the-agent-in-azure"></a>Aracıyı azure'da dağıtın
 
-1. Gözcü Azure portalında **veri toplama** ve gereç türünüzü seçin. 
+1. Gözcü Azure portalında **veri bağlayıcıları** ve gereç türünüzü seçin. 
 
 1. Altında **Linux Syslog aracı Yapılandırması**:
    - Seçin **otomatik dağıtım** yukarıda açıklandığı gibi Azure Gözcü aracıyla birlikte önceden yüklenir ve tüm yapılandırma gerekli içeren yeni bir makine oluşturmak istiyorsanız. Seçin **otomatik dağıtım** tıklatıp **otomatik aracı dağıtımı**. Bu, satın alma sayfasına otomatik olarak çalışma alanınıza bağlı olduğu adanmış bir VM için götürür. VM bir **standart D2s v3 (2 vcpu, 8 GB bellek)** ve genel bir IP adresi vardır.

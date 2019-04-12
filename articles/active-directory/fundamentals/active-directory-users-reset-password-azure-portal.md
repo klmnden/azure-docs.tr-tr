@@ -14,14 +14,15 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce76fa7fecb8a82f76d40827bfa868061a0ed584
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4db6554e86cef61f2fc8e7a466919d2ce723f0e5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204908"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492711"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak bir kullanıcının parolasını sıfırlama
+
 Yönetici olarak, kullanıcı bir cihaz dışında kilitli, parolasını unutursa, ya da kullanıcı hiç parola almadıysanız, bir kullanıcının parolasını sıfırlayabilirsiniz.
 
 >[!Note]
@@ -32,7 +33,7 @@ Yönetici olarak, kullanıcı bir cihaz dışında kilitli, parolasını unuturs
 
 ## <a name="to-reset-a-password"></a>Parola sıfırlama
 
-1. Oturum [Azure portalında](https://portal.azure.com/) genel yönetici, yönetici kullanıcı veya parola Yöneticisi olarak. Kullanılabilir roller hakkında daha fazla bilgi için bkz: [Azure Active Directory'de yönetici rolleri atama](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
+1. Oturum [Azure portalında](https://portal.azure.com/) parola Yöneticisi veya Kullanıcı Yöneticisi. Kullanılabilir roller hakkında daha fazla bilgi için bkz: [Azure Active Directory'de yönetici rolleri atama](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
 
 2. Seçin **Azure Active Directory**seçin **kullanıcılar**arayın ve sıfırlama ihtiyacı olan kullanıcıyı seçin ve ardından **parola sıfırlama**.
 
@@ -50,6 +51,7 @@ Yönetici olarak, kullanıcı bir cihaz dışında kilitli, parolasını unuturs
     >Geçici parola her zaman geçerli olsun. Kullanıcı, sonraki oturum açışında parolasını çalışmaya devam edecek, bakılmaksızın geçici parolayı oluşturulmasının üzerinden ne kadar zaman geçti.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Kullanıcı parola sıfırlama sonra aşağıdaki temel işlemleri gerçekleştirebilirsiniz:
 
 - [Ekleme veya kullanıcıları Sil](add-users-azure-active-directory.md)

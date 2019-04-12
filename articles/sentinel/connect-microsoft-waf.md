@@ -1,6 +1,6 @@
 ---
-title: Gözcü Azure önizlemesinde Microsoft web uygulaması güvenlik duvarı veri toplama | Microsoft Docs
-description: Gözcü Azure, Microsoft web uygulaması güvenlik duvarı verilerini nasıl toplayacağınızı öğrenin.
+title: Azure Gözcü önizlemesi için Microsoft web uygulaması güvenlik duvarı veri bağlayın | Microsoft Docs
+description: Gözcü Azure için Microsoft web uygulaması güvenlik duvarı veri bağlanmayı öğreneceksiniz.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2238060acb60b1be0d06b81f62fb45a7f1c7a9b6
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 5316fa7e3aa4465349b762b99bec9171f821062f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580606"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491039"
 ---
-# <a name="collect-data-from-microsoft-web-application-firewall"></a>Microsoft web uygulaması güvenlik duvarı veri topla
+# <a name="connect-data-from-microsoft-web-application-firewall"></a>Microsoft web uygulaması güvenlik duvarı verileri bağlayın
 
 > [!IMPORTANT]
 > Azure Sentinel şu anda genel Önizleme aşamasındadır.
@@ -39,15 +39,15 @@ Azure uygulama ağ geçidinin Microsoft web uygulaması Güvenlik Duvarı (WAF) 
 Microsoft web uygulaması güvenlik duvarı varsa, var olan bir ağ geçidi kaynağı olduğundan emin olun.
 Sonra Microsoft web uygulaması güvenlik duvarı dağıtılan ve veri alma, uyarı verileri kolayca Azure Gözcü aktarılabilir.
     
-5. Gözcü Azure portalında **veri bağlayıcıları**.
-5. Veri bağlayıcıları sayfasında seçmek **WAF** Döşe.
+1. Gözcü Azure portalında **veri bağlayıcıları**.
+1. Veri bağlayıcıları sayfasında seçmek **WAF** Döşe.
 1. Git [Application Gateway kaynağında](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) WAF'nizi seçin.
     1. Seçin **tanılama ayarları**.
     1. Seçin **+ tanılama ayarı ekleme** tablonun altında.
     1. İçinde **tanılama ayarları** sayfasında bir **adı** seçip **Log Analytics'e gönderme**.
     1. Altında **Log Analytics çalışma alanı** Azure Gözcü çalışma alanını seçin.
     1. Analiz etmek istediğiniz günlük türlerini seçin. Önerilir: ApplicationGatewayAccessLog ve ApplicationGatewayFirewallLog.
-6. İlgili şema için Microsoft web uygulaması güvenlik duvarı uyarıları Log Analytics'te kullanmak için arama **AzureDiagnostics**.
+1. İlgili şema için Microsoft web uygulaması güvenlik duvarı uyarıları Log Analytics'te kullanmak için arama **AzureDiagnostics**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu belgede, Gözcü Azure için Microsoft web uygulaması güvenlik duvarı bağlanma hakkında bilgi edindiniz. Azure Gözcü hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:

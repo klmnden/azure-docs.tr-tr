@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 03/13/2019
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68c5e5e2ed0d3ec767a239439476a98bac73bcb4
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f5846d2bd85a382b8e2aee539af405518e9fb221
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576888"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493102"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>Konuk kullanıcıları davet ve PIM Azure kaynak rolleri atama
 
@@ -91,7 +91,7 @@ PIM kullanarak Konuk davet et ve bunları bir Azure Kaynak rolü gibi bir üye k
 
 1. Tıklayın **üyesi veya Grup Seç**.
 
-    ![Bir üye veya grup seçin](./media/pim-resource-roles-external-users/select-member-group.png)
+    ![Üye veya grup seçin](./media/pim-resource-roles-external-users/select-member-group.png)
 
 1. Konuk davet etmek için tıklayın **davet**.
 
@@ -145,7 +145,7 @@ Dış kullanıcı olarak, ilk Azure AD kuruluşunuz için daveti kabul etmek ve 
 
 1. Rolü için ayarları belirttikten sonra tıklayın **etkinleştirme** rolü etkinleştirmek için.
 
-    ![Rol etkinleştirme](./media/pim-resource-roles-external-users/activate-role.png)
+    ![Rolü etkinleştir](./media/pim-resource-roles-external-users/activate-role.png)
 
     Yönetici isteğinizi onaylamanız gerekli değilse, belirtilen kaynaklara erişimi olmalıdır.
 
@@ -157,7 +157,7 @@ Yalnızca bir üye kullanıcı gibi Konukları neler yaptığını izlemek için
 
 1. Tıklayın **kaynak denetim** etkinlik söz konusu kaynak görüntüleme. Aşağıdaki örnek bir kaynak grubu için etkinliğin gösterir.
 
-    ![Kaynak Denetim](./media/pim-resource-roles-external-users/audit-resource.png)
+    ![Kaynak denetimi](./media/pim-resource-roles-external-users/audit-resource.png)
 
 1. Etkinlik için konuk görüntülemek için tıklayın **Azure Active Directory** > **kullanıcılar** > Konuk adı.
 
@@ -168,4 +168,4 @@ Yalnızca bir üye kullanıcı gibi Konukları neler yaptığını izlemek için
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure AD PIM yönetici rolleri atama](pim-how-to-add-role-to-user.md)
-- [Azure Active Directory B2B Konuk kullanıcı erişimini nedir?](../b2b/what-is-b2b.md)
+- [Azure Active Directory B2B’de konuk kullanıcı erişimi nedir?](../b2b/what-is-b2b.md)

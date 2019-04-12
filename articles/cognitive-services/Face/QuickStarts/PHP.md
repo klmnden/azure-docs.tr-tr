@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 0c48b85e48153eb70400fc6da4822271f49b7fbe
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 280143d54e516fb626bb2d5afd01653e03d8a82c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630173"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490455"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Hızlı Başlangıç: REST API ve PHP ile bir resimdeki yüz algılama
 
@@ -26,6 +26,7 @@ Bu hızlı başlangıçta, bir resimdeki İnsan yüzlerini algılamak için PHP 
 - Yüz tanıma API'si abonelik anahtarı. Ücretsiz deneme aboneliği anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) yüz tanıma API'si hizmete abone ve anahtarınızı alın.
 - Bir kod Düzenleyicisi gibi [Visual Studio Code](https://code.visualstudio.com/download).
 - PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) paket.
+- Bir PHP özellikli web tarayıcısı. Bu ayarlamış olduğunuz değil, yükleme ve ayarlama ile bunu yapabilirsiniz [XAMPP](https://www.apachefriends.org/) makinenizde.
 
 ## <a name="initialize-the-html-file"></a>HTML dosyasını başlatın
 
@@ -290,4 +291,4 @@ Dosyayı bir PHP özellikli bir web tarayıcısında açın. Yüz tanıma veri, 
 Bir görüntüdeki insan yüzlerini algılamak, yüzleri dikdörtgenlerle ayırmak ve yaş ve cinsiyet gibi öznitelikleri döndürmek için kullanılan Yüz Tanıma API'sini keşfedin.
 
 > [!div class="nextstepaction"]
-> [Yüz Tanıma API’leri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Yüz tanıma API'leri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

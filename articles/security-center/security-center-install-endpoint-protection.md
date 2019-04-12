@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4ed0be3178f9d5d014e9e50c11d555b586ced765
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 882d4e0592b74e8af30ff5bf110a41e403c3bf7d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579334"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494039"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Azure Güvenlik Merkezi ile uç nokta koruma sorunları yönetme
 Azure Güvenlik Merkezi, kötü amaçlı yazılımdan korunma durumunu izler ve bu uç nokta koruma sorunları dikey penceresi bildirir. Güvenlik Merkezi, algılanan tehditlere ve sanal makinelerinizi (VM) ve bilgisayarları kötü amaçlı yazılım tehditlerine karşı savunmasız hale getirebilirsiniz yetersiz koruma gibi sorunlar vurgular. Altında verilen bilgileri kullanarak **uç nokta koruma sorunları**, tanımlanan tüm sorunların ele almak için bir plan belirleyebilirsiniz.
@@ -47,7 +47,7 @@ Bu örnekte, kullanacağız **işlem**.  Azure sanal makinelerinde ve Azure hari
 
 ## <a name="install-antimalware-on-azure-vms"></a>Azure Vm'lerinde kötü amaçlı yazılımdan koruma yükleyin
 
-1. Seçin **işlem** altındaki Güvenlik Merkezi ana menüsünde veya **genel bakış**.
+1. Seçin **işlem ve uygulamalar** altındaki Güvenlik Merkezi ana menüsünde veya **genel bakış**.
 
    ![İşlem seçin][1]
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 00ec813aec37697526233532b75ba6c55bf852c2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 850fce4e04ce07a323e830d2daf74ea1a324f1a0
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906081"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489391"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>PowerShell ile Azure'daki bir sanal makineyi yedekleme
 
@@ -29,7 +29,7 @@ Bu hızlı başlangıçta, Azure PowerShell modülü sürüm 1.0.0 AZ gerektirir
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="log-in-and-register"></a>Oturum açma ve kaydetme
+## <a name="sign-in-and-register"></a>Oturum açın ve kaydetme
 
 1. `Connect-AzAccount` komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
 
@@ -53,10 +53,10 @@ Kasayı oluşturduğunuzda:
 - Bu kullandıysanız [örnek komut dosyası](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) VM oluşturmak için kaynak grubudur **myResourceGroup**, VM ***myVM**, ve kaynaklar **WestEurope**  bölge.
 - Azure yedekleme, yedeklenen veriler için depolamayı otomatik olarak işler. Kasa varsayılan olarak kullandığı [coğrafi olarak yedekli depolama (GRS)](../storage/common/storage-redundancy-grs.md). Coğrafi yedeklilik sağlar yedeklediğiniz verileri, bir ikincil Azure bölgesine yüzlerce mil uzaktaki birincil bölgeye çoğaltılır.
 
-Artık bir kasa oluşturun.
+Şimdi bir kasa oluşturun:
 
 
-1. Kullanım [yeni AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault)kasası oluşturmak için:
+1. Kullanım [yeni AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) kasası oluşturmak için:
 
     ```powershell
     New-AzRecoveryServicesVault `
@@ -114,7 +114,7 @@ Yedekleme ilkesinde belirtilen zamanlamaya uygun olarak yedekleme çalıştırma
 - İlk yedekleme her yedekleme işinden artımlı kurtarma noktaları oluşturur.
 - Yalnızca son yedekleme sonrasında yapılan değişiklikleri aktardığından artımlı kurtarma noktaları depolama alanı ve süre açısından verimlilik sağlar.
 
-Geçici bir yedekleme çalıştırmak için kullandığınız[yedekleme AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem). 
+Geçici bir yedekleme çalıştırmak için kullandığınız [yedekleme AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem). 
 - Yedekleme verilerinizi barındıran kasa içinde bir kapsayıcı belirttiğiniz [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
 - Yedeklenecek her sanal makine ayrı bir öğe olarak ele alınır. Bir yedekleme işi başlatmak için VM hakkında bilgi edinmek [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
@@ -162,7 +162,7 @@ Artık sanal makineyi yedeklemek istiyorsanız, bunu temizleyebilirsiniz.
 - VM geri kullanıma denemek istiyorsanız, yedekleme temiz atlayın.
 - Varolan bir VM'yi kullandıysanız, en son atlayabilirsiniz [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet'ini kaynak grubunu ve sanal makineyi bırakabilirsiniz.
 
-Korumayı devre dışı bırakın, kasa ve geri yükleme noktalarını kaldırın. Ardından, kaynak grubunu ve sanal makine kaynaklarıyla ilişkilendirilmiş, aşağıda belirtildiği gibi silin:
+Korumayı devre dışı bırakın, kasa ve geri yükleme noktalarını kaldırın. Ardından kaynak grubunu ve sanal makine kaynaklarıyla ilişkilendirilmiş, aşağıda belirtildiği gibi silin:
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $item -RemoveRecoveryPoints

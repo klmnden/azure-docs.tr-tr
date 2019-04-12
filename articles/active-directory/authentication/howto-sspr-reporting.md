@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53140c7b02dd657036b76db0dd137bd770d97f4d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369539"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493068"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD parola yönetimi için raporlama seçenekleri
 
@@ -118,7 +118,7 @@ Aşağıdaki listede, bu etkinliğin ayrıntılı açıklanmıştır:
 Aşağıdaki listede, bu etkinliğin ayrıntılı açıklanmıştır:
 
 * **Etkinlik açıklaması**: Yönetici parola sıfırlama Azure portalından bir kullanıcı adına gerçekleştirilen gösterir.
-* **Etkinlik aktör**: Parola başka bir son kullanıcı veya yönetici adına sıfırlama gerçekleştirilen yönetici. Ya da bir genel yönetici, parola Yöneticisi, kullanıcı yöneticinize veya Yardım Masası Yöneticisi olması gerekir.
+* **Etkinlik aktör**: Parola başka bir son kullanıcı veya yönetici adına sıfırlama gerçekleştirilen yönetici. Parola Yöneticisi, kullanıcı yöneticinize veya Yardım Masası Yöneticisi olması gerekir.
 * **Etkinlik hedef**: Kullanıcı, parola sıfırlandı. Kullanıcı, bir son kullanıcı veya farklı bir yönetici olabilir.
 * **Etkinlik durumları**:
   * _Success_: Bir yönetici bir kullanıcının parola başarıyla sıfırlandı gösterir.
@@ -176,16 +176,16 @@ Aşağıdaki listede, bu etkinliğin ayrıntılı açıklanmıştır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [SSPR’yi başarılı bir şekilde nasıl piyasaya çıkarabilirim?](howto-sspr-deployment.md)
+* [Sspr'yi başarılı bir sunum nasıl tamamlamak?](howto-sspr-deployment.md)
 * [Parolanızı sıfırlama veya değiştirme](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Self servis parola sıfırlama için kaydolma](../user-help/active-directory-passwords-reset-register.md).
-* [Lisansla ilgili bir sorunuz mu var?](concept-sspr-licensing.md)
-* [SSPR hangi verileri kullanır ve kullanıcılarınız için hangi verileri doldurmanız gerekir?](howto-sspr-authenticationdata.md)
-* [Kullanıcılar hangi kimlik doğrulama yöntemlerini kullanabilir?](concept-sspr-howitworks.md#authentication-methods)
+* [Lisans bir sorunuz var mı?](concept-sspr-licensing.md)
+* [SSPR tarafından kullanılan verileri ve hangi verilerin, kullanıcılarınız için doldurmanız gerekir?](howto-sspr-authenticationdata.md)
+* [Kimlik doğrulama yöntemleri, kullanıcılara kullanılabilir mi?](concept-sspr-howitworks.md#authentication-methods)
 * [SSPR ile kullanılabilen ilke seçenekleri nelerdir?](concept-sspr-policy.md)
 * [Parola geri yazma nedir ve neden önemlidir?](howto-sspr-writeback.md)
-* [SSPR’deki tüm seçenekler nelerdir ve ne anlama gelir?](concept-sspr-howitworks.md)
-* [Bir arıza olduğunu düşünüyorum. SSPR’de nasıl sorun giderebilirim?](active-directory-passwords-troubleshoot.md)
-* [Başka bir yerde ele alınmayan bir sorum var](active-directory-passwords-faq.md)
+* [Tüm SSPR seçenekler nelerdir ve ne anlama gelir?](concept-sspr-howitworks.md)
+* [Bir arıza olduğunu düşünüyorum. SSPR nasıl giderebilirim?](active-directory-passwords-troubleshoot.md)
+* [Başka bir yerde ele değil bir sorum var](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Azure AD'de örneği SSPR etkinlik denetim günlükleri"

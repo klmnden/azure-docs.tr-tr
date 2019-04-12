@@ -10,15 +10,15 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: c9be129624c87ca0bff1e85a5d1c71425ef06b89
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.date: 04/10/2019
+ms.openlocfilehash: 23314e97051da95ab164baeab6e9d089f486351a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471915"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489699"
 ---
-# <a name="time-zone-in-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği'saat diliminde
+# <a name="time-zone-in-azure-sql-database-managed-instance-preview"></a>Azure SQL veritabanı yönetilen örneği (Önizleme) saat diliminde
 
 Eşgüdümlü Evrensel Saat (UTC) kullanarak veri katmanını bulut çözümleri için önerilen bir uygulama olsa da, Azure SQL veritabanı yönetilen örneği, tarih ve saat değerleri depolamak ve çağrı tarih mevcut uygulamaların gereksinimlerini karşılamak için saat dilimi seçeneği sunar ve belirli bir saat dilimi örtük bir bağlamla saat işlevleri.
 
@@ -72,7 +72,7 @@ Belirtilmezse, saat dilimi UTC değerine ayarlanır.
 
 ## <a name="checking-the-time-zone-of-instance"></a>Örneğinin saat dilimini denetleniyor
 
-[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timestamp-transact-sql) işlevi örneğinin saat dilimini görünen adını döndürür.
+[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) işlevi örneğinin saat dilimini görünen adını döndürür.
 
 ## <a name="cross-feature-considerations"></a>Çapraz-özellik konuları
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics PowerShell örnekleri | Microsoft Docs
-description: Azure Log Analytics PowerShell örnekleri
+title: Azure İzleyici PowerShell örnekleri | Microsoft Docs
+description: Azure İzleyici PowerShell örnekleri
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,20 +15,20 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 642aa385f52e3757f1f872d47d6dd2de80f36d2e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5aac1f7e1ded700b9bec38c358ea0049df93fd3e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110228"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492626"
 ---
-# <a name="azure-log-analytics-powershell-samples"></a>Azure Log Analytics PowerShell örnekleri
+# <a name="azure-monitor-powershell-samples"></a>Azure İzleyici PowerShell örnekleri
 
-Aşağıdaki tabloda, Log Analytics'te çeşitli işlevleri gerçekleştirmek için PowerShell Betiği örneklerinin bağlantılarını içerir.
+Aşağıdaki tabloda, Azure İzleyici'de çeşitli işlevleri gerçekleştirmek için PowerShell Betiği örneklerinin bağlantılarını içerir.
 
 | | |
 |---|---|
 |**Çalışma alanı oluşturma**||
-| [Log Analytics çalışma alanı oluşturma](../scripts/powershell-sample-create-workspace.md) | Log Analytics çalışma alanı oluşturur.|
+| [Log Analytics çalışma alanı oluşturma](../scripts/powershell-sample-create-workspace.md) | Azure İzleyici'de bir Log Analytics çalışma alanı oluşturur.|
 | | |
 

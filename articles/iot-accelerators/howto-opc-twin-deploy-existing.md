@@ -1,5 +1,5 @@
 ---
-title: Azure IOT OPC UA cihaz Yönetimi Modülü mevcut bir projeyi dağıtma | Microsoft Docs
+title: Mevcut bir Azure projesine bir OPC İkizi modülü dağıtma | Microsoft Docs
 description: Mevcut bir projeyi OPC İkizi dağıtma
 author: dominicbetts
 ms.author: dobett
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: dcf6acca344fe2a34fdc48fe89c5a1ee62b10b23
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59255895"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493255"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Mevcut bir projeyi OPC İkizi dağıtma
 
-OPC cihaz İkizi modülü, IOT Edge üzerinde çalışır ve birkaç uç hizmetlerinin OPC cihaz İkizi ve kayıt defteri hizmetleri sağlar. 
+OPC İkizi modülü, IOT Edge üzerinde çalışır ve birkaç uç hizmetlerinin OPC İkizi ve kayıt defteri hizmetleri sağlar. 
 
-OPC cihaz İkizi mikro hizmet, Fabrika işleçler ve OPC UA sunucu cihazlarınıza fabrika düzeyinde bir OPC İkizi IOT Edge modülü aracılığıyla arasındaki iletişimi kolaylaştırır. Mikro hizmet, REST API aracılığıyla OPC UA Hizmetleri (göz atma, okuma, yazma ve yürütme) kullanıma sunar. 
+OPC İkizi mikro hizmet, Fabrika işleçler ve OPC UA sunucu cihazlarınıza fabrika düzeyinde bir OPC İkizi IOT Edge modülü aracılığıyla arasındaki iletişimi kolaylaştırır. Mikro hizmet, REST API aracılığıyla OPC UA Hizmetleri (göz atma, okuma, yazma ve yürütme) kullanıma sunar. 
 
-OPC UA cihaz kayıt defteri mikro hizmet kayıtlı OPC UA uygulamalar ve uç noktalarını erişim sağlar. Operatörler ve yöneticiler kaydedebilir ve OPC UA yeni uygulama kaydı ve uç noktaları da dahil olmak üzere varolanları göz atın. Uygulama ve uç nokta yönetim ek olarak, kayıt defteri hizmeti ayrıca kayıtlı OPC cihaz İkizi, IOT Edge modülleri kataloglar. Hizmet API'si size edge modül işlevselliği, örneğin, başlatma veya sunucu bulma (Tarama Hizmetleri) durdurma veya OPC İkizi mikro hizmet kullanılarak erişilebilir yeni uç nokta çiftleri etkinleştirme denetimi.
+OPC UA cihaz kayıt defteri mikro hizmet kayıtlı OPC UA uygulamalar ve uç noktalarını erişim sağlar. Operatörler ve yöneticiler kaydedebilir ve OPC UA yeni uygulama kaydı ve uç noktaları da dahil olmak üzere varolanları göz atın. Uygulama ve uç nokta yönetim ek olarak, kayıt defteri hizmeti ayrıca kayıtlı OPC İkizi IOT Edge modülleri kataloglar. Hizmet API'si size edge modül işlevselliği, örneğin, başlatma veya sunucu bulma (Tarama Hizmetleri) durdurma veya OPC İkizi mikro hizmet kullanılarak erişilebilir yeni uç nokta çiftleri etkinleştirme denetimi.
 
-Bir çekirdek modülünün gözetmen kimliktir. Gözetmen, karşılık gelen OPC UA kayıt API'si kullanılarak etkinleştirilen OPC UA sunucu uç noktaları için karşılık gelen uç nokta ikizi yönetir. Bu uç nokta çiftleri OPC UA durum bilgisi olan güvenli bir kanal üzerinden yönetilen uç noktasına gönderilen OPC UA ikili iletileri içinde bulutta çalışan OPC İkizi mikro hizmetten alınan JSON çevir. Gözetmen, aygıt bulma olaylarını işleme, burada bu olayları OPC UA kayıt defterine güncelleştirmesi sonucu için OPC UA cihaz ekleme hizmetine göndererek bulma hizmetleri de sağlar.  Bu makalede, var olan bir projeye OPC İkizi modülü dağıtmayı gösterir. 
+Bir çekirdek modülünün gözetmen kimliktir. Gözetmen, karşılık gelen OPC UA kayıt API'si kullanılarak etkinleştirilen OPC UA sunucu uç noktaları için karşılık gelen uç nokta ikizi yönetir. Bu uç nokta çiftleri OPC UA durum bilgisi olan güvenli bir kanal üzerinden yönetilen uç noktasına gönderilen OPC UA ikili iletileri içinde bulutta çalışan OPC İkizi mikro hizmetten alınan JSON çevir. Gözetmen, cihaz bulma olayları işlemek, burada bu olayları OPC UA kayıt defterine güncelleştirmesi sonucu OPC UA cihaz ekleme Hizmeti'ne gönderme bulma hizmetleri de sağlar.  Bu makalede, var olan bir projeye OPC İkizi modülü dağıtmayı gösterir. 
 
 > [!NOTE]
 > Dağıtım ayrıntıları ve yönergeleri hakkında daha fazla bilgi için bkz. GitHub [depo](https://github.com/Azure/azure-iiot-opc-twin-module).
@@ -71,7 +71,7 @@ Dağıtım betiği iki AAD uygulaması Azure Active Directory'ye kaydetmeniz den
 2. Alternatif olarak, özel bir AAD kiracısında başka bir abonelik dağıtma, betiği yeniden başlat ve kullanılacağını seçin.
 
 > [!WARNING]
-> Hiçbir zaman kimlik doğrulaması olmadan devam edin.  Bunu yapmayı tercih ederseniz, herkesin kimliği doğrulanmamış Internet'ten, OPC cihaz Yönetimi uç noktalara erişebilir.   Her zaman seçebilirsiniz ["yerel" dağıtım seçeneği](howto-opc-twin-deploy-dependencies.md) incelemek için.
+> Hiçbir zaman kimlik doğrulaması olmadan devam edin.  Bunu yapmayı tercih ederseniz, herkesin kimliği doğrulanmamış Internet'ten, OPC İkizi Uç noktalara erişebilir.   Her zaman seçebilirsiniz ["yerel" dağıtım seçeneği](howto-opc-twin-deploy-dependencies.md) incelemek için.
 
 ## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>Bir hepsi bir arada endüstriyel IOT Hizmetleri tanıtım dağıtma
 

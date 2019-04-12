@@ -9,16 +9,16 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: c616b2578f7606ce7df19fdbef16bec8a24428d3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262508"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489631"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service performansını izleme
 
-.NET ve .NET Core üzerinde Azure App Services'ta çalışan tabanlı web uygulamaları izlemeyi etkinleştirme artık her zamankinden daha kolaydır. Daha önce el ile bir site uzantısını yüklemek için gereken diğer yandan en son uzantısı/aracı artık varsayılan olarak app service görüntüye oluşturulmuştur. Bu makalede, Application Insights izleme ile etkinleştirme işleminde size yol yanı sıra büyük ölçekli dağıtımlar için işlemini otomatik hale getirmek için başlangıç rehberlik sağlar.
+Temel üzerinde çalışan web uygulamaları, .NET ve .NET Core izlemeyi etkinleştirme [Azure uygulama hizmetleri](https://docs.microsoft.com/azure/app-service/) artık her zamankinden daha kolaydır. Daha önce el ile bir site uzantısını yüklemek için gereken diğer yandan en son uzantısı/aracı artık varsayılan olarak app service görüntüye oluşturulmuştur. Bu makalede, Application Insights izleme ile etkinleştirme işleminde size yol yanı sıra büyük ölçekli dağıtımlar için işlemini otomatik hale getirmek için başlangıç rehberlik sağlar.
 
 > [!NOTE]
 > Bir Application Insights site uzantısı aracılığıyla el ile ekleme **geliştirme araçları** > **uzantıları** kullanım dışı bırakılmıştır. Bu uzantı yükleme yöntemi her yeni sürümü için el ile güncelleştirmeler bağımlıdır. Uzantının en son kararlı sürüm sunulmuştur [önceden](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) App Service görüntünün bir parçası olarak. Dosyalar bulunur `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` ve kararlı her sürümde otomatik olarak güncelleştirilir. İzlemeyi etkinleştirmek için aracı tabanlı yönergeleri izlerseniz aşağıda bunu otomatik olarak kullanım dışı uzantı sizin için kaldırılır.

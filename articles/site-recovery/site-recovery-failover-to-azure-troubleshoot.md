@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/04/2019
 ms.author: mayg
-ms.openlocfilehash: 75c97a7feb63a100d322610b7e6d2e5c57bebda2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2156ee6cf27ecfa32b19ad5bbef7549e99c3f7ef
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889701"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492864"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>VMware VM veya fiziksel makinenin azure'a yük devri sırasında karşılaşılan sorunları giderme
 
@@ -79,7 +79,7 @@ Varsa **Connect** yük devredilen VM azure'da düğmesi gri ve Azure'a bir Expre
 1. Git **sanal makine** > **ağ**, gerekli ağ arabiriminin adına tıklayın.  ![Ağ arabirimi](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
 2. Gidin **IP yapılandırmaları**, gerekli IP yapılandırması ad alanında bulunan'ye tıklayın. ![IP yapılandırmaları](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. Genel IP adresi etkinleştirmek için tıklayın **etkinleştirme**. ![IP etkinleştir](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. Tıklayarak **gerekli ayarları Yapılandır** > **Yeni Oluştur**. ![Yeni Oluştur](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+4. Tıklayarak **gerekli ayarları Yapılandır** > **Yeni Oluştur**. ![Yeni oluştur](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Ortak adres adını girin, için varsayılan seçenekleri seçin **SKU** ve **atama**, ardından **Tamam**.
 6. Şimdi, yaptığınız değişiklikleri kaydetmek için tıklatın **Kaydet**.
 7. Paneller kapatın ve gidin **genel bakış** sanal makineye bağlanma/RDP bölümü.
@@ -132,8 +132,10 @@ Yapılandırma sunucusu ile Azure Site Recovery ana hedef kaydını ana hedefte 
  
 Bu hata, yükleme günlüğünde aşağıdaki dizeleri ile belirtilir: 
 
-RegisterHostStaticInfo karşılaşılan özel durum config/talwrapper.cpp(107) [post] CurlWrapper Post işlemi başarısız oldu: sunucu: 10.38.229.221, bağlantı noktası: 443, phpUrl: request_handler.php güvenli: true, ignoreCurlPartialError: yanlış hata: [curlwrapperlib/curlwrapper.cpp:processCurlResponse:231] başarısız istek göndermek: (35) - SSL bağlantı hatası. 
- 
+```
+RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] CurlWrapper Post failed : server : 10.38.229.221, port : 443, phpUrl : request_handler.php, secure : true, ignoreCurlPartialError : false with error: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231]   failed to post request: (35) - SSL connect error. 
+```
+
 Bu sorunu çözmek için:
  
 1. Yapılandırma sunucusundaki sanal makine bir komut istemi açın ve aşağıdaki komutları kullanarak proxy ayarlarını doğrulayın:

@@ -1,6 +1,6 @@
 ---
-title: Azure Önizleme Gözcü CEF verileri toplamayı | Microsoft Docs
-description: Azure Gözcü içinde CEF verilerini nasıl toplayacağınızı öğrenin.
+title: Azure Önizleme Gözcü CEF verileri bağlayın | Microsoft Docs
+description: CEF verileri Azure Gözcü için bağlanmayı öğreneceksiniz.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2117a139de52643f7cdbc6d054f46e5fb8ec0a77
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 18eb305beb79913713898b939ef840ca9ffab014
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005605"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489408"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Common Event Format'ı kullanarak dış çözümünüzü bağlayın
 
@@ -29,8 +29,7 @@ ms.locfileid: "59005605"
 
 Günlük dosyaları Syslog tasarruf etmenize olanak sağlayan bir dış çözüm ile Azure Gözcü bağlanabilirsiniz. Günlükleri Syslog Common Event Format (CEF) olarak kaydetmek gerecinizin sağlar, analiz ve sorguları arasında verileri kolayca çalıştırmanıza Gözcü Azure ile tümleştirme sağlar.
 
-> [!NOTE]
-> 
+> [!NOTE] 
 > Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
@@ -59,7 +58,7 @@ Alternatif olarak, aracı vm'sinde başka bir bulut, mevcut bir Azure sanal maki
 ### <a name="deploy-the-agent-in-azure"></a>Aracıyı azure'da dağıtın
 
 
-1. Gözcü Azure portalında **veri toplama** ve gereç türünüzü seçin. 
+1. Gözcü Azure portalında **veri bağlayıcıları** ve gereç türünüzü seçin. 
 
 1. Altında **Linux Syslog aracı Yapılandırması**:
    - Seçin **otomatik dağıtım** yukarıda açıklandığı gibi Azure Gözcü aracıyla birlikte önceden yüklenir ve tüm yapılandırma gerekli içeren yeni bir makine oluşturmak istiyorsanız. Seçin **otomatik dağıtım** tıklatıp **otomatik aracı dağıtımı**. Bu, satın alma sayfasına adanmış bir Linux, otomatik olarak çalışma alanınıza bağlı olduğu VM için götürür. VM bir **standart D2s v3 (2 vcpu, 8 GB bellek)** ve genel bir IP adresi vardır.
@@ -96,7 +95,7 @@ Alternatif olarak, aracı vm'sinde başka bir bulut, mevcut bir Azure sanal maki
 Azure kullanmıyorsanız, adanmış bir Linux sunucusu üzerinde çalıştırmak için Azure Gözcü aracıyı el ile dağıtın.
 
 
-1. Gözcü Azure portalında **veri toplama** ve gereç türünüzü seçin.
+1. Gözcü Azure portalında **veri bağlayıcıları** ve gereç türünüzü seçin.
 1. Altında adanmış bir Linux VM oluşturmak için **Linux Syslog aracı Yapılandırması** seçin **el ile dağıtım**.
    1. Altında **Syslog aracısını indirme ve yükleme**seçin **Azure olmayan Linux makine**. 
    1. İçinde **doğrudan aracı** seçtiğiniz açılır, ekran **Linux için aracıyı** aracıyı indirin veya Linux makinenizde indirmek için şu komutu çalıştırın:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`

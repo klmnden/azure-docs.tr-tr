@@ -1,5 +1,5 @@
 ---
-title: Azure IOT OPC UA sertifika yönetimi nedir | Microsoft Docs
+title: OPC kasası - Azure nedir | Microsoft Docs
 description: OPC kasası genel bakış
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: ba3313d927ec4317d6c051f6058d75a415b92288
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 99dfcaeb1ef5b52e6827f1b3ac65d6201557a8fb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759318"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490385"
 ---
-# <a name="what-is-azure-iot-open-platform-communications-opc-ua-certificate-management"></a>Azure IOT açık Platform iletişim (OPC) UA sertifika yönetimi nedir?
+# <a name="what-is-opc-vault"></a>OPC kasası nedir?
 
-Azure IOT OPC UA sertifika yönetimi, ayrıca OPC kasası olarak yapılandırabilirsiniz, bir mikro hizmet kaydı, bildiğiniz ve sertifika yaşam döngüsü için OPC UA sunucu ve istemci uygulamalarını bulutta yönetin. Bu makalede, OPC kasanın basit kullanım durumları açıklanmaktadır.
+Kasa OPC yapılandırma, kaydetme ve sertifika yaşam döngüsü OPC UA sunucusu ve istemci uygulamalarını bulutta yönetme bir mikro hizmetidir. Bu makalede, OPC kasanın basit kullanım durumları açıklanmaktadır.
 
 ## <a name="certificate-management"></a>Sertifika yönetimi
 

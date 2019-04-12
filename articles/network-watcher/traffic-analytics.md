@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: f00c816f34978ee2f14f16ee9882860750d0e658
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 7e90e42f768ceb333ac90f56249457ffa46ae461
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051895"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491005"
 ---
 # <a name="traffic-analytics"></a>Trafik Analizi
 
@@ -173,15 +173,16 @@ New-AzStorageAccount `
 Aşağıdaki seçenekler, resimde gösterildiği gibi seçin:
 
 1. Seçin *üzerinde* için **durumu**
-2. Akış günlüklerini depolamak için mevcut bir depolama hesabını seçin. Verileri sonsuza kadar saklamak istiyorsanız, değer kümesine *0*. Depolama hesabı için Azure depolama ücretleri uygulanır.
-3. Ayarlama **bekletme** verilerini saklamak istediğiniz gün sayısı.
-4. Seçin *üzerinde* için **trafik analizi durumu**.
-5. Mevcut bir Log Analytics çalışma alanı seçin ya da seçin **yeni çalışma alanı oluştur** yeni bir tane de oluşturabilirsiniz. Bir Log Analytics çalışma alanı trafik analizi tarafından analiz oluşturmak için kullanılır toplanmış ve dizinli verileri depolamak için kullanılır. Mevcut bir çalışma öğesini seçerseniz, desteklenen bölgelerden birinde mevcut olmalıdır ve yeni sorgu diline yükseltme yaptı. Mevcut bir çalışma yükseltmek istiyor musunuz veya bir çalışma alanı, desteklenen bir bölgede izniniz yok, yeni bir tane oluşturun. Sorgu dilleri hakkında daha fazla bilgi için bkz. [yeni günlük araması için Azure İzleyici günlükleri yükseltme](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+2. Seçin *sürüm 2* için **akış günlükleri sürüm**. Flow oturumu istatistikleri (bayt ve paketleri) sürüm 2 içerir
+3. Akış günlüklerini depolamak için mevcut bir depolama hesabını seçin. Verileri sonsuza kadar saklamak istiyorsanız, değer kümesine *0*. Depolama hesabı için Azure depolama ücretleri uygulanır.
+4. Ayarlama **bekletme** verilerini saklamak istediğiniz gün sayısı.
+5. Seçin *üzerinde* için **trafik analizi durumu**.
+6. Mevcut bir Log Analytics (OMS) çalışma alanı seçin ya da seçin **yeni çalışma alanı oluştur** yeni bir tane de oluşturabilirsiniz. Bir Log Analytics çalışma alanı trafik analizi tarafından analiz oluşturmak için kullanılır toplanmış ve dizinli verileri depolamak için kullanılır. Mevcut bir çalışma öğesini seçerseniz, birinde varolmalıdır [desteklenen bölgeler](#supported-regions) ve yeni sorgu diline yükseltme yaptı. Mevcut bir çalışma yükseltmek istiyor musunuz veya bir çalışma alanı, desteklenen bir bölgede izniniz yok, yeni bir tane oluşturun. Sorgu dilleri hakkında daha fazla bilgi için bkz. [Azure Log Analytics yükseltme için yeni günlük araması](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    Trafik analizi çözümü ve Nsg'ler barındırma Log Analytics çalışma alanı aynı bölgede olması gerekmez. Örneğin, Doğu ABD ve Batı ABD içindeki Nsg'ler olabilir, ancak bir çalışma alanında, Batı Avrupa bölgesinde trafik analizi olabilir. Birden çok Nsg'ler aynı çalışma alanında yapılandırılabilir.
-6. **Kaydet**’i seçin.
+    Trafik analizi çözümü ve Nsg'ler barındırma log analytics çalışma alanı aynı bölgede olması gerekmez. Örneğin, Doğu ABD ve Batı ABD içindeki Nsg'ler olabilir, ancak bir çalışma alanında, Batı Avrupa bölgesinde trafik analizi olabilir. Birden çok Nsg'ler aynı çalışma alanında yapılandırılabilir.
+7. **Kaydet**’i seçin.
 
-    ![Depolama hesabına, Log Analytics çalışma alanı ve trafik analizi etkinleştirme seçimi](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
+    ![Depolama hesabına, Log Analytics çalışma alanı ve trafik analizi etkinleştirme seçimi](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
 Trafik analizi için etkinleştirmek istediğiniz diğer tüm Nsg'ler için önceki adımı yineleyin. Akış günlükleri verilerini çalışma alanına gönderilir, böylece yerel kanunlarınız ve düzenlemelerinizle ülkenizde veri depolama çalışma alanının bulunduğu bölgede izin emin olun.
 
@@ -300,7 +301,7 @@ Trafik analizi tam olarak yapılandırdıktan sonra elde etmek isteyebileceğini
     ![Sanal ağ dağıtım vitrini Panosu](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - Üst Şerit için bir sanal ağın (Inter sanal ağ bağlantıları/Active/Inactive) gibi parametrelerin seçimi, dış bağlantılar, etkin akışlar ve kötü amaçlı akışlar sanal ağın sanal ağ topolojisini gösterir.
-- Sanal ağ topolojisini Abonelikleri, çalışma alanları, kaynak grupları ve zaman aralığına göre filtreleyebilirsiniz. Akış yardımcı olan ek filtreler anlayın: Akış türü (sanal ağlar arası, IntraVNET vb.), akış yönünü (gelen, giden), akış durumu (izin verilen, engellenen) sanal ağlar (hedeflenen ve bağlı), bağlantı türü (eşlemesi veya ağ geçidi - P2S ve S2S) ve NSG. Bu filtreler, ayrıntılı olarak incelemek istediğiniz sanal ağlar odaklanmak için kullanın.
+- Sanal ağ topolojisini Abonelikleri, çalışma alanları, kaynak grupları ve zaman aralığına göre filtreleyebilirsiniz. Akış yardımcı olan ek filtreler anlayın: Akış türü (sanal ağlar arası, IntraVNET vb.), akış yönünü (gelen, giden), akış durumu (hedeflenen ve bağlı) (izin verilen, engellenen), sanal ağlar, bağlantı türü (eşlemesi veya ağ geçidi - P2S ve S2S) ve NSG. Bu filtreler, ayrıntılı olarak incelemek istediğiniz sanal ağlar odaklanmak için kullanın.
 - Örneğin, sanal ağ topolojisini bakımından akışlar (izin verilen/engellenen/gelen/giden/Benign/kötü amaçlı), uygulama protokolü ve ağ güvenlik grupları, sanal ağa trafik dağılımı gösterir:
 
     ![Trafik dağıtım ve akış ayrıntıları vitrini sanal ağ topolojisi](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)

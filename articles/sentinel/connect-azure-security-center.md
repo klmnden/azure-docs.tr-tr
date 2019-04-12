@@ -1,6 +1,6 @@
 ---
-title: Gözcü Azure önizlemede Azure Güvenlik Merkezi veri toplama | Microsoft Docs
-description: Gözcü Azure, Azure Güvenlik Merkezi verilerini nasıl toplayacağınızı öğrenin.
+title: Gözcü Azure Önizleme için Azure Güvenlik Merkezi verilere bağlanma | Microsoft Docs
+description: Azure Gözcü için Azure Güvenlik Merkezi veri bağlanmayı öğreneceksiniz.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: f59c5f6a9f497a6420172996f9f327f16ffd26f9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bd6fe027da8c16157c7fce6c348e49c0a6b73ea3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242284"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490680"
 ---
-# <a name="collect-data-from-azure-security-center"></a>Azure Güvenlik Merkezi veri toplama
+# <a name="connect-data-from-azure-security-center"></a>Azure Güvenlik Merkezi'nden veri bağlama
 
 > [!IMPORTANT]
 > Azure Sentinel şu anda genel Önizleme aşamasındadır.
@@ -29,7 +29,7 @@ ms.locfileid: "57242284"
 
 
 
-Azure Sentinel uyarılardan toplamanızı sağlar [Azure Güvenlik Merkezi](../security-center/security-center-intro.md) ve bunları Azure Gözcü akışa. 
+Azure Sentinel uyarılardan bağlamanıza olanak sağlar [Azure Güvenlik Merkezi](../security-center/security-center-intro.md) ve bunları Azure Gözcü akışa. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -42,7 +42,7 @@ Azure Sentinel uyarılardan toplamanızı sağlar [Azure Güvenlik Merkezi](../s
 
 ## <a name="connect-to-azure-security-center"></a>Azure Güvenlik Merkezi'ne bağlama
 
-1. Azure Gözcü içinde seçin **veri toplama** ve ardından **Azure Güvenlik Merkezi** Döşe.
+1. Azure Gözcü içinde seçin **veri bağlayıcıları** ve ardından **Azure Güvenlik Merkezi** Döşe.
 1. Sağ, **Connect** uyarılar Azure Gözcü akışı yapmak istediğiniz her abonelik yanında. Her abonelik Azure Gözcü stream uyarıların Azure Güvenlik Merkezi standart katmanına yükseltin emin olun.
 
 3. **Bağlan**'a tıklayın.

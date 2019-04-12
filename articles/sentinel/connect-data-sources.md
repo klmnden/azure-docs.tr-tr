@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a1c74f0ed9fd9b9abccfb7c2762cadf948c8fce0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ba0f584e8026fe3828ec79c4b6c0ff5a0bb89f5a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884804"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492371"
 ---
 # <a name="connect-data-sources"></a>Veri kaynaklarını bağlama
 
@@ -34,9 +34,9 @@ Yerleşik Azure Gözcü, ilk veri kaynaklarınıza bağlanması gerekir. Azure S
 
 ![Veri toplayıcılar](./media/collect-data/collect-data-page.png)
 
-## <a name="data-collection-methods"></a>Veri toplama yöntemleri
+## <a name="data-connection-methods"></a>Veri bağlantı yöntemi
 
-Aşağıdaki veri toplama yöntemleri Azure Gözcü tarafından desteklenir:
+Aşağıdaki veri bağlantı yöntemlerine Azure Gözcü tarafından desteklenir:
 
 - **Microsoft Hizmetleri**:<br> Microsoft Hizmetleri yerel olarak, out-hazır tümleştirme için Azure temel yararlanarak bağlı, aşağıdaki çözümlerin birkaç tıklamayla bağlanabilir:
     - [Office 365](connect-office-365.md)
@@ -45,18 +45,18 @@ Aşağıdaki veri toplama yöntemleri Azure Gözcü tarafından desteklenir:
     - [Azure AD Kimlik Koruması](connect-azure-ad-Identity-protection.md)
     - [Azure Güvenlik Merkezi](connect-azure-security-center.md)
     - [Azure Information Protection](connect-azure-information-protection.md)
-    - [Azure Gelişmiş tehdit koruması](connect-azure-atp.md)
-    - [Cloud App Security'yi](connect-cloud-app-security.md)
-    - [Windows Güvenlik olayları](connect-windows-security-events.md) 
+    - [Azure Gelişmiş Tehdit Koruması](connect-azure-atp.md)
+    - [Cloud App Security](connect-cloud-app-security.md)
+    - [Windows güvenlik olayları](connect-windows-security-events.md) 
     - [Windows Güvenlik Duvarı](connect-windows-firewall.md)
 
 - **Dış çözümleri API aracılığıyla**: Bazı veri kaynakları, bağlı veri kaynağı tarafından sağlanan API'leri kullanarak bağlanır. Genellikle, çoğu güvenlik teknolojileri bir olay günlükleri alınabilir API kümesi sağlar. API'leri Azure Gözcü için bağlanın ve belirli veri türlerini toplayın ve bunları Azure Log Analytics'e gönderme. API aracılığıyla bağlı cihazları şunlardır:
     - [Barracuda](connect-barracuda.md)
-    - Symantec
+    - [Symantec](connect-symantec.md)
 - **Dış çözümleri aracı üzerinden**: Azure Sentinel bir aracı yoluyla Syslog protokolünü kullanarak gerçek zamanlı günlük akışını yapabilmek için diğer tüm veri kaynaklarına bağlanabilir. <br>Çoğu Gereçleri, kendisi ve günlüğü hakkında daha fazla veri günlüğe içeren olay iletileri göndermek için Syslog protokolünü kullanır. Günlüklerinin biçimi değişir, ancak çoğu Gereçleri Common Event Format (CEF) standart destekler. <br>OMS aracısı üzerinde temel alınan Azure Gözcü Aracısı Log Analytics tarafından alınan bir biçime günlükleri CEF dönüştürür biçimlendirilmiş. Gereç türüne bağlı olarak aracıyı doğrudan gereç veya ayrılmış bir Linux sunucusu üzerinde yüklü. Linux için aracıyı olayların Syslog daemon'dan UDP üzerinden alır, ancak yüksek hacimli Syslog olayları toplamak için bir Linux makine nerede beklendiği durumlarda, TCP üzerinden aracı Syslog cinini ve Log analytics'e buradan gönderilirler.
     - Güvenlik duvarları, Ara sunucuları ve uç noktaları:
         - [F5](connect-f5.md)
-        - [Denetim noktası](connect-checkpoint.md)
+        - [Denetim Noktası](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Fortinet](connect-fortinet.md)
         - [Palo Alto](connect-paloalto.md)

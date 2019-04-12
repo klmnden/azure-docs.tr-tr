@@ -1,6 +1,6 @@
 ---
-title: Gözcü Azure önizlemesinde Windows Güvenlik Duvarı veri toplama | Microsoft Docs
-description: Azure Gözcü içindeki Windows Güvenlik Duvarı verilerini nasıl toplayacağınızı öğrenin.
+title: Windows Güvenlik Duvarı verilere Azure Önizleme Gözcü | Microsoft Docs
+description: Azure Gözcü için Windows Güvenlik Duvarı veri bağlanmayı öğreneceksiniz.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3839d81f70b8bc6dcb1da3c4dd77f52443294707
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 27a82545f77fe15541ac598abadbfc8ffb6d3405
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574849"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494236"
 ---
 # <a name="connect-windows-firewall"></a>Windows güvenlik duvarını bağlama
 
@@ -31,12 +31,11 @@ Windows Güvenlik Duvarı Bağlayıcısı'nı Azure Gözcü çalışma alanını
 
 
 > [!NOTE]
-> 
-> - Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
+> Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
 
 ## <a name="enable-the-connector"></a>Bağlayıcıyı etkinleştir 
 
-1. Gözcü Azure portalında **veri toplama** ve ardından **Windows Güvenlik Duvarı** Döşe. 
+1. Gözcü Azure portalında **veri bağlayıcıları** ve ardından **Windows Güvenlik Duvarı** Döşe. 
 1. Akışı yapmak istediğiniz veri türlerini seçin.
 1. **Yükle**'ye tıklayın.
 6. İlgili şema Log Analytics'te için Windows Güvenlik Duvarı'nı kullanmak için arama **SecurityEvent**.

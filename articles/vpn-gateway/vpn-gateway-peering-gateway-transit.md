@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 05b25a524894248152114ca9c756d4a0f8944ad8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199639"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492354"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Sanal ağ eşlemesi için VPN ağ geçidi aktarımını yapılandırma
 
@@ -37,9 +37,6 @@ Bu belgede açıklanan iki senaryo vardır:
 1. Her iki sanal ağ da Resource Manager dağıtım modelini kullanır
 2. Uç sanal ağ klasiktir, ağ geçidini içeren merkez sanal ağ ise Resource Manager içinde bulunur
 
-> [!IMPORTANT]  
-> Ağ geçidi geçişi şu anda önizlemede küresel sanal ağ eşlemesi ile desteklenir. Önizleme mevcut değil, tüm Azure bölgeleri, Çin bulut bölgeleri ve kamu bulut bölgeleri ancak Bulutlar arasında değil. Hiçbir beyaz listeye ekleme gereklidir. CLI, PowerShell, şablonları veya API üzerinden önizlemede test edebilirsiniz. Portal Önizleme sürümünde desteklenmiyor. 
-
 ## <a name="requirements"></a>Gereksinimler
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -53,9 +50,9 @@ Bu belgedeki örnek, aşağıdaki kaynakların oluşturulmasını gerektirir:
 
 Yönergeler için aşağıdaki belgelere bakın:
 
-1. [Bir sanal ağda VPN ağ geçidi oluşturma](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+1. [Sanal ağ içinde VPN gateway oluşturma](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 2. [Aynı dağıtım modeli ile sanal ağ eşlemesi oluşturma](../virtual-network/tutorial-connect-virtual-networks-portal.md)
-3. [Farklı dağıtım modelleri ile sanal ağ eşlemesi oluşturma](../virtual-network/create-peering-different-deployment-models.md)
+3. [Farklı dağıtım modelleriyle sanal ağ eşlemesi oluşturma](../virtual-network/create-peering-different-deployment-models.md)
 
 ## <a name="permissions"></a>İzinler
 

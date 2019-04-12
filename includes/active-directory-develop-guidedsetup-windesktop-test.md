@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 6345eca674086801f8bb0f45476009f04a10f2e3
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: a11b291ab89dc9f8159e00e1f2304706f041068e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58214253"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503153"
 ---
 ## <a name="test-your-code"></a>Kodunuzu test etme
 
@@ -39,14 +39,13 @@ Uygulamanız için de istenir sağlamak için oturum ilk kez uygulamanın profil
 
 ### <a name="view-application-results"></a>Uygulama sonuçlarını görüntüle
 
-Oturum açtıktan sonra Microsoft Graph API çağrısı tarafından döndürülen kullanıcı profili bilgilerini görmeniz gerekir. Sonuçları görüntülenir **API çağrısı sonuçları** kutusu. Çağrısı aracılığıyla edinilen belirteci ile ilgili temel bilgileri `AcquireTokenAsync` veya `AcquireTokenSilentAsync` görünür olmalıdır **belirteci bilgilerini** kutusu. Sonuçlar aşağıdaki özellikleri içerir:
+Oturum açtıktan sonra Microsoft Graph API çağrısı tarafından döndürülen kullanıcı profili bilgilerini görmeniz gerekir. Sonuçları görüntülenir **API çağrısı sonuçları** kutusu. Çağrısı aracılığıyla edinilen belirteci ile ilgili temel bilgileri `AcquireTokenInteractive` veya `AcquireTokenSilent` görünür olmalıdır **belirteci bilgilerini** kutusu. Sonuçlar aşağıdaki özellikleri içerir:
 
 |Özellik  |Biçimlendir  |Açıklama |
 |---------|---------|---------|
-|**Ad** |Kullanıcının tam adı |Kullanıcı adı ve soyadı.|
-|**Kullanıcı Adı** |<span>user@domain.com</span> |Kullanıcıyı tanımlamak için kullanılan kullanıcı adı.|
-|**Belirteç süre sonu** |DateTime |Belirtecin süresinin dolma zamanı. MSAL, gerekirse belirteci yenilemeye tarafından sona erme tarihini genişleten.|
-|**Erişim belirteci** |String |HTTP için gönderilen belirteç dizesini gerektiren istekleri bir *yetkilendirme üst bilgisi*.|
+
+|**Kullanıcı adı**  | <span> user@domain.com </span> | Kullanıcıyı tanımlamak için kullanılan kullanıcı adı. | | **Belirtecinin süresi dolmadan** | DateTime | Belirtecin süresinin dolma zamanı. MSAL, gerekirse belirteci yenilemeye tarafından sona erme tarihini genişleten. |
+
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Kapsamlar ve temsilci izinleri hakkında daha fazla bilgi

@@ -1,6 +1,6 @@
 ---
-title: Gözcü Azure önizlemesinde Windows Güvenlik olay verilerini topla | Microsoft Docs
-description: Azure Gözcü içindeki Windows güvenlik olayı verilerini nasıl toplayacağınızı öğrenin.
+title: Gözcü Azure Önizleme için Windows Güvenlik Olay verileri bağlayın | Microsoft Docs
+description: Azure Gözcü için Windows Güvenlik Olay verileri bağlanmayı öğreneceksiniz.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 90bff4cd98046a42fa31d98ff00e76d7fc9ac307
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d131d39a9d9770046fa3f9368250204e4d0b0162
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576097"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491961"
 ---
 # <a name="connect-windows-security-events"></a>Windows güvenlik olaylarını bağlama 
 
@@ -42,7 +42,7 @@ Tüm güvenlik olayları Azure Gözcü çalışma alanınıza bağlı Windows su
 
 Tam olarak Windows Güvenlik olaylarınız Gözcü Azure ile tümleştirmek için:
 
-1. Gözcü Azure portalında **veri toplama** ve ardından **Windows Güvenlik olayları** Döşe. 
+1. Gözcü Azure portalında **veri bağlayıcıları** ve ardından **Windows Güvenlik olayları** Döşe. 
 1. Akışı yapmak istediğiniz veri türlerini seçin.
 1. Tıklayın **güncelleştirme**.
 6. İlgili şema için Windows Güvenlik olaylarını Log Analytics'e kullanmak için arama **SecurityEvent**.

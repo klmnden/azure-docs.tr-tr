@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 7835553dafd66830b7a483c58bc2c7b7cf8c93f8
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: e35330874c647eba2cddde694563c8a1d9e83df5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046909"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490281"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IOT Hub cihazı sağlama hizmeti güvenlik kavramları 
 
@@ -77,7 +77,11 @@ Bir ara sertifika kök sertifikasını (veya başka bir ara sertifika zincirinde
 
 ### <a name="end-entity-leaf-certificate"></a>Son varlık "yaprak" Sertifika
 
-Yaprak sertifikayı ya da son varlık sertifikası, sertifika sahibinin tanımlar. Bunun yanı sıra sıfır veya daha fazla ara sertifikaları, Sertifika zincirindeki kök sertifika vardır. Yaprak sertifikayı başka bir sertifikaları imzalamak için kullanılmaz. Benzersiz cihaz sağlama hizmetine tanımlar ve bazen cihaz sertifikası olarak da adlandırılır. Kimlik doğrulaması sırasında cihaz, hizmetten kavram kanıtı elinde sınaması için yanıt vermek için bu sertifikayla ilişkili özel anahtarı kullanır. Daha fazla bilgi için bkz. [cihazların kimliğini doğrulama imzalanmış olan X.509 CA sertifikalarını](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+Yaprak sertifikayı ya da son varlık sertifikası, sertifika sahibinin tanımlar. Bunun yanı sıra sıfır veya daha fazla ara sertifikaları, Sertifika zincirindeki kök sertifika vardır. Yaprak sertifikayı başka bir sertifikaları imzalamak için kullanılmaz. Benzersiz cihaz sağlama hizmetine tanımlar ve bazen cihaz sertifikası olarak da adlandırılır. Kimlik doğrulaması sırasında cihaz, hizmetten kavram kanıtı elinde sınaması için yanıt vermek için bu sertifikayla ilişkili özel anahtarı kullanır.
+
+Yaprak sertifikalar ile kullanılan bir [bireysel kayıt](./concepts-service.md#individual-enrollment) girişine sahip bir gereksinim, **konu adı** bireysel kayıt girişi için kayıt kimliği ayarlamanız gerekir. Yaprak sertifikalar ile kullanılan bir [kayıt grubu](./concepts-service.md#enrollment-group) girişi olmalıdır **konu adı** gösterilir istenen cihaz Kimliğine ayarlayın **kayıt kayıtları** için Kimliği doğrulanmış cihaz kayıt grubunda.
+
+Daha fazla bilgi için bkz. [cihazların kimliğini doğrulama imzalanmış olan X.509 CA sertifikalarını](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>X.509 sertifikalarıyla sağlama hizmetine cihaz erişimini denetleme
 

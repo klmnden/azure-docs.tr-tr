@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 4d090740b75acbe2629ae4f1e13cde8947f190bb
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: ae89ab811015fca9bcb50fcc149534754533c25f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286440"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491526"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: Aracı veya uzantı ile ilgili sorunlar
 
@@ -51,15 +51,15 @@ Kaydolun ve bir VM için Azure Backup hizmeti zamanlama sonra yedekleme zaman i�
 **Hata kodu**: UserErrorRpCollectionLimitReached <br>
 **Hata iletisi**: Geri yükleme noktası koleksiyonu en yüksek sınırına ulaştı. <br>
 * Otomatik temizleme kurtarma noktasının önleme kurtarma noktası kaynak grubu üzerinde bir kilit ise bu sorun oluşabilir.
-* Bu sorun ayrıca birden çok yedekleme günde tetiklenen oluşabilir. RPs 7 gün boyunca bekletilir anlık olarak günde yalnızca bir yedekleme şu anda öneririz ve 18 yalnızca anlık RPs herhangi bir zamanda bir VM ile ilişkili olabilir. <br>
+* Bu sorun ayrıca birden çok yedekleme günde tetiklenen oluşabilir. Şu anda günde yalnızca bir yedekleme anlık geri yükleme noktalarını yapılandırılan anlık görüntü saklama başına 1-5 gün boyunca korunur ve yalnızca 18 anlık RPs herhangi bir zamanda bir VM ile ilişkili olabilir öneririz. <br>
 
 Önerilen eylem:<br>
 Bu sorunu çözmek için VM kaynak grubu üzerindeki kilidi kaldırın ve temizleme tetiklemek için işlemi yeniden deneyin.
 > [!NOTE]
 > Yedekleme hizmeti, geri yükleme noktası koleksiyonu depolamak için sanal makinenin kaynak grubundan ayrı bir kaynak grubu oluşturur. Müşterilerin, Backup hizmeti tarafından kullanım için oluşturduğunuz kaynak grubunda değil kilitlemek için önerilir. Backup hizmeti tarafından oluşturulan kaynak grubunun adlandırma biçimi şu şekildedir: AzureBackupRG_`<Geo>`_`<number>` örn: AzureBackupRG_northeurope_1
 
-**1. adım: [Geri yükleme noktası kaynak grubundan kilidi kaldırın](#remove_lock_from_the_recovery_point_resource_group)** <br>
-**2. adım: [Geri yükleme noktası koleksiyonunu Temizle](#clean_up_restore_point_collection)**<br>
+**1. Adım: [Geri yükleme noktası kaynak grubundan kilidi kaldırın](#remove_lock_from_the_recovery_point_resource_group)** <br>
+**2. Adım: [Geri yükleme noktası koleksiyonunu Temizle](#clean_up_restore_point_collection)**<br>
 
 ## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - yedekleme şifrelenmiş vm'leri yedekleme için anahtar kasası için yeterli izinlere sahip değil
 

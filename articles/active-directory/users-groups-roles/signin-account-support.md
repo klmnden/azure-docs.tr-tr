@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/10/2019
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a62c4d56fbfca34ff6291863149b078f7ddc6680
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2d26ff0f9259e3531259673f94fe477444cc786b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288599"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491604"
 ---
 # <a name="sign-in-options-for-microsoft-accounts-in-azure-active-directory"></a>Azure Active Directory'de Microsoft hesapları için oturum açma seçenekleri
 
-Azure Active Directory (Azure AD) için Microsoft 365 oturum açma sayfasında, aşağıdakilerden birini veya her ikisini de iş veya Okul hesapları ve desteklemek için duruma bağlı olarak, Microsoft hesapları destekler:
+İş veya Okul hesapları ve Microsoft hesapları Azure Active Directory (Azure AD) için Microsoft 365 oturum açma sayfası destekler, ancak kullanıcının durumuna bağlı olarak bir ya da diğer veya her ikisi de olabilir. Örneğin, Azure AD oturum açma sayfasının destekler:
 
 * Oturum açma hesabı her iki tür kabul uygulamalar
 * Konuklar kabul kuruluşlar
@@ -32,7 +32,7 @@ Kuruluşunuzda kullanılan oturum açma sayfasında kullanıcı adı alanındaki
 
 ![Hesap oturum açma sayfalarını arasındaki fark](./media/signin-account-support/ui-prompt.png)
 
-[İş yalnızca kişisel Microsoft hesapları için ek oturum açma seçenekleri](index.yml) ancak oturum açmak için iş veya Okul hesabı kaynaklarına için kullanılamaz.
+[İş yalnızca kişisel Microsoft hesapları için ek oturum açma seçenekleri](https://azure.microsoft.com/updates/microsoft-account-signin-options/ ) ancak oturum açmak için iş veya Okul hesabı kaynaklarına için kullanılamaz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

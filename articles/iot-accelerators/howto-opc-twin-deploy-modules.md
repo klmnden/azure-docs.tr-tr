@@ -1,5 +1,5 @@
 ---
-title: Azure IOT OPC UA cihaz Yönetimi Modülü sıfırdan dağıtma | Microsoft Docs
+title: OPC İkizi modülü sıfırdan Azure'a dağıtma | Microsoft Docs
 description: OPC İkizi sıfırdan dağıtma
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: fe1b141ecacbd1d96c217322e69709828a3bf36c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f470beb79e69b5a4a3febeb6a433c48490b96cf7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759604"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491365"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>OPC İkizi modülü ve bağımlılıkları sıfırdan dağıtma
 
-OPC cihaz İkizi modülü, IOT Edge üzerinde çalışır ve birkaç uç hizmetlerinin OPC cihaz İkizi ve kayıt defteri hizmetleri sağlar. 
+OPC İkizi modülü, IOT Edge üzerinde çalışır ve birkaç uç hizmetlerinin OPC cihaz ikizine ve kayıt defteri hizmetleri sağlar. 
 
 Modüllerini dağıtmak için birkaç seçenek vardır, [Azure IOT Edge](https://azure.microsoft.com/services/iot-edge/) aralarında bir ağ geçidi
 
@@ -109,7 +109,7 @@ Azure portalı üzerinden modülleri Azure IOT Edge ağ geçidi cihazına dağı
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-1. OPC UA cihaz Yönetimi dağıtma [bağımlılıkları](howto-opc-twin-deploy-dependencies.md) ve bunun sonucunda elde edilen `.env` dosya. Dağıtılan Not `hub name` , `PCS_IOTHUBREACT_HUB_NAME` sonuç değişkeninde `.env` dosya.
+1. OPC İkizi dağıtma [bağımlılıkları](howto-opc-twin-deploy-dependencies.md) ve bunun sonucunda elde edilen `.env` dosya. Dağıtılan Not `hub name` , `PCS_IOTHUBREACT_HUB_NAME` sonuç değişkeninde `.env` dosya.
 
 2. Kaydolun ve başlayın bir [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) veya [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) IOT Edge ağ geçidi ve Not kendi `device id`.
 
@@ -205,7 +205,7 @@ Azure portalı üzerinden modülleri Azure IOT Edge ağ geçidi cihazına dağı
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-1. OPC UA cihaz Yönetimi dağıtma [bağımlılıkları](howto-opc-twin-deploy-dependencies.md).
+1. OPC İkizi dağıtma [bağımlılıkları](howto-opc-twin-deploy-dependencies.md).
 
 2. Yükleme [Docker CE (18.02.0+)](https://www.docker.com/community-edition) üzerinde [Windows](https://docs.docker.com/docker-for-windows/install/), [macOS](https://docs.docker.com/docker-for-mac/install/) veya [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce).
 

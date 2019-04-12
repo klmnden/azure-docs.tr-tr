@@ -10,21 +10,18 @@ ms.subservice: manage
 ms.date: 03/21/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 69b33b9629863702d576eac39fb4097a2bff2e57
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: de5d8a3cd329e023b57d887a22db5459f13c7486
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337596"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492796"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda kaynak kullanımı ve sorgu etkinliğini izleme
 Azure SQL veri ambarı, Azure Portal, veri ambarı iş yükü için içgörüleri için zengin bir izleme deneyimi sağlar. Azure portalı, ölçüm ve günlükleri için yapılandırılabilir saklama süreleri, uyarıları, öneriler ve özelleştirilebilir grafikler ve panolar sağladığı gibi veri Ambarınızı izlerken önerilen araç winres.exe'dir. Portal Ayrıca, yalnızca veri ambarınızın aynı zamanda tüm Azure analiz için bütünsel bir izleme deneyimi sağlamak için Operations Management Suite (OMS) ve Azure İzleyici (günlükleri) gibi diğer Azure izleme hizmetleriyle tümleştirmenize olanak sağlar tümleşik bir izleme deneyimi için Platform. Bu belgede, izleme hangi özellikleri en iyi duruma getirmek ve SQL veri ambarı ile analiz platformunuz yönetmek kullanılabilen açıklanmaktadır. 
 
 ## <a name="resource-utilization"></a>Kaynak kullanımı 
 Aşağıdaki ölçümler, Azure portalında SQL veri ambarı için kullanılabilir. Bu ölçümler üzerinden çıkmış [Azure İzleyici](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
-
-> [!NOTE]
-> Kasım 2018'den itibaren mühendislik ekibi, CPU yüzdesi ve veri g/ç yüzdesi underreport için neden olan bir sorunu ele alıyor. Bu, kullanılan DWU ve yüzdesi de underreport neden olur. 
 
 | Ölçüm Adı                           | Açıklama     | Toplama Türü |
 | --------------------------------------- | ---------------- | --------------------------------------- |

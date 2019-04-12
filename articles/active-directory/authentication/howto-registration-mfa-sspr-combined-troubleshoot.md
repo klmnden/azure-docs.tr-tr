@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba77772352d3f6f6494abeddc7faf9f12e5f80c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262576"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489202"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Sorun giderme birleştirilmiş güvenlik bilgileri kayıt (Önizleme)
 
@@ -154,7 +154,7 @@ Bir PowerShell penceresinde betik ve kullanıcı dosya konumları sağlayan aşa
 
 Kullanıcılarınız için Önizleme deneyimini devre dışı bırakmak için aşağıdaki adımları tamamlayın:
 
-1. Azure portalına genel yönetici veya Kullanıcı Yöneticisi olarak oturum açın.
+1. Azure portalında bir kullanıcının yönetici olarak oturum açın.
 2. Git **Azure Active Directory** > **kullanıcı ayarları** > **erişim paneli Önizleme özellikleri için ayarları yönetme**.
 3. Altında **kullanıcılar kaydetme ve güvenlik bilgilerinizi yönetmek için Önizleme özelliklerini kullanabilir**, seçici kümesine **hiçbiri**ve ardından **Kaydet**.
 

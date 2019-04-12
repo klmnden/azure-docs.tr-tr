@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 220723988f349bf015d2de7633af78782bc03bac
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 5eaee4f932c4e42f6fed3d839314346b3a93f360
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203238"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59498404"
 ---
 ## <a name="register-your-application"></a>Uygulamanızı kaydetme
 
@@ -28,33 +28,25 @@ Uygulamanızı iki yoldan biriyle kaydedebilirsiniz.
 ### <a name="option-1-express-mode"></a>1. seçenek: Hızlı mod
 
 Aşağıdakileri yaparak, uygulamanızı hızlı bir şekilde kaydedebilirsiniz:
-1. [Microsoft Uygulama Kayıt Portalı](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure)'na gidin.
-
-2. Seçin **uygulama ekleme**.
-
-3. **Uygulama Adı** kutusuna uygulamanız için bir ad girin.
-
-4. Emin **destekli Kurulum** onay kutusunu seçili ve ardından **Oluştur**.
-
-5. Uygulama Kimliği alma yönergeleri izleyin ve kodunuzun yapıştırın.
+1. Git [Azure Portalı - Uygulama kaydı](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
+1. Uygulamanız için bir ad girin ve **Kaydet**'i seçin.
+1. Yönergeleri izleyerek yeni uygulamanızı yalnızca tek tıklamayla indirin ve otomatik olarak yapılandırın.
 
 ### <a name="option-2-advanced-mode"></a>2. seçenek: Gelişmiş mod
 
 Uygulamanızı kaydetmek ve uygulama kayıt bilgilerinizi çözümünüze eklemek için aşağıdakileri yapın:
-1. Uygulamanızı henüz kaydolmadıysanız, Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app).
-
-2. Seçin **uygulama ekleme**.
-
-3. **Uygulama Adı** kutusuna uygulamanız için bir ad girin.
-
-4. **Destekli Kurulum** onay kutusunun işaretli olmadığından emin olun ve **Oluştur**’u seçin.
-
-5. **Platform Ekle**’yi, **Yerel Uygulama**’yı ve **Kaydet**’i seçin.
-
-6. İçinde **uygulama kimliği** kutusunda, GUID kopyalayın.
-
-7. Visual Studio, açık Git *App.xaml.cs* dosya ve sonra değiştirmek `your_client_id_here` yalnızca kayıtlı ve kopyaladığınız uygulama kimliği.
+1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
+1. Hesabınız size birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu istediğiniz Azure AD kiracısına ayarlayın.
+1. Geliştiriciler için Microsoft identity platformuna gidin [uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) sayfası.
+1. Seçin **yeni kayıt**.
+   - **Ad** alanına uygulama kullanıcılarına gösterilecek anlamlı bir uygulama adı girin, örneğin `Win-App-calling-MsGraph`.
+   - **Desteklenen hesap türleri** bölümünde **Herhangi bir kuruluş dizinindeki hesaplar ve kişisel Microsoft hesapları (ör. Skype, Xbox, Outlook.com)** seçeneğini belirtin.
+   - Uygulamayı kaydetmek için **Kaydet**'i seçin.
+1. Uygulama sayfa listesinde **Kimlik doğrulaması**'nı seçin.
+1. **Yeniden yönlendirme URI'leri** bölümünde **Ortak istemciler (mobil, masaüstü) için önerilen Yeniden Yönlendirme URI'leri** altında **"urn:ietf:wg:oauth:2.0:oob** girişini seçin.
+1. **Kaydet**’i seçin.
+1. Visual Studio, açık Git *App.xaml.cs* dosya ve sonra değiştirmek `Enter_the_Application_Id_here` yalnızca kayıtlı ve kopyaladığınız uygulama kimliği.
 
     ```csharp
-    private static string ClientId = "your_application_id_here";
+    private static string ClientId = "Enter_the_Application_Id_here";
     ```
