@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2.0 ASP.NET Core web uygulaması hızlı başlangıç | Microsoft Docs
+title: Microsoft kimlik platformu ASP.NET Core web uygulaması hızlı başlangıç | Azure
 description: Microsoft oturum açma ASP.NET Core Web Openıd Connect'i kullanarak uygulama üzerinde uygulama hakkında bilgi edinin
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/03/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dfa78177974499badc29b7e83556b6a91db7979
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: afcfd8c581ad1707a996ae5bd0c3706179ddb0e4
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005660"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505356"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET Core web uygulamasına ekleme
 
@@ -30,7 +30,7 @@ ms.locfileid: "59005660"
 
 Bu hızlı başlangıçta, ASP.NET Core web uygulaması kişisel hesapların nasıl kaydolabilirsiniz öğreneceksiniz (hotmail.com, outlook.com, diğerleri) ve iş ve Okul hesapları herhangi bir Azure Active Directory (Azure AD) örneğinden.
 
-![Bu Hızlı Başlangıç ile oluşturulan örnek uygulamasını nasıl çalıştığını gösterir](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro-updated.png)
+![Bu Hızlı Başlangıç ile oluşturulan örnek uygulamasını nasıl çalıştığını gösterir](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Hızlı başlangıç uygulamanızı kaydetme ve indirme
@@ -120,7 +120,7 @@ public void ConfigureServices(IServiceCollection services)
 
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
   {
-    options.Authority = options.Authority + "/v2.0/";         // Azure AD v2.0
+    options.Authority = options.Authority + "/v2.0/";         // Microsoft identity platform
 
     options.TokenValidationParameters.ValidateIssuer = false; // accept several tenants (here simplified)
   });
@@ -138,13 +138,17 @@ public void ConfigureServices(IServiceCollection services)
 
 Yöntem `AddAuthentication` tarayıcı senaryolara kullanılan yanı sıra Openıd Connect için sınama kümesi tanımlama bilgisi tabanlı kimlik doğrulaması eklemek için hizmetini yapılandırır. 
 
-İçeren satırda `.AddAzureAd` uygulamanızı Azure AD kimlik doğrulaması ekler. Ardından, Azure AD v2.0 uç noktası kullanarak oturum açın şekilde yapılandırılır.
+İçeren satırda `.AddAzureAd` uygulamanıza Microsoft kimlik platformu doğrulama ekler. Ardından, Microsoft kimlik platformu uç noktayı kullanarak oturum açın şekilde yapılandırılır.
 
 > |Konum  |  |
 > |---------|---------|
 > | ClientId  | Azure Portalı'nda kayıtlı uygulamadan uygulama (istemci) kimliği. |
 > | Yetkili | Kullanıcının, kimlik doğrulaması STS uç noktası. Genellikle budur <https://login.microsoftonline.com/{tenant}/v2.0> {tenant} olduğu Kiracı veya Kiracı Kimliğinizi adı, genel bulut için veya *ortak* başvuru için ortak uç nokta (çok kiracılı uygulamalar için kullanılır) |
 > | Tokenvalidationparameters değerini | Belirteç doğrulaması için parametre listesi. Bu durumda, `ValidateIssuer` ayarlanır `false` herhangi bir kişisel veya iş veya Okul hesabı oturum açma işlemleri kabul ettiğinizi belirtmek için. |
+
+
+> [!NOTE]
+> Ayar `ValidateIssuer = false` olduğu için bu hızlı başlangıçta bir basitleştirme. Gerçek sağlayıcısını doğrulamak için ihtiyacınız olan uygulamaları örnekleri bunun nasıl yapılacağını anlamak için bkz.
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Denetleyiciyi veya denetleyici yöntemini koruma
 
@@ -154,8 +158,7 @@ Bir denetleyici veya denetleyici yöntemleri kullanarak koruyabilirsiniz `[Autho
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu yepyeni bir ASP.NET Core Web uygulaması için kimlik doğrulaması ekleme hakkında yönergeler dahil olmak üzere daha fazla bilgi için ASP.NET Core hızlı için GitHub deposunu inceleyin:
+Bu yepyeni bir ASP.NET Core Web uygulaması için kimlik doğrulaması ekleme hakkında yönergeler dahil olmak üzere daha fazla bilgi için ASP.NET Core öğretici için GitHub deposunu denetleyin Microsoft Graph ve diğer Microsoft APIs çağırmak nasıl kendi API'leri çağırmak nasıl ekleme Yetkilendirme, oturum açma nasıl Ulusal bulutlarda ya da sosyal kimlikleri ve daha fazlasıyla kullanıcılar:
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core Web uygulaması kod örneği](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
-
+> [ASP.NET Core Web uygulaması Öğreticisi](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)

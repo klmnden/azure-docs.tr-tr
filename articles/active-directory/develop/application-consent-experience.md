@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 03/27/2019
 ms.author: celested
-ms.reviewer: zawad
+ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86424a7c797dfd7e73ad5f0e56929616d9653b3d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a7de892143e1c69953cc60429ea0d24df194f0df
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170984"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500490"
 ---
-# <a name="understanding-azure-ad-application-consent-experiences"></a>Azure AD uygulama onay anlama deneyimleri
+# <a name="understanding-azure-ad-application-consent-experiences"></a>Azure AD uygulama onayı deneyimlerini anlama
 
 Kullanıcı deneyimi onay Azure Active Directory (Azure AD) uygulama hakkında daha fazla bilgi edinin. Bu nedenle, akıllı bir şekilde kuruluşunuz için uygulamaları yönetme ve/veya daha sorunsuz bir onayı deneyimi içeren uygulamalar geliştirin.
 
@@ -85,4 +85,5 @@ Bir kullanıcı ortak onay senaryolarda görebilirsiniz onay deneyimleri şunlar
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Adım adım bir bakış elde [Azure AD'ye onay çerçevesine onayı nasıl uyguladığını](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Daha fazla ayrıntı için bilgi [çok kiracılı uygulama onay çerçevesine nasıl kullanabileceğinizi](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) "kullanıcı" ve "Yönetici" onayı, daha fazla destek uygulamak için çok katmanlı uygulama desenleri Gelişmiş.
+- Daha fazla ayrıntı için bilgi [çok kiracılı uygulama onay çerçevesine nasıl kullanabileceğinizi](active-directory-devhowto-multi-tenant-overview.md) "kullanıcı" ve "Yönetici" onayı, daha fazla destek uygulamak için çok katmanlı uygulama desenleri Gelişmiş.
+- Bilgi [uygulamanın yayımcı etki alanı yapılandırma](howto-configure-publisher-domain.md).

@@ -7,36 +7,32 @@ manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: b40cd130039f7d55b69198b4be4af908dedbe8b7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb19833251fc9ee08a12aaf6ffcef55d59cea5d6
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076896"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500643"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Hızlı Başlangıç: Service Bus kuyruğuna oluşturmak için Azure CLI'yi kullanma
-
-Microsoft Azure Service Bus, güvenli mesajlaşma ve yüksek güvenilirlik sağlayan bir kurumsal tümleştirme ileti aracısıdır. Tipik bir Service Bus senaryosu genellikle iki veya daha fazla uygulama, hizmet veya işlemi ayırmayı (uygulamaların aynı anda çevrimiçi olması gerekmez), durum veya veri değişikliklerini aktarmayı ve uygulamalar arasında ileti göndermeyi içerir. 
-
-Örneğin, bir perakende şirketi satış noktası verilerini yenileme ve stok güncelleştirmeleri için bir arka ofise veya bölgesel dağıtım merkezine gönderebilir. Bu durumda, istemci uygulaması Service Bus kuyruğuna iletiler gönderir ve o kuyruktan ileti alır:
-
-![kuyruk](./media/service-bus-quickstart-cli/quick-start-queue.png)
-
 Bu hızlı başlangıçta, Azure CLI ve Service Bus Java Kitaplığı'nı kullanarak Service Bus ile ileti alma ve gönderme açıklar. Son olarak, daha teknik ayrıntılarla ilgileniyorsanız örnek kodun temel öğeleriyle ilgili [bir açıklamayı okuyabilirsiniz](#understand-the-sample-code).
 
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
+## <a name="prerequisites"></a>Önkoşullar
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][] oluşturabilirsiniz.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+Kullanırsanız **deneyin** Cloud Shell'i başlatmak için kimlik bilgilerinizi kullanarak Azure'da oturum açın düğmesi. 
 
-Azure portalının sağ üst köşesindeki menüde Cloud Shell düğmesine tıklayın ve **Ortam seçin** açılır menüsünden **Bash**’i seçin. 
+Cloud Shell ya da doğrudan ya da Azure portalında, geçiş için Web tarayıcınızdaki başlatılan varsa **Bash** görürseniz **PowerShell** Cloud Shell sol üst köşesindeki. 
 
 ## <a name="use-the-azure-cli-to-create-resources"></a>Kaynakları oluşturmak için Azure CLI kullanma
-
-Cloud Shell’de, Service Bus kaynakları sağlamak için Bash komut isteminden aşağıdaki komutları verin. Tüm yer tutucuları uygun değerlerle değiştirdiğinizden emin olun: Java örnek program kuyruk adı değiştirmeyin şekilde BasicQueue olmasını bekliyor. 
+Cloud Shell’de, Service Bus kaynakları sağlamak için Bash komut isteminden aşağıdaki komutları verin. Tüm yer tutucuları uygun değerlerle değiştirdiğinizden emin olun: Java örnek program kuyruk adı değiştirmeyin şekilde BasicQueue olmasını bekliyor. Böylece, çalıştırmadan önce değerleri değiştirebilirsiniz komutları tek tek kopyala/yapıştır isteyebilirsiniz. 
 
 ```azurecli-interactive
 # Create a resource group
@@ -373,12 +369,12 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, bir Service Bus alan adı ve bir kuyruktan ileti gönderip almak için gereken diğer kaynakları oluşturdunuz. İleti göndermek ve almak için kod yazma hakkında daha fazla bilgi edinmek için, aşağıdaki Service Bus öğreticisine geçin:
+Bu makalede, bir Service Bus alan adı ve bir kuyruktan ileti gönderip almak için gereken diğer kaynakları oluşturdunuz. Öğreticiler, ileti göndermek ve almak için kod yazma hakkında daha fazla bilgi için devam **iletileri gönderip** bölümü. 
 
 > [!div class="nextstepaction"]
-> [Java ve Azure CLI kullanarak Envanter güncelleştirme](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [İleti alma ve gönderme](service-bus-dotnet-get-started-with-queues.md)
 
-[ücretsiz bir hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[kredi kazanın]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

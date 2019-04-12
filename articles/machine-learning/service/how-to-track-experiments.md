@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7ef3cfe1df792721db3fe3657c08f58ca82e3c91
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 41797caa89108448f0eaa27309046c01d7432823
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652323"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494636"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Azure Machine Learning'de eğitim sırasında günlük ölçümleri çalıştırır
 
@@ -217,37 +217,9 @@ Bu örnek, yukarıda temel sklearn Ridge modeli genişletir. Alfa değerleri öl
    run = experiment.submit(src)
    ```
 
-## <a name="cancel-a-run"></a>Bir çalıştırmayı iptal et
+## <a name="manage-a-run"></a>Bir Farklı Çalıştır'ı yönetme
 
-Deney adı bildiğiniz ve çalıştırma kimliği sürece nesne başvurusu kaybetmiş olsanız bile Alter çalıştırma gönderildikten iptal edebilirsiniz 
-
-
-```python
-from azureml.core import Experiment
-exp = Experiment(ws, "my-experiment-name")
-
-# if you don't know the run id, you can list all runs under an experiment
-for r in exp.get_runs():  
-    print(r.id, r.get_status())
-
-# if you know the run id, you can "rehydrate" the run
-from azureml.core import get_run
-r = get_run(experiment=exp, run_id="my_run_id", rehydrate=True)
-  
-# check the returned run type and status
-print(type(r), r.get_status())
-
-# you can cancel a run if it hasn't completed or failed
-if r.get_status() not in ['Complete', 'Failed']:
-    r.cancel()
-```
-Şu anda yalnızca ScriptRun ve PipelineRun türleri iptal işlemini destekler.
-
-Ayrıca, aşağıdaki komutu kullanarak CLI ile bir çalıştırma iptal edebilirsiniz:
-```shell
-az ml run cancel -r <run_id> -p <project_path>
-```
-
+[Başlatın, izleme ve iptal eğitim çalıştırmaları](how-to-manage-runs.md) makale denemelerinizi yönetme için belirli Azure Machine Learning iş akışlarını vurgular.
 
 ## <a name="view-run-details"></a>Çalıştırma Ayrıntıları görünümü
 
@@ -417,7 +389,7 @@ Bir ayar çizim, Tahmine dayalı bir modelin güvenle görüntülemek için kull
 
 ### <a name="regression"></a>Regresyon
 Her bir regresyon modeli için otomatik makine öğrenimi özellikleri, Azure Machine Learning kullanarak yapı, aşağıdaki grafikleri görebilirsiniz: 
-+ [Tahmin edilen vs. TRUE](#pvt)
++ [Tahmin edilen vs. True](#pvt)
 + [Kalanlar Histogramı](#histo)
 
 <a name="pvt"></a>

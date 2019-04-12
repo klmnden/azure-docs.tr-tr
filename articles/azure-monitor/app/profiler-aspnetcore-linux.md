@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: cweining
-ms.openlocfilehash: 5787db7e2b726a10891fcabb0b215399d0d4e0ae
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 35789cc1e516fb24d5e985e12b44fe3cd01b795d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884316"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494757"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler ile ASP.NET Core Azure Linux web app'ler profil
 
@@ -39,21 +39,40 @@ Aşağıdaki yönergeler, tüm Windows, Linux ve Mac geliştirme ortamları içi
 
 1. Makinenizde bir komut istemi penceresi açın. Aşağıdaki yönergeler için tüm Windows, Linux ve Mac geliştirme ortamlarında çalışın.
 
-2. Bir ASP.NET Core MVC web uygulaması oluşturun:
+1. Bir ASP.NET Core MVC web uygulaması oluşturun:
 
     ```
     dotnet new mvc -n LinuxProfilerTest
     ```
 
-3. Çalışma dizini, proje kök klasörüne değiştirin.
+1. Çalışma dizini, proje kök klasörüne değiştirin.
 
-4. Profiler izlemeleri toplamak için NuGet paketini ekleyin:
+1. Profiler izlemeleri toplamak için NuGet paketini ekleyin:
 
-    ```
+    ```shell
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-5. Bir kod satırını ekleyin **HomeController.cs** birkaç saniye rastgele gecikme bölümü:
+1. Program.cs içinde Application Insights'ı etkinleştirin:
+
+    ```csharp
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseApplicationInsights() // Add this line of code to Enable Application Insights
+            .UseStartup<Startup>();
+    ```
+    
+1. Profiler Startup.cs dosyasındaki etkinleştir:
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddServiceProfiler(); // Add this line of code to Enable Profiler
+        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+    }
+    ```
+
+1. Bir kod satırını ekleyin **HomeController.cs** birkaç saniye rastgele gecikme bölümü:
 
     ```csharp
         using System.Threading;
@@ -68,7 +87,7 @@ Aşağıdaki yönergeler, tüm Windows, Linux ve Mac geliştirme ortamları içi
             }
     ```
 
-6. Kaydet ve yaptığınız değişiklikleri yerel depoya kaydedin:
+1. Kaydet ve yaptığınız değişiklikleri yerel depoya kaydedin:
 
     ```
         git init
@@ -143,10 +162,7 @@ Aşağıdaki örneğe benzer bir çıktı görmeniz gerekir:
 
     ```
     APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]
-    ASPNETCORE_HOSTINGSTARTUPASSEMBLIES: Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
-
-    ![Uygulama ayarlarını yapılandırma](./media/profiler-aspnetcore-linux/set-appsettings.png)
 
     Uygulama ayarları değiştiğinde, siteyi otomatik olarak yeniden başlatır. Yeni ayarları uyguladıktan sonra Profiler hemen için iki dakikada bir çalışır. Profiler sonra iki dakika başı çalıştırır.
 
@@ -160,16 +176,8 @@ Aşağıdaki örneğe benzer bir çıktı görmeniz gerekir:
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 
-### <a name="the-enable-action-in-the-profiler-configuration-pane-doesnt-work"></a>Profiler yapılandırma bölmesinde etkinleştir eylemi çalışmıyor
-
-> [!NOTE]
-> Linux üzerinde App Service'ı kullanarak uygulamanızı barındırın, Profiler içinde yeniden etkinleştirmeniz gerekmez **performans** Application Insights portalında bölmesinde. NuGet paketini projenize eklemek ve Application ınsights'ı **iKey** Profiler'ı etkinleştirmek için web app ayarlarınız içindeki değer.
-
-Etkinleştirme iş akışını izleyin [için Application Insights Profiler Windows](./profiler.md) seçip **etkinleştirmek** içinde **Profiler yapılandırma** bölmesinde, bir hata alırsınız. Linux ortamında Profiler Aracısı Windows sürümünü yüklemek etkinleştir eylemine çalışır.
-
-Bu sorun için bir çözüm üzerinde çalışıyoruz.
-
-![Profiler performans bölmesinde yeniden etkinleştirmeyi deneyin yok](./media/profiler-aspnetcore-linux/issue-enable-profiler.png)
+### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Profili artık düğmesi için Linux Profiler çalışmıyor
+App Insights Profiler'ı Linux sürümünü düğmesi artık profili kullanarak profil oluşturma isteğe bağlı henüz desteklemiyor.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

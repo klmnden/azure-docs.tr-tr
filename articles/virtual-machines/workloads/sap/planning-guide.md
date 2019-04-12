@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 839f77df88314c95df1056b60c3612de27421ca0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: a9e12171a8596bc9caba3bf9065bbb943139ccde
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886140"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501340"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama için SAP NetWeaver
 
@@ -779,8 +779,6 @@ Azure portalında Azure VM dağıtımları yönetmek için üç arabirimi biridi
 
 ![Microsoft Azure portalı - sanal makineye genel bakış][planning-guide-figure-800]
 
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>)
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
 
 Sanal makine örneği için yönetim ve yapılandırma görevini Azure portalının içinde mümkündür.
 
@@ -791,9 +789,6 @@ Azure portalı, dağıtmak ve sanal makineleri ve diğer birçok Azure hizmetind
 * Azure'a VHD yükleme
 * Sanal makineleri kopyalama
 
-[comment]: <> (MShermannd TODO Otomasyon hakkında SAP sanal makineleri için hizmet? )
-[comment]: <> (Bu arada olası birden çok VM işletim sistemi dağıtımının MSSedusch)
-[comment]: <> (Ayrıca MSSedusch Otomasyon dağıtımı ile ilgili her türlü Azure portalı ile mümkün değildir. Komut dosyası birden çok VM dağıtımı gibi görevleri Azure portalı üzerinden mümkün değildir.)
 
 ### <a name="management-via-microsoft-azure-powershell-cmdlets"></a>Microsoft Azure PowerShell cmdlet'leri aracılığıyla yönetim
 
@@ -808,9 +803,8 @@ Müşteri Deneyimini şimdiye PowerShell (PS) kesinlikle Vm'leri dağıtmak ve �
 Burada örneğe bakın:
 <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
-[comment]: <> (MShermannd TODO test edildiğinde yeni CLI komutu açıklayın )
-SAP için Azure izleme uzantısı dağıtım (bölüm bakın [SAP için Azure izleme çözümü] [ planning-guide-9.1] bu belgedeki) PowerShell veya CLI aracılığıyla yalnızca mümkündür. Bu nedenle ayarlama ve PowerShell veya CLI dağıtma veya azure'da bir SAP NetWeaver sistemini yönetme, yapılandırma için zorunludur.
-  
+
+SAP için Azure izleme uzantısı dağıtım (bölüm bakın [SAP için Azure izleme çözümü] [ planning-guide-9.1] bu belgedeki) PowerShell veya CLI aracılığıyla yalnızca mümkündür. Bu nedenle ayarlama ve PowerShell veya CLI dağıtma veya azure'da bir SAP NetWeaver sistemini yönetme, yapılandırma için zorunludur.  
 
 Azure, daha fazla işlevsellik sağlar. gibi yeni PS cmdlet'leri cmdlet'lerinin bir güncelleştirme gerektiren eklenmesi oluşturacaksınız. Bu nedenle en az bir kez ay Azure indirme sitesi denetlemek için mantıklıdır <https://azure.microsoft.com/downloads/> cmdlet'leri yeni bir sürümü için. Yeni sürümün eski sürümün üzerine yüklenir.
 
@@ -1632,13 +1626,13 @@ Bir SAP ortamının çalıştırma ve çıplak yüksek kaliteli DBMS sunucuları
 
 ![Şirket içi ve Azure varlıkları arasında siteden siteye bağlantı][planning-guide-figure-2100]
 
-Yukarıda gösterilen senaryo, bir senaryo açıklanmaktadır. burada şirket içi AD/OpenLDAP ve DNS Azure'a genişletilmiş. Şirket içi tarafında Azure aboneliği belirli bir IP adresi aralığı ayrılmıştır. IP adresi aralığı için bir Azure sanal ağı Azure tarafında atanır.
-
-#### <a name="security-considerations"></a>Güvenlikle ilgili dikkat edilmesi gerekenler
+Yukarıda gösterilen senaryo, bir senaryo açıklanmaktadır. burada şirket içi
 
 Tarayıcı erişimini ya da Azure Hizmetleri için sistem erişimi için VPN tabanlı bağlantılar için SSL/TLS gibi güvenli iletişim protokolleri kullanımını en düşük gereksinimdir. Şirketler, kurumsal ağ ve Azure arasında VPN bağlantısı farklı şekilde işlemek varsayılır. Bazı şirketler, tüm bağlantı noktaları blankly açılabilir. Diğer bazı şirketler, hangi bağlantı noktalarını açın, vb. için ihtiyaç duydukları kesin olarak isteyebilirsiniz.
 
 Aşağıdaki tabloda tipik SAP iletişim bağlantı noktaları listelenir. Temel SAP ağ geçidi bağlantı noktasını açmanız yeterlidir.
+
+<!-- sapms is prefix of a SAP service name and not a spelling error -->
 
 | Hizmet | Bağlantı noktası adı | Örnek `<nn`> = 01 | Varsayılan aralık (min-maks.) | Açıklama |
 | --- | --- | --- | --- | --- |
@@ -1834,7 +1828,7 @@ SAP örnekleri bir SAProuter bağlanmak için bağlantı girişimi SAProuter diz
 
 Sanal makine konağına siteden siteye VPN tüneli veya ExpressRoute aracılığıyla şirket ağına bağlı olduğu sürece bir özel dağıtım bazı müşteriler tarafından SAP Enterprise Portal'da İnternet'e doğrudan erişimini senaryodur. Böyle bir senaryo için belirli bağlantı noktalarını açık ve güvenlik duvarı veya ağ güvenlik grubu tarafından engellenmediğinden emin olmanız gerekir. 
 
-İlk URI http (s) portalıdır:`<Portalserver`>: nerede bağlantı noktası biçimlendirilmiş 50000 tarafından artı (Systemnumber?? 5XX00/irj 100). Varsayılan portal URI, SAP sistemi 00 `<dns name`>.`<azure region` >.Cloudapp.azure.com:PublicPort/irj. Daha fazla bilgi için göz sahip <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
+İlk URI http (s) portalıdır:`<Portalserver`>: nerede bağlantı noktası biçimlendirilmiş SAP tarafından belirtildiği gibi 5XX00/irj <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
 
 ![Uç nokta yapılandırması][planning-guide-figure-2800]
 

@@ -1,6 +1,6 @@
 ---
 title: Tek veya havuza alınmış bir veritabanını Azure SQL veritabanı'nda güvenli | Microsoft Docs
-description: Teknikleri ve tek veya havuza alınmış veritabanını Azure SQL veritabanı koruma özellikleri hakkında bilgi edinin.
+description: Size öğretir teknikleri ve tek veya havuza alınmış veritabanını Azure SQL veritabanı koruma özellikleri hakkında bir öğretici.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,14 +10,23 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: seoapril2019
+ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893280"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496446"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Öğretici: Tek veya havuza alınmış veritabanını koruma
+
+Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+
+> [!div class="checklist"]
+> - Sunucu düzeyinde ve veritabanı düzeyinde güvenlik duvarı kuralları oluşturma
+> - Bir Azure Active Directory (AD) Yöneticisi'ni yapılandırma
+> - SQL kimlik doğrulaması, Azure AD kimlik doğrulaması ve güvenli bağlantı dizeleri kullanıcı erişimini yönetme
+> - Gelişmiş veri güvenliği, denetimi, veri maskeleme ve şifreleme gibi güvenlik özelliklerini etkinleştirme
 
 Azure SQL veritabanı, tek veya havuza veritabanı içindeki veriler olanak sağlayarak korur:
 
@@ -28,14 +37,6 @@ Azure SQL veritabanı, tek veya havuza veritabanı içindeki veriler olanak sağ
 
 > [!NOTE]
 > Ağ güvenlik kuralları ve özel uç noktaları makalesinde açıklanan şekilde kullanarak bir Azure SQL veritabanı yönetilen örneğinde güvenli [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance-index.yml) ve [bağlantı mimarisi](sql-database-managed-instance-connectivity-architecture.md).
-
-Yalnızca birkaç basit adımda, veritabanı güvenliği artırabilirsiniz. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
-
-> [!div class="checklist"]
-> - Sunucu düzeyinde ve veritabanı düzeyinde güvenlik duvarı kuralları oluşturma
-> - Bir Azure Active Directory (AD) Yöneticisi'ni yapılandırma
-> - SQL kimlik doğrulaması, Azure AD kimlik doğrulaması ve güvenli bağlantı dizeleri kullanıcı erişimini yönetme
-> - Gelişmiş veri güvenliği, denetimi, veri maskeleme ve şifreleme gibi güvenlik özelliklerini etkinleştirme
 
 Daha fazla bilgi için bkz. [Azure SQL veritabanı güvenliğine genel bakış](/azure/sql-database/sql-database-security-index) ve [özellikleri](sql-database-security-overview.md) makaleler.
 
@@ -143,7 +144,7 @@ Yapılandırma Azure AD hakkında daha fazla bilgi için bkz:
 - [Şirket içi kimliklerinizi Azure AD ile tümleştirme](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Kendi etki alanı adınızı Azure AD'ye ekleme](../active-directory/active-directory-domains-add-azure-portal.md)
 - [Microsoft Azure artık Windows Server AD ile Federasyonu destekliyor](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
-- [Azure AD dizininizi yönetme](../active-directory/fundamentals/active-directory-administer.md)
+- [Azure AD dizinini yönetme](../active-directory/fundamentals/active-directory-administer.md)
 - [PowerShell kullanarak Azure AD'yi yönetme](/powershell/azure/overview?view=azureadps-2.0)
 - [Karma kimlik için gereken bağlantı noktaları ve protokoller](../active-directory/hybrid/reference-connect-ports.md)
 

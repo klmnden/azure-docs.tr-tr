@@ -84,6 +84,22 @@ items:
       href: service-fabric-tutorial-standalone-install-an-application.md
     - name: 4- Kümenizi temizleme ve altyapıyı silme
       href: service-fabric-tutorial-standalone-clean-up.md
+- name: En iyi uygulamalar
+  items:
+  - name: Service Fabric için en iyi yöntemlere genel bakış
+    href: service-fabric-best-practices-overview.md
+  - name: Güvenlik
+    href: service-fabric-best-practices-security.md
+  - name: Ağ
+    href: service-fabric-best-practices-networking.md
+  - name: İşlem planlama ve ölçeklendirme
+    href: service-fabric-best-practices-capacity-scaling.md
+  - name: Kod olarak altyapı
+    href: service-fabric-best-practices-infrastructure-as-code.md
+  - name: İzleme ve tanılama
+    href: service-fabric-best-practices-monitoring.md
+  - name: Üretim hazırlığı denetim listesi
+    href: service-fabric-production-readiness-checklist.md
 - name: Örnekler
   items:
   - name: Kod örnekleri
@@ -112,20 +128,6 @@ items:
       href: service-fabric-cluster-security.md
     - name: Azure Ortak Güvenlik Öznitelikleri
       href: service-fabric-security-attributes.md
-  - name: En iyi uygulamalar
-    items:
-    - name: Service Fabric için en iyi yöntemlere genel bakış
-      href: service-fabric-best-practices-overview.md
-    - name: Ağ
-      href: service-fabric-best-practices-networking.md
-    - name: İşlem planlama ve ölçeklendirme
-      href: service-fabric-best-practices-capacity-scaling.md
-    - name: Kod olarak altyapı
-      href: service-fabric-best-practices-infrastructure-as-code.md
-    - name: İzleme ve tanılama
-      href: service-fabric-best-practices-monitoring.md
-    - name: Üretim hazırlığı denetim listesi
-      href: service-fabric-production-readiness-checklist.md
   - name: Terminoloji
     href: service-fabric-technical-overview.md
   - name: Uygulamalar oluşturma
@@ -851,9 +853,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 02b5712aedc96fce447f11b755b837b52855379b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 9490e4a9b91dc752e373d696e27069bc4d402342
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278471"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495592"

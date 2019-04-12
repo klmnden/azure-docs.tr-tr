@@ -1,5 +1,5 @@
 ---
-title: Azure AD uygulamaları için hizmet ve gizlilik bildirimini koşulları | Microsoft Docs
+title: Uygulamalar için hizmet ve gizlilik bildirimini koşulları | Azure
 description: Azure AD kullanmak için kayıtlı uygulamalar için hizmet ve gizlilik bildirimini koşullarını nasıl yapılandıracağınızı öğrenin.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +17,14 @@ ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3687d0b50add3301fb8e15b9c70569554b91c04
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193518"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500312"
 ---
-# <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Kayıtlı Azure Active Directory uygulamaları için hizmet ve gizlilik bildirimini koşulları
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Nasıl yapılır: Hizmet ve gizlilik bildirimini bir uygulama için koşulları yapılandırma
 
 Oluşturun ve Azure Active Directory (Azure AD) ve Microsoft hesapları ile tümleştirilen uygulamalar yöneten geliştiriciler, hizmet ve gizlilik bildirimini uygulamanın koşullarını bağlantılar içermelidir. Koşulları hizmet ve gizlilik bildirimi kullanıcı onayı deneyimi aracılığıyla kullanıcılara çıkarılır. Kullanıcılarınızın uygulamanızı güvenebilir bilmeniz yardımcı olurlar. Hizmet ve gizlilik bildirimini koşullarını, kullanıcıya yönelik çok kiracılı uygulamalar--birden çok dizini tarafından kullanılan veya herhangi bir Microsoft hesabı için kullanılabilir uygulamalar için özellikle önemlidir.
 
@@ -47,7 +47,7 @@ Uygulamanızın koşullarını hizmet ve gizlilik bildirimi belgelerin bağlant�
 | Yönerge     | Açıklama                           |
 |---------------|---------------------------------------|
 | Biçimlendir        | Geçerli bir URL                             |
-| Geçerli şemalar | HTTP ve HTTPS</br>HTTPS öneririz. |
+| Geçerli şemalar | HTTP ve HTTPS<br/>HTTPS öneririz. |
 | En büyük uzunluk    | 2048 karakter                       |
 
 Örnekler: `https://myapp.com/terms-of-service` ve `https://myapp.com/privacy-statement`

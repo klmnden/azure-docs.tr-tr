@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 78efcefa7df99dfa3386dcdf19aafa47d7b9fab1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 7cbd21ce9f8e5d9d3c03eb7c626ab41b8d28498d
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884525"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505677"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management'ı kullanma
 Azure sanal ağları (Vnet) herhangi birini kullanarak Azure kaynaklarınızı erişimini denetleyen bir ağdaki internet olmayan routeable yerleştirmenize olanak sağlar. Bu ağlar ardından teknolojiler VPN kullanarak şirket içi ağa bağlanabilir. Buradaki bilgileri ile Azure sanal ağları başlangıç hakkında daha fazla bilgi için: [Azure sanal ağına genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -59,7 +59,7 @@ Bu makalede açıklanan adımları gerçekleştirmek için aşağıdakiler gerek
 
    * **İç**: API Management ağ geçidi ve Geliştirici Portalı aracılığıyla bir iç yük dengeleyici sanal ağda yalnızca erişilebilir. Ağ geçidi sanal ağ içindeki kaynaklara erişebilir.
 
-     ![Özel eşleme][api-management-vnet-private]`
+     ![Özel eşleme][api-management-vnet-private]
 
      Şimdi burada API Yönetimi hizmetiniz sağlandıktan tüm bölgelerin bir listesini görürsünüz. Bir sanal ağ ve her bölge için alt ağ seçin. Hem Klasik hem de Resource Manager sanal ağları bulunan Kurulum yapılandırmakta olduğunuz bölgedeki Azure aboneliklerinizin listesi doldurulur.
 
@@ -154,7 +154,7 @@ API Management hizmet örneği, sanal ağ içinde barındırıldığında, aşa�
     
     > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
 
-  * Diğer API Management hizmet zorlamalı, olan bağımlılıkları kendi ana bilgisayar adını çözümleyemiyor ve uç noktaya ulaşmak için bir yol olmalıdır. Bunlar
+  * Zorlamalı tünel uygulanır diğer API Management Hizmet bağımlılıkları için ana bilgisayar adını çözümleyemiyor ve uç noktaya ulaşmak için bir yol olmalıdır. Bunlar
       - Ölçümler ve sistem durumu izleme
       - Azure portalı tanılama
       - SMTP geçiş

@@ -12,26 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 074976ea1f889893b5daa21cea5c186ec77145c4
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 6c42fbffd0b4569a9b04dede94061e716c48ecf1
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588356"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501119"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>Ruby ile Service Bus kuyruklarını kullanma
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Bu kılavuzda, Service Bus kuyruklarını kullanmayı açıklar. Örnekler, Ruby'de yazılan ve Azure gem kullanır. Senaryoları ele alınmaktadır **ileti gönderme ve alma sıra oluşturma**, ve **sıraları silme**. Service Bus kuyrukları hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
+Bu öğreticide, bir Service Bus kuyruğundaki iletileri alıp ileti göndermek için Ruby uygulamalarının nasıl oluşturulacağını öğrenin. Örnekler, Ruby'de yazılan ve Azure gem kullanır.
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Önkoşullar
+1. Azure aboneliği. Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Etkinleştirebilir, [MSDN abone Avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) veya kaydolun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. İzleyeceğiniz adımlar [Service Bus kuyruğuna oluşturmak için Azure portalını kullanın](service-bus-quickstart-portal.md) makalesi.
+    1. Hızlı Okuma **genel bakış** Service Bus **kuyrukları**. 
+    2. Hizmet veri yolu oluşturma **ad alanı**. 
+    3. Alma **bağlantı dizesi**. 
 
-## <a name="create-a-service-bus-namespace"></a>Service Bus ad alanı oluşturma
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-   
+        > [!NOTE]
+        > Oluşturacağınız bir **kuyruk** Bu öğreticide Ruby kullanarak Service Bus ad alanında. 
+
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## <a name="how-to-create-a-queue"></a>Bir kuyruk oluşturma

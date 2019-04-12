@@ -12,38 +12,29 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: dfdea9f8d50c467bf0e4317c8d95135afefa765f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 22996b277aba96cbbfedbb3e9cc67644d1a535ca
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778017"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500694"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus kuyrukları ile çalışmaya başlama
-
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-
-Bu öğreticide aşağıdaki adımlar yer almaktadır:
-
-1. Azure portalı ile Service Bus ad alanı oluşturma.
-2. Azure portalını kullanarak Service Bus kuyruğu oluşturma.
-3. Sıraya bir dizi ileti göndermek için bir .NET Core konsol uygulaması yazın.
-4. Bu iletileri kuyruktan almak için bir .NET Core konsol uygulaması yazın.
+Bu öğreticide, bir Service Bus kuyruğundaki iletileri alıp ileti göndermek için .NET Core konsol uygulamaları oluşturun. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 1. [Visual Studio 2017 Güncelleştirme 3 (sürüm 15.3, 26730.01)](https://www.visualstudio.com/vs) veya sonraki sürümler.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), sürüm 2.0 veya sonraki sürümler.
-2. Azure aboneliği.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
-
+2. Azure aboneliği. Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Etkinleştirebilir, [MSDN abone Avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) veya kaydolun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+3. Çalışmak için bir kuyruk yoksa, izleyeceğiniz adımlar [Service Bus kuyruğuna oluşturmak için Azure portalını kullanın](service-bus-quickstart-portal.md) makalenin bir kuyruk oluşturun.
+    1. Hızlı Okuma **genel bakış** Service Bus **kuyrukları**. 
+    2. Hizmet veri yolu oluşturma **ad alanı**. 
+    3. Alma **bağlantı dizesi**. 
+    4. Hizmet veri yolu oluşturma **kuyruk**. 
 
 ## <a name="send-messages-to-the-queue"></a>Kuyruğa ileti gönderme
 
@@ -206,7 +197,7 @@ Visual Studio'yu başlatın ve yeni bir **Konsol Uygulaması (.NET Core)** proje
 
 ## <a name="receive-messages-from-the-queue"></a>Kuyruktan ileti alma
 
-Gönderdiğiniz iletileri almak için farklı bir .NET Core konsol uygulaması oluşturun ve önceki gönderen uygulamaya benzer şekilde, **Microsoft.Azure.ServiceBus** NuGet paketine başvuru ekleyin.
+Gönderdiğiniz iletileri almak için başka bir .NET Core konsol uygulaması oluşturma ve yükleme **Microsoft.Azure.ServiceBus** NuGet paketine, önceki gönderen uygulamaya benzer.
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>Kuyruktan ileti almak için kod yazma
 

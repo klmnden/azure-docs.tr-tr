@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 04/02/2019
+ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98f81edcfa2a9daf5162ff1c7e23025b405092b8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d361a40e2efa80a677255c02c7e9cf155af09ffb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260400"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496310"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B işbirliği hakkında SSS
 
@@ -54,7 +54,7 @@ Evet. Konuk nesneleri kuruluşunuzun genel adres listesi (GAL) varsayılan olara
 Kesinlikle. Daha fazla bilgi için [bir role Konuk kullanıcı ekleme](add-guest-to-role.md).
 
 ### <a name="does-azure-ad-b2b-collaboration-allow-b2b-users-to-access-the-azure-portal"></a>Azure AD B2B işbirliği, B2B kullanıcıları, Azure portalına erişmek izin veriyor mu?
-B2B işbirliği kullanıcıları, sınırlı yönetici veya genel Yönetici rolüne atanmış bir kullanıcı yoksa, Azure portalına erişim gerekmez. Ancak, sınırlı yönetici veya genel Yönetici rolüne atanan B2B işbirliği kullanıcıları portala erişebilirsiniz. Ayrıca, bu yönetici rollerinden biri olarak atanmamış bir Konuk kullanıcı portalı erişirse, kullanıcı deneyimi bazı kısımlarını erişmek mümkün olabilir. Konuk kullanıcı rolü dizinde bazı izinlere sahiptir.
+B2B işbirliği kullanıcıları, sınırlı Yönetici rolü atanmış bir kullanıcı yoksa, Azure portalına erişim gerekmez. Ancak, sınırlı Yönetici rolü atanan B2B işbirliği kullanıcıları portala erişebilirsiniz. Ayrıca, bu yönetici rollerinden biri olarak atanmamış bir Konuk kullanıcı portalı erişirse, kullanıcı deneyimi bazı kısımlarını erişmek mümkün olabilir. Konuk kullanıcı rolü dizinde bazı izinlere sahiptir.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>Ben Azure portalında konuk kullanıcıların erişimini engelleyebilir miyim?
 Evet! Bu ilkeyi yapılandırırken, üyeleri ve Yöneticiler için erişimi yanlışlıkla engelleyen kaçınmak dikkatli olun.

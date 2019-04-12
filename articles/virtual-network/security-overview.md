@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: efce606f9c48668f569b0fb4fc45745adc6652c4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6b100846ec08ca1bdda49d0d7bce9eb78ecf019b
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262151"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501136"
 ---
 # <a name="security-groups"></a>Güvenlik grupları
 <a name="network-security-groups"></a>
@@ -80,6 +80,7 @@ Genişletilmiş güvenlik kuralları, sanal ağlar için güvenlik tanımını d
 * **AzureMonitor** (yalnızca Resource Manager): Bu etiket AzureMonitor hizmetin adres ön eklerini belirtir. Belirtirseniz *AzureMonitor* değeri için trafiğe izin veya trafik için AzureMonitor reddedilir. 
 * **ServiceFabric** (yalnızca Resource Manager): Bu etiket ServiceFabric hizmetin adres ön eklerini belirtir. Belirtirseniz *ServiceFabric* değeri için trafiğe izin veya trafik için ServiceFabric reddedilir. 
 * **AzureMachineLearning** (yalnızca Resource Manager): Bu etiket AzureMachineLearning hizmetin adres ön eklerini belirtir. Belirtirseniz *AzureMachineLearning* değeri için trafiğe izin veya trafik için AzureMachineLearning reddedilir. 
+* **BatchNodeManagement** (yalnızca Resource Manager): Bu etiket Azure BatchNodeManagement hizmetin adres ön eklerini belirtir. Belirtirseniz *BatchNodeManagement* değeri için trafiğe izin veya trafik Batch hizmetinden işlem düğümlerine reddedilir.
 
 > [!NOTE]
 > Hizmet etiketleri Azure hizmetlerinin adres ön eklerini kullanılan özel buluttan gösterir. 

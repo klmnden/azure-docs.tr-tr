@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 5186c11259a03717f83db675cbfe7c90f3ecb7cc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 285f29055d0ac9ba656ec828972ef15f4c0d36c7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734564"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496973"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Ağ Performansı İzleyicisi çözümü ile ilgili SSS
 
@@ -25,7 +25,7 @@ ms.locfileid: "55734564"
 
 Bu makalede sık sorulan sorular (SSS) azure'da Ağ Performansı İzleyicisi'ni (NPM) hakkında yakalar.
 
-[Ağ Performansı İzleyicisi](/azure/networking/network-monitoring-overview) bulut tabanlı [hibrit ağ izleme](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) yardımcı olan bir çözümü, ağ altyapınızın çeşitli noktalarında arasında ağ performansını izleme. Ayrıca, ağ bağlantısı izlemenize yardımcı olur [hizmet ve uygulama uç noktaları](../../azure-monitor/insights/network-performance-monitor-service-endpoint.md) ve [Azure ExpressRoute performansını izleme](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[Ağ Performansı İzleyicisi](/azure/networking/network-monitoring-overview) bulut tabanlı [hibrit ağ izleme](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) yardımcı olan bir çözümü, ağ altyapınızın çeşitli noktalarında arasında ağ performansını izleme. Ayrıca, ağ bağlantısı izlemenize yardımcı olur [hizmet ve uygulama uç noktaları](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) ve [Azure ExpressRoute performansını izleme](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
 
 Ağ Performansı İzleyicisi trafiği blackholing, yönlendirme hataları ve sorunları geleneksel ağ izleme yöntemleri algılayabilir gibi ağ sorunları algılar. Bir ağ bağlantısı için bir eşik ihlal edildiğinde, çözüm uyarılar oluşturur ve size bildirir. Ayrıca ağ performans sorunlarının zamanında tespit edilmesini sağlar ve sorunun kaynağını belirli bir ağ kesimine veya cihazına yerelleştirir. 
 

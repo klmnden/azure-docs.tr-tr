@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 28f04f5ab3cf8310a6ee3828405910d34b31591b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9631e4b82ceb14a98740491b98288d75dd23f9a3
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227693"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501017"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Azure HDInsight kümeleri (Önizleme) otomatik olarak ölçeklendirme
 
@@ -83,7 +83,7 @@ Resource Manager şablonları ile oluşturma hakkında daha fazla bilgi kümeler
 
 ### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Etkinleştirme ve otomatik ölçeklendirme, çalışan bir küme için devre dışı
 
-Etkinleştirebilir veya Azure portalı üzerinden 1 Ocak 2019'den sonra oluşturulmuş HDInsight kümeleri için otomatik ölçeklendirmeyi devre dışı.
+Yalnızca etkinleştirebilir veya yeni HDInsight kümeleri için otomatik ölçeklendirmeyi devre dışı.
 
 ## <a name="monitoring"></a>İzleme
 
@@ -108,8 +108,8 @@ Yukarıdaki ölçümleri, 60 saniyede denetlenir. Ölçek büyütme ve ölçek a
 
 Aşağıdaki koşullar tespit edildiğinde, otomatik ölçeklendirme ölçek artırma isteği verir:
 
-* Toplam CPU bekleyen 1 dakikadan fazla bir süre için toplam boş CPU büyüktür.
-* Toplam bellek bekleyen 1 dakikadan fazla bir süre için toplam boş belleğin büyüktür.
+* Toplam CPU bekleyen 3 dakikadan fazla bir süre için toplam boş CPU büyüktür.
+* Toplam bellek bekleyen 3 dakikadan fazla bir süre için toplam boş belleğin büyüktür.
 
 Belirli bir sayıda yeni çalışan düğümlerindeki geçerli CPU ve bellek gereksinimlerini karşılamak ve ardından bu yeni çalışan düğüm sayısı ekler bir ölçek artırma isteği vermek için gerekli olup olmadığını hesaplama yapar.
 
@@ -120,7 +120,7 @@ Aşağıdaki koşullar tespit edildiğinde, otomatik ölçeklendirme ölçek aza
 * Toplam CPU bekleyen toplam boş CPU 10 dakikadan daha küçüktür.
 * Toplam bellek bekleyen toplam boş belleğin 10 dakikadan daha küçüktür.
 
-Her düğüm ve geçerli CPU ve bellek gereksinimlerini AM kapsayıcıların sayısına bağlı olarak, otomatik ölçeklendirme hangi düğümleri kaldırma için potansiyel adaylar belirterek belirli bir sayıda düğüm kaldırılması için istekte verecek. Varsayılan olarak, iki düğüm bir döngüsü içinde kaldırılacak.
+Her düğüm ve geçerli CPU ve bellek gereksinimlerini AM kapsayıcıların sayısına bağlı olarak, otomatik ölçeklendirme hangi düğümleri kaldırma için potansiyel adaylar belirterek belirli bir sayıda düğüm kaldırılması için istekte verecek. Ölçeği azaltma düğümlerinin yetkisini alma işlemini tetikler ve düğümlerin tümüyle yetkisi alınmış olduktan sonra bunlar kaldırılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

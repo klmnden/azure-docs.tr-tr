@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c9e6e289fbda3188449ecc71cbc90bed546512e1
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471537"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495405"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Etkinleştirme veya Application Insights Profiler ' ı görüntüleme sorunlarını giderme
 
@@ -71,7 +71,7 @@ Düzgün çalışması Profiler için:
 
     |Uygulama Ayarı    | Değer    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey, Application Insights kaynağı    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights kaynağınızın iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
@@ -83,7 +83,7 @@ Düzgün çalışması Profiler için:
    
       ![Profil Oluşturucu webjob]   
    
-   1. Günlük'dahil olmak üzere Web işi ayrıntılarını görüntülemek için seçin **ApplicationInsightsProfiler2** bağlantı.  
+   1. Günlük'dahil olmak üzere Web işi ayrıntılarını görüntülemek için seçin **ApplicationInsightsProfiler3** bağlantı.  
      **Sürekli WebJob ayrıntıları** bölmesi açılır.
 
       ![Profil Oluşturucu webjob günlüğü]
@@ -92,7 +92,7 @@ Neden Profiler sizin için çalışmayan şekil olamaz, günlüğünü indir ve 
     
 ### <a name="manual-installation"></a>El ile yükleme
 
-Profiler'ı yapılandırırken, güncelleştirmeler web uygulamasının Ayarlar hale getirilir. Ortamınızı gerektiriyorsa, güncelleştirmelerin el ile uygulayabilirsiniz. Örnek uygulamanız PowerApps için Web Apps ortamda çalışıyor olabilir. Güncelleştirmeleri el ile uygulamanız için aşağıdakileri yapın:
+Profiler'ı yapılandırırken, güncelleştirmeler web uygulamasının Ayarlar hale getirilir. Ortamınızı gerektiriyorsa, güncelleştirmelerin el ile uygulayabilirsiniz. Örnek uygulamanız PowerApps için Web Apps ortamda çalışıyor olabilir. Güncelleştirmeleri el ile uygulamanız için:
 
 1. İçinde **Web uygulaması denetimi** bölmesi açık **ayarları**.
 
@@ -103,7 +103,7 @@ Profiler'ı yapılandırırken, güncelleştirmeler web uygulamasının Ayarlar 
 
     |Uygulama Ayarı    | Değer    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey, Application Insights kaynağı    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights kaynağınızın iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 

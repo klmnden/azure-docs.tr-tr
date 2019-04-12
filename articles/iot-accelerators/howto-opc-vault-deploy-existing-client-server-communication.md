@@ -1,5 +1,5 @@
 ---
-title: OPC UA istemcisi ve OPC UA sunucu uygulaması Azure IOT OPC UA sertifika Yönetimi'ni kullanarak güvenli hale getirme | Microsoft Docs
+title: OPC UA istemcisi ve OPC UA sunucu uygulaması OPC Vault Azure kullanarak güvenli hale getirme | Microsoft Docs
 description: OPC UA istemcisi ve OPC UA sunucu uygulaması yeni bir anahtar çifti ve OPC kasasını kullanarak sertifika ile güvenli hale getirin.
 author: dominicbetts
 ms.author: dobett
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: bfa6bdf6a54cb5e54087055988e9682565667105
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759621"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495303"
 ---
-# <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>OPC UA istemcisi ve OPC UA server uygulamasının güvenliğini sağlama 
-Azure IOT OPC UA sertifika yönetimi, ayrıca OPC kasası olarak yapılandırabilirsiniz, bir mikro hizmet kaydı, bildiğiniz ve sertifika yaşam döngüsü için OPC UA sunucu ve istemci uygulamalarını bulutta yönetin. Bu makalede, OPC UA istemcisi ve OPC UA sunucu uygulaması, yeni bir anahtar çifti ile güvenli hale getirmek ve OPC kasasını kullanarak sertifika işlemini göstermektedir.
+# <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>OPC UA güvenli istemci ve OPC UA sunucu uygulaması 
+Kasa OPC yapılandırma, kaydetme ve sertifika yaşam döngüsü OPC UA sunucusu ve istemci uygulamalarını bulutta yönetme bir mikro hizmetidir. Bu makalede bir OPC UA istemcisi ve OPC UA sunucu uygulaması yeni bir anahtar çifti ve OPC kasasını kullanarak sertifika ile güvenli gösterilmektedir.
 
 Aşağıdaki Kurulum, OPC istemci OPC PLC bağlanabilirliği test ediyor. Her iki bileşenin sağ sertifikalarla henüz sağlanan değil çünkü varsayılan olarak, bağlantı mümkün değildir. Bu iş akışında biz değil OPC UA bileşenleri otomatik olarak imzalanan sertifikalar kullanmak ve bunları OPC Vault aracılığıyla oturum. Öncekini Göster [testbed](howto-opc-vault-deploy-existing-client-plc-communication.md). Bunun yerine, bu testbed OPC kasa tarafından oluşturulan bileşenler ile yeni bir sertifika yanı sıra yeni bir özel anahtara sahip sağlar. OPC UA güvenliği hakkında bazı bilgiler bu bulunabilir [teknik incelemesi](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf). OPC UA belirtiminde eksiksiz bilgiler bulunabilir.
 
 Testbed: Şu ortam, test etmek için yapılandırılır.
 
 OPC kasa komut dosyaları:
-- OPC UA istemcisi ve OPC UA sunucu uygulaması yeni bir anahtar çifti ve OPC kasasını kullanarak sertifika ile güvenli hale getirin.
+- OPC UA istemcisi ve OPC UA sunucu uygulamaları yeni bir anahtar çifti ve OPC kasasını kullanarak sertifika ile güvenli hale getirin.
 
 > [!NOTE]
 > Daha fazla bilgi için bkz. GitHub [depo](https://github.com/Azure-Samples/iot-edge-industrial-configs#testbeds).
@@ -37,11 +37,11 @@ OPC kasa komut dosyaları:
 **Hızlı Başlangıç**
 1. Git [OPC kasa Web sitesi](https://opcvault.azurewebsites.net/)
 
-1. `Register New` seçeneğini belirleyin
+1. Şunu seçin: `Register New`
 
 1. Önceki testbed ait günlük çıktıda gösterildiği OPC PLC bilgi girin `CreateSigningRequest information` giriş alanlarına alan `Register New OPC UA Application` sayfasında `Server` ApplicationType olarak.
 
-1. `Register` seçeneğini belirleyin
+1. Şunu seçin: `Register`
 
 1. Sonraki sayfada `Request New Certificate for OPC UA Application` seçin `Request new KeyPair and Certificate`
 
@@ -51,7 +51,7 @@ OPC kasa komut dosyaları:
 
 1. Sonraki sayfada `Generate a new KeyPair and for an OPC UA Application` girin `CN=OpcPlc` SubjectName, olarak `opcplc-<_OPCVAULTID>` (Değiştir `<_OPCVAULTID>` sizinki ile) DomainName seçin `PEM` PrivateKeyFormat olarak ve bir parola girin (daha sonra olarak diyoruz `<certpassword-string>`)
 
-1. `Generate New KeyPair` seçeneğini belirleyin
+1. Şunu seçin: `Generate New KeyPair`
 
 1. Artık ileriye doğru geçiş yapıyorsanız `View Certificate Request Details`. Bu sayfada sertifika depoları sağlamak için gerekli tüm bilgileri indirebilirsiniz `opc-plc`.
 
@@ -118,7 +118,7 @@ opcplc-123456 | [13:40:09 INF] Activating the new application certificate with t
 
 Uygulama sertifikasını ve özel anahtarı artık uygulama sertifika deposunda yüklü ve OPC UA uygulama tarafından kullanılır.
 
-OPC PLC OPC istemci arasındaki bağlantı başarıyla gerçekleşip gerçekleşmediğini ve OPC istemci başarıyla OPC PLC verileri okuyabilir doğrulayın. Çıkış oturum OPC istemci aşağıdaki çıktı görmeniz gerekir:
+OPC PLC ve OPC istemci arasındaki bağlantı başarıyla gerçekleşip gerçekleşmediğini ve OPC istemci başarıyla OPC PLC verileri okuyabilir doğrulayın. Aşağıdaki çıktı OPC istemci günlük çıktısını görmeniz gerekir:
 ```
 opcclient-123456 | [13:40:12 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
 opcclient-123456 | [13:40:12 INF] Session successfully created with Id ns=3;i=941910499.
@@ -132,7 +132,7 @@ opcclient-123456 | [13:40:12 INF] Execute 'OpcClient.OpcTestAction' action on no
 opcclient-123456 | [13:40:12 INF] Action (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258') completed successfully
 opcclient-123456 | [13:40:12 INF] Value (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258'): 10/21/2018 13:40:12
 ```
-Bu çıktıyı görürsünüz, OPC PLC OPC istemci veya tersine, her ikisi de artık bir CA ve bu CA tarafından imzalanan sertifikalara hem tarafından imzalanmış sertifikalara sahip olduğundan güvenen artık olur.
+Bu çıkış görürseniz, her ikisi de artık bir CA ve bu CA tarafından imzalanan sertifikalara hem tarafından imzalanmış sertifikalara sahip olduğundan ardından OPC PLC artık OPC istemci veya tersine güvenen.
 
 ### <a name="a-testbed-for-opc-publisher"></a>OPC Publisher'ın bir testbed ###
 
@@ -145,7 +145,7 @@ docker-compose -f testbed.yml up
 
 **Doğrulama**
 - Yapılandırılmış ayarlayarak Iothub veri gönderildiğini doğrulamak `_HUB_CS` kullanarak [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) veya [iothub-explorer](https://github.com/Azure/iothub-explorer).
-- OPC Test İstemcisi IoTHub doğrudan yöntem çağrıları ve OPC yöntem çağrılarını yayımlama/yayımdan OPC Testserver düğümlerden OPC yayımcı yapılandırmak için kullanmayı geçiyor.
+- OPC test istemcisi IoTHub doğrudan yöntem çağrıları ve OPC yöntem çağrılarını Yayımla/düğümleri OPC test sunucudan yayımdan kaldırmak için OPC yayımcısını yapılandırmak için kullanmayı geçiyor.
 - Hata iletileri için çıktıyı izleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar

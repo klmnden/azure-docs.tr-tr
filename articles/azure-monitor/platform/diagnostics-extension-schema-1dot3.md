@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: cd458ba08f12e9553233a1dd3d7caf03acda56c6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463516"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59497092"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure tanılama 1.3 ve üzeri yapılandırma şeması
 > [!NOTE]
@@ -31,7 +31,7 @@ Bu sayfa, sürüm 1.3 ve daha yeni (Azure SDK 2.4 ve daha yeni) için geçerlidi
 
 Burada açıklanan yapılandırma dosyası, Tanılama izleme başladığında tanılama yapılandırma ayarları ayarlamak için kullanılır.  
 
-Uzantısı, Azure İzleyici, Application Insights ve Log Analytics gibi diğer Microsoft tanılama ürünleri ile birlikte kullanılır.
+Uzantı, Application Insights ve Log Analytics içeren Azure İzleyici gibi diğer Microsoft tanılama ürünleri ile birlikte kullanılır.
 
 
 
@@ -432,7 +432,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Alt öğeleri|Açıklama|  
 |--------------------|-----------------|  
 |**WadCfg**|Gereklidir. Açıklama, başka bir yerde şu sayfada görürsünüz.|  
-|**Depolama hesabı**|Verileri depolamak için Azure depolama hesabı adı. Ayrıca kümesi AzureServiceDiagnosticsExtension cmdlet'ini çalıştırırken bir parametre olarak belirtilebilir.|  
+|**StorageAccount**|Verileri depolamak için Azure depolama hesabı adı. Ayrıca kümesi AzureServiceDiagnosticsExtension cmdlet'ini çalıştırırken bir parametre olarak belirtilebilir.|  
 |**StorageType**|Olabilir *tablo*, *Blob*, veya *TableAndBlob*. Tablo varsayılandır. TableAndBlob seçildiğinde, Tanılama verileri iki kez--her tür için bir kez yazılır.|  
 |**LocalResourceDirectory**|Monitoring Agent olay verilerini depoladığı sanal makinesinde dizin. Aksi takdirde, küme, varsayılan dizin kullanılır:<br /><br /> Çalışan/web rolü için: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Bir sanal makine için: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Gerekli öznitelik şunlardır:<br /><br /> - **yol** -Azure tanılama tarafından kullanılmak üzere sistemde dizini.<br /><br /> - **expandEnvironment** -ortam değişkenlerini yol adına genişletilir olup olmadığını denetler.|  
 
@@ -445,7 +445,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration öğesi
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
 
- Gereklidir
+ Gerekli
 
 |Öznitelikler|Açıklama|  
 |----------------|-----------------|  
@@ -495,7 +495,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**IISLogs**|Bu öğe yapılandırmada dahil olmak üzere IIS günlükler koleksiyonunu sağlar:<br /><br /> **containerName** -Azure depolama hesabınızda IIS günlüklerini depolamak için kullanılacak blob kapsayıcısının adı.|   
 |**FailedRequestLogs**|Bu öğe yapılandırmada dahil olmak üzere bir IIS sitesi veya uygulama başarısız istekler hakkında günlüklerin toplanmasını sağlar. İzleme seçenekleri altında da etkinleştirmeniz gerekir **sistem. Web sunucusu** içinde **Web.config**.|  
-|**Veri kaynakları**|İzlenecek dizinler bir listesi.|
+|**DataSources**|İzlenecek dizinler bir listesi.|
 
 
 
@@ -610,12 +610,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Temel Azure günlükleri arabellek yapılandırmasını tanımlar.  
 
-|Öznitelik|Tür|Açıklama|  
+|Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|İsteğe bağlı. Belirtilen veriler için kullanılabilen dosya sistemi depolama miktarını belirtir.<br /><br /> Varsayılan değer 0'dır.|  
-|**scheduledTransferLogLevelFilter**|**dize**|İsteğe bağlı. Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**, tüm günlükleri aktarır. Diğer olası değerler (en az bilgi sırasına göre) **ayrıntılı**, **bilgi**, **uyarı**, **hata**ve **Kritik**.|  
-|**scheduledTransferPeriod**|**Süresi**|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
-|**havuzlar** |**dize**| 1.5 eklendi. İsteğe bağlı. Bir havuzu de Tanılama verileri gönder konumuna işaret eder. Örneğin, Application Insights veya olay hub'ları.|  
+|**scheduledTransferLogLevelFilter**|**string**|İsteğe bağlı. Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**, tüm günlükleri aktarır. Diğer olası değerler (en az bilgi sırasına göre) **ayrıntılı**, **bilgi**, **uyarı**, **hata**ve **Kritik**.|  
+|**scheduledTransferPeriod**|**süre**|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
+|**havuzlar** |**string**| 1.5 eklendi. İsteğe bağlı. Bir havuzu de Tanılama verileri gönder konumuna işaret eder. Örneğin, Application Insights veya olay hub'ları.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Ağaç: -DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources kök*
@@ -624,7 +624,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**İstatistikleri**|Docker kapsayıcıları istatistikleri toplamak için sistemi bildirir|  
+|**İstatistikler**|Docker kapsayıcıları istatistikleri toplamak için sistemi bildirir|  
 
 ## <a name="sinksconfig-element"></a>SinksConfig öğesi  
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
@@ -642,14 +642,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Tanılama verileri göndermesini konumlarını tanımlar. Örneğin, Application Insights hizmeti.  
 
-|Öznitelik|Tür|Açıklama|  
+|Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
-|**Adı**|dize|Sinkname tanımlayan bir dize.|  
+|**ad**|string|Sinkname tanımlayan bir dize.|  
 
-|Öğe|Tür|Açıklama|  
+|Öğe|Type|Açıklama|  
 |-------------|----------|-----------------|  
-|**Application Insights**|dize|Yalnızca veri Application Insights'a gönderirken kullanılan. Erişiminiz olan etkin bir Application Insights hesabı için izleme anahtarı bulunur.|  
-|**Kanallar**|dize|Her ek, akış filtrelemesi için|  
+|**Application Insights**|string|Yalnızca veri Application Insights'a gönderirken kullanılan. Erişiminiz olan etkin bir Application Insights hesabı için izleme anahtarı bulunur.|  
+|**Kanallar**|string|Her ek, akış filtrelemesi için|  
 
 ## <a name="channels-element"></a>Kanalları öğesi  
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - havuz - kanallar*
@@ -658,9 +658,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Bir havuz arasında geçen günlük veri akışları için filtreleri tanımlar.  
 
-|Öğe|Tür|Açıklama|  
+|Öğe|Type|Açıklama|  
 |-------------|----------|-----------------|  
-|**Kanal**|dize|Açıklama, başka bir yerde şu sayfada görürsünüz.|  
+|**Kanal**|string|Açıklama, başka bir yerde şu sayfada görürsünüz.|  
 
 ## <a name="channel-element"></a>Kanal öğesi
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - havuz - kanal - kanal*
@@ -669,10 +669,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Tanılama verileri göndermesini konumlarını tanımlar. Örneğin, Application Insights hizmeti.  
 
-|Öznitelikler|Tür|Açıklama|  
+|Öznitelikler|Type|Açıklama|  
 |----------------|----------|-----------------|  
-|**logLevel**|**dize**|Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**, tüm günlükleri aktarır. Diğer olası değerler (en az bilgi sırasına göre) **ayrıntılı**, **bilgi**, **uyarı**, **hata**ve **Kritik**.|  
-|**Adı**|**dize**|Kanalın başvurmak için benzersiz bir ad|  
+|**LogLevel**|**string**|Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**, tüm günlükleri aktarır. Diğer olası değerler (en az bilgi sırasına göre) **ayrıntılı**, **bilgi**, **uyarı**, **hata**ve **Kritik**.|  
+|**ad**|**string**|Kanalın başvurmak için benzersiz bir ad|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig öğesi
@@ -686,7 +686,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Alt öğeleri|Açıklama|  
 |--------------------|-----------------|  
-|**Depolama hesabı**|Kullanılacak depolama hesabı. Aşağıdaki öznitelikler gereklidir<br /><br /> - **ad** -depolama hesabının adı.<br /><br /> - **anahtar** -depolama hesabı anahtarı.<br /><br /> - **uç nokta** -depolama hesabına erişmek için uç nokta. <br /><br /> -**sasToken** (özel yapılandırmada bir depolama hesabı anahtarı yerine SAS belirteci belirtebilirsiniz 1.8.1)-eklenir. Sağlanırsa, depolama hesabı anahtarını göz ardı edilir. <br />SAS belirteci gereksinimleri: <br />-Yalnızca hesap SAS belirtecini destekler <br />- *b*, *t* hizmet türü gereklidir. <br /> - *bir*, *c*, *u*, *w* izinleri gereklidir. <br /> - *c*, *o* kaynak türleri gereklidir. <br /> -Yalnızca HTTPS protokolünü destekler. <br /> -Başlatmak ve sona erme saati geçerli olmalıdır.|  
+|**StorageAccount**|Kullanılacak depolama hesabı. Aşağıdaki öznitelikler gereklidir<br /><br /> - **ad** -depolama hesabının adı.<br /><br /> - **anahtar** -depolama hesabı anahtarı.<br /><br /> - **uç nokta** -depolama hesabına erişmek için uç nokta. <br /><br /> -**sasToken** (özel yapılandırmada bir depolama hesabı anahtarı yerine SAS belirteci belirtebilirsiniz 1.8.1)-eklenir. Sağlanırsa, depolama hesabı anahtarını göz ardı edilir. <br />SAS belirteci gereksinimleri: <br />-Yalnızca hesap SAS belirtecini destekler <br />- *b*, *t* hizmet türü gereklidir. <br /> - *bir*, *c*, *u*, *w* izinleri gereklidir. <br /> - *c*, *o* kaynak türleri gereklidir. <br /> -Yalnızca HTTPS protokolünü destekler. <br /> -Başlatmak ve sona erme saati geçerli olmalıdır.|  
 
 
 ## <a name="isenabled-element"></a>IsEnabled öğesi  

@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 37e2dcc13ed41911c8117dc1841a389c14e5867f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: edd7a397598bcb5941f3ac1b29d385d6eac40f8d
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848589"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501646"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus Mesajlaşma kullanarak performans geliştirme en iyi uygulamalar
 
@@ -127,6 +127,19 @@ Bir ileti önceden getirilmiş, hizmeti önceden getirilmiş ileti kilitler. Kil
 Bir iletinin yaşam süresi (TTL) özelliği, sunucu istemciye iletiyi gönderir zaman sunucu tarafından denetlenir. İleti alındığında istemci, iletinin TTL özelliğine denetlemez. Bunun yerine, ileti iletinin TTL ileti istemci tarafından önbelleğe alınmış olsa bile geçtiyse alınabilir.
 
 Önceden getiriliyor Mesajlaşma Faturalanabilir işlemlerin sayısı etkilemez ve yalnızca hizmet veri yolu istemci protokolü için kullanılabilir. Önceden getiriliyor HTTP protokolünü desteklemiyor. Önceden getiriliyor, zaman uyumlu ve zaman uyumsuz alma işlemleri için kullanılabilir.
+
+## <a name="prefetching-and-receivebatch"></a>Önceden getiriliyor ve ReceiveBatch
+
+Birden çok ileti birlikte önceden getiriliyor kavramları (ReceiveBatch) toplu ileti işleme için benzer semantiğe sahip olsa da, bunların bir araya ne akılda tutulması gereken bazı küçük farklar vardır.
+
+Önceden getirme bir yapılandırma (veya modu) (QueueClient ve SubscriptionClient) istemcide ve ReceiveBatch (istek-yanıt semantiği olan) bir işlemdir.
+
+Bu arada kullanırken, aşağıdaki durumlarda düşünün:
+
+* Önceden getirme büyüktür veya eşittir ReceiveBatch almaya beklediğiniz ileti sayısı olmalıdır.
+* Önceden getirme n/3 n varsayılan kilit süresi, saniye başına işlenen iletilerin sayısını süreleri kadar olabilir.
+
+Doyumsuz bir sahip olan bazı zorluklar vardır yaklaşımını (yani önceden getirme sayısı çok yüksek tutma), belirli bir alıcı iletiyi kilitli olduğunu gösterdiğinden. Çıkış değerleri yukarıda belirtilen eşikler arasında önceden getirme ve hangi uygun türü tanımlamak denemek için önerilir.
 
 ## <a name="multiple-queues"></a>Birden fazla kuyruk
 

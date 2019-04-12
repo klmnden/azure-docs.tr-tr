@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 401ad90f1ae4ffb4915a0b51aea41430e7045aa9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: c2fc406fa864fe2f67ded4ea98ad14475944671a
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270479"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500354"
 ---
 # <a name="tutorial-in-c-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Öğretici, C#: Azure Search dizin oluşturucuyu kullanarak bir Azure SQL veritabanında gezinin
 
@@ -56,7 +56,7 @@ REST çağrıları için her istekte hizmet URL'sinin ve bir erişim anahtarın�
 
 1. [Azure portalında oturum açın](https://portal.azure.com/)ve arama hizmetinizdeki **genel bakış** sayfa olduğunda URL'yi alın. Örnek uç nokta `https://mydemo.search.windows.net` şeklinde görünebilir.
 
-1.. İçinde **ayarları** > **anahtarları**, hizmette tam haklarına yönelik bir yönetici anahtarını alın. Bir gece yarısında gerektiği durumlarda iş sürekliliği için sağlanan iki birbirinin yerine yönetici anahtarı mevcuttur. Ekleme, değiştirme ve silme nesneler için istekleri birincil veya ikincil anahtar kullanabilirsiniz.
+1. İçinde **ayarları** > **anahtarları**, hizmette tam haklarına yönelik bir yönetici anahtarını alın. Bir gece yarısında gerektiği durumlarda iş sürekliliği için sağlanan iki birbirinin yerine yönetici anahtarı mevcuttur. Ekleme, değiştirme ve silme nesneler için istekleri birincil veya ikincil anahtar kullanabilirsiniz.
 
 ![Bir HTTP uç noktası ve erişim anahtarını alma](media/search-fiddler/get-url-key.png "bir HTTP uç noktası ve erişim anahtarını alma")
 
@@ -87,7 +87,7 @@ Bu adımda, dizin oluşturucunun gezinebileceği bir dış veri kaynağı oluşt
 
 Aşağıdaki alıştırmada, mevcut sunucu veya veritabanı olmadığı varsayılır ve 2. adımda size her ikisini de oluşturma yönergeleri verilir. İsteğe bağlı olarak, kaynağınızın mevcut olması durumunda, oteller tablosunu buna ekleyebilir ve 4. adımdan başlayabilirsiniz.
 
-1. [Azure Portal](https://portal.azure.com/) oturum açın. 
+1. [Azure portalında oturum açın](https://portal.azure.com/). 
 
 2. Bulunamıyor veya oluşturulamıyor bir **Azure SQL veritabanı** bir veritabanı sunucusu ve kaynak grubu oluşturmak için. Varsayılan değerleri ve en düşük düzey fiyatlandırma katmanını kullanabilirsiniz. Sunucu oluşturmanın bir avantajı, yönetici kullanıcı adı ve parolası belirtebilmenizdir; çünkü sonraki adımda tabloları oluşturmak ve yüklemek için bunlar gerekecektir.
 
@@ -99,7 +99,7 @@ Aşağıdaki alıştırmada, mevcut sunucu veya veritabanı olmadığı varsayı
 
    ![SQL veritabanı sayfası](./media/search-indexer-tutorial/hotels-db.png)
 
-4. Komut çubuğunda **Araçlar** > **Sorgu düzenleyicisi**'ne tıklayın.
+4. Gezinti bölmesinde **sorgu Düzenleyicisi (Önizleme)**.
 
 5. **Oturum Aç**'a tıklayın ve sunucu yöneticisinin kullanıcı adıyla parolasını girin.
 
@@ -137,7 +137,7 @@ Aşağıdaki alıştırmada, mevcut sunucu veya veritabanı olmadığı varsayı
 
 ## <a name="understand-the-code"></a>Kodu anlama
 
-Kodunuz artık derlenmeye ve çalıştırılmaya hazırdır. Bunu yapmadan önce, birkaç dakikanızı ayırıp bu örnekteki dizin ve dizin oluşturucu tanımlarını öğrenin. İlgili kod iki dosyada yer alır:
+Verileri ve yapılandırma ayarları yerinde olduğunda, örnek program **Dotnethowtoındexers.sln** derlemek ve çalıştırmak hazırdır. Bunu yapmadan önce, birkaç dakikanızı ayırıp bu örnekteki dizin ve dizin oluşturucu tanımlarını öğrenin. İlgili kod iki dosyada yer alır:
 
   + **hotel.cs**, dizini tanımlayan şemayı içerir
   + **Program.cs**, hizmetinizdeki yapıları oluşturmaya ve yönetmeye yönelik işlevleri içerir
@@ -155,45 +155,65 @@ public string HotelName { get; set; }
 
 Şema başka öğeler, örneğin arama puanını artırmak için puanlama profilleri, özel çözümleyiciler ve başka yapılar içerebilir. Öte yandan, bizim amaçlarımıza uygun olarak şema yalnızca örnek veri kümelerinde bulunan alanlarla seyrek bir şekilde tanımlanmıştır.
 
-Bu öğreticide, dizin oluşturucu verileri tek bir veri kaynağından çeker. Pratikte, aynı dizine birden çok dizin oIuşturucu ekleyebilir, birden çok veri kaynağı ve dizin oluşturucudan birleştirilmiş, arama yapılabilir bir dizin oluşturabilirsiniz. Nerede esnekliğe ihtiyacınız olduğuna bağlı olarak, yalnızca veri kaynaklarında değişiklik yapıp aynı dizin oluşturucu-dizin çiftini veya çeşitli dizin oluşturucu ve veri kaynağı bileşimleriyle tek bir dizini kullanabilirsiniz.
+Bu öğreticide, dizin oluşturucu verileri tek bir veri kaynağından çeker. Uygulamada, birden çok veri kaynağından birleştirilmiş, arama yapılabilir bir dizin oluşturma aynı dizine birden çok dizin oluşturucu ekleyebilirsiniz. Nerede esnekliğe ihtiyacınız olduğuna bağlı olarak, yalnızca veri kaynaklarında değişiklik yapıp aynı dizin oluşturucu-dizin çiftini veya çeşitli dizin oluşturucu ve veri kaynağı bileşimleriyle tek bir dizini kullanabilirsiniz.
 
 ### <a name="in-programcs"></a>Program.cs dosyasında
 
-Ana program üç temsili veri kaynağı için de işlevler içerir. Yalnızca Azure SQL Veritabanı'na odaklanıldığında, aşağıdaki nesneler dikkati çeker:
+Ana program için bir istemci, bir dizin, bir veri kaynağı ve Dizin Oluşturucu Oluşturma mantığı içerir. Kod, bu programı birden çok kez çalıştırabileceğiniz varsayımıyla, aynı adı taşıyan kaynakları denetler ve siler.
+
+Veri kaynağı nesnesinin dahil olmak üzere Azure SQL veritabanı kaynaklarına belirli ayarlarla yapılandırılmış [Artımlı dizin](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) yerleşik yararlanarak için [algılama özelliklerini değiştirmek](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) Azure SQL. Azure SQL veritabanında tanıtım hotels adlı bir "geçici silme" sütununun **IsDeleted**. Bu sütunda dizin oluşturucu veritabanındaki kaldırır true olarak ayarlandığında Azure Search dizini belge ilgili.
 
   ```csharp
-  private const string IndexName = "hotels";
-  private const string AzureSqlHighWaterMarkColumnName = "RowVersion";
-  private const string AzureSqlDataSourceName = "azure-sql";
-  private const string AzureSqlIndexerName = "azure-sql-indexer";
+  Console.WriteLine("Creating data source...");
+
+  DataSource dataSource = DataSource.AzureSql(
+      name: "azure-sql",
+      sqlConnectionString: configuration["AzureSQLConnectionString"],
+      tableOrViewName: "hotels",
+      deletionDetectionPolicy: new SoftDeleteColumnDeletionDetectionPolicy(
+          softDeleteColumnName: "IsDeleted",
+          softDeleteMarkerValue: "true"));
+  dataSource.DataChangeDetectionPolicy = new SqlIntegratedChangeTrackingPolicy();
+
+  searchService.DataSources.CreateOrUpdateAsync(dataSource).Wait();
   ```
 
-Azure Search'te, bağımsız olarak görüntüleyebildiğiniz, yapılandırabildiğiniz veya silebildiğiniz nesneler dizin, dizin oluşturucu ve veri kaynakları (sırasıyla *hotels*, *azure-sql-indexer*, *azure-sql*) içerir. 
-
-*AzureSqlHighWaterMarkColumnName* sütununa özel olarak değinmek yararlı olur çünkü bu sütun değişiklik algılama bilgilerini sağlar. Bu bilgiler dizin oluşturucu tarafından bir satırın son dizin oluşturma iş yükünden bu yana değiştirilip değiştirilmediğini saptamak için kullanılır. [Değişiklik algılama ilkeleri](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) yalnızca dizin oluşturucularda desteklenir ve veri kaynağına göre değişir. Azure SQL Veritabanı için, veritabanının gereksinimlerine bağlı olarak iki ilkeden birini seçebilirsiniz.
-
-Aşağıdaki kod, veri kaynağını ve dizin oluşturucuyu oluşturmak için kullanılan Program.cs dosyasındaki yöntemleri gösterir. Kod, bu programı birden çok kez çalıştırabileceğiniz varsayımıyla, aynı adı taşıyan kaynakları denetler ve siler.
+Bir dizin oluşturucu platformdan, yapılandırma, zamanlama ve çağırma kaynağı ne olursa olsun aynı olduğu nesnedir. Bu örnek dizin oluşturucu zamanlaması, dizin oluşturucu geçmişini temizler ve oluşturup hemen dizin oluşturucuyu çalıştırmak için bir yöntemi çağıran bir sıfırlama seçeneği içerir.
 
   ```csharp
-  private static string SetupAzureSqlIndexer(SearchServiceClient serviceClient, IConfigurationRoot configuration)
+  Console.WriteLine("Creating Azure SQL indexer...");
+  Indexer indexer = new Indexer(
+      name: "azure-sql-indexer",
+      dataSourceName: dataSource.Name,
+      targetIndexName: index.Name,
+      schedule: new IndexingSchedule(TimeSpan.FromDays(1)));
+  // Indexers contain metadata about how much they have already indexed
+  // If we already ran the sample, the indexer will remember that it already
+  // indexed the sample data and not run again
+  // To avoid this, reset the indexer if it exists
+  exists = await searchService.Indexers.ExistsAsync(indexer.Name);
+  if (exists)
   {
-    Console.WriteLine("Deleting Azure SQL data source if it exists...");
-    DeleteDataSourceIfExists(serviceClient, AzureSqlDataSourceName);
+      await searchService.Indexers.ResetAsync(indexer.Name);
+  }
 
-    Console.WriteLine("Creating Azure SQL data source...");
-    DataSource azureSqlDataSource = CreateAzureSqlDataSource(serviceClient, configuration);
+  await searchService.Indexers.CreateOrUpdateAsync(indexer);
 
-    Console.WriteLine("Deleting Azure SQL indexer if it exists...");
-    DeleteIndexerIfExists(serviceClient, AzureSqlIndexerName);
+  // We created the indexer with a schedule, but we also
+  // want to run it immediately
+  Console.WriteLine("Running Azure SQL indexer...");
 
-    Console.WriteLine("Creating Azure SQL indexer...");
-    Indexer azureSqlIndexer = CreateIndexer(serviceClient, AzureSqlDataSourceName, AzureSqlIndexerName);
-
-    return azureSqlIndexer.Name;
+  try
+  {
+      await searchService.Indexers.RunAsync(indexer.Name);
+  }
+  catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
+  {
+      Console.WriteLine("Failed to run indexer: {0}", e.Response.Content);
   }
   ```
 
-Çağrılacak gezginin türünü belirten [DataSourceType](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) dışında, dizin oluşturucu API çağrılarının platformdan bağımsız olduğuna dikkat edin.
+
 
 ## <a name="run-the-indexer"></a>Dizin oluşturucuyu çalıştırma
 
@@ -236,12 +256,10 @@ Azure Portal'da, arama hizmetinin Genel Bakış sayfasında üst kısımdaki **A
 
 Az önce programlama yoluyla oluşturduğunuz dizin oluşturucu da dahil olmak üzere tüm dizin oluşturucular portalda listelenir. Dizin oluşturucu tanımını açabilir ve veri kaynağını görüntüleyebilir veya yeni ve değiştirilmiş satırları seçmek için bir yenileme zamanlaması yapılandırabilirsiniz.
 
-1. Azure Search hizmetinizin hizmet Genel Bakış sayfasını açın.
-2. Ekranı aşağı kaydırarak **Dizin Oluşturucular** ve **Veri Kaynakları** kutucuklarını bulun.
-3. Kaynakların listesini açmak için kutucuğa tıklayın. Yapılandırma ayarlarını görüntülemek veya değiştirmek için, dizin oluşturucuları veya veri kaynaklarını tek tek seçebilirsiniz.
+1. [Azure portalında oturum açın](https://portal.azure.com/)ve arama hizmetinizdeki **genel bakış** sayfasında, bağlantılarını **dizinleri**, **dizin oluşturucular**, ve **veri Kaynakları**.
+3. Yapılandırma ayarlarını görüntülemek veya değiştirmek için ayrı ayrı nesneleri seçin.
 
    ![Dizin oluşturucu ve veri kaynağı kutucukları](./media/search-indexer-tutorial/tiles-portal.png)
-
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

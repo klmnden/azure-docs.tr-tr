@@ -1,6 +1,6 @@
 ---
-title: Gözcü Azure önizlemesinde Office 365 veri toplama | Microsoft Docs
-description: Gözcü Azure, Office 365 verilerini nasıl toplayacağınızı öğrenin.
+title: Gözcü Azure Önizleme için Office 365 verilerine bağlanın | Microsoft Docs
+description: Azure Gözcü için Office 365 verilerine bağlanmayı öğreneceksiniz.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: ad501958a5f88c821e48a3e21f69a960160b3c8e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 77587b0b7506ef0ccadbeb6d1f010f5b6a72d93e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574867"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495199"
 ---
-# <a name="collect-data-from-office-365-logs"></a>Office 365 günlüklerinden verileri toplama
+# <a name="connect-data-from-office-365-logs"></a>Office 365 günlüklerinden veri bağlama
 
 > [!IMPORTANT]
 > Azure Sentinel şu anda genel Önizleme aşamasındadır.
@@ -33,11 +33,11 @@ Denetim günlükleri akışını [Office 365](https://docs.microsoft.com/office3
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Kiracınızda genel yönetici veya güvenlik yöneticisi olmanız gerekir
-- Bilgisayarınızda, bağlantı oluşturmak için Azure Gözcü oturum web trafiğinin yapma suretha bağlantı noktası 4433 açıktır.
+- Bilgisayarınızda, bağlantı oluşturmak için Azure Gözcü oturum bağlantı noktası 4433 web trafiği için açık olduğundan emin olun.
 
 ## <a name="connect-to-office-365"></a>Office 365’e bağlanın
 
-1. Azure Gözcü içinde seçin **veri toplama** ve ardından **Office 365** Döşe.
+1. Azure Gözcü içinde seçin **veri bağlayıcıları** ve ardından **Office 365** Döşe.
 
 2. Zaten, altında değil etkinleştirdiyseniz **bağlantı** kullanın **etkinleştirme** Office 365 çözümü etkinleştirmek için düğme. Zaten etkinleştirilmişse, bağlantı ekranın etkinleştirilmiş olarak tanımlanır.
 1. Office 365 Azure Gözcü için birden çok kiracıdan gelen akış verileri olanak tanır. Bağlanmak istediğiniz her Kiracı için kiracısı altında ekleme **kiracılar bağlanmak için Azure Gözcü**. 

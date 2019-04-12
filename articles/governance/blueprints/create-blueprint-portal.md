@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 598df72bf9c37b8687e2122813609e165ae8c2fa
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 28fef394ee400949f9911983bdbca41d6bfcb458
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260672"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505694"
 ---
 # <a name="define-and-assign-a-blueprint-in-the-portal"></a>Tanımlama ve Portalı'nda bir şema Ata
 
@@ -41,116 +41,117 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
 
    ![Şema tanımları sayfasından blueprint oluşturma](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Sağlayan bir **Blueprint adı** gibi **MyBlueprint**. (48 harf kullanacak ve sayıları, ancak hiçbir boşluk veya özel karakter). Bırakın **Blueprint açıklaması** şimdilik boş. 
-   
+1. Sağlayan bir **Blueprint adı** gibi **MyBlueprint**. (48 harf kullanacak ve sayıları, ancak hiçbir boşluk veya özel karakter). Bırakın **Blueprint açıklaması** şimdilik boş.
+
 1. İçinde **tanım konumunu** kutusunda sağındaki üç nokta simgesini seçin, seçin [yönetim grubu](../management-groups/overview.md) veya şema kaydedin ve istediğiniz abonelik **seçin**.
 
 1. Bilgilerin doğru olduğundan emin olun. **Blueprint adı** ve **tanım konumunu** alanlar daha sonra değiştirilemez. Ardından **sonraki: Yapıtları** sayfanın alt kısmındaki veya **Yapıtları** sayfanın üst kısmındaki sekme.
 
-1. Bir rol ataması abonelik düzeyinde ekleyin: 
+1. Bir rol ataması abonelik düzeyinde ekleyin:
 
-   a. Seçin **+ yapıt ekleme** altında satır **abonelik**. **Yapıt ekleme** sağ tarafında bir tarayıcı penceresi açılır. 
-   
-   b. Seçin **rol ataması** için **Yapıt türü**. 
-   
-   c. Altında **rol**seçin **katkıda bulunan**. Bırakın **Ekle kullanıcı, uygulama veya grup** kutusu onay kutusuyla dinamik bir parametre belirtir. 
-   
-   d. Seçin **Ekle** blueprint'e yapıt bu eklemek için.
+   1. Seçin **+ yapıt ekleme** altında satır **abonelik**. **Yapıt ekleme** sağ tarafında bir tarayıcı penceresi açılır.
+
+   1. Seçin **rol ataması** için **Yapıt türü**.
+
+   1. Altında **rol**seçin **katkıda bulunan**. Bırakın **Ekle kullanıcı, uygulama veya grup** kutusu onay kutusuyla dinamik bir parametre belirtir.
+
+   1. Seçin **Ekle** blueprint'e yapıt bu eklemek için.
 
    ![Blueprint yapıtı için rol ataması](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > Çoğu yapının parametreleri destekler. Blueprint oluşturma sırasında bir değer atadığı parametresi bir *statik parametresinin*. Blueprint ataması sırasında parametre atanırsa, bu bir *dinamik parametre*. Daha fazla bilgi için bkz. [Şema parametreleri](./concepts/parameters.md).
 
-1. Abonelik düzeyinde bir ilke ataması ekleyin: 
+1. Abonelik düzeyinde bir ilke ataması ekleyin:
 
-   a. Seçin **+ yapıt ekleme** rol atama yapıtındaki altında satır. 
-   
-   b. Seçin **ilke ataması** için **Yapıt türü**. 
-   
-   c. Değişiklik **türü** için **yerleşik**. İçinde **arama**, girin **etiketi**. 
-   
-   d. Filtrelemenin yapılması için **Ara**’ya tıklayın. Seçin **kaynak gruplarına etiketi ve varsayılan değerini Uygula**. 
-   
-   e. Seçin **Ekle** blueprint'e yapıt bu eklemek için.
+   1. Seçin **+ yapıt ekleme** rol atama yapıtındaki altında satır.
 
-1. İlke ataması satırı seçin **kaynak gruplarına etiketi ve varsayılan değerini Uygula**. 
+   1. Seçin **ilke ataması** için **Yapıt türü**.
+
+   1. Değişiklik **türü** için **yerleşik**. İçinde **arama**, girin **etiketi**.
+
+   1. Filtrelemenin yapılması için **Ara**’ya tıklayın. Seçin **kaynak gruplarına etiketi ve varsayılan değerini Uygula**.
+
+   1. Seçin **Ekle** blueprint'e yapıt bu eklemek için.
+
+1. İlke ataması satırı seçin **kaynak gruplarına etiketi ve varsayılan değerini Uygula**.
 
 1. Blueprint tanımının bir parçası yapı parametreleri sağlamak için bir pencere açılır ve parametreler için tüm atamaları (statik Parametreler) yerine bu şema ataması sırasında (dinamik parametreleri) göre ayarı sağlar. Bu örnek, blueprint ataması sırasında dinamik parametreler kullanır, böylece seçin ve varsayılan değerleri bırakın **iptal**.
 
-1. Bir kaynak grubu, abonelik düzeyinde ekleyin: 
+1. Bir kaynak grubu, abonelik düzeyinde ekleyin:
 
-   a. Seçin **+ yapıt ekleme** altında satır **abonelik**. 
-   
-   b. Seçin **kaynak grubu** için **Yapıt türü**. 
-   
-   c. Bırakın **Yapıt görünen ad**, **kaynak grubu adı**, ve **konumu** kutularını boş, ancak her parametre özelliği okunmaları onay kutusunun seçili olduğundan emin olun dinamik parametreler. 
-   
-   d. Seçin **Ekle** blueprint'e yapıt bu eklemek için.
+   1. Seçin **+ yapıt ekleme** altında satır **abonelik**.
 
-1. Kaynak grubu altında bir şablon ekleyin: 
+   1. Seçin **kaynak grubu** için **Yapıt türü**.
 
-   a. Seçin **+ yapıt ekleme** altında satır **ResourceGroup** girişi. 
-   
-   b. Seçin **Azure Resource Manager şablonu** için **Yapıt türü**ayarlayın **Yapıt görünen ad** için **StorageAccount**ve bırakın **Açıklama** boş. 
-   
-   c. Düzenleyici kutusundaki **Şablon** sekmesinde aşağıdaki Resource Manager şablonunu yapıştırın. Şablonu Yapıştır sonra seçin **parametreleri** sekmesini ve unutmayın şablon parametreleri **storageAccountType** ve **konumu** algılandı. Her parametre otomatik olarak algılandı ve doldurulur, ancak dinamik bir parametre olarak yapılandırılmış. 
-   
-   > [!IMPORTANT]
-   > Şablonu içe aktarıyorsanız, dosya yalnızca JSON ve HTML içermez emin olun. Github'da bir URL'ye işaret ettiğinizde, seçtiğiniz olduğunuzdan emin **ham** pure JSON dosyasını ve GitHub üzerinde görüntülemek için HTML ile sarmalanmış bir alınamıyor. İçeri aktarılan şablon saf JSON değilse bir hata oluşur.
+   1. Bırakın **Yapıt görünen ad**, **kaynak grubu adı**, ve **konumu** kutularını boş, ancak her parametre özelliği okunmaları onay kutusunun seçili olduğundan emin olun dinamik parametreler.
 
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-           "storageAccountType": {
-               "type": "string",
-               "defaultValue": "Standard_LRS",
-               "allowedValues": [
-                   "Standard_LRS",
-                   "Standard_GRS",
-                   "Standard_ZRS",
-                   "Premium_LRS"
-               ],
-               "metadata": {
-                   "description": "Storage Account type"
-               }
-           },
-           "location": {
-               "type": "string",
-               "defaultValue": "[resourceGroups('ResourceGroup').location]",
-               "metadata": {
-                   "description": "Location for all resources."
-               }
-           }
-       },
-       "variables": {
-           "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
-       },
-       "resources": [{
-           "type": "Microsoft.Storage/storageAccounts",
-           "name": "[variables('storageAccountName')]",
-           "location": "[parameters('location')]",
-           "apiVersion": "2018-07-01",
-           "sku": {
-               "name": "[parameters('storageAccountType')]"
-           },
-           "kind": "StorageV2",
-           "properties": {}
-       }],
-       "outputs": {
-           "storageAccountName": {
-               "type": "string",
-               "value": "[variables('storageAccountName')]"
-           }
-       }
-   }
-   ```
+   1. Seçin **Ekle** blueprint'e yapıt bu eklemek için.
 
-   d. NET **storageAccountType** onay kutusu ve aşağı açılan liste yalnızca Resource Manager şablonu altında bulunan değerleri içerdiğini unutmayın **allowedValues**. Dinamik bir parametre ayarlamak için kutusunu seçin. 
-   
-   e. Seçin **Ekle** blueprint'e yapıt bu eklemek için.
+1. Kaynak grubu altında bir şablon ekleyin:
+
+   1. Seçin **+ yapıt ekleme** altında satır **ResourceGroup** girişi.
+
+   1. Seçin **Azure Resource Manager şablonu** için **Yapıt türü**ayarlayın **Yapıt görünen ad** için **StorageAccount**ve bırakın **Açıklama** boş.
+
+   1. Düzenleyici kutusundaki **Şablon** sekmesinde aşağıdaki Resource Manager şablonunu yapıştırın.
+      Şablonu Yapıştır sonra seçin **parametreleri** sekmesini ve unutmayın şablon parametreleri **storageAccountType** ve **konumu** algılandı. Her parametre otomatik olarak algılandı ve doldurulur, ancak dinamik bir parametre olarak yapılandırılmış.
+
+      > [!IMPORTANT]
+      > Şablonu içe aktarıyorsanız, dosya yalnızca JSON ve HTML içermez emin olun. Github'da bir URL'ye işaret ettiğinizde, seçtiğiniz olduğunuzdan emin **ham** pure JSON dosyasını ve GitHub üzerinde görüntülemek için HTML ile sarmalanmış bir alınamıyor. İçeri aktarılan şablon saf JSON değilse bir hata oluşur.
+
+      ```json
+      {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+              "storageAccountType": {
+                  "type": "string",
+                  "defaultValue": "Standard_LRS",
+                  "allowedValues": [
+                      "Standard_LRS",
+                      "Standard_GRS",
+                      "Standard_ZRS",
+                      "Premium_LRS"
+                  ],
+                  "metadata": {
+                      "description": "Storage Account type"
+                  }
+              },
+              "location": {
+                  "type": "string",
+                  "defaultValue": "[resourceGroup().location]",
+                  "metadata": {
+                      "description": "Location for all resources."
+                  }
+              }
+          },
+          "variables": {
+              "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+          },
+          "resources": [{
+              "type": "Microsoft.Storage/storageAccounts",
+              "name": "[variables('storageAccountName')]",
+              "location": "[parameters('location')]",
+              "apiVersion": "2018-07-01",
+              "sku": {
+                  "name": "[parameters('storageAccountType')]"
+              },
+              "kind": "StorageV2",
+              "properties": {}
+          }],
+          "outputs": {
+              "storageAccountName": {
+                  "type": "string",
+                  "value": "[variables('storageAccountName')]"
+              }
+          }
+      }
+      ```
+
+   1. NET **storageAccountType** onay kutusu ve aşağı açılan liste yalnızca Resource Manager şablonu altında bulunan değerleri içerdiğini unutmayın **allowedValues**. Dinamik bir parametre ayarlamak için kutusunu seçin.
+
+   1. Seçin **Ekle** blueprint'e yapıt bu eklemek için.
 
    ![Blueprint yapıtı için Resource Manager şablonu](./media/create-blueprint-portal/add-resource-manager-template.png)
 
@@ -172,16 +173,16 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
 
 1. Seçin **sonraki: Yapıtları** sayfanın alt kısmındaki veya **Yapıtları** sayfanın üst kısmındaki sekme.
 
-1. Kaynak grubu altında bir rol ataması Ekle: 
+1. Kaynak grubu altında bir rol ataması Ekle:
 
-   a. Seçin **+ yapıt ekleme** doğrudan altında satır **ResourceGroup** girişi. 
-   
-   b. Seçin **rol ataması** için **Yapıt türü**. 
-   
-   c. Altında **rol**seçin **sahibi**, altındaki onay kutusunu temizleyin **Ekle kullanıcı, uygulama veya grup** kutusu. 
-   
-   d. İçin arama yapın ve bir kullanıcı, uygulama veya grup eklemek için seçin. Bu yapıt statik parametre kümesi bu blueprint'in tüm atamasını aynı kullanır. 
-   
+   1. Seçin **+ yapıt ekleme** doğrudan altında satır **ResourceGroup** girişi.
+
+   1. Seçin **rol ataması** için **Yapıt türü**.
+
+   1. Altında **rol**seçin **sahibi**, altındaki onay kutusunu temizleyin **Ekle kullanıcı, uygulama veya grup** kutusu.
+
+   1. İçin arama yapın ve bir kullanıcı, uygulama veya grup eklemek için seçin. Bu yapıt statik parametre kümesi bu blueprint'in tüm atamasını aynı kullanır.
+
    e. Seçin **Ekle** blueprint'e yapıt bu eklemek için.
 
    ![Blueprint yapıtı için ikinci rol ataması](./media/create-blueprint-portal/add-role-assignment-2.png)
@@ -217,15 +218,15 @@ Blueprint yayımlandıktan sonra bir aboneliğe atanabilir. Oluşturduğunuz pla
 
    Kullanılabilir desteklenen Enterprise sürümüne yönelik teklifleri varsa [Azure faturalama](../../billing/index.md), **Yeni Oluştur** bağlantısı altında etkinleştirilirse **abonelik** kutusu. Şu adımları uygulayın:
 
-   a. Seçin **Yeni Oluştur** var olanları seçmek yerine yeni bir abonelik oluşturmak için bağlantı.
+   1. Seçin **Yeni Oluştur** var olanları seçmek yerine yeni bir abonelik oluşturmak için bağlantı.
 
-   b. Sağlayan bir **görünen ad** yeni abonelik için.
+   1. Sağlayan bir **görünen ad** yeni abonelik için.
 
-   c. Kullanılabilir seçin **teklif** aşağı açılan listeden.
+   1. Kullanılabilir seçin **teklif** aşağı açılan listeden.
 
-   d. Seçmek için üç nokta kullanın [yönetim grubu](../management-groups/index.md) abonelik alt olacaktır.
+   1. Seçmek için üç nokta kullanın [yönetim grubu](../management-groups/index.md) abonelik alt olacaktır.
 
-   e. Seçin **Oluştur** sayfanın alt kısmındaki.
+   1. Seçin **Oluştur** sayfanın alt kısmındaki.
 
    ![Blueprint ataması abonelik için bir abonelik oluşturun](./media/create-blueprint-portal/assignment-create-subscription.png)
 
@@ -254,7 +255,8 @@ Blueprint yayımlandıktan sonra bir aboneliğe atanabilir. Oluşturduğunuz pla
 1. İçin **ResourceGroup**, sağlayan bir **adı** , **StorageAccount** ve **konumu** , **Doğu ABD 2** gelen aşağı açılan liste.
 
    > [!NOTE]
-   > Kaynak grubu altında sırasında şema tanımını eklediğiniz her bir yapıt için kaynak grubu veya onunla dağıtacaksınız nesne olması için bu yapıt girintili hale getirilir. Ya da parametre almaz veya atamanın tanımlanması için parametresiz olmalıdır yapıtları için yalnızca bağlamsal bilgiler listelenir.
+   > Kaynak grubu altında sırasında şema tanımını eklediğiniz her bir yapıt için kaynak grubu veya onunla dağıtacaksınız nesne olması için bu yapıt girintili hale getirilir.
+   > Ya da parametre almaz veya atamanın tanımlanması için parametresiz olmalıdır yapıtları için yalnızca bağlamsal bilgiler listelenir.
 
 1. Azure Resource Manager şablonu **StorageAccount**seçin **Standard_GRS** için **storageAccountType** parametresi.
 
@@ -294,7 +296,8 @@ Blueprint aboneliğe atanan, dağıtımın ilerleme durumunu doğrulayın:
 1. Sağ tıklayın, silmek ve istediğiniz şema **silme şema**. Ardından **Evet** ve onay iletişim kutusunda.
 
 > [!NOTE]
-> Bu yöntem bir blueprint'te silme, seçili şema yayımlanmış tüm sürümlerini siler. Tek bir sürüm silmek için şema açın, **sürümleri yayımlanan** sekmesinde, silmek ve ardından istediğiniz sürümü seçin **bu sürümü Sil**. Ayrıca, tüm şema atamasını, blueprint tanımının sildiğiniz kadar bir şema silemezsiniz.
+> Bu yöntem bir blueprint'te silme, seçili şema yayımlanmış tüm sürümlerini siler.
+> Tek bir sürüm silmek için şema açın, **sürümleri yayımlanan** sekmesinde, silmek ve ardından istediğiniz sürümü seçin **bu sürümü Sil**. Ayrıca, tüm şema atamasını, blueprint tanımının sildiğiniz kadar bir şema silemezsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

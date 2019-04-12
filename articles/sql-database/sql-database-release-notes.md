@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 04/10/2019
 ms.author: carlrab
-ms.openlocfilehash: c63ce51f442c8d7552c382f0e103be443afb9c75
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 9b961436c81282381f963d16c6c6dd5f289d1259
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360091"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495114"
 ---
 # <a name="sql-database-release-notes"></a>SQL veritabanı sürüm notları
 
@@ -25,7 +25,7 @@ Bu makalede, SQL veritabanı hizmeti ve SQL veritabanı belgeleri geliştirmeler
 
 | Özellik | Ayrıntılar |
 | ---| --- |
-| Elastik veritabanı işleri | Bilgi için [oluşturun, yapılandırın ve elastik işleri Yönet](elastic-jobs-overview.md) |
+| Esnek veritabanı işleri | Bilgi için [oluşturun, yapılandırın ve elastik işleri Yönet](elastic-jobs-overview.md) |
 | Elastik işlemler | [Bulut veritabanlarında dağıtılmış işlemler](sql-database-elastic-transactions-overview.md) |
 | Esnek sorgular | Bilgi için [esnek sorgu genel bakış](sql-database-elastic-query-overview.md) |
 | Çoğaltma ile yönetilen örnekleri |Bilgi için [bir Azure SQL veritabanı yönetilen örnek veritabanında çoğaltmayı yapılandırma](replication-with-sql-database-managed-instance.md)|
@@ -42,6 +42,8 @@ Bu makalede, SQL veritabanı hizmeti ve SQL veritabanı belgeleri geliştirmeler
 |Toplu iş modu Rowstore (altında uyumluluk düzeyi 150)|Bilgi için [Rowstore toplu iş modu](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)|
 |(Altında uyumluluk düzeyi 150) bellek ataması geri bildirimi (satır modu)|Bilgi için [bellek ataması geri bildirimi (satır modu)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
 |Tablo değişkeni ertelenmiş derleme (altında uyumluluk düzeyi 150)|Bilgi için [tablo değişkeni ertelenmiş derleme](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
+|SQL analizi|Bilgi için [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)|
+| Yönetilen örnek için saat dilimi desteği|Daha fazla bilgi için [saat diliminde Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance-timezone.md)|
 |||
 
 ## <a name="march-2019"></a>Mart 2019
@@ -57,6 +59,7 @@ Bu makalede, SQL veritabanı hizmeti ve SQL veritabanı belgeleri geliştirmeler
 
 | Belgeleri geliştirmeleri | Ayrıntılar |
 | --- | --- |
+| Yönetilen örnek için saat dilimi desteği|Daha fazla bilgi için [saat diliminde Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance-timezone.md)|
 | Tek veritabanları için eklenen günlük sınırları|Daha fazla bilgi için [tek veritabanı sanal çekirdek kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md).|
 | Elastik havuzlara ve havuza alınmış veritabanlarını eklenen günlük sınırları|Daha fazla bilgi için [elastik havuz sanal çekirdek kaynak sınırları](sql-database-vcore-resource-limits-elastic-pools.md).|
 | Ek işlem günlüğü oranı idare| Eklenen yeni içerikleri [işlem günlüğü oranı idare](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).|

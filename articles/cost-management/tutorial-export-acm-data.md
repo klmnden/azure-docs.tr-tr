@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 04/10/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a0b50b86ca164199ca723354e39e194c6cd7423f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: df893683c387f8d694500ae1ace93a5a146ea352
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014137"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496803"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Öğretici: Oluşturma ve dışarı aktarılan verileri yönetme
 
@@ -75,6 +75,10 @@ Dışarı aktarma seçenekleri üç tür vardır:
 
 **Özel** – haftalık zamanlama sağlar ve aylık hafta başından bugüne ve ay başından bu yana seçenekleriyle dışarı aktarır. *İlk dışarı aktarma hemen çalışacaktır.*
 
+Bir Kullandıkça Öde, MSDN veya Visual Studio aboneliğiniz varsa, fatura fatura döneminize Takvim ayına hizalanmıyor Abonelikler ve kaynak gruplarını bu tür için fatura döneminize veya takvim ayı hizalanmış bir dışarı aktarma oluşturabilirsiniz. Bir dışarı aktarma, fatura ayına göre oluşturmak için gidin **özel**, ardından **fatura dönemi için tarih**.  Takvim ayına göre bir dışarı aktarma oluşturmak için Seç **ay başından bu yana**.
+>
+>
+
 ![Yeni dışarı aktarma - özel bir haftalık hafta başından bugüne seçim gösteren temel sekmesi](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
 
 ## <a name="verify-that-data-is-collected"></a>Verilerin toplandığını doğrulama
@@ -93,6 +97,7 @@ Dosya, CSV dosyası uzantılarını açmak üzere ayarlanmış program veya uygu
 
 ![CSV Verileri Excel'de gösterilen örnek dışarı](./media/tutorial-export-acm-data/example-export-data.png)
 
+
 ## <a name="access-exported-data-from-other-systems"></a>Dışarı aktarılan verilere diğer sistemlerden erişme
 
 Maliyet Yönetimi verilerinizi dışarı aktarma amaçlarından biri, verilere dış sistemlerden erişmektir. Bir pano sistemi veya diğer finansal sistemi kullanabilirsiniz. Bu sistemler büyük ölçüde farklılık gösterdiğinden bir örnek vermek uygun olmaz.  Bununla birlikte, [Azure Depolama'ya giriş](../storage/common/storage-introduction.md) bölümünde uygulamalarınızdan verilerinize erişmeye başlayabilirsiniz.
@@ -108,4 +113,4 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 Boşta olan ve az kullanılan kaynakları belirleyerek verimliliği iyileştirmek ve geliştirmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Önerileri gözden geçirme ve gerekli eylemleri gerçekleştirme](tutorial-acm-opt-recommendations.md)
+> [Gözden geçirme ve iyileştirme önerileri üzerinde işlem yapma](tutorial-acm-opt-recommendations.md)

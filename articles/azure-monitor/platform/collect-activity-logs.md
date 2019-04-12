@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 4476bb0a5a343fd43ce5ed70cf0e493d0ccae0e9
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905996"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505643"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Toplama ve Azure İzleyici'de Log Analytics çalışma alanında Azure etkinlik günlüklerini çözümleme
 
 ![Azure etkinlik günlüklerini simgesi](./media/collect-activity-logs/activity-log-analytics.png)
 
-Etkinlik günlüğü analizi çözümü arayın ve çözümlemenize yardımcı olur. [Azure etkinlik günlüğü](../../azure-monitor/platform/activity-logs-overview.md) tüm Azure abonelikleri arasında. Azure etkinlik günlüğü aboneliklerinizdeki kaynakları üzerinde gerçekleştirilen işlemleri hakkında Öngörüler sunan bir günlüktür. Etkinlik günlüğü önceden olarak biliniyordu *denetim günlüklerini* veya *işlem günlüklerini* olayları Abonelikleriniz için raporları olduğundan.
+Etkinlik günlüğü analizi çözümü arayın ve çözümlemenize yardımcı olur. [Azure etkinlik günlüğü](activity-logs-overview.md) tüm Azure abonelikleri arasında. Azure etkinlik günlüğü aboneliklerinizdeki kaynakları üzerinde gerçekleştirilen işlemleri hakkında Öngörüler sunan bir günlüktür. Etkinlik günlüğü önceden olarak biliniyordu *denetim günlüklerini* veya *işlem günlüklerini* olayları Abonelikleriniz için raporları olduğundan.
 
 Etkinlik günlüğü'nü kullanarak belirleyebilirsiniz *ne*, *kimin*, ve *olduğunda* işlemlerini (PUT, POST, DELETE), aboneliğinizdeki kaynaklar için yapılan herhangi bir yazma için. Ayrıca, işlemleri ve diğer ilgili özellikler durumunu anlayabilirsiniz. Etkinlik günlüğünü okuma (GET) işlemlerini ya da Klasik dağıtım modelini kullanan kaynakları işlemlerinde dahil değildir.
 
@@ -52,28 +52,39 @@ Diğer birçok Azure İzleyici çözümlerinden farklı olarak, etkinlik günlü
 
 | Bağlı Kaynak | Desteklenen | Açıklama |
 | --- | --- | --- |
-| [Windows aracıları](../../azure-monitor/platform/agent-windows.md) | Hayır | Çözüm, Windows aracılarından bilgi toplamaz. |
-| [Linux aracıları](../../azure-monitor/learn/quick-collect-linux-computer.md) | Hayır | Çözüm, Linux aracılarından bilgi toplamaz. |
-| [SCOM yönetim grubu](../../azure-monitor/platform/om-agents.md) | Hayır | Bir bağlı SCOM yönetim grubundaki aracılardan çözüm herhangi bir bilgi toplamaz. |
+| [Windows aracıları](agent-windows.md) | Hayır | Çözüm, Windows aracılarından bilgi toplamaz. |
+| [Linux aracıları](../learn/quick-collect-linux-computer.md) | Hayır | Çözüm, Linux aracılarından bilgi toplamaz. |
+| [System Center Operations Manager yönetim grubu](om-agents.md) | Hayır | Bir Operations Manager yönetim grubuna raporlanan aracılardan çözüm herhangi bir bilgi toplamaz. |
 | [Azure depolama hesabı](collect-azure-metrics-logs.md) | Hayır | Çözüm, Azure depolama biriminden bir bilgi toplamaz. |
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Azure etkinlik günlüğü bilgilerine erişmek için bir Azure aboneliğinizin olması gerekir.
+Azure etkinlik günlüğü bilgilerine erişmek için bir Azure aboneliğinizin olması gerekir.
+
+Çözüm ayrıca aşağıdaki iki kaynak sağlayıcıları, aboneliğinize kayıtlı olduğundan gerektirir:
+
+1. Microsoft.OperationalInsights
+2. Microsoft.OperationsManagement
+
+Kaydolun veya kayıtlı oldukları doğrulamak hakkında bilgi edinmek için bkz: [Azure kaynak sağlayıcıları ve türleri](../../azure-resource-manager/resource-manager-supported-services.md)
 
 ## <a name="configuration"></a>Yapılandırma
 
 Etkinlik günlüğü analizi çözümü, çalışma alanları için yapılandırmak için aşağıdaki adımları gerçekleştirin.
 
-1. Etkinlik Günlüğü Analizi çözümünü [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview)'ten veya [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](../../azure-monitor/insights/solutions.md) başlığı altında açıklanan işlemi kullanarak etkinleştirin.
+1. [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
+
+2. Etkinlik Günlüğü Analizi çözümünü [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview)'ten veya [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](../insights/solutions.md) başlığı altında açıklanan işlemi kullanarak etkinleştirin.
+
 2. Etkinlik günlüklerini Log Analytics çalışma alanınıza dönmek için yapılandırın.
     1. Azure portalında çalışma alanınızı seçin ve ardından **Azure etkinlik günlüğü**.
     2. Her abonelik için abonelik adına tıklayın.  
+        
         ![Abonelik Ekle](./media/collect-activity-logs/add-subscription.png)
+    
     3. İçinde *SubscriptionName* dikey penceresinde tıklayın **Connect**.  
+    
         ![Abonelik'e bağlanma](./media/collect-activity-logs/subscription-connect.png)
-
-Çalışma alanınızı bir Azure aboneliğine bağlamak için Azure portalında oturum açın.  
 
 ## <a name="using-the-solution"></a>Çözümü kullanma
 
@@ -98,5 +109,5 @@ Etkinlik günlüğü verileri bir yalnızca görünür *sonra* etkinliği günl�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Oluşturma bir [uyarı](../../azure-monitor/platform/alerts-metric.md) belirli bir etkinlik olduğunda gerçekleşir.
-- Kullanım [günlük araması](../../azure-monitor/log-query/log-query-overview.md) , etkinlik günlüklerinden daha ayrıntılı bilgi görüntülemek için.
+- Oluşturma bir [uyarı](../platform/alerts-metric.md) belirli bir etkinlik olduğunda gerçekleşir.
+- Kullanım [günlük araması](../log-query/log-query-overview.md) , etkinlik günlüklerinden daha ayrıntılı bilgi görüntülemek için.

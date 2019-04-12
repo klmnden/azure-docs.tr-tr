@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/1/2019
 ms.author: mlottner
-ms.openlocfilehash: 40f771e97b61c28229b0eff29191247ef2fef695
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: d72980d6e27600cb844d5477d3b9a61d9e1573e4
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862854"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505626"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>IOT Edge Cihazınızda güvenlik modül dağıtma
 
@@ -75,8 +75,25 @@ IOT için Azure Güvenlik Merkezi için bir IOT Edge dağıtımı oluşturmak i�
 1. Gelen **Ekle modülleri** sekmesinde **dağıtım modülleri** alanı tıklayın **AzureSecurityCenterforIoT**. 
    
 1. Değişiklik **adı** için **azureiotsecurity**.
-1. Adını değiştirmek **görüntü URI'si** için **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.1**
-      
+1. Değişiklik **görüntü URI** için **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3**.
+1. Doğrulama **kapsayıcı oluşturma seçenekleri** değeri ayarı:      
+    ``` json
+    {
+        "NetworkingConfig": {
+            "EndpointsConfig": {
+                "host": {}
+            }
+        },
+        "HostConfig": {
+            "Privileged": true,
+            "NetworkMode": "host",
+            "PidMode": "host",
+            "Binds": [
+                "/:/host"
+            ]
+        }
+    }    
+    ```
 1. Doğrulayın **istenen özellikler kümesi modül ikizi** seçilir ve yapılandırma nesnesine değiştirin:
       
     ``` json
@@ -89,12 +106,16 @@ IOT için Azure Güvenlik Merkezi için bir IOT Edge dağıtımı oluşturmak i�
 1. **Kaydet**’e tıklayın.
 1. Sekmesini seçin ve En Alta kadar kaydır **Gelişmiş Edge çalışma zamanı ayarları Yapılandır**.
    
-  >[!Note]
-  > Yapmak **değil** AMQP iletişim IOT Edge hub'ı için devre dışı bırakın.
-  > Azure Güvenlik Merkezi IOT modülü IOT Edge hub'ı ile AMQP iletişim gerektirir.
+   >[!Note]
+   > Yapmak **değil** AMQP iletişim IOT Edge hub'ı için devre dışı bırakın.
+   > Azure Güvenlik Merkezi IOT modülü IOT Edge hub'ı ile AMQP iletişim gerektirir.
    
-1. Değişiklik **görüntü** altında **Edge hub'ı** için **mcr.microsoft.com/ascforiot/edgehub:1.05-preview**.
-      
+1. Değişiklik **görüntü** altında **Edge hub'ı** için **mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview**.
+
+   >[!Note]
+   > IOT modülü için Azure Güvenlik Merkezi SDK'sı üzerinde sürüm 1,20 tabanlı IOT Edge Hub çatalı oluşturulan bir sürümünü gerektirir.
+   > IOT Edge hub'ı görüntüsünü değiştirerek IOT Edge Cihazınızı çatalı oluşturulan sürüm resmi olarak IOT Edge hizmet tarafından desteklenmeyen IOT Edge Hub'ın en son kararlı sürüm yerine talimatını vermiş olursunuz.
+
 1. Doğrulama **oluşturma seçenekleri** ayarlanır: 
          
     ``` json
@@ -137,8 +158,8 @@ Bir sorunla karşılaşırsanız, kapsayıcı günlüklerini güvenlik modülü 
    
    | Ad | GÖRÜNTÜ |
    | --- | --- |
-   | azureIoTSecurity | MCR.microsoft.com/ascforiot/azureiotsecurity:0.0.1 |
-   | edgeHub | asotcontainerregistry.azurecr.io/edgehub:1.04-Preview |
+   | azureIoTSecurity | MCR.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
+   | edgeHub | mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    
    Gereken en düşük kapsayıcı yok, IOT Edge dağıtım bildiriminin bir önerilen ayarlarla hizalanır denetleyin. Daha fazla bilgi için [dağıtma IOT Edge Modülü](#deployment-using-azure-portal).

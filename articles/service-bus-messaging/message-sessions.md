@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: d6c46d6ebfa8ae44c9bfac4929d3478f6701758a
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: c767406ceec703b5c14680ec96fdf703c2316044
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497848"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500150"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>İleti oturumları: ilk çıkar (FIFO) ilk olarak, 
 
@@ -51,7 +51,7 @@ Eş zamanlı araya eklemeli ileti akışları koruma ve sıralı teslim güvence
 
 A [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) alıcı kabul eden bir oturumu istemci tarafından oluşturulur. İstemci çağrıları [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) veya [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) C#. Reaktif geri çağırma modelinde, bir oturum işleyici kaydeder.
 
-Zaman [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) nesne kabul edilir ve bir istemci tarafından açık tutulduğu sürece, istemci ile bu oturumun tüm iletiler özel bir Kilit tutan [SessionID](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) sıra veya abonelik, mevcut ve Ayrıca, sahip tüm iletiler üzerinde **SessionID** , yine de ulaşır oturumu açık tutulduğu sürece.
+Zaman [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) nesne kabul edilir ve bir istemci tarafından açık tutulduğu sürece, istemci ile bu oturumun tüm iletiler özel bir Kilit tutan [SessionID](/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) sıra veya abonelik, mevcut ve Ayrıca, sahip tüm iletiler üzerinde **SessionID** , yine de ulaşır oturumu açık tutulduğu sürece.
 
 Kilidi serbest bırakılır olduğunda **kapatın** veya **CloseAsync** olarak da bilinen veya kilit süresinin sona erdiği durumlarda uygulama olduğu kapatma işlemini gerçekleştiremiyor. Oturum kilidi uygulama artık ihtiyaç duyduğu veya herhangi bir ileti beklemiyor hemen oturum kapatmalısınız anlamı özel bir kilit gibi bir dosya üzerinde düşünülmelidir.
 

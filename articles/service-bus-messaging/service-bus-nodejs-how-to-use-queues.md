@@ -12,25 +12,31 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 32b566056de76d4e73b88c7ce37e148b4ecc3fd7
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 6159609f894f967e8ee372a0ee316eb900537aba
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587880"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500847"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>Node.js ile Service Bus kuyruklarını kullanma
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Bu makalede, Node.js ile Service Bus kuyruklarını kullanmayı açıklar. Örnekler, JavaScript'te yazılmış ve Node.js Azure modülü kullanır. Senaryoları ele alınmaktadır **kuyruk oluşturma**, **ileti gönderme ve alma**, ve **sıraları silme**. Kuyruklar hakkında daha fazla bilgi için bkz. [sonraki adımlar](#next-steps) bölümü.
+Bu öğreticide, bir Service Bus kuyruğundaki iletileri alıp ileti göndermek için Node.js uygulamalarının nasıl oluşturulacağını öğrenin. Örnekler, JavaScript'te yazılmış ve Node.js Azure modülü kullanır. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Önkoşullar
+1. Azure aboneliği. Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Etkinleştirebilir, [MSDN abone Avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) veya kaydolun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Çalışmak için bir kuyruk yoksa, izleyeceğiniz adımlar [Service Bus kuyruğuna oluşturmak için Azure portalını kullanın](service-bus-quickstart-portal.md) makalenin bir kuyruk oluşturun.
+    1. Hızlı Okuma **genel bakış** Service Bus **kuyrukları**. 
+    2. Hizmet veri yolu oluşturma **ad alanı**. 
+    3. Alma **bağlantı dizesi**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
+        > [!NOTE]
+        > Oluşturacağınız bir **kuyruk** Bu öğreticide Node.js kullanarak Service Bus ad alanında. 
+ 
 
 ## <a name="create-a-nodejs-application"></a>Node.js uygulaması oluşturma
 Boş bir Node.js uygulaması oluşturun. Bir Node.js uygulaması oluşturma hakkında yönergeler için bkz: [oluşturun ve bir Azure Web sitesine bir Node.js uygulaması dağıtma][Create and deploy a Node.js application to an Azure Website], veya [Node.js bulut hizmeti] [ Node.js Cloud Service] Windows PowerShell kullanarak.
@@ -114,7 +120,7 @@ function handle (requestOptions, next)
 function (returnObject, finalCallback, next)
 ```
 
-İşleme sonra bu geri çağırma `returnObject` (istek sunucuya yanıt), geri çağırma ya da çağırmalıdır `next` diğer filtrelerle işleme devam etmek için veya yalnızca çağırma varsa `finalCallback`, hizmet sona erer çağırma.
+İşleme sonra bu geri çağırma `returnObject` (istek sunucuya yanıt), geri çağırma ya da çağırmalıdır `next` diğer filtrelerle işleme devam etmek için veya çağırma varsa `finalCallback`, hizmet çağrılmasını sonlandırır .
 
 Node.js için Azure SDK ile birlikte yeniden deneme mantığını iki filtre `ExponentialRetryPolicyFilter` ve `LinearRetryPolicyFilter`. Aşağıdaki kod oluşturur bir `ServiceBusService` kullanan nesne `ExponentialRetryPolicyFilter`:
 

@@ -17,25 +17,26 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b94004aa4b4834be80c13a044fcf7eb0023b6f7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 88c47e1090673eb0a56f12c2eaf790a0ac851c6b
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259873"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501153"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory erişim belirteçleri
 
 Erişim belirteçleri, güvenli bir şekilde Azure tarafından korunan API'leri çağırmak istemcileri etkinleştirir. Azure Active Directory (Azure AD) erişim belirteçleri [Jwt'ler](https://tools.ietf.org/html/rfc7519), Base64 kodlu Azure tarafından imzalanmış bir JSON nesnesi. İstemciler, yalnızca kaynak erişim belirteçleri belirtecin içeriği olarak donuk dizeler olarak hedeflenen değerlendirmeniz gerekir. Doğrulama ve hata ayıklama amacıyla, geliştiricilerin bir site gibi Jwt'ler çözebilen [jwt.ms](https://jwt.ms). İstemci erişim ya da uç noktasından (v1.0 veya v2.0) belirteci almak çeşitli protokoller kullanarak.
 
-Azure AD, ayrıca bir erişim belirteci isteğinde bulunduğunuzda uygulamanızın tüketim için erişim belirteci hakkında bazı meta verileri döndürür. Bu bilgiler, kapsamlar için geçerlidir ve erişim belirteci süre sonu içerir. Bu veriler, akıllı erişim belirteçleri erişim belirteci ayrıştırılamadı gerek kalmadan önbelleğe alma işlemi için uygulamanızı sağlar.
+Ne zaman istemci isteğiniz bir erişim belirteci, Azure AD uygulamanızın tüketim için erişim belirteci hakkında bazı meta veriler ayrıca döndürür. Bu bilgiler, kapsamlar için geçerlidir ve erişim belirteci süre sonu içerir. Bu veriler, akıllı erişim belirteçleri erişim belirteci ayrıştırılamadı gerek kalmadan önbelleğe alma işlemi için uygulamanızı sağlar.
 
 Uygulamanızın istemciler için erişim talep edebilir bir kaynak (web API'si) ise, erişim belirteçleri kullanılmak üzere kimlik doğrulaması ve yetkilendirme, kullanıcı, istemci, veren, izinleri ve diğer yararlı bilgiler sağlar. 
 
 Nasıl kaynak doğrulamak ve bir erişim belirteci içindeki taleplerin kullanılmasını öğrenmek için aşağıdaki bölümlere bakın.
 
-> [!NOTE]
-> Kişisel hesap (örneğin, hotmail.com veya outlook.com) ile istemci uygulamanızı test ederken, istemci tarafından alınan erişim belirteci donuk bir dize olduğunu fark edebilirsiniz. Erişilen kaynak şifrelenir ve istemci tarafından anlaşılan eski MSA (Microsoft hesabı) biletlerini istedi olmasıdır.
+> [!Important]
+> Erişim belirteci temel alınarak oluşturulur *İzleyici* belirtileç belirteç kapsamlar sahibi uygulama anlamına gelir.  Bu, bir kaynak ayarını nasıl `accessTokenAcceptedVersion` içinde [uygulama bildirimi](reference-app-manifest.md#manifest-reference) için `2` v2.0 erişim belirteci almak istemci v1.0 uç noktasını çağırma sağlar.  Benzer şekilde, bu erişim belirtecini değiştirme neden olduğu [isteğe bağlı bir talep](active-directory-optional-claims.md) , istemci alınan erişim belirteci değiştirmek için bir belirteç için istenen `user.read`, MS Graph kaynak sahibi olduğu.  
+> Aynı nedenden dolayı (hotmail.com veya outlook.com) gibi kişisel bir hesapla istemci uygulamanızı test ederken, istemci tarafından alınan erişim belirteci donuk bir dize olduğunu bulabilirsiniz. Erişilen kaynak şifrelenir ve istemci tarafından anlaşılan eski MSA (Microsoft hesabı) biletlerini istedi olmasıdır.
 
 ## <a name="sample-tokens"></a>Örnek belirteçleri
 

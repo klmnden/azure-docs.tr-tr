@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: c7163667ec370abf468b289cea231e86a4b5753f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 92680a453d93c8dc0189c6ae376449a8e7a22076
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046846"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499861"
 ---
 # <a name="how-to-reprovision-devices"></a>Cihazları yeniden sağlamak nasıl
 
@@ -27,7 +27,7 @@ Bir IOT çözümünü yaşam döngüsü boyunca, cihazlar IOT hub'ları arasınd
 
 * **Karantina**: Bir çözüm değişiklik benzer. Yapıyor, gizliliği ihlal edilmiş veya güncel olmayan bir cihaz IOT hub'ı tüm yapabileceğini olduğu güncelleştirin ve uyumluluk dönmek için atanabilir. Cihazın düzgün sonra ana hub'a sonra geçirilir.
 
-Çıkış daha fazla ayrıntılı genel bakış için bkz: [IOT Hub cihaz reprovisoning kavramları](concepts-device-reprovision.md).
+Çıkış daha fazla ayrıntılı genel bakış için bkz: [IOT Hub cihaz kavramları çıkış](concepts-device-reprovision.md).
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>Kayıt ayırma ilkesini yapılandırma
@@ -93,7 +93,7 @@ Bir kayıt girişi reprovisioning ilke, cihaz sağlama hizmeti örneği sağlama
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Reprovisioning daha fazla bilgi edinmek için [IOT Hub cihaz reprovisoning kavramları](concepts-device-reprovision.md) 
+- Reprovisioning daha fazla bilgi edinmek için [IOT Hub cihaz kavramları çıkış](concepts-device-reprovision.md) 
 - Daha fazla sağlama kaldırmayı bilgi edinmek için [nasıl daha önce otomatik olarak sağlanan cihazları sağlamasını kaldırmak](how-to-unprovision-devices.md) 
 
 

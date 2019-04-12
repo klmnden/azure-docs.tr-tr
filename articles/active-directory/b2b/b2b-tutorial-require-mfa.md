@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94e5f4eaf32815dd0342ef73705efb2c575b71bc
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: d83cad9c6681a9d1c852c3d874028ceb6913344f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294001"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496633"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Öğretici: B2B Konuk kullanıcıları için multi-Factor authentication yürürlüğe
 
@@ -72,7 +72,7 @@ Bu öğreticide senaryoyu tamamlamak için şunlar gereklidir:
 3.  Oturumunuzu kapatın.
 
 ## <a name="create-a-conditional-access-policy-that-requires-mfa"></a>MFA gerektiren bir koşullu erişim ilkesi oluşturma
-1.  [Azure portalınızda](https://portal.azure.com/) genel yönetici, güvenlik yöneticisi veya koşullu erişim yöneticisi olarak oturum açın.
+1.  Oturum açın, [Azure portalında](https://portal.azure.com/) Güvenlik Yöneticisi veya koşullu erişim Yöneticisi olarak.
 2.  Azure portalında **Azure Active Directory** seçeneğini belirleyin. 
 3.  **Azure Active Directory** sayfasında **Güvenlik** bölümünde **Koşullu erişim**’i seçin.
 4.  **Koşullu Erişim** sayfasında, üstteki araç çubuğunda **Yeni ilke**’yi seçin.

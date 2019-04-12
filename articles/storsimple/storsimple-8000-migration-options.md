@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/31/2019
+ms.date: 04/10/2019
 ms.author: alkohli
-ms.openlocfilehash: ea8a6d604187a25e5186d7200feba6aaab1f676a
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e8a5ae4a4ee9cfd5c39e8e399784ec65f2ee2660
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339462"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500915"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>5000-7000 Serisi Storsimple'dan verileri geçirmeye seçenekleri 
 
@@ -49,15 +49,28 @@ Verileri geçirmek için Azure dosya eşitleme hakkında daha fazla bilgi için 
 
 #### <a name="migrate-to-panzura-freedom-nas"></a>Panzura özgürlüğü NAS geçirme
 
-StorSimple 5000-7000 müşterilerin kendi verilerini Azure'da korumak için Panzura özgürlük NAS geçirmek seçebilirsiniz. Panzura özgürlük çözüm yayılan veri merkezleri, ofisleri, genel ve özel bulutların bir NAS çözümü sağlar. Çözüm, NFS, SMB ve mobil istemciler için yerel, karma ve bulut data iş akışları sağlar. Bu geçiş Panzura tarafından desteklenir ve geçiş desteği'nden isteyerek müşteriler başlayabilirsiniz [Panzura Web sitesi](https://panzura.com/storsimple-migration/).
+StorSimple 5000-7000 müşterilerin kendi verilerini Azure'da korumak için Panzura özgürlük NAS geçirmek seçebilirsiniz. Panzura özgürlük çözüm yayılan veri merkezleri, ofisleri, genel ve özel bulutların bir NAS çözümü sağlar. Çözüm, NFS, SMB ve mobil istemciler için yerel, karma ve bulut data iş akışları sağlar. 
+
+Bu geçiş Panzura tarafından desteklenir ve geçiş desteği'nden isteyerek müşteriler başlayabilirsiniz [Panzura Web sitesi](https://panzura.com/storsimple-migration/).
 
 #### <a name="migrate-to-cohesity"></a>İçin Cohesity geçirme
 
-Cohesity, veri, geçerli StorSimple 5000-7000 Cohesity veri platformuna azure'da geçirmenize olanak sağlar. Cohesity veri platformu dosyaları, yedeklemeler, nesneleri ve Vm'leri tek bir yerel bulut çözümünün birleştiren bir yazılım tanımlı web ölçeğindeki çözümüdür. Veri platformuna geçişten sonra yönetmek, koruma ve veri ve bulut uygulamaları üzerinden tek bir cam bölmeyle core'a sağlayın. En az üç düğüm olarak Cohesity ile başlayın. Daha fazla bilgi [Cohesity DataPlatform geçiş](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
+Cohesity, veri, geçerli StorSimple 5000-7000 Cohesity veri platformuna azure'da geçirmenize olanak sağlar. Cohesity veri platformu dosyaları, yedeklemeler, nesneleri ve Vm'leri tek bir yerel bulut çözümünün birleştiren bir yazılım tanımlı web ölçeğindeki çözümüdür. Veri platformuna geçişten sonra yönetmek, koruma ve veri ve bulut uygulamaları üzerinden tek bir cam bölmeyle core'a sağlayın. En az üç düğüm olarak Cohesity ile başlayın. 
+
+Daha fazla bilgi [Cohesity veri platformuna geçiş](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
 
 #### <a name="migrate-to-nasuni"></a>Nasuni için geçirme
 
-Nasuni, geçirme ve verilerini Azure'da korumak, StorSimple 5000-7000 müşteriler kolaylaştırır.  Nasuni önde gelen bir NAS Azure tabanlı depolama çözümü, müşterilere bulut ekonomisinden ve ölçek ile şirket içi çözümlerinden bekledikleri güvenlik ve performans sağlıyor.  Yüksek performanslı dosya depolama, Nasuni ve Azure tanıtıcı yedekleme ve DR sağlarken paylaşın ve verilerinizi dünyanın çeşitli yerlerinde merkezi dosya depolama yönetimi ile birlikte üzerinde işbirliği sağlamak yanı sıra. Nasuni, bugün kullanmaya başlayın – geçişinizi kolaylaştırmak için bir deneyimi vardır: https://info.nasuni.com/nasuni-storsimple-migration
+Nasuni, geçirme ve verilerini Azure'da korumak, StorSimple 5000-7000 müşteriler kolaylaştırır.  Nasuni önde gelen bir NAS Azure tabanlı depolama çözümü, müşterilere bulut ekonomisinden ve ölçek ile şirket içi çözümlerinden bekledikleri güvenlik ve performans sağlıyor.  Yüksek performanslı dosya depolama, Nasuni ve Azure tanıtıcı yedekleme ve DR sağlarken paylaşın ve verilerinizi dünyanın çeşitli yerlerinde merkezi dosya depolama yönetimi ile birlikte üzerinde işbirliği sağlamak yanı sıra. 
+
+Nasuni, bugün kullanmaya başlayın – geçişinizi kolaylaştırmak için bir deneyimi vardır: https://info.nasuni.com/nasuni-storsimple-migration
+
+#### <a name="migrate-to-talon-fast"></a>Talon hızlı geçirme
+
+Talon, StorSimple 5000-7000 müşterilerin daha da fazla işleviyle çok StorSimple platformda (sınırsız bulut kaynakları tarafından desteklenen küçük yerinde ayak izini) değerli avantajlarından yararlanmaya devam kolaylaştırır.  Hızlı Talon çözümü sayesinde müşteriler geçirebilirsiniz ve tutun verilerini azure'da artık bile küçük bir salt yazılım yerinde ayak izine sahip ve genel dosya gibi avantajları ekleme sırasında kilitleme, genel ad alanı ve çok siteli işbirliği.  Talon, şirket içi dosya sunucusu iş yüklerini kullanıcı iş akışı veya deneyimini riske atmadan olmadan birleştirilmiş, Azure tabanlı bir ayak uygulamasına geçirmek için genel müşteri ile çalışan bir sektör lideri Azure ekosistemi, çözümdür.  
+
+Bulut birleştirilmiş bir kuruluş evrim Geçiren hakkında daha fazla bilgi https://www.talonstorage.com/alliances/microsoft-storsimple.
+
 
 ## <a name="migration---frequently-asked-questions"></a>Geçişi - sık sorulan sorular
 

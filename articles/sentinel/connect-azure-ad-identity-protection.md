@@ -1,6 +1,6 @@
 ---
-title: Gözcü Azure önizlemede Azure AD kimlik koruması veri toplama | Microsoft Docs
-description: Gözcü Azure, Azure AD kimlik koruması verilerini nasıl toplayacağınızı öğrenin.
+title: Gözcü Azure Önizleme için Azure AD kimlik koruması verilere bağlanma | Microsoft Docs
+description: Azure Gözcü için Azure AD kimlik koruması veri bağlanmayı öğreneceksiniz.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 609aced38b7e30f78d81934867196c568dcc85ca
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d8306056655809c69af2ed39b5bbf8efebe05d3f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240007"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496172"
 ---
-# <a name="collect-data-from-azure-ad-identity-protection"></a>Azure AD kimlik koruması verileri toplama
+# <a name="connect-data-from-azure-ad-identity-protection"></a>Azure AD kimlik Koruması ' veri bağlama
 
 > [!IMPORTANT]
 > Azure Sentinel şu anda genel Önizleme aşamasındadır.
@@ -42,7 +42,7 @@ Azure AD kimlik koruması varsa olduğundan emin olun [ağınızda etkin](../act
 Varsa Azure AD kimlik koruması dağıtılan ve veri alma, uyarı verileri kolayca Azure Gözcü aktarılabilir.
 
 
-1. Azure Gözcü içinde seçin **veri toplama** ve ardından **Azure AD kimlik koruması** Döşe.
+1. Azure Gözcü içinde seçin **veri bağlayıcıları** ve ardından **Azure AD kimlik koruması** Döşe.
 
 2. Tıklayın **Connect** Azure Gözcü Azure AD kimlik koruması olaylarının akışını başlatmak için.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 94465e95dbf5f2eb381c124349bf8fda6622a6c2
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650300"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496888"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 
@@ -95,19 +95,11 @@ A **günlük profilini** etkinlik günlüğünüzü nasıl verilir denetimleri. 
 * Hangi olay kategorileri (yazma, silme, eylem) gönderilmelidir. *Günlük profilleri ve etkinlik günlüğü olayları "Kategori" anlamını farklıdır. Günlük profilinde "Kategori" işlem türü (yazma, silme, eylem) temsil eder. Bir etkinlik günlüğü olayında "Kategori" özelliği, kaynak veya olay (örneğin, yönetim, ServiceHealth, uyarı ve daha fazlası) türünü temsil eder.*
 * Hangi bölgeler (konumlara) aktarılması. Etkinlik günlüğünde çok sayıda olayları genel olaylar olarak eklemek "Genel" sağlayın.
 * Ne kadar süreyle etkinlik günlüğü, depolama hesabında tutulmalıdır.
-    - Bekletme günü sayısının sıfır günlükler süresiz olarak tutulur anlamına gelir. Aksi takdirde, değeri herhangi bir sayıda gün 1 ile 2147483647 arasında olabilir.
+    - Bekletme günü sayısının sıfır günlükler süresiz olarak tutulur anlamına gelir. Aksi takdirde, değeri herhangi bir sayıda gün 1 ile 365 arasında olabilir.
     - Bekletme ilkeleri ayarlayın, ancak yalnızca (örneğin, Event Hubs veya Log Analytics seçeneği seçili) günlükleri bir depolama hesabında depolama devre dışı, bekletme ilkeleri bir etkisi yoktur.
     - Bekletme ilkeleri uygulanan günlük, olduğundan, bir günün (UTC), şu anda sonra saklama günü günlüklerinden sonunda İlkesi silindi. Örneğin, bir günlük bir bekletme ilkesi olsaydı, bugün günün başında dünden önceki gün kayıtları silinir. Gece yarısı UTC, ancak bu günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir not silme işlemi başlar.
 
 Günlükleri yayan bir aynı abonelikte değil bir depolama hesabına veya olay hub'ı ad alanını kullanabilirsiniz. Ayarı yapılandıran kullanıcının her iki aboneliğin uygun RBAC erişiminiz olması gerekir.
-
-> [!NOTE]
->  Verileri güvenli bir sanal ağda olduğu bir depolama hesabına şu anda arşivlenemiyor.
-
-> [!WARNING]
-> 1 Kasım 2018'de JSON satırlarına değiştirildi depolama hesabında günlük veri biçimi. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
->
->
 
 Bu ayarlar, portalda etkinlik günlüğü dikey penceresindeki "Export" seçeneği aracılığıyla yapılandırılabilir. Bunlar aynı zamanda program aracılığıyla yapılandırılabilir [Azure İzleyici REST API'sini kullanarak](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlet'leri veya CLI. Bir abonelikte yalnızca tek bir günlük profili olabilir.
 

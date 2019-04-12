@@ -1,10 +1,10 @@
 ---
-title: Parça eşleme yöneticisi için performans sayaçları
+title: Parça eşleme Yöneticisi performansını izlemek için performans sayaçları oluşturma
 description: ShardMapManager sınıf ve veri bağımlı Yönlendirme performans sayaçları
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
@@ -12,18 +12,19 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 2823f997a38e280bdbf19beb3a478a73ef1ae842
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 5c6c923c86ea0c5968079188c87ec3988ec30142
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895185"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494927"
 ---
-# <a name="performance-counters-for-shard-map-manager"></a>Parça eşleme yöneticisi için performans sayaçları
+# <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Parça eşleme Yöneticisi performansını izlemek için performans sayaçları oluşturma
+
+Performans sayaçları performansını izlemek için kullanılan [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md) operations. Bu sayaçlar, Performans İzleyicisi'nde altında erişilebilir "esnek veritabanı: Shard Management"kategorisi.
 
 Performansını yakalayabilirsiniz bir [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md), özellikle kullanılırken [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md). Sayaçları Microsoft.Azure.SqlDatabase.ElasticScale.Client sınıfı yöntemleri ile oluşturulur.  
 
-Sayaçları performansını izlemek için kullanılan [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md) operations. Bu sayaçlar, Performans İzleyicisi'nde altında erişilebilir "esnek veritabanı: Shard Management"kategorisi.
 
 **En son sürümü için:** Git [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Ayrıca bkz: [en yeni elastik veritabanı istemci kitaplığı kullanmak için bir uygulamayı yükseltme](sql-database-elastic-scale-upgrade-client-library.md).
 
@@ -67,7 +68,7 @@ Performans sayaçlarını eşlemeleri ve parça eşlemesi üzerinde gerçekleşt
 
 ### <a name="see-also"></a>Ayrıca bkz.
 
-[Elastik Veritabanı özelliklerine genel bakış](sql-database-elastic-scale-introduction.md)  
+[Elastik veritabanı özelliklerine genel bakış](sql-database-elastic-scale-introduction.md)  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

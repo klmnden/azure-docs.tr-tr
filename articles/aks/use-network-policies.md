@@ -5,20 +5,20 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/08/2019
 ms.author: iainfou
-ms.openlocfilehash: a20dfcd9e2ef12252235b74455964d115d9aef9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29180d6c1bb5f0991a4f33c3b7c9418f84d8260c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181495"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494774"
 ---
 # <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Önizleme - ağ ilkelerini Azure Kubernetes Service (AKS) kullanarak pod'ları arasındaki trafiğin güvenliğini sağlama
 
 Kubernetes'te modern, mikro hizmet tabanlı uygulamaları çalıştırdığınızda, genellikle hangi bileşenlerin birbirleriyle iletişim kurabilir denetlemek istersiniz. En düşük öncelik ilkesini nasıl trafiği Azure Kubernetes Service (AKS) kümesini pod'ların arasında akış için uygulanmalıdır. Büyük olasılıkla, trafiği doğrudan arka uç uygulamaları engellemek istiyorsunuz diyelim. *Ağ İlkesi* özellik kubernetes pod'ların bir küme arasında giriş ve çıkış trafiği için kuralları tanımlamanıza olanak sağlar.
 
-Calico, bir açık kaynak ağ ve ağ güvenliği çözümleri Tigera tarafından kurulan Kubernetes Ağ İlkesi kuralları uygulayan bir ağ ilke altyapısı sunar. Bu makalede aks'deki pod'ları arasındaki trafik akışını denetlemek için Kubernetes ağ ilkeleri oluşturun ve Calico ağ ilke Altyapısı'nı gösterilmektedir.
+Bu makalede, ağ ilke Altyapısı'nı ve AKS pod'ların arasındaki trafik akışını denetlemek için Kubernetes ağ ilkeleri oluşturmak nasıl gösterir. Bu özellik şu anda önizleme sürümündedir.
 
 > [!IMPORTANT]
 > AKS Önizleme özellikleri, Self Servis ve kabul etme. Görüş ve hata topluluğumuza toplamak üzere önizlemeleri sağlanır. Ancak, Azure teknik destek birimi tarafından desteklenmez. Bir küme oluşturun veya var olan kümeleri için bu özellikleri ekleyin, bu özellik artık Önizleme aşamasındadır ve genel kullanılabilirlik (GA) mezunu kadar bu küme desteklenmiyor.
@@ -27,7 +27,7 @@ Calico, bir açık kaynak ağ ve ağ güvenliği çözümleri Tigera tarafından
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Azure CLI Sürüm 2.0.56 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
+Azure CLI Sürüm 2.0.61 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
 Ağ İlkesi kullanan bir AKS kümesi oluşturmak için önce aboneliğinizde özellik bayrağı etkinleştirin. Kaydedilecek *EnableNetworkPolicy* özellik bayrağı, kullanın [az özelliği kayıt] [ az-feature-register] komutu aşağıdaki örnekte gösterildiği gibi:
 
@@ -51,7 +51,35 @@ az provider register --namespace Microsoft.ContainerService
 
 Bir AKS kümesindeki tüm pod'ların gönderebilir ve varsayılan olarak, kısıtlama olmadan trafik alır. Güvenliği artırmak için trafik akışını denetleyen kuralları tanımlayabilirsiniz. Arka uç uygulamaları için gerekli ön uç Hizmetleri, genellikle yalnızca örneğin sunulur. Veya, veritabanı bileşenlerini yalnızca bunlara uygulama katmanları tarafından erişilebilir.
 
-Ağ ilkeleri pod'ları arasındaki trafik akışını denetlemenize olanak tanıyan Kubernetes kaynaklardır. İzin verme veya reddetme trafiği atanan etiketleri, ad alanı veya trafiği, bağlantı noktası gibi ayarları temel alarak seçebilirsiniz. YAML bildirimlerini ağ ilkeleri tanımlanır. Bu ilkeler ayrıca bir dağıtım veya hizmeti oluşturan daha geniş bir bildirim bir parçası olarak dahil edilebilir.
+Ağ İlkesi pod'ları arasındaki iletişim için erişim ilkeleri tanımlayan bir Kubernetes belirtimdir. Ağ ilkeleri kullanarak, göndermek ve trafiği almak ve bunları bir koleksiyona bir veya daha fazla etiket seçici eşleşen pod'ların uygulamak için kurallar kümesini tanımlarsınız.
+
+Bu ağ ilke kuralları YAML bildirimleri olarak tanımlanır. Ağ ilkeleri ayrıca dağıtım veya hizmeti oluşturan daha geniş bir bildirim bir parçası olarak dahil edilebilir.
+
+### <a name="network-policy-options-in-aks"></a>AKS içindeki Ağ İlkesi seçenekleri
+
+Azure Ağ İlkesi'ni uygulamak için iki yol sunar. Bir AKS kümesi oluşturduğunuzda bir ağ ilkesi seçeneği belirleyin. İlke seçeneği, Küme oluşturulduktan sonra değiştirilemez:
+
+* Adlı, Azure'un kendi uygulama *Azure ağ ilkeleri*.
+* *Calico ağ ilkeleri*, bir açık kaynak ağı ve ağ güvenlik çözümü tarafından kurulan [Tigera][tigera].
+
+Her iki uygulamalarını Linux kullanın *IPTables* belirtilen ilkelerini zorlamak için. İlkeler, izin verilen ve verilmeyen IP çiftleri kümeleri halinde çevrilir. Bu çiftler, ardından IPTable filtre kuralları programlanmıştır.
+
+Ağ İlkesi yalnızca Azure CNI (Gelişmiş) seçeneği ile çalışır. Uygulama için iki seçenek farklıdır:
+
+* *Azure ağ ilkeleri* -düğüm içi ağ için VM konağı alandaki bir köprünün Azure CNI ayarlar. Paketler köprü geçirdiğinizde filtreleme kurallarını uygulanır.
+* *Calico ağ ilkeleri* -düğüm içi trafik için Yerel Çekirdek rotaları Azure CNI ayarlar. İlkeler, pod'ın ağ arabiriminde uygulanır.
+
+### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Azure ve Calico ilke ve yeteneklerini arasındaki farklar
+
+| Özellik                               | Azure                      | Calico                      |
+|------------------------------------------|----------------------------|-----------------------------|
+| Desteklenen platformlar                      | Linux                      | Linux                       |
+| Desteklenen ağ seçenekleri             | Azure CNI                  | Azure CNI                   |
+| Kubernetes belirtimi ile uyumluluk | Desteklenen tüm ilke türleri |  Desteklenen tüm ilke türleri |
+| Ek özellikler                      | None                       | Genel ağ ilkesi, genel ağ ayarlayın ve ana bilgisayar bitiş noktası oluşan ilke modeli genişletilmiş. Kullanma hakkında daha fazla bilgi için `calicoctl` bu özellikler, genişletilmiş yönetmek için CLI bkz [calicoctl kullanıcı başvurusu][calicoctl]. |
+| Destek                                  | Azure destek ve mühendislik ekibi tarafından desteklenir | Calico topluluk desteği. Ek Ücretli destek hakkında daha fazla bilgi için bkz. [proje Calico destek seçenekleri][calico-support]. |
+
+## <a name="create-an-aks-cluster-and-enable-network-policy"></a>AKS kümesi oluşturma ve Ağ İlkesi'ni etkinleştirin
 
 Şimdi ağ ilkeleri, uygulamada görmek için oluşturun ve ardından trafik akışını tanımlayan bir ilkeyi açın:
 
@@ -59,9 +87,7 @@ Ağ ilkeleri pod'ları arasındaki trafik akışını denetlemenize olanak tanı
 * Pod etiketlerine bağlı trafiğine izin verin.
 * Ad alanını temel alan trafiğine izin verin.
 
-## <a name="create-an-aks-cluster-and-enable-network-policy"></a>AKS kümesi oluşturma ve Ağ İlkesi'ni etkinleştirin
-
-Ağ İlkesi, yalnızca küme oluşturulduğunda etkinleştirilebilir. Ağ İlkesi var olan bir AKS kümesi üzerinde etkinleştirilemiyor. 
+İlk olarak, Ağ İlkesi'ni destekleyen bir AKS kümesi oluşturalım. Ağ İlkesi özelliği, yalnızca küme oluşturulduğunda etkinleştirilebilir. Ağ İlkesi var olan bir AKS kümesi üzerinde etkinleştirilemiyor.
 
 Ağ İlkesi ile bir AKS kümesi kullanmak için kullanmalısınız [Azure CNI eklenti] [ azure-cni] ve kendi sanal ağ ve alt ağları tanımlayın. Ayrıntılı gerekli bir alt ağ aralıklarını planlama hakkında daha fazla bilgi için bkz. [Gelişmiş Ağ][use-advanced-networking].
 
@@ -71,6 +97,7 @@ Aşağıdaki örnek betik:
 * Bir Azure Active Directory (Azure AD) ile bir AKS kümesi kullanmak için hizmet sorumlusu oluşturur.
 * Atar *katkıda bulunan* izinlerini AKS Küme hizmet sorumlusu sanal ağ.
 * Bir AKS kümesi içinde tanımlı sanal ağ oluşturur ve ağ ilkesi sağlar.
+    * *Azure* Ağ İlkesi seçeneği kullanılır. Calico bunun yerine ağ ilke seçeneği olarak kullanmak için `--network-policy calico` parametresi.
 
 Kendi güvenli sağlamak *SP_PASSWORD*. Değiştirebilirsiniz *RESOURCE_GROUP_NAME* ve *küme_adı* değişkenleri:
 
@@ -122,7 +149,7 @@ az aks create \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
-    --network-policy calico
+    --network-policy azure
 ```
 
 Kümenin oluşturulması birkaç dakika sürer. Küme hazır olduğunda, yapılandırma `kubectl` kullanarak Kubernetes kümenize bağlanmak için [az aks get-credentials] [ az-aks-get-credentials] komutu. Bu komut, kimlik bilgilerini indirir ve Kubernetes CLI'yi bunları kullanacak şekilde yapılandırır:
@@ -454,6 +481,9 @@ Ağ kaynakları hakkında daha fazla bilgi için bkz. [kavramları Azure Kuberne
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues]
+[tigera]: https://www.tigera.io/
+[calicoctl]: https://docs.projectcalico.org/v3.5/reference/calicoctl/
+[calico-support]: https://www.projectcalico.org/support
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

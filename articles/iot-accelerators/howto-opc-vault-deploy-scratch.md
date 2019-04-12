@@ -1,5 +1,5 @@
 ---
-title: Azure IOT OPC UA sertifika yönetimi modülü sıfırdan dağıtma | Microsoft Docs
+title: Sıfırdan - Azure kasası OPC modülü dağıtma | Microsoft Docs
 description: Sıfırdan OPC kasası dağıtma
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: a3a9d21b70f16482f05d27aa0df8d8865459aeb4
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759628"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496905"
 ---
-# <a name="deploy-opc-vault-from-scratch"></a>Sıfırdan OPC kasası dağıtma
+# <a name="deploy-opc-vault-from-scratch"></a>OPC Vault'u sıfırdan dağıtma
 
-Azure IOT OPC UA sertifika yönetimi, ayrıca OPC kasası olarak yapılandırabilirsiniz, bir mikro hizmet kaydı, bildiğiniz ve sertifika yaşam döngüsü için OPC UA sunucu ve istemci uygulamalarını bulutta yönetin. Bu makalede sıfırdan OPC kasası dağıtma gösterilmektedir.
+Kasa OPC yapılandırma, kaydetme ve sertifika yaşam döngüsü OPC UA sunucusu ve istemci uygulamalarını bulutta yönetme bir mikro hizmetidir. Bu makalede sıfırdan OPC kasası dağıtma gösterilmektedir.
 
 ## <a name="configuration-and-environment-variables"></a>Yapılandırma ve ortam değişkenleri
 
@@ -132,7 +132,7 @@ Azure IOT Bilgisayarlarında çalışmak için kullanabileceğiniz IDE'ler bazı
 
 - [Visual Studio](https://www.visualstudio.com)
 - [Mac için Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac)
-- [Intellij Rider](https://www.jetbrains.com/rider)
+- [IntelliJ Rider](https://www.jetbrains.com/rider)
 - [Visual Studio Code](https://code.visualstudio.com)
 
 ### <a name="git-setup"></a>Git Kurulumu

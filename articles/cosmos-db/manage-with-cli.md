@@ -4,20 +4,18 @@ description: Azure CLI, Azure Cosmos DB hesabı, veritabanı ve kapsayıcıları
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 4/8/2019
 ms.author: mjbrown
-ms.openlocfilehash: c3028fd18bd9afefaa18f7f515a43a852ddef78a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1d19e58b2d1381725de490b68d9e4d00a2ca4cb6
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464408"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495490"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Azure CLI kullanarak Azure Cosmos kaynaklarını yönetme
 
-Aşağıdaki kılavuzda, Azure Cosmos DB hesapları, veritabanları ve Azure CLI kullanarak kapsayıcı yönetimini otomatikleştirmek için komutları açıklanır. Ayrıca, kapsayıcının aktarım hızını ölçeklendirme komutları içerir. Tüm Azure Cosmos DB CLI komutlarına ait başvuru sayfalarına [Azure CLI Başvurusu](https://docs.microsoft.com/cli/azure/cosmosdb) sayfasından erişilebilir. Daha fazla örnekleri de bulabilirsiniz [Azure Cosmos DB için Azure CLI örnekleri](cli-samples.md), oluşturma ve Cosmos DB hesapları, veritabanları ve kapsayıcılar, MongoDB, Gremlin, Cassandra ve tablo API'si için yönetme de dahil olmak üzere.
-
-Bu örnek CLI betiği, Azure Cosmos DB SQL API hesabı, veritabanı ve kapsayıcısı oluşturur.  
+Aşağıdaki kılavuzda, Azure Cosmos DB hesapları, veritabanları ve Azure CLI kullanarak kapsayıcı yönetimini otomatikleştirmek için sık kullanılan komutlar açıklanır. Tüm Azure Cosmos DB CLI komutlarına ait başvuru sayfalarına [Azure CLI Başvurusu](https://docs.microsoft.com/cli/azure/cosmosdb) sayfasından erişilebilir. Daha fazla örnekleri de bulabilirsiniz [Azure Cosmos DB için Azure CLI örnekleri](cli-samples.md), oluşturma ve Cosmos DB hesapları, veritabanları ve kapsayıcılar, MongoDB, Gremlin, Cassandra ve tablo API'si için yönetme de dahil olmak üzere.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -25,89 +23,92 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu, Azure CLI 2.
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB hesabı oluşturma
 
-Oturum tutarlılığı, Doğu ABD ve Batı ABD, etkin çok yöneticili SQL API'si ile bir Azure Cosmos DB hesabı oluşturmak için Azure CLI'yi açın veya cloud shell ve aşağıdaki komutu çalıştırın:
+Oturum tutarlılığı bölgelerde, Doğu ABD ve Batı ABD SQL API'si ile bir Azure Cosmos DB hesabı oluşturmak için aşağıdaki komutu çalıştırın:
 
 ```azurecli-interactive
 az cosmosdb create \
-   –-name "myCosmosDbAccount" \
-   --resource-group "myResourceGroup" \
+   --name mycosmosdbaccount \
+   --resource-group myResourceGroup \
    --kind GlobalDocumentDB \
-   --default-consistency-level "Session" \
-   --locations "EastUS=0" "WestUS=1" \
-   --enable-multiple-write-locations true \
+   --default-consistency-level Session \
+   --locations EastUS=0 WestUS=1 \
+   --enable-multiple-write-locations false
 ```
+
+> [!IMPORTANT]
+> Azure Cosmos hesap adı küçük harfle yazılmalıdır.
 
 ## <a name="create-a-database"></a>Veritabanı oluşturma
 
-Bir Cosmos DB veritabanı oluşturmak için Azure CLI'yi açın veya cloud shell ve aşağıdaki komutu çalıştırın:
+Bir Cosmos DB veritabanı oluşturmak için aşağıdaki komutu çalıştırın:
 
 ```azurecli-interactive
 az cosmosdb database create \
-   --name "myCosmosDbAccount" \
-   --db-name "myDatabase" \
-   --resource-group "myResourceGroup"
+   --name mycosmosdbaccount \
+   --db-name myDatabase \
+   --resource-group myResourceGroup
 ```
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 
-Bir Cosmos DB kapsayıcısı ile 1000 RU/sn ve bölüm anahtarı oluşturmak için Azure CLI'yi açın veya cloud shell ve aşağıdaki komutu çalıştırın:
+Bir bölüm anahtarı ve 400 RU/sn ile Cosmos DB kapsayıcısı oluşturmak için aşağıdaki komutu çalıştırın:
 
 ```azurecli-interactive
 # Create a container
 az cosmosdb collection create \
-   --collection-name "myContainer" \
-   --name "myCosmosDbAccount" \
-   --db-name "myDatabase" \
-   --resource-group "myResourceGroup" \
-   --partition-key-path = "/myPartitionKey" \
-   --throughput 1000
+   --collection-name myContainer \
+   --name mycosmosdbaccount \
+   --db-name myDatabase \
+   --resource-group myResourceGroup \
+   --partition-key-path /myPartitionKey \
+   --throughput 400
 ```
 
 ## <a name="change-the-throughput-of-a-container"></a>Bir kapsayıcının aktarım hızını değiştirme
 
-Bir Cosmos DB kapsayıcısı aktarım hızını 400 RU/s olarak değiştirmek için Azure CLI'yi açın veya cloud shell ve aşağıdaki komutu çalıştırın:
+1000 RU/s olarak bir Cosmos DB kapsayıcısı aktarım hızını değiştirmek için aşağıdaki komutu çalıştırın:
 
 ```azurecli-interactive
 # Update container throughput
 az cosmosdb collection update \
-   --collection-name "myContainer" \
-   --name "myCosmosDbAccount" \
-   --db-name "myDatabase" \
-   --resource-group "myResourceGroup" \
-   --throughput 400
+   --collection-name myContainer \
+   --name mycosmosdbaccount \
+   --db-name myDatabase \
+   --resource-group myResourceGroup \
+   --throughput 1000
 ```
 
 ## <a name="list-account-keys"></a>Hesap anahtarlarını Listele
 
-Azure Cosmos DB hesabı oluşturduğunuzda, hizmet, Azure Cosmos DB hesabına erişim sağlandığında kimlik doğrulaması için kullanılan iki ana erişim anahtarları oluşturur. İki erişim tuşu sağlayarak, Azure Cosmos DB, kesinti olmadan Azure Cosmos DB hesabınız için anahtarları yeniden sağlar. Salt okunur anahtarlar, salt okunur işlemler kimlik doğrulaması için de kullanılabilir. Var. iki okuma-yazma anahtarları (birincil ve ikincil) ve iki salt okunur anahtarlar (birincil ve ikincil) Aşağıdaki komutu çalıştırarak, hesabınız için anahtarları alabilirsiniz:
+Cosmos hesabınız için anahtarları almak için aşağıdaki komutu çalıştırın:
 
 ```azurecli-interactive
 # List account keys
 az cosmosdb list-keys \
-   --name "myCosmosDbAccount"\
-   --resource-group "myResourceGroup"
+   --name  mycosmosdbaccount \
+   --resource-group myResourceGroup
 ```
 
 ## <a name="list-connection-strings"></a>Liste bağlantı dizeleri
 
-Uygulamanızın Cosmos DB hesabına bağlanmak için bağlantı dizesi, aşağıdaki komutu kullanarak alınabilir.
+Cosmos hesabınız için bağlantı dizelerini almak için aşağıdaki komutu çalıştırın:
 
 ```azurecli-interactive
 # List connection strings
 az cosmosdb list-connection-strings \
-   --name "myCosmosDbAccount"\
-   --resource-group "myResourceGroup"
+   --name mycosmosdbaccount \
+   --resource-group myResourceGroup
 ```
 
 ## <a name="regenerate-account-key"></a>Hesap anahtarını yeniden oluştur
 
-Düzenli aralıklarla bağlantılarınızı daha güvenli olmasına yardımcı olmak için Azure Cosmos DB hesabınızın erişim anahtarlarını değiştirmeniz gerekir. Bir erişim anahtarı yeniden oluşturmak, bir erişim anahtarı kullanarak Azure Cosmos DB hesabına bağlantıları sağlamak için iki erişim tuşu atanır.
+Cosmos hesabınız için yeni bir birincil anahtarı yeniden oluşturmak için aşağıdaki komutu çalıştırın:
 
 ```azurecli-interactive
 # Regenerate account key
 az cosmosdb regenerate-key \
-   --name "myCosmosDbAccount"\
-   --resource-group "myResourceGroup" \
+   --name mycosmosdbaccount \
+   --resource-group myResourceGroup \
    --key-kind primary
 ```
 
@@ -116,5 +117,5 @@ az cosmosdb regenerate-key \
 Azure CLI hakkında daha fazla bilgi için bkz:
 
 - [Azure CLI'yı yükleme](/cli/azure/install-azure-cli)
-- [Azure CLI Başvurusu](https://docs.microsoft.com/cli/azure/cosmosdb)
+- [Azure CLI başvurusu](https://docs.microsoft.com/cli/azure/cosmosdb)
 - [Azure Cosmos DB için ek Azure CLI örnekleri](cli-samples.md)

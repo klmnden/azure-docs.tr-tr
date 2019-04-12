@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 701b08cafd2e6d38a68252ea5919c8f4cd7de9b4
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: dcfc341b89a3cfebcb5538f88481fd2fbb2936a7
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203661"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505830"
 ---
 ## <a name="set-up-your-project"></a>Projenizi ayarlama
 
@@ -51,12 +51,13 @@ Bu bölüm, yükleme ve Openıd Connect'i kullanarak bir ASP.NET projesi üzerin
 <!--end-collapse-->
 
 ## <a name="configure-the-authentication-pipeline"></a>Kimlik doğrulaması işlem hattı yapılandırın
+
 Aşağıdaki adımlar, bir OWIN ara yazılımını Openıd Connect kimlik doğrulamasını yapılandırmak için başlangıç sınıfı oluşturmak için kullanılır. Bu sınıf, IIS işlemi başladığında, otomatik olarak yürütülür.
 
 > [!TIP]
 > Projenizin kök klasöründe `Startup.cs` adlı bir dosya yoksa:
 > 1. Projenin kök klasörüne sağ: > `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Bunu, `Startup.cs` olarak adlandırın.
+> 2. Adlandırın `Startup.cs`
 >
 >> Seçilen sınıfın standart bir C# sınıfı değil OWIN Başlangıç Sınıfı olduğundan emin olun. Doğrulamak için ad alanının üzerinde `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` yazıp yazmadığını kontrol edin.
 
@@ -113,10 +114,10 @@ Aşağıdaki adımlar, bir OWIN ara yazılımını Openıd Connect kimlik doğru
                     ResponseType = OpenIdConnectResponseType.IdToken,
                     // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
                     // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
-                    // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter 
+                    // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
                     TokenValidationParameters = new TokenValidationParameters()
                     {
-                        ValidateIssuer = false
+                        ValidateIssuer = false // This is a simplification
                     },
                     // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
                     Notifications = new OpenIdConnectAuthenticationNotifications
@@ -140,6 +141,9 @@ Aşağıdaki adımlar, bir OWIN ara yazılımını Openıd Connect kimlik doğru
         }
     }
     ```
+
+> [!NOTE]
+> Ayar `ValidateIssuer = false` olduğu için bu hızlı başlangıçta bir basitleştirme. Gerçek sağlayıcısını doğrulamak için ihtiyacınız olan uygulamaları örnekleri bunun nasıl yapılacağını anlamak için bkz.
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Daha Fazla Bilgi

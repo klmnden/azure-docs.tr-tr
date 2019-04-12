@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: d22fffcb792227b4d0805abd005d8c050cb97248
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: e82b9ae96ae43278e22da22702d3d899abadb1b5
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006206"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505609"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Ana VHD görüntüsünü hazırlama ve özelleştirme
 
@@ -158,21 +158,20 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
 ```
 
-Otomatik Güncelleştirmeler el ile devre dışı bırakabilirsiniz.
+### <a name="disable-automatic-updates"></a>Otomatik Güncelleştirmeler devre dışı bırak
 
-Otomatik Güncelleştirmeler devre dışı bırakmak için:
+Yerel Grup İlkesi aracılığıyla otomatik güncelleştirmeler devre dışı bırakmak için:
 
-1. Office365'ndaki yönergeleri takip ederek yükleme [yazılım hazırlama ve yükleme](set-up-customize-master-image.md#software-preparation-and-installation).
-2. Yönergeleri izleyerek herhangi ek uygulamalar yüklemek [kullanıcı profili kapsayıcısı (FSLogix) ayarlamak](set-up-customize-master-image.md#set-up-user-profile-container-fslogix), [Windows Defender yapılandırma](set-up-customize-master-image.md#configure-windows-defender), ve [diğer uygulamalar ve kayıt defteri Yapılandırma](set-up-customize-master-image.md#other-applications-and-registry-configuration).
-3. Yerel sanal makine üzerinde Windows otomatik güncelleştirme hizmeti devre dışı bırakın.
-4. Açık **yerel Grup İlkesi Düzenleyicisi\\Yönetim Şablonları\\Windows bileşenleri\\Windows Update**.
-5. Sağ **otomatik güncelleştirme yapılandırma** ve **devre dışı bırakılmış**.
+1. Açık **yerel Grup İlkesi Düzenleyicisi\\Yönetim Şablonları\\Windows bileşenleri\\Windows Update**.
+2. Sağ **otomatik güncelleştirme yapılandırma** ve **devre dışı bırakılmış**.
 
 Ayrıca, bir komut istemi otomatik güncelleştirmeler devre dışı bırakmak için aşağıdaki komutu çalıştırabilirsiniz.
 
 ```batch
 reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
+
+### <a name="specify-start-layout-for-windows-10-pcs-optional"></a>Windows 10 bilgisayarları için (isteğe bağlı) başlangıç düzenini belirtin
 
 Windows 10 bilgisayarları için bir başlangıç düzenini belirtmek için bu komutu çalıştırın.
 

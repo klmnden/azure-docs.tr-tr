@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur, dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f3f041fa3b594b4b680d794c1c013e55b97da4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 0de9b3e3535253724d068f806b219736f6889477
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235198"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501604"
 ---
 # <a name="support-and-help-options-for-developers"></a>Geliştiriciler için destek ve Yardım seçenekleri
 
@@ -52,10 +52,9 @@ Burada *{Your arama terimlerini}* arama sözcüklerinizi karşılık gelir.
 
 ## <a name="use-the-development-support-tools"></a>Geliştirme Destek Araçları'nı kullanın
 
-| Aracı  | Açıklama  |
+| Tool  | Açıklama  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Yapıştırma kimliği veya talep adlarını ve değerlerini kodunu çözmek için erişim belirteci. |
-| [Hata kodu Çözümleyicisi](https://apps.dev.microsoft.com/portal/tools/errors)| Oturum açma sırasında alınan hata kodu yapıştırın veya sayfaları olası nedenleri ve çözümleri görmek için onay. |
 | [Microsoft Graph Gezgini](https://developer.microsoft.com/graph/graph-explorer)| Aracı istekleri ve yanıtları Microsoft Graph API karşı görmeniz olanak tanır. |
 
 ## <a name="post-a-question-to-stack-overflow"></a>Stack Overflow için bir soru gönderin

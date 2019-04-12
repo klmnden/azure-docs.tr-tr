@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2.0 ROPC kullanarak kullanıcılarının oturumunu kullanmasını | Microsoft Docs
+title: ROPC kullanarak kullanıcıların oturum açmak için Microsoft kimlik platformu kullan | Azure
 description: Kaynak sahibi parola kimlik bilgisi yetkisi kullanılarak destek tarayıcı olmayan kimlik doğrulaması akar.
 services: active-directory
 documentationcenter: ''
@@ -11,25 +11,25 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/28/2018
+ms.topic: conceptual
+ms.date: 04/12/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df9073bbf9789875c373bb7093ab1878a20c399f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8c1372263bfa3f684d30ad583bfb6a9d434c3cc2
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59274204"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499946"
 ---
-# <a name="azure-active-directory-v20-and-the-oauth-20-resource-owner-password-credential"></a>Azure Active Directory v2.0 ve OAuth 2.0 kaynak sahibi parola kimlik bilgisi
+# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft kimlik platformu ve OAuth 2.0 kaynak sahibi parola kimlik bilgisi
 
-Azure Active Directory (Azure AD) destekleyen [kaynak sahibi parola kimlik bilgisi (ROPC) verme](https://tools.ietf.org/html/rfc6749#section-4.3), bir uygulama parolasını doğrudan işleyerek kullanıcının oturum açmasını sağlar. Yüksek derecede güven ve kullanıcı Etkilenme ROPC akışı gerektirir ve daha güvenli, diğer akışlar kullanıldığında geliştiriciler bu akışı yalnızca kullanmanız gerekir.
+Microsoft kimlik platformu destekleyen [kaynak sahibi parola kimlik bilgisi (ROPC) verme](https://tools.ietf.org/html/rfc6749#section-4.3), bir uygulama parolasını doğrudan işleyerek kullanıcının oturum açmasını sağlar. Yüksek derecede güven ve kullanıcı Etkilenme ROPC akışı gerektirir ve daha güvenli, diğer akışlar kullanıldığında geliştiriciler bu akışı yalnızca kullanmanız gerekir.
 
-> [!Important]
-> * Azure AD v2.0 uç noktası, yalnızca Azure AD kiracılarıyla değil kişisel hesapları ROPC destekler. Yani bir kiracıya özgü uç nokta kullanmanız gerekir (`https://login.microsoftonline.com/{TenantId_or_Name}`) veya `organizations` uç noktası.
+> [!IMPORTANT]
+> * Microsoft kimlik platformu uç nokta ROPC değil kişisel hesaplar Azure AD kiracıları için yalnızca destekler. Yani bir kiracıya özgü uç nokta kullanmanız gerekir (`https://login.microsoftonline.com/{TenantId_or_Name}`) veya `organizations` uç noktası.
 > * Bir Azure AD kiracısına davet kişisel hesapları ROPC kullanamazsınız.
 > * Parolaları olmayan hesapları ROPC oturum açamaz. Bu senaryo için farklı bir akış uygulamanız için bunun yerine kullanmanızı öneririz.
 > * Kullanıcıların uygulamada oturum açmak için çok faktörlü kimlik doğrulaması (MFA) kullanmanız gerekiyorsa, bunun yerine engellenir.
@@ -44,10 +44,17 @@ Aşağıdaki diyagramda ROPC akışı gösterilmektedir.
 
 Tek bir istek ROPC akışıdır&mdash;IDP için istemci kimliği ve kullanıcı kimlik bilgilerini gönderir ve ardından belirteçleri iade alır. İstemci kullanıcının e-posta adresi (UPN) ve parola, bunu yapmadan önce istemeniz gerekir. Hemen başarılı bir isteği sonra istemci kullanıcının kimlik bilgilerini bellekten güvenli bir şekilde serbest bırakmalısınız. Bunları asla kaydetmeniz gerekir.
 
+> [!TIP]
+> Postman içinde bu isteğin yürütülmesi deneyin!
+> [![Postman içinde çalıştırın](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+
+
 ```
 // Line breaks and spaces are for legibility only.
 
-POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token?
+POST {tenant}/oauth2/v2.0/token
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &scope=user.read%20openid%20profile%20offline_access
@@ -96,11 +103,11 @@ Kullanıcı doğru kullanıcı adı veya parola sağlanan dolmadığından veya 
 
 | Hata | Açıklama | İstemci eylemi |
 |------ | ----------- | -------------|
-| `invalid_grant` | Kimlik doğrulaması başarısız oldu | Kimlik bilgileri yanlış veya istemci istenen kapsam için izniniz yok. Kapsamlar verilirse, bu olmayan bir `consent_required` suberror döndürülür. Bu meydana gelirse, istemci bir webview veya tarayıcı kullanarak etkileşimli bir istemi kullanıcı göndermesi gerekir. |
-| `invalid_request` | İsteği hatalı oluşturulmuş | İzin verme türü desteklenmiyor `/common` veya `/consumers` kimlik doğrulaması bağlamı.  Bunun yerine `/organizations` kullanın. |
+| `invalid_grant` | Kimlik doğrulaması başarısız oldu | Kimlik bilgileri yanlış veya istemci istenen kapsam için izniniz yok. Kapsamlar verilirse, bu olmayan bir `consent_required` hata döndürülür. Bu meydana gelirse, istemci bir webview veya tarayıcı kullanarak etkileşimli bir istemi kullanıcı göndermesi gerekir. |
+| `invalid_request` | İsteği hatalı oluşturulmuş | Üzerinde izin verme türü desteklenmiyor `/common` veya `/consumers` kimlik doğrulaması bağlamı.  Bunun yerine `/organizations` kullanın. |
 | `invalid_client` | Uygulamanın düzgün ayarlanır | Bu durum oluşabilir `allowPublicClient` özelliği ayarlanmamış true olarak [uygulama bildirimini](reference-app-manifest.md). `allowPublicClient` ROPC verme bir yeniden yönlendirme URI'si olmadığı için özellik gerekiyor. Azure AD özelliği ayarlanmazsa uygulama genel istemci uygulamanız ya da gizli bir istemci uygulama olup olmadığını belirleyemiyor. Genel istemci uygulamaları için yalnızca ROPC desteklenip desteklenmediğini unutmayın. |
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
 
 * ROPC kullanarak kendiniz için denemek [örnek konsol uygulaması](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
-* V2.0 uç noktası kullanması gerekip gerekmediğini belirlemek için aşağıdaki hakkında bilgi edinin: [v2.0 sınırlamaları](active-directory-v2-limitations.md).
+* V2.0 uç noktası kullanması gerekip gerekmediğini belirlemek için aşağıdaki hakkında bilgi edinin: [Microsoft Identity platform sınırlamaları](active-directory-v2-limitations.md).

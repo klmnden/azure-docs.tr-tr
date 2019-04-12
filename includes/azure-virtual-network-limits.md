@@ -2,18 +2,18 @@
 title: include dosyası
 description: include dosyası
 services: networking
-author: jimdial
+author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 02/07/2019
-ms.author: jdial
+ms.date: 04/10/2019
+ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: c6c57390e0a2fba0c79d3198df0f5577eb813f88
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ff6e08929d5ede86ba0632e7cfb38d81d21ca7ec
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553943"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503245"
 ---
 <a name="virtual-networking-limits-classic"></a>Aşağıdaki sınırlar yalnızca abonelik başına klasik dağıtım modeliyle yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, abonelik limitleri göre geçerli kaynak kullanımınızı görüntüleyin](../articles/networking/check-usage-against-limits.md).
 
@@ -44,7 +44,7 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | --- | --- |
 | Sanal ağlar |1000 |
 | Sanal ağ başına alt ağ sayısı |3.000 |
-| Sanal ağ başına sanal ağ eşlemesi |100 |
+| Sanal ağ başına sanal ağ eşlemesi |500 |
 | Sanal ağ başına DNS sunucusu |20 |
 | Sanal ağ başına özel IP adresleri |65,536 |
 | Ağ arabirimi özel IP adresleri |256 |
@@ -68,7 +68,7 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | Kaynak | Varsayılan limit | Üst sınır |
 | --- | --- | --- |
 | Genel IP adresi - dinamik | 1.000 temel. |Desteğe başvurun. |
-| Genel IP adresleri - statik | 200 temel. |Desteğe başvurun. |
+| Genel IP adresleri - statik | 1.000 temel. |Desteğe başvurun. |
 | Genel IP adresleri - statik | Standart için 200.|Desteğe başvurun. |
 | Genel IP ön ek boyutu (Önizleme) | /28 | /28 |
 

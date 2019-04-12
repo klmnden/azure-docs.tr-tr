@@ -3,17 +3,17 @@ title: Azure IOT Hub cihazı sağlama hizmeti, çoklu müşteri mimarisi için c
 description: Nasıl yapılır çoklu müşteri mimarisi için cihaz sağlama hizmeti örneği Cihazınızda sağlama
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/15/2018
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: ea071b704c58383ce52615bb1dfd88df8017ef7f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+manager: philmea
+ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544452"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500745"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Çoklu müşteri mimarisi için sağlama 
 
@@ -208,7 +208,7 @@ Bu bölümde, her VM üzerindeki Azure IOT C SDK'sı kopyalama. SDK, bir kiracı
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
 
-    Bu deponun boyutu şu anda 220 MB kadardır. Bu işlemin tamamlanması için birkaç dakika beklemeniz gerekebilir.
+    Bu işlemin tamamlanması için birkaç dakika beklemeniz gerekebilir.
 
 1. Her iki VM için yeni bir oluşturma **cmake** klasörün içinde depo ve bu klasöre Değiştir.
 
@@ -420,7 +420,7 @@ Ada göre kaynak grubunu silmek için:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Reprovisioning daha fazla bilgi edinmek için [IOT Hub cihaz reprovisoning kavramları](concepts-device-reprovision.md) 
+- Reprovisioning daha fazla bilgi edinmek için [IOT Hub cihaz kavramları çıkış](concepts-device-reprovision.md) 
 - Daha fazla sağlama kaldırmayı bilgi edinmek için [nasıl daha önce otomatik olarak sağlanan cihazları sağlamasını kaldırmak](how-to-unprovision-devices.md) 
 
 

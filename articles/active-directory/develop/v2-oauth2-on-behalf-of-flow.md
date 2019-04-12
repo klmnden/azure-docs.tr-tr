@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4de33bb02a008d6b394055c64119ac2a4fbc4d9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d0c7c29bf3094c3d5fc99b9906ee4469a6643317
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276057"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501612"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft kimlik platformu ve OAuth 2.0 On-Behalf-Of akış
 
@@ -33,7 +33,7 @@ OAuth 2.0 On-Behalf-Of akış (OBO) sırayla başka bir hizmet/web API'si çağ�
 
 > [!NOTE]
 >
-> - Microsoft kimlik platformu uç nokta, tüm senaryolar ve Özellikler desteklemiyor. Microsoft kimlik platformu uç noktasını kullanması gerekip gerekmediğini belirlemek için aşağıdaki hakkında bilgi edinin: [Microsoft Identity platform sınırlamaları](active-directory-v2-limitations.md). Özellikle, bilinen istemci uygulamaların Microsoft hesabı (MSA) ve Azure AD hedef kitlelere sahip uygulamalar için desteklenmez. Bu nedenle, OBO için yaygın bir onay Düzen hem kişisel ve iş veya Okul hesaplarında oturum istemciler için çalışmaz. Akışın bu adımın nasıl işleneceği hakkında daha fazla bilgi için bkz: [Orta katmanlı uygulama için onay sağlamasını](#gaining-consent-for-the-middle-tier-application).
+> - Microsoft kimlik platformu uç nokta, tüm senaryolar ve Özellikler desteklemiyor. Microsoft kimlik platformu uç noktasını kullanması gerekip gerekmediğini belirlemek için aşağıdaki hakkında bilgi edinin: [Microsoft Identity platform sınırlamaları](active-directory-v2-limitations.md). Özellikle, bilinen istemci uygulamaları, Microsoft hesabı (MSA) ve Azure AD hedef kitlelere sahip uygulamalar için desteklenmez. Bu nedenle, OBO için yaygın bir onay Düzen hem kişisel ve iş veya Okul hesaplarında oturum istemciler için çalışmaz. Akışın bu adımın nasıl işleneceği hakkında daha fazla bilgi için bkz: [Orta katmanlı uygulama için onay sağlamasını](#gaining-consent-for-the-middle-tier-application).
 > - Mayıs 2018'den itibaren bazı akış örtük türetilmiş `id_token` OBO akış için kullanılamaz. Tek sayfa uygulamaları (Spa'lar) geçirmesi gerekir bir **erişim** bir orta katman belirtecini OBO gerçekleştirmek için gizli bir istemci yerine akar. Hangi istemcilerin OBO çağrıları gerçekleştirebilir daha fazla bilgi için bkz. [sınırlamaları](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Protokol diyagramı
@@ -55,7 +55,7 @@ Aşağıdaki adımları OBO akışı oluşturan ve aşağıdaki diyagramda yard�
 
 ## <a name="service-to-service-access-token-request"></a>Hizmetten hizmete erişim belirteci isteği
 
-Bir erişim belirteci istemek için aşağıdaki parametrelerle kiracıya özgü v2.0 belirteç uç noktası için HTTP POST gerçekleştirin.
+Bir erişim belirteci istemek için kiracıya özgü Microsoft kimlik platformu belirteç uç noktası aşağıdaki parametrelerle bir HTTP POST olun.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
@@ -191,13 +191,13 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Orta katman uygulama için onay elde etme
 
-Uygulamanız için hedef kitle bağlı olarak, OBO akışın başarılı olduğu için farklı stratejiler düşünebilirsiniz. Her durumda, nihai amacıyla uygun izin verilen sağlamak içindir. Ancak oluşan nasıl hangi kullanıcıların uygulamanızı bağlıdır destekler. 
+Uygulamanız için hedef kitle bağlı olarak, OBO akışın başarılı olduğu için farklı stratejiler düşünebilirsiniz. Her durumda, nihai amacıyla uygun izin verilen sağlamak içindir. Ancak oluşan nasıl hangi kullanıcıların uygulamanızı bağlıdır destekler.
 
 ### <a name="consent-for-azure-ad-only-applications"></a>Azure yalnızca AD uygulamaları için onay
 
 #### <a name="default-and-combined-consent"></a>/.default ve birleştirilmiş onay
 
-Yalnızca iş veya Okul hesapları için gerek duyan uygulamalar için geleneksel "Bilinen istemci uygulamalar" yaklaşım yeterli olur. Orta katman uygulama istemci bildirimi bilinen istemci uygulamalar listesinde ekler ve ardından istemci birleştirilmiş onay akışı hem kendisi ve orta katman uygulama için tetikleyebilirsiniz. V2.0 uç noktası yapıldığını kullanarak [ `/.default` kapsam](v2-permissions-and-consent.md#the-default-scope). Bilinen istemci uygulamalarını kullanarak bir onay ekranında tetiklerken ve `/.default`, onay ekranında hem de istemci orta katman API için izinler gösterir ve ayrıca izinlere orta katman API'sı tarafından gerekli istek. Kullanıcı her iki uygulama için onay sağlar ve ardından OBO akış çalışır.
+Yalnızca iş veya Okul hesapları için gerek duyan uygulamalar için geleneksel "Bilinen istemci uygulamalar" yaklaşım yeterli olur. Orta katman uygulama istemci bildirimi bilinen istemci uygulamalar listesinde ekler ve ardından istemci birleştirilmiş onay akışı hem kendisi ve orta katman uygulama için tetikleyebilirsiniz. Microsoft kimlik platformu noktadaki yapıldığını kullanarak [ `/.default` kapsam](v2-permissions-and-consent.md#the-default-scope). Bilinen istemci uygulamalarını kullanarak bir onay ekranında tetiklerken ve `/.default`, onay ekranında hem de istemci orta katman API için izinler gösterir ve ayrıca izinlere orta katman API'sı tarafından gerekli istek. Kullanıcı her iki uygulama için onay sağlar ve ardından OBO akış çalışır.
 
 Şu anda kişisel Microsoft hesap sistemi, birleştirilmiş onay desteklemiyor ve bu nedenle bu yaklaşım özellikle kişisel hesaplarında oturum açmak istediğiniz uygulamalar için çalışmaz. Kişisel Microsoft hesapları bir kiracıdaki Konuk hesabı olarak kullanılan Azure AD sistem kullanılarak ele alınır ve birleşik onayı ile gidebilirsiniz.
 
@@ -211,7 +211,7 @@ Bir kiracı Yöneticisi, uygulamaları Orta katmanlı bir uygulama için yöneti
 
 ### <a name="consent-for-azure-ad--microsoft-account-applications"></a>Azure AD için onay + Microsoft hesabı uygulaması
 
-Kişisel hesapları için izinler modeli ve değerlendirip Kiracı eksikliği kısıtlamalar nedeniyle, kişisel hesapları için izin gereksinimleri Azure AD'den bir bit büyük/küçük harf farklıdır. Kiracı genelinde izin sağlamak için Kiracı yok ya da olan var. yapabilme birleştirilmiş onay. Bu nedenle, mevcut diğer stratejiler kendilerini - bu uygulamalar için Azure AD hesapları desteklemek için tek gereken iş unutmayın.
+Kişisel hesapları için izinler modeli ve değerlendirip Kiracı eksikliği kısıtlamaları nedeniyle, kişisel hesapları için izin gereksinimleri Azure AD'den bir bit büyük/küçük harf farklıdır. Kiracı genelinde izin sağlamak için Kiracı yok ya da olan var. yapabilme birleştirilmiş onay. Bu nedenle, mevcut diğer stratejiler kendilerini - bu uygulamalar için Azure AD hesapları desteklemek için tek gereken iş unutmayın.
 
 #### <a name="use-of-a-single-application"></a>Tek bir uygulama kullanımı
 

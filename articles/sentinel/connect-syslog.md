@@ -1,6 +1,6 @@
 ---
-title: Azure Önizleme Gözcü Syslog verileri toplamayı | Microsoft Docs
-description: Azure Gözcü, Syslog verilerini nasıl toplayacağınızı öğrenin.
+title: Azure Önizleme Gözcü Syslog verilere | Microsoft Docs
+description: Azure Gözcü için Syslog veri bağlanmayı öğreneceksiniz.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 55949da97f58f1d8c1670f69d25e92d6bb4e9eef
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9144f20eae5a925ad88054e972c99ae024bcefe3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447311"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496531"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Syslog kullanarak dış çözümünüzü bağlayın
 
@@ -30,18 +30,18 @@ ms.locfileid: "57447311"
 Syslog ile Azure Gözcü destekleyen herhangi bir şirket içi gereç bağlanabilirsiniz. Bu, bir Linux makineye Gereci ve Azure Gözcü arasında dayalı bir aracı kullanarak gerçekleştirilir. Azure'da Linux makinenizde ise gereç veya uygulamayı Azure'da oluşturun ve bağlayın ayrılmış bir çalışma günlüklerinden akışını yapabilirsiniz. Azure'da Linux makinenizde değilse, günlükler, gereçten ayrılmış bir akışını şirket içi VM veya makine Linux için aracıyı yüklediğiniz. 
 
 > [!NOTE]
-> Gerecinize Syslog CEF destekliyorsa, daha kapsamlı bir bağlantıdır ve bu seçeneği belirleyin ve yönergeleri izleyin, [CEF verileri toplama](connect-common-event-format.md).
+> Gerecinize Syslog CEF destekliyorsa, daha kapsamlı bir bağlantıdır ve bu seçeneği belirleyin ve yönergeleri izleyin, [CEF verilere bağlanma](connect-common-event-format.md).
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
-Syslog koleksiyonu, Linux için aracıyı kullanılarak elde edilir. Varsayılan olarak, Linux için aracıyı olayların Syslog daemon'dan UDP üzerinden ancak gibi Linux Aracısı olaylar diğer cihazlardan alındığında, yapılandırma şekilde değiştirilir burada bir Linux makineye yüksek hacimli Syslog olayları toplamak için beklenen durumlarda alır Syslog daemon'ı ve aracıyı arasında TCP aktarımı kullanın.
+Syslog bağlantı, Linux için aracıyı kullanılarak elde edilir. Varsayılan olarak, Linux için aracıyı olayların Syslog daemon'dan UDP üzerinden ancak gibi Linux Aracısı olaylar diğer cihazlardan alındığında, yapılandırma şekilde değiştirilir burada bir Linux makineye yüksek hacimli Syslog olayları toplamak için beklenen durumlarda alır Syslog daemon'ı ve aracıyı arasında TCP aktarımı kullanın.
 
 ## <a name="connect-your-syslog-appliance"></a>Syslog gerecinize bağlanma
 
-1. Gözcü Azure portalında **veri toplama** ve **Syslog** Döşe.
+1. Gözcü Azure portalında **veri bağlayıcıları** ve **Syslog** Döşe.
 2. Linux makinenizi Azure içinde değilse, indirip Azure Gözcü **Linux için aracıyı** appliance'ınız üzerinde. 
 1. Azure'da çalışıyorsanız seçin veya bir VM, Syslog iletileri almaya ayrılmış Azure Gözcü çalışma alanı içinde oluşturun. Azure Gözcü çalışma alanlarında VM'yi seçin ve tıklayın **Connect** sol bölmenin üstünde.
-3. Tıklayın **günlüklerin toplanmasını yapılandırma** Syslog bağlayıcı Kurulumu edilene. 
+3. Tıklayın **bağlanması için günlüklerini yapılandırma** Syslog bağlayıcı Kurulumu edilene. 
 4. Tıklayın **yapılandırma dikey penceresini açmak için buraya basın**.
 1. Seçin **veri** ardından **Syslog**.
    - Tabloda, gönderdiğiniz her tesis Syslog tarafından olduğundan emin olun. Her özellik için oluşturacağınız izlemek için bir önem derecesini ayarlayın. **Uygula**'ya tıklayın.

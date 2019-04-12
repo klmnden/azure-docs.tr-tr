@@ -1,6 +1,6 @@
 ---
-title: Gözcü Azure önizlemede Azure etkinlik veri toplama | Microsoft Docs
-description: Gözcü Azure, Azure etkinlik verilerini nasıl toplayacağınızı öğrenin.
+title: Azure Önizleme Gözcü Azure etkinlik verilerinizi bağlayın | Microsoft Docs
+description: Azure etkinlik verilerinizi Azure Gözcü için bağlanmayı öğreneceksiniz.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 42ce8d06489cfacf7ba9bb3de1425224b5df95e7
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d0cc13227bfe02594a57a7fb0ba8ee1cb3383d56
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240584"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494687"
 ---
-# <a name="collect-data-from-azure-activity-log"></a>Azure etkinlik günlüğü'nden veri toplama
+# <a name="connect-data-from-azure-activity-log"></a>Azure etkinlik günlüğü'nden veri bağlama
 
 > [!IMPORTANT]
 > Azure Sentinel şu anda genel Önizleme aşamasındadır.
@@ -37,7 +37,7 @@ Günlüklerinden akışını [Azure etkinlik günlüğü](../azure-monitor/platf
 
 ## <a name="connect-to-azure-activity-log"></a>Azure etkinlik günlüğü için Bağlan
 
-1. Azure Gözcü içinde seçin **veri toplama** ve ardından **Azure etkinlik günlüğü** Döşe.
+1. Azure Gözcü içinde seçin **veri bağlayıcıları** ve ardından **Azure etkinlik günlüğü** Döşe.
 
 2. Azure etkinlik günlüğü bölmesinde Azure Gözcü akışını sağlamak istediğiniz abonelikleri seçin. 
 

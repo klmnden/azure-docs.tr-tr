@@ -1,6 +1,6 @@
 ---
-title: Gözcü Azure önizlemesinde Cisco veri toplama | Microsoft Docs
-description: Azure Gözcü, Cisco verilerini nasıl toplayacağınızı öğrenin.
+title: Azure Önizleme Gözcü Cisco verilere | Microsoft Docs
+description: Azure Gözcü için Cisco veri bağlanmayı öğreneceksiniz.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 37dcd1dd7052db864797407897851d57e91d43e5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 5bc57d448b8aa04b8cb6fb16000205fda8964150
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883922"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495711"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>Cisco ASA gerecinize bağlanma 
 
@@ -30,7 +30,7 @@ ms.locfileid: "58883922"
 Herhangi bir Cisco ASA gereç Azure Gözcü bağlanabilirsiniz. Cisco gereciniz CEF günlükleri kaydetmez olsa da, Azure Gözcü bunları aynı şekilde, CEF günlükleri işleme alır, böylece cisco ASA yerel olarak Azure Gözcü ile veri alımı için tümleşiktir. Gözcü Azure ile tümleştirme, kolayca analiz ve sorguları Cisco ASA ' arasında günlük dosyası verilerini çalıştırmanızı sağlar. 
 
 > [!NOTE]
-> - Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
+> Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
 
 ## <a name="step-1-connect-your-cisco-asa-appliance-using-an-agent"></a>1. Adım: Cisco ASA gerecinize bir aracı kullanarak bağlanma
 
@@ -42,7 +42,7 @@ Alternatif olarak, aracı vm'sinde başka bir bulut, mevcut bir Azure sanal maki
 
 ### <a name="deploy-the-agent-in-azure"></a>Aracıyı azure'da dağıtın
 
-1. Gözcü Azure portalında **veri toplama** ve gereç türünüzü seçin. 
+1. Gözcü Azure portalında **veri bağlayıcıları** ve gereç türünüzü seçin. 
 
 1. Altında **Linux Syslog aracı Yapılandırması**:
    - Seçin **otomatik dağıtım** yukarıda açıklandığı gibi Azure Gözcü aracıyla birlikte önceden yüklenir ve tüm yapılandırma gerekli içeren yeni bir makine oluşturmak istiyorsanız. Seçin **otomatik dağıtım** tıklatıp **otomatik aracı dağıtımı**. Bu, satın alma sayfasına, otomatik olarak çalışma alanınıza bağlı olduğu adanmış bir VM için götürür. VM bir **standart D2s v3 (2 vcpu, 8 GB bellek)** ve genel bir IP adresi vardır.
@@ -79,7 +79,7 @@ Alternatif olarak, aracı vm'sinde başka bir bulut, mevcut bir Azure sanal maki
 Azure kullanmıyorsanız, adanmış bir Linux sunucusu üzerinde çalıştırmak için Azure Gözcü aracıyı el ile dağıtın.
 
 
-1. Gözcü Azure portalında **veri toplama** ve gereç türünüzü seçin.
+1. Gözcü Azure portalında **veri bağlayıcıları** ve gereç türünüzü seçin.
 1. Altında adanmış bir Linux VM oluşturmak için **Linux Syslog aracı Yapılandırması** seçin **el ile dağıtım**.
    1. Altında **Syslog aracısını indirme ve yükleme**seçin **Azure olmayan Linux makine**. 
    1. İçinde **doğrudan aracı** seçtiğiniz açılır, ekran **Linux için aracıyı** aracıyı indirin veya Linux makinenizde indirmek için şu komutu çalıştırın:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`

@@ -1,6 +1,6 @@
 ---
-title: Gözcü Azure önizlemede Azure AD veri toplama | Microsoft Docs
-description: Gözcü Azure, Azure Active Directory verilerini nasıl toplayacağınızı öğrenin.
+title: Gözcü Azure Önizleme için Azure AD verilerine bağlanma | Microsoft Docs
+description: Azure Active Directory verilerini Azure Gözcü için bağlanmayı öğreneceksiniz.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b42fb982abb916503d530d5040641ba1dcce3c92
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f29ae9a8fcaecfc345efae02084f31d133e67b5d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575139"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494893"
 ---
-# <a name="collect-data-from-azure-active-directory"></a>Azure Active Directory'den veri toplama
+# <a name="connect-data-from-azure-active-directory"></a>Azure Active Directory'den veri bağlama
 
 > [!IMPORTANT]
 > Azure Sentinel şu anda genel Önizleme aşamasındadır.
@@ -38,7 +38,7 @@ Azure Sentinel sağlar, verileri toplamak [Azure Active Directory](../active-dir
 
 ## <a name="connect-to-azure-ad"></a>Azure AD'ye Bağlanma
 
-1. Azure Gözcü içinde seçin **veri toplama** ve ardından **Azure Active Directory** Döşe.
+1. Azure Gözcü içinde seçin **veri bağlayıcıları** ve ardından **Azure Active Directory** Döşe.
 
 2. Azure Gözcü akışı yapmak istediğiniz günlükleri yanındaki tıklayın **Connect**.
 

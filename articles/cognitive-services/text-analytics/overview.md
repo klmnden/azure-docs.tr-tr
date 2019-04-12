@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 03/01/2019
+ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: 59763b1146986b9920b87152101fd1dcdb00fece
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 054f0cf91904497b77fd08165808f9b4c381ecca
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904772"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500391"
 ---
 # <a name="what-is-text-analytics-api"></a>Metin analizi API'si nedir?
 
@@ -58,6 +58,18 @@ Yapabilecekleriniz [giriş metni olarak yazıldığı dili algılamak](how-tos/t
 Çıktı tek bir JSON belgesi olarak döndürülür ve kimlikle birlikte gönderdiğiniz tüm metin belgelerinin sonucunu içerir. Sonuçları daha sonra analiz ederek, görselleştirerek veya kategorilere ayırarak eyleme dönüştürülebilir içgörüler elde edebilirsiniz.
 
 Veriler hesabınızda depolanmaz. Metin Analizi API'si tarafından gerçekleştirilen işlemlerde durum bilgisi yoktur. Başka bir deyişle sağladığınız metin işlenir ve sonuçlar anında döndürülür.
+
+## <a name="text-analytics-for-multiple-programming-experience-levels"></a>Metin analizi için birden çok programlama deneyimi düzeyleri
+
+Programlamada deneyiminiz olmasa bile işlemlerinizi, metin analizi API'sini kullanmaya başlayabilirsiniz. Deneyim düzeyiniz uyacak şekilde farklı şekillerde metin analizi API'sini nasıl kullanabileceğinizi öğrenmek için bu öğreticileri kullanın. 
+
+* Gerekli en düşük programlama:
+    * [Metin analizi API'sini kullanın ve MS yorumların bir Yammer grubunda yaklaşım tanımlamak için Flow](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Power BI, müşteri geri bildirimi çözümlemek için metin analizi API'si ile tümleştirme](tutorials/tutorial-power-bi-key-phrases.md)
+* Önerilen programlama deneyimi:
+    * [Azure Databricks kullanarak akış verileri üzerinde yaklaşım analizi](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Metinleri çevirin, duyguları çözümleyin ve konuşma sentezlemek için bir Flask uygulaması derleme](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+
 
 <a name="supported-languages"></a>
 

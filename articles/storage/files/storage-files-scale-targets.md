@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 9cbb44fed8a9cc9e30e70e58f33fb943ee43b412
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 630ad1e0558fc089d79eee50175e497b771a0a8a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269172"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494978"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure dosyaları ölçeklenebilirlik ve performans hedefleri
 
@@ -76,9 +76,9 @@ Her aşamalar için dağıtım planlamanıza yardımcı olması için aşağıda
 
 | İlk tek seferlik sağlama  |  |
 |-|-|
-| Nesne sayısı | 10 milyon nesneleri |
-| Veri kümesi boyutu| ~ 4 TiB |
-| Ortalama dosya boyutu | Yaklaşık 500 KiB (en büyük dosya: 100 giB) |
+| Nesne sayısı | 25 milyon nesneleri |
+| Veri kümesi boyutu| ~4.7 TiB |
+| Ortalama dosya boyutu | Yaklaşık 200 KiB (en büyük dosya: 100 giB) |
 | Aktarım hızı karşıya yükleme | saniye başına 20 nesneleri |
 | Namespace indirme aktarım hızı * | Saniyede 400 nesneleri |
 

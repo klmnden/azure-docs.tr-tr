@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1897ddf328413decdc13cffaab0fb569d8d95665
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521678"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496599"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>İş durumunu ve iş akışları Otomasyonu, Azure İzleyici günlüklerine iletin.
 
@@ -32,7 +32,7 @@ Log Analytics çalışma alanınıza Automation runbook iş durumunu ve iş akı
 
 Azure İzleyici günlüklerine Otomasyon günlüklerinizi göndermeye başlamak için ihtiyacınız vardır:
 
-* Kasım 2016 veya sonraki sürümünün [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
+* En son sürümünü [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 * Log Analytics çalışma alanı. Daha fazla bilgi için [Azure İzleyici günlüklerine ile çalışmaya başlama](../log-analytics/log-analytics-get-started.md). 
 * Azure Automation hesabınız için ResourceId.
 
@@ -40,14 +40,14 @@ Azure Automation hesabınız için ResourceId bulmak için:
 
 ```powershell-interactive
 # Find the ResourceId for the Automation Account
-Get-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
+Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
 ```
 
 Log Analytics çalışma alanınız için ResourceId bulmak için aşağıdaki PowerShell komutunu çalıştırın:
 
 ```powershell-interactive
 # Find the ResourceId for the Log Analytics workspace
-Get-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
 Birden fazla Otomasyon hesapları varsa veya çalışma alanlarını önceki komut çıkışında bulun *adı* değerini kopyalayın ve yapılandırmak için ihtiyaç duyduğunuz *ResourceId*.
@@ -63,19 +63,20 @@ Bulmanız gerekiyorsa *adı* Otomasyon hesabınızda Azure portalında Otomasyon
    $workspaceId = "[resource id of the log analytics workspace]"
    $automationAccountId = "[resource id of your automation account]"
 
-   Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
+   Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
    ```
 
 Bu betiği çalıştırdıktan sonra bu kayıtları yeni JobLogs veya JobStreams yazılmakta olan Azure İzleyici günlüklerine başlamadan önce bir saat sürebilir.
 
-Günlükleri görmek için log analytics günlük araması aşağıdaki sorguyu çalıştırın: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Günlükleri görmek için log analytics günlük araması aşağıdaki sorguyu çalıştırın:
+`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Yapılandırmayı doğrulama
 
 Otomasyon hesabınızı, Log Analytics çalışma alanına günlükleri gönderme onaylamak için tanılama doğru Otomasyon hesabında aşağıdaki PowerShell kullanılarak yapılandırılıp yapılandırılmadığını denetleyin:
 
 ```powershell-interactive
-Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+Get-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 Çıktıda emin olun:
@@ -136,7 +137,8 @@ Azure Otomasyonu tanılamadan Azure İzleyici günlüklerine iki tür kayıt olu
 
 Azure İzleyici günlüklerine, Otomasyon iş günlüklerini göndermeye başladı, şimdi Azure İzleyici günlüklerine içinde bu günlükleri ile neler yapabileceğinize göz atın.
 
-Günlükleri görmek için aşağıdaki sorguyu çalıştırın: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Günlükleri görmek için aşağıdaki sorguyu çalıştırın:
+`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Bir runbook işi başarısız olursa veya askıya alır, bir e-posta Gönder
 Sık karşılaşılan müşteri birini ister bir şeyler ile bir runbook işi yanlış gittiğinde e-posta veya metin gönderme olanağı içindir.   
@@ -173,7 +175,7 @@ Otomasyon hesabından tanılama ayarını kaldırmak için aşağıdaki komutlar
 ```powershell-interactive
 $automationAccountId = "[resource id of your automation account]"
 
-Remove-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 ## <a name="summary"></a>Özet

@@ -1,6 +1,6 @@
 ---
-title: Gözcü Azure önizlemesinde cloud App Security veri toplama | Microsoft Docs
-description: Azure Gözcü, cloud App Security verilerini nasıl toplayacağınızı öğrenin.
+title: Gözcü Azure Önizleme için cloud App Security veri bağlayın | Microsoft Docs
+description: Azure Gözcü için cloud App Security veri bağlanmayı öğreneceksiniz.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b0033f5f8636053f88825541b8b2cfcbf2fc9f8b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5a7dfeed7b52453b38720c21c7d213679b8d2854
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245497"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496378"
 ---
-# <a name="collect-data-from-microsoft-cloud-app-security"></a>Microsoft Cloud App Security veri toplama 
+# <a name="connect-data-from-microsoft-cloud-app-security"></a>Microsoft Cloud App Security'den veri bağlama 
 
 > [!IMPORTANT]
 > Azure Sentinel şu anda genel Önizleme aşamasındadır.
@@ -39,7 +39,7 @@ Cloud App Security zaten varsa, olduğundan emin olun [ağınızda etkin](https:
 Cloud App Security dağıtılan ve verileriniz başlayan kümeniz, uyarı verileri kolayca Azure Gözcü aktarılabilir.
 
 
-1. Azure Gözcü içinde seçin **veri toplama** ve ardından **Cloud App Security** Döşe.
+1. Azure Gözcü içinde seçin **veri bağlayıcıları** ve ardından **Cloud App Security** Döşe.
 
 2. **Bağlan**'a tıklayın.
 
