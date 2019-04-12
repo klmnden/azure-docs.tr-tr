@@ -286,11 +286,11 @@ items:
         href: quickstart-v2-uwp.md
       - name: Windows Masaüstü .NET
         href: quickstart-v2-windows-desktop.md
+    - name: Daemon uygulamaları
+      items:
       - name: .NET Core konsolu (daemon)
         href: quickstart-v2-netcore-daemon.md
-    - name: Hizmetten hizmete
-      items:
-      - name: ASP .NET
+      - name: ASP.NET daemon Web uygulaması
         href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
   - name: Öğreticiler
     items:
@@ -326,19 +326,20 @@ items:
         href: authentication-scenarios.md
       - name: OAuth 2.0 ve OpenID Connect protokolleri
         href: active-directory-v2-protocols.md
-        items:
-        - name: OpenID Connect
-          href: v2-protocols-oidc.md
-        - name: OAuth 2.0 örtülü izin akışı
-          href: v2-oauth2-implicit-grant-flow.md
-        - name: OAuth 2.0 kimlik doğrulama kodu verme
-          href: v2-oauth2-auth-code-flow.md
-        - name: OAuth 2.0 on-behalf-of akışı
-          href: v2-oauth2-on-behalf-of-flow.md
-        - name: OAuth 2.0 istemci kimlik bilgileri verme
-          href: v2-oauth2-client-creds-grant-flow.md
-        - name: OAuth 2.0 kaynak sahibi parola kimlik bilgilerini verme
-          href: v2-oauth-ropc.md
+      - name: OpenID Connect
+        href: v2-protocols-oidc.md
+      - name: OAuth 2.0 örtülü izin akışı
+        href: v2-oauth2-implicit-grant-flow.md
+      - name: OAuth 2.0 kimlik doğrulama kodu verme
+        href: v2-oauth2-auth-code-flow.md
+      - name: OAuth 2.0 on-behalf-of akışı
+        href: v2-oauth2-on-behalf-of-flow.md
+      - name: OAuth 2.0 istemci kimlik bilgileri verme
+        href: v2-oauth2-client-creds-grant-flow.md
+      - name: OAuth 2.0 cihaz kodu akışı
+        href: v2-oauth2-device-code.md
+      - name: OAuth 2.0 kaynak sahibi parola kimlik bilgilerini verme
+        href: v2-oauth-ropc.md
       - name: İmzalama anahtarı geçiş işlemi
         href: active-directory-signing-key-rollover.md
       - name: Kimlik belirteçleri
@@ -394,12 +395,10 @@ items:
         href: howto-add-app-roles-in-azure-ad-apps.md
       - name: Marka yönergeleri
         href: howto-add-branding-in-azure-ad-apps.md
+      - name: Yayımcı etki alanı
+        href: howto-configure-publisher-domain.md
       - name: Hizmet Koşulları ve Gizlilik Bildirimi
         href: howto-add-terms-of-service-privacy-statement.md
-      - name: Java
-        items:
-        - name: Java web uygulamasının güvenliğini sağlama
-          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?toc=/java/azure/toc.json&bc=/java/azure/breadcrumb/toc.json
     - name: Visual Studio ile çalışma
       items:
       - name: Active Directory bağlı hizmetini kullanma
@@ -419,8 +418,8 @@ items:
     - name: Kimlik doğrulama kitaplıkları
       displayName: MSAL
       href: reference-v2-libraries.md
-    - name: Microsoft Graph Azure AD API'leri
-      href: https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview
+    - name: Microsoft Graph’taki API’leri tanımlama ve bunlara erişme
+      href: https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta
     - name: Uygulama bildirimi
       href: reference-app-manifest.md
     - name: Kimlik doğrulaması ve yetkilendirme hata kodları
@@ -436,6 +435,8 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Azure AD blogu
     href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
+  - name: Microsoft kimlik platformu geliştirici blogu
+    href: https://developer.microsoft.com/en-us/identity/blogs/
   - name: Microsoft’ta oturum açma özelliğini deneyin
     href: https://azure.microsoft.com/develop/identity/signin/
   - name: Yardım alma
@@ -443,9 +444,9 @@ items:
     href: developer-support-help-options.md
   - name: Azure kaynakları için yönetilen kimlikler
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 974758ddcaa4d855b395e982b6bc9a3b0b72e130
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9283d643717d4c516fb615a9ff5ec132a11e754c
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886616"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500439"

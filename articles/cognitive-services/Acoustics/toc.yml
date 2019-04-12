@@ -12,18 +12,24 @@ items:
     href: unreal-quickstart.md
 - name: Öğreticiler
   items:
-  - name: Unity Tasarım İş Akışı
-    href: unity-workflow.md
-  - name: Unreal/Wwise Tasarım İş Akışı
-    href: unreal-workflow.md
-  - name: Unity ile Akustik Simülasyon
-    href: unity-baking.md
-  - name: Unreal/Wwise ile Akustik Simülasyon
-    href: unreal-baking.md
+  - name: Unity
+    items:
+    - name: Unity ile Akustik Simülasyon
+      href: unity-baking.md
+    - name: Unity Tasarım İş Akışı
+      href: unity-workflow.md
+  - name: Unreal/Wwise
+    items:
+    - name: Unreal/Wwise ile Akustik Simülasyon
+      href: unreal-baking.md
+    - name: Unreal/Wwise Tasarım İş Akışı
+      href: unreal-workflow.md
 - name: Kavramlar
   items:
   - name: Akustik Simülasyon ile Tasarım Kavramları
     href: design-process.md
+  - name: Dalga Simülasyonu Çözümlemesi
+    href: bake-resolution.md
 - name: Nasıl yapılır makaleleri
   items:
   - name: Azure Batch Hesabı Oluşturma
@@ -38,9 +44,9 @@ items:
     href: faq.md
   - name: Bilinen Sorunlar
     href: known-issues.md
-ms.openlocfilehash: 37514a3f8c149c1e34b4e0faa8a7109290a80feb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a445890369e48f61dfa545d7107f46e3d0675a1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58138228"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495643"

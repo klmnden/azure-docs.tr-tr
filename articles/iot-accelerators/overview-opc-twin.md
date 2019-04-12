@@ -1,5 +1,5 @@
 ---
-title: Azure IOT OPC UA cihaz yönetimi nedir | Microsoft Docs
+title: OPC İkizi - Azure nedir | Microsoft Docs
 description: OPC İkizi'ne genel bakış
 author: dominicbetts
 ms.author: dobett
@@ -8,15 +8,16 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3bbc20aa61faafb1405fa756b334bae05ec4129b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9daf1a7e58af23cb78705691217bf9709359c4d5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759305"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496821"
 ---
 # <a name="what-is-azure-iot-open-platform-communications-opc-device-management"></a>Azure IOT açık Platform iletişim (OPC) cihaz yönetimi nedir?
-Azure IOT OPC UA cihaz yönetimi, OPC İkizi olarak da bilinen, Bulut ve Fabrika ağ bağlanmak için Azure IOT Edge ve IOT Hub'ı kullanan mikro oluşur. OPC İkizi bulma, kayıt ve REST API'ler aracılığıyla endüstriyel cihazlara uzaktan denetimi sağlar. OPC İkizi bir OPC birleşik mimari (OPC UA) SDK'sı dilden programlama ve sunucusuz bir iş akışında bulunan gerektirmez. Bu makalede, çeşitli OPC İkizi kullanım örnekleri açıklanmaktadır.
+
+Bulut ve Fabrika ağ bağlanmak için Azure IOT Edge ve IOT Hub'ı kullanan mikro OPC İkizi oluşur. OPC İkizi bulma, kayıt ve REST API'ler aracılığıyla endüstriyel cihazlara uzaktan denetimi sağlar. OPC İkizi bir OPC birleşik mimari (OPC UA) SDK'sı dilden programlama ve sunucusuz bir iş akışında bulunan gerektirmez. Bu makalede, çeşitli OPC İkizi kullanım örnekleri açıklanmaktadır.
 
 ## <a name="discovery-and-control"></a>Bulma ve Denetim
 Bulma ve kayıt için basit için OPC İkizi'ni kullanabilirsiniz.
@@ -41,4 +42,4 @@ OPC İkizi REST API'leri aracılığıyla tüm programlama dillerinde yazılan u
 OPC İkizi ve kullanımları hakkında öğrendiniz, önerilen sonraki adım aşağıda verilmiştir:
 
 > [!div class="nextstepaction"]
-> [OPC kasası nedir](overview-opc-twin-architecture.md)
+> [OPC Vault nedir?](overview-opc-twin-architecture.md)

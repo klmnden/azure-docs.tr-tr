@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2cceaf61129c6c756fadb3d41e825264fa23331f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.openlocfilehash: 3eed2bbb03334fed41bf0c74b1c287d9ca3f53eb
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278879"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501476"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
@@ -1107,7 +1107,7 @@ Yüzleri persistedFaceId ve belirtilen büyük yüz listesinde userData listeley
 Büyük yüz listesinde belirtilen yüzünün userData alanı tarafından kendi persistedFaceId güncelleştirin. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | Büyük yüz listenin largeFaceListId, adı, userData alın.
 LargeFaceListId, adı ve userData büyük yüz listelerini bilgilerini listeler. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Büyük yüz listesi eğitim görevi gönderin. Eğitim yalnızca eğitilen büyük yüz listesini tarafından kullanılan önemli bir adımdır |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Büyük yüz listesi eğitim görevi gönderin. Eğitim yalnızca eğitilen büyük yüz listesini kullanabileceğiniz bir adımdır. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/training/read | Tamamlanmış veya hala devam eden büyük yüz listesi eğitim durumunu denetlemek için. LargeFaceList eğitim zaman uyumsuz bir işlemdir |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | Kullanıcı tarafından belirtilen largeFaceListId, ad ve isteğe bağlı bir userData boş büyük yüz listesi oluşturun.
 Ad ve userData dahil olmak üzere büyük yüz listesinin bilgileri güncelleştirin. |
@@ -1123,7 +1123,7 @@ Personıd, adı, userData ve persistedFaceIds dahil olmak üzere, belirtilen bü
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/write | Adı veya bir kişinin userData güncelleştirin. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | Adına ve userData dahil olmak üzere, bir büyük kişi grubu bilgilerini alın. Bu API büyük kişi grubu bilgilerini döndürür.
 Tüm mevcut büyük kişi grupları'nın largePesonGroupId, adı ve userData listeleyin. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Büyük kişi grubu eğitim görev gönderin. Eğitim eğitilen büyük kişi grubu yalnızca bir kullanılabilir bir adımdır |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Büyük kişi grubu eğitim görev gönderin. Eğitim eğitilen büyük kişi grubu yalnızca bir kullanabileceğiniz bir adımdır. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/training/read | Tamamlanmış veya hala devam eden büyük kişi grubu eğitim durumunu denetlemek için. LargePersonGroup eğitim zaman uyumsuz bir işlemdir |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | Kullanıcı tarafından belirtilen largePersonGroupId, ad ve isteğe bağlı userData ile yeni bir büyük kişi grubu oluşturun.
 Mevcut bir büyük kişi grubun adı ve userData güncelleştirin. İstek gövdesinde olmadıkları özellikleri değişmeden kullanmaya devam edin. |
@@ -1139,7 +1139,7 @@ Personıd, adı, userData ve, persistedFaceIds dahil olmak üzere, belirtilen ki
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/write | Adı veya bir kişinin userData güncelleştirin. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Kişi grubu adı ve userData alın. Bu personGroup altında kişi bilgilerini almak için kullanın
 Kişi grupları'nın pesonGroupId, adı ve userData listeleyin. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Bir kişi grubu eğitim görev gönderin. Eğitim yalnızca bir eğitim almış bir kişi grubu tarafından kullanılan önemli bir adımdır |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Bir kişi grubu eğitim görev gönderin. Eğitim eğitilen kişi grubu yalnızca bir kullanabileceğiniz bir adımdır. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | Tamamlanmış veya hala devam eden kişi grubu eğitim durumunu denetlemek için. PersonGroup eğitim tetiklenen zaman uyumsuz bir işlem olduğu |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Belirtilen personGroupId, adı ve kullanıcı tarafından sağlanan userData ile yeni bir kişi grubu oluşturun.
 Var olan bir kişi grubun adı ve userData güncelleştirin. İstek gövdesinde olmadıkları özellikleri değişmeden kullanmaya devam edin. |

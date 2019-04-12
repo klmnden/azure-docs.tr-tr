@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 178ae177d3183d492540f03c8dc1dfa064ddeb22
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652447"
 documentType: LandingData
 title: App Service Belgeleri
 metadata:
   document_id: 6c8db72a-cdb7-8fb7-ed57-ed75afcca4d0
-  title: Azure App Service Belgeleri - Öğreticiler, API Başvurusu
-  meta.description: Learn how to use App Service to build and host websites and web applications, including RESTful APIs and mobile back ends.
+  title: 'Azure App Service Belgeleri - Öğreticiler, API Başvurusu'
+  meta.description: 'Learn how to use App Service to build and host websites and web applications, including RESTful APIs and mobile back ends.'
   services: app-service
   author: czeumault
   manager: carolz
@@ -21,148 +15,148 @@ metadata:
   ms.date: 01/23/2017
   ms.author: carolz
 abstract:
-  description: Azure App Service, altyapı yönetimine gerek kalmadan, kendi seçtiğiniz programlama dilinde web uygulamaları, mobil arka uçlar ve REST API'ler oluşturmanıza ve barındırmanıza olanak tanır. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar, hem Windows hem de Linux’ı destekler ve GitHub, Azure DevOps veya herhangi bir Git deposundan otomatik dağıtımlar sağlar. Hızlı başlangıçlarımız, öğreticilerimiz ve örneklerimizle Azure App Service’i kullanmayı öğrenin.
+  description: 'Azure App Service, altyapı yönetimine gerek kalmadan, kendi seçtiğiniz programlama dilinde web uygulamaları, mobil arka uçlar ve REST API''ler oluşturmanıza ve barındırmanıza olanak tanır. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar, hem Windows hem de Linux’ı destekler ve GitHub, Azure DevOps veya herhangi bir Git deposundan otomatik dağıtımlar sağlar. Hızlı başlangıçlarımız, öğreticilerimiz ve örneklerimizle Azure App Service’i kullanmayı öğrenin.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
-      src: https://docs.microsoft.com/azure/app-service/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png
+      src: 'https://docs.microsoft.com/azure/app-service/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png'
       width: 250
-    title: Node.js ve Azure App Service ile bir uygulama oluşturun. (2:41)
-    href: https://azure.microsoft.com/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/
+    title: 'Node.js ve Azure App Service ile bir uygulama oluşturun. (2:41)'
+    href: 'https://azure.microsoft.com/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/'
     width: 250
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: 'App Service kullanarak ilk uygulamanızı buluta dağıtmayı öğrenin:'
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        src: https://docs.microsoft.com/azure/app-service/media/index/logo_net.svg
-      text: .NET
-      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet
-    - image:
-        src: https://docs.microsoft.com/azure/app-service/media/index/logo_nodejs.svg
-      text: Node.js
-      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs
-    - image:
-        src: https://docs.microsoft.com/azure/app-service/media/index/logo_php.svg
-      text: PHP
-      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-php
-    - image:
-        src: https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg
-      text: Java
-      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java
-    - image:
-        src: https://docs.microsoft.com/azure/app-service/media/index/logo_python.svg
-      text: Python (Linux üzerinde)
-      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-python
-    - image:
-        src: https://docs.microsoft.com/azure/app-service/media/index/logo_html5.svg
-      text: HTML
-      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_docker.svg
-      text: Özel Windows kapsayıcısı (Önizleme)
-      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-windows-container
-  - type: paragraph
-    text: 'Kodunuzu dağıtmayı öğrenin:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'App Service kullanarak ilk uygulamanızı buluta dağıtmayı öğrenin:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_net.svg'
+            text: .NET
+            href: 'https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet'
+          - image:
+              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_nodejs.svg'
+            text: Node.js
+            href: 'https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs'
+          - image:
+              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_php.svg'
+            text: PHP
+            href: 'https://docs.microsoft.com/azure/app-service/app-service-web-get-started-php'
+          - image:
+              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg'
+            text: Java
+            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-java'
+          - image:
+              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_python.svg'
+            text: Python (Linux üzerinde)
+            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-python'
+          - image:
+              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_html5.svg'
+            text: HTML
+            href: 'https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html'
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
+            text: Özel Windows kapsayıcısı (Önizleme)
+            href: 'https://docs.microsoft.com/azure/app-service/app-service-web-get-started-windows-container'
+      - type: paragraph
+        text: 'Kodunuzu dağıtmayı öğrenin:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/zip.svg
+            text: ZIP/WAR
+            href: deploy-zip.md
+          - image:
+              src: media/index/ftp.svg
+            text: FTP
+            href: deploy-ftp.md
+          - image:
+              src: media/index/git-icon.svg
+            text: Yerel Git
+            href: deploy-local-git.md
+          - image:
+              src: 'https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg'
+            text: Azure DevOps
+            href: 'https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json'
+          - image:
+              src: media/index/github-octicons.svg
+            text: GitHub
+            href: deploy-continuous-deployment.md
+          - image:
+              src: media/index/bitbucket.svg
+            text: Bitbucket
+            href: deploy-continuous-deployment.md
+          - image:
+              src: media/index/dropbox.svg
+            text: DropBox eşitleme
+            href: deploy-content-sync.md
+          - image:
+              src: media/index/onedrive.svg
+            text: OneDrive eşitleme
+            href: deploy-content-sync.md
+  - title: Adım Adım Öğreticiler
     items:
-    - image:
-        src: media/index/zip.svg
-      text: ZIP/WAR
-      href: deploy-zip.md
-    - image:
-        src: media/index/ftp.svg
-      text: FTP
-      href: deploy-ftp.md
-    - image:
-        src: media/index/git-icon.svg
-      text: Yerel Git
-      href: deploy-local-git.md
-    - image:
-        src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
-      text: Azure DevOps
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
-    - image:
-        src: media/index/github-octicons.svg
-      text: GitHub
-      href: deploy-continuous-deployment.md
-    - image:
-        src: media/index/bitbucket.svg
-      text: Bitbucket
-      href: deploy-continuous-deployment.md
-    - image:
-        src: media/index/dropbox.svg
-      text: DropBox eşitleme
-      href: deploy-content-sync.md
-    - image:
-        src: media/index/onedrive.svg
-      text: OneDrive eşitleme
-      href: deploy-content-sync.md
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: Azure’da güvenli web uygulamaları dağıtma, yönetme ve izleme hakkında bilgi edinin
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Azure’da güvenli web uygulamaları dağıtma, yönetme ve izleme hakkında bilgi edinin'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase">Azure SQL DB ile .NET</a> veya <a href="/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app">MongoDB ile Node.js</a> kullanarak uygulama oluşturma
+          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mevcut bir özel etki alanını uygulamanıza eşleme </a>
+          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Mevcut bir SSL sertifikasını uygulamanıza bağlama</a>
+          - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">Uygulamanıza CDN ekleme</a>
+  - title: Microsoft Learn ile becerilerinizi geliştirin
     items:
-    - html: <a href="/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase">Azure SQL DB ile .NET</a> veya <a href="/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app">MongoDB ile Node.js</a> kullanarak uygulama oluşturma
-    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mevcut bir özel etki alanını uygulamanıza eşleme</a>
-    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Mevcut bir SSL sertifikasını uygulamanıza bağlama</a>
-    - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">Uygulamanıza CDN ekleme</a>
-- title: Microsoft Learn ile becerilerinizi geliştirin
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure App Service ile web uygulaması barındırma
+            href: /learn/modules/host-a-web-app-with-azure-app-service/
+            image:
+              src: /learn/achievements/host-a-web-app-with-azure-app-service.svg
+              href: /learn/modules/host-a-web-app-with-azure-app-service/
+      - type: paragraph
+        text: <a href="/learn/browse/">Daha fazla etkileşimli öğrenme içeriği...</a>
+  - title: Ücretsiz Pluralsight Video Eğitimi
     items:
-    - title: Azure App Service ile web uygulaması barındırma
-      href: /learn/modules/host-a-web-app-with-azure-app-service/
-      image:
-        src: /learn/achievements/host-a-web-app-with-azure-app-service.svg
-        href: /learn/modules/host-a-web-app-with-azure-app-service/
-  - type: paragraph
-    text: <a href="/learn/browse/">Daha fazla etkileşimli öğrenme içeriği...</a>
-- title: Ücretsiz Pluralsight Video Eğitimi
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: .NET ile geliştirme
+            href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+          - title: .Node.js ile geliştirme
+            href: 'https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+  - title: Örnekler
     items:
-    - title: .NET ile geliştirme
-      href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - title: .Node.js ile geliştirme
-      href: https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-- title: Örnekler
-  items:
-  - type: paragraph
-    text: Genel görevleri yönetmeye yönelik betikleri bulun.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: Genel görevleri yönetmeye yönelik betikleri bulun.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
+          - html: <a href="/cli/azure/appservice">Azure CLI</a>
+  - title: Başvuru
     items:
-    - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
-    - html: <a href="/cli/azure/appservice">Azure CLI</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Komut Satırı
-      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
-    - title: Diller
-      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/appservice">REST API başvurusu</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Komut Satırı
+            html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
+          - title: Diller
+            html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/appservice">REST API Başvurusu</a></p>
