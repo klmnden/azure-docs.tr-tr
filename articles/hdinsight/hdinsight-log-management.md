@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: ac1c1c4ae21ebd184b833fe4d23084f7cf324d2c
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 7ff89e12a1011c0a16644324584eb1610302b1b3
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500483"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544303"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight kümesi için günlükleri yönetme
 
@@ -176,5 +176,5 @@ Günlükler için tek bir merkezi konumda tüm düğümleri toplamak için tüm 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [İzleme ve HDInsight için uygulama günlüğe kaydetme](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Linux tabanlı HDInsight Apache Hadoop YARN uygulama oturum erişim](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Linux tabanlı HDInsight içinde erişim Apache Hadoop YARN uygulama günlüklerine](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Çeşitli Apache Hadoop bileşenleri için günlük dosyalarının boyutunu kontrol etme](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

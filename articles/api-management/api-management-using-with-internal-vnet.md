@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: da27c772a0650a923068b3c519ef39494573f96a
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 738dd451ca44801c799d793e6501c547655bd0e0
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793127"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524158"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Azure API Management hizmeti bir iç sanal ağ ile kullanma
 Azure sanal ağlar ile Azure API Management API'leri değil internet üzerinden erişilebilen yönetebilirsiniz. VPN'si teknolojileri birkaç bağlantı kurmak kullanılabilir. API Management, iki ana modda bir sanal ağ içinde dağıtılabilir:
@@ -45,6 +45,7 @@ Bu makalede açıklanan adımları gerçekleştirmek için aşağıdakiler gerek
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + **Azure API Management örneği**. Daha fazla bilgi için [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
++ Bir sanal ağ içinde bir API Management hizmet dağıtıldığında bir [bağlantı noktalarının listesi](./api-management-using-with-vnet.md#required-ports) kullanılır ve açılması gerekir. 
 
 ## <a name="enable-vpn"> </a>API yönetimi bir iç sanal ağ oluşturma
 API Management hizmeti bir iç sanal ağ içinde arkasında barındırılan bir [iç yük dengeleyici (Klasik)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Bu, kullanılabilecek tek seçenek budur ve değiştirilemez.

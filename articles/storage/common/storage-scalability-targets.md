@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 96322c730300e360ed03f4b623db2a7f18825f55
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e3e0e9ae4a1939aad9ab2ae42a1b51b1b00e2462
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267710"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521759"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Depolama hesapları için Azure depolama ölçeklenebilirlik ve performans hedefleri
 
@@ -58,13 +58,13 @@ Premium dosyalar için dikkate alınması gereken sınırlamalar üç kategoriye
 
 |Alan  |Hedef  |
 |---------|---------|
-|En küçük boyutu                        |100 GiB      |
-|Maksimum boyut                        |100 TiB      |
+|Sağlanan en küçük boyutu                        |100 GiB      |
+|En fazla sağlanan boyutunu                        |100 TiB      |
 |En küçük boyut artırma/azaltma    |1 giB      |
 |Temel IOPS    |100.000 adede kadar GiB başına 1 IOPS|
 |Patlaması IOPS    |100.000 adede kadar GiB başına 3 x IOPS|
-|En düşük bant genişliği                     |100        |
-|Bant Genişliği |0,1 5 GiB/sn kadar GiB başına MB/sn     |
+|Çıkış oranı         |60 MiB/sn + 0,06 * GiB sağlandı        |
+|Giriş oranı| 40 MiB/sn + 0.04 * GiB sağlandı |
 |Anlık görüntü sayısı        |200       |
 
 #### <a name="premium-file-limits"></a>Premium dosya sınırları
@@ -89,9 +89,9 @@ Azure dosya eşitleme ile sınırsız kullanım amacı tasarlanmıştır ancak s
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
-## <a name="see-also"></a>Ayrıca Bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 
-- [Depolama Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/storage/)
+- [Depolama fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/storage/)
 - [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../../azure-subscription-service-limits.md)
 - [Azure depolama çoğaltma](../storage-redundancy.md)
 - [Microsoft Azure Depolama Performansı ve Ölçeklenebilirlik Onay Listesi](../storage-performance-checklist.md)

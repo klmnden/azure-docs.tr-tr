@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a90a6811b1c59538db98b85d950906dba2969d57
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 33ca6c36cd11d53a3c50a8374181c511fd2f8c3e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338252"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549093"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) sürüm oluşturma
 
@@ -140,7 +140,7 @@ Tüm Azure depolama varlıkları göre adlandırılır `HubName` yapılandırma 
 İşlev uygulamasının yeni sürümünü yeni bir dağıtmanızı öneririz [dağıtım yuvası](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/). Dağıtım yuvaları ile etkin olarak bunlardan yalnızca biri, işlev uygulaması yan yana birden çok kopyasını çalıştırmanıza izin verir *üretim* yuvası. Mevcut altyapınızla yeni düzenleme mantığı kullanıma hazır olduğunuzda, yeni sürümü üretim yuvasına olarak değiştirme gibi basit olabilir.
 
 > [!NOTE]
-> Orchestrator işlevleri HTTP ve Web kancası Tetikleyicileri kullandığınızda, bu strateji en iyi şekilde çalışır. Kuyrukları veya Event Hubs gibi HTTP olmayan Tetikleyiciler için tetikleyici tanımında değiştirme işlemi bir parçası olarak güncelleştirilir bir uygulama ayarı türetilmelidir.
+> Orchestrator işlevleri HTTP ve Web kancası Tetikleyicileri kullandığınızda, bu strateji en iyi şekilde çalışır. Kuyrukları veya Event Hubs gibi HTTP olmayan Tetikleyiciler için tetikleyici tanımında gereken [bir uygulama ayarı türetilen](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) değiştirme işlemi bir parçası olarak güncelleştirilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

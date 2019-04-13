@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1c75d781c8a83b54ac9474c83388cf02b5d03e3c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2e2502e35b3720ddbfe5950b89e2388de378f2ba
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532091"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528127"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Bir ağ geçidi kaynağı istekleri yapılandırın
 
@@ -228,8 +228,8 @@ Tam bir ağ geçidi kaynak yapılandırma gibi görünür (Bu bulunan giriş ör
 ```
 
 Bu ağ geçidi, bir Linux uygulaması, "" helloWorldService"ve 80 numaralı bağlantı noktasında dinler" counterService"olmak üzere en az iki hizmet oluşan meshAppLinux" için yapılandırılır. Gelen istek URL'si yapısını bağlı olarak, bu isteği bu hizmetlerden biri için yönlendirir. 
-* "<IPAddress>: 80/helloWorld/\<isteği\>" helloWorldService "helloWorldListener" yönlendirilmesi isteğinde neden olur. 
-* "<IPAddress>: 80/sayaç/\<isteği\>" counterService "counterListener" yönlendirilmesi isteğinde neden olur. 
+* "\<IPADDRESS >: 80/helloWorld/\<isteği\>" helloWorldService "helloWorldListener" yönlendirilmesi isteğinde neden olur. 
+* "\<IPADDRESS >: 80/sayaç/\<isteği\>" counterService "counterListener" yönlendirilmesi isteğinde neden olur. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Dağıtma [giriş örnek](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress) ağ geçitleri iş başında görmek için

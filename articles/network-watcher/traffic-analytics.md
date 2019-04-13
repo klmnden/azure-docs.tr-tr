@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 7e90e42f768ceb333ac90f56249457ffa46ae461
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: cb61366a672a48cdc84e14f40d889e646e0e23b8
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491005"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545408"
 ---
 # <a name="traffic-analytics"></a>Trafik Analizi
 
@@ -369,3 +369,8 @@ Ortamınızda kötü amaçlı trafik var mı? Burada, kaynaklanan? Burada için 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
 Sık sorulan sorulara yanıtlar almak için bkz. [trafik Analizi ile ilgili SSS](traffic-analytics-faq.md).
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+- Akış günlüklerini etkinleştirme hakkında bilgi için bkz: [etkinleştirme NSG akış günlüğü](network-watcher-nsg-flow-logging-portal.md).
+- Şema ve ayrıntılarını trafik analizi işleme anlamak için bkz [trafik analizi şema](traffic-analytics-schema.md).

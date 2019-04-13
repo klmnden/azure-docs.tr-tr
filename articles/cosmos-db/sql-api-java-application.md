@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: 4d6d26bd142a62d57b55caa290a2a94a3988737d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a915792ad5cd1352c666f8224345c54e278ab899
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008679"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526886"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB ve SQL API’sini kullanarak bir Java web uygulaması oluşturma
 
@@ -71,7 +71,7 @@ JSP uygulaması oluşturmak için:
    
     ![Yeni bir JSP Dosyası Oluşturma - Java Web Uygulaması Öğreticisi](./media/sql-api-java-application/image11.png)
 5. **Select JSP Template (JSP Şablon Seçme)** iletişim kutusunda bu öğreticinin amacı doğrultusunda **New JSP File (html) (Yeni JSP Dosyası (html))** seçeneğini belirleyin ve ardından **Finish (Son)** düğmesine tıklayın.
-6. index.jsp dosyası Eclipse'te açıldığında, var olan **öğesinin içinde** <body>Hello World! (Merhaba Dünya!) ifadesinin görüntülenmesi için metni ekleyin. Güncelleştirilmiş <body> içeriği aşağıdaki kod gibi görünmelidir:
+6. index.jsp dosyası Eclipse'te açıldığında, var olan **öğesinin içinde** `<body>`Hello World! (Merhaba Dünya!) ifadesinin görüntülenmesi için metni ekleyin. Güncelleştirilmiş `<body>` içeriği aşağıdaki kod gibi görünmelidir:
    
         <body>
             <% out.println("Hello World!"); %>
@@ -99,8 +99,13 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
    ![SQL Java Uygulaması SDK'sını yükleme](./media/sql-api-java-application/image13.png)
      
    * Alternatif olarak, Grup Kimliği ve Yapıt Kimliği için bağımlılık XML'sini bir metin düzenleyicisi aracılığıyla doğrudan pom.xml'ye ekleyin:
-     
-        <dependency> <groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version> </dependency>
+        ```xml
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-documentdb</artifactId>
+            <version>1.9.1</version>
+        </dependency>
+        ```
 6. **Tamam**'a tıkladığınızda Maven SQL Java SDK'sını yükler.
 7. Pom.xml dosyasını kaydedin.
 

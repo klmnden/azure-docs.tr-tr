@@ -2,14 +2,14 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 5f1774e02a34b60a8a6e936b62905a0a27ccfb85
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 81bde837cd78646f1fc59d921246c72978ecb840
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891126"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551563"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure'da sanal makineler ile altyapıyı Otomasyon araçları kullanma
 Oluşturup uygun ölçekte tutarlı bir şekilde Azure sanal makineleri (VM'ler) yönetmek için Otomasyon biçimi genellikle istenildiği gibi. Birçok araca ve tam Azure altyapı dağıtımı ve Yönetimi yaşam döngüsünü otomatikleştirmenize olanak tanıyan çözümler vardır. Bu makalede, Azure'da kullanabileceğiniz altyapı Otomasyonu araçlardan bazıları tanıtılmaktadır. Bu araçlar genellikle aşağıdaki yaklaşımlardan birini sığacak:
@@ -57,17 +57,7 @@ Oluşturup uygun ölçekte tutarlı bir şekilde Azure sanal makineleri (VM'ler)
 
 Cloud-init, dağıtımlar arasında da çalışır. Örneğin, bir paket yüklemek için **apt-get install** veya **yum install** kullanmazsınız. Bunun yerine, yüklenecek paketlerin listesini tanımlayabilirsiniz. Cloud-init, seçtiğiniz dağıtım için yerel paket yönetim aracını otomatik olarak kullanır.
 
- Etkin olarak desteklenen Linux distro ortaklarımızla birlikte kullanılabilir cloud-init etkinleştirilmiş görüntüleri Azure Market'te sahip olmak için çalışıyoruz. Bu görüntüleri cloud-init dağıtımlarınızı yapın ve yapılandırmaları VM'ler ve sanal makine ölçek kümeleri ile sorunsuz bir şekilde çalışır. Aşağıdaki tabloda, Azure platformunda geçerli cloud-init etkinleştirilmiş görüntüleri kullanılabilirliği açıklanmaktadır:
-
-| Yayımcı | Sunduğu | SKU | Sürüm | cloud-init hazır
-|:--- |:--- |:--- |:--- |:--- 
-|Canonical |UbuntuServer |16.04-LTS |en son |evet | 
-|Canonical |UbuntuServer |14.04.5-LTS |en son |evet |
-|CoreOS |CoreOS |Dengeli |en son |evet |
-|OpenLogic |CentOS |7-CI |en son |önizleme |
-|RedHat |RHEL |7-RAW-CI |en son |önizleme |
-
-Azure'da cloud-init hakkında daha ayrıntılı bilgi edinin:
+Etkin olarak desteklenen Linux distro ortaklarımızla birlikte kullanılabilir cloud-init etkinleştirilmiş görüntüleri Azure Market'te sahip olmak için çalışıyoruz. Bu görüntüleri cloud-init dağıtımlarınızı yapın ve yapılandırmaları VM'ler ve sanal makine ölçek kümeleri ile sorunsuz bir şekilde çalışır. Azure'da cloud-init hakkında daha ayrıntılı bilgi edinin:
 
 - [Azure'da Linux sanal makineleri için cloud-init desteğine](../articles/virtual-machines/linux/using-cloud-init.md)
 - [Bir öğreticide cloud-init kullanarak otomatik VM yapılandırması deneyin](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).

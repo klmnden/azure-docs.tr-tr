@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: a56c4b0bac61bd2039138ffed554130c6e520821
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2d84a4dd0b69ce9ca7fc594dffce3238c620c426
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58167142"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543982"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service için SSH desteği
 
@@ -35,71 +35,11 @@ Ayrıca, kapsayıcıya SSH ve SFTP kullanarak doğrudan yerel geliştirme makine
 
 ## <a name="open-ssh-session-in-browser"></a>Tarayıcıda SSH oturum aç
 
-Kapsayıcınızı ile bir SSH istemcisi bağlantı kurmak için uygulamanızı çalıştırıyor olmalıdır.
-
-Aşağıdaki URL'yi değiştirin ve tarayıcı yapıştırın \<app_name > Uygulama adınız:
-
-```
-https://<app_name>.scm.azurewebsites.net/webssh/host
-```
-
-Önceden doğrulanmış değil, Azure aboneliğinizle bağlanmak için kimlik doğrulaması için gereklidir. Kimlik doğrulandıktan sonra bir tarayıcı içi Kabuk burada kapsayıcınızın komutları çalıştırabilirsiniz görürsünüz.
-
-![SSH bağlantısı](./media/app-service-linux-ssh-support/app-service-linux-ssh-connection.png)
+[!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-no-h.md)]
 
 ## <a name="use-ssh-support-with-custom-docker-images"></a>SSH desteği ile özel Docker görüntülerinizi kullanın
 
-Azure portalında kapsayıcı ile istemci arasındaki SSH iletişimi desteklemek özel bir Docker görüntüsü için sırada Docker görüntünüzü için aşağıdaki adımları gerçekleştirin.
-
-Azure App Service deposu olarak bu adımları gösterilen [örneği](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
-
-1. Dahil `openssh-server` yüklemesinde [ `RUN` yönerge](https://docs.docker.com/engine/reference/builder/#run) görüntü ve kök parolası hesap için kümesi için bir Dockerfile içinde `"Docker!"`.
-
-    > [!NOTE]
-    > Bu yapılandırma kapsayıcıya dış bağlantılar kurulmasına izin vermez. SSH yalnızca Kudu erişilebilir / yayımlama kimlik bilgilerini kullanarak kimlik doğrulaması SCM sitesine.
-
-    ```Dockerfile
-    # ------------------------
-    # SSH Server support
-    # ------------------------
-    RUN apt-get update \
-        && apt-get install -y --no-install-recommends openssh-server \
-        && echo "root:Docker!" | chpasswd
-    ```
-
-2. Ekleme bir [ `COPY` yönerge](https://docs.docker.com/engine/reference/builder/#copy) Dockerfile kopyalamak için bir [sshd_config](https://man.openbsd.org/sshd_config) dosyasını */etc/ssh/* dizin. Yapılandırma dosyanızı sshd_config dosyasında Azure App Service GitHub deposunda dayanmalıdır [burada](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config).
-
-    > [!NOTE]
-    > *Sshd_config* bağlantı başarısız veya dosyası şunları içermelidir: 
-    > * `Ciphers` aşağıdakilerden en az birini içermelidir: `aes128-cbc,3des-cbc,aes256-cbc`.
-    > * `MACs` aşağıdakilerden en az birini içermelidir: `hmac-sha1,hmac-sha1-96`.
-
-    ```Dockerfile
-    COPY sshd_config /etc/ssh/
-    ```
-
-3. Bağlantı noktasına 2222 Et [ `EXPOSE` yönerge](https://docs.docker.com/engine/reference/builder/#expose) Dockerfile için. Kök parolası biliniyor olsa da, 2222 numaralı bağlantı noktasına İnternet üzerinden erişilemez. Bir iç yalnızca bağlantı noktası erişilebilir yalnızca özel bir sanal ağın köprü ağı içinde kapsayıcılara göre var.
-
-    ```Dockerfile
-    EXPOSE 2222 80
-    ```
-
-4. Bir kabuk betiği kullanarak SSH hizmetini başlatmak emin olun (bkz örneğe [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
-
-    ```bash
-    #!/bin/bash
-    service ssh start
-    ```
-
-Dockerfile'ı kullanan [ `ENTRYPOINT` yönerge](https://docs.docker.com/engine/reference/builder/#entrypoint) betiği çalıştırmak için.
-
-    ```Dockerfile
-    COPY init_container.sh /opt/startup
-    ...
-    RUN chmod 755 /opt/startup/init_container.sh
-    ...
-    ENTRYPOINT ["/opt/startup/init_container.sh"]
-    ```
+Bkz: [yapılandırma SSH özel bir kapsayıcıda](configure-custom-container.md#enable-ssh).
 
 ## <a name="open-ssh-session-from-remote-shell"></a>Uzak kabuğundan SSH oturumu açın
 
@@ -111,10 +51,10 @@ TCP, tünel kullanarak bir geliştirme makineniz ve kapsayıcılar için Web uyg
 
 Başlamak için yüklemeniz gerekir [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI'yı yüklemeden nasıl çalıştığını görmek için [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-Uygulamayı kullanarak uzak bir bağlantı açmak [az webapp uzaktan bağlantı oluşturma](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) komutu. Belirtin  _\<abonelik\_kimliği >_,  _\<grubu\_adı >_ ve \_< app\_adı > _ uygulamanız için.
+Uygulamayı kullanarak uzak bir bağlantı açmak [az webapp uzaktan bağlantı oluşturma](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) komutu. Belirtin  _\<subscrıptıon-ID >_,  _\<grup-adı >_ ve \_uygulamanız için < Uygulama adı > _.
 
 ```azurecli-interactive
-az webapp remote-connection create --subscription <subscription_id> --resource-group <group_name> -n <app_name> &
+az webapp remote-connection create --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
 ```
 
 > [!TIP]

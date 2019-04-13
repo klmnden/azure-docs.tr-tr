@@ -2,20 +2,20 @@
 title: ETL yerine Azure SQL veri ambarı için ELT tasarlama | Microsoft Docs
 description: ETL yerine, verileri veya Azure SQL veri ambarı'nı yüklemek için ayıklama, yükleme ve dönüştürme (ELT) işlemi tasarlayın.
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 04/12/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 96f6da7e081430768b5a6f8fd874e289b8256271
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 2e65c1a33a60e19538a26e0f47f205235dd1695c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308491"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548673"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Azure SQL veri ambarı için stratejisi yüklenirken PolyBase veri tasarlama
 
@@ -99,7 +99,7 @@ PolyBase ile veri yükleme için şu yükleme seçeneklerinden herhangi birini k
 - [PolyBase ile T-SQL](load-data-from-azure-blob-storage-using-polybase.md) verilerinizi Azure Blob Depolama veya Azure Data Lake Store içinde olduğunda iyi çalışır. Yükleme işlemi üzerinde en çok denetimi verir, ancak Ayrıca, dış veri nesneleri tanımlamanızı gerektirir. Kaynak tablolarına hedef tablolara eşleme gibi diğer yöntemleri bu nesneleri Sahne arkasında tanımlayın.  T-SQL yükleri düzenlemek için Azure Data Factory, SSIS veya Azure işlevleri kullanabilirsiniz. 
 - [PolyBase ile SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) kaynak verilerinizi SQL Server'da SQL Server şirket içinde veya bulutta olduğunda iyi çalışır. SSIS kaynağı için hedef tablo eşlemelerini tanımlar ve ayrıca yük düzenler. SSIS paketlerini zaten varsa, yeni veri ambarı hedefi ile çalışmak için paketlerini değiştirebilirsiniz. 
 - [PolyBase ile Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) başka bir düzenleme aracıdır.  Bu, bir işlem hattı tanımlar ve işleri zamanlar. 
-- [PolyBase ile Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) aktarır verileri SQL veri ambarı tablodan bir Databricks veri çerçevesi için ve/veya bir SQL veri ambarı tablosuna bir Databricks dataframe verileri yazar.
+- [PolyBase ile Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) aktarır verileri SQL veri ambarı tablodan bir Databricks veri çerçevesi için ve/veya veri bir Databricks dataframe PolyBase kullanarak SQL veri ambarı tablo için yazar.
 
 ### <a name="non-polybase-loading-options"></a>Olmayan PolyBase yükleme seçenekleri
 

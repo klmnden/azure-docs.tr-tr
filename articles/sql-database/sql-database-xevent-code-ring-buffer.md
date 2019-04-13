@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: f47c6b63ce5f18aa896b086ec884b9a3020cadd2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bb493fc0a9d3a9173ef4faf17b3cdd4e3781a557
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993272"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526172"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Halka arabelleği hedef kodu için SQL veritabanı'nda genişletilmiş olaylar
 
@@ -223,7 +223,7 @@ Sonuçları görüntülemek için biz hücre bölümündeki sütun başlıkları
 
 Sonuçlar bölmesinde biz hücre bölümündeki sütun başlıklarından tıkladı ardından **target_data_XML**. Bunu başka bir dosya sekmesi, sonuç hücrenin içeriğinin, XML olarak görüntülenen ssms.exe oluşturdunuz.
 
-Çıktı aşağıdaki bloğunda gösterilmiştir. Uzun görünüyor, ancak bu yalnızca iki **<event>** öğeleri.
+Çıktı aşağıdaki bloğunda gösterilmiştir. Uzun görünüyor, ancak bu yalnızca iki  **\<olay >** öğeleri.
 
 &nbsp;
 

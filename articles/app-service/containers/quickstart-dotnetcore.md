@@ -5,7 +5,7 @@ keywords: azure app service, web uygulaması, dotnet, core, linux, oss
 services: app-service
 documentationCenter: ''
 author: cephalin
-manager: syntaxc4
+manager: jeconnoc
 editor: ''
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
 ms.service: app-service
@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/11/2018
-ms.author: cfowler
+ms.date: 03/27/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 43016b3c31a0371f953f758bc7afb53bd1508495
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: da4d246e098751f650eb6315de3794ad957884d6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278522"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543902"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Linux üzerinde App Service'te bir ASP.NET Core uygulaması oluşturma
 
@@ -41,8 +41,8 @@ Mac, Windows veya Linux makinesi kullanarak bu makaledeki adımları izleyebilir
 
 Bu hızlı başlangıcı tamamlamak için:
 
-* <a href="https://git-scm.com/" target="_blank">Git’i yükleme</a>
-* <a href="https://www.microsoft.com/net/core/" target="_blank">.NET Core'u yükleyin</a>
+* <a href="https://git-scm.com/" target="_blank">Git'i yükleyin</a>
+* <a href="https://www.microsoft.com/net/core/" target="_blank">.NET Core’u yükleme</a>
 
 ## <a name="create-the-app-locally"></a>Uygulamayı yerel olarak oluşturma
 
@@ -188,4 +188,7 @@ Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Linux üzerinde Azure App Service'te bir .NET Core ve SQL veritabanı uygulaması oluşturma](tutorial-dotnetcore-sqldb-app.md)
+> [Öğretici: SQL veritabanı ile ASP.NET Core uygulaması](tutorial-dotnetcore-sqldb-app.md)
+
+> [!div class="nextstepaction"]
+> [ASP.NET Core uygulaması yapılandırma](configure-language-dotnetcore.md)

@@ -1,19 +1,18 @@
 ---
-title: Azure Stream Analytics işi Azure Data Lake depolama Gen1 çıkışı için kimlik doğrulaması
+title: Azure Stream Analytics işi Azure Data Lake depolama Gen1 çıkış için kimlik doğrulaması
 description: Bu makalede, Azure Stream Analytics işinizi Azure Data Lake depolama Gen1 çıkış için kimlik doğrulaması için yönetilen kimlikleri kullanmayı açıklar.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/8/2019
+ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9eb66a9000c9add0718c6edf6674a26ce8e479b3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257986"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522070"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Stream Analytics yönetilen kimlik kullanarak Azure Data Lake depolama Gen1 için kimlik doğrulaması
 
@@ -100,33 +99,37 @@ Bu makalede yönetilen kimlik veren bir Azure Data Lake depolama Gen1 Azure port
    Bu özellik, Azure Resource Manager'ı oluşturma ve Azure Stream Analytics işiniz için Kimlik Yönetimi söyler.
 
    **Örnek Proje**
-
-    ```json
-    {
-      "Name": "AsaJobWithIdentity",
-      "Type": "Microsoft.StreamAnalytics/streamingjobs",
-      "Location": "West US",
-      "Identity": {
-        "Type": "SystemAssigned",
-      },
-      "properties": {
-        "sku": {
-          "name": "standard"
-        },
-        "outputs": [
-          {
-            "name": "string",
-            "properties":{
-              "datasource": {
-                "type": "Microsoft.DataLake/Accounts",
-                "properties": {
-                  "accountName": "myDataLakeAccountName",
-                  "filePathPrefix": "cluster1/logs/{date}/{time}",
-                  "dateFormat": "YYYY/MM/DD",
-                  "timeFormat": "HH",
-                  "authenticationMode": "Msi"
-                }
-              }
+   
+   ```json
+   {
+     "Name": "AsaJobWithIdentity",
+     "Type": "Microsoft.StreamAnalytics/streamingjobs",
+     "Location": "West US",
+     "Identity": {
+       "Type": "SystemAssigned",
+     },
+     "properties": {
+       "sku": {
+         "name": "standard"
+       },
+       "outputs": [
+         {
+           "name": "string",
+           "properties":{
+             "datasource": {
+               "type": "Microsoft.DataLake/Accounts",
+               "properties": {
+                 "accountName": "myDataLakeAccountName",
+                 "filePathPrefix": "cluster1/logs/{date}/{time}",
+                 "dateFormat": "YYYY/MM/DD",
+                 "timeFormat": "HH",
+                 "authenticationMode": "Msi"
+             }
+           }
+         }
+       }
+     }
+   }
    ```
   
    **Örnek Proje yanıtı**
@@ -145,7 +148,8 @@ Bu makalede yönetilen kimlik veren bir Azure Data Lake depolama Gen1 Azure port
         "sku": {
           "name": "standard"
         },
-      }
+     }
+   }
    ```
 
    Asıl gerekli ADLS kaynağına erişim izni vermek için kimlik iş yanıtından not alın.
@@ -169,15 +173,14 @@ Bu makalede yönetilen kimlik veren bir Azure Data Lake depolama Gen1 Azure port
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   Yukarıdaki PowerShell komutu hakkında daha fazla bilgi için bkz [kümesi AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) belgeleri.
+   Yukarıdaki PowerShell komutu hakkında daha fazla bilgi için bkz [kümesi AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) belgeleri.
 
 ## <a name="limitations"></a>Sınırlamalar
 Bu özellik, aşağıdakileri desteklemez:
 
-1.  **Çok kiracılı erişim**: Belirli bir Stream Analytics iş için oluşturulan hizmet sorumlusu, Azure Active Directory kiracısı üzerinde iş oluşturuldu ve farklı bir Azure Active Directory kiracısı üzerinde bulunan bir kaynağa karşı kullanılamaz yer alacaktır. Bu nedenle, Azure Stream Analytics işinizi olarak aynı Azure Active Directory kiracısı içinde ADLS Gen 1 kaynaklar üzerinde yalnızca MSI kullanabilirsiniz. 
+1. **Çok kiracılı erişim**: Belirli bir Stream Analytics iş için oluşturulan hizmet sorumlusu, Azure Active Directory kiracısı üzerinde iş oluşturuldu ve farklı bir Azure Active Directory kiracısı üzerinde bulunan bir kaynağa karşı kullanılamaz yer alacaktır. Bu nedenle, Azure Stream Analytics işinizi olarak aynı Azure Active Directory kiracısı içinde ADLS Gen 1 kaynaklar üzerinde yalnızca MSI kullanabilirsiniz. 
 
-2.  **[Atanan kullanıcı kimlik](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**: Desteklenmeyen bu kullanıcı, Stream Analytics işi tarafından kullanılmak üzere kendi hizmet sorumlusu girmeniz mümkün değil anlamına gelir. Hizmet sorumlusunu Azure Stream Analytics tarafından oluşturulur. 
-
+2. **[Atanan kullanıcı kimlik](../active-directory/managed-identities-azure-resources/overview.md)**: desteklenmiyor. Başka bir deyişle, kullanıcı, Stream Analytics işi tarafından kullanılmak üzere kendi hizmet sorumlusu girmeniz mümkün değil. Hizmet sorumlusunu Azure Stream Analytics tarafından oluşturulur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

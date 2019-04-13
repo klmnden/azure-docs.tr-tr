@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 743b078eac783365ae83e540a7dc05aba0ae8754
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517613"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547065"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Nasıl Yapılır: Riskli kullanıcıları ve oturum açma işlemlerini araştırma 
 
@@ -151,7 +151,7 @@ Raporlanan verileri kendinize uygun bir seviyeye gelecek şekilde daraltmak içi
 
 ### <a name="download-risky-users-data"></a>Riskli kullanıcılar verileri indirme
 
-Azure portal dışındaki iş onunla istiyorsanız riskli kullanıcılar verilerini indirebilir. Yükle'yi tıklatarak bir CSV dosyası en son 5 K kayıtlar oluşturur. 
+Dışında Azure portal ile çalışmak istiyorsanız riskli kullanıcılar verilerini indirebilir. Yükle'yi tıklatarak bir CSV dosyası en son 2.500 kayıtlar oluşturur. 
 
 ![Riskli kullanıcılar raporu](./media/howto-investigate-risky-users-signins/07.png)
 
@@ -320,7 +320,7 @@ Olası değerler şunlardır:
 
 ### <a name="download-risky-sign-ins-data"></a>Riskli oturum açma verilerini indir
 
-Azure portal dışındaki iş onunla istiyorsanız riskli oturum açma verilerini indirebilir. Yükle'yi tıklatarak bir CSV dosyası en son 5 K kayıtlar oluşturur. 
+Dışında Azure portal ile çalışmak istiyorsanız riskli oturum açma verilerini indirebilir. Yükle'yi tıklatarak bir CSV dosyası en son 2.500 kayıtlar oluşturur. 
 
 ![Riskli kullanıcılar raporu](./media/howto-investigate-risky-users-signins/15.png)
 

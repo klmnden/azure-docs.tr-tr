@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 465d59ff13982eee8432d7ef97e2f522b0d7125b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: ac10f1f1c6336098afc2abd2b8f720cedfb6f579
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489733"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548944"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Ağ Performansı İzleyicisi çözüm azure'da
 
@@ -152,7 +152,7 @@ Bunlara bir aracı yüklü tüm düğümleri listelenir **düğümleri** sekmesi
 İstediğiniz özellikleri yapılandırın:
 
 - [Performans İzleyicisi](network-performance-monitor-performance-monitor.md#configuration)
-- [Hizmet Bağlantısı İzleyicisi](network-performance-monitor-performance-monitor.md#configuration)
+- [Hizmet Bağlantı İzleyicisi](network-performance-monitor-performance-monitor.md#configuration)
 - [ExpressRoute İzleyicisi](network-performance-monitor-expressroute.md#configuration)
 
  
@@ -251,13 +251,13 @@ Ağ Performansı İzleyicisi uyarı yeteneklerini kullanır [Azure İzleyici](ht
 
 Tüm bildirimler kullanılarak yönetilir yani [Eylem grupları](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
-Aracılığıyla LAzure İzleyici bir uyarı oluşturan bir NPM kullanıcı varsa: 
-1. Azure Portalı'na yönlendireceği bir bağlantı görürsünüz. Portala erişmek için tıklayın.
+Log Analytics aracılığıyla bir uyarı oluşturan bir NPM kullanıcı varsa: 
+1. Azure portalında yönlendireceği bir bağlantı görürsünüz. Portala erişmek için tıklayın.
 2. Ağ Performansı İzleyicisi çözüm kutucuğa tıklayın. 
 3. Gezinme yapılandırmak için.  
 4. Bir uyarı oluşturmak ve izleyin testi seçin adımları aşağıda belirtilen.
 
-Azure Portalı aracılığıyla bir uyarı oluşturan bir NPM kullanıcı varsa:  
+Azure portal aracılığıyla bir uyarı oluşturan bir NPM kullanıcı varsa:  
 1. Doğrudan e-postanızı girin seçebilirsiniz veya Eylem grupları aracılığıyla uyarılar oluşturmak tercih edebilirsiniz.
 2. Doğrudan e-postanızı girin seçerseniz, bir eylem grubu adı ile **Npm e-posta** oluşturulur ve e-posta kimliği bu eylem grubuna eklenir.
 3. Eylem grupları kullanmayı seçerseniz, daha önce oluşturulan eylem grubu seçmeniz gerekecektir. Bir eylem grubu oluşturmak nasıl öğrenebilirsiniz [burada.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4d74b122f3b5567e8291ec5f3ff4e1dda7ff68f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a491f923d7755513d84adfe765d595a3a7a80715
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835025"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524914"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Bir Hadoop kümesinde Hive sorgularını kullanarak verilerin özelliklerini oluşturma
 Bu belge, Hive sorgularını kullanarak bir Azure HDInsight Hadoop kümesinde depolanan verilerin özelliklerini oluşturma işlemi gösterilmektedir. Bu Hive sorguları katıştırılmış Hive User-Defined betikleri, sağlanan işlevler (UDF'ler) kullanın.
@@ -89,14 +89,14 @@ Hive, datetime alanları işleme için bir UDF'ler kümesi ile birlikte gelir. H
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Bu Hive sorgusu olduğunu varsayar *<datetime field>* varsayılan tarih/saat biçimi.
+Bu Hive sorgusu olduğunu varsayar  *\<datetime alanı >* varsayılan tarih/saat biçimi.
 
 Bir datetime alanı varsayılan biçiminde değilse, datetime alanı Unix zaman damgası dönüştürmeniz ve varsayılan biçiminde olan bir tarih saat dizesi Unix zaman damgası dönüştürmek gerekir. Varsayılan tarih ve saat biçim olduğunda, kullanıcılar katıştırılmış tarih ve saat özellikleri ayıklanacak UDF'ler uygulayabilir.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-Bu sorgu, *<datetime field>* desen gibi sahip *26/03/2015 12:04:39*,  *<pattern of the datetime field>'* olmalıdır `'MM/dd/yyyy HH:mm:ss'`. Kullanıcılar, test etmek için çalıştırabilirsiniz
+Bu sorgu,  *\<datetime alanı >* desen gibi sahip *26/03/2015 12:04:39*,  *\<datetime alanı desenini >'* olmalıdır `'MM/dd/yyyy HH:mm:ss'`. Kullanıcılar, test etmek için çalıştırabilirsiniz
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;

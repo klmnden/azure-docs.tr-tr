@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5a1034a55bc4d516244e11d035f17fcc3b94929
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b648b8458c7f91cae6edb079fbd2ac78553dd969
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855648"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523792"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Öğretici: SAP NetWeaver ile Azure Active Directory Tümleştirme
 
@@ -135,7 +135,7 @@ SAP NetWeaver ile Azure AD çoklu oturum açmayı yapılandırmak için aşağı
 6. Değiştirin **sağlayıcı adı** T01122 için gelen `http://T01122` tıklayın **Kaydet**.
 
     > [!NOTE]
-    > Varsayılan sağlayıcı adı ile gelir olarak <sid> <client> biçimi ancak Azure AD'ye bekliyor adı biçiminde <protocol>://<name>, sağlayıcı adı ' https://'olarak korumak için önerilen<sid> <client> birden çok SAP izin vermek için Azure AD'de yapılandırmak için NetWeaver ABAP altyapıları.
+    > Varsayılan sağlayıcı adı ile gelir olarak `<sid><client>` biçimi ancak Azure AD'ye bekliyor adı biçiminde `<protocol>://<name>`, sağlayıcı adı olarak korumak için önerilen `https://<sid><client>` Azure AD'de yapılandırmak birden fazla SAP NetWeaver ABAP altyapıları izin vermek için.
 
     ![Sertifika indirme bağlantısı](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 

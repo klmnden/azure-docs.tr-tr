@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 9b88a6f3f7e17cfc549b30d1f0d80d4cdf1c3e2d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 8795c9ab0a4dbb76327d0ead48ed33fb0cff9e86
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58919380"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528546"
 ---
 ## <a name="test-your-code"></a>Kodunuzu test etme
 
@@ -27,7 +27,7 @@ Uygulamanızı Visual Studio'da Test etmek için basın **F5** projeyi çalışt
 
 Testinizi çalıştırmaya hazır olduğunuzda, bir Microsoft Azure Active Directory (Azure AD) hesabı (iş veya Okul hesabı) veya kişisel Microsoft hesabı kullanın (<span>Canlı.</span> com veya <span>outlook.</span> com) oturum açın.
 
-![Microsoft’ta oturum açma](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
+![Microsoft'ta oturum açma](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
 ![Microsoft hesabınızda oturum açın](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
@@ -46,9 +46,9 @@ Denetleyici görünüme Gözat sonra kullanıcı için temel özelliklerini içe
 |Özellik |Değer |Açıklama |
 |---|---|---|
 |**Ad** |Kullanıcının tam adı | Kullanıcı adı ve soyadı.
-|**Kullanıcı adı** |Kullanıcı<span>@domain.com</span> | Kullanıcıyı tanımlamak için kullanılan kullanıcı adı.
-|**Özne** |Özne |Kullanıcı Web'de benzersiz olarak tanımlayan bir dize.|
-|**Kiracı Kimliği** |Guid | A **GUID** , benzersiz kullanıcının Azure AD kuruluşu temsil eder.|
+|**Kullanıcı Adı** |Kullanıcı<span>@domain.com</span> | Kullanıcıyı tanımlamak için kullanılan kullanıcı adı.
+|**Konu** |Özne |Kullanıcı Web'de benzersiz olarak tanımlayan bir dize.|
+|**Kiracı kimliği** |Guid | A **GUID** , benzersiz kullanıcının Azure AD kuruluşu temsil eder.|
 
 Ayrıca, kimlik doğrulama isteğine olan tüm talep tablosu görmeniz gerekir. Daha fazla bilgi için [olan bir Azure AD kimlik belirteci talepler listesinin](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
@@ -96,5 +96,3 @@ Bu seçenek için sık karşılaşılan bir senaryodur *LOB uygulamaları*: Otur
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Seçenek 3: Verenler doğrulamak için özel bir yöntem kullanın.
 
 Verenler kullanarak doğrulamak için özel bir yöntem uygulayabilirsiniz **IssuerValidator** parametresi. Bu parametre kullanımı hakkında daha fazla bilgi için okuyun [tokenvalidationparameters değerini sınıfı](/previous-versions/visualstudio/dn464192(v=vs.114)).
-
-[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

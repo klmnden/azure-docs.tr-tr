@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73e5b081e85726a1fc78d92996846faa18ce616a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897631"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524642"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: Workday için otomatik kullanıcı sağlamayı yapılandırma
 
@@ -50,7 +50,7 @@ Azure AD kullanıcı sağlama hizmeti tarafından desteklenen Workday kullanıc�
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>İçin en iyi bu kullanıcı sağlama çözümünü kim uygun?
 
-Çözüm sağlama bu Workday kullanıcı şu anda genel Önizleme aşamasındadır ve ideal olarak uygundur:
+İdeal olarak, çözüm sağlama bu Workday kullanıcı için uygun olan:
 
 * Workday'den kullanıcı hazırlama için önceden oluşturulmuş, bulut tabanlı bir çözüm bağlamasına kuruluşlar
 
@@ -460,7 +460,7 @@ Bu bölümde, Active Directory'ye Workday'den kullanıcı verilerin nasıl aktı
 
 2. İçinde **kaynak nesne kapsamı** alan, kullanıcıların hangi kümesi workday'deki AD için öznitelik tabanlı bir filtre kümesi tanımlayarak sağlama kapsamında olmalıdır seçebilirsiniz. Varsayılan "iş günü içinde tüm kullanıcılar" kapsamıdır. Örnek filtreler:
 
-   * Örnek: Çalışan kimlikleri kullanıcılarla 1000000 2000000 arasındaki kapsama
+   * Örnek: Çalışan kimlikleri kullanıcılarla 1000000 2000000 (2000000 hariç) arasındaki kapsama
 
       * Öznitelik: WorkerID
 
@@ -1165,7 +1165,7 @@ Bu bölüm, yaygın olarak görülen hatayla Workday'den kullanıcı hazırlama 
 |--|---|---|---|
 |1.| Hata iletisiyle sağlama Aracısı yüklenirken hata:  *'Microsoft Azure AD Connect aracı sağlama' servis (AADConnectProvisioningAgent) başlatılamadı. Sistemi başlatmak için yeterli ayrıcalıklara sahip olduğunuzu doğrulayın.* | Bu hata genellikle bir etki alanı denetleyicisinde sağlama aracıyı yüklemeye çalıştığınız ve Grup İlkesi hizmetin başlatılmasını engelleyen gösterilir.  Ayrıca, çalışan aracısının önceki bir sürümü varsa ve yeni bir yükleme başlamadan önce kaldırıldıktan değil görülür.| Sağlama Aracısı bir DC olmayan sunucusuna yükleyin. Yeni aracı yüklemeden önce Aracısı'nın önceki sürümlerini kaldırıldığından emin olun.|
 |2.| Windows hizmeti 'Microsoft Azure AD Connect aracı sağlama' konusu *başlangıç* belirtin ve geçin değil *çalıştıran* durumu. | Yüklemesinin bir parçası olarak, aracı Sihirbazı'nı yerel bir hesap oluşturur (**NT hizmeti\\AADConnectProvisioningAgent**) sunucusu ve bu değer **oturum açma** başlatmak için kullanılan hesap hizmeti. Windows Server'ınızdaki bir güvenlik ilkesi yerel hesaplar hizmetlerin çalışmasını engelliyorsa, bu hatayla karşılaşır. | Açık *Hizmetler konsolunu*. Windows hizmeti 'Microsoft Azure AD Connect aracı sağlama' sağ tıklayın ve oturum açma sekmede hizmeti çalıştırmak için bir etki alanı yöneticisi hesabı belirtin. Hizmeti yeniden başlatın. |
-|3.| Sağlama Aracısı adımda, AD etki alanı ile yapılandırırken *Active Directory'ye bağlanın*, sihirbaz AD şema yüklenmeye çalışılırken zaman alıyor ve sonunda zaman aşımına uğrar. | Bu hata genellikle sihirbaz AD etki alanı denetleyicisi sunucusu güvenlik duvarı sorunları nedeniyle bağlantı kuramıyor olup olmadığını gösterilir. | Üzerinde *Active Directory'ye bağlanın* Sihirbazı ekran için AD etki alanı kimlik bilgilerini sağlarken adlı bir seçenek yoktur *seçin etki alanı denetleyicisi öncelik*. Aynı sitede Aracısı sunucusu olan etki alanı denetleyicisi seçmek için bu seçeneği kullanın ve iletişimini engelleyen bir güvenlik duvarı kuralları olmadığından emin olun. |
+|3.| Sağlama Aracısı adımda, AD etki alanı ile yapılandırırken *Active Directory'ye bağlanın*, sihirbaz AD şema yüklenmeye çalışılırken zaman alıyor ve sonunda zaman aşımına uğrar. | Bu hata genellikle, güvenlik duvarı sorunlarından dolayı sihirbaz AD etki alanı denetleyicisi sunucusuna bağlanamadığında gösterilir. | Üzerinde *Active Directory'ye bağlanın* Sihirbazı ekran için AD etki alanı kimlik bilgilerini sağlarken adlı bir seçenek yoktur *seçin etki alanı denetleyicisi öncelik*. Aynı sitede Aracısı sunucusu olan etki alanı denetleyicisi seçmek için bu seçeneği kullanın ve iletişimini engelleyen bir güvenlik duvarı kuralları olmadığından emin olun. |
 
 #### <a name="connectivity-errors"></a>Bağlantı hataları
 
@@ -1174,14 +1174,14 @@ Sağlama hizmeti Workday veya Active Directory hizmetine bağlanamıyor, sağlam
 |#|Hata senaryosu |Olası nedenleri|Önerilen çözüm|
 |--|---|---|---|
 |1.| Tıkladığınızda **Bağlantıyı Sına**, hata iletisiyle karşılaşırsınız: *Active Directory'ye bağlanılırken bir hata oluştu. Şirket içi aracı sağlama çalıştığından ve doğru Active Directory etki alanı ile yapılandırıldığından emin olun.* | Bu hata genellikle if sağlama aracı çalışmıyor veya Azure AD arasındaki iletişimi engelleyen bir güvenlik duvarı gösterir ve sağlama Aracısı. Etki alanı aracı Sihirbazı'nda yapılandırılmamışsa, bu hatayı görebilirsiniz. | Açık *Hizmetleri* aracının çalışır durumda olduğunu doğrulamak için Windows sunucusu üzerinde Konsolu. Sağlama aracı Sihirbazı'nı açmak ve doğru etki alanını aracıyla kayıtlı olduğunu onaylayın.  |
-|2.| Sağlama işi hafta sonları (Cuma Doy) karantina durumuna geçtiğinde ve biz eşitleme ile ilgili bir hata olduğunu bir e-posta bildirimi alın. | Bu hata için olası nedenler planlanan Workday kapalı kalma süresi olmasıdır. Workday, hafta sonları (genellikle gelen Cumartesi sabahı için Cuma gecesi) üzerinden, kendi uygulamasında kiracılar için zaman planladı ve bu süre içinde Workday uygulamaları sağlama kısımlarda Workday uygulama Kiracı kullanıyorsanız, lütfen unutmayın Karantina duruma için Workday bağlanmanız mümkün değil. Workday uygulama Kiracı yeniden çevrimiçi olduğunda normal durumuna geri alır. Nadiren de olsa, tümleştirme sistemi kullanıcısı parolası Kiracı yenileme nedeniyle değiştirilmiş veya hesabın ise kilitli ya da durumu süresi dolmuş bu hatayı da görebilirsiniz. | Workday kapalı kalma süresi boyunca uyarı iletileri yoksaymak ve kullanılabilirlik Workday örneği yeniden çevrimiçi olduktan sonra onaylamak için kapalı kalma süresi ne zaman zamanlar görmek için Workday yönetici veya tümleştirme ortağınızla birlikte denetleyin.  |
+|2.| Sağlama işi hafta sonları (Cuma Doy) karantina durumuna geçtiğinde ve biz eşitleme ile ilgili bir hata olduğunu bir e-posta bildirimi alın. | Bu hatanın yaygın nedenlerinden biri Workday'in planlı kapalı kalma süresidir. Workday uygulama kiracısını kullanıyorsanız, Workday'in uygulama kiracıları için hafta sonları zamanladığı kapalı kalma sürelerini (genellikle Cuma akşamından Cumartesi sabahına kadar) ve bu süre boyunca Workday sağlama uygulamalarının Workday'e bağlanamadığı için karantina durumuna geçebileceğini unutmayın. Workday uygulama kiracısı yeniden çevrimiçi olduğunda normal durumuna geri döner. Nadir durumlarda, kiracı yenilendiği veya hesap kilitlendiği ya da süresi dolduğu için Tümleştirme Sistemi Kullanıcısının parolası değiştirildiğinde de bu hatayı görebilirsiniz. | Workday'in kapalı kalma zamanlamasını öğrenmek için Workday yöneticinize veya iş ortağınıza danışın. Kapalı kalma süresince uyarı iletilerini yoksayın ve Workday örneği yeniden çevrimiçi olduğunda kullanılabilirliği onaylayın.  |
 
 
 #### <a name="ad-user-account-creation-errors"></a>AD kullanıcı hesabı oluşturma hataları
 
 |#|Hata senaryosu |Olası nedenleri|Önerilen çözüm|
 |--|---|---|---|
-|1.| Dışarı aktarma işlemi hatalarını Denetim günlüğüne iletiyle *hata: OperationsError-SvcErr: Bir işlem hatası oluştu. Üst başvuru dizin hizmetinde yapılandırıldı. Dizin hizmeti, bu nedenle veremiyor bu orman dışındaki nesneler için silemiyor.* | Bu hata genellikle if gösterir *Active Directory kapsayıcısı* OU doğru şekilde ayarlanmadı veya ile ilgili sorunlar varsa ifade eşleştirmesi için kullanılan *parentDistinguishedName*. | Denetleme *Active Directory kapsayıcısı* yazım hataları için OU parametresi. Kullanıyorsanız *parentDistinguishedName* özniteliği eşlemede, her zaman bir bilinen AD etki alanı kapsayıcısına değerlendirme emin olun. Denetleme *dışarı* denetim olayı günlüğe kaydeder oluşturulan değeri görmek için. |
+|1.| Dışarı aktarma işlemi hatalarını Denetim günlüğüne iletiyle *hata: OperationsError-SvcErr: İşlem hatası oluştu. Dizin hizmeti için üst başvuru yapılandırılmamış. Dizin hizmeti, bu nedenle veremiyor bu orman dışındaki nesneler için silemiyor.* | Bu hata genellikle if gösterir *Active Directory kapsayıcısı* OU doğru şekilde ayarlanmadı veya ile ilgili sorunlar varsa ifade eşleştirmesi için kullanılan *parentDistinguishedName*. | Denetleme *Active Directory kapsayıcısı* yazım hataları için OU parametresi. Öznitelik eşlemesinde *parentDistinguishedName* kullanıyorsanız, bunun her zaman AD etki alanı içinde bilinen bir kapsayıcı olarak değerlendirildiğinden emin olun. Denetleme *dışarı* denetim olayı günlüğe kaydeder oluşturulan değeri görmek için. |
 |2.| Denetim günlüğünde hata koduyla işlemi hatalarını dışarı aktarın: *SystemForCrossDomainIdentityManagementBadResponse* ve ileti *hata: ConstraintViolation AtrErr: İstek değeri geçersiz. Bir değer özniteliği için kabul edilebilir değerler aralığında değildi. \nError ayrıntıları: CONSTRAINT_ATT_TYPE - şirket*. | Bu hata özgü olsa *şirket* öznitelik gibi diğer öznitelikler için bu hata ile karşılaşabilirsiniz *CN* de. Bu hata, zorunlu AD şema kısıtlaması nedeniyle görüntülenir. Varsayılan olarak, öznitelikleri ister *şirket* ve *CN* AD'de 64 karakter üst sınırını sahip. Ardından, 64 karakterden uzun Workday'den gelen değer ise bu hata iletisini görürsünüz. | Denetleme *dışarı* olay özniteliğinin değeri görmek için Denetim günlüklerinde hata iletisinde bildirilen. Workday kullanarak gelen değer kesiliyor göz önünde bulundurun [Mid](../manage-apps/functions-for-customizing-application-data.md#mid) işlev veya bir AD özniteliği, uzunluk kısıtlamalarına benzer olmaması eşlemelerini değiştirme.  |
 
 #### <a name="ad-user-account-update-errors"></a>AD kullanıcı hesabını güncelleştirme hataları

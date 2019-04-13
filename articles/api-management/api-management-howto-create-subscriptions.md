@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 1393e548c46c23f6b50c1b18a274febb74914ae8
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: bc791fea1dfd184749e84cb7b7a912972c6a9f12
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054521"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523516"
 ---
 # <a name="create-subscriptions-in-azure-api-management"></a>Azure API Yönetimi'nde abonelikleri oluşturma
 
@@ -38,7 +38,8 @@ Bu makaledeki adımlar için Önkoşullar aşağıdaki gibidir:
 1. Seçin **abonelikleri** sol taraftaki menüden.
 2. Seçin **Abonelik Ekle**.
 3. Abonelik adını sağlayın ve kapsamı seçin.
-4. **Kaydet**’i seçin.
+4. İsteğe bağlı olarak, abonelik bir kullanıcıyla ilişkili kaldırılması gerekip gerekmediğini seçin.
+5. **Kaydet**’i seçin.
 
 ![Esnek abonelikler](./media/api-management-subscriptions/flexible-subscription.png)
 

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6694865909a165842f994501befa404e1bc0a447
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: b5ed614fdd378b36d8f95fc90ce7ff98d63ef31a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164390"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526413"
 ---
 # <a name="troubleshoot-input-connections"></a>Giriş bağlantı sorunlarını giderme
 
@@ -39,7 +39,9 @@ Bir Stream Analytics işi girdi hatalı bir ileti aldığında, iletiyi bırakı
 ![Azure Stream Analytics girişler kutucuğunda](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 Uyarı ayrıntılarını görüntülemek tanılama günlüklerini etkinleştirin. Giriş yanlış biçimlendirilmiş olaylar için yürütme günlüklerini şuna benzer bir ileti ile bir giriş içerir: 
-<code>Could not deserialize the input event(s) from resource <blob URI> as json.</code>
+```
+Could not deserialize the input event(s) from resource <blob URI> as json.
+```
 
 ### <a name="what-caused-the-deserialization-error"></a>Seri durumundan çıkarma hatası neyin
 Giriş olayları seri durumdan çıkarma hataya açık anlamak için ayrıntılı analiz etmek için aşağıdaki adımları uygulayabilirsiniz. Ardından, bu sorunu yeniden ulaşmaktan önlemek için doğru biçimde olaylar oluşturmak için olay kaynağı düzeltebilirsiniz.

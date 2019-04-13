@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 3615bd88cfadf2f59942fab7678d36d4d20d8c9f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c6fc363a7ab9de215647e371a9d3c846f8688bd5
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992747"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548738"
 ---
 # <a name="widevine-license-template-overview"></a>Widevine lisans şablonuna genel bakış 
 
@@ -64,8 +64,8 @@ Widevine lisans isteği bir JSON iletisi olarak biçimlendirilir.
 | --- | --- | --- |
 | yük |Base64 ile kodlanmış bir dize |Bir istemci tarafından gönderilen lisans isteği. |
 | content_id |Base64 ile kodlanmış bir dize |Anahtar kimliği ve içerik türetmek için kullanılan tanımlayıcı her content_key_specs.track_type için anahtar. |
-| Sağlayıcı |dize |İçerik anahtarları ve ilkeleri bakmak için kullanılır. Microsoft anahtar teslim Widevine lisans teslim için kullanılıyorsa, bu parametre yoksayılır. |
-| policy_name |dize |Önceden kaydedilmiş bir ilke adı. İsteğe bağlı. |
+| sağlayıcı |string |İçerik anahtarları ve ilkeleri bakmak için kullanılır. Microsoft anahtar teslim Widevine lisans teslim için kullanılıyorsa, bu parametre yoksayılır. |
+| policy_name |string |Önceden kaydedilmiş bir ilke adı. İsteğe bağlı. |
 | allowed_track_types |Sabit listesi |SD_ONLY veya SD_HD. Anahtarları içerik denetimleri bir lisans dahil edilir. |
 | content_key_specs |JSON dizisi yapıları "İçerik anahtarı özellikleri." bölümüne bakın  |Döndürülecek hangi içerik anahtarı üzerinde daha ayrıntılı denetim. Daha fazla bilgi için "İçerik anahtarı özellikleri." bölümüne bakın. Allowed_track_types ve content_key_specs değerleri yalnızca biri belirtilebilir. |
 | use_policy_overrides_exclusively |Boole true veya false |Tüm daha önce depolanan ilke çıkarın ve policy_overrides tarafından belirtilen ilke öznitelikler kullanın. |
@@ -80,7 +80,7 @@ Her bir content_key_specs değeri use_policy_overrides_exclusively seçeneği ba
 
 | Ad | Değer | Açıklama |
 | --- | --- | --- |
-| content_key_specs. track_type |dize |İzleme türü adı. Content_key_specs lisans istekte belirtilirse, tüm türleri açıkça izlemek belirttiğinizden emin olun. Bunun yapılmaması, 10 saniye kayıttan yürütme hatası sonuçlanır. |
+| content_key_specs. track_type |string |İzleme türü adı. Content_key_specs lisans istekte belirtilirse, tüm türleri açıkça izlemek belirttiğinizden emin olun. Bunun yapılmaması, 10 saniye kayıttan yürütme hatası sonuçlanır. |
 | content_key_specs  <br/> security_level |uint32 |Kayıttan yürütme için istemci sağlamlık gereksinimleri tanımlar. <br/> -Yazılım tabanlı beyaz-box şifrelemesi gereklidir. <br/> -Yazılım şifreleme ve karıştırılmış bir kod çözücü gereklidir. <br/> -Anahtar malzemesi ve şifreleme işlemleri, donanım destekli güvenilir yürütme ortamı içinde gerçekleştirilmelidir. <br/> -Şifreleme ve içeriğini kod çözme, donanım destekli güvenilir yürütme ortamı içinde gerçekleştirilmelidir.  <br/> -Şifreleme, kod çözme ve tüm işleme (sıkıştırılmış ve sıkıştırılmamış) ortam içinde bir donanım destekli güvenilir yürütme ortamı işlenmelidir. |
 | content_key_specs <br/> required_output_protection.hdc |dize, HDCP_NONE, HDCP_V1, HDCP_V2 biri |HDCP gerekli olup olmadığını belirtir. |
 | content_key_specs <br/>anahtar |Base64-<br/>Kodlanmış dize |Bu izleme için kullanılacak içerik anahtarı. Belirtilmişse track_type veya key_id gereklidir. İçerik sağlayıcısı oluşturmak veya bir anahtarı aramak Widevine lisans sunucusu izin vermek yerine bu izleme için içerik anahtarını eklenmek üzere bu seçeneği kullanabilirsiniz. |
@@ -95,7 +95,7 @@ Her bir content_key_specs değeri use_policy_overrides_exclusively seçeneği ba
 | policy_overrides&#46;license_duration_seconds |Int64 |Bu belirli bir lisans için zaman penceresini gösterir. 0 değeri, süre sınırı olduğunu gösterir. Varsayılan 0'dır. |
 | policy_overrides&#46;rental_duration_seconds |Int64 |Kayıttan yürütme izin sırada zaman penceresini gösterir. 0 değeri, süre sınırı olduğunu gösterir. Varsayılan 0'dır. |
 | policy_overrides&#46;playback_duration_seconds |Int64 |Lisans süresi içinde kayıttan yürütme başladıktan sonra zaman görüntüleme penceresi. 0 değeri, süre sınırı olduğunu gösterir. Varsayılan 0'dır. |
-| policy_overrides&#46;renewal_server_url |dize |Bu lisans tüm sinyal (yenileme) istekleri belirtilen URL'ye yeniden yönlendirilir. Bu alan yalnızca can_renew doğruysa kullanılır. |
+| policy_overrides&#46;renewal_server_url |string |Bu lisans tüm sinyal (yenileme) istekleri belirtilen URL'ye yeniden yönlendirilir. Bu alan yalnızca can_renew doğruysa kullanılır. |
 | policy_overrides&#46;renewal_delay_seconds |Int64 |Yenileme ilk denenmeden önce license_start_time kaç saniye. Bu alan yalnızca can_renew doğruysa kullanılır. Varsayılan 0'dır. |
 | policy_overrides&#46;renewal_retry_interval_seconds |Int64 |Başarısız olması durumunda sonraki Lisans yenileme istekleri arasındaki saniye cinsinden gecikme süresini belirtir. Bu alan yalnızca can_renew doğruysa kullanılır. |
 | policy_overrides&#46;renewal_recovery_duration_seconds |Int64 |Pencerenin zaman yenileme denemesi sırasında hangi kayıttan yürütme devam edebilirsiniz, ancak lisans sunucusu ile arka uç sorunları nedeniyle başarısız. 0 değeri, süre sınırı olduğunu gösterir. Bu alan yalnızca can_renew doğruysa kullanılır. |
@@ -118,12 +118,12 @@ Media Services, Widevine lisansı yapılandırmanıza olanak sağlayan bir sın�
 
 Bu yöntem, hata yapmaya açık olabilir. Açıklanan başka bir yöntem kullanmak için önerilen [tanımlayın, sınıflar gerektiği ve JSON için seri hale getirme](#classes).
 
-    ```csharp
-    ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
-    {
-        WidevineTemplate = @"{""allowed_track_types"":""SD_HD"",""content_key_specs"":[{""track_type"":""SD"",""security_level"":1,""required_output_protection"":{""hdcp"":""HDCP_V2""}}],""policy_overrides"":{""can_play"":true,""can_persist"":true,""can_renew"":false}}"
-    };
-    ```
+```csharp
+ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
+{
+    WidevineTemplate = @"{""allowed_track_types"":""SD_HD"",""content_key_specs"":[{""track_type"":""SD"",""security_level"":1,""required_output_protection"":{""hdcp"":""HDCP_V2""}}],""policy_overrides"":{""can_play"":true,""can_persist"":true,""can_renew"":false}}"
+};
+```
 
 ### <a id="classes"></a> Gerekli sınıfları tanımlayabilir ve JSON için seri hale getirme
 
@@ -131,36 +131,36 @@ Bu yöntem, hata yapmaya açık olabilir. Açıklanan başka bir yöntem kullanm
 
 Aşağıdaki örnek, Widevine JSON şemaya eşleme sınıfların tanımları örneği gösterir. JSON dizesine serileştirmeden önce sınıfları örneği oluşturabilir.  
 
-    ```csharp
-    public class PolicyOverrides
-    {
-        public bool CanPlay { get; set; }
-        public bool CanPersist { get; set; }
-        public bool CanRenew { get; set; }
-        public int RentalDurationSeconds { get; set; }    //Indicates the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0.
-        public int PlaybackDurationSeconds { get; set; }  //The viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0.
-        public int LicenseDurationSeconds { get; set; }   //Indicates the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0.
-    }
+```csharp
+public class PolicyOverrides
+{
+    public bool CanPlay { get; set; }
+    public bool CanPersist { get; set; }
+    public bool CanRenew { get; set; }
+    public int RentalDurationSeconds { get; set; }    //Indicates the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0.
+    public int PlaybackDurationSeconds { get; set; }  //The viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0.
+    public int LicenseDurationSeconds { get; set; }   //Indicates the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0.
+}
 
-    public class ContentKeySpec
-    {
-        public string TrackType { get; set; }
-        public int SecurityLevel { get; set; }
-        public OutputProtection RequiredOutputProtection { get; set; }
-    }
+public class ContentKeySpec
+{
+    public string TrackType { get; set; }
+    public int SecurityLevel { get; set; }
+    public OutputProtection RequiredOutputProtection { get; set; }
+}
 
-    public class OutputProtection
-    {
-        public string HDCP { get; set; }
-    }
+public class OutputProtection
+{
+    public string HDCP { get; set; }
+}
 
-    public class WidevineTemplate
-    {
-        public string AllowedTrackTypes { get; set; }
-        public ContentKeySpec[] ContentKeySpecs { get; set; }
-        public PolicyOverrides PolicyOverrides { get; set; }
-    }
-    ```
+public class WidevineTemplate
+{
+    public string AllowedTrackTypes { get; set; }
+    public ContentKeySpec[] ContentKeySpecs { get; set; }
+    public PolicyOverrides PolicyOverrides { get; set; }
+}
+```
 
 #### <a name="configure-the-license"></a>Lisans'ı yapılandırma
 

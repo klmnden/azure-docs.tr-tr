@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 47516f06f212dd0541da5f177401d479eb760cc0
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: e4dd7299907168bb50ac8ebdf90b381c0bac01f2
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758249"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527379"
 ---
 # <a name="create-video-reviews-using-net"></a>Görüntü incelemeleri .NET kullanarak oluşturun
 
@@ -166,7 +166,7 @@ public static ContentModeratorClient NewClient()
 **CreateVideoReviews** aşağıdaki parametreler gereklidir:
 1. "Application/json." olması gereken bir MIME türü içeren bir dize 
 1. Content Moderator takım adı.
-1. Bir **IList<CreateVideoReviewsBodyItem>**  nesne. Her **CreateVideoReviewsBodyItem** nesnesini gösteren bir video gözden geçirin. Bu hızlı başlangıçta bir kerede bir inceleme oluşturur.
+1. Bir **IList\<CreateVideoReviewsBodyItem >** nesne. Her **CreateVideoReviewsBodyItem** nesnesini gösteren bir video gözden geçirin. Bu hızlı başlangıçta bir kerede bir inceleme oluşturur.
 
 **CreateVideoReviewsBodyItem** birçok özelliğe sahiptir. En azından aşağıdaki özellikleri ayarlayın:
 - **İçerik**. Gözden geçirilmesi video URL'si.
@@ -224,18 +224,18 @@ Video İnceleme ile video kareleri eklediğiniz **ContentModeratorClient.Reviews
 1. "Application/json." olması gereken bir MIME türü içeren bir dize
 1. Content Moderator takım adı.
 1. Video gözden geçirme kimliği tarafından döndürülen **CreateVideoReviews**.
-1. Bir **IList<VideoFrameBodyItem>**  nesne. Her **VideoFrameBodyItem** nesne video çerçeveyi temsil eder.
+1. Bir **IList\<VideoFrameBodyItem >** nesne. Her **VideoFrameBodyItem** nesne video çerçeveyi temsil eder.
 
 **VideoFrameBodyItem** aşağıdaki özelliklere sahiptir:
 - **Zaman damgası**. Saniye cinsinden zaman video karesi alınmış videoda içeren bir dize.
 - **FrameImage**. Video çerçeve URL'si.
-- **Meta veri**. Bir IList<VideoFrameBodyItemMetadataItem>. **VideoFrameBodyItemMetadataItem** yalnızca bir anahtar/değer çiftidir. Geçerli anahtarlar şunlardır:
+- **Meta veri**. Bir IList\<VideoFrameBodyItemMetadataItem >. **VideoFrameBodyItemMetadataItem** yalnızca bir anahtar/değer çiftidir. Geçerli anahtarlar şunlardır:
 - **reviewRecommended**. Bir insan tarafından İnceleme video çerçevenin önerilen true.
 - **adultScore**. Yetişkinlere yönelik içeriğe önemini video çerçevede fiyatları 1 değeri 0.
 - **bir**. Video yetişkinlere yönelik içeriğe içeriyorsa true.
 - **racyScore**. Bir değeri 0'dan video çerçevede müstehcen içerik önemini derecelendirir 1.
 - **r**. Çerçevenin video müstehcen içerik içeriyorsa true.
-- **ReviewerResultTags**. Bir IList<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** yalnızca bir anahtar/değer çiftidir. Bir uygulama, video kareleri düzenlemek için bu etiketleri kullanabilirsiniz.
+- **ReviewerResultTags**. Bir IList\<VideoFrameBodyItemReviewerResultTagsItem >. **VideoFrameBodyItemReviewerResultTagsItem** yalnızca bir anahtar/değer çiftidir. Bir uygulama, video kareleri düzenlemek için bu etiketleri kullanabilirsiniz.
 
 > [!NOTE]
 > Bu Hızlı Başlangıç için rastgele değerler oluşturmaktadır **adultScore** ve **racyScore** özellikleri. Bir üretim uygulamasında, bu değerleri elde edebilirsiniz [video denetimi hizmeti](video-moderation-api.md), Azure medya hizmeti olarak dağıtılmış.

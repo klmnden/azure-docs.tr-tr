@@ -6,14 +6,14 @@ author: alexkarcher-msft
 manager: jehollan
 ms.service: azure-functions
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 4f27bbeb43bbf373b621d151d68583f0041378b3
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: f8ddcbcb25dc45ee71304ffa1bc5c0c4d3751b61
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894215"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523741"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Bir işlev uygulaması, bir Azure sanal ağı ile tümleştirme
 
@@ -111,13 +111,14 @@ Biz bu dosyaya erişim ve kullanıcıya hizmet işlevi kullanmak için bunu işl
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Premium planda çalışan işlevler, Web uygulamaları olarak aynı temel alınan App Service altyapısını paylaşın. Bu, tüm belgelerin Web uygulamaları için geçerli olduğunu Premium planı işlevlerinizi anlamına gelir.
+Web Apps üzerinde PV2 planları gibi Premium planda çalışan işlevleri aynı App Service altyapının paylaşın. Bu, tüm belgelerin Web uygulamaları için geçerli olduğunu Premium planı işlevlerinizi anlamına gelir.
 
-1. [App Service ile VNET tümleştirmesi hakkında daha fazla bilgi / burada işlevleri](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
-1. [Azure'da sanal ağlar hakkında daha fazla bilgi edinin](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)
-1. [Ağ özelliklerini etkinleştirin ve App Service ortamları ile denetleme](https://docs.microsoft.com/azure/app-service/environment/intro)
-1. [Karma bağlantıları kullanarak güvenlik duvarı değişikliğe gerek kalmadan tek şirket içi kaynaklara bağlanma](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
-1. [İşlev proxy'leri hakkında daha fazla bilgi edinin](https://review.docs.microsoft.com/azure/azure-functions/functions-proxies)
+1. [Burada işlevleri içindeki ağ seçenekleri hakkında daha fazla bilgi edinin](./functions-networking-options.md)
+1. [Burada SSS ağ işlevleri okur](./functions-networking-faq.md)
+1. [Azure'da sanal ağlar hakkında daha fazla bilgi edinin](../virtual-network/virtual-networks-overview.md)
+1. [Daha fazla ağ özellikleri ve App Service ortamları ile denetimi etkinleştir](../app-service/environment/intro.md)
+1. [Karma bağlantıları kullanarak güvenlik duvarı değişikliğe gerek kalmadan tek şirket içi kaynaklara bağlanma](../app-service/app-service-hybrid-connections.md)
+1. [İşlev proxy'leri hakkında daha fazla bilgi edinin](./functions-proxies.md)
 
 <!--Image references-->
 [1]: ./media/functions-create-vnet/topology.png

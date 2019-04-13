@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: a9baf36221c99ece0703e2caa3f3e6c3b9364480
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fe8b6113646589e30ff839c8bd47968138d98b03
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312215"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521447"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Öğretici: Azure Time Series Insights tek sayfalı web uygulaması oluşturma
 
@@ -179,7 +179,7 @@ Uygulamayı derlemeden önce Azure AD’ye kaydetmeniz gerekir. Kayıt işlemi s
 Hata kodu/durumu | Açıklama
 ---------------------| -----------
 *AADSTS50011: Uygulama için kayıtlı yanıt adresi yok.* | Azure AD kaydında "Reply URL" özelliği yok. Azure AD uygulama kaydınızın **Ayarlar** / **Yanıt URL’leri** sayfasına gidin. [Uygulamayı Azure AD’ye kaydetme](#register-the-application-with-azure-ad) bölümünün 3. adımında **Oturum açma** URL’sinin belirtildiğinden emin olun. 
-*AADSTS50011: Yanıt URL'si istekte belirtilen uygulama için yapılandırılan yanıt URL'lerinden eşleşmiyor: '<Application ID GUID>'.* | [Web uygulamasını derleme ve yayımlama](#build-and-publish-the-web-application) bölümünün 4.b adımında belirtilen `postLogoutRedirectUri` ile Azure AD uygulama kaydınızın **Ayarlar** / **Yanıt URL’leri** özelliğinde belirtilen değerin eşleşmesi gerekir. Ayrıca adım 5.e’deki gibi, **Hedef URL**’yi `https` kullanacak şekilde değiştirdiğinizden emin olun. [Web uygulamasını derleme ve yayımlama](#build-and-publish-the-web-application).
+*AADSTS50011: Yanıt URL'si istekte belirtilen uygulama için yapılandırılan yanıt URL'lerinden eşleşmiyor: '\<Uygulama kimliği GUID >'.* | [Web uygulamasını derleme ve yayımlama](#build-and-publish-the-web-application) bölümünün 4.b adımında belirtilen `postLogoutRedirectUri` ile Azure AD uygulama kaydınızın **Ayarlar** / **Yanıt URL’leri** özelliğinde belirtilen değerin eşleşmesi gerekir. Ayrıca adım 5.e’deki gibi, **Hedef URL**’yi `https` kullanacak şekilde değiştirdiğinizden emin olun. [Web uygulamasını derleme ve yayımlama](#build-and-publish-the-web-application).
 Web uygulaması yükleniyor ancak stil içermeyen, beyaz arka plana sahip salt metin oturum açma sayfası var. | [Web uygulamasını derleme ve yayımlama](#build-and-publish-the-web-application) bölümünün 4.a adımında belirtilen yolların doğru olduğundan emin olun. Web uygulaması .css dosyalarını bulamadığında sayfa stili doğru şekilde uygulanmaz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme

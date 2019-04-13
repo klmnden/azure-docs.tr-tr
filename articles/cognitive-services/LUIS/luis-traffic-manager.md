@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: a71b09ba8b3e7fa7299c34c3cdc64503ae4e9857
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736558"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523418"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Uç nokta kota anahtarlarını yönetmek için Microsoft Azure Traffic Manager'ı kullanma
 Language Understanding (LUIS), tek bir anahtarın kota dışında uç nokta isteği Kotayı artırmak olanağı sunar. LUIS için daha fazla anahtarları oluşturma ve bunları LUIS uygulamaya ekleme tarafından yapıldığını **Yayımla** sayfasını **kaynakları ve anahtarları** bölümü. 
@@ -86,7 +86,7 @@ Doğu ABD Traffic Manager profili oluşturmak için birkaç adım vardır: profi
     |-RelativeDnsName|luıs dns eastus|Bu hizmet için bir alt etki alanı olur: luıs dns eastus.trafficmanager.net|
     |-Ttl|30|Yoklama aralığı 30 saniye|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Bağlantı noktası ve protokol LUIS için HTTPS/443'tür|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|Değiştirin <appIdLuis> ve <subscriptionKeyLuis> kendi değerlerinizle.|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|Değiştirin `<appIdLuis>` ve `<subscriptionKeyLuis>` kendi değerlerinizle.|
     
     Başarılı bir istek, yanıt aldı.
 
@@ -154,7 +154,7 @@ Batı ABD Traffic Manager profili oluşturmak için aynı adımları izleyin: pr
     |-RelativeDnsName|luıs-dns-westus|Bu hizmet için bir alt etki alanı olur: luıs dns westus.trafficmanager.net|
     |-Ttl|30|Yoklama aralığı 30 saniye|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Bağlantı noktası ve protokol LUIS için HTTPS/443'tür|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Değiştirin <appId> ve <subscriptionKey> kendi değerlerinizle. Bu uç noktası anahtarı Doğu uç noktası anahtarı farklı olduğunu unutmayın|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Değiştirin `<appId>` ve `<subscriptionKey>` kendi değerlerinizle. Bu uç noktası anahtarı Doğu uç noktası anahtarı farklı olduğunu unutmayın|
     
     Başarılı bir istek, yanıt aldı.
 

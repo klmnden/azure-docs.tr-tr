@@ -1,7 +1,7 @@
 ---
 title: Veri ayıklama
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Language Understanding (LUIS) ne tür veriler ayıklanabileceği öğrenin
+description: Hedefleri ve varlıklar ile utterance metin verileri ayıklayın. Language Understanding (LUIS) ne tür veriler ayıklanabileceği öğrenin.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 76f8fed8d185598d62eef5a412fda2c3fd1317bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893988"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526298"
 ---
-# <a name="data-extraction-from-intents-and-entities"></a>Amaç ve varlıkları veri ayıklama
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Utterance metinle amaç ve varlıkları veri ayıklamak
 LUIS, bir kullanıcının doğal dil konuşma bilgi almak için sağlar. Bilgiler bir program, uygulama veya sohbet Robotu eyleme kullanılabilmesi için bir şekilde ayıklanır. Aşağıdaki bölümlerde, hangi verilerin hedefleri ve JSON örneklerini varlıklarla döndürülür öğrenin.
 
 Tam metin eşleşmesi olmadığından uygulamalarınızdaki verileri ayıklamak için makine öğrenilen verilerdir. Makine öğrendiniz, veri ayıklama [varlıkları](luis-concept-entity-types.md) parçası olması gerekiyor [döngüsü yazma](luis-concept-app-iteration.md) beklediğiniz verileri aldığınız başarılara kadar.
@@ -170,9 +170,11 @@ Uç noktadan döndürülen veriler, varlık adı, utterance bulunan metni, bulun
 
 |Veri nesnesi|Varlık adı|Değer|
 |--|--|--|
-|Varlığın|"Müşteri"|"jones Kemal"|
+|Varlığın|`Customer`|`bob jones`|
 
 ## <a name="hierarchical-entity-data"></a>Hiyerarşik bir varlığın verilerinin
+
+**Hiyerarşik varlıkları sonunda kullanımdan kaldırılacaktır. Kullanım [varlık rolleri](luis-concept-roles.md) hiyerarşik varlıkları yerine varlık subtypes belirlemek için.**
 
 [Hiyerarşik](luis-concept-entity-types.md) varlıkları makine hakkında bilgi edindiniz ve bir sözcük veya tümcecik ekleyebilirsiniz. Alt öğeleri bağlam tarafından tanımlanır. İle tam metin eşleşmesi için bir üst-alt ilişkisi arıyorsanız, kullanan bir [listesi](#list-entity-data) varlık.
 
@@ -432,13 +434,18 @@ Bir ad, harf ve sözcükler neredeyse her bir birleşimi olabilir çünkü bir u
 [PersonName](luis-reference-prebuilt-person.md) ve [GeographyV2](luis-reference-prebuilt-geographyV2.md) varlıklar bazı durumlarda kullanılabilir [dil kültür](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Kişilerin adları
-Kişi adı, dil ve kültür bağlı olarak bazı küçük biçimi olabilir. Hiyerarşik bir varlık ile ilk ve son adları alt öğe olarak veya tek bir varlığın adı ve Soyadı rolleriyle kullanın. Hiçbiri dahil olmak üzere tüm hedefleri arasında farklı kısımlarını farklı uzunluktaki konuşma ve konuşma utterance içinde adı ve Soyadı kullanan örnekler vermeniz hedefi sağlayın. [Gözden geçirme](luis-how-to-review-endpoint-utterances.md) doğru şekilde tahmin değil herhangi bir adı etiketlemek için düzenli olarak konuşma uç noktası.
+
+Kişi adı, dil ve kültür bağlı olarak bazı küçük biçimi olabilir. Ya da bir önceden oluşturulmuş kullanın **[personName](luis-reference-prebuilt-person.md)** varlık veya **[varlığın](luis-concept-entity-types.md#simple-entity)** ile [rolleri](luis-concept-roles.md) ilk ve Soyadı. 
+
+Varlığın kullanırsanız, hiçbiri dahil olmak üzere tüm hedefleri arasında farklı kısımlarını farklı uzunluktaki konuşma ve konuşma utterance içinde adı ve Soyadı kullanan örnekler vermeniz hedefi sağlayın. [Gözden geçirme](luis-how-to-review-endoint-utt.md) doğru şekilde tahmin değil herhangi bir adı etiketlemek için düzenli olarak konuşma uç noktası.
 
 ### <a name="names-of-places"></a>Basamak adları
-Konum adlarını ayarlayın ve şehir, ilçeler, durumları, bölgeler ve ülke gibi bilinen. Uygulamanızı bilinen birtakım konumları kullanıyorsa, bir liste varlığı göz önünde bulundurun. Adları yerleştirmek bulmanız gerekiyorsa, basit bir varlık oluşturun ve çeşitli örnekler sağlar. Yer adlarına hangi yerde adları görünümlü uygulamanızda güçlendirmek için ifade listesi ekleyin. [Gözden geçirme](luis-how-to-review-endpoint-utterances.md) doğru şekilde tahmin değil herhangi bir adı etiketlemek için düzenli olarak konuşma uç noktası.
+
+Konum adlarını ayarlayın ve şehir, ilçeler, durumları, bölgeler ve ülke gibi bilinen. Önceden oluşturulmuş varlık **[geographyV2](luis-reference-prebuilt-geographyv2.md)** konum bilgileri ayıklamak için.
 
 ### <a name="new-and-emerging-names"></a>Yeni ve geliştirilmekte olan adları
-Bazı uygulamalar, ürünleri veya şirketler gibi yeni ve geliştirilmekte olan adlarını bulmak gerekir. Bu tür adları veri ayıklama en zor türüdür. Basit bir varlık ile başlamalı ve bir ifade listesi ekleyin. [Gözden geçirme](luis-how-to-review-endpoint-utterances.md) doğru şekilde tahmin değil herhangi bir adı etiketlemek için düzenli olarak konuşma uç noktası.
+
+Bazı uygulamalar, ürünleri veya şirketler gibi yeni ve geliştirilmekte olan adlarını bulmak gerekir. Bu tür adları, veri ayıklama en zor türüdür. İle başlayan bir **[varlığın](luis-concept-entity-types.md#simple-entity)** ve ekleme bir [tümcecik listesi](luis-concept-feature.md). [Gözden geçirme](luis-how-to-review-endoint-utt.md) doğru şekilde tahmin değil herhangi bir adı etiketlemek için düzenli olarak konuşma uç noktası.
 
 ## <a name="pattern-roles-data"></a>Desen rolleri veri
 Roller, varlık bağlamsal fark vardır.

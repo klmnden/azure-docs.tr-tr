@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: f2ea9f784064a926a391ba0eadebd9fa5224a36d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 513836257a292069da709ad7a71e480f2b4d069d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875195"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549738"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL veritabanı ve SQL veri ambarı IP güvenlik duvarı kuralları
 
@@ -249,6 +249,7 @@ Microsoft Azure SQL Veritabanı hizmetine erişim beklediğiniz gibi davranmadı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+- Kurumsal ağ ortamınıza gelen iletişim Microsoft Azure veri merkezleri tarafından kullanılan işlem IP adresi aralıklarını (SQL aralıkları dahil) gelen sağlar onaylayın. Beyaz listeye gerekli olabilir bu IP adreslerini görmek [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653)  
 - Sunucu düzeyinde IP güvenlik duvarı kuralı oluşturma Hızlı Başlangıç için bkz. [bir Azure SQL veritabanı oluşturma](sql-database-single-database-get-started.md).
 - Açık kaynak veya üçüncü taraf uygulamalardan bir Azure SQL veritabanına bağlanma konusunda yardım için bkz. [SQL Veritabanına yönelik istemci hızlı başlatma kod örnekleri](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - Açmak için ihtiyacınız olan ek bağlantı noktaları hakkında daha fazla bilgi için bkz: **SQL veritabanı: Dış ve iç karşılaştırması** bölümünü [ADO.NET 4.5 ve SQL veritabanı için 1433 dışındaki bağlantı noktaları](sql-database-develop-direct-route-ports-adonet-v12.md)

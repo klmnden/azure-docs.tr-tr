@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0445643d3aae0e4e072e7fa8e3a73dc8973e84a5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 38dd4d13aa45b69fc846ef9b6b2e1b56f56de573
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268509"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544764"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure automation'da Runbook yürütme
 
@@ -46,7 +46,7 @@ Azure automation'daki Runbook'lar çalışma zamanı üzerinde bir korumalı ala
 |Yükleyici gerektiren bir modülünü yükleme|Karma Runbook Çalışanı|Modüller için korumalı alan copiable olmalıdır|
 |Runbook'ları veya 4.7.2 farklı .NET Framework gerektiren modülleri kullanma|Karma Runbook Çalışanı|Otomasyon korumalı alanları, .NET Framework 4.7.2 sahip ve yükseltme yolu yoktur|
 |Yetki yükseltmesi gerektiren betikleri|Karma Runbook Çalışanı|Sanal yükseltme izin vermez. Bunu çözmek için bir karma Runbook çalışanı kullanmak ve UAC ve kullanım Kapat `Invoke-Command` komutu çalıştıran gerektirdiğinde yükseltme|
-|WMI erişmesi betikleriniz|Karma Runbook Çalışanı|Bulut sanal çalışan işleri [WMI erişim izniniz yok](#device-and-application-characteristics)|
+|WMI erişmesi betikleriniz|Karma Runbook Çalışanı|Bulutta sanal çalışan işleri [WMI'ya erişimi yoktur](#device-and-application-characteristics)|
 
 ## <a name="runbook-behavior"></a>Runbook davranışı
 
@@ -192,7 +192,7 @@ Runbook'ları Azure sanal çalıştırın (örneğin, bir .exe veya subprocess.c
 
 ### <a name="device-and-application-characteristics"></a>Cihaz ve uygulama özellikleri
 
-Runbook işleri çalıştırmak Azure sanal bir cihaz veya uygulama özelliklerine erişimi. Windows üzerinde sorgu performans ölçümleri için kullanılan en yaygın WMI API'dir. Bu ortak ölçümleri bazıları şunlardır: bellek ve CPU kullanımı. Ancak, ne bir önemi yoktur API'si kullanılır. Bulutta çalışan işleri erişiminiz yok, genel bilgi modeli (CIM) üzerinde oluşturulmuş, Web tabanlı kuruluş yönetimi (WBEM) Microsoft uygulaması olan cihaz ve uygulama özelliklerini tanımlamak için endüstri standartları.
+Runbook işleri çalıştırmak Azure sanal bir cihaz veya uygulama özelliklerine erişimi. Windows üzerinde sorgu performans ölçümleri için kullanılan en yaygın WMI API'dir. Bu ortak ölçümleri bazıları şunlardır: bellek ve CPU kullanımı. Ancak, ne bir önemi yoktur API'si kullanılır. Bulutta çalışan işleri, Web tabanlı kuruluş yönetimi (Ortak Bilgi Modeli (CIM) üzerinde yerleşik, WBEM), Microsoft uygulaması için cihaz ve uygulama özelliklerini tanımlamak için endüstri standartları olduğu erişiminiz yok.
 
 ## <a name="job-statuses"></a>İş durumları
 

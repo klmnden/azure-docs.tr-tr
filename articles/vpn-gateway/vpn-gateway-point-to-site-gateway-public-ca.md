@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 24956dd51ef4c2544ce28005fa3bff31113e5959
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29f2aeee53e07adfeafb8017c489c0b830f24b36
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848941"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521603"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>P2S için genel CA ağ geçidi sertifikasına geçiş
 
@@ -56,7 +56,7 @@ Yalnızca eski ağ geçitleri bu değişiklikten etkilenmez. Ağ geçidi sertifi
 
 ### <a name="classic"></a>Klasik
 
-1. Bir istemci bilgisayara için yol %appdata%/Microsoft/Network/Connections/Cm/ gidin<gatewayID>. Ağ geçidi kimliği klasöründe, sertifikayı görüntüleyebilirsiniz.
+1. Bir istemci bilgisayara yola gidin `%appdata%/Microsoft/Network/Connections/Cm/<gatewayID>`. Ağ geçidi kimliği klasöründe, sertifikayı görüntüleyebilirsiniz.
 2. Sertifika için Genel sekmesinde, sertifika verme yetkilisi "DigiCert genel kök CA" olduğunu doğrulayın. Bu veren yetkili dışındaki herhangi bir şey varsa, ağ geçidi sertifikanızı güncelleştirmenin parçası olan ve yapılacaktır.
 
 ## <a name="2-check-certificate-transition-schedule"></a>2. Sertifika geçişi zamanlamayı denetle

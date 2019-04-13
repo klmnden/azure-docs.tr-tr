@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
 ms.author: jeconnoc
-ms.openlocfilehash: f0724fd6e5f08f3e09bcb147c12d1657235dc704
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: f597bc760a3f3825416912642ee66a53dfb91696
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916895"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525570"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Azure Tanılama ile bulut Hizmetleri uygulamasının akışı izleme
 İzleme, çalışırken uygulamanızın yürütmesini izlemek bir yoldur. Kullanabileceğiniz [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug), ve [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) hatalarıyla ilgili bilgileri kaydetmek için sınıfları ve Uygulama yürütme günlükleri, metin dosyaları veya diğer cihazlar daha sonra çözümlemek için. İzleme hakkında daha fazla bilgi için bkz: [izleme ve İşaretleme uygulamaları](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).
@@ -69,7 +69,7 @@ Dinleyicileri hakkında daha fazla bilgi için bkz: [izleme dinleyicilerine](/do
 Dinleyici eklemek için adımları tamamladıktan sonra izleme deyimleri kodunuza ekleyebilirsiniz.
 
 ### <a name="to-add-trace-statement-to-your-code"></a>İzleme deyimi için kod eklemek için
-1. Uygulamanız için bir kaynak dosyasını açın. Örneğin, <RoleName>web rolü ve çalışan rolü için .cs dosyası.
+1. Uygulamanız için bir kaynak dosyasını açın. Örneğin, \<RoleName > web rolü ve çalışan rolü için .cs dosyası.
 2. Aşağıdakileri ekleyin, değil zaten eklenmişse using deyimi:
     ```
         using System.Diagnostics;

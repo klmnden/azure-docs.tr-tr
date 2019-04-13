@@ -3,17 +3,17 @@ title: Azure işlevleri ağ seçenekleri
 description: Azure işlevleri'nde kullanılabilir tüm ağ seçeneklerine genel bakış
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 1/14/2019
+ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 10d7daa6da45c56e20c622fcbca9ee288e737dab
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: a4ae2d8bad50a4103da6afaa0bee5cbb75c877aa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358171"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545514"
 ---
 # <a name="azure-functions-networking-options"></a>Azure işlevleri ağ seçenekleri
 
@@ -27,14 +27,14 @@ Bu belgede, Azure işlevleri barındırma seçenekleri arasında kullanılabilir
     1. App Service, sabit bir ölçekte çalışır ve benzer ağ yalıtımı için Premium planı sunar planı.
 * İşlevleri, bir App Service ortamı (işlevinizi Vnet'inizi dağıtır ve tam ağ denetimi ve yalıtım sağlar. ASE üzerinde) da çalıştırılabilir.
 
-## <a name="networking-feature-matrix"></a>Özellik matrisi ağ
+## <a name="networking-feature-matrix"></a>Ağ özellik Matrisi
 
-|                |[Tüketim Planı](functions-scale.md#consumption-plan)|⚠ [Premium planı](functions-scale.md##premium-plan-public-preview)|[Uygulama Hizmeti Planı](functions-scale.md#app-service-plan)|[App Service Ortamı](../app-service/environment/intro.md)|
+|                |[Tüketim planı](functions-scale.md#consumption-plan)|⚠ [Premium planı](functions-scale.md##premium-plan-public-preview)|[App Service Planı](functions-scale.md#app-service-plan)|[App Service Ortamı](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[**Gelen IP kısıtlamaları**](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[**Sanal Ağ Tümleştirmesi**](#vnet-integration)|❌No|⚠ Evet|✅Yes|✅Yes|
-|[**Sanal ağ tümleştirmesi Önizleme (Express Route ve hizmet uç noktaları)**](#preview-vnet-integration)|❌No|⚠ Evet|⚠ Evet|✅Yes|
-|[**Karma Bağlantılar**](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
+|[**VNET tümleştirmesi**](#vnet-integration)|❌No|❌No|✅Yes|✅Yes|
+|[**Sanal ağ tümleştirmesi Önizleme (Express Route ve hizmet uç noktaları)**](#preview-vnet-integration)|❌No|⚠Evet|⚠Evet|✅Yes|
+|[**Karma bağlantılar**](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
 |[**Özel Site erişimi**](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 
 ⚠ Üretim kullanımı için önizleme özelliği
@@ -48,7 +48,7 @@ IP kısıtlamaları sıralı uygulamanıza erişmek için izin verilen IP adresl
 
 [Buradan daha fazla bilgi edinin](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
 
-## <a name="vnet-integration"></a>Sanal Ağ Tümleştirmesi
+## <a name="vnet-integration"></a>VNet tümleştirmesi
 
 VNET tümleştirmesi, bir sanal ağ içindeki kaynaklara erişmek işlev uygulamanızı sağlar. VNET tümleştirmesi Premium planı ve App Service planı içinde kullanılabilir. Uygulamanızı bir App Service Ortamı'nda ise, bir sanal ağda zaten ve aynı sanal ağ kaynaklarına ulaşmak için VNet tümleştirmesi özelliğinin gerektirmez.
 
@@ -76,7 +76,7 @@ Yeni bir sürümü önizlemede olan VNet tümleştirme özelliği yoktur. Noktad
 
 Sanal ağ tümleştirmesi Önizleme kullanma hakkında daha fazla bilgi edinmek için [bir işlev uygulaması bir Azure sanal ağ ile tümleştirme](functions-create-vnet.md).
 
-## <a name="hybrid-connections"></a>Karma Bağlantılar
+## <a name="hybrid-connections"></a>Karma bağlantılar
 
 [Karma bağlantılar](../service-bus-relay/relay-hybrid-connections-protocol.md) Azure geçişi, uygulama kaynaklarında başka ağlara erişim için kullanılan bir özelliğidir. Bir uygulama uç noktası uygulamanızdan erişim sağlar. Uygulamanıza erişmek için kullanılamaz. Karma bağlantılar çalışan işlevler için kullanılabilir bir [App Service planı](functions-scale.md#app-service-plan) ve [App Service ortamı](../app-service/environment/intro.md).
 
@@ -84,8 +84,18 @@ Sanal ağ tümleştirmesi Önizleme kullanma hakkında daha fazla bilgi edinmek 
 
 Daha fazla bilgi için bkz. [karma bağlantılar için App Service belgeleri](../app-service/app-service-hybrid-connections.md), hem işlev hem de Web uygulamalarını destekler.
 
-## <a name="private-site-access"></a>Özel Site erişimi
+## <a name="private-site-access"></a>Özel site erişimi
 
 Özel site erişimi, uygulamanızı yalnızca özel ağdan gibi bir Azure sanal ağı içinde erişilebilir hale getirmek için ifade eder. Özel site erişimi yalnızca bir iç yük dengeleyici (ILB) ile yapılandırılmış bir ASE ile kullanılabilir. ILB ASE kullanma hakkında daha fazla bilgi için bkz [oluşturma ve ILB ASE kullanır](../app-service/environment/create-ilb-ase.md).
 
 Diğer barındırma seçenekleri VNET kaynaklara erişmek için birçok yolu vardır, ancak bir ASE Tetikleyiciler bir VNET üzerinde gerçekleşmesi bir işlev için izin vermek için tek yoludur.
+
+## <a name="next-steps"></a>Sonraki adımlar
+Ağ iletişimi hakkında daha fazla bilgi edinmek ve İşlevler: 
+
+* [Başlarken VNET tümleştirmesi öğreticimize izleyin](./functions-create-vnet.md)
+* [Burada SSS ağ işlevleri okur](./functions-networking-faq.md)
+* [App Service ile VNET tümleştirmesi hakkında daha fazla bilgi / burada işlevleri](../app-service/web-sites-integrate-with-vnet.md)
+* [Azure'da sanal ağlar hakkında daha fazla bilgi edinin](../virtual-network/virtual-networks-overview.md)
+* [Daha fazla ağ özellikleri ve App Service ortamları ile denetimi etkinleştir](../app-service/environment/intro.md)
+* [Karma bağlantıları kullanarak güvenlik duvarı değişikliğe gerek kalmadan tek şirket içi kaynaklara bağlanma](../app-service/app-service-hybrid-connections.md)

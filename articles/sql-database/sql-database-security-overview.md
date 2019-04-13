@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: f9387d68139119c13d57ebb135e0c0f5b7bba8ec
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.date: 04/11/2019
+ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359039"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523707"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL veritabanı güvenlik özelliklerine genel bakış
 
@@ -107,7 +107,7 @@ Bir en iyi uygulama olarak, uygulamanızın bağlantı dizesi, öneri şifreli b
 Örneğin ADO.NET sürücüsü kullanılırken bu aracılığıyla gerçekleştirilir **Encrypt = True** ve **TrustServerCertificate = False**. Bağlantı dizenizi Azure portalından elde doğru ayarları geçersiz olur.
 
 > [!IMPORTANT]
-> Bazı Microsoft olmayan sürücüler değil varsayılan olarak TLS kullanın veya TLS daha eski bir sürümünü kullanan unutmayın (< 2.0) çalışabilmesi için. Bu durumda SQL Server hala veritabanınıza bağlanmak sağlar. Ancak, özellikle hassas verileri depoladığınızda, söz konusu sürücüleri ve SQL veritabanı'na bağlanmak için uygulama izin verme, güvenlik riskleri değerlendirmeniz önerilir. 
+> Bazı Microsoft olmayan sürücüler değil varsayılan olarak TLS kullanın veya TLS daha eski bir sürümünü kullanan unutmayın (< 1.2) çalışabilmesi için. Bu durumda SQL Server hala veritabanınıza bağlanmak sağlar. Ancak, özellikle hassas verileri depoladığınızda, söz konusu sürücüleri ve SQL veritabanı'na bağlanmak için uygulama izin verme, güvenlik riskleri değerlendirmeniz önerilir. 
 >
 > TLS ve bağlantı hakkında daha fazla bilgi için bkz: [TLS konuları](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 

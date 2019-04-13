@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: ecaabe0cf2e9e55bf02f8e12244d55fc2bef830b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: d08715b1b3e0db4dfcf31bb4c020ab44ed3916e1
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359819"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549059"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Ağ eşlemesini ve sanal ağlar için IP adresini ayarlama
 
@@ -86,7 +86,7 @@ Farklı bir adres alanı<br/><br/> Hedef alt ağdaki bir sonraki kullanılabilir
 **Hedef ağ** | **Ayrıntılar**
 --- | ---
 Hedef VNet yük devretme ağdır | -Hedef IP adresi, statik, ancak aynı IP adresi, yük devretme için ayrılmış olarak değil değildir.<br/><br/>  -Alt ağ aralığı sonundan sonraki kullanılabilir adresi atanan adresidir.<br/><br/> Örneğin: Kaynak IP adresini 10.0.0.19 ve Yük Devretme ağ aralığı 10.0.0.0/24 kullanılıyorsa, hedef VM'ye atanmış sonraki IP adresi 10.0.0.254 olduğu.
-Yük devretme sanal ağı hedef ağ değil | -Hedef IP adresi, statik yük devretme için ayrılmış aynı IP adresine sahip olacaktır.<br/><br/>  -Aynı IP adresi zaten atanmış ise, IP adresini bir sonraki her bir alt ağ aralığı kullanılabilir olduğunu.<br/><br/> Örneğin: Kaynak statik IP adresi 10.0.0.19 ve yük devretme yük devretme ağı olmayan bir ağ üzerinde aralığı 10.0.0.0/24 hedef statik IP adresi varsa 10.0.0.0.19 olacaktır ve aksi durumda 10.0.0.254 olur.
+Yük devretme sanal ağı hedef ağ değil | -Hedef IP adresi, statik yük devretme için ayrılmış aynı IP adresine sahip olacaktır.<br/><br/>  -Aynı IP adresi zaten atanmış ise, IP adresini bir sonraki alt aralığın sonunda kullanılabilir olduğunu.<br/><br/> Örneğin: Kaynak statik IP adresi 10.0.0.19 ve yük devretme yük devretme ağı olmayan bir ağ üzerinde aralığı 10.0.0.0/24 hedef statik IP adresi varsa 10.0.0.0.19 olacaktır ve aksi durumda 10.0.0.254 olur.
 
 - Yük devretme VNet olağanüstü durum kurtarma işlemini ayarladığınız olurken seçtiğiniz hedef ağdır.
 - Üretim dışı ağ her zaman test yük devretmesi için kullanmanızı öneririz.

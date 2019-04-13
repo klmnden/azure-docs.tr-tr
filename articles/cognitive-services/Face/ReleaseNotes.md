@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: yluiu
-ms.openlocfilehash: 02e4e73bbbc7f843a3483bab4791484b89f97dd7
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 8502d643986392ba846d509819c6d8f63f931c07
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862038"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544559"
 ---
 # <a name="face-api-release-notes"></a>Yüz tanıma API'si sürüm notları
 
@@ -27,7 +27,7 @@ Bu makalede, yüz tanıma API'si hizmeti sürüm 1.0 için geçerlidir.
 
 ### <a name="release-changes-in-january-2019"></a>Ocak 2019 yayın değişiklikleri
 
-* Abonelikler arasında veri geçişini desteklemek için eklenen anlık görüntü özelliği: [Anlık Görüntü](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot). Daha ayrıntılı bilgi [yüz tanıma verileriniz farklı bir yüz aboneliğe geçirme](Face-API-How-to-Topics/how-to-migrate-face-data.md).
+* Abonelikler arasında veri geçişini desteklemek için eklenen anlık görüntü özelliği: [Anlık Görüntü](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-get). Daha ayrıntılı bilgi [yüz tanıma verileriniz farklı bir yüz aboneliğe geçirme](Face-API-How-to-Topics/how-to-migrate-face-data.md).
 
 ### <a name="release-changes-in-october-2018"></a>Ekim 2018'de yayın değişiklikleri
 

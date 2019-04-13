@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: c7bf6a22da89f0bf1e3897ec8fc30238b86b7b75
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9aa7c4a5464230abe9ac7e75854a7422534f40f6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882759"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522313"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Hızlı Başlangıç: Bir düğüm web uygulaması kullanarak Azure Key Vault'tan bir gizli dizi alma ve ayarlama 
 
@@ -150,7 +150,7 @@ Yeni oluşturulan web uygulamanıza gidin ve düzgün çalıştığını görmel
     ```
     http://<app name>.azurewebsites.net
     ```
-Yukarıdaki komut, ayrıca, yerel Git deponuzdan Azure'a dağıtmanızı sağlayan Git etkin bir uygulama oluşturur. Yerel Git deposu bu URL ile yapılandırılmış: https://<username>@< app_name >.scm.azurewebsites.net/ < app_name > .git.
+Yukarıdaki komut, ayrıca, yerel Git deponuzdan Azure'a dağıtmanızı sağlayan Git etkin bir uygulama oluşturur. Yerel Git deposu bu URL ile yapılandırılmış: `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`.
 
 Önceki komutta tamamladıktan sonra yerel Git deponuza bir Azure uzak ekleyebilirsiniz. Değiştirin `<url>` Git deposunun URL'si ile.
 
@@ -194,7 +194,7 @@ Uygulamayı Azure'a dağıtmak için aşağıdaki komutu çalıştırın:
 git push azure master
 ```
 
-Bundan sonra gizli değer https://<app_name>.azurewebsites.net için göz atarken görebilirsiniz. Adı yerine emin <YourKeyVaultName> vault adınızla.
+Bundan sonra göz atarken `https://<app_name>.azurewebsites.net`, gizli değer görebilirsiniz. Adı yerine emin `<YourKeyVaultName>` vault adınızla.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

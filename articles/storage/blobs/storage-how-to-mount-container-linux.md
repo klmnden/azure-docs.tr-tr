@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 2/1/2019
 ms.author: seguler
-ms.openlocfilehash: 1e26eb213ad2613877c46758299c2e962894d358
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: eadf52afd115eb1cb642082cea4b9f338bd44914
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698017"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521662"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>BLOB Depolama blobfuse ile bir dosya sistemi olarak takmak nasıl
 
@@ -29,7 +29,7 @@ Bu kılavuzda blobfuse kullanın ve Blob Depolama kapsayıcısı üzerinde Linux
 ## <a name="install-blobfuse-on-linux"></a>Linux'ta blobfuse yükleme
 Blobfuse ikili dosyaları, üzerinde kullanılabilir [Linux için Microsoft yazılım depoları](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) Ubuntu ve RHEL'de dağıtımlar için. Bu dağıtımlarında blobfuse yüklemek için listenin depolarından birini yapılandırın. Ayrıca, kaynak kodu aşağıdaki ikili dosyaları oluşturabilirsiniz [Azure Depolama'ya yükleme adımlarını](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) varsa hiçbir ikili dosyaları, dağıtım için kullanılabilir.
 
-Blobfuse Ubuntu 14.04 ve 16.04 yüklemeyi destekler. Dağıtılan bu sürümlerden biri olduğundan emin olmak için şu komutu çalıştırın:
+Blobfuse Ubuntu 14.04 ve 16.04 18.04 yüklemeyi destekler. Dağıtılan bu sürümlerden biri olduğundan emin olmak için şu komutu çalıştırın:
 ```
 lsb_release -a
 ```
@@ -51,11 +51,11 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-Benzer şekilde, URL değiştirme `.../ubuntu/16.04/...` bir Ubuntu 16.04 dağıtımına işaret edecek şekilde.
+Benzer şekilde, URL değiştirme `.../ubuntu/16.04/...` veya `.../ubuntu/18.04/...` başka bir Ubuntu sürümüne başvurmak için.
 
 ### <a name="install-blobfuse"></a>Blobfuse yükleyin
 
-Bir Ubuntu/Debian dağıtım:
+Bir Ubuntu/Debian dağıtımı:
 ```bash
 sudo apt-get install blobfuse
 ```
@@ -85,7 +85,7 @@ Azure'da blobfuse için düşük gecikmeli bir arabelleği sağlamak için sanal
 
 Geçici yol, kullanıcı erişiminin emin olun:
 ```bash
-sudo mkdir /mnt/resource/blobfusetmp
+sudo mkdir /mnt/resource/blobfusetmp -p
 sudo chown <youruser> /mnt/resource/blobfusetmp
 ```
 
@@ -97,8 +97,15 @@ accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
+`accountName` Depolama hesabınızın - tam URL önekidir.
 
-Bu dosyayı oluşturduktan sonra başka bir kullanıcı okuyabilmesi için erişimi kısıtlamak emin olun.
+Bu dosya kullanarak oluşturun:
+
+```
+touch ~/fuse_connection.cfg
+```
+
+Oluşturulur ve bu dosyayı düzenleyen sonra başka hiçbir kullanıcı okuyabilmesi için erişimi kısıtlamak emin olun.
 ```bash
 chmod 600 fuse_connection.cfg
 ```

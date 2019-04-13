@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 9c628b02961ee289833e669a4c77de0bf824de22
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 061156a455664a5a3f0b4c4497d24f4e8ff6eea7
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999981"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527260"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Azure CLI kullanarak URL yolu tabanlı yönlendirme kurallarıyla bir uygulama ağ geçidi oluşturma
 
@@ -36,7 +36,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. [az group create](/cli/azure/group) ile bir kaynak grubu oluşturun.
 
@@ -232,11 +232,11 @@ az network public-ip show \
 
 ![Temel URL’yi uygulama ağ geçidinde test etme](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
 
-Temel URL'sinin sonuna http://<ip-address>:8080/video/test.html değiştirin ve aşağıdaki örnekte olduğu gibi bir şey görmeniz gerekir:
+URL'yi `http://<ip-address>:8080/video/test.html` sonuna ve temel URL aşağıdaki örneğe benzer bir şey görmeniz gerekir:
 
 ![Görüntü URL’sini uygulama ağ geçidinde test etme](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
 
-İçin http://<ip-address>:8080/video/test.html URL'sini değiştirin ve aşağıdaki örnekte olduğu gibi bir şey görmeniz gerekir.
+URL'yi `http://<ip-address>:8080/video/test.html` ve aşağıdaki örnekte olduğu gibi bir şey görmeniz gerekir.
 
 ![Video URL’sini uygulama ağ geçidinde test etme](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 

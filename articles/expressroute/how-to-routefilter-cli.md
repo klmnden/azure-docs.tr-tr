@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: 94bdd4819d750f4c26c93a88cc6982a60583171c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cfd9f4c52d3ddddd944186a833cba48e6ca76182
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079305"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527974"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Microsoft eşlemesi için rota filtreleri yapılandırma: Azure CLI
 
@@ -90,7 +90,7 @@ Bir ExpressRoute bağlantı hattı oluşturmak istediğiniz aboneliği seçin.
 az account set --subscription "<subscription ID>"
 ```
 
-## <a name="prefixes"></a>1. adım: bir ön ek listesini ve BGP topluluk değerlerini alma
+## <a name="prefixes"></a>1. adım: Bir ön ek listesini ve BGP topluluk değerlerini alma
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1. BGP topluluk değerlerini bir listesini alın
 
@@ -103,13 +103,13 @@ az network route-filter rule list-service-communities
 
 Bir rota filtresinde kullanmak istediğiniz BGP topluluk değerlerini listesini hazırlayın. Örneğin, Dynamics 365 Hizmetleri için BGP topluluk değeri 12076:5040 ' dir.
 
-## <a name="filter"></a>2. adım: bir yol filtresi ve bir filtre kuralı oluşturma
+## <a name="filter"></a>2. adım: Rota filtresi ve filtre kuralı oluşturma
 
 Bir rota filtresinde yalnızca bir kuralınız olabilir ve kural 'İzin ver' türünde olmalıdır. Bu kural, kendisiyle ilişkili BGP topluluk değerlerini listesi olabilir.
 
 ### <a name="1-create-a-route-filter"></a>1. Rota filtresi oluşturma
 
-İlk olarak rota filtresini oluşturun. ' % S'komutu 'az network route-filter oluşturma' yalnızca bir yol filtresi kaynağı oluşturur. Kaynak oluşturduktan sonra ardından bir kural oluşturmak ve rota filtresi nesnesine ekleme gerekir. Rota filtresi kaynak oluşturmak için aşağıdaki komutu çalıştırın:
+İlk olarak rota filtresini oluşturun. Komut `az network route-filter create` yalnızca bir yol filtresi kaynağı oluşturur. Kaynak oluşturduktan sonra ardından bir kural oluşturmak ve rota filtresi nesnesine ekleme gerekir. Rota filtresi kaynak oluşturmak için aşağıdaki komutu çalıştırın:
 
 ```azurecli-interactive
 az network route-filter create -n MyRouteFilter -g MyResourceGroup
@@ -123,7 +123,7 @@ Yeni bir kural oluşturmak için aşağıdaki komutu çalıştırın:
 az network route-filter rule create --filter-name MyRouteFilter -n CRM --communities 12076:5040 --access Allow -g MyResourceGroup
 ```
 
-## <a name="attach"></a>3. adım: bir ExpressRoute bağlantı hattı için rota filtresi ekleme
+## <a name="attach"></a>3. adım: Bir ExpressRoute bağlantı hattı için rota filtresi ekleme
 
 ExpressRoute bağlantı hattı için rota filtresine eklemek için aşağıdaki komutu çalıştırın:
 

@@ -1,5 +1,5 @@
 ---
-title: Sorun Giderme
+title: Sorun giderme
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: b205f7782dc14c9108032d2b4a274f884194874e
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 16b33203099765633d6bc5992fdc266aa1f28a26
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357852"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548789"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -325,3 +325,35 @@ Hata ayıklayıcısı ile iliştirme çalıştığınız Node.js uygulaması ile
 
 ### <a name="try"></a>Deneme
 Değerini artırmak için bu sorun için geçici bir çözüm olan *fs.inotify.max_user_watches* kümedeki her düğümde ve değişikliklerin etkili olması bu düğümü yeniden başlatın.
+
+## <a name="new-pods-are-not-starting"></a>Yeni pod'ların başlamıyor
+
+### <a name="reason"></a>Neden
+
+Kubernetes Başlatıcısı için RBAC izni değişiklikleri nedeniyle, yeni pod'ların PodSpec uygulanamıyor *küme yönetim* küme rolü. Yeni pod da geçersiz bir PodSpec olabilir, örneğin pod ile ilişkili hizmet hesabı artık yok. İçinde bulunduğunuz pod'ların görmek için bir *bekleyen* kullanım Başlatıcı sorunu nedeniyle durum `kubectl get pods` komutu:
+
+```bash
+kubectl get pods --all-namespaces --include-uninitialized
+```
+
+Bu sorunu pod'ların etkileyebilir *tüm ad alanlarını* burada Azure geliştirme alanları etkin değil ad alanları da dahil olmak üzere küme içindeki.
+
+### <a name="try"></a>Deneme
+
+[Geliştirme alanları CLI en son sürüme güncelleştirme](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) ve ardından silme *azds InitializerConfiguration* Azure geliştirme alanları denetleyicisinden:
+
+```bash
+az aks get-credentials --resource-group <resource group name> --name <cluster name>
+kubectl delete InitializerConfiguration azds
+```
+
+Kaldırılan sonra *azds InitializerConfiguration* kullanın Azure geliştirme alanları denetleyicisinden `kubectl delete` herhangi pod'ların kaldırmak için bir *bekleyen* durumu. Tüm bekleyen pod'ların kaldırıldı, podlarınız yeniden dağıtın.
+
+Yeni pod'ların yine de sıkışmış varsa bir *bekleyen* yeniden dağıtım, kullanım sonra durum `kubectl delete` herhangi pod'ların kaldırmak için bir *bekleyen* durumu. Tüm bekleyen pod'ların kaldırıldı, denetleyici kümeden silin ve yeniden yükleyin:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
+```
+
+Denetleyicinizi yeniden yüklendikten sonra pod'ların yeniden dağıtın.

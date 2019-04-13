@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: ee28bfebb6732c7bb3b689cf08b9b876adb74b1b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f4e001909fb739aa368e5201649e85cce9906d3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104684"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521929"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Hızlı Başlangıç: Linux bilgisayarları Azure Güvenlik Merkezi'ne ekleme
 Azure aboneliklerinizi ekledikten sonra Linux Aracısı’nı sağlayarak Azure dışında (örneğin, şirket içinde veya diğer bulutlarda) çalışan Linux kaynakları için Güvenlik Merkezi’ni etkinleştirebilirsiniz.
@@ -57,7 +57,7 @@ Bu hızlı başlangıca başlamadan önce Güvenlik Merkezi’nin Standart fiyat
 
    ![Aracıyı yükleme][5]
 
-Linux için Güvenlik Merkezi Aracısı günlükleri şu yolda bulunabilir: */var/opt/microsoft/omsagent/<workspace id>/log/*
+Linux için Güvenlik Merkezi Aracısı günlükleri şu yolda bulunabilir:: */var/opt/microsoft/omsagent/\<çalışma alanı kimliği > /log/*
 
   ![Aracı günlükleri][6]
 

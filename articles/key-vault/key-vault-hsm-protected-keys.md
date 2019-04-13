@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 71931194c88412467252d16c5333d7a77338378c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 70a33b0ec55705c6fb00671cc801415cd7459558
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630622"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522737"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure anahtar kasası için nasıl oluşturma ve aktarma HSM korumalı anahtarlar
 
@@ -57,7 +57,7 @@ Eğer kendi HSM korumalı anahtar oluşturun ve ardından Azure anahtar Kasası'
 
 Kendi anahtarını getir (BYOK) için Azure anahtar kasası için bir önkoşul listesi için aşağıdaki tabloya bakın.
 
-| Gereksinim | Daha fazlasını öğrenin |
+| Gereksinim | Daha fazla bilgi |
 | --- | --- |
 | Azure aboneliği |Bir Azure anahtar kasası oluşturmak için bir Azure aboneliğinizin olması gerekir: [Ücretsiz deneme için kaydolun](https://azure.microsoft.com/pricing/free-trial/) |
 | HSM korumalı anahtarları desteklemek için Azure anahtar kasası Premium hizmet katmanı |Azure Key Vault için hizmet katmanları ve özellikler hakkında daha fazla bilgi için bkz. [Azure anahtar kasası fiyatlandırma](https://azure.microsoft.com/pricing/details/key-vault/) Web sitesi. |
@@ -78,7 +78,7 @@ Oluşturma ve anahtarınızı Azure anahtar kasası HSM'ye aktarma beş aşağı
 
 Birinci adım için Internet'e bağlı iş istasyonunuzu üzerinde aşağıdaki yordamları gerçekleştirin.
 
-### <a name="step-11-install-azure-powershell"></a>Adım 1.1: Azure PowerShell'i yükleyin
+### <a name="step-11-install-azure-powershell"></a>Adım 1.1: Azure PowerShell'i yükleme
 
 İnternet'e bağlı iş istasyonundan indirin ve Azure anahtar Kasası'nı yönetmek için cmdlet'ler içeren Azure PowerShell modülünü yükleyin. Yükleme yönergeleri için bkz. [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
 
@@ -228,7 +228,7 @@ Araç takımı içerir:
 * İle başlayan bir ada sahip olan bir güvenlik Dünyası paketi **BYOK-SecurityWorld - pkg-.**
 * Adlı python betiğini **verifykeypackage.py.**
 * Adlı bir komut satırı yürütülebilir dosyası **KeyTransferRemote.exe** ve ilişkili DLL'ler.
-* Adlı bir Visual C++ yeniden dağıtılabilir paketi, **vcredist_x64.exe.**
+* Bir görsel C++ adlı yeniden dağıtılabilir paketi **vcredist_x64.exe.**
 
 Paketi bir USB sürücüye veya başka bir taşınabilir depolama kopyalayın.
 
@@ -256,7 +256,7 @@ USB sürücü veya başka bir taşınabilir depolama BYOK araç takımı paketin
 2. Bu klasörden vcredist_x64.exe çalıştırın.
 3. Yönergeleri, Visual Studio 2013 için Visual C++ çalışma zamanı bileşenlerini yüklemeyi izleyin.
 
-## <a name="step-3-generate-your-key"></a>3. adım: Anahtarınızı
+## <a name="step-3-generate-your-key"></a>3. Adım: Anahtarınızı
 
 Bu üçüncü adım için bağlantısı kesilmiş iş istasyonunda aşağıdaki yordamları gerçekleştirin. Bu adımı tamamlamak için HSM tedarikçinize başlatma modunda olması gerekir. 
 
@@ -445,7 +445,7 @@ Bu komutu çalıştırdığınızda, değiştirin *contosokey* ile aynı belirti
 
 Güvenlik Dünyası yönetim kartlarınızı takmanız istenir.
 
-Komut tamamlandığında, gördüğünüz **sonucu: Başarı** ve anahtarınızın sınırlı izinlere sahip kopyası, key_xferacıd_ adlı dosyada olan<contosokey>.
+Komut tamamlandığında, gördüğünüz **sonucu: Başarı** ve anahtarınızın sınırlı izinlere sahip kopyası, key_xferacıd_ adlı dosyada olan\<contosokey >.
 
 İnceler ACL'leri Thales yardımcı programını kullanarak aşağıdaki komutları kullanarak:
 

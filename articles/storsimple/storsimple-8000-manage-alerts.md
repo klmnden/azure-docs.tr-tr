@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 38d403be1dc35b8ab4cd1b15fa259b5e6917197c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c3be0cdf2ef33c26dfa9d177e9b34f808b1b862a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314459"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525543"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>StorSimple uyarıları görüntülemek ve yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanın
 
@@ -160,7 +160,7 @@ StorSimple üretim Cihazınızda bulut bağlantısı başarısız olursa, cihaz 
 | Cihaz yük devretti için <*cihaz adı*>. |Diğer/bilinmeyen neden. |Bu uyarı çok sayıda görürseniz, Microsoft Support başvurun. Sorun çözüldükten sonra uyarılar sayfasından bu uyarıyı temizleyin. |
 | Kritik başlatma cihazını hizmet durumu başarısız olarak bildirir. |DataPath Hizmeti hatası. |Yardım için Microsoft Support başvurun. |
 | Ağ arabirimi için sanal IP adresi <*veri #*> durumu başarısız olarak bildirir. |Diğer/bilinmeyen neden. |Bazen geçici koşullar Bu uyarılar neden olabilir. Bu durumda, bu uyarıyı otomatik olarak bir süre sonra temizlenir. Sorun devam ederse, Microsoft Destek'e başvurun. |
-| Ağ arabirimi için sanal IP adresi <*veri #*> durumu başarısız olarak bildirir. |Arabirim adı: <*veri #*> IP adresi <IP address> ağ üzerinde yinelenen bir IP adresi algılandığı için çevrimiçi duruma getirilemiyor. |Yinelenen IP adresi ağdan kaldırıldığından emin olun veya farklı bir IP adresi arabirimiyle yeniden yapılandırın. |
+| Ağ arabirimi için sanal IP adresi <*veri #*> durumu başarısız olarak bildirir. |Arabirim adı: <*veri #*> IP adresi `<IP address>` ağ üzerinde yinelenen bir IP adresi algılandığı için çevrimiçi duruma getirilemiyor. |Yinelenen IP adresi ağdan kaldırıldığından emin olun veya farklı bir IP adresi arabirimiyle yeniden yapılandırın. |
 
 ### <a name="disaster-recovery-alerts"></a>Olağanüstü durum kurtarma uyarıları
 
@@ -200,8 +200,8 @@ StorSimple üretim Cihazınızda bulut bağlantısı başarısız olursa, cihaz 
 | Uyarı metni | Olay | Daha fazla bilgi / Önerilen Eylemler |
 |:--- |:--- |:--- |
 | StorSimple hizmetleri başlayamadı. |DataPath hata |Sorun devam ederse, Microsoft Destek'e başvurun. |
-| Yinelenen IP adresi 'Data0 için' algılandı. | |Sistem, '10.0.0.1' IP adresi için bir çakışma algıladı. Cihazdaki ağ kaynağı 'Data0' *<device1>* çevrimdışı. Bu IP adresinin bu ağdaki başka bir varlık tarafından kullanılmaz emin olun. Ağ sorunları gidermek için Git [Get-NetAdapter cmdlet'iyle sorun giderme](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Bu sorunu çözmenize yardımcı olması için ağ yöneticinize başvurun. Sorun devam ederse, Microsoft Destek'e başvurun. |
-| IPv4 (veya IPv6) adresi için 'Data0' çevrimdışı. | |IP adresi '10.0.0.1' olan ağ kaynağı 'Data0' önek uzunluğu '22' cihazda *<device1>* çevrimdışı. Bu arabirimin bağlı olduğu anahtar bağlantı noktalarını çalışır durumda olduğundan emin olun. Ağ sorunları gidermek için Git [Get-NetAdapter cmdlet'iyle sorun giderme](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Yinelenen IP adresi 'Data0 için' algılandı. | |Sistem, '10.0.0.1' IP adresi için bir çakışma algıladı. Cihazdaki ağ kaynağı 'Data0'  *\<cihaz1 ' >* çevrimdışı. Bu IP adresinin bu ağdaki başka bir varlık tarafından kullanılmaz emin olun. Ağ sorunları gidermek için Git [Get-NetAdapter cmdlet'iyle sorun giderme](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Bu sorunu çözmenize yardımcı olması için ağ yöneticinize başvurun. Sorun devam ederse, Microsoft Destek'e başvurun. |
+| IPv4 (veya IPv6) adresi için 'Data0' çevrimdışı. | |IP adresi '10.0.0.1' olan ağ kaynağı 'Data0' önek uzunluğu '22' cihazda  *\<cihaz1 ' >* çevrimdışı. Bu arabirimin bağlı olduğu anahtar bağlantı noktalarını çalışır durumda olduğundan emin olun. Ağ sorunları gidermek için Git [Get-NetAdapter cmdlet'iyle sorun giderme](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
 | Kimlik doğrulama hizmetine bağlanamadı. |DataPath hata |URLthat kimliğini doğrulamak için kullanılan erişilebilir değil. Güvenlik Duvarı kurallarınız StorSimple cihazı için belirtilen URL desenleri eklediğinizden emin olun. Azure portalındaki URL desenleri hakkında daha fazla bilgi için https için Git:\//aka.ms/ss-8000-network-reqs. Azure kamu Bulutu kullanıyorsanız URL desenleri için https gidin:\//aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Performans uyarıları

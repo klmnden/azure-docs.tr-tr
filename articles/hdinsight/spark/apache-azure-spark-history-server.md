@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 8fd737bb784938f7cbff243837678f41d5ac55c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 96c2f1c021e27a8f5a0f4d2af2b34970b9d44e80
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076811"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524183"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Hata ayıklama ve tanılama Apache Spark uygulamaları için genişletilmiş Apache Spark geçmiş sunucusu kullanın
 
@@ -32,7 +32,7 @@ Apache Spark geçmiş sunucusu, tamamlanmış ve çalışan Spark uygulamaları 
     ![Spark geçmiş sunucusu](./media/apache-azure-spark-history-server/launch-history-server.png "Spark geçmiş sunucusu")
 
 ### <a name="open-the-spark-history-server-web-ui-by-url"></a>Spark geçmiş sunucusu Web kullanıcı Arabirimi URL'ye göre açın
-Aşağıdaki URL'ye atarak Spark geçmiş sunucusu açık değiştirin <ClusterName> müşteri Spark kümesi adı.
+Aşağıdaki URL'ye atarak Spark geçmiş sunucusu açık değiştirin `<ClusterName>` müşteri Spark kümesi adı.
 
    ```
    https://<ClusterName>.azurehdinsight.net/sparkhistory

@@ -4,22 +4,24 @@ description: Bu sayfa web uygulaması güvenlik duvarı CRS kural gruplarının 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 4/8/2019
+ms.date: 4/11/2019
 ms.author: victorh
-ms.openlocfilehash: 61ab41eed7703c82c2e5ef2a3b5412a9f56389ba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 0ad5cc76c0f4631fd60eea7d0a57e4740b6a9db3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279712"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523928"
 ---
-# <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Sunulan web uygulaması güvenlik duvarı CRS kural gruplarının ve kuralların listesi
+# <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Web uygulaması güvenlik duvarı CRS kural gruplarının ve kuralların
 
-Application Gateway web uygulaması Güvenlik Duvarı (WAF), web uygulamalarını yaygın güvenlik açıklarına ve açıklardan yararlanmaya karşı korur. Bu, OWASP çekirdek kural kümeleri üzerinde 2.2.9 veya 3.0 tanımlanan kurallara dayalı aracılığıyla gerçekleştirilir. Bu kurallar kural kural olarak devre dışı bırakılabilir. Bu makale, sunulan rulesets ve geçerli kurallarını içerir.
+Application Gateway web uygulaması Güvenlik Duvarı (WAF), web uygulamalarını yaygın güvenlik açıklarına ve açıklardan yararlanmaya karşı korur. Bu, OWASP çekirdek kural kümeleri üzerinde 3.0 veya 2.2.9'daki tanımlanan kurallara dayalı aracılığıyla gerçekleştirilir. Bu kurallar kural kural olarak devre dışı bırakılabilir. Bu makale, sunulan rulesets ve geçerli kurallarını içerir.
 
-Aşağıdaki tablolarda kural gruplarının ve Application Gateway web uygulaması güvenlik duvarı ile kullanırken mevcut olan kuralları var.  Her tabloda belirli bir CRS sürümü için bir kural grubu bulunan kuralları gösterir.
+Application Gateway web uygulaması güvenlik duvarıyla kullanırken aşağıdaki kural gruplarının ve kuralların kullanılabilir.
 
-## <a name="owasp30"></a> OWASP_3.0
+# <a name="owasp-30tabowasp3"></a>[OWASP 3.0](#tab/owasp3)
+
+## <a name="owasp30"></a> Kural kümeleri
 
 ### <a name="General"></a> <p x-ms-format-detection="none">Genel</p>
 
@@ -50,7 +52,7 @@ Aşağıdaki tablolarda kural gruplarının ve Application Gateway web uygulamas
 |---|---|
 |920100|HTTP isteği geçersiz satır|
 |920130|İstek gövdesi ayrıştırılamadı.|
-|920140|Çok parçalı istek gövdesi, katı bir doğrulama başarısız oldu PE %@{REQBODY_PROCESSOR_ERROR =} BQ %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} DB %@{MULTIPART_DATA_BEFORE} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF % @ {MULTIPART_LF_LINE}     FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED MÜŞTERİYE %@{MULTIPART_INVALID_HEADER_FOLDING IQ %@{MULTIPART_INVALID_QUOTING SM %@{MULTIPART_SEMICOLON_MISSING}}}}|
+|920140|Çok parçalı istek gövdesi katı doğrulama başarısız oldu|
 |920160|Content-Length HTTP üstbilgisi sayısal değil.|
 |920170|GET veya HEAD ile gövde içeriği isteyin.|
 |920180|POST isteği Content-Length üst bilgisi eksik.|
@@ -216,7 +218,9 @@ Aşağıdaki tablolarda kural gruplarının ve Application Gateway web uygulamas
 |943110|Olası oturum sabitleme saldırı SessionID parametre adıyla etki alanı kapalı başvuran =|
 |943120|Olası oturum sabitleme saldırı SessionID parametre adıyla hiçbir başvuran =|
 
-## <a name="owasp229"></a> OWASP_2.2.9
+# <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
+
+## <a name="owasp229"></a> Kural kümeleri
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
@@ -225,7 +229,7 @@ Aşağıdaki tablolarda kural gruplarının ve Application Gateway web uygulamas
 |960911|HTTP isteği geçersiz satır|
 |981227|Apache hata = isteğinde geçersiz bir URI.|
 |960912|İstek gövdesi ayrıştırılamadı.|
-|960914|Çok parçalı istek gövdesi, katı bir doğrulama başarısız oldu PE %@{REQBODY_PROCESSOR_ERROR =} BQ %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} DB %@{MULTIPART_DATA_BEFORE} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF % @ {MULTIPART_LF_LINE}     FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED MÜŞTERİYE %@{MULTIPART_INVALID_HEADER_FOLDING IQ %@{MULTIPART_INVALID_QUOTING SM %@{MULTIPART_SEMICOLON_MISSING}}}}|
+|960914|Çok parçalı istek gövdesi katı doğrulama başarısız oldu|
 |960915|Çok bölümlü ayrıştırıcı olası eşleşmeyen bir sınır algılandı.|
 |960016|Content-Length HTTP üstbilgisi sayısal değil.|
 |960011|GET veya HEAD ile gövde içeriği isteyin.|
@@ -472,6 +476,8 @@ Aşağıdaki tablolarda kural gruplarının ve Application Gateway web uygulamas
 |950921|Arka kapı erişimi|
 |950922|Arka kapı erişimi|
 
+---
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-WAF kurallarını ederek devre dışı bırakma işlemleri gerçekleştirmeyi öğreneceksiniz: [WAF kurallarını özelleştirme](application-gateway-customize-waf-rules-portal.md)
+WAF kurallarını devre dışı bırakma hakkında bilgi edinin: [WAF kurallarını özelleştirme](application-gateway-customize-waf-rules-portal.md)

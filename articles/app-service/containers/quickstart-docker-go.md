@@ -9,17 +9,17 @@ ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.service: app-service
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/17/2018
+ms.date: 03/28/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3335163c15319e39858003032ae7113c9c26a3fd
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 88c9996ce3f2d89ae58881c913f6bd4e549b5814
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438589"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547313"
 ---
-# <a name="deploy-a-dockergo-web-app-in-web-app-for-containers"></a>Kapsayıcılar için Web App’te bir Docker/Go web uygulaması dağıtma
+# <a name="run-a-custom-linux-container-in-azure-app-service"></a>Azure App Service'te özel bir Linux kapsayıcı çalıştırma
 
 [App Service Linux](app-service-linux-intro.md), Linux’ta .NET, PHP, Node.js ve diğer dilleri destekleyen önceden tanımlı uygulama yığınları sağlar. Ayrıca web uygulamanızı Azure’da zaten tanımlı olmayan bir uygulama yığınında çalıştırmak için özel bir Docker görüntüsü de kullanabilirsiniz. Bu hızlı başlangıçta bir web uygulaması oluşturma ve Docker Hub’dan Go görüntüsü dağıtma gösterilmektedir. Web uygulamasını [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) kullanarak oluşturursunuz.
 
@@ -75,4 +75,10 @@ http://<app_name>.azurewebsites.net/hello
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Özel Docker görüntüsü kullanma](tutorial-custom-docker-image.md)
+> [Öğretici: Özel kapsayıcı deposundan dağıtın](tutorial-custom-docker-image.md)
+
+> [!div class="nextstepaction"]
+> [Özel bir kapsayıcı yapılandırma](configure-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Öğretici: WordPress çoklu kapsayıcı uygulaması](tutorial-multi-container-app.md)

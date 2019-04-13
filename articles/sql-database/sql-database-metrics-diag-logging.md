@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: a2bd25f6dac4e73c0d8e3e951981f45e669b226a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: fe53dd4419c06d376a1cc46db0d2621ccbc06f23
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490077"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548655"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri
 
@@ -119,7 +119,7 @@ Bir elastik havuz kaynak için tanılama telemetrisi akışını etkinleştirmek
 1. Ayrıca, sonraki bölümde açıklanan adımları uygulayarak izlemek istediğiniz elastik havuz içindeki her bir veritabanı için tanılama telemetrisi akışını yapılandırın.
 
 > [!IMPORTANT]
-> Elastik havuzlar için tanılama telemetrisi yapılandırmaya ek olarak, tanılama telemetrisi her veritabanı için elastik havuzda aşağıda açıklandığı gibi yapılandırmanız da. 
+> Elastik havuzlar için tanılama telemetrisi yapılandırmaya ek olarak, ayrıca tanılama telemetrisi her veritabanı için elastik havuzda yapılandırmak aşağıda belirtildiği gibi gerekir. 
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>Tek veritabanı veya elastik havuzdaki veritabanı için tanılama telemetrisi akışını yapılandırın
 
@@ -143,7 +143,7 @@ Tek veya havuza alınmış veritabanları için tanılama telemetrisi akışın�
 1. İzlemek istediğiniz her veritabanı için bu adımları yineleyin.
 
 > [!NOTE]
-> Güvenlik denetimi ve SQLSecurityAuditEvents günlüklerini veritabanı tanılama ayarlarını (ekran üzerinde gösteriliyor olsa da) etkinleştirilemez. Denetim günlüğü akışını etkinleştirmek için bkz: [veritabanınız için denetimi ayarlamanız](sql-database-auditing.md#subheading-2), ve [Azure İzleyici günlüklerine ve Azure Event Hubs'a günlükler denetim](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> Güvenlik denetimi ve SQLSecurityAuditEvents günlüklerini (ekranda gösterilen rağmen) veritabanı tanılama ayarları etkinleştirilemez. Denetim günlüğü akışını etkinleştirmek için bkz: [veritabanınız için denetimi ayarlamanız](sql-database-auditing.md#subheading-2), ve [Azure İzleyici günlüklerine ve Azure Event Hubs'a günlükler denetim](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 > [!TIP]
 > İzlemek istediğiniz her Azure SQL veritabanı bu adımları yineleyin.
 
@@ -178,7 +178,7 @@ Yönetilen örnek kaynak için tanılama telemetrisi akışını etkinleştirmek
 1. Tanılama telemetrisi örneği için onay kutusunu seçin: **ResourceUsageStats**.
    ![Yönetilen örnek için tanılamayı yapılandırmak](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 1. **Kaydet**’i seçin.
-1. Ayrıca, sonraki bölümde açıklanan adımları uygulayarak izlemek istediğiniz yönetilen örnek içindeki her bir örnek veritabanı için tanılama telemetrisi akışını yapılandırın.
+1. Ayrıca, sonraki bölümde açıklanan adımları izleyerek izlemek istediğiniz yönetilen örnek içindeki her bir örnek veritabanı için tanılama telemetrisi akışını yapılandırın.
 
 > [!IMPORTANT]
 > Yönetilen örnek için tanılama telemetrisi yapılandırmaya ek olarak, ayrıca her bir örnek veritabanı için tanılama telemetrisi yapılandırmak aşağıda belirtildiği gibi gerekir. 
@@ -340,7 +340,7 @@ Elastik havuzlar kullandığınız ya da yönetilen örnekler, ayrıca tanılama
 
 ### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>Veritabanlarını kayıt ölçümleri ve tanılama günlükleri için yapılandırma
 
-Azure portalını kullanarak veritabanlarını kayıt ölçüm olduğu yapılandırmak için en kolay yolu. SQL veritabanı kaynağınızın Azure portal ve seçin için daha önce açıklandığı gibi Git **tanılama ayarları**.
+Burada ölçümleri veritabanları kaydı yapılandırmak için en kolay yolu, Azure portalı kullanmaktır. SQL veritabanı kaynağınızın Azure portal ve seçin için daha önce açıklandığı gibi Git **tanılama ayarları**.
 
 Elastik havuzlar kullandığınız ya da yönetilen örnekler, ayrıca çalışma alanına akışı tanılama telemetrisi etkinleştirmek için bu kaynakları tanılama ayarları yapılandırmanız gerekir.
 
@@ -429,7 +429,7 @@ Kaynak tarafından tüm ölçümler hakkında ayrıntılar için aşağıdaki ta
 
 ## <a name="all-logs"></a>Tüm günlükler
 
-Aşağıdaki tablolarda tüm günlükler için kullanılabilen telemetri ayrıntılarını bildirilen. Lütfen [tanılama günlüğüne kaydetme desteklenen](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) havuza, hangi günlüklerin belirli veritabanı flavor için - Azure SQL tek desteklenen anlamak veya veritabanı örneği.
+Tüm günlükler için kullanılabilen telemetri ayrıntıları aşağıdaki tabloda belirtilmiştir. Lütfen [tanılama günlüğüne kaydetme desteklenen](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) havuza, hangi günlüklerin belirli veritabanı flavor için - Azure SQL tek desteklenen anlamak veya veritabanı örneği.
 
 ### <a name="resource-usage-stats-for-managed-instance"></a>Yönetilen örnek için kaynak kullanım İstatistiği
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2412bd5b4b4f05cdeb1638aa3d9ef1676e7b8315
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8db9e60e9ce99eaf2621821825620966b8b8b4ae
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293082"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521637"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Media Encoder Standard kullanarak bir varlığı kodlama
 > [!div class="op_single_selector"]
@@ -94,14 +94,14 @@ Aşağıdaki örnek assetName özniteliğinin nasıl ayarlanacağı gösterilmek
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 * TaskBody özellikleri değişmez değer XML giriş sayısını belirtin veya çıkış görev tarafından kullanılan varlıklar için kullanmanız gerekir. Görev makale XML için XML şema tanımı içerir.
-* Her iç TaskBody tanımında değeri <inputAsset> ve <outputAsset> JobInputAsset(value) veya JobOutputAsset(value) olarak ayarlanmalıdır.
+* Her iç TaskBody tanımında değeri `<inputAsset>` ve `<outputAsset>` JobInputAsset(value) veya JobOutputAsset(value) olarak ayarlanmalıdır.
 * Bir görev birden fazla çıktı varlığına sahip olabilirsiniz. Bir JobOutputAsset(x) yalnızca bir kez bir işteki bir görevin çıktı olarak kullanılabilir.
 * Bir görevin Giriş bir varlık JobInputAsset veya JobOutputAsset belirtebilirsiniz.
 * Görevleri bir döngü form değil.
 * JobInputAsset veya JobOutputAsset için geçirdiğiniz değer parametresi bir varlık için dizin değerini temsil eder. Gerçek varlıkları işi varlık tanımı InputMediaAssets ve OutputMediaAssets Gezinti özellikleri tanımlanır.
 * Media Services OData v3 tasarlandığından, tek tek varlıklar InputMediaAssets ve OutputMediaAssets gezinti özelliği koleksiyonlardaki aracılığıyla başvurulan bir "__metadata: URI" ad-değer çifti.
 * Media Services'de, oluşturduğunuz bir veya daha fazla varlıklara InputMediaAssets eşler. OutputMediaAssets sistem tarafından oluşturulur. Bunlar, mevcut bir varlık başvurmuyor.
-* OutputMediaAssets assetName özniteliğini kullanarak yeniden adlandırılabilir. Bu öznitelik yoksa sonra herhangi bir iç metin değerini OutputMediaAsset adıdır <outputAsset> bir sonek iş adı değeri ya da iş kimliği değeri (Name özelliği olmayan tanımlandığı durumda) öğesidir. AssetName "SAMPLE" için bir değer ayarlarsanız, örneğin, ardından OutputMediaAsset Name özelliği "Örnek" ayarlanır AssetName değerini ayarlamadınız, ancak "NewJob" proje adı ayarlayın, ancak ardından OutputMediaAsset adı "JobOutputAsset (değer) _NewJob" olacaktır
+* OutputMediaAssets assetName özniteliğini kullanarak yeniden adlandırılabilir. Bu öznitelik yoksa sonra herhangi bir iç metin değerini OutputMediaAsset adıdır `<outputAsset>` bir sonek iş adı değeri ya da iş kimliği değeri (Name özelliği olmayan tanımlandığı durumda) öğesidir. AssetName "SAMPLE" için bir değer ayarlarsanız, örneğin, ardından OutputMediaAsset Name özelliği "Örnek" ayarlanır AssetName değerini ayarlamadınız, ancak "NewJob" proje adı ayarlayın, ancak ardından OutputMediaAsset adı "JobOutputAsset (değer) _NewJob" olacaktır
 
 ## <a name="create-a-job-with-chained-tasks"></a>Zincirleme görev sayısı ile bir iş oluşturma
 Birçok uygulama senaryolarında geliştiriciler işleme görevlerini bir dizi oluşturmak istiyorsunuz. Media Services'de, zincir görevleri bir dizi oluşturabilirsiniz. Her görev, farklı işleme adımları gerçekleştirir ve farklı medya işlemcileri kullanabilirsiniz. Zincirleme görev ashley'e başka varlığında doğrusal bir sırada görevleri gerçekleştirmek için bir görevden teslim. Ancak, bir projede gerçekleştirilen görevleri bir dizisinde olması gerekli değildir. Zincirleme zincirleme görev oluşturduğunuzda, **ITask** tek bir nesne oluşturulur **IJob** nesne.

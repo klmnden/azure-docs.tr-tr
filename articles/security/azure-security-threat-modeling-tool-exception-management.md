@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5c768497cc21b3fae82a9db290531af33841a2cf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7d881454eb857080f1178f228a1f7bec36cae178
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877311"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527430"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Güvenlik çerçevesi: Özel durum yönetimi | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -201,7 +201,7 @@ Onay olağanüstü işleme hakkında ek ayrıntılar için başvurular bölümü
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [ASP.NET hata sayfaları ayarlarını Düzenle iletişim kutusu](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **Adımları** | <p>Bir ASP.NET uygulama başarısız olduğunda ve bir HTTP/1.x 500 İç sunucu hatası neden olan veya bir özellik yapılandırması (örneğin, istek filtreleme) bir sayfa görüntülenmesini engeller, bir hata iletisi oluşturulur. Yöneticiler uygulama kolay bir ileti istemcisi, istemciye ayrıntılı hata iletisi ya da yalnızca localhost için ayrıntılı hata iletisi görüntülenmelidir kullanılıp kullanılmayacağını seçebilirsiniz. <customErrors> Etiketi Web.config dosyasında üç modu vardır:</p><ul><li>**Üzerinde:** Özel hataların etkinleştirildiğini belirtir. Kullanıcılar, hiçbir defaultRedirect özniteliği belirtilmezse, genel bir hata görür. Özel hatalar, uzak istemciler ve yerel ana bilgisayarda gösterilir.</li><li>**Kapalı:** Özel hatalar devre dışı olduğunu belirtir. Uzak istemciler ve yerel ana bilgisayar için ayrıntılı ASP.NET hataları gösterilir</li><li>**RemoteOnly:** Özel hatalar yalnızca uzak istemcilere gösterildiğini ve ASP.NET hataları yerel ana bilgisayara görüntülendiğini belirtir. Varsayılan değer budur.</li></ul><p>Açık `web.config` etiket ya da olduğundan emin olun ve uygulama/site için dosya `<customErrors mode="RemoteOnly" />` veya `<customErrors mode="On" />` tanımlı.</p>|
+| **Adımları** | <p>Bir ASP.NET uygulama başarısız olduğunda ve bir HTTP/1.x 500 İç sunucu hatası neden olan veya bir özellik yapılandırması (örneğin, istek filtreleme) bir sayfa görüntülenmesini engeller, bir hata iletisi oluşturulur. Yöneticiler uygulama kolay bir ileti istemcisi, istemciye ayrıntılı hata iletisi ya da yalnızca localhost için ayrıntılı hata iletisi görüntülenmelidir kullanılıp kullanılmayacağını seçebilirsiniz. `<customErrors>` Etiketi Web.config dosyasında üç modu vardır:</p><ul><li>**Üzerinde:** Özel hataların etkinleştirildiğini belirtir. Kullanıcılar, hiçbir defaultRedirect özniteliği belirtilmezse, genel bir hata görür. Özel hatalar, uzak istemciler ve yerel ana bilgisayarda gösterilir.</li><li>**Kapalı:** Özel hatalar devre dışı olduğunu belirtir. Uzak istemciler ve yerel ana bilgisayar için ayrıntılı ASP.NET hataları gösterilir</li><li>**RemoteOnly:** Özel hatalar yalnızca uzak istemcilere gösterildiğini ve ASP.NET hataları yerel ana bilgisayara görüntülendiğini belirtir. Varsayılan değer budur.</li></ul><p>Açık `web.config` etiket ya da olduğundan emin olun ve uygulama/site için dosya `<customErrors mode="RemoteOnly" />` veya `<customErrors mode="On" />` tanımlı.</p>|
 
 ## <a id="deployment"></a>Dağıtım yöntemi sürümünden perakende sürümüne IIS'de ayarlayın
 

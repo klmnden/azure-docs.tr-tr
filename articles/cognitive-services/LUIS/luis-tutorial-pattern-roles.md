@@ -1,7 +1,7 @@
 ---
 title: Desen rolleri
 titleSuffix: Azure Cognitive Services
-description: İyi biçimlendirilmiş konuşma şablonundan veri ayıklamak için desen kullanın. Konuşma şablonu basit bir varlığın yanı sıra kaynak konum ve hedef konum gibi ilgili verileri ayıklamak için roller kullanır.
+description: Desenler iyi biçimlendirilmiş şablon Konuşma ' veri ayıklayın. Konuşma şablonu basit bir varlığın yanı sıra kaynak konum ve hedef konum gibi ilgili verileri ayıklamak için roller kullanır.
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
@@ -9,18 +9,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: dc1be0d1d00ae64f38690f019580119b03debedf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d6a2c9d92d79bed3f0e9a9976a64f6e11debba88
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106602"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523283"
 ---
-# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Öğretici: Rolleri kullanarak bağlamsal ilgili desenlerini ayıklayın
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Öğretici: Rolleri kullanarak ilgili bağlamsal desenlerini ayıklayın
 
-Bu öğreticide iyi biçimlendirilmiş konuşma şablonundan veri ayıklamak için desen kullanacaksınız. Konuşma şablonu basit bir varlığın yanı sıra kaynak konum ve hedef konum gibi ilgili verileri ayıklamak için roller kullanır.  Desen kullandığınızda amaç için daha az sayıda örnek konuşmaya ihtiyacınız vardır.
+Bu öğreticide iyi biçimlendirilmiş konuşma şablonundan veri ayıklamak için desen kullanacaksınız. Şablon utterance kullanan bir [varlığın](luis-concept-entity-types.md#simple-entity) ve [rolleri](luis-concept-roles.md) konumu kaynak ve hedef konumu gibi ilgili verileri ayıklamak için.  Desen kullandığınızda amaç için daha az sayıda örnek konuşmaya ihtiyacınız vardır.
 
 
 **Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
@@ -40,7 +40,7 @@ Bu öğreticide iyi biçimlendirilmiş konuşma şablonundan veri ayıklamak iç
 
 ## <a name="using-roles-in-patterns"></a>Rolleri modelleri kullanma
 
-Rollerin amacı bir konuşma içindeki bağlamsal olarak ilişkili varlıkları ayıklamaktır. `Move new employee Robert Williams from Sacramento and San Francisco` konuşmasının içindeki kaynak şehir ve hedef şehir değerleri birbirleriyle ilişkilidir ve her konumun belirtilmesi için yaygın bir dil kullanılmaktadır. 
+Rolleri amacı bir utterance bağlamsal olarak ilişkili varlıkları ayıklamaktır. `Move new employee Robert Williams from Sacramento and San Francisco` konuşmasının içindeki kaynak şehir ve hedef şehir değerleri birbirleriyle ilişkilidir ve her konumun belirtilmesi için yaygın bir dil kullanılmaktadır. 
 
 
 Yeni çalışanın adı Billy Patterson henüz **Employee** liste varlığının bir bölümü değildir. Yeni çalışan adı şirket kimlik bilgilerini oluşturmak üzere dışarıdaki bir sisteme gönderilmesi için ilk olarak ayıklanır. Şirket kimlik bilgileri oluşturulduktan sonra çalışan kimlik bilgileri **Employee** liste varlığına eklenir.
@@ -373,19 +373,6 @@ Kişi adları gibi şehir adları da farklı sözcükler ve noktalama işaretler
     ```
 
 Amaç puanı artık çok daha yüksektir ve rol adları varlık yanıtının parçasıdır.
-
-## <a name="hierarchical-entities-versus-roles"></a>Hiyerarşik varlıklarla rollerin karşılaştırılması
-
-[Hiyerarşi öğreticisinde](luis-quickstart-intent-and-hier-entity.md) **MoveEmployee** varlığı var olan bir çalışanın bir binadan ve ofisten diğerine taşınma isteğini tespit etmişti. Örnek konuşmalar kaynak ve hedef konumlara sahipti ancak rolleri kullanmamıştı. Bunun yerine kaynak ve hedef, hiyerarşik varlığın alt öğesi olarak belirlenmişti. 
-
-Bu öğreticide İnsan Kaynakları uygulaması yeni çalışanların bir şehirden diğerine taşınmasıyla ilgili konuşmaları tespit etmektedir. Bu iki konuşma türü aynıdır ancak farklı LUIS özellikleriyle çözüm geliştirilmiştir.
-
-|Öğretici|Örnek konuşma|Kaynak ve hedef konumlar|
-|--|--|--|
-|[Hiyerarşik (rol yok)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
-|Bu öğretici (roller)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
-
-Daha fazla bilgi için bkz. [Rollerle hiyerarşik varlıkların karşılaştırması](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

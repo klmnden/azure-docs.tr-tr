@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: aljo
-ms.openlocfilehash: d4d0145ef07a6a89cbae1fe18d2cb7df88cdd113
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 810427c394c3912142e0a21cf1b5c29b81620afb
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667115"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549053"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service fabric'te güvenilir koleksiyonlar için yönergeler ve öneriler
 Bu bölümde, güvenilir durum Yöneticisi ve güvenilir koleksiyonlar kullanma yönergeleri sağlar. Kullanıcıların yaygın görülen tehlikeleri önlemek yardımcı olmaktır.
@@ -32,6 +32,7 @@ Kılavuzları basit önerileri şartlarını önek olarak düzenlenir *yapmak*, 
 * Bunu kaydedilmiş, durduruldu, bırakılan veya oluşturulduktan sonra bir işlem kullanmayın.
 * Bir numaralandırma, oluşturulduğu işlem kapsamı dışında kullanmayın.
 * Bir işlem başka bir işlem içinde oluşturmayın `using` deyimi kilitlenmeleri neden olabileceği için.
+* Güvenilir durumuyla oluşturmayın `IReliableStateManager.GetOrAddAsync` ve aynı işlemde güvenilir durumunu kullanın. Bu bir InvalidOperationException sonuçlanır.
 * Emin olun, `IComparable<TKey>` uygulamasının doğru olduğundan. Bağımlılık sistem vereceğine `IComparable<TKey>` kontrol noktalarına ve satır birleştirme.
 * Güncelleştirme kilidi belirli sınıfının kilitlenmeleri önlemek için güncelleştirmek için bir amaç sahip bir öğe okurken kullanın.
 * Reliable Collections tutma sayısı 1000'den az olacak şekilde bölüm başına göz önünde bulundurun. Güvenilir koleksiyonlar ile daha fazla öğe daha az öğe ile güvenilir koleksiyonlar üzerinden tercih eder.
@@ -56,9 +57,9 @@ Akılda tutulması gereken bazı noktalar şunlardır:
 * [İşlemler ve kilitler](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Verileri yönetme
   * [Yedekleme ve Geri Yükleme](service-fabric-reliable-services-backup-restore.md)
-  * [Bildirimleri](service-fabric-reliable-services-notifications.md)
+  * [Bildirimler](service-fabric-reliable-services-notifications.md)
   * [Seri hale getirme ve yükseltme](service-fabric-application-upgrade-data-serialization.md)
   * [Güvenilir durum Yöneticisi'ni yapılandırma](service-fabric-reliable-services-configuration.md)
-* Diğerleri
+* Diğer
   * [Reliable Services hızlı başlangıç](service-fabric-reliable-services-quick-start.md)
   * [Güvenilir koleksiyonlar için Geliştirici Başvurusu](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

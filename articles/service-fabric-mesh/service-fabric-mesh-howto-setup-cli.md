@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 7b817eefc7a17966060eb7ca05e21f70f04d0878
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c716ae0a2bb30e7e8eb249a1d230097efc0d3795
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885462"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521025"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Service Fabric Mesh CLI’yi ayarlama
 Service Fabric Mesh komut satırı arabirimi (CLI) dağıtmak ve yerel olarak ve Azure Service Fabric Mesh kaynakları yönetmek için gereklidir. 
@@ -25,7 +25,7 @@ Kullanılabilir CLI üç tür vardır ve bunlar aşağıdaki tabloda özetlenmi�
 |---|---|---|
 | az mesh | Azure Service Fabric Mesh | Uygulamalarınızı dağıtma ve Azure Service Fabric Mesh ortama yönelik kaynakları yönetmenize olanak tanıyan birincil CLI. 
 | sfctl | Yerel küme | Dağıtım ve Service Fabric yerel küme kaynaklarında test sağlayan Service Fabric CLI.  
-| Maven CLI | Yerel kümeler ve Azure Service Fabric Mesh | 'Az kafes' ve 'sfctl' çevresinde bir sarmalayıcı sağlayan Java geliştiricilerin tanıdık bir komut satırı deneyimi için yerel hem de Azure geliştirme deneyimi.  
+| Maven CLI | Yerel kümeler ve Azure Service Fabric Mesh | Çevresinde bir sarmalayıcı `az mesh` ve `sfctl` Java geliştiriciler yerel hem de Azure geliştirme deneyimi için bilindik komut satırı deneyimi sağlar.  
 
 Önizleme için, Azure Fabric Mesh CLI Azure CLI’nin uzantısı olarak yazılır. Azure Cloud Shell’de veya Azure CLI’nin yerel kurulumunda bunu yükleyebilirsiniz. 
 

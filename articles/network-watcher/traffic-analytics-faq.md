@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 65948b1de3a972687e738b011acf3542073db277
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 3938427c23993f0546e7df62da88dadaf3353118
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046999"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549380"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Trafik analizi hakkında sık sorulan sorular
 
@@ -239,12 +239,27 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 ```
 
 
-
 ## <a name="how-is-traffic-analytics-priced"></a>Trafik analizi nasıl fiyatlandırılır?
 
 Trafik analizi ölçülür. Kullanım ölçümü akış günlük verisi işleme hizmeti tarafından temel alır ve ortaya çıkan depolama günlükleri Log Analytics çalışma alanında Gelişmiş. 
 
 Örneğin, olarak başına [fiyatlandırma planını](https://azure.microsoft.com/pricing/details/network-watcher/), akış günlükleri verilerini trafik analizi tarafından işlenen bir depolama hesabında depolanan, Batı Orta ABD bölgesinde dikkate 10 GB'tır ve Log Analytics çalışma alanında alınan Gelişmiş günlük 1 GB'tır sonra Geçerli ücretleri şunlardır: 10 x 2.3$ + 1 x 2.76$ 25.76 = $
+
+## <a name="how-frequently-does-traffic-analytics-process-data"></a>Trafik analizi, verileri ne sıklıkla işleme?
+
+Başvurmak [veri toplama bölümü](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) trafik analizi şema ve veri toplama belgesi
+
+## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Trafik analizi IP kötü amaçlı olduğuna nasıl karar? 
+
+Trafik analizi, Microsoft iç tehdit zekası sistemlerini kötü amaçlı olarak bir IP bulduğunuz bağımlıdır. Bu sistemler, Microsoft ürünleri ve Hizmetleri, Microsoft dijital Suçlar birimi (DCU), Microsoft Güvenlik Yanıt Merkezi (MSRC) ve dış akışların gibi çeşitli telemetri kaynaklardan yararlanın ve bunun üstünde zekası çok oluşturun. Bu verilerin bazılarını olan Mircosoft iç. Bilinen bir IP malicios işaretlenen, lütfen ayrıntıları öğrenmek için bir destek bileti yükseltin.
+
+## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>Trafik analizi veri uyarıları nasıl ayarlayabilirim?
+
+Trafik analizi, uyarılar için yerleşik destek yok. Ancak, trafik analizi verilerini Log Analytics'te depolandığından özel sorgular yazmak ve bunlar üzerinde uyarılar ayarlayın. Adımlar:
+- Log Analytics'te trafik analizi için kısa kullanabilirsiniz. 
+- Kullanım [şema belgelenen burada](traffic-analytics-schema.md) sorgularınızı yazmak için 
+- "Yeni uyarı kuralı" bir uyarı oluşturmak için
+- Başvurmak [günlük uyarıları belgeleri](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) uyarı oluşturmak için
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Coğrafi harita Görünümü'nde klavyeyi kullanarak nasıl gidebilirsiniz?
 

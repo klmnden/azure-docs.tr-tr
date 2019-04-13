@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65515566e5bd0701d218d993f4fe97cae08e1a75
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 2f4a7f2a4fe0e1ca455b1140e83f31f6b30a7511
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501187"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523469"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft kimlik platformu ve Openıd Connect Protokolü
 
@@ -57,7 +57,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 | `common` |Hem kişisel Microsoft hesabı hem de Azure AD'den bir iş veya Okul hesabı olan kullanıcılar uygulamada oturum açabilir. |
 | `organizations` |Yalnızca kullanıcılar iş veya Okul hesapları Azure ad uygulaması için oturum açın. |
 | `consumers` |Yalnızca kişisel Microsoft hesabı olan kullanıcıların uygulamada oturum açabilir. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Yalnızca kullanıcıların bir iş veya Okul hesabıyla belirli bir Azure ad Kiracı uygulamaya oturum açabilirsiniz. Azure AD Kiracı kolay etki alanı adını veya kiracının GUID tanımlayıcısı kullanılabilir. Tüketici Kiracı kullanabilirsiniz `9188040d-6c67-4c5b-b112-36a304b66dad`, yerine `consumers` Kiracı.  |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` | Yalnızca kullanıcıların bir iş veya Okul hesabıyla belirli bir Azure ad Kiracı uygulamaya oturum açabilirsiniz. Azure AD Kiracı kolay etki alanı adını veya kiracının GUID tanımlayıcısı kullanılabilir. Tüketici Kiracı kullanabilirsiniz `9188040d-6c67-4c5b-b112-36a304b66dad`, yerine `consumers` Kiracı.  |
 
 Meta veriler bir basit bir JavaScript nesne gösterimi (JSON) belgedir. Aşağıdaki kod parçacığını bir örnek için bkz. İş parçacığının içeriği tamamen açıklanan [Openıd Connect belirtimi](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
@@ -215,7 +215,7 @@ Birçok web uygulamaları yalnızca kullanıcı de, aynı zamanda OAuth kullanar
 
 Tam Openıd Connect oturum açma ve belirteç edinme akışı sonraki diyagrama benzer. Her adım makalenin sonraki bölümlerde ayrıntılı olarak açıklanmaktadır.
 
-![Openıd Connect protokolü: Belirteç edinme](./media/v2-protocols-oidc/convergence_scenarios_webapp_webapi.png)
+![Openıd Connect protokolü: Belirteç edinme](./media/v2-protocols-oidc/convergence-scenarios-webapp-webapi.svg)
 
 ## <a name="get-access-tokens"></a>Erişim belirteci alma
 Erişim belirteçlerini almak için oturum açma isteği değiştirin:

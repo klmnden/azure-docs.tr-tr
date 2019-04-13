@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 4ece2dc1df3d29a3024c7efe15dd8cecfd9666db
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4322fd60bb30b9eb6ac18c72e75127006acf5149
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663868"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528195"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Sorun gidermek için sistem durum raporlarını kullanma
 Azure Service Fabric bileşenleri çıktığı kümedeki tüm varlıklarda sistem durumu raporları sağlar. [Sistem durumu deposu](service-fabric-health-introduction.md#health-store) oluşturur ve sistem raporlarına dayalı varlıkları siler. Bu da onları varlık etkileşimleri yakalayan bir hiyerarşide düzenler.
@@ -57,7 +57,7 @@ Rapor yaşam süresi (TTL) kira genel zaman aşımını belirtir. Koşul etkin k
 * **Özellik**: İle başlayan **Komşuları** ve düğüm bilgileri içerir.
 * **Sonraki adımlar**: Komşu kaybı neden olduğunu araştırın. Örneğin, küme düğümler arasında iletişim bakın.
 
-### <a name="rebuild"></a>Yeniden derle
+### <a name="rebuild"></a>Yeniden derleme
 
 Yük Devretme Yöneticisi'ni (FM) hizmeti, küme düğümleri hakkında bilgi yönetir. FM verilerini kaybeder ve veri kaybı gider, küme düğümleri hakkında en güncel bilgilere sahip olmasını garanti edemez. Bu durumda, sistem yeniden geçer, ve System.FM veri kümedeki tüm düğümlerden durumunu yeniden derlemek için toplar. Bazı durumlarda, ağ veya düğüm sorunları nedeniyle yeniden takılı durmuş veya. Aynı durum, Yük Devretme Yöneticisi ana (FMM) hizmetiyle meydana gelebilir. FMM FMs kümede olduğu, izleme tutan bir durum bilgisi olmayan sistemi hizmetidir. FMM'ın birincil her zaman 0 olarak en yakın kimlikli düğümüdür. Bu düğüm bırakılan, yeniden derleme tetiklenir.
 Önceki koşullardan biri gerçekleştiğinde **System.FM** veya **System.FMM** bir hata raporu işaretler. Yeniden iki aşama birinde takılmış olabilir:
@@ -640,7 +640,7 @@ Takılı kalarak diğer API çağrıları bulunan **IReplicator** arabirimi. Ör
 
 - **IReplicator.CatchupReplicaSet**: Bu uyarı, ikisinden birini gösterir. Çoğaltmaları yedeklemek için yetersiz vardır. Durumun bu olup olmadığını görmek için bölüm veya System.FM sistem durumu raporu takılan yapılandırması için çoğaltmaları çoğaltma durumunu bakın. Veya yineleme işlemleri sıkan değil. PowerShell cmdlet `Get-ServiceFabricDeployedReplicaDetail` tüm çoğaltmaların ilerlemesini belirlemek için kullanılabilir. Sorun çoğaltma ile ayarlanmış kaynaklandığını `LastAppliedReplicationSequenceNumber` değerdir birincil 's `CommittedSequenceNumber` değeri.
 
-- **IReplicator.BuildReplica (<Remote ReplicaId>)**: Bu uyarı oluşturma işlemindeki bir sorun olduğunu gösterir. Daha fazla bilgi için [çoğaltma yaşam döngüsü](service-fabric-concepts-replica-lifecycle.md). Çoğaltıcı adresi yanlış yapılandırma nedeniyle olabilir. Daha fazla bilgi için [durum bilgisi olan Reliable Services özelliğini yapılandırma](service-fabric-reliable-services-configuration.md) ve [bir hizmet bildiriminde kaynakları belirtme](service-fabric-service-manifest-resources.md). Ayrıca, uzak düğümün bir sorun da olabilir.
+- **IReplicator.BuildReplica (\<uzak ReplicaID >)**: Bu uyarı oluşturma işlemindeki bir sorun olduğunu gösterir. Daha fazla bilgi için [çoğaltma yaşam döngüsü](service-fabric-concepts-replica-lifecycle.md). Çoğaltıcı adresi yanlış yapılandırma nedeniyle olabilir. Daha fazla bilgi için [durum bilgisi olan Reliable Services özelliğini yapılandırma](service-fabric-reliable-services-configuration.md) ve [bir hizmet bildiriminde kaynakları belirtme](service-fabric-service-manifest-resources.md). Ayrıca, uzak düğümün bir sorun da olabilir.
 
 ### <a name="replicator-system-health-reports"></a>Çoğaltma sistem durumu raporlarını
 **Çoğaltma kuyruğu dolu:**
@@ -762,7 +762,7 @@ HealthEvents                       :
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>İndir
+### <a name="download"></a>İndirme
 Uygulama paket indirmesi başarısız olursa System.Hosting bir hata bildirir.
 
 * **SourceId**: System.Hosting
@@ -840,7 +840,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>İndir
+### <a name="download"></a>İndirme
 Hizmet paketin indirmesi başarısız olursa System.Hosting bir hata bildirir.
 
 * **SourceId**: System.Hosting

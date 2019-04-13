@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 61fdaec79e563ba4d87e73b22aba52a5c3f8251b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f53e21b8121006a6a6a1d2099b26e7cb28ca0ed9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270812"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545306"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Azure haritalar'ı kullanarak bir depolama Bulucu
 
@@ -569,7 +569,7 @@ Bu noktada, her şeyi kullanıcı arabiriminin ayarlanır. Şimdi, yüklemek ve 
         },
 
         textOptions: {
-            textField: '{point_count_abbreviated}',
+            textField: ['get', 'point_count_abbreviated'],
             size: 12,
             font: ['StandardFont-Bold'],
             offset: [0, 0.4],
@@ -955,11 +955,11 @@ Bu öğreticide, Azure haritalar'ı kullanarak bir temel deposu Bulucu oluşturm
 > * Depolama Bulucu olarak dağıtma bir [Azure App Service Web uygulaması](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
 > * Bir veritabanı ve yakında konumları için arama verilerinizi Store. Daha fazla bilgi için bkz. [SQL Server uzamsal veri türleri özeti](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) ve [en yakın komşu için uzamsal veri sorgulama](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
 
-Bu öğreticiye ait kod örneğine şuradan erişebilirsiniz:
+> [!div class="nextstepaction"]
+> [Tam kaynak kodu görüntüle](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
 
-> [Azure haritalar'ı kullanarak bir depolama Bulucu](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
-
-[Burada Canlı örnek bakın](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
+> [!div class="nextstepaction"]
+> [Canlı örnek görünümü](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
 
 Azure Haritalar'ın kapsamı ve özellikleri hakkında daha fazla bilgi edinmek için:
 
@@ -969,7 +969,7 @@ Azure Haritalar'ın kapsamı ve özellikleri hakkında daha fazla bilgi edinmek 
 Daha fazla kod örneği ve etkileşimli bir kodlama deneyimi için:
 
 > [!div class="nextstepaction"]
-> [Harita Denetimi'ni kullanma](how-to-use-map-control.md)
+> [Harita denetimini kullanma](how-to-use-map-control.md)
 
 > [!div class="nextstepaction"]
 > [Veri odaklı stili ifadeleri kullanma](data-driven-style-expressions-web-sdk.md)

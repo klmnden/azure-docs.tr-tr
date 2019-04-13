@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 9229a583dac526d09d7c5046c4bb81d30c9d4c3f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 34ae47723762215fdea99362419c3875dc2e5942
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873572"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522754"
 ---
 # <a name="collaborating-with-other-authors"></a>Diğer yazarların ile işbirliği yapma
 
-LUIS uygulama yazmak için bir grup izin vermek için işbirliği sağlar.
+LUIS uygulamaları tek bir sahip ve tek bir uygulama yazmak birden çok kişinin sağlayan isteğe bağlı çalışanlar gerektirir.
 
 ## <a name="luis-account"></a>LUIS hesabı
 Tek bir ilişkili LUIS hesabıdır [Microsoft Live](https://login.live.com/) hesabı. Her LUIS hesap ücretsiz verilen [anahtar yazma](luis-concept-keys.md#authoring-key) hesap erişimi olan tüm LUIS uygulamaları yazmak için kullanın. 
@@ -30,7 +30,8 @@ Bir LUIS hesabı birçok LUIS uygulaması olabilir.
 Bkz: [Azure Active Directory Kiracı Kullanıcı](luis-how-to-collaborate.md#azure-active-directory-tenant-user) Active Directory kullanıcı hesapları hakkında daha fazla bilgi edinmek için. 
 
 ## <a name="luis-app-owner"></a>LUIS uygulama sahibi
-Bir uygulamayı oluşturan sahibi hesaptır. Her uygulamanın tek bir sahip vardır. Uygulama sahibi listelendiğinden  **[ayarları](luis-how-to-collaborate.md)**. Bu uygulamayı silebilirsiniz hesabıdır. Uç nokta kota aylık sınırı %75 ulaştığında e-posta alırsa hesabı da budur. 
+
+Bir uygulamayı oluşturan hesabı sahibi ve her uygulamanın tek bir sahip vardır. Uygulama sahibi listelenen **[ayarları](luis-how-to-collaborate.md)** sayfası. Uygulama sahibi silebilmeniz için uç nokta kota aylık sınırı %75 ulaştığında e-posta alırsınız. 
 
 ## <a name="authorization-roles"></a>Yetkilendirme rolleri
 LUIS, sahipleri ve bir özel durum ortak çalışanlarla için farklı roller desteklemiyor. Sahibi uygulama silebilirsiniz tek hesaptır.
@@ -61,6 +62,10 @@ Bu yöntem bir etkin sürüm, bir aşama sürümü ve bir yayımlanmış sürüm
 [Dışarı aktarma](luis-how-to-manage-versions.md#export-version) temel sürüm. Her geliştirici sürümünü alır. Uygulamayı alır kişi sürüm sahibidir. Bunların ne zaman yapılır dışarı aktarma sürümü uygulama değiştirme. 
 
 Değişiklikler için temel dışarı aktarma ile karşılaştırılabilir JSON biçimli dosyaları dışarı aktarılan uygulamalardır. Yeni sürümü tek bir JSON dosyası oluşturmak için dosyaları birleştirin. Değişiklik **VersionID** yeni birleştirilmiş sürüm belirtmek için JSON özelliği. Bu sürüm, özgün uygulamaya aktarma.
+
+## <a name="collaborator-roles-vs-entity-roles"></a>Ortak çalışan rolleri vs varlık rolleri
+
+[Varlık rolleri](luis-concept-roles.md) LUIS uygulaması veri modeli için geçerlidir. Ortak çalışan rolleri yazma erişimi düzeyleri için geçerlidir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 9daa7fc15ecbb4065c8d26bb5cefa27f17f66f4d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: c57a45145d9abc43d0ca79839ea297dfc025db9b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878288"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524098"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Varsayılan depolama alanı olarak Azure Data Lake depolama Gen1 ile PowerShell kullanarak HDInsight kümeleri oluşturma
 
 > [!div class="op_single_selector"]
-> * [Azure portalı kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
+> * [Azure portal’ı kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [(Varsayılan depolama için) PowerShell kullanma](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 > * [PowerShell'i kullanma (ek depolama için)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Kaynak Yöneticisi'ni kullanın](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
@@ -215,7 +215,7 @@ Bu bölümde, bir HDInsight Hadoop Linux kümesi varsayılan depolama alanı ola
     Cmdlet başarıyla tamamlandıktan sonra küme ayrıntıları listeleyen bir çıktı görmeniz gerekir.
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Data Lake depolama Gen1 kullanmak için HDInsight kümesinde test işleri çalıştırma
-Bir HDInsight kümesi yapılandırdıktan sonra Data Lake depolama Gen1 erişebildiğinden emin olmak için test işleri çalıştırabilirsiniz. Bunu yapmak için Data Lake depolama Gen1 sırasında kullanılabilir olan örnek verileri kullanan bir tablo oluşturmak için bir örnek Hive işi Çalıştır  *<cluster root>/example/data/sample.log*.
+Bir HDInsight kümesi yapılandırdıktan sonra Data Lake depolama Gen1 erişebildiğinden emin olmak için test işleri çalıştırabilirsiniz. Bunu yapmak için Data Lake depolama Gen1 sırasında kullanılabilir olan örnek verileri kullanan bir tablo oluşturmak için bir örnek Hive işi Çalıştır  *\<küme kökü > /example/data/sample.log*.
 
 Bu bölümde, oluşturduğunuz HDInsight Linux kümesine güvenli Kabuk (SSH) bağlantısı ve ardından, bir örnek Hive sorgusu çalıştırın.
 

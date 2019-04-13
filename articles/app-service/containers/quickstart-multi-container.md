@@ -1,7 +1,7 @@
 ---
 title: Docker Compose - Azure App Service'ı kullanarak çok kapsayıcılı uygulama oluşturma
 description: Azure Kapsayıcılar için Web App'te ilk çok kapsayıcılı uygulamanızı birkaç dakikada dağıtın
-keywords: azure app service, web uygulaması, linux, docker, oluşturma, çok kapsayıcılı, çoklu kapsayıcı, kapsayıcı, kubernetes, wordpress, mysql için azure db, kapsayıcılara sahip üretim veritabanı
+keywords: Azure app service, web uygulaması, linux, docker compose, multicontainer, çok kapsayıcılı, kapsayıcılar için web app birden fazla kapsayıcılar, kapsayıcı, wordpress, mysql için azure db, kapsayıcılar ile üretim veritabanı
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 404be7a064e0e4b09178830b7802192e8775e121
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 543ba3ee4e72c5d31708e9b4983e7889421940ca
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316590"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546248"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Bir Docker Compose Yapılandırması'nı kullanarak bir (Önizleme) çoklu kapsayıcı uygulaması oluşturma
 
-[Kapsayıcılar için Web App](app-service-linux-intro.md), Docker görüntülerini esnek bir şekilde kullanmanızı sağlar. Bu hızlı başlangıçta Docker Compose yapılandırması kullanarak [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)'de Kapsayıcılar için Web App'e çok kapsayıcılı uygulama dağıtma adımları gösterilmektedir. Kubernetes ve MySQL için Azure DB kullanan uçtan uca bir çözüm için [çok kapsayıcılı çözüm öğreticisini](tutorial-multi-container-app.md) uygulayın.
+[Kapsayıcılar için Web App](app-service-linux-intro.md), Docker görüntülerini esnek bir şekilde kullanmanızı sağlar. Bu hızlı başlangıçta Docker Compose yapılandırması kullanarak [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)'de Kapsayıcılar için Web App'e çok kapsayıcılı uygulama dağıtma adımları gösterilmektedir.
 
 Bu hızlı başlangıcı Cloud Shell'de tamamlayacaksınız ama bu komutları [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 veya üzeri) ile yerel olarak da çalıştırabilirsiniz. 
 
@@ -138,7 +138,10 @@ Dağıtılan uygulamaya göz atmak için (`http://<app_name>.azurewebsites.net`)
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Kapsayıcılar için Web App üzerinde çok kapsayıcılı bir WordPress uygulaması oluşturma](tutorial-multi-container-app.md)
+> [Öğretici: WordPress çoklu kapsayıcı uygulaması](tutorial-multi-container-app.md)
+
+> [!div class="nextstepaction"]
+> [Özel bir kapsayıcı yapılandırma](configure-custom-container.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png

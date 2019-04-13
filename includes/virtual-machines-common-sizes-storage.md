@@ -5,68 +5,46 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 04/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: e05281b2279f5d40f8a3ba4ed3f49a38e5abf0ee
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: c5e6a44409e082f10a532759e3403f6b5801fdca
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58261564"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551648"
 ---
 Depolama en iyi duruma getirilmiş VM boyutları, yüksek disk aktarım hızı ve g/ç sunar ve büyük veri, SQL, NoSQL veritabanları, veri ambarı ve büyük işlem veritabanları için idealdir.  Cassandra, MongoDB, Cloudera ve Redis örneklerindendir. Bu makalede, Vcpu, veri diskleri ve NIC hem de yerel depolama aktarım hızı ve ağ bant genişliği için en iyi duruma getirilmiş her boyut sayısı hakkında bilgi sağlar.
 
 Lsv2 serisi özellikleri yüksek aktarım hızı, düşük gecikme süresi, doğrudan yerel NVMe depolama üzerinde çalışan eşlenen [AMD EPYC &trade; 7551 İşlemci](https://www.amd.com/en/products/epyc-7000-series) 2.55 GHz ve en fazla bir boost 3.0 GHz, tüm bir çekirdek boost ile. Lsv2 serisi VM’ler, eş zamanlı bir çoklu iş parçacığı yapılandırmasında 8 ile 80 vCPU arasında değişen boyutlarda sunulur.  vCPU başına 8 GiB bellek ve 8 vCPU başına 1,92 TB NVMe SSD M.2 cihazı sunulurken, L80s v2 adlı en üst model 19,2 TB (10x1,92 TB) depolama içerir.
 
-Ls serisi, [Intel® Xeon İşlemci E5 v3 ailesi](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html) ile 32’ye kadar vCPU kullanım olanağı sunar. Ls serisi, G/GS serisi ile aynı CPU performansı sunar ve her vCPU başına 8 GiB bellek içerir.
-
 > [!NOTE]
-> Lsv2 serisi VM'ler, kalıcı veri diskleri kullanmak yerine doğrudan sanal Makineye bağlı bir düğümde yerel diski kullanacak şekilde iyileştirilmiştir.  Böylece büyük IOPS / aktarım hızı iş yükleriniz için.  Ls serisi ve Lsv2 kalıcı veri diskleri tarafından ulaşılabilir IOPS artırmak için yerel bir önbellek oluşturulmasını desteklemez. Yüksek aktarım hızı ve yerel disk IOPS sağlar Ls serisi VM'ler ve Lsv2 Apache Cassandra ve MongoDB gibi tek bir VM bir arıza olması durumunda kalıcılığı sağlamak için birden çok VM arasında veri çoğaltmak NoSQL depoları için idealdir. 
+> Lsv2 serisi VM'ler, kalıcı veri diskleri kullanmak yerine doğrudan sanal Makineye bağlı bir düğümde yerel diski kullanacak şekilde iyileştirilmiştir. Böylece büyük IOPS / aktarım hızı iş yükleriniz için. Lsv2 serisi kalıcı veri diskleri tarafından ulaşılabilir IOPS artırmak için yerel bir önbellek oluşturulmasını desteklemiyor. Yüksek aktarım hızı ve yerel disk IOPS değeri yapar Lsv2 serisi VM'ler, tek bir VM bir arıza olması durumunda kalıcılığı sağlamak için birden çok VM arasında veri çoğaltmak Apache Cassandra ve MongoDB gibi NoSQL depoları için idealdir.
 
 ## <a name="lsv2-series"></a>Lsv2 serisi
+
 ACU: 150-175
 
 Premium Depolama: Desteklenen
 
 Premium depolama önbelleğe alma: Desteklenmiyor
 
-| Boyut          | Sanal işlemci | Bellek (GiB) | Geçici disk<sup>1</sup> (GiB) | NVMe diskleri<sup>2</sup> | NVMe Disk aktarım hızı<sup>3</sup> (okuma IOPS / MB/sn) | Maksimum önbelleğe alınmamış veri diski aktarım hızı (IOPS/MB/sn)<sup>4</sup> | Maksimum veri diskleri | Maks NIC / beklenen ağ bant genişliği (MB/sn) | 
+| Boyut          | Sanal işlemci | Bellek (GiB) | Geçici disk<sup>1</sup> (GiB) | NVMe diskleri<sup>2</sup> | NVMe Disk aktarım hızı<sup>3</sup> (okuma IOPS / MB/sn) | Maksimum önbelleğe alınmamış veri diski aktarım hızı (IOPS/MB/sn)<sup>4</sup> | Maksimum veri diskleri | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
 | Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400,000 / 2,000 | 8,000/160 | 16 | 2 / 3,200  | 
 | Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800,000 / 4,000 | 16,000/320 | 32 | 4 / 6,400  | 
 | Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1,5 MİLYON / 8000    | 32,000/640 | 32 | 8 / 12,800 | 
 | Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9 M / 16.000   | 64,000/1,280 | 32 | 8 / 25,600 |
 | Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.8 M / 20.000   | 80,000/1,400 | 32 | 8 / 32,000 |
- 
+
 <sup>1</sup> Lsv2 serisi VM'ler, standart bir SCSI tabanlı geçici kaynak disk için işletim sistemi disk belleği/takas dosyası kullanımı (Windows, Linux üzerinde /dev/sdb D:) sahip. 80 MB/sn aktarım hızı (örneğin Standard_L80s_v2 800 GiB 40.000 IOPS ve 800 MB/sn sağlar) her 8 Vcpu için ve bu disk, depolama, 80 GiB, 4000 IOPS sağlar. Bu, NVMe sürücüler tam uygulama kullanımı için ayrılmış sağlar. Kısa ömürlü bu diskidir ve Durdur/serbest tüm veriler kaybolur.
 
 <sup>2</sup> yerel NVMe diskleri kısa ömürlü, veriler, Durdur /, VM'yi serbest bırakın, bu diskler üzerindeki kaybolacak.
 
 <sup>3</sup> NVMe doğrudan Hyper-V teknolojisi Konuk VM alanı güvenli bir şekilde eşlenen yerel NVMe sürücüler kısıtlanmamışsa erişim sağlar.  En yüksek performansı elde etmek için en son WS2019 derleme veya Ubuntu 18.04 veya 16.04 Azure marketi'ndeki gerektirir.  Yazma performansı g/ç boyutu, sürücü yükleme ve kapasite kullanımı göre değişir.
 
-<sup>4</sup> Lsv2 serisi VM'ler Lsv2 iş yükleri fayda gibi veri diski için konak önbelleği sağlamaz.  Ancak, Lsv2 Vm'leri, Azure'nın kısa ömürlü VM işletim sistemi disk seçeneği (30 GiB) barındırabilir. 
-
-
-
-## <a name="ls-series"></a>Ls serisi
-ACU: 180-240
-
-Premium Depolama:  Desteklenen
-
-Premium depolama önbelleğe alma:  Desteklenmiyor
- 
-| Boyut          | Sanal işlemci | Bellek (GiB) | Geçici depolama alanı (GiB) | Maksimum veri diskleri | Maksimum geçici depolama aktarım hızı (IOPS / MB/sn) | Maksimum önbelleğe alınmamış disk aktarım hızı (IOPS / MB/sn) | Maks NIC / beklenen ağ bant genişliği (MB/sn) | 
-|----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
-| Standart_L4s   | 4  | 32  | 678   | 16 | 20,000 / 200 | 5000/125  | 2 / 4,000  | 
-| Standart_L8s   | 8  | 64  | 1,388 | 32 | 40,000 / 400 | 10.000/250 | 4 / 8,000  | 
-| Standart_L16s  | 16 | 128 | 2,807 | 64 | 80,000 / 800 | 20.000/500 | 8 / 16,000 | 
-| Standard_L32s <sup>1</sup> | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 40.000/1000     | 8 / 20,000 | 
- 
-
-Ls serisi VM ile maksimum disk aktarım hızı olabilir bağlı diskleri sayısı, boyutu ve bölümleme türüyle herhangi sınırlıdır. Ayrıntılar için bkz [yüksek performans için tasarlama](../articles/virtual-machines/windows/premium-storage-performance.md).
-
-<sup>1</sup> örneği, tek bir müşteriye özel donanımla yalıtılır.
+<sup>4</sup> Lsv2 serisi VM'ler Lsv2 iş yükleri fayda gibi veri diski için konak önbelleği sağlamaz.  Ancak, Lsv2 Vm'leri, Azure'nın kısa ömürlü VM işletim sistemi disk seçeneği (30 GiB) barındırabilir.
 
 ## <a name="size-table-definitions"></a>Boyut tablosu tanımları
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f3eec1f846f1b74ab3e19bca022d4e009540d1a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280018"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521450"
 ---
 # <a name="combined-security-information-registration-preview"></a>Birleştirilmiş güvenlik bilgileri kayıt (Önizleme)
 
@@ -25,6 +25,8 @@ Birleşik kayıt önce kullanıcılar kimlik doğrulama yöntemleri Azure multi-
 ![Bir kullanıcı için güvenlik bilgisi My profili gösteren kayıtlı](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
 Yeni deneyimi etkinleştirmeden önce bu yönetici odaklı belgeleri ve işlevleri ve bu özellik etkisini anladığınızdan emin olmak için kullanıcı odaklı belgeleri gözden geçirin. Kullanıcı belgeleri, kullanıcıların yeni deneyimi hazırlamak ve başarılı bir sunum emin olmaya yardım etmek için eğitim temel alır.
+
+Azure AD güvenlik bilgileri kayıt Ulusal bulutlara Azure ABD devlet kurumları, Azure Almanya'yı veya Azure Çin 21Vianet gibi şu anda kullanılabilir değil birleştirilmiş.
 
 |     |
 | --- |
@@ -137,6 +139,6 @@ En az bir yöntemi ayarlamak daha önce bir kullanıcı gider [ https://aka.ms/m
 
 [Çok faktörlü kimlik doğrulaması ve SSPR için kullanılabilen yöntemler](concept-authentication-methods.md)
 
-[Self servis parola sıfırlamasını yapılandırma](howto-sspr-deployment.md)
+[Self Servis parola sıfırlamayı yapılandırın](howto-sspr-deployment.md)
 
-[Azure Multi-Factor Authentication’ı yapılandırma](howto-mfa-getstarted.md)
+[Azure çok faktörlü kimlik doğrulamasını yapılandırma](howto-mfa-getstarted.md)

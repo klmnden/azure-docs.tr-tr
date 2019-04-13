@@ -8,14 +8,14 @@ ms.assetid: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: ca65b6a1691a870054682b36109f2bdc10d4ad98
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918714"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543773"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure işlevleri Premium planı (Önizleme)
 
@@ -42,7 +42,7 @@ Aşağıdaki özellikleri, dağıtılan bir Premium plana işlev uygulamaları i
 
 Hiçbir olay ve yürütmeleri tüketim planında bugün meydana gelirse, sıfır örneklerine uygulamanız ölçeği azaltın. Yeni olaylar geldiğinizde, yeni bir örneği üzerinde çalışan uygulamanızda özel gerekir.  Özelleştirilmiş yeni örnekleri, uygulamaya bağlı olarak biraz zaman alabilir.  Bu ek gecikme ilk çağrıda genellikle uygulama hazırlıksız başlatma olarak adlandırılır.
 
-Premium planı içinde bir belirtilen örnek sayısında önceden warmed uygulamanız olabilir.  Önceden warmed örnekleri yüksek yük önce bir uygulamayı önceden ölçek sağlar. Uygulama Ölçeklendirmesi eşitlenene gibi ilk önceden warmed örneklerine ölçeklendirir. Ek örnekleri kullanıma ve sonraki ölçeklendirme işlemi hemen hazırlığında sıcak arabellek geçin. Önceden warmed örneklerinin bir arabellek sağlayarak, soğuk başlangıç gecikmeleri etkili bir şekilde önleyebilirsiniz.  Önceden warmed örnekleri Premium planı, bir özelliğidir, çalışan en az bir örneğinin çalışır durumda bulundurmanıza gerek ve tüm saatler planı adresinde etkindir.
+Premium planı içinde belirtilen örnekleri, en az bir plan boyutunuzu en fazla sayıdaki önceden warmed uygulamanız olabilir.  Önceden warmed örnekleri yüksek yük önce bir uygulamayı önceden ölçek sağlar. Uygulama Ölçeklendirmesi eşitlenene gibi ilk önceden warmed örneklerine ölçeklendirir. Ek örnekleri kullanıma ve sonraki ölçeklendirme işlemi hemen hazırlığında sıcak arabellek geçin. Önceden warmed örneklerinin bir arabellek sağlayarak, soğuk başlangıç gecikmeleri etkili bir şekilde önleyebilirsiniz.  Önceden warmed örnekleri Premium planı, bir özelliğidir, çalışan en az bir örneğinin çalışır durumda bulundurmanıza gerek ve tüm saatler planı adresinde etkindir.
 
 Azure portalında önceden warmed örneklerinin seçerek yapılandırabilirsiniz **ölçeği genişletme** içinde **Platform özellikleri** sekmesi.
 
@@ -69,6 +69,8 @@ Ek bilgi işlem örnekleri, uygulamanızın bir tüketim planı aynı hızlı ö
 ### <a name="unbounded-run-duration"></a>Unbounded çalıştırma süresi
 
 Azure işlevleri tüketim planı içinde tek bir yürütme için 10 dakika sınırlıdır.  Premium planda çalıştırma süresi kaçan yürütmeleri önlemek için 30 dakika ile varsayılan olarak. Ancak, [host.json yapılandırmasını değiştirmek](./functions-host-json.md#functiontimeout) bu Premium planı uygulamalar için sınırsız yapma.
+
+Önizleme aşamasında, süresi 12 dakika geçe garanti edilmez ve uygulamanızı, en az çalışan sayısı değil ölçeklenirse, 30 dakikadan uzun çalıştırmanın en iyi şansına sahip olabilirsiniz.
 
 ## <a name="plan-and-sku-settings"></a>Plan ve SKU ayarları
 
@@ -104,9 +106,8 @@ Planınızı ölçeklendirme oluştururken, üç örnek boyutları arasında se�
 |Bölge|
 |--|
 |Avustralya Doğu|
-|Avustralya Souteast|
+|Avustralya Güneydoğu|
 |Orta Kanada|
-|Orta Hindistan|
 |Orta ABD|
 |Doğu Asya|
 |Doğu ABD 2|

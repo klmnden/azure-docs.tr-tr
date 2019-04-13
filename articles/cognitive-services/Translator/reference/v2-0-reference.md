@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: b65182cac91f6ed3dc653d6d9e77f80e99346bb7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 961dd277034db7e5406e671233f26b4fd8fe5f26
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918017"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527294"
 ---
 # <a name="translator-text-api-v20"></a>Translator metin çevirisi API'si v2.0
 
@@ -45,7 +45,7 @@ Küfür kaynak metin küfür varlığını bakılmaksızın çevirisini almamak 
 |ProfanityAction    |Eylem |Örnek kaynak (Japonca)  |Örnek çeviri (İngilizce)  |
 |:--|:--|:--|:--|
 |NoAction   |Varsayılan. Aynı seçenek ayarı bulunamadı. Küfür kaynaktan hedefe geçer.        |彼はジャッカスです。     |He bir jackass olur.   |
-|İşaretli     |Küfürlü sözcükleri tarafından XML etiketleri arasına <profanity> ve </profanity>.     |彼はジャッカスです。 |He's bir <profanity>jackass</profanity>.    |
+|İşaretli     |Küfürlü sözcükleri tarafından XML etiketleri arasına \<küfür > ve \</profanity >.       |彼はジャッカスです。 |He's bir \<küfür > jackass\</profanity >.  |
 |Silinen    |Küfürlü sözcükleri değiştirme yapmadan çıktı CİHAZDAN kaldırılır.     |彼はジャッカスです。 |He's bir.   |
 
     

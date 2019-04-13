@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 204a3230c782279b0cad4194e97aa4014c940635
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 5422f4796d2451b652222332799d8ad1a9fc4803
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608503"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525604"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Azure HDInsight GÇ Cache (Önizleme) kullanarak Apache Spark iş yüklerinin performansı
 
@@ -78,4 +78,4 @@ Bu işe yaramazsa, g/ç önbellek devre dışı bırakın.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-- Bu blog gönderisinde performans kıyaslamaları dahil olmak üzere, g/ç önbellek hakkında daha fazlasını okuyun: [Apache Spark işleri HDInsight GÇ Cache ile en fazla 9 x hızlandırmak elde edin](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)
+- Bu blog gönderisinde performans kıyaslamaları dahil olmak üzere, g/ç önbellek hakkında daha fazlasını okuyun: [Apache Spark işleri HDInsight GÇ Cache ile en fazla 9 x hızlandırmak elde edin](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)

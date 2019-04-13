@@ -9,12 +9,12 @@ ms.date: 03/27/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: b0fb6ea527c46ab6a9de95ba5f5ae39b8a5d50b1
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 0861c47ef9f9649dfe223d8abeb51310a87ea4a9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576991"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549976"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Hızlı Başlangıç: Web uç noktasına Azure portalı ve Event Grid ile özel olaylarını yönlendirme
 
@@ -79,7 +79,7 @@ Event Grid’e hangi olayları izlemek istediğinizi ve olayların nereye gönde
 
    ![Olay aboneliği ekleyin](./media/custom-event-quickstart-portal/new-event-subscription.png)
 2. Üzerinde **olay aboneliği oluşturma** sayfasında, aşağıdaki adımları izleyin:
-    1. Olay bir **adı** olay aboneliği için.
+    1. Girin bir **adı** olay aboneliği için.
     3. Seçin **Web kancası** için **uç noktası türü**. 
     4. Seçin **bir uç nokta seçin**. 
 

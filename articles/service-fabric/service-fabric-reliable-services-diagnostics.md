@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 96fc58ca8456e9a2e539e432f0ed85f6edc1a54f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664124"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527059"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Durum Bilgisi Olan Reliable Services için tanılama işlevi
 Azure Service Fabric durum bilgisi olan Reliable Services StatefulServiceBase sınıfı yayan [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) hizmette hata ayıklamak için kullanılan olayları nasıl çalışma zamanı olan işletim ve gidermeye yardım öngörüleri sağlayın.
@@ -29,8 +29,8 @@ Azure Service Fabric durum bilgisi olan Reliable Services StatefulServiceBase s�
 
 Örnekleri, toplama ve/veya EventSource olaylarını görüntüleme içinde yardım araçları ve teknolojileri [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure tanılama](../cloud-services/cloud-services-dotnet-diagnostics.md)ve [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
-## <a name="events"></a>Olaylar (Event)
-| Olay adı | Olay Kimliği | Düzey | Olay açıklaması |
+## <a name="events"></a>Olaylar
+| Olay adı | Olay kimliği | Düzey | Olay açıklaması |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Bilgilendirici |Hizmet RunAsync görevi başlatılırken yayılan |
 | StatefulRunAsyncCancellation |2 |Bilgilendirici |Hizmet RunAsync görev iptal edildiğinde yayılan |
@@ -106,7 +106,7 @@ Reliable Services çalışma zamanı altında aşağıdaki olaylar yayan `Servic
 | --- | --- |
 | Saniye Başına Başlatılan İşlemler | Saniye başına oluşturulan yeni yazma işlemleri sayısı.|
 | Saniye Başına İşlemler | Güvenilir koleksiyonlar saniye başına gerçekleştirilen ekleme/güncelleştirme/silme işlemleri sayısı.|
-| Ort. Temizleme gecikmesi (ms) | Diske saniye başına işlem Çoğaltıcısı tarafından yazılan bayt sayısı |
+| Günlüğe Yazılan Bayt/sn | Diske saniye başına işlem Çoğaltıcısı tarafından yazılan bayt sayısı |
 | Saniye Başına Kısıtlanan İşlem | İşlemlerin sayısını, işlem kısıtlama nedeniyle çoğaltıcı tarafından saniyede reddetti. |
 | Ort. İşlem ms/yürütme | Milisaniye cinsinden işlem başına ortalama yürütme gecikmesi |
 | Ort. Temizleme gecikmesi (ms) | Disk temizleme işlemleri milisaniye cinsinden işlem Çoğaltıcısı başlatan ortalama süresi |

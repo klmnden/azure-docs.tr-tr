@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 03/28/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d0c51f5d4757c35319cc3f80d09c9fb1a0e1cf69
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: a386924be2f82aadafeaccbeadc68e5e27404855
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56314151"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546340"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Linux (Önizleme) üzerinde Azure App Service'te bir Python uygulaması oluşturma
 
@@ -168,13 +168,10 @@ Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar.
 Linux'ta App Service hizmetindeki yerleşik Python görüntüsü şu anda Önizleme aşamasındadır ve uygulamanızı başlatmak için kullanılan komutu özelleştirebilirsiniz. Ayrıca bunun yerine özel bir kapsayıcı kullanarak üretim aşamasında Python uygulamaları oluşturabilirsiniz.
 
 > [!div class="nextstepaction"]
-> [PostgreSQL ile Python](tutorial-python-postgresql-app.md)
+> [Öğretici: PostgreSQL ile Python uygulaması](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Özel başlangıç komutu yapılandırma](how-to-configure-python.md#customize-startup-command)
+> [Python uygulamasını yapılandırma](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Sorun giderme](how-to-configure-python.md#troubleshooting)
-
-> [!div class="nextstepaction"]
-> [Özel görüntüleri kullanma](tutorial-custom-docker-image.md)
+> [Öğretici: Özel kapsayıcı deposundan dağıtın](tutorial-custom-docker-image.md)

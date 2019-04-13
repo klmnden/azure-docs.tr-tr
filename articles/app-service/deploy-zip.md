@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 1bc8dc822622ee7b16b3e0a31e7b0b66ed7556e6
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: a48a72fe36b7925936758e844d959968ea921c65
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59488414"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544067"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Uygulamanızı bir ZIP veya WAR dosyası ile Azure App Service'e dağıtma
 
@@ -73,13 +73,23 @@ Sonraki veya, Azure CLI Sürüm 2.0.21 olduğundan emin olun. Hangi sürümü va
 
 Kullanarak yüklenen ZIP dosyasını web uygulamanıza dağıtın [az webapp deployment kaynak config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) komutu.  
 
-Aşağıdaki örnek, karşıya yüklenen ZIP dosyasını dağıtır. Azure CLI'ın yerel bir yüklemesi kullanırken, yerel, ZIP dosyasının yolunu belirtin `--src`.   
+Aşağıdaki örnek, karşıya yüklenen ZIP dosyasını dağıtır. Azure CLI'ın yerel bir yüklemesi kullanırken, yerel, ZIP dosyasının yolunu belirtin `--src`.
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group myResourceGroup --name <app_name> --src clouddrive/<filename>.zip
 ```
 
-Bu komut ZIP içindeki dosyaları ve dizinleri App Service uygulama klasörünüze (`\home\site\wwwroot`) dağıtır ve uygulamayı yeniden başlatır. Ek özel derleme işlemi yapılandırılmışsa bu işlemler de çalışır. Daha fazla bilgi için [Kudu belgeleri](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
+Bu komut ZIP içindeki dosyaları ve dizinleri App Service uygulama klasörünüze (`\home\site\wwwroot`) dağıtır ve uygulamayı yeniden başlatır.
+
+Varsayılan olarak, dağıtım altyapısını bir ZIP dosyası olarak çalıştırmak hazır olduğunu varsayar-olduğu ve tüm yapı Otomasyonu çalışmaz. Aynı derleme Otomasyonu olarak etkinleştirmek için bir [Git dağıtımını](deploy-local-git.md)ayarlayın `SCM_DO_BUILD_DURING_DEPLOYMENT` aşağıdaki komutu çalıştırarak uygulama ayarı [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+```
+
+
+
+Daha fazla bilgi için [Kudu belgeleri](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]  
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/14/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 34723a6ee37e54ea2d81e6d1143672e3ccb30d1e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c26c037455b6d14a906894ec39bf46630826950b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53805749"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551579"
 ---
 Azure platformu güvenilirlik, performans ve sanal makineler için konak altyapısının güvenliğini iyileştirmek için düzenli olarak güncelleştirir. Yazılım bileşenlerini barındırma ortamında donanım yetkisinin alınması için ağ iletişimi bileşenlerinin yükseltme düzeltme eki uygulama öğesinden bu güncelleştirmeleri aralığı. Bu güncelleştirmelerin çoğu barındırılan sanal makinelere herhangi bir etkisi vardır. Ancak, burada güncelleştirmeleri etkisi ve Azure güncelleştirmeleri için en az etkili ücretlerinin durumlar vardır:
 
@@ -27,9 +27,9 @@ Yaklaşan bakımlar hakkında bildirim içinde VM için zamanlanmış olaylar ku
 
 Planlı bakım yönetme "nasıl yapılır" için "İşleme planlı bakım bildirimlerini" için bilgi [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) veya [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="memory-preserving-maintenance"></a>Bakımı koruma bellek
+## <a name="maintenance-not-requiring-a-reboot"></a>Bakım yeniden başlatma gerektiren değil
 
-Çoğu rebootful olmayan güncelleştirmeleri için 10 saniyeden az VM için duraklatma hedeftir. Bakımı koruma bazı durumlarda bellekte 30 saniyeye kadar sanal Makineyi duraklatır ve RAM belleği korur mekanizması kullanılmaz. Ardından sanal makine sürdürülür ve sanal makinenin saati otomatik olarak eşitlenir. Azure giderek daha fazla dinamik geçiş teknolojilerini kullanarak ve duraklatma süresi azaltmak için bakım mekanizması koruma bellek artırma.
+Yeniden başlatma gerektirmez çoğu bakım için sanal makine için 10 saniyeden az duraklatma hedeftir. Bakımı koruma bazı durumlarda bellekte 30 saniyeye kadar sanal Makineyi duraklatır ve RAM belleği korur mekanizması kullanılmaz. Ardından sanal makine sürdürülür ve sanal makinenin saati otomatik olarak eşitlenir. Azure giderek daha fazla dinamik geçiş teknolojilerini kullanarak ve duraklatma süresi azaltmak için bakım mekanizması koruma bellek artırma.
 
 Hata etki alanı tarafından uygulanan hata etki alanı bu rebootful olmayan bakım işlemleridir ve hiçbir uyarı sistem durumu sinyali alınırsa ilerleme durduruldu. 
 

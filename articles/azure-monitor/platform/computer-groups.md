@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: 0a29e453c723ecc9ac378ee337365525587aaef2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444132"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549312"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları bilgisayar grupları
 Azure İzleyici'de bilgisayar grupları kapsamına izin [oturum sorguları](../log-query/log-query-overview.md) bilgisayarlar belirli bir dizi.  Her Grup ya da tanımladığınız bir sorgu kullanarak bilgisayarları veya grupları alarak farklı kaynaktaki doldurulur.  Grup içinde bir günlük sorgu eklendiğinde sonuçları gruptaki bilgisayarların eşleşen kayıtları sınırlıdır.
@@ -127,15 +127,15 @@ Active Directory veya WSUS oluşturulan her bilgisayar grup üyeliğini için Lo
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Tür |*ComputerGroup* |
-| SourceSystem |*Analytics'teki* |
-| Bilgisayar |Üye bilgisayar adıdır. |
-| Grup |Grubun adı. |
-| GroupFullName |Kaynak ve kaynak adı da dahil olmak üzere grubun tam yolu. |
-| GroupSource |Bu grup kaynak gelen toplanmış. <br><br>Active Directory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName |Grup toplandığı kaynağının adı.  Active Directory'de, bu etki alanı adıdır. |
-| ManagementGroupName |SCOM aracıları için yönetim grubunun adı.  Diğer aracılar için AOI - budur\<çalışma alanı kimliği\> |
-| TimeGenerated |Tarih ve saat bilgisayar grubu oluşturulduğunda veya güncelleştirildiğinde. |
+| `Type` |*ComputerGroup* |
+| `SourceSystem` |*Analytics'teki* |
+| `Computer` |Üye bilgisayar adıdır. |
+| `Group` |Grubun adı. |
+| `GroupFullName` |Kaynak ve kaynak adı da dahil olmak üzere grubun tam yolu. |
+| `GroupSource` |Bu grup kaynak gelen toplanmış. <br><br>Active Directory<br>WSUS<br>WSUSClientTargeting |
+| `GroupSourceName` |Grup toplandığı kaynağının adı.  Active Directory'de, bu etki alanı adıdır. |
+| `ManagementGroupName` |SCOM aracıları için yönetim grubunun adı.  Diğer aracılar için AOI - budur\<çalışma alanı kimliği\> |
+| `TimeGenerated` |Tarih ve saat bilgisayar grubu oluşturulduğunda veya güncelleştirildiğinde. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [oturum sorguları](../log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  

@@ -14,26 +14,28 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4a2c90accaafea0c17456f8e6c5eae41199b17ed
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eef13c5a4e3757b0eafd77c0915717175c2dbd8c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105174"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545425"
 ---
-> [!NOTE]
-> Bir sanal IP (App Service ortamı başvurmak için kullanılan VIP), her bir App Service ortam vardır.
-> 
-> # <a name="create-an-external-app-service-environment"></a>Bir dış App Service ortamı oluşturma #
+# <a name="create-an-external-app-service-environment"></a>Bir dış App Service ortamı oluşturma
 
-Azure App Service Ortamı, Azure App Service’in Azure sanal ağı (VNet) içindeki bir alt ağa dağıtımıdır. Bir App Service Ortamı (ASE) iki şekilde dağıtılabilir:
+Azure App Service Ortamı, Azure App Service’in Azure sanal ağı (VNet) içindeki bir alt ağa dağıtımıdır.
+
+> [!NOTE]
+> Bir sanal IP (App Service ortamı başvurmak için kullanılan VIP), her bir App Service ortamı yok.
+
+Bir App Service Ortamı (ASE) iki şekilde dağıtılabilir:
 
 - Genellikle Dış ASE olarak adlandırılan durumda, bir dış IP adresi üzerindeki VIP ile.
 - İç uç nokta bir iç yük dengeleyici (ILB) olduğu için iç IP adresi üzerindeki VIP ile genellikle bir ILB ASE olarak adlandırılan.
 
 Bu makalede, dış ASE oluşturma işlemini gösterir. ASE genel bakış için bkz. [App Service ortamı giriş][Intro]. ILB ASE oluşturma hakkında daha fazla bilgi için bkz: [oluşturma ve kullanma ILB ASE][MakeILBASE].
 
-## <a name="before-you-create-your-ase"></a>ASE'NİZİN oluşturmadan önce ##
+## <a name="before-you-create-your-ase"></a>ASE'NİZİN oluşturmadan önce
 
 ASE'yi oluşturduktan sonra aşağıdaki değiştiremezsiniz:
 
@@ -48,7 +50,7 @@ ASE'yi oluşturduktan sonra aşağıdaki değiştiremezsiniz:
 > Bir VNet seçin ve bir alt ağ belirtin, gelecekteki büyümeye ve ölçeklendirme ihtiyaçlarını karşılayacak kadar büyük olduğundan emin olun. Boyutu öneririz `/24` 256 adreslerine sahip.
 >
 
-## <a name="three-ways-to-create-an-ase"></a>Bir ASE oluşturma üç yolu ##
+## <a name="three-ways-to-create-an-ase"></a>Bir ASE oluşturma üç yolu
 
 Bir ASE oluşturma üç yolu vardır:
 
@@ -58,7 +60,7 @@ Bir ASE oluşturma üç yolu vardır:
 
 Dış ASE ase'deki uygulamalar için tüm HTTP/HTTPS trafiğini İnternet'ten erişilebilen bir IP adresi ulaştığını anlamına gelir. bir genel VIP sahiptir. Bir ASE, ILB ile ASE tarafından kullanılan alt ağdan bir IP adresi vardır. ILB ASE'de barındırılan uygulamalar, doğrudan internet'e kullanıma sunulmaz.
 
-## <a name="create-an-ase-and-an-app-service-plan-together"></a>Birlikte bir ASE ve App Service planı oluşturma ##
+## <a name="create-an-ase-and-an-app-service-plan-together"></a>Birlikte bir ASE ve App Service planı oluşturma
 
 App Service planı, uygulamaların bir kapsayıcıdır. App Service'te bir uygulama oluşturduğunuzda, seçin veya bir App Service planı oluşturun. App Service ortamları App Service planları basılı tutun ve uygulamaları App Service planları tutun.
 
@@ -142,7 +144,7 @@ Bir App Service planını oluştururken bir ASE oluşturmak için:
 1. Seçin **Oluştur** ASE oluşturma. Bu işlem ayrıca App Service planı ve bir uygulama oluşturur. ASE, App Service planı ve app: aynı abonelik altında tümünü ve ayrıca aynı kaynak grubunda. Ayrı bir kaynak grubu, ASE'NİZİN erişmesi gerekiyorsa veya ILB ASE gerekiyorsa, tek başına bir ASE oluşturma adımlarını izleyin.
 
 
-## <a name="create-an-ase-by-itself"></a>Tek başına bir ASE oluşturma ##
+## <a name="create-an-ase-by-itself"></a>Tek başına bir ASE oluşturma
 
 Bir ASE tek başına oluşturursanız, hiçbir şey var. Boş bir ASE, hala altyapısı için aylık olarak ücretlendirilir. Bir ASE, ILB ile oluşturma veya kendi kaynak grubunda bir ASE oluşturmak için aşağıdaki adımları izleyin. ASE'yi oluşturduktan sonra uygulama içinde normal işlem kullanarak oluşturabilirsiniz. Yeni ASE'nizi konum olarak seçin.
 
@@ -170,7 +172,7 @@ Bir ASE tek başına oluşturursanız, hiçbir şey var. Boş bir ASE, hala alty
     
     * Mevcut bir sanal ağı seçerseniz, ASE'yi oluşturulduğunda yeni bir alt ağ oluşturulur. *Portalda, önceden oluşturulmuş bir alt ağ kullanamazsınız. Resource Manager şablonu kullanıyorsanız, var olan bir alt ağ ile bir ASE oluşturabilirsiniz.* Şablondan ASE oluşturma için bkz: [bir şablondan bir App Service ortamı oluşturma][MakeASEfromTemplate].
 
-## <a name="app-service-environment-v1"></a>App Service Ortamı v1 ##
+## <a name="app-service-environment-v1"></a>App Service Ortamı v1
 
 App Service ortamı (ASEv1) ilk sürümü örneklerini yine de oluşturabilirsiniz. İşlemini başlatmak için markette Ara **App Service ortamı v1**. ASE'i ASE tek başına oluşturduğunuz aynı şekilde oluşturun. Tamamlandığında, iki ön uç ve iki çalışan, ASEv1 sahiptir. ASEv1 ile ön uçlar ve çalışanlardan yönetmeniz gerekir. App Service planlarınızda oluşturduğunuzda, bunlar otomatik olarak eklenir. Ön uçlar HTTP/HTTPS uç noktaları olarak davranır ve çalışanlar için trafiği göndermek. Çalışanlar, uygulamaları barındıran rollerdir. ASE'yi oluşturduktan sonra ön uçlar ve çalışanlardan miktarını ayarlayabilirsiniz. 
 

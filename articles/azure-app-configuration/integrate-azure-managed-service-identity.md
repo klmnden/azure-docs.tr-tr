@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 6e161bcf2c38db0fd614eac1a211218785179ec3
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: c0d5c2903cc61841d2868d676194e7584da48635
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620793"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522427"
 ---
 # <a name="tutorial-integrate-with-azure-managed-identities"></a>Öğretici: Azure ile tümleştirilmesini yönetilen kimlikleri
 
@@ -75,7 +75,7 @@ Portalda yönetilen bir kimlik ayarlamak için ilk olarak normal bir uygulama ol
 
 ## <a name="use-a-managed-identity"></a>Yönetilen kimlik kullanma
 
-1. Açık *appsettings.json*ve aşağıdaki betiği ekleyin. Değiştirin *< service_endpoint >*, köşeli parantez ile uygulama yapılandırma deposu URL'si de dahil olmak üzere:
+1. Açık *appsettings.json*ve aşağıdaki betiği ekleyin. Değiştirin  *\<service_endpoint >*, köşeli parantez ile uygulama yapılandırma deposu URL'si de dahil olmak üzere:
 
     ```json
     "AppConfig": {

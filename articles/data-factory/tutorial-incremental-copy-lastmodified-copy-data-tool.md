@@ -1,6 +1,6 @@
 ---
-title: Artımlı olarak yeni ve değiştirilen dosyaları kopyalamak için Azure Data Factory kullanarak yalnızca temel üzerinde LastModifiedDate | Microsoft Docs
-description: Bir Azure veri fabrikası oluşturun ve ardından yeni dosyaları yalnızca üzerinde LastModifiedDate göre artımlı olarak yükleme için veri kopyalama aracını kullanın.
+title: Artımlı olarak veri kopyalama aracını kullanarak LastModifiedDate göre yeni ve değiştirilen dosyaları kopyalama | Microsoft Docs
+description: Bir Azure veri fabrikası oluşturun ve ardından yeni dosyaları üzerinde LastModifiedDate göre artımlı olarak yükleme için veri kopyalama aracını kullanın.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: d79b44d0123d64d6280939767e5df7b5f64a5fcb
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8308190e0e68365343fb50ca33f9bea75c3e4e66
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445966"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544492"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Artımlı olarak veri kopyalama aracını kullanarak LastModifiedDate göre yeni ve değiştirilen dosyaları kopyalama
 
-Bu öğreticide, Azure portalını kullanarak bir veri fabrikası oluşturursunuz. Ardından, yeni ve değiştirilmiş dosyalar yalnızca kendi "LastModifiedDate" Azure Blob depolamadan Azure Blob depolama alanına göre artımlı olarak kopyalayan bir işlem hattı oluşturmak için veri kopyalama aracını kullanın. 
+Bu öğreticide, bir veri fabrikası oluşturmak için Azure portalını kullanacaksınız. Göre yeni ve değiştirilmiş dosyalar yalnızca artımlı olarak kopyalayan bir işlem hattı oluşturmak için veri kopyalama aracını daha sonra kullanacağınız kendi **LastModifiedDate** Azure Blob depolamadan Azure Blob Depolama.
 
 > [!NOTE]
 > Azure Data Factory kullanmaya yeni başlıyorsanız bkz. [Azure Data Factory'ye giriş](introduction.md).
 
-Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
+Bu öğreticide, aşağıdaki görevleri gerçekleştireceksiniz:
 
 > [!div class="checklist"]
 > * Veri fabrikası oluşturma.
@@ -43,9 +43,9 @@ Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 
 Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için hazırlama.
 
-1. Adlı bir kapsayıcı oluşturun **kaynak**. Bu görevleri [Azure Depolama Gezgini](https://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.
+1. Adlı bir kapsayıcı oluşturun **kaynak**. Çeşitli araçları gibi bu görevi gerçekleştirmek için kullanabileceğiniz [Azure Depolama Gezgini](https://storageexplorer.com/).
 
-2. Adlı bir kapsayıcı oluşturun **hedef**. Bu görevleri [Azure Depolama Gezgini](https://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.
+2. Adlı bir kapsayıcı oluşturun **hedef**. 
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
@@ -62,30 +62,30 @@ Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için
    ![Yeni veri fabrikası hata iletisi](./media/tutorial-copy-data-tool/name-not-available-error.png)
 
    Ad değeriyle ilgili bir hata iletisi alırsanız, veri fabrikası için farklı bir ad girin. Örneğin, _**adınız**_**ADFTutorialDataFactory** adını kullanın. Data Factory yapıtlarını adlandırma kuralları için bkz. [Data Factory adlandırma kuralları](naming-rules.md).
-3. Yeni veri fabrikasının oluşturulacağı Azure **aboneliğini** seçin. 
+3. Azure'ı seçin **abonelik** içinde yeni veri fabrikası oluşturacaksınız. 
 4. **Kaynak Grubu** için aşağıdaki adımlardan birini uygulayın:
      
-    a. **Var olanı kullan**’ı seçin ve ardından açılır listeden var olan bir kaynak grubu belirleyin.
+    * **Var olanı kullan**’ı seçin ve ardından açılır listeden var olan bir kaynak grubu belirleyin.
 
-    b. **Yeni oluştur**’u seçin ve bir kaynak grubunun adını girin. 
+    * **Yeni oluştur**’u seçin ve bir kaynak grubunun adını girin. 
          
     Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).
 
-5. **Sürüm** bölümünde **V2**'yi seçin.
-6. **Konum** bölümünde veri fabrikasının konumunu seçin. Açılan listede yalnızca desteklenen konumlar görüntülenir. Veri fabrikanız tarafından kullanılan veri depoları (örneğin, Azure Depolama ve SQL Veritabanı) ve işlemler (örneğin, Azure HDInsight) başka konumlarda ve bölgelerde olabilir.
+5. Altında **sürüm**seçin **V2**.
+6. **Konum** bölümünde veri fabrikasının konumunu seçin. Açılan listede yalnızca desteklenen konumlar görüntülenir. Veri fabrikanızın kullanan veri depoları (örneğin, Azure depolama ve SQL veritabanı) ve işlemler (örneğin, Azure HDInsight) başka konumlarda ve bölgelerde olabilir.
 7. **Panoya sabitle**’yi seçin. 
 8. **Oluştur**’u seçin.
-9. Panodaki **Veri Fabrikası Dağıtılıyor** kutucuğu işlem durumunu gösterir.
+9. Panoda başvurmak **Data Factory dağıtılıyor** kutucuğu işlem durumunu görmek için.
 
-    ![Veri fabrikası dağıtılıyor kutucuğu](media/tutorial-copy-data-tool/deploying-data-factory.png)
+    ![Veri Fabrikası dağıtılıyor kutucuğu](media/tutorial-copy-data-tool/deploying-data-factory.png)
 10. Oluşturma işlemi tamamlandıktan sonra **Data Factory** giriş sayfası görüntülenir.
    
     ![Data factory giriş sayfası](./media/tutorial-copy-data-tool/data-factory-home-page.png)
-11. Azure Data Factory kullanıcı arabirimini (UI) ayrı bir sekmede açmak için **Yazar ve İzleyici** kutucuğunu seçin. 
+11. Azure Data Factory kullanıcı arabirimini (UI) ayrı bir sekmede açmak için seçmeniz **yazar ve İzleyici** Döşe. 
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Veri Kopyalama aracını kullanarak işlem hattı oluşturma
 
-1. Üzerinde **başlayalım** sayfasında **veri kopyalama** veri kopyalama aracını başlatmak için başlık. 
+1. Üzerinde **başlayalım** sayfasında **veri kopyalama** veri kopyalama aracını açmak için başlık. 
 
    ![Veri Kopyalama aracının kutucuğu](./media/tutorial-copy-data-tool/copy-data-tool-tile.png)
    
@@ -93,9 +93,9 @@ Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için
 
     a. Altında **görev adı**, girin **DeltaCopyFromBlobPipeline**.
 
-    b. Altında **görev temposu veya görev zamanlaması**seçin **düzenli olarak zamanlamaya göre çalıştırma**.
+    b. Altında **görev temposu** veya **görev zamanlama**seçin **düzenli olarak zamanlamaya göre çalıştırma**.
 
-    c. Altında **tetikleme türü**seçin **atlayan pencere**.
+    c. Altında **tetikleyici türü**seçin **atlayan pencere**.
     
     d. Altında **yinelenme**, girin **15 dakika**. 
     
@@ -107,7 +107,7 @@ Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için
     
 3. **Kaynak veri deposu** sayfasında aşağıdaki adımları tamamlayın:
 
-    a. Tıklayın **+ yeni bağlantı oluştur**, bir bağlantı eklemek için.
+    a. Seçin **+ yeni bağlantı oluştur**, bir bağlantı eklemek için.
     
     ![Kaynak veri deposu sayfası](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page.png)
 
@@ -119,13 +119,13 @@ Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için
     
     ![Kaynak veri deposu sayfası](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-linkedservice.png)
     
-    d. Yeni oluşturulan bağlı hizmeti seçin ve ardından tıklayın **sonraki**. 
+    d. Yeni oluşturulan bağlı hizmeti seçin ve ardından **sonraki**. 
     
    ![Kaynak veri deposu sayfası](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-linkedservice.png)
 
 4. **Girdi dosyasını veya klasörünü seçin** sayfasında aşağıdaki adımları uygulayın:
     
-    a. Göz atın ve seçim **kaynak** klasörü, ardından **Seç**.
+    a. Göz atın ve seçim **kaynak** klasöre tıklayın ve ardından **Seç**.
     
     ![Girdi dosyası veya klasörü seçin](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-input-file-folder.png)
     
@@ -133,21 +133,21 @@ Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için
     
     ![Girdi dosyası veya klasörü seçin](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-loading-behavior.png)
     
-    c. Denetleme **ikili kopya** tıklatıp **sonraki**.
+    c. Denetleme **ikili kopya** seçip **sonraki**.
     
      ![Girdi dosyası veya klasörü seçin](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
      
-5. Üzerinde **hedef veri deposuna** sayfasında **AzureBlobStorage** olduğu aynı depolama hesabını veri kaynağı deposu ve ardından **sonraki**.
+5. Üzerinde **hedef veri deposuna** sayfasında **AzureBlobStorage**. Bu kaynak veri deposu olarak aynı depolama hesabıdır. Sonra **İleri**’yi seçin.
 
     ![Hedef veri deposu sayfası](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/destination-data-store-page-select-linkedservice.png)
     
-6. Üzerinde **çıktı dosyasını veya klasörünü seçin** sayfasında, aşağıdaki adımları uygulayın:
+6. **Çıktı dosyasını veya klasörünü seçin** sayfasında aşağıdaki adımları uygulayın:
     
-    a. Göz atın ve seçim **hedef** klasörü, ardından **Seç**.
+    a. Göz atın ve seçim **hedef** klasöre tıklayın ve ardından **Seç**.
     
     ![Çıktı dosyasını veya klasörünü seçin](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
     
-    b. **İleri**’ye tıklayın.
+    b. **İleri**’yi seçin.
     
      ![Çıktı dosyasını veya klasörünü seçin](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/click-next-after-output-folder.png)
     
@@ -155,7 +155,7 @@ Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için
 
     ![Ayarlar sayfası](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/settings-page.png)
     
-8. **Özet** sayfasında ayarları gözden geçirin ve **İleri**’yi seçin.
+8. Üzerinde **özeti** sayfasında, ayarları gözden geçirin ve ardından **sonraki**.
 
     ![Özet sayfası](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/summary-page.png)
     
@@ -165,45 +165,45 @@ Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için
     
 10. Soldaki **İzleyici** sekmesinin otomatik olarak seçildiğine dikkat edin. **Eylemler** sütunu, etkinlik çalıştırması ayrıntılarını görüntüleme ve işlem hattını yeniden çalıştırma bağlantılarını içerir. Seçin **Yenile** Listeyi yenileyin ve **etkinlik çalıştırmalarını görüntüle** bağlantısını **eylemleri** sütun. 
 
-    ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs1.png)
+    ![Listeyi yenileyin ve etkinlik çalıştırmalarını görüntüle seçin](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs1.png)
 
-11. İşlem hattında yalnızca bir etkinlik (kopyalama etkinliği) olduğundan tek bir girdi görürsünüz. Kopyalama işlemiyle ilgili ayrıntılar için **Eylemler** sütunundaki **Ayrıntılar** bağlantısını (gözlük simgesi) seçin. 
+11. Olduğundan tek bir etkinliğiniz (kopyalama etkinliği) işlem hattında, yalnızca bir giriş görürsünüz. Kopyalama işlemiyle ilgili ayrıntılar için **Eylemler** sütunundaki **Ayrıntılar** bağlantısını (gözlük simgesi) seçin. 
 
-    ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs2.png)
+    ![İşlem hattında kopyalama etkinliği olan](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs2.png)
     
-    Hiçbir dosyasında olmasını düşünüldüğünde **kaynak** için kopyalanan herhangi bir dosya görmezsiniz için blob depolama hesabınızda, kapsayıcı **hedef** blob depolama hesabınızdaki kapsayıcı.
+    Hiçbir dosyasında olduğundan **kaynak** kapsayıcı, Blob Depolama hesabınızdaki görmezsiniz kopyalanan tüm dosya **hedef** Blob Depolama hesabınızdaki kapsayıcı.
     
-    ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
+    ![Kaynak kapsayıcı ya da hedef kapsayıcı dosyası yok](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
     
-12. Boş bir metin dosyası oluşturun ve Dosya1.ref adlandırın. Dosya1.ref dosyanın karşıya **kaynak** depolama hesabınızdaki kapsayıcı. Bu görevleri [Azure Depolama Gezgini](https://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.   
+12. Boş bir metin dosyası oluşturun ve adlandırın **Dosya1.ref**. Bu metin dosyasına karşıya **kaynak** depolama hesabınızdaki kapsayıcı. Bu görevleri [Azure Depolama Gezgini](https://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.   
 
-    ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
+    ![Dosya1.ref oluşturun ve kaynak kapsayıcıya yükleme](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
     
-13. Dönmek için **işlem hattı çalıştırmaları** görüntülenecek **tüm işlem hattı çalıştırmaları**, otomatik olarak yeniden tetiklenmesi için aynı işlem hattı bekleyin.  
+13. Dönmek için **işlem hattı çalıştırmaları** görüntülenecek **tüm işlem hattı çalıştırmaları**, otomatik olarak yeniden tetiklenmesi aynı işlem hattı için bekleyin.  
 
-    ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs4.png)
+    ![Tüm işlem hattı çalıştırmaları seçin](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs4.png)
 
-14. Seçin **etkinlik çalıştırma görünümü** ikinci işlem hattı çalıştırma örneğin gelir ve ayrıntılarını gözden geçirmek için de aynısını yapın görürsünüz.  
+14. Seçin **etkinlik çalıştırma görünümü** ne zaman ikinci işlem hattı çalıştırması için bunu görürsünüz. Ardından ilk işlem hattı çalıştırması için yaptığınız gibi ayrıntıları gözden geçirin.  
 
-    ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs5.png)
+    ![Etkinlik çalıştırma görünümü seçin ve ayrıntıları gözden geçirin](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs5.png)
 
-    Bir dosya (Dosya1.ref) öğesinden kopyalandı göreceğiniz **kaynak** kapsayıcıya **hedef** depolama hesabınızın kapsayıcı.
+    Bkz biri olacak dosyası (Dosya1.ref) öğesinden kopyalandı **kaynak** kapsayıcıya **hedef** kapsayıcı, Blob Depolama hesabı.
     
-    ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
+    ![Hedef kapsayıcı için kaynak kapsayıcısından Dosya1.ref kopyalandı](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
     
-15. Başka bir boş metin dosyası oluşturun ve file2.txt adlandırın. File2.txt dosyanın karşıya **kaynak** depolama hesabınızdaki kapsayıcı. Bu görevleri [Azure Depolama Gezgini](https://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.  
+15. Başka bir boş metin dosyası oluşturun ve adlandırın **file2.txt**. Bu metin dosyasına karşıya **kaynak** Blob Depolama hesabınızdaki kapsayıcı.   
     
-16. 13 ve 14. adım ile aynı yapmak ve yalnızca yeni dosya (file2.txt) öğesinden kopyalandı göreceğiniz **kaynak** kapsayıcıya **hedef** sonraki işlem hattı çalıştırması depolama hesabınızdaki kapsayıcı.  
+16. Bu ikinci metin dosyasını 13 ve 14 numaralı adımları tekrarlayın. Yalnızca yeni dosya (file2.txt) öğesinden kopyalandığını görürsünüz **kaynak** kapsayıcıya **hedef** sonraki işlem hattı çalıştırması depolama hesabınızdaki kapsayıcı.  
     
-    ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs7.png)
+    ![Hedef kapsayıcı için kaynak kapsayıcısından File2.txt kopyalandı](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs7.png)
 
-    Azure Depolama Gezgini'ni kullanarak aynı da doğrulayabilirsiniz (https://storageexplorer.com/) dosyaları taramak için.
+    Kullanarak bu da doğrulayabilirsiniz [Azure Depolama Gezgini](https://storageexplorer.com/) dosyaları taramak için.
     
-    ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
+    ![Azure Depolama Gezgini'ni kullanarak dosyaları tara](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
 
     
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure üzerinde bir Spark kümesi kullanarak veri dönüştürme hakkında bilgi edinmek için aşağıdaki öğreticiye geçin:
+Azure üzerinde Apache Spark kümesi kullanarak verileri dönüştürme hakkında bilgi edinmek için aşağıdaki öğreticiye geçin:
 
 > [!div class="nextstepaction"]
->[Bulutta Spark kümesi kullanarak verileri dönüştürme](tutorial-transform-data-spark-portal.md)
+>[Apache Spark kümesi kullanarak verileri bulutta dönüştürme](tutorial-transform-data-spark-portal.md)

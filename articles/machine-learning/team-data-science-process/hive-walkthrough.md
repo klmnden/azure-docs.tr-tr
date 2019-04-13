@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a7aa5401cbba9fafda9f995a882934ef0edfa481
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d26bc6044ca106b0f081cee5a39405b4b78ce7ac
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881155"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524013"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process'in çalışması: Azure HDInsight Hadoop kümelerini kullanma
 Bu kılavuzda kullandığımız [Team Data Science işlem (TDSP)](overview.md) uçtan uca bir senaryoda. Kullandığımız bir [Azure HDInsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/) depolamak için keşfetmek, özellik mühendisi verileri genel olarak kullanılabilir ve [NYC taksi Gelişlerin](https://www.andresmh.com/nyctaxitrips/) dataset ve aşağı örnek veriler için. İkili ve çok sınıflı sınıflandırma ve regresyon Tahmine dayalı görevler işlemek üzere Azure Machine Learning ile veri modelleri ekleriz. 
@@ -88,11 +88,11 @@ Kopyalanacak [NYC taksi Gelişlerin](https://www.andresmh.com/nyctaxitrips/) mak
 
 Burada, AzCopy verilerini içeren dosyaları aktarmak için nasıl kullanılacağını açıklar. AzCopy karşıdan yüklenip kurulacak konumundaki yönergeleri [AzCopy komut satırı yardımcı programı ile çalışmaya başlama](../../storage/common/storage-use-azcopy.md).
 
-1. Değiştirerek aşağıdaki AzCopy komutları, bir komut istemi penceresinden çalıştırın *< path_to_data_folder >* istenen hedef ile:
+1. Değiştirerek aşağıdaki AzCopy komutları, bir komut istemi penceresinden çalıştırın  *\<path_to_data_folder >* istenen hedef ile:
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. Kopyalama tamamlandıktan sonra seçilen veri klasöründeki 24 sıkıştırılmış dosyaların toplam görürsünüz. Yerel makinenizde indirilen dosyaları aynı dizine ayıklayın. Sıkıştırılması kaldırılan dosyaların bulunduğu klasör not edin. Bu klasör olarak adlandırılır *< yolu\_için\_unzipped_data\_dosyaları\>*  aşağıda içinde.
+1. Kopyalama tamamlandıktan sonra seçilen veri klasöründeki 24 sıkıştırılmış dosyaların toplam görürsünüz. Yerel makinenizde indirilen dosyaları aynı dizine ayıklayın. Sıkıştırılması kaldırılan dosyaların bulunduğu klasör not edin. Bu klasör olarak adlandırılır *\<yolu\_için\_unzipped_data\_dosyaları\>* aşağıda içinde.
 
 ## <a name="upload"></a>HDInsight Hadoop kümesi varsayılan kapsayıcıya veri yükleme
 > [!NOTE]
@@ -102,10 +102,10 @@ Burada, AzCopy verilerini içeren dosyaları aktarmak için nasıl kullanılaca�
 
 Aşağıdaki AzCopy komutları, Hadoop kümesi oluştururken belirttiğiniz gerçek değerlerle aşağıdaki parametreleri değiştirin ve veri dosyalarını sıkıştırması açılıyor.
 
-* ***< Path_to_data_folder >*** (yol) yanı sıra dizin makinenizde sıkıştırması açılmış veri dosyalarını içerir.  
-* ***<storage account name of Hadoop cluster>*** HDInsight kümenizle ilişkili depolama hesabı.
-* ***<default container of Hadoop cluster>*** Kümeniz tarafından kullanılan varsayılan kapsayıcı. Varsayılan kapsayıcı adı genellikle küme adıyla aynı olduğunu unutmayın. Örneğin, "abc123.azurehdinsight.net" Küme çağrılırsa, varsayılan kapsayıcı abc123 ' dir.
-* ***<storage account key>*** Kümeniz tarafından kullanılan depolama hesabı anahtarı.
+* ***\<path_to_data_folder >*** (yol) yanı sıra dizin makinenizde sıkıştırması açılmış veri dosyalarını içerir.  
+* ***\<Hadoop kümesinin depolama hesabı adı >*** HDInsight kümenizle ilişkili depolama hesabı.
+* ***\<Hadoop kümesinin varsayılan kapsayıcı >*** kümeniz tarafından kullanılan varsayılan kapsayıcı. Varsayılan kapsayıcı adı genellikle küme adıyla aynı olduğunu unutmayın. Örneğin, "abc123.azurehdinsight.net" Küme çağrılırsa, varsayılan kapsayıcı abc123 ' dir.
+* ***\<Depolama hesabı anahtarı >*** kümeniz tarafından kullanılan depolama hesabı anahtarı.
 
 Bir komut istemi veya bir Windows PowerShell penceresi, aşağıdaki iki AzCopy komutları çalıştırın.
 

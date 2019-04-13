@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 3faa3b0a5cd919752f8b7e4969e3affd668c8077
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360772"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523010"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>İş akışı eylemi yineleyin veya Azure Logic Apps dizilerde işlem döngü oluşturma
 
@@ -196,7 +196,7 @@ Bir "Kadar" döngüsünü kullanabileceğiniz bazı yaygın senaryolar şunlard�
    | Özellik | Değer | Açıklama |
    | -------- | ----- | ----------- |
    | **Ad** | Sınır | Değişken adı | 
-   | **Type** | Tamsayı | Değişkenin veri türü | 
+   | **Tür** | Tamsayı | Değişkenin veri türü | 
    | **Değer** | 0 | Değişkeninizin değeri başlıyor | 
    |||| 
 
@@ -236,7 +236,7 @@ Bir "Kadar" döngüsünü kullanabileceğiniz bazı yaygın senaryolar şunlard�
 
       | Özellik | Değer | Açıklama |
       | -------- | ----- | ----------- | 
-      | **Kime** | *< e-posta adresi\@etki alanı >* | Alıcının e-posta adresi. Test için kendi e-posta adresinizi kullanın. | 
+      | **Alıcı** | *\<e-posta adresi\@etki alanı >* | Alıcının e-posta adresi. Test için kendi e-posta adresinizi kullanın. | 
       | **Konu** | Geçerli değer "Sınırın" **sınırı** | E-posta konusunu belirtin. Bu örnekte, eklediğinizden emin olun **sınırı** değişkeni. | 
       | **Gövde** | <*email-content*> | E-posta ileti göndermek istediğiniz içeriği belirtin. Bu örnekte, istediğiniz herhangi bir metni girin. | 
       |||| 
@@ -253,8 +253,8 @@ Bir "Kadar" döngü, Bu koşullardan herhangi biri varsa, yürütmeyi durdurun v
 
 | Özellik | Varsayılan değer | Açıklama | 
 | -------- | ------------- | ----------- | 
-| **Sayı** | 60 | Döngüden çıkılıp önce çalıştırılan döngüler en yüksek sayısı. 60 döngüleri varsayılandır. | 
-| **Zaman Aşımı** | PT1H | Bir döngü döngü önce çalıştırılacak çoğu süreyi çıkar. Varsayılan bir saattir ve ISO 8601 biçiminde belirtilir. <p>Zaman aşımı değeri her döngü döngüsü için değerlendirilir. Geçerli döngü, döngü içinde herhangi bir işlem zaman aşımı sınırından daha uzun sürerse, bitmez. Ancak, sınır koşulu karşılanmamış çünkü bir sonraki döngüde başlamaz. | 
+| **Sayısı** | 60 | Döngüden çıkılıp önce çalıştırılan döngüler en yüksek sayısı. 60 döngüleri varsayılandır. | 
+| **zaman aşımı** | PT1H | Bir döngü döngü önce çalıştırılacak çoğu süreyi çıkar. Varsayılan bir saattir ve ISO 8601 biçiminde belirtilir. <p>Zaman aşımı değeri her döngü döngüsü için değerlendirilir. Geçerli döngü, döngü içinde herhangi bir işlem zaman aşımı sınırından daha uzun sürerse, bitmez. Ancak, sınır koşulu karşılanmamış çünkü bir sonraki döngüde başlamaz. | 
 |||| 
 
 Bu varsayılan sınırları değiştirmek için seçin **Gelişmiş Seçenekleri Göster** döngü eylem şeklinde.

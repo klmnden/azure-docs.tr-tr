@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 42fd28f2a18ecf81c7846abdc7b3159a275a9cd7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8d4fc5fbdc3185c46f00d94537b197ec03f66755
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013550"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528178"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Azure CDN kurallar altyapısı için HTTP değişkenleri
 HTTP değişkenleri üzerinden HTTP istek ve yanıt meta verilerini almak bir yöntem sağlar. Bu meta veriler, ardından bir istek veya yanıt dinamik olarak değiştirmek için kullanılabilir. Aşağıdaki kural altyapısı özellikleri için HTTP değişkenlerini sınırlıdır:
@@ -38,7 +38,7 @@ Aşağıdaki tabloda, desteklenen HTTP değişkenler açıklanmaktadır. Belirli
 | ---- | -------- | ----------- | ------------ |
 | ASN (istek sahibi) | % {geo_asnum} | İstek sahibinin sayı olarak gösterir. <br /><br />**Kullanım:** % {virt_dst_asnum}. <br />Bu değişken, % {geo_asnum}'ile değiştiriliyor kullanım dışı bırakıldı. Bu kullanım dışı değişkeni kullanan bir kural çalışmaya devam eder ancak yeni değişken kullanacak şekilde güncelleştirmeniz gerekir. | AS15133 |
 | Şehir (istek sahibi) | %{geo_city} | İstek sahibinin Şehir gösterir. | Los Angeles |
-| Kıta (istek sahibi) | %{geo_continent} | İstek sahibinin Kıta eşlememiz aracılığıyla gösterir. <br />Geçerli değerler şunlardır: <br />AF: Afrika<br />OLARAK: Asya<br />AV: Avrupa<br />NA: Kuzey Amerika<br />OC: Okyanusya<br />SA: Güney Amerika<br /><br />**Kullanım:** % {virt_dst_continent}. <ber />Bu değişken, % {geo_continent}'ile değiştiriliyor kullanım dışı bırakıldı. <br />Bu kullanım dışı değişkeni kullanan bir kural çalışmaya devam eder ancak yeni değişken kullanacak şekilde güncelleştirmeniz gerekir.| Yok |
+| Kıta (istek sahibi) | %{geo_continent} | İstek sahibinin Kıta eşlememiz aracılığıyla gösterir. <br />Geçerli değerler şunlardır: <br />AF: Afrika<br />OLARAK: Asya<br />AV: Avrupa<br />NA: Kuzey Amerika<br />OC: Okyanusya<br />SA: Güney Amerika<br /><br />**Kullanım:** % {virt_dst_continent}. <br />Bu değişken, % {geo_continent}'ile değiştiriliyor kullanım dışı bırakıldı. <br />Bu kullanım dışı değişkeni kullanan bir kural çalışmaya devam eder ancak yeni değişken kullanacak şekilde güncelleştirmeniz gerekir.| Yok |
 | Tanımlama bilgisi değeri | % {cookie_Cookie} | Tanımlama bilgisi terimi tarafından tanımlanan tanımlama bilgisi anahtarına karşılık gelen değeri döndürür. | Örnek Kullanım: <br />%{cookie__utma}<br /><br />Örnek değer:<br />111662281.2.10.1222100123 |
 | Ülke (istek sahibi) | %{geo_country} | Kendi ülke kodu aracılığıyla sahibinin ülkeyi belirtir. <br />**Kullanım:** % {virt_dst_country}. <br /><br />Bu değişken, % {geo_country}'ile değiştiriliyor kullanım dışı bırakıldı. Bu kullanım dışı değişkeni kullanan bir kural çalışmaya devam eder ancak yeni değişken kullanacak şekilde güncelleştirmeniz gerekir. | ABD |
 | Belirlenen Pazar alan (istek sahibi) | %{geo_dma_code} |Sahibinin medya market tarafından kendi bölge kodu gösterir. <br /><br />Bu alan yalnızca, Amerika Birleşik Devletleri'nden kaynaklanan istekler için geçerlidir.| 745 |

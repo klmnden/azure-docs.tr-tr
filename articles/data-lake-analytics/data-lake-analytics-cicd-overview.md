@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: b6c5df1ef0c93508595e27cbda315281aa3461b5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b035be727df2dfecb613da79681affd740c69bec
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124295"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544827"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics için bir CI/CD işlem hattı ayarlama  
 
@@ -66,7 +66,7 @@ U-SQL betiklerini bir U-SQL projesi U-SQL veritabanı nesneleri için sorgu ifad
 Daha fazla bilgi edinin [U-SQL veritabanı projesi](data-lake-analytics-data-lake-tools-develop-usql-database.md).
 
 >[!NOTE]
->U-SQL veritabanı projesi şu anda genel Önizleme aşamasındadır. Projede bırakma ifadesi varsa, yapı başarısız olur. DROP deyiminin yakında izin verilir.
+>BIRAKMA deyimi yanlışlıkla silme sorunu neden olabilir. BIRAKMA deyimi etkinleştirmek için MSBuild bağımsız değişkenleri açıkça belirtmeniz gerekir. **AllowDropStatement** derleme ve bırakma gibi veri olmayan ilgili bırak işlemi etkinleştirecek tablo değerli işlev. **AllowDataDropStatement** etkinleştirecek bırakma işlemi, bırakma table ve schema bırakma gibi ilgili verileri. AllowDropStatement AllowDataDropStatement kullanmadan önce etkinleştirmeniz gerekir.
 >
 
 ### <a name="build-a-u-sql-project-with-the-msbuild-command-line"></a>MSBuild komut satırı ile bir U-SQL projesi oluşturmak
@@ -79,11 +79,11 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 Bağımsız değişken tanımı ve değerler aşağıdaki gibidir:
 
-* **USQLSDKPath < U-SQL Nuget paketini > \build\runtime =**. Bu parametre, U-SQL dil hizmeti için NuGet paketinin yükleme yolu belirtir.
+* **USQLSDKPath =\<U-SQL Nuget paketini > \build\runtime**. Bu parametre, U-SQL dil hizmeti için NuGet paketinin yükleme yolu belirtir.
 * **USQLTargetType birleştirme ya da SyntaxCheck =**:
     * **Birleştirme**. Birleştirme modu arka plan kod dosyaları derler. Örnekler **.cs**, **.py**, ve **.r** dosyaları. Bu satır içleri U-SQL betiğini elde edilen kullanıcı tanımlı kod kitaplığa. Örnekler bir dll ikili, Python veya R kodu.
     * **SyntaxCheck**. SyntaxCheck modu, arka plan kod dosyaları ilk U-SQL betiği ile birleştirir. Sonra kodunuzu doğrulamak için U-SQL betiği derler.
-* **DataRoot =<DataRoot path>**. DataRoot yalnızca SyntaxCheck modu için gereklidir. Betik SyntaxCheck moduyla oluşturduğunda, MSBuild betiğindeki veritabanı nesnelere başvurular denetler. Yapılandırmadan önce başvurulan derleme makinenin DataRoot klasörü U-SQL veritabanında nesneleri içeren bir eşleşen yerel ortamı ayarlayın. Bu veritabanı bağımlılıklar da yönetebilirsiniz [bir U-SQL veritabanı projesine başvurma](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild, veritabanı nesne başvuruları, dosyaları değil yalnızca denetler.
+* **DataRoot =\<DataRoot yolu >**. DataRoot yalnızca SyntaxCheck modu için gereklidir. Betik SyntaxCheck moduyla oluşturduğunda, MSBuild betiğindeki veritabanı nesnelere başvurular denetler. Yapılandırmadan önce başvurulan derleme makinenin DataRoot klasörü U-SQL veritabanında nesneleri içeren bir eşleşen yerel ortamı ayarlayın. Bu veritabanı bağımlılıklar da yönetebilirsiniz [bir U-SQL veritabanı projesine başvurma](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild, veritabanı nesne başvuruları, dosyaları değil yalnızca denetler.
 * **EnableDeployment = true** veya **false**. EnableDeployment, derleme işlemi sırasında başvurulan U-SQL veritabanı dağıtmak için izin verip vermediğini belirtir. U-SQL veritabanı projesi başvuru ve veritabanı nesnelerini U-SQL betiğinizde kullanmak, bu parametre kümesine **true**.
 
 ### <a name="continuous-integration-through-azure-pipelines"></a>Azure işlem hatları aracılığıyla sürekli tümleştirme

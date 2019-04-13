@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.openlocfilehash: 31d9e2170461b9c4023bfe6b3e01fb1d7dda7fee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bee64909c7f3b295691ef1cb1840424aa7e3fe49
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895898"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549721"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Oluşturma ve REST API ile Log analytics'teki uyarı kurallarını yönet
 Log Analytics uyarı REST API oluşturma ve Log analytics'teki uyarılar yönetmenize olanak sağlar.  Bu makalede, farklı işlemler gerçekleştirmek için API ve birkaç örnek ayrıntılarını sağlar.
@@ -94,9 +94,9 @@ Tüm eylemler aşağıdaki tabloda özelliklere sahiptir.  Farklı uyarı türle
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Tür |Eylem türü.  Şu anda uyarı ve Web kancası olası değerler şunlardır. |
-| Ad |Uyarı görünen adı. |
-| Sürüm |API sürümü kullanılıyor.  Şu anda, bu her zaman 1 olarak ayarlanması gerekir. |
+| `Type` |Eylem türü.  Şu anda uyarı ve Web kancası olası değerler şunlardır. |
+| `Name` |Uyarı görünen adı. |
+| `Version` |API sürümü kullanılıyor.  Şu anda, bu her zaman 1 olarak ayarlanması gerekir. |
 
 ### <a name="retrieving-actions"></a>Eylemleri alınıyor
 
@@ -154,8 +154,8 @@ Eşikleri aşağıdaki tabloda özelliklere sahiptir.
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| İşleç |Eşik karşılaştırması için işleci. <br> gt büyük = <br> lt = kısa |
-| Değer |Eşik değeri. |
+| `Operator` |Eşik karşılaştırması için işleci. <br> gt büyük = <br> lt = kısa |
+| `Value` |Eşik değeri. |
 
 Örneğin, bir olay sorgusu ile 15 dakika, 30 dakikalık bir zaman aralığı ve bir eşik 10'dan büyük bir aralıkta göz önünde bulundurun. Bu durumda, sorgu 15 dakikada bir çalışır ve 30 dakikalık bir aralığı oluşturulan 10 olayları döndürdüyse bir uyarı tetiklenmesi.
 
@@ -187,9 +187,9 @@ Log Analytics, daha kolay yönetim ve Önceliklendirme izin vermek için kategor
 
 |Log Analytics önem düzeyi  |Azure Uyarıları önem düzeyi  |
 |---------|---------|
-|kritik |Önem Derecesi 0|
-|uyarı |Önem Derecesi 1|
-|Bilgilendirme | Önem Derecesi 2|
+|`critical` |Önem Derecesi 0|
+|`warning` |Önem Derecesi 1|
+|`informational` | Önem Derecesi 2|
 
 Örnek yanıt yalnızca eşiğini ve önem derecesine sahip bir eylem için aşağıda verilmiştir. 
 
@@ -284,7 +284,7 @@ Put yöntemi ile var olan bir eylem kimliği için bir zamanlama ilişkili bir e
 Varsayılan eylemler tarafından standart şablon ve bildirimler için biçim izleyin. Ancak Eylem grupları tarafından kontrol edilir olsa bile, kullanıcı bazı eylemler özelleştirebilirsiniz. Şu anda, e-posta konusu ve Web kancası yükü özelleştirme mümkündür.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>Eylem grubu için e-posta konusu özelleştirme
-Varsayılan olarak, uyarılar için e-posta konusu şöyledir: Uyarı bildirimini <AlertName> için <WorkspaceName>. Ancak, belirli sözcükleri ya da kolayca filtre kuralları, gelen kutunuzdaki görevlendirmek olanak tanımak için etiketleri - böylece bu, özelleştirilebilir. Özelleştirme e-posta üst bilgisi ayrıntıları aşağıdaki örnekte olduğu gibi ActionGroup ayrıntılarını göndermeniz gerekir.
+Varsayılan olarak, uyarılar için e-posta konusu şöyledir: Uyarı bildirimini `<AlertName>` için `<WorkspaceName>`. Ancak, belirli sözcükleri ya da kolayca filtre kuralları, gelen kutunuzdaki görevlendirmek olanak tanımak için etiketleri - böylece bu, özelleştirilebilir. Özelleştirme e-posta üst bilgisi ayrıntıları aşağıdaki örnekte olduğu gibi ActionGroup ayrıntılarını göndermeniz gerekir.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {

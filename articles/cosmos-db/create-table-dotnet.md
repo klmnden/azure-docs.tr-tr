@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/11/2019
 ms.author: sngun
-ms.openlocfilehash: 7ca51b176c17f33b4779a0129c5dc57b220c0097
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 25f8a88c1b488b9272ed1254aaca79a79bc7e871
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877641"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544203"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Hızlı Başlangıç: API uygulaması .NET SDK'sını ve Azure Cosmos DB ile tablo oluşturma 
 
@@ -65,9 +65,6 @@ Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 20
    ```bash
    git clone https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started.git
    ```
-   > [!NOTE]
-   > Bu belgedeki açıklanan .NET standart örnek, hem Azure Cosmos DB tablo API'si hem de Azure tablo depolama ile çalışır. İlgilendiğiniz ise örnek, çalışan .NET Framework 4.5 ile çalışır, bkz: [storage-table-dotnet-getting-started](https://github.com/Azure-Samples/storage-table-dotnet-getting-started) örnek. 
-
 
 ## <a name="open-the-sample-application-in-visual-studio"></a>Örnek uygulamayı Visual Studio'da açma
 
@@ -94,7 +91,6 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
       "StorageConnectionString": "<Primary connection string from Azure portal>"
    }
    ```
-   Kullanıyorsanız [.NET Framework](https://github.com/Azure-Samples/storage-table-dotnet-getting-started) örnek, bulunan bağlantı dizesini güncelleştirmelidir **App.config** dosya.
 
 4. Kaydetmek için CTRL + S tuşlarına basın **Settings.json** dosya.
 
@@ -107,9 +103,6 @@ Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken
    ![NuGet Paketlerini yönetme](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
 
 2. Nuget **Gözat** kutusuna Microsoft.Azure.Cosmos.Table yazın. Cosmos DB Table API istemci kitaplığı görüntülenir. Bu kitaplığı için .NET Framework ve .NET standart şu anda kullanılabilir olduğunu unutmayın. 
-
-   > [!NOTE]
-   > .NET Framework kullanan bir örnek kullanıyorsanız yüklemelisiniz *Microsoft.Azure.CosmosDB.Table*, NuGet paketi. Azure tablo depolama ile .NET Framework örneğini kullanıyorsanız, Cosmos DB belirli NuGet paketini yanı sıra, ayrıca gerektiren *Microsoft.Azure.Storage.Common* NuGet paketi. 
    
    ![NuGet Göz at sekmesi](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 

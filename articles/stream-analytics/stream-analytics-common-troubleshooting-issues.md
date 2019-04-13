@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: a2c7ceae342124f06fcfe8dc18b1a69f7176f4e1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0191c56e1140870b1710b48c4fa1189fd92a337b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090984"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521484"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Sık karşılaşılan sorunları gidermek için Stream Analytics ve adımları
 
@@ -26,7 +26,7 @@ ms.locfileid: "53090984"
 
 ![Azure Stream Analytics Pano kutucuğuna girişleri](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Daha fazla bilgi için uyarı ayrıntılarını görüntülemek için tanılama günlüklerini etkinleştirin. Giriş yanlış biçimlendirilmiş olaylar için yürütme günlüklerini şuna benzer bir ileti ile bir giriş içeriyor: "ileti: kaynağından giriş olayları seri durumdan çıkarılamadı <blob URI> json olarak". 
+Daha fazla bilgi için uyarı ayrıntılarını görüntülemek için tanılama günlüklerini etkinleştirin. Giriş yanlış biçimlendirilmiş olaylar için yürütme günlüklerini şuna benzer bir ileti ile bir giriş içerir: "İleti: Kaynağından giriş olayları seri durumdan çıkarılamadı \<URI blob > json olarak ". 
 
 ### <a name="troubleshooting-steps"></a>Sorun giderme adımları
 

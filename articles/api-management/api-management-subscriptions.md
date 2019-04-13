@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 1f7c2bde631e42ac94ce4c0394d13e369f6ea23f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049767"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526597"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Azure API Management abonelikler
 
@@ -50,9 +50,6 @@ Geleneksel olarak, API Management abonelikler her zaman tek bir ilişkili [bir A
 > Bazı senaryolarda, API yayımcılarının abonelikleri gereksinimi olmadan genel API ürünü yayımlamak isteyebilirsiniz. Seçimini kaldırabilirsiniz **aboneliği gerektiren** seçeneğini **ayarları** Azure portalında ürün sayfası. Sonuç olarak, tüm API'leri ürün altında bir API anahtarı erişilebilir.
 
 ### <a name="subscriptions-for-all-apis-or-an-individual-api"></a>Tüm API'ler veya tek tek bir API için abonelikler
-
-> [!NOTE]
-> Şu anda bu özellik yalnızca API Management tüketimini katmanında kullanılabilir.
 
 Ne zaman kullanıma sunduk [tüketim](https://aka.ms/apimconsumptionblog) katman API yönetimi, anahtar yönetimini kolaylaştırmak için bazı değişiklikler yaptık:
 - İlk olarak, iki daha fazla abonelik kapsamları ekledik: tüm API'leri ve tek bir API. Abonelik kapsamı artık bir API ürününe sınırlıdır. Artık, bir API ya da tüm API'leri, API Management örneği içinde Ürün oluşturma ve API'leri ilk eklemek zorunda kalmadan erişim anahtarları oluşturmak mümkündür. Ayrıca, her API Management örneği, artık bir sabit, tüm API aboneliğiyle içermektedir. Bu abonelik daha kolay ve daha basit bir test ve API'leri test konsolda hata ayıklamayı kolaylaştırır.

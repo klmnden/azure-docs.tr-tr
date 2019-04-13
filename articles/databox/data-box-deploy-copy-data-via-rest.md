@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 412bf66902f156c6c8720a720973f97d1d7b1d8f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 79854c71410c7e796961f23c8c31a4d0809cd69c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751625"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527991"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Öğretici: Azure veri kutusu Blob Depolama REST API'leri aracılığıyla veri kopyalama  
 
@@ -79,7 +79,7 @@ Sertifika indirmek için Azure portalını kullanın.
 
 1. Azure portalında oturum açın.
 2. Data Box Siparişiniz gidip için **genel > cihaz ayrıntıları**.
-3. Altında **cihaz kimlik bilgilerini**Git **API erişimi** aygıt için. **İndir**’e tıklayın. Bu eylem indiren bir  **<your order name>.cer** sertifika dosyası. **Kaydet** bu dosya. Bu sertifika, cihaza bağlanmak için kullanacağınız istemci veya konak bilgisayara yükler.
+3. Altında **cihaz kimlik bilgilerini**Git **API erişimi** aygıt için. **İndir**’e tıklayın. Bu eylem indiren bir  **\<sipariş adınız > .cer** sertifika dosyası. **Kaydet** bu dosya. Bu sertifika, cihaza bağlanmak için kullanacağınız istemci veya konak bilgisayara yükler.
 
     ![Azure portalında sertifikasını indirin](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  

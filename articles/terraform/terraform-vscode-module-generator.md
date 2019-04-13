@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 8405624831c572f194fa0afaad2f0caa40bcf9ba
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7e66f374a1f5f4fb050f366fdad0e787292101f8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001285"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526750"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Yeoman kullanarak Azure'da Terraform temel şablon oluşturma
 
@@ -73,8 +73,8 @@ Bir komut isteminden:
 1. Oluşturmak üzere olduğumuz yeni, boş dizini içermesini istediğiniz üst dizine gidin.
 1. `mkdir <new-directory-name>` yazın.
 
-    >[!NOTE]
-    ><new-directory-name> değerini yeni dizininizin adıyla değiştirin. Biz bu örnekte, yeni dizini `GeneratorDocSample` olarak adlandırdık.
+    > [!NOTE]
+    > Değiştirin `<new-directory-name>` yeni dizin adı. Biz bu örnekte, yeni dizini `GeneratorDocSample` olarak adlandırdık.
 
     ![mkdir](media/terraform-vscode-module-generator/ymg-mkdir-GeneratorDocSample.png)
 
@@ -250,7 +250,7 @@ Cloud Shell'de önceden yüklenmiş olan tüm bu öğeler.
 
 1. Henüz mevcut değilse $GOPATH klasörü oluşturun: `mkdir ~/go` yazın.
 
-1. $GOPATH klasörde bir klasör oluşturun: `mkdir ~/go/src` yazın. Bu klasör, basılı tutun ve farklı proje klasörleri sonraki adımda oluşturacağız < uygulamanızın modülü-adı > klasörü gibi oluşturabilir düzenlemek için kullanılır.
+1. $GOPATH klasörde bir klasör oluşturun: `mkdir ~/go/src` yazın. Bu klasör tutun ve farklı proje klasörleri oluşturma, gibi düzenlemek için kullanılan `<your-module-name>` klasör biz sonraki adımda oluşturacaktır.
 
 1. Terraform modülünüzde tutmak için bir klasör oluşturun: `mkdir ~/go/src/<your-module-name>` yazın.
 

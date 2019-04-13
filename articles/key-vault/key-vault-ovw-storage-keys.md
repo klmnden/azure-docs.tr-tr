@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: prashanthyv
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 5ec5109aa8079b37015f66443b8ebac905ad2fcb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 99b37a9b12c4b66e9b254156dfe4b59c7ab6594c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370576"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526281"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure anahtar kasası yönetilen depolama hesabı - CLI
 
@@ -109,7 +109,7 @@ SAS (paylaşılan erişim imzası) belirteçleri oluşturmak için Key Vault da 
 Oluşturmayı tamamladıktan sonra listelenen adımları SAS belirteçleri oluşturmak için Key Vault istemek için aşağıdaki komutları çalıştırabilirsiniz. 
 
 Listenin içinde ulaşılacağına şeyleri adımlarla ilgili daha fazla bilgi
-- Bir hesap SAS tanımı adlı ayarlar '<YourSASDefinitionName>'KeyVault ile yönetilen depolama hesabındaki'<YourStorageAccountName>'kasanızdaki'<VaultName>'. 
+- Bir hesap SAS tanımı adlı ayarlar `<YourSASDefinitionName>` KeyVault ile yönetilen depolama hesabındaki `<YourStorageAccountName>` kasanızdaki `<VaultName>`. 
 - Belirtilen başlangıç ve bitiş tarihleri ve https üzerinden tüm izinlere sahip bir hesap SAS belirtecini Hizmetleri Blob, dosya, tablo ve kuyruk hizmeti, kapsayıcı ve nesne, kaynak türleri için oluşturur
 - Kasadaki yukarıda, SAS türü 'account' ve geçerli N gün için oluşturulan SAS belirteciyle şablon URI ile bir KeyVault ile yönetilen depolama SAS tanımı ayarlar
 - KeyVault gizli SAS tanımına karşılık gelen gerçek erişim belirtecini alır

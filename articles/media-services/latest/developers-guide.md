@@ -13,24 +13,26 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 04/11/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 4f9911259cc4da02429971ef6bddfa62080a9fe6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: d97682de6c8eb7dd36e25cbd4b8d66d328745748
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044415"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543645"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Media Services v3 API SDK'ları / araçlarla geliştirmeye başlayın
 
 Bir geliştirici olarak, Media Services kullanabileceğiniz [REST API](https://aka.ms/ams-v3-rest-ref) veya kolayca oluşturmak için REST API ile etkileşimde bulunmanızı sağlayan istemci kütüphaneleri, yönetmek ve özel medya iş akışları korumak. [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API (eski adıyla bir swagger dosyası da bilinir) Openapı belirtimini temel alır.
 
-Bu konuda bağlantılar SDK'ları, araçları, belgeleri sağlar. Ayrıca, farklı Geliştirici env bazı yararlı bilgiler sağlar.
+Geliştirmeye başlamadan önce gözden [Media Services v3 API'leri ile geliştirme](media-services-apis-overview.md).
 
 > [!NOTE]
 > Azure Media Services v3 SDK iş parçacığı açısından güvenli olmasını garanti edilmez. Çok iş parçacıklı bir uygulama geliştirirken, istemci korumak veya iş parçacığı başına yeni bir AzureMediaServicesClient nesnesini kullanmak için kendi iş parçacığı eşitleme mantığı eklemeniz gerekir. Çoklu iş parçacığı oluşturma sorunları (örneğin,. NET'te HttpClient örneği) istemci kodunuz tarafından sağlanan isteğe bağlı nesneler tarafından sunulan, dikkatli olmalıdır.
+
+Bu konu, SDK'ları için Araçlar, diğer düzen bağlantılar sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -40,7 +42,7 @@ Media Services karşı geliştirmeye başlamak için ihtiyacınız vardır:
 - [Temel kavramlar hakkında bilgi edinin](concepts-overview.md)
 - [Bir Media Services hesabı oluşturma - CLI](create-account-cli-how-to.md)
 
-## <a name="start-developing-with-sdks"></a>SDK'ları ile geliştirmeye başlayın
+## <a name="start-developing-with-sdks"></a>SDK'larla geliştirmeye başlama
 
 ### <a name="net"></a>.NET
 

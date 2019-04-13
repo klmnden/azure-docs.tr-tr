@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: e2678200e2f8c55111e53ab0a341804fd17623a3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 00c5ed3e3ea5c083f727d06c2ed305fe35ed03db
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994947"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523333"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Bilgi Keşfetme Hizmeti'ni kullanmaya başlama
 
@@ -252,7 +252,7 @@ Bulut hizmetini oluşturduğunuzda, hizmeti dağıtmak için [`kes.exe deploy_se
 
 Hazırlama yuvasını içeriğini üretim yuvasıyla [değiştirin](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md); böylelikle, canlı trafik artık yeni dağıtılan hizmete yönlendirilir. Hizmetin yeni verilerle güncelleştirilmiş sürümünü dağıtırken de bu işlemi yineleyebilirsiniz. Aynı diğer Azure bulut hizmetlerinde olduğu gibi, isterseniz Azure portalını kullanarak [otomatik ölçeklendirmeyi](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md) yapılandırabilirsiniz.
 
-Bu örnekte, *<vm_size>* VM'lerle var olan bir bulut hizmetinin hazırlama yuvasına *Academic* dizinini dağıtıyorsunuz. Aşağıdaki komutu kullanın:
+Bu örnekte, dağıttığınız *akademik* dizin ile bir bulut hizmetinin hazırlık yuvasına  *\<vm_size >* VM'ler. Aşağıdaki komutu kullanın:
 
 `kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> <vm_size> --slot Staging`
 

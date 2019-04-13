@@ -1,5 +1,5 @@
 ---
-title: 'ExpressRoute devre oluşturma ve değiştirme: Azure CLI | Microsoft Docs'
+title: 'Oluşturma ve bir ExpressRoute bağlantı hattını değiştirme: Azure CLI | Microsoft Docs'
 description: Bu makalede, oluşturma, sağlama, doğrulayın, güncelleştirme, silme ve CLI kullanarak bir ExpressRoute bağlantı hattının sağlamasını Kaldır gösterilmektedir.
 services: expressroute
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: 2013b3b96fddd32f01245655c1feb600bc426e2a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 556589aa7a0a577b9b1a010cf4811922ebc6de52
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084150"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524897"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>CLI kullanarak bir ExpressRoute devre oluşturma ve değiştirme
 
@@ -56,7 +56,7 @@ az account set --subscription "<subscription ID>"
 
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Desteklenen sağlayıcılar, konumları ve bant genişlikleri listesini alın
 
-Bir ExpressRoute bağlantı hattı oluşturmadan önce desteklenen bağlantı sağlayıcıları ve konumları bant genişliği seçenekleri listesi gerekir. CLI komutu 'az ağ express-route listesi hizmet-sağlayıcıları-', sonraki adımlarda kullanacağınız bu bilgileri döndürür:
+Bir ExpressRoute bağlantı hattı oluşturmadan önce desteklenen bağlantı sağlayıcıları ve konumları bant genişliği seçenekleri listesi gerekir. CLI komutunu `az network express-route list-service-providers` , sonraki adımlarda kullanacağınız bu bilgileri döndürür:
 
 ```azurecli-interactive
 az network express-route list-service-providers
@@ -154,7 +154,7 @@ Yanıt hizmet anahtarı içerir.
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. Tüm ExpressRoute devreleri listesi
 
-Oluşturduğunuz tüm ExpressRoute devreleri listesini almak için 'az network express-route list' komutunu çalıştırın. Bu komutu kullanarak bu bilgileri istediğiniz zaman alabilir. Tüm devreler listelemek için parametresiz çağrısı yapın.
+Oluşturduğunuz tüm ExpressRoute devreleri listesini almak için çalıştırın `az network express-route list` komutu. Bu komutu kullanarak bu bilgileri istediğiniz zaman alabilir. Tüm devreler listelemek için parametresiz çağrısı yapın.
 
 ```azurecli-interactive
 az network express-route list

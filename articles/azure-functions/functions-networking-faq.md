@@ -3,19 +3,19 @@ title: Azure işlevleri de ağ oluşturmayla ilgili sık sorulan sorular
 description: Bazı yaygın sorular ve Azure işlevleri ile ağ iletişimi senaryoları yanıtlar.
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: troubleshooting
-ms.date: 2/26/2019
-ms.author: alkarche
-ms.openlocfilehash: 7946b7f45ff3df9225a27b70ccfbdb895bfd03c4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.date: 4/11/2019
+ms.author: alkarche, glenga
+ms.openlocfilehash: 126b9ccefedee1f5cefdac8a8666a58e7a4a1fef
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896489"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548662"
 ---
-# <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Azure işlevleri de ağ oluşturmayla ilgili sık sorulan sorular
+# <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Azure işlevleri'nde ağ hakkında sık sorulan sorular
 
 Ağ sık sorulan soruların bir listesi aşağıdadır. Daha kapsamlı bir bakış için okuma [ağ seçenekleri belge işlevleri](functions-networking-options.md)
 
@@ -23,7 +23,7 @@ Ağ sık sorulan soruların bir listesi aşağıdadır. Daha kapsamlı bir bakı
 
 Bir işlev bir App Service ortamı (ASE) dağıtımı şu anda işleviniz için bir statik gelen ve giden IP tek yoludur. Bir ASE kullanma hakkında daha fazla ayrıntı için buraya makale ile başlayın: [Oluşturma ve ILB ASE kullanma](../app-service/environment/create-ilb-ase.md).
 
-## <a name="how-do-i-restrict-internet-access-to-my-function"></a>My işlevi için Internet erişimi nasıl kısıtlarım?
+## <a name="how-do-i-restrict-internet-access-to-my-function"></a>My işlevi için internet erişimi nasıl kısıtlarım?
 
 Aşağıda listelenen şekilde çeşitli internet erişimini kısıtlayabilirsiniz.
 
@@ -54,3 +54,13 @@ Bir vnet'teki bir kaynaktan bir işlev, işlev uygulamanızı bir App Service or
 App Service ortamı için dağıtımı ILB ASE kullanma hakkında bir VNET için ayrıntıları içinde tamamen olan bir işlev uygulaması oluşturmak için burada makalesiyle başlayın tek yoludur: [Oluşturma ve ILB ASE kullanma](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
 
 Yalnızca gereken ağ kaynakları için veya kapsamlı ağ yalıtımı daha az tek yönlü erişimi senaryoları için bkz: [ağ bağlantısına genel bakış işlevleri](functions-networking-options.md).
+
+## <a name="next-steps"></a>Sonraki Adımlar
+
+Ağ iletişimi hakkında daha fazla bilgi edinmek ve İşlevler: 
+
+* [Başlarken VNET tümleştirmesi öğreticimize izleyin](./functions-create-vnet.md)
+* [Burada işlevleri içindeki ağ seçenekleri hakkında daha fazla bilgi edinin](./functions-networking-options.md)
+* [App Service ile VNET tümleştirmesi hakkında daha fazla bilgi / burada işlevleri](../app-service/web-sites-integrate-with-vnet.md)
+* [Azure'da sanal ağlar hakkında daha fazla bilgi edinin](../virtual-network/virtual-networks-overview.md)
+* [Daha fazla ağ özellikleri ve App Service ortamları ile denetimi etkinleştir](../app-service/environment/intro.md)

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f4bdeee08e81c16dfdd03620eb1fc61251f90400
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: dd00c0a2998009ce6c39ca19abb25a2548682cee
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025182"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523231"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Hadoop akış etkinliğinde, Azure Data Factory kullanarak verileri dönüştürme
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -99,7 +99,7 @@ Aşağıdaki noktalara dikkat edin:
 2. Etkinlik türünü ayarlayın **Hdınsightstreaming**.
 3. İçin **Eşleyici** özelliği Eşleyici yürütülebilir adını belirtin. Bu örnekte cat.exe yürütülebilir eşleyicisidir.
 4. İçin **Azaltıcı** özelliği Azaltıcı yürütülebilir adını belirtin. Bu örnekte wc.exe yürütülebilir Azaltıcı ' dir.
-5. İçin **giriş** türü özelliği, Eşleştiricisi (konum dahil) giriş dosyası belirtin. Örnekte: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample blob kapsayıcısını, örnek/data/Gutenberg klasördür ve davinci.txt blob.
+5. İçin **giriş** türü özelliği, Eşleştiricisi (konum dahil) giriş dosyası belirtin. Örnekte: `wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt`: adfsample blob kapsayıcısını, örnek/data/Gutenberg klasördür ve davinci.txt blob.
 6. İçin **çıkış** türü özelliği, çıktı dosyası (konum dahil) için Azaltıcı belirtin. Hadoop akışı tanımlı işlemin çıktısını, bu özellik için belirtilen konuma yazılır.
 7. İçinde **filePaths** bölümünde, Eşleyici ve azaltıcı yürütülebilir dosyaları yollarını belirtin. Örnekte: "adfsample/example/apps/wc.exe" adfsample blob kapsayıcısını, örnek/uygulamaları klasördür ve wc.exe çalıştırılabilir.
 8. İçin **fileLinkedService** özelliğini temsil eden filePaths bölümünde belirtilen dosyalar içeren bir Azure depolama Azure depolama bağlı hizmeti belirtin.

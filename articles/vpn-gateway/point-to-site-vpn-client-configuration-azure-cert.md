@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: fdf5f07f9b27a17eb4c15495c4ac9776d77f525c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313949"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525176"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Oluşturma ve yerel Azure sertifika doğrulaması P2S yapılandırmaları için VPN istemcisi yapılandırma dosyalarını yükleme
 
@@ -174,7 +174,7 @@ Aşağıdaki CLI komutları kullanın veya strongSwan adımlarda [GUI](#install)
 2. Dosyayı ayıklayın.
 3. Gelen **genel** klasör kopyalayın veya VpnServerRoot.cer /etc/ipsec.d/cacerts için taşıyın.
 4. Kopyalayın veya /etc/ipsec.d/private/ için cp client.p12 taşıyın. Azure VPN ağ geçidi için istemci sertifikası dosyasıdır.
-5. Açık VpnSettings.xml dosya ve kopyalama <VpnServer> değeri. Bu değer sonraki adımda kullanır.
+5. Açık VpnSettings.xml dosya ve kopyalama `<VpnServer>` değeri. Bu değer sonraki adımda kullanır.
 6. Aşağıdaki örnekte gösterilen değerleri ayarlayın ve ardından örnek /etc/ipsec.conf yapılandırmasına ekleyin.
   
    ```

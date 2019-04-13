@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1973d7e360f77aed028d8a93a625f0f6cb7e1ab8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731480"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523452"
 ---
 # <a name="security-in-azure-app-service"></a>Azure App Service'te güvenlik
 
@@ -58,7 +58,7 @@ App Service, dosyalarınızı dağıtmak için FTP ve FTPS hem destekler. Ancak,
 
 Varsayılan olarak, App Service uygulamanızı tüm IP adresleri, internet'ten gelen istekleri kabul eder, ancak bu IP adreslerinden oluşan küçük bir alt kümesine erişimi sınırlayabilirsiniz. Windows üzerinde App Service, uygulamanıza erişmek için izin verilen IP adreslerinin bir listesini tanımlamanıza olanak sağlar. Bir IP adresi aralığı bir alt ağ maskesi tarafından tanımlanan veya izin verilenler tek tek IP adresleri içerebilir. Daha fazla bilgi için [Azure uygulama hizmeti statik IP kısıtlamaları](app-service-ip-restrictions.md).
 
-Windows üzerinde App Service için da IP adresleri dinamik olarak yapılandırarak kısıtlayabilirsiniz _web.config_. Daha fazla bilgi için [dinamik IP Güvenlik <dynamicIpSecurity> ](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Windows üzerinde App Service için da IP adresleri dinamik olarak yapılandırarak kısıtlayabilirsiniz _web.config_. Daha fazla bilgi için [dinamik IP Güvenlik \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>İstemci kimlik doğrulaması ve yetkilendirme
 

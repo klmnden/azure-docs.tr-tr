@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/18/2019
+ms.date: 04/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: e2360b5587d204ec87fe82c029391c7252d27914
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: ff1f613dfdfb5c43b727bcc9c7f7a1f0afca0975
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189555"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546905"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>DMV’leri kullanarak iş yükünüzü izleme
 Bu makalede, dinamik yönetim görünümlerini (Dmv'ler) iş yükünüzü izleme için kullanmayı açıklar. Bu, Azure SQL veri ambarı, sorgu yürütme araştırma içerir.
@@ -170,33 +170,10 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Sorgu etkin olarak başka bir sorgu kaynaklardan Bekleniyor durumunda durumları **AcquireResources**.  Sorgu tüm gerekli kaynaklara sahip sonra durumları **izin verildi**.
 
 ## <a name="monitor-tempdb"></a>İzleyici tempdb
-Yüksek tempdb kullanımı, kök nedeni yavaş performans ve bellek sorunlarını dışında olabilir. Sorgu yürütme işlemi sırasında sınırlarını ulaşma tempdb bulursanız, veri Ambarınızı genişletmeyi düşünün. Aşağıdaki bilgileri, her bir düğümde sorgu başına tempdb kullanımını belirlemek açıklar. 
+Tempdb, sorgu yürütme işlemi sırasında Ara sonuçlarını tutmak için kullanılır. Tempdb veritabanının yüksek miktarda sorgu performansı yavaş neden olabilir. Azure SQL veri ambarı'nda her düğümü, yaklaşık 1 TB ham tempdb alanı vardır. Aşağıda, tempdb kullanımını izlemek için ve sorgularınızı tempdb kullanımını azaltmak için ipuçları verilmiştir. 
 
-Uygun düğümü kimliği sys.dm_pdw_sql_requests ilişkilendirmek için aşağıdaki görünümü oluşturun. Düğüm kimliği olan diğer doğrudan Dmv'leri kullanma ve birlikte sys.dm_pdw_sql_requests bu tabloları birleştirme olanak tanır.
-
-```sql
--- sys.dm_pdw_sql_requests with the correct node id
-CREATE VIEW sql_requests AS
-(SELECT
-       sr.request_id,
-       sr.step_index,
-       (CASE 
-              WHEN (sr.distribution_id = -1 ) THEN 
-              (SELECT pdw_node_id FROM sys.dm_pdw_nodes WHERE type = 'CONTROL') 
-              ELSE d.pdw_node_id END) AS pdw_node_id,
-       sr.distribution_id,
-       sr.status,
-       sr.error_id,
-       sr.start_time,
-       sr.end_time,
-       sr.total_elapsed_time,
-       sr.row_count,
-       sr.spid,
-       sr.command
-FROM sys.pdw_distributions AS d
-RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
-```
-Tempdb izlemek için aşağıdaki sorguyu çalıştırın:
+### <a name="monitoring-tempdb-with-views"></a>Tempdb görünümleri ile izleme
+Tempdb kullanımını izlemek için ilk yükleme [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) görünümüne [SQL veri ambarı için Microsoft Toolkit](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). Ardından, tüm yürütülen sorgular için düğüm başına tempdb kullanımını görmek için aşağıdaki sorguyu yürütebilirsiniz:
 
 ```sql
 -- Monitor tempdb
@@ -221,12 +198,17 @@ SELECT
 FROM sys.dm_pdw_nodes_db_session_space_usage AS ssu
     INNER JOIN sys.dm_pdw_nodes_exec_sessions AS es ON ssu.session_id = es.session_id AND ssu.pdw_node_id = es.pdw_node_id
     INNER JOIN sys.dm_pdw_nodes_exec_connections AS er ON ssu.session_id = er.session_id AND ssu.pdw_node_id = er.pdw_node_id
-    INNER JOIN sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
+    INNER JOIN microsoft.vw_sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
 WHERE DB_NAME(ssu.database_id) = 'tempdb'
     AND es.session_id <> @@SPID
     AND es.login_name <> 'sa' 
 ORDER BY sr.request_id;
 ```
+
+Büyük miktarda bellek tüketiyor veya tempdb ayırma için ilgili bir hata iletisini aldığınız bir sorgu varsa, genellikle nedeniyle çok büyük olduğundan [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) veya [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) çalıştıran deyimi içinde son veri taşıma işlemi başarısız oluyor. Bu genellikle ShuffleMove işlem olarak son INSERT SELECT hemen önce dağıtılmış sorgu planını tanımlanabilir.
+
+En yaygın azaltma, veri hacmi 1 TB başına düğüm tempdb sınırını aşmayacak şekilde birden çok yük açıklamaalarını break, CTAS veya INSERT SELECT deyimi sağlamaktır. Kümenize tempdb boyutunu azaltma tempdb her bir düğümün üzerinde daha fazla düğüm arasında yayılır, daha büyük bir boyutu da ölçekleyebilirsiniz. 
+
 ## <a name="monitor-memory"></a>Bellek izleme
 
 Bellek, kök nedeni yavaş performans ve bellek sorunlarını dışında olabilir. SQL Server bellek kullanımı sınırlarını ulaşma sorgu yürütme işlemi sırasında fark ederseniz veri Ambarınızı genişletmeyi düşünün.

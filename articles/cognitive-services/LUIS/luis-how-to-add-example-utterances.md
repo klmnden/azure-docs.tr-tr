@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 1dac87ae07fac6a997cfd8e83c1e47ff39a91a83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096699"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524268"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Bir varlık için örnek Konuşma ekleme 
 
@@ -91,6 +91,8 @@ Utterance varsayılarak `Does John Smith work in Seattle?`, bileşik bir utteran
 
 ## <a name="add-hierarchical-entity"></a>Hiyerarşik varlık ekleme
 
+**Hiyerarşik varlıkları sonunda kullanımdan kaldırılacaktır. Kullanım [varlık rolleri](luis-concept-roles.md) hiyerarşik varlıkları yerine varlık subtypes belirlemek için.**
+
 Hiyerarşik bir varlık, bağlamsal öğrenilen ve kavramsal olarak ilişkili varlıkları kategorisidir. Aşağıdaki örnekte, kaynak ve hedef konumları varlık içerir. 
 
 Utterance içinde `Move John Smith from Seattle to Cairo`, Seattle kaynak konumu ve Cairo hedef konumu. Her kelime sırasını ve sözcük seçenek utterance bağlamsal olarak farklı ve öğrenilen konumdur.
@@ -105,6 +107,12 @@ Utterance içinde `Move John Smith from Seattle to Cairo`, Seattle kaynak konumu
 
     >[!CAUTION]
     >Tek bir uygulamada tüm varlıklar üzerinde alt varlık adlarının benzersiz olması gerekir. Alt varlıklar aynı ada sahip iki farklı hiyerarşik varlıklar içerebilir. 
+
+## <a name="add-entitys-role-to-utterance"></a>Utterance için varlığın rolünü ekleyin
+
+Adlandırılmış alt utterance bağlamında tarafından belirlenen bir varlığın rolüdür. Bir varlık içindeki bir utterance varlık olarak işaretleyin ya da söz konusu varlık içinde bir rol seçin. Herhangi bir varlık makine öğrenilen özel varlıklar da dahil olmak üzere rolleri (Basit varlıkları ve bileşik varlıklar) sahip olabilir, makine öğrenilen (önceden oluşturulmuş varlıklar, normal ifade varlıkları listesi varlıklar) değildir. 
+
+Bilgi [varlık rolleriyle bir utterance işaretlemek nasıl](tutorial-entity-roles.md) uygulamalı Öğreticisi. 
 
 ## <a name="entity-status-predictions"></a>Varlık durumu Öngörüler
 
@@ -151,11 +159,11 @@ Bir utterance makine öğrenilen varlık etiketi kaldırmak için utterance varl
 
 ### <a name="add-prebuilt-entity-label"></a>Önceden oluşturulmuş varlık etiketi Ekle
 
-Önceden oluşturulmuş varlıklarla LUIS uygulamanıza eklediğinizde, bu varlıklarla etiketi konuşma gerek yoktur. Önceden oluşturulmuş varlıklar ve bunları nasıl ekleyeceğinizi hakkında daha fazla bilgi için bkz: [varlık Ekle](luis-how-to-add-entities.md#add-prebuilt-entity).
+Önceden oluşturulmuş varlıklarla LUIS uygulamanıza eklediğinizde, bu varlıklarla etiketi konuşma gerek yoktur. Önceden oluşturulmuş varlıklar ve bunları nasıl ekleyeceğinizi hakkında daha fazla bilgi için bkz: [varlık Ekle](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
 ### <a name="add-regular-expression-entity-label"></a>Normal ifade varlık etiketi Ekle
 
-LUIS uygulamanızı normal ifade varlıkları eklerseniz, bu varlıklarla etiketi konuşma gerekmez. Normal ifade varlıkları ve bunları nasıl ekleyeceğinizi hakkında daha fazla bilgi için bkz: [varlık Ekle](luis-how-to-add-entities.md#add-regular-expression-entities).
+LUIS uygulamanızı normal ifade varlıkları eklerseniz, bu varlıklarla etiketi konuşma gerekmez. Normal ifade varlıkları ve bunları nasıl ekleyeceğinizi hakkında daha fazla bilgi için bkz: [varlık Ekle](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
 
 ### <a name="create-a-pattern-from-an-utterance"></a>Bir utterance bir düzen oluşturma

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: aljo
-ms.openlocfilehash: 48f7153dcee45a6271919ac756ad794186faaed4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ee19be45915b3ff1253ec721f4334fead19647b8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668457"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522397"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service fabric'te güvenilir koleksiyon nesne serileştirme
 Güvenilir koleksiyonlar, çoğaltma ve makine hataları ve bölgesel elektrik kesintileriyle arasında dayanıklı olduklarından emin olmak için öğeleri kalıcı.
@@ -40,7 +40,7 @@ Güvenilir durum Yöneticisi aşağıdaki türleri için yerleşik seri hale get
 - sbyte
 - bayt]
 - Char
-- dize
+- string
 - decimal
 - double
 - float
@@ -96,7 +96,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-Aşağıdadır IStateSerializer örnek uygulaması<OrderKey>.
+Aşağıdadır IStateSerializer örnek uygulaması\<OrderKey >.
 Alan aşırı yüklemeler baseValue içinde okuyup unutmayın ileten uyumluluk için kendi ilgili aşırı yüklemesini çağırın.
 
 ```csharp

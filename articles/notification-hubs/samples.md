@@ -11,30 +11,23 @@ ms.workload: mobile
 ms.topic: article
 ms.author: jowargo
 ms.date: 03/28/2019
-ms.openlocfilehash: 0aa93d7109eb1bdf7db35f1d9124d02b5cfc163e
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1d035513418147b8fae1d8e2f217d20d19f02f2e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623101"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524863"
 ---
 # <a name="azure-notification-hubs-samples"></a>Azure Notification hubs'ı örnekleri
-Microsoft ve üçüncü taraflar için Azure Notification Hubs SDK'ları yayımlayın. Android, iOS ve .NET için Microsoft depoları Ayrıca, her hedef platform için örnek uygulamaları içerir.
+Bu makalede, Azure Notification Hubs'ın temel özelliklerini gösteren örneklere bağlantılar sağlar.
 
 ## <a name="samples"></a>Örnekler
 
-| SDK            | Yayımcı      |
-| -------------- | -------------- |
-| [.NET sunucu](https://github.com/Azure/azure-notificationhubs-dotnet) | Microsoft |
-| [Android](https://github.com/Azure/azure-notificationhubs-android)  |Microsoft |
-| [Apache Cordova](https://github.com/derek82511/cordova-azure-notification-hubs) | Üçüncü taraf |
-| [iOS](https://github.com/Azure/azure-notificationhubs-ios) |Microsoft |
-| [Java Server](https://github.com/Azure/azure-notificationhubs-java-backend) |Microsoft |
-| [Nodejs](https://github.com/Azure/azure-sdk-for-node) | Microsoft |
-| [React Native](https://github.com/CatalystCode/react-native-azurenotificationhub) | Üçüncü taraf |
-
-> [!Note]
-> Microsoft, kalite, fayda veya üçüncü taraf çözümleri desteklenebilirliği sorumlu değildir.
+- [.NET](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples)
+- [Android](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples)
+- [Apache Cordova](https://github.com/Azure/azure-notificationhubs-samples/tree/master/apache-cordova)
+- [Ionic](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Ionic)
+- [iOS](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Öğreticilerde bkz **öğreticiler** İçindekiler (TOC) bölümü.

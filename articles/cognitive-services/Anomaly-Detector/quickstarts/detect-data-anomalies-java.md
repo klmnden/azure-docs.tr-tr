@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 06cb4d32359014f3cbc67ed1f75988c794e6599e
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1c8ce91a0fd8805b307e1e21bc08f9050b8a47d4
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619524"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547048"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Hızlı Başlangıç: Java ve Anomali algılayıcısı REST API kullanarak, zaman serisi verilerinde görülen anomalileri algılayın
 
@@ -82,7 +82,7 @@ Zaman serisi verilerinizdeki anormallikleri algılamak için Anomali algılayıc
 3. JSON veri dosyasını oku
 
     ```java
-    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
+    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
     ```
 
 ## <a name="create-a-function-to-send-requests"></a>İstekleri göndermek için bir işlev oluşturma
@@ -93,9 +93,9 @@ Zaman serisi verilerinizdeki anormallikleri algılamak için Anomali algılayıc
 
 3. İsteğin kullanın `setHeader()` ayarlamak için işlevi `Content-Type` başlığına `application/json`, abonelik anahtarınızı ekleyin `Ocp-Apim-Subscription-Key` başlığı.
 
-4. İsteğin kullanın `setEntity()` işleve gönderilecek veri.   
+4. İsteğin kullanın `setEntity()` işleve gönderilecek veri.
 
-5. İstemcinin kullanmak `execute()` isteği göndermek için işlev ve kaydetmesi bir `CloseableHttpResponse` nesne. 
+5. İstemcinin kullanmak `execute()` isteği göndermek için işlev ve kaydetmesi bir `CloseableHttpResponse` nesne.
 
 6. Oluşturma bir `HttpEntity` yanıt içeriği depolamak için nesne. İçeriği ile `getEntity()`. Yanıt boş değilse, onu döndürür.
 
@@ -127,16 +127,20 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
 
 1. Adlı bir yöntem oluşturma `detectAnomaliesBatch()` toplu olarak veri boyunca anomalileri algılamak için. Çağrı `sendRequest()` , uç noktası, url, abonelik anahtarı ve json verilerini yukarıda oluşturulan yöntemi. Sonucu alın ve konsola yazdırır.
 
-2. Anomalileri konumları, veri kümesinde bulun. Yanıtın `isAnomaly` alan belirli veri noktasına bir anomali olup ilgili bir Boole değeri içerir. JSON dizisi alın ve herhangi bir dizin yazdırma, yineleme `true` değerleri. Karşılanmadığı, bu değerler, anormal veri noktası dizini karşılık gelir.
+2. Yanıt içeriyorsa `code` alan, hata kodu ve hata iletisi yazdırın.
 
-    
-    ```java
-    static void detectAnomaliesBatch(String requestData) {
-        System.out.println("Detecting anomalies as a batch");
-        String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
-        if (result != null) {
-            System.out.println(result);
-            JSONObject jsonObj = new JSONObject(result);
+3. Aksi takdirde, anomalileri konumları, veri kümesinde bulun. Yanıtın `isAnomaly` alan belirli veri noktasına bir anomali olup ilgili bir Boole değeri içerir. JSON dizisi alın ve herhangi bir dizin yazdırma, yineleme `true` değerleri. Karşılanmadığı, bu değerler, anormal veri noktası dizini karşılık gelir.
+
+```java
+static void detectAnomaliesBatch(String requestData) {
+    System.out.println("Detecting anomalies as a batch");
+    String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
+    if (result != null) {
+        System.out.println(result);
+        JSONObject jsonObj = new JSONObject(result);
+        if (jsonObj.has("code")) {
+            System.out.println(String.format("Detection failed. ErrorCode:%s, ErrorMessage:%s", jsonObj.getString("code"), jsonObj.getString("message")));
+        } else {
             JSONArray jsonArray = jsonObj.getJSONArray("isAnomaly");
             System.out.println("Anomalies found in the following data positions:");
             for (int i = 0; i < jsonArray.length(); ++i) {
@@ -146,7 +150,8 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
             System.out.println();
         }
     }
-    ```
+}
+```
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>En son veri noktası durumunu anomali algılama
 
@@ -165,14 +170,14 @@ static void detectAnomaliesLatest(String requestData) {
 1. Uygulamanızın ana yöntemde isteklerine eklenen veriler içeren JSON dosyasındaki okuyun.
 
 2. Yukarıda oluşturulan iki anomali algılama işlevlerini çağırın.
-    
-    ```java
-    public static void main(String[] args) throws Exception {
-        String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
-        detectAnomaliesBatch(requestData);
-        detectAnomaliesLatest(requestData);
-    }
-    ```
+
+```java
+public static void main(String[] args) throws Exception {
+    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
+    detectAnomaliesBatch(requestData);
+    detectAnomaliesLatest(requestData);
+}
+```
 
 ### <a name="example-response"></a>Örnek yanıt
 

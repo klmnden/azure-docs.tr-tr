@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 6c01232c9bdb685fbc54e5ebe1e1f9fa83073dc2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e528b70e257c41f771a1bd3e5ec811c61eb512cc
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107806"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526682"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Bir Azure-SSIS tümleştirme çalışma zamanını bir sanal ağa katılın
 Bir Azure sanal ağına aşağıdaki senaryolarda, Azure-SSIS Integration runtime (IR) katılın: 
@@ -135,9 +135,9 @@ Bkz: [bu PowerShell Betiği](https://gallery.technet.microsoft.com/scriptcenter/
 
 ### <a name="resource-group"></a> Kaynak grubu için gereksinimler
 -   Azure-SSIS IR sanal ağ aynı kaynak grubu altında belirli ağ kaynakları oluşturma gerekir. Bu kaynakları şunları içerir:
-    -   Bu ada sahip bir Azure load balancer  *<Guid>- azurebatch cloudserviceloadbalancer*.
-    -   Bir Azure genel IP adresi adıyla  *<Guid>- azurebatch cloudservicepublicip*.
-    -   Bir ağ iş güvenlik grubu adı ile  *<Guid>- azurebatch cloudservicenetworksecuritygroup*. 
+    -   Bu ada sahip bir Azure load balancer  *\<GUID > - azurebatch - cloudserviceloadbalancer*.
+    -   Bir Azure genel IP adresi adıyla  *\<GUID > - azurebatch - cloudservicepublicip*.
+    -   Bir ağ iş güvenlik grubu adı ile  *\<GUID > - azurebatch - cloudservicenetworksecuritygroup*. 
 
 -   Kaynak grubuna veya aboneliğe ait olduğu sanal ağ üzerindeki herhangi bir kaynak kilidi yoksa emin olun. Bir salt okunur kilidi ya da silme kilidi yapılandırırsanız, başlatma ve durdurma IR askıda veya başarısız. 
 

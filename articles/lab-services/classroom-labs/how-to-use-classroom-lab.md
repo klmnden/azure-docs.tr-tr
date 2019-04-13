@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 8e20f612bc54433091036377d51a7e59e3abec51
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: bc5c12d4bb92edaafcc9808da8c48106a6e0cbd5
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402159"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548052"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Azure Lab Services’teki bir sınıf laboratuvarına erişme
 Bu makalede, bir sınıf laboratuvarına nasıl erişileceği, laboratuvardaki sanal makineye nasıl bağlanılacağı ve sanal makinenin nasıl durdurulacağı açıklanmaktadır. 
@@ -36,7 +36,7 @@ Bu makalede, bir sınıf laboratuvarına nasıl erişileceği, laboratuvardaki s
 ## <a name="view-all-the-classroom-labs"></a>Tüm sınıf laboratuvarlarını görüntüleme
 Labs kullanarak kaydettikten sonra aşağıdaki adımları izleyerek tüm sınıf laboratuvarlarını görüntüleyebilirsiniz: 
 
-1. Gidin [ https://labs.azure.com ](https://labs.azure.com). 
+1. Gidin [ https://labs.azure.com ](https://labs.azure.com). Internet Explorer 11 henüz desteklenmediğini unutmayın. 
 2. Hizmete laboratuvara kaydolmak için kullandığınız kullanıcı hesabını kullanarak oturum açın. 
 3. Erişiminiz olan tüm labs gördüğünüzü onaylayın. 
 

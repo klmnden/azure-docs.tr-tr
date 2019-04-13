@@ -8,19 +8,18 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 97efb82f104742993f7b2fac40a74f4feb9e0b38
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 7984172c2b66f2b09e31c646b111e4b9d04fce2b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333801"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551561"
 ---
 Bellek, ilişkisel veritabanı sunucuları, Orta veya büyük boyutlu önbellekler ve bellek içi analiz için harika olan yüksek bellek CPU oranı VM boyutları teklifi en iyi duruma getirilmiş. Bu makalede, Vcpu, veri diskleri ve NIC yanı sıra depolama aktarım hızı ve ağ bant genişliği için bu gruplandırma her boyutundaki sayısı hakkında bilgi sağlar. 
 
 * M serisi, en yüksek vCPU sayısını (128'e kadar Vcpu) ve bulutta herhangi bir VM en büyük bellek (3,8 tib'a kadar) sunar.  Son derece büyük veritabanları veya yüksek vCPU sayısı ve büyük miktarlarda belleğin yararlı olacağı diğer uygulamalar için idealdir.
 
-* Dv2 serisi, G serisi ve DSv2/GS ortaklarınıza daha hızlı Vcpu, daha iyi geçici depolama performansı, talep ya da daha yüksek bellek taleplerine sahip uygulamalar için idealdir.  Bu seçenekler birçok kurumsal sınıf uygulama için güçlü bir bileşim sunar.
-
+* Dv2 serisi, G serisi ve DSv2/GS ortaklarınıza daha hızlı Vcpu, daha iyi geçici depolama performansı, talep ya da daha yüksek bellek taleplerine sahip uygulamalar için idealdir. Bu seçenekler birçok kurumsal sınıf uygulama için güçlü bir bileşim sunar.
 
 * Orijinal D Serisinin üzerine geliştirilen Dv2 Serisi, daha güçlü bir CPU'ya sahiptir. Dv2 Serisi CPU, D Serisi CPU'dan yaklaşık %35 daha hızlıdır. Yeni nesil temel 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) 2,4 GHz veya E5-2673 v4 (Broadwell) 2,3 GHz işlemcileri ve Intel Turbo Boost Technology 2.0 ile 3,1 GHz'e varan hızlara çıkabilir. Dv2 Serisi, D Serisi ile aynı bellek ve disk yapılandırmalarına sahiptir.
 
@@ -170,7 +169,6 @@ Premium depolama önbelleğe alma:  Desteklenmiyor
 <sup>1</sup> örneği, tek bir müşteriye özel donanımla yalıtılır.
 <br>
 
-
 ## <a name="dsv2-series-11-15"></a>DSv2-series 11-15
 
 ACU: 210 - 250 <sup>1</sup>
@@ -187,14 +185,10 @@ Premium depolama önbelleğe alma:  Desteklenen
 | Standard_DS14_v2&nbsp;<sup>3</sup>|16 |112 |224 |64 |64.000/512 (576) |51.200/768 |8 / 12000 |
 | Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80.000/640 (720) |64.000/960 |8 / 25000&nbsp;<sup>4</sup>
 
-
-<sup>1</sup> maksimum disk aktarım hızı (IOPS veya MB/sn) DSv2 serisi VM ile sınırlı olabilir sayısı, boyutu ve bölümleme türüyle ekli disklerin.  Ayrıntılar için bkz [yüksek performans için tasarlama](../articles/virtual-machines/windows/premium-storage-performance.md).
-
-<sup>2</sup> örneği, tek bir müşteriye özel donanımla yalıtılır.
-
-<sup>3</sup> sınırlı kullanılabilir çekirdek boyutu.
-
-<sup>4</sup> 25.000 Mbps, hızlandırılmış ağ.
+<sup>1</sup> maksimum disk aktarım hızı (IOPS veya MB/sn) DSv2 serisi VM ile sınırlı olabilir sayısı, boyutu ve bölümleme türüyle ekli disklerin.  Ayrıntılar için bkz [yüksek performans için tasarlama](../articles/virtual-machines/windows/premium-storage-performance.md).  
+<sup>2</sup> örneği, tek bir müşteriye özel donanımla yalıtılır.  
+<sup>3</sup> sınırlı kullanılabilir çekirdek boyutu.  
+<sup>4</sup> 25.000 Mbps, hızlandırılmış ağ. 
 
 <br>
 
@@ -214,13 +208,5 @@ Premium depolama önbelleğe alma:  Desteklenmiyor
 | Standard_D14_v2   | 16        | 112         | 800            | 48000/750/375                                        | 64 / 64 x 500                       | 8 / 12000          |
 | İşler için standart_d15_v2&nbsp;<sup>1</sup> | 20        | 140         | 1000          | 60000/937/468                                        | 64 / 64 x 500                       | 8 / 25000&nbsp;<sup>2</sup> |
 
-<sup>1</sup> örneği, tek bir müşteriye özel donanımla yalıtılır. 
-
-<sup>2</sup> 25.000 Mbps, hızlandırılmış ağ.
-
-
-
-<br>
-
-
-
+<sup>1</sup> örneği, tek bir müşteriye özel donanımla yalıtılır.  
+<sup>2</sup> 25.000 Mbps, hızlandırılmış ağ. 

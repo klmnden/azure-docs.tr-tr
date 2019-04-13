@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 23120e45a1070f46ae4e1927a29bdab4c990d96f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 51a812762659bcc67762b82e9c120772065aab53
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860720"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549696"
 ---
 # <a name="schema-format"></a>Şema biçimi
 
@@ -43,14 +43,14 @@ Desteklenen öznitelik veri türlerinin bir listesi aşağıdadır:
 
 | Type | Açıklama | İşlemler | Örnek |
 |------|-------------|------------|---------|
-| String | Dize (1-1024 karakter) | Equals, starts_with | "hello world" |
-| Int32 | İşaretli 32 bit tam sayı | is_between starts_with, eşittir | 2016 |
-| Int64 | İşaretli 64 bit tam sayı | is_between starts_with, eşittir | 9876543210 |
-| Double | Çift duyarlıklı kayan nokta değeri | is_between starts_with, eşittir | 1.602e-19 |
-| Tarih | Tarih (1400-01-01-9999-12-31) | Equals, is_between | '2016-03-14' |
-| Guid | Genel benzersiz tanıtıcısı | şuna eşittir: | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
-| Blob | Dahili olarak sıkıştırılmış veri dizini oluşturulmamış | *Yok.* | "Her kişi ve her kuruluşun gezegendeki daha fazlasını başarmak için güçlendirin" |
-| Bileşik | Birden çok alt öznitelikler oluşturma| *Yok* | {"Name": "harry shum", "Bağlantı": "microsoft"} |
+| `String` | Dize (1-1024 karakter) | Equals, starts_with | "hello world" |
+| `Int32` | İşaretli 32 bit tam sayı | is_between starts_with, eşittir | 2016 |
+| `Int64` | İşaretli 64 bit tam sayı | is_between starts_with, eşittir | 9876543210 |
+| `Double` | Çift duyarlıklı kayan nokta değeri | is_between starts_with, eşittir | 1.602e-19 |
+| `Date` | Tarih (1400-01-01-9999-12-31) | Equals, is_between | '2016-03-14' |
+| `Guid` | Genel benzersiz tanıtıcısı | şuna eşittir: | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
+| `Blob` | Dahili olarak sıkıştırılmış veri dizini oluşturulmamış | *Yok.* | "Her kişi ve her kuruluşun gezegendeki daha fazlasını başarmak için güçlendirin" |
+| `Composite` | Birden çok alt öznitelikler oluşturma| *Yok* | {"Name": "harry shum", "Bağlantı": "microsoft"} |
 
 Dize öznitelikler kullanıcı sorgunun bir parçası görünebilir dize değerleri temsil etmek için kullanılır.  Tam eşleşme destekledikleri *eşittir* işlemi, hem de *starts_with* işlemi "micros", "microsoft" ile eşleşen gibi sorgu tamamlama senaryolar için.  Yazım hatalarını işlemek için büyük/küçük harfe ve benzer eşleştirme, gelecekteki bir sürümde desteklenecek.
 

@@ -9,28 +9,82 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 958194d49cd403caeaf9dd21dd90a02cab098e45
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5fa922cb91d34483256faf4dcf70569aa2f17b97
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881466"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522495"
 ---
-# <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Varlık desenleri bağlamsal subtypes rolleridir
-Adlandırılmış ve bağlamsal subtypes yalnızca kullanılan bir varlığın rolleridir [desenleri](luis-concept-patterns.md).
+# <a name="entity-roles-for-contextual-subtypes"></a>Bağlamsal alt türleri için varlık rolleri
 
-Örneğin utterance içinde `buy a ticket from New York to London`, New York hem London olan şehirleri ancak her bir tümce içinde farklı bir anlama sahiptir. New York kaynak Şehir ve Londra hedef şehir. 
+Rolleri subtypes adlı için varlıklar sağlar. Bir rol ile herhangi bir önceden oluşturulmuş veya özel varlık türü kullanılan ve örnek konuşma ve desenler kullanılır. 
+
+<a name="example-role-for-entities"></a>
+<a name="roles-with-prebuilt-entities"></a>
+
+## <a name="machine-learned-entity-example-of-roles"></a>Rolleri makine öğrenilen varlık örneği
+
+Utterance içinde "öğesinden bir bilet satın alma **New York** için **Londra**, New York hem London olan şehirleri ancak her bir tümce içinde farklı bir anlama sahiptir. New York kaynak Şehir ve Londra hedef şehir. 
+
+```
+buy a ticket from New York to London
+```
 
 Rolleri, bu fark için bir ad verin:
 
-|Varlık|Rol|Amaç|
+|Varlık türü|Varlık adı|Rol|Amaç|
+|--|--|--|--|
+|Basit|Konum|kaynak|Burada gelen düzlemi bırakır.|
+|Basit|Konum|Hedef|Uçağın nerede gölünüzdeki|
+
+## <a name="non-machine-learned-entity-example-of-roles"></a>Varlık olmayan makine öğrendiniz rol örneği
+
+Utterance içinde "9 8 Toplantı zamanlama", her iki numarayı bir zaman belirtmek ancak her zaman içinde utterance farklı bir anlama sahiptir. Rolleri, farklar için bir ad belirtin. 
+
+```
+Schedule the meeting from 8 to 9
+```
+
+|Varlık türü|Rol adı|Değer|
 |--|--|--|
-|Konum|kaynak|Burada gelen düzlemi bırakır.|
-|Konum|Hedef|Uçağın nerede gölünüzdeki|
-|Önceden oluşturulmuş datetimeV2|-|Bitiş tarihi|
-|Önceden oluşturulmuş datetimeV2|başlangıç|Başlangıç tarihi|
+|Önceden oluşturulmuş datetimeV2|StartTime|8|
+|Önceden oluşturulmuş datetimeV2|EndTime|9|
+
+## <a name="are-multiple-entities-in-an-utterance-the-same-thing-as-roles"></a>Bir utterance içinde birden çok varlık rol olarak aynı şey midir? 
+
+Birden çok varlık içinde bir utterance bulunabilir ve rolleri kullanarak olmadan ayıklanır. Cümlenin bağlamı ile gösteriyorsa varlık sürümü bir değere sahip ve ardından bir rol kullanılmalıdır. 
+
+### <a name="dont-use-roles-for-duplicates-without-meaning"></a>Rolleri anlamı olmadan çoğaltmaları kullanmayın
+
+Utterance konumlarının listesini içeriyorsa `I want to travel to Seattle, Cairo, and London.`, burada her öğenin ek bir anlamı yok listesini budur. 
+
+### <a name="use-roles-if-duplicates-indicate-meaning"></a>Çoğaltmaları anlama gösteriyorsa rolleri kullanın
+
+Utterance konumlarla, yani listesi içeriyorsa `I want to travel from Seattle, with a layover in Londen, landing in Cairo.`, bu kaynak, layover ve hedef anlamını rolleri ile yakalanması gerekir.
+
+### <a name="roles-can-indicate-order"></a>Rolleri sırası belirtebilirsiniz.
+
+Utterance ayıklamak için istiyordu sırasını göstermek için değiştirdiyseniz `I want to first start with Seattle, second London, then third Cairo`, birkaç farklı şekilde ayıklayabilirsiniz. Rolü göstermek belirteçleri etiketleyebilirsiniz `first start with`, `second`, `third`. Önceden oluşturulmuş varlık da kullanabileceğinizi **sıra** ve **GeographyV2** önceden oluşturulmuş varlığında siparişi ve yerde fikrini yakalamak için bileşik bir varlık. 
+
+## <a name="how-are-roles-used-in-example-utterances"></a>Rolleri, örnek konuşma içinde nasıl kullanılır?
+
+Bir varlığın bir rolü vardır ve varlık içinde bir örnek utterance işaretlenmiş varlık seçerek veya varlık ve rol seçme seçeneğiniz vardır. 
+
+Aşağıdaki örnek konuşma varlıklarını ve rolleri kullanın:
+
+|Belirteç görüntüle|Varlığı görüntüle|
+|--|--|
+|Hakkında daha çok ilginizi çeken ben **Seattle**|{Location} hakkında daha fazla bilgi ilgileniyorum|
+|Bir bilet Seattle'dan New York'ta satın alın.|{Konumu: Origin} öğesinden {konumu: hedef} bilet satın alma|
+
+## <a name="how-are-roles-related-to-hierarchical-entities"></a>Rolleri, hiyerarşik varlıklara nasıl ilişkilendirildiğini?
+
+Rolleri desenleri önceki kullanımını yanı sıra örnek konuşma alanındaki tüm varlıklar için kullanıma sunulmuştur. Bunlar her yerde kullanılabilir olmadığından, bunların hiyerarşik varlıklar için gereken değiştirin. Yeni varlıklar, hiyerarşik varlıkları kullanmak yerine rolleri ile oluşturulmalıdır. 
+
+Hiyerarşik varlıkları sonunda kullanımdan kaldırılacaktır.
 
 ## <a name="how-are-roles-used-in-patterns"></a>Rolleri, modelleri nasıl kullanılır?
 Bir desenin şablon utterance içinde rolleri içinde utterance kullanılır: 
@@ -43,27 +97,13 @@ Bir desenin şablon utterance içinde rolleri içinde utterance kullanılır:
 ## <a name="role-syntax-in-patterns"></a>Rol sözdizimi desenleri
 Varlık ve rol parantez içinde içine alınmış `{}`. Varlık ve rol virgül ile ayrılır. 
 
+## <a name="entity-roles-versus-collaborator-roles"></a>Varlık rolleri ortak çalışan rolleri ile karşılaştırması
 
-[!INCLUDE [H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
+LUIS uygulaması için veri modeli varlık rolleri uygulayabilirsiniz. [Ortak çalışan](luis-concept-collaborator.md) rolleri yazma erişimi düzeyleri için geçerlidir. 
 
-## <a name="example-role-for-entities"></a>Varlıklar için rol örneği
-
-Yalnızca bir varlık içindeki bir utterance bağlamsal öğrenilen yerleşimini rolüdür. Utterance birden fazla varlık türü olduğunda en etkili. Ayırt etmek için herhangi bir varlık türü için kolay örneği olan bir konum gelen ve giden. Çok sayıda farklı varlık türleri, konumu temsil edilebilir. 
-
-Bir örnek kullanım örneği bir çalışan bir bölümden diğerine her departman bir listedeki bir öğe olduğu aktarıyor. Örneğin: 
-
-`Move [PersonName] from [Department:from] to [Department:to]`. 
-
-Döndürülen tahmin, her iki bölüm varlıkları JSON yanıtta döndürülecek ve her rol adı yer alır. 
-
-## <a name="roles-with-prebuilt-entities"></a>Önceden oluşturulmuş varlıklarla rolleri
-
-Roller, farklı bir utterance içinde önceden oluşturulmuş varlık örneklerini anlam katmak için önceden oluşturulmuş varlıklarla kullanın. 
-
-### <a name="roles-with-datetimev2"></a>DatetimeV2 rolleriyle
-
-Önceden oluşturulmuş varlığı datetimeV2, çok çeşitli çeşitli tarihler ve saatler konuşma anlama, harika bir iş yapar. Tarihleri ve tarih aralıklarını önceden oluşturulmuş varlığın varsayılan anlama'dan farklı şekilde belirtmek isteyebilirsiniz. 
+[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+* Kullanım bir [uygulamalı öğretici](tutorial-entity-roles.md) varlık rolleri makine öğrenilen varlıklar ile kullanma
 * Eklemeyi öğrenin [rolleri](luis-how-to-add-entities.md#add-a-role-to-pattern-based-entity)

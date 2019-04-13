@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 92ffa02959f020789d14b3bea71763f3f5b9bb47
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 68581c957e2835aa8841e3ce490c9a7898ed4ff5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084107"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527481"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight, Apache Spark kümeleri Jupyter not defteri için çekirdekler 
 
@@ -69,7 +69,7 @@ HDInsight Spark kümeleri Jupyter not defteri ile yeni çekirdekler kullanmanın
    
     Bunun yerine, önceden ayarlanmış Bağlamlar doğrudan uygulamanızda kullanabilirsiniz.
 
-- **Hücre işlevlerini**. PySpark çekirdeği bazı önceden tanımlanmış "işlevlerini" ile çağırabileceğiniz özel komutlar olduğu sağlar `%%` (örneğin, `%%MAGIC` <args>). Sihirli komutu bir kod hücresi içinde ilk sözcük ve içeriği birden fazla satır için izin gerekir. Sihirli word hücredeki ilk sözcük olmalıdır. Magic bile açıklamalar önce herhangi bir şey ekleme, bir hataya neden olur.     İşlevlerini hakkında daha fazla bilgi için bkz. [burada](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
+- **Hücre işlevlerini**. PySpark çekirdeği bazı önceden tanımlanmış "işlevlerini" ile çağırabileceğiniz özel komutlar olduğu sağlar `%%` (örneğin, `%%MAGIC` `<args>`). Sihirli komutu bir kod hücresi içinde ilk sözcük ve içeriği birden fazla satır için izin gerekir. Sihirli word hücredeki ilk sözcük olmalıdır. Magic bile açıklamalar önce herhangi bir şey ekleme, bir hataya neden olur.     İşlevlerini hakkında daha fazla bilgi için bkz. [burada](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
    
     Aşağıdaki tabloda, çekirdekler kullanılabilen farklı işlevlerini listeler.
 

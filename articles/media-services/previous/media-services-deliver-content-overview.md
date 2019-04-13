@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3314ad4558fdd55429a5a68326dd46b5920d7daa
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5db2cb983c0c3cd0e2194f7686964d9ec3828d6f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316244"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526614"
 ---
 # <a name="deliver-content-to-customers"></a>Müşterilere içerik teslim edin
 Müşterilere, akış ve isteğe bağlı video içerik teslim, amacınız farklı ağ koşulları altındaki çeşitli cihazlara yüksek kaliteli video teslim andır.
@@ -157,7 +157,8 @@ Bir akış uç noktası, içeriği doğrudan bir istemci Yürütücü uygulamas�
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Kesintisiz akış değişiklikleri bildirim sürümü
 Temmuz 2016 hizmet sürümünden önce--varlıklar Media Encoder Standard tarafından üretilen, Media Encoder Premium iş akışı ya da eski Azure Medya Kodlayıcısı'dan akış dinamik paketleme--kesintisiz akış kullanarak iade bildirimde sürümüne uygun 2.0. Sürüm 2.0, parça süreleri sözde yineleme ('r') etiketler kullanmayın. Örneğin:
 
-<?xml version="1.0" encoding="UTF-8"?>
+
+    <?xml version="1.0" encoding="UTF-8"?>
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
         <StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
             <QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />

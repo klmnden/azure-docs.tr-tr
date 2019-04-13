@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3e897a3fbc76a75e526e4d0706a2678cd29dfc2e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 35d03a52125bd2646f86b96bcffe123d9fab7f64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477463"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545323"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process yaşam döngüsü aşaması iş anlama
 
@@ -46,7 +46,7 @@ Bu aşamada ele iki ana görevi vardır:
 ### <a name="define-objectives"></a>Hedeflerini belirleyin
 1. Bu adımın merkezi bir hedefi tahmin analizi ihtiyaçlarınızın önemli iş değişkenleri belirlemektir. Bu değişkenler diyoruz *model hedefleri*, ve onlarla ilişkili ölçümleri projenin başarısını belirlemek için kullanıyoruz. İki tür hedeflerle satış tahminlerini veya bir sipariş edilen sahte olasılığını örnekleridir.
 
-2. Proje hedefleri isteyen ve ilgili, belirli ve anlaşılır "sharp" sorularını iyileştirme tanımlayın. Veri bilimi adları ve sayı gibi soruları yanıtlamak için kullandığı bir işlemdir. Diyez soru sormaya ilişkin daha fazla bilgi için [veri bilimi yapmak nasıl](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) blogu. Genellikle veri bilimi veya beş türde soruları yanıtlamak için makine öğrenimini kullanır:
+2. Proje hedefleri isteyen ve ilgili, belirli ve anlaşılır "sharp" sorularını iyileştirme tanımlayın. Veri bilimi adları ve sayı gibi soruları yanıtlamak için kullandığı bir işlemdir. Genellikle veri bilimi veya beş türde soruları yanıtlamak için makine öğrenimini kullanır:
  
    * Ne kadar nasıl? (gerileme)
    * Kategori? (sınıflandırma)

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 42ac75b6ed0d4489ccae014b9cfe3b08269c1218
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547427"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523112"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Desenlerini tahmin doğruluğunu artırmak
 Desenler, çeşitli konuşma çok benzer olduğunda doğruluğunu artırmak için tasarlanmıştır.  Bir desen çok daha fazla konuşma sağlamadan bir amaç için daha yüksek doğruluk derecesi elde etmek sağlar. 
@@ -41,7 +41,7 @@ Desen aşağıdaki durumlarda çözer:
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Desenler hedefi garantisi değildir.
 Desenlerini tahmin teknolojilerinin bir karışımını kullanın. Bir desende bir amaç için bir şablon utterance ayarı hedefi tahmin garantisi değil ancak güçlü bir sinyaldir. 
 
-<a name="patterns-do-not-improve-entity-detection"/>
+<a name="patterns-do-not-improve-entity-detection"/></a>
 
 ## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Desenler makine öğrenilen varlık algılama geliştirmek değil
 
@@ -50,7 +50,7 @@ Bir desen, öncelikli olarak tahmin hedefleri ve rol için tasarlanmıştır. Pa
 Tek bir düzen birden çok konuşma daralttığınızda geliştirilmiş varlık tahmin görmek beklemiyoruz. Ateşlenmesine basit varlıklar için Konuşma ekleme veya başka desen değil ateşlenir listesi varlıkları kullanın gerekir.
 
 ## <a name="patterns-use-entity-roles"></a>Varlık rolleri desenleri kullanın
-İki veya daha fazla varlık desenindeki bağlamsal ilişkiliyse, varlık desenleri kullanın [rolleri](luis-concept-roles.md) varlıklarla ilgili bağlamsal bilgi ayıklamak için. Bu hiyerarşik varlık alt öğelere eşdeğerdir, ancak **yalnızca** desenleri kullanılabilir. 
+İki veya daha fazla varlık desenindeki bağlamsal ilişkiliyse, varlık desenleri kullanın [rolleri](luis-concept-roles.md) varlıklarla ilgili bağlamsal bilgi ayıklamak için.  
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Desenler olmadan ve tahmin puanları
 Yeterli örnek konuşma göz önünde bulundurulduğunda, LUIS tahmin olasılık desensiz imkanımız olacaktır. Desen çok konuşma sağlamaya gerek kalmadan güvenilirlik puanı artırın.  
@@ -83,7 +83,7 @@ Desen sözdizimi, aşağıdaki söz dizimini destekler:
 |Yeni form|Dış isteğe bağlı word ve isteğe bağlı olmayan sözcükler deseni ile eşleşir|
 |Yeni bir form|yalnızca gerekli eşleşen sözcükler|
 
-**Gruplandırma** sözdizimiyle parantezler, iç içe iki düzey olabilir. Örneğin: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Bu üç varlıkları eşleştirilecek sağlar. 
+**Gruplandırma** sözdizimiyle parantezler, iç içe iki düzey olabilir. Örneğin: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Bu özellik, eşleştirilecek üç varlıkları sağlar. 
 
 Entity1 roller (Seattle) kaynak ve hedef (Cairo) gibi bir konumdur ve liste varlığı (RedWest-C) bilinen yapı adı varlık 2 ise, aşağıdaki konuşma bu desene eşleme:
 
@@ -170,7 +170,7 @@ Bu özel durumun desen için düzeltmek için ekleme `the man from la mancha` {s
 |İsteğe bağlı metin deseni|Anlamı|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` ve `from {person}` isteğe bağlıdır|
-|' Me [?] yardımcı olabilir|Noktalama işareti isteğe bağlıdır.|
+|' Me [?] Yardım | Noktalama işareti isteğe bağlıdır.|
 
 Noktalama işaretleri (`?`, `!`, `.`) yoksayılıp yoksayılmaması gerektiğini ve desenleri köşeli parantez sözdizimini kullanarak bunların yoksayılması gerekir. 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: a0405e6c699192839f72b290d0466ab5062ac584
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f977a48338f784562ec84355aabb212e5a3dade4
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670145"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543677"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Visual Studio Code için Service Fabric
 
@@ -67,14 +67,14 @@ Java geliştirme için aşağıdaki önkoşulların yüklü olması gerekir:
 ## <a name="commands"></a>Komutlar
 VS Code için Service Fabric güvenilir hizmetler uzantısı oluşturun ve Service Fabric projelerini dağıtma geliştiricilerin yardımcı olmak için birçok komutlar sağlar. Komutları çağırabilirsiniz **komut paleti** tuşuna basarak `(Ctrl + Shift + p)`, komut adı giriş çubuğuna yazarak ve istenen komut istemi listeden seçerek. 
 
-* Service Fabric: Uygulama oluştur 
+* Service Fabric: Uygulama oluşturma 
 * Service Fabric: Uygulama yayımlama 
 * Service Fabric: Uygulamayı dağıtma 
 * Service Fabric: Uygulamayı Kaldır  
 * Service Fabric: Uygulama oluşturma 
 * Service Fabric: Uygulamayı Temizle 
 
-### <a name="service-fabric-create-application"></a>Service Fabric: Uygulama oluştur
+### <a name="service-fabric-create-application"></a>Service Fabric: Uygulama oluşturma
 
 **Service Fabric: Uygulama oluşturma** komut, geçerli çalışma alanınızda yeni bir Service Fabric uygulaması oluşturur. Hangi yeoman oluşturucularını geliştirme makinenizde yüklü bağlı olarak, Service Fabric uygulaması, Java, dahil olmak üzere çeşitli türleri oluşturabilirsiniz C#, kapsayıcı ve Konuk projeleri. 
 
@@ -120,7 +120,7 @@ VS Code için Service Fabric güvenilir hizmetler uzantısı oluşturun ve Servi
 2.  Uygulama kaldırıldığını doğrulamak için Service Fabric Explorer ile küme görüntüleyebilirsiniz. Bu biraz zaman alabilir. Bu nedenle sabırlı olun.
 
 ### <a name="service-fabric-build-application"></a>Service Fabric: Uygulama oluşturma
-**Service Fabric: Uygulamayı kaldırma** komut ya da Java oluşturabilirsiniz veya C# Service Fabric uygulamaları. 
+**Service Fabric: Uygulama derleme** komut ya da Java oluşturabilirsiniz veya C# Service Fabric uygulamaları. 
 
 1.  Bu komutu çalıştırmadan önce uygulama kök klasöründe olduğundan emin olun. Komut uygulama türlerini tanımlar (C# veya Java) ve uygun şekilde uygulamanızı oluşturur.
 2.  Seçin **Service Fabric: Uygulama derleme** komutu.

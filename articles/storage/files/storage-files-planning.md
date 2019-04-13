@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 609e774c36ab685d017f311a74c8680dbb9750c9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d4361fc37d01b351d20a273aa39f558e9b00faa4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283027"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525934"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Dosyaları dağıtımı planlama
 
@@ -109,9 +109,9 @@ Tüm paylaşımlar, en az 100 IOPS ve hedef işleme 100 MiB/sn kadar veri bloğu
 >
 > Veri bloğu sınırı 3 = * temel IOPS. (En fazla 100.000 IOPS kadar).
 >
-> Çıkış oranı = 60 MiB/sn + 0.06 sağlanan GiB (en fazla 6 GiB/sn)
+> Çıkış oranı = 60 MiB/sn + 0,06 * GiB sağlandı
 >
-> Giriş oranı = 40 MiB/sn + 0,04 sağlanan GiB (en fazla 4 GiB)
+> Giriş oranı = 40 MiB/sn + 0.04 * GiB sağlandı
 
 Paylaşım boyutu her zaman ve azaltılmış dilediğiniz zaman artırılabilir ancak her 24 saatte bir kez son artış beri azaltılabilir. Boyutu değişiklikten sonra 24 saat içinde IOPS/işleme ölçek değişiklikler geçerli olacaktır.
 
@@ -128,9 +128,9 @@ Aşağıdaki tabloda, sağlanan paylaşım boyutları için bu formül, bazı ö
 |10,240 *     | 10,240  | En fazla 30.720  | 675 | 450   |
 |33,792 *     | 33,792  | En fazla 100.000 | 2,088 | 1,392   |
 |51,200 *     | 51,200  | En fazla 100.000 | 3,132 | 2,088   |
-|100,000 *    | 100.000 | En fazla 100.000 | 6,204 | 4,136   |
+|102,400 *    | 100.000 | En fazla 100.000 | 6,204 | 4,136   |
 
-Şu anda 102 TiB kadar boyutları tam sınırlı genel Önizleme erişimi istemek için sınırlı genel Önizleme sırasında 5 TiB kadar dosya paylaşımı boyutları genel önizlemede olan [bu anketi.](https://aka.ms/azurefilesatscalesurvey)
+Şu anda 100 TiB kadar boyutları tam sınırlı genel Önizleme erişimi istemek için sınırlı genel Önizleme sırasında 5 TiB kadar dosya paylaşımı boyutları genel önizlemede olan [bu anketi.](https://aka.ms/azurefilesatscalesurvey)
 
 ### <a name="bursting"></a>Genişletme
 

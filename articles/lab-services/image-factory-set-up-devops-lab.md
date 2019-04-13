@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 62cb8222b592660f2e7ab32d438fd4073246ee50
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 5a3d6e51a71f6aab742fe042d6e6e281192319a4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440037"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523027"
 ---
-# <a name="run-an-image-factory-from-azure-devops"></a>Azure DevOps bir görüntü fabrikası çalıştırma
+# <a name="run-an-image-factory-from-azure-devops"></a>Azure DevOps’tan bir görüntü fabrikası çalıştırma
 Bu makale, Azure DevOps (eski adıyla Visual Studio Team Services) görüntü Fabrika çalıştırmak için gerekli hazırlıklar kapsar.
 
 > [!NOTE]
@@ -44,12 +44,12 @@ Azure DevOps, kaynak kodunu depolamak için Azure PowerShell tek bir yerde çal�
 
 Bir DevOps hesabınız veya bunun yerine kullanmak istediğiniz proje varsa, bu adımı atlayın.
 
-Başlamak için Azure DevOps içinde ücretsiz bir hesap oluşturun. Ziyaret https://www.visualstudio.com/ seçip **ücretsiz olarak kullanmaya başlayın** hemen altında **Azure DevOps** (eski adıyla VSTS). Benzersiz bir hesap adı seçin ve Git kullanarak kod yönetilecek seçtiğinizden emin olun gerekecektir. Bu oluşturulduktan sonra takım projeniz için URL'yi kaydedin. Bir örnek URL şu şekildedir: https://<accountname>.visualstudio.com/MyFirstProject.
+Başlamak için Azure DevOps içinde ücretsiz bir hesap oluşturun. Ziyaret https://www.visualstudio.com/ seçip **ücretsiz olarak kullanmaya başlayın** hemen altında **Azure DevOps** (eski adıyla VSTS). Benzersiz bir hesap adı seçin ve Git kullanarak kod yönetilecek seçtiğinizden emin olun gerekecektir. Bu oluşturulduktan sonra takım projeniz için URL'yi kaydedin. Bir örnek URL şu şekildedir: `https://<accountname>.visualstudio.com/MyFirstProject`.
 
 ## <a name="check-in-the-image-factory-to-git"></a>Git için görüntü factory'de denetleyin
 Tüm PowerShell, şablonları ve görüntü Fabrika yapılandırması bulunur [genel DevTest Labs GitHub deposunu](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory). Yeni takım projenize kodu almanın en hızlı yolu, bir depo içeri aktarma sağlamaktır. (Ek belgelerine ve örneklerine elde edecekleriniz şekilde) bu tüm DevTest Labs depoda çeker. 
 
-1. Önceki adımda oluşturduğunuz Azure DevOps projesi ziyaret edin (URL şöyle **https://<accountname>.visualstudio.com/MyFirstProject**).
+1. Önceki adımda oluşturduğunuz Azure DevOps projesi ziyaret edin (URL şöyle **https:\//\<accountname >.visualstudio.com/MyFirstProject**).
 2. Seçin **depoyu içeri aktarın**.
 3. Girin **kopya URL'si** DevTest Labs deponun: `https://github.com/Azure/azure-devtestlab`.
 4. Seçin **alma**.

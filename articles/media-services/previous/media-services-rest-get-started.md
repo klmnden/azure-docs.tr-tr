@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d1453a558032e458e89c724e30472cc06f9cf33c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: fea9bae9fadc20622a6ca3d2e08db9cd3a92c800
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295139"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523996"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>REST kullanarak isteğe bağlı içerik göndermeye başlama  
 
@@ -560,7 +560,7 @@ Başarılı olursa, aşağıdaki yanıt döndürülür:
 Herhangi bir işi isteğinin dikkat edilecek bazı önemli noktalar vardır:
 
 * TaskBody özellikleri değişmez değer XML giriş sayısını belirtin veya çıkış görev tarafından kullanılan varlıklar için kullanmanız gerekir. Görev makale XML için XML şema tanımı içerir.
-* Her iç TaskBody tanımında değeri <inputAsset> ve <outputAsset> JobInputAsset(value) veya JobOutputAsset(value) olarak ayarlanmalıdır.
+* Her iç TaskBody tanımında değeri `<inputAsset>` ve `<outputAsset>` JobInputAsset(value) veya JobOutputAsset(value) olarak ayarlanmalıdır.
 * Bir görev birden fazla çıktı varlığına sahip olabilirsiniz. Bir JobOutputAsset(x) yalnızca bir kez bir işteki bir görevin çıktı olarak kullanılabilir.
 * Bir görevin Giriş bir varlık JobInputAsset veya JobOutputAsset belirtebilirsiniz.
 * Görevleri bir döngü form değil.
@@ -572,7 +572,7 @@ Herhangi bir işi isteğinin dikkat edilecek bazı önemli noktalar vardır:
 >
 
 * Media Services içinde oluşturduğunuz bir veya daha fazla varlıklara InputMediaAssets eşler. OutputMediaAssets sistem tarafından oluşturulur. Var olan bir varlık başvurusu değil.
-* OutputMediaAssets assetName özniteliğini kullanarak yeniden adlandırılabilir. Bu öznitelik yoksa sonra herhangi bir iç metin değerini OutputMediaAsset adıdır <outputAsset> bir sonek iş adı değeri ya da iş kimliği değeri (Name özelliği olmayan tanımlandığı durumda) öğesidir. Örneğin, "SAMPLE" assetName için bir değer ayarlarsanız, OutputMediaAsset Name özelliği "Örneği için" ayarlanır. Ancak, assetName için bir değer ayarlı değil, ancak "NewJob" proje adı ayarlayın, OutputMediaAsset adı "JobOutputAsset (değer) _NewJob" olacaktır.
+* OutputMediaAssets assetName özniteliğini kullanarak yeniden adlandırılabilir. Bu öznitelik yoksa sonra herhangi bir iç metin değerini OutputMediaAsset adıdır `<outputAsset>` bir sonek iş adı değeri ya da iş kimliği değeri (Name özelliği olmayan tanımlandığı durumda) öğesidir. Örneğin, "SAMPLE" assetName için bir değer ayarlarsanız, OutputMediaAsset Name özelliği "Örneği için" ayarlanır. Ancak, assetName için bir değer ayarlı değil, ancak "NewJob" proje adı ayarlayın, OutputMediaAsset adı "JobOutputAsset (değer) _NewJob" olacaktır.
 
     Aşağıdaki örnek assetName özniteliğinin nasıl ayarlanacağı gösterilmektedir:
 

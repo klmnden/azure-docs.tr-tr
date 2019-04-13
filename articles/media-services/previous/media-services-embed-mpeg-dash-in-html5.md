@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1390d68a93dd3d80b5977bab6665553ea3f8b398
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f521fd11a2053cf8cf1ea0f9f91667fe475f0eee
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403083"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522444"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>MPEG-DASH Uyarlamalı Akış videosunu bir HTML5 uygulamasına DASH.js ile ekleme  
 
@@ -86,7 +86,7 @@ Ardından, MediaPlayer dash.js framework'ün birincil sınıfı örneği. Bu sı
 
 MediaPlayer sınıfı başlangıç() işlev, oyuncunun video oynatma hazır olduğundan emin olmak için çağrılır. Diğerlerinin yanı sıra, gerekli tüm sınıflar (bağlam tarafından tanımlandığı şekilde) olarak yüklenmiş olan işlev sağlar. Oyuncu hazır hale geldikten sonra video öğesini attachView() işlevi kullanarak ekleyebilirsiniz. MediaPlayer video akışı öğesine ekleme ve ayrıca gerekli olarak kayıttan yürütmeyi denetlemek başlangıç işlevi sağlar.
 
-Bu videoyu oynatmak için beklenen bilebilmesi için MediaPlayer MPD dosyasının URL'sini geçirin. Yeni oluşturduğunuz setupVideo() işlevi, sayfa tam olarak yüklendikten sonra yürütülecek gerekir. Gövde öğesinin yüklendiğinde olayı kullanarak bunu. Değişiklik, <body> öğesi:
+Bu videoyu oynatmak için beklenen bilebilmesi için MediaPlayer MPD dosyasının URL'sini geçirin. Yeni oluşturduğunuz setupVideo() işlevi, sayfa tam olarak yüklendikten sonra yürütülecek gerekir. Gövde öğesinin yüklendiğinde olayı kullanarak bunu. Değişiklik, `<body>` öğesi:
 
 ```html
     <body onload="setupVideo()">

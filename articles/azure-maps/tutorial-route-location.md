@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8ceb9aefb1e68ceb6030f078aba8b0717cdf9e7c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f9987a4aee561340c5ebe2639626e5f66a55358e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260893"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544611"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Azure Haritalar’ı kullanarak ilgi çekici noktaya yönlendirme
 
@@ -218,13 +218,13 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Adres koordinatlarını ayarlama
 > * İlgi çekici noktaya yol tarifi almak için yönlendirme hizmetini sorgulama
 
-Bu öğreticiye ait kod örneğine şuradan erişebilirsiniz:
+> [!div class="nextstepaction"]
+> [Tam kaynak kodu görüntüle](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
 
-> [Azure Haritalar ile yol](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
-
-[Bu örnek burada Canlı bakın](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
+> [!div class="nextstepaction"]
+> [Canlı örnek görünümü](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
 
 Sonraki öğreticide, seyahat modu veya kargo türü gibi kısıtlamalarla bir yol sorgusu oluşturma ve aynı harita üzerinde birden fazla yolu görüntüleme işlemleri gösterilmektedir.
 
 > [!div class="nextstepaction"]
-> [Farklı ulaşım yöntemleri için yol bulma](./tutorial-prioritized-routes.md)
+> [Farklı seyahat modları için yolları bulma](./tutorial-prioritized-routes.md)

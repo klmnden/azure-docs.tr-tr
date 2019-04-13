@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: fa0a8c4baa9458a3784babe1e342d768748f8a4d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7889f223b607912fd88c798b31ec028f97dfbbd6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882463"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522862"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>LUIS uygulamanızı ifade listesi özellikleri
 
@@ -93,7 +93,7 @@ Bir ifade listesi hem liste varlıklar arasında tüm hedefleri konuşma etkiley
 ### <a name="use-a-phrase-list"></a>Bir ifade listesini kullanın
 Bir ifade listesiyle LUIS hala bağlam dikkate alın ve benzer öğeleri, ancak tam bir eşleşme yok, listedeki öğeleri tanımlamak için generalize. LUIS uygulamanızı generalize ve bir kategorideki yeni öğeleri tanımlamak için gerekiyorsa, bir ifade listesini kullanın. 
 
-Bir varlıktaki yeni kişileri veya yeni ürün tanımalıdır bir envanter uygulama adlarını tanımalıdır bir toplantı Zamanlayıcı yeni örneklerini tanıyabilirsiniz istediğinizde başka türde bir makine öğrenilen varlık gibi basit bir kullanın veya hiyerarşik varlık. Ardından, başka bir deyişle varlığa benzer Bul LUIS yardımcı olan bir ifade listesini sözcük ve tümcecikleri oluşturun. Bu liste değeri olarak sözcükleri ek anlam ekleyerek varlık örnekleri tanımak için LUIS size yol gösterir. 
+Başka türde bir makine öğrenilen varlık gibi basit bir varlık, bir varlığın yeni kişileri veya yeni ürün tanımalıdır bir envanter uygulama adlarını tanımalıdır bir toplantı Zamanlayıcı gibi yeni örnekleri tanıyabilirsiniz istediğinizde kullanın. Ardından, başka bir deyişle varlığa benzer Bul LUIS yardımcı olan bir ifade listesini sözcük ve tümcecikleri oluşturun. Bu liste değeri olarak sözcükleri ek anlam ekleyerek varlık örnekleri tanımak için LUIS size yol gösterir. 
 
 Hedefleri ve varlıkları anlama kalitesini geliştirme ile yardımcı etki alanına özel sözlük ifade listeleri gibidir. İfade listesinin ortak kullanım Şehir adları gibi uygun isimleri ' dir. Bir şehir adı kısa çizgi veya kesme işaretleri dahil olmak üzere birkaç sözcük olabilir.
  

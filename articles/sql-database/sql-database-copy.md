@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
-ms.author: carlrab
+ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 2aeb756bda50597bf3e43c0c84391e0750bd8acb
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 04/11/2019
+ms.openlocfilehash: 47aa88040b6010aeca4aeed696310505d1e17df9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486827"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549704"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Bir Azure SQL veritabanı işlemsel olarak tutarlı bir kopyasını kopyalayın
 
@@ -90,10 +90,16 @@ Bu komut, Veritabanı1 Veritabanı2 Sunucu2'adlı yeni bir veritabanı Sunucu1 k
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
+    
+> [!IMPORTANT]
+> Her iki sunucu güvenlik duvarı, gelen bağlantı ve T-SQL kopyalama komut istemcinin IP izin verecek şekilde yapılandırılması gerekir.
 
-## <a name="to-move-a-database-between-subscriptions"></a>Bir veritabanını abonelikler arasında taşıma
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>Farklı bir aboneliğe bir SQL veritabanını kopyalama
 
-İçinde [Azure portalında](https://portal.azure.com), tıklayın **SQL sunucuları** ve ardından listeden veritabanınızı barındıran sunucuyu belirleyin. Tıklayın **taşıma**ve ardından taşınacak kaynaklar ve taşımak için bir abonelik seçin.
+Veritabanınızın SQL veritabanı sunucusu farklı bir abonelikte kopyalamak için önceki bölümdeki adımları descrbed kullanabilirsiniz. Kaynak veritabanında veritabanı sahibi olarak aynı adı ve parola içeren bir oturum açma bilgilerini kullanacak ve dbmanager rolüne bir üye veya sunucu düzeyinde asıl oturum açma işlemi olduğundan emin olun. 
+
+> [!NOTE]
+> [Azure portalında](https://portal.azure.com) farklı aboneliğe kopyalama desteklemez çünkü Portal, ARM API çağrıları ve coğrafi çoğaltma katılan her iki sunucuyu erişmek için abonelik sertifikası kullanır.  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Kopyalama işlemi ilerlemesini izleme
 

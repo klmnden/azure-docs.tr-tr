@@ -4,254 +4,195 @@ description: Azure Active Directory ve FirmPlay - işe alma için çalışan dan
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: a6799629-7546-43f8-a966-956db32864b1
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/15/2017
+ms.topic: tutorial
+ms.date: 04/01/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2eb3085c652be1b86b6343850c5cad3dcdc4c14
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ee638e34a2db2c397b7f536dfe80c6ea08d7738c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168532"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543653"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Öğretici: Azure Active Directory tümleştirmesiyle FirmPlay - çalışan danışmanlık için işe alma
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile işe alma için çalışan danışmanlık FirmPlay - tümleştirme konusunda bilgi edinin.
-
 FirmPlay - Azure AD ile işe alma için çalışan danışmanlık tümleştirme ile aşağıdaki avantajları sağlar:
 
-- FirmPlay - çalışan danışmanlık işe alma için erişimi, Azure AD'de denetleyebilirsiniz
-- Otomatik olarak imzalanan için FirmPlay - çalışan danışmanlık işe alma (çoklu oturum açma) ile kendi Azure AD hesapları için açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Bir merkezi konumda - Azure Yönetim Portalı hesaplarınızı yönetebilirsiniz.
+* FirmPlay - çalışan danışmanlık işe alma için erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak FirmPlay - çalışan danışmanlık işe alma (çoklu oturum açma) ile kendi Azure AD hesapları için oturum, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirmesi FirmPlay - için işe alma, çalışan danışmanlık ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- FirmPlay - çalışan danışmanlık için çoklu oturum açma etkin abonelik işe alma
-
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Bu gerekli olmadığı sürece üretim ortamınızı kullanmamanız gerekir.
-- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
-
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
+* FirmPlay - çalışan danışmanlık işe alma çoklu oturum açma için abonelik etkin.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. İşe alma Galerisi için çalışan danışmanlık FirmPlay - ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
+* İşe alma için çalışan danışmanlık FirmPlay - destekleyen **SP** tarafından başlatılan
 
 ## <a name="adding-firmplay---employee-advocacy-for-recruiting-from-the-gallery"></a>İşe alma Galerisi için çalışan danışmanlık FirmPlay - ekleme
+
 FirmPlay - Azure AD'ye işe alma için çalışan danışmanlık tümleştirmesini yapılandırmak için işe alma galerisinden listenize yönetilen SaaS uygulamaları için çalışan danışmanlık FirmPlay - eklemeniz gerekir.
 
 **İşe alma Galerisi için çalışan danışmanlık FirmPlay - eklemek için aşağıdaki adımları uygulayın:**
 
-1. İçinde  **[Azure Yönetim Portalı](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Uygulamalar][2]
-    
-1. Tıklayın **Ekle** iletişim kutusunun üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Uygulamalar][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **FirmPlay - işe alma için çalışan danışmanlık**.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/firmplay-tutorial/tutorial_firmplay_001.png)
+4. Arama kutusuna **FirmPlay - işe alma için çalışan danışmanlık**seçin **FirmPlay - işe alma için çalışan danışmanlık** sonucu panelinden ardından **Ekle** düğmesi uygulama ekleyin.
 
-1. Sonuçlar panelinde seçin **FirmPlay - işe alma için çalışan danışmanlık**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+     ![FirmPlay - çalışan danışmanlık için sonuç listesinde işe alma](common/search-new-app.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/firmplay-tutorial/tutorial_firmplay_0001.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma FirmPlay - için işe alma "Britta Simon" adlı bir test kullanıcıya bağlı çalışanların danışmanlık ile test edin.
-
-Tek çalışmak, oturum için Azure AD içinde FirmPlay karşılığı kullanıcının bilmesi gerekir - çalışan danışmanlık işe alma için bir kullanıcı için Azure AD'de. Diğer bir deyişle, bir Azure AD kullanıcısının FirmPlay - çalışan danışmanlık işe alma için ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
-
-Değerini atayarak bu bağlantı ilişki kurulduktan **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** FirmPlay - işe alma için çalışan danışmanlık içinde.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma FirmPlay ile test etme - işe alma için çalışan danışmanlık adlı bir test kullanıcı tabanlı **Britta Simon**.
+İş, bir Azure AD kullanıcısının FirmPlay - ilgili kullanıcı arasında bir bağlantı ilişki için çoklu oturum açma için işe alma için çalışan danışmanlık kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma FirmPlay ile-test etmek için çalışan danışmanlık işe alma için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Çalışan danışmanlık işe alma test kullanıcısı için bir FirmPlay - oluşturma](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)**  - FirmPlay içinde bir karşılığı Britta simon'un sağlamak için: Çalışan danışmanlık, yani işe alma için Azure AD gösterimini her için bağlı.
-1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[FirmPlay - çalışan danışmanlık işe çoklu oturum açma için yapılandırma](#configure-firmplay---employee-advocacy-for-recruiting-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[İşe alma test kullanıcısı için çalışan danışmanlık FirmPlay - oluşturma](#create-firmplay---employee-advocacy-for-recruiting-test-user)**  - FirmPlay içinde bir karşılığı Britta simon'un sahip - çalışan, işe alma için danışmanlık kullanıcı Azure AD gösterimini bağlantılıdır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure yönetim portalında etkinleştirin ve FirmPlay - çalışan danışmanlık işe alma uygulaması için çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma FirmPlay - çalışan danışmanlık işe alma için yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma FirmPlay - çalışan danışmanlık işe alma için yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure Yönetim Portalı'nda üzerinde **FirmPlay - işe alma için çalışan danışmanlık** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **FirmPlay - işe alma için çalışan danışmanlık** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda olarak **modu** seçin **SAML tabanlı oturum açma** için çoklu oturum açmayı etkinleştirme.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/firmplay-tutorial/tutorial_firmplay_01.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **FirmPlay - işe etki alanı ve URL'ler için çalışan danışmanlık** bölümünde **işareti bulunan URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<your-subdomain>.firmplay.com/`
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/firmplay-tutorial/tutorial_firmplay_02.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    > [!NOTE] 
-    > Bu gerçek değer olmadığını unutmayın. Bu değer gerçek işareti bulunan URL'si ile güncelleştirmeniz gerekiyor. İlgili kişi [FirmPlay - işe alma destek ekibi için çalışan danışmanlık](mailto:engineering@firmplay.com) bu değeri alınamıyor. 
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **yeni sertifika oluştur**.
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açmayı yapılandırın](./media/firmplay-tutorial/tutorial_firmplay_03.png)     
+    ![FirmPlay - çalışan danışmanlık işe etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-signonurl.png)
 
-1. Üzerinde **yeni sertifika oluştur** iletişim kutusunda, Takvim simgesine tıklayıp bir **sona erme tarihi**. Ardından **Kaydet** düğmesi.
+    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://<your-subdomain>.firmplay.com/`
 
-    ![Çoklu oturum açmayı yapılandırın](./media/firmplay-tutorial/tutorial_general_300.png)
+    > [!NOTE]
+    > Değer, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [FirmPlay - işe istemci destek ekibi için çalışan danışmanlık](mailto:engineering@firmplay.com) değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünden **yeni sertifikayı etkin hale getirin** tıklatıp **Kaydet** düğmesi.
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/firmplay-tutorial/tutorial_firmplay_04.png)
+    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-1. Açılır pencere üzerinde **geçiş sertifikası** penceresinde tıklayın **Tamam**.
+6. Üzerinde **FirmPlay - çalışan danışmanlık işe alma için ayarlama** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/firmplay-tutorial/tutorial_general_400.png)
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin. 
+    a. Oturum Açma URL'si:
 
-    ![Çoklu oturum açmayı yapılandırın](./media/firmplay-tutorial/tutorial_firmplay_05.png) 
+    b. Azure AD Tanımlayıcısı
 
-1. Üzerinde **FirmPlay - işe yapılandırması için çalışan danışmanlık** bölümünde **FirmPlay - çalışan danışmanlık işe alma için yapılandırma** açmak için **yapılandırma oturum açma** iletişim kutusu.
+    c. Oturum Kapatma URL'si
 
-    ![Çoklu oturum açmayı yapılandırın](./media/firmplay-tutorial/tutorial_firmplay_06.png) 
+### <a name="configure-firmplay---employee-advocacy-for-recruiting-single-sign-on"></a>Çoklu oturum açma işe alma için çalışan danışmanlık FirmPlay - yapılandırma
 
-    ![Çoklu oturum açmayı yapılandırın](./media/firmplay-tutorial/tutorial_firmplay_07.png)
+Çoklu oturum açmayı yapılandırma **FirmPlay - işe alma için çalışan danışmanlık** tarafı, indirilen göndermek için ihtiyacınız **sertifika (Base64)** ve uygun URL'ler için Azure portalından [ FirmPlay - işe alma destek ekibi için çalışan danışmanlık](mailto:engineering@firmplay.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
-1. Uygulamanız için yapılandırılmış SSO almak için iletişime geçin [FirmPlay - işe alma destek ekibi için çalışan danışmanlık](mailto:engineering@firmplay.com) ve bunları ile şu bilgileri sağlayın: 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
-    • İndirilen **sertifika dosyası**
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-    • **SAML çoklu oturum açma hizmeti URL'si**
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-    • **SAML varlık kimliği**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-    • **Oturum kapatma URL'si**
+2. Seçin **yeni kullanıcı** ekranın üstünde.
+
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
+
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
+
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
+
+    a. İçinde **adı** alana **BrittaSimon**.
   
+    b. İçinde **kullanıcı adı** alan türü brittasimon@yourcompanydomain.extension. Örneğin, BrittaSimon@contoso.com
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, bir test kullanıcısı Britta Simon adlı Azure Yönetim Portalı'nda oluşturmaktır.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
-![Azure AD kullanıcısı oluşturun][100]
+    d. **Oluştur**’a tıklayın.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
-
-1. İçinde **Azure Yönetim Portalı**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
-
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/firmplay-tutorial/create_aaduser_01.png) 
-
-1. Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar** kullanıcılar listesini görüntüleyin.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/firmplay-tutorial/create_aaduser_02.png) 
-
-1. İletişim kutusunun en üstünde tıklayın **Ekle** açmak için **kullanıcı** iletişim.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/firmplay-tutorial/create_aaduser_03.png) 
-
-1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/firmplay-tutorial/create_aaduser_04.png) 
-
-    a. İçinde **adı** metin kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
-
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
-
-    d. **Oluştur**’a tıklayın. 
-
-
-
-### <a name="creating-a-firmplay---employee-advocacy-for-recruiting-test-user"></a>Bir FirmPlay - çalışan danışmanlık için işe alma test kullanıcısı oluşturma
-
-Bu bölümde, Britta Simon FirmPlay - işe alma için çalışan danışmanlık adlı bir kullanıcı oluşturun. Lütfen birlikte çalışarak [FirmPlay - işe alma destek ekibi için çalışan danışmanlık](mailto:engineering@firmplay.com) FirmPlay - çalışan danışmanlık işe alma platform için kullanıcıları eklemek için.
-
-
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Azure çoklu oturum açma FirmPlay - çalışan danışmanlık işe alma için erişim vermeye tarafından kullanmak Britta Simon etkinleştirin.
 
-![Kullanıcı Ata][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **FirmPlay - işe alma için çalışan danışmanlık**.
 
-**Britta Simon FirmPlay - çalışan danışmanlık için işe alma, atamak için aşağıdaki adımları gerçekleştirin:**
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-1. Azure Yönetim Portalı'nda uygulamaları görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **FirmPlay - işe alma için çalışan danışmanlık**.
 
-    ![Kullanıcı Ata][201] 
+    ![FirmPlay - uygulamalar listesini işe alma bağlantısı için çalışan danışmanlık](common/all-applications.png)
 
-1. Uygulamalar listesinde **FirmPlay - işe alma için çalışan danışmanlık**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/firmplay-tutorial/tutorial_firmplay_50.png) 
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    ![Kullanıcı Ata][202] 
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![Kullanıcı Ata][203]
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+### <a name="create-firmplay---employee-advocacy-for-recruiting-test-user"></a>İşe alma test kullanıcısı için çalışan danışmanlık FirmPlay - oluşturma
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
+Bu bölümde, Britta Simon FirmPlay - işe alma için çalışan danışmanlık adlı bir kullanıcı oluşturun. Çalışmak [FirmPlay - işe alma destek ekibi için çalışan danışmanlık](mailto:engineering@firmplay.com) FirmPlay - çalışan danışmanlık işe alma platform için kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
-
-### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-FirmPlay - çalışan danışmanlık erişim Paneli'nde işe alma kutucuk için tıkladığınızda, otomatik olarak imzalanmış için FirmPlay - çalışan danışmanlık işe alma uygulaması için açma.
+FirmPlay - çalışan danışmanlık erişim Paneli'nde işe alma kutucuk için tıkladığınızda, otomatik olarak için FirmPlay - çalışan danışmanlık işe alma için oturum SSO'yu ayarlamak için. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-## <a name="additional-resources"></a>Ek kaynaklar
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-
-<!--Image references-->
-
-[1]: ./media/firmplay-tutorial/tutorial_general_01.png
-[2]: ./media/firmplay-tutorial/tutorial_general_02.png
-[3]: ./media/firmplay-tutorial/tutorial_general_03.png
-[4]: ./media/firmplay-tutorial/tutorial_general_04.png
-
-[100]: ./media/firmplay-tutorial/tutorial_general_100.png
-
-[200]: ./media/firmplay-tutorial/tutorial_general_200.png
-[201]: ./media/firmplay-tutorial/tutorial_general_201.png
-[202]: ./media/firmplay-tutorial/tutorial_general_202.png
-[203]: ./media/firmplay-tutorial/tutorial_general_203.png

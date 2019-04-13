@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
-ms.author: aahi
-ms.openlocfilehash: 8e3379a086eb09745142f4e3997ed195eb4d1de5
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.date: 04/02/2019
+ms.author: aahill
+ms.openlocfilehash: 0a1260de6428f6ebc70757261cdcc3002820ec7b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56885916"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547773"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Hızlı Başlangıç: Bing yazım denetimi REST API'si ve Node.js ile yazım denetimi
 
-Bu hızlı başlangıçta, Bing yazım denetimi REST API'si, ilk çağrı yapmak için kullanın. Tarafından önerilen düzeltmeler ve ardından bu basit Python uygulaması API'sine bir istek gönderir ve bir kelimelerin tanıyamadık, bir liste döndürür. Bu uygulama Python ile yazılmış olmakla birlikte API, çoğu programlama diliyle uyumlu bir RESTful Web hizmetidir. Bu uygulama için kaynak kodu kullanılabilir [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
+Bu hızlı başlangıçta, Bing yazım denetimi REST API'si, ilk çağrı yapmak için kullanın. Tarafından önerilen düzeltmeler ve ardından bu basit düğüm uygulama API'sine bir istek gönderir ve bir kelimelerin tanıyamadık, bir liste döndürür. Bu uygulama, node.js'de yazılmış olsa da çoğu programlama dilleri ile uyumlu bir RESTful Web hizmeti API'dir. Bu uygulama için kaynak kodu kullanılabilir [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -30,18 +30,18 @@ Bu hızlı başlangıçta, Bing yazım denetimi REST API'si, ilk çağrı yapmak
 
 ## <a name="create-and-initialize-a-project"></a>Proje oluşturma ve başlatma
 
-1. Yeni bir JavaScript dosyası, sık kullandığınız IDE veya düzenleyici oluşturun. Katılık ayarlayın ve https gerektirir. Ardından değişkenlerinin API uç noktanın ana bilgisayar, yol ve abonelik anahtarınızı oluşturun.
+1. Yeni bir JavaScript dosyası, sık kullandığınız IDE veya düzenleyici oluşturun. Katılık ayarlayın ve gerekli `https`. Ardından değişkenlerinin API uç noktanın ana bilgisayar, yol ve abonelik anahtarınızı oluşturun.
 
     ```javascript
     'use strict';
     let https = require ('https');
-    
+
     let host = 'api.cognitive.microsoft.com';
     let path = '/bing/v7.0/spellcheck';
-    let key = 'ENTER KEY HERE';
+    let key = '<ENTER-KEY-HERE>';
     ```
 
-2. Pazarınızın, yazım denetimi modu ve metnin kontrol etmek istediğiniz değişkenleri oluşturun. Bir dize ekler oluşturup `?mkt=` parametresi, pazarlama ve `&mode=` modunuzu için.
+2. Arama parametrelerinizi ve metnin kontrol etmek istediğiniz değişkenleri oluşturun. Pazar kodunuzu sonra ekleme `mkt=`. Pazar istekten yaptığınız ülke kodudur. Ayrıca, ekleme, yazım denetimi modu sonra `&mode=`. Modu, ya da `proof` (çoğu yazım/gramer hataları yakalar) veya `spell` (çoğu yazım ancak kadar fazla dil bilgisi hataları yakalar).
 
     ```javascript
     let mkt = "en-US";
@@ -78,7 +78,8 @@ let response_handler = function (response) {
         body += d;
     });
     response.on ('end', function () {
-        console.log (body);
+        let body_ = JSON.parse (body);
+        console.log (body_);
     });
     response.on ('error', function (e) {
         console.log ('Error: ' + e.message);
@@ -98,7 +99,7 @@ req.end ();
 
 ## <a name="example-json-response"></a>Örnek JSON yanıtı
 
-Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür:
 
 ```json
 {

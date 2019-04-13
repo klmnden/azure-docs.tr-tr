@@ -1,23 +1,23 @@
 ---
-title: Postgres ile Ruby uygulamasını Linux - Azure App Service oluştur | Microsoft Docs
-description: Azure'da çalışan ve bir PostgreSQL veritabanı ile bağlantısı olan Ruby uygulamasını nasıl edinebileceğinizi öğrenin.
+title: Postgres Linux'ta - Azure App Service ile Ruby (Rails) | Microsoft Docs
+description: Azure'da çalışan ve bir PostgreSQL veritabanı ile bağlantısı olan Ruby uygulamasını nasıl edinebileceğinizi öğrenin. Rails öğreticide kullanılır.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: jeconnoc
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: ruby
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e42d9592d74e845410441097fa6082cfb3f4ac5e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3ec19b1c564c09406ab1f29c38aef6332d80f8f1
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713888"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544697"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Linux üzerinde Ruby ve Azure App Service'te Postgres uygulaması derleme
 
@@ -65,7 +65,7 @@ Postgres istemcisinden çıkmak için `\q` yazın.
 Aşağıdaki komutu oturum açtığınız Linux kullanıcı adıyla çalıştırarak veritabanı oluşturabilen bir Postgres kullanıcısı oluşturun.
 
 ```bash
-sudo -u postgres createuser -d <signed_in_user>
+sudo -u postgres createuser -d <signed-in-user>
 ```
 
 <a name="step2"></a>
@@ -125,10 +125,10 @@ Bu adımda, [PostgreSQL için Azure Veritabanı](/azure/postgresql/) içinde bir
 
 [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) komutuyla PostgreSQL sunucusu oluşturun.
 
-Aşağıdaki komutu Cloud Shell'de çalıştırın ve *\<postgres_server_name>* yerine benzersiz bir sunucu adı girin. Sunucu adı Azure'daki tüm sunucular arasında benzersiz olmalıdır. 
+Cloud Shell'de aşağıdaki komutu çalıştırın ve benzersiz bir sunucu adı için alternatif  *\<postgres sunucu adı >* yer tutucu. Sunucu adı Azure'daki tüm sunucular arasında benzersiz olmalıdır. 
 
 ```azurecli-interactive
-az postgres server create --location "West Europe" --resource-group myResourceGroup --name <postgres_server_name> --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --sku-name GP_Gen4_2
+az postgres server create --location "West Europe" --resource-group myResourceGroup --name <postgres-server-name> --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --sku-name GP_Gen4_2
 ```
 
 PostgreSQL için Azure Veritabanı sunucusu oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir:
@@ -137,10 +137,10 @@ PostgreSQL için Azure Veritabanı sunucusu oluşturulduğunda Azure CLI, aşağ
 {
   "administratorLogin": "adminuser",
   "earliestRestoreDate": "2018-06-15T12:38:25.280000+00:00",
-  "fullyQualifiedDomainName": "<postgres_server_name>.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgres_server_name>",
+  "fullyQualifiedDomainName": "<postgres-server-name>.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgres-server-name>",
   "location": "westeurope",
-  "name": "<postgres_server_name>",
+  "name": "<postgres-server-name>",
   "resourceGroup": "myResourceGroup",
   "sku": {
     "capacity": 2,
@@ -155,10 +155,10 @@ PostgreSQL için Azure Veritabanı sunucusu oluşturulduğunda Azure CLI, aşağ
 
 ### <a name="configure-server-firewall"></a>Sunucu güvenlik duvarını yapılandırma
 
-Cloud Shell'de, [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create) komutunu kullanarak Postgres sunucunuzun istemci bağlantılarına izin vermesi için bir güvenlik duvarı kuralı oluşturun. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. *\<postgres_server_name>* yerine benzersiz bir sunucu adı girin.
+Cloud Shell'de, [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create) komutunu kullanarak Postgres sunucunuzun istemci bağlantılarına izin vermesi için bir güvenlik duvarı kuralı oluşturun. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. Bir benzersiz sunucu adı yerine  *\<postgres sunucu adı >* yer tutucu.
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server <postgres_server_name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az postgres server firewall-rule create --resource-group myResourceGroup --server <postgres-server-name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!TIP] 
@@ -167,10 +167,10 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 
 ### <a name="connect-to-production-postgres-server-locally"></a>Üretim Postgres sunucusuna yerel olarak bağlanma
 
-Cloud Shell'de Azure'daki Postgres sunucusuna bağlanın. _&lt;postgres_server_name>_ yerine daha önceden belirttiğiniz değeri kullanın.
+Cloud Shell'de Azure'daki Postgres sunucusuna bağlanın. Daha önce için belirttiğiniz değeri kullanın  _&lt;postgres sunucu adı >_ yer tutucu.
 
 ```bash
-psql -U adminuser@<postgres_server_name> -h <postgres_server_name>.postgres.database.azure.com postgres
+psql -U adminuser@<postgres-server-name> -h <postgres-server-name>.postgres.database.azure.com postgres
 ```
 
 Parola sorulduğunda, veritabanı sunucusunu oluştururken belirttiğiniz _My5up3r$tr0ngPa$w0rd!_ parolasını kullanın.
@@ -188,7 +188,7 @@ CREATE DATABASE sampledb;
 _railsappuser_ adlı bir veritabanı kullanıcısı oluşturun ve bu kullanıcıya `sampledb` veritabanındaki tüm ayrıcalıkları verin.
 
 ```sql
-CREATE USER railsappuser WITH PASSWORD 'MyPostgresAzure2017'; 
+CREATE USER railsappuser WITH PASSWORD 'MyPostgresAzure2017';
 GRANT ALL PRIVILEGES ON DATABASE sampledb TO railsappuser;
 ```
 
@@ -220,13 +220,13 @@ Değişiklikleri kaydedin.
 Yerel terminale geri döndüğünüzde, aşağıdaki ortam değişkenlerini ayarlayın:
 
 ```bash
-export DB_HOST=<postgres_server_name>.postgres.database.azure.com
+export DB_HOST=<postgres-server-name>.postgres.database.azure.com
 export DB_DATABASE=sampledb 
-export DB_USERNAME=railsappuser@<postgres_server_name>
+export DB_USERNAME=railsappuser@<postgres-server-name>
 export DB_PASSWORD=MyPostgresAzure2017
 ```
 
-PostgreSQL için Azure Veritabanı (Önizleme) içinde tablolar oluşturmak için, Postgres veritabanı geçişlerini yeni yapılandırdığınız üretim değerleriyle çalıştırın. 
+PostgreSQL için Azure Veritabanı (Önizleme) içinde tablolar oluşturmak için, Postgres veritabanı geçişlerini yeni yapılandırdığınız üretim değerleriyle çalıştırın.
 
 ```bash
 rake db:migrate RAILS_ENV=production
@@ -247,8 +247,8 @@ rails secret
 Gizli anahtarı, Rails üretim ortamı tarafından kullanılan ilgili değişkenlere kaydedin. Kolaylık olması için, her iki değişken için de aynı anahtarı kullanırsınız.
 
 ```bash
-export RAILS_MASTER_KEY=<output_of_rails_secret>
-export SECRET_KEY_BASE=<output_of_rails_secret>
+export RAILS_MASTER_KEY=<output-of-rails-secret>
+export SECRET_KEY_BASE=<output-of-rails-secret>
 ```
 
 JavaScript ve CSS dosyalarına hizmet vermek için Rails üretim ortamını etkinleştirin.
@@ -302,15 +302,15 @@ Bu adımda, Postgres'e bağlı Rails uygulamasını Azure App Service'e dağıt�
 
 App Service’te, Cloud Shell'de [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) komutunu kullanarak ortam değişkenlerini _uygulama ayarları_ olarak ayarlayabilirsiniz.
 
-Aşağıdaki Cloud Shell komutu `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` ve `DB_PASSWORD` uygulama ayarlarını yapılandırır. _&lt;appname>_ ve _&lt;postgres_server_name>_ yer tutucularını değiştirin.
+Aşağıdaki Cloud Shell komutu `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` ve `DB_PASSWORD` uygulama ayarlarını yapılandırır. Yer tutucuları değiştirmeniz  _&lt;uygulamaadı >_ ve  _&lt;postgres sunucu adı >_.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<postgres_server_name>.postgres.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="railsappuser@<postgres_server_name>" DB_PASSWORD="MyPostgresAzure2017"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<postgres-server-name>.postgres.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="railsappuser@<postgres-server-name>" DB_PASSWORD="MyPostgresAzure2017"
 ```
 
 ### <a name="configure-rails-environment-variables"></a>Rails ortam değişkenlerini yapılandırma
 
-Yerel terminalde, Azure'da Rails üretim ortamı için yeni bir gizli anahtar oluşturun.
+Yerel terminalde [yeni bir gizli dizi](configure-language-ruby.md#set-secret_key_base-manually) azure'da Rails üretim ortamı.
 
 ```bash
 rails secret
@@ -318,20 +318,20 @@ rails secret
 
 Rails üretim ortamına gereken değişkenleri yapılandırın.
 
-Aşağıdaki Cloud Shell komutunda, iki _&lt;output_of_rails_secret>_ yer tutucusunu yerel terminalde oluşturduğunuz yeni gizli anahtarla değiştirin.
+Aşağıdaki Cloud Shell iki komutta  _&lt;çıkış, rails gizli >_ yer tutucusunu yerel terminalde oluşturduğunuz yeni gizli anahtar.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings RAILS_MASTER_KEY="<output_of_rails_secret>" SECRET_KEY_BASE="<output_of_rails_secret>" RAILS_SERVE_STATIC_FILES="true" ASSETS_PRECOMPILE="true"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings RAILS_MASTER_KEY="<output-of-rails-secret>" SECRET_KEY_BASE="<output-of-rails-secret>" RAILS_SERVE_STATIC_FILES="true" ASSETS_PRECOMPILE="true"
 ```
 
-`ASSETS_PRECOMPILE="true"`, varsayılan Ruby kapsayıcısına her Git dağıtımında varlıkları yeniden derlemesini bildirir.
+`ASSETS_PRECOMPILE="true"`, varsayılan Ruby kapsayıcısına her Git dağıtımında varlıkları yeniden derlemesini bildirir. Daha fazla bilgi için [varlıklar ön derleme](configure-language-ruby.md#precompile-assets) ve [hizmet statik varlıklar](configure-language-ruby.md#serve-static-assets).
 
 ### <a name="push-to-azure-from-git"></a>Git üzerinden Azure'a gönderme
 
 Yerel terminalde yerel Git deponuza bir Azure uzak deposu ekleyin.
 
 ```bash
-git remote add azure <paste_copied_url_here>
+git remote add azure <paste-copied-url-here>
 ```
 
 Ruby on Rails uygulamasını dağıtmak için Azure uzak deposuna gönderin. Daha önce dağıtım kullanıcısı oluştururken belirttiğiniz parola istenir.
@@ -359,7 +359,7 @@ remote: Running deployment command...
 
 ### <a name="browse-to-the-azure-app"></a>Azure uygulamasına göz atma
 
-`http://<app_name>.azurewebsites.net` listesine göz atın ve listeye birkaç görev ekleyin.
+`http://<app-name>.azurewebsites.net` listesine göz atın ve listeye birkaç görev ekleyin.
 
 ![Azure App Service'te çalışan Ruby on Rails uygulaması](./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png)
 
@@ -476,6 +476,10 @@ Bir kez `git push` tamamlandığında, Azure uygulamasına gidin ve yeni işlevl
 
 Herhangi bir görevi eklediyseniz veritabanında tutulur. Veri şemasında yapılan güncelleştirmeler var olan verileri olduğu gibi bırakır.
 
+## <a name="stream-diagnostic-logs"></a>Tanılama günlüklerini akışla aktarma
+
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+
 ## <a name="manage-the-azure-app"></a>Azure uygulaması yönetme
 
 Git [Azure portalında](https://portal.azure.com) oluşturduğunuz uygulamayı yönetmek için.
@@ -509,4 +513,9 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 Uygulamanıza özel bir DNS adı eşlemeyle ilgili bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Mevcut bir özel DNS adını Azure App Service'e eşlemek](../app-service-web-tutorial-custom-domain.md)
+> [Öğretici: Uygulamanıza özel DNS adı eşleme](../app-service-web-tutorial-custom-domain.md)
+
+Ya da diğer kaynaklara göz atın:
+
+> [!div class="nextstepaction"]
+> [Ruby uygulamasını yapılandırma](configure-language-ruby.md)

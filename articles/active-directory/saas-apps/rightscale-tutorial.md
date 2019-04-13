@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c99bc4ef23ee2d8f4478bbaab591e7b36c7ea75
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 416a98c5f9c5a2ec813206ea9ea7f311b23e86cb
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109840"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Öğretici: Rightscale ile Azure Active Directory Tümleştirme
 
@@ -132,7 +132,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve R
 1. Üzerinde **Rightscale yapılandırma** bölümünde **yapılandırma Rightscale** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/rightscale-tutorial/tutorial_rightscale_configure.png) 
-   <CS>
+
 1. Uygulamanız için yapılandırılmış SSO elde etmek için RightScale Kiracı yönetici olarak oturum açma gerekir.
 
     a. Üstteki menüden **ayarları** sekmenize **çoklu oturum açma**.
@@ -164,7 +164,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve R
     ![Çoklu oturum açmayı yapılandırın](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
     h. **Kaydet**’e tıklayın.
-   <CE>
+
    > [!TIP]
    > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
    > 

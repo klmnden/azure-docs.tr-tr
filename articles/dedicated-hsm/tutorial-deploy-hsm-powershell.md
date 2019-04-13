@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 9b905a81751ce5f4de4a4efbb9ff4c328269fe34
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 288ad14110bd446955d6cec7439bfa40a750276c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904857"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521671"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Öğretici: PowerShell kullanarak mevcut sanal ağına HSM'ler dağıtma
 
@@ -217,7 +217,7 @@ Ssh aracı kullanarak sanal makineye bağlanmak için kullanılır. Komut aşağ
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 Kullanılacak parametre dosyasından bir paroladır.
-Bir kez oturum oturum kaynak için Portalı'nda bulunan özel IP adresini kullanarak HSM Linux VM'de <prefix>hsm_vnic.
+Bir kez oturum oturum kaynak için Portalı'nda bulunan özel IP adresini kullanarak HSM Linux VM'de \<önek > hsm_vnic.
 
 ```powershell
 
@@ -276,8 +276,8 @@ Remove-AzResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGrou
 
 Öğreticide adımları tamamladıktan sonra özel HSM sağlandığı ve kullanılabilir sanal ağınızda kaynaklardır. Artık bu dağıtımın gerektiği gibi daha fazla kaynak tarafından tercih edilen dağıtım Mimarinizi ile tamamlayıcı konumuna demektir. Dağıtımınızı planlama yardımcı olacak daha fazla bilgi için kavramları belgelere bakın. Bir tasarım ile raf düzeyinde kullanılabilirlik ele alan bir birincil bölgede iki Hsm'leri ve iki ikincil bir bölgeye bölgesel kullanılabilirlik adresleme Hsm'lerde önerilir. Bu öğreticide kullanılan şablon dosyasının kolayca iki HSM dağıtımlar için temel olarak kullanılabilir, ancak gereksinimlerinizi karşılayacak şekilde değiştirilmiş parametrelerini sahip olması gerekir.
 
-* [Yüksek Kullanılabilirlik](high-availability.md)
-* [Fiziksel Güvenlik](physical-security.md)
+* [Yüksek kullanılabilirlik](high-availability.md)
+* [Fiziksel güvenlik](physical-security.md)
 * [Ağ](networking.md)
 * [İzleme](monitoring.md)
-* [Desteklenebilirlik](supportability.md)
+* [Desteklenebilirliği](supportability.md)

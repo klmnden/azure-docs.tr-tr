@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 766ceb0bc6f1eb3da9129f2359f6e2be7363dd23
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531139"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527328"
 ---
 # <a name="project-answer-search-v7-reference"></a>Proje yanıt arama v7 başvurusu
 
@@ -35,7 +35,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ```
 
 İstek, HTTPS protokolünü kullanmak ve ardından sorgu parametresi içerir:
--  q =<URL> -arama nesneyi tanımlayan sorgu
+-  `q=<URL>` -Arama nesneyi tanımlayan sorgu
 
 İsteğinde bulunmak nasıl gösteren örnekler için bkz: [C# hızlı](c-sharp-quickstart.md) veya [Java Hızlı Başlangıç](java-quickstart.md). 
 
@@ -56,7 +56,7 @@ Maksimum sorgu URL'SİNİN uzunluğu 2.048 karakterdir. URL uzunluğu sınırı 
 > - Pragma – URL önizlemesi önbellek kullanıp kullanmadığını denetim çağırana sahip değil
 > - Önbellek denetimi – çağıran URL önizlemesi önbellek kullanıp kullanmadığını denetim yok
 > - Kullanıcı Aracısı
-
+> 
 > Ayrıca, bazı parametreler için URL önizleme API'sı şu anda anlamlı değildir, ancak gelecekte geliştirilmiş Genelleştirme için kullanılabilir. 
  
 ## <a name="headers"></a>Üst bilgiler  
@@ -217,18 +217,21 @@ Bing istek için kullanılan sorgu bağlamı tanımlar.
 |originalQuery|İstekte belirtilen sorgu dizesi.|String|  
 
 ### <a name="identifiable"></a>Tanımlama
+
 |Ad|Değer|Type|  
 |-------------|-----------------|----------|
 |id|Bir kaynak tanımlayıcısı|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Tanımlar grubu bir arama sonuçları, aşağıdaki gibi mainline.
+
 |Ad|Değer|Type|  
 |-------------|-----------------|----------|
 |öğeler|Grup içinde görüntülemek için arama sonuçları listesi.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Görüntülenecek bir arama sonucu öğesi tanımlar.
+
 |Ad|Değer|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Görüntülenecek yanıtında öğenin sıfır tabanlı dizini. Bu alan öğe içermiyorsa, yanıt tüm öğeleri görüntüler. Örneğin, haber yanıt tüm haber makalelerini görüntüler.|Tamsayı|

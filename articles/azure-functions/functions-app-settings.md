@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: d49a6f88f3475359a74be74bf528fb5699dce632
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 573e6ea857ef17a6160f7e03f52f9c64f903530a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860661"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546635"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure işlevleri için uygulama ayarları başvurusu
 
@@ -106,7 +106,7 @@ TypeScript için kullanılan derleme yolu. Gerekirse varsayılan geçersiz kılm
 
 ## <a name="functionappeditmode"></a>İŞLEV\_UYGULAMA\_DÜZENLE\_MODU
 
-Geçerli değerler şunlardır: "readwrite" ve "salt okunur".
+Azure portalında düzenleme etkin olup olmadığını belirler. Geçerli değerler şunlardır: "readwrite" ve "salt okunur".
 
 |Anahtar|Örnek değer|
 |---|------------|

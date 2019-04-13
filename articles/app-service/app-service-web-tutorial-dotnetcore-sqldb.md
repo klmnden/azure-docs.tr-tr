@@ -1,5 +1,5 @@
 ---
-title: Derleme .NET Core uygulamasını SQL veritabanı - Azure App Service ile | Microsoft Docs
+title: ASP.NET Core ile SQL veritabanı - Azure uygulama hizmeti | Microsoft Docs
 description: Azure App Service’te çalışan ve bir SQL Veritabanı’na bağlantısı olan bir .NET Core uygulamasını nasıl edinebileceğinizi öğrenin.
 services: app-service\web
 documentationcenter: dotnet
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d62e74c5d81cdf3331bde349a9ec5dfe3071e7f8
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: c83e14d65b30775f0dad54ab9ade1a7bed5ac821
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510706"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548876"
 ---
-# <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>Öğretici: Bir Azure App Service'te .NET Core ve SQL veritabanı uygulaması oluşturma
+# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Öğretici: Azure App Service'te bir ASP.NET Core ve SQL veritabanı uygulaması oluşturma
 
 > [!NOTE]
 > Bu makalede bir uygulamanın Windows üzerinde App Service'e dağıtımı yapılır. App Service dağıtmak için _Linux_, bkz: [Linux üzerinde Azure App Service'te .NET Core ve SQL veritabanı bir uygulama derleme](./containers/tutorial-dotnetcore-sqldb-app.md).

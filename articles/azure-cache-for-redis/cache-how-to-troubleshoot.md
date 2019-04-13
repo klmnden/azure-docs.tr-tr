@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: yegu
-ms.openlocfilehash: 838fc1da3e167d1df04fbb36a2fea33b8ac248a4
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 66361871d365068a90a2eeab70d92adb6b246a83
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482615"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527175"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Azure önbelleği için Redis sorunlarını giderme
 
@@ -250,6 +250,7 @@ Bu hata iletisi sorunun nedenini ve olası çözümü noktası yardımcı olabil
 1. Birçok küçük istek zaman aşımına uğradı önbelleğe önceki büyük bir istek vardı? Parametre `qs` hata iletisi, kaç istek istemciden sunucuya gönderilen, ancak bir yanıt işlenen henüz bildirir. StackExchange.Redis tek bir TCP bağlantısını kullanır ve bir yanıt aynı anda yalnızca okuyabilir çünkü bu değer büyüyen tutun. İlk işlem zaman aşımına uğradı olsa da, bunu gönderileceği veya sunucudan daha fazla veri bitmez. Büyük istek tamamlandı ve zaman aşımları oluşabilir kadar diğer istekleri engellenir. Önbelleğinizi yükünüz için yeterince büyük olduğundan emin olmanın ve büyük değerler daha küçük öbeklere ayırma zaman aşımları olasılığını en aza indirmek bir çözümdür. Başka bir olası çözümü havuzu kullanmaktır `ConnectionMultiplexer` istemcinizde nesneleri ve az yüklenen seçin `ConnectionMultiplexer` yeni bir isteği gönderirken. Birden çok bağlantı nesneleri arasında yükleme tek bir zaman aşımı diğer istekleri de zaman aşımına neden olmasını engeller.
 1. Kullanıyorsanız `RedisSessionStateProvider`, ayarladığınız yeniden deneme zaman aşımı doğru emin olun. `retryTimeoutInMilliseconds` daha yüksek olmalıdır `operationTimeoutInMilliseconds`, aksi takdirde, yeniden deneme yok oluşur. Aşağıdaki örnekte `retryTimeoutInMilliseconds` 3000 olarak ayarlanır. Daha fazla bilgi için [Redis için Azure Cache için ASP.NET oturum durumu sağlayıcısı](cache-aspnet-session-state-provider.md) ve [çıktı önbelleği sağlayıcısı ile oturum durumu sağlayıcısı ve yapılandırma parametrelerini kullanma](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
+    ```xml
     <add
       name="AFRedisCacheSessionStateProvider"
       type="Microsoft.Web.Redis.RedisSessionStateProvider"
@@ -262,6 +263,7 @@ Bu hata iletisi sorunun nedenini ve olası çözümü noktası yardımcı olabil
       connectionTimeoutInMilliseconds = "5000"
       operationTimeoutInMilliseconds = "1000"
       retryTimeoutInMilliseconds="3000" />
+    ```
 
 1. Azure önbelleği için Redis sunucusu tarafından bellek kullanımını kontrol [izleme](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` ve `Used Memory`. Çıkarma İlkesi yerinde ise, Redis başlatır çıkarma, anahtarları ne zaman `Used_Memory` önbellek boyutu. İdeal olarak, `Used Memory RSS` yalnızca biraz daha yüksek olmalıdır `Used memory`. Büyük bir fark (iç veya dış) bellek parçalanması olduğu anlamına gelir. Zaman `Used Memory RSS` olduğu küçüktür `Used Memory`, önbellek parçası, işletim sistemi tarafından takas anlamına gelir. Takas bu meydana gelirse, bazı önemli bir gecikme bekleyebilirsiniz. Redis bellek sayfalarına, yüksek ayırmalarını nasıl eşleştirildiğini denetim olmadığından `Used Memory RSS` genellikle bellek kullanımı bir ani değişiklik sonucudur. Redis sunucu belleği serbest bırakır, bellek ayırıcısı alır ancak bellek geri sisteme vermeyebilir veya olabilir. Arasında bir tutarsızlık olması `Used Memory` işletim sistemi tarafından bildirilen değeri ve bellek tüketimi. Bellek kullanılan ve Redis tarafından ancak sistemin geri değil verilen boşta. Bellek sorunlarının azaltılmasına yardımcı olmak için aşağıdakileri yapabilirsiniz:
 

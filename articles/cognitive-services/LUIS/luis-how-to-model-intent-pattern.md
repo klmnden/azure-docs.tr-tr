@@ -1,7 +1,7 @@
 ---
 title: Doğruluk düzenleri ekleyin
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Language Understanding (LUIS) uygulamalarında tahmin doğruluğunu artırmak için desen şablonları eklemeyi öğrenin.
+description: Language Understanding (LUIS) uygulamalarında tahmin doğruluğunu artırmak için desen şablonları ekleyin.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 132f6eab86c02e28fe562a0c7d3357175e5813b8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195056"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521263"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Nasıl tahmin doğruluğunu artırmak için düzenleri ekleyin
-Bir LUIS uygulaması konuşma uç noktası aldıktan sonra kullanmak bir [deseni](luis-concept-patterns.md) sözcük sırasını ve sözcük seçim içindeki bir desenle açığa konuşma için tahmin doğruluğunu artırmak için. Belirli desenleri kullanın [söz dizimi](luis-concept-patterns.md#pattern-syntax) konumunu belirtmek için: [varlıkları](luis-concept-entity-types.md), varlık rolleri ve isteğe bağlı metin.
+Bir LUIS uygulaması konuşma uç noktası aldıktan sonra kullanmak bir [deseni](luis-concept-patterns.md) sözcük sırasını ve sözcük seçim içindeki bir desenle açığa konuşma için tahmin doğruluğunu artırmak için. Belirli desenleri kullanın [söz dizimi](luis-concept-patterns.md#pattern-syntax) konumunu belirtmek için: [varlıkları](luis-concept-entity-types.md), varlık [rolleri](luis-concept-roles.md)ve isteğe bağlı metin.
 
 ## <a name="add-template-utterance-to-create-pattern"></a>Desen oluşturmak için şablon utterance Ekle
 1. Adını seçerek uygulamanızı açın **uygulamalarım** sayfasında ve ardından **desenleri** sol bölmede altında **uygulama performansını**.
@@ -34,7 +34,7 @@ Bir LUIS uygulaması konuşma uç noktası aldıktan sonra kullanmak bir [deseni
 
     ![Varlık deseni için ekran görüntüsü](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Varlığınız bir rol varsa, tek bir iki nokta rolüyle belirtmek `:`, varlık adı sonra gibi `{Location:Origin}`. Rolleri varlıkların listesini bir liste görüntüler. Rolü seçin ve ardından Enter'ı seçin. 
+    Varlık içeriyorsa bir [rol](luis-concept-roles.md), tek bir iki nokta rolüyle belirtmek `:`, varlık adı sonra gibi `{Location:Origin}`. Rolleri varlıkların listesini bir liste görüntüler. Rolü seçin ve ardından Enter'ı seçin. 
 
     ![Rolü içeren varlığın ekran görüntüsü](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 

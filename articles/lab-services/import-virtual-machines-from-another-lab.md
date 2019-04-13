@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 8b2eee0bfd32b58cd751f8bf70aff1d4f460a353
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 9cd2e5e211fcda7c59469d3b09e9c9e5bdefdbd6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340147"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546600"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Başka bir laboratuar ortamında Azure DevTest Labs sanal makineleri içeri aktarın
 Bu makalede sanal makineleri başka bir laboratuvarda, laboratuvarda içeri aktarma hakkında bilgi sağlar. 
@@ -47,7 +47,7 @@ Sanal makineleri bir laboratuar ortamında başka bir laboratuvara aktarmak plan
 - Şu anda bu özellik yalnızca Powershell ve REST API desteklenir.
 
 ## <a name="use-powershell"></a>PowerShell kullanma
-ImportVirtualMachines.ps1 dosyası indirin [GitHub](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/ImportVirtualMachines/ImportVirtualMachines.ps1). Betik, tek bir VM veya kaynak Laboratuvardaki tüm VM'ler hedef laboratuara içeri aktarmak için kullanabilirsiniz. 
+ImportVirtualMachines.ps1 dosyası indirin [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). Betik, tek bir VM veya kaynak Laboratuvardaki tüm VM'ler hedef laboratuara içeri aktarmak için kullanabilirsiniz. 
 
 ### <a name="use-powershell-to-import-a-single-vm"></a>Tek bir VM için PowerShell kullanma
 Bu powershell betiği yürütülürken, VM kaynak ve hedef Laboratuvar tanımlama ve isteğe bağlı olarak hedef makine için kullanılacak yeni bir ad sağlayarak gerektirir:

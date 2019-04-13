@@ -9,19 +9,48 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 18b72ceaee0ca0747a0bf2144d5f9ffddbee8b8c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 9d1fa5786dcde70d42363dbb9af7221ca5383e64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492150"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546407"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>V3 API'ler Media Services ile geliştirme
 
 Bu makalede, Media Services v3 ile geliştirirken varlıkları ve API'ler için geçerli kurallar açıklanmaktadır.
+
+## <a name="accessing-the-azure-media-services-api"></a>Azure Media Services API erişme
+
+Azure Media Services kaynaklara erişmek için Azure Active Directory (AD) hizmet sorumlusu kimlik doğrulaması kullanmanız gerekir. Azure Media Services API'sine gerektirir kullanıcı veya REST API yapan uygulamanın Azure Media Services hesabı kaynak erişim sahibi istekleri (genellikle **katkıda bulunan** veya **sahibi** rolü için). Daha fazla bilgi için [Media Services hesapları için rol tabanlı erişim denetimi](rbac-overview.md).
+
+Bir hizmet sorumlusu oluşturmak yerine, Azure Resource Manager ile Media Services API'sine erişmek için Azure kaynakları için yönetilen kimlikleri kullanmayı düşünün. Azure kaynakları için yönetilen kimlikleri hakkında daha fazla bilgi için bkz: [Azure kaynakları için yönetilen kimlikleri nedir](../../active-directory/managed-identities-azure-resources/overview.md).
+
+### <a name="azure-ad-service-principal"></a>Azure AD hizmet sorumlusu 
+
+Bir Azure AD uygulaması ve hizmet sorumlusu oluşturuyorsanız, uygulama kendi kiracısında olması gerekir. Uygulamayı oluşturduktan sonra uygulamayı vermek **katkıda bulunan** veya **sahibi** Media Services hesabına erişim rolü. 
+
+Azure AD uygulaması oluşturmak için izinlere sahip olup olmadığından emin değilseniz, [gerekli izinler](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+
+Aşağıdaki şekilde kronolojik sırada isteklerinin akışını sayıları temsil eder:
+
+![Orta katman uygulamaları](../previous/media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
+
+1. Aşağıdaki parametrelere sahip bir Azure AD erişim belirteci Orta katmanlı bir uygulama ister:  
+
+   * Azure AD Kiracı uç noktası.
+   * Media Services kaynak URI'si.
+   * Kaynak REST Media Services için URI.
+   * Azure AD uygulama değerlerini: istemci Kimliğini ve istemci gizli anahtarı.
+   
+   Gerekli tüm değerleri almak için bkz: [erişim Azure Media Services API'sine Azure CLI ile](access-api-cli-how-to.md)
+
+2. Azure AD erişim belirteci için orta katman gönderilir.
+4. Orta katman Azure AD belirteciyle Azure medya REST API isteği gönderir.
+5. Orta katman veri Media Services'den geri alır.
 
 ## <a name="naming-conventions"></a>Adlandırma kuralları
 
@@ -30,17 +59,6 @@ Azure Media Services v3 kaynaklarının adları (Varlıklar, İşler, Dönüşü
 Media Services kaynak adları şu karakterleri içeremez: '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', tek tırnak karakteri veya kontrol karakterleri. Diğer tüm karakterlere izin verilir. Bir kaynağın adı en fazla 260 karakter olabilir. 
 
 Azure Resource Manager adlandırma hakkında daha fazla bilgi için bkz: [Adlandırma gereksinimlerini](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) ve [adlandırma kuralları](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
-
-## <a name="v3-api-design-principles-and-rbac"></a>V3 API tasarım ilkeleri ve RBAC
-
-v3 API’nin temel tasarım ilkelerinden biri API’yi daha güvenli hale getirmektir. V3 API'ler döndürmeyen parolaları veya kimlik üzerinde **alma** veya **listesi** operations. Anahtarlar her zaman null, boş veya yanıttan ayıklanmış olur. Kullanıcı parolaları veya kimlik bilgilerini almak için ayrı bir eylem yöntemini çağırmak gerekir. **Okuyucu** Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets gibi işlemler çağrılamıyor şekilde rol operations çağrılamıyor. Ayrı Eylemler sahip isterseniz özel bir rol daha ayrıntılı RBAC güvenlik izinleri ayarlamanızı sağlar.
-
-Daha fazla bilgi için bkz.
-
-- [Yerleşik rol tanımları](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
-- [Erişimi yönetmek için RBAC kullanma](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [Media Services hesapları için rol tabanlı erişim denetimi](rbac-overview.md)
-- [İçerik anahtarı ilkesi - .NET edinme](get-content-key-policy-dotnet-howto.md).
 
 ## <a name="long-running-operations"></a>Uzun süre çalışan işlemler
 

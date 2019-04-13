@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: e95006c6448bf1179d33bcd00c16d6e4246db148
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 1cf46fd5ec55f0b240f6bb4adbe49c1344a4663b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887327"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547688"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Hızlı Başlangıç: Bing yazım denetimi REST API'si ve Python ile yazım denetimi
 
@@ -26,7 +26,6 @@ Bu hızlı başlangıçta, Bing yazım denetimi REST API'si, ilk çağrı yapmak
 * Python [3.x](https://www.python.org)
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
-
 
 ## <a name="initialize-the-application"></a>Uygulamayı Başlat
 
@@ -40,7 +39,7 @@ Bu hızlı başlangıçta, Bing yazım denetimi REST API'si, ilk çağrı yapmak
 2. Onay, abonelik anahtarınız ve Bing yazım denetimi uç noktanızı yazım istediğiniz metni için değişkenler oluşturun.
 
     ```python
-    api_key = "enter-your-key-here"
+    api_key = "<ENTER-KEY-HERE>"
     example_text = "Hollo, wrld" # the text to be spell-checked
     endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/SpellCheck"
     ```
@@ -53,7 +52,7 @@ Bu hızlı başlangıçta, Bing yazım denetimi REST API'si, ilk çağrı yapmak
     data = {'text': example_text}
     ```
 
-2. İsteğiniz parametrelerini ekleyin. Ayarlama `mkt` parametresi, pazarlama ve `mode` için `proof`. 
+2. İsteğiniz parametrelerini ekleyin. Pazar kodunuzu sonra ekleme `mkt=`. Pazar istekten yaptığınız ülke kodudur. Ayrıca, ekleme, yazım denetimi modu sonra `&mode=`. Modu, ya da `proof` (çoğu yazım/gramer hataları yakalar) veya `spell` (çoğu yazım ancak kadar fazla dil bilgisi hataları yakalar).
 
     ```python
     params = {
@@ -80,7 +79,7 @@ Bu hızlı başlangıçta, Bing yazım denetimi REST API'si, ilk çağrı yapmak
     ```
 
 2. JSON yanıtını alma ve yazdırabilirsiniz.
-    
+
     ```python
     json_response = response.json()
     print(json.dumps(json_response, indent=4))
@@ -88,7 +87,7 @@ Bu hızlı başlangıçta, Bing yazım denetimi REST API'si, ilk çağrı yapmak
 
 ## <a name="example-json-response"></a>Örnek JSON yanıtı
 
-Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür:
 
 ```json
 {

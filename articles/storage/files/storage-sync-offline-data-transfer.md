@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 3b286bbe2c246345bf6acd84a4fc0c400451c706
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 04b13c1e511f54c1fcf7b632d3a368fde16bf319
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445356"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549052"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Azure dosya eşitleme için toplu verileri geçirme
 Azure dosya eşitleme için iki şekilde toplu veri geçirebilirsiniz:
@@ -36,13 +36,13 @@ Aktarım aracı Data Box gibi çevrimdışı geçiş için kullanmanın başlıc
 - Veri kutusu ve Azure dosya eşitleme kapalı kalma süresi gerektirir. Azure'a veri aktarmayı Data Box'ı kullandığınızda, ağ bant genişliği verimli bir şekilde kullanmak ve dosya uygunluğunu korumak. Sizin de ad alanınızı verileri Azure'a taşıma işlemi sonrasında, değişen dosyaları karşıya yükleyerek güncel tutun.
 
 ## <a name="prerequisites-for-the-offline-data-transfer"></a>Çevrimdışı veri aktarımı için Önkoşullar
-Çevrimdışı veri aktarımınız başlamadan önce:
+Çevrimdışı veri aktarımınız tamamlamadan önce geçirdiğiniz sunucuda eşitleme etkinleştirmemeniz gerekir. Başlamadan önce dikkate alınması gereken diğer noktalar aşağıdaki gibidir:
 
-- Azure dosya eşitleme ile eşitleme etkinleştirmeden önce bir veya birden çok Azure dosya paylaşımlarını toplu verilerinizi geçirin.
-- Data Box için geçişiniz toplu kullanmayı planlıyorsanız, gözden [Data Box için dağıtım önkoşulları](../../databox/data-box-deploy-ordered.md#prerequisites).
-- Son Azure dosya eşitleme topolojinizi planlayın. Daha fazla bilgi için [için Azure dosya eşitleme dağıtımı planlama](storage-sync-files-planning.md).
-- Eşitlemek istediğiniz dosya paylaşımlarını barındıracak hesapları ve Azure depolama hesabı seçin. Aynı depolama hesabı veya hesapları geçici hazırlama paylaşımlarını toplu verilerinizi geçirin. Son bir paylaşımı ve aynı depolama hesabında bulunan hazırlama paylaşımı kullanabilirsiniz.
-- Yeni bir eşitleme ilişkisinin bir sunucu konumu ile oluşturun. Mevcut bir eşitleme ilişkisinin toplu veri geçirmek için kullanamazsınız.
+- Data Box için geçişiniz toplu kullanmayı planlıyorsanız: Gözden geçirme [Data Box için dağıtım önkoşulları](../../databox/data-box-deploy-ordered.md#prerequisites).
+- Son Azure dosya eşitleme topolojinizi planlama: [Azure dosya eşitleme dağıtımı planlama](storage-sync-files-planning.md)
+- Eşitlemek istediğiniz dosya paylaşımlarını barındıracak bir Azure depolama hesabı seçin. Toplu geçişinizi geçici hazırlama paylaşımları aynı depolama hesapları yapıldığından emin olun. Toplu geçiş, yalnızca bir son - ve aynı depolama hesabında yer alan bir hazırlama-share yararlanarak etkinleştirilebilir.
+- Bir toplu geçiş, yalnızca bir sunucu konumu ile yeni bir eşitleme ilişkisinin oluşturduğunuzda yararlanılabilir. Mevcut bir eşitleme ilişkisi olan bir toplu geçiş etkinleştirilemiyor.
+
 
 ## <a name="process-for-offline-data-transfer"></a>Çevrimdışı veri aktarım işlemi
 Azure dosya eşitleme ', Azure Data Box gibi toplu Geçiş Araçları ile uyumlu bir şekilde ayarlamak nasıl aşağıda verilmiştir:
@@ -51,7 +51,7 @@ Azure dosya eşitleme ', Azure Data Box gibi toplu Geçiş Araçları ile uyumlu
 
 | Adım | Ayrıntı |
 |---|---------------------------------------------------------------------------------------|
-| ![1. Adım](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Data Box'ınızı sipariş](../../databox/data-box-deploy-ordered.md). Data Box ailesi teklifleri [birden çok ürünlerin](https://azure.microsoft.com/services/storage/databox/data) gereksinimlerinizi karşılayacak şekilde. Data Box'ınızı aldığınızda izleyin, [verilerinizi kopyalamak için belgeleri](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) Data box'taki bu UNC yolu: *\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>*. Burada, *ShareName* hazırlama paylaşım adıdır. Data Box Azure'a geri gönderin. |
+| ![1. Adım](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Data Box'ınızı sipariş](../../databox/data-box-deploy-ordered.md). Data Box ailesi teklifleri [birden çok ürünlerin](https://azure.microsoft.com/services/storage/databox/data) gereksinimlerinizi karşılayacak şekilde. Data Box'ınızı aldığınızda izleyin, [verilerinizi kopyalamak için belgeleri](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) Data box'taki bu UNC yolu:  *\\< DeviceIPAddres\>\<StorageAccountName_AzFile\> \<ShareName\>*. Burada, *ShareName* hazırlama paylaşım adıdır. Data Box Azure'a geri gönderin. |
 | ![2. Adım](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Geçici hazırlama paylaşımları olarak seçtiğiniz Azure dosya paylaşımlarını dosyalarınızı görünmesini bekleyin. *Bu paylaşımlara eşitleniyor etkinleştirmeyin.* |
 | ![3. Adım](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Data Box oluşturduğunuz her dosya paylaşımına yönelik yeni ve boş bir paylaşım oluşturun. Bu yeni paylaşıma Data Box paylaşım olarak aynı depolama hesabında olmalıdır. [Yeni bir Azure dosya paylaşımı oluşturma işlemini](storage-how-to-create-file-share.md). |
 | ![4. Adım](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Bir eşitleme grubu oluşturma](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) depolama eşitleme hizmetinde. Bulut uç noktası olarak boş paylaşım başvurusu. Her Data Box dosya paylaşımı için bu adımı yineleyin. [Azure dosya eşitleme ayarı](storage-sync-files-deployment-guide.md). |

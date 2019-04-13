@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5cca0d866442583c87665b3a1db8c65c66d12f0a
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 8621ebf474591c253dbd9ca24b36a36287ca8cf7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285386"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547717"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Linux (Önizleme) üzerinde Azure App Service'te bir Python uygulaması oluşturma
 
@@ -109,7 +109,7 @@ Checking connectivity... done.
 
 Örnek kodu içeren dizine geçin ve `az webapp up` komutunu çalıştırın.
 
-Aşağıdaki örnekte, < Uygulama adı > bir benzersiz uygulama adıyla değiştirin.
+Aşağıdaki örnekte, değiştirin `<app-name>` benzersiz bir uygulama adına sahip.
 
 ```bash
 cd python-docs-hello-world
@@ -205,13 +205,10 @@ Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar.
 Linux'ta App Service hizmetindeki yerleşik Python görüntüsü şu anda Önizleme aşamasındadır ve uygulamanızı başlatmak için kullanılan komutu özelleştirebilirsiniz. Ayrıca bunun yerine özel bir kapsayıcı kullanarak üretim aşamasında Python uygulamaları oluşturabilirsiniz.
 
 > [!div class="nextstepaction"]
-> [PostgreSQL ile Python](tutorial-python-postgresql-app.md)
+> [Öğretici: PostgreSQL ile Python uygulaması](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Özel başlangıç komutu yapılandırma](how-to-configure-python.md#customize-startup-command)
+> [Python uygulamasını yapılandırma](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Sorun giderme](how-to-configure-python.md#troubleshooting)
-
-> [!div class="nextstepaction"]
-> [Özel görüntüleri kullanma](tutorial-custom-docker-image.md)
+> [Öğretici: Python uygulaması özel kapsayıcısında çalıştırma](tutorial-custom-docker-image.md)

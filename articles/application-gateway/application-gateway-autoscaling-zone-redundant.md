@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: 4410dd9e61fe5b585ca5b245dbf33dbf8c38e701
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 95b14a0028134e522206f3595bc3b9ebf9aaf396
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010235"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548737"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Otomatik ölçeklendirme ve bölgesel olarak yedekli bir uygulama ağ geçidi (genel Önizleme)
 
@@ -31,7 +31,7 @@ Uygulama ağ geçidi ve Web uygulaması Güvenlik Duvarı (WAF) artık performan
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 > [!NOTE]
-> Otomatik ölçeklendirme ve bölgesel olarak yedekli bir uygulama ağ geçidi SKU'su artık destekliyor [varsayılan durum araştırması](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) otomatik olarak kendi arka uç havuzundaki tüm kaynakların durumunu izleyin ve herhangi bir kaynak havuzundan iyi durumda olmadığı kabul kaldırın. Varsayılan sistem durumu araştırması süre sonundan sonra otomatik olarak özel araştırma yapılandırmaların ayarlamasını yapmadığınızı tüm bu arka uçları için yapılandırılmış. Daha fazla bilgi için bkz. [sistem durumu araştırmalarının application Gateway'i](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
+> Otomatik ölçeklendirme ve bölgesel olarak yedekli bir uygulama ağ geçidi SKU'su artık destekliyor [varsayılan durum araştırması](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) otomatik olarak kendi arka uç havuzundaki tüm kaynakların durumunu izleyin ve kabul edilen bu arka uç üyeler vurgulayın sağlıksız. Varsayılan sistem durumu araştırması süre sonundan sonra otomatik olarak özel araştırma yapılandırmaların ayarlamasını yapmadığınızı tüm bu arka uçları için yapılandırılmış. Daha fazla bilgi için bkz. [sistem durumu araştırmalarının application Gateway'i](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>SKU v1 ve v2 SKU arasında özellik karşılaştırması
 

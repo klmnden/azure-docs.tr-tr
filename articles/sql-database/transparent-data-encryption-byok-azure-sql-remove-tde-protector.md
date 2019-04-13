@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 73fcb2753fa7eb15f34b04ddc5bb0b55c4636623
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 51cdd43e62bd511da55978bbac3215200c3a8e01
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847817"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528280"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell kullanarak bir saydam veri şifrelemesi (TDE) koruyucusu Kaldır
 
@@ -40,6 +40,12 @@ Aşağıdaki yordamlar, yalnızca olağanüstü durumlarda veya test ortamların
 Bir hizmet veya kullanıcı anahtarına erişimi yetkisiz gibi bir anahtar tehlikeye için hiç olmadığı kadar kuşkulanılıyor, anahtarı silmek idealdir.
 
 Unutmayın, bir kez TDE koruyucusu, anahtar Kasası'nda silinir **sunucunun altındaki şifreli veritabanlarına yönelik tüm bağlantılar engellenir ve bu veritabanları çevrimdışı ve 24 saat içinde bırakılır**. Güvenliği aşılmış bir anahtarla şifrelenmiş eski yedeklere artık erişilemez.
+
+Aşağıdaki adımlar, TDE koruyucusuna parmak izleri hala kullanımda tarafından sanal günlük dosyaları (VLF), belirli bir veritabanının nasıl kontrol edileceğini özetlemektedir. Parmak izini veritabanının ve veritabanı kimliği geçerli TDE koruyucusuna çalıştırarak bulunabilir: Seçme [database_id]       [encryption_state] [encryptor_type] /*asimetrik anahtar AKV anlamına gelir, sertifika, hizmet tarafından yönetilen anahtarlar anlamına gelir*/ [encryptor_thumbprint] ÖĞESİNDEN [sys]. [ dm_database_encryption_keys] 
+ 
+Aşağıdaki sorgu VLFs ve Şifreleyici kullanımda ilgili parmak izleri döndürür. Her farklı bir parmak izi farklı anahtarı Azure Key Vault (AKV) ifade eder: SEÇİN * ÖĞESİNDEN sys.dm_db_log_info (database_id) 
+
+PowerShell komutu Get-AzureRmSqlServerKeyVaultKey parmak izi, hangi anahtarlar tutmak ve içinde AKV silmek için hangi anahtarlar görebilmeniz için sorguda kullanılan olan TDE koruyucusuna sağlar. Artık veritabanı tarafından kullanılan anahtarları Azure Key Vault'tan güvenli bir şekilde silinebilir.
 
 Bu nasıl yapılır kılavuzunda sonra olay yanıtı istenen sonuca bağlı olarak iki yaklaşım üzerinden geçer:
 

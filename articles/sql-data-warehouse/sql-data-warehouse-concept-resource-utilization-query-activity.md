@@ -7,21 +7,24 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: de5d8a3cd329e023b57d887a22db5459f13c7486
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f80c1817d5c0ce79f2dc53f40a2cc4e00dd5c72b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492796"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545565"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda kaynak kullanımı ve sorgu etkinliğini izleme
 Azure SQL veri ambarı, Azure Portal, veri ambarı iş yükü için içgörüleri için zengin bir izleme deneyimi sağlar. Azure portalı, ölçüm ve günlükleri için yapılandırılabilir saklama süreleri, uyarıları, öneriler ve özelleştirilebilir grafikler ve panolar sağladığı gibi veri Ambarınızı izlerken önerilen araç winres.exe'dir. Portal Ayrıca, yalnızca veri ambarınızın aynı zamanda tüm Azure analiz için bütünsel bir izleme deneyimi sağlamak için Operations Management Suite (OMS) ve Azure İzleyici (günlükleri) gibi diğer Azure izleme hizmetleriyle tümleştirmenize olanak sağlar tümleşik bir izleme deneyimi için Platform. Bu belgede, izleme hangi özellikleri en iyi duruma getirmek ve SQL veri ambarı ile analiz platformunuz yönetmek kullanılabilen açıklanmaktadır. 
 
 ## <a name="resource-utilization"></a>Kaynak kullanımı 
 Aşağıdaki ölçümler, Azure portalında SQL veri ambarı için kullanılabilir. Bu ölçümler üzerinden çıkmış [Azure İzleyici](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
+
+> [!NOTE]
+> Şu anda nodu düzeyinde CPU ve g/ç ölçümleri veri ambarı kullanımı düzgün yansıtmıyor. Takım izleme ve sorun giderme deneyimini SQL veri ambarı için geliştikçe Bu ölçümler yakın gelecekte kaldırılacak. 
 
 | Ölçüm Adı                           | Açıklama     | Toplama Türü |
 | --------------------------------------- | ---------------- | --------------------------------------- |

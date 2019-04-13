@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: dcb38d839017d1c4ea5b6714f7c900c476ddcd6b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 01d982d91d772ccfd468ccdac6391f971be4f43b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494670"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546551"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Bir App Service Ortamı ile iç yük dengeleyici oluşturma ve kullanma #
 
@@ -170,7 +170,7 @@ Kendi sertifikalarınızı yüklemek ve erişimi test etmek için:
 
 4. ASE etki alanınızın DNS’ini ayarlayın. DNS’inizde etki alanınızla birlikte bir joker karakter kullanabilirsiniz. Bazı basit testler yapmak için uygulama adını VIP IP adresine ayarlamak için VM üzerindeki konak dosyalarını düzenleyin:
 
-    a. ASE'NİZİN etki alanı adı varsa _. ilbase.com_ adlı bir uygulama oluşturduğunuzda _mytestapp_, konumunda ele _mytestapp.ilbase.com_. Daha sonra ILB adresini çözümlemek için _mytestapp.ilbase.com_ adresini ayarlarsınız. (Windows’ta konak dosyası _C:\Windows\System32\drivers\etc\_ dizinindedir.)
+    a. ASE'NİZİN etki alanı adı varsa _. ilbase.com_ adlı bir uygulama oluşturduğunuzda _mytestapp_, konumunda ele _mytestapp.ilbase.com_. Daha sonra ILB adresini çözümlemek için _mytestapp.ilbase.com_ adresini ayarlarsınız. (Windows hosts dosyası altındadır _C:\Windows\System32\drivers\etc\\_.)
 
     b. Web dağıtımı yayımlamayı veya gelişmiş konsola erişimi test etmek için bir _mytestapp.scm.ilbase.com_ kaydı oluşturun.
 

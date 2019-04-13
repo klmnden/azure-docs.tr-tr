@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 09b652b236e1fbe68d93298f0f8793854e411aad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0c3525b73560d3edee5bffa7a391fcedeaaa1e48
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095679"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545103"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Kullanım C# üzerindeki HDInsight, Apache Hadoop akışı MapReduce ile
 
@@ -27,7 +27,7 @@ Apache Hadoop akışı MapReduce işlerinizi bir betik veya yürütülebilir dos
 
 ## <a name="net-on-hdinsight"></a>HDInsight üzerinde .NET
 
-__Linux tabanlı HDInsight__ kümeleri kullanım [Mono (https://mono-project.com) ](https://mono-project.com) .NET uygulamaları çalıştırmak için. HDInsight sürümü 3.6 ile Mono sürüm 4.2.1 dahildir. HDInsight ile dahil Mono sürümü hakkında daha fazla bilgi için bkz. [HDInsight bileşen sürümü](../hdinsight-component-versioning.md). Mono belirli bir sürümünü kullanmak için bkz: [yükleme veya güncelleştirme Mono](../hdinsight-hadoop-install-mono.md) belge.
+__Linux tabanlı HDInsight__ kümeleri kullanım [Mono (https://mono-project.com) ](https://mono-project.com) .NET uygulamaları çalıştırmak için. HDInsight sürümü 3.6 ile Mono sürüm 4.2.1 dahildir. HDInsight ile dahil Mono sürümü hakkında daha fazla bilgi için bkz. [HDInsight bileşen sürümü](../hdinsight-component-versioning.md). 
 
 .NET Framework sürümleri ile Mono uyumluluğu hakkında daha fazla bilgi için bkz. [Mono uyumluluğu](https://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -143,7 +143,7 @@ namespace reducer
 
 Uygulamayı oluşturduktan sonra bunu oluşturmak için yapı `/bin/Debug/reducer.exe` dosya proje dizininde.
 
-## <a name="upload-to-storage"></a>Depolamaya yükleme
+## <a name="upload-to-storage"></a>Depolama alanına yükleme
 
 1. Visual Studio'da açın **Sunucu Gezgini**.
 

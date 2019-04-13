@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 3/26/2019
+ms.date: 4/12/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 695a2ff827fc5514c3a32364026bc9d47c8a2121
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 3d06024b7fa4356d4ad0e8b52c45c2ead62ef784
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500329"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549670"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında Eylem grupları oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
@@ -90,7 +90,7 @@ E-posta eylemleri sınırlı sayıda bir eylem grubu içinde olabilir. Bkz: [bil
 
 **Ses** -ses Eylemler sınırlı sayıda bir eylem grubu içinde olabilir. Bkz: [bilgileri sınırlama oranı](./../../azure-monitor/platform/alerts-rate-limiting.md) makalesi.
 
-**Web kancası** -Web kancası eylemleri sınırlı sayıda bir eylem grubu içinde olabilir. Web kancaları, aşağıdaki kurallar kullanılarak yeniden denenir. Web kancası çağrısı denenir, 2 katı şu HTTP durum kodları, döndürülen en fazla: 408, 429, 503, 504 veya HTTP uç noktasına yanıt vermiyor. İlk yeniden deneme 10 saniye sonra yapılır. İkinci yeniden 100 saniye sonra gerçekleşir. İki hatasından sonra herhangi bir eylem grubu uç noktası 30 dakikalığına çağırır. 
+**Web kancası** -Web kancası eylemleri sınırlı sayıda bir eylem grubu içinde olabilir. Web kancaları, aşağıdaki kurallar kullanılarak yeniden denenir. Web kancası çağrısı denenir, 2 katı şu HTTP durum kodları, döndürülen en fazla: 408, 429, 503, 504 veya HTTP uç noktası yanıt vermez. İlk yeniden deneme 10 saniye sonra yapılır. İkinci yeniden 100 saniye sonra gerçekleşir. İki hatasından sonra herhangi bir eylem grubu uç noktası 30 dakikalığına çağırır. 
 
 Kaynak IP adresi aralıkları
  - 13.72.19.232
@@ -103,6 +103,7 @@ Kaynak IP adresi aralıkları
  - 52.244.68.117
  - 51.4.138.199
  - 51.5.148.86
+ - 51.5.149.19
 
 Önerilir, bu IP adreslerine yapılan değişiklikler hakkında güncelleştirmeler almak için [eylem grupları hizmeti hakkında bilgi veren bildirimleri için izleyen bir hizmet durumu Uyarısı,. yapılandırma
 

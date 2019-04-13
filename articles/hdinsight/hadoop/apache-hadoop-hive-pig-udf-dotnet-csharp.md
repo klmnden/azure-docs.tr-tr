@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: df8196389ecb92229ff9495002c4bce394d7c048
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: ac2edb4c12e95a915790c1fadfb2dcdcce554aad
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202716"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545582"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Kullanım C# Apache Hive ve Apache Pig, HDInsight, Apache Hadoop üzerinde akış ile kullanıcı tanımlı işlevler
 
@@ -46,8 +46,6 @@ Hem Hive ve Pig veri işleme için dış uygulama geçirebilirsiniz. Bu işlem o
 * __Linux tabanlı HDInsight__ kullanarak kümeleri [Mono (https://mono-project.com) ](https://mono-project.com) .NET uygulamaları çalıştırmak için. HDInsight sürümü 3.6 ile Mono sürüm 4.2.1 dahildir.
 
     .NET Framework sürümleri ile Mono uyumluluğu hakkında daha fazla bilgi için bkz. [Mono uyumluluğu](https://www.mono-project.com/docs/about-mono/compatibility/).
-
-    Mono belirli bir sürümünü kullanmak için bkz: [yükleme veya güncelleştirme Mono](../hdinsight-hadoop-install-mono.md) belge.
 
 * __Windows tabanlı HDInsight__ kümeleri .NET uygulamaları çalıştırmak için Microsoft .NET CLR kullanın.
 
@@ -154,7 +152,7 @@ HDInsight sürümleri dahil Mono ve .NET framework sürümü hakkında daha fazl
 
 3. Kaydet **Program.cs**ve ardından projeyi derleyin.
 
-## <a name="upload-to-storage"></a>Depolamaya yükleme
+## <a name="upload-to-storage"></a>Depolama alanına yükleme
 
 1. Visual Studio'da açın **Sunucu Gezgini**.
 

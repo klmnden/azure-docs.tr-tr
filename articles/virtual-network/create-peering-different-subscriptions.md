@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: ff8c866f62e8d795f04491cf249b7dae26c8269c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3294eda4d9330332bf23c3a8f1804f067373bf7a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492303"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528272"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Bir sanal ağ eşleme - oluşturma-Resource Manager, farklı abonelikler
 
@@ -27,9 +27,9 @@ Sanal ağlar aynı veya farklı olup, abonelikleri ve hangi bağlı olarak farkl
 
 |Azure dağıtım modeli  | Azure aboneliği  |
 |--------- |---------|
-|[Her ikisi de Resource Manager](tutorial-connect-virtual-networks-portal.md) |Aynı|
-|[Biri Resource Manager, diğeri klasik](create-peering-different-deployment-models.md) |Aynı|
-|[Biri Resource Manager, diğeri klasik](create-peering-different-deployment-models-subscriptions.md) |Fark|
+|[Her iki kaynak yöneticisi](tutorial-connect-virtual-networks-portal.md) |Aynı|
+|[Bir Resource Manager, diğeri Klasik](create-peering-different-deployment-models.md) |Aynı|
+|[Bir Resource Manager, diğeri Klasik](create-peering-different-deployment-models-subscriptions.md) |Fark|
 
 Bir sanal ağ eşlemesi iki sanal ağı Klasik dağıtım modeliyle dağıtılan arasında oluşturulamıyor. Klasik dağıtım modeliyle her ikisi de oluşturulan sanal ağlar bağlanmanız gerekirse, bir Azure kullanabileceğiniz [VPN ağ geçidi](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal ağları bağlamak için.
 
@@ -61,7 +61,7 @@ Aşağıdaki adımlar, her abonelik için farklı hesaplar kullanma. İki abonel
 7. Seçin **ağ Katılımcısı** içinde **rol** kutusu.
 8. İçinde **seçin** kutusunda, seçin *Kullanıcıb*, veya aramak için Kullanıcıb'in e-posta adresini yazın.
 9. **Kaydet**’i seçin.
-10. Altında **myVnetA - erişim denetimi (IAM)** seçin **özellikleri** seçenekleri sol taraftaki dikey listesinden. Kopyalama **kaynak kimliği**, bir sonraki adımda kullanılır. Kaynak Kimliği, aşağıdaki örneğe benzer: /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
+10. Altında **myVnetA - erişim denetimi (IAM)** seçin **özellikleri** seçenekleri sol taraftaki dikey listesinden. Kopyalama **kaynak kimliği**, bir sonraki adımda kullanılır. Kaynak Kimliği, aşağıdaki örneğe benzer: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
 11. Portalından UserA olarak oturum açın ve ardından UserB oturum açın.
 12. 2-3 girerek veya adım 3'te aşağıdaki değerleri seçerek, adımları tamamlayın:
 
@@ -74,7 +74,7 @@ Aşağıdaki adımlar, her abonelik için farklı hesaplar kullanma. İki abonel
     - **Konum**: *Doğu ABD*
 
 13. İçinde **kaynak Ara** türü portalın üst kısmındaki kutusu *myVnetB*. Seçin **myVnetB** arama sonuçlarında görüntülendiğinde.
-14. Altında **myVnetB**seçin **özellikleri** seçenekleri sol taraftaki dikey listesinden. Kopyalama **kaynak kimliği**, bir sonraki adımda kullanılır. Kaynak Kimliği, aşağıdaki örneğe benzer: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
+14. Altında **myVnetB**seçin **özellikleri** seçenekleri sol taraftaki dikey listesinden. Kopyalama **kaynak kimliği**, bir sonraki adımda kullanılır. Kaynak Kimliği, aşağıdaki örneğe benzer: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
 15. Seçin **erişim denetimi (IAM)** altında **myVnetB**ve ardından myVnetB, girmek için 5-10 adımları tamamlayın **Kullanıcıa** 8. adımda.
 16. Portalda UserB olarak dışında oturum ve UserA oturum açın.
 17. İçinde **kaynak Ara** türü portalın üst kısmındaki kutusu *myVnetA*. Seçin **myVnetA** arama sonuçlarında görüntülendiğinde.
@@ -111,7 +111,7 @@ Aşağıdaki komut dosyaları:
 CLI'yı ve bağımlılıklarını yüklemek yerine Azure Cloud Shell'i kullanabilirsiniz. Azure Cloud Shell doğrudan Azure portalının içinde çalıştırabileceğiniz ücretsiz bir Bash kabuğudur. Azure CLI, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Seçin **deneyin** , Azure hesabınızda oturum bir Cloud Shell çağıran aşağıdaki komut düğmesi.
 
 1. CLI oturumu açın ve Azure'da kullanarak UserA olarak oturum açma `azure login` komutu. Oturum açmada hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. İzinleri listesi için bkz. [sanal ağ eşleme izinleri](virtual-network-manage-peering.md#permissions).
-2. Aşağıdaki betiği bilgisayarınıza bir metin düzenleyicisine kopyalayın, yerine `<SubscriptionA-Id>` kimliği, SubscriptionA ile ardından değiştirilmiş betiği kopyalayın, CLI oturumu ve ENTER tuşuna yapıştırın `Enter`. Aboneliğinizi kimliği bilmiyorsanız, 'az account show' komutunu girin. Değeri **kimliği** çıktısında olduğundan, abonelik kimliği
+2. Aşağıdaki betiği bilgisayarınıza bir metin düzenleyicisine kopyalayın, yerine `<SubscriptionA-Id>` kimliği, SubscriptionA ile ardından değiştirilmiş betiği kopyalayın, CLI oturumu ve ENTER tuşuna yapıştırın `Enter`. Aboneliğinizi kimliği bilmiyorsanız, girin `az account show` komutu. Değeri **kimliği** çıktısında olduğundan, abonelik kimliği
 
     ```azurecli-interactive
     # Create a resource group.

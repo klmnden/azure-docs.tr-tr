@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 7cc8e46c841b6e385d1a3b442fdb63d465486af8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c5c103fcb7f80533f6f34cb51fd661364d77d6ef
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477735"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549044"
 ---
 # <a name="ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB'de IP Güvenlik Duvarı
 
@@ -19,7 +19,7 @@ Hesabınızda depolanan verilerin güvenliğini sağlamak için Azure Cosmos DB 
 
 ## <a id="ip-access-control-overview"></a>IP erişim denetimine genel bakış
 
-Varsayılan olarak, Azure Cosmos hesabınız isteği bir geçerli bir yetkilendirme belirteciyle birlikte sunulduğu sürece, internet'ten erişilebilir. IP ilke tabanlı erişim denetimini yapılandırmak için kullanıcının IP adresi veya IP adresi aralığı CIDR (sınıfsız etki alanları arası yönlendirme) formunda, istemci IP'leri, belirli bir Azure Cosmos hesabına erişmesi için izin verilen listesi olarak dahil edilecek dizi sağlamanız gerekir. Bu yapılandırma uygulandıktan sonra bu izin verilen liste dışındaki makinelerden gelen tüm istekler 403 (Yasak) yanıt alırsınız. IP Güvenlik Duvarı'nı kullanırken, Azure portalı hesabınıza erişmesine izin vermeniz önerilir. Erişim, hesabınız için Azure portalında görünmesi ölçümleri almak için de Veri Gezgini kullanımına olanak tanımak için gereklidir.
+Varsayılan olarak, Azure Cosmos hesabınız isteği bir geçerli bir yetkilendirme belirteciyle birlikte sunulduğu sürece, internet'ten erişilebilir. IP ilke tabanlı erişim denetimini yapılandırmak için kullanıcının IP adresi veya IP adresi aralığı CIDR (sınıfsız etki alanları arası yönlendirme) formunda, istemci IP'leri, belirli bir Azure Cosmos hesabına erişmesi için izin verilen listesi olarak dahil edilecek dizi sağlamanız gerekir. Bu yapılandırma uygulandıktan sonra bu izin verilen liste dışındaki makinelerden gelen tüm istekler 403 (Yasak) yanıt alırsınız. IP Güvenlik Duvarı'nı kullanırken, Azure portalı hesabınıza erişmesine izin vermeniz önerilir. Erişim, hesabınız için Azure portalında görünmesi ölçümleri almak için de Veri Gezgini kullanımına olanak tanımak için gereklidir. İzin vererek, hesabınıza erişmek için Azure portalına ek olarak, Veri Gezgini'ni kullanarak, ayrıca güvenlik duvarı kuralları geçerli IP adresinizi eklemek için Güvenlik Duvarı ayarlarını güncelleştirmeniz gerekir. Güvenlik Duvarı değişikliklerinin yayılması 15 dakika sürebileceğini unutmayın. 
 
 IP tabanlı güvenlik duvarı, alt ağ ve VNET erişim denetimiyle birleştirebilirsiniz. Bunları birleştirerek genel bir IP herhangi bir kaynağı ve/veya sanal ağ içindeki belirli bir alt ağdan erişimi sınırlayabilirsiniz. Alt ağ ve VNET tabanlı erişim denetimi kullanma hakkında daha fazla bilgi için [erişim Azure Cosmos DB kaynaklarını sanal ağlardan](vnet-service-endpoint.md).
 

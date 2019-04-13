@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 784fe19d1ae40a7cdff3cc853726d4c62265e0f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106942"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522359"
 ---
 # <a name="create-entities-without-utterances"></a>Konuşma olmadan varlık oluşturma
 
-Varlık, bir sözcük veya tümcecik ayıklanan istediğiniz utterance içinde temsil eder. Bir varlık (yerlerde, öğeleri, kişiler, olayları veya kavramları) benzer nesnelerinin bir koleksiyonunu içeren bir sınıfı temsil eder. Bazen uygulamanızın görevini gerçekleştirmek gerekli olan ve bilgi ıntent'e ilgili varlıkları anlatmaktadır. (Önce veya sonra) bir utterance bir hedefi veya sonraya gelen eklediğinizde varlık oluşturabileceğiniz bir amaç için bir utterance ekleme.
+Varlık, bir sözcük veya tümcecik ayıklanan istediğiniz utterance içinde temsil eder. Bir varlık (basamak, noktalar, kişiler, olayları veya kavramları) benzer nesnelerinin bir koleksiyonunu içeren bir sınıfı temsil eder. Bazen uygulamanızın görevini gerçekleştirmek gerekli olan ve bilgi ıntent'e ilgili varlıkları anlatmaktadır. (Önce veya sonra) bir utterance bir hedefi veya sonraya gelen eklediğinizde varlık oluşturabileceğiniz bir amaç için bir utterance ekleme.
 
 Ekleme, düzenleme veya LUIS uygulamanızda varlıklarını silme **varlıkları listesi** üzerinde **varlıkları** sayfası. LUIS, iki ana tür varlıklar sunar: [önceden oluşturulmuş varlıklarla](luis-reference-prebuilt-entities.md)ve kendi [özel varlıklar](luis-concept-entity-types.md#types-of-entities).
 
@@ -56,7 +56,7 @@ Bir varlığın tek bir kavramı açıklanmaktadır. Şirket bölüm adlarını 
 
 <a name="add-regular-expression-entities"></a>
 
-## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Normal ifade varlıkları ileri düzeyde yapılandırılmış kavramları ekleyin
+## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Yüksek düzeyde yapılandırılmış kavramlar için normal ifade varlıkları ekleyin
 
 Bir normal ifade varlık sağladığınız bir normal ifadeye göre utterance verileri dışarı çıkarmak için kullanılır. 
 
@@ -135,7 +135,7 @@ Utterance içinde `Where is Request relocation from employee new to the company 
 
 ## <a name="add-a-role-to-distinguish-different-contexts"></a>Farklı bağlamlardaki ayırt etmek için bir rol eklemek
 
-Adlandırılmış alt bağlamını temel alan bir varlığın rolüdür. İçin karşılaştırılabilir bir [hiyerarşik](#add-hierarchical-entities) varlık ancak rolleri yalnızca kullanıldığı [desenleri](luis-how-to-model-intent-pattern.md). 
+Bağlama göre adlandırılmış alt rolüdür. Önceden oluşturulmuş ve makine öğrenilen varlıklar dahil olmak üzere tüm varlıkları kullanılabilir. 
 
 Kaynak ve hedef şehirler, fark hiyerarşik varlığı aynı örneği kullanarak, bir rolü kaynağı yerine bir hiyerarşik alt olarak adlandırılır olduğu. 
 

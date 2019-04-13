@@ -11,18 +11,18 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: a4bf2ef252b5a948f2e3614e3e7cf64a4cb19277
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 472ff85adaf72f91948c4072b12cca3ff8e59f37
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772067"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545359"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Öğretici: Azure'da bir Java EE ve Postgres web uygulaması oluşturma
 
-Bu öğreticide, Azure App Service'te bir Java Enterprise Edition (EE) web uygulaması oluşturma ve Postgres veritabanına bağlanmak nasıl gösterilmektedir. İşlemi tamamladığınızda, olacaktır bir [WildFly](https://www.wildfly.org/about/) veri depolarken uygulama [Postgres için Azure veritabanı](https://azure.microsoft.com/services/postgresql/) Azure üzerinde çalışan [Linux üzerinde App Service'te](app-service-linux-intro.md).
+Bu öğreticide Azure App Service'te bir Java Enterprise Edition (EE) web uygulaması oluşturma ve bir Postgres veritabanı'na bağlanma gösterilmektedir. İşlemi tamamladığınızda, olacaktır bir [WildFly](https://www.wildfly.org/about/) veri depolarken uygulama [Postgres için Azure veritabanı](https://azure.microsoft.com/services/postgresql/) Azure üzerinde çalışan [Linux üzerinde App Service'te](app-service-linux-intro.md).
 
-Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
 > * Maven kullanarak Azure'a bir Java EE uygulama dağıtma
 > * Azure'da Postgres veritabanı oluşturma
@@ -158,7 +158,9 @@ Ardından, böylece daha önce kullandığımız bellek içi H2 veritabanı yeri
 
 ## <a name="configure-the-wildfly-application-server"></a>WildFly uygulama sunucusunu yapılandırma
 
-Yeniden yapılandırılan uygulamamız dağıtmadan önce biz WildFly uygulama sunucusu Postgres modülü ve bağımlılıkları ile güncelleştirmeniz gerekir. Sunucuyu yapılandırmak için şu dört dosyalarında gerekir `wildfly_config/` dizini:
+Yeniden yapılandırılan uygulamamız dağıtmadan önce biz WildFly uygulama sunucusu Postgres modülü ve bağımlılıkları ile güncelleştirmeniz gerekir. Daha fazla yapılandırma bilgileri şu adreste bulunabilir: [WildFly yapılandırma sunucusu](configure-language-java.md#configure-wildfly-server).
+
+Sunucuyu yapılandırmak için şu dört dosyalarında gerekir `wildfly_config/` dizini:
 
 - **postgresql-42.2.5.jar**: Bu JAR Dosyası Postgres için JDBC sürücüsü içindir. Daha fazla bilgi için [resmi Web sitesi](https://jdbc.postgresql.org/index.html).
 - **postgres module.xml**: Bu XML dosyası (org.postgres) Postgres modül için bir ad bildirir. Ayrıca, kullanılacak modülü için gerekli olan bağımlılıklar ve kaynakları belirtir.
@@ -172,7 +174,6 @@ Bu dosyaların içeriğini özellikle okuma önerisi _jboss_cli_commands.cli_.
 FTP içeriği ihtiyacımız `wildfly_config/` bizim App Service örneğine. FTP kimlik bilgilerinizi almak için tıklayın **yayımlama profili Al** düğme Azure portalında App Service dikey penceresinde. FTP kullanıcı adı ve parola indirilen XML belgesinde olacaktır. Yayımlama profili hakkında daha fazla bilgi için bkz. [bu belgeyi](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 Tercih ettiğiniz bir FTP aracını kullanarak, dört dosyaları aktarma `wildfly_config/` için `/home/site/deployments/tools/`. (, Dizin dosyaları kendilerinin yalnızca Aktarım değil unutmayın.)
-
 
 ### <a name="finalize-app-service"></a>App Service Sonlandır
 
@@ -195,9 +196,26 @@ Tebrikler! Uygulamanız artık Postgres veritabanı kullanıyor ve uygulama içi
 Bu kaynaklara başka bir öğretici için gereksinim duymuyorsanız (sonraki adımlara bakın), aşağıdaki komutu çalıştırarak silebilirsiniz:
 
 ```bash
-az group delete --name <your_resource_group> 
+az group delete --name <your-resource-group>
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-App Service için dağıtılan bir Java EE uygulama edindikten sonra lütfen bkz [Java Kurumsal Geliştirici Kılavuzu](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-java) Hizmetleri'ni ayarlama, sorun giderme ve uygulamanızı ölçeklendirme hakkında daha fazla bilgi için.
+Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
+
+> [!div class="checklist"]
+> * Maven kullanarak Azure'a bir Java EE uygulama dağıtma
+> * Azure'da Postgres veritabanı oluşturma
+> * WildFly sunucusunu Postgres kullanacak şekilde yapılandırma
+> * Uygulamayı güncelleştirme ve yeniden dağıtma
+> * WildFly üzerinde birim testleri çalıştırma
+
+Uygulamanıza özel bir DNS adı eşlemeyle ilgili bilgi edinmek için sonraki öğreticiye ilerleyin.
+
+> [!div class="nextstepaction"]
+> [Öğretici: Uygulamanıza özel DNS adı eşleme](../app-service-web-tutorial-custom-domain.md)
+
+Ya da diğer kaynaklara göz atın:
+
+> [!div class="nextstepaction"]
+> [Java uygulamasını yapılandırma](configure-language-java.md)

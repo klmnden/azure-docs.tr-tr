@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 58022ca4f605b4672cd9b6e22993fca8ff6dc591
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 977b59c3344eaf2c4877f51afea176455d22ecc9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510961"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546696"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Node.js uygulamasından Azure Tablo depolama veya Azure Cosmos DB Tablo API’sini kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -364,6 +364,8 @@ dc.table.queryEntities(tableName,
 ```
 
 `continuationToken` nesnesini incelerseniz, tüm sonuçlar arasında yineleme yapmak için kullanılabilecek `nextPartitionKey`, `nextRowKey` ve `targetLocation` gibi özellikleri bulursunuz.
+
+Ayrıca `top` ile birlikte `continuationToken` için sayfa boyutunu ayarlayın. 
 
 ## <a name="work-with-shared-access-signatures"></a>Paylaşılan erişim imzaları ile çalışma
 Paylaşılan erişim imzaları (SAS), Depolama hesabı adınızı veya anahtarlarınızı sağlamadan tablolara ayrıntılı erişim sağlamanın güvenli bir yoludur. SAS çoğu zaman verilerinize sınırlı erişim sağlamak (örneğin, bir mobil uygulamanın kayıtları sorgulamasına izin verme) için kullanılır.

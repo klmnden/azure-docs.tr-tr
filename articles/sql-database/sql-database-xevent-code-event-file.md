@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 0a9472dec9b76dfbde1690e11f13836746b0dfaa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 983a090942a77c2f40e0136b00acdc0a3d49c571
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862905"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528348"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL veritabanı'nda genişletilmiş olaylar için olay dosyası hedef kodu
 
@@ -463,9 +463,9 @@ GO
 
 ## <a name="output"></a>Çıktı
 
-Transact-SQL betik tamamlandığında, altında bir hücreyi tıklatın **event_data_XML** sütun başlığı. Bir **<event>** öğeyi gösteren bir güncelleştirme bildirimi görüntülenir.
+Transact-SQL betik tamamlandığında, altında bir hücreyi tıklatın **event_data_XML** sütun başlığı. Bir  **\<olay >** öğeyi gösteren bir güncelleştirme bildirimi görüntülenir.
 
-İşte **<event>** testi sırasında oluşturulan öğesi:
+İşte  **\<olay >** testi sırasında oluşturulan öğesi:
 
 
 ```xml

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: eb8e98f66d000290ce7eb07d3d73e82fbc43514a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491551"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548732"
 ---
 # <a name="set-alerts-in-application-insights"></a>Uygulama anlayışları'nda uyarılar ayarlayın
 [Azure Application Insights] [ start] web uygulamanızdaki performansı ya da kullanım ölçümleri değişikliklere uyarabilir. 
@@ -147,7 +147,7 @@ Bu bölümde, bir sorgu tabanlı özel durum uyarısı ayarlamak nasıl alacağ�
 
 ## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Klasik uyarı e-posta bildirim aboneliği nasıl
 
-Bu bölümde uygulandığı **Klasik kullanılabilirlik uyarıları**, **Application Insights ölçüm uyarıları**ve **Klasik hata anomalileri uyarılar**.
+Bu bölümde uygulandığı **Klasik kullanılabilirlik uyarıları**, **Klasik Application Insights ölçüm uyarıları**ve **Klasik hata anomalileri uyarılar**.
 
 Aşağıdakilerden biri geçerliyse bu Klasik uyarılar için e-posta bildirimleri alıyorsunuz:
 
@@ -183,7 +183,7 @@ Yeni uyarı deneyimi/neredeyse gerçek zamanlı uyarılar, rollerine bağlı ola
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Kullanılabilirlik web testleri](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Uyarıları Ayarlama otomatikleştirin](../../azure-monitor/app/powershell-alerts.md)
-* [Öngörülü tanılama](../../azure-monitor/app/proactive-diagnostics.md) 
+* [Proaktif tanılama](../../azure-monitor/app/proactive-diagnostics.md) 
 
 <!--Link references-->
 

@@ -1,6 +1,6 @@
 ---
 title: 'Öğretici: Yarı strutured verileri JSON bloblarını - Azure Search dizini oluşturma'
-description: Dizin ve Azure Search ve Postman kullanarak yarı yapılandırılmış Azure JSON bloblarını arama hakkında bilgi edinin.
+description: Dizin ve Azure Search REST API'lerini ve Postman kullanarak yarı yapılandırılmış Azure JSON bloblarını arama hakkında bilgi edinin.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 146b19716c1d98a4be0cdabd23f224a88e499c62
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 147f67f40a060f3e274fe1f3fa368ebfd01711b6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489236"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525356"
 ---
-# <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Öğretici: Dizin ve yarı yapılandırılmış verileri (JSON blobları) Azure Search'te arama
+# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST Öğreticisi: Dizin ve yarı yapılandırılmış verileri (JSON blobları) Azure Search'te arama
 
 Azure arama dizin JSON belgeleri ve Azure blob depolama kullanarak dizileri bir [dizin oluşturucu](search-indexer-overview.md) yarı yapılandırılmış verileri okumak nasıl olduğunu bilir. Yarı yapılandırılmış veriler, veriler içindeki içeriği ayıran etiketleri veya işaretleri içerir. Bu tam olarak sıralanması gerekir ve bir alan başına temelinde dizine bir ilişkisel veritabanı şeması gibi bir veri modeli için uyar veri resmi olarak yapılandırılmış, yapılandırılmamış verileri birbirinden ayırır.
 
@@ -59,9 +59,7 @@ Tüm istekleri hizmete gönderilen her istekte bir API anahtarı gerektirir. İs
 
 1. [Azure portalında oturum açın](https://portal.azure.com), Azure depolama hesabınıza gidin, tıklayın **Blobları**ve ardından **+ kapsayıcı**.
 
-1. [Bir Blob kapsayıcısı oluşturursunuz](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) örnek verileri içerecek şekilde. Bir anahtar ve depolama hesabı adı bağlantı için kullanacağınız için kapsayıcının genel erişim düzeyi, "Kapsayıcı (kapsayıcı için anonim okuma erişimi)" olarak ayarlandığından emin olun.
-
-   ![Genel erişim düzeyi ayarlamak](media/search-semi-structured-data/container-public-access-level.png "genel erişim düzeyi ayarlama")
+1. [Bir Blob kapsayıcısı oluşturursunuz](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) örnek verileri içerecek şekilde. Genel erişim düzeyi geçerli değerleri birini ayarlayabilirsiniz.
 
 1. Kapsayıcıyı oluşturduktan sonra dosyayı açın ve seçin **karşıya** komut çubuğunda.
 

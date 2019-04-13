@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 1f55e03d9a925bf939d627f376d29edf27461e74
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001128"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522719"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Azure İzleyici Windows olay günlüğü veri kaynağı
 Windows olay günlükleri, en sık kullanılan bir [veri kaynakları](agent-data-sources.md) birçok uygulama Windows olay günlüğüne yazma beri Windows aracılarını kullanarak veri toplama için.  İzlemeniz gereken uygulamaları tarafından oluşturulan tüm özel günlükleri belirtmenin yanı sıra sistem ve uygulama gibi standart günlüklerinden olayları toplayabilir.
 
-![Windows olayları](media/data-sources-windows-events/overview.png)     
+![Windows Olayları](media/data-sources-windows-events/overview.png)     
 
 ## <a name="configuring-windows-event-logs"></a>Yapılandırma Windows olay günlükleri
 Windows olay günlüklerini yapılandırma [Gelişmiş ayarlar veri menüde](agent-data-sources.md#configuring-data-sources).
@@ -54,7 +54,7 @@ Windows olay kayıtlarını bir türü sahip **olay** ve aşağıdaki tabloda g�
 | EventLevelName |Metin biçiminde etkinliğin önem derecesi. |
 | EventLog |Olay toplanan olay günlüğü adı. |
 | ParameterXml |XML biçiminde olay parametre değerleri. |
-| ManagementGroupName |System Center Operations Manager aracıları için yönetim grubunun adı.  Diğer aracılar için bu değer AOI -:<workspace ID> |
+| ManagementGroupName |System Center Operations Manager aracıları için yönetim grubunun adı.  Diğer aracılar için bu değer `AOI-<workspace ID>` |
 | RenderedDescription |Parametre değerleri ile olay açıklaması |
 | Kaynak |Olayın kaynağı. |
 | SourceSystem |Olay toplandığı aracı türü. <br> OpsManager – Windows Aracısı, doğrudan bağlanın veya Operations Manager yönetilen <br> Linux – tüm Linux aracıları  <br> AzureStorage – Azure tanılama |

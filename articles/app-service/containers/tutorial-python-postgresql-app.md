@@ -1,6 +1,6 @@
 ---
-title: -Azure App Service Linux üzerinde PostgreSQL ile Python uygulaması derleme | Microsoft Docs
-description: Azure'da bir PostgreSQL veritabanına bağlantısı olan veri temelli bir Python uygulamasını nasıl çalıştıracağınızı öğrenin.
+title: Linux - Azure App Service üzerinde PostgreSQL ile Python (Django) | Microsoft Docs
+description: Azure'da bir PostgreSQL veritabanına bağlantısı olan veri temelli bir Python uygulamasını nasıl çalıştıracağınızı öğrenin. Django öğreticide kullanılır.
 services: app-service\web
 documentationcenter: python
 author: cephalin
@@ -9,15 +9,15 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/29/2018
+ms.date: 03/27/2019
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 00fc92ebe8b43f16791adce1f1cb9a1d6da7fbde
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f82cccb66c0aae93afe19259393f094d0627c801
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534149"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546430"
 ---
 # <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Azure App Service'te bir Python ve PostgreSQL uygulaması oluşturma
 
@@ -166,21 +166,21 @@ Bu adımda, Azure’da bir SQL Veritabanı oluşturursunuz. Uygulamanız Azure�
 
 Cloud Shell'de [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) komutuyla bir PostgreSQL sunucusu oluşturun.
 
-Aşağıdaki örnek komutta *\<postgresql_name>* yerine benzersiz bir sunucu adı, *\<admin_username>* ve *\<admin_password>* yerine de kullanmak istediğiniz kullanıcı bilgilerini yazın. Kullanıcı kimlik bilgileri, veritabanı yöneticisi hesabı için geçerli olacaktır. Sunucu adı, PostgreSQL uç noktasının bir parçası olan `https://<postgresql_name>.postgres.database.azure.com` olarak kullanıldığından, adın Azure’daki tüm sunucularda benzersiz olması gerekir.
+Aşağıdaki örnek komutta  *\<postgresql-name >* benzersiz bir sunucu adı ve Değiştir  *\<yönetici kullanıcı adı >* ve  *\<yönetici parolası >* istenen kullanıcı kimlik bilgileriyle. Kullanıcı kimlik bilgileri, veritabanı yöneticisi hesabı için geçerli olacaktır. Sunucu adı, PostgreSQL uç noktasının bir parçası olan `https://<postgresql-name>.postgres.database.azure.com` olarak kullanıldığından, adın Azure’daki tüm sunucularda benzersiz olması gerekir.
 
 ```azurecli-interactive
-az postgres server create --resource-group myResourceGroup --name <postgresql_name> --location "West Europe" --admin-user <admin_username> --admin-password <admin_password> --sku-name B_Gen4_1
+az postgres server create --resource-group myResourceGroup --name <postgresql-name> --location "West Europe" --admin-user <admin-username> --admin-password <admin-password> --sku-name B_Gen4_1
 ```
 
 PostgreSQL için Azure Veritabanı sunucusu oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir:
 
 ```json
 {
-  "administratorLogin": "<admin_username>",
-  "fullyQualifiedDomainName": "<postgresql_name>.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>",
+  "administratorLogin": "<admin-username>",
+  "fullyQualifiedDomainName": "<postgresql-name>.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql-name>",
   "location": "westus",
-  "name": "<postgresql_name>",
+  "name": "<postgresql-name>",
   "resourceGroup": "myResourceGroup",
   "sku": {
     "capacity": 1,
@@ -194,24 +194,23 @@ PostgreSQL için Azure Veritabanı sunucusu oluşturulduğunda Azure CLI, aşağ
 ```
 
 > [!NOTE]
-> \<admin_username> ve \<admin_password> değerlerini daha sonra kullanmak üzere aklınızda tutun. Postgre sunucusu ve veritabanlarında oturum açmak için bunlara ihtiyacınız vardır.
-
+> Unutmayın \<yönetici kullanıcı adı > ve \<yönetici parolası > için daha sonra. Postgre sunucusu ve veritabanlarında oturum açmak için bunlara ihtiyacınız vardır.
 
 ### <a name="create-firewall-rules-for-the-postgresql-server"></a>PostgreSQL sunucusu için güvenlik duvarı kuralları oluşturma
 
 Azure kaynaklarından veritabanına erişim izni vermek için Cloud Shell'de aşağıdaki Azure CLI komutunu çalıştırın.
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAllAzureIPs
+az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql-name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAllAzureIPs
 ```
 
 > [!NOTE]
 > Bu ayar, Azure ağ içindeki tüm IP’lerden ağ bağlantılarına izin verir. Üretim kullanımı için, [yalnızca uygulamanızın kullandığı giden IP adreslerini kullanarak](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips) en kısıtlayıcı güvenlik duvarı kurallarını yapılandırmayı deneyin.
 
-Cloud Shell'de *\<your_ip_address>* yerine [yerel IPv4 IP adresinizi](https://www.whatsmyip.org/) yazdıktan sonra komutu tekrar çalıştırarak yerel bilgisayarınızdan erişim izni verin.
+Cloud Shell'de değiştirerek yeniden yerel bilgisayarınızdan erişim izin vermek için komutu çalıştırın  *\<your-ip-address >* ile [IPv4 IP adresinizi](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address> --name AllowLocalClient
+az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql-name> --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address> --name AllowLocalClient
 ```
 
 ## <a name="connect-python-app-to-production-database"></a>Python uygulamasını üretim veritabanına bağlama
@@ -223,7 +222,7 @@ Bu adımda, Django örnek uygulamanızı oluşturduğunuz PostgreSQL sunucusu i�
 Cloud Shell'de aşağıdaki komutu çalıştırarak veritabanına bağlanın. Yönetici parolanızı girmeniz istendiğinde [PostgreSQL için Azure Veritabanı sunucusu oluşturma](#create-an-azure-database-for-postgresql-server) bölümünde belirttiğiniz parolayı kullanın.
 
 ```bash
-psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<postgresql_name> postgres
+psql -h <postgresql-name>.postgres.database.azure.com -U <admin-username>@<postgresql-name> postgres
 ```
 
 Yerel Postgres sunucunuzda olduğu gibi, Azure Postgres sunucusunda veritabanı ve kullanıcıyı oluşturun.
@@ -245,14 +244,14 @@ Yerel terminal penceresinde, veritabanı ortam değişkenlerini değiştirin (ç
 
 ```bash
 # Bash
-export DBHOST="<postgresql_name>.postgres.database.azure.com"
-export DBUSER="manager@<postgresql_name>"
+export DBHOST="<postgresql-name>.postgres.database.azure.com"
+export DBUSER="manager@<postgresql-name>"
 export DBNAME="pollsdb"
 export DBPASS="supersecretpass"
 
 # PowerShell
-$Env:DBHOST = "<postgresql_name>.postgres.database.azure.com"
-$Env:DBUSER = "manager@<postgresql_name>"
+$Env:DBHOST = "<postgresql-name>.postgres.database.azure.com"
+$Env:DBUSER = "manager@<postgresql-name>"
 $Env:DBNAME = "pollsdb"
 $Env:DBPASS = "supersecretpass"
 ```
@@ -315,22 +314,21 @@ WhiteNoise yapılandırma hakkında daha fazla bilgi için bkz. [WhiteNoise belg
 > [!IMPORTANT]
 > Veritabanı ayarları bölümü zaten ortam değişkenlerini kullanarak en iyi güvenlik uygulamalarını takip eder. Tam dağıtım önerileri için bkz: [Django belgeleri: dağıtım denetim listesi](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).
 
-
 Yaptığınız değişiklikleri depoya uygulayın.
 
 ```bash
 git commit -am "configure for App Service"
 ```
 
-### <a name="configure-a-deployment-user"></a>Dağıtım kullanıcısı yapılandırma
+### <a name="configure-deployment-user"></a>Dağıtım kullanıcısı yapılandırma
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user-no-h.md)]
 
-### <a name="create-an-app-service-plan"></a>App Service planı oluşturma 
+### <a name="create-app-service-plan"></a>App Service planı oluşturma
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-### <a name="create-a-web-app"></a>Web uygulaması oluşturma 
+### <a name="create-web-app"></a>Web uygulaması oluşturma
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
 
@@ -343,8 +341,10 @@ App Service’te, Cloud Shell'de [`az webapp config appsettings set`](/cli/azure
 Şu örnek, veritabanı bağlantı ayrıntılarını uygulama ayarları olarak belirtir. 
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="pollsdb"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DBHOST="<postgresql-name>.postgres.database.azure.com" DBUSER="manager@<postgresql-name>" DBPASS="supersecretpass" DBNAME="pollsdb"
 ```
+
+Bu uygulama ayarlarını kodunuzda nasıl erişildiğini hakkında daha fazla bilgi için bkz: [ortam değişkenlerine erişme](how-to-configure-python.md#access-environment-variables).
 
 ### <a name="push-to-azure-from-git"></a>Git üzerinden Azure'a gönderme
 
@@ -368,7 +368,7 @@ remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
 . 
 remote: Deployment successful.
 remote: App container will begin restart within 10 seconds.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git 
+To https://<app-name>.scm.azurewebsites.net/<app-name>.git 
    06b6df4..6520eea  master -> master
 ```  
 
@@ -379,32 +379,22 @@ App Service dağıtım sunucusu görür _requirements.txt_ depo kökünde ve Pyt
 Dağıtılan uygulamaya gidin. Uygulama ilk kez çağrıldığında kapsayıcının indirilmesi ve çalışması gerektiğinden başlatılması biraz uzun sürebilir. Sayfa zaman aşımına uğrar veya hata iletisi görüntülerse, birkaç dakika bekleyip sayfayı yenileyin.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 Daha önce oluşturduğunuz yoklama soru görmeniz gerekir. 
 
 App Service bakarak deponuzda Django projesi algılar bir _wsgi.py_ her alt dizininde oluşturulduğu tarafından `manage.py startproject` varsayılan olarak. Dosyayı bulur, Django uygulaması yükler. App Service Python uygulamaları nasıl yükler ile ilgili daha fazla bilgi için bkz: [yapılandırma yerleşik Python görüntüsünü](how-to-configure-python.md).
 
-Gidin `<app_name>.azurewebsites.net` ve aynı yönetici kullanıcı, oluşturduğunuz kullanarak oturum açın. İsterseniz, bazı yoklama sorularım oluşturmayı deneyin.
+Gidin `<app-name>.azurewebsites.net` ve aynı yönetici kullanıcı, oluşturduğunuz kullanarak oturum açın. İsterseniz, bazı yoklama sorularım oluşturmayı deneyin.
 
 ![Yerel olarak çalışan Python Django uygulaması](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
 **Tebrikler!** Linux için App Service’te bir Python uygulaması çalıştırıyorsunuz.
 
-## <a name="access-diagnostic-logs"></a>Tanılama günlüklerine erişim
+## <a name="stream-diagnostic-logs"></a>Tanılama günlüklerini akışla aktarma
 
-Linux üzerinde App Service'te uygulamaları varsayılan bir Docker görüntüsü kapsayıcının içinde çalıştırılır. Kapsayıcı içinde oluşturulan yönlendirilen konsol günlüklerini erişebilirsiniz. Günlükleri almak için önce Cloud Shell'de aşağıdaki komutu çalıştırarak kapsayıcı günlüğü etkinleştirin:
-
-```azurecli-interactive
-az webapp log config --name <app_name> --resource-group myResourceGroup --docker-container-logging filesystem
-```
-
-Kapsayıcı günlüğe kaydetme etkinleştirildikten sonra günlük akışını görmek için aşağıdaki komutu çalıştırın:
-
-```azurecli-interactive
-az webapp log tail --name <app_name> --resource-group myResourceGroup
-```
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
 ## <a name="manage-your-app-in-the-azure-portal"></a>Uygulamanızı Azure portalında yönetme
 
@@ -434,8 +424,9 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 Uygulamanıza özel bir DNS adı eşlemeyle ilgili bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Mevcut bir özel DNS adını Azure App Service'e eşlemek](../app-service-web-tutorial-custom-domain.md)
+> [Öğretici: Uygulamanıza özel DNS adı eşleme](../app-service-web-tutorial-custom-domain.md)
+
+Ya da diğer kaynaklara göz atın:
 
 > [!div class="nextstepaction"]
-> [Yerleşik Python görüntüsünü ve hatalarında sorun giderme yapılandırın](how-to-configure-python.md)
-
+> [Python uygulamasını yapılandırma](how-to-configure-python.md)

@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 4ae4c3100ae13fdb05e17974b433b247128c1a50
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: bda289e73b9a782cd56c0c94b8f53e8002b1ccf4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805076"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59532393"
 ---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>Ağ yapılandırma dosyasından PowerShell kullanarak bir sanal ağ oluşturma
-Azure aboneliği kullanılabilir tüm sanal ağları tanımlamak için bir xml dosyası kullanır. Bu dosyayı yükleyin, değiştirmek veya varolan sanal ağlar silmek için düzenlemek ve yeni sanal ağlar oluşturun. Bu öğreticide öğrenmek için ağ yapılandırması (veya netcfg) dosyası olarak adlandırılan bu dosyayı yükleyin ve yeni bir sanal ağ oluşturmak üzere düzenleyebilirsiniz. Ağ yapılandırma dosyası hakkında daha fazla bilgi için bkz: [Azure virtual network yapılandırma şeması](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+Azure aboneliği kullanılabilir tüm sanal ağları tanımlamak için bir xml dosyası kullanır. Bu dosyayı indirin, değiştirmek veya var olan sanal ağları silmek için düzenleyin ve yeni sanal ağ oluşturun. Bu öğreticide indirmek için ağ yapılandırma (veya netcfg) dosyası olarak adlandırılır. Bu dosya, öğrenin ve yeni bir sanal ağ oluşturmak için düzenleyin. Ağ yapılandırma dosyasını hakkında daha fazla bilgi için bkz: [Azure virtual network yapılandırma şeması](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
-PowerShell kullanarak bir netcfg dosyasını bir sanal ağ oluşturmak için aşağıdaki adımları tamamlayın:
+PowerShell kullanarak bir netcfg dosyasını ile bir sanal ağ oluşturmak için aşağıdaki adımları tamamlayın:
 
-1. Azure PowerShell'i hiç kullanmadıysanız, bölümündeki adımları tamamlamanız [yükleme ve yapılandırma Azure PowerShell](/powershell/azureps-cmdlets-docs) makalesi, ardından Azure oturumu açın ve aboneliğinizi seçin.
-2. Azure PowerShell konsolundan kullanmak **Get-AzureVnetConfig** aşağıdaki komutu çalıştırarak, bilgisayarınızdaki bir dizine ağ yapılandırma dosyası indirme girişiminde cmdlet: 
+1. Azure PowerShell'i hiç kullanmadıysanız, adımları tamamlamanız [yükleme ve yapılandırma, Azure PowerShell](/powershell/azureps-cmdlets-docs) makalesi, sonra Azure'da oturum açın ve aboneliğinizi seçin.
+2. Azure PowerShell konsolunu **Get-AzureVnetConfig** cmdlet'i aşağıdaki komutu çalıştırarak ağ yapılandırma dosyasını bilgisayarınızdaki bir dizine indirmek için: 
    
    ```powershell
    Get-AzureVNetConfig -ExportToFile c:\azure\NetworkConfig.xml
@@ -35,8 +35,8 @@ PowerShell kullanarak bir netcfg dosyasını bir sanal ağ oluşturmak için aş
       <?xml version="1.0" encoding="utf-8"?>...
       ```
 
-3. Herhangi bir XML veya metin düzenleyicisi uygulama kullanarak 2. adımda kaydettiğiniz dosyayı açın ve Ara **<VirtualNetworkSites>** öğesi. Önceden oluşturulmuş tüm ağlarınız varsa, her ağ kendi olarak görüntülenen **<VirtualNetworkSite>** öğesi.
-4. Bu senaryoda açıklanan sanal ağ oluşturmak için aşağıdaki XML yalnızca altında eklemek **<VirtualNetworkSites>** öğe:
+3. Herhangi bir XML veya metin düzenleyicisi uygulamayı kullanarak 2. adımda kaydettiğiniz dosyayı açın ve Ara  **\<VirtualNetworkSites >** öğesi. Önceden oluşturulmuş herhangi bir ağa varsa, her ağ kendi olarak görüntülenen  **\<VirtualNetworkSite >** öğesi.
+4. Bu senaryoda açıklanan sanal ağ oluşturmak için aşağıdaki XML altına ekleyin  **\<VirtualNetworkSites >** öğesi:
 
    ```xml
          <?xml version="1.0" encoding="utf-8"?>
@@ -62,7 +62,7 @@ PowerShell kullanarak bir netcfg dosyasını bir sanal ağ oluşturmak için aş
    ```
    
 5. Ağ yapılandırma dosyasını kaydedin.
-6. Azure PowerShell konsolundan kullanmak **kümesi AzureVnetConfig** cmdlet'i aşağıdaki komutu çalıştırarak ağ yapılandırma dosyasını karşıya yüklemek için: 
+6. Azure PowerShell konsolunu **kümesi AzureVnetConfig** cmdlet'i aşağıdaki komutu çalıştırarak ağ yapılandırma dosyasını karşıya yüklemek için: 
    
    ```powershell
    Set-AzureVNetConfig -ConfigurationPath c:\azure\NetworkConfig.xml
@@ -76,9 +76,9 @@ PowerShell kullanarak bir netcfg dosyasını bir sanal ağ oluşturmak için aş
       Set-AzureVNetConfig  <Id>                                 Succeeded 
       ```
    
-   Varsa **OperationStatus** değil *başarılı* döndürülen çıkış hatalar ve tam adım 6 için xml dosyasını yeniden denetleyin.
+   Varsa **OperationStatus** değil *başarılı* döndürülen Çıkışta, hatalar ve tam adım 6 için xml dosyasını yeniden denetleyin.
 
-7. Azure PowerShell konsolundan kullanmak **Get-AzureVnetSite** cmdlet yeni bir ağ aşağıdaki komutu çalıştırarak eklendiğini doğrulamak için: 
+7. Azure PowerShell konsolunu **Get-AzureVnetSite** cmdlet'i yeni bir ağ aşağıdaki komutu çalıştırarak eklendiğini doğrulamak için: 
 
    ```powershell
    Get-AzureVNetSite -VNetName TestVNet

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/20/2018
+ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: f45f1831572387aa6997700432a7fe156d9b6a92
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 54602425ae6e1ff65a8445355af2eca09d495b05
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495454"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548687"
 ---
 # <a name="create-a-nodejs-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service'te bir Node.js uygulaması oluşturma
 
@@ -191,4 +191,7 @@ Bu komutun çalıştırılması bir dakika sürebilir.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [MongoDB ile Node.js](tutorial-nodejs-mongodb-app.md)
+> [Öğretici: MongoDB ile node.js uygulaması](tutorial-nodejs-mongodb-app.md)
+
+> [!div class="nextstepaction"]
+> [Node.js uygulamasını yapılandırma](configure-language-nodejs.md)

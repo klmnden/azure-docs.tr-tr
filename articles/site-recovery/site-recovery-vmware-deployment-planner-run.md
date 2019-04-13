@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 1cf324887a225ecb9ba2cb40176a1f358e40a8e1
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: a3aef06e6ee0d3989a4da8fdd93d27d28f2eede4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361982"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527688"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Vmware'den azure'a olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısı'nı çalıştırın
 Bu makale, VMware’den Azure’a üretim dağıtımları için Azure Site Recovery Dağıtım Planlayıcısı kullanım kılavuzudur.
@@ -21,7 +21,7 @@ Bu makale, VMware’den Azure’a üretim dağıtımları için Azure Site Recov
 ## <a name="modes-of-running-deployment-planner"></a>Dağıtım planlayıcısını çalıştırma modları
 Komut satırı aracını (ASRDeploymentPlanner.exe) şuradaki dört modun herhangi birinde çalıştırabilirsiniz:
 
-1.  [Profil Oluşturma](#profile-vmware-vms)
+1.  [Profil oluşturma](#profile-vmware-vms)
 2.  [Rapor oluşturma](#generate-report)
 3.  [Aktarım hızı alma](#get-throughput)
 
@@ -135,8 +135,8 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 >* Depolama hesabı adı ve anahtarı geçirildiğinde, araç profil oluşturma işleminin son adımında aktarım hızını ölçer. Profil oluşturma tamamlanmadan önce araç kapatılırsa, aktarım hızı hesaplanmaz. Raporu oluşturmadan önce aktarım hızını bulmak için, komut satırı konsolundan GetThroughput işlemini çalıştırabilirsiniz. Aksi takdirde, oluşturulan rapor aktarım hızı bilgilerini içermez.
 
 
-## <a name="generate-report"></a>Rapor oluştur
-Araç, rapor çıktısı olarak tüm dağıtım önerilerini özetleyen makro özellikli bir Microsoft Excel dosyası (XLSM dosyası) oluşturur. Rapor, DeploymentPlannerReport_<unique numeric identifier>.xlsm olarak adlandırılıp belirtilen dizine yerleştirilir.
+## <a name="generate-report"></a>Rapor oluşturma
+Araç, rapor çıktısı olarak tüm dağıtım önerilerini özetleyen makro özellikli bir Microsoft Excel dosyası (XLSM dosyası) oluşturur. Rapor adlı `DeploymentPlannerReport_<unique numeric identifier>.xlsm` ve belirtilen dizine yerleştirilir.
 
 >[!NOTE]
 >Rapor, ondalık ayırıcı olarak yapılandırılmış gerektirir "." dağıtım Planlayıcısını çalıştırdığınız sunucunun maliyet tahminlerini oluşturmak için. Durumda olan kurulum "," olarak ondalık sembolünü bir Windows makinede Lütfen Denetim Masası'ndaki "Değişiklik tarihi, saati veya sayı biçimlerini" gidin ve "Ek"ondalık sembole değiştirmek için "ayarlar." gidin.
@@ -214,7 +214,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 ```
 
 ## <a name="percentile-value-used-for-the-calculation"></a>Hesaplama için kullanılan yüzdelik değer
-**Bir rapor oluşturduğunda performans ölçümlerinin hangi varsayılan yüzdelik dilim değeri, profil oluşturma sırasında toplanan araç kullanımı mu?**
+**Rapor oluşturulurken, profil oluşturma sırasında toplanan performans ölçümlerinin hangi varsayılan yüzdelik dilim değeri araç tarafından kullanılır?**
 
 Aracın, tüm sanal makinelerin profili oluşturulurken toplanan okuma/yazma IOPS, yazma IOPS ve veri değişim sıklığı için varsayılan değeri yüzde 95’lik dilimdir. Bu ölçüm, VM’lerinizin geçici olaylar nedeniyle görebileceği %100’lük dilim artışının, hedef depolama hesabı ve kaynak bant genişliği gereksinimlerini belirlemek için kullanılmamasını sağlar. Örneğin, geçici olay günde bir kez gerçekleştirilen bir yedekleme işi, düzenli aralıklarla yapılan veritabanı dizini oluşturma veya analiz raporu oluşturma etkinliği ya da kısa süreli diğer benzer olaylar olabilir.
 
@@ -226,7 +226,7 @@ Yüzde 95’lik dilim değeri, gerçek iş yükü özelliklerinin gerçek bir re
 ```
 
 ## <a name="growth-factor-considerations"></a>Büyüme faktörü ile ilgili dikkat edilmesi gerekenler
-**Dağıtımları planlarken neden büyüme faktörünü de düşünmelisiniz?**
+**Dağıtımları planlarken neden büyüme faktörünü göz önünde bulundurmalıyım?**
 
 Zaman içindeki kullanımın olası artışı varsayılarak, iş yükü özelliklerinizde büyümenin hesaba katılması önemlidir. Koruma uygulandıktan sonra iş yükü özellikleriniz değişirse, korumayı devre dışı bırakıp yeniden etkinleştirmeden farklı bir depolama hesabına geçiş yapamazsınız.
 
@@ -240,12 +240,12 @@ Büyümeyi dağıtım planlaması sırasında ve varsayılan değer yüzde 30 ik
 
 Oluşturulan Microsoft Excel raporu aşağıdaki bilgileri içerir:
 
-* [Şirket içi özeti](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
+* [Şirket İçi Özeti](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
 * [Öneriler](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
-* [VM <> - depolama yerleşimi](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
+* [VM<->Depolama Yerleşimi](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
 * [Uyumlu VM’ler](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
 * [Uyumsuz VM’ler](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
-* [Maliyet tahmini](site-recovery-vmware-deployment-planner-cost-estimation.md)
+* [Maliyet Tahmini](site-recovery-vmware-deployment-planner-cost-estimation.md)
 
 ![Dağıtım planlayıcısı](media/site-recovery-vmware-deployment-planner-analyze-report/Recommendations-v2a.png)
 

@@ -1,7 +1,7 @@
 ---
 title: JSON bloblarını dizine ekleme gelen tam metin arama - Azure Search için Azure Blob dizin oluşturucu
 description: Azure Search Blob Dizin Oluşturucu kullanarak metin içeriği için Azure JSON bloblarını gezinin. Dizin oluşturucular veri alımı Azure Blob Depolama gibi seçili veri kaynakları için otomatik hale getirin.
-ms.date: 02/28/2019
+ms.date: 04/11/2019
 author: HeidiSteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: f44161586f9f4e121001b9f5e285b0e1e1dcd9d1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6db86d3e5aba1a2e43e69e71df8cc516fb14581f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518754"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527362"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Azure Search Blob Dizin Oluşturucu kullanarak JSON bloblarını dizinleme
 Bu makalede bir Azure Search blob yapılandırma işlemi gösterilmektedir [dizin oluşturucu](search-indexer-overview.md) JSON belgeleri olarak Azure Blob depolama alanından yapılandırılmış içeriği ayıklamak ve Azure Search aranabilir hale getirin. Bu iş akışı, bir Azure Search dizini oluşturur ve JSON bloblarından ayıklanan mevcut metinle yükler. 
@@ -40,14 +40,15 @@ Azure Search, hem de Azure depolama, tercihen aynı bölgede aynı Azure aboneli
 
 ### <a name="1---prepare-source-data"></a>1 - kaynak verileri hazırlama
 
-Bir JSON belge kapsayıcısı ve Blob Depolama ile Azure depolama hesabınız olmalıdır. Tüm bu gereksinimlerin alışkın değilseniz, "Azure Blob hizmeti ve yük örnek verileri ayarlayın" gözden geçirmek [bilişsel arama-quickstart](cognitive-search-quickstart-blob.md#set-up-azure-blob-service-and-load-sample-data).
+1. [Azure portalında oturum açın](https://portal.azure.com/).
 
-> [!Important]
-> Kapsayıcı üzerinde olduğundan emin olun **genel erişim düzeyi** "Container (kapsayıcılar ve bloblar için anonim okuma erişimi)" olarak ayarlanmış. Azure depolama ve Azure Search, aynı abonelik altında ve mümkün olduğunda, aynı bölgede olması gerekir. 
+1. [Bir Blob kapsayıcısı oluşturursunuz](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) verilerinizi içermesi için. Genel erişim düzeyi geçerli değerleri için ayarlanabilir.
+
+Depolama hesabı adı, kapsayıcı adı ve verilerinizi almak için bir erişim anahtarı gerekir **verileri içeri aktarma** Sihirbazı.
 
 ### <a name="2---start-import-data-wizard"></a>2 - Veri Alma Sihirbazını Başlat
 
-Yapabilecekleriniz [Sihirbazı başlatın](search-import-data-portal.md) Azure arama hizmeti sayfasını veya tıklayarak komut çubuğundan **Azure Search Ekle** içinde **Blob hizmeti** depolama hesabınızın bölümünü Sol gezinti bölmesi.
+Azure Search hizmetinizin genel bakış sayfasından [Sihirbazı başlatın](search-import-data-portal.md) komut çubuğunda veya tıklayarak **Azure Search Ekle** içinde **Blob hizmeti** bölümünü, Depolama hesabı sol gezinti bölmesindeki.
 
    ![İçeri aktarma Portalı'nda veri komut](./media/search-import-data-portal/import-data-cmd2.png "veri içeri aktarma Sihirbazını Başlat")
 

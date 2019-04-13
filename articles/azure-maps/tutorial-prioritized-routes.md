@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: db01c2f51e9069e8fc9ee979eacf746bee8dbdd2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3e33eef430db627a82bb82e8c22ddc861d08982b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260927"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546281"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Azure Haritalar’ı kullanarak farklı seyahat modları için yolları bulma
 
@@ -283,11 +283,11 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Seyahat modunu bildiren yol sorguları oluşturma
 > * Haritanızda birden fazla yol görüntüleme
 
-Bu öğreticiye ait kod örneğine şuradan erişebilirsiniz:
+> [!div class="nextstepaction"]
+> [Tam kaynak kodu görüntüle](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
 
-> [Azure Haritalar ile birden çok yol](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
-
-[Burada Canlı örnek bakın](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
+> [!div class="nextstepaction"]
+> [Canlı örnek görünümü](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
 
 Sonraki öğretici, Azure haritalar'ı kullanarak bir basit deposu Bulucu oluşturma işlemini gösterir.
 

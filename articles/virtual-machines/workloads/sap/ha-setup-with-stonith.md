@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66973ce78004d0f29d08264869f166202aaaf109
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3ef1656a7e8a66092de3050a8f14c5b38e0e2e6c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011855"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525475"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>STONITH kullanarak yüksek kullanılabilirlik SUSE ayarlama
 Bu belge, yüksek kullanılabilirlik STONITH cihaz kullanarak SUSE işletim sisteminde ayarlamak için ayrıntılı adım adım yönergeler sağlar.
@@ -258,7 +258,7 @@ Komutunu çalıştırın *crm_mon* emin olmak için **hem** düğümlerde çevri
 ```
 crm_mon
 ```
-![CRM mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) , ayrıca küme durumunu denetlemek için hawk üzerinde oturum açabildiğinizden *https://<node IP>: 7630*. Varsayılan kullanıcı hacluster ve linux paroladır. Gerekirse, parola kullanarak değiştirebilirsiniz *parola* komutu.
+![CRM mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) , ayrıca küme durumunu denetlemek için hawk üzerinde oturum açabildiğinizden *https://\<düğümün IP'sini >: 7630*. Varsayılan kullanıcı hacluster ve linux paroladır. Gerekirse, parola kullanarak değiştirebilirsiniz *parola* komutu.
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. Küme özelliklerini ve kaynaklarını yapılandırma 
 Bu bölümde, küme kaynaklarını yapılandırmak için gereken adımları açıklar.
@@ -323,7 +323,7 @@ crm configure load update crm-vip.txt
 Komutu çalıştırdığınızda *crm_mon*, iki kaynak görebilirsiniz.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-Ayrıca, durum gördüğünüz *https://<node IP address>: 7630/cib/Canlı/durumu*
+Ayrıca, durum gördüğünüz *https://\<düğüm IP adresi >: 7630/cib/Canlı/durumu*
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 

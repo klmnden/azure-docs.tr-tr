@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 3/17/2019
 ms.author: b-juche
-ms.openlocfilehash: c2dd8b636223e0484e36eed9fcc616dc6f19cf3a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 3c59fb6abe9c26e6886706dae360ff40787e8faa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877984"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549193"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Azure NetApp Files için birim oluşturma
 
@@ -27,9 +27,9 @@ En fazla 500 birimlerin her kapasitesi havuzu olabilir. Birimin kapasite kullan�
 
 ## <a name="before-you-begin"></a>Başlamadan önce 
 Zaten bir kapasite havuzu ayarlamış olmalısınız.   
-[Kapasite havuzunu ayarlama](azure-netapp-files-set-up-capacity-pool.md)   
+[Kapasitesi havuzu oluşturmak](azure-netapp-files-set-up-capacity-pool.md)   
 Bir alt ağ, Azure için NetApp dosyaları temsilci gerekir.  
-[Azure NetApp Files için bir alt ağı temsilci olarak belirleme](azure-netapp-files-delegate-subnet.md)
+[Temsilci bir alt ağ Azure NetApp dosyaları](azure-netapp-files-delegate-subnet.md)
 
 ## <a name="create-an-nfs-volume"></a>NFS birimi oluşturma
 
@@ -46,7 +46,7 @@ Bir alt ağ, Azure için NetApp dosyaları temsilci gerekir.
 
         Ad, kaynak grubu içinde benzersiz olmalıdır. En az üç karakter uzunluğunda olmalıdır.  Herhangi bir alfasayısal karakter kullanabilirsiniz.
 
-    * **Kapasite havuzu**  
+    * **Kapasitesi havuzu**  
         Birimin oluşturulması için istediğiniz kapasitesi havuzu belirtin.
 
     * **Kota**  
@@ -100,7 +100,7 @@ Azure NetApp dosyaları SMBv3 birimleri destekler. SMB birim eklemeden önce Act
         Tercih edilen Active Directory Domain Services kullanımı için Azure NetApp dosyaları ile etki alanı denetleyicisi IP adresini budur. 
     * **İkincil DNS**  
         İkincil Active Directory Domain Services kullanımı için Azure NetApp dosyaları ile etki alanı denetleyicisi IP adresini budur. 
-    * **Domain**  
+    * **Etki alanı**  
         Bu, Active Directory etki alanına katılmak için istediğiniz hizmetleri etki alanı adıdır.
     * **SMB sunucusu (bilgisayar hesabı) öneki**  
         Bu makine hesabının Active Directory'de Azure NetApp dosyaları için yeni hesaplar oluşturulmasını kullanacağı adlandırma önekidir.
@@ -141,7 +141,7 @@ Azure NetApp dosyaları SMBv3 birimleri destekler. SMB birim eklemeden önce Act
      
         Dosya yolu adında yalnızca harfler, sayılar ve kısa çizgiler ("-") bulunabilir. 16 ile 40 karakter arası uzunlukta olmalıdır.  
 
-    * **Kapasite havuzu**  
+    * **Kapasitesi havuzu**  
         Birimin oluşturulması için istediğiniz kapasitesi havuzu belirtin.
 
     * **Kota**  
@@ -179,6 +179,6 @@ Azure NetApp dosyaları SMBv3 birimleri destekler. SMB birim eklemeden önce Act
 
 ## <a name="next-steps"></a>Sonraki adımlar  
 
-* [Windows veya Linux sanal makineleri için birimi bağlama veya ayırma](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-* [NFS birimine yönelik dışarı aktarma ilkesini yapılandırma](azure-netapp-files-configure-export-policy.md)
+* [Bağlamak veya bir birimi Windows veya Linux sanal makineleri için çıkarma](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [NFS birimi için verme ilkesi yapılandırma](azure-netapp-files-configure-export-policy.md)
 * [Azure Hizmetleri için sanal ağ tümleştirmesi hakkında bilgi edinin](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)

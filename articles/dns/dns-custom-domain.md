@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: 78496dbc7891fe911ab0affd81f8a7d887e5d76e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5c098c6c22b079d586c0bd808df9af4a737c17a8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111421"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521861"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Bir Azure hizmeti için özel etki alanı ayarları sağlamak için Azure DNS kullanma
 
@@ -69,7 +69,7 @@ DNS bölgenizi gelin ve tıklayın **+ kayıt kümesi**. Aşağıdaki bilgileri 
 |Type     | A        | Kaynak IP adresi olduğu gibi bir A kaydı kullanın.        |
 |TTL     | 1        | 1 saat boyunca 1 kullanılır        |
 |TTL birimi     | Saat        | Saatleri zaman ölçümü kullanılır         |
-|IP Adresi     | <your ip address>       | Genel IP adresi.|
+|IP Adresi     | `<your ip address>`       | Genel IP adresi.|
 
 ![bir A kaydı oluşturma](./media/dns-custom-domain/arecord.png)
 

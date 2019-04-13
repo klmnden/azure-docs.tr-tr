@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 18fc86e8d9b9622f11faad0f11dc57a83124a857
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 7e697329e83b530157e490b04f5155d28d243bb6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417525"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549497"
 ---
 # <a name="back-up-your-app-in-azure"></a>Uygulamanızı Azure’a yedekleme
 Yedekleme ve geri yükleme özelliği [Azure App Service](overview.md) uygulama yedeklerini el ile veya bir zamanlamaya göre kolayca oluşturmanıza olanak sağlar. Uygulama mevcut uygulamanın üzerine yazarak veya başka bir uygulamaya geri önceki bir durumun anlık görüntüye geri yükleyebilirsiniz. 
@@ -121,6 +121,9 @@ Bazen her şeyi uygulamanızı yedekle istemezsiniz. İşte birkaç örnek:
 * Günlük dosyalarını yedeklemek istemediğiniz.
 
 Kısmi yedeklerin tam olarak yedeklemek istediğiniz dosyaları seçin izin verir.
+
+> [!NOTE]
+> En fazla 4 GB yedekleme bulunan tek veritabanlarını olabilir ancak yedekleme toplam en büyük boyutu 10 GB'tır
 
 ### <a name="exclude-files-from-your-backup"></a>Yedekleme dosyaları dışarıda bırak
 Günlük dosyaları ve bir kez yedekleme atanmış olması ve değiştirmek için yapmayacağınız statik görüntüler içeren bir uygulama olduğunu varsayalım. Böyle durumlarda, gelecekteki yedeklemeler içinde depolanan bu klasörleri ve dosyaları dışlayabilirsiniz. Yedeklemelerinizi dosya ve klasörleri dışlamak için oluşturma bir `_backup.filter` dosyası `D:\home\site\wwwroot` uygulamanızın klasör. Dosya ve klasörleri bu dosyayı çıkarmak istediğiniz listesini belirtin. 

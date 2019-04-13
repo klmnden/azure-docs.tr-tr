@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e21058d47f554ca4a057ab90433895800fb17dd9
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 85a1dad9feb15550cf27cf032802af5055fdf155
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886732"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525645"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Değişiklik akışı Azure Cosmos DB'de - genel bakış
 
@@ -58,7 +58,7 @@ Değişiklik akışı, bir TTL (yaşam süresi) özelliği bir öğe üzerinde -
 
 ### <a name="change-feed-and-etag-lsn-or-ts"></a>Değişiklik akışı ve _etag, _lsn veya _ts
 
-_Etag biçimi dahili kullanım içindir ve dilediğiniz zaman değiştirebilirsiniz çünkü, bağımlılık üzerinde almamalıdır. _ts bir değişiklik ya da oluşturma zaman damgası ' dir. _Ts kronolojik bir karşılaştırması için kullanabilirsiniz. _lsn için değişiklik yalnızca akışı eklenen bir toplu iş kimliği:; Bu işlem kimliğini temsil eder. Birçok öğe aynı _lsn olabilir. ETag FeedResponse üzerinde öğede gördüğünüz _etag farklıdır. _etag dahili bir tanımlayıcıdır ve eşzamanlılık için kullanılan denetim öğesi sürümü hakkında akışın sıralama için ETag kullanılırken söyler.
+_Etag biçimi dahili kullanım içindir ve dilediğiniz zaman değiştirebilirsiniz çünkü, bağımlılık üzerinde almamalıdır. _ts bir değişiklik ya da oluşturma zaman damgası ' dir. _Ts kronolojik bir karşılaştırması için kullanabilirsiniz. _lsn için değişiklik yalnızca akışı eklenen bir toplu iş kimliği:; Bu işlem kimliğini temsil eder Birçok öğe aynı _lsn olabilir. ETag FeedResponse üzerinde öğede gördüğünüz _etag farklıdır. _etag dahili bir tanımlayıcıdır ve eşzamanlılık için kullanılan denetim öğesi sürümü hakkında akışın sıralama için ETag kullanılırken söyler.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>Kullanım örnekleri ve senaryoları değişiklik akışı
 
@@ -84,7 +84,7 @@ Yüksek hacimli yazma ile büyük veri kümeleri işlem verimli etkinleştirir d
 
 Değişiklik akışı ile kolayca uygulayabilirsiniz senaryolardan bazıları şunlardır:
 
-* İçinde [sunucusuz](https://azure.microsoft.com/en-us/solutions/serverless/) web veya mobil uygulamaları, müşterinizin profili, tercihlerine veya konumlarını olayları gibi tüm değişiklikleri izlemek ve belirli eylemler, örneğin, cihazlarına anında iletme bildirimleri gönderme tetikleyin kullanarak [Azure işlevleri](change-feed-functions.md).
+* İçinde [sunucusuz](https://azure.microsoft.com/solutions/serverless/) web veya mobil uygulamaları, müşterinizin profili, tercihlerine veya konumlarını olayları gibi tüm değişiklikleri izlemek ve belirli eylemler, örneğin, cihazlarına anında iletme bildirimleri gönderme tetikleyin kullanarak [Azure işlevleri](change-feed-functions.md).
 
 * Bir oyun oluşturmak için Azure Cosmos DB kullanıyorsanız, şunları yapabilirsiniz, örneğin, kullanım değişiklik akışı tamamlanmış oyunlardan puanları göre gerçek zamanlı puan tabloları uygulamak için.
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 5482ea720ea8d21230587dd9216bd006bf4e5a6e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 3be1da54b16a24ce3c4431dfe26eb778cea5c83d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650657"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545274"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Öğretici: Azure Lab Services içinde bir sınıf laboratuvarına erişim
 Bu öğreticide, öğrenci olarak bir sınıf laboratuvarındaki sanal makineye (VM) bağlanırsınız. 
@@ -32,7 +32,7 @@ Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
 
 ## <a name="use-the-registration-link"></a>Kayıt bağlantısını kullanma
 
-1. Profesörden/eğitimciden aldığınız **kayıt URL’sine** gidin. Kayıt URL'si tamamladıktan sonra kullanmanız gerekmez. Bunun yerine, URL'yi kullanın: [ https://labs.azure.com ](https://labs.azure.com). 
+1. Profesörden/eğitimciden aldığınız **kayıt URL’sine** gidin. Kayıt URL'si tamamladıktan sonra kullanmanız gerekmez. Bunun yerine, URL'yi kullanın: [ https://labs.azure.com ](https://labs.azure.com). Internet Explorer 11 henüz desteklenmediğini unutmayın. 
 1. Kaydı tamamlamak için okul hesabınızı kullanarak hizmette oturum açın. 
 2. Kaydolduktan sonra, erişimine sahip olduğunuz laboratuvarlar için sanal makineleri gördüğünüzü onaylayın. 
 3. Sanal makine hazır hale gelene kadar bekleyin ve ardından **başlatın**. Bu işlem biraz zaman alabilir.  

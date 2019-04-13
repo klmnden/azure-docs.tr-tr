@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d4866a6863143d2228c556a64c8e75c9f273076e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 720f984feb5675281510962d4ebee63f638d696d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489510"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548895"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
@@ -350,7 +350,7 @@ Deneyin:
 }
 ```
 
-Bu JSON dosyası, Python betikleri veya Jupyter not defterleri içeren dizin yapısına olması gerekir. Adlı bir alt dizinde aynı dizinde olabilir *aml_config*, veya bir üst dizin.
+Bu JSON dosyası, Python betikleri veya Jupyter not defterleri içeren dizin yapısına olması gerekir. Adlı bir alt dizinde aynı dizinde olabilir *.azureml*, veya bir üst dizin.
 
 Bu dosyadan kodunuzu kullanmak için `ws=Workspace.from_config()`. Bu kod, bilgileri bir dosyadan yükler ve çalışma alanınıza bağlanır.
 
@@ -379,7 +379,7 @@ Yapılandırma dosyası üç şekilde oluşturabilirsiniz:
         print('Workspace not found')
     ```
 
-    Bu kod yapılandırma dosyasına yazar *aml_config/config.json* dosya.
+    Bu kod yapılandırma dosyasına yazar *.azureml/config.json* dosya.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

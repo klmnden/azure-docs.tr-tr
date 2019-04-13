@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: f40be655481481946929c4d79210cb360797f174
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 772b9b191a2e6464ff481ff6661308e00ef6033a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017166"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545442"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri kopyalama kaynak ve hedef (Common Data Service) Dynamics 365 veya Dynamics CRM
 
@@ -70,7 +70,7 @@ Aşağıdaki özellikler Dynamics bağlı hizmeti için desteklenir.
 | connectVia | [Integration runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. | Kaynak bağlı Hayır kaynağı için Evet havuz için hizmet bir tümleştirme çalışma zamanı yok |
 
 >[!IMPORTANT]
->Dynamics veri kopyalama, kopyalama yürütmek için varsayılan Azure Integration Runtime kullanılamaz. Kaynağınıza bağlı diğer bir deyişle, hizmet bir belirtilen bir tümleştirme çalışma zamanı açıkça yok [Azure tümleştirme çalışma zamanı oluşturma](create-azure-integration-runtime.md#create-azure-ir) Dynamics örneğinizin yakın bir konum. Aşağıdaki örnekte olduğu gibi Dynamics bağlantılı hizmetteki ilişkilendirin.
+>Dynamics veri kopyalama, kopyalama yürütmek için varsayılan Azure Integration Runtime kullanılamaz. Kaynağınıza bağlı diğer bir deyişle, hizmet bir belirtilen bir tümleştirme çalışma zamanı açıkça yok [Azure tümleştirme çalışma zamanı oluşturma](create-azure-integration-runtime.md#create-azure-ir) Dynamics örneğinizin yakın bir konum. Dynamics örneğinizin başvuruda bulunduğu Bul [Dynamics 365 için bölge listesi](https://docs.microsoft.com/dynamics365/customer-engagement/admin/datacenter/new-datacenter-regions). Aşağıdaki örnekte olduğu gibi Dynamics bağlantılı hizmetteki ilişkilendirin.
 
 >[!NOTE]
 >Dynamics CRM/365 Online örneğinizi tanımlamak için isteğe bağlı kuruluş "adı" özelliği kullanmak için kullanılan Dynamics Bağlayıcısı. Çalışmaya devam eder, ancak bunun yerine bulma örneği için daha iyi performans elde etmek için yeni "serviceUri" özelliği belirtmek için önerilir.
@@ -157,7 +157,7 @@ Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Dataset öğesinin type özelliği ayarlanmalıdır **DynamicsEntity**. |Evet |
-| EntityName | Alınacak varlığın mantıksal adı. | Evet, havuz için (etkinlik kaynağı "sorgu" belirtilmişse) kaynak için Hayır |
+| entityName | Alınacak varlığın mantıksal adı. | Evet, havuz için (etkinlik kaynağı "sorgu" belirtilmişse) kaynak için Hayır |
 
 > [!IMPORTANT]
 >- Dynamics verileri kopyaladığınızda, "yapı" bölümünde isteğe bağlıdır, ancak bir belirleyici kopyalama sonuç emin olmak için Dynamics kümesindeki recommanded ' dir. Sütun adı ve veri türü üzerinde kopyalamak istediğiniz Dynamics verileri tanımlar. Daha fazla bilgi için bkz. [Dataset yapısını](concepts-datasets-linked-services.md#dataset-structure) ve [Dynamics için veri türü eşlemesi](#data-type-mapping-for-dynamics).
@@ -332,18 +332,18 @@ Karşılık gelen Data Factory veri türü, kaynak Dynamics veri türü eşlemes
 | AttributeTypeCode.Boolean | Boole | ✓ | ✓ |
 | AttributeType.Customer | Guid | ✓ | | 
 | AttributeType.DateTime | Tarih saat | ✓ | ✓ |
-| AttributeType.Decimal | Onluk | ✓ | ✓ |
-| AttributeType.Double | çift | ✓ | ✓ |
-| AttributeType.EntityName | Dize | ✓ | ✓ |
+| AttributeType.Decimal | Decimal | ✓ | ✓ |
+| AttributeType.Double | Double | ✓ | ✓ |
+| AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ | ✓ (ile ilişkili tek hedef) |
 | AttributeType.ManagedProperty | Boole | ✓ | |
-| AttributeType.Memo | Dize | ✓ | ✓ |
-| AttributeType.Money | Onluk | ✓ | ✓ |
+| AttributeType.Memo | String | ✓ | ✓ |
+| AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
-| AttributeType.String | Dize | ✓ | ✓ |
+| AttributeType.String | String | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 

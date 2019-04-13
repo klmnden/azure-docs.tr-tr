@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d762e5bb358964b439d1dc6027abc01332da21
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007617"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548568"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
 
@@ -32,7 +32,7 @@ Bu hızlı başlangıçta OpenID Connect kullanarak web tarayıcısı tabanlı g
 Bu hızlı başlangıcın sonunda uygulamanız Azure Active Directory (Azure AD) ile tümleşik kuruluşların iş ve okul hesapları ile oturum açılmasını kabul ediyor olacak.
 
 > [!NOTE]
-> İş ve okul hesaplarına ek olarak kişisel hesaplardan oturum açılmasını etkinleştirmeniz gerekiyorsa [v2.0 uç noktasını](azure-ad-endpoint-comparison.md) kullanabilirsiniz. Daha fazla bilgi için [bu v2.0 uç noktası ASP.NET öğreticisini](tutorial-v2-asp-webapp.md) ve v2.0 uç noktasının geçerli sınırlamalarını gösteren [bu makaleyi](active-directory-v2-limitations.md) inceleyebilirsiniz.
+> İş ve Okul hesaplarında yanı sıra kişisel hesapları için oturum açma etkinleştirmeniz gerekirse, kullanabileceğiniz  *[Microsoft kimlik platformu uç nokta](azure-ad-endpoint-comparison.md)*. Daha fazla bilgi için bkz. [ASP.NET Öğreticisine](tutorial-v2-asp-webapp.md) yanı [bu makalede](active-directory-v2-limitations.md) açıklayan *Microsoft kimlik platformu uç nokta*.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

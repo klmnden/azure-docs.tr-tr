@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369148"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524384"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>İş cihazınızın, kuruluşunuzun ağa katılmasını sağlayın.
 Potansiyel olarak kısıtlanmış kaynaklara erişebilmesi için iş ait Windows 10 Cihazınızı kuruluşunuzun ağa katılmasını sağlayın.
@@ -62,7 +62,7 @@ Ayarlarınızı bakarak katılmış emin olabilirsiniz.
 
     ![Ayarları ekranında hesapları](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Seçin **işe veya okula erişim**ve, gibi ifade metin gördüğünüzden emin **bağlı *< kuruluşunuz >* Azure AD'ye**.
+2. Seçin **işe veya okula erişim**ve, gibi ifade metin gördüğünüzden emin **bağlı  *\<kuruluşunuz >* Azure AD'ye**.
 
     ![Bağlı contoso hesabı ile iş veya Okul ekranına erişim](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -107,7 +107,7 @@ Ayarlarınızı bakarak katılmış emin olabilirsiniz.
 
     ![Ayarları ekranında hesapları](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Seçin **işe veya okula erişim**ve, gibi ifade metin gördüğünüzden emin **bağlı *< kuruluşunuz >* Azure AD'ye**.
+2. Seçin **işe veya okula erişim**ve, gibi ifade metin gördüğünüzden emin **bağlı  *\<kuruluşunuz >* Azure AD'ye**.
 
     ![Bağlı contoso hesabı ile iş veya Okul ekranına erişim](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

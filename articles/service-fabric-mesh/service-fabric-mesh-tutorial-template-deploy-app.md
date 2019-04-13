@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8a910f35bf25f889150ea3e89f4fa653f3a9ac14
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 825f667029aeb1d75bfdaf52b1084ff5133b5774
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336329"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527345"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Öğretici: Şablon kullanarak Service Fabric Mesh’e uygulama dağıtma
 
@@ -351,8 +351,8 @@ Parametreler dosyasında şu parametre değerlerini güncelleştirin:
 |registryPassword|[Kayıt defteri kimlik bilgilerini alma](#retrieve-credentials-for-the-registry) bölümünde aldığınız parola. Bu şablon parametresi güvenli bir dizedir ve dağıtım durumunda veya `az mesh service show` komutlarında görüntülenmez.|
 |registryUserName|[Kayıt defteri kimlik bilgilerini alma](#retrieve-credentials-for-the-registry) bölümünde aldığınız kullanıcı adı.|
 |registryServer|[Kayıt defteri kimlik bilgilerini alma](#retrieve-credentials-for-the-registry) bölümünde aldığınız kayıt defteri sunucusu adı.|
-|frontEndImage|Ön uç hizmetinin kapsayıcı görüntüsü.  Örneğin: "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709".|
-|serviceImage|Arka uç hizmetinin kapsayıcı görüntüsü.  Örneğin: "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709".|
+|frontEndImage|Ön uç hizmetinin kapsayıcı görüntüsü.  Örneğin, `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`.|
+|serviceImage|Arka uç hizmetinin kapsayıcı görüntüsü.  Örneğin, `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`.|
 
 Uygulamayı dağıtmak için şu komutu çalıştırın:
 

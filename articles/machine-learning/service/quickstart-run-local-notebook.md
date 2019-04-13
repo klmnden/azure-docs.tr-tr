@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: ade0444110dbb23e762a869dc79805872c0f0bf0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3afea20fe02eafbf14b5162eef3a198d27140b9e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59281140"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549144"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için kendi notebook sunucusu kullanma
 
@@ -33,7 +33,7 @@ Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Dene
 
 * Azure Machine Learning SDK ile bir Python 3.6 Not Defteri sunucusu
 * Bir Azure Machine Learning hizmeti çalışma
-* Bir çalışma alanı yapılandırma dosyası (**aml_config/config.json** ).
+* Bir çalışma alanı yapılandırma dosyası (**.azureml/config.json** ).
 
 Tüm bu önkoşulları alma [bir Azure Machine Learning hizmeti çalışma alanı oluşturma](setup-create-workspace.md#portal).
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: adbf3e4fbc0f9d49458dadaebcdd2a090030654e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e27c4462e7137145917d1284bfb6f8838e8a090b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838893"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523605"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process'in çalışması: SQL veri ambarı kullanma
 Bu öğreticide, derlemeye ve dağıtmaya SQL veri ambarı'nı (SQL DW) kullanarak makine öğrenme modeli aracılığıyla genel kullanıma açık bir veri kümesi için--inceleyeceğiz [NYC taksi Gelişlerin](https://www.andresmh.com/nyctaxitrips/) veri kümesi. Oluşturulan ikili sınıflandırma modelinde, bir ipucu bir seyahat için ödeme yapılır ve çok sınıflı sınıflandırma ve regresyon modellerini ayrıca dağıtım Ücretli ipucu tutarlarının tahmin açıklanan olup olmadığını tahmin eder.
@@ -77,7 +77,7 @@ Azure veri bilimi ortamı oluşturmanız için bu adımları izleyin.
 **Azure SQL DW örneğinizin sağlayın.**
 Adresindeki belgelere izleyin [SQL veri ambarı oluşturma](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) bir SQL Data Warehouse örneğine sağlamak için. Sonraki adımlarda kullanılacak olan aşağıdaki SQL veri ambarı kimlik bilgileri üzerinde gösterimler yaptığınızdan emin olun.
 
-* **Sunucu adı**: <server Name>. database.windows.net
+* **Sunucu adı**: \<sunucu adı >. database.windows.net
 * **SQLDW (veritabanı) adı**
 * **Kullanıcı Adı**
 * **Parola**

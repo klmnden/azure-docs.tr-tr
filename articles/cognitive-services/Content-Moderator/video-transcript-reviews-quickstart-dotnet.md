@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 56cd608d337d817b849a0902569e9aeddeca80ab
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a3d362f08765cc80b65659b406a2fac3af71f167
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758569"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524506"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Video deşifre metni incelemeleri .NET kullanarak oluşturun
 
@@ -154,7 +154,7 @@ public static ContentModeratorClient NewClient()
 **CreateVideoReviews** aşağıdaki parametreler gereklidir:
 1. "Application/json." olması gereken bir MIME türü içeren bir dize 
 1. Content Moderator takım adı.
-1. Bir **IList<CreateVideoReviewsBodyItem>**  nesne. Her **CreateVideoReviewsBodyItem** nesnesini gösteren bir video gözden geçirin. Bu hızlı başlangıçta bir kerede bir inceleme oluşturur.
+1. Bir **IList\<CreateVideoReviewsBodyItem >** nesne. Her **CreateVideoReviewsBodyItem** nesnesini gösteren bir video gözden geçirin. Bu hızlı başlangıçta bir kerede bir inceleme oluşturur.
 
 **CreateVideoReviewsBodyItem** birçok özelliğe sahiptir. En azından aşağıdaki özellikleri ayarlayın:
 - **İçerik**. Gözden geçirilmesi video URL'si.
@@ -244,15 +244,15 @@ Video İnceleme için bir döküm eklemenin yanı sıra, bu döküm yönetme son
 1. "Application/json." olması gereken bir MIME türü içeren bir dize 
 1. Content Moderator takım adı.
 1. Video gözden geçirme kimliği tarafından döndürülen **CreateVideoReviews**.
-1. Bir IList<TranscriptModerationBodyItem>. A **TranscriptModerationBodyItem** aşağıdaki özelliklere sahiptir:
-1. **Koşulları**. Bir IList<TranscriptModerationBodyItemTermsItem>. A **TranscriptModerationBodyItemTermsItem** aşağıdaki özelliklere sahiptir:
+1. Bir IList\<TranscriptModerationBodyItem >. A **TranscriptModerationBodyItem** aşağıdaki özelliklere sahiptir:
+1. **Koşulları**. Bir IList\<TranscriptModerationBodyItemTermsItem >. A **TranscriptModerationBodyItemTermsItem** aşağıdaki özelliklere sahiptir:
 1. **Dizin**. Terim sıfır tabanlı dizini.
 1. **Terim**. Terimini içeren bir dize.
 1. **Zaman damgası**. Saniye cinsinden zaman içinde bulunan ve koşulları kimse içeren bir dize.
 
 Transkripti WebVTT biçiminde olması gerekir. Daha fazla bilgi için [WebVTT: Web Video metin biçimi izler](https://www.w3.org/TR/webvtt1/).
 
-Aşağıdaki yöntem tanımını ad alanına VideoTranscriptReviews, Program sınıfı ekleyin. Bu yöntem için bir döküm gönderen **ContentModeratorClient.TextModeration.ScreenText** yöntemi. Ayrıca bir IList sonucu çevirir<TranscriptModerationBodyItem>ve gönderildiği **AddVideoTranscriptModerationResult**.
+Aşağıdaki yöntem tanımını ad alanına VideoTranscriptReviews, Program sınıfı ekleyin. Bu yöntem için bir döküm gönderen **ContentModeratorClient.TextModeration.ScreenText** yöntemi. Ayrıca bir IList sonucu çevirir\<TranscriptModerationBodyItem > ve gönderildiği **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>

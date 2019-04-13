@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 6e37466145af58a52a86a08a2a873e406c99b9e5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 59a05e7a20f6b229b37977a75d22611c0d5c31d9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895554"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528042"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Varlık türleri ve bunların amacıyla LUIS
 
@@ -24,7 +24,15 @@ Varlıkları utterance verileri ayıklayın. Varlık türleri veri öngörülebi
 
 ## <a name="entity-compared-to-intent"></a>Intent'e karşılaştırıldığında varlık
 
-Varlık, bir sözcük veya tümcecik ayıklanan istediğiniz utterance içinde temsil eder. Bir utterance birçok varlığın veya hiçbiri hiç içerebilir. Bir varlık (yerlerde, öğeleri, kişiler, olayları veya kavramları) benzer nesnelerinin bir koleksiyonunu içeren bir sınıfı temsil eder. Bazen uygulamanızın görevini gerçekleştirmek gerekli olan ve bilgi ıntent'e ilgili varlıkları anlatmaktadır. Örneğin, bir haber arama uygulaması "konu", "kaynak", "anahtar" ve "yayımlama tarihi" Haberler için arama anahtar veri olan gibi varlıklar içerebilir. Seyahat kayıt uygulaması, "Konum", "tarih", "Havayolu" içinde "seyahat class" ve "biletleri" anahtar için uçuş kayıt ("Book uçuş" hedefi için ilgili) bilgilerdir.
+Varlık, bir sözcük veya tümcecik ayıklanan istediğiniz utterance içinde temsil eder. Bir utterance birçok varlığın veya hiçbiri hiç içerebilir. Bir istemci uygulama, kullanıcıya sunmak için birkaç seçenek kılavuz olarak kullanın veya kendi görevi gerçekleştirmek için varlık gerekebilir. 
+
+Bir varlık:
+
+* (Yerlerde, öğeleri, kişiler, olayları veya kavramları) benzer nesnelerinin bir koleksiyonunu içeren bir sınıfı temsil eder. 
+* Intent'e ilgili bilgiler açıklanmaktadır
+
+
+Örneğin, bir haber arama uygulaması "konu", "kaynak", "anahtar" ve "yayımlama tarihi" Haberler için arama anahtar veri olan gibi varlıklar içerebilir. Seyahat kayıt uygulaması, "Konum", "tarih", "Havayolu" içinde "seyahat class" ve "biletleri" anahtar için uçuş kayıt ("Book uçuş" hedefi için ilgili) bilgilerdir.
 
 Buna karşılık olarak amaç tüm utterance tahminini temsil eder. 
 
@@ -89,14 +97,14 @@ Varlık ayıklandıktan sonra varlık verilerini bilgilerin tek bir birim olarak
 |Makine öğrendiniz|Can Mark|Öğretici|Örnek<br>Yanıt|Varlık türü|Amaç|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Bileşik**](#composite-entity)|Varlık Türü bağımsız olarak varlıklar gruplandırmasıdır.|
-|✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hiyerarşik**](#hierarchical-entity)|Basit varlıkları gruplandırmasıdır.|
+|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hiyerarşik**](#hierarchical-entity)|Basit varlıkları gruplandırmasıdır.|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Liste**](#list-entity)|Öğelerin listesini ve bunların eş anlamlılar ile tam metin ayıklandı eşleşir.|
 |Karma||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.Any**](#patternany-entity)|Varlığın son saptamak zor olduğu varlık.|
 |||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Önceden oluşturulmuş**](#prebuilt-entity)|Çeşitli türlerde verileri ayıklamak zaten eğitildi.|
 |||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Normal ifade**](#regular-expression-entity)|Metin eşleştirilecek normal ifade kullanır.|
 |✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Basit**](#simple-entity)|Tek bir kavram sözcük veya tümcecik olarak içerir.|
 
-Yalnızca makine öğrenilen varlıklar, her amaç için örnek konuşma işaretlenmesi gerekir. Varlıkları en iyi şekilde çalıştığı aracılığıyla test edildiğinde makine öğrenilen [uç nokta sorguları](luis-concept-test.md#endpoint-testing) ve [konuşma uç noktası gözden geçirme](luis-how-to-review-endpoint-utterances.md). 
+Yalnızca makine öğrenilen varlıklar örnek konuşma işaretlenmesi gerekir. Varlıkları en iyi şekilde çalıştığı aracılığıyla test edildiğinde makine öğrenilen [uç nokta sorguları](luis-concept-test.md#endpoint-testing) ve [konuşma uç noktası gözden geçirme](luis-how-to-review-endoint-utt.md). 
 
 Pattern.Any varlıklar olarak işaretlenmesi gerekir [deseni](luis-how-to-model-intent-pattern.md) şablon örnekleri, amaç kullanıcı örnekleri. 
 
@@ -121,29 +129,15 @@ Bu varlık yarar ne zaman uygun veri:
 
 ## <a name="hierarchical-entity"></a>Hiyerarşik varlık
 
+**Hiyerarşik varlıkları sonunda kullanımdan kaldırılacaktır. Kullanım [varlık rolleri](luis-concept-roles.md) hiyerarşik varlıkları yerine varlık subtypes belirlemek için.**
+
 Hiyerarşik bir varlık, alt öğeleri olarak adlandırılan bağlamsal öğrenilen basit varlıkları kategorisidir.
-
-Bu varlık yarar ne zaman uygun veri:
-
-* Basit varlıklardır.
-* Konuşma bağlamında birbiriyle ilişkilidir.
-* Belirli bir sözcük seçimi, her alt varlık belirtmek için kullanın. Bu sözcüklere örnekler şunlardır: from/to, leaving/headed to, away from/toward (çıkış/varış, ayrılıyor/gidiyor, kaynaktan/hedefe doğru)
-* Alt sık aynı utterance öğeleridir. 
-* İstemci uygulama tarafından bir bilgi birimi olarak gruplanmaları ve işlenmeleri gerekir.
-
-Kullanmayın:
-
-* Bağlamı bağımsız olarak alt öğeleri için tam metin eşleşme olan bir varlık ihtiyacınız vardır. Kullanım bir [varlık listesinde](#list-entity) bunun yerine. 
-* Bir varlık için bir üst-alt ilişkisi diğer varlık türleriyle gerekir. Kullanım [Bileşik varlık](#composite-entity).
 
 ![hiyerarşik varlık](./media/luis-concept-entities/hierarchical-entity.png)
 
-[Öğretici](luis-quickstart-intent-and-hier-entity.md)<br>
-[Varlık için örnek JSON yanıtı](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
-
 ### <a name="roles-versus-hierarchical-entities"></a>Hiyerarşik varlıkları ve rolleri
 
-[Rolleri](luis-concept-roles.md#roles-versus-hierarchical-entities) hiyerarşik varlıklar, ancak tüm varlık türlerine uygulanır, deseni aynı sorunu çözdü. Rolleri şu anda yalnızca desenleri kullanılabilir. Rolleri ıntents örnek konuşma içinde kullanılabilir değil.  
+[Rolleri](luis-concept-roles.md) hiyerarşik varlıklar, ancak tüm varlık türlerine uygulanır, aynı sorunu çözdü.  
 
 ## <a name="list-entity"></a>Liste varlığı
 
@@ -262,24 +256,15 @@ Bir varlığın tek bir kavram açıklayan ve makine öğrenilen bağlamdan öğ
 
 Gözden geçirme [sınırları](luis-boundaries.md#model-boundaries) anlamak için bir model ekleyebilirsiniz kaç her varlık türü.
 
-## <a name="composite-vs-hierarchical-entities"></a>Bileşik vs hiyerarşik varlıklar
-
-Bileşik varlıkları ve hiyerarşik varlıkları hem üst-alt ilişkileri ve makine öğrendiniz. Makine öğrenimi, farklı bağlamlardaki (bir kelimelerin düzenleme) tabanlı varlıkları anlamak LUIS sağlar. Bileşik varlıklar, bunların alt öğeleri olarak farklı varlık türleri izin verdiğinden daha esnektir. Hiyerarşik bir varlığın alt yalnızca basit varlıklardır. 
-
-|Tür|Amaç|Örnek|
-|--|--|--|
-|Hiyerarşik|Üst-alt Basit varlık|Location.Origin=New York<br>Location.Destination=London|
-|Bileşik|Üst-alt varlıklar: önceden oluşturulmuş, liste, basit, hiyerarşik| sayı = 3<br>Liste birinci sınıf =<br>prebuilt.datetimeV2=March 5|
-
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Varlıklar, en fazla sayısından daha ihtiyacınız varsa 
 
-Hiyerarşik ve bileşik varlıkları kullanmanız gerekebilir. Hiyerarşik varlıkları özellikleri paylaşan ya da bir kategori üyesi olan varlıklar arasında ilişki yansıtır. Alt varlıklar, kendi üst kategori, tüm üyeleridir. Örneğin, PlaneTicketClass adlı hiyerarşik bir varlık alt varlıklar EconomyClass ve FirstClass olabilir. Hiyerarşi tek düzey derinliğini aşıyor.  
+Bileşik varlıkların varlık rolleri ile birlikte kullanmanız gerekebilir.
 
-Bileşik varlık, bir bütün parçalarını temsil eder. Örneğin, PlaneTicketOrder adlı bileşik bir varlık alt varlıklar Havayolu, hedef DepartureCity DepartureDate ve PlaneTicketClass olabilir. Daha önceden mevcut olan basit varlıklar, hiyerarşik varlıklar veya önceden oluşturulmuş varlıklarla alt bileşik bir varlıktan oluşturacaksınız.  
+Bileşik varlık, bir bütün parçalarını temsil eder. Örneğin, PlaneTicketOrder adlı bileşik bir varlık alt varlıklar Havayolu, hedef DepartureCity DepartureDate ve PlaneTicketClass olabilir.
 
 LUIS, makine öğrenilen değildir, ancak bir sabit listesi değerleri belirtmek LUIS uygulamanızı sağlayan listesi varlık türünü de sağlar. Bkz: [LUIS sınırları](luis-boundaries.md) sınırları varlık türleri gözden geçirmek için başvuru. 
 
-Kabul hiyerarşik, bileşik ve listelemeye ve hala en fazla sınıra ihtiyacınız varsa, desteğe başvurun. Bunu yapmak için sisteminizin hakkında ayrıntılı bilgi toplamak, Git [LUIS](luis-reference-regions.md#luis-website) Web sitesine gidin ve ardından **Destek**. Destek Hizmetleri Azure aboneliğinize dahildir, başvurun [Azure teknik desteğine](https://azure.microsoft.com/support/options/). 
+Bu varlıklar olarak kabul ve hala en fazla sınıra ihtiyacınız varsa desteğe başvurun. Bunu yapmak için sisteminizin hakkında ayrıntılı bilgi toplamak, Git [LUIS](luis-reference-regions.md#luis-website) Web sitesine gidin ve ardından **Destek**. Destek Hizmetleri Azure aboneliğinize dahildir, başvurun [Azure teknik desteğine](https://azure.microsoft.com/support/options/). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

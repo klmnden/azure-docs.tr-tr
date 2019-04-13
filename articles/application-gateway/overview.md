@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/20/2019
 ms.author: victorh
-ms.openlocfilehash: bb849e80e83edc4a25ad2f891d2c6c433ba0d106
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 447c5b1e94b848e9e560db1188a767f2040740c0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225544"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546859"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway nedir?
 
@@ -118,9 +118,12 @@ Daha fazla bilgi için [WebSocket desteği](https://docs.microsoft.com/azure/app
 
 ## <a name="rewrite-http-headers-public-preview"></a>HTTP üstbilgileri (genel Önizleme) yeniden yazma
 
-HTTP üstbilgileri, istemci ve sunucu istek veya yanıt ek bilgilerle geçmesine izin verin. Güvenlikle ilgili üstbilgi ekleme gibi birkaç önemli senaryoları görevi bu HTTP üstbilgileri yardımcı yeniden yazma alanları HSTS gibi / X XSS koruma veya yanıt üst bilgisi kaldırma alanları, arka uç sunucu adı gibi hassas bilgileri açığa. 
+HTTP üstbilgileri istemci ve sunucu istek veya yanıt ek bilgilerle geçmesine izin verin. Bu HTTP üstbilgileri yeniden yazma gibi birçok önemli senaryoyu gerçekleştirmenize yardımcı olur:
+- Güvenlikle ilgili üstbilgi alanlarını HSTS gibi / X XSS koruma ekleniyor.
+- Hassas bilgilerin ortaya koyabilir yanıt üstbilgi alanlarını kaldırılıyor.
+- X-iletilen-için üst bağlantı noktası bilgilerini arındırılıyor.
 
-Application Gateway, gelen HTTP isteklerini, hem de giden HTTP yanıt üst bilgilerini yeniden yazabilme becerisine artık desteklemektedir. Eklemek, kaldırmak veya HTTP istek ve yanıt üstbilgileri, istek/yanıt paketleri istemci ve arka uç havuzları arasında taşırken güncelleştirmek mümkün olacaktır. Her iki standart yazabilirsiniz (tanımlanan [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) standart üstbilgi alanlarını yanı sıra.  
+Uygulama ağ geçidi eklemek, kaldırmak veya HTTP istek ve yanıt üstbilgileri, istek ve yanıt paketleri istemci ve arka uç havuzları arasında taşırken güncelleştirme yeteneğini destekler. Ayrıca, belirtilen üst bilgiler, yalnızca belirli koşullar karşılandığında yazılır emin olmak için koşulları ekleme olanağı sağlar.
 
 Bu genel önizleme özelliği hakkında daha fazla bilgi için bkz. [yeniden HTTP üstbilgileri](rewrite-http-headers.md).
 

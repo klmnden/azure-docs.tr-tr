@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 04/03/2019
 ms.author: b-juche
-ms.openlocfilehash: 3df092377a29492facd972745933cd5f4a1ae3bf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 357bd5eac41b0da50a1d7035e8e8045a9f21144c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275530"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545531"
 ---
 # <a name="understand-the-storage-hierarchy-of-azure-netapp-files"></a>Azure NetApp Files’ın depolama hiyerarşisini anlama
 
@@ -57,4 +57,4 @@ Aşağıdaki örnekte Azure aboneliği, NetApp hesapları, kapasite havuzları v
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure NetApp Files için kaynak sınırları](azure-netapp-files-resource-limits.md)
-- [Azure NetApp Files için kaydolma](azure-netapp-files-register.md)
+- [NetApp Azure dosyaları için kaydolun](azure-netapp-files-register.md)

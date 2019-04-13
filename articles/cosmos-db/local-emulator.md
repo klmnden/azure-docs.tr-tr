@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 3d535c71480693d0424c6697776a1ddbf37b47c5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 1db103fe46db292e2aa41b648c0ace16fd450d90
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493221"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525431"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve test için Azure Cosmos öykünücüsünü kullanma
 
@@ -252,7 +252,7 @@ Seçenek listesini görüntülemek için komut satırına `CosmosDB.Emulator.exe
 | GremlinPort | Gremlin uç noktası için kullanılacak bağlantı noktası numarası. 8901 varsayılan değerdir. | CosmosDB.Emulator.exe /GremlinPort=\<port\> | \<Bağlantı noktası\>: Tek bir bağlantı noktası numarası |
 |TablePort | Azure tablosu uç noktası için kullanılacak bağlantı noktası numarası. 8902 varsayılan değerdir. | CosmosDB.Emulator.exe /TablePort =\<bağlantı noktası\> | \<Bağlantı noktası\>: Tek bir bağlantı noktası numarası|
 | KeyFile | Yetkilendirme anahtarı belirtilen dosyadan okuma. Bir keyfile oluşturmak için /GenKeyFile seçeneğini kullanın | CosmosDB.Emulator.exe/keyfile =\<file_name\> | \<file_name\>: Dosyasının yolu |
-| ResetDataPath | Yinelemeli olarak tüm dosyaları belirtilen yolda kaldırır. Bir yol belirtmezseniz, %LOCALAPPDATA%\CosmosDbEmulator için varsayılan olarak | CosmosDB.Emulator.exe /ResetDataPath[=<path>] | \<Yol\>: Dosya yolu  |
+| ResetDataPath | Yinelemeli olarak tüm dosyaları belirtilen yolda kaldırır. Bir yol belirtmezseniz, %LOCALAPPDATA%\CosmosDbEmulator için varsayılan olarak | CosmosDB.Emulator.exe /ResetDataPath[=\<path>] | \<Yol\>: Dosya yolu  |
 | StartTraces  |  Hata ayıklama izleme günlüklerini toplama başlatma. | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | Hata ayıklama izleme günlükleri toplamayı durdurun. | CosmosDB.Emulator.exe /StopTraces  | |
 |EnableTableEndpoint | Azure tablo API'si sağlar. | CosmosDB.Emulator.exe /EnableTableEndpoint | |
@@ -309,7 +309,7 @@ Aşağıda, PowerShell’den öykünücüyü denetlemeye ilişkin komutların ö
 
 ### `Get-CosmosDbEmulatorStatus`
 
-**Sözdizimi**
+**Söz dizimi**
 
 `Get-CosmosDbEmulatorStatus`
 
@@ -319,7 +319,7 @@ Bu ServiceControllerStatus değerlerden birini döndürür: ServiceControllerSta
 
 ### `Start-CosmosDbEmulator`
 
-**Sözdizimi**
+**Söz dizimi**
 
 `Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>] [<CommonParameters>]`
 
@@ -329,7 +329,7 @@ Bu ServiceControllerStatus değerlerden birini döndürür: ServiceControllerSta
 
 ### `Stop-CosmosDbEmulator`
 
-**Sözdizimi**
+**Söz dizimi**
 
  `Stop-CosmosDbEmulator [-NoWait]`
 
@@ -339,7 +339,7 @@ Bu ServiceControllerStatus değerlerden birini döndürür: ServiceControllerSta
 
 ### `Uninstall-CosmosDbEmulator`
 
-**Sözdizimi**
+**Söz dizimi**
 
 `Uninstall-CosmosDbEmulator [-RemoveData]`
 

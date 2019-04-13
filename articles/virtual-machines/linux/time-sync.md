@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 58fd3afa37d965cfbe21dcf23823ddb8425442b9
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 0ac102f388c404bab98354b7bd131989abedd7e6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887572"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548196"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Azure'da Linux VM'ler için zaman eşitleme
 
@@ -40,7 +40,7 @@ Azure ana Katman 1 Microsoft'a ait cihazlardan, GPS anten ile kendi zaman iç Mi
 
 Tek başına bir donanımda Linux işletim sistemi yalnızca ana bilgisayar donanımına okur. önyükleme saati. Bundan sonra saatin kesme Zamanlayıcı Linux çekirdek kullanarak korunur. Bu yapılandırmada, saat, zaman içinde farklı. Azure'da yeni Linux dağıtımları Vm'leri konaktan daha sık saat güncelleştirmeleri için Sorgulanacak Linux Integration services (LIS) dahil VMICTimeSync sağlayıcısını kullanabilirsiniz.
 
-Sanal makine konak etkileşim saati da etkileyebilir. Sırasında [Bakımı koruma bellek](maintenance-and-updates.md#memory-preserving-maintenance), Vm'leri 30 saniyeye kadar duraklatıldı. Örneğin, bakım başlamadan önce VM saat 10:00:00 AM'den gösterir ve 28 saniye sürer. VM çağrıldıktan sonra sanal makinedeki saat 10:00:00 28 saniye olabilecek'da, yine de gösterebilir devre dışı. Bu, doğru VMICTimeSync hizmet konak ve istemleri değişiklikler için VM'ler üzerinde gerçekleştirilecek dengelemek için neler olduğunu izler.
+Sanal makine konak etkileşim saati da etkileyebilir. Sırasında [Bakımı koruma bellek](maintenance-and-updates.md#maintenance-not-requiring-a-reboot), Vm'leri 30 saniyeye kadar duraklatıldı. Örneğin, bakım başlamadan önce VM saat 10:00:00 AM'den gösterir ve 28 saniye sürer. VM çağrıldıktan sonra sanal makinedeki saat 10:00:00 28 saniye olabilecek'da, yine de gösterebilir devre dışı. Bu, doğru VMICTimeSync hizmet konak ve istemleri değişiklikler için VM'ler üzerinde gerçekleştirilecek dengelemek için neler olduğunu izler.
 
 Zaman eşitleme çalışmıyor olmadan, sanal makinedeki saatin hataları accumulate. Yalnızca bir VM olduğunda, iş yüküne yüksek oranda doğru zaman tutma gerektirmedikçe etkisini önemli olmayabilir. Ancak çoğu durumda, biz birden fazla varsa, birbirine bağlı işlemler ve süre tüm dağıtım tutarlı olması gerekiyor izlemek için zaman kullanan VM'ler. Zaman VM'ler arasında farklı olduğunda, aşağıdaki etkileri görebilirsiniz:
 

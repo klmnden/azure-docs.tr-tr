@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b6c636366d494901a34078100290084298de686
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 96acb2e7af797f2777cc751417f50eb21faa46da
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999830"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522563"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Yükleme ve Azure üzerinde SAP HANA (büyük örnekler) yapılandırın
 
@@ -131,7 +131,7 @@ SAP NetWeaver mimarisine oluşturulan SAP uygulamalarını, SAP sistemi oluştur
 Sonuç olarak, kullanılabilir ayrı saat sunucusu HANA büyük örnekler üzerinde çalışan SAP HANA veritabanı örnekleri ve Azure Vm'lerinde çalışan SAP uygulama sunucuları tarafından ayarlamanız gerekir. Bir depolama altyapısı büyük örnek damgaları NTP sunucuları ile saatin eşitlenmiş.
 
 
-## <a name="networking"></a>Ağ İletişimi
+## <a name="networking"></a>Ağ
 Biz, Azure sanal ağlarınıza tasarlama ve HANA büyük örnekler için bu sanal ağları bağlama önerileri aşağıdaki belgelerde açıklandığı uyguladığınız varsayılmaktadır:
 
 - [SAP HANA (büyük örnek) genel bakış ve azure'da mimarisi](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
@@ -141,7 +141,7 @@ Bazı ayrıntılar tek birimlerinin ağı hakkında bahseden değer vardır. Her
 
 Mimarinizi için Ethernet ayrıntıları hakkında daha fazla bilgi için bkz. [HLI desteklenen senaryoları](hana-supported-scenario.md).
 
-## <a name="storage"></a>Depolama alanı
+## <a name="storage"></a>Depolama
 
 Depolama alanı düzenini (büyük örnekler) Azure üzerinde SAP HANA için SAP HANA tarafından önerilen yönergeleri SAP aracılığıyla Azure Hizmet Yönetimi yapılandırılır. Bu yönergeleri bölümünde belgelendirilen [SAP HANA depolama gereksinimlerini](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) teknik incelemesi. 
 
@@ -151,8 +151,8 @@ Depolama birimleri adlandırma kurallarını aşağıdaki tabloda listelenmişti
 
 | Depolama kullanımı | Takma adı | Birim adı | 
 | --- | --- | ---|
-| HANA data | /hana/Data/SID/mnt0000<m> | Depolama IP: / hana_data_SID_mnt00001_tenant_vol |
-| HANA günlüğü | /hana/log/SID/mnt0000<m> | Depolama IP: / hana_log_SID_mnt00001_tenant_vol |
+| HANA data | /hana/Data/SID/mnt0000\<m > | Depolama IP: / hana_data_SID_mnt00001_tenant_vol |
+| HANA günlüğü | /hana/log/SID/mnt0000\<m > | Depolama IP: / hana_log_SID_mnt00001_tenant_vol |
 | HANA günlük yedekleme | /hana/log/Backups | Depolama IP: / hana_log_backups_SID_mnt00001_tenant_vol |
 | Paylaşılan HANA | /hana/Shared/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
 | usr/sap | /usr/SAP/SID | Depolama IP: / hana_shared_SID_mnt00001_tenant_vol/usr_sap |

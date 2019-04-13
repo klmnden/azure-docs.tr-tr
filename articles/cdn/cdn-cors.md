@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 635b4e71c09a2e8b3901af5580f221bc4716831d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 3dbf0aea50f382a0b325bf068a200cde42098733
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917779"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547606"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Azure CDN'yi CORS ile kullanma
 ## <a name="what-is-cors"></a>CORS nedir?
@@ -32,7 +32,7 @@ CORS istekleri, iki tür vardır *basit istekler* ve *karmaşık istekler.*
 
 1. Tarayıcı ek bir CORS isteği gönderen **kaynak** HTTP isteği üstbilgisi. Bileşimi tanımlanır ana sayfada sunulandan kaynak bu üst bilgi değeri *Protokolü* *etki* ve *bağlantı noktası.*  Bir sayfadan olduğunda https://www.contoso.com aşağıdaki istek üst bilgisi fabrikam.com kaynağı, bir kullanıcının verilere erişmek için deneme fabrikam.com olarak gönderilmesi:
 
-   `Origin: https://www.contoso.com`
+   `Origin: https:\//www.contoso.com`
 
 2. Sunucu aşağıdakilerden herhangi biri ile yanıt verebilir:
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b5c7050ac006ea2500854f8f41b134895e5e0061
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 3b31e796b07bea8c11bccb3f2bb306a4279f2ca3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541222"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523724"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Arama'da çok yönlü navigasyon
 Çok yönlü gezinme, kendinden yönlendirmeli detayına gitme Gezinti arama uygulamalarda sağlayan filtreleme bir mekanizmadır. ' % S'terim 'çok yönlü gezinme' bilinmiyor olabilir, ancak büyük olasılıkla daha önce kullanılmış. Aşağıdaki örnekte gösterildiği gibi çok yönlü gezinme sonuçları filtrelemek için kullanılan kategorileri başka bir şey var.
@@ -321,7 +321,7 @@ Belirli koşullar altında sonuç kümelerini modeli sayıları eşleşmiyor bul
 
 Model sayıları parçalama mimarisi nedeniyle yanlış olabilir. Her arama dizini birden çok parça vardır ve her parça sonra tek bir sonuçta birleştirilmiş belge sayıma göre üst N modelleri bildirir. Başkalarının daha az olsa bazı parçalar çok eşleşen değerleri, varsa, bazı modeli değerleri eksik veya altında sonuçlarda sayılan bulabilirsiniz.
 
-Bu davranış bugün karşılaşırsanız Bu davranış herhangi bir zamanda değişebilir olsa da, etrafında sayısı inflating sınırlarına göre çalışabilirsiniz:<number> tam her parçadan veri raporlama zorlamak için büyük bir sayı. Varsa sayısı değeri: değerinden büyükse veya doğru sonuçlar garantilenen alanında benzersiz değerlerin sayısını eşittir. Ancak, belge sayısını yüksek olduğunda bir performans cezası olmaz, bu seçeneği dikkatli kullanın.
+Bu davranış bugün karşılaşırsanız Bu davranış herhangi bir zamanda değişebilir olsa da, etrafında sayısı inflating sınırlarına göre çalışabilirsiniz:\<numarası > tam her parçadan veri raporlama zorlamak için büyük bir sayı. Varsa sayısı değeri: değerinden büyükse veya doğru sonuçlar garantilenen alanında benzersiz değerlerin sayısını eşittir. Ancak, belge sayısını yüksek olduğunda bir performans cezası olmaz, bu seçeneği dikkatli kullanın.
 
 ### <a name="user-interface-tips"></a>Kullanıcı arabirimi ipuçları
 **Model Gezinti bölmesinde her bir alan için etiketler ekleyin**

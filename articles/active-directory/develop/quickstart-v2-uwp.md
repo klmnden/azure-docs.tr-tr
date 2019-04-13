@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c61da6a55b1f4502deee056b29fdbc22ef33514
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: e7ed2830b704d379e2ecc5a5e548f831800af56d
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490627"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526393"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Hızlı Başlangıç: Evrensel Windows Platformu (UWP) uygulamasından Microsoft Graph API'sini çağırma
 
@@ -65,14 +65,14 @@ Bu hızlı başlangıç, bir Evrensel Windows Platformu (UWP) uygulaması ile ki
 > #### <a name="step-1-configure-your-application"></a>1. Adım: Uygulamanızı yapılandırma
 > Bu hızlı başlangıç kod örneğinin çalışması için **urn:ietf:wg:oauth:2.0:oob** gibi bir yeniden yönlendirme URI’si eklemeniz gerekir.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Benim için bu değişiklik yapın]()
+> > [Bu değişikliği benim için yap]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Önceden yapılandırılmış](media/quickstart-v2-uwp/green-check.png) uygulamanız bu öznitelikleri ile yapılandırılır.
+> > ![Zaten yapılandırılmış](media/quickstart-v2-uwp/green-check.png) Uygulamanız bu özniteliklerle yapılandırılmış.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>2. Adım: Visual Studio projenizi indirin
 
- - [Visual Studio 2017 projenizi indirin](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+ - [Visual Studio 2017 projesini indirin](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>3. Adım: Visual Studio projenizi yapılandırın
 
@@ -86,7 +86,7 @@ Bu hızlı başlangıç, bir Evrensel Windows Platformu (UWP) uygulaması ile ki
 
 > [!div renderon="docs"]
 > Konumlar:
-> - `Enter_the_Application_Id_here` -kaydettiğiniz uygulama için uygulama kimliği.
+> - `Enter_the_Application_Id_here` - Kaydettiğiniz uygulamanın Uygulama Kimliği değeridir.
 >
 > > [!TIP]
 > > Değerlerini bulmak için *uygulama kimliği*Git **genel bakış** sayfası
@@ -108,7 +108,7 @@ Bu bölümde hızlı başlangıç hakkında daha fazla bilgi verilmektedir.
 MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) kullanıcılarının oturumunu ve güvenlik belirteci istemek için kullanılan bir kitaplık sunulmaktadır. Güvenlik belirteçleri, geliştiriciler için Microsoft Identity platformu tarafından korunan bir API'ye erişmek için kullanılır. MSAL kitaplığını Visual Studio'nun *Paket Yöneticisi Konsolu*'nda aşağıdaki komutu çalıştırarak yükleyebilirsiniz:
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client -IncludePrerelease
 ```
 
 ### <a name="msal-initialization"></a>MSAL başlatma
@@ -145,14 +145,13 @@ Bazı durumlarda, Microsoft kimlik platformu uç noktası aracılığıyla izin 
 - İki faktörlü kimlik doğrulama gerektiğinde
 
 ```csharp
-authResult = await App.PublicClientApp.AcquireToken(scopes, this)
-                       .ExecuteAsync();
+authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
+                      .ExecuteAsync();
 ```
 
 > |Konumlar:||
 > |---------|---------|
 > | `scopes` | İstenen kapsamları (Microsoft Graph için `{ "user.read" }` veya özel Web API'leri için `{ "api://<Application ID>/access_as_user" }` gibi) barındırır. |
-> | `this`| Okno WPF center oturum açma iletişim için kullanılacak anlamına gelir
 
 #### <a name="get-a-user-token-silently"></a>Kullanıcı belirtecini sessizce alma
 
@@ -177,4 +176,4 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 Bu hızlı başlangıcın tam bir açıklamasının da içinde olduğu yeni özellikleri ve uygulamaları oluşturma hakkında eksiksiz adım adım kılavuz için Windows masaüstü öğreticisini deneyin.
 
 > [!div class="nextstepaction"]
-> [UWP - çağrı Graph API'si öğreticisini](tutorial-v2-windows-uwp.md)
+> [UWP - Graph API'si çağırma öğreticisi](tutorial-v2-windows-uwp.md)

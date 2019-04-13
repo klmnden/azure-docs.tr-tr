@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: bded6c76aa209a718929c891bd2443f8517ec44a
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 70dac62e3e19ad0e9b33ea7b376a8fe479bf3131
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649663"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522993"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>PowerShell kullanarak sanal makineler için birden çok IP adresi atama
 
@@ -96,7 +96,7 @@ Aşağıdaki adımları senaryoda açıklanan şekilde birden çok IP adresi ile
 
 6. NIC için birincil IP yapılandırması tanımlayın Önceden tanımlanmış değer kullanmadıysanız, oluşturduğunuz alt ağ içinde geçerli bir adrese 10.0.0.4 değiştirin. Statik bir IP adresi atamadan önce zaten kullanımda olup olmadığını ilk doğrulayın önerilir. Komutu girdikten `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Çıkış adresi kullanılabilir değilse döndürür *True*. Bu uygun değilse, bir çıktı döndürür *False* ve kullanılabilir adresleri listesi. 
 
-    Aşağıdaki komutlarda **< Değiştir-ile-your-benzersiz-adı > kullanılacak benzersiz DNS adı ile değiştirin.** Bir Azure bölgesi içinde tüm genel IP adresleri arasında adı benzersiz olmalıdır. Bu isteğe bağlı bir parametredir. Yalnızca genel IP adresini kullanarak VM'ye bağlanmak isterseniz kaldırılabilir.
+    Aşağıdaki komutlarda **değiştirin \<Değiştir-ile-your-benzersiz-adı > ile kullanmak için benzersiz bir DNS adı.** Bir Azure bölgesi içinde tüm genel IP adresleri arasında adı benzersiz olmalıdır. Bu isteğe bağlı bir parametredir. Yalnızca genel IP adresini kullanarak VM'ye bağlanmak isterseniz kaldırılabilir.
 
     ```powershell
     

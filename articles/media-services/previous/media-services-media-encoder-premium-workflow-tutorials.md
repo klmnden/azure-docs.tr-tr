@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 3d51f5328aec66eee0d8382026e8795db45a6a2c
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: d227e3618c138e6661cc4be7caa2b9a3ba1af3f1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189793"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523843"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Gelişmiş Media Encoder Premium iş akışı öğreticileri
 ## <a name="overview"></a>Genel Bakış
@@ -760,7 +760,7 @@ Bu, normal dize işleme işlemleri yapıldı. Elde edilen değiştirilmiş küç
 
 *Küçük listesinde günlüğe kaydetme*
 
-Nasıl video ve ses akışları kırpılarak görmek için bir test çalıştırması yaparsınız. Kesme noktaları için farklı değerlerle birden fazla test çalıştırması yaparsınız gibi bu hesaba ancak alınmayacak olduğunu fark edeceksiniz! Bunun nedeni, Azure çalışma zamanı aksine Tasarımcısı, her çalıştırma cliplist xml kılmaz ' dir. Yalnızca ilk kez, giriş ve çıkış noktaları, ayarladığınız tüm diğer durumlarda, bizim guard yan tümcesi dönüştürülecek xml neden olacak bu anlamına gelir (varsa (clipListXML.indexOf ("<trim>") == -1)) iş akışı olduğunda kırpma başka bir öğeye eklemesini engeller zaten bir mevcut.
+Nasıl video ve ses akışları kırpılarak görmek için bir test çalıştırması yaparsınız. Kesme noktaları için farklı değerlerle birden fazla test çalıştırması yaparsınız gibi bu hesaba ancak alınmayacak olduğunu fark edeceksiniz! Bunun nedeni, Azure çalışma zamanı aksine Tasarımcısı, her çalıştırma cliplist xml kılmaz ' dir. Yalnızca ilk kez, giriş ve çıkış noktaları, ayarladığınız tüm diğer durumlarda, bizim guard yan tümcesi dönüştürülecek xml neden olacak bu anlamına gelir (varsa (`clipListXML.indexOf("<trim>") == -1`)) iş akışı zaten mevcutsa mevcut bir kesim başka bir öğeye eklemesini önler.
 
 İş yerel olarak test etmek kullanışlı hale getirmek için en iyi biz bir kesim öğesi zaten mevcut değilse inceler bazı ev tutma kodu ekleyin. Bu durumda, biz xml yeni değerlerle değiştirerek devam etmeden önce kaldırabilirsiniz. Düz dize işlemeleri kullanmak yerine, ayrıştırma gerçek xml nesne modeli aracılığıyla Bunu yapmak büyük olasılıkla daha güvenlidir.
 
@@ -949,7 +949,7 @@ Bu noktada, biz çalıştırın ve iş kadar hiç olmadığı kadar uygulanan de
 
 [Örnek iş akışı dosyaları](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
-[Azure Media Services Gezgin aracında](https://aka.ms/amse)
+[Azure Media Services Gezgini aracı](https://aka.ms/amse)
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

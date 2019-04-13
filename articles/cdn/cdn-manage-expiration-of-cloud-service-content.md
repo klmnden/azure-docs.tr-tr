@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: 6e17b110cbfc293e19714399d5b2cdb753aa1ac4
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: c21ae227d74442be5701dd906180392b1e0fdf8b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917966"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525679"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Azure cdn'de web içeriğinin kullanım süresini yönetme
 > [!div class="op_single_selector"]
 > * [Azure web içeriği](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Azure Blob depolama](cdn-manage-expiration-of-blob-content.md)
+> * [Azure Blob Depolama](cdn-manage-expiration-of-blob-content.md)
 > 
 
 Genel olarak erişilebilen kaynak web sunucusundan dosyaları sona erdiğinde, yaşam süresi (TTL) kadar Azure Content Delivery Network (CDN) önbelleğe alınabilir. TTL değeri tarafından belirlenir `Cache-Control` kaynak sunucusundan gelen HTTP yanıt üst bilgisi. Bu makalede nasıl ayarlanacağını `Cache-Control` Microsoft Azure App Service, Azure Cloud Services, ASP.NET uygulamaları ve her biri benzer şekilde yapılandırılmış Internet Information Services (IIS) siteleri, Web Apps özelliği için üstbilgiler. Ayarlayabileceğiniz `Cache-Control` üstbilgi yapılandırma dosyaları kullanılarak veya program aracılığıyla. 
@@ -106,7 +106,7 @@ Aşağıdaki XML yapılandırma dosyası örneği nasıl ayarlanacağını göst
 </configuration>
 ```
 
-Kullanılacak **cacheControlMaxAge** öznitelik değerini ayarlamalısınız **cacheControlMode** özniteliğini `UseMaxAge`. Bu ayar HTTP üst bilgi ve yönerge neden `Cache-Control: max-age=<nnn>`, yanıta eklenecek. Timespan değeri biçimi **cacheControlMaxAge** özniteliği `<days>.<hours>:<min>:<sec>`. Değeri saniye dönüştürülür ve değeri olarak kullanılan `Cache-Control` `max-age` yönergesi. Hakkında daha fazla bilgi için `<clientCache>` öğesi bkz [istemci önbellek <clientCache> ](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Kullanılacak **cacheControlMaxAge** öznitelik değerini ayarlamalısınız **cacheControlMode** özniteliğini `UseMaxAge`. Bu ayar HTTP üst bilgi ve yönerge neden `Cache-Control: max-age=<nnn>`, yanıta eklenecek. Timespan değeri biçimi **cacheControlMaxAge** özniteliği `<days>.<hours>:<min>:<sec>`. Değeri saniye dönüştürülür ve değeri olarak kullanılan `Cache-Control` `max-age` yönergesi. Hakkında daha fazla bilgi için `<clientCache>` öğesi bkz [istemci önbellek \<clientCache >](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Cache-Control üst bilgileri programlı olarak ayarlama
 ASP.NET uygulamaları için programlı olarak ayarlayarak CDN önbelleğe alma davranışını denetleyen **HttpResponse.Cache** .NET API özelliği. Hakkında bilgi için **HttpResponse.Cache** özelliğine bakın [HttpResponse.Cache özelliği](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) ve [HttpCachePolicy sınıfı](/dotnet/api/system.web.httpcachepolicy).  

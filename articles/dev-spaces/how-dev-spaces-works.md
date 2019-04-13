@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: İşlemler, güç Azure geliştirme alanları ve azds.yaml yapılandırma dosyasında nasıl yapılandırılacağı açıklanmaktadır.
 keywords: azds.yaml, Azure geliştirme alanları, geliştirme alanları, Docker, Kubernetes, Azure, AKS, kapsayıcılar, Azure Kubernetes hizmeti
-ms.openlocfilehash: 0397a52e8cd838aafe44a35508f8a68caba4c94e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 494dd3774ec47598a95c6e20de6283abc2e4ff94
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489597"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544932"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure geliştirme alanları nasıl çalışır ve olan yapılandırılmış
 
@@ -85,16 +85,18 @@ AKS kümenizi hazırlama içerir:
 * Azure geliştirme alanları, küme kullanarak etkinleştirme `az aks use-dev-spaces`
 
 Oluşturma ve Azure Dev alanları için bir AKS kümesi yapılandırma hakkında daha fazla bilgi için Başlarken kılavuzları birine bakın:
-* [Java ile Azure Dev Spaces'da Çalışmaya Başlama](get-started-java.md)
-* [.NET Core ve Visual Studio ile Azure Dev Spaces’ı Kullanmaya Başlama](get-started-netcore-visualstudio.md)
-* [.NET Core ile Azure Dev Spaces'da Çalışmaya Başlama](get-started-netcore.md)
-* [Node.js ile Azure Dev Spaces'da Çalışmaya Başlama](get-started-nodejs.md)
+* [Java ile Azure geliştirme alanlarında çalışmaya başlama](get-started-java.md)
+* [Azure geliştirme alanları .NET Core ve Visual Studio ile çalışmaya başlama](get-started-netcore-visualstudio.md)
+* [Azure geliştirme alanlarında .NET Core ile çalışmaya başlama](get-started-netcore.md)
+* [Node.js ile Azure geliştirme alanlarında çalışmaya başlama](get-started-nodejs.md)
 
 Azure geliştirme alanları AKS kümenizde etkinleştirildiğinde, kümeniz için denetleyici yükler. Denetleyici, küme dışındaki ayrı bir Azure kaynağı ve kaynaklara, kümenizdeki aşağıdakileri yapar:
 
 * Oluşturur veya bir geliştirme boşluk olarak kullanılacak bir Kubernetes ad alanı belirler.
 * Tüm Kubernetes ad alanı adlı kaldırır *azds*, varsa ve yeni bir tane oluşturur.
-* Kubernetes Başlatıcı nesne dağıtır.
+* Kubernetes Web kancası yapılandırma dağıtır.
+* Bir Web kancası giriş sunucuya dağıtır.
+    
 
 Ayrıca, diğer Azure geliştirme alanları bileşenleri hizmeti çağrı yapmak için AKS kümenizi kullanan aynı hizmet sorumlusu kullanır.
 
@@ -104,9 +106,9 @@ Azure geliştirme alanları kullanmak için en az bir geliştirme alanı olmalı
 
 Varsayılan olarak, adlı bir geliştirme alanı denetleyiciyi oluşturur *varsayılan* varolan yükselterek *varsayılan* Kubernetes ad alanı. Yeni geliştirme alanları oluşturmak ve mevcut geliştirme alanları kaldırmak için istemci tarafı Araçları'nı kullanabilirsiniz. Kubernetes, ilgili bir sınırlama nedeniyle *varsayılan* geliştirme alan kaldırılamaz. Denetleyici adlı mevcut tüm Kubernetes ad alanları da kaldırır *azds* ile çakışmalarını önlemek için `azds` istemci tarafı araçları tarafından kullanılan komutu.
 
-Kubernetes Başlatıcı nesne pod'ları üç kapsayıcı ile izleme için dağıtım sırasında eklemesine kullanılır: proxy devspaces kapsayıcı devspaces proxy init kapsayıcı ve devspaces derleme kapsayıcı. **Bu kapsayıcıların üç AKS kümenizde kök erişimi ile çalıştırın.** Ayrıca, AKS kümenizin diğer Azure geliştirme alanları bileşenleri hizmeti çağrı yapmak için kullandığı aynı hizmet sorumlusu kullanırlar.
+Kubernetes Web kancası giriş sunucu pod'ları üç kapsayıcı ile izleme için dağıtım sırasında eklemesine kullanılır: proxy devspaces kapsayıcı devspaces proxy init kapsayıcı ve devspaces derleme kapsayıcı. **Bu kapsayıcıların üç AKS kümenizde kök erişimi ile çalıştırın.** Ayrıca, AKS kümenizin diğer Azure geliştirme alanları bileşenleri hizmeti çağrı yapmak için kullandığı aynı hizmet sorumlusu kullanırlar.
 
-![Azure geliştirme alanları Kubernetes Başlatıcı](media/how-dev-spaces-works/kubernetes-initializer.svg)
+![Azure geliştirme alanları Kubernetes Web kancası giriş sunucusu](media/how-dev-spaces-works/kubernetes-webhook-admission-server.svg)
 
 İçine ve dışına uygulama kapsayıcısı tüm TCP trafiği işleyen bir sepet kapsayıcısı devspaces proxy kapsayıcısıdır ve yönlendirme yardımcı gerçekleştirin. Belirli alanları kullanılıyorsa, proxy devspaces kapsayıcı HTTP iletileri yeniden yönlendirmeler. Örneğin, üst ve alt alanları uygulamalar arasında HTTP iletileri yönlendirmek yardımcı olabilir. Tüm HTTP olmayan trafiği devspaces değiştirilmemiş proxy geçirir. Proxy devspaces kapsayıcı ayrıca tüm gelen ve giden HTTP iletileri günlüğe kaydeder ve istemci tarafı araçları izlemeler olarak gönderir. Bu izlemeler, ardından uygulamanın davranışını denetlemek için geliştirici tarafından görüntülenebilir.
 
@@ -117,7 +119,7 @@ Devspaces derleme kapsayıcısı init kapsayıcı ve proje kaynak kodu ve takıl
 > [!NOTE]
 > Azure geliştirme alanları aynı düğüm, uygulamanızın kapsayıcısı oluşturmak ve çalıştırmak için kullanır. Sonuç olarak, Azure geliştirme alanları bir dış kapsayıcı kayıt defteri oluşturmak ve uygulamanızı çalıştırmak için gerekli değildir.
 
-Kubernetes Başlatıcı nesne AKS kümesinde oluşturulan tüm yeni pod dinler. Bu pod herhangi bir ad alanı ile dağıtılırsa *azds.io/space=true* etiketi ek kapsayıcılar ile pod yerleştirir. İstemci tarafı araçları kullanarak uygulamanın kapsayıcı çalıştırırsanız devspaces derleme kapsayıcısı yalnızca eklenmiş olur.
+Kubernetes Web kancası giriş sunucusu AKS kümesinde oluşturulan tüm yeni pod dinler. Bu pod herhangi bir ad alanı ile dağıtılırsa *azds.io/space=true* etiketi ek kapsayıcılar ile pod yerleştirir. İstemci tarafı araçları kullanarak uygulamanın kapsayıcı çalıştırırsanız devspaces derleme kapsayıcısı yalnızca eklenmiş olur.
 
 AKS kümenizi hazırlandıktan sonra hazırlama ve geliştirme alanınızda kodunuzu çalıştırmak için istemci tarafı Araçları'nı kullanabilirsiniz.
 
@@ -221,7 +223,7 @@ Daha ayrıntılı bir düzeyde çalıştırdığınızda şunlar olur `azds up`:
 1. Dosyalar, kullanıcının AKS kümesi için benzersiz bir Azure dosya depolama alanına kullanıcının makineden eşitlenir. Kaynak kodu, Helm grafiği ve yapılandırma dosyalarını karşıya yüklenir. Eşitleme işlemi hakkında daha fazla ayrıntı, sonraki bölümde kullanılabilir.
 1. Denetleyici, yeni bir oturum başlatmak için bir istek oluşturur. Bu istek, benzersiz bir kimlik, ad alanı, kaynak kodu yoluna ve hata ayıklama bayrağı dahil olmak üzere çeşitli özellikler içerir.
 1. Denetleyici değiştirir *$(tag)* hizmetiniz için Helm grafik yükler ve benzersiz bir oturum kimliği ile Helm grafiği yer tutucusu. Kapsayıcı Helm grafiği için benzersiz bir oturum kimliği için bir başvuru sağlar oturumu isteğine birbirine bağlanması bu belirli bir oturum için AKS kümeye dağıtılan ekleyip bilgi ilişkili.
-1. Helm grafiği yüklenmesi sırasında Kubernetes Başlatıcı nesne ek kapsayıcıları izleme ve projenizin kaynak koduna erişmeniz için uygulamanızın pod ekler. HTTP izleme ve yönlendirme alanı sağlamak için devspaces proxy init kapsayıcılar ve devspaces proxy eklenir. Pod proje kaynak kodu ve Docker örneği için uygulamanızın kapsayıcıyı erişim sağlamak için derleme devspaces kapsayıcısı eklenir.
+1. Helm grafiği yüklenmesi sırasında Kubernetes Web kancası giriş sunucu araçları ve projenizin kaynak koduna erişmeniz için uygulamanızın pod ek kapsayıcıları ekler. HTTP izleme ve yönlendirme alanı sağlamak için devspaces proxy init kapsayıcılar ve devspaces proxy eklenir. Pod proje kaynak kodu ve Docker örneği için uygulamanızın kapsayıcıyı erişim sağlamak için derleme devspaces kapsayıcısı eklenir.
 1. Uygulamanın pod başlatıldığında devspaces derleme kapsayıcısı ve devspaces proxy init kapsayıcı uygulama kapsayıcısı oluşturmak için kullanılır. Uygulama kapsayıcısı ve devspaces proxy kapsayıcıları sonra başlatılır.
 1. Uygulama kapsayıcısı başlatıldıktan sonra istemci tarafı işlevleri Kubernetes kullanan *bağlantı noktası iletme* üzerinden uygulamanızın HTTP erişim sağlamak için işlevsellik http://localhost. Bu bağlantı noktası iletme geliştirme makinenize geliştirme alanınıza hizmetine bağlanır.
 1. Pod tüm kapsayıcılarda başlatıldığında hizmeti çalışıyor. Bu noktada, istemci tarafı işlevleri HTTP izlemeleri, stdout ve stderr akışı başlar. Bu bilgiler, istemci tarafı işlevleri geliştirici için görüntülenir.

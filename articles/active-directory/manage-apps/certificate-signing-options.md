@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a5548e7a5f60d9882fdfb4fb6eb777ab993e121
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: bede53ef2bc05750be21f831fc0cb790a001c6c5
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916011"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549346"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Gelişmiş seçenekleri, Azure Active Directory'de galeri uygulamalar için SAML belirtecinde imzalama sertifikası
 
@@ -49,7 +49,7 @@ Azure AD, iki imzalama algoritmaları veya SAML yanıtını oturum açmak için 
 
 * **SHA-1**. Bu algoritma eski ve daha az kabul edilir SHA-256'yı güvenlidir. Bir uygulama bu imza algoritmasını destekliyorsa, bu seçeneği seçebilirsiniz **imzalama algoritması** aşağı açılan listesi. Ardından Azure AD ile SHA-1 algoritmasını SAML yanıtını imzalar.
 
-## <a name="change-the-certificate-signing-options-and-certificate-signing-algorithm"></a>Sertifika imzalama algoritması ve sertifika imzalama seçenekleri değiştirme
+## <a name="change-certificate-signing-options-and-signing-algorithm"></a>İmzalama seçenekleri ve imza algoritması sertifikasını değiştirme
 
 Uygulama SAML sertifika imzalama seçenekleri ve sertifika imzalama algoritmasını değiştirmek için söz konusu uygulamayı seçin:
 

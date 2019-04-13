@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 59d8b9ffa8c0cbeaaa354f2497d279ac8c285ae1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f353c9952d9ccec0f279d6bd98bf5db215758559
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437131"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524553"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Hızlı Başlangıç: Oluşturma ve Azure PowerShell ile bir Azure dosya paylaşımı yönetme 
 Bu kılavuzda, PowerShell kullanarak [Azure dosya paylaşımlarıyla](storage-files-introduction.md) çalışmanın temel bilgileri gösterilmektedir. Azure dosya paylaşımları diğer dosya paylaşımları gibidir, ancak bulutta depolanır ve Azure platformu tarafından desteklenir. Azure dosya paylaşımları endüstri standardı SMB protokolünü destekler ve birden çok makine, uygulama ve örnek arasında dosya paylaşmayı olanaklı kılar. 
@@ -40,7 +40,7 @@ New-AzResourceGroup `
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 Depolama hesabı, Azure dosya paylaşımını veya bloblar ya da sorgular gibi diğer depolama kaynaklarını dağıtmak için kullanabileceğiniz, paylaşılan bir depolama havuzudur. Bir depolama hesabında sınırsız sayıda paylaşım olabilir; paylaşım da, depolama hesabının kapasite sınırları içinde sınırsız sayıda dosya depolayabilir.
 
-Bu örnek, bir depolama hesabı kullanarak oluşturur [yeni AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet'i. Depolama hesabı *mystorageaccount<random number>* olarak adlandırılır ve **$storageAcct** değişkeninde, o depolama hesabına yönelik bir başvuru depolanır. Depolama hesabı adları benzersiz olmalıdır; bu nedenle `Get-Random` kullanarak adın sonuna bir sayı ekleyip adı benzersiz hale getirin. 
+Bu örnek, bir depolama hesabı kullanarak oluşturur [yeni AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet'i. Depolama hesabı adı *mystorageaccount\<rastgele sayı >* ve bu depolama hesabı için bir başvuru değişkeninde depolanan **$storageAcct**. Depolama hesabı adları benzersiz olmalıdır; bu nedenle `Get-Random` kullanarak adın sonuna bir sayı ekleyip adı benzersiz hale getirin. 
 
 ```azurepowershell-interactive 
 $storageAcct = New-AzStorageAccount `

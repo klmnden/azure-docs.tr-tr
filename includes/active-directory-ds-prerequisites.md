@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 2f5b530ea469e0e0755e4416fda1e0863614a059
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1fba8cc9ae40cf5539016bbd73de65f557a64136
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478840"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551554"
 ---
 > [!IMPORTANT]
 > **Bu makaledeki görevleri tamamlamadan önce Azure AD Domain Services parola karma eşitlemesini etkinleştirin.**
 >
-> Azure AD dizininizdeki kullanıcıların türüne bağlı olarak aşağıdaki yönergeleri izleyin. Azure AD dizininizde yalnızca Bulut ve eşitlenmiş kullanıcı hesaplarının bir karışımı varsa iki yönerge kümesini de tamamlayın.
+> Azure AD dizininizdeki kullanıcıların türüne bağlı olarak aşağıdaki yönergeleri izleyin. Azure AD dizininizde yalnızca Bulut ve eşitlenmiş kullanıcı hesaplarının bir karışımı varsa iki yönerge kümesini de tamamlayın. B2B Konuk hesabı (örneğin, gmail veya izin veriyoruz farklı bir kimlik sağlayıcısından gelen MSA) kullanmaya çalıştığınız durumunda aşağıdaki işlemleri gerçekleştirmek mümkün olmayabilir Bu yönetilen etki eşitlenen bu kullanıcılar için parola olmadığı için dizinde Konuk hesaplarıdır. Dışında Azure AD parolalarını dahil olmak üzere bu hesaplar hakkında tam bilgi olurdu ve bu bilgileri Azure AD içinde olmadığından bu nedenle, bile yönetilen etki alanına eşitlenmedi. 
 > - [Yalnızca bulut kullanıcı hesapları için yönergeler](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)
 > - [Bir şirket içi dizininizden eşitlenmiş kullanıcı hesapları için yönergeler](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md)

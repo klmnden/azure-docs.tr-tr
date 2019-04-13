@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
-ms.openlocfilehash: b09348e98a0dee85338cc9f20289d83b658eb719
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 728a2f8cf61bbe0691350b9de45a5fab6b90cadb
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338471"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526631"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Azure yönetilen bir Azure container registry'ye kimliğini doğrulamak için kimliği kullan 
 
@@ -164,7 +164,7 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 SSH, kimlikle yapılandırılmış Docker sanal makineye uygulayın. Azure VM'de yüklü CLI'yı kullanarak aşağıdaki Azure CLI komutları çalıştırın.
 
-İlk olarak, Azure CLI ile kimlik doğrulaması [az login][az-login], VM üzerinde yapılandırılan kimliği kullanarak. İçin <userID>, önceki adımda aldığınız kimlik Kimliğini değiştirin. 
+İlk olarak, Azure CLI ile kimlik doğrulaması [az login][az-login], VM üzerinde yapılandırılan kimliği kullanarak. İçin `<userID>`, önceki adımda aldığınız kimlik Kimliğini değiştirin. 
 
 ```azurecli
 az login --identity --username <userID>

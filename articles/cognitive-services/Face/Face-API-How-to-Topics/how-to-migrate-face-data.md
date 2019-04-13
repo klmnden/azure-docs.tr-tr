@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 95b339e8d7f2c5c63c30e002411152b50cece2a5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 30ceb0e396597530071c70c4448761d914acb4ac
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448790"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548413"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Yüz tanıma verileriniz farklı bir yüz aboneliğe geçirme
 
@@ -79,7 +79,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> Alma ve anlık görüntü uygulama işlemini kaynak veya hedef normal çağrıları kesintiye **PersonGroup**s (veya **FaceList**s). Kaynak nesneyi değiştirmek eş zamanlı çağrı yaparak ancak önermiyoruz ([yüz listesi yönetim çağrılarını](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist) veya [kişi grubu - Train](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup/train) , örneğin arama), anlık görüntü işlemi olabilir önce veya sonra bu işlemleri yürütmek ya da hatalarla karşılaşabilirsiniz. 
+> Alma ve anlık görüntü uygulama işlemini kaynak veya hedef normal çağrıları kesintiye **PersonGroup**s (veya **FaceList**s). Kaynak nesne değiştirme eş zamanlı çağrı yaparak ancak önermiyoruz ([FaceList yönetim çağrılarını](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) veya [PersonGroup eğitme](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) , örneğin arama), anlık görüntü işlemi olabilir önce veya sonra bu işlemleri yürütmek ya da hatalarla karşılaşabilirsiniz.
 
 ## <a name="retrieve-the-snapshot-id"></a>Anlık görüntü kimliği alınamıyor
 

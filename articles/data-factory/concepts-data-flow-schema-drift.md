@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 42fde2804c04b2449068d649e1c660d02e72edb1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729364"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547153"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Veri akışı şema değişikliklerini eşleme
 
@@ -26,7 +26,7 @@ ms.locfileid: "56729364"
 * Sabit kodlanmış alanları ve değerleri yerine veri desenleri çalışabilirsiniz dönüştürme parametrelerini tanımlayın
 * Ad alanları kullanmak yerine gelen alanları eşleştirmeye biçimlerini ifadelerini tanımlama
 
-Azure Data Factory veri akışı, bu iş akışı bu tesislerde çıkarılır:
+## <a name="how-to-implement-schema-drift"></a>Şema değişikliklerini gerçekleştirme
 
 * "Kaynak Dönüşümünüzü şema değişikliklerini izin ver" seçin
 
@@ -67,3 +67,10 @@ Azure Data Factory, veri akışı örnek "Taksi tanıtım" ile bu genişletme te
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
+## <a name="access-new-columns-downstream"></a>Yeni sütunlar aşağı yönde erişim
+
+Yeni sütunlar sütun desenlerle oluşturduğunuzda, bu yeni sütunların "byName" ifadesi işlevini kullanarak daha sonra veri akışı dönüşümleri erişebilirsiniz.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+İçinde [veri akışı ifade dili](data-flow-expression-functions.md) sütun desenleri ve şema değişikliklerini "byName" ve "byPosition" gibi ek özellikleri bulabilirsiniz.

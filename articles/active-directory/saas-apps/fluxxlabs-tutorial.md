@@ -4,120 +4,115 @@ description: Azure Active Directory ve Fluxx Labs arasında çoklu oturum açmay
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d8fac770-bb57-4e1f-b50b-9ffeae239d07
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/20/2018
+ms.topic: tutorial
+ms.date: 04/01/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c48e41318ff5ba189e4cc8b8529bb3b81911052
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2a2f8fb9cd84e9177ec351eae986a87c184f8f00
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204398"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543619"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Öğretici: Fluxx laboratuvarlar ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Fluxx Laboratuvarlarla tümleştirme konusunda bilgi edinin.
-
 Fluxx Labs, Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Fluxx Labs erişimi, Azure AD'de kontrol edebilirsiniz.
-- Azure AD hesaplarına otomatik olarak imzalanan (çoklu oturum açma) Fluxx Labs kullanarak açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* Fluxx Labs erişimi, Azure AD'de kontrol edebilirsiniz.
+* Azure AD hesaplarına otomatik olarak Fluxx Labs (çoklu oturum açma) kullanarak oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirmesi Fluxx Labs ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Abonelik Fluxx Labs çoklu oturum açma etkin
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
+* Tek oturum açma etkin abonelik Fluxx Laboratuvarları
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Fluxx Labs ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* Fluxx Labs destekler **IDP** tarafından başlatılan
 
 ## <a name="adding-fluxx-labs-from-the-gallery"></a>Galeriden Fluxx Labs ekleme
+
 Azure AD'de Fluxx Labs tümleştirmesini yapılandırmak için Fluxx Labs Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Fluxx Labs eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-1. Arama kutusuna **Fluxx Labs**seçin **Fluxx Labs** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **Fluxx Labs**seçin **Fluxx Labs** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Sonuç listesinde Fluxx Laboratuvarları](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_addfromgallery.png)
+     ![Sonuç listesinde Fluxx Laboratuvarları](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırın ve "Britta Simon" adlı bir test kullanıcı tabanlı Fluxx laboratuvarlarla Azure AD çoklu oturum açma testi.
-
-Tek çalışmak için oturum açma için Azure AD ne Fluxx Labs karşılık gelen kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve ilgili kullanıcı Fluxx Labs arasında bir bağlantı ilişki kurulması gerekir.
-
-Değerini Fluxx Labs'de atama **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Fluxx adlı bir test kullanıcı tabanlı Labs ile test etme **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısı ve ilgili kullanıcı Fluxx Labs arasında bir bağlantı ilişki kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma Fluxx Labs ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Fluxx Labs test kullanıcısı oluşturma](#create-a-fluxx-labs-test-user)**  - kullanıcı Azure AD gösterimini bağlı Fluxx Labs Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[Fluxx Labs çoklu oturum açmayı yapılandırma](#configure-fluxx-labs-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Fluxx Labs test kullanıcısı oluşturma](#create-fluxx-labs-test-user)**  - kullanıcı Azure AD gösterimini bağlı Fluxx Labs Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Fluxx Labs uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma Fluxx Labs ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma Fluxx Labs ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında üzerinde **Fluxx Labs** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Fluxx Labs** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    ![Çoklu oturum açma iletişim kutusu](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_samlbase.png)
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-1. Üzerinde **Fluxx Labs etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    ![Fluxx Labs etki alanı ve URL'ler tek oturum açma bilgileri](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_url.png)
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    a. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında, aşağıdaki adımları gerçekleştirin:
+
+    ![Fluxx Labs etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-intiated.png)
+
+    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın:
 
     | Ortam | URL deseni|
     |-------------|------------|
     | Üretim | `https://<subdomain>.fluxx.io` |
     | Üretim öncesi | `https://<subdomain>.preprod.fluxxlabs.com`|
-        
-    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak:
+
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
 
     | Ortam | URL deseni|
     |-------------|------------|
@@ -125,31 +120,35 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve F
     | Üretim öncesi | `https://<subdomain>.preprod.fluxxlabs.com/auth/saml/callback`|
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Fluxx Labs Destek ekibine](mailto:travis@fluxxlabs.com) bu değerleri almak için.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Fluxx Labs istemcisini Destek ekibine](mailto:travis@fluxxlabs.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-    ![Sertifika indirme bağlantısı](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_certificate.png) 
+    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-1. Tıklayın **Kaydet** düğmesi.
+6. Üzerinde **Fluxx Labs kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/fluxxlabs-tutorial/tutorial_general_400.png)
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-1. Üzerinde **Fluxx Labs yapılandırma** bölümünde **yapılandırma Fluxx Labs** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+    a. Oturum Açma URL'si:
 
-    ![Fluxx Laboratuvar yapılandırma](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_configure.png)
+    b. Azure AD Tanımlayıcısı
 
-1. Farklı bir web tarayıcı penceresinde Fluxx Labs şirketinizin sitesi için yönetici olarak oturum açma.
+    c. Oturum Kapatma URL'si
 
-1. Seçin **yönetici** aşağıda **ayarları** bölümü.
+### <a name="configure-fluxx-labs-single-sign-on"></a>Fluxx Labs çoklu oturum açmayı yapılandırın
+
+1. Farklı bir web tarayıcı penceresinde Fluxx Labs şirketinizin sitesi için yönetici olarak oturum açın.
+
+2. Seçin **yönetici** aşağıda **ayarları** bölümü.
 
     ![Fluxx Laboratuvar yapılandırma](./media/fluxxlabs-tutorial/config1.png)
 
-1. Yönetim panelinde seçin **eklentileri** > **tümleştirmeler** seçip **SAML SSO-(Disabled)**
+3. Yönetim panelinde seçin **eklentileri** > **tümleştirmeler** seçip **SAML SSO-(Disabled)**
 
     ![Fluxx Laboratuvar yapılandırma](./media/fluxxlabs-tutorial/config2.png)
 
-1. Öznitelik bölümünde aşağıdaki adımları gerçekleştirin:
+4. Öznitelik bölümünde aşağıdaki adımları gerçekleştirin:
 
     ![Fluxx Laboratuvar yapılandırma](./media/fluxxlabs-tutorial/config3.png)
 
@@ -163,7 +162,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve F
 
     e. İçinde **İzleyici (SP varlık kimliği)** metin girin **tanımlayıcı** Azure portalında girdiğiniz değer.
 
-    f. İçinde **kimlik sağlayıcısı SSO hedef URL'si** metin kutusu, yapıştırma **SAML çoklu oturum açma hizmeti URL'si** Azure portaldan kopyaladığınız değeri.
+    f. İçinde **kimlik sağlayıcısı SSO hedef URL'si** metin kutusu, yapıştırma **oturum açma URL'si** Azure portaldan kopyaladığınız değeri.
 
     g. Base-64 kodlanmış sertifikanızı Not Defteri'nde açın, içeriğini, panoya kopyalayın ve ardından ona yapıştırın **kimlik sağlayıcısı sertifikası** metin.
 
@@ -174,39 +173,57 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve F
     > [!NOTE]
     > Kaydedilmiş bir içerik alanı bir kez güvenlik için boş görünmez, ancak değeri yapılandırmada kaydedildi.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/fluxxlabs-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/fluxxlabs-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü brittasimon@yourcompanydomain.extension. Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/fluxxlabs-tutorial/create_aaduser_03.png)
-
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/fluxxlabs-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
-  
-### <a name="create-a-fluxx-labs-test-user"></a>Fluxx Labs test kullanıcısı oluşturma
+
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+
+Bu bölümde, Fluxx Labs kullanarak erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
+
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Fluxx Labs**.
+
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
+2. Uygulamalar listesinde **Fluxx Labs**.
+
+    ![Uygulamalar listesinde Fluxx Labs bağlantı](common/all-applications.png)
+
+3. Soldaki menüde **kullanıcılar ve gruplar**.
+
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
+
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+
+### <a name="create-fluxx-labs-test-user"></a>Fluxx Labs test kullanıcısı oluşturma
 
 Fluxx Labs kullanarak oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunlar Fluxx Labs sağlanması gerekir. Fluxx Labs söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görevdir.
 
@@ -214,15 +231,15 @@ Fluxx Labs kullanarak oturum açmak Azure AD kullanıcılarının etkinleştirme
 
 1. Fluxx Labs şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-1. Tıklayarak aşağıda görüntülenen **simgesi**.
+2. Tıklayarak aşağıda görüntülenen **simgesi**.
 
     ![Fluxx Laboratuvar yapılandırma](./media/fluxxlabs-tutorial/config6.png)
 
-1. Panoda, tıklayarak açmak için görüntülenen simgesinin altında **yeni kişiler** kart.
+3. Panoda, tıklayarak açmak için görüntülenen simgesinin altında **yeni kişiler** kart.
 
     ![Fluxx Laboratuvar yapılandırma](./media/fluxxlabs-tutorial/config4.png)
 
-1. Üzerinde **yeni kişiler** bölümünde, aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **yeni kişiler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Fluxx Laboratuvar yapılandırma](./media/fluxxlabs-tutorial/config5.png)
 
@@ -230,58 +247,17 @@ Fluxx Labs kullanarak oturum açmak Azure AD kullanıcılarının etkinleştirme
 
     b. **Kaydet**’e tıklayın.
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
-
-Bu bölümde, Fluxx Labs kullanarak erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
-
-![Kullanıcı rolü atayın][200]
-
-**Britta Simon Fluxx Labs kullanarak atamak için aşağıdaki adımları gerçekleştirin:**
-
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
-
-    ![Kullanıcı Ata][201] 
-
-1. Uygulamalar listesinde **Fluxx Labs**.
-
-    ![Uygulamalar listesinde Fluxx Labs bağlantı](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_app.png)  
-
-1. Soldaki menüde **kullanıcılar ve gruplar**.
-
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
-
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
-
-    ![Atama Ekle bölmesi][203]
-
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
-
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
-
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde Fluxx Labs kutucuğa tıkladığınızda, otomatik olarak Fluxx Labs uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli Fluxx Labs kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Fluxx laboratuvarlara oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/fluxxlabs-tutorial/tutorial_general_01.png
-[2]: ./media/fluxxlabs-tutorial/tutorial_general_02.png
-[3]: ./media/fluxxlabs-tutorial/tutorial_general_03.png
-[4]: ./media/fluxxlabs-tutorial/tutorial_general_04.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/fluxxlabs-tutorial/tutorial_general_100.png
-
-[200]: ./media/fluxxlabs-tutorial/tutorial_general_200.png
-[201]: ./media/fluxxlabs-tutorial/tutorial_general_201.png
-[202]: ./media/fluxxlabs-tutorial/tutorial_general_202.png
-[203]: ./media/fluxxlabs-tutorial/tutorial_general_203.png

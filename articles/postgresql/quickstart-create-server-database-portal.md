@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 01/09/2019
-ms.openlocfilehash: 9a17bbc26a65d3747683ad0fc0ecba40a22088d7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: de0bd93b4cdd41ebd0ccc3aa89185e4501b711e1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856218"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524217"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında PostgreSQL için Azure Veritabanı sunucusu oluşturma
 
@@ -141,7 +141,7 @@ PostgreSQL sunucusu için Azure veritabanınıza çeşitli uygulamalar kullanara
     > [!TIP]
     > Güvenlik duvarı istemcinizin IP adreslerine izin verecek biçimde yapılandırılmamışsa aşağıdaki hata oluşur:
     > 
-    > "psql: Önemli: konak için pg_hba.conf girdisi yok "<IP address>", "myadmin" kullanıcısı "postgres" veritabanı, FATAL üzerinde SSL: SSL bağlantısı gereklidir. SSL seçeneklerini belirtin ve yeniden deneyin.
+    > "psql: Önemli: konak için pg_hba.conf girdisi yok `<IP address>`, "myadmin" kullanıcısı "postgres" veritabanı, FATAL üzerinde SSL: SSL bağlantısı gereklidir. SSL seçeneklerini belirtin ve yeniden deneyin.
     > 
     > Hatayı gidermek için sunucu yapılandırmasının bu makaledeki “Sunucu düzeyinde güvenlik duvarı kuralı yapılandırma” bölümünde yer alan adımlarla eşleştiğinden emin olun.
 

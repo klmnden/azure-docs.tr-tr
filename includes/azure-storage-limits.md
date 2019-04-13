@@ -8,29 +8,24 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 2957b45a0a26c590e2db1b402f4956ae9c3b8000
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ee9b70827c19236287f81f66f4b9c6e1004a54fd
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59291785"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59532750"
 ---
-Aşağıdaki tabloda, Azure depolama için varsayılan sınırlara açıklanmaktadır. *Giriş* sınırı bir depolama hesabına gönderilen istekleri gelen tüm verilere başvurur. *Çıkış* sınırı tüm verileri bir depolama hesabından alınan yanıtlardan başvuruyor.
+Aşağıdaki tabloda, Azure genel amaçlı v1, v2 ve Blob Depolama hesapları için varsayılan sınırlara açıklanmaktadır. *Giriş* sınırı bir depolama hesabına gönderilen istekleri gelen tüm verilere başvurur. *Çıkış* sınırı tüm verileri bir depolama hesabından alınan yanıtlardan başvuruyor.
 
 | Kaynak | Varsayılan limit |
 | --- | --- |
 | Standart ve premium hesapları dahil olmak üzere, abonelik başına bölgeye göre depolama hesabı sayısı | 250 |
 | En fazla depolama hesabı kapasitesi | 2 PB Amerika ve Avrupa'da, 500 UK içeren TB için diğer tüm bölgeler için |
 | Blob kapsayıcıları, blobları, dosya paylaşımları, tablolar, kuyruklar, varlıklar veya depolama hesabı başına ileti sayısı | Sınırsız |
-| Bir dosya deposundan (Önizleme) depolama hesabı en büyük boyut | 100.000 giB |
-| Bir dosya deposundan (Önizleme) depolama hesabı için maksimum IOPS | 100.000 |
-| Bir dosya deposundan (Önizleme) depolama hesabı için en yüksek bant genişliği | 5 GB/sn |
 | İstek hızı üst sınırı<sup>1</sup> depolama hesabı başına | saniyede 20.000 istekleri |
 | En büyük giriş<sup>1</sup> (ABD bölgelerinde) depolama hesabı başına | RA-GRS/GRS etkinse, 10 GB/sn, LRS/ZRS için 20 GB/sn<sup>2</sup> |
 | En büyük giriş<sup>1</sup> (ABD dışı bölgeler) depolama hesabı başına | RA-GRS/GRS etkinse, 5 GB/sn, LRS/ZRS için 10 GB/sn<sup>2</sup> |
-| Dosya deposundan (Önizleme) depolama hesabı (ABD bölgelerinde) başına en fazla giriş | 20 GB/sn (yalnızca LRS) |
-| Dosya deposundan (Önizleme) depolama hesabı (ABD dışı bölgeler) başına en fazla giriş | 10 GB/sn (yalnızca LRS)|
-| En fazla çıkışı için genel amaçlı v2 (Önizleme) dosya deposundan ve Blob Depolama hesapları (tüm bölge) | 50 Gbps |
+| En fazla çıkışı için genel amaçlı v2 ve Blob Depolama hesapları (tüm bölge) | 50 Gbps |
 | En fazla çıkışı için genel amaçlı v1 depolama hesaplarında (ABD bölgelerinde) | RA-GRS/GRS etkinse, 20 GB/sn, LRS/ZRS için 30 GB/sn<sup>2</sup> |
 | En fazla çıkışı için genel amaçlı v1 depolama hesaplarında (ABD dışı bölgeler) | RA-GRS/GRS etkinse, 10 GB/sn, LRS/ZRS için 15 GB/sn<sup>2</sup> |
 

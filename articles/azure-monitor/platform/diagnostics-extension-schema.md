@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 29091add5cee0934064224c9cca8644b401bd5e4
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493323"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526357"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure tanılama uzantısı yapılandırma şeması sürümleri ve geçmişi
 Bu sayfa dizinlerinin Azure tanılama Uzantı Şeması sürümleri, Microsoft Azure SDK'sı bir parçası olarak gönderildiğini.  
@@ -187,7 +187,7 @@ Azure SDK 2.4 ve önceki bağlantı dizesini nasıl çalıştığı ve Azure SDK
 
 * Azure SDK 2.4 ve önceki sürümlerinde, bağlantı dizesini aktarma tanılama günlükleri için depolama hesabı bilgileri almak için çalışma zamanında tanılama eklenti tarafından kullanıldı.
 * Visual Studio Azure SDK 2.6 sürümündeki yenilik ve daha sonra tanılama bağlantı dizesinde yayımlama sırasında uygun depolama hesap bilgileriyle tanılama uzantısını yapılandırmak için kullanır. Bağlantı dizesini, Visual Studio yayımlama sırasında kullanacağınız farklı hizmet yapılandırması için farklı depolama hesaplarında tanımlamanıza olanak sağlar. Tanılama eklentisi artık (Azure SDK 2.5 sonra) kullanılabilir, ancak .cscfg dosyası kendisi tarafından tanılama uzantısını etkinleştirilemiyor. Visual Studio veya PowerShell gibi Araçlar üzerinden ayrı olarak uzantıyı etkinleştirmek zorunda.
-* PowerShell ile tanılama uzantısını yapılandırma işlemini basitleştirmek için her rol için tanılama uzantısı için XML ortak yapılandırma Visual Studio Paket çıkışı de içerir. Visual Studio tanılama bağlantı dizesinde genel yapılandırmada mevcut depolama hesabı bilgileri doldurmak için kullanır. Genel yapılandırma dosyalarına Uzantıları klasöründe oluşturulur ve PaaSDiagnostics desenini izler. <RoleName>. PubConfig.xml. Tüm PowerShell tabanlı dağıtımların bu desen, her yapılandırma bir Role eşlemek için kullanabilirsiniz.
+* PowerShell ile tanılama uzantısını yapılandırma işlemini basitleştirmek için her rol için tanılama uzantısı için XML ortak yapılandırma Visual Studio Paket çıkışı de içerir. Visual Studio tanılama bağlantı dizesinde genel yapılandırmada mevcut depolama hesabı bilgileri doldurmak için kullanır. Genel yapılandırma dosyalarına Uzantıları klasöründe oluşturulur ve desenler izleyen `PaaSDiagnostics.<RoleName>.PubConfig.xml`. Tüm PowerShell tabanlı dağıtımların bu desen, her yapılandırma bir Role eşlemek için kullanabilirsiniz.
 * .Cscfg dosyasındaki bağlantı dizesi, tanılama veri içinde görüntülenebilir erişmek için Azure portal tarafından da kullanılır **izleme** sekmesi. Bağlantı dizesi, ayrıntılı izleme verileri portalda göstermek için bir hizmeti yapılandırmak için gereklidir.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Azure SDK 2.6 ve daha sonra geçişi projeleri

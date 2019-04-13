@@ -12,21 +12,26 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/29/2019
+ms.date: 03/28/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 6965379aadefd110ce6e46e105bbde10626b63c1
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: f8894132dae179be2d5d9d9b6887851be78d7746
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892176"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548165"
 ---
-# <a name="configure-your-python-app-for-azure-app-service"></a>Python uygulamanızı Azure App Service için yapılandırma
-Bu makalede nasıl [Azure App Service](app-service-linux-intro.md) Python uygulamaları ve gerektiğinde App Service'in davranışını nasıl özelleştirebileceğiniz çalışır. Python uygulamaları tüm ile dağıtılması gerekir gerekli [pip](https://pypi.org/project/pip/) modüller. App Service dağıtım Altyapısı'nı (Kudu) otomatik olarak sanal ortam etkinleştirir ve çalışan `pip install -r requirements.txt` dağıttığınızda sizin için bir [Git deposu](../deploy-local-git.md), veya bir [Zip paketini](../deploy-zip.md) yapı işlemleri ile açık.
+# <a name="configure-a-linux-python-app-for-azure-app-service"></a>Bir Linux Python uygulamasını Azure App Service için yapılandırma
+
+Bu makalede nasıl [Azure App Service](app-service-linux-intro.md) Python uygulamaları ve gerektiğinde App Service'in davranışını nasıl özelleştirebileceğiniz çalışır. Python uygulamaları dağıtılması gerekir tüm gerekli [pip](https://pypi.org/project/pip/) modüller.
+
+App Service dağıtım altyapısı, otomatik olarak sanal ortam etkinleştirir ve çalışan `pip install -r requirements.txt` dağıttığınızda sizin için bir [Git deposu](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), veya bir [Zip paketini](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) ile açık yapı işlemleri.
+
+Bu kılavuzu temel kavramları ve App Service'te yerleşik bir Linux kapsayıcı kullanan bir Python geliştiricileri için yönergeler sağlar. Azure App Service daha önce kullanmadıysanız izlemelidir [Python hızlı](quickstart-python.md) ve [öğretici PostgreSQL ile Python](tutorial-python-postgresql-app.md) ilk.
 
 > [!NOTE]
-> [App Service'in Windows flavor Python'u](https://docs.microsoft.com/visualstudio/python/managing-python-on-azure-app-service) kullanım dışıdır ve kullanım için önerilmez.
+> Linux şu anda App Service'te Python uygulamaları çalıştırmak için önerilen seçenektir. Windows seçeneği hakkında daha fazla bilgi için bkz. [App Service'in Windows flavor Python'u](https://docs.microsoft.com/visualstudio/python/managing-python-on-azure-app-service).
 >
 
 ## <a name="show-python-version"></a>Python sürümü göster
@@ -34,7 +39,7 @@ Bu makalede nasıl [Azure App Service](app-service-linux-intro.md) Python uygula
 Geçerli Python sürümü göstermek için aşağıdaki komutu çalıştırın [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config show --resource-group <resource_group_name> --name <app_name> --query linuxFxVersion
+az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
 Tüm desteklenen Python sürümleri göstermek için aşağıdaki komutu çalıştırın [Cloud Shell](https://shell.azure.com):
@@ -50,16 +55,19 @@ Python'ın desteklenmeyen bir sürümünü, bunun yerine kendi kapsayıcı gör�
 Aşağıdaki komutu çalıştırın [Cloud Shell](https://shell.azure.com) -3.7 Python sürümünü ayarlamak için:
 
 ```azurecli-interactive
-az webapp config set --resource-group <group_name> --name <app_name> --linux-fx-version "PYTHON|3.7"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
 ```
 
 ## <a name="container-characteristics"></a>Kapsayıcı özellikleri
 
 Dağıtılan GitHub deposunda tanımlanan bir Docker kapsayıcısı içinde çalıştırmak için Linux üzerinde App Service'e Python uygulamaları [Python 3.6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) veya [Python 3.7](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
+
 Bu kapsayıcı aşağıdaki özelliklere sahiptir:
 
 - Uygulamalar ek `--bind=0.0.0.0 --timeout 600` bağımsız değişkenleri kullanılarak [Gunicorn WSGI HTTP Server](https://gunicorn.org/) ile çalıştırılır.
+
 - Temel görüntü varsayılan olarak Flask web çerçevesini içerir ancak kapsayıcı Django gibi WSGI ve Python 3.7 ile uyumlu diğer çerçeveleri de destekler.
+
 - Django gibi ek paketleri yüklemek için `pip freeze > requirements.txt` kullanarak projenizin kök dizininde bir [*requirements.txt*](https://pip.pypa.io/en/stable/user_guide/#requirements-files) dosyası oluşturun. Ardından projenizi Git dağıtımı kullanarak App Service'te yayımlayın. Bunu yaptığınızda uygulamanızın bağımlılıklarının yüklenmesi için kapsayıcıda otomatik olarak `pip install -r requirements.txt` çalıştırılır.
 
 ## <a name="container-startup-process"></a>Kapsayıcı başlatma işlemi
@@ -82,7 +90,7 @@ Django uygulamaları için App Service uygulama kodunuzda `wsgi.py` adlı bir do
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-Başlangıç komutu üzerinde ayrıntılı denetim istiyorsanız, bir özel başlatma komutunu kullanın ve Değiştir `<module>` içeren modül adıyla *wsgi.py*.
+Başlangıç komutu üzerinde daha fazla denetime sahip olmak istiyorsanız [özel başlangıç komutu](#customize-startup-command) kullanın ve `<module>` yerine *wsgi.py* dosyasını içeren modülün adını yazın.
 
 ### <a name="flask-app"></a>Flask uygulaması
 
@@ -95,7 +103,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 application:app
 gunicorn --bind=0.0.0.0 --timeout 600 app:app
 ```
 
-Ana uygulama modülünüzde farklı bir dosya içeriyorsa, uygulama nesnesinin farklı bir ad kullanın veya istediğiniz ek bağımsız değişkenler için Gunicorn sağlamak için bir özel başlatma komutunu kullanın.
+Ana uygulama modülünüz farklı bir dosyada bulunuyorsa uygulama nesnesi için farklı bir ad kullanın veya Gunicorn'a ek bağımsız değişkenler sağlamak istiyorsanız [özel başlangıç komutu](#customize-startup-command) kullanın.
 
 ### <a name="default-behavior"></a>Varsayılan davranış
 
@@ -105,7 +113,13 @@ App Service özel komut dosyası, Django uygulaması veya Flask uygulaması bula
 
 ## <a name="customize-startup-command"></a>Başlangıç komutu özelleştirme
 
-Özel bir Gunicorn başlangıç komutu sağlayarak kapsayıcının başlangıç davranışını denetleyebilirsiniz. Örneğin ana modülünün adı *hello.py* ve o dosyadaki Flask uygulama nesnesinin adı da `myapp` olan bir Flask uygulamanız varsa kullanmanız gereken komut şöyle olacaktır:
+Özel bir Gunicorn başlangıç komutu sağlayarak kapsayıcının başlangıç davranışını denetleyebilirsiniz. Bunu yapmak için aşağıdaki komutu çalıştırarak [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
+```
+
+Örneğin, bir Flask uygulaması olan ana modülü varsa *hello.py* ve bu dosyayı Flask uygulaması nesnesinde adlı `myapp`, ardından  *\<özel komut >* aşağıdaki gibidir:
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -117,27 +131,20 @@ Ana modülünüz `website` gibi bir alt klasör ise bu klasörü `--chdir` bağ�
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-Komuta Gunicorn için ek bağımsız değişkenler de ekleyebilirsiniz, örneğin: `--workers=4`. Daha fazla bilgi için bkz. [Gunicorn'u Çalıştırma](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
+İçin Gunicorn için herhangi bir ek bağımsız değişkenler de ekleyebilirsiniz  *\<özel komut >*, gibi `--workers=4`. Daha fazla bilgi için bkz. [Gunicorn'u Çalıştırma](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
-Bir Gunicorn olmayan sunucu gibi kullanılacak [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), çalıştırabilirsiniz:
+Bir Gunicorn olmayan sunucu gibi kullanılacak [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), değiştirebilirsiniz  *\<özel komut >* ile aşağıdakine benzer:
 
 ```bash
 python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
 ```
-
-Özel komut sağlamak için aşağıdaki adımları izleyin:
-
-1. Azure portalda [Uygulama ayarları](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) sayfasına gidin.
-1. **Çalışma zamanı** ayarlarında **Yığın** seçeneğini **Python 3.7** olarak ayarlayın ve komutu doğrudan **Başlangıç Dosyası** alanına girin.
-Alternatif olarak, komut, projenizin kökünde bir metin dosyasındaki gibi bir adı kullanarak kaydedebileceğiniz *startup.txt* (veya istediğiniz herhangi bir ad). Ardından bu dosyayı App Service'e dağıtın ve **Başlangıç Dosyası** alanında bu dosyanın adını belirtin. Bu seçenek, komutu Azure portal yerine kaynak kodu deponuzdan yönetmenizi sağlar.
-1. **Kaydet**’i seçin. App Service otomatik olarak yeniden başlatılır ve birkaç saniye sonra özel başlangıç komutu uygulanır.
 
 > [!Note]
 > App Service, özel komut dosyasının işlenmesi sırasında oluşan hataları yoksayar ve başlatma işlemine Django ve Flask uygulamalarını arayarak devam eder. Beklediğiniz davranışı görmüyorsanız başlangıç dosyanızın App Service'e dağıtıldığından ve dosyada hata bulunmadığından emin olun.
 
 ## <a name="access-environment-variables"></a>Ortam değişkenlerine erişme
 
-App Service uygulama ayarları, uygulama kodunuz dışında ayarlayabilirsiniz (bkz [ortam değişkenlerini ayarlama](../web-sites-configure.md)). Standardını kullanarak bunlar erişebilir [os.environ](https://docs.python.org/3/library/os.html#os.environ) deseni. Örneğin, bir uygulama ayarı erişmeye adlı `WEBSITE_SITE_NAME`, aşağıdaki kodu kullanın:
+Uygulama hizmetinde [uygulama ayarlarını belirlemek](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) , uygulama kodunuz dışında. Standardını kullanarak bunlar erişebilir [os.environ](https://docs.python.org/3/library/os.html#os.environ) deseni. Örneğin, bir uygulama ayarı erişmeye adlı `WEBSITE_SITE_NAME`, aşağıdaki kodu kullanın:
 
 ```python
 os.environ['WEBSITE_SITE_NAME']
@@ -154,14 +161,35 @@ if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto
 
 Popüler web çerçeveleri erişmenizi `X-Forwarded-*` bilgileri, standart uygulama deseni. İçinde [CodeIgniter](https://codeigniter.com/), [is_https()](https://github.com/bcit-ci/CodeIgniter/blob/master/system/core/Common.php#L338-L365) değerini denetler `X_FORWARDED_PROTO` varsayılan olarak.
 
+## <a name="access-diagnostic-logs"></a>Tanılama günlüklerine erişim
+
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+
+## <a name="open-ssh-session-in-browser"></a>Tarayıcıda SSH oturum aç
+
+[!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
+
 ## <a name="troubleshooting"></a>Sorun giderme
 
 - **Kendi uygulama kodunuzu dağıttıktan sonra varsayılan uygulamayı görüyorsunuz.** Varsayılan uygulama ya da App Service, uygulama kodunuz dağıtılan henüz veya App Service, uygulama kodunuz bulunamadı ve bunun yerine varsayılan uygulamayı çalıştırdığınız için görünür.
 - App Service'i yeniden başlatın, 15-20 saniye bekleyin ve uygulamayı yeniden denetleyin.
 - Windows tabanlı örnek yerine Linux için App Service’i kullandığınızdan emin olun. Azure CLI’de `<resource_group_name>` ve `<app_service_name>` hizmetini uygun bir şekilde değiştiren `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind` komutunu çalıştırın. Çıktı olarak `app,linux` görünmelidir, aksi takdirde App Service’i yeniden oluşturun ve Linux’u seçin.
 - SSH veya Kudu kullanarak doğrudan App Service'e bağlanın ve dosyalarınızın *site/wwwroot* dizininde bulunduğunu doğrulayın. Dosyalarınız orada değilse dağıtım işlemlerinizi gözden geçirin ve uygulamayı yeniden dağıtın.
-- Dosyalarınız oradaysa App Service başlangıç dosyanızı tanımlayamamış olabilir. Uygulamanızı App Service için bekliyor olarak yapılandırıldığını denetleyin [Django](#django-app) veya [Flask](#flask-app), veya bir özel başlatma komutunu kullanın.
+- Dosyalarınız oradaysa App Service başlangıç dosyanızı tanımlayamamış olabilir. Uygulamanızın App Service'in [Django](#django-app) veya [Flask](#flask-app) için beklediği şekilde yapılandırılmış olduğundan emin olun veya [özel başlangıç komutu](#customize-startup-command) kullanın.
 - **Tarayıcıda "Hizmet Kullanılamıyor" iletisini görüyorsunuz.** Bu durum, tarayıcının App Service'ten yanıt beklerken zaman aşımına uğradığını gösterir. Bunun nedeni App Service'in Gunicorn sunucusunu başlatmış olması ancak uygulama kodunu belirten bağımsız değişkenlerin hatalı olmasıdır.
 - Özellikle App Service Planınızda en düşük fiyatlandırma katmanlarını kullanıyorsanız tarayıcıyı yenileyin. Ücretsiz katmanları kullandığınızda uygulamanın başlaması daha uzun sürebilir ve tarayıcıyı yenilediğinizde yanıt verebilir.
 - Uygulamanızın App Service'in [Django](#django-app) veya [Flask](#flask-app) için beklediği şekilde yapılandırılmış olduğundan emin olun veya [özel başlangıç komutu](#customize-startup-command) kullanın.
-- SSH veya Kudu kullanarak App Service'e bağlanın ve *LogFiles* klasöründe bulunan tanılama günlüklerini inceleyin. Günlüğe kaydetme hakkında daha fazla bilgi için bkz. [Azure App Service’te web uygulamaları için tanılama günlüğünü etkinleştirme](../troubleshoot-diagnostic-logs.md).
+- [Günlük akışı erişim](#access-diagnostic-logs).
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Linux üzerinde App Service'te yerleşik Python görüntüsünü şu anda Önizleme aşamasındadır ve uygulamanızı başlatmak için kullanılan komut özelleştirebilirsiniz. Ayrıca bunun yerine özel bir kapsayıcı kullanarak üretim aşamasında Python uygulamaları oluşturabilirsiniz.
+
+> [!div class="nextstepaction"]
+> [Öğretici: PostgreSQL ile Python uygulaması](tutorial-python-postgresql-app.md)
+
+> [!div class="nextstepaction"]
+> [Öğretici: Özel kapsayıcı deposundan dağıtın](tutorial-custom-docker-image.md)
+
+> [!div class="nextstepaction"]
+> [App Service Linux SSS](app-service-linux-faq.md)

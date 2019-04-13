@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 130cc66831b25621cb022eb19005c624fcd71b9e
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 4c5b4c5eacd4be751004af551e3753a61873c7a7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40105515"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551663"
 ---
 **En son Güncelleştirmesi'ni belge**: 14 Ağustos 2018 10: 00'te Pasifik saati.
 
@@ -21,7 +21,7 @@ Açıklanması bir [CPU güvenlik açıklarından yeni sınıf](https://portal.m
 
 Microsoft, tüm bulut hizmetlerimizin arasında azaltmaları dağıtmıştır. Azure çalışan ve müşteri iş yüklerinin birbirinden yalıtan altyapı korunur. Bu altyapıyı kullanarak olası bir saldırganın bu güvenlik açıklarına kullanarak uygulamanızı saldırı olamaz anlamına gelir.
 
-Azure kullanarak [Bakımı koruma bellek](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) mümkün olduğunda, müşteri etkiyi en aza indirmek ve yeniden başlatma gereksinimini ortadan kaldırmak. Azure ana bilgisayara yükleyebilecek güncelleştirmeler yaparken bu yöntemleri yararlanmaya devam ve müşterilerimizi korumak.
+Azure kullanarak [Bakımı koruma bellek](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-not-requiring-a-reboot) mümkün olduğunda, müşteri etkiyi en aza indirmek ve yeniden başlatma gereksinimini ortadan kaldırmak. Azure ana bilgisayara yükleyebilecek güncelleştirmeler yaparken bu yöntemleri yararlanmaya devam ve müşterilerimizi korumak.
 
 Güvenlik her yönüyle Azure ile nasıl tümleştirildiği hakkında daha fazla bilgi edinilebilir [Azure güvenlik belgeleri](https://docs.microsoft.com/azure/security/) site. 
 
@@ -72,15 +72,15 @@ Hedef işletim sisteminiz bu ek güvenlik özelliklerini etkinleştirmek için g
 
 **1. adım**: [Azure Destek ekibiyle iletişime geçin](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) güncelleştirilmiş sunmaya bellenimi (mikro kod), sanal makinelere için. 
 
-**2. adım**: etkinleştirme çekirdek sanal adres gölgeleme (KVAS) ve dal hedef ekleme (BTI) işletim sistemi desteği. Bölümündeki yönergeleri [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) korumaları aracılığıyla etkinleştirmek için `Session Manager` kayıt defteri anahtarları. Bir yeniden başlatma gerekiyor. 
+**2. adım**: Çekirdek sanal adres gölgeleme (KVAS) ve dal hedef ekleme (BTI) işletim sistemi desteğini etkinleştirin. Bölümündeki yönergeleri [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) korumaları aracılığıyla etkinleştirmek için `Session Manager` kayıt defteri anahtarları. Bir yeniden başlatma gerekiyor. 
 
-**3. adım**: kullanan dağıtımlar için [iç içe sanallaştırma](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 ve yalnızca E3): Hyper-V konağı olarak kullandığınız VM'nin içindeki bu yönergeler geçerlidir. 
+**3. adım**: Kullanan dağıtımlar için [iç içe sanallaştırma](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 ve yalnızca E3): Bir Hyper-V konağı olarak kullandığınız VM'nin içindeki bu yönergeleri uygulayın. 
 
 1. Bölümündeki yönergeleri [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) korumaları aracılığıyla etkinleştirmek için `MinVmVersionForCpuBasedMitigations` kayıt defteri anahtarları.  
  
 1. Hiper yönetici Zamanlayıcı türü kümesine **çekirdek** yönergeleri izleyerek [burada](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types). 
 
-**4. adım**: yönergeleri [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) korumaları etkin kullanarak doğrulamak için [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell modülü. 
+**4. adım**: Bölümündeki yönergeleri [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) korumaları etkin kullanarak doğrulamak için [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell modülü. 
 
 > [!NOTE]
 > Bu modülün daha önce indirdiyseniz, en yeni sürümünü yüklemeniz gerekir.
@@ -103,9 +103,9 @@ L1TFWindowsSupportEnabled: True
  
 **1. adım**: [Azure Destek ekibiyle iletişime geçin](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) güncelleştirilmiş sunmaya bellenimi (mikro kod), sanal makinelere için.
  
-**2. adım**: işletim sistemi sağlayıcının belgelerine izleyerek CVE-2017-5715 (Spectre değişken 2) azaltmak için etkinleştirme dal hedef ekleme (BTI) işletim sistemi desteği. 
+**2. adım**: CVE-2017-5715 (Spectre değişken 2), işletim sistemi sağlayıcının belgelerine izleyerek azaltmak dal hedef ekleme (BTI) işletim sistemi desteğini etkinleştirin. 
  
-**3. adım**: etkinleştirme çekirdek sayfası tablosu yalıtım (işletim sistemi sağlayıcının belgelerine izleyerek CVE-2017-5754 (Meltdown değişken 3) azaltmak için KPTI). 
+**3. adım**: CVE-2017-5754 (Meltdown değişken 3) azaltmak için çekirdek sayfası tablosu yalıtım (KPTI), işletim sistemi sağlayıcının belgelerine izleyerek etkinleştirin. 
  
 Daha fazla bilgi işletim sisteminizin sağlayıcıdan kullanılabilir:  
  

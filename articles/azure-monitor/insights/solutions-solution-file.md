@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 298bf10cf07467de897c7e38af9539fc71375eab
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776657"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526376"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Azure'da (Önizleme) bir yönetim çözümü dosyası oluşturma
 > [!NOTE]
@@ -213,7 +213,7 @@ Bir kaynak giriş her çözüm gerektiren **kaynakları** çözüm tanımlayan �
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| workspaceResourceId |Log Analytics çalışma formundaki Kimliğini  *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<çalışma alanı adı\>*. |
+| workspaceResourceId |Log Analytics çalışma formundaki Kimliğini  *\<kaynak grubu kimliği > /providers/Microsoft.OperationalInsights/workspaces/\<çalışma alanı adı\>*. |
 | referencedResources |Çözüm kaldırıldığında kaldırılmamalıdır çözümü kaynakların listesi. |
 | containedResources |Çözümdeki çözüm kaldırıldığında veritabanınızdan kaldırılması gereken kaynakların listesi. |
 

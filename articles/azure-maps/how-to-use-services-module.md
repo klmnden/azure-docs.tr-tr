@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 3aa39568904cb0acc9b5b76ff7e07729bf99d6b1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e89a4675f867e53c499bb82b239ddb9bec1aed6f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278607"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521211"
 ---
 # <a name="using-the-azure-maps-services-module"></a>Azure haritalar Hizmetleri Modülünü Kullanma
 
@@ -24,7 +24,7 @@ Azure haritalar Web SDK'sı, web veya JavaScript veya TypeScript kullanarak Node
 1. Yeni bir HTML dosyası oluşturun.
 2. Azure haritalar Hizmetleri modülüne yükleyin. Bu yapılabilir; iki seçenekten birini kullanma
 
-    a. Betik başvuru ekleyerek Azure haritalar Hizmetleri modülü genel olarak barındırılan CDN sürümünü kullanmanız <head> öğesi:
+    a. Betik başvuru ekleyerek Azure haritalar Hizmetleri modülü genel olarak barındırılan CDN sürümünü kullanmanız `<head>` öğesi:
     
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
@@ -186,7 +186,7 @@ Hizmetleri modülü kullanmak daha fazla kod örneği için aşağıdaki makalel
 > [Harita üzerinde arama sonuçlarını göster](./map-search-location.md)
 
 > [!div class="nextstepaction"]
-> [Bir koordinattan bilgi alma](./map-get-information-from-coordinate.md)
+> [Bir Koordinattan bilgi alma](./map-get-information-from-coordinate.md)
 
 > [!div class="nextstepaction"]
-> [A'dan B'ye yönleri gösterme](./map-route.md)
+> [Yönergeleri A'dan B'ye yönleri gösterme](./map-route.md)

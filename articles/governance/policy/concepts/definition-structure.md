@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 4d7ecdcff356f27e17eca95a0d42290037d6b570
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426469"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549363"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -444,7 +444,7 @@ Bu ilke kuralı örnekte `resourceGroup` almak için kaynak işlevi **adı** öz
 }
 ```
 
-## <a name="aliases"></a>Diğer Adlar
+## <a name="aliases"></a>Diğer adlar
 
 Bir kaynak türü için belirli özelliklerine erişmek için özelliği diğer adları kullanın. Diğer adlar, kaynak üzerinde bir özellik için hangi değerleri veya koşullara izin sınırlamak sağlar. Belirtilen kaynak türü için farklı bir API sürümlerinde yolları her diğer adın eşlenir. İlke değerlendirmesi sırasında ilke altyapısı bu API sürümü için özellik yolu alır.
 
@@ -487,36 +487,7 @@ Birkaç kullanılabilir diğer adlarına sahip bir 'normal' bir ad ve başka gö
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-'Normal' diğer adı alanı, tek bir değer temsil eder. Bu alan tüm değerler kümesini tam olarak tanımlandığı gibi artık ve az olmalıdır tam eşleşme karşılaştırma senaryoları için kullanılır. Kullanarak **ipRules**, örnek bir kural kümesinin kuralların sayısını ve her bir kuralın düzenini de dahil olmak üzere var olduğunu doğrulama. Bu örnek kural için tam olarak hem de denetler **192.168.1.1** ve **10.0.4.1** ile _eylem_ , **izin** içinde **ipRules** uygulanacak **effectType**:
-
-```json
-"policyRule": {
-    "if": {
-        "allOf": [
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "exists": "true"
-            },
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "Equals": [
-                    {
-                        "action": "Allow",
-                        "value": "192.168.1.1"
-                    },
-                    {
-                        "action": "Allow",
-                        "value": "10.0.4.1"
-                    }
-                ]
-            }
-        ]
-    },
-    "then": {
-        "effect": "[parameters('effectType')]"
-    }
-}
-```
+'Normal' diğer adı alanı, tek bir değer temsil eder. Bu alan tüm değerler kümesini tam olarak tanımlandığı gibi artık ve az olmalıdır tam eşleşme karşılaştırma senaryoları için kullanılır.
 
 **[\*]** Diğer adı dizideki her öğenin değerini ve her öğenin belirli özelliklerini karşı Karşılaştırılacak mümkün kılar. Bu yaklaşım, öğe özelliklerini karşılaştırma mümkün kılar 'Hiçbiri ' ise 'varsa' veya ' tüm'ın ' senaryoları. Kullanarak **ipRules [\*]**, örnek, doğrulamak her _eylem_ olduğu _Reddet_, ancak kaç kuralları var veya hangi IP hakkındaendişelenmenizegerekyok_değer_ olduğu. Bu örnek kural eşleşme için denetler **ipRules [\*] .value** için **10.0.4.1** ve uygular **effectType** yalnızca en az bir eşleşme bulamazsa:
 

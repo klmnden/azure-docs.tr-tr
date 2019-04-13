@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 961983aad0775f9b9d728269e8a57137ff508f02
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b597d6efa87aa2811ce42f3315698acfa17426b2
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451799"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548597"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Azure Machine Learning hizmeti keşfetmek için Jupyter not defterleri kullanma
 
@@ -50,50 +50,6 @@ Bilgisayarınızda yerel bir Jupyter not defteri sunucusu oluşturmak için aşa
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
 Hızlı Başlangıç yönergeleri, hızlı ve öğretici not defterlerini çalıştırmak için gereken paketleri yükler.  Diğer örnek not defterleri, ek bileşen yüklenmesini gerektirebilir.  Bu bileşenler hakkında daha fazla bilgi için bkz. [Python için Azure Machine Learning SDK'sını yükleme](https://docs.microsoft.com/python/api/overview/azure/ml/install).
-
-<a name="automated-ml-setup"></a>
-
-## <a name="automated-machine-learning-setup"></a>Otomatik makine öğrenimi Kurulumu 
-
-_Bu adımları yalnızca not defterlerinde uygulamak **how-to-use-azureml/automated-machine-learning** klasör._
-
-Yukarıdaki seçeneklerden herhangi birini kullanabilirsiniz, ancak ortamını yükleyin ve aşağıdaki yönergeleri ile aynı zamanda bir çalışma alanı oluşturun. 
-
-1. Yükleme [Mini conda](https://conda.io/miniconda.html). 3.7 seçin veya daha yüksek. Yüklemek için istemleri takip edin. 
-   >[!NOTE]
-   >Mevcut bir conda olarak sürüm 4.4.10 olması veya üzeri kullanabilirsiniz. Kullanım `conda -V` sürümünü görüntülemek için. Conda sürüm komutuyla güncelleştirebilirsiniz: `conda update conda`. Mini conda özellikle yüklemek için gerek yoktur.
-
-1. Örnek Not defterlerinden indirme [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
-) zip olarak ve içeriğini yerel bir dizine ayıklayın. Otomatik makine öğrenimi not defterlerini bulunan `how-to-use-azureml/automated-machine-learning` klasör.
-
-1. Yeni bir Conda ortamı ayarlayın. 
-   1. Yerel makinenizde bir Conda istemi açın.
-   
-   1. Yerel makinenize ayıklanan dosyaları gidin.
-   
-   1. Açık **otomatik-makine öğrenimi** klasör.
-   
-   1. Yürütme `automl_setup.cmd` conda istemi, Windows veya `.sh` işletim sisteminiz için dosya. Yürütme yaklaşık 10 dakika sürebilir.
-
-      Kurulum betiği:
-      + Yeni bir conda ortamı oluşturur
-      + Gerekli paketleri yükler
-      + Pencere öğesini yapılandırır
-      + Jupyter not defteri başlatır
-      
-   >[!NOTE]
-   > Komut dosyası conda ortam adı, isteğe bağlı bir parametre olarak alır. Varsayılan conda ortam adı `azure_automl`. Tam komut, işletim sistemine bağlıdır. Bu, yeni bir ortam oluşturuyorsanız veya yeni bir sürümüne yükseltmeniz yararlı olur. Örneğin, bir ortam adı azure_automl_sandbox oluşturmak için 'automl_setup.cmd azure_automl_sandbox' kullanabilirsiniz. 
-      
-1. Betik tamamlandıktan sonra tarayıcınızda bir Jupyter not defteri giriş sayfasını görürsünüz.
-
-1. Not defterlerini kaydettiğiniz yoluna gidin. 
-
-1. Otomatik-makine öğrenimi klasörü açın ve ardından **configuration.ipynb** dizüstü bilgisayar. 
-
-1. Hücreleri Machine Learning Services kaynak sağlayıcısını kaydedin ve bir çalışma alanı oluşturmak için Not defterini yürütün.
-
-Açın ve yerel makinenizde kaydedilen not defterlerini çalıştırmak artık hazırsınız.
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

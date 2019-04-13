@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/21/2019
-ms.openlocfilehash: f417aef1fd1cc48a37399ff7a157a0e658bbbb02
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e2304f45cef2db720adf4430868205c00714034f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879293"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547957"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Bir Azure Machine Learning hizmeti çalışma alanı oluşturma
 
@@ -32,12 +32,12 @@ Burada içindeki adımları kullanarak oluşturduğunuz çalışma alanı, diğe
 Bir çalışma alanı oluşturduğunuzda aşağıdaki Azure kaynakları otomatik olarak (Bölgesel kullanılabilir iseler) eklendi:
  
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
-- [Azure Storage](https://azure.microsoft.com/services/storage/)
+- [Azure Depolama](https://azure.microsoft.com/services/storage/)
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
+- [Azure Anahtar Kasası.](https://azure.microsoft.com/services/key-vault/)
 
 >[!Note]
->Diğer Azure hizmetlerinde olduğu gibi bazı limitler ve kotalar Machine Learning ile ilişkilendirilir. [Kotalar ve daha fazla isteği hakkında bilgi edinin.](how-to-manage-quotas.md)
+>Diğer Azure hizmetlerinde olduğu gibi bazı limitler ve kotalar Machine Learning ile ilişkilendirilir. [Kotalar ve artış talebinde bulunma hakkında bilgi edinin.](how-to-manage-quotas.md)
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -160,7 +160,7 @@ Python SDK'sını kullanarak bir Jupyter not defterinde çalışma alanınızı 
 
 ### <a name="write-a-configuration-file"></a>Yapılandırma dosyası yazma
 
-Bir yapılandırma dosyası geçerli dizin için çalışma alanınızı ayrıntılarını kaydedin. Bu dosya adında *aml_config/config.json*.  
+Bir yapılandırma dosyası geçerli dizin için çalışma alanınızı ayrıntılarını kaydedin. Bu dosya adında *.azureml/config.json*.  
 
 Bu çalışma alanı yapılandırma dosyası, aynı çalışma alanına daha sonra yüklemek kolaylaştırır. Diğer dizüstü bilgisayarlar ve aynı dizine veya kod kullanarak bir alt komut yük `ws=Workspace.from_config()` . 
 
@@ -177,13 +177,14 @@ Bu `write_config()` API çağrısı, yapılandırma dosyasını geçerli dizinde
 ```
 
 > [!TIP]
-> Python betiklerini veya Jupyter Notebook diğer dizinlerde yer alan çalışma alanınızla kullanmak üzere, bu dosya bu dizine kopyalayın. Adlı bir alt dizinde aynı dizinde dosya olabilir *aml_config*, veya bir üst dizin.
+> Python betiklerini veya Jupyter Notebook diğer dizinlerde yer alan çalışma alanınızla kullanmak üzere, bu dosya bu dizine kopyalayın. Adlı bir alt dizinde aynı dizinde dosya olabilir *.azureml*, veya bir üst dizin.
 
 ## <a name="resource-manager-template"></a>Resource manager şablonu
 
 Bir çalışma alanı ile bir şablon oluşturmak için bkz [bir şablonu kullanarak bir Azure Machine Learning hizmeti çalışma alanı oluşturma](how-to-create-workspace-template.md)
 
-## <a name="cli"></a>CLI
+<a name="cli"></a>
+## <a name="command-line-interface"></a>Komut satırı arabirimi
 
 CLI ile bir çalışma alanı oluşturmak için bkz [CLI uzantısını Azure Machine Learning hizmeti için kullanacağınız](reference-azure-machine-learning-cli.md).
 

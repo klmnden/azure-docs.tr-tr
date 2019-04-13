@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 845bd7a6ad690288585418a42e5706fdbebbf143
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 16ccd89fe6eaad3fd6c2704b2f324f486eee45e1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891117"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59532653"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Klasik modelden Azure Resource Manager’a geçiş sırasında sık karşılaşılan hatalar
 Bu makale, IaaS kaynakları Azure klasik dağıtım modelinden Azure Resource Manager yığınına geçirilirken en sık karşılaşılan hataları ve risk azaltma yollarını içerir.
@@ -23,7 +23,7 @@ Bu makale, IaaS kaynakları Azure klasik dağıtım modelinden Azure Resource Ma
 | İç sunucu hatası |Bazı durumlarda bu tekrar denendiğinde geçen, geçici bir hatadır. Karşılaşmaya devam ederseniz platform günlüklerinin araştırılması gerekeceğinden [Azure desteğine başvurun](../articles/azure-supportability/how-to-create-azure-support-request.md). <br><br> **NOT:** Olay destek ekibi tarafından izlenirken bu olabilir Lütfen tüm kendi kendine risk azaltma çalışmayın ortamınızda istenmeyen sonuçları. |
 | HostedService {barındırılan hizmet adı} içindeki {dağıtım adı} Dağıtımı bir PaaS dağıtımı (Web/Çalışan) olduğundan, dağıtımın geçirilmesi desteklenmiyor. |Bu, dağıtım web/çalışan rolü içerdiğinde gerçekleşir. Geçiş yalnızca sanal makineler için desteklendiğinden, lütfen web/çalışan rolünü dağıtımdan kaldırın ve geçiş işlemini yeniden deneyin. |
 | Şablon {şablon-adı} dağıtımı başarısız oldu. CorrelationId={guid} |Geçiş hizmeti arka ucunda Azure Resource Manager yığınında kaynakları oluşturmak için Azure Resource Manager şablonları kullanıyoruz. Şablonları tekrar denenebilir yapıda olduğundan, bu hatayı gidermek için geçiş işlemi güvenli bir şekilde yeniden denenebilir. Hata devam ederse, lütfen [Azure desteğine başvurun](../articles/azure-supportability/how-to-create-azure-support-request.md) ve CorrelationId değerini verin. <br><br> **NOT:** Olay destek ekibi tarafından izlenirken bu olabilir Lütfen tüm kendi kendine risk azaltma çalışmayın ortamınızda istenmeyen sonuçları. |
-| Sanal ağ {sanal-ağ-adı} yok. |Bu hata, sanal ağı yeni Azure portalında oluşturduysanız oluşabilir. Gerçek sanal ağ adı şu yapıdadır: "Grup * <VNET name>" |
+| Sanal ağ {sanal-ağ-adı} yok. |Bu hata, sanal ağı yeni Azure portalında oluşturduysanız oluşabilir. Gerçek sanal ağ adı şu yapıdadır "Grup * \<VNET adı >" |
 | HostedService {barındırılan-hizmet-adı} içindeki VM {vm-adı}, Azure Resource Manager'da desteklenmeyen bir Uzantı {uzantı-adı} içeriyor. Geçirme işlemine devam etmeden önce sanal makineden bunu kaldırmanız için önerilir. |Bgınfo 1 gibi XML uzantıları. \* Azure Resource Manager'da desteklenmez. Bu nedenle bu uzantılar geçirilemez. Bu uzantılar sanal makinede yüklü bırakılırsa bunlar geçiş tamamlanmadan önce otomatik olarak kaldırılır. |
 | HostedService {barındırılan-service-adı} içindeki VM {vm-adı}, VMSnapshot/VMSnapshotLinux Uzantısı içeriyor. Bu uzantının şu an için geçişi desteklenmemektedir. Uzantıyı sanal makineden kaldırın ve geçiş tamamlandıktan sonra Azure Resource Manager kullanarak tekrar ekleyin |Bu, sanal makinenin Azure Backup için yapılandırıldığı senaryodur. Bu şu anda desteklenmeyen bir senaryo olduğundan, lütfen adresindeki geçici çözümü izleyin https://aka.ms/vmbackupmigration |
 | HostedService {barındırılan-hizmet-adı} içindeki VM {vm-adı}, Durumu VM’den bildirilmeyen bir Uzantı {uzantı-adı} içeriyor. Bu nedenle bu VM geçirilemez. Uzantı durumunun bildirildiğinden emin olun veya uzantıyı VM'den kaldırın ve geçişi yeniden deneyin. <br><br> HostedService {barındırılan-hizmet-adı} içindeki VM {vm-adı}, İşleyici Durumu: {işleyici-durumu} bildiren bir Uzantı {uzantı-adı} içeriyor. Bu nedenle VM geçirilemiyor. Uzantı işleyici durumunun {handler-status} olduğundan emin olun veya uzantıyı VM’den kaldırıp geçişi tekrar deneyin. <br><br> HostedService {barındırılan-hizmet-adı} içindeki VM için VM Aracısı {vm-adı} genel aracı durumunun hazır olmadığı bildiriyor. Bu nedenle, geçirilebilir bir uzantısı varsa VM geçirilemeyebilir. VM Aracısının genel aracı durumunu hazır olarak bildirdiğinden emin olun. Başvurmak https://aka.ms/classiciaasmigrationfaqs. |Azure konuk aracısı ve VM Uzantılarının, durumlarını bildirmek için VM depolama hesabına giden İnternet erişimine sahip olması gerekir. Durum hatasının yaygın nedenleri <li> Giden İnternet erişimini engelleyen bir Ağ Güvenlik Grubu <li> VNET DNS sunucuları şirket içi varsa ve DNS bağlantısı kesilir <br><br> Desteklenmeyen durum görmeye devam ederseniz, bu denetimi atlamak ve geçişe devam etmek için uzantıları kaldırabilirsiniz. |

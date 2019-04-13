@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 65023fbf96dc3e1276413f8c40ecb262d60c1454
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6a5712c617ab1e16b5341d9727b840fe8ea2213
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863364"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524030"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Azure Cosmos DB veriler üzerinde toplu işlemler gerçekleştirmek için toplu Yürütücü Java kitaplığı kullanma
 
@@ -118,8 +118,8 @@ Kopyalanan deponun iki örnekleri "BulkImport" ve "\azure-cosmosdb-bulkexecutor-
    |int getNumberOfDocumentsImported()  |   Toplu olarak sağlanan belgeleri dışında başarıyla içeri aktarıldı belgelerin toplam sayısı, API çağrısı içeri aktarın.      |
    |çift getTotalRequestUnitsConsumed()   |  Toplu tarafından tüketilen toplam istek birimi (RU) API çağrısı içeri aktarın.       |
    |Süre getTotalTimeTaken()   |    Toplu olarak içeri aktarma tarafından API çağrısı, yürütme tamamlamak için geçen toplam süre.     |
-   |Liste<Exception> getErrors() |  Eklenen başarısız oldu. API çağrısı bazı belgelerin toplu olarak sağlanan Toplu içe aktarırsanız, hataların listesini alır.       |
-   |Liste<Object> getBadInputDocuments()  |    API çağrısı başarıyla toplu olarak içeri aktarılamadı, bozuk biçimli belgelerin listesini içeri aktarın. Kullanıcı, döndürülen belgelerin düzeltin ve içeri aktarmayı yeniden deneyin. Hatalı biçimlendirilmiş belgeleri kimliği değeri (null ya da başka herhangi bir veri türü geçersiz olarak kabul edilir) bir dize değil belgeleri içerir.     |
+   |Liste\<özel durum > getErrors() |  Eklenen başarısız oldu. API çağrısı bazı belgelerin toplu olarak sağlanan Toplu içe aktarırsanız, hataların listesini alır.       |
+   |Liste\<Nesne > getBadInputDocuments()  |    API çağrısı başarıyla toplu olarak içeri aktarılamadı, bozuk biçimli belgelerin listesini içeri aktarın. Kullanıcı, döndürülen belgelerin düzeltin ve içeri aktarmayı yeniden deneyin. Hatalı biçimlendirilmiş belgeleri kimliği değeri (null ya da başka herhangi bir veri türü geçersiz olarak kabul edilir) bir dize değil belgeleri içerir.     |
 
 5. Uygulama hazır alma toplu sonra kaynak komut satırı aracını 'mvn temiz paket' komutunu kullanarak oluşturun. Bu komut, hedef klasörde bir jar dosyasını oluşturur:  
 
@@ -182,7 +182,7 @@ Varolan belgeleri BulkUpdateAsync API'sini kullanarak güncelleştirebilirsiniz.
    |int getNumberOfDocumentsUpdated()  |   Toplu güncelleştirme API çağrısına sağlanan belgeleri dışında başarıyla güncelleştirildi belge toplam sayısı.      |
    |çift getTotalRequestUnitsConsumed() |  Toplu güncelleştirme API çağrısı tarafından tüketilen toplam istek birimi (RU).       |
    |Süre getTotalTimeTaken()  |   Yürütme tamamlanması API çağrısı tarafından toplu geçen toplam süreyi güncelleştirin.      |
-   |Liste<Exception> getErrors()   |     Bazı belgeleri toplu iş dışında toplu güncelleştirme API çağrısı eklenen edilemedi sağlandıysa hataların listesini alır.      |
+   |Liste\<özel durum > getErrors()   |    Bazı belgeleri toplu iş dışında toplu güncelleştirme API çağrısı eklenen edilemedi sağlandıysa hataların listesini alır.      |
 
 3. Uygulama hazır güncelleştirme toplu sonra kaynak komut satırı aracını 'mvn temiz paket' komutunu kullanarak oluşturun. Bu komut, hedef klasörde bir jar dosyasını oluşturur:  
 
