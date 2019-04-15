@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: bf010e33a5ef77fcfde2506bfef9760a09667a9d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 620dbd22613df37fdc3c20e34906684446b2251f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867261"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546020"
 ---
 # <a name="what-is-automated-machine-learning"></a>Nedir, makine öğrenimi otomatik?
 
@@ -51,27 +51,14 @@ Eğitim sırasında Azure Machine Learning hizmetinde bir dizi farklı algoritma
 
 Çalıştırma sırasında toplanan ölçümleri içeren günlüğe kaydedilen çalışma bilgileri inceleyebilirsiniz. Eğitim da Python serileştirilmiş nesne çalıştırmanın (`.pkl` dosyası) modeli ve veri ön işleme içerir.
 
-## <a name="model-explainability"></a>Model explainability
-
-Ortak bir durumu otomatik machine Learning, uçtan uca işlemi görmek için bağlanamama sorunudur. Azure Machine Learning modelleri arka uçta çalıştıran içine saydamlığı artırma hakkında ayrıntılı bilgi görüntülemek sağlar. Doğrusal regresyon gibi bazı modelleri oldukça açık ve bu nedenle anlaşılması kolay olarak değerlendirilir. Ancak daha fazla özellik ekleyin ve daha karmaşık makine öğrenimi modellerini kullanma gibi bunları anlama daha zor alır. Machine learning'de saydamlık için iki temel unsur vardır:
-
-1. Makine öğrenimi işlem hattı ve tüm adımları bilincini söz konusu veri ön işleme/özellik kazandırma sayesinde ve hiper parametre değerleri dahil.
-1. Girdi değişkenleri (diğer adıyla "Özellikler") ve model çıktısını arasındaki ilişkiyi anlama.  Büyüklük ve tahmin edilen değer üzerindeki her bir özellik etkisini yönünü bilmek daha iyi anlamanıza ve modeli açıklayan yardımcı olur. Bu özellik önem olarak bilinir.
-
-İşlem hattı, tercih ettiğiniz için genel özellik önem üzerine gönderi eğitim etkinleştirebilir veya otomatik makine öğrenimi eğitim bir parçası olarak tüm işlem hatları için etkinleştirin. Sağlık ve bankacılık gibi yoğun olarak düzenlenen sektörlerde, bu düzenlemelere ve en iyi uygulamalar ile uyum sağlamak için önemlidir.  Göstermek için birkaç gerçek dünya senaryoları aşağıda verilmiştir:
-
-1. Gelecekteki aracı hatası tahmin etmek için makine öğrenimini kullanarak, bir üretim şirketi böylece bunlar proaktif olarak bakım etkinliği gerçekleştirebilir. Bir aracı hakkında başarısız olduğu öğrendikten sonra en olası nedeni önleyici bakım hızlı bir şekilde gerçekleştirilebilir olması için neler olduğunu?
-1. Machine learning işlem kredi veya kredi kartı uygulamaları kullanılarak bir mali kuruma. Bunu nasıl model doğru şeyi yapıyor ve uygulamalarını reddedilme nedeni bir müşteri hakkında daha fazla ayrıntı için isterse, nasıl, yanıt bunları biliyor?
-1. Bir çevrimiçi satış şirketi veya müşteri dalgalanmasını tahmin için makine öğrenimini kullanarak bir bağımsız yazılım sağlayıcısı. Müşteri anahtar katkıda bulunanlar nelerdir karmaşıklığı ve nasıl ayrıldığı gelen müşteriler engelleyebilir miyim?
-
-Bu bir önizleme özelliğidir ve biz makine öğrenimi modellerini daha iyi anlamanıza yardımcı olması için daha zengin bilgi sağlama konusunda yatırım yapmaya devam eder. İzleyin [örnek not defteri](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) Azure Machine learning'de model açıklamaları denemek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Örneklere bakın ve otomatik Machine Learning kullanarak modelleri oluşturmayı öğrenin:
-+ [Örnekler: Azure Machine Learning hizmeti keşfetmek için Jupyter not defterleri kullanma](samples-notebooks.md#automated-ml-setup)
 
 + [Öğretici: Otomatik olarak bir Azure Machine Learning otomatik sınıflandırma modeli eğitme](tutorial-auto-train-models.md)
+
++ [Not Defteri örnekleri](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
 
 + [Uzak bir kaynağa otomatik eğitim kullanma](how-to-auto-train-remote.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2 Android hızlı başlangıcı | Microsoft Docs
-description: Android uygulamalarının Azure Active Directory v2.0'dan alınan erişim belirteçlerinin gerektiği bir API'yi nasıl çağıracağını öğrenin
+title: Microsoft kimlik platformu Android hızlı başlangıç | Azure
+description: Bilgi nasıl Android uygulamaları Microsoft kimlik platformu uç noktası tarafından erişim belirteçlerini gerektiren bir API çağrısı.
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/11/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd78e6acd801f3b973cc45609b72f86b257f4d43
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: f1f174229da565627c0e5791f53031b338880cb3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862769"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495320"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir Android uygulamasından Microsoft Graph API çağırma
 
@@ -30,7 +30,7 @@ ms.locfileid: "58862769"
 
 Bu hızlı başlangıç, bir Android uygulaması ile kişisel, iş ve okul hesaplarının oturumunu açmayı, erişim belirteci almayı ve Microsoft Graph API’sini çağırmayı gösteren bir kod örneği içerir.
 
-![Bu Hızlı Başlangıç ile oluşturulan örnek uygulamasını nasıl çalıştığını gösterir](media/quickstart-v2-android/android-intro-updated.png)
+![Bu Hızlı Başlangıç ile oluşturulan örnek uygulamasını nasıl çalıştığını gösterir](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
 > **Önkoşullar**
@@ -47,7 +47,7 @@ Bu hızlı başlangıç, bir Android uygulaması ile kişisel, iş ve okul hesap
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>1. seçenek: Kaydet ve otomatik Uygulamanızı yapılandırmak ve ardından, kod örneğini indirin
 > #### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydetme
 > Uygulamanızı kaydetmek için
-> 1. [Azure portal - Uygulama Kaydı (Önizleme)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs) sayfasına gidin.
+> 1. Yeni Git [Azure Portalı - Uygulama kayıtları](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs) bölmesi.
 > 1. Uygulamanız için bir ad girin ve **Kaydet**'i seçin.
 > 1. Yönergeleri izleyerek yeni uygulamanızı yalnızca tek tıklamayla indirin ve otomatik olarak yapılandırın.
 >
@@ -56,9 +56,10 @@ Bu hızlı başlangıç, bir Android uygulaması ile kişisel, iş ve okul hesap
 > #### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydetme
 > Uygulamanızı kaydetmek ve uygulama kayıt bilgilerinizi çözümünüze el ile eklemek için şu adımları izleyin:
 >
-> 1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
+> 1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
 > 1. Hesabınız size birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu istediğiniz Azure AD kiracısına ayarlayın.
-> 1. Sol taraftaki gezinti bölmesinde **Azure Active Directory** hizmetini seçin ve ardından **Uygulama kayıtları (Önizleme)** > **Yeni kayıt** seçeneğini belirleyin.
+> 1. Geliştiriciler için Microsoft identity platformuna gidin [uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) sayfası.
+> 1. Seçin **yeni kayıt**.
 > 1. **Uygulama kaydet** sayfası göründüğünde uygulamanızın kayıt bilgilerini girin:
 >      - **Ad** alanına uygulama kullanıcılarına gösterilecek anlamlı bir uygulama adı girin, örneğin `Android-Quickstart`.
 >      - İsabet `Register` düğmesi.
@@ -137,7 +138,7 @@ Bu hızlı başlangıç, bir Android uygulaması ile kişisel, iş ve okul hesap
 >        </intent-filter>
 >    </activity>
 >    ```
-> 1. * kısmını uygulamanız için olan *Uygulama Kimliği ile değiştirin. *Uygulama Kimliği*’ni bulmanız gerekiyorsa *Genel Bakış* sayfasına gidin.
+> 1.  `<ENTER_THE_APPLICATION_ID_HERE>` kısmını uygulamanız için olan *Uygulama Kimliği* ile değiştirin. *Uygulama Kimliği*’ni bulmanız gerekiyorsa *Genel Bakış* sayfasına gidin.
 
 ## <a name="more-information"></a>Daha Fazla Bilgi
 
@@ -145,7 +146,7 @@ Bu hızlı başlangıç hakkında daha fazla bilgi için aşağıdaki bölümler
 
 ### <a name="msal"></a>MSAL
 
-MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) kullanıcıların oturumlarını açmak için kullanılan kitaplığı ve Microsoft Azure Active Directory (Azure AD) tarafından korunan bir API’ye erişmek için kullanılan istek belirteçlerini içerir. Bunu Gradle kullanarak yüklemek için, **Bağımlılıklar**'ın altında **Gradle Betikleri** > **build.gradle (Module: app)** içine aşağıdaki ekleyebilirsiniz:
+MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) kullanıcılarının oturumunu ve Microsoft kimlik platformu tarafından korunan bir API'ye erişmek için kullanılan belirteci istemek için kullanılan bir kitaplık sunulmaktadır. Bunu Gradle kullanarak yüklemek için, **Bağımlılıklar**'ın altında **Gradle Betikleri** > **build.gradle (Module: app)** içine aşağıdaki ekleyebilirsiniz:
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
@@ -178,7 +179,7 @@ MSAL belirteçlerini almak kullanılan iki yöntem vardır: `acquireToken` ve `a
 
 #### <a name="getting-a-user-token-interactively"></a>Kullanıcı belirtecini etkileşimli olarak alma
 
-Bazı durumlarda kullanıcıları Azure AD v.2.0 uç noktasıyla etkileşimde bulunmaya zorlamak gerekebilir ve bu da kullanıcının kimlik bilgilerinin doğrulanmasına ya da onayı için sistem tarayıcısına bağlam geçişine neden olur. Bazı örnekler:
+Bazı durumlarda, kullanıcılar ya da kullanıcı kimlik bilgilerini doğrulamak için sistemi tarayıcı veya onay için hangi sonuçları bir bağlamda geçiş, Microsoft kimlik platformu uç ile etkileşim kurmak için zorlama gerektirir. Bazı örnekler:
 
 * Kullanıcılar uygulamada ilk kez oturum açtığında
 * Parolanın süresi dolduğundan kullanıcıların kimlik bilgilerini yeniden girmesi gerektiğinde

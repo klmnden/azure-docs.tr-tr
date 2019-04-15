@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: fdc7aec703fdb5b6bb9744fad226b51769e73385
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 547b6a629677830b6f37883a4be835c12a62e599
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650487"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524064"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Tahmine dayalı bakım çözümleri için Azure yapay ZEKA Kılavuzu
 
@@ -227,7 +227,7 @@ Tarih gibi donanım üretim, model numarası, konum, teknik belirtimler statik �
 
 Şu ana kadar bahsedilen veri hazırlama çabalarını aşağıda gösterildiği gibi düzenlenmiş veri neden. Eğitim, sınama ve doğrulama veri (Bu örnekte zaman gün birimleri cinsinden gösterilmiştir) Bu mantıksal şemaya sahip olmalıdır.
 
-| Varlık Kimliği | Zaman | <Feature Columns> | Etiket |
+| Varlık Kimliği | Zaman | \<Özellik sütunları > | Etiket |
 | ---- | ---- | --- | --- |
 | A123 |1. gün | . . . | . |
 | A123 |2. gün | . . . | . |

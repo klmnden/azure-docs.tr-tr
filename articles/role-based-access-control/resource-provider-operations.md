@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3eed2bbb03334fed41bf0c74b1c287d9ca3f53eb
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
-ms.translationtype: HT
+ms.openlocfilehash: 6c3accdd74ce3277181f6cdfc890de0d8c55bf07
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501476"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549548"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
@@ -1092,57 +1092,43 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/delete | Belirtilen yüz listesini silin. Yüz tanıma listesinde ilgili yüz görüntüleri, çok silinir. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/persistedfaces/delete | Bir yüz tanıma, belirtilen faceListId ve persisitedFaceId tarafından bir yüz listeden silin. İlgili yüz resmini, çok silinir. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/persistedfaces/write | Bir yüz tanıma, 1000 yüz kadar belirtilen yüz listesine ekleyin. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/read | Yüz tanıma listenin faceListId, adı, userData ve yüz listesinde yüzleri alma.
-Yüz listelerini faceListId, adı ve userData listeleyin. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/write | Kullanıcı tarafından belirtilen faceListId, ad ve isteğe bağlı bir userData boş yüz listesi oluşturun. En fazla 64 yüz listelerini izin verilir
-Ad ve userData dahil olmak üzere yüz listesinin bilgileri güncelleştirin. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/read | Yüz tanıma listenin faceListId, adı, userData ve yüz listesinde yüzleri alma. Yüz listelerini faceListId, adı ve userData listeleyin. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/write | Kullanıcı tarafından belirtilen faceListId, ad ve isteğe bağlı bir userData boş yüz listesi oluşturun. En fazla 64 yüz listelerini güncelleştirme bilgilerini adı ve userData dahil olmak üzere yüz listesinin izin verilir. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/findsimilars/action | Sorgu yüzünün Faceıd, Faceıd diziden, yüz tanıma listesini veya büyük yüz listesini birbirine benzeyen yüzleri aramak için verilir. Faceıd |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/group/action | Yüz tanıma benzerliğe bağlı olarak gruplar aday yüzleri bölün. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/identify/action | bir kişi grubu veya büyük kişi grubu belirli sorgu kişi yazıtipinin değerini en yakın eşleşme bulmak için 1-çok Kimliği'ni kullanın. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/delete | Belirtilen büyük yüz listesini silin. İlgili yüz görüntüler büyük yüz listesinde, çok silinecektir. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/delete | Bir yüz tanıma, belirtilen largeFaceListId persisitedFaceId ile büyük yüz listeden silin. İlgili yüz resmini, çok silinir. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/read | Büyük yüz listesinde kalıcı yüz persistedFaceId largeFaceListId ile alın.
-Yüzleri persistedFaceId ve belirtilen büyük yüz listesinde userData listeleyin. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/write | Bir yüz, en fazla 1.000.000 yüzleri bir belirtilen büyük yüz listesine ekleyin.
-Büyük yüz listesinde belirtilen yüzünün userData alanı tarafından kendi persistedFaceId güncelleştirin. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | Büyük yüz listenin largeFaceListId, adı, userData alın.
-LargeFaceListId, adı ve userData büyük yüz listelerini bilgilerini listeler. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/read | Büyük yüz listesinde kalıcı yüz persistedFaceId largeFaceListId ile alın. Yüzleri persistedFaceId ve belirtilen büyük yüz listesinde userData listeleyin. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/write | Bir yüz, en fazla 1.000.000 yüzleri bir belirtilen büyük yüz listesine ekleyin. Büyük yüz listesinde belirtilen yüzünün userData alanı tarafından kendi persistedFaceId güncelleştirin. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | Büyük yüz listenin largeFaceListId, adı, userData alın. LargeFaceListId, adı ve userData büyük yüz listelerini bilgilerini listeler. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Büyük yüz listesi eğitim görevi gönderin. Eğitim yalnızca eğitilen büyük yüz listesini kullanabileceğiniz bir adımdır. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/training/read | Tamamlanmış veya hala devam eden büyük yüz listesi eğitim durumunu denetlemek için. LargeFaceList eğitim zaman uyumsuz bir işlemdir |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | Kullanıcı tarafından belirtilen largeFaceListId, ad ve isteğe bağlı bir userData boş büyük yüz listesi oluşturun.
-Ad ve userData dahil olmak üzere büyük yüz listesinin bilgileri güncelleştirin. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | Kullanıcı tarafından belirtilen largeFaceListId, ad ve isteğe bağlı bir userData boş büyük yüz listesi oluşturun. Ad ve userData dahil olmak üzere büyük yüz listesinin bilgileri güncelleştirin. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/delete | Belirtilen personGroupId ile var olan bir büyük kişi grubunu silin. Bu büyük kişi grubu kalıcı verileri silinecek. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/action | Yeni bir kişi, içinde bir belirtilen büyük kişi grubu oluşturun. Yüz tanıma bu kişiye eklemek için lütfen arayın |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/delete | Var olan bir kişi bir büyük kişi grubundan silin. Tüm kişi verilerini depolanır ve kişi giriş yüz görüntüler silinecektir. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/delete | Bir yüz kişinin büyük kişi grubu silin. Yüz tanıma verileri ve bu yüz girişle ilgili görüntü de silinir. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/read | Kişi yüz bilgi alın. Kişi kalıcı yüz tanıma, kendi largePersonGroupId, Personıd ve persistedFaceId tarafından belirtilir. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/write | Yüz resmini bir kişiye, yüz tanıma veya doğrulama için bir büyük kişi gruba ekleyin. Görüntüsü ile baş
-Güncelleştirme bir kişi yüzünün userData alan kalıcı. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/read | Bir kişinin adını ve userData kayıtlı kişinin resmini temsil eden kalıcı faceIds alın.
-Personıd, adı, userData ve persistedFaceIds dahil olmak üzere, belirtilen büyük kişi grubundaki tüm kişi bilgilerini listeler. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/write | Yüz resmini bir kişiye, yüz tanıma veya doğrulama için bir büyük kişi gruba ekleyin. Bir kişi güncelleştirme görüntüsü ile baş yüzünün userData alan kalıcı. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/read | Bir kişinin adını ve userData kayıtlı kişinin resmini temsil eden kalıcı faceIds alın. Personıd, adı, userData ve persistedFaceIds dahil olmak üzere, belirtilen büyük kişi grubundaki tüm kişi bilgilerini listeler. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/write | Adı veya bir kişinin userData güncelleştirin. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | Adına ve userData dahil olmak üzere, bir büyük kişi grubu bilgilerini alın. Bu API büyük kişi grubu bilgilerini döndürür.
-Tüm mevcut büyük kişi grupları'nın largePesonGroupId, adı ve userData listeleyin. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | Adına ve userData dahil olmak üzere, bir büyük kişi grubu bilgilerini alın. Bu API döndürür büyük kişi grubu bilgilerini tüm var olan büyük kişi grupları'nın largePesonGroupId, adı ve userData. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Büyük kişi grubu eğitim görev gönderin. Eğitim eğitilen büyük kişi grubu yalnızca bir kullanabileceğiniz bir adımdır. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/training/read | Tamamlanmış veya hala devam eden büyük kişi grubu eğitim durumunu denetlemek için. LargePersonGroup eğitim zaman uyumsuz bir işlemdir |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | Kullanıcı tarafından belirtilen largePersonGroupId, ad ve isteğe bağlı userData ile yeni bir büyük kişi grubu oluşturun.
-Mevcut bir büyük kişi grubun adı ve userData güncelleştirin. İstek gövdesinde olmadıkları özellikleri değişmeden kullanmaya devam edin. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | Kullanıcı tarafından belirtilen largePersonGroupId, ad ve isteğe bağlı userData ile yeni bir büyük kişi grubu oluşturun. Mevcut bir büyük kişi grubun adı ve userData güncelleştirin. İstek gövdesinde olmadıkları özellikleri değişmeden kullanmaya devam edin. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/delete | Belirtilen personGroupId ile var olan bir kişi grubu silin. Bu kişi grubu kalıcı verileri silinecek. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/action | Belirtilen kişinin grubunda yeni bir kişi oluşturun. Yüz tanıma bu kişiye eklemek için lütfen arayın |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/delete | Var olan bir kişi bir kişi grubundan silin. Tüm kişi verilerini depolanır ve kişi giriş yüz görüntüler silinecektir. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/delete | Bir yüz kişinin bir kişi grubu silin. Yüz tanıma verileri ve bu yüz girişle ilgili görüntü de silinir. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/read | Kişi yüz bilgi alın. Kişi kalıcı yüz tanıma, kendi personGroupId, Personıd ve persistedFaceId tarafından belirtilir. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/write | Yüz resmini bir kişiye, yüz tanıma veya doğrulama için bir kişi gruba ekleyin. Birden çok görüntüsü ile baş
-Güncelleştirme bir kişi yüzünün userData alan kalıcı. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/read | Bir kişinin adını ve userData kayıtlı kişinin resmini temsil eden kalıcı faceIds alın.
-Personıd, adı, userData ve, persistedFaceIds dahil olmak üzere, belirtilen kişinin grubundaki tüm kişileri bilgi listesinde kayıtlı. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/write | Yüz resmini bir kişiye, yüz tanıma veya doğrulama için bir kişi gruba ekleyin. Birden çok güncelleştirme bir kişi görüntüsü ile baş yüzünün userData alan kalıcı. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/read | Bir kişinin adını ve userData kayıtlı kişinin resmini temsil eden kalıcı faceIds alın. Personıd, adı, userData ve, persistedFaceIds dahil olmak üzere, belirtilen kişinin grubundaki tüm kişileri bilgi listesinde kayıtlı. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/write | Adı veya bir kişinin userData güncelleştirin. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Kişi grubu adı ve userData alın. Bu personGroup altında kişi bilgilerini almak için kullanın
-Kişi grupları'nın pesonGroupId, adı ve userData listeleyin. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Kişi grubu adı ve userData alın. Bu personGroup altında kişi bilgilerini almak için listesi kişi grupları'nın pesonGroupId, adı ve userData kullanın. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Bir kişi grubu eğitim görev gönderin. Eğitim eğitilen kişi grubu yalnızca bir kullanabileceğiniz bir adımdır. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | Tamamlanmış veya hala devam eden kişi grubu eğitim durumunu denetlemek için. PersonGroup eğitim tetiklenen zaman uyumsuz bir işlem olduğu |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Belirtilen personGroupId, adı ve kullanıcı tarafından sağlanan userData ile yeni bir kişi grubu oluşturun.
-Var olan bir kişi grubun adı ve userData güncelleştirin. İstek gövdesinde olmadıkları özellikleri değişmeden kullanmaya devam edin. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Belirtilen personGroupId, adı ve kullanıcı tarafından sağlanan userData ile yeni bir kişi grubu oluşturun. Var olan bir kişi grubun adı ve userData güncelleştirin. İstek gövdesinde olmadıkları özellikleri değişmeden kullanmaya devam edin. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/verify/action | İki yüzün aynı kişiye mi ait ya da bir yüz bir kişiye ait olup doğrulayın. |
 > | Eylem | Microsoft.CognitiveServices/accounts/listKeys/action | Anahtarları Listele |
 > | DataAction | Microsoft.CognitiveServices/accounts/LUIS/predict/action | Belirtilen sorgu için yayımlanan uç nokta tahmin alır. |

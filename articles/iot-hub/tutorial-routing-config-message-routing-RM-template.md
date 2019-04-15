@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 58b0039980f448c9bd953e9d59289c511ce95517
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d7b8c0685cf92341241575d3e67c09a759f5c190
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663035"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543772"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Öğretici: IOT Hub ileti yönlendirme yapılandırmak için bir Azure Resource Manager şablonu kullanma
 
@@ -54,7 +54,7 @@ Bu parametreleri çoğunu varsayılan değerlere sahiptir. İle biten olanları 
 
 **Konum**: Bu alan, içine, "gibi westus" dağıtmakta olduğunuz Azure bölgesidir.
 
-**consumer_group**: Bu alan, yönlendirme uç noktası aracılığıyla gelen iletiler için tüketici grubudur. Azure akış analizi sonuçları filtrelemek için kullanılır. Örneğin, var. tüm akış her şeyi alın veya veri kümesine consumer_group ile gelen varsa **Contoso**, sonra da, bir Azure Stream Analytics akışı (ve Power BI raporu) yalnızca girişler gösterecek şekilde ayarlayabilirsiniz. Bu alan, bu öğreticinin 2 kullanılır.
+**consumer_group**: Bu alan, yönlendirme uç noktası aracılığıyla gelen iletiler için tüketici grubudur. Azure Stream analytics'te sonuçları filtrelemek için kullanılır. Örneğin, var. tüm akış her şeyi alın veya veri kümesine consumer_group ile gelen varsa **Contoso**, sonra da, bir Azure Stream Analytics akışı (ve Power BI raporu) yalnızca girişler gösterecek şekilde ayarlayabilirsiniz. Bu alan, bu öğreticinin 2 kullanılır.
 
 **sku_name**: Bu alan için IOT hub'ı ölçeklendirme olur. Bu değer, S1 olmalıdır veya üzeri; Ücretsiz katmanı, birden fazla uç noktası izin vermediğinden bu öğretici için çalışmaz.
 

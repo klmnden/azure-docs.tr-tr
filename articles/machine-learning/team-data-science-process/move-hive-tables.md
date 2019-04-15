@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28e399eaf62731d7c38cea5f5a8cb8ebf876e686
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840656"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522512"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive tabloları oluşturma ve Azure Blob depolamadan veri yükleme
 
@@ -112,7 +112,7 @@ Azure Depolama Gezgini'ni kullanarak Hadoop kümesi varsayılan kapsayıcı aça
 ![Hive sorgusu çıkışı gösteren Azure Depolama Gezgini](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Hive Düzenleyicisi ile Hive sorguları göndermek
-Sorgu Konsolu (Hive Düzenleyicisi) biçiminde bir URL girerek kullanabilirsiniz *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* içine bir web tarayıcısı. Siz bu konsolun bakın oturum ve Hadoop kümesi kimlik bilgilerinizi buraya nedenle gerekir.
+Sorgu Konsolu (Hive Düzenleyicisi) biçiminde bir URL girerek kullanabilirsiniz *https:\//\<Hadoop kümesinin adı >.azurehdinsight.net/Home/HiveEditor* içine bir web tarayıcısı. Siz bu konsolun bakın oturum ve Hadoop kümesi kimlik bilgilerinizi buraya nedenle gerekir.
 
 ### <a name="ps"></a> 3. Azure PowerShell komutları ile Hive sorguları göndermek
 Hive sorguları göndermek için PowerShell de kullanabilirsiniz. Yönergeler için [gönderme Hive işleri PowerShell kullanarak](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
@@ -149,7 +149,7 @@ Bir Hive tablosuna veri yükler Hive sorgusu aşağıda verilmiştir.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<blob veri yoluna\>**: Hive tablosu için yüklenecek blob dosya HDInsight Hadoop kümesi varsayılan kapsayıcıda ise *\<blob veri yoluna\>* biçiminde olması gerektiğini *' wasb: / / /<directory in this container> /<blob file name>'*. Blob dosya HDInsight Hadoop kümesi ek bir kapsayıcı da olabilir. Bu durumda, *\<blob veri yoluna\>* biçiminde olması gerektiğini *' wasb: / /<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
+* **\<blob veri yoluna\>**: Hive tablosu için yüklenecek blob dosya HDInsight Hadoop kümesi varsayılan kapsayıcıda ise *\<blob veri yoluna\>* biçiminde olması gerektiğini *' wasb: / /\< Bu kapsayıcıda dizin > /\<blob dosya adı >'*. Blob dosya HDInsight Hadoop kümesi ek bir kapsayıcı da olabilir. Bu durumda, *\<blob veri yoluna\>* biçiminde olması gerektiğini *' wasb: / /\<kapsayıcı adı >\<depolama hesabı adı >.blob.core.windows.net/\<blob dosya adı >'*.
 
   > [!NOTE]
   > Hive tablosu yüklenmek üzere blob verilerini varsayılan veya ek kapsayıcı Hadoop kümesi için depolama hesabının olması gerekir. Aksi takdirde, *veri yükleme* sorgu başarısız olursa şikayetçi verilere erişemez.

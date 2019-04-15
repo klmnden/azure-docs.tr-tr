@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: cc10c9be5bab3b84c8773d8a930473267db353ab
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: f37a0c9e4c664ac9631a0a07fa6f114e62939845
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411088"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522901"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>App Service uygulamanızı Facebook oturum açma bilgilerini kullanacak şekilde yapılandırma
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -48,7 +48,7 @@ Bu konudaki yordamı tamamlamak için doğrulanmış e-posta adresi ve cep telef
    > Uygulama gizli anahtarı bir önemli güvenlik kimlik bilgisidir. Bu gizli dizi kimseyle paylaşmayın değil veya bir istemci uygulaması içinde dağıtın.
    > 
    > 
-9. Uygulamayı kaydetmek için kullanılan Facebook uygulama yönetici hesabıdır. Bu noktada, yalnızca Yöneticiler bu uygulamaya oturum açabilirsiniz. Diğer Facebook hesaplarının kimliğini doğrulamak için tıklayın **uygulama incelemesi** ve etkinleştirme **< uygulamanızın-adı > Genel** Facebook kimlik doğrulaması kullanarak genel genel erişimi etkinleştirmek için.
+9. Uygulamayı kaydetmek için kullanılan Facebook uygulama yönetici hesabıdır. Bu noktada, yalnızca Yöneticiler bu uygulamaya oturum açabilirsiniz. Diğer Facebook hesaplarının kimliğini doğrulamak için tıklayın **uygulama incelemesi** ve etkinleştirme **olun \<uygulamanızın-adı > ortak** Facebook kimlik doğrulaması kullanarak genel genel erişimi etkinleştirmek için.
 
 ## <a name="secrets"> </a>Uygulamanıza Facebook bilgilerini ekleyin
 1. Geri [Azure portal], uygulamanıza gidin. Tıklayın **ayarları** > **kimlik doğrulama / yetkilendirme**, emin olun **App Service kimlik doğrulaması** olduğu **üzerinde**.

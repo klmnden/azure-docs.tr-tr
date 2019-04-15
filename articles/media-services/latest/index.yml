@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/20/2019
+  ms.date: 04/12/2019
   ms.author: juliako
 abstract:
   description: 'Media Services v3 ile içeriği kodlayıp paketleme, talep üzerine video akışı yapma, canlı yayın gerçekleştirme ve videolarınızı analiz etme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, güvenli bir biçimde milyonlarca kullanıcıya ölçeklendirilebilen, isteğe bağlı ve canlı video veya ses akışları sağlama ile ilgili bilgiler içerir. <br/> SDK’lar <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI Belirtimlerine (Swagger)</a> dayanır.'
@@ -26,7 +26,7 @@ sections:
           - title: Kavramları öğrenin
             html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Bulutta karşıya yükleme ve depolama</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Kodlama</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">İzleme</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Medya analizi</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Paketleme</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Koruma</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Canlı akış</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Yürütücü istemcileri</a></p>'
           - title: v3 API ile geliştirme
-            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">SDK''larla geliştirmeye başlama</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">REST ile geliştirme</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">Java ile bağlanma</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">.NET ile bağlanma</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">Node.js ile bağlanma</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">REST ile geliştirme</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">SDK’larla geliştirme</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">Java ile bağlanma</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">.NET ile bağlanma</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">Node.js ile bağlanma</a></p>'
   - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
       - type: paragraph
