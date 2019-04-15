@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ab6fd4a2becde56ed538581561eb170f25c57278
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728920"
 documentType: LandingData
 title: Microsoft Identity Platform (Geliştiriciler için Azure Active Directory)
 metadata:
   title: Microsoft Identity Platform (Geliştiriciler için Azure Active Directory)
-  description: Microsoft Identity Platform ile tüm Microsoft kimliklerinde kullanıcıların güvenli bir şekilde oturum açmasını sağlayan, Microsoft Graph veya diğer Microsoft API'leri ya da geliştiricilerin derlemiş olduğu API'lere çağrı göndermek için gerekli belirteçleri alan uygulamalar derlemeyi öğrenin.
+  description: 'Microsoft Identity Platform ile tüm Microsoft kimliklerinde kullanıcıların güvenli bir şekilde oturum açmasını sağlayan, Microsoft Graph veya diğer Microsoft API''leri ya da geliştiricilerin derlemiş olduğu API''lere çağrı göndermek için gerekli belirteçleri alan uygulamalar derlemeyi öğrenin.'
   services: active-directory
   author: CelesteDG
   manager: mtillman
@@ -21,242 +15,242 @@ metadata:
   ms.date: 09/24/2018
   ms.author: celested
 abstract:
-  description: Microsoft Identity Platform, Azure Active Directory (Azure AD) kimlik hizmeti ve geliştirici platformunun geliştirilmesiyle ortaya çıkmıştır. Bu platform geliştiricilerin tüm Microsoft kimlikleriyle oturum açan ve Microsoft Graph veya diğer Microsoft API'leri ya da geliştiricilerin derlemiş olduğu API'lere çağrı göndermek için gerekli belirteçleri alan uygulamalar derlemesini sağlar. Bu tam özellikli platform kimlik doğrulaması hizmetine, açık kaynak kitaplıklara, uygulama kaydı ve yapılandırmasına, tam kapsamlı geliştirici belgelerine, kod örneklerine ve geliştiricilere yönelik diğer içeriklere sahiptir. Microsoft Identity Platform OAuth 2.0 ve OpenID Connect gibi sektör standardı protokolleri destekler.
+  description: 'Microsoft kimlik platformu, Azure Active Directory (Azure AD) kimlik hizmeti ve geliştirici platformunun geliştirilmesiyle ortaya çıkmıştır. Bu platform geliştiricilerin tüm Microsoft kimlikleriyle oturum açan ve Microsoft Graph veya diğer Microsoft API''leri ya da geliştiricilerin derlemiş olduğu API''lere çağrı göndermek için gerekli belirteçleri alan uygulamalar derlemesini sağlar. OAuth 2.0 ve OpenID Connect standart uyumlu kimlik doğrulaması hizmeti, açık kaynaklı kitaplıklar, uygulama kaydı ve yapılandırması, sağlam kavramsal belgeler ve başvuru belgeleri, “hızlı başlangıç örnekler”, kod örnekleri, öğreticiler ve nasıl yapılır kılavuzları içeren tam özellikli bir platformdur.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: ./media/index/video-featured.png
       width: 250
-    title: Kimlik doğrulamasına sahip web uygulaması çözümleri oluşturma (9:31)
-    href: https://www.youtube.com/watch?v=QWh5HZK9vRA
+    title: 'Kimlik doğrulamasına sahip web uygulaması çözümleri oluşturma (9:31)'
+    href: 'https://www.youtube.com/watch?v=QWh5HZK9vRA'
     width: 250
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/active-directory/develop/about-microsoft-identity-platform
+            html: <p>Microsoft Identity Platform'un özellikleri ve yetenekleri hakkında daha fazla bilgi edinin.</p>
+            image:
+              src: ./media/index/i_get-started.svg
+            title: Microsoft Identity Platform hakkında
+          - href: /azure/active-directory/develop/azure-ad-developers-guide/
+            html: '<p>Azure AD Authentication Library (ADAL), Azure portal ve Azure AD Graph API''sini kullanarak Azure AD v1.0 uç noktasından belirteç isteyerek Azure AD kimliklerini (iş ve okul hesapları) doğrulayın.</p>'
+            image:
+              src: ./media/index/i_advanced.svg
+            title: v1.0
+          - href: /azure/active-directory/develop/v2-overview
+            html: '<p>Microsoft Authentication Library (MSAL), Azure portal ve Microsoft Graph API''sini kullanarak Azure AD v2.0 uç noktası olarak bilinen daha geniş bir Microsoft kimlik kümesiyle kimlik doğrulaması gerçekleştirin.</p>'
+            image:
+              src: ./media/index/i_investigate.svg
+            title: v2.0
+  - title: Hızlı Başlangıçlar
     items:
-    - href: /azure/active-directory/develop/about-microsoft-identity-platform
-      html: <p>Microsoft Identity Platform'un özellikleri ve yetenekleri hakkında daha fazla bilgi edinin.</p>
-      image:
-        src: ./media/index/i_get-started.svg
-      title: Microsoft Identity Platform hakkında
-    - href: /azure/active-directory/develop/azure-ad-developers-guide/
-      html: <p>Azure AD Authentication Library (ADAL), Azure portal ve Azure AD Graph API'sini kullanarak Azure AD v1.0 uç noktasından belirteç isteyerek Azure AD kimliklerini (iş ve okul hesapları) doğrulayın.</p>
-      image:
-        src: ./media/index/i_advanced.svg
-      title: v1.0
-    - href: /azure/active-directory/develop/v2-overview
-      html: <p>Microsoft Authentication Library (MSAL), Azure portal ve Microsoft Graph API'sini kullanarak Azure AD v2.0 uç noktası olarak bilinen daha geniş bir Microsoft kimlik kümesiyle kimlik doğrulaması gerçekleştirin.</p>
-      image:
-        src: ./media/index/i_investigate.svg
-      title: v2.0
-- title: Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: Hızlıca uygulama derlemek ve belirteç alma, belirteçleri yenileme, kullanıcı oturumu açma ve kullanıcı bilgilerini görüntüleme gibi işlevler eklemek için bu hızlı başlangıçları kullanın.
-  - type: paragraph
-    text: <b>Tek sayfalı uygulamalar</b>
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: ./media/index/angularjs-shield.svg
-      title: AngularJS
-    - image:
-        src: ./media/index/logo_js.svg
-      title: JavaScript
-    rows:
-    - title: v1.0
-      values:
-      - href: quickstart-v1-angularjs-spa.md
-      - href: https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi
-    - title: v2.0
-      values:
-      - href: 
-      - href: quickstart-v2-javascript.md
-  - type: paragraph
-    text: <b>Web Apps</b>
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: ./media/index/logo_NET.svg
-      title: ASP .NET
-    - image:
-        src: ./media/index/logo_NETcore.svg
-      title: ASP .NET Core
-    - image:
-        src: ./media/index/logo_java.svg
-      title: Java
-    - image:
-        src: ./media/index/logo_nodejs.svg
-      title: NodeJS
-    - image:
-        src: ./media/index/logo_python.svg
-      title: Python
-    rows:
-    - title: v1.0
-      values:
-      - href: quickstart-v1-aspnet-webapp.md
-      - href: 
-      - href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
-      - href: quickstart-v1-openid-connect-code.md
-      - href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
-    - title: v2.0
-      values:
-      - href: quickstart-v2-aspnet-webapp.md
-      - href: quickstart-v2-aspnet-core-webapp.md
-      - href: 
-      - href: https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs
-      - href: 
-  - type: paragraph
-    text: <b>Web API'leri</b>
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: ./media/index/logo_NET.svg
-      title: ASP .NET
-    - image:
-        src: ./media/index/logo_NETcore.svg
-      title: ASP .NET Core
-    - image:
-        src: ./media/index/logo_nodejs.svg
-      title: NodeJS
-    rows:
-    - title: v1.0
-      values:
-      - href: quickstart-v1-dotnet-webapi.md
-      - href: 
-      - href: quickstart-v1-nodejs-webapi.md
-    - title: v2.0
-      values:
-      - href: https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet
-      - href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2
-      - href: 
-  - type: paragraph
-    text: <b>Mobil ve masaüstü uygulamalar</b>
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: ./media/index/logo_android.svg
-      title: Android
-    - image:
-        src: ./media/index/logo_ios.svg
-      title: iOS
-    - image:
-        src: ./media/index/logo_Windows.svg
-      title: Evrensel Windows Platformu
-    - image:
-        src: ./media/index/logo_Windows.svg
-      title: Windows Masaüstü .NET
-    - image:
-        src: ./media/index/logo_xamarin.svg
-      title: Xamarin
-    rows:
-    - title: v1.0
-      values:
-      - href: quickstart-v1-android.md
-      - href: quickstart-v1-ios.md
-      - href: 
-      - href: quickstart-v1-dotnet.md
-      - href: quickstart-v1-xamarin.md
-    - title: v2.0
-      values:
-      - href: quickstart-v2-android.md
-      - href: quickstart-v2-ios.md
-      - href: quickstart-v2-uwp.md
-      - href: quickstart-v2-windows-desktop.md
-      - href: 
-  - type: paragraph
-    text: <b>Hizmetten hizmete ve daemon uygulamaları</b>
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: ./media/index/logo_NET.svg
-      title: .NET
-    rows:
-    - title: v1.0
-      values:
-      - href: sample-v1-code.md
-    - title: v2.0
-      values:
-      - href: quickstart-v2-netcore-daemon.md
-- title: Adım adım öğreticiler
-  items:
-  - type: paragraph
-    text: Microsoft Identity Platform'u kullanın ve erişim belirteçleri alma ve Microsoft ile oturum açma özelliğini ekleme gibi en popüler geliştirici kimlik doğrulama görevleri için ayrıntılı ve senaryo tabanlı yordamları izleyin.
-  - type: paragraph
-    text: <b>Tek sayfalı uygulamalar</b>
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: ./media/index/logo_js.svg
-      title: JavaScript
-    rows:
-    - title: v1.0
-      values:
-      - href: 
-    - title: v2.0
-      values:
-      - href: tutorial-v2-javascript-spa.md
-  - type: paragraph
-    text: <b>Web Apps</b>
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: ./media/index/logo_NET.svg
-      title: ASP .NET
-    rows:
-    - title: v1.0
-      values:
-      - href: 
-    - title: v2.0
-      values:
-      - href: tutorial-v2-asp-webapp.md
-  - type: paragraph
-    text: <b>Mobil ve masaüstü uygulamalar</b>
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: ./media/index/logo_android.svg
-      title: Android
-    - image:
-        src: ./media/index/logo_ios.svg
-      title: iOS
-    - image:
-        src: ./media/index/logo_Windows.svg
-      title: Evrensel Windows Platformu
-    - image:
-        src: ./media/index/logo_Windows.svg
-      title: Windows Masaüstü .NET
-    rows:
-    - title: v1.0
-      values:
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-    - title: v2.0
-      values:
-      - href: tutorial-v2-android.md
-      - href: tutorial-v2-ios.md
-      - href: tutorial-v2-windows-uwp.md
-      - href: tutorial-v2-windows-desktop.md
-- title: Örnekler
-  items:
-  - type: paragraph
-    text: Geliştirmekte olduğunuz uygulama türüne, platforma ve kullandığınız API'lere göre kod örnekleri bulun.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Hızlıca uygulama derlemek ve belirteç alma, belirteçleri yenileme, kullanıcı oturumu açma ve kullanıcı bilgilerini görüntüleme gibi işlevler eklemek için bu hızlı başlangıçları kullanın.'
+      - type: paragraph
+        text: <b>Tek sayfalı uygulamalar</b>
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: ./media/index/angularjs-shield.svg
+            title: AngularJS
+          - image:
+              src: ./media/index/logo_js.svg
+            title: JavaScript
+        rows:
+          - title: v1.0
+            values:
+              - href: quickstart-v1-angularjs-spa.md
+              - href: 'https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi'
+          - title: v2.0
+            values:
+              - href: null
+              - href: quickstart-v2-javascript.md
+      - type: paragraph
+        text: <b>Web Apps</b>
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: ./media/index/logo_NET.svg
+            title: ASP .NET
+          - image:
+              src: ./media/index/logo_NETcore.svg
+            title: ASP .NET Core
+          - image:
+              src: ./media/index/logo_java.svg
+            title: Java
+          - image:
+              src: ./media/index/logo_nodejs.svg
+            title: NodeJS
+          - image:
+              src: ./media/index/logo_python.svg
+            title: Python
+        rows:
+          - title: v1.0
+            values:
+              - href: quickstart-v1-aspnet-webapp.md
+              - href: null
+              - href: 'https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect'
+              - href: quickstart-v1-openid-connect-code.md
+              - href: 'https://github.com/Azure-Samples/active-directory-python-webapp-graphapi'
+          - title: v2.0
+            values:
+              - href: quickstart-v2-aspnet-webapp.md
+              - href: quickstart-v2-aspnet-core-webapp.md
+              - href: null
+              - href: 'https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs'
+              - href: null
+      - type: paragraph
+        text: <b>Web API'leri</b>
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: ./media/index/logo_NET.svg
+            title: ASP .NET
+          - image:
+              src: ./media/index/logo_NETcore.svg
+            title: ASP .NET Core
+          - image:
+              src: ./media/index/logo_nodejs.svg
+            title: NodeJS
+        rows:
+          - title: v1.0
+            values:
+              - href: quickstart-v1-dotnet-webapi.md
+              - href: null
+              - href: quickstart-v1-nodejs-webapi.md
+          - title: v2.0
+            values:
+              - href: 'https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet'
+              - href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
+              - href: null
+      - type: paragraph
+        text: <b>Mobil ve masaüstü uygulamalar</b>
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: ./media/index/logo_android.svg
+            title: Android
+          - image:
+              src: ./media/index/logo_ios.svg
+            title: iOS
+          - image:
+              src: ./media/index/logo_Windows.svg
+            title: Evrensel Windows Platformu
+          - image:
+              src: ./media/index/logo_Windows.svg
+            title: Windows Masaüstü .NET
+          - image:
+              src: ./media/index/logo_xamarin.svg
+            title: Xamarin
+        rows:
+          - title: v1.0
+            values:
+              - href: quickstart-v1-android.md
+              - href: quickstart-v1-ios.md
+              - href: null
+              - href: quickstart-v1-dotnet.md
+              - href: quickstart-v1-xamarin.md
+          - title: v2.0
+            values:
+              - href: quickstart-v2-android.md
+              - href: quickstart-v2-ios.md
+              - href: quickstart-v2-uwp.md
+              - href: quickstart-v2-windows-desktop.md
+              - href: null
+      - type: paragraph
+        text: <b>Hizmetten hizmete ve daemon uygulamaları</b>
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: ./media/index/logo_NET.svg
+            title: .NET
+        rows:
+          - title: v1.0
+            values:
+              - href: sample-v1-code.md
+          - title: v2.0
+            values:
+              - href: quickstart-v2-netcore-daemon.md
+  - title: Adım adım öğreticiler
     items:
-    - html: <a href="/azure/active-directory/develop/sample-v1-code">Senaryoya göre v1.0 kod örnekleri</a>
-    - html: <a href="/azure/active-directory/develop/sample-v2-code">Senaryoya göre v2.0 kod örnekleri</a>
+      - type: paragraph
+        text: Microsoft Identity Platform'u kullanın ve erişim belirteçleri alma ve Microsoft ile oturum açma özelliğini ekleme gibi en popüler geliştirici kimlik doğrulama görevleri için ayrıntılı ve senaryo tabanlı yordamları izleyin.
+      - type: paragraph
+        text: <b>Tek sayfalı uygulamalar</b>
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: ./media/index/logo_js.svg
+            title: JavaScript
+        rows:
+          - title: v1.0
+            values:
+              - href: null
+          - title: v2.0
+            values:
+              - href: tutorial-v2-javascript-spa.md
+      - type: paragraph
+        text: <b>Web Apps</b>
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: ./media/index/logo_NET.svg
+            title: ASP .NET
+        rows:
+          - title: v1.0
+            values:
+              - href: null
+          - title: v2.0
+            values:
+              - href: tutorial-v2-asp-webapp.md
+      - type: paragraph
+        text: <b>Mobil ve masaüstü uygulamalar</b>
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: ./media/index/logo_android.svg
+            title: Android
+          - image:
+              src: ./media/index/logo_ios.svg
+            title: iOS
+          - image:
+              src: ./media/index/logo_Windows.svg
+            title: Evrensel Windows Platformu
+          - image:
+              src: ./media/index/logo_Windows.svg
+            title: Windows Masaüstü .NET
+        rows:
+          - title: v1.0
+            values:
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: v2.0
+            values:
+              - href: tutorial-v2-android.md
+              - href: tutorial-v2-ios.md
+              - href: tutorial-v2-windows-uwp.md
+              - href: tutorial-v2-windows-desktop.md
+  - title: Örnekler
+    items:
+      - type: paragraph
+        text: 'Geliştirmekte olduğunuz uygulama türüne, platforma ve kullandığınız API''lere göre kod örnekleri bulun.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/develop/sample-v1-code">Senaryoya göre v1.0 kod örnekleri</a>
+          - html: <a href="/azure/active-directory/develop/sample-v2-code">Senaryoya göre v2.0 kod örnekleri</a>

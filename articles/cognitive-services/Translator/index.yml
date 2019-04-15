@@ -93,7 +93,7 @@ sections:
       - type: paragraph
         text: 'Translator Metin Çevirisi API’si kullanarak uygulama geliştirmeyi öğrenin:'
       - type: paragraph
-        text: '<a href="tutorial-wpf-translation-csharp.md">Translator Metin Çevirisi için C# kullanarak bir WPF uygulaması yazma</a>'
+        text: '<li><a href="tutorial-wpf-translation-csharp.md">Translator Metin Çevirisi için WPF uygulaması oluşturma, C#</a></li><li><a href="tutorial-build-flask-app-translation-synthesis.md">Flask çeviri uygulaması oluşturma, Python</a></li>'
   - title: Başvuru
     items:
       - type: paragraph

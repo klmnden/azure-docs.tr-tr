@@ -1,0 +1,35 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure NetApp Files belgeleri
+metadata:
+  title: Azure NetApp Files belgeleri
+  description: 'Azure NetApp Files hizmetini kullanarak birimleri ayarlamayı, bunlara erişmeyi ve bunları yönetmeyi öğrenin.'
+  author: b-juche
+  ms.author: b-juche
+  ms.service: azure-netapp-files
+  ms.topic: landing-page
+  ms.date: 04/10/2019
+abstract:
+  description: 'Azure NetApp Files kullanarak NetApp hesaplarını, kapasite havuzlarını ve birimleri oluşturmayı ve yönetmeyi, dışarı aktarma ilkesini yapılandırmayı, sanal makine için birim takmayı ve anlık görüntüleri yönetmeyi öğrenin. <p>Azure NetApp Files’ı kullanmak için Genel Önizleme programına katılmanız gerekir. Ayrıca Microsoft.NetApp Azure Kaynak Sağlayıcısı’na erişmek için beyaz listeye alınmış olmanız gerekir. Genel Önizleme programına katılma isteğinde bulunmak için bkz. <a href="azure-netapp-files-register">Azure NetApp Files için kaydolma</a>.</p>'
+sections:
+  - title: 5 dakikalık hızlı başlangıçlar
+    items:
+      - type: paragraph
+        text: 'Şunları kullanarak Azure NetApp Files’ı ayarlamayı ve birim oluşturmayı öğrenin:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/azure-netapp-files/media/index/get-started.svg'
+            text: Azure portal
+            href: /azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes
+  - title: Başvuru
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/netapp/">REST API</a></p>'
+          - title: Azure Resource Manager
+            html: '<p><a href="https://docs.microsoft.com/azure/templates/microsoft.netapp/allversions">Resource Manager şablonları</a></p>'

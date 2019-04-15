@@ -15,16 +15,16 @@ items:
   items:
   - name: Android
     items:
-    - name: Firebase Cloud Messaging kullanarak Android cihazlara anında iletme bildirimleri gönderme
+    - name: Firebase Cloud Messaging kullanarak anında iletme bildirimleri gönderme
       href: notification-hubs-android-push-notification-google-fcm-get-started.md
-    - name: Google Cloud Messaging kullanarak Android cihazlara anında iletme bildirimleri gönderme
+    - name: Google Cloud Messaging kullanarak anında iletme bildirimleri gönderme
       href: notification-hubs-android-push-notification-google-gcm-get-started.md
+    - name: Belirli cihazlara anında iletme bildirimleri gönderme
+      href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+    - name: Belirli kullanıcılara anında iletme bildirimleri gönderme
+      href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
     - name: Xamarin Android uygulamalarına anında iletme bildirimleri gönderme
       href: xamarin-notification-hubs-push-notifications-android-gcm.md
-    - name: Belirli Android cihazlara anında iletme bildirimleri gönderme
-      href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-    - name: Belirli Android uygulaması kullanıcılarına anında iletme bildirimleri gönderme
-      href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
   - name: Baidu
     items:
     - name: Baidu bulut anında iletme kullanarak anında iletme bildirimleri gönderme
@@ -37,31 +37,31 @@ items:
     items:
     - name: iOS uygulamalarına istek bildirimi gönderme
       href: notification-hubs-ios-apple-push-notification-apns-get-started.md
-    - name: Xamarin iOS uygulamalarına istek bildirimi gönderme
-      href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
     - name: Belirli cihazlara anında iletme bildirimleri gönderme
       href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
-    - name: iOS cihazlara yerelleştirilmiş anında iletme bildirimleri gönderme
-      href: notification-hubs-ios-xplat-localized-apns-push-notification.md
     - name: Belirli kullanıcılara anında iletme bildirimleri gönderme
       href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+    - name: Xamarin iOS uygulamalarına istek bildirimi gönderme
+      href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
+    - name: iOS cihazlara yerelleştirilmiş anında iletme bildirimleri gönderme
+      href: notification-hubs-ios-xplat-localized-apns-push-notification.md
   - name: Kindle
     items:
-    - name: Amazon Device Messaging kullanarak bir Kindle uygulamasına anında iletme bildirimleri gönderme
+    - name: Amazon Device Messaging kullanarak anında iletme bildirimleri gönderme
       href: notification-hubs-kindle-amazon-adm-push-notification.md
   - name: Windows Phone
     items:
-    - name: Windows Phone uygulamalarına anında iletme bildirimleri gönderme
+    - name: Uygulamalara anında iletme bildirimleri gönderme
       href: notification-hubs-windows-mobile-push-notifications-mpns.md
-    - name: Belirli Windows Phone cihazlara anında iletme bildirimleri gönderme
+    - name: Belirli cihazlara anında iletme bildirimleri gönderme
       href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
   - name: Windows
     items:
     - name: Evrensel Windows Platformu uygulamalarına anında iletme bildirimleri gönderme
       href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-    - name: Belirli Windows cihazlara anında iletme bildirimleri gönderme
+    - name: Belirli cihazlara anında iletme bildirimleri gönderme
       href: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-    - name: Windows uygulamalarına yerelleştirilmiş anında iletme bildirimleri gönderme
+    - name: Uygulamalara yerelleştirilmiş anında iletme bildirimleri gönderme
       href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
     - name: Belirli kullanıcılara anında iletme bildirimleri gönderme
       href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
@@ -140,9 +140,7 @@ items:
     href: /dotnet/api/microsoft.azure.notificationhubs
   - name: PowerShell
     href: /powershell/module/az.notificationhubs
-  - name: Notification Hubs hizmeti REST API
-    href: https://docs.microsoft.com/previous-versions/azure/reference/dn223264(v%3dazure.100)
-  - name: Yönetim REST API'si
+  - name: REST
     href: /rest/api/notificationhubs/
   - name: Resource Manager şablonu
     href: /azure/templates/microsoft.notificationhubs/allversions
@@ -168,9 +166,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Destek seçenekleri
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 0d7708a44e953659e1904fe2bc3b79364ba33926
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: 1a62b954144db057a19fc39069538f208a1bf035
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505338"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521810"
