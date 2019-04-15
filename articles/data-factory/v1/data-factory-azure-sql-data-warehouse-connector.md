@@ -72,7 +72,7 @@ Aşağıdaki tabloda, Azure SQL veri ambarı bağlı hizmete özgü JSON öğele
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | type |Type özelliği ayarlanmalıdır: **AzureSqlDW** |Evet |
-| bağlantı dizesi |ConnectionString özelliği için Azure SQL veri ambarı örneğine bağlanmak için gereken bilgileri belirtin. Temel kimlik doğrulaması desteklenir. |Evet |
+| connectionString |ConnectionString özelliği için Azure SQL veri ambarı örneğine bağlanmak için gereken bilgileri belirtin. Temel kimlik doğrulaması desteklenir. |Evet |
 
 > [!IMPORTANT]
 > Yapılandırma [Azure SQL veritabanı Güvenlik Duvarı](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) ve veritabanı sunucusuna [Azure hizmetlerinin sunucuya erişmesine izin](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Dış Azure data factory ağ geçidi ile şirket içi veri kaynaklarından dahil olmak üzere Azure SQL veri ambarı'na veri kopyalıyorsanız, ayrıca, Azure SQL veri ambarı'na veri gönderiyor makine için uygun IP adresi aralığı yapılandırın.
@@ -146,7 +146,7 @@ GO
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Belirli bir dilimin veri Temizlenen şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. Ayrıntılar için bkz [yinelenebilirliği bölümü](#repeatability-during-copy). |Bir sorgu deyimi. |Hayır |
-| Bulunan'allowpolybase |PolyBase, (uygunsa) yerine BULKINSERT mekanizması kullanılıp kullanılmayacağını belirtir. <br/><br/> **PolyBase kullanarak SQL Data Warehouse'a veri yükleme için önerilen yoldur.** Bkz: [Azure SQL veri ambarı'na veri yüklemek için PolyBase kullanma](#use-polybase-to-load-data-into-azure-sql-data-warehouse) kısıtlamaları ve ayrıntıları bölümü. |Doğru <br/>False (varsayılan) |Hayır |
+| allowPolyBase |PolyBase, (uygunsa) yerine BULKINSERT mekanizması kullanılıp kullanılmayacağını belirtir. <br/><br/> **PolyBase kullanarak SQL Data Warehouse'a veri yükleme için önerilen yoldur.** Bkz: [Azure SQL veri ambarı'na veri yüklemek için PolyBase kullanma](#use-polybase-to-load-data-into-azure-sql-data-warehouse) kısıtlamaları ve ayrıntıları bölümü. |Doğru <br/>False (varsayılan) |Hayır |
 | polyBaseSettings |Bir grup olabilir özellik belirtilen **Bulunan'allowpolybase** özelliği **true**. |&nbsp; |Hayır |
 | rejectValue |Sayı veya sorgu başarısız olmadan önce reddedilemiyor satırları yüzdesini belirtir. <br/><br/>PolyBase'nın içinde reddetme seçeneklerini hakkında daha fazla bilgi **bağımsız değişkenleri** bölümünü [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) konu. |0 (varsayılan), 1, 2... |Hayır |
 | rejectType |RejectValue seçeneği değişmez değer veya bir yüzdesi olarak belirtilen belirtir. |Değer (varsayılan), yüzde |Hayır |
@@ -276,10 +276,10 @@ Aşağıdaki tabloda belirleme konusunda örnekler **tableName** veri kümesi JS
 
 | DB şema | Tablo adı | tableName JSON özelliği |
 | --- | --- | --- |
-| dbo |MyTable |MyTable ya da dbo. MyTable veya [dbo]. [MyTable] |
-| dbo1 |MyTable |dbo1. MyTable veya [dbo1]. [MyTable] |
-| dbo |My.Table |[My.Table] veya [dbo]. [My.Table] |
-| dbo1 |My.Table |[dbo1]. [My.Table] |
+| dbo |MyTable |MyTable ya da dbo.MyTable veya [dbo].[MyTable] |
+| dbo1 |MyTable |dbo1.MyTable veya [dbo1].[MyTable] |
+| dbo |My.Table |[My.Table] veya [dbo].[My.Table] |
+| dbo1 |My.Table |[dbo1].[My.Table] |
 
 Aşağıdaki hatayı görürseniz, tableName özelliği için belirtilen değer ile ilgili bir sorun olabilir. TableName JSON özellik değerlerini belirtmek doğru şekilde tabloya bakın.
 
@@ -304,29 +304,29 @@ Data Factory, kaynak veri deposundaki aynı tablo adı ile hedef depolama tablos
 | --- | --- |
 | Int | Int |
 | BigInt | BigInt |
-| Tamsayı | Tamsayı |
-| Mini tamsayı | Mini tamsayı |
+| SmallInt | SmallInt |
+| TinyInt | TinyInt |
 | Bit | Bit |
 | Decimal | Decimal |
-| Sayısal | Decimal |
-| Kayan | Kayan |
-| para | para |
-| Gerçek | Gerçek |
-| Küçük para | Küçük para |
-| İkili | İkili |
-| varbinary | Varbinary (en fazla 8000) |
-| Tarih | Tarih |
+| Numeric | Decimal |
+| Float | Float |
+| Money | Money |
+| Real | Real |
+| SmallMoney | SmallMoney |
+| Binary | Binary |
+| Varbinary | Varbinary (en fazla 8000) |
+| Date | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
-| Zaman | Zaman |
+| Time | Time |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
-| Metin | VARCHAR (en fazla 8000) |
+| Text | Varchar (en fazla 8000) |
 | NText | NVarChar (en fazla 4000) |
-| Resim | VarBinary (en fazla 8000) |
-| Benzersiz tanımlayıcı | Benzersiz tanımlayıcı |
+| Image | VarBinary (en fazla 8000) |
+| UniqueIdentifier | UniqueIdentifier |
 | Char | Char |
-| nChar | nChar |
+| NChar | NChar |
 | VarChar | VarChar (en fazla 8000) |
 | NVarChar | NVarChar (en fazla 4000) |
 | Xml | VARCHAR (en fazla 8000) |
@@ -346,36 +346,36 @@ Eşleme aynı bir [ADO.NET için SQL Server veri türü eşlemesi](https://msdn.
 | SQL Server veritabanı altyapısı türü | .NET framework türü |
 | --- | --- |
 | bigint |Int64 |
-| İkili |Bayt] |
-| Bit |Boole |
-| Char |Dize, Char] |
+| binary |Byte[] |
+| bit |Boolean |
+| char |String, Char[] |
 | date |DateTime |
-| Tarih saat |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| Ondalık |Ondalık |
-| FILESTREAM özniteliğini (varbinary(max)) |Bayt] |
-| Kayan |çift |
-| image |Bayt] |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Double |
+| image |Byte[] |
 | int |Int32 |
-| para |Ondalık |
-| nchar |Dize, Char] |
-| ntext |Dize, Char] |
-| Sayısal |Ondalık |
-| nvarchar |Dize, Char] |
-| Gerçek |Tek |
-| rowVersion |Bayt] |
+| money |Decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| küçük para |Ondalık |
-| sql_variant |Nesne * |
-| metin |Dize, Char] |
-| time |Zaman aralığı |
-| timestamp |Bayt] |
-| tinyint |Bayt |
-| benzersiz tanımlayıcı |Guid |
-| varbinary |Bayt] |
-| varchar |Dize, Char] |
+| smallmoney |Decimal |
+| sql_variant |Object * |
+| text |String, Char[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
+| tinyint |Byte |
+| uniqueidentifier |Guid |
+| varbinary |Byte[] |
+| varchar |String, Char[] |
 | xml |Xml |
 
 Ayrıca, kaynak veri kümesi sütunları havuz veri kümesi kopyalama etkinliği tanımındaki sütunlarından yerine eşleyebilirsiniz. Ayrıntılar için bkz [Azure Data factory'de veri kümesi sütunlarını eşleme](data-factory-map-columns.md).
