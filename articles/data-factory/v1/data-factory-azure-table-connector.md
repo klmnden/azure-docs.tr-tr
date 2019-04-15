@@ -477,7 +477,7 @@ Taşınırken veri & Azure tablosundan aşağıdaki [Azure tablo hizmeti tarafı
 
 | OData veri türü | .NET türü | Ayrıntılar |
 | --- | --- | --- |
-| Edm.Binary |bayt] |Bir bayt dizisi en fazla 64 KB. |
+| Edm.Binary |byte[] |Bir bayt dizisi en fazla 64 KB. |
 | Edm.Boolean |bool |Bir Boole değeri. |
 | Edm.DateTime |DateTime |Eşgüdümlü Evrensel Saat (UTC) olarak ifade edilen bir 64-bit değeri. Desteklenen tarih/saat aralığı 1 Ocak 1601 M.S. 12:00 gece ' başlar (C.E.), UTC. Aralık 9999 31 Aralık sona erer. |
 | Edm.Double |double |Bir 64-bit kayan nokta değeri. |
@@ -537,8 +537,8 @@ Tür eşlemesine Azure tablo OData türünden .NET türü için göz önünde bu
 
 | Sütun adı | Type |
 | --- | --- |
-| Kullanıcı Kimliği |Edm.Int64 |
-| ad |Edm.String |
+| userid |Edm.Int64 |
+| name |Edm.String |
 | lastlogindate |Edm.DateTime |
 
 Ardından, Azure tablosu veri kümesi şu şekilde tanımlayın. Tür bilgilerini temel alınan veri deposunda zaten belirtilmiş olduğundan "yapı" bölümü ile tür bilgilerini belirtmek gerekmez.
