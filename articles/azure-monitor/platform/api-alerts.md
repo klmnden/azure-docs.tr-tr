@@ -36,7 +36,7 @@ Zamanlamaları aşağıdaki tabloda özelliklere sahiptir.
 |:--- |:--- |
 | Interval |Arama ne kadar sıklıkla çalışır. Birkaç dakika içinde ölçülür. |
 | QueryTimeSpan |Zaman aralığı üzerinde ölçüt değerlendirme. Aralık değerinden büyük veya eşit olmalıdır. Birkaç dakika içinde ölçülür. |
-| Sürüm |API sürümü kullanılıyor.  Şu anda, bu her zaman 1 olarak ayarlanması gerekir. |
+| Version |API sürümü kullanılıyor.  Şu anda, bu her zaman 1 olarak ayarlanması gerekir. |
 
 Örneğin, 15 dakikalık bir aralığı ve bir zaman aralığı 30 dakika ile olay sorgusu göz önünde bulundurun. Bu durumda, sorgu 15 dakikada bir çalışır ve doğru üzerinden çözmek ölçütleri devam bir uyarı tetiklenecek 30 dakikalık aralık.
 
@@ -359,9 +359,9 @@ E-posta bildirimleri, bir veya daha fazla alıcıya e-posta gönderin.  Bunlar a
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Alıcılar |E-posta adresleri listesi. |
-| Özne |E-posta konusu. |
-| Ek |Bu her zaman "None." değerine sahip şekilde ekleri şu anda, desteklenmez |
+| Recipients |E-posta adresleri listesi. |
+| Subject |E-posta konusu. |
+| Attachment |Bu her zaman "None." değerine sahip şekilde ekleri şu anda, desteklenmez |
 
 Örnek yanıt bir eşik ile bir e-posta bildirim eylemi için aşağıda verilmiştir.  
 
@@ -406,7 +406,7 @@ Düzeltmeleri özellikler aşağıdaki tabloda içerir.
 |:--- |:--- |
 | RunbookName |Runbook'un adı. Bu Otomasyon çözümü Log Analytics çalışma alanınızda yapılandırılmış Otomasyon hesabını yayımlanan bir runbook'ta eşleşmelidir. |
 | WebhookUri |Web kancası URI'si. |
-| Süre Sonu |Web kancasının süresi ve sona erme tarihi.  Ardından bu Web kancasını bir sona erme yoksa, geçerli tarihe olabilir. |
+| Expiry |Web kancasının süresi ve sona erme tarihi.  Ardından bu Web kancasını bir sona erme yoksa, geçerli tarihe olabilir. |
 
 Örnek yanıt için bir düzeltme eylemi bir eşik ile aşağıda verilmiştir.
 
