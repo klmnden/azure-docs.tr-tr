@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Geliştirici sözlüğü | Microsoft Docs
-description: Yaygın olarak kullanılan Azure Active Directory Geliştirici kavramları ve özelliklerine yönelik terimleri içeren bir liste.
+title: Microsoft kimlik platformu Geliştirici sözlüğü | Azure
+description: Yaygın olarak kullanılan Microsoft kimlik platformu Geliştirici kavramları ve özelliklerine yönelik terimleri içeren bir liste.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2017
+ms.date: 04/13/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: elisol
+ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec06b25954d25c27cd7606f2f47aa93ef6d54244
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 968da9212b52c1e7ea09d1472b312671c7a73449
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650402"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565559"
 ---
-# <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory Geliştirici sözlüğü
+# <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft kimlik platformu Geliştirici sözlüğü
 
-Bu makalede, Azure AD için uygulama geliştirme öğrenmeye olduğunda yararlıdır çekirdek Azure Active Directory (AD) Geliştirici kavramları bazıları için tanımları içerir.
+Bu makalede, Microsoft kimlik platformu kullanarak uygulama geliştirmeyi öğrenme olduğunda yararlıdır Geliştirici kavramları ve terminolojisi, bazıları için tanımları içerir.
 
 ## <a name="access-token"></a>erişim belirteci
 
@@ -38,11 +38,11 @@ Erişim belirteçleri "Kullanıcı + uygulama" veya "Yalnızca uygulama", temsil
 * ["Yetkilendirme kodu" yetkilendirme verme](#authorization-grant), son kullanıcının kaynağa erişim yetkisi istemciye yetki aktarımına kaynak sahibi olarak ilk kimliğini doğrular. İstemci, daha sonra bir erişim belirteci alınırken'kimliğini doğrular. İstemci uygulama ve uygulamanın yetkilendirilmiş hem kullanıcı hem de temsil ettiğinden belirteç bazen için özellikle bir "Kullanıcı + uygulama" belirteci adlandırılır.
 * ["İstemci kimlik bilgileri" yetkilendirme verme](#authorization-grant), istemciye tek kimlik doğrulaması belirteci bazen "Yalnızca uygulama" belirteci olarak başvurulabilen şekilde kaynak sahibinin kimlik doğrulama/yetkilendirme çalışmasını sağlar.
 
-Bkz: [Azure AD belirteç başvurusu] [ AAD-Tokens-Claims] daha fazla ayrıntı için.
+Bkz: [Microsoft kimlik platformu belirteç başvurusu] [ AAD-Tokens-Claims] daha fazla ayrıntı için.
 
 ## <a name="application-id-client-id"></a>Uygulama Kimliği (istemci kimliği)
 
-Belirli bir uygulamayı ve ilişkili yapılandırmaları tanımlayan bir uygulama kaydı için benzersiz tanımlayıcı Azure AD'ye sorunları. Bu uygulama kimliğini ([istemci kimliği](https://tools.ietf.org/html/rfc6749#page-15)) kimlik doğrulaması gerçekleştirme ve istekleri olduğunda kullanılan kimlik doğrulama kitaplıkları için sağlanan geliştirme zamanında. Uygulama Kimliği (istemci kimliği) bir gizli dizi değil.
+Belirli bir uygulamayı ve ilişkili yapılandırmaları tanımlayan bir uygulama kaydı için benzersiz tanımlayıcı Azure AD'ye sorunları. Bu uygulama Kimliğini ([istemci kimliği](https://tools.ietf.org/html/rfc6749#page-15)) kimlik doğrulaması gerçekleştirme ve istekleri olduğunda kullanılan kimlik doğrulama kitaplıkları için sağlanan geliştirme zamanında. Uygulama Kimliği (istemci kimliği) bir gizli dizi değil.
 
 ## <a name="application-manifest"></a>Uygulama bildirimi
 
@@ -59,7 +59,7 @@ Daha fazla bilgi için [uygulama ve hizmet sorumlusu nesneleri][AAD-App-SP-Objec
 Bir uygulamayı tümleştirin ve Azure ad kimlik ve erişim yönetimi işlevleri temsilci izin vermek üzere bir Azure AD'ye kayıtlı [Kiracı](#tenant). Uygulamanızı Azure AD'ye kaydetme, uygulamanız için bir kimlik yapılandırması gibi özellikleri kullanın ve Azure AD ile tümleştirme izin veren sağlanmaktadır:
 
 * Güçlü bir yönetim, tek Azure AD Identity Management kullanarak oturum açmayı ve [Openıd Connect] [ OpenIDConnect] protokol uygulaması
-* Aracılı erişimi [korunan kaynakları](#resource-server) tarafından [istemci uygulamaları](#client-application), Azure AD'nin OAuth 2.0 aracılığıyla [yetkilendirme sunucusu](#authorization-server) uygulama
+* Aracılı erişimi [korunan kaynakları](#resource-server) tarafından [istemci uygulamaları](#client-application), OAuth 2.0 aracılığıyla [yetkilendirme sunucusu](#authorization-server)
 * [Onay çerçevesine](#consent) istemci kaynak sahibi kimlik tabanlı korumalı kaynaklara erişimi yönetme.
 
 Bkz: [uygulamaları Azure Active Directory ile tümleştirme] [ AAD-Integrating-Apps] daha fazla ayrıntı için.
@@ -93,13 +93,13 @@ Bir kimlik bilgisi temsil eden [kaynak sahibinin](#resource-owner) [yetkilendirm
 
 Tarafından tanımlandığı gibi [OAuth2 yetkilendirme Framework][OAuth2-Role-Def], sunucu erişimi vermekten sorumlu belirteçler için [istemci](#client-application) başarıylakimlikdoğrulandıktansonra[kaynak sahibi](#resource-owner) ve kendi yetkilendirme alma. A [istemci uygulaması](#client-application) yetkilendirme sunucusu zamanında etkileşimde kendi [yetkilendirme](#authorization-endpoint) ve [belirteci](#token-endpoint) uç noktaları, OAuth2 uygun olarak tanımlanan [yetkilendirme vermeleri](#authorization-grant).
 
-Örneğin yetkilendirme sunucusu rolü Azure AD uygulamaları ve API'leri, Microsoft hizmeti için Azure AD uygulaması tümleştirme söz konusu olduğunda, Azure AD uygulayan [Microsoft Graph API'lerini][Microsoft-Graph].
+Örneğin yetkilendirme sunucusu rolü Azure AD uygulamaları ve API'leri, Microsoft hizmeti için Microsoft kimlik platformu uygulaması tümleştirme söz konusu olduğunda, Microsoft kimlik platformu uygulayan [Microsoft Graph API'lerini] [Microsoft-Graph].
 
 ## <a name="claim"></a>talep
 
 A [güvenlik belirteci](#security-token) onaylar sağlayan bir varlık talepleri içerir (gibi bir [istemci uygulaması](#client-application) veya [kaynak sahibi](#resource-owner)) başka bir varlığa (örneğin, [kaynak sunucusu](#resource-server)). Talep belirteci konu hakkında bilgiler geçiş ad/değer çiftleri olan (örneğin, tarafından doğrulanmış güvenlik sorumlusu [yetkilendirme sunucusu](#authorization-server)). Verilen belirteçte talep belirtecinin, konu, uygulama yapılandırması, vb. kimliğini doğrulamak için kullanılan kimlik bilgisi türünü de dahil olmak üzere çeşitli değişkenler üzerinde bağımlıdır.
 
-Bkz: [Azure AD belirteç başvurusu] [ AAD-Tokens-Claims] daha fazla ayrıntı için.
+Bkz: [Microsoft kimlik platformu belirteç başvurusu] [ AAD-Tokens-Claims] daha fazla ayrıntı için.
 
 ## <a name="client-application"></a>İstemci uygulaması
 
@@ -117,7 +117,7 @@ Bkz: [onay çerçevesine](consent-framework.md) daha fazla bilgi için.
 
 Bir [Openıd Connect] [ OpenIDConnect-ID-Token] [güvenlik belirteci](#security-token) tarafından sağlanan bir [yetkilendirme sunucusunun](#authorization-server) [yetkilendirme uç noktası](#authorization-endpoint), içeren [talep](#claim) son kullanıcı kimlik doğrulaması için tıklarsınız [kaynak sahibi](#resource-owner). Bir erişim belirteci gibi ayrıca kimlik belirteçlerini temsil dijital olarak imzalanmış olarak [JSON Web Token (JWT)][JWT]. Bir erişim belirteci aksine, bir kimlik belirtecinin talep kaynağına erişimle ilgili amacıyla kullanılmaz ve özellikle erişim denetimi.
 
-Bkz: [Azure AD belirteç başvurusu] [ AAD-Tokens-Claims] daha fazla ayrıntı için.
+Bkz: [Microsoft kimlik platformu belirteç başvurusu] [ AAD-Tokens-Claims] daha fazla ayrıntı için.
 
 ## <a name="microsoft-identity-platform"></a>Microsoft kimlik platformu
 
@@ -156,7 +156,7 @@ Kaynak sunucuda API'lerini kullanıma sunar ve kendi korumalı kaynaklara erişi
 
 Yalnızca bir istemci uygulaması gibi kaynak uygulamanın kimlik yapılandırması aracılığıyla kurulur [kayıt](#application-registration) bir Azure AD kiracısında uygulama ve hizmet sorumlusu nesnesi sağlar. Bazı Microsoft tarafından sağlanan API'leri, Azure AD Graph API'si gibi tüm kiracılar sağlama sırasında sunulan hizmet sorumluları önceden kayıtlı.
 
-## <a name="roles"></a>rol
+## <a name="roles"></a>roles
 
 Gibi [kapsamları](#scopes), roller, bir yol sağlar bir [kaynak sunucusu](#resource-server) kendi korumalı kaynaklara erişimi yönetmek için. İki tür vardır: bir "kullanıcı" rolü "uygulama" rolü için aynı uygular kaynak erişim gerektiren kullanıcılar/gruplar için rol tabanlı erişim denetimi uygular [istemci uygulamaları](#client-application) erişimi gerektirir.
 
@@ -220,14 +220,14 @@ Bir tür [istemci uygulaması](#client-application) sunucuda kimlik bilgilerini 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure AD Geliştirici Kılavuzu] [ AAD-Dev-Guide] genel bir bakış da dahil olmak üzere tüm Azure AD geliştirme ile ilgili konular için kullanılacak giriş sayfasıdır [uygulama tümleştirmesi] [ AAD-How-To-Integrate] ve temelleri [Azure AD kimlik doğrulama ve desteklenen kimlik doğrulama senaryoları][AAD-Auth-Scenarios]. Kod örnekleri ve öğreticiler çalışmaya hızlıca almak nasıl da bulabilirsiniz [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+[Microsoft kimlik platformu Geliştirici Kılavuzu] [ AAD-Dev-Guide] genel bir bakış da dahil olmak üzere tüm Microsoft kimlik platformu geliştirme ile ilgili konular için kullanılacak giriş sayfasıdır [uygulama Tümleştirme] [ AAD-How-To-Integrate] ve temelleri [Microsoft kimlik platformu doğrulama ve desteklenen kimlik doğrulama senaryoları][AAD-Auth-Scenarios]. Kod örnekleri ve öğreticiler çalışmaya hızlıca almak nasıl da bulabilirsiniz [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Geri bildirim sağlamak ve geliştirmek ve istekleri yeni tanımları dahil olmak üzere veya var olanları güncelleştirme bu içeriği biçimlendirmek için yardımcı olmak için aşağıdaki Açıklamalar bölümüne kullanın!
 
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-App-Manifest]:reference-azure-ad-app-manifest.md
+[AAD-App-Manifest]:reference-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md

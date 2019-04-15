@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 0e4c308e745cbf2ffbc18f64101043aff3ddde35
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495694"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565980"
 ---
 # <a name="monitor-azure-functions"></a>Azure İşlevlerini İzleme
 
@@ -99,10 +99,10 @@ Application Insights aşağıdaki alanları davranışı, performans ve hatalar 
 
 | Sekme | Açıklama |
 | ---- | ----------- |
-| **[Hatalar](../azure-monitor/app/asp-net-exceptions.md)** |  Grafikler ve işlev hataları ve sunucu özel durumları göre uyarılar oluşturun. **İşlem adı** işlev adıdır. Bağımlılıklar için özel telemetri uygulamak sürece hataları bağımlılıkları gösterilmez. |
+| **[hataları](../azure-monitor/app/asp-net-exceptions.md)** |  Grafikler ve işlev hataları ve sunucu özel durumları göre uyarılar oluşturun. **İşlem adı** işlev adıdır. Bağımlılıklar için özel telemetri uygulamak sürece hataları bağımlılıkları gösterilmez. |
 | **[Performans](../azure-monitor/app/performance-counters.md)** | Performans sorunlarını analiz edin. |
 | **Sunucular** | Kaynak kullanımı ve sunucu başına aktarım hızı görüntüleyin. Bu veri, İşlevler, temel alınan kaynakları burada bogging senaryoları hata ayıklama için yararlı olabilir. Sunucuları denir **bulut rolü örnekleri**. |
-| **[Ölçümler](../azure-monitor/app/metrics-explorer.md)** | Grafikler ve ölçümlerine bağlı uyarılar oluşturun. Ölçümler, işlev çağrıları, yürütme süresi ve başarı oranları sayısını içerir. |
+| **[Ölçümleri](../azure-monitor/app/metrics-explorer.md)** | Grafikler ve ölçümlerine bağlı uyarılar oluşturun. Ölçümler, işlev çağrıları, yürütme süresi ve başarı oranları sayısını içerir. |
 | **[Canlı Ölçüm Akışı](../azure-monitor/app/live-stream.md)** | Gerçek zamanlı olarak oluşturulduğundan, ölçüm verilerini görüntüleyin. |
 
 ## <a name="query-telemetry-data"></a>Telemetri verileri Sorgulama
@@ -127,8 +127,8 @@ Kullanılabilir tablolar gösterilen **şema** soldaki sekmesi. Aşağıdaki tab
 | Tablo | Açıklama |
 | ----- | ----------- |
 | **izlemeleri** | İşlev kodunu ve çalışma zamanı tarafından oluşturulan günlükleri. |
-| **istek** | Her işlev çağrısı için bir istek. |
-| **özel durumlar** | Çalışma zamanı tarafından oluşturulan özel durumlar. |
+| **İstekleri** | Her işlev çağrısı için bir istek. |
+| **Özel durumlar** | Çalışma zamanı tarafından oluşturulan özel durumlar. |
 | **customMetrics** | Başarılı ve başarısız olan çağrılar, başarı oranı ve süre sayısı. |
 | **customEvents** | Örneğin çalışma zamanı tarafından izlenen olayları: HTTP isteklerinin bir işlev tetikler. |
 | **PerformanceCounters** | İşlevleriniz gerektirdikçe sunucularının performansı hakkında bilgi. |
@@ -595,7 +595,9 @@ module.exports = function (context, req) {
 
 ## <a name="dependencies"></a>Bağımlılıklar
 
-İşlev diğer hizmetlere olan bağımlılıkları otomatik olarak görünmüyor. Bağımlılıkları göstermek için özel kod yazabilirsiniz. Örnek kodda örnekler için bkz [ C# özel telemetri bölümü](#log-custom-telemetry-in-c-functions). Örnek kod sonuçlanıyor bir *Uygulama Haritası* Application ınsights'ın aşağıdaki görüntü gibi görünür:
+İşlevler v2, HTTP istekleri, Service Bus ve SQL bağımlılıklarını otomatik olarak toplar.
+
+Bağımlılıkları göstermek için özel kod yazabilirsiniz. Örnek kodda örnekler için bkz [ C# özel telemetri bölümü](#log-custom-telemetry-in-c-functions). Örnek kod sonuçlanıyor bir *Uygulama Haritası* Application ınsights'ın aşağıdaki görüntü gibi görünür:
 
 ![Uygulama eşlemesi](./media/functions-monitoring/app-map.png)
 

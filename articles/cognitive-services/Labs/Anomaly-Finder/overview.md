@@ -1,5 +1,5 @@
 ---
-title: Anomali Bulucu nedir? -Microsoft Bilişsel hizmetler | Microsoft Docs
+title: Anomali Bulma nedir? -Microsoft Bilişsel hizmetler | Microsoft Docs
 description: Gelişmiş algoritmalar Anomali Bulucu içinde zaman serisi verilerinde anormallikleri belirlemenize ve Microsoft Bilişsel hizmetler bilgi almak için kullanın.
 services: cognitive-services
 author: tonyxing
@@ -15,7 +15,7 @@ ms.contentlocale: tr-TR
 ms.lasthandoff: 02/23/2019
 ms.locfileid: "56726822"
 ---
-# <a name="what-is-anomaly-finder"></a>Anomali Bulucu nedir?
+# <a name="what-is-anomaly-finder"></a>Anomali Bulma nedir?
 
 [!INCLUDE [PrivatePreviewNote](../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 

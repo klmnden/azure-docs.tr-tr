@@ -289,7 +289,7 @@ Olay Hub'ından gelen çıkış bir JSON yükü ve bir kayıt dizisi içerir. [J
 [Azure Log Analytics Veri Toplayıcı](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) eylemi nesneyi Oluştur eyleminden alır ve Log Analytics çalışma alanınıza gönderir.
 
 1. **Yeni adım** > **Eylem ekle**'ye tıklayın.
-2. Filtreniz için *log analytics* yazın ver ardından **Azure Log Analytics Veri Toplayıcı - Veri Gönder** eylemini seçin.
+2. Filtreniz için *log analytics* yazın ver ardından **Azure Log Analytics Veri Toplayıcısı - Veri Gönder** eylemini seçin.
 
    ![logic apps'e log analytics veri gönder eylemini ekleme](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-connector.png)
 

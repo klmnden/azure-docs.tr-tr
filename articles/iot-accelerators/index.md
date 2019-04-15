@@ -53,7 +53,7 @@ IoT çözüm hızlandırıcılarını kullanmayı öğrenin. Bu makalelerde uzak
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Uzaktan İzleme çözüm hızlandırıcısına genel bakış</h3>
+                        <h3>Uzaktan İzleme çözümü hızlandırıcısına genel bakış</h3>
                     </div>
                 </div>
             </div>

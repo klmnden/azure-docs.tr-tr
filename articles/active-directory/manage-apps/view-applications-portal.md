@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/25/2018
+ms.date: 04/09/2019
 ms.author: celested
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ca57746d1b13d2020f78d3c527e7d0c7a444769
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: b57d87a9a00213945a09f380a74b129226c4017e
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918408"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564836"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Azure Active Directory kiracınızdaki uygulamaları görüntüleme
 
@@ -41,11 +41,11 @@ Kiracı uygulamalarınızı bulmak için:
 
 1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde seçin **Azure Active Directory**. 
 
-2. İçinde **Azure Active Directory** bölmesinde **kurumsal uygulamalar**. 
+1. İçinde **Azure Active Directory** bölmesinde **kurumsal uygulamalar**. 
 
-3. Gelen **uygulama türü** açılan menüsünde, select **tüm uygulamaları**ve **Uygula**. Kiracınızdaki uygulamalardan rastgele seçilenler burada görünür.
+1. Gelen **uygulama türü** açılan menüsünde, select **tüm uygulamaları**ve **Uygula**. Kiracınızdaki uygulamalardan rastgele seçilenler burada görünür.
    
-4. Daha fazla uygulama görüntülemek için seçin **daha fazla Yükle** listenin altındaki. Kiracınızdaki uygulama sayısına bağlı olarak listeyi kaydırmak yerine [belirli bir uygulamayı aramak](#search-for-a-tenant-application) daha kolay olabilir.
+1. Daha fazla uygulama görüntülemek için seçin **daha fazla Yükle** listenin altındaki. Kiracınızdaki uygulama sayısına bağlı olarak listeyi kaydırmak yerine [belirli bir uygulamayı aramak](#search-for-a-tenant-application) daha kolay olabilir.
 
 ## <a name="select-viewing-options"></a>Görüntüleme seçeneklerini belirleme
 
@@ -53,17 +53,17 @@ Aradığınız ne göre seçenekleri belirleyin.
 
 1. Uygulamalar tarafından görüntüleyebileceğiniz **uygulama türü**, **uygulama durumu**, ve **uygulama görünürlüğü**. 
 
-2. **Uygulama Türü** bölümünde aşağıdaki seçeneklerden birini belirleyin:
+1. **Uygulama Türü** bölümünde aşağıdaki seçeneklerden birini belirleyin:
 
     - **Kurumsal Uygulamalar** seçeneği Microsoft harici uygulamaları gösterir.
     - **Microsoft Uygulamaları** seçeneği Microsoft uygulamalarını gösterir.
     - **Tüm Uygulamalar** seçeneği hem Microsoft harici uygulamaları hem de Microsoft uygulamalarını gösterir.
 
-3. **Uygulama Durumu** bölümünde **Tümü**, **Devre dışı** veya **Etkin** seçeneğini belirleyin. **Tümü** seçeneği hem devre dışı hem de etkin uygulamaları gösterir.
+1. **Uygulama Durumu** bölümünde **Tümü**, **Devre dışı** veya **Etkin** seçeneğini belirleyin. **Tümü** seçeneği hem devre dışı hem de etkin uygulamaları gösterir.
 
-4. **Uygulama Görünürlüğü** bölümünde **Tümü** veya **Gizli** seçeneğini belirleyin. **Gizli** seçenek kiracıda olan ancak kullanıcılar için görünür olmayan uygulamaları gösterir.
+1. **Uygulama Görünürlüğü** bölümünde **Tümü** veya **Gizli** seçeneğini belirleyin. **Gizli** seçenek kiracıda olan ancak kullanıcılar için görünür olmayan uygulamaları gösterir.
 
-5. Seçmek istediğiniz seçenekleri seçtikten sonra **Uygula**.
+1. Seçmek istediğiniz seçenekleri seçtikten sonra **Uygula**.
  
 
 ## <a name="search-for-a-tenant-application"></a>Belirli bir kiracı uygulamasını arama
@@ -72,11 +72,11 @@ Belirli bir uygulama için arama yapmak için:
 
 1. İçinde **uygulama türü** menüsünde **tüm uygulamaları**ve **Uygula**.
 
-2. Bulmak istediğiniz uygulamanın adını girin. Uygulamanın Azure AD kiracınıza eklenmişse, arama sonuçlarında görünür. Bu örnek, GitHub Kiracı uygulamalarına eklenmemiş gösterir.
+1. Bulmak istediğiniz uygulamanın adını girin. Uygulamanın Azure AD kiracınıza eklenmişse, arama sonuçlarında görünür. Bu örnek, GitHub Kiracı uygulamalarına eklenmemiş gösterir.
 
     ![Uygulama arama](media/view-applications-portal/search-for-tenant-application.png)
 
-3. Uygulama adının ilk birkaç harfini girmeyi deneyin. Bu örnek **Sales** ile başlayan tüm uygulamaları gösterir.
+1. Uygulama adının ilk birkaç harfini girmeyi deneyin. Bu örnek **Sales** ile başlayan tüm uygulamaları gösterir.
 
     ![Ön ek ile arama](media/view-applications-portal/search-by-prefix.png)
 

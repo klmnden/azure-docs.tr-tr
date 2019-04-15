@@ -91,7 +91,7 @@ Mikro hizmet mimarisi hakkında daha fazla bilgi için bkz: [Azure IOT başvuru 
 
 Çözüm hızlandırıcılarını [Microsoft Azure IoT Çözüm Hızlandırıcıları](https://www.azureiotsolutions.com/Accelerators#) sitesinden veya komut satırını kullanarak dağıtabilirsiniz.
 
-Uzaktan İzleme çözüm hızlandırıcısını aşağıdaki yapılandırmalarla dağıtabilirsiniz:
+Uzaktan İzleme çözümü hızlandırıcısını aşağıdaki yapılandırmalarla dağıtabilirsiniz:
 
 * **Standart:** Bir üretim dağıtımı geliştirmek için genişletilmiş altyapı dağıtımı. Azure Container Service, mikro Hizmetleri birden fazla Azure sanal makinelerine dağıtır. Kubernetes mikro hizmetleri tek tek barındıran Docker kapsayıcılarını düzenler.
 * **Temel:** Tanıtım için veya bir dağıtımı test etmek için daha az maliyet sürümü. Tüm mikro hizmetler tek bir Azure sanal makinesine dağıtılır.

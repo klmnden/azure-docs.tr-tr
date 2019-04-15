@@ -280,7 +280,7 @@ items:
     - name: Varlık Bağlama
       tocHref: /azure/cognitive-services/entitylinking/
       topicHref: /azure/cognitive-services/entitylinking/home
-    - name: Anomali Bulucu
+    - name: Anomali Bulma
       tocHref: /azure/cognitive-services/labs/anomaly-finder/
       topicHref: /azure/cognitive-services/labs/anomaly-finder/overview
     - name: Konuşma Öğrenici

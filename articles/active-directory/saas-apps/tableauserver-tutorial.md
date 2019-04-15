@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 2ae0aefe194ca8bca6ea62420314b4fbdb1e0187
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 539a06398675dc7851017ec5d428e0942e54ce1f
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357907"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564774"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Öğretici: Tableau Server ile Azure Active Directory Tümleştirme
 
@@ -116,20 +116,20 @@ Azure AD çoklu oturum açma Tableau Server ile yapılandırmak için aşağıda
 
 5. Tableau Server uygulaması bir özel talep bekliyor **kullanıcıadı** aşağıda olarak tanımlanması gerekir. Benzersiz kullanıcı tanımlayıcısı talebi yerine kullanıcı tanımlayıcısı olarak kullanılıyor. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri ve talepler** uygulama tümleştirme sayfasında bölümü. Tıklayın **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri ve talepler** iletişim.
 
-    ![görüntü](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri ve talepler** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
-    | Ad | Kaynak özniteliği | İsim uzayı |
+    | Ad | Kaynak özniteliği | Ad alanı |
     | ---------------| --------------- | ----------- |
     | kullanıcı adı | User.userPrincipalName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | | |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![görüntü](common/new-save-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![görüntü](common/new-attribute-details.png)
+    ![image](common/new-attribute-details.png)
 
     b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 
@@ -183,7 +183,7 @@ Azure AD çoklu oturum açma Tableau Server ile yapılandırmak için aşağıda
 
     g. Idp'nin kullanıcı adlarını basılı tutun, görünen adları ve e-posta adreslerini kullanan öznitelikleri adlarını girin.
 
-    h. **Kaydet**'e tıklayın.
+    h. **Kaydet**’e tıklayın
 
     > [!NOTE]
     > Müşteriniz varsa Tableau Server SAML SSO yapılandırma herhangi bir sertifikayı karşıya yüklemek ve SSO akışta dikkate. Tableau Server üzerinde SAML yapılandırmasına yardımcı olması sonra lütfen bu makaleyi okuyun [SAML yapılandırma](https://onlinehelp.tableau.com/v2018.2/server/en-us/saml_config_steps_tsm_ui.htm).
@@ -256,9 +256,9 @@ Erişim paneli Tableau Server kutucuğa tıkladığınızda, size otomatik olara
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

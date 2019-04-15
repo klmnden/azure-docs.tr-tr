@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: e0a0bd0e630281d2218c74050e810fe73361c6be
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: c211d479efe086bb739b91034c6d9e349358b2d7
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578552"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565912"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
 
@@ -212,12 +212,12 @@ Her bir tümleştirme hesabı yapıtları sayısına yönelik sınırlar aşağ�
 | Yapay Nesne | Sınır | Notlar |
 |----------|-------|-------|
 | Derlemeler | 50 | |
-| Toplu iş yapılandırmaları | 5 |
-| Sertifikalar | 50 | |
+| Toplu iş yapılandırmaları | 50 |
+| Sertifikalar | 500 | |
 | EDI ticari sözleşmeleri | 500 | |
 | EDI ticari iş ortakları | 500 | |
-| Haritalar | 500 | |
-| Şemalar | 500 |
+| Haritalar | 1000 | |
+| Şemalar | 1000 |
 ||||
 
 <a name="artifact-capacity-limits"></a>

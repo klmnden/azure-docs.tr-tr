@@ -16,7 +16,7 @@ ms.author: shlo
 robots: noindex
 ms.openlocfilehash: eb546808951b2797044f3ba83b5a48c59fa48539
 ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57550474"
@@ -166,7 +166,7 @@ Bu adımda, isteğe bağlı HDInsight kümesini data factory’nize bağlarsın�
    |:--- |:--- |
    | ClusterSize |HDInsight kümesi boyutunu belirtir. |
    | TimeToLive |Silinmeden önce HDInsight kümesinin boşta kalma süresini belirtir. |
-   | linkedServiceName |HDInsight tarafından oluşturulan günlükleri depolamak için kullanılan depolama hesabını belirtir. |
+   | linkedServiceName |HDInsight tarafından oluşturulan günlükleri depolamak için kullanılan depolama hesabını belirtir |
 
     Aşağıdaki noktalara dikkat edin:
 

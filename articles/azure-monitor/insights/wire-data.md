@@ -189,7 +189,7 @@ Windows çalıştıran her bilgisayara Bağımlılık Aracısı'nı yüklemek i�
 1. Yükleme adımlarını izleyerek Log Analytics aracısını [ortamınızda barındırılan Windows bilgisayarlardan verileri toplama](../../azure-monitor/platform/agent-windows.md).
 2. Önceki bölümde bağlantıyı kullanarak Windows bağımlılık aracısını indirmek ve ardından aşağıdaki komutu kullanarak çalıştırabilirsiniz: `InstallDependencyAgent-Windows.exe`
 3. Sihirbazı izleyerek aracıyı yükleyin.
-4. Bağımlılık Aracısı başlatılamazsa, ayrıntılı hata bilgileri için günlükleri denetleyin. Windows aracıları için günlük dizini: %Programfiles%\Microsoft Dependency Agent\logs.
+4. Dependency Agent başlatılamazsa, ayrıntılı hata bilgileri için günlükleri denetleyin. Windows aracıları için günlük dizini: %Programfiles%\Microsoft Dependency Agent\logs.
 
 #### <a name="windows-command-line"></a>Windows komut satırı
 
@@ -214,7 +214,7 @@ Her Linux bilgisayarına Bağımlılık Aracısı'nı yüklemek için aşağıda
 
 1. Yükleme adımlarını izleyerek Log Analytics aracısını [ortamınızda barındırılan Linux bilgisayarlardan verileri toplama](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
 2. Önceki bölümde verilen bağlantıyı kullanarak Linux Bağımlılık Aracısı'nı indirin ve ardından bunu kök olarak yüklemek için şu komutu kullanın: sh InstallDependencyAgent-Linux64.bin
-3. Bağımlılık Aracısı başlatılamazsa, ayrıntılı hata bilgileri için günlükleri denetleyin. Linux aracıları için günlük dizini: /var/opt/microsoft/dependency-agent/log.
+3. Dependency Agent başlatılamazsa, ayrıntılı hata bilgileri için günlükleri denetleyin. Linux aracıları için günlük dizini: /var/opt/microsoft/dependency-agent/log.
 
 Yükleme bayraklarının listesini görmek için, yükleme programını aşağıda gösterildiği gibi `-help` bayrağıyla çalıştırın.
 

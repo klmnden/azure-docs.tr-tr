@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: d47c64fb8b148e39eab09a33c3241ac7dd3ea537
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3c1d0e252b5c658ab6da2b3932918f05ba651d52
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502136"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565810"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -538,7 +538,7 @@ Bir SAP sistemiyle özgün durumu işlem DBACOCKPIT belgelenen yapılandırması
 
 
 > [!IMPORTANT] 
-> Test başlamadan önce Pacemaker başarısız tüm eylemler (crm durumu) sahip değil ve hiçbir konum kısıtlamaları (parçalarla geçiş testi) vardır ve IBM Db2 HADR eşitleme çalıştığından emin olun. Kullanıcı db2 ile kontrol ile\<SID > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> Test başlamadan önce Pacemaker başarısız tüm eylemler (crm durumu) sahip değil ve hiçbir konum kısıtlamaları (parçalarla geçiş testi) vardır ve IBM Db2 HADR eşitleme çalıştığından emin olun. Denetleme ile kullanıcı db2\<SID > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Aşağıdaki komutu yürüterek birincil Db2 veritabanı çalıştıran düğümü Geçir:

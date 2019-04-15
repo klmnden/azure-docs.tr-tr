@@ -19,7 +19,7 @@ ms.locfileid: "57404051"
 
 Bu makalede Data Box'ta gerçekleştirilebilen bazı yapılandırma ve yönetim görevleri anlatılmaktadır. Data Box'ı Azure portalı kullanıcı arabirimi ve cihazın yerel web kullanıcı arabirimi aracılığıyla yönetebilirsiniz. Bu makale, yerel web kullanıcı arabirimini kullanarak gerçekleştirebileceğiniz görevlere odaklanmaktadır.
 
-Data Box için yerel web kullanıcı arabirimi cihazın başlangıç yapılandırması için kullanılır. Yerel web kullanıcı arabirimini ayrıca Data Box'ı kapatmak veya yeniden başlatmak, tanılama testleri çalıştırmak, yazılım güncelleştirmek, kopyalama günlüklerini görüntülemek ve Microsoft Destek için günlük paketi oluşturmak için de kullanabilirsiniz.
+Data Box için yerel web kullanıcı arabirimi cihazın başlangıç yapılandırması için kullanılır. Yerel web kullanıcı arabirimini ayrıca Data Box'ı kapatmak veya yeniden başlatmak, tanılama testleri çalıştırmak, yazılım güncelleştirmek, kopyalama günlüklerini görüntülemek ve Microsoft Desteği için günlük paketi oluşturmak için de kullanabilirsiniz.
 
 Bu makale aşağıdaki öğreticileri içerir:
 

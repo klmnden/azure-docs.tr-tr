@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/8/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: b2fbe57a94ad4c5faad3318c03f797446bea4535
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 26db3a67c3efbd0ba2a5c58facd0c07175f7ed12
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288524"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564155"
 ---
 # <a name="create-a-waf-policy-for-azure-front-door-by-using-the-azure-portal"></a>Azure portalını kullanarak Azure ön kapısı WAF ilkesi oluşturma
 
@@ -71,7 +71,7 @@ Azure tarafından yönetilen varsayılan kural kümesi, varsayılan olarak etkin
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Hakkında bilgi edinin [ Azure web uygulaması güvenlik duvarı](waf-overview.md).
+- Hakkında bilgi edinin [Azure web uygulaması güvenlik duvarı](waf-overview.md).
 - Daha fazla bilgi edinin [Azure ön kapısı](front-door-overview.md).
 
 

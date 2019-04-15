@@ -25,4 +25,4 @@ Uzaktan İzleme çözümü hızlandırıcısını henüz dağıtmadıysanız [Bu
 
 Uzaktan İzleme çözümü panosunu tarayıcınızda görüntülemek için önce [Microsoft Azure IoT Çözüm Hızlandırıcıları](https://www.azureiotsolutions.com/Accelerators#dashboard) sayfasına gidin. Azure aboneliği kimlik bilgilerinizi kullanarak oturum açmanız istenebilir.
 
-Ardından [Hızlı başlangıç](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md) ile dağıttığınız Uzaktan İzleme çözüm hızlandırıcısına ait kutucukta bulunan **Başlat** öğesine tıklayın.
+Ardından [Hızlı başlangıç](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md) ile dağıttığınız Uzaktan İzleme çözümü hızlandırıcısına ait kutucukta bulunan **Başlat** öğesine tıklayın.

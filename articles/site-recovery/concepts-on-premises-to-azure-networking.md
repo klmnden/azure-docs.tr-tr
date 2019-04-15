@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 7f5d3ff6759cebca2f592e1cd4822ee85959ecb9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 2e1cbb2446501d0afda29eba179e388b5a22e6a8
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361301"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565691"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>IP adresi yük devretmeden sonra Azure Vm'lerine bağlanmak için ayarlama
 
@@ -62,7 +62,7 @@ Kullanabilmek Woodgrove için hangi IP adresleri, burada 's korurken Vm'lerini A
 
 1. Yük devretme şirket içi makineleri sonra Azure Vm'leri oluşturulur Azure sanal ağı oluşturun. Böylece uygulamaları sorunsuz bir şekilde yük devredebildiğini şirket içi ağınıza uzantısı olması gerekir.
 2. Site recovery'de yük devretmeden önce bunlar makine özellikleri aynı IP adresi atayın. Yük devretme işleminden sonra Site Recovery Azure VM'sine bu adresi atar.
-3. Yük devretme çalıştırır ve aynı IP adresi ile oluşturulan Azure Vm'lerinin sonra bunlar kullanarak ağ bağlantı bir [Vnet'ten Vnet'e bağlantı](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Bu eylem yazılabilir.
+3. Yük devretme çalıştırır ve aynı IP adresi ile oluşturulan Azure Vm'lerinin sonra bunlar kullanarak ağ bağlantı bir [Vnet'ten Vnet'e bağlantı](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Bu eylem yazılabilir.
 4. Bunlar, yollar, o 192.168.1.0/24 artık Azure'a taşıdı yansıtacak şekilde değiştirmeniz gerekir.
 
 

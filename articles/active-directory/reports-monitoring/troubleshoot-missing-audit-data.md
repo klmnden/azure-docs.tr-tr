@@ -51,7 +51,7 @@ Eylemler, etkinlik günlüklerinde hemen görünmez. Aşağıdaki tabloda etkinl
 
 ### <a name="symptoms"></a>Belirtiler
 
-Azure portalda kısa bir süre önce oturum açtım ve bu oturum açma işleminin günlük girişlerini `Activity logs > Sign-ins` dikey penceresinde görmeyi umuyordum, ancak bulamıyorum.
+Azure portalında kısa bir süre önce oturum açtım ve bu oturum açma işleminin günlük girişlerini `Activity logs > Sign-ins` dikey penceresinde görmeyi umuyordum, ancak bulamıyorum.
 
  ![Raporlama](./media/troubleshoot-missing-audit-data/02.png)
  

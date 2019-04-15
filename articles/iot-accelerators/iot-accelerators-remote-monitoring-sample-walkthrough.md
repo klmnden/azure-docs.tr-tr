@@ -15,7 +15,7 @@ ms.contentlocale: tr-TR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58176145"
 ---
-# <a name="remote-monitoring-solution-accelerator-overview"></a>Uzaktan İzleme çözüm hızlandırıcısına genel bakış
+# <a name="remote-monitoring-solution-accelerator-overview"></a>Uzaktan İzleme çözümü hızlandırıcısına genel bakış
 
 Uzaktan izleme [Çözüm Hızlandırıcısı](../iot-accelerators/about-iot-accelerators.md) birden çok makine için uçtan uca bir izleme çözümü, uzak konumlarda uygular. Bu çözüm, iş senaryosunun genel uygulamasını sağlamak üzere temel Azure hizmetlerini bir araya getirir. Çözümü kendi uygulamanız için başlangıç noktası olarak kullanabilirsiniz ve [özelleştirme](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) kendi özel iş gereksinimlerinizi karşılayacak şekilde.
 

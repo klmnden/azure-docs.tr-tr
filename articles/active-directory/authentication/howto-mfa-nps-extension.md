@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 04/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 95d19068e482722bf6cd01e44d27c2719bc419a3
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491500"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564540"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Mevcut NPS altyapınızı Azure multi-Factor Authentication ile tümleştirme
 
@@ -78,6 +78,12 @@ NPS sunucusu aşağıdaki URL'ler ile 80 ve 443 bağlantı noktaları üzerinden
 
 * https://adnotifications.windowsazure.com  
 * https://login.microsoftonline.com
+
+Ayrıca, aşağıdaki URL'ler bağlantısını tamamlamak için gereken [PowerShell betiğini kullanarak bağdaştırıcısı Kurulumu](#run-the-powershell-script)
+
+- https://login.microsoftonline.com
+- https://provisioningapi.microsoftonline.com
+- https://aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Ortamınızı hazırlama
 
@@ -142,6 +148,14 @@ Kullanıcılarınız ayrıca NPS uzantısı ile kimlik doğrulama gerçekleştir
 1. [NPS uzantısını indirin](https://aka.ms/npsmfa) Microsoft İndirme Merkezi'nden.
 2. İkili, yapılandırmak istediğiniz ağ ilkesi sunucusuna kopyalayın.
 3. Çalıştırma *setup.exe* ve yükleme yönergelerini izleyin. Hatalarla karşılaşırsanız, konusunun önkoşul bölümüne iki kitaplıklarından başarıyla yüklendiğini denetleyin.
+
+#### <a name="upgrade-the-nps-extension"></a>NPS uzantısını Yükselt
+
+Mevcut bir NPS uzantısı yükseltme yüklediğinizde önlemek için temel alınan sunucunun yeniden başlatılmasını aşağıdaki adımları tamamlayın:
+
+1. Var olan sürümü kaldırın
+1. Yeni yükleyiciyi çalıştırın
+1. Ağ İlkesi Sunucusu (IAS) hizmetini yeniden başlatın
 
 ### <a name="run-the-powershell-script"></a>PowerShell betiğini çalıştırma
 
@@ -239,7 +253,7 @@ Geçerli-başlangıç ve geçerli-kadar okunabilir formda bulunan, zaman damgala
 
 ### <a name="why-cant-i-sign-in"></a>Yapılamıyor neden oturum açmalıyım?
 
-Parolanızın süresinin dolmadığından denetleyin. NPS uzantısı, oturum açma iş akışının bir parçası parola değiştirmeyi desteklemez. Daha fazla yardım için lütfen kuruluşunuzun BT personeli başvurun.
+Parolanızın süresinin dolmadığından denetleyin. NPS uzantısı, oturum açma iş akışının bir parçası parola değiştirmeyi desteklemez. Kuruluşunuzun BT personeli, daha fazla yardım almak için iletişime geçin.
 
 -------------------------------------------------------------
 
@@ -270,7 +284,7 @@ NPS uzantısını çalıştıran sunucudan https://adnotifications.windowsazure.
 
 Önceki bilgisayar sertifikanızın süresi doldu ve oluşturulan yeni bir sertifika, süresi dolmuş sertifikalarını silmeniz gerekir. Süresi dolmuş sertifikaları sorunlarına neden olabilir NPS uzantısı ile başlayan sahip.
 
-Geçerli bir sertifika varsa denetlemek için yerel bilgisayar hesabının sertifika MMC kullanarak Store denetleyin ve sertifika, sona erme tarihi geçmemiş emin olun. Yeni geçerli bir sertifika oluşturmak için adımları bölümünde yeniden çalıştır "[PowerShell betiğini çalıştırma](#run-the-powershell-script)"
+Geçerli bir sertifika varsa denetlemek için yerel bilgisayar hesabının sertifika MMC kullanarak Store denetleyin ve sertifika, sona erme tarihi geçmemiş emin olun. Yeni geçerli bir sertifika oluşturmak için bir bölüm altında adımlarını yeniden çalıştıracaktır "[PowerShell betiğini çalıştırma](#run-the-powershell-script)"
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>TLS/SSL Protokollerini ve Şifre Paketlerini yönetme
 
@@ -282,4 +296,4 @@ Eski ve daha zayıf şifre paketleri devre dışı bırakılabilir veya kuruluş
 
 - Nasıl tümleştireceğinizi öğrenin [Uzak Masaüstü Ağ Geçidi](howto-mfa-nps-extension-rdg.md) ve [VPN sunucuları](howto-mfa-nps-extension-vpn.md) NPS uzantısını kullanma
 
-- [Azure multi-Factor Authentication için NPS uzantısından alınan hata iletilerini çözme](howto-mfa-nps-extension-errors.md)
+- [Azure Multi-Factor Authentication için NPS uzantısından alınan hata iletilerini çözme](howto-mfa-nps-extension-errors.md)

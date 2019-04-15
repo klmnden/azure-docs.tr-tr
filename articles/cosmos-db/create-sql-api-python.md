@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: 269a66441529efee358cea22bb4f98b81a4b2f23
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: b257c1dbbed225bee9adfdb427bd036f0230ea47
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586333"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565070"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB: Azure Cosmos DB SQL API hesabı kullanarak bir Python uygulaması oluşturma
 
@@ -26,15 +26,15 @@ ms.locfileid: "56586333"
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
-Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
+Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Hızla oluşturun ve belge, anahtar/değer ve grafik veritabanlarını sorgulama. Tüm bu işlemler, dağıtım ve Azure Cosmos DB ölçeğini yararlı olacağı.
 
-Bu hızlı başlangıçta Azure portalı kullanarak bir Azure Cosmos DB [SQL API](sql-api-introduction.md) hesabı, belge veritabanı ve kapsayıcı oluşturma gösterilmektedir. Daha sonra [SQL API](sql-api-sdk-python.md)'si için Python SDK'sı ile bir konsol uygulamasını derleyip çalıştıracaksınız. Bu hızlı başlangıç [Python SDK] 3.0 sürümünü kullanmaktadır.(https://pypi.org/project/azure-cosmos)
+Bu hızlı başlangıç belgesinde Azure portalını kullanarak bir Azure Cosmos DB [SQL API](sql-api-introduction.md) hesabını, belge veritabanını ve kapsayıcısını nasıl oluşturacağınız anlatılmıştır. Daha sonra [SQL API](sql-api-sdk-python.md)'si için Python SDK'sı ile bir konsol uygulamasını derleyip çalıştıracaksınız. Bu hızlı başlangıç [Python SDK] 3.0 sürümünü kullanmaktadır.(https://pypi.org/project/azure-cosmos)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* \<install location\>\Python36 ve \<install location>\Python36\Scripts ile [Python 3.6](https://www.python.org/downloads/) YOLUNUZA eklendi. 
+* [Python 3.6](https://www.python.org/downloads/), ile `python` yürütülebilir bulunan, `PATH`.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Visual Studio Code için Python uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
@@ -98,7 +98,7 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
 ## <a name="review-the-code"></a>Kodu gözden geçirin
 
-Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturulduğunu öğrenmekle ilgileniyorsanız aşağıdaki kod parçacıklarını gözden geçirebilirsiniz. Aksi durumda, [Bağlantı dizenizi güncelleştirme](#update-your-connection-string) bölümüne atlayabilirsiniz. 
+Bu adım isteğe bağlıdır. Kod içinde oluşturulan veritabanı kaynakları hakkında bilgi edinin veya atlayabilirsiniz [bağlantı dizenizi güncelleştirme](#update-your-connection-string).
 
 Python SDK'sının eski sürümünü kullandıysanız "koleksiyon" ve "belge" terimlerine aşina olabilirsiniz. Azure Cosmos DB birden fazla API modelini desteklediğinden Python SDK'sının 3.0 ve üzeri sürümlerinde koleksiyon, grafik veya tablo olabilen "kapsayıcı" genel terimi, kapsayıcının içeriğini anlatmak içinse "öğe" terimi kullanılmaktadır.
 

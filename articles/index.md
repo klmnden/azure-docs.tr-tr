@@ -961,7 +961,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                         <li>
                                             <a href="/azure/cognitive-services/labs/anomaly-finder/overview">
                                                 <img src="media/index/API_Anomaly_Finder.svg" alt="" />
-                                                <p>Anomali Bulucu</p>
+                                                <p>Anomali Bulma</p>
                                             </a>
                                         </li>
                                         <li>

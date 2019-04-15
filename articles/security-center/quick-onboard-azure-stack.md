@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi Hızlı Başlangıç - yerleşik güvenlik Merkez
 description: Bu hızlı başlangıçta bir Azure Stack sanal makinelerde Azure İzleyici, güncelleştirme ve yapılandırma yönetimi sanal makine uzantısı sağlamasını yapma gösterilmektedir.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: pipposera
 manager: dsavage
 editor: ''
 ms.assetid: 8982348a-0624-40c7-8a1e-642a523c7f6b
@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 9efd6514b722168f8ecb1235159e7463ce318118
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.author: fiseraci
+ms.openlocfilehash: 7a630acee079301b95e7e05f5c5333dd116abb68
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904024"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563803"
 ---
 # <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>Hızlı Başlangıç:  Yerleşik Güvenlik Merkezi, Azure Stack sanal makinelere
 Sonra yerleşik Azure abonelik özelliklerini ekleyerek Azure Stack üzerinde çalıştırılan sanal makinelerinizi korumak için Güvenlik Merkezi'ni etkinleştirebilirsiniz **Azure İzleyici, güncelleştirme ve yapılandırma yönetimi** sanal makine uzantısını Azure Stack marketini.
@@ -32,7 +32,7 @@ Güvenlik Merkezi ile çalışmaya başlamak için Microsoft Azure aboneliğiniz
 
 Güvenlik Merkezi'nin standart katmanında bir Azure aboneliğiniz varsa bu hızlı başlangıcı başlatmadan önce. Yükseltme yönergeleri için bkz. [Azure aboneliğinizi Güvenlik Merkezi Standart katmanına ekleme](security-center-get-started.md). 30 gün boyunca Güvenlik Merkezi standart katmanı hiçbir ücret ödemeden deneyebilirsiniz. Daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="add-an-azure-stack-virtual-machine"></a>Bir Azure Stack sanal makine ekleyin
+## <a name="select-your-workspace-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde çalışma alanınızı seçin
 
 1. [Azure portal](https://azure.microsoft.com/features/azure-portal/) oturum açın.
 2. **Microsoft Azure** menüsünde **Güvenlik Merkezi**’ni seçin. **Güvenlik Merkezi - Genel Bakış** açılır. 
@@ -65,8 +65,12 @@ Artık eklemelisiniz **Azure İzleyici, güncelleştirme ve yapılandırma yöne
 3. **Uzantılar**'ı seçin. Bu sanal makinede yüklü sanal makine uzantıları listesi gösterilir.
 4. Tıklayın **Ekle** sekmesi. **Yeni kaynak** menü dikey penceresi açılır ve kullanılabilir sanal makine uzantıları listesini gösterir. 
 5. Seçin **Azure İzleyici, güncelleştirme ve yapılandırma yönetimi** uzantısı ve tıklatın **Oluştur**. **Uzantı yükleme** yapılandırma dikey penceresi açılır.
+
+>[!NOTE]
+> Görmüyorsanız, **Azure İzleyici, güncelleştirme ve yapılandırma yönetimi** uzantısı, Market'te listelenen Lütfen ulaşın kullanılabilir hale getirmek için Azure Stack operatörü.
+
 6. Üzerinde **uzantı yükleme** yapılandırma dikey penceresinde, Yapıştır **çalışma alanı kimliği** ve **çalışma alanı anahtarı (birincil anahtar)** önceki yordamda Not Defteri'ne kopyaladığınız.
-7.  Gerekli yapılandırma ayarlarını sağlamayı bitiş olduğunda tıklayın **Tamam**.
+7.  İşiniz bittiğinde gerekli yapılandırma ayarları sağlayan **Tamam**.
 8. Uzantı yükleme işlemi tamamlandıktan sonra durumu olarak görünür **sağlama başarılı**. Bu sanal makinenin Güvenlik Merkezi Portalı'nda görünmesi bir saate kadar sürebilir.
 
 Yükleme ve Windows için aracı yapılandırma hakkında daha fazla bilgi için bkz. [bağlanmak Windows bilgisayarları](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).

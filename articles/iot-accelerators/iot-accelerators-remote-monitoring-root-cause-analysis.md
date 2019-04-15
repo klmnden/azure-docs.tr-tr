@@ -17,7 +17,7 @@ ms.locfileid: "52284580"
 ---
 # <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Öğretici: Bir uyarıda kök neden analizi yürütme
 
-Bu öğreticide, bir uyarının kök nedenini tanılamak için Uzaktan İzleme çözüm hızlandırıcısının nasıl kullanılacağını öğreneceksiniz. Uzaktan İzleme çözüm panosunda bir uyarı tetiklendiğini görecek ve sonra kök nedeni araştırmak için Azure Time Series Insights gezginini kullanacaksınız.
+Bu öğreticide, bir uyarının kök nedenini tanılamak için Uzaktan İzleme çözümü hızlandırıcısının nasıl kullanılacağını öğreneceksiniz. Uzaktan İzleme çözümü panosunda bir uyarı tetiklendiğini görecek ve sonra kök nedeni araştırmak için Azure Time Series Insights gezginini kullanacaksınız.
 
 Öğreticide konum, rakım, hız ve yük sıcaklığı telemetri verilerini gönderen iki sanal tır cihazı kullanılmaktadır. Tırlar, Contoso adlı bir kuruluş tarafından yönetilmektedir ve Uzaktan İzleme çözümü hızlandırıcısına bağlıdır. Contoso operatörü olarak, tırlarınızdan birinin (delivery-truck-02) neden düşük sıcaklık uyarısı kaydettiğini anlamanız gerekir.
 
@@ -98,7 +98,7 @@ Kurallar oluşturma ve kuralları düzenleme hakkında bilgi edinmek için, [cih
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir uyarının kök nedenini tanılamak için Uzaktan İzleme çözüm hızlandırıcısı ile Time Series Insights gezgininin nasıl kullanılacağı gösterildi. Çözüm hızlandırıcısını bağlı cihazlarınızdaki sorunları tanımlama ve düzeltme amacıyla kullanmayı öğrenmek için bir sonraki öğreticiye geçin.
+Bu öğreticide, bir uyarının kök nedenini tanılamak için Uzaktan İzleme çözümü hızlandırıcısı ile Time Series Insights gezgininin nasıl kullanılacağı gösterildi. Çözüm hızlandırıcısını bağlı cihazlarınızdaki sorunları tanımlama ve düzeltme amacıyla kullanmayı öğrenmek için bir sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
 > [İzleme çözümünüze bağlı cihazlarla sorunları tanımlamak ve düzeltmek için cihaz uyarılarını kullanma](iot-accelerators-remote-monitoring-maintain.md)

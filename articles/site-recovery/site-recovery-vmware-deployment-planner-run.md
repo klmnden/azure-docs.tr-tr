@@ -1,25 +1,25 @@
 ---
 title: Vmware'den azure'a olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısı çalıştırma | Microsoft Docs
 description: Bu makale, Vmware'den azure'a olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısı'nı çalıştırmak açıklamaktadır.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: a3aef06e6ee0d3989a4da8fdd93d27d28f2eede4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 3a6c9e50804db573395984b8ba38838eb15b0792
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527688"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565436"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Vmware'den azure'a olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısı'nı çalıştırın
 Bu makale, VMware’den Azure’a üretim dağıtımları için Azure Site Recovery Dağıtım Planlayıcısı kullanım kılavuzudur.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Dağıtım planlayıcısını çalıştırma modları
-Komut satırı aracını (ASRDeploymentPlanner.exe) şuradaki dört modun herhangi birinde çalıştırabilirsiniz:
+Komut satırı aracını (ASRDeploymentPlanner.exe) aşağıdaki üç modun herhangi birinde çalıştırabilirsiniz:
 
 1.  [Profil oluşturma](#profile-vmware-vms)
 2.  [Rapor oluşturma](#generate-report)
@@ -139,7 +139,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 Araç, rapor çıktısı olarak tüm dağıtım önerilerini özetleyen makro özellikli bir Microsoft Excel dosyası (XLSM dosyası) oluşturur. Rapor adlı `DeploymentPlannerReport_<unique numeric identifier>.xlsm` ve belirtilen dizine yerleştirilir.
 
 >[!NOTE]
->Rapor, ondalık ayırıcı olarak yapılandırılmış gerektirir "." dağıtım Planlayıcısını çalıştırdığınız sunucunun maliyet tahminlerini oluşturmak için. Durumda olan kurulum "," olarak ondalık sembolünü bir Windows makinede Lütfen Denetim Masası'ndaki "Değişiklik tarihi, saati veya sayı biçimlerini" gidin ve "Ek"ondalık sembole değiştirmek için "ayarlar." gidin.
+>Rapor oluşturma, bir Windows PC ya da Windows Server Excel 2013 veya sonraki bir sürümü gerektirir. Bu makinede ondalık simgesi olarak yapılandırılması gerekir "." maliyet tahminlerini oluşturmak için. Kurulum olması durumunda "," Denetim Masası'ndaki "Değişiklik tarihi, saati veya sayı biçimlerini" Lütfen ondalık simgesi olarak gidin ve ondalık sembole değiştirmek için "ek ayarlar" Git".".
 
 Profil oluşturma tamamlandıktan sonra, aracı rapor oluşturma modunda çalıştırabilirsiniz. Aşağıdaki tabloda, rapor oluşturma modunda çalışmaya yönelik zorunlu ve isteğe bağlı parametreler listelenmiştir.
 

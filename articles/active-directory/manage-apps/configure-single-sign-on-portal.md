@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 12/06/2018
+ms.date: 04/08/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 037f5b554889d89fc0b50983d3d85d38f4345311
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: a3d96799e69e2fdef3a4ffd1a436727e6a58da79
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571414"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565997"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Öğretici: SAML tabanlı çoklu oturum açma bir uygulama için Azure Active Directory ile yapılandırın.
 
@@ -38,33 +38,35 @@ Bu öğreticide Azure portalda aşağıdaki işlemler gerçekleştirilmektedir:
 
 1. Azure AD kiracınız için uygulama eklenmemişse, bkz. [hızlı başlangıç: Azure AD kiracınız için uygulama ekleme](add-application-portal.md).
 
-2. Uygulama satıcınızdan [Etki alanını ve URL'leri yapılandırma](#configure-domain-and-urls) bölümünde belirtilen bilgileri isteyin.
+2. Bilgi açıklanan için uygulama satıcınıza başvurun [temel SAML seçenekleri](#configure-basic-saml-options).
 
-3. Bu öğreticideki adımları test etmek için üretim ortamı harici bir ortam kullanmanızı öneririz. Üretim ortamı dışında bir Azure AD ortamınız yoksa [bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/) aboneliği oluşturabilirsiniz.
+3. Bu öğreticideki adımları test etmek için üretim dışı ortamda kullanın. Üretim ortamı dışında bir Azure AD ortamınız yoksa [bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/) aboneliği oluşturabilirsiniz.
 
 4. Oturum [Azure portalında](https://portal.azure.com) bir bulut uygulaması Yöneticisi veya Azure AD kiracınız için uygulama yönetici olarak.
 
 ## <a name="select-a-single-sign-on-mode"></a>Çoklu oturum açma modunu seçme
 
-Bir uygulamayı Azure AD kiracınıza eklendikten sonra uygulama için çoklu oturum açmayı yapılandırmaya hazırsınız.
+Azure AD kiracınızla bir uygulamayı ekledikten sonra uygulama için çoklu oturum açmayı yapılandırmaya hazırsınız.
 
 Çoklu oturum açma ayarlarını açmak için:
 
-1. [Azure portalda](https://portal.azure.com) sol taraftaki gezinti panelinden **Azure Active Directory**’ye tıklayın. 
+1. İçinde [Azure portalında](https://portal.azure.com), sol gezinti panelinde seçin **Azure Active Directory**. 
 
-2. **Azure Active Directory** dikey penceresinde **Kurumsal uygulamalar**’a tıklayın. Açılan **Tüm uygulamalar** dikey penceresinde Azure AD kiracınızdaki uygulamalardan rastgele seçilmiş olanlar gösterilir. 
+2. Altında **Yönet** içinde **Azure Active Directory** görüntülenen gezinti panelini seçin **kurumsal uygulamalar**. Uygulamaları Azure AD kiracınızda rastgele oluşturulmuş bir örnek görünür. 
 
-3. **Uygulama Türü** menüsünden **Tüm uygulamalar**'ı seçin ve **Uygula**'ya tıklayın.
+3. İçinde **uygulama türü** menüsünde **tüm uygulamaları**ve ardından **Uygula**.
 
-4. Çoklu oturum açmayı yapılandırmak istediğiniz uygulamanın adını seçin. Kendi uygulamanızı seçin veya girin **GitHub test** eklediğiniz uygulama yapılandırmak için [uygulama ekleme](add-application-portal.md) hızlı başlangıç.
+4. Çoklu oturum açmayı yapılandırmak istediğiniz uygulamanın adını seçin. Örneğin, girdiğiniz **GitHub test** eklediğiniz uygulama yapılandırmak için [uygulama ekleme](add-application-portal.md) hızlı başlangıç.  
 
-5. **Çoklu oturum açma**'ya tıklayın. **Çoklu Oturum Açma Modu** bölümünde varsayılan **SAML Tabanlı Oturum Açma** seçeneğini belirleyin. 
+     ![Uygulama arama çubuğunu gösteren ekran görüntüsü.](media/configure-single-sign-on-portal/azure-portal-application-search.png)
 
-    ![Yapılandırma seçenekleri](media/configure-single-sign-on-portal/config-options.png)
+5. Çoklu oturum açmayı yapılandırmak istediğiniz uygulamayı seçin.
 
-6. Dikey pencerenin en üstündeki **Kaydet**'e tıklayın. 
+6. Altında **Yönet** bölümünden **çoklu oturum açma**. 
 
-## <a name="configure-domain-and-urls"></a>Etki alanını ve URL'leri yapılandırma
+7. Seçin **SAML** çoklu oturum açmayı yapılandırmak için. **Yukarı çoklu oturum açma SAML - Preview ile ayarlanmış** sayfası görüntülenir.
+
+## <a name="configure-basic-saml-options"></a>Temel SAML seçeneklerini yapılandırın
 
 Etki alanını ve URL'leri yapılandırmak için:
 
@@ -72,106 +74,94 @@ Etki alanını ve URL'leri yapılandırmak için:
 
     | Yapılandırma ayarı | SP ile başlatılan | idP ile başlatılan | Açıklama |
     |:--|:--|:--|:--|
-    | Oturum açma URL'si | Gerekli | Belirtmeyin | Kullanıcı bu URL'yi açtığında hizmet sağlayıcısı kimlik doğrulaması ve oturum açma için Azure AD'ye yönlendirir. Azure AD, Office 365 veya Azure AD erişim paneli uygulamayı başlatmak için URL'yi kullanır. Boş bırakıldığında, Azure AD çoklu oturum açma kullanıcı uygulamayı başlattığında başlatmak için kimlik sağlayıcısını kullanır.|
     | Tanımlayıcı (Varlık Kimliği) | Bazı uygulamalar için gereklidir | Bazı uygulamalar için gereklidir | Çoklu oturum açma yapılandırmasının yapıldığı uygulamayı benzersiz olarak tanımlar. Azure AD tanımlayıcısı SAML belirteç hedef kitlesi parametre olarak uygulamasına gönderir. Bunu doğrulamak için uygulamayı bekleniyor. Bu değer ayrıca uygulama tarafından sağlanan SAML meta verilerinde Varlık Kimliği olarak da görünür.|
     | Yanıt URL'si | İsteğe bağlı | Gerekli | Uygulamanın SAML belirtecini almayı beklediği konumu belirtir. Yanıt URL'si, Onay Belgesi Tüketici Hizmeti (ACS) URL'si olarak da bilinir. |
-    | Geçiş Durumu | İsteğe bağlı | İsteğe bağlı | Uygulamaya kimlik doğrulaması tamamlandıktan sonra kullanıcının yönlendirileceği yeri belirtir. Değer genellikle uygulama için geçerli bir URL'dir ancak bazı uygulamalar bu alanı farklı bir şekilde kullanır. Daha fazla bilgi için uygulama satıcısına danışın.
+    | Oturum açma URL'si | Gerekli | Belirtmeyin | Kullanıcı bu URL'yi açtığında hizmet sağlayıcısı kimlik doğrulaması ve oturum açma için Azure AD'ye yönlendirir. Azure AD, Office 365 veya Azure AD erişim paneli uygulamayı başlatmak için URL'yi kullanır. Boş bırakıldığında, Azure AD çoklu oturum açma kullanıcı uygulamayı başlattığında başlatmak için kimlik sağlayıcısını kullanır.|
+    | Geçiş Durumu | İsteğe bağlı | İsteğe bağlı | Uygulamaya kimlik doğrulaması tamamlandıktan sonra kullanıcının yönlendirileceği yeri belirtir. Genellikle uygulama için geçerli bir URL değerdir. Ancak, bazı uygulamalar farklı bu alanı kullanın. Daha fazla bilgi için uygulama satıcısına danışın.
+    | Oturum Kapatma URL'si | İsteğe bağlı | İsteğe bağlı | Uygulamaya SAML oturum kapatma yanıtları göndermek için kullanılır.
 
-2. Bilgileri girin. Tüm ayarları görmek için **Gelişmiş URL ayarlarını göster**'e tıklayın.
 
-    ![Yapılandırma seçenekleri](media/configure-single-sign-on-portal/config-urls.png)
+2. Temel SAML yapılandırma seçeneklerini düzenlemek için seçin **Düzenle** sağ üst köşesindeki simgeyi (Kalem) **temel SAML yapılandırma** bölümü.
 
-3. Dikey pencerenin en üstündeki **Kaydet**'e tıklayın.
+     ![Sertifikaları yapılandırma](media/configure-single-sign-on-portal/basic-saml-configuration-edit-icon.png)
 
-4. Var olan bir **SAML ayarlarını Test** bu bölümdeki düğmesi. Bu testi öğreticinin [Çoklu oturum açma testi](#test-single-sign-on) bölümünde çalıştırın.
+3. Adım 1'de uygulama satıcısı tarafından sağlanan bilgileri sayfasında ilgili alanlara girin.
 
-## <a name="configure-user-attributes"></a>Kullanıcı özniteliklerini yapılandırma
+4. Sayfanın üst kısmında seçin **Kaydet**.
 
-Kullanıcı öznitelikleri, her bir kullanıcı oturum açtığı SAML belirtecindeki uygulamaya hangi bilgileri Azure AD'ye gönderir denetlemenize olanak sağlar. Örneğin Azure AD uygulamaya kullanıcının adını, e-posta adresini ve çalışan kimliğini gönderebilir. 
+## <a name="configure-user-attributes-and-claims"></a>Kullanıcı öznitelikleri ve talepler yapılandırın 
+
+Bir kullanıcı oturum açtığında uygulamaya SAML belirtecindeki bilgileri Azure AD'ye gönderir denetleyebilirsiniz. Kullanıcı öznitelikleri yapılandırarak bu bilgi kontrol edebilirsiniz. Örneğin, bir kullanıcı oturum açtığında, kullanıcının adı, e-posta ve çalışan kimliği uygulamasına göndermek için Azure AD yapılandırabilirsiniz. 
 
 Çoklu oturum açma işlevinin düzgün çalışması için bu öznitelikler gerekli veya isteğe bağlı olabilir. Daha fazla bilgi için [uygulamaya özgü öğreticiye](../saas-apps/tutorial-list.md) bakın veya uygulama satıcısına sorun.
 
-1. Tüm seçenekleri görüntülemek için **Diğer tüm kullanıcı özniteliklerini görüntüleyin ve düzenleyin**'e tıklayın.
+1. Kullanıcı öznitelikleri ve talepler düzenlemek için seçin **Düzenle** sağ üst köşesindeki simgeyi (Kalem) **kullanıcı öznitelikleri ve talepler** bölümü.
 
-    ![Kullanıcı özniteliklerini yapılandırma](media/configure-single-sign-on-portal/config-user-attributes.png)
+   **Ad tanımlayıcı değeri** varsayılan değeriyle ayarlayarak *user.principalname*. Kullanıcı tanımlayıcısı, uygulama içinde her kullanıcıyı benzersiz olarak tanımlar. Örneğin e-posta adresi hem kullanıcı adı hem de benzersiz tanıtıcı olarak kullanılıyorsa değeri *user.mail* olarak ayarlayın.
 
-2. **Kullanıcı Tanımlayıcısı**'nı girin.
+2. Değiştirilecek **ad tanımlayıcı değeri**seçin **Düzenle** simgesini (Kalem) **ad tanımlayıcı değeri** alan. Gerektiğinde, kaynak ve tanımlayıcı biçimi uygun değişiklikleri yapın. İşiniz bittiğinde, değişiklikleri kaydedin. Talep özelleştirme hakkında daha fazla bilgi için bkz. [kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme](../develop/active-directory-saml-claims-customization.md) nasıl yapılır makalesi.
 
-    Kullanıcı tanımlayıcısı, uygulama içinde her kullanıcıyı benzersiz olarak tanımlar. Örneğin e-posta adresi hem kullanıcı adı hem de benzersiz tanıtıcı olarak kullanılıyorsa değeri *user.mail* olarak ayarlayın.
+3. Bir talep eklemek için seçin **Ekle yeni talep** sayfanın üstünde. Girin **adı** ve uygun kaynak seçin. Seçerseniz **özniteliği** kaynağı seçin gerekir **kaynak özniteliği** kullanmak istiyorsunuz. Seçerseniz **çeviri** kaynağı seçin gerekir **dönüştürme** ve **parametresi 1** kullanmak istiyorsunuz.
 
-3. Daha fazla SAML belirteci özniteliği için **Diğer tüm kullanıcı özniteliklerini görüntüleyin ve düzenleyin**'e tıklayın.
-
-4. **SAML Belirteci Öznitelikleri**'ne öznitelik eklemek için **Öznitelik ekle**'ye tıklayın. **Ad** belirtin ve menüden **Değer** seçin.
-
-5. **Kaydet**’e tıklayın. Yeni özniteliği tabloda görürsünüz.
+4. **Kaydet**’i seçin. Yeni Talep tabloda görüntülenir.
  
-## <a name="create-a-saml-signing-certificate"></a>SAML imzalama sertifikası oluşturma
+## <a name="generate-a-saml-signing-certificate"></a>SAML imzalama sertifikası oluşturma
 
 Azure AD, uygulamaya gönderdiği SAML belirteçlerini imzalamak için bir sertifika kullanır. 
 
-1. Tüm seçenekleri görmek için **Gelişmiş sertifika imzalama seçeneklerini göster**'e tıklayın.
+1. Yeni bir sertifika oluşturmak üzere **Düzenle** sağ üst köşesindeki simgeyi (Kalem) **SAML imzalama sertifikası** bölümü.
 
-    ![Sertifikaları yapılandırma](media/configure-single-sign-on-portal/config-certificate.png)
+2. İçinde **SAML imzalama sertifikası** bölümünden **yeni sertifika**.
 
-2. Sertifika yapılandırmak için **Yeni sertifika oluştur**'a tıklayın.
+3. Görünen yeni sertifika satırda ayarlamak **sona erme tarihi**. Kullanılabilir yapılandırma seçenekleri hakkında daha fazla bilgi için bkz. [Gelişmiş Sertifika İmzalama Seçenekleri](certificate-signing-options.md) makalesi.
 
-3. İçinde **yeni sertifika oluştur** dikey penceresinde ayarlayın **sona erme tarihi**, tıklatıp **Kaydet**.
-
-4. **Yeni sertifikayı etkinleştir**'e tıklayın.
-
-5. Daha fazla bilgi için bkz. [Gelişmiş sertifika imzalama seçenekleri](certificate-signing-options.md).
-
-6. Şu ana kadar yaptığınız değişiklikleri saklamak için **Çoklu oturum açma** dikey penceresinin en üstündeki **Kaydet**'e tıklamayı unutmayın. 
+4. Seçin **Kaydet** en üstündeki **SAML imzalama sertifikası** bölümü. 
 
 ## <a name="assign-users-to-the-application"></a>Uygulamaya kullanıcı atama
 
-Microsoft, uygulamayı kuruluşunuzda kullanıma sunmadan önce çoklu oturum açmayı birden fazla kullanıcı veya grupla test etmenizi önerir.
+Çoklu oturum açma çeşitli kullanıcılar veya gruplar uygulamayı kuruluşunuzun sunmaya önce test etmek için iyi bir fikirdir.
+
+> [!NOTE]
+>
+> Bu adımları atmanız **kullanıcılar ve gruplar** Portalı'nda yapılandırma bölümü. İşiniz bittiğinde, geri gidin gerekecektir **çoklu oturum açma** öğreticiyi tamamlamak için bölüm.
 
 Uygulamaya kullanıcı veya grup atamak için:
 
 1. Zaten açık değilse portalda uygulamayı açın.
-2. Sol uygulama dikey penceresinde **Kullanıcılar ve gruplar**'a tıklayın.
-3. **Kullanıcı ekle**'ye tıklayın.
-4. **Atama Ekle** dikey penceresinde **Kullanıcılar ve gruplar**'a tıklayın.
-5. Belirli bir kullanıcıyı bulmak için kullanıcının adını **Seç** kutusuna yazın, kullanıcının profil fotoğrafının veya logosunun yanındaki onay kutusunu işaretleyin ve **Seç**'e tıklayın. 
-6. Geçerli kullanıcı adınızı bulup seçin. İsterseniz daha fazla kullanıcı seçebilirsiniz.
-7. **Atama Ekle** dikey penceresinde **Ata**'ya tıklayın. İşlem tamamlandığında seçilen kullanıcılar, **Kullanıcılar ve gruplar** listesinde görünür.
+2. Uygulama için sol gezinti panelinde seçin **kullanıcılar ve gruplar**.
+3. Seçin **Kullanıcı Ekle**.
+4. İçinde **atama Ekle** bölümünden **kullanıcılar ve gruplar**.
+5. Belirli bir kullanıcı bulmak için kullanıcı adını yazın. **üye seçin veya bir dış kullanıcıyı davet** kutusu. Ardından, kullanıcının profil fotoğrafı veya logoyu seçin ve ardından **seçin**. 
+6. İçinde **atama Ekle** bölümünden **atama**. İşiniz bittiğinde, Seçilen kullanıcılara görünür **kullanıcılar ve gruplar** listesi.
 
-## <a name="configure-the-application-to-use-azure-ad"></a>Uygulamayı Azure AD kullanacak şekilde yapılandırma
+## <a name="set-up-the-application-to-use-azure-ad"></a>Uygulama Azure AD'yi kullanacak şekilde ayarlama
 
-Neredeyse bitti.  Son adım olarak uygulamayı Azure AD'yi SAML kimliği sağlayıcısı olarak kullanacak şekilde yapılandırmanız gerekir. 
+Neredeyse bitti.  Son adım olarak, uygulamanın SAML kimlik sağlayıcısı Azure AD'yi kullanacak şekilde ayarlamanız gerekir. 
 
-1. Uygulamanızın **Çoklu oturum açma** dikey penceresinin en altına kaydırın. 
-
-    ![Uygulama yapılandırma](media/configure-single-sign-on-portal/configure-app.png)
-
-2. Portalda **Uygulamayı yapılandır**'a tıklayın ve yönergeleri izleyin.
-3. El ile çoklu oturum açmayı test etmek için uygulamada kullanıcı hesapları oluşturun. [Önceki bölümde](#assign-users-to-the-application) uygulamaya atadığınız kullanıcı hesaplarını oluşturun. 
+1. Ekranı aşağı kaydırarak **ayarlanan <applicationName>**  bölümü. Bu öğreticide, bu bölümde çağrılır **GitHub testi ayarlama**. 
+2. Bu bölümdeki her satırın değerini kopyalayın. Ardından, her değeri uygun satıra yapıştırın **temel SAML yapılandırma** bölümü. Örneğin, kopyalama **oturum açma URL'si** değerini **GitHub testi ayarlama** yapıştırın ve bölüm **işareti bulunan URL'si** alanındaki **temel SAML yapılandırma**  bölümü ve benzeri.
+3. Tüm değerleri uygun alanlara yapıştırdığım zaman seçin **Kaydet**.
 
 ## <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Ayarlarınızı test etmeye hazırsınız.  
+Ayarlarınızı test etme hazırsınız demektir.  
 
 1. Uygulamanızın çoklu oturum açma ayarlarını açın. 
-2. **Etki alanını ve URL'leri yapılandır** bölümüne gidin.
-2. **SAML Ayarlarını Test Edin**'e tıklayın. Test seçenekleri açılır.
+2. Kaydırma **ile çoklu oturum açmayı doğrula <applicationName>**  bölümü. Bu öğreticide, bu bölümde çağrılır **GitHub testi ayarlama**.
+3. Seçin **Test**. Test seçenekleri açılır.
+4. Seçin **geçerli kullanıcı olarak oturum açma**. Bu test çoklu oturum açma, yönetici çalışmıyorsa ilk görmenizi sağlar
 
-    ![Çoklu oturum açma testi seçenekleri](media/configure-single-sign-on-portal/test-single-sign-on.png) 
+Bir hata varsa, bir hata iletisi görüntülenir. Aşağıdaki adımları tamamlayın:
 
-3. **Geçerli kullanıcı olarak oturum aç**'a tıklayın. Bu test çoklu oturum açma, yönetici çalışmıyorsa ilk görmenizi sağlar
-4. Bir hata varsa, bir hata iletisi görüntülenir. Hatayla ilgili bilgileri kopyalayıp **Hata neye benziyor?** kutusuna yapıştırın.
+1. Hatayla ilgili bilgileri kopyalayıp **Hata neye benziyor?** kutusuna yapıştırın.
 
     ![Çözüm rehberliği alın](media/configure-single-sign-on-portal/error-guidance.png)
 
-5. **Çözüm rehberliği alın**'a tıklayın. Kök nedeni ve çözümü kılavuzu görünür.  Bu örnekte, kullanıcı uygulamaya atanan değildi.
+2. Seçin **çözümleme Hadoop'u**. Kök nedeni ve çözümü kılavuzu görünür.  Bu örnekte, kullanıcı uygulamaya atanan değildi.
 
-    ![Hatayı düzeltme](media/configure-single-sign-on-portal/fix-error.png)
+3. Çözüm Kılavuzu okuyun ve ardından, mümkünse sorunu düzeltin.
 
-6. Çözüm kılavuzunu okuyun ve gerekirse **Düzelt**'e tıklayın.
-
-7. Testi başarıyla tamamlana kadar tekrarlayın.
-
-
+4. Testi başarıyla tamamlana kadar tekrarlayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, bir uygulama için çoklu oturum açma ayarları yapılandırıldı. Yapılandırmayı tamamladıktan sonra uygulamaya kullanıcı atadınız ve uygulamayı SAML tabanlı çoklu oturum açmayı kullanacak şekilde yapılandırdınız. Bu işlerin tümünü tamamladığınızda SAML oturum açma işlevinin düzgün çalıştığını doğruladınız.
@@ -186,7 +176,7 @@ Bu öğreticide, bir uygulama için çoklu oturum açma ayarları yapılandırı
 > * Uygulama SAML kimlik sağlayıcısı Azure AD'yi kullanacak şekilde yapılandırılmış
 > * SAML tabanlı çoklu oturum açmayı test ettiniz
 
-Uygulamaya daha fazla kullanıcı kuruluşunuzda kullanıma almak için otomatik kullanıcı hazırlama kullanmanızı öneririz.
+Kuruluşunuzda daha fazla kullanıcı uygulamayı kullanıma alma için otomatik kullanıcı hazırlama'ı kullanın.
 
 > [!div class="nextstepaction"]
 > [Otomatik sağlama ile kullanıcı atamayı öğrenin](configure-automatic-user-provisioning-portal.md)

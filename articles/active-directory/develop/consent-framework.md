@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0200aa917894f4b7f1a45a9d3bd15b128aaf27a2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f01555933ca8b3d0c48a956d3deb4b3356b4e1a2
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124193"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564967"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory onay çerçevesine
 
@@ -46,7 +46,7 @@ Aşağıdaki adımlar nasıl onayı deneyimi çalıştığı uygulama geliştiri
 
 1. Kullanıcı kimliği doğrulanmış, Azure AD'nin değilse `/authorize` uç nokta, kullanıcının oturum açmasını ister.
 
-    [Azure ad kullanıcı veya yönetici oturumu açma](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
+    ![Azure ad kullanıcı veya yönetici oturumu açma](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
 
 1. Kullanıcı oturum açtıktan sonra Azure AD kullanıcı bir onay sayfası gerekip gerekmediğini belirler. Bu belirleme, kullanıcı (veya onun kuruluşunun yönetici) zaten uygulama onay verilip üzerinde temel alır. Onay zaten verilmedi, Azure AD kullanıcıdan onayı ister ve çalışması için gerekli izinleri görüntüler. Onay iletişim kutusunda görüntülenen izin kümesiyle eşleşen seçili olanları **temsilci izinleri** Azure portalında.
 

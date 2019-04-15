@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 4d9ec05b2495ec54657405c00e7dd42ee10911b1
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350921"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563379"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Örnek: Görüntü işleme API'sini çağırma
 
@@ -167,13 +167,13 @@ Bir örneği aşağıda verilmiştir:
 
 Alan | Type | İçerik
 ------|------|------|
-Etiketler  | object | Etiket dizisi için üst düzey nesnedir
-tags[].Name | string    | Etiketler sınıflandırıcısındaki anahtar sözcüktür
-tags[].Score    | number    | 0 ile 1 arasında güven puanıdır
-açıklama  | object   | Açıklama için üst düzey nesnedir.
-description.tags[] |    string  | Etiketlerin listesidir.  Açıklamalı alt yazı üretme özelliği yeterince güvenilir değilse, çağıranın kullanımına sunulan tek bilgi etiketler olabilir.
-description.captions[].text | string    | Görüntüyü açıklayan bir ifadedir.
-description.captions[].confidence   | number    | İfade için güven düzeyidir.
+Etiketler  | `object` | Etiket dizisi için üst düzey nesnedir
+tags[].Name | `string`  | Etiketler sınıflandırıcısındaki anahtar sözcüktür
+tags[].Score    | `number`  | 0 ile 1 arasında güven puanıdır
+açıklama  | `object` | Açıklama için üst düzey nesnedir.
+description.tags[] |    `string`    | Etiketlerin listesidir.  Açıklamalı alt yazı üretme özelliği yeterince güvenilir değilse, çağıranın kullanımına sunulan tek bilgi etiketler olabilir.
+description.captions[].text | `string`  | Görüntüyü açıklayan bir ifadedir.
+description.captions[].confidence   | `number`  | İfade için güven düzeyidir.
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Alma ve alana özgü modeller JSON çıkışını anlama
 
@@ -229,10 +229,10 @@ Kategoriler alanı, özgün taksonomideki [86 kategorisinden](../Category-Taxono
 
 Alan   | Type  | İçerik
 ------|------|------|
-kategoriler | object | Üst düzey nesne
-categories[].name    | string   | 86 kategorisi sınıflandırmasındaki ad
-categories[].score  | number    | 0 ile 1 arasında güven puanı
-categories[].detail  | nesne?      | İsteğe bağlı ayrıntı nesnesi
+kategoriler | `object`   | Üst düzey nesne
+categories[].name    | `string` | 86 kategorisi sınıflandırmasındaki ad
+categories[].score  | `number`  | 0 ile 1 arasında güven puanı
+categories[].detail  | `object?`      | İsteğe bağlı ayrıntı nesnesi
 
 Birden fazla kategori eşleşiyorsa (örneğin, model=ünlüler olduğunda 86 kategorisi sınıflandırıcısı, hem people_ hem de people_young için bir puan döndürür), ayrıntılar en genel düzey eşleşmesine (bu örnekte people_) eklenir.
 

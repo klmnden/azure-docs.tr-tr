@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6e826bd965281d60cb6d73f325fbc5a7a06da234
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 412dfd690ea4ab33f249af78d4ef94c5ae5ccad2
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358493"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565844"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Şirket içi makinelerin olağanüstü durum kurtarma işlemleri için Azure kaynaklarını hazırlama
 
@@ -70,16 +70,16 @@ Bu görevleri tamamlamak için hesabınıza Sanal Makine Katkıda Bulunan yerle�
 Şirket içinde makineleri Azure'a çoğaltılan yönetilen diskler. Yük devretme gerçekleştiğinde Azure Vm'leri yönetilen bu disklerden oluşturulan ve bu yordamda, belirttiğiniz Azure ağ alanına katıldı.
 
 1. [Azure portalında](https://portal.azure.com) **Kaynak oluştur** > **Ağ** > **Sanal ağ** seçeneklerini belirleyin.
-2. Dağıtım modeli olarak **Resource Manager**’ı seçili bırakın.
+2. Tutun **Resource Manager** dağıtım modeli olarak seçilmiş.
 3. **Ad** bölümünde bir ağ adı girin. Ad, Azure kaynak grubu içinde benzersiz olmalıdır. Bu öğreticide **ContosoASRnet** kullanıyoruz.
 4. İçinde ağın oluşturulacağı kaynak grubunu belirtin. Biz mevcut **contosoRG** kaynak grubunu kullanıyoruz.
-5. İçinde **adres aralığı**, ağ aralığı girin. Kullandığımız **10.0.0.0/24**ve bir alt ağı kullanmıyor.
+5. İçinde **adres aralığı**, ağ aralığı girin. Kullandığımız **10.1.0.0/24**ve bir alt ağı kullanmıyor.
 6. **Abonelik** bölümünde ağın oluşturulacağı aboneliği seçin.
 7. İçinde **konumu**, Kurtarma Hizmetleri kasası oluşturulduğu grubundakiyle aynı bölgeyi seçin. Müşterilerimize öğreticide sahip **Batı Avrupa**. Ağ, kasa ile aynı bölgede olması gerekir.
 8. Ağda hizmet uç noktası olmadan temel DDoS korumasının varsayılan seçeneklerini bırakıyoruz.
 9. **Oluştur**’a tıklayın.
 
-   ![Sanal ağ oluştur](media/tutorial-prepare-azure/create-network.png)
+   ![Sanal ağ oluşturma](media/tutorial-prepare-azure/create-network.png)
 
 Sanal ağın oluşturulması birkaç saniye sürer. Oluşturulduktan sonra, Azure portalı panosunda görünür.
 

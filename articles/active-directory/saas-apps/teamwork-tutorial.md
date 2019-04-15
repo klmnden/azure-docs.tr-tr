@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08-04-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 237eed31f79235398cdb5fed258454e99fbc0e22
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 4b0c6fc9ed196a1b3ddd3d8e67887e2340ddbcda
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501281"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563616"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Öğretici: Teamwork.com ile Azure Active Directory Tümleştirme
 
@@ -198,8 +198,8 @@ Erişim paneli Teamwork.com kutucuğa tıkladığınızda, size otomatik olarak 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

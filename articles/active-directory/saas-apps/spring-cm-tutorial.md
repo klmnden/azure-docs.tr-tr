@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04-08-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49f63fe3b006b704291da1613627019e5866cd32
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 04ddc09d3d2475afe9be90cf1d5585697b9c36cf
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500099"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Öğretici: SpringCM ile Azure Active Directory Tümleştirme
 
@@ -235,9 +235,9 @@ Erişim paneli SpringCM kutucuğa tıkladığınızda, size otomatik olarak SSO'
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

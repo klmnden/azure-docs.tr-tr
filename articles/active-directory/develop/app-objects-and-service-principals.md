@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2019
+ms.date: 04/13/2019
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b7ab4007a94efbc48bfea67c6b954c02de0b2ba
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 9cee05b1ff6c63aae07b9c04435e4ff3ae4d07ee
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887446"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565895"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Uygulama ve Azure Active Directory'de Hizmet sorumlusu nesneleri
 
@@ -52,7 +52,7 @@ Bir Azure AD uygulaması içinde kaydettiğinizde [Azure portalında][AZURE-Port
 
 ### <a name="application-object"></a>Uygulama nesnesi
 
-Azure AD uygulaması, bir Azure AD kiracısında uygulama kaydedildiği bulunduğu uygulama nesnesi ile uygulamanın "ana" Kiracı bilinen tanımlanır. Azure AD Graph [uygulama varlığı] [ AAD-Graph-App-Entity] uygulama nesnenin özellikleri için bir şema tanımlar.
+Azure AD uygulaması, bir Azure AD kiracısında uygulama kaydedildiği bulunduğu uygulama nesnesi ile uygulamanın "ana" Kiracı bilinen tanımlanır. Microsoft Graph [uygulama varlığı] [ MS-Graph-App-Entity] uygulama nesnenin özellikleri için bir şema tanımlar.
 
 ### <a name="service-principal-object"></a>Hizmet sorumlusu nesnesi
 
@@ -60,7 +60,7 @@ Azure AD kiracısı tarafından korunan kaynaklara erişmek için bir güvenlik 
 
 Kullanıcı/uygulama için izinler ve erişim ilkesi, güvenlik sorumlusu Azure AD kiracısında tanımlar. Bu, kullanıcı/uygulama kimlik doğrulaması sırasında oturum açma ve yetkilendirme sırasında kaynak erişimi gibi temel özellikleri sağlar.
 
-Ne zaman bir uygulama verildiğinde kaynaklara erişim izni bir kiracıda (kaydı veya [onay](developer-glossary.md#consent)), hizmet sorumlusu nesnesi oluşturulur. Azure AD Graph [ServicePrincipal varlık] [ AAD-Graph-Sp-Entity] şema için bir hizmet sorumlusu nesnesinin özelliklerini tanımlar.
+Ne zaman bir uygulama verildiğinde kaynaklara erişim izni bir kiracıda (kaydı veya [onay](developer-glossary.md#consent)), hizmet sorumlusu nesnesi oluşturulur. Microsoft Graph [ServicePrincipal varlık] [ MS-Graph-Sp-Entity] şema için bir hizmet sorumlusu nesnesinin özelliklerini tanımlar.
 
 ### <a name="application-and-service-principal-relationship"></a>Uygulama ve hizmet sorumlusu ilişkisi
 
@@ -68,7 +68,7 @@ Uygulama nesnesi olarak göz önünde bulundurun *genel* tüm kiracılar ve hizm
 
 Varsayılan özellikleri ve hangi ortak bir şablondan uygulama nesnesi gören olan *türetilmiş* karşılık gelen hizmet sorumlusu nesneleri oluştururken kullanmak için. Uygulama nesnesi, bu nedenle, karşılık gelen hizmet sorumlusu nesneleri 1:many ilişkilerle yanı sıra yazılım uygulamayla 1:1 ilişki vardır.
 
-Bir hizmet sorumlusu uygulama kullanıldığı, her kiracıya oluşturulmalıdır, oturum açma ve/veya Kiracı tarafından korunan kaynaklara erişim için bir kimlik oluşturmak etkinleştirme. Tek kiracılı bir uygulama (kiracısındaki kendi giriş), oluşturduğunuz ve uygulama kaydı sırasında kullanım için onaylı yalnızca bir hizmet sorumlusu sahiptir. Çok kiracılı Web uygulaması/API'si de burada bu kiracıda bir kullanıcı kendi kullanımı için onay vermiş her kiracıda oluşturulan hizmet sorumlusu vardır. 
+Bir hizmet sorumlusu uygulama kullanıldığı, her kiracıya oluşturulmalıdır, oturum açma ve/veya Kiracı tarafından korunan kaynaklara erişim için bir kimlik oluşturmak etkinleştirme. Tek kiracılı bir uygulama (kiracısındaki kendi giriş), oluşturduğunuz ve uygulama kaydı sırasında kullanım için onaylı yalnızca bir hizmet sorumlusu sahiptir. Çok kiracılı Web uygulaması/API'si de burada bu kiracıda bir kullanıcı kendi kullanımı için onay vermiş her kiracıda oluşturulan hizmet sorumlusu vardır.
 
 > [!NOTE]
 > Uygulama nesnenizin yaptığınız tüm değişiklikler de yansıtılır uygulamanın giriş kiracısında yalnızca (Kiracı, kayıtlı), hizmet sorumlusu nesnesi. Erişim aracılığıyla kaldırılana kadar çok kiracılı uygulamalar için uygulama nesnesi değişiklikleri içinde hiçbir tüketici Kiracı hizmet sorumlusu nesneleri, yansıtılmaz [uygulama erişim panelinde](https://myapps.microsoft.com) ve yeniden verilir.
@@ -83,7 +83,7 @@ Aşağıdaki diyagramda bir uygulamanın uygulama nesnesini ve karşılık gelen
 - **Contoso** -Contoso kuruluş tarafından kullanılan Kiracı tüketicisi olduğu **ik uygulaması**
 - **Fabrikam** -ayrıca tüketir Fabrikam kuruluş tarafından kullanılan Kiracı **ik uygulaması**
 
-![Uygulama nesnesi ve bir hizmet sorumlusu nesnesi arasındaki ilişki](./media/app-objects-and-service-principals/application-objects-relationship.png)
+![Uygulama nesnesi ve bir hizmet sorumlusu nesnesi arasındaki ilişki](./media/app-objects-and-service-principals/application-objects-relationship.svg)
 
 Bu örnek senaryoda:
 
@@ -95,13 +95,13 @@ Bu örnek senaryoda:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Kullanabileceğiniz [Azure AD Graph Gezgini](https://graphexplorer.azurewebsites.net/) hem uygulama hem de hizmet sorumlusu nesneleri sorgulamak için.
-- Azure AD Graph API'sini kullanarak bir uygulamanın uygulama nesnesini erişebileceğiniz [Azure portal'ın] [ AZURE-Portal] uygulama bildirim düzenleyicisini veya [Azure AD PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), OData tarafından temsil edilen [uygulama varlığı][AAD-Graph-App-Entity].
-- Azure AD Graph API aracılığıyla erişebileceğiniz bir uygulamanın hizmet sorumlusu nesnesi veya [Azure AD PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), OData tarafından temsil edilen [ServicePrincipal varlık] [ AAD-Graph-Sp-Entity].
+- Kullanabileceğiniz [Microsoft Graph Gezgini](https://developer.microsoft.com/graph/graph-explorer) hem uygulama hem de hizmet sorumlusu nesneleri sorgulamak için.
+- Microsoft Graph API'sini kullanarak bir uygulamanın uygulama nesnesini erişebileceğiniz [Azure portal'ın] [ AZURE-Portal] uygulama bildirim düzenleyicisini veya [Azure AD PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) , OData tarafından temsil edilen [uygulama varlığı][MS-Graph-App-Entity].
+- Microsoft Graph API ile bir uygulamanın hizmet sorumlusu nesnesi erişebilir veya [Azure AD PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), OData tarafından temsil edilen [ServicePrincipal varlık] [ MS-Graph-Sp-Entity].
 
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-Graph-App-Entity]: https://docs.microsoft.com/graph/api/resources/application
-[AAD-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
+[MS-Graph-App-Entity]: https://docs.microsoft.com/graph/api/resources/application
+[MS-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
 [AZURE-Portal]: https://portal.azure.com

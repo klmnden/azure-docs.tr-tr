@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 7fd4fd65b48c199527d9172b7cea89010c962f5b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: aaa72d3a29fee28ede336a2be350015bf3cbc9b4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261046"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565560"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri sağlamak üzere Azure Data Factory kullanan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -255,7 +255,7 @@ Kurumsal ağ ortamınızı, internet'e bir proxy sunucusu kullanıyorsa, şirket
 
 ![Ara sunucusunu belirtin](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
-Şirket içinde barındırılan tümleştirme çalışma zamanı, bulut hizmetine bağlanmak için proxy sunucusunu kullanır. Seçin **değiştir bağlantısını** ilk kurulum sırasında. Proxy ayarı iletişim kutusunu görürsünüz.
+Yapılandırıldığında, şirket içinde barındırılan tümleştirme çalışma zamanı Ara sunucu kullanıyorsa ve bulut hizmetine bağlanmak için kaynak / hedef (kullandığınızdan HTTP / HTTPS protokolü). Bu seçim, **değiştir bağlantısını** ilk kurulum sırasında. Proxy ayarı iletişim kutusunu görürsünüz.
 
 ![Küme proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 77be9d80d535cced48a39c47695257d4868f698c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b9dafd31ed84298c97932b1cdb5593eb17769ef9
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257442"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566014"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server’daki birden fazla tablodan Azure SQL veritabanı’na artımlı olarak veri yükleme
 Bu öğreticide, değişim verileri şirket içi SQL Server’daki birden çok tablodan Azure SQL Veritabanına yükleyen bir Azure veri fabrikası işlem hattı oluşturacaksınız.    
@@ -491,11 +491,12 @@ Bu işlem hattı parametre olarak tablo adları listesini alır. ForEach etkinli
 1. **Havuz** sekmesine geçin ve **Havuz Veri Kümesi** alanı için **SinkDataset**’i seçin. 
         
     ![Kopyalama Etkinliği - havuz ayarları](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
-1. **Parametreler** sekmesine geçin ve aşağıdaki adımları uygulayın:
+1. Aşağıdaki adımları uygulayın:
 
-    1. **Havuz Saklı Yordam Adı** özelliği için `@{item().StoredProcedureNameForMergeOperation}` adını girin.
-    1. **Havuz Tablo Türü** özelliği için `@{item().TableType}` değerini girin.
-    1. **Havuz Veri Kümesi** bölümünde **SinkTableName** parametresi için `@{item().TABLE_NAME}` değerini girin.
+    1. İçinde **veri kümesi** özelliği için **SinkTableName** parametre girin `@{item().TABLE_NAME}`.
+    1. İçin **saklı yordam adı** özelliği girin `@{item().StoredProcedureNameForMergeOperation}`.
+    1. İçin **tablo türü** özelliği girin `@{item().TableType}`.
+
 
         ![Kopyalama Etkinliği - parametreler](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. **Etkinlikler** araç kutusundan **Saklı Yordam** etkinliğini sürükleyerek işlem hattı tasarımcısının yüzeyine bırakın. **Kopyalama** etkinliğini **Saklı Yordam** etkinliğine bağlayın. 
@@ -743,6 +744,6 @@ Bu öğreticide aşağıdaki adımları gerçekleştirdiniz:
 Azure üzerinde bir Spark kümesi kullanarak veri dönüştürme hakkında bilgi edinmek için aşağıdaki öğreticiye geçin:
 
 > [!div class="nextstepaction"]
->[Verileri artımlı olarak Azure SQL veritabanı'ndan Azure Blob depolama alanına değişiklik izleme teknolojisini kullanarak yükleme](tutorial-incremental-copy-change-tracking-feature-portal.md)
+>[Değişiklik İzleme teknolojisini kullanarak Azure SQL Veritabanından Azure Blob depolama alanına verileri artımlı olarak yükleme](tutorial-incremental-copy-change-tracking-feature-portal.md)
 
 

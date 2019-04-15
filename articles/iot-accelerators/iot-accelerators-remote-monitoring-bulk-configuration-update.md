@@ -65,7 +65,7 @@ Ayrıca, en az bir IOT DevKit cihaz, Uzaktan izleme çözüm hızlandırıcısı
 
 Uzaktan İzleme çözümü panosunu tarayıcınızda görüntülemek için önce [Microsoft Azure IoT Çözüm Hızlandırıcıları](https://www.azureiotsolutions.com/Accelerators#dashboard) sayfasına gidin. Azure aboneliği kimlik bilgilerinizi kullanarak oturum açmanız istenebilir.
 
-Ardından [Hızlı başlangıç](quickstart-remote-monitoring-deploy.md) ile dağıttığınız Uzaktan İzleme çözüm hızlandırıcısına ait kutucukta bulunan **Başlat** öğesine tıklayın.
+Ardından [Hızlı başlangıç](quickstart-remote-monitoring-deploy.md) ile dağıttığınız Uzaktan İzleme çözümü hızlandırıcısına ait kutucukta bulunan **Başlat** öğesine tıklayın.
 
 ## <a name="create-a-device-group"></a>Bir cihaz grubu oluşturma
 
