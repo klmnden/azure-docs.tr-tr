@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/18/2019
+ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 45224b1b0ec4a4b3c93393c178f1f03baa58e10b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: ff5c8c4d3f6a0c87afae67404a5a39d4fe3757d9
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189147"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571104"
 ---
 # <a name="virtual-network-tap"></a>Sanal ağ TAP
 
@@ -36,17 +36,18 @@ Azure sanal ağ TAP (Terminal erişim noktası) bir ağ paketi Toplayıcı veya 
 - [Yapı izleme büyük büyük anahtarı](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
 - [Gigamon GigaSECURE](https://blog.gigamon.com/2018/09/13/why-microsofts-new-vtap-service-works-even-better-with-gigasecure-for-azure)
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
+- [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 
 ### <a name="security-analytics-networkapplication-performance-management"></a>Güvenlik analizi, ağ/uygulama performansı Yönetimi
 
 - [Uyanık güvenlik](https://awakesecurity.com/technology-partners/microsoft-azure/)
 - [Cisco Stealthwatch Cloud](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
+- [Darktrace](https://www.darktrace.com/en/azure/)
 - [ExtraHop Reveal(x)](https://www.extrahop.com/company/tech-partners/microsoft/)
 - [Fidelis siber güvenlik](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
 - [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [Netscout vSTREAM]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
-- [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 - [RSA NetWitness® platformu](https://www.rsa.com/azure)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)
 
@@ -56,7 +57,7 @@ DOKUNUN works aşağıdaki resmin gösterdiği nasıl sanal ağ. Bir DOKUNUN yap
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Sanal ağ TAP oluşturmadan önce önizlemede kaydedilen ve bir veya daha fazla sanal makine kullanılarak oluşturulan bir onay posta aldığınız gerekir [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) dağıtım modeli ve bir iş ortağı DOKUNUN toplayarak çözüm WestCentralUS bölgede trafiği. Sanal ağınızdaki bir iş ortağı çözümü yoksa bkz [iş ortağı çözümleri](#virtual-network-tap-partner-solutions) birini dağıtmak için. Aynı sanal ağda birden çok ağ arabirimi aynı veya farklı Aboneliklerdeki trafiğe DOKUNUN kaynak kullanabilirsiniz. İzlenen ağ arabirimleri farklı Aboneliklerde olması halinde, aboneliklerin aynı Azure Active Directory kiracısı ile ilişkilendirilmesi gerekir. Ayrıca, izlenen ağ arabirimleri ve toplama DOKUNUN trafik için hedef uç nokta aynı bölgedeki eşlenmiş sanal ağlarda bulunan olabilir. Bu dağıtım modeli kullanıyorsanız emin [sanal ağ eşlemesi](virtual-network-peering-overview.md) sanal ağ TAP'ı yapılandırmadan önce etkinleştirilir.
+Sanal ağ TAP oluşturmadan önce önizlemede kaydedilen ve bir veya daha fazla sanal makine kullanılarak oluşturulan bir onay posta aldığınız gerekir [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) dağıtım modeli ve bir iş ortağı aynı azure bölgesinde DOKUNUN trafiği toplayarak çözümü. Sanal ağınızdaki bir iş ortağı çözümü yoksa bkz [iş ortağı çözümleri](#virtual-network-tap-partner-solutions) birini dağıtmak için. Aynı sanal ağda birden çok ağ arabirimi aynı veya farklı Aboneliklerdeki trafiğe DOKUNUN kaynak kullanabilirsiniz. İzlenen ağ arabirimleri farklı Aboneliklerde olması halinde, aboneliklerin aynı Azure Active Directory kiracısı ile ilişkilendirilmesi gerekir. Ayrıca, izlenen ağ arabirimleri ve toplama DOKUNUN trafik için hedef uç nokta aynı bölgedeki eşlenmiş sanal ağlarda bulunan olabilir. Bu dağıtım modeli kullanıyorsanız emin [sanal ağ eşlemesi](virtual-network-peering-overview.md) sanal ağ TAP'ı yapılandırmadan önce etkinleştirilir.
 
 ## <a name="permissions"></a>İzinler
 

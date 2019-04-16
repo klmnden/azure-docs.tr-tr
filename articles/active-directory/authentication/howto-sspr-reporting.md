@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493068"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577976"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD parola yönetimi için raporlama seçenekleri
 
@@ -50,15 +50,14 @@ Azure portalı deneyiminde, parola sıfırlama görüntüleyebilir ve parola sı
 1. [Azure portala](https://portal.azure.com) gidin.
 2. Seçin **tüm hizmetleri** sol bölmesinde.
 3. Arama **Azure Active Directory** Hizmetler listesinde ve bu seçeneği belirleyin.
-4. **Kullanıcı ve gruplar**'ı seçin.
-5. Seçin **denetim günlüklerini** gelen **kullanıcılar ve gruplar** menüsü. Bu, dizininizdeki tüm kullanıcılara karşı gerçekleşen denetim olayların tümünü gösterir. Bu görünüm tüm parola ile ilgili olayları görmek için filtre uygulayabilirsiniz.
-6. Bu görünüm yalnızca parola sıfırlama ilgili olayları görmek için filtre uygulamak için seçin **filtre** bölmenin üstünde düğme.
-7. Gelen **filtre** menüsünde **kategori** aşağı açılan liste ve şekilde değiştirin **Self Servis parola yönetimi** kategori türü.
-8. İsteğe bağlı olarak, daha fazla listenin belirli seçerek filtrelemek **etkinlik** ilgilendiğiniz.
+4. Seçin **kullanıcılar** Yönet bölümünden.
+5. Seçin **denetim günlüklerini** gelen **kullanıcılar** dikey penceresi. Bu, dizininizdeki tüm kullanıcılara karşı gerçekleşen denetim olayların tümünü gösterir. Bu görünüm tüm parola ile ilgili olayları görmek için filtre uygulayabilirsiniz.
+6. Gelen **filtre** seçim bölmesinin üst menü **hizmet** aşağı açılan liste ve şekilde değiştirin **Self Servis parola yönetimi** hizmet türü.
+7. İsteğe bağlı olarak, daha fazla listenin belirli seçerek filtrelemek **etkinlik** ilgilendiğiniz.
 
 ### <a name="converged-registration-preview"></a>Yakınsanmış kayıt (Önizleme)
 
-Yakınsanmış kayıt genel önizlemede katılan, Denetim günlüklerinde kullanıcı etkinliği ile ilgili bilgi kategorisi altında bulunacaktır **kimlik doğrulama yöntemleri**.
+Yakınsanmış kayıt genel önizlemede katılan, Denetim günlüklerinde kullanıcı etkinliği ile ilgili bilgi hizmetin altında bulunacaktır **kimlik doğrulama yöntemleri**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Azure Portalı'nda rapor sütunlarında açıklaması
 
@@ -176,16 +175,16 @@ Aşağıdaki listede, bu etkinliğin ayrıntılı açıklanmıştır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Sspr'yi başarılı bir sunum nasıl tamamlamak?](howto-sspr-deployment.md)
+* [SSPR’yi başarılı bir şekilde nasıl piyasaya çıkarabilirim?](howto-sspr-deployment.md)
 * [Parolanızı sıfırlama veya değiştirme](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Self servis parola sıfırlama için kaydolma](../user-help/active-directory-passwords-reset-register.md).
-* [Lisans bir sorunuz var mı?](concept-sspr-licensing.md)
-* [SSPR tarafından kullanılan verileri ve hangi verilerin, kullanıcılarınız için doldurmanız gerekir?](howto-sspr-authenticationdata.md)
-* [Kimlik doğrulama yöntemleri, kullanıcılara kullanılabilir mi?](concept-sspr-howitworks.md#authentication-methods)
+* [Lisansla ilgili bir sorunuz mu var?](concept-sspr-licensing.md)
+* [SSPR hangi verileri kullanır ve kullanıcılarınız için hangi verileri doldurmanız gerekir?](howto-sspr-authenticationdata.md)
+* [Kullanıcılar hangi kimlik doğrulama yöntemlerini kullanabilir?](concept-sspr-howitworks.md#authentication-methods)
 * [SSPR ile kullanılabilen ilke seçenekleri nelerdir?](concept-sspr-policy.md)
 * [Parola geri yazma nedir ve neden önemlidir?](howto-sspr-writeback.md)
-* [Tüm SSPR seçenekler nelerdir ve ne anlama gelir?](concept-sspr-howitworks.md)
-* [Bir arıza olduğunu düşünüyorum. SSPR nasıl giderebilirim?](active-directory-passwords-troubleshoot.md)
-* [Başka bir yerde ele değil bir sorum var](active-directory-passwords-faq.md)
+* [SSPR’deki tüm seçenekler nelerdir ve ne anlama gelir?](concept-sspr-howitworks.md)
+* [Bir arıza olduğunu düşünüyorum. SSPR’de nasıl sorun giderebilirim?](active-directory-passwords-troubleshoot.md)
+* [Başka bir yerde ele alınmayan bir sorum var](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Azure AD'de örneği SSPR etkinlik denetim günlükleri"

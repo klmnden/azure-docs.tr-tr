@@ -16,12 +16,12 @@ ms.date: 04/05/2019
 ms.subservice: manage-apps
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ab280b4647c0e8eb7083797ec00965cbaec6f8e
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: bf9ee43c6c6b332c05286da8e330812d7e0db6c2
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502346"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578598"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD uygulama ara sunucusu: Sürüm yayınlama geçmişi
 Bu makalede sürümleri ve yayımlanan Azure Active Directory (Azure AD) uygulama proxy'si özellikleri listeler. Azure AD ekibi, yeni özellikler ve işlevler ile uygulama proxy'si düzenli olarak güncelleştirmektedir. Yeni bir sürümü yayımlandığında uygulama ara sunucusu bağlayıcılarını otomatik olarak güncelleştirilir.
@@ -31,7 +31,7 @@ Bu makalede sürümleri ve yayımlanan Azure Active Directory (Azure AD) uygulam
 Kaynak |  Ayrıntılar
 --------- | --------- |
 Uygulama proxy'sini etkinleştirme | Uygulama proxy'sini etkinleştirme, yükleme ve bir bağlayıcıyı kaydetme için ön koşullar Bu açıklanmıştır [öğretici](application-proxy-add-on-premises-application.md).
-Azure AD uygulama ara sunucusu bağlayıcıları anlama | Hakkında daha fazla bilgi edinin [Bağlayıcısı Yönetim](application-proxy-connectors.md) ve nasıl bağlayıcılar otomatik yükseltme.
+Azure AD uygulama ara sunucusu bağlayıcıları anlama | Hakkında daha fazla bilgi edinin [Bağlayıcısı Yönetim](application-proxy-connectors.md) ve nasıl Bağlayıcılar [otomatik yükseltme](application-proxy-connectors.md#automatic-updates).
 Azure AD uygulama ara sunucusu bağlayıcısını indir |  [En son bağlayıcı indirmek](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
 
 ## <a name="156120"></a>1.5.612.0

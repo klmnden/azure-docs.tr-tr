@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 9809584a3abe1d0cdde2cd6ccf90b48432d27c11
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 90ec7cf4964440d39b3f69eb9ae9708eaafe3748
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007838"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579045"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP uygulamaları için SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -95,7 +95,8 @@ NFS sunucusu, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver Ağıranlar v
   * (A) bir parçası olması gereken tüm sanal makinelerin birincil ağ arabirimlerine bağlı SCS/Ağıranlar küme
 * Araştırma bağlantı noktası
   * Port 620<strong>&lt;nr&gt;</strong>
-* Yük Dengeleme kuralları
+* Yükleme 
+* Dengeleme kuralları
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
@@ -112,7 +113,7 @@ NFS sunucusu, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver Ağıranlar v
   * (A) bir parçası olması gereken tüm sanal makinelerin birincil ağ arabirimlerine bağlı SCS/Ağıranlar küme
 * Araştırma bağlantı noktası
   * Port 621<strong>&lt;nr&gt;</strong>
-* Yük Dengeleme kuralları
+* Yük dengeleme kuralları
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -132,7 +133,8 @@ Azure Market görüntü için SUSE Linux Enterprise Server SAP uygulamaları 12 
 
 Tüm gerekli kaynakları dağıtmak için Github'da hızlı başlangıç şablonlarından birini kullanabilirsiniz. Şablonu, sanal makineler, yük dengeleyici, kullanılabilirlik vb. kümesi dağıtır. Şablonu dağıtmak için aşağıdaki adımları izleyin:
 
-1. Açık [ASCS/SCS çoklu SID şablon] [ template-multisid-xscs] veya [şablon yakınsanmış] [ template-converged] ASCS/SCS şablon oluşturur. yalnızca Azure portalında yakınsanmış şablonu ayrıca bir veritabanı (örneğin, Microsoft SQL Server veya SAP HANA) için Yük Dengeleme kuralları oluşturur ancak Yük Dengeleme SAP NetWeaver ASCS/SCS ve Ağıranlar için (yalnızca Linux) örnekleri kuralları. SAP NetWeaver tabanlı sistem yüklemeyi planladığınız ve ayrıca istiyorsanız aynı makinelerde veritabanını yüklemek kullanın [şablon yakınsanmış][template-converged].
+1. Açık [ASCS/SCS çoklu SID şablon] [ template-multisid-xscs] veya [şablon yakınsanmış] [ template-converged] Azure portalında. 
+   Yakınsanmış şablonu ayrıca bir veritabanı (örneğin, Microsoft SQL Server veya SAP HANA) için Yük Dengeleme kuralları oluşturur ancak ASCS/SCS şablon Ağıranlar (yalnızca Linux) örnekleri ve SAP NetWeaver ASCS/SCS için yalnızca Yük Dengeleme kuralları oluşturur. SAP NetWeaver tabanlı sistem yüklemeyi planladığınız ve ayrıca istiyorsanız aynı makinelerde veritabanını yüklemek kullanın [şablon yakınsanmış][template-converged].
 1. Aşağıdaki parametreleri girin
    1. Kaynak ön eki (ASCS/SCS çoklu SID şablonu)  
       Kullanmak istediğiniz ön eki girin. Değeri, dağıtılan kaynaklar için önek olarak kullanılır.
@@ -144,7 +146,7 @@ Tüm gerekli kaynakları dağıtmak için Github'da hızlı başlangıç şablon
       Linux dağıtımları birini seçin. Bu örnekte, SLES 12 BYOS seçin
    6. Veritabanı türü  
       HANA seçin
-   7. SAP sistemi boyutu  
+   7. SAP sistemi boyutu.  
       Yeni sisteme sağlar SAP miktarı. Kaç tane SAP sistemi gerektiriyor değil eminseniz, SAP teknoloji iş ortağı veya sistem Entegratörü isteyin
    8. Sistem kullanılabilirliği  
       HA seçin
@@ -198,7 +200,7 @@ Tüm gerekli kaynakları dağıtmak için Github'da hızlı başlangıç şablon
          1. Tamam'a tıklayın
       1. Bağlantı noktası 621**02** ASCS Ağıranlar için
          * Cıların için durum araştırması oluşturmak için yukarıdaki adımları yineleyin (örneğin 621**02** ve **nw1 aers hp**)
-   1. Yük Dengeleme kuralları
+   1. Yük dengeleme kuralları
       1. 32**00** ASCS TCP
          1. Açık yük dengeleyici, Yük Dengeleme kuralları'nı seçin ve Ekle'ye tıklayın
          1. Yeni Yük Dengeleyici kuralı adını girin (örneğin **nw1 lb 3200**)
@@ -530,6 +532,8 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
 
 1. **[1]**  SAP küme kaynaklarını oluşturma
 
+Sıraya alma 1 sunucusu mimarisi (ENSA1) kullanıyorsanız, kaynakları gibi tanımlayın:
+
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
@@ -556,7 +560,37 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
+  Kuyruğa sunucu çoğaltma, SAP KB 7.52 itibarıyla dahil olmak üzere 2 için sunulan destek SAP. Sıraya alma sunucu 2 ABAP Platform 1809 ile başlayarak, varsayılan olarak yüklenir. SAP bkz Not [2630416](https://launchpad.support.sap.com/#/notes/2630416) kuyruğa sunucu 2 desteği.
+Sıraya alma 2 sunucu mimarisi kullanıyorsanız ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), kaynakları aşağıdaki gibi tanımlayın:
+
+<pre><code>sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true 
+   
+   sudo crm configure modgroup g-<b>NW1</b>_ASCS add rsc_sap_<b>NW1</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>NW1</b>_ERS add rsc_sap_<b>NW1</b>_ERS<b>02</b>
+   
+   sudo crm configure colocation col_sap_<b>NW1</b>_no_both -5000: g-<b>NW1</b>_ERS g-<b>NW1</b>_ASCS
+   sudo crm configure order ord_sap_<b>NW1</b>_first_start_ascs Optional: rsc_sap_<b>NW1</b>_ASCS<b>00</b>:start rsc_sap_<b>NW1</b>_ERS<b>02</b>:stop symmetrical=false
+   
+   sudo crm node online <b>nw1-cl-0</b>
+   sudo crm configure property maintenance-mode="false"
+   </code></pre>
+
+  Eski bir sürümden yükseltme ve 2 kuyruğa sunucusuna geçiş'lu sap notuna bakın [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+
    Küme durumunun Tamam olduğunu ve tüm kaynakları başlatıldığından emin olun. Hangi düğümünde kaynaklarını çalıştıran önemli değildir.
+
 
    <pre><code>sudo crm_mon -r
    
@@ -958,7 +992,7 @@ En iyi uygulamalar kılavuzları SUSE, test çalışmalarını bir kopyasını t
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Örnek düzenleme işlem su01 bir kullanıcı tarafından kuyruğa kilit oluşturun. Olarak aşağıdaki komutları çalıştırın \<sapsid > adm ASCS örneğinin çalıştığı düğüm üzerinde. Komutlar ASCS örneğini durdurun ve yeniden başlatın. Bu sınamada kaybolur kuyruğa kilit bekleniyor.
+   Örnek düzenleme işlem su01 bir kullanıcı tarafından kuyruğa kilit oluşturun. Olarak aşağıdaki komutları çalıştırın \<sapsid > adm ASCS örneğinin çalıştığı düğüm üzerinde. Komutlar ASCS örneğini durdurun ve yeniden başlatın. Sıraya alma 1 sunucusu mimarisi kullanarak, sıraya alma kilidi bu sınamada kaybolur beklenir. Sıraya alma 2 sunucu mimarisi kullanarak, kuyruğa korunur. 
 
    <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>

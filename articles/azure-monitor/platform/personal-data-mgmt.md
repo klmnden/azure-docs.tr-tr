@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 9112d50384aba288038343ff9a14ed55542fb722
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0cf5a80e3eedbe7efb8463162b5b3ed489ac08c8
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121358"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577907"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Log Analytics ve Application Insights depolanan kişisel verilere yönelik kılavuz
 
@@ -86,6 +86,9 @@ Belirtildiği gibi [kişisel veri işleme stratejisi](#strategy-for-personal-dat
 ### <a name="view-and-export"></a>Görüntüle ve dışarı aktarma
 
 Hem görüntüleme hem de veri isteklerini dışarı aktarmak için [Log Analytics sorgu API'si](https://dev.loganalytics.io/) veya [Application Insights sorgu API'si](https://dev.applicationinsights.io/quickstart) kullanılmalıdır. Kullanıcılarınıza sunmak için uygun bir veri şekli dönüştürmek için mantıksal uygulamanız size olacaktır. [Azure işlevleri](https://azure.microsoft.com/services/functions/) böyle bir mantık barındırmak için harika bir yer sağlar.
+
+> [!IMPORTANT]
+>  Temizleme işlemleri büyük çoğunluğu SLA'sı çok hızlı tamamlarken **resmi 30 günde temizleme işlemlerinin tamamlanmasını SLA ayarlanır** yoğun kullanılan bir veri platformu etkilerini nedeniyle. Bu otomatik bir işlemdir; bir işlem daha hızlı işlenmesi istemek için hiçbir yolu yoktur.
 
 ### <a name="delete"></a>Sil
 

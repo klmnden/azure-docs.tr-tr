@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/04/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 7f501bf8496d1293a45c15908d4f2b21b6ed01d2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 8ceb3d2d97c63bd19333336314beb6c7444288e9
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045414"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578416"
 ---
 # <a name="what-is-azure-event-grid"></a>Azure Event Grid nedir?
 
@@ -22,7 +22,7 @@ Azure Event Grid, olay temelli mimarilerle kolayca uygulamalar derlemenize olana
 
 Belirli olayları farklı uç noktalara yönlendirmek, birden fazla uç noktaya yayın yapmak ve olaylarınızın güvenilir bir şekilde teslim edildiğinden emin olmak üzere filtreleri kullanabilirsiniz.
 
-Azure Event Grid şu anda tüm genel bölgelerde kullanılabilir durumdadır. Henüz Azure Almanya, Azure Çin veya Azure kamu bulutlarında kullanılamıyor.
+Azure Event Grid şu anda tüm genel bölgelerde kullanılabilir durumdadır. Henüz Azure Almanya, Azure Çin 21Vianet veya Azure kamu Bulutları kullanılabilir değil.
 
 Bu makalede Azure Event Grid’e genel bir bakış sağlanmıştır. Event Grid kullanmaya başlamak istiyorsanız bkz. [Azure Event Grid ile özel olaylar oluşturma ve yönlendirme](custom-event-quickstart.md). 
 
@@ -34,30 +34,29 @@ Bu görüntü nasıl Event Grid kaynakları ve işleyicilerini bağlar ve destek
 
 Kaynağın özellikleriyle ilgili tüm ayrıntılar ve ilgili makaleler için bkz. [olay kaynakları](event-sources.md). Şu anda Event Grid’e olay gönderme özelliği aşağıdaki Azure hizmetleri tarafından desteklenmektedir:
 
-* Azure Abonelikleri (yönetim işlemleri)
-* Container Kayıt Defteri
-* Özel Konu Başlıkları
-* Event Hubs
-* IoT Hub
-* Media Services
-* Kaynak Grupları (yönetim işlemleri)
-* Service Bus
-* Depolama Blobu
-* Depolama Genel-amaçlı v2 (GPv2)
-* Azure Haritalar
+* [Azure abonelikleri (yönetim işlemleri)](event-sources.md#azure-subscriptions)
+* [Container Registry](event-sources.md#container-registry)
+* [Özel konular](event-sources.md#custom-topics)
+* [Event Hubs](event-sources.md#event-hubs)
+* [IoT Hub’ı](event-sources.md#iot-hub)
+* [Media Services](event-sources.md#media-services)
+* [Kaynak grupları (yönetim işlemleri)](event-sources.md#resource-groups)
+* [Service Bus](event-sources.md#service-bus)
+* [Depolama blobu](event-sources.md#storage)
+* [Azure Haritalar](event-sources.md#maps)
 
 ## <a name="event-handlers"></a>Olay işleyicileri
 
 İşleyicinin özellikleriyle ilgili tüm ayrıntılar ve ilgili makaleler için bkz. [olay işleyicileri](event-handlers.md). Şu anda Event Grid’den olay işleme özelliği aşağıdaki Azure hizmetleri tarafından desteklenmektedir: 
 
-* Azure Otomasyonu
-* Azure İşlevleri
-* Event Hubs
-* Karma Bağlantılar
-* Logic Apps
-* Microsoft Flow
-* Kuyruk Depolama
-* WebHooks
+* [Azure Otomasyonu](event-handlers.md#azure-automation)
+* [Azure İşlevleri](event-handlers.md#azure-functions)
+* [Event Hubs](event-handlers.md#event-hubs)
+* [Karma Bağlantılar](event-handlers.md#hybrid-connections)
+* [Logic Apps](event-handlers.md#logic-apps)
+* [Microsoft Flow](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
+* [Kuyruk depolama](event-handlers.md#queue-storage)
+* [Web kancaları](event-handlers.md#webhooks)
 
 ## <a name="concepts"></a>Kavramlar
 
@@ -114,13 +113,13 @@ Azure Event Grid, olay başına ödeme fiyatlandırma modeli kullanır, bu neden
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Blob Depolama olaylarını yönlendirme](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
+* [Depolama Blobu olaylarını yönlendirme](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
   Event Grid kullanarak depolama blobu olaylarına yanıt verin.
-* [Oluşturma ve özel olaylara abone](custom-event-quickstart.md)  
+* [Özel olay oluşturma ve özel olaylara abone olma](custom-event-quickstart.md)  
   Azure Event Grid hızlı başlangıcını kullanarak hemen giriş yapın ve kendi özel olaylarınızı herhangi bir uç noktaya göndermeye başlayın.
-* [Bir olay işleyicisi Logic Apps kullanarak](monitor-virtual-machine-changes-event-grid-logic-app.md)  
+* [Olay İşleyicisi olarak Logic Apps kullanma](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   Event Grid tarafından gönderilen olaylara yanıt vermek üzere Logic Apps kullanarak uygulama derleme öğreticisi.
-* [Büyük verileri bir veri ambarına akışla aktarma](event-grid-event-hubs-integration.md)  
+* [Veri ambarına büyük veri akışı yapma](event-grid-event-hubs-integration.md)  
   Azure İşlevleri’ni kullanarak Event Hubs’dan SQL Veri Ambarı’na veri akışı yapan öğretici.
-* [Event Grid REST API Başvurusu](/rest/api/eventgrid)  
+* [Event Grid REST API başvurusu](/rest/api/eventgrid)  
   Olay Aboneliklerini yönetmek için başvuru içeriği sağlar Yönlendirme ve filtreleme.

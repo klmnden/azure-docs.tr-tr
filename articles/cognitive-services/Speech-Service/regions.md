@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 90fa56bb0e2044d24533c35a051d3f4b644e05b5
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: eb3697eefb5835305b2ec80ca1e77ccade19e44f
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349646"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578197"
 ---
 # <a name="speech-service-supported-regions"></a>Konuşma hizmeti desteklenen bölgeler
 
@@ -38,10 +38,10 @@ Bu bölgeler için Speech SDK'sı kullanılabilir **konuşma tanıma** ve **çev
  Batı ABD 2 | `westus2` | https://westus2.cris.ai
  Doğu ABD | `eastus` | https://eastus.cris.ai
  Doğu ABD 2 | `eastus2` | https://eastus2.cris.ai
- Orta ABD | 'centralus' | https://centralus.cris.ai
- Orta Kuzey ABD | 'northcentralus' | https://northcentralus.cris.ai
- Orta Güney ABD | 'southcentralus' | https://southcentralus.cris.ai
- Orta Hindistan | 'centralindia' | https://centralindia.cris.ai
+ Orta ABD | `centralus` | https://centralus.cris.ai
+ Orta Kuzey ABD | `northcentralus` | https://northcentralus.cris.ai
+ Orta Güney ABD | `southcentralus` | https://southcentralus.cris.ai
+ Orta Hindistan | `centralindia` | https://centralindia.cris.ai
  Doğu Asya | `eastasia` | https://eastasia.cris.ai
  Güneydoğu Asya | `southeastasia` | https://southeastasia.cris.ai
  Japonya Doğu | `japaneast` | https://japaneast.cris.ai

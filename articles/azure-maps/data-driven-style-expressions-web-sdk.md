@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 0f63ed7d00f1ae3e30cdac76606559a4e9f49f04
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288104"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579504"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Veri odaklı stili ifadeleri (Web SDK'sı)
 
@@ -43,7 +43,7 @@ Azure haritalar Web SDK'sı kendi veya diğer ifadeler birlikte kullanılan ifad
 
 | İfade türü | Açıklama |
 |---------------------|-------------|
-| [Mantıksal ifadeler](#boolean-expressions) | Boolean ifadeleri Boole karşılaştırmalar değerlendirmek için bir Boole işleçleri ifade kümesi sağlar. |
+| [Boole ifadeleri](#boolean-expressions) | Boolean ifadeleri Boole karşılaştırmalar değerlendirmek için bir Boole işleçleri ifade kümesi sağlar. |
 | [Renk ifadeleri](#color-expressions) | Renk ifadeleri oluşturma ve renk değerleri kolaylaştırır. |
 | [Koşullu ifadeler](#conditional-expressions) | Koşullu ifadeler gibi IF deyimi mantıksal işlemleri sağlar. |
 | [Veri ifadeleri](#data-expressions) | Bir özellik özelliği verilere erişim sağlar. |
@@ -296,7 +296,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 A `coalesce` ifade adımları bir ifade kümesi kadar ilk null olmayan değer elde edilir ve bu değeri döndürür. 
 
-Aşağıdaki sözde kod yapısını tanımlayan ` coalesce` ifade. 
+Aşağıdaki sözde kod yapısını tanımlayan `coalesce` ifade. 
 
 ```javascript
 [
@@ -789,16 +789,16 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 İfadeleri uygulamak daha fazla kod örneği için aşağıdaki makalelere bakın:
 
 > [!div class="nextstepaction"] 
-> [Sembol katmanı ekleme](map-add-pin.md)
+> [Sembol katmanı Ekle](map-add-pin.md)
 
 > [!div class="nextstepaction"] 
-> [Baloncuk katmanı ekleme](map-add-bubble-layer.md)
+> [Kabarcık katmanı Ekle](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"] 
 > [Şekil ekleme](map-add-shape.md)
 
 > [!div class="nextstepaction"] 
-> [Isı haritası katmanı ekleme](map-add-heat-map-layer.md)
+> [Isı Haritası katman ekleyin](map-add-heat-map-layer.md)
 
 İfadeleri destekleyen katman seçenekleri hakkında daha fazla bilgi edinin:
 

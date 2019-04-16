@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: snehaa
-ms.openlocfilehash: 366240c273feed559edb6e569640020046cc9471
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 17cead93325da903161d95b315435d6e7b106dbb
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578654"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578926"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure geçişi - sık sorulan sorular (SSS)
 
@@ -60,6 +60,10 @@ Durumları sahip | Doğu ABD ve Batı Orta ABD
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Şirket içi siteyle Azure geçişi için nasıl bağlanıyor?
 
 Bağlantı ortak eşleme ExpressRoute kullanabilir veya internet üzerinden olabilir.
+
+### <a name="what-network-connectivity-requirements-are-needed-for-azure-migrate"></a>Hangi ağ bağlantısı gereksinimlerini, Azure geçişi için gerekli mi?
+
+URL'ler ve Azure geçişi için gereken bağlantı noktaları için Azure ile iletişim kurmak, bkz. [URL'leri bağlantı](https://docs.microsoft.com/azure/migrate/concepts-collector#urls-for-connectivity).
 
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Ben OVA şablonu ile ayarlanmış bir VM sağlamlaştırmak?
 
@@ -128,11 +132,11 @@ Bağımlılık aracısı tarafından toplanan veriler de içinde şifrelenmiş A
 
 ### <a name="how-does-the-collector-communicate-with-the-vcenter-server-and-the-azure-migrate-service"></a>Toplayıcı, vCenter Server ve Azure geçişi hizmeti ile nasıl iletişim?
 
-Toplayıcı Gereci vCenter Server'a (bağlantı noktası 443) bağlanan gereç kullanıcı tarafından sağlanan kimlik bilgilerini kullanarak. Bu, vCenter Server vCenter Server tarafından yönetilen sanal makineleri ile ilgili meta verileri toplamak için VMware powerclı'yı kullanarak sorgular. Her iki yapılandırma verilerini VM'ler (çekirdekler, bellek, disk, NIC vb.) hakkında vCenter Server'dan tek tek son bir ay boyunca her VM'nin performans geçmişi yanı sıra toplar. Toplanan meta veriler daha sonra değerlendirmesi için Azure geçişi hizmeti (internet üzerinden https üzerinden) gönderilir. [Daha fazla bilgi](concepts-collector.md)
+Toplayıcı gereci, vCenter Server'a (443 numaralı bağlantı noktası) bağlanmak için kullanıcı tarafından gerece girilen kimlik bilgilerini kullanır. vCenter Server'ı VMware PowerCLI ile sorgulayarak vCenter Server tarafından yönetilen VM'ler hakkında meta veri toplar. vCenter Server'dan VM'lerin yapılandırma verilerinin (çekirdek, bellek, disk, NIC vb.) yanı sıra her bir VM'nin bir aylık performans geçmişini de alır. Toplanan meta veriler değerlendirilmek üzere Azure Geçişi hizmetine (internet üzerinden https ile) gönderilir. [Daha fazla bilgi](concepts-collector.md)
 
 ### <a name="can-i-connect-the-same-collector-appliance-to-multiple-vcenter-servers"></a>Birden fazla vCenter sunucunuz için aynı Toplayıcı gerecini bağlanabilir miyim?
 
-Evet, bir tek Toplayıcı gerecini birden fazla vCenter sunucularını bulmak için kullanılabilir ancak aynı anda değil. Bulma birbiri ardına çalıştırmanız gerekir.
+Evet, tek bir toplayıcı gereciyle birden fazla vCenter sunucusunu bulabilirsiniz ancak bunu aynı anda yapamazsınız. Bulma işlemini teker teker çalıştırmanız gerekir.
 
 ### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>Site Recovery tarafından kullanılan OVA şablonu, Azure geçişi tarafından kullanılan OVA tümleşiktir?
 
@@ -140,7 +144,7 @@ Evet, bir tek Toplayıcı gerecini birden fazla vCenter sunucularını bulmak i�
 
 ### <a name="i-changed-my-machine-size-can-i-rerun-the-assessment"></a>Makine boyut değiştirdim. Değerlendirmeyi yeniden çalıştırabilir miyim?
 
-Değerlendirmek istediğiniz VM ayarlarını değiştirirseniz, tetikleyici keşfedin yeniden Toplayıcı gerecini kullanarak. Gereci kullanın **koleksiyonu yeniden Başlat** Bunu yapmak için seçeneği. Koleksiyon tamamlandıktan sonra, güncelleştirilmiş değerlendirme sonuçlarını almak için portalda değerlendirmeye yönelik **Yeniden hesapla** seçeneğini belirleyin.
+Değerlendirmek istediğiniz VM'nin ayarlarını değiştirirseniz, toplayıcı gerecini kullanarak bulmayı yeniden tetikleyin. Gereçte, bunu yapmak için **Koleksiyonu yeniden başlat** seçeneğini kullanın. Koleksiyon tamamlandıktan sonra, güncelleştirilmiş değerlendirme sonuçlarını almak için portalda değerlendirmeye yönelik **Yeniden hesapla** seçeneğini belirleyin.
 
 ### <a name="how-can-i-discover-a-multi-tenant-environment-in-azure-migrate"></a>Azure Geçişi'ndeki çok kiracılı bir ortam nasıl bulabilecek kişileri?
 

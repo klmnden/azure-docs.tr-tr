@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0a29c15be6cfb73bb768e74cd9141e660b598f06
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: c68bae87440bddf704d18b575aeb1f4ba4760bbb
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565674"
+ms.locfileid: "59578252"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure'da bir SQL Server sanal makinesi için lisanslama modelini değiştirme
 Bu makalede yeni kullanarak Azure'da bir SQL Server sanal makine için lisans modeli değiştirmek nasıl SQL VM kaynak sağlayıcısı - **Microsoft.SqlVirtualMachine**. İki sanal makine (VM) için model barındıran SQL Server - Kullandıkça Öde, lisanslama ve kendi lisansınızı getirin (BYOL). Ve şimdi, Azure portalı, Azure CLI veya PowerShell kullanarak SQL Server VM'nize kullanan hangi lisans modeli değiştirebilirsiniz. 
@@ -44,7 +44,7 @@ Bu makalede yeni kullanarak Azure'da bir SQL Server sanal makine için lisans mo
  - Lisanslama modelini dönüştürme imkanı yalnızca kullandıkça öde SQL Server VM görüntüsünü kullanmaya başladığınızda sunulur. Portaldan kendi lisansını getir görüntüsüyle başlamanız durumunda ilgili görüntüyü kullandıkça öde modeline dönüştüremezsiniz.
  - Lisanslama modelini değiştirme yalnızca Resource Manager modeli kullanılarak dağıtılan sanal makineler için desteklenir. Klasik modeli kullanarak dağıtılan Vm'leri desteklenmiyor. 
  - Lisanslama modelini değiştirme yalnızca genel bulut yüklemeleri için etkindir.
- - Lisanslama modelini değiştirme yalnızca tek bir NIC'ye (ağ arabirimi) sahip sanal makineler üzerinde desteklenir. Birden fazla NIC içeren sanal makineler üzerinde ilk birini NIC'ler (Azure portalı kullanarak) kaldırmanız, yordam denemeden önce. Aksi halde, aşağıdakine benzer bir hata çalışacaktır: ` The virtual machine '\<vmname\>' has more than one NIC associated.` Lisanslama modu değiştirdikten sonra VM NIC eklemeniz mümkün olabilir, ancak SQL yapılandırma dikey penceresinde otomatik düzeltme eki uygulama ve yedekleme gibi aracılığıyla yapılan işlemleri artık değerlendirilip onaylanır desteklenir.
+ - Lisanslama modelini değiştirme yalnızca tek bir NIC'ye (ağ arabirimi) sahip sanal makineler üzerinde desteklenir. Birden fazla NIC içeren sanal makineler üzerinde ilk birini NIC'ler (Azure portalı kullanarak) kaldırmanız, yordam denemeden önce. Aksi halde, aşağıdakine benzer bir hata çalışacaktır: `The virtual machine '\<vmname\>' has more than one NIC associated.` Lisanslama modu değiştirdikten sonra VM NIC eklemeniz mümkün olabilir, ancak SQL yapılandırma dikey penceresinde otomatik düzeltme eki uygulama ve yedekleme gibi aracılığıyla yapılan işlemleri artık değerlendirilip onaylanır desteklenir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

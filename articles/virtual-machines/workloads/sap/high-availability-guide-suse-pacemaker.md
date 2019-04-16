@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: f1b993cf45d987cb51f64359b331f3862d054774
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 62356ee35631373b5a5d38ed356bbb2fb489807b
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549908"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577804"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacemaker ayarlama
 
@@ -84,7 +84,7 @@ Tüm aşağıdaki komutları çalıştırın **iSCSI hedef sanal makinelere**.
 
 Tüm aşağıdaki komutları çalıştırın **iSCSI hedef sanal makinelere** iSCSI disklerini, SAP sistemlerini tarafından kullanılan kümeler için oluşturulacak. Aşağıdaki örnekte, SBD cihazlar birden fazla küme için oluşturulur. Bir iSCSI hedef sunucusu birden fazla küme için nasıl kullanacağınız gösterilmektedir. SBD cihazlar, işletim sistemi diskinde yerleştirilir. Yeterli alana sahip olduğunuzdan emin olun.
 
-**` nfs`** NFS küme tanımlamak için kullanılan **ascsnw1** ASCS kümesini tanımlamak için kullanılan **NW1**, **dbnw1** veritabanı kümesini tanımlamak için kullanılan **NW1** , **nfs 0** ve **nfs 1** konak adları NFS küme düğümlerinin **nw1 xscs 0** ve **nw1 xscs 1**konak adları'nın **NW1** ASCS küme düğümlerini ve **nw1-db-0** ve **nw1-db-1** veritabanının ana bilgisayar adları olan küme düğümleri. Bunları, Küme düğümlerinizi ana bilgisayar adlarını ve SAP sisteminizin SID ile değiştirin.
+**`nfs`** NFS küme tanımlamak için kullanılan **ascsnw1** ASCS kümesini tanımlamak için kullanılan **NW1**, **dbnw1** veritabanı kümesini tanımlamak için kullanılan **NW1** , **nfs 0** ve **nfs 1** konak adları NFS küme düğümlerinin **nw1 xscs 0** ve **nw1 xscs 1**konak adları'nın **NW1** ASCS küme düğümlerini ve **nw1-db-0** ve **nw1-db-1** veritabanının ana bilgisayar adları olan küme düğümleri. Bunları, Küme düğümlerinizi ana bilgisayar adlarını ve SAP sisteminizin SID ile değiştirin.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Oluşturma ` softdog` yapılandırma dosyası
+   Oluşturma `softdog` yapılandırma dosyası
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>

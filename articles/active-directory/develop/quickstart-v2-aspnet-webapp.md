@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44b11f49d788dd3c16c0cb8dd47cc59848b607ed
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: 4b83f5e6735f5b2554af2f5e6c74a7c9095d23fd
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505407"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579487"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
 
@@ -54,21 +54,21 @@ Bu hızlı başlangıçta, ASP.NET web uygulamasının herhangi bir Azure Active
 > 1. Seçin **yeni kayıt**.
 > 1. **Uygulama kaydet** sayfası göründüğünde uygulamanızın kayıt bilgilerini girin:
 >      - **Ad** alanına uygulama kullanıcılarına gösterilecek anlamlı bir uygulama adı girin, örneğin `ASPNET-Quickstart`.
->      - **Yanıt URL'sine** `https://localhost:44368/` yazın ve **Kaydet**'e tıklayın.
+>      - Ekleme `https://localhost:44368/` içinde **yeniden yönlendirme URI'si**, tıklatıp **kaydetme**.
 **Kimlik doğrulaması** menüsünü seçin, **Örtük izin verme** bölümünde **kimlik belirteçlerini** ayarlayın ve **Kaydet**'i seçin.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>1. Adım: Uygulamanızı Azure portalında yapılandırma
 > Bu hızlı başlangıçtaki kod örneğinin çalışması için `https://localhost:44368/` gibi bir yanıt URL’si eklemeniz gerekir.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Benim için bu değişiklik yapın]()
+> > [Bu değişikliği benim için yap]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Önceden yapılandırılmış](media/quickstart-v2-aspnet-webapp/green-check.png) uygulamanız bu öznitelikle yapılandırılana
+> > ![Zaten yapılandırılmış](media/quickstart-v2-aspnet-webapp/green-check.png) Uygulamanız bu özellikle yapılandırıldı
 
 #### <a name="step-2-download-your-project"></a>2. Adım: Projenizi indirin
 
-[Visual Studio 2017 çözümü indirin](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[Visual Studio 2017 çözümünü indirme](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>3. Adım: Visual Studio projenizi yapılandırın
 
@@ -83,11 +83,11 @@ Bu hızlı başlangıçta, ASP.NET web uygulamasının herhangi bir Azure Active
 
 > [!div renderon="docs"]
 > Konumlar:
-> - `Enter_the_Application_Id_here` -kaydettiğiniz uygulama için uygulama kimliği.
-> - `Enter_the_Tenant_Info_Here` -Aşağıdaki seçeneklerden biridir:
+> - `Enter_the_Application_Id_here` - Kaydettiğiniz uygulamanın Uygulama Kimliği değeridir.
+> - `Enter_the_Tenant_Info_Here` - Aşağıdaki seçeneklerden biridir:
 >   - Uygulamanız **Yalnızca kuruluşum** yaklaşımını destekliyorsa bu değeri **Kiracı Kimliği** veya **Kiracı adı** (örneğin, contoso.microsoft.com) ile değiştirin
->   - Uygulamanız destekliyorsa **herhangi bir kuruluş dizini hesaplarında**, bu değeri ile değiştirin `organizations`
->   - Uygulamanız destekliyorsa **tüm Microsoft hesabı kullanıcılarını**, bu değeri ile değiştirin `common`
+>   - Uygulamanız **Herhangi bir kuruluş dizinindeki hesaplar** yaklaşımını destekliyorsa bu değeri `organizations` ile değiştirin
+>   - Uygulamanız **Tüm Microsoft hesabı kullanıcıları** yaklaşımını destekliyorsa bu değeri `common` ile değiştirin
 >
 > > [!TIP]
 > > *Uygulama Kimliği*, *Dizin (kiracı) Kimliği* ve *Desteklenen hesap türleri* değerlerini bulmak için **Genel bakış** sayfasına gidin
@@ -158,7 +158,8 @@ public void Configuration(IAppBuilder app)
 
 
 > [!NOTE]
-> Ayar `ValidateIssuer = false` olduğu için bu hızlı başlangıçta bir basitleştirme. Gerçek sağlayıcısını doğrulamak için ihtiyacınız olan uygulamaları örnekleri bunun nasıl yapılacağını anlamak için bkz.
+> Ayar `ValidateIssuer = false` olduğu için bu hızlı başlangıçta bir basitleştirme. Gerçek uygulamalarda veren doğrulamanız gerekir.
+> Bunun nasıl yapılacağını anlamak için örneklere bakın.
 
 ### <a name="initiate-an-authentication-challenge"></a>Kimlik doğrulaması sınamasını başlatma
 
@@ -190,6 +191,6 @@ Bu hızlı başlangıcın tam bir açıklamasının da içinde olduğu yeni öze
 ### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Bu hızlı başlangıçta kullanılan uygulamayı oluşturma adımlarını öğrenin
 
 > [!div class="nextstepaction"]
-> [Oturum açma Öğreticisi](./tutorial-v2-asp-webapp.md)
+> [Oturum açma öğreticisi](./tutorial-v2-asp-webapp.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

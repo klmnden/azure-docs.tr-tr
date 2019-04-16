@@ -8,23 +8,25 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 0d40bfa3a4215b671fcd01402a2cbceaea0cd75d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0214fbbe1ecc0d0b6b20b740ec898f24cf5b58ec
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536292"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571303"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Çözümünüz için doğru IOT Hub katmanını seçme
 
-Her IOT çözümü farklı olduğundan Azure IOT Hub fiyatlandırma ve ölçek göre çeşitli seçenekler sunar. Bu makalede, IOT hub'ı gereksinimlerinizi değerlendirmenize yardımcı olmak için tasarlanmıştır. Fiyatlandırma IOT Hub katmanları hakkında daha fazla bilgi için bkz [IOT Hub fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub). 
+Her IOT çözümü farklı olduğundan Azure IOT Hub fiyatlandırma ve ölçek göre çeşitli seçenekler sunar. Bu makalede, IOT hub'ı gereksinimlerinizi değerlendirmenize yardımcı olmak için tasarlanmıştır. Fiyatlandırma IOT Hub katmanları hakkında daha fazla bilgi için bkz [IOT Hub fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub).
 
 Hangi IOT Hub katmanını çözümünüz için doğru olduğuna karar vermek için iki soruları kendinize sorun:
 
 **Kullanmak hangi özelliklerin planlıyor musunuz?**
+
 Azure IOT hub'ı destekledikleri özellikler sayısında farklı iki katmanı, temel ve standart, sunar. IOT çözümünüzü cihazlarından veri toplamak ve merkezi olarak analiz etme etrafında alıyorsa, temel katman için büyük olasılıkla uygun. IOT cihazları uzaktan denetleme veya bazı iş yüklerinizi aygıtlara dağıtmak için daha gelişmiş yapılandırmaları kullanmak istiyorsanız, standart katman, düşünmelisiniz. Hangi özelliklerin dahil her katmanında ayrıntılı bir dökümü için devam [temel ve standart katmanları](#basic-and-standard-tiers).
 
 **Günlük taşımak ne kadar veri planlıyor musunuz?**
+
 Her IOT Hub katmanını göre üç boyutlarında kullanılabilir ne kadar veri işleme geçici bir çözüm içinde belirli bir günde başa çıkabilir. Bu boyutları, sayısal olarak 1, 2 ve 3 tanımlanır. Örneğin, bir düzey 3 birim, 300 milyon işleyebilir sırasında her bir birimi bir düzey 1 IOT hub'ı, günde 400 bin iletileri işleyebilir. Veri kılavuzları hakkında daha fazla ayrıntı için devam [ileti işleme hızı](#message-throughput).
 
 ## <a name="basic-and-standard-tiers"></a>Temel ve standart katmanları
@@ -46,15 +48,13 @@ Yalnızca bir tür [edition](https://azure.microsoft.com/pricing/details/iot-hub
 | [Cihaz akışları (Önizleme)](iot-hub-device-streams-overview.md) |   | Evet |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Evet |
 
-IOT Hub ayrıca test ve değerlendirme için tasarlanmıştır ücretsiz bir katmanı sunar. Bu, standart katman, ancak sınırlı Mesajlaşma kesintileri tüm özelliklerine sahiptir. Ücretsiz katmanındaki temel veya standart olarak yükseltemezsiniz. 
-
+IOT Hub ayrıca test ve değerlendirme için tasarlanmıştır ücretsiz bir katmanı sunar. Bu, standart katman, ancak sınırlı Mesajlaşma kesintileri tüm özelliklerine sahiptir. Ücretsiz katmanındaki temel veya standart olarak yükseltemezsiniz.
 
 ## <a name="partitions"></a>Bölümler
 
-Azure IOT hub'ları içeren birçok temel bileşenleri [Azure Event Hubs](../event-hubs/event-hubs-features.md)de dahil olmak üzere [bölümler](../event-hubs/event-hubs-features.md#partitions). IOT hub'ları için olay akışları, genellikle çeşitli IOT cihazlar tarafından bildirilen gelen telemetri verilerini ile doldurulur. Bölümleme olay akışını aynı anda okuma ve olay akışlara yazmak oluşan çakışmaları azaltmak için kullanılır. 
+Azure IOT hub'ları içeren birçok temel bileşenleri [Azure Event Hubs](../event-hubs/event-hubs-features.md)de dahil olmak üzere [bölümler](../event-hubs/event-hubs-features.md#partitions). IOT hub'ları için olay akışları, genellikle çeşitli IOT cihazlar tarafından bildirilen gelen telemetri verilerini ile doldurulur. Bölümleme olay akışını aynı anda okuma ve olay akışlara yazmak oluşan çakışmaları azaltmak için kullanılır.
 
 IOT hub'ı oluşturulduğunda ve değiştirilemez ' ün bölüm sınırından seçilir. Temel katman IOT Hub ve IOT hub'ı standart katman için en yüksek bölüm sınırı 32'dir. Çoğu IOT hub'ları yalnızca 4 bölüm gerekir. Event Hubs SSS Sayfasındaki bölümleri belirleme hakkında daha fazla bilgi için bkz. [kaç bölümler yapmam gerekir mi?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
-
 
 ## <a name="tier-upgrade"></a>Katmanı yükseltme
 
@@ -62,10 +62,9 @@ IOT hub'ınızı oluşturduğunuzda, mevcut işlemleri kesintiye uğratmadan Tem
 
 Birim yapılandırması, Temel katmandan standart katmana geçiş yaptığınızda değişmeden kalır.
 
-
 ## <a name="iot-hub-rest-apis"></a>IoT Hub REST API’leri
 
-Desteklenen yeteneklerin IOT Hub'ın temel ve standart katmanları arasındaki farkı, bazı API çağrıları, temel katmanı hub'ları ile çalışmaz anlamına gelir. Aşağıdaki tabloda, hangi API'ler kullanılabilir olduğunu gösterir: 
+Desteklenen yeteneklerin IOT Hub'ın temel ve standart katmanları arasındaki farkı, bazı API çağrıları, temel katmanı hub'ları ile çalışmaz anlamına gelir. Aşağıdaki tabloda, hangi API'ler kullanılabilir olduğunu gösterir:
 
 | API | Temel katman | Ücretsiz/standart katmanı |
 | --- | ---------- | ------------- |
@@ -116,26 +115,24 @@ Her katmanın trafik özellikleri örnek olarak, cihaz bulut iletilerini aşağ�
 | S2 B2 |Birim başına 16 MB/dakika kadar<br/>(22.8 GB/gün/birim) |Birim başına 4,167 iletileri/dakika ortalama<br/>(6 milyon ileti/gün birim başına) |
 | B3, S3 |Birim başına 814 MB/dakika kadar<br/>(1144.4 GB/gün/birim) |Birim başına 208,333 iletileri/dakika ortalama<br/>(300 milyon ileti/gün birim başına) |
 
-Bu aktarım hızı yanı sıra bilgi [IOT Hub kotaları ve kısıtlamaları] [ IoT Hub quotas and throttles] ve çözümünüzün uygun şekilde tasarlayın.
+Bu aktarım hızı yanı sıra bilgi [IOT Hub kotaları ve kısıtlamaları](iot-hub-devguide-quotas-throttling.md) ve çözümünüzün uygun şekilde tasarlayın.
 
 ### <a name="identity-registry-operation-throughput"></a>Kimlik kayıt defteri işlemi aktarım hızı
+
 Cihaz sağlama için çoğunlukla ilişkili oldukları gibi IOT Hub kimlik kayıt defteri işlemlerini çalıştırma işlemleri olması gereken değil.
 
-Belirli veri bloğu performans rakamlarına ulaşmak için bkz. [IOT Hub kotaları ve kısıtlamaları][IoT Hub quotas and throttles].
+Belirli veri bloğu performans rakamlarına ulaşmak için bkz. [IOT Hub kotaları ve kısıtlamaları](iot-hub-devguide-quotas-throttling.md).
 
 ## <a name="auto-scale"></a>Otomatik Ölçeklendirme
+
 IOT Hub'ınızda izin verilen ileti sınırına yaklaşılıyor, bunları kullanabilirsiniz [adımları otomatik olarak ölçeklendirmek için](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) aynı IOT hub'ı katmanında bir IOT Hub birimi artırmak için.
 
 ## <a name="sharding"></a>Parçalama
+
 Bazen tek bir IOT hub, milyonlarca cihaza ölçeklendirebilirsiniz olmakla birlikte, çözümünüzü tek bir IOT hub'a garanti edemez belirli performans özelliklerini gerektirir. Bu durumda, birden çok IOT hub'ları arasında cihazlarınızı bölümleyebilirsiniz. IOT hub'ları birden çok trafik artışlarıyla başa kesintisiz ve gerekli olan işlem hızları ve gerekli aktarım hızı elde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* IOT hub'ı özellikleri ve performans ayrıntıları hakkında daha fazla bilgi için bkz. [IOT Hub fiyatlandırması] [ lnk-pricing] veya [IOT Hub kotaları ve kısıtlamaları] [ IoT Hub quotas and throttles].
+* IOT hub'ı özellikleri ve performans ayrıntıları hakkında daha fazla bilgi için bkz. [IOT Hub fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub) veya [IOT Hub kotaları ve kısıtlamaları](iot-hub-devguide-quotas-throttling.md).
+
 * IOT Hub katmanını değiştirmek için adımları izleyin. [IOT hub'ınıza yükseltme](iot-hub-upgrade.md).
-
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

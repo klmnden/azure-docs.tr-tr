@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 3b403eb80bae01efe730b69b7e6a5ddaea81355a
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: b389d86fe4d23e3f4ee1c66e4270a74351098129
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447659"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579368"
 ---
 # <a name="why-use-batch-transcription"></a>Batch transkripsiyonu neden kullanmalısınız?
 
@@ -88,6 +88,16 @@ Yapılandırma parametreleri JSON olarak sağlanır:
 | `PunctuationMode` | Noktalama işaretleri tanıma sonuçları nasıl ele alınacağını belirtir. Değerler kabul `none` , devre dışı bırakır, noktalama `dictated` açık noktalama gelir `automatic` noktalama işaretleri ile uğraşmak kod çözücü olanak tanıyan veya `dictatedandautomatic` dikte noktalama işaretleri veya otomatik olduğu anlamına gelir. | İsteğe bağlı |
  | `AddWordLevelTimestamps` | Word düzeyi zaman damgası çıkışı eklenip eklenmeyeceğini belirtir. Kabul edilen değerler `true` word düzeyi zaman damgaları sağlar ve `false` (devre dışı bırakmak için varsayılan değer). | İsteğe bağlı |
 
+### <a name="storage"></a>Depolama
+
+Batch transkripsiyonu destekler [Azure Blob Depolama](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) ses ve depolamaya yazma döküm okumak için.
+
+## <a name="webhooks"></a>Web Kancaları 
+
+Döküm durumu için yoklama değil en yüksek performanslı olabilir ya da en iyi kullanıcı deneyimi sağlamak. Durumunu yoklamak için uzun süre çalışan döküm görevleri tamamladıktan sonra istemciyi bilgilendirir geri çağırmaları kaydedebilirsiniz.
+
+Daha fazla ayrıntı için [Web kancaları](webhooks.md).
+
 ## <a name="sample-code"></a>Örnek kod
 
 Tam örnek kullanılabilir [GitHub örnek deposundan](https://aka.ms/csspeech/samples) içinde `samples/batch` alt.
@@ -108,10 +118,6 @@ Geçerli örnek kod, özel bir model belirtmez. Hizmet, dosya veya dosyalar foto
 
 > [!NOTE]
 > Temel döküm için temel modelleri kimliği bildirmeniz gerekmez. Eşleşen bir akustik model, yalnızca bir dil modeli kimliği (ve hiçbir akustik model kimliği) belirtirseniz, otomatik olarak seçilir. Eşleşen bir dil modeli, yalnızca bir akustik model kimliği belirtmezseniz, otomatik olarak seçilir.
-
-### <a name="supported-storage"></a>Desteklenen depolama
-
-Şu anda yalnızca Azure Blob Depolama desteklenir.
 
 ## <a name="download-the-sample"></a>Örneği indirme
 

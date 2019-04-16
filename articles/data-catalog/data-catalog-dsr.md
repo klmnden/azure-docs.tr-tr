@@ -4,21 +4,19 @@ description: Bu makale, şu anda desteklenen veri kaynakları özellikleri liste
 services: data-catalog
 author: markingmyname
 ms.author: maghan
-ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 56fa449bd665457ab1b98b67bb42ec52e0742c5f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 04/15/2019
+ms.openlocfilehash: d859fc92c4adbcd224d49601678804445a313ef7
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410196"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579402"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure veri Kataloğu desteklenen veri kaynakları
 
 Meta veri Genel API veya bir tıklama kullanarak yayımlayabilirsiniz-bir kez kayıt aracı veya bilgileri el ile doğrudan Azure veri Kataloğu'na girerek web portalında. Aşağıdaki tabloda, bugün katalog ve yayımlama özellikleri tarafından her biri için desteklenen tüm veri kaynakları özetlenmektedir. Ayrıca, her veri kaynağı "birlikte açma" portal deneyimlerimizden başlatabilirsiniz dış veri Araçlar listelenmiştir. İkinci tablonun her veri kaynağı bağlantı özelliği daha teknik belirtimini içerir.
-
 
 ## <a name="list-of-supported-data-sources"></a>Desteklenen veri kaynaklarının listesi
 
@@ -32,7 +30,7 @@ Meta veri Genel API veya bir tıklama kullanarak yayımlayabilirsiniz-bir kez ka
        <td><b>Notlar</b></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store dizini</td>
+      <td>(Yalnızca Gen 1) Azure Data Lake Store dizini</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -40,7 +38,7 @@ Meta veri Genel API veya bir tıklama kullanarak yayımlayabilirsiniz-bir kez ka
       <td></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store dosya</td>
+      <td>Azure Data Lake Store dosya (yalnızca Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>

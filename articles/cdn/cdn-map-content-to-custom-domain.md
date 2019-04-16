@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c5eb69ddd9c621024799b940ef58c34e7caaa3ff
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: b80cb0d68e6875881f2a9fc97fa52531525c1cdc
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294034"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579198"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Öğretici: Azure CDN uç noktanıza özel etki alanı Ekle
 Bu öğreticide bir Azure Content Delivery Network (CDN) uç noktasına özel etki alanı ekleme işlemi gösterilmektedir. İçerik ulaştırmak için bir CDN uç noktası kullandığınızda, CDN URL’nizde kendi etki alanı adınızın görünmesini istiyorsanız özel bir etki alanı gereklidir. Görünür bir etki alanınızın olması, müşterileriniz için kolaylık sağlar ve markalama için faydalıdır. 
@@ -50,7 +50,7 @@ Bir özel etki alanını Azure CDN uç noktasıyla birlikte kullanabilmeniz içi
 Özel etki alanı ve alt etki alanı aynı anda yalnızca tek bir uç nokta ile ilişkilendirilebilir. Ancak, birden fazla CNAME kaydı kullanarak farklı Azure hizmet uç noktaları için aynı özel etki alanından farklı alt etki alanları kullanabilirsiniz. Farklı alt etki alanlarına sahip özel bir etki alanını aynı CDN uç noktasına da eşleyebilirsiniz.
 
 > [!NOTE]
-> Azure DNS etki alanı sağlayıcınız olarak kullanıyorsanız, herhangi bir diğer adı kayıt türü özel etki alanları için kullanılabilir. Bu izlenecek yolda CNAME kaynak türünü kullanır. Kullandığınız A veya AAAA kaydı türleri aynı adımları aşağıda seçtiğiniz kayıt türü ile CNAME değiştirirken izlemeniz yeterlidir Özel bir etki alanı olarak kök etki alanı eklemek için bir diğer ad kaydı'nı kullanıyorsanız ve SSL etkinleştirmek istediğiniz açıklandığı şekilde el ile doğrulama kullanmalısınız [burada](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint)
+> Azure DNS etki alanı sağlayıcınız olarak kullanıyorsanız, herhangi bir diğer adı kayıt türü özel etki alanları için kullanılabilir. Bu izlenecek yolda CNAME kaynak türünü kullanır. A veya AAAA kaydı türleri kullanıyorsanız, aynı adımları izleyin ve CNAME, tercih ettiğiniz kaydı türüyle değiştirin. Özel bir etki alanı olarak kök etki alanı eklemek için bir diğer ad kaydı'nı kullanıyorsanız ve SSL etkinleştirmek istediğiniz açıklandığı gibi el ile doğrulama kullanmalısınız [bu makalede](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint). Daha fazla bilgi için [Azure CDN uç noktası bölge tepesinde](https://docs.microsoft.com/azure/dns/dns-alias#point-zone-apex-to-azure-cdn-endpoints).
 
 ## <a name="map-the-temporary-cdnverify-subdomain"></a>Geçici cdnverify alt etki alanını eşleme
 

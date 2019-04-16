@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: a552fece120d7978825a685960bf4faf65aba783
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: fa618c5c623a631e7a88f8235a0b7b16fcb2bc88
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916674"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578666"
 ---
 # <a name="translator-text-api-30-detect"></a>Translator metin çevirisi API'si 3.0: Detect
 
@@ -48,8 +48,8 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   <th width="20%">Üst bilgiler</th>
   <th>Açıklama</th>
   <tr>
-    <td>_Bir yetkilendirme_<br/>_üst bilgi_</td>
-    <td>*Gerekli istek üst bilgisi*.<br/>Bkz: [kimlik doğrulaması için kullanılabilir seçenekler](./v3-0-reference.md#authentication).</td>
+    <td>Kimlik doğrulaması üstbilgi</td>
+    <td><em>Gerekli istek üst bilgisi</em>.<br/>Bkz: <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">kimlik doğrulaması için kullanılabilir seçenekler</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -176,7 +176,7 @@ Bir hata oluşursa, isteği ayrıca JSON hata yanıtı döndürür. 3 haneli HTT
 
 Aşağıdaki örnekte, metin çevirisi için desteklenen dilleri alınacak gösterilmektedir.
 
-# [<a name="curl"></a>Curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"

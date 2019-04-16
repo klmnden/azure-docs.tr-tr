@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 85c51320d2be1eac540f1d14910927c0fdccef64
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 2c5c2bc2b8dd1930efef9833bd442fcad5566e2a
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549514"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578793"
 ---
 # <a name="what-is-text-to-speech"></a>Metin okuma nedir?
 
@@ -53,10 +53,7 @@ Bu tabloda metin okuma için temel özellikleri listelenmektedir:
 | Oluşturun ve ses yazı tipi testleri yönetin. | Hayır | Evet\* |
 | Aboneliklerini yönetin. | Hayır | Evet\* |
 
-\* *Bu hizmetler cris.ai uç noktayı kullanarak kullanılabilir. Bkz: [Swagger başvuru](https://westus.cris.ai/swagger/ui/index).*
-
-> [!NOTE]
-> Özel ses uç noktaları, 5 saniye başına 25 istekleri sınırlayan azaltma uygulayın. Azaltma ortaya çıktığında, ileti üstbilgileri bildirilir.
+\* *Bu hizmetler cris.ai uç noktayı kullanarak kullanılabilir. Bkz: [Swagger başvuru](https://westus.cris.ai/swagger/ui/index). Bu özel üslup eğitimi ve yönetim API'leri sınırları istekleri 5 saniye başına 25 konuşma sentezi API'nin, azaltma uygular izin verdiğini olarak en yüksek saniye başına 200 istek azaltma uygular. Azaltma ortaya çıktığında, ileti üstbilgileri bildirilir.*
 
 ## <a name="get-started-with-text-to-speech"></a>Metin okuma ile çalışmaya başlama
 

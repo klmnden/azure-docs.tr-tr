@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 38cbd32be30885837d2f98a9e1dd5d967b4938b4
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b7464e5cc052ecade4a10102de947d37a63c962a
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489820"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571163"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>X.509 CA sertifikalarını kullanarak cihaz kimlik doğrulaması
 
@@ -62,13 +62,15 @@ Karşıya yükleme işlemi, sertifikanızı içeren bir dosyayı karşıya yükl
 
 Kavram kanıtı elinde adım şifreleme sınama ve IOT hub'ı arasındaki yanıt işlemi içerir.  Dijital sertifika içeriği genel ve bu nedenle, gizlice maruz kalabilir düşünüldüğünde, IOT hub'ı CA sertifikasını gerçekten sahip olmak ister misiniz?  Bu CA sertifikasının karşılık gelen özel anahtar ile oturum açmanız gerekir rastgele bir sınama oluşturarak bunu.  Özel anahtarı gizli ve korumalı yukarıda bıraktıysanız sonra yalnızca bu adımı tamamlamak için Bilgi Bankası sahip, önerilir. Özel anahtarların gizliliği, bu yöntem güvende kaynağıdır.  Sınama imzaladıktan sonra sonuçları içeren bir dosyayı karşıya yükleyerek bu adımı tamamlayın.
 
-Buradan edinin nasıl [CA sertifikanız kaydetme](iot-hub-security-x509-get-started.md#registercerts).
+Buradan edinin nasıl [CA sertifikanız kaydetme](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>IOT Hub'ınızda bir cihaz oluşturma
 
 Cihaz kimliğe bürünme kullanımını için bekleyebileceğiniz hangi cihazlar hakkında bilgi sağlamak, IOT hub'ı gerektirir.  Bu IOT Hub'ınızın cihaz kayıt defterinde bir cihaz girişi oluşturmanız gerekir.  Bu işlem, IOT hub'ı kullanırken otomatik [cihaz sağlama hizmeti](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/). 
 
-Buradan edinin nasıl [el ile bir cihaz IOT Hub oluşturma](iot-hub-security-x509-get-started.md#createdevice).
+Buradan edinin nasıl [el ile bir cihaz IOT Hub oluşturma](iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub).
+
+IOT hub'ınız için bir X.509 cihazı oluşturma
 
 ## <a name="authenticating-devices-signed-with-x509-ca-certificates"></a>X.509 CA sertifikalarını ile imzalanmış cihazların kimliğini doğrulama
 
@@ -76,7 +78,7 @@ Cihaz, hatta ilk kez bağlandığında, kayıtlı X.509 CA sertifikası ve imzal
 
 IOT Hub başarılı cihaz bağlantı kimlik doğrulama işlemi tamamlandıktan ve ayrıca bir doğru kurulumu gösterir.
 
-Buradan edinin nasıl [bu cihaz bağlantı adımın](iot-hub-security-x509-get-started.md#authenticatedevice).
+Buradan edinin nasıl [bu cihaz bağlantı adımın](iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

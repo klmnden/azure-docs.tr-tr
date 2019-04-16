@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 6b109f347ee7a917b57acfc56ab4418755295bc5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 78a8b5e7a1c5512f81315519210bc7759dd15342
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896513"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578484"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>TmaxSoft OpenFrame Azure'a yükleme
 
@@ -945,7 +945,7 @@ ProSort, toplu işlem veri sıralama için kullanılan bir yardımcı programdı
      export PATH
      ```
 
-6. Komut isteminde, bir bash profili yürütmek için aşağıdakileri yazın: ` . .bash_profile`
+6. Komut isteminde, bir bash profili yürütmek için aşağıdakileri yazın: `. .bash_profile`
 
 7. Yapılandırma dosyası oluşturun. Örneğin:
 
@@ -1055,7 +1055,7 @@ OFCOBOL ana bilgisayar'ın COBOL programlar yorumlar OpenFrame derleyicisidir.
      0 NonFatalErrors 
      0 FatalError
      ```
-10. Kullanım `ofcob --version ` komut ve yüklemeyi doğrulamak için sürüm numarasını gözden geçirin. Örneğin:
+10. Kullanım `ofcob --version` komut ve yüklemeyi doğrulamak için sürüm numarasını gözden geçirin. Örneğin:
 
      ```
      [oframe7@ofdemo ~]$ ofcob --version 
@@ -1476,6 +1476,6 @@ OpenFrame bileşenlerin yüklenmesi tamamlanan.
 
 Bir ana bilgisayar geçişi düşünüyorsanız, genişleyen iş ortağı ekosistemimiz yardımcı olması kullanılabilir. Bir iş ortağı çözümü seçme hakkında ayrıntılı yönergeler için bkz [Platform Modernizasyonu Alliance](https://www.platformmodernization.org/pages/mainframe.aspx).
 
--   [Azure’u kullanmaya başlama](https://docs.microsoft.com/azure/)
+-   [Azure’ı kullanmaya başlama](https://docs.microsoft.com/azure/)
 -   [Host Integration Server (HIS) belgeleri](https://docs.microsoft.com/host-integration-server/)
 -   [Azure sanal veri merkezi Lift-and-Shift ile Taşıma Kılavuzu](https://blogs.msdn.microsoft.com/azurecat/2018/03/12/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide/)

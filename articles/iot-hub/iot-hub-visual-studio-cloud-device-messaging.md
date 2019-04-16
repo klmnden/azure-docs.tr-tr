@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/07/2018
 ms.author: xshi
-ms.openlocfilehash: bc955db4e851c1f59012dc1375170850e1b0604c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ab3c02d7207bca70a90df8aa08c73c1484cd635d
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108401"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571320"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>IOT Hub ve cihaz arasında ileti göndermek ve almak için Visual Studio için cloud Explorer'ı kullanın
 
-![Uçtan uca diyagramı](media/iot-hub-get-started-e2e-diagram/2.png)
+![Uçtan uca diyagramı](./media/iot-hub-visual-studio-cloud-device-messaging/e-to-e-diagram.png)
 
 [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) Azure kaynaklarınızı görüntüleyin, özelliklerini inceleme ve Visual Studio temel Geliştirici eylemler gerçekleştirmek olanak tanıyan kullanışlı bir Visual Studio uzantısıdır. Bu makalede, Cloud Explorer arasındaki Cihazınızı IOT Hub'ınıza ileti göndermek ve almak için nasıl kullanılacağını odaklanır.
 
@@ -48,10 +48,14 @@ Visual Studio Yükleyicisi'nden Cloud Explorer bileşen yalnızca cihaz-Bulut ve
 
     ![Hesap Yönetimi](media/iot-hub-visual-studio-cloud-device-messaging/click-account-management.png)
 
-1. Tıklayın **hesaplarını yönetme** bulut Gezgini'nde.
-1. Tıklayın **Hesap Ekle...**  Azure'a ilk kez oturum açmak için yeni pencerede.
-1. Oturum açtıktan sonra Azure abonelik listesi gösterilir. Tıklayın ve görüntülemek istediğiniz Azure aboneliklerini seçin **Uygula**.
-1. Genişletin **aboneliğinizi** > **IOT hub'ları** > **uygulamanızın IOT hub'ı**, cihaz listesi, IOT hub'ı düğümünde gösterilir.
+
+2. Tıklayın **hesaplarını yönetme** bulut Gezgini'nde.
+
+3. Tıklayın **Hesap Ekle...**  Azure'a ilk kez oturum açmak için yeni pencerede.
+
+4. Oturum açtıktan sonra Azure abonelik listesi gösterilir. Tıklayın ve görüntülemek istediğiniz Azure aboneliklerini seçin **Uygula**.
+
+5. Genişletin **aboneliğinizi** > **IOT hub'ları** > **uygulamanızın IOT hub'ı**, cihaz listesi, IOT hub'ı düğümünde gösterilir.
 
     ![Cihaz Listesi](media/iot-hub-visual-studio-cloud-device-messaging/device-list.png)
 
@@ -63,11 +67,11 @@ Cihazınızın IOT Hub'ına gönderilen iletileri izlemek için aşağıdaki ad�
 
     ![D2C iletisini izlemeye başlama](media/iot-hub-visual-studio-cloud-device-messaging/start-monitoring-d2c-message.png)
 
-1. İzlenen iletilerin gösterilecek **IOT hub'ı** çıkış bölmesi.
+2. İzlenen iletilerin gösterilecek **IOT hub'ı** çıkış bölmesi.
 
     ![İzleme D2C ileti sonucu](media/iot-hub-visual-studio-cloud-device-messaging/monitor-d2c-message-result.png)
 
-1. İzlemeyi durdurmak için herhangi bir IOT hub'ı veya cihaz üzerinde sağ tıklayın ve seçmek için **D2C iletisini İzlemeyi Durdur**.
+3. İzlemeyi durdurmak için herhangi bir IOT hub'ı veya cihaz üzerinde sağ tıklayın ve seçmek için **D2C iletisini İzlemeyi Durdur**.
 
 ## <a name="send-cloud-to-device-messages"></a>Buluttan cihaza iletileri gönderme
 
@@ -77,8 +81,9 @@ Cihazınız için IOT hub'ınızdan ileti göndermek için bu adımları izleyin
 
     ![C2D ileti gönder](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message.png)
 
-1. İleti giriş kutusuna girin.
-1. Sonuçları gösterilecek **IOT hub'ı** çıkış bölmesi.
+2. İleti giriş kutusuna girin.
+
+3. Sonuçları gösterilecek **IOT hub'ı** çıkış bölmesi.
 
     ![C2D ileti sonucu Gönder](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message-result.png)
 

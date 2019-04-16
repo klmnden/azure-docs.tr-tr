@@ -11,12 +11,12 @@ ms.date: 04/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49234472481e30cf74efa3e72ac0e4f31466fada
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e33143626e136523b4af086e841b92e9ad30fa86
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884899"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577618"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>Azure AD Connect Yönetim Aracısı nedir? 
 Azure AD Connect yönetim Aracısı, Azure Active Directory bir Azure Active Directory Connect sunucusunda yüklü olan Connect, yeni bir bileşenidir. Bir Microsoft destek mühendisi olarak destek servis talebi açtığınızda sorunlarını gidermek için yardımcı olan Active Directory ortamınızdaki belirli verileri toplamak için kullanılır.
@@ -41,16 +41,18 @@ Microsoft destek mühendisine, herhangi bir veri sisteminizde değerini değişt
  
 Bir destek çağrısı için verilerinize erişmek için Microsoft servis mühendisi istemiyorsanız, bunu aşağıda açıklandığı gibi hizmet yapılandırma dosyasını değiştirerek devre dışı bırakabilirsiniz: 
 
-  1.    Açık **C:\Program Files\Microsoft Azure AD Connect yönetim Agent\AzureADConnectAdministrationAgentService.exe.config** Defteri'nde.
-  2.    Devre dışı **UserDataEnabled** aşağıda gösterildiği gibi ayarlar. Varsa **UserDataEnabled** ayarı var ve true ve false olarak ayarlanır. Bir ayar yoksa, bu ayarı aşağıda gösterildiği gibi ekleyin.    
-  `
- <appSettings>
-   <add key="TraceFilename" value="ADAdministrationAgent.log" />
-   <add key="UserDataEnabled" value="false" />
-  </appSettings>
-  `
-  3.    Yapılandırma dosyasını kaydedin.
-  4.    Aşağıda gösterildiği gibi Azure AD Connect yönetim Aracısı hizmetini yeniden başlatın
+1.  Açık **C:\Program Files\Microsoft Azure AD Connect yönetim Agent\AzureADConnectAdministrationAgentService.exe.config** Defteri'nde.
+2.  Devre dışı **UserDataEnabled** aşağıda gösterildiği gibi ayarlar. Varsa **UserDataEnabled** ayarı var ve true ve false olarak ayarlanır. Bir ayar yoksa, bu ayarı aşağıda gösterildiği gibi ekleyin.    
+
+    ```xml
+    <appSettings>
+      <add key="TraceFilename" value="ADAdministrationAgent.log" />
+      <add key="UserDataEnabled" value="false" />
+    </appSettings>
+    ```
+
+3.  Yapılandırma dosyasını kaydedin.
+4.  Aşağıda gösterildiği gibi Azure AD Connect yönetim Aracısı hizmetini yeniden başlatın
 
 ![Yönetim Aracısı](media/whatis-aadc-admin-agent/adminagent2.png)
 

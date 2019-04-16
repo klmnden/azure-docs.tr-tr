@@ -10,18 +10,25 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1abf3fd5ca678f878e36e3df3f8da0c0e0b5f852
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: e58205e847dbfdae8a114221f9bd56102555eeef
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528144"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579164"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
 Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  Her bir SDK tam bir açıklaması için başvuru belgelerini ziyaret edin:
 + Azure Machine Learning'ın [ **Python için ana SDK'sı**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [ **veri hazırlama SDK'sı**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-04-15"></a>2019-04-15
+
+### <a name="azure-portal"></a>Azure Portal
+  + Şimdi, var olan bir uzak işlem kümesi üzerinde varolan bir komut dosyasını yeniden gönderebilirsiniz. 
+  + Artık yeni parametrelerle yayımlanan bir işlem hattı işlem hatları sekmesinde çalıştırabilirsiniz. 
+  + Çalıştırma ayrıntılarını yeni bir anlık görüntü dosyası Görüntüleyici şimdi destekler. Belirli bir çalıştırma gönderildiğinde bir anlık görüntü dizininin görüntüleyebilirsiniz. Not Defteri çalıştırma başlatmak için gönderildi de indirebilirsiniz.
 
 ## <a name="2019-04-08"></a>2019-04-08
 
@@ -49,6 +56,7 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  
   + Sütun türü algılama artık uzun türünde sütunlar destekler.
   + Python datetime nesneler yerine zaman damgası olarak bazı tarih değerlerini görüntüleyen hata düzeltildi.
   + Double yerine tamsayı olarak bazı türü sayıları görüntülendiği hata düzeltildi.
+
   
 ## <a name="2019-03-25"></a>2019-03-25
 

@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eafc379a65fda1ed64c6afee1427e704558b1ee6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 11d4d319fa31dd2493810dc7293d415554f79d94
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261555"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571129"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim için en iyi uygulamalar
 
@@ -109,7 +109,7 @@ Her oturum açma, Azure Active Directory, tüm ilkeleri değerlendirir ve kullan
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>Koşullu erişim, Exchange ActiveSync ile çalışır mı?
 
-Evet, Exchange ActiveSync koşullu erişim ilkesinde kullanabilirsiniz.
+Evet, Exchange ActiveSync koşullu erişim ilkesi bazı kullanabileceğiniz [sınırlamaları](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync). 
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Nasıl koşullu erişim ile Office 365 uygulamalarını yapılandırmamız gerekir mi?
 

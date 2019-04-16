@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 82836c7686d9b0f376268ef7919a188a8f78944e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2ebc678bffbbbe5d512d620b8f77ac0a245c0aff
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548788"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579130"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>Kapsayıcıların Azure Sanal Ağ özelliklerini kullanmasını sağlama
 
@@ -60,8 +60,8 @@ Eklenti sanal makine başına 250 pod ve bir sanal ağda 16.000 pod için destek
 Eklenti, podlar veya Docker kapsayıcılarına temel sanal ağ bağlantısı sağlamak üzere şu şekillerde kullanılabilir:
 
 - **Azure Kubernetes hizmeti**: Eklentinin Azure Kubernetes Service (AKS) ile tümleşiktir ve seçerek kullanılabilir *Gelişmiş Ağ* seçeneği. Gelişmiş Ağ, Kubernetes kümesini var olan veya yeni bir sanal ağa dağıtmanızı sağlar. Gelişmiş Ağ ve ayarlama adımları hakkında daha fazla bilgi için bkz. [AKS'de ağ yapılandırması](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- **ACS-Engine**: ACS-Engine Azure'da bir Kubernetes kümesinin dağıtımı için bir Azure Resource Manager şablonu oluşturan bir araçtır. Ayrıntılı yönergeler için bkz. [Eklentiyi ACS-Engine Kubernetes kümeleri için dağıtma](deploy-container-networking.md#deploy-plug-in-for-acs-engine-kubernetes-cluster).
-- **Azure'da kendi Kubernetes kümenizi oluşturma**: Eklenti AKS veya ACS-Engine gibi araçlar üzerinde bağlı olmadan kendiniz dağıtma Kubernetes kümelerini pod'ları için temel ağ sağlamak için kullanılabilir. Bu durumda eklentinin kümedeki tüm sanal makinelere yüklenmesi ve etkinleştirilmesi gerekir. Ayrıntılı yönergeler için bkz. [Eklentiyi kendi dağıttığınız Kubernetes kümesi için dağıtma](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
+- **AKS altyapısı**: AKS altyapısı Azure'da bir Kubernetes kümesinin dağıtımı için bir Azure Resource Manager şablonu oluşturan bir araçtır. Ayrıntılı yönergeler için bkz. [AKS altyapısı Kubernetes kümeleri için eklenti dağıtma](deploy-container-networking.md#deploy-the-azure-virtual-network-container-network-interface-plug-in).
+- **Azure'da kendi Kubernetes kümenizi oluşturma**: Eklenti AKS veya AKS altyapısı gibi araçlar üzerinde bağlı olmadan kendiniz dağıtma Kubernetes kümelerini pod'ları için temel ağ sağlamak için kullanılabilir. Bu durumda eklentinin kümedeki tüm sanal makinelere yüklenmesi ve etkinleştirilmesi gerekir. Ayrıntılı yönergeler için bkz. [Eklentiyi kendi dağıttığınız Kubernetes kümesi için dağıtma](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
 - **Sanal ağ eklemek için Azure Docker kapsayıcılarında**: Eklenti, bir Kubernetes kümesi oluşturmak istemiyorsanız ve Docker kapsayıcılarını sanal ağ ile attach, sanal makineler oluşturmak ister misiniz durumlarda kullanılabilir. Ayrıntılı yönergeler için bkz. [Eklentiyi Docker için dağıtma](deploy-container-networking.md#deploy-plug-in-for-docker-containers).
 
 ## <a name="next-steps"></a>Sonraki adımlar

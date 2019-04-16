@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 311fdb0b0a2e587e7cf8581f967ed0248de85f6d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 4563bb0de688a8328796badffc8a133a33f64fcc
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59291828"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566546"
 ---
 ## <a name="benefits-of-managed-disks"></a>Yönetilen disklerin avantajlarından
 
@@ -31,7 +31,7 @@ Yönetilen diskleri kullanarak, en fazla 50.000 VM oluşturabilirsiniz **diskler
 
 Yönetilen diskler, diskler sağlamak için kullanılabilirlik kümeleri ile tümleşik [bir kullanılabilirlik kümesindeki VM'ler](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) yeterince bir tek hata noktasını önlemek için birbirinden yalıtılmıştır. Diskleri otomatik olarak (damgaları ') farklı depolama ölçek birimlerine yerleştirilir. Bir damga donanım veya yazılım arızasından dolayı başarısız olursa, yalnızca bu Damgalar üzerinde diskleri olan VM örnekleri başarısız. Örneğin, beş Vm'lerde çalışan bir uygulamaya sahip ve bir kullanılabilirlik kümesi'nde vm'leridir varsayalım. Bu sanal makineler tümü aynı damgaya kaydedilmez için uygulamanın diğer örneklerini aşağı bir damga aşması durumunda diskleri şekilde çalışmaya devam eder.
 
-## <a name="integration-with-availability-zones"></a>Kullanılabilirlik alanları ile tümleştirme
+### <a name="integration-with-availability-zones"></a>Kullanılabilirlik alanları ile tümleştirme
 
 Yönetilen diskleri destekler [kullanılabilirlik](../articles/availability-zones/az-overview.md), uygulamalarınızın veri merkezi arızasına karşı koruyan bir yüksek kullanılabilirlik sunan olduğu. Kullanılabilirlik, bir Azure bölgesi içinde benzersiz fiziksel konumlara bölgeleridir. Her bölge, soğutma ve ağ bağımsız güç ile donatılmış bir veya daha fazla veri merkezlerinden oluşur. Dayanıklılık sağlamak için üç ayrı bölge etkinleştirilmiş tüm bölgelerde en az yoktur. Kullanılabilirlik alanları ile Azure, sektördeki en iyi % 99,99 VM çalışma SLA'sı sunar.
 
@@ -70,7 +70,7 @@ Varsayılan olarak standart yönetilen disk olarak depolanan bir yönetilen disk
 Yönetilen disklerle anlık görüntüleri oluşturma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Windows anlık görüntüler kullanılarak yönetilen disk olarak depolanmış VHD kopyası oluşturma](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Linux'ta anlık görüntüler kullanılarak yönetilen disk olarak depolanmış VHD kopyası oluşturma](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Linux’ta anlık görüntüler kullanılarak yönetilen disk olarak depolanmış VHD kopyası oluşturma](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Görüntüler
 
@@ -79,7 +79,7 @@ Yönetilen diskler, yönetilen bir özel görüntü oluşturma da destekler. Bir
 Görüntüleri oluşturma hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [Azure'da bir genelleştirilmiş VM'nin yönetilen görüntüsünü yakalama](../articles/virtual-machines/windows/capture-image-resource.md)
-* [Genelleştirmek ve Azure CLI kullanarak bir Linux sanal makinesini yakalama](../articles/virtual-machines/linux/capture-image.md)
+* [Azure CLI'yi kullanarak Linux sanal makinelerini genelleştirme ve yakalama](../articles/virtual-machines/linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>Anlık görüntülerle
 

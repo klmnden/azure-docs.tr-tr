@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 4f061dc66829c49fba6722215dc36ed2ce6464ee
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: cd7fc7487a41979f37c9a55baeb0b8e172e808c4
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58919391"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59587187"
 ---
 Dağıtım kimlik bilgileri Azure Cloud Shell'de yapılandırma [ `az webapp deployment user set` ](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) komutu. Web uygulamasına FTP ve yerel Git dağıtımı için bu dağıtım kullanıcısı gereklidir. Kullanıcı adı ve parola, hesap düzeyindedir. _Bunlar, Azure aboneliği kimlik bilgilerinizden farklı._
 
@@ -23,7 +23,7 @@ Aşağıdaki örnekte, değiştirin  *\<kullanıcıadı >* ve  *\<parola >*, yen
 az webapp deployment user set --user-name <username> --password <password>
 ```
 
-Olarak gösterilen parolayla bir JSON çıkışı size `null`. `'Conflict'. Details: 409` hatası alırsanız kullanıcı adını değiştirin. ` 'Bad Request'. Details: 400` hatası alırsanız daha güçlü bir parola kullanın. Dağıtım kullanıcı adı değil içermelidir ' @' yerel Git gönderim için simge.
+Olarak gösterilen parolayla bir JSON çıkışı size `null`. `'Conflict'. Details: 409` hatası alırsanız kullanıcı adını değiştirin. `'Bad Request'. Details: 400` hatası alırsanız daha güçlü bir parola kullanın. Dağıtım kullanıcı adı değil içermelidir ' @' yerel Git gönderim için simge.
 
 Bu dağıtım kullanıcısını yalnızca bir kez yapılandırın. Tüm Azure dağıtımlarınız için kullanabilirsiniz.
 

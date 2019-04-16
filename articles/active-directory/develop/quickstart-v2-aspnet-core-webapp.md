@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afcfd8c581ad1707a996ae5bd0c3706179ddb0e4
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: 1150e68167ad4e932acce744cdd5eba88e49a8c4
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505356"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579470"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET Core web uygulamasına ekleme
 
@@ -55,9 +55,9 @@ Bu hızlı başlangıçta, ASP.NET Core web uygulaması kişisel hesapların nas
 > 1. Seçin **yeni kayıt**.
 > 1. **Uygulama kaydet** sayfası göründüğünde uygulamanızın kayıt bilgilerini girin:
 >    - **Ad** alanına uygulama kullanıcılarına gösterilecek anlamlı bir uygulama adı girin, örneğin `AspNetCore-Quickstart`.
->    - İçinde **yanıt URL'si**, ekleme `https://localhost:44321/`seçip **kaydetme**.
+>    - İçinde **yeniden yönlendirme URI'si**, ekleme `https://localhost:44321/`seçip **kaydetme**.
 > 1. Seçin **kimlik doğrulaması** menüsünü ve ardından aşağıdaki bilgileri ekleyin:
->    - İçinde **yanıt URL'si**, ekleme `https://localhost:44321/signin-oidc`seçip **kaydetme**.
+>    - İçinde **yeniden yönlendirme URI'leri**, ekleme `https://localhost:44321/signin-oidc`seçip **Kaydet**.
 >    - İçinde **Gelişmiş ayarlar** bölümünde, **oturum kapatma URL'si** için `https://localhost:44321/signout-oidc`.
 >    - Altında **örtük vermeyi**, kontrol **kimlik belirteçlerini**.
 >    - **Kaydet**’i seçin.
@@ -66,14 +66,14 @@ Bu hızlı başlangıçta, ASP.NET Core web uygulaması kişisel hesapların nas
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1. Adım: Uygulamanızı Azure portalında yapılandırma
 > Yanıt URL'si olarak eklemek gereken çalışmak bu hızlı başlangıç için kod örneği için `https://localhost:44321/` ve `https://localhost:44321/signin-oidc`, oturum kapatma URL'si olarak ekleme `https://localhost:44321/signout-oidc`ve istek kimliği belirteçleri yetkilendirme uç noktası tarafından verilmesi.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Benim için bu değişiklik yapın]()
+> > [Bu değişikliği benim için yap]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Önceden yapılandırılmış](media/quickstart-v2-aspnet-webapp/green-check.png) uygulamanız bu öznitelikleri ile yapılandırılır.
+> > ![Zaten yapılandırılmış](media/quickstart-v2-aspnet-webapp/green-check.png) Uygulamanız bu özniteliklerle yapılandırılmış.
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>2. Adım: ASP.NET Core projenizi indirin
 
-- [Visual Studio 2017 çözümü indirin](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+- [Visual Studio 2017 çözümünü indirme](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>3. Adım: Visual Studio projenizi yapılandırın
 
@@ -91,8 +91,8 @@ Bu hızlı başlangıçta, ASP.NET Core web uygulaması kişisel hesapların nas
 > - `Enter_the_Application_Id_here` -olan **uygulama (istemci) kimliği** Azure Portalı'nda kayıtlı uygulama için. Bulabilirsiniz **uygulama (istemci) kimliği** uygulamasının **genel bakış** sayfası.
 > - `Enter_the_Tenant_Info_Here` -şunlardan biridir:
 >   - Uygulamanız destekliyorsa **hesapları yalnızca kuruluş bu dizinde**, bu değeri ile değiştirin **Kiracı kimliği** veya **Kiracı adı** (örneğin, contoso.microsoft.com)
->   - Uygulamanız destekliyorsa **herhangi bir kuruluş dizini hesaplarında**, bu değeri ile değiştirin `organizations`
->   - Uygulamanız destekliyorsa **tüm Microsoft hesabı kullanıcılarını**, bu değeri ile değiştirin `common`
+>   - Uygulamanız **Herhangi bir kuruluş dizinindeki hesaplar** yaklaşımını destekliyorsa bu değeri `organizations` ile değiştirin
+>   - Uygulamanız **Tüm Microsoft hesabı kullanıcıları** yaklaşımını destekliyorsa bu değeri `common` ile değiştirin
 >
 > > [!TIP]
 > > **Uygulama (istemci) Kimliği**, **Dizin (kiracı) Kimliği** ve **Desteklenen hesap türleri** değerlerini bulmak için Azure portalında uygulamanın **Genel bakış** sayfasına gidin.
@@ -148,7 +148,8 @@ Yöntem `AddAuthentication` tarayıcı senaryolara kullanılan yanı sıra Open�
 
 
 > [!NOTE]
-> Ayar `ValidateIssuer = false` olduğu için bu hızlı başlangıçta bir basitleştirme. Gerçek sağlayıcısını doğrulamak için ihtiyacınız olan uygulamaları örnekleri bunun nasıl yapılacağını anlamak için bkz.
+> Ayar `ValidateIssuer = false` olduğu için bu hızlı başlangıçta bir basitleştirme. Gerçek uygulamalarda veren doğrulamanız gerekir.
+> Bunun nasıl yapılacağını anlamak için örneklere bakın.
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Denetleyiciyi veya denetleyici yöntemini koruma
 

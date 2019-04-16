@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: e9d11f7426a70d058daa75466b977e47e6e33ee8
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: 426dd265f4d608b8dd3c9ab746479ea103419562
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505779"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579351"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure İzleyici’de Azure Depolama ölçümleri
 
@@ -393,7 +393,7 @@ Azure İzleyicisi'nde ölçümler için boyut şu Azure Storage'ı destekler.
 | Boyut Adı | Açıklama |
 | ------------------- | ----------------- |
 | BlobType | Yalnızca Blob ölçümler için blob türü. Desteklenen değerler şunlardır: **BlockBlob** ve **PageBlob**. Ekleme Blob BlockBlob içinde bulunur. |
-| ResponseType | İşlem yanıt türü. Kullanılabilir değerler şunlardır: <br/><br/> <li>ServerOtherError: Açıklananlar hariç diğer tüm sunucu tarafı hatalar </li> <li> ServerBusyError: HTTP 503 durum kodu döndüren, kimliği doğrulanmış istek. </li> <li> ServerTimeoutError: HTTP 500 durum kodu döndüren, zaman aşımına uğramış ve kimliği doğrulanmış istek. Zaman aşımı bir sunucu hatası nedeniyle gerçekleşti. </li> <li> AuthorizationError: Yetkisiz veri erişimi veya yetkilendirme hatası nedeniyle başarısız olmuş bir kimliği doğrulanmış istek. </li> <li> NetworkError: Ağ hataları nedeniyle başarısız olmuş bir kimliği doğrulanmış istek. Çoğunlukla bir istemci, zaman aşımı süre sonundan önce bağlantıyı erkenden kapattığında gerçekleşir. </li> <li>    ClientThrottlingError: İstemci tarafı azaltma hatası. </li> <li> ClientTimeoutError: HTTP 500 durum kodu döndüren, zaman aşımına uğramış ve kimliği doğrulanmış istek. İstemcinin ağ zaman aşımı veya istek zaman aşımı depolama hizmetinin beklediğinden düşük bir değere ayarlanmışsa beklenen bir zaman aşımıdır. Aksi takdirde, bir ServerTimeoutError olarak bildirilir. </li> <li> ClientOtherError: Açıklananlar hariç diğer tüm istemci tarafı hatalar. </li> <li> Başarılı: Başarılı İstek. </li> <li> SuccessWithThrottling: SMB istemcisi ilk girişimleri içinde kısıtlanan ancak denemeden sonra başarılı başarılı istek.|
+| ResponseType | İşlem yanıt türü. Kullanılabilir değerler şunlardır: <br/><br/> <li>ServerOtherError: Açıklananlar hariç diğer tüm sunucu tarafı hatalar </li> <li> ServerBusyError: HTTP 503 durum kodu döndüren, kimliği doğrulanmış istek. </li> <li> ServerTimeoutError: HTTP 500 durum kodu döndüren, zaman aşımına uğramış ve kimliği doğrulanmış istek. Zaman aşımı bir sunucu hatası nedeniyle gerçekleşti. </li> <li> AuthorizationError: Yetkisiz veri erişimi veya yetkilendirme hatası nedeniyle başarısız olmuş bir kimliği doğrulanmış istek. </li> <li> NetworkError: Ağ hataları nedeniyle başarısız olmuş bir kimliği doğrulanmış istek. Çoğunlukla bir istemci, zaman aşımı süre sonundan önce bağlantıyı erkenden kapattığında gerçekleşir. </li> <li>    ClientThrottlingError: İstemci tarafı azaltma hatası. </li> <li> ClientTimeoutError: HTTP 500 durum kodu döndüren, zaman aşımına uğramış ve kimliği doğrulanmış istek. İstemcinin ağ zaman aşımı veya istek zaman aşımı depolama hizmetinin beklediğinden düşük bir değere ayarlanmışsa beklenen bir zaman aşımıdır. Aksi takdirde, bir ServerTimeoutError olarak bildirilir. </li> <li> ClientOtherError: Açıklananlar hariç diğer tüm istemci tarafı hatalar. </li> <li> Başarılı: Başarılı İstek.|
 | GeoType | Birincil veya ikincil kümeden işlem. Kullanılabilir değerler, birincil ve ikincil içerir. Okuma erişimli coğrafi olarak yedekli Storage(RA-GRS) nesneleri ikincil kiracıdan okurken uygulanır. |
 | ApiName | İşlem adı. Örneğin: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Tüm işlem adları için bkz [belge](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | Authentication | İşlemlerde kullanılan kimlik doğrulaması türü. Kullanılabilir değerler şunlardır: <br/> <li>AccountKey: İşlem, depolama hesabı anahtarı ile kimlik doğrulaması yapılır.</li> <li>SAS: İşlem, paylaşılan erişim imzaları ile kimlik doğrulaması yapılır.</li> <li>OAuth: İşlem, OAuth erişim belirteçleri ile doğrulanır.</li> <li>Anonim: İşlem anonim olarak istenir. Bu denetim öncesi isteği içermez.</li> <li>AnonymousPreflight: Denetim öncesi isteği bir işlemdir.</li> |

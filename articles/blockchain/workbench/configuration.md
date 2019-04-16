@@ -5,21 +5,21 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/08/2019
+ms.date: 04/15/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: b45cd84322279d7f81cc3f047f72a75a6d898bc6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452700"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578756"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain Workbench yapılandırma başvurusu
 
- Azure Blockchain Workbench çok taraflı iş akışlarını yapılandırma meta verilerini ve akıllı sözleşme kodu tarafından tanımlanan uygulamalardır. Yapılandırma meta verilerini, üst düzey iş akışları ve blok zinciri uygulaması etkileşim modelini tanımlar. Blok zinciri iş mantığına nitelikli akıllı anlaşmalar tanımlayın. Workbench, blok zinciri uygulaması kullanıcı deneyimleri oluşturmak için yapılandırma ve akıllı sözleşme kodu kullanır.
+Azure Blockchain Workbench çok taraflı iş akışlarını yapılandırma meta verilerini ve akıllı sözleşme kodu tarafından tanımlanan uygulamalardır. Yapılandırma meta verilerini, üst düzey iş akışları ve blok zinciri uygulaması etkileşim modelini tanımlar. Blok zinciri iş mantığına nitelikli akıllı anlaşmalar tanımlayın. Workbench, blok zinciri uygulaması kullanıcı deneyimleri oluşturmak için yapılandırma ve akıllı sözleşme kodu kullanır.
 
 Her blok zinciri uygulaması için aşağıdaki bilgileri yapılandırma meta verilerini belirtir:
 

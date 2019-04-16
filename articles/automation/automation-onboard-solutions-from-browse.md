@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 3cffd09a54b09a425f3b7f3519b4ceb7a04a6d08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855359"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578501"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri birden çok VM'de etkinleştir
 
@@ -71,7 +71,7 @@ Aşağıdaki tabloda, desteklenen eşlemeleri gösterir:
 |EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
-|WestCentralUS|WestCentralUS|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
 |WestEurope|WestEurope|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
@@ -79,8 +79,7 @@ Aşağıdaki tabloda, desteklenen eşlemeleri gösterir:
 
 <sup>1</sup> EastUS2EUAP ve EastUS eşlemeleri Otomasyon hesapları için Log Analytics çalışma alanları için tam bir bölgeden bölgeye eşleme değildir, ancak doğru eşleme.
 
-> [!NOTE]
-> Talep nedeniyle bir bölge Otomasyon hesabı veya Log Analytics çalışma alanınızı oluştururken kullanılamıyor olabilir.  Bu durumda, bir bölgede kaynakları oluşturabileceğiniz önceki tabloda kullanmakta olduğunuz emin olun.
+<sup>2</sup> kapasitesi kısıtlamaları nedeniyle bölgeyi yeni kaynakları oluşturulurken kullanılabilir değil. Bu, Otomasyon hesaplarını ve Log Analytics çalışma alanlarını içerir. Ancak, önceden var olan bağlı kaynaklar bölgede çalışmaya devam.
 
 Etkinleştirmek için istemediğiniz herhangi bir sanal makineyi yanındaki onay işaretini kaldırın. Zaten seçili sanal makinelerin etkinleştirilemez.
 

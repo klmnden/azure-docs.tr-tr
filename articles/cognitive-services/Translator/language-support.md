@@ -10,18 +10,20 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 5c41456f1cf661fd372a565885c9196593c894ee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3b938f07ef5b1feb9d5859f27423eaa79c2937cc
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267915"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577601"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator metin API'si, dil ve bölge desteği
 
 Translator metin çevirisi API'si için metin çevirisi için aşağıdaki dilleri desteklemektedir. Sinirsel makine çevirisi (NMT), yüksek kaliteli yapay ZEKA destekli makine çevirileri için yeni bir standart olduğundan ve sinir sistem kullanılabilir duruma gelince, Translator Text API V3 kullanarak varsayılan kullanılabilir.
 
 [Makine çevirisi nasıl çalıştığı hakkında daha fazla bilgi edinin](https://www.microsoft.com/translator/mt.aspx)
+
+## <a name="translation"></a>Çeviri
 
 **V2 Translator API'si**
 
@@ -113,16 +115,16 @@ Transliterate yöntemi aşağıdaki dilleri desteklemektedir. İçinde "içine/d
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arapça | `ar` | Arapça `Arab` | <--> | Latin `Latn` |
 |Bangla  | `bn` | Bengali `Beng` | <--> | Latin `Latn` |
-| Çince (Basitleştirilmiş) | `zh-Hans` | Çince Basitleştirilmiş `Hans`| <--> | Latin `Latn` |
-| Çince (Basitleştirilmiş) | `zh-Hans` | Çince Basitleştirilmiş `Hans`| <--> | Geleneksel Çince `Hant`|
+| Çince (Basitleştirilmiş) | `zh-Hans` | Basitleştirilmiş Çince `Hans`| <--> | Latin `Latn` |
+| Çince (Basitleştirilmiş) | `zh-Hans` | Basitleştirilmiş Çince `Hans`| <--> | Geleneksel Çince `Hant`|
 | Geleneksel Çince | `zh-Hant` | Geleneksel Çince `Hant`| <--> | Latin `Latn` |
-| Geleneksel Çince | `zh-Hant` | Geleneksel Çince `Hant`| <--> | Çince Basitleştirilmiş `Hans` |
-| Gucerat dili | `gu`  | Gucerat dili `Gujr` | --> | Latin `Latn` |
+| Geleneksel Çince | `zh-Hant` | Geleneksel Çince `Hant`| <--> | Basitleştirilmiş Çince `Hans` |
+| Gucerat dili | `gu`  | Gujarati `Gujr` | --> | Latin `Latn` |
 | İbranice | `he` | İbranice `Hebr` | <--> | Latin `Latn` |
 | Hintçe | `hi` | Devanagari `Deva` | <--> | Latin `Latn` |
 | Japonca | `ja` | Japonca `Jpan` | <--> | Latin `Latn` |
-| Kannada dili | `kn` | Kannada dili `Knda` | --> | Latin `Latn` |
-| Malayalam dili | `ml` | Malayalam dili `Mlym` | --> | Latin `Latn` |
+| Kannada dili | `kn` | Kannada `Knda` | --> | Latin `Latn` |
+| Malayalam dili | `ml` | Malayalam `Mlym` | --> | Latin `Latn` |
 | Marathi dili | `mr` | Devanagari `Deva` | --> | Latin `Latn` |
 | Odia | `or` | Odia `Orya` | <--> | Latin `Latn` |
 | Pencap dili | `pa` | Gurmuki `Guru`  | <--> | Latin `Latn`  |
@@ -130,7 +132,7 @@ Transliterate yöntemi aşağıdaki dilleri desteklemektedir. İçinde "içine/d
 | Sırpça (Latin) | `sr-Latn` | Latin `Latn` | --> | Kiril `Cyrl`|
 | Tamil dili | `ta` | Tamil dili `Taml` | --> | Latin `Latn` |
 | Telugu dili | `te` | Telugu dili `Telu` | --> | Latin `Latn` |
-| Tay Dili | `th` | Tay Dili `Thai` | <--> | Latin `Latn` |
+| Tay Dili | `th` | Tay dili `Thai` | <--> | Latin `Latn` |
 
 ## <a name="dictionary"></a>Sözlük
 
@@ -191,77 +193,8 @@ Sözlük için veya İngilizce arama ve örnekler yöntemleri kullanarak aşağ�
 
 ## <a name="detect"></a>Detect
 
-Aşağıdaki dilleri Algıla yöntemi tarafından desteklenir. Mayıs algılamak Microsoft Translator çeviremez dillerini belirleyin.
+Translator metin çevirisi API'si, çeviri ve harf çevirisi için kullanılabilen tüm dilleri algılar.
 
-| Dil    |
-|:----------- |
-| Afrikaner dili |
-| Arnavutça |
-| Arapça |
-| Bask dili |
-| Belarusça |
-| Bulgarca |
-| Katalanca |
-| Çince |
-| Çince (Basitleştirilmiş) |
-| Geleneksel Çince |
-| Hırvatça |
-| Çekçe |
-| Danca |
-| Felemenkçe |
-| Türkçe |
-| Esperanto |
-| Estonca |
-| Fince |
-| Fransızca  |
-| Galiçya dili |
-| Almanca  |
-| Yunanca |
-| Haiti Kreyolu |
-| İbranice |
-| Hintçe |
-| Macarca |
-| İzlanda dili |
-| Endonezya dili |
-| İrlanda dili |
-| İtalyanca |
-| Japonca |
-| Korece |
-| Kurdish (Arabic) |
-| Kürtçe (Latin) |
-| Latin |
-| Letonca |
-| Litvanca |
-| Makedonca |
-| Malay dili |
-| Malta dili |
-| Norveççe |
-| Norveççe (Nynorsk) |
-| Peştuca |
-| Farsça |
-| Lehçe |
-| Portekizce |
-| Rumence |
-| Rusça |
-| Sırpça (Kiril) |
-| Sırpça (Latin) |
-| Slovakça |
-| Slovence |
-| Somali |
-| İspanyolca  |
-| Svahili dili |
-| İsveççe |
-| Tagalog dili |
-| Telugu dili |
-| Tay Dili |
-| Türkçe |
-| Ukrayna dili |
-| Urduca |
-| Özbekçe (Kiril) |
-| Özbekçe (Latin) |
-| Vietnam dili |
-| Gaelce |
-| Yidiş |
 
 ## <a name="access-the-translator-text-api-language-list-programmatically"></a>Translator metin çevirisi API'si dil listesi programlamayla erişme
 
@@ -294,6 +227,7 @@ Dilleri yöntemiyle Translator Text API v3.0 desteklenen dillerin listesini alab
 | Hintçe      | `hi`          |
 | Macarca      | `hu`          |
 | İzlanda dili | `is` |
+| Endonezya dili|   `id`    |
 | İtalyanca      | `it`          |
 | Japonca      | `ja`          |
 | Korece      | `ko`          |

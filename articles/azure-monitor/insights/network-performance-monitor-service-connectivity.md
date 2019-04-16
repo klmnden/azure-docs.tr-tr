@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9f881071559eaba0f6b1c86e8827993d52470baf
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 0c4b8d1646ba851acc6a0e2d9a3b920634098846
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501971"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571180"
 ---
 # <a name="service-connectivity-monitor"></a>Hizmet Bağlantısı İzleyicisi
 
@@ -68,7 +68,7 @@ Hizmet uç noktalarına ağ bağlanabilirliğini izlemek için testleri oluştur
 5. İçinde **hedef**, ağ bağlantılarını izlemek istediğiniz URL/FQDN/IP adresini girin.
 6. İçinde **bağlantı noktası numarası**, hedef hizmet bağlantı noktası numarasını girin. 
 7. İçinde **Test sıklığı**, testin çalışmasını istediğiniz için ne sıklıkla bir değer girin. 
-8. Hizmet için ağ bağlantılarını izlemek istediğiniz düğümleri seçin. 
+8. Hizmet için ağ bağlantılarını izlemek istediğiniz düğümleri seçin. Test başına eklediğiniz aracı sayısı 150'den az olduğundan emin olun. Herhangi bir aracı en fazla 150 uç noktalar/aracıları test edebilirsiniz.
 
     >[!NOTE]
     > Windows server tabanlı düğümler için özelliği istekler TCP tabanlı ağ ölçümlerini gerçekleştirmek için kullanır. Windows istemcisi tabanlı düğümler için ağ ölçümlerini gerçekleştirmek için ICMP tabanlı istekleri özelliği kullanır. Windows istemcisi tabanlı düğümler olduğunda bazı durumlarda, hedef uygulama gelen ICMP tabanlı istekleri engeller. Ağ ölçümlerini gerçekleştirmek çözüm silemiyor. Böyle durumlarda, Windows server tabanlı düğümleri kullanmanızı öneririz. 

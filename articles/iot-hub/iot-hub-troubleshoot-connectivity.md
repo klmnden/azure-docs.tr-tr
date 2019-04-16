@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 6cc5e45ab28a1c83125a37cefb289b1662096eb0
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: a107689796c58b17c445e7a9cf7c6f0402ef6005
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648829"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571061"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Algılama ve giderme Azure IOT Hub ile bağlantısını keser
 
@@ -28,13 +28,18 @@ Azure İzleyici uyarı alın ve cihaz bağlantılarını düşürdüğünüzde, 
 Cihaz bağlantı olayları ve hataları günlüğe kaydetmek için IOT hub'ı için tanılamayı açın.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-1. IOT hub'ınıza gidin.
-1. Seçin **tanılama ayarları**.
-1. Seçin **tanılamayı Aç**.
-1. Etkinleştirme **bağlantıları** toplanacak günlükleri.
-1. Daha kolay analiz için açma **Log Analytics'e gönderme** ([fiyatlandırmaya](https://azure.microsoft.com/pricing/details/log-analytics/)). Altındaki örneğe bakın [bağlantı hatalarını gidermek](#resolve-connectivity-errors).
 
-   ![Önerilen ayarlar][2]
+2. IOT hub'ınıza gidin.
+
+3. Seçin **tanılama ayarları**.
+
+4. Seçin **tanılamayı Aç**.
+
+5. Etkinleştirme **bağlantıları** toplanacak günlükleri.
+
+6. Daha kolay analiz için açma **Log Analytics'e gönderme** ([fiyatlandırmaya](https://azure.microsoft.com/pricing/details/log-analytics/)). Altındaki örneğe bakın [bağlantı hatalarını gidermek](#resolve-connectivity-errors).
+
+   ![Önerilen ayarlar](./media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png)
 
 Daha fazla bilgi için bkz. [Azure IOT Hub durumunu izleyin ve sorunları hızla tanılayın](iot-hub-monitor-resource-health.md).
 
@@ -43,11 +48,16 @@ Daha fazla bilgi için bkz. [Azure IOT Hub durumunu izleyin ve sorunları hızla
 Cihazları bağlantısını kestiğinizde uyarıları almak için uyarıları yapılandırın **bağlı cihazlar (Önizleme)** ölçümü.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-1. IOT hub'ınıza gidin.
-1. Seçin **uyarılar**.
-1. Seçin **yeni uyarı kuralı**.
-1. Seçin **koşul Ekle**, "bağlı cihazlar (Önizleme)"'yi seçin.
-1. İstediğiniz, eşikleri ayarlayarak ve seçenekleri uyarı tarafından aşağıdaki istemleri tamamlayın.
+
+2. IOT hub'ınıza gidin.
+
+3. Seçin **uyarılar**.
+
+4. Seçin **yeni uyarı kuralı**.
+
+5. Seçin **koşul Ekle**, "bağlı cihazlar (Önizleme)"'yi seçin.
+
+6. İstediğiniz, eşikleri ayarlayarak ve seçenekleri uyarı tarafından aşağıdaki istemleri tamamlayın.
 
 Daha fazla bilgi için bkz. [Microsoft azure'da Klasik uyarılar nedir?](../azure-monitor/platform/alerts-overview.md).
 
@@ -56,8 +66,10 @@ Daha fazla bilgi için bkz. [Microsoft azure'da Klasik uyarılar nedir?](../azur
 Tanılama günlükleri ve uyarılar bağlı cihazlar için etkinleştirdiğinizde, hata oluştuğunda uyarı alın. Bu bölümde, bir uyarı aldığınızda, sık karşılaşılan sorunları çözmek açıklar. Aşağıdaki adımları, Azure İzleyici günlüklerini tanılama günlükleriniz için ayarlamış olduğunuz varsayılır.
 
 1. Çalışma alanınızı gitmek **Log Analytics** Azure portalında.
-1. Seçin **günlük arama**.
-1. IOT Hub için bağlantı Hata günlüklerini ayırmak için aşağıdaki sorguyu girin ve ardından **çalıştırmak**:
+
+2. Seçin **günlük arama**.
+
+3. IOT Hub için bağlantı Hata günlüklerini ayırmak için aşağıdaki sorguyu girin ve ardından **çalıştırmak**:
 
     ```
     search *
@@ -67,12 +79,12 @@ Tanılama günlükleri ve uyarılar bağlı cihazlar için etkinleştirdiğinizd
 
 1. Sonuç yoksa Ara `OperationName`, `ResultType` (hata kodu) ve `ResultDescription` (hata hakkında daha fazla ayrıntı almak için hata iletisi).
 
-   ![Hata günlüğü örneği][4]
+   ![Hata günlüğü örneği](./media/iot-hub-troubleshoot-connectivity/diag-logs.png)
 
-1. Ortak hatalarını anlama ve çözme için bu tabloyu kullanın.
+2. Ortak hatalarını anlama ve çözme için bu tabloyu kullanın.
 
-    | Hata | Kök neden | Çözümleme |
-    |---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Hata | Kök neden | Çözüm |
+    |-------|------------|------------|
     | 404104 DeviceConnectionClosedRemotely | Cihaz tarafından bağlantı kapatıldı ancak IOT Hub neden bilmez. Yaygın nedenler MQTT/AMQP zaman aşımı ve internet bağlantısı kaybı. | Cihaz IOT hub'ına bağlanabilir olduğundan emin olun [bağlantı test ediliyor](tutorial-connectivity.md). Bağlantı bir sakınca yoktur, ancak cihaz aralıklı olarak kesiliyor Protokolü (MQTT/AMPQ) tercih ettiğiniz için uygun canlı tutma cihaz mantığını emin olun. |
     | 401003 IoTHubUnauthorized | IOT Hub bağlantı doğrulanamıyor. | SAS ya da kullandığınız diğer güvenlik belirteci süresi olmadığından emin olun. [Azure IOT SDK'ları](iot-hub-devguide-sdks.md) otomatik olarak özel bir yapılandırma gerektirmeden belirteçleri oluşturun. |
     | 409002 LinkCreationConflict | Bir cihaz birden fazla bağlantı var. Yeni bir bağlantı isteği için bir cihaz söz konusu olduğunda, bu hata önceki bir IOT hub'ı kapatır. | En yaygın durumda, bir cihaz bir bağlantıyı kes algılar ve bağlantıyı yeniden kurmak çalışır, ancak IOT Hub, bağlı cihaz yine de dikkate alır. IOT hub'ı önceki bağlantıyı kapatır ve bu hatayı günlüğe kaydeder. Bu hata genellikle bir yan etkisi farklı ve geçici bir sorun ortaya çıkar kadar başka hatalar da daha fazla sorun giderme için günlüklere bakın. Aksi takdirde, yeni bir bağlantı isteği bağlantı düşerse verdiğinizden emin olun. |
@@ -84,7 +96,9 @@ Tanılama günlükleri ve uyarılar bağlı cihazlar için etkinleştirdiğinizd
 Önceki adımları yaramazsa deneyebilirsiniz:
 
 * Sorunlu cihazlara fiziksel olarak veya uzaktan (SSH) gibi erişiminiz varsa izleyin [aygıt tarafı sorun giderme kılavuzu](https://github.com/Azure/azure-iot-sdk-node/wiki/Troubleshooting-Guide-Devices) sorun giderme devam etmek için.
+
 * Cihazlarınızı doğrulayın **etkin** Azure portalında > IOT hub'ınıza > IOT cihazları.
+
 * Yardım almak [Azure IOT hub'ı Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub), veya [Azure Destek](https://azure.microsoft.com/support/options/).
 
 Bu kılavuzda işe yaramazsa herkesin belgelerini geliştirmeye yardımcı olmak için bir geri bildirim bölümünde yorum.
@@ -92,10 +106,5 @@ Bu kılavuzda işe yaramazsa herkesin belgelerini geliştirmeye yardımcı olmak
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Geçici bir sorun giderme hakkında daha fazla bilgi için bkz. [geçici hata işleme](/azure/architecture/best-practices/transient-faults).
-* Azure IOT SDK'sı hakkında daha fazla bilgi edinin ve deneme için bkz. [bağlantı ve Azure IOT Hub cihazı SDK'larını kullanarak güvenilir Mesajlaşma yönetme](iot-hub-reliability-features-in-sdks.md#connection-and-retry).
 
-<!-- Images -->
-[1]: ../../includes/media/iot-hub-diagnostics-settings/turnondiagnostics.png
-[2]: ./media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png
-[3]: ./media/iot-hub-troubleshoot-connectivity/metric-alert.png
-[4]: ./media/iot-hub-troubleshoot-connectivity/diag-logs.png
+* Azure IOT SDK'sı hakkında daha fazla bilgi edinin ve deneme için bkz. [bağlantı ve Azure IOT Hub cihazı SDK'larını kullanarak güvenilir Mesajlaşma yönetme](iot-hub-reliability-features-in-sdks.md#connection-and-retry).

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 3a9c2ae0eee3e282dddff812da2fed07787328b7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: de11d493c1a42b67aeab6502f719bcee1adc6e99
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916300"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578215"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator metin çevirisi API'si 3.0: BreakSentence
 
@@ -56,8 +56,8 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   <th width="20%">Üst bilgiler</th>
   <th>Açıklama</th>
   <tr>
-    <td>_Bir yetkilendirme_<br/>_üst bilgi_</td>
-    <td>*Gerekli istek üst bilgisi*.<br/>Bkz: [kimlik doğrulaması için kullanılabilir seçenekler](./v3-0-reference.md#authentication).</td>
+    <td>Kimlik doğrulaması üstbilgi</td>
+    <td><em>Gerekli istek üst bilgisi</em>.<br/>Bkz: <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">kimlik doğrulaması için kullanılabilir seçenekler</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -172,7 +172,7 @@ Bir hata oluşursa, isteği ayrıca JSON hata yanıtı döndürür. 3 haneli HTT
 
 Aşağıdaki örnek, tek bir cümle için cümle sınırları edinme gösterir. Cümlenin dil hizmeti tarafından otomatik olarak algılanır.
 
-# [<a name="curl"></a>Curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"

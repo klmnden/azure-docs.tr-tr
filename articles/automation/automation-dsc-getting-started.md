@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
-ms.date: 08/08/2018
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 234d59f9d625af6d0309b2995cc734fad6028b1e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 60cd2d21167739e824489e30ebd187a5fc0cc12d
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767048"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579283"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Azure Otomasyonu durum yapılandırması ile çalışmaya başlama
 
@@ -27,7 +27,7 @@ Bu makalede, Azure Otomasyonu durum yapılandırmasını kullanarak adım adım 
 Bu makaledeki örnekleri tamamlamak için aşağıdakiler gereklidir:
 
 - Azure Otomasyonu hesabı. Bir Azure Otomasyonu Garklı Çalıştır hesabı oluşturma yönergeleri için bkz. [Azure Farklı Çalıştır Hesabı](automation-sec-configure-azure-runas-account.md).
-- Azure Resource Manager VM (Klasik değil) Windows Server 2008 R2 çalıştıran veya üzeri. VM oluşturma yönergeleri için bkz. [Azure portalında ilk Windows sanal makinenizi oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- Azure Resource Manager VM (Klasik değil) çalıştıran bir [işletim sistemi desteklenen](automation-dsc-overview.md#operating-system-requirements). VM oluşturma yönergeleri için bkz. [Azure portalında ilk Windows sanal makinenizi oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## <a name="creating-a-dsc-configuration"></a>DSC yapılandırması oluşturma
 
@@ -149,9 +149,9 @@ Azure Vm'leri (Klasik ve Resource Manager), şirket içi Vm'leri, Linux makinele
 1. Üzerinde **sanal makine** ayrıntı sayfası, tıklayın **+ Connect**.
 
    > [!IMPORTANT]
-   > Bu Windows Server 2008 R2 çalıştıran bir Azure Resource Manager sanal makinesi olmalıdır veya üzeri.
+   > Bu, çalışan bir Azure Resource Manager sanal makinesi olmalıdır bir [işletim sistemi desteklenen](automation-dsc-overview.md#operating-system-requirements).
 
-1. İçinde **kayıt** sayfasında, sanal makineye uygulamak istediğiniz düğüm yapılandırmasının adı **düğüm yapılandırması adı** kutusu. Bu noktada bir ad sağlayarak, isteğe bağlıdır. Düğüm ekleme sonra atanan düğüm yapılandırmasını değiştirebilirsiniz.
+2. İçinde **kayıt** sayfasında, sanal makineye uygulamak istediğiniz düğüm yapılandırmasının adı **düğüm yapılandırması adı** kutusu. Bu noktada bir ad sağlayarak, isteğe bağlıdır. Düğüm ekleme sonra atanan düğüm yapılandırmasını değiştirebilirsiniz.
    Denetleme **gerekirse düğümü yeniden başlatma**, ardından **Tamam**.
 
    ![Kayıt dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/RegisterVM.png)
