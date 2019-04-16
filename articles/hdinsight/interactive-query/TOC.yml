@@ -58,7 +58,7 @@ items:
       - name: Azure PowerShell kullanma
         href: ../hadoop/apache-hadoop-use-hive-powershell.md
         maintainContext: true
-      - name: .NET SDK kullanma
+      - name: .NET için SDK’yı kullanma
         href: ../hadoop/apache-hadoop-use-hive-dotnet-sdk.md
         maintainContext: true
       - name: Visual Studio için HDInsight araçlarını kullanma
@@ -155,21 +155,9 @@ items:
       maintainContext: true
   - name: Yönetme
     items:
-    - name: Küme oluşturma
+    - name: HDInsight kümeleri oluşturma
       href: ../hdinsight-hadoop-provision-linux-clusters.md
       items:
-      - name: Azure PowerShell kullanma
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-        maintainContext: true
-      - name: cURL ve Azure REST API’si kullanma
-        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-        maintainContext: true
-      - name: .NET SDK’yı kullanma
-        href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
-        maintainContext: true
-      - name: Azure Klasik CLI'yi kullanma
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-        maintainContext: true
       - name: Azure portalı kullanma
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
@@ -177,16 +165,39 @@ items:
         displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
+      - name: .NET için SDK’yı kullanma
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster
+      - name: Python için SDK’yı kullanma
+        href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python#create-a-cluster
+      - name: Java için SDK’yı kullanma
+        href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster
+      - name: Azure PowerShell kullanma
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+        maintainContext: true
+      - name: cURL ve Azure REST API’si kullanma
+        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
+        maintainContext: true
+      - name: Azure Klasik CLI'yi kullanma
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
+        maintainContext: true
+      - name: İsteğe bağlı kümeler oluşturma
+        href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+        maintainContext: true
       maintainContext: true
     - name: İsteğe bağlı kümeler oluşturma
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
       maintainContext: true
-    - name: Apache Hadoop kümelerini yönetme
+    - name: HDInsight kümelerini yönetme
       href: ../hdinsight-administer-use-portal-linux.md
       items:
-      - name: .NET SDK kullanma
-        href: ../hdinsight-administer-use-dotnet-sdk.md
-        maintainContext: true
+      - name: .NET için SDK’yı kullanma
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management
+      - name: Python için SDK’yı kullanma
+        href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+      - name: Java için SDK’yı kullanma
+        href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+      - name: Git için SDK’yı kullanma (Önizleme)
+        href: https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview
       - name: Azure PowerShell kullanma
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
@@ -326,13 +337,13 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/az.hdinsight
-  - name: .NET SDK
+  - name: .NET için SDK
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
-  - name: Python SDK'sı
+  - name: Python için SDK
     href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
-  - name: Java SDK
-    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
-  - name: Go SDK'sı
+  - name: Java için SDK
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+  - name: Go için SDK
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
@@ -365,9 +376,9 @@ items:
   - name: HDInsight için Windows araçları
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 4ff59bd9aeb59ad3dd835edaff3d1e5048f2e58e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 9aac9dcaa0e7a853b3cedf88a7666f789dbf558f
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444133"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579079"
