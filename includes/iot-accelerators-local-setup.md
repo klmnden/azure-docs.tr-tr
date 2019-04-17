@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
-ms.openlocfilehash: ec382217bfa32da19c0b98e656f3782739b26cc6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1f567b3d083853f9bb342bfad462e8545caa6480
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125088"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59630583"
 ---
 ## <a name="download-the-source-code"></a>Kaynak kodunu indirebilir
 
@@ -59,7 +59,7 @@ Gerekli Azure kaynakları henüz oluşturduysanız, şu adımları izleyin:
 
      Betik, çözümünüzün adına ile Azure'da kaynak grubu oluşturur. Bu kaynak grubu, çözüm Hızlandırıcısını Azure kaynaklarını içerir. İlgili kaynaklara artık ihtiyacınız sonra bu kaynak grubunu silebilirsiniz.
 
-     Betik ayrıca bir ön ek ortam değişkenlerini kümesi ekler **bilgisayarları** yerel makinenize. Docker kapsayıcıları ve mikro hizmet projeleri yerel olarak başlatıldığında, bu ortam değişkenlerinden yapılandırma değerlerine okuyun.
+     Betik ayrıca bir ön ek ortam değişkenlerini kümesi ekler **bilgisayarları** yerel makinenize. Bu ortam değişkenleri, bir Azure Key Vault kaynaktan okumak, Uzaktan izleme ayrıntılarını sağlayın. Uzaktan izleme kendi yapılandırma değerlerinden burada okuyacaksa bu Key Vault kaynaktır.
 
      > [!TIP]
      > Betik tamamlandığında, bu da adlı bir dosyaya ortam değişkenlerini kaydeder  **\<, giriş klasörü\>\\.pcs\\\<çözüm adı\>.env** . Gelecekteki çözüm Hızlandırıcı dağıtımları için bunları kullanabilirsiniz. Yerel makinenizde, herhangi bir ortam değişkenini değerleri geçersiz kıldığını unutmayın **Hizmetleri\\betikleri\\yerel\\.env** dosyasını çalıştırdığınızda **docker-compose**.
@@ -68,4 +68,12 @@ Gerekli Azure kaynakları henüz oluşturduysanız, şu adımları izleyin:
 
 ### <a name="use-existing-azure-resources"></a>Mevcut Azure kaynakları
 
-Gerekli Azure kaynakları zaten oluşturduysanız, yerel makinenizde karşılık gelen ortam değişkenleri oluşturun. Bunlar, kaydedilebilir  **\<, giriş klasörü\>\\.pcs\\\<çözüm adı\>.env** dağıtım dosyasından. Yerel makinenizde ortam değişkenleri değerleri geçersiz kıldığını unutmayın **Hizmetleri\\betikleri\\yerel\\.env** dosyasını çalıştırdığınızda **docker-compose**.
+Gerekli Azure kaynakları zaten oluşturduysanız, yerel makinenizde karşılık gelen ortam değişkenleri oluşturun.
+Aşağıdaki ortam değişkenlerini ayarlayın:
+* **PCS_KEYVAULT_NAME** -Azure Key Vault kaynak adı
+* **PCS_AAD_APPID** -AAD uygulama kimliği
+* **PCS_AAD_APPSECRET** -AAD uygulama gizli anahtarı
+
+Bu Azure anahtar kasası kaynak yapılandırma değerlerini okur. Bu ortam değişkenlerini de kaydedilebilir  **\<, giriş klasörü\>\\.pcs\\\<çözüm adı\>.env** dağıtım dosyasından. Yerel makinenizde ortam değişkenleri değerleri geçersiz kıldığını unutmayın **Hizmetleri\\betikleri\\yerel\\.env** dosyasını çalıştırdığınızda **docker-compose**.
+
+Mikro hizmet tarafından gereken yapılandırma bazıları örneğinde depolanır **Key Vault** ilk dağıtımı oluşturuldu. Karşılık gelen anahtar kasası değişkenleri gerektiği şekilde değiştirilmesi gerekir.

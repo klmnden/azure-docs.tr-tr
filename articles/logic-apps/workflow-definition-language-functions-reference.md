@@ -1,27 +1,29 @@
 ---
-title: Başvuru iş akışı tanımlama dili - Azure Logic Apps işlevleri | Microsoft Docs
-description: Azure Logic Apps için iş akışı tanımı dil işlevleri hakkında bilgi edinin
+title: İş akışı tanımlama dili - Azure Logic Apps ve Microsoft Flow işlevleri için başvuru
+description: Azure Logic Apps ve Microsoft Flow için iş akışı tanımlama dili ile oluşturulan ifadelerde işlevlerine yönelik başvuru kılavuzu
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: e58d534811fc6d6ed2bb24486c149f217a7a28a3
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: d7ea62c51065cbe85a905b4ff78743fdc11c1e10
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189912"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618218"
 ---
-# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps iş akışı tanımı dil işlevleri başvurusu
+# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Azure Logic Apps ve Microsoft Flow, iş akışı tanımlama dili için işlev başvurusu
 
-Bazı [ifadeleri](../logic-apps/logic-apps-workflow-definition-language.md#expressions) içinde [Azure Logic Apps](../logic-apps/logic-apps-overview.md) mantıksal uygulama iş akışı tanımınızı çalışmaya başladığında henüz bulunmayabilir çalışma zamanı eylemlerden değerleri alın.
-Başvuru veya bu değerleri ifadelerde çalışmak için kullanabileceğiniz *işlevleri* tarafından sağlanan [iş akışı tanımlama dili](../logic-apps/logic-apps-workflow-definition-language.md).
-Örneğin, hesaplamalar için matematiksel işlevler gibi kullanabilirsiniz [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) tamsayılar ya da float toplamını döndüren işlev. İşlevler ile gerçekleştirebileceğiniz birkaç daha fazla örnek görevler aşağıda verilmiştir:
+İş akışı tanımları için [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ve [Microsoft Flow](https://docs.microsoft.com/flow/getting-started), bazı [ifadeleri](../logic-apps/logic-apps-workflow-definition-language.md#expressions) henüz bulunmayabilir çalışma zamanı eylemlerden değerlerini alın, iş akışınızı çalışmaya başlar. Bu değerleri başvuru ya da bu ifadelerdeki değerler işlemek için kullanabileceğiniz *işlevleri* tarafından sağlanan [iş akışı tanımlama dili](../logic-apps/logic-apps-workflow-definition-language.md). 
+
+> [!NOTE]
+> Bu başvuru sayfası, Azure Logic Apps ve Microsoft Flow için geçerlidir, ancak Azure Logic Apps belgelerinde görünür. Özel mantıksal uygulamalar için bu sayfayı başvuruyor ancak bu işlevler, akışları ve logic apps için çalışır. İşlevleri ve ifadeleri Microsoft Flow hakkında daha fazla bilgi için bkz. [koşullarda ifadeleri kullanma](https://docs.microsoft.com/flow/use-expressions-in-conditions).
+
+Örneğin, matematik işlevleri gibi kullanarak değerleri hesaplama [add() işlevi](../logic-apps/workflow-definition-language-functions-reference.md#add)tamsayılar veya float toplamı istediğinizde. İşlevler ile gerçekleştirebileceğiniz diğer birkaç örnek görevler aşağıda verilmiştir:
 
 | Görev | İşlev sözdizimi | Sonuç |
 | ---- | --------------- | ------ |
@@ -29,8 +31,7 @@ Başvuru veya bu değerleri ifadelerde çalışmak için kullanabileceğiniz *i�
 | Bir genel benzersiz tanıtıcısı (GUID) döndürür. | Guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
 ||||
 
-Bu makalede, mantıksal uygulama tanımları oluştururken kullanabileceğiniz işlevleri açıklanmaktadır.
-İşlevlerin bulunacağı [kendi genel amacına bağlı](#ordered-by-purpose), aşağıdaki tabloları ile devam edin. Veya her işlevi hakkında ayrıntılı bilgi için bkz. [alfabetik liste](#alphabetical-list).
+İşlevlerin bulunacağı [kendi genel amacına bağlı](#ordered-by-purpose), aşağıdaki tablolarda gözden geçirin. Veya her işlevi hakkında ayrıntılı bilgi için bkz. [alfabetik liste](#alphabetical-list).
 
 > [!NOTE]
 > Parametre tanımlarıyla sözdiziminde, bir soru bir parametre, parametre anlamına gelir sonra görüntülenen işareti (?) isteğe bağlıdır.
@@ -142,7 +143,7 @@ Her işlev hakkındaki tam başvuru için bkz: [alfabetik liste](../logic-apps/w
 
 Bir değer türü veya biçimi değiştirmek için bu dönüştürme işlevleri kullanabilirsiniz.
 Örneğin, bir Boole değeri tamsayıya değiştirebilirsiniz.
-Logic Apps içerik türlerine dönüştürme işlemi sırasında nasıl işlediğini öğrenmek için bkz: [içerik türlerini işleme](../logic-apps/logic-apps-content-type.md).
+Logic Apps içerik türlerine dönüştürme işlemi sırasında nasıl işlediği hakkında daha fazla bilgi için bkz. [içerik türlerini işleme](../logic-apps/logic-apps-content-type.md).
 Her işlev hakkındaki tam başvuru için bkz: [alfabetik liste](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 | Dönüştürme işlevi | Görev |
@@ -229,7 +230,7 @@ Her işlev hakkındaki tam başvuru için bkz: [alfabetik liste](../logic-apps/w
 Bu iş akışı işlevleri size yardımcı olabilir:
 
 * Çalışma zamanında bir iş akışı örneği hakkındaki ayrıntıları alın.
-* Mantıksal uygulamalar oluşturmak için kullanılan girişleri çalışın.
+* Mantıksal uygulamalar veya akışlar oluşturmak için kullanılan girişleri çalışın.
 * Tetikleyiciler ve Eylemler çıkışlarına başvuruyor.
 
 Örneğin, bir eylemden çıkışlarına başvuruyor ve bir sonraki eylem bu verileri kullanabilirsiniz.
@@ -248,7 +249,7 @@ Her işlev hakkındaki tam başvuru için bkz: [alfabetik liste](../logic-apps/w
 | [Öğeleri](../logic-apps/workflow-definition-language-functions-reference.md#items) | İçinde için-her veya-kadar-döngü, geri döndürme işlevi, geçerli öğenin belirtilen döngünün.|
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | "Bir tetikleyici veya eylemi çağırır geri çağırma URL'si" döndürür. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Birden çok bölümü olan bir eylemin çıkış belirli bir parçanın gövdesini döndürür. |
-| [parametreler](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Mantıksal uygulama tanımınızı açıklanan bir parametre için bir değer döndürür. |
+| [parametreler](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Tanımlanan bir parametre için değer iş akışı tanımınızı döndürün. |
 | [Tetikleyici](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Çalışma zamanı veya diğer JSON ad ve değer çiftleri bir tetikleyicinin çıkışını geri döndürür. Ayrıca bkz: [triggerOutputs](#triggerOutputs) ve [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Bir tetikleyicinin dönüş `body` çalışma zamanında çıktı. Bkz: [tetikleyici](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | İçinde bir anahtar adı ile eşleşen tek bir değer döndürmesi *form verisinin* veya *form kodlu* çıkışları tetikleyin. |
@@ -1812,7 +1813,7 @@ Ve bu sonuçlar döndürebilir:
 ### <a name="float"></a>float
 
 Bir kayan noktalı sayı için bir dize sürümü için gerçek kayan nokta sayısı dönüştürün.
-Yalnızca özel parametreler bir mantıksal uygulama gibi bir uygulamaya geçirirken, bu işlevi kullanabilirsiniz.
+Özel Parametreler uygulamaya, örneğin, bir mantıksal uygulamada veya akışta geçirirken, bu işlevi kullanabilirsiniz.
 
 ```
 float('<value>')
@@ -2766,7 +2767,7 @@ multipartBody('<actionName>', <index>)
 Bir ifadenin false olup olmadığını denetleyin.
 İfade false olduğunda true döndürür veya true olduğunda false döndürür.
 
-```
+```json
 not(<expression>)
 ```
 
@@ -2784,7 +2785,7 @@ not(<expression>)
 
 Bu örnekler, belirtilen ifadenin false olup olmadığını denetleyin:
 
-```
+```json
 not(false)
 not(true)
 ```
@@ -2798,7 +2799,7 @@ Ve bu sonuçlar döndürebilir:
 
 Bu örnekler, belirtilen ifadenin false olup olmadığını denetleyin:
 
-```
+```json
 not(equals(1, 2))
 not(equals(1, 1))
 ```
@@ -2833,7 +2834,7 @@ or(<expression1>, <expression2>, ...)
 
 Bu örnekler, en az bir ifadenin doğru olup olmadığını denetleyin:
 
-```
+```json
 or(true, false)
 or(false, false)
 ```
@@ -2847,7 +2848,7 @@ Ve bu sonuçlar döndürebilir:
 
 Bu örnekler, en az bir ifadenin doğru olup olmadığını denetleyin:
 
-```
+```json
 or(equals(1, 1), equals(1, 2))
 or(equals(1, 2), equals(1, 3))
 ```
@@ -2861,7 +2862,7 @@ Ve bu sonuçlar döndürebilir:
 
 ### <a name="parameters"></a>parametreler
 
-Mantıksal uygulama tanımınızı açıklanan bir parametre için bir değer döndürür.
+Tanımlanan bir parametre için değer iş akışı tanımınızı döndürün.
 
 ```
 parameters('<parameterName>')

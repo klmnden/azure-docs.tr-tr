@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: hrasheed
-ms.openlocfilehash: c3d12224c0eaeafe0559cafdfa0d7c292ded9cee
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: fb15a6389577e8d132b9c5a895a9995a9f7da208
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564500"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607372"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Apache Sqoop işleri, HDInsight, Apache Hadoop için Azure PowerShell kullanarak çalıştırma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Azure HDInsight'ı almak ve bir HDInsight kümesi ve bir Azure SQL veritabanı veya SQL Server veritabanı arasında veri vermek için Apache Sqoop'u işleri çalıştırmak için Azure PowerShell kullanmayı öğrenin. Bu örnek verileri dışarı aktarır `/tutorials/usesqoop/data/sample.log` varsayılan depolama hesabı ve ardından bir tabloya adlı içeri aktarmalar `log4jlogs` bir SQL Server veritabanında.
+Azure HDInsight'ı almak ve bir HDInsight kümesi ve bir Azure SQL veritabanı veya SQL Server veritabanı arasında veri vermek için Apache Sqoop'u işleri çalıştırmak için Azure PowerShell kullanmayı öğrenin. Bu örnek verileri dışarı aktarır `/tutorials/usesqoop/data/sample.log` varsayılan depolama hesabı ve ardından bir tabloya adlı içeri aktarmalar `log4jlogs` bir SQL Server veritabanında. Bu makalede devamı niteliğindedir [HDInsight, Hadoop ile Apache Sqoop'u kullanma](./hdinsight-use-sqoop.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -27,7 +27,8 @@ Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
 * Azure PowerShell ile bir iş istasyonu [AZ modül](https://docs.microsoft.com/powershell/azure/overview) yüklü.
 
-* Bir HDInsight kümesi, Azure SQL Server ve gelen tanımlanan veritabanı [küme ve SQL veritabanı oluşturma](./hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* Tamamlanmasından [test ortamını ayarlama](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) gelen [HDInsight, Hadoop ile Apache Sqoop'u kullanma](./hdinsight-use-sqoop.md).
+
 
 ## <a name="run-apache-sqoop-by-using-powershell"></a>Apache Sqoop PowerShell kullanarak çalıştırma
 Aşağıdaki PowerShell betiğini kaynak dosyanın önceden işler ve Azure SQL veritabanı tablosuna dışarı `log4jlogs`. Değiştirin `CLUSTERNAME`, `CLUSTERPASSWORD`, ve `SQLPASSWORD` önkoşul kullanılan değerlerle.

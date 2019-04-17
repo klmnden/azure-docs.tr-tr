@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/07/2019
-ms.openlocfilehash: 79d6e185b64fdaf332f877718487809ba6273441
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 04/15/2019
+ms.openlocfilehash: e191c656c5485377f62073f52dec0b3dbee7537b
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895797"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616280"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı'nda sınırlamaları
 Aşağıdaki bölümlerde, kapasitesi, depolama altyapısı desteği, destek ayrıcalığına, veri işleme ifadesi desteği ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır.
@@ -28,10 +28,12 @@ Fiyatlandırma katmanı ve sanal çekirdek başına bağlantıları sayısı aş
 |Genel Amaçlı| 8| 1250|
 |Genel Amaçlı| 16| 2500|
 |Genel Amaçlı| 32| 5000|
+|Genel Amaçlı| 64| 10000|
 |Bellek için İyileştirilmiş| 2| 600|
 |Bellek için İyileştirilmiş| 4| 1250|
 |Bellek için İyileştirilmiş| 8| 2500|
 |Bellek için İyileştirilmiş| 16| 5000|
+|Bellek için İyileştirilmiş| 32| 10000|
 
 Bağlantı sınırı aştıklarında aşağıdaki hata iletisini alabilirsiniz:
 > HATA 1040 (08004): Bağlantı sayısı çok fazla

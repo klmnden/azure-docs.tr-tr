@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 4/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f927d1deb3da6269159e1f3f24a17c4675dc7568
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184899"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616222"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory geçişli kimlik doğrulaması sorunlarını giderme
 
@@ -71,6 +71,9 @@ Gidin **Azure Active Directory** -> **oturum açma işlemleri** üzerinde [Azure
 | 80007 | Kimlik Doğrulama Aracısı Active Directory'ye bağlanamadı. | Active Directory kimlik doğrulaması Aracısı'ndan erişilebilir olup olmadığını denetleyin.
 | 80010 | Kimlik Doğrulama Aracısı parolanın şifresini çözemedi. | Sorun tutarlı bir şekilde yineleniyorsa yükleyin ve yeni bir kimlik doğrulama Aracısı kaydedin. Ve geçerli kaldırın. 
 | 80011 | Kimlik Doğrulama Aracısı şifre çözme anahtarını alamıyor. | Sorun tutarlı bir şekilde yineleniyorsa yükleyin ve yeni bir kimlik doğrulama Aracısı kaydedin. Ve geçerli kaldırın.
+
+>[!IMPORTANT]
+>Doğrudan kimlik doğrulama aracılarının kimliğini Azure AD kullanıcılarının, kullanıcı adları ve parolaları Active Directory karşı çağırarak doğrulayarak [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Sonuç olarak, iş istasyonu oturum açma erişimi sınırlandırmak için Active Directory'de "Oturum açma için" ayarı ayarladıysanız, geçişli kimlik doğrulama aracılarının "Oturum açma için" de sunucular listesine barındırma sunucuları eklemeniz gerekir. Bunu yapmak başarısız olan, kullanıcılarınızın Azure AD açmasını engeller.
 
 ## <a name="authentication-agent-installation-issues"></a>Kimlik Doğrulama Aracısı yükleme sorunları
 

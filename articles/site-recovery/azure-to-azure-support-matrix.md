@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: f0540ff1fc1844c133e238267770b971992f61e6
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 0c2ca8c17abd6ac5e540beec1bde715931e022a4
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905010"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609413"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Azure Vm'leri bir bölgeden diğerine çoğaltma için destek matrisi
 
@@ -25,7 +25,7 @@ Bu makalede, çoğaltma, yük devretme ve kurtarma Azure vm'leri bir Azure bölg
 **Dağıtım** |  **Destek**
 --- | ---
 **Azure portal** | Destekleniyor.
-**PowerShell** | Destekleniyor. [Daha fazla bilgi edinin](azure-to-azure-powershell.md)
+**PowerShell** | Destekleniyor. [Daha fazla bilgi](azure-to-azure-powershell.md)
 **REST API** | Destekleniyor.
 **CLI** | Şu anda desteklenmiyor
 
@@ -99,7 +99,7 @@ Ubuntu 14.04 LTS Server | [Desteklenen bir çekirdek sürümleri](#supported-ubu
 Ubuntu 16.04 LTS Server | [Desteklenen bir çekirdek sürümü](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu sunucuları bulut Vm'leri yapılandırmak için parola tabanlı kimlik doğrulaması ve oturum açma ve cloud-init'i paket kullanarak parola tabanlı oturum açma (cloudinit yapılandırması) bağlı olarak yük devretme devre dışı bırakılmış olabilir. Parola tabanlı oturum açma olabilir sanal makinede yeniden etkin desteği parolasını sıfırlayarak > sorun giderme > Ayarlar menüsünden (devredilen VM'nin Azure portalında.
 Debian 7 | [Desteklenen bir çekirdek sürümleri](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [Desteklenen bir çekirdek sürümleri](#supported-debian-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 12 | SP1, SP2 SP3. [(Desteklenen çekirdek sürümleri)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 12 | SP1,SP2,SP3,SP4. [(Desteklenen çekirdek sürümleri)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> Makineler SP4 ' SP3'ü çoğaltmak yükseltme desteklenmiyor. Çoğaltılmış bir makineden yükseltildiyse, çoğaltmayı devre dışı bırakın ve yükseltmeden sonra çoğaltmayı yeniden etkinleştirmeniz gerekir.
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 <br/><br/> Red Hat uyumlu çekirdek veya kesilemeyen Enterprise çekirdeği sürüm 3 (UEK3) çalışıyor.
@@ -107,7 +107,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Azure sanal makineleri için desteklenen bir Ubuntu çekirdek sürümleri
 
-**Yayınla** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
+**Yayın** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
 14.04 LTS | 9.23 | 3.13.0-24-Generic 3.13.0-165-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-21-Generic 4.4.0-142-generic için<br/>4.15.0-1023-Azure 4.15.0-1037-azure için |
 14.04 LTS | 9.22 | 3.13.0-24-Generic 3.13.0-164-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-21-Generic 4.4.0-140-generic için<br/>4.15.0-1023-Azure 4.15.0-1036-azure için |
@@ -121,7 +121,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Azure sanal makineleri için desteklenen Debian çekirdek sürümleri
 
-**Yayınla** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
+**Yayın** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
 Debian 7 | 9.19,9.20,9.21,9.22,9.23 | 3.2.0-4-AMD64 3.2.0-6-amd64 için 3.16.0-0.bpo.4-amd64 |
 |||
@@ -130,9 +130,9 @@ Debian 8 | 9.19 | 3.16.0-4-AMD64 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 4.9.0-0.bpo
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Azure sanal makineleri için desteklenen bir SUSE Linux Enterprise Server 12 çekirdek sürümleri
 
-**Yayınla** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
+**Yayın** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
-SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.23 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.101-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.79-default için |
+SUSE Linux Enterprise Server (SP1, SP2, SP3, SP4) 12 | 9.23 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.101-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.79-default için</br></br>SP4 4.12.14-94.41-default 4.12.14-95.6-default için |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.22 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.72-default için |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.21 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.72-default için |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.20 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.69-default için |
@@ -241,8 +241,8 @@ Azure DNS | Desteklenen |
 Özel DNS  | Desteklenen |
 Kimliği doğrulanmamış proxy | Desteklenen | [Daha fazla bilgi]. (site-recovery-azure-to-azure-networking-guidance.md)   
 Kimliği doğrulanmış Proxy | Desteklenmiyor | VM için giden bağlantı kimliği doğrulanmış bir ara sunucu kullanıyorsa, Azure Site Recovery kullanarak yinelenemez.    
-Şirket içi VPN siteden siteye bağlantı<br/><br/>(ile veya olmadan ExpressRoute)| Desteklenen | Udr ve Nsg'ler Site kurtarma trafiği şirket içi yönlendirilmemesidir şekilde yapılandırıldığından emin olun. [Daha fazla bilgi edinin](site-recovery-azure-to-azure-networking-guidance.md)    
-VNET'ten VNET'e bağlantı | Desteklenen | [Daha fazla bilgi edinin](site-recovery-azure-to-azure-networking-guidance.md)  
+Şirket içi VPN siteden siteye bağlantı<br/><br/>(ile veya olmadan ExpressRoute)| Desteklenen | Udr ve Nsg'ler Site kurtarma trafiği şirket içi yönlendirilmemesidir şekilde yapılandırıldığından emin olun. [Daha fazla bilgi](site-recovery-azure-to-azure-networking-guidance.md)    
+VNET'ten VNET'e bağlantı | Desteklenen | [Daha fazla bilgi](site-recovery-azure-to-azure-networking-guidance.md)  
 Sanal Ağ Hizmeti Uç Noktaları | Desteklenen | Depolama hesapları için sanal ağ erişimini kısıtlama, güvenilen Microsoft hizmetlerinin depolama hesabına erişim izni verildiğini emin olun.
 Hızlandırılmış ağ iletişimi | Desteklenen | Kaynak VM üzerinde hızlandırılmış ağ etkin olması gerekir. [Daha fazla bilgi edinin](azure-vm-disaster-recovery-with-accelerated-networking.md).
 

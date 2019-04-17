@@ -248,6 +248,9 @@ items:
     - name: HDInsight kümesi için işletim sistemi düzeltme eki uygulama
       href: ../hdinsight-os-patching.md
       maintainContext: true
+    - name: Hive iş yüklerini HDInsight 4.0 sürümüne geçirme
+      href: apache-hive-migrate-workloads.md
+      maintainContext: true
   - name: Sorun giderme
     href: ../hdinsight-troubleshoot-guide.md
     items:
@@ -357,12 +360,15 @@ items:
 - name: Kaynaklar
   items:
   - name: Sürüm notları
-    href: ../hdinsight-release-notes.md
     items:
+    - name: Güncel sürüm notları
+      href: ../hdinsight-release-notes.md
+      maintainContext: true
     - name: Arşivlenmiş sürüm notları
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true
-    maintainContext: true
+  - name: Küme yapılandırma erişimindeki değişiklikler
+    href: ../hdinsight-migrate-granular-access-cluster-configurations.md
   - name: Azure Yol Haritası
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Forumdan yardım alma
@@ -376,9 +382,9 @@ items:
   - name: HDInsight için Windows araçları
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 9aac9dcaa0e7a853b3cedf88a7666f789dbf558f
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 2f9952a95da9a47448d54ba5b48be033fb5707cc
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579079"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615732"

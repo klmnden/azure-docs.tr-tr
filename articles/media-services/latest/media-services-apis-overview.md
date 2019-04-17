@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9d1fa5786dcde70d42363dbb9af7221ca5383e64
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ed10354047060825b4368e02160d4655e33bc8f6
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546407"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617405"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>V3 API'ler Media Services ile geliştirme
 
@@ -25,7 +25,8 @@ Bu makalede, Media Services v3 ile geliştirirken varlıkları ve API'ler için 
 
 ## <a name="accessing-the-azure-media-services-api"></a>Azure Media Services API erişme
 
-Azure Media Services kaynaklara erişmek için Azure Active Directory (AD) hizmet sorumlusu kimlik doğrulaması kullanmanız gerekir. Azure Media Services API'sine gerektirir kullanıcı veya REST API yapan uygulamanın Azure Media Services hesabı kaynak erişim sahibi istekleri (genellikle **katkıda bulunan** veya **sahibi** rolü için). Daha fazla bilgi için [Media Services hesapları için rol tabanlı erişim denetimi](rbac-overview.md).
+Azure Media Services kaynaklara erişmek için Azure Active Directory (AD) hizmet sorumlusu kimlik doğrulaması kullanabilirsiniz.
+Media Services API'sine gerektirir kullanıcı veya uygulamanın REST API'si kullanın ve Media Services hesabı kaynağa erişimi istekleri bir **katkıda bulunan** veya **sahibi** rol. API ile erişilebilir **okuyucu** ancak yalnızca Rol **alma** veya **listesi**   işlemleri kullanıma sunulacaktır. Daha fazla bilgi için [Media Services hesapları için rol tabanlı erişim denetimi](rbac-overview.md).
 
 Bir hizmet sorumlusu oluşturmak yerine, Azure Resource Manager ile Media Services API'sine erişmek için Azure kaynakları için yönetilen kimlikleri kullanmayı düşünün. Azure kaynakları için yönetilen kimlikleri hakkında daha fazla bilgi için bkz: [Azure kaynakları için yönetilen kimlikleri nedir](../../active-directory/managed-identities-azure-resources/overview.md).
 

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 9476713bdca185fd84289fca3cf7aa304ad3f9fb
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 99aec3be893693e523dffefbb3c422222ac19a2e
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311433"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616875"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Fiziksel sunucuya Azure olağanüstü durum kurtarma mimarisi
 
@@ -25,7 +25,7 @@ Aşağıdaki tablo ve grafik azure'a fiziksel sunucu çoğaltma için kullanıla
 
 **Bileşen** | **Gereksinim** | **Ayrıntılar**
 --- | --- | ---
-**Azure** | Bir Azure aboneliği, Azure depolama hesabını ve Azure ağı. | Şirket içi vm'lerden çoğaltılan veriler depolama hesabında depolanır. Yük devretme şirket içinden Azure'a çalıştırdığınızda çoğaltılan verilerle azure Vm'leri oluşturulur. Azure VM’leri oluşturulduğunda Azure sanal ağına bağlanır.
+**Azure** | Bir Azure aboneliğine ve bir Azure ağı. | Çoğaltılan şirket içinde fiziksel makineleri Azure'da depolanan verilerden yönetilen diskler. Yük devretme şirket içinden Azure'a çalıştırdığınızda çoğaltılan verilerle azure Vm'leri oluşturulur. Azure VM’leri oluşturulduğunda Azure sanal ağına bağlanır.
 **Yapılandırma sunucusu** | Tek bir fiziksel makine şirket içinde veya tüm şirket içi Site Recovery bileşenlerini çalıştıran VMware VM dağıtılır. VM yapılandırma sunucusu, işlem sunucusu ve ana hedef sunucusunda çalışır. | Yapılandırma sunucusu yerinde bileşenler ile Azure arasındaki iletişimi düzenler ve veri çoğaltma işlemlerini yönetir.
  **İşlem sunucusu**:  | Varsayılan yapılandırma sunucusu ile birlikte yüklenir. | Çoğaltma ağ geçidi olarak davranır. Çoğaltma verilerini alıp bu verileri önbelleğe alma, sıkıştırma ve şifreleme işlemleriyle iyileştirir ve Azure depolama alanına gönderir.<br/><br/> İşlem sunucusu, çoğaltmak istediğiniz sunucularda ayrıca Mobility hizmetini yükler.<br/><br/> Dağıtımınız büyüdükçe, daha büyük çoğaltma trafiği hacimlerini idare etmek ayrı, ek işlem sunucuları ekleyebilirsiniz.
  **Ana hedef sunucu** | Varsayılan yapılandırma sunucusu ile birlikte yüklenir. | Azure’dan yeniden çalışma sırasında çoğaltma verilerini işler.<br/><br/> Büyük dağıtımlar için yeniden çalışma için bir ek, ayrı bir ana hedef sunucusu ekleyebilirsiniz.

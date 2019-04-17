@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77dadeda8bb270689530a34c3e36d33e439ea9e5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3b00afa3d1001ee7c48997e41fd6042763bcc9aa
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180394"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616603"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory geçişli kimlik doğrulaması: Sık sorulan sorular
 
@@ -50,6 +50,10 @@ Evet, geçişli kimlik doğrulamasını destekleyen `Alternate ID` Azure AD Conn
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Parola Karması eşitleme, geçişli kimlik doğrulaması için bir geri dönüş olarak davranmak mu?
 
 Hayır. Geçişli kimlik doğrulaması _yok_ otomatik olarak yük devretme için parola karması eşitleme. Kullanıcı oturum açma hatalarını önlemek için geçişli kimlik doğrulaması için yapılandırmalısınız [yüksek kullanılabilirlik](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+
+## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>Parola Karması eşitlemeyi geçişli kimlik doğrulaması için geçtiğinizde ne olur?
+
+Geçişli kimlik doğrulaması oturum açma yönteminden parola karması eşitleme geçişli kimlik doğrulaması için geçiş yapmak için Azure AD Connect kullandığınızda, birincil oturum açma yöntemi, kullanıcılarınızın yönetilen etki alanlarında haline gelir. Parola Karması eşitleme tarafından daha önce eşitlendi, tüm kullanıcıların parola karmalarının Azure AD'de depolanan kalmasını unutmayın.
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Yükleyebilmek için bir [Azure AD uygulama proxy'si](../manage-apps/application-proxy.md) geçişli kimlik doğrulaması Aracısı ile aynı sunucuda bağlayıcı?
 
@@ -157,7 +161,7 @@ Geçişli kimlik doğrulaması Aracısı bir sunucudan kaldırırsanız, sunucun
 
 ## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>Özgün AD FS kullanarak Kurulum, daha eski bir kiracınız var.  Size yakın zamanda PTA için geçirilen, ancak artık Azure AD ile eşitliyorsanız UPN değişikliklerimizi görmüyor.  Bizim UPN neden olan olmayan eşitlenmesini değiştirir?
 
-C: Aşağıdaki durumlarda, şirket içi UPN değişikliklerinizi eşitlenmeyebilir:
+Y: Aşağıdaki durumlarda, şirket içi UPN değişikliklerinizi eşitlenmeyebilir:
 
 - Azure AD kiracınız 15 Haziran 2015 tarihinden önce oluşturulduysa
 - Kimlik doğrulaması için AD FS kullanarak Azure AD kiracınız ile başlangıçta federe

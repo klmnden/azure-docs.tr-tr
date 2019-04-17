@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c78a54d5002972339994d9590c0a3e23b5c69bd9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: a029477dfd8046863ebfe34cd839562a0b1f3d87
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811555"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607804"
 ---
-<a name="pricing-for-virtual-machine-offers"></a>Sanal makine teklifleri için fiyatlandırma
+<a name="pricing-for-virtual-machine-offers"></a>Sanal makine tekliflerinin fiyatlandırması
 ==================================
 
 Sanal makine teklifleri için fiyatlandırma belirtmek için üç yolu vardır: özelleştirilmiş çekirdek fiyatlandırma, çekirdek başına fiyatlandırma ve elektronik tablo fiyatlandırma.
@@ -106,35 +106,35 @@ Aşağıdaki tabloda, farklı bölgelerdeki özelleştirilmiş çekirdek fiyatla
 |------------|----------------------|-------------------|
 | DZ         | Cezayir              | DZD               |
 | AR         | Arjantin            | ARS               |
-| Otomatik Olarak Güncelleştir         | Avustralya            | AUD               |
+| AU         | Avustralya            | AUD               |
 | AT         | Avusturya              | EUR               |
 | BH         | Bahreyn              | BHD               |
-| TARAFINDAN         | Belarus              | RUB               |
-| OLABİLİR         | Belçika              | EUR               |
+| BY         | Belarus              | RUB               |
+| BE         | Belçika              | EUR               |
 | BR         | Brezilya               | USD               |
 | BG         | Bulgaristan             | BGN               |
 | CA         | Kanada               | CAD               |
 | CL         | Şili                | CLP               |
-| ORTAK         | Kolombiya             | KOPYALA               |
+| CO         | Kolombiya             | KOPYALA               |
 | CR         | Kosta Rika           | CRC               |
-| İK         | Hırvatistan              | HRK               |
+| HR         | Hırvatistan              | HRK               |
 | CY         | Kıbrıs               | EUR               |
 | CZ         | Çek Cumhuriyeti       | CZK               |
 | DK         | Danimarka              | DKK               |
-| YAPIN         | Dominik Cumhuriyeti   | USD               |
+| DO         | Dominik Cumhuriyeti   | USD               |
 | EC         | Ekvador              | USD               |
-| ÖRNEĞİN         | Mısır                | EGP               |
+| EG         | Mısır                | EGP               |
 | SV         | El Salvador          | USD               |
 | EE         | Estonya              | EUR               |
 | FI         | Finlandiya              | EUR               |
 | GS         | Fransa               | EUR               |
-| GİZLE         | Almanya              | EUR               |
+| DE         | Almanya              | EUR               |
 | GR         | Yunanistan               | EUR               |
 | GT         | Guatemala            | GTQ               |
-| HK         | Hong Kong ÖYB        | HKD               |
+| HK         | Hong Kong Çin ÖİB        | HKD               |
 | HU         | Macaristan              | HUF               |
-| OLDUĞU         | İzlanda              | SK               |
-| GİRİŞ         | Hindistan                | INR               |
+| IS         | İzlanda              | SK               |
+| IN         | Hindistan                | INR               |
 | Kimlik         | Endonezya            | IDR               |
 | IE         | İrlanda              | EUR               |
 | IL         | İsrail               | ILS               |
@@ -142,34 +142,34 @@ Aşağıdaki tabloda, farklı bölgelerdeki özelleştirilmiş çekirdek fiyatla
 | JP         | Japonya                | JPY               |
 | JO         | Ürdün               | JOD               |
 | KZ         | Kazakistan           | KZT               |
-| YAP         | Kenya                | KES               |
-| KR         | Kore                | KRW               |
+| KE         | Kenya                | KES               |
+| KR         | Güney Kore                | KRW               |
 | KW         | Kuveyt               | KWD               |
 | LV         | Letonya               | EUR               |
-| LI         | Liechtenstein        | CHF               |
-| LT         | Lituanya            | EUR               |
+| LI         | Lihtenştayn        | CHF               |
+| LT         | Litvanya            | EUR               |
 | LU         | Lüksemburg           | EUR               |
-| MK         | Makedonya EYC       | MKD               |
-| BİLGİSAYARIM         | Malezya             | MYR               |
+| MK         | Kuzey Makedonya      | MKD               |
+| MY         | Malezya             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | Meksika               | MXN               |
-| BANA         | Karadağ           | EUR               |
+| ME         | Karadağ           | EUR               |
 | MA         | Fas              | MAD               |
 | NL         | Hollanda          | EUR               |
 | NZ         | Yeni Zelanda          | NZD               |
 | NG         | Nijerya              | NGN               |
-| HAYIR         | Norveç               | NOK               |
+| NO         | Norveç               | NOK               |
 | OM         | Umman                 | OMR               |
-| BA         | Pakistan             | PKR               |
+| PK         | Pakistan             | PKR               |
 | PA         | Panama               | USD               |
 | PY         | Paraguay             | PYG               |
 | PE         | Peru                 | KALEM               |
 | PH         | Filipinler          | PHP               |
 | PL         | Polonya               | PLN               |
 | PT         | Portekiz             | EUR               |
-| ÇEKME İSTEĞİ         | Porto Riko          | USD               |
+| PR         | Porto Riko          | USD               |
 | QA         | Katar                | QAR               |
-| RO         | Romanya              | CÜNEYT'İN               |
+| RO         | Romanya              | RON               |
 | RU         | Rusya               | RUB               |
 | SA         | Suudi Arabistan         | SAR               |
 | RS         | Sırbistan               | RSD               |
@@ -191,5 +191,5 @@ Aşağıdaki tabloda, farklı bölgelerdeki özelleştirilmiş çekirdek fiyatla
 | GB         | Birleşik Krallık       | GBP               |
 | ABD         | Amerika Birleşik Devletleri        | USD               |
 | UY         | Uruguay              | UYU               |
-| KAYDET         | Venezuela            | USD               |
+| VE         | Venezuela            | USD               |
 |  |  |  |

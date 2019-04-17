@@ -12,25 +12,26 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 56f1f04ea300ae628abb1200203873ee4ffb1af1
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: a2ffc344f51c45007eb982a02b14cb2d481d752e
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294187"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616790"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Statik paketleme görevlerini gerçekleştirmek üzere Azure Media Packager'ı kullanma  
+
 > [!NOTE]
-> 1 Mart 2017'ye tarihi Microsoft Azure medya Paketleyici ve Microsoft Azure medya Şifreleyici yaşam sonuna genişletilmiştir. Bu tarihten önce bu işlemci işlevlerini medya Kodlayıcı standart (MES için) eklenir. Müşteriler için MES işleri göndermek için iş akışlarını geçirme hakkında yönergeler sağlanır. Biçim dönüştürme ve şifreleme özellikleri de dinamik paketleme ve dinamik şifreleme yapılabilir.
-> 
-> 
+> Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
+
 
 ## <a name="overview"></a>Genel Bakış
+
 İnternet üzerinden dijital video teslim etmek için medyayı sıkıştırmanız gerekir. Dijital video dosyaları büyük ve internet üzerinden veya müşterilerinizin cihazlar düzgün görüntülenmesi sunmak için çok büyük olabilir. Kodlama, müşterilerinizin ortamınızı görüntülemek için video ve ses sıkıştırma işlemidir. Bir video kodlanmış sonra farklı bir dosya kapsayıcılarına yerleştirilebilir. Bir kapsayıcı içine yerleştirme kodlanmış medya işleme paketleme verilir. Örneğin, bir MP4 dosyasını alır ve Azure Media Packager'ı kullanarak kesintisiz akış ve HLS içeriği dönüştürün. 
 
-Media Services dinamik ve statik paketleme destekler. Statik paketleme kullanırken, müşterileriniz tarafından gerekli olan her biçimde, içeriğin bir kopyasını oluşturmanız gerekir. Tüm paketleme, dinamik ile ihtiyacınız, bir grup bit hızı Uyarlamalı MP4 veya kesintisiz akış dosyaları içeren bir varlık oluşturmaktır. Ardından bildirim veya parça isteğindeki talep üzerine akış belirtilen biçime bağlı sunucusu kullanıcılarınız akış, seçtiğiniz protokolde almanızı sağlar. Bunu sonucunda, dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services hizmeti, istemciden gelen isteklere göre uygun yanıtı derler ve sunar.
+Media Services dinamik ve statik paketleme destekler. Statik paketleme kullanırken, müşterileriniz tarafından gerekli olan her biçimde, içeriğin bir kopyasını oluşturmanız gerekir. Dinamik paketleme ile tek ihtiyacınız olan bir grup bit hızı Uyarlamalı MP4 veya kesintisiz akış dosyaları içeren bir varlık oluşturmaktır. Ardından bildirim veya parça isteğindeki talep üzerine akış belirtilen biçime bağlı sunucusu kullanıcılarınız akış, seçtiğiniz protokolde almanızı sağlar. Bunu sonucunda, dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services hizmeti, istemciden gelen isteklere göre uygun yanıtı derler ve sunar.
 
 > [!NOTE]
 > Kullanılacak önerilen [dinamik paketleme](media-services-dynamic-packaging-overview.md).
@@ -80,7 +81,7 @@ Medya Hizmetleri Paketleyici MP4 dosyalarınızla doğrulamak için kendi bildir
     </smil>
 ```
 
-Sonra hızı Uyarlamalı MP4 kümesine dinamik paketleme yararlanabilirsiniz. Dinamik paketleme, daha fazla paketleme olmadan belirtilen protokol akışlar sunmanıza olanak sağlar. Daha fazla bilgi için [dinamik paketleme](media-services-dynamic-packaging-overview.md).
+Bit hızı Uyarlamalı MP4 kümesine sahip olduğunuzda, dinamik paketleme yararlanabilir. Dinamik paketleme, daha fazla paketleme olmadan belirtilen protokol akışlar sunmanıza olanak sağlar. Daha fazla bilgi için [dinamik paketleme](media-services-dynamic-packaging-overview.md).
 
 Aşağıdaki kod örneği, Azure Media Services .NET SDK uzantıları kullanır.  Kod .ism dosyası ve giriş MP4 dosyalarının bulunduğu klasöre işaret edecek şekilde güncelleştirdiğinizden emin olun. Ve ayrıca MediaPackager_ValidateTask.xml dosyanızın bulunduğu için. Bu XML dosyası tanımlanan [Azure Media Packager'ı için görev Önayar](https://msdn.microsoft.com/library/azure/hh973635.aspx) makalesi.
 
@@ -114,20 +115,27 @@ Aşağıdaki kod örneği, Azure Media Services .NET SDK uzantıları kullanır.
             private static MediaServicesCredentials _cachedCredentials = null;
             private static CloudMediaContext _context = null;
 
-            // Media Services account information.
-            private static readonly string _mediaServicesAccountName =
-                ConfigurationManager.AppSettings["MediaServicesAccountName"];
-            private static readonly string _mediaServicesAccountKey =
-                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+            // Read values from the App.config file.
+
+            private static readonly string _AADTenantDomain =
+                ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+                ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+            private static readonly string _AMSClientId =
+                ConfigurationManager.AppSettings["AMSClientId"];
+            private static readonly string _AMSClientSecret =
+                ConfigurationManager.AppSettings["AMSClientSecret"];
 
             static void Main(string[] args)
             {
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                                _mediaServicesAccountName,
-                                _mediaServicesAccountKey);
-                // Use the cached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+                AzureAdTokenCredentials tokenCredentials =
+                    new AzureAdTokenCredentials(_AADTenantDomain,
+                        new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                        AzureEnvironments.AzureCloudEnvironment);
+
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
                 // Ingest a set of multibitrate MP4s.
                 //
@@ -295,25 +303,27 @@ Ve ayrıca MediaPackager_MP4ToSmooth.xml ve MediaEncryptor_PlayReadyProtection.x
 
             // XML Configuration files path.
             private static readonly string _configurationXMLFiles = @"../..\Configurations\";
-
-
-            private static MediaServicesCredentials _cachedCredentials = null;
-            private static CloudMediaContext _context = null;
-
-            // Media Services account information.
-            private static readonly string _mediaServicesAccountName =
-                ConfigurationManager.AppSettings["MediaServiceAccountName"];
-            private static readonly string _mediaServicesAccountKey =
-                ConfigurationManager.AppSettings["MediaServiceAccountKey"];
+          
+            // Read values from the App.config file.
+            private static readonly string _AADTenantDomain =
+                ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+                ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+            private static readonly string _AMSClientId =
+                ConfigurationManager.AppSettings["AMSClientId"];
+            private static readonly string _AMSClientSecret =
+                ConfigurationManager.AppSettings["AMSClientSecret"];
 
             static void Main(string[] args)
             {
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                                _mediaServicesAccountName,
-                                _mediaServicesAccountKey);
-                // Use the cached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+                AzureAdTokenCredentials tokenCredentials =
+                    new AzureAdTokenCredentials(_AADTenantDomain,
+                        new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                        AzureEnvironments.AzureCloudEnvironment);
+
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
                 // Encoding and encrypting assets //////////////////////
                 // Load a single MP4 file.
@@ -665,7 +675,6 @@ Ve ayrıca MediaPackager_MP4ToSmooth.xml ve MediaEncryptor_PlayReadyProtection.x
                             CreateAsync("Deliver Common Content Key with no restrictions").
                             Result;
 
-
                 contentKeyAuthorizationPolicy.Options.Add(policyOption);
 
                 // Associate the content key authorization policy with the content key.
@@ -708,7 +717,7 @@ AES-128 ile HLS şifrelemek isterseniz, dinamik şifreleme (önerilen seçenek) 
 > [!NOTE]
 > HLS içeriğinizin dönüştürmek için önce dönüştürme/içeriğinizi kesintisiz akış ile kodlamanız gerekir.
 > Ayrıca, HLS AES ile şifrelenmiş için aşağıdaki özellikleri MediaPackager_SmoothToHLS.xml dosyanızda ayarlanan emin olun: true, anahtar değeri ve kimlik doğrulaması\yetkilendirme sunucunuzu işaret edecek şekilde keyuri değeri ayarlamak için şifreleme özelliğini ayarlayın.
-> Media Services anahtar dosyası oluşturmak ve varlık kapsayıcısında yerleştirin. /Asset-containerguid/\*.key dosya sunucunuza kopyalayın (veya gerekir anahtar dosyanızı oluşturun) ve varlık kapsayıcıdan \*.key dosya silin.
+> Media Services, bir anahtar dosyası oluşturur ve varlık kapsayıcısına yerleştirir. /Asset-containerguid/\*.key dosya sunucunuza kopyalayın (veya gerekir anahtar dosyanızı oluşturun) ve varlık kapsayıcıdan \*.key dosya silin.
 > 
 > 
 
@@ -743,23 +752,26 @@ Bu bölümdeki örnek, bir ara dosyayı (Bu durumda MP4) MP4 dosyaları ve ardı
             // XML Configuration files path.
             private static readonly string _configurationXMLFiles = @"../..\Configurations\";
 
-            private static MediaServicesCredentials _cachedCredentials = null;
-            private static CloudMediaContext _context = null;
-
-            // Media Services account information.
-            private static readonly string _mediaServicesAccountName = 
-                ConfigurationManager.AppSettings["MediaServiceAccountName"];
-            private static readonly string _mediaServicesAccountKey = 
-                ConfigurationManager.AppSettings["MediaServiceAccountKey"];
+            // Read values from the App.config file.
+            private static readonly string _AADTenantDomain =
+                ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+                ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+            private static readonly string _AMSClientId =
+                ConfigurationManager.AppSettings["AMSClientId"];
+            private static readonly string _AMSClientSecret =
+                ConfigurationManager.AppSettings["AMSClientSecret"];
 
             static void Main(string[] args)
             {
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                                _mediaServicesAccountName, 
-                                _mediaServicesAccountKey);
-                // Use the cached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+                AzureAdTokenCredentials tokenCredentials =
+                    new AzureAdTokenCredentials(_AADTenantDomain,
+                        new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                        AzureEnvironments.AzureCloudEnvironment);
+
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
                 // Encoding and encrypting assets //////////////////////
 
@@ -1030,24 +1042,27 @@ Aşağıdaki kod, giriş MP4 dosyasının bulunduğu klasöre işaret edecek şe
             // XML Configuration files path.
             private static readonly string _configurationXMLFiles = @"../..\Configurations\";
 
-
-            private static MediaServicesCredentials _cachedCredentials = null;
-            private static CloudMediaContext _context = null;
-
-            // Media Services account information.
-            private static readonly string _mediaServicesAccountName =
-                ConfigurationManager.AppSettings["MediaServiceAccountName"];
-            private static readonly string _mediaServicesAccountKey =
-                ConfigurationManager.AppSettings["MediaServiceAccountKey"];
+            // Read values from the App.config file.
+            private static readonly string _AADTenantDomain =
+                ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+                ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+            private static readonly string _AMSClientId =
+                ConfigurationManager.AppSettings["AMSClientId"];
+            private static readonly string _AMSClientSecret =
+                ConfigurationManager.AppSettings["AMSClientSecret"];
 
             static void Main(string[] args)
             {
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                                _mediaServicesAccountName,
-                                _mediaServicesAccountKey);
-                // Used the cached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+                AzureAdTokenCredentials tokenCredentials =
+                    new AzureAdTokenCredentials(_AADTenantDomain,
+                        new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                        AzureEnvironments.AzureCloudEnvironment);
+
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+
 
                 // Load an MP4 file.
                 IAsset asset = IngestSingleMP4File(_singleMP4File, AssetCreationOptions.None);

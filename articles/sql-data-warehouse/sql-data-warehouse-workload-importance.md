@@ -10,21 +10,21 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: e53a6fcefb0f5370f6e24cc50fad2ad4ad4c64e3
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: 12e7d9bc22eff14bbf302aed50080412d04a40d3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57864099"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616637"
 ---
 # <a name="sql-data-warehouse-workload-importance-preview"></a>SQL veri ambarı iş yükü önem (Önizleme)
 
 Bu makalede, SQL veri ambarı istekler için yürütme sırasını iş yükü önem nasıl etkileyebilir açıklanmaktadır.
 
 > [!Note]
-> İş yükü önem, SQL veri ambarı Gen2'de kullanılabilir.
+> İş yükü Sınıflandırma, SQL veri ambarı Gen2'te önizlemesi için kullanılabilir. 9 Nisan 2019 veya sonraki bir sürüm tarihi yapılarla Önizleme iş yükü yönetimi sınıflandırma ve önem derecesi içindir.  Kullanıcılar, iş yükü yönetimi için test derlemeleri bu tarihten önceki kullanmaktan kaçınmanız gerekir.  Derleme iş yükü yönetimi özelliğine sahip olup olmadığını belirlemek için çalıştırdığınızda @ seçin@version SQL veri ambarı Örneğinize bağlandığında.
 
-## <a name="importance"></a>Önem
+## <a name="importance"></a>Önem derecesi
 
 > [!Video https://www.youtube.com/embed/_2rLMljOjw8]
 

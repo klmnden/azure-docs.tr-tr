@@ -12,12 +12,12 @@ ms.date: 03/12/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd494ffe6bc48495c882ed84062503bdc00ae9f4
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: fc454fdba6ec875c3d3b572a7aba91bb9d389845
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917847"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617233"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Öğretici: Azure Active Directory Uygulama proxy'si aracılığıyla uzaktan erişim için şirket içi uygulama ekleme
 
@@ -114,7 +114,7 @@ Bağlayıcıyı yüklemek için:
 
 ### <a name="general-remarks"></a>Genel açıklamalar
 
-En son sürümünü almak için bir bağlayıcı daha önce yüklediyseniz, yeniden yükleyin.
+En son sürümünü almak için bir bağlayıcı daha önce yüklediyseniz, yeniden yükleyin. Daha önce yayımlanmış sürümleri ve bunlar değişiklikler hakkındaki bilgileri görmek için eklemek için bkz: [uygulama ara sunucusu - sürüm yayımlama geçmişi](application-proxy-release-version-history.md).
 
 Şirket içi uygulamalarınız için birden fazla Windows server seçerseniz, yüklemeniz ve her sunucuya bağlayıcı kaydetmeniz gerekir. Bağlayıcılar, bağlayıcı gruplar halinde düzenleyebilirsiniz. Daha fazla bilgi için [bağlayıcı grupları](application-proxy-connector-groups.md). 
 
@@ -122,7 +122,6 @@ Kuruluşunuz internet'e bağlanmak için proxy sunucuları kullanıyorsa bunlar�
 
 Bağlayıcılar, kapasite planlaması ve nasıl güncel kalın hakkında daha fazla bilgi için bkz: [anlamak Azure AD uygulama ara sunucusu bağlayıcıları](application-proxy-connectors.md). 
 
-Qlik Sense uygulama kullanıyorsanız, her zaman en son Bağlayıcısı'nı yükleyin. Qlik Sense WebSockets, yalnızca 1.5.612.0 bağlayıcı sürümlerinde desteklenen veya üzeri olduğu kullanır.
 
 ## <a name="verify-the-connector-installed-and-registered-correctly"></a>Yüklü ve kayıtlı doğru bağlayıcı doğrulayın
 
@@ -175,17 +174,17 @@ Ortamınızı hazırladığınız ve yüklü bir bağlayıcı göre şirket içi
     | **Ad** | Uygulamanın erişim panelinde hem de Azure portalında görünecek adı. |
     | **İç URL** | Uygulamaya özel ağınızın içinden erişmek için URL. Arka uç sunucusundaki belirli bir yolun yayımlanmasını sağlayabilirsiniz. Sunucunun geri kalanı yayımlanmaz. Bu şekilde, farklı uygulamalar ile aynı sunucuda farklı siteleri yayımlayabilir; her biri kendi adını ve erişim kuralları belirleyebilirsiniz.<br><br>Bir yol yayımlarsanız uygulamanıza ilişkin tüm gerekli görüntüleri, betikleri ve stil sayfalarını içerdiğinden emin olun. Örneğin, uygulamanız https ise:\//yourapp/uygulama ve kullandığı görüntüleri bulunan https:\//yourapp/medya ve ardından https yayımlama:\//yourapp/ yolu. Bu iç URL, kullanıcıların görmesi giriş sayfası olması gerekmez. Daha fazla bilgi için [yayımlanan uygulamalar için özel bir ana sayfa ayarlamak](application-proxy-configure-custom-home-page.md). |
     | **Dış URL** | Uygulamadan ağınızın dışından erişmek kullanıcıların adresi. Varsayılan uygulama ara sunucusu etki alanı kullanmayı istemiyorsanız okuyun [Azure AD uygulama proxy'sinde özel etki alanları](application-proxy-configure-custom-domain.md).|
-    | **Ön Kimlik Doğrulaması** | Uygulama proxy'si nasıl erişim uygulamanıza vermeden önce kullanıcıları doğrular.<br><br>**Azure Active Directory** -uygulama proxy'si, kullanıcıların dizin ve uygulama izinlerine yönelik kimlik doğrulaması Azure AD'de oturum açmasına yönlendirir. Azure AD koşullu erişim ve çok faktörlü kimlik doğrulaması gibi güvenlik özelliklerini yararlanabilir, böylece bu seçenek varsayılan olarak tutma öneririz. **Azure Active Directory** Microsoft bulut uygulama güvenliği ile bir uygulama izlemek için gereklidir.<br><br>**Geçiş** -kullanıcılar, Azure uygulamaya erişmek için Active Directory karşı kimlik doğrulaması yapmak zorunda değilsiniz. Kimlik doğrulama gereksinimleri arka uçtaki yine de ayarlayabilirsiniz. |
-    | **Bağlayıcı Grubu** | Uygulamanız için uzaktan erişim bağlayıcılar işlemek ve bağlayıcı grupları bağlayıcılar ve bölgeyi, ağ veya amaçlı uygulamaların düzenlemenize yardımcı. Bağlayıcı gruplarda henüz sahip değilseniz, uygulamanızın atanan **varsayılan**.<br><br>Uygulamanız bağlanmak için WebSockets kullanıyorsa gruptaki tüm bağlayıcıları sürüm 1.5.612.0 olmalıdır veya üzeri.|
+    | **Ön kimlik doğrulaması** | Uygulama proxy'si nasıl erişim uygulamanıza vermeden önce kullanıcıları doğrular.<br><br>**Azure Active Directory** -uygulama proxy'si, kullanıcıların dizin ve uygulama izinlerine yönelik kimlik doğrulaması Azure AD'de oturum açmasına yönlendirir. Azure AD koşullu erişim ve çok faktörlü kimlik doğrulaması gibi güvenlik özelliklerini yararlanabilir, böylece bu seçenek varsayılan olarak tutma öneririz. **Azure Active Directory** Microsoft bulut uygulama güvenliği ile bir uygulama izlemek için gereklidir.<br><br>**Geçiş** -kullanıcılar, Azure uygulamaya erişmek için Active Directory karşı kimlik doğrulaması yapmak zorunda değilsiniz. Kimlik doğrulama gereksinimleri arka uçtaki yine de ayarlayabilirsiniz. |
+    | **Bağlayıcı grubu** | Uygulamanız için uzaktan erişim bağlayıcılar işlemek ve bağlayıcı grupları bağlayıcılar ve bölgeyi, ağ veya amaçlı uygulamaların düzenlemenize yardımcı. Bağlayıcı gruplarda henüz sahip değilseniz, uygulamanızın atanan **varsayılan**.<br><br>Uygulamanız bağlanmak için WebSockets kullanıyorsa gruptaki tüm bağlayıcıları sürüm 1.5.612.0 olmalıdır veya üzeri.|
 
 5. Gerekirse, yapılandırma **ek ayarlar**. Çoğu uygulama için bu ayarları varsayılan durumlarına tutmanız gerekir. 
 
     | Alan | Açıklama |
     | :---- | :---------- |
-    | **Arka Uç Uygulama Zaman Aşımı** | Bu değer kümesine **uzun** uygulamanız kimlik doğrulaması ve bağlanmak yavaş ise. |
-    | **Yalnızca HTTP Tanımlama Bilgisi Kullan** | Bu değer kümesine **Evet** tanımlama bilgileri uygulama proxy'si için HTTP yanıt üst bilgisinde HTTPOnly bayrağını ekleyin. Uzak Masaüstü Hizmetleri'ni kullanarak ayarlarsanız bu değer **Hayır**.|
-    | **Güvenli Tanımlama Bilgisi Kullan**| Bu değer kümesine **Evet** şifrelenmiş bir HTTPS isteği gibi güvenli bir kanal üzerinden tanımlama bilgileri iletmek için.
-    | **Kalıcı Tanımlama Bilgisi Kullan**| Bu değeri tutun **Hayır**. Bu ayar, yalnızca tanımlama bilgilerini işlemler arasında paylaşamaz uygulamalar için kullanılmalıdır. Tanımlama bilgisi ayarları hakkında daha fazla bilgi için bkz: [Azure Active Directory'de şirket içi uygulamalara erişmek için tanımlama bilgisi ayarları](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)
+    | **Arka uç uygulama zaman aşımı** | Bu değer kümesine **uzun** uygulamanız kimlik doğrulaması ve bağlanmak yavaş ise. |
+    | **Yalnızca HTTP tanımlama bilgisi kullan** | Bu değer kümesine **Evet** tanımlama bilgileri uygulama proxy'si için HTTP yanıt üst bilgisinde HTTPOnly bayrağını ekleyin. Uzak Masaüstü Hizmetleri'ni kullanarak ayarlarsanız bu değer **Hayır**.|
+    | **Güvenli bir tanımlama bilgisi kullan**| Bu değer kümesine **Evet** şifrelenmiş bir HTTPS isteği gibi güvenli bir kanal üzerinden tanımlama bilgileri iletmek için.
+    | **Kalıcı bir tanımlama bilgisi kullan**| Bu değeri tutun **Hayır**. Bu ayar, yalnızca tanımlama bilgilerini işlemler arasında paylaşamaz uygulamalar için kullanılmalıdır. Tanımlama bilgisi ayarları hakkında daha fazla bilgi için bkz: [Azure Active Directory'de şirket içi uygulamalara erişmek için tanımlama bilgisi ayarları](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)
     | **Üst bilgilerinde URL'leri Çevir** | Bu değer olarak tutmak **Evet** özgün ana bilgisayar üst bilgisi'kimlik doğrulama isteği, uygulamanızın gerektirdiği durumlar haricinde. |
     | **Uygulama gövdesi URL'leri Çevir** | Bu değer olarak tutmak **Hayır** sürece diğer şirket içi uygulamalara yönelik sabit kodlanmış HTML bağlantıları ve özel etki alanları kullanmayın. Daha fazla bilgi için [çeviri uygulama ara sunucusu ile bağlantı](application-proxy-configure-hard-coded-link-translation.md).<br><br>Bu değer kümesine **Evet** bu Microsoft Cloud App Security (MCAS) ile uygulama izlemeyi planlıyorsanız. Daha fazla bilgi için [erişim, Microsoft Cloud App Security ve Azure Active Directory ile gerçek zamanlı uygulama izlemeyi yapılandırma](application-proxy-integrate-with-microsoft-cloud-application-security.md) |
    

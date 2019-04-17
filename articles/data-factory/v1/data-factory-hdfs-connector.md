@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f83b525a423ccb2e66d75032811a5f921238a06b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4ae5b3b9016af0d35e40d66d527e51230e0f11ce
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57893416"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527226"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Azure Data Factory kullanarak şirket içi hdfs veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -121,7 +121,7 @@ Bölümleri ve veri kümeleri tanımlamak için kullanılabilir özellikleri tam
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | folderPath |Klasör yolu. Örnek: `myfolder`<br/><br/>Çıkış karakterini kullanma ' \ ' dizesinde özel karakterler için. Örneğin: folder\subfolder için klasörü belirtin\\\\alt d:\samplefolder için d: belirtin\\\\ÖrnekKlasör.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün yol tabanlı slice başlangıç/bitiş tarih saatleri. |Evet |
-| fileName |Dosya adı belirtin **folderPath** klasördeki belirli bir dosyaya başvurmak için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tabloda bir klasördeki tüm dosyaları işaret eder.<br/><br/>Oluşturulan dosyanın adını bir çıktı veri kümesi için dosya adı belirtilmediği durumlarda, aşağıdaki olacaktır bu biçimi: <br/><br/>Veriler. <Guid>.txt (örnek:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
+| fileName |Dosya adı belirtin **folderPath** klasördeki belirli bir dosyaya başvurmak için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tabloda bir klasördeki tüm dosyaları işaret eder.<br/><br/>Oluşturulan dosyanın adını bir çıktı veri kümesi için dosya adı belirtilmediği durumlarda, aşağıdaki olacaktır bu biçimi: <br/><br/>`Data.<Guid>.txt` (örneğin:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
 | partitionedBy |partitionedBy dinamik bir folderPath, zaman serisi verileri için dosya adı belirtmek için kullanılabilir. Örnek: veri her saat için parametreli folderPath. |Hayır |
 | biçim | Şu biçim türlerini destekler: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** özelliği şu değerlerden biri olarak biçimine altında. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquetbiçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosya kopyalama-olan** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımları biçimi bölümünde atlayın. |Hayır |
 | Sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler şunlardır: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyleri şunlardır: **En iyi** ve **hızlı**. Daha fazla bilgi için [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |

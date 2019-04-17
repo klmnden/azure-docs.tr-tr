@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: e528b70e257c41f771a1bd3e5ec811c61eb512cc
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 6978b83e66f58e468d9f98394904861c8a4d8bd0
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526682"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618150"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Bir Azure-SSIS tümleştirme çalışma zamanını bir sanal ağa katılın
 Bir Azure sanal ağına aşağıdaki senaryolarda, Azure-SSIS Integration runtime (IR) katılın: 
@@ -139,7 +139,7 @@ Bkz: [bu PowerShell Betiği](https://gallery.technet.microsoft.com/scriptcenter/
     -   Bir Azure genel IP adresi adıyla  *\<GUID > - azurebatch - cloudservicepublicip*.
     -   Bir ağ iş güvenlik grubu adı ile  *\<GUID > - azurebatch - cloudservicenetworksecuritygroup*. 
 
--   Kaynak grubuna veya aboneliğe ait olduğu sanal ağ üzerindeki herhangi bir kaynak kilidi yoksa emin olun. Bir salt okunur kilidi ya da silme kilidi yapılandırırsanız, başlatma ve durdurma IR askıda veya başarısız. 
+-   Kaynak grubuna veya aboneliğe ait olduğu sanal ağ üzerindeki herhangi bir kaynak kilidi yoksa emin olun. Bir salt okunur kilidi ya da silme kilidi yapılandırırsanız, başlatma ve IR'yi durdurma başarısız olabilir veya yanıt vermiyor. 
 
 -   Aşağıdaki kaynaklar kaynak grubuna veya aboneliğe ait olduğu sanal ağı altında oluşturulan önleyen bir Azure ilkesine sahip olmadığınızdan emin emin olun: 
     -   Microsoft.Network/LoadBalancers 

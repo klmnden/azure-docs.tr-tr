@@ -10,25 +10,25 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 1b872c5c2ff0f581300a843650d7434c7c526c84
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 8374e4c49012a2c49de41001be0fdb30f9151332
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545628"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617844"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Azure CLI ile API erişim Azure medya Hizmetleri
  
-Azure Media Services API'sine bağlanmak için Azure AD hizmet sorumlusu kimlik doğrulaması kullanmanız gerekir. Aşağıdaki parametrelere sahip bir Azure AD belirteç istemek uygulamanız gerekir:
+Azure Media Services API'sine bağlanmak için Azure AD hizmet sorumlusu kimlik doğrulaması kullanmak için aşağıdaki parametrelere sahip bir Azure AD belirteç istemek uygulamanız gerekir:
 
 * Azure AD Kiracı uç noktası
 * Media Services kaynak URI'si
 * Kaynak URI REST Media Services için
 * Azure AD uygulama değerlerini: istemci Kimliğini ve istemci gizli anahtarı
 
-Daha fazla bilgi için [Media Services v3 API'leri ile geliştirme](media-services-apis-overview.md).
+Ayrıntılı bir açıklama için bkz. [erişme Media Services v3 API'ler](media-services-apis-overview.md#accessing-the-azure-media-services-api).
 
 Bu makalede bir Azure AD uygulaması ve hizmet sorumlusu oluşturma ve Azure Media Services kaynaklarına erişmek için gerekli değerleri almak için Azure CLI'yı kullanmayı gösterir.
 

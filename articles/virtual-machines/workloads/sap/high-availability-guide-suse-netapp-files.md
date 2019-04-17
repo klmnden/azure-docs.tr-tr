@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 02a97852a8dc659071c3484126b921d6f7106562
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 18bbeef833e1c82999e87451d279c0d3464af509
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662379"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617776"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SUSE Linux Enterprise Server SAP uygulamaları için Azure NetApp dosya çubuğunda Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -166,14 +166,11 @@ SAP Netweaver SUSE yüksek kullanılabilirlik mimarisi için Azure NetApp dosyal
 
 - 4 TiB kapasite alt sınırı havuzudur. Kapasitesi havuzu boyutu 4 TiB'ın katları şeklinde olmalıdır.
 - En küçük birimdir 100 GiB
-- Azure NetApp dosya ve Azure NetApp dosyaları birimleri bağlı olduğu tüm sanal makineler, aynı Azure sanal ağında olmalıdır. [Sanal Ağ eşlemesi](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) Azure NetApp dosyaları tarafından henüz desteklenmiyor.
+- Azure NetApp dosyaları ve burada Azure NetApp dosyaları birimleri bağlanır, tüm sanal makineler, aynı Azure sanal ağı veya olmalıdır [sanal ağlar eşlenmiş](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) aynı bölgede. VNET eşlemesi aynı bölgedeki üzerinden Azure NetApp dosya erişim artık desteklenmektedir. Genel eşleme üzerinden azure NetApp erişim henüz desteklenmiyor.
 - Seçilen sanal ağ, Azure için NetApp dosyaları temsilcisi, bir alt ağ olması gerekir.
 - Azure NetApp dosyaları şu anda yalnızca NFSv3 destekler 
 - Azure NetApp dosyaları sunar [ilkeyi dışarı](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): izin verilen istemciler (okuma ve yazma, salt okunur, vs.) erişim türü denetleyebilirsiniz. 
 - Azure NetApp dosyaları özelliği henüz bölge farkında değildir. Şu anda Azure NetApp dosyaları özelliği, bir Azure bölgesindeki tüm kullanılabilirlik alanlarında dağıtılan değil. Bazı Azure bölgelerinde olası gecikme etkileri farkında olun. 
-
-   > [!NOTE]
-   > NetApp dosyaları Azure sanal ağ eşlemesi henüz desteklemediğini unutmayın. VM'ler ve aynı sanal ağda Azure NetApp dosyaları birimleri dağıtın.
 
 ## <a name="deploy-linux-vms-manually-via-azure-portal"></a>Linux Vm'leri, Azure Portalı aracılığıyla el ile dağıtma
 
@@ -574,6 +571,8 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
 
 9. **[1]**  SAP küme kaynaklarını oluşturma
 
+Sıraya alma 1 sunucusu mimarisi (ENSA1) kullanıyorsanız, kaynakları gibi tanımlayın:
+
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
@@ -599,6 +598,35 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
    sudo crm node online <b>anftstsapcl1</b>
    sudo crm configure property maintenance-mode="false"
    </code></pre>
+
+   Kuyruğa sunucu çoğaltma, SAP KB 7.52 itibarıyla dahil olmak üzere 2 için sunulan destek SAP. Sıraya alma sunucu 2 ABAP Platform 1809 ile başlayarak, varsayılan olarak yüklenir. SAP bkz Not [2630416](https://launchpad.support.sap.com/#/notes/2630416) kuyruğa sunucu 2 desteği.
+Sıraya alma 2 sunucu mimarisi kullanıyorsanız ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), kaynakları aşağıdaki gibi tanımlayın:
+
+   <pre><code>sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ERS<b>01</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>" AUTOMATIC_RECOVER=false IS_ERS=true
+   
+   sudo crm configure modgroup g-<b>QAS</b>_ASCS add rsc_sap_<b>QAS</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>QAS</b>_ERS add rsc_sap_<b>QAS</b>_ERS<b>01</b>
+   
+   sudo crm configure colocation col_sap_<b>QAS</b>_no_both -5000: g-<b>QAS</b>_ERS g-<b>QAS</b>_ASCS
+   sudo crm configure order ord_sap_<b>QAS</b>_first_start_ascs Optional: rsc_sap_<b>QAS</b>_ASCS<b>00</b>:start rsc_sap_<b>QAS</b>_ERS<b>01</b>:stop symmetrical=false
+   
+   sudo crm node online <b>anftstsapcl1</b>
+   sudo crm configure property maintenance-mode="false"
+   </code></pre>
+
+   Eski bir sürümden yükseltme ve 2 kuyruğa sunucusuna geçiş'lu sap notuna bakın [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Küme durumunun Tamam olduğunu ve tüm kaynakları başlatıldığından emin olun. Hangi düğümünde kaynaklarını çalıştıran önemli değildir.
 
@@ -1051,7 +1079,7 @@ Test çalışmalarını bir kopyasını aşağıdaki testlerdir [en iyi uygulama
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
 
-   Örnek düzenleme işlem su01 bir kullanıcı tarafından kuyruğa kilit oluşturun. Olarak aşağıdaki komutları çalıştırın < sapsid\>adm ASCS örneğinin çalıştığı düğüm üzerinde. Komutlar ASCS örneğini durdurun ve yeniden başlatın. Bu sınamada kaybolur kuyruğa kilit bekleniyor.
+   Örnek düzenleme işlem su01 bir kullanıcı tarafından kuyruğa kilit oluşturun. Olarak aşağıdaki komutları çalıştırın < sapsid\>adm ASCS örneğinin çalıştığı düğüm üzerinde. Komutlar ASCS örneğini durdurun ve yeniden başlatın. Sıraya alma 1 sunucusu mimarisi kullanarak, sıraya alma kilidi bu sınamada kaybolur beklenir. Sıraya alma 2 sunucu mimarisi kullanarak, kuyruğa korunur. 
 
    <pre><code>anftstsapcl2:qasadm 51> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>
@@ -1066,7 +1094,7 @@ Test çalışmalarını bir kopyasını aşağıdaki testlerdir [en iyi uygulama
    <pre><code>anftstsapcl2:qasadm 52> sapcontrol -nr 00 -function StartWait 600 2
    </code></pre>
 
-   İşlem su01, sıraya alma kilidi, kayıp olmalıdır ve arka uç sıfırlamalısınız. Kaynak durumu test sonra:
+   İşlem su01 kuyruğa kilitlenmesi kuyruğa sunucu çoğaltma 1 mimarisi kullanıyorsanız kayıp, olmalı ve arka uç sıfırlamalısınız. Kaynak durumu test sonra:
 
    <pre><code>
     Resource Group: g-QAS_ASCS

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80b8db3bb2e7a21011508f30492bf99c7ecca583
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096869"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617231"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory geçişli kimlik doğrulaması güvenliğe derinlemesine bakış
 
@@ -136,7 +136,7 @@ Geçişli kimlik doğrulaması, kullanıcı oturum açma isteği şu şekilde i�
 4. Kullanıcının girdiği kullanıcı adı içine **kullanıcı oturum açma** sayfası ve seçer **sonraki** düğmesi.
 5. Kullanıcı parolasını içine girer **kullanıcı oturum açma** sayfası ve seçer **oturum** düğmesi.
 6. Kullanıcı adı ve parola, bir HTTPS POST isteğinde Azure AD sts'ye gönderilir.
-7. STS Azure AD kiracınız Azure SQL veritabanı'ndan kayıtlı tüm kimlik doğrulama aracıları için ortak anahtarları alır ve bunları kullanarak parolayı şifreler. 
+7. STS Azure AD kiracınız Azure SQL veritabanı'ndan kayıtlı tüm kimlik doğrulama aracıları için ortak anahtarları alır ve bunları kullanarak parolayı şifreler.
     - Kiracınızda kayıtlı "N" kimlik doğrulaması aracısı için "N" Şifreli parola değerlerini üretir.
 8. Azure AD STS, kullanıcı adı ve kiracınız için belirli bir Service Bus kuyruğu üzerine şifreli parola değerleri oluşan parola doğrulama isteği yerleştirir.
 9. Kullanılabilir kimlik doğrulama aracılarının biri, başlatılan kimlik doğrulama aracılarının kalıcı olarak Service Bus kuyruğuna bağlı olduğundan, parola doğrulama isteği alır.
@@ -145,6 +145,9 @@ Geçişli kimlik doğrulaması, kullanıcı oturum açma isteği şu şekilde i�
     - Bu API, Active Directory Federasyon Hizmetleri (AD FS) federe oturum açma senaryosunda kullanıcılar imzalamak için kullanılan aynı bir API'dir.
     - Bu API standart çözümleme işlemi Windows Server'ın etki alanı denetleyicisinin yerini belirlemek için kullanır.
 12. Kimlik Doğrulama Aracısı başarılı, kullanıcı adı veya parola yanlış gibi Active Directory'den sonucu alır veya parolasının süresi doldu.
+
+   > [!NOTE]
+   > Kimlik doğrulaması Aracısı oturum açma işlemi sırasında başarısız olursa, tüm oturum açma isteği bırakılır. Var. hiçbir el dışı oturum açma isteklerinin bir kimlik doğrulaması Aracısı'ndan başka bir kimlik doğrulama Aracısı şirket içi Bu aracıları yalnızca bulutla ve birbirleriyle iletişim kurar.
 13. Kimlik Doğrulama Aracısı bağlantı noktası 443 üzerinden giden bir karşılıklı kimlik doğrulaması yapılan HTTPS kanalı üzerinden Azure AD'ye STS'ye sonucu iletir. Karşılıklı kimlik doğrulaması için kimlik doğrulama aracısı kayıt sırasında daha önce verilen sertifikayı kullanır.
 14. Azure AD STS, bu sonuç belirli oturum açma isteği kiracınıza karşılık gelen doğrular.
 15. Azure AD STS ile oturum açma yordamı yapılandırıldığı şekilde devam eder. Örneğin, parola doğrulama başarılı olduysa, kullanıcının çok faktörlü kimlik doğrulaması için kimlik doğrulaması veya uygulamaya yeniden yönlendirildi.
@@ -181,7 +184,7 @@ Azure AD ile kimlik doğrulaması Aracısı'nın güven yenilemek için:
 
 ## <a name="auto-update-of-the-authentication-agents"></a>Kimlik doğrulama aracılarının otomatik güncelleştirme
 
-Yeni bir sürümü yayımlandığında güncelleştirici uygulaması kimlik doğrulaması Aracısı otomatik olarak güncelleştirir. Uygulama, kiracınız için herhangi bir parolayı doğrulama isteğinin işlemez. 
+(Hata düzeltmeleri veya performans geliştirmeleri ile) yeni bir sürümü yayımlandığında güncelleştirici uygulaması kimlik doğrulaması Aracısı otomatik olarak güncelleştirir. Güncelleştirici uygulaması, kiracınız için herhangi bir parolayı doğrulama isteğinin işlemez.
 
 Azure AD işaretli olarak yazılımın yeni sürümünü barındıran **Windows Installer paketi (MSI)**. MSI kullanarak oturum açmış [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) Özet algoritması SHA256 olan. 
 
@@ -203,7 +206,7 @@ Bir kimlik doğrulama Aracısı otomatik güncelleştirme için:
     - Kimlik Doğrulama Aracısı hizmetini yeniden başlatır
 
 >[!NOTE]
->Birden çok kimlik doğrulama aracılarının kiracınızda kayıtlı varsa, Azure AD sertifikalarını yenileyemeyecektir veya aynı anda bunları güncelleştirin. Bunun yerine, Azure AD, oturum açma isteklerini yüksek kullanılabilirliğini sağlamak için kadar aşamalı olarak yapar.
+>Birden çok kimlik doğrulama aracılarının kiracınızda kayıtlı varsa, Azure AD sertifikalarını yenileyemeyecektir veya aynı anda bunları güncelleştirin. Bunun yerine, Azure AD, bu nedenle oturum açma isteklerini yüksek kullanılabilirliğini sağlamak için bir kerede yapar.
 >
 
 

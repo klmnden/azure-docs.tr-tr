@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: b439b702fb5ae4990c8c31838fe9677cb882d2a2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7a17c695482f2e9c8158c437c9c40c0abcb07e67
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546328"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616297"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Hızlı Başlangıç: Bing yazım denetimi REST API'si ile yazım denetimi veC#
 
@@ -24,14 +24,17 @@ Bu hızlı başlangıçta, Bing yazım denetimi REST API'si, ilk çağrı yapmak
 ## <a name="prerequisites"></a>Önkoşullar
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)’nin herhangi bir sürümü.
-* NuGet paketi olarak kullanılabilen [Json.NET](https://www.newtonsoft.com/json) çerçevesi.
+* Yüklenecek `Newtonsoft.Json` Visual Studio'da bir NuGet paketi olarak:
+    1. Çözüm Gezgininizde çözüm dosyayı sağ tıklayın.
+    1. Seçin **çözüm için NuGet paketlerini Yönet**.
+    1. Arama `Newtonsoft.Json` paketini ve yükleme.
 * Linux/MacOS kullanıyorsanız, bu uygulamanın kullanılarak çalıştırılabilir [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Proje oluşturma ve başlatma
 
-1. Visual Studio’da `SpellCheckSample` adlı yeni bir konsol çözümü oluşturun. Ardından ana kod dosyasına aşağıdaki ad alanlarını ekleyin.
+1. adlı yeni bir konsol çözümü oluşturma `SpellCheckSample` Visual Studio'da. Ardından ana kod dosyasına aşağıdaki ad alanlarını ekleyin.
     
     ```csharp
     using System;
@@ -52,14 +55,14 @@ Bu hızlı başlangıçta, Bing yazım denetimi REST API'si, ilk çağrı yapmak
         {
             static string host = "https://api.cognitive.microsoft.com";
             static string path = "/bing/v7.0/spellcheck?";
-            static string key = "enter your key here";
+            static string key = "<ENTER-KEY-HERE>";
             //text to be spell-checked
             static string text = "Hollo, wrld!";
         }
     }
     ```
 
-3. Arama parametrelerinizi için bir değişken oluşturun. Pazar kodunuzu ekleme `mkt=` ve yazım denetimi modunuzu `&mode=`.
+3. Arama parametrelerinizi için bir değişken oluşturun. Pazar kodunuzu sonra ekleme `mkt=`. Pazar istekten yaptığınız ülke kodudur. Ayrıca, ekleme, yazım denetimi modu sonra `&mode=`. Modu, ya da `proof` (çoğu yazım/gramer hataları yakalar) veya `spell` (çoğu yazım ancak kadar fazla dil bilgisi hataları yakalar).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -76,10 +79,10 @@ Bu hızlı başlangıçta, Bing yazım denetimi REST API'si, ilk çağrı yapmak
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 
         HttpResponseMessage response = new HttpResponseMessage();
-        //...
+        // add the rest of the code snippets here (except for main())...
     }
 
-2. Create the URI for your request by appending your host, path, and parameters. 
+2. Create the URI for your request by appending your host, path, and parameters.
     
     ```csharp
     string uri = host + path + params_;
@@ -181,7 +184,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bir tek sayfalı web uygulaması oluşturma](../tutorials/spellcheck.md)
+> [Tek sayfalı web uygulaması oluşturma](../tutorials/spellcheck.md)
 
 - [Bing yazım denetimi API'si nedir?](../overview.md)
 - [Bing Yazım Denetimi API’si v7 Başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

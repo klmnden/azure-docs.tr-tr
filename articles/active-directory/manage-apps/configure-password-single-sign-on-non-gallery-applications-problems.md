@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c769d241f54d5d86ef4954609eec555d8aab947a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f8787008b396c2dd8ce1c006a40fee1e32e8100d
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858006"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617387"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Parola çoklu oturum açma galeri dışı bir uygulama yapılandırma sorunu
 
@@ -142,7 +142,7 @@ Bu sorunları yaşarsanız aşağıdakileri denetleyin:
 
 -   Doğru alanları üzerinde kırmızı işaretlerinin sağlayarak el ile yakalama işlemi yeniden deneyin.
 
--   El ile yakalama işleminin kilitlenmesine gibi görünüyor veya oturum açma sayfası yapmaz (örnekte Yukarıdaki 3), hiçbir şey el ile yakalama işlemi yeniden deneyin. Ancak, işlemi tamamladıktan sonra bu kez basın **F12** tarayıcınızın Geliştirici konsolu açmak için düğmeyi. Burada, bir kez açana **konsol** ve türü **window.location= "&lt;Uygulamayı yapılandırırken belirttiğiniz oturum açma URL'sini girin&gt;"** ve tuşuna **Enter** . Bu, yakalama işlemi sonlandırır ve yakalanan alanları depolayan bir sayfayı yeniden yönlendirme zorlar.
+-   El ile yakalama işlemi yanıt vermiyor gibi görünüyor veya oturum açma sayfası yapmaz (durum 3 yukarıda), hiçbir şey el ile yakalama işlemi yeniden deneyin. Ancak, işlemi tamamladıktan sonra bu kez basın **F12** tarayıcınızın Geliştirici konsolu açmak için düğmeyi. Burada, bir kez açana **konsol** ve türü **window.location= "&lt;Uygulamayı yapılandırırken belirttiğiniz oturum açma URL'sini girin&gt;"** ve tuşuna **Enter** . Bu, yakalama işlemi sonlandırır ve yakalanan alanları depolayan bir sayfayı yeniden yönlendirme zorlar.
 
 Bu yaklaşımların hiçbiri işinize yaramazsa destek yardımcı olabilir. Hangi, toplanan bilgilerinin yanı sıra çalıştığınız ayrıntılarını ile destek talebinde bulunun [portal bildirimi ayrıntılarını görmek nasıl](#i-cannot-manually-detect-sign-in-fields-for-my-application) ve [bir destek mühendisiyle bildirim ayrıntılarını göndererek Yardım alma ](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (varsa) bölümler.
 

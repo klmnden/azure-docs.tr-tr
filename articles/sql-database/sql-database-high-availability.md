@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b58c3cc677291c11b93cff439bd669c58735f31e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: fd6e383c2631a47daa7bf469c5bec59959453252
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892839"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616858"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Yüksek kullanılabilirlik ve Azure SQL veritabanı
 
@@ -43,7 +43,7 @@ Aşağıdaki şekilde, standart mimari modelinde ayrılmış işlem ve depolama 
 Standart kullanılabilirlik modelinde iki katman vardır:
 
 - Çalışmakta olan bir durum bilgisi olmayan bilgi işlem katmanı `sqlserver.exe` işlemek ve yalnızca geçici ve önbelleğe alınan verileri (örneğin-planı önbellek, arabellek havuzu, sütun depolama havuzu) içerir. Azure Service Fabric tarafından işlem başlatır, düğümün sistem durumu denetimleri ve gerekirse, başka bir yere yük devretme gerçekleştirir, bu durum bilgisi olmayan SQL Server düğümünde çalıştırılır.
-- Bir durum bilgisi olan veri katmanı ile Azure Blob depolamada depolanan veritabanı dosyaları (.mdf/.ldf). Azure Blob Depolama, veri kaybı olmadan bir veritabanı dosyasına yerleştirilir herhangi bir kayıt olacaktır garanti eder. Azure blogu depolama, SQL Server işlem çökse bile her kayıt günlük dosyasında veya sayfa veri dosyasında korunur sağlar yerleşik veri kullanılabilirlik/yedeklilik sahiptir.
+- Bir durum bilgisi olan veri katmanı ile Azure Blob depolamada depolanan veritabanı dosyaları (.mdf/.ldf). Azure Blob Depolama, veri kaybı olmadan bir veritabanı dosyasına yerleştirilir herhangi bir kayıt olacaktır garanti eder. Azure Blob Depolama, SQL Server işlem çökse bile her kayıt günlük dosyasında veya sayfa veri dosyasında korunur sağlar yerleşik veri kullanılabilirlik/yedeklilik sahiptir.
 
 Veritabanı altyapısı veya işletim sistemi yükseltme olduğunda, bazı altyapının parçası başarısız olursa veya Sql Server işleminde bazı önemli sorun algılanırsa, başka bir durum bilgisi olmayan bir işlem düğümüne yüklenecek Azure Service Fabric durum bilgisi olmayan SQL Server işlemi taşınır. Yük devretme süresini en aza indirmek için yük devretme durumunda yeni işlem hizmetini çalıştırmak için bekleyen bir dizi düğümü yedek yok. Azure Blob depolamadaki verileri etkilenmez ve yeni oluşturulmuş SQL Server işlemi için veri/günlük dosyalar eklenir. Bu işlem, % 99,99 oranında kullanılabilirlik garanti eder, ancak bu geçiş süresi nedeniyle çalıştıran ağır iş yükü üzerindeki bazı performans etkileri olabilir ve yeni SQL Server düğümü olgu soğuk önbellek ile başlar.
 

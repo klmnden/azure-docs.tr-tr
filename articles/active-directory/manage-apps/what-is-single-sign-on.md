@@ -12,12 +12,12 @@ ms.date: 03/12/2019
 ms.author: celested
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0357b7f421da753f102d2f05eaf8021cfc74aa2c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 75aa0f4755fe3d124094ace3c3e6b8e6ea3b65e0
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261624"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618184"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için çoklu oturum açma
 
@@ -47,7 +47,7 @@ Aşağıdaki tabloda, tek oturum açma yöntemleri özetler ve daha fazla ayrın
 | [Parola tabanlı](#password-based-sso) | Bulut ve şirket içi | Uygulama, kullanıcı adı ve parola ile kimlik doğrulamasını gerçekleştirdiğinde parola tabanlı seçin. Parola tabanlı çoklu oturum açma güvenli uygulama parola depolama ve bir web tarayıcısı uzantısı veya mobil uygulama kullanarak yeniden yürütme sağlar. Bu yöntem, uygulama tarafından sağlanan mevcut oturum açma işlemi kullanır, ancak yönetici parolaları yönetmek etkinleştirir. |
 | [Bağlı](#linked-sso) | Bulut ve şirket içi | Uygulama için çoklu oturum açmayı başka bir kimlik sağlayıcı hizmetine de yapılandırıldığında bağlı çoklu oturum açma seçin. Bu seçenek varsayılan olarak, uygulamayı çoklu oturum açma eklemez. Ancak, uygulamanın tek Active Directory Federasyon Hizmetleri gibi başka bir hizmet kullanılarak uygulanan oturum zaten olabilir.|
 | [Devre dışı](#disabled-sso) | Bulut ve şirket içi | Uygulama için çoklu oturum açmayı yapılandırılmaya hazır değilken, devre dışı çoklu oturum açma seçin. Kullanıcıların, bunlar bu uygulamayı başlatmak her seferinde kullanıcı adı ve parola girmeniz gerekir.|
-| [Tümleşik Windows Kimlik Doğrulaması (IWA)](#integrated-windows-authentication-iwa-sso) | yalnızca şirket içi | IWA çoklu oturum açma kullanan uygulamalar için seçin [tümleşik Windows kimlik doğrulaması (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), veya talep kullanan uygulamalar. IWA için uygulama kullanıcıların kimliğini doğrulamak için Kerberos Kısıtlı temsilci (KCD) uygulama ara sunucusu bağlayıcıları kullanın. | 
+| [Tümleşik Windows kimlik doğrulaması (IWA)](#integrated-windows-authentication-iwa-sso) | yalnızca şirket içi | IWA çoklu oturum açma kullanan uygulamalar için seçin [tümleşik Windows kimlik doğrulaması (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), veya talep kullanan uygulamalar. IWA için uygulama kullanıcıların kimliğini doğrulamak için Kerberos Kısıtlı temsilci (KCD) uygulama ara sunucusu bağlayıcıları kullanın. | 
 | [Üst bilgi tabanlı](#header-based-sso) | yalnızca şirket içi | Uygulama için kimlik doğrulama üst bilgileri kullandığında üst bilgi tabanlı çoklu oturum açma kullanın. Üst bilgi tabanlı çoklu oturum açma Azure AD için PingAccess gerektirir. Uygulama Ara sunucusu kullanıcının kimliğini doğrulamak için Azure AD kullanır ve ardından bağlayıcı hizmetini üzerinden geçen trafik geçirir.  | 
 
 ## <a name="openid-connect-and-oauth"></a>Openıd Connect ve OAuth
@@ -70,9 +70,11 @@ SAML tabanlı çoklu oturum açma şu protokolden herhangi birini kullanan uygul
 - SAML 2.0
 - WS-Federation
 
-Bir uygulama SAML tabanlı çoklu oturum açma için yapılandırmak üzere bkz [yapılandırma SAML tabanlı çoklu oturum açma](configure-single-sign-on-portal.md). Ayrıca, bir hizmet (SaaS) uygulamaları olarak çok sayıda yazılım sahip bir [uygulamaya özgü öğretici](../saas-apps/tutorial-list.md) Bu adım, SAML tabanlı çoklu oturum açma için yapılandırma.
+Bir SaaS uygulaması SAML tabanlı çoklu oturum açma için yapılandırmak üzere bkz [yapılandırma SAML tabanlı çoklu oturum açma](configure-single-sign-on-portal.md). Ayrıca, bir hizmet (SaaS) uygulamaları olarak çok sayıda yazılım sahip bir [uygulamaya özgü öğretici](../saas-apps/tutorial-list.md) Bu adım, SAML tabanlı çoklu oturum açma için yapılandırma.
 
 WS-Federasyon için bir uygulamayı yapılandırmak için uygulamanın SAML tabanlı çoklu oturum açma için yapılandırmak için bkz aynı yönergeleri [yapılandırma SAML tabanlı çoklu oturum açma](configure-single-sign-on-portal.md). Adım uygulamayı Azure AD'ye kullanacak şekilde yapılandırmak için WS-Federasyon uç nokta için Azure AD oturum açma URL'sini değiştirmeniz gerekecektir `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
+
+SAML tabanlı çoklu oturum açma için şirket içi bir uygulamayı yapılandırmak için bkz [SAML çoklu oturum açma için şirket içi uygulama ara sunucusu ile](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
 SAML protokolü hakkında daha fazla bilgi için bkz. [çoklu oturum açma SAML Protokolü](../develop/single-sign-on-saml-protocol.md).
 

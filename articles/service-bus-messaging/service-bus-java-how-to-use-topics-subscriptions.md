@@ -12,44 +12,30 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: a8b9c4c6cf9671e114da6ef9fc1f2ad0a730fb61
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0771656358503afc91bab7523d0c835e0050c2bc
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872628"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607885"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Java ile Service Bus konu başlıklarını ve aboneliklerini kullanma
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Bu hızlı başlangıçta, aşağıdaki adımları uygulayın: 
-
-- Azure portalını kullanarak bir konu oluşturun.
-- Azure portalını kullanarak konu için üç abonelikleri oluşturma
-- Konuya ileti göndermek için Java kod yazma
-- Aboneliklerden ileti almak için Java kod yazma
+Bu hızlı başlangıçta, bir Service Bus konusuna iletiler gönderir ve bu konuya'da aboneliklerden ileti almak için Java kod yazın. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free).
-- [Java için Azure SDK][Azure SDK for Java]. 
-
-## <a name="what-are-service-bus-topics-and-subscriptions"></a>Service Bus konuları ve abonelikleri nelerdir?
-Service Bus konuları ve abonelikleri *publish/subscribe* mesajlaşma iletişim modelini destekler. Konular ve abonelikler kullanıldığında, dağıtılmış uygulamanın bileşenleri birbirleriyle doğrudan iletişim kurmazlar; bunun yerine bir aracı gibi davranan bir konu aracılığıyla iletileri değiş tokuş eder.
-
-![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
-
-Service Bus kuyrukları, her ileti tek bir tüketici tarafından işlenir kullanılmasının konuları ve abonelikleri bir yayımlama/abone olma modelini kullanarak iletişimin bir-çok biçimi sağlayın. Bir konuya birden fazla abonelik kaydedilebilir. Bir konuya ileti gönderildiğinde, bundan sonra, bağımsız olarak ele almak/işlemek amacıyla her abonelik için kullanılabilir hale getirilir. Bir konuya abone olunması, konuya gönderilmiş olan iletilerin kopyaların alan sanal kuyruğa benzer. İsteğe bağlı olarak, bir konu filtreleyin veya hangi konu aboneliklerinin bir konuya hangi mesajları kısıtlayabilirsiniz olanak tanıyan bir abonelik başına temelinde filtre kuralları da kaydedebilirsiniz.
-
-Service Bus konuları ve Abonelikleri, çok sayıda kullanıcılar ve uygulamalar arasında çok sayıda iletileri işlemek üzere ölçeği sağlar.
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
-
+1. Azure aboneliği. Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Etkinleştirebilir, [Visual Studio veya MSDN abone Avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) veya kaydolmak için bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. İzleyeceğiniz adımlar [hızlı başlangıç: Bir Service Bus konusu ve konu için Abonelik oluşturmak için Azure portal'ı kullanmanızı](service-bus-quickstart-topics-subscriptions-portal.md) aşağıdaki görevleri gerçekleştirmek için:
+    1. Hizmet veri yolu oluşturma **ad alanı**.
+    2. Alma **bağlantı dizesi**.
+    3. Oluşturma bir **konu** ad.
+    4. Oluşturma **üç abonelikleri** konusuna ad alanı.
+3. [Java için Azure SDK][Azure SDK for Java].
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Service Bus hizmetini kullanmak için uygulamanızı yapılandırma
 Yüklediğinizden emin olun [Java için Azure SDK'sı] [ Azure SDK for Java] Bu örnek derlemeden önce. Eclipse kullanıyorsanız yükleyebileceğiniz [Eclipse için Azure Araç Seti] [ Azure Toolkit for Eclipse] , Java için Azure SDK'sı içerir. Daha sonra ekleyebilirsiniz **Microsoft Java için Azure kitaplıkları** projenize:

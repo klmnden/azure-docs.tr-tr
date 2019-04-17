@@ -6,15 +6,15 @@ ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 01/09/2019
-ms.openlocfilehash: 296005f68592a8c89f3ec78da8ece4d1741f253f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/15/2019
+ms.openlocfilehash: 536d06948510dd5df05bfc2d46cc79b9cf1559ae
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880832"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618031"
 ---
-# <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalı kullanarak MariaDB için Azure Veritabanı sunucusu oluşturma
+# <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Azure portalı kullanarak MariaDB için Azure Veritabanı sunucusu oluşturma
 
 MariaDB için Azure Veritabanı, bulutta yüksek oranda kullanılabilir olan MariaDB veritabanlarını çalıştırmak, yönetmek ve ölçeklendirmek için kullanılan, yönetilen bir hizmettir. Bu hızlı başlangıçta, Azure portalı kullanarak yaklaşık beş dakikada nasıl MariaDB için Azure Veritabanı sunucusu oluşturacağınız gösterilmektedir.  
 
@@ -32,7 +32,7 @@ MariaDB için Azure Veritabanı sunucusu oluşturmak için:
 
 1. Portalın sol üst köşesinde bulunan **Kaynak oluştur** düğmesini (+) seçin.
 
-2. Hizmeti bulmak için arama kutusuna **MariaDB için Azure Veritabanı** yazın.
+2. Seçin **veritabanları** > **MariaDB için Azure veritabanı**. Ayrıca **MariaDB** hizmeti bulmak için arama kutusuna.
 
    ![MariaDB için Azure Veritabanı seçeneği](./media/quickstart-create-mariadb-server-database-using-azure-portal/2_navigate-to-mariadb.png)
 
@@ -51,7 +51,7 @@ MariaDB için Azure Veritabanı sunucusu oluşturmak için:
     Parolayı onayla | *tercih ettiğiniz*| Yönetici hesabı parolasını onaylayın.
     Konum | *kullanıcılarınıza en yakın bölge*| Kullanıcılarınıza veya diğer Azure uygulamalarınıza en yakın konumu seçin.
     Sürüm | *en son sürüm*| En son sürüm (başka bir sürüm kullanmak için belirli gereksinimleriniz yoksa).
-    Fiyatlandırma katmanı | Açıklamaya bakın. | Yeni sunucunuz için işlem, depolama ve yedekleme yapılandırmaları. **Fiyatlandırma katmanı** > **Genel Amaçlı**'yı seçin. Aşağıdaki ayarlar için varsayılan değerleri kullanın:<br><ul><li>**İşlem Oluşturma** (Gen 5)</li><li>**Sanal Çekirdek** (2 Sanal Çekirdek)</li><li>**Depolama** (5 GB)</li><li>**Yedekleme Saklama Dönemi** (7 gün)</li></ul><br>Coğrafi olarak yedekli depolamada sunucu yedeklerinizi etkinleştirmek için **Fazladan Yedek Seçenekleri**’nde **Coğrafi Olarak Yedeklemeli**’yi seçin. <br><br>Bu fiyatlandırma katmanı seçimini kaydetmek için **Tamam**’ı seçin. Sonraki ekran görüntüsü bu seçimleri yakalar.
+    Fiyatlandırma katmanı | Açıklamaya bakın. | Yeni sunucunuz için işlem, depolama ve yedekleme yapılandırmaları. **Fiyatlandırma katmanı** > **Genel Amaçlı**'yı seçin. Aşağıdaki ayarlar için varsayılan değerleri kullanın:<br><ul><li>**İşlem Oluşturma** (Gen 5)</li><li>**Sanal çekirdek** (4 çekirdek)</li><li>**Depolama** (100 GB)</li><li>**Yedekleme Saklama Dönemi** (7 gün)</li></ul><br>Coğrafi olarak yedekli depolamada sunucu yedeklerinizi etkinleştirmek için **Fazladan Yedek Seçenekleri**’nde **Coğrafi Olarak Yedeklemeli**’yi seçin. <br><br>Bu fiyatlandırma katmanı seçimini kaydetmek için **Tamam**’ı seçin. Sonraki ekran görüntüsü bu seçimleri yakalar.
   
    > [!NOTE]
    > Temel fiyatlandırma katmanını kullanarak göz önünde bulundurun hafif işlem ve g/ç iş yükünüz için yeterli olup olmadığını. Temel fiyatlandırma katmanında oluşturulan sunucular daha sonra genel amaçlı veya bellek için iyileştirilmiş ölçeklendirilemiyor olduğunu unutmayın. Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/mariadb/) daha fazla bilgi için.

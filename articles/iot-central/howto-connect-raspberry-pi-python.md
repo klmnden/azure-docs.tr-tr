@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 6ac16651e2d49dd903ff994b18a8f571bd92fbf6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: eccc4100c89c971e264b9b915cd17b9f5ce4477b
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272368"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617456"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Raspberry Pi'yi bağlanmak, Azure IOT Central uygulamasına (Python)
 
@@ -115,6 +115,4 @@ Geçiş ayarları
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Raspberry Pi'yi, Azure IOT Central uygulamasına bağlanmak öğrendiniz, önerilen sonraki adımlar şunlardır:
-
-* [Azure IOT Central için genel bir Node.js istemci uygulaması bağlama](howto-connect-nodejs.md)
+Raspberry Pi'yi, Azure IOT Central uygulamasına bağlanmak öğrendiniz, önerilen sonraki adıma öğrenmektir nasıl [bir özel cihaz şablonu ayarlama](howto-set-up-template.md) kendi IOT cihazını için.

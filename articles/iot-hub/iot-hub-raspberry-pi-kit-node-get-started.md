@@ -1,6 +1,6 @@
 ---
 title: Bulut (Node.js) - Azure IOT hub'a bağlanma Raspberry Pi'yi raspberry Pi | Microsoft Docs
-description: Kurulum ve Raspberry Pi Raspberry Pi, bu öğreticide Azure bulut platformuna veri göndermek için Azure IOT hub'a bağlanma hakkında bilgi edinin.
+description: Ayarlanmış ve Raspberry Pi Raspberry Pi, bu öğreticide Azure bulut platformuna veri göndermek için Azure IOT hub'a bağlanma hakkında bilgi edinin.
 author: wesmc7777
 manager: philmea
 keywords: Azure IOT raspberry pi, raspberry pi IOT hub, bulut verilerini raspberry pi göndermek, buluta raspberry pi
@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 1c52e03dbb20df2ddfdb977fe7de4afb94bc3a99
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d1e9a6da399adcdca87c1d6dc30eaf425ec0541e
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272079"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609022"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi (Node.js) Azure IOT hub'a bağlanma
 
@@ -28,38 +28,54 @@ Bir paket henüz yok mu? Deneyin [Raspberry Pi çevrimiçi simülatör](iot-hub-
 ## <a name="what-you-do"></a>Neler
 
 * IOT hub oluşturun.
+
 * Bir cihaz IOT hub'ına PI sayısı için kaydedin.
+
 * Raspberry Pi ' ayarlayın.
+
 * Pi sensör verilerini IOT hub'ınıza gönderilecek örnek uygulamayı çalıştırın.
 
 ## <a name="what-you-learn"></a>Öğrenecekleriniz
 
 * Azure IOT hub oluşturma ve yeni cihaz bağlantı dizesini almak nasıl.
+
 * Pi BME280 algılayıcısı ile bağlanma.
+
 * Pi üzerinde bir örnek uygulamayı çalıştırarak algılayıcı verilerini toplamak nasıl.
+
 * IOT hub'ınıza sensör verilerini gönderme işlemini.
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
-![Ne gerekiyor](./media/iot-hub-raspberry-pi-kit-node-get-started/0_starter_kit.jpg)
+![Ne gerekiyor](./media/iot-hub-raspberry-pi-kit-node-get-started/0-starter-kit.png)
 
 * Raspberry Pi 2 veya Raspberry Pi 3 Pano.
+
 * Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+
 * Bir izleyici, bir USB klavye ve fare Pi bağlanan.
+
 * Bir Mac veya Windows veya Linux çalıştıran bir bilgisayar.
+
 * İnternet bağlantısı.
+
 * 16 GB veya üzeri microSD kartı.
+
 * İşletim sistemi görüntüsünü microSD kartı üzerine yazmak için bir USB SD bağdaştırıcı veya microSD kartı.
+
 * 5-volt 2 amp power 6 ft mikro USB kablosu ile sağlayın.
 
 Aşağıdaki öğeler isteğe bağlıdır:
 
 * Bir birleştirilmiş Adafruit BME280 sıcaklık, baskısı ve nem algılayıcı.
+
 * Bir breadboard.
+
 * 6 F/dk anahtar kablolarına.
+
 * Yayılmış 10 mm LED.
 
-> [!NOTE] 
+> [!NOTE]
 > İsteğe bağlı öğeleri yoksa sanal sensör verilerini kullanabilirsiniz.
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
@@ -105,26 +121,26 @@ MicroSD kartı Raspbian görüntüyü yüklemesi için hazırlayın.
 
 ### <a name="enable-ssh-and-i2c"></a>SSH ve I2C etkinleştir
 
-1. Pi monitör, klavye ve fare bağlayın. 
+1. Pi monitör, klavye ve fare bağlayın.
 
-2. Pi başlatın ve ardından içinde Raspbian kullanarak oturum `pi` kullanıcı adı ve `raspberry` parolası.
+2. Pi başlatın ve sonra Raspbian kullanarak oturum `pi` kullanıcı adı ve `raspberry` parolası.
 
 3. Raspberry simgesine tıklayın > **tercihleri** > **Raspberry Pi yapılandırma**.
 
-   ![Raspbian tercihleri menüsü](./media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
+   ![Raspbian tercihleri menüsü](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
 4. Üzerinde **arabirimleri** sekmesinde, belirleyin **I2C** ve **SSH** için **etkinleştirme**ve ardından **Tamam**. Yoksa ve fiziksel algılayıcınız varsa sanal sensör verilerini kullanmak istiyorsanız, bu adım isteğe bağlıdır.
 
-   ![I2C ve Raspberry Pi üzerinde SSH'ı etkinleştir](./media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
+   ![I2C ve Raspberry Pi üzerinde SSH'ı etkinleştir](./media/iot-hub-raspberry-pi-kit-node-get-started/2-enable-i2c-ssh-on-raspberry-pi.png)
 
-> [!NOTE] 
+> [!NOTE]
 > SSH ve I2C etkinleştirmek için daha fazla başvuru belgeleri üzerinde bulabilirsiniz [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) ve [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).
 
 ### <a name="connect-the-sensor-to-pi"></a>Pi algılayıcı bağlanma
 
 Bir LED'i ve bir BME280 Pi gibi bağlanmak için breadboard ve anahtar kablo kullanın. Algılayıcı yoksa [bu bölümü atlayın](#connect-pi-to-the-network).
 
-![Raspberry Pi ve algılayıcı bağlantı](./media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
+![Raspberry Pi ve algılayıcı bağlantı](./media/iot-hub-raspberry-pi-kit-node-get-started/3-raspberry-pi-sensor-connection.png)
 
 BME280 algılayıcı sıcaklık ve nem veri toplayabilir. Cihaz buluta ileti gönderdiğinde LED yanıp. 
 
@@ -143,13 +159,13 @@ Görüntülemek için tıklayın [Raspberry Pi 2 ve 3 PIN eşlemeleri](https://d
 
 Raspberry Pi'yi BME280 başarıyla bağlandıktan sonra aşağıdaki resim gibi olmalıdır.
 
-![Bağlı Pi ve BME280](./media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
+![Bağlı Pi ve BME280](./media/iot-hub-raspberry-pi-kit-node-get-started/4-connected-pi.png)
 
 ### <a name="connect-pi-to-the-network"></a>Pi ağa bağlanma
 
 Pi üzerinde mikro USB kablosu ve güç kaynağı kullanarak etkinleştirin. Pi, kablolu ağa bağlanacak veya takip için Ethernet kablosu kullanın [yönergeleri Raspberry Pi Foundation'dan](https://www.raspberrypi.org/learning/software-guide/wifi/) Pi, kablosuz ağa bağlanmak için. Bir not gerek Pi'yi ağa başarıyla bağlandı sonra [Pi'yi IP adresini](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
-![Kablolu ağa bağlı](./media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
+![Kablolu ağa bağlı](./media/iot-hub-raspberry-pi-kit-node-get-started/5-power-on-pi.png)
 
 > [!NOTE]
 > Pi bilgisayarınızı ile aynı ağa bağlı olduğundan emin olun. Örneğin, bilgisayarınız kablosuz ağa bağlıysa, PI kablolu bir ağa bağlıyken devdisco çıkış IP adresini göremeyebilirsiniz.
@@ -166,18 +182,18 @@ Pi üzerinde mikro USB kablosu ve güç kaynağı kullanarak etkinleştirin. Pi,
 
    b. IP adresini, ana bilgisayar adı (veya IP adresi) PI bölümüne kopyalayın ve SSH bağlantı türü olarak seçin.
 
-   ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
+   ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7-putty-windows.png)
 
    **Mac ve Ubuntu kullanıcıları**
 
    Yerleşik bir SSH istemcisi, Ubuntu veya Macos'ta kullanın. Çalıştırmanız gerekebilir `ssh pi@<ip address of pi>` Pi SSH aracılığıyla bağlanmak için.
 
-   > [!NOTE] 
+   > [!NOTE]
    > Varsayılan kullanıcı adı `pi` ve parola `raspberry`.
 
 2. Node.js ve NPM için Pi'yi yükleyin.
 
-   İlk Node.js sürümünüzü kontrol edin. 
+   İlk Node.js sürümünüzü kontrol edin.
 
    ```bash
    node -v
@@ -203,7 +219,7 @@ Pi üzerinde mikro USB kablosu ve güç kaynağı kullanarak etkinleştirin. Pi,
    sudo npm install
    ```
 
-   > [!NOTE] 
+   > [!NOTE]
    >İşlem, ağ bağlantısı bağlı olarak bu yükleme işleminin tamamlanması birkaç dakika sürebilir.
 
 ### <a name="configure-the-sample-application"></a>Örnek uygulamayı yapılandırma
@@ -214,7 +230,7 @@ Pi üzerinde mikro USB kablosu ve güç kaynağı kullanarak etkinleştirin. Pi,
    nano config.json
    ```
 
-   ![Yapılandırma dosyası](./media/iot-hub-raspberry-pi-kit-node-get-started/6_config-file.png)
+   ![Yapılandırma dosyası](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
    Yapılandırabileceğiniz bu dosyada iki öğe yok. İlki `interval`, buluta gönderilen iletileri arasındaki zaman aralığını (milisaniye cinsinden) tanımlar. İkincisi olan `simulatedData`, olduğu için veya sanal sensör verilerini kullanıp kullanmayacağınızı bir Boolean değeri.
 
@@ -230,13 +246,12 @@ Aşağıdaki komutu çalıştırarak örnek uygulamayı çalıştırın:
    sudo node index.js '<YOUR AZURE IOT HUB DEVICE CONNECTION STRING>'
    ```
 
-   > [!NOTE] 
+   > [!NOTE]
    > Kopyalama cihaz bağlantı dizesini tek tırnak yapıştırma emin olun.
-
 
 Algılayıcı verilerini ve IOT hub'ınıza gönderdiği iletileri gösterir aşağıdaki çıktıyı görmeniz gerekir.
 
-![Çıkış - IOT hub'ınıza Raspberry Pi'dan gönderilen algılayıcı verileri](./media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
+![Çıkış - IOT hub'ınıza Raspberry Pi'dan gönderilen algılayıcı verileri](./media/iot-hub-raspberry-pi-kit-node-get-started/8-run-output.png)
 
 ## <a name="read-the-messages-received-by-your-hub"></a>Hub'ınıza tarafından alınan iletileri okuma
 

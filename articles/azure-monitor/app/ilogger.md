@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: 9d5e25e0fd00f9c0635009f684e79336d58b7b4a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 615eaa3df7cabad72ac321978eb01d93a7bfa988
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263773"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608294"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>.NET Core ILogger günlükleri ApplicationInsightsLoggerProvider
 
@@ -414,16 +414,39 @@ Aşağıdaki kod parçacığı günlükleri yapılandırır `Warning` ve yukarı
 
 * Application Insights yakalamalarına ve gönderir `ILogger` aynı kullanarak günlükleri `TelemetryConfiguration` için her bir telemetri kullanılır. Bu kural için bir özel durum yoktur. Varsayılan `TelemetryConfiguration` tam olarak ne zaman ayarlama bir günlük `Program.cs` veya `Startup.cs` kendisi, günlükleri şu konumlardan varsayılan yapılandırması olmaz ve bu nedenle tüm çalışmıyor olacaktır `TelemetryInitializer`s ve `TelemetryProcessor`s.
 
-*5. Application Insights telemetri türüne öğesinden üretilen `ILogger` günlükleri? veya nerede görebilirim `ILogger` uygulama anlayışları'nda oturum?*
+*5. Tek başına paketin Microsoft.Extensions.Logging.ApplicationInsights kullanıyorum ve bazı ek özel telemetri el ile oturum istiyorum. Bu ne yapmalıyım?*
+
+* Tek başına paketin kullanırken `TelemetryClient` kullanıcıların yeni bir örneğini oluşturmak için beklenen şekilde DI kapsayıcıya eklenen değil `TelemetryClient` aşağıda gösterildiği gibi Günlükçü sağlayıcısı tarafından kullanılan aynı yapılandırmayı kullanarak. Bu, tüm özel telemetri, aynı zamanda ILogger yakalanan için kullanılan aynı yapılandırmayı sağlar.
+
+```csharp
+public class MyController : ApiController
+{
+   // This telemtryclient can be used to track additional telemetry using TrackXXX() api.
+   private readonly TelemetryClient _telemetryClient;
+   private readonly ILogger _logger;
+
+   public MyController(IOptions<TelemetryConfiguration> options, ILogger<MyController> logger)
+   {
+        _telemetryClient = new TelemetryClient(options.Value);
+        _logger = logger;
+   }  
+}
+```
+
+> [!NOTE]
+> Application Insights'ı etkinleştirmek için paketini Microsoft.ApplicationInsights.AspNetCore kullandıysanız, ardından Yukarıdaki örnek almak için değiştirilmesi gereken, lütfen unutmayın `TelemetryClient` doğrudan oluşturucuda. Bkz: [bu](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core-no-visualstudio#frequently-asked-questions) tam bir örnek için.
+
+
+*6. Application Insights telemetri türüne öğesinden üretilen `ILogger` günlükleri? veya nerede görebilirim `ILogger` uygulama anlayışları'nda oturum?*
 
 * ApplicationInsightsLoggerProvider yakalar `ILogger` oluşturur ve günlükleri `TraceTelemetry` almaktır. Bir özel durum nesnesi Log() yönteme ILogger üzerinde ardından yerine iletilmezse `TraceTelemetry`e `ExceptionTelemetry` oluşturulur. Bu telemetri öğelerinin diğer olarak aynı yerde bulunabilir `TraceTelemetry` veya `ExceptionTelemetry` Application ınsights, portal, analytics veya Visual Studio yerel hata ayıklayıcı gibi.
 Her zaman Gönder tercih ederseniz `TraceTelemetry`, daha sonra kod parçacığını kullanın ```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```.
 
-*5. SDK yüklü olmayan ve my Asp.Net Core uygulamaları için Application Insights'ı etkinleştirmek için Azure Web uygulaması uzantısı kullanabilirim. Yeni sağlayıcıyı nasıl kullanabilirim?*
+*7. SDK yüklü olmayan ve my Asp.Net Core uygulamaları için Application Insights'ı etkinleştirmek için Azure Web uygulaması uzantısı kullanabilirim. Yeni sağlayıcıyı nasıl kullanabilirim?*
 
 * Application Insights uzantısını Azure Web uygulamasında eski sağlayıcısı kullanır. Filtreleme kuralları değiştirilebilir `appsettings.json` uygulamanız için. Yeni sağlayıcıyı yararlanmak isterseniz, üzerinde SDK'sı nuget bağımlılık yararlanarak derleme Araçları'nı kullanın. Yeni sağlayıcıyı kullanmak için uzantı geçiş yaptığında bu belge güncelleştirilecektir.
 
-*6. I Microsoft.Extensions.Logging.ApplicationInsights tek başına paketin kullanarak ve Application Insights sağlayıcısı çağıran oluşturucusu tarafından etkinleştirme. AddApplicationInsights("ikey"). Yapılandırmasından izleme anahtarını almak için bir seçenek var mı?*
+*8. I Microsoft.Extensions.Logging.ApplicationInsights tek başına paketin kullanarak ve Application Insights sağlayıcısı çağıran oluşturucusu tarafından etkinleştirme. AddApplicationInsights("ikey"). Yapılandırmasından izleme anahtarını almak için bir seçenek var mı?*
 
 
 * Değiştirme `Program.cs` ve `appsettings.json` aşağıda gösterildiği gibi.

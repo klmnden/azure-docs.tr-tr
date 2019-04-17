@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 40c749adee08e66319bed88f26c3c898428a41ad
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1c77d0ea9e67c8d69f3f632cace164d8a0c4d921
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474362"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617606"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid kavramları
 
@@ -40,7 +40,7 @@ Desteklenen Event Grid kaynaklarından herhangi biri uygulama hakkında daha faz
 
 Olay Kılavuzu konusunu burada kaynak olayları gönderen bir uç nokta sağlar. Yayımcı olay Kılavuzu konusu oluşturur ve bir olay kaynağı bir konu veya konu birden fazla gerekip gerekmediğini belirler. Bir konu koleksiyonunu ilgili olaylar için kullanılır. Belirli olay türleri için yanıt vermek için abone olma konuları aboneleri karar verin.
 
-Sistem konular, Azure Hizmetleri tarafından sağlanan yerleşik konulardır. Azure aboneliğinizde yayımcı konulara sahip, ancak bunlara abone olabilir çünkü sistem konuları görmüyorum. Abone olmak için kaynak, olaylarından almak istediğiniz bilgileri sağlayın. Kaynak erişim sahibi sürece, olaylara abone olabilirsiniz.
+Sistem konular, Azure Hizmetleri tarafından sağlanan yerleşik konulardır. Azure aboneliğinizde yayımcı konulara sahip, ancak bunlara abone olabilir çünkü sistem konuları görmüyorum. Abone olmak için kaynak, olaylarından almak istediğiniz bilgileri sağlayın. Kaynağa erişimi olduğu sürece, kendi olaylarına abone olabilirsiniz.
 
 Özel konular şunlardır: uygulama ve üçüncü taraf konuları. Oluşturduğunuzda veya bir özel konu için okuma erişimi atanan aboneliğinizde özel konuya bakın.
 

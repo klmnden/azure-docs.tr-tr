@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ccf978ab33226dc029d534a343a87a796ab69e8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 563668780c42ca23a1904757f886581f3ad0c5e8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278114"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617316"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Öğretici: Tableau Online ile Azure Active Directory Tümleştirmesi
 
@@ -144,7 +144,7 @@ Azure AD çoklu oturum açma Tableau Online ile yapılandırmak için aşağıda
   
     a. Azure portalında, go **Tableau çevrimiçi** uygulama tümleştirme sayfası.
 
-    b. İçinde ** kullanıcı öznitelikleri ve talepler *** bölümünde düzenleme simgesine tıklayın.
+    b. İçinde **kullanıcı öznitelikleri ve talepler** bölümünde, düzenleme simgesine tıklayın.
 
    ![Çoklu oturum açmayı yapılandırın](./media/tableauonline-tutorial/attributesection.png)
 
@@ -189,7 +189,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
     a. İçinde **adı** alana **BrittaSimon**.
   
     b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
-    Örneğin, BrittaSimon@contoso.com
+    Örneğin, BrittaSimon\@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
@@ -245,6 +245,6 @@ Erişim paneli Tableau çevrimiçi kutucuğa tıkladığınızda, size otomatik 
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -11,22 +11,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 97c02726c7e359195c6bf4ea793404562f2acccf
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e022a7661997d231e291a4d09611bb6e95bee262
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001956"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528331"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Azure ön kapısı hizmetiyle önbelleğe alma
 Belgesinde, ön kapısı önbelleğe almanın etkin yönlendirme kurallarıyla davranışını belirtir.
 
 ## <a name="delivery-of-large-files"></a>Büyük dosyaların teslimini
-Dosya boyutu büyük dosyaları bir sınır olmaksızın Azure ön kapısı hizmeti sunar. Ön kapısı nesne parçalama olarak adlandırılan tekniği kullanır. Büyük dosya istendiğinde ön kapısı dosyanın daha küçük parçalara arka ucundan alır. Bir ön kapısı ortamı tam veya bayt aralığı dosya isteği aldıktan sonra arka uç 8 MB'lık parçalar halinde dosyayı ister.
+Dosya boyutu büyük dosyaları bir sınır olmaksızın Azure ön kapısı hizmeti sunar. Ön kapısı nesne parçalama olarak adlandırılan tekniği kullanır. Büyük dosya isteği gönderildiğinde Front Door dosyayı arka uçtan küçük parçalar halinde alır. Front Door ortamı tam veya bayt aralığı belirtilen bir dosya isteği aldıktan sonra dosyayı 8 MB'lık parçalar halinde arka uçtan ister.
 
 </br>Öbek ön kapısı ortam ulaştıktan sonra önbelleğe alınmış ve hemen kullanıcıya sunulan. Ön kapısı ardından paralel sonraki öbek önceden getirir. Bu önceden getirme içeriği gecikmesini azaltır kullanıcı önceden bir öbek kalmasını sağlar. Bu işlem tüm kadar devam eder (istenirse) dosyasını indirdiğiniz, tüm bayt aralıkları (istenirse) kullanılabilir, veya istemci bağlantıyı sonlandırır.
 
-</br>Bayt aralığı istek üzerine daha fazla bilgi için okuma [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
+</br>Bayt aralığı istek üzerine daha fazla bilgi için okuma [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html).
 Ön kapısı alındığında ve dosyanın tamamı ön kapısı önbellekte önbelleğe alınması gerekmez tüm öbekleri önbelleğe alır. Dosya veya bayt aralıkları için sonraki istekleri önbellekten sunulur. Aksi takdirde tüm öbekleri önbelleğe alınır, öbekleri arka ucundan istemek için önceden getirme kullanılır. Bu iyileştirme, bayt aralığı isteklerini desteklemek için arka uç yeteneklerini üzerinde kullanır; Bu iyileştirme, arka bayt aralığı isteklerini desteklemiyorsa, etkili değildir.
 
 ## <a name="file-compression"></a>Dosya sıkıştırma
@@ -44,11 +44,11 @@ Dosya boyutu büyük dosyaları bir sınır olmaksızın Azure ön kapısı hizm
 - "uygulama/vnd.ms-fontobject"
 - "application/xhtml + xml"
 - "application/xml"
-- "application/xml + rss"
+- "application/xml+rss"
 - "application/x-font-opentype"
 - "application/x-font-truetype"
 - "application/x-font-fot adı"
-- "application/x-httpd-CGI"
+- "application/x-httpd-cgi"
 - "application/x-mpegurl"
 - "application/x-opentype"
 - "application/x-otf"
@@ -61,10 +61,10 @@ Dosya boyutu büyük dosyaları bir sınır olmaksızın Azure ön kapısı hizm
 - "yazı tipi/opentype"
 - "görüntü/svg + xml"
 - "metin/css"
-- "metin/csv"
+- "text/csv"
 - "text/html"
 - "text/javascript"
-- "metin/js", "text/plain"
+- "text/js", "text/plain"
 - "metin/zengin metin"
 - "metin/sekmesini ayrılmış değerler"
 - "metin/xml"
@@ -83,7 +83,7 @@ Bir varlık için bir istek önbellek isabetsizliği sıkıştırma ve istek son
 
 ## <a name="query-string-behavior"></a>Sorgu dize davranışı
 Ön kapısı ile bir web isteği için bir sorgu dizesi içeren dosyaların önbelleğe nasıl kontrol edebilirsiniz. Bir sorgu dizesi ile bir web isteğinde sorgu dizesi bir soru işareti (?) sonra gerçekleşen istek, bölümüdür. Bir sorgu dizesi alan adını ve değerini bir eşittir işareti (=) tarafından ayrılır, bir veya daha fazla anahtar-değer çiftleri içerir. Her anahtar-değer çifti bir ampersan ile ayrılır (&). Örneğin, http://www.contoso.com/content.mov?field1=value1&field2=value2. Bir isteğin sorgu dizesinde birden fazla anahtar-değer çifti varsa, bunların sırası önemli değildir.
-- **Sorgu dizelerini Yoksay**: varsayılan modu. Bu modda, ön kapısı sorgu dizelerini istek sahibi uç ilk istek üzerine geçirir ve varlık önbelleğe alır. Önbelleğe alınan varlık süresi dolana kadar ön kapısı ortamından sunulan tüm sonraki istekleri varlık için sorgu dizelerini yoksay.
+- **Sorgu dizelerini Yoksay**: Varsayılan modu. Bu modda, ön kapısı sorgu dizelerini istek sahibi uç ilk istek üzerine geçirir ve varlık önbelleğe alır. Önbelleğe alınan varlık süresi dolana kadar ön kapısı ortamından sunulan tüm sonraki istekleri varlık için sorgu dizelerini yoksay.
 
 - **Her benzersiz URL'yi önbelleğe al**: Bu modda, benzersiz bir URL, sorgu dizesi dahil olmak üzere her bir istekle kendi önbellek ile benzersiz bir varlık olarak kabul edilir. Örneğin, istek için arka uç yanıtı `www.example.ashx?q=test1` ön kapısı ortam önbelleğe alınmış ve sonraki önbelleklerle aynı sorgu dizesi için döndürdü. Bir istek için `www.example.ashx?q=test2` ayrı bir varlık kendi yaşam süresi ayarı ile önbelleğe alınır.
 
@@ -92,17 +92,17 @@ Varlığın yaşam süresi (TTL) dolmadan ön kapısı varlıklar önbelleğe al
 </br>Kullanıcılarınızın her zaman en son kopyasını varlıklarınızı Al emin olmak için en iyi her güncelleştirme için varlıklarınızı sürümüdür ve bunları yeni URL olarak yayımlayın. Ön kapısı hemen sonraki istemci istekleri için yeni varlıkları alır. Bazen tüm kenar düğümlerinden önbelleğe alınmış içeriği temizlemek ve bunları tüm yeni güncelleştirilmiş varlıkları almak için zorlamak isteyebilirsiniz. Bu, web uygulamanıza veya hızlı bir şekilde yanlış bilgiler içeren güncelleştirme varlıklarına güncelleştirmeleri nedeniyle olabilir.
 
 </br>Kenar düğümlerinden temizlemek istediğiniz hangi varlıkları seçin. Tüm varlıkları silmek isterseniz, temizleme tüm onay kutusuna tıklayın. Aksi takdirde, yol metin kutusu içinde temizlemek istediğiniz her varlık yolunu yazın. Yolu aşağıdaki biçimleri desteklenir.
-1. **Tek URL Temizleme**: dosya uzantısı, örneğin, /pictures/strasbourg.png; tam bir URL belirterek tek varlığı Temizle
-2. **Joker Temizleme**: yıldız işareti (\*) joker karakter olarak kullanılabilir. Tüm klasörleri, alt klasörler ve dosyaları bir uç nokta altında Temizleme /\* tüm alt klasörleri ve klasör belirterek belirli bir klasör altındaki dosyalar ardında yer alan yolu ya da Temizleme /\*, örneğin, / resimler\*.
-3. **Kök etki alanı Temizleme**: kök yolda "/" ile uç nokta temizleme.
+1. **Tek URL Temizleme**: Dosya uzantısı, örneğin, /pictures/strasbourg.png tam bir URL belirterek tek varlığı Temizle;
+2. **Joker Temizleme**: Yıldız işareti (\*) joker karakter olarak kullanılabilir. Tüm klasörleri, alt klasörler ve dosyaları bir uç nokta altında Temizleme /\* tüm alt klasörleri ve klasör belirterek belirli bir klasör altındaki dosyalar ardında yer alan yolu ya da Temizleme /\*, örneğin, / resimler\*.
+3. **Kök etki alanı Temizleme**: Kök yolda "/" ile uç nokta temizleme.
 
 Önbellek temizler ön kapısı üzerinde büyük/küçük harfe duyarsızdır. Ayrıca, sorgu dizesi bağımsız bir URL temizleme, tüm sorgu dizesi çözümlenmeyebileceği temizler anlamına gelir, kullanılabilir. 
 
 ## <a name="cache-expiration"></a>Önbellek süre sonu
 Üst bilgi aşağıdaki sırayla bir öğe ne kadar olacağını belirlemek için kullanılan bizim önbellekte depolanır:</br>
-1. Cache-Control: s-maxage =<seconds>
-2. Cache-Control: maxage =<seconds>
-3. Süre sonu: < http-tarih >
+1. Cache-Control: s-maxage =\<saniye >
+2. Cache-Control: maxage =\<saniye >
+3. Süre sonu: \<http tarih >
 
 Yanıt Cache-Control gibi önbelleğe alınabilir olmaz gösteren bir cache-Control yanıt üstbilgileri: özel, Cache-Control: no-cache ve Cache-Control: no-store dikkate alınır. Ancak, varsa birden çok istek uçuşan aynı URL POP sırasında yanıt paylaşabilir.
 

@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 4e5a785d219e1b776a1d512512d0a2a74532c550
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 94fd70dccf367d43b1caaa9f3a11ed934f9950ea
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282738"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618065"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için destek matrisi
 
@@ -21,12 +21,12 @@ Bu makalede kullanarak desteklenen bileşenler ve Azure'da VMware vm'lerinin ola
 
 En basit dağıtım senaryosu ile Azure Site Recovery kullanmaya başlamak için ziyaret bizim [öğreticiler](tutorial-prepare-azure.md). Azure Site Recovery mimarisi hakkında daha fazla bilgi [burada](vmware-azure-architecture.md).
 
-## <a name="replication-scenario"></a>Çoğaltma senaryosu
+## <a name="deployment-scenario"></a>Dağıtım senaryosu
 
 **Senaryo** | **Ayrıntılar**
 --- | ---
-VMware Sanal Makineleri | Şirket içi VMware Vm'lerini azure'a çoğaltma. Bu senaryo Azure portalında veya kullanarak dağıtabileceğiniz [PowerShell](vmware-azure-disaster-recovery-powershell.md).
-Fiziksel sunucular | Şirket içi Windows/Linux fiziksel sunucuları azure'a çoğaltma. Bu senaryoda Azure Portalı'nda dağıtabilirsiniz.
+VMware vm'lerinin olağanüstü durum kurtarma | Şirket içi VMware Vm'lerini azure'a çoğaltma. Bu senaryo Azure portalında veya kullanarak dağıtabileceğiniz [PowerShell](vmware-azure-disaster-recovery-powershell.md).
+Fiziksel sunucuları olağanüstü durum kurtarma | Şirket içi Windows/Linux fiziksel sunucuları azure'a çoğaltma. Bu senaryoda Azure Portalı'nda dağıtabilirsiniz.
 
 ## <a name="on-premises-virtualization-servers"></a>Şirket içi sanallaştırma sunucuları
 
@@ -50,7 +50,7 @@ Boş disk alanı | Bekletme sürücüsü için gereken alanı 600 GB.
 İşletim sistemi yerel ayarı | İngilizce (en-us)
 PowerCLI | [Powerclı 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "Powerclı 6.0") sürümlerinden ile yapılandırma sunucusu için gerekli değildir [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery).
 Windows Server rolleri | Etkinleştirme: <br/> - Active Directory Domain Services <br/>- İnternet Bilgi Hizmetleri <br/> - Hyper-V |
-Grup İlkeleri| Etkinleştirme: <br/> -Komut istemine erişimi engelleyin. <br/> -Kayıt defteri düzenleme araçlarına erişimi engelleyin. <br/> -Mantıksal dosya ekleri için güven. <br/> -Betik yürütmeyi açma. <br/> [Daha fazla bilgi edinin](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+Grup İlkeleri| Etkinleştirme: <br/> -Komut istemine erişimi engelleyin. <br/> -Kayıt defteri düzenleme araçlarına erişimi engelleyin. <br/> -Mantıksal dosya ekleri için güven. <br/> -Betik yürütmeyi açma. <br/> [Daha fazla bilgi](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Emin olun:<br/><br/> -Önceden var olan bir varsayılan Web sitesi yok <br/> -Etkinleştir [anonim kimlik doğrulaması](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> -Etkinleştir [Fastcgı](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) ayarı  <br/> -Önceden var olan Web sitesi/uygulama bağlantı noktası 443 üzerinde dinleme yok<br/>
 NIC türü | VMXNET3 (VMware VM olarak dağıtıldığında)
 IP adresi türü | Statik
@@ -96,16 +96,16 @@ Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR],[9.22][9.22 UR],[9.23][9.23 UR] | 3.1
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 çekirdeği sürümlerinde desteklenir.
 
-**Yayınla** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
+**Yayın** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
-SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | [9.23][9.23 UR] | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.101-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.79-default için |
+SUSE Linux Enterprise Server (SP1, SP2, SP3, SP4) 12 | [9.23][9.23 UR] | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.101-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.79-default için</br></br>SP4 4.12.14-94.41-default 4.12.14-95.6-default için |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | [9.22][9.22 UR] | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.72-default için |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | [9.21][9.21 UR] | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için</br></br>SP3 4.4.73-5-default 4.4.156-94.72-default için |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | [9.20][9.20 UR] | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için</br></br>SP3 4.4.73-5-default 4.4.156-94.64-default için |
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux dosya sistemleri/Konuk depolama
 
-**Bileşen** | **Desteklenen**
+**Bileşen** | **Destekleniyor**
 --- | ---
 Dosya sistemleri | ext3, ext4, XFS
 Birim Yöneticisi | Önce [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM'yi desteklenir. <br/> 2. makinesiyse LVM birimde desteklenmez. <br/> 3. Birden çok işletim sistemi diskleri desteklenmez.<br/><br/>Gelen [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) makinesiyse LVM üzerinde ve sonraki sürümlerde desteklenir. Birden çok işletim sistemi diskleri desteklenmez.
@@ -127,7 +127,7 @@ Boş alanı gereksinimleri | 2 GB/root bölümdeki <br/><br/> Yükleme klasörü
 
 ## <a name="network"></a>Ağ
 
-**Bileşen** | **Desteklenen**
+**Bileşen** | **Destekleniyor**
 --- | ---
 Konak ağı NIC grubu oluşturma | VMware Vm'leri için desteklenmiyor. <br/><br/>Fiziksel makine için çoğaltma desteklenmiyor.
 Konak ağ VLAN | Evet.
@@ -143,7 +143,7 @@ Konuk/sunucu ağ birden çok NIC | Evet.
 
 ## <a name="azure-vm-network-after-failover"></a>Azure VM ağı (sonra Yük devretme)
 
-**Bileşen** | **Desteklenen**
+**Bileşen** | **Destekleniyor**
 --- | ---
 Azure ExpressRoute | Evet
 ILB | Evet
@@ -157,7 +157,7 @@ Azure sanal ağ hizmet uç noktaları<br/> | Evet
 Hızlandırılmış Ağ | Hayır
 
 ## <a name="storage"></a>Depolama
-**Bileşen** | **Desteklenen**
+**Bileşen** | **Destekleniyor**
 --- | ---
 Dinamik disk | İşlemi sistem diski temel disk olması gerekir. <br/><br/>Veri diskleri dinamik diskleri olabilir.
 Docker disk yapılandırması | Hayır
@@ -167,7 +167,6 @@ Konak vsan'ı | VMware için Evet<br/><br/> Fiziksel sunucular için yok
 Konak çok yollu (MPIO) | Evet, Microsoft DSM EMC PowerPath 5.7 SP4, EMC PowerPath DSM ile CLARiiON için test
 Konak sanal birimler (VVols) | VMware için Evet<br/><br/> Fiziksel sunucular için yok
 Konuk/sunucu VMDK | Evet
-Konuk/server EFI/UEFI'ye| Kısmi (geçiş Azure Windows Server 2012 ve üzeri) <br/><br/> Tablonun sonundaki nota bakın
 Konuk/sunucu paylaşılan küme diskine | Hayır
 Konuk/sunucu şifreli disk | Hayır
 Konuk/sunucu NFS | Hayır
@@ -181,18 +180,12 @@ Konuk/sunucu - depolama alanları | Hayır
 Konuk/sunucu sık erişimli Ekle/Kaldır disk | Hayır
 Konuk/sunucu - disk dışlama | Evet
 Konuk/sunucu çok yollu (MPIO) | Hayır
+Konuk/server EFI/UEFI'ye önyükleme | VMware Vm'lerini veya fiziksel sunucuları Windows Server 2012 çalıştıran geçiş yaparken ya da daha sonra Azure'a desteklenir.<br/><br/> Yalnızca, geçiş için Vm'lerini çoğaltabilirsiniz. Şirket içine yeniden çalışma desteklenmez.<br/><br/> Sunucu işletim sistemi diskinde dörtten fazla bölümler olmamalıdır.<br/><br/> Mobility hizmeti sürümü 9.13 veya üstü gerektirir.<br/><br/> Yalnızca NTFS desteklenmiyor.
 
-> [!NOTE]
-> UEFI önyükleme Windows Server 2012 çalıştıran VMware sanal makinelerini veya daha sonra Azure'a geçirilebilir. Aşağıdaki kısıtlamalar uygulanır:
->
-> - Azure'a geçiş desteklenir. Şirket içi VMware sitesinde yeniden çalışma desteklenmez.
-> - Sunucu işletim sistemi diskinde dörtten fazla bölümler olmamalıdır.
-> - Yalnızca NTFS desteklenmiyor
-> - Mobility hizmeti sürümü 9.13 veya üstü gerektirir.
 
 ## <a name="azure-storage"></a>Azure Storage
 
-**Bileşen** | **Desteklenen**
+**Bileşen** | **Destekleniyor**
 --- | ---
 Yerel olarak yedekli depolama | Evet
 Coğrafi olarak yedekli depolama | Evet
@@ -208,7 +201,7 @@ Genel amaçlı v2 depolama hesaplarının (sık erişimli ve seyrek erişimli Ka
 
 ## <a name="azure-compute"></a>Azure işlem
 
-**Özellik** | **Desteklenen**
+**Özellik** | **Destekleniyor**
 --- | ---
 Kullanılabilirlik kümeleri | Evet
 Kullanılabilirlik alanları | Hayır
@@ -237,7 +230,7 @@ VM adı | 1 63 karakter.<br/><br/> Harfler, sayılar ve kısa çizgilerden oluş
 
 Aşağıdaki tablo, Azure Site Recovery sınırlarını sağlar. Bu limitler yaptığımız testleri temel alsa da mümkün olan tüm uygulama G/Ç birleşimlerini kapsamamaktadır. Gerçek sonuçlar, uygulamanızın G/Ç karışımına göre değişebilir. En iyi sonuçlar için kesinlikle öneririz [dağıtım Planlayıcısı aracını çalıştırma](site-recovery-deployment-planner.md) ve uygulamanın gerçek performans görüntüsünü elde etmek üzere kapsamlı uygulama testleri bir test yük devretmesi göndererek gerçekleştirin.
 
-**Çoğaltma depolama hedefi** | **Ortalama kaynak disk g/ç boyutu** |**Ortalama kaynak disk veri değişim sıklığı** | **Günlük toplam kaynak disk veri değişim sıklığı**
+**Çoğaltma depolama hedefi** | **Ortalama kaynak disk G/Ç boyutu** |**Ortalama kaynak disk veri değişim sıklığı** | **Günlük toplam kaynak disk veri değişim sıklığı**
 ---|---|---|---
 Standart depolama | 8 KB | 2 MB/sn | Disk başına 168 GB
 Premium P10 veya P15 disk | 8 KB  | 2 MB/sn | Disk başına 168 GB
@@ -256,7 +249,7 @@ Bunlar yüzde 30 G/Ç çakışmasını varsayan ortalama sayılardır. Site Reco
 
 ## <a name="vault-tasks"></a>Kasa görevleri
 
-**Eylem** | **Desteklenen**
+**Eylem** | **Destekleniyor**
 --- | ---
 Kasa kaynak grupları arasında taşıma<br/><br/> İçinde ve arasında abonelikler | Hayır
 Depolama, ağ, Azure Vm'leri kaynak grupları arasında taşıma<br/><br/> İçinde ve arasında abonelikler | Hayır

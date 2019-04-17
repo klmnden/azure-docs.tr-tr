@@ -1,18 +1,18 @@
 ---
 title: Azure Application Gateway'de WebSocket desteği | Microsoft Docs
 description: Bu sayfa, uygulama ağ geçidi WebSocket desteği'ne genel bakış sağlar.
-author: amsriva
+author: vhorne
 ms.author: amsriva
 ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
-ms.openlocfilehash: bae4b3d955076679a5640717ac6f5446e3951fb9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168128"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606914"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Application Gateway'de WebSocket desteği'ne genel bakış
 
@@ -32,7 +32,7 @@ WebSocket bağlantısı kurmak için belirli bir HTTP tabanlı anlaşması, iste
 
 ### <a name="listener-configuration-element"></a>Dinleyici yapılandırma öğesi
 
-Var olan bir HTTP dinleyicisi WebSocket trafiğini desteklemek için kullanılabilir. Örnek şablon dosyasındaki httpListeners öğesinin bir parçacığı aşağıda verilmiştir. WebSocket desteği ve WebSocket trafiğini güvenli hale hem HTTP hem de HTTPS dinleyicileri gerekir. Benzer şekilde kullanabileceğiniz [portalı](application-gateway-create-gateway-portal.md) veya [PowerShell](application-gateway-create-gateway-arm.md) dinleyicileri ile bir uygulama ağ geçidi oluşturmak için açık WebSocket trafiğini desteklemek için 80/443 numaralı bağlantı noktası.
+Var olan bir HTTP dinleyicisi WebSocket trafiğini desteklemek için kullanılabilir. Örnek şablon dosyasındaki httpListeners öğesinin bir parçacığı aşağıda verilmiştir. WebSocket desteği ve WebSocket trafiğini güvenli hale hem HTTP hem de HTTPS dinleyicileri gerekir. Benzer şekilde portal veya Azure PowerShell dinleyicileri ile bir uygulama ağ geçidi oluşturmak için kullanabileceğiniz açık WebSocket trafiğini desteklemek için 80/443 numaralı bağlantı noktası.
 
 ```json
 "httpListeners": [
@@ -123,5 +123,4 @@ Bu uygulama ağ geçidi arka uç sistem durumu araştırma yalnızca HTTP ve HTT
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-WebSocket desteği hakkında daha fazla edindikten sonra Git [bir uygulama ağ geçidi oluşturma](application-gateway-create-gateway.md) bir WebSocket ile kullanmaya başlamak için web uygulaması etkin.
-
+WebSocket desteği hakkında daha fazla edindikten sonra Git [bir uygulama ağ geçidi oluşturma](quick-create-powershell.md) bir WebSocket ile kullanmaya başlamak için web uygulaması etkin.

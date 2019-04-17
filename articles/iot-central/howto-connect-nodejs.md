@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 428e20995f6d2723c5af1ba2beb18ac1336243e7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259975"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617946"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IOT Central uygulamanızı (Node.js) genel istemci uygulamaya bağlama
 
@@ -49,7 +49,7 @@ Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. İlgil
 
 Aşağıdaki durum eklemek **ölçümleri** sayfası:
 
-| Görünen Ad | Alan Adı  | 1 değeri | Görünen Ad | Değer 2 | Görünen Ad |
+| Görünen Ad | Alan Adı  | Değer 1 | Görünen Ad | Değer 2 | Görünen Ad |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
 | Fan Modu     | fanmode     | 1       | Çalışıyor      | 0       | Durduruldu      |
 
@@ -335,4 +335,4 @@ Azure IOT Central, uygulamanızdaki bir operatör olarak, gerçek cihazınız i�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Genel bir Node.js istemcisi, Azure IOT Central uygulamasına bağlanmak öğrendiniz, önerilen sonraki adıma öğrenmektir nasıl [hazırlayın ve Raspberry Pi'yi bağlanma](howto-connect-raspberry-pi-python.md).
+Genel bir Node.js istemcisi, Azure IOT Central uygulamasına bağlanmak öğrendiniz, önerilen sonraki adıma öğrenmektir nasıl [bir özel cihaz şablonu ayarlama](howto-set-up-template.md) kendi IOT cihazını için.

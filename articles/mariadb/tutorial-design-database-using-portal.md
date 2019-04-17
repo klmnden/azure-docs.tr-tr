@@ -5,14 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 04/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 29ad35b30e7f75259b9c4d0174c16c6c9c40a917
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1eb24d90c3aefa81f53a3e31c0bd460f45e5a250
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852565"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617708"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak MariaDB veritabanı için Azure veritabanı tasarlama
 
@@ -41,7 +41,7 @@ Tanımlı bir dizi [işlem ve depolama kaynağı](concepts-pricing-tiers.md) ile
 
 1. Portalın sol üst köşesinde bulunan **Kaynak oluştur** düğmesini (+) seçin.
 
-2. Hizmeti bulmak için arama kutusuna **MariaDB için Azure Veritabanı** yazın.
+2. Seçin **veritabanları** > **MariaDB için Azure veritabanı**. Ayrıca **MariaDB** hizmeti bulmak için arama kutusuna.
    
    ![MySQL'e gidin](./media/tutorial-design-database-using-portal/1-Navigate-to-mariadb.png)
 
@@ -60,7 +60,7 @@ Tanımlı bir dizi [işlem ve depolama kaynağı](concepts-pricing-tiers.md) ile
     Parolayı onayla | *tercih ettiğiniz*| Yönetici hesabı parolasını onaylayın.
     Konum | *kullanıcılarınıza en yakın bölge*| Kullanıcılarınıza veya diğer Azure uygulamalarınıza en yakın konumu seçin.
     Sürüm | *en son sürüm*| En son sürüm (başka bir sürüm kullanmak için belirli gereksinimleriniz yoksa).
-    Fiyatlandırma katmanı | Açıklamaya bakın. | Yeni sunucunuz için işlem, depolama ve yedekleme yapılandırmaları. **Fiyatlandırma katmanı** > **Genel Amaçlı**'yı seçin. Aşağıdaki ayarlar için varsayılan değerleri kullanın:<br><ul><li>**İşlem Oluşturma** (Gen 5)</li><li>**Sanal Çekirdek** (2 Sanal Çekirdek)</li><li>**Depolama** (5 GB)</li><li>**Yedekleme Saklama Dönemi** (7 gün)</li></ul><br>Coğrafi olarak yedekli depolamada sunucu yedeklerinizi etkinleştirmek için **Fazladan Yedek Seçenekleri**’nde **Coğrafi Olarak Yedeklemeli**’yi seçin. <br><br>Bu fiyatlandırma katmanı seçimini kaydetmek için **Tamam**’ı seçin. Sonraki ekran görüntüsü bu seçimleri yakalar.
+    Fiyatlandırma katmanı | Açıklamaya bakın. | Yeni sunucunuz için işlem, depolama ve yedekleme yapılandırmaları. **Fiyatlandırma katmanı** > **Genel Amaçlı**'yı seçin. Aşağıdaki ayarlar için varsayılan değerleri kullanın:<br><ul><li>**İşlem Oluşturma** (Gen 5)</li><li>**Sanal çekirdek** (4 çekirdek)</li><li>**Depolama** (100 GB)</li><li>**Yedekleme Saklama Dönemi** (7 gün)</li></ul><br>Coğrafi olarak yedekli depolamada sunucu yedeklerinizi etkinleştirmek için **Fazladan Yedek Seçenekleri**’nde **Coğrafi Olarak Yedeklemeli**’yi seçin. <br><br>Bu fiyatlandırma katmanı seçimini kaydetmek için **Tamam**’ı seçin. Sonraki ekran görüntüsü bu seçimleri yakalar.
     
    ![Fiyatlandırma katmanı](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
