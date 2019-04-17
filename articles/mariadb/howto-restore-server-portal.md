@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 1dc7930649a4e90c3b1c69a4f109f545f74a79f4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/15/2019
+ms.openlocfilehash: 23d683fea494ad0509af359d6e49519f2bc6aa99
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081126"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615787"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Nasıl yedeklenir ve Azure portalını kullanarak MariaDB için Azure veritabanı'nda bir sunucuya geri yükleme
 
@@ -79,7 +79,7 @@ Aşağıdaki adımlar bir-belirli bir noktaya için örnek sunucuyu geri yükle:
 ## <a name="geo-restore"></a>Coğrafi geri yükleme
 Coğrafi olarak yedekli yedekleme için sunucunuzu yapılandırdıysanız, bu var olan bir sunucuyu yedekten yeni bir sunucu oluşturulabilir. Bu yeni sunucu MariaDB için Azure veritabanı kullanılabilir herhangi bir bölgede oluşturulabilir.  
 
-1. Portalın sol üst köşesinde bulunan **Kaynak oluştur** düğmesini (+) seçin. Hizmeti bulmak için arama kutusuna **MariaDB için Azure Veritabanı** yazın.
+1. Seçin **veritabanları** > **MariaDB için Azure veritabanı**. Ayrıca **MariaDB** hizmeti bulmak için arama kutusuna.
 
    !["MariaDB için Azure veritabanı" seçeneği](./media/howto-restore-server-portal/2_navigate-to-mariadb.png)
 

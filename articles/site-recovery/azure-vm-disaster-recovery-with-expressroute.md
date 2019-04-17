@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 895b53d4091f04f324b28a148c7937159997fa84
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272776"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618108"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure ExpressRoute, Azure Vm'leri için olağanüstü durum kurtarma ile tümleştirin
 
@@ -93,7 +93,7 @@ Kuruluş dağıtımları genellikle iş yükleri merkezi bağlantı hub için İ
 - **Hub vNet**. Bir hub vNet yok **kaynak Hub vNet**: 10.10.10.0/24.
   - Bu hub sanal ağ geçidi davranır.
   - Bu hub'ı aracılığıyla alt ağlar arasındaki tüm iletişimler gidin.
-    - Merkez sanal ağ alt ağları **. Hub sanal ağı iki alt ağa sahip:
+    - **Merkez sanal ağ alt ağları**. Hub sanal ağı iki alt ağa sahip:
     - **NVA alt ağı**: 10.10.10.0/25. Bu alt ağ bir NVA (10.10.10.10) içerir.
     - **Ağ geçidi alt ağı**: 10.10.10.128/25. Bu alt ağı bir ExpressRoute ağ geçidi aracılığıyla özel bir eşleme Yönlendirme etki alanı şirket içi siteye yönlendiren bir ExpressRoute bağlantısı bağlı içerir.
 - Şirket içi veri merkezi, Hong Kong iş ortağı edge'de aracılığıyla bir ExpressRoute bağlantı hattı bağlantısı vardır.
@@ -104,7 +104,7 @@ Kuruluş dağıtımları genellikle iş yükleri merkezi bağlantı hub için İ
 
 #### <a name="spoke-to-hub"></a>Uçtan merkeze
 
-**Yön** | **Ayar** | **Durum**
+**Yön** | **Ayar** | **State**
 --- | --- | ---
 Uçtan merkeze | Sanal ağ adresi izin ver | Etkin
 Uçtan merkeze | Yönlendirilen trafiğe izin ver | Etkin
@@ -115,7 +115,7 @@ Uçtan merkeze | Remove-ağ geçitlerini kullan | Etkin
 
 #### <a name="hub-to-spoke"></a>Merkezden uca
 
-**Yön** | **Ayar** | **Durum**
+**Yön** | **Ayar** | **State**
 --- | --- | ---
 Merkezden uca | Sanal ağ adresi izin ver | Etkin
 Merkezden uca | Yönlendirilen trafiğe izin ver | Etkin

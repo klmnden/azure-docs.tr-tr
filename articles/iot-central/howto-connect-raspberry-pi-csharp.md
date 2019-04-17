@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 341b4d23664900cdf1f9a209df663ad4e6e96fe4
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: 8a7b2d15884f7a1cb8b6e72937b0f1e3b6cb8ca9
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426367"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616025"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Raspberry Pi'yi bağlanmak için Azure IOT Central, uygulama (C#)
 
@@ -33,7 +33,7 @@ Bu makaledeki adımları tamamlayabilmeniz için aşağıdaki bileşenleri gerek
 Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Raspberry Pi** cihaz şablonu aşağıdaki özelliklere sahip:
 
 - Telemetri, cihaz toplayacak aşağıdaki ölçüleri içerir:
-  - Nem
+  - Nem oranı
   - Sıcaklık
   - Basınç
   - Magnetometer (X, Y, Z)
@@ -321,7 +321,7 @@ Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Raspber
 
 ### <a name="telemetry-measurements"></a>Telemetri ölçümleri
 
-| Alan adı     | Birim  | Minimum | Maksimum | Ondalık basamak sayısı |
+| Alan adı     | Birimler  | Minimum | Maksimum | Ondalık basamak sayısı |
 | -------------- | ------ | ------- | ------- | -------------- |
 | Nem oranı       | %      | 0       | 100     | 0              |
 | Temp           | °C     | -40     | 120     | 0              |
@@ -340,7 +340,7 @@ Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Raspber
 
 Sayısal ayarları
 
-| Görünen ad | Alan adı | Birim | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
+| Görünen ad | Alan adı | Birimler | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltaj      | setVoltage | Volt | 0              | 0       | 240     | 0       |
 | Geçerli      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
@@ -356,11 +356,9 @@ Geçiş ayarları
 
 | Type            | Görünen ad | Alan adı | Veri türü |
 | --------------- | ------------ | ---------- | --------- |
-| Cihaz özelliği | Sayı öldürmüş   | dieNumber  | sayı    |
-| Metin            | Konum     | konum   | YOK       |
+| Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
+| Metin            | Konum     | location   | Yok       |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Raspberry Pi'yi, Azure IOT Central uygulamasına bağlanmak öğrendiniz, önerilen sonraki adımlar şunlardır:
-
-* [Azure IOT Central için genel bir Node.js istemci uygulaması bağlama](howto-connect-nodejs.md)
+Raspberry Pi'yi, Azure IOT Central uygulamasına bağlanmak öğrendiniz, önerilen sonraki adıma öğrenmektir nasıl [bir özel cihaz şablonu ayarlama](howto-set-up-template.md) kendi IOT cihazını için.

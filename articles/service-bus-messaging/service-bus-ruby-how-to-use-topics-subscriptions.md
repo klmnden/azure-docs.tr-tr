@@ -12,24 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 486e891ae055bdd6b6c30aeff63744acb3b0ef04
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c2862c3521c05ba81f7a567f7951d22a9ab95c44
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734547"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609430"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Service Bus konuları ve abonelikleri ile Ruby kullanma
  
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Bu makalede, Service Bus konuları ve abonelikleri Ruby uygulamalardan kullanmayı açıklar. Senaryoları ele alınmaktadır **konuları ve Abonelikleri, gönderme, abonelik filtreleri oluşturma oluşturma** bir konuya **bir abonelikten ileti alma**, ve **siliniyor konuları ve abonelikleri**. Konuları ve abonelikleri hakkında daha fazla bilgi için bkz. [sonraki adımlar](#next-steps) bölümü.
+Bu makalede, Service Bus konuları ve abonelikleri Ruby uygulamalardan kullanmayı açıklar. Kapsanan senaryolar şunlardır:
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- Konuları ve abonelikleri oluşturma 
+- Abonelik filtreleri oluşturma 
+- Bir konu başlığına ileti gönderme 
+- Abonelikten ileti alma
+- Konuları ve abonelikleri silme
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
+## <a name="prerequisites"></a>Önkoşullar
+1. Azure aboneliği. Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Etkinleştirebilir, [Visual Studio veya MSDN abone Avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) veya kaydolmak için bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. İzleyeceğiniz adımlar [hızlı başlangıç: Bir Service Bus konusu ve konu için Abonelik oluşturmak için Azure portal'ı kullanmanızı](service-bus-quickstart-topics-subscriptions-portal.md) bir Service Bus'ı oluşturmak için **ad alanı** ve **bağlantı dizesi**. 
+
+    > [!NOTE]
+    > Oluşturacağınız bir **konu** ve **abonelik** kullanarak konuya **Ruby** Bu hızlı başlangıçta. 
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 

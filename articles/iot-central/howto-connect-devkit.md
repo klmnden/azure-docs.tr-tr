@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 3055bf4be024065bcd8db9cf523de93a5ab6b22b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 8558168b7eb35743c0fd590ded17ef13446533c4
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905945"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617827"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın
 
@@ -246,8 +246,8 @@ Geçiş ayarları
 | Görünen ad | Alan adı | Dönüş türü | Giriş alanının görünen adı | Giriş alan adı | Giriş alanı türü |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | echo         | echo       | metin        | görüntülenecek değer         | displayedValue   | metin             |
-| Geri sayım    | geri sayım  | number      | Gelen sayısı               | countFrom        | number           |
+| Geri sayım    | Geri sayım  | number      | Gelen sayısı               | countFrom        | number           |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure IOT Central uygulamanıza DevKit cihaz bağlayamama öğrendiniz, önerilen sonraki adım olarak [hazırlama ve Raspberry Pi'yi bağlanın](howto-connect-raspberry-pi-python.md).
+Raspberry Pi'yi, Azure IOT Central uygulamasına bağlanmak öğrendiniz, önerilen sonraki adıma öğrenmektir nasıl [bir özel cihaz şablonu ayarlama](howto-set-up-template.md) kendi IOT cihazını için.

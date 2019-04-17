@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 04/10/2019
+ms.date: 04/15/2019
 ms.author: curtand
 ms.reviewer: ajayanti1
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b859c64c61264f43a88c158dc10ba6f2b2e56ce
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: e90c4e1f39deffea8a7dd7b2c0dbfdcf5e0b3555
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495131"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609515"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Ürün adları ve lisans için hizmet planı tanımlayıcıları
 
@@ -34,7 +34,7 @@ Lisansları yönetirken [Azure portalında](https://portal.azure.com/#blade/Micr
 - **Hizmet planları dahil (kolay adları)**: Dize kimliği ve GUID karşılık gelen hizmet planlarını (kolay adları) ürün listesi
 
 >[!NOTE]
->Bu bilgiler, 17 Ağustos 2018'den itibaren doğru olur.
+>Bu bilgiler, 15 Nisan 2019 itibariyle doğrudur.
 
 | Ürün adı | Dize kimliği | GUID | Hizmet planları dahil | (Kolay adları) hizmet planları dahil |
 | --- | --- | --- |--- |
@@ -214,10 +214,10 @@ Bu bölümde, hizmet türüne göre gruplandırılmış birbirini dışlayan ola
 
 Grupları aracılığıyla lisans yönetimi için ayarlama özelliği hakkında daha fazla bilgi için aşağıdakilere bakın:
 
-* [Azure Active Directory'de grup tabanlı lisanslama nedir?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Azure Active Directory'deki bir gruba lisans atama](licensing-groups-assign.md)
-* [Azure Active Directory'de bir grup için lisans sorunlarını belirleme ve çözme](licensing-groups-resolve-problems.md)
-* [Azure Active Directory'de Grup tabanlı lisanslama için tek tek lisanslı kullanıcıları geçirme](licensing-groups-migrate-users.md)
+* [Grup tabanlı Azure Active Directory lisansı nedir?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [Azure Active Directory'de gruba lisans atama](licensing-groups-assign.md)
+* [Azure Active Directory'de grubun lisans sorunlarını tanımlama ve çözme](licensing-groups-resolve-problems.md)
+* [Azure Active Directory'de tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](licensing-groups-migrate-users.md)
 * [Kullanıcılar Azure Active Directory'de Grup tabanlı lisanslama kullanarak ürün lisansları arasında geçirme](licensing-groups-change-licenses.md)
-* [Azure Active Directory grup tabanlı lisanslama ek senaryoları](licensing-group-advanced.md)
+* [Azure Active Directory grup tabanlı lisanslamayla ilgili ek senaryolar](licensing-group-advanced.md)
 * [Azure AD'de grup tabanlı lisanslama için PowerShell örnekleri](licensing-ps-examples.md)

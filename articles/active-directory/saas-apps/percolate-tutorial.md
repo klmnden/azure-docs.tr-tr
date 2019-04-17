@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: d399e83dbd1324827cc395cbf7834672baffa791
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2110b1ec7d5d6b317341855ff19acf7975733e71
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275853"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617878"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Öğretici: Percolate ile Azure Active Directory Tümleştirme
 
@@ -101,7 +101,7 @@ Azure AD çoklu oturum açma ile Percolate yapılandırmak için aşağıdaki ad
 
     ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-4. Üzerinde **temel SAML yapılandırma** uygulamada yapılandırmak isterseniz, bölümü **IDP** başlatılan modu uygulama zaten önceden tümleştirilmiş herhangi bir adımı gerçekleştirmek için kullanıcı yok Azure ile.
+4. Üzerinde **temel SAML yapılandırma** uygulamada yapılandırmak isterseniz, bölümü **IDP** başlatılan modu uygulama zaten Azure ile önceden tümleştirilmiş olduğundan herhangi bir adımı gerçekleştirmek için kullanıcı yok.
 
     ![Etki alanı ve URL'ler tek oturum açma bilgileri percolate](common/preintegrated.png)
 
@@ -141,7 +141,7 @@ Azure AD çoklu oturum açma ile Percolate yapılandırmak için aşağıdaki ad
 
     b. İçinde **varlık kimliği** metin değerini yapıştırın **Azure AD tanımlayıcısı** , Azure Portalı'ndan kopyaladığınız.
 
-    c. Not Defteri'nde, Azure portalından indirdiğiniz base-64 kodlanmış sertifika açın, içeriğini kopyalayın ve ardından yapıştırın **x509 sertifikaları** kutusu.
+    c. Not Defteri'nde, Azure portalından indirdiğiniz base-64 kodlanmış sertifika açın, içeriğini kopyalayın ve ardından yapıştırın **x509 sertifikaları** kutusu.
 
     d. İçinde **e-posta özniteliği** metin kutusuna **emailaddress**.
 
@@ -219,9 +219,9 @@ Percolate için oturum açmak Azure AD kullanıcılarının etkinleştirmek içi
 
     ![Çoklu oturum açmayı yapılandırın](./media/percolate-tutorial/configure04.png)
 
-    a. İçinde **e-posta** metin kutusuna, kullanıcının gibi e-posta girin brittasimon@contoso.com.
+    a. İçinde **e-posta** metin kutusuna, kullanıcının gibi e-posta girin brittasimon@contoso.com.
 
-    b. İçinde **Fullname** metin kutusunda, gibi kullanıcı adını girin **Brittasimon**.
+    b. İçinde **Fullname** metin kutusunda, gibi kullanıcı adını girin **Brittasimon**.
 
     c. Tıklayın **kullanıcılar oluşturma**.
 
@@ -235,7 +235,7 @@ Erişim paneli Percolate kutucuğa tıkladığınızda, size otomatik olarak SSO
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

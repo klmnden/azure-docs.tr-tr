@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 45ac09b84aca44f6739a0e29994986200424fc5c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 73621c3bbab7f0c49feacab29e1e5de1792b80e4
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669342"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618167"
 ---
 # <a name="virtual-network-service-endpoints"></a>Sanal Ağ Hizmeti Uç Noktaları
 
@@ -33,6 +33,7 @@ Bu özellik aşağıdaki Azure hizmetleri ve bölgeleri için sağlanır:
 - **[Azure SQL veri ambarı](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure bölgelerinde genel olarak kullanılabilir.
 - **[PostgreSQL sunucusu için Azure veritabanı](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Veritabanı hizmeti kullanılabilir olduğu Azure bölgelerinde genel olarak kullanılabilir.
 - **[MySQL sunucusu için Azure veritabanı](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Veritabanı hizmeti kullanılabilir olduğu Azure bölgelerinde genel olarak kullanılabilir.
+- **[MariaDB için Azure veritabanı](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: Veritabanı hizmeti kullanılabilir olduğu Azure bölgelerinde genel olarak kullanılabilir.
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure bölgelerinde genel olarak kullanılabilir.
 - **[Azure anahtar kasası](../key-vault/key-vault-overview-vnet-service-endpoints.md)**: Tüm Azure bölgelerinde genel olarak kullanılabilir.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure bölgelerinde genel olarak kullanılabilir.
@@ -41,7 +42,6 @@ Bu özellik aşağıdaki Azure hizmetleri ve bölgeleri için sağlanır:
 
 **Genel önizlemeye sunuldu**
 
-- **[MariaDB için Azure veritabanı](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: MariaDB için Azure veritabanı kullanılabilir olduğu tüm Azure bölgelerinde kullanılabilir Önizleme.
 - **[Azure kapsayıcı kayıt defteri](../container-registry/container-registry-vnet.md)**: Azure Container Registry kullanılabilir olduğu tüm Azure bölgelerinde kullanılabilir Önizleme.
 
 En güncel bildirimler için [Azure Sanal Ağ güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network) sayfasını inceleyin.

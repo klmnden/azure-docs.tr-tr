@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: tamram
-ms.openlocfilehash: 95b960245e00a353bb165e1f1d38db56bce62a8f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a1a931573967f12eb7abc791bd951dc6e1e9e60b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996734"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607407"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Hızlı Başlangıç: Karşıya yükleme, indirme ve Python ile blobları Listele
 
-Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok bloblarını karşıya yüklemek, indirmek ve listelemek için Python’ı nasıl kullanabileceğinizi göreceksiniz. 
+Bu hızlı başlangıçta karşıya yükleyin, indirin ve Azure Blob depolamadaki bir kapsayıcıda blok bloblarını listelemek için Python kullanma bakın. Basitçe herhangi bir metin veya ikili veriler de (örneğin, görüntüleri, belge, medya akışı, arşiv veri, vb.) miktarını tutabilir ve dosya paylaşımları, şemasız tablolar ve ileti kuyrukları Azure depolamada farklı nesneleri blobudur. (Daha fazla bilgi için [Azure Storage'a giriş](/azure/storage/common/storage-introduction.md).)
 
 ## <a name="prerequisites"></a>Önkoşullar
 

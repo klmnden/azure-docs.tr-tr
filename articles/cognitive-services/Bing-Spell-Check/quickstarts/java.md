@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: d2905d05dce48b705de44780425ed2b55b02555c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: a139d0558565114725c6198f64e139e5a5019c75
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888993"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616704"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Hızlı Başlangıç: Bing yazım denetimi REST API'si ve Java ile yazım denetimi
 
@@ -23,18 +23,20 @@ Bu hızlı başlangıçta, Bing yazım denetimi REST API'si, ilk çağrı yapmak
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Java geliştirme Kit(JDK) 7 veya üzeri.
+* Java geliştirme Kit(JDK) 7 veya üzeri.
+
+* İçeri aktarma [gson 2.8.5.jar](https://libraries.io/maven/com.google.code.gson%3Agson) veya en güncel [Gson](https://github.com/google/gson) sürümü. Komut satırı yürütme için ekleme `.jar` ana sınıfı içeren Java klasörünüze.
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-
 ## <a name="create-and-initialize-an-application"></a>Oluşturma ve bir uygulama başlatma
 
-1. Sık kullandığınız IDE veya düzenleyici yeni bir Java projesi oluşturun ve aşağıdaki paketler aktarın.
+1. Sık kullandığınız IDE veya düzenleyici, seçtiğiniz bir sınıf adı ile yeni bir Java projesi oluşturun ve ardından aşağıdaki paketler aktarın.
 
     ```java
     import java.io.*;
     import java.net.*;
+    import com.google.gson.*;
     import javax.net.ssl.HttpsURLConnection;
     ```
 
@@ -44,7 +46,7 @@ Java geliştirme Kit(JDK) 7 veya üzeri.
     static String host = "https://api.cognitive.microsoft.com";
     static String path = "/bing/v7.0/spellcheck";
 
-    static String key = "ENTER YOUR KEY HERE";
+    static String key = "<ENTER-KEY-HERE>";
 
     static String mkt = "en-US";
     static String mode = "proof";
@@ -58,21 +60,20 @@ Java geliştirme Kit(JDK) 7 veya üzeri.
    ```java
    public static void check () throws Exception {
        String params = "?mkt=" + mkt + "&mode=" + mode;
-   //...
+      // add the rest of the code snippets here (except prettify() and main())...
    }
    ```
 
-2. Uç nokta konak ve yol parametreleri dize birleştirerek bir URL oluşturun. Yeni bir `HttpsURLConnection` obejct.
+2. Uç nokta konak ve yol parametreleri dize birleştirerek bir URL oluşturun. Yeni bir `HttpsURLConnection` nesne.
 
     ```java
     URL url = new URL(host + path + params);
-    HttpsURLConnection connection = (HttpsURLConnection) 
+    HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
     ```
 
-3. URL bağlantısı açın. İstek yöntemini ayarla `POST`. İstek parametrelerinizi ekleyin. Abonelik anahtarınızı eklediğinizden emin olun `Ocp-Apim-Subscription-Key` başlığı. 
+3. URL bağlantısı açın. İstek yöntemini ayarla `POST`. İstek parametrelerinizi ekleyin. Abonelik anahtarınızı eklediğinizden emin olun `Ocp-Apim-Subscription-Key` başlığı.
 
     ```java
-    url.openConnection();
     connection.setRequestMethod("POST");
     connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
     connection.setRequestProperty("Ocp-Apim-Subscription-Key", key);
@@ -88,21 +89,34 @@ Java geliştirme Kit(JDK) 7 veya üzeri.
         wr.close();
     ```
 
-## <a name="read-the-response"></a>Yanıt okuyun
+## <a name="format-and-read-the-api-response"></a>Biçimlendirme ve API yanıtı okuyun
 
-1. Oluşturma bir `BufferedReader` ve API'den yanıtı okuyun. Bu, konsola yazdırır.
+1. Bu yöntem sınıfınıza ekleyin. Bu, daha okunabilir bir çıkış için JSON biçimlendirir.
+
+    ``` java
+    // This function prettifies the json response.
+    public static String prettify(String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonElement json = parser.parse(json_text);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
+    }
+
+1. Create a `BufferedReader` and read the response from the API. Print it to the console.
     
     ```java
     BufferedReader in = new BufferedReader(
     new InputStreamReader(connection.getInputStream()));
     String line;
     while ((line = in.readLine()) != null) {
-        System.out.println(line);
+        System.out.println(prettify(line);
     }
     in.close();
     ```
 
-2. Yukarıda oluşturulan işlev uygulamanızın ana işlevini çağırın. 
+## <a name="call-the-api"></a>API çağırma
+
+Yukarıda oluşturulan check() yönteminizi uygulamanızın ana işlevi çağırın.
 
     ```java
     public static void main(String[] args) {
@@ -114,10 +128,26 @@ Java geliştirme Kit(JDK) 7 veya üzeri.
         }
     }
     ```
-    
+
+## <a name="run-the-application"></a>Uygulamayı çalıştırma
+
+Derleme ve projeyi çalıştırın.
+
+Komut satırı kullanıyorsanız, oluşturmak ve uygulamayı çalıştırmak için aşağıdaki komutları kullanın.
+
+**Derleme:**
+```bash
+javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
+```
+
+**Çalıştırın:**
+```bash
+java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
+```
+
 ## <a name="example-json-response"></a>Örnek JSON yanıtı
 
-Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür:
 
 ```json
 {

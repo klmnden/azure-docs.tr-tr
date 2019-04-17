@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: d3d4bbb0b9007ef61c96f980b9f3c3ee19dd11b5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9a4b99e311a65435595c9cb0455b0411b7c09324
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539131"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617691"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute yönlendirme gereksinimleri
 Microsoft bulut hizmetlerine ExpressRoute kullanarak bağlanmak için yönlendirmeyi ayarlamanız ve yönetmeniz gerekir. Bazı bağlantı sağlayıcıları yönlendirme ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu hizmetin sunulup sunulmadığını öğrenmek için bağlantı sağlayıcınıza başvurun. Bu hizmet sağlanmıyorsa aşağıdaki gereksinimlere uymalısınız:
@@ -154,47 +154,47 @@ Jeopolitik bölgeler, ilişkili Azure bölgeleri ve karşılık gelen ExpressRou
 
 Bir jeopolitik bölge için birden fazla ExpressRoute devresi satın alabilirsiniz. Birden fazla bağlantıya sahip olmanız coğrafi artıklık nedeniyle yüksek kullanılabilirliğe ilişkin önemli avantajlar sunar. Birden fazla ExpressRoute devrenizin olduğu durumlarda, Microsoft eşlemesi ve genel eşleme yollarındaki Microsoft'tan tanıtılan ön ekleri aynı kümesini alır. Bu durum ağınız ile Microsoft arasında birden fazla yol olacağı anlamına gelir. Bu durum ağınızın içinde en iyi olmayan yönlendirme kararlarına neden olabilir. Sonuç olarak, farklı hizmetlerde en iyi düzeyin altında bağlantı deneyimleri yaşayabilirsiniz. [Kullanıcılar için en iyi yönlendirmeyi](expressroute-optimize-routing.md) sunmak üzere uygun yönlendirme kararlarını almak için topluluk değerlerini kullanabilirsiniz.
 
-| **Microsoft Azure bölgesi** | **BGP topluluk değeri** |
-| --- | --- |
+| **Microsoft Azure bölgesi** | **Bölgesel BGP topluluğu** | **Depolama BGP topluluğu** | **SQL BGP topluluğu** | 
+| --- | --- | --- | --- |
 | **Kuzey Amerika** | |
-| Doğu ABD | 12076:51004 |
-| Doğu ABD 2 | 12076:51005 |
-| Batı ABD | 12076:51006 |
-| Batı ABD 2 | 12076:51026 |
-| Batı Orta ABD | 12076:51027 |
-| Orta Kuzey ABD | 12076:51007 |
-| Orta Güney ABD | 12076:51008 |
-| Orta ABD | 12076:51009 |
-| Orta Kanada | 12076:51020 |
-| Doğu Kanada | 12076:51021 |
+| Doğu ABD | 12076:51004 | 12076:52004 | 12076:53004 |
+| Doğu ABD 2 | 12076:51005 | 12076:52005 | 12076:53005 |
+| Batı ABD | 12076:51006 | 12076:52006 | 12076:53006 |
+| Batı ABD 2 | 12076:51026 | 12076:52026 | 12076:53026 |
+| Batı Orta ABD | 12076:51027 | 12076:52027 | 12076:53027 |
+| Orta Kuzey ABD | 12076:51007 | 12076:52007 | 12076:53007 |
+| Orta Güney ABD | 12076:51008 | 12076:52008 | 12076:53008 |
+| Orta ABD | 12076:51009 | 12076:52009 | 12076:53009 |
+| Orta Kanada | 12076:51020 | 12076:52020 | 12076:53020 |
+| Doğu Kanada | 12076:51021 | 12076:52021 | 12076:53021 |
 | **Güney Amerika** | |
-| Güney Brezilya | 12076:51014 |
+| Güney Brezilya | 12076:51014 | 12076:52014 | 12076:53014 |
 | **Avrupa** | |
-| Kuzey Avrupa | 12076:51003 |
-| Batı Avrupa | 12076:51002 |
-| Birleşik Krallık Güney | 12076:51024 |
-| Birleşik Krallık Batı | 12076:51025 |
-| Fransa Orta | 12076:51030 |
-| Fransa Güney | 12076:51031 |
+| Kuzey Avrupa | 12076:51003 | 12076:52003 | 12076:53003 |
+| Batı Avrupa | 12076:51002 | 12076:52002 | 12076:53002 |
+| Birleşik Krallık Güney | 12076:51024 | 12076:52024 | 12076:53024 |
+| Birleşik Krallık Batı | 12076:51025 | 12076:52025 | 12076:53025 |
+| Fransa Orta | 12076:51030 | 12076:52030 | 12076:53030 |
+| Fransa Güney | 12076:51031 | 12076:52031 | 12076:53031 |
 | **Asya Pasifik** | |
-| Doğu Asya | 12076:51010 |
-| Güneydoğu Asya | 12076:51011 |
+| Doğu Asya | 12076:51010 | 12076:52010 | 12076:53010 |
+| Güneydoğu Asya | 12076:51011 | 12076:52011 | 12076:53011 |
 | **Japonya** | |
-| Japonya Doğu | 12076:51012 |
-| Japonya Batı | 12076:51013 |
+| Japonya Doğu | 12076:51012 | 12076:52012 | 12076:53012 |
+| Japonya Batı | 12076:51013 | 12076:52013 | 12076:53013 |
 | **Avustralya** | |
-| Avustralya Doğu | 12076:51015 |
-| Avustralya Güneydoğu | 12076:51016 |
+| Avustralya Doğu | 12076:51015 | 12076:52015 | 12076:53015 |
+| Avustralya Güneydoğu | 12076:51016 | 12076:52016 | 12076:53016 |
 | **Australia Government** | |
-| Avustralya Orta | 12076:51032 |
-| Avustralya Orta 2 | 12076:51033 |
+| Avustralya Orta | 12076:51032 | 12076:52032 | 12076:53032 |
+| Avustralya Orta 2 | 12076:51033 | 12076:52033 | 12076:53033 |
 | **Hindistan** | |
-| Hindistan Güney | 12076:51019 |
-| Hindistan Batı | 12076:51018 |
-| Hindistan Orta | 12076:51017 |
+| Hindistan Güney | 12076:51019 | 12076:52019 | 12076:53019 |
+| Hindistan Batı | 12076:51018 | 12076:52018 | 12076:53018 |
+| Hindistan Orta | 12076:51017 | 12076:52017 | 12076:53017 |
 | **Güney Kore** | |
-| Kore Güney | 12076:51028 |
-| Kore Orta | 12076:51029 |
+| Kore Güney | 12076:51028 | 12076:52028 | 12076:53028 |
+| Kore Orta | 12076:51029 | 12076:52029 | 12076:53029 |
 
 
 Microsoft tarafından tanıtılan tüm yollar uygun topluluk değeriyle etiketlenecektir. 

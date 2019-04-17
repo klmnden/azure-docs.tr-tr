@@ -1,29 +1,28 @@
 ---
-title: İş akışı tanımlama dili - Azure Logic Apps için şema başvurusu | Microsoft Docs
-description: Azure Logic Apps iş akışı tanımlama dili ile özel iş akışı tanımları yazma
+title: İş akışı tanımlama dili - Azure Logic Apps için şema başvurusu
+description: Azure Logic apps'te iş akışı tanımı dil şeması için başvuru kılavuzu
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 04/30/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d2de2a25d67da230d539156c851cca34335a01c2
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d80ffa862546f56e93a338a7a1db031e2cb55990
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620845"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616810"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps iş akışı tanımı dil Şeması Başvurusu
 
-Mantıksal uygulama iş akışı ile oluşturduğunuzda [Azure Logic Apps](../logic-apps/logic-apps-overview.md), mantıksal uygulamanız için çalıştırılan gerçek mantığı temel aldığı iş akışının tanımını açıklar. Bu açıklama kullanan iş akışı tanımı dil şeması tarafından tanımlanan ve doğrulanmış bir yapı aşağıdaki [JavaScript nesne gösterimi (JSON)](https://www.json.org/).
+Bir mantıksal uygulama çalıştırmasında oluşturduğunuzda [Azure Logic Apps](../logic-apps/logic-apps-overview.md), mantıksal uygulamanızın mantıksal uygulamanızda çalışan gerçek mantığı tanımlayan bir temel alınan bir iş akışı tanımı içeriyor. Bu iş akışı tanımı kullanan [JSON](https://www.json.org/) ve iş akışı tanımı dil şeması tarafından doğrulanmış bir yapıyı izler. Bu başvuru, bu yapı nasıl şema öğeleri ve iş akışı tanımınızı tanımlar hakkında genel bir bakış sağlar.
 
 ## <a name="workflow-definition-structure"></a>İş akışı tanım yapısı
 
-Bir iş akışı tanımı, mantıksal uygulamanızı başlatan en az bir tetikleyici yanı sıra, mantıksal uygulamanızı çalıştıran bir veya daha fazla eylem vardır.
+Mantıksal uygulamanızı yanı sıra, tetikleyici başlatıldıktan sonra çalışacak bir veya daha fazla eylemleri örnekleme için bir tetikleyici her zaman bir iş akışı tanımı içerir.
 
 Bir iş akışı tanımı için üst düzey yapısı şu şekildedir:
 
@@ -51,7 +50,7 @@ Bir iş akışı tanımı için üst düzey yapısı şu şekildedir:
 
 ## <a name="parameters"></a>Parametreler
 
-İçinde `parameters` bölümünde, mantıksal uygulamanızı girişleri kabul etmek için dağıtım kullanan tüm iş akışı parametreleri tanımlayın. Dağıtım sırasında parametre bildirimleri hem parametre değerlerini gereklidir. Diğer iş akışı bölümlerde bu parametreler kullanabilmeniz için önce bu bölümlerdeki tüm parametreleri bildirdiğinizden emin olun. 
+İçinde `parameters` bölümünde, giriş kabul etmek için dağıtım iş akışı tanımınızı kullanan tüm iş akışı parametreleri tanımlayın. Dağıtım sırasında parametre bildirimleri hem parametre değerlerini gereklidir. Diğer iş akışı bölümlerde bu parametreler kullanabilmeniz için önce bu bölümlerdeki tüm parametreleri bildirdiğinizden emin olun. 
 
 Bir parametre tanımında genel yapısı şu şekildedir:
 
@@ -75,7 +74,7 @@ Bir parametre tanımında genel yapısı şu şekildedir:
 | type | Evet | int, kayan noktalı sayı, dize, securestring, bool, dizi, JSON nesnesi, secureobject <p><p>**Not**: Tüm parolalar, anahtarlar ve gizli dizileri için kullanmak `securestring` ve `secureobject` çünkü `GET` işlemi, bu tür döndürmez. Parametreleri güvenliğini sağlama hakkında daha fazla bilgi için bkz. [mantıksal uygulamanızı güvenli hale getirme](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Parametresinin türü |
 | defaultValue | Evet | Aynı `type` | İş akışı örneğini oluşturduğunda hiçbir değer belirtilmemişse varsayılan parametre değeri |
 | izin verilen değerler | Hayır | Aynı `type` | Bir dizi parametre kabul edebilen değerlerle |
-| meta veriler | Hayır | JSON nesnesi | Diğer parametre ayrıntıları, örneğin, ad veya mantıksal uygulama veya Visual Studio veya diğer araçları tarafından kullanılan tasarım zamanı verileri için okunabilir bir açıklaması |
+| meta veriler | Hayır | JSON nesnesi | Diğer parametre ayrıntıları, örneğin, ad veya mantıksal uygulama, akış veya Visual Studio veya diğer araçları tarafından kullanılan tasarım zamanı veri için okunabilir bir açıklaması |
 ||||
 
 ## <a name="triggers-and-actions"></a>Tetikleyiciler ve eylemler
@@ -107,7 +106,7 @@ Bir çıkış tanımı için genel yapısı şu şekildedir:
 | değer | Evet | Aynı `type` | Çıkış dönüş değeri |
 |||||
 
-Bir iş akışından çıktısını almak için mantıksal uygulama çalıştırma geçmişi ve Azure portalında ayrıntılarını gözden geçirebilir veya [iş akışı REST API](https://docs.microsoft.com/rest/api/logic/workflows). Böylece panolar oluşturabilir, çıkış harici sistemlere, örneğin, Power BI geçirebilirsiniz.
+Bir iş akışından işlemin çıktısını almak için mantıksal uygulamanızın çalıştırma geçmişi ve Azure portalında ayrıntılarını gözden geçirebilir veya [iş akışı REST API](https://docs.microsoft.com/rest/api/logic/workflows). Böylece panolar oluşturabilir, çıkış harici sistemlere, örneğin, Power BI geçirebilirsiniz.
 
 <a name="expressions"></a>
 
@@ -216,7 +215,7 @@ Logic Apps Tasarımcısı'nda görsel olarak çalışırken, ifadeleri ifade olu
 
 ## <a name="functions"></a>İşlevler
 
-Bazı ifadelerin, bir mantıksal uygulama çalışmaya başladığında henüz bulunmayabilir çalışma zamanı eylemlerden değerleri alın. Başvuru veya bu değerleri ifadelerde çalışmak için kullanabileceğiniz [ *işlevleri* ](../logic-apps/workflow-definition-language-functions-reference.md) , iş akışı tanımlama dili sağlar.
+Bazı ifadelerin değerleri, iş akışı tanımınızı çalışmaya başladığında henüz bulunmayabilir çalışma zamanı eylemlerden alın. Başvuru veya bu değerleri ifadelerde çalışmak için kullanabileceğiniz [ *işlevleri* ](../logic-apps/workflow-definition-language-functions-reference.md) , iş akışı tanımlama dili sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

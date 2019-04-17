@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 298f4d8cb62ce1d71ed8922483115606f8876d79
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: cb8a97a29a14ecd5601495048bcbe1aff748d892
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648565"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617141"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -127,7 +127,7 @@ SQL API Java SDK'sı, zaman uyumlu işlemler destekler. Zaman uyumsuz desteği k
 * Değişiklik akışı desteği eklendi.
 * RequestOptions.setPopulateQuotaInfo aracılığıyla kota bilgilerin toplanması için destek eklendi.
 * Saklı yordam betik günlüğü RequestOptions.setScriptLoggingEnabled desteği eklendi.
-* Burada DirectHttps modunda sorgu azaltma hataları ile karşılaşıldığında sarkabilir bir hata düzeltildi.
+* Burada sorgu DirectHttps modunda kısıtlama hatası ile karşılaşıldığında yanıt vermemeye başlayabilir, bir hata düzeltildi.
 * Oturum tutarlılığı modunda bir hata düzeltildi.
 * İstek hızı yüksek olduğunda, NullReferenceException HttpContext içinde neden olabilir bir hata düzeltildi.
 * DirectHttps modunun performansı İyileştirildi.

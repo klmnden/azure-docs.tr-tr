@@ -5,19 +5,19 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 76119c912ac6ad1447bfcff1f4c98e60f34b072f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 019c6ec776277a9102cb95cd685bbae0fc660d66
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317145"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615923"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Azure'a geçişten sonra Azure VM'leri için olağanüstü durumdan kurtarmayı ayarlama 
 
 
-Belirttiyseniz bu makaleyi kullanın [şirket içi makinelerin Azure Vm'lerine taşıdınız](tutorial-migrate-on-premises-to-azure.md) kullanarak [Site Recovery](site-recovery-overview.md) hizmeti ve artık istediğiniz ikincil bir Azure bölgesine olağanüstü durum kurtarma için ayarlanmış Vm'leri almak. Makalede nasıl geçirilen Vm'lerinde Azure VM aracısı yüklü olduğundan emin olun ve geçişten sonra artık gerekli olan Site Recovery Mobility hizmetinin nasıl kaldırılacağı açıklanmaktadır.
+Belirttiyseniz bu makaleyi takip [şirket içi makinelerin Azure Vm'lerine taşıdınız](tutorial-migrate-on-premises-to-azure.md) kullanarak [Site Recovery](site-recovery-overview.md) hizmeti ve artık istediğiniz ikincil bir Azure bölgesine olağanüstü durum kurtarma için ayarlanmış Vm'leri almak. Makalede nasıl geçirilen Vm'lerinde Azure VM aracısı yüklü olduğundan emin olun ve geçişten sonra artık gerekli olan Site Recovery Mobility hizmetinin nasıl kaldırılacağı açıklanmaktadır.
 
 
 
@@ -77,7 +77,7 @@ Yükleme [Azure Linux VM](../virtual-machines/extensions/agent-linux.md) aracıs
         ```
     - Linux için kök kullanıcı olarak oturum açın. Bir terminal penceresinde Git **/user/local/ASR**, ve aşağıdaki komutu çalıştırın:
         ```
-        uninstall.sh -Y
+        ./uninstall.sh -Y
         ```
 2. Çoğaltma yapılandırmadan önce VM'yi yeniden başlatın.
 

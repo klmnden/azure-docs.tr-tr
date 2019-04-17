@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 2e63c44db2391f63078f0945caa69a43c0c464cf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001354"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608614"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Azure portalı ve başlatma yük devretme Azure SQL veritabanı için etkin coğrafi çoğaltmayı yapılandırma
 
@@ -73,7 +73,7 @@ Bir ikincil veritabanı eklemek için abonelik sahibi veya ortak sahibi olmalıd
     ![yük devretme](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Tıklayın **Evet** yük devretmeyi başlatmak için.
 
-Komutu, ikincil veritabanı birincil rolünde hemen geçer.
+Komutu, ikincil veritabanı birincil rolünde hemen geçer. Bu işlem genellikle 30 saniye içinde ya da daha az tamamlamanız gerekir.
 
 Rolleri geçiş sırasında bu sırada her iki veritabanı (0-25 saniye bazında) kullanılamaz ve kısa bir süre yoktur. Birden fazla ikincil veritabanı birincil veritabanının varsa komutu otomatik olarak diğer ikinciller yeni birincil veritabanına bağlanacak şekilde yeniden yapılandırır. Tüm işlem, normal koşullarda tamamlanması bir dakikadan kısa sürer.
 

@@ -8,19 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 04/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 5b4c9e24bdcb6aaf4efde24d747e77d6014b2539
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8104497a1808aa4e92d62f45e37525dba2f47742
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439477"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607182"
 ---
 # <a name="frequently-asked-questions-for-qna-maker"></a>Soru-cevap Oluşturucu için sık sorulan sorular
 
 Soru-cevap Oluşturucu hizmetini en sık sorulan sorulardan seçkin listesinde, daha hızlı ve daha iyi sonuçlar hizmeti benimsemek yardımcı olur.
+
+## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>Soru-cevap Oluşturucu Portalı'nda Yardım bot kullanın
+
+Soru-cevap Oluşturucu sağlar bir **yardımcı** bot yardımcı olması için soru-cevap Oluşturucu portalı içinde. Yardım bot, her web sayfasında kullanılabilir. Bot yanıt vermek için soru-cevap Oluşturucu kullanır ve sağlar [ C# Bot Framework kod projesini](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot) kendi cevap Robotu ile hızlıca çalışmaya alabilmeniz için robot için. 
+
+![! [Soru-cevap Oluşturucu sağlayan bir ** yardımcı olması için soru-cevap Oluşturucu portalı içinde Yardım ** bot.] (. / media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 
 ## <a name="manage-the-knowledge-base"></a>Bilgi Bankası'nı yönetme
 
@@ -98,7 +104,7 @@ Uç nokta anahtarlarınızı geçirildiğini, şüpheleniyorsanız yenileyin.
 
 ### <a name="can-i-use-the-same-azure-search-resource-for-knowledge-bases-using-multiple-languages"></a>Aynı Azure Search kaynak kullanarak birden çok dil, bilgi bankaları için kullanabilir miyim?
 
-Birden çok dil ve birden çok bilgi bankalarından kullanmak için her dil için bir soru-cevap Oluşturucu kaynak oluşturmak kullanıcı vardır. Bu dil başına ayrı bir Azure arama hizmetleri oluşturur. Tek bir Azure arama hizmetinde farklı dil bilgi bankalarından karıştırma sonuçları düşürülmüş ilgi düzeyi neden olur.
+Birden çok dil ve birden çok bilgi bankalarından kullanmak için her dil için bir soru-cevap Oluşturucu kaynak oluşturmak kullanıcı vardır. Bu işlem bir dil başına ayrı bir Azure arama hizmeti oluşturur. Tek bir Azure arama hizmetinde farklı dil bilgi bankalarından karıştırma sonuçları düşürülmüş ilgi düzeyi neden olur.
 
 ### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>Soru-cevap Oluşturucu tarafından kullanılan Azure Search kaynağın adını nasıl değiştirebilirim?
 
