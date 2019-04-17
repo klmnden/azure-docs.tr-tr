@@ -9,23 +9,23 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f72e98d8874a5a5dc94deb882affdf66388b13c9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 82c438ea246ba18fa7dac2281d68a3ea7ba41db8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548534"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617725"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Media Services hesapları için rol tabanlı erişim denetimi (RBAC)
 
-Şu anda, Azure Media Services tanımlı herhangi bir özel roller belirli hizmete. Müşteriler, yerleşik rolleri kullanabileceğiniz **sahibi** veya **katkıda bulunan** Media Services hesabına tam erişim elde etmek için. Bu roller arasındaki temel fark: **sahibi** bir kaynağa kimlerin erişebildiğini denetlemenize ve **katkıda bulunan** olamaz. Yerleşik okuyucu hesabı yalnızca okuma erişimi Media Services hesabına sahiptir. 
+Şu anda, Azure Media Services hizmetine herhangi bir özel rol belirli tanımlamıyor. Media Services hesabına tam erişim elde etmek için müşteriler, yerleşik rolleri kullanabileceğiniz gibi **sahibi** veya **katkıda bulunan**. Bu roller arasındaki temel fark: **sahibi** bir kaynağa kimlerin erişebildiğini denetlemenize ve **katkıda bulunan** olamaz. Yerleşik **okuyucu** rolü de kullanılabilir, ancak kullanıcı veya uygulamanın yalnızca Media Services API'lerine okuma erişimine sahip olur. 
 
 ## <a name="design-principles"></a>Tasarım ilkeleri
 
-v3 API’nin temel tasarım ilkelerinden biri API’yi daha güvenli hale getirmektir. V3 API'ler döndürmeyen parolaları veya kimlik üzerinde **alma** veya **listesi** operations. Anahtarlar her zaman null, boş veya yanıttan ayıklanmış olur. Kullanıcı parolaları veya kimlik bilgilerini almak için ayrı bir eylem yöntemini çağırmak gerekir. **Okuyucu** Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets gibi işlemler çağrılamıyor şekilde rol operations çağrılamıyor. Ayrı Eylemler sahip isterseniz özel bir rol daha ayrıntılı RBAC güvenlik izinleri ayarlamanızı sağlar.
+v3 API’nin temel tasarım ilkelerinden biri API’yi daha güvenli hale getirmektir. V3 API'ler döndürmeyen parolaları veya kimlik üzerinde **alma** veya **listesi** operations. Anahtarlar her zaman null, boş veya yanıttan ayıklanmış olur. Kullanıcı parolaları veya kimlik bilgilerini almak için ayrı bir eylem yöntemini çağırmak gerekir. **Okuyucu** rol Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets gibi işlemler çağrılamıyor. Ayrı Eylemler sahip isterseniz özel bir rol daha ayrıntılı RBAC güvenlik izinleri ayarlamanızı sağlar.
 
 Media Services işlemlerini listelemek için destekler, yapın:
 

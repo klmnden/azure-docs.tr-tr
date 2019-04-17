@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/15/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df0593faaf8b68c793a65312b208fe858804db53
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 82afadef58310f46046c8c3168ed93a34769b316
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496290"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609532"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory'de Yönetici rolü izinleri
 
@@ -71,17 +71,17 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 
   İçinde | Yapabilirsiniz
   ----- | ----------
-  [Microsoft 365 Uyumluluk Merkezi](https://protection.microsoft.com) | Koruma ve Microsoft 365 hizmetlerindeki kuruluşunuzun verilerini yönetme<br>Uyumluluk Uyarıları yönetme
+  [Microsoft 365 Uyumluluk Merkezi](https://protection.office.com) | Koruma ve Microsoft 365 hizmetlerindeki kuruluşunuzun verilerini yönetme<br>Uyumluluk Uyarıları yönetme
   [Uyumluluk Yöneticisi](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | İzleme, atamak ve kuruluşunuzun Mevzuata uygunluk etkinliklerinin doğrulayın
-  [Office 365 Güvenlik ve Uyumluluk Merkezi](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Veri Yönetimi yönetme<br>Yasal ve veri araştırma gerçekleştirme<br>Veri sahibi isteği yönetme
+  [Office 365 güvenlik ve Uyumluluk Merkezi](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Veri Yönetimi yönetme<br>Yasal ve veri araştırma gerçekleştirme<br>Veri sahibi isteği yönetme
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Tüm Intune denetim verilerini görüntüleme
-  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Salt okunur izinlere sahiptir ve Uyarıları yönetebilir<br>Oluşturma ve dosya ilkeleri değiştirebilir ve dosya idare eylemleri izin ver<br> Veri Yönetimi altındaki tüm yerleşik raporları görüntüleyebilirsiniz
+  [Cloud App Security'yi](https://docs.microsoft.com/cloud-app-security/manage-admins) | Salt okunur izinlere sahiptir ve Uyarıları yönetebilir<br>Oluşturma ve dosya ilkeleri değiştirebilir ve dosya idare eylemleri izin ver<br> Veri Yönetimi altındaki tüm yerleşik raporları görüntüleyebilirsiniz
 
 <!--* **[Compliance Data Administrator](#compliance-data-administrator)**: Users with this role have permissions to protect and track data in the Microsoft 365 compliance center, Microsoft 365 admin center, and Azure. Users can also manage all features within the Exchange admin center, Compliance Manager, and Teams & Skype for Business admin center and create support tickets for Azure and Microsoft 365.
 
   In | Can do
   ----- | ----------
-  [Microsoft 365 compliance center](https://protection.microsoft.com) | Monitor compliance-related policies across Microsoft 365 services<br>Manage compliance alerts
+  [Microsoft 365 compliance center](https://protection.office.com) | Monitor compliance-related policies across Microsoft 365 services<br>Manage compliance alerts
   [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Track, assign, and verify your organization's regulatory compliance activities
   [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | View all Intune audit data
@@ -170,14 +170,14 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
   
   İçinde | Yapabilirsiniz
   --- | ---
-  [Microsoft 365 Güvenlik Merkezi](https://protection.microsoft.com) | Microsoft 365 hizmetlerindeki güvenlikle ilgili ilkelerini izleme<br>Güvenlik tehditlerini ve Uyarıları yönetme<br>Raporları görüntüleme
+  [Microsoft 365 Güvenlik Merkezi](https://protection.office.com) | Microsoft 365 hizmetlerindeki güvenlikle ilgili ilkelerini izleme<br>Güvenlik tehditlerini ve Uyarıları yönetme<br>Raporları görüntüleme
   Kimlik Koruma Merkezi | Güvenlik okuyucu rolünün tüm izinler<br>Ayrıca, parola sıfırlama dışında kimlik koruma merkezi tüm işlemleri gerçekleştirme imkanı
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Güvenlik okuyucu rolünün tüm izinler<br>**Olamaz** Azure AD rol atamaları veya ayarlarını yönetme
-  [Office 365 Güvenlik ve Uyumluluk Merkezi](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Güvenlik ilkelerini yönetme<br>Görüntüleme, araştırmak ve güvenlik tehditleri<br>Raporları görüntüleme
+  [Office 365 güvenlik ve Uyumluluk Merkezi](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Güvenlik ilkelerini yönetme<br>Görüntüleme, araştırmak ve güvenlik tehditleri<br>Raporları görüntüleme
   Azure Gelişmiş Tehdit Koruması | İzleme ve güvenlik şüpheli etkinliğin
   Windows Defender ATP ve EDR | Rol atama<br>Makine gruplarını yönetme<br>Uç nokta tehdit algılama ve otomatik düzeltme yapılandırma<br>Görüntüleme, araştırmak ve uyarılarını yanıtlama
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Görünümleri kullanıcı, cihaz, kayıt, yapılandırma ve uygulama bilgileri<br>Intune'da değişiklik yapamaz
-  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Yöneticileri eklemek, ilkeleri ve ayarları, günlük yükleme ve idare eylemler gerçekleştirme Ekle
+  [Cloud App Security'yi](https://docs.microsoft.com/cloud-app-security/manage-admins) | Yöneticileri eklemek, ilkeleri ve ayarları, günlük yükleme ve idare eylemler gerçekleştirme Ekle
   [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Güvenlik ilkelerini görüntüleyin, güvenlik durumlarını görüntülemek, güvenlik ilkeleri, uyarıları görüntüleme ve öneriler düzenleme, uyarıları ve öneriler Kapat
   [Office 365 hizmet durumu](https://docs.microsoft.com/office365/enterprise/view-service-health) | Office 365 hizmetlerinin durumunu görüntüleyin
 
@@ -185,7 +185,7 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 
   In | Can do
   --- | ---
-  [Microsoft 365 security center](https://protection.microsoft.com) | All permissions of the Security Reader role<br>View, investigate, and respond to security threats alerts
+  [Microsoft 365 security center](https://protection.office.com) | All permissions of the Security Reader role<br>View, investigate, and respond to security threats alerts
   Identity Protection Center | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | All permissions of the Security Reader role
   [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
@@ -198,13 +198,13 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 
   İçinde | Yapabilirsiniz
   --- | ---
-  [Microsoft 365 Güvenlik Merkezi](https://protection.microsoft.com) | Microsoft 365 hizmetlerindeki güvenlikle ilgili ilkelerini görüntüle<br>Görünüm güvenlik tehditlerini ve uyarılar<br>Raporları görüntüleme
+  [Microsoft 365 Güvenlik Merkezi](https://protection.office.com) | Microsoft 365 hizmetlerindeki güvenlikle ilgili ilkelerini görüntüle<br>Görünüm güvenlik tehditlerini ve uyarılar<br>Raporları görüntüleme
   Kimlik Koruma Merkezi | Tüm güvenlik raporları ve güvenlik özellikleri için ayarlar bilgilerini okuyun<br><ul><li>İstenmeyen postadan koruma<li>Şifreleme<li>Veri kaybı önleme<li>Kötü amaçlı yazılımdan koruma<li>Gelişmiş tehdit koruması<li>Avından<li>Mailflow kuralları
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Tüm bilgileri salt okunur erişimi, Azure AD PIM'de ortaya: İlkeleri ve Azure AD rol atamaları için raporları, güvenlik inceler ve gelecekte Azure AD rol atamanız yanı sıra senaryoları için erişim ilkesi veriler ve raporlar için okuyun.<br>**Olamaz** herhangi bir değişiklik yapmak veya Azure AD PIM için kaydolun. PIM portalda veya PowerShell aracılığıyla kullanıcı bunlar için uygun, birisi Bu roldeki ek roller (örneğin, genel yönetici veya ayrıcalıklı Rol Yöneticisi) etkinleştirebilirsiniz.
-  [Office 365 Güvenlik ve Uyumluluk Merkezi](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Güvenlik ilkelerini görüntüleme<br>Güvenlik tehditlerini araştırmak ve görüntüleme<br>Raporları görüntüleme
+  [Office 365 güvenlik ve Uyumluluk Merkezi](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Güvenlik ilkelerini görüntüleme<br>Güvenlik tehditlerini araştırmak ve görüntüleme<br>Raporları görüntüleme
   Windows Defender ATP ve EDR | Görüntüleyebilir ve Uyarıları araştırma
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Görünümleri kullanıcı, cihaz, kayıt, yapılandırma ve uygulama bilgileri. Intune'da değişiklik yapamaz.
-  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Salt okunur izinlere sahiptir ve Uyarıları yönetebilir
+  [Cloud App Security'yi](https://docs.microsoft.com/cloud-app-security/manage-admins) | Salt okunur izinlere sahiptir ve Uyarıları yönetebilir
   [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Öneriler ve uyarılar, güvenlik ilkeleri, güvenlik durumlarını görüntüleyebilir ancak değişiklik yapamaz görünüm görüntüleyebilirsiniz.
   [Office 365 hizmet durumu](https://docs.microsoft.com/office365/enterprise/view-service-health) | Office 365 hizmetlerinin durumunu görüntüleyin
 

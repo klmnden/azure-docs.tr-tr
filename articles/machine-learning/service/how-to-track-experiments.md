@@ -1,7 +1,7 @@
 ---
 title: Eğitim çalıştırmaları sırasında ölçümleri günlüğe kaydedin
 titleSuffix: Azure Machine Learning service
-description: Denemelerinizi izleyebilir ve modeli oluşturma işlemi geliştirmek için ölçümleri izleyin. Eğitim betiğinizi günlük ekleme, denemeyi göndermek nasıl, çalışan işin ilerleme durumunu denetlemek nasıl ve çalıştırmanın sonuçlarını görüntüleme öğrenin.
+description: Eğitim betiğinizi günlük ekleme, denemeyi göndermek nasıl, çalışan işin ilerleme durumunu denetlemek nasıl ve çalıştırmanın sonuçlarını görüntüleme öğrenin. Denemelerinizi izleyebilir ve modeli oluşturma işlemi geliştirmek için ölçümleri izleyin.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 41797caa89108448f0eaa27309046c01d7432823
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 59a801fd149a0f647298d94522f9eefc1ea6eb9f
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494636"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609476"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Azure Machine Learning'de eğitim sırasında günlük ölçümleri çalıştırır
 
-Azure Machine Learning hizmetinde denemelerinizi izleyebilir ve modeli oluşturma işlemi geliştirmek için ölçümleri izleyin. Bu makalede, günlük eğitim komut dosyanıza ekleyin, bir deneme çalıştırma gönderin, çalıştırmasını izlemek ve çalıştırmanın sonuçlarını görüntülemek öğrenin.
+Bu makalede, günlük eğitim komut dosyanıza ekleyin, bir deneme çalıştırma gönderin, çalıştırmasını izlemek ve Azure Machine Learning hizmetinde bir çalıştırma sonuçlarını görüntülemek öğrenin. Modeli oluşturma işlemi, denemelerinizi izleme ve izleme ölçümlerine geliştirin. 
 
 ## <a name="list-of-training-metrics"></a>Eğitim ölçümlerin listesi 
 
@@ -389,7 +389,7 @@ Bir ayar çizim, Tahmine dayalı bir modelin güvenle görüntülemek için kull
 
 ### <a name="regression"></a>Regresyon
 Her bir regresyon modeli için otomatik makine öğrenimi özellikleri, Azure Machine Learning kullanarak yapı, aşağıdaki grafikleri görebilirsiniz: 
-+ [Tahmin edilen vs. True](#pvt)
++ [Tahmin edilen vs. TRUE](#pvt)
 + [Kalanlar Histogramı](#histo)
 
 <a name="pvt"></a>

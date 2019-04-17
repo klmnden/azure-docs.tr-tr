@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 635f519239ad00df8672472bcb6c54e6b8a59927
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7d46e2047debe5546c6d36f245ae076cec6f73a3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001713"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618133"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Hızlı Başlangıç: Tek örnek SAP hana Azure vm'lerde el ile yükleme
 ## <a name="introduction"></a>Giriş
@@ -269,7 +269,7 @@ SAP yüklemeye başlamadan önce ana bilgisayar adları ve IP adresleri SAP sana
 
 ### <a name="the-etcfstab-file"></a>/ Etc/fstab dosyası
 
-Eklemek yararlıdır **nofail** fstab dosyasını parametresi. Bir diskle sorun yaşanırsa bu şekilde, VM'yi önyükleme işleminin askıda değil. Ancak ek disk alanı kullanılabilir olmayabilir ve kök dosya sistemi işlemleri dolgu unutmayın. /Hana eksikse, SAP HANA başlatılamıyor.
+Eklemek yararlıdır **nofail** fstab dosyasını parametresi. Bir diskle sorun yaşanırsa bu şekilde, VM'yi önyükleme işleminin yanıt durdurmaz. Ancak ek disk alanı kullanılabilir olmayabilir ve kök dosya sistemi işlemleri dolgu unutmayın. /Hana eksikse, SAP HANA başlatılamıyor.
 
 ![Fstab dosyaya nofail parametre ekleyin](./media/hana-get-started/image000c.jpg)
 

@@ -299,12 +299,15 @@ items:
 - name: Kaynaklar
   items:
   - name: Sürüm notları
-    href: ../hdinsight-release-notes.md
     items:
+    - name: Güncel sürüm notları
+      href: ../hdinsight-release-notes.md
+      maintainContext: true
     - name: Arşivlenmiş sürüm notları
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true
-    maintainContext: true
+  - name: Küme yapılandırma erişimindeki değişiklikler
+    href: ../hdinsight-migrate-granular-access-cluster-configurations.md
   - name: Azure Yol Haritası
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Forumdan yardım alma
@@ -318,9 +321,9 @@ items:
   - name: HDInsight için Windows araçları
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 286fd982c110e71b8e9bb454a6ad6a3068f8a4bf
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 09d43f60cc42d8c6ed5a1a234bd618c0583cdf8d
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578977"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615974"
