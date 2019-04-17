@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/27/2019
+ms.date: 4/15/2019
 ms.author: barclayn
-ms.openlocfilehash: 19e2fb7736457884d29a142e997338e3c7ef72e7
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540831"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608878"
 ---
 # <a name="frequently-asked-questions-faq"></a>Sık sorulan sorular (SSS)
 
@@ -155,6 +155,10 @@ Evet. Her bir HSM Gereci tam olarak tek bir müşteriye ayrılmış ve başka hi
 
 Microsoft, HSM herhangi bir yönetici veya şifreleme denetime sahip değil. Microsoft izleme düzeyi sıcaklık ve bileşen sistem durumu gibi temel telemetri almak için seri bağlantı noktası bağlantısı aracılığıyla erişimi yok. Bu sistem durumu sorunlarının proaktif bildirim sağlamak Microsoft sağlar. Gerekirse, müşteri bu hesabı devre dışı bırakabilirsiniz.
 
+### <a name="q-what-is-the-tenantadmin-account-microsoft-uses-i-am-used-to-the-admin-user-being-admin-on-safenet-hsms"></a>S: "Tenantadmin" Microsoft hesabı nedir kullanır, SafeNet HSM'ler "Yönetici" Yönetici kullanıcı için kullanılan miyim?
+
+HSM cihazını, yönetici, her zamanki varsayılan parola ile bir varsayılan kullanıcı ile birlikte gelir. Microsoft, müşteriler tarafından sağlanacak bekleyen bir havuzdaki tüm cihaz çalışırken varsayılan parolaları kullanımda olan istemedi. Bu bizim katı güvenlik gereksinimleri karşılaması değil. Bu nedenle, atılan güçlü bir parola zaman sağlama sırasında ayarladık. Ayrıca, zaman sağlama sırasında yeni bir kullanıcı yönetici rolünde "tenantadmin" adlı oluştururuz. Bu kullanıcının varsayılan parolası vardır ve müşterilerin bu ilk eylem olarak ilk yeni sağlanan cihazda oturum açarken değiştirin. Bu işlem yüksek derece güvenlik sağlar ve müşterilerimiz için tek yönetim denetimi halidir tutar. "Tenantadmin" kullanıcı bu hesabı kullanmak bir müşteri tercih yönetici kullanıcının parolasını sıfırlamak için kullanılabilir unutulmamalıdır. 
+
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>S: Microsoft veya Microsoft'tan herhangi my ayrılmış HSM Microsoft erişim anahtarlarını kullanabilir?
 
 Hayır. Microsoft, müşteri ayrılmış HSM ayrılan depolanan anahtarları için herhangi bir erişimi yok.
@@ -201,7 +205,7 @@ Hayır.
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>S: Ayrılmış HSM hizmeti için SLA'sı nedir?
 
-Ayrılmış HSM hizmet için sağlanan hiçbir belirli çalışma süresi guarentee yoktur. Microsoft ağ aygıtına düzeyi erişim sağlayacak ve bu nedenle standart Azure ağ SLA'lar uygulayın.
+Ayrılmış HSM hizmet için sağlanan belirli bir çalışma süresi garantisi yoktur. Microsoft ağ aygıtına düzeyi erişim sağlayacak ve bu nedenle standart Azure ağ SLA'lar uygulayın.
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>S: HSM'ler, Azure ayrılmış HSM korumalı içinde nasıl kullanılır?
 
@@ -217,7 +221,7 @@ HSM'ler normal düzenli yedeklemesi için olağanüstü durum kurtarma gerçekle
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>S: Ayrılmış HSM için destek ne elde ederim?
 
-Destek, hem Microsoft hem de Gemalto tarafından sağlanır.  Donanım ile ilgili bir sorun varsa veya ağ erişimi, Microsoft ile bir destek isteği oluşturun ve rasie HSM yapılandırma, yazılım ve uygulama geliştirme ile ilgili bir sorun varsa lütfen destek ile Gemalto isteyin. Bir destek isteği withg Microsoft yükseltmek, belirsiz bir sorun varsa ve ardından Gemalto olarak bağlı gereklidir. 
+Destek, hem Microsoft hem de Gemalto tarafından sağlanır.  Donanım veya ağ erişimi ile ilgili bir sorun varsa, Microsoft ve HSM yapılandırma, yazılım ile ilgili bir sorun olması ve uygulama geliştirme Lütfen raise Gemalto ile bir destek isteği ile bir destek isteği Yükselt. Microsoft ile bir destek isteği oluşturun, belirsiz bir sorun varsa ve ardından Gemalto olarak bağlı gereklidir. 
 
 ### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>S: Yazılım, belgelere ve tümleştirme yönergeleri için SafeNet Luna 7 HSM erişim istemci nasıl alabilirim?
 

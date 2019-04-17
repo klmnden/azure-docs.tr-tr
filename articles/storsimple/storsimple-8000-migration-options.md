@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/10/2019
+ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: e8a5ae4a4ee9cfd5c39e8e399784ec65f2ee2660
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 78508c1227c0b278041b86c3fdd698c6ad27c132
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500915"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608227"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>5000-7000 Serisi Storsimple'dan verileri geçirmeye seçenekleri 
 
 > [!IMPORTANT]
-> 31 Temmuz 2019, StorSimple 5000/7000 Serisi (EOS) destek durumu sonuna ulaşacak. StorSimple 5000/7000 Serisi müşteriler belgede açıklanan alternatifleri birine geçiş öneririz.
+> 9 Temmuz 2019, StorSimple 5000/7000 Serisi (EOS) destek durumu sonuna ulaşacak. StorSimple 5000/7000 Serisi müşteriler belgede açıklanan alternatifleri birine geçiş öneririz.
 
 StorSimple 5000-7000 Serisi ulaşmasını [destek sonu](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) Temmuz 2019 içinde. StorSimple 5000-7000 Serisi için diğer Azure yükseltme seçeneğini çalıştıran müşteriler, karma Hizmetleri birinci taraf. Bu makalede, Azure hibrit veri geçirmek için kullanılabilir seçenekleri açıklanır. 
 

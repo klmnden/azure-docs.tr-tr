@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/11/2019
+ms.date: 04/15/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 21ee4f8b0fe20588646287945ba35efa5bc55606
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 636072b011c258e8e5ecb05b761bfab8d67e439a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542990"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609396"
 ---
 # <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Hızlı Başlangıç: Bilgisayar işleme SDK'sını kullanarak bir resmi çözümleme veC#
 
@@ -37,7 +37,7 @@ Bu hızlı başlangıçta, hem yerel hem de uzak bir görüntü için görüntü
     1. Menüde **Araçlar**’a tıklayın, **NuGet Paket Yöneticisi**’ni ve ardından **Çözüm için NuGet Paketlerini Yönet**’i seçin.
     1. **Gözat** sekmesine tıklayın ve **Arama** kutusuna "Microsoft.Azure.CognitiveServices.Vision.ComputerVision" yazın.
     1. Görüntülendiğinde **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** öğesini seçin ve projenizin adının yanındaki onay kutusuna tıklayıp **Yükle**’ye tıklayın.
-1. Öğesinin içeriğini değiştirin *Program.cs* aşağıdaki kod ile. `AnalyzeImageAsync` Ve `AnalyzeImageInStreamAsync` yöntemleri kaydırma [görüntü REST API'analiz](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) uzak ve yerel görüntüler için sırasıyla. 
+1. Öğesinin içeriğini değiştirin *Program.cs* aşağıdaki kod ile. `AnalyzeImageAsync` Ve `AnalyzeImageInStreamAsync` yöntemleri kaydırma [görüntü REST API'analiz](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) uzak ve yerel görüntüler için sırasıyla.
 
     ```csharp
     using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
@@ -135,7 +135,14 @@ Bu hızlı başlangıçta, hem yerel hem de uzak bir görüntü için görüntü
             private static void DisplayResults(ImageAnalysis analysis, string imageUri)
             {
                 Console.WriteLine(imageUri);
-                Console.WriteLine(analysis.Description.Captions[0].Text + "\n");
+                if (analysis.Description.Captions.Count != 0)
+                {
+                    Console.WriteLine(analysis.Description.Captions[0].Text + "\n");
+                }
+                else
+                {
+                    Console.WriteLine("No description generated.");
+                }
             }
         }
     }
@@ -153,7 +160,7 @@ Başarılı bir yanıtta her görüntü için en ilgili resim yazısı görünt�
 
 Bkz: [API'si hızlı başlangıç: Yerel bir görüntü ile analiz C# ](../QuickStarts/CSharp-analyze.md#examine-the-response) ham JSON örneği için çıktı.
 
-```
+```console
 https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
 a large waterfall over a rocky cliff
 ```
