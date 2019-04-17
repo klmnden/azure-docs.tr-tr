@@ -5,17 +5,16 @@ services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: 700b58723073e425c0587665ccd884932837dcbf
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 05c84f91c960bbcf7383cd2164289c8398f8dc91
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501085"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607764"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Hızlı Başlangıç: Service Bus kuyruğuna oluşturmak için Azure portalını kullanma
 Bu hızlı başlangıçta, mesajlaşma ad alanı ve o ad alanı içinde bir kuyruk oluşturmak ve söz konusu ad alanında yetkilendirme kimlik bilgilerini almak için [Azure portalı][Azure portal] kullanarak bir Service Bus kuyruğuna nasıl ileti gönderileceği ve Service Bus kuyruğundan nasıl ileti alınacağı açıklanmaktadır. Daha sonra yordam, [.NET Standard kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) kullanılarak bu kuyruktan nasıl ileti gönderilip alınacağını gösterir.
@@ -72,7 +71,7 @@ Bu bölümde örnek kodun işlevleri hakkında daha fazla ayrıntı bulunmaktad�
 
 ### <a name="get-connection-string-and-queue"></a>Bağlantı dizesini ve kuyruğu alma
 
-Bağlantı dizesi ve kuyruk adı geçirilir `Main()` yöntemi olarak komut satırı bağımsız değişkenleri. `Main()` Bu değerleri tutmak için iki dize değişkenleri bildirir:
+Bağlantı dizesi ve kuyruk adı geçirilir `Main()` yöntemi olarak komut satırı bağımsız değişkenleri. `Main()`, bu değerleri tutmak için iki dize değişkeni bildirir:
 
 ```csharp
 static void Main(string[] args)
@@ -207,7 +206,7 @@ Bu makalede, bir Service Bus alan adı ve bir kuyruktan ileti gönderip almak i�
 > [İleti alma ve gönderme](service-bus-dotnet-get-started-with-queues.md)
 
 
-[kredi kazanın]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[ücretsiz bir hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 

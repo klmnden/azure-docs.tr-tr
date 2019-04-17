@@ -15,22 +15,18 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8621ebf474591c253dbd9ca24b36a36287ca8cf7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 04f08965d161e35a9ae4423ad5d3cf80cb407b8a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547717"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607781"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Linux (Önizleme) üzerinde Azure App Service'te bir Python uygulaması oluşturma
 
-[Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu hızlı başlangıçta, bir Python uygulamasının [Azure CLI](/cli/azure/install-azure-cli) kullanılarak Linux üzerinde App Service'te yerleşik olan Python görüntüsü (Önizleme) üzerine dağıtılması gösterilmektedir.
-
-Mac, Windows veya Linux makinesi kullanarak bu makaledeki adımları izleyebilirsiniz.
+Bu hızlı başlangıçta basit bir Python uygulaması dağıtma [Linux üzerinde App Service'te](app-service-linux-intro.md), yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan web barındırma hizmeti sağlar. Azure komut satırı arabirimini kullanın ( [Azure CLI](/cli/azure/install-azure-cli)), izleyebilmeniz etkileşimli, tarayıcı tabanlı Azure Cloud Shell üzerinden, Mac, Linux veya Windows bilgisayarı adımları kullanın.
 
 ![Azure'da çalışan örnek uygulama](media/quickstart-python/hello-world-in-browser.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -38,6 +34,7 @@ Bu hızlı başlangıcı tamamlamak için:
 
 * <a href="https://www.python.org/downloads/" target="_blank">Python 3.7 sürümünü yükleme</a>
 * <a href="https://git-scm.com/" target="_blank">Git'i yükleyin</a>
+* Azure aboneliği. Zaten yoksa, oluşturun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) başlamadan önce.
 
 ## <a name="download-the-sample-locally"></a>Örnekleri yerel makineye indirme
 
@@ -174,10 +171,10 @@ return "Hello Azure!"
 
 Yaptığınız değişiklikleri kaydedin ve düzenleyiciden çıkın. Kaydetmek için `^S` ve çıkmak için `^Q` komutunu kullanın.
 
-Şimdi uygulamayı yeniden dağıtacaksınız. Yedek `<app-name>` uygulamanızla.
+Uygulamayı kullanarak yeniden [ `az webapp up` ](/cli/azure/ext/webapp/webapp?view=azure-cli-latest.md#ext-webapp-az-webapp-up) komutu. Uygulamanız için adı yerine `<app-name>`ve için bir konum belirtin `<location-name>` (öğesinden gösterilen değerleri kullanarak [ `az account list-locations` ](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) komutu).
 
 ```bash
-az webapp up -n <app-name>
+az webapp up -n <app-name> -l <location-name>
 ```
 
 Dağıtım tamamlandıktan sonra **Uygulamaya göz atma** adımında açılan tarayıcı penceresine dönüp sayfayı yenileyin.

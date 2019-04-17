@@ -12,27 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: a12288de2f9a7682fb433dd0d5c7905cc76c12b9
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 102fe85916194648501be3d2cb39d8bcda9e9f5c
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351675"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607084"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Service Bus konuları ve abonelikleri ile Python kullanma
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Bu makale, Service Bus konu başlıklarını ve aboneliklerini kullanmayı açıklar. Python ve kullanım örnekleri yazılır [Azure Python SDK'sı paketinin][Azure Python package]. Senaryoları ele alınmaktadır **konuları ve abonelikleri oluşturma**, **abonelik filtreleri oluşturma**, **konu başlığına ileti gönderme**, **alma bir Abonelikteki iletileri**, ve **konuları ve abonelikleri silmeyi**. Konuları ve abonelikleri hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
+Bu makale, Service Bus konu başlıklarını ve aboneliklerini kullanmayı açıklar. Python ve kullanım örnekleri yazılır [Azure Python SDK'sı paketinin][Azure Python package]. Kapsanan senaryolar şunlardır:
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- Konuları ve abonelikleri oluşturma 
+- Abonelik filtreleri oluşturma 
+- Bir konu başlığına ileti gönderme 
+- Abonelikten ileti alma
+- Konuları ve abonelikleri silme
 
-> [!NOTE] 
-> Python'ı yüklemeniz gerekiyorsa veya [Azure Python paketini][Azure Python package], bkz: [Python Yükleme Kılavuzu](../python-how-to-install.md).
+## <a name="prerequisites"></a>Önkoşullar
+1. Azure aboneliği. Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Etkinleştirebilir, [Visual Studio veya MSDN abone Avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) veya kaydolun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. İzleyeceğiniz adımlar [hızlı başlangıç: Bir Service Bus konusu ve konu için Abonelik oluşturmak için Azure portal'ı kullanmanızı](service-bus-quickstart-topics-subscriptions-portal.md) bir Service Bus'ı oluşturmak için **ad alanı** ve **bağlantı dizesi**.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+    > [!NOTE]
+    > Oluşturacağınız bir **konu** ve **abonelik** kullanarak konuya **Python** Bu hızlı başlangıçta. 
+3. Yükleme [Azure Python paketini][Azure Python package]. Bkz: [Python Yükleme Kılavuzu](../python-how-to-install.md).
 
 ## <a name="create-a-topic"></a>Konu başlığı oluşturma
 

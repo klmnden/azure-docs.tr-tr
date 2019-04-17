@@ -4,18 +4,18 @@ description: Azure kaynaklarını ve Azure AD kimlik doğrulaması için yöneti
 services: active-directory
 author: MarkusVi
 ms.author: priyamo
-ms.date: 11/28/2018
+ms.date: 04/15/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d524f5f58e7381dd89f36c5d2821e6911ed9ec15
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 79c3f8ae183c78b19f7f520f8154bf9484a1f795
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045466"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608002"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure kaynakları için yönetilen kimlikleri destekleyen hizmetler
 
@@ -213,7 +213,7 @@ Azure Resource Manager'a erişimi yapılandırmak için aşağıdaki listeye bak
 | Azure Almanya |   | Yok |
 | Azure Çin 21Vianet |  | Yok |
 
-### <a name="azure-storage"></a>Azure Storage
+### <a name="azure-storage-blobs-and-queues"></a>Azure depolama BLOB'ları ve Kuyruklar
 
 | Bulut | Kaynak kimliği | Durum |
 |--------|------------|--------|

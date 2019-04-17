@@ -9,29 +9,28 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: b24c8fa76e5bb3f8cdf7d246f7f7aa0f1a62258a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: ca893670e01f4bccc211cd08064b6638e9224a9a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051521"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606795"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Kaynak sağlayıcısı REST API (.NET) kullanarak IOT hub oluşturma
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-Kullanabileceğiniz [IOT hub'ı kaynak sağlayıcısı REST API'si] [ lnk-rest-api] oluşturmak ve Azure IOT hub'ları programlı olarak yönetmek için. Bu öğreticide bir C# programı bir IOT hub'ı oluşturmak için IOT hub'ı kaynak sağlayıcısı REST API'si kullanma işlemini gösterir.
-
-> [!NOTE]
-> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır:  [Azure Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).  Bu makalede Azure Resource Manager dağıtım modelini incelemektedir.
+Kullanabileceğiniz [IOT hub'ı kaynak sağlayıcısı REST API'si](https://docs.microsoft.com/rest/api/iothub/iothubresource) oluşturmak ve Azure IOT hub'ları programlı olarak yönetmek için. Bu öğreticide bir C# programı bir IOT hub'ı oluşturmak için IOT hub'ı kaynak sağlayıcısı REST API'si kullanma işlemini gösterir.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Visual Studio 2015 veya Visual Studio 2017.
-* Etkin bir Azure hesabı. <br/>Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.
-* [Azure PowerShell 1.0] [ lnk-powershell-install] veya üzeri.
+
+* Etkin bir Azure hesabı. Bir hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.
+
+* [Azure PowerShell 1.0](https://docs.microsoft.com/powershell/azure/install-Az-ps) veya üzeri.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -72,13 +71,14 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
     static string rgName = "{Resource group name}";
     static string iotHubName = "{IoT Hub name including your initials}";
     ```
-   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+   
+    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
 ## <a name="use-the-resource-provider-rest-api-to-create-an-iot-hub"></a>IOT hub'ı oluşturmak için kaynak sağlayıcısı REST API'si kullanma
 
-Kullanım [IOT hub'ı kaynak sağlayıcısı REST API'si] [ lnk-rest-api] kaynak grubunuzda bir IOT hub'ı oluşturmak için. Var olan bir IOT hub'ına değişiklik yapmak için kaynak sağlayıcısı REST API de kullanabilirsiniz.
+Kullanım [IOT hub'ı kaynak sağlayıcısı REST API'si](https://docs.microsoft.com/rest/api/iothub/iothubresource) kaynak grubunuzda bir IOT hub'ı oluşturmak için. Var olan bir IOT hub'ına değişiklik yapmak için kaynak sağlayıcısı REST API de kullanabilirsiniz.
 
 1. Program.cs'ye aşağıdaki yöntemi ekleyin:
 
@@ -96,7 +96,7 @@ Kullanım [IOT hub'ı kaynak sağlayıcısı REST API'si] [ lnk-rest-api] kaynak
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
 
-3. Aşağıdaki kodu ekleyin **CreateIoTHub** yöntemi. Bu kod, IOT hub'ının oluşturulacağı açıklanır ve JSON temsili üretir. IOT hub'ı destekleyen konumları güncel listesi için bkz. [Azure durumu][lnk-status]:
+3. Aşağıdaki kodu ekleyin **CreateIoTHub** yöntemi. Bu kod, IOT hub'ının oluşturulacağı açıklanır ve JSON temsili üretir. IOT hub'ı destekleyen konumları güncel listesi için bkz. [Azure durumu](https://azure.microsoft.com/status/):
 
     ```csharp
     var description = new
@@ -166,35 +166,25 @@ Kullanım [IOT hub'ı kaynak sağlayıcısı REST API'si] [ lnk-rest-api] kaynak
 
 3. Tıklayın **hata ayıklama** ardından **hata ayıklamayı Başlat** uygulamayı çalıştırın. Bu, dağıtımın çalıştırmak birkaç dakika sürebilir.
 
-4. Uygulamanızı yeni IOT hub'ı eklediğinizi doğrulamak için şurayı ziyaret edin [Azure portalında] [ lnk-azure-portal] ve kaynakların listesini görüntüleyin. Alternatif olarak, **Get-AzResource** PowerShell cmdlet'i.
+4. Uygulamanızı yeni IOT hub'ı eklediğinizi doğrulamak için şurayı ziyaret edin [Azure portalında](https://portal.azure.com/) ve kaynakların listesini görüntüleyin. Alternatif olarak, **Get-AzResource** PowerShell cmdlet'i.
 
 > [!NOTE]
-> Bu örnek uygulama, bir S1 standart IOT için faturalandırılırsınız Hub ekler. İşlemi tamamladığınızda, IOT hub'ı aracılığıyla silebilirsiniz [Azure portalı] [ lnk-azure-portal] kullanarak veya **Remove-AzResource** işiniz bittiğinde PowerShell cmdlet'i.
+> Bu örnek uygulama, bir S1 standart IOT için faturalandırılırsınız Hub ekler. İşlemi tamamladığınızda, IOT hub'ı aracılığıyla silebilirsiniz [Azure portalı](https://portal.azure.com/) kullanarak veya **Remove-AzResource** işiniz bittiğinde PowerShell cmdlet'i.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Kaynak sağlayıcısı REST API'si kullanarak bir IOT hub'ı dağıttığınız artık daha iyi keşfedilebilmesi isteyebilirsiniz:
 
-* Özellikleri hakkında okuyun [IOT hub'ı kaynak sağlayıcısı REST API'si][lnk-rest-api].
-* Okuma [Azure Resource Manager'a genel bakış] [ lnk-azure-rm-overview] Azure Resource Manager'ın özellikleri hakkında daha fazla bilgi edinmek için.
+* Özellikleri hakkında okuyun [IOT hub'ı kaynak sağlayıcısı REST API'si](https://docs.microsoft.com/rest/api/iothub/iothubresource).
+
+* Okuma [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md) Azure Resource Manager'ın özellikleri hakkında daha fazla bilgi edinmek için.
 
 İçin IOT Hub ile geliştirme hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-* [C SDK'ya giriş][lnk-c-sdk]
-* [Azure IOT SDK'ları][lnk-sdks]
+* [C SDK'ya giriş](iot-hub-device-sdk-c-intro.md)
+
+* [Azure IoT SDK’ları](iot-hub-devguide-sdks.md)
 
 Daha fazla IOT Hub'ın özelliklerini keşfetmek için bkz:
 
-* [Azure IOT Edge ile sınır cihazlarına Al dağıtma][lnk-iotedge]
-
-<!-- Links -->
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-azure-portal]: https://portal.azure.com/
-[lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-Az-ps
-[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
-
-[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+* [Yapay ZEKA, Azure IOT Edge ile uç cihazlarına dağıtma](../iot-edge/tutorial-simulate-device-linux.md)

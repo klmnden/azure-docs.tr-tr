@@ -5,18 +5,20 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 2ea85b2b04600708381423e16408ba34b1e27566
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904908"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606897"
 ---
-# <a name="set-environment-variables"></a>Ortam değişkenlerini belirleme
+# <a name="set-environment-variables-in-container-instances"></a>Container Instances ortam değişkenlerini ayarlama
 
-Kapsayıcı örneklerinizin ortam değişkenlerini ayarlama, uygulama veya betik çalıştırma kapsayıcı tarafından dinamik yapılandırma sağlamanıza olanak verir. Bir kapsayıcıda ortam değişkenlerini ayarlamak için bir kapsayıcı örneği oluşturduğunuzda bunları belirtin. Bir kapsayıcı ile başlattığınızda ortam değişkenlerini ayarlayabilirsiniz [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)ve [Azure portalında](#azure-portal-example).
+Kapsayıcı örneklerinizin ortam değişkenlerini ayarlama, uygulama veya betik çalıştırma kapsayıcı tarafından dinamik yapılandırma sağlamanıza olanak verir. Bu benzer `--env` komut satırı bağımsız değişkeni `docker run`. 
+
+Bir kapsayıcıda ortam değişkenlerini ayarlamak için bir kapsayıcı örneği oluşturduğunuzda bunları belirtin. Bu makale, bir kapsayıcı ile başlattığınızda ortam değişkenlerini ayarlama örnekleri [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)ve [Azure portalında](#azure-portal-example). 
 
 Örneğin, Microsoft çalıştırırsanız [Acı wordcount] [ aci-wordcount] kapsayıcı görüntüsü, aşağıdaki ortam değişkenlerini belirterek davranışını değiştirebilirsiniz:
 
@@ -241,7 +243,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Toplu işleme çeşitli kapsayıcıları ile büyük bir veri kümesini gibi görev tabanlı senaryoları özel ortam değişkenleri, çalışma zamanında yararlanabilir. Görev tabanlı kapsayıcı çalıştırma hakkında daha fazla bilgi için bkz. [Azure Container Instances'da kapsayıcılı görevleri çalıştırma](container-instances-restart-policy.md).
+Toplu işleme çeşitli kapsayıcıları ile büyük bir veri kümesini gibi görev tabanlı senaryoları özel ortam değişkenleri, çalışma zamanında yararlanabilir. Görev tabanlı kapsayıcı çalıştırma hakkında daha fazla bilgi için bkz. [yeniden başlatma ilkeleri ile kapsayıcılı görevleri çalıştırma](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png

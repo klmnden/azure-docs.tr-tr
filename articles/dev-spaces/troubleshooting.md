@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: 16b33203099765633d6bc5992fdc266aa1f28a26
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 4617e878f2af446608ede4e0aed644848564a074
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548789"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609084"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -357,3 +357,25 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 ```
 
 Denetleyicinizi yeniden yüklendikten sonra pod'ların yeniden dağıtın.
+
+## <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Geliştirme alanları denetleyici ve API'leri çağırmak için doğru RBAC izinlerinin
+
+### <a name="reason"></a>Neden
+Azure geliştirme alanları denetleyicisi erişen kullanıcı yönetici okuma erişimi olmalıdır *kubeconfig'i denetleyin* AKS kümesinde. Örneğin, bu izni kullanılabilir [yerleşik Azure Kubernetes hizmeti Küme Yöneticisi rolüne](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). Azure geliştirme alanları denetleyicisi erişen bir kullanıcı da olmalıdır *katkıda bulunan* veya *sahibi* denetleyicisi için RBAC rolü.
+
+### <a name="try"></a>Deneme
+Bir AKS kümesi için bir kullanıcının izinlerini güncelleştirme hakkında daha fazla ayrıntı bulabilirsiniz [burada](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user).
+
+Denetleyici için kullanıcının RBAC rolü'nü güncellemek için:
+
+1. https://portal.azure.com adresinden Azure portalında oturum açın.
+1. AKS kümenizi genellikle aynıdır denetleyicisi içeren kaynak grubuna gidin.
+1. Etkinleştirme *gizli türleri Göster* onay kutusu.
+1. Üzerindeki denetleyiciye tıklayın.
+1. Açık *erişim denetimi (IAM)* bölmesi.
+1. Tıklayarak *rol atamaları* sekmesi.
+1. Tıklayın *Ekle* ardından *rol ataması Ekle*.
+    * İçin *rol* seçin *katkıda bulunan* veya *sahibi*.
+    * İçin *erişim Ata* seçin *Azure AD kullanıcı, Grup veya hizmet sorumlusu*.
+    * İçin *seçin* izinleri vermek istediğiniz kullanıcıyı arayın.
+1. *Kaydet*’e tıklayın.

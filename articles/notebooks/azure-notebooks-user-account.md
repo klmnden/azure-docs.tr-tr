@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: b8e5c5b14ecdbc63daf200b7d11e755822cd063b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 311f4d612c9deab23e7537b0c53ff3932c312cd4
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257017"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608019"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>Kullanıcı hesabınızın Azure not defterleri için
 
@@ -41,6 +41,9 @@ Microsoft hesapları, Microsoft ürünleri ve Hizmetleri, Windows, Azure, outloo
 Emin değilseniz, seçin **oluşturmak bir** hesabı isteminde komutu. Herhangi bir sağlayıcıdan gelen herhangi bir e-posta adresini kullanarak yeni bir Microsoft hesabı oluşturabilirsiniz.
 
 ![Yeni bir Microsoft hesabı oluşturmak için komutu](media/accounts/create-new-microsoft-account.png)
+
+> [!Note]
+> Kendisiyle ilişkilendirilmiş bir hesap zaten bir e-posta adresi ile yeni bir hesap oluşturmaya çalışırsanız, ", bir iş ile buradan kaydolun veya Okul e-posta adresi. iletiyi görebilirsiniz. "Gmail veya Yahoo! gibi kişisel bir e-kullanın veya yeni bir Outlook e-posta alın." Bu durumda, yeni bir hesap oluşturmadan iş e-posta adresiyle oturum açmayı deneyin.
 
 Çocuk hesapları için varsayılan olarak Azure not defterleri için erişim engellenir. Bir alt hesapla oturum açma, aşağıda gösterilen hata görüntüler:
 
