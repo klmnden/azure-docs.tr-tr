@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 48bea302f2f8e878275e6a7c222d703e0f31f239
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: ca4d5912d75dd7b33737f61737a209284b7a5a47
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44392292"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616161"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Olağanüstü durum kurtarma yük devretme yordamı
 
@@ -87,7 +87,7 @@ Geri yüklenen depolama anlık görüntüleri ve mevcut işlem günlüğü yedek
 1. Yedekleme konumuna değiştirme **/hana/logbackups** SAP HANA Studio kullanarak.
    ![DR kurtarması için yedekleme konumu değiştirin](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
-1. SAP HANA yedekleme dosyası konumları tarar ve geri yüklemek için en son işlem günlüğü yedeklemesi önerir. Tarama görünür aşağıdaki gibi bir ekran kadar geçen birkaç dakika sürebilir: ![DR kurtarması için işlem günlüğü yedeklemeleri listesi](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
+1. SAP HANA yedekleme dosyası konumları tarar ve geri yüklemek için en son işlem günlüğü yedeklemesi önerir. Tarama aşağıdakiler görünür gibi bir ekran kadar birkaç dakikayı bulabilir: ![DR kurtarması için işlem günlüğü yedeklemeleri listesi](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
 
 1. Varsayılan ayarlardan bazılarını ayarlayın:
 
@@ -104,7 +104,7 @@ Burada gösterildiği gibi bir ilerleme durumu penceresi görüntülenmelidir. B
 
 ![Geri yükleme ilerleme durumu](./media/hana-overview-high-availability-disaster-recovery/restore_progress_dr5.PNG)
 
-Geri yükleme sırasında askıda görünüyorsa **son** ekranında ve değil ilerleme ekranı göstermek, tüm SAP HANA örnekleri çalışan düğümleri üzerinde çalıştığını doğrulayın. Gerekirse, SAP HANA örnekleri el ile başlatın.
+Geri yükleme sırasında yanıt vermemesine görünüyorsa **son** ekranında ve değil ilerleme ekranı göstermek, tüm SAP HANA örnekleri çalışan düğümleri üzerinde çalıştığını doğrulayın. Gerekirse, SAP HANA örnekleri el ile başlatın.
 
 
 ## <a name="failback-from-a-dr-to-a-production-site"></a>Bir DR Azure'dan bir üretim sitesine

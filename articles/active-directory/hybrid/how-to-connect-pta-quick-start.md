@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51fc93f9508bada40885e41b39e8a87cf4e0bf3c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101015"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617810"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory geçişli kimlik doğrulaması: Hızlı başlangıç
 
@@ -111,7 +111,15 @@ Geçişli kimlik doğrulaması, bir üretim ortamına dağıtmayı planlıyorsan
 >[!IMPORTANT]
 >Üretim ortamlarında, en az 3 kimlik doğrulama aracılarının yüklü kiracınızda çalıştırmanızı öneririz. Kiracı başına 40 kimlik doğrulama aracılarının sistem sınırı yoktur. Ve katman 0 sistemleri gibi kimlik doğrulama aracılarının çalıştıran tüm sunucuların en iyi uygulama olarak değerlendir (bkz [başvuru](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
-Kimlik Doğrulama Aracısı yazılımını indirmek için aşağıdaki yönergeleri izleyin:
+Birden fazla geçişli kimlik doğrulama aracılarının yüklenmesiyle, yüksek oranda kullanılabilir, ancak arasında kimlik doğrulama aracılarının belirleyici olmayan yük dengelemesi sağlar. Kiracınız için gereken kimlik doğrulama aracılarının kaç belirlemek için kiracınızda görmeyi beklediğiniz oturum açma isteklerinin ortalama yük ve yoğun göz önünde bulundurun. Bir ölçüt tek bir kimlik doğrulama Aracısı ikinci bir standart bir 4 çekirdekli CPU, 16 GB RAM sunucu kimlik doğrulama işlemi 300-400 başa çıkabilir.
+
+Ağ trafiğini tahmin etmek için aşağıdaki boyutlandırma yönergeleri kullanın:
+- Her isteğin yükünün boyutuna sahip (0.5K + 1 K * num_of_agents) bayt; yani, verileri Azure ad kimlik doğrulama Aracısı. Burada, kimlik doğrulama aracılarının sayısını kiracınızda kayıtlı "num_of_agents" gösterir.
+- Her yanıt yükü boyut olan 1 K bayta sahip; Azure AD'ye başka bir deyişle, veriler kimlik doğrulaması Aracısı'ndan.
+
+Çoğu müşteri için toplam üç kimlik doğrulama aracılarının, yüksek kullanılabilirlik ve kapasite için yeterlidir. Oturum açma gecikme süresini iyileştirmek için etki alanı denetleyicilerinizin yakın kimlik doğrulama aracılarının yüklemeniz gerekir.
+
+Başlamak için kimlik doğrulama Aracısı yazılımını indirmek için bu yönergeleri izleyin:
 
 1. Kimlik Doğrulama Aracısı en son sürümünü indirmek için (sürüm 1.5.193.0 veya üzeri), oturum [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com) kiracınızın genel yönetici kimlik bilgilerine sahip.
 2. Seçin **Azure Active Directory** sol bölmesinde.
@@ -141,6 +149,13 @@ Tek başına bir kimlik doğrulama Aracısı dağıtmak için iki yolu vardır:
 3. Git **C:\Program Files\Microsoft Azure AD Connect kimlik doğrulaması Aracısı** ve kullanarak aşağıdaki betiği çalıştırın `$cred` oluşturduğunuz nesnesi:
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+
+>[!IMPORTANT]
+>Bir kimlik doğrulama Aracısı sanal makinede yüklü değilse sanal makinenin başka bir kimlik doğrulama Aracısı Kurulum kopyalanamıyor. Bu yöntem **desteklenmeyen**.
+
+## <a name="step-5-configure-smart-lockout-capability"></a>5. Adım: Akıllı kilitleme özelliğini yapılandırma
+
+Akıllı kilitleme kötü aktörleri kullanıcılarınızın parolaları tahmin çalışan kilitleme veya almak için deneme yanılma yöntemlerle yardımcı olur. Active Directory ulaşmadan önce şirket içi Active Directory'de Azure AD'de ayarları akıllı kilitleme ve / veya uygun kilitleme ayarlarını yapılandırarak saldırıları filtrelenebilen. Okuma [bu makalede](../authentication/howto-password-smart-lockout.md) kiracınızda kullanıcı hesaplarınızı korumak için akıllı kilitleme ayarlarını yapılandırma hakkında daha fazla bilgi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [AD FS'den doğrudan kimlik doğrulamaya geçiş](https://aka.ms/adfstoptadp) -geçişli kimlik doğrulaması için AD FS (veya diğer Federasyon teknolojileri) geçirmek için ayrıntılı bir kılavuz.

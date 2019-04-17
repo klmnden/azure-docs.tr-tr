@@ -3,17 +3,17 @@ title: Azure IOT Central uygulamanızı Windows IOT Core cihazı bağlayın | Mi
 description: Bir cihaz geliştirici olarak, Azure IOT Central uygulamanıza MXChip IOT DevKit cihaz bağlanmayı öğreneceksiniz.
 author: miriambrus
 ms.author: miriamb
-ms.date: 04/09/2018
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 0312e322aea74b3ce9867d09cebc7543da40de5f
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: af6d66d2e3eae80477a151323578b930dcd7727a
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426248"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617861"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızı Windows IOT Core cihazı bağlayın
 
@@ -23,84 +23,72 @@ Bu makalede, Microsoft Azure IOT Central uygulamanızı Windows IOT Core cihazı
 
 Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
-1. Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central.md).
-2. Windows 10 IoT Core işletim sistemi çalıştıran bir cihaz. Bu kılavuz için Raspberry Pi'yi kullanacağız.
+- Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central.md).
 
+- Windows 10 IoT Core işletim sistemi çalıştıran bir cihaz. Daha fazla bilgi için [Windows 10 IoT Core cihazınız ayarlanıyor](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
-## <a name="sample-devkits-application"></a>**Örnek Devkits** uygulama
+- Bir geliştirme makinesi ile [Node.js](https://nodejs.org/) 8.0.0 sürümü veya sonraki bir sürümü yüklü. Çalıştırabileceğiniz `node --version` sürümünüzü denetlemek için komut satırına. Node.js çeşitli işletim sistemleri için kullanılabilir.
 
-Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Windows IOT Core** cihaz şablonu aşağıdaki özelliklere sahip: 
+## <a name="the-sample-devkits-application"></a>Örnek Devkits uygulama
 
-- Cihaz için ölçüler içeren telemetri **nem**, **sıcaklık** ve **baskısı**. 
-- Ayarları gösteren **fanı hızı**.
-- Cihaz özelliği içeren özellik **sayı öldürmüş** ve **konumu** bulut özelliği.
+Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Windows IOT Core** cihaz şablonu aşağıdaki özelliklere sahip:
 
+- Cihazın telemetri ölçümleri: **Nem**, **sıcaklık**, ve **baskısı**.
+- Denetlemek için bu ayarı **fanı hızı**.
+- Bir cihaz özelliği **sayı öldürmüş** ve bulut özelliği **konumu**.
 
-Cihaz şablon yapılandırması hakkında tam Ayrıntılar için bkz [Windows IOT Core cihazı şablon ayrıntıları](howto-connect-windowsiotcore.md#windows-iot-core-device-template-details)
+Cihaz şablon yapılandırması üzerinde tam ayrıntıları için bkz. [Windows IOT Core cihazı şablon ayrıntılarını](#device-template-details).
 
 ## <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
-Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **Windows IOT Core** cihaz şablonu ve cihaz bağlantı dizesini Not olun. Daha fazla bilgi için [Azure IOT Central uygulamanıza gerçek bir cihaz eklemek](tutorial-add-device.md).
+Azure IOT Central uygulamanızda kullanmak **Device Explorer** gerçek bir CİHAZDAN eklemek için sayfa **Windows 10 IoT Core** cihaz şablonu. Bağlantı ayrıntıları cihazın not edin (**kapsam kimliği**, **cihaz kimliği**, ve **birincil anahtar**). Daha fazla bilgi için [bağlantı bilgilerini almak](howto-generate-connection-string.md#get-connection-information).
 
-### <a name="prepare-the-windows-iot-core-device"></a>Windows IOT Core cihazı hazırlama
+## <a name="prepare-the-device"></a>Cihazı hazırlama
 
-Ayarlamak için bir Windows IOT Core cihazı Lütfen izleyin, adım adım kılavuz [bir Windows IOT Core cihazı ayarlama](https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
+Cihaz IOT Central bağlanmak bir bağlantı dizesi gerekir.
 
-### <a name="add-a-real-device"></a>Gerçek cihaz ekleme
+[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
 
-Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **Windows IOT Core** cihaz şablonu ve cihaz bağlantı ayrıntılarını not yap (**kapsam kimliği, cihaz kimliği, birincil anahtar**). Bu yönergeleri izleyin [cihaz bağlantı dizesini oluşturmak](howto-generate-connection-string.md) kullanarak **kapsam kimliği**, **cihaz kimliği**, ve **birincil anahtar** , yapılan bir daha önce not edin.
+İsteğe bağlı olarak cihaz kodu bağlantı dizesini erişmeye adlı bir dosyaya kaydedin **connection.string.iothub** klasöründe `C:\Data\Users\DefaultAccount\Documents\` Windows 10 IoT Core Cihazınızda.
 
-## <a name="prepare-the-windows-10-iot-core-device"></a>Windows 10 IoT Core cihazı hazırlama
+Kopyalanacak **connection.string.iothub** Masaüstü makinenize dosyasından `C:\Data\Users\DefaultAccount\Documents\` kullanabileceğiniz klasör Cihazınızda [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal):
 
-### <a name="what-youll-need"></a>İhtiyaç duyacaklarınız:
+1. Cihazınızda Windows Device Portal gitmek için web tarayıcınızı kullanın.
+1. Cihazınızda dosyalara göz atmak için seçin **uygulamaları > Dosya Gezgini**.
+1. Gidin **kullanıcı Folders\Documents**. Ardından karşıya **connection.string.iothub** dosyası:
 
-Gerçek bir Windows 10 IoT Core cihazı ayarlama için öncelikle Windows 10 IoT Core çalıştıran bir cihaza olması gerekir. Bir Windows 10 IoT Core cihazı ayarlama konusunda bilgi [burada](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
+    ![Bağlantı dizesi karşıya yükleme](media/howto-connect-windowsiotcore/device-portal.png)
 
-Ayrıca, Azure IOT Central ile iletişim kurabilen bir istemci uygulaması gerekir. Azure SDK'sını kullanarak kendi özel uygulamanızı oluşturun ve Visual Studio kullanarak Cihazınızı dağıtın veya karşıdan yükleyebileceğiniz bir [önceden oluşturulmuş bir örnek](https://developer.microsoft.com/windows/iot/samples) yalnızca dağıtma ve cihazda çalıştırın. 
+## <a name="deploy-and-run"></a>Dağıtma ve çalıştırma
 
-### <a name="deploying-the-sample-client-application"></a>Örnek istemci uygulaması dağıtma
+Dağıtma ve örnek uygulamayı Cihazınızda çalıştırmak için kullanabileceğiniz [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal):
 
-Bunu hazırlamak için istemci uygulamasına önceki adımdan gelen Windows 10 IOT Cihazınızı dağıtmak için:
+1. Cihazınızda Windows Device Portal gitmek için web tarayıcınızı kullanın.
+1. Dağıtmak ve çalıştırmak için **Azure IOT Hub istemci** uygulaması seçin **uygulamaları > Hızlı çalıştırma örnekleri**. Ardından **Azure IOT Hub istemci**.
+1. Ardından **dağıtma ve çalıştırma**.
 
-**Bağlantı dizesini kullanmak istemci uygulaması için cihazda depolanan emin olun.**
-* Masaüstünde, bağlantı dizesini connection.string.iothub adlı bir metin dosyasına kaydedin.
-* Metin dosyası, cihazın belge klasörüne kopyalayın:
-`[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
+    ![Dağıtma ve çalıştırma](media/howto-connect-windowsiotcore/quick-run.png)
 
-Bunu yaptıktan sonra açmanız gerekir [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) http://[device-IP-address]:8080 içinde herhangi bir tarayıcıda yazarak.
+Birkaç dakika sonra cihazınızın IOT Central uygulamanızda telemetriyi görüntüleyebilirsiniz.
 
-Orada ve gerekirse gösterildiği gibi, şunları yapmanız gerekir:
-1. Genişletin **uygulamaları** soldaki düğümü.
-2. Seçin **Hızlı çalıştırma örnekleri**.
-3. Seçin **Azure IOT Hub istemci**.
-4. Seçin **dağıtma ve çalıştırma**.
+[Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) Cihazınızda sorun gidermesi için kullanabileceğiniz araçları içerir:
 
-![Azure IOT Hub istemci Windows Device Portal üzerinde GIF'i](./media/howto-connect-windowsiotcore/iothubapp.gif)
+- **Uygulamaları manager** sayfa Cihazınızda çalıştıran uygulamaları denetlemenize olanak sağlar.
+- Cihazınıza bağlı bir izleyici yoksa, kullanabileceğiniz **cihaz ayarları** cihazınızdan ekran görüntülerini yakalamak için sayfa. Örneğin:
 
-Başarılı olduğunda, uygulama bir cihazda başlatın ve şöyle görünür:
-
-![Azure IOT Hub'ın ekran görüntüsü istemci uygulaması](./media/howto-connect-windowsiotcore/IoTHubForegroundClientScreenshot.png)
-
-Azure IOT Central Raspberry Pi üzerinde çalışan kodu uygulaması ile nasıl etkileşim kurduğunu görebilirsiniz:
-
-* Üzerinde **ölçümleri** sayfa gerçek cihazınız için telemetriyi görebilirsiniz.
-* Üzerinde **özellikleri** sayfasında, bildirilen öldürmüş numarası özelliğinin değeri görebilirsiniz.
-* Üzerinde **ayarları** sayfasında, Raspberry Pi voltaj ve giriş hızı gibi çeşitli ayarları değiştirebilirsiniz.
+    ![Uygulama ekran görüntüsü](media/howto-connect-windowsiotcore/iot-hub-foreground-client.png)
 
 ## <a name="download-the-source-code"></a>Kaynak kodunu indirebilir
 
-Keşfedin ve istemci uygulaması için kaynak kodunu değiştirmek istiyorsanız, Github'dan indirebileceğiniz [burada](https://github.com/Microsoft/Windows-iotcore-samples/tree/develop/Samples/Azure/IoTHubClients). Kodu değiştirin planlıyorsanız, bu ve benioku dosyasındaki yönergeleri izlemelidir [burada](https://github.com/Microsoft/Windows-iotcore-samples) masaüstü işletim sisteminiz için.
+Keşfedin ve istemci uygulaması için kaynak kodunu değiştirmek istiyorsanız, buradan indirebilirsiniz [Windows iotcore örnekleri GitHub deposunda](https://github.com/Microsoft/Windows-iotcore-samples/blob/master/Samples/Azure/IoTHubClients).
 
-> [!NOTE]
-> Varsa **git** yüklü geliştirme ortamınızda buradan indirebilirsiniz [ https://git-scm.com/download ](https://git-scm.com/download).
-
-## <a name="windows-iot-core-device-template-details"></a>Windows IOT Core cihazı şablon ayrıntıları
+## <a name="device-template-details"></a>Cihaz şablonu ayrıntıları
 
 Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Windows IOT Core** cihaz şablonu aşağıdaki özelliklere sahip:
 
 ### <a name="telemetry-measurements"></a>Telemetri ölçümleri
 
-| Alan adı     | Birim  | Minimum | Maksimum | Ondalık basamak sayısı |
+| Alan adı     | Birimler  | Minimum | Maksimum | Ondalık basamak sayısı |
 | -------------- | ------ | ------- | ------- | -------------- |
 | Nem oranı       | %      | 0       | 100     | 0              |
 | Temp           | °C     | -40     | 120     | 0              |
@@ -110,14 +98,17 @@ Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Windows
 
 Sayısal ayarları
 
-| Görünen ad | Alan adı | Birim | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
+| Görünen ad | Alan adı | Birimler | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Fan hızı    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
-
 
 ### <a name="properties"></a>Özellikler
 
 | Type            | Görünen ad | Alan adı | Veri türü |
 | --------------- | ------------ | ---------- | --------- |
-| Cihaz özelliği | Sayı öldürmüş   | dieNumber  | sayı    |
-| Metin            | Konum     | konum   | YOK       |
+| Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
+| Metin            | Konum     | location   | Yok       |
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Raspberry Pi'yi, Azure IOT Central uygulamasına bağlanmak öğrendiniz, önerilen sonraki adıma öğrenmektir nasıl [bir özel cihaz şablonu ayarlama](howto-set-up-template.md) kendi IOT cihazını için.

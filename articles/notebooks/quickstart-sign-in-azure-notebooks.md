@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: f3effc900b79ddb7beac6a3aaf2eee0a264f7b4d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: eb8ba7f23de99d333693430d806a8d887c55a678
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280868"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608208"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Hızlı Başlangıç: Oturum açma ve kullanıcı kimliği ayarlama
 
@@ -33,6 +33,9 @@ Oturum açma olmadan her zaman Azure not defterleri görmenize rağmen not defte
 1. İstendiğinde Microsoft Account veya bir iş veya Okul hesabı ve Seç ' e-posta adresini girin **sonraki**. Hesap türleri üzerinde açıklanmıştır [Azure not defterleri için kullanıcı hesabınızın](azure-notebooks-user-account.md). Microsoft Account yok veya bir Azure not defterleri ile özel olarak kullanmak için yapmak istediğiniz yoksa, seçin **oluşturmak**:
 
     ![Yeni bir Microsoft hesabı komut oturum açma istemine oluşturun](media/accounts/create-new-microsoft-account.png)
+
+    > [!Tip]
+    > Kendisiyle ilişkilendirilmiş bir hesap zaten bir e-posta adresi ile yeni bir hesap oluşturmaya çalışırsanız, ", bir iş ile buradan kaydolun veya Okul e-posta adresi. iletiyi görebilirsiniz. "Gmail veya Yahoo! gibi kişisel bir e-kullanın veya yeni bir Outlook e-posta alın." Bu durumda, yeni bir hesap oluşturmadan iş e-posta adresiyle oturum açmayı deneyin.
 
 1. İstendiğinde parolanızı girin.
 
@@ -64,4 +67,4 @@ Oturumu kapatın, sayfanın sağ üst kullanıcı adınızı seçin ve ardından
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Hızlı Başlangıç: Not defteri oluşturma ve paylaşma](quickstart-create-share-jupyter-notebook.md)
+> [Hızlı Başlangıç: Oluşturma ve bir not defteri paylaşma](quickstart-create-share-jupyter-notebook.md)

@@ -254,6 +254,8 @@ items:
       - name: Apache Hive sorgularını iyileştirme
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
+      - name: Küme yapılandırma erişimindeki değişiklikler
+        href: ../hdinsight-migrate-granular-access-cluster-configurations.md
     maintainContext: true
 - name: Kurumsal kullanıma hazır olma
   items:
@@ -307,12 +309,13 @@ items:
   - name: R geliştirici kılavuzu
     href: ../../machine-learning/r-developers-guide.md
   - name: Sürüm notları
-    href: ../hdinsight-release-notes.md
     items:
+    - name: Güncel sürüm notları
+      href: ../hdinsight-release-notes.md
+      maintainContext: true
     - name: Arşivlenmiş sürüm notları
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true
-    maintainContext: true
   - name: Azure Yol Haritası
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Forumdan yardım alma
@@ -326,9 +329,9 @@ items:
   - name: HDInsight için Windows araçları
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: cfeff50427913e7df70bd3a2af3ea83519d27cfe
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 918489a8dbac91078af6114ae4942d8411460a21
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579096"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615753"

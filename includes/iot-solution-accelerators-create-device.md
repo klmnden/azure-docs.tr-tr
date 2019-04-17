@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5eb3c08792b760bf66e443f79762d91210706c92
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: cda08d44cba9e59af853b1705f538ec199ec4d3a
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435121"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59630584"
 ---
 Bu senaryoda, Contoso için yeni bir telemetri türünü, mevcut ekleme **Soğutucu** cihaz türü.
 
@@ -98,13 +98,11 @@ Bu makaledeki yönergeler, Windows kullanmakta olduğunuz varsayılır. Başka b
 
 Açık **remote-monitoring-services-dotnet-master\storage-adapter** Visual Studio code'da klasörü. Tıklatın **geri** herhangi düzeltmek için düğmeler çözümlenmemiş bağımlılıklar.
 
-Açık **.vscode/launch.json** dosya ve Cosmos DB bağlantı dizenizi atama **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** ortam değişkeni.
-
-<!-- Open the **WebService/appsettings.ini** file and assign your Cosmos DB connection string to the **documentdb_connstring** configuration setting.-->
+Açık **storage-adapter/WebService/appsettings.ini** dosya ve Cosmos DB bağlantı dizenizi atama **documentDBConnectionString** değişkeni.
 
 Mikro hizmet yerel olarak çalıştırmak için tıklayın **hata ayıklama > hata ayıklamayı Başlat**.
 
-**Terminal** penceresi Visual Studio code'da web hizmetinin sistem durumu denetimi için bir URL dahil olmak üzere çalışan mikro hizmet çıktısını gösterir: [ http://127.0.0.1:9022/v1/status ](http://127.0.0.1:9022/v1/status). Bu adrese gidin, durumu olmalıdır "Tamam: etkin ve iyi".
+**Terminal** penceresi Visual Studio code'da web hizmetinin sistem durumu denetimi için bir URL dahil olmak üzere çalışan mikro hizmet çıktısını gösterir: [ http://127.0.0.1:9022/v1/status ](http://127.0.0.1:9022/v1/status). Bu adrese gidin, durumu olmalıdır "Tamam: Canlı ve iyi".
 
 Sonraki adımları tamamlarken Visual Studio Code'nın bu örneğinde çalışan depolama bağdaştırıcısı mikro hizmet bırakın.
 
@@ -118,12 +116,12 @@ Bu bölümde, yeni bir ekleme **iç ortam sıcaklığı** varolan telemetri tür
 
     | Kaynak | Hedef |
     | ------ | ----------- |
-    | Services\data\devicemodels\chiller-01.JSON | C:\temp\devicemodels\chiller-01.JSON |
-    | Services\data\devicemodels\scripts\chiller-01-State.js | C:\temp\devicemodels\scripts\chiller-01-State.js |
-    | Services\data\devicemodels\scripts\Reboot-Method.js | C:\temp\devicemodels\scripts\Reboot-Method.js |
-    | Services\data\devicemodels\scripts\FirmwareUpdate-Method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-Method.js |
-    | Services\data\devicemodels\scripts\EmergencyValveRelease-Method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-Method.js |
-    | Services\data\devicemodels\scripts\IncreasePressure-Method.js | C:\temp\devicemodels\scripts\IncreasePressure-Method.js |
+    | Services\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
+    | Services\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
+    | Services\data\devicemodels\scripts\Reboot-method.js | C:\temp\devicemodels\scripts\Reboot-method.js |
+    | Services\data\devicemodels\scripts\FirmwareUpdate-method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-method.js |
+    | Services\data\devicemodels\scripts\EmergencyValveRelease-method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-method.js |
+    | Services\data\devicemodels\scripts\IncreasePressure-method.js | C:\temp\devicemodels\scripts\IncreasePressure-method.js |
 
 1. Açık **C:\temp\devicemodels\chiller-01.json** dosya.
 
@@ -417,11 +415,7 @@ Bu bölümde, yerel olarak önceki bölümde oluşturduğunuz cihaz türlerini t
 
 Açık **cihaz-simülasyon-dotnet-master** Visual Studio Code yeni bir örneğini github'dan indirdiğiniz klasörü. Tıklatın **geri** herhangi düzeltmek için düğmeler çözümlenmemiş bağımlılıklar.
 
-Açık **.vscode/launch.json** dosya ve IOT hub'ı bağlantı dizenizi atama **PCS_IOTHUB_CONNSTRING** ortam değişkeni. Aynı dosyada ekleyin **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** ortam değişkeni ve Cosmos DB veritabanınıza yönelik bağlantı dizesini atayın.
-
-Açık **WebService/Properties/launchSettings.json** dosya ve IOT hub'ı bağlantı dizenizi atama **PCS_IOTHUB_CONNSTRING** ortam değişkeni.
-
-Açık **WebService/appsettings.ini** dosya ve ayarları aşağıdaki gibi değiştirin:
+Açık **WebService/appsettings.ini** dosya ve Cosmos DB bağlantı dizenizi atama **documentdb_connstring** değişkeni ve da ayarları aşağıdaki gibi değiştirin:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\

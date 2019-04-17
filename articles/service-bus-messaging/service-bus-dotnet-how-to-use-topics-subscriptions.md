@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 19949b555a5be21c06c3acfbbd5fb9be08dc9f23
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 892d485fb5cdaa08107870e9ab5b2b7ad9bcba5b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766960"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608903"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Service Bus konuları ile çalışmaya başlama
 
@@ -27,24 +27,20 @@ ms.locfileid: "57766960"
 
 Bu öğreticide aşağıdaki adımlar yer almaktadır:
 
-1. Azure portalı ile Service Bus ad alanı oluşturma.
-2. Azure portalı ile Service Bus konusu oluşturma.
-3. Azure portalı ile bu konu için bir Service Bus aboneliği oluşturma.
-4. Konuya bir dizi ileti göndermek için bir .NET Core konsol uygulaması yazın.
-5. Bu iletileri abonelikten almak için bir .NET Core konsol uygulaması yazın.
+1. Konuya bir dizi ileti göndermek için bir .NET Core konsol uygulaması yazın.
+2. Bu iletileri abonelikten almak için bir .NET Core konsol uygulaması yazın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-1. [Visual Studio 2017 Güncelleştirme 3 (sürüm 15.3, 26730.01)](https://www.visualstudio.com/vs) veya sonraki sürümler.
-2. [NET Core SDK](https://www.microsoft.com/net/download/windows), sürüm 2.0 veya sonraki sürümler.
-2. Azure aboneliği.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
-
+1. Azure aboneliği. Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Etkinleştirebilir, [Visual Studio veya MSDN abone Avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) veya kaydolmak için bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. İzleyeceğiniz adımlar [hızlı başlangıç: Bir Service Bus konusu ve konu için Abonelik oluşturmak için Azure portal'ı kullanmanızı](service-bus-quickstart-topics-subscriptions-portal.md) aşağıdaki görevleri gerçekleştirmek için:
+    1. Hizmet veri yolu oluşturma **ad alanı**.
+    2. Alma **bağlantı dizesi**.
+    3. Oluşturma bir **konu** ad.
+    4. Oluşturma **bir abonelik** konusuna ad alanı.
+3. [Visual Studio 2017 Güncelleştirme 3 (sürüm 15.3, 26730.01)](https://www.visualstudio.com/vs) veya sonraki sürümler.
+4. [NET Core SDK](https://www.microsoft.com/net/download/windows), sürüm 2.0 veya sonraki sürümler.
+ 
 ## <a name="send-messages-to-the-topic"></a>Konuya ileti gönderme
 
 Konuya ileti göndermek için Visual Studio kullanılarak bir C# konsol uygulaması yazın.
@@ -204,7 +200,7 @@ Visual Studio'yu başlatın ve yeni bir **Konsol Uygulaması (.NET Core)** proje
 
 ## <a name="receive-messages-from-the-subscription"></a>Abonelikten ileti alma
 
-Gönderdiğiniz iletileri almak için farklı bir .NET Core konsol uygulaması oluşturun ve önceki gönderen uygulamaya benzer şekilde, **Microsoft.Azure.ServiceBus** NuGet paketine başvuru ekleyin.
+Gönderdiğiniz iletileri almak için başka bir .NET Core konsol uygulaması oluşturma ve yükleme **Microsoft.Azure.ServiceBus** NuGet paketine, önceki gönderen uygulamaya benzer.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>Abonelikten ileti almak için kod yazın
 

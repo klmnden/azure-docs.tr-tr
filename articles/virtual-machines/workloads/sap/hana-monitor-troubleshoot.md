@@ -14,14 +14,14 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 392dd39e2b3b0e26e7b0ba645bf5a70231167ad5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 71970a74817665c97a9522fbc9a68dd3834252b9
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014408"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616365"
 ---
-# <a name="monitoring-and-troubleshooting-from-hana-side"></a>İzleme ve HANA taraftan sorun giderme
+# <a name="monitoring-and-troubleshooting-from-hana-side"></a>HANA tarafından izleme ve sorun giderme
 
 SAP HANA (büyük örnekler) azure'da ilgili sorunları etkili bir şekilde analiz etmek için sorunun kök nedenini daraltmak kullanışlıdır. SAP yardımcı olan belgeler, büyük bir miktarını yayımlamıştır.
 
@@ -108,7 +108,7 @@ Başvurmak [SAP HANA sorunlarını giderme: Ağ performansı ve bağlantı sorun
 
 ## <a name="storage"></a>Depolama
 
-Bir son kullanıcı perspektifinden uygulamanın (veya sistemin bir bütün olarak) ağır şekilde çalışır, yanıt vermiyor veya g/ç performansı ile ilgili sorunlar varsa kilitlenmesine bile görünebilir. İçinde **birimleri** sekmesinde SAP HANA Studio'da bağlı birimlerin ve hangi birimlerin her hizmeti tarafından kullanılan görebilirsiniz.
+Bir son kullanıcı perspektifinden uygulamanın (veya sistemin bir bütün olarak) ağır şekilde çalışır, yanıt vermiyor veya g/ç performansı ile ilgili sorunlar varsa yanıt vermemesine bile görünebilir. İçinde **birimleri** sekmesinde SAP HANA Studio'da bağlı birimlerin ve hangi birimlerin her hizmeti tarafından kullanılan görebilirsiniz.
 
 ![SAP HANA Studio birimleri sekmede bağlı birimlerin ve hangi birimlerin her hizmeti tarafından kullanılan görebilirsiniz](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 

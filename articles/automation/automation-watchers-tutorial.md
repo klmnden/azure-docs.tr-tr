@@ -8,12 +8,12 @@ author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 7d7ebc7493ff8e272e35abafeedd8fbc52b986ab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bee414ada61e2cfcf7609b02ef1da7323a0fe0e3
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002163"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606931"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Bir Azure Otomasyonu izleyicisini yerel bir makinede dosya değişiklikleri izlemek için görevleri oluşturun
 
@@ -36,6 +36,9 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 * Azure aboneliği. Henüz bir aboneliğiniz yoksa [MSDN abone avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ya da [ücretsiz hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) için kaydolabilirsiniz.
 * [Otomasyon hesabı](automation-offering-get-started.md) izleyiciyi, eylem runbook'ları ve İzleyici görevi tutacak.
 * A [karma runbook çalışanı](automation-hybrid-runbook-worker.md) İzleyici görevi çalıştığı.
+
+> [!NOTE]
+> İzleyici görevleri Azure Çin'de desteklenmez.
 
 ## <a name="import-a-watcher-runbook"></a>Bir izleyici runbook'u İçeri Aktar
 
