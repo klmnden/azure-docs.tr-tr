@@ -106,7 +106,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase">Azure SQL DB ile .NET</a> veya <a href="/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app">MongoDB ile Node.js</a> kullanarak uygulama oluşturma
-          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mevcut bir özel etki alanını uygulamanıza eşleme </a>
+          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mevcut bir özel etki alanını uygulamanıza eşleme</a>
           - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Mevcut bir SSL sertifikasını uygulamanıza bağlama</a>
           - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">Uygulamanıza CDN ekleme</a>
   - title: Microsoft Learn ile becerilerinizi geliştirin
@@ -159,4 +159,4 @@ sections:
           - title: Diller
             html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
           - title: REST
-            html: <p><a href="/rest/api/appservice">REST API Başvurusu</a></p>
+            html: <p><a href="/rest/api/appservice">REST API başvurusu</a></p>
