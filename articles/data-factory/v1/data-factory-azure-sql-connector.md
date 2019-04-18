@@ -66,7 +66,7 @@ Bir Azure SQL kullanarak Azure SQL veritabanına veri fabrikanıza bağlı hizme
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | type |Type özelliği ayarlanmalıdır: **AzureSqlDatabase** |Evet |
-| bağlantı dizesi |ConnectionString özelliği için Azure SQL veritabanı örneğine bağlanmak için gereken bilgileri belirtin. Temel kimlik doğrulaması desteklenir. |Evet |
+| connectionString |ConnectionString özelliği için Azure SQL veritabanı örneğine bağlanmak için gereken bilgileri belirtin. Temel kimlik doğrulaması desteklenir. |Evet |
 
 > [!IMPORTANT]
 > Yapılandırma [Azure SQL veritabanı Güvenlik Duvarı](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) veritabanı sunucusuna [Azure hizmetlerinin sunucuya erişmesine izin](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Dış Azure data factory ağ geçidi ile şirket içi veri kaynaklarından dahil olmak üzere Azure SQL veritabanı'na veri kopyalıyorsanız, ayrıca, Azure SQL veritabanı'na veri gönderiyor makine için uygun IP adresi aralığı yapılandırın.
@@ -638,36 +638,36 @@ Veri taşımak ve Azure SQL veritabanı'ndan, aşağıdaki eşlemeler SQL türü
 | SQL Server veritabanı altyapısı türü | .NET framework türü |
 | --- | --- |
 | bigint |Int64 |
-| İkili |Bayt] |
-| Bit |Boole |
-| Char |Dize, Char] |
+| binary |Byte[] |
+| bit |Boolean |
+| char |String, Char[] |
 | date |DateTime |
-| Tarih saat |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| Ondalık |Ondalık |
-| FILESTREAM özniteliğini (varbinary(max)) |Bayt] |
-| Kayan |çift |
-| image |Bayt] |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Double |
+| image |Byte[] |
 | int |Int32 |
-| para |Ondalık |
-| nchar |Dize, Char] |
-| ntext |Dize, Char] |
-| Sayısal |Ondalık |
-| nvarchar |Dize, Char] |
-| Gerçek |Tek |
-| rowVersion |Bayt] |
+| money |Decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| küçük para |Ondalık |
-| sql_variant |Nesne * |
-| metin |Dize, Char] |
-| time |Zaman aralığı |
-| timestamp |Bayt] |
-| tinyint |Bayt |
-| benzersiz tanımlayıcı |Guid |
-| varbinary |Bayt] |
-| varchar |Dize, Char] |
+| smallmoney |Decimal |
+| sql_variant |Object * |
+| text |String, Char[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
+| tinyint |Byte |
+| uniqueidentifier |Guid |
+| varbinary |Byte[] |
+| varchar |String, Char[] |
 | xml |Xml |
 
 ## <a name="map-source-to-sink-columns"></a>Sütunları havuz için kaynak eşlemesi
