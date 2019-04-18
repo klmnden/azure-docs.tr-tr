@@ -22,8 +22,8 @@ items:
   items:
   - name: ASP.NET Core'da dinamik yapılandırmayı etkinleştirme
     href: enable-dynamic-configuration-aspnet-core.md
-  - name: Azure Yönetilen Hizmet Kimliği ile tümleştirme
-    href: integrate-azure-managed-service-identity.md
+  - name: CI/CD işlem hattıyla tümleştirme
+    href: integrate-ci-cd-pipeline.md
 - name: Örnekler
   items:
   - name: Azure CLI
@@ -36,10 +36,10 @@ items:
     href: concept-point-time-snapshot.md
 - name: Nasıl yapılır kılavuzları
   items:
+  - name: Azure Yönetilen Hizmet Kimliği ile tümleştirme
+    href: howto-integrate-azure-managed-service-identity.md
   - name: Yapılandırma verilerini içeri veya dışarı aktarma
     href: howto-import-export-data.md
-  - name: CI/CD işlem hattıyla tümleştirme
-    href: howto-integrate-ci-cd-pipeline.md
 - name: Başvuru
   items:
   - name: .NET Core yapılandırma sağlayıcısı
@@ -56,9 +56,9 @@ items:
   items:
   - name: Ürün geri bildirimi sağlama
     href: https://github.com/Azure/AppConfiguration
-ms.openlocfilehash: c4712f08112a1abaf8524677746d9c0e929ee097
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 74de90cd0e8274f7192b177c41aba165eabbed40
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576420"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699619"
