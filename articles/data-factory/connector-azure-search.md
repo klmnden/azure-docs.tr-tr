@@ -45,7 +45,7 @@ Bağlı Azure Search hizmeti için aşağıdaki özellikleri destekler:
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **AzureSearch** | Evet |
 | url | Azure Search hizmeti için URL. | Evet |
-| anahtar | Azure Search hizmeti için yönetici anahtarı. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
+| key | Azure Search hizmeti için yönetici anahtarı. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel ağında bulunuyorsa), Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 > [!IMPORTANT]
@@ -113,7 +113,7 @@ Azure Search'e veri kopyalamak için kopyalama etkinliği için kaynak türünü
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **AzureSearchIndexSink** | Evet |
-| WriteBehavior | Bir belge dizinde zaten mevcut olduğunda değiştirin ya da birleştirme belirtir. Bkz: [WriteBehavior özelliği](#writebehavior-property).<br/><br/>İzin verilen değerler şunlardır: **Birleştirme** (varsayılan), ve **karşıya**. | Hayır |
+| writeBehavior | Bir belge dizinde zaten mevcut olduğunda değiştirin ya da birleştirme belirtir. Bkz: [WriteBehavior özelliği](#writebehavior-property).<br/><br/>İzin verilen değerler şunlardır: **Birleştirme** (varsayılan), ve **karşıya**. | Hayır |
 | writeBatchSize | Arabellek boyutu writeBatchSize ulaştığında, verileri Azure Search dizinine yükler. Bkz: [WriteBatchSize özelliği](#writebatchsize-property) Ayrıntılar için.<br/><br/>İzin verilen değerler: 1 ila 1.000; tamsayı Varsayılan 1000'dir. | Hayır |
 
 ### <a name="writebehavior-property"></a>WriteBehavior özelliği
@@ -173,9 +173,9 @@ Aşağıdaki tabloda, bir Azure Search veri türü veya desteklenip desteklenmed
 | Int32 | E |
 | Int64 | E |
 | Double | E |
-| Boole | E |
+| Boolean | E |
 | DataTimeOffset | E |
-| Dize dizisi | N |
+| String Array | N |
 | GeographyPoint | N |
 
 ## <a name="next-steps"></a>Sonraki adımlar
