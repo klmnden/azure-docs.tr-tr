@@ -78,8 +78,8 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-89012
 | --- | --- | --- |
 | ResourceId |Evet |Kaynağın tanılama ayarını ayarlamak istediğiniz kaynak kimliği. |
 | StorageAccountId |Hayır |Tanılama günlükleri kaydedileceği depolama hesabı kaynak kimliği. |
-| Kategoriler |Hayır |Günlük kategorileri etkinleştirmek için virgülle ayrılmış listesidir. |
-| Etkin |Evet |Tanılama etkin veya bu kaynak üzerinde devre dışı olup olmadığını gösteren bir Boole değeri. |
+| Categories |Hayır |Günlük kategorileri etkinleştirmek için virgülle ayrılmış listesidir. |
+| Enabled |Evet |Tanılama etkin veya bu kaynak üzerinde devre dışı olup olmadığını gösteren bir Boole değeri. |
 | RetentionEnabled |Hayır |Bir bekletme ilkesi bu kaynak üzerinde etkin olmadığını belirten bir Boole değeri. |
 | Retentionındays |Hayır |Kendisi için olayları 1 ile 2147483647 arasında korunması gereken gün sayısı. Sıfır değeri, günlükler süresiz olarak depolar. |
 
@@ -152,11 +152,11 @@ PT1H.json dosyasına içinde her olay şu biçimi takip "kayıt" dizisinde depol
 
 | Öğe adı | Açıklama |
 | --- | --- |
-| zaman |Olay karşılık gelen isteği işlemeye Azure hizmeti tarafından bir olay oluşturulduğunda zaman damgası. |
+| time |Olay karşılık gelen isteği işlemeye Azure hizmeti tarafından bir olay oluşturulduğunda zaman damgası. |
 | resourceId |Etkilenen kaynak kaynak kimliği. |
 | operationName |İşlemin adı. |
 | category |Olay günlüğü kategorisi. |
-| özellikler |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (yani, sözlük). |
+| properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (yani, sözlük). |
 
 > [!NOTE]
 > Özellikleri ve bu özelliklerini kullanımını kaynağa bağlı olarak değişebilir.
