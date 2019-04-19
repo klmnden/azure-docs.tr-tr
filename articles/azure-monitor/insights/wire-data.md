@@ -390,14 +390,14 @@ Her giriş verileri türü için _WireData_ türünde bir kayıt oluşturulur. A
 
 | Özellik | Açıklama |
 |---|---|
-| Bilgisayar | Verilerin toplandığı bilgisayarın adı |
+| Computer | Verilerin toplandığı bilgisayarın adı |
 | TimeGenerated | Kaydın zamanı |
 | LocalIP | Yerel bilgisayarın IP adresi |
 | SessionState | Bağlantılı veya bağlantısı kesilmiş |
 | ReceivedBytes | Alınan bayt miktarı |
 | ProtocolName | Kullanılan ağ protokolünün adı |
 | IPVersion | IP sürümü |
-| Yön | Gelen veya giden |
+| Direction | Gelen veya giden |
 | MaliciousIP | Bilinen kötü amaçlı kaynağın IP adresi |
 | Severity | Kötü amaçlı olduğundan şüphe edilen yazılımın önem derecesi |
 | RemoteIPCountry | Uzak IP adresinin ülkesi |
